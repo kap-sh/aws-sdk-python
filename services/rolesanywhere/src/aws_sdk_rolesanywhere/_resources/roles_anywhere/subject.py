@@ -44,6 +44,11 @@ class Subject:
 
         Args:
             subject_id: <p>The unique identifier of the subject. </p>
+
+        Raises:
+            aws_sdk_rolesanywhere.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_rolesanywhere.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_rolesanywhere.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -83,6 +88,11 @@ class Subject:
         Args:
             next_token: <p>A token that indicates where the output should continue from, if a previous request did not show all results. To get the next results, make the request again with this value.</p>
             page_size: <p>The number of resources in the paginated list. </p>
+
+        Raises:
+            aws_sdk_rolesanywhere.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_rolesanywhere.errors.validation_exception.ValidationException: <p>Validation exception error.</p>
+            aws_sdk_rolesanywhere.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -128,6 +138,11 @@ class AsyncSubject:
 
         Args:
             subject_id: <p>The unique identifier of the subject. </p>
+
+        Raises:
+            aws_sdk_rolesanywhere.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_rolesanywhere.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_rolesanywhere.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -168,6 +183,11 @@ class AsyncSubject:
         Args:
             next_token: <p>A token that indicates where the output should continue from, if a previous request did not show all results. To get the next results, make the request again with this value.</p>
             page_size: <p>The number of resources in the paginated list. </p>
+
+        Raises:
+            aws_sdk_rolesanywhere.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_rolesanywhere.errors.validation_exception.ValidationException: <p>Validation exception error.</p>
+            aws_sdk_rolesanywhere.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

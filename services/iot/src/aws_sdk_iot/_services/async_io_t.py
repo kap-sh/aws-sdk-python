@@ -983,6 +983,16 @@ class AsyncIoTClient:
         Args:
             certificate_id: <p>The ID of the certificate. (The last part of the certificate ARN contains the certificate ID.)</p>
             set_as_active: <p>Specifies whether the certificate is active.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.transfer_already_completed_exception.TransferAlreadyCompletedException: <p>You can't revert the certificate transfer because the transfer is already complete.</p>
+            aws_sdk_iot.errors.unauthorized_exception.UnauthorizedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1031,6 +1041,13 @@ class AsyncIoTClient:
             billing_group_arn: <p>The ARN of the billing group.</p>
             thing_name: <p>The name of the thing to be added to the billing group.</p>
             thing_arn: <p>The ARN of the thing to be added to the billing group.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1090,6 +1107,13 @@ class AsyncIoTClient:
             thing_name: <p>The name of the thing to add to a group.</p>
             thing_arn: <p>The ARN of the thing to add to a group.</p>
             override_dynamic_groups: <p>Override dynamic thing groups with static thing groups when 10-group limit is reached. If a thing belongs to 10 thing groups, and one or more of those groups are dynamic thing groups, adding a thing to a static group removes the thing from the last dynamic group.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1142,6 +1166,15 @@ class AsyncIoTClient:
             package_name: <p>The name of the new software package.</p>
             version_name: <p>The name of the new package version.</p>
             client_token: <p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required.</p>
+
+        Raises:
+            aws_sdk_iot.errors.conflict_exception.ConflictException: <p>The request conflicts with the current state of the resource.</p>
+            aws_sdk_iot.errors.internal_server_exception.InternalServerException: <p>Internal error from the service that indicates an unexpected error or that the service is unavailable.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Service quota has been exceeded.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.validation_exception.ValidationException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1190,6 +1223,14 @@ class AsyncIoTClient:
             job_id: <p>The unique identifier you assigned to this job when it was created.</p>
             comment: <p>An optional comment string describing why the job was associated with the targets.</p>
             namespace_id: <p>The namespace used to indicate that a job is a customer-managed job.</p> <p>When you specify a value for this parameter, Amazon Web Services IoT Core sends jobs notifications to MQTT topics that contain the value in the following format.</p> <p> <code>$aws/things/<i>THING_NAME</i>/jobs/<i>JOB_ID</i>/notify-namespace-<i>NAMESPACE_ID</i>/</code> </p> <note> <p>The <code>namespaceId</code> feature is only supported by IoT Greengrass at this time. For more information, see <a href=\"https://docs.aws.amazon.com/greengrass/v2/developerguide/setting-up.html\">Setting up IoT Greengrass core devices.</a> </p> </note>
+
+        Raises:
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.limit_exceeded_exception.LimitExceededException: <p>A limit has been exceeded.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1235,6 +1276,16 @@ class AsyncIoTClient:
         Args:
             policy_name: <p>The name of the policy to attach.</p>
             target: <p>The <a href=\"https://docs.aws.amazon.com/iot/latest/developerguide/security-iam.html\">identity</a> to which the policy is attached. For example, a thing group or a certificate.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.limit_exceeded_exception.LimitExceededException: <p>A limit has been exceeded.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.unauthorized_exception.UnauthorizedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1274,6 +1325,16 @@ class AsyncIoTClient:
         Args:
             policy_name: <p>The policy name.</p>
             principal: <p>The principal, which can be a certificate ARN (as returned from the CreateCertificate operation) or an Amazon Cognito ID.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.limit_exceeded_exception.LimitExceededException: <p>A limit has been exceeded.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.unauthorized_exception.UnauthorizedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1313,6 +1374,15 @@ class AsyncIoTClient:
         Args:
             security_profile_name: <p>The security profile that is attached.</p>
             security_profile_target_arn: <p>The ARN of the target (thing group) to which the security profile is attached.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.limit_exceeded_exception.LimitExceededException: <p>A limit has been exceeded.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.version_conflict_exception.VersionConflictException: <p>An exception thrown when the version of an entity specified with the <code>expectedVersion</code> parameter does not match the latest version in the system.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1360,6 +1430,15 @@ class AsyncIoTClient:
             thing_name: <p>The name of the thing.</p>
             principal: <p>The principal, which can be a certificate ARN (as returned from the CreateCertificate operation) or an Amazon Cognito ID.</p>
             thing_principal_type: <p>The type of the relation you want to specify when you attach a principal to a thing.</p> <ul> <li> <p> <code>EXCLUSIVE_THING</code> - Attaches the specified principal to the specified thing, exclusively. The thing will be the only thing that’s attached to the principal.</p> </li> </ul> <ul> <li> <p> <code>NON_EXCLUSIVE_THING</code> - Attaches the specified principal to the specified thing. Multiple things can be attached to the principal.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.unauthorized_exception.UnauthorizedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1401,6 +1480,13 @@ class AsyncIoTClient:
 
         Args:
             task_id: <p>The unique identifier for the task that you want to cancel. </p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1439,6 +1525,13 @@ class AsyncIoTClient:
 
         Args:
             task_id: <p>The ID of the audit you want to cancel. You can only cancel an audit that is \"IN_PROGRESS\".</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1477,6 +1570,16 @@ class AsyncIoTClient:
 
         Args:
             certificate_id: <p>The ID of the certificate. (The last part of the certificate ARN contains the certificate ID.)</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.transfer_already_completed_exception.TransferAlreadyCompletedException: <p>You can't revert the certificate transfer because the transfer is already complete.</p>
+            aws_sdk_iot.errors.unauthorized_exception.UnauthorizedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1513,6 +1616,13 @@ class AsyncIoTClient:
 
         Args:
             task_id: <p> The unique identifier of the task. </p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1557,6 +1667,14 @@ class AsyncIoTClient:
             reason_code: <p>(Optional)A reason code string that explains why the job was canceled.</p>
             comment: <p>An optional comment string describing why the job was canceled.</p>
             force: <p>(Optional) If <code>true</code> job executions with status \"IN_PROGRESS\" and \"QUEUED\" are canceled, otherwise only job executions with status \"QUEUED\" are canceled. The default is <code>false</code>.</p> <p>Canceling a job which is \"IN_PROGRESS\", will cause a device which is executing the job to be unable to update the job execution status. Use caution and ensure that each device executing a job which is canceled is able to recover to a valid state.</p>
+
+        Raises:
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.limit_exceeded_exception.LimitExceededException: <p>A limit has been exceeded.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1611,6 +1729,15 @@ class AsyncIoTClient:
             force: <p>(Optional) If <code>true</code> the job execution will be canceled if it has status IN_PROGRESS or QUEUED, otherwise the job execution will be canceled only if it has status QUEUED. If you attempt to cancel a job execution that is IN_PROGRESS, and you do not set <code>force</code> to <code>true</code>, then an <code>InvalidStateTransitionException</code> will be thrown. The default is <code>false</code>.</p> <p>Canceling a job execution which is \"IN_PROGRESS\", will cause the device to be unable to update the job execution status. Use caution and ensure that the device is able to recover to a valid state.</p>
             expected_version: <p>(Optional) The expected current version of the job execution. Each time you update the job execution, its version is incremented. If the version of the job execution stored in Jobs does not match, the update is rejected with a VersionMismatch error, and an ErrorResponse that contains the current job execution status data is returned. (This makes it unnecessary to perform a separate DescribeJobExecution request in order to obtain the job execution status data.)</p>
             status_details: <p>A collection of name/value pairs that describe the status of the job execution. If not specified, the statusDetails are unchanged. You can specify at most 10 name/value pairs.</p>
+
+        Raises:
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.invalid_state_transition_exception.InvalidStateTransitionException: <p>An attempt was made to change to an invalid state, for example by deleting a job or a job execution which is \"IN_PROGRESS\" without setting the <code>force</code> parameter.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.version_conflict_exception.VersionConflictException: <p>An exception thrown when the version of an entity specified with the <code>expectedVersion</code> parameter does not match the latest version in the system.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1647,7 +1774,17 @@ class AsyncIoTClient:
     async def clear_default_authorizer(
         self, *, config_overrides: Optional[AsyncIoTClientConfig] = None
     ) -> "aws_sdk_iot.types.clear_default_authorizer_response.ClearDefaultAuthorizerResponse":
-        r"""<p>Clears the default authorizer.</p> <p>Requires permission to access the <a href=\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions\">ClearDefaultAuthorizer</a> action.</p>"""
+        r"""<p>Clears the default authorizer.</p> <p>Requires permission to access the <a href=\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions\">ClearDefaultAuthorizer</a> action.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.unauthorized_exception.UnauthorizedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_iot.types.clear_default_authorizer_request.ClearDefaultAuthorizerRequest]",
@@ -1684,6 +1821,14 @@ class AsyncIoTClient:
 
         Args:
             confirmation_token: <p>The token used to confirm ownership or access to the topic rule confirmation URL.</p>
+
+        Raises:
+            aws_sdk_iot.errors.conflicting_resource_update_exception.ConflictingResourceUpdateException: <p>A conflicting resource update exception. This exception is thrown when two pending updates cause a conflict.</p>
+            aws_sdk_iot.errors.internal_exception.InternalException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot.errors.unauthorized_exception.UnauthorizedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1734,6 +1879,14 @@ class AsyncIoTClient:
             suppress_indefinitely: <p> Indicates whether a suppression should exist indefinitely or not. </p>
             description: <p> The description of the audit suppression. </p>
             client_request_token: <p> Each audit supression must have a unique client request token. If you try to create a new audit suppression with the same token as one that already exists, an exception occurs. If you omit this value, Amazon Web Services SDKs will automatically generate a unique client request.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.limit_exceeded_exception.LimitExceededException: <p>A limit has been exceeded.</p>
+            aws_sdk_iot.errors.resource_already_exists_exception.ResourceAlreadyExistsException: <p>The resource already exists.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1800,6 +1953,16 @@ class AsyncIoTClient:
             tags: <p>Metadata which can be used to manage the custom authorizer.</p> <note> <p>For URI Request parameters use format: ...key1=value1&key2=value2...</p> <p>For the CLI command-line parameter use format: &&tags \"key1=value1&key2=value2...\"</p> <p>For the cli-input-json file use format: \"tags\": \"key1=value1&key2=value2...\"</p> </note>
             signing_disabled: <p>Specifies whether IoT validates the token signature in an authorization request.</p>
             enable_caching_for_http: <p>When <code>true</code>, the result from the authorizer’s Lambda function is cached for clients that use persistent HTTP connections. The results are cached for the time specified by the Lambda function in <code>refreshAfterInSeconds</code>. This value does not affect authorization of clients that use MQTT connections.</p> <p>The default value is <code>false</code>.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.limit_exceeded_exception.LimitExceededException: <p>A limit has been exceeded.</p>
+            aws_sdk_iot.errors.resource_already_exists_exception.ResourceAlreadyExistsException: <p>The resource already exists.</p>
+            aws_sdk_iot.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.unauthorized_exception.UnauthorizedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1857,6 +2020,13 @@ class AsyncIoTClient:
             billing_group_name: <p>The name you wish to give to the billing group.</p>
             billing_group_properties: <p>The properties of the billing group.</p>
             tags: <p>Metadata which can be used to manage the billing group.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.resource_already_exists_exception.ResourceAlreadyExistsException: <p>The resource already exists.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1901,6 +2071,14 @@ class AsyncIoTClient:
         Args:
             certificate_signing_request: <p>The certificate signing request (CSR).</p>
             set_as_active: <p>Specifies whether the certificate is active.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.unauthorized_exception.UnauthorizedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1949,6 +2127,16 @@ class AsyncIoTClient:
             account_default_for_operations: <p>A list of the operations that the certificate provider will use to generate certificates. Valid value: <code>CreateCertificateFromCsr</code>.</p>
             client_token: <p>A string that you can optionally pass in the <code>CreateCertificateProvider</code> request to make sure the request is idempotent.</p>
             tags: <p>Metadata which can be used to manage the certificate provider.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.limit_exceeded_exception.LimitExceededException: <p>A limit has been exceeded.</p>
+            aws_sdk_iot.errors.resource_already_exists_exception.ResourceAlreadyExistsException: <p>The resource already exists.</p>
+            aws_sdk_iot.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.unauthorized_exception.UnauthorizedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2021,6 +2209,14 @@ class AsyncIoTClient:
             mandatory_parameters: <p>A list of parameters that are used by <code>StartCommandExecution</code> API for execution payload generation.</p>
             role_arn: <p>The IAM role that you must provide when using the <code>AWS-IoT-FleetWise</code> namespace. The role grants IoT Device Management the permission to access IoT FleetWise resources for generating the payload for the command. This field is not supported when you use the <code>AWS-IoT</code> namespace.</p>
             tags: <p>Name-value pairs that are used as metadata to manage a command.</p>
+
+        Raises:
+            aws_sdk_iot.errors.conflict_exception.ConflictException: <p>The request conflicts with the current state of the resource.</p>
+            aws_sdk_iot.errors.internal_server_exception.InternalServerException: <p>Internal error from the service that indicates an unexpected error or that the service is unavailable.</p>
+            aws_sdk_iot.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Service quota has been exceeded.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.validation_exception.ValidationException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2087,6 +2283,14 @@ class AsyncIoTClient:
             metric_type: <p> The type of the custom metric. </p> <important> <p>The type <code>number</code> only takes a single metric value as an input, but when you submit the metrics value in the DeviceMetrics report, you must pass it as an array with a single value.</p> </important>
             tags: <p> Metadata that can be used to manage the custom metric. </p>
             client_request_token: <p>Each custom metric must have a unique client request token. If you try to create a new custom metric that already exists with a different token, an exception occurs. If you omit this value, Amazon Web Services SDKs will automatically generate a unique client request. </p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.limit_exceeded_exception.LimitExceededException: <p>A limit has been exceeded.</p>
+            aws_sdk_iot.errors.resource_already_exists_exception.ResourceAlreadyExistsException: <p>The resource already exists.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2139,6 +2343,14 @@ class AsyncIoTClient:
             string_values: <p>Specifies the value or list of values for the dimension. For <code>TOPIC_FILTER</code> dimensions, this is a pattern used to match the MQTT topic (for example, \"admin/#\").</p>
             tags: <p>Metadata that can be used to manage the dimension.</p>
             client_request_token: <p>Each dimension must have a unique client request token. If you try to create a new dimension with the same token as a dimension that already exists, an exception occurs. If you omit this value, Amazon Web Services SDKs will automatically generate a unique client request.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.limit_exceeded_exception.LimitExceededException: <p>A limit has been exceeded.</p>
+            aws_sdk_iot.errors.resource_already_exists_exception.ResourceAlreadyExistsException: <p>The resource already exists.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2218,6 +2430,17 @@ class AsyncIoTClient:
             authentication_type: <p>An enumerated string that speciﬁes the authentication type.</p> <ul> <li> <p> <code>CUSTOM_AUTH_X509</code> - Use custom authentication and authorization with additional details from the X.509 client certificate.</p> </li> </ul> <ul> <li> <p> <code>CUSTOM_AUTH</code> - Use custom authentication and authorization. For more information, see <a href=\"https://docs.aws.amazon.com/iot/latest/developerguide/custom-authentication.html\">Custom authentication and authorization</a>.</p> </li> </ul> <ul> <li> <p> <code>AWS_X509</code> - Use X.509 client certificates without custom authentication and authorization. For more information, see <a href=\"https://docs.aws.amazon.com/iot/latest/developerguide/x509-client-certs.html\">X.509 client certificates</a>.</p> </li> </ul> <ul> <li> <p> <code>AWS_SIGV4</code> - Use Amazon Web Services Signature Version 4. For more information, see <a href=\"https://docs.aws.amazon.com/iot/latest/developerguide/custom-authentication.html\">IAM users, groups, and roles</a>.</p> </li> </ul> <ul> <li> <p> <code>DEFAULT</code> - Use a combination of port and Application Layer Protocol Negotiation (ALPN) to specify authentication type. For more information, see <a href=\"https://docs.aws.amazon.com/iot/latest/developerguide/protocols.html\">Device communication protocols</a>.</p> </li> </ul>
             application_protocol: <p>An enumerated string that speciﬁes the application-layer protocol.</p> <ul> <li> <p> <code>SECURE_MQTT</code> - MQTT over TLS.</p> </li> </ul> <ul> <li> <p> <code>MQTT_WSS</code> - MQTT over WebSocket.</p> </li> </ul> <ul> <li> <p> <code>HTTPS</code> - HTTP over TLS.</p> </li> </ul> <ul> <li> <p> <code>DEFAULT</code> - Use a combination of port and Application Layer Protocol Negotiation (ALPN) to specify application_layer protocol. For more information, see <a href=\"https://docs.aws.amazon.com/iot/latest/developerguide/protocols.html\">Device communication protocols</a>.</p> </li> </ul>
             client_certificate_config: <p>An object that speciﬁes the client certificate conﬁguration for a domain.</p>
+
+        Raises:
+            aws_sdk_iot.errors.certificate_validation_exception.CertificateValidationException: <p>The certificate is invalid.</p>
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.limit_exceeded_exception.LimitExceededException: <p>A limit has been exceeded.</p>
+            aws_sdk_iot.errors.resource_already_exists_exception.ResourceAlreadyExistsException: <p>The resource already exists.</p>
+            aws_sdk_iot.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.unauthorized_exception.UnauthorizedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2290,6 +2513,16 @@ class AsyncIoTClient:
             query_string: <p>The dynamic thing group search query string.</p> <p>See <a href=\"https://docs.aws.amazon.com/iot/latest/developerguide/query-syntax.html\">Query Syntax</a> for information about query string syntax.</p>
             query_version: <p>The dynamic thing group query version.</p> <note> <p>Currently one query version is supported: \"2017-09-30\". If not specified, the query version defaults to this value.</p> </note>
             tags: <p>Metadata which can be used to manage the dynamic thing group.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_query_exception.InvalidQueryException: <p>The query is invalid.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.limit_exceeded_exception.LimitExceededException: <p>A limit has been exceeded.</p>
+            aws_sdk_iot.errors.resource_already_exists_exception.ResourceAlreadyExistsException: <p>The resource already exists.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2357,6 +2590,20 @@ class AsyncIoTClient:
             index_name: <p>The name of the index to search.</p>
             unit: <p>Used to support unit transformation such as milliseconds to seconds. The unit must be supported by <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_MetricDatum.html\">CW metric</a>. Default to null.</p>
             tags: <p>Metadata, which can be used to manage the fleet metric.</p>
+
+        Raises:
+            aws_sdk_iot.errors.index_not_ready_exception.IndexNotReadyException: <p>The index is not ready.</p>
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_aggregation_exception.InvalidAggregationException: <p>The aggregation is invalid.</p>
+            aws_sdk_iot.errors.invalid_query_exception.InvalidQueryException: <p>The query is invalid.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.limit_exceeded_exception.LimitExceededException: <p>A limit has been exceeded.</p>
+            aws_sdk_iot.errors.resource_already_exists_exception.ResourceAlreadyExistsException: <p>The resource already exists.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.unauthorized_exception.UnauthorizedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2463,6 +2710,15 @@ class AsyncIoTClient:
             document_parameters: <p>Parameters of an Amazon Web Services managed template that you can specify to create the job document.</p> <note> <p> <code>documentParameters</code> can only be used when creating jobs from Amazon Web Services managed templates. This parameter can't be used with custom job templates or to create jobs from them.</p> </note>
             scheduling_config: <p>The configuration that allows you to schedule a job for a future date and time in addition to specifying the end behavior for each job execution.</p>
             destination_package_versions: <p>The package version Amazon Resource Names (ARNs) that are installed on the device when the job successfully completes. The package version must be in either the Published or Deprecated state when the job deploys. For more information, see <a href=\"https://docs.aws.amazon.com/iot/latest/developerguide/preparing-to-use-software-package-catalog.html#package-version-lifecycle\">Package version lifecycle</a>. </p> <p> <b>Note:</b>The following Length Constraints relates to a single ARN. Up to 25 package version ARNs are allowed.</p>
+
+        Raises:
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.limit_exceeded_exception.LimitExceededException: <p>A limit has been exceeded.</p>
+            aws_sdk_iot.errors.resource_already_exists_exception.ResourceAlreadyExistsException: <p>The resource already exists.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2566,6 +2822,15 @@ class AsyncIoTClient:
             job_executions_retry_config: <p>Allows you to create the criteria to retry a job.</p>
             maintenance_windows: <p>Allows you to configure an optional maintenance window for the rollout of a job document to all devices in the target group for a job.</p>
             destination_package_versions: <p>The package version Amazon Resource Names (ARNs) that are installed on the device when the job successfully completes. The package version must be in either the Published or Deprecated state when the job deploys. For more information, see <a href=\"https://docs.aws.amazon.com/iot/latest/developerguide/preparing-to-use-software-package-catalog.html#package-version-lifecycle\">Package version lifecycle</a>.</p> <p> <b>Note:</b>The following Length Constraints relates to a single ARN. Up to 25 package version ARNs are allowed.</p>
+
+        Raises:
+            aws_sdk_iot.errors.conflict_exception.ConflictException: <p>The request conflicts with the current state of the resource.</p>
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.limit_exceeded_exception.LimitExceededException: <p>A limit has been exceeded.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2627,6 +2892,14 @@ class AsyncIoTClient:
 
         Args:
             set_as_active: <p>Specifies whether the certificate is active.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.unauthorized_exception.UnauthorizedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2672,6 +2945,14 @@ class AsyncIoTClient:
             role_arn: <p>The ARN of the IAM role that is used to apply the mitigation action.</p>
             action_params: <p>Defines the type of action and the parameters for that action.</p>
             tags: <p>Metadata that can be used to manage the mitigation action.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.limit_exceeded_exception.LimitExceededException: <p>A limit has been exceeded.</p>
+            aws_sdk_iot.errors.resource_already_exists_exception.ResourceAlreadyExistsException: <p>The resource already exists.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2752,6 +3033,17 @@ class AsyncIoTClient:
             role_arn: <p>The IAM role that grants Amazon Web Services IoT Core access to the Amazon S3, IoT jobs and Amazon Web Services Code Signing resources to create an OTA update job.</p>
             additional_parameters: <p>A list of additional OTA update parameters, which are name-value pairs. They won't be sent to devices as a part of the Job document.</p>
             tags: <p>Metadata which can be used to manage updates.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.limit_exceeded_exception.LimitExceededException: <p>A limit has been exceeded.</p>
+            aws_sdk_iot.errors.resource_already_exists_exception.ResourceAlreadyExistsException: <p>The resource already exists.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.unauthorized_exception.UnauthorizedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2821,6 +3113,14 @@ class AsyncIoTClient:
             description: <p>A summary of the package being created. This can be used to outline the package's contents or purpose.</p>
             tags: <p>Metadata that can be used to manage the package.</p>
             client_token: <p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required.</p>
+
+        Raises:
+            aws_sdk_iot.errors.conflict_exception.ConflictException: <p>The request conflicts with the current state of the resource.</p>
+            aws_sdk_iot.errors.internal_server_exception.InternalServerException: <p>Internal error from the service that indicates an unexpected error or that the service is unavailable.</p>
+            aws_sdk_iot.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Service quota has been exceeded.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.validation_exception.ValidationException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2889,6 +3189,14 @@ class AsyncIoTClient:
             recipe: <p>The inline job document associated with a software package version used for a quick job deployment.</p>
             tags: <p>Metadata that can be used to manage the package version.</p>
             client_token: <p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required.</p>
+
+        Raises:
+            aws_sdk_iot.errors.conflict_exception.ConflictException: <p>The request conflicts with the current state of the resource.</p>
+            aws_sdk_iot.errors.internal_server_exception.InternalServerException: <p>Internal error from the service that indicates an unexpected error or that the service is unavailable.</p>
+            aws_sdk_iot.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Service quota has been exceeded.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.validation_exception.ValidationException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2944,6 +3252,16 @@ class AsyncIoTClient:
             policy_name: <p>The policy name.</p>
             policy_document: <p>The JSON document that describes the policy. <b>policyDocument</b> must have a minimum length of 1, with a maximum length of 2048, excluding whitespace.</p>
             tags: <p>Metadata which can be used to manage the policy.</p> <note> <p>For URI Request parameters use format: ...key1=value1&key2=value2...</p> <p>For the CLI command-line parameter use format: &&tags \"key1=value1&key2=value2...\"</p> <p>For the cli-input-json file use format: \"tags\": \"key1=value1&key2=value2...\"</p> </note>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.malformed_policy_exception.MalformedPolicyException: <p>The policy documentation is not valid.</p>
+            aws_sdk_iot.errors.resource_already_exists_exception.ResourceAlreadyExistsException: <p>The resource already exists.</p>
+            aws_sdk_iot.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.unauthorized_exception.UnauthorizedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2991,6 +3309,17 @@ class AsyncIoTClient:
             policy_name: <p>The policy name.</p>
             policy_document: <p>The JSON document that describes the policy. Minimum length of 1. Maximum length of 2048, excluding whitespace.</p>
             set_as_default: <p>Specifies whether the policy version is set as the default. When this parameter is true, the new policy version becomes the operative version (that is, the version that is in effect for the certificates to which the policy is attached).</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.malformed_policy_exception.MalformedPolicyException: <p>The policy documentation is not valid.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.unauthorized_exception.UnauthorizedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_iot.errors.versions_limit_exceeded_exception.VersionsLimitExceededException: <p>The number of policy versions exceeds the limit.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3032,6 +3361,15 @@ class AsyncIoTClient:
 
         Args:
             template_name: <p>The name of the provisioning template to use.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.unauthorized_exception.UnauthorizedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3088,6 +3426,15 @@ class AsyncIoTClient:
             pre_provisioning_hook: <p>Creates a pre-provisioning hook template. Only supports template of type <code>FLEET_PROVISIONING</code>. For more information about provisioning template types, see <a href=\"https://docs.aws.amazon.com/iot/latest/apireference/API_CreateProvisioningTemplate.html#iot-CreateProvisioningTemplate-request-type\">type</a>.</p>
             tags: <p>Metadata which can be used to manage the provisioning template.</p> <note> <p>For URI Request parameters use format: ...key1=value1&key2=value2...</p> <p>For the CLI command-line parameter use format: &&tags \"key1=value1&key2=value2...\"</p> <p>For the cli-input-json file use format: \"tags\": \"key1=value1&key2=value2...\"</p> </note>
             type: <p>The type you define in a provisioning template. You can create a template with only one type. You can't change the template type after its creation. The default value is <code>FLEET_PROVISIONING</code>. For more information about provisioning template, see: <a href=\"https://docs.aws.amazon.com/iot/latest/developerguide/provision-template.html\">Provisioning template</a>. </p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.limit_exceeded_exception.LimitExceededException: <p>A limit has been exceeded.</p>
+            aws_sdk_iot.errors.resource_already_exists_exception.ResourceAlreadyExistsException: <p>The resource already exists.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.unauthorized_exception.UnauthorizedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3144,6 +3491,16 @@ class AsyncIoTClient:
             template_name: <p>The name of the provisioning template.</p>
             template_body: <p>The JSON formatted contents of the provisioning template.</p>
             set_as_default: <p>Sets a fleet provision template version as the default version.</p>
+
+        Raises:
+            aws_sdk_iot.errors.conflicting_resource_update_exception.ConflictingResourceUpdateException: <p>A conflicting resource update exception. This exception is thrown when two pending updates cause a conflict.</p>
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.unauthorized_exception.UnauthorizedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_iot.errors.versions_limit_exceeded_exception.VersionsLimitExceededException: <p>The number of policy versions exceeds the limit.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3193,6 +3550,16 @@ class AsyncIoTClient:
             role_arn: <p>The role ARN.</p>
             credential_duration_seconds: <p>How long (in seconds) the credentials will be valid. The default value is 3,600 seconds.</p> <p>This value must be less than or equal to the maximum session duration of the IAM role that the role alias references.</p>
             tags: <p>Metadata which can be used to manage the role alias.</p> <note> <p>For URI Request parameters use format: ...key1=value1&key2=value2...</p> <p>For the CLI command-line parameter use format: &&tags \"key1=value1&key2=value2...\"</p> <p>For the cli-input-json file use format: \"tags\": \"key1=value1&key2=value2...\"</p> </note>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.limit_exceeded_exception.LimitExceededException: <p>A limit has been exceeded.</p>
+            aws_sdk_iot.errors.resource_already_exists_exception.ResourceAlreadyExistsException: <p>The resource already exists.</p>
+            aws_sdk_iot.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.unauthorized_exception.UnauthorizedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3248,6 +3615,14 @@ class AsyncIoTClient:
             target_check_names: <p>Which checks are performed during the scheduled audit. Checks must be enabled for your account. (Use <code>DescribeAccountAuditConfiguration</code> to see the list of all checks, including those that are enabled or use <code>UpdateAccountAuditConfiguration</code> to select which checks are enabled.)</p>
             scheduled_audit_name: <p>The name you want to give to the scheduled audit. (Max. 128 chars)</p>
             tags: <p>Metadata that can be used to manage the scheduled audit.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.limit_exceeded_exception.LimitExceededException: <p>A limit has been exceeded.</p>
+            aws_sdk_iot.errors.resource_already_exists_exception.ResourceAlreadyExistsException: <p>The resource already exists.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3316,6 +3691,13 @@ class AsyncIoTClient:
             additional_metrics_to_retain_v2: <p>A list of metrics whose data is retained (stored). By default, data is retained for any metric used in the profile's <code>behaviors</code>, but it is also retained for any metric specified here. Can be used with custom metrics; cannot be used with dimensions.</p>
             tags: <p>Metadata that can be used to manage the security profile.</p>
             metrics_export_config: <p>Specifies the MQTT topic and role ARN required for metric export.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.resource_already_exists_exception.ResourceAlreadyExistsException: <p>The resource already exists.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3378,6 +3760,17 @@ class AsyncIoTClient:
             files: <p>The files to stream.</p>
             role_arn: <p>An IAM role that allows the IoT service principal to access your S3 files.</p>
             tags: <p>Metadata which can be used to manage streams.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.limit_exceeded_exception.LimitExceededException: <p>A limit has been exceeded.</p>
+            aws_sdk_iot.errors.resource_already_exists_exception.ResourceAlreadyExistsException: <p>The resource already exists.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.unauthorized_exception.UnauthorizedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3434,6 +3827,16 @@ class AsyncIoTClient:
             thing_type_name: <p>The name of the thing type associated with the new thing.</p>
             attribute_payload: <p>The attribute payload, which consists of up to three name/value pairs in a JSON document. For example:</p> <p> <code>{\\"attributes\\":{\\"string1\\":\\"string2\\"}}</code> </p>
             billing_group_name: <p>The name of the billing group the thing will be added to.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.resource_already_exists_exception.ResourceAlreadyExistsException: <p>The resource already exists.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.unauthorized_exception.UnauthorizedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3488,6 +3891,13 @@ class AsyncIoTClient:
             parent_group_name: <p>The name of the parent thing group.</p>
             thing_group_properties: <p>The thing group properties.</p>
             tags: <p>Metadata which can be used to manage the thing group.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.resource_already_exists_exception.ResourceAlreadyExistsException: <p>The resource already exists.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3538,6 +3948,15 @@ class AsyncIoTClient:
             thing_type_name: <p>The name of the thing type.</p>
             thing_type_properties: <p>The ThingTypeProperties for the thing type to create. It contains information about the new thing type including a description, and a list of searchable thing attribute names.</p>
             tags: <p>Metadata which can be used to manage the thing type.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.resource_already_exists_exception.ResourceAlreadyExistsException: <p>The resource already exists.</p>
+            aws_sdk_iot.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.unauthorized_exception.UnauthorizedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3584,6 +4003,16 @@ class AsyncIoTClient:
             rule_name: <p>The name of the rule.</p>
             topic_rule_payload: <p>The rule payload.</p>
             tags: <p>Metadata which can be used to manage the topic rule.</p> <note> <p>For URI Request parameters use format: ...key1=value1&key2=value2...</p> <p>For the CLI command-line parameter use format: --tags \"key1=value1&key2=value2...\"</p> <p>For the cli-input-json file use format: \"tags\": \"key1=value1&key2=value2...\"</p> </note>
+
+        Raises:
+            aws_sdk_iot.errors.conflicting_resource_update_exception.ConflictingResourceUpdateException: <p>A conflicting resource update exception. This exception is thrown when two pending updates cause a conflict.</p>
+            aws_sdk_iot.errors.internal_exception.InternalException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.resource_already_exists_exception.ResourceAlreadyExistsException: <p>The resource already exists.</p>
+            aws_sdk_iot.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot.errors.sql_parse_exception.SqlParseException: <p>The Rule-SQL expression can't be parsed correctly.</p>
+            aws_sdk_iot.errors.unauthorized_exception.UnauthorizedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3623,6 +4052,15 @@ class AsyncIoTClient:
 
         Args:
             destination_configuration: <p>The topic rule destination configuration.</p>
+
+        Raises:
+            aws_sdk_iot.errors.conflicting_resource_update_exception.ConflictingResourceUpdateException: <p>A conflicting resource update exception. This exception is thrown when two pending updates cause a conflict.</p>
+            aws_sdk_iot.errors.internal_exception.InternalException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.resource_already_exists_exception.ResourceAlreadyExistsException: <p>The resource already exists.</p>
+            aws_sdk_iot.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot.errors.unauthorized_exception.UnauthorizedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3663,6 +4101,13 @@ class AsyncIoTClient:
 
         Args:
             delete_scheduled_audits: <p>If true, all scheduled audits are deleted.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3699,7 +4144,14 @@ class AsyncIoTClient:
         *,
         config_overrides: Optional[AsyncIoTClientConfig] = None,
     ) -> "aws_sdk_iot.types.delete_audit_suppression_response.DeleteAuditSuppressionResponse":
-        r"""<p> Deletes a Device Defender audit suppression. </p> <p>Requires permission to access the <a href=\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions\">DeleteAuditSuppression</a> action.</p>"""
+        r"""<p> Deletes a Device Defender audit suppression. </p> <p>Requires permission to access the <a href=\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions\">DeleteAuditSuppression</a> action.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_iot.types.delete_audit_suppression_request.DeleteAuditSuppressionRequest]",
@@ -3738,6 +4190,16 @@ class AsyncIoTClient:
 
         Args:
             authorizer_name: <p>The name of the authorizer to delete.</p>
+
+        Raises:
+            aws_sdk_iot.errors.delete_conflict_exception.DeleteConflictException: <p>You can't delete the resource because it is attached to one or more resources.</p>
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.unauthorized_exception.UnauthorizedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3780,6 +4242,13 @@ class AsyncIoTClient:
         Args:
             billing_group_name: <p>The name of the billing group.</p>
             expected_version: <p>The expected version of the billing group. If the version of the billing group does not match the expected version specified in the request, the <code>DeleteBillingGroup</code> request is rejected with a <code>VersionConflictException</code>.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.version_conflict_exception.VersionConflictException: <p>An exception thrown when the version of an entity specified with the <code>expectedVersion</code> parameter does not match the latest version in the system.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3820,6 +4289,16 @@ class AsyncIoTClient:
 
         Args:
             certificate_id: <p>The ID of the certificate to delete. (The last part of the certificate ARN contains the certificate ID.)</p>
+
+        Raises:
+            aws_sdk_iot.errors.certificate_state_exception.CertificateStateException: <p>The certificate operation is not allowed.</p>
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.unauthorized_exception.UnauthorizedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3860,6 +4339,17 @@ class AsyncIoTClient:
         Args:
             certificate_id: <p>The ID of the certificate. (The last part of the certificate ARN contains the certificate ID.)</p>
             force_delete: <p>Forces the deletion of a certificate if it is inactive and is not attached to an IoT thing.</p>
+
+        Raises:
+            aws_sdk_iot.errors.certificate_state_exception.CertificateStateException: <p>The certificate operation is not allowed.</p>
+            aws_sdk_iot.errors.delete_conflict_exception.DeleteConflictException: <p>You can't delete the resource because it is attached to one or more resources.</p>
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.unauthorized_exception.UnauthorizedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3898,6 +4388,16 @@ class AsyncIoTClient:
 
         Args:
             certificate_provider_name: <p>The name of the certificate provider.</p>
+
+        Raises:
+            aws_sdk_iot.errors.delete_conflict_exception.DeleteConflictException: <p>You can't delete the resource because it is attached to one or more resources.</p>
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.unauthorized_exception.UnauthorizedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3936,6 +4436,13 @@ class AsyncIoTClient:
 
         Args:
             command_id: <p>The unique identifier of the command to be deleted.</p>
+
+        Raises:
+            aws_sdk_iot.errors.conflict_exception.ConflictException: <p>The request conflicts with the current state of the resource.</p>
+            aws_sdk_iot.errors.internal_server_exception.InternalServerException: <p>Internal error from the service that indicates an unexpected error or that the service is unavailable.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.validation_exception.ValidationException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3976,6 +4483,13 @@ class AsyncIoTClient:
         Args:
             execution_id: <p>The unique identifier of the command execution that you want to delete from your account.</p>
             target_arn: <p>The Amazon Resource Number (ARN) of the target device for which you want to delete command executions.</p>
+
+        Raises:
+            aws_sdk_iot.errors.conflict_exception.ConflictException: <p>The request conflicts with the current state of the resource.</p>
+            aws_sdk_iot.errors.internal_server_exception.InternalServerException: <p>Internal error from the service that indicates an unexpected error or that the service is unavailable.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.validation_exception.ValidationException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4015,6 +4529,12 @@ class AsyncIoTClient:
 
         Args:
             metric_name: <p> The name of the custom metric. </p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4053,6 +4573,12 @@ class AsyncIoTClient:
 
         Args:
             name: <p>The unique identifier for the dimension that you want to delete.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4091,6 +4617,15 @@ class AsyncIoTClient:
 
         Args:
             domain_configuration_name: <p>The name of the domain configuration to be deleted.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.unauthorized_exception.UnauthorizedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4133,6 +4668,13 @@ class AsyncIoTClient:
         Args:
             thing_group_name: <p>The name of the dynamic thing group to delete.</p>
             expected_version: <p>The expected version of the dynamic thing group to delete.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.version_conflict_exception.VersionConflictException: <p>An exception thrown when the version of an entity specified with the <code>expectedVersion</code> parameter does not match the latest version in the system.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4177,6 +4719,15 @@ class AsyncIoTClient:
         Args:
             metric_name: <p>The name of the fleet metric to delete.</p>
             expected_version: <p>The expected version of the fleet metric to delete.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.unauthorized_exception.UnauthorizedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_iot.errors.version_conflict_exception.VersionConflictException: <p>An exception thrown when the version of an entity specified with the <code>expectedVersion</code> parameter does not match the latest version in the system.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4219,6 +4770,15 @@ class AsyncIoTClient:
             job_id: <p>The ID of the job to be deleted.</p> <p>After a job deletion is completed, you may reuse this jobId when you create a new job. However, this is not recommended, and you must ensure that your devices are not using the jobId to refer to the deleted job.</p>
             force: <p>(Optional) When true, you can delete a job which is \"IN_PROGRESS\". Otherwise, you can only delete a job which is in a terminal state (\"COMPLETED\" or \"CANCELED\") or an exception will occur. The default is false.</p> <note> <p>Deleting a job which is \"IN_PROGRESS\", will cause a device which is executing the job to be unable to access job information or update the job execution status. Use caution and ensure that each device executing a job which is deleted is able to recover to a valid state.</p> </note>
             namespace_id: <p>The namespace used to indicate that a job is a customer-managed job.</p> <p>When you specify a value for this parameter, Amazon Web Services IoT Core sends jobs notifications to MQTT topics that contain the value in the following format.</p> <p> <code>$aws/things/<i>THING_NAME</i>/jobs/<i>JOB_ID</i>/notify-namespace-<i>NAMESPACE_ID</i>/</code> </p> <note> <p>The <code>namespaceId</code> feature is only supported by IoT Greengrass at this time. For more information, see <a href=\"https://docs.aws.amazon.com/greengrass/v2/developerguide/setting-up.html\">Setting up IoT Greengrass core devices.</a> </p> </note>
+
+        Raises:
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.invalid_state_transition_exception.InvalidStateTransitionException: <p>An attempt was made to change to an invalid state, for example by deleting a job or a job execution which is \"IN_PROGRESS\" without setting the <code>force</code> parameter.</p>
+            aws_sdk_iot.errors.limit_exceeded_exception.LimitExceededException: <p>A limit has been exceeded.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4267,6 +4827,14 @@ class AsyncIoTClient:
             execution_number: <p>The ID of the job execution to be deleted. The <code>executionNumber</code> refers to the execution of a particular job on a particular device.</p> <p>Note that once a job execution is deleted, the <code>executionNumber</code> may be reused by IoT, so be sure you get and use the correct value here.</p>
             force: <p>(Optional) When true, you can delete a job execution which is \"IN_PROGRESS\". Otherwise, you can only delete a job execution which is in a terminal state (\"SUCCEEDED\", \"FAILED\", \"REJECTED\", \"REMOVED\" or \"CANCELED\") or an exception will occur. The default is false.</p> <note> <p>Deleting a job execution which is \"IN_PROGRESS\", will cause the device to be unable to access job information or update the job execution status. Use caution and ensure that the device is able to recover to a valid state.</p> </note>
             namespace_id: <p>The namespace used to indicate that a job is a customer-managed job.</p> <p>When you specify a value for this parameter, Amazon Web Services IoT Core sends jobs notifications to MQTT topics that contain the value in the following format.</p> <p> <code>$aws/things/<i>THING_NAME</i>/jobs/<i>JOB_ID</i>/notify-namespace-<i>NAMESPACE_ID</i>/</code> </p> <note> <p>The <code>namespaceId</code> feature is only supported by IoT Greengrass at this time. For more information, see <a href=\"https://docs.aws.amazon.com/greengrass/v2/developerguide/setting-up.html\">Setting up IoT Greengrass core devices.</a> </p> </note>
+
+        Raises:
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.invalid_state_transition_exception.InvalidStateTransitionException: <p>An attempt was made to change to an invalid state, for example by deleting a job or a job execution which is \"IN_PROGRESS\" without setting the <code>force</code> parameter.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4309,6 +4877,13 @@ class AsyncIoTClient:
 
         Args:
             job_template_id: <p>The unique identifier of the job template to delete.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4345,6 +4920,12 @@ class AsyncIoTClient:
 
         Args:
             action_name: <p>The name of the mitigation action that you want to delete.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4391,6 +4972,16 @@ class AsyncIoTClient:
             ota_update_id: <p>The ID of the OTA update to delete.</p>
             delete_stream: <p>When true, the stream created by the OTAUpdate process is deleted when the OTA update is deleted. Ignored if the stream specified in the OTAUpdate is supplied by the user.</p>
             force_delete_aws_job: <p>When true, deletes the IoT job created by the OTAUpdate process even if it is \"IN_PROGRESS\". Otherwise, if the job is not in a terminal state (\"COMPLETED\" or \"CANCELED\") an exception will occur. The default is false.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.unauthorized_exception.UnauthorizedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_iot.errors.version_conflict_exception.VersionConflictException: <p>An exception thrown when the version of an entity specified with the <code>expectedVersion</code> parameter does not match the latest version in the system.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4435,6 +5026,12 @@ class AsyncIoTClient:
         Args:
             package_name: <p>The name of the target software package.</p>
             client_token: <p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_server_exception.InternalServerException: <p>Internal error from the service that indicates an unexpected error or that the service is unavailable.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.validation_exception.ValidationException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4481,6 +5078,12 @@ class AsyncIoTClient:
             package_name: <p>The name of the associated software package.</p>
             version_name: <p>The name of the target package version.</p>
             client_token: <p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_server_exception.InternalServerException: <p>Internal error from the service that indicates an unexpected error or that the service is unavailable.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.validation_exception.ValidationException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4522,6 +5125,16 @@ class AsyncIoTClient:
 
         Args:
             policy_name: <p>The name of the policy to delete.</p>
+
+        Raises:
+            aws_sdk_iot.errors.delete_conflict_exception.DeleteConflictException: <p>You can't delete the resource because it is attached to one or more resources.</p>
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.unauthorized_exception.UnauthorizedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4560,6 +5173,16 @@ class AsyncIoTClient:
         Args:
             policy_name: <p>The name of the policy.</p>
             policy_version_id: <p>The policy version ID.</p>
+
+        Raises:
+            aws_sdk_iot.errors.delete_conflict_exception.DeleteConflictException: <p>You can't delete the resource because it is attached to one or more resources.</p>
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.unauthorized_exception.UnauthorizedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4597,6 +5220,16 @@ class AsyncIoTClient:
 
         Args:
             template_name: <p>The name of the fleet provision template to delete.</p>
+
+        Raises:
+            aws_sdk_iot.errors.conflicting_resource_update_exception.ConflictingResourceUpdateException: <p>A conflicting resource update exception. This exception is thrown when two pending updates cause a conflict.</p>
+            aws_sdk_iot.errors.delete_conflict_exception.DeleteConflictException: <p>You can't delete the resource because it is attached to one or more resources.</p>
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.unauthorized_exception.UnauthorizedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4637,6 +5270,16 @@ class AsyncIoTClient:
         Args:
             template_name: <p>The name of the provisioning template version to delete.</p>
             version_id: <p>The provisioning template version ID to delete.</p>
+
+        Raises:
+            aws_sdk_iot.errors.conflicting_resource_update_exception.ConflictingResourceUpdateException: <p>A conflicting resource update exception. This exception is thrown when two pending updates cause a conflict.</p>
+            aws_sdk_iot.errors.delete_conflict_exception.DeleteConflictException: <p>You can't delete the resource because it is attached to one or more resources.</p>
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.unauthorized_exception.UnauthorizedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4669,7 +5312,16 @@ class AsyncIoTClient:
     async def delete_registration_code(
         self, *, config_overrides: Optional[AsyncIoTClientConfig] = None
     ) -> "aws_sdk_iot.types.delete_registration_code_response.DeleteRegistrationCodeResponse":
-        r"""<p>Deletes a CA certificate registration code.</p> <p>Requires permission to access the <a href=\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions\">DeleteRegistrationCode</a> action.</p>"""
+        r"""<p>Deletes a CA certificate registration code.</p> <p>Requires permission to access the <a href=\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions\">DeleteRegistrationCode</a> action.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.unauthorized_exception.UnauthorizedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_iot.types.delete_registration_code_request.DeleteRegistrationCodeRequest]",
@@ -4706,6 +5358,16 @@ class AsyncIoTClient:
 
         Args:
             role_alias: <p>The role alias to delete.</p>
+
+        Raises:
+            aws_sdk_iot.errors.delete_conflict_exception.DeleteConflictException: <p>You can't delete the resource because it is attached to one or more resources.</p>
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.unauthorized_exception.UnauthorizedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4746,6 +5408,13 @@ class AsyncIoTClient:
 
         Args:
             scheduled_audit_name: <p>The name of the scheduled audit you want to delete.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4788,6 +5457,13 @@ class AsyncIoTClient:
         Args:
             security_profile_name: <p>The name of the security profile to be deleted.</p>
             expected_version: <p>The expected version of the security profile. A new version is generated whenever the security profile is updated. If you specify a value that is different from the actual version, a <code>VersionConflictException</code> is thrown.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.version_conflict_exception.VersionConflictException: <p>An exception thrown when the version of an entity specified with the <code>expectedVersion</code> parameter does not match the latest version in the system.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4828,6 +5504,16 @@ class AsyncIoTClient:
 
         Args:
             stream_id: <p>The stream ID.</p>
+
+        Raises:
+            aws_sdk_iot.errors.delete_conflict_exception.DeleteConflictException: <p>You can't delete the resource because it is attached to one or more resources.</p>
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.unauthorized_exception.UnauthorizedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4870,6 +5556,16 @@ class AsyncIoTClient:
         Args:
             thing_name: <p>The name of the thing to delete.</p>
             expected_version: <p>The expected version of the thing record in the registry. If the version of the record in the registry does not match the expected version specified in the request, the <code>DeleteThing</code> request is rejected with a <code>VersionConflictException</code>.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.unauthorized_exception.UnauthorizedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_iot.errors.version_conflict_exception.VersionConflictException: <p>An exception thrown when the version of an entity specified with the <code>expectedVersion</code> parameter does not match the latest version in the system.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4914,6 +5610,13 @@ class AsyncIoTClient:
         Args:
             thing_group_name: <p>The name of the thing group to delete.</p>
             expected_version: <p>The expected version of the thing group to delete.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.version_conflict_exception.VersionConflictException: <p>An exception thrown when the version of an entity specified with the <code>expectedVersion</code> parameter does not match the latest version in the system.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4954,6 +5657,15 @@ class AsyncIoTClient:
 
         Args:
             thing_type_name: <p>The name of the thing type.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.unauthorized_exception.UnauthorizedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4992,6 +5704,14 @@ class AsyncIoTClient:
 
         Args:
             rule_name: <p>The name of the rule.</p>
+
+        Raises:
+            aws_sdk_iot.errors.conflicting_resource_update_exception.ConflictingResourceUpdateException: <p>A conflicting resource update exception. This exception is thrown when two pending updates cause a conflict.</p>
+            aws_sdk_iot.errors.internal_exception.InternalException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot.errors.unauthorized_exception.UnauthorizedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5028,6 +5748,14 @@ class AsyncIoTClient:
 
         Args:
             arn: <p>The ARN of the topic rule destination to delete.</p>
+
+        Raises:
+            aws_sdk_iot.errors.conflicting_resource_update_exception.ConflictingResourceUpdateException: <p>A conflicting resource update exception. This exception is thrown when two pending updates cause a conflict.</p>
+            aws_sdk_iot.errors.internal_exception.InternalException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot.errors.unauthorized_exception.UnauthorizedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5068,6 +5796,12 @@ class AsyncIoTClient:
         Args:
             target_type: <p>The type of resource for which you are configuring logging. Must be <code>THING_Group</code>.</p>
             target_name: <p>The name of the resource for which you are configuring logging.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_exception.InternalException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5109,6 +5843,15 @@ class AsyncIoTClient:
         Args:
             thing_type_name: <p>The name of the thing type to deprecate.</p>
             undo_deprecate: <p>Whether to undeprecate a deprecated thing type. If <b>true</b>, the thing type will not be deprecated anymore and you can associate it with things.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.unauthorized_exception.UnauthorizedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5142,7 +5885,13 @@ class AsyncIoTClient:
     async def describe_account_audit_configuration(
         self, *, config_overrides: Optional[AsyncIoTClientConfig] = None
     ) -> "aws_sdk_iot.types.describe_account_audit_configuration_response.DescribeAccountAuditConfigurationResponse":
-        r"""<p>Gets information about the Device Defender audit settings for this account. Settings include how audit notifications are sent and which audit checks are enabled or disabled.</p> <p>Requires permission to access the <a href=\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions\">DescribeAccountAuditConfiguration</a> action.</p>"""
+        r"""<p>Gets information about the Device Defender audit settings for this account. Settings include how audit notifications are sent and which audit checks are enabled or disabled.</p> <p>Requires permission to access the <a href=\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions\">DescribeAccountAuditConfiguration</a> action.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_iot.types.describe_account_audit_configuration_request.DescribeAccountAuditConfigurationRequest]",
@@ -5181,6 +5930,13 @@ class AsyncIoTClient:
 
         Args:
             finding_id: <p>A unique identifier for a single audit finding. You can use this identifier to apply mitigation actions to the finding.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5219,6 +5975,13 @@ class AsyncIoTClient:
 
         Args:
             task_id: <p>The unique identifier for the audit mitigation task.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5254,7 +6017,15 @@ class AsyncIoTClient:
         *,
         config_overrides: Optional[AsyncIoTClientConfig] = None,
     ) -> "aws_sdk_iot.types.describe_audit_suppression_response.DescribeAuditSuppressionResponse":
-        """<p> Gets information about a Device Defender audit suppression. </p>"""
+        """<p> Gets information about a Device Defender audit suppression. </p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_iot.types.describe_audit_suppression_request.DescribeAuditSuppressionRequest]",
@@ -5293,6 +6064,13 @@ class AsyncIoTClient:
 
         Args:
             task_id: <p>The ID of the audit whose information you want to get.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5331,6 +6109,15 @@ class AsyncIoTClient:
 
         Args:
             authorizer_name: <p>The name of the authorizer to describe.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.unauthorized_exception.UnauthorizedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5371,6 +6158,13 @@ class AsyncIoTClient:
 
         Args:
             billing_group_name: <p>The name of the billing group.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5409,6 +6203,15 @@ class AsyncIoTClient:
 
         Args:
             certificate_id: <p>The CA certificate identifier.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.unauthorized_exception.UnauthorizedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5447,6 +6250,15 @@ class AsyncIoTClient:
 
         Args:
             certificate_id: <p>The ID of the certificate. (The last part of the certificate ARN contains the certificate ID.)</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.unauthorized_exception.UnauthorizedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5485,6 +6297,15 @@ class AsyncIoTClient:
 
         Args:
             certificate_provider_name: <p>The name of the certificate provider.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.unauthorized_exception.UnauthorizedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5525,6 +6346,13 @@ class AsyncIoTClient:
 
         Args:
             metric_name: <p> The name of the custom metric. </p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5556,7 +6384,17 @@ class AsyncIoTClient:
     async def describe_default_authorizer(
         self, *, config_overrides: Optional[AsyncIoTClientConfig] = None
     ) -> "aws_sdk_iot.types.describe_default_authorizer_response.DescribeDefaultAuthorizerResponse":
-        r"""<p>Describes the default authorizer.</p> <p>Requires permission to access the <a href=\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions\">DescribeDefaultAuthorizer</a> action.</p>"""
+        r"""<p>Describes the default authorizer.</p> <p>Requires permission to access the <a href=\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions\">DescribeDefaultAuthorizer</a> action.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.unauthorized_exception.UnauthorizedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_iot.types.describe_default_authorizer_request.DescribeDefaultAuthorizerRequest]",
@@ -5593,6 +6431,13 @@ class AsyncIoTClient:
 
         Args:
             task_id: <p> The unique identifier of the task. </p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5631,6 +6476,13 @@ class AsyncIoTClient:
 
         Args:
             name: <p>The unique identifier for the dimension.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5669,6 +6521,15 @@ class AsyncIoTClient:
 
         Args:
             domain_configuration_name: <p>The name of the domain configuration.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.unauthorized_exception.UnauthorizedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5700,7 +6561,16 @@ class AsyncIoTClient:
     async def describe_encryption_configuration(
         self, *, config_overrides: Optional[AsyncIoTClientConfig] = None
     ) -> "aws_sdk_iot.types.describe_encryption_configuration_response.DescribeEncryptionConfigurationResponse":
-        r"""<p>Retrieves the encryption configuration for resources and data of your Amazon Web Services account in Amazon Web Services IoT Core. For more information, see <a href=\"https://docs.aws.amazon.com/iot/latest/developerguide/encryption-at-rest.html\">Data encryption at rest</a> in the <i>Amazon Web Services IoT Core Developer Guide</i>.</p>"""
+        r"""<p>Retrieves the encryption configuration for resources and data of your Amazon Web Services account in Amazon Web Services IoT Core. For more information, see <a href=\"https://docs.aws.amazon.com/iot/latest/developerguide/encryption-at-rest.html\">Data encryption at rest</a> in the <i>Amazon Web Services IoT Core Developer Guide</i>.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.unauthorized_exception.UnauthorizedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_iot.types.describe_encryption_configuration_request.DescribeEncryptionConfigurationRequest]",
@@ -5737,6 +6607,13 @@ class AsyncIoTClient:
 
         Args:
             endpoint_type: <p>The endpoint type. Valid endpoint types include:</p> <ul> <li> <p> <code>iot:Data</code> - Returns a VeriSign signed data endpoint.</p> </li> </ul> <ul> <li> <p> <code>iot:Data-ATS</code> - Returns an ATS signed data endpoint.</p> </li> </ul> <ul> <li> <p> <code>iot:CredentialProvider</code> - Returns an IoT credentials provider API endpoint.</p> </li> </ul> <ul> <li> <p> <code>iot:Jobs</code> - Returns an IoT device management Jobs API endpoint.</p> </li> </ul> <p>We strongly recommend that customers use the newer <code>iot:Data-ATS</code> endpoint type to avoid issues related to the widespread distrust of Symantec certificate authorities. ATS Signed Certificates are more secure and are trusted by most popular browsers.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.unauthorized_exception.UnauthorizedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5769,7 +6646,13 @@ class AsyncIoTClient:
     async def describe_event_configurations(
         self, *, config_overrides: Optional[AsyncIoTClientConfig] = None
     ) -> "aws_sdk_iot.types.describe_event_configurations_response.DescribeEventConfigurationsResponse":
-        r"""<p>Describes event configurations.</p> <p>Requires permission to access the <a href=\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions\">DescribeEventConfigurations</a> action.</p>"""
+        r"""<p>Describes event configurations.</p> <p>Requires permission to access the <a href=\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions\">DescribeEventConfigurations</a> action.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_iot.types.describe_event_configurations_request.DescribeEventConfigurationsRequest]",
@@ -5806,6 +6689,15 @@ class AsyncIoTClient:
 
         Args:
             metric_name: <p>The name of the fleet metric to describe.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.unauthorized_exception.UnauthorizedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5844,6 +6736,15 @@ class AsyncIoTClient:
 
         Args:
             index_name: <p>The index name.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.unauthorized_exception.UnauthorizedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5886,6 +6787,13 @@ class AsyncIoTClient:
         Args:
             job_id: <p>The unique identifier you assigned to this job when it was created.</p>
             before_substitution: <p>Provides a view of the job document before and after the substitution parameters have been resolved with their exact values.</p>
+
+        Raises:
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5934,6 +6842,13 @@ class AsyncIoTClient:
             job_id: <p>The unique identifier you assigned to this job when it was created.</p>
             thing_name: <p>The name of the thing on which the job execution is running.</p>
             execution_number: <p>A string (consisting of the digits \"0\" through \"9\" which is used to specify a particular job execution on a particular device.</p>
+
+        Raises:
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5975,6 +6890,13 @@ class AsyncIoTClient:
 
         Args:
             job_template_id: <p>The unique identifier of the job template.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -6017,6 +6939,13 @@ class AsyncIoTClient:
         Args:
             template_name: <p>The unique name of a managed job template, which is required.</p>
             template_version: <p>An optional parameter to specify version of a managed template. If not specified, the pre-defined default version is returned.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_server_exception.InternalServerException: <p>Internal error from the service that indicates an unexpected error or that the service is unavailable.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -6057,6 +6986,13 @@ class AsyncIoTClient:
 
         Args:
             action_name: <p>The friendly name that uniquely identifies the mitigation action.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -6095,6 +7031,14 @@ class AsyncIoTClient:
 
         Args:
             template_name: <p>The name of the provisioning template.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.unauthorized_exception.UnauthorizedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -6135,6 +7079,14 @@ class AsyncIoTClient:
         Args:
             template_name: <p>The template name.</p>
             version_id: <p>The provisioning template version ID.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.unauthorized_exception.UnauthorizedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -6174,6 +7126,15 @@ class AsyncIoTClient:
 
         Args:
             role_alias: <p>The role alias to describe.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.unauthorized_exception.UnauthorizedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -6212,6 +7173,13 @@ class AsyncIoTClient:
 
         Args:
             scheduled_audit_name: <p>The name of the scheduled audit whose information you want to get.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -6250,6 +7218,13 @@ class AsyncIoTClient:
 
         Args:
             security_profile_name: <p>The name of the security profile whose information you want to get.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -6288,6 +7263,15 @@ class AsyncIoTClient:
 
         Args:
             stream_id: <p>The stream ID.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.unauthorized_exception.UnauthorizedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -6326,6 +7310,15 @@ class AsyncIoTClient:
 
         Args:
             thing_name: <p>The name of the thing.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.unauthorized_exception.UnauthorizedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -6364,6 +7357,13 @@ class AsyncIoTClient:
 
         Args:
             thing_group_name: <p>The name of the thing group.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -6402,6 +7402,14 @@ class AsyncIoTClient:
 
         Args:
             task_id: <p>The task ID.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.unauthorized_exception.UnauthorizedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -6440,6 +7448,15 @@ class AsyncIoTClient:
 
         Args:
             thing_type_name: <p>The name of the thing type.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.unauthorized_exception.UnauthorizedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -6480,6 +7497,15 @@ class AsyncIoTClient:
         Args:
             policy_name: <p>The policy to detach.</p>
             target: <p>The target from which the policy will be detached.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.limit_exceeded_exception.LimitExceededException: <p>A limit has been exceeded.</p>
+            aws_sdk_iot.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.unauthorized_exception.UnauthorizedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -6519,6 +7545,15 @@ class AsyncIoTClient:
         Args:
             policy_name: <p>The name of the policy to detach.</p>
             principal: <p>The principal.</p> <p>Valid principals are CertificateArn (arn:aws:iot:<i>region</i>:<i>accountId</i>:cert/<i>certificateId</i>), thingGroupArn (arn:aws:iot:<i>region</i>:<i>accountId</i>:thinggroup/<i>groupName</i>) and CognitoId (<i>region</i>:<i>id</i>).</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.unauthorized_exception.UnauthorizedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -6558,6 +7593,13 @@ class AsyncIoTClient:
         Args:
             security_profile_name: <p>The security profile that is detached.</p>
             security_profile_target_arn: <p>The ARN of the thing group from which the security profile is detached.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -6601,6 +7643,15 @@ class AsyncIoTClient:
         Args:
             thing_name: <p>The name of the thing.</p>
             principal: <p>If the principal is a certificate, this value must be ARN of the certificate. If the principal is an Amazon Cognito identity, this value must be the ID of the Amazon Cognito identity.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.unauthorized_exception.UnauthorizedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -6640,6 +7691,14 @@ class AsyncIoTClient:
 
         Args:
             rule_name: <p>The name of the rule to disable.</p>
+
+        Raises:
+            aws_sdk_iot.errors.conflicting_resource_update_exception.ConflictingResourceUpdateException: <p>A conflicting resource update exception. This exception is thrown when two pending updates cause a conflict.</p>
+            aws_sdk_iot.errors.internal_exception.InternalException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot.errors.unauthorized_exception.UnauthorizedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -6680,6 +7739,14 @@ class AsyncIoTClient:
             package_name: <p>The name of the new software package.</p>
             version_name: <p>The name of the new package version.</p>
             client_token: <p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required.</p>
+
+        Raises:
+            aws_sdk_iot.errors.conflict_exception.ConflictException: <p>The request conflicts with the current state of the resource.</p>
+            aws_sdk_iot.errors.internal_server_exception.InternalServerException: <p>Internal error from the service that indicates an unexpected error or that the service is unavailable.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.validation_exception.ValidationException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -6721,6 +7788,14 @@ class AsyncIoTClient:
 
         Args:
             rule_name: <p>The name of the topic rule to enable.</p>
+
+        Raises:
+            aws_sdk_iot.errors.conflicting_resource_update_exception.ConflictingResourceUpdateException: <p>A conflicting resource update exception. This exception is thrown when two pending updates cause a conflict.</p>
+            aws_sdk_iot.errors.internal_exception.InternalException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot.errors.unauthorized_exception.UnauthorizedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -6765,6 +7840,13 @@ class AsyncIoTClient:
             security_profile_name: <p> The name of the security profile. </p>
             max_results: <p> The maximum number of results to return at one time. The default is 10. </p>
             next_token: <p> The token for the next set of results. </p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -6843,6 +7925,18 @@ class AsyncIoTClient:
             aggregation_field: <p>The aggregation field.</p>
             query_version: <p>The version of the query.</p>
             buckets_aggregation_type: <p>The basic control of the response shape and the bucket aggregation type to perform. </p>
+
+        Raises:
+            aws_sdk_iot.errors.index_not_ready_exception.IndexNotReadyException: <p>The index is not ready.</p>
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_aggregation_exception.InvalidAggregationException: <p>The aggregation is invalid.</p>
+            aws_sdk_iot.errors.invalid_query_exception.InvalidQueryException: <p>The query is invalid.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.unauthorized_exception.UnauthorizedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -6895,6 +7989,18 @@ class AsyncIoTClient:
             query_string: <p>The search query string.</p>
             aggregation_field: <p>The field to aggregate.</p>
             query_version: <p>The query version.</p>
+
+        Raises:
+            aws_sdk_iot.errors.index_not_ready_exception.IndexNotReadyException: <p>The index is not ready.</p>
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_aggregation_exception.InvalidAggregationException: <p>The aggregation is invalid.</p>
+            aws_sdk_iot.errors.invalid_query_exception.InvalidQueryException: <p>The query is invalid.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.unauthorized_exception.UnauthorizedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -6939,6 +8045,13 @@ class AsyncIoTClient:
 
         Args:
             command_id: <p>The unique identifier of the command for which you want to retrieve information.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_server_exception.InternalServerException: <p>Internal error from the service that indicates an unexpected error or that the service is unavailable.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.validation_exception.ValidationException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -6983,6 +8096,13 @@ class AsyncIoTClient:
             execution_id: <p>The unique identifier for the command execution. This information is returned as a response of the <code>StartCommandExecution</code> API request.</p>
             target_arn: <p>The Amazon Resource Number (ARN) of the device on which the command execution is being performed.</p>
             include_result: <p>Can be used to specify whether to include the result of the command execution in the <code>GetCommandExecution</code> API response. Your device can use this field to provide additional information about the command execution. You only need to specify this field when using the <code>AWS-IoT</code> namespace.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_server_exception.InternalServerException: <p>Internal error from the service that indicates an unexpected error or that the service is unavailable.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.validation_exception.ValidationException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -7032,6 +8152,16 @@ class AsyncIoTClient:
             principal: <p>The principal. Valid principals are CertificateArn (arn:aws:iot:<i>region</i>:<i>accountId</i>:cert/<i>certificateId</i>), thingGroupArn (arn:aws:iot:<i>region</i>:<i>accountId</i>:thinggroup/<i>groupName</i>) and CognitoId (<i>region</i>:<i>id</i>).</p>
             cognito_identity_pool_id: <p>The Cognito identity pool ID.</p>
             thing_name: <p>The thing name.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.limit_exceeded_exception.LimitExceededException: <p>A limit has been exceeded.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.unauthorized_exception.UnauthorizedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -7068,7 +8198,16 @@ class AsyncIoTClient:
     async def get_indexing_configuration(
         self, *, config_overrides: Optional[AsyncIoTClientConfig] = None
     ) -> "aws_sdk_iot.types.get_indexing_configuration_response.GetIndexingConfigurationResponse":
-        r"""<p>Gets the indexing configuration.</p> <p>Requires permission to access the <a href=\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions\">GetIndexingConfiguration</a> action.</p>"""
+        r"""<p>Gets the indexing configuration.</p> <p>Requires permission to access the <a href=\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions\">GetIndexingConfiguration</a> action.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.unauthorized_exception.UnauthorizedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_iot.types.get_indexing_configuration_request.GetIndexingConfigurationRequest]",
@@ -7109,6 +8248,13 @@ class AsyncIoTClient:
         Args:
             job_id: <p>The unique identifier you assigned to this job when it was created.</p>
             before_substitution: <p>Provides a view of the job document before and after the substitution parameters have been resolved with their exact values.</p>
+
+        Raises:
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -7142,7 +8288,14 @@ class AsyncIoTClient:
     async def get_logging_options(
         self, *, config_overrides: Optional[AsyncIoTClientConfig] = None
     ) -> "aws_sdk_iot.types.get_logging_options_response.GetLoggingOptionsResponse":
-        r"""<p>Gets the logging options.</p> <p>NOTE: use of this command is not recommended. Use <code>GetV2LoggingOptions</code> instead.</p> <p>Requires permission to access the <a href=\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions\">GetLoggingOptions</a> action.</p>"""
+        r"""<p>Gets the logging options.</p> <p>NOTE: use of this command is not recommended. Use <code>GetV2LoggingOptions</code> instead.</p> <p>Requires permission to access the <a href=\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions\">GetLoggingOptions</a> action.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_exception.InternalException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_iot.types.get_logging_options_request.GetLoggingOptionsRequest]",
@@ -7179,6 +8332,15 @@ class AsyncIoTClient:
 
         Args:
             ota_update_id: <p>The OTA update ID.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.unauthorized_exception.UnauthorizedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -7217,6 +8379,13 @@ class AsyncIoTClient:
 
         Args:
             package_name: <p>The name of the target software package.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_server_exception.InternalServerException: <p>Internal error from the service that indicates an unexpected error or that the service is unavailable.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.validation_exception.ValidationException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -7248,7 +8417,13 @@ class AsyncIoTClient:
     async def get_package_configuration(
         self, *, config_overrides: Optional[AsyncIoTClientConfig] = None
     ) -> "aws_sdk_iot.types.get_package_configuration_response.GetPackageConfigurationResponse":
-        r"""<p>Gets information about the specified software package's configuration.</p> <p>Requires permission to access the <a href=\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions\">GetPackageConfiguration</a> action.</p>"""
+        r"""<p>Gets information about the specified software package's configuration.</p> <p>Requires permission to access the <a href=\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions\">GetPackageConfiguration</a> action.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_server_exception.InternalServerException: <p>Internal error from the service that indicates an unexpected error or that the service is unavailable.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_iot.types.get_package_configuration_request.GetPackageConfigurationRequest]",
@@ -7287,6 +8462,13 @@ class AsyncIoTClient:
         Args:
             package_name: <p>The name of the associated package.</p>
             version_name: <p>The name of the target package version.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_server_exception.InternalServerException: <p>Internal error from the service that indicates an unexpected error or that the service is unavailable.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.validation_exception.ValidationException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -7336,6 +8518,18 @@ class AsyncIoTClient:
             aggregation_field: <p>The field to aggregate.</p>
             query_version: <p>The query version.</p>
             percents: <p>The percentile groups returned.</p>
+
+        Raises:
+            aws_sdk_iot.errors.index_not_ready_exception.IndexNotReadyException: <p>The index is not ready.</p>
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_aggregation_exception.InvalidAggregationException: <p>The aggregation is invalid.</p>
+            aws_sdk_iot.errors.invalid_query_exception.InvalidQueryException: <p>The query is invalid.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.unauthorized_exception.UnauthorizedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -7382,6 +8576,15 @@ class AsyncIoTClient:
 
         Args:
             policy_name: <p>The name of the policy.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.unauthorized_exception.UnauthorizedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -7422,6 +8625,15 @@ class AsyncIoTClient:
         Args:
             policy_name: <p>The name of the policy.</p>
             policy_version_id: <p>The policy version ID.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.unauthorized_exception.UnauthorizedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -7454,7 +8666,16 @@ class AsyncIoTClient:
     async def get_registration_code(
         self, *, config_overrides: Optional[AsyncIoTClientConfig] = None
     ) -> "aws_sdk_iot.types.get_registration_code_response.GetRegistrationCodeResponse":
-        r"""<p>Gets a registration code used to register a CA certificate with IoT.</p> <p>IoT will create a registration code as part of this API call if the registration code doesn't exist or has been deleted. If you already have a registration code, this API call will return the same registration code.</p> <p>Requires permission to access the <a href=\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions\">GetRegistrationCode</a> action.</p>"""
+        r"""<p>Gets a registration code used to register a CA certificate with IoT.</p> <p>IoT will create a registration code as part of this API call if the registration code doesn't exist or has been deleted. If you already have a registration code, this API call will return the same registration code.</p> <p>Requires permission to access the <a href=\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions\">GetRegistrationCode</a> action.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.unauthorized_exception.UnauthorizedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_iot.types.get_registration_code_request.GetRegistrationCodeRequest]",
@@ -7499,6 +8720,18 @@ class AsyncIoTClient:
             query_string: <p>The query used to search. You can specify \"*\" for the query string to get the count of all indexed things in your Amazon Web Services account.</p>
             aggregation_field: <p>The aggregation field name.</p>
             query_version: <p>The version of the query used to search.</p>
+
+        Raises:
+            aws_sdk_iot.errors.index_not_ready_exception.IndexNotReadyException: <p>The index is not ready.</p>
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_aggregation_exception.InvalidAggregationException: <p>The aggregation is invalid.</p>
+            aws_sdk_iot.errors.invalid_query_exception.InvalidQueryException: <p>The query is invalid.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.unauthorized_exception.UnauthorizedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -7547,6 +8780,16 @@ class AsyncIoTClient:
         Args:
             thing_name: <p>The name of your IoT thing.</p>
             include_socket_information: <p>Specifies if socket information (sourcePort, targetPort, sourceIp, targetIp, vpcEndpointId) should be included in the GetThingConnectivityData response. Set to <code>true</code> to include socket information. Set to <code>false</code> to omit socket information. By default, this is set to <code>false</code>.</p>
+
+        Raises:
+            aws_sdk_iot.errors.index_not_ready_exception.IndexNotReadyException: <p>The index is not ready.</p>
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.unauthorized_exception.UnauthorizedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -7587,6 +8830,13 @@ class AsyncIoTClient:
 
         Args:
             rule_name: <p>The name of the rule.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_exception.InternalException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot.errors.unauthorized_exception.UnauthorizedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -7625,6 +8875,13 @@ class AsyncIoTClient:
 
         Args:
             arn: <p>The ARN of the topic rule destination.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_exception.InternalException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot.errors.unauthorized_exception.UnauthorizedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -7665,6 +8922,12 @@ class AsyncIoTClient:
 
         Args:
             verbose: <p> The flag is used to get all the event types and their respective configuration that event-based logging supports. </p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_exception.InternalException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.not_configured_exception.NotConfiguredException: <p>The resource is not configured.</p>
+            aws_sdk_iot.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -7728,6 +8991,13 @@ class AsyncIoTClient:
             verification_state: <p>The verification state of the violation (detect alarm).</p>
             next_token: <p>The token for the next set of results.</p>
             max_results: <p>The maximum number of results to return at one time.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -7828,6 +9098,16 @@ class AsyncIoTClient:
             recursive: <p>When true, recursively list attached policies.</p>
             marker: <p>The token to retrieve the next set of results.</p>
             page_size: <p>The maximum number of results to be returned per request.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.limit_exceeded_exception.LimitExceededException: <p>A limit has been exceeded.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.unauthorized_exception.UnauthorizedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -7917,6 +9197,12 @@ class AsyncIoTClient:
             start_time: <p>A filter to limit results to those found after the specified time. You must specify either the startTime and endTime or the taskId, but not both.</p>
             end_time: <p>A filter to limit results to those found before the specified time. You must specify either the startTime and endTime or the taskId, but not both.</p>
             list_suppressed_findings: <p> Boolean flag indicating whether only the suppressed findings or the unsuppressed findings should be listed. If this parameter isn't provided, the response will list both suppressed and unsuppressed findings. </p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -8019,6 +9305,12 @@ class AsyncIoTClient:
             finding_id: <p>Specify this filter to limit results to those that were applied to a specific audit finding.</p>
             max_results: <p>The maximum number of results to return at one time. The default is 25.</p>
             next_token: <p>The token for the next set of results.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -8107,6 +9399,12 @@ class AsyncIoTClient:
             next_token: <p>The token for the next set of results.</p>
             start_time: <p>Specify this filter to limit results to tasks that began on or after a specific date and time.</p>
             end_time: <p>Specify this filter to limit results to tasks that were completed or canceled on or before a specific date and time.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -8201,6 +9499,12 @@ class AsyncIoTClient:
             ascending_order: <p> Determines whether suppressions are listed in ascending order by expiration date or not. If parameter isn't provided, <code>ascendingOrder=true</code>. </p>
             next_token: <p> The token for the next set of results. </p>
             max_results: <p> The maximum number of results to return at one time. The default is 25. </p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -8293,6 +9597,12 @@ class AsyncIoTClient:
             task_status: <p>A filter to limit the output to audits with the specified completion status: can be one of \"IN_PROGRESS\", \"COMPLETED\", \"FAILED\", or \"CANCELED\".</p>
             next_token: <p>The token for the next set of results.</p>
             max_results: <p>The maximum number of results to return at one time. The default is 25.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -8379,6 +9689,14 @@ class AsyncIoTClient:
             marker: <p>A marker used to get the next set of results.</p>
             ascending_order: <p>Return the list of authorizers in ascending alphabetical order.</p>
             status: <p>The status of the list authorizers request.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.unauthorized_exception.UnauthorizedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -8459,6 +9777,13 @@ class AsyncIoTClient:
             next_token: <p>To retrieve the next set of results, the <code>nextToken</code> value from a previous response; otherwise <b>null</b> to receive the first set of results.</p>
             max_results: <p>The maximum number of results to return per request.</p>
             name_prefix_filter: <p>Limit the results to billing groups whose names have the given prefix.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -8537,6 +9862,14 @@ class AsyncIoTClient:
             marker: <p>The marker for the next set of results.</p>
             ascending_order: <p>Determines the order of the results.</p>
             template_name: <p>The name of the provisioning template.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.unauthorized_exception.UnauthorizedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -8613,6 +9946,14 @@ class AsyncIoTClient:
         Args:
             next_token: <p>The token for the next set of results, or <code>null</code> if there are no more results.</p>
             ascending_order: <p>Returns the list of certificate providers in ascending alphabetical order.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.unauthorized_exception.UnauthorizedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -8660,6 +10001,14 @@ class AsyncIoTClient:
             page_size: <p>The result page size.</p>
             marker: <p>The marker for the next set of results.</p>
             ascending_order: <p>Specifies the order for results. If True, the results are returned in ascending order, based on the creation date.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.unauthorized_exception.UnauthorizedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -8736,6 +10085,14 @@ class AsyncIoTClient:
             page_size: <p>The result page size.</p>
             marker: <p>The marker for the next set of results.</p>
             ascending_order: <p>Specifies the order for results. If True, the results are returned in ascending order, based on the creation date.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.unauthorized_exception.UnauthorizedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -8833,6 +10190,13 @@ class AsyncIoTClient:
             completed_time_filter: <p>List all command executions that completed any time before or after the date and time that you specify. The date and time uses the format <code>yyyy-MM-dd'T'HH:mm</code>.</p>
             target_arn: <p>The Amazon Resource Number (ARN) of the target device. You can use this information to list all command executions for a particular device.</p>
             command_arn: <p>The Amazon Resource Number (ARN) of the command. You can use this information to list all command executions for a particular command.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_server_exception.InternalServerException: <p>Internal error from the service that indicates an unexpected error or that the service is unavailable.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.validation_exception.ValidationException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -8947,6 +10311,12 @@ class AsyncIoTClient:
             namespace: <p>The namespace of the command. By default, the API returns all commands that have been created for both <code>AWS-IoT</code> and <code>AWS-IoT-FleetWise</code> namespaces. You can override this default value if you want to return all commands that have been created only for a specific namespace.</p>
             command_parameter_name: <p>A filter that can be used to display the list of commands that have a specific command parameter name.</p>
             sort_order: <p>Specify whether to list the commands that you have created in the ascending or descending order. By default, the API returns all commands in the descending order based on the time that they were created.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_server_exception.InternalServerException: <p>Internal error from the service that indicates an unexpected error or that the service is unavailable.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.validation_exception.ValidationException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -9029,6 +10399,12 @@ class AsyncIoTClient:
         Args:
             next_token: <p> The token for the next set of results. </p>
             max_results: <p> The maximum number of results to return at one time. The default is 25. </p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -9107,6 +10483,12 @@ class AsyncIoTClient:
             end_time: <p> The end of the time period for which ML Detect mitigation actions executions are returned. </p>
             max_results: <p> The maximum number of results to return at one time. The default is 25. </p>
             next_token: <p> The token for the next set of results. </p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -9199,6 +10581,12 @@ class AsyncIoTClient:
             next_token: <p> The token for the next set of results. </p>
             start_time: <p> A filter to limit results to those found after the specified time. You must specify either the startTime and endTime or the taskId, but not both. </p>
             end_time: <p> The end of the time period for which ML Detect mitigation actions tasks are returned. </p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -9269,6 +10657,12 @@ class AsyncIoTClient:
         Args:
             next_token: <p>The token for the next set of results.</p>
             max_results: <p>The maximum number of results to retrieve at one time.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -9335,6 +10729,14 @@ class AsyncIoTClient:
             marker: <p>The marker for the next set of results.</p>
             page_size: <p>The result page size.</p>
             service_type: <p>The type of service delivered by the endpoint.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.unauthorized_exception.UnauthorizedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -9403,6 +10805,14 @@ class AsyncIoTClient:
         Args:
             next_token: <p>To retrieve the next set of results, the <code>nextToken</code> value from a previous response; otherwise <code>null</code> to receive the first set of results.</p>
             max_results: <p>The maximum number of results to return in this operation.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.unauthorized_exception.UnauthorizedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -9469,6 +10879,14 @@ class AsyncIoTClient:
         Args:
             next_token: <p>The token used to get the next set of results, or <code>null</code> if there are no additional results.</p>
             max_results: <p>The maximum number of results to return at one time.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.unauthorized_exception.UnauthorizedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -9543,6 +10961,13 @@ class AsyncIoTClient:
             status: <p>The status of the job.</p>
             max_results: <p>The maximum number of results to be returned per request.</p>
             next_token: <p>The token to retrieve the next set of results.</p>
+
+        Raises:
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -9630,6 +11055,13 @@ class AsyncIoTClient:
             max_results: <p>The maximum number of results to be returned per request.</p>
             next_token: <p>The token to retrieve the next set of results.</p>
             job_id: <p>The unique identifier you assigned to this job when it was created.</p>
+
+        Raises:
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -9731,6 +11163,13 @@ class AsyncIoTClient:
             thing_group_name: <p>A filter that limits the returned jobs to those for the specified group.</p>
             thing_group_id: <p>A filter that limits the returned jobs to those for the specified group.</p>
             namespace_id: <p>The namespace used to indicate that a job is a customer-managed job.</p> <p>When you specify a value for this parameter, Amazon Web Services IoT Core sends jobs notifications to MQTT topics that contain the value in the following format.</p> <p> <code>$aws/things/<i>THING_NAME</i>/jobs/<i>JOB_ID</i>/notify-namespace-<i>NAMESPACE_ID</i>/</code> </p> <note> <p>The <code>namespaceId</code> feature is only supported by IoT Greengrass at this time. For more information, see <a href=\"https://docs.aws.amazon.com/greengrass/v2/developerguide/setting-up.html\">Setting up IoT Greengrass core devices.</a> </p> </note>
+
+        Raises:
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -9825,6 +11264,12 @@ class AsyncIoTClient:
         Args:
             max_results: <p>The maximum number of results to return in the list.</p>
             next_token: <p>The token to use to return the next set of results in the list.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -9897,6 +11342,13 @@ class AsyncIoTClient:
             template_name: <p>An optional parameter for template name. If specified, only the versions of the managed job templates that have the specified template name will be returned.</p>
             max_results: <p>Maximum number of entries that can be returned.</p>
             next_token: <p>The token to retrieve the next set of results.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_server_exception.InternalServerException: <p>Internal error from the service that indicates an unexpected error or that the service is unavailable.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -9985,6 +11437,13 @@ class AsyncIoTClient:
             end_time: <p>The end of the time period for which metric values are returned.</p>
             max_results: <p>The maximum number of results to return at one time.</p>
             next_token: <p>The token for the next set of results.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -10077,6 +11536,12 @@ class AsyncIoTClient:
             action_type: <p>Specify a value to limit the result to mitigation actions with a specific action type.</p>
             max_results: <p>The maximum number of results to return at one time. The default is 25.</p>
             next_token: <p>The token for the next set of results.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -10151,6 +11616,14 @@ class AsyncIoTClient:
             max_results: <p>The maximum number of results to return at one time.</p>
             next_token: <p>A token used to retrieve the next set of results.</p>
             ota_update_status: <p>The OTA update job status.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.unauthorized_exception.UnauthorizedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -10225,6 +11698,14 @@ class AsyncIoTClient:
             page_size: <p>The result page size.</p>
             marker: <p>The marker for the next set of results.</p>
             ascending_order: <p>Specifies the order for results. If True, the results are returned in ascending order, based on the creation date.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.unauthorized_exception.UnauthorizedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -10297,6 +11778,12 @@ class AsyncIoTClient:
         Args:
             max_results: <p>The maximum number of results returned at one time.</p>
             next_token: <p>The token for the next set of results.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_server_exception.InternalServerException: <p>Internal error from the service that indicates an unexpected error or that the service is unavailable.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.validation_exception.ValidationException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -10371,6 +11858,12 @@ class AsyncIoTClient:
             status: <p>The status of the package version. For more information, see <a href=\"https://docs.aws.amazon.com/iot/latest/developerguide/preparing-to-use-software-package-catalog.html#package-version-lifecycle\">Package version lifecycle</a>.</p>
             max_results: <p>The maximum number of results to return at one time.</p>
             next_token: <p>The token for the next set of results.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_server_exception.InternalServerException: <p>Internal error from the service that indicates an unexpected error or that the service is unavailable.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.validation_exception.ValidationException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -10452,6 +11945,14 @@ class AsyncIoTClient:
             marker: <p>The marker for the next set of results.</p>
             page_size: <p>The result page size.</p>
             ascending_order: <p>Specifies the order for results. If true, the results are returned in ascending creation order.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.unauthorized_exception.UnauthorizedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -10530,6 +12031,15 @@ class AsyncIoTClient:
             marker: <p>The marker for the next set of results.</p>
             page_size: <p>The result page size.</p>
             ascending_order: <p>Specifies the order for results. If true, the results are returned in ascending creation order.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.unauthorized_exception.UnauthorizedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -10601,6 +12111,15 @@ class AsyncIoTClient:
 
         Args:
             policy_name: <p>The policy name.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.unauthorized_exception.UnauthorizedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -10647,6 +12166,15 @@ class AsyncIoTClient:
             marker: <p>The marker for the next set of results.</p>
             page_size: <p>The result page size.</p>
             ascending_order: <p>Specifies the order for results. If true, results are returned in ascending creation order.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.unauthorized_exception.UnauthorizedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -10724,6 +12252,15 @@ class AsyncIoTClient:
             next_token: <p>To retrieve the next set of results, the <code>nextToken</code> value from a previous response; otherwise <b>null</b> to receive the first set of results.</p>
             max_results: <p>The maximum number of results to return in this operation.</p>
             principal: <p>The principal.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.unauthorized_exception.UnauthorizedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -10801,6 +12338,15 @@ class AsyncIoTClient:
             max_results: <p>The maximum number of results to return in this operation.</p>
             principal: <p>The principal. A principal can be an X.509 certificate or an Amazon Cognito ID.</p>
             thing_principal_type: <p>The type of the relation you want to filter in the response. If no value is provided in this field, the response will list all things, including both the <code>EXCLUSIVE_THING</code> and <code>NON_EXCLUSIVE_THING</code> attachment types.</p> <ul> <li> <p> <code>EXCLUSIVE_THING</code> - Attaches the specified principal to the specified thing, exclusively. The thing will be the only thing that’s attached to the principal.</p> </li> </ul> <ul> <li> <p> <code>NON_EXCLUSIVE_THING</code> - Attaches the specified principal to the specified thing. Multiple things can be attached to the principal.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.unauthorized_exception.UnauthorizedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -10876,6 +12422,13 @@ class AsyncIoTClient:
         Args:
             max_results: <p>The maximum number of results to return at one time.</p>
             next_token: <p>A token to retrieve the next set of results.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.unauthorized_exception.UnauthorizedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -10942,6 +12495,14 @@ class AsyncIoTClient:
             template_name: <p>The name of the provisioning template.</p>
             max_results: <p>The maximum number of results to return at one time.</p>
             next_token: <p>A token to retrieve the next set of results.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.unauthorized_exception.UnauthorizedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -11011,6 +12572,13 @@ class AsyncIoTClient:
             finding_id: <p>The finding Id.</p>
             next_token: <p>A token that can be used to retrieve the next set of results, or <code>null</code> if there are no additional results.</p>
             max_results: <p>The maximum number of results to return at one time.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -11082,6 +12650,14 @@ class AsyncIoTClient:
             page_size: <p>The maximum number of results to return at one time.</p>
             marker: <p>A marker used to get the next set of results.</p>
             ascending_order: <p>Return the list of role aliases in ascending alphabetical order.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.unauthorized_exception.UnauthorizedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -11162,6 +12738,13 @@ class AsyncIoTClient:
             validation_result: <p>The end result of the </p>
             max_results: <p>The maximum number of results to return at one time.</p>
             next_token: <p>A token that can be used to retrieve the next set of results, or null if there are no additional results.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_server_exception.InternalServerException: <p>Internal error from the service that indicates an unexpected error or that the service is unavailable.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.validation_exception.ValidationException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -11240,6 +12823,12 @@ class AsyncIoTClient:
         Args:
             next_token: <p>The token for the next set of results.</p>
             max_results: <p>The maximum number of results to return at one time. The default is 25.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -11312,6 +12901,13 @@ class AsyncIoTClient:
             max_results: <p>The maximum number of results to return at one time.</p>
             dimension_name: <p>A filter to limit results to the security profiles that use the defined dimension. Cannot be used with <code>metricName</code> </p>
             metric_name: <p> The name of the custom metric. Cannot be used with <code>dimensionName</code>. </p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -11390,6 +12986,13 @@ class AsyncIoTClient:
             max_results: <p>The maximum number of results to return at one time.</p>
             recursive: <p>If true, return child groups too.</p>
             security_profile_target_arn: <p>The ARN of the target (thing group) whose attached security profiles you want to get.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -11465,6 +13068,14 @@ class AsyncIoTClient:
             max_results: <p>The maximum number of results to return at a time.</p>
             next_token: <p>A token used to get the next set of results.</p>
             ascending_order: <p>Set to true to return the list of streams in ascending order.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.unauthorized_exception.UnauthorizedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -11537,6 +13148,13 @@ class AsyncIoTClient:
         Args:
             resource_arn: <p>The ARN of the resource.</p>
             next_token: <p>To retrieve the next set of results, the <code>nextToken</code> value from a previous response; otherwise <b>null</b> to receive the first set of results.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -11602,6 +13220,16 @@ class AsyncIoTClient:
             policy_name: <p>The policy name.</p>
             marker: <p>A marker used to get the next set of results.</p>
             page_size: <p>The maximum number of results to return at one time.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.limit_exceeded_exception.LimitExceededException: <p>A limit has been exceeded.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.unauthorized_exception.UnauthorizedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -11671,6 +13299,13 @@ class AsyncIoTClient:
             security_profile_name: <p>The security profile.</p>
             next_token: <p>The token for the next set of results.</p>
             max_results: <p>The maximum number of results to return at one time.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -11754,6 +13389,13 @@ class AsyncIoTClient:
             parent_group: <p>A filter that limits the results to those with the specified parent group.</p>
             name_prefix_filter: <p>A filter that limits the results to those with the specified name prefix.</p>
             recursive: <p>If true, return child groups as well.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -11842,6 +13484,13 @@ class AsyncIoTClient:
             thing_name: <p>The thing name.</p>
             next_token: <p>To retrieve the next set of results, the <code>nextToken</code> value from a previous response; otherwise <b>null</b> to receive the first set of results.</p>
             max_results: <p>The maximum number of results to return at one time.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -11915,6 +13564,15 @@ class AsyncIoTClient:
             next_token: <p>To retrieve the next set of results, the <code>nextToken</code> value from a previous response; otherwise <b>null</b> to receive the first set of results.</p>
             max_results: <p>The maximum number of results to return in this operation.</p>
             thing_name: <p>The name of the thing.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.unauthorized_exception.UnauthorizedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -11992,6 +13650,15 @@ class AsyncIoTClient:
             max_results: <p>The maximum number of results to return in this operation.</p>
             thing_name: <p>The name of the thing.</p>
             thing_principal_type: <p>The type of the relation you want to filter in the response. If no value is provided in this field, the response will list all principals, including both the <code>EXCLUSIVE_THING</code> and <code>NON_EXCLUSIVE_THING</code> attachment types.</p> <ul> <li> <p> <code>EXCLUSIVE_THING</code> - Attaches the specified principal to the specified thing, exclusively. The thing will be the only thing that’s attached to the principal.</p> </li> </ul> <ul> <li> <p> <code>NON_EXCLUSIVE_THING</code> - Attaches the specified principal to the specified thing. Multiple things can be attached to the principal.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.unauthorized_exception.UnauthorizedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -12073,6 +13740,13 @@ class AsyncIoTClient:
             report_type: <p>The type of task report.</p>
             next_token: <p>To retrieve the next set of results, the <code>nextToken</code> value from a previous response; otherwise <b>null</b> to receive the first set of results.</p>
             max_results: <p>The maximum number of results to return per request.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.unauthorized_exception.UnauthorizedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -12149,6 +13823,13 @@ class AsyncIoTClient:
             next_token: <p>To retrieve the next set of results, the <code>nextToken</code> value from a previous response; otherwise <b>null</b> to receive the first set of results.</p>
             max_results: <p>The maximum number of results to return at one time.</p>
             status: <p>The status of the bulk thing provisioning task.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.unauthorized_exception.UnauthorizedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -12237,6 +13918,14 @@ class AsyncIoTClient:
             attribute_value: <p>The attribute value used to search for things.</p>
             thing_type_name: <p>The name of the thing type used to search for things.</p>
             use_prefix_attribute_value: <p>When <code>true</code>, the action returns the thing resources with attribute values that start with the <code>attributeValue</code> provided.</p> <p>When <code>false</code>, or not present, the action returns only the thing resources with attribute values that match the entire <code>attributeValue</code> provided. </p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.unauthorized_exception.UnauthorizedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -12331,6 +14020,13 @@ class AsyncIoTClient:
             billing_group_name: <p>The name of the billing group.</p>
             next_token: <p>To retrieve the next set of results, the <code>nextToken</code> value from a previous response; otherwise <b>null</b> to receive the first set of results.</p>
             max_results: <p>The maximum number of results to return per request.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -12406,6 +14102,13 @@ class AsyncIoTClient:
             recursive: <p>When true, list things in this thing group and in all child groups as well.</p>
             next_token: <p>To retrieve the next set of results, the <code>nextToken</code> value from a previous response; otherwise <b>null</b> to receive the first set of results.</p>
             max_results: <p>The maximum number of results to return at one time.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -12485,6 +14188,14 @@ class AsyncIoTClient:
             next_token: <p>To retrieve the next set of results, the <code>nextToken</code> value from a previous response; otherwise <b>null</b> to receive the first set of results.</p>
             max_results: <p>The maximum number of results to return in this operation.</p>
             thing_type_name: <p>The name of the thing type.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.unauthorized_exception.UnauthorizedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -12559,6 +14270,13 @@ class AsyncIoTClient:
         Args:
             max_results: <p>The maximum number of results to return at one time.</p>
             next_token: <p>To retrieve the next set of results, the <code>nextToken</code> value from a previous response; otherwise <b>null</b> to receive the first set of results.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_exception.InternalException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot.errors.unauthorized_exception.UnauthorizedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -12631,6 +14349,13 @@ class AsyncIoTClient:
             max_results: <p>The maximum number of results to return.</p>
             next_token: <p>To retrieve the next set of results, the <code>nextToken</code> value from a previous response; otherwise <b>null</b> to receive the first set of results.</p>
             rule_disabled: <p>Specifies whether the rule is disabled.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_exception.InternalException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot.errors.unauthorized_exception.UnauthorizedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -12711,6 +14436,13 @@ class AsyncIoTClient:
             target_type: <p>The type of resource for which you are configuring logging. Must be <code>THING_Group</code>.</p>
             next_token: <p>To retrieve the next set of results, the <code>nextToken</code> value from a previous response; otherwise <b>null</b> to receive the first set of results.</p>
             max_results: <p>The maximum number of results to return at one time.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_exception.InternalException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.not_configured_exception.NotConfiguredException: <p>The resource is not configured.</p>
+            aws_sdk_iot.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -12805,6 +14537,12 @@ class AsyncIoTClient:
             verification_state: <p>The verification state of the violation (detect alarm).</p>
             next_token: <p>The token for the next set of results.</p>
             max_results: <p>The maximum number of results to return at one time.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -12909,6 +14647,12 @@ class AsyncIoTClient:
             violation_id: <p>The violation ID.</p>
             verification_state: <p>The verification state of the violation.</p>
             verification_state_description: <p>The description of the verification state of the violation (detect alarm).</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -12970,6 +14714,19 @@ class AsyncIoTClient:
             registration_config: <p>Information about the registration configuration.</p>
             tags: <p>Metadata which can be used to manage the CA certificate.</p> <note> <p>For URI Request parameters use format: ...key1=value1&key2=value2...</p> <p>For the CLI command-line parameter use format: &&tags \"key1=value1&key2=value2...\"</p> <p>For the cli-input-json file use format: \"tags\": \"key1=value1&key2=value2...\"</p> </note>
             certificate_mode: <p>Describes the certificate mode in which the Certificate Authority (CA) will be registered. If the <code>verificationCertificate</code> field is not provided, set <code>certificateMode</code> to be <code>SNI_ONLY</code>. If the <code>verificationCertificate</code> field is provided, set <code>certificateMode</code> to be <code>DEFAULT</code>. When <code>certificateMode</code> is not provided, it defaults to <code>DEFAULT</code>. All the device certificates that are registered using this CA will be registered in the same certificate mode as the CA. For more information about certificate mode for device certificates, see <a href=\"https://docs.aws.amazon.com/iot/latest/apireference/API_CertificateDescription.html#iot-Type-CertificateDescription-certificateMode\"> certificate mode</a>. </p>
+
+        Raises:
+            aws_sdk_iot.errors.certificate_validation_exception.CertificateValidationException: <p>The certificate is invalid.</p>
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.limit_exceeded_exception.LimitExceededException: <p>A limit has been exceeded.</p>
+            aws_sdk_iot.errors.registration_code_validation_exception.RegistrationCodeValidationException: <p>The registration code is invalid.</p>
+            aws_sdk_iot.errors.resource_already_exists_exception.ResourceAlreadyExistsException: <p>The resource already exists.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.unauthorized_exception.UnauthorizedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -13032,6 +14789,18 @@ class AsyncIoTClient:
             ca_certificate_pem: <p>The CA certificate used to sign the device certificate being registered.</p>
             set_as_active: <p>A boolean value that specifies if the certificate is set to active.</p> <p>Valid values: <code>ACTIVE | INACTIVE</code> </p>
             status: <p>The status of the register certificate request. Valid values that you can use include <code>ACTIVE</code>, <code>INACTIVE</code>, and <code>REVOKED</code>.</p>
+
+        Raises:
+            aws_sdk_iot.errors.certificate_conflict_exception.CertificateConflictException: <p>Unable to verify the CA certificate used to sign the device certificate you are attempting to register. This is happens when you have registered more than one CA certificate that has the same subject field and public key.</p>
+            aws_sdk_iot.errors.certificate_state_exception.CertificateStateException: <p>The certificate operation is not allowed.</p>
+            aws_sdk_iot.errors.certificate_validation_exception.CertificateValidationException: <p>The certificate is invalid.</p>
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.resource_already_exists_exception.ResourceAlreadyExistsException: <p>The resource already exists.</p>
+            aws_sdk_iot.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.unauthorized_exception.UnauthorizedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -13080,6 +14849,17 @@ class AsyncIoTClient:
         Args:
             certificate_pem: <p>The certificate data, in PEM format.</p>
             status: <p>The status of the register certificate request.</p>
+
+        Raises:
+            aws_sdk_iot.errors.certificate_state_exception.CertificateStateException: <p>The certificate operation is not allowed.</p>
+            aws_sdk_iot.errors.certificate_validation_exception.CertificateValidationException: <p>The certificate is invalid.</p>
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.resource_already_exists_exception.ResourceAlreadyExistsException: <p>The resource already exists.</p>
+            aws_sdk_iot.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.unauthorized_exception.UnauthorizedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -13122,6 +14902,16 @@ class AsyncIoTClient:
         Args:
             template_body: <p>The provisioning template. See <a href=\"https://docs.aws.amazon.com/iot/latest/developerguide/provision-w-cert.html\">Provisioning Devices That Have Device Certificates</a> for more information.</p>
             parameters: <p>The parameters for provisioning a thing. See <a href=\"https://docs.aws.amazon.com/iot/latest/developerguide/provision-template.html\">Provisioning Templates</a> for more information.</p>
+
+        Raises:
+            aws_sdk_iot.errors.conflicting_resource_update_exception.ConflictingResourceUpdateException: <p>A conflicting resource update exception. This exception is thrown when two pending updates cause a conflict.</p>
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.resource_registration_failure_exception.ResourceRegistrationFailureException: <p>The resource registration failed.</p>
+            aws_sdk_iot.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.unauthorized_exception.UnauthorizedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -13164,6 +14954,16 @@ class AsyncIoTClient:
         Args:
             certificate_id: <p>The ID of the certificate. (The last part of the certificate ARN contains the certificate ID.)</p>
             reject_reason: <p>The reason the certificate transfer was rejected.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.transfer_already_completed_exception.TransferAlreadyCompletedException: <p>You can't revert the certificate transfer because the transfer is already complete.</p>
+            aws_sdk_iot.errors.unauthorized_exception.UnauthorizedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -13212,6 +15012,13 @@ class AsyncIoTClient:
             billing_group_arn: <p>The ARN of the billing group.</p>
             thing_name: <p>The name of the thing to be removed from the billing group.</p>
             thing_arn: <p>The ARN of the thing to be removed from the billing group.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -13267,6 +15074,13 @@ class AsyncIoTClient:
             thing_group_arn: <p>The group ARN.</p>
             thing_name: <p>The name of the thing to remove from the group.</p>
             thing_arn: <p>The ARN of the thing to remove from the group.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -13314,6 +15128,15 @@ class AsyncIoTClient:
         Args:
             rule_name: <p>The name of the rule.</p>
             topic_rule_payload: <p>The rule payload.</p>
+
+        Raises:
+            aws_sdk_iot.errors.conflicting_resource_update_exception.ConflictingResourceUpdateException: <p>A conflicting resource update exception. This exception is thrown when two pending updates cause a conflict.</p>
+            aws_sdk_iot.errors.internal_exception.InternalException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot.errors.sql_parse_exception.SqlParseException: <p>The Rule-SQL expression can't be parsed correctly.</p>
+            aws_sdk_iot.errors.unauthorized_exception.UnauthorizedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -13361,6 +15184,17 @@ class AsyncIoTClient:
             next_token: <p>The token used to get the next set of results, or <code>null</code> if there are no additional results.</p>
             max_results: <p>The maximum number of results to return per page at one time. This maximum number cannot exceed 100. The response might contain fewer results but will never contain more. You can use <a href=\"https://docs.aws.amazon.com/iot/latest/apireference/API_SearchIndex.html#iot-SearchIndex-request-nextToken\"> <code>nextToken</code> </a> to retrieve the next set of results until <code>nextToken</code> returns <code>NULL</code>.</p>
             query_version: <p>The query version.</p>
+
+        Raises:
+            aws_sdk_iot.errors.index_not_ready_exception.IndexNotReadyException: <p>The index is not ready.</p>
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_query_exception.InvalidQueryException: <p>The query is invalid.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.unauthorized_exception.UnauthorizedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -13409,6 +15243,16 @@ class AsyncIoTClient:
 
         Args:
             authorizer_name: <p>The authorizer name.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.resource_already_exists_exception.ResourceAlreadyExistsException: <p>The resource already exists.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.unauthorized_exception.UnauthorizedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -13449,6 +15293,15 @@ class AsyncIoTClient:
         Args:
             policy_name: <p>The policy name.</p>
             policy_version_id: <p>The policy version ID.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.unauthorized_exception.UnauthorizedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -13486,6 +15339,12 @@ class AsyncIoTClient:
 
         Args:
             logging_options_payload: <p>The logging options payload.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_exception.InternalException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -13524,6 +15383,14 @@ class AsyncIoTClient:
         Args:
             log_target: <p>The log target.</p>
             log_level: <p>The log level.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_exception.InternalException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.limit_exceeded_exception.LimitExceededException: <p>A limit has been exceeded.</p>
+            aws_sdk_iot.errors.not_configured_exception.NotConfiguredException: <p>The resource is not configured.</p>
+            aws_sdk_iot.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -13571,6 +15438,12 @@ class AsyncIoTClient:
             default_log_level: <p>The default logging level.</p>
             disable_all_logs: <p>If true all logs are disabled. The default is false.</p>
             event_configurations: <p> The list of event configurations that override account-level logging. </p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_exception.InternalException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -13620,6 +15493,14 @@ class AsyncIoTClient:
             target: <p>Specifies the audit findings to which the mitigation actions are applied. You can apply them to a type of audit check, to all findings from an audit, or to a specific set of findings.</p>
             audit_check_to_actions_mapping: <p>For an audit check, specifies which mitigation actions to apply. Those actions must be defined in your Amazon Web Services accounts.</p>
             client_request_token: <p>Each audit mitigation task must have a unique client request token. If you try to start a new task with the same token as a task that already exists, an exception occurs. If you omit this value, a unique client request token is generated automatically.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.limit_exceeded_exception.LimitExceededException: <p>A limit has been exceeded.</p>
+            aws_sdk_iot.errors.task_already_exists_exception.TaskAlreadyExistsException: <p> This exception occurs if you attempt to start a task with the same task-id as an existing task but with a different clientRequestToken. </p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -13679,6 +15560,14 @@ class AsyncIoTClient:
             include_only_active_violations: <p> Specifies to list only active violations. </p>
             include_suppressed_alerts: <p> Specifies to include suppressed alerts. </p>
             client_request_token: <p> Each mitigation action task must have a unique client request token. If you try to create a new task with the same token as a task that already exists, an exception occurs. If you omit this value, Amazon Web Services SDKs will automatically generate a unique client request. </p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.limit_exceeded_exception.LimitExceededException: <p>A limit has been exceeded.</p>
+            aws_sdk_iot.errors.task_already_exists_exception.TaskAlreadyExistsException: <p> This exception occurs if you attempt to start a task with the same task-id as an existing task but with a different clientRequestToken. </p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -13728,6 +15617,13 @@ class AsyncIoTClient:
 
         Args:
             target_check_names: <p>Which checks are performed during the audit. The checks you specify must be enabled for your account or an exception occurs. Use <code>DescribeAccountAuditConfiguration</code> to see the list of all checks, including those that are enabled or <code>UpdateAccountAuditConfiguration</code> to select which checks are enabled.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.limit_exceeded_exception.LimitExceededException: <p>A limit has been exceeded.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -13772,6 +15668,13 @@ class AsyncIoTClient:
             input_file_bucket: <p>The S3 bucket that contains the input file.</p>
             input_file_key: <p>The name of input file within the S3 bucket. This file contains a newline delimited JSON file. Each line contains the parameter values to provision one device (thing).</p>
             role_arn: <p>The IAM role ARN that grants permission the input file.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.unauthorized_exception.UnauthorizedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -13813,6 +15716,14 @@ class AsyncIoTClient:
 
         Args:
             task_id: <p>The bulk thing provisioning task ID.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.unauthorized_exception.UnauthorizedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -13853,6 +15764,14 @@ class AsyncIoTClient:
         Args:
             resource_arn: <p>The ARN of the resource.</p>
             tags: <p>The new or modified tags for the resource.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.limit_exceeded_exception.LimitExceededException: <p>A limit has been exceeded.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -13908,6 +15827,16 @@ class AsyncIoTClient:
             client_id: <p>The MQTT client ID.</p>
             policy_names_to_add: <p>When testing custom authorization, the policies specified here are treated as if they are attached to the principal being authorized.</p>
             policy_names_to_skip: <p>When testing custom authorization, the policies specified here are treated as if they are not attached to the principal being authorized.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.limit_exceeded_exception.LimitExceededException: <p>A limit has been exceeded.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.unauthorized_exception.UnauthorizedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -13970,6 +15899,16 @@ class AsyncIoTClient:
             http_context: <p>Specifies a test HTTP authorization request.</p>
             mqtt_context: <p>Specifies a test MQTT authorization request.</p>
             tls_context: <p>Specifies a test TLS authorization request.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.invalid_response_exception.InvalidResponseException: <p>The response is invalid.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.unauthorized_exception.UnauthorizedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -14022,6 +15961,17 @@ class AsyncIoTClient:
             certificate_id: <p>The ID of the certificate. (The last part of the certificate ARN contains the certificate ID.)</p>
             target_aws_account: <p>The Amazon Web Services account.</p>
             transfer_message: <p>The transfer message.</p>
+
+        Raises:
+            aws_sdk_iot.errors.certificate_state_exception.CertificateStateException: <p>The certificate operation is not allowed.</p>
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.transfer_conflict_exception.TransferConflictException: <p>You can't transfer the certificate because authorization policies are still attached.</p>
+            aws_sdk_iot.errors.unauthorized_exception.UnauthorizedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -14065,6 +16015,13 @@ class AsyncIoTClient:
         Args:
             resource_arn: <p>The ARN of the resource.</p>
             tag_keys: <p>A list of the keys of the tags to be removed from the resource.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -14112,6 +16069,12 @@ class AsyncIoTClient:
             role_arn: <p>The Amazon Resource Name (ARN) of the role that grants permission to IoT to access information about your devices, policies, certificates, and other items as required when performing an audit.</p>
             audit_notification_target_configurations: <p>Information about the targets to which audit notifications are sent.</p>
             audit_check_configurations: <p>Specifies which audit checks are enabled and disabled for this account. Use <code>DescribeAccountAuditConfiguration</code> to see the list of all checks, including those that are currently enabled.</p> <p>Some data collection might start immediately when certain checks are enabled. When a check is disabled, any data collected so far in relation to the check is deleted.</p> <p>You cannot disable a check if it's used by any scheduled audit. You must first delete the check from the scheduled audit or delete the scheduled audit itself.</p> <p>On the first call to <code>UpdateAccountAuditConfiguration</code>, this parameter is required and must specify at least one enabled check.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -14167,6 +16130,13 @@ class AsyncIoTClient:
             expiration_date: <p> The expiration date (epoch timestamp in seconds) that you want the suppression to adhere to. </p>
             suppress_indefinitely: <p> Indicates whether a suppression should exist indefinitely or not. </p>
             description: <p> The description of the audit suppression. </p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -14230,6 +16200,16 @@ class AsyncIoTClient:
             token_signing_public_keys: <p>The public keys used to verify the token signature.</p>
             status: <p>The status of the update authorizer request.</p>
             enable_caching_for_http: <p>When <code>true</code>, the result from the authorizer’s Lambda function is cached for the time specified in <code>refreshAfterInSeconds</code>. The cached result is used while the device reuses the same HTTP connection.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.limit_exceeded_exception.LimitExceededException: <p>A limit has been exceeded.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.unauthorized_exception.UnauthorizedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -14284,6 +16264,14 @@ class AsyncIoTClient:
             billing_group_name: <p>The name of the billing group.</p>
             billing_group_properties: <p>The properties of the billing group.</p>
             expected_version: <p>The expected version of the billing group. If the version of the billing group does not match the expected version specified in the request, the <code>UpdateBillingGroup</code> request is rejected with a <code>VersionConflictException</code>.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.version_conflict_exception.VersionConflictException: <p>An exception thrown when the version of an entity specified with the <code>expectedVersion</code> parameter does not match the latest version in the system.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -14341,6 +16329,15 @@ class AsyncIoTClient:
             new_auto_registration_status: <p>The new value for the auto registration status. Valid values are: \"ENABLE\" or \"DISABLE\".</p>
             registration_config: <p>Information about the registration configuration.</p>
             remove_auto_registration: <p>If true, removes auto registration.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.unauthorized_exception.UnauthorizedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -14387,6 +16384,16 @@ class AsyncIoTClient:
         Args:
             certificate_id: <p>The ID of the certificate. (The last part of the certificate ARN contains the certificate ID.)</p>
             new_status: <p>The new status.</p> <p> <b>Note:</b> Setting the status to PENDING_TRANSFER or PENDING_ACTIVATION will result in an exception being thrown. PENDING_TRANSFER and PENDING_ACTIVATION are statuses used internally by IoT. They are not intended for developer use.</p> <p> <b>Note:</b> The status value REGISTER_INACTIVE is deprecated and should not be used.</p>
+
+        Raises:
+            aws_sdk_iot.errors.certificate_state_exception.CertificateStateException: <p>The certificate operation is not allowed.</p>
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.unauthorized_exception.UnauthorizedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -14432,6 +16439,15 @@ class AsyncIoTClient:
             certificate_provider_name: <p>The name of the certificate provider.</p>
             lambda_function_arn: <p>The Lambda function ARN that's associated with the certificate provider.</p>
             account_default_for_operations: <p>A list of the operations that the certificate provider will use to generate certificates. Valid value: <code>CreateCertificateFromCsr</code>.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.unauthorized_exception.UnauthorizedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -14484,6 +16500,14 @@ class AsyncIoTClient:
             display_name: <p>The new user-friendly name to use in the console for the command.</p>
             description: <p>A short text description of the command.</p>
             deprecated: <p>A boolean that you can use to specify whether to deprecate a command.</p>
+
+        Raises:
+            aws_sdk_iot.errors.conflict_exception.ConflictException: <p>The request conflicts with the current state of the resource.</p>
+            aws_sdk_iot.errors.internal_server_exception.InternalServerException: <p>Internal error from the service that indicates an unexpected error or that the service is unavailable.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.validation_exception.ValidationException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -14530,6 +16554,13 @@ class AsyncIoTClient:
         Args:
             metric_name: <p> The name of the custom metric. Cannot be updated. </p>
             display_name: <p> Field represents a friendly name in the console for the custom metric, it doesn't have to be unique. Don't use this name as the metric identifier in the device metric report. Can be updated. </p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -14571,6 +16602,13 @@ class AsyncIoTClient:
         Args:
             name: <p>A unique identifier for the dimension. Choose something that describes the type and value to make it easy to remember what it does.</p>
             string_values: <p>Specifies the value or list of values for the dimension. For <code>TOPIC_FILTER</code> dimensions, this is a pattern used to match the MQTT topic (for example, \"admin/#\").</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -14640,6 +16678,16 @@ class AsyncIoTClient:
             authentication_type: <p>An enumerated string that speciﬁes the authentication type.</p> <ul> <li> <p> <code>CUSTOM_AUTH_X509</code> - Use custom authentication and authorization with additional details from the X.509 client certificate.</p> </li> </ul> <ul> <li> <p> <code>CUSTOM_AUTH</code> - Use custom authentication and authorization. For more information, see <a href=\"https://docs.aws.amazon.com/iot/latest/developerguide/custom-authentication.html\">Custom authentication and authorization</a>.</p> </li> </ul> <ul> <li> <p> <code>AWS_X509</code> - Use X.509 client certificates without custom authentication and authorization. For more information, see <a href=\"https://docs.aws.amazon.com/iot/latest/developerguide/x509-client-certs.html\">X.509 client certificates</a>.</p> </li> </ul> <ul> <li> <p> <code>AWS_SIGV4</code> - Use Amazon Web Services Signature Version 4. For more information, see <a href=\"https://docs.aws.amazon.com/iot/latest/developerguide/custom-authentication.html\">IAM users, groups, and roles</a>.</p> </li> </ul> <ul> <li> <p> <code>DEFAULT </code> - Use a combination of port and Application Layer Protocol Negotiation (ALPN) to specify authentication type. For more information, see <a href=\"https://docs.aws.amazon.com/iot/latest/developerguide/protocols.html\">Device communication protocols</a>.</p> </li> </ul>
             application_protocol: <p>An enumerated string that speciﬁes the application-layer protocol.</p> <ul> <li> <p> <code>SECURE_MQTT</code> - MQTT over TLS.</p> </li> </ul> <ul> <li> <p> <code>MQTT_WSS</code> - MQTT over WebSocket.</p> </li> </ul> <ul> <li> <p> <code>HTTPS</code> - HTTP over TLS.</p> </li> </ul> <ul> <li> <p> <code>DEFAULT</code> - Use a combination of port and Application Layer Protocol Negotiation (ALPN) to specify application_layer protocol. For more information, see <a href=\"https://docs.aws.amazon.com/iot/latest/developerguide/protocols.html\">Device communication protocols</a>.</p> </li> </ul>
             client_certificate_config: <p>An object that speciﬁes the client certificate conﬁguration for a domain.</p>
+
+        Raises:
+            aws_sdk_iot.errors.certificate_validation_exception.CertificateValidationException: <p>The certificate is invalid.</p>
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.unauthorized_exception.UnauthorizedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -14706,6 +16754,15 @@ class AsyncIoTClient:
             index_name: <p>The dynamic thing group index to update.</p> <note> <p>Currently one index is supported: <code>AWS_Things</code>.</p> </note>
             query_string: <p>The dynamic thing group search query string to update.</p>
             query_version: <p>The dynamic thing group query version to update.</p> <note> <p>Currently one query version is supported: \"2017-09-30\". If not specified, the query version defaults to this value.</p> </note>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_query_exception.InvalidQueryException: <p>The query is invalid.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.version_conflict_exception.VersionConflictException: <p>An exception thrown when the version of an entity specified with the <code>expectedVersion</code> parameter does not match the latest version in the system.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -14760,6 +16817,14 @@ class AsyncIoTClient:
             kms_key_arn: <p>The ARN of the customer managedKMS key.</p>
             kms_access_role_arn: <p>The Amazon Resource Name (ARN) of the IAM role assumed by Amazon Web Services IoT Core to call KMS on behalf of the customer.</p>
 
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.unauthorized_exception.UnauthorizedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             UpdateEncryptionConfiguration example
             This operation updates the encryption configuration.
@@ -14809,6 +16874,12 @@ class AsyncIoTClient:
 
         Args:
             event_configurations: <p>The new event configuration values.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -14876,6 +16947,19 @@ class AsyncIoTClient:
             index_name: <p>The name of the index to search.</p>
             unit: <p>Used to support unit transformation such as milliseconds to seconds. The unit must be supported by <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_MetricDatum.html\">CW metric</a>.</p>
             expected_version: <p>The expected version of the fleet metric record in the registry.</p>
+
+        Raises:
+            aws_sdk_iot.errors.index_not_ready_exception.IndexNotReadyException: <p>The index is not ready.</p>
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_aggregation_exception.InvalidAggregationException: <p>The aggregation is invalid.</p>
+            aws_sdk_iot.errors.invalid_query_exception.InvalidQueryException: <p>The query is invalid.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.unauthorized_exception.UnauthorizedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_iot.errors.version_conflict_exception.VersionConflictException: <p>An exception thrown when the version of an entity specified with the <code>expectedVersion</code> parameter does not match the latest version in the system.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -14935,6 +17019,14 @@ class AsyncIoTClient:
         Args:
             thing_indexing_configuration: <p>Thing indexing configuration.</p>
             thing_group_indexing_configuration: <p>Thing group indexing configuration.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.unauthorized_exception.UnauthorizedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -15002,6 +17094,13 @@ class AsyncIoTClient:
             timeout_config: <p>Specifies the amount of time each device has to finish its execution of the job. The timer is started when the job execution status is set to <code>IN_PROGRESS</code>. If the job execution status is not set to another terminal state before the time expires, it will be automatically set to <code>TIMED_OUT</code>. </p>
             namespace_id: <p>The namespace used to indicate that a job is a customer-managed job.</p> <p>When you specify a value for this parameter, Amazon Web Services IoT Core sends jobs notifications to MQTT topics that contain the value in the following format.</p> <p> <code>$aws/things/<i>THING_NAME</i>/jobs/<i>JOB_ID</i>/notify-namespace-<i>NAMESPACE_ID</i>/</code> </p> <note> <p>The <code>namespaceId</code> feature is only supported by IoT Greengrass at this time. For more information, see <a href=\"https://docs.aws.amazon.com/greengrass/v2/developerguide/setting-up.html\">Setting up IoT Greengrass core devices.</a> </p> </note>
             job_executions_retry_config: <p>Allows you to create the criteria to retry a job.</p>
+
+        Raises:
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -15058,6 +17157,13 @@ class AsyncIoTClient:
             action_name: <p>The friendly name for the mitigation action. You cannot change the name by using <code>UpdateMitigationAction</code>. Instead, you must delete and recreate the mitigation action with the new name.</p>
             role_arn: <p>The ARN of the IAM role that is used to apply the mitigation action.</p>
             action_params: <p>Defines the type of action and the parameters for that action.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -15114,6 +17220,14 @@ class AsyncIoTClient:
             default_version_name: <p>The name of the default package version.</p> <p> <b>Note:</b> You cannot name a <code>defaultVersion</code> and set <code>unsetDefaultVersion</code> equal to <code>true</code> at the same time.</p>
             unset_default_version: <p>Indicates whether you want to remove the named default package version from the software package. Set as <code>true</code> to remove the default package version. </p> <p> <b>Note:</b> You cannot name a <code>defaultVersion</code> and set <code>unsetDefaultVersion</code> equal to <code>true</code> at the same time.</p>
             client_token: <p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required.</p>
+
+        Raises:
+            aws_sdk_iot.errors.conflict_exception.ConflictException: <p>The request conflicts with the current state of the resource.</p>
+            aws_sdk_iot.errors.internal_server_exception.InternalServerException: <p>Internal error from the service that indicates an unexpected error or that the service is unavailable.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.validation_exception.ValidationException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -15164,6 +17278,13 @@ class AsyncIoTClient:
         Args:
             version_update_by_jobs_config: <p>Configuration to manage job's package version reporting. This updates the thing's reserved named shadow that the job targets.</p>
             client_token: <p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required.</p>
+
+        Raises:
+            aws_sdk_iot.errors.conflict_exception.ConflictException: <p>The request conflicts with the current state of the resource.</p>
+            aws_sdk_iot.errors.internal_server_exception.InternalServerException: <p>Internal error from the service that indicates an unexpected error or that the service is unavailable.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.validation_exception.ValidationException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -15231,6 +17352,14 @@ class AsyncIoTClient:
             action: <p>The status that the package version should be assigned. For more information, see <a href=\"https://docs.aws.amazon.com/iot/latest/developerguide/preparing-to-use-software-package-catalog.html#package-version-lifecycle\">Package version lifecycle</a>.</p>
             recipe: <p>The inline job document associated with a software package version used for a quick job deployment.</p>
             client_token: <p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required.</p>
+
+        Raises:
+            aws_sdk_iot.errors.conflict_exception.ConflictException: <p>The request conflicts with the current state of the resource.</p>
+            aws_sdk_iot.errors.internal_server_exception.InternalServerException: <p>Internal error from the service that indicates an unexpected error or that the service is unavailable.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.validation_exception.ValidationException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -15302,6 +17431,14 @@ class AsyncIoTClient:
             provisioning_role_arn: <p>The ARN of the role associated with the provisioning template. This IoT role grants permission to provision a device.</p>
             pre_provisioning_hook: <p>Updates the pre-provisioning hook template. Only supports template of type <code>FLEET_PROVISIONING</code>. For more information about provisioning template types, see <a href=\"https://docs.aws.amazon.com/iot/latest/apireference/API_CreateProvisioningTemplate.html#iot-CreateProvisioningTemplate-request-type\">type</a>.</p>
             remove_pre_provisioning_hook: <p>Removes pre-provisioning hook template.</p>
+
+        Raises:
+            aws_sdk_iot.errors.conflicting_resource_update_exception.ConflictingResourceUpdateException: <p>A conflicting resource update exception. This exception is thrown when two pending updates cause a conflict.</p>
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.unauthorized_exception.UnauthorizedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -15358,6 +17495,15 @@ class AsyncIoTClient:
             role_alias: <p>The role alias to update.</p>
             role_arn: <p>The role ARN.</p>
             credential_duration_seconds: <p>The number of seconds the credential will be valid.</p> <p>This value must be less than or equal to the maximum session duration of the IAM role that the role alias references.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.unauthorized_exception.UnauthorizedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -15412,6 +17558,13 @@ class AsyncIoTClient:
             day_of_week: <p>The day of the week on which the scheduled audit takes place. This can be one of <code>SUN</code>, <code>MON</code>, <code>TUE</code>, <code>WED</code>, <code>THU</code>, <code>FRI</code>, or <code>SAT</code>. This field is required if the \"frequency\" parameter is set to <code>WEEKLY</code> or <code>BIWEEKLY</code>.</p>
             target_check_names: <p>Which checks are performed during the scheduled audit. Checks must be enabled for your account. (Use <code>DescribeAccountAuditConfiguration</code> to see the list of all checks, including those that are enabled or use <code>UpdateAccountAuditConfiguration</code> to select which checks are enabled.)</p>
             scheduled_audit_name: <p>The name of the scheduled audit. (Max. 128 chars)</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -15498,6 +17651,14 @@ class AsyncIoTClient:
             expected_version: <p>The expected version of the security profile. A new version is generated whenever the security profile is updated. If you specify a value that is different from the actual version, a <code>VersionConflictException</code> is thrown.</p>
             metrics_export_config: <p>Specifies the MQTT topic and role ARN required for metric export.</p>
             delete_metrics_export_config: <p>Set the value as true to delete metrics export related configurations.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.version_conflict_exception.VersionConflictException: <p>An exception thrown when the version of an entity specified with the <code>expectedVersion</code> parameter does not match the latest version in the system.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -15568,6 +17729,16 @@ class AsyncIoTClient:
             description: <p>The description of the stream.</p>
             files: <p>The files associated with the stream.</p>
             role_arn: <p>An IAM role that allows the IoT service principal assumes to access your S3 files.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.limit_exceeded_exception.LimitExceededException: <p>A limit has been exceeded.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.unauthorized_exception.UnauthorizedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -15628,6 +17799,16 @@ class AsyncIoTClient:
             attribute_payload: <p>A list of thing attributes, a JSON string containing name-value pairs. For example:</p> <p> <code>{\\"attributes\\":{\\"name1\\":\\"value2\\"}}</code> </p> <p>This data is used to add new attributes or update existing attributes.</p>
             expected_version: <p>The expected version of the thing record in the registry. If the version of the record in the registry does not match the expected version specified in the request, the <code>UpdateThing</code> request is rejected with a <code>VersionConflictException</code>.</p>
             remove_thing_type: <p>Remove a thing type association. If <b>true</b>, the association is removed.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.unauthorized_exception.UnauthorizedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_iot.errors.version_conflict_exception.VersionConflictException: <p>An exception thrown when the version of an entity specified with the <code>expectedVersion</code> parameter does not match the latest version in the system.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -15680,6 +17861,14 @@ class AsyncIoTClient:
             thing_group_name: <p>The thing group to update.</p>
             thing_group_properties: <p>The thing group properties.</p>
             expected_version: <p>The expected version of the thing group. If this does not match the version of the thing group being updated, the update will fail.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.version_conflict_exception.VersionConflictException: <p>An exception thrown when the version of an entity specified with the <code>expectedVersion</code> parameter does not match the latest version in the system.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -15733,6 +17922,13 @@ class AsyncIoTClient:
             thing_groups_to_add: <p>The groups to which the thing will be added.</p>
             thing_groups_to_remove: <p>The groups from which the thing will be removed.</p>
             override_dynamic_groups: <p>Override dynamic thing groups with static thing groups when 10-group limit is reached. If a thing belongs to 10 thing groups, and one or more of those groups are dynamic thing groups, adding a thing to a static group removes the thing from the last dynamic group.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -15781,6 +17977,15 @@ class AsyncIoTClient:
 
         Args:
             thing_type_name: <p>The name of a thing type.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.unauthorized_exception.UnauthorizedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -15823,6 +18028,14 @@ class AsyncIoTClient:
         Args:
             arn: <p>The ARN of the topic rule destination.</p>
             status: <p>The status of the topic rule destination. Valid values are:</p> <dl> <dt>IN_PROGRESS</dt> <dd> <p>A topic rule destination was created but has not been confirmed. You can set <code>status</code> to <code>IN_PROGRESS</code> by calling <code>UpdateTopicRuleDestination</code>. Calling <code>UpdateTopicRuleDestination</code> causes a new confirmation challenge to be sent to your confirmation endpoint.</p> </dd> <dt>ENABLED</dt> <dd> <p>Confirmation was completed, and traffic to this destination is allowed. You can set <code>status</code> to <code>DISABLED</code> by calling <code>UpdateTopicRuleDestination</code>.</p> </dd> <dt>DISABLED</dt> <dd> <p>Confirmation was completed, and traffic to this destination is not allowed. You can set <code>status</code> to <code>ENABLED</code> by calling <code>UpdateTopicRuleDestination</code>.</p> </dd> <dt>ERROR</dt> <dd> <p>Confirmation could not be completed, for example if the confirmation timed out. You can call <code>GetTopicRuleDestination</code> for details about the error. You can set <code>status</code> to <code>IN_PROGRESS</code> by calling <code>UpdateTopicRuleDestination</code>. Calling <code>UpdateTopicRuleDestination</code> causes a new confirmation challenge to be sent to your confirmation endpoint.</p> </dd> </dl>
+
+        Raises:
+            aws_sdk_iot.errors.conflicting_resource_update_exception.ConflictingResourceUpdateException: <p>A conflicting resource update exception. This exception is thrown when two pending updates cause a conflict.</p>
+            aws_sdk_iot.errors.internal_exception.InternalException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot.errors.unauthorized_exception.UnauthorizedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -15862,6 +18075,12 @@ class AsyncIoTClient:
 
         Args:
             behaviors: <p>Specifies the behaviors that, when violated by a device (thing), cause an alert.</p>
+
+        Raises:
+            aws_sdk_iot.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

@@ -453,6 +453,11 @@ class AsyncStorageGatewayClient:
             medium_changer_type: <p>The value that indicates the type of medium changer to use for tape gateway. This field is optional.</p> <p>Valid Values: <code>STK-L700</code> | <code>AWS-Gateway-VTL</code> | <code>IBM-03584L32-0402</code> </p>
             tags: <p>A list of up to 50 tags that you can assign to the gateway. Each tag is a key-value pair.</p> <note> <p>Valid characters for key and value are letters, spaces, and numbers that can be represented in UTF-8 format, and the following special characters: + - = . _ : / @. The maximum length of a tag's key is 128 characters, and the maximum length for a tag's value is 256 characters.</p> </note>
 
+        Raises:
+            aws_sdk_storage_gateway.errors.internal_server_error.InternalServerError: <p>An internal server error has occurred during the request. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.invalid_gateway_request_exception.InvalidGatewayRequestException: <p>An exception occurred because an invalid gateway request was issued to the service. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To activate the gateway
             Activates the gateway you previously deployed on your host.
@@ -509,6 +514,11 @@ class AsyncStorageGatewayClient:
         Args:
             disk_ids: <p>An array of strings that identify disks that are to be configured as working storage. Each string has a minimum length of 1 and maximum length of 300. You can get the disk IDs from the <a>ListLocalDisks</a> API.</p>
 
+        Raises:
+            aws_sdk_storage_gateway.errors.internal_server_error.InternalServerError: <p>An internal server error has occurred during the request. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.invalid_gateway_request_exception.InvalidGatewayRequestException: <p>An exception occurred because an invalid gateway request was issued to the service. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To add a cache
             The following example shows a request that activates a gateway-stored volume.
@@ -556,6 +566,11 @@ class AsyncStorageGatewayClient:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource you want to add tags to.</p>
             tags: <p>The key-value pair that represents the tag you want to add to the resource. The value can be an empty string.</p> <note> <p>Valid characters for key and value are letters, spaces, and numbers representable in UTF-8 format, and the following special characters: + - = . _ : / @. The maximum length of a tag's key is 128 characters, and the maximum length for a tag's value is 256.</p> </note>
 
+        Raises:
+            aws_sdk_storage_gateway.errors.internal_server_error.InternalServerError: <p>An internal server error has occurred during the request. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.invalid_gateway_request_exception.InvalidGatewayRequestException: <p>An exception occurred because an invalid gateway request was issued to the service. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To add tags to resource
             Adds one or more tags to the specified resource.
@@ -602,6 +617,11 @@ class AsyncStorageGatewayClient:
         Args:
             disk_ids: <p>An array of strings that identify disks that are to be configured as working storage. Each string has a minimum length of 1 and maximum length of 300. You can get the disk IDs from the <a>ListLocalDisks</a> API.</p>
 
+        Raises:
+            aws_sdk_storage_gateway.errors.internal_server_error.InternalServerError: <p>An internal server error has occurred during the request. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.invalid_gateway_request_exception.InvalidGatewayRequestException: <p>An exception occurred because an invalid gateway request was issued to the service. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To add upload buffer on local disk
             Configures one or more gateway local disks as upload buffer for a specified gateway.
@@ -647,6 +667,11 @@ class AsyncStorageGatewayClient:
 
         Args:
             disk_ids: <p>An array of strings that identify disks that are to be configured as working storage. Each string has a minimum length of 1 and maximum length of 300. You can get the disk IDs from the <a>ListLocalDisks</a> API.</p>
+
+        Raises:
+            aws_sdk_storage_gateway.errors.internal_server_error.InternalServerError: <p>An internal server error has occurred during the request. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.invalid_gateway_request_exception.InvalidGatewayRequestException: <p>An exception occurred because an invalid gateway request was issued to the service. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To add storage on local disk
@@ -698,6 +723,11 @@ class AsyncStorageGatewayClient:
             tape_arn: <p>The unique Amazon Resource Name (ARN) of the virtual tape that you want to add to the tape pool.</p>
             pool_id: <p>The ID of the pool that you want to add your tape to for archiving. The tape in this pool is archived in the S3 storage class that is associated with the pool. When you use your backup application to eject the tape, the tape is archived directly into the storage class (S3 Glacier or S3 Glacier Deep Archive) that corresponds to the pool.</p>
             bypass_governance_retention: <p>Set permissions to bypass governance retention. If the lock type of the archived tape is <code>Governance</code>, the tape's archived age is not older than <code>RetentionLockInDays</code>, and the user does not already have <code>BypassGovernanceRetention</code>, setting this to TRUE enables the user to bypass the retention lock. This parameter is set to true by default for calls from the console.</p> <p>Valid values: <code>TRUE</code> | <code>FALSE</code> </p>
+
+        Raises:
+            aws_sdk_storage_gateway.errors.internal_server_error.InternalServerError: <p>An internal server error has occurred during the request. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.invalid_gateway_request_exception.InvalidGatewayRequestException: <p>An exception occurred because an invalid gateway request was issued to the service. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -759,6 +789,11 @@ class AsyncStorageGatewayClient:
             tags: <p>A list of up to 50 tags that can be assigned to the file system association. Each tag is a key-value pair.</p>
             audit_destination_arn: <p>The Amazon Resource Name (ARN) of the storage used for the audit logs.</p>
             endpoint_network_configuration: <p>Specifies the network configuration information for the gateway associated with the Amazon FSx file system.</p> <note> <p>If multiple file systems are associated with this gateway, this parameter's <code>IpAddresses</code> field is required.</p> </note>
+
+        Raises:
+            aws_sdk_storage_gateway.errors.internal_server_error.InternalServerError: <p>An internal server error has occurred during the request. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.invalid_gateway_request_exception.InvalidGatewayRequestException: <p>An exception occurred because an invalid gateway request was issued to the service. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -819,6 +854,11 @@ class AsyncStorageGatewayClient:
             volume_arn: <p>The Amazon Resource Name (ARN) of the volume to attach to the specified gateway.</p>
             network_interface_id: <p>The network interface of the gateway on which to expose the iSCSI target. Accepts IPv4 and IPv6 addresses. Use <a>DescribeGatewayInformation</a> to get a list of the network interfaces available on a gateway.</p> <p>Valid Values: A valid IP address.</p>
             disk_id: <p>The unique device ID or other distinguishing data that identifies the local disk used to create the volume. This value is only required when you are attaching a stored volume.</p>
+
+        Raises:
+            aws_sdk_storage_gateway.errors.internal_server_error.InternalServerError: <p>An internal server error has occurred during the request. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.invalid_gateway_request_exception.InvalidGatewayRequestException: <p>An exception occurred because an invalid gateway request was issued to the service. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -865,6 +905,11 @@ class AsyncStorageGatewayClient:
         Args:
             tape_arn: <p>The Amazon Resource Name (ARN) of the virtual tape you want to cancel archiving for.</p>
 
+        Raises:
+            aws_sdk_storage_gateway.errors.internal_server_error.InternalServerError: <p>An internal server error has occurred during the request. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.invalid_gateway_request_exception.InvalidGatewayRequestException: <p>An exception occurred because an invalid gateway request was issued to the service. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To cancel virtual tape archiving
             Cancels archiving of a virtual tape to the virtual tape shelf (VTS) after the archiving process is initiated.
@@ -909,6 +954,11 @@ class AsyncStorageGatewayClient:
 
         Args:
             cache_report_arn: <p>The Amazon Resource Name (ARN) of the cache report you want to cancel.</p>
+
+        Raises:
+            aws_sdk_storage_gateway.errors.internal_server_error.InternalServerError: <p>An internal server error has occurred during the request. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.invalid_gateway_request_exception.InvalidGatewayRequestException: <p>An exception occurred because an invalid gateway request was issued to the service. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -948,6 +998,11 @@ class AsyncStorageGatewayClient:
 
         Args:
             tape_arn: <p>The Amazon Resource Name (ARN) of the virtual tape you want to cancel retrieval for.</p>
+
+        Raises:
+            aws_sdk_storage_gateway.errors.internal_server_error.InternalServerError: <p>An internal server error has occurred during the request. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.invalid_gateway_request_exception.InvalidGatewayRequestException: <p>An exception occurred because an invalid gateway request was issued to the service. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To cancel virtual tape retrieval
@@ -1014,6 +1069,11 @@ class AsyncStorageGatewayClient:
             kms_encrypted: <p>Set to <code>true</code> to use Amazon S3 server-side encryption with your own KMS key, or <code>false</code> to use a key managed by Amazon S3. Optional.</p> <p>Valid Values: <code>true</code> | <code>false</code> </p>
             kms_key: <p>The Amazon Resource Name (ARN) of a symmetric customer master key (CMK) used for Amazon S3 server-side encryption. Storage Gateway does not support asymmetric CMKs. This value can only be set when <code>KMSEncrypted</code> is <code>true</code>. Optional.</p>
             tags: <p>A list of up to 50 tags that you can assign to a cached volume. Each tag is a key-value pair.</p> <note> <p>Valid characters for key and value are letters, spaces, and numbers that you can represent in UTF-8 format, and the following special characters: + - = . _ : / @. The maximum length of a tag's key is 128 characters, and the maximum length for a tag's value is 256 characters.</p> </note>
+
+        Raises:
+            aws_sdk_storage_gateway.errors.internal_server_error.InternalServerError: <p>An internal server error has occurred during the request. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.invalid_gateway_request_exception.InvalidGatewayRequestException: <p>An exception occurred because an invalid gateway request was issued to the service. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To create a cached iSCSI volume
@@ -1140,6 +1200,11 @@ class AsyncStorageGatewayClient:
             vpc_endpoint_dns_name: <p>Specifies the DNS name for the VPC endpoint that the NFS file share uses to connect to Amazon S3.</p> <note> <p>This parameter is required for NFS file shares that connect to Amazon S3 through a VPC endpoint, a VPC access point, or an access point alias that points to a VPC access point.</p> </note>
             bucket_region: <p>Specifies the Region of the S3 bucket where the NFS file share stores files.</p> <note> <p>This parameter is required for NFS file shares that connect to Amazon S3 through a VPC endpoint, a VPC access point, or an access point alias that points to a VPC access point.</p> </note>
             audit_destination_arn: <p>The Amazon Resource Name (ARN) of the storage used for audit logs.</p>
+
+        Raises:
+            aws_sdk_storage_gateway.errors.internal_server_error.InternalServerError: <p>An internal server error has occurred during the request. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.invalid_gateway_request_exception.InvalidGatewayRequestException: <p>An exception occurred because an invalid gateway request was issued to the service. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1307,6 +1372,11 @@ class AsyncStorageGatewayClient:
             vpc_endpoint_dns_name: <p>Specifies the DNS name for the VPC endpoint that the SMB file share uses to connect to Amazon S3.</p> <note> <p>This parameter is required for SMB file shares that connect to Amazon S3 through a VPC endpoint, a VPC access point, or an access point alias that points to a VPC access point.</p> </note>
             bucket_region: <p>Specifies the Region of the S3 bucket where the SMB file share stores files.</p> <note> <p>This parameter is required for SMB file shares that connect to Amazon S3 through a VPC endpoint, a VPC access point, or an access point alias that points to a VPC access point.</p> </note>
             oplocks_enabled: <p>Specifies whether opportunistic locking is enabled for the SMB file share.</p> <note> <p>Enabling opportunistic locking on case-sensitive shares is not recommended for workloads that involve access to files with the same name in different case.</p> </note> <p>Valid Values: <code>true</code> | <code>false</code> </p>
+
+        Raises:
+            aws_sdk_storage_gateway.errors.internal_server_error.InternalServerError: <p>An internal server error has occurred during the request. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.invalid_gateway_request_exception.InvalidGatewayRequestException: <p>An exception occurred because an invalid gateway request was issued to the service. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1399,6 +1469,12 @@ class AsyncStorageGatewayClient:
             snapshot_description: <p>Textual description of the snapshot that appears in the Amazon EC2 console, Elastic Block Store snapshots panel in the <b>Description</b> field, and in the Storage Gateway snapshot <b>Details</b> pane, <b>Description</b> field.</p>
             tags: <p>A list of up to 50 tags that can be assigned to a snapshot. Each tag is a key-value pair.</p> <note> <p>Valid characters for key and value are letters, spaces, and numbers representable in UTF-8 format, and the following special characters: + - = . _ : / @. The maximum length of a tag's key is 128 characters, and the maximum length for a tag's value is 256.</p> </note>
 
+        Raises:
+            aws_sdk_storage_gateway.errors.internal_server_error.InternalServerError: <p>An internal server error has occurred during the request. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.invalid_gateway_request_exception.InvalidGatewayRequestException: <p>An exception occurred because an invalid gateway request was issued to the service. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.service_unavailable_error.ServiceUnavailableError: <p>An internal server error has occurred because the service is unavailable. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To create a snapshot of a gateway volume
             Initiates an ad-hoc snapshot of a gateway volume.
@@ -1449,6 +1525,12 @@ class AsyncStorageGatewayClient:
             volume_arn: <p>The Amazon Resource Name (ARN) of the iSCSI volume target. Use the <a>DescribeStorediSCSIVolumes</a> operation to return to retrieve the TargetARN for specified VolumeARN.</p>
             snapshot_description: <p>Textual description of the snapshot that appears in the Amazon EC2 console, Elastic Block Store snapshots panel in the <b>Description</b> field, and in the Storage Gateway snapshot <b>Details</b> pane, <b>Description</b> field.</p>
             tags: <p>A list of up to 50 tags that can be assigned to a snapshot. Each tag is a key-value pair.</p> <note> <p>Valid characters for key and value are letters, spaces, and numbers representable in UTF-8 format, and the following special characters: + - = . _ : / @. The maximum length of a tag's key is 128 characters, and the maximum length for a tag's value is 256.</p> </note>
+
+        Raises:
+            aws_sdk_storage_gateway.errors.internal_server_error.InternalServerError: <p>An internal server error has occurred during the request. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.invalid_gateway_request_exception.InvalidGatewayRequestException: <p>An exception occurred because an invalid gateway request was issued to the service. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.service_unavailable_error.ServiceUnavailableError: <p>An internal server error has occurred because the service is unavailable. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To create a snapshot of a gateway volume
@@ -1513,6 +1595,11 @@ class AsyncStorageGatewayClient:
             kms_encrypted: <p>Set to <code>true</code> to use Amazon S3 server-side encryption with your own KMS key, or <code>false</code> to use a key managed by Amazon S3. Optional.</p> <p>Valid Values: <code>true</code> | <code>false</code> </p>
             kms_key: <p>The Amazon Resource Name (ARN) of a symmetric customer master key (CMK) used for Amazon S3 server-side encryption. Storage Gateway does not support asymmetric CMKs. This value can only be set when <code>KMSEncrypted</code> is <code>true</code>. Optional.</p>
             tags: <p>A list of up to 50 tags that can be assigned to a stored volume. Each tag is a key-value pair.</p> <note> <p>Valid characters for key and value are letters, spaces, and numbers representable in UTF-8 format, and the following special characters: + - = . _ : / @. The maximum length of a tag's key is 128 characters, and the maximum length for a tag's value is 256.</p> </note>
+
+        Raises:
+            aws_sdk_storage_gateway.errors.internal_server_error.InternalServerError: <p>An internal server error has occurred during the request. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.invalid_gateway_request_exception.InvalidGatewayRequestException: <p>An exception occurred because an invalid gateway request was issued to the service. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To create a stored iSCSI volume
@@ -1581,6 +1668,11 @@ class AsyncStorageGatewayClient:
             retention_lock_type: <p>Tape retention lock can be configured in two modes. When configured in governance mode, Amazon Web Services accounts with specific IAM permissions are authorized to remove the tape retention lock from archived virtual tapes. When configured in compliance mode, the tape retention lock cannot be removed by any user, including the root Amazon Web Services account.</p>
             retention_lock_time_in_days: <p>Tape retention lock time is set in days. Tape retention lock can be enabled for up to 100 years (36,500 days).</p>
             tags: <p>A list of up to 50 tags that can be assigned to tape pool. Each tag is a key-value pair.</p> <note> <p>Valid characters for key and value are letters, spaces, and numbers representable in UTF-8 format, and the following special characters: + - = . _ : / @. The maximum length of a tag's key is 128 characters, and the maximum length for a tag's value is 256.</p> </note>
+
+        Raises:
+            aws_sdk_storage_gateway.errors.internal_server_error.InternalServerError: <p>An internal server error has occurred during the request. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.invalid_gateway_request_exception.InvalidGatewayRequestException: <p>An exception occurred because an invalid gateway request was issued to the service. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1644,6 +1736,11 @@ class AsyncStorageGatewayClient:
             pool_id: <p>The ID of the pool that you want to add your tape to for archiving. The tape in this pool is archived in the S3 storage class that is associated with the pool. When you use your backup application to eject the tape, the tape is archived directly into the storage class (S3 Glacier or S3 Glacier Deep Archive) that corresponds to the pool.</p>
             worm: <p>Set to <code>TRUE</code> if the tape you are creating is to be configured as a write-once-read-many (WORM) tape.</p>
             tags: <p>A list of up to 50 tags that can be assigned to a virtual tape. Each tag is a key-value pair.</p> <note> <p>Valid characters for key and value are letters, spaces, and numbers representable in UTF-8 format, and the following special characters: + - = . _ : / @. The maximum length of a tag's key is 128 characters, and the maximum length for a tag's value is 256.</p> </note>
+
+        Raises:
+            aws_sdk_storage_gateway.errors.internal_server_error.InternalServerError: <p>An internal server error has occurred during the request. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.invalid_gateway_request_exception.InvalidGatewayRequestException: <p>An exception occurred because an invalid gateway request was issued to the service. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To create a virtual tape
@@ -1717,6 +1814,11 @@ class AsyncStorageGatewayClient:
             worm: <p>Set to <code>TRUE</code> if the tape you are creating is to be configured as a write-once-read-many (WORM) tape.</p>
             tags: <p>A list of up to 50 tags that can be assigned to a virtual tape that has a barcode. Each tag is a key-value pair.</p> <note> <p>Valid characters for key and value are letters, spaces, and numbers representable in UTF-8 format, and the following special characters: + - = . _ : / @. The maximum length of a tag's key is 128 characters, and the maximum length for a tag's value is 256.</p> </note>
 
+        Raises:
+            aws_sdk_storage_gateway.errors.internal_server_error.InternalServerError: <p>An internal server error has occurred during the request. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.invalid_gateway_request_exception.InvalidGatewayRequestException: <p>An exception occurred because an invalid gateway request was issued to the service. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To create a virtual tape using a barcode
             Creates a virtual tape by using your own barcode.
@@ -1768,7 +1870,13 @@ class AsyncStorageGatewayClient:
         *,
         config_overrides: Optional[AsyncStorageGatewayClientConfig] = None,
     ) -> "aws_sdk_storage_gateway.types.delete_automatic_tape_creation_policy_output.DeleteAutomaticTapeCreationPolicyOutput":
-        """<p>Deletes the automatic tape creation policy of a gateway. If you delete this policy, new virtual tapes must be created manually. Use the Amazon Resource Name (ARN) of the gateway in your request to remove the policy.</p>"""
+        """<p>Deletes the automatic tape creation policy of a gateway. If you delete this policy, new virtual tapes must be created manually. Use the Amazon Resource Name (ARN) of the gateway in your request to remove the policy.</p>
+
+        Raises:
+            aws_sdk_storage_gateway.errors.internal_server_error.InternalServerError: <p>An internal server error has occurred during the request. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.invalid_gateway_request_exception.InvalidGatewayRequestException: <p>An exception occurred because an invalid gateway request was issued to the service. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_storage_gateway.types.delete_automatic_tape_creation_policy_input.DeleteAutomaticTapeCreationPolicyInput]",
@@ -1807,6 +1915,11 @@ class AsyncStorageGatewayClient:
 
         Args:
             bandwidth_type: <p>One of the BandwidthType values that indicates the gateway bandwidth rate limit to delete.</p> <p>Valid Values: <code>UPLOAD</code> | <code>DOWNLOAD</code> | <code>ALL</code> </p>
+
+        Raises:
+            aws_sdk_storage_gateway.errors.internal_server_error.InternalServerError: <p>An internal server error has occurred during the request. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.invalid_gateway_request_exception.InvalidGatewayRequestException: <p>An exception occurred because an invalid gateway request was issued to the service. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To delete bandwidth rate limits of gateway
@@ -1852,6 +1965,11 @@ class AsyncStorageGatewayClient:
 
         Args:
             cache_report_arn: <p>The Amazon Resource Name (ARN) of the cache report you want to delete.</p>
+
+        Raises:
+            aws_sdk_storage_gateway.errors.internal_server_error.InternalServerError: <p>An internal server error has occurred during the request. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.invalid_gateway_request_exception.InvalidGatewayRequestException: <p>An exception occurred because an invalid gateway request was issued to the service. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1892,6 +2010,11 @@ class AsyncStorageGatewayClient:
         Args:
             target_arn: <p>The Amazon Resource Name (ARN) of the iSCSI volume target. Use the <a>DescribeStorediSCSIVolumes</a> operation to return to retrieve the TargetARN for specified VolumeARN.</p>
             initiator_name: <p>The iSCSI initiator that connects to the target.</p>
+
+        Raises:
+            aws_sdk_storage_gateway.errors.internal_server_error.InternalServerError: <p>An internal server error has occurred during the request. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.invalid_gateway_request_exception.InvalidGatewayRequestException: <p>An exception occurred because an invalid gateway request was issued to the service. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To delete CHAP credentials
@@ -1941,6 +2064,11 @@ class AsyncStorageGatewayClient:
         Args:
             file_share_arn: <p>The Amazon Resource Name (ARN) of the file share to be deleted.</p>
             force_delete: <p>If this value is set to <code>true</code>, the operation deletes a file share immediately and aborts all data uploads to Amazon Web Services. Otherwise, the file share is not deleted until all data is uploaded to Amazon Web Services. This process aborts the data upload process, and the file share enters the <code>FORCE_DELETING</code> status.</p> <p>Valid Values: <code>true</code> | <code>false</code> </p>
+
+        Raises:
+            aws_sdk_storage_gateway.errors.internal_server_error.InternalServerError: <p>An internal server error has occurred during the request. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.invalid_gateway_request_exception.InvalidGatewayRequestException: <p>An exception occurred because an invalid gateway request was issued to the service. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1978,6 +2106,11 @@ class AsyncStorageGatewayClient:
         config_overrides: Optional[AsyncStorageGatewayClientConfig] = None,
     ) -> "aws_sdk_storage_gateway.types.delete_gateway_output.DeleteGatewayOutput":
         r"""<p>Deletes a gateway. To specify which gateway to delete, use the Amazon Resource Name (ARN) of the gateway in your request. The operation deletes the gateway; however, it does not delete the gateway virtual machine (VM) from your host computer.</p> <p>After you delete a gateway, you cannot reactivate it. Completed snapshots of the gateway volumes are not deleted upon deleting the gateway, however, pending snapshots will not complete. After you delete a gateway, your next step is to remove it from your environment.</p> <important> <p>You no longer pay software charges after the gateway is deleted; however, your existing Amazon EBS snapshots persist and you will continue to be billed for these snapshots. You can choose to remove all remaining Amazon EBS snapshots by canceling your Amazon EC2 subscription. If you prefer not to cancel your Amazon EC2 subscription, you can delete your snapshots using the Amazon EC2 console. For more information, see the <a href=\"http://aws.amazon.com/storagegateway\">Storage Gateway detail page</a>.</p> </important>
+
+        Raises:
+            aws_sdk_storage_gateway.errors.internal_server_error.InternalServerError: <p>An internal server error has occurred during the request. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.invalid_gateway_request_exception.InvalidGatewayRequestException: <p>An exception occurred because an invalid gateway request was issued to the service. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To delete a gatgeway
@@ -2022,6 +2155,11 @@ class AsyncStorageGatewayClient:
 
         Args:
             volume_arn: <p>The volume which snapshot schedule to delete.</p>
+
+        Raises:
+            aws_sdk_storage_gateway.errors.internal_server_error.InternalServerError: <p>An internal server error has occurred during the request. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.invalid_gateway_request_exception.InvalidGatewayRequestException: <p>An exception occurred because an invalid gateway request was issued to the service. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To delete a snapshot of a volume
@@ -2072,6 +2210,11 @@ class AsyncStorageGatewayClient:
             gateway_arn: <p>The unique Amazon Resource Name (ARN) of the gateway that the virtual tape to delete is associated with. Use the <a>ListGateways</a> operation to return a list of gateways for your account and Amazon Web Services Region.</p>
             tape_arn: <p>The Amazon Resource Name (ARN) of the virtual tape to delete.</p>
             bypass_governance_retention: <p>Set to <code>TRUE</code> to delete an archived tape that belongs to a custom pool with tape retention lock. Only archived tapes with tape retention lock set to <code>governance</code> can be deleted. Archived tapes with tape retention lock set to <code>compliance</code> can't be deleted.</p>
+
+        Raises:
+            aws_sdk_storage_gateway.errors.internal_server_error.InternalServerError: <p>An internal server error has occurred during the request. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.invalid_gateway_request_exception.InvalidGatewayRequestException: <p>An exception occurred because an invalid gateway request was issued to the service. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To delete a virtual tape
@@ -2124,6 +2267,11 @@ class AsyncStorageGatewayClient:
             tape_arn: <p>The Amazon Resource Name (ARN) of the virtual tape to delete from the virtual tape shelf (VTS).</p>
             bypass_governance_retention: <p>Set to <code>TRUE</code> to delete an archived tape that belongs to a custom pool with tape retention lock. Only archived tapes with tape retention lock set to <code>governance</code> can be deleted. Archived tapes with tape retention lock set to <code>compliance</code> can't be deleted.</p>
 
+        Raises:
+            aws_sdk_storage_gateway.errors.internal_server_error.InternalServerError: <p>An internal server error has occurred during the request. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.invalid_gateway_request_exception.InvalidGatewayRequestException: <p>An exception occurred because an invalid gateway request was issued to the service. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To delete a virtual tape from the shelf (VTS)
             Deletes the specified virtual tape from the virtual tape shelf (VTS).
@@ -2169,6 +2317,11 @@ class AsyncStorageGatewayClient:
 
         Args:
             pool_arn: <p>The Amazon Resource Name (ARN) of the custom tape pool to delete.</p>
+
+        Raises:
+            aws_sdk_storage_gateway.errors.internal_server_error.InternalServerError: <p>An internal server error has occurred during the request. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.invalid_gateway_request_exception.InvalidGatewayRequestException: <p>An exception occurred because an invalid gateway request was issued to the service. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2207,6 +2360,11 @@ class AsyncStorageGatewayClient:
 
         Args:
             volume_arn: <p>The Amazon Resource Name (ARN) of the volume. Use the <a>ListVolumes</a> operation to return a list of gateway volumes.</p>
+
+        Raises:
+            aws_sdk_storage_gateway.errors.internal_server_error.InternalServerError: <p>An internal server error has occurred during the request. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.invalid_gateway_request_exception.InvalidGatewayRequestException: <p>An exception occurred because an invalid gateway request was issued to the service. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To delete a gateway volume
@@ -2247,7 +2405,13 @@ class AsyncStorageGatewayClient:
         *,
         config_overrides: Optional[AsyncStorageGatewayClientConfig] = None,
     ) -> "aws_sdk_storage_gateway.types.describe_availability_monitor_test_output.DescribeAvailabilityMonitorTestOutput":
-        """<p>Returns information about the most recent high availability monitoring test that was performed on the host in a cluster. If a test isn't performed, the status and start time in the response would be null.</p>"""
+        """<p>Returns information about the most recent high availability monitoring test that was performed on the host in a cluster. If a test isn't performed, the status and start time in the response would be null.</p>
+
+        Raises:
+            aws_sdk_storage_gateway.errors.internal_server_error.InternalServerError: <p>An internal server error has occurred during the request. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.invalid_gateway_request_exception.InvalidGatewayRequestException: <p>An exception occurred because an invalid gateway request was issued to the service. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_storage_gateway.types.describe_availability_monitor_test_input.DescribeAvailabilityMonitorTestInput]",
@@ -2282,6 +2446,11 @@ class AsyncStorageGatewayClient:
         config_overrides: Optional[AsyncStorageGatewayClientConfig] = None,
     ) -> "aws_sdk_storage_gateway.types.describe_bandwidth_rate_limit_output.DescribeBandwidthRateLimitOutput":
         """<p>Returns the bandwidth rate limits of a gateway. By default, these limits are not set, which means no bandwidth rate limiting is in effect. This operation is supported only for the stored volume, cached volume, and tape gateway types. To describe bandwidth rate limits for S3 file gateways, use <a>DescribeBandwidthRateLimitSchedule</a>.</p> <p>This operation returns a value for a bandwidth rate limit only if the limit is set. If no limits are set for the gateway, then this operation returns only the gateway ARN in the response body. To specify which gateway to describe, use the Amazon Resource Name (ARN) of the gateway in your request.</p>
+
+        Raises:
+            aws_sdk_storage_gateway.errors.internal_server_error.InternalServerError: <p>An internal server error has occurred during the request. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.invalid_gateway_request_exception.InvalidGatewayRequestException: <p>An exception occurred because an invalid gateway request was issued to the service. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To describe the bandwidth rate limits of a gateway
@@ -2322,7 +2491,13 @@ class AsyncStorageGatewayClient:
         *,
         config_overrides: Optional[AsyncStorageGatewayClientConfig] = None,
     ) -> "aws_sdk_storage_gateway.types.describe_bandwidth_rate_limit_schedule_output.DescribeBandwidthRateLimitScheduleOutput":
-        """<p> Returns information about the bandwidth rate limit schedule of a gateway. By default, gateways do not have bandwidth rate limit schedules, which means no bandwidth rate limiting is in effect. This operation is supported only for volume, tape and S3 file gateways. FSx file gateways do not support bandwidth rate limits.</p> <p>This operation returns information about a gateway's bandwidth rate limit schedule. A bandwidth rate limit schedule consists of one or more bandwidth rate limit intervals. A bandwidth rate limit interval defines a period of time on one or more days of the week, during which bandwidth rate limits are specified for uploading, downloading, or both. </p> <p> A bandwidth rate limit interval consists of one or more days of the week, a start hour and minute, an ending hour and minute, and bandwidth rate limits for uploading and downloading </p> <p> If no bandwidth rate limit schedule intervals are set for the gateway, this operation returns an empty response. To specify which gateway to describe, use the Amazon Resource Name (ARN) of the gateway in your request.</p>"""
+        """<p> Returns information about the bandwidth rate limit schedule of a gateway. By default, gateways do not have bandwidth rate limit schedules, which means no bandwidth rate limiting is in effect. This operation is supported only for volume, tape and S3 file gateways. FSx file gateways do not support bandwidth rate limits.</p> <p>This operation returns information about a gateway's bandwidth rate limit schedule. A bandwidth rate limit schedule consists of one or more bandwidth rate limit intervals. A bandwidth rate limit interval defines a period of time on one or more days of the week, during which bandwidth rate limits are specified for uploading, downloading, or both. </p> <p> A bandwidth rate limit interval consists of one or more days of the week, a start hour and minute, an ending hour and minute, and bandwidth rate limits for uploading and downloading </p> <p> If no bandwidth rate limit schedule intervals are set for the gateway, this operation returns an empty response. To specify which gateway to describe, use the Amazon Resource Name (ARN) of the gateway in your request.</p>
+
+        Raises:
+            aws_sdk_storage_gateway.errors.internal_server_error.InternalServerError: <p>An internal server error has occurred during the request. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.invalid_gateway_request_exception.InvalidGatewayRequestException: <p>An exception occurred because an invalid gateway request was issued to the service. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_storage_gateway.types.describe_bandwidth_rate_limit_schedule_input.DescribeBandwidthRateLimitScheduleInput]",
@@ -2357,6 +2532,11 @@ class AsyncStorageGatewayClient:
         config_overrides: Optional[AsyncStorageGatewayClientConfig] = None,
     ) -> "aws_sdk_storage_gateway.types.describe_cache_output.DescribeCacheOutput":
         """<p>Returns information about the cache of a gateway. This operation is only supported in the cached volume, tape, and file gateway types.</p> <p>The response includes disk IDs that are configured as cache, and it includes the amount of cache allocated and used.</p>
+
+        Raises:
+            aws_sdk_storage_gateway.errors.internal_server_error.InternalServerError: <p>An internal server error has occurred during the request. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.invalid_gateway_request_exception.InvalidGatewayRequestException: <p>An exception occurred because an invalid gateway request was issued to the service. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To describe cache information
@@ -2402,6 +2582,11 @@ class AsyncStorageGatewayClient:
         Args:
             volume_ar_ns: <p>An array of strings where each string represents the Amazon Resource Name (ARN) of a cached volume. All of the specified cached volumes must be from the same gateway. Use <a>ListVolumes</a> to get volume ARNs for a gateway.</p>
 
+        Raises:
+            aws_sdk_storage_gateway.errors.internal_server_error.InternalServerError: <p>An internal server error has occurred during the request. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.invalid_gateway_request_exception.InvalidGatewayRequestException: <p>An exception occurred because an invalid gateway request was issued to the service. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To describe gateway cached iSCSI volumes
             Returns a description of the gateway cached iSCSI volumes specified in the request.
@@ -2445,6 +2630,11 @@ class AsyncStorageGatewayClient:
 
         Args:
             cache_report_arn: <p>The Amazon Resource Name (ARN) of the cache report you want to describe.</p>
+
+        Raises:
+            aws_sdk_storage_gateway.errors.internal_server_error.InternalServerError: <p>An internal server error has occurred during the request. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.invalid_gateway_request_exception.InvalidGatewayRequestException: <p>An exception occurred because an invalid gateway request was issued to the service. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2483,6 +2673,11 @@ class AsyncStorageGatewayClient:
 
         Args:
             target_arn: <p>The Amazon Resource Name (ARN) of the iSCSI volume target. Use the <a>DescribeStorediSCSIVolumes</a> operation to return to retrieve the TargetARN for specified VolumeARN.</p>
+
+        Raises:
+            aws_sdk_storage_gateway.errors.internal_server_error.InternalServerError: <p>An internal server error has occurred during the request. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.invalid_gateway_request_exception.InvalidGatewayRequestException: <p>An exception occurred because an invalid gateway request was issued to the service. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To describe CHAP credetnitals for an iSCSI
@@ -2527,6 +2722,11 @@ class AsyncStorageGatewayClient:
 
         Args:
             file_system_association_arn_list: <p>An array containing the Amazon Resource Name (ARN) of each file system association to be described.</p>
+
+        Raises:
+            aws_sdk_storage_gateway.errors.internal_server_error.InternalServerError: <p>An internal server error has occurred during the request. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.invalid_gateway_request_exception.InvalidGatewayRequestException: <p>An exception occurred because an invalid gateway request was issued to the service. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2562,6 +2762,11 @@ class AsyncStorageGatewayClient:
         config_overrides: Optional[AsyncStorageGatewayClientConfig] = None,
     ) -> "aws_sdk_storage_gateway.types.describe_gateway_information_output.DescribeGatewayInformationOutput":
         """<p>Returns metadata about a gateway such as its name, network interfaces, time zone, status, and software version. To specify which gateway to describe, use the Amazon Resource Name (ARN) of the gateway in your request.</p>
+
+        Raises:
+            aws_sdk_storage_gateway.errors.internal_server_error.InternalServerError: <p>An internal server error has occurred during the request. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.invalid_gateway_request_exception.InvalidGatewayRequestException: <p>An exception occurred because an invalid gateway request was issued to the service. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To describe metadata about the gateway
@@ -2603,6 +2808,11 @@ class AsyncStorageGatewayClient:
         config_overrides: Optional[AsyncStorageGatewayClientConfig] = None,
     ) -> "aws_sdk_storage_gateway.types.describe_maintenance_start_time_output.DescribeMaintenanceStartTimeOutput":
         """<p>Returns your gateway's maintenance window schedule information, with values for monthly or weekly cadence, specific day and time to begin maintenance, and which types of updates to apply. Time values returned are for the gateway's time zone.</p>
+
+        Raises:
+            aws_sdk_storage_gateway.errors.internal_server_error.InternalServerError: <p>An internal server error has occurred during the request. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.invalid_gateway_request_exception.InvalidGatewayRequestException: <p>An exception occurred because an invalid gateway request was issued to the service. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To describe gateway's maintenance start time
@@ -2647,6 +2857,11 @@ class AsyncStorageGatewayClient:
 
         Args:
             file_share_arn_list: <p>An array containing the Amazon Resource Name (ARN) of each file share to be described.</p>
+
+        Raises:
+            aws_sdk_storage_gateway.errors.internal_server_error.InternalServerError: <p>An internal server error has occurred during the request. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.invalid_gateway_request_exception.InvalidGatewayRequestException: <p>An exception occurred because an invalid gateway request was issued to the service. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2685,6 +2900,11 @@ class AsyncStorageGatewayClient:
 
         Args:
             file_share_arn_list: <p>An array containing the Amazon Resource Name (ARN) of each file share to be described.</p>
+
+        Raises:
+            aws_sdk_storage_gateway.errors.internal_server_error.InternalServerError: <p>An internal server error has occurred during the request. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.invalid_gateway_request_exception.InvalidGatewayRequestException: <p>An exception occurred because an invalid gateway request was issued to the service. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2719,7 +2939,13 @@ class AsyncStorageGatewayClient:
         *,
         config_overrides: Optional[AsyncStorageGatewayClientConfig] = None,
     ) -> "aws_sdk_storage_gateway.types.describe_smb_settings_output.DescribeSMBSettingsOutput":
-        """<p>Gets a description of a Server Message Block (SMB) file share settings from a file gateway. This operation is only supported for file gateways.</p>"""
+        """<p>Gets a description of a Server Message Block (SMB) file share settings from a file gateway. This operation is only supported for file gateways.</p>
+
+        Raises:
+            aws_sdk_storage_gateway.errors.internal_server_error.InternalServerError: <p>An internal server error has occurred during the request. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.invalid_gateway_request_exception.InvalidGatewayRequestException: <p>An exception occurred because an invalid gateway request was issued to the service. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_storage_gateway.types.describe_smb_settings_input.DescribeSMBSettingsInput]",
@@ -2757,6 +2983,11 @@ class AsyncStorageGatewayClient:
 
         Args:
             volume_arn: <p>The Amazon Resource Name (ARN) of the volume. Use the <a>ListVolumes</a> operation to return a list of gateway volumes.</p>
+
+        Raises:
+            aws_sdk_storage_gateway.errors.internal_server_error.InternalServerError: <p>An internal server error has occurred during the request. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.invalid_gateway_request_exception.InvalidGatewayRequestException: <p>An exception occurred because an invalid gateway request was issued to the service. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To describe snapshot schedule for gateway volume
@@ -2801,6 +3032,11 @@ class AsyncStorageGatewayClient:
 
         Args:
             volume_ar_ns: <p>An array of strings where each string represents the Amazon Resource Name (ARN) of a stored volume. All of the specified stored volumes must be from the same gateway. Use <a>ListVolumes</a> to get volume ARNs for a gateway.</p>
+
+        Raises:
+            aws_sdk_storage_gateway.errors.internal_server_error.InternalServerError: <p>An internal server error has occurred during the request. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.invalid_gateway_request_exception.InvalidGatewayRequestException: <p>An exception occurred because an invalid gateway request was issued to the service. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To describe the volumes of a gateway
@@ -2853,6 +3089,11 @@ class AsyncStorageGatewayClient:
             tape_ar_ns: <p>Specifies one or more unique Amazon Resource Names (ARNs) that represent the virtual tapes you want to describe.</p>
             marker: <p>An opaque string that indicates the position at which to begin describing virtual tapes.</p>
             limit: <p>Specifies that the number of virtual tapes described be limited to the specified number.</p>
+
+        Raises:
+            aws_sdk_storage_gateway.errors.internal_server_error.InternalServerError: <p>An internal server error has occurred during the request. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.invalid_gateway_request_exception.InvalidGatewayRequestException: <p>An exception occurred because an invalid gateway request was issued to the service. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2928,6 +3169,11 @@ class AsyncStorageGatewayClient:
         Args:
             marker: <p>An opaque string that indicates the position at which to begin describing the virtual tape recovery points.</p>
             limit: <p>Specifies that the number of virtual tape recovery points that are described be limited to the specified number.</p>
+
+        Raises:
+            aws_sdk_storage_gateway.errors.internal_server_error.InternalServerError: <p>An internal server error has occurred during the request. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.invalid_gateway_request_exception.InvalidGatewayRequestException: <p>An exception occurred because an invalid gateway request was issued to the service. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3005,6 +3251,11 @@ class AsyncStorageGatewayClient:
             marker: <p>A marker value, obtained in a previous call to <code>DescribeTapes</code>. This marker indicates which page of results to retrieve.</p> <p>If not specified, the first page of results is retrieved.</p>
             limit: <p>Specifies that the number of virtual tapes described be limited to the specified number.</p> <note> <p>Amazon Web Services may impose its own limit, if this field is not set.</p> </note>
 
+        Raises:
+            aws_sdk_storage_gateway.errors.internal_server_error.InternalServerError: <p>An internal server error has occurred during the request. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.invalid_gateway_request_exception.InvalidGatewayRequestException: <p>An exception occurred because an invalid gateway request was issued to the service. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To describe virtual tape(s) associated with gateway
             Returns a description of the specified Amazon Resource Name (ARN) of virtual tapes. If a TapeARN is not specified, returns a description of all virtual tapes.
@@ -3081,6 +3332,11 @@ class AsyncStorageGatewayClient:
     ) -> "aws_sdk_storage_gateway.types.describe_upload_buffer_output.DescribeUploadBufferOutput":
         """<p>Returns information about the upload buffer of a gateway. This operation is supported for the stored volume, cached volume, and tape gateway types.</p> <p>The response includes disk IDs that are configured as upload buffer space, and it includes the amount of upload buffer space allocated and used.</p>
 
+        Raises:
+            aws_sdk_storage_gateway.errors.internal_server_error.InternalServerError: <p>An internal server error has occurred during the request. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.invalid_gateway_request_exception.InvalidGatewayRequestException: <p>An exception occurred because an invalid gateway request was issued to the service. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To describe upload buffer of a gateway
             Returns information about the upload buffer of a gateway including disk IDs and the amount of upload buffer space allocated and used.
@@ -3137,6 +3393,11 @@ class AsyncStorageGatewayClient:
             vtl_device_ar_ns: <p>An array of strings, where each string represents the Amazon Resource Name (ARN) of a VTL device.</p> <note> <p>All of the specified VTL devices must be from the same gateway. If no VTL devices are specified, the result will contain all devices on the specified gateway.</p> </note>
             marker: <p>An opaque string that indicates the position at which to begin describing the VTL devices.</p>
             limit: <p>Specifies that the number of VTL devices described be limited to the specified number.</p>
+
+        Raises:
+            aws_sdk_storage_gateway.errors.internal_server_error.InternalServerError: <p>An internal server error has occurred during the request. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.invalid_gateway_request_exception.InvalidGatewayRequestException: <p>An exception occurred because an invalid gateway request was issued to the service. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To describe virtual tape library (VTL) devices of a single gateway
@@ -3214,6 +3475,11 @@ class AsyncStorageGatewayClient:
     ) -> "aws_sdk_storage_gateway.types.describe_working_storage_output.DescribeWorkingStorageOutput":
         """<p>Returns information about the working storage of a gateway. This operation is only supported in the stored volumes gateway type. This operation is deprecated in cached volumes API version (20120630). Use DescribeUploadBuffer instead.</p> <note> <p>Working storage is also referred to as upload buffer. You can also use the DescribeUploadBuffer operation to add upload buffer to a stored volume gateway.</p> </note> <p>The response includes disk IDs that are configured as working storage, and it includes the amount of working storage allocated and used.</p>
 
+        Raises:
+            aws_sdk_storage_gateway.errors.internal_server_error.InternalServerError: <p>An internal server error has occurred during the request. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.invalid_gateway_request_exception.InvalidGatewayRequestException: <p>An exception occurred because an invalid gateway request was issued to the service. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To describe the working storage of a gateway [Depreciated]
             This operation is supported only for the gateway-stored volume architecture. This operation is deprecated in cached-volumes API version (20120630). Use DescribeUploadBuffer instead.
@@ -3259,6 +3525,11 @@ class AsyncStorageGatewayClient:
         Args:
             volume_arn: <p>The Amazon Resource Name (ARN) of the volume to detach from the gateway.</p>
             force_detach: <p>Set to <code>true</code> to forcibly remove the iSCSI connection of the target volume and detach the volume. The default is <code>false</code>. If this value is set to <code>false</code>, you must manually disconnect the iSCSI connection from the target volume.</p> <p>Valid Values: <code>true</code> | <code>false</code> </p>
+
+        Raises:
+            aws_sdk_storage_gateway.errors.internal_server_error.InternalServerError: <p>An internal server error has occurred during the request. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.invalid_gateway_request_exception.InvalidGatewayRequestException: <p>An exception occurred because an invalid gateway request was issued to the service. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3296,6 +3567,11 @@ class AsyncStorageGatewayClient:
         config_overrides: Optional[AsyncStorageGatewayClientConfig] = None,
     ) -> "aws_sdk_storage_gateway.types.disable_gateway_output.DisableGatewayOutput":
         """<p>Disables a tape gateway when the gateway is no longer functioning. For example, if your gateway VM is damaged, you can disable the gateway so you can recover virtual tapes.</p> <p>Use this operation for a tape gateway that is not reachable or not functioning. This operation is only supported in the tape gateway type.</p> <important> <p>After a gateway is disabled, it cannot be enabled.</p> </important>
+
+        Raises:
+            aws_sdk_storage_gateway.errors.internal_server_error.InternalServerError: <p>An internal server error has occurred during the request. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.invalid_gateway_request_exception.InvalidGatewayRequestException: <p>An exception occurred because an invalid gateway request was issued to the service. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To disable a gateway when it is no longer functioning
@@ -3344,6 +3620,11 @@ class AsyncStorageGatewayClient:
         Args:
             file_system_association_arn: <p>The Amazon Resource Name (ARN) of the file system association to be deleted.</p>
             force_delete: <p>If this value is set to true, the operation disassociates an Amazon FSx file system immediately. It ends all data uploads to the file system, and the file system association enters the <code>FORCE_DELETING</code> status. If this value is set to false, the Amazon FSx file system does not disassociate until all data is uploaded.</p>
+
+        Raises:
+            aws_sdk_storage_gateway.errors.internal_server_error.InternalServerError: <p>An internal server error has occurred during the request. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.invalid_gateway_request_exception.InvalidGatewayRequestException: <p>An exception occurred because an invalid gateway request was issued to the service. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3388,6 +3669,11 @@ class AsyncStorageGatewayClient:
         Args:
             file_share_arn: <p>The Amazon Resource Name (ARN) of the file share for which you want to start the cache clean operation.</p>
             force_remove: <p>Specifies whether cache entries with full or partial file data currently stored on the gateway will be forcibly removed by the cache clean operation.</p> <p>Valid arguments:</p> <ul> <li> <p> <code>False</code> - The cache clean operation skips cache entries failing upload if they are associated with data currently stored on the gateway. This preserves the cached data.</p> </li> <li> <p> <code>True</code> - The cache clean operation removes cache entries failing upload even if they are associated with data currently stored on the gateway. This deletes the cached data.</p> <important> <p>If <code>ForceRemove</code> is set to <code>True</code>, the cache clean operation will delete file data from the gateway which might otherwise be recoverable.</p> </important> </li> </ul>
+
+        Raises:
+            aws_sdk_storage_gateway.errors.internal_server_error.InternalServerError: <p>An internal server error has occurred during the request. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.invalid_gateway_request_exception.InvalidGatewayRequestException: <p>An exception occurred because an invalid gateway request was issued to the service. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3446,6 +3732,11 @@ class AsyncStorageGatewayClient:
             timeout_in_seconds: <p>Specifies the time in seconds, in which the <code>JoinDomain</code> operation must complete. The default is 20 seconds.</p>
             user_name: <p>Sets the user name of user who has permission to add the gateway to the Active Directory domain. The domain user account should be enabled to join computers to the domain. For example, you can use the domain administrator account or an account with delegated permissions to join computers to the domain.</p>
             password: <p>Sets the password of the user who has permission to add the gateway to the Active Directory domain.</p>
+
+        Raises:
+            aws_sdk_storage_gateway.errors.internal_server_error.InternalServerError: <p>An internal server error has occurred during the request. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.invalid_gateway_request_exception.InvalidGatewayRequestException: <p>An exception occurred because an invalid gateway request was issued to the service. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3491,7 +3782,13 @@ class AsyncStorageGatewayClient:
             "aws_sdk_storage_gateway.types.gateway_arn.GatewayARN"
         ] = None,
     ) -> "aws_sdk_storage_gateway.types.list_automatic_tape_creation_policies_output.ListAutomaticTapeCreationPoliciesOutput":
-        """<p>Lists the automatic tape creation policies for a gateway. If there are no automatic tape creation policies for the gateway, it returns an empty list.</p> <p>This operation is only supported for tape gateways.</p>"""
+        """<p>Lists the automatic tape creation policies for a gateway. If there are no automatic tape creation policies for the gateway, it returns an empty list.</p> <p>This operation is only supported for tape gateways.</p>
+
+        Raises:
+            aws_sdk_storage_gateway.errors.internal_server_error.InternalServerError: <p>An internal server error has occurred during the request. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.invalid_gateway_request_exception.InvalidGatewayRequestException: <p>An exception occurred because an invalid gateway request was issued to the service. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_storage_gateway.types.list_automatic_tape_creation_policies_input.ListAutomaticTapeCreationPoliciesInput]",
@@ -3532,6 +3829,11 @@ class AsyncStorageGatewayClient:
 
         Args:
             marker: <p>Opaque pagination token returned from a previous <code>ListCacheReports</code> operation. If present, <code>Marker</code> specifies where to continue the list from after a previous call to <code>ListCacheReports</code>. Optional.</p>
+
+        Raises:
+            aws_sdk_storage_gateway.errors.internal_server_error.InternalServerError: <p>An internal server error has occurred during the request. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.invalid_gateway_request_exception.InvalidGatewayRequestException: <p>An exception occurred because an invalid gateway request was issued to the service. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3600,6 +3902,11 @@ class AsyncStorageGatewayClient:
             gateway_arn: <p>The Amazon Resource Name (ARN) of the gateway whose file shares you want to list. If this field is not present, all file shares under your account are listed.</p>
             limit: <p>The maximum number of file shares to return in the response. The value must be an integer with a value greater than zero. Optional.</p>
             marker: <p>Opaque pagination token returned from a previous ListFileShares operation. If present, <code>Marker</code> specifies where to continue the list from after a previous call to ListFileShares. Optional.</p>
+
+        Raises:
+            aws_sdk_storage_gateway.errors.internal_server_error.InternalServerError: <p>An internal server error has occurred during the request. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.invalid_gateway_request_exception.InvalidGatewayRequestException: <p>An exception occurred because an invalid gateway request was issued to the service. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3677,6 +3984,11 @@ class AsyncStorageGatewayClient:
         Args:
             limit: <p>The maximum number of file system associations to return in the response. If present, <code>Limit</code> must be an integer with a value greater than zero. Optional.</p>
             marker: <p>Opaque pagination token returned from a previous <code>ListFileSystemAssociations</code> operation. If present, <code>Marker</code> specifies where to continue the list from after a previous call to <code>ListFileSystemAssociations</code>. Optional.</p>
+
+        Raises:
+            aws_sdk_storage_gateway.errors.internal_server_error.InternalServerError: <p>An internal server error has occurred during the request. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.invalid_gateway_request_exception.InvalidGatewayRequestException: <p>An exception occurred because an invalid gateway request was issued to the service. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3752,6 +4064,11 @@ class AsyncStorageGatewayClient:
             marker: <p>An opaque string that indicates the position at which to begin the returned list of gateways.</p>
             limit: <p>Specifies that the list of gateways returned be limited to the specified number of items.</p>
 
+        Raises:
+            aws_sdk_storage_gateway.errors.internal_server_error.InternalServerError: <p>An internal server error has occurred during the request. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.invalid_gateway_request_exception.InvalidGatewayRequestException: <p>An exception occurred because an invalid gateway request was issued to the service. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To lists region specific gateways per AWS account
             Lists gateways owned by an AWS account in a specified region as requested. Results are sorted by gateway ARN up to a maximum of 100 gateways.
@@ -3819,6 +4136,11 @@ class AsyncStorageGatewayClient:
     ) -> "aws_sdk_storage_gateway.types.list_local_disks_output.ListLocalDisksOutput":
         """<p>Returns a list of the gateway's local disks. To specify which gateway to describe, you use the Amazon Resource Name (ARN) of the gateway in the body of the request.</p> <p>The request returns a list of all disks, specifying which are configured as working storage, cache storage, or stored volume or not configured at all. The response includes a <code>DiskStatus</code> field. This field can have a value of present (the disk is available to use), missing (the disk is no longer connected to the gateway), or mismatch (the disk node is occupied by a disk that has incorrect metadata or the disk content is corrupted).</p>
 
+        Raises:
+            aws_sdk_storage_gateway.errors.internal_server_error.InternalServerError: <p>An internal server error has occurred during the request. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.invalid_gateway_request_exception.InvalidGatewayRequestException: <p>An exception occurred because an invalid gateway request was issued to the service. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To list the gateway's local disks
             The request returns a list of all disks, specifying which are configured as working storage, cache storage, or stored volume or not configured at all.
@@ -3868,6 +4190,11 @@ class AsyncStorageGatewayClient:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource for which you want to list tags.</p>
             marker: <p>An opaque string that indicates the position at which to begin returning the list of tags.</p>
             limit: <p>Specifies that the list of tags returned be limited to the specified number of items.</p>
+
+        Raises:
+            aws_sdk_storage_gateway.errors.internal_server_error.InternalServerError: <p>An internal server error has occurred during the request. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.invalid_gateway_request_exception.InvalidGatewayRequestException: <p>An exception occurred because an invalid gateway request was issued to the service. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To list tags that have been added to a resource
@@ -3949,6 +4276,11 @@ class AsyncStorageGatewayClient:
             pool_ar_ns: <p>The Amazon Resource Name (ARN) of each of the custom tape pools you want to list. If you don't specify a custom tape pool ARN, the response lists all custom tape pools. </p>
             marker: <p>A string that indicates the position at which to begin the returned list of tape pools.</p>
             limit: <p>An optional number limit for the tape pools in the list returned by this call.</p>
+
+        Raises:
+            aws_sdk_storage_gateway.errors.internal_server_error.InternalServerError: <p>An internal server error has occurred during the request. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.invalid_gateway_request_exception.InvalidGatewayRequestException: <p>An exception occurred because an invalid gateway request was issued to the service. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4026,6 +4358,11 @@ class AsyncStorageGatewayClient:
         Args:
             marker: <p>A string that indicates the position at which to begin the returned list of tapes.</p>
             limit: <p>An optional number limit for the tapes in the list returned by this call.</p>
+
+        Raises:
+            aws_sdk_storage_gateway.errors.internal_server_error.InternalServerError: <p>An internal server error has occurred during the request. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.invalid_gateway_request_exception.InvalidGatewayRequestException: <p>An exception occurred because an invalid gateway request was issued to the service. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4096,6 +4433,11 @@ class AsyncStorageGatewayClient:
 
         Args:
             volume_arn: <p>The Amazon Resource Name (ARN) of the volume. Use the <a>ListVolumes</a> operation to return a list of gateway volumes for the gateway.</p>
+
+        Raises:
+            aws_sdk_storage_gateway.errors.internal_server_error.InternalServerError: <p>An internal server error has occurred during the request. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.invalid_gateway_request_exception.InvalidGatewayRequestException: <p>An exception occurred because an invalid gateway request was issued to the service. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4131,6 +4473,11 @@ class AsyncStorageGatewayClient:
         config_overrides: Optional[AsyncStorageGatewayClientConfig] = None,
     ) -> "aws_sdk_storage_gateway.types.list_volume_recovery_points_output.ListVolumeRecoveryPointsOutput":
         """<p>Lists the recovery points for a specified gateway. This operation is only supported in the cached volume gateway type.</p> <p>Each cache volume has one recovery point. A volume recovery point is a point in time at which all data of the volume is consistent and from which you can create a snapshot or clone a new cached volume from a source volume. To create a snapshot from a volume recovery point use the <a>CreateSnapshotFromVolumeRecoveryPoint</a> operation.</p>
+
+        Raises:
+            aws_sdk_storage_gateway.errors.internal_server_error.InternalServerError: <p>An internal server error has occurred during the request. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.invalid_gateway_request_exception.InvalidGatewayRequestException: <p>An exception occurred because an invalid gateway request was issued to the service. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To list recovery points for a gateway
@@ -4182,6 +4529,11 @@ class AsyncStorageGatewayClient:
         Args:
             marker: <p>A string that indicates the position at which to begin the returned list of volumes. Obtain the marker from the response of a previous List iSCSI Volumes request.</p>
             limit: <p>Specifies that the list of volumes returned be limited to the specified number of items.</p>
+
+        Raises:
+            aws_sdk_storage_gateway.errors.internal_server_error.InternalServerError: <p>An internal server error has occurred during the request. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.invalid_gateway_request_exception.InvalidGatewayRequestException: <p>An exception occurred because an invalid gateway request was issued to the service. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To list the iSCSI stored volumes of a gateway
@@ -4254,7 +4606,13 @@ class AsyncStorageGatewayClient:
         *,
         config_overrides: Optional[AsyncStorageGatewayClientConfig] = None,
     ) -> "aws_sdk_storage_gateway.types.notify_when_uploaded_output.NotifyWhenUploadedOutput":
-        r"""<p>Sends you notification through Amazon EventBridge when all files written to your file share have been uploaded to Amazon S3.</p> <p>Storage Gateway can send a notification through Amazon EventBridge when all files written to your file share up to that point in time have been uploaded to Amazon S3. These files include files written to the file share up to the time that you make a request for notification. When the upload is done, Storage Gateway sends you notification through EventBridge. You can configure EventBridge to send the notification through event targets such as Amazon SNS or Lambda function. This operation is only supported for S3 File Gateways.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/filegateway/latest/files3/monitoring-file-gateway.html#get-notification\">Getting file upload notification</a> in the <i>Amazon S3 File Gateway User Guide</i>.</p>"""
+        r"""<p>Sends you notification through Amazon EventBridge when all files written to your file share have been uploaded to Amazon S3.</p> <p>Storage Gateway can send a notification through Amazon EventBridge when all files written to your file share up to that point in time have been uploaded to Amazon S3. These files include files written to the file share up to the time that you make a request for notification. When the upload is done, Storage Gateway sends you notification through EventBridge. You can configure EventBridge to send the notification through event targets such as Amazon SNS or Lambda function. This operation is only supported for S3 File Gateways.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/filegateway/latest/files3/monitoring-file-gateway.html#get-notification\">Getting file upload notification</a> in the <i>Amazon S3 File Gateway User Guide</i>.</p>
+
+        Raises:
+            aws_sdk_storage_gateway.errors.internal_server_error.InternalServerError: <p>An internal server error has occurred during the request. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.invalid_gateway_request_exception.InvalidGatewayRequestException: <p>An exception occurred because an invalid gateway request was issued to the service. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_storage_gateway.types.notify_when_uploaded_input.NotifyWhenUploadedInput]",
@@ -4298,6 +4656,11 @@ class AsyncStorageGatewayClient:
             file_share_arn: <p>The Amazon Resource Name (ARN) of the file share you want to refresh.</p>
             folder_list: <p>A comma-separated list of the paths of folders to refresh in the cache. The default is [<code>\"/\"</code>]. The default refreshes objects and folders at the root of the Amazon S3 bucket. If <code>Recursive</code> is set to <code>true</code>, the entire S3 bucket that the file share has access to is refreshed.</p> <p>Do not include <code>/</code> when specifying folder names. For example, you would specify <code>samplefolder</code> rather than <code>samplefolder/</code>.</p>
             recursive: <p>A value that specifies whether to recursively refresh folders in the cache. The refresh includes folders that were in the cache the last time the gateway listed the folder's contents. If this value set to <code>true</code>, each folder that is listed in <code>FolderList</code> is recursively updated. Otherwise, subfolders listed in <code>FolderList</code> are not refreshed. Only objects that are in folders listed directly under <code>FolderList</code> are found and used for the update. The default is <code>true</code>.</p> <p>Valid Values: <code>true</code> | <code>false</code> </p>
+
+        Raises:
+            aws_sdk_storage_gateway.errors.internal_server_error.InternalServerError: <p>An internal server error has occurred during the request. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.invalid_gateway_request_exception.InvalidGatewayRequestException: <p>An exception occurred because an invalid gateway request was issued to the service. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4343,6 +4706,11 @@ class AsyncStorageGatewayClient:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource you want to remove the tags from.</p>
             tag_keys: <p>The keys of the tags you want to remove from the specified resource. A tag is composed of a key-value pair.</p>
 
+        Raises:
+            aws_sdk_storage_gateway.errors.internal_server_error.InternalServerError: <p>An internal server error has occurred during the request. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.invalid_gateway_request_exception.InvalidGatewayRequestException: <p>An exception occurred because an invalid gateway request was issued to the service. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To remove tags from a resource
             Lists the iSCSI stored volumes of a gateway. Removes one or more tags from the specified resource.
@@ -4384,6 +4752,11 @@ class AsyncStorageGatewayClient:
         config_overrides: Optional[AsyncStorageGatewayClientConfig] = None,
     ) -> "aws_sdk_storage_gateway.types.reset_cache_output.ResetCacheOutput":
         """<p>Resets all cache disks that have encountered an error and makes the disks available for reconfiguration as cache storage. If your cache disk encounters an error, the gateway prevents read and write operations on virtual tapes in the gateway. For example, an error can occur when a disk is corrupted or removed from the gateway. When a cache is reset, the gateway loses its cache storage. At this point, you can reconfigure the disks as cache disks. This operation is only supported in the cached volume and tape types.</p> <important> <p>If the cache disk you are resetting contains data that has not been uploaded to Amazon S3 yet, that data can be lost. After you reset cache disks, there will be no configured cache disks left in the gateway, so you must configure at least one new cache disk for your gateway to function properly.</p> </important>
+
+        Raises:
+            aws_sdk_storage_gateway.errors.internal_server_error.InternalServerError: <p>An internal server error has occurred during the request. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.invalid_gateway_request_exception.InvalidGatewayRequestException: <p>An exception occurred because an invalid gateway request was issued to the service. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To reset cache disks in error status
@@ -4431,6 +4804,11 @@ class AsyncStorageGatewayClient:
             tape_arn: <p>The Amazon Resource Name (ARN) of the virtual tape you want to retrieve from the virtual tape shelf (VTS).</p>
             gateway_arn: <p>The Amazon Resource Name (ARN) of the gateway you want to retrieve the virtual tape to. Use the <a>ListGateways</a> operation to return a list of gateways for your account and Amazon Web Services Region.</p> <p>You retrieve archived virtual tapes to only one gateway and the gateway must be a tape gateway.</p>
 
+        Raises:
+            aws_sdk_storage_gateway.errors.internal_server_error.InternalServerError: <p>An internal server error has occurred during the request. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.invalid_gateway_request_exception.InvalidGatewayRequestException: <p>An exception occurred because an invalid gateway request was issued to the service. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To retrieve an archived tape from the VTS
             Retrieves an archived virtual tape from the virtual tape shelf (VTS) to a gateway-VTL. Virtual tapes archived in the VTS are not associated with any gateway.
@@ -4476,6 +4854,11 @@ class AsyncStorageGatewayClient:
 
         Args:
             tape_arn: <p>The Amazon Resource Name (ARN) of the virtual tape for which you want to retrieve the recovery point.</p>
+
+        Raises:
+            aws_sdk_storage_gateway.errors.internal_server_error.InternalServerError: <p>An internal server error has occurred during the request. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.invalid_gateway_request_exception.InvalidGatewayRequestException: <p>An exception occurred because an invalid gateway request was issued to the service. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To retrieve the recovery point of a virtual tape
@@ -4523,6 +4906,11 @@ class AsyncStorageGatewayClient:
         Args:
             local_console_password: <p>The password you want to set for your VM local console.</p>
 
+        Raises:
+            aws_sdk_storage_gateway.errors.internal_server_error.InternalServerError: <p>An internal server error has occurred during the request. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.invalid_gateway_request_exception.InvalidGatewayRequestException: <p>An exception occurred because an invalid gateway request was issued to the service. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To set a password for your VM
             Sets the password for your VM local console.
@@ -4569,6 +4957,11 @@ class AsyncStorageGatewayClient:
         Args:
             gateway_arn: <p>The Amazon Resource Name (ARN) of the S3 File Gateway the SMB file share is associated with.</p>
             password: <p>The password that you want to set for your SMB server.</p>
+
+        Raises:
+            aws_sdk_storage_gateway.errors.internal_server_error.InternalServerError: <p>An internal server error has occurred during the request. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.invalid_gateway_request_exception.InvalidGatewayRequestException: <p>An exception occurred because an invalid gateway request was issued to the service. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4605,6 +4998,11 @@ class AsyncStorageGatewayClient:
         config_overrides: Optional[AsyncStorageGatewayClientConfig] = None,
     ) -> "aws_sdk_storage_gateway.types.shutdown_gateway_output.ShutdownGatewayOutput":
         """<p>Shuts down a Tape Gateway or Volume Gateway. To specify which gateway to shut down, use the Amazon Resource Name (ARN) of the gateway in the body of your request.</p> <note> <p>This API action cannot be used to shut down S3 File Gateway or FSx File Gateway.</p> </note> <p>The operation shuts down the gateway service component running in the gateway's virtual machine (VM) and not the host VM.</p> <note> <p>If you want to shut down the VM, it is recommended that you first shut down the gateway component in the VM to avoid unpredictable conditions.</p> </note> <p>After the gateway is shutdown, you cannot call any other API except <a>StartGateway</a>, <a>DescribeGatewayInformation</a>, and <a>ListGateways</a>. For more information, see <a>ActivateGateway</a>. Your applications cannot read from or write to the gateway's storage volumes, and there are no snapshots taken.</p> <note> <p>When you make a shutdown request, you will get a <code>200 OK</code> success response immediately. However, it might take some time for the gateway to shut down. You can call the <a>DescribeGatewayInformation</a> API to check the status. For more information, see <a>ActivateGateway</a>.</p> </note> <p>If do not intend to use the gateway again, you must delete the gateway (using <a>DeleteGateway</a>) to no longer pay software charges associated with the gateway.</p>
+
+        Raises:
+            aws_sdk_storage_gateway.errors.internal_server_error.InternalServerError: <p>An internal server error has occurred during the request. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.invalid_gateway_request_exception.InvalidGatewayRequestException: <p>An exception occurred because an invalid gateway request was issued to the service. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To shut down a gateway service
@@ -4645,7 +5043,13 @@ class AsyncStorageGatewayClient:
         *,
         config_overrides: Optional[AsyncStorageGatewayClientConfig] = None,
     ) -> "aws_sdk_storage_gateway.types.start_availability_monitor_test_output.StartAvailabilityMonitorTestOutput":
-        """<p>Start a test that verifies that the specified gateway is configured for High Availability monitoring in your host environment. This request only initiates the test and that a successful response only indicates that the test was started. It doesn't indicate that the test passed. For the status of the test, invoke the <code>DescribeAvailabilityMonitorTest</code> API.</p> <note> <p>Starting this test will cause your gateway to go offline for a brief period.</p> </note>"""
+        """<p>Start a test that verifies that the specified gateway is configured for High Availability monitoring in your host environment. This request only initiates the test and that a successful response only indicates that the test was started. It doesn't indicate that the test passed. For the status of the test, invoke the <code>DescribeAvailabilityMonitorTest</code> API.</p> <note> <p>Starting this test will cause your gateway to go offline for a brief period.</p> </note>
+
+        Raises:
+            aws_sdk_storage_gateway.errors.internal_server_error.InternalServerError: <p>An internal server error has occurred during the request. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.invalid_gateway_request_exception.InvalidGatewayRequestException: <p>An exception occurred because an invalid gateway request was issued to the service. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_storage_gateway.types.start_availability_monitor_test_input.StartAvailabilityMonitorTestInput]",
@@ -4706,6 +5110,11 @@ class AsyncStorageGatewayClient:
             exclusion_filters: <p>The list of filters and parameters that determine which files are excluded from the report. You must specify at least one value for <code>InclusionFilters</code> or <code>ExclusionFilters</code> in a <code>StartCacheReport</code> request.</p>
             client_token: <p>A unique identifier that you use to ensure idempotent report generation if you need to retry an unsuccessful <code>StartCacheReport</code> request. If you retry a request, use the same <code>ClientToken</code> you specified in the initial request.</p>
             tags: <p>A list of up to 50 key/value tags that you can assign to the cache report. Using tags can help you categorize your reports and more easily locate them in search results.</p>
+
+        Raises:
+            aws_sdk_storage_gateway.errors.internal_server_error.InternalServerError: <p>An internal server error has occurred during the request. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.invalid_gateway_request_exception.InvalidGatewayRequestException: <p>An exception occurred because an invalid gateway request was issued to the service. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4754,6 +5163,11 @@ class AsyncStorageGatewayClient:
     ) -> "aws_sdk_storage_gateway.types.start_gateway_output.StartGatewayOutput":
         """<p>Starts a gateway that you previously shut down (see <a>ShutdownGateway</a>). After the gateway starts, you can then make other API calls, your applications can read from or write to the gateway's storage volumes and you will be able to take snapshot backups.</p> <note> <p>When you make a request, you will get a 200 OK success response immediately. However, it might take some time for the gateway to be ready. You should call <a>DescribeGatewayInformation</a> and check the status before making any additional API calls. For more information, see <a>ActivateGateway</a>.</p> </note> <p>To specify which gateway to start, use the Amazon Resource Name (ARN) of the gateway in your request.</p>
 
+        Raises:
+            aws_sdk_storage_gateway.errors.internal_server_error.InternalServerError: <p>An internal server error has occurred during the request. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.invalid_gateway_request_exception.InvalidGatewayRequestException: <p>An exception occurred because an invalid gateway request was issued to the service. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To start a gateway service
             Starts a gateway service that was previously shut down.
@@ -4798,6 +5212,11 @@ class AsyncStorageGatewayClient:
 
         Args:
             automatic_tape_creation_rules: <p>An automatic tape creation policy consists of a list of automatic tape creation rules. The rules determine when and how to automatically create new tapes.</p>
+
+        Raises:
+            aws_sdk_storage_gateway.errors.internal_server_error.InternalServerError: <p>An internal server error has occurred during the request. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.invalid_gateway_request_exception.InvalidGatewayRequestException: <p>An exception occurred because an invalid gateway request was issued to the service. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4844,6 +5263,11 @@ class AsyncStorageGatewayClient:
         Args:
             average_upload_rate_limit_in_bits_per_sec: <p>The average upload bandwidth rate limit in bits per second.</p>
             average_download_rate_limit_in_bits_per_sec: <p>The average download bandwidth rate limit in bits per second.</p>
+
+        Raises:
+            aws_sdk_storage_gateway.errors.internal_server_error.InternalServerError: <p>An internal server error has occurred during the request. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.invalid_gateway_request_exception.InvalidGatewayRequestException: <p>An exception occurred because an invalid gateway request was issued to the service. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To update the bandwidth rate limits of a gateway
@@ -4897,6 +5321,11 @@ class AsyncStorageGatewayClient:
 
         Args:
             bandwidth_rate_limit_intervals: <p> An array containing bandwidth rate limit schedule intervals for a gateway. When no bandwidth rate limit intervals have been scheduled, the array is empty. </p>
+
+        Raises:
+            aws_sdk_storage_gateway.errors.internal_server_error.InternalServerError: <p>An internal server error has occurred during the request. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.invalid_gateway_request_exception.InvalidGatewayRequestException: <p>An exception occurred because an invalid gateway request was issued to the service. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4944,6 +5373,11 @@ class AsyncStorageGatewayClient:
             secret_to_authenticate_initiator: <p>The secret key that the initiator (for example, the Windows client) must provide to participate in mutual CHAP with the target.</p> <note> <p>The secret key must be between 12 and 16 bytes when encoded in UTF-8.</p> </note>
             initiator_name: <p>The iSCSI initiator that connects to the target.</p>
             secret_to_authenticate_target: <p>The secret key that the target must provide to participate in mutual CHAP with the initiator (e.g. Windows client).</p> <p>Byte constraints: Minimum bytes of 12. Maximum bytes of 16.</p> <note> <p>The secret key must be between 12 and 16 bytes when encoded in UTF-8.</p> </note>
+
+        Raises:
+            aws_sdk_storage_gateway.errors.internal_server_error.InternalServerError: <p>An internal server error has occurred during the request. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.invalid_gateway_request_exception.InvalidGatewayRequestException: <p>An exception occurred because an invalid gateway request was issued to the service. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To update CHAP credentials for an iSCSI target
@@ -5007,6 +5441,11 @@ class AsyncStorageGatewayClient:
             user_name: <p>The user name of the user credential that has permission to access the root share D$ of the Amazon FSx file system. The user account must belong to the Amazon FSx delegated admin user group.</p>
             password: <p>The password of the user credential.</p>
             audit_destination_arn: <p>The Amazon Resource Name (ARN) of the storage used for the audit logs.</p>
+
+        Raises:
+            aws_sdk_storage_gateway.errors.internal_server_error.InternalServerError: <p>An internal server error has occurred during the request. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.invalid_gateway_request_exception.InvalidGatewayRequestException: <p>An exception occurred because an invalid gateway request was issued to the service. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5068,6 +5507,11 @@ class AsyncStorageGatewayClient:
             cloud_watch_log_group_arn: <p>The Amazon Resource Name (ARN) of the Amazon CloudWatch log group that you want to use to monitor and log events in the gateway.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.html\">What is Amazon CloudWatch Logs?</a> </p>
             gateway_capacity: <p>Specifies the size of the gateway's metadata cache. This setting impacts gateway performance and hardware recommendations. For more information, see <a href=\"https://docs.aws.amazon.com/filegateway/latest/files3/performance-multiple-file-shares.html\">Performance guidance for gateways with multiple file shares</a> in the <i>Amazon S3 File Gateway User Guide</i>.</p>
 
+        Raises:
+            aws_sdk_storage_gateway.errors.internal_server_error.InternalServerError: <p>An internal server error has occurred during the request. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.invalid_gateway_request_exception.InvalidGatewayRequestException: <p>An exception occurred because an invalid gateway request was issued to the service. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To update a gateway's metadata
             Updates a gateway's metadata, which includes the gateway's name and time zone.
@@ -5116,6 +5560,11 @@ class AsyncStorageGatewayClient:
         config_overrides: Optional[AsyncStorageGatewayClientConfig] = None,
     ) -> "aws_sdk_storage_gateway.types.update_gateway_software_now_output.UpdateGatewaySoftwareNowOutput":
         r"""<p>Updates the gateway virtual machine (VM) software. The request immediately triggers the software update.</p> <note> <p>When you make this request, you get a <code>200 OK</code> success response immediately. However, it might take some time for the update to complete. You can call <a>DescribeGatewayInformation</a> to verify the gateway is in the <code>STATE_RUNNING</code> state.</p> </note> <important> <p>A software update forces a system restart of your gateway. You can minimize the chance of any disruption to your applications by increasing your iSCSI Initiators' timeouts. For more information about increasing iSCSI Initiator timeouts for Windows and Linux, see <a href=\"https://docs.aws.amazon.com/storagegateway/latest/userguide/ConfiguringiSCSIClientInitiatorWindowsClient.html#CustomizeWindowsiSCSISettings\">Customizing your Windows iSCSI settings</a> and <a href=\"https://docs.aws.amazon.com/storagegateway/latest/userguide/ConfiguringiSCSIClientInitiatorRedHatClient.html#CustomizeLinuxiSCSISettings\">Customizing your Linux iSCSI settings</a>, respectively.</p> </important>
+
+        Raises:
+            aws_sdk_storage_gateway.errors.internal_server_error.InternalServerError: <p>An internal server error has occurred during the request. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.invalid_gateway_request_exception.InvalidGatewayRequestException: <p>An exception occurred because an invalid gateway request was issued to the service. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To update a gateway's VM software
@@ -5179,6 +5628,11 @@ class AsyncStorageGatewayClient:
             day_of_week: <p>The day of the week component of the maintenance start time week represented as an ordinal number from 0 to 6, where 0 represents Sunday and 6 represents Saturday.</p>
             day_of_month: <p>The day of the month component of the maintenance start time represented as an ordinal number from 1 to 28, where 1 represents the first day of the month. It is not possible to set the maintenance schedule to start on days 29 through 31.</p>
             software_update_preferences: <p>A set of variables indicating the software update preferences for the gateway.</p> <p>Includes <code>AutomaticUpdatePolicy</code> field with the following inputs:</p> <p> <code>ALL_VERSIONS</code> - Enables regular gateway maintenance updates.</p> <p> <code>EMERGENCY_VERSIONS_ONLY</code> - Disables regular gateway maintenance updates. The gateway will still receive emergency version updates on rare occasions if necessary to remedy highly critical security or durability issues. You will be notified before an emergency version update is applied. These updates are applied during your gateway's scheduled maintenance window.</p>
+
+        Raises:
+            aws_sdk_storage_gateway.errors.internal_server_error.InternalServerError: <p>An internal server error has occurred during the request. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.invalid_gateway_request_exception.InvalidGatewayRequestException: <p>An exception occurred because an invalid gateway request was issued to the service. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To update a gateway's maintenance start time
@@ -5285,6 +5739,11 @@ class AsyncStorageGatewayClient:
             cache_attributes: <p>Specifies refresh cache information for the file share.</p>
             notification_policy: <p>The notification policy of the file share. <code>SettlingTimeInSeconds</code> controls the number of seconds to wait after the last point in time a client wrote to a file before generating an <code>ObjectUploaded</code> notification. Because clients can make many small writes to files, it's best to set this parameter for as long as possible to avoid generating multiple notifications for the same file in a small time period.</p> <note> <p> <code>SettlingTimeInSeconds</code> has no effect on the timing of the object uploading to Amazon S3, only the timing of the notification.</p> <p>This setting is not meant to specify an exact time at which the notification will be sent. In some cases, the gateway might require more than the specified delay time to generate and send notifications.</p> </note> <p>The following example sets <code>NotificationPolicy</code> on with <code>SettlingTimeInSeconds</code> set to 60.</p> <p> <code>{\\"Upload\\": {\\"SettlingTimeInSeconds\\": 60}}</code> </p> <p>The following example sets <code>NotificationPolicy</code> off.</p> <p> <code>{}</code> </p>
             audit_destination_arn: <p>The Amazon Resource Name (ARN) of the storage used for audit logs.</p>
+
+        Raises:
+            aws_sdk_storage_gateway.errors.internal_server_error.InternalServerError: <p>An internal server error has occurred during the request. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.invalid_gateway_request_exception.InvalidGatewayRequestException: <p>An exception occurred because an invalid gateway request was issued to the service. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5423,6 +5882,11 @@ class AsyncStorageGatewayClient:
             cache_attributes: <p>Specifies refresh cache information for the file share.</p>
             notification_policy: <p>The notification policy of the file share. <code>SettlingTimeInSeconds</code> controls the number of seconds to wait after the last point in time a client wrote to a file before generating an <code>ObjectUploaded</code> notification. Because clients can make many small writes to files, it's best to set this parameter for as long as possible to avoid generating multiple notifications for the same file in a small time period.</p> <note> <p> <code>SettlingTimeInSeconds</code> has no effect on the timing of the object uploading to Amazon S3, only the timing of the notification.</p> <p>This setting is not meant to specify an exact time at which the notification will be sent. In some cases, the gateway might require more than the specified delay time to generate and send notifications.</p> </note> <p>The following example sets <code>NotificationPolicy</code> on with <code>SettlingTimeInSeconds</code> set to 60.</p> <p> <code>{\\"Upload\\": {\\"SettlingTimeInSeconds\\": 60}}</code> </p> <p>The following example sets <code>NotificationPolicy</code> off.</p> <p> <code>{}</code> </p>
             oplocks_enabled: <p>Specifies whether opportunistic locking is enabled for the SMB file share.</p> <note> <p>Enabling opportunistic locking on case-sensitive shares is not recommended for workloads that involve access to files with the same name in different case.</p> </note> <p>Valid Values: <code>true</code> | <code>false</code> </p>
+
+        Raises:
+            aws_sdk_storage_gateway.errors.internal_server_error.InternalServerError: <p>An internal server error has occurred during the request. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.invalid_gateway_request_exception.InvalidGatewayRequestException: <p>An exception occurred because an invalid gateway request was issued to the service. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5500,6 +5964,11 @@ class AsyncStorageGatewayClient:
 
         Args:
             file_shares_visible: <p>The shares on this gateway appear when listing shares.</p>
+
+        Raises:
+            aws_sdk_storage_gateway.errors.internal_server_error.InternalServerError: <p>An internal server error has occurred during the request. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.invalid_gateway_request_exception.InvalidGatewayRequestException: <p>An exception occurred because an invalid gateway request was issued to the service. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5540,6 +6009,11 @@ class AsyncStorageGatewayClient:
 
         Args:
             smb_local_groups: <p>A list of Active Directory users and groups that you want to grant special permissions for SMB file shares on the gateway.</p>
+
+        Raises:
+            aws_sdk_storage_gateway.errors.internal_server_error.InternalServerError: <p>An internal server error has occurred during the request. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.invalid_gateway_request_exception.InvalidGatewayRequestException: <p>An exception occurred because an invalid gateway request was issued to the service. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5580,6 +6054,11 @@ class AsyncStorageGatewayClient:
 
         Args:
             smb_security_strategy: <p>Specifies the type of security strategy.</p> <p> <code>ClientSpecified</code>: If you choose this option, requests are established based on what is negotiated by the client. This option is recommended when you want to maximize compatibility across different clients in your environment. Supported only for S3 File Gateway.</p> <p> <code>MandatorySigning</code>: If you choose this option, File Gateway only allows connections from SMBv2 or SMBv3 clients that have signing enabled. This option works with SMB clients on Microsoft Windows Vista, Windows Server 2008 or newer.</p> <p> <code>MandatoryEncryption</code>: If you choose this option, File Gateway only allows connections from SMBv3 clients that have encryption enabled. This option is recommended for environments that handle sensitive data. This option works with SMB clients on Microsoft Windows 8, Windows Server 2012 or newer.</p> <p> <code>MandatoryEncryptionNoAes128</code>: If you choose this option, File Gateway only allows connections from SMBv3 clients that use 256-bit AES encryption algorithms. 128-bit algorithms are not allowed. This option is recommended for environments that handle sensitive data. It works with SMB clients on Microsoft Windows 8, Windows Server 2012, or later.</p>
+
+        Raises:
+            aws_sdk_storage_gateway.errors.internal_server_error.InternalServerError: <p>An internal server error has occurred during the request. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.invalid_gateway_request_exception.InvalidGatewayRequestException: <p>An exception occurred because an invalid gateway request was issued to the service. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5629,6 +6108,11 @@ class AsyncStorageGatewayClient:
             recurrence_in_hours: <p>Frequency of snapshots. Specify the number of hours between snapshots.</p>
             description: <p>Optional description of the snapshot that overwrites the existing description.</p>
             tags: <p>A list of up to 50 tags that can be assigned to a snapshot. Each tag is a key-value pair.</p> <note> <p>Valid characters for key and value are letters, spaces, and numbers representable in UTF-8 format, and the following special characters: + - = . _ : / @. The maximum length of a tag's key is 128 characters, and the maximum length for a tag's value is 256.</p> </note>
+
+        Raises:
+            aws_sdk_storage_gateway.errors.internal_server_error.InternalServerError: <p>An internal server error has occurred during the request. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.invalid_gateway_request_exception.InvalidGatewayRequestException: <p>An exception occurred because an invalid gateway request was issued to the service. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To update a volume snapshot schedule
@@ -5681,6 +6165,11 @@ class AsyncStorageGatewayClient:
         Args:
             vtl_device_arn: <p>The Amazon Resource Name (ARN) of the medium changer you want to select.</p>
             device_type: <p>The type of medium changer you want to select.</p> <p>Valid Values: <code>STK-L700</code> | <code>AWS-Gateway-VTL</code> | <code>IBM-03584L32-0402</code> </p>
+
+        Raises:
+            aws_sdk_storage_gateway.errors.internal_server_error.InternalServerError: <p>An internal server error has occurred during the request. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.invalid_gateway_request_exception.InvalidGatewayRequestException: <p>An exception occurred because an invalid gateway request was issued to the service. For more information, see the error and message fields.</p>
+            aws_sdk_storage_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To update a VTL device type

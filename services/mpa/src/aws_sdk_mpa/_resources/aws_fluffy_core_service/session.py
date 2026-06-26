@@ -44,6 +44,14 @@ class Session:
 
         Args:
             session_arn: <p>Amazon Resource Name (ARN) for the session.</p>
+
+        Raises:
+            aws_sdk_mpa.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action. Check your permissions, and try again.</p>
+            aws_sdk_mpa.errors.internal_server_exception.InternalServerException: <p>The service encountered an internal error. Try your request again. If the problem persists, contact Amazon Web Services Support.</p>
+            aws_sdk_mpa.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource doesn't exist. Check the resource ID, and try again.</p>
+            aws_sdk_mpa.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_mpa.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_mpa.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -81,6 +89,15 @@ class Session:
 
         Args:
             session_arn: <p>Amazon Resource Name (ARN) for the session.</p>
+
+        Raises:
+            aws_sdk_mpa.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action. Check your permissions, and try again.</p>
+            aws_sdk_mpa.errors.conflict_exception.ConflictException: <p>The request cannot be completed because it conflicts with the current state of a resource.</p>
+            aws_sdk_mpa.errors.internal_server_exception.InternalServerException: <p>The service encountered an internal error. Try your request again. If the problem persists, contact Amazon Web Services Support.</p>
+            aws_sdk_mpa.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource doesn't exist. Check the resource ID, and try again.</p>
+            aws_sdk_mpa.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_mpa.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_mpa.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -124,6 +141,14 @@ class Session:
             max_results: <p>The maximum number of items to return in the response. If more results exist than the specified <code>MaxResults</code> value, a token is included in the response so that you can retrieve the remaining results.</p>
             next_token: <p>If present, indicates that more output is available than is included in the current response. Use this value in the <code>NextToken</code> request parameter in a next call to the operation to get more output. You can repeat this until the <code>NextToken</code> response element returns <code>null</code>.</p>
             filters: <p>An array of <code>Filter</code> objects. Contains the filter to apply when listing sessions.</p>
+
+        Raises:
+            aws_sdk_mpa.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action. Check your permissions, and try again.</p>
+            aws_sdk_mpa.errors.internal_server_exception.InternalServerException: <p>The service encountered an internal error. Try your request again. If the problem persists, contact Amazon Web Services Support.</p>
+            aws_sdk_mpa.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource doesn't exist. Check the resource ID, and try again.</p>
+            aws_sdk_mpa.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_mpa.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_mpa.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -172,6 +197,14 @@ class AsyncSession:
 
         Args:
             session_arn: <p>Amazon Resource Name (ARN) for the session.</p>
+
+        Raises:
+            aws_sdk_mpa.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action. Check your permissions, and try again.</p>
+            aws_sdk_mpa.errors.internal_server_exception.InternalServerException: <p>The service encountered an internal error. Try your request again. If the problem persists, contact Amazon Web Services Support.</p>
+            aws_sdk_mpa.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource doesn't exist. Check the resource ID, and try again.</p>
+            aws_sdk_mpa.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_mpa.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_mpa.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -210,6 +243,15 @@ class AsyncSession:
 
         Args:
             session_arn: <p>Amazon Resource Name (ARN) for the session.</p>
+
+        Raises:
+            aws_sdk_mpa.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action. Check your permissions, and try again.</p>
+            aws_sdk_mpa.errors.conflict_exception.ConflictException: <p>The request cannot be completed because it conflicts with the current state of a resource.</p>
+            aws_sdk_mpa.errors.internal_server_exception.InternalServerException: <p>The service encountered an internal error. Try your request again. If the problem persists, contact Amazon Web Services Support.</p>
+            aws_sdk_mpa.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource doesn't exist. Check the resource ID, and try again.</p>
+            aws_sdk_mpa.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_mpa.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_mpa.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -254,6 +296,14 @@ class AsyncSession:
             max_results: <p>The maximum number of items to return in the response. If more results exist than the specified <code>MaxResults</code> value, a token is included in the response so that you can retrieve the remaining results.</p>
             next_token: <p>If present, indicates that more output is available than is included in the current response. Use this value in the <code>NextToken</code> request parameter in a next call to the operation to get more output. You can repeat this until the <code>NextToken</code> response element returns <code>null</code>.</p>
             filters: <p>An array of <code>Filter</code> objects. Contains the filter to apply when listing sessions.</p>
+
+        Raises:
+            aws_sdk_mpa.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action. Check your permissions, and try again.</p>
+            aws_sdk_mpa.errors.internal_server_exception.InternalServerException: <p>The service encountered an internal error. Try your request again. If the problem persists, contact Amazon Web Services Support.</p>
+            aws_sdk_mpa.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource doesn't exist. Check the resource ID, and try again.</p>
+            aws_sdk_mpa.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_mpa.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_mpa.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

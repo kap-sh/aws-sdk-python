@@ -68,6 +68,16 @@ class ServiceNetworkResourceAssociation:
             service_network_identifier: <p>The ID of the service network to associate with the resource configuration.</p>
             private_dns_enabled: <p> Indicates if private DNS is enabled for the service network resource association. </p>
             tags: <p>A key-value pair to associate with a resource.</p>
+
+        Raises:
+            aws_sdk_vpc_lattice.errors.access_denied_exception.AccessDeniedException: <p>The user does not have sufficient access to perform this action.</p>
+            aws_sdk_vpc_lattice.errors.conflict_exception.ConflictException: <p>The request conflicts with the current state of the resource. Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_vpc_lattice.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing the request.</p>
+            aws_sdk_vpc_lattice.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource that does not exist.</p>
+            aws_sdk_vpc_lattice.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request would cause a service quota to be exceeded.</p>
+            aws_sdk_vpc_lattice.errors.throttling_exception.ThrottlingException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_vpc_lattice.errors.validation_exception.ValidationException: <p>The input does not satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_vpc_lattice.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -112,6 +122,14 @@ class ServiceNetworkResourceAssociation:
 
         Args:
             service_network_resource_association_identifier: <p>The ID of the association.</p>
+
+        Raises:
+            aws_sdk_vpc_lattice.errors.access_denied_exception.AccessDeniedException: <p>The user does not have sufficient access to perform this action.</p>
+            aws_sdk_vpc_lattice.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing the request.</p>
+            aws_sdk_vpc_lattice.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource that does not exist.</p>
+            aws_sdk_vpc_lattice.errors.throttling_exception.ThrottlingException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_vpc_lattice.errors.validation_exception.ValidationException: <p>The input does not satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_vpc_lattice.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -151,6 +169,15 @@ class ServiceNetworkResourceAssociation:
 
         Args:
             service_network_resource_association_identifier: <p>The ID of the association.</p>
+
+        Raises:
+            aws_sdk_vpc_lattice.errors.access_denied_exception.AccessDeniedException: <p>The user does not have sufficient access to perform this action.</p>
+            aws_sdk_vpc_lattice.errors.conflict_exception.ConflictException: <p>The request conflicts with the current state of the resource. Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_vpc_lattice.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing the request.</p>
+            aws_sdk_vpc_lattice.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource that does not exist.</p>
+            aws_sdk_vpc_lattice.errors.throttling_exception.ThrottlingException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_vpc_lattice.errors.validation_exception.ValidationException: <p>The input does not satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_vpc_lattice.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -204,6 +231,13 @@ class ServiceNetworkResourceAssociation:
             max_results: <p>The maximum page size.</p>
             next_token: <p>If there are additional results, a pagination token for the next page of results.</p>
             include_children: <p>Include service network resource associations of the child resource configuration with the grouped resource configuration.</p> <p>The type is boolean and the default value is false.</p>
+
+        Raises:
+            aws_sdk_vpc_lattice.errors.access_denied_exception.AccessDeniedException: <p>The user does not have sufficient access to perform this action.</p>
+            aws_sdk_vpc_lattice.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing the request.</p>
+            aws_sdk_vpc_lattice.errors.throttling_exception.ThrottlingException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_vpc_lattice.errors.validation_exception.ValidationException: <p>The input does not satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_vpc_lattice.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -269,6 +303,16 @@ class AsyncServiceNetworkResourceAssociation:
             service_network_identifier: <p>The ID of the service network to associate with the resource configuration.</p>
             private_dns_enabled: <p> Indicates if private DNS is enabled for the service network resource association. </p>
             tags: <p>A key-value pair to associate with a resource.</p>
+
+        Raises:
+            aws_sdk_vpc_lattice.errors.access_denied_exception.AccessDeniedException: <p>The user does not have sufficient access to perform this action.</p>
+            aws_sdk_vpc_lattice.errors.conflict_exception.ConflictException: <p>The request conflicts with the current state of the resource. Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_vpc_lattice.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing the request.</p>
+            aws_sdk_vpc_lattice.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource that does not exist.</p>
+            aws_sdk_vpc_lattice.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request would cause a service quota to be exceeded.</p>
+            aws_sdk_vpc_lattice.errors.throttling_exception.ThrottlingException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_vpc_lattice.errors.validation_exception.ValidationException: <p>The input does not satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_vpc_lattice.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -314,6 +358,14 @@ class AsyncServiceNetworkResourceAssociation:
 
         Args:
             service_network_resource_association_identifier: <p>The ID of the association.</p>
+
+        Raises:
+            aws_sdk_vpc_lattice.errors.access_denied_exception.AccessDeniedException: <p>The user does not have sufficient access to perform this action.</p>
+            aws_sdk_vpc_lattice.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing the request.</p>
+            aws_sdk_vpc_lattice.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource that does not exist.</p>
+            aws_sdk_vpc_lattice.errors.throttling_exception.ThrottlingException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_vpc_lattice.errors.validation_exception.ValidationException: <p>The input does not satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_vpc_lattice.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -354,6 +406,15 @@ class AsyncServiceNetworkResourceAssociation:
 
         Args:
             service_network_resource_association_identifier: <p>The ID of the association.</p>
+
+        Raises:
+            aws_sdk_vpc_lattice.errors.access_denied_exception.AccessDeniedException: <p>The user does not have sufficient access to perform this action.</p>
+            aws_sdk_vpc_lattice.errors.conflict_exception.ConflictException: <p>The request conflicts with the current state of the resource. Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_vpc_lattice.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing the request.</p>
+            aws_sdk_vpc_lattice.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource that does not exist.</p>
+            aws_sdk_vpc_lattice.errors.throttling_exception.ThrottlingException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_vpc_lattice.errors.validation_exception.ValidationException: <p>The input does not satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_vpc_lattice.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -408,6 +469,13 @@ class AsyncServiceNetworkResourceAssociation:
             max_results: <p>The maximum page size.</p>
             next_token: <p>If there are additional results, a pagination token for the next page of results.</p>
             include_children: <p>Include service network resource associations of the child resource configuration with the grouped resource configuration.</p> <p>The type is boolean and the default value is false.</p>
+
+        Raises:
+            aws_sdk_vpc_lattice.errors.access_denied_exception.AccessDeniedException: <p>The user does not have sufficient access to perform this action.</p>
+            aws_sdk_vpc_lattice.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing the request.</p>
+            aws_sdk_vpc_lattice.errors.throttling_exception.ThrottlingException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_vpc_lattice.errors.validation_exception.ValidationException: <p>The input does not satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_vpc_lattice.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

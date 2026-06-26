@@ -63,6 +63,14 @@ class UsageLimitResource:
             amount: <p>The limit amount. If time-based, this amount is in Redshift Processing Units (RPU) consumed per hour. If data-based, this amount is in terabytes (TB) of data transferred between Regions in cross-account sharing. The value must be a positive number.</p>
             period: <p>The time period that the amount applies to. A weekly period begins on Sunday. The default is monthly.</p>
             breach_action: <p>The action that Amazon Redshift Serverless takes when the limit is reached. The default is log.</p>
+
+        Raises:
+            aws_sdk_redshift_serverless.errors.conflict_exception.ConflictException: <p>The submitted action has conflicts.</p>
+            aws_sdk_redshift_serverless.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_redshift_serverless.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_redshift_serverless.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The service limit was exceeded.</p>
+            aws_sdk_redshift_serverless.errors.validation_exception.ValidationException: <p>The input failed to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_redshift_serverless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -106,6 +114,13 @@ class UsageLimitResource:
 
         Args:
             usage_limit_id: <p>The unique identifier of the usage limit to delete.</p>
+
+        Raises:
+            aws_sdk_redshift_serverless.errors.conflict_exception.ConflictException: <p>The submitted action has conflicts.</p>
+            aws_sdk_redshift_serverless.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_redshift_serverless.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_redshift_serverless.errors.validation_exception.ValidationException: <p>The input failed to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_redshift_serverless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -143,6 +158,13 @@ class UsageLimitResource:
 
         Args:
             usage_limit_id: <p>The unique identifier of the usage limit to return information for.</p>
+
+        Raises:
+            aws_sdk_redshift_serverless.errors.conflict_exception.ConflictException: <p>The submitted action has conflicts.</p>
+            aws_sdk_redshift_serverless.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_redshift_serverless.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_redshift_serverless.errors.validation_exception.ValidationException: <p>The input failed to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_redshift_serverless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -190,6 +212,14 @@ class UsageLimitResource:
             usage_type: <p>The Amazon Redshift Serverless feature whose limits you want to see.</p>
             next_token: <p>If your initial <code>ListUsageLimits</code> operation returns a <code>nextToken</code>, you can include the returned <code>nextToken</code> in following <code>ListUsageLimits</code> operations, which returns results in the next page. </p>
             max_results: <p>An optional parameter that specifies the maximum number of results to return. You can use <code>nextToken</code> to get the next page of results. The default is 100.</p>
+
+        Raises:
+            aws_sdk_redshift_serverless.errors.conflict_exception.ConflictException: <p>The submitted action has conflicts.</p>
+            aws_sdk_redshift_serverless.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_redshift_serverless.errors.invalid_pagination_exception.InvalidPaginationException: <p>The provided pagination token is invalid.</p>
+            aws_sdk_redshift_serverless.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_redshift_serverless.errors.validation_exception.ValidationException: <p>The input failed to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_redshift_serverless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -240,6 +270,13 @@ class UsageLimitResource:
             usage_limit_id: <p>The identifier of the usage limit to update.</p>
             amount: <p>The new limit amount. If time-based, this amount is in Redshift Processing Units (RPU) consumed per hour. If data-based, this amount is in terabytes (TB) of data transferred between Regions in cross-account sharing. The value must be a positive number.</p>
             breach_action: <p>The new action that Amazon Redshift Serverless takes when the limit is reached.</p>
+
+        Raises:
+            aws_sdk_redshift_serverless.errors.conflict_exception.ConflictException: <p>The submitted action has conflicts.</p>
+            aws_sdk_redshift_serverless.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_redshift_serverless.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_redshift_serverless.errors.validation_exception.ValidationException: <p>The input failed to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_redshift_serverless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -298,6 +335,14 @@ class AsyncUsageLimitResource:
             amount: <p>The limit amount. If time-based, this amount is in Redshift Processing Units (RPU) consumed per hour. If data-based, this amount is in terabytes (TB) of data transferred between Regions in cross-account sharing. The value must be a positive number.</p>
             period: <p>The time period that the amount applies to. A weekly period begins on Sunday. The default is monthly.</p>
             breach_action: <p>The action that Amazon Redshift Serverless takes when the limit is reached. The default is log.</p>
+
+        Raises:
+            aws_sdk_redshift_serverless.errors.conflict_exception.ConflictException: <p>The submitted action has conflicts.</p>
+            aws_sdk_redshift_serverless.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_redshift_serverless.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_redshift_serverless.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The service limit was exceeded.</p>
+            aws_sdk_redshift_serverless.errors.validation_exception.ValidationException: <p>The input failed to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_redshift_serverless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -342,6 +387,13 @@ class AsyncUsageLimitResource:
 
         Args:
             usage_limit_id: <p>The unique identifier of the usage limit to delete.</p>
+
+        Raises:
+            aws_sdk_redshift_serverless.errors.conflict_exception.ConflictException: <p>The submitted action has conflicts.</p>
+            aws_sdk_redshift_serverless.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_redshift_serverless.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_redshift_serverless.errors.validation_exception.ValidationException: <p>The input failed to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_redshift_serverless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -380,6 +432,13 @@ class AsyncUsageLimitResource:
 
         Args:
             usage_limit_id: <p>The unique identifier of the usage limit to return information for.</p>
+
+        Raises:
+            aws_sdk_redshift_serverless.errors.conflict_exception.ConflictException: <p>The submitted action has conflicts.</p>
+            aws_sdk_redshift_serverless.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_redshift_serverless.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_redshift_serverless.errors.validation_exception.ValidationException: <p>The input failed to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_redshift_serverless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -428,6 +487,14 @@ class AsyncUsageLimitResource:
             usage_type: <p>The Amazon Redshift Serverless feature whose limits you want to see.</p>
             next_token: <p>If your initial <code>ListUsageLimits</code> operation returns a <code>nextToken</code>, you can include the returned <code>nextToken</code> in following <code>ListUsageLimits</code> operations, which returns results in the next page. </p>
             max_results: <p>An optional parameter that specifies the maximum number of results to return. You can use <code>nextToken</code> to get the next page of results. The default is 100.</p>
+
+        Raises:
+            aws_sdk_redshift_serverless.errors.conflict_exception.ConflictException: <p>The submitted action has conflicts.</p>
+            aws_sdk_redshift_serverless.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_redshift_serverless.errors.invalid_pagination_exception.InvalidPaginationException: <p>The provided pagination token is invalid.</p>
+            aws_sdk_redshift_serverless.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_redshift_serverless.errors.validation_exception.ValidationException: <p>The input failed to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_redshift_serverless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -479,6 +546,13 @@ class AsyncUsageLimitResource:
             usage_limit_id: <p>The identifier of the usage limit to update.</p>
             amount: <p>The new limit amount. If time-based, this amount is in Redshift Processing Units (RPU) consumed per hour. If data-based, this amount is in terabytes (TB) of data transferred between Regions in cross-account sharing. The value must be a positive number.</p>
             breach_action: <p>The new action that Amazon Redshift Serverless takes when the limit is reached.</p>
+
+        Raises:
+            aws_sdk_redshift_serverless.errors.conflict_exception.ConflictException: <p>The submitted action has conflicts.</p>
+            aws_sdk_redshift_serverless.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_redshift_serverless.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_redshift_serverless.errors.validation_exception.ValidationException: <p>The input failed to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_redshift_serverless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

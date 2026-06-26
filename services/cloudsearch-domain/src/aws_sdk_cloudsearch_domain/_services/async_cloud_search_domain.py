@@ -192,6 +192,10 @@ class AsyncCloudSearchDomainClient:
             sort: <p>Specifies the fields or custom expressions to use to sort the search results. Multiple fields or expressions are specified as a comma-separated list. You must specify the sort direction (<code>asc</code> or <code>desc</code>) for each field; for example, <code>year desc,title asc</code>. To use a field to sort results, the field must be sort-enabled in the domain configuration. Array type fields cannot be used for sorting. If no <code>sort</code> parameter is specified, results are sorted by their default relevance scores in descending order: <code>_score desc</code>. You can also sort by document ID (<code>_id asc</code>) and version (<code>_version desc</code>).</p> <p>For more information, see <a href=\"http://docs.aws.amazon.com/cloudsearch/latest/developerguide/sorting-results.html\">Sorting Results</a> in the <i>Amazon CloudSearch Developer Guide</i>.</p>
             start: <p>Specifies the offset of the first search hit you want to return. Note that the result set is zero-based; the first result is at index 0. You can specify either the <code>start</code> or <code>cursor</code> parameter in a request, they are mutually exclusive. </p> <p>For more information, see <a href=\"http://docs.aws.amazon.com/cloudsearch/latest/developerguide/paginating-results.html\">Paginating Results</a> in the <i>Amazon CloudSearch Developer Guide</i>.</p>
             stats: <p>Specifies one or more fields for which to get statistics information. Each specified field must be facet-enabled in the domain configuration. The fields are specified in JSON using the form:</p> <code>{\"FIELD-A\":{},\"FIELD-B\":{}}</code> <p>There are currently no options supported for statistics.</p>
+
+        Raises:
+            aws_sdk_cloudsearch_domain.errors.search_exception.SearchException: <p>Information about any problems encountered while processing a search request.</p>
+            aws_sdk_cloudsearch_domain.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -262,6 +266,10 @@ class AsyncCloudSearchDomainClient:
             query: <p>Specifies the string for which you want to get suggestions.</p>
             suggester: <p>Specifies the name of the suggester to use to find suggested matches.</p>
             size: <p>Specifies the maximum number of suggestions to return. </p>
+
+        Raises:
+            aws_sdk_cloudsearch_domain.errors.search_exception.SearchException: <p>Information about any problems encountered while processing a search request.</p>
+            aws_sdk_cloudsearch_domain.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -305,6 +313,10 @@ class AsyncCloudSearchDomainClient:
         Args:
             documents: <p>A batch of documents formatted in JSON or HTML.</p>
             content_type: <p>The format of the batch you are uploading. Amazon CloudSearch supports two document batch formats:</p> <ul> <li>application/json</li> <li>application/xml</li> </ul>
+
+        Raises:
+            aws_sdk_cloudsearch_domain.errors.document_service_exception.DocumentServiceException: <p>Information about any problems encountered while processing an upload request.</p>
+            aws_sdk_cloudsearch_domain.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

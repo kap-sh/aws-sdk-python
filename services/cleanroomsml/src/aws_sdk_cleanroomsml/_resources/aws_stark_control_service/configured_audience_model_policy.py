@@ -55,6 +55,12 @@ class ConfiguredAudienceModelPolicy:
             configured_audience_model_policy: <p>The IAM resource policy.</p>
             previous_policy_hash: <p>A cryptographic hash of the contents of the policy used to prevent unexpected concurrent modification of the policy.</p>
             policy_existence_condition: <p>Use this to prevent unexpected concurrent modification of the policy.</p>
+
+        Raises:
+            aws_sdk_cleanroomsml.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_cleanroomsml.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource you are requesting does not exist.</p>
+            aws_sdk_cleanroomsml.errors.validation_exception.ValidationException: <p>The request parameters for this request are incorrect.</p>
+            aws_sdk_cleanroomsml.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -97,6 +103,12 @@ class ConfiguredAudienceModelPolicy:
 
         Args:
             configured_audience_model_arn: <p>The Amazon Resource Name (ARN) of the configured audience model that you are interested in.</p>
+
+        Raises:
+            aws_sdk_cleanroomsml.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_cleanroomsml.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource you are requesting does not exist.</p>
+            aws_sdk_cleanroomsml.errors.validation_exception.ValidationException: <p>The request parameters for this request are incorrect.</p>
+            aws_sdk_cleanroomsml.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -134,6 +146,12 @@ class ConfiguredAudienceModelPolicy:
 
         Args:
             configured_audience_model_arn: <p>The Amazon Resource Name (ARN) of the configured audience model policy that you want to delete.</p>
+
+        Raises:
+            aws_sdk_cleanroomsml.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_cleanroomsml.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource you are requesting does not exist.</p>
+            aws_sdk_cleanroomsml.errors.validation_exception.ValidationException: <p>The request parameters for this request are incorrect.</p>
+            aws_sdk_cleanroomsml.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -182,6 +200,12 @@ class AsyncConfiguredAudienceModelPolicy:
             configured_audience_model_policy: <p>The IAM resource policy.</p>
             previous_policy_hash: <p>A cryptographic hash of the contents of the policy used to prevent unexpected concurrent modification of the policy.</p>
             policy_existence_condition: <p>Use this to prevent unexpected concurrent modification of the policy.</p>
+
+        Raises:
+            aws_sdk_cleanroomsml.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_cleanroomsml.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource you are requesting does not exist.</p>
+            aws_sdk_cleanroomsml.errors.validation_exception.ValidationException: <p>The request parameters for this request are incorrect.</p>
+            aws_sdk_cleanroomsml.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -225,6 +249,12 @@ class AsyncConfiguredAudienceModelPolicy:
 
         Args:
             configured_audience_model_arn: <p>The Amazon Resource Name (ARN) of the configured audience model that you are interested in.</p>
+
+        Raises:
+            aws_sdk_cleanroomsml.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_cleanroomsml.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource you are requesting does not exist.</p>
+            aws_sdk_cleanroomsml.errors.validation_exception.ValidationException: <p>The request parameters for this request are incorrect.</p>
+            aws_sdk_cleanroomsml.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -263,6 +293,12 @@ class AsyncConfiguredAudienceModelPolicy:
 
         Args:
             configured_audience_model_arn: <p>The Amazon Resource Name (ARN) of the configured audience model policy that you want to delete.</p>
+
+        Raises:
+            aws_sdk_cleanroomsml.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_cleanroomsml.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource you are requesting does not exist.</p>
+            aws_sdk_cleanroomsml.errors.validation_exception.ValidationException: <p>The request parameters for this request are incorrect.</p>
+            aws_sdk_cleanroomsml.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

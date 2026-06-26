@@ -75,6 +75,11 @@ class Profile:
             enabled: <p>Specifies whether the profile is enabled.</p>
             tags: <p>The tags to attach to the profile.</p>
             accept_role_session_name: <p>Used to determine if a custom role session name will be accepted in a temporary credential request.</p>
+
+        Raises:
+            aws_sdk_rolesanywhere.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_rolesanywhere.errors.validation_exception.ValidationException: <p>Validation exception error.</p>
+            aws_sdk_rolesanywhere.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -127,6 +132,11 @@ class Profile:
 
         Args:
             profile_id: <p>The unique identifier of the profile.</p>
+
+        Raises:
+            aws_sdk_rolesanywhere.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_rolesanywhere.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_rolesanywhere.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -180,6 +190,12 @@ class Profile:
             managed_policy_arns: <p>A list of managed policy ARNs that apply to the vended session credentials. </p>
             duration_seconds: <p> Used to determine how long sessions vended using this profile are valid for. See the <code>Expiration</code> section of the <a href=\"https://docs.aws.amazon.com/rolesanywhere/latest/userguide/authentication-create-session.html#credentials-object\">CreateSession API documentation</a> page for more details. In requests, if this value is not provided, the default value will be 3600. </p>
             accept_role_session_name: <p>Used to determine if a custom role session name will be accepted in a temporary credential request.</p>
+
+        Raises:
+            aws_sdk_rolesanywhere.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_rolesanywhere.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_rolesanywhere.errors.validation_exception.ValidationException: <p>Validation exception error.</p>
+            aws_sdk_rolesanywhere.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -229,6 +245,11 @@ class Profile:
 
         Args:
             profile_id: <p>The unique identifier of the profile.</p>
+
+        Raises:
+            aws_sdk_rolesanywhere.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_rolesanywhere.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_rolesanywhere.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -268,6 +289,11 @@ class Profile:
         Args:
             next_token: <p>A token that indicates where the output should continue from, if a previous request did not show all results. To get the next results, make the request again with this value.</p>
             page_size: <p>The number of resources in the paginated list. </p>
+
+        Raises:
+            aws_sdk_rolesanywhere.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_rolesanywhere.errors.validation_exception.ValidationException: <p>Validation exception error.</p>
+            aws_sdk_rolesanywhere.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -315,6 +341,12 @@ class Profile:
             certificate_field: <p>Fields (x509Subject, x509Issuer and x509SAN) within X.509 certificates.</p>
             specifiers: <p>A list of specifiers of a certificate field; for example, CN, OU, UID from a Subject.</p>
 
+        Raises:
+            aws_sdk_rolesanywhere.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_rolesanywhere.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_rolesanywhere.errors.validation_exception.ValidationException: <p>Validation exception error.</p>
+            aws_sdk_rolesanywhere.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             DeleteAttributeMapping - Deletes a custom attribute mapping rule
 
@@ -359,6 +391,11 @@ class Profile:
 
         Args:
             profile_id: <p>The unique identifier of the profile.</p>
+
+        Raises:
+            aws_sdk_rolesanywhere.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_rolesanywhere.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_rolesanywhere.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -396,6 +433,11 @@ class Profile:
 
         Args:
             profile_id: <p>The unique identifier of the profile.</p>
+
+        Raises:
+            aws_sdk_rolesanywhere.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_rolesanywhere.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_rolesanywhere.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -437,6 +479,12 @@ class Profile:
             profile_id: <p>The unique identifier of the profile.</p>
             certificate_field: <p>Fields (x509Subject, x509Issuer and x509SAN) within X.509 certificates.</p>
             mapping_rules: <p>A list of mapping entries for every supported specifier or sub-field.</p>
+
+        Raises:
+            aws_sdk_rolesanywhere.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_rolesanywhere.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_rolesanywhere.errors.validation_exception.ValidationException: <p>Validation exception error.</p>
+            aws_sdk_rolesanywhere.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             PutAttributeMapping - Adds a custom attribute mapping rule
@@ -504,6 +552,11 @@ class AsyncProfile:
             enabled: <p>Specifies whether the profile is enabled.</p>
             tags: <p>The tags to attach to the profile.</p>
             accept_role_session_name: <p>Used to determine if a custom role session name will be accepted in a temporary credential request.</p>
+
+        Raises:
+            aws_sdk_rolesanywhere.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_rolesanywhere.errors.validation_exception.ValidationException: <p>Validation exception error.</p>
+            aws_sdk_rolesanywhere.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -557,6 +610,11 @@ class AsyncProfile:
 
         Args:
             profile_id: <p>The unique identifier of the profile.</p>
+
+        Raises:
+            aws_sdk_rolesanywhere.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_rolesanywhere.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_rolesanywhere.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -611,6 +669,12 @@ class AsyncProfile:
             managed_policy_arns: <p>A list of managed policy ARNs that apply to the vended session credentials. </p>
             duration_seconds: <p> Used to determine how long sessions vended using this profile are valid for. See the <code>Expiration</code> section of the <a href=\"https://docs.aws.amazon.com/rolesanywhere/latest/userguide/authentication-create-session.html#credentials-object\">CreateSession API documentation</a> page for more details. In requests, if this value is not provided, the default value will be 3600. </p>
             accept_role_session_name: <p>Used to determine if a custom role session name will be accepted in a temporary credential request.</p>
+
+        Raises:
+            aws_sdk_rolesanywhere.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_rolesanywhere.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_rolesanywhere.errors.validation_exception.ValidationException: <p>Validation exception error.</p>
+            aws_sdk_rolesanywhere.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -661,6 +725,11 @@ class AsyncProfile:
 
         Args:
             profile_id: <p>The unique identifier of the profile.</p>
+
+        Raises:
+            aws_sdk_rolesanywhere.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_rolesanywhere.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_rolesanywhere.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -701,6 +770,11 @@ class AsyncProfile:
         Args:
             next_token: <p>A token that indicates where the output should continue from, if a previous request did not show all results. To get the next results, make the request again with this value.</p>
             page_size: <p>The number of resources in the paginated list. </p>
+
+        Raises:
+            aws_sdk_rolesanywhere.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_rolesanywhere.errors.validation_exception.ValidationException: <p>Validation exception error.</p>
+            aws_sdk_rolesanywhere.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -749,6 +823,12 @@ class AsyncProfile:
             certificate_field: <p>Fields (x509Subject, x509Issuer and x509SAN) within X.509 certificates.</p>
             specifiers: <p>A list of specifiers of a certificate field; for example, CN, OU, UID from a Subject.</p>
 
+        Raises:
+            aws_sdk_rolesanywhere.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_rolesanywhere.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_rolesanywhere.errors.validation_exception.ValidationException: <p>Validation exception error.</p>
+            aws_sdk_rolesanywhere.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             DeleteAttributeMapping - Deletes a custom attribute mapping rule
 
@@ -794,6 +874,11 @@ class AsyncProfile:
 
         Args:
             profile_id: <p>The unique identifier of the profile.</p>
+
+        Raises:
+            aws_sdk_rolesanywhere.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_rolesanywhere.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_rolesanywhere.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -832,6 +917,11 @@ class AsyncProfile:
 
         Args:
             profile_id: <p>The unique identifier of the profile.</p>
+
+        Raises:
+            aws_sdk_rolesanywhere.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_rolesanywhere.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_rolesanywhere.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -874,6 +964,12 @@ class AsyncProfile:
             profile_id: <p>The unique identifier of the profile.</p>
             certificate_field: <p>Fields (x509Subject, x509Issuer and x509SAN) within X.509 certificates.</p>
             mapping_rules: <p>A list of mapping entries for every supported specifier or sub-field.</p>
+
+        Raises:
+            aws_sdk_rolesanywhere.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_rolesanywhere.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_rolesanywhere.errors.validation_exception.ValidationException: <p>Validation exception error.</p>
+            aws_sdk_rolesanywhere.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             PutAttributeMapping - Adds a custom attribute mapping rule

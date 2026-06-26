@@ -97,6 +97,16 @@ class WorkgroupResource:
             ip_address_type: <p>The IP address type that the workgroup supports. Possible values are <code>ipv4</code> and <code>dualstack</code>.</p>
             track_name: <p>An optional parameter for the name of the track for the workgroup. If you don't provide a track name, the workgroup is assigned to the <code>current</code> track.</p>
             extra_compute_for_automatic_optimization: <p>If <code>true</code>, allocates additional compute resources for running automatic optimization operations.</p> <p>Default: false</p>
+
+        Raises:
+            aws_sdk_redshift_serverless.errors.conflict_exception.ConflictException: <p>The submitted action has conflicts.</p>
+            aws_sdk_redshift_serverless.errors.insufficient_capacity_exception.InsufficientCapacityException: <p>There is an insufficient capacity to perform the action.</p>
+            aws_sdk_redshift_serverless.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_redshift_serverless.errors.ipv6_cidr_block_not_found_exception.Ipv6CidrBlockNotFoundException: <p>There are no subnets in your VPC with associated IPv6 CIDR blocks. To use dual-stack mode, associate an IPv6 CIDR block with each subnet in your VPC.</p>
+            aws_sdk_redshift_serverless.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_redshift_serverless.errors.too_many_tags_exception.TooManyTagsException: <p>The request exceeded the number of tags allowed for a resource.</p>
+            aws_sdk_redshift_serverless.errors.validation_exception.ValidationException: <p>The input failed to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_redshift_serverless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -165,6 +175,12 @@ class WorkgroupResource:
 
         Args:
             workgroup_name: <p>The name of the workgroup to return information for.</p>
+
+        Raises:
+            aws_sdk_redshift_serverless.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_redshift_serverless.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_redshift_serverless.errors.validation_exception.ValidationException: <p>The input failed to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_redshift_serverless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -238,6 +254,15 @@ class WorkgroupResource:
             price_performance_target: <p>An object that represents the price performance target settings for the workgroup.</p>
             track_name: <p>An optional parameter for the name of the track for the workgroup. If you don't provide a track name, the workgroup is assigned to the <code>current</code> track.</p>
             extra_compute_for_automatic_optimization: <p>If <code>true</code>, allocates additional compute resources for running automatic optimization operations.</p> <p>Default: false</p>
+
+        Raises:
+            aws_sdk_redshift_serverless.errors.conflict_exception.ConflictException: <p>The submitted action has conflicts.</p>
+            aws_sdk_redshift_serverless.errors.insufficient_capacity_exception.InsufficientCapacityException: <p>There is an insufficient capacity to perform the action.</p>
+            aws_sdk_redshift_serverless.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_redshift_serverless.errors.ipv6_cidr_block_not_found_exception.Ipv6CidrBlockNotFoundException: <p>There are no subnets in your VPC with associated IPv6 CIDR blocks. To use dual-stack mode, associate an IPv6 CIDR block with each subnet in your VPC.</p>
+            aws_sdk_redshift_serverless.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_redshift_serverless.errors.validation_exception.ValidationException: <p>The input failed to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_redshift_serverless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -301,6 +326,13 @@ class WorkgroupResource:
 
         Args:
             workgroup_name: <p>The name of the workgroup to be deleted.</p>
+
+        Raises:
+            aws_sdk_redshift_serverless.errors.conflict_exception.ConflictException: <p>The submitted action has conflicts.</p>
+            aws_sdk_redshift_serverless.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_redshift_serverless.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_redshift_serverless.errors.validation_exception.ValidationException: <p>The input failed to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_redshift_serverless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -344,6 +376,11 @@ class WorkgroupResource:
             next_token: <p>If your initial ListWorkgroups operation returns a <code>nextToken</code>, you can include the returned <code>nextToken</code> in following ListNamespaces operations, which returns results in the next page.</p>
             max_results: <p>An optional parameter that specifies the maximum number of results to return. You can use <code>nextToken</code> to display the next page of results.</p>
             owner_account: <p>The owner Amazon Web Services account for the Amazon Redshift Serverless workgroup.</p>
+
+        Raises:
+            aws_sdk_redshift_serverless.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_redshift_serverless.errors.validation_exception.ValidationException: <p>The input failed to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_redshift_serverless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -431,6 +468,16 @@ class AsyncWorkgroupResource:
             ip_address_type: <p>The IP address type that the workgroup supports. Possible values are <code>ipv4</code> and <code>dualstack</code>.</p>
             track_name: <p>An optional parameter for the name of the track for the workgroup. If you don't provide a track name, the workgroup is assigned to the <code>current</code> track.</p>
             extra_compute_for_automatic_optimization: <p>If <code>true</code>, allocates additional compute resources for running automatic optimization operations.</p> <p>Default: false</p>
+
+        Raises:
+            aws_sdk_redshift_serverless.errors.conflict_exception.ConflictException: <p>The submitted action has conflicts.</p>
+            aws_sdk_redshift_serverless.errors.insufficient_capacity_exception.InsufficientCapacityException: <p>There is an insufficient capacity to perform the action.</p>
+            aws_sdk_redshift_serverless.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_redshift_serverless.errors.ipv6_cidr_block_not_found_exception.Ipv6CidrBlockNotFoundException: <p>There are no subnets in your VPC with associated IPv6 CIDR blocks. To use dual-stack mode, associate an IPv6 CIDR block with each subnet in your VPC.</p>
+            aws_sdk_redshift_serverless.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_redshift_serverless.errors.too_many_tags_exception.TooManyTagsException: <p>The request exceeded the number of tags allowed for a resource.</p>
+            aws_sdk_redshift_serverless.errors.validation_exception.ValidationException: <p>The input failed to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_redshift_serverless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -500,6 +547,12 @@ class AsyncWorkgroupResource:
 
         Args:
             workgroup_name: <p>The name of the workgroup to return information for.</p>
+
+        Raises:
+            aws_sdk_redshift_serverless.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_redshift_serverless.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_redshift_serverless.errors.validation_exception.ValidationException: <p>The input failed to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_redshift_serverless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -574,6 +627,15 @@ class AsyncWorkgroupResource:
             price_performance_target: <p>An object that represents the price performance target settings for the workgroup.</p>
             track_name: <p>An optional parameter for the name of the track for the workgroup. If you don't provide a track name, the workgroup is assigned to the <code>current</code> track.</p>
             extra_compute_for_automatic_optimization: <p>If <code>true</code>, allocates additional compute resources for running automatic optimization operations.</p> <p>Default: false</p>
+
+        Raises:
+            aws_sdk_redshift_serverless.errors.conflict_exception.ConflictException: <p>The submitted action has conflicts.</p>
+            aws_sdk_redshift_serverless.errors.insufficient_capacity_exception.InsufficientCapacityException: <p>There is an insufficient capacity to perform the action.</p>
+            aws_sdk_redshift_serverless.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_redshift_serverless.errors.ipv6_cidr_block_not_found_exception.Ipv6CidrBlockNotFoundException: <p>There are no subnets in your VPC with associated IPv6 CIDR blocks. To use dual-stack mode, associate an IPv6 CIDR block with each subnet in your VPC.</p>
+            aws_sdk_redshift_serverless.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_redshift_serverless.errors.validation_exception.ValidationException: <p>The input failed to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_redshift_serverless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -638,6 +700,13 @@ class AsyncWorkgroupResource:
 
         Args:
             workgroup_name: <p>The name of the workgroup to be deleted.</p>
+
+        Raises:
+            aws_sdk_redshift_serverless.errors.conflict_exception.ConflictException: <p>The submitted action has conflicts.</p>
+            aws_sdk_redshift_serverless.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_redshift_serverless.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_redshift_serverless.errors.validation_exception.ValidationException: <p>The input failed to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_redshift_serverless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -682,6 +751,11 @@ class AsyncWorkgroupResource:
             next_token: <p>If your initial ListWorkgroups operation returns a <code>nextToken</code>, you can include the returned <code>nextToken</code> in following ListNamespaces operations, which returns results in the next page.</p>
             max_results: <p>An optional parameter that specifies the maximum number of results to return. You can use <code>nextToken</code> to display the next page of results.</p>
             owner_account: <p>The owner Amazon Web Services account for the Amazon Redshift Serverless workgroup.</p>
+
+        Raises:
+            aws_sdk_redshift_serverless.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_redshift_serverless.errors.validation_exception.ValidationException: <p>The input failed to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_redshift_serverless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

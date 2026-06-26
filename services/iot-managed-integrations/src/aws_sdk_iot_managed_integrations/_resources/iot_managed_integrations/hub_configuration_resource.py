@@ -36,7 +36,17 @@ class HubConfigurationResource:
     def get_hub_configuration(
         self, *, config_overrides: Optional[IoTManagedIntegrationsClientConfig] = None
     ) -> "aws_sdk_iot_managed_integrations.types.get_hub_configuration_response.GetHubConfigurationResponse":
-        """<p>Get a hub configuration.</p>"""
+        """<p>Get a hub configuration.</p>
+
+        Raises:
+            aws_sdk_iot_managed_integrations.errors.access_denied_exception.AccessDeniedException: <p>User is not authorized.</p>
+            aws_sdk_iot_managed_integrations.errors.internal_server_exception.InternalServerException: <p>Internal error from the service that indicates an unexpected error or that the service is unavailable.</p>
+            aws_sdk_iot_managed_integrations.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot_managed_integrations.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot_managed_integrations.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot_managed_integrations.errors.validation_exception.ValidationException: <p>A validation error occurred when performing the API request.</p>
+            aws_sdk_iot_managed_integrations.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_iot_managed_integrations.types.get_hub_configuration_request.GetHubConfigurationRequest]",
@@ -72,6 +82,15 @@ class HubConfigurationResource:
 
         Args:
             hub_token_timer_expiry_setting_in_seconds: <p>A user-defined integer value that represents the hub token timer expiry setting in seconds.</p>
+
+        Raises:
+            aws_sdk_iot_managed_integrations.errors.access_denied_exception.AccessDeniedException: <p>User is not authorized.</p>
+            aws_sdk_iot_managed_integrations.errors.internal_server_exception.InternalServerException: <p>Internal error from the service that indicates an unexpected error or that the service is unavailable.</p>
+            aws_sdk_iot_managed_integrations.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot_managed_integrations.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot_managed_integrations.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot_managed_integrations.errors.validation_exception.ValidationException: <p>A validation error occurred when performing the API request.</p>
+            aws_sdk_iot_managed_integrations.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -111,7 +130,17 @@ class AsyncHubConfigurationResource:
         *,
         config_overrides: Optional[AsyncIoTManagedIntegrationsClientConfig] = None,
     ) -> "aws_sdk_iot_managed_integrations.types.get_hub_configuration_response.GetHubConfigurationResponse":
-        """<p>Get a hub configuration.</p>"""
+        """<p>Get a hub configuration.</p>
+
+        Raises:
+            aws_sdk_iot_managed_integrations.errors.access_denied_exception.AccessDeniedException: <p>User is not authorized.</p>
+            aws_sdk_iot_managed_integrations.errors.internal_server_exception.InternalServerException: <p>Internal error from the service that indicates an unexpected error or that the service is unavailable.</p>
+            aws_sdk_iot_managed_integrations.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot_managed_integrations.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot_managed_integrations.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot_managed_integrations.errors.validation_exception.ValidationException: <p>A validation error occurred when performing the API request.</p>
+            aws_sdk_iot_managed_integrations.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_iot_managed_integrations.types.get_hub_configuration_request.GetHubConfigurationRequest]",
@@ -148,6 +177,15 @@ class AsyncHubConfigurationResource:
 
         Args:
             hub_token_timer_expiry_setting_in_seconds: <p>A user-defined integer value that represents the hub token timer expiry setting in seconds.</p>
+
+        Raises:
+            aws_sdk_iot_managed_integrations.errors.access_denied_exception.AccessDeniedException: <p>User is not authorized.</p>
+            aws_sdk_iot_managed_integrations.errors.internal_server_exception.InternalServerException: <p>Internal error from the service that indicates an unexpected error or that the service is unavailable.</p>
+            aws_sdk_iot_managed_integrations.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot_managed_integrations.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot_managed_integrations.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot_managed_integrations.errors.validation_exception.ValidationException: <p>A validation error occurred when performing the API request.</p>
+            aws_sdk_iot_managed_integrations.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

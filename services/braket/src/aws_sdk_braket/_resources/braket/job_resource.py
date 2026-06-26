@@ -91,6 +91,17 @@ class JobResource:
             device_config: <p>The quantum processing unit (QPU) or simulator used to create an Amazon Braket hybrid job.</p>
             tags: <p>Tags to be added to the hybrid job you're creating.</p>
             associations: <p>The list of Amazon Braket resources associated with the hybrid job.</p>
+
+        Raises:
+            aws_sdk_braket.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_braket.errors.conflict_exception.ConflictException: <p>An error occurred due to a conflict.</p>
+            aws_sdk_braket.errors.device_offline_exception.DeviceOfflineException: <p>The specified device is currently offline.</p>
+            aws_sdk_braket.errors.device_retired_exception.DeviceRetiredException: <p>The specified device has been retired.</p>
+            aws_sdk_braket.errors.internal_service_exception.InternalServiceException: <p>The request failed because of an unknown error.</p>
+            aws_sdk_braket.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request failed because a service quota is exceeded.</p>
+            aws_sdk_braket.errors.throttling_exception.ThrottlingException: <p>The API throttling rate limit is exceeded.</p>
+            aws_sdk_braket.errors.validation_exception.ValidationException: <p>The input request failed to satisfy constraints expected by Amazon Braket.</p>
+            aws_sdk_braket.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -150,6 +161,14 @@ class JobResource:
         Args:
             job_arn: <p>The ARN of the hybrid job to retrieve.</p>
             additional_attribute_names: <p>A list of attributes to return additional information for. Only the QueueInfo additional attribute name is currently supported. </p>
+
+        Raises:
+            aws_sdk_braket.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_braket.errors.internal_service_exception.InternalServiceException: <p>The request failed because of an unknown error.</p>
+            aws_sdk_braket.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_braket.errors.throttling_exception.ThrottlingException: <p>The API throttling rate limit is exceeded.</p>
+            aws_sdk_braket.errors.validation_exception.ValidationException: <p>The input request failed to satisfy constraints expected by Amazon Braket.</p>
+            aws_sdk_braket.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -185,6 +204,15 @@ class JobResource:
 
         Args:
             job_arn: <p>The ARN of the Amazon Braket hybrid job to cancel.</p>
+
+        Raises:
+            aws_sdk_braket.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_braket.errors.conflict_exception.ConflictException: <p>An error occurred due to a conflict.</p>
+            aws_sdk_braket.errors.internal_service_exception.InternalServiceException: <p>The request failed because of an unknown error.</p>
+            aws_sdk_braket.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_braket.errors.throttling_exception.ThrottlingException: <p>The API throttling rate limit is exceeded.</p>
+            aws_sdk_braket.errors.validation_exception.ValidationException: <p>The input request failed to satisfy constraints expected by Amazon Braket.</p>
+            aws_sdk_braket.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -226,6 +254,13 @@ class JobResource:
             next_token: <p>A token used for pagination of results returned in the response. Use the token returned from the previous request to continue search where the previous request ended.</p>
             max_results: <p>The maximum number of results to return in the response.</p>
             filters: <p>Array of SearchJobsFilter objects to use when searching for hybrid jobs.</p>
+
+        Raises:
+            aws_sdk_braket.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_braket.errors.internal_service_exception.InternalServiceException: <p>The request failed because of an unknown error.</p>
+            aws_sdk_braket.errors.throttling_exception.ThrottlingException: <p>The API throttling rate limit is exceeded.</p>
+            aws_sdk_braket.errors.validation_exception.ValidationException: <p>The input request failed to satisfy constraints expected by Amazon Braket.</p>
+            aws_sdk_braket.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -304,6 +339,17 @@ class AsyncJobResource:
             device_config: <p>The quantum processing unit (QPU) or simulator used to create an Amazon Braket hybrid job.</p>
             tags: <p>Tags to be added to the hybrid job you're creating.</p>
             associations: <p>The list of Amazon Braket resources associated with the hybrid job.</p>
+
+        Raises:
+            aws_sdk_braket.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_braket.errors.conflict_exception.ConflictException: <p>An error occurred due to a conflict.</p>
+            aws_sdk_braket.errors.device_offline_exception.DeviceOfflineException: <p>The specified device is currently offline.</p>
+            aws_sdk_braket.errors.device_retired_exception.DeviceRetiredException: <p>The specified device has been retired.</p>
+            aws_sdk_braket.errors.internal_service_exception.InternalServiceException: <p>The request failed because of an unknown error.</p>
+            aws_sdk_braket.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request failed because a service quota is exceeded.</p>
+            aws_sdk_braket.errors.throttling_exception.ThrottlingException: <p>The API throttling rate limit is exceeded.</p>
+            aws_sdk_braket.errors.validation_exception.ValidationException: <p>The input request failed to satisfy constraints expected by Amazon Braket.</p>
+            aws_sdk_braket.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -364,6 +410,14 @@ class AsyncJobResource:
         Args:
             job_arn: <p>The ARN of the hybrid job to retrieve.</p>
             additional_attribute_names: <p>A list of attributes to return additional information for. Only the QueueInfo additional attribute name is currently supported. </p>
+
+        Raises:
+            aws_sdk_braket.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_braket.errors.internal_service_exception.InternalServiceException: <p>The request failed because of an unknown error.</p>
+            aws_sdk_braket.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_braket.errors.throttling_exception.ThrottlingException: <p>The API throttling rate limit is exceeded.</p>
+            aws_sdk_braket.errors.validation_exception.ValidationException: <p>The input request failed to satisfy constraints expected by Amazon Braket.</p>
+            aws_sdk_braket.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -404,6 +458,15 @@ class AsyncJobResource:
 
         Args:
             job_arn: <p>The ARN of the Amazon Braket hybrid job to cancel.</p>
+
+        Raises:
+            aws_sdk_braket.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_braket.errors.conflict_exception.ConflictException: <p>An error occurred due to a conflict.</p>
+            aws_sdk_braket.errors.internal_service_exception.InternalServiceException: <p>The request failed because of an unknown error.</p>
+            aws_sdk_braket.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_braket.errors.throttling_exception.ThrottlingException: <p>The API throttling rate limit is exceeded.</p>
+            aws_sdk_braket.errors.validation_exception.ValidationException: <p>The input request failed to satisfy constraints expected by Amazon Braket.</p>
+            aws_sdk_braket.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -446,6 +509,13 @@ class AsyncJobResource:
             next_token: <p>A token used for pagination of results returned in the response. Use the token returned from the previous request to continue search where the previous request ended.</p>
             max_results: <p>The maximum number of results to return in the response.</p>
             filters: <p>Array of SearchJobsFilter objects to use when searching for hybrid jobs.</p>
+
+        Raises:
+            aws_sdk_braket.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_braket.errors.internal_service_exception.InternalServiceException: <p>The request failed because of an unknown error.</p>
+            aws_sdk_braket.errors.throttling_exception.ThrottlingException: <p>The API throttling rate limit is exceeded.</p>
+            aws_sdk_braket.errors.validation_exception.ValidationException: <p>The input request failed to satisfy constraints expected by Amazon Braket.</p>
+            aws_sdk_braket.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

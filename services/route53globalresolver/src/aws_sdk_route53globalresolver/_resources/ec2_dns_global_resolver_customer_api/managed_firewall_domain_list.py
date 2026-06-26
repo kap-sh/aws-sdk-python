@@ -44,6 +44,14 @@ class ManagedFirewallDomainList:
 
         Args:
             managed_firewall_domain_list_id: <p>ID of the Managed Domain List.</p>
+
+        Raises:
+            aws_sdk_route53globalresolver.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform this operation. Check your IAM permissions and try again.</p>
+            aws_sdk_route53globalresolver.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Try again later.</p>
+            aws_sdk_route53globalresolver.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found. Verify the resource ID and try again.</p>
+            aws_sdk_route53globalresolver.errors.throttling_exception.ThrottlingException: <p>The request was throttled due to too many requests. Wait a moment and try again.</p>
+            aws_sdk_route53globalresolver.errors.validation_exception.ValidationException: <p>The input parameters are invalid. Check the parameter values and try again.</p>
+            aws_sdk_route53globalresolver.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -85,6 +93,13 @@ class ManagedFirewallDomainList:
             max_results: <p>The maximum number of results to retrieve in a single call.</p>
             next_token: <p>A pagination token used for large sets of results that can't be returned in a single response.</p>
             managed_firewall_domain_list_type: <p>The category of the Manage DNS list either <code>THREAT</code> or <code>CONTENT</code>.</p>
+
+        Raises:
+            aws_sdk_route53globalresolver.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform this operation. Check your IAM permissions and try again.</p>
+            aws_sdk_route53globalresolver.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Try again later.</p>
+            aws_sdk_route53globalresolver.errors.throttling_exception.ThrottlingException: <p>The request was throttled due to too many requests. Wait a moment and try again.</p>
+            aws_sdk_route53globalresolver.errors.validation_exception.ValidationException: <p>The input parameters are invalid. Check the parameter values and try again.</p>
+            aws_sdk_route53globalresolver.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -131,6 +146,14 @@ class AsyncManagedFirewallDomainList:
 
         Args:
             managed_firewall_domain_list_id: <p>ID of the Managed Domain List.</p>
+
+        Raises:
+            aws_sdk_route53globalresolver.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform this operation. Check your IAM permissions and try again.</p>
+            aws_sdk_route53globalresolver.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Try again later.</p>
+            aws_sdk_route53globalresolver.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found. Verify the resource ID and try again.</p>
+            aws_sdk_route53globalresolver.errors.throttling_exception.ThrottlingException: <p>The request was throttled due to too many requests. Wait a moment and try again.</p>
+            aws_sdk_route53globalresolver.errors.validation_exception.ValidationException: <p>The input parameters are invalid. Check the parameter values and try again.</p>
+            aws_sdk_route53globalresolver.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -173,6 +196,13 @@ class AsyncManagedFirewallDomainList:
             max_results: <p>The maximum number of results to retrieve in a single call.</p>
             next_token: <p>A pagination token used for large sets of results that can't be returned in a single response.</p>
             managed_firewall_domain_list_type: <p>The category of the Manage DNS list either <code>THREAT</code> or <code>CONTENT</code>.</p>
+
+        Raises:
+            aws_sdk_route53globalresolver.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform this operation. Check your IAM permissions and try again.</p>
+            aws_sdk_route53globalresolver.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Try again later.</p>
+            aws_sdk_route53globalresolver.errors.throttling_exception.ThrottlingException: <p>The request was throttled due to too many requests. Wait a moment and try again.</p>
+            aws_sdk_route53globalresolver.errors.validation_exception.ValidationException: <p>The input parameters are invalid. Check the parameter values and try again.</p>
+            aws_sdk_route53globalresolver.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

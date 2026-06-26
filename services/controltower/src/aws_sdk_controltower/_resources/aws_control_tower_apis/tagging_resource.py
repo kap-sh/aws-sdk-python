@@ -47,6 +47,12 @@ class TaggingResource:
 
         Args:
             resource_arn: <p> The ARN of the resource.</p>
+
+        Raises:
+            aws_sdk_controltower.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred during processing of a request.</p>
+            aws_sdk_controltower.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource that does not exist.</p>
+            aws_sdk_controltower.errors.validation_exception.ValidationException: <p>The input does not satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_controltower.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -86,6 +92,12 @@ class TaggingResource:
         Args:
             resource_arn: <p>The ARN of the resource to be tagged.</p>
             tags: <p>Tags to be applied to the resource.</p>
+
+        Raises:
+            aws_sdk_controltower.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred during processing of a request.</p>
+            aws_sdk_controltower.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource that does not exist.</p>
+            aws_sdk_controltower.errors.validation_exception.ValidationException: <p>The input does not satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_controltower.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -126,6 +138,12 @@ class TaggingResource:
         Args:
             resource_arn: <p>The ARN of the resource.</p>
             tag_keys: <p>Tag keys to be removed from the resource.</p>
+
+        Raises:
+            aws_sdk_controltower.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred during processing of a request.</p>
+            aws_sdk_controltower.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource that does not exist.</p>
+            aws_sdk_controltower.errors.validation_exception.ValidationException: <p>The input does not satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_controltower.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -169,6 +187,12 @@ class AsyncTaggingResource:
 
         Args:
             resource_arn: <p> The ARN of the resource.</p>
+
+        Raises:
+            aws_sdk_controltower.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred during processing of a request.</p>
+            aws_sdk_controltower.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource that does not exist.</p>
+            aws_sdk_controltower.errors.validation_exception.ValidationException: <p>The input does not satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_controltower.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -209,6 +233,12 @@ class AsyncTaggingResource:
         Args:
             resource_arn: <p>The ARN of the resource to be tagged.</p>
             tags: <p>Tags to be applied to the resource.</p>
+
+        Raises:
+            aws_sdk_controltower.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred during processing of a request.</p>
+            aws_sdk_controltower.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource that does not exist.</p>
+            aws_sdk_controltower.errors.validation_exception.ValidationException: <p>The input does not satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_controltower.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -250,6 +280,12 @@ class AsyncTaggingResource:
         Args:
             resource_arn: <p>The ARN of the resource.</p>
             tag_keys: <p>Tag keys to be removed from the resource.</p>
+
+        Raises:
+            aws_sdk_controltower.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred during processing of a request.</p>
+            aws_sdk_controltower.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource that does not exist.</p>
+            aws_sdk_controltower.errors.validation_exception.ValidationException: <p>The input does not satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_controltower.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

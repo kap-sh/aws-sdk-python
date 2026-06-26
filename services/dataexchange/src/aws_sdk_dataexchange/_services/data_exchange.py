@@ -238,6 +238,15 @@ class DataExchangeClient:
 
         Args:
             data_grant_arn: <p>The Amazon Resource Name (ARN) of the data grant to accept.</p>
+
+        Raises:
+            aws_sdk_dataexchange.errors.access_denied_exception.AccessDeniedException: <p>Access to the resource is denied.</p>
+            aws_sdk_dataexchange.errors.conflict_exception.ConflictException: <p>The request couldn't be completed because it conflicted with the current state of the resource.</p>
+            aws_sdk_dataexchange.errors.internal_server_exception.InternalServerException: <p>An exception occurred with the service.</p>
+            aws_sdk_dataexchange.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource couldn't be found.</p>
+            aws_sdk_dataexchange.errors.throttling_exception.ThrottlingException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_dataexchange.errors.validation_exception.ValidationException: <p>The request was invalid.</p>
+            aws_sdk_dataexchange.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -275,6 +284,14 @@ class DataExchangeClient:
 
         Args:
             job_id: <p>The unique identifier for a job.</p>
+
+        Raises:
+            aws_sdk_dataexchange.errors.conflict_exception.ConflictException: <p>The request couldn't be completed because it conflicted with the current state of the resource.</p>
+            aws_sdk_dataexchange.errors.internal_server_exception.InternalServerException: <p>An exception occurred with the service.</p>
+            aws_sdk_dataexchange.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource couldn't be found.</p>
+            aws_sdk_dataexchange.errors.throttling_exception.ThrottlingException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_dataexchange.errors.validation_exception.ValidationException: <p>The request was invalid.</p>
+            aws_sdk_dataexchange.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -328,6 +345,15 @@ class DataExchangeClient:
             ends_at: <p>The timestamp of when access to the associated data set ends.</p>
             description: <p>The description of the data grant.</p>
             tags: <p>The tags to add to the data grant. A tag is a key-value pair.</p>
+
+        Raises:
+            aws_sdk_dataexchange.errors.access_denied_exception.AccessDeniedException: <p>Access to the resource is denied.</p>
+            aws_sdk_dataexchange.errors.internal_server_exception.InternalServerException: <p>An exception occurred with the service.</p>
+            aws_sdk_dataexchange.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource couldn't be found.</p>
+            aws_sdk_dataexchange.errors.service_limit_exceeded_exception.ServiceLimitExceededException: <p>The request has exceeded the quotas imposed by the service.</p>
+            aws_sdk_dataexchange.errors.throttling_exception.ThrottlingException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_dataexchange.errors.validation_exception.ValidationException: <p>The request was invalid.</p>
+            aws_sdk_dataexchange.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -382,6 +408,14 @@ class DataExchangeClient:
             description: <p>A description for the data set. This value can be up to 16,348 characters long.</p>
             name: <p>The name of the data set.</p>
             tags: <p>A data set tag is an optional label that you can assign to a data set when you create it. Each tag consists of a key and an optional value, both of which you define. When you use tagging, you can also use tag-based access control in IAM policies to control access to these data sets and revisions.</p>
+
+        Raises:
+            aws_sdk_dataexchange.errors.access_denied_exception.AccessDeniedException: <p>Access to the resource is denied.</p>
+            aws_sdk_dataexchange.errors.internal_server_exception.InternalServerException: <p>An exception occurred with the service.</p>
+            aws_sdk_dataexchange.errors.service_limit_exceeded_exception.ServiceLimitExceededException: <p>The request has exceeded the quotas imposed by the service.</p>
+            aws_sdk_dataexchange.errors.throttling_exception.ThrottlingException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_dataexchange.errors.validation_exception.ValidationException: <p>The request was invalid.</p>
+            aws_sdk_dataexchange.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -429,6 +463,14 @@ class DataExchangeClient:
             action: <p>What occurs after a certain event.</p>
             event: <p>What occurs to start an action.</p>
             tags: <p>Key-value pairs that you can associate with the event action.</p>
+
+        Raises:
+            aws_sdk_dataexchange.errors.access_denied_exception.AccessDeniedException: <p>Access to the resource is denied.</p>
+            aws_sdk_dataexchange.errors.internal_server_exception.InternalServerException: <p>An exception occurred with the service.</p>
+            aws_sdk_dataexchange.errors.service_limit_exceeded_exception.ServiceLimitExceededException: <p>The request has exceeded the quotas imposed by the service.</p>
+            aws_sdk_dataexchange.errors.throttling_exception.ThrottlingException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_dataexchange.errors.validation_exception.ValidationException: <p>The request was invalid.</p>
+            aws_sdk_dataexchange.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -475,6 +517,15 @@ class DataExchangeClient:
             asset_configuration: <p>The configuration for the asset, including tags to be applied to assets created by the job.</p>
             details: <p>The details for the CreateJob request.</p>
             type: <p>The type of job to be created.</p>
+
+        Raises:
+            aws_sdk_dataexchange.errors.access_denied_exception.AccessDeniedException: <p>Access to the resource is denied.</p>
+            aws_sdk_dataexchange.errors.conflict_exception.ConflictException: <p>The request couldn't be completed because it conflicted with the current state of the resource.</p>
+            aws_sdk_dataexchange.errors.internal_server_exception.InternalServerException: <p>An exception occurred with the service.</p>
+            aws_sdk_dataexchange.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource couldn't be found.</p>
+            aws_sdk_dataexchange.errors.throttling_exception.ThrottlingException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_dataexchange.errors.validation_exception.ValidationException: <p>The request was invalid.</p>
+            aws_sdk_dataexchange.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -523,6 +574,14 @@ class DataExchangeClient:
             comment: <p>An optional comment about the revision.</p>
             data_set_id: <p>The unique identifier for a data set.</p>
             tags: <p>A revision tag is an optional label that you can assign to a revision when you create it. Each tag consists of a key and an optional value, both of which you define. When you use tagging, you can also use tag-based access control in IAM policies to control access to these data sets and revisions.</p>
+
+        Raises:
+            aws_sdk_dataexchange.errors.access_denied_exception.AccessDeniedException: <p>Access to the resource is denied.</p>
+            aws_sdk_dataexchange.errors.internal_server_exception.InternalServerException: <p>An exception occurred with the service.</p>
+            aws_sdk_dataexchange.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource couldn't be found.</p>
+            aws_sdk_dataexchange.errors.throttling_exception.ThrottlingException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_dataexchange.errors.validation_exception.ValidationException: <p>The request was invalid.</p>
+            aws_sdk_dataexchange.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -568,6 +627,15 @@ class DataExchangeClient:
             asset_id: <p>The unique identifier for an asset.</p>
             data_set_id: <p>The unique identifier for a data set.</p>
             revision_id: <p>The unique identifier for a revision.</p>
+
+        Raises:
+            aws_sdk_dataexchange.errors.access_denied_exception.AccessDeniedException: <p>Access to the resource is denied.</p>
+            aws_sdk_dataexchange.errors.conflict_exception.ConflictException: <p>The request couldn't be completed because it conflicted with the current state of the resource.</p>
+            aws_sdk_dataexchange.errors.internal_server_exception.InternalServerException: <p>An exception occurred with the service.</p>
+            aws_sdk_dataexchange.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource couldn't be found.</p>
+            aws_sdk_dataexchange.errors.throttling_exception.ThrottlingException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_dataexchange.errors.validation_exception.ValidationException: <p>The request was invalid.</p>
+            aws_sdk_dataexchange.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -605,6 +673,14 @@ class DataExchangeClient:
 
         Args:
             data_grant_id: <p>The ID of the data grant to delete.</p>
+
+        Raises:
+            aws_sdk_dataexchange.errors.access_denied_exception.AccessDeniedException: <p>Access to the resource is denied.</p>
+            aws_sdk_dataexchange.errors.internal_server_exception.InternalServerException: <p>An exception occurred with the service.</p>
+            aws_sdk_dataexchange.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource couldn't be found.</p>
+            aws_sdk_dataexchange.errors.throttling_exception.ThrottlingException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_dataexchange.errors.validation_exception.ValidationException: <p>The request was invalid.</p>
+            aws_sdk_dataexchange.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -640,6 +716,15 @@ class DataExchangeClient:
 
         Args:
             data_set_id: <p>The unique identifier for a data set.</p>
+
+        Raises:
+            aws_sdk_dataexchange.errors.access_denied_exception.AccessDeniedException: <p>Access to the resource is denied.</p>
+            aws_sdk_dataexchange.errors.conflict_exception.ConflictException: <p>The request couldn't be completed because it conflicted with the current state of the resource.</p>
+            aws_sdk_dataexchange.errors.internal_server_exception.InternalServerException: <p>An exception occurred with the service.</p>
+            aws_sdk_dataexchange.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource couldn't be found.</p>
+            aws_sdk_dataexchange.errors.throttling_exception.ThrottlingException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_dataexchange.errors.validation_exception.ValidationException: <p>The request was invalid.</p>
+            aws_sdk_dataexchange.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -675,6 +760,13 @@ class DataExchangeClient:
 
         Args:
             event_action_id: <p>The unique identifier for the event action.</p>
+
+        Raises:
+            aws_sdk_dataexchange.errors.internal_server_exception.InternalServerException: <p>An exception occurred with the service.</p>
+            aws_sdk_dataexchange.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource couldn't be found.</p>
+            aws_sdk_dataexchange.errors.throttling_exception.ThrottlingException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_dataexchange.errors.validation_exception.ValidationException: <p>The request was invalid.</p>
+            aws_sdk_dataexchange.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -712,6 +804,15 @@ class DataExchangeClient:
         Args:
             data_set_id: <p>The unique identifier for a data set.</p>
             revision_id: <p>The unique identifier for a revision.</p>
+
+        Raises:
+            aws_sdk_dataexchange.errors.access_denied_exception.AccessDeniedException: <p>Access to the resource is denied.</p>
+            aws_sdk_dataexchange.errors.conflict_exception.ConflictException: <p>The request couldn't be completed because it conflicted with the current state of the resource.</p>
+            aws_sdk_dataexchange.errors.internal_server_exception.InternalServerException: <p>An exception occurred with the service.</p>
+            aws_sdk_dataexchange.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource couldn't be found.</p>
+            aws_sdk_dataexchange.errors.throttling_exception.ThrottlingException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_dataexchange.errors.validation_exception.ValidationException: <p>The request was invalid.</p>
+            aws_sdk_dataexchange.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -752,6 +853,13 @@ class DataExchangeClient:
             asset_id: <p>The unique identifier for an asset.</p>
             data_set_id: <p>The unique identifier for a data set.</p>
             revision_id: <p>The unique identifier for a revision.</p>
+
+        Raises:
+            aws_sdk_dataexchange.errors.internal_server_exception.InternalServerException: <p>An exception occurred with the service.</p>
+            aws_sdk_dataexchange.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource couldn't be found.</p>
+            aws_sdk_dataexchange.errors.throttling_exception.ThrottlingException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_dataexchange.errors.validation_exception.ValidationException: <p>The request was invalid.</p>
+            aws_sdk_dataexchange.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -791,6 +899,14 @@ class DataExchangeClient:
 
         Args:
             data_grant_id: <p>The ID of the data grant.</p>
+
+        Raises:
+            aws_sdk_dataexchange.errors.access_denied_exception.AccessDeniedException: <p>Access to the resource is denied.</p>
+            aws_sdk_dataexchange.errors.internal_server_exception.InternalServerException: <p>An exception occurred with the service.</p>
+            aws_sdk_dataexchange.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource couldn't be found.</p>
+            aws_sdk_dataexchange.errors.throttling_exception.ThrottlingException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_dataexchange.errors.validation_exception.ValidationException: <p>The request was invalid.</p>
+            aws_sdk_dataexchange.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -828,6 +944,13 @@ class DataExchangeClient:
 
         Args:
             data_set_id: <p>The unique identifier for a data set.</p>
+
+        Raises:
+            aws_sdk_dataexchange.errors.internal_server_exception.InternalServerException: <p>An exception occurred with the service.</p>
+            aws_sdk_dataexchange.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource couldn't be found.</p>
+            aws_sdk_dataexchange.errors.throttling_exception.ThrottlingException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_dataexchange.errors.validation_exception.ValidationException: <p>The request was invalid.</p>
+            aws_sdk_dataexchange.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -865,6 +988,13 @@ class DataExchangeClient:
 
         Args:
             event_action_id: <p>The unique identifier for the event action.</p>
+
+        Raises:
+            aws_sdk_dataexchange.errors.internal_server_exception.InternalServerException: <p>An exception occurred with the service.</p>
+            aws_sdk_dataexchange.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource couldn't be found.</p>
+            aws_sdk_dataexchange.errors.throttling_exception.ThrottlingException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_dataexchange.errors.validation_exception.ValidationException: <p>The request was invalid.</p>
+            aws_sdk_dataexchange.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -902,6 +1032,13 @@ class DataExchangeClient:
 
         Args:
             job_id: <p>The unique identifier for a job.</p>
+
+        Raises:
+            aws_sdk_dataexchange.errors.internal_server_exception.InternalServerException: <p>An exception occurred with the service.</p>
+            aws_sdk_dataexchange.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource couldn't be found.</p>
+            aws_sdk_dataexchange.errors.throttling_exception.ThrottlingException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_dataexchange.errors.validation_exception.ValidationException: <p>The request was invalid.</p>
+            aws_sdk_dataexchange.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -939,6 +1076,14 @@ class DataExchangeClient:
 
         Args:
             data_grant_arn: <p>The Amazon Resource Name (ARN) of the data grant.</p>
+
+        Raises:
+            aws_sdk_dataexchange.errors.access_denied_exception.AccessDeniedException: <p>Access to the resource is denied.</p>
+            aws_sdk_dataexchange.errors.internal_server_exception.InternalServerException: <p>An exception occurred with the service.</p>
+            aws_sdk_dataexchange.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource couldn't be found.</p>
+            aws_sdk_dataexchange.errors.throttling_exception.ThrottlingException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_dataexchange.errors.validation_exception.ValidationException: <p>The request was invalid.</p>
+            aws_sdk_dataexchange.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -978,6 +1123,13 @@ class DataExchangeClient:
         Args:
             data_set_id: <p>The unique identifier for a data set.</p>
             revision_id: <p>The unique identifier for a revision.</p>
+
+        Raises:
+            aws_sdk_dataexchange.errors.internal_server_exception.InternalServerException: <p>An exception occurred with the service.</p>
+            aws_sdk_dataexchange.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource couldn't be found.</p>
+            aws_sdk_dataexchange.errors.throttling_exception.ThrottlingException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_dataexchange.errors.validation_exception.ValidationException: <p>The request was invalid.</p>
+            aws_sdk_dataexchange.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1020,6 +1172,14 @@ class DataExchangeClient:
         Args:
             max_results: <p>The maximum number of results to be included in the next page.</p>
             next_token: <p>The pagination token used to retrieve the next page of results for this operation.</p>
+
+        Raises:
+            aws_sdk_dataexchange.errors.access_denied_exception.AccessDeniedException: <p>Access to the resource is denied.</p>
+            aws_sdk_dataexchange.errors.internal_server_exception.InternalServerException: <p>An exception occurred with the service.</p>
+            aws_sdk_dataexchange.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource couldn't be found.</p>
+            aws_sdk_dataexchange.errors.throttling_exception.ThrottlingException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_dataexchange.errors.validation_exception.ValidationException: <p>The request was invalid.</p>
+            aws_sdk_dataexchange.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1089,6 +1249,13 @@ class DataExchangeClient:
             data_set_id: <p>The unique identifier for a data set.</p>
             max_results: <p>The maximum number of results returned by a single call.</p>
             next_token: <p>The token value retrieved from a previous call to access the next page of results.</p>
+
+        Raises:
+            aws_sdk_dataexchange.errors.internal_server_exception.InternalServerException: <p>An exception occurred with the service.</p>
+            aws_sdk_dataexchange.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource couldn't be found.</p>
+            aws_sdk_dataexchange.errors.throttling_exception.ThrottlingException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_dataexchange.errors.validation_exception.ValidationException: <p>The request was invalid.</p>
+            aws_sdk_dataexchange.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1161,6 +1328,13 @@ class DataExchangeClient:
             max_results: <p>The maximum number of results returned by a single call.</p>
             next_token: <p>The token value retrieved from a previous call to access the next page of results.</p>
             origin: <p>A property that defines the data set as OWNED by the account (for providers) or ENTITLED to the account (for subscribers).</p>
+
+        Raises:
+            aws_sdk_dataexchange.errors.internal_server_exception.InternalServerException: <p>An exception occurred with the service.</p>
+            aws_sdk_dataexchange.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource couldn't be found.</p>
+            aws_sdk_dataexchange.errors.throttling_exception.ThrottlingException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_dataexchange.errors.validation_exception.ValidationException: <p>The request was invalid.</p>
+            aws_sdk_dataexchange.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1236,6 +1410,13 @@ class DataExchangeClient:
             event_source_id: <p>The unique identifier for the event source.</p>
             max_results: <p>The maximum number of results returned by a single call.</p>
             next_token: <p>The token value retrieved from a previous call to access the next page of results.</p>
+
+        Raises:
+            aws_sdk_dataexchange.errors.internal_server_exception.InternalServerException: <p>An exception occurred with the service.</p>
+            aws_sdk_dataexchange.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource couldn't be found.</p>
+            aws_sdk_dataexchange.errors.throttling_exception.ThrottlingException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_dataexchange.errors.validation_exception.ValidationException: <p>The request was invalid.</p>
+            aws_sdk_dataexchange.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1313,6 +1494,13 @@ class DataExchangeClient:
             max_results: <p>The maximum number of results returned by a single call.</p>
             next_token: <p>The token value retrieved from a previous call to access the next page of results.</p>
             revision_id: <p>The unique identifier for a revision.</p>
+
+        Raises:
+            aws_sdk_dataexchange.errors.internal_server_exception.InternalServerException: <p>An exception occurred with the service.</p>
+            aws_sdk_dataexchange.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource couldn't be found.</p>
+            aws_sdk_dataexchange.errors.throttling_exception.ThrottlingException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_dataexchange.errors.validation_exception.ValidationException: <p>The request was invalid.</p>
+            aws_sdk_dataexchange.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1392,6 +1580,14 @@ class DataExchangeClient:
             max_results: <p>The maximum number of results to be included in the next page.</p>
             next_token: <p>The pagination token used to retrieve the next page of results for this operation.</p>
             acceptance_state: <p>The acceptance state of the data grants to list.</p>
+
+        Raises:
+            aws_sdk_dataexchange.errors.access_denied_exception.AccessDeniedException: <p>Access to the resource is denied.</p>
+            aws_sdk_dataexchange.errors.internal_server_exception.InternalServerException: <p>An exception occurred with the service.</p>
+            aws_sdk_dataexchange.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource couldn't be found.</p>
+            aws_sdk_dataexchange.errors.throttling_exception.ThrottlingException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_dataexchange.errors.validation_exception.ValidationException: <p>The request was invalid.</p>
+            aws_sdk_dataexchange.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1469,6 +1665,13 @@ class DataExchangeClient:
             max_results: <p>The maximum number of results returned by a single call.</p>
             next_token: <p>The token value retrieved from a previous call to access the next page of results.</p>
             revision_id: <p>The unique identifier for a revision.</p>
+
+        Raises:
+            aws_sdk_dataexchange.errors.internal_server_exception.InternalServerException: <p>An exception occurred with the service.</p>
+            aws_sdk_dataexchange.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource couldn't be found.</p>
+            aws_sdk_dataexchange.errors.throttling_exception.ThrottlingException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_dataexchange.errors.validation_exception.ValidationException: <p>The request was invalid.</p>
+            aws_sdk_dataexchange.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1538,6 +1741,9 @@ class DataExchangeClient:
 
         Args:
             resource_arn: <p>An Amazon Resource Name (ARN) that uniquely identifies an AWS resource.</p>
+
+        Raises:
+            aws_sdk_dataexchange.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1579,6 +1785,15 @@ class DataExchangeClient:
             data_set_id: <p>The unique identifier for a data set.</p>
             revision_id: <p>The unique identifier for a revision.</p>
             revocation_comment: <p>A required comment to inform subscribers of the reason their access to the revision was revoked.</p>
+
+        Raises:
+            aws_sdk_dataexchange.errors.access_denied_exception.AccessDeniedException: <p>Access to the resource is denied.</p>
+            aws_sdk_dataexchange.errors.conflict_exception.ConflictException: <p>The request couldn't be completed because it conflicted with the current state of the resource.</p>
+            aws_sdk_dataexchange.errors.internal_server_exception.InternalServerException: <p>An exception occurred with the service.</p>
+            aws_sdk_dataexchange.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource couldn't be found.</p>
+            aws_sdk_dataexchange.errors.throttling_exception.ThrottlingException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_dataexchange.errors.validation_exception.ValidationException: <p>The request was invalid.</p>
+            aws_sdk_dataexchange.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1636,6 +1851,14 @@ class DataExchangeClient:
             method: <p>HTTP method value for the API request. Alternatively, you can use the appropriate verb in your request.</p>
             path: <p>URI path value for the API request. Alternatively, you can set the URI path directly by invoking /v1/{pathValue}.</p>
             revision_id: <p>Revision ID value for the API request.</p>
+
+        Raises:
+            aws_sdk_dataexchange.errors.access_denied_exception.AccessDeniedException: <p>Access to the resource is denied.</p>
+            aws_sdk_dataexchange.errors.internal_server_exception.InternalServerException: <p>An exception occurred with the service.</p>
+            aws_sdk_dataexchange.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource couldn't be found.</p>
+            aws_sdk_dataexchange.errors.throttling_exception.ThrottlingException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_dataexchange.errors.validation_exception.ValidationException: <p>The request was invalid.</p>
+            aws_sdk_dataexchange.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1701,6 +1924,15 @@ class DataExchangeClient:
             data_set_id: <p>Affected data set of the notification.</p>
             details: <p>Extra details specific to this notification type.</p>
             type: <p>The type of the notification. Describing the kind of event the notification is alerting you to.</p>
+
+        Raises:
+            aws_sdk_dataexchange.errors.access_denied_exception.AccessDeniedException: <p>Access to the resource is denied.</p>
+            aws_sdk_dataexchange.errors.conflict_exception.ConflictException: <p>The request couldn't be completed because it conflicted with the current state of the resource.</p>
+            aws_sdk_dataexchange.errors.internal_server_exception.InternalServerException: <p>An exception occurred with the service.</p>
+            aws_sdk_dataexchange.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource couldn't be found.</p>
+            aws_sdk_dataexchange.errors.throttling_exception.ThrottlingException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_dataexchange.errors.validation_exception.ValidationException: <p>The request was invalid.</p>
+            aws_sdk_dataexchange.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1747,6 +1979,15 @@ class DataExchangeClient:
 
         Args:
             job_id: <p>The unique identifier for a job.</p>
+
+        Raises:
+            aws_sdk_dataexchange.errors.access_denied_exception.AccessDeniedException: <p>Access to the resource is denied.</p>
+            aws_sdk_dataexchange.errors.conflict_exception.ConflictException: <p>The request couldn't be completed because it conflicted with the current state of the resource.</p>
+            aws_sdk_dataexchange.errors.internal_server_exception.InternalServerException: <p>An exception occurred with the service.</p>
+            aws_sdk_dataexchange.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource couldn't be found.</p>
+            aws_sdk_dataexchange.errors.throttling_exception.ThrottlingException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_dataexchange.errors.validation_exception.ValidationException: <p>The request was invalid.</p>
+            aws_sdk_dataexchange.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1786,6 +2027,9 @@ class DataExchangeClient:
         Args:
             resource_arn: <p>An Amazon Resource Name (ARN) that uniquely identifies an AWS resource.</p>
             tags: <p>A label that consists of a customer-defined key and an optional value.</p>
+
+        Raises:
+            aws_sdk_dataexchange.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1824,6 +2068,9 @@ class DataExchangeClient:
         Args:
             resource_arn: <p>An Amazon Resource Name (ARN) that uniquely identifies an AWS resource.</p>
             tag_keys: <p>The key tags.</p>
+
+        Raises:
+            aws_sdk_dataexchange.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1866,6 +2113,15 @@ class DataExchangeClient:
             data_set_id: <p>The unique identifier for a data set.</p>
             name: <p>The name of the asset. When importing from Amazon S3, the Amazon S3 object key is used as the asset name. When exporting to Amazon S3, the asset name is used as default target Amazon S3 object key. When importing from Amazon API Gateway API, the API name is used as the asset name. When importing from Amazon Redshift, the datashare name is used as the asset name. When importing from AWS Lake Formation, the static values of \"Database(s) included in the LF-tag policy\" or \"Table(s) included in LF-tag policy\" are used as the name.</p>
             revision_id: <p>The unique identifier for a revision.</p>
+
+        Raises:
+            aws_sdk_dataexchange.errors.access_denied_exception.AccessDeniedException: <p>Access to the resource is denied.</p>
+            aws_sdk_dataexchange.errors.conflict_exception.ConflictException: <p>The request couldn't be completed because it conflicted with the current state of the resource.</p>
+            aws_sdk_dataexchange.errors.internal_server_exception.InternalServerException: <p>An exception occurred with the service.</p>
+            aws_sdk_dataexchange.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource couldn't be found.</p>
+            aws_sdk_dataexchange.errors.throttling_exception.ThrottlingException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_dataexchange.errors.validation_exception.ValidationException: <p>The request was invalid.</p>
+            aws_sdk_dataexchange.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1912,6 +2168,14 @@ class DataExchangeClient:
             data_set_id: <p>The unique identifier for a data set.</p>
             description: <p>The description for the data set.</p>
             name: <p>The name of the data set.</p>
+
+        Raises:
+            aws_sdk_dataexchange.errors.access_denied_exception.AccessDeniedException: <p>Access to the resource is denied.</p>
+            aws_sdk_dataexchange.errors.internal_server_exception.InternalServerException: <p>An exception occurred with the service.</p>
+            aws_sdk_dataexchange.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource couldn't be found.</p>
+            aws_sdk_dataexchange.errors.throttling_exception.ThrottlingException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_dataexchange.errors.validation_exception.ValidationException: <p>The request was invalid.</p>
+            aws_sdk_dataexchange.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1955,6 +2219,14 @@ class DataExchangeClient:
         Args:
             action: <p>What occurs after a certain event.</p>
             event_action_id: <p>The unique identifier for the event action.</p>
+
+        Raises:
+            aws_sdk_dataexchange.errors.access_denied_exception.AccessDeniedException: <p>Access to the resource is denied.</p>
+            aws_sdk_dataexchange.errors.internal_server_exception.InternalServerException: <p>An exception occurred with the service.</p>
+            aws_sdk_dataexchange.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource couldn't be found.</p>
+            aws_sdk_dataexchange.errors.throttling_exception.ThrottlingException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_dataexchange.errors.validation_exception.ValidationException: <p>The request was invalid.</p>
+            aws_sdk_dataexchange.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2002,6 +2274,15 @@ class DataExchangeClient:
             data_set_id: <p>The unique identifier for a data set.</p>
             finalized: <p>Finalizing a revision tells AWS Data Exchange that your changes to the assets in the revision are complete. After it's in this read-only state, you can publish the revision to your products.</p>
             revision_id: <p>The unique identifier for a revision.</p>
+
+        Raises:
+            aws_sdk_dataexchange.errors.access_denied_exception.AccessDeniedException: <p>Access to the resource is denied.</p>
+            aws_sdk_dataexchange.errors.conflict_exception.ConflictException: <p>The request couldn't be completed because it conflicted with the current state of the resource.</p>
+            aws_sdk_dataexchange.errors.internal_server_exception.InternalServerException: <p>An exception occurred with the service.</p>
+            aws_sdk_dataexchange.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource couldn't be found.</p>
+            aws_sdk_dataexchange.errors.throttling_exception.ThrottlingException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_dataexchange.errors.validation_exception.ValidationException: <p>The request was invalid.</p>
+            aws_sdk_dataexchange.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(

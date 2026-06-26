@@ -148,7 +148,16 @@ class AsyncBCMPricingCalculatorClient:
         *,
         config_overrides: Optional[AsyncBCMPricingCalculatorClientConfig] = None,
     ) -> "aws_sdk_bcm_pricing_calculator.types.get_preferences_response.GetPreferencesResponse":
-        """<p> Retrieves the current preferences for Pricing Calculator. </p>"""
+        """<p> Retrieves the current preferences for Pricing Calculator. </p>
+
+        Raises:
+            aws_sdk_bcm_pricing_calculator.errors.access_denied_exception.AccessDeniedException: <p> You do not have sufficient access to perform this action. </p>
+            aws_sdk_bcm_pricing_calculator.errors.internal_server_exception.InternalServerException: <p> An internal error has occurred. Retry your request, but if the problem persists, contact Amazon Web Services support. </p>
+            aws_sdk_bcm_pricing_calculator.errors.throttling_exception.ThrottlingException: <p> The request was denied due to request throttling. </p>
+            aws_sdk_bcm_pricing_calculator.errors.validation_exception.ValidationException: <p> The input provided fails to satisfy the constraints specified by an Amazon Web Services service. </p>
+            aws_sdk_bcm_pricing_calculator.errors.data_unavailable_exception.DataUnavailableException: <p> The requested data is currently unavailable. </p>
+            aws_sdk_bcm_pricing_calculator.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_bcm_pricing_calculator.types.get_preferences_request.GetPreferencesRequest]",
@@ -185,6 +194,14 @@ class AsyncBCMPricingCalculatorClient:
 
         Args:
             arn: <p> The Amazon Resource Name (ARN) of the resource to list tags for. </p>
+
+        Raises:
+            aws_sdk_bcm_pricing_calculator.errors.access_denied_exception.AccessDeniedException: <p> You do not have sufficient access to perform this action. </p>
+            aws_sdk_bcm_pricing_calculator.errors.internal_server_exception.InternalServerException: <p> An internal error has occurred. Retry your request, but if the problem persists, contact Amazon Web Services support. </p>
+            aws_sdk_bcm_pricing_calculator.errors.throttling_exception.ThrottlingException: <p> The request was denied due to request throttling. </p>
+            aws_sdk_bcm_pricing_calculator.errors.validation_exception.ValidationException: <p> The input provided fails to satisfy the constraints specified by an Amazon Web Services service. </p>
+            aws_sdk_bcm_pricing_calculator.errors.resource_not_found_exception.ResourceNotFoundException: <p> The specified resource was not found. </p>
+            aws_sdk_bcm_pricing_calculator.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -227,6 +244,15 @@ class AsyncBCMPricingCalculatorClient:
         Args:
             arn: <p> The Amazon Resource Name (ARN) of the resource to add tags to. </p>
             tags: <p> The tags to add to the resource. </p>
+
+        Raises:
+            aws_sdk_bcm_pricing_calculator.errors.access_denied_exception.AccessDeniedException: <p> You do not have sufficient access to perform this action. </p>
+            aws_sdk_bcm_pricing_calculator.errors.internal_server_exception.InternalServerException: <p> An internal error has occurred. Retry your request, but if the problem persists, contact Amazon Web Services support. </p>
+            aws_sdk_bcm_pricing_calculator.errors.throttling_exception.ThrottlingException: <p> The request was denied due to request throttling. </p>
+            aws_sdk_bcm_pricing_calculator.errors.validation_exception.ValidationException: <p> The input provided fails to satisfy the constraints specified by an Amazon Web Services service. </p>
+            aws_sdk_bcm_pricing_calculator.errors.resource_not_found_exception.ResourceNotFoundException: <p> The specified resource was not found. </p>
+            aws_sdk_bcm_pricing_calculator.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p> The request would cause you to exceed your service quota. </p>
+            aws_sdk_bcm_pricing_calculator.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -268,6 +294,14 @@ class AsyncBCMPricingCalculatorClient:
         Args:
             arn: <p> The Amazon Resource Name (ARN) of the resource to remove tags from. </p>
             tag_keys: <p> The keys of the tags to remove from the resource. </p>
+
+        Raises:
+            aws_sdk_bcm_pricing_calculator.errors.access_denied_exception.AccessDeniedException: <p> You do not have sufficient access to perform this action. </p>
+            aws_sdk_bcm_pricing_calculator.errors.internal_server_exception.InternalServerException: <p> An internal error has occurred. Retry your request, but if the problem persists, contact Amazon Web Services support. </p>
+            aws_sdk_bcm_pricing_calculator.errors.throttling_exception.ThrottlingException: <p> The request was denied due to request throttling. </p>
+            aws_sdk_bcm_pricing_calculator.errors.validation_exception.ValidationException: <p> The input provided fails to satisfy the constraints specified by an Amazon Web Services service. </p>
+            aws_sdk_bcm_pricing_calculator.errors.resource_not_found_exception.ResourceNotFoundException: <p> The specified resource was not found. </p>
+            aws_sdk_bcm_pricing_calculator.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -317,6 +351,15 @@ class AsyncBCMPricingCalculatorClient:
             management_account_rate_type_selections: <p> The updated preferred rate types for the management account. </p>
             member_account_rate_type_selections: <p> The updated preferred rate types for member accounts. </p>
             standalone_account_rate_type_selections: <p> The updated preferred rate types for a standalone account. </p>
+
+        Raises:
+            aws_sdk_bcm_pricing_calculator.errors.access_denied_exception.AccessDeniedException: <p> You do not have sufficient access to perform this action. </p>
+            aws_sdk_bcm_pricing_calculator.errors.internal_server_exception.InternalServerException: <p> An internal error has occurred. Retry your request, but if the problem persists, contact Amazon Web Services support. </p>
+            aws_sdk_bcm_pricing_calculator.errors.throttling_exception.ThrottlingException: <p> The request was denied due to request throttling. </p>
+            aws_sdk_bcm_pricing_calculator.errors.validation_exception.ValidationException: <p> The input provided fails to satisfy the constraints specified by an Amazon Web Services service. </p>
+            aws_sdk_bcm_pricing_calculator.errors.data_unavailable_exception.DataUnavailableException: <p> The requested data is currently unavailable. </p>
+            aws_sdk_bcm_pricing_calculator.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p> The request would cause you to exceed your service quota. </p>
+            aws_sdk_bcm_pricing_calculator.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

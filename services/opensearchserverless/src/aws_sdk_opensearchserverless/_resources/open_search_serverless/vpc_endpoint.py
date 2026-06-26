@@ -61,6 +61,13 @@ class VpcEndpoint:
             subnet_ids: <p>The ID of one or more subnets from which you'll access OpenSearch Serverless.</p>
             security_group_ids: <p>The unique identifiers of the security groups that define the ports, protocols, and sources for inbound traffic that you are authorizing into your endpoint.</p>
             client_token: <p>Unique, case-sensitive identifier to ensure idempotency of the request.</p>
+
+        Raises:
+            aws_sdk_opensearchserverless.errors.conflict_exception.ConflictException: <p>When creating a resource, thrown when a resource with the same name already exists or is being created. When deleting a resource, thrown when the resource is not in the ACTIVE, FAILED, or UPDATE_FAILED state.</p>
+            aws_sdk_opensearchserverless.errors.internal_server_exception.InternalServerException: <p>Thrown when an error internal to the service occurs while processing a request.</p>
+            aws_sdk_opensearchserverless.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Thrown when you attempt to create more resources than the service allows based on service quotas.</p>
+            aws_sdk_opensearchserverless.errors.validation_exception.ValidationException: <p>Thrown when the HTTP request contains invalid input or is missing required input.</p>
+            aws_sdk_opensearchserverless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -108,6 +115,13 @@ class VpcEndpoint:
         Args:
             id: <p>The VPC endpoint identifier.</p>
             client_token: <p>Unique, case-sensitive identifier to ensure idempotency of the request.</p>
+
+        Raises:
+            aws_sdk_opensearchserverless.errors.conflict_exception.ConflictException: <p>When creating a resource, thrown when a resource with the same name already exists or is being created. When deleting a resource, thrown when the resource is not in the ACTIVE, FAILED, or UPDATE_FAILED state.</p>
+            aws_sdk_opensearchserverless.errors.internal_server_exception.InternalServerException: <p>Thrown when an error internal to the service occurs while processing a request.</p>
+            aws_sdk_opensearchserverless.errors.resource_not_found_exception.ResourceNotFoundException: <p>Thrown when accessing or deleting a resource that does not exist.</p>
+            aws_sdk_opensearchserverless.errors.validation_exception.ValidationException: <p>Thrown when the HTTP request contains invalid input or is missing required input.</p>
+            aws_sdk_opensearchserverless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -153,6 +167,11 @@ class VpcEndpoint:
             vpc_endpoint_filters: <p>Filter the results according to the current status of the VPC endpoint. Possible statuses are <code>CREATING</code>, <code>DELETING</code>, <code>UPDATING</code>, <code>ACTIVE</code>, and <code>FAILED</code>.</p>
             next_token: <p>If your initial <code>ListVpcEndpoints</code> operation returns a <code>nextToken</code>, you can include the returned <code>nextToken</code> in subsequent <code>ListVpcEndpoints</code> operations, which returns results in the next page. </p>
             max_results: <p>An optional parameter that specifies the maximum number of results to return. You can use <code>nextToken</code> to get the next page of results. The default is 20.</p>
+
+        Raises:
+            aws_sdk_opensearchserverless.errors.internal_server_exception.InternalServerException: <p>Thrown when an error internal to the service occurs while processing a request.</p>
+            aws_sdk_opensearchserverless.errors.validation_exception.ValidationException: <p>Thrown when the HTTP request contains invalid input or is missing required input.</p>
+            aws_sdk_opensearchserverless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -212,6 +231,13 @@ class AsyncVpcEndpoint:
             subnet_ids: <p>The ID of one or more subnets from which you'll access OpenSearch Serverless.</p>
             security_group_ids: <p>The unique identifiers of the security groups that define the ports, protocols, and sources for inbound traffic that you are authorizing into your endpoint.</p>
             client_token: <p>Unique, case-sensitive identifier to ensure idempotency of the request.</p>
+
+        Raises:
+            aws_sdk_opensearchserverless.errors.conflict_exception.ConflictException: <p>When creating a resource, thrown when a resource with the same name already exists or is being created. When deleting a resource, thrown when the resource is not in the ACTIVE, FAILED, or UPDATE_FAILED state.</p>
+            aws_sdk_opensearchserverless.errors.internal_server_exception.InternalServerException: <p>Thrown when an error internal to the service occurs while processing a request.</p>
+            aws_sdk_opensearchserverless.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Thrown when you attempt to create more resources than the service allows based on service quotas.</p>
+            aws_sdk_opensearchserverless.errors.validation_exception.ValidationException: <p>Thrown when the HTTP request contains invalid input or is missing required input.</p>
+            aws_sdk_opensearchserverless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -260,6 +286,13 @@ class AsyncVpcEndpoint:
         Args:
             id: <p>The VPC endpoint identifier.</p>
             client_token: <p>Unique, case-sensitive identifier to ensure idempotency of the request.</p>
+
+        Raises:
+            aws_sdk_opensearchserverless.errors.conflict_exception.ConflictException: <p>When creating a resource, thrown when a resource with the same name already exists or is being created. When deleting a resource, thrown when the resource is not in the ACTIVE, FAILED, or UPDATE_FAILED state.</p>
+            aws_sdk_opensearchserverless.errors.internal_server_exception.InternalServerException: <p>Thrown when an error internal to the service occurs while processing a request.</p>
+            aws_sdk_opensearchserverless.errors.resource_not_found_exception.ResourceNotFoundException: <p>Thrown when accessing or deleting a resource that does not exist.</p>
+            aws_sdk_opensearchserverless.errors.validation_exception.ValidationException: <p>Thrown when the HTTP request contains invalid input or is missing required input.</p>
+            aws_sdk_opensearchserverless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -306,6 +339,11 @@ class AsyncVpcEndpoint:
             vpc_endpoint_filters: <p>Filter the results according to the current status of the VPC endpoint. Possible statuses are <code>CREATING</code>, <code>DELETING</code>, <code>UPDATING</code>, <code>ACTIVE</code>, and <code>FAILED</code>.</p>
             next_token: <p>If your initial <code>ListVpcEndpoints</code> operation returns a <code>nextToken</code>, you can include the returned <code>nextToken</code> in subsequent <code>ListVpcEndpoints</code> operations, which returns results in the next page. </p>
             max_results: <p>An optional parameter that specifies the maximum number of results to return. You can use <code>nextToken</code> to get the next page of results. The default is 20.</p>
+
+        Raises:
+            aws_sdk_opensearchserverless.errors.internal_server_exception.InternalServerException: <p>Thrown when an error internal to the service occurs while processing a request.</p>
+            aws_sdk_opensearchserverless.errors.validation_exception.ValidationException: <p>Thrown when the HTTP request contains invalid input or is missing required input.</p>
+            aws_sdk_opensearchserverless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

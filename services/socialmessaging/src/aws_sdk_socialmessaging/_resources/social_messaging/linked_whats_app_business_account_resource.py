@@ -112,6 +112,15 @@ class LinkedWhatsAppBusinessAccountResource:
         Args:
             signup_callback: <p>Contains the callback access token.</p>
             setup_finalization: <p>A JSON object that contains the phone numbers and WhatsApp Business Account to link to your account.</p>
+
+        Raises:
+            aws_sdk_socialmessaging.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_socialmessaging.errors.validation_exception.ValidationException: <p>The request contains an invalid parameter value. </p>
+            aws_sdk_socialmessaging.errors.dependency_exception.DependencyException: <p>Thrown when performing an action because a dependency would be broken.</p>
+            aws_sdk_socialmessaging.errors.invalid_parameters_exception.InvalidParametersException: <p>One or more parameters provided to the action are not valid.</p>
+            aws_sdk_socialmessaging.errors.limit_exceeded_exception.LimitExceededException: <p>The request was denied because it would exceed one or more service quotas or limits.</p>
+            aws_sdk_socialmessaging.errors.throttled_request_exception.ThrottledRequestException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_socialmessaging.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -152,6 +161,16 @@ class LinkedWhatsAppBusinessAccountResource:
 
         Args:
             id: <p>The unique identifier, from Amazon Web Services, of the linked WhatsApp Business Account. WABA identifiers are formatted as <code>waba-01234567890123456789012345678901</code>. Use <a href=\"https://docs.aws.amazon.com/social-messaging/latest/APIReference/API_ListLinkedWhatsAppBusinessAccounts.html\">ListLinkedWhatsAppBusinessAccounts</a> to list all WABAs and their details.</p>
+
+        Raises:
+            aws_sdk_socialmessaging.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_socialmessaging.errors.validation_exception.ValidationException: <p>The request contains an invalid parameter value. </p>
+            aws_sdk_socialmessaging.errors.dependency_exception.DependencyException: <p>Thrown when performing an action because a dependency would be broken.</p>
+            aws_sdk_socialmessaging.errors.internal_service_exception.InternalServiceException: <p>The request processing has failed because of an unknown error, exception, or failure.</p>
+            aws_sdk_socialmessaging.errors.invalid_parameters_exception.InvalidParametersException: <p>One or more parameters provided to the action are not valid.</p>
+            aws_sdk_socialmessaging.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource was not found.</p>
+            aws_sdk_socialmessaging.errors.throttled_request_exception.ThrottledRequestException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_socialmessaging.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -189,6 +208,15 @@ class LinkedWhatsAppBusinessAccountResource:
 
         Args:
             id: <p>The unique identifier of your WhatsApp Business Account. WABA identifiers are formatted as <code>waba-01234567890123456789012345678901</code>. Use <a href=\"https://docs.aws.amazon.com/social-messaging/latest/APIReference/API_ListLinkedWhatsAppBusinessAccounts.html\">ListLinkedWhatsAppBusinessAccounts</a> to list all WABAs and their details.</p>
+
+        Raises:
+            aws_sdk_socialmessaging.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_socialmessaging.errors.validation_exception.ValidationException: <p>The request contains an invalid parameter value. </p>
+            aws_sdk_socialmessaging.errors.dependency_exception.DependencyException: <p>Thrown when performing an action because a dependency would be broken.</p>
+            aws_sdk_socialmessaging.errors.invalid_parameters_exception.InvalidParametersException: <p>One or more parameters provided to the action are not valid.</p>
+            aws_sdk_socialmessaging.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource was not found.</p>
+            aws_sdk_socialmessaging.errors.throttled_request_exception.ThrottledRequestException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_socialmessaging.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -232,6 +260,15 @@ class LinkedWhatsAppBusinessAccountResource:
         Args:
             next_token: <p>The next token for pagination.</p>
             max_results: <p>The maximum number of results to return.</p>
+
+        Raises:
+            aws_sdk_socialmessaging.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_socialmessaging.errors.validation_exception.ValidationException: <p>The request contains an invalid parameter value. </p>
+            aws_sdk_socialmessaging.errors.internal_service_exception.InternalServiceException: <p>The request processing has failed because of an unknown error, exception, or failure.</p>
+            aws_sdk_socialmessaging.errors.invalid_parameters_exception.InvalidParametersException: <p>One or more parameters provided to the action are not valid.</p>
+            aws_sdk_socialmessaging.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource was not found.</p>
+            aws_sdk_socialmessaging.errors.throttled_request_exception.ThrottledRequestException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_socialmessaging.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -286,6 +323,17 @@ class LinkedWhatsAppBusinessAccountResource:
             flow_json: <p>The Flow JSON definition that describes the screens, components, and logic of the Flow. Maximum size is 10 MB.</p>
             publish: <p>Set to <code>true</code> to publish the Flow immediately after creation. Requires a valid <code>flowJson</code> that passes Meta's validation.</p>
             clone_flow_id: <p>The ID of an existing Flow within the same WhatsApp Business Account to clone.</p>
+
+        Raises:
+            aws_sdk_socialmessaging.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_socialmessaging.errors.validation_exception.ValidationException: <p>The request contains an invalid parameter value. </p>
+            aws_sdk_socialmessaging.errors.access_denied_by_meta_exception.AccessDeniedByMetaException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_socialmessaging.errors.dependency_exception.DependencyException: <p>Thrown when performing an action because a dependency would be broken.</p>
+            aws_sdk_socialmessaging.errors.internal_service_exception.InternalServiceException: <p>The request processing has failed because of an unknown error, exception, or failure.</p>
+            aws_sdk_socialmessaging.errors.invalid_parameters_exception.InvalidParametersException: <p>One or more parameters provided to the action are not valid.</p>
+            aws_sdk_socialmessaging.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource was not found.</p>
+            aws_sdk_socialmessaging.errors.throttled_request_exception.ThrottledRequestException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_socialmessaging.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -333,6 +381,17 @@ class LinkedWhatsAppBusinessAccountResource:
         Args:
             template_definition: <p>The complete template definition as a JSON blob.</p>
             id: <p>The ID of the WhatsApp Business Account to associate with this template.</p>
+
+        Raises:
+            aws_sdk_socialmessaging.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_socialmessaging.errors.validation_exception.ValidationException: <p>The request contains an invalid parameter value. </p>
+            aws_sdk_socialmessaging.errors.access_denied_by_meta_exception.AccessDeniedByMetaException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_socialmessaging.errors.dependency_exception.DependencyException: <p>Thrown when performing an action because a dependency would be broken.</p>
+            aws_sdk_socialmessaging.errors.internal_service_exception.InternalServiceException: <p>The request processing has failed because of an unknown error, exception, or failure.</p>
+            aws_sdk_socialmessaging.errors.invalid_parameters_exception.InvalidParametersException: <p>One or more parameters provided to the action are not valid.</p>
+            aws_sdk_socialmessaging.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource was not found.</p>
+            aws_sdk_socialmessaging.errors.throttled_request_exception.ThrottledRequestException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_socialmessaging.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -373,6 +432,17 @@ class LinkedWhatsAppBusinessAccountResource:
         Args:
             meta_library_template: <p>The template configuration from Meta's library, including customizations for buttons and body text.</p>
             id: <p>The ID of the WhatsApp Business Account to associate with this template.</p>
+
+        Raises:
+            aws_sdk_socialmessaging.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_socialmessaging.errors.validation_exception.ValidationException: <p>The request contains an invalid parameter value. </p>
+            aws_sdk_socialmessaging.errors.access_denied_by_meta_exception.AccessDeniedByMetaException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_socialmessaging.errors.dependency_exception.DependencyException: <p>Thrown when performing an action because a dependency would be broken.</p>
+            aws_sdk_socialmessaging.errors.internal_service_exception.InternalServiceException: <p>The request processing has failed because of an unknown error, exception, or failure.</p>
+            aws_sdk_socialmessaging.errors.invalid_parameters_exception.InvalidParametersException: <p>One or more parameters provided to the action are not valid.</p>
+            aws_sdk_socialmessaging.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource was not found.</p>
+            aws_sdk_socialmessaging.errors.throttled_request_exception.ThrottledRequestException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_socialmessaging.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -412,6 +482,17 @@ class LinkedWhatsAppBusinessAccountResource:
 
         Args:
             id: <p>The ID of the WhatsApp Business Account associated with this media upload.</p>
+
+        Raises:
+            aws_sdk_socialmessaging.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_socialmessaging.errors.validation_exception.ValidationException: <p>The request contains an invalid parameter value. </p>
+            aws_sdk_socialmessaging.errors.access_denied_by_meta_exception.AccessDeniedByMetaException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_socialmessaging.errors.dependency_exception.DependencyException: <p>Thrown when performing an action because a dependency would be broken.</p>
+            aws_sdk_socialmessaging.errors.internal_service_exception.InternalServiceException: <p>The request processing has failed because of an unknown error, exception, or failure.</p>
+            aws_sdk_socialmessaging.errors.invalid_parameters_exception.InvalidParametersException: <p>One or more parameters provided to the action are not valid.</p>
+            aws_sdk_socialmessaging.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource was not found.</p>
+            aws_sdk_socialmessaging.errors.throttled_request_exception.ThrottledRequestException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_socialmessaging.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -453,6 +534,17 @@ class LinkedWhatsAppBusinessAccountResource:
         Args:
             id: <p>The ID of the WhatsApp Business Account associated with this Flow.</p>
             flow_id: <p>The unique identifier of the Flow to delete.</p>
+
+        Raises:
+            aws_sdk_socialmessaging.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_socialmessaging.errors.validation_exception.ValidationException: <p>The request contains an invalid parameter value. </p>
+            aws_sdk_socialmessaging.errors.access_denied_by_meta_exception.AccessDeniedByMetaException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_socialmessaging.errors.dependency_exception.DependencyException: <p>Thrown when performing an action because a dependency would be broken.</p>
+            aws_sdk_socialmessaging.errors.internal_service_exception.InternalServiceException: <p>The request processing has failed because of an unknown error, exception, or failure.</p>
+            aws_sdk_socialmessaging.errors.invalid_parameters_exception.InvalidParametersException: <p>One or more parameters provided to the action are not valid.</p>
+            aws_sdk_socialmessaging.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource was not found.</p>
+            aws_sdk_socialmessaging.errors.throttled_request_exception.ThrottledRequestException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_socialmessaging.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -501,6 +593,17 @@ class LinkedWhatsAppBusinessAccountResource:
             delete_all_languages: <p>If true, deletes all language versions of the template.</p>
             id: <p>The ID of the WhatsApp Business Account associated with this template.</p>
             template_name: <p>The name of the template to delete.</p>
+
+        Raises:
+            aws_sdk_socialmessaging.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_socialmessaging.errors.validation_exception.ValidationException: <p>The request contains an invalid parameter value. </p>
+            aws_sdk_socialmessaging.errors.access_denied_by_meta_exception.AccessDeniedByMetaException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_socialmessaging.errors.dependency_exception.DependencyException: <p>Thrown when performing an action because a dependency would be broken.</p>
+            aws_sdk_socialmessaging.errors.internal_service_exception.InternalServiceException: <p>The request processing has failed because of an unknown error, exception, or failure.</p>
+            aws_sdk_socialmessaging.errors.invalid_parameters_exception.InvalidParametersException: <p>One or more parameters provided to the action are not valid.</p>
+            aws_sdk_socialmessaging.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource was not found.</p>
+            aws_sdk_socialmessaging.errors.throttled_request_exception.ThrottledRequestException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_socialmessaging.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -545,6 +648,17 @@ class LinkedWhatsAppBusinessAccountResource:
         Args:
             id: <p>The ID of the WhatsApp Business Account associated with this Flow.</p>
             flow_id: <p>The unique identifier of the Flow to deprecate.</p>
+
+        Raises:
+            aws_sdk_socialmessaging.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_socialmessaging.errors.validation_exception.ValidationException: <p>The request contains an invalid parameter value. </p>
+            aws_sdk_socialmessaging.errors.access_denied_by_meta_exception.AccessDeniedByMetaException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_socialmessaging.errors.dependency_exception.DependencyException: <p>Thrown when performing an action because a dependency would be broken.</p>
+            aws_sdk_socialmessaging.errors.internal_service_exception.InternalServiceException: <p>The request processing has failed because of an unknown error, exception, or failure.</p>
+            aws_sdk_socialmessaging.errors.invalid_parameters_exception.InvalidParametersException: <p>One or more parameters provided to the action are not valid.</p>
+            aws_sdk_socialmessaging.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource was not found.</p>
+            aws_sdk_socialmessaging.errors.throttled_request_exception.ThrottledRequestException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_socialmessaging.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -587,6 +701,17 @@ class LinkedWhatsAppBusinessAccountResource:
         Args:
             id: <p>The ID of the WhatsApp Business Account associated with this Flow.</p>
             flow_id: <p>The unique identifier of the Flow to retrieve.</p>
+
+        Raises:
+            aws_sdk_socialmessaging.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_socialmessaging.errors.validation_exception.ValidationException: <p>The request contains an invalid parameter value. </p>
+            aws_sdk_socialmessaging.errors.access_denied_by_meta_exception.AccessDeniedByMetaException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_socialmessaging.errors.dependency_exception.DependencyException: <p>Thrown when performing an action because a dependency would be broken.</p>
+            aws_sdk_socialmessaging.errors.internal_service_exception.InternalServiceException: <p>The request processing has failed because of an unknown error, exception, or failure.</p>
+            aws_sdk_socialmessaging.errors.invalid_parameters_exception.InvalidParametersException: <p>One or more parameters provided to the action are not valid.</p>
+            aws_sdk_socialmessaging.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource was not found.</p>
+            aws_sdk_socialmessaging.errors.throttled_request_exception.ThrottledRequestException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_socialmessaging.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -629,6 +754,17 @@ class LinkedWhatsAppBusinessAccountResource:
             id: <p>The ID of the WhatsApp Business Account associated with this Flow.</p>
             flow_id: <p>The unique identifier of the Flow to preview.</p>
             invalidate: <p>Set to <code>true</code> to force generation of a new preview URL. Use this if the previous URL has been compromised or you want a fresh expiration period.</p>
+
+        Raises:
+            aws_sdk_socialmessaging.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_socialmessaging.errors.validation_exception.ValidationException: <p>The request contains an invalid parameter value. </p>
+            aws_sdk_socialmessaging.errors.access_denied_by_meta_exception.AccessDeniedByMetaException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_socialmessaging.errors.dependency_exception.DependencyException: <p>Thrown when performing an action because a dependency would be broken.</p>
+            aws_sdk_socialmessaging.errors.internal_service_exception.InternalServiceException: <p>The request processing has failed because of an unknown error, exception, or failure.</p>
+            aws_sdk_socialmessaging.errors.invalid_parameters_exception.InvalidParametersException: <p>One or more parameters provided to the action are not valid.</p>
+            aws_sdk_socialmessaging.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource was not found.</p>
+            aws_sdk_socialmessaging.errors.throttled_request_exception.ThrottledRequestException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_socialmessaging.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -681,6 +817,17 @@ class LinkedWhatsAppBusinessAccountResource:
             id: <p>The ID of the WhatsApp Business Account associated with this template.</p>
             template_name: <p>The name of the message template. Use together with <code>templateLanguageCode</code> as an alternative to <code>metaTemplateId</code> to identify a template.</p>
             template_language_code: <p>The language code of the message template (for example, <code>en</code> or <code>en_US</code>). Use together with <code>templateName</code> as an alternative to <code>metaTemplateId</code> to identify a template.</p>
+
+        Raises:
+            aws_sdk_socialmessaging.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_socialmessaging.errors.validation_exception.ValidationException: <p>The request contains an invalid parameter value. </p>
+            aws_sdk_socialmessaging.errors.access_denied_by_meta_exception.AccessDeniedByMetaException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_socialmessaging.errors.dependency_exception.DependencyException: <p>Thrown when performing an action because a dependency would be broken.</p>
+            aws_sdk_socialmessaging.errors.internal_service_exception.InternalServiceException: <p>The request processing has failed because of an unknown error, exception, or failure.</p>
+            aws_sdk_socialmessaging.errors.invalid_parameters_exception.InvalidParametersException: <p>One or more parameters provided to the action are not valid.</p>
+            aws_sdk_socialmessaging.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource was not found.</p>
+            aws_sdk_socialmessaging.errors.throttled_request_exception.ThrottledRequestException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_socialmessaging.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -734,6 +881,17 @@ class LinkedWhatsAppBusinessAccountResource:
             flow_id: <p>The unique identifier of the Flow whose assets to list.</p>
             next_token: <p>The token for the next page of results.</p>
             max_results: <p>The maximum number of results to return per page.</p>
+
+        Raises:
+            aws_sdk_socialmessaging.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_socialmessaging.errors.validation_exception.ValidationException: <p>The request contains an invalid parameter value. </p>
+            aws_sdk_socialmessaging.errors.access_denied_by_meta_exception.AccessDeniedByMetaException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_socialmessaging.errors.dependency_exception.DependencyException: <p>Thrown when performing an action because a dependency would be broken.</p>
+            aws_sdk_socialmessaging.errors.internal_service_exception.InternalServiceException: <p>The request processing has failed because of an unknown error, exception, or failure.</p>
+            aws_sdk_socialmessaging.errors.invalid_parameters_exception.InvalidParametersException: <p>One or more parameters provided to the action are not valid.</p>
+            aws_sdk_socialmessaging.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource was not found.</p>
+            aws_sdk_socialmessaging.errors.throttled_request_exception.ThrottledRequestException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_socialmessaging.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -784,6 +942,17 @@ class LinkedWhatsAppBusinessAccountResource:
             id: <p>The ID of the WhatsApp Business Account to list Flows for.</p>
             next_token: <p>The token for the next page of results.</p>
             max_results: <p>The maximum number of results to return per page.</p>
+
+        Raises:
+            aws_sdk_socialmessaging.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_socialmessaging.errors.validation_exception.ValidationException: <p>The request contains an invalid parameter value. </p>
+            aws_sdk_socialmessaging.errors.access_denied_by_meta_exception.AccessDeniedByMetaException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_socialmessaging.errors.dependency_exception.DependencyException: <p>Thrown when performing an action because a dependency would be broken.</p>
+            aws_sdk_socialmessaging.errors.internal_service_exception.InternalServiceException: <p>The request processing has failed because of an unknown error, exception, or failure.</p>
+            aws_sdk_socialmessaging.errors.invalid_parameters_exception.InvalidParametersException: <p>One or more parameters provided to the action are not valid.</p>
+            aws_sdk_socialmessaging.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource was not found.</p>
+            aws_sdk_socialmessaging.errors.throttled_request_exception.ThrottledRequestException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_socialmessaging.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -833,6 +1002,17 @@ class LinkedWhatsAppBusinessAccountResource:
             id: <p>The ID of the WhatsApp Business Account to list templates for.</p>
             next_token: <p>The token for the next page of results.</p>
             max_results: <p>The maximum number of results to return per page (1-100).</p>
+
+        Raises:
+            aws_sdk_socialmessaging.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_socialmessaging.errors.validation_exception.ValidationException: <p>The request contains an invalid parameter value. </p>
+            aws_sdk_socialmessaging.errors.access_denied_by_meta_exception.AccessDeniedByMetaException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_socialmessaging.errors.dependency_exception.DependencyException: <p>Thrown when performing an action because a dependency would be broken.</p>
+            aws_sdk_socialmessaging.errors.internal_service_exception.InternalServiceException: <p>The request processing has failed because of an unknown error, exception, or failure.</p>
+            aws_sdk_socialmessaging.errors.invalid_parameters_exception.InvalidParametersException: <p>One or more parameters provided to the action are not valid.</p>
+            aws_sdk_socialmessaging.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource was not found.</p>
+            aws_sdk_socialmessaging.errors.throttled_request_exception.ThrottledRequestException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_socialmessaging.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -884,6 +1064,17 @@ class LinkedWhatsAppBusinessAccountResource:
             max_results: <p>The maximum number of results to return per page (1-100).</p>
             id: <p>The ID of the WhatsApp Business Account to list library templates for.</p>
             filters: <p>Map of filters to apply (searchKey, topic, usecase, industry, language).</p>
+
+        Raises:
+            aws_sdk_socialmessaging.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_socialmessaging.errors.validation_exception.ValidationException: <p>The request contains an invalid parameter value. </p>
+            aws_sdk_socialmessaging.errors.access_denied_by_meta_exception.AccessDeniedByMetaException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_socialmessaging.errors.dependency_exception.DependencyException: <p>Thrown when performing an action because a dependency would be broken.</p>
+            aws_sdk_socialmessaging.errors.internal_service_exception.InternalServiceException: <p>The request processing has failed because of an unknown error, exception, or failure.</p>
+            aws_sdk_socialmessaging.errors.invalid_parameters_exception.InvalidParametersException: <p>One or more parameters provided to the action are not valid.</p>
+            aws_sdk_socialmessaging.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource was not found.</p>
+            aws_sdk_socialmessaging.errors.throttled_request_exception.ThrottledRequestException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_socialmessaging.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -929,6 +1120,17 @@ class LinkedWhatsAppBusinessAccountResource:
         Args:
             id: <p>The ID of the WhatsApp Business Account associated with this Flow.</p>
             flow_id: <p>The unique identifier of the Flow to publish.</p>
+
+        Raises:
+            aws_sdk_socialmessaging.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_socialmessaging.errors.validation_exception.ValidationException: <p>The request contains an invalid parameter value. </p>
+            aws_sdk_socialmessaging.errors.access_denied_by_meta_exception.AccessDeniedByMetaException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_socialmessaging.errors.dependency_exception.DependencyException: <p>Thrown when performing an action because a dependency would be broken.</p>
+            aws_sdk_socialmessaging.errors.internal_service_exception.InternalServiceException: <p>The request processing has failed because of an unknown error, exception, or failure.</p>
+            aws_sdk_socialmessaging.errors.invalid_parameters_exception.InvalidParametersException: <p>One or more parameters provided to the action are not valid.</p>
+            aws_sdk_socialmessaging.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource was not found.</p>
+            aws_sdk_socialmessaging.errors.throttled_request_exception.ThrottledRequestException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_socialmessaging.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -969,6 +1171,14 @@ class LinkedWhatsAppBusinessAccountResource:
         Args:
             id: <p>The unique identifier of your WhatsApp Business Account. WABA identifiers are formatted as <code>waba-01234567890123456789012345678901</code>. Use <a href=\"https://docs.aws.amazon.com/social-messaging/latest/APIReference/API_ListLinkedWhatsAppBusinessAccounts.html\">ListLinkedWhatsAppBusinessAccounts</a> to list all WABAs and their details.</p>
             event_destinations: <p>An array of <code>WhatsAppBusinessAccountEventDestination</code> event destinations.</p>
+
+        Raises:
+            aws_sdk_socialmessaging.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_socialmessaging.errors.validation_exception.ValidationException: <p>The request contains an invalid parameter value. </p>
+            aws_sdk_socialmessaging.errors.internal_service_exception.InternalServiceException: <p>The request processing has failed because of an unknown error, exception, or failure.</p>
+            aws_sdk_socialmessaging.errors.invalid_parameters_exception.InvalidParametersException: <p>One or more parameters provided to the action are not valid.</p>
+            aws_sdk_socialmessaging.errors.throttled_request_exception.ThrottledRequestException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_socialmessaging.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1017,6 +1227,17 @@ class LinkedWhatsAppBusinessAccountResource:
             flow_id: <p>The unique identifier of the Flow to update.</p>
             flow_name: <p>The updated name for the Flow.</p>
             categories: <p>The updated categories for the Flow.</p>
+
+        Raises:
+            aws_sdk_socialmessaging.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_socialmessaging.errors.validation_exception.ValidationException: <p>The request contains an invalid parameter value. </p>
+            aws_sdk_socialmessaging.errors.access_denied_by_meta_exception.AccessDeniedByMetaException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_socialmessaging.errors.dependency_exception.DependencyException: <p>Thrown when performing an action because a dependency would be broken.</p>
+            aws_sdk_socialmessaging.errors.internal_service_exception.InternalServiceException: <p>The request processing has failed because of an unknown error, exception, or failure.</p>
+            aws_sdk_socialmessaging.errors.invalid_parameters_exception.InvalidParametersException: <p>One or more parameters provided to the action are not valid.</p>
+            aws_sdk_socialmessaging.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource was not found.</p>
+            aws_sdk_socialmessaging.errors.throttled_request_exception.ThrottledRequestException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_socialmessaging.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1063,6 +1284,17 @@ class LinkedWhatsAppBusinessAccountResource:
             id: <p>The ID of the WhatsApp Business Account associated with this Flow.</p>
             flow_id: <p>The unique identifier of the Flow whose assets to update.</p>
             flow_json: <p>The updated Flow JSON definition. Maximum size is 10 MB.</p>
+
+        Raises:
+            aws_sdk_socialmessaging.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_socialmessaging.errors.validation_exception.ValidationException: <p>The request contains an invalid parameter value. </p>
+            aws_sdk_socialmessaging.errors.access_denied_by_meta_exception.AccessDeniedByMetaException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_socialmessaging.errors.dependency_exception.DependencyException: <p>Thrown when performing an action because a dependency would be broken.</p>
+            aws_sdk_socialmessaging.errors.internal_service_exception.InternalServiceException: <p>The request processing has failed because of an unknown error, exception, or failure.</p>
+            aws_sdk_socialmessaging.errors.invalid_parameters_exception.InvalidParametersException: <p>One or more parameters provided to the action are not valid.</p>
+            aws_sdk_socialmessaging.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource was not found.</p>
+            aws_sdk_socialmessaging.errors.throttled_request_exception.ThrottledRequestException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_socialmessaging.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1130,6 +1362,17 @@ class LinkedWhatsAppBusinessAccountResource:
             template_category: <p>The new category for the template (for example, UTILITY or MARKETING).</p>
             template_components: <p>The updated components of the template as a JSON blob (maximum 3000 characters).</p>
             cta_url_link_tracking_opted_out: <p>When true, disables click tracking for call-to-action URL buttons in the template.</p>
+
+        Raises:
+            aws_sdk_socialmessaging.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_socialmessaging.errors.validation_exception.ValidationException: <p>The request contains an invalid parameter value. </p>
+            aws_sdk_socialmessaging.errors.access_denied_by_meta_exception.AccessDeniedByMetaException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_socialmessaging.errors.dependency_exception.DependencyException: <p>Thrown when performing an action because a dependency would be broken.</p>
+            aws_sdk_socialmessaging.errors.internal_service_exception.InternalServiceException: <p>The request processing has failed because of an unknown error, exception, or failure.</p>
+            aws_sdk_socialmessaging.errors.invalid_parameters_exception.InvalidParametersException: <p>One or more parameters provided to the action are not valid.</p>
+            aws_sdk_socialmessaging.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource was not found.</p>
+            aws_sdk_socialmessaging.errors.throttled_request_exception.ThrottledRequestException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_socialmessaging.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1192,6 +1435,15 @@ class AsyncLinkedWhatsAppBusinessAccountResource:
         Args:
             signup_callback: <p>Contains the callback access token.</p>
             setup_finalization: <p>A JSON object that contains the phone numbers and WhatsApp Business Account to link to your account.</p>
+
+        Raises:
+            aws_sdk_socialmessaging.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_socialmessaging.errors.validation_exception.ValidationException: <p>The request contains an invalid parameter value. </p>
+            aws_sdk_socialmessaging.errors.dependency_exception.DependencyException: <p>Thrown when performing an action because a dependency would be broken.</p>
+            aws_sdk_socialmessaging.errors.invalid_parameters_exception.InvalidParametersException: <p>One or more parameters provided to the action are not valid.</p>
+            aws_sdk_socialmessaging.errors.limit_exceeded_exception.LimitExceededException: <p>The request was denied because it would exceed one or more service quotas or limits.</p>
+            aws_sdk_socialmessaging.errors.throttled_request_exception.ThrottledRequestException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_socialmessaging.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1233,6 +1485,16 @@ class AsyncLinkedWhatsAppBusinessAccountResource:
 
         Args:
             id: <p>The unique identifier, from Amazon Web Services, of the linked WhatsApp Business Account. WABA identifiers are formatted as <code>waba-01234567890123456789012345678901</code>. Use <a href=\"https://docs.aws.amazon.com/social-messaging/latest/APIReference/API_ListLinkedWhatsAppBusinessAccounts.html\">ListLinkedWhatsAppBusinessAccounts</a> to list all WABAs and their details.</p>
+
+        Raises:
+            aws_sdk_socialmessaging.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_socialmessaging.errors.validation_exception.ValidationException: <p>The request contains an invalid parameter value. </p>
+            aws_sdk_socialmessaging.errors.dependency_exception.DependencyException: <p>Thrown when performing an action because a dependency would be broken.</p>
+            aws_sdk_socialmessaging.errors.internal_service_exception.InternalServiceException: <p>The request processing has failed because of an unknown error, exception, or failure.</p>
+            aws_sdk_socialmessaging.errors.invalid_parameters_exception.InvalidParametersException: <p>One or more parameters provided to the action are not valid.</p>
+            aws_sdk_socialmessaging.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource was not found.</p>
+            aws_sdk_socialmessaging.errors.throttled_request_exception.ThrottledRequestException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_socialmessaging.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1271,6 +1533,15 @@ class AsyncLinkedWhatsAppBusinessAccountResource:
 
         Args:
             id: <p>The unique identifier of your WhatsApp Business Account. WABA identifiers are formatted as <code>waba-01234567890123456789012345678901</code>. Use <a href=\"https://docs.aws.amazon.com/social-messaging/latest/APIReference/API_ListLinkedWhatsAppBusinessAccounts.html\">ListLinkedWhatsAppBusinessAccounts</a> to list all WABAs and their details.</p>
+
+        Raises:
+            aws_sdk_socialmessaging.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_socialmessaging.errors.validation_exception.ValidationException: <p>The request contains an invalid parameter value. </p>
+            aws_sdk_socialmessaging.errors.dependency_exception.DependencyException: <p>Thrown when performing an action because a dependency would be broken.</p>
+            aws_sdk_socialmessaging.errors.invalid_parameters_exception.InvalidParametersException: <p>One or more parameters provided to the action are not valid.</p>
+            aws_sdk_socialmessaging.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource was not found.</p>
+            aws_sdk_socialmessaging.errors.throttled_request_exception.ThrottledRequestException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_socialmessaging.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1315,6 +1586,15 @@ class AsyncLinkedWhatsAppBusinessAccountResource:
         Args:
             next_token: <p>The next token for pagination.</p>
             max_results: <p>The maximum number of results to return.</p>
+
+        Raises:
+            aws_sdk_socialmessaging.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_socialmessaging.errors.validation_exception.ValidationException: <p>The request contains an invalid parameter value. </p>
+            aws_sdk_socialmessaging.errors.internal_service_exception.InternalServiceException: <p>The request processing has failed because of an unknown error, exception, or failure.</p>
+            aws_sdk_socialmessaging.errors.invalid_parameters_exception.InvalidParametersException: <p>One or more parameters provided to the action are not valid.</p>
+            aws_sdk_socialmessaging.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource was not found.</p>
+            aws_sdk_socialmessaging.errors.throttled_request_exception.ThrottledRequestException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_socialmessaging.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1370,6 +1650,17 @@ class AsyncLinkedWhatsAppBusinessAccountResource:
             flow_json: <p>The Flow JSON definition that describes the screens, components, and logic of the Flow. Maximum size is 10 MB.</p>
             publish: <p>Set to <code>true</code> to publish the Flow immediately after creation. Requires a valid <code>flowJson</code> that passes Meta's validation.</p>
             clone_flow_id: <p>The ID of an existing Flow within the same WhatsApp Business Account to clone.</p>
+
+        Raises:
+            aws_sdk_socialmessaging.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_socialmessaging.errors.validation_exception.ValidationException: <p>The request contains an invalid parameter value. </p>
+            aws_sdk_socialmessaging.errors.access_denied_by_meta_exception.AccessDeniedByMetaException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_socialmessaging.errors.dependency_exception.DependencyException: <p>Thrown when performing an action because a dependency would be broken.</p>
+            aws_sdk_socialmessaging.errors.internal_service_exception.InternalServiceException: <p>The request processing has failed because of an unknown error, exception, or failure.</p>
+            aws_sdk_socialmessaging.errors.invalid_parameters_exception.InvalidParametersException: <p>One or more parameters provided to the action are not valid.</p>
+            aws_sdk_socialmessaging.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource was not found.</p>
+            aws_sdk_socialmessaging.errors.throttled_request_exception.ThrottledRequestException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_socialmessaging.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1418,6 +1709,17 @@ class AsyncLinkedWhatsAppBusinessAccountResource:
         Args:
             template_definition: <p>The complete template definition as a JSON blob.</p>
             id: <p>The ID of the WhatsApp Business Account to associate with this template.</p>
+
+        Raises:
+            aws_sdk_socialmessaging.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_socialmessaging.errors.validation_exception.ValidationException: <p>The request contains an invalid parameter value. </p>
+            aws_sdk_socialmessaging.errors.access_denied_by_meta_exception.AccessDeniedByMetaException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_socialmessaging.errors.dependency_exception.DependencyException: <p>Thrown when performing an action because a dependency would be broken.</p>
+            aws_sdk_socialmessaging.errors.internal_service_exception.InternalServiceException: <p>The request processing has failed because of an unknown error, exception, or failure.</p>
+            aws_sdk_socialmessaging.errors.invalid_parameters_exception.InvalidParametersException: <p>One or more parameters provided to the action are not valid.</p>
+            aws_sdk_socialmessaging.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource was not found.</p>
+            aws_sdk_socialmessaging.errors.throttled_request_exception.ThrottledRequestException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_socialmessaging.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1459,6 +1761,17 @@ class AsyncLinkedWhatsAppBusinessAccountResource:
         Args:
             meta_library_template: <p>The template configuration from Meta's library, including customizations for buttons and body text.</p>
             id: <p>The ID of the WhatsApp Business Account to associate with this template.</p>
+
+        Raises:
+            aws_sdk_socialmessaging.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_socialmessaging.errors.validation_exception.ValidationException: <p>The request contains an invalid parameter value. </p>
+            aws_sdk_socialmessaging.errors.access_denied_by_meta_exception.AccessDeniedByMetaException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_socialmessaging.errors.dependency_exception.DependencyException: <p>Thrown when performing an action because a dependency would be broken.</p>
+            aws_sdk_socialmessaging.errors.internal_service_exception.InternalServiceException: <p>The request processing has failed because of an unknown error, exception, or failure.</p>
+            aws_sdk_socialmessaging.errors.invalid_parameters_exception.InvalidParametersException: <p>One or more parameters provided to the action are not valid.</p>
+            aws_sdk_socialmessaging.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource was not found.</p>
+            aws_sdk_socialmessaging.errors.throttled_request_exception.ThrottledRequestException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_socialmessaging.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1499,6 +1812,17 @@ class AsyncLinkedWhatsAppBusinessAccountResource:
 
         Args:
             id: <p>The ID of the WhatsApp Business Account associated with this media upload.</p>
+
+        Raises:
+            aws_sdk_socialmessaging.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_socialmessaging.errors.validation_exception.ValidationException: <p>The request contains an invalid parameter value. </p>
+            aws_sdk_socialmessaging.errors.access_denied_by_meta_exception.AccessDeniedByMetaException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_socialmessaging.errors.dependency_exception.DependencyException: <p>Thrown when performing an action because a dependency would be broken.</p>
+            aws_sdk_socialmessaging.errors.internal_service_exception.InternalServiceException: <p>The request processing has failed because of an unknown error, exception, or failure.</p>
+            aws_sdk_socialmessaging.errors.invalid_parameters_exception.InvalidParametersException: <p>One or more parameters provided to the action are not valid.</p>
+            aws_sdk_socialmessaging.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource was not found.</p>
+            aws_sdk_socialmessaging.errors.throttled_request_exception.ThrottledRequestException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_socialmessaging.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1541,6 +1865,17 @@ class AsyncLinkedWhatsAppBusinessAccountResource:
         Args:
             id: <p>The ID of the WhatsApp Business Account associated with this Flow.</p>
             flow_id: <p>The unique identifier of the Flow to delete.</p>
+
+        Raises:
+            aws_sdk_socialmessaging.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_socialmessaging.errors.validation_exception.ValidationException: <p>The request contains an invalid parameter value. </p>
+            aws_sdk_socialmessaging.errors.access_denied_by_meta_exception.AccessDeniedByMetaException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_socialmessaging.errors.dependency_exception.DependencyException: <p>Thrown when performing an action because a dependency would be broken.</p>
+            aws_sdk_socialmessaging.errors.internal_service_exception.InternalServiceException: <p>The request processing has failed because of an unknown error, exception, or failure.</p>
+            aws_sdk_socialmessaging.errors.invalid_parameters_exception.InvalidParametersException: <p>One or more parameters provided to the action are not valid.</p>
+            aws_sdk_socialmessaging.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource was not found.</p>
+            aws_sdk_socialmessaging.errors.throttled_request_exception.ThrottledRequestException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_socialmessaging.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1590,6 +1925,17 @@ class AsyncLinkedWhatsAppBusinessAccountResource:
             delete_all_languages: <p>If true, deletes all language versions of the template.</p>
             id: <p>The ID of the WhatsApp Business Account associated with this template.</p>
             template_name: <p>The name of the template to delete.</p>
+
+        Raises:
+            aws_sdk_socialmessaging.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_socialmessaging.errors.validation_exception.ValidationException: <p>The request contains an invalid parameter value. </p>
+            aws_sdk_socialmessaging.errors.access_denied_by_meta_exception.AccessDeniedByMetaException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_socialmessaging.errors.dependency_exception.DependencyException: <p>Thrown when performing an action because a dependency would be broken.</p>
+            aws_sdk_socialmessaging.errors.internal_service_exception.InternalServiceException: <p>The request processing has failed because of an unknown error, exception, or failure.</p>
+            aws_sdk_socialmessaging.errors.invalid_parameters_exception.InvalidParametersException: <p>One or more parameters provided to the action are not valid.</p>
+            aws_sdk_socialmessaging.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource was not found.</p>
+            aws_sdk_socialmessaging.errors.throttled_request_exception.ThrottledRequestException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_socialmessaging.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1635,6 +1981,17 @@ class AsyncLinkedWhatsAppBusinessAccountResource:
         Args:
             id: <p>The ID of the WhatsApp Business Account associated with this Flow.</p>
             flow_id: <p>The unique identifier of the Flow to deprecate.</p>
+
+        Raises:
+            aws_sdk_socialmessaging.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_socialmessaging.errors.validation_exception.ValidationException: <p>The request contains an invalid parameter value. </p>
+            aws_sdk_socialmessaging.errors.access_denied_by_meta_exception.AccessDeniedByMetaException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_socialmessaging.errors.dependency_exception.DependencyException: <p>Thrown when performing an action because a dependency would be broken.</p>
+            aws_sdk_socialmessaging.errors.internal_service_exception.InternalServiceException: <p>The request processing has failed because of an unknown error, exception, or failure.</p>
+            aws_sdk_socialmessaging.errors.invalid_parameters_exception.InvalidParametersException: <p>One or more parameters provided to the action are not valid.</p>
+            aws_sdk_socialmessaging.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource was not found.</p>
+            aws_sdk_socialmessaging.errors.throttled_request_exception.ThrottledRequestException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_socialmessaging.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1678,6 +2035,17 @@ class AsyncLinkedWhatsAppBusinessAccountResource:
         Args:
             id: <p>The ID of the WhatsApp Business Account associated with this Flow.</p>
             flow_id: <p>The unique identifier of the Flow to retrieve.</p>
+
+        Raises:
+            aws_sdk_socialmessaging.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_socialmessaging.errors.validation_exception.ValidationException: <p>The request contains an invalid parameter value. </p>
+            aws_sdk_socialmessaging.errors.access_denied_by_meta_exception.AccessDeniedByMetaException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_socialmessaging.errors.dependency_exception.DependencyException: <p>Thrown when performing an action because a dependency would be broken.</p>
+            aws_sdk_socialmessaging.errors.internal_service_exception.InternalServiceException: <p>The request processing has failed because of an unknown error, exception, or failure.</p>
+            aws_sdk_socialmessaging.errors.invalid_parameters_exception.InvalidParametersException: <p>One or more parameters provided to the action are not valid.</p>
+            aws_sdk_socialmessaging.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource was not found.</p>
+            aws_sdk_socialmessaging.errors.throttled_request_exception.ThrottledRequestException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_socialmessaging.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1721,6 +2089,17 @@ class AsyncLinkedWhatsAppBusinessAccountResource:
             id: <p>The ID of the WhatsApp Business Account associated with this Flow.</p>
             flow_id: <p>The unique identifier of the Flow to preview.</p>
             invalidate: <p>Set to <code>true</code> to force generation of a new preview URL. Use this if the previous URL has been compromised or you want a fresh expiration period.</p>
+
+        Raises:
+            aws_sdk_socialmessaging.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_socialmessaging.errors.validation_exception.ValidationException: <p>The request contains an invalid parameter value. </p>
+            aws_sdk_socialmessaging.errors.access_denied_by_meta_exception.AccessDeniedByMetaException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_socialmessaging.errors.dependency_exception.DependencyException: <p>Thrown when performing an action because a dependency would be broken.</p>
+            aws_sdk_socialmessaging.errors.internal_service_exception.InternalServiceException: <p>The request processing has failed because of an unknown error, exception, or failure.</p>
+            aws_sdk_socialmessaging.errors.invalid_parameters_exception.InvalidParametersException: <p>One or more parameters provided to the action are not valid.</p>
+            aws_sdk_socialmessaging.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource was not found.</p>
+            aws_sdk_socialmessaging.errors.throttled_request_exception.ThrottledRequestException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_socialmessaging.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1774,6 +2153,17 @@ class AsyncLinkedWhatsAppBusinessAccountResource:
             id: <p>The ID of the WhatsApp Business Account associated with this template.</p>
             template_name: <p>The name of the message template. Use together with <code>templateLanguageCode</code> as an alternative to <code>metaTemplateId</code> to identify a template.</p>
             template_language_code: <p>The language code of the message template (for example, <code>en</code> or <code>en_US</code>). Use together with <code>templateName</code> as an alternative to <code>metaTemplateId</code> to identify a template.</p>
+
+        Raises:
+            aws_sdk_socialmessaging.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_socialmessaging.errors.validation_exception.ValidationException: <p>The request contains an invalid parameter value. </p>
+            aws_sdk_socialmessaging.errors.access_denied_by_meta_exception.AccessDeniedByMetaException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_socialmessaging.errors.dependency_exception.DependencyException: <p>Thrown when performing an action because a dependency would be broken.</p>
+            aws_sdk_socialmessaging.errors.internal_service_exception.InternalServiceException: <p>The request processing has failed because of an unknown error, exception, or failure.</p>
+            aws_sdk_socialmessaging.errors.invalid_parameters_exception.InvalidParametersException: <p>One or more parameters provided to the action are not valid.</p>
+            aws_sdk_socialmessaging.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource was not found.</p>
+            aws_sdk_socialmessaging.errors.throttled_request_exception.ThrottledRequestException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_socialmessaging.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1828,6 +2218,17 @@ class AsyncLinkedWhatsAppBusinessAccountResource:
             flow_id: <p>The unique identifier of the Flow whose assets to list.</p>
             next_token: <p>The token for the next page of results.</p>
             max_results: <p>The maximum number of results to return per page.</p>
+
+        Raises:
+            aws_sdk_socialmessaging.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_socialmessaging.errors.validation_exception.ValidationException: <p>The request contains an invalid parameter value. </p>
+            aws_sdk_socialmessaging.errors.access_denied_by_meta_exception.AccessDeniedByMetaException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_socialmessaging.errors.dependency_exception.DependencyException: <p>Thrown when performing an action because a dependency would be broken.</p>
+            aws_sdk_socialmessaging.errors.internal_service_exception.InternalServiceException: <p>The request processing has failed because of an unknown error, exception, or failure.</p>
+            aws_sdk_socialmessaging.errors.invalid_parameters_exception.InvalidParametersException: <p>One or more parameters provided to the action are not valid.</p>
+            aws_sdk_socialmessaging.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource was not found.</p>
+            aws_sdk_socialmessaging.errors.throttled_request_exception.ThrottledRequestException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_socialmessaging.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1879,6 +2280,17 @@ class AsyncLinkedWhatsAppBusinessAccountResource:
             id: <p>The ID of the WhatsApp Business Account to list Flows for.</p>
             next_token: <p>The token for the next page of results.</p>
             max_results: <p>The maximum number of results to return per page.</p>
+
+        Raises:
+            aws_sdk_socialmessaging.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_socialmessaging.errors.validation_exception.ValidationException: <p>The request contains an invalid parameter value. </p>
+            aws_sdk_socialmessaging.errors.access_denied_by_meta_exception.AccessDeniedByMetaException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_socialmessaging.errors.dependency_exception.DependencyException: <p>Thrown when performing an action because a dependency would be broken.</p>
+            aws_sdk_socialmessaging.errors.internal_service_exception.InternalServiceException: <p>The request processing has failed because of an unknown error, exception, or failure.</p>
+            aws_sdk_socialmessaging.errors.invalid_parameters_exception.InvalidParametersException: <p>One or more parameters provided to the action are not valid.</p>
+            aws_sdk_socialmessaging.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource was not found.</p>
+            aws_sdk_socialmessaging.errors.throttled_request_exception.ThrottledRequestException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_socialmessaging.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1929,6 +2341,17 @@ class AsyncLinkedWhatsAppBusinessAccountResource:
             id: <p>The ID of the WhatsApp Business Account to list templates for.</p>
             next_token: <p>The token for the next page of results.</p>
             max_results: <p>The maximum number of results to return per page (1-100).</p>
+
+        Raises:
+            aws_sdk_socialmessaging.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_socialmessaging.errors.validation_exception.ValidationException: <p>The request contains an invalid parameter value. </p>
+            aws_sdk_socialmessaging.errors.access_denied_by_meta_exception.AccessDeniedByMetaException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_socialmessaging.errors.dependency_exception.DependencyException: <p>Thrown when performing an action because a dependency would be broken.</p>
+            aws_sdk_socialmessaging.errors.internal_service_exception.InternalServiceException: <p>The request processing has failed because of an unknown error, exception, or failure.</p>
+            aws_sdk_socialmessaging.errors.invalid_parameters_exception.InvalidParametersException: <p>One or more parameters provided to the action are not valid.</p>
+            aws_sdk_socialmessaging.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource was not found.</p>
+            aws_sdk_socialmessaging.errors.throttled_request_exception.ThrottledRequestException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_socialmessaging.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1981,6 +2404,17 @@ class AsyncLinkedWhatsAppBusinessAccountResource:
             max_results: <p>The maximum number of results to return per page (1-100).</p>
             id: <p>The ID of the WhatsApp Business Account to list library templates for.</p>
             filters: <p>Map of filters to apply (searchKey, topic, usecase, industry, language).</p>
+
+        Raises:
+            aws_sdk_socialmessaging.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_socialmessaging.errors.validation_exception.ValidationException: <p>The request contains an invalid parameter value. </p>
+            aws_sdk_socialmessaging.errors.access_denied_by_meta_exception.AccessDeniedByMetaException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_socialmessaging.errors.dependency_exception.DependencyException: <p>Thrown when performing an action because a dependency would be broken.</p>
+            aws_sdk_socialmessaging.errors.internal_service_exception.InternalServiceException: <p>The request processing has failed because of an unknown error, exception, or failure.</p>
+            aws_sdk_socialmessaging.errors.invalid_parameters_exception.InvalidParametersException: <p>One or more parameters provided to the action are not valid.</p>
+            aws_sdk_socialmessaging.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource was not found.</p>
+            aws_sdk_socialmessaging.errors.throttled_request_exception.ThrottledRequestException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_socialmessaging.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2027,6 +2461,17 @@ class AsyncLinkedWhatsAppBusinessAccountResource:
         Args:
             id: <p>The ID of the WhatsApp Business Account associated with this Flow.</p>
             flow_id: <p>The unique identifier of the Flow to publish.</p>
+
+        Raises:
+            aws_sdk_socialmessaging.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_socialmessaging.errors.validation_exception.ValidationException: <p>The request contains an invalid parameter value. </p>
+            aws_sdk_socialmessaging.errors.access_denied_by_meta_exception.AccessDeniedByMetaException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_socialmessaging.errors.dependency_exception.DependencyException: <p>Thrown when performing an action because a dependency would be broken.</p>
+            aws_sdk_socialmessaging.errors.internal_service_exception.InternalServiceException: <p>The request processing has failed because of an unknown error, exception, or failure.</p>
+            aws_sdk_socialmessaging.errors.invalid_parameters_exception.InvalidParametersException: <p>One or more parameters provided to the action are not valid.</p>
+            aws_sdk_socialmessaging.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource was not found.</p>
+            aws_sdk_socialmessaging.errors.throttled_request_exception.ThrottledRequestException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_socialmessaging.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2068,6 +2513,14 @@ class AsyncLinkedWhatsAppBusinessAccountResource:
         Args:
             id: <p>The unique identifier of your WhatsApp Business Account. WABA identifiers are formatted as <code>waba-01234567890123456789012345678901</code>. Use <a href=\"https://docs.aws.amazon.com/social-messaging/latest/APIReference/API_ListLinkedWhatsAppBusinessAccounts.html\">ListLinkedWhatsAppBusinessAccounts</a> to list all WABAs and their details.</p>
             event_destinations: <p>An array of <code>WhatsAppBusinessAccountEventDestination</code> event destinations.</p>
+
+        Raises:
+            aws_sdk_socialmessaging.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_socialmessaging.errors.validation_exception.ValidationException: <p>The request contains an invalid parameter value. </p>
+            aws_sdk_socialmessaging.errors.internal_service_exception.InternalServiceException: <p>The request processing has failed because of an unknown error, exception, or failure.</p>
+            aws_sdk_socialmessaging.errors.invalid_parameters_exception.InvalidParametersException: <p>One or more parameters provided to the action are not valid.</p>
+            aws_sdk_socialmessaging.errors.throttled_request_exception.ThrottledRequestException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_socialmessaging.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2117,6 +2570,17 @@ class AsyncLinkedWhatsAppBusinessAccountResource:
             flow_id: <p>The unique identifier of the Flow to update.</p>
             flow_name: <p>The updated name for the Flow.</p>
             categories: <p>The updated categories for the Flow.</p>
+
+        Raises:
+            aws_sdk_socialmessaging.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_socialmessaging.errors.validation_exception.ValidationException: <p>The request contains an invalid parameter value. </p>
+            aws_sdk_socialmessaging.errors.access_denied_by_meta_exception.AccessDeniedByMetaException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_socialmessaging.errors.dependency_exception.DependencyException: <p>Thrown when performing an action because a dependency would be broken.</p>
+            aws_sdk_socialmessaging.errors.internal_service_exception.InternalServiceException: <p>The request processing has failed because of an unknown error, exception, or failure.</p>
+            aws_sdk_socialmessaging.errors.invalid_parameters_exception.InvalidParametersException: <p>One or more parameters provided to the action are not valid.</p>
+            aws_sdk_socialmessaging.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource was not found.</p>
+            aws_sdk_socialmessaging.errors.throttled_request_exception.ThrottledRequestException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_socialmessaging.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2164,6 +2628,17 @@ class AsyncLinkedWhatsAppBusinessAccountResource:
             id: <p>The ID of the WhatsApp Business Account associated with this Flow.</p>
             flow_id: <p>The unique identifier of the Flow whose assets to update.</p>
             flow_json: <p>The updated Flow JSON definition. Maximum size is 10 MB.</p>
+
+        Raises:
+            aws_sdk_socialmessaging.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_socialmessaging.errors.validation_exception.ValidationException: <p>The request contains an invalid parameter value. </p>
+            aws_sdk_socialmessaging.errors.access_denied_by_meta_exception.AccessDeniedByMetaException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_socialmessaging.errors.dependency_exception.DependencyException: <p>Thrown when performing an action because a dependency would be broken.</p>
+            aws_sdk_socialmessaging.errors.internal_service_exception.InternalServiceException: <p>The request processing has failed because of an unknown error, exception, or failure.</p>
+            aws_sdk_socialmessaging.errors.invalid_parameters_exception.InvalidParametersException: <p>One or more parameters provided to the action are not valid.</p>
+            aws_sdk_socialmessaging.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource was not found.</p>
+            aws_sdk_socialmessaging.errors.throttled_request_exception.ThrottledRequestException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_socialmessaging.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2232,6 +2707,17 @@ class AsyncLinkedWhatsAppBusinessAccountResource:
             template_category: <p>The new category for the template (for example, UTILITY or MARKETING).</p>
             template_components: <p>The updated components of the template as a JSON blob (maximum 3000 characters).</p>
             cta_url_link_tracking_opted_out: <p>When true, disables click tracking for call-to-action URL buttons in the template.</p>
+
+        Raises:
+            aws_sdk_socialmessaging.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_socialmessaging.errors.validation_exception.ValidationException: <p>The request contains an invalid parameter value. </p>
+            aws_sdk_socialmessaging.errors.access_denied_by_meta_exception.AccessDeniedByMetaException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_socialmessaging.errors.dependency_exception.DependencyException: <p>Thrown when performing an action because a dependency would be broken.</p>
+            aws_sdk_socialmessaging.errors.internal_service_exception.InternalServiceException: <p>The request processing has failed because of an unknown error, exception, or failure.</p>
+            aws_sdk_socialmessaging.errors.invalid_parameters_exception.InvalidParametersException: <p>One or more parameters provided to the action are not valid.</p>
+            aws_sdk_socialmessaging.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource was not found.</p>
+            aws_sdk_socialmessaging.errors.throttled_request_exception.ThrottledRequestException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_socialmessaging.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

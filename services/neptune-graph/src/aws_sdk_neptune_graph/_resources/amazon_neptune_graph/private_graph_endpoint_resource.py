@@ -61,6 +61,15 @@ class PrivateGraphEndpointResource:
             vpc_id: <p> The VPC in which the private graph endpoint needs to be created.</p>
             subnet_ids: <p>Subnets in which private graph endpoint ENIs are created.</p>
             vpc_security_group_ids: <p>Security groups to be attached to the private graph endpoint.</p>
+
+        Raises:
+            aws_sdk_neptune_graph.errors.conflict_exception.ConflictException: <p>Raised when a conflict is encountered.</p>
+            aws_sdk_neptune_graph.errors.internal_server_exception.InternalServerException: <p>A failure occurred on the server.</p>
+            aws_sdk_neptune_graph.errors.resource_not_found_exception.ResourceNotFoundException: <p>A specified resource could not be located.</p>
+            aws_sdk_neptune_graph.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>A service quota was exceeded.</p>
+            aws_sdk_neptune_graph.errors.throttling_exception.ThrottlingException: <p>The exception was interrupted by throttling.</p>
+            aws_sdk_neptune_graph.errors.validation_exception.ValidationException: <p>A resource could not be validated.</p>
+            aws_sdk_neptune_graph.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -106,6 +115,14 @@ class PrivateGraphEndpointResource:
         Args:
             graph_identifier: <p>The unique identifier of the Neptune Analytics graph.</p>
             vpc_id: <p>The ID of the VPC where the private endpoint is located.</p>
+
+        Raises:
+            aws_sdk_neptune_graph.errors.conflict_exception.ConflictException: <p>Raised when a conflict is encountered.</p>
+            aws_sdk_neptune_graph.errors.internal_server_exception.InternalServerException: <p>A failure occurred on the server.</p>
+            aws_sdk_neptune_graph.errors.resource_not_found_exception.ResourceNotFoundException: <p>A specified resource could not be located.</p>
+            aws_sdk_neptune_graph.errors.throttling_exception.ThrottlingException: <p>The exception was interrupted by throttling.</p>
+            aws_sdk_neptune_graph.errors.validation_exception.ValidationException: <p>A resource could not be validated.</p>
+            aws_sdk_neptune_graph.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -146,6 +163,13 @@ class PrivateGraphEndpointResource:
         Args:
             graph_identifier: <p>The unique identifier of the Neptune Analytics graph.</p>
             vpc_id: <p>The ID of the VPC where the private endpoint is located.</p>
+
+        Raises:
+            aws_sdk_neptune_graph.errors.internal_server_exception.InternalServerException: <p>A failure occurred on the server.</p>
+            aws_sdk_neptune_graph.errors.resource_not_found_exception.ResourceNotFoundException: <p>A specified resource could not be located.</p>
+            aws_sdk_neptune_graph.errors.throttling_exception.ThrottlingException: <p>The exception was interrupted by throttling.</p>
+            aws_sdk_neptune_graph.errors.validation_exception.ValidationException: <p>A resource could not be validated.</p>
+            aws_sdk_neptune_graph.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -192,6 +216,13 @@ class PrivateGraphEndpointResource:
             graph_identifier: <p>The unique identifier of the Neptune Analytics graph.</p>
             next_token: <p>Pagination token used to paginate output.</p> <p>When this value is provided as input, the service returns results from where the previous response left off. When this value is present in output, it indicates that there are more results to retrieve.</p>
             max_results: <p>The total number of records to return in the command's output.</p> <p>If the total number of records available is more than the value specified, <code>nextToken</code> is provided in the command's output. To resume pagination, provide the <code>nextToken</code> output value in the <code>nextToken</code> argument of a subsequent command. Do not use the <code>nextToken</code> response element directly outside of the Amazon CLI.</p>
+
+        Raises:
+            aws_sdk_neptune_graph.errors.internal_server_exception.InternalServerException: <p>A failure occurred on the server.</p>
+            aws_sdk_neptune_graph.errors.resource_not_found_exception.ResourceNotFoundException: <p>A specified resource could not be located.</p>
+            aws_sdk_neptune_graph.errors.throttling_exception.ThrottlingException: <p>The exception was interrupted by throttling.</p>
+            aws_sdk_neptune_graph.errors.validation_exception.ValidationException: <p>A resource could not be validated.</p>
+            aws_sdk_neptune_graph.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -246,6 +277,15 @@ class AsyncPrivateGraphEndpointResource:
             vpc_id: <p> The VPC in which the private graph endpoint needs to be created.</p>
             subnet_ids: <p>Subnets in which private graph endpoint ENIs are created.</p>
             vpc_security_group_ids: <p>Security groups to be attached to the private graph endpoint.</p>
+
+        Raises:
+            aws_sdk_neptune_graph.errors.conflict_exception.ConflictException: <p>Raised when a conflict is encountered.</p>
+            aws_sdk_neptune_graph.errors.internal_server_exception.InternalServerException: <p>A failure occurred on the server.</p>
+            aws_sdk_neptune_graph.errors.resource_not_found_exception.ResourceNotFoundException: <p>A specified resource could not be located.</p>
+            aws_sdk_neptune_graph.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>A service quota was exceeded.</p>
+            aws_sdk_neptune_graph.errors.throttling_exception.ThrottlingException: <p>The exception was interrupted by throttling.</p>
+            aws_sdk_neptune_graph.errors.validation_exception.ValidationException: <p>A resource could not be validated.</p>
+            aws_sdk_neptune_graph.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -292,6 +332,14 @@ class AsyncPrivateGraphEndpointResource:
         Args:
             graph_identifier: <p>The unique identifier of the Neptune Analytics graph.</p>
             vpc_id: <p>The ID of the VPC where the private endpoint is located.</p>
+
+        Raises:
+            aws_sdk_neptune_graph.errors.conflict_exception.ConflictException: <p>Raised when a conflict is encountered.</p>
+            aws_sdk_neptune_graph.errors.internal_server_exception.InternalServerException: <p>A failure occurred on the server.</p>
+            aws_sdk_neptune_graph.errors.resource_not_found_exception.ResourceNotFoundException: <p>A specified resource could not be located.</p>
+            aws_sdk_neptune_graph.errors.throttling_exception.ThrottlingException: <p>The exception was interrupted by throttling.</p>
+            aws_sdk_neptune_graph.errors.validation_exception.ValidationException: <p>A resource could not be validated.</p>
+            aws_sdk_neptune_graph.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -333,6 +381,13 @@ class AsyncPrivateGraphEndpointResource:
         Args:
             graph_identifier: <p>The unique identifier of the Neptune Analytics graph.</p>
             vpc_id: <p>The ID of the VPC where the private endpoint is located.</p>
+
+        Raises:
+            aws_sdk_neptune_graph.errors.internal_server_exception.InternalServerException: <p>A failure occurred on the server.</p>
+            aws_sdk_neptune_graph.errors.resource_not_found_exception.ResourceNotFoundException: <p>A specified resource could not be located.</p>
+            aws_sdk_neptune_graph.errors.throttling_exception.ThrottlingException: <p>The exception was interrupted by throttling.</p>
+            aws_sdk_neptune_graph.errors.validation_exception.ValidationException: <p>A resource could not be validated.</p>
+            aws_sdk_neptune_graph.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -380,6 +435,13 @@ class AsyncPrivateGraphEndpointResource:
             graph_identifier: <p>The unique identifier of the Neptune Analytics graph.</p>
             next_token: <p>Pagination token used to paginate output.</p> <p>When this value is provided as input, the service returns results from where the previous response left off. When this value is present in output, it indicates that there are more results to retrieve.</p>
             max_results: <p>The total number of records to return in the command's output.</p> <p>If the total number of records available is more than the value specified, <code>nextToken</code> is provided in the command's output. To resume pagination, provide the <code>nextToken</code> output value in the <code>nextToken</code> argument of a subsequent command. Do not use the <code>nextToken</code> response element directly outside of the Amazon CLI.</p>
+
+        Raises:
+            aws_sdk_neptune_graph.errors.internal_server_exception.InternalServerException: <p>A failure occurred on the server.</p>
+            aws_sdk_neptune_graph.errors.resource_not_found_exception.ResourceNotFoundException: <p>A specified resource could not be located.</p>
+            aws_sdk_neptune_graph.errors.throttling_exception.ThrottlingException: <p>The exception was interrupted by throttling.</p>
+            aws_sdk_neptune_graph.errors.validation_exception.ValidationException: <p>A resource could not be validated.</p>
+            aws_sdk_neptune_graph.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

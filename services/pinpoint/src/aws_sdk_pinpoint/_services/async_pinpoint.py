@@ -411,7 +411,18 @@ class AsyncPinpointClient:
         *,
         config_overrides: Optional[AsyncPinpointClientConfig] = None,
     ) -> "aws_sdk_pinpoint.types.create_app_response.CreateAppResponse":
-        """<p>Creates an application.</p>"""
+        """<p>Creates an application.</p>
+
+        Raises:
+            aws_sdk_pinpoint.errors.bad_request_exception.BadRequestException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.forbidden_exception.ForbiddenException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.internal_server_error_exception.InternalServerErrorException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.method_not_allowed_exception.MethodNotAllowedException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.not_found_exception.NotFoundException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.payload_too_large_exception.PayloadTooLargeException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.too_many_requests_exception.TooManyRequestsException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_pinpoint.types.create_app_request.CreateAppRequest]",
@@ -450,6 +461,16 @@ class AsyncPinpointClient:
 
         Args:
             application_id: <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
+
+        Raises:
+            aws_sdk_pinpoint.errors.bad_request_exception.BadRequestException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.forbidden_exception.ForbiddenException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.internal_server_error_exception.InternalServerErrorException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.method_not_allowed_exception.MethodNotAllowedException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.not_found_exception.NotFoundException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.payload_too_large_exception.PayloadTooLargeException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.too_many_requests_exception.TooManyRequestsException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -490,6 +511,14 @@ class AsyncPinpointClient:
 
         Args:
             template_name: <p>The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.</p>
+
+        Raises:
+            aws_sdk_pinpoint.errors.bad_request_exception.BadRequestException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.forbidden_exception.ForbiddenException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.internal_server_error_exception.InternalServerErrorException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.method_not_allowed_exception.MethodNotAllowedException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.too_many_requests_exception.TooManyRequestsException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -530,6 +559,16 @@ class AsyncPinpointClient:
 
         Args:
             application_id: <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
+
+        Raises:
+            aws_sdk_pinpoint.errors.bad_request_exception.BadRequestException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.forbidden_exception.ForbiddenException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.internal_server_error_exception.InternalServerErrorException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.method_not_allowed_exception.MethodNotAllowedException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.not_found_exception.NotFoundException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.payload_too_large_exception.PayloadTooLargeException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.too_many_requests_exception.TooManyRequestsException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -570,6 +609,16 @@ class AsyncPinpointClient:
 
         Args:
             application_id: <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
+
+        Raises:
+            aws_sdk_pinpoint.errors.bad_request_exception.BadRequestException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.forbidden_exception.ForbiddenException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.internal_server_error_exception.InternalServerErrorException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.method_not_allowed_exception.MethodNotAllowedException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.not_found_exception.NotFoundException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.payload_too_large_exception.PayloadTooLargeException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.too_many_requests_exception.TooManyRequestsException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -610,6 +659,14 @@ class AsyncPinpointClient:
 
         Args:
             template_name: <p>The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.</p>
+
+        Raises:
+            aws_sdk_pinpoint.errors.bad_request_exception.BadRequestException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.forbidden_exception.ForbiddenException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.internal_server_error_exception.InternalServerErrorException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.method_not_allowed_exception.MethodNotAllowedException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.too_many_requests_exception.TooManyRequestsException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -650,6 +707,16 @@ class AsyncPinpointClient:
 
         Args:
             application_id: <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
+
+        Raises:
+            aws_sdk_pinpoint.errors.bad_request_exception.BadRequestException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.forbidden_exception.ForbiddenException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.internal_server_error_exception.InternalServerErrorException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.method_not_allowed_exception.MethodNotAllowedException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.not_found_exception.NotFoundException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.payload_too_large_exception.PayloadTooLargeException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.too_many_requests_exception.TooManyRequestsException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -690,6 +757,14 @@ class AsyncPinpointClient:
 
         Args:
             template_name: <p>The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.</p>
+
+        Raises:
+            aws_sdk_pinpoint.errors.bad_request_exception.BadRequestException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.forbidden_exception.ForbiddenException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.internal_server_error_exception.InternalServerErrorException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.method_not_allowed_exception.MethodNotAllowedException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.too_many_requests_exception.TooManyRequestsException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -727,7 +802,18 @@ class AsyncPinpointClient:
         *,
         config_overrides: Optional[AsyncPinpointClientConfig] = None,
     ) -> "aws_sdk_pinpoint.types.create_recommender_configuration_response.CreateRecommenderConfigurationResponse":
-        """<p>Creates an Amazon Pinpoint configuration for a recommender model.</p>"""
+        """<p>Creates an Amazon Pinpoint configuration for a recommender model.</p>
+
+        Raises:
+            aws_sdk_pinpoint.errors.bad_request_exception.BadRequestException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.forbidden_exception.ForbiddenException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.internal_server_error_exception.InternalServerErrorException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.method_not_allowed_exception.MethodNotAllowedException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.not_found_exception.NotFoundException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.payload_too_large_exception.PayloadTooLargeException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.too_many_requests_exception.TooManyRequestsException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_pinpoint.types.create_recommender_configuration_request.CreateRecommenderConfigurationRequest]",
@@ -766,6 +852,16 @@ class AsyncPinpointClient:
 
         Args:
             application_id: <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
+
+        Raises:
+            aws_sdk_pinpoint.errors.bad_request_exception.BadRequestException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.forbidden_exception.ForbiddenException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.internal_server_error_exception.InternalServerErrorException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.method_not_allowed_exception.MethodNotAllowedException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.not_found_exception.NotFoundException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.payload_too_large_exception.PayloadTooLargeException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.too_many_requests_exception.TooManyRequestsException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -808,6 +904,14 @@ class AsyncPinpointClient:
 
         Args:
             template_name: <p>The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.</p>
+
+        Raises:
+            aws_sdk_pinpoint.errors.bad_request_exception.BadRequestException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.forbidden_exception.ForbiddenException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.internal_server_error_exception.InternalServerErrorException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.method_not_allowed_exception.MethodNotAllowedException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.too_many_requests_exception.TooManyRequestsException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -848,6 +952,14 @@ class AsyncPinpointClient:
 
         Args:
             template_name: <p>The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.</p>
+
+        Raises:
+            aws_sdk_pinpoint.errors.bad_request_exception.BadRequestException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.forbidden_exception.ForbiddenException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.internal_server_error_exception.InternalServerErrorException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.method_not_allowed_exception.MethodNotAllowedException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.too_many_requests_exception.TooManyRequestsException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -887,6 +999,16 @@ class AsyncPinpointClient:
 
         Args:
             application_id: <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
+
+        Raises:
+            aws_sdk_pinpoint.errors.bad_request_exception.BadRequestException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.forbidden_exception.ForbiddenException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.internal_server_error_exception.InternalServerErrorException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.method_not_allowed_exception.MethodNotAllowedException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.not_found_exception.NotFoundException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.payload_too_large_exception.PayloadTooLargeException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.too_many_requests_exception.TooManyRequestsException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -927,6 +1049,16 @@ class AsyncPinpointClient:
 
         Args:
             application_id: <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
+
+        Raises:
+            aws_sdk_pinpoint.errors.bad_request_exception.BadRequestException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.forbidden_exception.ForbiddenException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.internal_server_error_exception.InternalServerErrorException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.method_not_allowed_exception.MethodNotAllowedException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.not_found_exception.NotFoundException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.payload_too_large_exception.PayloadTooLargeException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.too_many_requests_exception.TooManyRequestsException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -965,6 +1097,16 @@ class AsyncPinpointClient:
 
         Args:
             application_id: <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
+
+        Raises:
+            aws_sdk_pinpoint.errors.bad_request_exception.BadRequestException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.forbidden_exception.ForbiddenException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.internal_server_error_exception.InternalServerErrorException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.method_not_allowed_exception.MethodNotAllowedException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.not_found_exception.NotFoundException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.payload_too_large_exception.PayloadTooLargeException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.too_many_requests_exception.TooManyRequestsException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1003,6 +1145,16 @@ class AsyncPinpointClient:
 
         Args:
             application_id: <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
+
+        Raises:
+            aws_sdk_pinpoint.errors.bad_request_exception.BadRequestException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.forbidden_exception.ForbiddenException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.internal_server_error_exception.InternalServerErrorException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.method_not_allowed_exception.MethodNotAllowedException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.not_found_exception.NotFoundException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.payload_too_large_exception.PayloadTooLargeException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.too_many_requests_exception.TooManyRequestsException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1041,6 +1193,16 @@ class AsyncPinpointClient:
 
         Args:
             application_id: <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
+
+        Raises:
+            aws_sdk_pinpoint.errors.bad_request_exception.BadRequestException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.forbidden_exception.ForbiddenException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.internal_server_error_exception.InternalServerErrorException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.method_not_allowed_exception.MethodNotAllowedException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.not_found_exception.NotFoundException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.payload_too_large_exception.PayloadTooLargeException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.too_many_requests_exception.TooManyRequestsException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1079,6 +1241,16 @@ class AsyncPinpointClient:
 
         Args:
             application_id: <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
+
+        Raises:
+            aws_sdk_pinpoint.errors.bad_request_exception.BadRequestException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.forbidden_exception.ForbiddenException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.internal_server_error_exception.InternalServerErrorException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.method_not_allowed_exception.MethodNotAllowedException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.not_found_exception.NotFoundException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.payload_too_large_exception.PayloadTooLargeException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.too_many_requests_exception.TooManyRequestsException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1117,6 +1289,16 @@ class AsyncPinpointClient:
 
         Args:
             application_id: <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
+
+        Raises:
+            aws_sdk_pinpoint.errors.bad_request_exception.BadRequestException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.forbidden_exception.ForbiddenException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.internal_server_error_exception.InternalServerErrorException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.method_not_allowed_exception.MethodNotAllowedException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.not_found_exception.NotFoundException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.payload_too_large_exception.PayloadTooLargeException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.too_many_requests_exception.TooManyRequestsException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1157,6 +1339,16 @@ class AsyncPinpointClient:
         Args:
             application_id: <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
             campaign_id: <p>The unique identifier for the campaign.</p>
+
+        Raises:
+            aws_sdk_pinpoint.errors.bad_request_exception.BadRequestException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.forbidden_exception.ForbiddenException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.internal_server_error_exception.InternalServerErrorException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.method_not_allowed_exception.MethodNotAllowedException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.not_found_exception.NotFoundException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.payload_too_large_exception.PayloadTooLargeException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.too_many_requests_exception.TooManyRequestsException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1196,6 +1388,16 @@ class AsyncPinpointClient:
 
         Args:
             application_id: <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
+
+        Raises:
+            aws_sdk_pinpoint.errors.bad_request_exception.BadRequestException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.forbidden_exception.ForbiddenException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.internal_server_error_exception.InternalServerErrorException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.method_not_allowed_exception.MethodNotAllowedException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.not_found_exception.NotFoundException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.payload_too_large_exception.PayloadTooLargeException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.too_many_requests_exception.TooManyRequestsException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1236,6 +1438,16 @@ class AsyncPinpointClient:
         Args:
             template_name: <p>The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.</p>
             version: <p>The unique identifier for the version of the message template to update, retrieve information about, or delete. To retrieve identifiers and other information for all the versions of a template, use the <link linkend=\"templates-template-name-template-type-versions\">Template Versions</link> resource.</p> <p>If specified, this value must match the identifier for an existing template version. If specified for an update operation, this value must match the identifier for the latest existing version of the template. This restriction helps ensure that race conditions don't occur.</p> <p>If you don't specify a value for this parameter, Amazon Pinpoint does the following:</p> <ul><li><p>For a get operation, retrieves information about the active version of the template.</p></li> <li><p>For an update operation, saves the updates to (overwrites) the latest existing version of the template, if the create-new-version parameter isn't used or is set to false.</p></li> <li><p>For a delete operation, deletes the template, including all versions of the template.</p></li></ul>
+
+        Raises:
+            aws_sdk_pinpoint.errors.bad_request_exception.BadRequestException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.forbidden_exception.ForbiddenException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.internal_server_error_exception.InternalServerErrorException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.method_not_allowed_exception.MethodNotAllowedException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.not_found_exception.NotFoundException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.payload_too_large_exception.PayloadTooLargeException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.too_many_requests_exception.TooManyRequestsException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1278,6 +1490,16 @@ class AsyncPinpointClient:
         Args:
             application_id: <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
             endpoint_id: <p>The case insensitive unique identifier for the endpoint. The identifier can't contain <code>$</code>, <code>{</code> or <code>}</code>.</p>
+
+        Raises:
+            aws_sdk_pinpoint.errors.bad_request_exception.BadRequestException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.forbidden_exception.ForbiddenException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.internal_server_error_exception.InternalServerErrorException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.method_not_allowed_exception.MethodNotAllowedException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.not_found_exception.NotFoundException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.payload_too_large_exception.PayloadTooLargeException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.too_many_requests_exception.TooManyRequestsException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1319,6 +1541,16 @@ class AsyncPinpointClient:
 
         Args:
             application_id: <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
+
+        Raises:
+            aws_sdk_pinpoint.errors.bad_request_exception.BadRequestException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.forbidden_exception.ForbiddenException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.internal_server_error_exception.InternalServerErrorException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.method_not_allowed_exception.MethodNotAllowedException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.not_found_exception.NotFoundException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.payload_too_large_exception.PayloadTooLargeException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.too_many_requests_exception.TooManyRequestsException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1357,6 +1589,16 @@ class AsyncPinpointClient:
 
         Args:
             application_id: <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
+
+        Raises:
+            aws_sdk_pinpoint.errors.bad_request_exception.BadRequestException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.forbidden_exception.ForbiddenException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.internal_server_error_exception.InternalServerErrorException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.method_not_allowed_exception.MethodNotAllowedException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.not_found_exception.NotFoundException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.payload_too_large_exception.PayloadTooLargeException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.too_many_requests_exception.TooManyRequestsException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1397,6 +1639,16 @@ class AsyncPinpointClient:
         Args:
             template_name: <p>The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.</p>
             version: <p>The unique identifier for the version of the message template to update, retrieve information about, or delete. To retrieve identifiers and other information for all the versions of a template, use the <link linkend=\"templates-template-name-template-type-versions\">Template Versions</link> resource.</p> <p>If specified, this value must match the identifier for an existing template version. If specified for an update operation, this value must match the identifier for the latest existing version of the template. This restriction helps ensure that race conditions don't occur.</p> <p>If you don't specify a value for this parameter, Amazon Pinpoint does the following:</p> <ul><li><p>For a get operation, retrieves information about the active version of the template.</p></li> <li><p>For an update operation, saves the updates to (overwrites) the latest existing version of the template, if the create-new-version parameter isn't used or is set to false.</p></li> <li><p>For a delete operation, deletes the template, including all versions of the template.</p></li></ul>
+
+        Raises:
+            aws_sdk_pinpoint.errors.bad_request_exception.BadRequestException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.forbidden_exception.ForbiddenException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.internal_server_error_exception.InternalServerErrorException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.method_not_allowed_exception.MethodNotAllowedException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.not_found_exception.NotFoundException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.payload_too_large_exception.PayloadTooLargeException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.too_many_requests_exception.TooManyRequestsException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1439,6 +1691,16 @@ class AsyncPinpointClient:
         Args:
             application_id: <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
             journey_id: <p>The unique identifier for the journey.</p>
+
+        Raises:
+            aws_sdk_pinpoint.errors.bad_request_exception.BadRequestException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.forbidden_exception.ForbiddenException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.internal_server_error_exception.InternalServerErrorException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.method_not_allowed_exception.MethodNotAllowedException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.not_found_exception.NotFoundException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.payload_too_large_exception.PayloadTooLargeException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.too_many_requests_exception.TooManyRequestsException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1480,6 +1742,16 @@ class AsyncPinpointClient:
         Args:
             template_name: <p>The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.</p>
             version: <p>The unique identifier for the version of the message template to update, retrieve information about, or delete. To retrieve identifiers and other information for all the versions of a template, use the <link linkend=\"templates-template-name-template-type-versions\">Template Versions</link> resource.</p> <p>If specified, this value must match the identifier for an existing template version. If specified for an update operation, this value must match the identifier for the latest existing version of the template. This restriction helps ensure that race conditions don't occur.</p> <p>If you don't specify a value for this parameter, Amazon Pinpoint does the following:</p> <ul><li><p>For a get operation, retrieves information about the active version of the template.</p></li> <li><p>For an update operation, saves the updates to (overwrites) the latest existing version of the template, if the create-new-version parameter isn't used or is set to false.</p></li> <li><p>For a delete operation, deletes the template, including all versions of the template.</p></li></ul>
+
+        Raises:
+            aws_sdk_pinpoint.errors.bad_request_exception.BadRequestException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.forbidden_exception.ForbiddenException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.internal_server_error_exception.InternalServerErrorException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.method_not_allowed_exception.MethodNotAllowedException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.not_found_exception.NotFoundException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.payload_too_large_exception.PayloadTooLargeException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.too_many_requests_exception.TooManyRequestsException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1520,6 +1792,16 @@ class AsyncPinpointClient:
 
         Args:
             recommender_id: <p>The unique identifier for the recommender model configuration. This identifier is displayed as the <b>Recommender ID</b> on the Amazon Pinpoint console.</p>
+
+        Raises:
+            aws_sdk_pinpoint.errors.bad_request_exception.BadRequestException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.forbidden_exception.ForbiddenException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.internal_server_error_exception.InternalServerErrorException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.method_not_allowed_exception.MethodNotAllowedException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.not_found_exception.NotFoundException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.payload_too_large_exception.PayloadTooLargeException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.too_many_requests_exception.TooManyRequestsException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1560,6 +1842,16 @@ class AsyncPinpointClient:
         Args:
             application_id: <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
             segment_id: <p>The unique identifier for the segment.</p>
+
+        Raises:
+            aws_sdk_pinpoint.errors.bad_request_exception.BadRequestException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.forbidden_exception.ForbiddenException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.internal_server_error_exception.InternalServerErrorException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.method_not_allowed_exception.MethodNotAllowedException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.not_found_exception.NotFoundException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.payload_too_large_exception.PayloadTooLargeException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.too_many_requests_exception.TooManyRequestsException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1599,6 +1891,16 @@ class AsyncPinpointClient:
 
         Args:
             application_id: <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
+
+        Raises:
+            aws_sdk_pinpoint.errors.bad_request_exception.BadRequestException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.forbidden_exception.ForbiddenException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.internal_server_error_exception.InternalServerErrorException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.method_not_allowed_exception.MethodNotAllowedException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.not_found_exception.NotFoundException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.payload_too_large_exception.PayloadTooLargeException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.too_many_requests_exception.TooManyRequestsException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1641,6 +1943,16 @@ class AsyncPinpointClient:
         Args:
             template_name: <p>The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.</p>
             version: <p>The unique identifier for the version of the message template to update, retrieve information about, or delete. To retrieve identifiers and other information for all the versions of a template, use the <link linkend=\"templates-template-name-template-type-versions\">Template Versions</link> resource.</p> <p>If specified, this value must match the identifier for an existing template version. If specified for an update operation, this value must match the identifier for the latest existing version of the template. This restriction helps ensure that race conditions don't occur.</p> <p>If you don't specify a value for this parameter, Amazon Pinpoint does the following:</p> <ul><li><p>For a get operation, retrieves information about the active version of the template.</p></li> <li><p>For an update operation, saves the updates to (overwrites) the latest existing version of the template, if the create-new-version parameter isn't used or is set to false.</p></li> <li><p>For a delete operation, deletes the template, including all versions of the template.</p></li></ul>
+
+        Raises:
+            aws_sdk_pinpoint.errors.bad_request_exception.BadRequestException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.forbidden_exception.ForbiddenException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.internal_server_error_exception.InternalServerErrorException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.method_not_allowed_exception.MethodNotAllowedException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.not_found_exception.NotFoundException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.payload_too_large_exception.PayloadTooLargeException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.too_many_requests_exception.TooManyRequestsException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1683,6 +1995,16 @@ class AsyncPinpointClient:
         Args:
             application_id: <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
             user_id: <p>The unique identifier for the user.</p>
+
+        Raises:
+            aws_sdk_pinpoint.errors.bad_request_exception.BadRequestException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.forbidden_exception.ForbiddenException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.internal_server_error_exception.InternalServerErrorException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.method_not_allowed_exception.MethodNotAllowedException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.not_found_exception.NotFoundException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.payload_too_large_exception.PayloadTooLargeException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.too_many_requests_exception.TooManyRequestsException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1722,6 +2044,16 @@ class AsyncPinpointClient:
 
         Args:
             application_id: <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
+
+        Raises:
+            aws_sdk_pinpoint.errors.bad_request_exception.BadRequestException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.forbidden_exception.ForbiddenException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.internal_server_error_exception.InternalServerErrorException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.method_not_allowed_exception.MethodNotAllowedException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.not_found_exception.NotFoundException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.payload_too_large_exception.PayloadTooLargeException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.too_many_requests_exception.TooManyRequestsException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1762,6 +2094,16 @@ class AsyncPinpointClient:
         Args:
             template_name: <p>The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.</p>
             version: <p>The unique identifier for the version of the message template to update, retrieve information about, or delete. To retrieve identifiers and other information for all the versions of a template, use the <link linkend=\"templates-template-name-template-type-versions\">Template Versions</link> resource.</p> <p>If specified, this value must match the identifier for an existing template version. If specified for an update operation, this value must match the identifier for the latest existing version of the template. This restriction helps ensure that race conditions don't occur.</p> <p>If you don't specify a value for this parameter, Amazon Pinpoint does the following:</p> <ul><li><p>For a get operation, retrieves information about the active version of the template.</p></li> <li><p>For an update operation, saves the updates to (overwrites) the latest existing version of the template, if the create-new-version parameter isn't used or is set to false.</p></li> <li><p>For a delete operation, deletes the template, including all versions of the template.</p></li></ul>
+
+        Raises:
+            aws_sdk_pinpoint.errors.bad_request_exception.BadRequestException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.forbidden_exception.ForbiddenException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.internal_server_error_exception.InternalServerErrorException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.method_not_allowed_exception.MethodNotAllowedException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.not_found_exception.NotFoundException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.payload_too_large_exception.PayloadTooLargeException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.too_many_requests_exception.TooManyRequestsException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1802,6 +2144,16 @@ class AsyncPinpointClient:
 
         Args:
             application_id: <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
+
+        Raises:
+            aws_sdk_pinpoint.errors.bad_request_exception.BadRequestException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.forbidden_exception.ForbiddenException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.internal_server_error_exception.InternalServerErrorException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.method_not_allowed_exception.MethodNotAllowedException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.not_found_exception.NotFoundException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.payload_too_large_exception.PayloadTooLargeException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.too_many_requests_exception.TooManyRequestsException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1840,6 +2192,16 @@ class AsyncPinpointClient:
 
         Args:
             application_id: <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
+
+        Raises:
+            aws_sdk_pinpoint.errors.bad_request_exception.BadRequestException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.forbidden_exception.ForbiddenException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.internal_server_error_exception.InternalServerErrorException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.method_not_allowed_exception.MethodNotAllowedException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.not_found_exception.NotFoundException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.payload_too_large_exception.PayloadTooLargeException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.too_many_requests_exception.TooManyRequestsException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1878,6 +2240,16 @@ class AsyncPinpointClient:
 
         Args:
             application_id: <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
+
+        Raises:
+            aws_sdk_pinpoint.errors.bad_request_exception.BadRequestException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.forbidden_exception.ForbiddenException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.internal_server_error_exception.InternalServerErrorException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.method_not_allowed_exception.MethodNotAllowedException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.not_found_exception.NotFoundException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.payload_too_large_exception.PayloadTooLargeException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.too_many_requests_exception.TooManyRequestsException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1916,6 +2288,16 @@ class AsyncPinpointClient:
 
         Args:
             application_id: <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
+
+        Raises:
+            aws_sdk_pinpoint.errors.bad_request_exception.BadRequestException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.forbidden_exception.ForbiddenException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.internal_server_error_exception.InternalServerErrorException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.method_not_allowed_exception.MethodNotAllowedException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.not_found_exception.NotFoundException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.payload_too_large_exception.PayloadTooLargeException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.too_many_requests_exception.TooManyRequestsException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1954,6 +2336,16 @@ class AsyncPinpointClient:
 
         Args:
             application_id: <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
+
+        Raises:
+            aws_sdk_pinpoint.errors.bad_request_exception.BadRequestException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.forbidden_exception.ForbiddenException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.internal_server_error_exception.InternalServerErrorException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.method_not_allowed_exception.MethodNotAllowedException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.not_found_exception.NotFoundException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.payload_too_large_exception.PayloadTooLargeException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.too_many_requests_exception.TooManyRequestsException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1992,6 +2384,16 @@ class AsyncPinpointClient:
 
         Args:
             application_id: <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
+
+        Raises:
+            aws_sdk_pinpoint.errors.bad_request_exception.BadRequestException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.forbidden_exception.ForbiddenException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.internal_server_error_exception.InternalServerErrorException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.method_not_allowed_exception.MethodNotAllowedException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.not_found_exception.NotFoundException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.payload_too_large_exception.PayloadTooLargeException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.too_many_requests_exception.TooManyRequestsException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2044,6 +2446,16 @@ class AsyncPinpointClient:
             next_token: <p>The string that specifies which page of results to return in a paginated response. This parameter is not supported for application, campaign, and journey metrics.</p>
             page_size: <p>The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics.</p>
             start_time: <p>The first date and time to retrieve data for, as part of an inclusive date range that filters the query results. This value should be in extended ISO 8601 format and use Coordinated Universal Time (UTC), for example: 2019-07-19T20:00:00Z for 8:00 PM UTC July 19, 2019. This value should also be fewer than 90 days from the current day.</p>
+
+        Raises:
+            aws_sdk_pinpoint.errors.bad_request_exception.BadRequestException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.forbidden_exception.ForbiddenException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.internal_server_error_exception.InternalServerErrorException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.method_not_allowed_exception.MethodNotAllowedException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.not_found_exception.NotFoundException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.payload_too_large_exception.PayloadTooLargeException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.too_many_requests_exception.TooManyRequestsException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2091,6 +2503,16 @@ class AsyncPinpointClient:
 
         Args:
             application_id: <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
+
+        Raises:
+            aws_sdk_pinpoint.errors.bad_request_exception.BadRequestException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.forbidden_exception.ForbiddenException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.internal_server_error_exception.InternalServerErrorException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.method_not_allowed_exception.MethodNotAllowedException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.not_found_exception.NotFoundException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.payload_too_large_exception.PayloadTooLargeException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.too_many_requests_exception.TooManyRequestsException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2131,6 +2553,16 @@ class AsyncPinpointClient:
         Args:
             page_size: <p>The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics.</p>
             token: <p>The NextToken string that specifies which page of results to return in a paginated response.</p>
+
+        Raises:
+            aws_sdk_pinpoint.errors.bad_request_exception.BadRequestException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.forbidden_exception.ForbiddenException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.internal_server_error_exception.InternalServerErrorException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.method_not_allowed_exception.MethodNotAllowedException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.not_found_exception.NotFoundException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.payload_too_large_exception.PayloadTooLargeException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.too_many_requests_exception.TooManyRequestsException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2172,6 +2604,16 @@ class AsyncPinpointClient:
 
         Args:
             application_id: <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
+
+        Raises:
+            aws_sdk_pinpoint.errors.bad_request_exception.BadRequestException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.forbidden_exception.ForbiddenException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.internal_server_error_exception.InternalServerErrorException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.method_not_allowed_exception.MethodNotAllowedException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.not_found_exception.NotFoundException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.payload_too_large_exception.PayloadTooLargeException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.too_many_requests_exception.TooManyRequestsException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2212,6 +2654,16 @@ class AsyncPinpointClient:
         Args:
             application_id: <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
             campaign_id: <p>The unique identifier for the campaign.</p>
+
+        Raises:
+            aws_sdk_pinpoint.errors.bad_request_exception.BadRequestException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.forbidden_exception.ForbiddenException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.internal_server_error_exception.InternalServerErrorException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.method_not_allowed_exception.MethodNotAllowedException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.not_found_exception.NotFoundException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.payload_too_large_exception.PayloadTooLargeException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.too_many_requests_exception.TooManyRequestsException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2257,6 +2709,16 @@ class AsyncPinpointClient:
             campaign_id: <p>The unique identifier for the campaign.</p>
             page_size: <p>The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics.</p>
             token: <p>The NextToken string that specifies which page of results to return in a paginated response.</p>
+
+        Raises:
+            aws_sdk_pinpoint.errors.bad_request_exception.BadRequestException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.forbidden_exception.ForbiddenException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.internal_server_error_exception.InternalServerErrorException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.method_not_allowed_exception.MethodNotAllowedException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.not_found_exception.NotFoundException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.payload_too_large_exception.PayloadTooLargeException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.too_many_requests_exception.TooManyRequestsException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2316,6 +2778,16 @@ class AsyncPinpointClient:
             next_token: <p>The string that specifies which page of results to return in a paginated response. This parameter is not supported for application, campaign, and journey metrics.</p>
             page_size: <p>The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics.</p>
             start_time: <p>The first date and time to retrieve data for, as part of an inclusive date range that filters the query results. This value should be in extended ISO 8601 format and use Coordinated Universal Time (UTC), for example: 2019-07-19T20:00:00Z for 8:00 PM UTC July 19, 2019. This value should also be fewer than 90 days from the current day.</p>
+
+        Raises:
+            aws_sdk_pinpoint.errors.bad_request_exception.BadRequestException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.forbidden_exception.ForbiddenException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.internal_server_error_exception.InternalServerErrorException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.method_not_allowed_exception.MethodNotAllowedException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.not_found_exception.NotFoundException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.payload_too_large_exception.PayloadTooLargeException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.too_many_requests_exception.TooManyRequestsException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2368,6 +2840,16 @@ class AsyncPinpointClient:
             application_id: <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
             page_size: <p>The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics.</p>
             token: <p>The NextToken string that specifies which page of results to return in a paginated response.</p>
+
+        Raises:
+            aws_sdk_pinpoint.errors.bad_request_exception.BadRequestException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.forbidden_exception.ForbiddenException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.internal_server_error_exception.InternalServerErrorException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.method_not_allowed_exception.MethodNotAllowedException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.not_found_exception.NotFoundException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.payload_too_large_exception.PayloadTooLargeException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.too_many_requests_exception.TooManyRequestsException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2414,6 +2896,16 @@ class AsyncPinpointClient:
             application_id: <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
             campaign_id: <p>The unique identifier for the campaign.</p>
             version: <p>The unique version number (Version property) for the campaign version.</p>
+
+        Raises:
+            aws_sdk_pinpoint.errors.bad_request_exception.BadRequestException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.forbidden_exception.ForbiddenException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.internal_server_error_exception.InternalServerErrorException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.method_not_allowed_exception.MethodNotAllowedException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.not_found_exception.NotFoundException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.payload_too_large_exception.PayloadTooLargeException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.too_many_requests_exception.TooManyRequestsException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2460,6 +2952,16 @@ class AsyncPinpointClient:
             campaign_id: <p>The unique identifier for the campaign.</p>
             page_size: <p>The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics.</p>
             token: <p>The NextToken string that specifies which page of results to return in a paginated response.</p>
+
+        Raises:
+            aws_sdk_pinpoint.errors.bad_request_exception.BadRequestException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.forbidden_exception.ForbiddenException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.internal_server_error_exception.InternalServerErrorException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.method_not_allowed_exception.MethodNotAllowedException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.not_found_exception.NotFoundException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.payload_too_large_exception.PayloadTooLargeException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.too_many_requests_exception.TooManyRequestsException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2503,6 +3005,16 @@ class AsyncPinpointClient:
 
         Args:
             application_id: <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
+
+        Raises:
+            aws_sdk_pinpoint.errors.bad_request_exception.BadRequestException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.forbidden_exception.ForbiddenException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.internal_server_error_exception.InternalServerErrorException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.method_not_allowed_exception.MethodNotAllowedException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.not_found_exception.NotFoundException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.payload_too_large_exception.PayloadTooLargeException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.too_many_requests_exception.TooManyRequestsException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2541,6 +3053,16 @@ class AsyncPinpointClient:
 
         Args:
             application_id: <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
+
+        Raises:
+            aws_sdk_pinpoint.errors.bad_request_exception.BadRequestException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.forbidden_exception.ForbiddenException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.internal_server_error_exception.InternalServerErrorException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.method_not_allowed_exception.MethodNotAllowedException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.not_found_exception.NotFoundException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.payload_too_large_exception.PayloadTooLargeException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.too_many_requests_exception.TooManyRequestsException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2581,6 +3103,16 @@ class AsyncPinpointClient:
         Args:
             template_name: <p>The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.</p>
             version: <p>The unique identifier for the version of the message template to update, retrieve information about, or delete. To retrieve identifiers and other information for all the versions of a template, use the <link linkend=\"templates-template-name-template-type-versions\">Template Versions</link> resource.</p> <p>If specified, this value must match the identifier for an existing template version. If specified for an update operation, this value must match the identifier for the latest existing version of the template. This restriction helps ensure that race conditions don't occur.</p> <p>If you don't specify a value for this parameter, Amazon Pinpoint does the following:</p> <ul><li><p>For a get operation, retrieves information about the active version of the template.</p></li> <li><p>For an update operation, saves the updates to (overwrites) the latest existing version of the template, if the create-new-version parameter isn't used or is set to false.</p></li> <li><p>For a delete operation, deletes the template, including all versions of the template.</p></li></ul>
+
+        Raises:
+            aws_sdk_pinpoint.errors.bad_request_exception.BadRequestException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.forbidden_exception.ForbiddenException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.internal_server_error_exception.InternalServerErrorException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.method_not_allowed_exception.MethodNotAllowedException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.not_found_exception.NotFoundException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.payload_too_large_exception.PayloadTooLargeException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.too_many_requests_exception.TooManyRequestsException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2623,6 +3155,16 @@ class AsyncPinpointClient:
         Args:
             application_id: <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
             endpoint_id: <p>The case insensitive unique identifier for the endpoint. The identifier can't contain <code>$</code>, <code>{</code> or <code>}</code>.</p>
+
+        Raises:
+            aws_sdk_pinpoint.errors.bad_request_exception.BadRequestException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.forbidden_exception.ForbiddenException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.internal_server_error_exception.InternalServerErrorException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.method_not_allowed_exception.MethodNotAllowedException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.not_found_exception.NotFoundException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.payload_too_large_exception.PayloadTooLargeException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.too_many_requests_exception.TooManyRequestsException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2662,6 +3204,16 @@ class AsyncPinpointClient:
 
         Args:
             application_id: <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
+
+        Raises:
+            aws_sdk_pinpoint.errors.bad_request_exception.BadRequestException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.forbidden_exception.ForbiddenException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.internal_server_error_exception.InternalServerErrorException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.method_not_allowed_exception.MethodNotAllowedException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.not_found_exception.NotFoundException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.payload_too_large_exception.PayloadTooLargeException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.too_many_requests_exception.TooManyRequestsException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2702,6 +3254,16 @@ class AsyncPinpointClient:
         Args:
             application_id: <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
             job_id: <p>The unique identifier for the job.</p>
+
+        Raises:
+            aws_sdk_pinpoint.errors.bad_request_exception.BadRequestException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.forbidden_exception.ForbiddenException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.internal_server_error_exception.InternalServerErrorException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.method_not_allowed_exception.MethodNotAllowedException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.not_found_exception.NotFoundException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.payload_too_large_exception.PayloadTooLargeException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.too_many_requests_exception.TooManyRequestsException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2745,6 +3307,16 @@ class AsyncPinpointClient:
             application_id: <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
             page_size: <p>The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics.</p>
             token: <p>The NextToken string that specifies which page of results to return in a paginated response.</p>
+
+        Raises:
+            aws_sdk_pinpoint.errors.bad_request_exception.BadRequestException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.forbidden_exception.ForbiddenException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.internal_server_error_exception.InternalServerErrorException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.method_not_allowed_exception.MethodNotAllowedException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.not_found_exception.NotFoundException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.payload_too_large_exception.PayloadTooLargeException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.too_many_requests_exception.TooManyRequestsException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2787,6 +3359,16 @@ class AsyncPinpointClient:
 
         Args:
             application_id: <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
+
+        Raises:
+            aws_sdk_pinpoint.errors.bad_request_exception.BadRequestException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.forbidden_exception.ForbiddenException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.internal_server_error_exception.InternalServerErrorException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.method_not_allowed_exception.MethodNotAllowedException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.not_found_exception.NotFoundException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.payload_too_large_exception.PayloadTooLargeException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.too_many_requests_exception.TooManyRequestsException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2827,6 +3409,16 @@ class AsyncPinpointClient:
         Args:
             application_id: <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
             job_id: <p>The unique identifier for the job.</p>
+
+        Raises:
+            aws_sdk_pinpoint.errors.bad_request_exception.BadRequestException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.forbidden_exception.ForbiddenException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.internal_server_error_exception.InternalServerErrorException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.method_not_allowed_exception.MethodNotAllowedException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.not_found_exception.NotFoundException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.payload_too_large_exception.PayloadTooLargeException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.too_many_requests_exception.TooManyRequestsException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2870,6 +3462,16 @@ class AsyncPinpointClient:
             application_id: <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
             page_size: <p>The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics.</p>
             token: <p>The NextToken string that specifies which page of results to return in a paginated response.</p>
+
+        Raises:
+            aws_sdk_pinpoint.errors.bad_request_exception.BadRequestException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.forbidden_exception.ForbiddenException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.internal_server_error_exception.InternalServerErrorException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.method_not_allowed_exception.MethodNotAllowedException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.not_found_exception.NotFoundException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.payload_too_large_exception.PayloadTooLargeException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.too_many_requests_exception.TooManyRequestsException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2914,6 +3516,16 @@ class AsyncPinpointClient:
         Args:
             application_id: <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
             endpoint_id: <p>The unique identifier for the endpoint.</p>
+
+        Raises:
+            aws_sdk_pinpoint.errors.bad_request_exception.BadRequestException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.forbidden_exception.ForbiddenException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.internal_server_error_exception.InternalServerErrorException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.method_not_allowed_exception.MethodNotAllowedException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.not_found_exception.NotFoundException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.payload_too_large_exception.PayloadTooLargeException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.too_many_requests_exception.TooManyRequestsException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2955,6 +3567,16 @@ class AsyncPinpointClient:
         Args:
             template_name: <p>The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.</p>
             version: <p>The unique identifier for the version of the message template to update, retrieve information about, or delete. To retrieve identifiers and other information for all the versions of a template, use the <link linkend=\"templates-template-name-template-type-versions\">Template Versions</link> resource.</p> <p>If specified, this value must match the identifier for an existing template version. If specified for an update operation, this value must match the identifier for the latest existing version of the template. This restriction helps ensure that race conditions don't occur.</p> <p>If you don't specify a value for this parameter, Amazon Pinpoint does the following:</p> <ul><li><p>For a get operation, retrieves information about the active version of the template.</p></li> <li><p>For an update operation, saves the updates to (overwrites) the latest existing version of the template, if the create-new-version parameter isn't used or is set to false.</p></li> <li><p>For a delete operation, deletes the template, including all versions of the template.</p></li></ul>
+
+        Raises:
+            aws_sdk_pinpoint.errors.bad_request_exception.BadRequestException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.forbidden_exception.ForbiddenException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.internal_server_error_exception.InternalServerErrorException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.method_not_allowed_exception.MethodNotAllowedException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.not_found_exception.NotFoundException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.payload_too_large_exception.PayloadTooLargeException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.too_many_requests_exception.TooManyRequestsException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2997,6 +3619,16 @@ class AsyncPinpointClient:
         Args:
             application_id: <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
             journey_id: <p>The unique identifier for the journey.</p>
+
+        Raises:
+            aws_sdk_pinpoint.errors.bad_request_exception.BadRequestException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.forbidden_exception.ForbiddenException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.internal_server_error_exception.InternalServerErrorException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.method_not_allowed_exception.MethodNotAllowedException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.not_found_exception.NotFoundException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.payload_too_large_exception.PayloadTooLargeException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.too_many_requests_exception.TooManyRequestsException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3052,6 +3684,16 @@ class AsyncPinpointClient:
             next_token: <p>The string that specifies which page of results to return in a paginated response. This parameter is not supported for application, campaign, and journey metrics.</p>
             page_size: <p>The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics.</p>
             start_time: <p>The first date and time to retrieve data for, as part of an inclusive date range that filters the query results. This value should be in extended ISO 8601 format and use Coordinated Universal Time (UTC), for example: 2019-07-19T20:00:00Z for 8:00 PM UTC July 19, 2019. This value should also be fewer than 90 days from the current day.</p>
+
+        Raises:
+            aws_sdk_pinpoint.errors.bad_request_exception.BadRequestException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.forbidden_exception.ForbiddenException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.internal_server_error_exception.InternalServerErrorException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.method_not_allowed_exception.MethodNotAllowedException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.not_found_exception.NotFoundException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.payload_too_large_exception.PayloadTooLargeException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.too_many_requests_exception.TooManyRequestsException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3108,6 +3750,16 @@ class AsyncPinpointClient:
             journey_id: <p>The unique identifier for the journey.</p>
             next_token: <p>The <code/> string that specifies which page of results to return in a paginated response. This parameter is not supported for application, campaign, and journey metrics.</p>
             page_size: <p>The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics.</p>
+
+        Raises:
+            aws_sdk_pinpoint.errors.bad_request_exception.BadRequestException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.forbidden_exception.ForbiddenException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.internal_server_error_exception.InternalServerErrorException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.method_not_allowed_exception.MethodNotAllowedException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.not_found_exception.NotFoundException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.payload_too_large_exception.PayloadTooLargeException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.too_many_requests_exception.TooManyRequestsException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3158,6 +3810,16 @@ class AsyncPinpointClient:
             journey_id: <p>The unique identifier for the journey.</p>
             next_token: <p>The <code/> string that specifies which page of results to return in a paginated response. This parameter is not supported for application, campaign, and journey metrics.</p>
             page_size: <p>The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics.</p>
+
+        Raises:
+            aws_sdk_pinpoint.errors.bad_request_exception.BadRequestException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.forbidden_exception.ForbiddenException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.internal_server_error_exception.InternalServerErrorException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.method_not_allowed_exception.MethodNotAllowedException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.not_found_exception.NotFoundException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.payload_too_large_exception.PayloadTooLargeException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.too_many_requests_exception.TooManyRequestsException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3211,6 +3873,16 @@ class AsyncPinpointClient:
             next_token: <p>The <code/> string that specifies which page of results to return in a paginated response. This parameter is not supported for application, campaign, and journey metrics.</p>
             page_size: <p>The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics.</p>
             run_id: <p>The unique identifier for the journey run.</p>
+
+        Raises:
+            aws_sdk_pinpoint.errors.bad_request_exception.BadRequestException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.forbidden_exception.ForbiddenException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.internal_server_error_exception.InternalServerErrorException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.method_not_allowed_exception.MethodNotAllowedException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.not_found_exception.NotFoundException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.payload_too_large_exception.PayloadTooLargeException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.too_many_requests_exception.TooManyRequestsException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To get the activity execution metrics for a journey run
@@ -3271,6 +3943,16 @@ class AsyncPinpointClient:
             page_size: <p>The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics.</p>
             run_id: <p>The unique identifier for the journey run.</p>
 
+        Raises:
+            aws_sdk_pinpoint.errors.bad_request_exception.BadRequestException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.forbidden_exception.ForbiddenException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.internal_server_error_exception.InternalServerErrorException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.method_not_allowed_exception.MethodNotAllowedException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.not_found_exception.NotFoundException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.payload_too_large_exception.PayloadTooLargeException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.too_many_requests_exception.TooManyRequestsException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To get the execution metrics for a journey run
             The following example gets execution metrics for a single run of a journey.
@@ -3327,6 +4009,16 @@ class AsyncPinpointClient:
             page_size: <p>The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics.</p>
             token: <p>The NextToken string that specifies which page of results to return in a paginated response.</p>
 
+        Raises:
+            aws_sdk_pinpoint.errors.bad_request_exception.BadRequestException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.forbidden_exception.ForbiddenException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.internal_server_error_exception.InternalServerErrorException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.method_not_allowed_exception.MethodNotAllowedException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.not_found_exception.NotFoundException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.payload_too_large_exception.PayloadTooLargeException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.too_many_requests_exception.TooManyRequestsException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To get the runs of a journey
             The following example gets the runs of a journey.
@@ -3377,6 +4069,16 @@ class AsyncPinpointClient:
         Args:
             template_name: <p>The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.</p>
             version: <p>The unique identifier for the version of the message template to update, retrieve information about, or delete. To retrieve identifiers and other information for all the versions of a template, use the <link linkend=\"templates-template-name-template-type-versions\">Template Versions</link> resource.</p> <p>If specified, this value must match the identifier for an existing template version. If specified for an update operation, this value must match the identifier for the latest existing version of the template. This restriction helps ensure that race conditions don't occur.</p> <p>If you don't specify a value for this parameter, Amazon Pinpoint does the following:</p> <ul><li><p>For a get operation, retrieves information about the active version of the template.</p></li> <li><p>For an update operation, saves the updates to (overwrites) the latest existing version of the template, if the create-new-version parameter isn't used or is set to false.</p></li> <li><p>For a delete operation, deletes the template, including all versions of the template.</p></li></ul>
+
+        Raises:
+            aws_sdk_pinpoint.errors.bad_request_exception.BadRequestException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.forbidden_exception.ForbiddenException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.internal_server_error_exception.InternalServerErrorException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.method_not_allowed_exception.MethodNotAllowedException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.not_found_exception.NotFoundException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.payload_too_large_exception.PayloadTooLargeException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.too_many_requests_exception.TooManyRequestsException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3417,6 +4119,16 @@ class AsyncPinpointClient:
 
         Args:
             recommender_id: <p>The unique identifier for the recommender model configuration. This identifier is displayed as the <b>Recommender ID</b> on the Amazon Pinpoint console.</p>
+
+        Raises:
+            aws_sdk_pinpoint.errors.bad_request_exception.BadRequestException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.forbidden_exception.ForbiddenException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.internal_server_error_exception.InternalServerErrorException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.method_not_allowed_exception.MethodNotAllowedException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.not_found_exception.NotFoundException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.payload_too_large_exception.PayloadTooLargeException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.too_many_requests_exception.TooManyRequestsException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3457,6 +4169,16 @@ class AsyncPinpointClient:
         Args:
             page_size: <p>The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics.</p>
             token: <p>The NextToken string that specifies which page of results to return in a paginated response.</p>
+
+        Raises:
+            aws_sdk_pinpoint.errors.bad_request_exception.BadRequestException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.forbidden_exception.ForbiddenException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.internal_server_error_exception.InternalServerErrorException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.method_not_allowed_exception.MethodNotAllowedException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.not_found_exception.NotFoundException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.payload_too_large_exception.PayloadTooLargeException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.too_many_requests_exception.TooManyRequestsException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3500,6 +4222,16 @@ class AsyncPinpointClient:
         Args:
             application_id: <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
             segment_id: <p>The unique identifier for the segment.</p>
+
+        Raises:
+            aws_sdk_pinpoint.errors.bad_request_exception.BadRequestException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.forbidden_exception.ForbiddenException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.internal_server_error_exception.InternalServerErrorException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.method_not_allowed_exception.MethodNotAllowedException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.not_found_exception.NotFoundException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.payload_too_large_exception.PayloadTooLargeException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.too_many_requests_exception.TooManyRequestsException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3545,6 +4277,16 @@ class AsyncPinpointClient:
             page_size: <p>The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics.</p>
             segment_id: <p>The unique identifier for the segment.</p>
             token: <p>The NextToken string that specifies which page of results to return in a paginated response.</p>
+
+        Raises:
+            aws_sdk_pinpoint.errors.bad_request_exception.BadRequestException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.forbidden_exception.ForbiddenException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.internal_server_error_exception.InternalServerErrorException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.method_not_allowed_exception.MethodNotAllowedException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.not_found_exception.NotFoundException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.payload_too_large_exception.PayloadTooLargeException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.too_many_requests_exception.TooManyRequestsException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3594,6 +4336,16 @@ class AsyncPinpointClient:
             page_size: <p>The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics.</p>
             segment_id: <p>The unique identifier for the segment.</p>
             token: <p>The NextToken string that specifies which page of results to return in a paginated response.</p>
+
+        Raises:
+            aws_sdk_pinpoint.errors.bad_request_exception.BadRequestException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.forbidden_exception.ForbiddenException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.internal_server_error_exception.InternalServerErrorException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.method_not_allowed_exception.MethodNotAllowedException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.not_found_exception.NotFoundException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.payload_too_large_exception.PayloadTooLargeException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.too_many_requests_exception.TooManyRequestsException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3641,6 +4393,16 @@ class AsyncPinpointClient:
             application_id: <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
             page_size: <p>The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics.</p>
             token: <p>The NextToken string that specifies which page of results to return in a paginated response.</p>
+
+        Raises:
+            aws_sdk_pinpoint.errors.bad_request_exception.BadRequestException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.forbidden_exception.ForbiddenException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.internal_server_error_exception.InternalServerErrorException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.method_not_allowed_exception.MethodNotAllowedException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.not_found_exception.NotFoundException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.payload_too_large_exception.PayloadTooLargeException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.too_many_requests_exception.TooManyRequestsException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3689,6 +4451,16 @@ class AsyncPinpointClient:
             application_id: <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
             segment_id: <p>The unique identifier for the segment.</p>
             version: <p>The unique version number (Version property) for the campaign version.</p>
+
+        Raises:
+            aws_sdk_pinpoint.errors.bad_request_exception.BadRequestException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.forbidden_exception.ForbiddenException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.internal_server_error_exception.InternalServerErrorException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.method_not_allowed_exception.MethodNotAllowedException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.not_found_exception.NotFoundException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.payload_too_large_exception.PayloadTooLargeException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.too_many_requests_exception.TooManyRequestsException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3735,6 +4507,16 @@ class AsyncPinpointClient:
             page_size: <p>The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics.</p>
             segment_id: <p>The unique identifier for the segment.</p>
             token: <p>The NextToken string that specifies which page of results to return in a paginated response.</p>
+
+        Raises:
+            aws_sdk_pinpoint.errors.bad_request_exception.BadRequestException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.forbidden_exception.ForbiddenException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.internal_server_error_exception.InternalServerErrorException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.method_not_allowed_exception.MethodNotAllowedException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.not_found_exception.NotFoundException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.payload_too_large_exception.PayloadTooLargeException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.too_many_requests_exception.TooManyRequestsException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3778,6 +4560,16 @@ class AsyncPinpointClient:
 
         Args:
             application_id: <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
+
+        Raises:
+            aws_sdk_pinpoint.errors.bad_request_exception.BadRequestException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.forbidden_exception.ForbiddenException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.internal_server_error_exception.InternalServerErrorException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.method_not_allowed_exception.MethodNotAllowedException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.not_found_exception.NotFoundException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.payload_too_large_exception.PayloadTooLargeException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.too_many_requests_exception.TooManyRequestsException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3818,6 +4610,16 @@ class AsyncPinpointClient:
         Args:
             template_name: <p>The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.</p>
             version: <p>The unique identifier for the version of the message template to update, retrieve information about, or delete. To retrieve identifiers and other information for all the versions of a template, use the <link linkend=\"templates-template-name-template-type-versions\">Template Versions</link> resource.</p> <p>If specified, this value must match the identifier for an existing template version. If specified for an update operation, this value must match the identifier for the latest existing version of the template. This restriction helps ensure that race conditions don't occur.</p> <p>If you don't specify a value for this parameter, Amazon Pinpoint does the following:</p> <ul><li><p>For a get operation, retrieves information about the active version of the template.</p></li> <li><p>For an update operation, saves the updates to (overwrites) the latest existing version of the template, if the create-new-version parameter isn't used or is set to false.</p></li> <li><p>For a delete operation, deletes the template, including all versions of the template.</p></li></ul>
+
+        Raises:
+            aws_sdk_pinpoint.errors.bad_request_exception.BadRequestException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.forbidden_exception.ForbiddenException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.internal_server_error_exception.InternalServerErrorException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.method_not_allowed_exception.MethodNotAllowedException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.not_found_exception.NotFoundException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.payload_too_large_exception.PayloadTooLargeException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.too_many_requests_exception.TooManyRequestsException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3860,6 +4662,16 @@ class AsyncPinpointClient:
         Args:
             application_id: <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
             user_id: <p>The unique identifier for the user.</p>
+
+        Raises:
+            aws_sdk_pinpoint.errors.bad_request_exception.BadRequestException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.forbidden_exception.ForbiddenException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.internal_server_error_exception.InternalServerErrorException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.method_not_allowed_exception.MethodNotAllowedException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.not_found_exception.NotFoundException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.payload_too_large_exception.PayloadTooLargeException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.too_many_requests_exception.TooManyRequestsException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3899,6 +4711,16 @@ class AsyncPinpointClient:
 
         Args:
             application_id: <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
+
+        Raises:
+            aws_sdk_pinpoint.errors.bad_request_exception.BadRequestException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.forbidden_exception.ForbiddenException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.internal_server_error_exception.InternalServerErrorException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.method_not_allowed_exception.MethodNotAllowedException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.not_found_exception.NotFoundException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.payload_too_large_exception.PayloadTooLargeException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.too_many_requests_exception.TooManyRequestsException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3939,6 +4761,16 @@ class AsyncPinpointClient:
         Args:
             template_name: <p>The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.</p>
             version: <p>The unique identifier for the version of the message template to update, retrieve information about, or delete. To retrieve identifiers and other information for all the versions of a template, use the <link linkend=\"templates-template-name-template-type-versions\">Template Versions</link> resource.</p> <p>If specified, this value must match the identifier for an existing template version. If specified for an update operation, this value must match the identifier for the latest existing version of the template. This restriction helps ensure that race conditions don't occur.</p> <p>If you don't specify a value for this parameter, Amazon Pinpoint does the following:</p> <ul><li><p>For a get operation, retrieves information about the active version of the template.</p></li> <li><p>For an update operation, saves the updates to (overwrites) the latest existing version of the template, if the create-new-version parameter isn't used or is set to false.</p></li> <li><p>For a delete operation, deletes the template, including all versions of the template.</p></li></ul>
+
+        Raises:
+            aws_sdk_pinpoint.errors.bad_request_exception.BadRequestException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.forbidden_exception.ForbiddenException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.internal_server_error_exception.InternalServerErrorException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.method_not_allowed_exception.MethodNotAllowedException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.not_found_exception.NotFoundException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.payload_too_large_exception.PayloadTooLargeException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.too_many_requests_exception.TooManyRequestsException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3983,6 +4815,16 @@ class AsyncPinpointClient:
             application_id: <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
             page_size: <p>The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics.</p>
             token: <p>The NextToken string that specifies which page of results to return in a paginated response.</p>
+
+        Raises:
+            aws_sdk_pinpoint.errors.bad_request_exception.BadRequestException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.forbidden_exception.ForbiddenException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.internal_server_error_exception.InternalServerErrorException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.method_not_allowed_exception.MethodNotAllowedException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.not_found_exception.NotFoundException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.payload_too_large_exception.PayloadTooLargeException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.too_many_requests_exception.TooManyRequestsException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4025,6 +4867,9 @@ class AsyncPinpointClient:
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource.</p>
+
+        Raises:
+            aws_sdk_pinpoint.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4069,6 +4914,14 @@ class AsyncPinpointClient:
             page_size: <p>The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics.</p>
             prefix: <p>The substring to match in the names of the message templates to include in the results. If you specify this value, Amazon Pinpoint returns only those templates whose names begin with the value that you specify.</p>
             template_type: <p>The type of message template to include in the results. Valid values are: EMAIL, PUSH, SMS, and VOICE. To include all types of templates in the results, don't include this parameter in your request.</p>
+
+        Raises:
+            aws_sdk_pinpoint.errors.bad_request_exception.BadRequestException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.forbidden_exception.ForbiddenException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.internal_server_error_exception.InternalServerErrorException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.method_not_allowed_exception.MethodNotAllowedException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.too_many_requests_exception.TooManyRequestsException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4120,6 +4973,16 @@ class AsyncPinpointClient:
             page_size: <p>The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics.</p>
             template_name: <p>The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.</p>
             template_type: <p>The type of channel that the message template is designed for. Valid values are: EMAIL, PUSH, SMS, and VOICE.</p>
+
+        Raises:
+            aws_sdk_pinpoint.errors.bad_request_exception.BadRequestException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.forbidden_exception.ForbiddenException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.internal_server_error_exception.InternalServerErrorException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.method_not_allowed_exception.MethodNotAllowedException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.not_found_exception.NotFoundException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.payload_too_large_exception.PayloadTooLargeException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.too_many_requests_exception.TooManyRequestsException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4159,7 +5022,18 @@ class AsyncPinpointClient:
         *,
         config_overrides: Optional[AsyncPinpointClientConfig] = None,
     ) -> "aws_sdk_pinpoint.types.phone_number_validate_response.PhoneNumberValidateResponse":
-        """<p>Retrieves information about a phone number.</p>"""
+        """<p>Retrieves information about a phone number.</p>
+
+        Raises:
+            aws_sdk_pinpoint.errors.bad_request_exception.BadRequestException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.forbidden_exception.ForbiddenException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.internal_server_error_exception.InternalServerErrorException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.method_not_allowed_exception.MethodNotAllowedException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.not_found_exception.NotFoundException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.payload_too_large_exception.PayloadTooLargeException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.too_many_requests_exception.TooManyRequestsException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_pinpoint.types.phone_number_validate_request.PhoneNumberValidateRequest]",
@@ -4198,6 +5072,16 @@ class AsyncPinpointClient:
 
         Args:
             application_id: <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
+
+        Raises:
+            aws_sdk_pinpoint.errors.bad_request_exception.BadRequestException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.forbidden_exception.ForbiddenException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.internal_server_error_exception.InternalServerErrorException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.method_not_allowed_exception.MethodNotAllowedException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.not_found_exception.NotFoundException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.payload_too_large_exception.PayloadTooLargeException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.too_many_requests_exception.TooManyRequestsException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4238,6 +5122,16 @@ class AsyncPinpointClient:
 
         Args:
             application_id: <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
+
+        Raises:
+            aws_sdk_pinpoint.errors.bad_request_exception.BadRequestException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.forbidden_exception.ForbiddenException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.internal_server_error_exception.InternalServerErrorException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.method_not_allowed_exception.MethodNotAllowedException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.not_found_exception.NotFoundException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.payload_too_large_exception.PayloadTooLargeException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.too_many_requests_exception.TooManyRequestsException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4280,6 +5174,16 @@ class AsyncPinpointClient:
         Args:
             application_id: <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
             attribute_type: <p>The type of attribute or attributes to remove. Valid values are:</p> <ul><li><p>endpoint-custom-attributes - Custom attributes that describe endpoints, such as the date when an associated user opted in or out of receiving communications from you through a specific type of channel.</p></li> <li><p>endpoint-metric-attributes - Custom metrics that your app reports to Amazon Pinpoint for endpoints, such as the number of app sessions or the number of items left in a cart.</p></li> <li><p>endpoint-user-attributes - Custom attributes that describe users, such as first name, last name, and age.</p></li></ul>
+
+        Raises:
+            aws_sdk_pinpoint.errors.bad_request_exception.BadRequestException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.forbidden_exception.ForbiddenException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.internal_server_error_exception.InternalServerErrorException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.method_not_allowed_exception.MethodNotAllowedException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.not_found_exception.NotFoundException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.payload_too_large_exception.PayloadTooLargeException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.too_many_requests_exception.TooManyRequestsException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4321,6 +5225,16 @@ class AsyncPinpointClient:
 
         Args:
             application_id: <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
+
+        Raises:
+            aws_sdk_pinpoint.errors.bad_request_exception.BadRequestException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.forbidden_exception.ForbiddenException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.internal_server_error_exception.InternalServerErrorException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.method_not_allowed_exception.MethodNotAllowedException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.not_found_exception.NotFoundException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.payload_too_large_exception.PayloadTooLargeException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.too_many_requests_exception.TooManyRequestsException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4361,6 +5275,16 @@ class AsyncPinpointClient:
 
         Args:
             application_id: <p>The unique ID of your Amazon Pinpoint application.</p>
+
+        Raises:
+            aws_sdk_pinpoint.errors.bad_request_exception.BadRequestException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.forbidden_exception.ForbiddenException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.internal_server_error_exception.InternalServerErrorException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.method_not_allowed_exception.MethodNotAllowedException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.not_found_exception.NotFoundException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.payload_too_large_exception.PayloadTooLargeException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.too_many_requests_exception.TooManyRequestsException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4405,6 +5329,16 @@ class AsyncPinpointClient:
 
         Args:
             application_id: <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
+
+        Raises:
+            aws_sdk_pinpoint.errors.bad_request_exception.BadRequestException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.forbidden_exception.ForbiddenException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.internal_server_error_exception.InternalServerErrorException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.method_not_allowed_exception.MethodNotAllowedException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.not_found_exception.NotFoundException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.payload_too_large_exception.PayloadTooLargeException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.too_many_requests_exception.TooManyRequestsException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4445,6 +5379,9 @@ class AsyncPinpointClient:
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource.</p>
+
+        Raises:
+            aws_sdk_pinpoint.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4484,6 +5421,9 @@ class AsyncPinpointClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource.</p>
             tag_keys: <p>The key of the tag to remove from the resource. To remove multiple tags, append the tagKeys parameter and argument for each additional tag to remove, separated by an ampersand (&amp;).</p>
+
+        Raises:
+            aws_sdk_pinpoint.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4522,6 +5462,16 @@ class AsyncPinpointClient:
 
         Args:
             application_id: <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
+
+        Raises:
+            aws_sdk_pinpoint.errors.bad_request_exception.BadRequestException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.forbidden_exception.ForbiddenException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.internal_server_error_exception.InternalServerErrorException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.method_not_allowed_exception.MethodNotAllowedException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.not_found_exception.NotFoundException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.payload_too_large_exception.PayloadTooLargeException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.too_many_requests_exception.TooManyRequestsException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4564,6 +5514,16 @@ class AsyncPinpointClient:
 
         Args:
             application_id: <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
+
+        Raises:
+            aws_sdk_pinpoint.errors.bad_request_exception.BadRequestException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.forbidden_exception.ForbiddenException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.internal_server_error_exception.InternalServerErrorException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.method_not_allowed_exception.MethodNotAllowedException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.not_found_exception.NotFoundException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.payload_too_large_exception.PayloadTooLargeException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.too_many_requests_exception.TooManyRequestsException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4604,6 +5564,16 @@ class AsyncPinpointClient:
 
         Args:
             application_id: <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
+
+        Raises:
+            aws_sdk_pinpoint.errors.bad_request_exception.BadRequestException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.forbidden_exception.ForbiddenException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.internal_server_error_exception.InternalServerErrorException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.method_not_allowed_exception.MethodNotAllowedException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.not_found_exception.NotFoundException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.payload_too_large_exception.PayloadTooLargeException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.too_many_requests_exception.TooManyRequestsException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4644,6 +5614,16 @@ class AsyncPinpointClient:
 
         Args:
             application_id: <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
+
+        Raises:
+            aws_sdk_pinpoint.errors.bad_request_exception.BadRequestException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.forbidden_exception.ForbiddenException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.internal_server_error_exception.InternalServerErrorException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.method_not_allowed_exception.MethodNotAllowedException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.not_found_exception.NotFoundException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.payload_too_large_exception.PayloadTooLargeException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.too_many_requests_exception.TooManyRequestsException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4684,6 +5664,16 @@ class AsyncPinpointClient:
 
         Args:
             application_id: <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
+
+        Raises:
+            aws_sdk_pinpoint.errors.bad_request_exception.BadRequestException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.forbidden_exception.ForbiddenException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.internal_server_error_exception.InternalServerErrorException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.method_not_allowed_exception.MethodNotAllowedException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.not_found_exception.NotFoundException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.payload_too_large_exception.PayloadTooLargeException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.too_many_requests_exception.TooManyRequestsException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4724,6 +5714,16 @@ class AsyncPinpointClient:
 
         Args:
             application_id: <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
+
+        Raises:
+            aws_sdk_pinpoint.errors.bad_request_exception.BadRequestException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.forbidden_exception.ForbiddenException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.internal_server_error_exception.InternalServerErrorException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.method_not_allowed_exception.MethodNotAllowedException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.not_found_exception.NotFoundException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.payload_too_large_exception.PayloadTooLargeException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.too_many_requests_exception.TooManyRequestsException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4766,6 +5766,16 @@ class AsyncPinpointClient:
 
         Args:
             application_id: <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
+
+        Raises:
+            aws_sdk_pinpoint.errors.bad_request_exception.BadRequestException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.forbidden_exception.ForbiddenException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.internal_server_error_exception.InternalServerErrorException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.method_not_allowed_exception.MethodNotAllowedException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.not_found_exception.NotFoundException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.payload_too_large_exception.PayloadTooLargeException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.too_many_requests_exception.TooManyRequestsException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4808,6 +5818,16 @@ class AsyncPinpointClient:
         Args:
             application_id: <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
             campaign_id: <p>The unique identifier for the campaign.</p>
+
+        Raises:
+            aws_sdk_pinpoint.errors.bad_request_exception.BadRequestException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.forbidden_exception.ForbiddenException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.internal_server_error_exception.InternalServerErrorException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.method_not_allowed_exception.MethodNotAllowedException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.not_found_exception.NotFoundException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.payload_too_large_exception.PayloadTooLargeException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.too_many_requests_exception.TooManyRequestsException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4849,6 +5869,16 @@ class AsyncPinpointClient:
 
         Args:
             application_id: <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
+
+        Raises:
+            aws_sdk_pinpoint.errors.bad_request_exception.BadRequestException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.forbidden_exception.ForbiddenException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.internal_server_error_exception.InternalServerErrorException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.method_not_allowed_exception.MethodNotAllowedException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.not_found_exception.NotFoundException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.payload_too_large_exception.PayloadTooLargeException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.too_many_requests_exception.TooManyRequestsException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4895,6 +5925,16 @@ class AsyncPinpointClient:
             create_new_version: <p>Specifies whether to save the updates as a new version of the message template. Valid values are: true, save the updates as a new version; and, false, save the updates to (overwrite) the latest existing version of the template.</p> <p>If you don't specify a value for this parameter, Amazon Pinpoint saves the updates to (overwrites) the latest existing version of the template. If you specify a value of true for this parameter, don't specify a value for the version parameter. Otherwise, an error will occur.</p>
             template_name: <p>The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.</p>
             version: <p>The unique identifier for the version of the message template to update, retrieve information about, or delete. To retrieve identifiers and other information for all the versions of a template, use the <link linkend=\"templates-template-name-template-type-versions\">Template Versions</link> resource.</p> <p>If specified, this value must match the identifier for an existing template version. If specified for an update operation, this value must match the identifier for the latest existing version of the template. This restriction helps ensure that race conditions don't occur.</p> <p>If you don't specify a value for this parameter, Amazon Pinpoint does the following:</p> <ul><li><p>For a get operation, retrieves information about the active version of the template.</p></li> <li><p>For an update operation, saves the updates to (overwrites) the latest existing version of the template, if the create-new-version parameter isn't used or is set to false.</p></li> <li><p>For a delete operation, deletes the template, including all versions of the template.</p></li></ul>
+
+        Raises:
+            aws_sdk_pinpoint.errors.bad_request_exception.BadRequestException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.forbidden_exception.ForbiddenException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.internal_server_error_exception.InternalServerErrorException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.method_not_allowed_exception.MethodNotAllowedException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.not_found_exception.NotFoundException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.payload_too_large_exception.PayloadTooLargeException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.too_many_requests_exception.TooManyRequestsException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4941,6 +5981,16 @@ class AsyncPinpointClient:
         Args:
             application_id: <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
             endpoint_id: <p>The case insensitive unique identifier for the endpoint. The identifier can't contain <code>$</code>, <code>{</code> or <code>}</code>.</p>
+
+        Raises:
+            aws_sdk_pinpoint.errors.bad_request_exception.BadRequestException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.forbidden_exception.ForbiddenException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.internal_server_error_exception.InternalServerErrorException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.method_not_allowed_exception.MethodNotAllowedException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.not_found_exception.NotFoundException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.payload_too_large_exception.PayloadTooLargeException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.too_many_requests_exception.TooManyRequestsException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4982,6 +6032,16 @@ class AsyncPinpointClient:
 
         Args:
             application_id: <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
+
+        Raises:
+            aws_sdk_pinpoint.errors.bad_request_exception.BadRequestException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.forbidden_exception.ForbiddenException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.internal_server_error_exception.InternalServerErrorException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.method_not_allowed_exception.MethodNotAllowedException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.not_found_exception.NotFoundException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.payload_too_large_exception.PayloadTooLargeException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.too_many_requests_exception.TooManyRequestsException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5022,6 +6082,16 @@ class AsyncPinpointClient:
 
         Args:
             application_id: <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
+
+        Raises:
+            aws_sdk_pinpoint.errors.bad_request_exception.BadRequestException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.forbidden_exception.ForbiddenException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.internal_server_error_exception.InternalServerErrorException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.method_not_allowed_exception.MethodNotAllowedException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.not_found_exception.NotFoundException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.payload_too_large_exception.PayloadTooLargeException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.too_many_requests_exception.TooManyRequestsException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5068,6 +6138,16 @@ class AsyncPinpointClient:
             create_new_version: <p>Specifies whether to save the updates as a new version of the message template. Valid values are: true, save the updates as a new version; and, false, save the updates to (overwrite) the latest existing version of the template.</p> <p>If you don't specify a value for this parameter, Amazon Pinpoint saves the updates to (overwrites) the latest existing version of the template. If you specify a value of true for this parameter, don't specify a value for the version parameter. Otherwise, an error will occur.</p>
             template_name: <p>The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.</p>
             version: <p>The unique identifier for the version of the message template to update, retrieve information about, or delete. To retrieve identifiers and other information for all the versions of a template, use the <link linkend=\"templates-template-name-template-type-versions\">Template Versions</link> resource.</p> <p>If specified, this value must match the identifier for an existing template version. If specified for an update operation, this value must match the identifier for the latest existing version of the template. This restriction helps ensure that race conditions don't occur.</p> <p>If you don't specify a value for this parameter, Amazon Pinpoint does the following:</p> <ul><li><p>For a get operation, retrieves information about the active version of the template.</p></li> <li><p>For an update operation, saves the updates to (overwrites) the latest existing version of the template, if the create-new-version parameter isn't used or is set to false.</p></li> <li><p>For a delete operation, deletes the template, including all versions of the template.</p></li></ul>
+
+        Raises:
+            aws_sdk_pinpoint.errors.bad_request_exception.BadRequestException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.forbidden_exception.ForbiddenException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.internal_server_error_exception.InternalServerErrorException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.method_not_allowed_exception.MethodNotAllowedException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.not_found_exception.NotFoundException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.payload_too_large_exception.PayloadTooLargeException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.too_many_requests_exception.TooManyRequestsException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5114,6 +6194,17 @@ class AsyncPinpointClient:
         Args:
             application_id: <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
             journey_id: <p>The unique identifier for the journey.</p>
+
+        Raises:
+            aws_sdk_pinpoint.errors.bad_request_exception.BadRequestException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.conflict_exception.ConflictException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.forbidden_exception.ForbiddenException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.internal_server_error_exception.InternalServerErrorException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.method_not_allowed_exception.MethodNotAllowedException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.not_found_exception.NotFoundException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.payload_too_large_exception.PayloadTooLargeException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.too_many_requests_exception.TooManyRequestsException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5157,6 +6248,16 @@ class AsyncPinpointClient:
         Args:
             application_id: <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
             journey_id: <p>The unique identifier for the journey.</p>
+
+        Raises:
+            aws_sdk_pinpoint.errors.bad_request_exception.BadRequestException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.forbidden_exception.ForbiddenException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.internal_server_error_exception.InternalServerErrorException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.method_not_allowed_exception.MethodNotAllowedException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.not_found_exception.NotFoundException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.payload_too_large_exception.PayloadTooLargeException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.too_many_requests_exception.TooManyRequestsException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5204,6 +6305,16 @@ class AsyncPinpointClient:
             create_new_version: <p>Specifies whether to save the updates as a new version of the message template. Valid values are: true, save the updates as a new version; and, false, save the updates to (overwrite) the latest existing version of the template.</p> <p>If you don't specify a value for this parameter, Amazon Pinpoint saves the updates to (overwrites) the latest existing version of the template. If you specify a value of true for this parameter, don't specify a value for the version parameter. Otherwise, an error will occur.</p>
             template_name: <p>The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.</p>
             version: <p>The unique identifier for the version of the message template to update, retrieve information about, or delete. To retrieve identifiers and other information for all the versions of a template, use the <link linkend=\"templates-template-name-template-type-versions\">Template Versions</link> resource.</p> <p>If specified, this value must match the identifier for an existing template version. If specified for an update operation, this value must match the identifier for the latest existing version of the template. This restriction helps ensure that race conditions don't occur.</p> <p>If you don't specify a value for this parameter, Amazon Pinpoint does the following:</p> <ul><li><p>For a get operation, retrieves information about the active version of the template.</p></li> <li><p>For an update operation, saves the updates to (overwrites) the latest existing version of the template, if the create-new-version parameter isn't used or is set to false.</p></li> <li><p>For a delete operation, deletes the template, including all versions of the template.</p></li></ul>
+
+        Raises:
+            aws_sdk_pinpoint.errors.bad_request_exception.BadRequestException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.forbidden_exception.ForbiddenException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.internal_server_error_exception.InternalServerErrorException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.method_not_allowed_exception.MethodNotAllowedException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.not_found_exception.NotFoundException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.payload_too_large_exception.PayloadTooLargeException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.too_many_requests_exception.TooManyRequestsException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5250,6 +6361,16 @@ class AsyncPinpointClient:
 
         Args:
             recommender_id: <p>The unique identifier for the recommender model configuration. This identifier is displayed as the <b>Recommender ID</b> on the Amazon Pinpoint console.</p>
+
+        Raises:
+            aws_sdk_pinpoint.errors.bad_request_exception.BadRequestException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.forbidden_exception.ForbiddenException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.internal_server_error_exception.InternalServerErrorException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.method_not_allowed_exception.MethodNotAllowedException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.not_found_exception.NotFoundException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.payload_too_large_exception.PayloadTooLargeException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.too_many_requests_exception.TooManyRequestsException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5292,6 +6413,16 @@ class AsyncPinpointClient:
         Args:
             application_id: <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
             segment_id: <p>The unique identifier for the segment.</p>
+
+        Raises:
+            aws_sdk_pinpoint.errors.bad_request_exception.BadRequestException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.forbidden_exception.ForbiddenException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.internal_server_error_exception.InternalServerErrorException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.method_not_allowed_exception.MethodNotAllowedException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.not_found_exception.NotFoundException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.payload_too_large_exception.PayloadTooLargeException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.too_many_requests_exception.TooManyRequestsException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5333,6 +6464,16 @@ class AsyncPinpointClient:
 
         Args:
             application_id: <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
+
+        Raises:
+            aws_sdk_pinpoint.errors.bad_request_exception.BadRequestException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.forbidden_exception.ForbiddenException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.internal_server_error_exception.InternalServerErrorException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.method_not_allowed_exception.MethodNotAllowedException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.not_found_exception.NotFoundException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.payload_too_large_exception.PayloadTooLargeException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.too_many_requests_exception.TooManyRequestsException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5381,6 +6522,16 @@ class AsyncPinpointClient:
             create_new_version: <p>Specifies whether to save the updates as a new version of the message template. Valid values are: true, save the updates as a new version; and, false, save the updates to (overwrite) the latest existing version of the template.</p> <p>If you don't specify a value for this parameter, Amazon Pinpoint saves the updates to (overwrites) the latest existing version of the template. If you specify a value of true for this parameter, don't specify a value for the version parameter. Otherwise, an error will occur.</p>
             template_name: <p>The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.</p>
             version: <p>The unique identifier for the version of the message template to update, retrieve information about, or delete. To retrieve identifiers and other information for all the versions of a template, use the <link linkend=\"templates-template-name-template-type-versions\">Template Versions</link> resource.</p> <p>If specified, this value must match the identifier for an existing template version. If specified for an update operation, this value must match the identifier for the latest existing version of the template. This restriction helps ensure that race conditions don't occur.</p> <p>If you don't specify a value for this parameter, Amazon Pinpoint does the following:</p> <ul><li><p>For a get operation, retrieves information about the active version of the template.</p></li> <li><p>For an update operation, saves the updates to (overwrites) the latest existing version of the template, if the create-new-version parameter isn't used or is set to false.</p></li> <li><p>For a delete operation, deletes the template, including all versions of the template.</p></li></ul>
+
+        Raises:
+            aws_sdk_pinpoint.errors.bad_request_exception.BadRequestException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.forbidden_exception.ForbiddenException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.internal_server_error_exception.InternalServerErrorException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.method_not_allowed_exception.MethodNotAllowedException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.not_found_exception.NotFoundException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.payload_too_large_exception.PayloadTooLargeException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.too_many_requests_exception.TooManyRequestsException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5427,6 +6578,16 @@ class AsyncPinpointClient:
         Args:
             template_name: <p>The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.</p>
             template_type: <p>The type of channel that the message template is designed for. Valid values are: EMAIL, PUSH, SMS, and VOICE.</p>
+
+        Raises:
+            aws_sdk_pinpoint.errors.bad_request_exception.BadRequestException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.forbidden_exception.ForbiddenException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.internal_server_error_exception.InternalServerErrorException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.method_not_allowed_exception.MethodNotAllowedException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.not_found_exception.NotFoundException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.payload_too_large_exception.PayloadTooLargeException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.too_many_requests_exception.TooManyRequestsException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5468,6 +6629,16 @@ class AsyncPinpointClient:
 
         Args:
             application_id: <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
+
+        Raises:
+            aws_sdk_pinpoint.errors.bad_request_exception.BadRequestException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.forbidden_exception.ForbiddenException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.internal_server_error_exception.InternalServerErrorException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.method_not_allowed_exception.MethodNotAllowedException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.not_found_exception.NotFoundException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.payload_too_large_exception.PayloadTooLargeException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.too_many_requests_exception.TooManyRequestsException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5514,6 +6685,16 @@ class AsyncPinpointClient:
             create_new_version: <p>Specifies whether to save the updates as a new version of the message template. Valid values are: true, save the updates as a new version; and, false, save the updates to (overwrite) the latest existing version of the template.</p> <p>If you don't specify a value for this parameter, Amazon Pinpoint saves the updates to (overwrites) the latest existing version of the template. If you specify a value of true for this parameter, don't specify a value for the version parameter. Otherwise, an error will occur.</p>
             template_name: <p>The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.</p>
             version: <p>The unique identifier for the version of the message template to update, retrieve information about, or delete. To retrieve identifiers and other information for all the versions of a template, use the <link linkend=\"templates-template-name-template-type-versions\">Template Versions</link> resource.</p> <p>If specified, this value must match the identifier for an existing template version. If specified for an update operation, this value must match the identifier for the latest existing version of the template. This restriction helps ensure that race conditions don't occur.</p> <p>If you don't specify a value for this parameter, Amazon Pinpoint does the following:</p> <ul><li><p>For a get operation, retrieves information about the active version of the template.</p></li> <li><p>For an update operation, saves the updates to (overwrites) the latest existing version of the template, if the create-new-version parameter isn't used or is set to false.</p></li> <li><p>For a delete operation, deletes the template, including all versions of the template.</p></li></ul>
+
+        Raises:
+            aws_sdk_pinpoint.errors.bad_request_exception.BadRequestException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.forbidden_exception.ForbiddenException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.internal_server_error_exception.InternalServerErrorException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.method_not_allowed_exception.MethodNotAllowedException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.not_found_exception.NotFoundException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.payload_too_large_exception.PayloadTooLargeException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.too_many_requests_exception.TooManyRequestsException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5558,6 +6739,16 @@ class AsyncPinpointClient:
 
         Args:
             application_id: <p>The unique ID of your Amazon Pinpoint application.</p>
+
+        Raises:
+            aws_sdk_pinpoint.errors.bad_request_exception.BadRequestException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.forbidden_exception.ForbiddenException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.internal_server_error_exception.InternalServerErrorException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.method_not_allowed_exception.MethodNotAllowedException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.not_found_exception.NotFoundException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.payload_too_large_exception.PayloadTooLargeException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.too_many_requests_exception.TooManyRequestsException: <p>Provides information about an API request or response.</p>
+            aws_sdk_pinpoint.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

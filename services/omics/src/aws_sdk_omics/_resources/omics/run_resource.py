@@ -128,6 +128,17 @@ class RunResource:
             networking_mode: <p>Optional configuration for run networking behavior. If not specified, this will default to RESTRICTED.</p>
             configuration_name: <p>Optional configuration name to use for the workflow run.</p>
             engine_settings: <p>Engine-specific settings for the workflow run. Use this field to specify configuration options that are specific to the workflow engine (for example, Nextflow profiles).</p>
+
+        Raises:
+            aws_sdk_omics.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_omics.errors.conflict_exception.ConflictException: <p>The request cannot be applied to the target resource in its current state.</p>
+            aws_sdk_omics.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred. Try the request again.</p>
+            aws_sdk_omics.errors.request_timeout_exception.RequestTimeoutException: <p>The request timed out.</p>
+            aws_sdk_omics.errors.resource_not_found_exception.ResourceNotFoundException: <p>The target resource was not found in the current Region.</p>
+            aws_sdk_omics.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request exceeds a service quota.</p>
+            aws_sdk_omics.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_omics.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_omics.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -205,6 +216,17 @@ class RunResource:
         Args:
             id: <p>The run's ID.</p>
             export: <p>The run's export format.</p>
+
+        Raises:
+            aws_sdk_omics.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_omics.errors.conflict_exception.ConflictException: <p>The request cannot be applied to the target resource in its current state.</p>
+            aws_sdk_omics.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred. Try the request again.</p>
+            aws_sdk_omics.errors.request_timeout_exception.RequestTimeoutException: <p>The request timed out.</p>
+            aws_sdk_omics.errors.resource_not_found_exception.ResourceNotFoundException: <p>The target resource was not found in the current Region.</p>
+            aws_sdk_omics.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request exceeds a service quota.</p>
+            aws_sdk_omics.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_omics.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_omics.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -240,6 +262,17 @@ class RunResource:
 
         Args:
             id: <p>The run's ID.</p>
+
+        Raises:
+            aws_sdk_omics.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_omics.errors.conflict_exception.ConflictException: <p>The request cannot be applied to the target resource in its current state.</p>
+            aws_sdk_omics.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred. Try the request again.</p>
+            aws_sdk_omics.errors.request_timeout_exception.RequestTimeoutException: <p>The request timed out.</p>
+            aws_sdk_omics.errors.resource_not_found_exception.ResourceNotFoundException: <p>The target resource was not found in the current Region.</p>
+            aws_sdk_omics.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request exceeds a service quota.</p>
+            aws_sdk_omics.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_omics.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_omics.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -287,6 +320,17 @@ class RunResource:
             starting_token: <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
             max_results: <p>The maximum number of runs to return in one page of results.</p>
             status: <p>The status of a run.</p>
+
+        Raises:
+            aws_sdk_omics.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_omics.errors.conflict_exception.ConflictException: <p>The request cannot be applied to the target resource in its current state.</p>
+            aws_sdk_omics.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred. Try the request again.</p>
+            aws_sdk_omics.errors.request_timeout_exception.RequestTimeoutException: <p>The request timed out.</p>
+            aws_sdk_omics.errors.resource_not_found_exception.ResourceNotFoundException: <p>The target resource was not found in the current Region.</p>
+            aws_sdk_omics.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request exceeds a service quota.</p>
+            aws_sdk_omics.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_omics.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_omics.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -333,6 +377,17 @@ class RunResource:
 
         Args:
             id: <p>The run's ID.</p>
+
+        Raises:
+            aws_sdk_omics.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_omics.errors.conflict_exception.ConflictException: <p>The request cannot be applied to the target resource in its current state.</p>
+            aws_sdk_omics.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred. Try the request again.</p>
+            aws_sdk_omics.errors.request_timeout_exception.RequestTimeoutException: <p>The request timed out.</p>
+            aws_sdk_omics.errors.resource_not_found_exception.ResourceNotFoundException: <p>The target resource was not found in the current Region.</p>
+            aws_sdk_omics.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request exceeds a service quota.</p>
+            aws_sdk_omics.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_omics.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_omics.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -433,6 +488,17 @@ class AsyncRunResource:
             networking_mode: <p>Optional configuration for run networking behavior. If not specified, this will default to RESTRICTED.</p>
             configuration_name: <p>Optional configuration name to use for the workflow run.</p>
             engine_settings: <p>Engine-specific settings for the workflow run. Use this field to specify configuration options that are specific to the workflow engine (for example, Nextflow profiles).</p>
+
+        Raises:
+            aws_sdk_omics.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_omics.errors.conflict_exception.ConflictException: <p>The request cannot be applied to the target resource in its current state.</p>
+            aws_sdk_omics.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred. Try the request again.</p>
+            aws_sdk_omics.errors.request_timeout_exception.RequestTimeoutException: <p>The request timed out.</p>
+            aws_sdk_omics.errors.resource_not_found_exception.ResourceNotFoundException: <p>The target resource was not found in the current Region.</p>
+            aws_sdk_omics.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request exceeds a service quota.</p>
+            aws_sdk_omics.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_omics.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_omics.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -513,6 +579,17 @@ class AsyncRunResource:
         Args:
             id: <p>The run's ID.</p>
             export: <p>The run's export format.</p>
+
+        Raises:
+            aws_sdk_omics.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_omics.errors.conflict_exception.ConflictException: <p>The request cannot be applied to the target resource in its current state.</p>
+            aws_sdk_omics.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred. Try the request again.</p>
+            aws_sdk_omics.errors.request_timeout_exception.RequestTimeoutException: <p>The request timed out.</p>
+            aws_sdk_omics.errors.resource_not_found_exception.ResourceNotFoundException: <p>The target resource was not found in the current Region.</p>
+            aws_sdk_omics.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request exceeds a service quota.</p>
+            aws_sdk_omics.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_omics.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_omics.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -553,6 +630,17 @@ class AsyncRunResource:
 
         Args:
             id: <p>The run's ID.</p>
+
+        Raises:
+            aws_sdk_omics.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_omics.errors.conflict_exception.ConflictException: <p>The request cannot be applied to the target resource in its current state.</p>
+            aws_sdk_omics.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred. Try the request again.</p>
+            aws_sdk_omics.errors.request_timeout_exception.RequestTimeoutException: <p>The request timed out.</p>
+            aws_sdk_omics.errors.resource_not_found_exception.ResourceNotFoundException: <p>The target resource was not found in the current Region.</p>
+            aws_sdk_omics.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request exceeds a service quota.</p>
+            aws_sdk_omics.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_omics.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_omics.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -601,6 +689,17 @@ class AsyncRunResource:
             starting_token: <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
             max_results: <p>The maximum number of runs to return in one page of results.</p>
             status: <p>The status of a run.</p>
+
+        Raises:
+            aws_sdk_omics.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_omics.errors.conflict_exception.ConflictException: <p>The request cannot be applied to the target resource in its current state.</p>
+            aws_sdk_omics.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred. Try the request again.</p>
+            aws_sdk_omics.errors.request_timeout_exception.RequestTimeoutException: <p>The request timed out.</p>
+            aws_sdk_omics.errors.resource_not_found_exception.ResourceNotFoundException: <p>The target resource was not found in the current Region.</p>
+            aws_sdk_omics.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request exceeds a service quota.</p>
+            aws_sdk_omics.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_omics.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_omics.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -650,6 +749,17 @@ class AsyncRunResource:
 
         Args:
             id: <p>The run's ID.</p>
+
+        Raises:
+            aws_sdk_omics.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_omics.errors.conflict_exception.ConflictException: <p>The request cannot be applied to the target resource in its current state.</p>
+            aws_sdk_omics.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred. Try the request again.</p>
+            aws_sdk_omics.errors.request_timeout_exception.RequestTimeoutException: <p>The request timed out.</p>
+            aws_sdk_omics.errors.resource_not_found_exception.ResourceNotFoundException: <p>The target resource was not found in the current Region.</p>
+            aws_sdk_omics.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request exceeds a service quota.</p>
+            aws_sdk_omics.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_omics.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_omics.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

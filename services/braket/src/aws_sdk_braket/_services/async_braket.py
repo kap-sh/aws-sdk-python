@@ -154,6 +154,12 @@ class AsyncBraketClient:
 
         Args:
             resource_arn: <p>Specify the <code>resourceArn</code> for the resource whose tags to display.</p>
+
+        Raises:
+            aws_sdk_braket.errors.internal_service_exception.InternalServiceException: <p>The request failed because of an unknown error.</p>
+            aws_sdk_braket.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_braket.errors.validation_exception.ValidationException: <p>The input request failed to satisfy constraints expected by Amazon Braket.</p>
+            aws_sdk_braket.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -194,6 +200,12 @@ class AsyncBraketClient:
         Args:
             resource_arn: <p>Specify the <code>resourceArn</code> of the resource to which a tag will be added.</p>
             tags: <p>Specify the tags to add to the resource. Tags can be specified as a key-value map.</p>
+
+        Raises:
+            aws_sdk_braket.errors.internal_service_exception.InternalServiceException: <p>The request failed because of an unknown error.</p>
+            aws_sdk_braket.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_braket.errors.validation_exception.ValidationException: <p>The input request failed to satisfy constraints expected by Amazon Braket.</p>
+            aws_sdk_braket.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -235,6 +247,12 @@ class AsyncBraketClient:
         Args:
             resource_arn: <p>Specify the <code>resourceArn</code> for the resource from which to remove the tags.</p>
             tag_keys: <p>Specify the keys for the tags to remove from the resource.</p>
+
+        Raises:
+            aws_sdk_braket.errors.internal_service_exception.InternalServiceException: <p>The request failed because of an unknown error.</p>
+            aws_sdk_braket.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_braket.errors.validation_exception.ValidationException: <p>The input request failed to satisfy constraints expected by Amazon Braket.</p>
+            aws_sdk_braket.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

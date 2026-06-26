@@ -398,6 +398,14 @@ class Inspector2Client:
 
         Args:
             account_id: <p>The Amazon Web Services account ID of the member account to be associated.</p>
+
+        Raises:
+            aws_sdk_inspector2.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p> <p> For <code>Enable</code>, you receive this error if you attempt to use a feature in an unsupported Amazon Web Services Region. </p>
+            aws_sdk_inspector2.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal failure of the Amazon Inspector service.</p>
+            aws_sdk_inspector2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You have exceeded your service quota. To perform the requested action, remove some of the relevant resources, or use Service Quotas to request a service quota increase.</p>
+            aws_sdk_inspector2.errors.throttling_exception.ThrottlingException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_inspector2.errors.validation_exception.ValidationException: <p>The request has failed validation due to missing required fields or having invalid inputs.</p>
+            aws_sdk_inspector2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -435,6 +443,15 @@ class Inspector2Client:
 
         Args:
             associate_configuration_requests: <p>A list of code repositories to associate with the specified scan configuration.</p>
+
+        Raises:
+            aws_sdk_inspector2.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p> <p> For <code>Enable</code>, you receive this error if you attempt to use a feature in an unsupported Amazon Web Services Region. </p>
+            aws_sdk_inspector2.errors.conflict_exception.ConflictException: <p>A conflict occurred. This exception occurs when the same resource is being modified by concurrent requests.</p>
+            aws_sdk_inspector2.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal failure of the Amazon Inspector service.</p>
+            aws_sdk_inspector2.errors.resource_not_found_exception.ResourceNotFoundException: <p>The operation tried to access an invalid resource. Make sure the resource is specified correctly.</p>
+            aws_sdk_inspector2.errors.throttling_exception.ThrottlingException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_inspector2.errors.validation_exception.ValidationException: <p>The request has failed validation due to missing required fields or having invalid inputs.</p>
+            aws_sdk_inspector2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -472,6 +489,15 @@ class Inspector2Client:
 
         Args:
             disassociate_configuration_requests: <p>A list of code repositories to disassociate from the specified scan configuration.</p>
+
+        Raises:
+            aws_sdk_inspector2.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p> <p> For <code>Enable</code>, you receive this error if you attempt to use a feature in an unsupported Amazon Web Services Region. </p>
+            aws_sdk_inspector2.errors.conflict_exception.ConflictException: <p>A conflict occurred. This exception occurs when the same resource is being modified by concurrent requests.</p>
+            aws_sdk_inspector2.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal failure of the Amazon Inspector service.</p>
+            aws_sdk_inspector2.errors.resource_not_found_exception.ResourceNotFoundException: <p>The operation tried to access an invalid resource. Make sure the resource is specified correctly.</p>
+            aws_sdk_inspector2.errors.throttling_exception.ThrottlingException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_inspector2.errors.validation_exception.ValidationException: <p>The request has failed validation due to missing required fields or having invalid inputs.</p>
+            aws_sdk_inspector2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -513,6 +539,14 @@ class Inspector2Client:
 
         Args:
             account_ids: <p>The 12-digit Amazon Web Services account IDs of the accounts to retrieve Amazon Inspector status for.</p>
+
+        Raises:
+            aws_sdk_inspector2.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p> <p> For <code>Enable</code>, you receive this error if you attempt to use a feature in an unsupported Amazon Web Services Region. </p>
+            aws_sdk_inspector2.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal failure of the Amazon Inspector service.</p>
+            aws_sdk_inspector2.errors.resource_not_found_exception.ResourceNotFoundException: <p>The operation tried to access an invalid resource. Make sure the resource is specified correctly.</p>
+            aws_sdk_inspector2.errors.throttling_exception.ThrottlingException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_inspector2.errors.validation_exception.ValidationException: <p>The request has failed validation due to missing required fields or having invalid inputs.</p>
+            aws_sdk_inspector2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -551,6 +585,13 @@ class Inspector2Client:
 
         Args:
             finding_arns: <p>An array of finding ARNs for the findings you want to retrieve code snippets from.</p>
+
+        Raises:
+            aws_sdk_inspector2.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p> <p> For <code>Enable</code>, you receive this error if you attempt to use a feature in an unsupported Amazon Web Services Region. </p>
+            aws_sdk_inspector2.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal failure of the Amazon Inspector service.</p>
+            aws_sdk_inspector2.errors.throttling_exception.ThrottlingException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_inspector2.errors.validation_exception.ValidationException: <p>The request has failed validation due to missing required fields or having invalid inputs.</p>
+            aws_sdk_inspector2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -588,6 +629,13 @@ class Inspector2Client:
 
         Args:
             finding_arns: <p>A list of finding ARNs.</p>
+
+        Raises:
+            aws_sdk_inspector2.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p> <p> For <code>Enable</code>, you receive this error if you attempt to use a feature in an unsupported Amazon Web Services Region. </p>
+            aws_sdk_inspector2.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal failure of the Amazon Inspector service.</p>
+            aws_sdk_inspector2.errors.throttling_exception.ThrottlingException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_inspector2.errors.validation_exception.ValidationException: <p>The request has failed validation due to missing required fields or having invalid inputs.</p>
+            aws_sdk_inspector2.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Sample BatchGetFindingDetails Call
@@ -630,6 +678,13 @@ class Inspector2Client:
 
         Args:
             account_ids: <p>The account IDs to get free trial status for.</p>
+
+        Raises:
+            aws_sdk_inspector2.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p> <p> For <code>Enable</code>, you receive this error if you attempt to use a feature in an unsupported Amazon Web Services Region. </p>
+            aws_sdk_inspector2.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal failure of the Amazon Inspector service.</p>
+            aws_sdk_inspector2.errors.throttling_exception.ThrottlingException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_inspector2.errors.validation_exception.ValidationException: <p>The request has failed validation due to missing required fields or having invalid inputs.</p>
+            aws_sdk_inspector2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -669,6 +724,13 @@ class Inspector2Client:
 
         Args:
             account_ids: <p>The unique identifiers for the Amazon Web Services accounts to retrieve Amazon Inspector deep inspection activation status for. </p>
+
+        Raises:
+            aws_sdk_inspector2.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p> <p> For <code>Enable</code>, you receive this error if you attempt to use a feature in an unsupported Amazon Web Services Region. </p>
+            aws_sdk_inspector2.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal failure of the Amazon Inspector service.</p>
+            aws_sdk_inspector2.errors.throttling_exception.ThrottlingException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_inspector2.errors.validation_exception.ValidationException: <p>The request has failed validation due to missing required fields or having invalid inputs.</p>
+            aws_sdk_inspector2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -707,6 +769,13 @@ class Inspector2Client:
 
         Args:
             account_ids: <p>The unique identifiers for the Amazon Web Services accounts to change Amazon Inspector deep inspection status for.</p>
+
+        Raises:
+            aws_sdk_inspector2.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p> <p> For <code>Enable</code>, you receive this error if you attempt to use a feature in an unsupported Amazon Web Services Region. </p>
+            aws_sdk_inspector2.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal failure of the Amazon Inspector service.</p>
+            aws_sdk_inspector2.errors.throttling_exception.ThrottlingException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_inspector2.errors.validation_exception.ValidationException: <p>The request has failed validation due to missing required fields or having invalid inputs.</p>
+            aws_sdk_inspector2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -744,6 +813,14 @@ class Inspector2Client:
 
         Args:
             report_id: <p>The ID of the report to be canceled.</p>
+
+        Raises:
+            aws_sdk_inspector2.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p> <p> For <code>Enable</code>, you receive this error if you attempt to use a feature in an unsupported Amazon Web Services Region. </p>
+            aws_sdk_inspector2.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal failure of the Amazon Inspector service.</p>
+            aws_sdk_inspector2.errors.resource_not_found_exception.ResourceNotFoundException: <p>The operation tried to access an invalid resource. Make sure the resource is specified correctly.</p>
+            aws_sdk_inspector2.errors.throttling_exception.ThrottlingException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_inspector2.errors.validation_exception.ValidationException: <p>The request has failed validation due to missing required fields or having invalid inputs.</p>
+            aws_sdk_inspector2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -783,6 +860,14 @@ class Inspector2Client:
 
         Args:
             report_id: <p>The report ID of the SBOM export to cancel.</p>
+
+        Raises:
+            aws_sdk_inspector2.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p> <p> For <code>Enable</code>, you receive this error if you attempt to use a feature in an unsupported Amazon Web Services Region. </p>
+            aws_sdk_inspector2.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal failure of the Amazon Inspector service.</p>
+            aws_sdk_inspector2.errors.resource_not_found_exception.ResourceNotFoundException: <p>The operation tried to access an invalid resource. Make sure the resource is specified correctly.</p>
+            aws_sdk_inspector2.errors.throttling_exception.ThrottlingException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_inspector2.errors.validation_exception.ValidationException: <p>The request has failed validation due to missing required fields or having invalid inputs.</p>
+            aws_sdk_inspector2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -828,6 +913,13 @@ class Inspector2Client:
             schedule: <p>The schedule for the CIS scan configuration.</p>
             targets: <p>The targets for the CIS scan configuration.</p>
             tags: <p>The tags for the CIS scan configuration.</p>
+
+        Raises:
+            aws_sdk_inspector2.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p> <p> For <code>Enable</code>, you receive this error if you attempt to use a feature in an unsupported Amazon Web Services Region. </p>
+            aws_sdk_inspector2.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal failure of the Amazon Inspector service.</p>
+            aws_sdk_inspector2.errors.throttling_exception.ThrottlingException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_inspector2.errors.validation_exception.ValidationException: <p>The request has failed validation due to missing required fields or having invalid inputs.</p>
+            aws_sdk_inspector2.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Sample CreateCisScanConfiguration Call
@@ -883,6 +975,15 @@ class Inspector2Client:
             type: <p>The type of repository provider for the integration.</p>
             details: <p>The integration details specific to the repository provider type.</p>
             tags: <p>The tags to apply to the code security integration.</p>
+
+        Raises:
+            aws_sdk_inspector2.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p> <p> For <code>Enable</code>, you receive this error if you attempt to use a feature in an unsupported Amazon Web Services Region. </p>
+            aws_sdk_inspector2.errors.conflict_exception.ConflictException: <p>A conflict occurred. This exception occurs when the same resource is being modified by concurrent requests.</p>
+            aws_sdk_inspector2.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal failure of the Amazon Inspector service.</p>
+            aws_sdk_inspector2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You have exceeded your service quota. To perform the requested action, remove some of the relevant resources, or use Service Quotas to request a service quota increase.</p>
+            aws_sdk_inspector2.errors.throttling_exception.ThrottlingException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_inspector2.errors.validation_exception.ValidationException: <p>The request has failed validation due to missing required fields or having invalid inputs.</p>
+            aws_sdk_inspector2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -935,6 +1036,15 @@ class Inspector2Client:
             configuration: <p>The configuration settings for the code security scan.</p>
             scope_settings: <p>The scope settings that define which repositories will be scanned. Include this parameter to create a default scan configuration. Otherwise Amazon Inspector creates a general scan configuration. </p> <p>A default scan configuration automatically applies to all existing and future projects imported into Amazon Inspector. Use the <code>BatchAssociateCodeSecurityScanConfiguration</code> operation to associate a general scan configuration with projects.</p>
             tags: <p>The tags to apply to the scan configuration.</p>
+
+        Raises:
+            aws_sdk_inspector2.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p> <p> For <code>Enable</code>, you receive this error if you attempt to use a feature in an unsupported Amazon Web Services Region. </p>
+            aws_sdk_inspector2.errors.conflict_exception.ConflictException: <p>A conflict occurred. This exception occurs when the same resource is being modified by concurrent requests.</p>
+            aws_sdk_inspector2.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal failure of the Amazon Inspector service.</p>
+            aws_sdk_inspector2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You have exceeded your service quota. To perform the requested action, remove some of the relevant resources, or use Service Quotas to request a service quota increase.</p>
+            aws_sdk_inspector2.errors.throttling_exception.ThrottlingException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_inspector2.errors.validation_exception.ValidationException: <p>The request has failed validation due to missing required fields or having invalid inputs.</p>
+            aws_sdk_inspector2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -990,6 +1100,15 @@ class Inspector2Client:
             name: <p>The name of the filter. Minimum length of 3. Maximum length of 64. Valid characters include alphanumeric characters, dot (.), underscore (_), and dash (-). Spaces are not allowed.</p>
             tags: <p>A list of tags for the filter.</p>
             reason: <p>The reason for creating the filter.</p>
+
+        Raises:
+            aws_sdk_inspector2.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p> <p> For <code>Enable</code>, you receive this error if you attempt to use a feature in an unsupported Amazon Web Services Region. </p>
+            aws_sdk_inspector2.errors.bad_request_exception.BadRequestException: <p>One or more tags submitted as part of the request is not valid.</p>
+            aws_sdk_inspector2.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal failure of the Amazon Inspector service.</p>
+            aws_sdk_inspector2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You have exceeded your service quota. To perform the requested action, remove some of the relevant resources, or use Service Quotas to request a service quota increase.</p>
+            aws_sdk_inspector2.errors.throttling_exception.ThrottlingException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_inspector2.errors.validation_exception.ValidationException: <p>The request has failed validation due to missing required fields or having invalid inputs.</p>
+            aws_sdk_inspector2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1041,6 +1160,14 @@ class Inspector2Client:
             filter_criteria: <p>The filter criteria to apply to the results of the finding report.</p>
             report_format: <p>The format to generate the report in.</p>
             s3_destination: <p>The Amazon S3 export destination for the report.</p>
+
+        Raises:
+            aws_sdk_inspector2.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p> <p> For <code>Enable</code>, you receive this error if you attempt to use a feature in an unsupported Amazon Web Services Region. </p>
+            aws_sdk_inspector2.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal failure of the Amazon Inspector service.</p>
+            aws_sdk_inspector2.errors.resource_not_found_exception.ResourceNotFoundException: <p>The operation tried to access an invalid resource. Make sure the resource is specified correctly.</p>
+            aws_sdk_inspector2.errors.throttling_exception.ThrottlingException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_inspector2.errors.validation_exception.ValidationException: <p>The request has failed validation due to missing required fields or having invalid inputs.</p>
+            aws_sdk_inspector2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1089,6 +1216,14 @@ class Inspector2Client:
             resource_filter_criteria: <p>The resource filter criteria for the software bill of materials (SBOM) report.</p>
             report_format: <p>The output format for the software bill of materials (SBOM) report.</p>
             s3_destination: <p>Contains details of the Amazon S3 bucket and KMS key used to export findings.</p>
+
+        Raises:
+            aws_sdk_inspector2.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p> <p> For <code>Enable</code>, you receive this error if you attempt to use a feature in an unsupported Amazon Web Services Region. </p>
+            aws_sdk_inspector2.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal failure of the Amazon Inspector service.</p>
+            aws_sdk_inspector2.errors.resource_not_found_exception.ResourceNotFoundException: <p>The operation tried to access an invalid resource. Make sure the resource is specified correctly.</p>
+            aws_sdk_inspector2.errors.throttling_exception.ThrottlingException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_inspector2.errors.validation_exception.ValidationException: <p>The request has failed validation due to missing required fields or having invalid inputs.</p>
+            aws_sdk_inspector2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1129,6 +1264,14 @@ class Inspector2Client:
 
         Args:
             scan_configuration_arn: <p>The ARN of the CIS scan configuration.</p>
+
+        Raises:
+            aws_sdk_inspector2.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p> <p> For <code>Enable</code>, you receive this error if you attempt to use a feature in an unsupported Amazon Web Services Region. </p>
+            aws_sdk_inspector2.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal failure of the Amazon Inspector service.</p>
+            aws_sdk_inspector2.errors.resource_not_found_exception.ResourceNotFoundException: <p>The operation tried to access an invalid resource. Make sure the resource is specified correctly.</p>
+            aws_sdk_inspector2.errors.throttling_exception.ThrottlingException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_inspector2.errors.validation_exception.ValidationException: <p>The request has failed validation due to missing required fields or having invalid inputs.</p>
+            aws_sdk_inspector2.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Sample DeleteCisScanConfiguration Call
@@ -1171,6 +1314,14 @@ class Inspector2Client:
 
         Args:
             integration_arn: <p>The Amazon Resource Name (ARN) of the code security integration to delete.</p>
+
+        Raises:
+            aws_sdk_inspector2.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p> <p> For <code>Enable</code>, you receive this error if you attempt to use a feature in an unsupported Amazon Web Services Region. </p>
+            aws_sdk_inspector2.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal failure of the Amazon Inspector service.</p>
+            aws_sdk_inspector2.errors.resource_not_found_exception.ResourceNotFoundException: <p>The operation tried to access an invalid resource. Make sure the resource is specified correctly.</p>
+            aws_sdk_inspector2.errors.throttling_exception.ThrottlingException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_inspector2.errors.validation_exception.ValidationException: <p>The request has failed validation due to missing required fields or having invalid inputs.</p>
+            aws_sdk_inspector2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1208,6 +1359,14 @@ class Inspector2Client:
 
         Args:
             scan_configuration_arn: <p>The Amazon Resource Name (ARN) of the scan configuration to delete.</p>
+
+        Raises:
+            aws_sdk_inspector2.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p> <p> For <code>Enable</code>, you receive this error if you attempt to use a feature in an unsupported Amazon Web Services Region. </p>
+            aws_sdk_inspector2.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal failure of the Amazon Inspector service.</p>
+            aws_sdk_inspector2.errors.resource_not_found_exception.ResourceNotFoundException: <p>The operation tried to access an invalid resource. Make sure the resource is specified correctly.</p>
+            aws_sdk_inspector2.errors.throttling_exception.ThrottlingException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_inspector2.errors.validation_exception.ValidationException: <p>The request has failed validation due to missing required fields or having invalid inputs.</p>
+            aws_sdk_inspector2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1245,6 +1404,14 @@ class Inspector2Client:
 
         Args:
             arn: <p>The Amazon Resource Number (ARN) of the filter to be deleted.</p>
+
+        Raises:
+            aws_sdk_inspector2.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p> <p> For <code>Enable</code>, you receive this error if you attempt to use a feature in an unsupported Amazon Web Services Region. </p>
+            aws_sdk_inspector2.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal failure of the Amazon Inspector service.</p>
+            aws_sdk_inspector2.errors.resource_not_found_exception.ResourceNotFoundException: <p>The operation tried to access an invalid resource. Make sure the resource is specified correctly.</p>
+            aws_sdk_inspector2.errors.throttling_exception.ThrottlingException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_inspector2.errors.validation_exception.ValidationException: <p>The request has failed validation due to missing required fields or having invalid inputs.</p>
+            aws_sdk_inspector2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1275,7 +1442,15 @@ class Inspector2Client:
     def describe_organization_configuration(
         self, *, config_overrides: Optional[Inspector2ClientConfig] = None
     ) -> "aws_sdk_inspector2.types.describe_organization_configuration_response.DescribeOrganizationConfigurationResponse":
-        """<p>Describe Amazon Inspector configuration settings for an Amazon Web Services organization.</p>"""
+        """<p>Describe Amazon Inspector configuration settings for an Amazon Web Services organization.</p>
+
+        Raises:
+            aws_sdk_inspector2.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p> <p> For <code>Enable</code>, you receive this error if you attempt to use a feature in an unsupported Amazon Web Services Region. </p>
+            aws_sdk_inspector2.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal failure of the Amazon Inspector service.</p>
+            aws_sdk_inspector2.errors.throttling_exception.ThrottlingException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_inspector2.errors.validation_exception.ValidationException: <p>The request has failed validation due to missing required fields or having invalid inputs.</p>
+            aws_sdk_inspector2.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_inspector2.types.describe_organization_configuration_request.DescribeOrganizationConfigurationRequest]",
@@ -1317,6 +1492,14 @@ class Inspector2Client:
         Args:
             account_ids: <p>An array of account IDs you want to disable Amazon Inspector scans for.</p>
             resource_types: <p>The resource scan types you want to disable.</p>
+
+        Raises:
+            aws_sdk_inspector2.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p> <p> For <code>Enable</code>, you receive this error if you attempt to use a feature in an unsupported Amazon Web Services Region. </p>
+            aws_sdk_inspector2.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal failure of the Amazon Inspector service.</p>
+            aws_sdk_inspector2.errors.resource_not_found_exception.ResourceNotFoundException: <p>The operation tried to access an invalid resource. Make sure the resource is specified correctly.</p>
+            aws_sdk_inspector2.errors.throttling_exception.ThrottlingException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_inspector2.errors.validation_exception.ValidationException: <p>The request has failed validation due to missing required fields or having invalid inputs.</p>
+            aws_sdk_inspector2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1357,6 +1540,15 @@ class Inspector2Client:
 
         Args:
             delegated_admin_account_id: <p>The Amazon Web Services account ID of the current Amazon Inspector delegated administrator.</p>
+
+        Raises:
+            aws_sdk_inspector2.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p> <p> For <code>Enable</code>, you receive this error if you attempt to use a feature in an unsupported Amazon Web Services Region. </p>
+            aws_sdk_inspector2.errors.conflict_exception.ConflictException: <p>A conflict occurred. This exception occurs when the same resource is being modified by concurrent requests.</p>
+            aws_sdk_inspector2.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal failure of the Amazon Inspector service.</p>
+            aws_sdk_inspector2.errors.resource_not_found_exception.ResourceNotFoundException: <p>The operation tried to access an invalid resource. Make sure the resource is specified correctly.</p>
+            aws_sdk_inspector2.errors.throttling_exception.ThrottlingException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_inspector2.errors.validation_exception.ValidationException: <p>The request has failed validation due to missing required fields or having invalid inputs.</p>
+            aws_sdk_inspector2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1394,6 +1586,13 @@ class Inspector2Client:
 
         Args:
             account_id: <p>The Amazon Web Services account ID of the member account to disassociate.</p>
+
+        Raises:
+            aws_sdk_inspector2.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p> <p> For <code>Enable</code>, you receive this error if you attempt to use a feature in an unsupported Amazon Web Services Region. </p>
+            aws_sdk_inspector2.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal failure of the Amazon Inspector service.</p>
+            aws_sdk_inspector2.errors.throttling_exception.ThrottlingException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_inspector2.errors.validation_exception.ValidationException: <p>The request has failed validation due to missing required fields or having invalid inputs.</p>
+            aws_sdk_inspector2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1439,6 +1638,14 @@ class Inspector2Client:
             account_ids: <p>A list of account IDs you want to enable Amazon Inspector scans for.</p>
             resource_types: <p>The resource scan types you want to enable.</p>
             client_token: <p>The idempotency token for the request.</p>
+
+        Raises:
+            aws_sdk_inspector2.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p> <p> For <code>Enable</code>, you receive this error if you attempt to use a feature in an unsupported Amazon Web Services Region. </p>
+            aws_sdk_inspector2.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal failure of the Amazon Inspector service.</p>
+            aws_sdk_inspector2.errors.resource_not_found_exception.ResourceNotFoundException: <p>The operation tried to access an invalid resource. Make sure the resource is specified correctly.</p>
+            aws_sdk_inspector2.errors.throttling_exception.ThrottlingException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_inspector2.errors.validation_exception.ValidationException: <p>The request has failed validation due to missing required fields or having invalid inputs.</p>
+            aws_sdk_inspector2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1484,6 +1691,15 @@ class Inspector2Client:
         Args:
             delegated_admin_account_id: <p>The Amazon Web Services account ID of the Amazon Inspector delegated administrator.</p>
             client_token: <p>The idempotency token for the request.</p>
+
+        Raises:
+            aws_sdk_inspector2.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p> <p> For <code>Enable</code>, you receive this error if you attempt to use a feature in an unsupported Amazon Web Services Region. </p>
+            aws_sdk_inspector2.errors.conflict_exception.ConflictException: <p>A conflict occurred. This exception occurs when the same resource is being modified by concurrent requests.</p>
+            aws_sdk_inspector2.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal failure of the Amazon Inspector service.</p>
+            aws_sdk_inspector2.errors.resource_not_found_exception.ResourceNotFoundException: <p>The operation tried to access an invalid resource. Make sure the resource is specified correctly.</p>
+            aws_sdk_inspector2.errors.throttling_exception.ThrottlingException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_inspector2.errors.validation_exception.ValidationException: <p>The request has failed validation due to missing required fields or having invalid inputs.</p>
+            aws_sdk_inspector2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1533,6 +1749,14 @@ class Inspector2Client:
             scan_arn: <p>The scan ARN.</p>
             target_accounts: <p>The target accounts.</p>
             report_format: <p> The format of the report. Valid values are <code>PDF</code> and <code>CSV</code>. If no value is specified, the report format defaults to <code>PDF</code>. </p>
+
+        Raises:
+            aws_sdk_inspector2.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p> <p> For <code>Enable</code>, you receive this error if you attempt to use a feature in an unsupported Amazon Web Services Region. </p>
+            aws_sdk_inspector2.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal failure of the Amazon Inspector service.</p>
+            aws_sdk_inspector2.errors.resource_not_found_exception.ResourceNotFoundException: <p>The operation tried to access an invalid resource. Make sure the resource is specified correctly.</p>
+            aws_sdk_inspector2.errors.throttling_exception.ThrottlingException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_inspector2.errors.validation_exception.ValidationException: <p>The request has failed validation due to missing required fields or having invalid inputs.</p>
+            aws_sdk_inspector2.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Sample GetCisScanReport Call
@@ -1601,6 +1825,13 @@ class Inspector2Client:
             sort_order: <p>The sort order.</p>
             next_token: <p>The pagination token from a previous request that's used to retrieve the next page of results.</p>
             max_results: <p>The maximum number of CIS scan result details to be returned in a single page of results.</p>
+
+        Raises:
+            aws_sdk_inspector2.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p> <p> For <code>Enable</code>, you receive this error if you attempt to use a feature in an unsupported Amazon Web Services Region. </p>
+            aws_sdk_inspector2.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal failure of the Amazon Inspector service.</p>
+            aws_sdk_inspector2.errors.throttling_exception.ThrottlingException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_inspector2.errors.validation_exception.ValidationException: <p>The request has failed validation due to missing required fields or having invalid inputs.</p>
+            aws_sdk_inspector2.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Sample GetCisScanResultDetails Call
@@ -1702,6 +1933,13 @@ class Inspector2Client:
             filter: <p>The resource Id for the Amazon ECR image.</p>
             max_results: <p>The maximum number of results to be returned in a single page of results.</p>
             next_token: <p>The pagination token from a previous request used to retrieve the next page of results.</p>
+
+        Raises:
+            aws_sdk_inspector2.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p> <p> For <code>Enable</code>, you receive this error if you attempt to use a feature in an unsupported Amazon Web Services Region. </p>
+            aws_sdk_inspector2.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal failure of the Amazon Inspector service.</p>
+            aws_sdk_inspector2.errors.throttling_exception.ThrottlingException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_inspector2.errors.validation_exception.ValidationException: <p>The request has failed validation due to missing required fields or having invalid inputs.</p>
+            aws_sdk_inspector2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1770,6 +2008,14 @@ class Inspector2Client:
         Args:
             integration_arn: <p>The Amazon Resource Name (ARN) of the code security integration to retrieve.</p>
             tags: <p>The tags associated with the code security integration.</p>
+
+        Raises:
+            aws_sdk_inspector2.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p> <p> For <code>Enable</code>, you receive this error if you attempt to use a feature in an unsupported Amazon Web Services Region. </p>
+            aws_sdk_inspector2.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal failure of the Amazon Inspector service.</p>
+            aws_sdk_inspector2.errors.resource_not_found_exception.ResourceNotFoundException: <p>The operation tried to access an invalid resource. Make sure the resource is specified correctly.</p>
+            aws_sdk_inspector2.errors.throttling_exception.ThrottlingException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_inspector2.errors.validation_exception.ValidationException: <p>The request has failed validation due to missing required fields or having invalid inputs.</p>
+            aws_sdk_inspector2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1811,6 +2057,15 @@ class Inspector2Client:
         Args:
             resource: <p>The resource identifier for the code repository that was scanned.</p>
             scan_id: <p>The unique identifier of the scan to retrieve.</p>
+
+        Raises:
+            aws_sdk_inspector2.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p> <p> For <code>Enable</code>, you receive this error if you attempt to use a feature in an unsupported Amazon Web Services Region. </p>
+            aws_sdk_inspector2.errors.conflict_exception.ConflictException: <p>A conflict occurred. This exception occurs when the same resource is being modified by concurrent requests.</p>
+            aws_sdk_inspector2.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal failure of the Amazon Inspector service.</p>
+            aws_sdk_inspector2.errors.resource_not_found_exception.ResourceNotFoundException: <p>The operation tried to access an invalid resource. Make sure the resource is specified correctly.</p>
+            aws_sdk_inspector2.errors.throttling_exception.ThrottlingException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_inspector2.errors.validation_exception.ValidationException: <p>The request has failed validation due to missing required fields or having invalid inputs.</p>
+            aws_sdk_inspector2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1849,6 +2104,14 @@ class Inspector2Client:
 
         Args:
             scan_configuration_arn: <p>The Amazon Resource Name (ARN) of the scan configuration to retrieve.</p>
+
+        Raises:
+            aws_sdk_inspector2.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p> <p> For <code>Enable</code>, you receive this error if you attempt to use a feature in an unsupported Amazon Web Services Region. </p>
+            aws_sdk_inspector2.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal failure of the Amazon Inspector service.</p>
+            aws_sdk_inspector2.errors.resource_not_found_exception.ResourceNotFoundException: <p>The operation tried to access an invalid resource. Make sure the resource is specified correctly.</p>
+            aws_sdk_inspector2.errors.throttling_exception.ThrottlingException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_inspector2.errors.validation_exception.ValidationException: <p>The request has failed validation due to missing required fields or having invalid inputs.</p>
+            aws_sdk_inspector2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1879,7 +2142,14 @@ class Inspector2Client:
     def get_configuration(
         self, *, config_overrides: Optional[Inspector2ClientConfig] = None
     ) -> "aws_sdk_inspector2.types.get_configuration_response.GetConfigurationResponse":
-        """<p>Retrieves setting configurations for Inspector scans.</p>"""
+        """<p>Retrieves setting configurations for Inspector scans.</p>
+
+        Raises:
+            aws_sdk_inspector2.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal failure of the Amazon Inspector service.</p>
+            aws_sdk_inspector2.errors.resource_not_found_exception.ResourceNotFoundException: <p>The operation tried to access an invalid resource. Make sure the resource is specified correctly.</p>
+            aws_sdk_inspector2.errors.throttling_exception.ThrottlingException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_inspector2.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_inspector2.types.get_configuration_request.GetConfigurationRequest]",
@@ -1908,7 +2178,16 @@ class Inspector2Client:
     def get_delegated_admin_account(
         self, *, config_overrides: Optional[Inspector2ClientConfig] = None
     ) -> "aws_sdk_inspector2.types.get_delegated_admin_account_response.GetDelegatedAdminAccountResponse":
-        """<p>Retrieves information about the Amazon Inspector delegated administrator for your organization.</p>"""
+        """<p>Retrieves information about the Amazon Inspector delegated administrator for your organization.</p>
+
+        Raises:
+            aws_sdk_inspector2.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p> <p> For <code>Enable</code>, you receive this error if you attempt to use a feature in an unsupported Amazon Web Services Region. </p>
+            aws_sdk_inspector2.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal failure of the Amazon Inspector service.</p>
+            aws_sdk_inspector2.errors.resource_not_found_exception.ResourceNotFoundException: <p>The operation tried to access an invalid resource. Make sure the resource is specified correctly.</p>
+            aws_sdk_inspector2.errors.throttling_exception.ThrottlingException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_inspector2.errors.validation_exception.ValidationException: <p>The request has failed validation due to missing required fields or having invalid inputs.</p>
+            aws_sdk_inspector2.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_inspector2.types.get_delegated_admin_account_request.GetDelegatedAdminAccountRequest]",
@@ -1937,7 +2216,15 @@ class Inspector2Client:
     def get_ec2_deep_inspection_configuration(
         self, *, config_overrides: Optional[Inspector2ClientConfig] = None
     ) -> "aws_sdk_inspector2.types.get_ec2_deep_inspection_configuration_response.GetEc2DeepInspectionConfigurationResponse":
-        """<p>Retrieves the activation status of Amazon Inspector deep inspection and custom paths associated with your account. </p>"""
+        """<p>Retrieves the activation status of Amazon Inspector deep inspection and custom paths associated with your account. </p>
+
+        Raises:
+            aws_sdk_inspector2.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p> <p> For <code>Enable</code>, you receive this error if you attempt to use a feature in an unsupported Amazon Web Services Region. </p>
+            aws_sdk_inspector2.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal failure of the Amazon Inspector service.</p>
+            aws_sdk_inspector2.errors.resource_not_found_exception.ResourceNotFoundException: <p>The operation tried to access an invalid resource. Make sure the resource is specified correctly.</p>
+            aws_sdk_inspector2.errors.throttling_exception.ThrottlingException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_inspector2.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_inspector2.types.get_ec2_deep_inspection_configuration_request.GetEc2DeepInspectionConfigurationRequest]",
@@ -1977,6 +2264,14 @@ class Inspector2Client:
         Args:
             scan_type: <p>The scan type the key encrypts.</p>
             resource_type: <p>The resource type the key encrypts.</p>
+
+        Raises:
+            aws_sdk_inspector2.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p> <p> For <code>Enable</code>, you receive this error if you attempt to use a feature in an unsupported Amazon Web Services Region. </p>
+            aws_sdk_inspector2.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal failure of the Amazon Inspector service.</p>
+            aws_sdk_inspector2.errors.resource_not_found_exception.ResourceNotFoundException: <p>The operation tried to access an invalid resource. Make sure the resource is specified correctly.</p>
+            aws_sdk_inspector2.errors.throttling_exception.ThrottlingException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_inspector2.errors.validation_exception.ValidationException: <p>The request has failed validation due to missing required fields or having invalid inputs.</p>
+            aws_sdk_inspector2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2015,6 +2310,14 @@ class Inspector2Client:
 
         Args:
             report_id: <p>The ID of the report to retrieve the status of.</p>
+
+        Raises:
+            aws_sdk_inspector2.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p> <p> For <code>Enable</code>, you receive this error if you attempt to use a feature in an unsupported Amazon Web Services Region. </p>
+            aws_sdk_inspector2.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal failure of the Amazon Inspector service.</p>
+            aws_sdk_inspector2.errors.resource_not_found_exception.ResourceNotFoundException: <p>The operation tried to access an invalid resource. Make sure the resource is specified correctly.</p>
+            aws_sdk_inspector2.errors.throttling_exception.ThrottlingException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_inspector2.errors.validation_exception.ValidationException: <p>The request has failed validation due to missing required fields or having invalid inputs.</p>
+            aws_sdk_inspector2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2053,6 +2356,14 @@ class Inspector2Client:
 
         Args:
             account_id: <p>The Amazon Web Services account ID of the member account to retrieve information on.</p>
+
+        Raises:
+            aws_sdk_inspector2.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p> <p> For <code>Enable</code>, you receive this error if you attempt to use a feature in an unsupported Amazon Web Services Region. </p>
+            aws_sdk_inspector2.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal failure of the Amazon Inspector service.</p>
+            aws_sdk_inspector2.errors.resource_not_found_exception.ResourceNotFoundException: <p>The operation tried to access an invalid resource. Make sure the resource is specified correctly.</p>
+            aws_sdk_inspector2.errors.throttling_exception.ThrottlingException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_inspector2.errors.validation_exception.ValidationException: <p>The request has failed validation due to missing required fields or having invalid inputs.</p>
+            aws_sdk_inspector2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2090,6 +2401,14 @@ class Inspector2Client:
 
         Args:
             report_id: <p>The report ID of the SBOM export to get details for.</p>
+
+        Raises:
+            aws_sdk_inspector2.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p> <p> For <code>Enable</code>, you receive this error if you attempt to use a feature in an unsupported Amazon Web Services Region. </p>
+            aws_sdk_inspector2.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal failure of the Amazon Inspector service.</p>
+            aws_sdk_inspector2.errors.resource_not_found_exception.ResourceNotFoundException: <p>The operation tried to access an invalid resource. Make sure the resource is specified correctly.</p>
+            aws_sdk_inspector2.errors.throttling_exception.ThrottlingException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_inspector2.errors.validation_exception.ValidationException: <p>The request has failed validation due to missing required fields or having invalid inputs.</p>
+            aws_sdk_inspector2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2133,6 +2452,13 @@ class Inspector2Client:
             service: <p>The service scan type to check permissions for.</p>
             max_results: <p>The maximum number of results the response can return. If your request would return more than the maximum the response will return a <code>nextToken</code> value, use this value when you call the action again to get the remaining results.</p>
             next_token: <p>A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request to a list action. If your response returns more than the <code>maxResults</code> maximum value it will also return a <code>nextToken</code> value. For subsequent calls, use the NextToken value returned from the previous request to continue listing results after the first page.</p>
+
+        Raises:
+            aws_sdk_inspector2.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p> <p> For <code>Enable</code>, you receive this error if you attempt to use a feature in an unsupported Amazon Web Services Region. </p>
+            aws_sdk_inspector2.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal failure of the Amazon Inspector service.</p>
+            aws_sdk_inspector2.errors.throttling_exception.ThrottlingException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_inspector2.errors.validation_exception.ValidationException: <p>The request has failed validation due to missing required fields or having invalid inputs.</p>
+            aws_sdk_inspector2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2216,6 +2542,13 @@ class Inspector2Client:
             sort_order: <p>The CIS scan configuration sort order order.</p>
             next_token: <p>The pagination token from a previous request that's used to retrieve the next page of results.</p>
             max_results: <p>The maximum number of CIS scan configurations to be returned in a single page of results.</p>
+
+        Raises:
+            aws_sdk_inspector2.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p> <p> For <code>Enable</code>, you receive this error if you attempt to use a feature in an unsupported Amazon Web Services Region. </p>
+            aws_sdk_inspector2.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal failure of the Amazon Inspector service.</p>
+            aws_sdk_inspector2.errors.throttling_exception.ThrottlingException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_inspector2.errors.validation_exception.ValidationException: <p>The request has failed validation due to missing required fields or having invalid inputs.</p>
+            aws_sdk_inspector2.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Sample ListCisScanConfigurations Call
@@ -2323,6 +2656,13 @@ class Inspector2Client:
             next_token: <p>The pagination token from a previous request that's used to retrieve the next page of results.</p>
             max_results: <p>The maximum number of scan results aggregated by checks to be returned in a single page of results.</p>
 
+        Raises:
+            aws_sdk_inspector2.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p> <p> For <code>Enable</code>, you receive this error if you attempt to use a feature in an unsupported Amazon Web Services Region. </p>
+            aws_sdk_inspector2.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal failure of the Amazon Inspector service.</p>
+            aws_sdk_inspector2.errors.throttling_exception.ThrottlingException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_inspector2.errors.validation_exception.ValidationException: <p>The request has failed validation due to missing required fields or having invalid inputs.</p>
+            aws_sdk_inspector2.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Sample ListCisScanResultsAggregatedByChecks Call
 
@@ -2429,6 +2769,13 @@ class Inspector2Client:
             sort_order: <p>The sort order.</p>
             next_token: <p>The pagination token from a previous request that's used to retrieve the next page of results.</p>
             max_results: <p>The maximum number of scan results aggregated by a target resource to be returned in a single page of results.</p>
+
+        Raises:
+            aws_sdk_inspector2.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p> <p> For <code>Enable</code>, you receive this error if you attempt to use a feature in an unsupported Amazon Web Services Region. </p>
+            aws_sdk_inspector2.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal failure of the Amazon Inspector service.</p>
+            aws_sdk_inspector2.errors.throttling_exception.ThrottlingException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_inspector2.errors.validation_exception.ValidationException: <p>The request has failed validation due to missing required fields or having invalid inputs.</p>
+            aws_sdk_inspector2.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Sample ListCisScanResultsAggregatedByTargetResource Call
@@ -2539,6 +2886,13 @@ class Inspector2Client:
             next_token: <p>The pagination token from a previous request that's used to retrieve the next page of results.</p>
             max_results: <p>The maximum number of results to be returned.</p>
 
+        Raises:
+            aws_sdk_inspector2.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p> <p> For <code>Enable</code>, you receive this error if you attempt to use a feature in an unsupported Amazon Web Services Region. </p>
+            aws_sdk_inspector2.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal failure of the Amazon Inspector service.</p>
+            aws_sdk_inspector2.errors.throttling_exception.ThrottlingException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_inspector2.errors.validation_exception.ValidationException: <p>The request has failed validation due to missing required fields or having invalid inputs.</p>
+            aws_sdk_inspector2.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Sample ListCisScans Call
 
@@ -2632,6 +2986,13 @@ class Inspector2Client:
         Args:
             next_token: <p>A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request. For subsequent calls, use the NextToken value returned from the previous request to continue listing results after the first page.</p>
             max_results: <p>The maximum number of results to return in a single call.</p>
+
+        Raises:
+            aws_sdk_inspector2.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p> <p> For <code>Enable</code>, you receive this error if you attempt to use a feature in an unsupported Amazon Web Services Region. </p>
+            aws_sdk_inspector2.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal failure of the Amazon Inspector service.</p>
+            aws_sdk_inspector2.errors.throttling_exception.ThrottlingException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_inspector2.errors.validation_exception.ValidationException: <p>The request has failed validation due to missing required fields or having invalid inputs.</p>
+            aws_sdk_inspector2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2676,6 +3037,14 @@ class Inspector2Client:
             scan_configuration_arn: <p>The Amazon Resource Name (ARN) of the scan configuration to list associations for.</p>
             next_token: <p>A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request to a list action. For subsequent calls, use the <code>NextToken</code> value returned from the previous request to continue listing results after the first page.</p>
             max_results: <p>The maximum number of results to return in the response. If your request would return more than the maximum the response will return a <code>nextToken</code> value, use this value when you call the action again to get the remaining results.</p>
+
+        Raises:
+            aws_sdk_inspector2.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p> <p> For <code>Enable</code>, you receive this error if you attempt to use a feature in an unsupported Amazon Web Services Region. </p>
+            aws_sdk_inspector2.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal failure of the Amazon Inspector service.</p>
+            aws_sdk_inspector2.errors.resource_not_found_exception.ResourceNotFoundException: <p>The operation tried to access an invalid resource. Make sure the resource is specified correctly.</p>
+            aws_sdk_inspector2.errors.throttling_exception.ThrottlingException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_inspector2.errors.validation_exception.ValidationException: <p>The request has failed validation due to missing required fields or having invalid inputs.</p>
+            aws_sdk_inspector2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2719,6 +3088,14 @@ class Inspector2Client:
         Args:
             next_token: <p>A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request. For subsequent calls, use the NextToken value returned from the previous request to continue listing results after the first page.</p>
             max_results: <p>The maximum number of results to return in a single call.</p>
+
+        Raises:
+            aws_sdk_inspector2.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p> <p> For <code>Enable</code>, you receive this error if you attempt to use a feature in an unsupported Amazon Web Services Region. </p>
+            aws_sdk_inspector2.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal failure of the Amazon Inspector service.</p>
+            aws_sdk_inspector2.errors.resource_not_found_exception.ResourceNotFoundException: <p>The operation tried to access an invalid resource. Make sure the resource is specified correctly.</p>
+            aws_sdk_inspector2.errors.throttling_exception.ThrottlingException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_inspector2.errors.validation_exception.ValidationException: <p>The request has failed validation due to missing required fields or having invalid inputs.</p>
+            aws_sdk_inspector2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2767,6 +3144,12 @@ class Inspector2Client:
             max_results: <p>The maximum number of results the response can return. If your request would return more than the maximum the response will return a <code>nextToken</code> value, use this value when you call the action again to get the remaining results.</p>
             next_token: <p>A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request to a list action. If your response returns more than the <code>maxResults</code> maximum value it will also return a <code>nextToken</code> value. For subsequent calls, use the <code>nextToken</code> value returned from the previous request to continue listing results after the first page.</p>
             filter_criteria: <p>An object that contains details on the filters to apply to the coverage data for your environment.</p>
+
+        Raises:
+            aws_sdk_inspector2.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal failure of the Amazon Inspector service.</p>
+            aws_sdk_inspector2.errors.throttling_exception.ThrottlingException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_inspector2.errors.validation_exception.ValidationException: <p>The request has failed validation due to missing required fields or having invalid inputs.</p>
+            aws_sdk_inspector2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2842,6 +3225,12 @@ class Inspector2Client:
             filter_criteria: <p>An object that contains details on the filters to apply to the coverage data for your environment.</p>
             group_by: <p>The value to group the results by.</p>
             next_token: <p>A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request to a list action. For subsequent calls, use the <code>NextToken</code> value returned from the previous request to continue listing results after the first page.</p>
+
+        Raises:
+            aws_sdk_inspector2.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal failure of the Amazon Inspector service.</p>
+            aws_sdk_inspector2.errors.throttling_exception.ThrottlingException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_inspector2.errors.validation_exception.ValidationException: <p>The request has failed validation due to missing required fields or having invalid inputs.</p>
+            aws_sdk_inspector2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2913,6 +3302,13 @@ class Inspector2Client:
         Args:
             max_results: <p>The maximum number of results the response can return. If your request would return more than the maximum the response will return a <code>nextToken</code> value, use this value when you call the action again to get the remaining results.</p>
             next_token: <p>A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request to a list action. If your response returns more than the <code>maxResults</code> maximum value it will also return a <code>nextToken</code> value. For subsequent calls, use the <code>nextToken</code> value returned from the previous request to continue listing results after the first page.</p>
+
+        Raises:
+            aws_sdk_inspector2.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p> <p> For <code>Enable</code>, you receive this error if you attempt to use a feature in an unsupported Amazon Web Services Region. </p>
+            aws_sdk_inspector2.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal failure of the Amazon Inspector service.</p>
+            aws_sdk_inspector2.errors.throttling_exception.ThrottlingException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_inspector2.errors.validation_exception.ValidationException: <p>The request has failed validation due to missing required fields or having invalid inputs.</p>
+            aws_sdk_inspector2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2984,6 +3380,13 @@ class Inspector2Client:
             action: <p>The action the filter applies to matched findings.</p>
             next_token: <p>A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request to a list action. If your response returns more than the <code>maxResults</code> maximum value it will also return a <code>nextToken</code> value. For subsequent calls, use the <code>nextToken</code> value returned from the previous request to continue listing results after the first page.</p>
             max_results: <p>The maximum number of results the response can return. If your request would return more than the maximum the response will return a <code>nextToken</code> value, use this value when you call the action again to get the remaining results.</p>
+
+        Raises:
+            aws_sdk_inspector2.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p> <p> For <code>Enable</code>, you receive this error if you attempt to use a feature in an unsupported Amazon Web Services Region. </p>
+            aws_sdk_inspector2.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal failure of the Amazon Inspector service.</p>
+            aws_sdk_inspector2.errors.throttling_exception.ThrottlingException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_inspector2.errors.validation_exception.ValidationException: <p>The request has failed validation due to missing required fields or having invalid inputs.</p>
+            aws_sdk_inspector2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3069,6 +3472,12 @@ class Inspector2Client:
             max_results: <p>The maximum number of results the response can return. If your request would return more than the maximum the response will return a <code>nextToken</code> value, use this value when you call the action again to get the remaining results.</p>
             account_ids: <p>The Amazon Web Services account IDs to retrieve finding aggregation data for.</p>
             aggregation_request: <p>Details of the aggregation request that is used to filter your aggregation results.</p>
+
+        Raises:
+            aws_sdk_inspector2.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal failure of the Amazon Inspector service.</p>
+            aws_sdk_inspector2.errors.throttling_exception.ThrottlingException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_inspector2.errors.validation_exception.ValidationException: <p>The request has failed validation due to missing required fields or having invalid inputs.</p>
+            aws_sdk_inspector2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3159,6 +3568,12 @@ class Inspector2Client:
             next_token: <p>A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request to a list action. If your response returns more than the <code>maxResults</code> maximum value it will also return a <code>nextToken</code> value. For subsequent calls, use the <code>nextToken</code> value returned from the previous request to continue listing results after the first page.</p>
             filter_criteria: <p>Details on the filters to apply to your finding results.</p>
             sort_criteria: <p>Details on the sort criteria to apply to your finding results.</p>
+
+        Raises:
+            aws_sdk_inspector2.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal failure of the Amazon Inspector service.</p>
+            aws_sdk_inspector2.errors.throttling_exception.ThrottlingException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_inspector2.errors.validation_exception.ValidationException: <p>The request has failed validation due to missing required fields or having invalid inputs.</p>
+            aws_sdk_inspector2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3240,6 +3655,13 @@ class Inspector2Client:
             only_associated: <p>Specifies whether to list only currently associated members if <code>True</code> or to list all members within the organization if <code>False</code>.</p>
             max_results: <p>The maximum number of results the response can return. If your request would return more than the maximum the response will return a <code>nextToken</code> value, use this value when you call the action again to get the remaining results.</p>
             next_token: <p>A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request to a list action. If your response returns more than the <code>maxResults</code> maximum value it will also return a <code>nextToken</code> value. For subsequent calls, use the <code>nextToken</code> value returned from the previous request to continue listing results after the first page.</p>
+
+        Raises:
+            aws_sdk_inspector2.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p> <p> For <code>Enable</code>, you receive this error if you attempt to use a feature in an unsupported Amazon Web Services Region. </p>
+            aws_sdk_inspector2.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal failure of the Amazon Inspector service.</p>
+            aws_sdk_inspector2.errors.throttling_exception.ThrottlingException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_inspector2.errors.validation_exception.ValidationException: <p>The request has failed validation due to missing required fields or having invalid inputs.</p>
+            aws_sdk_inspector2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3307,6 +3729,13 @@ class Inspector2Client:
 
         Args:
             resource_arn: <p>The Amazon resource number (ARN) of the resource to list tags of.</p>
+
+        Raises:
+            aws_sdk_inspector2.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal failure of the Amazon Inspector service.</p>
+            aws_sdk_inspector2.errors.resource_not_found_exception.ResourceNotFoundException: <p>The operation tried to access an invalid resource. Make sure the resource is specified correctly.</p>
+            aws_sdk_inspector2.errors.throttling_exception.ThrottlingException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_inspector2.errors.validation_exception.ValidationException: <p>The request has failed validation due to missing required fields or having invalid inputs.</p>
+            aws_sdk_inspector2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3354,6 +3783,13 @@ class Inspector2Client:
             max_results: <p>The maximum number of results the response can return. If your request would return more than the maximum the response will return a <code>nextToken</code> value, use this value when you call the action again to get the remaining results.</p>
             next_token: <p>A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request to a list action. If your response returns more than the <code>maxResults</code> maximum value it will also return a <code>nextToken</code> value. For subsequent calls, use the <code>nextToken</code> value returned from the previous request to continue listing results after the first page.</p>
             account_ids: <p>The Amazon Web Services account IDs to retrieve usage totals for.</p>
+
+        Raises:
+            aws_sdk_inspector2.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p> <p> For <code>Enable</code>, you receive this error if you attempt to use a feature in an unsupported Amazon Web Services Region. </p>
+            aws_sdk_inspector2.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal failure of the Amazon Inspector service.</p>
+            aws_sdk_inspector2.errors.throttling_exception.ThrottlingException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_inspector2.errors.validation_exception.ValidationException: <p>The request has failed validation due to missing required fields or having invalid inputs.</p>
+            aws_sdk_inspector2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3427,6 +3863,14 @@ class Inspector2Client:
         Args:
             scan_type: <p>The scan type the key encrypts.</p>
             resource_type: <p>The resource type the key encrypts.</p>
+
+        Raises:
+            aws_sdk_inspector2.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p> <p> For <code>Enable</code>, you receive this error if you attempt to use a feature in an unsupported Amazon Web Services Region. </p>
+            aws_sdk_inspector2.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal failure of the Amazon Inspector service.</p>
+            aws_sdk_inspector2.errors.resource_not_found_exception.ResourceNotFoundException: <p>The operation tried to access an invalid resource. Make sure the resource is specified correctly.</p>
+            aws_sdk_inspector2.errors.throttling_exception.ThrottlingException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_inspector2.errors.validation_exception.ValidationException: <p>The request has failed validation due to missing required fields or having invalid inputs.</p>
+            aws_sdk_inspector2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3467,6 +3911,13 @@ class Inspector2Client:
         Args:
             filter_criteria: <p>The criteria used to filter the results of a vulnerability search.</p>
             next_token: <p>A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request to a list action. For subsequent calls, use the <code>NextToken</code> value returned from the previous request to continue listing results after the first page.</p>
+
+        Raises:
+            aws_sdk_inspector2.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p> <p> For <code>Enable</code>, you receive this error if you attempt to use a feature in an unsupported Amazon Web Services Region. </p>
+            aws_sdk_inspector2.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal failure of the Amazon Inspector service.</p>
+            aws_sdk_inspector2.errors.throttling_exception.ThrottlingException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_inspector2.errors.validation_exception.ValidationException: <p>The request has failed validation due to missing required fields or having invalid inputs.</p>
+            aws_sdk_inspector2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3530,6 +3981,14 @@ class Inspector2Client:
             scan_job_id: <p>A unique identifier for the scan job.</p>
             session_token: <p>The unique token that identifies the CIS session.</p>
 
+        Raises:
+            aws_sdk_inspector2.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p> <p> For <code>Enable</code>, you receive this error if you attempt to use a feature in an unsupported Amazon Web Services Region. </p>
+            aws_sdk_inspector2.errors.conflict_exception.ConflictException: <p>A conflict occurred. This exception occurs when the same resource is being modified by concurrent requests.</p>
+            aws_sdk_inspector2.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal failure of the Amazon Inspector service.</p>
+            aws_sdk_inspector2.errors.throttling_exception.ThrottlingException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_inspector2.errors.validation_exception.ValidationException: <p>The request has failed validation due to missing required fields or having invalid inputs.</p>
+            aws_sdk_inspector2.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Sample SendCisSessionHealth Call
 
@@ -3577,6 +4036,14 @@ class Inspector2Client:
             session_token: <p>The unique token that identifies the CIS session.</p>
             messages: <p>The CIS session telemetry messages.</p>
 
+        Raises:
+            aws_sdk_inspector2.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p> <p> For <code>Enable</code>, you receive this error if you attempt to use a feature in an unsupported Amazon Web Services Region. </p>
+            aws_sdk_inspector2.errors.conflict_exception.ConflictException: <p>A conflict occurred. This exception occurs when the same resource is being modified by concurrent requests.</p>
+            aws_sdk_inspector2.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal failure of the Amazon Inspector service.</p>
+            aws_sdk_inspector2.errors.throttling_exception.ThrottlingException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_inspector2.errors.validation_exception.ValidationException: <p>The request has failed validation due to missing required fields or having invalid inputs.</p>
+            aws_sdk_inspector2.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Sample SendCisSessionTelemetry Call
 
@@ -3622,6 +4089,14 @@ class Inspector2Client:
         Args:
             scan_job_id: <p>A unique identifier for the scan job.</p>
             message: <p>The start CIS session message.</p>
+
+        Raises:
+            aws_sdk_inspector2.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p> <p> For <code>Enable</code>, you receive this error if you attempt to use a feature in an unsupported Amazon Web Services Region. </p>
+            aws_sdk_inspector2.errors.conflict_exception.ConflictException: <p>A conflict occurred. This exception occurs when the same resource is being modified by concurrent requests.</p>
+            aws_sdk_inspector2.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal failure of the Amazon Inspector service.</p>
+            aws_sdk_inspector2.errors.throttling_exception.ThrottlingException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_inspector2.errors.validation_exception.ValidationException: <p>The request has failed validation due to missing required fields or having invalid inputs.</p>
+            aws_sdk_inspector2.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Sample SendCisSessionHealth Call
@@ -3669,6 +4144,15 @@ class Inspector2Client:
         Args:
             client_token: <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
             resource: <p>The resource identifier for the code repository to scan.</p>
+
+        Raises:
+            aws_sdk_inspector2.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p> <p> For <code>Enable</code>, you receive this error if you attempt to use a feature in an unsupported Amazon Web Services Region. </p>
+            aws_sdk_inspector2.errors.conflict_exception.ConflictException: <p>A conflict occurred. This exception occurs when the same resource is being modified by concurrent requests.</p>
+            aws_sdk_inspector2.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal failure of the Amazon Inspector service.</p>
+            aws_sdk_inspector2.errors.resource_not_found_exception.ResourceNotFoundException: <p>The operation tried to access an invalid resource. Make sure the resource is specified correctly.</p>
+            aws_sdk_inspector2.errors.throttling_exception.ThrottlingException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_inspector2.errors.validation_exception.ValidationException: <p>The request has failed validation due to missing required fields or having invalid inputs.</p>
+            aws_sdk_inspector2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3712,6 +4196,14 @@ class Inspector2Client:
             scan_job_id: <p>A unique identifier for the scan job.</p>
             session_token: <p>The unique token that identifies the CIS session.</p>
             message: <p>The stop CIS session message.</p>
+
+        Raises:
+            aws_sdk_inspector2.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p> <p> For <code>Enable</code>, you receive this error if you attempt to use a feature in an unsupported Amazon Web Services Region. </p>
+            aws_sdk_inspector2.errors.conflict_exception.ConflictException: <p>A conflict occurred. This exception occurs when the same resource is being modified by concurrent requests.</p>
+            aws_sdk_inspector2.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal failure of the Amazon Inspector service.</p>
+            aws_sdk_inspector2.errors.throttling_exception.ThrottlingException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_inspector2.errors.validation_exception.ValidationException: <p>The request has failed validation due to missing required fields or having invalid inputs.</p>
+            aws_sdk_inspector2.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Sample StopCisSession Call
@@ -3758,6 +4250,14 @@ class Inspector2Client:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource to apply a tag to.</p>
             tags: <p>The tags to be added to a resource.</p>
+
+        Raises:
+            aws_sdk_inspector2.errors.bad_request_exception.BadRequestException: <p>One or more tags submitted as part of the request is not valid.</p>
+            aws_sdk_inspector2.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal failure of the Amazon Inspector service.</p>
+            aws_sdk_inspector2.errors.resource_not_found_exception.ResourceNotFoundException: <p>The operation tried to access an invalid resource. Make sure the resource is specified correctly.</p>
+            aws_sdk_inspector2.errors.throttling_exception.ThrottlingException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_inspector2.errors.validation_exception.ValidationException: <p>The request has failed validation due to missing required fields or having invalid inputs.</p>
+            aws_sdk_inspector2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3798,6 +4298,13 @@ class Inspector2Client:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) for the resource to remove tags from.</p>
             tag_keys: <p>The tag keys to remove from the resource.</p>
+
+        Raises:
+            aws_sdk_inspector2.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal failure of the Amazon Inspector service.</p>
+            aws_sdk_inspector2.errors.resource_not_found_exception.ResourceNotFoundException: <p>The operation tried to access an invalid resource. Make sure the resource is specified correctly.</p>
+            aws_sdk_inspector2.errors.throttling_exception.ThrottlingException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_inspector2.errors.validation_exception.ValidationException: <p>The request has failed validation due to missing required fields or having invalid inputs.</p>
+            aws_sdk_inspector2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3851,6 +4358,14 @@ class Inspector2Client:
             schedule: <p>The schedule for the CIS scan configuration.</p>
             targets: <p>The targets for the CIS scan configuration.</p>
 
+        Raises:
+            aws_sdk_inspector2.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p> <p> For <code>Enable</code>, you receive this error if you attempt to use a feature in an unsupported Amazon Web Services Region. </p>
+            aws_sdk_inspector2.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal failure of the Amazon Inspector service.</p>
+            aws_sdk_inspector2.errors.resource_not_found_exception.ResourceNotFoundException: <p>The operation tried to access an invalid resource. Make sure the resource is specified correctly.</p>
+            aws_sdk_inspector2.errors.throttling_exception.ThrottlingException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_inspector2.errors.validation_exception.ValidationException: <p>The request has failed validation due to missing required fields or having invalid inputs.</p>
+            aws_sdk_inspector2.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Sample UpdateCisScanConfiguration Call
 
@@ -3902,6 +4417,15 @@ class Inspector2Client:
         Args:
             integration_arn: <p>The Amazon Resource Name (ARN) of the code security integration to update.</p>
             details: <p>The updated integration details specific to the repository provider type.</p>
+
+        Raises:
+            aws_sdk_inspector2.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p> <p> For <code>Enable</code>, you receive this error if you attempt to use a feature in an unsupported Amazon Web Services Region. </p>
+            aws_sdk_inspector2.errors.conflict_exception.ConflictException: <p>A conflict occurred. This exception occurs when the same resource is being modified by concurrent requests.</p>
+            aws_sdk_inspector2.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal failure of the Amazon Inspector service.</p>
+            aws_sdk_inspector2.errors.resource_not_found_exception.ResourceNotFoundException: <p>The operation tried to access an invalid resource. Make sure the resource is specified correctly.</p>
+            aws_sdk_inspector2.errors.throttling_exception.ThrottlingException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_inspector2.errors.validation_exception.ValidationException: <p>The request has failed validation due to missing required fields or having invalid inputs.</p>
+            aws_sdk_inspector2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3942,6 +4466,15 @@ class Inspector2Client:
         Args:
             scan_configuration_arn: <p>The Amazon Resource Name (ARN) of the scan configuration to update.</p>
             configuration: <p>The updated configuration settings for the code security scan.</p>
+
+        Raises:
+            aws_sdk_inspector2.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p> <p> For <code>Enable</code>, you receive this error if you attempt to use a feature in an unsupported Amazon Web Services Region. </p>
+            aws_sdk_inspector2.errors.conflict_exception.ConflictException: <p>A conflict occurred. This exception occurs when the same resource is being modified by concurrent requests.</p>
+            aws_sdk_inspector2.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal failure of the Amazon Inspector service.</p>
+            aws_sdk_inspector2.errors.resource_not_found_exception.ResourceNotFoundException: <p>The operation tried to access an invalid resource. Make sure the resource is specified correctly.</p>
+            aws_sdk_inspector2.errors.throttling_exception.ThrottlingException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_inspector2.errors.validation_exception.ValidationException: <p>The request has failed validation due to missing required fields or having invalid inputs.</p>
+            aws_sdk_inspector2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3986,6 +4519,13 @@ class Inspector2Client:
         Args:
             ecr_configuration: <p>Specifies how the ECR automated re-scan will be updated for your environment.</p>
             ec2_configuration: <p>Specifies how the Amazon EC2 automated scan will be updated for your environment.</p>
+
+        Raises:
+            aws_sdk_inspector2.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p> <p> For <code>Enable</code>, you receive this error if you attempt to use a feature in an unsupported Amazon Web Services Region. </p>
+            aws_sdk_inspector2.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal failure of the Amazon Inspector service.</p>
+            aws_sdk_inspector2.errors.throttling_exception.ThrottlingException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_inspector2.errors.validation_exception.ValidationException: <p>The request has failed validation due to missing required fields or having invalid inputs.</p>
+            aws_sdk_inspector2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4028,6 +4568,13 @@ class Inspector2Client:
         Args:
             activate_deep_inspection: <p>Specify <code>TRUE</code> to activate Amazon Inspector deep inspection in your account, or <code>FALSE</code> to deactivate. Member accounts in an organization cannot deactivate deep inspection, instead the delegated administrator for the organization can deactivate a member account using <a href=\"https://docs.aws.amazon.com/inspector/v2/APIReference/API_BatchUpdateMemberEc2DeepInspectionStatus.html\">BatchUpdateMemberEc2DeepInspectionStatus</a>.</p>
             package_paths: <p>The Amazon Inspector deep inspection custom paths you are adding for your account.</p>
+
+        Raises:
+            aws_sdk_inspector2.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p> <p> For <code>Enable</code>, you receive this error if you attempt to use a feature in an unsupported Amazon Web Services Region. </p>
+            aws_sdk_inspector2.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal failure of the Amazon Inspector service.</p>
+            aws_sdk_inspector2.errors.throttling_exception.ThrottlingException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_inspector2.errors.validation_exception.ValidationException: <p>The request has failed validation due to missing required fields or having invalid inputs.</p>
+            aws_sdk_inspector2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4072,6 +4619,14 @@ class Inspector2Client:
             kms_key_id: <p>A KMS key ID for the encryption key.</p>
             scan_type: <p>The scan type for the encryption key.</p>
             resource_type: <p>The resource type for the encryption key.</p>
+
+        Raises:
+            aws_sdk_inspector2.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p> <p> For <code>Enable</code>, you receive this error if you attempt to use a feature in an unsupported Amazon Web Services Region. </p>
+            aws_sdk_inspector2.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal failure of the Amazon Inspector service.</p>
+            aws_sdk_inspector2.errors.resource_not_found_exception.ResourceNotFoundException: <p>The operation tried to access an invalid resource. Make sure the resource is specified correctly.</p>
+            aws_sdk_inspector2.errors.throttling_exception.ThrottlingException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_inspector2.errors.validation_exception.ValidationException: <p>The request has failed validation due to missing required fields or having invalid inputs.</p>
+            aws_sdk_inspector2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4125,6 +4680,14 @@ class Inspector2Client:
             name: <p>The name of the filter.</p>
             filter_arn: <p>The Amazon Resource Number (ARN) of the filter to update.</p>
             reason: <p>The reason the filter was updated.</p>
+
+        Raises:
+            aws_sdk_inspector2.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p> <p> For <code>Enable</code>, you receive this error if you attempt to use a feature in an unsupported Amazon Web Services Region. </p>
+            aws_sdk_inspector2.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal failure of the Amazon Inspector service.</p>
+            aws_sdk_inspector2.errors.resource_not_found_exception.ResourceNotFoundException: <p>The operation tried to access an invalid resource. Make sure the resource is specified correctly.</p>
+            aws_sdk_inspector2.errors.throttling_exception.ThrottlingException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_inspector2.errors.validation_exception.ValidationException: <p>The request has failed validation due to missing required fields or having invalid inputs.</p>
+            aws_sdk_inspector2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4172,6 +4735,13 @@ class Inspector2Client:
 
         Args:
             auto_enable: <p>Defines which scan types are enabled automatically for new members of your Amazon Inspector organization.</p>
+
+        Raises:
+            aws_sdk_inspector2.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p> <p> For <code>Enable</code>, you receive this error if you attempt to use a feature in an unsupported Amazon Web Services Region. </p>
+            aws_sdk_inspector2.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal failure of the Amazon Inspector service.</p>
+            aws_sdk_inspector2.errors.throttling_exception.ThrottlingException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_inspector2.errors.validation_exception.ValidationException: <p>The request has failed validation due to missing required fields or having invalid inputs.</p>
+            aws_sdk_inspector2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4209,6 +4779,13 @@ class Inspector2Client:
 
         Args:
             org_package_paths: <p>The Amazon Inspector deep inspection custom paths you are adding for your organization.</p>
+
+        Raises:
+            aws_sdk_inspector2.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p> <p> For <code>Enable</code>, you receive this error if you attempt to use a feature in an unsupported Amazon Web Services Region. </p>
+            aws_sdk_inspector2.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal failure of the Amazon Inspector service.</p>
+            aws_sdk_inspector2.errors.throttling_exception.ThrottlingException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_inspector2.errors.validation_exception.ValidationException: <p>The request has failed validation due to missing required fields or having invalid inputs.</p>
+            aws_sdk_inspector2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(

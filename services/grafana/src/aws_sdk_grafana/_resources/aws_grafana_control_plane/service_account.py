@@ -50,6 +50,16 @@ class ServiceAccount:
             name: <p>A name for the service account. The name must be unique within the workspace, as it determines the ID associated with the service account.</p>
             grafana_role: <p>The permission level to use for this service account.</p> <note> <p>For more information about the roles and the permissions each has, see <a href=\"https://docs.aws.amazon.com/grafana/latest/userguide/Grafana-user-roles.html\">User roles</a> in the <i>Amazon Managed Grafana User Guide</i>.</p> </note>
             workspace_id: <p>The ID of the workspace within which to create the service account.</p>
+
+        Raises:
+            aws_sdk_grafana.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action. </p>
+            aws_sdk_grafana.errors.conflict_exception.ConflictException: <p>A resource was in an inconsistent state during an update or a deletion.</p>
+            aws_sdk_grafana.errors.internal_server_exception.InternalServerException: <p>Unexpected error while processing the request. Retry the request.</p>
+            aws_sdk_grafana.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource that does not exist.</p>
+            aws_sdk_grafana.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request would cause a service quota to be exceeded.</p>
+            aws_sdk_grafana.errors.throttling_exception.ThrottlingException: <p>The request was denied because of request throttling. Retry the request.</p>
+            aws_sdk_grafana.errors.validation_exception.ValidationException: <p>The value of a parameter in the request caused an error.</p>
+            aws_sdk_grafana.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -91,6 +101,15 @@ class ServiceAccount:
         Args:
             service_account_id: <p>The ID of the service account to delete.</p>
             workspace_id: <p>The ID of the workspace where the service account resides.</p>
+
+        Raises:
+            aws_sdk_grafana.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action. </p>
+            aws_sdk_grafana.errors.conflict_exception.ConflictException: <p>A resource was in an inconsistent state during an update or a deletion.</p>
+            aws_sdk_grafana.errors.internal_server_exception.InternalServerException: <p>Unexpected error while processing the request. Retry the request.</p>
+            aws_sdk_grafana.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource that does not exist.</p>
+            aws_sdk_grafana.errors.throttling_exception.ThrottlingException: <p>The request was denied because of request throttling. Retry the request.</p>
+            aws_sdk_grafana.errors.validation_exception.ValidationException: <p>The value of a parameter in the request caused an error.</p>
+            aws_sdk_grafana.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -135,6 +154,15 @@ class ServiceAccount:
             max_results: <p>The maximum number of service accounts to include in the results.</p>
             next_token: <p>The token for the next set of service accounts to return. (You receive this token from a previous <code>ListWorkspaceServiceAccounts</code> operation.)</p>
             workspace_id: <p>The workspace for which to list service accounts.</p>
+
+        Raises:
+            aws_sdk_grafana.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action. </p>
+            aws_sdk_grafana.errors.conflict_exception.ConflictException: <p>A resource was in an inconsistent state during an update or a deletion.</p>
+            aws_sdk_grafana.errors.internal_server_exception.InternalServerException: <p>Unexpected error while processing the request. Retry the request.</p>
+            aws_sdk_grafana.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource that does not exist.</p>
+            aws_sdk_grafana.errors.throttling_exception.ThrottlingException: <p>The request was denied because of request throttling. Retry the request.</p>
+            aws_sdk_grafana.errors.validation_exception.ValidationException: <p>The value of a parameter in the request caused an error.</p>
+            aws_sdk_grafana.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -185,6 +213,16 @@ class AsyncServiceAccount:
             name: <p>A name for the service account. The name must be unique within the workspace, as it determines the ID associated with the service account.</p>
             grafana_role: <p>The permission level to use for this service account.</p> <note> <p>For more information about the roles and the permissions each has, see <a href=\"https://docs.aws.amazon.com/grafana/latest/userguide/Grafana-user-roles.html\">User roles</a> in the <i>Amazon Managed Grafana User Guide</i>.</p> </note>
             workspace_id: <p>The ID of the workspace within which to create the service account.</p>
+
+        Raises:
+            aws_sdk_grafana.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action. </p>
+            aws_sdk_grafana.errors.conflict_exception.ConflictException: <p>A resource was in an inconsistent state during an update or a deletion.</p>
+            aws_sdk_grafana.errors.internal_server_exception.InternalServerException: <p>Unexpected error while processing the request. Retry the request.</p>
+            aws_sdk_grafana.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource that does not exist.</p>
+            aws_sdk_grafana.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request would cause a service quota to be exceeded.</p>
+            aws_sdk_grafana.errors.throttling_exception.ThrottlingException: <p>The request was denied because of request throttling. Retry the request.</p>
+            aws_sdk_grafana.errors.validation_exception.ValidationException: <p>The value of a parameter in the request caused an error.</p>
+            aws_sdk_grafana.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -227,6 +265,15 @@ class AsyncServiceAccount:
         Args:
             service_account_id: <p>The ID of the service account to delete.</p>
             workspace_id: <p>The ID of the workspace where the service account resides.</p>
+
+        Raises:
+            aws_sdk_grafana.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action. </p>
+            aws_sdk_grafana.errors.conflict_exception.ConflictException: <p>A resource was in an inconsistent state during an update or a deletion.</p>
+            aws_sdk_grafana.errors.internal_server_exception.InternalServerException: <p>Unexpected error while processing the request. Retry the request.</p>
+            aws_sdk_grafana.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource that does not exist.</p>
+            aws_sdk_grafana.errors.throttling_exception.ThrottlingException: <p>The request was denied because of request throttling. Retry the request.</p>
+            aws_sdk_grafana.errors.validation_exception.ValidationException: <p>The value of a parameter in the request caused an error.</p>
+            aws_sdk_grafana.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -272,6 +319,15 @@ class AsyncServiceAccount:
             max_results: <p>The maximum number of service accounts to include in the results.</p>
             next_token: <p>The token for the next set of service accounts to return. (You receive this token from a previous <code>ListWorkspaceServiceAccounts</code> operation.)</p>
             workspace_id: <p>The workspace for which to list service accounts.</p>
+
+        Raises:
+            aws_sdk_grafana.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action. </p>
+            aws_sdk_grafana.errors.conflict_exception.ConflictException: <p>A resource was in an inconsistent state during an update or a deletion.</p>
+            aws_sdk_grafana.errors.internal_server_exception.InternalServerException: <p>Unexpected error while processing the request. Retry the request.</p>
+            aws_sdk_grafana.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource that does not exist.</p>
+            aws_sdk_grafana.errors.throttling_exception.ThrottlingException: <p>The request was denied because of request throttling. Retry the request.</p>
+            aws_sdk_grafana.errors.validation_exception.ValidationException: <p>The value of a parameter in the request caused an error.</p>
+            aws_sdk_grafana.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

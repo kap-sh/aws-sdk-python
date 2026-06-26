@@ -73,6 +73,13 @@ class JobResource:
             name: <p>An optional name for the job resource.</p>
             output_options: <p>Configuration for output data location and format.</p>
             tags: <p>Tags and corresponding values to be associated with the job.</p>
+
+        Raises:
+            aws_sdk_location.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because of insufficient access or permissions. Check with an administrator to verify your permissions.</p>
+            aws_sdk_location.errors.internal_server_exception.InternalServerException: <p>The request has failed to process because of an unknown server error, exception, or failure.</p>
+            aws_sdk_location.errors.throttling_exception.ThrottlingException: <p>The request was denied because of request throttling.</p>
+            aws_sdk_location.errors.validation_exception.ValidationException: <p>The input failed to meet the constraints specified by the AWS service. </p>
+            aws_sdk_location.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -121,6 +128,14 @@ class JobResource:
 
         Args:
             job_id: <p>The unique identifier of the job to retrieve.</p>
+
+        Raises:
+            aws_sdk_location.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because of insufficient access or permissions. Check with an administrator to verify your permissions.</p>
+            aws_sdk_location.errors.internal_server_exception.InternalServerException: <p>The request has failed to process because of an unknown server error, exception, or failure.</p>
+            aws_sdk_location.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource that you've entered was not found in your AWS account.</p>
+            aws_sdk_location.errors.throttling_exception.ThrottlingException: <p>The request was denied because of request throttling.</p>
+            aws_sdk_location.errors.validation_exception.ValidationException: <p>The input failed to meet the constraints specified by the AWS service. </p>
+            aws_sdk_location.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -162,6 +177,13 @@ class JobResource:
             filter: <p>An optional structure containing criteria by which to filter job results.</p>
             max_results: <p>Maximum number of jobs to return.</p>
             next_token: <p>The pagination token specifying which page of results to return in the response. If no token is provided, the default page is the first page.</p>
+
+        Raises:
+            aws_sdk_location.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because of insufficient access or permissions. Check with an administrator to verify your permissions.</p>
+            aws_sdk_location.errors.internal_server_exception.InternalServerException: <p>The request has failed to process because of an unknown server error, exception, or failure.</p>
+            aws_sdk_location.errors.throttling_exception.ThrottlingException: <p>The request was denied because of request throttling.</p>
+            aws_sdk_location.errors.validation_exception.ValidationException: <p>The input failed to meet the constraints specified by the AWS service. </p>
+            aws_sdk_location.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -204,6 +226,13 @@ class JobResource:
 
         Args:
             job_id: <p>The unique identifier of the job to cancel.</p>
+
+        Raises:
+            aws_sdk_location.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because of insufficient access or permissions. Check with an administrator to verify your permissions.</p>
+            aws_sdk_location.errors.internal_server_exception.InternalServerException: <p>The request has failed to process because of an unknown server error, exception, or failure.</p>
+            aws_sdk_location.errors.throttling_exception.ThrottlingException: <p>The request was denied because of request throttling.</p>
+            aws_sdk_location.errors.validation_exception.ValidationException: <p>The input failed to meet the constraints specified by the AWS service. </p>
+            aws_sdk_location.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -264,6 +293,13 @@ class AsyncJobResource:
             name: <p>An optional name for the job resource.</p>
             output_options: <p>Configuration for output data location and format.</p>
             tags: <p>Tags and corresponding values to be associated with the job.</p>
+
+        Raises:
+            aws_sdk_location.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because of insufficient access or permissions. Check with an administrator to verify your permissions.</p>
+            aws_sdk_location.errors.internal_server_exception.InternalServerException: <p>The request has failed to process because of an unknown server error, exception, or failure.</p>
+            aws_sdk_location.errors.throttling_exception.ThrottlingException: <p>The request was denied because of request throttling.</p>
+            aws_sdk_location.errors.validation_exception.ValidationException: <p>The input failed to meet the constraints specified by the AWS service. </p>
+            aws_sdk_location.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -313,6 +349,14 @@ class AsyncJobResource:
 
         Args:
             job_id: <p>The unique identifier of the job to retrieve.</p>
+
+        Raises:
+            aws_sdk_location.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because of insufficient access or permissions. Check with an administrator to verify your permissions.</p>
+            aws_sdk_location.errors.internal_server_exception.InternalServerException: <p>The request has failed to process because of an unknown server error, exception, or failure.</p>
+            aws_sdk_location.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource that you've entered was not found in your AWS account.</p>
+            aws_sdk_location.errors.throttling_exception.ThrottlingException: <p>The request was denied because of request throttling.</p>
+            aws_sdk_location.errors.validation_exception.ValidationException: <p>The input failed to meet the constraints specified by the AWS service. </p>
+            aws_sdk_location.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -355,6 +399,13 @@ class AsyncJobResource:
             filter: <p>An optional structure containing criteria by which to filter job results.</p>
             max_results: <p>Maximum number of jobs to return.</p>
             next_token: <p>The pagination token specifying which page of results to return in the response. If no token is provided, the default page is the first page.</p>
+
+        Raises:
+            aws_sdk_location.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because of insufficient access or permissions. Check with an administrator to verify your permissions.</p>
+            aws_sdk_location.errors.internal_server_exception.InternalServerException: <p>The request has failed to process because of an unknown server error, exception, or failure.</p>
+            aws_sdk_location.errors.throttling_exception.ThrottlingException: <p>The request was denied because of request throttling.</p>
+            aws_sdk_location.errors.validation_exception.ValidationException: <p>The input failed to meet the constraints specified by the AWS service. </p>
+            aws_sdk_location.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -398,6 +449,13 @@ class AsyncJobResource:
 
         Args:
             job_id: <p>The unique identifier of the job to cancel.</p>
+
+        Raises:
+            aws_sdk_location.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because of insufficient access or permissions. Check with an administrator to verify your permissions.</p>
+            aws_sdk_location.errors.internal_server_exception.InternalServerException: <p>The request has failed to process because of an unknown server error, exception, or failure.</p>
+            aws_sdk_location.errors.throttling_exception.ThrottlingException: <p>The request was denied because of request throttling.</p>
+            aws_sdk_location.errors.validation_exception.ValidationException: <p>The input failed to meet the constraints specified by the AWS service. </p>
+            aws_sdk_location.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

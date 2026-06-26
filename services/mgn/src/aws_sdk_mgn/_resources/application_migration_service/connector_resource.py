@@ -54,6 +54,11 @@ class ConnectorResource:
             ssm_instance_id: <p>Create Connector request SSM instance ID.</p>
             tags: <p>Create Connector request tags.</p>
             ssm_command_config: <p>Create Connector request SSM command config.</p>
+
+        Raises:
+            aws_sdk_mgn.errors.uninitialized_account_exception.UninitializedAccountException: <p>Uninitialized account exception.</p>
+            aws_sdk_mgn.errors.validation_exception.ValidationException: <p>Validate exception.</p>
+            aws_sdk_mgn.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -100,6 +105,12 @@ class ConnectorResource:
             connector_id: <p>Update Connector request connector ID.</p>
             name: <p>Update Connector request name.</p>
             ssm_command_config: <p>Update Connector request SSM command config.</p>
+
+        Raises:
+            aws_sdk_mgn.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found exception.</p>
+            aws_sdk_mgn.errors.uninitialized_account_exception.UninitializedAccountException: <p>Uninitialized account exception.</p>
+            aws_sdk_mgn.errors.validation_exception.ValidationException: <p>Validate exception.</p>
+            aws_sdk_mgn.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -139,6 +150,12 @@ class ConnectorResource:
 
         Args:
             connector_id: <p>Delete Connector request connector ID.</p>
+
+        Raises:
+            aws_sdk_mgn.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found exception.</p>
+            aws_sdk_mgn.errors.uninitialized_account_exception.UninitializedAccountException: <p>Uninitialized account exception.</p>
+            aws_sdk_mgn.errors.validation_exception.ValidationException: <p>Validate exception.</p>
+            aws_sdk_mgn.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -184,6 +201,11 @@ class ConnectorResource:
             filters: <p>List Connectors Request filters.</p>
             max_results: <p>List Connectors Request max results.</p>
             next_token: <p>List Connectors Request next token.</p>
+
+        Raises:
+            aws_sdk_mgn.errors.uninitialized_account_exception.UninitializedAccountException: <p>Uninitialized account exception.</p>
+            aws_sdk_mgn.errors.validation_exception.ValidationException: <p>Validate exception.</p>
+            aws_sdk_mgn.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -239,6 +261,11 @@ class AsyncConnectorResource:
             ssm_instance_id: <p>Create Connector request SSM instance ID.</p>
             tags: <p>Create Connector request tags.</p>
             ssm_command_config: <p>Create Connector request SSM command config.</p>
+
+        Raises:
+            aws_sdk_mgn.errors.uninitialized_account_exception.UninitializedAccountException: <p>Uninitialized account exception.</p>
+            aws_sdk_mgn.errors.validation_exception.ValidationException: <p>Validate exception.</p>
+            aws_sdk_mgn.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -286,6 +313,12 @@ class AsyncConnectorResource:
             connector_id: <p>Update Connector request connector ID.</p>
             name: <p>Update Connector request name.</p>
             ssm_command_config: <p>Update Connector request SSM command config.</p>
+
+        Raises:
+            aws_sdk_mgn.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found exception.</p>
+            aws_sdk_mgn.errors.uninitialized_account_exception.UninitializedAccountException: <p>Uninitialized account exception.</p>
+            aws_sdk_mgn.errors.validation_exception.ValidationException: <p>Validate exception.</p>
+            aws_sdk_mgn.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -326,6 +359,12 @@ class AsyncConnectorResource:
 
         Args:
             connector_id: <p>Delete Connector request connector ID.</p>
+
+        Raises:
+            aws_sdk_mgn.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found exception.</p>
+            aws_sdk_mgn.errors.uninitialized_account_exception.UninitializedAccountException: <p>Uninitialized account exception.</p>
+            aws_sdk_mgn.errors.validation_exception.ValidationException: <p>Validate exception.</p>
+            aws_sdk_mgn.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -372,6 +411,11 @@ class AsyncConnectorResource:
             filters: <p>List Connectors Request filters.</p>
             max_results: <p>List Connectors Request max results.</p>
             next_token: <p>List Connectors Request next token.</p>
+
+        Raises:
+            aws_sdk_mgn.errors.uninitialized_account_exception.UninitializedAccountException: <p>Uninitialized account exception.</p>
+            aws_sdk_mgn.errors.validation_exception.ValidationException: <p>Validate exception.</p>
+            aws_sdk_mgn.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

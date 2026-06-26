@@ -211,6 +211,14 @@ class AsyncsyntheticsClient:
         Args:
             group_identifier: <p>Specifies the group. You can specify the group name, the ARN, or the group ID as the <code>GroupIdentifier</code>.</p>
             resource_arn: <p>The ARN of the canary that you want to associate with the specified group.</p>
+
+        Raises:
+            aws_sdk_synthetics.errors.conflict_exception.ConflictException: <p>A conflicting operation is already in progress.</p>
+            aws_sdk_synthetics.errors.internal_server_exception.InternalServerException: <p>An unknown internal error occurred.</p>
+            aws_sdk_synthetics.errors.resource_not_found_exception.ResourceNotFoundException: <p>One of the specified resources was not found.</p>
+            aws_sdk_synthetics.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request exceeded a service quota value.</p>
+            aws_sdk_synthetics.errors.validation_exception.ValidationException: <p>A parameter could not be validated.</p>
+            aws_sdk_synthetics.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -294,6 +302,12 @@ class AsyncsyntheticsClient:
             browser_configs: <p>CloudWatch Synthetics now supports multibrowser canaries for <code>syn-nodejs-puppeteer-11.0</code> and <code>syn-nodejs-playwright-3.0</code> runtimes. This feature allows you to run your canaries on both Firefox and Chrome browsers. To create a multibrowser canary, you need to specify the BrowserConfigs with a list of browsers you want to use.</p> <note> <p>If not specified, <code>browserConfigs</code> defaults to Chrome.</p> </note>
             tags: <p>A list of key-value pairs to associate with the canary. You can associate as many as 50 tags with a canary.</p> <p>Tags can help you organize and categorize your resources. You can also use them to scope user permissions, by granting a user permission to access or change only the resources that have certain tag values.</p> <p>To have the tags that you apply to this canary also be applied to the Lambda function that the canary uses, specify this parameter with the value <code>lambda-function</code>.</p>
             artifact_config: <p>A structure that contains the configuration for canary artifacts, including the encryption-at-rest settings for artifacts that the canary uploads to Amazon S3.</p>
+
+        Raises:
+            aws_sdk_synthetics.errors.internal_server_exception.InternalServerException: <p>An unknown internal error occurred.</p>
+            aws_sdk_synthetics.errors.request_entity_too_large_exception.RequestEntityTooLargeException: <p>One of the input resources is larger than is allowed.</p>
+            aws_sdk_synthetics.errors.validation_exception.ValidationException: <p>A parameter could not be validated.</p>
+            aws_sdk_synthetics.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -361,6 +375,13 @@ class AsyncsyntheticsClient:
         Args:
             name: <p>The name for the group. It can include any Unicode characters.</p> <p>The names for all groups in your account, across all Regions, must be unique.</p>
             tags: <p>A list of key-value pairs to associate with the group. You can associate as many as 50 tags with a group.</p> <p>Tags can help you organize and categorize your resources. You can also use them to scope user permissions, by granting a user permission to access or change only the resources that have certain tag values.</p>
+
+        Raises:
+            aws_sdk_synthetics.errors.conflict_exception.ConflictException: <p>A conflicting operation is already in progress.</p>
+            aws_sdk_synthetics.errors.internal_server_exception.InternalServerException: <p>An unknown internal error occurred.</p>
+            aws_sdk_synthetics.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request exceeded a service quota value.</p>
+            aws_sdk_synthetics.errors.validation_exception.ValidationException: <p>A parameter could not be validated.</p>
+            aws_sdk_synthetics.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -403,6 +424,13 @@ class AsyncsyntheticsClient:
         Args:
             name: <p>The name of the canary that you want to delete. To find the names of your canaries, use <a href=\"https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_DescribeCanaries.html\">DescribeCanaries</a>.</p>
             delete_lambda: <p>Specifies whether to also delete the Lambda functions and layers used by this canary. The default is <code>false</code>.</p> <p>Your setting for this parameter is used only if the canary doesn't have <code>AUTOMATIC</code> for its <code>ProvisionedResourceCleanup</code> field. If that field is set to <code>AUTOMATIC</code>, then the Lambda functions and layers will be deleted when this canary is deleted. </p> <p>Type: Boolean</p>
+
+        Raises:
+            aws_sdk_synthetics.errors.conflict_exception.ConflictException: <p>A conflicting operation is already in progress.</p>
+            aws_sdk_synthetics.errors.internal_server_exception.InternalServerException: <p>An unknown internal error occurred.</p>
+            aws_sdk_synthetics.errors.resource_not_found_exception.ResourceNotFoundException: <p>One of the specified resources was not found.</p>
+            aws_sdk_synthetics.errors.validation_exception.ValidationException: <p>A parameter could not be validated.</p>
+            aws_sdk_synthetics.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -443,6 +471,13 @@ class AsyncsyntheticsClient:
 
         Args:
             group_identifier: <p>Specifies which group to delete. You can specify the group name, the ARN, or the group ID as the <code>GroupIdentifier</code>.</p>
+
+        Raises:
+            aws_sdk_synthetics.errors.conflict_exception.ConflictException: <p>A conflicting operation is already in progress.</p>
+            aws_sdk_synthetics.errors.internal_server_exception.InternalServerException: <p>An unknown internal error occurred.</p>
+            aws_sdk_synthetics.errors.resource_not_found_exception.ResourceNotFoundException: <p>One of the specified resources was not found.</p>
+            aws_sdk_synthetics.errors.validation_exception.ValidationException: <p>A parameter could not be validated.</p>
+            aws_sdk_synthetics.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -489,6 +524,11 @@ class AsyncsyntheticsClient:
             next_token: <p>A token that indicates that there is more data available. You can use this token in a subsequent operation to retrieve the next set of results.</p>
             max_results: <p>Specify this parameter to limit how many canaries are returned each time you use the <code>DescribeCanaries</code> operation. If you omit this parameter, the default of 20 is used.</p>
             names: <p>Use this parameter to return only canaries that match the names that you specify here. You can specify as many as five canary names.</p> <p>If you specify this parameter, the operation is successful only if you have authorization to view all the canaries that you specify in your request. If you do not have permission to view any of the canaries, the request fails with a 403 response.</p> <p>You are required to use this parameter if you are logged on to a user or role that has an IAM policy that restricts which canaries that you are allowed to view. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_Restricted.html\"> Limiting a user to viewing specific canaries</a>.</p>
+
+        Raises:
+            aws_sdk_synthetics.errors.internal_server_exception.InternalServerException: <p>An unknown internal error occurred.</p>
+            aws_sdk_synthetics.errors.validation_exception.ValidationException: <p>A parameter could not be validated.</p>
+            aws_sdk_synthetics.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -542,6 +582,11 @@ class AsyncsyntheticsClient:
             max_results: <p>Specify this parameter to limit how many runs are returned each time you use the <code>DescribeLastRun</code> operation. If you omit this parameter, the default of 100 is used.</p>
             names: <p>Use this parameter to return only canaries that match the names that you specify here. You can specify as many as five canary names.</p> <p>If you specify this parameter, the operation is successful only if you have authorization to view all the canaries that you specify in your request. If you do not have permission to view any of the canaries, the request fails with a 403 response.</p> <p>You are required to use the <code>Names</code> parameter if you are logged on to a user or role that has an IAM policy that restricts which canaries that you are allowed to view. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_Restricted.html\"> Limiting a user to viewing specific canaries</a>.</p>
             browser_type: <p>The type of browser to use for the canary run.</p>
+
+        Raises:
+            aws_sdk_synthetics.errors.internal_server_exception.InternalServerException: <p>An unknown internal error occurred.</p>
+            aws_sdk_synthetics.errors.validation_exception.ValidationException: <p>A parameter could not be validated.</p>
+            aws_sdk_synthetics.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -589,6 +634,11 @@ class AsyncsyntheticsClient:
         Args:
             next_token: <p>A token that indicates that there is more data available. You can use this token in a subsequent <code>DescribeRuntimeVersions</code> operation to retrieve the next set of results.</p>
             max_results: <p>Specify this parameter to limit how many runs are returned each time you use the <code>DescribeRuntimeVersions</code> operation. If you omit this parameter, the default of 100 is used.</p>
+
+        Raises:
+            aws_sdk_synthetics.errors.internal_server_exception.InternalServerException: <p>An unknown internal error occurred.</p>
+            aws_sdk_synthetics.errors.validation_exception.ValidationException: <p>A parameter could not be validated.</p>
+            aws_sdk_synthetics.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -632,6 +682,13 @@ class AsyncsyntheticsClient:
         Args:
             group_identifier: <p>Specifies the group. You can specify the group name, the ARN, or the group ID as the <code>GroupIdentifier</code>.</p>
             resource_arn: <p>The ARN of the canary that you want to remove from the specified group.</p>
+
+        Raises:
+            aws_sdk_synthetics.errors.conflict_exception.ConflictException: <p>A conflicting operation is already in progress.</p>
+            aws_sdk_synthetics.errors.internal_server_exception.InternalServerException: <p>An unknown internal error occurred.</p>
+            aws_sdk_synthetics.errors.resource_not_found_exception.ResourceNotFoundException: <p>One of the specified resources was not found.</p>
+            aws_sdk_synthetics.errors.validation_exception.ValidationException: <p>A parameter could not be validated.</p>
+            aws_sdk_synthetics.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -673,6 +730,11 @@ class AsyncsyntheticsClient:
         Args:
             name: <p>The name of the canary that you want details for.</p>
             dry_run_id: <p>The DryRunId associated with an existing canary’s dry run. You can use this DryRunId to retrieve information about the dry run.</p>
+
+        Raises:
+            aws_sdk_synthetics.errors.internal_server_exception.InternalServerException: <p>An unknown internal error occurred.</p>
+            aws_sdk_synthetics.errors.validation_exception.ValidationException: <p>A parameter could not be validated.</p>
+            aws_sdk_synthetics.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -721,6 +783,12 @@ class AsyncsyntheticsClient:
             max_results: <p>Specify this parameter to limit how many runs are returned each time you use the <code>GetCanaryRuns</code> operation. If you omit this parameter, the default of 100 is used.</p>
             dry_run_id: <p>The DryRunId associated with an existing canary’s dry run. You can use this DryRunId to retrieve information about the dry run.</p>
             run_type: <ul> <li> <p>When you provide <code>RunType=CANARY_RUN</code> and <code>dryRunId</code>, you will get an exception </p> </li> <li> <p>When a value is not provided for <code>RunType</code>, the default value is <code>CANARY_RUN</code> </p> </li> <li> <p>When <code>CANARY_RUN</code> is provided, all canary runs excluding dry runs are returned</p> </li> <li> <p>When <code>DRY_RUN</code> is provided, all dry runs excluding canary runs are returned</p> </li> </ul>
+
+        Raises:
+            aws_sdk_synthetics.errors.internal_server_exception.InternalServerException: <p>An unknown internal error occurred.</p>
+            aws_sdk_synthetics.errors.resource_not_found_exception.ResourceNotFoundException: <p>One of the specified resources was not found.</p>
+            aws_sdk_synthetics.errors.validation_exception.ValidationException: <p>A parameter could not be validated.</p>
+            aws_sdk_synthetics.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -767,6 +835,13 @@ class AsyncsyntheticsClient:
 
         Args:
             group_identifier: <p>Specifies the group to return information for. You can specify the group name, the ARN, or the group ID as the <code>GroupIdentifier</code>.</p>
+
+        Raises:
+            aws_sdk_synthetics.errors.conflict_exception.ConflictException: <p>A conflicting operation is already in progress.</p>
+            aws_sdk_synthetics.errors.internal_server_exception.InternalServerException: <p>An unknown internal error occurred.</p>
+            aws_sdk_synthetics.errors.resource_not_found_exception.ResourceNotFoundException: <p>One of the specified resources was not found.</p>
+            aws_sdk_synthetics.errors.validation_exception.ValidationException: <p>A parameter could not be validated.</p>
+            aws_sdk_synthetics.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -813,6 +888,12 @@ class AsyncsyntheticsClient:
             next_token: <p>A token that indicates that there is more data available. You can use this token in a subsequent operation to retrieve the next set of results.</p>
             max_results: <p>Specify this parameter to limit how many groups are returned each time you use the <code>ListAssociatedGroups</code> operation. If you omit this parameter, the default of 20 is used.</p>
             resource_arn: <p>The ARN of the canary that you want to view groups for.</p>
+
+        Raises:
+            aws_sdk_synthetics.errors.internal_server_exception.InternalServerException: <p>An unknown internal error occurred.</p>
+            aws_sdk_synthetics.errors.resource_not_found_exception.ResourceNotFoundException: <p>One of the specified resources was not found.</p>
+            aws_sdk_synthetics.errors.validation_exception.ValidationException: <p>A parameter could not be validated.</p>
+            aws_sdk_synthetics.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -863,6 +944,13 @@ class AsyncsyntheticsClient:
             next_token: <p>A token that indicates that there is more data available. You can use this token in a subsequent operation to retrieve the next set of results.</p>
             max_results: <p>Specify this parameter to limit how many canary ARNs are returned each time you use the <code>ListGroupResources</code> operation. If you omit this parameter, the default of 20 is used.</p>
             group_identifier: <p>Specifies the group to return information for. You can specify the group name, the ARN, or the group ID as the <code>GroupIdentifier</code>.</p>
+
+        Raises:
+            aws_sdk_synthetics.errors.conflict_exception.ConflictException: <p>A conflicting operation is already in progress.</p>
+            aws_sdk_synthetics.errors.internal_server_exception.InternalServerException: <p>An unknown internal error occurred.</p>
+            aws_sdk_synthetics.errors.resource_not_found_exception.ResourceNotFoundException: <p>One of the specified resources was not found.</p>
+            aws_sdk_synthetics.errors.validation_exception.ValidationException: <p>A parameter could not be validated.</p>
+            aws_sdk_synthetics.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -911,6 +999,11 @@ class AsyncsyntheticsClient:
         Args:
             next_token: <p>A token that indicates that there is more data available. You can use this token in a subsequent operation to retrieve the next set of results.</p>
             max_results: <p>Specify this parameter to limit how many groups are returned each time you use the <code>ListGroups</code> operation. If you omit this parameter, the default of 20 is used.</p>
+
+        Raises:
+            aws_sdk_synthetics.errors.internal_server_exception.InternalServerException: <p>An unknown internal error occurred.</p>
+            aws_sdk_synthetics.errors.validation_exception.ValidationException: <p>A parameter could not be validated.</p>
+            aws_sdk_synthetics.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -952,6 +1045,14 @@ class AsyncsyntheticsClient:
 
         Args:
             resource_arn: <p>The ARN of the canary or group that you want to view tags for.</p> <p>The ARN format of a canary is <code>arn:aws:synthetics:<i>Region</i>:<i>account-id</i>:canary:<i>canary-name</i> </code>.</p> <p>The ARN format of a group is <code>arn:aws:synthetics:<i>Region</i>:<i>account-id</i>:group:<i>group-name</i> </code> </p>
+
+        Raises:
+            aws_sdk_synthetics.errors.bad_request_exception.BadRequestException: <p>The request was not valid.</p>
+            aws_sdk_synthetics.errors.conflict_exception.ConflictException: <p>A conflicting operation is already in progress.</p>
+            aws_sdk_synthetics.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred. Try the operation again.</p>
+            aws_sdk_synthetics.errors.not_found_exception.NotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_synthetics.errors.too_many_requests_exception.TooManyRequestsException: <p>There were too many simultaneous requests. Try the operation again.</p>
+            aws_sdk_synthetics.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -990,6 +1091,13 @@ class AsyncsyntheticsClient:
 
         Args:
             name: <p>The name of the canary that you want to run. To find canary names, use <a href=\"https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_DescribeCanaries.html\">DescribeCanaries</a>.</p>
+
+        Raises:
+            aws_sdk_synthetics.errors.conflict_exception.ConflictException: <p>A conflicting operation is already in progress.</p>
+            aws_sdk_synthetics.errors.internal_server_exception.InternalServerException: <p>An unknown internal error occurred.</p>
+            aws_sdk_synthetics.errors.resource_not_found_exception.ResourceNotFoundException: <p>One of the specified resources was not found.</p>
+            aws_sdk_synthetics.errors.validation_exception.ValidationException: <p>A parameter could not be validated.</p>
+            aws_sdk_synthetics.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1071,6 +1179,14 @@ class AsyncsyntheticsClient:
             provisioned_resource_cleanup: <p>Specifies whether to also delete the Lambda functions and layers used by this canary when the canary is deleted. If you omit this parameter, the default of <code>AUTOMATIC</code> is used, which means that the Lambda functions and layers will be deleted when the canary is deleted.</p> <p>If the value of this parameter is <code>OFF</code>, then the value of the <code>DeleteLambda</code> parameter of the <a href=\"https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_DeleteCanary.html\">DeleteCanary</a> operation determines whether the Lambda functions and layers will be deleted.</p>
             browser_configs: <p>A structure that specifies the browser type to use for a canary run. CloudWatch Synthetics supports running canaries on both <code>CHROME</code> and <code>FIREFOX</code> browsers.</p> <note> <p>If not specified, <code>browserConfigs</code> defaults to Chrome.</p> </note>
             visual_references: <p>A list of visual reference configurations for the canary, one for each browser type that the canary is configured to run on. Visual references are used for visual monitoring comparisons.</p> <p> <code>syn-nodejs-puppeteer-11.0</code> and above, and <code>syn-nodejs-playwright-3.0</code> and above, only supports <code>visualReferences</code>. <code>visualReference</code> field is not supported.</p> <p>Versions older than <code>syn-nodejs-puppeteer-11.0</code> supports both <code>visualReference</code> and <code>visualReferences</code> for backward compatibility. It is recommended to use <code>visualReferences</code> for consistency and future compatibility.</p>
+
+        Raises:
+            aws_sdk_synthetics.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform this operation on this resource.</p>
+            aws_sdk_synthetics.errors.conflict_exception.ConflictException: <p>A conflicting operation is already in progress.</p>
+            aws_sdk_synthetics.errors.internal_server_exception.InternalServerException: <p>An unknown internal error occurred.</p>
+            aws_sdk_synthetics.errors.resource_not_found_exception.ResourceNotFoundException: <p>One of the specified resources was not found.</p>
+            aws_sdk_synthetics.errors.validation_exception.ValidationException: <p>A parameter could not be validated.</p>
+            aws_sdk_synthetics.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1139,6 +1255,13 @@ class AsyncsyntheticsClient:
 
         Args:
             name: <p>The name of the canary that you want to stop. To find the names of your canaries, use <a href=\"https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_DescribeCanaries.html\">ListCanaries</a>.</p>
+
+        Raises:
+            aws_sdk_synthetics.errors.conflict_exception.ConflictException: <p>A conflicting operation is already in progress.</p>
+            aws_sdk_synthetics.errors.internal_server_exception.InternalServerException: <p>An unknown internal error occurred.</p>
+            aws_sdk_synthetics.errors.resource_not_found_exception.ResourceNotFoundException: <p>One of the specified resources was not found.</p>
+            aws_sdk_synthetics.errors.validation_exception.ValidationException: <p>A parameter could not be validated.</p>
+            aws_sdk_synthetics.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1179,6 +1302,14 @@ class AsyncsyntheticsClient:
         Args:
             resource_arn: <p>The ARN of the canary or group that you're adding tags to.</p> <p>The ARN format of a canary is <code>arn:aws:synthetics:<i>Region</i>:<i>account-id</i>:canary:<i>canary-name</i> </code>.</p> <p>The ARN format of a group is <code>arn:aws:synthetics:<i>Region</i>:<i>account-id</i>:group:<i>group-name</i> </code> </p>
             tags: <p>The list of key-value pairs to associate with the resource.</p>
+
+        Raises:
+            aws_sdk_synthetics.errors.bad_request_exception.BadRequestException: <p>The request was not valid.</p>
+            aws_sdk_synthetics.errors.conflict_exception.ConflictException: <p>A conflicting operation is already in progress.</p>
+            aws_sdk_synthetics.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred. Try the operation again.</p>
+            aws_sdk_synthetics.errors.not_found_exception.NotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_synthetics.errors.too_many_requests_exception.TooManyRequestsException: <p>There were too many simultaneous requests. Try the operation again.</p>
+            aws_sdk_synthetics.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1220,6 +1351,14 @@ class AsyncsyntheticsClient:
         Args:
             resource_arn: <p>The ARN of the canary or group that you're removing tags from.</p> <p>The ARN format of a canary is <code>arn:aws:synthetics:<i>Region</i>:<i>account-id</i>:canary:<i>canary-name</i> </code>.</p> <p>The ARN format of a group is <code>arn:aws:synthetics:<i>Region</i>:<i>account-id</i>:group:<i>group-name</i> </code> </p>
             tag_keys: <p>The list of tag keys to remove from the resource.</p>
+
+        Raises:
+            aws_sdk_synthetics.errors.bad_request_exception.BadRequestException: <p>The request was not valid.</p>
+            aws_sdk_synthetics.errors.conflict_exception.ConflictException: <p>A conflicting operation is already in progress.</p>
+            aws_sdk_synthetics.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred. Try the operation again.</p>
+            aws_sdk_synthetics.errors.not_found_exception.NotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_synthetics.errors.too_many_requests_exception.TooManyRequestsException: <p>There were too many simultaneous requests. Try the operation again.</p>
+            aws_sdk_synthetics.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1313,6 +1452,15 @@ class AsyncsyntheticsClient:
             dry_run_id: <p>Update the existing canary using the updated configurations from the DryRun associated with the DryRunId.</p> <note> <p>When you use the <code>dryRunId</code> field when updating a canary, the only other field you can provide is the <code>Schedule</code>. Adding any other field will thrown an exception.</p> </note>
             visual_references: <p>A list of visual reference configurations for the canary, one for each browser type that the canary is configured to run on. Visual references are used for visual monitoring comparisons.</p> <p> <code>syn-nodejs-puppeteer-11.0</code> and above, and <code>syn-nodejs-playwright-3.0</code> and above, only supports <code>visualReferences</code>. <code>visualReference</code> field is not supported.</p> <p>Versions older than <code>syn-nodejs-puppeteer-11.0</code> supports both <code>visualReference</code> and <code>visualReferences</code> for backward compatibility. It is recommended to use <code>visualReferences</code> for consistency and future compatibility.</p> <p>For multibrowser visual monitoring, you can update the baseline for all configured browsers in a single update call by specifying a list of VisualReference objects, one per browser. Each VisualReference object maps to a specific browser configuration, allowing you to manage visual baselines for multiple browsers simultaneously.</p> <p>For single configuration canaries using Chrome browser (default browser), use visualReferences for <code>syn-nodejs-puppeteer-11.0</code> and above, and <code>syn-nodejs-playwright-3.0</code> and above canaries. The browserType in the visualReference object is not mandatory.</p>
             browser_configs: <p>A structure that specifies the browser type to use for a canary run. CloudWatch Synthetics supports running canaries on both <code>CHROME</code> and <code>FIREFOX</code> browsers.</p> <note> <p>If not specified, <code>browserConfigs</code> defaults to Chrome.</p> </note>
+
+        Raises:
+            aws_sdk_synthetics.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform this operation on this resource.</p>
+            aws_sdk_synthetics.errors.conflict_exception.ConflictException: <p>A conflicting operation is already in progress.</p>
+            aws_sdk_synthetics.errors.internal_server_exception.InternalServerException: <p>An unknown internal error occurred.</p>
+            aws_sdk_synthetics.errors.request_entity_too_large_exception.RequestEntityTooLargeException: <p>One of the input resources is larger than is allowed.</p>
+            aws_sdk_synthetics.errors.resource_not_found_exception.ResourceNotFoundException: <p>One of the specified resources was not found.</p>
+            aws_sdk_synthetics.errors.validation_exception.ValidationException: <p>A parameter could not be validated.</p>
+            aws_sdk_synthetics.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

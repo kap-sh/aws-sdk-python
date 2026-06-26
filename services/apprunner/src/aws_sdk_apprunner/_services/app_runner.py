@@ -244,6 +244,12 @@ class AppRunnerClient:
             service_arn: <p>The Amazon Resource Name (ARN) of the App Runner service that you want to associate a custom domain name with.</p>
             domain_name: <p>A custom domain endpoint to associate. Specify a root domain (for example, <code>example.com</code>), a subdomain (for example, <code>login.example.com</code> or <code>admin.login.example.com</code>), or a wildcard (for example, <code>*.example.com</code>).</p>
             enable_www_subdomain: <p>Set to <code>true</code> to associate the subdomain <code>www.<i>DomainName</i> </code> with the App Runner service in addition to the base domain.</p> <p>Default: <code>true</code> </p>
+
+        Raises:
+            aws_sdk_apprunner.errors.internal_service_error_exception.InternalServiceErrorException: <p>An unexpected service exception occurred.</p>
+            aws_sdk_apprunner.errors.invalid_request_exception.InvalidRequestException: <p>One or more input parameters aren't valid. Refer to the API action's document page, correct the input parameters, and try the action again.</p>
+            aws_sdk_apprunner.errors.invalid_state_exception.InvalidStateException: <p>You can't perform this action when the resource is in its current state.</p>
+            aws_sdk_apprunner.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -298,6 +304,12 @@ class AppRunnerClient:
             min_size: <p>The minimum number of instances that App Runner provisions for your service. The service always has at least <code>MinSize</code> provisioned instances. Some of them actively serve traffic. The rest of them (provisioned and inactive instances) are a cost-effective compute capacity reserve and are ready to be quickly activated. You pay for memory usage of all the provisioned instances. You pay for CPU usage of only the active subset.</p> <p>App Runner temporarily doubles the number of provisioned instances during deployments, to maintain the same capacity for both old and new code.</p> <p>Default: <code>1</code> </p>
             max_size: <p>The maximum number of instances that your service scales up to. At most <code>MaxSize</code> instances actively serve traffic for your service.</p> <p>Default: <code>25</code> </p>
             tags: <p>A list of metadata items that you can associate with your auto scaling configuration resource. A tag is a key-value pair.</p>
+
+        Raises:
+            aws_sdk_apprunner.errors.internal_service_error_exception.InternalServiceErrorException: <p>An unexpected service exception occurred.</p>
+            aws_sdk_apprunner.errors.invalid_request_exception.InvalidRequestException: <p>One or more input parameters aren't valid. Refer to the API action's document page, correct the input parameters, and try the action again.</p>
+            aws_sdk_apprunner.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>App Runner can't create this resource. You've reached your account quota for this resource type.</p> <p>For App Runner per-resource quotas, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/apprunner.html\">App Runner endpoints and quotas</a> in the <i>Amazon Web Services General Reference</i>.</p>
+            aws_sdk_apprunner.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -347,6 +359,12 @@ class AppRunnerClient:
             connection_name: <p>A name for the new connection. It must be unique across all App Runner connections for the Amazon Web Services account in the Amazon Web Services Region.</p>
             provider_type: <p>The source repository provider.</p>
             tags: <p>A list of metadata items that you can associate with your connection resource. A tag is a key-value pair.</p>
+
+        Raises:
+            aws_sdk_apprunner.errors.internal_service_error_exception.InternalServiceErrorException: <p>An unexpected service exception occurred.</p>
+            aws_sdk_apprunner.errors.invalid_request_exception.InvalidRequestException: <p>One or more input parameters aren't valid. Refer to the API action's document page, correct the input parameters, and try the action again.</p>
+            aws_sdk_apprunner.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>App Runner can't create this resource. You've reached your account quota for this resource type.</p> <p>For App Runner per-resource quotas, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/apprunner.html\">App Runner endpoints and quotas</a> in the <i>Amazon Web Services General Reference</i>.</p>
+            aws_sdk_apprunner.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -393,6 +411,12 @@ class AppRunnerClient:
             observability_configuration_name: <p>A name for the observability configuration. When you use it for the first time in an Amazon Web Services Region, App Runner creates revision number <code>1</code> of this name. When you use the same name in subsequent calls, App Runner creates incremental revisions of the configuration.</p> <note> <p>The name <code>DefaultConfiguration</code> is reserved. You can't use it to create a new observability configuration, and you can't create a revision of it.</p> <p>When you want to use your own observability configuration for your App Runner service, <i>create a configuration with a different name</i>, and then provide it when you create or update your service.</p> </note>
             trace_configuration: <p>The configuration of the tracing feature within this observability configuration. If you don't specify it, App Runner doesn't enable tracing.</p>
             tags: <p>A list of metadata items that you can associate with your observability configuration resource. A tag is a key-value pair.</p>
+
+        Raises:
+            aws_sdk_apprunner.errors.internal_service_error_exception.InternalServiceErrorException: <p>An unexpected service exception occurred.</p>
+            aws_sdk_apprunner.errors.invalid_request_exception.InvalidRequestException: <p>One or more input parameters aren't valid. Refer to the API action's document page, correct the input parameters, and try the action again.</p>
+            aws_sdk_apprunner.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>App Runner can't create this resource. You've reached your account quota for this resource type.</p> <p>For App Runner per-resource quotas, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/apprunner.html\">App Runner endpoints and quotas</a> in the <i>Amazon Web Services General Reference</i>.</p>
+            aws_sdk_apprunner.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -462,6 +486,12 @@ class AppRunnerClient:
             auto_scaling_configuration_arn: <p>The Amazon Resource Name (ARN) of an App Runner automatic scaling configuration resource that you want to associate with your service. If not provided, App Runner associates the latest revision of a default auto scaling configuration.</p> <p>Specify an ARN with a name and a revision number to associate that revision. For example: <code>arn:aws:apprunner:us-east-1:123456789012:autoscalingconfiguration/high-availability/3</code> </p> <p>Specify just the name to associate the latest revision. For example: <code>arn:aws:apprunner:us-east-1:123456789012:autoscalingconfiguration/high-availability</code> </p>
             network_configuration: <p>Configuration settings related to network traffic of the web application that the App Runner service runs.</p>
             observability_configuration: <p>The observability configuration of your service.</p>
+
+        Raises:
+            aws_sdk_apprunner.errors.internal_service_error_exception.InternalServiceErrorException: <p>An unexpected service exception occurred.</p>
+            aws_sdk_apprunner.errors.invalid_request_exception.InvalidRequestException: <p>One or more input parameters aren't valid. Refer to the API action's document page, correct the input parameters, and try the action again.</p>
+            aws_sdk_apprunner.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>App Runner can't create this resource. You've reached your account quota for this resource type.</p> <p>For App Runner per-resource quotas, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/apprunner.html\">App Runner endpoints and quotas</a> in the <i>Amazon Web Services General Reference</i>.</p>
+            aws_sdk_apprunner.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -522,6 +552,12 @@ class AppRunnerClient:
             subnets: <p>A list of IDs of subnets that App Runner should use when it associates your service with a custom Amazon VPC. Specify IDs of subnets of a single Amazon VPC. App Runner determines the Amazon VPC from the subnets you specify.</p> <note> <p> App Runner only supports subnets of IP address type <i>IPv4</i> and <i>dual stack</i> (IPv4 and IPv6).</p> </note>
             security_groups: <p>A list of IDs of security groups that App Runner should use for access to Amazon Web Services resources under the specified subnets. If not specified, App Runner uses the default security group of the Amazon VPC. The default security group allows all outbound traffic.</p>
             tags: <p>A list of metadata items that you can associate with your VPC connector resource. A tag is a key-value pair.</p>
+
+        Raises:
+            aws_sdk_apprunner.errors.internal_service_error_exception.InternalServiceErrorException: <p>An unexpected service exception occurred.</p>
+            aws_sdk_apprunner.errors.invalid_request_exception.InvalidRequestException: <p>One or more input parameters aren't valid. Refer to the API action's document page, correct the input parameters, and try the action again.</p>
+            aws_sdk_apprunner.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>App Runner can't create this resource. You've reached your account quota for this resource type.</p> <p>For App Runner per-resource quotas, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/apprunner.html\">App Runner endpoints and quotas</a> in the <i>Amazon Web Services General Reference</i>.</p>
+            aws_sdk_apprunner.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -570,6 +606,13 @@ class AppRunnerClient:
             vpc_ingress_connection_name: <p>A name for the VPC Ingress Connection resource. It must be unique across all the active VPC Ingress Connections in your Amazon Web Services account in the Amazon Web Services Region. </p>
             ingress_vpc_configuration: <p>Specifications for the customer’s Amazon VPC and the related Amazon Web Services PrivateLink VPC endpoint that are used to create the VPC Ingress Connection resource.</p>
             tags: <p>An optional list of metadata items that you can associate with the VPC Ingress Connection resource. A tag is a key-value pair.</p>
+
+        Raises:
+            aws_sdk_apprunner.errors.internal_service_error_exception.InternalServiceErrorException: <p>An unexpected service exception occurred.</p>
+            aws_sdk_apprunner.errors.invalid_request_exception.InvalidRequestException: <p>One or more input parameters aren't valid. Refer to the API action's document page, correct the input parameters, and try the action again.</p>
+            aws_sdk_apprunner.errors.invalid_state_exception.InvalidStateException: <p>You can't perform this action when the resource is in its current state.</p>
+            aws_sdk_apprunner.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>App Runner can't create this resource. You've reached your account quota for this resource type.</p> <p>For App Runner per-resource quotas, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/apprunner.html\">App Runner endpoints and quotas</a> in the <i>Amazon Web Services General Reference</i>.</p>
+            aws_sdk_apprunner.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -615,6 +658,12 @@ class AppRunnerClient:
         Args:
             auto_scaling_configuration_arn: <p>The Amazon Resource Name (ARN) of the App Runner auto scaling configuration that you want to delete.</p> <p>The ARN can be a full auto scaling configuration ARN, or a partial ARN ending with either <code>.../<i>name</i> </code> or <code>.../<i>name</i>/<i>revision</i> </code>. If a revision isn't specified, the latest active revision is deleted.</p>
             delete_all_revisions: <p>Set to <code>true</code> to delete all of the revisions associated with the <code>AutoScalingConfigurationArn</code> parameter value.</p> <p>When <code>DeleteAllRevisions</code> is set to <code>true</code>, the only valid value for the Amazon Resource Name (ARN) is a partial ARN ending with: <code>.../name</code>.</p>
+
+        Raises:
+            aws_sdk_apprunner.errors.internal_service_error_exception.InternalServiceErrorException: <p>An unexpected service exception occurred.</p>
+            aws_sdk_apprunner.errors.invalid_request_exception.InvalidRequestException: <p>One or more input parameters aren't valid. Refer to the API action's document page, correct the input parameters, and try the action again.</p>
+            aws_sdk_apprunner.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource doesn't exist for the specified Amazon Resource Name (ARN) in your Amazon Web Services account.</p>
+            aws_sdk_apprunner.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -654,6 +703,12 @@ class AppRunnerClient:
 
         Args:
             connection_arn: <p>The Amazon Resource Name (ARN) of the App Runner connection that you want to delete.</p>
+
+        Raises:
+            aws_sdk_apprunner.errors.internal_service_error_exception.InternalServiceErrorException: <p>An unexpected service exception occurred.</p>
+            aws_sdk_apprunner.errors.invalid_request_exception.InvalidRequestException: <p>One or more input parameters aren't valid. Refer to the API action's document page, correct the input parameters, and try the action again.</p>
+            aws_sdk_apprunner.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource doesn't exist for the specified Amazon Resource Name (ARN) in your Amazon Web Services account.</p>
+            aws_sdk_apprunner.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -691,6 +746,12 @@ class AppRunnerClient:
 
         Args:
             observability_configuration_arn: <p>The Amazon Resource Name (ARN) of the App Runner observability configuration that you want to delete.</p> <p>The ARN can be a full observability configuration ARN, or a partial ARN ending with either <code>.../<i>name</i> </code> or <code>.../<i>name</i>/<i>revision</i> </code>. If a revision isn't specified, the latest active revision is deleted.</p>
+
+        Raises:
+            aws_sdk_apprunner.errors.internal_service_error_exception.InternalServiceErrorException: <p>An unexpected service exception occurred.</p>
+            aws_sdk_apprunner.errors.invalid_request_exception.InvalidRequestException: <p>One or more input parameters aren't valid. Refer to the API action's document page, correct the input parameters, and try the action again.</p>
+            aws_sdk_apprunner.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource doesn't exist for the specified Amazon Resource Name (ARN) in your Amazon Web Services account.</p>
+            aws_sdk_apprunner.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -728,6 +789,13 @@ class AppRunnerClient:
 
         Args:
             service_arn: <p>The Amazon Resource Name (ARN) of the App Runner service that you want to delete.</p>
+
+        Raises:
+            aws_sdk_apprunner.errors.internal_service_error_exception.InternalServiceErrorException: <p>An unexpected service exception occurred.</p>
+            aws_sdk_apprunner.errors.invalid_request_exception.InvalidRequestException: <p>One or more input parameters aren't valid. Refer to the API action's document page, correct the input parameters, and try the action again.</p>
+            aws_sdk_apprunner.errors.invalid_state_exception.InvalidStateException: <p>You can't perform this action when the resource is in its current state.</p>
+            aws_sdk_apprunner.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource doesn't exist for the specified Amazon Resource Name (ARN) in your Amazon Web Services account.</p>
+            aws_sdk_apprunner.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -765,6 +833,12 @@ class AppRunnerClient:
 
         Args:
             vpc_connector_arn: <p>The Amazon Resource Name (ARN) of the App Runner VPC connector that you want to delete.</p> <p>The ARN must be a full VPC connector ARN.</p>
+
+        Raises:
+            aws_sdk_apprunner.errors.internal_service_error_exception.InternalServiceErrorException: <p>An unexpected service exception occurred.</p>
+            aws_sdk_apprunner.errors.invalid_request_exception.InvalidRequestException: <p>One or more input parameters aren't valid. Refer to the API action's document page, correct the input parameters, and try the action again.</p>
+            aws_sdk_apprunner.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource doesn't exist for the specified Amazon Resource Name (ARN) in your Amazon Web Services account.</p>
+            aws_sdk_apprunner.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -802,6 +876,13 @@ class AppRunnerClient:
 
         Args:
             vpc_ingress_connection_arn: <p>The Amazon Resource Name (ARN) of the App Runner VPC Ingress Connection that you want to delete.</p>
+
+        Raises:
+            aws_sdk_apprunner.errors.internal_service_error_exception.InternalServiceErrorException: <p>An unexpected service exception occurred.</p>
+            aws_sdk_apprunner.errors.invalid_request_exception.InvalidRequestException: <p>One or more input parameters aren't valid. Refer to the API action's document page, correct the input parameters, and try the action again.</p>
+            aws_sdk_apprunner.errors.invalid_state_exception.InvalidStateException: <p>You can't perform this action when the resource is in its current state.</p>
+            aws_sdk_apprunner.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource doesn't exist for the specified Amazon Resource Name (ARN) in your Amazon Web Services account.</p>
+            aws_sdk_apprunner.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -839,6 +920,12 @@ class AppRunnerClient:
 
         Args:
             auto_scaling_configuration_arn: <p>The Amazon Resource Name (ARN) of the App Runner auto scaling configuration that you want a description for.</p> <p>The ARN can be a full auto scaling configuration ARN, or a partial ARN ending with either <code>.../<i>name</i> </code> or <code>.../<i>name</i>/<i>revision</i> </code>. If a revision isn't specified, the latest active revision is described.</p>
+
+        Raises:
+            aws_sdk_apprunner.errors.internal_service_error_exception.InternalServiceErrorException: <p>An unexpected service exception occurred.</p>
+            aws_sdk_apprunner.errors.invalid_request_exception.InvalidRequestException: <p>One or more input parameters aren't valid. Refer to the API action's document page, correct the input parameters, and try the action again.</p>
+            aws_sdk_apprunner.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource doesn't exist for the specified Amazon Resource Name (ARN) in your Amazon Web Services account.</p>
+            aws_sdk_apprunner.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -882,6 +969,12 @@ class AppRunnerClient:
             service_arn: <p>The Amazon Resource Name (ARN) of the App Runner service that you want associated custom domain names to be described for.</p>
             next_token: <p>A token from a previous result page. It's used for a paginated request. The request retrieves the next result page. All other parameter values must be identical to the ones that are specified in the initial request.</p> <p>If you don't specify <code>NextToken</code>, the request retrieves the first result page.</p>
             max_results: <p>The maximum number of results that each response (result page) can include. It's used for a paginated request.</p> <p>If you don't specify <code>MaxResults</code>, the request retrieves all available results in a single response.</p>
+
+        Raises:
+            aws_sdk_apprunner.errors.internal_service_error_exception.InternalServiceErrorException: <p>An unexpected service exception occurred.</p>
+            aws_sdk_apprunner.errors.invalid_request_exception.InvalidRequestException: <p>One or more input parameters aren't valid. Refer to the API action's document page, correct the input parameters, and try the action again.</p>
+            aws_sdk_apprunner.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource doesn't exist for the specified Amazon Resource Name (ARN) in your Amazon Web Services account.</p>
+            aws_sdk_apprunner.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -923,6 +1016,12 @@ class AppRunnerClient:
 
         Args:
             observability_configuration_arn: <p>The Amazon Resource Name (ARN) of the App Runner observability configuration that you want a description for.</p> <p>The ARN can be a full observability configuration ARN, or a partial ARN ending with either <code>.../<i>name</i> </code> or <code>.../<i>name</i>/<i>revision</i> </code>. If a revision isn't specified, the latest active revision is described.</p>
+
+        Raises:
+            aws_sdk_apprunner.errors.internal_service_error_exception.InternalServiceErrorException: <p>An unexpected service exception occurred.</p>
+            aws_sdk_apprunner.errors.invalid_request_exception.InvalidRequestException: <p>One or more input parameters aren't valid. Refer to the API action's document page, correct the input parameters, and try the action again.</p>
+            aws_sdk_apprunner.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource doesn't exist for the specified Amazon Resource Name (ARN) in your Amazon Web Services account.</p>
+            aws_sdk_apprunner.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -960,6 +1059,12 @@ class AppRunnerClient:
 
         Args:
             service_arn: <p>The Amazon Resource Name (ARN) of the App Runner service that you want a description for.</p>
+
+        Raises:
+            aws_sdk_apprunner.errors.internal_service_error_exception.InternalServiceErrorException: <p>An unexpected service exception occurred.</p>
+            aws_sdk_apprunner.errors.invalid_request_exception.InvalidRequestException: <p>One or more input parameters aren't valid. Refer to the API action's document page, correct the input parameters, and try the action again.</p>
+            aws_sdk_apprunner.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource doesn't exist for the specified Amazon Resource Name (ARN) in your Amazon Web Services account.</p>
+            aws_sdk_apprunner.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -997,6 +1102,12 @@ class AppRunnerClient:
 
         Args:
             vpc_connector_arn: <p>The Amazon Resource Name (ARN) of the App Runner VPC connector that you want a description for.</p> <p>The ARN must be a full VPC connector ARN.</p>
+
+        Raises:
+            aws_sdk_apprunner.errors.internal_service_error_exception.InternalServiceErrorException: <p>An unexpected service exception occurred.</p>
+            aws_sdk_apprunner.errors.invalid_request_exception.InvalidRequestException: <p>One or more input parameters aren't valid. Refer to the API action's document page, correct the input parameters, and try the action again.</p>
+            aws_sdk_apprunner.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource doesn't exist for the specified Amazon Resource Name (ARN) in your Amazon Web Services account.</p>
+            aws_sdk_apprunner.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1034,6 +1145,12 @@ class AppRunnerClient:
 
         Args:
             vpc_ingress_connection_arn: <p>The Amazon Resource Name (ARN) of the App Runner VPC Ingress Connection that you want a description for.</p>
+
+        Raises:
+            aws_sdk_apprunner.errors.internal_service_error_exception.InternalServiceErrorException: <p>An unexpected service exception occurred.</p>
+            aws_sdk_apprunner.errors.invalid_request_exception.InvalidRequestException: <p>One or more input parameters aren't valid. Refer to the API action's document page, correct the input parameters, and try the action again.</p>
+            aws_sdk_apprunner.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource doesn't exist for the specified Amazon Resource Name (ARN) in your Amazon Web Services account.</p>
+            aws_sdk_apprunner.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1073,6 +1190,13 @@ class AppRunnerClient:
         Args:
             service_arn: <p>The Amazon Resource Name (ARN) of the App Runner service that you want to disassociate a custom domain name from.</p>
             domain_name: <p>The domain name that you want to disassociate from the App Runner service.</p>
+
+        Raises:
+            aws_sdk_apprunner.errors.internal_service_error_exception.InternalServiceErrorException: <p>An unexpected service exception occurred.</p>
+            aws_sdk_apprunner.errors.invalid_request_exception.InvalidRequestException: <p>One or more input parameters aren't valid. Refer to the API action's document page, correct the input parameters, and try the action again.</p>
+            aws_sdk_apprunner.errors.invalid_state_exception.InvalidStateException: <p>You can't perform this action when the resource is in its current state.</p>
+            aws_sdk_apprunner.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource doesn't exist for the specified Amazon Resource Name (ARN) in your Amazon Web Services account.</p>
+            aws_sdk_apprunner.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1119,6 +1243,11 @@ class AppRunnerClient:
             latest_only: <p>Set to <code>true</code> to list only the latest revision for each requested configuration name.</p> <p>Set to <code>false</code> to list all revisions for each requested configuration name.</p> <p>Default: <code>true</code> </p>
             max_results: <p>The maximum number of results to include in each response (result page). It's used for a paginated request.</p> <p>If you don't specify <code>MaxResults</code>, the request retrieves all available results in a single response.</p>
             next_token: <p>A token from a previous result page. It's used for a paginated request. The request retrieves the next result page. All other parameter values must be identical to the ones that are specified in the initial request.</p> <p>If you don't specify <code>NextToken</code>, the request retrieves the first result page.</p>
+
+        Raises:
+            aws_sdk_apprunner.errors.internal_service_error_exception.InternalServiceErrorException: <p>An unexpected service exception occurred.</p>
+            aws_sdk_apprunner.errors.invalid_request_exception.InvalidRequestException: <p>One or more input parameters aren't valid. Refer to the API action's document page, correct the input parameters, and try the action again.</p>
+            aws_sdk_apprunner.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1169,6 +1298,11 @@ class AppRunnerClient:
             connection_name: <p>If specified, only this connection is returned. If not specified, the result isn't filtered by name.</p>
             max_results: <p>The maximum number of results to include in each response (result page). Used for a paginated request.</p> <p>If you don't specify <code>MaxResults</code>, the request retrieves all available results in a single response.</p>
             next_token: <p>A token from a previous result page. Used for a paginated request. The request retrieves the next result page. All other parameter values must be identical to the ones specified in the initial request.</p> <p>If you don't specify <code>NextToken</code>, the request retrieves the first result page.</p>
+
+        Raises:
+            aws_sdk_apprunner.errors.internal_service_error_exception.InternalServiceErrorException: <p>An unexpected service exception occurred.</p>
+            aws_sdk_apprunner.errors.invalid_request_exception.InvalidRequestException: <p>One or more input parameters aren't valid. Refer to the API action's document page, correct the input parameters, and try the action again.</p>
+            aws_sdk_apprunner.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1219,6 +1353,11 @@ class AppRunnerClient:
             latest_only: <p>Set to <code>true</code> to list only the latest revision for each requested configuration name.</p> <p>Set to <code>false</code> to list all revisions for each requested configuration name.</p> <p>Default: <code>true</code> </p>
             max_results: <p>The maximum number of results to include in each response (result page). It's used for a paginated request.</p> <p>If you don't specify <code>MaxResults</code>, the request retrieves all available results in a single response.</p>
             next_token: <p>A token from a previous result page. It's used for a paginated request. The request retrieves the next result page. All other parameter values must be identical to the ones that are specified in the initial request.</p> <p>If you don't specify <code>NextToken</code>, the request retrieves the first result page.</p>
+
+        Raises:
+            aws_sdk_apprunner.errors.internal_service_error_exception.InternalServiceErrorException: <p>An unexpected service exception occurred.</p>
+            aws_sdk_apprunner.errors.invalid_request_exception.InvalidRequestException: <p>One or more input parameters aren't valid. Refer to the API action's document page, correct the input parameters, and try the action again.</p>
+            aws_sdk_apprunner.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1271,6 +1410,12 @@ class AppRunnerClient:
             service_arn: <p>The Amazon Resource Name (ARN) of the App Runner service that you want a list of operations for.</p>
             next_token: <p>A token from a previous result page. It's used for a paginated request. The request retrieves the next result page. All other parameter values must be identical to the ones specified in the initial request.</p> <p>If you don't specify <code>NextToken</code>, the request retrieves the first result page.</p>
             max_results: <p>The maximum number of results to include in each response (result page). It's used for a paginated request.</p> <p>If you don't specify <code>MaxResults</code>, the request retrieves all available results in a single response.</p>
+
+        Raises:
+            aws_sdk_apprunner.errors.internal_service_error_exception.InternalServiceErrorException: <p>An unexpected service exception occurred.</p>
+            aws_sdk_apprunner.errors.invalid_request_exception.InvalidRequestException: <p>One or more input parameters aren't valid. Refer to the API action's document page, correct the input parameters, and try the action again.</p>
+            aws_sdk_apprunner.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource doesn't exist for the specified Amazon Resource Name (ARN) in your Amazon Web Services account.</p>
+            aws_sdk_apprunner.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1316,6 +1461,11 @@ class AppRunnerClient:
         Args:
             next_token: <p>A token from a previous result page. Used for a paginated request. The request retrieves the next result page. All other parameter values must be identical to the ones specified in the initial request.</p> <p>If you don't specify <code>NextToken</code>, the request retrieves the first result page.</p>
             max_results: <p>The maximum number of results to include in each response (result page). It's used for a paginated request.</p> <p>If you don't specify <code>MaxResults</code>, the request retrieves all available results in a single response.</p>
+
+        Raises:
+            aws_sdk_apprunner.errors.internal_service_error_exception.InternalServiceErrorException: <p>An unexpected service exception occurred.</p>
+            aws_sdk_apprunner.errors.invalid_request_exception.InvalidRequestException: <p>One or more input parameters aren't valid. Refer to the API action's document page, correct the input parameters, and try the action again.</p>
+            aws_sdk_apprunner.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1360,6 +1510,12 @@ class AppRunnerClient:
             auto_scaling_configuration_arn: <p>The Amazon Resource Name (ARN) of the App Runner auto scaling configuration that you want to list the services for.</p> <p>The ARN can be a full auto scaling configuration ARN, or a partial ARN ending with either <code>.../<i>name</i> </code> or <code>.../<i>name</i>/<i>revision</i> </code>. If a revision isn't specified, the latest active revision is used.</p>
             max_results: <p>The maximum number of results to include in each response (result page). It's used for a paginated request.</p> <p>If you don't specify <code>MaxResults</code>, the request retrieves all available results in a single response.</p>
             next_token: <p>A token from a previous result page. It's used for a paginated request. The request retrieves the next result page. All other parameter values must be identical to the ones specified in the initial request.</p> <p>If you don't specify <code>NextToken</code>, the request retrieves the first result page.</p>
+
+        Raises:
+            aws_sdk_apprunner.errors.internal_service_error_exception.InternalServiceErrorException: <p>An unexpected service exception occurred.</p>
+            aws_sdk_apprunner.errors.invalid_request_exception.InvalidRequestException: <p>One or more input parameters aren't valid. Refer to the API action's document page, correct the input parameters, and try the action again.</p>
+            aws_sdk_apprunner.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource doesn't exist for the specified Amazon Resource Name (ARN) in your Amazon Web Services account.</p>
+            aws_sdk_apprunner.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1401,6 +1557,13 @@ class AppRunnerClient:
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource that a tag list is requested for.</p> <p>It must be the ARN of an App Runner resource.</p>
+
+        Raises:
+            aws_sdk_apprunner.errors.internal_service_error_exception.InternalServiceErrorException: <p>An unexpected service exception occurred.</p>
+            aws_sdk_apprunner.errors.invalid_request_exception.InvalidRequestException: <p>One or more input parameters aren't valid. Refer to the API action's document page, correct the input parameters, and try the action again.</p>
+            aws_sdk_apprunner.errors.invalid_state_exception.InvalidStateException: <p>You can't perform this action when the resource is in its current state.</p>
+            aws_sdk_apprunner.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource doesn't exist for the specified Amazon Resource Name (ARN) in your Amazon Web Services account.</p>
+            aws_sdk_apprunner.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1442,6 +1605,11 @@ class AppRunnerClient:
         Args:
             max_results: <p>The maximum number of results to include in each response (result page). It's used for a paginated request.</p> <p>If you don't specify <code>MaxResults</code>, the request retrieves all available results in a single response.</p>
             next_token: <p>A token from a previous result page. It's used for a paginated request. The request retrieves the next result page. All other parameter values must be identical to the ones that are specified in the initial request.</p> <p>If you don't specify <code>NextToken</code>, the request retrieves the first result page.</p>
+
+        Raises:
+            aws_sdk_apprunner.errors.internal_service_error_exception.InternalServiceErrorException: <p>An unexpected service exception occurred.</p>
+            aws_sdk_apprunner.errors.invalid_request_exception.InvalidRequestException: <p>One or more input parameters aren't valid. Refer to the API action's document page, correct the input parameters, and try the action again.</p>
+            aws_sdk_apprunner.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1488,6 +1656,11 @@ class AppRunnerClient:
             filter: <p>The VPC Ingress Connections to be listed based on either the Service Arn or Vpc Endpoint Id, or both.</p>
             max_results: <p>The maximum number of results to include in each response (result page). It's used for a paginated request.</p> <p>If you don't specify <code>MaxResults</code>, the request retrieves all available results in a single response.</p>
             next_token: <p>A token from a previous result page. It's used for a paginated request. The request retrieves the next result page. All other parameter values must be identical to the ones that are specified in the initial request.</p> <p>If you don't specify <code>NextToken</code>, the request retrieves the first result page.</p>
+
+        Raises:
+            aws_sdk_apprunner.errors.internal_service_error_exception.InternalServiceErrorException: <p>An unexpected service exception occurred.</p>
+            aws_sdk_apprunner.errors.invalid_request_exception.InvalidRequestException: <p>One or more input parameters aren't valid. Refer to the API action's document page, correct the input parameters, and try the action again.</p>
+            aws_sdk_apprunner.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1530,6 +1703,13 @@ class AppRunnerClient:
 
         Args:
             service_arn: <p>The Amazon Resource Name (ARN) of the App Runner service that you want to pause.</p>
+
+        Raises:
+            aws_sdk_apprunner.errors.internal_service_error_exception.InternalServiceErrorException: <p>An unexpected service exception occurred.</p>
+            aws_sdk_apprunner.errors.invalid_request_exception.InvalidRequestException: <p>One or more input parameters aren't valid. Refer to the API action's document page, correct the input parameters, and try the action again.</p>
+            aws_sdk_apprunner.errors.invalid_state_exception.InvalidStateException: <p>You can't perform this action when the resource is in its current state.</p>
+            aws_sdk_apprunner.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource doesn't exist for the specified Amazon Resource Name (ARN) in your Amazon Web Services account.</p>
+            aws_sdk_apprunner.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1567,6 +1747,13 @@ class AppRunnerClient:
 
         Args:
             service_arn: <p>The Amazon Resource Name (ARN) of the App Runner service that you want to resume.</p>
+
+        Raises:
+            aws_sdk_apprunner.errors.internal_service_error_exception.InternalServiceErrorException: <p>An unexpected service exception occurred.</p>
+            aws_sdk_apprunner.errors.invalid_request_exception.InvalidRequestException: <p>One or more input parameters aren't valid. Refer to the API action's document page, correct the input parameters, and try the action again.</p>
+            aws_sdk_apprunner.errors.invalid_state_exception.InvalidStateException: <p>You can't perform this action when the resource is in its current state.</p>
+            aws_sdk_apprunner.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource doesn't exist for the specified Amazon Resource Name (ARN) in your Amazon Web Services account.</p>
+            aws_sdk_apprunner.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1604,6 +1791,12 @@ class AppRunnerClient:
 
         Args:
             service_arn: <p>The Amazon Resource Name (ARN) of the App Runner service that you want to manually deploy to.</p>
+
+        Raises:
+            aws_sdk_apprunner.errors.internal_service_error_exception.InternalServiceErrorException: <p>An unexpected service exception occurred.</p>
+            aws_sdk_apprunner.errors.invalid_request_exception.InvalidRequestException: <p>One or more input parameters aren't valid. Refer to the API action's document page, correct the input parameters, and try the action again.</p>
+            aws_sdk_apprunner.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource doesn't exist for the specified Amazon Resource Name (ARN) in your Amazon Web Services account.</p>
+            aws_sdk_apprunner.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1643,6 +1836,13 @@ class AppRunnerClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource that you want to update tags for.</p> <p>It must be the ARN of an App Runner resource.</p>
             tags: <p>A list of tag key-value pairs to add or update. If a key is new to the resource, the tag is added with the provided value. If a key is already associated with the resource, the value of the tag is updated.</p>
+
+        Raises:
+            aws_sdk_apprunner.errors.internal_service_error_exception.InternalServiceErrorException: <p>An unexpected service exception occurred.</p>
+            aws_sdk_apprunner.errors.invalid_request_exception.InvalidRequestException: <p>One or more input parameters aren't valid. Refer to the API action's document page, correct the input parameters, and try the action again.</p>
+            aws_sdk_apprunner.errors.invalid_state_exception.InvalidStateException: <p>You can't perform this action when the resource is in its current state.</p>
+            aws_sdk_apprunner.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource doesn't exist for the specified Amazon Resource Name (ARN) in your Amazon Web Services account.</p>
+            aws_sdk_apprunner.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1683,6 +1883,13 @@ class AppRunnerClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource that you want to remove tags from.</p> <p>It must be the ARN of an App Runner resource.</p>
             tag_keys: <p>A list of tag keys that you want to remove.</p>
+
+        Raises:
+            aws_sdk_apprunner.errors.internal_service_error_exception.InternalServiceErrorException: <p>An unexpected service exception occurred.</p>
+            aws_sdk_apprunner.errors.invalid_request_exception.InvalidRequestException: <p>One or more input parameters aren't valid. Refer to the API action's document page, correct the input parameters, and try the action again.</p>
+            aws_sdk_apprunner.errors.invalid_state_exception.InvalidStateException: <p>You can't perform this action when the resource is in its current state.</p>
+            aws_sdk_apprunner.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource doesn't exist for the specified Amazon Resource Name (ARN) in your Amazon Web Services account.</p>
+            aws_sdk_apprunner.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1721,6 +1928,12 @@ class AppRunnerClient:
 
         Args:
             auto_scaling_configuration_arn: <p>The Amazon Resource Name (ARN) of the App Runner auto scaling configuration that you want to set as the default.</p> <p>The ARN can be a full auto scaling configuration ARN, or a partial ARN ending with either <code>.../<i>name</i> </code> or <code>.../<i>name</i>/<i>revision</i> </code>. If a revision isn't specified, the latest active revision is set as the default.</p>
+
+        Raises:
+            aws_sdk_apprunner.errors.internal_service_error_exception.InternalServiceErrorException: <p>An unexpected service exception occurred.</p>
+            aws_sdk_apprunner.errors.invalid_request_exception.InvalidRequestException: <p>One or more input parameters aren't valid. Refer to the API action's document page, correct the input parameters, and try the action again.</p>
+            aws_sdk_apprunner.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource doesn't exist for the specified Amazon Resource Name (ARN) in your Amazon Web Services account.</p>
+            aws_sdk_apprunner.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1782,6 +1995,13 @@ class AppRunnerClient:
             health_check_configuration: <p>The settings for the health check that App Runner performs to monitor the health of the App Runner service.</p>
             network_configuration: <p>Configuration settings related to network traffic of the web application that the App Runner service runs.</p>
             observability_configuration: <p>The observability configuration of your service.</p>
+
+        Raises:
+            aws_sdk_apprunner.errors.internal_service_error_exception.InternalServiceErrorException: <p>An unexpected service exception occurred.</p>
+            aws_sdk_apprunner.errors.invalid_request_exception.InvalidRequestException: <p>One or more input parameters aren't valid. Refer to the API action's document page, correct the input parameters, and try the action again.</p>
+            aws_sdk_apprunner.errors.invalid_state_exception.InvalidStateException: <p>You can't perform this action when the resource is in its current state.</p>
+            aws_sdk_apprunner.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource doesn't exist for the specified Amazon Resource Name (ARN) in your Amazon Web Services account.</p>
+            aws_sdk_apprunner.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1833,6 +2053,13 @@ class AppRunnerClient:
         Args:
             vpc_ingress_connection_arn: <p>The Amazon Resource Name (Arn) for the App Runner VPC Ingress Connection resource that you want to update.</p>
             ingress_vpc_configuration: <p>Specifications for the customer’s Amazon VPC and the related Amazon Web Services PrivateLink VPC endpoint that are used to update the VPC Ingress Connection resource.</p>
+
+        Raises:
+            aws_sdk_apprunner.errors.internal_service_error_exception.InternalServiceErrorException: <p>An unexpected service exception occurred.</p>
+            aws_sdk_apprunner.errors.invalid_request_exception.InvalidRequestException: <p>One or more input parameters aren't valid. Refer to the API action's document page, correct the input parameters, and try the action again.</p>
+            aws_sdk_apprunner.errors.invalid_state_exception.InvalidStateException: <p>You can't perform this action when the resource is in its current state.</p>
+            aws_sdk_apprunner.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource doesn't exist for the specified Amazon Resource Name (ARN) in your Amazon Web Services account.</p>
+            aws_sdk_apprunner.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(

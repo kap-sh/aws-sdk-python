@@ -195,6 +195,15 @@ class SageMakerRuntimeClient:
             enable_explanations: <p>An optional JMESPath expression used to override the <code>EnableExplanations</code> parameter of the <code>ClarifyExplainerConfig</code> API. See the <a href=\"https://docs.aws.amazon.com/sagemaker/latest/dg/clarify-online-explainability-create-endpoint.html#clarify-online-explainability-create-endpoint-enable\">EnableExplanations</a> section in the developer guide for more information. </p>
             inference_component_name: <p>If the endpoint hosts one or more inference components, this parameter specifies the name of inference component to invoke.</p>
             session_id: <p>Creates a stateful session or identifies an existing one. You can do one of the following:</p> <ul> <li> <p>Create a stateful session by specifying the value <code>NEW_SESSION</code>.</p> </li> <li> <p>Send your request to an existing stateful session by specifying the ID of that session.</p> </li> </ul> <p>With a stateful session, you can send multiple requests to a stateful model. When you create a session with a stateful model, the model must create the session ID and set the expiration time. The model must also provide that information in the response to your request. You can get the ID and timestamp from the <code>NewSessionId</code> response parameter. For any subsequent request where you specify that session ID, SageMaker AI routes the request to the same instance that supports the session.</p>
+
+        Raises:
+            aws_sdk_sagemaker_runtime.errors.internal_dependency_exception.InternalDependencyException: <p>Your request caused an exception with an internal dependency. Contact customer support. </p>
+            aws_sdk_sagemaker_runtime.errors.internal_failure.InternalFailure: <p> An internal failure occurred. </p>
+            aws_sdk_sagemaker_runtime.errors.model_error.ModelError: <p> Model (owned by the customer in the container) returned 4xx or 5xx error code. </p>
+            aws_sdk_sagemaker_runtime.errors.model_not_ready_exception.ModelNotReadyException: <p>Either a serverless endpoint variant's resources are still being provisioned, or a multi-model endpoint is still downloading or loading the target model. Wait and try your request again.</p>
+            aws_sdk_sagemaker_runtime.errors.service_unavailable.ServiceUnavailable: <p> The service is unavailable. Try your call again. </p>
+            aws_sdk_sagemaker_runtime.errors.validation_error.ValidationError: <p> Inspect your request and try again. </p>
+            aws_sdk_sagemaker_runtime.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -283,6 +292,12 @@ class SageMakerRuntimeClient:
             filename: <p>The filename for the inference response payload stored in Amazon S3. If not specified, Amazon SageMaker AI generates a filename based on the inference ID.</p>
             request_ttl_seconds: <p>Maximum age in seconds a request can be in the queue before it is marked as expired. The default is 6 hours, or 21,600 seconds.</p>
             invocation_timeout_seconds: <p>Maximum amount of time in seconds a request can be processed before it is marked as expired. The default is 15 minutes, or 900 seconds.</p>
+
+        Raises:
+            aws_sdk_sagemaker_runtime.errors.internal_failure.InternalFailure: <p> An internal failure occurred. </p>
+            aws_sdk_sagemaker_runtime.errors.service_unavailable.ServiceUnavailable: <p> The service is unavailable. Try your call again. </p>
+            aws_sdk_sagemaker_runtime.errors.validation_error.ValidationError: <p> Inspect your request and try again. </p>
+            aws_sdk_sagemaker_runtime.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -368,6 +383,15 @@ class SageMakerRuntimeClient:
             inference_id: <p>An identifier that you assign to your request.</p>
             inference_component_name: <p>If the endpoint hosts one or more inference components, this parameter specifies the name of inference component to invoke for a streaming response.</p>
             session_id: <p>The ID of a stateful session to handle your request.</p> <p>You can't create a stateful session by using the <code>InvokeEndpointWithResponseStream</code> action. Instead, you can create one by using the <code> <a>InvokeEndpoint</a> </code> action. In your request, you specify <code>NEW_SESSION</code> for the <code>SessionId</code> request parameter. The response to that request provides the session ID for the <code>NewSessionId</code> response parameter.</p>
+
+        Raises:
+            aws_sdk_sagemaker_runtime.errors.internal_failure.InternalFailure: <p> An internal failure occurred. </p>
+            aws_sdk_sagemaker_runtime.errors.internal_stream_failure.InternalStreamFailure: <p>The stream processing failed because of an unknown error, exception or failure. Try your request again.</p>
+            aws_sdk_sagemaker_runtime.errors.model_error.ModelError: <p> Model (owned by the customer in the container) returned 4xx or 5xx error code. </p>
+            aws_sdk_sagemaker_runtime.errors.model_stream_error.ModelStreamError: <p> An error occurred while streaming the response body. This error can have the following error codes:</p> <dl> <dt>ModelInvocationTimeExceeded</dt> <dd> <p>The model failed to finish sending the response within the timeout period allowed by Amazon SageMaker AI.</p> </dd> <dt>StreamBroken</dt> <dd> <p>The Transmission Control Protocol (TCP) connection between the client and the model was reset or closed.</p> </dd> </dl>
+            aws_sdk_sagemaker_runtime.errors.service_unavailable.ServiceUnavailable: <p> The service is unavailable. Try your call again. </p>
+            aws_sdk_sagemaker_runtime.errors.validation_error.ValidationError: <p> Inspect your request and try again. </p>
+            aws_sdk_sagemaker_runtime.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(

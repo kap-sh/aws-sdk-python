@@ -56,6 +56,15 @@ class RepositoryResource:
             connection_arn: <p>The Amazon Resource Name (ARN) of your AWS CodeStar connection that connects Proton to your repository provider account. For more information, see <a href=\"https://docs.aws.amazon.com/proton/latest/userguide/setting-up-for-service.html\">Setting up for Proton</a> in the <i>Proton User Guide</i>.</p>
             encryption_key: <p>The ARN of your customer Amazon Web Services Key Management Service (Amazon Web Services KMS) key.</p>
             tags: <p>An optional list of metadata items that you can associate with the Proton repository. A tag is a key-value pair.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/proton/latest/userguide/resources.html\">Proton resources and tagging</a> in the <i>Proton User Guide</i>.</p>
+
+        Raises:
+            aws_sdk_proton.errors.access_denied_exception.AccessDeniedException: <p>There <i>isn't</i> sufficient access for performing this action.</p>
+            aws_sdk_proton.errors.conflict_exception.ConflictException: <p>The request <i>couldn't</i> be made due to a conflicting operation or resource.</p>
+            aws_sdk_proton.errors.internal_server_exception.InternalServerException: <p>The request failed to register with the service.</p>
+            aws_sdk_proton.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>A quota was exceeded. For more information, see <a href=\"https://docs.aws.amazon.com/proton/latest/userguide/ag-limits.html\">Proton Quotas</a> in the <i>Proton User Guide</i>.</p>
+            aws_sdk_proton.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_proton.errors.validation_exception.ValidationException: <p>The input is invalid or an out-of-range value was supplied for the input parameter.</p>
+            aws_sdk_proton.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -101,6 +110,14 @@ class RepositoryResource:
         Args:
             provider: <p>The repository provider.</p>
             name: <p>The repository name, for example <code>myrepos/myrepo</code>.</p>
+
+        Raises:
+            aws_sdk_proton.errors.access_denied_exception.AccessDeniedException: <p>There <i>isn't</i> sufficient access for performing this action.</p>
+            aws_sdk_proton.errors.internal_server_exception.InternalServerException: <p>The request failed to register with the service.</p>
+            aws_sdk_proton.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource <i>wasn't</i> found.</p>
+            aws_sdk_proton.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_proton.errors.validation_exception.ValidationException: <p>The input is invalid or an out-of-range value was supplied for the input parameter.</p>
+            aws_sdk_proton.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -141,6 +158,15 @@ class RepositoryResource:
         Args:
             provider: <p>The repository provider.</p>
             name: <p>The repository name.</p>
+
+        Raises:
+            aws_sdk_proton.errors.access_denied_exception.AccessDeniedException: <p>There <i>isn't</i> sufficient access for performing this action.</p>
+            aws_sdk_proton.errors.conflict_exception.ConflictException: <p>The request <i>couldn't</i> be made due to a conflicting operation or resource.</p>
+            aws_sdk_proton.errors.internal_server_exception.InternalServerException: <p>The request failed to register with the service.</p>
+            aws_sdk_proton.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource <i>wasn't</i> found.</p>
+            aws_sdk_proton.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_proton.errors.validation_exception.ValidationException: <p>The input is invalid or an out-of-range value was supplied for the input parameter.</p>
+            aws_sdk_proton.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -183,6 +209,14 @@ class RepositoryResource:
         Args:
             next_token: <p>A token that indicates the location of the next repository in the array of repositories, after the list of repositories previously requested.</p>
             max_results: <p>The maximum number of repositories to list.</p>
+
+        Raises:
+            aws_sdk_proton.errors.access_denied_exception.AccessDeniedException: <p>There <i>isn't</i> sufficient access for performing this action.</p>
+            aws_sdk_proton.errors.internal_server_exception.InternalServerException: <p>The request failed to register with the service.</p>
+            aws_sdk_proton.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource <i>wasn't</i> found.</p>
+            aws_sdk_proton.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_proton.errors.validation_exception.ValidationException: <p>The input is invalid or an out-of-range value was supplied for the input parameter.</p>
+            aws_sdk_proton.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -236,6 +270,15 @@ class AsyncRepositoryResource:
             connection_arn: <p>The Amazon Resource Name (ARN) of your AWS CodeStar connection that connects Proton to your repository provider account. For more information, see <a href=\"https://docs.aws.amazon.com/proton/latest/userguide/setting-up-for-service.html\">Setting up for Proton</a> in the <i>Proton User Guide</i>.</p>
             encryption_key: <p>The ARN of your customer Amazon Web Services Key Management Service (Amazon Web Services KMS) key.</p>
             tags: <p>An optional list of metadata items that you can associate with the Proton repository. A tag is a key-value pair.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/proton/latest/userguide/resources.html\">Proton resources and tagging</a> in the <i>Proton User Guide</i>.</p>
+
+        Raises:
+            aws_sdk_proton.errors.access_denied_exception.AccessDeniedException: <p>There <i>isn't</i> sufficient access for performing this action.</p>
+            aws_sdk_proton.errors.conflict_exception.ConflictException: <p>The request <i>couldn't</i> be made due to a conflicting operation or resource.</p>
+            aws_sdk_proton.errors.internal_server_exception.InternalServerException: <p>The request failed to register with the service.</p>
+            aws_sdk_proton.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>A quota was exceeded. For more information, see <a href=\"https://docs.aws.amazon.com/proton/latest/userguide/ag-limits.html\">Proton Quotas</a> in the <i>Proton User Guide</i>.</p>
+            aws_sdk_proton.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_proton.errors.validation_exception.ValidationException: <p>The input is invalid or an out-of-range value was supplied for the input parameter.</p>
+            aws_sdk_proton.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -282,6 +325,14 @@ class AsyncRepositoryResource:
         Args:
             provider: <p>The repository provider.</p>
             name: <p>The repository name, for example <code>myrepos/myrepo</code>.</p>
+
+        Raises:
+            aws_sdk_proton.errors.access_denied_exception.AccessDeniedException: <p>There <i>isn't</i> sufficient access for performing this action.</p>
+            aws_sdk_proton.errors.internal_server_exception.InternalServerException: <p>The request failed to register with the service.</p>
+            aws_sdk_proton.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource <i>wasn't</i> found.</p>
+            aws_sdk_proton.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_proton.errors.validation_exception.ValidationException: <p>The input is invalid or an out-of-range value was supplied for the input parameter.</p>
+            aws_sdk_proton.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -323,6 +374,15 @@ class AsyncRepositoryResource:
         Args:
             provider: <p>The repository provider.</p>
             name: <p>The repository name.</p>
+
+        Raises:
+            aws_sdk_proton.errors.access_denied_exception.AccessDeniedException: <p>There <i>isn't</i> sufficient access for performing this action.</p>
+            aws_sdk_proton.errors.conflict_exception.ConflictException: <p>The request <i>couldn't</i> be made due to a conflicting operation or resource.</p>
+            aws_sdk_proton.errors.internal_server_exception.InternalServerException: <p>The request failed to register with the service.</p>
+            aws_sdk_proton.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource <i>wasn't</i> found.</p>
+            aws_sdk_proton.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_proton.errors.validation_exception.ValidationException: <p>The input is invalid or an out-of-range value was supplied for the input parameter.</p>
+            aws_sdk_proton.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -366,6 +426,14 @@ class AsyncRepositoryResource:
         Args:
             next_token: <p>A token that indicates the location of the next repository in the array of repositories, after the list of repositories previously requested.</p>
             max_results: <p>The maximum number of repositories to list.</p>
+
+        Raises:
+            aws_sdk_proton.errors.access_denied_exception.AccessDeniedException: <p>There <i>isn't</i> sufficient access for performing this action.</p>
+            aws_sdk_proton.errors.internal_server_exception.InternalServerException: <p>The request failed to register with the service.</p>
+            aws_sdk_proton.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource <i>wasn't</i> found.</p>
+            aws_sdk_proton.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_proton.errors.validation_exception.ValidationException: <p>The input is invalid or an out-of-range value was supplied for the input parameter.</p>
+            aws_sdk_proton.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

@@ -94,6 +94,13 @@ class NamespaceResource:
             manage_admin_password: <p>If <code>true</code>, Amazon Redshift uses Secrets Manager to manage the namespace's admin credentials. You can't use <code>adminUserPassword</code> if <code>manageAdminPassword</code> is true. If <code>manageAdminPassword</code> is false or not set, Amazon Redshift uses <code>adminUserPassword</code> for the admin user account's password. </p>
             admin_password_secret_kms_key_id: <p>The ID of the Key Management Service (KMS) key used to encrypt and store the namespace's admin credentials secret. You can only use this parameter if <code>manageAdminPassword</code> is true.</p>
             redshift_idc_application_arn: <p>The ARN for the Redshift application that integrates with IAM Identity Center.</p>
+
+        Raises:
+            aws_sdk_redshift_serverless.errors.conflict_exception.ConflictException: <p>The submitted action has conflicts.</p>
+            aws_sdk_redshift_serverless.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_redshift_serverless.errors.too_many_tags_exception.TooManyTagsException: <p>The request exceeded the number of tags allowed for a resource.</p>
+            aws_sdk_redshift_serverless.errors.validation_exception.ValidationException: <p>The input failed to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_redshift_serverless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -157,6 +164,12 @@ class NamespaceResource:
 
         Args:
             namespace_name: <p>The name of the namespace to retrieve information for.</p>
+
+        Raises:
+            aws_sdk_redshift_serverless.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_redshift_serverless.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_redshift_serverless.errors.validation_exception.ValidationException: <p>The input failed to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_redshift_serverless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -220,6 +233,13 @@ class NamespaceResource:
             log_exports: <p>The types of logs the namespace can export. The export types are <code>userlog</code>, <code>connectionlog</code>, and <code>useractivitylog</code>.</p>
             manage_admin_password: <p>If <code>true</code>, Amazon Redshift uses Secrets Manager to manage the namespace's admin credentials. You can't use <code>adminUserPassword</code> if <code>manageAdminPassword</code> is true. If <code>manageAdminPassword</code> is false or not set, Amazon Redshift uses <code>adminUserPassword</code> for the admin user account's password. </p>
             admin_password_secret_kms_key_id: <p>The ID of the Key Management Service (KMS) key used to encrypt and store the namespace's admin credentials secret. You can only use this parameter if <code>manageAdminPassword</code> is true.</p>
+
+        Raises:
+            aws_sdk_redshift_serverless.errors.conflict_exception.ConflictException: <p>The submitted action has conflicts.</p>
+            aws_sdk_redshift_serverless.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_redshift_serverless.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_redshift_serverless.errors.validation_exception.ValidationException: <p>The input failed to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_redshift_serverless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -279,6 +299,13 @@ class NamespaceResource:
             namespace_name: <p>The name of the namespace to delete.</p>
             final_snapshot_name: <p>The name of the snapshot to be created before the namespace is deleted.</p>
             final_snapshot_retention_period: <p>How long to retain the final snapshot.</p>
+
+        Raises:
+            aws_sdk_redshift_serverless.errors.conflict_exception.ConflictException: <p>The submitted action has conflicts.</p>
+            aws_sdk_redshift_serverless.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_redshift_serverless.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_redshift_serverless.errors.validation_exception.ValidationException: <p>The input failed to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_redshift_serverless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -322,6 +349,11 @@ class NamespaceResource:
         Args:
             next_token: <p>If your initial <code>ListNamespaces</code> operation returns a <code>nextToken</code>, you can include the returned <code>nextToken</code> in following <code>ListNamespaces</code> operations, which returns results in the next page.</p>
             max_results: <p>An optional parameter that specifies the maximum number of results to return. You can use <code>nextToken</code> to display the next page of results.</p>
+
+        Raises:
+            aws_sdk_redshift_serverless.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_redshift_serverless.errors.validation_exception.ValidationException: <p>The input failed to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_redshift_serverless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -378,6 +410,14 @@ class NamespaceResource:
             lakehouse_idc_registration: <p>Modifies the Amazon Web Services IAM Identity Center trusted identity propagation on a namespace enabled with Amazon Redshift federated permissions. Valid values are <code>Associate</code> or <code>Disassociate</code>.</p>
             lakehouse_idc_application_arn: <p>The Amazon Resource Name (ARN) of the IAM Identity Center application used for enabling Amazon Web Services IAM Identity Center trusted identity propagation on a namespace enabled with Amazon Redshift federated permissions.</p>
             dry_run: <p>A boolean value that, if <code>true</code>, validates the request without actually updating the lakehouse configuration. Use this to check for errors before making changes.</p>
+
+        Raises:
+            aws_sdk_redshift_serverless.errors.conflict_exception.ConflictException: <p>The submitted action has conflicts.</p>
+            aws_sdk_redshift_serverless.errors.dry_run_exception.DryRunException: <p>This exception is thrown when the request was successful, but dry run was enabled so no action was taken.</p>
+            aws_sdk_redshift_serverless.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_redshift_serverless.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_redshift_serverless.errors.validation_exception.ValidationException: <p>The input failed to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_redshift_serverless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -464,6 +504,13 @@ class AsyncNamespaceResource:
             manage_admin_password: <p>If <code>true</code>, Amazon Redshift uses Secrets Manager to manage the namespace's admin credentials. You can't use <code>adminUserPassword</code> if <code>manageAdminPassword</code> is true. If <code>manageAdminPassword</code> is false or not set, Amazon Redshift uses <code>adminUserPassword</code> for the admin user account's password. </p>
             admin_password_secret_kms_key_id: <p>The ID of the Key Management Service (KMS) key used to encrypt and store the namespace's admin credentials secret. You can only use this parameter if <code>manageAdminPassword</code> is true.</p>
             redshift_idc_application_arn: <p>The ARN for the Redshift application that integrates with IAM Identity Center.</p>
+
+        Raises:
+            aws_sdk_redshift_serverless.errors.conflict_exception.ConflictException: <p>The submitted action has conflicts.</p>
+            aws_sdk_redshift_serverless.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_redshift_serverless.errors.too_many_tags_exception.TooManyTagsException: <p>The request exceeded the number of tags allowed for a resource.</p>
+            aws_sdk_redshift_serverless.errors.validation_exception.ValidationException: <p>The input failed to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_redshift_serverless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -528,6 +575,12 @@ class AsyncNamespaceResource:
 
         Args:
             namespace_name: <p>The name of the namespace to retrieve information for.</p>
+
+        Raises:
+            aws_sdk_redshift_serverless.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_redshift_serverless.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_redshift_serverless.errors.validation_exception.ValidationException: <p>The input failed to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_redshift_serverless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -592,6 +645,13 @@ class AsyncNamespaceResource:
             log_exports: <p>The types of logs the namespace can export. The export types are <code>userlog</code>, <code>connectionlog</code>, and <code>useractivitylog</code>.</p>
             manage_admin_password: <p>If <code>true</code>, Amazon Redshift uses Secrets Manager to manage the namespace's admin credentials. You can't use <code>adminUserPassword</code> if <code>manageAdminPassword</code> is true. If <code>manageAdminPassword</code> is false or not set, Amazon Redshift uses <code>adminUserPassword</code> for the admin user account's password. </p>
             admin_password_secret_kms_key_id: <p>The ID of the Key Management Service (KMS) key used to encrypt and store the namespace's admin credentials secret. You can only use this parameter if <code>manageAdminPassword</code> is true.</p>
+
+        Raises:
+            aws_sdk_redshift_serverless.errors.conflict_exception.ConflictException: <p>The submitted action has conflicts.</p>
+            aws_sdk_redshift_serverless.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_redshift_serverless.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_redshift_serverless.errors.validation_exception.ValidationException: <p>The input failed to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_redshift_serverless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -652,6 +712,13 @@ class AsyncNamespaceResource:
             namespace_name: <p>The name of the namespace to delete.</p>
             final_snapshot_name: <p>The name of the snapshot to be created before the namespace is deleted.</p>
             final_snapshot_retention_period: <p>How long to retain the final snapshot.</p>
+
+        Raises:
+            aws_sdk_redshift_serverless.errors.conflict_exception.ConflictException: <p>The submitted action has conflicts.</p>
+            aws_sdk_redshift_serverless.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_redshift_serverless.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_redshift_serverless.errors.validation_exception.ValidationException: <p>The input failed to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_redshift_serverless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -696,6 +763,11 @@ class AsyncNamespaceResource:
         Args:
             next_token: <p>If your initial <code>ListNamespaces</code> operation returns a <code>nextToken</code>, you can include the returned <code>nextToken</code> in following <code>ListNamespaces</code> operations, which returns results in the next page.</p>
             max_results: <p>An optional parameter that specifies the maximum number of results to return. You can use <code>nextToken</code> to display the next page of results.</p>
+
+        Raises:
+            aws_sdk_redshift_serverless.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_redshift_serverless.errors.validation_exception.ValidationException: <p>The input failed to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_redshift_serverless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -753,6 +825,14 @@ class AsyncNamespaceResource:
             lakehouse_idc_registration: <p>Modifies the Amazon Web Services IAM Identity Center trusted identity propagation on a namespace enabled with Amazon Redshift federated permissions. Valid values are <code>Associate</code> or <code>Disassociate</code>.</p>
             lakehouse_idc_application_arn: <p>The Amazon Resource Name (ARN) of the IAM Identity Center application used for enabling Amazon Web Services IAM Identity Center trusted identity propagation on a namespace enabled with Amazon Redshift federated permissions.</p>
             dry_run: <p>A boolean value that, if <code>true</code>, validates the request without actually updating the lakehouse configuration. Use this to check for errors before making changes.</p>
+
+        Raises:
+            aws_sdk_redshift_serverless.errors.conflict_exception.ConflictException: <p>The submitted action has conflicts.</p>
+            aws_sdk_redshift_serverless.errors.dry_run_exception.DryRunException: <p>This exception is thrown when the request was successful, but dry run was enabled so no action was taken.</p>
+            aws_sdk_redshift_serverless.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_redshift_serverless.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_redshift_serverless.errors.validation_exception.ValidationException: <p>The input failed to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_redshift_serverless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

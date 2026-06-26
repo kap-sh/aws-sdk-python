@@ -58,6 +58,14 @@ class TrainedModelExportJob:
             membership_identifier: <p>The membership ID of the member that is receiving the exported trained model artifacts.</p>
             output_configuration: <p>The output configuration information for the trained model export job.</p>
             description: <p>The description of the trained model export job.</p>
+
+        Raises:
+            aws_sdk_cleanroomsml.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_cleanroomsml.errors.conflict_exception.ConflictException: <p>You can't complete this action because another resource depends on this resource.</p>
+            aws_sdk_cleanroomsml.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource you are requesting does not exist.</p>
+            aws_sdk_cleanroomsml.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_cleanroomsml.errors.validation_exception.ValidationException: <p>The request parameters for this request are incorrect.</p>
+            aws_sdk_cleanroomsml.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -121,6 +129,14 @@ class AsyncTrainedModelExportJob:
             membership_identifier: <p>The membership ID of the member that is receiving the exported trained model artifacts.</p>
             output_configuration: <p>The output configuration information for the trained model export job.</p>
             description: <p>The description of the trained model export job.</p>
+
+        Raises:
+            aws_sdk_cleanroomsml.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_cleanroomsml.errors.conflict_exception.ConflictException: <p>You can't complete this action because another resource depends on this resource.</p>
+            aws_sdk_cleanroomsml.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource you are requesting does not exist.</p>
+            aws_sdk_cleanroomsml.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_cleanroomsml.errors.validation_exception.ValidationException: <p>The request parameters for this request are incorrect.</p>
+            aws_sdk_cleanroomsml.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

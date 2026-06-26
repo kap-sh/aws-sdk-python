@@ -154,6 +154,12 @@ class AsyncRUMClient:
 
         Args:
             resource_arn: <p>The ARN of the resource that you want to see the tags of.</p>
+
+        Raises:
+            aws_sdk_rum.errors.internal_server_exception.InternalServerException: <p>Internal service exception.</p>
+            aws_sdk_rum.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found.</p>
+            aws_sdk_rum.errors.validation_exception.ValidationException: <p>One of the arguments for the request is not valid.</p>
+            aws_sdk_rum.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -202,6 +208,14 @@ class AsyncRUMClient:
             user_details: <p>A structure that contains information about the user session that this batch of events was collected from.</p>
             rum_events: <p>An array of structures that contain the telemetry event data.</p>
             alias: <p>If the app monitor uses a resource-based policy that requires <code>PutRumEvents</code> requests to specify a certain alias, specify that alias here. This alias will be compared to the <code>rum:alias</code> context key in the resource-based policy. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM-resource-policies.html\">Using resource-based policies with CloudWatch RUM</a>.</p>
+
+        Raises:
+            aws_sdk_rum.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permissions to perform this action.</p>
+            aws_sdk_rum.errors.internal_server_exception.InternalServerException: <p>Internal service exception.</p>
+            aws_sdk_rum.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found.</p>
+            aws_sdk_rum.errors.throttling_exception.ThrottlingException: <p>The request was throttled because of quota limits.</p>
+            aws_sdk_rum.errors.validation_exception.ValidationException: <p>One of the arguments for the request is not valid.</p>
+            aws_sdk_rum.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -248,6 +262,12 @@ class AsyncRUMClient:
         Args:
             resource_arn: <p>The ARN of the CloudWatch RUM resource that you're adding tags to.</p>
             tags: <p>The list of key-value pairs to associate with the resource.</p>
+
+        Raises:
+            aws_sdk_rum.errors.internal_server_exception.InternalServerException: <p>Internal service exception.</p>
+            aws_sdk_rum.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found.</p>
+            aws_sdk_rum.errors.validation_exception.ValidationException: <p>One of the arguments for the request is not valid.</p>
+            aws_sdk_rum.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -289,6 +309,12 @@ class AsyncRUMClient:
         Args:
             resource_arn: <p>The ARN of the CloudWatch RUM resource that you're removing tags from.</p>
             tag_keys: <p>The list of tag keys to remove from the resource.</p>
+
+        Raises:
+            aws_sdk_rum.errors.internal_server_exception.InternalServerException: <p>Internal service exception.</p>
+            aws_sdk_rum.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found.</p>
+            aws_sdk_rum.errors.validation_exception.ValidationException: <p>One of the arguments for the request is not valid.</p>
+            aws_sdk_rum.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

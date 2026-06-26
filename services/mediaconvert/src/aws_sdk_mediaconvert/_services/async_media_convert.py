@@ -235,6 +235,16 @@ class AsyncMediaConvertClient:
 
         Args:
             arn: The ARN of the ACM certificate that you want to associate with your MediaConvert resource.
+
+        Raises:
+            aws_sdk_mediaconvert.errors.bad_request_exception.BadRequestException: The service can't process your request because of a problem in the request. Please check your request form and syntax.
+            aws_sdk_mediaconvert.errors.conflict_exception.ConflictException: The service couldn't complete your request because there is a conflict with the current state of the resource.
+            aws_sdk_mediaconvert.errors.forbidden_exception.ForbiddenException: You don't have permissions for this action with the credentials you sent.
+            aws_sdk_mediaconvert.errors.internal_server_error_exception.InternalServerErrorException: The service encountered an unexpected condition and can't fulfill your request.
+            aws_sdk_mediaconvert.errors.not_found_exception.NotFoundException: The resource you requested doesn't exist.
+            aws_sdk_mediaconvert.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: You attempted to create more resources than the service allows based on service quotas.
+            aws_sdk_mediaconvert.errors.too_many_requests_exception.TooManyRequestsException: Too many requests have been sent in too short of a time. The service limits the rate at which it will accept requests.
+            aws_sdk_mediaconvert.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -273,6 +283,16 @@ class AsyncMediaConvertClient:
 
         Args:
             id: The Job ID of the job to be cancelled.
+
+        Raises:
+            aws_sdk_mediaconvert.errors.bad_request_exception.BadRequestException: The service can't process your request because of a problem in the request. Please check your request form and syntax.
+            aws_sdk_mediaconvert.errors.conflict_exception.ConflictException: The service couldn't complete your request because there is a conflict with the current state of the resource.
+            aws_sdk_mediaconvert.errors.forbidden_exception.ForbiddenException: You don't have permissions for this action with the credentials you sent.
+            aws_sdk_mediaconvert.errors.internal_server_error_exception.InternalServerErrorException: The service encountered an unexpected condition and can't fulfill your request.
+            aws_sdk_mediaconvert.errors.not_found_exception.NotFoundException: The resource you requested doesn't exist.
+            aws_sdk_mediaconvert.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: You attempted to create more resources than the service allows based on service quotas.
+            aws_sdk_mediaconvert.errors.too_many_requests_exception.TooManyRequestsException: Too many requests have been sent in too short of a time. The service limits the rate at which it will accept requests.
+            aws_sdk_mediaconvert.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -357,6 +377,16 @@ class AsyncMediaConvertClient:
             status_update_interval: Optional. Specify how often MediaConvert sends STATUS_UPDATE events to Amazon CloudWatch Events. Set the interval, in seconds, between status updates. MediaConvert sends an update at this interval from the time the service begins processing your job to the time it completes the transcode or encounters an error.
             tags: Optional. The tags that you want to add to the resource. You can tag resources with a key-value pair or with only a key. Use standard AWS tags on your job for automatic integration with AWS services and for custom integrations and workflows.
             user_metadata: Optional. User-defined metadata that you want to associate with an MediaConvert job. You specify metadata in key/value pairs. Use only for existing integrations or workflows that rely on job metadata tags. Otherwise, we recommend that you use standard AWS tags.
+
+        Raises:
+            aws_sdk_mediaconvert.errors.bad_request_exception.BadRequestException: The service can't process your request because of a problem in the request. Please check your request form and syntax.
+            aws_sdk_mediaconvert.errors.conflict_exception.ConflictException: The service couldn't complete your request because there is a conflict with the current state of the resource.
+            aws_sdk_mediaconvert.errors.forbidden_exception.ForbiddenException: You don't have permissions for this action with the credentials you sent.
+            aws_sdk_mediaconvert.errors.internal_server_error_exception.InternalServerErrorException: The service encountered an unexpected condition and can't fulfill your request.
+            aws_sdk_mediaconvert.errors.not_found_exception.NotFoundException: The resource you requested doesn't exist.
+            aws_sdk_mediaconvert.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: You attempted to create more resources than the service allows based on service quotas.
+            aws_sdk_mediaconvert.errors.too_many_requests_exception.TooManyRequestsException: Too many requests have been sent in too short of a time. The service limits the rate at which it will accept requests.
+            aws_sdk_mediaconvert.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -448,6 +478,16 @@ class AsyncMediaConvertClient:
             settings: JobTemplateSettings contains all the transcode settings saved in the template that will be applied to jobs created from it.
             status_update_interval: Specify how often MediaConvert sends STATUS_UPDATE events to Amazon CloudWatch Events. Set the interval, in seconds, between status updates. MediaConvert sends an update at this interval from the time the service begins processing your job to the time it completes the transcode or encounters an error.
             tags: The tags that you want to add to the resource. You can tag resources with a key-value pair or with only a key.
+
+        Raises:
+            aws_sdk_mediaconvert.errors.bad_request_exception.BadRequestException: The service can't process your request because of a problem in the request. Please check your request form and syntax.
+            aws_sdk_mediaconvert.errors.conflict_exception.ConflictException: The service couldn't complete your request because there is a conflict with the current state of the resource.
+            aws_sdk_mediaconvert.errors.forbidden_exception.ForbiddenException: You don't have permissions for this action with the credentials you sent.
+            aws_sdk_mediaconvert.errors.internal_server_error_exception.InternalServerErrorException: The service encountered an unexpected condition and can't fulfill your request.
+            aws_sdk_mediaconvert.errors.not_found_exception.NotFoundException: The resource you requested doesn't exist.
+            aws_sdk_mediaconvert.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: You attempted to create more resources than the service allows based on service quotas.
+            aws_sdk_mediaconvert.errors.too_many_requests_exception.TooManyRequestsException: Too many requests have been sent in too short of a time. The service limits the rate at which it will accept requests.
+            aws_sdk_mediaconvert.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -513,6 +553,16 @@ class AsyncMediaConvertClient:
             name: The name of the preset you are creating.
             settings: Settings for preset
             tags: The tags that you want to add to the resource. You can tag resources with a key-value pair or with only a key.
+
+        Raises:
+            aws_sdk_mediaconvert.errors.bad_request_exception.BadRequestException: The service can't process your request because of a problem in the request. Please check your request form and syntax.
+            aws_sdk_mediaconvert.errors.conflict_exception.ConflictException: The service couldn't complete your request because there is a conflict with the current state of the resource.
+            aws_sdk_mediaconvert.errors.forbidden_exception.ForbiddenException: You don't have permissions for this action with the credentials you sent.
+            aws_sdk_mediaconvert.errors.internal_server_error_exception.InternalServerErrorException: The service encountered an unexpected condition and can't fulfill your request.
+            aws_sdk_mediaconvert.errors.not_found_exception.NotFoundException: The resource you requested doesn't exist.
+            aws_sdk_mediaconvert.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: You attempted to create more resources than the service allows based on service quotas.
+            aws_sdk_mediaconvert.errors.too_many_requests_exception.TooManyRequestsException: Too many requests have been sent in too short of a time. The service limits the rate at which it will accept requests.
+            aws_sdk_mediaconvert.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -582,6 +632,16 @@ class AsyncMediaConvertClient:
             reservation_plan_settings: Details about the pricing plan for your reserved queue. Required for reserved queues and not applicable to on-demand queues.
             status: Initial state of the queue. If you create a paused queue, then jobs in that queue won't begin.
             tags: The tags that you want to add to the resource. You can tag resources with a key-value pair or with only a key.
+
+        Raises:
+            aws_sdk_mediaconvert.errors.bad_request_exception.BadRequestException: The service can't process your request because of a problem in the request. Please check your request form and syntax.
+            aws_sdk_mediaconvert.errors.conflict_exception.ConflictException: The service couldn't complete your request because there is a conflict with the current state of the resource.
+            aws_sdk_mediaconvert.errors.forbidden_exception.ForbiddenException: You don't have permissions for this action with the credentials you sent.
+            aws_sdk_mediaconvert.errors.internal_server_error_exception.InternalServerErrorException: The service encountered an unexpected condition and can't fulfill your request.
+            aws_sdk_mediaconvert.errors.not_found_exception.NotFoundException: The resource you requested doesn't exist.
+            aws_sdk_mediaconvert.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: You attempted to create more resources than the service allows based on service quotas.
+            aws_sdk_mediaconvert.errors.too_many_requests_exception.TooManyRequestsException: Too many requests have been sent in too short of a time. The service limits the rate at which it will accept requests.
+            aws_sdk_mediaconvert.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -636,6 +696,16 @@ class AsyncMediaConvertClient:
         Args:
             job_id: Specify MediaConvert Job ID or ARN to share
             support_case_id: AWS Support case identifier
+
+        Raises:
+            aws_sdk_mediaconvert.errors.bad_request_exception.BadRequestException: The service can't process your request because of a problem in the request. Please check your request form and syntax.
+            aws_sdk_mediaconvert.errors.conflict_exception.ConflictException: The service couldn't complete your request because there is a conflict with the current state of the resource.
+            aws_sdk_mediaconvert.errors.forbidden_exception.ForbiddenException: You don't have permissions for this action with the credentials you sent.
+            aws_sdk_mediaconvert.errors.internal_server_error_exception.InternalServerErrorException: The service encountered an unexpected condition and can't fulfill your request.
+            aws_sdk_mediaconvert.errors.not_found_exception.NotFoundException: The resource you requested doesn't exist.
+            aws_sdk_mediaconvert.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: You attempted to create more resources than the service allows based on service quotas.
+            aws_sdk_mediaconvert.errors.too_many_requests_exception.TooManyRequestsException: Too many requests have been sent in too short of a time. The service limits the rate at which it will accept requests.
+            aws_sdk_mediaconvert.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -675,6 +745,16 @@ class AsyncMediaConvertClient:
 
         Args:
             name: The name of the job template to be deleted.
+
+        Raises:
+            aws_sdk_mediaconvert.errors.bad_request_exception.BadRequestException: The service can't process your request because of a problem in the request. Please check your request form and syntax.
+            aws_sdk_mediaconvert.errors.conflict_exception.ConflictException: The service couldn't complete your request because there is a conflict with the current state of the resource.
+            aws_sdk_mediaconvert.errors.forbidden_exception.ForbiddenException: You don't have permissions for this action with the credentials you sent.
+            aws_sdk_mediaconvert.errors.internal_server_error_exception.InternalServerErrorException: The service encountered an unexpected condition and can't fulfill your request.
+            aws_sdk_mediaconvert.errors.not_found_exception.NotFoundException: The resource you requested doesn't exist.
+            aws_sdk_mediaconvert.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: You attempted to create more resources than the service allows based on service quotas.
+            aws_sdk_mediaconvert.errors.too_many_requests_exception.TooManyRequestsException: Too many requests have been sent in too short of a time. The service limits the rate at which it will accept requests.
+            aws_sdk_mediaconvert.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -706,7 +786,18 @@ class AsyncMediaConvertClient:
     async def delete_policy(
         self, *, config_overrides: Optional[AsyncMediaConvertClientConfig] = None
     ) -> "aws_sdk_mediaconvert.types.delete_policy_response.DeletePolicyResponse":
-        """Permanently delete a policy that you created."""
+        """Permanently delete a policy that you created.
+
+        Raises:
+            aws_sdk_mediaconvert.errors.bad_request_exception.BadRequestException: The service can't process your request because of a problem in the request. Please check your request form and syntax.
+            aws_sdk_mediaconvert.errors.conflict_exception.ConflictException: The service couldn't complete your request because there is a conflict with the current state of the resource.
+            aws_sdk_mediaconvert.errors.forbidden_exception.ForbiddenException: You don't have permissions for this action with the credentials you sent.
+            aws_sdk_mediaconvert.errors.internal_server_error_exception.InternalServerErrorException: The service encountered an unexpected condition and can't fulfill your request.
+            aws_sdk_mediaconvert.errors.not_found_exception.NotFoundException: The resource you requested doesn't exist.
+            aws_sdk_mediaconvert.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: You attempted to create more resources than the service allows based on service quotas.
+            aws_sdk_mediaconvert.errors.too_many_requests_exception.TooManyRequestsException: Too many requests have been sent in too short of a time. The service limits the rate at which it will accept requests.
+            aws_sdk_mediaconvert.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_mediaconvert.types.delete_policy_request.DeletePolicyRequest]",
@@ -743,6 +834,16 @@ class AsyncMediaConvertClient:
 
         Args:
             name: The name of the preset to be deleted.
+
+        Raises:
+            aws_sdk_mediaconvert.errors.bad_request_exception.BadRequestException: The service can't process your request because of a problem in the request. Please check your request form and syntax.
+            aws_sdk_mediaconvert.errors.conflict_exception.ConflictException: The service couldn't complete your request because there is a conflict with the current state of the resource.
+            aws_sdk_mediaconvert.errors.forbidden_exception.ForbiddenException: You don't have permissions for this action with the credentials you sent.
+            aws_sdk_mediaconvert.errors.internal_server_error_exception.InternalServerErrorException: The service encountered an unexpected condition and can't fulfill your request.
+            aws_sdk_mediaconvert.errors.not_found_exception.NotFoundException: The resource you requested doesn't exist.
+            aws_sdk_mediaconvert.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: You attempted to create more resources than the service allows based on service quotas.
+            aws_sdk_mediaconvert.errors.too_many_requests_exception.TooManyRequestsException: Too many requests have been sent in too short of a time. The service limits the rate at which it will accept requests.
+            aws_sdk_mediaconvert.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -781,6 +882,16 @@ class AsyncMediaConvertClient:
 
         Args:
             name: The name of the queue that you want to delete.
+
+        Raises:
+            aws_sdk_mediaconvert.errors.bad_request_exception.BadRequestException: The service can't process your request because of a problem in the request. Please check your request form and syntax.
+            aws_sdk_mediaconvert.errors.conflict_exception.ConflictException: The service couldn't complete your request because there is a conflict with the current state of the resource.
+            aws_sdk_mediaconvert.errors.forbidden_exception.ForbiddenException: You don't have permissions for this action with the credentials you sent.
+            aws_sdk_mediaconvert.errors.internal_server_error_exception.InternalServerErrorException: The service encountered an unexpected condition and can't fulfill your request.
+            aws_sdk_mediaconvert.errors.not_found_exception.NotFoundException: The resource you requested doesn't exist.
+            aws_sdk_mediaconvert.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: You attempted to create more resources than the service allows based on service quotas.
+            aws_sdk_mediaconvert.errors.too_many_requests_exception.TooManyRequestsException: Too many requests have been sent in too short of a time. The service limits the rate at which it will accept requests.
+            aws_sdk_mediaconvert.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -825,6 +936,16 @@ class AsyncMediaConvertClient:
             max_results: Optional. Max number of endpoints, up to twenty, that will be returned at one time.
             mode: Optional field, defaults to DEFAULT. Specify DEFAULT for this operation to return your endpoints if any exist, or to create an endpoint for you and return it if one doesn't already exist. Specify GET_ONLY to return your endpoints if any exist, or an empty list if none exist.
             next_token: Use this string, provided with the response to a previous request, to request the next batch of endpoints.
+
+        Raises:
+            aws_sdk_mediaconvert.errors.bad_request_exception.BadRequestException: The service can't process your request because of a problem in the request. Please check your request form and syntax.
+            aws_sdk_mediaconvert.errors.conflict_exception.ConflictException: The service couldn't complete your request because there is a conflict with the current state of the resource.
+            aws_sdk_mediaconvert.errors.forbidden_exception.ForbiddenException: You don't have permissions for this action with the credentials you sent.
+            aws_sdk_mediaconvert.errors.internal_server_error_exception.InternalServerErrorException: The service encountered an unexpected condition and can't fulfill your request.
+            aws_sdk_mediaconvert.errors.not_found_exception.NotFoundException: The resource you requested doesn't exist.
+            aws_sdk_mediaconvert.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: You attempted to create more resources than the service allows based on service quotas.
+            aws_sdk_mediaconvert.errors.too_many_requests_exception.TooManyRequestsException: Too many requests have been sent in too short of a time. The service limits the rate at which it will accept requests.
+            aws_sdk_mediaconvert.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -893,6 +1014,16 @@ class AsyncMediaConvertClient:
 
         Args:
             arn: The ARN of the ACM certificate that you want to disassociate from your MediaConvert resource.
+
+        Raises:
+            aws_sdk_mediaconvert.errors.bad_request_exception.BadRequestException: The service can't process your request because of a problem in the request. Please check your request form and syntax.
+            aws_sdk_mediaconvert.errors.conflict_exception.ConflictException: The service couldn't complete your request because there is a conflict with the current state of the resource.
+            aws_sdk_mediaconvert.errors.forbidden_exception.ForbiddenException: You don't have permissions for this action with the credentials you sent.
+            aws_sdk_mediaconvert.errors.internal_server_error_exception.InternalServerErrorException: The service encountered an unexpected condition and can't fulfill your request.
+            aws_sdk_mediaconvert.errors.not_found_exception.NotFoundException: The resource you requested doesn't exist.
+            aws_sdk_mediaconvert.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: You attempted to create more resources than the service allows based on service quotas.
+            aws_sdk_mediaconvert.errors.too_many_requests_exception.TooManyRequestsException: Too many requests have been sent in too short of a time. The service limits the rate at which it will accept requests.
+            aws_sdk_mediaconvert.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -931,6 +1062,16 @@ class AsyncMediaConvertClient:
 
         Args:
             id: the job ID of the job.
+
+        Raises:
+            aws_sdk_mediaconvert.errors.bad_request_exception.BadRequestException: The service can't process your request because of a problem in the request. Please check your request form and syntax.
+            aws_sdk_mediaconvert.errors.conflict_exception.ConflictException: The service couldn't complete your request because there is a conflict with the current state of the resource.
+            aws_sdk_mediaconvert.errors.forbidden_exception.ForbiddenException: You don't have permissions for this action with the credentials you sent.
+            aws_sdk_mediaconvert.errors.internal_server_error_exception.InternalServerErrorException: The service encountered an unexpected condition and can't fulfill your request.
+            aws_sdk_mediaconvert.errors.not_found_exception.NotFoundException: The resource you requested doesn't exist.
+            aws_sdk_mediaconvert.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: You attempted to create more resources than the service allows based on service quotas.
+            aws_sdk_mediaconvert.errors.too_many_requests_exception.TooManyRequestsException: Too many requests have been sent in too short of a time. The service limits the rate at which it will accept requests.
+            aws_sdk_mediaconvert.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -969,6 +1110,16 @@ class AsyncMediaConvertClient:
 
         Args:
             id: The ID of the jobs query.
+
+        Raises:
+            aws_sdk_mediaconvert.errors.bad_request_exception.BadRequestException: The service can't process your request because of a problem in the request. Please check your request form and syntax.
+            aws_sdk_mediaconvert.errors.conflict_exception.ConflictException: The service couldn't complete your request because there is a conflict with the current state of the resource.
+            aws_sdk_mediaconvert.errors.forbidden_exception.ForbiddenException: You don't have permissions for this action with the credentials you sent.
+            aws_sdk_mediaconvert.errors.internal_server_error_exception.InternalServerErrorException: The service encountered an unexpected condition and can't fulfill your request.
+            aws_sdk_mediaconvert.errors.not_found_exception.NotFoundException: The resource you requested doesn't exist.
+            aws_sdk_mediaconvert.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: You attempted to create more resources than the service allows based on service quotas.
+            aws_sdk_mediaconvert.errors.too_many_requests_exception.TooManyRequestsException: Too many requests have been sent in too short of a time. The service limits the rate at which it will accept requests.
+            aws_sdk_mediaconvert.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1007,6 +1158,16 @@ class AsyncMediaConvertClient:
 
         Args:
             name: The name of the job template.
+
+        Raises:
+            aws_sdk_mediaconvert.errors.bad_request_exception.BadRequestException: The service can't process your request because of a problem in the request. Please check your request form and syntax.
+            aws_sdk_mediaconvert.errors.conflict_exception.ConflictException: The service couldn't complete your request because there is a conflict with the current state of the resource.
+            aws_sdk_mediaconvert.errors.forbidden_exception.ForbiddenException: You don't have permissions for this action with the credentials you sent.
+            aws_sdk_mediaconvert.errors.internal_server_error_exception.InternalServerErrorException: The service encountered an unexpected condition and can't fulfill your request.
+            aws_sdk_mediaconvert.errors.not_found_exception.NotFoundException: The resource you requested doesn't exist.
+            aws_sdk_mediaconvert.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: You attempted to create more resources than the service allows based on service quotas.
+            aws_sdk_mediaconvert.errors.too_many_requests_exception.TooManyRequestsException: Too many requests have been sent in too short of a time. The service limits the rate at which it will accept requests.
+            aws_sdk_mediaconvert.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1038,7 +1199,18 @@ class AsyncMediaConvertClient:
     async def get_policy(
         self, *, config_overrides: Optional[AsyncMediaConvertClientConfig] = None
     ) -> "aws_sdk_mediaconvert.types.get_policy_response.GetPolicyResponse":
-        """Retrieve the JSON for your policy."""
+        """Retrieve the JSON for your policy.
+
+        Raises:
+            aws_sdk_mediaconvert.errors.bad_request_exception.BadRequestException: The service can't process your request because of a problem in the request. Please check your request form and syntax.
+            aws_sdk_mediaconvert.errors.conflict_exception.ConflictException: The service couldn't complete your request because there is a conflict with the current state of the resource.
+            aws_sdk_mediaconvert.errors.forbidden_exception.ForbiddenException: You don't have permissions for this action with the credentials you sent.
+            aws_sdk_mediaconvert.errors.internal_server_error_exception.InternalServerErrorException: The service encountered an unexpected condition and can't fulfill your request.
+            aws_sdk_mediaconvert.errors.not_found_exception.NotFoundException: The resource you requested doesn't exist.
+            aws_sdk_mediaconvert.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: You attempted to create more resources than the service allows based on service quotas.
+            aws_sdk_mediaconvert.errors.too_many_requests_exception.TooManyRequestsException: Too many requests have been sent in too short of a time. The service limits the rate at which it will accept requests.
+            aws_sdk_mediaconvert.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_mediaconvert.types.get_policy_request.GetPolicyRequest]",
@@ -1075,6 +1247,16 @@ class AsyncMediaConvertClient:
 
         Args:
             name: The name of the preset.
+
+        Raises:
+            aws_sdk_mediaconvert.errors.bad_request_exception.BadRequestException: The service can't process your request because of a problem in the request. Please check your request form and syntax.
+            aws_sdk_mediaconvert.errors.conflict_exception.ConflictException: The service couldn't complete your request because there is a conflict with the current state of the resource.
+            aws_sdk_mediaconvert.errors.forbidden_exception.ForbiddenException: You don't have permissions for this action with the credentials you sent.
+            aws_sdk_mediaconvert.errors.internal_server_error_exception.InternalServerErrorException: The service encountered an unexpected condition and can't fulfill your request.
+            aws_sdk_mediaconvert.errors.not_found_exception.NotFoundException: The resource you requested doesn't exist.
+            aws_sdk_mediaconvert.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: You attempted to create more resources than the service allows based on service quotas.
+            aws_sdk_mediaconvert.errors.too_many_requests_exception.TooManyRequestsException: Too many requests have been sent in too short of a time. The service limits the rate at which it will accept requests.
+            aws_sdk_mediaconvert.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1113,6 +1295,16 @@ class AsyncMediaConvertClient:
 
         Args:
             name: The name of the queue that you want information about.
+
+        Raises:
+            aws_sdk_mediaconvert.errors.bad_request_exception.BadRequestException: The service can't process your request because of a problem in the request. Please check your request form and syntax.
+            aws_sdk_mediaconvert.errors.conflict_exception.ConflictException: The service couldn't complete your request because there is a conflict with the current state of the resource.
+            aws_sdk_mediaconvert.errors.forbidden_exception.ForbiddenException: You don't have permissions for this action with the credentials you sent.
+            aws_sdk_mediaconvert.errors.internal_server_error_exception.InternalServerErrorException: The service encountered an unexpected condition and can't fulfill your request.
+            aws_sdk_mediaconvert.errors.not_found_exception.NotFoundException: The resource you requested doesn't exist.
+            aws_sdk_mediaconvert.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: You attempted to create more resources than the service allows based on service quotas.
+            aws_sdk_mediaconvert.errors.too_many_requests_exception.TooManyRequestsException: Too many requests have been sent in too short of a time. The service limits the rate at which it will accept requests.
+            aws_sdk_mediaconvert.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1161,6 +1353,16 @@ class AsyncMediaConvertClient:
             order: Optional. When you request lists of resources, you can specify whether they are sorted in ASCENDING or DESCENDING order. Default varies by resource.
             queue: Optional. Provide a queue name to get back only jobs from that queue.
             status: Optional. A job's status can be SUBMITTED, PROGRESSING, COMPLETE, CANCELED, or ERROR.
+
+        Raises:
+            aws_sdk_mediaconvert.errors.bad_request_exception.BadRequestException: The service can't process your request because of a problem in the request. Please check your request form and syntax.
+            aws_sdk_mediaconvert.errors.conflict_exception.ConflictException: The service couldn't complete your request because there is a conflict with the current state of the resource.
+            aws_sdk_mediaconvert.errors.forbidden_exception.ForbiddenException: You don't have permissions for this action with the credentials you sent.
+            aws_sdk_mediaconvert.errors.internal_server_error_exception.InternalServerErrorException: The service encountered an unexpected condition and can't fulfill your request.
+            aws_sdk_mediaconvert.errors.not_found_exception.NotFoundException: The resource you requested doesn't exist.
+            aws_sdk_mediaconvert.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: You attempted to create more resources than the service allows based on service quotas.
+            aws_sdk_mediaconvert.errors.too_many_requests_exception.TooManyRequestsException: Too many requests have been sent in too short of a time. The service limits the rate at which it will accept requests.
+            aws_sdk_mediaconvert.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1249,6 +1451,16 @@ class AsyncMediaConvertClient:
             max_results: Optional. Number of job templates, up to twenty, that will be returned at one time.
             next_token: Use this string, provided with the response to a previous request, to request the next batch of job templates.
             order: Optional. When you request lists of resources, you can specify whether they are sorted in ASCENDING or DESCENDING order. Default varies by resource.
+
+        Raises:
+            aws_sdk_mediaconvert.errors.bad_request_exception.BadRequestException: The service can't process your request because of a problem in the request. Please check your request form and syntax.
+            aws_sdk_mediaconvert.errors.conflict_exception.ConflictException: The service couldn't complete your request because there is a conflict with the current state of the resource.
+            aws_sdk_mediaconvert.errors.forbidden_exception.ForbiddenException: You don't have permissions for this action with the credentials you sent.
+            aws_sdk_mediaconvert.errors.internal_server_error_exception.InternalServerErrorException: The service encountered an unexpected condition and can't fulfill your request.
+            aws_sdk_mediaconvert.errors.not_found_exception.NotFoundException: The resource you requested doesn't exist.
+            aws_sdk_mediaconvert.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: You attempted to create more resources than the service allows based on service quotas.
+            aws_sdk_mediaconvert.errors.too_many_requests_exception.TooManyRequestsException: Too many requests have been sent in too short of a time. The service limits the rate at which it will accept requests.
+            aws_sdk_mediaconvert.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1339,6 +1551,16 @@ class AsyncMediaConvertClient:
             max_results: Optional. Number of presets, up to twenty, that will be returned at one time
             next_token: Use this string, provided with the response to a previous request, to request the next batch of presets.
             order: Optional. When you request lists of resources, you can specify whether they are sorted in ASCENDING or DESCENDING order. Default varies by resource.
+
+        Raises:
+            aws_sdk_mediaconvert.errors.bad_request_exception.BadRequestException: The service can't process your request because of a problem in the request. Please check your request form and syntax.
+            aws_sdk_mediaconvert.errors.conflict_exception.ConflictException: The service couldn't complete your request because there is a conflict with the current state of the resource.
+            aws_sdk_mediaconvert.errors.forbidden_exception.ForbiddenException: You don't have permissions for this action with the credentials you sent.
+            aws_sdk_mediaconvert.errors.internal_server_error_exception.InternalServerErrorException: The service encountered an unexpected condition and can't fulfill your request.
+            aws_sdk_mediaconvert.errors.not_found_exception.NotFoundException: The resource you requested doesn't exist.
+            aws_sdk_mediaconvert.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: You attempted to create more resources than the service allows based on service quotas.
+            aws_sdk_mediaconvert.errors.too_many_requests_exception.TooManyRequestsException: Too many requests have been sent in too short of a time. The service limits the rate at which it will accept requests.
+            aws_sdk_mediaconvert.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1427,6 +1649,16 @@ class AsyncMediaConvertClient:
             max_results: Optional. Number of queues, up to twenty, that will be returned at one time.
             next_token: Use this string, provided with the response to a previous request, to request the next batch of queues.
             order: Optional. When you request lists of resources, you can specify whether they are sorted in ASCENDING or DESCENDING order. Default varies by resource.
+
+        Raises:
+            aws_sdk_mediaconvert.errors.bad_request_exception.BadRequestException: The service can't process your request because of a problem in the request. Please check your request form and syntax.
+            aws_sdk_mediaconvert.errors.conflict_exception.ConflictException: The service couldn't complete your request because there is a conflict with the current state of the resource.
+            aws_sdk_mediaconvert.errors.forbidden_exception.ForbiddenException: You don't have permissions for this action with the credentials you sent.
+            aws_sdk_mediaconvert.errors.internal_server_error_exception.InternalServerErrorException: The service encountered an unexpected condition and can't fulfill your request.
+            aws_sdk_mediaconvert.errors.not_found_exception.NotFoundException: The resource you requested doesn't exist.
+            aws_sdk_mediaconvert.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: You attempted to create more resources than the service allows based on service quotas.
+            aws_sdk_mediaconvert.errors.too_many_requests_exception.TooManyRequestsException: Too many requests have been sent in too short of a time. The service limits the rate at which it will accept requests.
+            aws_sdk_mediaconvert.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1501,6 +1733,16 @@ class AsyncMediaConvertClient:
 
         Args:
             arn: The Amazon Resource Name (ARN) of the resource that you want to list tags for. To get the ARN, send a GET request with the resource name.
+
+        Raises:
+            aws_sdk_mediaconvert.errors.bad_request_exception.BadRequestException: The service can't process your request because of a problem in the request. Please check your request form and syntax.
+            aws_sdk_mediaconvert.errors.conflict_exception.ConflictException: The service couldn't complete your request because there is a conflict with the current state of the resource.
+            aws_sdk_mediaconvert.errors.forbidden_exception.ForbiddenException: You don't have permissions for this action with the credentials you sent.
+            aws_sdk_mediaconvert.errors.internal_server_error_exception.InternalServerErrorException: The service encountered an unexpected condition and can't fulfill your request.
+            aws_sdk_mediaconvert.errors.not_found_exception.NotFoundException: The resource you requested doesn't exist.
+            aws_sdk_mediaconvert.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: You attempted to create more resources than the service allows based on service quotas.
+            aws_sdk_mediaconvert.errors.too_many_requests_exception.TooManyRequestsException: Too many requests have been sent in too short of a time. The service limits the rate at which it will accept requests.
+            aws_sdk_mediaconvert.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1543,6 +1785,16 @@ class AsyncMediaConvertClient:
         Args:
             max_results: Optional. Number of valid Job engine versions, up to twenty, that will be returned at one time.
             next_token: Optional. Use this string, provided with the response to a previous request, to request the next batch of Job engine versions.
+
+        Raises:
+            aws_sdk_mediaconvert.errors.bad_request_exception.BadRequestException: The service can't process your request because of a problem in the request. Please check your request form and syntax.
+            aws_sdk_mediaconvert.errors.conflict_exception.ConflictException: The service couldn't complete your request because there is a conflict with the current state of the resource.
+            aws_sdk_mediaconvert.errors.forbidden_exception.ForbiddenException: You don't have permissions for this action with the credentials you sent.
+            aws_sdk_mediaconvert.errors.internal_server_error_exception.InternalServerErrorException: The service encountered an unexpected condition and can't fulfill your request.
+            aws_sdk_mediaconvert.errors.not_found_exception.NotFoundException: The resource you requested doesn't exist.
+            aws_sdk_mediaconvert.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: You attempted to create more resources than the service allows based on service quotas.
+            aws_sdk_mediaconvert.errors.too_many_requests_exception.TooManyRequestsException: Too many requests have been sent in too short of a time. The service limits the rate at which it will accept requests.
+            aws_sdk_mediaconvert.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1611,6 +1863,16 @@ class AsyncMediaConvertClient:
 
         Args:
             input_files: Specify a media file to probe.
+
+        Raises:
+            aws_sdk_mediaconvert.errors.bad_request_exception.BadRequestException: The service can't process your request because of a problem in the request. Please check your request form and syntax.
+            aws_sdk_mediaconvert.errors.conflict_exception.ConflictException: The service couldn't complete your request because there is a conflict with the current state of the resource.
+            aws_sdk_mediaconvert.errors.forbidden_exception.ForbiddenException: You don't have permissions for this action with the credentials you sent.
+            aws_sdk_mediaconvert.errors.internal_server_error_exception.InternalServerErrorException: The service encountered an unexpected condition and can't fulfill your request.
+            aws_sdk_mediaconvert.errors.not_found_exception.NotFoundException: The resource you requested doesn't exist.
+            aws_sdk_mediaconvert.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: You attempted to create more resources than the service allows based on service quotas.
+            aws_sdk_mediaconvert.errors.too_many_requests_exception.TooManyRequestsException: Too many requests have been sent in too short of a time. The service limits the rate at which it will accept requests.
+            aws_sdk_mediaconvert.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1650,6 +1912,16 @@ class AsyncMediaConvertClient:
 
         Args:
             policy: A policy configures behavior that you allow or disallow for your account. For information about MediaConvert policies, see the user guide at http://docs.aws.amazon.com/mediaconvert/latest/ug/what-is.html
+
+        Raises:
+            aws_sdk_mediaconvert.errors.bad_request_exception.BadRequestException: The service can't process your request because of a problem in the request. Please check your request form and syntax.
+            aws_sdk_mediaconvert.errors.conflict_exception.ConflictException: The service couldn't complete your request because there is a conflict with the current state of the resource.
+            aws_sdk_mediaconvert.errors.forbidden_exception.ForbiddenException: You don't have permissions for this action with the credentials you sent.
+            aws_sdk_mediaconvert.errors.internal_server_error_exception.InternalServerErrorException: The service encountered an unexpected condition and can't fulfill your request.
+            aws_sdk_mediaconvert.errors.not_found_exception.NotFoundException: The resource you requested doesn't exist.
+            aws_sdk_mediaconvert.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: You attempted to create more resources than the service allows based on service quotas.
+            aws_sdk_mediaconvert.errors.too_many_requests_exception.TooManyRequestsException: Too many requests have been sent in too short of a time. The service limits the rate at which it will accept requests.
+            aws_sdk_mediaconvert.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1700,6 +1972,16 @@ class AsyncMediaConvertClient:
             order: Optional. When you request lists of resources, you can specify whether they are sorted in ASCENDING or DESCENDING order. Default varies by resource.
             queue: Optional. Provide a queue name, or a queue ARN, to return only jobs from that queue.
             status: Optional. A job's status can be SUBMITTED, PROGRESSING, COMPLETE, CANCELED, or ERROR.
+
+        Raises:
+            aws_sdk_mediaconvert.errors.bad_request_exception.BadRequestException: The service can't process your request because of a problem in the request. Please check your request form and syntax.
+            aws_sdk_mediaconvert.errors.conflict_exception.ConflictException: The service couldn't complete your request because there is a conflict with the current state of the resource.
+            aws_sdk_mediaconvert.errors.forbidden_exception.ForbiddenException: You don't have permissions for this action with the credentials you sent.
+            aws_sdk_mediaconvert.errors.internal_server_error_exception.InternalServerErrorException: The service encountered an unexpected condition and can't fulfill your request.
+            aws_sdk_mediaconvert.errors.not_found_exception.NotFoundException: The resource you requested doesn't exist.
+            aws_sdk_mediaconvert.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: You attempted to create more resources than the service allows based on service quotas.
+            aws_sdk_mediaconvert.errors.too_many_requests_exception.TooManyRequestsException: Too many requests have been sent in too short of a time. The service limits the rate at which it will accept requests.
+            aws_sdk_mediaconvert.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1790,6 +2072,16 @@ class AsyncMediaConvertClient:
             max_results: Optional. Number of jobs, up to twenty, that will be included in the jobs query.
             next_token: Use this string to request the next batch of jobs matched by a jobs query.
             order: Optional. When you request lists of resources, you can specify whether they are sorted in ASCENDING or DESCENDING order. Default varies by resource.
+
+        Raises:
+            aws_sdk_mediaconvert.errors.bad_request_exception.BadRequestException: The service can't process your request because of a problem in the request. Please check your request form and syntax.
+            aws_sdk_mediaconvert.errors.conflict_exception.ConflictException: The service couldn't complete your request because there is a conflict with the current state of the resource.
+            aws_sdk_mediaconvert.errors.forbidden_exception.ForbiddenException: You don't have permissions for this action with the credentials you sent.
+            aws_sdk_mediaconvert.errors.internal_server_error_exception.InternalServerErrorException: The service encountered an unexpected condition and can't fulfill your request.
+            aws_sdk_mediaconvert.errors.not_found_exception.NotFoundException: The resource you requested doesn't exist.
+            aws_sdk_mediaconvert.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: You attempted to create more resources than the service allows based on service quotas.
+            aws_sdk_mediaconvert.errors.too_many_requests_exception.TooManyRequestsException: Too many requests have been sent in too short of a time. The service limits the rate at which it will accept requests.
+            aws_sdk_mediaconvert.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1837,6 +2129,16 @@ class AsyncMediaConvertClient:
         Args:
             arn: The Amazon Resource Name (ARN) of the resource that you want to tag. To get the ARN, send a GET request with the resource name.
             tags: The tags that you want to add to the resource. You can tag resources with a key-value pair or with only a key.
+
+        Raises:
+            aws_sdk_mediaconvert.errors.bad_request_exception.BadRequestException: The service can't process your request because of a problem in the request. Please check your request form and syntax.
+            aws_sdk_mediaconvert.errors.conflict_exception.ConflictException: The service couldn't complete your request because there is a conflict with the current state of the resource.
+            aws_sdk_mediaconvert.errors.forbidden_exception.ForbiddenException: You don't have permissions for this action with the credentials you sent.
+            aws_sdk_mediaconvert.errors.internal_server_error_exception.InternalServerErrorException: The service encountered an unexpected condition and can't fulfill your request.
+            aws_sdk_mediaconvert.errors.not_found_exception.NotFoundException: The resource you requested doesn't exist.
+            aws_sdk_mediaconvert.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: You attempted to create more resources than the service allows based on service quotas.
+            aws_sdk_mediaconvert.errors.too_many_requests_exception.TooManyRequestsException: Too many requests have been sent in too short of a time. The service limits the rate at which it will accept requests.
+            aws_sdk_mediaconvert.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1880,6 +2182,16 @@ class AsyncMediaConvertClient:
         Args:
             arn: The Amazon Resource Name (ARN) of the resource that you want to remove tags from. To get the ARN, send a GET request with the resource name.
             tag_keys: The keys of the tags that you want to remove from the resource.
+
+        Raises:
+            aws_sdk_mediaconvert.errors.bad_request_exception.BadRequestException: The service can't process your request because of a problem in the request. Please check your request form and syntax.
+            aws_sdk_mediaconvert.errors.conflict_exception.ConflictException: The service couldn't complete your request because there is a conflict with the current state of the resource.
+            aws_sdk_mediaconvert.errors.forbidden_exception.ForbiddenException: You don't have permissions for this action with the credentials you sent.
+            aws_sdk_mediaconvert.errors.internal_server_error_exception.InternalServerErrorException: The service encountered an unexpected condition and can't fulfill your request.
+            aws_sdk_mediaconvert.errors.not_found_exception.NotFoundException: The resource you requested doesn't exist.
+            aws_sdk_mediaconvert.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: You attempted to create more resources than the service allows based on service quotas.
+            aws_sdk_mediaconvert.errors.too_many_requests_exception.TooManyRequestsException: Too many requests have been sent in too short of a time. The service limits the rate at which it will accept requests.
+            aws_sdk_mediaconvert.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1946,6 +2258,16 @@ class AsyncMediaConvertClient:
             queue: The new queue for the job template, if you are changing it.
             settings: JobTemplateSettings contains all the transcode settings saved in the template that will be applied to jobs created from it.
             status_update_interval: Specify how often MediaConvert sends STATUS_UPDATE events to Amazon CloudWatch Events. Set the interval, in seconds, between status updates. MediaConvert sends an update at this interval from the time the service begins processing your job to the time it completes the transcode or encounters an error.
+
+        Raises:
+            aws_sdk_mediaconvert.errors.bad_request_exception.BadRequestException: The service can't process your request because of a problem in the request. Please check your request form and syntax.
+            aws_sdk_mediaconvert.errors.conflict_exception.ConflictException: The service couldn't complete your request because there is a conflict with the current state of the resource.
+            aws_sdk_mediaconvert.errors.forbidden_exception.ForbiddenException: You don't have permissions for this action with the credentials you sent.
+            aws_sdk_mediaconvert.errors.internal_server_error_exception.InternalServerErrorException: The service encountered an unexpected condition and can't fulfill your request.
+            aws_sdk_mediaconvert.errors.not_found_exception.NotFoundException: The resource you requested doesn't exist.
+            aws_sdk_mediaconvert.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: You attempted to create more resources than the service allows based on service quotas.
+            aws_sdk_mediaconvert.errors.too_many_requests_exception.TooManyRequestsException: Too many requests have been sent in too short of a time. The service limits the rate at which it will accept requests.
+            aws_sdk_mediaconvert.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2008,6 +2330,16 @@ class AsyncMediaConvertClient:
             description: The new description for the preset, if you are changing it.
             name: The name of the preset you are modifying.
             settings: Settings for preset
+
+        Raises:
+            aws_sdk_mediaconvert.errors.bad_request_exception.BadRequestException: The service can't process your request because of a problem in the request. Please check your request form and syntax.
+            aws_sdk_mediaconvert.errors.conflict_exception.ConflictException: The service couldn't complete your request because there is a conflict with the current state of the resource.
+            aws_sdk_mediaconvert.errors.forbidden_exception.ForbiddenException: You don't have permissions for this action with the credentials you sent.
+            aws_sdk_mediaconvert.errors.internal_server_error_exception.InternalServerErrorException: The service encountered an unexpected condition and can't fulfill your request.
+            aws_sdk_mediaconvert.errors.not_found_exception.NotFoundException: The resource you requested doesn't exist.
+            aws_sdk_mediaconvert.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: You attempted to create more resources than the service allows based on service quotas.
+            aws_sdk_mediaconvert.errors.too_many_requests_exception.TooManyRequestsException: Too many requests have been sent in too short of a time. The service limits the rate at which it will accept requests.
+            aws_sdk_mediaconvert.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2068,6 +2400,16 @@ class AsyncMediaConvertClient:
             name: The name of the queue that you are modifying.
             reservation_plan_settings: The new details of your pricing plan for your reserved queue. When you set up a new pricing plan to replace an expired one, you enter into another 12-month commitment. When you add capacity to your queue by increasing the number of RTS, you extend the term of your commitment to 12 months from when you add capacity. After you make these commitments, you can't cancel them.
             status: Pause or activate a queue by changing its status between ACTIVE and PAUSED. If you pause a queue, jobs in that queue won't begin. Jobs that are running when you pause the queue continue to run until they finish or result in an error.
+
+        Raises:
+            aws_sdk_mediaconvert.errors.bad_request_exception.BadRequestException: The service can't process your request because of a problem in the request. Please check your request form and syntax.
+            aws_sdk_mediaconvert.errors.conflict_exception.ConflictException: The service couldn't complete your request because there is a conflict with the current state of the resource.
+            aws_sdk_mediaconvert.errors.forbidden_exception.ForbiddenException: You don't have permissions for this action with the credentials you sent.
+            aws_sdk_mediaconvert.errors.internal_server_error_exception.InternalServerErrorException: The service encountered an unexpected condition and can't fulfill your request.
+            aws_sdk_mediaconvert.errors.not_found_exception.NotFoundException: The resource you requested doesn't exist.
+            aws_sdk_mediaconvert.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: You attempted to create more resources than the service allows based on service quotas.
+            aws_sdk_mediaconvert.errors.too_many_requests_exception.TooManyRequestsException: Too many requests have been sent in too short of a time. The service limits the rate at which it will accept requests.
+            aws_sdk_mediaconvert.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

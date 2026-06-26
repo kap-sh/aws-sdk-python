@@ -323,6 +323,12 @@ class ElasticLoadBalancingv2Client:
         Args:
             listener_arn: <p>The Amazon Resource Name (ARN) of the listener.</p>
             certificates: <p>The certificate to add. You can specify one certificate per call. Set <code>CertificateArn</code> to the certificate ARN but do not set <code>IsDefault</code>.</p>
+
+        Raises:
+            aws_sdk_elastic_load_balancing_v2.errors.certificate_not_found_exception.CertificateNotFoundException: <p>The specified certificate does not exist.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.listener_not_found_exception.ListenerNotFoundException: <p>The specified listener does not exist.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.too_many_certificates_exception.TooManyCertificatesException: <p>You've reached the limit on the number of certificates per load balancer.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -363,6 +369,16 @@ class ElasticLoadBalancingv2Client:
         Args:
             resource_arns: <p>The Amazon Resource Name (ARN) of the resource.</p>
             tags: <p>The tags.</p>
+
+        Raises:
+            aws_sdk_elastic_load_balancing_v2.errors.duplicate_tag_keys_exception.DuplicateTagKeysException: <p>A tag key was specified more than once.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.listener_not_found_exception.ListenerNotFoundException: <p>The specified listener does not exist.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.load_balancer_not_found_exception.LoadBalancerNotFoundException: <p>The specified load balancer does not exist.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.rule_not_found_exception.RuleNotFoundException: <p>The specified rule does not exist.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.target_group_not_found_exception.TargetGroupNotFoundException: <p>The specified target group does not exist.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.too_many_tags_exception.TooManyTagsException: <p>You've reached the limit on the number of tags for this resource.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.trust_store_not_found_exception.TrustStoreNotFoundException: <p>The specified trust store does not exist.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To add tags to a load balancer
@@ -411,6 +427,13 @@ class ElasticLoadBalancingv2Client:
         Args:
             trust_store_arn: <p>The Amazon Resource Name (ARN) of the trust store.</p>
             revocation_contents: <p>The revocation file to add.</p>
+
+        Raises:
+            aws_sdk_elastic_load_balancing_v2.errors.invalid_revocation_content_exception.InvalidRevocationContentException: <p>The provided revocation file is an invalid format, or uses an incorrect algorithm.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.revocation_content_not_found_exception.RevocationContentNotFoundException: <p>The specified revocation file does not exist.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.too_many_trust_store_revocation_entries_exception.TooManyTrustStoreRevocationEntriesException: <p>The specified trust store has too many revocation entries.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.trust_store_not_found_exception.TrustStoreNotFoundException: <p>The specified trust store does not exist.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -478,6 +501,29 @@ class ElasticLoadBalancingv2Client:
             alpn_policy: <p>[TLS listeners] The name of the Application-Layer Protocol Negotiation (ALPN) policy. You can specify one policy name. The following are the possible values:</p> <ul> <li> <p> <code>HTTP1Only</code> </p> </li> <li> <p> <code>HTTP2Only</code> </p> </li> <li> <p> <code>HTTP2Optional</code> </p> </li> <li> <p> <code>HTTP2Preferred</code> </p> </li> <li> <p> <code>None</code> </p> </li> </ul> <p>For more information, see <a href=\"https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-listeners.html#alpn-policies\">ALPN policies</a> in the <i>Network Load Balancers Guide</i>.</p>
             tags: <p>The tags to assign to the listener.</p>
             mutual_authentication: <p>[HTTPS listeners] The mutual authentication configuration information.</p>
+
+        Raises:
+            aws_sdk_elastic_load_balancing_v2.errors.alpn_policy_not_supported_exception.ALPNPolicyNotSupportedException: <p>The specified ALPN policy is not supported.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.certificate_not_found_exception.CertificateNotFoundException: <p>The specified certificate does not exist.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.duplicate_listener_exception.DuplicateListenerException: <p>A listener with the specified port already exists.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.incompatible_protocols_exception.IncompatibleProtocolsException: <p>The specified configuration is not valid with this protocol.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.invalid_configuration_request_exception.InvalidConfigurationRequestException: <p>The requested configuration is not valid.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.invalid_load_balancer_action_exception.InvalidLoadBalancerActionException: <p>The requested action is not valid.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.load_balancer_not_found_exception.LoadBalancerNotFoundException: <p>The specified load balancer does not exist.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.ssl_policy_not_found_exception.SSLPolicyNotFoundException: <p>The specified SSL policy does not exist.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.target_group_association_limit_exception.TargetGroupAssociationLimitException: <p>You've reached the limit on the number of load balancers per target group.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.target_group_not_found_exception.TargetGroupNotFoundException: <p>The specified target group does not exist.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.too_many_actions_exception.TooManyActionsException: <p>You've reached the limit on the number of actions per rule.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.too_many_certificates_exception.TooManyCertificatesException: <p>You've reached the limit on the number of certificates per load balancer.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.too_many_listeners_exception.TooManyListenersException: <p>You've reached the limit on the number of listeners per load balancer.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.too_many_registrations_for_target_id_exception.TooManyRegistrationsForTargetIdException: <p>You've reached the limit on the number of times a target can be registered with a load balancer.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.too_many_tags_exception.TooManyTagsException: <p>You've reached the limit on the number of tags for this resource.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.too_many_targets_exception.TooManyTargetsException: <p>You've reached the limit on the number of targets.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.too_many_unique_target_groups_per_load_balancer_exception.TooManyUniqueTargetGroupsPerLoadBalancerException: <p>You've reached the limit on the number of unique target groups per load balancer across all listeners. If a target group is used by multiple actions for a load balancer, it is counted as only one use.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.trust_store_not_found_exception.TrustStoreNotFoundException: <p>The specified trust store does not exist.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.trust_store_not_ready_exception.TrustStoreNotReadyException: <p>The specified trust store is not active.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.unsupported_protocol_exception.UnsupportedProtocolException: <p>The specified protocol is not supported.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To create an HTTP listener
@@ -581,6 +627,22 @@ class ElasticLoadBalancingv2Client:
             enable_prefix_for_ipv6_source_nat: <p>[Network Load Balancers with UDP listeners] Indicates whether to use an IPv6 prefix from each subnet for source NAT. The IP address type must be <code>dualstack</code>. The default value is <code>off</code>.</p>
             ipam_pools: <p>[Application Load Balancers] The IPAM pools to use with the load balancer.</p>
 
+        Raises:
+            aws_sdk_elastic_load_balancing_v2.errors.allocation_id_not_found_exception.AllocationIdNotFoundException: <p>The specified allocation ID does not exist.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.availability_zone_not_supported_exception.AvailabilityZoneNotSupportedException: <p>The specified Availability Zone is not supported.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.duplicate_load_balancer_name_exception.DuplicateLoadBalancerNameException: <p>A load balancer with the specified name already exists.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.duplicate_tag_keys_exception.DuplicateTagKeysException: <p>A tag key was specified more than once.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.invalid_configuration_request_exception.InvalidConfigurationRequestException: <p>The requested configuration is not valid.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.invalid_scheme_exception.InvalidSchemeException: <p>The requested scheme is not valid.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.invalid_security_group_exception.InvalidSecurityGroupException: <p>The specified security group does not exist.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.invalid_subnet_exception.InvalidSubnetException: <p>The specified subnet is out of available addresses.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.operation_not_permitted_exception.OperationNotPermittedException: <p>This operation is not allowed.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.resource_in_use_exception.ResourceInUseException: <p>A specified resource is in use.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.subnet_not_found_exception.SubnetNotFoundException: <p>The specified subnet does not exist.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.too_many_load_balancers_exception.TooManyLoadBalancersException: <p>You've reached the limit on the number of load balancers for your Amazon Web Services account.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.too_many_tags_exception.TooManyTagsException: <p>You've reached the limit on the number of tags for this resource.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To create an Internet-facing load balancer
             This example creates an Internet-facing load balancer and enables the Availability Zones for the specified subnets.
@@ -663,6 +725,24 @@ class ElasticLoadBalancingv2Client:
             actions: <p>The actions.</p>
             tags: <p>The tags to assign to the rule.</p>
             transforms: <p>The transforms to apply to requests that match this rule. You can add one host header rewrite transform and one URL rewrite transform.</p>
+
+        Raises:
+            aws_sdk_elastic_load_balancing_v2.errors.incompatible_protocols_exception.IncompatibleProtocolsException: <p>The specified configuration is not valid with this protocol.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.invalid_configuration_request_exception.InvalidConfigurationRequestException: <p>The requested configuration is not valid.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.invalid_load_balancer_action_exception.InvalidLoadBalancerActionException: <p>The requested action is not valid.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.listener_not_found_exception.ListenerNotFoundException: <p>The specified listener does not exist.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.priority_in_use_exception.PriorityInUseException: <p>The specified priority is in use.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.target_group_association_limit_exception.TargetGroupAssociationLimitException: <p>You've reached the limit on the number of load balancers per target group.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.target_group_not_found_exception.TargetGroupNotFoundException: <p>The specified target group does not exist.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.too_many_actions_exception.TooManyActionsException: <p>You've reached the limit on the number of actions per rule.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.too_many_registrations_for_target_id_exception.TooManyRegistrationsForTargetIdException: <p>You've reached the limit on the number of times a target can be registered with a load balancer.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.too_many_rules_exception.TooManyRulesException: <p>You've reached the limit on the number of rules per load balancer.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.too_many_tags_exception.TooManyTagsException: <p>You've reached the limit on the number of tags for this resource.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.too_many_target_groups_exception.TooManyTargetGroupsException: <p>You've reached the limit on the number of target groups for your Amazon Web Services account.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.too_many_targets_exception.TooManyTargetsException: <p>You've reached the limit on the number of targets.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.too_many_unique_target_groups_per_load_balancer_exception.TooManyUniqueTargetGroupsPerLoadBalancerException: <p>You've reached the limit on the number of unique target groups per load balancer across all listeners. If a target group is used by multiple actions for a load balancer, it is counted as only one use.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.unsupported_protocol_exception.UnsupportedProtocolException: <p>The specified protocol is not supported.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To create a rule
@@ -778,6 +858,13 @@ class ElasticLoadBalancingv2Client:
             ip_address_type: <p>The IP address type. The default value is <code>ipv4</code>.</p>
             target_control_port: <p>The port on which the target control agent and application load balancer exchange management traffic for the target optimizer feature.</p>
 
+        Raises:
+            aws_sdk_elastic_load_balancing_v2.errors.duplicate_target_group_name_exception.DuplicateTargetGroupNameException: <p>A target group with the specified name already exists.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.invalid_configuration_request_exception.InvalidConfigurationRequestException: <p>The requested configuration is not valid.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.too_many_tags_exception.TooManyTagsException: <p>You've reached the limit on the number of tags for this resource.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.too_many_target_groups_exception.TooManyTargetGroupsException: <p>You've reached the limit on the number of target groups for your Amazon Web Services account.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To create a target group
             This example creates a target group that you can use to route traffic to targets using HTTP on port 80. This target group uses the default health check configuration.
@@ -866,6 +953,15 @@ class ElasticLoadBalancingv2Client:
             ca_certificates_bundle_s3_key: <p>The Amazon S3 path for the ca certificates bundle.</p>
             ca_certificates_bundle_s3_object_version: <p>The Amazon S3 object version for the ca certificates bundle. If undefined the current version is used.</p>
             tags: <p>The tags to assign to the trust store.</p>
+
+        Raises:
+            aws_sdk_elastic_load_balancing_v2.errors.ca_certificates_bundle_not_found_exception.CaCertificatesBundleNotFoundException: <p>The specified ca certificate bundle does not exist.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.duplicate_tag_keys_exception.DuplicateTagKeysException: <p>A tag key was specified more than once.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.duplicate_trust_store_name_exception.DuplicateTrustStoreNameException: <p>A trust store with the specified name already exists.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.invalid_ca_certificates_bundle_exception.InvalidCaCertificatesBundleException: <p>The specified ca certificate bundle is in an invalid format, or corrupt.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.too_many_tags_exception.TooManyTagsException: <p>You've reached the limit on the number of tags for this resource.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.too_many_trust_stores_exception.TooManyTrustStoresException: <p>You've reached the limit on the number of trust stores for your Amazon Web Services account.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -912,6 +1008,11 @@ class ElasticLoadBalancingv2Client:
         Args:
             listener_arn: <p>The Amazon Resource Name (ARN) of the listener.</p>
 
+        Raises:
+            aws_sdk_elastic_load_balancing_v2.errors.listener_not_found_exception.ListenerNotFoundException: <p>The specified listener does not exist.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.resource_in_use_exception.ResourceInUseException: <p>A specified resource is in use.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To delete a listener
             This example deletes the specified listener.
@@ -955,6 +1056,12 @@ class ElasticLoadBalancingv2Client:
         Args:
             load_balancer_arn: <p>The Amazon Resource Name (ARN) of the load balancer.</p>
 
+        Raises:
+            aws_sdk_elastic_load_balancing_v2.errors.load_balancer_not_found_exception.LoadBalancerNotFoundException: <p>The specified load balancer does not exist.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.operation_not_permitted_exception.OperationNotPermittedException: <p>This operation is not allowed.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.resource_in_use_exception.ResourceInUseException: <p>A specified resource is in use.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To delete a load balancer
             This example deletes the specified load balancer.
@@ -997,6 +1104,11 @@ class ElasticLoadBalancingv2Client:
 
         Args:
             rule_arn: <p>The Amazon Resource Name (ARN) of the rule.</p>
+
+        Raises:
+            aws_sdk_elastic_load_balancing_v2.errors.operation_not_permitted_exception.OperationNotPermittedException: <p>This operation is not allowed.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.rule_not_found_exception.RuleNotFoundException: <p>The specified rule does not exist.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To delete a rule
@@ -1043,6 +1155,12 @@ class ElasticLoadBalancingv2Client:
             trust_store_arn: <p>The Amazon Resource Name (ARN) of the trust store.</p>
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource.</p>
 
+        Raises:
+            aws_sdk_elastic_load_balancing_v2.errors.delete_association_same_account_exception.DeleteAssociationSameAccountException: <p>The specified association can't be within the same account.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.trust_store_association_not_found_exception.TrustStoreAssociationNotFoundException: <p>The specified association does not exist.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.trust_store_not_found_exception.TrustStoreNotFoundException: <p>The specified trust store does not exist.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Delete a shared trust store association
             This example deletes the association between the specified trust store and the specified load balancer.
@@ -1087,6 +1205,10 @@ class ElasticLoadBalancingv2Client:
         Args:
             target_group_arn: <p>The Amazon Resource Name (ARN) of the target group.</p>
 
+        Raises:
+            aws_sdk_elastic_load_balancing_v2.errors.resource_in_use_exception.ResourceInUseException: <p>A specified resource is in use.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To delete a target group
             This example deletes the specified target group.
@@ -1129,6 +1251,11 @@ class ElasticLoadBalancingv2Client:
 
         Args:
             trust_store_arn: <p>The Amazon Resource Name (ARN) of the trust store.</p>
+
+        Raises:
+            aws_sdk_elastic_load_balancing_v2.errors.trust_store_in_use_exception.TrustStoreInUseException: <p>The specified trust store is currently in use.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.trust_store_not_found_exception.TrustStoreNotFoundException: <p>The specified trust store does not exist.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1168,6 +1295,11 @@ class ElasticLoadBalancingv2Client:
         Args:
             target_group_arn: <p>The Amazon Resource Name (ARN) of the target group.</p>
             targets: <p>The targets. If you specified a port override when you registered a target, you must specify both the target ID and the port when you deregister it.</p>
+
+        Raises:
+            aws_sdk_elastic_load_balancing_v2.errors.invalid_target_exception.InvalidTargetException: <p>The specified target does not exist, is not in the same VPC as the target group, or has an unsupported instance type.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.target_group_not_found_exception.TargetGroupNotFoundException: <p>The specified target group does not exist.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To deregister a target from a target group
@@ -1218,6 +1350,9 @@ class ElasticLoadBalancingv2Client:
         Args:
             marker: <p>The marker for the next set of results. (You received this marker from a previous call.)</p>
             page_size: <p>The maximum number of results to return with this call.</p>
+
+        Raises:
+            aws_sdk_elastic_load_balancing_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1283,6 +1418,10 @@ class ElasticLoadBalancingv2Client:
 
         Args:
             load_balancer_arn: <p>The Amazon Resource Name (ARN) of the load balancer.</p>
+
+        Raises:
+            aws_sdk_elastic_load_balancing_v2.errors.load_balancer_not_found_exception.LoadBalancerNotFoundException: <p>The specified load balancer does not exist.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1320,6 +1459,10 @@ class ElasticLoadBalancingv2Client:
 
         Args:
             listener_arn: <p>The Amazon Resource Name (ARN) of the listener.</p>
+
+        Raises:
+            aws_sdk_elastic_load_balancing_v2.errors.listener_not_found_exception.ListenerNotFoundException: <p>The specified listener does not exist.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Describe listener attributes
@@ -1371,6 +1514,10 @@ class ElasticLoadBalancingv2Client:
             listener_arn: <p>The Amazon Resource Names (ARN) of the listener.</p>
             marker: <p>The marker for the next set of results. (You received this marker from a previous call.)</p>
             page_size: <p>The maximum number of results to return with this call.</p>
+
+        Raises:
+            aws_sdk_elastic_load_balancing_v2.errors.listener_not_found_exception.ListenerNotFoundException: <p>The specified listener does not exist.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1453,6 +1600,12 @@ class ElasticLoadBalancingv2Client:
             listener_arns: <p>The Amazon Resource Names (ARN) of the listeners.</p>
             marker: <p>The marker for the next set of results. (You received this marker from a previous call.)</p>
             page_size: <p>The maximum number of results to return with this call.</p>
+
+        Raises:
+            aws_sdk_elastic_load_balancing_v2.errors.listener_not_found_exception.ListenerNotFoundException: <p>The specified listener does not exist.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.load_balancer_not_found_exception.LoadBalancerNotFoundException: <p>The specified load balancer does not exist.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.unsupported_protocol_exception.UnsupportedProtocolException: <p>The specified protocol is not supported.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To describe a listener
@@ -1537,6 +1690,10 @@ class ElasticLoadBalancingv2Client:
         Args:
             load_balancer_arn: <p>The Amazon Resource Name (ARN) of the load balancer.</p>
 
+        Raises:
+            aws_sdk_elastic_load_balancing_v2.errors.load_balancer_not_found_exception.LoadBalancerNotFoundException: <p>The specified load balancer does not exist.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To describe load balancer attributes
             This example describes the attributes of the specified load balancer.
@@ -1593,6 +1750,10 @@ class ElasticLoadBalancingv2Client:
             names: <p>The names of the load balancers.</p>
             marker: <p>The marker for the next set of results. (You received this marker from a previous call.)</p>
             page_size: <p>The maximum number of results to return with this call.</p>
+
+        Raises:
+            aws_sdk_elastic_load_balancing_v2.errors.load_balancer_not_found_exception.LoadBalancerNotFoundException: <p>The specified load balancer does not exist.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To describe a load balancer
@@ -1751,6 +1912,12 @@ class ElasticLoadBalancingv2Client:
             marker: <p>The marker for the next set of results. (You received this marker from a previous call.)</p>
             page_size: <p>The maximum number of results to return with this call.</p>
 
+        Raises:
+            aws_sdk_elastic_load_balancing_v2.errors.listener_not_found_exception.ListenerNotFoundException: <p>The specified listener does not exist.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.rule_not_found_exception.RuleNotFoundException: <p>The specified rule does not exist.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.unsupported_protocol_exception.UnsupportedProtocolException: <p>The specified protocol is not supported.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To describe a rule
             This example describes the specified rule.
@@ -1848,6 +2015,10 @@ class ElasticLoadBalancingv2Client:
             page_size: <p>The maximum number of results to return with this call.</p>
             load_balancer_type: <p> The type of load balancer. The default lists the SSL policies for all load balancers.</p>
 
+        Raises:
+            aws_sdk_elastic_load_balancing_v2.errors.ssl_policy_not_found_exception.SSLPolicyNotFoundException: <p>The specified SSL policy does not exist.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To describe a policy used for SSL negotiation
             This example describes the specified policy used for SSL negotiation.
@@ -1898,6 +2069,14 @@ class ElasticLoadBalancingv2Client:
         Args:
             resource_arns: <p>The Amazon Resource Names (ARN) of the resources. You can specify up to 20 resources in a single call.</p>
 
+        Raises:
+            aws_sdk_elastic_load_balancing_v2.errors.listener_not_found_exception.ListenerNotFoundException: <p>The specified listener does not exist.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.load_balancer_not_found_exception.LoadBalancerNotFoundException: <p>The specified load balancer does not exist.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.rule_not_found_exception.RuleNotFoundException: <p>The specified rule does not exist.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.target_group_not_found_exception.TargetGroupNotFoundException: <p>The specified target group does not exist.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.trust_store_not_found_exception.TrustStoreNotFoundException: <p>The specified trust store does not exist.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To describe the tags assigned to a load balancer
             This example describes the tags assigned to the specified load balancer.
@@ -1940,6 +2119,10 @@ class ElasticLoadBalancingv2Client:
 
         Args:
             target_group_arn: <p>The Amazon Resource Name (ARN) of the target group.</p>
+
+        Raises:
+            aws_sdk_elastic_load_balancing_v2.errors.target_group_not_found_exception.TargetGroupNotFoundException: <p>The specified target group does not exist.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To describe target group attributes
@@ -2001,6 +2184,11 @@ class ElasticLoadBalancingv2Client:
             names: <p>The names of the target groups.</p>
             marker: <p>The marker for the next set of results. (You received this marker from a previous call.)</p>
             page_size: <p>The maximum number of results to return with this call.</p>
+
+        Raises:
+            aws_sdk_elastic_load_balancing_v2.errors.load_balancer_not_found_exception.LoadBalancerNotFoundException: <p>The specified load balancer does not exist.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.target_group_not_found_exception.TargetGroupNotFoundException: <p>The specified target group does not exist.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To describe a target group
@@ -2099,6 +2287,12 @@ class ElasticLoadBalancingv2Client:
             targets: <p>The targets.</p>
             include: <p>Used to include anomaly detection information.</p>
 
+        Raises:
+            aws_sdk_elastic_load_balancing_v2.errors.health_unavailable_exception.HealthUnavailableException: <p>The health of the specified targets could not be retrieved due to an internal error.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.invalid_target_exception.InvalidTargetException: <p>The specified target does not exist, is not in the same VPC as the target group, or has an unsupported instance type.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.target_group_not_found_exception.TargetGroupNotFoundException: <p>The specified target group does not exist.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To describe the health of the targets for a target group
             This example describes the health of the targets for the specified target group. One target is healthy but the other is not specified in an action, so it can't receive traffic from the load balancer.
@@ -2157,6 +2351,10 @@ class ElasticLoadBalancingv2Client:
             trust_store_arn: <p>The Amazon Resource Name (ARN) of the trust store.</p>
             marker: <p>The marker for the next set of results. (You received this marker from a previous call.)</p>
             page_size: <p>The maximum number of results to return with this call.</p>
+
+        Raises:
+            aws_sdk_elastic_load_balancing_v2.errors.trust_store_not_found_exception.TrustStoreNotFoundException: <p>The specified trust store does not exist.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2237,6 +2435,11 @@ class ElasticLoadBalancingv2Client:
             revocation_ids: <p>The revocation IDs of the revocation files you want to describe.</p>
             marker: <p>The marker for the next set of results. (You received this marker from a previous call.)</p>
             page_size: <p>The maximum number of results to return with this call.</p>
+
+        Raises:
+            aws_sdk_elastic_load_balancing_v2.errors.revocation_id_not_found_exception.RevocationIdNotFoundException: <p>The specified revocation ID does not exist.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.trust_store_not_found_exception.TrustStoreNotFoundException: <p>The specified trust store does not exist.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2325,6 +2528,10 @@ class ElasticLoadBalancingv2Client:
             names: <p>The names of the trust stores.</p>
             marker: <p>The marker for the next set of results. (You received this marker from a previous call.)</p>
             page_size: <p>The maximum number of results to return with this call.</p>
+
+        Raises:
+            aws_sdk_elastic_load_balancing_v2.errors.trust_store_not_found_exception.TrustStoreNotFoundException: <p>The specified trust store does not exist.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2403,6 +2610,10 @@ class ElasticLoadBalancingv2Client:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource.</p>
 
+        Raises:
+            aws_sdk_elastic_load_balancing_v2.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Retrieve a resource policy
             This example retrieves the resource policy for the specified trust store.
@@ -2445,6 +2656,10 @@ class ElasticLoadBalancingv2Client:
 
         Args:
             trust_store_arn: <p>The Amazon Resource Name (ARN) of the trust store.</p>
+
+        Raises:
+            aws_sdk_elastic_load_balancing_v2.errors.trust_store_not_found_exception.TrustStoreNotFoundException: <p>The specified trust store does not exist.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2484,6 +2699,11 @@ class ElasticLoadBalancingv2Client:
         Args:
             trust_store_arn: <p>The Amazon Resource Name (ARN) of the trust store.</p>
             revocation_id: <p>The revocation ID of the revocation file.</p>
+
+        Raises:
+            aws_sdk_elastic_load_balancing_v2.errors.revocation_id_not_found_exception.RevocationIdNotFoundException: <p>The specified revocation ID does not exist.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.trust_store_not_found_exception.TrustStoreNotFoundException: <p>The specified trust store does not exist.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2530,6 +2750,17 @@ class ElasticLoadBalancingv2Client:
             load_balancer_arn: <p>The Amazon Resource Name (ARN) of the load balancer.</p>
             minimum_load_balancer_capacity: <p>The minimum load balancer capacity reserved.</p>
             reset_capacity_reservation: <p>Resets the capacity reservation.</p>
+
+        Raises:
+            aws_sdk_elastic_load_balancing_v2.errors.capacity_decrease_requests_limit_exceeded_exception.CapacityDecreaseRequestsLimitExceededException: <p>You've exceeded the daily capacity decrease limit for this reservation.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.capacity_reservation_pending_exception.CapacityReservationPendingException: <p>There is a pending capacity reservation.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.capacity_units_limit_exceeded_exception.CapacityUnitsLimitExceededException: <p>You've exceeded the capacity units limit.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.insufficient_capacity_exception.InsufficientCapacityException: <p>There is insufficient capacity to reserve.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.invalid_configuration_request_exception.InvalidConfigurationRequestException: <p>The requested configuration is not valid.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.load_balancer_not_found_exception.LoadBalancerNotFoundException: <p>The specified load balancer does not exist.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.operation_not_permitted_exception.OperationNotPermittedException: <p>This operation is not allowed.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.prior_request_not_complete_exception.PriorRequestNotCompleteException: <p>This operation is not allowed while a prior request has not been completed.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2579,6 +2810,10 @@ class ElasticLoadBalancingv2Client:
             load_balancer_arn: <p>The Amazon Resource Name (ARN) of the load balancer.</p>
             ipam_pools: <p>The IPAM pools to be modified.</p>
             remove_ipam_pools: <p>Remove the IP pools in use by the load balancer.</p>
+
+        Raises:
+            aws_sdk_elastic_load_balancing_v2.errors.load_balancer_not_found_exception.LoadBalancerNotFoundException: <p>The specified load balancer does not exist.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2647,6 +2882,28 @@ class ElasticLoadBalancingv2Client:
             alpn_policy: <p>[TLS listeners] The name of the Application-Layer Protocol Negotiation (ALPN) policy. You can specify one policy name. The following are the possible values:</p> <ul> <li> <p> <code>HTTP1Only</code> </p> </li> <li> <p> <code>HTTP2Only</code> </p> </li> <li> <p> <code>HTTP2Optional</code> </p> </li> <li> <p> <code>HTTP2Preferred</code> </p> </li> <li> <p> <code>None</code> </p> </li> </ul> <p>For more information, see <a href=\"https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-listeners.html#alpn-policies\">ALPN policies</a> in the <i>Network Load Balancers Guide</i>.</p>
             mutual_authentication: <p>[HTTPS listeners] The mutual authentication configuration information.</p>
 
+        Raises:
+            aws_sdk_elastic_load_balancing_v2.errors.alpn_policy_not_supported_exception.ALPNPolicyNotSupportedException: <p>The specified ALPN policy is not supported.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.certificate_not_found_exception.CertificateNotFoundException: <p>The specified certificate does not exist.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.duplicate_listener_exception.DuplicateListenerException: <p>A listener with the specified port already exists.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.incompatible_protocols_exception.IncompatibleProtocolsException: <p>The specified configuration is not valid with this protocol.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.invalid_configuration_request_exception.InvalidConfigurationRequestException: <p>The requested configuration is not valid.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.invalid_load_balancer_action_exception.InvalidLoadBalancerActionException: <p>The requested action is not valid.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.listener_not_found_exception.ListenerNotFoundException: <p>The specified listener does not exist.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.ssl_policy_not_found_exception.SSLPolicyNotFoundException: <p>The specified SSL policy does not exist.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.target_group_association_limit_exception.TargetGroupAssociationLimitException: <p>You've reached the limit on the number of load balancers per target group.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.target_group_not_found_exception.TargetGroupNotFoundException: <p>The specified target group does not exist.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.too_many_actions_exception.TooManyActionsException: <p>You've reached the limit on the number of actions per rule.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.too_many_certificates_exception.TooManyCertificatesException: <p>You've reached the limit on the number of certificates per load balancer.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.too_many_listeners_exception.TooManyListenersException: <p>You've reached the limit on the number of listeners per load balancer.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.too_many_registrations_for_target_id_exception.TooManyRegistrationsForTargetIdException: <p>You've reached the limit on the number of times a target can be registered with a load balancer.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.too_many_targets_exception.TooManyTargetsException: <p>You've reached the limit on the number of targets.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.too_many_unique_target_groups_per_load_balancer_exception.TooManyUniqueTargetGroupsPerLoadBalancerException: <p>You've reached the limit on the number of unique target groups per load balancer across all listeners. If a target group is used by multiple actions for a load balancer, it is counted as only one use.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.trust_store_not_found_exception.TrustStoreNotFoundException: <p>The specified trust store does not exist.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.trust_store_not_ready_exception.TrustStoreNotReadyException: <p>The specified trust store is not active.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.unsupported_protocol_exception.UnsupportedProtocolException: <p>The specified protocol is not supported.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To change the default action for a listener
             This example changes the default action for the specified listener.
@@ -2709,6 +2966,11 @@ class ElasticLoadBalancingv2Client:
         Args:
             listener_arn: <p>The Amazon Resource Name (ARN) of the listener.</p>
             attributes: <p>The listener attributes.</p>
+
+        Raises:
+            aws_sdk_elastic_load_balancing_v2.errors.invalid_configuration_request_exception.InvalidConfigurationRequestException: <p>The requested configuration is not valid.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.listener_not_found_exception.ListenerNotFoundException: <p>The specified listener does not exist.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2749,6 +3011,11 @@ class ElasticLoadBalancingv2Client:
         Args:
             load_balancer_arn: <p>The Amazon Resource Name (ARN) of the load balancer.</p>
             attributes: <p>The load balancer attributes.</p>
+
+        Raises:
+            aws_sdk_elastic_load_balancing_v2.errors.invalid_configuration_request_exception.InvalidConfigurationRequestException: <p>The requested configuration is not valid.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.load_balancer_not_found_exception.LoadBalancerNotFoundException: <p>The specified load balancer does not exist.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To enable deletion protection
@@ -2817,6 +3084,20 @@ class ElasticLoadBalancingv2Client:
             actions: <p>The actions.</p>
             transforms: <p>The transforms to apply to requests that match this rule. You can add one host header rewrite transform and one URL rewrite transform. If you specify <code>Transforms</code>, you can't specify <code>ResetTransforms</code>.</p>
             reset_transforms: <p>Indicates whether to remove all transforms from the rule. If you specify <code>ResetTransforms</code>, you can't specify <code>Transforms</code>.</p>
+
+        Raises:
+            aws_sdk_elastic_load_balancing_v2.errors.incompatible_protocols_exception.IncompatibleProtocolsException: <p>The specified configuration is not valid with this protocol.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.invalid_load_balancer_action_exception.InvalidLoadBalancerActionException: <p>The requested action is not valid.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.operation_not_permitted_exception.OperationNotPermittedException: <p>This operation is not allowed.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.rule_not_found_exception.RuleNotFoundException: <p>The specified rule does not exist.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.target_group_association_limit_exception.TargetGroupAssociationLimitException: <p>You've reached the limit on the number of load balancers per target group.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.target_group_not_found_exception.TargetGroupNotFoundException: <p>The specified target group does not exist.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.too_many_actions_exception.TooManyActionsException: <p>You've reached the limit on the number of actions per rule.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.too_many_registrations_for_target_id_exception.TooManyRegistrationsForTargetIdException: <p>You've reached the limit on the number of times a target can be registered with a load balancer.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.too_many_targets_exception.TooManyTargetsException: <p>You've reached the limit on the number of targets.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.too_many_unique_target_groups_per_load_balancer_exception.TooManyUniqueTargetGroupsPerLoadBalancerException: <p>You've reached the limit on the number of unique target groups per load balancer across all listeners. If a target group is used by multiple actions for a load balancer, it is counted as only one use.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.unsupported_protocol_exception.UnsupportedProtocolException: <p>The specified protocol is not supported.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To modify a rule
@@ -2905,6 +3186,11 @@ class ElasticLoadBalancingv2Client:
             unhealthy_threshold_count: <p>The number of consecutive health check failures required before considering the target unhealthy.</p>
             matcher: <p>[HTTP/HTTPS health checks] The HTTP or gRPC codes to use when checking for a successful response from a target. For target groups with a protocol of TCP, TCP_UDP, UDP or TLS the range is 200-599. For target groups with a protocol of HTTP or HTTPS, the range is 200-499. For target groups with a protocol of GENEVE, the range is 200-399.</p>
 
+        Raises:
+            aws_sdk_elastic_load_balancing_v2.errors.invalid_configuration_request_exception.InvalidConfigurationRequestException: <p>The requested configuration is not valid.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.target_group_not_found_exception.TargetGroupNotFoundException: <p>The specified target group does not exist.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To modify the health check configuration for a target group
             This example changes the configuration of the health checks used to evaluate the health of the targets for the specified target group.
@@ -2968,6 +3254,11 @@ class ElasticLoadBalancingv2Client:
             target_group_arn: <p>The Amazon Resource Name (ARN) of the target group.</p>
             attributes: <p>The target group attributes.</p>
 
+        Raises:
+            aws_sdk_elastic_load_balancing_v2.errors.invalid_configuration_request_exception.InvalidConfigurationRequestException: <p>The requested configuration is not valid.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.target_group_not_found_exception.TargetGroupNotFoundException: <p>The specified target group does not exist.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To modify the deregistration delay timeout
             This example sets the deregistration delay timeout to the specified value for the specified target group.
@@ -3019,6 +3310,12 @@ class ElasticLoadBalancingv2Client:
             ca_certificates_bundle_s3_bucket: <p>The Amazon S3 bucket for the ca certificates bundle.</p>
             ca_certificates_bundle_s3_key: <p>The Amazon S3 path for the ca certificates bundle.</p>
             ca_certificates_bundle_s3_object_version: <p>The Amazon S3 object version for the ca certificates bundle. If undefined the current version is used.</p>
+
+        Raises:
+            aws_sdk_elastic_load_balancing_v2.errors.ca_certificates_bundle_not_found_exception.CaCertificatesBundleNotFoundException: <p>The specified ca certificate bundle does not exist.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.invalid_ca_certificates_bundle_exception.InvalidCaCertificatesBundleException: <p>The specified ca certificate bundle is in an invalid format, or corrupt.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.trust_store_not_found_exception.TrustStoreNotFoundException: <p>The specified trust store does not exist.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3064,6 +3361,13 @@ class ElasticLoadBalancingv2Client:
         Args:
             target_group_arn: <p>The Amazon Resource Name (ARN) of the target group.</p>
             targets: <p>The targets.</p>
+
+        Raises:
+            aws_sdk_elastic_load_balancing_v2.errors.invalid_target_exception.InvalidTargetException: <p>The specified target does not exist, is not in the same VPC as the target group, or has an unsupported instance type.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.target_group_not_found_exception.TargetGroupNotFoundException: <p>The specified target group does not exist.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.too_many_registrations_for_target_id_exception.TooManyRegistrationsForTargetIdException: <p>You've reached the limit on the number of times a target can be registered with a load balancer.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.too_many_targets_exception.TooManyTargetsException: <p>You've reached the limit on the number of targets.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To register targets with a target group
@@ -3114,6 +3418,11 @@ class ElasticLoadBalancingv2Client:
         Args:
             listener_arn: <p>The Amazon Resource Name (ARN) of the listener.</p>
             certificates: <p>The certificate to remove. You can specify one certificate per call. Set <code>CertificateArn</code> to the certificate ARN but do not set <code>IsDefault</code>.</p>
+
+        Raises:
+            aws_sdk_elastic_load_balancing_v2.errors.listener_not_found_exception.ListenerNotFoundException: <p>The specified listener does not exist.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.operation_not_permitted_exception.OperationNotPermittedException: <p>This operation is not allowed.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3154,6 +3463,15 @@ class ElasticLoadBalancingv2Client:
         Args:
             resource_arns: <p>The Amazon Resource Name (ARN) of the resource.</p>
             tag_keys: <p>The tag keys for the tags to remove.</p>
+
+        Raises:
+            aws_sdk_elastic_load_balancing_v2.errors.listener_not_found_exception.ListenerNotFoundException: <p>The specified listener does not exist.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.load_balancer_not_found_exception.LoadBalancerNotFoundException: <p>The specified load balancer does not exist.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.rule_not_found_exception.RuleNotFoundException: <p>The specified rule does not exist.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.target_group_not_found_exception.TargetGroupNotFoundException: <p>The specified target group does not exist.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.too_many_tags_exception.TooManyTagsException: <p>You've reached the limit on the number of tags for this resource.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.trust_store_not_found_exception.TrustStoreNotFoundException: <p>The specified trust store does not exist.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To remove tags from a load balancer
@@ -3200,6 +3518,11 @@ class ElasticLoadBalancingv2Client:
         Args:
             trust_store_arn: <p>The Amazon Resource Name (ARN) of the trust store.</p>
             revocation_ids: <p>The revocation IDs of the revocation files you want to remove.</p>
+
+        Raises:
+            aws_sdk_elastic_load_balancing_v2.errors.revocation_id_not_found_exception.RevocationIdNotFoundException: <p>The specified revocation ID does not exist.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.trust_store_not_found_exception.TrustStoreNotFoundException: <p>The specified trust store does not exist.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3240,6 +3563,12 @@ class ElasticLoadBalancingv2Client:
         Args:
             load_balancer_arn: <p>The Amazon Resource Name (ARN) of the load balancer.</p>
             ip_address_type: <p>The IP address type. Internal load balancers must use <code>ipv4</code>.</p> <p>[Application Load Balancers] The possible values are <code>ipv4</code> (IPv4 addresses), <code>dualstack</code> (IPv4 and IPv6 addresses), and <code>dualstack-without-public-ipv4</code> (public IPv6 addresses and private IPv4 and IPv6 addresses).</p> <p>Application Load Balancer authentication supports IPv4 addresses only when connecting to an Identity Provider (IdP) or Amazon Cognito endpoint. Without a public IPv4 address the load balancer can't complete the authentication process, resulting in HTTP 500 errors.</p> <p>[Network Load Balancers and Gateway Load Balancers] The possible values are <code>ipv4</code> (IPv4 addresses) and <code>dualstack</code> (IPv4 and IPv6 addresses).</p>
+
+        Raises:
+            aws_sdk_elastic_load_balancing_v2.errors.invalid_configuration_request_exception.InvalidConfigurationRequestException: <p>The requested configuration is not valid.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.invalid_subnet_exception.InvalidSubnetException: <p>The specified subnet is out of available addresses.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.load_balancer_not_found_exception.LoadBalancerNotFoundException: <p>The specified load balancer does not exist.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3278,6 +3607,12 @@ class ElasticLoadBalancingv2Client:
 
         Args:
             rule_priorities: <p>The rule priorities.</p>
+
+        Raises:
+            aws_sdk_elastic_load_balancing_v2.errors.operation_not_permitted_exception.OperationNotPermittedException: <p>This operation is not allowed.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.priority_in_use_exception.PriorityInUseException: <p>The specified priority is in use.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.rule_not_found_exception.RuleNotFoundException: <p>The specified rule does not exist.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To set the rule priority
@@ -3327,6 +3662,12 @@ class ElasticLoadBalancingv2Client:
             load_balancer_arn: <p>The Amazon Resource Name (ARN) of the load balancer.</p>
             security_groups: <p>The IDs of the security groups.</p>
             enforce_security_group_inbound_rules_on_private_link_traffic: <p>Indicates whether to evaluate inbound security group rules for traffic sent to a Network Load Balancer through Amazon Web Services PrivateLink. Applies only if the load balancer has an associated security group. The default is <code>on</code>.</p>
+
+        Raises:
+            aws_sdk_elastic_load_balancing_v2.errors.invalid_configuration_request_exception.InvalidConfigurationRequestException: <p>The requested configuration is not valid.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.invalid_security_group_exception.InvalidSecurityGroupException: <p>The specified security group does not exist.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.load_balancer_not_found_exception.LoadBalancerNotFoundException: <p>The specified load balancer does not exist.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To associate a security group with a load balancer
@@ -3391,6 +3732,16 @@ class ElasticLoadBalancingv2Client:
             subnet_mappings: <p>The IDs of the public subnets. You can specify only one subnet per Availability Zone. You must specify either subnets or subnet mappings.</p> <p>[Application Load Balancers] You must specify subnets from at least two Availability Zones. You can't specify Elastic IP addresses for your subnets.</p> <p>[Application Load Balancers on Outposts] You must specify one Outpost subnet.</p> <p>[Application Load Balancers on Local Zones] You can specify subnets from one or more Local Zones.</p> <p>[Network Load Balancers] You can specify subnets from one or more Availability Zones. You can specify one Elastic IP address per subnet if you need static IP addresses for your internet-facing load balancer. For internal load balancers, you can specify one private IP address per subnet from the IPv4 range of the subnet. For internet-facing load balancer, you can specify one IPv6 address per subnet.</p> <p>[Gateway Load Balancers] You can specify subnets from one or more Availability Zones.</p>
             ip_address_type: <p>The IP address type.</p> <p>[Application Load Balancers] The possible values are <code>ipv4</code> (IPv4 addresses), <code>dualstack</code> (IPv4 and IPv6 addresses), and <code>dualstack-without-public-ipv4</code> (public IPv6 addresses and private IPv4 and IPv6 addresses).</p> <p>[Network Load Balancers and Gateway Load Balancers] The possible values are <code>ipv4</code> (IPv4 addresses) and <code>dualstack</code> (IPv4 and IPv6 addresses).</p>
             enable_prefix_for_ipv6_source_nat: <p>[Network Load Balancers with UDP listeners] Indicates whether to use an IPv6 prefix from each subnet for source NAT. The IP address type must be <code>dualstack</code>. The default value is <code>off</code>.</p>
+
+        Raises:
+            aws_sdk_elastic_load_balancing_v2.errors.allocation_id_not_found_exception.AllocationIdNotFoundException: <p>The specified allocation ID does not exist.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.availability_zone_not_supported_exception.AvailabilityZoneNotSupportedException: <p>The specified Availability Zone is not supported.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.capacity_reservation_pending_exception.CapacityReservationPendingException: <p>There is a pending capacity reservation.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.invalid_configuration_request_exception.InvalidConfigurationRequestException: <p>The requested configuration is not valid.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.invalid_subnet_exception.InvalidSubnetException: <p>The specified subnet is out of available addresses.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.load_balancer_not_found_exception.LoadBalancerNotFoundException: <p>The specified load balancer does not exist.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.subnet_not_found_exception.SubnetNotFoundException: <p>The specified subnet does not exist.</p>
+            aws_sdk_elastic_load_balancing_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To enable Availability Zones for a load balancer

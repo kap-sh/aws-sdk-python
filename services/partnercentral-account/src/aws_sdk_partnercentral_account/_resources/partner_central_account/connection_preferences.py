@@ -44,6 +44,13 @@ class ConnectionPreferences:
 
         Args:
             catalog: <p>The catalog identifier for the partner account.</p>
+
+        Raises:
+            aws_sdk_partnercentral_account.errors.access_denied_exception.AccessDeniedException: <p>The request was denied due to insufficient permissions. The caller does not have the required permissions to perform this operation.</p>
+            aws_sdk_partnercentral_account.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred while processing the request. This is typically a temporary condition and the request may be retried.</p>
+            aws_sdk_partnercentral_account.errors.throttling_exception.ThrottlingException: <p>The request was throttled due to too many requests being sent in a short period of time. The client should implement exponential backoff and retry the request.</p>
+            aws_sdk_partnercentral_account.errors.validation_exception.ValidationException: <p>The request failed validation. One or more input parameters are invalid, missing, or do not meet the required format or constraints.</p>
+            aws_sdk_partnercentral_account.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -89,6 +96,14 @@ class ConnectionPreferences:
             revision: <p>The revision number of the connection preferences for optimistic locking.</p>
             access_type: <p>The access type setting for connections (e.g., open, restricted, invitation-only).</p>
             excluded_participant_identifiers: <p>The updated list of participant identifiers to exclude from connections.</p>
+
+        Raises:
+            aws_sdk_partnercentral_account.errors.access_denied_exception.AccessDeniedException: <p>The request was denied due to insufficient permissions. The caller does not have the required permissions to perform this operation.</p>
+            aws_sdk_partnercentral_account.errors.conflict_exception.ConflictException: <p>The request could not be completed due to a conflict with the current state of the resource. This typically occurs when trying to create a resource that already exists or modify a resource that has been changed by another process.</p>
+            aws_sdk_partnercentral_account.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred while processing the request. This is typically a temporary condition and the request may be retried.</p>
+            aws_sdk_partnercentral_account.errors.throttling_exception.ThrottlingException: <p>The request was throttled due to too many requests being sent in a short period of time. The client should implement exponential backoff and retry the request.</p>
+            aws_sdk_partnercentral_account.errors.validation_exception.ValidationException: <p>The request failed validation. One or more input parameters are invalid, missing, or do not meet the required format or constraints.</p>
+            aws_sdk_partnercentral_account.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -137,6 +152,13 @@ class AsyncConnectionPreferences:
 
         Args:
             catalog: <p>The catalog identifier for the partner account.</p>
+
+        Raises:
+            aws_sdk_partnercentral_account.errors.access_denied_exception.AccessDeniedException: <p>The request was denied due to insufficient permissions. The caller does not have the required permissions to perform this operation.</p>
+            aws_sdk_partnercentral_account.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred while processing the request. This is typically a temporary condition and the request may be retried.</p>
+            aws_sdk_partnercentral_account.errors.throttling_exception.ThrottlingException: <p>The request was throttled due to too many requests being sent in a short period of time. The client should implement exponential backoff and retry the request.</p>
+            aws_sdk_partnercentral_account.errors.validation_exception.ValidationException: <p>The request failed validation. One or more input parameters are invalid, missing, or do not meet the required format or constraints.</p>
+            aws_sdk_partnercentral_account.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -183,6 +205,14 @@ class AsyncConnectionPreferences:
             revision: <p>The revision number of the connection preferences for optimistic locking.</p>
             access_type: <p>The access type setting for connections (e.g., open, restricted, invitation-only).</p>
             excluded_participant_identifiers: <p>The updated list of participant identifiers to exclude from connections.</p>
+
+        Raises:
+            aws_sdk_partnercentral_account.errors.access_denied_exception.AccessDeniedException: <p>The request was denied due to insufficient permissions. The caller does not have the required permissions to perform this operation.</p>
+            aws_sdk_partnercentral_account.errors.conflict_exception.ConflictException: <p>The request could not be completed due to a conflict with the current state of the resource. This typically occurs when trying to create a resource that already exists or modify a resource that has been changed by another process.</p>
+            aws_sdk_partnercentral_account.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred while processing the request. This is typically a temporary condition and the request may be retried.</p>
+            aws_sdk_partnercentral_account.errors.throttling_exception.ThrottlingException: <p>The request was throttled due to too many requests being sent in a short period of time. The client should implement exponential backoff and retry the request.</p>
+            aws_sdk_partnercentral_account.errors.validation_exception.ValidationException: <p>The request failed validation. One or more input parameters are invalid, missing, or do not meet the required format or constraints.</p>
+            aws_sdk_partnercentral_account.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

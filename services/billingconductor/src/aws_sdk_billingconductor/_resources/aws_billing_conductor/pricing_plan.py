@@ -80,6 +80,16 @@ class PricingPlan:
             description: <p>The description of the pricing plan. </p>
             pricing_rule_arns: <p> A list of Amazon Resource Names (ARNs) that define the pricing plan parameters. </p>
             tags: <p> A map that contains tag keys and tag values that are attached to a pricing plan. </p>
+
+        Raises:
+            aws_sdk_billingconductor.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action. </p>
+            aws_sdk_billingconductor.errors.conflict_exception.ConflictException: <p>You can cause an inconsistent state by updating or deleting a resource. </p>
+            aws_sdk_billingconductor.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request. </p>
+            aws_sdk_billingconductor.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource that doesn't exist. </p>
+            aws_sdk_billingconductor.errors.service_limit_exceeded_exception.ServiceLimitExceededException: <p>The request would cause a service limit to exceed. </p>
+            aws_sdk_billingconductor.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. </p>
+            aws_sdk_billingconductor.errors.validation_exception.ValidationException: <p>The input doesn't match with the constraints specified by Amazon Web Services services.</p>
+            aws_sdk_billingconductor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -133,6 +143,15 @@ class PricingPlan:
             arn: <p>The Amazon Resource Name (ARN) of the pricing plan that you're updating. </p>
             name: <p>The name of the pricing plan. The name must be unique to each pricing plan. </p>
             description: <p>The description of the pricing plan. </p>
+
+        Raises:
+            aws_sdk_billingconductor.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action. </p>
+            aws_sdk_billingconductor.errors.conflict_exception.ConflictException: <p>You can cause an inconsistent state by updating or deleting a resource. </p>
+            aws_sdk_billingconductor.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request. </p>
+            aws_sdk_billingconductor.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource that doesn't exist. </p>
+            aws_sdk_billingconductor.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. </p>
+            aws_sdk_billingconductor.errors.validation_exception.ValidationException: <p>The input doesn't match with the constraints specified by Amazon Web Services services.</p>
+            aws_sdk_billingconductor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -174,6 +193,14 @@ class PricingPlan:
 
         Args:
             arn: <p>The Amazon Resource Name (ARN) of the pricing plan that you're deleting. </p>
+
+        Raises:
+            aws_sdk_billingconductor.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action. </p>
+            aws_sdk_billingconductor.errors.conflict_exception.ConflictException: <p>You can cause an inconsistent state by updating or deleting a resource. </p>
+            aws_sdk_billingconductor.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request. </p>
+            aws_sdk_billingconductor.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. </p>
+            aws_sdk_billingconductor.errors.validation_exception.ValidationException: <p>The input doesn't match with the constraints specified by Amazon Web Services services.</p>
+            aws_sdk_billingconductor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -223,6 +250,13 @@ class PricingPlan:
             filters: <p>A <code>ListPricingPlansFilter</code> that specifies the Amazon Resource Name (ARNs) of pricing plans to retrieve pricing plans information.</p>
             max_results: <p>The maximum number of pricing plans to retrieve.</p>
             next_token: <p>The pagination token that's used on subsequent call to get pricing plans. </p>
+
+        Raises:
+            aws_sdk_billingconductor.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action. </p>
+            aws_sdk_billingconductor.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request. </p>
+            aws_sdk_billingconductor.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. </p>
+            aws_sdk_billingconductor.errors.validation_exception.ValidationException: <p>The input doesn't match with the constraints specified by Amazon Web Services services.</p>
+            aws_sdk_billingconductor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -269,6 +303,16 @@ class PricingPlan:
         Args:
             arn: <p> The <code>PricingPlanArn</code> that the <code>PricingRuleArns</code> are associated with. </p>
             pricing_rule_arns: <p> The <code>PricingRuleArns</code> that are associated with the Pricing Plan. </p>
+
+        Raises:
+            aws_sdk_billingconductor.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action. </p>
+            aws_sdk_billingconductor.errors.conflict_exception.ConflictException: <p>You can cause an inconsistent state by updating or deleting a resource. </p>
+            aws_sdk_billingconductor.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request. </p>
+            aws_sdk_billingconductor.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource that doesn't exist. </p>
+            aws_sdk_billingconductor.errors.service_limit_exceeded_exception.ServiceLimitExceededException: <p>The request would cause a service limit to exceed. </p>
+            aws_sdk_billingconductor.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. </p>
+            aws_sdk_billingconductor.errors.validation_exception.ValidationException: <p>The input doesn't match with the constraints specified by Amazon Web Services services.</p>
+            aws_sdk_billingconductor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -309,6 +353,15 @@ class PricingPlan:
         Args:
             arn: <p> The pricing plan Amazon Resource Name (ARN) to disassociate pricing rules from. </p>
             pricing_rule_arns: <p> A list containing the Amazon Resource Name (ARN) of the pricing rules that will be disassociated. </p>
+
+        Raises:
+            aws_sdk_billingconductor.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action. </p>
+            aws_sdk_billingconductor.errors.conflict_exception.ConflictException: <p>You can cause an inconsistent state by updating or deleting a resource. </p>
+            aws_sdk_billingconductor.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request. </p>
+            aws_sdk_billingconductor.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource that doesn't exist. </p>
+            aws_sdk_billingconductor.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. </p>
+            aws_sdk_billingconductor.errors.validation_exception.ValidationException: <p>The input doesn't match with the constraints specified by Amazon Web Services services.</p>
+            aws_sdk_billingconductor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -357,6 +410,14 @@ class PricingPlan:
             pricing_rule_arn: <p> The pricing rule Amazon Resource Name (ARN) for which associations will be listed. </p>
             max_results: <p> The optional maximum number of pricing rule associations to retrieve. </p>
             next_token: <p> The optional pagination token returned by a previous call. </p>
+
+        Raises:
+            aws_sdk_billingconductor.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action. </p>
+            aws_sdk_billingconductor.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request. </p>
+            aws_sdk_billingconductor.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource that doesn't exist. </p>
+            aws_sdk_billingconductor.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. </p>
+            aws_sdk_billingconductor.errors.validation_exception.ValidationException: <p>The input doesn't match with the constraints specified by Amazon Web Services services.</p>
+            aws_sdk_billingconductor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -419,6 +480,16 @@ class AsyncPricingPlan:
             description: <p>The description of the pricing plan. </p>
             pricing_rule_arns: <p> A list of Amazon Resource Names (ARNs) that define the pricing plan parameters. </p>
             tags: <p> A map that contains tag keys and tag values that are attached to a pricing plan. </p>
+
+        Raises:
+            aws_sdk_billingconductor.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action. </p>
+            aws_sdk_billingconductor.errors.conflict_exception.ConflictException: <p>You can cause an inconsistent state by updating or deleting a resource. </p>
+            aws_sdk_billingconductor.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request. </p>
+            aws_sdk_billingconductor.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource that doesn't exist. </p>
+            aws_sdk_billingconductor.errors.service_limit_exceeded_exception.ServiceLimitExceededException: <p>The request would cause a service limit to exceed. </p>
+            aws_sdk_billingconductor.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. </p>
+            aws_sdk_billingconductor.errors.validation_exception.ValidationException: <p>The input doesn't match with the constraints specified by Amazon Web Services services.</p>
+            aws_sdk_billingconductor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -473,6 +544,15 @@ class AsyncPricingPlan:
             arn: <p>The Amazon Resource Name (ARN) of the pricing plan that you're updating. </p>
             name: <p>The name of the pricing plan. The name must be unique to each pricing plan. </p>
             description: <p>The description of the pricing plan. </p>
+
+        Raises:
+            aws_sdk_billingconductor.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action. </p>
+            aws_sdk_billingconductor.errors.conflict_exception.ConflictException: <p>You can cause an inconsistent state by updating or deleting a resource. </p>
+            aws_sdk_billingconductor.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request. </p>
+            aws_sdk_billingconductor.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource that doesn't exist. </p>
+            aws_sdk_billingconductor.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. </p>
+            aws_sdk_billingconductor.errors.validation_exception.ValidationException: <p>The input doesn't match with the constraints specified by Amazon Web Services services.</p>
+            aws_sdk_billingconductor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -515,6 +595,14 @@ class AsyncPricingPlan:
 
         Args:
             arn: <p>The Amazon Resource Name (ARN) of the pricing plan that you're deleting. </p>
+
+        Raises:
+            aws_sdk_billingconductor.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action. </p>
+            aws_sdk_billingconductor.errors.conflict_exception.ConflictException: <p>You can cause an inconsistent state by updating or deleting a resource. </p>
+            aws_sdk_billingconductor.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request. </p>
+            aws_sdk_billingconductor.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. </p>
+            aws_sdk_billingconductor.errors.validation_exception.ValidationException: <p>The input doesn't match with the constraints specified by Amazon Web Services services.</p>
+            aws_sdk_billingconductor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -565,6 +653,13 @@ class AsyncPricingPlan:
             filters: <p>A <code>ListPricingPlansFilter</code> that specifies the Amazon Resource Name (ARNs) of pricing plans to retrieve pricing plans information.</p>
             max_results: <p>The maximum number of pricing plans to retrieve.</p>
             next_token: <p>The pagination token that's used on subsequent call to get pricing plans. </p>
+
+        Raises:
+            aws_sdk_billingconductor.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action. </p>
+            aws_sdk_billingconductor.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request. </p>
+            aws_sdk_billingconductor.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. </p>
+            aws_sdk_billingconductor.errors.validation_exception.ValidationException: <p>The input doesn't match with the constraints specified by Amazon Web Services services.</p>
+            aws_sdk_billingconductor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -612,6 +707,16 @@ class AsyncPricingPlan:
         Args:
             arn: <p> The <code>PricingPlanArn</code> that the <code>PricingRuleArns</code> are associated with. </p>
             pricing_rule_arns: <p> The <code>PricingRuleArns</code> that are associated with the Pricing Plan. </p>
+
+        Raises:
+            aws_sdk_billingconductor.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action. </p>
+            aws_sdk_billingconductor.errors.conflict_exception.ConflictException: <p>You can cause an inconsistent state by updating or deleting a resource. </p>
+            aws_sdk_billingconductor.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request. </p>
+            aws_sdk_billingconductor.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource that doesn't exist. </p>
+            aws_sdk_billingconductor.errors.service_limit_exceeded_exception.ServiceLimitExceededException: <p>The request would cause a service limit to exceed. </p>
+            aws_sdk_billingconductor.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. </p>
+            aws_sdk_billingconductor.errors.validation_exception.ValidationException: <p>The input doesn't match with the constraints specified by Amazon Web Services services.</p>
+            aws_sdk_billingconductor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -653,6 +758,15 @@ class AsyncPricingPlan:
         Args:
             arn: <p> The pricing plan Amazon Resource Name (ARN) to disassociate pricing rules from. </p>
             pricing_rule_arns: <p> A list containing the Amazon Resource Name (ARN) of the pricing rules that will be disassociated. </p>
+
+        Raises:
+            aws_sdk_billingconductor.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action. </p>
+            aws_sdk_billingconductor.errors.conflict_exception.ConflictException: <p>You can cause an inconsistent state by updating or deleting a resource. </p>
+            aws_sdk_billingconductor.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request. </p>
+            aws_sdk_billingconductor.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource that doesn't exist. </p>
+            aws_sdk_billingconductor.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. </p>
+            aws_sdk_billingconductor.errors.validation_exception.ValidationException: <p>The input doesn't match with the constraints specified by Amazon Web Services services.</p>
+            aws_sdk_billingconductor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -702,6 +816,14 @@ class AsyncPricingPlan:
             pricing_rule_arn: <p> The pricing rule Amazon Resource Name (ARN) for which associations will be listed. </p>
             max_results: <p> The optional maximum number of pricing rule associations to retrieve. </p>
             next_token: <p> The optional pagination token returned by a previous call. </p>
+
+        Raises:
+            aws_sdk_billingconductor.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action. </p>
+            aws_sdk_billingconductor.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request. </p>
+            aws_sdk_billingconductor.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource that doesn't exist. </p>
+            aws_sdk_billingconductor.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. </p>
+            aws_sdk_billingconductor.errors.validation_exception.ValidationException: <p>The input doesn't match with the constraints specified by Amazon Web Services services.</p>
+            aws_sdk_billingconductor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

@@ -71,6 +71,15 @@ class ApprovalTeam:
             policies: <p>An array of <code>PolicyReference</code> objects. Contains a list of policies that define the permissions for team resources.</p>
             name: <p>Name of the team.</p>
             tags: <p>Tags you want to attach to the team.</p>
+
+        Raises:
+            aws_sdk_mpa.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action. Check your permissions, and try again.</p>
+            aws_sdk_mpa.errors.conflict_exception.ConflictException: <p>The request cannot be completed because it conflicts with the current state of a resource.</p>
+            aws_sdk_mpa.errors.internal_server_exception.InternalServerException: <p>The service encountered an internal error. Try your request again. If the problem persists, contact Amazon Web Services Support.</p>
+            aws_sdk_mpa.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request exceeds the service quota for your account. Request a quota increase or reduce your request size.</p>
+            aws_sdk_mpa.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_mpa.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_mpa.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -116,6 +125,14 @@ class ApprovalTeam:
 
         Args:
             arn: <p>Amazon Resource Name (ARN) for the team.</p>
+
+        Raises:
+            aws_sdk_mpa.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action. Check your permissions, and try again.</p>
+            aws_sdk_mpa.errors.internal_server_exception.InternalServerException: <p>The service encountered an internal error. Try your request again. If the problem persists, contact Amazon Web Services Support.</p>
+            aws_sdk_mpa.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource doesn't exist. Check the resource ID, and try again.</p>
+            aws_sdk_mpa.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_mpa.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_mpa.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -167,6 +184,16 @@ class ApprovalTeam:
             description: <p>Description for the team.</p>
             arn: <p>Amazon Resource Name (ARN) for the team.</p>
             update_actions: <p>A list of <code>UpdateAction</code> to perform when updating the team.</p>
+
+        Raises:
+            aws_sdk_mpa.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action. Check your permissions, and try again.</p>
+            aws_sdk_mpa.errors.conflict_exception.ConflictException: <p>The request cannot be completed because it conflicts with the current state of a resource.</p>
+            aws_sdk_mpa.errors.internal_server_exception.InternalServerException: <p>The service encountered an internal error. Try your request again. If the problem persists, contact Amazon Web Services Support.</p>
+            aws_sdk_mpa.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource doesn't exist. Check the resource ID, and try again.</p>
+            aws_sdk_mpa.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request exceeds the service quota for your account. Request a quota increase or reduce your request size.</p>
+            aws_sdk_mpa.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_mpa.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_mpa.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -214,6 +241,15 @@ class ApprovalTeam:
         Args:
             arn: <p>Amaazon Resource Name (ARN) for the team.</p>
             version_id: <p>Version ID for the team.</p>
+
+        Raises:
+            aws_sdk_mpa.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action. Check your permissions, and try again.</p>
+            aws_sdk_mpa.errors.conflict_exception.ConflictException: <p>The request cannot be completed because it conflicts with the current state of a resource.</p>
+            aws_sdk_mpa.errors.internal_server_exception.InternalServerException: <p>The service encountered an internal error. Try your request again. If the problem persists, contact Amazon Web Services Support.</p>
+            aws_sdk_mpa.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource doesn't exist. Check the resource ID, and try again.</p>
+            aws_sdk_mpa.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_mpa.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_mpa.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -254,6 +290,13 @@ class ApprovalTeam:
         Args:
             max_results: <p>The maximum number of items to return in the response. If more results exist than the specified <code>MaxResults</code> value, a token is included in the response so that you can retrieve the remaining results.</p>
             next_token: <p>If present, indicates that more output is available than is included in the current response. Use this value in the <code>NextToken</code> request parameter in a next call to the operation to get more output. You can repeat this until the <code>NextToken</code> response element returns <code>null</code>.</p>
+
+        Raises:
+            aws_sdk_mpa.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action. Check your permissions, and try again.</p>
+            aws_sdk_mpa.errors.internal_server_exception.InternalServerException: <p>The service encountered an internal error. Try your request again. If the problem persists, contact Amazon Web Services Support.</p>
+            aws_sdk_mpa.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_mpa.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_mpa.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -296,6 +339,15 @@ class ApprovalTeam:
         Args:
             pending_window_days: <p>Number of days between when the team approves the delete request and when the team is deleted.</p>
             arn: <p>Amazon Resource Name (ARN) for the team.</p>
+
+        Raises:
+            aws_sdk_mpa.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action. Check your permissions, and try again.</p>
+            aws_sdk_mpa.errors.conflict_exception.ConflictException: <p>The request cannot be completed because it conflicts with the current state of a resource.</p>
+            aws_sdk_mpa.errors.internal_server_exception.InternalServerException: <p>The service encountered an internal error. Try your request again. If the problem persists, contact Amazon Web Services Support.</p>
+            aws_sdk_mpa.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource doesn't exist. Check the resource ID, and try again.</p>
+            aws_sdk_mpa.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_mpa.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_mpa.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -339,6 +391,14 @@ class ApprovalTeam:
         Args:
             arn: <p>Amazon Resource Name (ARN) for the approval team.</p>
             approver_ids: <p>Array of approver IDs.</p>
+
+        Raises:
+            aws_sdk_mpa.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action. Check your permissions, and try again.</p>
+            aws_sdk_mpa.errors.internal_server_exception.InternalServerException: <p>The service encountered an internal error. Try your request again. If the problem persists, contact Amazon Web Services Support.</p>
+            aws_sdk_mpa.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource doesn't exist. Check the resource ID, and try again.</p>
+            aws_sdk_mpa.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_mpa.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_mpa.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -395,6 +455,15 @@ class AsyncApprovalTeam:
             policies: <p>An array of <code>PolicyReference</code> objects. Contains a list of policies that define the permissions for team resources.</p>
             name: <p>Name of the team.</p>
             tags: <p>Tags you want to attach to the team.</p>
+
+        Raises:
+            aws_sdk_mpa.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action. Check your permissions, and try again.</p>
+            aws_sdk_mpa.errors.conflict_exception.ConflictException: <p>The request cannot be completed because it conflicts with the current state of a resource.</p>
+            aws_sdk_mpa.errors.internal_server_exception.InternalServerException: <p>The service encountered an internal error. Try your request again. If the problem persists, contact Amazon Web Services Support.</p>
+            aws_sdk_mpa.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request exceeds the service quota for your account. Request a quota increase or reduce your request size.</p>
+            aws_sdk_mpa.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_mpa.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_mpa.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -441,6 +510,14 @@ class AsyncApprovalTeam:
 
         Args:
             arn: <p>Amazon Resource Name (ARN) for the team.</p>
+
+        Raises:
+            aws_sdk_mpa.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action. Check your permissions, and try again.</p>
+            aws_sdk_mpa.errors.internal_server_exception.InternalServerException: <p>The service encountered an internal error. Try your request again. If the problem persists, contact Amazon Web Services Support.</p>
+            aws_sdk_mpa.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource doesn't exist. Check the resource ID, and try again.</p>
+            aws_sdk_mpa.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_mpa.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_mpa.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -493,6 +570,16 @@ class AsyncApprovalTeam:
             description: <p>Description for the team.</p>
             arn: <p>Amazon Resource Name (ARN) for the team.</p>
             update_actions: <p>A list of <code>UpdateAction</code> to perform when updating the team.</p>
+
+        Raises:
+            aws_sdk_mpa.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action. Check your permissions, and try again.</p>
+            aws_sdk_mpa.errors.conflict_exception.ConflictException: <p>The request cannot be completed because it conflicts with the current state of a resource.</p>
+            aws_sdk_mpa.errors.internal_server_exception.InternalServerException: <p>The service encountered an internal error. Try your request again. If the problem persists, contact Amazon Web Services Support.</p>
+            aws_sdk_mpa.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource doesn't exist. Check the resource ID, and try again.</p>
+            aws_sdk_mpa.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request exceeds the service quota for your account. Request a quota increase or reduce your request size.</p>
+            aws_sdk_mpa.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_mpa.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_mpa.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -541,6 +628,15 @@ class AsyncApprovalTeam:
         Args:
             arn: <p>Amaazon Resource Name (ARN) for the team.</p>
             version_id: <p>Version ID for the team.</p>
+
+        Raises:
+            aws_sdk_mpa.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action. Check your permissions, and try again.</p>
+            aws_sdk_mpa.errors.conflict_exception.ConflictException: <p>The request cannot be completed because it conflicts with the current state of a resource.</p>
+            aws_sdk_mpa.errors.internal_server_exception.InternalServerException: <p>The service encountered an internal error. Try your request again. If the problem persists, contact Amazon Web Services Support.</p>
+            aws_sdk_mpa.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource doesn't exist. Check the resource ID, and try again.</p>
+            aws_sdk_mpa.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_mpa.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_mpa.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -582,6 +678,13 @@ class AsyncApprovalTeam:
         Args:
             max_results: <p>The maximum number of items to return in the response. If more results exist than the specified <code>MaxResults</code> value, a token is included in the response so that you can retrieve the remaining results.</p>
             next_token: <p>If present, indicates that more output is available than is included in the current response. Use this value in the <code>NextToken</code> request parameter in a next call to the operation to get more output. You can repeat this until the <code>NextToken</code> response element returns <code>null</code>.</p>
+
+        Raises:
+            aws_sdk_mpa.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action. Check your permissions, and try again.</p>
+            aws_sdk_mpa.errors.internal_server_exception.InternalServerException: <p>The service encountered an internal error. Try your request again. If the problem persists, contact Amazon Web Services Support.</p>
+            aws_sdk_mpa.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_mpa.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_mpa.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -625,6 +728,15 @@ class AsyncApprovalTeam:
         Args:
             pending_window_days: <p>Number of days between when the team approves the delete request and when the team is deleted.</p>
             arn: <p>Amazon Resource Name (ARN) for the team.</p>
+
+        Raises:
+            aws_sdk_mpa.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action. Check your permissions, and try again.</p>
+            aws_sdk_mpa.errors.conflict_exception.ConflictException: <p>The request cannot be completed because it conflicts with the current state of a resource.</p>
+            aws_sdk_mpa.errors.internal_server_exception.InternalServerException: <p>The service encountered an internal error. Try your request again. If the problem persists, contact Amazon Web Services Support.</p>
+            aws_sdk_mpa.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource doesn't exist. Check the resource ID, and try again.</p>
+            aws_sdk_mpa.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_mpa.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_mpa.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -669,6 +781,14 @@ class AsyncApprovalTeam:
         Args:
             arn: <p>Amazon Resource Name (ARN) for the approval team.</p>
             approver_ids: <p>Array of approver IDs.</p>
+
+        Raises:
+            aws_sdk_mpa.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action. Check your permissions, and try again.</p>
+            aws_sdk_mpa.errors.internal_server_exception.InternalServerException: <p>The service encountered an internal error. Try your request again. If the problem persists, contact Amazon Web Services Support.</p>
+            aws_sdk_mpa.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource doesn't exist. Check the resource ID, and try again.</p>
+            aws_sdk_mpa.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_mpa.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_mpa.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

@@ -153,6 +153,14 @@ class ConnectCasesClient:
 
         Args:
             arn: <p>The Amazon Resource Name (ARN)</p>
+
+        Raises:
+            aws_sdk_connectcases.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_connectcases.errors.internal_server_exception.InternalServerException: <p>We couldn't process your request because of an issue with the server. Try again later.</p>
+            aws_sdk_connectcases.errors.resource_not_found_exception.ResourceNotFoundException: <p>We couldn't find the requested resource. Check that your resources exists and were created in the same Amazon Web Services Region as your request, and try your request again.</p>
+            aws_sdk_connectcases.errors.throttling_exception.ThrottlingException: <p>The rate has been exceeded for this API. Please try again after a few minutes.</p>
+            aws_sdk_connectcases.errors.validation_exception.ValidationException: <p>The request isn't valid. Check the syntax and try again.</p>
+            aws_sdk_connectcases.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -192,6 +200,14 @@ class ConnectCasesClient:
         Args:
             arn: <p>The Amazon Resource Name (ARN)</p>
             tags: <p>A map of of key-value pairs that represent tags on a resource. Tags are used to organize, track, or control access for this resource.</p>
+
+        Raises:
+            aws_sdk_connectcases.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_connectcases.errors.internal_server_exception.InternalServerException: <p>We couldn't process your request because of an issue with the server. Try again later.</p>
+            aws_sdk_connectcases.errors.resource_not_found_exception.ResourceNotFoundException: <p>We couldn't find the requested resource. Check that your resources exists and were created in the same Amazon Web Services Region as your request, and try your request again.</p>
+            aws_sdk_connectcases.errors.throttling_exception.ThrottlingException: <p>The rate has been exceeded for this API. Please try again after a few minutes.</p>
+            aws_sdk_connectcases.errors.validation_exception.ValidationException: <p>The request isn't valid. Check the syntax and try again.</p>
+            aws_sdk_connectcases.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -230,6 +246,14 @@ class ConnectCasesClient:
         Args:
             arn: <p>The Amazon Resource Name (ARN)</p>
             tag_keys: <p>List of tag keys.</p>
+
+        Raises:
+            aws_sdk_connectcases.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_connectcases.errors.internal_server_exception.InternalServerException: <p>We couldn't process your request because of an issue with the server. Try again later.</p>
+            aws_sdk_connectcases.errors.resource_not_found_exception.ResourceNotFoundException: <p>We couldn't find the requested resource. Check that your resources exists and were created in the same Amazon Web Services Region as your request, and try your request again.</p>
+            aws_sdk_connectcases.errors.throttling_exception.ThrottlingException: <p>The rate has been exceeded for this API. Please try again after a few minutes.</p>
+            aws_sdk_connectcases.errors.validation_exception.ValidationException: <p>The request isn't valid. Check the syntax and try again.</p>
+            aws_sdk_connectcases.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(

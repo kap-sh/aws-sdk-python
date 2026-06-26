@@ -332,6 +332,12 @@ class AsyncFSxClient:
         Args:
             file_system_id: <p>Specifies the file system with which you want to associate one or more DNS aliases.</p>
             aliases: <p>An array of one or more DNS alias names to associate with the file system. The alias name has to comply with the following formatting requirements:</p> <ul> <li> <p>Formatted as a fully-qualified domain name (FQDN), <i> <code>hostname.domain</code> </i>, for example, <code>accounting.corp.example.com</code>.</p> </li> <li> <p>Can contain alphanumeric characters and the hyphen (-).</p> </li> <li> <p>Cannot start or end with a hyphen.</p> </li> <li> <p>Can start with a numeric.</p> </li> </ul> <p>For DNS alias names, Amazon FSx stores alphabetic characters as lowercase letters (a-z), regardless of how you specify them: as uppercase letters, lowercase letters, or the corresponding letters in escape codes.</p>
+
+        Raises:
+            aws_sdk_fsx.errors.bad_request.BadRequest: <p>A generic error indicating a failure with a client request.</p>
+            aws_sdk_fsx.errors.file_system_not_found.FileSystemNotFound: <p>No Amazon FSx file systems were found based upon supplied parameters.</p>
+            aws_sdk_fsx.errors.internal_server_error.InternalServerError: <p>A generic error indicating a server-side failure.</p>
+            aws_sdk_fsx.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -373,6 +379,14 @@ class AsyncFSxClient:
 
         Args:
             task_id: <p>Specifies the data repository task to cancel.</p>
+
+        Raises:
+            aws_sdk_fsx.errors.bad_request.BadRequest: <p>A generic error indicating a failure with a client request.</p>
+            aws_sdk_fsx.errors.data_repository_task_ended.DataRepositoryTaskEnded: <p>The data repository task could not be canceled because the task has already ended.</p>
+            aws_sdk_fsx.errors.data_repository_task_not_found.DataRepositoryTaskNotFound: <p>The data repository task or tasks you specified could not be found.</p>
+            aws_sdk_fsx.errors.internal_server_error.InternalServerError: <p>A generic error indicating a server-side failure.</p>
+            aws_sdk_fsx.errors.unsupported_operation.UnsupportedOperation: <p>The requested operation is not supported for this resource or API.</p>
+            aws_sdk_fsx.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -420,6 +434,20 @@ class AsyncFSxClient:
             source_backup_id: <p>The ID of the source backup. Specifies the ID of the backup that's being copied.</p>
             source_region: <p>The source Amazon Web Services Region of the backup. Specifies the Amazon Web Services Region from which the backup is being copied. The source and destination Regions must be in the same Amazon Web Services partition. If you don't specify a Region, <code>SourceRegion</code> defaults to the Region where the request is sent from (in-Region copy).</p>
             copy_tags: <p>A Boolean flag indicating whether tags from the source backup should be copied to the backup copy. This value defaults to <code>false</code>.</p> <p>If you set <code>CopyTags</code> to <code>true</code> and the source backup has existing tags, you can use the <code>Tags</code> parameter to create new tags, provided that the sum of the source backup tags and the new tags doesn't exceed 50. Both sets of tags are merged. If there are tag conflicts (for example, two tags with the same key but different values), the tags created with the <code>Tags</code> parameter take precedence.</p>
+
+        Raises:
+            aws_sdk_fsx.errors.backup_not_found.BackupNotFound: <p>No Amazon FSx backups were found based upon the supplied parameters.</p>
+            aws_sdk_fsx.errors.bad_request.BadRequest: <p>A generic error indicating a failure with a client request.</p>
+            aws_sdk_fsx.errors.incompatible_parameter_error.IncompatibleParameterError: <p>The error returned when a second request is received with the same client request token but different parameters settings. A client request token should always uniquely identify a single request.</p>
+            aws_sdk_fsx.errors.incompatible_region_for_multi_az.IncompatibleRegionForMultiAZ: <p>Amazon FSx doesn't support Multi-AZ Windows File Server copy backup in the destination Region, so the copied backup can't be restored.</p>
+            aws_sdk_fsx.errors.internal_server_error.InternalServerError: <p>A generic error indicating a server-side failure.</p>
+            aws_sdk_fsx.errors.invalid_destination_kms_key.InvalidDestinationKmsKey: <p>The Key Management Service (KMS) key of the destination backup is not valid.</p>
+            aws_sdk_fsx.errors.invalid_region.InvalidRegion: <p>The Region provided for <code>SourceRegion</code> is not valid or is in a different Amazon Web Services partition.</p>
+            aws_sdk_fsx.errors.invalid_source_kms_key.InvalidSourceKmsKey: <p>The Key Management Service (KMS) key of the source backup is not valid.</p>
+            aws_sdk_fsx.errors.service_limit_exceeded.ServiceLimitExceeded: <p>An error indicating that a particular service limit was exceeded. You can increase some service limits by contacting Amazon Web Services Support.</p>
+            aws_sdk_fsx.errors.source_backup_unavailable.SourceBackupUnavailable: <p>The request was rejected because the lifecycle status of the source backup isn't <code>AVAILABLE</code>.</p>
+            aws_sdk_fsx.errors.unsupported_operation.UnsupportedOperation: <p>The requested operation is not supported for this resource or API.</p>
+            aws_sdk_fsx.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To copy a backup
@@ -486,6 +514,13 @@ class AsyncFSxClient:
             volume_id: <p>Specifies the ID of the volume that you are copying the snapshot to.</p>
             copy_strategy: <p>Specifies the strategy to use when copying data from a snapshot to the volume. </p> <ul> <li> <p> <code>FULL_COPY</code> - Copies all data from the snapshot to the volume. </p> </li> <li> <p> <code>INCREMENTAL_COPY</code> - Copies only the snapshot data that's changed since the previous replication.</p> </li> </ul> <note> <p> <code>CLONE</code> isn't a valid copy strategy option for the <code>CopySnapshotAndUpdateVolume</code> operation.</p> </note>
             options: <p>Confirms that you want to delete data on the destination volume that wasn’t there during the previous snapshot replication.</p> <p>Your replication will fail if you don’t include an option for a specific type of data and that data is on your destination. For example, if you don’t include <code>DELETE_INTERMEDIATE_SNAPSHOTS</code> and there are intermediate snapshots on the destination, you can’t copy the snapshot.</p> <ul> <li> <p> <code>DELETE_INTERMEDIATE_SNAPSHOTS</code> - Deletes snapshots on the destination volume that aren’t on the source volume.</p> </li> <li> <p> <code>DELETE_CLONED_VOLUMES</code> - Deletes snapshot clones on the destination volume that aren't on the source volume.</p> </li> <li> <p> <code>DELETE_INTERMEDIATE_DATA</code> - Overwrites snapshots on the destination volume that don’t match the source snapshot that you’re copying.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_fsx.errors.bad_request.BadRequest: <p>A generic error indicating a failure with a client request.</p>
+            aws_sdk_fsx.errors.incompatible_parameter_error.IncompatibleParameterError: <p>The error returned when a second request is received with the same client request token but different parameters settings. A client request token should always uniquely identify a single request.</p>
+            aws_sdk_fsx.errors.internal_server_error.InternalServerError: <p>A generic error indicating a server-side failure.</p>
+            aws_sdk_fsx.errors.service_limit_exceeded.ServiceLimitExceeded: <p>An error indicating that a particular service limit was exceeded. You can increase some service limits by contacting Amazon Web Services Support.</p>
+            aws_sdk_fsx.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -547,6 +582,18 @@ class AsyncFSxClient:
             type: <p>The type of S3 access point you want to create. Only <code>OpenZFS</code> is supported.</p>
             open_zfs_configuration: <p>Specifies the configuration to use when creating and attaching an S3 access point to an FSx for OpenZFS volume.</p>
             s3_access_point: <p>Specifies the virtual private cloud (VPC) configuration if you're creating an access point that is restricted to a VPC. For more information, see <a href=\"https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/access-points-vpc.html\">Creating access points restricted to a virtual private cloud</a>.</p>
+
+        Raises:
+            aws_sdk_fsx.errors.access_point_already_owned_by_you.AccessPointAlreadyOwnedByYou: <p>An access point with that name already exists in the Amazon Web Services Region in your Amazon Web Services account.</p>
+            aws_sdk_fsx.errors.bad_request.BadRequest: <p>A generic error indicating a failure with a client request.</p>
+            aws_sdk_fsx.errors.incompatible_parameter_error.IncompatibleParameterError: <p>The error returned when a second request is received with the same client request token but different parameters settings. A client request token should always uniquely identify a single request.</p>
+            aws_sdk_fsx.errors.internal_server_error.InternalServerError: <p>A generic error indicating a server-side failure.</p>
+            aws_sdk_fsx.errors.invalid_access_point.InvalidAccessPoint: <p>The access point specified doesn't exist.</p>
+            aws_sdk_fsx.errors.invalid_request.InvalidRequest: <p>The action or operation requested is invalid. Verify that the action is typed correctly.</p>
+            aws_sdk_fsx.errors.too_many_access_points.TooManyAccessPoints: <p>You have reached the maximum number of S3 access points attachments allowed for your account in this Amazon Web Services Region, or for the file system. For more information, or to request an increase, see <a href=\"https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/limits.html\">Service quotas on FSx resources</a> in the FSx for OpenZFS User Guide.</p>
+            aws_sdk_fsx.errors.unsupported_operation.UnsupportedOperation: <p>The requested operation is not supported for this resource or API.</p>
+            aws_sdk_fsx.errors.volume_not_found.VolumeNotFound: <p>No Amazon FSx volumes were found based upon the supplied parameters.</p>
+            aws_sdk_fsx.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -604,6 +651,17 @@ class AsyncFSxClient:
             client_request_token: <p>(Optional) A string of up to 63 ASCII characters that Amazon FSx uses to ensure idempotent creation. This string is automatically filled on your behalf when you use the Command Line Interface (CLI) or an Amazon Web Services SDK.</p>
             tags: <p>(Optional) The tags to apply to the backup at backup creation. The key value of the <code>Name</code> tag appears in the console as the backup name. If you have set <code>CopyTagsToBackups</code> to <code>true</code>, and you specify one or more tags using the <code>CreateBackup</code> operation, no existing file system tags are copied from the file system to the backup.</p>
             volume_id: <p>(Optional) The ID of the FSx for ONTAP volume to back up.</p>
+
+        Raises:
+            aws_sdk_fsx.errors.backup_in_progress.BackupInProgress: <p>Another backup is already under way. Wait for completion before initiating additional backups of this file system.</p>
+            aws_sdk_fsx.errors.bad_request.BadRequest: <p>A generic error indicating a failure with a client request.</p>
+            aws_sdk_fsx.errors.file_system_not_found.FileSystemNotFound: <p>No Amazon FSx file systems were found based upon supplied parameters.</p>
+            aws_sdk_fsx.errors.incompatible_parameter_error.IncompatibleParameterError: <p>The error returned when a second request is received with the same client request token but different parameters settings. A client request token should always uniquely identify a single request.</p>
+            aws_sdk_fsx.errors.internal_server_error.InternalServerError: <p>A generic error indicating a server-side failure.</p>
+            aws_sdk_fsx.errors.service_limit_exceeded.ServiceLimitExceeded: <p>An error indicating that a particular service limit was exceeded. You can increase some service limits by contacting Amazon Web Services Support.</p>
+            aws_sdk_fsx.errors.unsupported_operation.UnsupportedOperation: <p>The requested operation is not supported for this resource or API.</p>
+            aws_sdk_fsx.errors.volume_not_found.VolumeNotFound: <p>No Amazon FSx volumes were found based upon the supplied parameters.</p>
+            aws_sdk_fsx.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -668,6 +726,15 @@ class AsyncFSxClient:
             batch_import_meta_data_on_create: <p>Set to <code>true</code> to run an import data repository task to import metadata from the data repository to the file system after the data repository association is created. Default is <code>false</code>.</p>
             imported_file_chunk_size: <p>For files imported from a data repository, this value determines the stripe count and maximum amount of data per file (in MiB) stored on a single physical disk. The maximum number of disks that a single file can be striped across is limited by the total number of disks that make up the file system.</p> <p>The default chunk size is 1,024 MiB (1 GiB) and can go as high as 512,000 MiB (500 GiB). Amazon S3 objects have a maximum size of 5 TB.</p>
             s3: <p>The configuration for an Amazon S3 data repository linked to an Amazon FSx Lustre file system with a data repository association. The configuration defines which file events (new, changed, or deleted files or directories) are automatically imported from the linked data repository to the file system or automatically exported from the file system to the data repository.</p>
+
+        Raises:
+            aws_sdk_fsx.errors.bad_request.BadRequest: <p>A generic error indicating a failure with a client request.</p>
+            aws_sdk_fsx.errors.file_system_not_found.FileSystemNotFound: <p>No Amazon FSx file systems were found based upon supplied parameters.</p>
+            aws_sdk_fsx.errors.incompatible_parameter_error.IncompatibleParameterError: <p>The error returned when a second request is received with the same client request token but different parameters settings. A client request token should always uniquely identify a single request.</p>
+            aws_sdk_fsx.errors.internal_server_error.InternalServerError: <p>A generic error indicating a server-side failure.</p>
+            aws_sdk_fsx.errors.service_limit_exceeded.ServiceLimitExceeded: <p>An error indicating that a particular service limit was exceeded. You can increase some service limits by contacting Amazon Web Services Support.</p>
+            aws_sdk_fsx.errors.unsupported_operation.UnsupportedOperation: <p>The requested operation is not supported for this resource or API.</p>
+            aws_sdk_fsx.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -740,6 +807,16 @@ class AsyncFSxClient:
             report: <p>Defines whether or not Amazon FSx provides a CompletionReport once the task has completed. A CompletionReport provides a detailed report on the files that Amazon FSx processed that meet the criteria specified by the <code>Scope</code> parameter. For more information, see <a href=\"https://docs.aws.amazon.com/fsx/latest/LustreGuide/task-completion-report.html\">Working with Task Completion Reports</a>.</p>
             capacity_to_release: <p>Specifies the amount of data to release, in GiB, by an Amazon File Cache <code>AUTO_RELEASE_DATA</code> task that automatically releases files from the cache.</p>
             release_configuration: <p>The configuration that specifies the last accessed time criteria for files that will be released from an Amazon FSx for Lustre file system.</p>
+
+        Raises:
+            aws_sdk_fsx.errors.bad_request.BadRequest: <p>A generic error indicating a failure with a client request.</p>
+            aws_sdk_fsx.errors.data_repository_task_executing.DataRepositoryTaskExecuting: <p>An existing data repository task is currently executing on the file system. Wait until the existing task has completed, then create the new task.</p>
+            aws_sdk_fsx.errors.file_system_not_found.FileSystemNotFound: <p>No Amazon FSx file systems were found based upon supplied parameters.</p>
+            aws_sdk_fsx.errors.incompatible_parameter_error.IncompatibleParameterError: <p>The error returned when a second request is received with the same client request token but different parameters settings. A client request token should always uniquely identify a single request.</p>
+            aws_sdk_fsx.errors.internal_server_error.InternalServerError: <p>A generic error indicating a server-side failure.</p>
+            aws_sdk_fsx.errors.service_limit_exceeded.ServiceLimitExceeded: <p>An error indicating that a particular service limit was exceeded. You can increase some service limits by contacting Amazon Web Services Support.</p>
+            aws_sdk_fsx.errors.unsupported_operation.UnsupportedOperation: <p>The requested operation is not supported for this resource or API.</p>
+            aws_sdk_fsx.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -818,6 +895,16 @@ class AsyncFSxClient:
             kms_key_id: <p>Specifies the ID of the Key Management Service (KMS) key to use for encrypting data on an Amazon File Cache. If a <code>KmsKeyId</code> isn't specified, the Amazon FSx-managed KMS key for your account is used. For more information, see <a href=\"https://docs.aws.amazon.com/kms/latest/APIReference/API_Encrypt.html\">Encrypt</a> in the <i>Key Management Service API Reference</i>.</p>
             lustre_configuration: <p>The configuration for the Amazon File Cache resource being created.</p>
             data_repository_associations: <p>A list of up to 8 configurations for data repository associations (DRAs) to be created during the cache creation. The DRAs link the cache to either an Amazon S3 data repository or a Network File System (NFS) data repository that supports the NFSv3 protocol.</p> <p>The DRA configurations must meet the following requirements:</p> <ul> <li> <p>All configurations on the list must be of the same data repository type, either all S3 or all NFS. A cache can't link to different data repository types at the same time.</p> </li> <li> <p>An NFS DRA must link to an NFS file system that supports the NFSv3 protocol.</p> </li> </ul> <p>DRA automatic import and automatic export is not supported.</p>
+
+        Raises:
+            aws_sdk_fsx.errors.bad_request.BadRequest: <p>A generic error indicating a failure with a client request.</p>
+            aws_sdk_fsx.errors.incompatible_parameter_error.IncompatibleParameterError: <p>The error returned when a second request is received with the same client request token but different parameters settings. A client request token should always uniquely identify a single request.</p>
+            aws_sdk_fsx.errors.internal_server_error.InternalServerError: <p>A generic error indicating a server-side failure.</p>
+            aws_sdk_fsx.errors.invalid_network_settings.InvalidNetworkSettings: <p>One or more network settings specified in the request are invalid.</p>
+            aws_sdk_fsx.errors.invalid_per_unit_storage_throughput.InvalidPerUnitStorageThroughput: <p>An invalid value for <code>PerUnitStorageThroughput</code> was provided. Please create your file system again, using a valid value.</p>
+            aws_sdk_fsx.errors.missing_file_cache_configuration.MissingFileCacheConfiguration: <p>A cache configuration is required for this operation.</p>
+            aws_sdk_fsx.errors.service_limit_exceeded.ServiceLimitExceeded: <p>An error indicating that a particular service limit was exceeded. You can increase some service limits by contacting Amazon Web Services Support.</p>
+            aws_sdk_fsx.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -914,6 +1001,19 @@ class AsyncFSxClient:
             file_system_type_version: <p>For FSx for Lustre file systems, sets the Lustre version for the file system that you're creating. Valid values are <code>2.10</code>, <code>2.12</code>, and <code>2.15</code>:</p> <ul> <li> <p> <code>2.10</code> is supported by the Scratch and Persistent_1 Lustre deployment types.</p> </li> <li> <p> <code>2.12</code> is supported by all Lustre deployment types, except for <code>PERSISTENT_2</code> with a metadata configuration mode.</p> </li> <li> <p> <code>2.15</code> is supported by all Lustre deployment types and is recommended for all new file systems.</p> </li> </ul> <p>Default value is <code>2.10</code>, except for the following deployments:</p> <ul> <li> <p>Default value is <code>2.12</code> when <code>DeploymentType</code> is set to <code>PERSISTENT_2</code> without a metadata configuration mode.</p> </li> <li> <p>Default value is <code>2.15</code> when <code>DeploymentType</code> is set to <code>PERSISTENT_2</code> with a metadata configuration mode.</p> </li> </ul>
             open_zfs_configuration: <p>The OpenZFS configuration for the file system that's being created.</p>
             network_type: <p>The network type of the Amazon FSx file system that you are creating. Valid values are <code>IPV4</code> (which supports IPv4 only) and <code>DUAL</code> (for dual-stack mode, which supports both IPv4 and IPv6). The default is <code>IPV4</code>. Supported for FSx for OpenZFS, FSx for ONTAP, and FSx for Windows File Server file systems.</p>
+
+        Raises:
+            aws_sdk_fsx.errors.active_directory_error.ActiveDirectoryError: <p>An Active Directory error.</p>
+            aws_sdk_fsx.errors.bad_request.BadRequest: <p>A generic error indicating a failure with a client request.</p>
+            aws_sdk_fsx.errors.incompatible_parameter_error.IncompatibleParameterError: <p>The error returned when a second request is received with the same client request token but different parameters settings. A client request token should always uniquely identify a single request.</p>
+            aws_sdk_fsx.errors.internal_server_error.InternalServerError: <p>A generic error indicating a server-side failure.</p>
+            aws_sdk_fsx.errors.invalid_export_path.InvalidExportPath: <p>The path provided for data repository export isn't valid.</p>
+            aws_sdk_fsx.errors.invalid_import_path.InvalidImportPath: <p>The path provided for data repository import isn't valid.</p>
+            aws_sdk_fsx.errors.invalid_network_settings.InvalidNetworkSettings: <p>One or more network settings specified in the request are invalid.</p>
+            aws_sdk_fsx.errors.invalid_per_unit_storage_throughput.InvalidPerUnitStorageThroughput: <p>An invalid value for <code>PerUnitStorageThroughput</code> was provided. Please create your file system again, using a valid value.</p>
+            aws_sdk_fsx.errors.missing_file_system_configuration.MissingFileSystemConfiguration: <p>A file system configuration is required for this operation.</p>
+            aws_sdk_fsx.errors.service_limit_exceeded.ServiceLimitExceeded: <p>An error indicating that a particular service limit was exceeded. You can increase some service limits by contacting Amazon Web Services Support.</p>
+            aws_sdk_fsx.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1012,6 +1112,18 @@ class AsyncFSxClient:
             open_zfs_configuration: <p>The OpenZFS configuration for the file system that's being created. </p>
             storage_capacity: <p>Sets the storage capacity of the OpenZFS file system that you're creating from a backup, in gibibytes (GiB). Valid values are from 64 GiB up to 524,288 GiB (512 TiB). However, the value that you specify must be equal to or greater than the backup's storage capacity value. If you don't use the <code>StorageCapacity</code> parameter, the default is the backup's <code>StorageCapacity</code> value.</p> <p>If used to create a file system other than OpenZFS, you must provide a value that matches the backup's <code>StorageCapacity</code> value. If you provide any other value, Amazon FSx responds with an HTTP status code 400 Bad Request. </p>
             network_type: <p>Sets the network type for the Amazon FSx for OpenZFS file system that you're creating from a backup.</p>
+
+        Raises:
+            aws_sdk_fsx.errors.active_directory_error.ActiveDirectoryError: <p>An Active Directory error.</p>
+            aws_sdk_fsx.errors.backup_not_found.BackupNotFound: <p>No Amazon FSx backups were found based upon the supplied parameters.</p>
+            aws_sdk_fsx.errors.bad_request.BadRequest: <p>A generic error indicating a failure with a client request.</p>
+            aws_sdk_fsx.errors.incompatible_parameter_error.IncompatibleParameterError: <p>The error returned when a second request is received with the same client request token but different parameters settings. A client request token should always uniquely identify a single request.</p>
+            aws_sdk_fsx.errors.internal_server_error.InternalServerError: <p>A generic error indicating a server-side failure.</p>
+            aws_sdk_fsx.errors.invalid_network_settings.InvalidNetworkSettings: <p>One or more network settings specified in the request are invalid.</p>
+            aws_sdk_fsx.errors.invalid_per_unit_storage_throughput.InvalidPerUnitStorageThroughput: <p>An invalid value for <code>PerUnitStorageThroughput</code> was provided. Please create your file system again, using a valid value.</p>
+            aws_sdk_fsx.errors.missing_file_system_configuration.MissingFileSystemConfiguration: <p>A file system configuration is required for this operation.</p>
+            aws_sdk_fsx.errors.service_limit_exceeded.ServiceLimitExceeded: <p>An error indicating that a particular service limit was exceeded. You can increase some service limits by contacting Amazon Web Services Support.</p>
+            aws_sdk_fsx.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1079,6 +1191,13 @@ class AsyncFSxClient:
         Args:
             name: <p>The name of the snapshot. </p>
             volume_id: <p>The ID of the volume that you are taking a snapshot of.</p>
+
+        Raises:
+            aws_sdk_fsx.errors.bad_request.BadRequest: <p>A generic error indicating a failure with a client request.</p>
+            aws_sdk_fsx.errors.internal_server_error.InternalServerError: <p>A generic error indicating a server-side failure.</p>
+            aws_sdk_fsx.errors.service_limit_exceeded.ServiceLimitExceeded: <p>An error indicating that a particular service limit was exceeded. You can increase some service limits by contacting Amazon Web Services Support.</p>
+            aws_sdk_fsx.errors.volume_not_found.VolumeNotFound: <p>No Amazon FSx volumes were found based upon the supplied parameters.</p>
+            aws_sdk_fsx.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1139,6 +1258,16 @@ class AsyncFSxClient:
             name: <p>The name of the SVM.</p>
             svm_admin_password: <p>The password to use when managing the SVM using the NetApp ONTAP CLI or REST API. If you do not specify a password, you can still use the file system's <code>fsxadmin</code> user to manage the SVM.</p>
             root_volume_security_style: <p>The security style of the root volume of the SVM. Specify one of the following values:</p> <ul> <li> <p> <code>UNIX</code> if the file system is managed by a UNIX administrator, the majority of users are NFS clients, and an application accessing the data uses a UNIX user as the service account.</p> </li> <li> <p> <code>NTFS</code> if the file system is managed by a Microsoft Windows administrator, the majority of users are SMB clients, and an application accessing the data uses a Microsoft Windows user as the service account.</p> </li> <li> <p> <code>MIXED</code> This is an advanced setting. For more information, see <a href=\"https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/volume-security-style.html\">Volume security style</a> in the Amazon FSx for NetApp ONTAP User Guide.</p> </li> </ul> <p></p>
+
+        Raises:
+            aws_sdk_fsx.errors.active_directory_error.ActiveDirectoryError: <p>An Active Directory error.</p>
+            aws_sdk_fsx.errors.bad_request.BadRequest: <p>A generic error indicating a failure with a client request.</p>
+            aws_sdk_fsx.errors.file_system_not_found.FileSystemNotFound: <p>No Amazon FSx file systems were found based upon supplied parameters.</p>
+            aws_sdk_fsx.errors.incompatible_parameter_error.IncompatibleParameterError: <p>The error returned when a second request is received with the same client request token but different parameters settings. A client request token should always uniquely identify a single request.</p>
+            aws_sdk_fsx.errors.internal_server_error.InternalServerError: <p>A generic error indicating a server-side failure.</p>
+            aws_sdk_fsx.errors.service_limit_exceeded.ServiceLimitExceeded: <p>An error indicating that a particular service limit was exceeded. You can increase some service limits by contacting Amazon Web Services Support.</p>
+            aws_sdk_fsx.errors.unsupported_operation.UnsupportedOperation: <p>The requested operation is not supported for this resource or API.</p>
+            aws_sdk_fsx.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1202,6 +1331,17 @@ class AsyncFSxClient:
             name: <p>Specifies the name of the volume that you're creating.</p>
             ontap_configuration: <p>Specifies the configuration to use when creating the ONTAP volume.</p>
             open_zfs_configuration: <p>Specifies the configuration to use when creating the OpenZFS volume.</p>
+
+        Raises:
+            aws_sdk_fsx.errors.bad_request.BadRequest: <p>A generic error indicating a failure with a client request.</p>
+            aws_sdk_fsx.errors.file_system_not_found.FileSystemNotFound: <p>No Amazon FSx file systems were found based upon supplied parameters.</p>
+            aws_sdk_fsx.errors.incompatible_parameter_error.IncompatibleParameterError: <p>The error returned when a second request is received with the same client request token but different parameters settings. A client request token should always uniquely identify a single request.</p>
+            aws_sdk_fsx.errors.internal_server_error.InternalServerError: <p>A generic error indicating a server-side failure.</p>
+            aws_sdk_fsx.errors.missing_volume_configuration.MissingVolumeConfiguration: <p>A volume configuration is required for this operation.</p>
+            aws_sdk_fsx.errors.service_limit_exceeded.ServiceLimitExceeded: <p>An error indicating that a particular service limit was exceeded. You can increase some service limits by contacting Amazon Web Services Support.</p>
+            aws_sdk_fsx.errors.storage_virtual_machine_not_found.StorageVirtualMachineNotFound: <p>No FSx for ONTAP SVMs were found based upon the supplied parameters.</p>
+            aws_sdk_fsx.errors.unsupported_operation.UnsupportedOperation: <p>The requested operation is not supported for this resource or API.</p>
+            aws_sdk_fsx.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1258,6 +1398,17 @@ class AsyncFSxClient:
         Args:
             name: <p>The name of the new volume you're creating.</p>
             ontap_configuration: <p>Specifies the configuration of the ONTAP volume that you are creating.</p>
+
+        Raises:
+            aws_sdk_fsx.errors.backup_not_found.BackupNotFound: <p>No Amazon FSx backups were found based upon the supplied parameters.</p>
+            aws_sdk_fsx.errors.bad_request.BadRequest: <p>A generic error indicating a failure with a client request.</p>
+            aws_sdk_fsx.errors.file_system_not_found.FileSystemNotFound: <p>No Amazon FSx file systems were found based upon supplied parameters.</p>
+            aws_sdk_fsx.errors.incompatible_parameter_error.IncompatibleParameterError: <p>The error returned when a second request is received with the same client request token but different parameters settings. A client request token should always uniquely identify a single request.</p>
+            aws_sdk_fsx.errors.internal_server_error.InternalServerError: <p>A generic error indicating a server-side failure.</p>
+            aws_sdk_fsx.errors.missing_volume_configuration.MissingVolumeConfiguration: <p>A volume configuration is required for this operation.</p>
+            aws_sdk_fsx.errors.service_limit_exceeded.ServiceLimitExceeded: <p>An error indicating that a particular service limit was exceeded. You can increase some service limits by contacting Amazon Web Services Support.</p>
+            aws_sdk_fsx.errors.storage_virtual_machine_not_found.StorageVirtualMachineNotFound: <p>No FSx for ONTAP SVMs were found based upon the supplied parameters.</p>
+            aws_sdk_fsx.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1307,6 +1458,16 @@ class AsyncFSxClient:
         Args:
             backup_id: <p>The ID of the backup that you want to delete.</p>
             client_request_token: <p>A string of up to 63 ASCII characters that Amazon FSx uses to ensure idempotent deletion. This parameter is automatically filled on your behalf when using the CLI or SDK.</p>
+
+        Raises:
+            aws_sdk_fsx.errors.backup_being_copied.BackupBeingCopied: <p>You can't delete a backup while it's being copied.</p>
+            aws_sdk_fsx.errors.backup_in_progress.BackupInProgress: <p>Another backup is already under way. Wait for completion before initiating additional backups of this file system.</p>
+            aws_sdk_fsx.errors.backup_not_found.BackupNotFound: <p>No Amazon FSx backups were found based upon the supplied parameters.</p>
+            aws_sdk_fsx.errors.backup_restoring.BackupRestoring: <p>You can't delete a backup while it's being used to restore a file system.</p>
+            aws_sdk_fsx.errors.bad_request.BadRequest: <p>A generic error indicating a failure with a client request.</p>
+            aws_sdk_fsx.errors.incompatible_parameter_error.IncompatibleParameterError: <p>The error returned when a second request is received with the same client request token but different parameters settings. A client request token should always uniquely identify a single request.</p>
+            aws_sdk_fsx.errors.internal_server_error.InternalServerError: <p>A generic error indicating a server-side failure.</p>
+            aws_sdk_fsx.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To delete a backup
@@ -1360,6 +1521,14 @@ class AsyncFSxClient:
         Args:
             association_id: <p>The ID of the data repository association that you want to delete.</p>
             delete_data_in_file_system: <p>Set to <code>true</code> to delete the data in the file system that corresponds to the data repository association.</p>
+
+        Raises:
+            aws_sdk_fsx.errors.bad_request.BadRequest: <p>A generic error indicating a failure with a client request.</p>
+            aws_sdk_fsx.errors.data_repository_association_not_found.DataRepositoryAssociationNotFound: <p>No data repository associations were found based upon the supplied parameters.</p>
+            aws_sdk_fsx.errors.incompatible_parameter_error.IncompatibleParameterError: <p>The error returned when a second request is received with the same client request token but different parameters settings. A client request token should always uniquely identify a single request.</p>
+            aws_sdk_fsx.errors.internal_server_error.InternalServerError: <p>A generic error indicating a server-side failure.</p>
+            aws_sdk_fsx.errors.service_limit_exceeded.ServiceLimitExceeded: <p>An error indicating that a particular service limit was exceeded. You can increase some service limits by contacting Amazon Web Services Support.</p>
+            aws_sdk_fsx.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1405,6 +1574,14 @@ class AsyncFSxClient:
 
         Args:
             file_cache_id: <p>The ID of the cache that's being deleted.</p>
+
+        Raises:
+            aws_sdk_fsx.errors.bad_request.BadRequest: <p>A generic error indicating a failure with a client request.</p>
+            aws_sdk_fsx.errors.file_cache_not_found.FileCacheNotFound: <p>No caches were found based upon supplied parameters.</p>
+            aws_sdk_fsx.errors.incompatible_parameter_error.IncompatibleParameterError: <p>The error returned when a second request is received with the same client request token but different parameters settings. A client request token should always uniquely identify a single request.</p>
+            aws_sdk_fsx.errors.internal_server_error.InternalServerError: <p>A generic error indicating a server-side failure.</p>
+            aws_sdk_fsx.errors.service_limit_exceeded.ServiceLimitExceeded: <p>An error indicating that a particular service limit was exceeded. You can increase some service limits by contacting Amazon Web Services Support.</p>
+            aws_sdk_fsx.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1460,6 +1637,14 @@ class AsyncFSxClient:
             client_request_token: <p>A string of up to 63 ASCII characters that Amazon FSx uses to ensure idempotent deletion. This token is automatically filled on your behalf when using the Command Line Interface (CLI) or an Amazon Web Services SDK.</p>
             open_zfs_configuration: <p>The configuration object for the OpenZFS file system used in the <code>DeleteFileSystem</code> operation.</p>
 
+        Raises:
+            aws_sdk_fsx.errors.bad_request.BadRequest: <p>A generic error indicating a failure with a client request.</p>
+            aws_sdk_fsx.errors.file_system_not_found.FileSystemNotFound: <p>No Amazon FSx file systems were found based upon supplied parameters.</p>
+            aws_sdk_fsx.errors.incompatible_parameter_error.IncompatibleParameterError: <p>The error returned when a second request is received with the same client request token but different parameters settings. A client request token should always uniquely identify a single request.</p>
+            aws_sdk_fsx.errors.internal_server_error.InternalServerError: <p>A generic error indicating a server-side failure.</p>
+            aws_sdk_fsx.errors.service_limit_exceeded.ServiceLimitExceeded: <p>An error indicating that a particular service limit was exceeded. You can increase some service limits by contacting Amazon Web Services Support.</p>
+            aws_sdk_fsx.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To delete a file system
             This operation deletes an Amazon FSx file system.
@@ -1514,6 +1699,12 @@ class AsyncFSxClient:
 
         Args:
             snapshot_id: <p>The ID of the snapshot that you want to delete.</p>
+
+        Raises:
+            aws_sdk_fsx.errors.bad_request.BadRequest: <p>A generic error indicating a failure with a client request.</p>
+            aws_sdk_fsx.errors.internal_server_error.InternalServerError: <p>A generic error indicating a server-side failure.</p>
+            aws_sdk_fsx.errors.snapshot_not_found.SnapshotNotFound: <p>No Amazon FSx snapshots were found based on the supplied parameters.</p>
+            aws_sdk_fsx.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1557,6 +1748,13 @@ class AsyncFSxClient:
 
         Args:
             storage_virtual_machine_id: <p>The ID of the SVM that you want to delete.</p>
+
+        Raises:
+            aws_sdk_fsx.errors.bad_request.BadRequest: <p>A generic error indicating a failure with a client request.</p>
+            aws_sdk_fsx.errors.incompatible_parameter_error.IncompatibleParameterError: <p>The error returned when a second request is received with the same client request token but different parameters settings. A client request token should always uniquely identify a single request.</p>
+            aws_sdk_fsx.errors.internal_server_error.InternalServerError: <p>A generic error indicating a server-side failure.</p>
+            aws_sdk_fsx.errors.storage_virtual_machine_not_found.StorageVirtualMachineNotFound: <p>No FSx for ONTAP SVMs were found based upon the supplied parameters.</p>
+            aws_sdk_fsx.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1608,6 +1806,14 @@ class AsyncFSxClient:
             volume_id: <p>The ID of the volume that you are deleting.</p>
             ontap_configuration: <p>For Amazon FSx for ONTAP volumes, specify whether to take a final backup of the volume and apply tags to the backup. To apply tags to the backup, you must have the <code>fsx:TagResource</code> permission.</p>
             open_zfs_configuration: <p>For Amazon FSx for OpenZFS volumes, specify whether to delete all child volumes and snapshots.</p>
+
+        Raises:
+            aws_sdk_fsx.errors.bad_request.BadRequest: <p>A generic error indicating a failure with a client request.</p>
+            aws_sdk_fsx.errors.incompatible_parameter_error.IncompatibleParameterError: <p>The error returned when a second request is received with the same client request token but different parameters settings. A client request token should always uniquely identify a single request.</p>
+            aws_sdk_fsx.errors.internal_server_error.InternalServerError: <p>A generic error indicating a server-side failure.</p>
+            aws_sdk_fsx.errors.service_limit_exceeded.ServiceLimitExceeded: <p>An error indicating that a particular service limit was exceeded. You can increase some service limits by contacting Amazon Web Services Support.</p>
+            aws_sdk_fsx.errors.volume_not_found.VolumeNotFound: <p>No Amazon FSx volumes were found based upon the supplied parameters.</p>
+            aws_sdk_fsx.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1658,6 +1864,14 @@ class AsyncFSxClient:
             filters: <p>The filters structure. The supported names are <code>file-system-id</code>, <code>backup-type</code>, <code>file-system-type</code>, and <code>volume-id</code>.</p>
             max_results: <p>Maximum number of backups to return in the response. This parameter value must be greater than 0. The number of items that Amazon FSx returns is the minimum of the <code>MaxResults</code> parameter specified in the request and the service's internal maximum number of items per page.</p>
             next_token: <p>An opaque pagination token returned from a previous <code>DescribeBackups</code> operation. If a token is present, the operation continues the list from where the returning call left off.</p>
+
+        Raises:
+            aws_sdk_fsx.errors.backup_not_found.BackupNotFound: <p>No Amazon FSx backups were found based upon the supplied parameters.</p>
+            aws_sdk_fsx.errors.bad_request.BadRequest: <p>A generic error indicating a failure with a client request.</p>
+            aws_sdk_fsx.errors.file_system_not_found.FileSystemNotFound: <p>No Amazon FSx file systems were found based upon supplied parameters.</p>
+            aws_sdk_fsx.errors.internal_server_error.InternalServerError: <p>A generic error indicating a server-side failure.</p>
+            aws_sdk_fsx.errors.volume_not_found.VolumeNotFound: <p>No Amazon FSx volumes were found based upon the supplied parameters.</p>
+            aws_sdk_fsx.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1711,6 +1925,14 @@ class AsyncFSxClient:
         Args:
             association_ids: <p>IDs of the data repository associations whose descriptions you want to retrieve (String).</p>
             max_results: <p>The maximum number of resources to return in the response. This value must be an integer greater than zero.</p>
+
+        Raises:
+            aws_sdk_fsx.errors.bad_request.BadRequest: <p>A generic error indicating a failure with a client request.</p>
+            aws_sdk_fsx.errors.data_repository_association_not_found.DataRepositoryAssociationNotFound: <p>No data repository associations were found based upon the supplied parameters.</p>
+            aws_sdk_fsx.errors.file_system_not_found.FileSystemNotFound: <p>No Amazon FSx file systems were found based upon supplied parameters.</p>
+            aws_sdk_fsx.errors.internal_server_error.InternalServerError: <p>A generic error indicating a server-side failure.</p>
+            aws_sdk_fsx.errors.invalid_data_repository_type.InvalidDataRepositoryType: <p>You have filtered the response to a data repository type that is not supported.</p>
+            aws_sdk_fsx.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1762,6 +1984,13 @@ class AsyncFSxClient:
         Args:
             task_ids: <p>(Optional) IDs of the tasks whose descriptions you want to retrieve (String).</p>
             filters: <p>(Optional) You can use filters to narrow the <code>DescribeDataRepositoryTasks</code> response to include just tasks for specific file systems, or tasks in a specific lifecycle state.</p>
+
+        Raises:
+            aws_sdk_fsx.errors.bad_request.BadRequest: <p>A generic error indicating a failure with a client request.</p>
+            aws_sdk_fsx.errors.data_repository_task_not_found.DataRepositoryTaskNotFound: <p>The data repository task or tasks you specified could not be found.</p>
+            aws_sdk_fsx.errors.file_system_not_found.FileSystemNotFound: <p>No Amazon FSx file systems were found based upon supplied parameters.</p>
+            aws_sdk_fsx.errors.internal_server_error.InternalServerError: <p>A generic error indicating a server-side failure.</p>
+            aws_sdk_fsx.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1811,6 +2040,12 @@ class AsyncFSxClient:
 
         Args:
             file_cache_ids: <p>IDs of the caches whose descriptions you want to retrieve (String).</p>
+
+        Raises:
+            aws_sdk_fsx.errors.bad_request.BadRequest: <p>A generic error indicating a failure with a client request.</p>
+            aws_sdk_fsx.errors.file_cache_not_found.FileCacheNotFound: <p>No caches were found based upon supplied parameters.</p>
+            aws_sdk_fsx.errors.internal_server_error.InternalServerError: <p>A generic error indicating a server-side failure.</p>
+            aws_sdk_fsx.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1861,6 +2096,12 @@ class AsyncFSxClient:
             file_system_id: <p>The ID of the file system to return the associated DNS aliases for (String).</p>
             max_results: <p>Maximum number of DNS aliases to return in the response (integer). This parameter value must be greater than 0. The number of items that Amazon FSx returns is the minimum of the <code>MaxResults</code> parameter specified in the request and the service's internal maximum number of items per page.</p>
             next_token: <p>Opaque pagination token returned from a previous <code>DescribeFileSystemAliases</code> operation (String). If a token is included in the request, the action continues the list from where the previous returning call left off.</p>
+
+        Raises:
+            aws_sdk_fsx.errors.bad_request.BadRequest: <p>A generic error indicating a failure with a client request.</p>
+            aws_sdk_fsx.errors.file_system_not_found.FileSystemNotFound: <p>No Amazon FSx file systems were found based upon supplied parameters.</p>
+            aws_sdk_fsx.errors.internal_server_error.InternalServerError: <p>A generic error indicating a server-side failure.</p>
+            aws_sdk_fsx.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1911,6 +2152,12 @@ class AsyncFSxClient:
             file_system_ids: <p>IDs of the file systems whose descriptions you want to retrieve (String).</p>
             max_results: <p>Maximum number of file systems to return in the response (integer). This parameter value must be greater than 0. The number of items that Amazon FSx returns is the minimum of the <code>MaxResults</code> parameter specified in the request and the service's internal maximum number of items per page.</p>
             next_token: <p>Opaque pagination token returned from a previous <code>DescribeFileSystems</code> operation (String). If a token present, the operation continues the list from where the returning call left off.</p>
+
+        Raises:
+            aws_sdk_fsx.errors.bad_request.BadRequest: <p>A generic error indicating a failure with a client request.</p>
+            aws_sdk_fsx.errors.file_system_not_found.FileSystemNotFound: <p>No Amazon FSx file systems were found based upon supplied parameters.</p>
+            aws_sdk_fsx.errors.internal_server_error.InternalServerError: <p>A generic error indicating a server-side failure.</p>
+            aws_sdk_fsx.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1962,6 +2209,13 @@ class AsyncFSxClient:
         Args:
             names: <p>The names of the S3 access point attachments whose descriptions you want to retrieve.</p>
             filters: <p>Enter a filter Name and Values pair to view a select set of S3 access point attachments.</p>
+
+        Raises:
+            aws_sdk_fsx.errors.bad_request.BadRequest: <p>A generic error indicating a failure with a client request.</p>
+            aws_sdk_fsx.errors.internal_server_error.InternalServerError: <p>A generic error indicating a server-side failure.</p>
+            aws_sdk_fsx.errors.s3_access_point_attachment_not_found.S3AccessPointAttachmentNotFound: <p>The access point specified was not found.</p>
+            aws_sdk_fsx.errors.unsupported_operation.UnsupportedOperation: <p>The requested operation is not supported for this resource or API.</p>
+            aws_sdk_fsx.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2029,7 +2283,13 @@ class AsyncFSxClient:
     async def describe_shared_vpc_configuration(
         self, *, config_overrides: Optional[AsyncFSxClientConfig] = None
     ) -> "aws_sdk_fsx.types.describe_shared_vpc_configuration_response.DescribeSharedVpcConfigurationResponse":
-        r"""<p>Indicates whether participant accounts in your organization can create Amazon FSx for NetApp ONTAP Multi-AZ file systems in subnets that are shared by a virtual private cloud (VPC) owner. For more information, see <a href=\"https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/creating-file-systems.html#fsxn-vpc-shared-subnets\">Creating FSx for ONTAP file systems in shared subnets</a>. </p>"""
+        r"""<p>Indicates whether participant accounts in your organization can create Amazon FSx for NetApp ONTAP Multi-AZ file systems in subnets that are shared by a virtual private cloud (VPC) owner. For more information, see <a href=\"https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/creating-file-systems.html#fsxn-vpc-shared-subnets\">Creating FSx for ONTAP file systems in shared subnets</a>. </p>
+
+        Raises:
+            aws_sdk_fsx.errors.bad_request.BadRequest: <p>A generic error indicating a failure with a client request.</p>
+            aws_sdk_fsx.errors.internal_server_error.InternalServerError: <p>A generic error indicating a server-side failure.</p>
+            aws_sdk_fsx.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_fsx.types.describe_shared_vpc_configuration_request.DescribeSharedVpcConfigurationRequest]",
@@ -2074,6 +2334,12 @@ class AsyncFSxClient:
             snapshot_ids: <p>The IDs of the snapshots that you want to retrieve. This parameter value overrides any filters. If any IDs aren't found, a <code>SnapshotNotFound</code> error occurs.</p>
             filters: <p>The filters structure. The supported names are <code>file-system-id</code> or <code>volume-id</code>.</p>
             include_shared: <p>Set to <code>false</code> (default) if you want to only see the snapshots owned by your Amazon Web Services account. Set to <code>true</code> if you want to see the snapshots in your account and the ones shared with you from another account.</p>
+
+        Raises:
+            aws_sdk_fsx.errors.bad_request.BadRequest: <p>A generic error indicating a failure with a client request.</p>
+            aws_sdk_fsx.errors.internal_server_error.InternalServerError: <p>A generic error indicating a server-side failure.</p>
+            aws_sdk_fsx.errors.snapshot_not_found.SnapshotNotFound: <p>No Amazon FSx snapshots were found based on the supplied parameters.</p>
+            aws_sdk_fsx.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2158,6 +2424,12 @@ class AsyncFSxClient:
         Args:
             storage_virtual_machine_ids: <p>Enter the ID of one or more SVMs that you want to view.</p>
             filters: <p>Enter a filter name:value pair to view a select set of SVMs.</p>
+
+        Raises:
+            aws_sdk_fsx.errors.bad_request.BadRequest: <p>A generic error indicating a failure with a client request.</p>
+            aws_sdk_fsx.errors.internal_server_error.InternalServerError: <p>A generic error indicating a server-side failure.</p>
+            aws_sdk_fsx.errors.storage_virtual_machine_not_found.StorageVirtualMachineNotFound: <p>No FSx for ONTAP SVMs were found based upon the supplied parameters.</p>
+            aws_sdk_fsx.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2238,6 +2510,12 @@ class AsyncFSxClient:
         Args:
             volume_ids: <p>The IDs of the volumes whose descriptions you want to retrieve.</p>
             filters: <p>Enter a filter <code>Name</code> and <code>Values</code> pair to view a select set of volumes.</p>
+
+        Raises:
+            aws_sdk_fsx.errors.bad_request.BadRequest: <p>A generic error indicating a failure with a client request.</p>
+            aws_sdk_fsx.errors.internal_server_error.InternalServerError: <p>A generic error indicating a server-side failure.</p>
+            aws_sdk_fsx.errors.volume_not_found.VolumeNotFound: <p>No Amazon FSx volumes were found based upon the supplied parameters.</p>
+            aws_sdk_fsx.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2311,6 +2589,14 @@ class AsyncFSxClient:
 
         Args:
             name: <p>The name of the S3 access point attachment that you want to delete.</p>
+
+        Raises:
+            aws_sdk_fsx.errors.bad_request.BadRequest: <p>A generic error indicating a failure with a client request.</p>
+            aws_sdk_fsx.errors.incompatible_parameter_error.IncompatibleParameterError: <p>The error returned when a second request is received with the same client request token but different parameters settings. A client request token should always uniquely identify a single request.</p>
+            aws_sdk_fsx.errors.internal_server_error.InternalServerError: <p>A generic error indicating a server-side failure.</p>
+            aws_sdk_fsx.errors.s3_access_point_attachment_not_found.S3AccessPointAttachmentNotFound: <p>The access point specified was not found.</p>
+            aws_sdk_fsx.errors.unsupported_operation.UnsupportedOperation: <p>The requested operation is not supported for this resource or API.</p>
+            aws_sdk_fsx.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2356,6 +2642,12 @@ class AsyncFSxClient:
         Args:
             file_system_id: <p>Specifies the file system from which to disassociate the DNS aliases.</p>
             aliases: <p>An array of one or more DNS alias names to disassociate, or remove, from the file system.</p>
+
+        Raises:
+            aws_sdk_fsx.errors.bad_request.BadRequest: <p>A generic error indicating a failure with a client request.</p>
+            aws_sdk_fsx.errors.file_system_not_found.FileSystemNotFound: <p>No Amazon FSx file systems were found based upon supplied parameters.</p>
+            aws_sdk_fsx.errors.internal_server_error.InternalServerError: <p>A generic error indicating a server-side failure.</p>
+            aws_sdk_fsx.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2404,6 +2696,14 @@ class AsyncFSxClient:
             max_results: <p>Maximum number of tags to return in the response (integer). This parameter value must be greater than 0. The number of items that Amazon FSx returns is the minimum of the <code>MaxResults</code> parameter specified in the request and the service's internal maximum number of items per page.</p>
             next_token: <p>Opaque pagination token returned from a previous <code>ListTagsForResource</code> operation (String). If a token present, the action continues the list from where the returning call left off.</p>
 
+        Raises:
+            aws_sdk_fsx.errors.bad_request.BadRequest: <p>A generic error indicating a failure with a client request.</p>
+            aws_sdk_fsx.errors.internal_server_error.InternalServerError: <p>A generic error indicating a server-side failure.</p>
+            aws_sdk_fsx.errors.not_service_resource_error.NotServiceResourceError: <p>The resource specified for the tagging operation is not a resource type owned by Amazon FSx. Use the API of the relevant service to perform the operation. </p>
+            aws_sdk_fsx.errors.resource_does_not_support_tagging.ResourceDoesNotSupportTagging: <p>The resource specified does not support tagging. </p>
+            aws_sdk_fsx.errors.resource_not_found.ResourceNotFound: <p>The resource specified by the Amazon Resource Name (ARN) can't be found.</p>
+            aws_sdk_fsx.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To list tags for a resource
             This operation lists tags for an Amazon FSx resource.
@@ -2450,7 +2750,16 @@ class AsyncFSxClient:
             "aws_sdk_fsx.types.client_request_token.ClientRequestToken"
         ] = None,
     ) -> "aws_sdk_fsx.types.release_file_system_nfs_v3_locks_response.ReleaseFileSystemNfsV3LocksResponse":
-        """<p>Releases the file system lock from an Amazon FSx for OpenZFS file system.</p>"""
+        """<p>Releases the file system lock from an Amazon FSx for OpenZFS file system.</p>
+
+        Raises:
+            aws_sdk_fsx.errors.bad_request.BadRequest: <p>A generic error indicating a failure with a client request.</p>
+            aws_sdk_fsx.errors.file_system_not_found.FileSystemNotFound: <p>No Amazon FSx file systems were found based upon supplied parameters.</p>
+            aws_sdk_fsx.errors.incompatible_parameter_error.IncompatibleParameterError: <p>The error returned when a second request is received with the same client request token but different parameters settings. A client request token should always uniquely identify a single request.</p>
+            aws_sdk_fsx.errors.internal_server_error.InternalServerError: <p>A generic error indicating a server-side failure.</p>
+            aws_sdk_fsx.errors.service_limit_exceeded.ServiceLimitExceeded: <p>An error indicating that a particular service limit was exceeded. You can increase some service limits by contacting Amazon Web Services Support.</p>
+            aws_sdk_fsx.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_fsx.types.release_file_system_nfs_v3_locks_request.ReleaseFileSystemNfsV3LocksRequest]",
@@ -2499,6 +2808,12 @@ class AsyncFSxClient:
             volume_id: <p>The ID of the volume that you are restoring.</p>
             snapshot_id: <p>The ID of the source snapshot. Specifies the snapshot that you are restoring from.</p>
             options: <p>The settings used when restoring the specified volume from snapshot.</p> <ul> <li> <p> <code>DELETE_INTERMEDIATE_SNAPSHOTS</code> - Deletes snapshots between the current state and the specified snapshot. If there are intermediate snapshots and this option isn't used, <code>RestoreVolumeFromSnapshot</code> fails.</p> </li> <li> <p> <code>DELETE_CLONED_VOLUMES</code> - Deletes any dependent clone volumes created from intermediate snapshots. If there are any dependent clone volumes and this option isn't used, <code>RestoreVolumeFromSnapshot</code> fails.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_fsx.errors.bad_request.BadRequest: <p>A generic error indicating a failure with a client request.</p>
+            aws_sdk_fsx.errors.internal_server_error.InternalServerError: <p>A generic error indicating a server-side failure.</p>
+            aws_sdk_fsx.errors.volume_not_found.VolumeNotFound: <p>No Amazon FSx volumes were found based upon the supplied parameters.</p>
+            aws_sdk_fsx.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2541,7 +2856,14 @@ class AsyncFSxClient:
             "aws_sdk_fsx.types.client_request_token.ClientRequestToken"
         ] = None,
     ) -> "aws_sdk_fsx.types.start_misconfigured_state_recovery_response.StartMisconfiguredStateRecoveryResponse":
-        """<p>After performing steps to repair the Active Directory configuration of an FSx for Windows File Server file system, use this action to initiate the process of Amazon FSx attempting to reconnect to the file system.</p>"""
+        """<p>After performing steps to repair the Active Directory configuration of an FSx for Windows File Server file system, use this action to initiate the process of Amazon FSx attempting to reconnect to the file system.</p>
+
+        Raises:
+            aws_sdk_fsx.errors.bad_request.BadRequest: <p>A generic error indicating a failure with a client request.</p>
+            aws_sdk_fsx.errors.file_system_not_found.FileSystemNotFound: <p>No Amazon FSx file systems were found based upon supplied parameters.</p>
+            aws_sdk_fsx.errors.internal_server_error.InternalServerError: <p>A generic error indicating a server-side failure.</p>
+            aws_sdk_fsx.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_fsx.types.start_misconfigured_state_recovery_request.StartMisconfiguredStateRecoveryRequest]",
@@ -2583,6 +2905,14 @@ class AsyncFSxClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the Amazon FSx resource that you want to tag.</p>
             tags: <p>A list of tags for the resource. If a tag with a given key already exists, the value is replaced by the one specified in this parameter.</p>
+
+        Raises:
+            aws_sdk_fsx.errors.bad_request.BadRequest: <p>A generic error indicating a failure with a client request.</p>
+            aws_sdk_fsx.errors.internal_server_error.InternalServerError: <p>A generic error indicating a server-side failure.</p>
+            aws_sdk_fsx.errors.not_service_resource_error.NotServiceResourceError: <p>The resource specified for the tagging operation is not a resource type owned by Amazon FSx. Use the API of the relevant service to perform the operation. </p>
+            aws_sdk_fsx.errors.resource_does_not_support_tagging.ResourceDoesNotSupportTagging: <p>The resource specified does not support tagging. </p>
+            aws_sdk_fsx.errors.resource_not_found.ResourceNotFound: <p>The resource specified by the Amazon Resource Name (ARN) can't be found.</p>
+            aws_sdk_fsx.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To tag a resource
@@ -2630,6 +2960,14 @@ class AsyncFSxClient:
         Args:
             resource_arn: <p>The ARN of the Amazon FSx resource to untag.</p>
             tag_keys: <p>A list of keys of tags on the resource to untag. In case the tag key doesn't exist, the call will still succeed to be idempotent.</p>
+
+        Raises:
+            aws_sdk_fsx.errors.bad_request.BadRequest: <p>A generic error indicating a failure with a client request.</p>
+            aws_sdk_fsx.errors.internal_server_error.InternalServerError: <p>A generic error indicating a server-side failure.</p>
+            aws_sdk_fsx.errors.not_service_resource_error.NotServiceResourceError: <p>The resource specified for the tagging operation is not a resource type owned by Amazon FSx. Use the API of the relevant service to perform the operation. </p>
+            aws_sdk_fsx.errors.resource_does_not_support_tagging.ResourceDoesNotSupportTagging: <p>The resource specified does not support tagging. </p>
+            aws_sdk_fsx.errors.resource_not_found.ResourceNotFound: <p>The resource specified by the Amazon Resource Name (ARN) can't be found.</p>
+            aws_sdk_fsx.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To untag a resource
@@ -2686,6 +3024,14 @@ class AsyncFSxClient:
             association_id: <p>The ID of the data repository association that you are updating.</p>
             imported_file_chunk_size: <p>For files imported from a data repository, this value determines the stripe count and maximum amount of data per file (in MiB) stored on a single physical disk. The maximum number of disks that a single file can be striped across is limited by the total number of disks that make up the file system.</p> <p>The default chunk size is 1,024 MiB (1 GiB) and can go as high as 512,000 MiB (500 GiB). Amazon S3 objects have a maximum size of 5 TB.</p>
             s3: <p>The configuration for an Amazon S3 data repository linked to an Amazon FSx Lustre file system with a data repository association. The configuration defines which file events (new, changed, or deleted files or directories) are automatically imported from the linked data repository to the file system or automatically exported from the file system to the data repository.</p>
+
+        Raises:
+            aws_sdk_fsx.errors.bad_request.BadRequest: <p>A generic error indicating a failure with a client request.</p>
+            aws_sdk_fsx.errors.data_repository_association_not_found.DataRepositoryAssociationNotFound: <p>No data repository associations were found based upon the supplied parameters.</p>
+            aws_sdk_fsx.errors.incompatible_parameter_error.IncompatibleParameterError: <p>The error returned when a second request is received with the same client request token but different parameters settings. A client request token should always uniquely identify a single request.</p>
+            aws_sdk_fsx.errors.internal_server_error.InternalServerError: <p>A generic error indicating a server-side failure.</p>
+            aws_sdk_fsx.errors.service_limit_exceeded.ServiceLimitExceeded: <p>An error indicating that a particular service limit was exceeded. You can increase some service limits by contacting Amazon Web Services Support.</p>
+            aws_sdk_fsx.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2737,6 +3083,16 @@ class AsyncFSxClient:
         Args:
             file_cache_id: <p>The ID of the cache that you are updating.</p>
             lustre_configuration: <p>The configuration updates for an Amazon File Cache resource.</p>
+
+        Raises:
+            aws_sdk_fsx.errors.bad_request.BadRequest: <p>A generic error indicating a failure with a client request.</p>
+            aws_sdk_fsx.errors.file_cache_not_found.FileCacheNotFound: <p>No caches were found based upon supplied parameters.</p>
+            aws_sdk_fsx.errors.incompatible_parameter_error.IncompatibleParameterError: <p>The error returned when a second request is received with the same client request token but different parameters settings. A client request token should always uniquely identify a single request.</p>
+            aws_sdk_fsx.errors.internal_server_error.InternalServerError: <p>A generic error indicating a server-side failure.</p>
+            aws_sdk_fsx.errors.missing_file_cache_configuration.MissingFileCacheConfiguration: <p>A cache configuration is required for this operation.</p>
+            aws_sdk_fsx.errors.service_limit_exceeded.ServiceLimitExceeded: <p>An error indicating that a particular service limit was exceeded. You can increase some service limits by contacting Amazon Web Services Support.</p>
+            aws_sdk_fsx.errors.unsupported_operation.UnsupportedOperation: <p>The requested operation is not supported for this resource or API.</p>
+            aws_sdk_fsx.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2808,6 +3164,17 @@ class AsyncFSxClient:
             open_zfs_configuration: <p>The configuration updates for an FSx for OpenZFS file system.</p>
             file_system_type_version: <p>The Lustre version you are updating an FSx for Lustre file system to. Valid values are <code>2.12</code> and <code>2.15</code>. The value you choose must be newer than the file system's current Lustre version.</p>
             network_type: <p>Changes the network type of an FSx for OpenZFS file system.</p>
+
+        Raises:
+            aws_sdk_fsx.errors.bad_request.BadRequest: <p>A generic error indicating a failure with a client request.</p>
+            aws_sdk_fsx.errors.file_system_not_found.FileSystemNotFound: <p>No Amazon FSx file systems were found based upon supplied parameters.</p>
+            aws_sdk_fsx.errors.incompatible_parameter_error.IncompatibleParameterError: <p>The error returned when a second request is received with the same client request token but different parameters settings. A client request token should always uniquely identify a single request.</p>
+            aws_sdk_fsx.errors.internal_server_error.InternalServerError: <p>A generic error indicating a server-side failure.</p>
+            aws_sdk_fsx.errors.invalid_network_settings.InvalidNetworkSettings: <p>One or more network settings specified in the request are invalid.</p>
+            aws_sdk_fsx.errors.missing_file_system_configuration.MissingFileSystemConfiguration: <p>A file system configuration is required for this operation.</p>
+            aws_sdk_fsx.errors.service_limit_exceeded.ServiceLimitExceeded: <p>An error indicating that a particular service limit was exceeded. You can increase some service limits by contacting Amazon Web Services Support.</p>
+            aws_sdk_fsx.errors.unsupported_operation.UnsupportedOperation: <p>The requested operation is not supported for this resource or API.</p>
+            aws_sdk_fsx.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2869,6 +3236,12 @@ class AsyncFSxClient:
 
         Args:
             enable_fsx_route_table_updates_from_participant_accounts: <p>Specifies whether participant accounts can create FSx for ONTAP Multi-AZ file systems in shared subnets. Set to <code>true</code> to enable or <code>false</code> to disable.</p>
+
+        Raises:
+            aws_sdk_fsx.errors.bad_request.BadRequest: <p>A generic error indicating a failure with a client request.</p>
+            aws_sdk_fsx.errors.incompatible_parameter_error.IncompatibleParameterError: <p>The error returned when a second request is received with the same client request token but different parameters settings. A client request token should always uniquely identify a single request.</p>
+            aws_sdk_fsx.errors.internal_server_error.InternalServerError: <p>A generic error indicating a server-side failure.</p>
+            aws_sdk_fsx.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2917,6 +3290,12 @@ class AsyncFSxClient:
         Args:
             name: <p>The name of the snapshot to update.</p>
             snapshot_id: <p>The ID of the snapshot that you want to update, in the format <code>fsvolsnap-0123456789abcdef0</code>.</p>
+
+        Raises:
+            aws_sdk_fsx.errors.bad_request.BadRequest: <p>A generic error indicating a failure with a client request.</p>
+            aws_sdk_fsx.errors.internal_server_error.InternalServerError: <p>A generic error indicating a server-side failure.</p>
+            aws_sdk_fsx.errors.snapshot_not_found.SnapshotNotFound: <p>No Amazon FSx snapshots were found based on the supplied parameters.</p>
+            aws_sdk_fsx.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2969,6 +3348,14 @@ class AsyncFSxClient:
             active_directory_configuration: <p>Specifies updates to an SVM's Microsoft Active Directory (AD) configuration.</p>
             storage_virtual_machine_id: <p>The ID of the SVM that you want to update, in the format <code>svm-0123456789abcdef0</code>.</p>
             svm_admin_password: <p>Specifies a new SvmAdminPassword.</p>
+
+        Raises:
+            aws_sdk_fsx.errors.bad_request.BadRequest: <p>A generic error indicating a failure with a client request.</p>
+            aws_sdk_fsx.errors.incompatible_parameter_error.IncompatibleParameterError: <p>The error returned when a second request is received with the same client request token but different parameters settings. A client request token should always uniquely identify a single request.</p>
+            aws_sdk_fsx.errors.internal_server_error.InternalServerError: <p>A generic error indicating a server-side failure.</p>
+            aws_sdk_fsx.errors.storage_virtual_machine_not_found.StorageVirtualMachineNotFound: <p>No FSx for ONTAP SVMs were found based upon the supplied parameters.</p>
+            aws_sdk_fsx.errors.unsupported_operation.UnsupportedOperation: <p>The requested operation is not supported for this resource or API.</p>
+            aws_sdk_fsx.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3026,6 +3413,14 @@ class AsyncFSxClient:
             ontap_configuration: <p>The configuration of the ONTAP volume that you are updating.</p>
             name: <p>The name of the OpenZFS volume. OpenZFS root volumes are automatically named <code>FSX</code>. Child volume names must be unique among their parent volume's children. The name of the volume is part of the mount string for the OpenZFS volume. </p>
             open_zfs_configuration: <p>The configuration of the OpenZFS volume that you are updating.</p>
+
+        Raises:
+            aws_sdk_fsx.errors.bad_request.BadRequest: <p>A generic error indicating a failure with a client request.</p>
+            aws_sdk_fsx.errors.incompatible_parameter_error.IncompatibleParameterError: <p>The error returned when a second request is received with the same client request token but different parameters settings. A client request token should always uniquely identify a single request.</p>
+            aws_sdk_fsx.errors.internal_server_error.InternalServerError: <p>A generic error indicating a server-side failure.</p>
+            aws_sdk_fsx.errors.missing_volume_configuration.MissingVolumeConfiguration: <p>A volume configuration is required for this operation.</p>
+            aws_sdk_fsx.errors.volume_not_found.VolumeNotFound: <p>No Amazon FSx volumes were found based upon the supplied parameters.</p>
+            aws_sdk_fsx.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

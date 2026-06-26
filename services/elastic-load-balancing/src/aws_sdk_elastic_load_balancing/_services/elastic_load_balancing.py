@@ -222,6 +222,12 @@ class ElasticLoadBalancingClient:
             load_balancer_names: <p>The name of the load balancer. You can specify one load balancer only.</p>
             tags: <p>The tags.</p>
 
+        Raises:
+            aws_sdk_elastic_load_balancing.errors.access_point_not_found_exception.AccessPointNotFoundException: <p>The specified load balancer does not exist.</p>
+            aws_sdk_elastic_load_balancing.errors.duplicate_tag_keys_exception.DuplicateTagKeysException: <p>A tag key was specified more than once.</p>
+            aws_sdk_elastic_load_balancing.errors.too_many_tags_exception.TooManyTagsException: <p>The quota for the number of tags that can be assigned to a load balancer has been reached.</p>
+            aws_sdk_elastic_load_balancing.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To add tags to a load balancer
             This example adds two tags to the specified load balancer.
@@ -267,6 +273,12 @@ class ElasticLoadBalancingClient:
         Args:
             load_balancer_name: <p>The name of the load balancer.</p>
             security_groups: <p>The IDs of the security groups to associate with the load balancer. Note that you cannot specify the name of the security group.</p>
+
+        Raises:
+            aws_sdk_elastic_load_balancing.errors.access_point_not_found_exception.AccessPointNotFoundException: <p>The specified load balancer does not exist.</p>
+            aws_sdk_elastic_load_balancing.errors.invalid_configuration_request_exception.InvalidConfigurationRequestException: <p>The requested configuration change is not valid.</p>
+            aws_sdk_elastic_load_balancing.errors.invalid_security_group_exception.InvalidSecurityGroupException: <p>One or more of the specified security groups do not exist.</p>
+            aws_sdk_elastic_load_balancing.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To associate a security group with a load balancer in a VPC
@@ -314,6 +326,13 @@ class ElasticLoadBalancingClient:
             load_balancer_name: <p>The name of the load balancer.</p>
             subnets: <p>The IDs of the subnets to add. You can add only one subnet per Availability Zone.</p>
 
+        Raises:
+            aws_sdk_elastic_load_balancing.errors.access_point_not_found_exception.AccessPointNotFoundException: <p>The specified load balancer does not exist.</p>
+            aws_sdk_elastic_load_balancing.errors.invalid_configuration_request_exception.InvalidConfigurationRequestException: <p>The requested configuration change is not valid.</p>
+            aws_sdk_elastic_load_balancing.errors.invalid_subnet_exception.InvalidSubnetException: <p>The specified VPC has no associated Internet gateway.</p>
+            aws_sdk_elastic_load_balancing.errors.subnet_not_found_exception.SubnetNotFoundException: <p>One or more of the specified subnets do not exist.</p>
+            aws_sdk_elastic_load_balancing.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To attach subnets to a load balancer
             This example adds the specified subnet to the set of configured subnets for the specified load balancer.
@@ -359,6 +378,10 @@ class ElasticLoadBalancingClient:
         Args:
             load_balancer_name: <p>The name of the load balancer.</p>
             health_check: <p>The configuration information.</p>
+
+        Raises:
+            aws_sdk_elastic_load_balancing.errors.access_point_not_found_exception.AccessPointNotFoundException: <p>The specified load balancer does not exist.</p>
+            aws_sdk_elastic_load_balancing.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To specify the health check settings for your backend EC2 instances
@@ -407,6 +430,13 @@ class ElasticLoadBalancingClient:
             load_balancer_name: <p>The name of the load balancer.</p>
             policy_name: <p>The name of the policy being created. Policy names must consist of alphanumeric characters and dashes (-). This name must be unique within the set of policies for this load balancer.</p>
             cookie_name: <p>The name of the application cookie used for stickiness.</p>
+
+        Raises:
+            aws_sdk_elastic_load_balancing.errors.access_point_not_found_exception.AccessPointNotFoundException: <p>The specified load balancer does not exist.</p>
+            aws_sdk_elastic_load_balancing.errors.duplicate_policy_name_exception.DuplicatePolicyNameException: <p>A policy with the specified name already exists for this load balancer.</p>
+            aws_sdk_elastic_load_balancing.errors.invalid_configuration_request_exception.InvalidConfigurationRequestException: <p>The requested configuration change is not valid.</p>
+            aws_sdk_elastic_load_balancing.errors.too_many_policies_exception.TooManyPoliciesException: <p>The quota for the number of policies for this load balancer has been reached.</p>
+            aws_sdk_elastic_load_balancing.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To generate a stickiness policy for your load balancer
@@ -458,6 +488,13 @@ class ElasticLoadBalancingClient:
             load_balancer_name: <p>The name of the load balancer.</p>
             policy_name: <p>The name of the policy being created. Policy names must consist of alphanumeric characters and dashes (-). This name must be unique within the set of policies for this load balancer.</p>
             cookie_expiration_period: <p>The time period, in seconds, after which the cookie should be considered stale. If you do not specify this parameter, the default value is 0, which indicates that the sticky session should last for the duration of the browser session.</p>
+
+        Raises:
+            aws_sdk_elastic_load_balancing.errors.access_point_not_found_exception.AccessPointNotFoundException: <p>The specified load balancer does not exist.</p>
+            aws_sdk_elastic_load_balancing.errors.duplicate_policy_name_exception.DuplicatePolicyNameException: <p>A policy with the specified name already exists for this load balancer.</p>
+            aws_sdk_elastic_load_balancing.errors.invalid_configuration_request_exception.InvalidConfigurationRequestException: <p>The requested configuration change is not valid.</p>
+            aws_sdk_elastic_load_balancing.errors.too_many_policies_exception.TooManyPoliciesException: <p>The quota for the number of policies for this load balancer has been reached.</p>
+            aws_sdk_elastic_load_balancing.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To generate a duration-based stickiness policy for your load balancer
@@ -524,6 +561,21 @@ class ElasticLoadBalancingClient:
             security_groups: <p>The IDs of the security groups to assign to the load balancer.</p>
             scheme: <p>The type of a load balancer. Valid only for load balancers in a VPC.</p> <p>By default, Elastic Load Balancing creates an Internet-facing load balancer with a DNS name that resolves to public IP addresses. For more information about Internet-facing and Internal load balancers, see <a href=\"https://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/how-elastic-load-balancing-works.html#load-balancer-scheme\">Load Balancer Scheme</a> in the <i>Elastic Load Balancing User Guide</i>.</p> <p>Specify <code>internal</code> to create a load balancer with a DNS name that resolves to private IP addresses.</p>
             tags: <p>A list of tags to assign to the load balancer.</p> <p>For more information about tagging your load balancer, see <a href=\"https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/add-remove-tags.html\">Tag Your Classic Load Balancer</a> in the <i>Classic Load Balancers Guide</i>.</p>
+
+        Raises:
+            aws_sdk_elastic_load_balancing.errors.certificate_not_found_exception.CertificateNotFoundException: <p>The specified ARN does not refer to a valid SSL certificate in AWS Identity and Access Management (IAM) or AWS Certificate Manager (ACM). Note that if you recently uploaded the certificate to IAM, this error might indicate that the certificate is not fully available yet.</p>
+            aws_sdk_elastic_load_balancing.errors.duplicate_access_point_name_exception.DuplicateAccessPointNameException: <p>The specified load balancer name already exists for this account.</p>
+            aws_sdk_elastic_load_balancing.errors.duplicate_tag_keys_exception.DuplicateTagKeysException: <p>A tag key was specified more than once.</p>
+            aws_sdk_elastic_load_balancing.errors.invalid_configuration_request_exception.InvalidConfigurationRequestException: <p>The requested configuration change is not valid.</p>
+            aws_sdk_elastic_load_balancing.errors.invalid_scheme_exception.InvalidSchemeException: <p>The specified value for the schema is not valid. You can only specify a scheme for load balancers in a VPC.</p>
+            aws_sdk_elastic_load_balancing.errors.invalid_security_group_exception.InvalidSecurityGroupException: <p>One or more of the specified security groups do not exist.</p>
+            aws_sdk_elastic_load_balancing.errors.invalid_subnet_exception.InvalidSubnetException: <p>The specified VPC has no associated Internet gateway.</p>
+            aws_sdk_elastic_load_balancing.errors.operation_not_permitted_exception.OperationNotPermittedException: <p>This operation is not allowed.</p>
+            aws_sdk_elastic_load_balancing.errors.subnet_not_found_exception.SubnetNotFoundException: <p>One or more of the specified subnets do not exist.</p>
+            aws_sdk_elastic_load_balancing.errors.too_many_access_points_exception.TooManyAccessPointsException: <p>The quota for the number of load balancers has been reached.</p>
+            aws_sdk_elastic_load_balancing.errors.too_many_tags_exception.TooManyTagsException: <p>The quota for the number of tags that can be assigned to a load balancer has been reached.</p>
+            aws_sdk_elastic_load_balancing.errors.unsupported_protocol_exception.UnsupportedProtocolException: <p>The specified protocol or signature version is not supported.</p>
+            aws_sdk_elastic_load_balancing.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To create an HTTP load balancer in a VPC
@@ -597,6 +649,14 @@ class ElasticLoadBalancingClient:
             load_balancer_name: <p>The name of the load balancer.</p>
             listeners: <p>The listeners.</p>
 
+        Raises:
+            aws_sdk_elastic_load_balancing.errors.access_point_not_found_exception.AccessPointNotFoundException: <p>The specified load balancer does not exist.</p>
+            aws_sdk_elastic_load_balancing.errors.certificate_not_found_exception.CertificateNotFoundException: <p>The specified ARN does not refer to a valid SSL certificate in AWS Identity and Access Management (IAM) or AWS Certificate Manager (ACM). Note that if you recently uploaded the certificate to IAM, this error might indicate that the certificate is not fully available yet.</p>
+            aws_sdk_elastic_load_balancing.errors.duplicate_listener_exception.DuplicateListenerException: <p>A listener already exists for the specified load balancer name and port, but with a different instance port, protocol, or SSL certificate.</p>
+            aws_sdk_elastic_load_balancing.errors.invalid_configuration_request_exception.InvalidConfigurationRequestException: <p>The requested configuration change is not valid.</p>
+            aws_sdk_elastic_load_balancing.errors.unsupported_protocol_exception.UnsupportedProtocolException: <p>The specified protocol or signature version is not supported.</p>
+            aws_sdk_elastic_load_balancing.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To create an HTTP listener for a load balancer
             This example creates a listener for your load balancer at port 80 using the HTTP protocol.
@@ -653,6 +713,14 @@ class ElasticLoadBalancingClient:
             policy_type_name: <p>The name of the base policy type. To get the list of policy types, use <a>DescribeLoadBalancerPolicyTypes</a>.</p>
             policy_attributes: <p>The policy attributes.</p>
 
+        Raises:
+            aws_sdk_elastic_load_balancing.errors.access_point_not_found_exception.AccessPointNotFoundException: <p>The specified load balancer does not exist.</p>
+            aws_sdk_elastic_load_balancing.errors.duplicate_policy_name_exception.DuplicatePolicyNameException: <p>A policy with the specified name already exists for this load balancer.</p>
+            aws_sdk_elastic_load_balancing.errors.invalid_configuration_request_exception.InvalidConfigurationRequestException: <p>The requested configuration change is not valid.</p>
+            aws_sdk_elastic_load_balancing.errors.policy_type_not_found_exception.PolicyTypeNotFoundException: <p>One or more of the specified policy types do not exist.</p>
+            aws_sdk_elastic_load_balancing.errors.too_many_policies_exception.TooManyPoliciesException: <p>The quota for the number of policies for this load balancer has been reached.</p>
+            aws_sdk_elastic_load_balancing.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To create a policy that enables Proxy Protocol on a load balancer
             This example creates a policy that enables Proxy Protocol on the specified load balancer.
@@ -708,6 +776,9 @@ class ElasticLoadBalancingClient:
         Args:
             load_balancer_name: <p>The name of the load balancer.</p>
 
+        Raises:
+            aws_sdk_elastic_load_balancing.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To delete a load balancer
             This example deletes the specified load balancer.
@@ -752,6 +823,10 @@ class ElasticLoadBalancingClient:
         Args:
             load_balancer_name: <p>The name of the load balancer.</p>
             load_balancer_ports: <p>The client port numbers of the listeners.</p>
+
+        Raises:
+            aws_sdk_elastic_load_balancing.errors.access_point_not_found_exception.AccessPointNotFoundException: <p>The specified load balancer does not exist.</p>
+            aws_sdk_elastic_load_balancing.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To delete a listener from your load balancer
@@ -799,6 +874,11 @@ class ElasticLoadBalancingClient:
             load_balancer_name: <p>The name of the load balancer.</p>
             policy_name: <p>The name of the policy.</p>
 
+        Raises:
+            aws_sdk_elastic_load_balancing.errors.access_point_not_found_exception.AccessPointNotFoundException: <p>The specified load balancer does not exist.</p>
+            aws_sdk_elastic_load_balancing.errors.invalid_configuration_request_exception.InvalidConfigurationRequestException: <p>The requested configuration change is not valid.</p>
+            aws_sdk_elastic_load_balancing.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To delete a policy from your load balancer
             This example deletes the specified policy from the specified load balancer. The policy must not be enabled on any listener.
@@ -844,6 +924,11 @@ class ElasticLoadBalancingClient:
         Args:
             load_balancer_name: <p>The name of the load balancer.</p>
             instances: <p>The IDs of the instances.</p>
+
+        Raises:
+            aws_sdk_elastic_load_balancing.errors.access_point_not_found_exception.AccessPointNotFoundException: <p>The specified load balancer does not exist.</p>
+            aws_sdk_elastic_load_balancing.errors.invalid_end_point_exception.InvalidEndPointException: <p>The specified endpoint is not valid.</p>
+            aws_sdk_elastic_load_balancing.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To deregister instances from a load balancer
@@ -892,6 +977,9 @@ class ElasticLoadBalancingClient:
         Args:
             marker: <p>The marker for the next set of results. (You received this marker from a previous call.)</p>
             page_size: <p>The maximum number of results to return with this call.</p>
+
+        Raises:
+            aws_sdk_elastic_load_balancing.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -937,6 +1025,11 @@ class ElasticLoadBalancingClient:
             load_balancer_name: <p>The name of the load balancer.</p>
             instances: <p>The IDs of the instances.</p>
 
+        Raises:
+            aws_sdk_elastic_load_balancing.errors.access_point_not_found_exception.AccessPointNotFoundException: <p>The specified load balancer does not exist.</p>
+            aws_sdk_elastic_load_balancing.errors.invalid_end_point_exception.InvalidEndPointException: <p>The specified endpoint is not valid.</p>
+            aws_sdk_elastic_load_balancing.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To describe the health of the instances for a load balancer
             This example describes the health of the instances for the specified load balancer.
@@ -981,6 +1074,11 @@ class ElasticLoadBalancingClient:
 
         Args:
             load_balancer_name: <p>The name of the load balancer.</p>
+
+        Raises:
+            aws_sdk_elastic_load_balancing.errors.access_point_not_found_exception.AccessPointNotFoundException: <p>The specified load balancer does not exist.</p>
+            aws_sdk_elastic_load_balancing.errors.load_balancer_attribute_not_found_exception.LoadBalancerAttributeNotFoundException: <p>The specified load balancer attribute does not exist.</p>
+            aws_sdk_elastic_load_balancing.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To describe the attributes of a load balancer
@@ -1031,6 +1129,11 @@ class ElasticLoadBalancingClient:
             load_balancer_name: <p>The name of the load balancer.</p>
             policy_names: <p>The names of the policies.</p>
 
+        Raises:
+            aws_sdk_elastic_load_balancing.errors.access_point_not_found_exception.AccessPointNotFoundException: <p>The specified load balancer does not exist.</p>
+            aws_sdk_elastic_load_balancing.errors.policy_not_found_exception.PolicyNotFoundException: <p>One or more of the specified policies do not exist.</p>
+            aws_sdk_elastic_load_balancing.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To describe a policy associated with a load balancer
             This example describes the specified policy associated with the specified load balancer.
@@ -1078,6 +1181,10 @@ class ElasticLoadBalancingClient:
 
         Args:
             policy_type_names: <p>The names of the policy types. If no names are specified, describes all policy types defined by Elastic Load Balancing.</p>
+
+        Raises:
+            aws_sdk_elastic_load_balancing.errors.policy_type_not_found_exception.PolicyTypeNotFoundException: <p>One or more of the specified policy types do not exist.</p>
+            aws_sdk_elastic_load_balancing.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To describe a load balancer policy type defined by Elastic Load Balancing
@@ -1130,6 +1237,11 @@ class ElasticLoadBalancingClient:
             load_balancer_names: <p>The names of the load balancers.</p>
             marker: <p>The marker for the next set of results. (You received this marker from a previous call.)</p>
             page_size: <p>The maximum number of results to return with this call (a number from 1 to 400). The default is 400.</p>
+
+        Raises:
+            aws_sdk_elastic_load_balancing.errors.access_point_not_found_exception.AccessPointNotFoundException: <p>The specified load balancer does not exist.</p>
+            aws_sdk_elastic_load_balancing.errors.dependency_throttle_exception.DependencyThrottleException: <p>A request made by Elastic Load Balancing to another service exceeds the maximum request rate permitted for your account.</p>
+            aws_sdk_elastic_load_balancing.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To describe one of your load balancers
@@ -1206,6 +1318,10 @@ class ElasticLoadBalancingClient:
         Args:
             load_balancer_names: <p>The names of the load balancers.</p>
 
+        Raises:
+            aws_sdk_elastic_load_balancing.errors.access_point_not_found_exception.AccessPointNotFoundException: <p>The specified load balancer does not exist.</p>
+            aws_sdk_elastic_load_balancing.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To describe the tags for a load balancer
             This example describes the tags for the specified load balancer.
@@ -1250,6 +1366,11 @@ class ElasticLoadBalancingClient:
         Args:
             load_balancer_name: <p>The name of the load balancer.</p>
             subnets: <p>The IDs of the subnets.</p>
+
+        Raises:
+            aws_sdk_elastic_load_balancing.errors.access_point_not_found_exception.AccessPointNotFoundException: <p>The specified load balancer does not exist.</p>
+            aws_sdk_elastic_load_balancing.errors.invalid_configuration_request_exception.InvalidConfigurationRequestException: <p>The requested configuration change is not valid.</p>
+            aws_sdk_elastic_load_balancing.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To detach a load balancer from a subnet
@@ -1297,6 +1418,11 @@ class ElasticLoadBalancingClient:
             load_balancer_name: <p>The name of the load balancer.</p>
             availability_zones: <p>The Availability Zones.</p>
 
+        Raises:
+            aws_sdk_elastic_load_balancing.errors.access_point_not_found_exception.AccessPointNotFoundException: <p>The specified load balancer does not exist.</p>
+            aws_sdk_elastic_load_balancing.errors.invalid_configuration_request_exception.InvalidConfigurationRequestException: <p>The requested configuration change is not valid.</p>
+            aws_sdk_elastic_load_balancing.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To disable an Availability Zone for a load balancer
             This example removes the specified Availability Zone from the set of Availability Zones for the specified load balancer.
@@ -1343,6 +1469,10 @@ class ElasticLoadBalancingClient:
             load_balancer_name: <p>The name of the load balancer.</p>
             availability_zones: <p>The Availability Zones. These must be in the same region as the load balancer.</p>
 
+        Raises:
+            aws_sdk_elastic_load_balancing.errors.access_point_not_found_exception.AccessPointNotFoundException: <p>The specified load balancer does not exist.</p>
+            aws_sdk_elastic_load_balancing.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To enable an Availability Zone for a load balancer
             This example adds the specified Availability Zone to the specified load balancer.
@@ -1388,6 +1518,12 @@ class ElasticLoadBalancingClient:
         Args:
             load_balancer_name: <p>The name of the load balancer.</p>
             load_balancer_attributes: <p>The attributes for the load balancer.</p>
+
+        Raises:
+            aws_sdk_elastic_load_balancing.errors.access_point_not_found_exception.AccessPointNotFoundException: <p>The specified load balancer does not exist.</p>
+            aws_sdk_elastic_load_balancing.errors.invalid_configuration_request_exception.InvalidConfigurationRequestException: <p>The requested configuration change is not valid.</p>
+            aws_sdk_elastic_load_balancing.errors.load_balancer_attribute_not_found_exception.LoadBalancerAttributeNotFoundException: <p>The specified load balancer attribute does not exist.</p>
+            aws_sdk_elastic_load_balancing.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To enable cross-zone load balancing
@@ -1439,6 +1575,11 @@ class ElasticLoadBalancingClient:
             load_balancer_name: <p>The name of the load balancer.</p>
             instances: <p>The IDs of the instances.</p>
 
+        Raises:
+            aws_sdk_elastic_load_balancing.errors.access_point_not_found_exception.AccessPointNotFoundException: <p>The specified load balancer does not exist.</p>
+            aws_sdk_elastic_load_balancing.errors.invalid_end_point_exception.InvalidEndPointException: <p>The specified endpoint is not valid.</p>
+            aws_sdk_elastic_load_balancing.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To register instances with a load balancer
             This example registers the specified instance with the specified load balancer.
@@ -1484,6 +1625,10 @@ class ElasticLoadBalancingClient:
         Args:
             load_balancer_names: <p>The name of the load balancer. You can specify a maximum of one load balancer name.</p>
             tags: <p>The list of tag keys to remove.</p>
+
+        Raises:
+            aws_sdk_elastic_load_balancing.errors.access_point_not_found_exception.AccessPointNotFoundException: <p>The specified load balancer does not exist.</p>
+            aws_sdk_elastic_load_balancing.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To remove tags from a load balancer
@@ -1532,6 +1677,14 @@ class ElasticLoadBalancingClient:
             load_balancer_name: <p>The name of the load balancer.</p>
             load_balancer_port: <p>The port that uses the specified SSL certificate.</p>
             ssl_certificate_id: <p>The Amazon Resource Name (ARN) of the SSL certificate.</p>
+
+        Raises:
+            aws_sdk_elastic_load_balancing.errors.access_point_not_found_exception.AccessPointNotFoundException: <p>The specified load balancer does not exist.</p>
+            aws_sdk_elastic_load_balancing.errors.certificate_not_found_exception.CertificateNotFoundException: <p>The specified ARN does not refer to a valid SSL certificate in AWS Identity and Access Management (IAM) or AWS Certificate Manager (ACM). Note that if you recently uploaded the certificate to IAM, this error might indicate that the certificate is not fully available yet.</p>
+            aws_sdk_elastic_load_balancing.errors.invalid_configuration_request_exception.InvalidConfigurationRequestException: <p>The requested configuration change is not valid.</p>
+            aws_sdk_elastic_load_balancing.errors.listener_not_found_exception.ListenerNotFoundException: <p>The load balancer does not have a listener configured at the specified port.</p>
+            aws_sdk_elastic_load_balancing.errors.unsupported_protocol_exception.UnsupportedProtocolException: <p>The specified protocol or signature version is not supported.</p>
+            aws_sdk_elastic_load_balancing.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To update the SSL certificate for an HTTPS listener
@@ -1582,6 +1735,12 @@ class ElasticLoadBalancingClient:
             instance_port: <p>The port number associated with the EC2 instance.</p>
             policy_names: <p>The names of the policies. If the list is empty, then all current polices are removed from the EC2 instance.</p>
 
+        Raises:
+            aws_sdk_elastic_load_balancing.errors.access_point_not_found_exception.AccessPointNotFoundException: <p>The specified load balancer does not exist.</p>
+            aws_sdk_elastic_load_balancing.errors.invalid_configuration_request_exception.InvalidConfigurationRequestException: <p>The requested configuration change is not valid.</p>
+            aws_sdk_elastic_load_balancing.errors.policy_not_found_exception.PolicyNotFoundException: <p>One or more of the specified policies do not exist.</p>
+            aws_sdk_elastic_load_balancing.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To replace the policies associated with a port for a backend instance
             This example replaces the policies that are currently associated with the specified port.
@@ -1630,6 +1789,13 @@ class ElasticLoadBalancingClient:
             load_balancer_name: <p>The name of the load balancer.</p>
             load_balancer_port: <p>The external port of the load balancer.</p>
             policy_names: <p>The names of the policies. This list must include all policies to be enabled. If you omit a policy that is currently enabled, it is disabled. If the list is empty, all current policies are disabled.</p>
+
+        Raises:
+            aws_sdk_elastic_load_balancing.errors.access_point_not_found_exception.AccessPointNotFoundException: <p>The specified load balancer does not exist.</p>
+            aws_sdk_elastic_load_balancing.errors.invalid_configuration_request_exception.InvalidConfigurationRequestException: <p>The requested configuration change is not valid.</p>
+            aws_sdk_elastic_load_balancing.errors.listener_not_found_exception.ListenerNotFoundException: <p>The load balancer does not have a listener configured at the specified port.</p>
+            aws_sdk_elastic_load_balancing.errors.policy_not_found_exception.PolicyNotFoundException: <p>One or more of the specified policies do not exist.</p>
+            aws_sdk_elastic_load_balancing.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To replace the policies associated with a listener

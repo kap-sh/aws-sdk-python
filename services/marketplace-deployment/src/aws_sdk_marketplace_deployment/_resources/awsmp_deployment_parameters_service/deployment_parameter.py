@@ -61,6 +61,16 @@ class DeploymentParameter:
             expiration_date: <p>The date when deployment parameters expire and are scheduled for deletion.</p>
             client_token: <p>The idempotency token for deployment parameters. A unique identifier for the new version.</p> <note> <p>This field is not required if you're calling using an AWS SDK. Otherwise, a <code>clientToken</code> must be provided with the request.</p> </note>
 
+        Raises:
+            aws_sdk_marketplace_deployment.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_marketplace_deployment.errors.conflict_exception.ConflictException: <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
+            aws_sdk_marketplace_deployment.errors.internal_server_exception.InternalServerException: <p>There was an internal service exception.</p>
+            aws_sdk_marketplace_deployment.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource wasn't found.</p>
+            aws_sdk_marketplace_deployment.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The maximum number of requests per account has been exceeded.</p>
+            aws_sdk_marketplace_deployment.errors.throttling_exception.ThrottlingException: <p>Too many requests.</p>
+            aws_sdk_marketplace_deployment.errors.validation_exception.ValidationException: <p>An error occurred during validation.</p>
+            aws_sdk_marketplace_deployment.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Creating or updating a deployment parameter
             The following example demonstrates creating or updating a deployment parameter named "ExampleDeploymentParameterName". The secret will be saved in the Buyer account associated with the passed `agreementId`, with the value set to the provided `secretString`. Note that the deployment parameter `secretString` can be passed in JSON string format, allowing [json-key specific CloudFormation dynamic references](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/dynamic-references.html) from a single deployment parameter.
@@ -135,6 +145,16 @@ class AsyncDeploymentParameter:
             tags: <p>A map of key-value pairs, where each pair represents a tag saved to the resource. Tags will only be applied for create operations, and they'll be ignored if the resource already exists.</p>
             expiration_date: <p>The date when deployment parameters expire and are scheduled for deletion.</p>
             client_token: <p>The idempotency token for deployment parameters. A unique identifier for the new version.</p> <note> <p>This field is not required if you're calling using an AWS SDK. Otherwise, a <code>clientToken</code> must be provided with the request.</p> </note>
+
+        Raises:
+            aws_sdk_marketplace_deployment.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_marketplace_deployment.errors.conflict_exception.ConflictException: <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
+            aws_sdk_marketplace_deployment.errors.internal_server_exception.InternalServerException: <p>There was an internal service exception.</p>
+            aws_sdk_marketplace_deployment.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource wasn't found.</p>
+            aws_sdk_marketplace_deployment.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The maximum number of requests per account has been exceeded.</p>
+            aws_sdk_marketplace_deployment.errors.throttling_exception.ThrottlingException: <p>Too many requests.</p>
+            aws_sdk_marketplace_deployment.errors.validation_exception.ValidationException: <p>An error occurred during validation.</p>
+            aws_sdk_marketplace_deployment.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Creating or updating a deployment parameter

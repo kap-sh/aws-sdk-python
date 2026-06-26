@@ -75,6 +75,14 @@ class MonitorResource:
             subdomain: <p>The subdomain to use when creating the monitor URL. The full URL of the monitor is subdomain.Region.deadlinecloud.amazonaws.com.</p>
             role_arn: <p>The Amazon Resource Name of the IAM role that the monitor uses to connect to Deadline Cloud. Every user that signs in to the monitor using IAM Identity Center uses this role to access Deadline Cloud resources.</p>
             tags: <p>The tags to add to your monitor. Each tag consists of a tag key and a tag value. Tag keys and values are both required, but tag values can be empty strings.</p>
+
+        Raises:
+            aws_sdk_deadline.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action.</p>
+            aws_sdk_deadline.errors.internal_server_error_exception.InternalServerErrorException: <p>Deadline Cloud can't process your request right now. Try again later.</p>
+            aws_sdk_deadline.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You exceeded your service quota. Service quotas, also referred to as limits, are the maximum number of service resources or operations for your Amazon Web Services account.</p>
+            aws_sdk_deadline.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a request rate quota.</p>
+            aws_sdk_deadline.errors.validation_exception.ValidationException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
+            aws_sdk_deadline.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -121,6 +129,14 @@ class MonitorResource:
 
         Args:
             monitor_id: <p>The unique identifier for the monitor. This ID is returned by the <code>CreateMonitor</code> operation.</p>
+
+        Raises:
+            aws_sdk_deadline.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action.</p>
+            aws_sdk_deadline.errors.internal_server_error_exception.InternalServerErrorException: <p>Deadline Cloud can't process your request right now. Try again later.</p>
+            aws_sdk_deadline.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_deadline.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a request rate quota.</p>
+            aws_sdk_deadline.errors.validation_exception.ValidationException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
+            aws_sdk_deadline.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -166,6 +182,14 @@ class MonitorResource:
             subdomain: <p>The new value of the subdomain to use when forming the monitor URL.</p>
             display_name: <p>The new value to use for the monitor's display name.</p> <important> <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p> </important>
             role_arn: <p>The Amazon Resource Name of the new IAM role to use with the monitor.</p>
+
+        Raises:
+            aws_sdk_deadline.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action.</p>
+            aws_sdk_deadline.errors.internal_server_error_exception.InternalServerErrorException: <p>Deadline Cloud can't process your request right now. Try again later.</p>
+            aws_sdk_deadline.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_deadline.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a request rate quota.</p>
+            aws_sdk_deadline.errors.validation_exception.ValidationException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
+            aws_sdk_deadline.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -209,6 +233,14 @@ class MonitorResource:
 
         Args:
             monitor_id: <p>The unique identifier of the monitor to delete. This ID is returned by the <code>CreateMonitor</code> operation, and is included in the response to the <code>GetMonitor</code> operation.</p>
+
+        Raises:
+            aws_sdk_deadline.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action.</p>
+            aws_sdk_deadline.errors.internal_server_error_exception.InternalServerErrorException: <p>Deadline Cloud can't process your request right now. Try again later.</p>
+            aws_sdk_deadline.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_deadline.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a request rate quota.</p>
+            aws_sdk_deadline.errors.validation_exception.ValidationException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
+            aws_sdk_deadline.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -248,6 +280,13 @@ class MonitorResource:
         Args:
             next_token: <p>The token for the next set of results, or <code>null</code> to start from the beginning.</p>
             max_results: <p>The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.</p>
+
+        Raises:
+            aws_sdk_deadline.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action.</p>
+            aws_sdk_deadline.errors.internal_server_error_exception.InternalServerErrorException: <p>Deadline Cloud can't process your request right now. Try again later.</p>
+            aws_sdk_deadline.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a request rate quota.</p>
+            aws_sdk_deadline.errors.validation_exception.ValidationException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
+            aws_sdk_deadline.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -288,6 +327,14 @@ class MonitorResource:
 
         Args:
             monitor_id: <p>The unique identifier of the monitor. This ID is returned by the <code>CreateMonitor</code> operation, and is included in the response to the <code>ListMonitors</code> operation.</p>
+
+        Raises:
+            aws_sdk_deadline.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action.</p>
+            aws_sdk_deadline.errors.internal_server_error_exception.InternalServerErrorException: <p>Deadline Cloud can't process your request right now. Try again later.</p>
+            aws_sdk_deadline.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_deadline.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a request rate quota.</p>
+            aws_sdk_deadline.errors.validation_exception.ValidationException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
+            aws_sdk_deadline.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Get monitor settings
@@ -332,6 +379,14 @@ class MonitorResource:
         Args:
             monitor_id: <p>The unique identifier of the monitor to update settings for.</p>
             settings: <p>The monitor settings to update as key-value pairs. Keys present in the request are upserted; keys absent are left unchanged. Send an empty string value to delete a key.</p>
+
+        Raises:
+            aws_sdk_deadline.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action.</p>
+            aws_sdk_deadline.errors.internal_server_error_exception.InternalServerErrorException: <p>Deadline Cloud can't process your request right now. Try again later.</p>
+            aws_sdk_deadline.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_deadline.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a request rate quota.</p>
+            aws_sdk_deadline.errors.validation_exception.ValidationException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
+            aws_sdk_deadline.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Update monitor settings
@@ -394,6 +449,14 @@ class AsyncMonitorResource:
             subdomain: <p>The subdomain to use when creating the monitor URL. The full URL of the monitor is subdomain.Region.deadlinecloud.amazonaws.com.</p>
             role_arn: <p>The Amazon Resource Name of the IAM role that the monitor uses to connect to Deadline Cloud. Every user that signs in to the monitor using IAM Identity Center uses this role to access Deadline Cloud resources.</p>
             tags: <p>The tags to add to your monitor. Each tag consists of a tag key and a tag value. Tag keys and values are both required, but tag values can be empty strings.</p>
+
+        Raises:
+            aws_sdk_deadline.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action.</p>
+            aws_sdk_deadline.errors.internal_server_error_exception.InternalServerErrorException: <p>Deadline Cloud can't process your request right now. Try again later.</p>
+            aws_sdk_deadline.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You exceeded your service quota. Service quotas, also referred to as limits, are the maximum number of service resources or operations for your Amazon Web Services account.</p>
+            aws_sdk_deadline.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a request rate quota.</p>
+            aws_sdk_deadline.errors.validation_exception.ValidationException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
+            aws_sdk_deadline.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -441,6 +504,14 @@ class AsyncMonitorResource:
 
         Args:
             monitor_id: <p>The unique identifier for the monitor. This ID is returned by the <code>CreateMonitor</code> operation.</p>
+
+        Raises:
+            aws_sdk_deadline.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action.</p>
+            aws_sdk_deadline.errors.internal_server_error_exception.InternalServerErrorException: <p>Deadline Cloud can't process your request right now. Try again later.</p>
+            aws_sdk_deadline.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_deadline.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a request rate quota.</p>
+            aws_sdk_deadline.errors.validation_exception.ValidationException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
+            aws_sdk_deadline.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -487,6 +558,14 @@ class AsyncMonitorResource:
             subdomain: <p>The new value of the subdomain to use when forming the monitor URL.</p>
             display_name: <p>The new value to use for the monitor's display name.</p> <important> <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p> </important>
             role_arn: <p>The Amazon Resource Name of the new IAM role to use with the monitor.</p>
+
+        Raises:
+            aws_sdk_deadline.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action.</p>
+            aws_sdk_deadline.errors.internal_server_error_exception.InternalServerErrorException: <p>Deadline Cloud can't process your request right now. Try again later.</p>
+            aws_sdk_deadline.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_deadline.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a request rate quota.</p>
+            aws_sdk_deadline.errors.validation_exception.ValidationException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
+            aws_sdk_deadline.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -531,6 +610,14 @@ class AsyncMonitorResource:
 
         Args:
             monitor_id: <p>The unique identifier of the monitor to delete. This ID is returned by the <code>CreateMonitor</code> operation, and is included in the response to the <code>GetMonitor</code> operation.</p>
+
+        Raises:
+            aws_sdk_deadline.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action.</p>
+            aws_sdk_deadline.errors.internal_server_error_exception.InternalServerErrorException: <p>Deadline Cloud can't process your request right now. Try again later.</p>
+            aws_sdk_deadline.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_deadline.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a request rate quota.</p>
+            aws_sdk_deadline.errors.validation_exception.ValidationException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
+            aws_sdk_deadline.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -571,6 +658,13 @@ class AsyncMonitorResource:
         Args:
             next_token: <p>The token for the next set of results, or <code>null</code> to start from the beginning.</p>
             max_results: <p>The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.</p>
+
+        Raises:
+            aws_sdk_deadline.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action.</p>
+            aws_sdk_deadline.errors.internal_server_error_exception.InternalServerErrorException: <p>Deadline Cloud can't process your request right now. Try again later.</p>
+            aws_sdk_deadline.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a request rate quota.</p>
+            aws_sdk_deadline.errors.validation_exception.ValidationException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
+            aws_sdk_deadline.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -612,6 +706,14 @@ class AsyncMonitorResource:
 
         Args:
             monitor_id: <p>The unique identifier of the monitor. This ID is returned by the <code>CreateMonitor</code> operation, and is included in the response to the <code>ListMonitors</code> operation.</p>
+
+        Raises:
+            aws_sdk_deadline.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action.</p>
+            aws_sdk_deadline.errors.internal_server_error_exception.InternalServerErrorException: <p>Deadline Cloud can't process your request right now. Try again later.</p>
+            aws_sdk_deadline.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_deadline.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a request rate quota.</p>
+            aws_sdk_deadline.errors.validation_exception.ValidationException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
+            aws_sdk_deadline.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Get monitor settings
@@ -657,6 +759,14 @@ class AsyncMonitorResource:
         Args:
             monitor_id: <p>The unique identifier of the monitor to update settings for.</p>
             settings: <p>The monitor settings to update as key-value pairs. Keys present in the request are upserted; keys absent are left unchanged. Send an empty string value to delete a key.</p>
+
+        Raises:
+            aws_sdk_deadline.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action.</p>
+            aws_sdk_deadline.errors.internal_server_error_exception.InternalServerErrorException: <p>Deadline Cloud can't process your request right now. Try again later.</p>
+            aws_sdk_deadline.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_deadline.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a request rate quota.</p>
+            aws_sdk_deadline.errors.validation_exception.ValidationException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
+            aws_sdk_deadline.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Update monitor settings

@@ -259,6 +259,16 @@ class SFNClient:
             name: <p>The name of the activity to create. This name must be unique for your Amazon Web Services account and region for 90 days. For more information, see <a href=\"https://docs.aws.amazon.com/step-functions/latest/dg/limits.html#service-limits-state-machine-executions\"> Limits Related to State Machine Executions</a> in the <i>Step Functions Developer Guide</i>.</p> <p>A name must <i>not</i> contain:</p> <ul> <li> <p>white space</p> </li> <li> <p>brackets <code>< > { } [ ]</code> </p> </li> <li> <p>wildcard characters <code>? *</code> </p> </li> <li> <p>special characters <code>\" # % \ ^ | ~ ` $ & , ; : /</code> </p> </li> <li> <p>control characters (<code>U+0000-001F</code>, <code>U+007F-009F</code>, <code>U+FFFE-FFFF</code>)</p> </li> <li> <p>surrogates (<code>U+D800-DFFF</code>)</p> </li> <li> <p>invalid characters (<code> U+10FFFF</code>)</p> </li> </ul> <p>To enable logging with CloudWatch Logs, the name should only contain 0-9, A-Z, a-z, - and _.</p>
             tags: <p>The list of tags to add to a resource.</p> <p>An array of key-value pairs. For more information, see <a href=\"https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html\">Using Cost Allocation Tags</a> in the <i>Amazon Web Services Billing and Cost Management User Guide</i>, and <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access_iam-tags.html\">Controlling Access Using IAM Tags</a>.</p> <p>Tags may only contain Unicode letters, digits, white space, or these symbols: <code>_ . : / = + - @</code>.</p>
             encryption_configuration: <p>Settings to configure server-side encryption.</p>
+
+        Raises:
+            aws_sdk_sfn.errors.activity_already_exists.ActivityAlreadyExists: <p>Activity already exists. <code>EncryptionConfiguration</code> may not be updated.</p>
+            aws_sdk_sfn.errors.activity_limit_exceeded.ActivityLimitExceeded: <p>The maximum number of activities has been reached. Existing activities must be deleted before a new activity can be created.</p>
+            aws_sdk_sfn.errors.invalid_encryption_configuration.InvalidEncryptionConfiguration: <p>Received when <code>encryptionConfiguration</code> is specified but various conditions exist which make the configuration invalid. For example, if <code>type</code> is set to <code>CUSTOMER_MANAGED_KMS_KEY</code>, but <code>kmsKeyId</code> is null, or <code>kmsDataKeyReusePeriodSeconds</code> is not between 60 and 900, or the KMS key is not symmetric or inactive.</p>
+            aws_sdk_sfn.errors.invalid_name.InvalidName: <p>The provided name is not valid.</p>
+            aws_sdk_sfn.errors.kms_access_denied_exception.KmsAccessDeniedException: <p>Either your KMS key policy or API caller does not have the required permissions.</p>
+            aws_sdk_sfn.errors.kms_throttling_exception.KmsThrottlingException: <p>Received when KMS returns <code>ThrottlingException</code> for a KMS call that Step Functions makes on behalf of the caller.</p>
+            aws_sdk_sfn.errors.too_many_tags.TooManyTags: <p>You've exceeded the number of tags allowed for a resource. See the <a href=\"https://docs.aws.amazon.com/step-functions/latest/dg/limits.html\"> Limits Topic</a> in the Step Functions Developer Guide.</p>
+            aws_sdk_sfn.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -326,6 +336,24 @@ class SFNClient:
             publish: <p>Set to <code>true</code> to publish the first version of the state machine during creation. The default is <code>false</code>.</p>
             version_description: <p>Sets description about the state machine version. You can only set the description if the <code>publish</code> parameter is set to <code>true</code>. Otherwise, if you set <code>versionDescription</code>, but <code>publish</code> to <code>false</code>, this API action throws <code>ValidationException</code>.</p>
             encryption_configuration: <p>Settings to configure server-side encryption.</p>
+
+        Raises:
+            aws_sdk_sfn.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state. This error occurs when there're concurrent requests for <a>DeleteStateMachineVersion</a>, <a>PublishStateMachineVersion</a>, or <a>UpdateStateMachine</a> with the <code>publish</code> parameter set to <code>true</code>.</p> <p>HTTP Status Code: 409</p>
+            aws_sdk_sfn.errors.invalid_arn.InvalidArn: <p>The provided Amazon Resource Name (ARN) is not valid.</p>
+            aws_sdk_sfn.errors.invalid_definition.InvalidDefinition: <p>The provided Amazon States Language definition is not valid.</p>
+            aws_sdk_sfn.errors.invalid_encryption_configuration.InvalidEncryptionConfiguration: <p>Received when <code>encryptionConfiguration</code> is specified but various conditions exist which make the configuration invalid. For example, if <code>type</code> is set to <code>CUSTOMER_MANAGED_KMS_KEY</code>, but <code>kmsKeyId</code> is null, or <code>kmsDataKeyReusePeriodSeconds</code> is not between 60 and 900, or the KMS key is not symmetric or inactive.</p>
+            aws_sdk_sfn.errors.invalid_logging_configuration.InvalidLoggingConfiguration: <p>Configuration is not valid.</p>
+            aws_sdk_sfn.errors.invalid_name.InvalidName: <p>The provided name is not valid.</p>
+            aws_sdk_sfn.errors.invalid_tracing_configuration.InvalidTracingConfiguration: <p>Your <code>tracingConfiguration</code> key does not match, or <code>enabled</code> has not been set to <code>true</code> or <code>false</code>.</p>
+            aws_sdk_sfn.errors.kms_access_denied_exception.KmsAccessDeniedException: <p>Either your KMS key policy or API caller does not have the required permissions.</p>
+            aws_sdk_sfn.errors.kms_throttling_exception.KmsThrottlingException: <p>Received when KMS returns <code>ThrottlingException</code> for a KMS call that Step Functions makes on behalf of the caller.</p>
+            aws_sdk_sfn.errors.state_machine_already_exists.StateMachineAlreadyExists: <p>A state machine with the same name but a different definition or role ARN already exists.</p>
+            aws_sdk_sfn.errors.state_machine_deleting.StateMachineDeleting: <p>The specified state machine is being deleted.</p>
+            aws_sdk_sfn.errors.state_machine_limit_exceeded.StateMachineLimitExceeded: <p>The maximum number of state machines has been reached. Existing state machines must be deleted before a new state machine can be created.</p>
+            aws_sdk_sfn.errors.state_machine_type_not_supported.StateMachineTypeNotSupported: <p>State machine type is not supported.</p>
+            aws_sdk_sfn.errors.too_many_tags.TooManyTags: <p>You've exceeded the number of tags allowed for a resource. See the <a href=\"https://docs.aws.amazon.com/step-functions/latest/dg/limits.html\"> Limits Topic</a> in the Step Functions Developer Guide.</p>
+            aws_sdk_sfn.errors.validation_exception.ValidationException: <p>The input does not satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_sfn.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -385,6 +413,16 @@ class SFNClient:
             description: <p>A description for the state machine alias.</p>
             name: <p>The name of the state machine alias.</p> <p>To avoid conflict with version ARNs, don't use an integer in the name of the alias.</p>
             routing_configuration: <p>The routing configuration of a state machine alias. The routing configuration shifts execution traffic between two state machine versions. <code>routingConfiguration</code> contains an array of <code>RoutingConfig</code> objects that specify up to two state machine versions. Step Functions then randomly choses which version to run an execution with based on the weight assigned to each <code>RoutingConfig</code>.</p>
+
+        Raises:
+            aws_sdk_sfn.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state. This error occurs when there're concurrent requests for <a>DeleteStateMachineVersion</a>, <a>PublishStateMachineVersion</a>, or <a>UpdateStateMachine</a> with the <code>publish</code> parameter set to <code>true</code>.</p> <p>HTTP Status Code: 409</p>
+            aws_sdk_sfn.errors.invalid_arn.InvalidArn: <p>The provided Amazon Resource Name (ARN) is not valid.</p>
+            aws_sdk_sfn.errors.invalid_name.InvalidName: <p>The provided name is not valid.</p>
+            aws_sdk_sfn.errors.resource_not_found.ResourceNotFound: <p>Could not find the referenced resource.</p>
+            aws_sdk_sfn.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request would cause a service quota to be exceeded.</p> <p>HTTP Status Code: 402</p>
+            aws_sdk_sfn.errors.state_machine_deleting.StateMachineDeleting: <p>The specified state machine is being deleted.</p>
+            aws_sdk_sfn.errors.validation_exception.ValidationException: <p>The input does not satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_sfn.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -425,6 +463,10 @@ class SFNClient:
 
         Args:
             activity_arn: <p>The Amazon Resource Name (ARN) of the activity to delete.</p>
+
+        Raises:
+            aws_sdk_sfn.errors.invalid_arn.InvalidArn: <p>The provided Amazon Resource Name (ARN) is not valid.</p>
+            aws_sdk_sfn.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -462,6 +504,11 @@ class SFNClient:
 
         Args:
             state_machine_arn: <p>The Amazon Resource Name (ARN) of the state machine to delete.</p>
+
+        Raises:
+            aws_sdk_sfn.errors.invalid_arn.InvalidArn: <p>The provided Amazon Resource Name (ARN) is not valid.</p>
+            aws_sdk_sfn.errors.validation_exception.ValidationException: <p>The input does not satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_sfn.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -499,6 +546,13 @@ class SFNClient:
 
         Args:
             state_machine_alias_arn: <p>The Amazon Resource Name (ARN) of the state machine alias to delete.</p>
+
+        Raises:
+            aws_sdk_sfn.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state. This error occurs when there're concurrent requests for <a>DeleteStateMachineVersion</a>, <a>PublishStateMachineVersion</a>, or <a>UpdateStateMachine</a> with the <code>publish</code> parameter set to <code>true</code>.</p> <p>HTTP Status Code: 409</p>
+            aws_sdk_sfn.errors.invalid_arn.InvalidArn: <p>The provided Amazon Resource Name (ARN) is not valid.</p>
+            aws_sdk_sfn.errors.resource_not_found.ResourceNotFound: <p>Could not find the referenced resource.</p>
+            aws_sdk_sfn.errors.validation_exception.ValidationException: <p>The input does not satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_sfn.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -536,6 +590,12 @@ class SFNClient:
 
         Args:
             state_machine_version_arn: <p>The Amazon Resource Name (ARN) of the state machine version to delete.</p>
+
+        Raises:
+            aws_sdk_sfn.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state. This error occurs when there're concurrent requests for <a>DeleteStateMachineVersion</a>, <a>PublishStateMachineVersion</a>, or <a>UpdateStateMachine</a> with the <code>publish</code> parameter set to <code>true</code>.</p> <p>HTTP Status Code: 409</p>
+            aws_sdk_sfn.errors.invalid_arn.InvalidArn: <p>The provided Amazon Resource Name (ARN) is not valid.</p>
+            aws_sdk_sfn.errors.validation_exception.ValidationException: <p>The input does not satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_sfn.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -573,6 +633,11 @@ class SFNClient:
 
         Args:
             activity_arn: <p>The Amazon Resource Name (ARN) of the activity to describe.</p>
+
+        Raises:
+            aws_sdk_sfn.errors.activity_does_not_exist.ActivityDoesNotExist: <p>The specified activity does not exist.</p>
+            aws_sdk_sfn.errors.invalid_arn.InvalidArn: <p>The provided Amazon Resource Name (ARN) is not valid.</p>
+            aws_sdk_sfn.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -612,6 +677,14 @@ class SFNClient:
         Args:
             execution_arn: <p>The Amazon Resource Name (ARN) of the execution to describe.</p>
             included_data: <p>If your state machine definition is encrypted with a KMS key, callers must have <code>kms:Decrypt</code> permission to decrypt the definition. Alternatively, you can call DescribeStateMachine API with <code>includedData = METADATA_ONLY</code> to get a successful response without the encrypted definition.</p>
+
+        Raises:
+            aws_sdk_sfn.errors.execution_does_not_exist.ExecutionDoesNotExist: <p>The specified execution does not exist.</p>
+            aws_sdk_sfn.errors.invalid_arn.InvalidArn: <p>The provided Amazon Resource Name (ARN) is not valid.</p>
+            aws_sdk_sfn.errors.kms_access_denied_exception.KmsAccessDeniedException: <p>Either your KMS key policy or API caller does not have the required permissions.</p>
+            aws_sdk_sfn.errors.kms_invalid_state_exception.KmsInvalidStateException: <p>The KMS key is not in valid state, for example: Disabled or Deleted.</p>
+            aws_sdk_sfn.errors.kms_throttling_exception.KmsThrottlingException: <p>Received when KMS returns <code>ThrottlingException</code> for a KMS call that Step Functions makes on behalf of the caller.</p>
+            aws_sdk_sfn.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -651,6 +724,11 @@ class SFNClient:
 
         Args:
             map_run_arn: <p>The Amazon Resource Name (ARN) that identifies a Map Run.</p>
+
+        Raises:
+            aws_sdk_sfn.errors.invalid_arn.InvalidArn: <p>The provided Amazon Resource Name (ARN) is not valid.</p>
+            aws_sdk_sfn.errors.resource_not_found.ResourceNotFound: <p>Could not find the referenced resource.</p>
+            aws_sdk_sfn.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -690,6 +768,14 @@ class SFNClient:
         Args:
             state_machine_arn: <p>The Amazon Resource Name (ARN) of the state machine for which you want the information.</p> <p>If you specify a state machine version ARN, this API returns details about that version. The version ARN is a combination of state machine ARN and the version number separated by a colon (:). For example, <code>stateMachineARN:1</code>.</p>
             included_data: <p>If your state machine definition is encrypted with a KMS key, callers must have <code>kms:Decrypt</code> permission to decrypt the definition. Alternatively, you can call the API with <code>includedData = METADATA_ONLY</code> to get a successful response without the encrypted definition.</p> <note> <p> When calling a labelled ARN for an encrypted state machine, the <code>includedData = METADATA_ONLY</code> parameter will not apply because Step Functions needs to decrypt the entire state machine definition to get the Distributed Map state’s definition. In this case, the API caller needs to have <code>kms:Decrypt</code> permission. </p> </note>
+
+        Raises:
+            aws_sdk_sfn.errors.invalid_arn.InvalidArn: <p>The provided Amazon Resource Name (ARN) is not valid.</p>
+            aws_sdk_sfn.errors.kms_access_denied_exception.KmsAccessDeniedException: <p>Either your KMS key policy or API caller does not have the required permissions.</p>
+            aws_sdk_sfn.errors.kms_invalid_state_exception.KmsInvalidStateException: <p>The KMS key is not in valid state, for example: Disabled or Deleted.</p>
+            aws_sdk_sfn.errors.kms_throttling_exception.KmsThrottlingException: <p>Received when KMS returns <code>ThrottlingException</code> for a KMS call that Step Functions makes on behalf of the caller.</p>
+            aws_sdk_sfn.errors.state_machine_does_not_exist.StateMachineDoesNotExist: <p>The specified state machine does not exist.</p>
+            aws_sdk_sfn.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -729,6 +815,12 @@ class SFNClient:
 
         Args:
             state_machine_alias_arn: <p>The Amazon Resource Name (ARN) of the state machine alias.</p>
+
+        Raises:
+            aws_sdk_sfn.errors.invalid_arn.InvalidArn: <p>The provided Amazon Resource Name (ARN) is not valid.</p>
+            aws_sdk_sfn.errors.resource_not_found.ResourceNotFound: <p>Could not find the referenced resource.</p>
+            aws_sdk_sfn.errors.validation_exception.ValidationException: <p>The input does not satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_sfn.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -768,6 +860,14 @@ class SFNClient:
         Args:
             execution_arn: <p>The Amazon Resource Name (ARN) of the execution you want state machine information for.</p>
             included_data: <p>If your state machine definition is encrypted with a KMS key, callers must have <code>kms:Decrypt</code> permission to decrypt the definition. Alternatively, you can call the API with <code>includedData = METADATA_ONLY</code> to get a successful response without the encrypted definition.</p>
+
+        Raises:
+            aws_sdk_sfn.errors.execution_does_not_exist.ExecutionDoesNotExist: <p>The specified execution does not exist.</p>
+            aws_sdk_sfn.errors.invalid_arn.InvalidArn: <p>The provided Amazon Resource Name (ARN) is not valid.</p>
+            aws_sdk_sfn.errors.kms_access_denied_exception.KmsAccessDeniedException: <p>Either your KMS key policy or API caller does not have the required permissions.</p>
+            aws_sdk_sfn.errors.kms_invalid_state_exception.KmsInvalidStateException: <p>The KMS key is not in valid state, for example: Disabled or Deleted.</p>
+            aws_sdk_sfn.errors.kms_throttling_exception.KmsThrottlingException: <p>Received when KMS returns <code>ThrottlingException</code> for a KMS call that Step Functions makes on behalf of the caller.</p>
+            aws_sdk_sfn.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -809,6 +909,15 @@ class SFNClient:
         Args:
             activity_arn: <p>The Amazon Resource Name (ARN) of the activity to retrieve tasks from (assigned when you create the task using <a>CreateActivity</a>.)</p>
             worker_name: <p>You can provide an arbitrary name in order to identify the worker that the task is assigned to. This name is used when it is logged in the execution history.</p>
+
+        Raises:
+            aws_sdk_sfn.errors.activity_does_not_exist.ActivityDoesNotExist: <p>The specified activity does not exist.</p>
+            aws_sdk_sfn.errors.activity_worker_limit_exceeded.ActivityWorkerLimitExceeded: <p>The maximum number of workers concurrently polling for activity tasks has been reached.</p>
+            aws_sdk_sfn.errors.invalid_arn.InvalidArn: <p>The provided Amazon Resource Name (ARN) is not valid.</p>
+            aws_sdk_sfn.errors.kms_access_denied_exception.KmsAccessDeniedException: <p>Either your KMS key policy or API caller does not have the required permissions.</p>
+            aws_sdk_sfn.errors.kms_invalid_state_exception.KmsInvalidStateException: <p>The KMS key is not in valid state, for example: Disabled or Deleted.</p>
+            aws_sdk_sfn.errors.kms_throttling_exception.KmsThrottlingException: <p>Received when KMS returns <code>ThrottlingException</code> for a KMS call that Step Functions makes on behalf of the caller.</p>
+            aws_sdk_sfn.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -858,6 +967,15 @@ class SFNClient:
             reverse_order: <p>Lists events in descending order of their <code>timeStamp</code>.</p>
             next_token: <p>If <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an <i>HTTP 400 InvalidToken</i> error.</p>
             include_execution_data: <p>You can select whether execution data (input or output of a history event) is returned. The default is <code>true</code>.</p>
+
+        Raises:
+            aws_sdk_sfn.errors.execution_does_not_exist.ExecutionDoesNotExist: <p>The specified execution does not exist.</p>
+            aws_sdk_sfn.errors.invalid_arn.InvalidArn: <p>The provided Amazon Resource Name (ARN) is not valid.</p>
+            aws_sdk_sfn.errors.invalid_token.InvalidToken: <p>The provided token is not valid.</p>
+            aws_sdk_sfn.errors.kms_access_denied_exception.KmsAccessDeniedException: <p>Either your KMS key policy or API caller does not have the required permissions.</p>
+            aws_sdk_sfn.errors.kms_invalid_state_exception.KmsInvalidStateException: <p>The KMS key is not in valid state, for example: Disabled or Deleted.</p>
+            aws_sdk_sfn.errors.kms_throttling_exception.KmsThrottlingException: <p>Received when KMS returns <code>ThrottlingException</code> for a KMS call that Step Functions makes on behalf of the caller.</p>
+            aws_sdk_sfn.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -934,6 +1052,10 @@ class SFNClient:
         Args:
             max_results: <p>The maximum number of results that are returned per call. You can use <code>nextToken</code> to obtain further pages of results. The default is 100 and the maximum allowed page size is 1000. A value of 0 uses the default.</p> <p>This is only an upper limit. The actual number of results returned per call might be fewer than the specified maximum.</p>
             next_token: <p>If <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an <i>HTTP 400 InvalidToken</i> error.</p>
+
+        Raises:
+            aws_sdk_sfn.errors.invalid_token.InvalidToken: <p>The provided token is not valid.</p>
+            aws_sdk_sfn.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1011,6 +1133,15 @@ class SFNClient:
             next_token: <p>If <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an <i>HTTP 400 InvalidToken</i> error.</p>
             map_run_arn: <p>The Amazon Resource Name (ARN) of the Map Run that started the child workflow executions. If the <code>mapRunArn</code> field is specified, a list of all of the child workflow executions started by a Map Run is returned. For more information, see <a href=\"https://docs.aws.amazon.com/step-functions/latest/dg/concepts-examine-map-run.html\">Examining Map Run</a> in the <i>Step Functions Developer Guide</i>.</p> <p>You can specify either a <code>mapRunArn</code> or a <code>stateMachineArn</code>, but not both.</p>
             redrive_filter: <p>Sets a filter to list executions based on whether or not they have been redriven.</p> <p>For a Distributed Map, <code>redriveFilter</code> sets a filter to list child workflow executions based on whether or not they have been redriven.</p> <p>If you do not provide a <code>redriveFilter</code>, Step Functions returns a list of both redriven and non-redriven executions.</p> <p>If you provide a state machine ARN in <code>redriveFilter</code>, the API returns a validation exception.</p>
+
+        Raises:
+            aws_sdk_sfn.errors.invalid_arn.InvalidArn: <p>The provided Amazon Resource Name (ARN) is not valid.</p>
+            aws_sdk_sfn.errors.invalid_token.InvalidToken: <p>The provided token is not valid.</p>
+            aws_sdk_sfn.errors.resource_not_found.ResourceNotFound: <p>Could not find the referenced resource.</p>
+            aws_sdk_sfn.errors.state_machine_does_not_exist.StateMachineDoesNotExist: <p>The specified state machine does not exist.</p>
+            aws_sdk_sfn.errors.state_machine_type_not_supported.StateMachineTypeNotSupported: <p>State machine type is not supported.</p>
+            aws_sdk_sfn.errors.validation_exception.ValidationException: <p>The input does not satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_sfn.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1098,6 +1229,12 @@ class SFNClient:
             execution_arn: <p>The Amazon Resource Name (ARN) of the execution for which the Map Runs must be listed.</p>
             max_results: <p>The maximum number of results that are returned per call. You can use <code>nextToken</code> to obtain further pages of results. The default is 100 and the maximum allowed page size is 1000. A value of 0 uses the default.</p> <p>This is only an upper limit. The actual number of results returned per call might be fewer than the specified maximum.</p>
             next_token: <p>If <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an <i>HTTP 400 InvalidToken</i> error.</p>
+
+        Raises:
+            aws_sdk_sfn.errors.execution_does_not_exist.ExecutionDoesNotExist: <p>The specified execution does not exist.</p>
+            aws_sdk_sfn.errors.invalid_arn.InvalidArn: <p>The provided Amazon Resource Name (ARN) is not valid.</p>
+            aws_sdk_sfn.errors.invalid_token.InvalidToken: <p>The provided token is not valid.</p>
+            aws_sdk_sfn.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1166,6 +1303,14 @@ class SFNClient:
             state_machine_arn: <p>The Amazon Resource Name (ARN) of the state machine for which you want to list aliases.</p> <p>If you specify a state machine version ARN, this API returns a list of aliases for that version.</p>
             next_token: <p>If <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an <i>HTTP 400 InvalidToken</i> error.</p>
             max_results: <p>The maximum number of results that are returned per call. You can use <code>nextToken</code> to obtain further pages of results. The default is 100 and the maximum allowed page size is 1000. A value of 0 uses the default.</p> <p>This is only an upper limit. The actual number of results returned per call might be fewer than the specified maximum.</p>
+
+        Raises:
+            aws_sdk_sfn.errors.invalid_arn.InvalidArn: <p>The provided Amazon Resource Name (ARN) is not valid.</p>
+            aws_sdk_sfn.errors.invalid_token.InvalidToken: <p>The provided token is not valid.</p>
+            aws_sdk_sfn.errors.resource_not_found.ResourceNotFound: <p>Could not find the referenced resource.</p>
+            aws_sdk_sfn.errors.state_machine_deleting.StateMachineDeleting: <p>The specified state machine is being deleted.</p>
+            aws_sdk_sfn.errors.state_machine_does_not_exist.StateMachineDoesNotExist: <p>The specified state machine does not exist.</p>
+            aws_sdk_sfn.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1209,6 +1354,10 @@ class SFNClient:
         Args:
             max_results: <p>The maximum number of results that are returned per call. You can use <code>nextToken</code> to obtain further pages of results. The default is 100 and the maximum allowed page size is 1000. A value of 0 uses the default.</p> <p>This is only an upper limit. The actual number of results returned per call might be fewer than the specified maximum.</p>
             next_token: <p>If <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an <i>HTTP 400 InvalidToken</i> error.</p>
+
+        Raises:
+            aws_sdk_sfn.errors.invalid_token.InvalidToken: <p>The provided token is not valid.</p>
+            aws_sdk_sfn.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1274,6 +1423,12 @@ class SFNClient:
             state_machine_arn: <p>The Amazon Resource Name (ARN) of the state machine.</p>
             next_token: <p>If <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an <i>HTTP 400 InvalidToken</i> error.</p>
             max_results: <p>The maximum number of results that are returned per call. You can use <code>nextToken</code> to obtain further pages of results. The default is 100 and the maximum allowed page size is 1000. A value of 0 uses the default.</p> <p>This is only an upper limit. The actual number of results returned per call might be fewer than the specified maximum.</p>
+
+        Raises:
+            aws_sdk_sfn.errors.invalid_arn.InvalidArn: <p>The provided Amazon Resource Name (ARN) is not valid.</p>
+            aws_sdk_sfn.errors.invalid_token.InvalidToken: <p>The provided token is not valid.</p>
+            aws_sdk_sfn.errors.validation_exception.ValidationException: <p>The input does not satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_sfn.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1315,6 +1470,11 @@ class SFNClient:
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) for the Step Functions state machine or activity.</p>
+
+        Raises:
+            aws_sdk_sfn.errors.invalid_arn.InvalidArn: <p>The provided Amazon Resource Name (ARN) is not valid.</p>
+            aws_sdk_sfn.errors.resource_not_found.ResourceNotFound: <p>Could not find the referenced resource.</p>
+            aws_sdk_sfn.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1358,6 +1518,15 @@ class SFNClient:
             state_machine_arn: <p>The Amazon Resource Name (ARN) of the state machine.</p>
             revision_id: <p>Only publish the state machine version if the current state machine's revision ID matches the specified ID.</p> <p>Use this option to avoid publishing a version if the state machine changed since you last updated it. If the specified revision ID doesn't match the state machine's current revision ID, the API returns <code>ConflictException</code>.</p> <note> <p>To specify an initial revision ID for a state machine with no revision ID assigned, specify the string <code>INITIAL</code> for the <code>revisionId</code> parameter. For example, you can specify a <code>revisionID</code> of <code>INITIAL</code> when you create a state machine using the <a>CreateStateMachine</a> API action.</p> </note>
             description: <p>An optional description of the state machine version.</p>
+
+        Raises:
+            aws_sdk_sfn.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state. This error occurs when there're concurrent requests for <a>DeleteStateMachineVersion</a>, <a>PublishStateMachineVersion</a>, or <a>UpdateStateMachine</a> with the <code>publish</code> parameter set to <code>true</code>.</p> <p>HTTP Status Code: 409</p>
+            aws_sdk_sfn.errors.invalid_arn.InvalidArn: <p>The provided Amazon Resource Name (ARN) is not valid.</p>
+            aws_sdk_sfn.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request would cause a service quota to be exceeded.</p> <p>HTTP Status Code: 402</p>
+            aws_sdk_sfn.errors.state_machine_deleting.StateMachineDeleting: <p>The specified state machine is being deleted.</p>
+            aws_sdk_sfn.errors.state_machine_does_not_exist.StateMachineDoesNotExist: <p>The specified state machine does not exist.</p>
+            aws_sdk_sfn.errors.validation_exception.ValidationException: <p>The input does not satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_sfn.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1401,6 +1570,14 @@ class SFNClient:
         Args:
             execution_arn: <p>The Amazon Resource Name (ARN) of the execution to be redriven.</p>
             client_token: <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If you don’t specify a client token, the Amazon Web Services SDK automatically generates a client token and uses it for the request to ensure idempotency. The API will return idempotent responses for the last 10 client tokens used to successfully redrive the execution. These client tokens are valid for up to 15 minutes after they are first used.</p>
+
+        Raises:
+            aws_sdk_sfn.errors.execution_does_not_exist.ExecutionDoesNotExist: <p>The specified execution does not exist.</p>
+            aws_sdk_sfn.errors.execution_limit_exceeded.ExecutionLimitExceeded: <p>The maximum number of running executions has been reached. Running executions must end or be stopped before a new execution can be started.</p>
+            aws_sdk_sfn.errors.execution_not_redrivable.ExecutionNotRedrivable: <p>The execution Amazon Resource Name (ARN) that you specified for <code>executionArn</code> cannot be redriven.</p>
+            aws_sdk_sfn.errors.invalid_arn.InvalidArn: <p>The provided Amazon Resource Name (ARN) is not valid.</p>
+            aws_sdk_sfn.errors.validation_exception.ValidationException: <p>The input does not satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_sfn.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1444,6 +1621,15 @@ class SFNClient:
             task_token: <p>The token that represents this task. Task tokens are generated by Step Functions when tasks are assigned to a worker, or in the <a href=\"https://docs.aws.amazon.com/step-functions/latest/dg/input-output-contextobject.html\">context object</a> when a workflow enters a task state. See <a>GetActivityTaskOutput$taskToken</a>.</p>
             error: <p>The error code of the failure.</p>
             cause: <p>A more detailed explanation of the cause of the failure.</p>
+
+        Raises:
+            aws_sdk_sfn.errors.invalid_token.InvalidToken: <p>The provided token is not valid.</p>
+            aws_sdk_sfn.errors.kms_access_denied_exception.KmsAccessDeniedException: <p>Either your KMS key policy or API caller does not have the required permissions.</p>
+            aws_sdk_sfn.errors.kms_invalid_state_exception.KmsInvalidStateException: <p>The KMS key is not in valid state, for example: Disabled or Deleted.</p>
+            aws_sdk_sfn.errors.kms_throttling_exception.KmsThrottlingException: <p>Received when KMS returns <code>ThrottlingException</code> for a KMS call that Step Functions makes on behalf of the caller.</p>
+            aws_sdk_sfn.errors.task_does_not_exist.TaskDoesNotExist: <p>The activity does not exist.</p>
+            aws_sdk_sfn.errors.task_timed_out.TaskTimedOut: <p>The task token has either expired or the task associated with the token has already been closed.</p>
+            aws_sdk_sfn.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1485,6 +1671,12 @@ class SFNClient:
 
         Args:
             task_token: <p>The token that represents this task. Task tokens are generated by Step Functions when tasks are assigned to a worker, or in the <a href=\"https://docs.aws.amazon.com/step-functions/latest/dg/input-output-contextobject.html\">context object</a> when a workflow enters a task state. See <a>GetActivityTaskOutput$taskToken</a>.</p>
+
+        Raises:
+            aws_sdk_sfn.errors.invalid_token.InvalidToken: <p>The provided token is not valid.</p>
+            aws_sdk_sfn.errors.task_does_not_exist.TaskDoesNotExist: <p>The activity does not exist.</p>
+            aws_sdk_sfn.errors.task_timed_out.TaskTimedOut: <p>The task token has either expired or the task associated with the token has already been closed.</p>
+            aws_sdk_sfn.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1524,6 +1716,16 @@ class SFNClient:
         Args:
             task_token: <p>The token that represents this task. Task tokens are generated by Step Functions when tasks are assigned to a worker, or in the <a href=\"https://docs.aws.amazon.com/step-functions/latest/dg/input-output-contextobject.html\">context object</a> when a workflow enters a task state. See <a>GetActivityTaskOutput$taskToken</a>.</p>
             output: <p>The JSON output of the task. Length constraints apply to the payload size, and are expressed as bytes in UTF-8 encoding.</p>
+
+        Raises:
+            aws_sdk_sfn.errors.invalid_output.InvalidOutput: <p>The provided JSON output data is not valid.</p>
+            aws_sdk_sfn.errors.invalid_token.InvalidToken: <p>The provided token is not valid.</p>
+            aws_sdk_sfn.errors.kms_access_denied_exception.KmsAccessDeniedException: <p>Either your KMS key policy or API caller does not have the required permissions.</p>
+            aws_sdk_sfn.errors.kms_invalid_state_exception.KmsInvalidStateException: <p>The KMS key is not in valid state, for example: Disabled or Deleted.</p>
+            aws_sdk_sfn.errors.kms_throttling_exception.KmsThrottlingException: <p>Received when KMS returns <code>ThrottlingException</code> for a KMS call that Step Functions makes on behalf of the caller.</p>
+            aws_sdk_sfn.errors.task_does_not_exist.TaskDoesNotExist: <p>The activity does not exist.</p>
+            aws_sdk_sfn.errors.task_timed_out.TaskTimedOut: <p>The task token has either expired or the task associated with the token has already been closed.</p>
+            aws_sdk_sfn.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1568,6 +1770,20 @@ class SFNClient:
             name: <p>Optional name of the execution. This name must be unique for your Amazon Web Services account, Region, and state machine for 90 days. For more information, see <a href=\"https://docs.aws.amazon.com/step-functions/latest/dg/limits.html#service-limits-state-machine-executions\"> Limits Related to State Machine Executions</a> in the <i>Step Functions Developer Guide</i>.</p> <p>If you don't provide a name for the execution, Step Functions automatically generates a universally unique identifier (UUID) as the execution name.</p> <p>A name must <i>not</i> contain:</p> <ul> <li> <p>white space</p> </li> <li> <p>brackets <code>< > { } [ ]</code> </p> </li> <li> <p>wildcard characters <code>? *</code> </p> </li> <li> <p>special characters <code>\" # % \ ^ | ~ ` $ & , ; : /</code> </p> </li> <li> <p>control characters (<code>U+0000-001F</code>, <code>U+007F-009F</code>, <code>U+FFFE-FFFF</code>)</p> </li> <li> <p>surrogates (<code>U+D800-DFFF</code>)</p> </li> <li> <p>invalid characters (<code> U+10FFFF</code>)</p> </li> </ul> <p>To enable logging with CloudWatch Logs, the name should only contain 0-9, A-Z, a-z, - and _.</p>
             input: <p>The string that contains the JSON input data for the execution, for example:</p> <p> <code>\"{\\"first_name\\" : \\"Alejandro\\"}\"</code> </p> <note> <p>If you don't include any JSON input data, you still must include the two braces, for example: <code>\"{}\"</code> </p> </note> <p>Length constraints apply to the payload size, and are expressed as bytes in UTF-8 encoding.</p>
             trace_header: <p>Passes the X-Ray trace header. The trace header can also be passed in the request payload.</p> <note> <p> For X-Ray traces, all Amazon Web Services services use the <code>X-Amzn-Trace-Id</code> header from the HTTP request. Using the header is the preferred mechanism to identify a trace. <code>StartExecution</code> and <code>StartSyncExecution</code> API operations can also use <code>traceHeader</code> from the body of the request payload. If <b>both</b> sources are provided, Step Functions will use the <b>header value</b> (preferred) over the value in the request body. </p> </note>
+
+        Raises:
+            aws_sdk_sfn.errors.execution_already_exists.ExecutionAlreadyExists: <p>The execution has the same <code>name</code> as another execution (but a different <code>input</code>).</p> <note> <p>Executions with the same <code>name</code> and <code>input</code> are considered idempotent.</p> </note>
+            aws_sdk_sfn.errors.execution_limit_exceeded.ExecutionLimitExceeded: <p>The maximum number of running executions has been reached. Running executions must end or be stopped before a new execution can be started.</p>
+            aws_sdk_sfn.errors.invalid_arn.InvalidArn: <p>The provided Amazon Resource Name (ARN) is not valid.</p>
+            aws_sdk_sfn.errors.invalid_execution_input.InvalidExecutionInput: <p>The provided JSON input data is not valid.</p>
+            aws_sdk_sfn.errors.invalid_name.InvalidName: <p>The provided name is not valid.</p>
+            aws_sdk_sfn.errors.kms_access_denied_exception.KmsAccessDeniedException: <p>Either your KMS key policy or API caller does not have the required permissions.</p>
+            aws_sdk_sfn.errors.kms_invalid_state_exception.KmsInvalidStateException: <p>The KMS key is not in valid state, for example: Disabled or Deleted.</p>
+            aws_sdk_sfn.errors.kms_throttling_exception.KmsThrottlingException: <p>Received when KMS returns <code>ThrottlingException</code> for a KMS call that Step Functions makes on behalf of the caller.</p>
+            aws_sdk_sfn.errors.state_machine_deleting.StateMachineDeleting: <p>The specified state machine is being deleted.</p>
+            aws_sdk_sfn.errors.state_machine_does_not_exist.StateMachineDoesNotExist: <p>The specified state machine does not exist.</p>
+            aws_sdk_sfn.errors.validation_exception.ValidationException: <p>The input does not satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_sfn.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1619,6 +1835,18 @@ class SFNClient:
             input: <p>The string that contains the JSON input data for the execution, for example:</p> <p> <code>\"{\\"first_name\\" : \\"Alejandro\\"}\"</code> </p> <note> <p>If you don't include any JSON input data, you still must include the two braces, for example: <code>\"{}\"</code> </p> </note> <p>Length constraints apply to the payload size, and are expressed as bytes in UTF-8 encoding.</p>
             trace_header: <p>Passes the X-Ray trace header. The trace header can also be passed in the request payload.</p> <note> <p> For X-Ray traces, all Amazon Web Services services use the <code>X-Amzn-Trace-Id</code> header from the HTTP request. Using the header is the preferred mechanism to identify a trace. <code>StartExecution</code> and <code>StartSyncExecution</code> API operations can also use <code>traceHeader</code> from the body of the request payload. If <b>both</b> sources are provided, Step Functions will use the <b>header value</b> (preferred) over the value in the request body. </p> </note>
             included_data: <p>If your state machine definition is encrypted with a KMS key, callers must have <code>kms:Decrypt</code> permission to decrypt the definition. Alternatively, you can call the API with <code>includedData = METADATA_ONLY</code> to get a successful response without the encrypted definition.</p>
+
+        Raises:
+            aws_sdk_sfn.errors.invalid_arn.InvalidArn: <p>The provided Amazon Resource Name (ARN) is not valid.</p>
+            aws_sdk_sfn.errors.invalid_execution_input.InvalidExecutionInput: <p>The provided JSON input data is not valid.</p>
+            aws_sdk_sfn.errors.invalid_name.InvalidName: <p>The provided name is not valid.</p>
+            aws_sdk_sfn.errors.kms_access_denied_exception.KmsAccessDeniedException: <p>Either your KMS key policy or API caller does not have the required permissions.</p>
+            aws_sdk_sfn.errors.kms_invalid_state_exception.KmsInvalidStateException: <p>The KMS key is not in valid state, for example: Disabled or Deleted.</p>
+            aws_sdk_sfn.errors.kms_throttling_exception.KmsThrottlingException: <p>Received when KMS returns <code>ThrottlingException</code> for a KMS call that Step Functions makes on behalf of the caller.</p>
+            aws_sdk_sfn.errors.state_machine_deleting.StateMachineDeleting: <p>The specified state machine is being deleted.</p>
+            aws_sdk_sfn.errors.state_machine_does_not_exist.StateMachineDoesNotExist: <p>The specified state machine does not exist.</p>
+            aws_sdk_sfn.errors.state_machine_type_not_supported.StateMachineTypeNotSupported: <p>State machine type is not supported.</p>
+            aws_sdk_sfn.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1668,6 +1896,15 @@ class SFNClient:
             execution_arn: <p>The Amazon Resource Name (ARN) of the execution to stop.</p>
             error: <p>The error code of the failure.</p>
             cause: <p>A more detailed explanation of the cause of the failure.</p>
+
+        Raises:
+            aws_sdk_sfn.errors.execution_does_not_exist.ExecutionDoesNotExist: <p>The specified execution does not exist.</p>
+            aws_sdk_sfn.errors.invalid_arn.InvalidArn: <p>The provided Amazon Resource Name (ARN) is not valid.</p>
+            aws_sdk_sfn.errors.kms_access_denied_exception.KmsAccessDeniedException: <p>Either your KMS key policy or API caller does not have the required permissions.</p>
+            aws_sdk_sfn.errors.kms_invalid_state_exception.KmsInvalidStateException: <p>The KMS key is not in valid state, for example: Disabled or Deleted.</p>
+            aws_sdk_sfn.errors.kms_throttling_exception.KmsThrottlingException: <p>Received when KMS returns <code>ThrottlingException</code> for a KMS call that Step Functions makes on behalf of the caller.</p>
+            aws_sdk_sfn.errors.validation_exception.ValidationException: <p>The input does not satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_sfn.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1711,6 +1948,12 @@ class SFNClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) for the Step Functions state machine or activity.</p>
             tags: <p>The list of tags to add to a resource.</p> <p>Tags may only contain Unicode letters, digits, white space, or these symbols: <code>_ . : / = + - @</code>.</p>
+
+        Raises:
+            aws_sdk_sfn.errors.invalid_arn.InvalidArn: <p>The provided Amazon Resource Name (ARN) is not valid.</p>
+            aws_sdk_sfn.errors.resource_not_found.ResourceNotFound: <p>Could not find the referenced resource.</p>
+            aws_sdk_sfn.errors.too_many_tags.TooManyTags: <p>You've exceeded the number of tags allowed for a resource. See the <a href=\"https://docs.aws.amazon.com/step-functions/latest/dg/limits.html\"> Limits Topic</a> in the Step Functions Developer Guide.</p>
+            aws_sdk_sfn.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1775,6 +2018,13 @@ class SFNClient:
             mock: <p>Defines a mocked result or error for the state under test.</p> <p>A mock can only be specified for Task, Map, or Parallel states. If it is specified for another state type, an exception will be thrown.</p>
             context: <p>A JSON string representing a valid Context object for the state under test. This field may only be specified if a mock is specified in the same request.</p>
             state_configuration: <p>Contains configurations for the state under test.</p>
+
+        Raises:
+            aws_sdk_sfn.errors.invalid_arn.InvalidArn: <p>The provided Amazon Resource Name (ARN) is not valid.</p>
+            aws_sdk_sfn.errors.invalid_definition.InvalidDefinition: <p>The provided Amazon States Language definition is not valid.</p>
+            aws_sdk_sfn.errors.invalid_execution_input.InvalidExecutionInput: <p>The provided JSON input data is not valid.</p>
+            aws_sdk_sfn.errors.validation_exception.ValidationException: <p>The input does not satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_sfn.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1830,6 +2080,11 @@ class SFNClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) for the Step Functions state machine or activity.</p>
             tag_keys: <p>The list of tags to remove from the resource.</p>
+
+        Raises:
+            aws_sdk_sfn.errors.invalid_arn.InvalidArn: <p>The provided Amazon Resource Name (ARN) is not valid.</p>
+            aws_sdk_sfn.errors.resource_not_found.ResourceNotFound: <p>Could not find the referenced resource.</p>
+            aws_sdk_sfn.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1880,6 +2135,12 @@ class SFNClient:
             max_concurrency: <p>The maximum number of child workflow executions that can be specified to run in parallel for the Map Run at the same time.</p>
             tolerated_failure_percentage: <p>The maximum percentage of failed items before the Map Run fails.</p>
             tolerated_failure_count: <p>The maximum number of failed items before the Map Run fails.</p>
+
+        Raises:
+            aws_sdk_sfn.errors.invalid_arn.InvalidArn: <p>The provided Amazon Resource Name (ARN) is not valid.</p>
+            aws_sdk_sfn.errors.resource_not_found.ResourceNotFound: <p>Could not find the referenced resource.</p>
+            aws_sdk_sfn.errors.validation_exception.ValidationException: <p>The input does not satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_sfn.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1945,6 +2206,22 @@ class SFNClient:
             publish: <p>Specifies whether the state machine version is published. The default is <code>false</code>. To publish a version after updating the state machine, set <code>publish</code> to <code>true</code>.</p>
             version_description: <p>An optional description of the state machine version to publish.</p> <p>You can only specify the <code>versionDescription</code> parameter if you've set <code>publish</code> to <code>true</code>.</p>
             encryption_configuration: <p>Settings to configure server-side encryption. </p>
+
+        Raises:
+            aws_sdk_sfn.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state. This error occurs when there're concurrent requests for <a>DeleteStateMachineVersion</a>, <a>PublishStateMachineVersion</a>, or <a>UpdateStateMachine</a> with the <code>publish</code> parameter set to <code>true</code>.</p> <p>HTTP Status Code: 409</p>
+            aws_sdk_sfn.errors.invalid_arn.InvalidArn: <p>The provided Amazon Resource Name (ARN) is not valid.</p>
+            aws_sdk_sfn.errors.invalid_definition.InvalidDefinition: <p>The provided Amazon States Language definition is not valid.</p>
+            aws_sdk_sfn.errors.invalid_encryption_configuration.InvalidEncryptionConfiguration: <p>Received when <code>encryptionConfiguration</code> is specified but various conditions exist which make the configuration invalid. For example, if <code>type</code> is set to <code>CUSTOMER_MANAGED_KMS_KEY</code>, but <code>kmsKeyId</code> is null, or <code>kmsDataKeyReusePeriodSeconds</code> is not between 60 and 900, or the KMS key is not symmetric or inactive.</p>
+            aws_sdk_sfn.errors.invalid_logging_configuration.InvalidLoggingConfiguration: <p>Configuration is not valid.</p>
+            aws_sdk_sfn.errors.invalid_tracing_configuration.InvalidTracingConfiguration: <p>Your <code>tracingConfiguration</code> key does not match, or <code>enabled</code> has not been set to <code>true</code> or <code>false</code>.</p>
+            aws_sdk_sfn.errors.kms_access_denied_exception.KmsAccessDeniedException: <p>Either your KMS key policy or API caller does not have the required permissions.</p>
+            aws_sdk_sfn.errors.kms_throttling_exception.KmsThrottlingException: <p>Received when KMS returns <code>ThrottlingException</code> for a KMS call that Step Functions makes on behalf of the caller.</p>
+            aws_sdk_sfn.errors.missing_required_parameter.MissingRequiredParameter: <p>Request is missing a required parameter. This error occurs if both <code>definition</code> and <code>roleArn</code> are not specified.</p>
+            aws_sdk_sfn.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request would cause a service quota to be exceeded.</p> <p>HTTP Status Code: 402</p>
+            aws_sdk_sfn.errors.state_machine_deleting.StateMachineDeleting: <p>The specified state machine is being deleted.</p>
+            aws_sdk_sfn.errors.state_machine_does_not_exist.StateMachineDoesNotExist: <p>The specified state machine does not exist.</p>
+            aws_sdk_sfn.errors.validation_exception.ValidationException: <p>The input does not satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_sfn.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2004,6 +2281,14 @@ class SFNClient:
             state_machine_alias_arn: <p>The Amazon Resource Name (ARN) of the state machine alias.</p>
             description: <p>A description of the state machine alias.</p>
             routing_configuration: <p>The routing configuration of the state machine alias.</p> <p>An array of <code>RoutingConfig</code> objects that specifies up to two state machine versions that the alias starts executions for.</p>
+
+        Raises:
+            aws_sdk_sfn.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state. This error occurs when there're concurrent requests for <a>DeleteStateMachineVersion</a>, <a>PublishStateMachineVersion</a>, or <a>UpdateStateMachine</a> with the <code>publish</code> parameter set to <code>true</code>.</p> <p>HTTP Status Code: 409</p>
+            aws_sdk_sfn.errors.invalid_arn.InvalidArn: <p>The provided Amazon Resource Name (ARN) is not valid.</p>
+            aws_sdk_sfn.errors.resource_not_found.ResourceNotFound: <p>Could not find the referenced resource.</p>
+            aws_sdk_sfn.errors.state_machine_deleting.StateMachineDeleting: <p>The specified state machine is being deleted.</p>
+            aws_sdk_sfn.errors.validation_exception.ValidationException: <p>The input does not satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_sfn.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2055,6 +2340,10 @@ class SFNClient:
             type: <p>The target type of state machine for this definition. The default is <code>STANDARD</code>.</p>
             severity: <p>Minimum level of diagnostics to return. <code>ERROR</code> returns only <code>ERROR</code> diagnostics, whereas <code>WARNING</code> returns both <code>WARNING</code> and <code>ERROR</code> diagnostics. The default is <code>ERROR</code>. </p>
             max_results: <p>The maximum number of diagnostics that are returned per call. The default and maximum value is 100. Setting the value to 0 will also use the default of 100.</p> <p>If the number of diagnostics returned in the response exceeds <code>maxResults</code>, the value of the <code>truncated</code> field in the response will be set to <code>true</code>.</p>
+
+        Raises:
+            aws_sdk_sfn.errors.validation_exception.ValidationException: <p>The input does not satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_sfn.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(

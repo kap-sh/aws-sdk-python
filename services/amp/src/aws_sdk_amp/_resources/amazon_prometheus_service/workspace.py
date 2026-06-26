@@ -55,6 +55,15 @@ class Workspace:
             client_token: <p>A unique identifier that you can provide to ensure the idempotency of the request. Case-sensitive.</p>
             tags: <p>The list of tag keys and values to associate with the workspace.</p>
             kms_key_arn: <p>(optional) The ARN for a customer managed KMS key to use for encrypting data within your workspace. For more information about using your own key in your workspace, see <a href=\"https://docs.aws.amazon.com/prometheus/latest/userguide/encryption-at-rest-Amazon-Service-Prometheus.html\">Encryption at rest</a> in the <i>Amazon Managed Service for Prometheus User Guide</i>.</p>
+
+        Raises:
+            aws_sdk_amp.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_amp.errors.conflict_exception.ConflictException: <p>The request would cause an inconsistent state.</p>
+            aws_sdk_amp.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred during the processing of the request.</p>
+            aws_sdk_amp.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Completing the request would cause a service quota to be exceeded.</p>
+            aws_sdk_amp.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_amp.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_amp.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -99,6 +108,14 @@ class Workspace:
 
         Args:
             workspace_id: <p>The ID of the workspace to describe.</p>
+
+        Raises:
+            aws_sdk_amp.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_amp.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred during the processing of the request.</p>
+            aws_sdk_amp.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resources that doesn't exist.</p>
+            aws_sdk_amp.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_amp.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_amp.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -142,6 +159,16 @@ class Workspace:
             workspace_id: <p>The ID of the workspace to update.</p>
             alias: <p>The new alias for the workspace. It does not need to be unique.</p> <p>Amazon Managed Service for Prometheus will automatically strip any blank spaces from the beginning and end of the alias that you specify.</p>
             client_token: <p>A unique identifier that you can provide to ensure the idempotency of the request. Case-sensitive.</p>
+
+        Raises:
+            aws_sdk_amp.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_amp.errors.conflict_exception.ConflictException: <p>The request would cause an inconsistent state.</p>
+            aws_sdk_amp.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred during the processing of the request.</p>
+            aws_sdk_amp.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resources that doesn't exist.</p>
+            aws_sdk_amp.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Completing the request would cause a service quota to be exceeded.</p>
+            aws_sdk_amp.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_amp.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_amp.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -185,6 +212,15 @@ class Workspace:
         Args:
             workspace_id: <p>The ID of the workspace to delete.</p>
             client_token: <p>A unique identifier that you can provide to ensure the idempotency of the request. Case-sensitive.</p>
+
+        Raises:
+            aws_sdk_amp.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_amp.errors.conflict_exception.ConflictException: <p>The request would cause an inconsistent state.</p>
+            aws_sdk_amp.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred during the processing of the request.</p>
+            aws_sdk_amp.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resources that doesn't exist.</p>
+            aws_sdk_amp.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_amp.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_amp.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -228,6 +264,13 @@ class Workspace:
             next_token: <p>The token for the next set of items to return. You receive this token from a previous call, and use it to get the next page of results. The other parameters must be the same as the initial call.</p> <p>For example, if your initial request has <code>maxResults</code> of 10, and there are 12 workspaces to return, then your initial request will return 10 and a <code>nextToken</code>. Using the next token in a subsequent call will return the remaining 2 workspaces.</p>
             alias: <p>If this is included, it filters the results to only the workspaces with names that start with the value that you specify here.</p> <p>Amazon Managed Service for Prometheus will automatically strip any blank spaces from the beginning and end of the alias that you specify.</p>
             max_results: <p>The maximum number of workspaces to return per request. The default is 100.</p>
+
+        Raises:
+            aws_sdk_amp.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_amp.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred during the processing of the request.</p>
+            aws_sdk_amp.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_amp.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_amp.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -283,6 +326,15 @@ class AsyncWorkspace:
             client_token: <p>A unique identifier that you can provide to ensure the idempotency of the request. Case-sensitive.</p>
             tags: <p>The list of tag keys and values to associate with the workspace.</p>
             kms_key_arn: <p>(optional) The ARN for a customer managed KMS key to use for encrypting data within your workspace. For more information about using your own key in your workspace, see <a href=\"https://docs.aws.amazon.com/prometheus/latest/userguide/encryption-at-rest-Amazon-Service-Prometheus.html\">Encryption at rest</a> in the <i>Amazon Managed Service for Prometheus User Guide</i>.</p>
+
+        Raises:
+            aws_sdk_amp.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_amp.errors.conflict_exception.ConflictException: <p>The request would cause an inconsistent state.</p>
+            aws_sdk_amp.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred during the processing of the request.</p>
+            aws_sdk_amp.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Completing the request would cause a service quota to be exceeded.</p>
+            aws_sdk_amp.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_amp.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_amp.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -328,6 +380,14 @@ class AsyncWorkspace:
 
         Args:
             workspace_id: <p>The ID of the workspace to describe.</p>
+
+        Raises:
+            aws_sdk_amp.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_amp.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred during the processing of the request.</p>
+            aws_sdk_amp.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resources that doesn't exist.</p>
+            aws_sdk_amp.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_amp.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_amp.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -372,6 +432,16 @@ class AsyncWorkspace:
             workspace_id: <p>The ID of the workspace to update.</p>
             alias: <p>The new alias for the workspace. It does not need to be unique.</p> <p>Amazon Managed Service for Prometheus will automatically strip any blank spaces from the beginning and end of the alias that you specify.</p>
             client_token: <p>A unique identifier that you can provide to ensure the idempotency of the request. Case-sensitive.</p>
+
+        Raises:
+            aws_sdk_amp.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_amp.errors.conflict_exception.ConflictException: <p>The request would cause an inconsistent state.</p>
+            aws_sdk_amp.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred during the processing of the request.</p>
+            aws_sdk_amp.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resources that doesn't exist.</p>
+            aws_sdk_amp.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Completing the request would cause a service quota to be exceeded.</p>
+            aws_sdk_amp.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_amp.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_amp.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -416,6 +486,15 @@ class AsyncWorkspace:
         Args:
             workspace_id: <p>The ID of the workspace to delete.</p>
             client_token: <p>A unique identifier that you can provide to ensure the idempotency of the request. Case-sensitive.</p>
+
+        Raises:
+            aws_sdk_amp.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_amp.errors.conflict_exception.ConflictException: <p>The request would cause an inconsistent state.</p>
+            aws_sdk_amp.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred during the processing of the request.</p>
+            aws_sdk_amp.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resources that doesn't exist.</p>
+            aws_sdk_amp.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_amp.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_amp.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -460,6 +539,13 @@ class AsyncWorkspace:
             next_token: <p>The token for the next set of items to return. You receive this token from a previous call, and use it to get the next page of results. The other parameters must be the same as the initial call.</p> <p>For example, if your initial request has <code>maxResults</code> of 10, and there are 12 workspaces to return, then your initial request will return 10 and a <code>nextToken</code>. Using the next token in a subsequent call will return the remaining 2 workspaces.</p>
             alias: <p>If this is included, it filters the results to only the workspaces with names that start with the value that you specify here.</p> <p>Amazon Managed Service for Prometheus will automatically strip any blank spaces from the beginning and end of the alias that you specify.</p>
             max_results: <p>The maximum number of workspaces to return per request. The default is 100.</p>
+
+        Raises:
+            aws_sdk_amp.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_amp.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred during the processing of the request.</p>
+            aws_sdk_amp.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_amp.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_amp.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

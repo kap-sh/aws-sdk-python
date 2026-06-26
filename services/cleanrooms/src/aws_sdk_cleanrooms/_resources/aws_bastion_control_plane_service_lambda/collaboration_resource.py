@@ -174,6 +174,14 @@ class CollaborationResource:
             auto_approved_change_request_types: <p>The types of change requests that are automatically approved for this collaboration.</p>
             allowed_result_regions: <p>The Amazon Web Services Regions where collaboration query results can be stored. When specified, results can only be written to these Regions. This parameter enables you to meet your compliance and data governance requirements, and implement regional data governance policies.</p>
             is_metrics_enabled: <p>An indicator as to whether metrics have been enabled or disabled for the collaboration.</p> <p>When <code>true</code>, collaboration members can opt in to Amazon CloudWatch metrics for their membership queries. The default value is <code>false</code>.</p>
+
+        Raises:
+            aws_sdk_cleanrooms.errors.access_denied_exception.AccessDeniedException: <p>Caller does not have sufficient access to perform this action.</p>
+            aws_sdk_cleanrooms.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_cleanrooms.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Request denied because service quota has been exceeded.</p>
+            aws_sdk_cleanrooms.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_cleanrooms.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints.</p>
+            aws_sdk_cleanrooms.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -236,6 +244,13 @@ class CollaborationResource:
 
         Args:
             collaboration_identifier: <p>The identifier for the collaboration.</p>
+
+        Raises:
+            aws_sdk_cleanrooms.errors.access_denied_exception.AccessDeniedException: <p>Caller does not have sufficient access to perform this action.</p>
+            aws_sdk_cleanrooms.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_cleanrooms.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_cleanrooms.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints.</p>
+            aws_sdk_cleanrooms.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -287,6 +302,13 @@ class CollaborationResource:
             name: <p>A human-readable identifier provided by the collaboration owner. Display names are not unique.</p>
             description: <p>A description of the collaboration.</p>
             analytics_engine: <p>The analytics engine.</p> <note> <p>After July 16, 2025, the <code>CLEAN_ROOMS_SQL</code> parameter will no longer be available. </p> </note>
+
+        Raises:
+            aws_sdk_cleanrooms.errors.access_denied_exception.AccessDeniedException: <p>Caller does not have sufficient access to perform this action.</p>
+            aws_sdk_cleanrooms.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_cleanrooms.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_cleanrooms.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints.</p>
+            aws_sdk_cleanrooms.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -332,6 +354,13 @@ class CollaborationResource:
 
         Args:
             collaboration_identifier: <p>The identifier for the collaboration.</p>
+
+        Raises:
+            aws_sdk_cleanrooms.errors.access_denied_exception.AccessDeniedException: <p>Caller does not have sufficient access to perform this action.</p>
+            aws_sdk_cleanrooms.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_cleanrooms.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_cleanrooms.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints.</p>
+            aws_sdk_cleanrooms.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -377,6 +406,13 @@ class CollaborationResource:
             next_token: <p>The pagination token that's used to fetch the next set of results.</p>
             max_results: <p>The maximum number of results that are returned for an API request call. The service chooses a default number if you don't set one. The service might return a `nextToken` even if the `maxResults` value has not been met.</p>
             member_status: <p>The caller's status in a collaboration.</p>
+
+        Raises:
+            aws_sdk_cleanrooms.errors.access_denied_exception.AccessDeniedException: <p>Caller does not have sufficient access to perform this action.</p>
+            aws_sdk_cleanrooms.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_cleanrooms.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_cleanrooms.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints.</p>
+            aws_sdk_cleanrooms.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -421,6 +457,14 @@ class CollaborationResource:
         Args:
             collaboration_identifier: <p>A unique identifier for the collaboration that the analysis templates belong to. Currently accepts collaboration ID.</p>
             analysis_template_arns: <p>The Amazon Resource Name (ARN) associated with the analysis template within a collaboration.</p>
+
+        Raises:
+            aws_sdk_cleanrooms.errors.access_denied_exception.AccessDeniedException: <p>Caller does not have sufficient access to perform this action.</p>
+            aws_sdk_cleanrooms.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_cleanrooms.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_cleanrooms.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_cleanrooms.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints.</p>
+            aws_sdk_cleanrooms.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -461,6 +505,14 @@ class CollaborationResource:
         Args:
             collaboration_identifier: <p>A unique identifier for the collaboration that the schemas belong to. Currently accepts collaboration ID.</p>
             names: <p>The names for the schema objects to retrieve.</p>
+
+        Raises:
+            aws_sdk_cleanrooms.errors.access_denied_exception.AccessDeniedException: <p>Caller does not have sufficient access to perform this action.</p>
+            aws_sdk_cleanrooms.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_cleanrooms.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_cleanrooms.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_cleanrooms.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints.</p>
+            aws_sdk_cleanrooms.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -501,6 +553,14 @@ class CollaborationResource:
         Args:
             collaboration_identifier: <p>The unique identifier of the collaboration that contains the schema analysis rule.</p>
             schema_analysis_rule_requests: <p>The information that's necessary to retrieve a schema analysis rule.</p>
+
+        Raises:
+            aws_sdk_cleanrooms.errors.access_denied_exception.AccessDeniedException: <p>Caller does not have sufficient access to perform this action.</p>
+            aws_sdk_cleanrooms.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_cleanrooms.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_cleanrooms.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_cleanrooms.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints.</p>
+            aws_sdk_cleanrooms.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -541,6 +601,16 @@ class CollaborationResource:
         Args:
             collaboration_identifier: <p>The identifier of the collaboration that the change request is made against.</p>
             changes: <p>The list of changes to apply to the collaboration. Each change specifies the type of modification and the details of what should be changed.</p>
+
+        Raises:
+            aws_sdk_cleanrooms.errors.access_denied_exception.AccessDeniedException: <p>Caller does not have sufficient access to perform this action.</p>
+            aws_sdk_cleanrooms.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_cleanrooms.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_cleanrooms.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_cleanrooms.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Request denied because service quota has been exceeded.</p>
+            aws_sdk_cleanrooms.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_cleanrooms.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints.</p>
+            aws_sdk_cleanrooms.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -581,6 +651,15 @@ class CollaborationResource:
         Args:
             collaboration_identifier: <p>The unique identifier for the associated collaboration.</p>
             account_id: <p>The account ID of the member to remove.</p>
+
+        Raises:
+            aws_sdk_cleanrooms.errors.access_denied_exception.AccessDeniedException: <p>Caller does not have sufficient access to perform this action.</p>
+            aws_sdk_cleanrooms.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_cleanrooms.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_cleanrooms.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_cleanrooms.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_cleanrooms.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints.</p>
+            aws_sdk_cleanrooms.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -621,6 +700,14 @@ class CollaborationResource:
         Args:
             collaboration_identifier: <p>A unique identifier for the collaboration that the analysis templates belong to. Currently accepts collaboration ID.</p>
             analysis_template_arn: <p>The Amazon Resource Name (ARN) associated with the analysis template within a collaboration.</p>
+
+        Raises:
+            aws_sdk_cleanrooms.errors.access_denied_exception.AccessDeniedException: <p>Caller does not have sufficient access to perform this action.</p>
+            aws_sdk_cleanrooms.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_cleanrooms.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_cleanrooms.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_cleanrooms.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints.</p>
+            aws_sdk_cleanrooms.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -661,6 +748,14 @@ class CollaborationResource:
         Args:
             collaboration_identifier: <p>The identifier of the collaboration that the change request is made against.</p>
             change_request_identifier: <p>A unique identifier for the change request to retrieve.</p>
+
+        Raises:
+            aws_sdk_cleanrooms.errors.access_denied_exception.AccessDeniedException: <p>Caller does not have sufficient access to perform this action.</p>
+            aws_sdk_cleanrooms.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_cleanrooms.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_cleanrooms.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_cleanrooms.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints.</p>
+            aws_sdk_cleanrooms.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -701,6 +796,14 @@ class CollaborationResource:
         Args:
             collaboration_identifier: <p>A unique identifier for the collaboration that the configured audience model association belongs to. Accepts a collaboration ID.</p>
             configured_audience_model_association_identifier: <p>A unique identifier for the configured audience model association that you want to retrieve.</p>
+
+        Raises:
+            aws_sdk_cleanrooms.errors.access_denied_exception.AccessDeniedException: <p>Caller does not have sufficient access to perform this action.</p>
+            aws_sdk_cleanrooms.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_cleanrooms.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_cleanrooms.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_cleanrooms.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints.</p>
+            aws_sdk_cleanrooms.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -743,6 +846,14 @@ class CollaborationResource:
         Args:
             collaboration_identifier: <p>The unique identifier of the collaboration that contains the ID namespace association that you want to retrieve.</p>
             id_namespace_association_identifier: <p>The unique identifier of the ID namespace association that you want to retrieve.</p>
+
+        Raises:
+            aws_sdk_cleanrooms.errors.access_denied_exception.AccessDeniedException: <p>Caller does not have sufficient access to perform this action.</p>
+            aws_sdk_cleanrooms.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_cleanrooms.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_cleanrooms.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_cleanrooms.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints.</p>
+            aws_sdk_cleanrooms.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -785,6 +896,14 @@ class CollaborationResource:
         Args:
             collaboration_identifier: <p>A unique identifier for one of your collaborations.</p>
             privacy_budget_template_identifier: <p>A unique identifier for one of your privacy budget templates.</p>
+
+        Raises:
+            aws_sdk_cleanrooms.errors.access_denied_exception.AccessDeniedException: <p>Caller does not have sufficient access to perform this action.</p>
+            aws_sdk_cleanrooms.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_cleanrooms.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_cleanrooms.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_cleanrooms.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints.</p>
+            aws_sdk_cleanrooms.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -827,6 +946,14 @@ class CollaborationResource:
         Args:
             collaboration_identifier: <p>A unique identifier for the collaboration that the schema belongs to. Currently accepts a collaboration ID.</p>
             name: <p>The name of the relation to retrieve the schema for.</p>
+
+        Raises:
+            aws_sdk_cleanrooms.errors.access_denied_exception.AccessDeniedException: <p>Caller does not have sufficient access to perform this action.</p>
+            aws_sdk_cleanrooms.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_cleanrooms.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_cleanrooms.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_cleanrooms.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints.</p>
+            aws_sdk_cleanrooms.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -869,6 +996,14 @@ class CollaborationResource:
             collaboration_identifier: <p>A unique identifier for the collaboration that the schema belongs to. Currently accepts a collaboration ID.</p>
             name: <p>The name of the schema to retrieve the analysis rule for.</p>
             type: <p>The type of the schema analysis rule to retrieve. Schema analysis rules are uniquely identified by a combination of the collaboration, the schema name, and their type.</p>
+
+        Raises:
+            aws_sdk_cleanrooms.errors.access_denied_exception.AccessDeniedException: <p>Caller does not have sufficient access to perform this action.</p>
+            aws_sdk_cleanrooms.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_cleanrooms.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_cleanrooms.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_cleanrooms.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints.</p>
+            aws_sdk_cleanrooms.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -914,6 +1049,14 @@ class CollaborationResource:
             collaboration_identifier: <p>A unique identifier for the collaboration that the analysis templates belong to. Currently accepts collaboration ID.</p>
             next_token: <p>The pagination token that's used to fetch the next set of results.</p>
             max_results: <p>The maximum number of results that are returned for an API request call. The service chooses a default number if you don't set one. The service might return a `nextToken` even if the `maxResults` value has not been met.</p>
+
+        Raises:
+            aws_sdk_cleanrooms.errors.access_denied_exception.AccessDeniedException: <p>Caller does not have sufficient access to perform this action.</p>
+            aws_sdk_cleanrooms.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_cleanrooms.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_cleanrooms.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_cleanrooms.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints.</p>
+            aws_sdk_cleanrooms.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -965,6 +1108,14 @@ class CollaborationResource:
             status: <p>A filter to only return change requests with the specified status.</p>
             next_token: <p>The pagination token that's used to fetch the next set of results.</p>
             max_results: <p>The maximum number of results that are returned for an API request call.</p>
+
+        Raises:
+            aws_sdk_cleanrooms.errors.access_denied_exception.AccessDeniedException: <p>Caller does not have sufficient access to perform this action.</p>
+            aws_sdk_cleanrooms.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_cleanrooms.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_cleanrooms.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_cleanrooms.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints.</p>
+            aws_sdk_cleanrooms.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1014,6 +1165,14 @@ class CollaborationResource:
             collaboration_identifier: <p>A unique identifier for the collaboration that the configured audience model association belongs to. Accepts a collaboration ID.</p>
             next_token: <p>The pagination token that's used to fetch the next set of results.</p>
             max_results: <p>The maximum number of results that are returned for an API request call. The service chooses a default number if you don't set one. The service might return a `nextToken` even if the `maxResults` value has not been met.</p>
+
+        Raises:
+            aws_sdk_cleanrooms.errors.access_denied_exception.AccessDeniedException: <p>Caller does not have sufficient access to perform this action.</p>
+            aws_sdk_cleanrooms.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_cleanrooms.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_cleanrooms.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_cleanrooms.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints.</p>
+            aws_sdk_cleanrooms.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1061,6 +1220,14 @@ class CollaborationResource:
             collaboration_identifier: <p>The unique identifier of the collaboration that contains the ID namespace associations that you want to retrieve.</p>
             next_token: <p>The pagination token that's used to fetch the next set of results.</p>
             max_results: <p>The maximum size of the results that is returned per call. Service chooses a default if it has not been set. Service may return a nextToken even if the maximum results has not been met.&gt;</p>
+
+        Raises:
+            aws_sdk_cleanrooms.errors.access_denied_exception.AccessDeniedException: <p>Caller does not have sufficient access to perform this action.</p>
+            aws_sdk_cleanrooms.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_cleanrooms.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_cleanrooms.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_cleanrooms.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints.</p>
+            aws_sdk_cleanrooms.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1114,6 +1281,14 @@ class CollaborationResource:
             max_results: <p>The maximum number of results that are returned for an API request call. The service chooses a default number if you don't set one. The service might return a `nextToken` even if the `maxResults` value has not been met.</p>
             next_token: <p>The pagination token that's used to fetch the next set of results.</p>
             access_budget_resource_arn: <p>The Amazon Resource Name (ARN) of the Configured Table Association (ConfiguredTableAssociation) used to filter privacy budgets.</p>
+
+        Raises:
+            aws_sdk_cleanrooms.errors.access_denied_exception.AccessDeniedException: <p>Caller does not have sufficient access to perform this action.</p>
+            aws_sdk_cleanrooms.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_cleanrooms.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_cleanrooms.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_cleanrooms.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints.</p>
+            aws_sdk_cleanrooms.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1164,6 +1339,14 @@ class CollaborationResource:
             collaboration_identifier: <p>A unique identifier for one of your collaborations.</p>
             next_token: <p>The pagination token that's used to fetch the next set of results.</p>
             max_results: <p>The maximum number of results that are returned for an API request call. The service chooses a default number if you don't set one. The service might return a `nextToken` even if the `maxResults` value has not been met.</p>
+
+        Raises:
+            aws_sdk_cleanrooms.errors.access_denied_exception.AccessDeniedException: <p>Caller does not have sufficient access to perform this action.</p>
+            aws_sdk_cleanrooms.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_cleanrooms.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_cleanrooms.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_cleanrooms.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints.</p>
+            aws_sdk_cleanrooms.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1211,6 +1394,14 @@ class CollaborationResource:
             collaboration_identifier: <p>The identifier of the collaboration in which the members are listed.</p>
             next_token: <p>The pagination token that's used to fetch the next set of results.</p>
             max_results: <p>The maximum number of results that are returned for an API request call. The service chooses a default number if you don't set one. The service might return a `nextToken` even if the `maxResults` value has not been met.</p>
+
+        Raises:
+            aws_sdk_cleanrooms.errors.access_denied_exception.AccessDeniedException: <p>Caller does not have sufficient access to perform this action.</p>
+            aws_sdk_cleanrooms.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_cleanrooms.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_cleanrooms.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_cleanrooms.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints.</p>
+            aws_sdk_cleanrooms.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1260,6 +1451,14 @@ class CollaborationResource:
             schema_type: <p>If present, filter schemas by schema type.</p>
             next_token: <p>The pagination token that's used to fetch the next set of results.</p>
             max_results: <p>The maximum number of results that are returned for an API request call. The service chooses a default number if you don't set one. The service might return a `nextToken` even if the `maxResults` value has not been met.</p>
+
+        Raises:
+            aws_sdk_cleanrooms.errors.access_denied_exception.AccessDeniedException: <p>Caller does not have sufficient access to perform this action.</p>
+            aws_sdk_cleanrooms.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_cleanrooms.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_cleanrooms.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_cleanrooms.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints.</p>
+            aws_sdk_cleanrooms.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1307,6 +1506,15 @@ class CollaborationResource:
             collaboration_identifier: <p>The unique identifier of the collaboration that contains the change request to be updated.</p>
             change_request_identifier: <p>The unique identifier of the specific change request to be updated within the collaboration.</p>
             action: <p>The action to perform on the change request. Valid values include APPROVE (approve the change), DENY (reject the change), CANCEL (cancel the request), and COMMIT (commit after the request is approved).</p> <p>For change requests without automatic approval, a member in the collaboration can manually APPROVE or DENY a change request. The collaboration owner can manually CANCEL or COMMIT a change request.</p>
+
+        Raises:
+            aws_sdk_cleanrooms.errors.access_denied_exception.AccessDeniedException: <p>Caller does not have sufficient access to perform this action.</p>
+            aws_sdk_cleanrooms.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_cleanrooms.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_cleanrooms.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_cleanrooms.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_cleanrooms.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints.</p>
+            aws_sdk_cleanrooms.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1395,6 +1603,14 @@ class AsyncCollaborationResource:
             auto_approved_change_request_types: <p>The types of change requests that are automatically approved for this collaboration.</p>
             allowed_result_regions: <p>The Amazon Web Services Regions where collaboration query results can be stored. When specified, results can only be written to these Regions. This parameter enables you to meet your compliance and data governance requirements, and implement regional data governance policies.</p>
             is_metrics_enabled: <p>An indicator as to whether metrics have been enabled or disabled for the collaboration.</p> <p>When <code>true</code>, collaboration members can opt in to Amazon CloudWatch metrics for their membership queries. The default value is <code>false</code>.</p>
+
+        Raises:
+            aws_sdk_cleanrooms.errors.access_denied_exception.AccessDeniedException: <p>Caller does not have sufficient access to perform this action.</p>
+            aws_sdk_cleanrooms.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_cleanrooms.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Request denied because service quota has been exceeded.</p>
+            aws_sdk_cleanrooms.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_cleanrooms.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints.</p>
+            aws_sdk_cleanrooms.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1458,6 +1674,13 @@ class AsyncCollaborationResource:
 
         Args:
             collaboration_identifier: <p>The identifier for the collaboration.</p>
+
+        Raises:
+            aws_sdk_cleanrooms.errors.access_denied_exception.AccessDeniedException: <p>Caller does not have sufficient access to perform this action.</p>
+            aws_sdk_cleanrooms.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_cleanrooms.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_cleanrooms.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints.</p>
+            aws_sdk_cleanrooms.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1510,6 +1733,13 @@ class AsyncCollaborationResource:
             name: <p>A human-readable identifier provided by the collaboration owner. Display names are not unique.</p>
             description: <p>A description of the collaboration.</p>
             analytics_engine: <p>The analytics engine.</p> <note> <p>After July 16, 2025, the <code>CLEAN_ROOMS_SQL</code> parameter will no longer be available. </p> </note>
+
+        Raises:
+            aws_sdk_cleanrooms.errors.access_denied_exception.AccessDeniedException: <p>Caller does not have sufficient access to perform this action.</p>
+            aws_sdk_cleanrooms.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_cleanrooms.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_cleanrooms.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints.</p>
+            aws_sdk_cleanrooms.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1556,6 +1786,13 @@ class AsyncCollaborationResource:
 
         Args:
             collaboration_identifier: <p>The identifier for the collaboration.</p>
+
+        Raises:
+            aws_sdk_cleanrooms.errors.access_denied_exception.AccessDeniedException: <p>Caller does not have sufficient access to perform this action.</p>
+            aws_sdk_cleanrooms.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_cleanrooms.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_cleanrooms.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints.</p>
+            aws_sdk_cleanrooms.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1602,6 +1839,13 @@ class AsyncCollaborationResource:
             next_token: <p>The pagination token that's used to fetch the next set of results.</p>
             max_results: <p>The maximum number of results that are returned for an API request call. The service chooses a default number if you don't set one. The service might return a `nextToken` even if the `maxResults` value has not been met.</p>
             member_status: <p>The caller's status in a collaboration.</p>
+
+        Raises:
+            aws_sdk_cleanrooms.errors.access_denied_exception.AccessDeniedException: <p>Caller does not have sufficient access to perform this action.</p>
+            aws_sdk_cleanrooms.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_cleanrooms.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_cleanrooms.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints.</p>
+            aws_sdk_cleanrooms.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1647,6 +1891,14 @@ class AsyncCollaborationResource:
         Args:
             collaboration_identifier: <p>A unique identifier for the collaboration that the analysis templates belong to. Currently accepts collaboration ID.</p>
             analysis_template_arns: <p>The Amazon Resource Name (ARN) associated with the analysis template within a collaboration.</p>
+
+        Raises:
+            aws_sdk_cleanrooms.errors.access_denied_exception.AccessDeniedException: <p>Caller does not have sufficient access to perform this action.</p>
+            aws_sdk_cleanrooms.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_cleanrooms.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_cleanrooms.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_cleanrooms.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints.</p>
+            aws_sdk_cleanrooms.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1688,6 +1940,14 @@ class AsyncCollaborationResource:
         Args:
             collaboration_identifier: <p>A unique identifier for the collaboration that the schemas belong to. Currently accepts collaboration ID.</p>
             names: <p>The names for the schema objects to retrieve.</p>
+
+        Raises:
+            aws_sdk_cleanrooms.errors.access_denied_exception.AccessDeniedException: <p>Caller does not have sufficient access to perform this action.</p>
+            aws_sdk_cleanrooms.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_cleanrooms.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_cleanrooms.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_cleanrooms.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints.</p>
+            aws_sdk_cleanrooms.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1729,6 +1989,14 @@ class AsyncCollaborationResource:
         Args:
             collaboration_identifier: <p>The unique identifier of the collaboration that contains the schema analysis rule.</p>
             schema_analysis_rule_requests: <p>The information that's necessary to retrieve a schema analysis rule.</p>
+
+        Raises:
+            aws_sdk_cleanrooms.errors.access_denied_exception.AccessDeniedException: <p>Caller does not have sufficient access to perform this action.</p>
+            aws_sdk_cleanrooms.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_cleanrooms.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_cleanrooms.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_cleanrooms.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints.</p>
+            aws_sdk_cleanrooms.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1770,6 +2038,16 @@ class AsyncCollaborationResource:
         Args:
             collaboration_identifier: <p>The identifier of the collaboration that the change request is made against.</p>
             changes: <p>The list of changes to apply to the collaboration. Each change specifies the type of modification and the details of what should be changed.</p>
+
+        Raises:
+            aws_sdk_cleanrooms.errors.access_denied_exception.AccessDeniedException: <p>Caller does not have sufficient access to perform this action.</p>
+            aws_sdk_cleanrooms.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_cleanrooms.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_cleanrooms.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_cleanrooms.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Request denied because service quota has been exceeded.</p>
+            aws_sdk_cleanrooms.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_cleanrooms.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints.</p>
+            aws_sdk_cleanrooms.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1811,6 +2089,15 @@ class AsyncCollaborationResource:
         Args:
             collaboration_identifier: <p>The unique identifier for the associated collaboration.</p>
             account_id: <p>The account ID of the member to remove.</p>
+
+        Raises:
+            aws_sdk_cleanrooms.errors.access_denied_exception.AccessDeniedException: <p>Caller does not have sufficient access to perform this action.</p>
+            aws_sdk_cleanrooms.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_cleanrooms.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_cleanrooms.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_cleanrooms.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_cleanrooms.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints.</p>
+            aws_sdk_cleanrooms.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1852,6 +2139,14 @@ class AsyncCollaborationResource:
         Args:
             collaboration_identifier: <p>A unique identifier for the collaboration that the analysis templates belong to. Currently accepts collaboration ID.</p>
             analysis_template_arn: <p>The Amazon Resource Name (ARN) associated with the analysis template within a collaboration.</p>
+
+        Raises:
+            aws_sdk_cleanrooms.errors.access_denied_exception.AccessDeniedException: <p>Caller does not have sufficient access to perform this action.</p>
+            aws_sdk_cleanrooms.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_cleanrooms.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_cleanrooms.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_cleanrooms.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints.</p>
+            aws_sdk_cleanrooms.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1893,6 +2188,14 @@ class AsyncCollaborationResource:
         Args:
             collaboration_identifier: <p>The identifier of the collaboration that the change request is made against.</p>
             change_request_identifier: <p>A unique identifier for the change request to retrieve.</p>
+
+        Raises:
+            aws_sdk_cleanrooms.errors.access_denied_exception.AccessDeniedException: <p>Caller does not have sufficient access to perform this action.</p>
+            aws_sdk_cleanrooms.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_cleanrooms.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_cleanrooms.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_cleanrooms.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints.</p>
+            aws_sdk_cleanrooms.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1934,6 +2237,14 @@ class AsyncCollaborationResource:
         Args:
             collaboration_identifier: <p>A unique identifier for the collaboration that the configured audience model association belongs to. Accepts a collaboration ID.</p>
             configured_audience_model_association_identifier: <p>A unique identifier for the configured audience model association that you want to retrieve.</p>
+
+        Raises:
+            aws_sdk_cleanrooms.errors.access_denied_exception.AccessDeniedException: <p>Caller does not have sufficient access to perform this action.</p>
+            aws_sdk_cleanrooms.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_cleanrooms.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_cleanrooms.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_cleanrooms.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints.</p>
+            aws_sdk_cleanrooms.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1977,6 +2288,14 @@ class AsyncCollaborationResource:
         Args:
             collaboration_identifier: <p>The unique identifier of the collaboration that contains the ID namespace association that you want to retrieve.</p>
             id_namespace_association_identifier: <p>The unique identifier of the ID namespace association that you want to retrieve.</p>
+
+        Raises:
+            aws_sdk_cleanrooms.errors.access_denied_exception.AccessDeniedException: <p>Caller does not have sufficient access to perform this action.</p>
+            aws_sdk_cleanrooms.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_cleanrooms.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_cleanrooms.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_cleanrooms.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints.</p>
+            aws_sdk_cleanrooms.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2020,6 +2339,14 @@ class AsyncCollaborationResource:
         Args:
             collaboration_identifier: <p>A unique identifier for one of your collaborations.</p>
             privacy_budget_template_identifier: <p>A unique identifier for one of your privacy budget templates.</p>
+
+        Raises:
+            aws_sdk_cleanrooms.errors.access_denied_exception.AccessDeniedException: <p>Caller does not have sufficient access to perform this action.</p>
+            aws_sdk_cleanrooms.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_cleanrooms.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_cleanrooms.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_cleanrooms.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints.</p>
+            aws_sdk_cleanrooms.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2063,6 +2390,14 @@ class AsyncCollaborationResource:
         Args:
             collaboration_identifier: <p>A unique identifier for the collaboration that the schema belongs to. Currently accepts a collaboration ID.</p>
             name: <p>The name of the relation to retrieve the schema for.</p>
+
+        Raises:
+            aws_sdk_cleanrooms.errors.access_denied_exception.AccessDeniedException: <p>Caller does not have sufficient access to perform this action.</p>
+            aws_sdk_cleanrooms.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_cleanrooms.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_cleanrooms.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_cleanrooms.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints.</p>
+            aws_sdk_cleanrooms.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2106,6 +2441,14 @@ class AsyncCollaborationResource:
             collaboration_identifier: <p>A unique identifier for the collaboration that the schema belongs to. Currently accepts a collaboration ID.</p>
             name: <p>The name of the schema to retrieve the analysis rule for.</p>
             type: <p>The type of the schema analysis rule to retrieve. Schema analysis rules are uniquely identified by a combination of the collaboration, the schema name, and their type.</p>
+
+        Raises:
+            aws_sdk_cleanrooms.errors.access_denied_exception.AccessDeniedException: <p>Caller does not have sufficient access to perform this action.</p>
+            aws_sdk_cleanrooms.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_cleanrooms.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_cleanrooms.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_cleanrooms.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints.</p>
+            aws_sdk_cleanrooms.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2152,6 +2495,14 @@ class AsyncCollaborationResource:
             collaboration_identifier: <p>A unique identifier for the collaboration that the analysis templates belong to. Currently accepts collaboration ID.</p>
             next_token: <p>The pagination token that's used to fetch the next set of results.</p>
             max_results: <p>The maximum number of results that are returned for an API request call. The service chooses a default number if you don't set one. The service might return a `nextToken` even if the `maxResults` value has not been met.</p>
+
+        Raises:
+            aws_sdk_cleanrooms.errors.access_denied_exception.AccessDeniedException: <p>Caller does not have sufficient access to perform this action.</p>
+            aws_sdk_cleanrooms.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_cleanrooms.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_cleanrooms.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_cleanrooms.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints.</p>
+            aws_sdk_cleanrooms.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2204,6 +2555,14 @@ class AsyncCollaborationResource:
             status: <p>A filter to only return change requests with the specified status.</p>
             next_token: <p>The pagination token that's used to fetch the next set of results.</p>
             max_results: <p>The maximum number of results that are returned for an API request call.</p>
+
+        Raises:
+            aws_sdk_cleanrooms.errors.access_denied_exception.AccessDeniedException: <p>Caller does not have sufficient access to perform this action.</p>
+            aws_sdk_cleanrooms.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_cleanrooms.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_cleanrooms.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_cleanrooms.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints.</p>
+            aws_sdk_cleanrooms.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2254,6 +2613,14 @@ class AsyncCollaborationResource:
             collaboration_identifier: <p>A unique identifier for the collaboration that the configured audience model association belongs to. Accepts a collaboration ID.</p>
             next_token: <p>The pagination token that's used to fetch the next set of results.</p>
             max_results: <p>The maximum number of results that are returned for an API request call. The service chooses a default number if you don't set one. The service might return a `nextToken` even if the `maxResults` value has not been met.</p>
+
+        Raises:
+            aws_sdk_cleanrooms.errors.access_denied_exception.AccessDeniedException: <p>Caller does not have sufficient access to perform this action.</p>
+            aws_sdk_cleanrooms.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_cleanrooms.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_cleanrooms.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_cleanrooms.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints.</p>
+            aws_sdk_cleanrooms.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2302,6 +2669,14 @@ class AsyncCollaborationResource:
             collaboration_identifier: <p>The unique identifier of the collaboration that contains the ID namespace associations that you want to retrieve.</p>
             next_token: <p>The pagination token that's used to fetch the next set of results.</p>
             max_results: <p>The maximum size of the results that is returned per call. Service chooses a default if it has not been set. Service may return a nextToken even if the maximum results has not been met.&gt;</p>
+
+        Raises:
+            aws_sdk_cleanrooms.errors.access_denied_exception.AccessDeniedException: <p>Caller does not have sufficient access to perform this action.</p>
+            aws_sdk_cleanrooms.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_cleanrooms.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_cleanrooms.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_cleanrooms.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints.</p>
+            aws_sdk_cleanrooms.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2356,6 +2731,14 @@ class AsyncCollaborationResource:
             max_results: <p>The maximum number of results that are returned for an API request call. The service chooses a default number if you don't set one. The service might return a `nextToken` even if the `maxResults` value has not been met.</p>
             next_token: <p>The pagination token that's used to fetch the next set of results.</p>
             access_budget_resource_arn: <p>The Amazon Resource Name (ARN) of the Configured Table Association (ConfiguredTableAssociation) used to filter privacy budgets.</p>
+
+        Raises:
+            aws_sdk_cleanrooms.errors.access_denied_exception.AccessDeniedException: <p>Caller does not have sufficient access to perform this action.</p>
+            aws_sdk_cleanrooms.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_cleanrooms.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_cleanrooms.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_cleanrooms.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints.</p>
+            aws_sdk_cleanrooms.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2407,6 +2790,14 @@ class AsyncCollaborationResource:
             collaboration_identifier: <p>A unique identifier for one of your collaborations.</p>
             next_token: <p>The pagination token that's used to fetch the next set of results.</p>
             max_results: <p>The maximum number of results that are returned for an API request call. The service chooses a default number if you don't set one. The service might return a `nextToken` even if the `maxResults` value has not been met.</p>
+
+        Raises:
+            aws_sdk_cleanrooms.errors.access_denied_exception.AccessDeniedException: <p>Caller does not have sufficient access to perform this action.</p>
+            aws_sdk_cleanrooms.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_cleanrooms.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_cleanrooms.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_cleanrooms.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints.</p>
+            aws_sdk_cleanrooms.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2455,6 +2846,14 @@ class AsyncCollaborationResource:
             collaboration_identifier: <p>The identifier of the collaboration in which the members are listed.</p>
             next_token: <p>The pagination token that's used to fetch the next set of results.</p>
             max_results: <p>The maximum number of results that are returned for an API request call. The service chooses a default number if you don't set one. The service might return a `nextToken` even if the `maxResults` value has not been met.</p>
+
+        Raises:
+            aws_sdk_cleanrooms.errors.access_denied_exception.AccessDeniedException: <p>Caller does not have sufficient access to perform this action.</p>
+            aws_sdk_cleanrooms.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_cleanrooms.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_cleanrooms.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_cleanrooms.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints.</p>
+            aws_sdk_cleanrooms.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2505,6 +2904,14 @@ class AsyncCollaborationResource:
             schema_type: <p>If present, filter schemas by schema type.</p>
             next_token: <p>The pagination token that's used to fetch the next set of results.</p>
             max_results: <p>The maximum number of results that are returned for an API request call. The service chooses a default number if you don't set one. The service might return a `nextToken` even if the `maxResults` value has not been met.</p>
+
+        Raises:
+            aws_sdk_cleanrooms.errors.access_denied_exception.AccessDeniedException: <p>Caller does not have sufficient access to perform this action.</p>
+            aws_sdk_cleanrooms.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_cleanrooms.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_cleanrooms.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_cleanrooms.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints.</p>
+            aws_sdk_cleanrooms.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2553,6 +2960,15 @@ class AsyncCollaborationResource:
             collaboration_identifier: <p>The unique identifier of the collaboration that contains the change request to be updated.</p>
             change_request_identifier: <p>The unique identifier of the specific change request to be updated within the collaboration.</p>
             action: <p>The action to perform on the change request. Valid values include APPROVE (approve the change), DENY (reject the change), CANCEL (cancel the request), and COMMIT (commit after the request is approved).</p> <p>For change requests without automatic approval, a member in the collaboration can manually APPROVE or DENY a change request. The collaboration owner can manually CANCEL or COMMIT a change request.</p>
+
+        Raises:
+            aws_sdk_cleanrooms.errors.access_denied_exception.AccessDeniedException: <p>Caller does not have sufficient access to perform this action.</p>
+            aws_sdk_cleanrooms.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_cleanrooms.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_cleanrooms.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_cleanrooms.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_cleanrooms.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints.</p>
+            aws_sdk_cleanrooms.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

@@ -180,6 +180,14 @@ class AsyncBedrockDataAutomationRuntimeClient:
             data_automation_profile_arn: Data automation profile ARN
             encryption_configuration: Encryption configuration.
             output_configuration: Output configuration.
+
+        Raises:
+            aws_sdk_bedrock_data_automation_runtime.errors.access_denied_exception.AccessDeniedException: This exception will be thrown when customer does not have access to API.
+            aws_sdk_bedrock_data_automation_runtime.errors.internal_server_exception.InternalServerException: This exception is for any internal un-expected service errors.
+            aws_sdk_bedrock_data_automation_runtime.errors.service_unavailable_exception.ServiceUnavailableException: This exception will be thrown when service is temporarily unavailable.
+            aws_sdk_bedrock_data_automation_runtime.errors.throttling_exception.ThrottlingException: This exception will be thrown when customer reached API TPS limit.
+            aws_sdk_bedrock_data_automation_runtime.errors.validation_exception.ValidationException: This exception will be thrown when customer provided invalid parameters.
+            aws_sdk_bedrock_data_automation_runtime.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -225,7 +233,16 @@ class AsyncBedrockDataAutomationRuntimeClient:
             AsyncBedrockDataAutomationRuntimeClientConfig
         ] = None,
     ) -> "aws_sdk_bedrock_data_automation_runtime.types.list_tags_for_resource_response.ListTagsForResourceResponse":
-        """List tags for an Amazon Bedrock Data Automation resource"""
+        """List tags for an Amazon Bedrock Data Automation resource
+
+        Raises:
+            aws_sdk_bedrock_data_automation_runtime.errors.access_denied_exception.AccessDeniedException: This exception will be thrown when customer does not have access to API.
+            aws_sdk_bedrock_data_automation_runtime.errors.internal_server_exception.InternalServerException: This exception is for any internal un-expected service errors.
+            aws_sdk_bedrock_data_automation_runtime.errors.resource_not_found_exception.ResourceNotFoundException: This exception will be thrown when resource provided from customer not found.
+            aws_sdk_bedrock_data_automation_runtime.errors.throttling_exception.ThrottlingException: This exception will be thrown when customer reached API TPS limit.
+            aws_sdk_bedrock_data_automation_runtime.errors.validation_exception.ValidationException: This exception will be thrown when customer provided invalid parameters.
+            aws_sdk_bedrock_data_automation_runtime.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_bedrock_data_automation_runtime.types.list_tags_for_resource_request.ListTagsForResourceRequest]",
@@ -262,7 +279,17 @@ class AsyncBedrockDataAutomationRuntimeClient:
             AsyncBedrockDataAutomationRuntimeClientConfig
         ] = None,
     ) -> "aws_sdk_bedrock_data_automation_runtime.types.tag_resource_response.TagResourceResponse":
-        """Tag an Amazon Bedrock Data Automation resource"""
+        """Tag an Amazon Bedrock Data Automation resource
+
+        Raises:
+            aws_sdk_bedrock_data_automation_runtime.errors.access_denied_exception.AccessDeniedException: This exception will be thrown when customer does not have access to API.
+            aws_sdk_bedrock_data_automation_runtime.errors.internal_server_exception.InternalServerException: This exception is for any internal un-expected service errors.
+            aws_sdk_bedrock_data_automation_runtime.errors.resource_not_found_exception.ResourceNotFoundException: This exception will be thrown when resource provided from customer not found.
+            aws_sdk_bedrock_data_automation_runtime.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: This exception will be thrown when service quota is exceeded.
+            aws_sdk_bedrock_data_automation_runtime.errors.throttling_exception.ThrottlingException: This exception will be thrown when customer reached API TPS limit.
+            aws_sdk_bedrock_data_automation_runtime.errors.validation_exception.ValidationException: This exception will be thrown when customer provided invalid parameters.
+            aws_sdk_bedrock_data_automation_runtime.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_bedrock_data_automation_runtime.types.tag_resource_request.TagResourceRequest]",
@@ -300,7 +327,16 @@ class AsyncBedrockDataAutomationRuntimeClient:
             AsyncBedrockDataAutomationRuntimeClientConfig
         ] = None,
     ) -> "aws_sdk_bedrock_data_automation_runtime.types.untag_resource_response.UntagResourceResponse":
-        """Untag an Amazon Bedrock Data Automation resource"""
+        """Untag an Amazon Bedrock Data Automation resource
+
+        Raises:
+            aws_sdk_bedrock_data_automation_runtime.errors.access_denied_exception.AccessDeniedException: This exception will be thrown when customer does not have access to API.
+            aws_sdk_bedrock_data_automation_runtime.errors.internal_server_exception.InternalServerException: This exception is for any internal un-expected service errors.
+            aws_sdk_bedrock_data_automation_runtime.errors.resource_not_found_exception.ResourceNotFoundException: This exception will be thrown when resource provided from customer not found.
+            aws_sdk_bedrock_data_automation_runtime.errors.throttling_exception.ThrottlingException: This exception will be thrown when customer reached API TPS limit.
+            aws_sdk_bedrock_data_automation_runtime.errors.validation_exception.ValidationException: This exception will be thrown when customer provided invalid parameters.
+            aws_sdk_bedrock_data_automation_runtime.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_bedrock_data_automation_runtime.types.untag_resource_request.UntagResourceRequest]",

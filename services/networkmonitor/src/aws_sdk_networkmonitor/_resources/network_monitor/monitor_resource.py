@@ -67,6 +67,15 @@ class MonitorResource:
             aggregation_period: <p>The time, in seconds, that metrics are aggregated and sent to Amazon CloudWatch. Valid values are either <code>30</code> or <code>60</code>. <code>60</code> is the default if no period is chosen.</p>
             client_token: <p>Unique, case-sensitive identifier to ensure the idempotency of the request. Only returned if a client token was provided in the request.</p>
             tags: <p>The list of key-value pairs created and assigned to the monitor.</p>
+
+        Raises:
+            aws_sdk_networkmonitor.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_networkmonitor.errors.conflict_exception.ConflictException: <p>This operation attempted to create a resource that already exists.</p>
+            aws_sdk_networkmonitor.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_networkmonitor.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>This request exceeds a service quota.</p>
+            aws_sdk_networkmonitor.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling</p>
+            aws_sdk_networkmonitor.errors.validation_exception.ValidationException: <p>One of the parameters for the request is not valid.</p>
+            aws_sdk_networkmonitor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -112,6 +121,14 @@ class MonitorResource:
 
         Args:
             monitor_name: <p>The name of the monitor that details are returned for.</p>
+
+        Raises:
+            aws_sdk_networkmonitor.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_networkmonitor.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_networkmonitor.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_networkmonitor.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling</p>
+            aws_sdk_networkmonitor.errors.validation_exception.ValidationException: <p>One of the parameters for the request is not valid.</p>
+            aws_sdk_networkmonitor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -151,6 +168,15 @@ class MonitorResource:
         Args:
             monitor_name: <p>The name of the monitor to update. </p>
             aggregation_period: <p>The aggregation time, in seconds, to change to. This must be either <code>30</code> or <code>60</code>. </p>
+
+        Raises:
+            aws_sdk_networkmonitor.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_networkmonitor.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_networkmonitor.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_networkmonitor.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>This request exceeds a service quota.</p>
+            aws_sdk_networkmonitor.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling</p>
+            aws_sdk_networkmonitor.errors.validation_exception.ValidationException: <p>One of the parameters for the request is not valid.</p>
+            aws_sdk_networkmonitor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -189,6 +215,14 @@ class MonitorResource:
 
         Args:
             monitor_name: <p>The name of the monitor to delete. </p>
+
+        Raises:
+            aws_sdk_networkmonitor.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_networkmonitor.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_networkmonitor.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_networkmonitor.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling</p>
+            aws_sdk_networkmonitor.errors.validation_exception.ValidationException: <p>One of the parameters for the request is not valid.</p>
+            aws_sdk_networkmonitor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -234,6 +268,13 @@ class MonitorResource:
             next_token: <p>The token for the next page of results.</p>
             max_results: <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p> <p>If <code>MaxResults</code> is given a value larger than 100, only 100 results are returned.</p>
             state: <p>The list of all monitors and their states.</p>
+
+        Raises:
+            aws_sdk_networkmonitor.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_networkmonitor.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_networkmonitor.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling</p>
+            aws_sdk_networkmonitor.errors.validation_exception.ValidationException: <p>One of the parameters for the request is not valid.</p>
+            aws_sdk_networkmonitor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -293,6 +334,15 @@ class AsyncMonitorResource:
             aggregation_period: <p>The time, in seconds, that metrics are aggregated and sent to Amazon CloudWatch. Valid values are either <code>30</code> or <code>60</code>. <code>60</code> is the default if no period is chosen.</p>
             client_token: <p>Unique, case-sensitive identifier to ensure the idempotency of the request. Only returned if a client token was provided in the request.</p>
             tags: <p>The list of key-value pairs created and assigned to the monitor.</p>
+
+        Raises:
+            aws_sdk_networkmonitor.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_networkmonitor.errors.conflict_exception.ConflictException: <p>This operation attempted to create a resource that already exists.</p>
+            aws_sdk_networkmonitor.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_networkmonitor.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>This request exceeds a service quota.</p>
+            aws_sdk_networkmonitor.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling</p>
+            aws_sdk_networkmonitor.errors.validation_exception.ValidationException: <p>One of the parameters for the request is not valid.</p>
+            aws_sdk_networkmonitor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -339,6 +389,14 @@ class AsyncMonitorResource:
 
         Args:
             monitor_name: <p>The name of the monitor that details are returned for.</p>
+
+        Raises:
+            aws_sdk_networkmonitor.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_networkmonitor.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_networkmonitor.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_networkmonitor.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling</p>
+            aws_sdk_networkmonitor.errors.validation_exception.ValidationException: <p>One of the parameters for the request is not valid.</p>
+            aws_sdk_networkmonitor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -379,6 +437,15 @@ class AsyncMonitorResource:
         Args:
             monitor_name: <p>The name of the monitor to update. </p>
             aggregation_period: <p>The aggregation time, in seconds, to change to. This must be either <code>30</code> or <code>60</code>. </p>
+
+        Raises:
+            aws_sdk_networkmonitor.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_networkmonitor.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_networkmonitor.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_networkmonitor.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>This request exceeds a service quota.</p>
+            aws_sdk_networkmonitor.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling</p>
+            aws_sdk_networkmonitor.errors.validation_exception.ValidationException: <p>One of the parameters for the request is not valid.</p>
+            aws_sdk_networkmonitor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -418,6 +485,14 @@ class AsyncMonitorResource:
 
         Args:
             monitor_name: <p>The name of the monitor to delete. </p>
+
+        Raises:
+            aws_sdk_networkmonitor.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_networkmonitor.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_networkmonitor.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_networkmonitor.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling</p>
+            aws_sdk_networkmonitor.errors.validation_exception.ValidationException: <p>One of the parameters for the request is not valid.</p>
+            aws_sdk_networkmonitor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -464,6 +539,13 @@ class AsyncMonitorResource:
             next_token: <p>The token for the next page of results.</p>
             max_results: <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p> <p>If <code>MaxResults</code> is given a value larger than 100, only 100 results are returned.</p>
             state: <p>The list of all monitors and their states.</p>
+
+        Raises:
+            aws_sdk_networkmonitor.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_networkmonitor.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_networkmonitor.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling</p>
+            aws_sdk_networkmonitor.errors.validation_exception.ValidationException: <p>One of the parameters for the request is not valid.</p>
+            aws_sdk_networkmonitor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

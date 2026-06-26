@@ -52,6 +52,14 @@ class CfnIndex:
         Args:
             client_token: <p>This value helps ensure idempotency. Resource Explorer uses this value to prevent the accidental creation of duplicate versions. We recommend that you generate a <a href=\"https://wikipedia.org/wiki/Universally_unique_identifier\">UUID-type value</a> to ensure the uniqueness of your index.</p>
             tags: <p>The specified tags are attached only to the index created in this Amazon Web Services Region. The tags aren't attached to any of the resources listed in the index.</p>
+
+        Raises:
+            aws_sdk_resource_explorer_2.errors.access_denied_exception.AccessDeniedException: <p>The credentials that you used to call this operation don't have the minimum required permissions.</p>
+            aws_sdk_resource_explorer_2.errors.conflict_exception.ConflictException: <p>If you attempted to create a view, then the request failed because either you specified parameters that didn’t match the original request, or you attempted to create a view with a name that already exists in this Amazon Web Services Region.</p> <p>If you attempted to create an index, then the request failed because either you specified parameters that didn't match the original request, or an index already exists in the current Amazon Web Services Region.</p> <p>If you attempted to update an index type to <code>AGGREGATOR</code>, then the request failed because you already have an <code>AGGREGATOR</code> index in a different Amazon Web Services Region.</p>
+            aws_sdk_resource_explorer_2.errors.internal_server_exception.InternalServerException: <p>The request failed because of internal service error. Try your request again later.</p>
+            aws_sdk_resource_explorer_2.errors.throttling_exception.ThrottlingException: <p>The request failed because you exceeded a rate limit for this operation. For more information, see <a href=\"https://docs.aws.amazon.com/resource-explorer/latest/userguide/quotas.html\">Quotas for Resource Explorer</a>.</p>
+            aws_sdk_resource_explorer_2.errors.validation_exception.ValidationException: <p>You provided an invalid value for one of the operation's parameters. Check the syntax for the operation, and try again.</p>
+            aws_sdk_resource_explorer_2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -94,6 +102,16 @@ class CfnIndex:
         Args:
             arn: <p>The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon resource name (ARN)</a> of the index that you want to update.</p>
             type: <p>The type of the index. To understand the difference between <code>LOCAL</code> and <code>AGGREGATOR</code>, see <a href=\"https://docs.aws.amazon.com/resource-explorer/latest/userguide/manage-aggregator-region.html\">Turning on cross-Region search</a> in the <i>Amazon Web Services Resource Explorer User Guide</i>.</p>
+
+        Raises:
+            aws_sdk_resource_explorer_2.errors.access_denied_exception.AccessDeniedException: <p>The credentials that you used to call this operation don't have the minimum required permissions.</p>
+            aws_sdk_resource_explorer_2.errors.conflict_exception.ConflictException: <p>If you attempted to create a view, then the request failed because either you specified parameters that didn’t match the original request, or you attempted to create a view with a name that already exists in this Amazon Web Services Region.</p> <p>If you attempted to create an index, then the request failed because either you specified parameters that didn't match the original request, or an index already exists in the current Amazon Web Services Region.</p> <p>If you attempted to update an index type to <code>AGGREGATOR</code>, then the request failed because you already have an <code>AGGREGATOR</code> index in a different Amazon Web Services Region.</p>
+            aws_sdk_resource_explorer_2.errors.internal_server_exception.InternalServerException: <p>The request failed because of internal service error. Try your request again later.</p>
+            aws_sdk_resource_explorer_2.errors.resource_not_found_exception.ResourceNotFoundException: <p>You specified a resource that doesn't exist. Check the ID or ARN that you used to identity the resource, and try again.</p>
+            aws_sdk_resource_explorer_2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request failed because it exceeds a service quota.</p>
+            aws_sdk_resource_explorer_2.errors.throttling_exception.ThrottlingException: <p>The request failed because you exceeded a rate limit for this operation. For more information, see <a href=\"https://docs.aws.amazon.com/resource-explorer/latest/userguide/quotas.html\">Quotas for Resource Explorer</a>.</p>
+            aws_sdk_resource_explorer_2.errors.validation_exception.ValidationException: <p>You provided an invalid value for one of the operation's parameters. Check the syntax for the operation, and try again.</p>
+            aws_sdk_resource_explorer_2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -132,6 +150,14 @@ class CfnIndex:
 
         Args:
             arn: <p>The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon resource name (ARN)</a> of the index that you want to delete.</p>
+
+        Raises:
+            aws_sdk_resource_explorer_2.errors.access_denied_exception.AccessDeniedException: <p>The credentials that you used to call this operation don't have the minimum required permissions.</p>
+            aws_sdk_resource_explorer_2.errors.internal_server_exception.InternalServerException: <p>The request failed because of internal service error. Try your request again later.</p>
+            aws_sdk_resource_explorer_2.errors.resource_not_found_exception.ResourceNotFoundException: <p>You specified a resource that doesn't exist. Check the ID or ARN that you used to identity the resource, and try again.</p>
+            aws_sdk_resource_explorer_2.errors.throttling_exception.ThrottlingException: <p>The request failed because you exceeded a rate limit for this operation. For more information, see <a href=\"https://docs.aws.amazon.com/resource-explorer/latest/userguide/quotas.html\">Quotas for Resource Explorer</a>.</p>
+            aws_sdk_resource_explorer_2.errors.validation_exception.ValidationException: <p>You provided an invalid value for one of the operation's parameters. Check the syntax for the operation, and try again.</p>
+            aws_sdk_resource_explorer_2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -177,6 +203,13 @@ class CfnIndex:
             regions: <p>If specified, limits the response to only information about the index in the specified list of Amazon Web Services Regions.</p>
             max_results: <p>The maximum number of results that you want included on each page of the response. If you do not include this parameter, it defaults to a value appropriate to the operation. If additional items exist beyond those included in the current response, the <code>NextToken</code> response element is present and has a value (is not null). Include that value as the <code>NextToken</code> request parameter in the next call to the operation to get the next part of the results.</p> <note> <p>An API operation can return fewer results than the maximum even when there are more results available. You should check <code>NextToken</code> after every operation to ensure that you receive all of the results.</p> </note>
             next_token: <p>The parameter for receiving additional results if you receive a <code>NextToken</code> response in a previous request. A <code>NextToken</code> response indicates that more output is available. Set this parameter to the value of the previous call's <code>NextToken</code> response to indicate where the output should continue from. The pagination tokens expire after 24 hours.</p>
+
+        Raises:
+            aws_sdk_resource_explorer_2.errors.access_denied_exception.AccessDeniedException: <p>The credentials that you used to call this operation don't have the minimum required permissions.</p>
+            aws_sdk_resource_explorer_2.errors.internal_server_exception.InternalServerException: <p>The request failed because of internal service error. Try your request again later.</p>
+            aws_sdk_resource_explorer_2.errors.throttling_exception.ThrottlingException: <p>The request failed because you exceeded a rate limit for this operation. For more information, see <a href=\"https://docs.aws.amazon.com/resource-explorer/latest/userguide/quotas.html\">Quotas for Resource Explorer</a>.</p>
+            aws_sdk_resource_explorer_2.errors.validation_exception.ValidationException: <p>You provided an invalid value for one of the operation's parameters. Check the syntax for the operation, and try again.</p>
+            aws_sdk_resource_explorer_2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -228,6 +261,14 @@ class AsyncCfnIndex:
         Args:
             client_token: <p>This value helps ensure idempotency. Resource Explorer uses this value to prevent the accidental creation of duplicate versions. We recommend that you generate a <a href=\"https://wikipedia.org/wiki/Universally_unique_identifier\">UUID-type value</a> to ensure the uniqueness of your index.</p>
             tags: <p>The specified tags are attached only to the index created in this Amazon Web Services Region. The tags aren't attached to any of the resources listed in the index.</p>
+
+        Raises:
+            aws_sdk_resource_explorer_2.errors.access_denied_exception.AccessDeniedException: <p>The credentials that you used to call this operation don't have the minimum required permissions.</p>
+            aws_sdk_resource_explorer_2.errors.conflict_exception.ConflictException: <p>If you attempted to create a view, then the request failed because either you specified parameters that didn’t match the original request, or you attempted to create a view with a name that already exists in this Amazon Web Services Region.</p> <p>If you attempted to create an index, then the request failed because either you specified parameters that didn't match the original request, or an index already exists in the current Amazon Web Services Region.</p> <p>If you attempted to update an index type to <code>AGGREGATOR</code>, then the request failed because you already have an <code>AGGREGATOR</code> index in a different Amazon Web Services Region.</p>
+            aws_sdk_resource_explorer_2.errors.internal_server_exception.InternalServerException: <p>The request failed because of internal service error. Try your request again later.</p>
+            aws_sdk_resource_explorer_2.errors.throttling_exception.ThrottlingException: <p>The request failed because you exceeded a rate limit for this operation. For more information, see <a href=\"https://docs.aws.amazon.com/resource-explorer/latest/userguide/quotas.html\">Quotas for Resource Explorer</a>.</p>
+            aws_sdk_resource_explorer_2.errors.validation_exception.ValidationException: <p>You provided an invalid value for one of the operation's parameters. Check the syntax for the operation, and try again.</p>
+            aws_sdk_resource_explorer_2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -271,6 +312,16 @@ class AsyncCfnIndex:
         Args:
             arn: <p>The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon resource name (ARN)</a> of the index that you want to update.</p>
             type: <p>The type of the index. To understand the difference between <code>LOCAL</code> and <code>AGGREGATOR</code>, see <a href=\"https://docs.aws.amazon.com/resource-explorer/latest/userguide/manage-aggregator-region.html\">Turning on cross-Region search</a> in the <i>Amazon Web Services Resource Explorer User Guide</i>.</p>
+
+        Raises:
+            aws_sdk_resource_explorer_2.errors.access_denied_exception.AccessDeniedException: <p>The credentials that you used to call this operation don't have the minimum required permissions.</p>
+            aws_sdk_resource_explorer_2.errors.conflict_exception.ConflictException: <p>If you attempted to create a view, then the request failed because either you specified parameters that didn’t match the original request, or you attempted to create a view with a name that already exists in this Amazon Web Services Region.</p> <p>If you attempted to create an index, then the request failed because either you specified parameters that didn't match the original request, or an index already exists in the current Amazon Web Services Region.</p> <p>If you attempted to update an index type to <code>AGGREGATOR</code>, then the request failed because you already have an <code>AGGREGATOR</code> index in a different Amazon Web Services Region.</p>
+            aws_sdk_resource_explorer_2.errors.internal_server_exception.InternalServerException: <p>The request failed because of internal service error. Try your request again later.</p>
+            aws_sdk_resource_explorer_2.errors.resource_not_found_exception.ResourceNotFoundException: <p>You specified a resource that doesn't exist. Check the ID or ARN that you used to identity the resource, and try again.</p>
+            aws_sdk_resource_explorer_2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request failed because it exceeds a service quota.</p>
+            aws_sdk_resource_explorer_2.errors.throttling_exception.ThrottlingException: <p>The request failed because you exceeded a rate limit for this operation. For more information, see <a href=\"https://docs.aws.amazon.com/resource-explorer/latest/userguide/quotas.html\">Quotas for Resource Explorer</a>.</p>
+            aws_sdk_resource_explorer_2.errors.validation_exception.ValidationException: <p>You provided an invalid value for one of the operation's parameters. Check the syntax for the operation, and try again.</p>
+            aws_sdk_resource_explorer_2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -310,6 +361,14 @@ class AsyncCfnIndex:
 
         Args:
             arn: <p>The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon resource name (ARN)</a> of the index that you want to delete.</p>
+
+        Raises:
+            aws_sdk_resource_explorer_2.errors.access_denied_exception.AccessDeniedException: <p>The credentials that you used to call this operation don't have the minimum required permissions.</p>
+            aws_sdk_resource_explorer_2.errors.internal_server_exception.InternalServerException: <p>The request failed because of internal service error. Try your request again later.</p>
+            aws_sdk_resource_explorer_2.errors.resource_not_found_exception.ResourceNotFoundException: <p>You specified a resource that doesn't exist. Check the ID or ARN that you used to identity the resource, and try again.</p>
+            aws_sdk_resource_explorer_2.errors.throttling_exception.ThrottlingException: <p>The request failed because you exceeded a rate limit for this operation. For more information, see <a href=\"https://docs.aws.amazon.com/resource-explorer/latest/userguide/quotas.html\">Quotas for Resource Explorer</a>.</p>
+            aws_sdk_resource_explorer_2.errors.validation_exception.ValidationException: <p>You provided an invalid value for one of the operation's parameters. Check the syntax for the operation, and try again.</p>
+            aws_sdk_resource_explorer_2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -356,6 +415,13 @@ class AsyncCfnIndex:
             regions: <p>If specified, limits the response to only information about the index in the specified list of Amazon Web Services Regions.</p>
             max_results: <p>The maximum number of results that you want included on each page of the response. If you do not include this parameter, it defaults to a value appropriate to the operation. If additional items exist beyond those included in the current response, the <code>NextToken</code> response element is present and has a value (is not null). Include that value as the <code>NextToken</code> request parameter in the next call to the operation to get the next part of the results.</p> <note> <p>An API operation can return fewer results than the maximum even when there are more results available. You should check <code>NextToken</code> after every operation to ensure that you receive all of the results.</p> </note>
             next_token: <p>The parameter for receiving additional results if you receive a <code>NextToken</code> response in a previous request. A <code>NextToken</code> response indicates that more output is available. Set this parameter to the value of the previous call's <code>NextToken</code> response to indicate where the output should continue from. The pagination tokens expire after 24 hours.</p>
+
+        Raises:
+            aws_sdk_resource_explorer_2.errors.access_denied_exception.AccessDeniedException: <p>The credentials that you used to call this operation don't have the minimum required permissions.</p>
+            aws_sdk_resource_explorer_2.errors.internal_server_exception.InternalServerException: <p>The request failed because of internal service error. Try your request again later.</p>
+            aws_sdk_resource_explorer_2.errors.throttling_exception.ThrottlingException: <p>The request failed because you exceeded a rate limit for this operation. For more information, see <a href=\"https://docs.aws.amazon.com/resource-explorer/latest/userguide/quotas.html\">Quotas for Resource Explorer</a>.</p>
+            aws_sdk_resource_explorer_2.errors.validation_exception.ValidationException: <p>You provided an invalid value for one of the operation's parameters. Check the syntax for the operation, and try again.</p>
+            aws_sdk_resource_explorer_2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

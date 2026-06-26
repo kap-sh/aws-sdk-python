@@ -248,6 +248,13 @@ class AsyncMailManagerClient:
             address_list_id: <p>The unique identifier of the address list for importing addresses to.</p>
             name: <p>A user-friendly name for the import job.</p>
             import_data_format: <p>The format of the input for an import job.</p>
+
+        Raises:
+            aws_sdk_mailmanager.errors.access_denied_exception.AccessDeniedException: <p>Occurs when a user is denied access to a specific resource or action.</p>
+            aws_sdk_mailmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p>Occurs when a requested resource is not found.</p>
+            aws_sdk_mailmanager.errors.throttling_exception.ThrottlingException: <p>Occurs when a service's request rate limit is exceeded, resulting in throttling of further requests.</p>
+            aws_sdk_mailmanager.errors.validation_exception.ValidationException: <p>The request validation has failed. For details, see the accompanying error message.</p>
+            aws_sdk_mailmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -292,6 +299,14 @@ class AsyncMailManagerClient:
         Args:
             address_list_id: <p>The unique identifier of the address list to remove the address from.</p>
             address: <p>The address to be removed from the address list.</p>
+
+        Raises:
+            aws_sdk_mailmanager.errors.access_denied_exception.AccessDeniedException: <p>Occurs when a user is denied access to a specific resource or action.</p>
+            aws_sdk_mailmanager.errors.conflict_exception.ConflictException: <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
+            aws_sdk_mailmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p>Occurs when a requested resource is not found.</p>
+            aws_sdk_mailmanager.errors.throttling_exception.ThrottlingException: <p>Occurs when a service's request rate limit is exceeded, resulting in throttling of further requests.</p>
+            aws_sdk_mailmanager.errors.validation_exception.ValidationException: <p>The request validation has failed. For details, see the accompanying error message.</p>
+            aws_sdk_mailmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -331,6 +346,13 @@ class AsyncMailManagerClient:
 
         Args:
             job_id: <p>The identifier of the import job that needs to be retrieved.</p>
+
+        Raises:
+            aws_sdk_mailmanager.errors.access_denied_exception.AccessDeniedException: <p>Occurs when a user is denied access to a specific resource or action.</p>
+            aws_sdk_mailmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p>Occurs when a requested resource is not found.</p>
+            aws_sdk_mailmanager.errors.throttling_exception.ThrottlingException: <p>Occurs when a service's request rate limit is exceeded, resulting in throttling of further requests.</p>
+            aws_sdk_mailmanager.errors.validation_exception.ValidationException: <p>The request validation has failed. For details, see the accompanying error message.</p>
+            aws_sdk_mailmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -371,6 +393,12 @@ class AsyncMailManagerClient:
 
         Args:
             export_id: <p>The identifier of the export job to get details for.</p>
+
+        Raises:
+            aws_sdk_mailmanager.errors.access_denied_exception.AccessDeniedException: <p>Occurs when a user is denied access to a specific resource or action.</p>
+            aws_sdk_mailmanager.errors.throttling_exception.ThrottlingException: <p>Occurs when a service's request rate limit is exceeded, resulting in throttling of further requests.</p>
+            aws_sdk_mailmanager.errors.validation_exception.ValidationException: <p>The request validation has failed. For details, see the accompanying error message.</p>
+            aws_sdk_mailmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -409,6 +437,12 @@ class AsyncMailManagerClient:
 
         Args:
             archived_message_id: <p>The unique identifier of the archived email message.</p>
+
+        Raises:
+            aws_sdk_mailmanager.errors.access_denied_exception.AccessDeniedException: <p>Occurs when a user is denied access to a specific resource or action.</p>
+            aws_sdk_mailmanager.errors.throttling_exception.ThrottlingException: <p>Occurs when a service's request rate limit is exceeded, resulting in throttling of further requests.</p>
+            aws_sdk_mailmanager.errors.validation_exception.ValidationException: <p>The request validation has failed. For details, see the accompanying error message.</p>
+            aws_sdk_mailmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -447,6 +481,12 @@ class AsyncMailManagerClient:
 
         Args:
             archived_message_id: <p>The unique identifier of the archived email message.</p>
+
+        Raises:
+            aws_sdk_mailmanager.errors.access_denied_exception.AccessDeniedException: <p>Occurs when a user is denied access to a specific resource or action.</p>
+            aws_sdk_mailmanager.errors.throttling_exception.ThrottlingException: <p>Occurs when a service's request rate limit is exceeded, resulting in throttling of further requests.</p>
+            aws_sdk_mailmanager.errors.validation_exception.ValidationException: <p>The request validation has failed. For details, see the accompanying error message.</p>
+            aws_sdk_mailmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -487,6 +527,12 @@ class AsyncMailManagerClient:
 
         Args:
             search_id: <p>The identifier of the search job to get details for.</p>
+
+        Raises:
+            aws_sdk_mailmanager.errors.access_denied_exception.AccessDeniedException: <p>Occurs when a user is denied access to a specific resource or action.</p>
+            aws_sdk_mailmanager.errors.throttling_exception.ThrottlingException: <p>Occurs when a service's request rate limit is exceeded, resulting in throttling of further requests.</p>
+            aws_sdk_mailmanager.errors.validation_exception.ValidationException: <p>The request validation has failed. For details, see the accompanying error message.</p>
+            aws_sdk_mailmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -525,6 +571,13 @@ class AsyncMailManagerClient:
 
         Args:
             search_id: <p>The identifier of the completed search job.</p>
+
+        Raises:
+            aws_sdk_mailmanager.errors.access_denied_exception.AccessDeniedException: <p>Occurs when a user is denied access to a specific resource or action.</p>
+            aws_sdk_mailmanager.errors.conflict_exception.ConflictException: <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
+            aws_sdk_mailmanager.errors.throttling_exception.ThrottlingException: <p>Occurs when a service's request rate limit is exceeded, resulting in throttling of further requests.</p>
+            aws_sdk_mailmanager.errors.validation_exception.ValidationException: <p>The request validation has failed. For details, see the accompanying error message.</p>
+            aws_sdk_mailmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -565,6 +618,13 @@ class AsyncMailManagerClient:
         Args:
             address_list_id: <p>The unique identifier of the address list to retrieve the address from.</p>
             address: <p>The address to be retrieved from the address list.</p>
+
+        Raises:
+            aws_sdk_mailmanager.errors.access_denied_exception.AccessDeniedException: <p>Occurs when a user is denied access to a specific resource or action.</p>
+            aws_sdk_mailmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p>Occurs when a requested resource is not found.</p>
+            aws_sdk_mailmanager.errors.throttling_exception.ThrottlingException: <p>Occurs when a service's request rate limit is exceeded, resulting in throttling of further requests.</p>
+            aws_sdk_mailmanager.errors.validation_exception.ValidationException: <p>The request validation has failed. For details, see the accompanying error message.</p>
+            aws_sdk_mailmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -610,6 +670,13 @@ class AsyncMailManagerClient:
             address_list_id: <p>The unique identifier of the address list for listing import jobs.</p>
             next_token: <p>If you received a pagination token from a previous call to this API, you can provide it here to continue paginating through the next page of results.</p>
             page_size: <p>The maximum number of import jobs that are returned per call. You can use NextToken to retrieve the next page of jobs.</p>
+
+        Raises:
+            aws_sdk_mailmanager.errors.access_denied_exception.AccessDeniedException: <p>Occurs when a user is denied access to a specific resource or action.</p>
+            aws_sdk_mailmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p>Occurs when a requested resource is not found.</p>
+            aws_sdk_mailmanager.errors.throttling_exception.ThrottlingException: <p>Occurs when a service's request rate limit is exceeded, resulting in throttling of further requests.</p>
+            aws_sdk_mailmanager.errors.validation_exception.ValidationException: <p>The request validation has failed. For details, see the accompanying error message.</p>
+            aws_sdk_mailmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -683,6 +750,13 @@ class AsyncMailManagerClient:
             archive_id: <p>The identifier of the archive.</p>
             next_token: <p>If NextToken is returned, there are more results available. The value of NextToken is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. </p>
             page_size: <p>The maximum number of archive export jobs that are returned per call. You can use NextToken to obtain further pages of archives. </p>
+
+        Raises:
+            aws_sdk_mailmanager.errors.access_denied_exception.AccessDeniedException: <p>Occurs when a user is denied access to a specific resource or action.</p>
+            aws_sdk_mailmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p>Occurs when a requested resource is not found.</p>
+            aws_sdk_mailmanager.errors.throttling_exception.ThrottlingException: <p>Occurs when a service's request rate limit is exceeded, resulting in throttling of further requests.</p>
+            aws_sdk_mailmanager.errors.validation_exception.ValidationException: <p>The request validation has failed. For details, see the accompanying error message.</p>
+            aws_sdk_mailmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -756,6 +830,13 @@ class AsyncMailManagerClient:
             archive_id: <p>The identifier of the archive.</p>
             next_token: <p>If NextToken is returned, there are more results available. The value of NextToken is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. </p>
             page_size: <p>The maximum number of archive search jobs that are returned per call. You can use NextToken to obtain further pages of archives. </p>
+
+        Raises:
+            aws_sdk_mailmanager.errors.access_denied_exception.AccessDeniedException: <p>Occurs when a user is denied access to a specific resource or action.</p>
+            aws_sdk_mailmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p>Occurs when a requested resource is not found.</p>
+            aws_sdk_mailmanager.errors.throttling_exception.ThrottlingException: <p>Occurs when a service's request rate limit is exceeded, resulting in throttling of further requests.</p>
+            aws_sdk_mailmanager.errors.validation_exception.ValidationException: <p>The request validation has failed. For details, see the accompanying error message.</p>
+            aws_sdk_mailmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -835,6 +916,13 @@ class AsyncMailManagerClient:
             filter: <p>Filter to be used to limit the results.</p>
             next_token: <p>If you received a pagination token from a previous call to this API, you can provide it here to continue paginating through the next page of results.</p>
             page_size: <p>The maximum number of address list members that are returned per call. You can use NextToken to retrieve the next page of members.</p>
+
+        Raises:
+            aws_sdk_mailmanager.errors.access_denied_exception.AccessDeniedException: <p>Occurs when a user is denied access to a specific resource or action.</p>
+            aws_sdk_mailmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p>Occurs when a requested resource is not found.</p>
+            aws_sdk_mailmanager.errors.throttling_exception.ThrottlingException: <p>Occurs when a service's request rate limit is exceeded, resulting in throttling of further requests.</p>
+            aws_sdk_mailmanager.errors.validation_exception.ValidationException: <p>The request validation has failed. For details, see the accompanying error message.</p>
+            aws_sdk_mailmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -910,6 +998,11 @@ class AsyncMailManagerClient:
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource to retrieve tags from.</p>
+
+        Raises:
+            aws_sdk_mailmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p>Occurs when a requested resource is not found.</p>
+            aws_sdk_mailmanager.errors.validation_exception.ValidationException: <p>The request validation has failed. For details, see the accompanying error message.</p>
+            aws_sdk_mailmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -950,6 +1043,15 @@ class AsyncMailManagerClient:
         Args:
             address_list_id: <p>The unique identifier of the address list where the address should be added.</p>
             address: <p>The address to be added to the address list.</p>
+
+        Raises:
+            aws_sdk_mailmanager.errors.access_denied_exception.AccessDeniedException: <p>Occurs when a user is denied access to a specific resource or action.</p>
+            aws_sdk_mailmanager.errors.conflict_exception.ConflictException: <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
+            aws_sdk_mailmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p>Occurs when a requested resource is not found.</p>
+            aws_sdk_mailmanager.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Occurs when an operation exceeds a predefined service quota or limit.</p>
+            aws_sdk_mailmanager.errors.throttling_exception.ThrottlingException: <p>Occurs when a service's request rate limit is exceeded, resulting in throttling of further requests.</p>
+            aws_sdk_mailmanager.errors.validation_exception.ValidationException: <p>The request validation has failed. For details, see the accompanying error message.</p>
+            aws_sdk_mailmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -989,6 +1091,15 @@ class AsyncMailManagerClient:
 
         Args:
             job_id: <p>The identifier of the import job that needs to be started.</p>
+
+        Raises:
+            aws_sdk_mailmanager.errors.access_denied_exception.AccessDeniedException: <p>Occurs when a user is denied access to a specific resource or action.</p>
+            aws_sdk_mailmanager.errors.conflict_exception.ConflictException: <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
+            aws_sdk_mailmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p>Occurs when a requested resource is not found.</p>
+            aws_sdk_mailmanager.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Occurs when an operation exceeds a predefined service quota or limit.</p>
+            aws_sdk_mailmanager.errors.throttling_exception.ThrottlingException: <p>Occurs when a service's request rate limit is exceeded, resulting in throttling of further requests.</p>
+            aws_sdk_mailmanager.errors.validation_exception.ValidationException: <p>The request validation has failed. For details, see the accompanying error message.</p>
+            aws_sdk_mailmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1043,6 +1154,14 @@ class AsyncMailManagerClient:
             max_results: <p>The maximum number of email items to include in the export.</p>
             export_destination_configuration: <p>Details on where to deliver the exported email data.</p>
             include_metadata: <p>Whether to include message metadata as JSON files in the export.</p>
+
+        Raises:
+            aws_sdk_mailmanager.errors.access_denied_exception.AccessDeniedException: <p>Occurs when a user is denied access to a specific resource or action.</p>
+            aws_sdk_mailmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p>Occurs when a requested resource is not found.</p>
+            aws_sdk_mailmanager.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Occurs when an operation exceeds a predefined service quota or limit.</p>
+            aws_sdk_mailmanager.errors.throttling_exception.ThrottlingException: <p>Occurs when a service's request rate limit is exceeded, resulting in throttling of further requests.</p>
+            aws_sdk_mailmanager.errors.validation_exception.ValidationException: <p>The request validation has failed. For details, see the accompanying error message.</p>
+            aws_sdk_mailmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1100,6 +1219,15 @@ class AsyncMailManagerClient:
             from_timestamp: <p>The start timestamp of the range to search emails from.</p>
             to_timestamp: <p>The end timestamp of the range to search emails from.</p>
             max_results: <p>The maximum number of search results to return.</p>
+
+        Raises:
+            aws_sdk_mailmanager.errors.access_denied_exception.AccessDeniedException: <p>Occurs when a user is denied access to a specific resource or action.</p>
+            aws_sdk_mailmanager.errors.conflict_exception.ConflictException: <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
+            aws_sdk_mailmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p>Occurs when a requested resource is not found.</p>
+            aws_sdk_mailmanager.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Occurs when an operation exceeds a predefined service quota or limit.</p>
+            aws_sdk_mailmanager.errors.throttling_exception.ThrottlingException: <p>Occurs when a service's request rate limit is exceeded, resulting in throttling of further requests.</p>
+            aws_sdk_mailmanager.errors.validation_exception.ValidationException: <p>The request validation has failed. For details, see the accompanying error message.</p>
+            aws_sdk_mailmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1143,6 +1271,14 @@ class AsyncMailManagerClient:
 
         Args:
             job_id: <p>The identifier of the import job that needs to be stopped.</p>
+
+        Raises:
+            aws_sdk_mailmanager.errors.access_denied_exception.AccessDeniedException: <p>Occurs when a user is denied access to a specific resource or action.</p>
+            aws_sdk_mailmanager.errors.conflict_exception.ConflictException: <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
+            aws_sdk_mailmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p>Occurs when a requested resource is not found.</p>
+            aws_sdk_mailmanager.errors.throttling_exception.ThrottlingException: <p>Occurs when a service's request rate limit is exceeded, resulting in throttling of further requests.</p>
+            aws_sdk_mailmanager.errors.validation_exception.ValidationException: <p>The request validation has failed. For details, see the accompanying error message.</p>
+            aws_sdk_mailmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1181,6 +1317,12 @@ class AsyncMailManagerClient:
 
         Args:
             export_id: <p>The identifier of the export job to stop.</p>
+
+        Raises:
+            aws_sdk_mailmanager.errors.access_denied_exception.AccessDeniedException: <p>Occurs when a user is denied access to a specific resource or action.</p>
+            aws_sdk_mailmanager.errors.throttling_exception.ThrottlingException: <p>Occurs when a service's request rate limit is exceeded, resulting in throttling of further requests.</p>
+            aws_sdk_mailmanager.errors.validation_exception.ValidationException: <p>The request validation has failed. For details, see the accompanying error message.</p>
+            aws_sdk_mailmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1219,6 +1361,12 @@ class AsyncMailManagerClient:
 
         Args:
             search_id: <p>The identifier of the search job to stop.</p>
+
+        Raises:
+            aws_sdk_mailmanager.errors.access_denied_exception.AccessDeniedException: <p>Occurs when a user is denied access to a specific resource or action.</p>
+            aws_sdk_mailmanager.errors.throttling_exception.ThrottlingException: <p>Occurs when a service's request rate limit is exceeded, resulting in throttling of further requests.</p>
+            aws_sdk_mailmanager.errors.validation_exception.ValidationException: <p>The request validation has failed. For details, see the accompanying error message.</p>
+            aws_sdk_mailmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1259,6 +1407,13 @@ class AsyncMailManagerClient:
         Args:
             resource_arn: <p> The Amazon Resource Name (ARN) of the resource that you want to tag. </p>
             tags: <p> The tags used to organize, track, or control access for the resource. For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }. </p>
+
+        Raises:
+            aws_sdk_mailmanager.errors.conflict_exception.ConflictException: <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
+            aws_sdk_mailmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p>Occurs when a requested resource is not found.</p>
+            aws_sdk_mailmanager.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Occurs when an operation exceeds a predefined service quota or limit.</p>
+            aws_sdk_mailmanager.errors.validation_exception.ValidationException: <p>The request validation has failed. For details, see the accompanying error message.</p>
+            aws_sdk_mailmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1300,6 +1455,12 @@ class AsyncMailManagerClient:
         Args:
             resource_arn: <p> The Amazon Resource Name (ARN) of the resource that you want to untag. </p>
             tag_keys: <p> The keys of the key-value pairs for the tag or tags you want to remove from the specified resource. </p>
+
+        Raises:
+            aws_sdk_mailmanager.errors.conflict_exception.ConflictException: <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
+            aws_sdk_mailmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p>Occurs when a requested resource is not found.</p>
+            aws_sdk_mailmanager.errors.validation_exception.ValidationException: <p>The request validation has failed. For details, see the accompanying error message.</p>
+            aws_sdk_mailmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

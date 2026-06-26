@@ -154,6 +154,11 @@ class AsyncCostandUsageReportServiceClient:
         Args:
             report_name: <p>The name of the report that you want to delete. The name must be unique, is case sensitive, and can't include spaces.</p>
 
+        Raises:
+            aws_sdk_cost_and_usage_report_service.errors.internal_error_exception.InternalErrorException: <p>An error on the server occurred during the processing of your request. Try again later.</p>
+            aws_sdk_cost_and_usage_report_service.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_cost_and_usage_report_service.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To delete the AWS Cost and Usage report named ExampleReport.
             The following example deletes the AWS Cost and Usage report named ExampleReport.
@@ -199,6 +204,10 @@ class AsyncCostandUsageReportServiceClient:
         ] = None,
     ) -> "aws_sdk_cost_and_usage_report_service.types.describe_report_definitions_response.DescribeReportDefinitionsResponse":
         """<p>Lists the Amazon Web Services Cost and Usage Report available to this account.</p>
+
+        Raises:
+            aws_sdk_cost_and_usage_report_service.errors.internal_error_exception.InternalErrorException: <p>An error on the server occurred during the processing of your request. Try again later.</p>
+            aws_sdk_cost_and_usage_report_service.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To list the AWS Cost and Usage reports for the account.
@@ -246,6 +255,12 @@ class AsyncCostandUsageReportServiceClient:
 
         Args:
             report_name: <p>The report name of the report definition that tags are to be returned for.</p>
+
+        Raises:
+            aws_sdk_cost_and_usage_report_service.errors.internal_error_exception.InternalErrorException: <p>An error on the server occurred during the processing of your request. Try again later.</p>
+            aws_sdk_cost_and_usage_report_service.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified report (<code>ReportName</code>) in the request doesn't exist.</p>
+            aws_sdk_cost_and_usage_report_service.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_cost_and_usage_report_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -281,7 +296,13 @@ class AsyncCostandUsageReportServiceClient:
         *,
         config_overrides: Optional[AsyncCostandUsageReportServiceClientConfig] = None,
     ) -> "aws_sdk_cost_and_usage_report_service.types.modify_report_definition_response.ModifyReportDefinitionResponse":
-        """<p>Allows you to programmatically update your report preferences.</p>"""
+        """<p>Allows you to programmatically update your report preferences.</p>
+
+        Raises:
+            aws_sdk_cost_and_usage_report_service.errors.internal_error_exception.InternalErrorException: <p>An error on the server occurred during the processing of your request. Try again later.</p>
+            aws_sdk_cost_and_usage_report_service.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_cost_and_usage_report_service.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_cost_and_usage_report_service.types.modify_report_definition_request.ModifyReportDefinitionRequest]",
@@ -324,6 +345,14 @@ class AsyncCostandUsageReportServiceClient:
         Args:
             report_definition: <p>Represents the output of the PutReportDefinition operation. The content consists of the detailed metadata and data file information. </p>
             tags: <p>The tags to be assigned to the report definition resource.</p>
+
+        Raises:
+            aws_sdk_cost_and_usage_report_service.errors.duplicate_report_name_exception.DuplicateReportNameException: <p>A report with the specified name already exists in the account. Specify a different report name.</p>
+            aws_sdk_cost_and_usage_report_service.errors.internal_error_exception.InternalErrorException: <p>An error on the server occurred during the processing of your request. Try again later.</p>
+            aws_sdk_cost_and_usage_report_service.errors.report_limit_reached_exception.ReportLimitReachedException: <p>This account already has five reports defined. To define a new report, you must delete an existing report.</p>
+            aws_sdk_cost_and_usage_report_service.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified report (<code>ReportName</code>) in the request doesn't exist.</p>
+            aws_sdk_cost_and_usage_report_service.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_cost_and_usage_report_service.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To create a report named ExampleReport.
@@ -372,6 +401,12 @@ class AsyncCostandUsageReportServiceClient:
         Args:
             report_name: <p>The report name of the report definition that tags are to be associated with.</p>
             tags: <p>The tags to be assigned to the report definition resource.</p>
+
+        Raises:
+            aws_sdk_cost_and_usage_report_service.errors.internal_error_exception.InternalErrorException: <p>An error on the server occurred during the processing of your request. Try again later.</p>
+            aws_sdk_cost_and_usage_report_service.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified report (<code>ReportName</code>) in the request doesn't exist.</p>
+            aws_sdk_cost_and_usage_report_service.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_cost_and_usage_report_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -413,6 +448,12 @@ class AsyncCostandUsageReportServiceClient:
         Args:
             report_name: <p>The report name of the report definition that tags are to be disassociated from.</p>
             tag_keys: <p>The tags to be disassociated from the report definition resource.</p>
+
+        Raises:
+            aws_sdk_cost_and_usage_report_service.errors.internal_error_exception.InternalErrorException: <p>An error on the server occurred during the processing of your request. Try again later.</p>
+            aws_sdk_cost_and_usage_report_service.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified report (<code>ReportName</code>) in the request doesn't exist.</p>
+            aws_sdk_cost_and_usage_report_service.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_cost_and_usage_report_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

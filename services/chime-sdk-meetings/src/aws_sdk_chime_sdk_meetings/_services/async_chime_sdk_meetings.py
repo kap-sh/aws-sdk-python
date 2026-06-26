@@ -181,6 +181,18 @@ class AsyncChimeSDKMeetingsClient:
         Args:
             meeting_id: <p>The Amazon Chime SDK ID of the meeting to which you're adding attendees.</p>
             attendees: <p>The attendee information, including attendees' IDs and join tokens.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_meetings.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_meetings.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_meetings.errors.limit_exceeded_exception.LimitExceededException: <p>The request exceeds the resource limit.</p>
+            aws_sdk_chime_sdk_meetings.errors.not_found_exception.NotFoundException: <p>One or more of the resources in the request does not exist in the system.</p>
+            aws_sdk_chime_sdk_meetings.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_meetings.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_meetings.errors.throttling_exception.ThrottlingException: <p>The number of customer requests exceeds the request rate limit.</p>
+            aws_sdk_chime_sdk_meetings.errors.unauthorized_exception.UnauthorizedException: <p>The user isn't authorized to request a resource.</p>
+            aws_sdk_chime_sdk_meetings.errors.unprocessable_entity_exception.UnprocessableEntityException: <p>The request was well-formed but was unable to be followed due to semantic errors.</p>
+            aws_sdk_chime_sdk_meetings.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -224,6 +236,17 @@ class AsyncChimeSDKMeetingsClient:
             meeting_id: <p>The ID of the meeting associated with the update request.</p>
             excluded_attendee_ids: <p>The <code>AttendeeIDs</code> that you want to exclude from one or more capabilities.</p>
             capabilities: <p>The capabilities (<code>audio</code>, <code>video</code>, or <code>content</code>) that you want to update.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_meetings.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_meetings.errors.conflict_exception.ConflictException: <p>Multiple instances of the same request have been made simultaneously.</p>
+            aws_sdk_chime_sdk_meetings.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_meetings.errors.not_found_exception.NotFoundException: <p>One or more of the resources in the request does not exist in the system.</p>
+            aws_sdk_chime_sdk_meetings.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_meetings.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_meetings.errors.throttling_exception.ThrottlingException: <p>The number of customer requests exceeds the request rate limit.</p>
+            aws_sdk_chime_sdk_meetings.errors.unauthorized_exception.UnauthorizedException: <p>The user isn't authorized to request a resource.</p>
+            aws_sdk_chime_sdk_meetings.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -268,6 +291,18 @@ class AsyncChimeSDKMeetingsClient:
             meeting_id: <p>The unique ID of the meeting.</p>
             external_user_id: <p>The Amazon Chime SDK external user ID. An idempotency token. Links the attendee to an identity managed by a builder application.</p> <p>Pattern: <code>[-_&@+=,(){}\[\]\/«».:|'\"#a-zA-Z0-9À-ÿ\s]*</code> </p> <p>Values that begin with <code>aws:</code> are reserved. You can't configure a value that uses this prefix.</p>
             capabilities: <p>The capabilities (<code>audio</code>, <code>video</code>, or <code>content</code>) that you want to grant an attendee. If you don't specify capabilities, all users have send and receive capabilities on all media channels by default.</p> <note> <p>You use the capabilities with a set of values that control what the capabilities can do, such as <code>SendReceive</code> data. For more information about those values, see .</p> </note> <p>When using capabilities, be aware of these corner cases:</p> <ul> <li> <p>If you specify <code>MeetingFeatures:Video:MaxResolution:None</code> when you create a meeting, all API requests that include <code>SendReceive</code>, <code>Send</code>, or <code>Receive</code> for <code>AttendeeCapabilities:Video</code> will be rejected with <code>ValidationError 400</code>.</p> </li> <li> <p>If you specify <code>MeetingFeatures:Content:MaxResolution:None</code> when you create a meeting, all API requests that include <code>SendReceive</code>, <code>Send</code>, or <code>Receive</code> for <code>AttendeeCapabilities:Content</code> will be rejected with <code>ValidationError 400</code>.</p> </li> <li> <p>You can't set <code>content</code> capabilities to <code>SendReceive</code> or <code>Receive</code> unless you also set <code>video</code> capabilities to <code>SendReceive</code> or <code>Receive</code>. If you don't set the <code>video</code> capability to receive, the response will contain an HTTP 400 Bad Request status code. However, you can set your <code>video</code> capability to receive and you set your <code>content</code> capability to not receive.</p> </li> <li> <p>If meeting features is defined as <code>Video:MaxResolution:None</code> but <code>Content:MaxResolution</code> is defined as something other than <code>None</code> and attendee capabilities are not defined in the API request, then the default attendee video capability is set to <code>Receive</code> and attendee content capability is set to <code>SendReceive</code>. This is because content <code>SendReceive</code> requires video to be at least <code>Receive</code>.</p> </li> <li> <p>When you change an <code>audio</code> capability from <code>None</code> or <code>Receive</code> to <code>Send</code> or <code>SendReceive</code> , and if the attendee left their microphone unmuted, audio will flow from the attendee to the other meeting participants.</p> </li> <li> <p>When you change a <code>video</code> or <code>content</code> capability from <code>None</code> or <code>Receive</code> to <code>Send</code> or <code>SendReceive</code> , and if the attendee turned on their video or content streams, remote attendees can receive those streams, but only after media renegotiation between the client and the Amazon Chime back-end server.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_chime_sdk_meetings.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_meetings.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_meetings.errors.limit_exceeded_exception.LimitExceededException: <p>The request exceeds the resource limit.</p>
+            aws_sdk_chime_sdk_meetings.errors.not_found_exception.NotFoundException: <p>One or more of the resources in the request does not exist in the system.</p>
+            aws_sdk_chime_sdk_meetings.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_meetings.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_meetings.errors.throttling_exception.ThrottlingException: <p>The number of customer requests exceeds the request rate limit.</p>
+            aws_sdk_chime_sdk_meetings.errors.unauthorized_exception.UnauthorizedException: <p>The user isn't authorized to request a resource.</p>
+            aws_sdk_chime_sdk_meetings.errors.unprocessable_entity_exception.UnprocessableEntityException: <p>The request was well-formed but was unable to be followed due to semantic errors.</p>
+            aws_sdk_chime_sdk_meetings.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -341,6 +376,17 @@ class AsyncChimeSDKMeetingsClient:
             tenant_ids: <p>A consistent and opaque identifier, created and maintained by the builder to represent a segment of their users.</p>
             tags: <p>Applies one or more tags to an Amazon Chime SDK meeting. Note the following:</p> <ul> <li> <p>Not all resources have tags. For a list of services with resources that support tagging using this operation, see <a href=\"https://docs.aws.amazon.com/resourcegroupstagging/latest/APIReference/supported-services.html\">Services that support the Resource Groups Tagging API</a>. If the resource doesn't yet support this operation, the resource's service might support tagging using its own API operations. For more information, refer to the documentation for that service.</p> </li> <li> <p>Each resource can have up to 50 tags. For other limits, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html#tag-conventions\">Tag Naming and Usage Conventions</a> in the <i>AWS General Reference</i>.</p> </li> <li> <p>You can only tag resources that are located in the specified Amazon Web Services Region for the Amazon Web Services account.</p> </li> <li> <p>To add tags to a resource, you need the necessary permissions for the service that the resource belongs to as well as permissions for adding tags. For more information, see the documentation for each service.</p> </li> </ul> <important> <p>Do not store personally identifiable information (PII) or other confidential or sensitive information in tags. We use tags to provide you with billing and administration services. Tags are not intended to be used for private or sensitive data.</p> </important> <p> <b>Minimum permissions</b> </p> <p>In addition to the <code>tag:TagResources</code> permission required by this operation, you must also have the tagging permission defined by the service that created the resource. For example, to tag a <code>ChimeSDKMeetings</code> instance using the <code>TagResources</code> operation, you must have both of the following permissions:</p> <p> <code>tag:TagResources</code> </p> <p> <code>ChimeSDKMeetings:CreateTags</code> </p> <note> <p>Some services might have specific requirements for tagging some resources. For example, to tag an Amazon S3 bucket, you must also have the <code>s3:GetBucketTagging</code> permission. If the expected minimum permissions don't work, check the documentation for that service's tagging APIs for more information.</p> </note>
             media_placement_network_type: <p>The type of network for the media placement. Either IPv4 only or dual-stack (IPv4 and IPv6).</p>
+
+        Raises:
+            aws_sdk_chime_sdk_meetings.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_meetings.errors.conflict_exception.ConflictException: <p>Multiple instances of the same request have been made simultaneously.</p>
+            aws_sdk_chime_sdk_meetings.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_meetings.errors.limit_exceeded_exception.LimitExceededException: <p>The request exceeds the resource limit.</p>
+            aws_sdk_chime_sdk_meetings.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_meetings.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_meetings.errors.throttling_exception.ThrottlingException: <p>The number of customer requests exceeds the request rate limit.</p>
+            aws_sdk_chime_sdk_meetings.errors.unauthorized_exception.UnauthorizedException: <p>The user isn't authorized to request a resource.</p>
+            aws_sdk_chime_sdk_meetings.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -427,6 +473,17 @@ class AsyncChimeSDKMeetingsClient:
             tenant_ids: <p>A consistent and opaque identifier, created and maintained by the builder to represent a segment of their users.</p>
             tags: <p>The tags in the request.</p>
             media_placement_network_type: <p>The type of network for the media placement. Either IPv4 only or dual-stack (IPv4 and IPv6).</p>
+
+        Raises:
+            aws_sdk_chime_sdk_meetings.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_meetings.errors.conflict_exception.ConflictException: <p>Multiple instances of the same request have been made simultaneously.</p>
+            aws_sdk_chime_sdk_meetings.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_meetings.errors.limit_exceeded_exception.LimitExceededException: <p>The request exceeds the resource limit.</p>
+            aws_sdk_chime_sdk_meetings.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_meetings.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_meetings.errors.throttling_exception.ThrottlingException: <p>The number of customer requests exceeds the request rate limit.</p>
+            aws_sdk_chime_sdk_meetings.errors.unauthorized_exception.UnauthorizedException: <p>The user isn't authorized to request a resource.</p>
+            aws_sdk_chime_sdk_meetings.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -484,6 +541,16 @@ class AsyncChimeSDKMeetingsClient:
         Args:
             meeting_id: <p>The Amazon Chime SDK meeting ID.</p>
             attendee_id: <p>The Amazon Chime SDK attendee ID.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_meetings.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_meetings.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_meetings.errors.not_found_exception.NotFoundException: <p>One or more of the resources in the request does not exist in the system.</p>
+            aws_sdk_chime_sdk_meetings.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_meetings.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_meetings.errors.throttling_exception.ThrottlingException: <p>The number of customer requests exceeds the request rate limit.</p>
+            aws_sdk_chime_sdk_meetings.errors.unauthorized_exception.UnauthorizedException: <p>The user isn't authorized to request a resource.</p>
+            aws_sdk_chime_sdk_meetings.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -521,6 +588,16 @@ class AsyncChimeSDKMeetingsClient:
 
         Args:
             meeting_id: <p>The Amazon Chime SDK meeting ID.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_meetings.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_meetings.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_meetings.errors.not_found_exception.NotFoundException: <p>One or more of the resources in the request does not exist in the system.</p>
+            aws_sdk_chime_sdk_meetings.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_meetings.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_meetings.errors.throttling_exception.ThrottlingException: <p>The number of customer requests exceeds the request rate limit.</p>
+            aws_sdk_chime_sdk_meetings.errors.unauthorized_exception.UnauthorizedException: <p>The user isn't authorized to request a resource.</p>
+            aws_sdk_chime_sdk_meetings.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -559,6 +636,16 @@ class AsyncChimeSDKMeetingsClient:
         Args:
             meeting_id: <p>The Amazon Chime SDK meeting ID.</p>
             attendee_id: <p>The Amazon Chime SDK attendee ID.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_meetings.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_meetings.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_meetings.errors.not_found_exception.NotFoundException: <p>One or more of the resources in the request does not exist in the system.</p>
+            aws_sdk_chime_sdk_meetings.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_meetings.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_meetings.errors.throttling_exception.ThrottlingException: <p>The number of customer requests exceeds the request rate limit.</p>
+            aws_sdk_chime_sdk_meetings.errors.unauthorized_exception.UnauthorizedException: <p>The user isn't authorized to request a resource.</p>
+            aws_sdk_chime_sdk_meetings.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -598,6 +685,16 @@ class AsyncChimeSDKMeetingsClient:
 
         Args:
             meeting_id: <p>The Amazon Chime SDK meeting ID.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_meetings.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_meetings.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_meetings.errors.not_found_exception.NotFoundException: <p>One or more of the resources in the request does not exist in the system.</p>
+            aws_sdk_chime_sdk_meetings.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_meetings.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_meetings.errors.throttling_exception.ThrottlingException: <p>The number of customer requests exceeds the request rate limit.</p>
+            aws_sdk_chime_sdk_meetings.errors.unauthorized_exception.UnauthorizedException: <p>The user isn't authorized to request a resource.</p>
+            aws_sdk_chime_sdk_meetings.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -644,6 +741,16 @@ class AsyncChimeSDKMeetingsClient:
             meeting_id: <p>The Amazon Chime SDK meeting ID.</p>
             next_token: <p>The token to use to retrieve the next page of results.</p>
             max_results: <p>The maximum number of results to return in a single call.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_meetings.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_meetings.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_meetings.errors.not_found_exception.NotFoundException: <p>One or more of the resources in the request does not exist in the system.</p>
+            aws_sdk_chime_sdk_meetings.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_meetings.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_meetings.errors.throttling_exception.ThrottlingException: <p>The number of customer requests exceeds the request rate limit.</p>
+            aws_sdk_chime_sdk_meetings.errors.unauthorized_exception.UnauthorizedException: <p>The user isn't authorized to request a resource.</p>
+            aws_sdk_chime_sdk_meetings.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -686,6 +793,17 @@ class AsyncChimeSDKMeetingsClient:
 
         Args:
             resource_arn: <p>The ARN of the resource.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_meetings.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_meetings.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_meetings.errors.limit_exceeded_exception.LimitExceededException: <p>The request exceeds the resource limit.</p>
+            aws_sdk_chime_sdk_meetings.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource that you want to tag couldn't be found.</p>
+            aws_sdk_chime_sdk_meetings.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_meetings.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_meetings.errors.throttling_exception.ThrottlingException: <p>The number of customer requests exceeds the request rate limit.</p>
+            aws_sdk_chime_sdk_meetings.errors.unauthorized_exception.UnauthorizedException: <p>The user isn't authorized to request a resource.</p>
+            aws_sdk_chime_sdk_meetings.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -726,6 +844,18 @@ class AsyncChimeSDKMeetingsClient:
         Args:
             meeting_id: <p>The unique ID of the meeting being transcribed.</p>
             transcription_configuration: <p>The configuration for the current transcription operation. Must contain <code>EngineTranscribeSettings</code> or <code>EngineTranscribeMedicalSettings</code>.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_meetings.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_meetings.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_meetings.errors.limit_exceeded_exception.LimitExceededException: <p>The request exceeds the resource limit.</p>
+            aws_sdk_chime_sdk_meetings.errors.not_found_exception.NotFoundException: <p>One or more of the resources in the request does not exist in the system.</p>
+            aws_sdk_chime_sdk_meetings.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_meetings.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_meetings.errors.throttling_exception.ThrottlingException: <p>The number of customer requests exceeds the request rate limit.</p>
+            aws_sdk_chime_sdk_meetings.errors.unauthorized_exception.UnauthorizedException: <p>The user isn't authorized to request a resource.</p>
+            aws_sdk_chime_sdk_meetings.errors.unprocessable_entity_exception.UnprocessableEntityException: <p>The request was well-formed but was unable to be followed due to semantic errors.</p>
+            aws_sdk_chime_sdk_meetings.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -763,6 +893,17 @@ class AsyncChimeSDKMeetingsClient:
 
         Args:
             meeting_id: <p>The unique ID of the meeting for which you stop transcription.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_meetings.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_meetings.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_meetings.errors.not_found_exception.NotFoundException: <p>One or more of the resources in the request does not exist in the system.</p>
+            aws_sdk_chime_sdk_meetings.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_meetings.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_meetings.errors.throttling_exception.ThrottlingException: <p>The number of customer requests exceeds the request rate limit.</p>
+            aws_sdk_chime_sdk_meetings.errors.unauthorized_exception.UnauthorizedException: <p>The user isn't authorized to request a resource.</p>
+            aws_sdk_chime_sdk_meetings.errors.unprocessable_entity_exception.UnprocessableEntityException: <p>The request was well-formed but was unable to be followed due to semantic errors.</p>
+            aws_sdk_chime_sdk_meetings.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -801,6 +942,18 @@ class AsyncChimeSDKMeetingsClient:
         Args:
             resource_arn: <p>The ARN of the resource.</p>
             tags: <p>Lists the requested tags.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_meetings.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_meetings.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_meetings.errors.limit_exceeded_exception.LimitExceededException: <p>The request exceeds the resource limit.</p>
+            aws_sdk_chime_sdk_meetings.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource that you want to tag couldn't be found.</p>
+            aws_sdk_chime_sdk_meetings.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_meetings.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_meetings.errors.throttling_exception.ThrottlingException: <p>The number of customer requests exceeds the request rate limit.</p>
+            aws_sdk_chime_sdk_meetings.errors.too_many_tags_exception.TooManyTagsException: <p>Too many tags were added to the specified resource.</p>
+            aws_sdk_chime_sdk_meetings.errors.unauthorized_exception.UnauthorizedException: <p>The user isn't authorized to request a resource.</p>
+            aws_sdk_chime_sdk_meetings.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -844,6 +997,17 @@ class AsyncChimeSDKMeetingsClient:
         Args:
             resource_arn: <p>The ARN of the resource that you're removing tags from.</p>
             tag_keys: <p>The tag keys being removed from the resources.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_meetings.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_meetings.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_meetings.errors.limit_exceeded_exception.LimitExceededException: <p>The request exceeds the resource limit.</p>
+            aws_sdk_chime_sdk_meetings.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource that you want to tag couldn't be found.</p>
+            aws_sdk_chime_sdk_meetings.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_meetings.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_meetings.errors.throttling_exception.ThrottlingException: <p>The number of customer requests exceeds the request rate limit.</p>
+            aws_sdk_chime_sdk_meetings.errors.unauthorized_exception.UnauthorizedException: <p>The user isn't authorized to request a resource.</p>
+            aws_sdk_chime_sdk_meetings.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -887,6 +1051,17 @@ class AsyncChimeSDKMeetingsClient:
             meeting_id: <p>The ID of the meeting associated with the update request.</p>
             attendee_id: <p>The ID of the attendee associated with the update request.</p>
             capabilities: <p>The capabilities that you want to update.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_meetings.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_meetings.errors.conflict_exception.ConflictException: <p>Multiple instances of the same request have been made simultaneously.</p>
+            aws_sdk_chime_sdk_meetings.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_meetings.errors.not_found_exception.NotFoundException: <p>One or more of the resources in the request does not exist in the system.</p>
+            aws_sdk_chime_sdk_meetings.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_meetings.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_meetings.errors.throttling_exception.ThrottlingException: <p>The number of customer requests exceeds the request rate limit.</p>
+            aws_sdk_chime_sdk_meetings.errors.unauthorized_exception.UnauthorizedException: <p>The user isn't authorized to request a resource.</p>
+            aws_sdk_chime_sdk_meetings.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

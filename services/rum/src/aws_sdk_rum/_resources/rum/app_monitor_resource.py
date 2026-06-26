@@ -89,6 +89,14 @@ class AppMonitorResource:
 
         Args:
             name: <p>The app monitor to retrieve information for.</p>
+
+        Raises:
+            aws_sdk_rum.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permissions to perform this action.</p>
+            aws_sdk_rum.errors.internal_server_exception.InternalServerException: <p>Internal service exception.</p>
+            aws_sdk_rum.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found.</p>
+            aws_sdk_rum.errors.throttling_exception.ThrottlingException: <p>The request was throttled because of quota limits.</p>
+            aws_sdk_rum.errors.validation_exception.ValidationException: <p>One of the arguments for the request is not valid.</p>
+            aws_sdk_rum.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -146,6 +154,15 @@ class AppMonitorResource:
             cw_log_enabled: <p>Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter specifies whether RUM sends a copy of this telemetry data to Amazon CloudWatch Logs in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur Amazon CloudWatch Logs charges.</p>
             custom_events: <p>Specifies whether this app monitor allows the web client to define and send custom events. The default is for custom events to be <code>DISABLED</code>.</p> <p>For more information about custom events, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM-custom-events.html\">Send custom events</a>.</p>
             deobfuscation_configuration: <p> A structure that contains the configuration for how an app monitor can deobfuscate stack traces. </p>
+
+        Raises:
+            aws_sdk_rum.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permissions to perform this action.</p>
+            aws_sdk_rum.errors.conflict_exception.ConflictException: <p>This operation attempted to create a resource that already exists.</p>
+            aws_sdk_rum.errors.internal_server_exception.InternalServerException: <p>Internal service exception.</p>
+            aws_sdk_rum.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found.</p>
+            aws_sdk_rum.errors.throttling_exception.ThrottlingException: <p>The request was throttled because of quota limits.</p>
+            aws_sdk_rum.errors.validation_exception.ValidationException: <p>One of the arguments for the request is not valid.</p>
+            aws_sdk_rum.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -195,6 +212,15 @@ class AppMonitorResource:
 
         Args:
             name: <p>The name of the app monitor to delete.</p>
+
+        Raises:
+            aws_sdk_rum.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permissions to perform this action.</p>
+            aws_sdk_rum.errors.conflict_exception.ConflictException: <p>This operation attempted to create a resource that already exists.</p>
+            aws_sdk_rum.errors.internal_server_exception.InternalServerException: <p>Internal service exception.</p>
+            aws_sdk_rum.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found.</p>
+            aws_sdk_rum.errors.throttling_exception.ThrottlingException: <p>The request was throttled because of quota limits.</p>
+            aws_sdk_rum.errors.validation_exception.ValidationException: <p>One of the arguments for the request is not valid.</p>
+            aws_sdk_rum.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -236,6 +262,13 @@ class AppMonitorResource:
         Args:
             max_results: <p>The maximum number of results to return in one operation. The default is 50. The maximum that you can specify is 100.</p>
             next_token: <p>Use the token returned by the previous operation to request the next page of results.</p>
+
+        Raises:
+            aws_sdk_rum.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permissions to perform this action.</p>
+            aws_sdk_rum.errors.internal_server_exception.InternalServerException: <p>Internal service exception.</p>
+            aws_sdk_rum.errors.throttling_exception.ThrottlingException: <p>The request was throttled because of quota limits.</p>
+            aws_sdk_rum.errors.validation_exception.ValidationException: <p>One of the arguments for the request is not valid.</p>
+            aws_sdk_rum.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -284,6 +317,16 @@ class AppMonitorResource:
             destination: <p>The destination to send the metrics to. Valid values are <code>CloudWatch</code> and <code>Evidently</code>. If you specify <code>Evidently</code>, you must also specify the Amazon Resource Name (ARN) of the CloudWatchEvidently experiment that will receive the metrics and an IAM role that has permission to write to the experiment.</p>
             destination_arn: <p>This parameter is required if <code>Destination</code> is <code>Evidently</code>. If <code>Destination</code> is <code>CloudWatch</code>, do not use this parameter.</p> <p>This parameter specifies the ARN of the Evidently experiment that is to receive the metrics. You must have already defined this experiment as a valid destination. For more information, see <a href=\"https://docs.aws.amazon.com/cloudwatchrum/latest/APIReference/API_PutRumMetricsDestination.html\">PutRumMetricsDestination</a>.</p>
             metric_definitions: <p>An array of structures which define the metrics that you want to send.</p>
+
+        Raises:
+            aws_sdk_rum.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permissions to perform this action.</p>
+            aws_sdk_rum.errors.conflict_exception.ConflictException: <p>This operation attempted to create a resource that already exists.</p>
+            aws_sdk_rum.errors.internal_server_exception.InternalServerException: <p>Internal service exception.</p>
+            aws_sdk_rum.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found.</p>
+            aws_sdk_rum.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>This request exceeds a service quota.</p>
+            aws_sdk_rum.errors.throttling_exception.ThrottlingException: <p>The request was throttled because of quota limits.</p>
+            aws_sdk_rum.errors.validation_exception.ValidationException: <p>One of the arguments for the request is not valid.</p>
+            aws_sdk_rum.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -333,6 +376,15 @@ class AppMonitorResource:
             destination: <p>Defines the destination where you want to stop sending the specified metrics. Valid values are <code>CloudWatch</code> and <code>Evidently</code>. If you specify <code>Evidently</code>, you must also specify the ARN of the CloudWatchEvidently experiment that is to be the destination and an IAM role that has permission to write to the experiment.</p>
             destination_arn: <p>This parameter is required if <code>Destination</code> is <code>Evidently</code>. If <code>Destination</code> is <code>CloudWatch</code>, do not use this parameter. </p> <p>This parameter specifies the ARN of the Evidently experiment that was receiving the metrics that are being deleted.</p>
             metric_definition_ids: <p>An array of structures which define the metrics that you want to stop sending.</p>
+
+        Raises:
+            aws_sdk_rum.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permissions to perform this action.</p>
+            aws_sdk_rum.errors.conflict_exception.ConflictException: <p>This operation attempted to create a resource that already exists.</p>
+            aws_sdk_rum.errors.internal_server_exception.InternalServerException: <p>Internal service exception.</p>
+            aws_sdk_rum.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found.</p>
+            aws_sdk_rum.errors.throttling_exception.ThrottlingException: <p>The request was throttled because of quota limits.</p>
+            aws_sdk_rum.errors.validation_exception.ValidationException: <p>One of the arguments for the request is not valid.</p>
+            aws_sdk_rum.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -386,6 +438,13 @@ class AppMonitorResource:
             destination_arn: <p>This parameter is required if <code>Destination</code> is <code>Evidently</code>. If <code>Destination</code> is <code>CloudWatch</code>, do not use this parameter.</p> <p>This parameter specifies the ARN of the Evidently experiment that corresponds to the destination.</p>
             max_results: <p>The maximum number of results to return in one operation. The default is 50. The maximum that you can specify is 100.</p> <p>To retrieve the remaining results, make another call with the returned <code>NextToken</code> value. </p>
             next_token: <p>Use the token returned by the previous operation to request the next page of results.</p>
+
+        Raises:
+            aws_sdk_rum.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permissions to perform this action.</p>
+            aws_sdk_rum.errors.internal_server_exception.InternalServerException: <p>Internal service exception.</p>
+            aws_sdk_rum.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found.</p>
+            aws_sdk_rum.errors.validation_exception.ValidationException: <p>One of the arguments for the request is not valid.</p>
+            aws_sdk_rum.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -456,6 +515,16 @@ class AppMonitorResource:
             custom_events: <p>Specifies whether this app monitor allows the web client to define and send custom events. If you omit this parameter, custom events are <code>DISABLED</code>.</p> <p>For more information about custom events, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM-custom-events.html\">Send custom events</a>.</p>
             deobfuscation_configuration: <p> A structure that contains the configuration for how an app monitor can deobfuscate stack traces. </p>
             platform: <p>The platform type for the app monitor. Valid values are <code>Web</code> for web applications, <code>Android</code> for Android applications, and <code>iOS</code> for IOS applications. If you omit this parameter, the default is <code>Web</code>.</p>
+
+        Raises:
+            aws_sdk_rum.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permissions to perform this action.</p>
+            aws_sdk_rum.errors.conflict_exception.ConflictException: <p>This operation attempted to create a resource that already exists.</p>
+            aws_sdk_rum.errors.internal_server_exception.InternalServerException: <p>Internal service exception.</p>
+            aws_sdk_rum.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found.</p>
+            aws_sdk_rum.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>This request exceeds a service quota.</p>
+            aws_sdk_rum.errors.throttling_exception.ThrottlingException: <p>The request was throttled because of quota limits.</p>
+            aws_sdk_rum.errors.validation_exception.ValidationException: <p>One of the arguments for the request is not valid.</p>
+            aws_sdk_rum.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -515,6 +584,17 @@ class AppMonitorResource:
         Args:
             name: <p>The app monitor that you want to remove the resource policy from.</p>
             policy_revision_id: <p>Specifies a specific policy revision to delete. Provide a <code>PolicyRevisionId</code> to ensure an atomic delete operation. If the revision ID that you provide doesn't match the latest policy revision ID, the request will be rejected with an <code>InvalidPolicyRevisionIdException</code> error.</p>
+
+        Raises:
+            aws_sdk_rum.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permissions to perform this action.</p>
+            aws_sdk_rum.errors.conflict_exception.ConflictException: <p>This operation attempted to create a resource that already exists.</p>
+            aws_sdk_rum.errors.internal_server_exception.InternalServerException: <p>Internal service exception.</p>
+            aws_sdk_rum.errors.invalid_policy_revision_id_exception.InvalidPolicyRevisionIdException: <p>The policy revision ID that you provided doeesn't match the latest policy revision ID.</p>
+            aws_sdk_rum.errors.policy_not_found_exception.PolicyNotFoundException: <p>The resource-based policy doesn't exist on this app monitor.</p>
+            aws_sdk_rum.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found.</p>
+            aws_sdk_rum.errors.throttling_exception.ThrottlingException: <p>The request was throttled because of quota limits.</p>
+            aws_sdk_rum.errors.validation_exception.ValidationException: <p>One of the arguments for the request is not valid.</p>
+            aws_sdk_rum.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -560,6 +640,15 @@ class AppMonitorResource:
             app_monitor_name: <p>The name of the app monitor that is sending metrics to the destination that you want to delete.</p>
             destination: <p>The type of destination to delete. Valid values are <code>CloudWatch</code> and <code>Evidently</code>.</p>
             destination_arn: <p>This parameter is required if <code>Destination</code> is <code>Evidently</code>. If <code>Destination</code> is <code>CloudWatch</code>, do not use this parameter. This parameter specifies the ARN of the Evidently experiment that corresponds to the destination to delete.</p>
+
+        Raises:
+            aws_sdk_rum.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permissions to perform this action.</p>
+            aws_sdk_rum.errors.conflict_exception.ConflictException: <p>This operation attempted to create a resource that already exists.</p>
+            aws_sdk_rum.errors.internal_server_exception.InternalServerException: <p>Internal service exception.</p>
+            aws_sdk_rum.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found.</p>
+            aws_sdk_rum.errors.throttling_exception.ThrottlingException: <p>The request was throttled because of quota limits.</p>
+            aws_sdk_rum.errors.validation_exception.ValidationException: <p>One of the arguments for the request is not valid.</p>
+            aws_sdk_rum.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -610,6 +699,14 @@ class AppMonitorResource:
             filters: <p>An array of structures that you can use to filter the results to those that match one or more sets of key-value pairs that you specify.</p>
             max_results: <p>The maximum number of results to return in one operation. </p>
             next_token: <p>Use the token returned by the previous operation to request the next page of results.</p>
+
+        Raises:
+            aws_sdk_rum.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permissions to perform this action.</p>
+            aws_sdk_rum.errors.internal_server_exception.InternalServerException: <p>Internal service exception.</p>
+            aws_sdk_rum.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found.</p>
+            aws_sdk_rum.errors.throttling_exception.ThrottlingException: <p>The request was throttled because of quota limits.</p>
+            aws_sdk_rum.errors.validation_exception.ValidationException: <p>One of the arguments for the request is not valid.</p>
+            aws_sdk_rum.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -654,6 +751,16 @@ class AppMonitorResource:
 
         Args:
             name: <p>The name of the app monitor that is associated with the resource-based policy that you want to view.</p>
+
+        Raises:
+            aws_sdk_rum.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permissions to perform this action.</p>
+            aws_sdk_rum.errors.conflict_exception.ConflictException: <p>This operation attempted to create a resource that already exists.</p>
+            aws_sdk_rum.errors.internal_server_exception.InternalServerException: <p>Internal service exception.</p>
+            aws_sdk_rum.errors.policy_not_found_exception.PolicyNotFoundException: <p>The resource-based policy doesn't exist on this app monitor.</p>
+            aws_sdk_rum.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found.</p>
+            aws_sdk_rum.errors.throttling_exception.ThrottlingException: <p>The request was throttled because of quota limits.</p>
+            aws_sdk_rum.errors.validation_exception.ValidationException: <p>One of the arguments for the request is not valid.</p>
+            aws_sdk_rum.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -697,6 +804,13 @@ class AppMonitorResource:
             app_monitor_name: <p>The name of the app monitor associated with the destinations that you want to retrieve.</p>
             max_results: <p>The maximum number of results to return in one operation. The default is 50. The maximum that you can specify is 100.</p> <p>To retrieve the remaining results, make another call with the returned <code>NextToken</code> value. </p>
             next_token: <p>Use the token returned by the previous operation to request the next page of results.</p>
+
+        Raises:
+            aws_sdk_rum.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permissions to perform this action.</p>
+            aws_sdk_rum.errors.internal_server_exception.InternalServerException: <p>Internal service exception.</p>
+            aws_sdk_rum.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found.</p>
+            aws_sdk_rum.errors.validation_exception.ValidationException: <p>One of the arguments for the request is not valid.</p>
+            aws_sdk_rum.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -744,6 +858,18 @@ class AppMonitorResource:
             name: <p>The name of the app monitor that you want to apply this resource-based policy to. To find the names of your app monitors, you can use the <a href=\"https://docs.aws.amazon.com/cloudwatchrum/latest/APIReference/API_ListAppMonitors.html\">ListAppMonitors</a> operation.</p>
             policy_document: <p>The JSON to use as the resource policy. The document can be up to 4 KB in size. For more information about the contents and syntax for this policy, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM-resource-policies.html\">Using resource-based policies with CloudWatch RUM</a>.</p>
             policy_revision_id: <p>A string value that you can use to conditionally update your policy. You can provide the revision ID of your existing policy to make mutating requests against that policy.</p> <p>When you assign a policy revision ID, then later requests about that policy will be rejected with an <code>InvalidPolicyRevisionIdException</code> error if they don't provide the correct current revision ID.</p>
+
+        Raises:
+            aws_sdk_rum.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permissions to perform this action.</p>
+            aws_sdk_rum.errors.conflict_exception.ConflictException: <p>This operation attempted to create a resource that already exists.</p>
+            aws_sdk_rum.errors.internal_server_exception.InternalServerException: <p>Internal service exception.</p>
+            aws_sdk_rum.errors.invalid_policy_revision_id_exception.InvalidPolicyRevisionIdException: <p>The policy revision ID that you provided doeesn't match the latest policy revision ID.</p>
+            aws_sdk_rum.errors.malformed_policy_document_exception.MalformedPolicyDocumentException: <p>The policy document that you specified is not formatted correctly.</p>
+            aws_sdk_rum.errors.policy_size_limit_exceeded_exception.PolicySizeLimitExceededException: <p>The policy document is too large. The limit is 4 KB.</p>
+            aws_sdk_rum.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found.</p>
+            aws_sdk_rum.errors.throttling_exception.ThrottlingException: <p>The request was throttled because of quota limits.</p>
+            aws_sdk_rum.errors.validation_exception.ValidationException: <p>One of the arguments for the request is not valid.</p>
+            aws_sdk_rum.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -792,6 +918,15 @@ class AppMonitorResource:
             destination: <p>Defines the destination to send the metrics to. Valid values are <code>CloudWatch</code> and <code>Evidently</code>. If you specify <code>Evidently</code>, you must also specify the ARN of the CloudWatchEvidently experiment that is to be the destination and an IAM role that has permission to write to the experiment.</p>
             destination_arn: <p>Use this parameter only if <code>Destination</code> is <code>Evidently</code>. This parameter specifies the ARN of the Evidently experiment that will receive the extended metrics.</p>
             iam_role_arn: <p>This parameter is required if <code>Destination</code> is <code>Evidently</code>. If <code>Destination</code> is <code>CloudWatch</code>, don't use this parameter.</p> <p>This parameter specifies the ARN of an IAM role that RUM will assume to write to the Evidently experiment that you are sending metrics to. This role must have permission to write to that experiment.</p> <p>If you specify this parameter, you must be signed on to a role that has <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html\">PassRole</a> permissions attached to it, to allow the role to be passed. The <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/auth-and-access-control-cw.html#managed-policies-cloudwatch-RUM\"> CloudWatchAmazonCloudWatchRUMFullAccess</a> policy doesn't include <code>PassRole</code> permissions.</p>
+
+        Raises:
+            aws_sdk_rum.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permissions to perform this action.</p>
+            aws_sdk_rum.errors.conflict_exception.ConflictException: <p>This operation attempted to create a resource that already exists.</p>
+            aws_sdk_rum.errors.internal_server_exception.InternalServerException: <p>Internal service exception.</p>
+            aws_sdk_rum.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found.</p>
+            aws_sdk_rum.errors.throttling_exception.ThrottlingException: <p>The request was throttled because of quota limits.</p>
+            aws_sdk_rum.errors.validation_exception.ValidationException: <p>One of the arguments for the request is not valid.</p>
+            aws_sdk_rum.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -844,6 +979,16 @@ class AppMonitorResource:
             destination_arn: <p>This parameter is required if <code>Destination</code> is <code>Evidently</code>. If <code>Destination</code> is <code>CloudWatch</code>, do not use this parameter.</p> <p>This parameter specifies the ARN of the Evidently experiment that is to receive the metrics. You must have already defined this experiment as a valid destination. For more information, see <a href=\"https://docs.aws.amazon.com/cloudwatchrum/latest/APIReference/API_PutRumMetricsDestination.html\">PutRumMetricsDestination</a>.</p>
             metric_definition: <p>A structure that contains the new definition that you want to use for this metric.</p>
             metric_definition_id: <p>The ID of the metric definition to update.</p>
+
+        Raises:
+            aws_sdk_rum.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permissions to perform this action.</p>
+            aws_sdk_rum.errors.conflict_exception.ConflictException: <p>This operation attempted to create a resource that already exists.</p>
+            aws_sdk_rum.errors.internal_server_exception.InternalServerException: <p>Internal service exception.</p>
+            aws_sdk_rum.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found.</p>
+            aws_sdk_rum.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>This request exceeds a service quota.</p>
+            aws_sdk_rum.errors.throttling_exception.ThrottlingException: <p>The request was throttled because of quota limits.</p>
+            aws_sdk_rum.errors.validation_exception.ValidationException: <p>One of the arguments for the request is not valid.</p>
+            aws_sdk_rum.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -891,6 +1036,14 @@ class AsyncAppMonitorResource:
 
         Args:
             name: <p>The app monitor to retrieve information for.</p>
+
+        Raises:
+            aws_sdk_rum.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permissions to perform this action.</p>
+            aws_sdk_rum.errors.internal_server_exception.InternalServerException: <p>Internal service exception.</p>
+            aws_sdk_rum.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found.</p>
+            aws_sdk_rum.errors.throttling_exception.ThrottlingException: <p>The request was throttled because of quota limits.</p>
+            aws_sdk_rum.errors.validation_exception.ValidationException: <p>One of the arguments for the request is not valid.</p>
+            aws_sdk_rum.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -949,6 +1102,15 @@ class AsyncAppMonitorResource:
             cw_log_enabled: <p>Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter specifies whether RUM sends a copy of this telemetry data to Amazon CloudWatch Logs in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur Amazon CloudWatch Logs charges.</p>
             custom_events: <p>Specifies whether this app monitor allows the web client to define and send custom events. The default is for custom events to be <code>DISABLED</code>.</p> <p>For more information about custom events, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM-custom-events.html\">Send custom events</a>.</p>
             deobfuscation_configuration: <p> A structure that contains the configuration for how an app monitor can deobfuscate stack traces. </p>
+
+        Raises:
+            aws_sdk_rum.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permissions to perform this action.</p>
+            aws_sdk_rum.errors.conflict_exception.ConflictException: <p>This operation attempted to create a resource that already exists.</p>
+            aws_sdk_rum.errors.internal_server_exception.InternalServerException: <p>Internal service exception.</p>
+            aws_sdk_rum.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found.</p>
+            aws_sdk_rum.errors.throttling_exception.ThrottlingException: <p>The request was throttled because of quota limits.</p>
+            aws_sdk_rum.errors.validation_exception.ValidationException: <p>One of the arguments for the request is not valid.</p>
+            aws_sdk_rum.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -999,6 +1161,15 @@ class AsyncAppMonitorResource:
 
         Args:
             name: <p>The name of the app monitor to delete.</p>
+
+        Raises:
+            aws_sdk_rum.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permissions to perform this action.</p>
+            aws_sdk_rum.errors.conflict_exception.ConflictException: <p>This operation attempted to create a resource that already exists.</p>
+            aws_sdk_rum.errors.internal_server_exception.InternalServerException: <p>Internal service exception.</p>
+            aws_sdk_rum.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found.</p>
+            aws_sdk_rum.errors.throttling_exception.ThrottlingException: <p>The request was throttled because of quota limits.</p>
+            aws_sdk_rum.errors.validation_exception.ValidationException: <p>One of the arguments for the request is not valid.</p>
+            aws_sdk_rum.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1041,6 +1212,13 @@ class AsyncAppMonitorResource:
         Args:
             max_results: <p>The maximum number of results to return in one operation. The default is 50. The maximum that you can specify is 100.</p>
             next_token: <p>Use the token returned by the previous operation to request the next page of results.</p>
+
+        Raises:
+            aws_sdk_rum.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permissions to perform this action.</p>
+            aws_sdk_rum.errors.internal_server_exception.InternalServerException: <p>Internal service exception.</p>
+            aws_sdk_rum.errors.throttling_exception.ThrottlingException: <p>The request was throttled because of quota limits.</p>
+            aws_sdk_rum.errors.validation_exception.ValidationException: <p>One of the arguments for the request is not valid.</p>
+            aws_sdk_rum.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1090,6 +1268,16 @@ class AsyncAppMonitorResource:
             destination: <p>The destination to send the metrics to. Valid values are <code>CloudWatch</code> and <code>Evidently</code>. If you specify <code>Evidently</code>, you must also specify the Amazon Resource Name (ARN) of the CloudWatchEvidently experiment that will receive the metrics and an IAM role that has permission to write to the experiment.</p>
             destination_arn: <p>This parameter is required if <code>Destination</code> is <code>Evidently</code>. If <code>Destination</code> is <code>CloudWatch</code>, do not use this parameter.</p> <p>This parameter specifies the ARN of the Evidently experiment that is to receive the metrics. You must have already defined this experiment as a valid destination. For more information, see <a href=\"https://docs.aws.amazon.com/cloudwatchrum/latest/APIReference/API_PutRumMetricsDestination.html\">PutRumMetricsDestination</a>.</p>
             metric_definitions: <p>An array of structures which define the metrics that you want to send.</p>
+
+        Raises:
+            aws_sdk_rum.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permissions to perform this action.</p>
+            aws_sdk_rum.errors.conflict_exception.ConflictException: <p>This operation attempted to create a resource that already exists.</p>
+            aws_sdk_rum.errors.internal_server_exception.InternalServerException: <p>Internal service exception.</p>
+            aws_sdk_rum.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found.</p>
+            aws_sdk_rum.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>This request exceeds a service quota.</p>
+            aws_sdk_rum.errors.throttling_exception.ThrottlingException: <p>The request was throttled because of quota limits.</p>
+            aws_sdk_rum.errors.validation_exception.ValidationException: <p>One of the arguments for the request is not valid.</p>
+            aws_sdk_rum.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1140,6 +1328,15 @@ class AsyncAppMonitorResource:
             destination: <p>Defines the destination where you want to stop sending the specified metrics. Valid values are <code>CloudWatch</code> and <code>Evidently</code>. If you specify <code>Evidently</code>, you must also specify the ARN of the CloudWatchEvidently experiment that is to be the destination and an IAM role that has permission to write to the experiment.</p>
             destination_arn: <p>This parameter is required if <code>Destination</code> is <code>Evidently</code>. If <code>Destination</code> is <code>CloudWatch</code>, do not use this parameter. </p> <p>This parameter specifies the ARN of the Evidently experiment that was receiving the metrics that are being deleted.</p>
             metric_definition_ids: <p>An array of structures which define the metrics that you want to stop sending.</p>
+
+        Raises:
+            aws_sdk_rum.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permissions to perform this action.</p>
+            aws_sdk_rum.errors.conflict_exception.ConflictException: <p>This operation attempted to create a resource that already exists.</p>
+            aws_sdk_rum.errors.internal_server_exception.InternalServerException: <p>Internal service exception.</p>
+            aws_sdk_rum.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found.</p>
+            aws_sdk_rum.errors.throttling_exception.ThrottlingException: <p>The request was throttled because of quota limits.</p>
+            aws_sdk_rum.errors.validation_exception.ValidationException: <p>One of the arguments for the request is not valid.</p>
+            aws_sdk_rum.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1194,6 +1391,13 @@ class AsyncAppMonitorResource:
             destination_arn: <p>This parameter is required if <code>Destination</code> is <code>Evidently</code>. If <code>Destination</code> is <code>CloudWatch</code>, do not use this parameter.</p> <p>This parameter specifies the ARN of the Evidently experiment that corresponds to the destination.</p>
             max_results: <p>The maximum number of results to return in one operation. The default is 50. The maximum that you can specify is 100.</p> <p>To retrieve the remaining results, make another call with the returned <code>NextToken</code> value. </p>
             next_token: <p>Use the token returned by the previous operation to request the next page of results.</p>
+
+        Raises:
+            aws_sdk_rum.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permissions to perform this action.</p>
+            aws_sdk_rum.errors.internal_server_exception.InternalServerException: <p>Internal service exception.</p>
+            aws_sdk_rum.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found.</p>
+            aws_sdk_rum.errors.validation_exception.ValidationException: <p>One of the arguments for the request is not valid.</p>
+            aws_sdk_rum.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1265,6 +1469,16 @@ class AsyncAppMonitorResource:
             custom_events: <p>Specifies whether this app monitor allows the web client to define and send custom events. If you omit this parameter, custom events are <code>DISABLED</code>.</p> <p>For more information about custom events, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM-custom-events.html\">Send custom events</a>.</p>
             deobfuscation_configuration: <p> A structure that contains the configuration for how an app monitor can deobfuscate stack traces. </p>
             platform: <p>The platform type for the app monitor. Valid values are <code>Web</code> for web applications, <code>Android</code> for Android applications, and <code>iOS</code> for IOS applications. If you omit this parameter, the default is <code>Web</code>.</p>
+
+        Raises:
+            aws_sdk_rum.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permissions to perform this action.</p>
+            aws_sdk_rum.errors.conflict_exception.ConflictException: <p>This operation attempted to create a resource that already exists.</p>
+            aws_sdk_rum.errors.internal_server_exception.InternalServerException: <p>Internal service exception.</p>
+            aws_sdk_rum.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found.</p>
+            aws_sdk_rum.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>This request exceeds a service quota.</p>
+            aws_sdk_rum.errors.throttling_exception.ThrottlingException: <p>The request was throttled because of quota limits.</p>
+            aws_sdk_rum.errors.validation_exception.ValidationException: <p>One of the arguments for the request is not valid.</p>
+            aws_sdk_rum.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1325,6 +1539,17 @@ class AsyncAppMonitorResource:
         Args:
             name: <p>The app monitor that you want to remove the resource policy from.</p>
             policy_revision_id: <p>Specifies a specific policy revision to delete. Provide a <code>PolicyRevisionId</code> to ensure an atomic delete operation. If the revision ID that you provide doesn't match the latest policy revision ID, the request will be rejected with an <code>InvalidPolicyRevisionIdException</code> error.</p>
+
+        Raises:
+            aws_sdk_rum.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permissions to perform this action.</p>
+            aws_sdk_rum.errors.conflict_exception.ConflictException: <p>This operation attempted to create a resource that already exists.</p>
+            aws_sdk_rum.errors.internal_server_exception.InternalServerException: <p>Internal service exception.</p>
+            aws_sdk_rum.errors.invalid_policy_revision_id_exception.InvalidPolicyRevisionIdException: <p>The policy revision ID that you provided doeesn't match the latest policy revision ID.</p>
+            aws_sdk_rum.errors.policy_not_found_exception.PolicyNotFoundException: <p>The resource-based policy doesn't exist on this app monitor.</p>
+            aws_sdk_rum.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found.</p>
+            aws_sdk_rum.errors.throttling_exception.ThrottlingException: <p>The request was throttled because of quota limits.</p>
+            aws_sdk_rum.errors.validation_exception.ValidationException: <p>One of the arguments for the request is not valid.</p>
+            aws_sdk_rum.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1371,6 +1596,15 @@ class AsyncAppMonitorResource:
             app_monitor_name: <p>The name of the app monitor that is sending metrics to the destination that you want to delete.</p>
             destination: <p>The type of destination to delete. Valid values are <code>CloudWatch</code> and <code>Evidently</code>.</p>
             destination_arn: <p>This parameter is required if <code>Destination</code> is <code>Evidently</code>. If <code>Destination</code> is <code>CloudWatch</code>, do not use this parameter. This parameter specifies the ARN of the Evidently experiment that corresponds to the destination to delete.</p>
+
+        Raises:
+            aws_sdk_rum.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permissions to perform this action.</p>
+            aws_sdk_rum.errors.conflict_exception.ConflictException: <p>This operation attempted to create a resource that already exists.</p>
+            aws_sdk_rum.errors.internal_server_exception.InternalServerException: <p>Internal service exception.</p>
+            aws_sdk_rum.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found.</p>
+            aws_sdk_rum.errors.throttling_exception.ThrottlingException: <p>The request was throttled because of quota limits.</p>
+            aws_sdk_rum.errors.validation_exception.ValidationException: <p>One of the arguments for the request is not valid.</p>
+            aws_sdk_rum.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1422,6 +1656,14 @@ class AsyncAppMonitorResource:
             filters: <p>An array of structures that you can use to filter the results to those that match one or more sets of key-value pairs that you specify.</p>
             max_results: <p>The maximum number of results to return in one operation. </p>
             next_token: <p>Use the token returned by the previous operation to request the next page of results.</p>
+
+        Raises:
+            aws_sdk_rum.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permissions to perform this action.</p>
+            aws_sdk_rum.errors.internal_server_exception.InternalServerException: <p>Internal service exception.</p>
+            aws_sdk_rum.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found.</p>
+            aws_sdk_rum.errors.throttling_exception.ThrottlingException: <p>The request was throttled because of quota limits.</p>
+            aws_sdk_rum.errors.validation_exception.ValidationException: <p>One of the arguments for the request is not valid.</p>
+            aws_sdk_rum.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1467,6 +1709,16 @@ class AsyncAppMonitorResource:
 
         Args:
             name: <p>The name of the app monitor that is associated with the resource-based policy that you want to view.</p>
+
+        Raises:
+            aws_sdk_rum.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permissions to perform this action.</p>
+            aws_sdk_rum.errors.conflict_exception.ConflictException: <p>This operation attempted to create a resource that already exists.</p>
+            aws_sdk_rum.errors.internal_server_exception.InternalServerException: <p>Internal service exception.</p>
+            aws_sdk_rum.errors.policy_not_found_exception.PolicyNotFoundException: <p>The resource-based policy doesn't exist on this app monitor.</p>
+            aws_sdk_rum.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found.</p>
+            aws_sdk_rum.errors.throttling_exception.ThrottlingException: <p>The request was throttled because of quota limits.</p>
+            aws_sdk_rum.errors.validation_exception.ValidationException: <p>One of the arguments for the request is not valid.</p>
+            aws_sdk_rum.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1511,6 +1763,13 @@ class AsyncAppMonitorResource:
             app_monitor_name: <p>The name of the app monitor associated with the destinations that you want to retrieve.</p>
             max_results: <p>The maximum number of results to return in one operation. The default is 50. The maximum that you can specify is 100.</p> <p>To retrieve the remaining results, make another call with the returned <code>NextToken</code> value. </p>
             next_token: <p>Use the token returned by the previous operation to request the next page of results.</p>
+
+        Raises:
+            aws_sdk_rum.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permissions to perform this action.</p>
+            aws_sdk_rum.errors.internal_server_exception.InternalServerException: <p>Internal service exception.</p>
+            aws_sdk_rum.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found.</p>
+            aws_sdk_rum.errors.validation_exception.ValidationException: <p>One of the arguments for the request is not valid.</p>
+            aws_sdk_rum.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1559,6 +1818,18 @@ class AsyncAppMonitorResource:
             name: <p>The name of the app monitor that you want to apply this resource-based policy to. To find the names of your app monitors, you can use the <a href=\"https://docs.aws.amazon.com/cloudwatchrum/latest/APIReference/API_ListAppMonitors.html\">ListAppMonitors</a> operation.</p>
             policy_document: <p>The JSON to use as the resource policy. The document can be up to 4 KB in size. For more information about the contents and syntax for this policy, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM-resource-policies.html\">Using resource-based policies with CloudWatch RUM</a>.</p>
             policy_revision_id: <p>A string value that you can use to conditionally update your policy. You can provide the revision ID of your existing policy to make mutating requests against that policy.</p> <p>When you assign a policy revision ID, then later requests about that policy will be rejected with an <code>InvalidPolicyRevisionIdException</code> error if they don't provide the correct current revision ID.</p>
+
+        Raises:
+            aws_sdk_rum.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permissions to perform this action.</p>
+            aws_sdk_rum.errors.conflict_exception.ConflictException: <p>This operation attempted to create a resource that already exists.</p>
+            aws_sdk_rum.errors.internal_server_exception.InternalServerException: <p>Internal service exception.</p>
+            aws_sdk_rum.errors.invalid_policy_revision_id_exception.InvalidPolicyRevisionIdException: <p>The policy revision ID that you provided doeesn't match the latest policy revision ID.</p>
+            aws_sdk_rum.errors.malformed_policy_document_exception.MalformedPolicyDocumentException: <p>The policy document that you specified is not formatted correctly.</p>
+            aws_sdk_rum.errors.policy_size_limit_exceeded_exception.PolicySizeLimitExceededException: <p>The policy document is too large. The limit is 4 KB.</p>
+            aws_sdk_rum.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found.</p>
+            aws_sdk_rum.errors.throttling_exception.ThrottlingException: <p>The request was throttled because of quota limits.</p>
+            aws_sdk_rum.errors.validation_exception.ValidationException: <p>One of the arguments for the request is not valid.</p>
+            aws_sdk_rum.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1608,6 +1879,15 @@ class AsyncAppMonitorResource:
             destination: <p>Defines the destination to send the metrics to. Valid values are <code>CloudWatch</code> and <code>Evidently</code>. If you specify <code>Evidently</code>, you must also specify the ARN of the CloudWatchEvidently experiment that is to be the destination and an IAM role that has permission to write to the experiment.</p>
             destination_arn: <p>Use this parameter only if <code>Destination</code> is <code>Evidently</code>. This parameter specifies the ARN of the Evidently experiment that will receive the extended metrics.</p>
             iam_role_arn: <p>This parameter is required if <code>Destination</code> is <code>Evidently</code>. If <code>Destination</code> is <code>CloudWatch</code>, don't use this parameter.</p> <p>This parameter specifies the ARN of an IAM role that RUM will assume to write to the Evidently experiment that you are sending metrics to. This role must have permission to write to that experiment.</p> <p>If you specify this parameter, you must be signed on to a role that has <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html\">PassRole</a> permissions attached to it, to allow the role to be passed. The <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/auth-and-access-control-cw.html#managed-policies-cloudwatch-RUM\"> CloudWatchAmazonCloudWatchRUMFullAccess</a> policy doesn't include <code>PassRole</code> permissions.</p>
+
+        Raises:
+            aws_sdk_rum.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permissions to perform this action.</p>
+            aws_sdk_rum.errors.conflict_exception.ConflictException: <p>This operation attempted to create a resource that already exists.</p>
+            aws_sdk_rum.errors.internal_server_exception.InternalServerException: <p>Internal service exception.</p>
+            aws_sdk_rum.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found.</p>
+            aws_sdk_rum.errors.throttling_exception.ThrottlingException: <p>The request was throttled because of quota limits.</p>
+            aws_sdk_rum.errors.validation_exception.ValidationException: <p>One of the arguments for the request is not valid.</p>
+            aws_sdk_rum.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1661,6 +1941,16 @@ class AsyncAppMonitorResource:
             destination_arn: <p>This parameter is required if <code>Destination</code> is <code>Evidently</code>. If <code>Destination</code> is <code>CloudWatch</code>, do not use this parameter.</p> <p>This parameter specifies the ARN of the Evidently experiment that is to receive the metrics. You must have already defined this experiment as a valid destination. For more information, see <a href=\"https://docs.aws.amazon.com/cloudwatchrum/latest/APIReference/API_PutRumMetricsDestination.html\">PutRumMetricsDestination</a>.</p>
             metric_definition: <p>A structure that contains the new definition that you want to use for this metric.</p>
             metric_definition_id: <p>The ID of the metric definition to update.</p>
+
+        Raises:
+            aws_sdk_rum.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permissions to perform this action.</p>
+            aws_sdk_rum.errors.conflict_exception.ConflictException: <p>This operation attempted to create a resource that already exists.</p>
+            aws_sdk_rum.errors.internal_server_exception.InternalServerException: <p>Internal service exception.</p>
+            aws_sdk_rum.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found.</p>
+            aws_sdk_rum.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>This request exceeds a service quota.</p>
+            aws_sdk_rum.errors.throttling_exception.ThrottlingException: <p>The request was throttled because of quota limits.</p>
+            aws_sdk_rum.errors.validation_exception.ValidationException: <p>One of the arguments for the request is not valid.</p>
+            aws_sdk_rum.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

@@ -76,6 +76,15 @@ class PaymentInstrumentResource:
             payment_instrument_type: <p>The type of payment instrument being created.</p>
             payment_instrument_details: <p>The details of the payment instrument.</p>
             client_token: <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+
+        Raises:
+            aws_sdk_bedrock_agentcore.errors.access_denied_exception.AccessDeniedException: <p>The exception that occurs when you do not have sufficient permissions to perform an action. Verify that your IAM policy includes the necessary permissions for the operation you are trying to perform.</p>
+            aws_sdk_bedrock_agentcore.errors.conflict_exception.ConflictException: <p>The exception that occurs when the request conflicts with the current state of the resource. This can happen when trying to modify a resource that is currently being modified by another request, or when trying to create a resource that already exists.</p>
+            aws_sdk_bedrock_agentcore.errors.internal_server_exception.InternalServerException: <p>The exception that occurs when the service encounters an unexpected internal error. This is a temporary condition that will resolve itself with retries. We recommend implementing exponential backoff retry logic in your application.</p>
+            aws_sdk_bedrock_agentcore.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The exception that occurs when the request would cause a service quota to be exceeded. Review your service quotas and either reduce your request rate or request a quota increase.</p>
+            aws_sdk_bedrock_agentcore.errors.throttling_exception.ThrottlingException: <p>The exception that occurs when the request was denied due to request throttling. This happens when you exceed the allowed request rate for an operation. Reduce the frequency of requests or implement exponential backoff retry logic in your application.</p>
+            aws_sdk_bedrock_agentcore.errors.validation_exception.ValidationException: <p>The exception that occurs when the input fails to satisfy the constraints specified by the service. Check the error message for details about which input parameter is invalid and correct your request.</p>
+            aws_sdk_bedrock_agentcore.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -134,6 +143,14 @@ class PaymentInstrumentResource:
             payment_manager_arn: <p>The ARN of the payment manager that owns this payment instrument.</p>
             payment_connector_id: <p>The ID of the payment connector.</p>
             payment_instrument_id: <p>The ID of the payment instrument to retrieve.</p>
+
+        Raises:
+            aws_sdk_bedrock_agentcore.errors.access_denied_exception.AccessDeniedException: <p>The exception that occurs when you do not have sufficient permissions to perform an action. Verify that your IAM policy includes the necessary permissions for the operation you are trying to perform.</p>
+            aws_sdk_bedrock_agentcore.errors.internal_server_exception.InternalServerException: <p>The exception that occurs when the service encounters an unexpected internal error. This is a temporary condition that will resolve itself with retries. We recommend implementing exponential backoff retry logic in your application.</p>
+            aws_sdk_bedrock_agentcore.errors.resource_not_found_exception.ResourceNotFoundException: <p>The exception that occurs when the specified resource does not exist. This can happen when using an invalid identifier or when trying to access a resource that has been deleted.</p>
+            aws_sdk_bedrock_agentcore.errors.throttling_exception.ThrottlingException: <p>The exception that occurs when the request was denied due to request throttling. This happens when you exceed the allowed request rate for an operation. Reduce the frequency of requests or implement exponential backoff retry logic in your application.</p>
+            aws_sdk_bedrock_agentcore.errors.validation_exception.ValidationException: <p>The exception that occurs when the input fails to satisfy the constraints specified by the service. Check the error message for details about which input parameter is invalid and correct your request.</p>
+            aws_sdk_bedrock_agentcore.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -184,6 +201,14 @@ class PaymentInstrumentResource:
             payment_manager_arn: <p>The payment manager ARN. Must match the instrument's paymentManagerArn.</p>
             payment_connector_id: <p>The payment connector ID. Must match the instrument's paymentConnectorId.</p>
             payment_instrument_id: <p>The payment instrument ID to delete.</p>
+
+        Raises:
+            aws_sdk_bedrock_agentcore.errors.access_denied_exception.AccessDeniedException: <p>The exception that occurs when you do not have sufficient permissions to perform an action. Verify that your IAM policy includes the necessary permissions for the operation you are trying to perform.</p>
+            aws_sdk_bedrock_agentcore.errors.internal_server_exception.InternalServerException: <p>The exception that occurs when the service encounters an unexpected internal error. This is a temporary condition that will resolve itself with retries. We recommend implementing exponential backoff retry logic in your application.</p>
+            aws_sdk_bedrock_agentcore.errors.resource_not_found_exception.ResourceNotFoundException: <p>The exception that occurs when the specified resource does not exist. This can happen when using an invalid identifier or when trying to access a resource that has been deleted.</p>
+            aws_sdk_bedrock_agentcore.errors.throttling_exception.ThrottlingException: <p>The exception that occurs when the request was denied due to request throttling. This happens when you exceed the allowed request rate for an operation. Reduce the frequency of requests or implement exponential backoff retry logic in your application.</p>
+            aws_sdk_bedrock_agentcore.errors.validation_exception.ValidationException: <p>The exception that occurs when the input fails to satisfy the constraints specified by the service. Check the error message for details about which input parameter is invalid and correct your request.</p>
+            aws_sdk_bedrock_agentcore.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -241,6 +266,13 @@ class PaymentInstrumentResource:
             payment_connector_id: <p>The ID of the payment connector to filter by.</p>
             next_token: <p>Token for pagination to retrieve the next set of results.</p>
             max_results: <p>Maximum number of results to return in a single response.</p>
+
+        Raises:
+            aws_sdk_bedrock_agentcore.errors.access_denied_exception.AccessDeniedException: <p>The exception that occurs when you do not have sufficient permissions to perform an action. Verify that your IAM policy includes the necessary permissions for the operation you are trying to perform.</p>
+            aws_sdk_bedrock_agentcore.errors.internal_server_exception.InternalServerException: <p>The exception that occurs when the service encounters an unexpected internal error. This is a temporary condition that will resolve itself with retries. We recommend implementing exponential backoff retry logic in your application.</p>
+            aws_sdk_bedrock_agentcore.errors.throttling_exception.ThrottlingException: <p>The exception that occurs when the request was denied due to request throttling. This happens when you exceed the allowed request rate for an operation. Reduce the frequency of requests or implement exponential backoff retry logic in your application.</p>
+            aws_sdk_bedrock_agentcore.errors.validation_exception.ValidationException: <p>The exception that occurs when the input fails to satisfy the constraints specified by the service. Check the error message for details about which input parameter is invalid and correct your request.</p>
+            aws_sdk_bedrock_agentcore.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -302,6 +334,14 @@ class PaymentInstrumentResource:
             payment_instrument_id: <p>The ID of the payment instrument to query balance for.</p>
             chain: <p>The specific blockchain chain to query balance on. Required because balances are chain-specific.</p>
             token: <p>The token to query balance for. Only tokens supported for X402 payments are returned.</p>
+
+        Raises:
+            aws_sdk_bedrock_agentcore.errors.access_denied_exception.AccessDeniedException: <p>The exception that occurs when you do not have sufficient permissions to perform an action. Verify that your IAM policy includes the necessary permissions for the operation you are trying to perform.</p>
+            aws_sdk_bedrock_agentcore.errors.internal_server_exception.InternalServerException: <p>The exception that occurs when the service encounters an unexpected internal error. This is a temporary condition that will resolve itself with retries. We recommend implementing exponential backoff retry logic in your application.</p>
+            aws_sdk_bedrock_agentcore.errors.resource_not_found_exception.ResourceNotFoundException: <p>The exception that occurs when the specified resource does not exist. This can happen when using an invalid identifier or when trying to access a resource that has been deleted.</p>
+            aws_sdk_bedrock_agentcore.errors.throttling_exception.ThrottlingException: <p>The exception that occurs when the request was denied due to request throttling. This happens when you exceed the allowed request rate for an operation. Reduce the frequency of requests or implement exponential backoff retry logic in your application.</p>
+            aws_sdk_bedrock_agentcore.errors.validation_exception.ValidationException: <p>The exception that occurs when the input fails to satisfy the constraints specified by the service. Check the error message for details about which input parameter is invalid and correct your request.</p>
+            aws_sdk_bedrock_agentcore.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -368,6 +408,15 @@ class AsyncPaymentInstrumentResource:
             payment_instrument_type: <p>The type of payment instrument being created.</p>
             payment_instrument_details: <p>The details of the payment instrument.</p>
             client_token: <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+
+        Raises:
+            aws_sdk_bedrock_agentcore.errors.access_denied_exception.AccessDeniedException: <p>The exception that occurs when you do not have sufficient permissions to perform an action. Verify that your IAM policy includes the necessary permissions for the operation you are trying to perform.</p>
+            aws_sdk_bedrock_agentcore.errors.conflict_exception.ConflictException: <p>The exception that occurs when the request conflicts with the current state of the resource. This can happen when trying to modify a resource that is currently being modified by another request, or when trying to create a resource that already exists.</p>
+            aws_sdk_bedrock_agentcore.errors.internal_server_exception.InternalServerException: <p>The exception that occurs when the service encounters an unexpected internal error. This is a temporary condition that will resolve itself with retries. We recommend implementing exponential backoff retry logic in your application.</p>
+            aws_sdk_bedrock_agentcore.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The exception that occurs when the request would cause a service quota to be exceeded. Review your service quotas and either reduce your request rate or request a quota increase.</p>
+            aws_sdk_bedrock_agentcore.errors.throttling_exception.ThrottlingException: <p>The exception that occurs when the request was denied due to request throttling. This happens when you exceed the allowed request rate for an operation. Reduce the frequency of requests or implement exponential backoff retry logic in your application.</p>
+            aws_sdk_bedrock_agentcore.errors.validation_exception.ValidationException: <p>The exception that occurs when the input fails to satisfy the constraints specified by the service. Check the error message for details about which input parameter is invalid and correct your request.</p>
+            aws_sdk_bedrock_agentcore.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -427,6 +476,14 @@ class AsyncPaymentInstrumentResource:
             payment_manager_arn: <p>The ARN of the payment manager that owns this payment instrument.</p>
             payment_connector_id: <p>The ID of the payment connector.</p>
             payment_instrument_id: <p>The ID of the payment instrument to retrieve.</p>
+
+        Raises:
+            aws_sdk_bedrock_agentcore.errors.access_denied_exception.AccessDeniedException: <p>The exception that occurs when you do not have sufficient permissions to perform an action. Verify that your IAM policy includes the necessary permissions for the operation you are trying to perform.</p>
+            aws_sdk_bedrock_agentcore.errors.internal_server_exception.InternalServerException: <p>The exception that occurs when the service encounters an unexpected internal error. This is a temporary condition that will resolve itself with retries. We recommend implementing exponential backoff retry logic in your application.</p>
+            aws_sdk_bedrock_agentcore.errors.resource_not_found_exception.ResourceNotFoundException: <p>The exception that occurs when the specified resource does not exist. This can happen when using an invalid identifier or when trying to access a resource that has been deleted.</p>
+            aws_sdk_bedrock_agentcore.errors.throttling_exception.ThrottlingException: <p>The exception that occurs when the request was denied due to request throttling. This happens when you exceed the allowed request rate for an operation. Reduce the frequency of requests or implement exponential backoff retry logic in your application.</p>
+            aws_sdk_bedrock_agentcore.errors.validation_exception.ValidationException: <p>The exception that occurs when the input fails to satisfy the constraints specified by the service. Check the error message for details about which input parameter is invalid and correct your request.</p>
+            aws_sdk_bedrock_agentcore.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -478,6 +535,14 @@ class AsyncPaymentInstrumentResource:
             payment_manager_arn: <p>The payment manager ARN. Must match the instrument's paymentManagerArn.</p>
             payment_connector_id: <p>The payment connector ID. Must match the instrument's paymentConnectorId.</p>
             payment_instrument_id: <p>The payment instrument ID to delete.</p>
+
+        Raises:
+            aws_sdk_bedrock_agentcore.errors.access_denied_exception.AccessDeniedException: <p>The exception that occurs when you do not have sufficient permissions to perform an action. Verify that your IAM policy includes the necessary permissions for the operation you are trying to perform.</p>
+            aws_sdk_bedrock_agentcore.errors.internal_server_exception.InternalServerException: <p>The exception that occurs when the service encounters an unexpected internal error. This is a temporary condition that will resolve itself with retries. We recommend implementing exponential backoff retry logic in your application.</p>
+            aws_sdk_bedrock_agentcore.errors.resource_not_found_exception.ResourceNotFoundException: <p>The exception that occurs when the specified resource does not exist. This can happen when using an invalid identifier or when trying to access a resource that has been deleted.</p>
+            aws_sdk_bedrock_agentcore.errors.throttling_exception.ThrottlingException: <p>The exception that occurs when the request was denied due to request throttling. This happens when you exceed the allowed request rate for an operation. Reduce the frequency of requests or implement exponential backoff retry logic in your application.</p>
+            aws_sdk_bedrock_agentcore.errors.validation_exception.ValidationException: <p>The exception that occurs when the input fails to satisfy the constraints specified by the service. Check the error message for details about which input parameter is invalid and correct your request.</p>
+            aws_sdk_bedrock_agentcore.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -536,6 +601,13 @@ class AsyncPaymentInstrumentResource:
             payment_connector_id: <p>The ID of the payment connector to filter by.</p>
             next_token: <p>Token for pagination to retrieve the next set of results.</p>
             max_results: <p>Maximum number of results to return in a single response.</p>
+
+        Raises:
+            aws_sdk_bedrock_agentcore.errors.access_denied_exception.AccessDeniedException: <p>The exception that occurs when you do not have sufficient permissions to perform an action. Verify that your IAM policy includes the necessary permissions for the operation you are trying to perform.</p>
+            aws_sdk_bedrock_agentcore.errors.internal_server_exception.InternalServerException: <p>The exception that occurs when the service encounters an unexpected internal error. This is a temporary condition that will resolve itself with retries. We recommend implementing exponential backoff retry logic in your application.</p>
+            aws_sdk_bedrock_agentcore.errors.throttling_exception.ThrottlingException: <p>The exception that occurs when the request was denied due to request throttling. This happens when you exceed the allowed request rate for an operation. Reduce the frequency of requests or implement exponential backoff retry logic in your application.</p>
+            aws_sdk_bedrock_agentcore.errors.validation_exception.ValidationException: <p>The exception that occurs when the input fails to satisfy the constraints specified by the service. Check the error message for details about which input parameter is invalid and correct your request.</p>
+            aws_sdk_bedrock_agentcore.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -598,6 +670,14 @@ class AsyncPaymentInstrumentResource:
             payment_instrument_id: <p>The ID of the payment instrument to query balance for.</p>
             chain: <p>The specific blockchain chain to query balance on. Required because balances are chain-specific.</p>
             token: <p>The token to query balance for. Only tokens supported for X402 payments are returned.</p>
+
+        Raises:
+            aws_sdk_bedrock_agentcore.errors.access_denied_exception.AccessDeniedException: <p>The exception that occurs when you do not have sufficient permissions to perform an action. Verify that your IAM policy includes the necessary permissions for the operation you are trying to perform.</p>
+            aws_sdk_bedrock_agentcore.errors.internal_server_exception.InternalServerException: <p>The exception that occurs when the service encounters an unexpected internal error. This is a temporary condition that will resolve itself with retries. We recommend implementing exponential backoff retry logic in your application.</p>
+            aws_sdk_bedrock_agentcore.errors.resource_not_found_exception.ResourceNotFoundException: <p>The exception that occurs when the specified resource does not exist. This can happen when using an invalid identifier or when trying to access a resource that has been deleted.</p>
+            aws_sdk_bedrock_agentcore.errors.throttling_exception.ThrottlingException: <p>The exception that occurs when the request was denied due to request throttling. This happens when you exceed the allowed request rate for an operation. Reduce the frequency of requests or implement exponential backoff retry logic in your application.</p>
+            aws_sdk_bedrock_agentcore.errors.validation_exception.ValidationException: <p>The exception that occurs when the input fails to satisfy the constraints specified by the service. Check the error message for details about which input parameter is invalid and correct your request.</p>
+            aws_sdk_bedrock_agentcore.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

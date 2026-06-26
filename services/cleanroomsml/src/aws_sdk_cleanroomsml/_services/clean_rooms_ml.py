@@ -224,6 +224,12 @@ class CleanRoomsMLClient:
             next_token: <p>The token value retrieved from a previous call to access the next page of results.</p>
             max_results: <p>The maximum size of the results that is returned per call.</p>
             collaboration_identifier: <p>The collaboration ID of the collaboration that contains the configured model algorithm associations that you are interested in.</p>
+
+        Raises:
+            aws_sdk_cleanroomsml.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_cleanroomsml.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_cleanroomsml.errors.validation_exception.ValidationException: <p>The request parameters for this request are incorrect.</p>
+            aws_sdk_cleanroomsml.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -298,6 +304,12 @@ class CleanRoomsMLClient:
             next_token: <p>The token value retrieved from a previous call to access the next page of results.</p>
             max_results: <p>The maximum number of results to return.</p>
             collaboration_identifier: <p>The collaboration ID of the collaboration that contains the ML input channels that you want to list.</p>
+
+        Raises:
+            aws_sdk_cleanroomsml.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_cleanroomsml.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_cleanroomsml.errors.validation_exception.ValidationException: <p>The request parameters for this request are incorrect.</p>
+            aws_sdk_cleanroomsml.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -376,6 +388,12 @@ class CleanRoomsMLClient:
             collaboration_identifier: <p>The collaboration ID of the collaboration that contains the trained model export jobs that you are interested in.</p>
             trained_model_arn: <p>The Amazon Resource Name (ARN) of the trained model that was used to create the export jobs that you are interested in.</p>
             trained_model_version_identifier: <p>The version identifier of the trained model to filter export jobs by. When specified, only export jobs for this specific version of the trained model are returned.</p>
+
+        Raises:
+            aws_sdk_cleanroomsml.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_cleanroomsml.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_cleanroomsml.errors.validation_exception.ValidationException: <p>The request parameters for this request are incorrect.</p>
+            aws_sdk_cleanroomsml.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -469,6 +487,12 @@ class CleanRoomsMLClient:
             collaboration_identifier: <p>The collaboration ID of the collaboration that contains the trained model inference jobs that you are interested in.</p>
             trained_model_arn: <p>The Amazon Resource Name (ARN) of the trained model that was used to create the trained model inference jobs that you are interested in.</p>
             trained_model_version_identifier: <p>The version identifier of the trained model to filter inference jobs by. When specified, only inference jobs that used this specific version of the trained model are returned.</p>
+
+        Raises:
+            aws_sdk_cleanroomsml.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_cleanroomsml.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_cleanroomsml.errors.validation_exception.ValidationException: <p>The request parameters for this request are incorrect.</p>
+            aws_sdk_cleanroomsml.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -557,6 +581,12 @@ class CleanRoomsMLClient:
             next_token: <p>The token value retrieved from a previous call to access the next page of results.</p>
             max_results: <p>The maximum size of the results that is returned per call.</p>
             collaboration_identifier: <p>The collaboration ID of the collaboration that contains the trained models you are interested in.</p>
+
+        Raises:
+            aws_sdk_cleanroomsml.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_cleanroomsml.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_cleanroomsml.errors.validation_exception.ValidationException: <p>The request parameters for this request are incorrect.</p>
+            aws_sdk_cleanroomsml.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -623,6 +653,12 @@ class CleanRoomsMLClient:
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource that you are interested in.</p>
+
+        Raises:
+            aws_sdk_cleanroomsml.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_cleanroomsml.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource you are requesting does not exist.</p>
+            aws_sdk_cleanroomsml.errors.validation_exception.ValidationException: <p>The request parameters for this request are incorrect.</p>
+            aws_sdk_cleanroomsml.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -662,6 +698,12 @@ class CleanRoomsMLClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource that you want to assign tags.</p>
             tags: <p>The optional metadata that you apply to the resource to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.</p> <p>The following basic restrictions apply to tags:</p> <ul> <li> <p>Maximum number of tags per resource - 50.</p> </li> <li> <p>For each resource, each tag key must be unique, and each tag key can have only one value.</p> </li> <li> <p>Maximum key length - 128 Unicode characters in UTF-8.</p> </li> <li> <p>Maximum value length - 256 Unicode characters in UTF-8.</p> </li> <li> <p>If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.</p> </li> <li> <p>Tag keys and values are case sensitive.</p> </li> <li> <p>Do not use aws:, AWS:, or any upper or lowercase combination of such as a prefix for keys as it is reserved for AWS use. You cannot edit or delete tag keys with this prefix. Values can have this prefix. If a tag value has aws as its prefix but the key does not, then Clean Rooms considers it to be a user tag and will count against the limit of 50 tags. Tags with only the key prefix of aws do not count against your tags per resource limit.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_cleanroomsml.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_cleanroomsml.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource you are requesting does not exist.</p>
+            aws_sdk_cleanroomsml.errors.validation_exception.ValidationException: <p>The request parameters for this request are incorrect.</p>
+            aws_sdk_cleanroomsml.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -702,6 +744,12 @@ class CleanRoomsMLClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource that you want to remove tags from.</p>
             tag_keys: <p>The key values of tags that you want to remove.</p>
+
+        Raises:
+            aws_sdk_cleanroomsml.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_cleanroomsml.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource you are requesting does not exist.</p>
+            aws_sdk_cleanroomsml.errors.validation_exception.ValidationException: <p>The request parameters for this request are incorrect.</p>
+            aws_sdk_cleanroomsml.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(

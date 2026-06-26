@@ -236,6 +236,13 @@ class AsyncRoute53DomainsClient:
         Args:
             domain_name: <p>The name of the domain that was specified when another Amazon Web Services account submitted a <a href=\"https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_TransferDomainToAnotherAwsAccount.html\">TransferDomainToAnotherAwsAccount</a> request. </p>
             password: <p>The password that was returned by the <a href=\"https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_TransferDomainToAnotherAwsAccount.html\">TransferDomainToAnotherAwsAccount</a> request. </p>
+
+        Raises:
+            aws_sdk_route_53_domains.errors.domain_limit_exceeded.DomainLimitExceeded: <p>The number of domains has exceeded the allowed threshold for the account.</p>
+            aws_sdk_route_53_domains.errors.invalid_input.InvalidInput: <p>The requested item is not acceptable. For example, for APIs that accept a domain name, the request might specify a domain name that doesn't belong to the account that submitted the request. For <code>AcceptDomainTransferFromAnotherAwsAccount</code>, the password might be invalid.</p>
+            aws_sdk_route_53_domains.errors.operation_limit_exceeded.OperationLimitExceeded: <p>The number of operations or jobs running exceeded the allowed threshold for the account.</p>
+            aws_sdk_route_53_domains.errors.unsupported_tld.UnsupportedTLD: <p>Amazon Route 53 does not support this top-level domain (TLD).</p>
+            aws_sdk_route_53_domains.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -277,6 +284,15 @@ class AsyncRoute53DomainsClient:
         Args:
             domain_name: <p>The name of the domain.</p>
             signing_attributes: <p>The information about a key, including the algorithm, public key-value, and flags.</p>
+
+        Raises:
+            aws_sdk_route_53_domains.errors.dnssec_limit_exceeded.DnssecLimitExceeded: <p> This error is returned if you call <code>AssociateDelegationSignerToDomain</code> when the specified domain has reached the maximum number of DS records. You can't add any additional DS records unless you delete an existing one first. </p>
+            aws_sdk_route_53_domains.errors.duplicate_request.DuplicateRequest: <p>The request is already in progress for the domain.</p>
+            aws_sdk_route_53_domains.errors.invalid_input.InvalidInput: <p>The requested item is not acceptable. For example, for APIs that accept a domain name, the request might specify a domain name that doesn't belong to the account that submitted the request. For <code>AcceptDomainTransferFromAnotherAwsAccount</code>, the password might be invalid.</p>
+            aws_sdk_route_53_domains.errors.operation_limit_exceeded.OperationLimitExceeded: <p>The number of operations or jobs running exceeded the allowed threshold for the account.</p>
+            aws_sdk_route_53_domains.errors.tld_rules_violation.TLDRulesViolation: <p>The top-level domain does not support this operation.</p>
+            aws_sdk_route_53_domains.errors.unsupported_tld.UnsupportedTLD: <p>Amazon Route 53 does not support this top-level domain (TLD).</p>
+            aws_sdk_route_53_domains.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -316,6 +332,12 @@ class AsyncRoute53DomainsClient:
 
         Args:
             domain_name: <p>The name of the domain for which you want to cancel the transfer to another Amazon Web Services account.</p>
+
+        Raises:
+            aws_sdk_route_53_domains.errors.invalid_input.InvalidInput: <p>The requested item is not acceptable. For example, for APIs that accept a domain name, the request might specify a domain name that doesn't belong to the account that submitted the request. For <code>AcceptDomainTransferFromAnotherAwsAccount</code>, the password might be invalid.</p>
+            aws_sdk_route_53_domains.errors.operation_limit_exceeded.OperationLimitExceeded: <p>The number of operations or jobs running exceeded the allowed threshold for the account.</p>
+            aws_sdk_route_53_domains.errors.unsupported_tld.UnsupportedTLD: <p>Amazon Route 53 does not support this top-level domain (TLD).</p>
+            aws_sdk_route_53_domains.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -358,6 +380,12 @@ class AsyncRoute53DomainsClient:
         Args:
             domain_name: <p>The name of the domain that you want to get availability for. The top-level domain (TLD), such as .com, must be a TLD that Route 53 supports. For a list of supported TLDs, see <a href=\"https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/registrar-tld-list.html\">Domains that You Can Register with Amazon Route 53</a> in the <i>Amazon Route 53 Developer Guide</i>.</p> <p>The domain name can contain only the following characters:</p> <ul> <li> <p>Letters a through z. Domain names are not case sensitive.</p> </li> <li> <p>Numbers 0 through 9.</p> </li> <li> <p>Hyphen (-). You can't specify a hyphen at the beginning or end of a label. </p> </li> <li> <p>Period (.) to separate the labels in the name, such as the <code>.</code> in <code>example.com</code>.</p> </li> </ul> <p>Internationalized domain names are not supported for some top-level domains. To determine whether the TLD that you want to use supports internationalized domain names, see <a href=\"https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/registrar-tld-list.html\">Domains that You Can Register with Amazon Route 53</a>. For more information, see <a href=\"https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DomainNameFormat.html#domain-name-format-idns\">Formatting Internationalized Domain Names</a>. </p>
             idn_lang_code: <p>Reserved for future use.</p>
+
+        Raises:
+            aws_sdk_route_53_domains.errors.invalid_input.InvalidInput: <p>The requested item is not acceptable. For example, for APIs that accept a domain name, the request might specify a domain name that doesn't belong to the account that submitted the request. For <code>AcceptDomainTransferFromAnotherAwsAccount</code>, the password might be invalid.</p>
+            aws_sdk_route_53_domains.errors.tld_in_maintenance.TLDInMaintenance: <p>The top-level domain is currently undergoing maintenance and the request cannot be processed. Try again later.</p>
+            aws_sdk_route_53_domains.errors.unsupported_tld.UnsupportedTLD: <p>Amazon Route 53 does not support this top-level domain (TLD).</p>
+            aws_sdk_route_53_domains.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -402,6 +430,12 @@ class AsyncRoute53DomainsClient:
         Args:
             domain_name: <p>The name of the domain that you want to transfer to Route 53. The top-level domain (TLD), such as .com, must be a TLD that Route 53 supports. For a list of supported TLDs, see <a href=\"https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/registrar-tld-list.html\">Domains that You Can Register with Amazon Route 53</a> in the <i>Amazon Route 53 Developer Guide</i>.</p> <p>The domain name can contain only the following characters:</p> <ul> <li> <p>Letters a through z. Domain names are not case sensitive.</p> </li> <li> <p>Numbers 0 through 9.</p> </li> <li> <p>Hyphen (-). You can't specify a hyphen at the beginning or end of a label. </p> </li> <li> <p>Period (.) to separate the labels in the name, such as the <code>.</code> in <code>example.com</code>.</p> </li> </ul>
             auth_code: <p>If the registrar for the top-level domain (TLD) requires an authorization code to transfer the domain, the code that you got from the current registrar for the domain.</p>
+
+        Raises:
+            aws_sdk_route_53_domains.errors.invalid_input.InvalidInput: <p>The requested item is not acceptable. For example, for APIs that accept a domain name, the request might specify a domain name that doesn't belong to the account that submitted the request. For <code>AcceptDomainTransferFromAnotherAwsAccount</code>, the password might be invalid.</p>
+            aws_sdk_route_53_domains.errors.tld_in_maintenance.TLDInMaintenance: <p>The top-level domain is currently undergoing maintenance and the request cannot be processed. Try again later.</p>
+            aws_sdk_route_53_domains.errors.unsupported_tld.UnsupportedTLD: <p>Amazon Route 53 does not support this top-level domain (TLD).</p>
+            aws_sdk_route_53_domains.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -442,6 +476,13 @@ class AsyncRoute53DomainsClient:
 
         Args:
             domain_name: <p>Name of the domain to be deleted.</p>
+
+        Raises:
+            aws_sdk_route_53_domains.errors.duplicate_request.DuplicateRequest: <p>The request is already in progress for the domain.</p>
+            aws_sdk_route_53_domains.errors.invalid_input.InvalidInput: <p>The requested item is not acceptable. For example, for APIs that accept a domain name, the request might specify a domain name that doesn't belong to the account that submitted the request. For <code>AcceptDomainTransferFromAnotherAwsAccount</code>, the password might be invalid.</p>
+            aws_sdk_route_53_domains.errors.tld_rules_violation.TLDRulesViolation: <p>The top-level domain does not support this operation.</p>
+            aws_sdk_route_53_domains.errors.unsupported_tld.UnsupportedTLD: <p>Amazon Route 53 does not support this top-level domain (TLD).</p>
+            aws_sdk_route_53_domains.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -482,6 +523,12 @@ class AsyncRoute53DomainsClient:
         Args:
             domain_name: <p>The domain for which you want to delete one or more tags.</p>
             tags_to_delete: <p>A list of tag keys to delete.</p>
+
+        Raises:
+            aws_sdk_route_53_domains.errors.invalid_input.InvalidInput: <p>The requested item is not acceptable. For example, for APIs that accept a domain name, the request might specify a domain name that doesn't belong to the account that submitted the request. For <code>AcceptDomainTransferFromAnotherAwsAccount</code>, the password might be invalid.</p>
+            aws_sdk_route_53_domains.errors.operation_limit_exceeded.OperationLimitExceeded: <p>The number of operations or jobs running exceeded the allowed threshold for the account.</p>
+            aws_sdk_route_53_domains.errors.unsupported_tld.UnsupportedTLD: <p>Amazon Route 53 does not support this top-level domain (TLD).</p>
+            aws_sdk_route_53_domains.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -521,6 +568,11 @@ class AsyncRoute53DomainsClient:
 
         Args:
             domain_name: <p>The name of the domain that you want to disable automatic renewal for.</p>
+
+        Raises:
+            aws_sdk_route_53_domains.errors.invalid_input.InvalidInput: <p>The requested item is not acceptable. For example, for APIs that accept a domain name, the request might specify a domain name that doesn't belong to the account that submitted the request. For <code>AcceptDomainTransferFromAnotherAwsAccount</code>, the password might be invalid.</p>
+            aws_sdk_route_53_domains.errors.unsupported_tld.UnsupportedTLD: <p>Amazon Route 53 does not support this top-level domain (TLD).</p>
+            aws_sdk_route_53_domains.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -559,6 +611,14 @@ class AsyncRoute53DomainsClient:
 
         Args:
             domain_name: <p>The name of the domain that you want to remove the transfer lock for.</p>
+
+        Raises:
+            aws_sdk_route_53_domains.errors.duplicate_request.DuplicateRequest: <p>The request is already in progress for the domain.</p>
+            aws_sdk_route_53_domains.errors.invalid_input.InvalidInput: <p>The requested item is not acceptable. For example, for APIs that accept a domain name, the request might specify a domain name that doesn't belong to the account that submitted the request. For <code>AcceptDomainTransferFromAnotherAwsAccount</code>, the password might be invalid.</p>
+            aws_sdk_route_53_domains.errors.operation_limit_exceeded.OperationLimitExceeded: <p>The number of operations or jobs running exceeded the allowed threshold for the account.</p>
+            aws_sdk_route_53_domains.errors.tld_rules_violation.TLDRulesViolation: <p>The top-level domain does not support this operation.</p>
+            aws_sdk_route_53_domains.errors.unsupported_tld.UnsupportedTLD: <p>Amazon Route 53 does not support this top-level domain (TLD).</p>
+            aws_sdk_route_53_domains.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -599,6 +659,14 @@ class AsyncRoute53DomainsClient:
         Args:
             domain_name: <p>Name of the domain.</p>
             id: <p>An internal identification number assigned to each DS record after it’s created. You can retrieve it as part of DNSSEC information returned by <a href=\"https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetDomainDetail.html\">GetDomainDetail</a>.</p>
+
+        Raises:
+            aws_sdk_route_53_domains.errors.duplicate_request.DuplicateRequest: <p>The request is already in progress for the domain.</p>
+            aws_sdk_route_53_domains.errors.invalid_input.InvalidInput: <p>The requested item is not acceptable. For example, for APIs that accept a domain name, the request might specify a domain name that doesn't belong to the account that submitted the request. For <code>AcceptDomainTransferFromAnotherAwsAccount</code>, the password might be invalid.</p>
+            aws_sdk_route_53_domains.errors.operation_limit_exceeded.OperationLimitExceeded: <p>The number of operations or jobs running exceeded the allowed threshold for the account.</p>
+            aws_sdk_route_53_domains.errors.tld_rules_violation.TLDRulesViolation: <p>The top-level domain does not support this operation.</p>
+            aws_sdk_route_53_domains.errors.unsupported_tld.UnsupportedTLD: <p>Amazon Route 53 does not support this top-level domain (TLD).</p>
+            aws_sdk_route_53_domains.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -638,6 +706,12 @@ class AsyncRoute53DomainsClient:
 
         Args:
             domain_name: <p>The name of the domain that you want to enable automatic renewal for.</p>
+
+        Raises:
+            aws_sdk_route_53_domains.errors.invalid_input.InvalidInput: <p>The requested item is not acceptable. For example, for APIs that accept a domain name, the request might specify a domain name that doesn't belong to the account that submitted the request. For <code>AcceptDomainTransferFromAnotherAwsAccount</code>, the password might be invalid.</p>
+            aws_sdk_route_53_domains.errors.tld_rules_violation.TLDRulesViolation: <p>The top-level domain does not support this operation.</p>
+            aws_sdk_route_53_domains.errors.unsupported_tld.UnsupportedTLD: <p>Amazon Route 53 does not support this top-level domain (TLD).</p>
+            aws_sdk_route_53_domains.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -676,6 +750,14 @@ class AsyncRoute53DomainsClient:
 
         Args:
             domain_name: <p>The name of the domain that you want to set the transfer lock for.</p>
+
+        Raises:
+            aws_sdk_route_53_domains.errors.duplicate_request.DuplicateRequest: <p>The request is already in progress for the domain.</p>
+            aws_sdk_route_53_domains.errors.invalid_input.InvalidInput: <p>The requested item is not acceptable. For example, for APIs that accept a domain name, the request might specify a domain name that doesn't belong to the account that submitted the request. For <code>AcceptDomainTransferFromAnotherAwsAccount</code>, the password might be invalid.</p>
+            aws_sdk_route_53_domains.errors.operation_limit_exceeded.OperationLimitExceeded: <p>The number of operations or jobs running exceeded the allowed threshold for the account.</p>
+            aws_sdk_route_53_domains.errors.tld_rules_violation.TLDRulesViolation: <p>The top-level domain does not support this operation.</p>
+            aws_sdk_route_53_domains.errors.unsupported_tld.UnsupportedTLD: <p>Amazon Route 53 does not support this top-level domain (TLD).</p>
+            aws_sdk_route_53_domains.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -716,6 +798,12 @@ class AsyncRoute53DomainsClient:
 
         Args:
             domain_name: <p>The name of the domain for which you want to know whether the registrant contact has confirmed that the email address is valid.</p>
+
+        Raises:
+            aws_sdk_route_53_domains.errors.invalid_input.InvalidInput: <p>The requested item is not acceptable. For example, for APIs that accept a domain name, the request might specify a domain name that doesn't belong to the account that submitted the request. For <code>AcceptDomainTransferFromAnotherAwsAccount</code>, the password might be invalid.</p>
+            aws_sdk_route_53_domains.errors.operation_limit_exceeded.OperationLimitExceeded: <p>The number of operations or jobs running exceeded the allowed threshold for the account.</p>
+            aws_sdk_route_53_domains.errors.unsupported_tld.UnsupportedTLD: <p>Amazon Route 53 does not support this top-level domain (TLD).</p>
+            aws_sdk_route_53_domains.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -755,6 +843,11 @@ class AsyncRoute53DomainsClient:
 
         Args:
             domain_name: <p>The name of the domain that you want to get detailed information about.</p>
+
+        Raises:
+            aws_sdk_route_53_domains.errors.invalid_input.InvalidInput: <p>The requested item is not acceptable. For example, for APIs that accept a domain name, the request might specify a domain name that doesn't belong to the account that submitted the request. For <code>AcceptDomainTransferFromAnotherAwsAccount</code>, the password might be invalid.</p>
+            aws_sdk_route_53_domains.errors.unsupported_tld.UnsupportedTLD: <p>Amazon Route 53 does not support this top-level domain (TLD).</p>
+            aws_sdk_route_53_domains.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -797,6 +890,12 @@ class AsyncRoute53DomainsClient:
             domain_name: <p>A domain name that you want to use as the basis for a list of possible domain names. The top-level domain (TLD), such as .com, must be a TLD that Route 53 supports. For a list of supported TLDs, see <a href=\"https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/registrar-tld-list.html\">Domains that You Can Register with Amazon Route 53</a> in the <i>Amazon Route 53 Developer Guide</i>.</p> <p>The domain name can contain only the following characters:</p> <ul> <li> <p>Letters a through z. Domain names are not case sensitive.</p> </li> <li> <p>Numbers 0 through 9.</p> </li> <li> <p>Hyphen (-). You can't specify a hyphen at the beginning or end of a label. </p> </li> <li> <p>Period (.) to separate the labels in the name, such as the <code>.</code> in <code>example.com</code>.</p> </li> </ul> <p>Internationalized domain names are not supported for some top-level domains. To determine whether the TLD that you want to use supports internationalized domain names, see <a href=\"https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/registrar-tld-list.html\">Domains that You Can Register with Amazon Route 53</a>. </p>
             suggestion_count: <p>The number of suggested domain names that you want Route 53 to return. Specify a value between 1 and 50. Note that fewer than the requested number might be returned.</p>
             only_available: <p>If <code>OnlyAvailable</code> is <code>true</code>, Route 53 returns only domain names that are available. If <code>OnlyAvailable</code> is <code>false</code>, Route 53 returns domain names without checking whether they're available to be registered. To determine whether the domain is available, you can call <code>checkDomainAvailability</code> for each suggestion.</p>
+
+        Raises:
+            aws_sdk_route_53_domains.errors.invalid_input.InvalidInput: <p>The requested item is not acceptable. For example, for APIs that accept a domain name, the request might specify a domain name that doesn't belong to the account that submitted the request. For <code>AcceptDomainTransferFromAnotherAwsAccount</code>, the password might be invalid.</p>
+            aws_sdk_route_53_domains.errors.tld_in_maintenance.TLDInMaintenance: <p>The top-level domain is currently undergoing maintenance and the request cannot be processed. Try again later.</p>
+            aws_sdk_route_53_domains.errors.unsupported_tld.UnsupportedTLD: <p>Amazon Route 53 does not support this top-level domain (TLD).</p>
+            aws_sdk_route_53_domains.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -837,6 +936,10 @@ class AsyncRoute53DomainsClient:
 
         Args:
             operation_id: <p>The identifier for the operation for which you want to get the status. Route 53 returned the identifier in the response to the original request.</p>
+
+        Raises:
+            aws_sdk_route_53_domains.errors.invalid_input.InvalidInput: <p>The requested item is not acceptable. For example, for APIs that accept a domain name, the request might specify a domain name that doesn't belong to the account that submitted the request. For <code>AcceptDomainTransferFromAnotherAwsAccount</code>, the password might be invalid.</p>
+            aws_sdk_route_53_domains.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -889,6 +992,10 @@ class AsyncRoute53DomainsClient:
             sort_condition: <p>A complex type that contains information about the requested ordering of domains in the returned list.</p>
             marker: <p>For an initial request for a list of domains, omit this element. If the number of domains that are associated with the current Amazon Web Services account is greater than the value that you specified for <code>MaxItems</code>, you can use <code>Marker</code> to return additional domains. Get the value of <code>NextPageMarker</code> from the previous response, and submit another request that includes the value of <code>NextPageMarker</code> in the <code>Marker</code> element.</p> <p>Constraints: The marker must match the value specified in the previous request.</p>
             max_items: <p>Number of domains to be returned.</p> <p>Default: 20</p>
+
+        Raises:
+            aws_sdk_route_53_domains.errors.invalid_input.InvalidInput: <p>The requested item is not acceptable. For example, for APIs that accept a domain name, the request might specify a domain name that doesn't belong to the account that submitted the request. For <code>AcceptDomainTransferFromAnotherAwsAccount</code>, the password might be invalid.</p>
+            aws_sdk_route_53_domains.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -995,6 +1102,10 @@ class AsyncRoute53DomainsClient:
             type: <p> An arrays of the domains operation types. </p>
             sort_by: <p> The sort type for returned values. </p>
             sort_order: <p> The sort order for returned values, either ascending or descending. </p>
+
+        Raises:
+            aws_sdk_route_53_domains.errors.invalid_input.InvalidInput: <p>The requested item is not acceptable. For example, for APIs that accept a domain name, the request might specify a domain name that doesn't belong to the account that submitted the request. For <code>AcceptDomainTransferFromAnotherAwsAccount</code>, the password might be invalid.</p>
+            aws_sdk_route_53_domains.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1099,6 +1210,11 @@ class AsyncRoute53DomainsClient:
             tld: <p>The TLD for which you want to receive the pricing information. For example. <code>.net</code>.</p> <p>If a <code>Tld</code> value is not provided, a list of prices for all TLDs supported by Route 53 is returned.</p>
             marker: <p>For an initial request for a list of prices, omit this element. If the number of prices that are not yet complete is greater than the value that you specified for <code>MaxItems</code>, you can use <code>Marker</code> to return additional prices. Get the value of <code>NextPageMarker</code> from the previous response, and submit another request that includes the value of <code>NextPageMarker</code> in the <code>Marker</code> element. </p> <p>Used only for all TLDs. If you specify a TLD, don't specify a <code>Marker</code>.</p>
             max_items: <p>Number of <code>Prices</code> to be returned.</p> <p>Used only for all TLDs. If you specify a TLD, don't specify a <code>MaxItems</code>.</p>
+
+        Raises:
+            aws_sdk_route_53_domains.errors.invalid_input.InvalidInput: <p>The requested item is not acceptable. For example, for APIs that accept a domain name, the request might specify a domain name that doesn't belong to the account that submitted the request. For <code>AcceptDomainTransferFromAnotherAwsAccount</code>, the password might be invalid.</p>
+            aws_sdk_route_53_domains.errors.unsupported_tld.UnsupportedTLD: <p>Amazon Route 53 does not support this top-level domain (TLD).</p>
+            aws_sdk_route_53_domains.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1169,6 +1285,12 @@ class AsyncRoute53DomainsClient:
 
         Args:
             domain_name: <p>The domain for which you want to get a list of tags.</p>
+
+        Raises:
+            aws_sdk_route_53_domains.errors.invalid_input.InvalidInput: <p>The requested item is not acceptable. For example, for APIs that accept a domain name, the request might specify a domain name that doesn't belong to the account that submitted the request. For <code>AcceptDomainTransferFromAnotherAwsAccount</code>, the password might be invalid.</p>
+            aws_sdk_route_53_domains.errors.operation_limit_exceeded.OperationLimitExceeded: <p>The number of operations or jobs running exceeded the allowed threshold for the account.</p>
+            aws_sdk_route_53_domains.errors.unsupported_tld.UnsupportedTLD: <p>Amazon Route 53 does not support this top-level domain (TLD).</p>
+            aws_sdk_route_53_domains.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1209,6 +1331,13 @@ class AsyncRoute53DomainsClient:
         Args:
             domain_name: <p> Name of the domain. </p>
             target: <p> New IPS tag for the domain. </p>
+
+        Raises:
+            aws_sdk_route_53_domains.errors.invalid_input.InvalidInput: <p>The requested item is not acceptable. For example, for APIs that accept a domain name, the request might specify a domain name that doesn't belong to the account that submitted the request. For <code>AcceptDomainTransferFromAnotherAwsAccount</code>, the password might be invalid.</p>
+            aws_sdk_route_53_domains.errors.operation_limit_exceeded.OperationLimitExceeded: <p>The number of operations or jobs running exceeded the allowed threshold for the account.</p>
+            aws_sdk_route_53_domains.errors.tld_in_maintenance.TLDInMaintenance: <p>The top-level domain is currently undergoing maintenance and the request cannot be processed. Try again later.</p>
+            aws_sdk_route_53_domains.errors.unsupported_tld.UnsupportedTLD: <p>Amazon Route 53 does not support this top-level domain (TLD).</p>
+            aws_sdk_route_53_domains.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1282,6 +1411,15 @@ class AsyncRoute53DomainsClient:
             privacy_protect_tech_contact: <p>Whether you want to conceal contact information from WHOIS queries. If you specify <code>true</code>, WHOIS (\"who is\") queries return contact information either for Amazon Registrar or for our registrar associate, Gandi. If you specify <code>false</code>, WHOIS queries return the information that you entered for the technical contact.</p> <note> <p>You must specify the same privacy setting for the administrative, billing, registrant, and technical contacts.</p> </note> <p>Default: <code>true</code> </p>
             billing_contact: <p>Provides detailed contact information. For information about the values that you specify for each element, see <a href=\"https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html\">ContactDetail</a>.</p>
             privacy_protect_billing_contact: <p>Whether you want to conceal contact information from WHOIS queries. If you specify <code>true</code>, WHOIS (\"who is\") queries return contact information either for Amazon Registrar or for our registrar associate, Gandi. If you specify <code>false</code>, WHOIS queries return the information that you entered for the billing contact.</p> <note> <p>You must specify the same privacy setting for the administrative, billing, registrant, and technical contacts.</p> </note>
+
+        Raises:
+            aws_sdk_route_53_domains.errors.domain_limit_exceeded.DomainLimitExceeded: <p>The number of domains has exceeded the allowed threshold for the account.</p>
+            aws_sdk_route_53_domains.errors.duplicate_request.DuplicateRequest: <p>The request is already in progress for the domain.</p>
+            aws_sdk_route_53_domains.errors.invalid_input.InvalidInput: <p>The requested item is not acceptable. For example, for APIs that accept a domain name, the request might specify a domain name that doesn't belong to the account that submitted the request. For <code>AcceptDomainTransferFromAnotherAwsAccount</code>, the password might be invalid.</p>
+            aws_sdk_route_53_domains.errors.operation_limit_exceeded.OperationLimitExceeded: <p>The number of operations or jobs running exceeded the allowed threshold for the account.</p>
+            aws_sdk_route_53_domains.errors.tld_rules_violation.TLDRulesViolation: <p>The top-level domain does not support this operation.</p>
+            aws_sdk_route_53_domains.errors.unsupported_tld.UnsupportedTLD: <p>Amazon Route 53 does not support this top-level domain (TLD).</p>
+            aws_sdk_route_53_domains.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1340,6 +1478,12 @@ class AsyncRoute53DomainsClient:
 
         Args:
             domain_name: <p>The name of the domain that was specified when another Amazon Web Services account submitted a <a href=\"https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_TransferDomainToAnotherAwsAccount.html\">TransferDomainToAnotherAwsAccount</a> request. </p>
+
+        Raises:
+            aws_sdk_route_53_domains.errors.invalid_input.InvalidInput: <p>The requested item is not acceptable. For example, for APIs that accept a domain name, the request might specify a domain name that doesn't belong to the account that submitted the request. For <code>AcceptDomainTransferFromAnotherAwsAccount</code>, the password might be invalid.</p>
+            aws_sdk_route_53_domains.errors.operation_limit_exceeded.OperationLimitExceeded: <p>The number of operations or jobs running exceeded the allowed threshold for the account.</p>
+            aws_sdk_route_53_domains.errors.unsupported_tld.UnsupportedTLD: <p>Amazon Route 53 does not support this top-level domain (TLD).</p>
+            aws_sdk_route_53_domains.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1384,6 +1528,14 @@ class AsyncRoute53DomainsClient:
             domain_name: <p>The name of the domain that you want to renew.</p>
             duration_in_years: <p>The number of years that you want to renew the domain for. The maximum number of years depends on the top-level domain. For the range of valid values for your domain, see <a href=\"https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/registrar-tld-list.html\">Domains that You Can Register with Amazon Route 53</a> in the <i>Amazon Route 53 Developer Guide</i>.</p> <p>Default: 1</p>
             current_expiry_year: <p>The year when the registration for the domain is set to expire. This value must match the current expiration date for the domain.</p>
+
+        Raises:
+            aws_sdk_route_53_domains.errors.duplicate_request.DuplicateRequest: <p>The request is already in progress for the domain.</p>
+            aws_sdk_route_53_domains.errors.invalid_input.InvalidInput: <p>The requested item is not acceptable. For example, for APIs that accept a domain name, the request might specify a domain name that doesn't belong to the account that submitted the request. For <code>AcceptDomainTransferFromAnotherAwsAccount</code>, the password might be invalid.</p>
+            aws_sdk_route_53_domains.errors.operation_limit_exceeded.OperationLimitExceeded: <p>The number of operations or jobs running exceeded the allowed threshold for the account.</p>
+            aws_sdk_route_53_domains.errors.tld_rules_violation.TLDRulesViolation: <p>The top-level domain does not support this operation.</p>
+            aws_sdk_route_53_domains.errors.unsupported_tld.UnsupportedTLD: <p>Amazon Route 53 does not support this top-level domain (TLD).</p>
+            aws_sdk_route_53_domains.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1427,6 +1579,13 @@ class AsyncRoute53DomainsClient:
 
         Args:
             domain_name: <p>The name of the domain for which you want Route 53 to resend a confirmation email to the registrant contact.</p>
+
+        Raises:
+            aws_sdk_route_53_domains.errors.invalid_input.InvalidInput: <p>The requested item is not acceptable. For example, for APIs that accept a domain name, the request might specify a domain name that doesn't belong to the account that submitted the request. For <code>AcceptDomainTransferFromAnotherAwsAccount</code>, the password might be invalid.</p>
+            aws_sdk_route_53_domains.errors.operation_limit_exceeded.OperationLimitExceeded: <p>The number of operations or jobs running exceeded the allowed threshold for the account.</p>
+            aws_sdk_route_53_domains.errors.tld_in_maintenance.TLDInMaintenance: <p>The top-level domain is currently undergoing maintenance and the request cannot be processed. Try again later.</p>
+            aws_sdk_route_53_domains.errors.unsupported_tld.UnsupportedTLD: <p>Amazon Route 53 does not support this top-level domain (TLD).</p>
+            aws_sdk_route_53_domains.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1466,6 +1625,11 @@ class AsyncRoute53DomainsClient:
 
         Args:
             operation_id: <p> Operation ID. </p>
+
+        Raises:
+            aws_sdk_route_53_domains.errors.invalid_input.InvalidInput: <p>The requested item is not acceptable. For example, for APIs that accept a domain name, the request might specify a domain name that doesn't belong to the account that submitted the request. For <code>AcceptDomainTransferFromAnotherAwsAccount</code>, the password might be invalid.</p>
+            aws_sdk_route_53_domains.errors.tld_in_maintenance.TLDInMaintenance: <p>The top-level domain is currently undergoing maintenance and the request cannot be processed. Try again later.</p>
+            aws_sdk_route_53_domains.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1502,6 +1666,12 @@ class AsyncRoute53DomainsClient:
 
         Args:
             domain_name: <p>The name of the domain that you want to get an authorization code for.</p>
+
+        Raises:
+            aws_sdk_route_53_domains.errors.invalid_input.InvalidInput: <p>The requested item is not acceptable. For example, for APIs that accept a domain name, the request might specify a domain name that doesn't belong to the account that submitted the request. For <code>AcceptDomainTransferFromAnotherAwsAccount</code>, the password might be invalid.</p>
+            aws_sdk_route_53_domains.errors.tld_in_maintenance.TLDInMaintenance: <p>The top-level domain is currently undergoing maintenance and the request cannot be processed. Try again later.</p>
+            aws_sdk_route_53_domains.errors.unsupported_tld.UnsupportedTLD: <p>Amazon Route 53 does not support this top-level domain (TLD).</p>
+            aws_sdk_route_53_domains.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1586,6 +1756,15 @@ class AsyncRoute53DomainsClient:
             privacy_protect_tech_contact: <p>Whether you want to conceal contact information from WHOIS queries. If you specify <code>true</code>, WHOIS (\"who is\") queries return contact information either for Amazon Registrar or for our registrar associate, Gandi. If you specify <code>false</code>, WHOIS queries return the information that you entered for the technical contact.</p> <note> <p>You must specify the same privacy setting for the administrative, billing, registrant, and technical contacts.</p> </note> <p>Default: <code>true</code> </p>
             billing_contact: <p>Provides detailed contact information.</p>
             privacy_protect_billing_contact: <p> Whether you want to conceal contact information from WHOIS queries. If you specify <code>true</code>, WHOIS (\"who is\") queries return contact information either for Amazon Registrar or for our registrar associate, Gandi. If you specify <code>false</code>, WHOIS queries return the information that you entered for the billing contact. </p> <note> <p>You must specify the same privacy setting for the administrative, billing, registrant, and technical contacts.</p> </note>
+
+        Raises:
+            aws_sdk_route_53_domains.errors.domain_limit_exceeded.DomainLimitExceeded: <p>The number of domains has exceeded the allowed threshold for the account.</p>
+            aws_sdk_route_53_domains.errors.duplicate_request.DuplicateRequest: <p>The request is already in progress for the domain.</p>
+            aws_sdk_route_53_domains.errors.invalid_input.InvalidInput: <p>The requested item is not acceptable. For example, for APIs that accept a domain name, the request might specify a domain name that doesn't belong to the account that submitted the request. For <code>AcceptDomainTransferFromAnotherAwsAccount</code>, the password might be invalid.</p>
+            aws_sdk_route_53_domains.errors.operation_limit_exceeded.OperationLimitExceeded: <p>The number of operations or jobs running exceeded the allowed threshold for the account.</p>
+            aws_sdk_route_53_domains.errors.tld_rules_violation.TLDRulesViolation: <p>The top-level domain does not support this operation.</p>
+            aws_sdk_route_53_domains.errors.unsupported_tld.UnsupportedTLD: <p>Amazon Route 53 does not support this top-level domain (TLD).</p>
+            aws_sdk_route_53_domains.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1651,6 +1830,13 @@ class AsyncRoute53DomainsClient:
         Args:
             domain_name: <p>The name of the domain that you want to transfer from the current Amazon Web Services account to another account.</p>
             account_id: <p>The account ID of the Amazon Web Services account that you want to transfer the domain to, for example, <code>111122223333</code>.</p>
+
+        Raises:
+            aws_sdk_route_53_domains.errors.duplicate_request.DuplicateRequest: <p>The request is already in progress for the domain.</p>
+            aws_sdk_route_53_domains.errors.invalid_input.InvalidInput: <p>The requested item is not acceptable. For example, for APIs that accept a domain name, the request might specify a domain name that doesn't belong to the account that submitted the request. For <code>AcceptDomainTransferFromAnotherAwsAccount</code>, the password might be invalid.</p>
+            aws_sdk_route_53_domains.errors.operation_limit_exceeded.OperationLimitExceeded: <p>The number of operations or jobs running exceeded the allowed threshold for the account.</p>
+            aws_sdk_route_53_domains.errors.unsupported_tld.UnsupportedTLD: <p>Amazon Route 53 does not support this top-level domain (TLD).</p>
+            aws_sdk_route_53_domains.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1708,6 +1894,14 @@ class AsyncRoute53DomainsClient:
             tech_contact: <p>Provides detailed contact information.</p>
             consent: <p> Customer's consent for the owner change request. Required if the domain is not free (consent price is more than $0.00).</p>
             billing_contact: <p>Provides detailed contact information.</p>
+
+        Raises:
+            aws_sdk_route_53_domains.errors.duplicate_request.DuplicateRequest: <p>The request is already in progress for the domain.</p>
+            aws_sdk_route_53_domains.errors.invalid_input.InvalidInput: <p>The requested item is not acceptable. For example, for APIs that accept a domain name, the request might specify a domain name that doesn't belong to the account that submitted the request. For <code>AcceptDomainTransferFromAnotherAwsAccount</code>, the password might be invalid.</p>
+            aws_sdk_route_53_domains.errors.operation_limit_exceeded.OperationLimitExceeded: <p>The number of operations or jobs running exceeded the allowed threshold for the account.</p>
+            aws_sdk_route_53_domains.errors.tld_rules_violation.TLDRulesViolation: <p>The top-level domain does not support this operation.</p>
+            aws_sdk_route_53_domains.errors.unsupported_tld.UnsupportedTLD: <p>Amazon Route 53 does not support this top-level domain (TLD).</p>
+            aws_sdk_route_53_domains.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1770,6 +1964,14 @@ class AsyncRoute53DomainsClient:
             registrant_privacy: <p>Whether you want to conceal contact information from WHOIS queries. If you specify <code>true</code>, WHOIS (\"who is\") queries return contact information either for Amazon Registrar or for our registrar associate, Gandi. If you specify <code>false</code>, WHOIS queries return the information that you entered for the registrant contact (domain owner).</p> <note> <p>You must specify the same privacy setting for the administrative, billing, registrant, and technical contacts.</p> </note>
             tech_privacy: <p>Whether you want to conceal contact information from WHOIS queries. If you specify <code>true</code>, WHOIS (\"who is\") queries return contact information either for Amazon Registrar or for our registrar associate, Gandi. If you specify <code>false</code>, WHOIS queries return the information that you entered for the technical contact.</p> <note> <p>You must specify the same privacy setting for the administrative, billing, registrant, and technical contacts.</p> </note>
             billing_privacy: <p> Whether you want to conceal contact information from WHOIS queries. If you specify <code>true</code>, WHOIS (\"who is\") queries return contact information either for Amazon Registrar or for our registrar associate, Gandi. If you specify <code>false</code>, WHOIS queries return the information that you entered for the billing contact. </p> <note> <p>You must specify the same privacy setting for the administrative, billing, registrant, and technical contacts.</p> </note>
+
+        Raises:
+            aws_sdk_route_53_domains.errors.duplicate_request.DuplicateRequest: <p>The request is already in progress for the domain.</p>
+            aws_sdk_route_53_domains.errors.invalid_input.InvalidInput: <p>The requested item is not acceptable. For example, for APIs that accept a domain name, the request might specify a domain name that doesn't belong to the account that submitted the request. For <code>AcceptDomainTransferFromAnotherAwsAccount</code>, the password might be invalid.</p>
+            aws_sdk_route_53_domains.errors.operation_limit_exceeded.OperationLimitExceeded: <p>The number of operations or jobs running exceeded the allowed threshold for the account.</p>
+            aws_sdk_route_53_domains.errors.tld_rules_violation.TLDRulesViolation: <p>The top-level domain does not support this operation.</p>
+            aws_sdk_route_53_domains.errors.unsupported_tld.UnsupportedTLD: <p>Amazon Route 53 does not support this top-level domain (TLD).</p>
+            aws_sdk_route_53_domains.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1822,6 +2024,14 @@ class AsyncRoute53DomainsClient:
             domain_name: <p>The name of the domain that you want to change name servers for.</p>
             fi_auth_key: <p>The authorization key for .fi domains</p>
             nameservers: <p>A list of new name servers for the domain.</p>
+
+        Raises:
+            aws_sdk_route_53_domains.errors.duplicate_request.DuplicateRequest: <p>The request is already in progress for the domain.</p>
+            aws_sdk_route_53_domains.errors.invalid_input.InvalidInput: <p>The requested item is not acceptable. For example, for APIs that accept a domain name, the request might specify a domain name that doesn't belong to the account that submitted the request. For <code>AcceptDomainTransferFromAnotherAwsAccount</code>, the password might be invalid.</p>
+            aws_sdk_route_53_domains.errors.operation_limit_exceeded.OperationLimitExceeded: <p>The number of operations or jobs running exceeded the allowed threshold for the account.</p>
+            aws_sdk_route_53_domains.errors.tld_rules_violation.TLDRulesViolation: <p>The top-level domain does not support this operation.</p>
+            aws_sdk_route_53_domains.errors.unsupported_tld.UnsupportedTLD: <p>Amazon Route 53 does not support this top-level domain (TLD).</p>
+            aws_sdk_route_53_domains.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1867,6 +2077,12 @@ class AsyncRoute53DomainsClient:
         Args:
             domain_name: <p>The domain for which you want to add or update tags.</p>
             tags_to_update: <p>A list of the tag keys and values that you want to add or update. If you specify a key that already exists, the corresponding value will be replaced.</p>
+
+        Raises:
+            aws_sdk_route_53_domains.errors.invalid_input.InvalidInput: <p>The requested item is not acceptable. For example, for APIs that accept a domain name, the request might specify a domain name that doesn't belong to the account that submitted the request. For <code>AcceptDomainTransferFromAnotherAwsAccount</code>, the password might be invalid.</p>
+            aws_sdk_route_53_domains.errors.operation_limit_exceeded.OperationLimitExceeded: <p>The number of operations or jobs running exceeded the allowed threshold for the account.</p>
+            aws_sdk_route_53_domains.errors.unsupported_tld.UnsupportedTLD: <p>Amazon Route 53 does not support this top-level domain (TLD).</p>
+            aws_sdk_route_53_domains.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1917,6 +2133,10 @@ class AsyncRoute53DomainsClient:
             end: <p>The end date and time for the time period for which you want a list of billing records. Specify the date and time in Unix time format and Coordinated Universal time (UTC).</p>
             marker: <p>For an initial request for a list of billing records, omit this element. If the number of billing records that are associated with the current Amazon Web Services account during the specified period is greater than the value that you specified for <code>MaxItems</code>, you can use <code>Marker</code> to return additional billing records. Get the value of <code>NextPageMarker</code> from the previous response, and submit another request that includes the value of <code>NextPageMarker</code> in the <code>Marker</code> element. </p> <p>Constraints: The marker must match the value of <code>NextPageMarker</code> that was returned in the previous response.</p>
             max_items: <p>The number of billing records to be returned.</p> <p>Default: 20</p>
+
+        Raises:
+            aws_sdk_route_53_domains.errors.invalid_input.InvalidInput: <p>The requested item is not acceptable. For example, for APIs that accept a domain name, the request might specify a domain name that doesn't belong to the account that submitted the request. For <code>AcceptDomainTransferFromAnotherAwsAccount</code>, the password might be invalid.</p>
+            aws_sdk_route_53_domains.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

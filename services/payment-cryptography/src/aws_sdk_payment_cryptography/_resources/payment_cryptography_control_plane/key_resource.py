@@ -81,6 +81,17 @@ class KeyResource:
             enabled: <p>Specifies whether to enable the key. If the key is enabled, it is activated for use within the service. If the key is not enabled, then it is created but not activated. The default value is enabled.</p>
             tags: <p>Assigns one or more tags to the Amazon Web Services Payment Cryptography key. Use this parameter to tag a key when it is created. To tag an existing Amazon Web Services Payment Cryptography key, use the <a href=\"https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_TagResource.html\">TagResource</a> operation.</p> <p>Each tag consists of a tag key and a tag value. Both the tag key and the tag value are required, but the tag value can be an empty (null) string. You can't have more than one tag on an Amazon Web Services Payment Cryptography key with the same tag key. </p> <important> <p>Don't include personal, confidential or sensitive information in this field. This field may be displayed in plaintext in CloudTrail logs and other output.</p> </important> <note> <p>Tagging or untagging an Amazon Web Services Payment Cryptography key can allow or deny permission to the key.</p> </note>
             derive_key_usage: <p>The intended cryptographic usage of keys derived from the ECC key pair to be created.</p> <p>After creating an ECC key pair, you cannot change the intended cryptographic usage of keys derived from it using ECDH.</p>
+
+        Raises:
+            aws_sdk_payment_cryptography.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p> <p>This exception is thrown when the caller lacks the necessary IAM permissions to perform the requested operation. Verify that your IAM policy includes the required permissions for the specific Amazon Web Services Payment Cryptography action you're attempting.</p>
+            aws_sdk_payment_cryptography.errors.conflict_exception.ConflictException: <p>This request can cause an inconsistent state for the resource.</p> <p>The requested operation conflicts with the current state of the resource. For example, attempting to delete a key that is currently being used, or trying to create a resource that already exists.</p>
+            aws_sdk_payment_cryptography.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure.</p> <p>This indicates a server-side error within the Amazon Web Services Payment Cryptography service. If this error persists, contact support for assistance.</p>
+            aws_sdk_payment_cryptography.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request was denied due to resource not found.</p> <p>The specified key, alias, or other resource does not exist in your account or region. Verify that the resource identifier is correct and that the resource exists in the expected region.</p>
+            aws_sdk_payment_cryptography.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>This request would cause a service quota to be exceeded.</p> <p>You have reached the maximum number of keys, aliases, or other resources allowed in your account. Review your current usage and consider deleting unused resources or requesting a quota increase.</p>
+            aws_sdk_payment_cryptography.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service cannot complete the request.</p> <p>The Amazon Web Services Payment Cryptography service is temporarily unavailable. This is typically a temporary condition - retry your request after a brief delay.</p>
+            aws_sdk_payment_cryptography.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p> <p>You have exceeded the rate limits for Amazon Web Services Payment Cryptography API calls. Implement exponential backoff and retry logic in your application to handle throttling gracefully.</p>
+            aws_sdk_payment_cryptography.errors.validation_exception.ValidationException: <p>The request was denied due to an invalid request error.</p> <p>One or more parameters in your request are invalid. Check the parameter values, formats, and constraints specified in the API documentation.</p>
+            aws_sdk_payment_cryptography.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -129,6 +140,15 @@ class KeyResource:
 
         Args:
             key_identifier: <p>The <code>KeyARN</code> of the Amazon Web Services Payment Cryptography key.</p>
+
+        Raises:
+            aws_sdk_payment_cryptography.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p> <p>This exception is thrown when the caller lacks the necessary IAM permissions to perform the requested operation. Verify that your IAM policy includes the required permissions for the specific Amazon Web Services Payment Cryptography action you're attempting.</p>
+            aws_sdk_payment_cryptography.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure.</p> <p>This indicates a server-side error within the Amazon Web Services Payment Cryptography service. If this error persists, contact support for assistance.</p>
+            aws_sdk_payment_cryptography.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request was denied due to resource not found.</p> <p>The specified key, alias, or other resource does not exist in your account or region. Verify that the resource identifier is correct and that the resource exists in the expected region.</p>
+            aws_sdk_payment_cryptography.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service cannot complete the request.</p> <p>The Amazon Web Services Payment Cryptography service is temporarily unavailable. This is typically a temporary condition - retry your request after a brief delay.</p>
+            aws_sdk_payment_cryptography.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p> <p>You have exceeded the rate limits for Amazon Web Services Payment Cryptography API calls. Implement exponential backoff and retry logic in your application to handle throttling gracefully.</p>
+            aws_sdk_payment_cryptography.errors.validation_exception.ValidationException: <p>The request was denied due to an invalid request error.</p> <p>One or more parameters in your request are invalid. Check the parameter values, formats, and constraints specified in the API documentation.</p>
+            aws_sdk_payment_cryptography.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -168,6 +188,16 @@ class KeyResource:
         Args:
             key_identifier: <p>The <code>KeyARN</code> of the key that is scheduled for deletion.</p>
             delete_key_in_days: <p>The waiting period for key deletion. The default value is seven days.</p>
+
+        Raises:
+            aws_sdk_payment_cryptography.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p> <p>This exception is thrown when the caller lacks the necessary IAM permissions to perform the requested operation. Verify that your IAM policy includes the required permissions for the specific Amazon Web Services Payment Cryptography action you're attempting.</p>
+            aws_sdk_payment_cryptography.errors.conflict_exception.ConflictException: <p>This request can cause an inconsistent state for the resource.</p> <p>The requested operation conflicts with the current state of the resource. For example, attempting to delete a key that is currently being used, or trying to create a resource that already exists.</p>
+            aws_sdk_payment_cryptography.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure.</p> <p>This indicates a server-side error within the Amazon Web Services Payment Cryptography service. If this error persists, contact support for assistance.</p>
+            aws_sdk_payment_cryptography.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request was denied due to resource not found.</p> <p>The specified key, alias, or other resource does not exist in your account or region. Verify that the resource identifier is correct and that the resource exists in the expected region.</p>
+            aws_sdk_payment_cryptography.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service cannot complete the request.</p> <p>The Amazon Web Services Payment Cryptography service is temporarily unavailable. This is typically a temporary condition - retry your request after a brief delay.</p>
+            aws_sdk_payment_cryptography.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p> <p>You have exceeded the rate limits for Amazon Web Services Payment Cryptography API calls. Implement exponential backoff and retry logic in your application to handle throttling gracefully.</p>
+            aws_sdk_payment_cryptography.errors.validation_exception.ValidationException: <p>The request was denied due to an invalid request error.</p> <p>One or more parameters in your request are invalid. Check the parameter values, formats, and constraints specified in the API documentation.</p>
+            aws_sdk_payment_cryptography.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -217,6 +247,15 @@ class KeyResource:
             key_state: <p>The key state of the keys you want to list.</p>
             next_token: <p>Use this parameter in a subsequent request after you receive a response with truncated results. Set it to the value of <code>NextToken</code> from the truncated response you just received.</p>
             max_results: <p>Use this parameter to specify the maximum number of items to return. When this value is present, Amazon Web Services Payment Cryptography does not return more than the specified number of items, but it might return fewer.</p> <p>This value is optional. If you include a value, it must be between 1 and 100, inclusive. If you do not include a value, it defaults to 50.</p>
+
+        Raises:
+            aws_sdk_payment_cryptography.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p> <p>This exception is thrown when the caller lacks the necessary IAM permissions to perform the requested operation. Verify that your IAM policy includes the required permissions for the specific Amazon Web Services Payment Cryptography action you're attempting.</p>
+            aws_sdk_payment_cryptography.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure.</p> <p>This indicates a server-side error within the Amazon Web Services Payment Cryptography service. If this error persists, contact support for assistance.</p>
+            aws_sdk_payment_cryptography.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request was denied due to resource not found.</p> <p>The specified key, alias, or other resource does not exist in your account or region. Verify that the resource identifier is correct and that the resource exists in the expected region.</p>
+            aws_sdk_payment_cryptography.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service cannot complete the request.</p> <p>The Amazon Web Services Payment Cryptography service is temporarily unavailable. This is typically a temporary condition - retry your request after a brief delay.</p>
+            aws_sdk_payment_cryptography.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p> <p>You have exceeded the rate limits for Amazon Web Services Payment Cryptography API calls. Implement exponential backoff and retry logic in your application to handle throttling gracefully.</p>
+            aws_sdk_payment_cryptography.errors.validation_exception.ValidationException: <p>The request was denied due to an invalid request error.</p> <p>One or more parameters in your request are invalid. Check the parameter values, formats, and constraints specified in the API documentation.</p>
+            aws_sdk_payment_cryptography.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -261,6 +300,16 @@ class KeyResource:
         Args:
             key_identifier: <p>The key identifier (ARN or alias) of the key for which to add replication regions.</p> <p>This key must exist and be in a valid state for replication operations.</p>
             replication_regions: <p>The list of Amazon Web Services Regions to add to the key's replication configuration.</p> <p>Each region must be a valid Amazon Web Services Region where Amazon Web Services Payment Cryptography is available. The key will be replicated to these regions, allowing cryptographic operations to be performed closer to your applications.</p>
+
+        Raises:
+            aws_sdk_payment_cryptography.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p> <p>This exception is thrown when the caller lacks the necessary IAM permissions to perform the requested operation. Verify that your IAM policy includes the required permissions for the specific Amazon Web Services Payment Cryptography action you're attempting.</p>
+            aws_sdk_payment_cryptography.errors.conflict_exception.ConflictException: <p>This request can cause an inconsistent state for the resource.</p> <p>The requested operation conflicts with the current state of the resource. For example, attempting to delete a key that is currently being used, or trying to create a resource that already exists.</p>
+            aws_sdk_payment_cryptography.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure.</p> <p>This indicates a server-side error within the Amazon Web Services Payment Cryptography service. If this error persists, contact support for assistance.</p>
+            aws_sdk_payment_cryptography.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request was denied due to resource not found.</p> <p>The specified key, alias, or other resource does not exist in your account or region. Verify that the resource identifier is correct and that the resource exists in the expected region.</p>
+            aws_sdk_payment_cryptography.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>This request would cause a service quota to be exceeded.</p> <p>You have reached the maximum number of keys, aliases, or other resources allowed in your account. Review your current usage and consider deleting unused resources or requesting a quota increase.</p>
+            aws_sdk_payment_cryptography.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p> <p>You have exceeded the rate limits for Amazon Web Services Payment Cryptography API calls. Implement exponential backoff and retry logic in your application to handle throttling gracefully.</p>
+            aws_sdk_payment_cryptography.errors.validation_exception.ValidationException: <p>The request was denied due to an invalid request error.</p> <p>One or more parameters in your request are invalid. Check the parameter values, formats, and constraints specified in the API documentation.</p>
+            aws_sdk_payment_cryptography.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -301,6 +350,16 @@ class KeyResource:
         Args:
             key_identifier: <p>The key identifier (ARN or alias) of the key from which to remove replication regions.</p> <p>This key must exist and have replication enabled in the specified regions.</p>
             replication_regions: <p>The list of Amazon Web Services Regions to remove from the key's replication configuration.</p> <p>The key will no longer be available for cryptographic operations in these regions after removal. Ensure no active operations depend on the key in these regions before removal.</p>
+
+        Raises:
+            aws_sdk_payment_cryptography.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p> <p>This exception is thrown when the caller lacks the necessary IAM permissions to perform the requested operation. Verify that your IAM policy includes the required permissions for the specific Amazon Web Services Payment Cryptography action you're attempting.</p>
+            aws_sdk_payment_cryptography.errors.conflict_exception.ConflictException: <p>This request can cause an inconsistent state for the resource.</p> <p>The requested operation conflicts with the current state of the resource. For example, attempting to delete a key that is currently being used, or trying to create a resource that already exists.</p>
+            aws_sdk_payment_cryptography.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure.</p> <p>This indicates a server-side error within the Amazon Web Services Payment Cryptography service. If this error persists, contact support for assistance.</p>
+            aws_sdk_payment_cryptography.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request was denied due to resource not found.</p> <p>The specified key, alias, or other resource does not exist in your account or region. Verify that the resource identifier is correct and that the resource exists in the expected region.</p>
+            aws_sdk_payment_cryptography.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>This request would cause a service quota to be exceeded.</p> <p>You have reached the maximum number of keys, aliases, or other resources allowed in your account. Review your current usage and consider deleting unused resources or requesting a quota increase.</p>
+            aws_sdk_payment_cryptography.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p> <p>You have exceeded the rate limits for Amazon Web Services Payment Cryptography API calls. Implement exponential backoff and retry logic in your application to handle throttling gracefully.</p>
+            aws_sdk_payment_cryptography.errors.validation_exception.ValidationException: <p>The request was denied due to an invalid request error.</p> <p>One or more parameters in your request are invalid. Check the parameter values, formats, and constraints specified in the API documentation.</p>
+            aws_sdk_payment_cryptography.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -339,6 +398,17 @@ class KeyResource:
 
         Args:
             key_identifier: <p>The <code>KeyARN</code> of the key to be restored within Amazon Web Services Payment Cryptography.</p>
+
+        Raises:
+            aws_sdk_payment_cryptography.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p> <p>This exception is thrown when the caller lacks the necessary IAM permissions to perform the requested operation. Verify that your IAM policy includes the required permissions for the specific Amazon Web Services Payment Cryptography action you're attempting.</p>
+            aws_sdk_payment_cryptography.errors.conflict_exception.ConflictException: <p>This request can cause an inconsistent state for the resource.</p> <p>The requested operation conflicts with the current state of the resource. For example, attempting to delete a key that is currently being used, or trying to create a resource that already exists.</p>
+            aws_sdk_payment_cryptography.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure.</p> <p>This indicates a server-side error within the Amazon Web Services Payment Cryptography service. If this error persists, contact support for assistance.</p>
+            aws_sdk_payment_cryptography.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request was denied due to resource not found.</p> <p>The specified key, alias, or other resource does not exist in your account or region. Verify that the resource identifier is correct and that the resource exists in the expected region.</p>
+            aws_sdk_payment_cryptography.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>This request would cause a service quota to be exceeded.</p> <p>You have reached the maximum number of keys, aliases, or other resources allowed in your account. Review your current usage and consider deleting unused resources or requesting a quota increase.</p>
+            aws_sdk_payment_cryptography.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service cannot complete the request.</p> <p>The Amazon Web Services Payment Cryptography service is temporarily unavailable. This is typically a temporary condition - retry your request after a brief delay.</p>
+            aws_sdk_payment_cryptography.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p> <p>You have exceeded the rate limits for Amazon Web Services Payment Cryptography API calls. Implement exponential backoff and retry logic in your application to handle throttling gracefully.</p>
+            aws_sdk_payment_cryptography.errors.validation_exception.ValidationException: <p>The request was denied due to an invalid request error.</p> <p>One or more parameters in your request are invalid. Check the parameter values, formats, and constraints specified in the API documentation.</p>
+            aws_sdk_payment_cryptography.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -378,6 +448,17 @@ class KeyResource:
 
         Args:
             key_identifier: <p>The <code>KeyArn</code> of the key.</p>
+
+        Raises:
+            aws_sdk_payment_cryptography.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p> <p>This exception is thrown when the caller lacks the necessary IAM permissions to perform the requested operation. Verify that your IAM policy includes the required permissions for the specific Amazon Web Services Payment Cryptography action you're attempting.</p>
+            aws_sdk_payment_cryptography.errors.conflict_exception.ConflictException: <p>This request can cause an inconsistent state for the resource.</p> <p>The requested operation conflicts with the current state of the resource. For example, attempting to delete a key that is currently being used, or trying to create a resource that already exists.</p>
+            aws_sdk_payment_cryptography.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure.</p> <p>This indicates a server-side error within the Amazon Web Services Payment Cryptography service. If this error persists, contact support for assistance.</p>
+            aws_sdk_payment_cryptography.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request was denied due to resource not found.</p> <p>The specified key, alias, or other resource does not exist in your account or region. Verify that the resource identifier is correct and that the resource exists in the expected region.</p>
+            aws_sdk_payment_cryptography.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>This request would cause a service quota to be exceeded.</p> <p>You have reached the maximum number of keys, aliases, or other resources allowed in your account. Review your current usage and consider deleting unused resources or requesting a quota increase.</p>
+            aws_sdk_payment_cryptography.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service cannot complete the request.</p> <p>The Amazon Web Services Payment Cryptography service is temporarily unavailable. This is typically a temporary condition - retry your request after a brief delay.</p>
+            aws_sdk_payment_cryptography.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p> <p>You have exceeded the rate limits for Amazon Web Services Payment Cryptography API calls. Implement exponential backoff and retry logic in your application to handle throttling gracefully.</p>
+            aws_sdk_payment_cryptography.errors.validation_exception.ValidationException: <p>The request was denied due to an invalid request error.</p> <p>One or more parameters in your request are invalid. Check the parameter values, formats, and constraints specified in the API documentation.</p>
+            aws_sdk_payment_cryptography.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -415,6 +496,17 @@ class KeyResource:
 
         Args:
             key_identifier: <p>The <code>KeyArn</code> of the key.</p>
+
+        Raises:
+            aws_sdk_payment_cryptography.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p> <p>This exception is thrown when the caller lacks the necessary IAM permissions to perform the requested operation. Verify that your IAM policy includes the required permissions for the specific Amazon Web Services Payment Cryptography action you're attempting.</p>
+            aws_sdk_payment_cryptography.errors.conflict_exception.ConflictException: <p>This request can cause an inconsistent state for the resource.</p> <p>The requested operation conflicts with the current state of the resource. For example, attempting to delete a key that is currently being used, or trying to create a resource that already exists.</p>
+            aws_sdk_payment_cryptography.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure.</p> <p>This indicates a server-side error within the Amazon Web Services Payment Cryptography service. If this error persists, contact support for assistance.</p>
+            aws_sdk_payment_cryptography.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request was denied due to resource not found.</p> <p>The specified key, alias, or other resource does not exist in your account or region. Verify that the resource identifier is correct and that the resource exists in the expected region.</p>
+            aws_sdk_payment_cryptography.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>This request would cause a service quota to be exceeded.</p> <p>You have reached the maximum number of keys, aliases, or other resources allowed in your account. Review your current usage and consider deleting unused resources or requesting a quota increase.</p>
+            aws_sdk_payment_cryptography.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service cannot complete the request.</p> <p>The Amazon Web Services Payment Cryptography service is temporarily unavailable. This is typically a temporary condition - retry your request after a brief delay.</p>
+            aws_sdk_payment_cryptography.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p> <p>You have exceeded the rate limits for Amazon Web Services Payment Cryptography API calls. Implement exponential backoff and retry logic in your application to handle throttling gracefully.</p>
+            aws_sdk_payment_cryptography.errors.validation_exception.ValidationException: <p>The request was denied due to an invalid request error.</p> <p>One or more parameters in your request are invalid. Check the parameter values, formats, and constraints specified in the API documentation.</p>
+            aws_sdk_payment_cryptography.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -474,6 +566,17 @@ class AsyncKeyResource:
             enabled: <p>Specifies whether to enable the key. If the key is enabled, it is activated for use within the service. If the key is not enabled, then it is created but not activated. The default value is enabled.</p>
             tags: <p>Assigns one or more tags to the Amazon Web Services Payment Cryptography key. Use this parameter to tag a key when it is created. To tag an existing Amazon Web Services Payment Cryptography key, use the <a href=\"https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_TagResource.html\">TagResource</a> operation.</p> <p>Each tag consists of a tag key and a tag value. Both the tag key and the tag value are required, but the tag value can be an empty (null) string. You can't have more than one tag on an Amazon Web Services Payment Cryptography key with the same tag key. </p> <important> <p>Don't include personal, confidential or sensitive information in this field. This field may be displayed in plaintext in CloudTrail logs and other output.</p> </important> <note> <p>Tagging or untagging an Amazon Web Services Payment Cryptography key can allow or deny permission to the key.</p> </note>
             derive_key_usage: <p>The intended cryptographic usage of keys derived from the ECC key pair to be created.</p> <p>After creating an ECC key pair, you cannot change the intended cryptographic usage of keys derived from it using ECDH.</p>
+
+        Raises:
+            aws_sdk_payment_cryptography.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p> <p>This exception is thrown when the caller lacks the necessary IAM permissions to perform the requested operation. Verify that your IAM policy includes the required permissions for the specific Amazon Web Services Payment Cryptography action you're attempting.</p>
+            aws_sdk_payment_cryptography.errors.conflict_exception.ConflictException: <p>This request can cause an inconsistent state for the resource.</p> <p>The requested operation conflicts with the current state of the resource. For example, attempting to delete a key that is currently being used, or trying to create a resource that already exists.</p>
+            aws_sdk_payment_cryptography.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure.</p> <p>This indicates a server-side error within the Amazon Web Services Payment Cryptography service. If this error persists, contact support for assistance.</p>
+            aws_sdk_payment_cryptography.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request was denied due to resource not found.</p> <p>The specified key, alias, or other resource does not exist in your account or region. Verify that the resource identifier is correct and that the resource exists in the expected region.</p>
+            aws_sdk_payment_cryptography.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>This request would cause a service quota to be exceeded.</p> <p>You have reached the maximum number of keys, aliases, or other resources allowed in your account. Review your current usage and consider deleting unused resources or requesting a quota increase.</p>
+            aws_sdk_payment_cryptography.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service cannot complete the request.</p> <p>The Amazon Web Services Payment Cryptography service is temporarily unavailable. This is typically a temporary condition - retry your request after a brief delay.</p>
+            aws_sdk_payment_cryptography.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p> <p>You have exceeded the rate limits for Amazon Web Services Payment Cryptography API calls. Implement exponential backoff and retry logic in your application to handle throttling gracefully.</p>
+            aws_sdk_payment_cryptography.errors.validation_exception.ValidationException: <p>The request was denied due to an invalid request error.</p> <p>One or more parameters in your request are invalid. Check the parameter values, formats, and constraints specified in the API documentation.</p>
+            aws_sdk_payment_cryptography.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -523,6 +626,15 @@ class AsyncKeyResource:
 
         Args:
             key_identifier: <p>The <code>KeyARN</code> of the Amazon Web Services Payment Cryptography key.</p>
+
+        Raises:
+            aws_sdk_payment_cryptography.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p> <p>This exception is thrown when the caller lacks the necessary IAM permissions to perform the requested operation. Verify that your IAM policy includes the required permissions for the specific Amazon Web Services Payment Cryptography action you're attempting.</p>
+            aws_sdk_payment_cryptography.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure.</p> <p>This indicates a server-side error within the Amazon Web Services Payment Cryptography service. If this error persists, contact support for assistance.</p>
+            aws_sdk_payment_cryptography.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request was denied due to resource not found.</p> <p>The specified key, alias, or other resource does not exist in your account or region. Verify that the resource identifier is correct and that the resource exists in the expected region.</p>
+            aws_sdk_payment_cryptography.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service cannot complete the request.</p> <p>The Amazon Web Services Payment Cryptography service is temporarily unavailable. This is typically a temporary condition - retry your request after a brief delay.</p>
+            aws_sdk_payment_cryptography.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p> <p>You have exceeded the rate limits for Amazon Web Services Payment Cryptography API calls. Implement exponential backoff and retry logic in your application to handle throttling gracefully.</p>
+            aws_sdk_payment_cryptography.errors.validation_exception.ValidationException: <p>The request was denied due to an invalid request error.</p> <p>One or more parameters in your request are invalid. Check the parameter values, formats, and constraints specified in the API documentation.</p>
+            aws_sdk_payment_cryptography.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -563,6 +675,16 @@ class AsyncKeyResource:
         Args:
             key_identifier: <p>The <code>KeyARN</code> of the key that is scheduled for deletion.</p>
             delete_key_in_days: <p>The waiting period for key deletion. The default value is seven days.</p>
+
+        Raises:
+            aws_sdk_payment_cryptography.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p> <p>This exception is thrown when the caller lacks the necessary IAM permissions to perform the requested operation. Verify that your IAM policy includes the required permissions for the specific Amazon Web Services Payment Cryptography action you're attempting.</p>
+            aws_sdk_payment_cryptography.errors.conflict_exception.ConflictException: <p>This request can cause an inconsistent state for the resource.</p> <p>The requested operation conflicts with the current state of the resource. For example, attempting to delete a key that is currently being used, or trying to create a resource that already exists.</p>
+            aws_sdk_payment_cryptography.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure.</p> <p>This indicates a server-side error within the Amazon Web Services Payment Cryptography service. If this error persists, contact support for assistance.</p>
+            aws_sdk_payment_cryptography.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request was denied due to resource not found.</p> <p>The specified key, alias, or other resource does not exist in your account or region. Verify that the resource identifier is correct and that the resource exists in the expected region.</p>
+            aws_sdk_payment_cryptography.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service cannot complete the request.</p> <p>The Amazon Web Services Payment Cryptography service is temporarily unavailable. This is typically a temporary condition - retry your request after a brief delay.</p>
+            aws_sdk_payment_cryptography.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p> <p>You have exceeded the rate limits for Amazon Web Services Payment Cryptography API calls. Implement exponential backoff and retry logic in your application to handle throttling gracefully.</p>
+            aws_sdk_payment_cryptography.errors.validation_exception.ValidationException: <p>The request was denied due to an invalid request error.</p> <p>One or more parameters in your request are invalid. Check the parameter values, formats, and constraints specified in the API documentation.</p>
+            aws_sdk_payment_cryptography.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -613,6 +735,15 @@ class AsyncKeyResource:
             key_state: <p>The key state of the keys you want to list.</p>
             next_token: <p>Use this parameter in a subsequent request after you receive a response with truncated results. Set it to the value of <code>NextToken</code> from the truncated response you just received.</p>
             max_results: <p>Use this parameter to specify the maximum number of items to return. When this value is present, Amazon Web Services Payment Cryptography does not return more than the specified number of items, but it might return fewer.</p> <p>This value is optional. If you include a value, it must be between 1 and 100, inclusive. If you do not include a value, it defaults to 50.</p>
+
+        Raises:
+            aws_sdk_payment_cryptography.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p> <p>This exception is thrown when the caller lacks the necessary IAM permissions to perform the requested operation. Verify that your IAM policy includes the required permissions for the specific Amazon Web Services Payment Cryptography action you're attempting.</p>
+            aws_sdk_payment_cryptography.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure.</p> <p>This indicates a server-side error within the Amazon Web Services Payment Cryptography service. If this error persists, contact support for assistance.</p>
+            aws_sdk_payment_cryptography.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request was denied due to resource not found.</p> <p>The specified key, alias, or other resource does not exist in your account or region. Verify that the resource identifier is correct and that the resource exists in the expected region.</p>
+            aws_sdk_payment_cryptography.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service cannot complete the request.</p> <p>The Amazon Web Services Payment Cryptography service is temporarily unavailable. This is typically a temporary condition - retry your request after a brief delay.</p>
+            aws_sdk_payment_cryptography.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p> <p>You have exceeded the rate limits for Amazon Web Services Payment Cryptography API calls. Implement exponential backoff and retry logic in your application to handle throttling gracefully.</p>
+            aws_sdk_payment_cryptography.errors.validation_exception.ValidationException: <p>The request was denied due to an invalid request error.</p> <p>One or more parameters in your request are invalid. Check the parameter values, formats, and constraints specified in the API documentation.</p>
+            aws_sdk_payment_cryptography.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -658,6 +789,16 @@ class AsyncKeyResource:
         Args:
             key_identifier: <p>The key identifier (ARN or alias) of the key for which to add replication regions.</p> <p>This key must exist and be in a valid state for replication operations.</p>
             replication_regions: <p>The list of Amazon Web Services Regions to add to the key's replication configuration.</p> <p>Each region must be a valid Amazon Web Services Region where Amazon Web Services Payment Cryptography is available. The key will be replicated to these regions, allowing cryptographic operations to be performed closer to your applications.</p>
+
+        Raises:
+            aws_sdk_payment_cryptography.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p> <p>This exception is thrown when the caller lacks the necessary IAM permissions to perform the requested operation. Verify that your IAM policy includes the required permissions for the specific Amazon Web Services Payment Cryptography action you're attempting.</p>
+            aws_sdk_payment_cryptography.errors.conflict_exception.ConflictException: <p>This request can cause an inconsistent state for the resource.</p> <p>The requested operation conflicts with the current state of the resource. For example, attempting to delete a key that is currently being used, or trying to create a resource that already exists.</p>
+            aws_sdk_payment_cryptography.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure.</p> <p>This indicates a server-side error within the Amazon Web Services Payment Cryptography service. If this error persists, contact support for assistance.</p>
+            aws_sdk_payment_cryptography.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request was denied due to resource not found.</p> <p>The specified key, alias, or other resource does not exist in your account or region. Verify that the resource identifier is correct and that the resource exists in the expected region.</p>
+            aws_sdk_payment_cryptography.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>This request would cause a service quota to be exceeded.</p> <p>You have reached the maximum number of keys, aliases, or other resources allowed in your account. Review your current usage and consider deleting unused resources or requesting a quota increase.</p>
+            aws_sdk_payment_cryptography.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p> <p>You have exceeded the rate limits for Amazon Web Services Payment Cryptography API calls. Implement exponential backoff and retry logic in your application to handle throttling gracefully.</p>
+            aws_sdk_payment_cryptography.errors.validation_exception.ValidationException: <p>The request was denied due to an invalid request error.</p> <p>One or more parameters in your request are invalid. Check the parameter values, formats, and constraints specified in the API documentation.</p>
+            aws_sdk_payment_cryptography.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -699,6 +840,16 @@ class AsyncKeyResource:
         Args:
             key_identifier: <p>The key identifier (ARN or alias) of the key from which to remove replication regions.</p> <p>This key must exist and have replication enabled in the specified regions.</p>
             replication_regions: <p>The list of Amazon Web Services Regions to remove from the key's replication configuration.</p> <p>The key will no longer be available for cryptographic operations in these regions after removal. Ensure no active operations depend on the key in these regions before removal.</p>
+
+        Raises:
+            aws_sdk_payment_cryptography.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p> <p>This exception is thrown when the caller lacks the necessary IAM permissions to perform the requested operation. Verify that your IAM policy includes the required permissions for the specific Amazon Web Services Payment Cryptography action you're attempting.</p>
+            aws_sdk_payment_cryptography.errors.conflict_exception.ConflictException: <p>This request can cause an inconsistent state for the resource.</p> <p>The requested operation conflicts with the current state of the resource. For example, attempting to delete a key that is currently being used, or trying to create a resource that already exists.</p>
+            aws_sdk_payment_cryptography.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure.</p> <p>This indicates a server-side error within the Amazon Web Services Payment Cryptography service. If this error persists, contact support for assistance.</p>
+            aws_sdk_payment_cryptography.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request was denied due to resource not found.</p> <p>The specified key, alias, or other resource does not exist in your account or region. Verify that the resource identifier is correct and that the resource exists in the expected region.</p>
+            aws_sdk_payment_cryptography.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>This request would cause a service quota to be exceeded.</p> <p>You have reached the maximum number of keys, aliases, or other resources allowed in your account. Review your current usage and consider deleting unused resources or requesting a quota increase.</p>
+            aws_sdk_payment_cryptography.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p> <p>You have exceeded the rate limits for Amazon Web Services Payment Cryptography API calls. Implement exponential backoff and retry logic in your application to handle throttling gracefully.</p>
+            aws_sdk_payment_cryptography.errors.validation_exception.ValidationException: <p>The request was denied due to an invalid request error.</p> <p>One or more parameters in your request are invalid. Check the parameter values, formats, and constraints specified in the API documentation.</p>
+            aws_sdk_payment_cryptography.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -738,6 +889,17 @@ class AsyncKeyResource:
 
         Args:
             key_identifier: <p>The <code>KeyARN</code> of the key to be restored within Amazon Web Services Payment Cryptography.</p>
+
+        Raises:
+            aws_sdk_payment_cryptography.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p> <p>This exception is thrown when the caller lacks the necessary IAM permissions to perform the requested operation. Verify that your IAM policy includes the required permissions for the specific Amazon Web Services Payment Cryptography action you're attempting.</p>
+            aws_sdk_payment_cryptography.errors.conflict_exception.ConflictException: <p>This request can cause an inconsistent state for the resource.</p> <p>The requested operation conflicts with the current state of the resource. For example, attempting to delete a key that is currently being used, or trying to create a resource that already exists.</p>
+            aws_sdk_payment_cryptography.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure.</p> <p>This indicates a server-side error within the Amazon Web Services Payment Cryptography service. If this error persists, contact support for assistance.</p>
+            aws_sdk_payment_cryptography.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request was denied due to resource not found.</p> <p>The specified key, alias, or other resource does not exist in your account or region. Verify that the resource identifier is correct and that the resource exists in the expected region.</p>
+            aws_sdk_payment_cryptography.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>This request would cause a service quota to be exceeded.</p> <p>You have reached the maximum number of keys, aliases, or other resources allowed in your account. Review your current usage and consider deleting unused resources or requesting a quota increase.</p>
+            aws_sdk_payment_cryptography.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service cannot complete the request.</p> <p>The Amazon Web Services Payment Cryptography service is temporarily unavailable. This is typically a temporary condition - retry your request after a brief delay.</p>
+            aws_sdk_payment_cryptography.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p> <p>You have exceeded the rate limits for Amazon Web Services Payment Cryptography API calls. Implement exponential backoff and retry logic in your application to handle throttling gracefully.</p>
+            aws_sdk_payment_cryptography.errors.validation_exception.ValidationException: <p>The request was denied due to an invalid request error.</p> <p>One or more parameters in your request are invalid. Check the parameter values, formats, and constraints specified in the API documentation.</p>
+            aws_sdk_payment_cryptography.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -778,6 +940,17 @@ class AsyncKeyResource:
 
         Args:
             key_identifier: <p>The <code>KeyArn</code> of the key.</p>
+
+        Raises:
+            aws_sdk_payment_cryptography.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p> <p>This exception is thrown when the caller lacks the necessary IAM permissions to perform the requested operation. Verify that your IAM policy includes the required permissions for the specific Amazon Web Services Payment Cryptography action you're attempting.</p>
+            aws_sdk_payment_cryptography.errors.conflict_exception.ConflictException: <p>This request can cause an inconsistent state for the resource.</p> <p>The requested operation conflicts with the current state of the resource. For example, attempting to delete a key that is currently being used, or trying to create a resource that already exists.</p>
+            aws_sdk_payment_cryptography.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure.</p> <p>This indicates a server-side error within the Amazon Web Services Payment Cryptography service. If this error persists, contact support for assistance.</p>
+            aws_sdk_payment_cryptography.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request was denied due to resource not found.</p> <p>The specified key, alias, or other resource does not exist in your account or region. Verify that the resource identifier is correct and that the resource exists in the expected region.</p>
+            aws_sdk_payment_cryptography.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>This request would cause a service quota to be exceeded.</p> <p>You have reached the maximum number of keys, aliases, or other resources allowed in your account. Review your current usage and consider deleting unused resources or requesting a quota increase.</p>
+            aws_sdk_payment_cryptography.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service cannot complete the request.</p> <p>The Amazon Web Services Payment Cryptography service is temporarily unavailable. This is typically a temporary condition - retry your request after a brief delay.</p>
+            aws_sdk_payment_cryptography.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p> <p>You have exceeded the rate limits for Amazon Web Services Payment Cryptography API calls. Implement exponential backoff and retry logic in your application to handle throttling gracefully.</p>
+            aws_sdk_payment_cryptography.errors.validation_exception.ValidationException: <p>The request was denied due to an invalid request error.</p> <p>One or more parameters in your request are invalid. Check the parameter values, formats, and constraints specified in the API documentation.</p>
+            aws_sdk_payment_cryptography.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -816,6 +989,17 @@ class AsyncKeyResource:
 
         Args:
             key_identifier: <p>The <code>KeyArn</code> of the key.</p>
+
+        Raises:
+            aws_sdk_payment_cryptography.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p> <p>This exception is thrown when the caller lacks the necessary IAM permissions to perform the requested operation. Verify that your IAM policy includes the required permissions for the specific Amazon Web Services Payment Cryptography action you're attempting.</p>
+            aws_sdk_payment_cryptography.errors.conflict_exception.ConflictException: <p>This request can cause an inconsistent state for the resource.</p> <p>The requested operation conflicts with the current state of the resource. For example, attempting to delete a key that is currently being used, or trying to create a resource that already exists.</p>
+            aws_sdk_payment_cryptography.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure.</p> <p>This indicates a server-side error within the Amazon Web Services Payment Cryptography service. If this error persists, contact support for assistance.</p>
+            aws_sdk_payment_cryptography.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request was denied due to resource not found.</p> <p>The specified key, alias, or other resource does not exist in your account or region. Verify that the resource identifier is correct and that the resource exists in the expected region.</p>
+            aws_sdk_payment_cryptography.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>This request would cause a service quota to be exceeded.</p> <p>You have reached the maximum number of keys, aliases, or other resources allowed in your account. Review your current usage and consider deleting unused resources or requesting a quota increase.</p>
+            aws_sdk_payment_cryptography.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service cannot complete the request.</p> <p>The Amazon Web Services Payment Cryptography service is temporarily unavailable. This is typically a temporary condition - retry your request after a brief delay.</p>
+            aws_sdk_payment_cryptography.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p> <p>You have exceeded the rate limits for Amazon Web Services Payment Cryptography API calls. Implement exponential backoff and retry logic in your application to handle throttling gracefully.</p>
+            aws_sdk_payment_cryptography.errors.validation_exception.ValidationException: <p>The request was denied due to an invalid request error.</p> <p>One or more parameters in your request are invalid. Check the parameter values, formats, and constraints specified in the API documentation.</p>
+            aws_sdk_payment_cryptography.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

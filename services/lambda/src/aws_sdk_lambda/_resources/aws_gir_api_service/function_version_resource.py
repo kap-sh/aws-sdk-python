@@ -56,6 +56,17 @@ class FunctionVersionResource:
             revision_id: <p>Only update the function if the revision ID matches the ID that's specified. Use this option to avoid publishing a version if the function configuration has changed since you last updated it.</p>
             publish_to: <p>Specifies where to publish the function version or configuration.</p>
 
+        Raises:
+            aws_sdk_lambda.errors.code_storage_exceeded_exception.CodeStorageExceededException: <p>Your Amazon Web Services account has exceeded its maximum total code size. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html\">Lambda quotas</a>.</p>
+            aws_sdk_lambda.errors.function_versions_per_capacity_provider_limit_exceeded_exception.FunctionVersionsPerCapacityProviderLimitExceededException: <p>The maximum number of function versions that can be associated with a single capacity provider has been exceeded. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html\">Lambda quotas</a>.</p>
+            aws_sdk_lambda.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One of the parameters in the request is not valid.</p>
+            aws_sdk_lambda.errors.precondition_failed_exception.PreconditionFailedException: <p>The RevisionId provided does not match the latest RevisionId for the Lambda function or alias.</p> <ul> <li> <p> <b>For AddPermission and RemovePermission API operations:</b> Call <code>GetPolicy</code> to retrieve the latest RevisionId for your resource.</p> </li> <li> <p> <b>For all other API operations:</b> Call <code>GetFunction</code> or <code>GetAlias</code> to retrieve the latest RevisionId for your resource.</p> </li> </ul>
+            aws_sdk_lambda.errors.resource_conflict_exception.ResourceConflictException: <p>The resource already exists, or another operation is in progress.</p>
+            aws_sdk_lambda.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request does not exist.</p>
+            aws_sdk_lambda.errors.service_exception.ServiceException: <p>The Lambda service encountered an internal error.</p>
+            aws_sdk_lambda.errors.too_many_requests_exception.TooManyRequestsException: <p>The request throughput limit was exceeded. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests\">Lambda quotas</a>.</p>
+            aws_sdk_lambda.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To publish a version of a Lambda function
             This operation publishes a version of a Lambda function
@@ -110,6 +121,13 @@ class FunctionVersionResource:
             function_name: <p>The name or ARN of the Lambda function.</p> <p class=\"title\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> - <code>MyFunction</code>.</p> </li> <li> <p> <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</p> </li> <li> <p> <b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
             marker: <p>Specify the pagination token that's returned by a previous request to retrieve the next page of results.</p>
             max_items: <p>The maximum number of versions to return. Note that <code>ListVersionsByFunction</code> returns a maximum of 50 items in each response, even if you set the number higher.</p>
+
+        Raises:
+            aws_sdk_lambda.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One of the parameters in the request is not valid.</p>
+            aws_sdk_lambda.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request does not exist.</p>
+            aws_sdk_lambda.errors.service_exception.ServiceException: <p>The Lambda service encountered an internal error.</p>
+            aws_sdk_lambda.errors.too_many_requests_exception.TooManyRequestsException: <p>The request throughput limit was exceeded. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests\">Lambda quotas</a>.</p>
+            aws_sdk_lambda.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To list versions of a function
@@ -173,6 +191,17 @@ class AsyncFunctionVersionResource:
             revision_id: <p>Only update the function if the revision ID matches the ID that's specified. Use this option to avoid publishing a version if the function configuration has changed since you last updated it.</p>
             publish_to: <p>Specifies where to publish the function version or configuration.</p>
 
+        Raises:
+            aws_sdk_lambda.errors.code_storage_exceeded_exception.CodeStorageExceededException: <p>Your Amazon Web Services account has exceeded its maximum total code size. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html\">Lambda quotas</a>.</p>
+            aws_sdk_lambda.errors.function_versions_per_capacity_provider_limit_exceeded_exception.FunctionVersionsPerCapacityProviderLimitExceededException: <p>The maximum number of function versions that can be associated with a single capacity provider has been exceeded. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html\">Lambda quotas</a>.</p>
+            aws_sdk_lambda.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One of the parameters in the request is not valid.</p>
+            aws_sdk_lambda.errors.precondition_failed_exception.PreconditionFailedException: <p>The RevisionId provided does not match the latest RevisionId for the Lambda function or alias.</p> <ul> <li> <p> <b>For AddPermission and RemovePermission API operations:</b> Call <code>GetPolicy</code> to retrieve the latest RevisionId for your resource.</p> </li> <li> <p> <b>For all other API operations:</b> Call <code>GetFunction</code> or <code>GetAlias</code> to retrieve the latest RevisionId for your resource.</p> </li> </ul>
+            aws_sdk_lambda.errors.resource_conflict_exception.ResourceConflictException: <p>The resource already exists, or another operation is in progress.</p>
+            aws_sdk_lambda.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request does not exist.</p>
+            aws_sdk_lambda.errors.service_exception.ServiceException: <p>The Lambda service encountered an internal error.</p>
+            aws_sdk_lambda.errors.too_many_requests_exception.TooManyRequestsException: <p>The request throughput limit was exceeded. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests\">Lambda quotas</a>.</p>
+            aws_sdk_lambda.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To publish a version of a Lambda function
             This operation publishes a version of a Lambda function
@@ -228,6 +257,13 @@ class AsyncFunctionVersionResource:
             function_name: <p>The name or ARN of the Lambda function.</p> <p class=\"title\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> - <code>MyFunction</code>.</p> </li> <li> <p> <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</p> </li> <li> <p> <b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
             marker: <p>Specify the pagination token that's returned by a previous request to retrieve the next page of results.</p>
             max_items: <p>The maximum number of versions to return. Note that <code>ListVersionsByFunction</code> returns a maximum of 50 items in each response, even if you set the number higher.</p>
+
+        Raises:
+            aws_sdk_lambda.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One of the parameters in the request is not valid.</p>
+            aws_sdk_lambda.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request does not exist.</p>
+            aws_sdk_lambda.errors.service_exception.ServiceException: <p>The Lambda service encountered an internal error.</p>
+            aws_sdk_lambda.errors.too_many_requests_exception.TooManyRequestsException: <p>The request throughput limit was exceeded. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests\">Lambda quotas</a>.</p>
+            aws_sdk_lambda.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To list versions of a function

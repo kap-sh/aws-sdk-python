@@ -307,6 +307,16 @@ class LicenseManagerClient:
 
         Args:
             grant_arn: <p>Amazon Resource Name (ARN) of the grant.</p>
+
+        Raises:
+            aws_sdk_license_manager.errors.access_denied_exception.AccessDeniedException: <p>Access to resource denied.</p>
+            aws_sdk_license_manager.errors.authorization_exception.AuthorizationException: <p>The Amazon Web Services user account does not have permission to perform the action. Check the IAM policy associated with this account.</p>
+            aws_sdk_license_manager.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameter values are not valid.</p>
+            aws_sdk_license_manager.errors.rate_limit_exceeded_exception.RateLimitExceededException: <p>Too many requests have been submitted. Try again after a brief wait.</p>
+            aws_sdk_license_manager.errors.resource_limit_exceeded_exception.ResourceLimitExceededException: <p>Your resource limits have been exceeded.</p>
+            aws_sdk_license_manager.errors.server_internal_exception.ServerInternalException: <p>The server experienced an internal error. Try again.</p>
+            aws_sdk_license_manager.errors.validation_exception.ValidationException: <p>The provided input is not valid. Try your request again.</p>
+            aws_sdk_license_manager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -348,6 +358,17 @@ class LicenseManagerClient:
         Args:
             license_consumption_token: <p>License consumption token.</p>
             beneficiary: <p>License beneficiary.</p>
+
+        Raises:
+            aws_sdk_license_manager.errors.access_denied_exception.AccessDeniedException: <p>Access to resource denied.</p>
+            aws_sdk_license_manager.errors.authorization_exception.AuthorizationException: <p>The Amazon Web Services user account does not have permission to perform the action. Check the IAM policy associated with this account.</p>
+            aws_sdk_license_manager.errors.conflict_exception.ConflictException: <p>There was a conflict processing the request. Try your request again.</p>
+            aws_sdk_license_manager.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameter values are not valid.</p>
+            aws_sdk_license_manager.errors.rate_limit_exceeded_exception.RateLimitExceededException: <p>Too many requests have been submitted. Try again after a brief wait.</p>
+            aws_sdk_license_manager.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource cannot be found.</p>
+            aws_sdk_license_manager.errors.server_internal_exception.ServerInternalException: <p>The server experienced an internal error. Try again.</p>
+            aws_sdk_license_manager.errors.validation_exception.ValidationException: <p>The provided input is not valid. Try your request again.</p>
+            aws_sdk_license_manager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -399,6 +420,20 @@ class LicenseManagerClient:
             node_id: <p>Node ID.</p>
             checkout_metadata: <p>Information about constraints.</p>
             client_token: <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+
+        Raises:
+            aws_sdk_license_manager.errors.access_denied_exception.AccessDeniedException: <p>Access to resource denied.</p>
+            aws_sdk_license_manager.errors.authorization_exception.AuthorizationException: <p>The Amazon Web Services user account does not have permission to perform the action. Check the IAM policy associated with this account.</p>
+            aws_sdk_license_manager.errors.entitlement_not_allowed_exception.EntitlementNotAllowedException: <p>The entitlement is not allowed.</p>
+            aws_sdk_license_manager.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameter values are not valid.</p>
+            aws_sdk_license_manager.errors.no_entitlements_allowed_exception.NoEntitlementsAllowedException: <p>There are no entitlements found for this license, or the entitlement maximum count is reached.</p>
+            aws_sdk_license_manager.errors.rate_limit_exceeded_exception.RateLimitExceededException: <p>Too many requests have been submitted. Try again after a brief wait.</p>
+            aws_sdk_license_manager.errors.redirect_exception.RedirectException: <p>This is not the correct Region for the resource. Try again.</p>
+            aws_sdk_license_manager.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource cannot be found.</p>
+            aws_sdk_license_manager.errors.server_internal_exception.ServerInternalException: <p>The server experienced an internal error. Try again.</p>
+            aws_sdk_license_manager.errors.unsupported_digital_signature_method_exception.UnsupportedDigitalSignatureMethodException: <p>The digital signature method is unsupported. Try your request again.</p>
+            aws_sdk_license_manager.errors.validation_exception.ValidationException: <p>The provided input is not valid. Try your request again.</p>
+            aws_sdk_license_manager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -455,6 +490,19 @@ class LicenseManagerClient:
             client_token: <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
             beneficiary: <p>License beneficiary.</p>
             node_id: <p>Node ID.</p>
+
+        Raises:
+            aws_sdk_license_manager.errors.access_denied_exception.AccessDeniedException: <p>Access to resource denied.</p>
+            aws_sdk_license_manager.errors.authorization_exception.AuthorizationException: <p>The Amazon Web Services user account does not have permission to perform the action. Check the IAM policy associated with this account.</p>
+            aws_sdk_license_manager.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameter values are not valid.</p>
+            aws_sdk_license_manager.errors.no_entitlements_allowed_exception.NoEntitlementsAllowedException: <p>There are no entitlements found for this license, or the entitlement maximum count is reached.</p>
+            aws_sdk_license_manager.errors.rate_limit_exceeded_exception.RateLimitExceededException: <p>Too many requests have been submitted. Try again after a brief wait.</p>
+            aws_sdk_license_manager.errors.redirect_exception.RedirectException: <p>This is not the correct Region for the resource. Try again.</p>
+            aws_sdk_license_manager.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource cannot be found.</p>
+            aws_sdk_license_manager.errors.server_internal_exception.ServerInternalException: <p>The server experienced an internal error. Try again.</p>
+            aws_sdk_license_manager.errors.unsupported_digital_signature_method_exception.UnsupportedDigitalSignatureMethodException: <p>The digital signature method is unsupported. Try your request again.</p>
+            aws_sdk_license_manager.errors.validation_exception.ValidationException: <p>The provided input is not valid. Try your request again.</p>
+            aws_sdk_license_manager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -512,6 +560,16 @@ class LicenseManagerClient:
             home_region: <p>Home Region of the grant.</p>
             allowed_operations: <p>Allowed operations for the grant.</p>
             tags: <p>Tags to add to the grant. For more information about tagging support in License Manager, see the <a href=\"https://docs.aws.amazon.com/license-manager/latest/APIReference/API_TagResource.html\">TagResource</a> operation.</p>
+
+        Raises:
+            aws_sdk_license_manager.errors.access_denied_exception.AccessDeniedException: <p>Access to resource denied.</p>
+            aws_sdk_license_manager.errors.authorization_exception.AuthorizationException: <p>The Amazon Web Services user account does not have permission to perform the action. Check the IAM policy associated with this account.</p>
+            aws_sdk_license_manager.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameter values are not valid.</p>
+            aws_sdk_license_manager.errors.rate_limit_exceeded_exception.RateLimitExceededException: <p>Too many requests have been submitted. Try again after a brief wait.</p>
+            aws_sdk_license_manager.errors.resource_limit_exceeded_exception.ResourceLimitExceededException: <p>Your resource limits have been exceeded.</p>
+            aws_sdk_license_manager.errors.server_internal_exception.ServerInternalException: <p>The server experienced an internal error. Try again.</p>
+            aws_sdk_license_manager.errors.validation_exception.ValidationException: <p>The provided input is not valid. Try your request again.</p>
+            aws_sdk_license_manager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -576,6 +634,16 @@ class LicenseManagerClient:
             status_reason: <p>Grant status reason.</p>
             source_version: <p>Current version of the grant.</p>
             options: <p>The options specified for the grant.</p>
+
+        Raises:
+            aws_sdk_license_manager.errors.access_denied_exception.AccessDeniedException: <p>Access to resource denied.</p>
+            aws_sdk_license_manager.errors.authorization_exception.AuthorizationException: <p>The Amazon Web Services user account does not have permission to perform the action. Check the IAM policy associated with this account.</p>
+            aws_sdk_license_manager.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameter values are not valid.</p>
+            aws_sdk_license_manager.errors.rate_limit_exceeded_exception.RateLimitExceededException: <p>Too many requests have been submitted. Try again after a brief wait.</p>
+            aws_sdk_license_manager.errors.resource_limit_exceeded_exception.ResourceLimitExceededException: <p>Your resource limits have been exceeded.</p>
+            aws_sdk_license_manager.errors.server_internal_exception.ServerInternalException: <p>The server experienced an internal error. Try again.</p>
+            aws_sdk_license_manager.errors.validation_exception.ValidationException: <p>The provided input is not valid. Try your request again.</p>
+            aws_sdk_license_manager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -650,6 +718,16 @@ class LicenseManagerClient:
             license_metadata: <p>Information about the license.</p>
             client_token: <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
             tags: <p>Tags to add to the license. For more information about tagging support in License Manager, see the <a href=\"https://docs.aws.amazon.com/license-manager/latest/APIReference/API_TagResource.html\">TagResource</a> operation.</p>
+
+        Raises:
+            aws_sdk_license_manager.errors.access_denied_exception.AccessDeniedException: <p>Access to resource denied.</p>
+            aws_sdk_license_manager.errors.authorization_exception.AuthorizationException: <p>The Amazon Web Services user account does not have permission to perform the action. Check the IAM policy associated with this account.</p>
+            aws_sdk_license_manager.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameter values are not valid.</p>
+            aws_sdk_license_manager.errors.rate_limit_exceeded_exception.RateLimitExceededException: <p>Too many requests have been submitted. Try again after a brief wait.</p>
+            aws_sdk_license_manager.errors.redirect_exception.RedirectException: <p>This is not the correct Region for the resource. Try again.</p>
+            aws_sdk_license_manager.errors.server_internal_exception.ServerInternalException: <p>The server experienced an internal error. Try again.</p>
+            aws_sdk_license_manager.errors.validation_exception.ValidationException: <p>The provided input is not valid. Try your request again.</p>
+            aws_sdk_license_manager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -716,6 +794,15 @@ class LicenseManagerClient:
             properties: <p>License asset group properties.</p>
             tags: <p>Tags to add to the license asset group.</p>
             client_token: <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+
+        Raises:
+            aws_sdk_license_manager.errors.access_denied_exception.AccessDeniedException: <p>Access to resource denied.</p>
+            aws_sdk_license_manager.errors.authorization_exception.AuthorizationException: <p>The Amazon Web Services user account does not have permission to perform the action. Check the IAM policy associated with this account.</p>
+            aws_sdk_license_manager.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameter values are not valid.</p>
+            aws_sdk_license_manager.errors.rate_limit_exceeded_exception.RateLimitExceededException: <p>Too many requests have been submitted. Try again after a brief wait.</p>
+            aws_sdk_license_manager.errors.server_internal_exception.ServerInternalException: <p>The server experienced an internal error. Try again.</p>
+            aws_sdk_license_manager.errors.validation_exception.ValidationException: <p>The provided input is not valid. Try your request again.</p>
+            aws_sdk_license_manager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -776,6 +863,15 @@ class LicenseManagerClient:
             rules: <p>License asset rules.</p>
             tags: <p>Tags to add to the license asset ruleset.</p>
             client_token: <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+
+        Raises:
+            aws_sdk_license_manager.errors.access_denied_exception.AccessDeniedException: <p>Access to resource denied.</p>
+            aws_sdk_license_manager.errors.authorization_exception.AuthorizationException: <p>The Amazon Web Services user account does not have permission to perform the action. Check the IAM policy associated with this account.</p>
+            aws_sdk_license_manager.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameter values are not valid.</p>
+            aws_sdk_license_manager.errors.rate_limit_exceeded_exception.RateLimitExceededException: <p>Too many requests have been submitted. Try again after a brief wait.</p>
+            aws_sdk_license_manager.errors.server_internal_exception.ServerInternalException: <p>The server experienced an internal error. Try again.</p>
+            aws_sdk_license_manager.errors.validation_exception.ValidationException: <p>The provided input is not valid. Try your request again.</p>
+            aws_sdk_license_manager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -849,6 +945,15 @@ class LicenseManagerClient:
             disassociate_when_not_found: <p>When true, disassociates a resource when software is uninstalled.</p>
             product_information_list: <p>Product information.</p>
             license_expiry: <p>License configuration expiry.</p>
+
+        Raises:
+            aws_sdk_license_manager.errors.access_denied_exception.AccessDeniedException: <p>Access to resource denied.</p>
+            aws_sdk_license_manager.errors.authorization_exception.AuthorizationException: <p>The Amazon Web Services user account does not have permission to perform the action. Check the IAM policy associated with this account.</p>
+            aws_sdk_license_manager.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameter values are not valid.</p>
+            aws_sdk_license_manager.errors.rate_limit_exceeded_exception.RateLimitExceededException: <p>Too many requests have been submitted. Try again after a brief wait.</p>
+            aws_sdk_license_manager.errors.resource_limit_exceeded_exception.ResourceLimitExceededException: <p>Your resource limits have been exceeded.</p>
+            aws_sdk_license_manager.errors.server_internal_exception.ServerInternalException: <p>The server experienced an internal error. Try again.</p>
+            aws_sdk_license_manager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -907,6 +1012,15 @@ class LicenseManagerClient:
             resource_arn: <p>Amazon Resource Name (ARN) of the resource you are converting the license type for.</p>
             source_license_context: <p>Information that identifies the license type you are converting from. For the structure of the source license, see <a href=\"https://docs.aws.amazon.com/license-manager/latest/userguide/conversion-procedures.html#conversion-cli\">Convert a license type using the CLI </a> in the <i>License Manager User Guide</i>.</p>
             destination_license_context: <p>Information that identifies the license type you are converting to. For the structure of the destination license, see <a href=\"https://docs.aws.amazon.com/license-manager/latest/userguide/conversion-procedures.html#conversion-cli\">Convert a license type using the CLI </a> in the <i>License Manager User Guide</i>.</p>
+
+        Raises:
+            aws_sdk_license_manager.errors.access_denied_exception.AccessDeniedException: <p>Access to resource denied.</p>
+            aws_sdk_license_manager.errors.authorization_exception.AuthorizationException: <p>The Amazon Web Services user account does not have permission to perform the action. Check the IAM policy associated with this account.</p>
+            aws_sdk_license_manager.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameter values are not valid.</p>
+            aws_sdk_license_manager.errors.rate_limit_exceeded_exception.RateLimitExceededException: <p>Too many requests have been submitted. Try again after a brief wait.</p>
+            aws_sdk_license_manager.errors.server_internal_exception.ServerInternalException: <p>The server experienced an internal error. Try again.</p>
+            aws_sdk_license_manager.errors.validation_exception.ValidationException: <p>The provided input is not valid. Try your request again.</p>
+            aws_sdk_license_manager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -958,6 +1072,17 @@ class LicenseManagerClient:
             client_token: <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
             description: <p>Description of the report generator.</p>
             tags: <p>Tags to add to the report generator.</p>
+
+        Raises:
+            aws_sdk_license_manager.errors.access_denied_exception.AccessDeniedException: <p>Access to resource denied.</p>
+            aws_sdk_license_manager.errors.authorization_exception.AuthorizationException: <p>The Amazon Web Services user account does not have permission to perform the action. Check the IAM policy associated with this account.</p>
+            aws_sdk_license_manager.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameter values are not valid.</p>
+            aws_sdk_license_manager.errors.rate_limit_exceeded_exception.RateLimitExceededException: <p>Too many requests have been submitted. Try again after a brief wait.</p>
+            aws_sdk_license_manager.errors.resource_limit_exceeded_exception.ResourceLimitExceededException: <p>Your resource limits have been exceeded.</p>
+            aws_sdk_license_manager.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource cannot be found.</p>
+            aws_sdk_license_manager.errors.server_internal_exception.ServerInternalException: <p>The server experienced an internal error. Try again.</p>
+            aws_sdk_license_manager.errors.validation_exception.ValidationException: <p>The provided input is not valid. Try your request again.</p>
+            aws_sdk_license_manager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1027,6 +1152,17 @@ class LicenseManagerClient:
             status: <p>License status.</p>
             client_token: <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
             source_version: <p>Current version of the license.</p>
+
+        Raises:
+            aws_sdk_license_manager.errors.access_denied_exception.AccessDeniedException: <p>Access to resource denied.</p>
+            aws_sdk_license_manager.errors.authorization_exception.AuthorizationException: <p>The Amazon Web Services user account does not have permission to perform the action. Check the IAM policy associated with this account.</p>
+            aws_sdk_license_manager.errors.conflict_exception.ConflictException: <p>There was a conflict processing the request. Try your request again.</p>
+            aws_sdk_license_manager.errors.rate_limit_exceeded_exception.RateLimitExceededException: <p>Too many requests have been submitted. Try again after a brief wait.</p>
+            aws_sdk_license_manager.errors.redirect_exception.RedirectException: <p>This is not the correct Region for the resource. Try again.</p>
+            aws_sdk_license_manager.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource cannot be found.</p>
+            aws_sdk_license_manager.errors.server_internal_exception.ServerInternalException: <p>The server experienced an internal error. Try again.</p>
+            aws_sdk_license_manager.errors.validation_exception.ValidationException: <p>The provided input is not valid. Try your request again.</p>
+            aws_sdk_license_manager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1089,6 +1225,17 @@ class LicenseManagerClient:
             expiration_in_days: <p>Token expiration, in days, counted from token creation. The default is 365 days.</p>
             token_properties: <p>Data specified by the caller to be included in the JWT token. The data is mapped to the amr claim of the JWT token.</p>
             client_token: <p>Idempotency token, valid for 10 minutes.</p>
+
+        Raises:
+            aws_sdk_license_manager.errors.access_denied_exception.AccessDeniedException: <p>Access to resource denied.</p>
+            aws_sdk_license_manager.errors.authorization_exception.AuthorizationException: <p>The Amazon Web Services user account does not have permission to perform the action. Check the IAM policy associated with this account.</p>
+            aws_sdk_license_manager.errors.rate_limit_exceeded_exception.RateLimitExceededException: <p>Too many requests have been submitted. Try again after a brief wait.</p>
+            aws_sdk_license_manager.errors.redirect_exception.RedirectException: <p>This is not the correct Region for the resource. Try again.</p>
+            aws_sdk_license_manager.errors.resource_limit_exceeded_exception.ResourceLimitExceededException: <p>Your resource limits have been exceeded.</p>
+            aws_sdk_license_manager.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource cannot be found.</p>
+            aws_sdk_license_manager.errors.server_internal_exception.ServerInternalException: <p>The server experienced an internal error. Try again.</p>
+            aws_sdk_license_manager.errors.validation_exception.ValidationException: <p>The provided input is not valid. Try your request again.</p>
+            aws_sdk_license_manager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1139,6 +1286,16 @@ class LicenseManagerClient:
             grant_arn: <p>Amazon Resource Name (ARN) of the grant.</p>
             status_reason: <p>The Status reason for the delete request.</p>
             version: <p>Current version of the grant.</p>
+
+        Raises:
+            aws_sdk_license_manager.errors.access_denied_exception.AccessDeniedException: <p>Access to resource denied.</p>
+            aws_sdk_license_manager.errors.authorization_exception.AuthorizationException: <p>The Amazon Web Services user account does not have permission to perform the action. Check the IAM policy associated with this account.</p>
+            aws_sdk_license_manager.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameter values are not valid.</p>
+            aws_sdk_license_manager.errors.rate_limit_exceeded_exception.RateLimitExceededException: <p>Too many requests have been submitted. Try again after a brief wait.</p>
+            aws_sdk_license_manager.errors.resource_limit_exceeded_exception.ResourceLimitExceededException: <p>Your resource limits have been exceeded.</p>
+            aws_sdk_license_manager.errors.server_internal_exception.ServerInternalException: <p>The server experienced an internal error. Try again.</p>
+            aws_sdk_license_manager.errors.validation_exception.ValidationException: <p>The provided input is not valid. Try your request again.</p>
+            aws_sdk_license_manager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1181,6 +1338,17 @@ class LicenseManagerClient:
         Args:
             license_arn: <p>Amazon Resource Name (ARN) of the license.</p>
             source_version: <p>Current version of the license.</p>
+
+        Raises:
+            aws_sdk_license_manager.errors.access_denied_exception.AccessDeniedException: <p>Access to resource denied.</p>
+            aws_sdk_license_manager.errors.authorization_exception.AuthorizationException: <p>The Amazon Web Services user account does not have permission to perform the action. Check the IAM policy associated with this account.</p>
+            aws_sdk_license_manager.errors.conflict_exception.ConflictException: <p>There was a conflict processing the request. Try your request again.</p>
+            aws_sdk_license_manager.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameter values are not valid.</p>
+            aws_sdk_license_manager.errors.rate_limit_exceeded_exception.RateLimitExceededException: <p>Too many requests have been submitted. Try again after a brief wait.</p>
+            aws_sdk_license_manager.errors.redirect_exception.RedirectException: <p>This is not the correct Region for the resource. Try again.</p>
+            aws_sdk_license_manager.errors.server_internal_exception.ServerInternalException: <p>The server experienced an internal error. Try again.</p>
+            aws_sdk_license_manager.errors.validation_exception.ValidationException: <p>The provided input is not valid. Try your request again.</p>
+            aws_sdk_license_manager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1219,6 +1387,15 @@ class LicenseManagerClient:
 
         Args:
             license_asset_group_arn: <p>Amazon Resource Name (ARN) of the license asset group.</p>
+
+        Raises:
+            aws_sdk_license_manager.errors.access_denied_exception.AccessDeniedException: <p>Access to resource denied.</p>
+            aws_sdk_license_manager.errors.authorization_exception.AuthorizationException: <p>The Amazon Web Services user account does not have permission to perform the action. Check the IAM policy associated with this account.</p>
+            aws_sdk_license_manager.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameter values are not valid.</p>
+            aws_sdk_license_manager.errors.rate_limit_exceeded_exception.RateLimitExceededException: <p>Too many requests have been submitted. Try again after a brief wait.</p>
+            aws_sdk_license_manager.errors.server_internal_exception.ServerInternalException: <p>The server experienced an internal error. Try again.</p>
+            aws_sdk_license_manager.errors.validation_exception.ValidationException: <p>The provided input is not valid. Try your request again.</p>
+            aws_sdk_license_manager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1256,6 +1433,15 @@ class LicenseManagerClient:
 
         Args:
             license_asset_ruleset_arn: <p>Amazon Resource Name (ARN) of the license asset ruleset.</p>
+
+        Raises:
+            aws_sdk_license_manager.errors.access_denied_exception.AccessDeniedException: <p>Access to resource denied.</p>
+            aws_sdk_license_manager.errors.authorization_exception.AuthorizationException: <p>The Amazon Web Services user account does not have permission to perform the action. Check the IAM policy associated with this account.</p>
+            aws_sdk_license_manager.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameter values are not valid.</p>
+            aws_sdk_license_manager.errors.rate_limit_exceeded_exception.RateLimitExceededException: <p>Too many requests have been submitted. Try again after a brief wait.</p>
+            aws_sdk_license_manager.errors.server_internal_exception.ServerInternalException: <p>The server experienced an internal error. Try again.</p>
+            aws_sdk_license_manager.errors.validation_exception.ValidationException: <p>The provided input is not valid. Try your request again.</p>
+            aws_sdk_license_manager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1293,6 +1479,14 @@ class LicenseManagerClient:
 
         Args:
             license_configuration_arn: <p>ID of the license configuration.</p>
+
+        Raises:
+            aws_sdk_license_manager.errors.access_denied_exception.AccessDeniedException: <p>Access to resource denied.</p>
+            aws_sdk_license_manager.errors.authorization_exception.AuthorizationException: <p>The Amazon Web Services user account does not have permission to perform the action. Check the IAM policy associated with this account.</p>
+            aws_sdk_license_manager.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameter values are not valid.</p>
+            aws_sdk_license_manager.errors.rate_limit_exceeded_exception.RateLimitExceededException: <p>Too many requests have been submitted. Try again after a brief wait.</p>
+            aws_sdk_license_manager.errors.server_internal_exception.ServerInternalException: <p>The server experienced an internal error. Try again.</p>
+            aws_sdk_license_manager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1330,6 +1524,17 @@ class LicenseManagerClient:
 
         Args:
             license_manager_report_generator_arn: <p>Amazon Resource Name (ARN) of the report generator to be deleted.</p>
+
+        Raises:
+            aws_sdk_license_manager.errors.access_denied_exception.AccessDeniedException: <p>Access to resource denied.</p>
+            aws_sdk_license_manager.errors.authorization_exception.AuthorizationException: <p>The Amazon Web Services user account does not have permission to perform the action. Check the IAM policy associated with this account.</p>
+            aws_sdk_license_manager.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameter values are not valid.</p>
+            aws_sdk_license_manager.errors.rate_limit_exceeded_exception.RateLimitExceededException: <p>Too many requests have been submitted. Try again after a brief wait.</p>
+            aws_sdk_license_manager.errors.resource_limit_exceeded_exception.ResourceLimitExceededException: <p>Your resource limits have been exceeded.</p>
+            aws_sdk_license_manager.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource cannot be found.</p>
+            aws_sdk_license_manager.errors.server_internal_exception.ServerInternalException: <p>The server experienced an internal error. Try again.</p>
+            aws_sdk_license_manager.errors.validation_exception.ValidationException: <p>The provided input is not valid. Try your request again.</p>
+            aws_sdk_license_manager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1369,6 +1574,16 @@ class LicenseManagerClient:
 
         Args:
             token_id: <p>Token ID.</p>
+
+        Raises:
+            aws_sdk_license_manager.errors.access_denied_exception.AccessDeniedException: <p>Access to resource denied.</p>
+            aws_sdk_license_manager.errors.authorization_exception.AuthorizationException: <p>The Amazon Web Services user account does not have permission to perform the action. Check the IAM policy associated with this account.</p>
+            aws_sdk_license_manager.errors.rate_limit_exceeded_exception.RateLimitExceededException: <p>Too many requests have been submitted. Try again after a brief wait.</p>
+            aws_sdk_license_manager.errors.redirect_exception.RedirectException: <p>This is not the correct Region for the resource. Try again.</p>
+            aws_sdk_license_manager.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource cannot be found.</p>
+            aws_sdk_license_manager.errors.server_internal_exception.ServerInternalException: <p>The server experienced an internal error. Try again.</p>
+            aws_sdk_license_manager.errors.validation_exception.ValidationException: <p>The provided input is not valid. Try your request again.</p>
+            aws_sdk_license_manager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1408,6 +1623,16 @@ class LicenseManagerClient:
         Args:
             license_consumption_token: <p>License consumption token.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request. Provides an error response if you do not have the required permissions.</p>
+
+        Raises:
+            aws_sdk_license_manager.errors.access_denied_exception.AccessDeniedException: <p>Access to resource denied.</p>
+            aws_sdk_license_manager.errors.authorization_exception.AuthorizationException: <p>The Amazon Web Services user account does not have permission to perform the action. Check the IAM policy associated with this account.</p>
+            aws_sdk_license_manager.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameter values are not valid.</p>
+            aws_sdk_license_manager.errors.rate_limit_exceeded_exception.RateLimitExceededException: <p>Too many requests have been submitted. Try again after a brief wait.</p>
+            aws_sdk_license_manager.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource cannot be found.</p>
+            aws_sdk_license_manager.errors.server_internal_exception.ServerInternalException: <p>The server experienced an internal error. Try again.</p>
+            aws_sdk_license_manager.errors.validation_exception.ValidationException: <p>The provided input is not valid. Try your request again.</p>
+            aws_sdk_license_manager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1453,6 +1678,14 @@ class LicenseManagerClient:
         Args:
             token: <p>Refresh token, encoded as a JWT token.</p>
             token_properties: <p>Token properties to validate against those present in the JWT token.</p>
+
+        Raises:
+            aws_sdk_license_manager.errors.access_denied_exception.AccessDeniedException: <p>Access to resource denied.</p>
+            aws_sdk_license_manager.errors.authorization_exception.AuthorizationException: <p>The Amazon Web Services user account does not have permission to perform the action. Check the IAM policy associated with this account.</p>
+            aws_sdk_license_manager.errors.rate_limit_exceeded_exception.RateLimitExceededException: <p>Too many requests have been submitted. Try again after a brief wait.</p>
+            aws_sdk_license_manager.errors.server_internal_exception.ServerInternalException: <p>The server experienced an internal error. Try again.</p>
+            aws_sdk_license_manager.errors.validation_exception.ValidationException: <p>The provided input is not valid. Try your request again.</p>
+            aws_sdk_license_manager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1494,6 +1727,16 @@ class LicenseManagerClient:
         Args:
             grant_arn: <p>Amazon Resource Name (ARN) of the grant.</p>
             version: <p>Grant version.</p>
+
+        Raises:
+            aws_sdk_license_manager.errors.access_denied_exception.AccessDeniedException: <p>Access to resource denied.</p>
+            aws_sdk_license_manager.errors.authorization_exception.AuthorizationException: <p>The Amazon Web Services user account does not have permission to perform the action. Check the IAM policy associated with this account.</p>
+            aws_sdk_license_manager.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameter values are not valid.</p>
+            aws_sdk_license_manager.errors.rate_limit_exceeded_exception.RateLimitExceededException: <p>Too many requests have been submitted. Try again after a brief wait.</p>
+            aws_sdk_license_manager.errors.resource_limit_exceeded_exception.ResourceLimitExceededException: <p>Your resource limits have been exceeded.</p>
+            aws_sdk_license_manager.errors.server_internal_exception.ServerInternalException: <p>The server experienced an internal error. Try again.</p>
+            aws_sdk_license_manager.errors.validation_exception.ValidationException: <p>The provided input is not valid. Try your request again.</p>
+            aws_sdk_license_manager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1535,6 +1778,15 @@ class LicenseManagerClient:
         Args:
             license_arn: <p>Amazon Resource Name (ARN) of the license.</p>
             version: <p>License version.</p>
+
+        Raises:
+            aws_sdk_license_manager.errors.access_denied_exception.AccessDeniedException: <p>Access to resource denied.</p>
+            aws_sdk_license_manager.errors.authorization_exception.AuthorizationException: <p>The Amazon Web Services user account does not have permission to perform the action. Check the IAM policy associated with this account.</p>
+            aws_sdk_license_manager.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameter values are not valid.</p>
+            aws_sdk_license_manager.errors.rate_limit_exceeded_exception.RateLimitExceededException: <p>Too many requests have been submitted. Try again after a brief wait.</p>
+            aws_sdk_license_manager.errors.server_internal_exception.ServerInternalException: <p>The server experienced an internal error. Try again.</p>
+            aws_sdk_license_manager.errors.validation_exception.ValidationException: <p>The provided input is not valid. Try your request again.</p>
+            aws_sdk_license_manager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1574,6 +1826,15 @@ class LicenseManagerClient:
 
         Args:
             license_asset_group_arn: <p>Amazon Resource Name (ARN) of the license asset group.</p>
+
+        Raises:
+            aws_sdk_license_manager.errors.access_denied_exception.AccessDeniedException: <p>Access to resource denied.</p>
+            aws_sdk_license_manager.errors.authorization_exception.AuthorizationException: <p>The Amazon Web Services user account does not have permission to perform the action. Check the IAM policy associated with this account.</p>
+            aws_sdk_license_manager.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameter values are not valid.</p>
+            aws_sdk_license_manager.errors.rate_limit_exceeded_exception.RateLimitExceededException: <p>Too many requests have been submitted. Try again after a brief wait.</p>
+            aws_sdk_license_manager.errors.server_internal_exception.ServerInternalException: <p>The server experienced an internal error. Try again.</p>
+            aws_sdk_license_manager.errors.validation_exception.ValidationException: <p>The provided input is not valid. Try your request again.</p>
+            aws_sdk_license_manager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1611,6 +1872,15 @@ class LicenseManagerClient:
 
         Args:
             license_asset_ruleset_arn: <p>Amazon Resource Name (ARN) of the license asset ruleset.</p>
+
+        Raises:
+            aws_sdk_license_manager.errors.access_denied_exception.AccessDeniedException: <p>Access to resource denied.</p>
+            aws_sdk_license_manager.errors.authorization_exception.AuthorizationException: <p>The Amazon Web Services user account does not have permission to perform the action. Check the IAM policy associated with this account.</p>
+            aws_sdk_license_manager.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameter values are not valid.</p>
+            aws_sdk_license_manager.errors.rate_limit_exceeded_exception.RateLimitExceededException: <p>Too many requests have been submitted. Try again after a brief wait.</p>
+            aws_sdk_license_manager.errors.server_internal_exception.ServerInternalException: <p>The server experienced an internal error. Try again.</p>
+            aws_sdk_license_manager.errors.validation_exception.ValidationException: <p>The provided input is not valid. Try your request again.</p>
+            aws_sdk_license_manager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1648,6 +1918,14 @@ class LicenseManagerClient:
 
         Args:
             license_configuration_arn: <p>Amazon Resource Name (ARN) of the license configuration.</p>
+
+        Raises:
+            aws_sdk_license_manager.errors.access_denied_exception.AccessDeniedException: <p>Access to resource denied.</p>
+            aws_sdk_license_manager.errors.authorization_exception.AuthorizationException: <p>The Amazon Web Services user account does not have permission to perform the action. Check the IAM policy associated with this account.</p>
+            aws_sdk_license_manager.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameter values are not valid.</p>
+            aws_sdk_license_manager.errors.rate_limit_exceeded_exception.RateLimitExceededException: <p>Too many requests have been submitted. Try again after a brief wait.</p>
+            aws_sdk_license_manager.errors.server_internal_exception.ServerInternalException: <p>The server experienced an internal error. Try again.</p>
+            aws_sdk_license_manager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1685,6 +1963,14 @@ class LicenseManagerClient:
 
         Args:
             license_conversion_task_id: <p>ID of the license type conversion task to retrieve information on.</p>
+
+        Raises:
+            aws_sdk_license_manager.errors.access_denied_exception.AccessDeniedException: <p>Access to resource denied.</p>
+            aws_sdk_license_manager.errors.authorization_exception.AuthorizationException: <p>The Amazon Web Services user account does not have permission to perform the action. Check the IAM policy associated with this account.</p>
+            aws_sdk_license_manager.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameter values are not valid.</p>
+            aws_sdk_license_manager.errors.rate_limit_exceeded_exception.RateLimitExceededException: <p>Too many requests have been submitted. Try again after a brief wait.</p>
+            aws_sdk_license_manager.errors.server_internal_exception.ServerInternalException: <p>The server experienced an internal error. Try again.</p>
+            aws_sdk_license_manager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1722,6 +2008,17 @@ class LicenseManagerClient:
 
         Args:
             license_manager_report_generator_arn: <p>Amazon Resource Name (ARN) of the report generator.</p>
+
+        Raises:
+            aws_sdk_license_manager.errors.access_denied_exception.AccessDeniedException: <p>Access to resource denied.</p>
+            aws_sdk_license_manager.errors.authorization_exception.AuthorizationException: <p>The Amazon Web Services user account does not have permission to perform the action. Check the IAM policy associated with this account.</p>
+            aws_sdk_license_manager.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameter values are not valid.</p>
+            aws_sdk_license_manager.errors.rate_limit_exceeded_exception.RateLimitExceededException: <p>Too many requests have been submitted. Try again after a brief wait.</p>
+            aws_sdk_license_manager.errors.resource_limit_exceeded_exception.ResourceLimitExceededException: <p>Your resource limits have been exceeded.</p>
+            aws_sdk_license_manager.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource cannot be found.</p>
+            aws_sdk_license_manager.errors.server_internal_exception.ServerInternalException: <p>The server experienced an internal error. Try again.</p>
+            aws_sdk_license_manager.errors.validation_exception.ValidationException: <p>The provided input is not valid. Try your request again.</p>
+            aws_sdk_license_manager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1761,6 +2058,15 @@ class LicenseManagerClient:
 
         Args:
             license_arn: <p>Amazon Resource Name (ARN) of the license.</p>
+
+        Raises:
+            aws_sdk_license_manager.errors.access_denied_exception.AccessDeniedException: <p>Access to resource denied.</p>
+            aws_sdk_license_manager.errors.authorization_exception.AuthorizationException: <p>The Amazon Web Services user account does not have permission to perform the action. Check the IAM policy associated with this account.</p>
+            aws_sdk_license_manager.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameter values are not valid.</p>
+            aws_sdk_license_manager.errors.rate_limit_exceeded_exception.RateLimitExceededException: <p>Too many requests have been submitted. Try again after a brief wait.</p>
+            aws_sdk_license_manager.errors.server_internal_exception.ServerInternalException: <p>The server experienced an internal error. Try again.</p>
+            aws_sdk_license_manager.errors.validation_exception.ValidationException: <p>The provided input is not valid. Try your request again.</p>
+            aws_sdk_license_manager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1791,7 +2097,15 @@ class LicenseManagerClient:
     def get_service_settings(
         self, *, config_overrides: Optional[LicenseManagerClientConfig] = None
     ) -> "aws_sdk_license_manager.types.get_service_settings_response.GetServiceSettingsResponse":
-        """<p>Gets the License Manager settings for the current Region.</p>"""
+        """<p>Gets the License Manager settings for the current Region.</p>
+
+        Raises:
+            aws_sdk_license_manager.errors.access_denied_exception.AccessDeniedException: <p>Access to resource denied.</p>
+            aws_sdk_license_manager.errors.authorization_exception.AuthorizationException: <p>The Amazon Web Services user account does not have permission to perform the action. Check the IAM policy associated with this account.</p>
+            aws_sdk_license_manager.errors.rate_limit_exceeded_exception.RateLimitExceededException: <p>Too many requests have been submitted. Try again after a brief wait.</p>
+            aws_sdk_license_manager.errors.server_internal_exception.ServerInternalException: <p>The server experienced an internal error. Try again.</p>
+            aws_sdk_license_manager.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_license_manager.types.get_service_settings_request.GetServiceSettingsRequest]",
@@ -1835,6 +2149,15 @@ class LicenseManagerClient:
             asset_type: <p>Asset type. The possible values are <code>Instance</code> | <code>License</code> | <code>LicenseConfiguration</code>.</p>
             max_results: <p>Maximum number of results to return in a single call.</p>
             next_token: <p>Token for the next set of results.</p>
+
+        Raises:
+            aws_sdk_license_manager.errors.access_denied_exception.AccessDeniedException: <p>Access to resource denied.</p>
+            aws_sdk_license_manager.errors.authorization_exception.AuthorizationException: <p>The Amazon Web Services user account does not have permission to perform the action. Check the IAM policy associated with this account.</p>
+            aws_sdk_license_manager.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameter values are not valid.</p>
+            aws_sdk_license_manager.errors.rate_limit_exceeded_exception.RateLimitExceededException: <p>Too many requests have been submitted. Try again after a brief wait.</p>
+            aws_sdk_license_manager.errors.server_internal_exception.ServerInternalException: <p>The server experienced an internal error. Try again.</p>
+            aws_sdk_license_manager.errors.validation_exception.ValidationException: <p>The provided input is not valid. Try your request again.</p>
+            aws_sdk_license_manager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1883,6 +2206,15 @@ class LicenseManagerClient:
             license_configuration_arn: <p>Amazon Resource Name (ARN) of a license configuration.</p>
             max_results: <p>Maximum number of results to return in a single call.</p>
             next_token: <p>Token for the next set of results.</p>
+
+        Raises:
+            aws_sdk_license_manager.errors.access_denied_exception.AccessDeniedException: <p>Access to resource denied.</p>
+            aws_sdk_license_manager.errors.authorization_exception.AuthorizationException: <p>The Amazon Web Services user account does not have permission to perform the action. Check the IAM policy associated with this account.</p>
+            aws_sdk_license_manager.errors.filter_limit_exceeded_exception.FilterLimitExceededException: <p>The request uses too many filters or too many filter values.</p>
+            aws_sdk_license_manager.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameter values are not valid.</p>
+            aws_sdk_license_manager.errors.rate_limit_exceeded_exception.RateLimitExceededException: <p>Too many requests have been submitted. Try again after a brief wait.</p>
+            aws_sdk_license_manager.errors.server_internal_exception.ServerInternalException: <p>The server experienced an internal error. Try again.</p>
+            aws_sdk_license_manager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1934,6 +2266,16 @@ class LicenseManagerClient:
             filters: <p>Filters to scope the results. The following filters are supported:</p> <ul> <li> <p> <code>LicenseArn</code> </p> </li> <li> <p> <code>GrantStatus</code> </p> </li> <li> <p> <code>GranteePrincipalARN</code> </p> </li> <li> <p> <code>ProductSKU</code> </p> </li> <li> <p> <code>LicenseIssuerName</code> </p> </li> </ul>
             next_token: <p>Token for the next set of results.</p>
             max_results: <p>Maximum number of results to return in a single call.</p>
+
+        Raises:
+            aws_sdk_license_manager.errors.access_denied_exception.AccessDeniedException: <p>Access to resource denied.</p>
+            aws_sdk_license_manager.errors.authorization_exception.AuthorizationException: <p>The Amazon Web Services user account does not have permission to perform the action. Check the IAM policy associated with this account.</p>
+            aws_sdk_license_manager.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameter values are not valid.</p>
+            aws_sdk_license_manager.errors.rate_limit_exceeded_exception.RateLimitExceededException: <p>Too many requests have been submitted. Try again after a brief wait.</p>
+            aws_sdk_license_manager.errors.resource_limit_exceeded_exception.ResourceLimitExceededException: <p>Your resource limits have been exceeded.</p>
+            aws_sdk_license_manager.errors.server_internal_exception.ServerInternalException: <p>The server experienced an internal error. Try again.</p>
+            aws_sdk_license_manager.errors.validation_exception.ValidationException: <p>The provided input is not valid. Try your request again.</p>
+            aws_sdk_license_manager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1984,6 +2326,14 @@ class LicenseManagerClient:
             license_configuration_arn: <p>Amazon Resource Name of the license configuration.</p>
             max_results: <p>Maximum number of results to return in a single call.</p>
             next_token: <p>Token for the next set of results.</p>
+
+        Raises:
+            aws_sdk_license_manager.errors.access_denied_exception.AccessDeniedException: <p>Access to resource denied.</p>
+            aws_sdk_license_manager.errors.authorization_exception.AuthorizationException: <p>The Amazon Web Services user account does not have permission to perform the action. Check the IAM policy associated with this account.</p>
+            aws_sdk_license_manager.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameter values are not valid.</p>
+            aws_sdk_license_manager.errors.rate_limit_exceeded_exception.RateLimitExceededException: <p>Too many requests have been submitted. Try again after a brief wait.</p>
+            aws_sdk_license_manager.errors.server_internal_exception.ServerInternalException: <p>The server experienced an internal error. Try again.</p>
+            aws_sdk_license_manager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2031,6 +2381,15 @@ class LicenseManagerClient:
             filters: <p>Filters to scope the results. Following filters are supported</p> <ul> <li> <p> <code>LicenseAssetRulesetArn</code> </p> </li> </ul>
             max_results: <p>Maximum number of results to return in a single call.</p>
             next_token: <p>Token for the next set of results.</p>
+
+        Raises:
+            aws_sdk_license_manager.errors.access_denied_exception.AccessDeniedException: <p>Access to resource denied.</p>
+            aws_sdk_license_manager.errors.authorization_exception.AuthorizationException: <p>The Amazon Web Services user account does not have permission to perform the action. Check the IAM policy associated with this account.</p>
+            aws_sdk_license_manager.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameter values are not valid.</p>
+            aws_sdk_license_manager.errors.rate_limit_exceeded_exception.RateLimitExceededException: <p>Too many requests have been submitted. Try again after a brief wait.</p>
+            aws_sdk_license_manager.errors.server_internal_exception.ServerInternalException: <p>The server experienced an internal error. Try again.</p>
+            aws_sdk_license_manager.errors.validation_exception.ValidationException: <p>The provided input is not valid. Try your request again.</p>
+            aws_sdk_license_manager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2083,6 +2442,15 @@ class LicenseManagerClient:
             show_aws_managed_license_asset_rulesets: <p>Specifies whether to show License Manager managed license asset rulesets.</p>
             max_results: <p>Maximum number of results to return in a single call.</p>
             next_token: <p>Token for the next set of results.</p>
+
+        Raises:
+            aws_sdk_license_manager.errors.access_denied_exception.AccessDeniedException: <p>Access to resource denied.</p>
+            aws_sdk_license_manager.errors.authorization_exception.AuthorizationException: <p>The Amazon Web Services user account does not have permission to perform the action. Check the IAM policy associated with this account.</p>
+            aws_sdk_license_manager.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameter values are not valid.</p>
+            aws_sdk_license_manager.errors.rate_limit_exceeded_exception.RateLimitExceededException: <p>Too many requests have been submitted. Try again after a brief wait.</p>
+            aws_sdk_license_manager.errors.server_internal_exception.ServerInternalException: <p>The server experienced an internal error. Try again.</p>
+            aws_sdk_license_manager.errors.validation_exception.ValidationException: <p>The provided input is not valid. Try your request again.</p>
+            aws_sdk_license_manager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2139,6 +2507,15 @@ class LicenseManagerClient:
             max_results: <p>Maximum number of results to return in a single call.</p>
             next_token: <p>Token for the next set of results.</p>
             filters: <p>Filters to scope the results. The following filters and logical operators are supported:</p> <ul> <li> <p> <code>licenseCountingType</code> - The dimension for which licenses are counted. Possible values are <code>vCPU</code> | <code>Instance</code> | <code>Core</code> | <code>Socket</code>.</p> </li> <li> <p> <code>enforceLicenseCount</code> - A Boolean value that indicates whether hard license enforcement is used.</p> </li> <li> <p> <code>usagelimitExceeded</code> - A Boolean value that indicates whether the available licenses have been exceeded.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_license_manager.errors.access_denied_exception.AccessDeniedException: <p>Access to resource denied.</p>
+            aws_sdk_license_manager.errors.authorization_exception.AuthorizationException: <p>The Amazon Web Services user account does not have permission to perform the action. Check the IAM policy associated with this account.</p>
+            aws_sdk_license_manager.errors.filter_limit_exceeded_exception.FilterLimitExceededException: <p>The request uses too many filters or too many filter values.</p>
+            aws_sdk_license_manager.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameter values are not valid.</p>
+            aws_sdk_license_manager.errors.rate_limit_exceeded_exception.RateLimitExceededException: <p>Too many requests have been submitted. Try again after a brief wait.</p>
+            aws_sdk_license_manager.errors.server_internal_exception.ServerInternalException: <p>The server experienced an internal error. Try again.</p>
+            aws_sdk_license_manager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2193,6 +2570,15 @@ class LicenseManagerClient:
             max_results: <p>Maximum number of results to return in a single call.</p>
             next_token: <p>Token for the next set of results.</p>
             filters: <p>Filters to scope the results.</p>
+
+        Raises:
+            aws_sdk_license_manager.errors.access_denied_exception.AccessDeniedException: <p>Access to resource denied.</p>
+            aws_sdk_license_manager.errors.authorization_exception.AuthorizationException: <p>The Amazon Web Services user account does not have permission to perform the action. Check the IAM policy associated with this account.</p>
+            aws_sdk_license_manager.errors.filter_limit_exceeded_exception.FilterLimitExceededException: <p>The request uses too many filters or too many filter values.</p>
+            aws_sdk_license_manager.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameter values are not valid.</p>
+            aws_sdk_license_manager.errors.rate_limit_exceeded_exception.RateLimitExceededException: <p>Too many requests have been submitted. Try again after a brief wait.</p>
+            aws_sdk_license_manager.errors.server_internal_exception.ServerInternalException: <p>The server experienced an internal error. Try again.</p>
+            aws_sdk_license_manager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2243,6 +2629,14 @@ class LicenseManagerClient:
             next_token: <p>Token for the next set of results.</p>
             max_results: <p>Maximum number of results to return in a single call.</p>
             filters: <p> Filters to scope the results. Valid filters are <code>ResourceArns</code> and <code>Status</code>. </p>
+
+        Raises:
+            aws_sdk_license_manager.errors.access_denied_exception.AccessDeniedException: <p>Access to resource denied.</p>
+            aws_sdk_license_manager.errors.authorization_exception.AuthorizationException: <p>The Amazon Web Services user account does not have permission to perform the action. Check the IAM policy associated with this account.</p>
+            aws_sdk_license_manager.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameter values are not valid.</p>
+            aws_sdk_license_manager.errors.rate_limit_exceeded_exception.RateLimitExceededException: <p>Too many requests have been submitted. Try again after a brief wait.</p>
+            aws_sdk_license_manager.errors.server_internal_exception.ServerInternalException: <p>The server experienced an internal error. Try again.</p>
+            aws_sdk_license_manager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2293,6 +2687,17 @@ class LicenseManagerClient:
             filters: <p>Filters to scope the results. The following filters are supported: </p> <ul> <li> <p> <code>LicenseConfigurationArn</code> </p> </li> </ul>
             next_token: <p>Token for the next set of results.</p>
             max_results: <p>Maximum number of results to return in a single call.</p>
+
+        Raises:
+            aws_sdk_license_manager.errors.access_denied_exception.AccessDeniedException: <p>Access to resource denied.</p>
+            aws_sdk_license_manager.errors.authorization_exception.AuthorizationException: <p>The Amazon Web Services user account does not have permission to perform the action. Check the IAM policy associated with this account.</p>
+            aws_sdk_license_manager.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameter values are not valid.</p>
+            aws_sdk_license_manager.errors.rate_limit_exceeded_exception.RateLimitExceededException: <p>Too many requests have been submitted. Try again after a brief wait.</p>
+            aws_sdk_license_manager.errors.resource_limit_exceeded_exception.ResourceLimitExceededException: <p>Your resource limits have been exceeded.</p>
+            aws_sdk_license_manager.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource cannot be found.</p>
+            aws_sdk_license_manager.errors.server_internal_exception.ServerInternalException: <p>The server experienced an internal error. Try again.</p>
+            aws_sdk_license_manager.errors.validation_exception.ValidationException: <p>The provided input is not valid. Try your request again.</p>
+            aws_sdk_license_manager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2345,6 +2750,15 @@ class LicenseManagerClient:
             filters: <p>Filters to scope the results. The following filters are supported:</p> <ul> <li> <p> <code>Beneficiary</code> </p> </li> <li> <p> <code>ProductSKU</code> </p> </li> <li> <p> <code>Fingerprint</code> </p> </li> <li> <p> <code>Status</code> </p> </li> </ul>
             next_token: <p>Token for the next set of results.</p>
             max_results: <p>Maximum number of results to return in a single call.</p>
+
+        Raises:
+            aws_sdk_license_manager.errors.access_denied_exception.AccessDeniedException: <p>Access to resource denied.</p>
+            aws_sdk_license_manager.errors.authorization_exception.AuthorizationException: <p>The Amazon Web Services user account does not have permission to perform the action. Check the IAM policy associated with this account.</p>
+            aws_sdk_license_manager.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameter values are not valid.</p>
+            aws_sdk_license_manager.errors.rate_limit_exceeded_exception.RateLimitExceededException: <p>Too many requests have been submitted. Try again after a brief wait.</p>
+            aws_sdk_license_manager.errors.server_internal_exception.ServerInternalException: <p>The server experienced an internal error. Try again.</p>
+            aws_sdk_license_manager.errors.validation_exception.ValidationException: <p>The provided input is not valid. Try your request again.</p>
+            aws_sdk_license_manager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2395,6 +2809,14 @@ class LicenseManagerClient:
             resource_arn: <p>Amazon Resource Name (ARN) of a resource that has an associated license configuration.</p>
             max_results: <p>Maximum number of results to return in a single call.</p>
             next_token: <p>Token for the next set of results.</p>
+
+        Raises:
+            aws_sdk_license_manager.errors.access_denied_exception.AccessDeniedException: <p>Access to resource denied.</p>
+            aws_sdk_license_manager.errors.authorization_exception.AuthorizationException: <p>The Amazon Web Services user account does not have permission to perform the action. Check the IAM policy associated with this account.</p>
+            aws_sdk_license_manager.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameter values are not valid.</p>
+            aws_sdk_license_manager.errors.rate_limit_exceeded_exception.RateLimitExceededException: <p>Too many requests have been submitted. Try again after a brief wait.</p>
+            aws_sdk_license_manager.errors.server_internal_exception.ServerInternalException: <p>The server experienced an internal error. Try again.</p>
+            aws_sdk_license_manager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2442,6 +2864,14 @@ class LicenseManagerClient:
             license_arn: <p>Amazon Resource Name (ARN) of the license.</p>
             next_token: <p>Token for the next set of results.</p>
             max_results: <p>Maximum number of results to return in a single call.</p>
+
+        Raises:
+            aws_sdk_license_manager.errors.access_denied_exception.AccessDeniedException: <p>Access to resource denied.</p>
+            aws_sdk_license_manager.errors.authorization_exception.AuthorizationException: <p>The Amazon Web Services user account does not have permission to perform the action. Check the IAM policy associated with this account.</p>
+            aws_sdk_license_manager.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameter values are not valid.</p>
+            aws_sdk_license_manager.errors.rate_limit_exceeded_exception.RateLimitExceededException: <p>Too many requests have been submitted. Try again after a brief wait.</p>
+            aws_sdk_license_manager.errors.server_internal_exception.ServerInternalException: <p>The server experienced an internal error. Try again.</p>
+            aws_sdk_license_manager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2493,6 +2923,16 @@ class LicenseManagerClient:
             filters: <p>Filters to scope the results. The following filters are supported:</p> <ul> <li> <p> <code>ProductSKU</code> </p> </li> <li> <p> <code>LicenseIssuerName</code> </p> </li> <li> <p> <code>LicenseArn</code> </p> </li> <li> <p> <code>GrantStatus</code> </p> </li> <li> <p> <code>GranterAccountId</code> </p> </li> </ul>
             next_token: <p>Token for the next set of results.</p>
             max_results: <p>Maximum number of results to return in a single call.</p>
+
+        Raises:
+            aws_sdk_license_manager.errors.access_denied_exception.AccessDeniedException: <p>Access to resource denied.</p>
+            aws_sdk_license_manager.errors.authorization_exception.AuthorizationException: <p>The Amazon Web Services user account does not have permission to perform the action. Check the IAM policy associated with this account.</p>
+            aws_sdk_license_manager.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameter values are not valid.</p>
+            aws_sdk_license_manager.errors.rate_limit_exceeded_exception.RateLimitExceededException: <p>Too many requests have been submitted. Try again after a brief wait.</p>
+            aws_sdk_license_manager.errors.resource_limit_exceeded_exception.ResourceLimitExceededException: <p>Your resource limits have been exceeded.</p>
+            aws_sdk_license_manager.errors.server_internal_exception.ServerInternalException: <p>The server experienced an internal error. Try again.</p>
+            aws_sdk_license_manager.errors.validation_exception.ValidationException: <p>The provided input is not valid. Try your request again.</p>
+            aws_sdk_license_manager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2547,6 +2987,16 @@ class LicenseManagerClient:
             filters: <p>Filters to scope the results. The following filters are supported:</p> <ul> <li> <p> <code>ParentArn</code> </p> </li> <li> <p> <code>GranteePrincipalArn</code> </p> </li> </ul>
             next_token: <p>Token for the next set of results.</p>
             max_results: <p>Maximum number of results to return in a single call.</p>
+
+        Raises:
+            aws_sdk_license_manager.errors.access_denied_exception.AccessDeniedException: <p>Access to resource denied.</p>
+            aws_sdk_license_manager.errors.authorization_exception.AuthorizationException: <p>The Amazon Web Services user account does not have permission to perform the action. Check the IAM policy associated with this account.</p>
+            aws_sdk_license_manager.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameter values are not valid.</p>
+            aws_sdk_license_manager.errors.rate_limit_exceeded_exception.RateLimitExceededException: <p>Too many requests have been submitted. Try again after a brief wait.</p>
+            aws_sdk_license_manager.errors.resource_limit_exceeded_exception.ResourceLimitExceededException: <p>Your resource limits have been exceeded.</p>
+            aws_sdk_license_manager.errors.server_internal_exception.ServerInternalException: <p>The server experienced an internal error. Try again.</p>
+            aws_sdk_license_manager.errors.validation_exception.ValidationException: <p>The provided input is not valid. Try your request again.</p>
+            aws_sdk_license_manager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2600,6 +3050,16 @@ class LicenseManagerClient:
             filters: <p>Filters to scope the results. The following filters are supported:</p> <ul> <li> <p> <code>ProductSKU</code> </p> </li> <li> <p> <code>Status</code> </p> </li> <li> <p> <code>Fingerprint</code> </p> </li> <li> <p> <code>IssuerName</code> </p> </li> <li> <p> <code>Beneficiary</code> </p> </li> </ul>
             next_token: <p>Token for the next set of results.</p>
             max_results: <p>Maximum number of results to return in a single call.</p>
+
+        Raises:
+            aws_sdk_license_manager.errors.access_denied_exception.AccessDeniedException: <p>Access to resource denied.</p>
+            aws_sdk_license_manager.errors.authorization_exception.AuthorizationException: <p>The Amazon Web Services user account does not have permission to perform the action. Check the IAM policy associated with this account.</p>
+            aws_sdk_license_manager.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameter values are not valid.</p>
+            aws_sdk_license_manager.errors.rate_limit_exceeded_exception.RateLimitExceededException: <p>Too many requests have been submitted. Try again after a brief wait.</p>
+            aws_sdk_license_manager.errors.resource_limit_exceeded_exception.ResourceLimitExceededException: <p>Your resource limits have been exceeded.</p>
+            aws_sdk_license_manager.errors.server_internal_exception.ServerInternalException: <p>The server experienced an internal error. Try again.</p>
+            aws_sdk_license_manager.errors.validation_exception.ValidationException: <p>The provided input is not valid. Try your request again.</p>
+            aws_sdk_license_manager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2652,6 +3112,16 @@ class LicenseManagerClient:
             filters: <p>Filters to scope the results. The following filters are supported:</p> <ul> <li> <p> <code>Beneficiary</code> </p> </li> <li> <p> <code>ProductSKU</code> </p> </li> </ul>
             next_token: <p>Token for the next set of results.</p>
             max_results: <p>Maximum number of results to return in a single call.</p>
+
+        Raises:
+            aws_sdk_license_manager.errors.access_denied_exception.AccessDeniedException: <p>Access to resource denied.</p>
+            aws_sdk_license_manager.errors.authorization_exception.AuthorizationException: <p>The Amazon Web Services user account does not have permission to perform the action. Check the IAM policy associated with this account.</p>
+            aws_sdk_license_manager.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameter values are not valid.</p>
+            aws_sdk_license_manager.errors.rate_limit_exceeded_exception.RateLimitExceededException: <p>Too many requests have been submitted. Try again after a brief wait.</p>
+            aws_sdk_license_manager.errors.resource_limit_exceeded_exception.ResourceLimitExceededException: <p>Your resource limits have been exceeded.</p>
+            aws_sdk_license_manager.errors.server_internal_exception.ServerInternalException: <p>The server experienced an internal error. Try again.</p>
+            aws_sdk_license_manager.errors.validation_exception.ValidationException: <p>The provided input is not valid. Try your request again.</p>
+            aws_sdk_license_manager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2702,6 +3172,16 @@ class LicenseManagerClient:
             max_results: <p>Maximum number of results to return in a single call.</p>
             next_token: <p>Token for the next set of results.</p>
             filters: <p>Filters to scope the results. The following filters and logical operators are supported:</p> <ul> <li> <p> <code>account_id</code> - The ID of the Amazon Web Services account that owns the resource. Logical operators are <code>EQUALS</code> | <code>NOT_EQUALS</code>.</p> </li> <li> <p> <code>application_name</code> - The name of the application. Logical operators are <code>EQUALS</code> | <code>BEGINS_WITH</code>.</p> </li> <li> <p> <code>license_included</code> - The type of license included. Logical operators are <code>EQUALS</code> | <code>NOT_EQUALS</code>. Possible values are <code>sql-server-enterprise</code> | <code>sql-server-standard</code> | <code>sql-server-web</code> | <code>windows-server-datacenter</code>.</p> </li> <li> <p> <code>platform</code> - The platform of the resource. Logical operators are <code>EQUALS</code> | <code>BEGINS_WITH</code>.</p> </li> <li> <p> <code>resource_id</code> - The ID of the resource. Logical operators are <code>EQUALS</code> | <code>NOT_EQUALS</code>.</p> </li> <li> <p> <code>tag:<key></code> - The key/value combination of a tag assigned to the resource. Logical operators are <code>EQUALS</code> (single account) or <code>EQUALS</code> | <code>NOT_EQUALS</code> (cross account).</p> </li> </ul>
+
+        Raises:
+            aws_sdk_license_manager.errors.access_denied_exception.AccessDeniedException: <p>Access to resource denied.</p>
+            aws_sdk_license_manager.errors.authorization_exception.AuthorizationException: <p>The Amazon Web Services user account does not have permission to perform the action. Check the IAM policy associated with this account.</p>
+            aws_sdk_license_manager.errors.failed_dependency_exception.FailedDependencyException: <p>A dependency required to run the API is missing.</p>
+            aws_sdk_license_manager.errors.filter_limit_exceeded_exception.FilterLimitExceededException: <p>The request uses too many filters or too many filter values.</p>
+            aws_sdk_license_manager.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameter values are not valid.</p>
+            aws_sdk_license_manager.errors.rate_limit_exceeded_exception.RateLimitExceededException: <p>Too many requests have been submitted. Try again after a brief wait.</p>
+            aws_sdk_license_manager.errors.server_internal_exception.ServerInternalException: <p>The server experienced an internal error. Try again.</p>
+            aws_sdk_license_manager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2744,6 +3224,15 @@ class LicenseManagerClient:
 
         Args:
             resource_arn: <p>Amazon Resource Name (ARN) of the resource.</p>
+
+        Raises:
+            aws_sdk_license_manager.errors.access_denied_exception.AccessDeniedException: <p>Access to resource denied.</p>
+            aws_sdk_license_manager.errors.authorization_exception.AuthorizationException: <p>The Amazon Web Services user account does not have permission to perform the action. Check the IAM policy associated with this account.</p>
+            aws_sdk_license_manager.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameter values are not valid.</p>
+            aws_sdk_license_manager.errors.rate_limit_exceeded_exception.RateLimitExceededException: <p>Too many requests have been submitted. Try again after a brief wait.</p>
+            aws_sdk_license_manager.errors.server_internal_exception.ServerInternalException: <p>The server experienced an internal error. Try again.</p>
+            aws_sdk_license_manager.errors.validation_exception.ValidationException: <p>The provided input is not valid. Try your request again.</p>
+            aws_sdk_license_manager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2793,6 +3282,14 @@ class LicenseManagerClient:
             filters: <p>Filters to scope the results. The following filter is supported:</p> <ul> <li> <p> <code>LicenseArns</code> </p> </li> </ul>
             next_token: <p>Token for the next set of results.</p>
             max_results: <p>Maximum number of results to return in a single call.</p>
+
+        Raises:
+            aws_sdk_license_manager.errors.access_denied_exception.AccessDeniedException: <p>Access to resource denied.</p>
+            aws_sdk_license_manager.errors.authorization_exception.AuthorizationException: <p>The Amazon Web Services user account does not have permission to perform the action. Check the IAM policy associated with this account.</p>
+            aws_sdk_license_manager.errors.rate_limit_exceeded_exception.RateLimitExceededException: <p>Too many requests have been submitted. Try again after a brief wait.</p>
+            aws_sdk_license_manager.errors.server_internal_exception.ServerInternalException: <p>The server experienced an internal error. Try again.</p>
+            aws_sdk_license_manager.errors.validation_exception.ValidationException: <p>The provided input is not valid. Try your request again.</p>
+            aws_sdk_license_manager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2845,6 +3342,15 @@ class LicenseManagerClient:
             max_results: <p>Maximum number of results to return in a single call.</p>
             next_token: <p>Token for the next set of results.</p>
             filters: <p>Filters to scope the results. The following filters and logical operators are supported:</p> <ul> <li> <p> <code>resourceArn</code> - The ARN of the license configuration resource.</p> </li> <li> <p> <code>resourceType</code> - The resource type (<code>EC2_INSTANCE</code> | <code>EC2_HOST</code> | <code>EC2_AMI</code> | <code>SYSTEMS_MANAGER_MANAGED_INSTANCE</code>).</p> </li> <li> <p> <code>resourceAccount</code> - The ID of the account that owns the resource.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_license_manager.errors.access_denied_exception.AccessDeniedException: <p>Access to resource denied.</p>
+            aws_sdk_license_manager.errors.authorization_exception.AuthorizationException: <p>The Amazon Web Services user account does not have permission to perform the action. Check the IAM policy associated with this account.</p>
+            aws_sdk_license_manager.errors.filter_limit_exceeded_exception.FilterLimitExceededException: <p>The request uses too many filters or too many filter values.</p>
+            aws_sdk_license_manager.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameter values are not valid.</p>
+            aws_sdk_license_manager.errors.rate_limit_exceeded_exception.RateLimitExceededException: <p>Too many requests have been submitted. Try again after a brief wait.</p>
+            aws_sdk_license_manager.errors.server_internal_exception.ServerInternalException: <p>The server experienced an internal error. Try again.</p>
+            aws_sdk_license_manager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2888,6 +3394,16 @@ class LicenseManagerClient:
 
         Args:
             grant_arn: <p>Amazon Resource Name (ARN) of the grant.</p>
+
+        Raises:
+            aws_sdk_license_manager.errors.access_denied_exception.AccessDeniedException: <p>Access to resource denied.</p>
+            aws_sdk_license_manager.errors.authorization_exception.AuthorizationException: <p>The Amazon Web Services user account does not have permission to perform the action. Check the IAM policy associated with this account.</p>
+            aws_sdk_license_manager.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameter values are not valid.</p>
+            aws_sdk_license_manager.errors.rate_limit_exceeded_exception.RateLimitExceededException: <p>Too many requests have been submitted. Try again after a brief wait.</p>
+            aws_sdk_license_manager.errors.resource_limit_exceeded_exception.ResourceLimitExceededException: <p>Your resource limits have been exceeded.</p>
+            aws_sdk_license_manager.errors.server_internal_exception.ServerInternalException: <p>The server experienced an internal error. Try again.</p>
+            aws_sdk_license_manager.errors.validation_exception.ValidationException: <p>The provided input is not valid. Try your request again.</p>
+            aws_sdk_license_manager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2927,6 +3443,15 @@ class LicenseManagerClient:
         Args:
             resource_arn: <p>Amazon Resource Name (ARN) of the resource. The following examples provide an example ARN for each supported resource in License Manager:</p> <ul> <li> <p>Licenses - <code>arn:aws:license-manager::111122223333:license:l-EXAMPLE2da7646d6861033667f20e895</code> </p> </li> <li> <p>Grants - <code>arn:aws:license-manager::111122223333:grant:g-EXAMPLE7b19f4a0ab73679b0beb52707</code> </p> </li> <li> <p>License configurations - <code>arn:aws:license-manager:us-east-1:111122223333:license-configuration:lic-EXAMPLE6a788d4c8acd4264ff0ecf2ed2d</code> </p> </li> <li> <p>Report generators - <code>arn:aws:license-manager:us-east-1:111122223333:report-generator:r-EXAMPLE825b4a4f8fe5a3e0c88824e5fc6</code> </p> </li> </ul>
             tags: <p>One or more tags.</p>
+
+        Raises:
+            aws_sdk_license_manager.errors.access_denied_exception.AccessDeniedException: <p>Access to resource denied.</p>
+            aws_sdk_license_manager.errors.authorization_exception.AuthorizationException: <p>The Amazon Web Services user account does not have permission to perform the action. Check the IAM policy associated with this account.</p>
+            aws_sdk_license_manager.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameter values are not valid.</p>
+            aws_sdk_license_manager.errors.rate_limit_exceeded_exception.RateLimitExceededException: <p>Too many requests have been submitted. Try again after a brief wait.</p>
+            aws_sdk_license_manager.errors.server_internal_exception.ServerInternalException: <p>The server experienced an internal error. Try again.</p>
+            aws_sdk_license_manager.errors.validation_exception.ValidationException: <p>The provided input is not valid. Try your request again.</p>
+            aws_sdk_license_manager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2967,6 +3492,15 @@ class LicenseManagerClient:
         Args:
             resource_arn: <p>Amazon Resource Name (ARN) of the resource.</p>
             tag_keys: <p>Keys identifying the tags to remove.</p>
+
+        Raises:
+            aws_sdk_license_manager.errors.access_denied_exception.AccessDeniedException: <p>Access to resource denied.</p>
+            aws_sdk_license_manager.errors.authorization_exception.AuthorizationException: <p>The Amazon Web Services user account does not have permission to perform the action. Check the IAM policy associated with this account.</p>
+            aws_sdk_license_manager.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameter values are not valid.</p>
+            aws_sdk_license_manager.errors.rate_limit_exceeded_exception.RateLimitExceededException: <p>Too many requests have been submitted. Try again after a brief wait.</p>
+            aws_sdk_license_manager.errors.server_internal_exception.ServerInternalException: <p>The server experienced an internal error. Try again.</p>
+            aws_sdk_license_manager.errors.validation_exception.ValidationException: <p>The provided input is not valid. Try your request again.</p>
+            aws_sdk_license_manager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3029,6 +3563,15 @@ class LicenseManagerClient:
             license_asset_group_arn: <p>Amazon Resource Name (ARN) of the license asset group.</p>
             status: <p>License asset group status. The possible values are <code>ACTIVE</code> | <code>DISABLED</code>.</p>
             client_token: <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+
+        Raises:
+            aws_sdk_license_manager.errors.access_denied_exception.AccessDeniedException: <p>Access to resource denied.</p>
+            aws_sdk_license_manager.errors.authorization_exception.AuthorizationException: <p>The Amazon Web Services user account does not have permission to perform the action. Check the IAM policy associated with this account.</p>
+            aws_sdk_license_manager.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameter values are not valid.</p>
+            aws_sdk_license_manager.errors.rate_limit_exceeded_exception.RateLimitExceededException: <p>Too many requests have been submitted. Try again after a brief wait.</p>
+            aws_sdk_license_manager.errors.server_internal_exception.ServerInternalException: <p>The server experienced an internal error. Try again.</p>
+            aws_sdk_license_manager.errors.validation_exception.ValidationException: <p>The provided input is not valid. Try your request again.</p>
+            aws_sdk_license_manager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3094,6 +3637,15 @@ class LicenseManagerClient:
             rules: <p>License asset rules.</p>
             license_asset_ruleset_arn: <p>Amazon Resource Name (ARN) of the license asset ruleset.</p>
             client_token: <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+
+        Raises:
+            aws_sdk_license_manager.errors.access_denied_exception.AccessDeniedException: <p>Access to resource denied.</p>
+            aws_sdk_license_manager.errors.authorization_exception.AuthorizationException: <p>The Amazon Web Services user account does not have permission to perform the action. Check the IAM policy associated with this account.</p>
+            aws_sdk_license_manager.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameter values are not valid.</p>
+            aws_sdk_license_manager.errors.rate_limit_exceeded_exception.RateLimitExceededException: <p>Too many requests have been submitted. Try again after a brief wait.</p>
+            aws_sdk_license_manager.errors.server_internal_exception.ServerInternalException: <p>The server experienced an internal error. Try again.</p>
+            aws_sdk_license_manager.errors.validation_exception.ValidationException: <p>The provided input is not valid. Try your request again.</p>
+            aws_sdk_license_manager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3169,6 +3721,16 @@ class LicenseManagerClient:
             product_information_list: <p>New product information.</p>
             disassociate_when_not_found: <p>When true, disassociates a resource when software is uninstalled.</p>
             license_expiry: <p>License configuration expiry time.</p>
+
+        Raises:
+            aws_sdk_license_manager.errors.access_denied_exception.AccessDeniedException: <p>Access to resource denied.</p>
+            aws_sdk_license_manager.errors.authorization_exception.AuthorizationException: <p>The Amazon Web Services user account does not have permission to perform the action. Check the IAM policy associated with this account.</p>
+            aws_sdk_license_manager.errors.conflict_exception.ConflictException: <p>There was a conflict processing the request. Try your request again.</p>
+            aws_sdk_license_manager.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameter values are not valid.</p>
+            aws_sdk_license_manager.errors.rate_limit_exceeded_exception.RateLimitExceededException: <p>Too many requests have been submitted. Try again after a brief wait.</p>
+            aws_sdk_license_manager.errors.resource_limit_exceeded_exception.ResourceLimitExceededException: <p>Your resource limits have been exceeded.</p>
+            aws_sdk_license_manager.errors.server_internal_exception.ServerInternalException: <p>The server experienced an internal error. Try again.</p>
+            aws_sdk_license_manager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3236,6 +3798,17 @@ class LicenseManagerClient:
             report_frequency: <p>Frequency by which reports are generated.</p>
             client_token: <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
             description: <p>Description of the report generator.</p>
+
+        Raises:
+            aws_sdk_license_manager.errors.access_denied_exception.AccessDeniedException: <p>Access to resource denied.</p>
+            aws_sdk_license_manager.errors.authorization_exception.AuthorizationException: <p>The Amazon Web Services user account does not have permission to perform the action. Check the IAM policy associated with this account.</p>
+            aws_sdk_license_manager.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameter values are not valid.</p>
+            aws_sdk_license_manager.errors.rate_limit_exceeded_exception.RateLimitExceededException: <p>Too many requests have been submitted. Try again after a brief wait.</p>
+            aws_sdk_license_manager.errors.resource_limit_exceeded_exception.ResourceLimitExceededException: <p>Your resource limits have been exceeded.</p>
+            aws_sdk_license_manager.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource cannot be found.</p>
+            aws_sdk_license_manager.errors.server_internal_exception.ServerInternalException: <p>The server experienced an internal error. Try again.</p>
+            aws_sdk_license_manager.errors.validation_exception.ValidationException: <p>The provided input is not valid. Try your request again.</p>
+            aws_sdk_license_manager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3290,6 +3863,17 @@ class LicenseManagerClient:
             resource_arn: <p>Amazon Resource Name (ARN) of the Amazon Web Services resource.</p>
             add_license_specifications: <p>ARNs of the license configurations to add.</p>
             remove_license_specifications: <p>ARNs of the license configurations to remove.</p>
+
+        Raises:
+            aws_sdk_license_manager.errors.access_denied_exception.AccessDeniedException: <p>Access to resource denied.</p>
+            aws_sdk_license_manager.errors.authorization_exception.AuthorizationException: <p>The Amazon Web Services user account does not have permission to perform the action. Check the IAM policy associated with this account.</p>
+            aws_sdk_license_manager.errors.conflict_exception.ConflictException: <p>There was a conflict processing the request. Try your request again.</p>
+            aws_sdk_license_manager.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameter values are not valid.</p>
+            aws_sdk_license_manager.errors.invalid_resource_state_exception.InvalidResourceStateException: <p>License Manager cannot allocate a license to a resource because of its state. </p> <p>For example, you cannot allocate a license to an instance in the process of shutting down.</p>
+            aws_sdk_license_manager.errors.license_usage_exception.LicenseUsageException: <p>You do not have enough licenses available to support a new resource launch.</p>
+            aws_sdk_license_manager.errors.rate_limit_exceeded_exception.RateLimitExceededException: <p>Too many requests have been submitted. Try again after a brief wait.</p>
+            aws_sdk_license_manager.errors.server_internal_exception.ServerInternalException: <p>The server experienced an internal error. Try again.</p>
+            aws_sdk_license_manager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3345,6 +3929,16 @@ class LicenseManagerClient:
             organization_configuration: <p>Enables integration with Organizations for cross-account discovery.</p>
             enable_cross_accounts_discovery: <p>Activates cross-account discovery.</p>
             enabled_discovery_source_regions: <p>Cross region discovery enabled source regions.</p>
+
+        Raises:
+            aws_sdk_license_manager.errors.access_denied_exception.AccessDeniedException: <p>Access to resource denied.</p>
+            aws_sdk_license_manager.errors.authorization_exception.AuthorizationException: <p>The Amazon Web Services user account does not have permission to perform the action. Check the IAM policy associated with this account.</p>
+            aws_sdk_license_manager.errors.conflict_exception.ConflictException: <p>There was a conflict processing the request. Try your request again.</p>
+            aws_sdk_license_manager.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameter values are not valid.</p>
+            aws_sdk_license_manager.errors.rate_limit_exceeded_exception.RateLimitExceededException: <p>Too many requests have been submitted. Try again after a brief wait.</p>
+            aws_sdk_license_manager.errors.server_internal_exception.ServerInternalException: <p>The server experienced an internal error. Try again.</p>
+            aws_sdk_license_manager.errors.validation_exception.ValidationException: <p>The provided input is not valid. Try your request again.</p>
+            aws_sdk_license_manager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(

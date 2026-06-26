@@ -42,6 +42,14 @@ class DeviceResource:
 
         Args:
             device_arn: <p>The ARN of the device to retrieve.</p>
+
+        Raises:
+            aws_sdk_braket.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_braket.errors.internal_service_exception.InternalServiceException: <p>The request failed because of an unknown error.</p>
+            aws_sdk_braket.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_braket.errors.throttling_exception.ThrottlingException: <p>The API throttling rate limit is exceeded.</p>
+            aws_sdk_braket.errors.validation_exception.ValidationException: <p>The input request failed to satisfy constraints expected by Amazon Braket.</p>
+            aws_sdk_braket.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -83,6 +91,13 @@ class DeviceResource:
             next_token: <p>A token used for pagination of results returned in the response. Use the token returned from the previous request to continue search where the previous request ended.</p>
             max_results: <p>The maximum number of results to return in the response.</p>
             filters: <p>Array of SearchDevicesFilter objects to use when searching for devices.</p>
+
+        Raises:
+            aws_sdk_braket.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_braket.errors.internal_service_exception.InternalServiceException: <p>The request failed because of an unknown error.</p>
+            aws_sdk_braket.errors.throttling_exception.ThrottlingException: <p>The API throttling rate limit is exceeded.</p>
+            aws_sdk_braket.errors.validation_exception.ValidationException: <p>The input request failed to satisfy constraints expected by Amazon Braket.</p>
+            aws_sdk_braket.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -129,6 +144,14 @@ class AsyncDeviceResource:
 
         Args:
             device_arn: <p>The ARN of the device to retrieve.</p>
+
+        Raises:
+            aws_sdk_braket.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_braket.errors.internal_service_exception.InternalServiceException: <p>The request failed because of an unknown error.</p>
+            aws_sdk_braket.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_braket.errors.throttling_exception.ThrottlingException: <p>The API throttling rate limit is exceeded.</p>
+            aws_sdk_braket.errors.validation_exception.ValidationException: <p>The input request failed to satisfy constraints expected by Amazon Braket.</p>
+            aws_sdk_braket.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -171,6 +194,13 @@ class AsyncDeviceResource:
             next_token: <p>A token used for pagination of results returned in the response. Use the token returned from the previous request to continue search where the previous request ended.</p>
             max_results: <p>The maximum number of results to return in the response.</p>
             filters: <p>Array of SearchDevicesFilter objects to use when searching for devices.</p>
+
+        Raises:
+            aws_sdk_braket.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_braket.errors.internal_service_exception.InternalServiceException: <p>The request failed because of an unknown error.</p>
+            aws_sdk_braket.errors.throttling_exception.ThrottlingException: <p>The API throttling rate limit is exceeded.</p>
+            aws_sdk_braket.errors.validation_exception.ValidationException: <p>The input request failed to satisfy constraints expected by Amazon Braket.</p>
+            aws_sdk_braket.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

@@ -37,6 +37,12 @@ class ModelResource:
 
         Args:
             client_compatibility_version: <p>The client compatibility version to filter models by compatibility.</p>
+
+        Raises:
+            aws_sdk_nova_act.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permissions to perform this action.</p>
+            aws_sdk_nova_act.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Please try again later.</p>
+            aws_sdk_nova_act.errors.throttling_exception.ThrottlingException: <p>The request was throttled due to too many requests. Please try again later.</p>
+            aws_sdk_nova_act.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -79,6 +85,12 @@ class AsyncModelResource:
 
         Args:
             client_compatibility_version: <p>The client compatibility version to filter models by compatibility.</p>
+
+        Raises:
+            aws_sdk_nova_act.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permissions to perform this action.</p>
+            aws_sdk_nova_act.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Please try again later.</p>
+            aws_sdk_nova_act.errors.throttling_exception.ThrottlingException: <p>The request was throttled due to too many requests. Please try again later.</p>
+            aws_sdk_nova_act.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

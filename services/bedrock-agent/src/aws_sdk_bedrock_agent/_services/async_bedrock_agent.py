@@ -185,6 +185,13 @@ class AsyncBedrockAgentClient:
 
         Args:
             definition: <p>The definition of a flow to validate.</p>
+
+        Raises:
+            aws_sdk_bedrock_agent.errors.access_denied_exception.AccessDeniedException: <p>The request is denied because of missing access permissions.</p>
+            aws_sdk_bedrock_agent.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_bedrock_agent.errors.throttling_exception.ThrottlingException: <p>The number of requests exceeds the limit. Resubmit your request later.</p>
+            aws_sdk_bedrock_agent.errors.validation_exception.ValidationException: <p>Input validation failed. Check your request parameters and retry the request.</p>
+            aws_sdk_bedrock_agent.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

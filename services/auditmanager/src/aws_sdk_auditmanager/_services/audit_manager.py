@@ -313,6 +313,13 @@ class AuditManagerClient:
         Args:
             assessment_id: <p> The identifier for the assessment. </p>
             evidence_folder_id: <p> The identifier for the folder that the evidence is stored in. </p>
+
+        Raises:
+            aws_sdk_auditmanager.errors.access_denied_exception.AccessDeniedException: <p> Your account isn't registered with Audit Manager. Check the delegated administrator setup on the Audit Manager settings page, and try again. </p>
+            aws_sdk_auditmanager.errors.internal_server_exception.InternalServerException: <p> An internal service error occurred during the processing of your request. Try again later. </p>
+            aws_sdk_auditmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p> The resource that's specified in the request can't be found. </p>
+            aws_sdk_auditmanager.errors.validation_exception.ValidationException: <p> The request has invalid or missing parameters. </p>
+            aws_sdk_auditmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -355,6 +362,13 @@ class AuditManagerClient:
             assessment_id: <p> The identifier for the assessment. </p>
             evidence_folder_id: <p> The identifier for the folder that the evidence is stored in. </p>
             evidence_ids: <p> The list of evidence identifiers. </p>
+
+        Raises:
+            aws_sdk_auditmanager.errors.access_denied_exception.AccessDeniedException: <p> Your account isn't registered with Audit Manager. Check the delegated administrator setup on the Audit Manager settings page, and try again. </p>
+            aws_sdk_auditmanager.errors.internal_server_exception.InternalServerException: <p> An internal service error occurred during the processing of your request. Try again later. </p>
+            aws_sdk_auditmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p> The resource that's specified in the request can't be found. </p>
+            aws_sdk_auditmanager.errors.validation_exception.ValidationException: <p> The request has invalid or missing parameters. </p>
+            aws_sdk_auditmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -396,6 +410,13 @@ class AuditManagerClient:
         Args:
             create_delegation_requests: <p> The API request to batch create delegations in Audit Manager. </p>
             assessment_id: <p> The identifier for the assessment. </p>
+
+        Raises:
+            aws_sdk_auditmanager.errors.access_denied_exception.AccessDeniedException: <p> Your account isn't registered with Audit Manager. Check the delegated administrator setup on the Audit Manager settings page, and try again. </p>
+            aws_sdk_auditmanager.errors.internal_server_exception.InternalServerException: <p> An internal service error occurred during the processing of your request. Try again later. </p>
+            aws_sdk_auditmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p> The resource that's specified in the request can't be found. </p>
+            aws_sdk_auditmanager.errors.validation_exception.ValidationException: <p> The request has invalid or missing parameters. </p>
+            aws_sdk_auditmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -436,6 +457,13 @@ class AuditManagerClient:
         Args:
             delegation_ids: <p> The identifiers for the delegations. </p>
             assessment_id: <p> The identifier for the assessment. </p>
+
+        Raises:
+            aws_sdk_auditmanager.errors.access_denied_exception.AccessDeniedException: <p> Your account isn't registered with Audit Manager. Check the delegated administrator setup on the Audit Manager settings page, and try again. </p>
+            aws_sdk_auditmanager.errors.internal_server_exception.InternalServerException: <p> An internal service error occurred during the processing of your request. Try again later. </p>
+            aws_sdk_auditmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p> The resource that's specified in the request can't be found. </p>
+            aws_sdk_auditmanager.errors.validation_exception.ValidationException: <p> The request has invalid or missing parameters. </p>
+            aws_sdk_auditmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -478,6 +506,13 @@ class AuditManagerClient:
             assessment_id: <p> The identifier for the assessment. </p>
             evidence_folder_id: <p> The identifier for the folder that the evidence is stored in. </p>
             evidence_ids: <p> The list of evidence identifiers. </p>
+
+        Raises:
+            aws_sdk_auditmanager.errors.access_denied_exception.AccessDeniedException: <p> Your account isn't registered with Audit Manager. Check the delegated administrator setup on the Audit Manager settings page, and try again. </p>
+            aws_sdk_auditmanager.errors.internal_server_exception.InternalServerException: <p> An internal service error occurred during the processing of your request. Try again later. </p>
+            aws_sdk_auditmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p> The resource that's specified in the request can't be found. </p>
+            aws_sdk_auditmanager.errors.validation_exception.ValidationException: <p> The request has invalid or missing parameters. </p>
+            aws_sdk_auditmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -523,6 +558,14 @@ class AuditManagerClient:
             control_set_id: <p> The identifier for the control set. </p>
             control_id: <p> The identifier for the control. </p>
             manual_evidence: <p> The list of manual evidence objects. </p>
+
+        Raises:
+            aws_sdk_auditmanager.errors.access_denied_exception.AccessDeniedException: <p> Your account isn't registered with Audit Manager. Check the delegated administrator setup on the Audit Manager settings page, and try again. </p>
+            aws_sdk_auditmanager.errors.internal_server_exception.InternalServerException: <p> An internal service error occurred during the processing of your request. Try again later. </p>
+            aws_sdk_auditmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p> The resource that's specified in the request can't be found. </p>
+            aws_sdk_auditmanager.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_auditmanager.errors.validation_exception.ValidationException: <p> The request has invalid or missing parameters. </p>
+            aws_sdk_auditmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -578,6 +621,15 @@ class AuditManagerClient:
             roles: <p> The list of roles for the assessment. </p>
             framework_id: <p> The identifier for the framework that the assessment will be created from. </p>
             tags: <p> The tags that are associated with the assessment. </p>
+
+        Raises:
+            aws_sdk_auditmanager.errors.access_denied_exception.AccessDeniedException: <p> Your account isn't registered with Audit Manager. Check the delegated administrator setup on the Audit Manager settings page, and try again. </p>
+            aws_sdk_auditmanager.errors.internal_server_exception.InternalServerException: <p> An internal service error occurred during the processing of your request. Try again later. </p>
+            aws_sdk_auditmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p> The resource that's specified in the request can't be found. </p>
+            aws_sdk_auditmanager.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You've reached your account quota for this resource type. To perform the requested action, delete some existing resources or <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html\">request a quota increase</a> from the Service Quotas console. For a list of Audit Manager service quotas, see <a href=\"https://docs.aws.amazon.com/audit-manager/latest/userguide/service-quotas.html\">Quotas and restrictions for Audit Manager</a>.</p>
+            aws_sdk_auditmanager.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_auditmanager.errors.validation_exception.ValidationException: <p> The request has invalid or missing parameters. </p>
+            aws_sdk_auditmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -635,6 +687,14 @@ class AuditManagerClient:
             compliance_type: <p> The compliance type that the new custom framework supports, such as CIS or HIPAA. </p>
             control_sets: <p> The control sets that are associated with the framework. </p> <note> <p>The <code>Controls</code> object returns a partial response when called through Framework APIs. For a complete <code>Controls</code> object, use <code>GetControl</code>.</p> </note>
             tags: <p> The tags that are associated with the framework. </p>
+
+        Raises:
+            aws_sdk_auditmanager.errors.access_denied_exception.AccessDeniedException: <p> Your account isn't registered with Audit Manager. Check the delegated administrator setup on the Audit Manager settings page, and try again. </p>
+            aws_sdk_auditmanager.errors.internal_server_exception.InternalServerException: <p> An internal service error occurred during the processing of your request. Try again later. </p>
+            aws_sdk_auditmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p> The resource that's specified in the request can't be found. </p>
+            aws_sdk_auditmanager.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You've reached your account quota for this resource type. To perform the requested action, delete some existing resources or <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html\">request a quota increase</a> from the Service Quotas console. For a list of Audit Manager service quotas, see <a href=\"https://docs.aws.amazon.com/audit-manager/latest/userguide/service-quotas.html\">Quotas and restrictions for Audit Manager</a>.</p>
+            aws_sdk_auditmanager.errors.validation_exception.ValidationException: <p> The request has invalid or missing parameters. </p>
+            aws_sdk_auditmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -689,6 +749,13 @@ class AuditManagerClient:
             description: <p> The description of the assessment report. </p>
             assessment_id: <p> The identifier for the assessment. </p>
             query_statement: <p>A SQL statement that represents an evidence finder query.</p> <p>Provide this parameter when you want to generate an assessment report from the results of an evidence finder search query. When you use this parameter, Audit Manager generates a one-time report using only the evidence from the query output. This report does not include any assessment evidence that was manually <a href=\"https://docs.aws.amazon.com/audit-manager/latest/userguide/generate-assessment-report.html#generate-assessment-report-include-evidence\">added to a report using the console</a>, or <a href=\"https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_BatchAssociateAssessmentReportEvidence.html\">associated with a report using the API</a>. </p> <p>To use this parameter, the <a href=\"https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_EvidenceFinderEnablement.html#auditmanager-Type-EvidenceFinderEnablement-enablementStatus\">enablementStatus</a> of evidence finder must be <code>ENABLED</code>. </p> <p> For examples and help resolving <code>queryStatement</code> validation exceptions, see <a href=\"https://docs.aws.amazon.com/audit-manager/latest/userguide/evidence-finder-issues.html#querystatement-exceptions\">Troubleshooting evidence finder issues</a> in the <i>Audit Manager User Guide.</i> </p>
+
+        Raises:
+            aws_sdk_auditmanager.errors.access_denied_exception.AccessDeniedException: <p> Your account isn't registered with Audit Manager. Check the delegated administrator setup on the Audit Manager settings page, and try again. </p>
+            aws_sdk_auditmanager.errors.internal_server_exception.InternalServerException: <p> An internal service error occurred during the processing of your request. Try again later. </p>
+            aws_sdk_auditmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p> The resource that's specified in the request can't be found. </p>
+            aws_sdk_auditmanager.errors.validation_exception.ValidationException: <p> The request has invalid or missing parameters. </p>
+            aws_sdk_auditmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -751,6 +818,14 @@ class AuditManagerClient:
             action_plan_instructions: <p> The recommended actions to carry out if the control isn't fulfilled. </p>
             control_mapping_sources: <p> The data mapping sources for the control. </p>
             tags: <p> The tags that are associated with the control. </p>
+
+        Raises:
+            aws_sdk_auditmanager.errors.access_denied_exception.AccessDeniedException: <p> Your account isn't registered with Audit Manager. Check the delegated administrator setup on the Audit Manager settings page, and try again. </p>
+            aws_sdk_auditmanager.errors.internal_server_exception.InternalServerException: <p> An internal service error occurred during the processing of your request. Try again later. </p>
+            aws_sdk_auditmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p> The resource that's specified in the request can't be found. </p>
+            aws_sdk_auditmanager.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You've reached your account quota for this resource type. To perform the requested action, delete some existing resources or <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html\">request a quota increase</a> from the Service Quotas console. For a list of Audit Manager service quotas, see <a href=\"https://docs.aws.amazon.com/audit-manager/latest/userguide/service-quotas.html\">Quotas and restrictions for Audit Manager</a>.</p>
+            aws_sdk_auditmanager.errors.validation_exception.ValidationException: <p> The request has invalid or missing parameters. </p>
+            aws_sdk_auditmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -801,6 +876,13 @@ class AuditManagerClient:
 
         Args:
             assessment_id: <p> The identifier for the assessment. </p>
+
+        Raises:
+            aws_sdk_auditmanager.errors.access_denied_exception.AccessDeniedException: <p> Your account isn't registered with Audit Manager. Check the delegated administrator setup on the Audit Manager settings page, and try again. </p>
+            aws_sdk_auditmanager.errors.internal_server_exception.InternalServerException: <p> An internal service error occurred during the processing of your request. Try again later. </p>
+            aws_sdk_auditmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p> The resource that's specified in the request can't be found. </p>
+            aws_sdk_auditmanager.errors.validation_exception.ValidationException: <p> The request has invalid or missing parameters. </p>
+            aws_sdk_auditmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -838,6 +920,13 @@ class AuditManagerClient:
 
         Args:
             framework_id: <p> The identifier for the custom framework. </p>
+
+        Raises:
+            aws_sdk_auditmanager.errors.access_denied_exception.AccessDeniedException: <p> Your account isn't registered with Audit Manager. Check the delegated administrator setup on the Audit Manager settings page, and try again. </p>
+            aws_sdk_auditmanager.errors.internal_server_exception.InternalServerException: <p> An internal service error occurred during the processing of your request. Try again later. </p>
+            aws_sdk_auditmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p> The resource that's specified in the request can't be found. </p>
+            aws_sdk_auditmanager.errors.validation_exception.ValidationException: <p> The request has invalid or missing parameters. </p>
+            aws_sdk_auditmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -877,6 +966,13 @@ class AuditManagerClient:
         Args:
             request_id: <p>The unique identifier for the share request to be deleted.</p>
             request_type: <p>Specifies whether the share request is a sent request or a received request.</p>
+
+        Raises:
+            aws_sdk_auditmanager.errors.access_denied_exception.AccessDeniedException: <p> Your account isn't registered with Audit Manager. Check the delegated administrator setup on the Audit Manager settings page, and try again. </p>
+            aws_sdk_auditmanager.errors.internal_server_exception.InternalServerException: <p> An internal service error occurred during the processing of your request. Try again later. </p>
+            aws_sdk_auditmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p> The resource that's specified in the request can't be found. </p>
+            aws_sdk_auditmanager.errors.validation_exception.ValidationException: <p> The request has invalid or missing parameters. </p>
+            aws_sdk_auditmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -917,6 +1013,13 @@ class AuditManagerClient:
         Args:
             assessment_id: <p> The unique identifier for the assessment. </p>
             assessment_report_id: <p> The unique identifier for the assessment report. </p>
+
+        Raises:
+            aws_sdk_auditmanager.errors.access_denied_exception.AccessDeniedException: <p> Your account isn't registered with Audit Manager. Check the delegated administrator setup on the Audit Manager settings page, and try again. </p>
+            aws_sdk_auditmanager.errors.internal_server_exception.InternalServerException: <p> An internal service error occurred during the processing of your request. Try again later. </p>
+            aws_sdk_auditmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p> The resource that's specified in the request can't be found. </p>
+            aws_sdk_auditmanager.errors.validation_exception.ValidationException: <p> The request has invalid or missing parameters. </p>
+            aws_sdk_auditmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -955,6 +1058,13 @@ class AuditManagerClient:
 
         Args:
             control_id: <p> The unique identifier for the control. </p>
+
+        Raises:
+            aws_sdk_auditmanager.errors.access_denied_exception.AccessDeniedException: <p> Your account isn't registered with Audit Manager. Check the delegated administrator setup on the Audit Manager settings page, and try again. </p>
+            aws_sdk_auditmanager.errors.internal_server_exception.InternalServerException: <p> An internal service error occurred during the processing of your request. Try again later. </p>
+            aws_sdk_auditmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p> The resource that's specified in the request can't be found. </p>
+            aws_sdk_auditmanager.errors.validation_exception.ValidationException: <p> The request has invalid or missing parameters. </p>
+            aws_sdk_auditmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -985,7 +1095,15 @@ class AuditManagerClient:
     def deregister_account(
         self, *, config_overrides: Optional[AuditManagerClientConfig] = None
     ) -> "aws_sdk_auditmanager.types.deregister_account_response.DeregisterAccountResponse":
-        r"""<p> Deregisters an account in Audit Manager. </p> <note> <p>Before you deregister, you can use the <a href=\"https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_UpdateSettings.html\">UpdateSettings</a> API operation to set your preferred data retention policy. By default, Audit Manager retains your data. If you want to delete your data, you can use the <code>DeregistrationPolicy</code> attribute to request the deletion of your data. </p> <p>For more information about data retention, see <a href=\"https://docs.aws.amazon.com/audit-manager/latest/userguide/data-protection.html\">Data Protection</a> in the <i>Audit Manager User Guide</i>. </p> </note>"""
+        r"""<p> Deregisters an account in Audit Manager. </p> <note> <p>Before you deregister, you can use the <a href=\"https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_UpdateSettings.html\">UpdateSettings</a> API operation to set your preferred data retention policy. By default, Audit Manager retains your data. If you want to delete your data, you can use the <code>DeregistrationPolicy</code> attribute to request the deletion of your data. </p> <p>For more information about data retention, see <a href=\"https://docs.aws.amazon.com/audit-manager/latest/userguide/data-protection.html\">Data Protection</a> in the <i>Audit Manager User Guide</i>. </p> </note>
+
+        Raises:
+            aws_sdk_auditmanager.errors.access_denied_exception.AccessDeniedException: <p> Your account isn't registered with Audit Manager. Check the delegated administrator setup on the Audit Manager settings page, and try again. </p>
+            aws_sdk_auditmanager.errors.internal_server_exception.InternalServerException: <p> An internal service error occurred during the processing of your request. Try again later. </p>
+            aws_sdk_auditmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p> The resource that's specified in the request can't be found. </p>
+            aws_sdk_auditmanager.errors.validation_exception.ValidationException: <p> The request has invalid or missing parameters. </p>
+            aws_sdk_auditmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_auditmanager.types.deregister_account_request.DeregisterAccountRequest]",
@@ -1023,6 +1141,13 @@ class AuditManagerClient:
 
         Args:
             admin_account_id: <p> The identifier for the administrator account. </p>
+
+        Raises:
+            aws_sdk_auditmanager.errors.access_denied_exception.AccessDeniedException: <p> Your account isn't registered with Audit Manager. Check the delegated administrator setup on the Audit Manager settings page, and try again. </p>
+            aws_sdk_auditmanager.errors.internal_server_exception.InternalServerException: <p> An internal service error occurred during the processing of your request. Try again later. </p>
+            aws_sdk_auditmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p> The resource that's specified in the request can't be found. </p>
+            aws_sdk_auditmanager.errors.validation_exception.ValidationException: <p> The request has invalid or missing parameters. </p>
+            aws_sdk_auditmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1063,6 +1188,13 @@ class AuditManagerClient:
         Args:
             assessment_id: <p> The unique identifier for the assessment. </p>
             evidence_folder_id: <p> The unique identifier for the folder that the evidence is stored in. </p>
+
+        Raises:
+            aws_sdk_auditmanager.errors.access_denied_exception.AccessDeniedException: <p> Your account isn't registered with Audit Manager. Check the delegated administrator setup on the Audit Manager settings page, and try again. </p>
+            aws_sdk_auditmanager.errors.internal_server_exception.InternalServerException: <p> An internal service error occurred during the processing of your request. Try again later. </p>
+            aws_sdk_auditmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p> The resource that's specified in the request can't be found. </p>
+            aws_sdk_auditmanager.errors.validation_exception.ValidationException: <p> The request has invalid or missing parameters. </p>
+            aws_sdk_auditmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1094,7 +1226,12 @@ class AuditManagerClient:
     def get_account_status(
         self, *, config_overrides: Optional[AuditManagerClientConfig] = None
     ) -> "aws_sdk_auditmanager.types.get_account_status_response.GetAccountStatusResponse":
-        """<p> Gets the registration status of an account in Audit Manager. </p>"""
+        """<p> Gets the registration status of an account in Audit Manager. </p>
+
+        Raises:
+            aws_sdk_auditmanager.errors.internal_server_exception.InternalServerException: <p> An internal service error occurred during the processing of your request. Try again later. </p>
+            aws_sdk_auditmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_auditmanager.types.get_account_status_request.GetAccountStatusRequest]",
@@ -1130,6 +1267,13 @@ class AuditManagerClient:
 
         Args:
             assessment_id: <p>The unique identifier for the assessment. </p>
+
+        Raises:
+            aws_sdk_auditmanager.errors.access_denied_exception.AccessDeniedException: <p> Your account isn't registered with Audit Manager. Check the delegated administrator setup on the Audit Manager settings page, and try again. </p>
+            aws_sdk_auditmanager.errors.internal_server_exception.InternalServerException: <p> An internal service error occurred during the processing of your request. Try again later. </p>
+            aws_sdk_auditmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p> The resource that's specified in the request can't be found. </p>
+            aws_sdk_auditmanager.errors.validation_exception.ValidationException: <p> The request has invalid or missing parameters. </p>
+            aws_sdk_auditmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1167,6 +1311,13 @@ class AuditManagerClient:
 
         Args:
             framework_id: <p> The identifier for the framework. </p>
+
+        Raises:
+            aws_sdk_auditmanager.errors.access_denied_exception.AccessDeniedException: <p> Your account isn't registered with Audit Manager. Check the delegated administrator setup on the Audit Manager settings page, and try again. </p>
+            aws_sdk_auditmanager.errors.internal_server_exception.InternalServerException: <p> An internal service error occurred during the processing of your request. Try again later. </p>
+            aws_sdk_auditmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p> The resource that's specified in the request can't be found. </p>
+            aws_sdk_auditmanager.errors.validation_exception.ValidationException: <p> The request has invalid or missing parameters. </p>
+            aws_sdk_auditmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1206,6 +1357,13 @@ class AuditManagerClient:
         Args:
             assessment_report_id: <p> The unique identifier for the assessment report. </p>
             assessment_id: <p> The unique identifier for the assessment. </p>
+
+        Raises:
+            aws_sdk_auditmanager.errors.access_denied_exception.AccessDeniedException: <p> Your account isn't registered with Audit Manager. Check the delegated administrator setup on the Audit Manager settings page, and try again. </p>
+            aws_sdk_auditmanager.errors.internal_server_exception.InternalServerException: <p> An internal service error occurred during the processing of your request. Try again later. </p>
+            aws_sdk_auditmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p> The resource that's specified in the request can't be found. </p>
+            aws_sdk_auditmanager.errors.validation_exception.ValidationException: <p> The request has invalid or missing parameters. </p>
+            aws_sdk_auditmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1256,6 +1414,13 @@ class AuditManagerClient:
             control_id: <p> The unique identifier for the control. </p>
             next_token: <p> The pagination token that's used to fetch the next set of results. </p>
             max_results: <p>Represents the maximum number of results on a page or for an API request call. </p>
+
+        Raises:
+            aws_sdk_auditmanager.errors.access_denied_exception.AccessDeniedException: <p> Your account isn't registered with Audit Manager. Check the delegated administrator setup on the Audit Manager settings page, and try again. </p>
+            aws_sdk_auditmanager.errors.internal_server_exception.InternalServerException: <p> An internal service error occurred during the processing of your request. Try again later. </p>
+            aws_sdk_auditmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p> The resource that's specified in the request can't be found. </p>
+            aws_sdk_auditmanager.errors.validation_exception.ValidationException: <p> The request has invalid or missing parameters. </p>
+            aws_sdk_auditmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1301,6 +1466,13 @@ class AuditManagerClient:
 
         Args:
             control_id: <p> The identifier for the control. </p>
+
+        Raises:
+            aws_sdk_auditmanager.errors.access_denied_exception.AccessDeniedException: <p> Your account isn't registered with Audit Manager. Check the delegated administrator setup on the Audit Manager settings page, and try again. </p>
+            aws_sdk_auditmanager.errors.internal_server_exception.InternalServerException: <p> An internal service error occurred during the processing of your request. Try again later. </p>
+            aws_sdk_auditmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p> The resource that's specified in the request can't be found. </p>
+            aws_sdk_auditmanager.errors.validation_exception.ValidationException: <p> The request has invalid or missing parameters. </p>
+            aws_sdk_auditmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1342,6 +1514,12 @@ class AuditManagerClient:
         Args:
             next_token: <p> The pagination token that's used to fetch the next set of results. </p>
             max_results: <p> Represents the maximum number of results on a page or for an API request call. </p>
+
+        Raises:
+            aws_sdk_auditmanager.errors.access_denied_exception.AccessDeniedException: <p> Your account isn't registered with Audit Manager. Check the delegated administrator setup on the Audit Manager settings page, and try again. </p>
+            aws_sdk_auditmanager.errors.internal_server_exception.InternalServerException: <p> An internal service error occurred during the processing of your request. Try again later. </p>
+            aws_sdk_auditmanager.errors.validation_exception.ValidationException: <p> The request has invalid or missing parameters. </p>
+            aws_sdk_auditmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1388,6 +1566,13 @@ class AuditManagerClient:
             control_set_id: <p> The unique identifier for the control set. </p>
             evidence_folder_id: <p> The unique identifier for the folder that the evidence is stored in. </p>
             evidence_id: <p> The unique identifier for the evidence. </p>
+
+        Raises:
+            aws_sdk_auditmanager.errors.access_denied_exception.AccessDeniedException: <p> Your account isn't registered with Audit Manager. Check the delegated administrator setup on the Audit Manager settings page, and try again. </p>
+            aws_sdk_auditmanager.errors.internal_server_exception.InternalServerException: <p> An internal service error occurred during the processing of your request. Try again later. </p>
+            aws_sdk_auditmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p> The resource that's specified in the request can't be found. </p>
+            aws_sdk_auditmanager.errors.validation_exception.ValidationException: <p> The request has invalid or missing parameters. </p>
+            aws_sdk_auditmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1438,6 +1623,13 @@ class AuditManagerClient:
             evidence_folder_id: <p> The unique identifier for the folder that the evidence is stored in. </p>
             next_token: <p> The pagination token that's used to fetch the next set of results. </p>
             max_results: <p> Represents the maximum number of results on a page or for an API request call. </p>
+
+        Raises:
+            aws_sdk_auditmanager.errors.access_denied_exception.AccessDeniedException: <p> Your account isn't registered with Audit Manager. Check the delegated administrator setup on the Audit Manager settings page, and try again. </p>
+            aws_sdk_auditmanager.errors.internal_server_exception.InternalServerException: <p> An internal service error occurred during the processing of your request. Try again later. </p>
+            aws_sdk_auditmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p> The resource that's specified in the request can't be found. </p>
+            aws_sdk_auditmanager.errors.validation_exception.ValidationException: <p> The request has invalid or missing parameters. </p>
+            aws_sdk_auditmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1481,6 +1673,13 @@ class AuditManagerClient:
 
         Args:
             file_name: <p>The file that you want to upload. For a list of supported file formats, see <a href=\"https://docs.aws.amazon.com/audit-manager/latest/userguide/upload-evidence.html#supported-manual-evidence-files\">Supported file types for manual evidence</a> in the <i>Audit Manager User Guide</i>.</p>
+
+        Raises:
+            aws_sdk_auditmanager.errors.access_denied_exception.AccessDeniedException: <p> Your account isn't registered with Audit Manager. Check the delegated administrator setup on the Audit Manager settings page, and try again. </p>
+            aws_sdk_auditmanager.errors.internal_server_exception.InternalServerException: <p> An internal service error occurred during the processing of your request. Try again later. </p>
+            aws_sdk_auditmanager.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_auditmanager.errors.validation_exception.ValidationException: <p> The request has invalid or missing parameters. </p>
+            aws_sdk_auditmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1522,6 +1721,13 @@ class AuditManagerClient:
             assessment_id: <p> The unique identifier for the assessment. </p>
             control_set_id: <p> The unique identifier for the control set. </p>
             evidence_folder_id: <p> The unique identifier for the folder that the evidence is stored in. </p>
+
+        Raises:
+            aws_sdk_auditmanager.errors.access_denied_exception.AccessDeniedException: <p> Your account isn't registered with Audit Manager. Check the delegated administrator setup on the Audit Manager settings page, and try again. </p>
+            aws_sdk_auditmanager.errors.internal_server_exception.InternalServerException: <p> An internal service error occurred during the processing of your request. Try again later. </p>
+            aws_sdk_auditmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p> The resource that's specified in the request can't be found. </p>
+            aws_sdk_auditmanager.errors.validation_exception.ValidationException: <p> The request has invalid or missing parameters. </p>
+            aws_sdk_auditmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1567,6 +1773,13 @@ class AuditManagerClient:
             assessment_id: <p> The unique identifier for the assessment. </p>
             next_token: <p> The pagination token that's used to fetch the next set of results. </p>
             max_results: <p> Represents the maximum number of results on a page or for an API request call. </p>
+
+        Raises:
+            aws_sdk_auditmanager.errors.access_denied_exception.AccessDeniedException: <p> Your account isn't registered with Audit Manager. Check the delegated administrator setup on the Audit Manager settings page, and try again. </p>
+            aws_sdk_auditmanager.errors.internal_server_exception.InternalServerException: <p> An internal service error occurred during the processing of your request. Try again later. </p>
+            aws_sdk_auditmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p> The resource that's specified in the request can't be found. </p>
+            aws_sdk_auditmanager.errors.validation_exception.ValidationException: <p> The request has invalid or missing parameters. </p>
+            aws_sdk_auditmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1618,6 +1831,13 @@ class AuditManagerClient:
             control_id: <p> The identifier for the control. </p>
             next_token: <p> The pagination token that's used to fetch the next set of results. </p>
             max_results: <p> Represents the maximum number of results on a page or for an API request call. </p>
+
+        Raises:
+            aws_sdk_auditmanager.errors.access_denied_exception.AccessDeniedException: <p> Your account isn't registered with Audit Manager. Check the delegated administrator setup on the Audit Manager settings page, and try again. </p>
+            aws_sdk_auditmanager.errors.internal_server_exception.InternalServerException: <p> An internal service error occurred during the processing of your request. Try again later. </p>
+            aws_sdk_auditmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p> The resource that's specified in the request can't be found. </p>
+            aws_sdk_auditmanager.errors.validation_exception.ValidationException: <p> The request has invalid or missing parameters. </p>
+            aws_sdk_auditmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1654,7 +1874,13 @@ class AuditManagerClient:
     def get_insights(
         self, *, config_overrides: Optional[AuditManagerClientConfig] = None
     ) -> "aws_sdk_auditmanager.types.get_insights_response.GetInsightsResponse":
-        """<p>Gets the latest analytics data for all your current active assessments. </p>"""
+        """<p>Gets the latest analytics data for all your current active assessments. </p>
+
+        Raises:
+            aws_sdk_auditmanager.errors.access_denied_exception.AccessDeniedException: <p> Your account isn't registered with Audit Manager. Check the delegated administrator setup on the Audit Manager settings page, and try again. </p>
+            aws_sdk_auditmanager.errors.internal_server_exception.InternalServerException: <p> An internal service error occurred during the processing of your request. Try again later. </p>
+            aws_sdk_auditmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_auditmanager.types.get_insights_request.GetInsightsRequest]",
@@ -1690,6 +1916,13 @@ class AuditManagerClient:
 
         Args:
             assessment_id: <p>The unique identifier for the assessment. </p>
+
+        Raises:
+            aws_sdk_auditmanager.errors.access_denied_exception.AccessDeniedException: <p> Your account isn't registered with Audit Manager. Check the delegated administrator setup on the Audit Manager settings page, and try again. </p>
+            aws_sdk_auditmanager.errors.internal_server_exception.InternalServerException: <p> An internal service error occurred during the processing of your request. Try again later. </p>
+            aws_sdk_auditmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p> The resource that's specified in the request can't be found. </p>
+            aws_sdk_auditmanager.errors.validation_exception.ValidationException: <p> The request has invalid or missing parameters. </p>
+            aws_sdk_auditmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1720,7 +1953,15 @@ class AuditManagerClient:
     def get_organization_admin_account(
         self, *, config_overrides: Optional[AuditManagerClientConfig] = None
     ) -> "aws_sdk_auditmanager.types.get_organization_admin_account_response.GetOrganizationAdminAccountResponse":
-        """<p> Gets the name of the delegated Amazon Web Services administrator account for a specified organization. </p>"""
+        """<p> Gets the name of the delegated Amazon Web Services administrator account for a specified organization. </p>
+
+        Raises:
+            aws_sdk_auditmanager.errors.access_denied_exception.AccessDeniedException: <p> Your account isn't registered with Audit Manager. Check the delegated administrator setup on the Audit Manager settings page, and try again. </p>
+            aws_sdk_auditmanager.errors.internal_server_exception.InternalServerException: <p> An internal service error occurred during the processing of your request. Try again later. </p>
+            aws_sdk_auditmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p> The resource that's specified in the request can't be found. </p>
+            aws_sdk_auditmanager.errors.validation_exception.ValidationException: <p> The request has invalid or missing parameters. </p>
+            aws_sdk_auditmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_auditmanager.types.get_organization_admin_account_request.GetOrganizationAdminAccountRequest]",
@@ -1749,7 +1990,14 @@ class AuditManagerClient:
     def get_services_in_scope(
         self, *, config_overrides: Optional[AuditManagerClientConfig] = None
     ) -> "aws_sdk_auditmanager.types.get_services_in_scope_response.GetServicesInScopeResponse":
-        r"""<p>Gets a list of the Amazon Web Services services from which Audit Manager can collect evidence. </p> <p>Audit Manager defines which Amazon Web Services services are in scope for an assessment. Audit Manager infers this scope by examining the assessment’s controls and their data sources, and then mapping this information to one or more of the corresponding Amazon Web Services services that are in this list.</p> <note> <p>For information about why it's no longer possible to specify services in scope manually, see <a href=\"https://docs.aws.amazon.com/audit-manager/latest/userguide/evidence-collection-issues.html#unable-to-edit-services\">I can't edit the services in scope for my assessment</a> in the <i>Troubleshooting</i> section of the Audit Manager user guide.</p> </note>"""
+        r"""<p>Gets a list of the Amazon Web Services services from which Audit Manager can collect evidence. </p> <p>Audit Manager defines which Amazon Web Services services are in scope for an assessment. Audit Manager infers this scope by examining the assessment’s controls and their data sources, and then mapping this information to one or more of the corresponding Amazon Web Services services that are in this list.</p> <note> <p>For information about why it's no longer possible to specify services in scope manually, see <a href=\"https://docs.aws.amazon.com/audit-manager/latest/userguide/evidence-collection-issues.html#unable-to-edit-services\">I can't edit the services in scope for my assessment</a> in the <i>Troubleshooting</i> section of the Audit Manager user guide.</p> </note>
+
+        Raises:
+            aws_sdk_auditmanager.errors.access_denied_exception.AccessDeniedException: <p> Your account isn't registered with Audit Manager. Check the delegated administrator setup on the Audit Manager settings page, and try again. </p>
+            aws_sdk_auditmanager.errors.internal_server_exception.InternalServerException: <p> An internal service error occurred during the processing of your request. Try again later. </p>
+            aws_sdk_auditmanager.errors.validation_exception.ValidationException: <p> The request has invalid or missing parameters. </p>
+            aws_sdk_auditmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_auditmanager.types.get_services_in_scope_request.GetServicesInScopeRequest]",
@@ -1785,6 +2033,11 @@ class AuditManagerClient:
 
         Args:
             attribute: <p> The list of setting attribute enum values. </p>
+
+        Raises:
+            aws_sdk_auditmanager.errors.access_denied_exception.AccessDeniedException: <p> Your account isn't registered with Audit Manager. Check the delegated administrator setup on the Audit Manager settings page, and try again. </p>
+            aws_sdk_auditmanager.errors.internal_server_exception.InternalServerException: <p> An internal service error occurred during the processing of your request. Try again later. </p>
+            aws_sdk_auditmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1830,6 +2083,13 @@ class AuditManagerClient:
             assessment_id: <p>The unique identifier for the active assessment. </p>
             next_token: <p>The pagination token that's used to fetch the next set of results. </p>
             max_results: <p>Represents the maximum number of results on a page or for an API request call. </p>
+
+        Raises:
+            aws_sdk_auditmanager.errors.access_denied_exception.AccessDeniedException: <p> Your account isn't registered with Audit Manager. Check the delegated administrator setup on the Audit Manager settings page, and try again. </p>
+            aws_sdk_auditmanager.errors.internal_server_exception.InternalServerException: <p> An internal service error occurred during the processing of your request. Try again later. </p>
+            aws_sdk_auditmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p> The resource that's specified in the request can't be found. </p>
+            aws_sdk_auditmanager.errors.validation_exception.ValidationException: <p> The request has invalid or missing parameters. </p>
+            aws_sdk_auditmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1878,6 +2138,12 @@ class AuditManagerClient:
             framework_type: <p> The type of framework, such as a standard framework or a custom framework. </p>
             next_token: <p> The pagination token that's used to fetch the next set of results. </p>
             max_results: <p> Represents the maximum number of results on a page or for an API request call. </p>
+
+        Raises:
+            aws_sdk_auditmanager.errors.access_denied_exception.AccessDeniedException: <p> Your account isn't registered with Audit Manager. Check the delegated administrator setup on the Audit Manager settings page, and try again. </p>
+            aws_sdk_auditmanager.errors.internal_server_exception.InternalServerException: <p> An internal service error occurred during the processing of your request. Try again later. </p>
+            aws_sdk_auditmanager.errors.validation_exception.ValidationException: <p> The request has invalid or missing parameters. </p>
+            aws_sdk_auditmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1925,6 +2191,12 @@ class AuditManagerClient:
             request_type: <p> Specifies whether the share request is a sent request or a received request.</p>
             next_token: <p> The pagination token that's used to fetch the next set of results. </p>
             max_results: <p> Represents the maximum number of results on a page or for an API request call. </p>
+
+        Raises:
+            aws_sdk_auditmanager.errors.access_denied_exception.AccessDeniedException: <p> Your account isn't registered with Audit Manager. Check the delegated administrator setup on the Audit Manager settings page, and try again. </p>
+            aws_sdk_auditmanager.errors.internal_server_exception.InternalServerException: <p> An internal service error occurred during the processing of your request. Try again later. </p>
+            aws_sdk_auditmanager.errors.validation_exception.ValidationException: <p> The request has invalid or missing parameters. </p>
+            aws_sdk_auditmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1970,6 +2242,12 @@ class AuditManagerClient:
         Args:
             next_token: <p> The pagination token that's used to fetch the next set of results. </p>
             max_results: <p> Represents the maximum number of results on a page or for an API request call. </p>
+
+        Raises:
+            aws_sdk_auditmanager.errors.access_denied_exception.AccessDeniedException: <p> Your account isn't registered with Audit Manager. Check the delegated administrator setup on the Audit Manager settings page, and try again. </p>
+            aws_sdk_auditmanager.errors.internal_server_exception.InternalServerException: <p> An internal service error occurred during the processing of your request. Try again later. </p>
+            aws_sdk_auditmanager.errors.validation_exception.ValidationException: <p> The request has invalid or missing parameters. </p>
+            aws_sdk_auditmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2018,6 +2296,12 @@ class AuditManagerClient:
             status: <p> The current status of the assessment.</p>
             next_token: <p> The pagination token that's used to fetch the next set of results. </p>
             max_results: <p> Represents the maximum number of results on a page or for an API request call. </p>
+
+        Raises:
+            aws_sdk_auditmanager.errors.access_denied_exception.AccessDeniedException: <p> Your account isn't registered with Audit Manager. Check the delegated administrator setup on the Audit Manager settings page, and try again. </p>
+            aws_sdk_auditmanager.errors.internal_server_exception.InternalServerException: <p> An internal service error occurred during the processing of your request. Try again later. </p>
+            aws_sdk_auditmanager.errors.validation_exception.ValidationException: <p> The request has invalid or missing parameters. </p>
+            aws_sdk_auditmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2064,6 +2348,13 @@ class AuditManagerClient:
         Args:
             next_token: <p>The pagination token that's used to fetch the next set of results. </p>
             max_results: <p>Represents the maximum number of results on a page or for an API request call. </p>
+
+        Raises:
+            aws_sdk_auditmanager.errors.access_denied_exception.AccessDeniedException: <p> Your account isn't registered with Audit Manager. Check the delegated administrator setup on the Audit Manager settings page, and try again. </p>
+            aws_sdk_auditmanager.errors.internal_server_exception.InternalServerException: <p> An internal service error occurred during the processing of your request. Try again later. </p>
+            aws_sdk_auditmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p> The resource that's specified in the request can't be found. </p>
+            aws_sdk_auditmanager.errors.validation_exception.ValidationException: <p> The request has invalid or missing parameters. </p>
+            aws_sdk_auditmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2110,6 +2401,13 @@ class AuditManagerClient:
             assessment_id: <p>The unique identifier for the active assessment. </p>
             next_token: <p>The pagination token that's used to fetch the next set of results. </p>
             max_results: <p>Represents the maximum number of results on a page or for an API request call. </p>
+
+        Raises:
+            aws_sdk_auditmanager.errors.access_denied_exception.AccessDeniedException: <p> Your account isn't registered with Audit Manager. Check the delegated administrator setup on the Audit Manager settings page, and try again. </p>
+            aws_sdk_auditmanager.errors.internal_server_exception.InternalServerException: <p> An internal service error occurred during the processing of your request. Try again later. </p>
+            aws_sdk_auditmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p> The resource that's specified in the request can't be found. </p>
+            aws_sdk_auditmanager.errors.validation_exception.ValidationException: <p> The request has invalid or missing parameters. </p>
+            aws_sdk_auditmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2157,6 +2455,13 @@ class AuditManagerClient:
             control_domain_id: <p>The unique identifier for the control domain. </p> <p>Audit Manager supports the control domains that are provided by Amazon Web Services Control Catalog. For information about how to find a list of available control domains, see <a href=\"https://docs.aws.amazon.com/controlcatalog/latest/APIReference/API_ListDomains.html\"> <code>ListDomains</code> </a> in the Amazon Web Services Control Catalog API Reference.</p>
             next_token: <p>The pagination token that's used to fetch the next set of results. </p>
             max_results: <p>Represents the maximum number of results on a page or for an API request call. </p>
+
+        Raises:
+            aws_sdk_auditmanager.errors.access_denied_exception.AccessDeniedException: <p> Your account isn't registered with Audit Manager. Check the delegated administrator setup on the Audit Manager settings page, and try again. </p>
+            aws_sdk_auditmanager.errors.internal_server_exception.InternalServerException: <p> An internal service error occurred during the processing of your request. Try again later. </p>
+            aws_sdk_auditmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p> The resource that's specified in the request can't be found. </p>
+            aws_sdk_auditmanager.errors.validation_exception.ValidationException: <p> The request has invalid or missing parameters. </p>
+            aws_sdk_auditmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2208,6 +2513,12 @@ class AuditManagerClient:
             next_token: <p>The pagination token that's used to fetch the next set of results. </p>
             max_results: <p>The maximum number of results on a page or for an API request call. </p>
             control_catalog_id: <p>A filter that narrows the list of controls to a specific resource from the Amazon Web Services Control Catalog. </p> <p>To use this parameter, specify the ARN of the Control Catalog resource. You can specify either a control domain, a control objective, or a common control. For information about how to find the ARNs for these resources, see <a href=\"https://docs.aws.amazon.com/controlcatalog/latest/APIReference/API_ListDomains.html\"> <code>ListDomains</code> </a>, <a href=\"https://docs.aws.amazon.com/controlcatalog/latest/APIReference/API_ListObjectives.html\"> <code>ListObjectives</code> </a>, and <a href=\"https://docs.aws.amazon.com/controlcatalog/latest/APIReference/API_ListCommonControls.html\"> <code>ListCommonControls</code> </a>.</p> <note> <p>You can only filter by one Control Catalog resource at a time. Specifying multiple resource ARNs isn’t currently supported. If you want to filter by more than one ARN, we recommend that you run the <code>ListControls</code> operation separately for each ARN. </p> </note> <p>Alternatively, specify <code>UNCATEGORIZED</code> to list controls that aren't mapped to a Control Catalog resource. For example, this operation might return a list of custom controls that don't belong to any control domain or control objective.</p>
+
+        Raises:
+            aws_sdk_auditmanager.errors.access_denied_exception.AccessDeniedException: <p> Your account isn't registered with Audit Manager. Check the delegated administrator setup on the Audit Manager settings page, and try again. </p>
+            aws_sdk_auditmanager.errors.internal_server_exception.InternalServerException: <p> An internal service error occurred during the processing of your request. Try again later. </p>
+            aws_sdk_auditmanager.errors.validation_exception.ValidationException: <p> The request has invalid or missing parameters. </p>
+            aws_sdk_auditmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2257,6 +2568,12 @@ class AuditManagerClient:
             source: <p>The control mapping data source that the keywords apply to. </p>
             next_token: <p> The pagination token that's used to fetch the next set of results. </p>
             max_results: <p> Represents the maximum number of results on a page or for an API request call. </p>
+
+        Raises:
+            aws_sdk_auditmanager.errors.access_denied_exception.AccessDeniedException: <p> Your account isn't registered with Audit Manager. Check the delegated administrator setup on the Audit Manager settings page, and try again. </p>
+            aws_sdk_auditmanager.errors.internal_server_exception.InternalServerException: <p> An internal service error occurred during the processing of your request. Try again later. </p>
+            aws_sdk_auditmanager.errors.validation_exception.ValidationException: <p> The request has invalid or missing parameters. </p>
+            aws_sdk_auditmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2302,6 +2619,12 @@ class AuditManagerClient:
         Args:
             next_token: <p> The pagination token that's used to fetch the next set of results. </p>
             max_results: <p> Represents the maximum number of results on a page or for an API request call. </p>
+
+        Raises:
+            aws_sdk_auditmanager.errors.access_denied_exception.AccessDeniedException: <p> Your account isn't registered with Audit Manager. Check the delegated administrator setup on the Audit Manager settings page, and try again. </p>
+            aws_sdk_auditmanager.errors.internal_server_exception.InternalServerException: <p> An internal service error occurred during the processing of your request. Try again later. </p>
+            aws_sdk_auditmanager.errors.validation_exception.ValidationException: <p> The request has invalid or missing parameters. </p>
+            aws_sdk_auditmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2342,6 +2665,12 @@ class AuditManagerClient:
 
         Args:
             resource_arn: <p> The Amazon Resource Name (ARN) of the resource. </p>
+
+        Raises:
+            aws_sdk_auditmanager.errors.internal_server_exception.InternalServerException: <p> An internal service error occurred during the processing of your request. Try again later. </p>
+            aws_sdk_auditmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p> The resource that's specified in the request can't be found. </p>
+            aws_sdk_auditmanager.errors.validation_exception.ValidationException: <p> The request has invalid or missing parameters. </p>
+            aws_sdk_auditmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2383,6 +2712,14 @@ class AuditManagerClient:
         Args:
             kms_key: <p> The KMS key details. </p>
             delegated_admin_account: <p> The delegated administrator account for Audit Manager. </p>
+
+        Raises:
+            aws_sdk_auditmanager.errors.access_denied_exception.AccessDeniedException: <p> Your account isn't registered with Audit Manager. Check the delegated administrator setup on the Audit Manager settings page, and try again. </p>
+            aws_sdk_auditmanager.errors.internal_server_exception.InternalServerException: <p> An internal service error occurred during the processing of your request. Try again later. </p>
+            aws_sdk_auditmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p> The resource that's specified in the request can't be found. </p>
+            aws_sdk_auditmanager.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_auditmanager.errors.validation_exception.ValidationException: <p> The request has invalid or missing parameters. </p>
+            aws_sdk_auditmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2423,6 +2760,14 @@ class AuditManagerClient:
 
         Args:
             admin_account_id: <p> The identifier for the delegated administrator account. </p>
+
+        Raises:
+            aws_sdk_auditmanager.errors.access_denied_exception.AccessDeniedException: <p> Your account isn't registered with Audit Manager. Check the delegated administrator setup on the Audit Manager settings page, and try again. </p>
+            aws_sdk_auditmanager.errors.internal_server_exception.InternalServerException: <p> An internal service error occurred during the processing of your request. Try again later. </p>
+            aws_sdk_auditmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p> The resource that's specified in the request can't be found. </p>
+            aws_sdk_auditmanager.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_auditmanager.errors.validation_exception.ValidationException: <p> The request has invalid or missing parameters. </p>
+            aws_sdk_auditmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2468,6 +2813,13 @@ class AuditManagerClient:
             destination_account: <p> The Amazon Web Services account of the recipient. </p>
             destination_region: <p> The Amazon Web Services Region of the recipient. </p>
             comment: <p> An optional comment from the sender about the share request. </p>
+
+        Raises:
+            aws_sdk_auditmanager.errors.access_denied_exception.AccessDeniedException: <p> Your account isn't registered with Audit Manager. Check the delegated administrator setup on the Audit Manager settings page, and try again. </p>
+            aws_sdk_auditmanager.errors.internal_server_exception.InternalServerException: <p> An internal service error occurred during the processing of your request. Try again later. </p>
+            aws_sdk_auditmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p> The resource that's specified in the request can't be found. </p>
+            aws_sdk_auditmanager.errors.validation_exception.ValidationException: <p> The request has invalid or missing parameters. </p>
+            aws_sdk_auditmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2511,6 +2863,12 @@ class AuditManagerClient:
         Args:
             resource_arn: <p> The Amazon Resource Name (ARN) of the resource. </p>
             tags: <p> The tags that are associated with the resource. </p>
+
+        Raises:
+            aws_sdk_auditmanager.errors.internal_server_exception.InternalServerException: <p> An internal service error occurred during the processing of your request. Try again later. </p>
+            aws_sdk_auditmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p> The resource that's specified in the request can't be found. </p>
+            aws_sdk_auditmanager.errors.validation_exception.ValidationException: <p> The request has invalid or missing parameters. </p>
+            aws_sdk_auditmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2551,6 +2909,12 @@ class AuditManagerClient:
         Args:
             resource_arn: <p> The Amazon Resource Name (ARN) of the specified resource. </p>
             tag_keys: <p> The name or key of the tag. </p>
+
+        Raises:
+            aws_sdk_auditmanager.errors.internal_server_exception.InternalServerException: <p> An internal service error occurred during the processing of your request. Try again later. </p>
+            aws_sdk_auditmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p> The resource that's specified in the request can't be found. </p>
+            aws_sdk_auditmanager.errors.validation_exception.ValidationException: <p> The request has invalid or missing parameters. </p>
+            aws_sdk_auditmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2607,6 +2971,15 @@ class AuditManagerClient:
             scope: <p> The scope of the assessment. </p>
             assessment_reports_destination: <p> The assessment report storage destination for the assessment that's being updated. </p>
             roles: <p> The list of roles for the assessment. </p>
+
+        Raises:
+            aws_sdk_auditmanager.errors.access_denied_exception.AccessDeniedException: <p> Your account isn't registered with Audit Manager. Check the delegated administrator setup on the Audit Manager settings page, and try again. </p>
+            aws_sdk_auditmanager.errors.internal_server_exception.InternalServerException: <p> An internal service error occurred during the processing of your request. Try again later. </p>
+            aws_sdk_auditmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p> The resource that's specified in the request can't be found. </p>
+            aws_sdk_auditmanager.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You've reached your account quota for this resource type. To perform the requested action, delete some existing resources or <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html\">request a quota increase</a> from the Service Quotas console. For a list of Audit Manager service quotas, see <a href=\"https://docs.aws.amazon.com/audit-manager/latest/userguide/service-quotas.html\">Quotas and restrictions for Audit Manager</a>.</p>
+            aws_sdk_auditmanager.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_auditmanager.errors.validation_exception.ValidationException: <p> The request has invalid or missing parameters. </p>
+            aws_sdk_auditmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2665,6 +3038,13 @@ class AuditManagerClient:
             control_id: <p> The unique identifier for the control. </p>
             control_status: <p> The status of the control. </p>
             comment_body: <p> The comment body text for the control. </p>
+
+        Raises:
+            aws_sdk_auditmanager.errors.access_denied_exception.AccessDeniedException: <p> Your account isn't registered with Audit Manager. Check the delegated administrator setup on the Audit Manager settings page, and try again. </p>
+            aws_sdk_auditmanager.errors.internal_server_exception.InternalServerException: <p> An internal service error occurred during the processing of your request. Try again later. </p>
+            aws_sdk_auditmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p> The resource that's specified in the request can't be found. </p>
+            aws_sdk_auditmanager.errors.validation_exception.ValidationException: <p> The request has invalid or missing parameters. </p>
+            aws_sdk_auditmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2714,6 +3094,13 @@ class AuditManagerClient:
             control_set_id: <p> The unique identifier for the control set. </p>
             status: <p> The status of the control set that's being updated. </p>
             comment: <p> The comment that's related to the status update. </p>
+
+        Raises:
+            aws_sdk_auditmanager.errors.access_denied_exception.AccessDeniedException: <p> Your account isn't registered with Audit Manager. Check the delegated administrator setup on the Audit Manager settings page, and try again. </p>
+            aws_sdk_auditmanager.errors.internal_server_exception.InternalServerException: <p> An internal service error occurred during the processing of your request. Try again later. </p>
+            aws_sdk_auditmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p> The resource that's specified in the request can't be found. </p>
+            aws_sdk_auditmanager.errors.validation_exception.ValidationException: <p> The request has invalid or missing parameters. </p>
+            aws_sdk_auditmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2766,6 +3153,14 @@ class AuditManagerClient:
             description: <p> The description of the updated framework. </p>
             compliance_type: <p> The compliance type that the new custom framework supports, such as CIS or HIPAA. </p>
             control_sets: <p> The control sets that are associated with the framework. </p> <note> <p>The <code>Controls</code> object returns a partial response when called through Framework APIs. For a complete <code>Controls</code> object, use <code>GetControl</code>.</p> </note>
+
+        Raises:
+            aws_sdk_auditmanager.errors.access_denied_exception.AccessDeniedException: <p> Your account isn't registered with Audit Manager. Check the delegated administrator setup on the Audit Manager settings page, and try again. </p>
+            aws_sdk_auditmanager.errors.internal_server_exception.InternalServerException: <p> An internal service error occurred during the processing of your request. Try again later. </p>
+            aws_sdk_auditmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p> The resource that's specified in the request can't be found. </p>
+            aws_sdk_auditmanager.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You've reached your account quota for this resource type. To perform the requested action, delete some existing resources or <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html\">request a quota increase</a> from the Service Quotas console. For a list of Audit Manager service quotas, see <a href=\"https://docs.aws.amazon.com/audit-manager/latest/userguide/service-quotas.html\">Quotas and restrictions for Audit Manager</a>.</p>
+            aws_sdk_auditmanager.errors.validation_exception.ValidationException: <p> The request has invalid or missing parameters. </p>
+            aws_sdk_auditmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2813,6 +3208,14 @@ class AuditManagerClient:
             request_id: <p> The unique identifier for the share request. </p>
             request_type: <p>Specifies whether the share request is a sent request or a received request.</p>
             action: <p>Specifies the update action for the share request.</p>
+
+        Raises:
+            aws_sdk_auditmanager.errors.access_denied_exception.AccessDeniedException: <p> Your account isn't registered with Audit Manager. Check the delegated administrator setup on the Audit Manager settings page, and try again. </p>
+            aws_sdk_auditmanager.errors.internal_server_exception.InternalServerException: <p> An internal service error occurred during the processing of your request. Try again later. </p>
+            aws_sdk_auditmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p> The resource that's specified in the request can't be found. </p>
+            aws_sdk_auditmanager.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You've reached your account quota for this resource type. To perform the requested action, delete some existing resources or <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html\">request a quota increase</a> from the Service Quotas console. For a list of Audit Manager service quotas, see <a href=\"https://docs.aws.amazon.com/audit-manager/latest/userguide/service-quotas.html\">Quotas and restrictions for Audit Manager</a>.</p>
+            aws_sdk_auditmanager.errors.validation_exception.ValidationException: <p> The request has invalid or missing parameters. </p>
+            aws_sdk_auditmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2854,6 +3257,14 @@ class AuditManagerClient:
         Args:
             assessment_id: <p> The unique identifier for the assessment. </p>
             status: <p> The current status of the assessment. </p>
+
+        Raises:
+            aws_sdk_auditmanager.errors.access_denied_exception.AccessDeniedException: <p> Your account isn't registered with Audit Manager. Check the delegated administrator setup on the Audit Manager settings page, and try again. </p>
+            aws_sdk_auditmanager.errors.internal_server_exception.InternalServerException: <p> An internal service error occurred during the processing of your request. Try again later. </p>
+            aws_sdk_auditmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p> The resource that's specified in the request can't be found. </p>
+            aws_sdk_auditmanager.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You've reached your account quota for this resource type. To perform the requested action, delete some existing resources or <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html\">request a quota increase</a> from the Service Quotas console. For a list of Audit Manager service quotas, see <a href=\"https://docs.aws.amazon.com/audit-manager/latest/userguide/service-quotas.html\">Quotas and restrictions for Audit Manager</a>.</p>
+            aws_sdk_auditmanager.errors.validation_exception.ValidationException: <p> The request has invalid or missing parameters. </p>
+            aws_sdk_auditmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2912,6 +3323,13 @@ class AuditManagerClient:
             action_plan_title: <p> The title of the action plan for remediating the control. </p>
             action_plan_instructions: <p> The recommended actions to carry out if the control isn't fulfilled. </p>
             control_mapping_sources: <p> The data mapping sources for the control. </p>
+
+        Raises:
+            aws_sdk_auditmanager.errors.access_denied_exception.AccessDeniedException: <p> Your account isn't registered with Audit Manager. Check the delegated administrator setup on the Audit Manager settings page, and try again. </p>
+            aws_sdk_auditmanager.errors.internal_server_exception.InternalServerException: <p> An internal service error occurred during the processing of your request. Try again later. </p>
+            aws_sdk_auditmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p> The resource that's specified in the request can't be found. </p>
+            aws_sdk_auditmanager.errors.validation_exception.ValidationException: <p> The request has invalid or missing parameters. </p>
+            aws_sdk_auditmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2981,6 +3399,12 @@ class AuditManagerClient:
             evidence_finder_enabled: <p>Specifies whether the evidence finder feature is enabled. Change this attribute to enable or disable evidence finder.</p> <important> <p>When you use this attribute to disable evidence finder, Audit Manager deletes the event data store that’s used to query your evidence data. As a result, you can’t re-enable evidence finder and use the feature again. Your only alternative is to <a href=\"https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_DeregisterAccount.html\">deregister</a> and then <a href=\"https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_RegisterAccount.html\">re-register</a> Audit Manager. </p> </important>
             deregistration_policy: <p>The deregistration policy for your Audit Manager data. You can use this attribute to determine how your data is handled when you deregister Audit Manager.</p>
             default_export_destination: <p> The default S3 destination bucket for storing evidence finder exports. </p>
+
+        Raises:
+            aws_sdk_auditmanager.errors.access_denied_exception.AccessDeniedException: <p> Your account isn't registered with Audit Manager. Check the delegated administrator setup on the Audit Manager settings page, and try again. </p>
+            aws_sdk_auditmanager.errors.internal_server_exception.InternalServerException: <p> An internal service error occurred during the processing of your request. Try again later. </p>
+            aws_sdk_auditmanager.errors.validation_exception.ValidationException: <p> The request has invalid or missing parameters. </p>
+            aws_sdk_auditmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3033,6 +3457,13 @@ class AuditManagerClient:
 
         Args:
             s3_relative_path: <p> The relative path of the Amazon S3 bucket that the assessment report is stored in. </p>
+
+        Raises:
+            aws_sdk_auditmanager.errors.access_denied_exception.AccessDeniedException: <p> Your account isn't registered with Audit Manager. Check the delegated administrator setup on the Audit Manager settings page, and try again. </p>
+            aws_sdk_auditmanager.errors.internal_server_exception.InternalServerException: <p> An internal service error occurred during the processing of your request. Try again later. </p>
+            aws_sdk_auditmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p> The resource that's specified in the request can't be found. </p>
+            aws_sdk_auditmanager.errors.validation_exception.ValidationException: <p> The request has invalid or missing parameters. </p>
+            aws_sdk_auditmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(

@@ -475,6 +475,16 @@ class PinpointSMSVoiceV2Client:
             origination_identity: <p>The origination identity to use, such as PhoneNumberId, PhoneNumberArn, SenderId, or SenderIdArn. You can use <a>DescribePhoneNumbers</a> to find the values for PhoneNumberId and PhoneNumberArn, while <a>DescribeSenderIds</a> can be used to get the values for SenderId and SenderIdArn.</p> <important> <p>If you are using a shared End User Messaging SMS resource then you must use the full Amazon Resource Name(ARN).</p> </important>
             iso_country_code: <p>The new two-character code, in ISO 3166-1 alpha-2 format, for the country or region of the origination identity. This field is optional and is not required for origination identity types that are not country-specific, such as RCS agents.</p>
             client_token: <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If you don't specify a client token, a randomly generated token is used for the request to ensure idempotency.</p>
+
+        Raises:
+            aws_sdk_pinpoint_sms_voice_v2.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because you don't have sufficient permissions to access the resource.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.conflict_exception.ConflictException: <p>Your request has conflicting operations. This can occur if you're trying to perform more than one operation on the same resource at the same time or it could be that the requested action isn't valid for the current state or configuration of the resource.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.internal_server_exception.InternalServerException: <p>The API encountered an unexpected error and couldn't complete the request. You might be able to successfully issue the request again in the future.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.resource_not_found_exception.ResourceNotFoundException: <p>A requested resource couldn't be found.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request would cause a service quota to be exceeded.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.throttling_exception.ThrottlingException: <p>An error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.validation_exception.ValidationException: <p>A validation exception for a field.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -519,6 +529,15 @@ class PinpointSMSVoiceV2Client:
         Args:
             protect_configuration_id: <p>The unique identifier for the protect configuration.</p>
             configuration_set_name: <p>The name of the ConfigurationSet.</p>
+
+        Raises:
+            aws_sdk_pinpoint_sms_voice_v2.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because you don't have sufficient permissions to access the resource.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.conflict_exception.ConflictException: <p>Your request has conflicting operations. This can occur if you're trying to perform more than one operation on the same resource at the same time or it could be that the requested action isn't valid for the current state or configuration of the resource.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.internal_server_exception.InternalServerException: <p>The API encountered an unexpected error and couldn't complete the request. You might be able to successfully issue the request again in the future.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.resource_not_found_exception.ResourceNotFoundException: <p>A requested resource couldn't be found.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.throttling_exception.ThrottlingException: <p>An error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.validation_exception.ValidationException: <p>A validation exception for a field.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -559,6 +578,14 @@ class PinpointSMSVoiceV2Client:
 
         Args:
             phone_number: <p>The phone number that you want to retrieve information about. You can provide the phone number in various formats including special characters such as parentheses, brackets, spaces, hyphens, periods, and commas. The service automatically converts the input to E164 format for processing.</p>
+
+        Raises:
+            aws_sdk_pinpoint_sms_voice_v2.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because you don't have sufficient permissions to access the resource.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.internal_server_exception.InternalServerException: <p>The API encountered an unexpected error and couldn't complete the request. You might be able to successfully issue the request again in the future.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request would cause a service quota to be exceeded.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.throttling_exception.ThrottlingException: <p>An error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.validation_exception.ValidationException: <p>A validation exception for a field.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Use CarrierLookup
@@ -608,6 +635,15 @@ class PinpointSMSVoiceV2Client:
             configuration_set_name: <p>The name to use for the new configuration set.</p>
             tags: <p>An array of key and value pair tags that's associated with the new configuration set. </p>
             client_token: <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If you don't specify a client token, a randomly generated token is used for the request to ensure idempotency.</p>
+
+        Raises:
+            aws_sdk_pinpoint_sms_voice_v2.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because you don't have sufficient permissions to access the resource.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.conflict_exception.ConflictException: <p>Your request has conflicting operations. This can occur if you're trying to perform more than one operation on the same resource at the same time or it could be that the requested action isn't valid for the current state or configuration of the resource.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.internal_server_exception.InternalServerException: <p>The API encountered an unexpected error and couldn't complete the request. You might be able to successfully issue the request again in the future.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request would cause a service quota to be exceeded.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.throttling_exception.ThrottlingException: <p>An error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.validation_exception.ValidationException: <p>A validation exception for a field.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -669,6 +705,16 @@ class PinpointSMSVoiceV2Client:
             kinesis_firehose_destination: <p>An object that contains information about an event destination for logging to Amazon Data Firehose.</p>
             sns_destination: <p>An object that contains information about an event destination for logging to Amazon SNS.</p>
             client_token: <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If you don't specify a client token, a randomly generated token is used for the request to ensure idempotency.</p>
+
+        Raises:
+            aws_sdk_pinpoint_sms_voice_v2.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because you don't have sufficient permissions to access the resource.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.conflict_exception.ConflictException: <p>Your request has conflicting operations. This can occur if you're trying to perform more than one operation on the same resource at the same time or it could be that the requested action isn't valid for the current state or configuration of the resource.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.internal_server_exception.InternalServerException: <p>The API encountered an unexpected error and couldn't complete the request. You might be able to successfully issue the request again in the future.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.resource_not_found_exception.ResourceNotFoundException: <p>A requested resource couldn't be found.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request would cause a service quota to be exceeded.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.throttling_exception.ThrottlingException: <p>An error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.validation_exception.ValidationException: <p>A validation exception for a field.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -741,6 +787,16 @@ class PinpointSMSVoiceV2Client:
             client_token: <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If you don't specify a client token, a randomly generated token is used for the request to ensure idempotency.</p>
             tags: <p>An array of tags (key and value pairs) associated with the notify configuration.</p>
 
+        Raises:
+            aws_sdk_pinpoint_sms_voice_v2.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because you don't have sufficient permissions to access the resource.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.conflict_exception.ConflictException: <p>Your request has conflicting operations. This can occur if you're trying to perform more than one operation on the same resource at the same time or it could be that the requested action isn't valid for the current state or configuration of the resource.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.internal_server_exception.InternalServerException: <p>The API encountered an unexpected error and couldn't complete the request. You might be able to successfully issue the request again in the future.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.resource_not_found_exception.ResourceNotFoundException: <p>A requested resource couldn't be found.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request would cause a service quota to be exceeded.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.throttling_exception.ThrottlingException: <p>An error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.validation_exception.ValidationException: <p>A validation exception for a field.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             CreateNotifyConfiguration
             Create a notify configuration for OTP code verification over SMS.
@@ -803,6 +859,15 @@ class PinpointSMSVoiceV2Client:
             opt_out_list_name: <p>The name of the new OptOutList.</p>
             tags: <p>An array of tags (key and value pairs) to associate with the new OptOutList.</p>
             client_token: <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If you don't specify a client token, a randomly generated token is used for the request to ensure idempotency.</p>
+
+        Raises:
+            aws_sdk_pinpoint_sms_voice_v2.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because you don't have sufficient permissions to access the resource.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.conflict_exception.ConflictException: <p>Your request has conflicting operations. This can occur if you're trying to perform more than one operation on the same resource at the same time or it could be that the requested action isn't valid for the current state or configuration of the resource.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.internal_server_exception.InternalServerException: <p>The API encountered an unexpected error and couldn't complete the request. You might be able to successfully issue the request again in the future.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request would cause a service quota to be exceeded.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.throttling_exception.ThrottlingException: <p>An error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.validation_exception.ValidationException: <p>A validation exception for a field.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -858,6 +923,16 @@ class PinpointSMSVoiceV2Client:
             deletion_protection_enabled: <p>By default this is set to false. When set to true the pool can't be deleted. You can change this value using the <a href=\"https://docs.aws.amazon.com/pinpoint/latest/apireference_smsvoicev2/API_UpdatePool.html\">UpdatePool</a> action.</p>
             tags: <p>An array of tags (key and value pairs) associated with the pool.</p>
             client_token: <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If you don't specify a client token, a randomly generated token is used for the request to ensure idempotency.</p>
+
+        Raises:
+            aws_sdk_pinpoint_sms_voice_v2.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because you don't have sufficient permissions to access the resource.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.conflict_exception.ConflictException: <p>Your request has conflicting operations. This can occur if you're trying to perform more than one operation on the same resource at the same time or it could be that the requested action isn't valid for the current state or configuration of the resource.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.internal_server_exception.InternalServerException: <p>The API encountered an unexpected error and couldn't complete the request. You might be able to successfully issue the request again in the future.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.resource_not_found_exception.ResourceNotFoundException: <p>A requested resource couldn't be found.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request would cause a service quota to be exceeded.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.throttling_exception.ThrottlingException: <p>An error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.validation_exception.ValidationException: <p>A validation exception for a field.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -910,6 +985,15 @@ class PinpointSMSVoiceV2Client:
             client_token: <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If you don't specify a client token, a randomly generated token is used for the request to ensure idempotency.</p>
             deletion_protection_enabled: <p>When set to true deletion protection is enabled. By default this is set to false. </p>
             tags: <p>An array of key and value pair tags that are associated with the resource.</p>
+
+        Raises:
+            aws_sdk_pinpoint_sms_voice_v2.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because you don't have sufficient permissions to access the resource.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.conflict_exception.ConflictException: <p>Your request has conflicting operations. This can occur if you're trying to perform more than one operation on the same resource at the same time or it could be that the requested action isn't valid for the current state or configuration of the resource.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.internal_server_exception.InternalServerException: <p>The API encountered an unexpected error and couldn't complete the request. You might be able to successfully issue the request again in the future.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request would cause a service quota to be exceeded.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.throttling_exception.ThrottlingException: <p>An error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.validation_exception.ValidationException: <p>A validation exception for a field.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -962,6 +1046,16 @@ class PinpointSMSVoiceV2Client:
             opt_out_list_name: <p>The OptOutList to associate with the RCS agent. Valid values are either OptOutListName or OptOutListArn.</p>
             tags: <p>An array of tags (key and value pairs) associated with the RCS agent.</p>
             client_token: <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If you don't specify a client token, a randomly generated token is used for the request to ensure idempotency.</p>
+
+        Raises:
+            aws_sdk_pinpoint_sms_voice_v2.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because you don't have sufficient permissions to access the resource.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.conflict_exception.ConflictException: <p>Your request has conflicting operations. This can occur if you're trying to perform more than one operation on the same resource at the same time or it could be that the requested action isn't valid for the current state or configuration of the resource.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.internal_server_exception.InternalServerException: <p>The API encountered an unexpected error and couldn't complete the request. You might be able to successfully issue the request again in the future.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.resource_not_found_exception.ResourceNotFoundException: <p>A requested resource couldn't be found.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request would cause a service quota to be exceeded.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.throttling_exception.ThrottlingException: <p>An error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.validation_exception.ValidationException: <p>A validation exception for a field.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1012,6 +1106,15 @@ class PinpointSMSVoiceV2Client:
             registration_type: <p>The type of registration form to create. The list of <b>RegistrationTypes</b> can be found using the <a>DescribeRegistrationTypeDefinitions</a> action.</p>
             tags: <p>An array of tags (key and value pairs) to associate with the registration.</p>
             client_token: <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If you don't specify a client token, a randomly generated token is used for the request to ensure idempotency.</p>
+
+        Raises:
+            aws_sdk_pinpoint_sms_voice_v2.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because you don't have sufficient permissions to access the resource.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.conflict_exception.ConflictException: <p>Your request has conflicting operations. This can occur if you're trying to perform more than one operation on the same resource at the same time or it could be that the requested action isn't valid for the current state or configuration of the resource.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.internal_server_exception.InternalServerException: <p>The API encountered an unexpected error and couldn't complete the request. You might be able to successfully issue the request again in the future.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request would cause a service quota to be exceeded.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.throttling_exception.ThrottlingException: <p>An error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.validation_exception.ValidationException: <p>A validation exception for a field.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1055,6 +1158,16 @@ class PinpointSMSVoiceV2Client:
         Args:
             registration_id: <p>The unique identifier for the registration.</p>
             resource_id: <p>The unique identifier for the origination identity. For example this could be a <b>PhoneNumberId</b> or <b>SenderId</b>.</p>
+
+        Raises:
+            aws_sdk_pinpoint_sms_voice_v2.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because you don't have sufficient permissions to access the resource.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.conflict_exception.ConflictException: <p>Your request has conflicting operations. This can occur if you're trying to perform more than one operation on the same resource at the same time or it could be that the requested action isn't valid for the current state or configuration of the resource.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.internal_server_exception.InternalServerException: <p>The API encountered an unexpected error and couldn't complete the request. You might be able to successfully issue the request again in the future.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.resource_not_found_exception.ResourceNotFoundException: <p>A requested resource couldn't be found.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request would cause a service quota to be exceeded.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.throttling_exception.ThrottlingException: <p>An error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.validation_exception.ValidationException: <p>A validation exception for a field.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1105,6 +1218,15 @@ class PinpointSMSVoiceV2Client:
             attachment_url: <p>Registration files have to be stored in an Amazon S3 bucket. The URI to use when sending is in the format <code>s3://BucketName/FileName</code>.</p>
             tags: <p>An array of tags (key and value pairs) to associate with the registration attachment.</p>
             client_token: <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If you don't specify a client token, a randomly generated token is used for the request to ensure idempotency.</p>
+
+        Raises:
+            aws_sdk_pinpoint_sms_voice_v2.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because you don't have sufficient permissions to access the resource.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.conflict_exception.ConflictException: <p>Your request has conflicting operations. This can occur if you're trying to perform more than one operation on the same resource at the same time or it could be that the requested action isn't valid for the current state or configuration of the resource.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.internal_server_exception.InternalServerException: <p>The API encountered an unexpected error and couldn't complete the request. You might be able to successfully issue the request again in the future.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request would cause a service quota to be exceeded.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.throttling_exception.ThrottlingException: <p>An error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.validation_exception.ValidationException: <p>A validation exception for a field.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1149,6 +1271,16 @@ class PinpointSMSVoiceV2Client:
 
         Args:
             registration_id: <p>The unique identifier for the registration.</p>
+
+        Raises:
+            aws_sdk_pinpoint_sms_voice_v2.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because you don't have sufficient permissions to access the resource.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.conflict_exception.ConflictException: <p>Your request has conflicting operations. This can occur if you're trying to perform more than one operation on the same resource at the same time or it could be that the requested action isn't valid for the current state or configuration of the resource.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.internal_server_exception.InternalServerException: <p>The API encountered an unexpected error and couldn't complete the request. You might be able to successfully issue the request again in the future.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.resource_not_found_exception.ResourceNotFoundException: <p>A requested resource couldn't be found.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request would cause a service quota to be exceeded.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.throttling_exception.ThrottlingException: <p>An error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.validation_exception.ValidationException: <p>A validation exception for a field.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1196,6 +1328,16 @@ class PinpointSMSVoiceV2Client:
             rcs_agent_id: <p>The unique identifier of the RCS agent to associate with the verified destination number. You can use either the RcsAgentId or RcsAgentArn.</p>
             tags: <p>An array of tags (key and value pairs) to associate with the destination number.</p>
             client_token: <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If you don't specify a client token, a randomly generated token is used for the request to ensure idempotency.</p>
+
+        Raises:
+            aws_sdk_pinpoint_sms_voice_v2.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because you don't have sufficient permissions to access the resource.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.conflict_exception.ConflictException: <p>Your request has conflicting operations. This can occur if you're trying to perform more than one operation on the same resource at the same time or it could be that the requested action isn't valid for the current state or configuration of the resource.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.internal_server_exception.InternalServerException: <p>The API encountered an unexpected error and couldn't complete the request. You might be able to successfully issue the request again in the future.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.resource_not_found_exception.ResourceNotFoundException: <p>A requested resource couldn't be found.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request would cause a service quota to be exceeded.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.throttling_exception.ThrottlingException: <p>An error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.validation_exception.ValidationException: <p>A validation exception for a field.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1232,7 +1374,16 @@ class PinpointSMSVoiceV2Client:
     def delete_account_default_protect_configuration(
         self, *, config_overrides: Optional[PinpointSMSVoiceV2ClientConfig] = None
     ) -> "aws_sdk_pinpoint_sms_voice_v2.types.delete_account_default_protect_configuration_result.DeleteAccountDefaultProtectConfigurationResult":
-        """<p>Removes the current account default protect configuration.</p>"""
+        """<p>Removes the current account default protect configuration.</p>
+
+        Raises:
+            aws_sdk_pinpoint_sms_voice_v2.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because you don't have sufficient permissions to access the resource.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.internal_server_exception.InternalServerException: <p>The API encountered an unexpected error and couldn't complete the request. You might be able to successfully issue the request again in the future.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.resource_not_found_exception.ResourceNotFoundException: <p>A requested resource couldn't be found.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.throttling_exception.ThrottlingException: <p>An error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.validation_exception.ValidationException: <p>A validation exception for a field.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_pinpoint_sms_voice_v2.types.delete_account_default_protect_configuration_request.DeleteAccountDefaultProtectConfigurationRequest]",
@@ -1268,6 +1419,14 @@ class PinpointSMSVoiceV2Client:
 
         Args:
             configuration_set_name: <p>The name of the configuration set or the configuration set ARN that you want to delete. The ConfigurationSetName and ConfigurationSetArn can be found using the <a>DescribeConfigurationSets</a> action.</p>
+
+        Raises:
+            aws_sdk_pinpoint_sms_voice_v2.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because you don't have sufficient permissions to access the resource.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.internal_server_exception.InternalServerException: <p>The API encountered an unexpected error and couldn't complete the request. You might be able to successfully issue the request again in the future.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.resource_not_found_exception.ResourceNotFoundException: <p>A requested resource couldn't be found.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.throttling_exception.ThrottlingException: <p>An error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.validation_exception.ValidationException: <p>A validation exception for a field.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1305,6 +1464,14 @@ class PinpointSMSVoiceV2Client:
 
         Args:
             configuration_set_name: <p>The name of the configuration set or the configuration set Amazon Resource Name (ARN) to delete the default message type from. The ConfigurationSetName and ConfigurationSetArn can be found using the <a>DescribeConfigurationSets</a> action.</p>
+
+        Raises:
+            aws_sdk_pinpoint_sms_voice_v2.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because you don't have sufficient permissions to access the resource.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.internal_server_exception.InternalServerException: <p>The API encountered an unexpected error and couldn't complete the request. You might be able to successfully issue the request again in the future.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.resource_not_found_exception.ResourceNotFoundException: <p>A requested resource couldn't be found.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.throttling_exception.ThrottlingException: <p>An error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.validation_exception.ValidationException: <p>A validation exception for a field.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1342,6 +1509,14 @@ class PinpointSMSVoiceV2Client:
 
         Args:
             configuration_set_name: <p>The name of the configuration set or the configuration set Amazon Resource Name (ARN) to delete the default sender ID from. The ConfigurationSetName and ConfigurationSetArn can be found using the <a>DescribeConfigurationSets</a> action.</p>
+
+        Raises:
+            aws_sdk_pinpoint_sms_voice_v2.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because you don't have sufficient permissions to access the resource.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.internal_server_exception.InternalServerException: <p>The API encountered an unexpected error and couldn't complete the request. You might be able to successfully issue the request again in the future.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.resource_not_found_exception.ResourceNotFoundException: <p>A requested resource couldn't be found.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.throttling_exception.ThrottlingException: <p>An error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.validation_exception.ValidationException: <p>A validation exception for a field.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1381,6 +1556,14 @@ class PinpointSMSVoiceV2Client:
         Args:
             configuration_set_name: <p>The name of the configuration set or the configuration set's Amazon Resource Name (ARN) to remove the event destination from. The ConfigurateSetName and ConfigurationSetArn can be found using the <a>DescribeConfigurationSets</a> action.</p>
             event_destination_name: <p>The name of the event destination to delete.</p>
+
+        Raises:
+            aws_sdk_pinpoint_sms_voice_v2.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because you don't have sufficient permissions to access the resource.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.internal_server_exception.InternalServerException: <p>The API encountered an unexpected error and couldn't complete the request. You might be able to successfully issue the request again in the future.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.resource_not_found_exception.ResourceNotFoundException: <p>A requested resource couldn't be found.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.throttling_exception.ThrottlingException: <p>An error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.validation_exception.ValidationException: <p>A validation exception for a field.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1423,6 +1606,15 @@ class PinpointSMSVoiceV2Client:
         Args:
             origination_identity: <p>The origination identity to use such as a PhoneNumberId, PhoneNumberArn, PoolId or PoolArn. You can use <a>DescribePhoneNumbers</a> to find the values for PhoneNumberId and PhoneNumberArn and <a>DescribePools</a> to find the values of PoolId and PoolArn.</p> <important> <p>If you are using a shared End User Messaging SMS resource then you must use the full Amazon Resource Name(ARN).</p> </important>
             keyword: <p>The keyword to delete.</p>
+
+        Raises:
+            aws_sdk_pinpoint_sms_voice_v2.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because you don't have sufficient permissions to access the resource.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.conflict_exception.ConflictException: <p>Your request has conflicting operations. This can occur if you're trying to perform more than one operation on the same resource at the same time or it could be that the requested action isn't valid for the current state or configuration of the resource.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.internal_server_exception.InternalServerException: <p>The API encountered an unexpected error and couldn't complete the request. You might be able to successfully issue the request again in the future.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.resource_not_found_exception.ResourceNotFoundException: <p>A requested resource couldn't be found.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.throttling_exception.ThrottlingException: <p>An error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.validation_exception.ValidationException: <p>A validation exception for a field.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1454,7 +1646,15 @@ class PinpointSMSVoiceV2Client:
     def delete_media_message_spend_limit_override(
         self, *, config_overrides: Optional[PinpointSMSVoiceV2ClientConfig] = None
     ) -> "aws_sdk_pinpoint_sms_voice_v2.types.delete_media_message_spend_limit_override_result.DeleteMediaMessageSpendLimitOverrideResult":
-        r"""<p>Deletes an account-level monthly spending limit override for sending multimedia messages (MMS). Deleting a spend limit override will set the <code>EnforcedLimit</code> to equal the <code>MaxLimit</code>, which is controlled by Amazon Web Services. For more information on spend limits (quotas) see <a href=\"https://docs.aws.amazon.com/sms-voice/latest/userguide/quotas.html\">Quotas for Server Migration Service</a> in the <i>Server Migration Service User Guide</i>.</p>"""
+        r"""<p>Deletes an account-level monthly spending limit override for sending multimedia messages (MMS). Deleting a spend limit override will set the <code>EnforcedLimit</code> to equal the <code>MaxLimit</code>, which is controlled by Amazon Web Services. For more information on spend limits (quotas) see <a href=\"https://docs.aws.amazon.com/sms-voice/latest/userguide/quotas.html\">Quotas for Server Migration Service</a> in the <i>Server Migration Service User Guide</i>.</p>
+
+        Raises:
+            aws_sdk_pinpoint_sms_voice_v2.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because you don't have sufficient permissions to access the resource.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.internal_server_exception.InternalServerException: <p>The API encountered an unexpected error and couldn't complete the request. You might be able to successfully issue the request again in the future.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.throttling_exception.ThrottlingException: <p>An error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.validation_exception.ValidationException: <p>A validation exception for a field.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_pinpoint_sms_voice_v2.types.delete_media_message_spend_limit_override_request.DeleteMediaMessageSpendLimitOverrideRequest]",
@@ -1490,6 +1690,15 @@ class PinpointSMSVoiceV2Client:
 
         Args:
             notify_configuration_id: <p>The identifier of the notify configuration to delete. The NotifyConfigurationId can be found using the <a>DescribeNotifyConfigurations</a> operation.</p>
+
+        Raises:
+            aws_sdk_pinpoint_sms_voice_v2.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because you don't have sufficient permissions to access the resource.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.conflict_exception.ConflictException: <p>Your request has conflicting operations. This can occur if you're trying to perform more than one operation on the same resource at the same time or it could be that the requested action isn't valid for the current state or configuration of the resource.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.internal_server_exception.InternalServerException: <p>The API encountered an unexpected error and couldn't complete the request. You might be able to successfully issue the request again in the future.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.resource_not_found_exception.ResourceNotFoundException: <p>A requested resource couldn't be found.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.throttling_exception.ThrottlingException: <p>An error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.validation_exception.ValidationException: <p>A validation exception for a field.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             DeleteNotifyConfiguration
@@ -1527,6 +1736,13 @@ class PinpointSMSVoiceV2Client:
         self, *, config_overrides: Optional[PinpointSMSVoiceV2ClientConfig] = None
     ) -> "aws_sdk_pinpoint_sms_voice_v2.types.delete_notify_message_spend_limit_override_result.DeleteNotifyMessageSpendLimitOverrideResult":
         r"""<p>Deletes an account-level monthly spending limit override for sending notify messages. Deleting a spend limit override will set the <code>EnforcedLimit</code> to equal the <code>MaxLimit</code>, which is controlled by Amazon Web Services. For more information on spend limits (quotas) see <a href=\"https://docs.aws.amazon.com/sms-voice/latest/userguide/quotas.html\">Quotas </a> in the <i>End User Messaging SMS User Guide</i>.</p>
+
+        Raises:
+            aws_sdk_pinpoint_sms_voice_v2.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because you don't have sufficient permissions to access the resource.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.internal_server_exception.InternalServerException: <p>The API encountered an unexpected error and couldn't complete the request. You might be able to successfully issue the request again in the future.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.throttling_exception.ThrottlingException: <p>An error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.validation_exception.ValidationException: <p>A validation exception for a field.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             DeleteNotifyMessageSpendLimitOverride
@@ -1571,6 +1787,15 @@ class PinpointSMSVoiceV2Client:
         Args:
             opt_out_list_name: <p>The OptOutListName or OptOutListArn to remove the phone number from.</p> <important> <p>If you are using a shared End User Messaging SMS resource then you must use the full Amazon Resource Name(ARN).</p> </important>
             opted_out_number: <p>The phone number, in E.164 format, to remove from the OptOutList.</p>
+
+        Raises:
+            aws_sdk_pinpoint_sms_voice_v2.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because you don't have sufficient permissions to access the resource.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.conflict_exception.ConflictException: <p>Your request has conflicting operations. This can occur if you're trying to perform more than one operation on the same resource at the same time or it could be that the requested action isn't valid for the current state or configuration of the resource.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.internal_server_exception.InternalServerException: <p>The API encountered an unexpected error and couldn't complete the request. You might be able to successfully issue the request again in the future.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.resource_not_found_exception.ResourceNotFoundException: <p>A requested resource couldn't be found.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.throttling_exception.ThrottlingException: <p>An error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.validation_exception.ValidationException: <p>A validation exception for a field.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1609,6 +1834,15 @@ class PinpointSMSVoiceV2Client:
 
         Args:
             opt_out_list_name: <p>The OptOutListName or OptOutListArn of the OptOutList to delete. You can use <a>DescribeOptOutLists</a> to find the values for OptOutListName and OptOutListArn.</p> <important> <p>If you are using a shared End User Messaging SMS resource then you must use the full Amazon Resource Name(ARN).</p> </important>
+
+        Raises:
+            aws_sdk_pinpoint_sms_voice_v2.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because you don't have sufficient permissions to access the resource.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.conflict_exception.ConflictException: <p>Your request has conflicting operations. This can occur if you're trying to perform more than one operation on the same resource at the same time or it could be that the requested action isn't valid for the current state or configuration of the resource.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.internal_server_exception.InternalServerException: <p>The API encountered an unexpected error and couldn't complete the request. You might be able to successfully issue the request again in the future.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.resource_not_found_exception.ResourceNotFoundException: <p>A requested resource couldn't be found.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.throttling_exception.ThrottlingException: <p>An error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.validation_exception.ValidationException: <p>A validation exception for a field.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1646,6 +1880,15 @@ class PinpointSMSVoiceV2Client:
 
         Args:
             pool_id: <p>The PoolId or PoolArn of the pool to delete. You can use <a>DescribePools</a> to find the values for PoolId and PoolArn .</p> <important> <p>If you are using a shared End User Messaging SMS resource then you must use the full Amazon Resource Name(ARN).</p> </important>
+
+        Raises:
+            aws_sdk_pinpoint_sms_voice_v2.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because you don't have sufficient permissions to access the resource.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.conflict_exception.ConflictException: <p>Your request has conflicting operations. This can occur if you're trying to perform more than one operation on the same resource at the same time or it could be that the requested action isn't valid for the current state or configuration of the resource.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.internal_server_exception.InternalServerException: <p>The API encountered an unexpected error and couldn't complete the request. You might be able to successfully issue the request again in the future.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.resource_not_found_exception.ResourceNotFoundException: <p>A requested resource couldn't be found.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.throttling_exception.ThrottlingException: <p>An error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.validation_exception.ValidationException: <p>A validation exception for a field.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1683,6 +1926,15 @@ class PinpointSMSVoiceV2Client:
 
         Args:
             protect_configuration_id: <p>The unique identifier for the protect configuration.</p>
+
+        Raises:
+            aws_sdk_pinpoint_sms_voice_v2.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because you don't have sufficient permissions to access the resource.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.conflict_exception.ConflictException: <p>Your request has conflicting operations. This can occur if you're trying to perform more than one operation on the same resource at the same time or it could be that the requested action isn't valid for the current state or configuration of the resource.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.internal_server_exception.InternalServerException: <p>The API encountered an unexpected error and couldn't complete the request. You might be able to successfully issue the request again in the future.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.resource_not_found_exception.ResourceNotFoundException: <p>A requested resource couldn't be found.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.throttling_exception.ThrottlingException: <p>An error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.validation_exception.ValidationException: <p>A validation exception for a field.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1722,6 +1974,14 @@ class PinpointSMSVoiceV2Client:
         Args:
             protect_configuration_id: <p>The unique identifier for the protect configuration.</p>
             destination_phone_number: <p>The destination phone number in E.164 format.</p>
+
+        Raises:
+            aws_sdk_pinpoint_sms_voice_v2.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because you don't have sufficient permissions to access the resource.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.internal_server_exception.InternalServerException: <p>The API encountered an unexpected error and couldn't complete the request. You might be able to successfully issue the request again in the future.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.resource_not_found_exception.ResourceNotFoundException: <p>A requested resource couldn't be found.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.throttling_exception.ThrottlingException: <p>An error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.validation_exception.ValidationException: <p>A validation exception for a field.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1760,6 +2020,15 @@ class PinpointSMSVoiceV2Client:
 
         Args:
             rcs_agent_id: <p>The unique identifier of the RCS agent to delete. You can use either the RcsAgentId or RcsAgentArn.</p>
+
+        Raises:
+            aws_sdk_pinpoint_sms_voice_v2.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because you don't have sufficient permissions to access the resource.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.conflict_exception.ConflictException: <p>Your request has conflicting operations. This can occur if you're trying to perform more than one operation on the same resource at the same time or it could be that the requested action isn't valid for the current state or configuration of the resource.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.internal_server_exception.InternalServerException: <p>The API encountered an unexpected error and couldn't complete the request. You might be able to successfully issue the request again in the future.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.resource_not_found_exception.ResourceNotFoundException: <p>A requested resource couldn't be found.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.throttling_exception.ThrottlingException: <p>An error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.validation_exception.ValidationException: <p>A validation exception for a field.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1797,6 +2066,15 @@ class PinpointSMSVoiceV2Client:
 
         Args:
             registration_id: <p>The unique identifier for the registration.</p>
+
+        Raises:
+            aws_sdk_pinpoint_sms_voice_v2.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because you don't have sufficient permissions to access the resource.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.conflict_exception.ConflictException: <p>Your request has conflicting operations. This can occur if you're trying to perform more than one operation on the same resource at the same time or it could be that the requested action isn't valid for the current state or configuration of the resource.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.internal_server_exception.InternalServerException: <p>The API encountered an unexpected error and couldn't complete the request. You might be able to successfully issue the request again in the future.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.resource_not_found_exception.ResourceNotFoundException: <p>A requested resource couldn't be found.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.throttling_exception.ThrottlingException: <p>An error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.validation_exception.ValidationException: <p>A validation exception for a field.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1834,6 +2112,15 @@ class PinpointSMSVoiceV2Client:
 
         Args:
             registration_attachment_id: <p>The unique identifier for the registration attachment.</p>
+
+        Raises:
+            aws_sdk_pinpoint_sms_voice_v2.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because you don't have sufficient permissions to access the resource.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.conflict_exception.ConflictException: <p>Your request has conflicting operations. This can occur if you're trying to perform more than one operation on the same resource at the same time or it could be that the requested action isn't valid for the current state or configuration of the resource.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.internal_server_exception.InternalServerException: <p>The API encountered an unexpected error and couldn't complete the request. You might be able to successfully issue the request again in the future.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.resource_not_found_exception.ResourceNotFoundException: <p>A requested resource couldn't be found.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.throttling_exception.ThrottlingException: <p>An error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.validation_exception.ValidationException: <p>A validation exception for a field.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1873,6 +2160,15 @@ class PinpointSMSVoiceV2Client:
         Args:
             registration_id: <p>The unique identifier for the registration.</p>
             field_path: <p>The path to the registration form field. You can use <a>DescribeRegistrationFieldDefinitions</a> for a list of <b>FieldPaths</b>.</p>
+
+        Raises:
+            aws_sdk_pinpoint_sms_voice_v2.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because you don't have sufficient permissions to access the resource.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.conflict_exception.ConflictException: <p>Your request has conflicting operations. This can occur if you're trying to perform more than one operation on the same resource at the same time or it could be that the requested action isn't valid for the current state or configuration of the resource.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.internal_server_exception.InternalServerException: <p>The API encountered an unexpected error and couldn't complete the request. You might be able to successfully issue the request again in the future.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.resource_not_found_exception.ResourceNotFoundException: <p>A requested resource couldn't be found.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.throttling_exception.ThrottlingException: <p>An error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.validation_exception.ValidationException: <p>A validation exception for a field.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1911,6 +2207,14 @@ class PinpointSMSVoiceV2Client:
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the End User Messaging SMS resource you're deleting the resource-based policy from.</p>
+
+        Raises:
+            aws_sdk_pinpoint_sms_voice_v2.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because you don't have sufficient permissions to access the resource.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.internal_server_exception.InternalServerException: <p>The API encountered an unexpected error and couldn't complete the request. You might be able to successfully issue the request again in the future.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.resource_not_found_exception.ResourceNotFoundException: <p>A requested resource couldn't be found.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.throttling_exception.ThrottlingException: <p>An error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.validation_exception.ValidationException: <p>A validation exception for a field.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1941,7 +2245,15 @@ class PinpointSMSVoiceV2Client:
     def delete_text_message_spend_limit_override(
         self, *, config_overrides: Optional[PinpointSMSVoiceV2ClientConfig] = None
     ) -> "aws_sdk_pinpoint_sms_voice_v2.types.delete_text_message_spend_limit_override_result.DeleteTextMessageSpendLimitOverrideResult":
-        r"""<p>Deletes an account-level monthly spending limit override for sending text messages. Deleting a spend limit override will set the <code>EnforcedLimit</code> to equal the <code>MaxLimit</code>, which is controlled by Amazon Web Services. For more information on spend limits (quotas) see <a href=\"https://docs.aws.amazon.com/sms-voice/latest/userguide/quotas.html\">Quotas </a> in the <i>End User Messaging SMS User Guide</i>.</p>"""
+        r"""<p>Deletes an account-level monthly spending limit override for sending text messages. Deleting a spend limit override will set the <code>EnforcedLimit</code> to equal the <code>MaxLimit</code>, which is controlled by Amazon Web Services. For more information on spend limits (quotas) see <a href=\"https://docs.aws.amazon.com/sms-voice/latest/userguide/quotas.html\">Quotas </a> in the <i>End User Messaging SMS User Guide</i>.</p>
+
+        Raises:
+            aws_sdk_pinpoint_sms_voice_v2.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because you don't have sufficient permissions to access the resource.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.internal_server_exception.InternalServerException: <p>The API encountered an unexpected error and couldn't complete the request. You might be able to successfully issue the request again in the future.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.throttling_exception.ThrottlingException: <p>An error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.validation_exception.ValidationException: <p>A validation exception for a field.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_pinpoint_sms_voice_v2.types.delete_text_message_spend_limit_override_request.DeleteTextMessageSpendLimitOverrideRequest]",
@@ -1977,6 +2289,15 @@ class PinpointSMSVoiceV2Client:
 
         Args:
             verified_destination_number_id: <p>The unique identifier for the verified destination phone number.</p>
+
+        Raises:
+            aws_sdk_pinpoint_sms_voice_v2.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because you don't have sufficient permissions to access the resource.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.conflict_exception.ConflictException: <p>Your request has conflicting operations. This can occur if you're trying to perform more than one operation on the same resource at the same time or it could be that the requested action isn't valid for the current state or configuration of the resource.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.internal_server_exception.InternalServerException: <p>The API encountered an unexpected error and couldn't complete the request. You might be able to successfully issue the request again in the future.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.resource_not_found_exception.ResourceNotFoundException: <p>A requested resource couldn't be found.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.throttling_exception.ThrottlingException: <p>An error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.validation_exception.ValidationException: <p>A validation exception for a field.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2007,7 +2328,15 @@ class PinpointSMSVoiceV2Client:
     def delete_voice_message_spend_limit_override(
         self, *, config_overrides: Optional[PinpointSMSVoiceV2ClientConfig] = None
     ) -> "aws_sdk_pinpoint_sms_voice_v2.types.delete_voice_message_spend_limit_override_result.DeleteVoiceMessageSpendLimitOverrideResult":
-        r"""<p>Deletes an account level monthly spend limit override for sending voice messages. Deleting a spend limit override sets the <code>EnforcedLimit</code> equal to the <code>MaxLimit</code>, which is controlled by Amazon Web Services. For more information on spending limits (quotas) see <a href=\"https://docs.aws.amazon.com/sms-voice/latest/userguide/quotas.html\">Quotas </a> in the <i>End User Messaging SMS User Guide</i>.</p>"""
+        r"""<p>Deletes an account level monthly spend limit override for sending voice messages. Deleting a spend limit override sets the <code>EnforcedLimit</code> equal to the <code>MaxLimit</code>, which is controlled by Amazon Web Services. For more information on spending limits (quotas) see <a href=\"https://docs.aws.amazon.com/sms-voice/latest/userguide/quotas.html\">Quotas </a> in the <i>End User Messaging SMS User Guide</i>.</p>
+
+        Raises:
+            aws_sdk_pinpoint_sms_voice_v2.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because you don't have sufficient permissions to access the resource.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.internal_server_exception.InternalServerException: <p>The API encountered an unexpected error and couldn't complete the request. You might be able to successfully issue the request again in the future.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.throttling_exception.ThrottlingException: <p>An error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.validation_exception.ValidationException: <p>A validation exception for a field.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_pinpoint_sms_voice_v2.types.delete_voice_message_spend_limit_override_request.DeleteVoiceMessageSpendLimitOverrideRequest]",
@@ -2049,6 +2378,13 @@ class PinpointSMSVoiceV2Client:
         Args:
             next_token: <p>The token to be used for the next set of paginated results. You don't need to supply a value for this field in the initial request.</p>
             max_results: <p>The maximum number of results to return per each request.</p>
+
+        Raises:
+            aws_sdk_pinpoint_sms_voice_v2.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because you don't have sufficient permissions to access the resource.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.internal_server_exception.InternalServerException: <p>The API encountered an unexpected error and couldn't complete the request. You might be able to successfully issue the request again in the future.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.throttling_exception.ThrottlingException: <p>An error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.validation_exception.ValidationException: <p>A validation exception for a field.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2095,6 +2431,13 @@ class PinpointSMSVoiceV2Client:
         Args:
             next_token: <p>The token to be used for the next set of paginated results. You don't need to supply a value for this field in the initial request.</p>
             max_results: <p>The maximum number of results to return per each request.</p>
+
+        Raises:
+            aws_sdk_pinpoint_sms_voice_v2.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because you don't have sufficient permissions to access the resource.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.internal_server_exception.InternalServerException: <p>The API encountered an unexpected error and couldn't complete the request. You might be able to successfully issue the request again in the future.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.throttling_exception.ThrottlingException: <p>An error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.validation_exception.ValidationException: <p>A validation exception for a field.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2149,6 +2492,14 @@ class PinpointSMSVoiceV2Client:
             filters: <p>An array of filters to apply to the results that are returned.</p>
             next_token: <p>The token to be used for the next set of paginated results. You don't need to supply a value for this field in the initial request.</p>
             max_results: <p>The maximum number of results to return per each request.</p>
+
+        Raises:
+            aws_sdk_pinpoint_sms_voice_v2.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because you don't have sufficient permissions to access the resource.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.internal_server_exception.InternalServerException: <p>The API encountered an unexpected error and couldn't complete the request. You might be able to successfully issue the request again in the future.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.resource_not_found_exception.ResourceNotFoundException: <p>A requested resource couldn't be found.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.throttling_exception.ThrottlingException: <p>An error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.validation_exception.ValidationException: <p>A validation exception for a field.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2209,6 +2560,14 @@ class PinpointSMSVoiceV2Client:
             filters: <p>An array of keyword filters to filter the results.</p>
             next_token: <p>The token to be used for the next set of paginated results. You don't need to supply a value for this field in the initial request.</p>
             max_results: <p>The maximum number of results to return per each request.</p>
+
+        Raises:
+            aws_sdk_pinpoint_sms_voice_v2.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because you don't have sufficient permissions to access the resource.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.internal_server_exception.InternalServerException: <p>The API encountered an unexpected error and couldn't complete the request. You might be able to successfully issue the request again in the future.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.resource_not_found_exception.ResourceNotFoundException: <p>A requested resource couldn't be found.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.throttling_exception.ThrottlingException: <p>An error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.validation_exception.ValidationException: <p>A validation exception for a field.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2268,6 +2627,14 @@ class PinpointSMSVoiceV2Client:
             filters: <p>An array of NotifyConfigurationFilter objects to filter the results on.</p>
             next_token: <p>The token to be used for the next set of paginated results. You don't need to supply a value for this field in the initial request.</p>
             max_results: <p>The maximum number of results to return per each request.</p>
+
+        Raises:
+            aws_sdk_pinpoint_sms_voice_v2.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because you don't have sufficient permissions to access the resource.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.internal_server_exception.InternalServerException: <p>The API encountered an unexpected error and couldn't complete the request. You might be able to successfully issue the request again in the future.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.resource_not_found_exception.ResourceNotFoundException: <p>A requested resource couldn't be found.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.throttling_exception.ThrottlingException: <p>An error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.validation_exception.ValidationException: <p>A validation exception for a field.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             DescribeNotifyConfigurations
@@ -2332,6 +2699,14 @@ class PinpointSMSVoiceV2Client:
             filters: <p>An array of NotifyTemplateFilter objects to filter the results on.</p>
             next_token: <p>The token to be used for the next set of paginated results. You don't need to supply a value for this field in the initial request.</p>
             max_results: <p>The maximum number of results to return per each request.</p>
+
+        Raises:
+            aws_sdk_pinpoint_sms_voice_v2.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because you don't have sufficient permissions to access the resource.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.internal_server_exception.InternalServerException: <p>The API encountered an unexpected error and couldn't complete the request. You might be able to successfully issue the request again in the future.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.resource_not_found_exception.ResourceNotFoundException: <p>A requested resource couldn't be found.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.throttling_exception.ThrottlingException: <p>An error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.validation_exception.ValidationException: <p>A validation exception for a field.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             DescribeNotifyTemplates
@@ -2398,6 +2773,14 @@ class PinpointSMSVoiceV2Client:
             filters: <p>An array of OptedOutFilter objects to filter the results on.</p>
             next_token: <p>The token to be used for the next set of paginated results. You don't need to supply a value for this field in the initial request.</p>
             max_results: <p>The maximum number of results to return per each request.</p>
+
+        Raises:
+            aws_sdk_pinpoint_sms_voice_v2.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because you don't have sufficient permissions to access the resource.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.internal_server_exception.InternalServerException: <p>The API encountered an unexpected error and couldn't complete the request. You might be able to successfully issue the request again in the future.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.resource_not_found_exception.ResourceNotFoundException: <p>A requested resource couldn't be found.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.throttling_exception.ThrottlingException: <p>An error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.validation_exception.ValidationException: <p>A validation exception for a field.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2455,6 +2838,14 @@ class PinpointSMSVoiceV2Client:
             next_token: <p>The token to be used for the next set of paginated results. You don't need to supply a value for this field in the initial request.</p>
             max_results: <p>The maximum number of results to return per each request.</p>
             owner: <p>Use <code>SELF</code> to filter the list of Opt-Out List to ones your account owns or use <code>SHARED</code> to filter on Opt-Out List shared with your account. The <code>Owner</code> and <code>OptOutListNames</code> parameters can't be used at the same time.</p>
+
+        Raises:
+            aws_sdk_pinpoint_sms_voice_v2.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because you don't have sufficient permissions to access the resource.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.internal_server_exception.InternalServerException: <p>The API encountered an unexpected error and couldn't complete the request. You might be able to successfully issue the request again in the future.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.resource_not_found_exception.ResourceNotFoundException: <p>A requested resource couldn't be found.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.throttling_exception.ThrottlingException: <p>An error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.validation_exception.ValidationException: <p>A validation exception for a field.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2515,6 +2906,14 @@ class PinpointSMSVoiceV2Client:
             next_token: <p>The token to be used for the next set of paginated results. You don't need to supply a value for this field in the initial request.</p>
             max_results: <p>The maximum number of results to return per each request.</p>
             owner: <p>Use <code>SELF</code> to filter the list of phone numbers to ones your account owns or use <code>SHARED</code> to filter on phone numbers shared with your account. The <code>Owner</code> and <code>PhoneNumberIds</code> parameters can't be used at the same time.</p>
+
+        Raises:
+            aws_sdk_pinpoint_sms_voice_v2.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because you don't have sufficient permissions to access the resource.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.internal_server_exception.InternalServerException: <p>The API encountered an unexpected error and couldn't complete the request. You might be able to successfully issue the request again in the future.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.resource_not_found_exception.ResourceNotFoundException: <p>A requested resource couldn't be found.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.throttling_exception.ThrottlingException: <p>An error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.validation_exception.ValidationException: <p>A validation exception for a field.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2579,6 +2978,14 @@ class PinpointSMSVoiceV2Client:
             next_token: <p>The token to be used for the next set of paginated results. You don't need to supply a value for this field in the initial request.</p>
             max_results: <p>The maximum number of results to return per each request.</p>
             owner: <p>Use <code>SELF</code> to filter the list of Pools to ones your account owns or use <code>SHARED</code> to filter on Pools shared with your account. The <code>Owner</code> and <code>PoolIds</code> parameters can't be used at the same time.</p>
+
+        Raises:
+            aws_sdk_pinpoint_sms_voice_v2.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because you don't have sufficient permissions to access the resource.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.internal_server_exception.InternalServerException: <p>The API encountered an unexpected error and couldn't complete the request. You might be able to successfully issue the request again in the future.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.resource_not_found_exception.ResourceNotFoundException: <p>A requested resource couldn't be found.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.throttling_exception.ThrottlingException: <p>An error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.validation_exception.ValidationException: <p>A validation exception for a field.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2639,6 +3046,14 @@ class PinpointSMSVoiceV2Client:
             filters: <p>An array of ProtectConfigurationFilter objects to filter the results.</p>
             next_token: <p>The token to be used for the next set of paginated results. You don't need to supply a value for this field in the initial request.</p>
             max_results: <p>The maximum number of results to return per each request.</p>
+
+        Raises:
+            aws_sdk_pinpoint_sms_voice_v2.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because you don't have sufficient permissions to access the resource.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.internal_server_exception.InternalServerException: <p>The API encountered an unexpected error and couldn't complete the request. You might be able to successfully issue the request again in the future.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.resource_not_found_exception.ResourceNotFoundException: <p>A requested resource couldn't be found.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.throttling_exception.ThrottlingException: <p>An error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.validation_exception.ValidationException: <p>A validation exception for a field.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2699,6 +3114,14 @@ class PinpointSMSVoiceV2Client:
             filters: <p>An array of CountryLaunchStatusFilter objects to filter the results.</p>
             max_results: <p>The maximum number of results to return per each request.</p>
             next_token: <p>The token to be used for the next set of paginated results. You don't need to supply a value for this field in the initial request.</p>
+
+        Raises:
+            aws_sdk_pinpoint_sms_voice_v2.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because you don't have sufficient permissions to access the resource.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.internal_server_exception.InternalServerException: <p>The API encountered an unexpected error and couldn't complete the request. You might be able to successfully issue the request again in the future.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.resource_not_found_exception.ResourceNotFoundException: <p>A requested resource couldn't be found.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.throttling_exception.ThrottlingException: <p>An error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.validation_exception.ValidationException: <p>A validation exception for a field.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2760,6 +3183,14 @@ class PinpointSMSVoiceV2Client:
             filters: <p>An array of RcsAgentFilter objects to filter the results.</p>
             next_token: <p>The token to be used for the next set of paginated results. You don't need to supply a value for this field in the initial request.</p>
             max_results: <p>The maximum number of results to return per each request.</p>
+
+        Raises:
+            aws_sdk_pinpoint_sms_voice_v2.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because you don't have sufficient permissions to access the resource.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.internal_server_exception.InternalServerException: <p>The API encountered an unexpected error and couldn't complete the request. You might be able to successfully issue the request again in the future.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.resource_not_found_exception.ResourceNotFoundException: <p>A requested resource couldn't be found.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.throttling_exception.ThrottlingException: <p>An error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.validation_exception.ValidationException: <p>A validation exception for a field.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2820,6 +3251,14 @@ class PinpointSMSVoiceV2Client:
             filters: <p>An array of RegistrationAttachmentFilter objects to filter the results.</p>
             next_token: <p>The token to be used for the next set of paginated results. You don't need to supply a value for this field in the initial request.</p>
             max_results: <p>The maximum number of results to return per each request.</p>
+
+        Raises:
+            aws_sdk_pinpoint_sms_voice_v2.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because you don't have sufficient permissions to access the resource.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.internal_server_exception.InternalServerException: <p>The API encountered an unexpected error and couldn't complete the request. You might be able to successfully issue the request again in the future.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.resource_not_found_exception.ResourceNotFoundException: <p>A requested resource couldn't be found.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.throttling_exception.ThrottlingException: <p>An error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.validation_exception.ValidationException: <p>A validation exception for a field.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2880,6 +3319,13 @@ class PinpointSMSVoiceV2Client:
             field_paths: <p>An array of paths to the registration form field.</p>
             next_token: <p>The token to be used for the next set of paginated results. You don't need to supply a value for this field in the initial request.</p>
             max_results: <p>The maximum number of results to return per each request.</p>
+
+        Raises:
+            aws_sdk_pinpoint_sms_voice_v2.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because you don't have sufficient permissions to access the resource.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.internal_server_exception.InternalServerException: <p>The API encountered an unexpected error and couldn't complete the request. You might be able to successfully issue the request again in the future.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.throttling_exception.ThrottlingException: <p>An error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.validation_exception.ValidationException: <p>A validation exception for a field.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2945,6 +3391,14 @@ class PinpointSMSVoiceV2Client:
             field_paths: <p>An array of paths to the registration form field.</p>
             next_token: <p>The token to be used for the next set of paginated results. You don't need to supply a value for this field in the initial request.</p>
             max_results: <p>The maximum number of results to return per each request.</p>
+
+        Raises:
+            aws_sdk_pinpoint_sms_voice_v2.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because you don't have sufficient permissions to access the resource.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.internal_server_exception.InternalServerException: <p>The API encountered an unexpected error and couldn't complete the request. You might be able to successfully issue the request again in the future.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.resource_not_found_exception.ResourceNotFoundException: <p>A requested resource couldn't be found.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.throttling_exception.ThrottlingException: <p>An error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.validation_exception.ValidationException: <p>A validation exception for a field.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3006,6 +3460,14 @@ class PinpointSMSVoiceV2Client:
             filters: <p>An array of RegistrationFilter objects to filter the results.</p>
             next_token: <p>The token to be used for the next set of paginated results. You don't need to supply a value for this field in the initial request.</p>
             max_results: <p>The maximum number of results to return per each request.</p>
+
+        Raises:
+            aws_sdk_pinpoint_sms_voice_v2.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because you don't have sufficient permissions to access the resource.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.internal_server_exception.InternalServerException: <p>The API encountered an unexpected error and couldn't complete the request. You might be able to successfully issue the request again in the future.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.resource_not_found_exception.ResourceNotFoundException: <p>A requested resource couldn't be found.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.throttling_exception.ThrottlingException: <p>An error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.validation_exception.ValidationException: <p>A validation exception for a field.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3062,6 +3524,13 @@ class PinpointSMSVoiceV2Client:
             section_paths: <p>An array of paths for the registration form section.</p>
             next_token: <p>The token to be used for the next set of paginated results. You don't need to supply a value for this field in the initial request.</p>
             max_results: <p>The maximum number of results to return per each request.</p>
+
+        Raises:
+            aws_sdk_pinpoint_sms_voice_v2.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because you don't have sufficient permissions to access the resource.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.internal_server_exception.InternalServerException: <p>The API encountered an unexpected error and couldn't complete the request. You might be able to successfully issue the request again in the future.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.throttling_exception.ThrottlingException: <p>An error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.validation_exception.ValidationException: <p>A validation exception for a field.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3119,6 +3588,13 @@ class PinpointSMSVoiceV2Client:
             filters: <p>An array of RegistrationFilter objects to filter the results.</p>
             next_token: <p>The token to be used for the next set of paginated results. You don't need to supply a value for this field in the initial request.</p>
             max_results: <p>The maximum number of results to return per each request.</p>
+
+        Raises:
+            aws_sdk_pinpoint_sms_voice_v2.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because you don't have sufficient permissions to access the resource.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.internal_server_exception.InternalServerException: <p>The API encountered an unexpected error and couldn't complete the request. You might be able to successfully issue the request again in the future.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.throttling_exception.ThrottlingException: <p>An error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.validation_exception.ValidationException: <p>A validation exception for a field.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3179,6 +3655,14 @@ class PinpointSMSVoiceV2Client:
             filters: <p>An array of RegistrationVersionFilter objects to filter the results.</p>
             next_token: <p>The token to be used for the next set of paginated results. You don't need to supply a value for this field in the initial request.</p>
             max_results: <p>The maximum number of results to return per each request.</p>
+
+        Raises:
+            aws_sdk_pinpoint_sms_voice_v2.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because you don't have sufficient permissions to access the resource.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.internal_server_exception.InternalServerException: <p>The API encountered an unexpected error and couldn't complete the request. You might be able to successfully issue the request again in the future.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.resource_not_found_exception.ResourceNotFoundException: <p>A requested resource couldn't be found.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.throttling_exception.ThrottlingException: <p>An error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.validation_exception.ValidationException: <p>A validation exception for a field.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3240,6 +3724,14 @@ class PinpointSMSVoiceV2Client:
             next_token: <p>The token to be used for the next set of paginated results. You don't need to supply a value for this field in the initial request.</p>
             max_results: <p>The maximum number of results to return per each request.</p>
             owner: <p>Use <code>SELF</code> to filter the list of Sender Ids to ones your account owns or use <code>SHARED</code> to filter on Sender Ids shared with your account. The <code>Owner</code> and <code>SenderIds</code> parameters can't be used at the same time. </p>
+
+        Raises:
+            aws_sdk_pinpoint_sms_voice_v2.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because you don't have sufficient permissions to access the resource.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.internal_server_exception.InternalServerException: <p>The API encountered an unexpected error and couldn't complete the request. You might be able to successfully issue the request again in the future.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.resource_not_found_exception.ResourceNotFoundException: <p>A requested resource couldn't be found.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.throttling_exception.ThrottlingException: <p>An error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.validation_exception.ValidationException: <p>A validation exception for a field.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3292,6 +3784,13 @@ class PinpointSMSVoiceV2Client:
         Args:
             next_token: <p>The token to be used for the next set of paginated results. You don't need to supply a value for this field in the initial request.</p>
             max_results: <p>The maximum number of results to return per each request.</p>
+
+        Raises:
+            aws_sdk_pinpoint_sms_voice_v2.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because you don't have sufficient permissions to access the resource.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.internal_server_exception.InternalServerException: <p>The API encountered an unexpected error and couldn't complete the request. You might be able to successfully issue the request again in the future.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.throttling_exception.ThrottlingException: <p>An error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.validation_exception.ValidationException: <p>A validation exception for a field.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3350,6 +3849,14 @@ class PinpointSMSVoiceV2Client:
             filters: <p>An array of VerifiedDestinationNumberFilter objects to filter the results.</p>
             next_token: <p>The token to be used for the next set of paginated results. You don't need to supply a value for this field in the initial request.</p>
             max_results: <p>The maximum number of results to return per each request.</p>
+
+        Raises:
+            aws_sdk_pinpoint_sms_voice_v2.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because you don't have sufficient permissions to access the resource.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.internal_server_exception.InternalServerException: <p>The API encountered an unexpected error and couldn't complete the request. You might be able to successfully issue the request again in the future.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.resource_not_found_exception.ResourceNotFoundException: <p>A requested resource couldn't be found.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.throttling_exception.ThrottlingException: <p>An error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.validation_exception.ValidationException: <p>A validation exception for a field.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3406,6 +3913,15 @@ class PinpointSMSVoiceV2Client:
             origination_identity: <p>The origination identity to use such as a PhoneNumberId, PhoneNumberArn, SenderId or SenderIdArn. You can use <a>DescribePhoneNumbers</a> find the values for PhoneNumberId and PhoneNumberArn, or use <a>DescribeSenderIds</a> to get the values for SenderId and SenderIdArn.</p> <important> <p>If you are using a shared End User Messaging SMS resource then you must use the full Amazon Resource Name(ARN).</p> </important>
             iso_country_code: <p>The two-character code, in ISO 3166-1 alpha-2 format, for the country or region. This field is optional and is not required for origination identity types that are not country-specific, such as RCS agents.</p>
             client_token: <p>Unique, case-sensitive identifier you provide to ensure the idempotency of the request. If you don't specify a client token, a randomly generated token is used for the request to ensure idempotency.</p>
+
+        Raises:
+            aws_sdk_pinpoint_sms_voice_v2.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because you don't have sufficient permissions to access the resource.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.conflict_exception.ConflictException: <p>Your request has conflicting operations. This can occur if you're trying to perform more than one operation on the same resource at the same time or it could be that the requested action isn't valid for the current state or configuration of the resource.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.internal_server_exception.InternalServerException: <p>The API encountered an unexpected error and couldn't complete the request. You might be able to successfully issue the request again in the future.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.resource_not_found_exception.ResourceNotFoundException: <p>A requested resource couldn't be found.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.throttling_exception.ThrottlingException: <p>An error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.validation_exception.ValidationException: <p>A validation exception for a field.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3450,6 +3966,15 @@ class PinpointSMSVoiceV2Client:
         Args:
             protect_configuration_id: <p>The unique identifier for the protect configuration.</p>
             configuration_set_name: <p>The name of the ConfigurationSet.</p>
+
+        Raises:
+            aws_sdk_pinpoint_sms_voice_v2.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because you don't have sufficient permissions to access the resource.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.conflict_exception.ConflictException: <p>Your request has conflicting operations. This can occur if you're trying to perform more than one operation on the same resource at the same time or it could be that the requested action isn't valid for the current state or configuration of the resource.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.internal_server_exception.InternalServerException: <p>The API encountered an unexpected error and couldn't complete the request. You might be able to successfully issue the request again in the future.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.resource_not_found_exception.ResourceNotFoundException: <p>A requested resource couldn't be found.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.throttling_exception.ThrottlingException: <p>An error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.validation_exception.ValidationException: <p>A validation exception for a field.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3488,6 +4013,15 @@ class PinpointSMSVoiceV2Client:
 
         Args:
             registration_id: <p>The unique identifier for the registration.</p>
+
+        Raises:
+            aws_sdk_pinpoint_sms_voice_v2.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because you don't have sufficient permissions to access the resource.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.conflict_exception.ConflictException: <p>Your request has conflicting operations. This can occur if you're trying to perform more than one operation on the same resource at the same time or it could be that the requested action isn't valid for the current state or configuration of the resource.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.internal_server_exception.InternalServerException: <p>The API encountered an unexpected error and couldn't complete the request. You might be able to successfully issue the request again in the future.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.resource_not_found_exception.ResourceNotFoundException: <p>A requested resource couldn't be found.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.throttling_exception.ThrottlingException: <p>An error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.validation_exception.ValidationException: <p>A validation exception for a field.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3527,6 +4061,14 @@ class PinpointSMSVoiceV2Client:
         Args:
             protect_configuration_id: <p>The unique identifier for the protect configuration.</p>
             number_capability: <p>The capability type to return the CountryRuleSet for. Valid values are <code>SMS</code>, <code>VOICE</code>, or <code>MMS</code>.</p>
+
+        Raises:
+            aws_sdk_pinpoint_sms_voice_v2.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because you don't have sufficient permissions to access the resource.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.internal_server_exception.InternalServerException: <p>The API encountered an unexpected error and couldn't complete the request. You might be able to successfully issue the request again in the future.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.resource_not_found_exception.ResourceNotFoundException: <p>A requested resource couldn't be found.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.throttling_exception.ThrottlingException: <p>An error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.validation_exception.ValidationException: <p>A validation exception for a field.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3565,6 +4107,14 @@ class PinpointSMSVoiceV2Client:
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the End User Messaging SMS resource attached to the resource-based policy.</p>
+
+        Raises:
+            aws_sdk_pinpoint_sms_voice_v2.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because you don't have sufficient permissions to access the resource.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.internal_server_exception.InternalServerException: <p>The API encountered an unexpected error and couldn't complete the request. You might be able to successfully issue the request again in the future.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.resource_not_found_exception.ResourceNotFoundException: <p>A requested resource couldn't be found.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.throttling_exception.ThrottlingException: <p>An error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.validation_exception.ValidationException: <p>A validation exception for a field.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3620,6 +4170,13 @@ class PinpointSMSVoiceV2Client:
             tier: <p>The tier to filter the results by.</p>
             next_token: <p>The token to be used for the next set of paginated results. You don't need to supply a value for this field in the initial request.</p>
             max_results: <p>The maximum number of results to return per each request.</p>
+
+        Raises:
+            aws_sdk_pinpoint_sms_voice_v2.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because you don't have sufficient permissions to access the resource.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.internal_server_exception.InternalServerException: <p>The API encountered an unexpected error and couldn't complete the request. You might be able to successfully issue the request again in the future.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.throttling_exception.ThrottlingException: <p>An error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.validation_exception.ValidationException: <p>A validation exception for a field.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             ListNotifyCountries
@@ -3684,6 +4241,14 @@ class PinpointSMSVoiceV2Client:
             filters: <p>An array of PoolOriginationIdentitiesFilter objects to filter the results..</p>
             next_token: <p>The token to be used for the next set of paginated results. You don't need to supply a value for this field in the initial request.</p>
             max_results: <p>The maximum number of results to return per each request.</p>
+
+        Raises:
+            aws_sdk_pinpoint_sms_voice_v2.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because you don't have sufficient permissions to access the resource.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.internal_server_exception.InternalServerException: <p>The API encountered an unexpected error and couldn't complete the request. You might be able to successfully issue the request again in the future.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.resource_not_found_exception.ResourceNotFoundException: <p>A requested resource couldn't be found.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.throttling_exception.ThrottlingException: <p>An error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.validation_exception.ValidationException: <p>A validation exception for a field.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3739,6 +4304,14 @@ class PinpointSMSVoiceV2Client:
             filters: <p>An array of ProtectConfigurationRuleSetNumberOverrideFilterItem objects to filter the results.</p>
             next_token: <p>The token to be used for the next set of paginated results. You don't need to supply a value for this field in the initial request.</p>
             max_results: <p>The maximum number of results to return per each request.</p>
+
+        Raises:
+            aws_sdk_pinpoint_sms_voice_v2.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because you don't have sufficient permissions to access the resource.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.internal_server_exception.InternalServerException: <p>The API encountered an unexpected error and couldn't complete the request. You might be able to successfully issue the request again in the future.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.resource_not_found_exception.ResourceNotFoundException: <p>A requested resource couldn't be found.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.throttling_exception.ThrottlingException: <p>An error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.validation_exception.ValidationException: <p>A validation exception for a field.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3794,6 +4367,14 @@ class PinpointSMSVoiceV2Client:
             filters: <p>An array of RegistrationAssociationFilter to apply to the results that are returned.</p>
             next_token: <p>The token to be used for the next set of paginated results. You don't need to supply a value for this field in the initial request.</p>
             max_results: <p>The maximum number of results to return per each request.</p>
+
+        Raises:
+            aws_sdk_pinpoint_sms_voice_v2.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because you don't have sufficient permissions to access the resource.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.internal_server_exception.InternalServerException: <p>The API encountered an unexpected error and couldn't complete the request. You might be able to successfully issue the request again in the future.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.resource_not_found_exception.ResourceNotFoundException: <p>A requested resource couldn't be found.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.throttling_exception.ThrottlingException: <p>An error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.validation_exception.ValidationException: <p>A validation exception for a field.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3837,6 +4418,14 @@ class PinpointSMSVoiceV2Client:
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource to query for.</p>
+
+        Raises:
+            aws_sdk_pinpoint_sms_voice_v2.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because you don't have sufficient permissions to access the resource.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.internal_server_exception.InternalServerException: <p>The API encountered an unexpected error and couldn't complete the request. You might be able to successfully issue the request again in the future.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.resource_not_found_exception.ResourceNotFoundException: <p>A requested resource couldn't be found.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.throttling_exception.ThrottlingException: <p>An error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.validation_exception.ValidationException: <p>A validation exception for a field.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3882,6 +4471,16 @@ class PinpointSMSVoiceV2Client:
             keyword: <p>The new keyword to add.</p>
             keyword_message: <p>The message associated with the keyword.</p>
             keyword_action: <p>The action to perform for the new keyword when it is received.</p> <ul> <li> <p>AUTOMATIC_RESPONSE: A message is sent to the recipient.</p> </li> <li> <p>OPT_OUT: Keeps the recipient from receiving future messages.</p> </li> <li> <p>OPT_IN: The recipient wants to receive future messages.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_pinpoint_sms_voice_v2.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because you don't have sufficient permissions to access the resource.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.conflict_exception.ConflictException: <p>Your request has conflicting operations. This can occur if you're trying to perform more than one operation on the same resource at the same time or it could be that the requested action isn't valid for the current state or configuration of the resource.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.internal_server_exception.InternalServerException: <p>The API encountered an unexpected error and couldn't complete the request. You might be able to successfully issue the request again in the future.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.resource_not_found_exception.ResourceNotFoundException: <p>A requested resource couldn't be found.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request would cause a service quota to be exceeded.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.throttling_exception.ThrottlingException: <p>An error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.validation_exception.ValidationException: <p>A validation exception for a field.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3925,6 +4524,14 @@ class PinpointSMSVoiceV2Client:
         Args:
             message_id: <p>The unique identifier for the message.</p>
             message_feedback_status: <p>Set the message feedback to be either <code>RECEIVED</code> or <code>FAILED</code>.</p>
+
+        Raises:
+            aws_sdk_pinpoint_sms_voice_v2.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because you don't have sufficient permissions to access the resource.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.internal_server_exception.InternalServerException: <p>The API encountered an unexpected error and couldn't complete the request. You might be able to successfully issue the request again in the future.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.resource_not_found_exception.ResourceNotFoundException: <p>A requested resource couldn't be found.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.throttling_exception.ThrottlingException: <p>An error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.validation_exception.ValidationException: <p>A validation exception for a field.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3965,6 +4572,14 @@ class PinpointSMSVoiceV2Client:
         Args:
             opt_out_list_name: <p>The OptOutListName or OptOutListArn to add the phone number to.</p> <important> <p>If you are using a shared End User Messaging SMS resource then you must use the full Amazon Resource Name(ARN).</p> </important>
             opted_out_number: <p>The phone number to add to the OptOutList in E.164 format.</p>
+
+        Raises:
+            aws_sdk_pinpoint_sms_voice_v2.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because you don't have sufficient permissions to access the resource.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.internal_server_exception.InternalServerException: <p>The API encountered an unexpected error and couldn't complete the request. You might be able to successfully issue the request again in the future.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.resource_not_found_exception.ResourceNotFoundException: <p>A requested resource couldn't be found.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.throttling_exception.ThrottlingException: <p>An error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.validation_exception.ValidationException: <p>A validation exception for a field.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4013,6 +4628,16 @@ class PinpointSMSVoiceV2Client:
             destination_phone_number: <p>The destination phone number in E.164 format.</p>
             action: <p>The action for the rule to either block or allow messages to the destination phone number.</p>
             expiration_timestamp: <p>The time the rule will expire at. If <code>ExpirationTimestamp</code> is not set then the rule does not expire.</p>
+
+        Raises:
+            aws_sdk_pinpoint_sms_voice_v2.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because you don't have sufficient permissions to access the resource.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.conflict_exception.ConflictException: <p>Your request has conflicting operations. This can occur if you're trying to perform more than one operation on the same resource at the same time or it could be that the requested action isn't valid for the current state or configuration of the resource.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.internal_server_exception.InternalServerException: <p>The API encountered an unexpected error and couldn't complete the request. You might be able to successfully issue the request again in the future.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.resource_not_found_exception.ResourceNotFoundException: <p>A requested resource couldn't be found.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request would cause a service quota to be exceeded.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.throttling_exception.ThrottlingException: <p>An error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.validation_exception.ValidationException: <p>A validation exception for a field.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4070,6 +4695,15 @@ class PinpointSMSVoiceV2Client:
             select_choices: <p>An array of values for the form field.</p>
             text_value: <p>The text data for a free form field.</p>
             registration_attachment_id: <p>The unique identifier for the registration attachment.</p>
+
+        Raises:
+            aws_sdk_pinpoint_sms_voice_v2.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because you don't have sufficient permissions to access the resource.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.conflict_exception.ConflictException: <p>Your request has conflicting operations. This can occur if you're trying to perform more than one operation on the same resource at the same time or it could be that the requested action isn't valid for the current state or configuration of the resource.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.internal_server_exception.InternalServerException: <p>The API encountered an unexpected error and couldn't complete the request. You might be able to successfully issue the request again in the future.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.resource_not_found_exception.ResourceNotFoundException: <p>A requested resource couldn't be found.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.throttling_exception.ThrottlingException: <p>An error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.validation_exception.ValidationException: <p>A validation exception for a field.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4116,6 +4750,14 @@ class PinpointSMSVoiceV2Client:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the End User Messaging SMS resource to attach the resource-based policy to.</p>
             policy: <p>The JSON formatted resource-based policy to attach.</p>
+
+        Raises:
+            aws_sdk_pinpoint_sms_voice_v2.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because you don't have sufficient permissions to access the resource.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.internal_server_exception.InternalServerException: <p>The API encountered an unexpected error and couldn't complete the request. You might be able to successfully issue the request again in the future.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.resource_not_found_exception.ResourceNotFoundException: <p>A requested resource couldn't be found.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.throttling_exception.ThrottlingException: <p>An error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.validation_exception.ValidationException: <p>A validation exception for a field.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4154,6 +4796,15 @@ class PinpointSMSVoiceV2Client:
 
         Args:
             phone_number_id: <p>The PhoneNumberId or PhoneNumberArn of the phone number to release. You can use <a>DescribePhoneNumbers</a> to get the values for PhoneNumberId and PhoneNumberArn.</p> <important> <p>If you are using a shared End User Messaging SMS resource then you must use the full Amazon Resource Name(ARN).</p> </important>
+
+        Raises:
+            aws_sdk_pinpoint_sms_voice_v2.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because you don't have sufficient permissions to access the resource.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.conflict_exception.ConflictException: <p>Your request has conflicting operations. This can occur if you're trying to perform more than one operation on the same resource at the same time or it could be that the requested action isn't valid for the current state or configuration of the resource.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.internal_server_exception.InternalServerException: <p>The API encountered an unexpected error and couldn't complete the request. You might be able to successfully issue the request again in the future.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.resource_not_found_exception.ResourceNotFoundException: <p>A requested resource couldn't be found.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.throttling_exception.ThrottlingException: <p>An error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.validation_exception.ValidationException: <p>A validation exception for a field.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4193,6 +4844,15 @@ class PinpointSMSVoiceV2Client:
         Args:
             sender_id: <p>The sender ID to release.</p>
             iso_country_code: <p>The two-character code, in ISO 3166-1 alpha-2 format, for the country or region.</p>
+
+        Raises:
+            aws_sdk_pinpoint_sms_voice_v2.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because you don't have sufficient permissions to access the resource.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.conflict_exception.ConflictException: <p>Your request has conflicting operations. This can occur if you're trying to perform more than one operation on the same resource at the same time or it could be that the requested action isn't valid for the current state or configuration of the resource.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.internal_server_exception.InternalServerException: <p>The API encountered an unexpected error and couldn't complete the request. You might be able to successfully issue the request again in the future.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.resource_not_found_exception.ResourceNotFoundException: <p>A requested resource couldn't be found.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.throttling_exception.ThrottlingException: <p>An error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.validation_exception.ValidationException: <p>A validation exception for a field.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4259,6 +4919,16 @@ class PinpointSMSVoiceV2Client:
             deletion_protection_enabled: <p>By default this is set to false. When set to true the phone number can't be deleted.</p>
             tags: <p>An array of tags (key and value pairs) to associate with the requested phone number. </p>
             client_token: <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If you don't specify a client token, a randomly generated token is used for the request to ensure idempotency.</p>
+
+        Raises:
+            aws_sdk_pinpoint_sms_voice_v2.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because you don't have sufficient permissions to access the resource.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.conflict_exception.ConflictException: <p>Your request has conflicting operations. This can occur if you're trying to perform more than one operation on the same resource at the same time or it could be that the requested action isn't valid for the current state or configuration of the resource.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.internal_server_exception.InternalServerException: <p>The API encountered an unexpected error and couldn't complete the request. You might be able to successfully issue the request again in the future.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.resource_not_found_exception.ResourceNotFoundException: <p>A requested resource couldn't be found.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request would cause a service quota to be exceeded.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.throttling_exception.ThrottlingException: <p>An error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.validation_exception.ValidationException: <p>A validation exception for a field.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4327,6 +4997,15 @@ class PinpointSMSVoiceV2Client:
             deletion_protection_enabled: <p>By default this is set to false. When set to true the sender ID can't be deleted.</p>
             tags: <p>An array of tags (key and value pairs) to associate with the sender ID.</p>
             client_token: <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If you don't specify a client token, a randomly generated token is used for the request to ensure idempotency.</p>
+
+        Raises:
+            aws_sdk_pinpoint_sms_voice_v2.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because you don't have sufficient permissions to access the resource.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.conflict_exception.ConflictException: <p>Your request has conflicting operations. This can occur if you're trying to perform more than one operation on the same resource at the same time or it could be that the requested action isn't valid for the current state or configuration of the resource.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.internal_server_exception.InternalServerException: <p>The API encountered an unexpected error and couldn't complete the request. You might be able to successfully issue the request again in the future.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request would cause a service quota to be exceeded.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.throttling_exception.ThrottlingException: <p>An error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.validation_exception.ValidationException: <p>A validation exception for a field.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4395,6 +5074,16 @@ class PinpointSMSVoiceV2Client:
             configuration_set_name: <p>The name of the configuration set to use. This can be either the ConfigurationSetName or ConfigurationSetArn.</p>
             context: <p>You can specify custom data in this field. If you do, that data is logged to the event destination.</p>
             destination_country_parameters: <p>This field is used for any country-specific registration requirements. Currently, this setting is only used when you send messages to recipients in India using a sender ID. For more information see <a href=\"https://docs.aws.amazon.com/pinpoint/latest/userguide/channels-sms-senderid-india.html\">Special requirements for sending SMS messages to recipients in India</a>. </p>
+
+        Raises:
+            aws_sdk_pinpoint_sms_voice_v2.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because you don't have sufficient permissions to access the resource.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.conflict_exception.ConflictException: <p>Your request has conflicting operations. This can occur if you're trying to perform more than one operation on the same resource at the same time or it could be that the requested action isn't valid for the current state or configuration of the resource.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.internal_server_exception.InternalServerException: <p>The API encountered an unexpected error and couldn't complete the request. You might be able to successfully issue the request again in the future.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.resource_not_found_exception.ResourceNotFoundException: <p>A requested resource couldn't be found.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request would cause a service quota to be exceeded.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.throttling_exception.ThrottlingException: <p>An error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.validation_exception.ValidationException: <p>A validation exception for a field.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4477,6 +5166,16 @@ class PinpointSMSVoiceV2Client:
             dry_run: <p>When set to true, the message is checked and validated, but isn't sent to the end recipient.</p>
             protect_configuration_id: <p>The unique identifier of the protect configuration to use.</p>
             message_feedback_enabled: <p>Set to true to enable message feedback for the message. When a user receives the message you need to update the message status using <a>PutMessageFeedback</a>.</p>
+
+        Raises:
+            aws_sdk_pinpoint_sms_voice_v2.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because you don't have sufficient permissions to access the resource.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.conflict_exception.ConflictException: <p>Your request has conflicting operations. This can occur if you're trying to perform more than one operation on the same resource at the same time or it could be that the requested action isn't valid for the current state or configuration of the resource.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.internal_server_exception.InternalServerException: <p>The API encountered an unexpected error and couldn't complete the request. You might be able to successfully issue the request again in the future.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.resource_not_found_exception.ResourceNotFoundException: <p>A requested resource couldn't be found.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request would cause a service quota to be exceeded.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.throttling_exception.ThrottlingException: <p>An error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.validation_exception.ValidationException: <p>A validation exception for a field.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4557,6 +5256,16 @@ class PinpointSMSVoiceV2Client:
             configuration_set_name: <p>The name of the configuration set to use. This can be either the ConfigurationSetName or ConfigurationSetArn.</p>
             dry_run: <p>When set to true, the message is checked and validated, but isn't sent to the end recipient.</p>
             message_feedback_enabled: <p>Set to true to enable message feedback for the message. When a user receives the message you need to update the message status using <a>PutMessageFeedback</a>.</p>
+
+        Raises:
+            aws_sdk_pinpoint_sms_voice_v2.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because you don't have sufficient permissions to access the resource.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.conflict_exception.ConflictException: <p>Your request has conflicting operations. This can occur if you're trying to perform more than one operation on the same resource at the same time or it could be that the requested action isn't valid for the current state or configuration of the resource.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.internal_server_exception.InternalServerException: <p>The API encountered an unexpected error and couldn't complete the request. You might be able to successfully issue the request again in the future.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.resource_not_found_exception.ResourceNotFoundException: <p>A requested resource couldn't be found.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request would cause a service quota to be exceeded.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.throttling_exception.ThrottlingException: <p>An error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.validation_exception.ValidationException: <p>A validation exception for a field.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             SendNotifyTextMessage
@@ -4642,6 +5351,16 @@ class PinpointSMSVoiceV2Client:
             configuration_set_name: <p>The name of the configuration set to use. This can be either the ConfigurationSetName or ConfigurationSetArn.</p>
             dry_run: <p>When set to true, the message is checked and validated, but isn't sent to the end recipient.</p>
             message_feedback_enabled: <p>Set to true to enable message feedback for the message. When a user receives the message you need to update the message status using <a>PutMessageFeedback</a>.</p>
+
+        Raises:
+            aws_sdk_pinpoint_sms_voice_v2.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because you don't have sufficient permissions to access the resource.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.conflict_exception.ConflictException: <p>Your request has conflicting operations. This can occur if you're trying to perform more than one operation on the same resource at the same time or it could be that the requested action isn't valid for the current state or configuration of the resource.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.internal_server_exception.InternalServerException: <p>The API encountered an unexpected error and couldn't complete the request. You might be able to successfully issue the request again in the future.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.resource_not_found_exception.ResourceNotFoundException: <p>A requested resource couldn't be found.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request would cause a service quota to be exceeded.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.throttling_exception.ThrottlingException: <p>An error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.validation_exception.ValidationException: <p>A validation exception for a field.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             SendNotifyVoiceMessage
@@ -4743,6 +5462,16 @@ class PinpointSMSVoiceV2Client:
             dry_run: <p>When set to true, the message is checked and validated, but isn't sent to the end recipient. You are not charged for using <code>DryRun</code>.</p> <p>The Message Parts per Second (MPS) limit when using <code>DryRun</code> is five. If your origination identity has a lower MPS limit then the lower MPS limit is used. For more information about MPS limits, see <a href=\"https://docs.aws.amazon.com/sms-voice/latest/userguide/sms-limitations-mps.html\">Message Parts per Second (MPS) limits</a> in the <i>End User Messaging SMS User Guide</i>..</p>
             protect_configuration_id: <p>The unique identifier for the protect configuration.</p>
             message_feedback_enabled: <p>Set to true to enable message feedback for the message. When a user receives the message you need to update the message status using <a>PutMessageFeedback</a>.</p>
+
+        Raises:
+            aws_sdk_pinpoint_sms_voice_v2.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because you don't have sufficient permissions to access the resource.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.conflict_exception.ConflictException: <p>Your request has conflicting operations. This can occur if you're trying to perform more than one operation on the same resource at the same time or it could be that the requested action isn't valid for the current state or configuration of the resource.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.internal_server_exception.InternalServerException: <p>The API encountered an unexpected error and couldn't complete the request. You might be able to successfully issue the request again in the future.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.resource_not_found_exception.ResourceNotFoundException: <p>A requested resource couldn't be found.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request would cause a service quota to be exceeded.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.throttling_exception.ThrottlingException: <p>An error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.validation_exception.ValidationException: <p>A validation exception for a field.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4842,6 +5571,16 @@ class PinpointSMSVoiceV2Client:
             dry_run: <p>When set to true, the message is checked and validated, but isn't sent to the end recipient.</p>
             protect_configuration_id: <p>The unique identifier for the protect configuration.</p>
             message_feedback_enabled: <p>Set to true to enable message feedback for the message. When a user receives the message you need to update the message status using <a>PutMessageFeedback</a>.</p>
+
+        Raises:
+            aws_sdk_pinpoint_sms_voice_v2.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because you don't have sufficient permissions to access the resource.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.conflict_exception.ConflictException: <p>Your request has conflicting operations. This can occur if you're trying to perform more than one operation on the same resource at the same time or it could be that the requested action isn't valid for the current state or configuration of the resource.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.internal_server_exception.InternalServerException: <p>The API encountered an unexpected error and couldn't complete the request. You might be able to successfully issue the request again in the future.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.resource_not_found_exception.ResourceNotFoundException: <p>A requested resource couldn't be found.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request would cause a service quota to be exceeded.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.throttling_exception.ThrottlingException: <p>An error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.validation_exception.ValidationException: <p>A validation exception for a field.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4900,6 +5639,14 @@ class PinpointSMSVoiceV2Client:
 
         Args:
             protect_configuration_id: <p>The unique identifier for the protect configuration.</p>
+
+        Raises:
+            aws_sdk_pinpoint_sms_voice_v2.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because you don't have sufficient permissions to access the resource.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.internal_server_exception.InternalServerException: <p>The API encountered an unexpected error and couldn't complete the request. You might be able to successfully issue the request again in the future.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.resource_not_found_exception.ResourceNotFoundException: <p>A requested resource couldn't be found.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.throttling_exception.ThrottlingException: <p>An error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.validation_exception.ValidationException: <p>A validation exception for a field.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4939,6 +5686,14 @@ class PinpointSMSVoiceV2Client:
         Args:
             configuration_set_name: <p>The name of the configuration set to use. This can be either the ConfigurationSetName or ConfigurationSetArn.</p>
             message_feedback_enabled: <p>Set to true to enable message feedback.</p>
+
+        Raises:
+            aws_sdk_pinpoint_sms_voice_v2.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because you don't have sufficient permissions to access the resource.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.internal_server_exception.InternalServerException: <p>The API encountered an unexpected error and couldn't complete the request. You might be able to successfully issue the request again in the future.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.resource_not_found_exception.ResourceNotFoundException: <p>A requested resource couldn't be found.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.throttling_exception.ThrottlingException: <p>An error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.validation_exception.ValidationException: <p>A validation exception for a field.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4979,6 +5734,14 @@ class PinpointSMSVoiceV2Client:
         Args:
             configuration_set_name: <p>The configuration set to update with a new default message type. This field can be the ConsigurationSetName or ConfigurationSetArn.</p>
             message_type: <p>The type of message. Valid values are TRANSACTIONAL for messages that are critical or time-sensitive and PROMOTIONAL for messages that aren't critical or time-sensitive.</p>
+
+        Raises:
+            aws_sdk_pinpoint_sms_voice_v2.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because you don't have sufficient permissions to access the resource.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.internal_server_exception.InternalServerException: <p>The API encountered an unexpected error and couldn't complete the request. You might be able to successfully issue the request again in the future.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.resource_not_found_exception.ResourceNotFoundException: <p>A requested resource couldn't be found.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.throttling_exception.ThrottlingException: <p>An error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.validation_exception.ValidationException: <p>A validation exception for a field.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5019,6 +5782,14 @@ class PinpointSMSVoiceV2Client:
         Args:
             configuration_set_name: <p>The configuration set to updated with a new default SenderId. This field can be the ConsigurationSetName or ConfigurationSetArn.</p>
             sender_id: <p>The current sender ID for the configuration set. When sending a text message to a destination country which supports SenderIds, the default sender ID on the configuration set specified on <a>SendTextMessage</a> will be used if no dedicated origination phone numbers or registered SenderIds are available in your account, instead of a generic sender ID, such as 'NOTICE'.</p>
+
+        Raises:
+            aws_sdk_pinpoint_sms_voice_v2.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because you don't have sufficient permissions to access the resource.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.internal_server_exception.InternalServerException: <p>The API encountered an unexpected error and couldn't complete the request. You might be able to successfully issue the request again in the future.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.resource_not_found_exception.ResourceNotFoundException: <p>A requested resource couldn't be found.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.throttling_exception.ThrottlingException: <p>An error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.validation_exception.ValidationException: <p>A validation exception for a field.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5057,6 +5828,13 @@ class PinpointSMSVoiceV2Client:
 
         Args:
             monthly_limit: <p>The new monthly limit to enforce on text messages.</p>
+
+        Raises:
+            aws_sdk_pinpoint_sms_voice_v2.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because you don't have sufficient permissions to access the resource.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.internal_server_exception.InternalServerException: <p>The API encountered an unexpected error and couldn't complete the request. You might be able to successfully issue the request again in the future.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.throttling_exception.ThrottlingException: <p>An error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.validation_exception.ValidationException: <p>A validation exception for a field.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5094,6 +5872,13 @@ class PinpointSMSVoiceV2Client:
 
         Args:
             monthly_limit: <p>The new monthly limit to enforce on notify messages.</p>
+
+        Raises:
+            aws_sdk_pinpoint_sms_voice_v2.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because you don't have sufficient permissions to access the resource.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.internal_server_exception.InternalServerException: <p>The API encountered an unexpected error and couldn't complete the request. You might be able to successfully issue the request again in the future.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.throttling_exception.ThrottlingException: <p>An error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.validation_exception.ValidationException: <p>A validation exception for a field.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             SetNotifyMessageSpendLimitOverride
@@ -5137,6 +5922,13 @@ class PinpointSMSVoiceV2Client:
 
         Args:
             monthly_limit: <p>The new monthly limit to enforce on text messages.</p>
+
+        Raises:
+            aws_sdk_pinpoint_sms_voice_v2.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because you don't have sufficient permissions to access the resource.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.internal_server_exception.InternalServerException: <p>The API encountered an unexpected error and couldn't complete the request. You might be able to successfully issue the request again in the future.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.throttling_exception.ThrottlingException: <p>An error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.validation_exception.ValidationException: <p>A validation exception for a field.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5174,6 +5966,13 @@ class PinpointSMSVoiceV2Client:
 
         Args:
             monthly_limit: <p>The new monthly limit to enforce on voice messages.</p>
+
+        Raises:
+            aws_sdk_pinpoint_sms_voice_v2.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because you don't have sufficient permissions to access the resource.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.internal_server_exception.InternalServerException: <p>The API encountered an unexpected error and couldn't complete the request. You might be able to successfully issue the request again in the future.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.throttling_exception.ThrottlingException: <p>An error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.validation_exception.ValidationException: <p>A validation exception for a field.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5213,6 +6012,15 @@ class PinpointSMSVoiceV2Client:
         Args:
             registration_id: <p>The unique identifier for the registration.</p>
             aws_review: <p>Set to true to request AWS review of the registration. When enabled, AWS will perform additional validation and review of the registration submission before processing.</p>
+
+        Raises:
+            aws_sdk_pinpoint_sms_voice_v2.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because you don't have sufficient permissions to access the resource.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.conflict_exception.ConflictException: <p>Your request has conflicting operations. This can occur if you're trying to perform more than one operation on the same resource at the same time or it could be that the requested action isn't valid for the current state or configuration of the resource.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.internal_server_exception.InternalServerException: <p>The API encountered an unexpected error and couldn't complete the request. You might be able to successfully issue the request again in the future.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.resource_not_found_exception.ResourceNotFoundException: <p>A requested resource couldn't be found.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.throttling_exception.ThrottlingException: <p>An error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.validation_exception.ValidationException: <p>A validation exception for a field.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5254,6 +6062,15 @@ class PinpointSMSVoiceV2Client:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource.</p>
             tags: <p>An array of key and value pair tags that are associated with the resource.</p>
+
+        Raises:
+            aws_sdk_pinpoint_sms_voice_v2.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because you don't have sufficient permissions to access the resource.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.internal_server_exception.InternalServerException: <p>The API encountered an unexpected error and couldn't complete the request. You might be able to successfully issue the request again in the future.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.resource_not_found_exception.ResourceNotFoundException: <p>A requested resource couldn't be found.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request would cause a service quota to be exceeded.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.throttling_exception.ThrottlingException: <p>An error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.validation_exception.ValidationException: <p>A validation exception for a field.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5296,6 +6113,14 @@ class PinpointSMSVoiceV2Client:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource.</p>
             tag_keys: <p>An array of tag key values to unassociate with the resource.</p>
+
+        Raises:
+            aws_sdk_pinpoint_sms_voice_v2.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because you don't have sufficient permissions to access the resource.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.internal_server_exception.InternalServerException: <p>The API encountered an unexpected error and couldn't complete the request. You might be able to successfully issue the request again in the future.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.resource_not_found_exception.ResourceNotFoundException: <p>A requested resource couldn't be found.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.throttling_exception.ThrottlingException: <p>An error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.validation_exception.ValidationException: <p>A validation exception for a field.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5354,6 +6179,15 @@ class PinpointSMSVoiceV2Client:
             cloud_watch_logs_destination: <p>An object that contains information about an event destination that sends data to CloudWatch Logs.</p>
             kinesis_firehose_destination: <p>An object that contains information about an event destination for logging to Firehose.</p>
             sns_destination: <p>An object that contains information about an event destination that sends data to Amazon SNS.</p>
+
+        Raises:
+            aws_sdk_pinpoint_sms_voice_v2.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because you don't have sufficient permissions to access the resource.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.conflict_exception.ConflictException: <p>Your request has conflicting operations. This can occur if you're trying to perform more than one operation on the same resource at the same time or it could be that the requested action isn't valid for the current state or configuration of the resource.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.internal_server_exception.InternalServerException: <p>The API encountered an unexpected error and couldn't complete the request. You might be able to successfully issue the request again in the future.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.resource_not_found_exception.ResourceNotFoundException: <p>A requested resource couldn't be found.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.throttling_exception.ThrottlingException: <p>An error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.validation_exception.ValidationException: <p>A validation exception for a field.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5420,6 +6254,15 @@ class PinpointSMSVoiceV2Client:
             enabled_countries: <p>An array of two-character ISO country codes, in ISO 3166-1 alpha-2 format, that are enabled for the notify configuration.</p>
             enabled_channels: <p>An array of channels to enable for the notify configuration. Supported values include <code>SMS</code> and <code>VOICE</code>.</p>
             deletion_protection_enabled: <p>When set to true the notify configuration can't be deleted.</p>
+
+        Raises:
+            aws_sdk_pinpoint_sms_voice_v2.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because you don't have sufficient permissions to access the resource.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.conflict_exception.ConflictException: <p>Your request has conflicting operations. This can occur if you're trying to perform more than one operation on the same resource at the same time or it could be that the requested action isn't valid for the current state or configuration of the resource.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.internal_server_exception.InternalServerException: <p>The API encountered an unexpected error and couldn't complete the request. You might be able to successfully issue the request again in the future.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.resource_not_found_exception.ResourceNotFoundException: <p>A requested resource couldn't be found.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.throttling_exception.ThrottlingException: <p>An error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.validation_exception.ValidationException: <p>A validation exception for a field.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             UpdateNotifyConfiguration
@@ -5493,6 +6336,15 @@ class PinpointSMSVoiceV2Client:
             opt_out_list_name: <p>The OptOutList to add the phone number to. You can use either the opt out list name or the opt out list ARN.</p>
             international_sending_enabled: <p>By default this is set to false. When set to true the international sending of phone number is Enabled. </p>
             deletion_protection_enabled: <p>By default this is set to false. When set to true the phone number can't be deleted. </p>
+
+        Raises:
+            aws_sdk_pinpoint_sms_voice_v2.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because you don't have sufficient permissions to access the resource.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.conflict_exception.ConflictException: <p>Your request has conflicting operations. This can occur if you're trying to perform more than one operation on the same resource at the same time or it could be that the requested action isn't valid for the current state or configuration of the resource.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.internal_server_exception.InternalServerException: <p>The API encountered an unexpected error and couldn't complete the request. You might be able to successfully issue the request again in the future.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.resource_not_found_exception.ResourceNotFoundException: <p>A requested resource couldn't be found.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.throttling_exception.ThrottlingException: <p>An error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.validation_exception.ValidationException: <p>A validation exception for a field.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5564,6 +6416,15 @@ class PinpointSMSVoiceV2Client:
             opt_out_list_name: <p>The OptOutList to associate with the pool. Valid values are either OptOutListName or OptOutListArn.</p> <important> <p>If you are using a shared End User Messaging SMS resource then you must use the full Amazon Resource Name(ARN).</p> </important>
             shared_routes_enabled: <p>Indicates whether shared routes are enabled for the pool.</p>
             deletion_protection_enabled: <p>When set to true the pool can't be deleted.</p>
+
+        Raises:
+            aws_sdk_pinpoint_sms_voice_v2.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because you don't have sufficient permissions to access the resource.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.conflict_exception.ConflictException: <p>Your request has conflicting operations. This can occur if you're trying to perform more than one operation on the same resource at the same time or it could be that the requested action isn't valid for the current state or configuration of the resource.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.internal_server_exception.InternalServerException: <p>The API encountered an unexpected error and couldn't complete the request. You might be able to successfully issue the request again in the future.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.resource_not_found_exception.ResourceNotFoundException: <p>A requested resource couldn't be found.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.throttling_exception.ThrottlingException: <p>An error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.validation_exception.ValidationException: <p>A validation exception for a field.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5617,6 +6478,14 @@ class PinpointSMSVoiceV2Client:
         Args:
             protect_configuration_id: <p>The unique identifier for the protect configuration.</p>
             deletion_protection_enabled: <p>When set to true deletion protection is enabled. By default this is set to false. </p>
+
+        Raises:
+            aws_sdk_pinpoint_sms_voice_v2.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because you don't have sufficient permissions to access the resource.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.internal_server_exception.InternalServerException: <p>The API encountered an unexpected error and couldn't complete the request. You might be able to successfully issue the request again in the future.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.resource_not_found_exception.ResourceNotFoundException: <p>A requested resource couldn't be found.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.throttling_exception.ThrottlingException: <p>An error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.validation_exception.ValidationException: <p>A validation exception for a field.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5660,6 +6529,14 @@ class PinpointSMSVoiceV2Client:
             protect_configuration_id: <p>The unique identifier for the protect configuration.</p>
             number_capability: <p>The number capability to apply the CountryRuleSetUpdates updates to.</p>
             country_rule_set_updates: <p>A map of ProtectConfigurationCountryRuleSetInformation objects that contain the details for the requested NumberCapability. The Key is the two-letter ISO country code. For a list of supported ISO country codes, see <a href=\"https://docs.aws.amazon.com/sms-voice/latest/userguide/phone-numbers-sms-by-country.html\">Supported countries and regions (SMS channel)</a> in the End User Messaging SMS User Guide.</p> <p>For example, to set the United States as allowed and Canada as blocked, the <code>CountryRuleSetUpdates</code> would be formatted as: <code>\"CountryRuleSetUpdates\": { \"US\" : { \"ProtectStatus\": \"ALLOW\" } \"CA\" : { \"ProtectStatus\": \"BLOCK\" } }</code> </p>
+
+        Raises:
+            aws_sdk_pinpoint_sms_voice_v2.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because you don't have sufficient permissions to access the resource.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.internal_server_exception.InternalServerException: <p>The API encountered an unexpected error and couldn't complete the request. You might be able to successfully issue the request again in the future.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.resource_not_found_exception.ResourceNotFoundException: <p>A requested resource couldn't be found.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.throttling_exception.ThrottlingException: <p>An error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.validation_exception.ValidationException: <p>A validation exception for a field.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5717,6 +6594,15 @@ class PinpointSMSVoiceV2Client:
             two_way_channel_arn: <p>The Amazon Resource Name (ARN) of the two way channel.</p>
             two_way_channel_role: <p>An optional IAM Role Arn for a service to assume, to be able to post inbound SMS messages.</p>
             two_way_enabled: <p>By default this is set to false. When set to true you can receive incoming text messages from your end recipients.</p>
+
+        Raises:
+            aws_sdk_pinpoint_sms_voice_v2.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because you don't have sufficient permissions to access the resource.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.conflict_exception.ConflictException: <p>Your request has conflicting operations. This can occur if you're trying to perform more than one operation on the same resource at the same time or it could be that the requested action isn't valid for the current state or configuration of the resource.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.internal_server_exception.InternalServerException: <p>The API encountered an unexpected error and couldn't complete the request. You might be able to successfully issue the request again in the future.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.resource_not_found_exception.ResourceNotFoundException: <p>A requested resource couldn't be found.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.throttling_exception.ThrottlingException: <p>An error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.validation_exception.ValidationException: <p>A validation exception for a field.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5770,6 +6656,14 @@ class PinpointSMSVoiceV2Client:
             sender_id: <p>The sender ID to update.</p>
             iso_country_code: <p>The two-character code, in ISO 3166-1 alpha-2 format, for the country or region.</p>
             deletion_protection_enabled: <p>By default this is set to false. When set to true the sender ID can't be deleted.</p>
+
+        Raises:
+            aws_sdk_pinpoint_sms_voice_v2.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because you don't have sufficient permissions to access the resource.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.internal_server_exception.InternalServerException: <p>The API encountered an unexpected error and couldn't complete the request. You might be able to successfully issue the request again in the future.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.resource_not_found_exception.ResourceNotFoundException: <p>A requested resource couldn't be found.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.throttling_exception.ThrottlingException: <p>An error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.validation_exception.ValidationException: <p>A validation exception for a field.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5812,6 +6706,15 @@ class PinpointSMSVoiceV2Client:
         Args:
             verified_destination_number_id: <p>The unique identifier for the verififed destination phone number.</p>
             verification_code: <p>The verification code that was received by the verified destination phone number.</p>
+
+        Raises:
+            aws_sdk_pinpoint_sms_voice_v2.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because you don't have sufficient permissions to access the resource.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.conflict_exception.ConflictException: <p>Your request has conflicting operations. This can occur if you're trying to perform more than one operation on the same resource at the same time or it could be that the requested action isn't valid for the current state or configuration of the resource.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.internal_server_exception.InternalServerException: <p>The API encountered an unexpected error and couldn't complete the request. You might be able to successfully issue the request again in the future.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.resource_not_found_exception.ResourceNotFoundException: <p>A requested resource couldn't be found.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.throttling_exception.ThrottlingException: <p>An error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.validation_exception.ValidationException: <p>A validation exception for a field.</p>
+            aws_sdk_pinpoint_sms_voice_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(

@@ -65,6 +65,16 @@ class SourceNetworkResource:
             origin_account_id: <p>Account containing the VPC to protect.</p>
             origin_region: <p>Region containing the VPC to protect.</p>
             tags: <p>A set of tags to be associated with the Source Network resource.</p>
+
+        Raises:
+            aws_sdk_drs.errors.conflict_exception.ConflictException: <p>The request could not be completed due to a conflict with the current state of the target resource.</p>
+            aws_sdk_drs.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_drs.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource for this operation was not found.</p>
+            aws_sdk_drs.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request could not be completed because its exceeded the service quota.</p>
+            aws_sdk_drs.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_drs.errors.uninitialized_account_exception.UninitializedAccountException: <p>The account performing the request has not been initialized.</p>
+            aws_sdk_drs.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by the AWS service.</p>
+            aws_sdk_drs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -106,6 +116,14 @@ class SourceNetworkResource:
 
         Args:
             source_network_id: <p>ID of the Source Network to delete.</p>
+
+        Raises:
+            aws_sdk_drs.errors.conflict_exception.ConflictException: <p>The request could not be completed due to a conflict with the current state of the target resource.</p>
+            aws_sdk_drs.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_drs.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource for this operation was not found.</p>
+            aws_sdk_drs.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_drs.errors.uninitialized_account_exception.UninitializedAccountException: <p>The account performing the request has not been initialized.</p>
+            aws_sdk_drs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -153,6 +171,13 @@ class SourceNetworkResource:
             filters: <p>A set of filters by which to return Source Networks.</p>
             max_results: <p>Maximum number of Source Networks to retrieve.</p>
             next_token: <p>The token of the next Source Networks to retrieve.</p>
+
+        Raises:
+            aws_sdk_drs.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_drs.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_drs.errors.uninitialized_account_exception.UninitializedAccountException: <p>The account performing the request has not been initialized.</p>
+            aws_sdk_drs.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by the AWS service.</p>
+            aws_sdk_drs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -197,6 +222,16 @@ class SourceNetworkResource:
         Args:
             source_network_id: <p>The Source Network ID to associate with CloudFormation template.</p>
             cfn_stack_name: <p>CloudFormation template to associate with a Source Network.</p>
+
+        Raises:
+            aws_sdk_drs.errors.conflict_exception.ConflictException: <p>The request could not be completed due to a conflict with the current state of the target resource.</p>
+            aws_sdk_drs.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_drs.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource for this operation was not found.</p>
+            aws_sdk_drs.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request could not be completed because its exceeded the service quota.</p>
+            aws_sdk_drs.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_drs.errors.uninitialized_account_exception.UninitializedAccountException: <p>The account performing the request has not been initialized.</p>
+            aws_sdk_drs.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by the AWS service.</p>
+            aws_sdk_drs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -235,6 +270,15 @@ class SourceNetworkResource:
 
         Args:
             source_network_id: <p>The Source Network ID to export its CloudFormation template to an S3 bucket.</p>
+
+        Raises:
+            aws_sdk_drs.errors.conflict_exception.ConflictException: <p>The request could not be completed due to a conflict with the current state of the target resource.</p>
+            aws_sdk_drs.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_drs.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource for this operation was not found.</p>
+            aws_sdk_drs.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_drs.errors.uninitialized_account_exception.UninitializedAccountException: <p>The account performing the request has not been initialized.</p>
+            aws_sdk_drs.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by the AWS service.</p>
+            aws_sdk_drs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -272,6 +316,14 @@ class SourceNetworkResource:
 
         Args:
             source_network_id: <p>ID of the Source Network to replicate.</p>
+
+        Raises:
+            aws_sdk_drs.errors.conflict_exception.ConflictException: <p>The request could not be completed due to a conflict with the current state of the target resource.</p>
+            aws_sdk_drs.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_drs.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource for this operation was not found.</p>
+            aws_sdk_drs.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_drs.errors.uninitialized_account_exception.UninitializedAccountException: <p>The account performing the request has not been initialized.</p>
+            aws_sdk_drs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -309,6 +361,15 @@ class SourceNetworkResource:
 
         Args:
             source_network_id: <p>ID of the Source Network to stop replication.</p>
+
+        Raises:
+            aws_sdk_drs.errors.conflict_exception.ConflictException: <p>The request could not be completed due to a conflict with the current state of the target resource.</p>
+            aws_sdk_drs.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_drs.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource for this operation was not found.</p>
+            aws_sdk_drs.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_drs.errors.uninitialized_account_exception.UninitializedAccountException: <p>The account performing the request has not been initialized.</p>
+            aws_sdk_drs.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by the AWS service.</p>
+            aws_sdk_drs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -350,6 +411,15 @@ class SourceNetworkResource:
             source_networks: <p>The Source Networks that we want to start a Recovery Job for.</p>
             deploy_as_new: <p>Don't update existing CloudFormation Stack, recover the network using a new stack.</p>
             tags: <p>The tags to be associated with the Source Network recovery Job.</p>
+
+        Raises:
+            aws_sdk_drs.errors.conflict_exception.ConflictException: <p>The request could not be completed due to a conflict with the current state of the target resource.</p>
+            aws_sdk_drs.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_drs.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request could not be completed because its exceeded the service quota.</p>
+            aws_sdk_drs.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_drs.errors.uninitialized_account_exception.UninitializedAccountException: <p>The account performing the request has not been initialized.</p>
+            aws_sdk_drs.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by the AWS service.</p>
+            aws_sdk_drs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -402,6 +472,16 @@ class AsyncSourceNetworkResource:
             origin_account_id: <p>Account containing the VPC to protect.</p>
             origin_region: <p>Region containing the VPC to protect.</p>
             tags: <p>A set of tags to be associated with the Source Network resource.</p>
+
+        Raises:
+            aws_sdk_drs.errors.conflict_exception.ConflictException: <p>The request could not be completed due to a conflict with the current state of the target resource.</p>
+            aws_sdk_drs.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_drs.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource for this operation was not found.</p>
+            aws_sdk_drs.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request could not be completed because its exceeded the service quota.</p>
+            aws_sdk_drs.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_drs.errors.uninitialized_account_exception.UninitializedAccountException: <p>The account performing the request has not been initialized.</p>
+            aws_sdk_drs.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by the AWS service.</p>
+            aws_sdk_drs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -444,6 +524,14 @@ class AsyncSourceNetworkResource:
 
         Args:
             source_network_id: <p>ID of the Source Network to delete.</p>
+
+        Raises:
+            aws_sdk_drs.errors.conflict_exception.ConflictException: <p>The request could not be completed due to a conflict with the current state of the target resource.</p>
+            aws_sdk_drs.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_drs.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource for this operation was not found.</p>
+            aws_sdk_drs.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_drs.errors.uninitialized_account_exception.UninitializedAccountException: <p>The account performing the request has not been initialized.</p>
+            aws_sdk_drs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -492,6 +580,13 @@ class AsyncSourceNetworkResource:
             filters: <p>A set of filters by which to return Source Networks.</p>
             max_results: <p>Maximum number of Source Networks to retrieve.</p>
             next_token: <p>The token of the next Source Networks to retrieve.</p>
+
+        Raises:
+            aws_sdk_drs.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_drs.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_drs.errors.uninitialized_account_exception.UninitializedAccountException: <p>The account performing the request has not been initialized.</p>
+            aws_sdk_drs.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by the AWS service.</p>
+            aws_sdk_drs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -537,6 +632,16 @@ class AsyncSourceNetworkResource:
         Args:
             source_network_id: <p>The Source Network ID to associate with CloudFormation template.</p>
             cfn_stack_name: <p>CloudFormation template to associate with a Source Network.</p>
+
+        Raises:
+            aws_sdk_drs.errors.conflict_exception.ConflictException: <p>The request could not be completed due to a conflict with the current state of the target resource.</p>
+            aws_sdk_drs.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_drs.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource for this operation was not found.</p>
+            aws_sdk_drs.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request could not be completed because its exceeded the service quota.</p>
+            aws_sdk_drs.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_drs.errors.uninitialized_account_exception.UninitializedAccountException: <p>The account performing the request has not been initialized.</p>
+            aws_sdk_drs.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by the AWS service.</p>
+            aws_sdk_drs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -576,6 +681,15 @@ class AsyncSourceNetworkResource:
 
         Args:
             source_network_id: <p>The Source Network ID to export its CloudFormation template to an S3 bucket.</p>
+
+        Raises:
+            aws_sdk_drs.errors.conflict_exception.ConflictException: <p>The request could not be completed due to a conflict with the current state of the target resource.</p>
+            aws_sdk_drs.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_drs.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource for this operation was not found.</p>
+            aws_sdk_drs.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_drs.errors.uninitialized_account_exception.UninitializedAccountException: <p>The account performing the request has not been initialized.</p>
+            aws_sdk_drs.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by the AWS service.</p>
+            aws_sdk_drs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -614,6 +728,14 @@ class AsyncSourceNetworkResource:
 
         Args:
             source_network_id: <p>ID of the Source Network to replicate.</p>
+
+        Raises:
+            aws_sdk_drs.errors.conflict_exception.ConflictException: <p>The request could not be completed due to a conflict with the current state of the target resource.</p>
+            aws_sdk_drs.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_drs.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource for this operation was not found.</p>
+            aws_sdk_drs.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_drs.errors.uninitialized_account_exception.UninitializedAccountException: <p>The account performing the request has not been initialized.</p>
+            aws_sdk_drs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -652,6 +774,15 @@ class AsyncSourceNetworkResource:
 
         Args:
             source_network_id: <p>ID of the Source Network to stop replication.</p>
+
+        Raises:
+            aws_sdk_drs.errors.conflict_exception.ConflictException: <p>The request could not be completed due to a conflict with the current state of the target resource.</p>
+            aws_sdk_drs.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_drs.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource for this operation was not found.</p>
+            aws_sdk_drs.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_drs.errors.uninitialized_account_exception.UninitializedAccountException: <p>The account performing the request has not been initialized.</p>
+            aws_sdk_drs.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by the AWS service.</p>
+            aws_sdk_drs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -694,6 +825,15 @@ class AsyncSourceNetworkResource:
             source_networks: <p>The Source Networks that we want to start a Recovery Job for.</p>
             deploy_as_new: <p>Don't update existing CloudFormation Stack, recover the network using a new stack.</p>
             tags: <p>The tags to be associated with the Source Network recovery Job.</p>
+
+        Raises:
+            aws_sdk_drs.errors.conflict_exception.ConflictException: <p>The request could not be completed due to a conflict with the current state of the target resource.</p>
+            aws_sdk_drs.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_drs.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request could not be completed because its exceeded the service quota.</p>
+            aws_sdk_drs.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_drs.errors.uninitialized_account_exception.UninitializedAccountException: <p>The account performing the request has not been initialized.</p>
+            aws_sdk_drs.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by the AWS service.</p>
+            aws_sdk_drs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

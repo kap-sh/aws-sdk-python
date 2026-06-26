@@ -63,6 +63,9 @@ class LiveSourceResource:
             live_source_name: <p>The name of the live source.</p>
             source_location_name: <p>The name of the source location.</p>
             tags: <p>The tags to assign to the live source. Tags are key-value pairs that you can associate with Amazon resources to help with organization, access control, and cost tracking. For more information, see <a href=\"https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html\">Tagging AWS Elemental MediaTailor Resources</a>.</p>
+
+        Raises:
+            aws_sdk_mediatailor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -106,6 +109,9 @@ class LiveSourceResource:
         Args:
             live_source_name: <p>The name of the live source.</p>
             source_location_name: <p>The name of the source location associated with this Live Source.</p>
+
+        Raises:
+            aws_sdk_mediatailor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -150,6 +156,9 @@ class LiveSourceResource:
             http_package_configurations: <p>A list of HTTP package configurations for the live source on this account.</p>
             live_source_name: <p>The name of the live source.</p>
             source_location_name: <p>The name of the source location associated with this Live Source.</p>
+
+        Raises:
+            aws_sdk_mediatailor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -193,6 +202,9 @@ class LiveSourceResource:
         Args:
             live_source_name: <p>The name of the live source.</p>
             source_location_name: <p>The name of the source location associated with this Live Source.</p>
+
+        Raises:
+            aws_sdk_mediatailor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -237,6 +249,9 @@ class LiveSourceResource:
             max_results: <p>The maximum number of live sources that you want MediaTailor to return in response to the current request. If there are more than <code>MaxResults</code> live sources, use the value of <code>NextToken</code> in the response to get the next page of results.</p> <p>The default value is 100. MediaTailor uses DynamoDB-based pagination, which means that a response might contain fewer than <code>MaxResults</code> items, including 0 items, even when more results are available. To retrieve all results, you must continue making requests using the <code>NextToken</code> value from each response until the response no longer includes a <code>NextToken</code> value.</p>
             next_token: <p>Pagination token returned by the list request when results exceed the maximum allowed. Use the token to fetch the next page of results.</p> <p>For the first <code>ListLiveSources</code> request, omit this value. For subsequent requests, get the value of <code>NextToken</code> from the previous response and specify that value for <code>NextToken</code> in the request. Continue making requests until the response no longer includes a <code>NextToken</code> value, which indicates that all results have been retrieved.</p>
             source_location_name: <p>The name of the source location associated with this Live Sources list.</p>
+
+        Raises:
+            aws_sdk_mediatailor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -293,6 +308,9 @@ class AsyncLiveSourceResource:
             live_source_name: <p>The name of the live source.</p>
             source_location_name: <p>The name of the source location.</p>
             tags: <p>The tags to assign to the live source. Tags are key-value pairs that you can associate with Amazon resources to help with organization, access control, and cost tracking. For more information, see <a href=\"https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html\">Tagging AWS Elemental MediaTailor Resources</a>.</p>
+
+        Raises:
+            aws_sdk_mediatailor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -337,6 +355,9 @@ class AsyncLiveSourceResource:
         Args:
             live_source_name: <p>The name of the live source.</p>
             source_location_name: <p>The name of the source location associated with this Live Source.</p>
+
+        Raises:
+            aws_sdk_mediatailor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -382,6 +403,9 @@ class AsyncLiveSourceResource:
             http_package_configurations: <p>A list of HTTP package configurations for the live source on this account.</p>
             live_source_name: <p>The name of the live source.</p>
             source_location_name: <p>The name of the source location associated with this Live Source.</p>
+
+        Raises:
+            aws_sdk_mediatailor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -426,6 +450,9 @@ class AsyncLiveSourceResource:
         Args:
             live_source_name: <p>The name of the live source.</p>
             source_location_name: <p>The name of the source location associated with this Live Source.</p>
+
+        Raises:
+            aws_sdk_mediatailor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -471,6 +498,9 @@ class AsyncLiveSourceResource:
             max_results: <p>The maximum number of live sources that you want MediaTailor to return in response to the current request. If there are more than <code>MaxResults</code> live sources, use the value of <code>NextToken</code> in the response to get the next page of results.</p> <p>The default value is 100. MediaTailor uses DynamoDB-based pagination, which means that a response might contain fewer than <code>MaxResults</code> items, including 0 items, even when more results are available. To retrieve all results, you must continue making requests using the <code>NextToken</code> value from each response until the response no longer includes a <code>NextToken</code> value.</p>
             next_token: <p>Pagination token returned by the list request when results exceed the maximum allowed. Use the token to fetch the next page of results.</p> <p>For the first <code>ListLiveSources</code> request, omit this value. For subsequent requests, get the value of <code>NextToken</code> from the previous response and specify that value for <code>NextToken</code> in the request. Continue making requests until the response no longer includes a <code>NextToken</code> value, which indicates that all results have been retrieved.</p>
             source_location_name: <p>The name of the source location associated with this Live Sources list.</p>
+
+        Raises:
+            aws_sdk_mediatailor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

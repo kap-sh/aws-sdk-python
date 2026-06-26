@@ -322,6 +322,14 @@ class AsyncCloudWatchClient:
         Args:
             dataset_identifier: <p>Specifies the identifier of the dataset that you want to associate the KMS key with. For the <code>default</code> dataset, you can specify either <code>default</code> or the full dataset Amazon Resource Name (ARN) in the format <code>arn:aws:cloudwatch:<i>Region</i>:<i>account-id</i>:dataset/default</code>.</p>
             kms_key_arn: <p>Specifies the Amazon Resource Name (ARN) of the customer managed KMS key to associate with the dataset. The key must be a symmetric encryption KMS key (<code>SYMMETRIC_DEFAULT</code>) in the same Amazon Web Services Region as the dataset.</p> <p>The ARN must be in the format <code>arn:aws:kms:<i>Region</i>:<i>account-id</i>:key/<i>key-id</i> </code>. Key IDs, aliases, and alias ARNs are not accepted.</p> <p>For more information about KMS key ARNs, see <a href=\"https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN\">Key ARN</a> in the <i>Amazon Web Services Key Management Service Developer Guide</i>.</p>
+
+        Raises:
+            aws_sdk_cloudwatch.errors.conflict_exception.ConflictException: <p>This operation attempted to create a resource that already exists.</p>
+            aws_sdk_cloudwatch.errors.kms_access_denied_exception.KmsAccessDeniedException: <p>The operation was denied because either the calling principal lacks the required Amazon Web Services Key Management Service (Amazon Web Services KMS) permission on the key, or the key policy does not grant Amazon CloudWatch the permissions it needs to use the key. Verify that the caller has <code>kms:Decrypt</code> permission on the key, and that the key policy grants the CloudWatch service principal the <code>kms:DescribeKey</code>, <code>kms:GenerateDataKey</code>, <code>kms:Encrypt</code>, <code>kms:Decrypt</code>, and <code>kms:ReEncrypt*</code> permissions described in <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_AssociateDatasetKmsKey.html\">AssociateDatasetKmsKey</a>.</p>
+            aws_sdk_cloudwatch.errors.kms_key_disabled_exception.KmsKeyDisabledException: <p>The specified Amazon Web Services Key Management Service (Amazon Web Services KMS) key is disabled or pending deletion. Re-enable the key (or restore it, if it is pending deletion) and retry the operation.</p>
+            aws_sdk_cloudwatch.errors.kms_key_not_found_exception.KmsKeyNotFoundException: <p>The specified Amazon Web Services Key Management Service (Amazon Web Services KMS) key could not be found. Verify that the key Amazon Resource Name (ARN) is correct, that the key exists, and that it is in the same Amazon Web Services Region as the resource.</p>
+            aws_sdk_cloudwatch.errors.resource_not_found_exception.ResourceNotFoundException: <p>The named resource does not exist.</p>
+            aws_sdk_cloudwatch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -361,6 +369,9 @@ class AsyncCloudWatchClient:
 
         Args:
             alarm_mute_rule_name: <p>The name of the alarm mute rule to delete.</p>
+
+        Raises:
+            aws_sdk_cloudwatch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -397,6 +408,10 @@ class AsyncCloudWatchClient:
 
         Args:
             alarm_names: <p>The alarms to be deleted. Do not enclose the alarm names in quote marks.</p>
+
+        Raises:
+            aws_sdk_cloudwatch.errors.resource_not_found.ResourceNotFound: <p>The named resource does not exist.</p>
+            aws_sdk_cloudwatch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -449,6 +464,14 @@ class AsyncCloudWatchClient:
             stat: <p>The statistic associated with the anomaly detection model to delete.</p>
             single_metric_anomaly_detector: <p>A single metric anomaly detector to be deleted.</p> <p>When using <code>SingleMetricAnomalyDetector</code>, you cannot include the following parameters in the same operation:</p> <ul> <li> <p> <code>Dimensions</code>,</p> </li> <li> <p> <code>MetricName</code> </p> </li> <li> <p> <code>Namespace</code> </p> </li> <li> <p> <code>Stat</code> </p> </li> <li> <p>the <code>MetricMathAnomalyDetector</code> parameters of <code>DeleteAnomalyDetectorInput</code> </p> </li> </ul> <p>Instead, specify the single metric anomaly detector attributes as part of the <code>SingleMetricAnomalyDetector</code> property.</p>
             metric_math_anomaly_detector: <p>The metric math anomaly detector to be deleted.</p> <p>When using <code>MetricMathAnomalyDetector</code>, you cannot include following parameters in the same operation:</p> <ul> <li> <p> <code>Dimensions</code>,</p> </li> <li> <p> <code>MetricName</code> </p> </li> <li> <p> <code>Namespace</code> </p> </li> <li> <p> <code>Stat</code> </p> </li> <li> <p>the <code>SingleMetricAnomalyDetector</code> parameters of <code>DeleteAnomalyDetectorInput</code> </p> </li> </ul> <p>Instead, specify the metric math anomaly detector attributes as part of the <code>MetricMathAnomalyDetector</code> property.</p>
+
+        Raises:
+            aws_sdk_cloudwatch.errors.internal_service_fault.InternalServiceFault: <p>Request processing has failed due to some unknown error, exception, or failure.</p>
+            aws_sdk_cloudwatch.errors.invalid_parameter_combination_exception.InvalidParameterCombinationException: <p>Parameters were used together that cannot be used together.</p>
+            aws_sdk_cloudwatch.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value of an input parameter is bad or out-of-range.</p>
+            aws_sdk_cloudwatch.errors.missing_required_parameter_exception.MissingRequiredParameterException: <p>An input parameter that is required is missing.</p>
+            aws_sdk_cloudwatch.errors.resource_not_found_exception.ResourceNotFoundException: <p>The named resource does not exist.</p>
+            aws_sdk_cloudwatch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -498,6 +521,12 @@ class AsyncCloudWatchClient:
 
         Args:
             dashboard_names: <p>The dashboards to be deleted. This parameter is required.</p>
+
+        Raises:
+            aws_sdk_cloudwatch.errors.conflict_exception.ConflictException: <p>This operation attempted to create a resource that already exists.</p>
+            aws_sdk_cloudwatch.errors.internal_service_fault.InternalServiceFault: <p>Request processing has failed due to some unknown error, exception, or failure.</p>
+            aws_sdk_cloudwatch.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value of an input parameter is bad or out-of-range.</p>
+            aws_sdk_cloudwatch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -538,6 +567,11 @@ class AsyncCloudWatchClient:
 
         Args:
             rule_names: <p>An array of the rule names to delete. If you need to find out the names of your rules, use <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_DescribeInsightRules.html\">DescribeInsightRules</a>.</p>
+
+        Raises:
+            aws_sdk_cloudwatch.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value of an input parameter is bad or out-of-range.</p>
+            aws_sdk_cloudwatch.errors.missing_required_parameter_exception.MissingRequiredParameterException: <p>An input parameter that is required is missing.</p>
+            aws_sdk_cloudwatch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -578,6 +612,12 @@ class AsyncCloudWatchClient:
 
         Args:
             name: <p>The name of the metric stream to delete.</p>
+
+        Raises:
+            aws_sdk_cloudwatch.errors.internal_service_fault.InternalServiceFault: <p>Request processing has failed due to some unknown error, exception, or failure.</p>
+            aws_sdk_cloudwatch.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value of an input parameter is bad or out-of-range.</p>
+            aws_sdk_cloudwatch.errors.missing_required_parameter_exception.MissingRequiredParameterException: <p>An input parameter that is required is missing.</p>
+            aws_sdk_cloudwatch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -618,6 +658,11 @@ class AsyncCloudWatchClient:
         Args:
             alarm_name: <p>The name of the alarm for which to retrieve contributor information.</p>
             next_token: <p>The token returned by a previous call to indicate that there is more data available.</p>
+
+        Raises:
+            aws_sdk_cloudwatch.errors.invalid_next_token.InvalidNextToken: <p>The next token specified is invalid.</p>
+            aws_sdk_cloudwatch.errors.resource_not_found_exception.ResourceNotFoundException: <p>The named resource does not exist.</p>
+            aws_sdk_cloudwatch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -678,6 +723,10 @@ class AsyncCloudWatchClient:
             max_records: <p>The maximum number of alarm history records to retrieve.</p>
             next_token: <p>The token returned by a previous call to indicate that there is more data available.</p>
             scan_by: <p>Specified whether to return the newest or oldest alarm history first. Specify <code>TimestampDescending</code> to have the newest event history returned first, and specify <code>TimestampAscending</code> to have the oldest history returned first.</p>
+
+        Raises:
+            aws_sdk_cloudwatch.errors.invalid_next_token.InvalidNextToken: <p>The next token specified is invalid.</p>
+            aws_sdk_cloudwatch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -796,6 +845,10 @@ class AsyncCloudWatchClient:
             action_prefix: <p>Use this parameter to filter the results of the operation to only those alarms that use a certain alarm action. For example, you could specify the ARN of an SNS topic to find all alarms that send notifications to that topic.</p>
             max_records: <p>The maximum number of alarm descriptions to retrieve.</p>
             next_token: <p>The token returned by a previous call to indicate that there is more data available.</p>
+
+        Raises:
+            aws_sdk_cloudwatch.errors.invalid_next_token.InvalidNextToken: <p>The next token specified is invalid.</p>
+            aws_sdk_cloudwatch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -865,6 +918,9 @@ class AsyncCloudWatchClient:
             dimensions: <p>The dimensions associated with the metric. If the metric has any associated dimensions, you must specify them in order for the call to succeed.</p>
             period: <p>The period, in seconds, over which the statistic is applied.</p>
             unit: <p>The unit for the metric.</p>
+
+        Raises:
+            aws_sdk_cloudwatch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -928,6 +984,13 @@ class AsyncCloudWatchClient:
             metric_name: <p>Limits the results to only the anomaly detection models that are associated with the specified metric name. If there are multiple metrics with this name in different namespaces that have anomaly detection models, they're all returned.</p>
             dimensions: <p>Limits the results to only the anomaly detection models that are associated with the specified metric dimensions. If there are multiple metrics that have these dimensions and have anomaly detection models associated, they're all returned.</p>
             anomaly_detector_types: <p>The anomaly detector types to request when using <code>DescribeAnomalyDetectorsInput</code>. If empty, defaults to <code>SINGLE_METRIC</code>.</p>
+
+        Raises:
+            aws_sdk_cloudwatch.errors.internal_service_fault.InternalServiceFault: <p>Request processing has failed due to some unknown error, exception, or failure.</p>
+            aws_sdk_cloudwatch.errors.invalid_next_token.InvalidNextToken: <p>The next token specified is invalid.</p>
+            aws_sdk_cloudwatch.errors.invalid_parameter_combination_exception.InvalidParameterCombinationException: <p>Parameters were used together that cannot be used together.</p>
+            aws_sdk_cloudwatch.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value of an input parameter is bad or out-of-range.</p>
+            aws_sdk_cloudwatch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1014,6 +1077,10 @@ class AsyncCloudWatchClient:
         Args:
             next_token: <p>Include this value, if it was returned by the previous operation, to get the next set of rules.</p>
             max_results: <p>The maximum number of results to return in one operation. If you omit this parameter, the default of 500 is used.</p>
+
+        Raises:
+            aws_sdk_cloudwatch.errors.invalid_next_token.InvalidNextToken: <p>The next token specified is invalid.</p>
+            aws_sdk_cloudwatch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1055,6 +1122,9 @@ class AsyncCloudWatchClient:
 
         Args:
             alarm_names: <p>The names of the alarms.</p>
+
+        Raises:
+            aws_sdk_cloudwatch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1091,6 +1161,11 @@ class AsyncCloudWatchClient:
 
         Args:
             rule_names: <p>An array of the rule names to disable. If you need to find out the names of your rules, use <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_DescribeInsightRules.html\">DescribeInsightRules</a>.</p>
+
+        Raises:
+            aws_sdk_cloudwatch.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value of an input parameter is bad or out-of-range.</p>
+            aws_sdk_cloudwatch.errors.missing_required_parameter_exception.MissingRequiredParameterException: <p>An input parameter that is required is missing.</p>
+            aws_sdk_cloudwatch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1129,6 +1204,11 @@ class AsyncCloudWatchClient:
 
         Args:
             dataset_identifier: <p>Specifies the identifier of the dataset from which to remove the KMS key association. For the <code>default</code> dataset, you can specify either <code>default</code> or the full dataset Amazon Resource Name (ARN) in the format <code>arn:aws:cloudwatch:<i>Region</i>:<i>account-id</i>:dataset/default</code>.</p>
+
+        Raises:
+            aws_sdk_cloudwatch.errors.conflict_exception.ConflictException: <p>This operation attempted to create a resource that already exists.</p>
+            aws_sdk_cloudwatch.errors.resource_not_found_exception.ResourceNotFoundException: <p>The named resource does not exist.</p>
+            aws_sdk_cloudwatch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1167,6 +1247,9 @@ class AsyncCloudWatchClient:
 
         Args:
             alarm_names: <p>The names of the alarms.</p>
+
+        Raises:
+            aws_sdk_cloudwatch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1205,6 +1288,12 @@ class AsyncCloudWatchClient:
 
         Args:
             rule_names: <p>An array of the rule names to enable. If you need to find out the names of your rules, use <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_DescribeInsightRules.html\">DescribeInsightRules</a>.</p>
+
+        Raises:
+            aws_sdk_cloudwatch.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value of an input parameter is bad or out-of-range.</p>
+            aws_sdk_cloudwatch.errors.limit_exceeded_exception.LimitExceededException: <p>The operation exceeded one or more limits.</p>
+            aws_sdk_cloudwatch.errors.missing_required_parameter_exception.MissingRequiredParameterException: <p>An input parameter that is required is missing.</p>
+            aws_sdk_cloudwatch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1243,6 +1332,10 @@ class AsyncCloudWatchClient:
 
         Args:
             alarm_mute_rule_name: <p>The name of the alarm mute rule to retrieve.</p>
+
+        Raises:
+            aws_sdk_cloudwatch.errors.resource_not_found_exception.ResourceNotFoundException: <p>The named resource does not exist.</p>
+            aws_sdk_cloudwatch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1323,6 +1416,12 @@ class AsyncCloudWatchClient:
 
         Args:
             dashboard_name: <p>The name of the dashboard to be described.</p>
+
+        Raises:
+            aws_sdk_cloudwatch.errors.dashboard_not_found_error.DashboardNotFoundError: <p>The specified dashboard does not exist.</p>
+            aws_sdk_cloudwatch.errors.internal_service_fault.InternalServiceFault: <p>Request processing has failed due to some unknown error, exception, or failure.</p>
+            aws_sdk_cloudwatch.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value of an input parameter is bad or out-of-range.</p>
+            aws_sdk_cloudwatch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1361,6 +1460,10 @@ class AsyncCloudWatchClient:
 
         Args:
             dataset_identifier: <p>Specifies the identifier of the dataset to retrieve. For the <code>default</code> dataset, you can specify either <code>default</code> or the full dataset Amazon Resource Name (ARN) in the format <code>arn:aws:cloudwatch:<i>Region</i>:<i>account-id</i>:dataset/default</code>.</p>
+
+        Raises:
+            aws_sdk_cloudwatch.errors.resource_not_found_exception.ResourceNotFoundException: <p>The named resource does not exist.</p>
+            aws_sdk_cloudwatch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1417,6 +1520,12 @@ class AsyncCloudWatchClient:
             max_contributor_count: <p>The maximum number of contributors to include in the report. The range is 1 to 100. If you omit this, the default of 10 is used.</p>
             metrics: <p>Specifies which metrics to use for aggregation of contributor values for the report. You can specify one or more of the following metrics:</p> <ul> <li> <p> <code>UniqueContributors</code> -- the number of unique contributors for each data point.</p> </li> <li> <p> <code>MaxContributorValue</code> -- the value of the top contributor for each data point. The identity of the contributor might change for each data point in the graph.</p> <p>If this rule aggregates by COUNT, the top contributor for each data point is the contributor with the most occurrences in that period. If the rule aggregates by SUM, the top contributor is the contributor with the highest sum in the log field specified by the rule's <code>Value</code>, during that period.</p> </li> <li> <p> <code>SampleCount</code> -- the number of data points matched by the rule.</p> </li> <li> <p> <code>Sum</code> -- the sum of the values from all contributors during the time period represented by that data point.</p> </li> <li> <p> <code>Minimum</code> -- the minimum value from a single observation during the time period represented by that data point.</p> </li> <li> <p> <code>Maximum</code> -- the maximum value from a single observation during the time period represented by that data point.</p> </li> <li> <p> <code>Average</code> -- the average value from all contributors during the time period represented by that data point.</p> </li> </ul>
             order_by: <p>Determines what statistic to use to rank the contributors. Valid values are <code>Sum</code> and <code>Maximum</code>.</p>
+
+        Raises:
+            aws_sdk_cloudwatch.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value of an input parameter is bad or out-of-range.</p>
+            aws_sdk_cloudwatch.errors.missing_required_parameter_exception.MissingRequiredParameterException: <p>An input parameter that is required is missing.</p>
+            aws_sdk_cloudwatch.errors.resource_not_found_exception.ResourceNotFoundException: <p>The named resource does not exist.</p>
+            aws_sdk_cloudwatch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1480,6 +1589,10 @@ class AsyncCloudWatchClient:
             scan_by: <p>The order in which data points should be returned. <code>TimestampDescending</code> returns the newest data first and paginates when the <code>MaxDatapoints</code> limit is reached. <code>TimestampAscending</code> returns the oldest data first and paginates when the <code>MaxDatapoints</code> limit is reached.</p> <p>If you omit this parameter, the default of <code>TimestampDescending</code> is used.</p>
             max_datapoints: <p>The maximum number of data points the request should return before paginating. If you omit this, the default of 100,800 is used.</p>
             label_options: <p>This structure includes the <code>Timezone</code> parameter, which you can use to specify your time zone so that the labels of returned data display the correct time for your time zone. </p>
+
+        Raises:
+            aws_sdk_cloudwatch.errors.invalid_next_token.InvalidNextToken: <p>The next token specified is invalid.</p>
+            aws_sdk_cloudwatch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1546,6 +1659,13 @@ class AsyncCloudWatchClient:
             statistics: <p>The metric statistics, other than percentile. For percentile statistics, use <code>ExtendedStatistics</code>. When calling <code>GetMetricStatistics</code>, you must specify either <code>Statistics</code> or <code>ExtendedStatistics</code>, but not both.</p>
             extended_statistics: <p>The percentile statistics. Specify values between p0.0 and p100. When calling <code>GetMetricStatistics</code>, you must specify either <code>Statistics</code> or <code>ExtendedStatistics</code>, but not both. Percentile statistics are not available for metrics when any of the metric values are negative numbers.</p>
             unit: <p>The unit for a given metric. If you omit <code>Unit</code>, all data that was collected with any unit is returned, along with the corresponding units that were specified when the data was reported to CloudWatch. If you specify a unit, the operation returns only data that was collected with that unit specified. If you specify a unit that does not match the data collected, the results of the operation are null. CloudWatch does not perform unit conversions.</p>
+
+        Raises:
+            aws_sdk_cloudwatch.errors.internal_service_fault.InternalServiceFault: <p>Request processing has failed due to some unknown error, exception, or failure.</p>
+            aws_sdk_cloudwatch.errors.invalid_parameter_combination_exception.InvalidParameterCombinationException: <p>Parameters were used together that cannot be used together.</p>
+            aws_sdk_cloudwatch.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value of an input parameter is bad or out-of-range.</p>
+            aws_sdk_cloudwatch.errors.missing_required_parameter_exception.MissingRequiredParameterException: <p>An input parameter that is required is missing.</p>
+            aws_sdk_cloudwatch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1596,6 +1716,14 @@ class AsyncCloudWatchClient:
 
         Args:
             name: <p>The name of the metric stream to retrieve information about.</p>
+
+        Raises:
+            aws_sdk_cloudwatch.errors.internal_service_fault.InternalServiceFault: <p>Request processing has failed due to some unknown error, exception, or failure.</p>
+            aws_sdk_cloudwatch.errors.invalid_parameter_combination_exception.InvalidParameterCombinationException: <p>Parameters were used together that cannot be used together.</p>
+            aws_sdk_cloudwatch.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value of an input parameter is bad or out-of-range.</p>
+            aws_sdk_cloudwatch.errors.missing_required_parameter_exception.MissingRequiredParameterException: <p>An input parameter that is required is missing.</p>
+            aws_sdk_cloudwatch.errors.resource_not_found_exception.ResourceNotFoundException: <p>The named resource does not exist.</p>
+            aws_sdk_cloudwatch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1638,6 +1766,9 @@ class AsyncCloudWatchClient:
         Args:
             metric_widget: <p>A JSON string that defines the bitmap graph to be retrieved. The string includes the metrics to include in the graph, statistics, annotations, title, axis limits, and so on. You can include only one <code>MetricWidget</code> parameter in each <code>GetMetricWidgetImage</code> call.</p> <p>For more information about the syntax of <code>MetricWidget</code> see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/CloudWatch-Metric-Widget-Structure.html\">GetMetricWidgetImage: Metric Widget Structure and Syntax</a>.</p> <p>If any metric on the graph could not load all the requested data points, an orange triangle with an exclamation point appears next to the graph legend.</p>
             output_format: <p>The format of the resulting image. Only PNG images are supported.</p> <p>The default is <code>png</code>. If you specify <code>png</code>, the API returns an HTTP response with the content-type set to <code>text/xml</code>. The image data is in a <code>MetricWidgetImage</code> field. For example:</p> <p> <code> <GetMetricWidgetImageResponse xmlns=<URLstring>></code> </p> <p> <code> <GetMetricWidgetImageResult></code> </p> <p> <code> <MetricWidgetImage></code> </p> <p> <code> iVBORw0KGgoAAAANSUhEUgAAAlgAAAGQEAYAAAAip...</code> </p> <p> <code> </MetricWidgetImage></code> </p> <p> <code> </GetMetricWidgetImageResult></code> </p> <p> <code> <ResponseMetadata></code> </p> <p> <code> <RequestId>6f0d4192-4d42-11e8-82c1-f539a07e0e3b</RequestId></code> </p> <p> <code> </ResponseMetadata></code> </p> <p> <code></GetMetricWidgetImageResponse></code> </p> <p>The <code>image/png</code> setting is intended only for custom HTTP requests. For most use cases, and all actions using an Amazon Web Services SDK, you should use <code>png</code>. If you specify <code>image/png</code>, the HTTP response has a content-type set to <code>image/png</code>, and the body of the response is a PNG image.</p>
+
+        Raises:
+            aws_sdk_cloudwatch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1671,7 +1802,11 @@ class AsyncCloudWatchClient:
     async def get_o_tel_enrichment(
         self, *, config_overrides: Optional[AsyncCloudWatchClientConfig] = None
     ) -> "aws_sdk_cloudwatch.types.get_o_tel_enrichment_output.GetOTelEnrichmentOutput":
-        r"""<p>Returns the current status of vended metric enrichment for the account, including whether CloudWatch vended metrics are enriched with resource ARN and resource tag labels and queryable using PromQL. For the list of supported resources, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/UsingResourceTagsForTelemetry.html\">Supported Amazon Web Services infrastructure metrics</a>.</p>"""
+        r"""<p>Returns the current status of vended metric enrichment for the account, including whether CloudWatch vended metrics are enriched with resource ARN and resource tag labels and queryable using PromQL. For the list of supported resources, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/UsingResourceTagsForTelemetry.html\">Supported Amazon Web Services infrastructure metrics</a>.</p>
+
+        Raises:
+            aws_sdk_cloudwatch.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_cloudwatch.types.get_o_tel_enrichment_input.GetOTelEnrichmentInput]",
@@ -1718,6 +1853,11 @@ class AsyncCloudWatchClient:
             statuses: <p>Filter results to show only mute rules with the specified statuses. Valid values are <code>SCHEDULED</code>, <code>ACTIVE</code>, or <code>EXPIRED</code>.</p>
             max_records: <p>The maximum number of mute rules to return in one call. The default is 50.</p>
             next_token: <p>The token returned from a previous call to indicate where to continue retrieving results.</p>
+
+        Raises:
+            aws_sdk_cloudwatch.errors.invalid_next_token.InvalidNextToken: <p>The next token specified is invalid.</p>
+            aws_sdk_cloudwatch.errors.resource_not_found_exception.ResourceNotFoundException: <p>The named resource does not exist.</p>
+            aws_sdk_cloudwatch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1794,6 +1934,11 @@ class AsyncCloudWatchClient:
         Args:
             dashboard_name_prefix: <p>If you specify this parameter, only the dashboards with names starting with the specified string are listed. The maximum length is 255, and valid characters are A-Z, a-z, 0-9, \".\", \"-\", and \"_\". </p>
             next_token: <p>The token returned by a previous call to indicate that there is more data available.</p>
+
+        Raises:
+            aws_sdk_cloudwatch.errors.internal_service_fault.InternalServiceFault: <p>Request processing has failed due to some unknown error, exception, or failure.</p>
+            aws_sdk_cloudwatch.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value of an input parameter is bad or out-of-range.</p>
+            aws_sdk_cloudwatch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1864,6 +2009,12 @@ class AsyncCloudWatchClient:
             resource_arn: <p> The ARN of an Amazon Web Services resource that has managed Contributor Insights rules. </p>
             next_token: <p> Include this value to get the next set of rules if the value was returned by the previous operation. </p>
             max_results: <p> The maximum number of results to return in one operation. If you omit this parameter, the default number is used. The default number is <code>100</code>. </p>
+
+        Raises:
+            aws_sdk_cloudwatch.errors.invalid_next_token.InvalidNextToken: <p>The next token specified is invalid.</p>
+            aws_sdk_cloudwatch.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value of an input parameter is bad or out-of-range.</p>
+            aws_sdk_cloudwatch.errors.missing_required_parameter_exception.MissingRequiredParameterException: <p>An input parameter that is required is missing.</p>
+            aws_sdk_cloudwatch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1926,6 +2077,11 @@ class AsyncCloudWatchClient:
             recently_active: <p>To filter the results to show only metrics that have had data points published in the past three hours, specify this parameter with a value of <code>PT3H</code>. This is the only valid value for this parameter.</p> <p>The results that are returned are an approximation of the value you specify. There is a low probability that the returned results include metrics with last published data as much as 50 minutes more than the specified time interval.</p>
             include_linked_accounts: <p>If you are using this operation in a monitoring account, specify <code>true</code> to include metrics from source accounts in the returned data.</p> <p>The default is <code>false</code>.</p>
             owning_account: <p>When you use this operation in a monitoring account, use this field to return metrics only from one source account. To do so, specify that source account ID in this field, and also specify <code>true</code> for <code>IncludeLinkedAccounts</code>.</p>
+
+        Raises:
+            aws_sdk_cloudwatch.errors.internal_service_fault.InternalServiceFault: <p>Request processing has failed due to some unknown error, exception, or failure.</p>
+            aws_sdk_cloudwatch.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value of an input parameter is bad or out-of-range.</p>
+            aws_sdk_cloudwatch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1981,6 +2137,13 @@ class AsyncCloudWatchClient:
         Args:
             next_token: <p>Include this value, if it was returned by the previous call, to get the next set of metric streams.</p>
             max_results: <p>The maximum number of results to return in one operation.</p>
+
+        Raises:
+            aws_sdk_cloudwatch.errors.internal_service_fault.InternalServiceFault: <p>Request processing has failed due to some unknown error, exception, or failure.</p>
+            aws_sdk_cloudwatch.errors.invalid_next_token.InvalidNextToken: <p>The next token specified is invalid.</p>
+            aws_sdk_cloudwatch.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value of an input parameter is bad or out-of-range.</p>
+            aws_sdk_cloudwatch.errors.missing_required_parameter_exception.MissingRequiredParameterException: <p>An input parameter that is required is missing.</p>
+            aws_sdk_cloudwatch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2022,6 +2185,12 @@ class AsyncCloudWatchClient:
 
         Args:
             resource_arn: <p>The ARN of the CloudWatch resource that you want to view tags for.</p> <p>The ARN format of an alarm is <code>arn:aws:cloudwatch:<i>Region</i>:<i>account-id</i>:alarm:<i>alarm-name</i> </code> </p> <p>The ARN format of a Contributor Insights rule is <code>arn:aws:cloudwatch:<i>Region</i>:<i>account-id</i>:insight-rule/<i>insight-rule-name</i> </code> </p> <p>The ARN format of a dashboard is <code>arn:aws:cloudwatch::<i>account-id</i>:dashboard/<i>dashboard-name</i> </code> </p> <p>The ARN format of a metric stream is <code>arn:aws:cloudwatch:<i>Region</i>:<i>account-id</i>:metric-stream/<i>metric-stream-name</i> </code> </p> <p>For more information about ARN format, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazoncloudwatch.html#amazoncloudwatch-resources-for-iam-policies\"> Resource Types Defined by Amazon CloudWatch</a> in the <i>Amazon Web Services General Reference</i>.</p>
+
+        Raises:
+            aws_sdk_cloudwatch.errors.internal_service_fault.InternalServiceFault: <p>Request processing has failed due to some unknown error, exception, or failure.</p>
+            aws_sdk_cloudwatch.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value of an input parameter is bad or out-of-range.</p>
+            aws_sdk_cloudwatch.errors.resource_not_found_exception.ResourceNotFoundException: <p>The named resource does not exist.</p>
+            aws_sdk_cloudwatch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2076,6 +2245,10 @@ class AsyncCloudWatchClient:
             tags: <p>A list of key-value pairs to associate with the alarm mute rule. You can use tags to categorize and manage your mute rules.</p>
             start_date: <p>The date and time after which the mute rule takes effect, specified as a timestamp in ISO 8601 format (for example, <code>2026-04-15T08:00:00Z</code>). If not specified, the mute rule takes effect immediately upon creation and the mutes are applied as per the schedule expression.</p>
             expire_date: <p>The date and time when the mute rule expires and is no longer evaluated, specified as a timestamp in ISO 8601 format (for example, <code>2026-12-31T23:59:59Z</code>). After this time, the rule status becomes EXPIRED and will no longer mute the targeted alarms.</p>
+
+        Raises:
+            aws_sdk_cloudwatch.errors.limit_exceeded_fault.LimitExceededFault: <p>The quota for alarms for this customer has already been reached.</p>
+            aws_sdk_cloudwatch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2149,6 +2322,14 @@ class AsyncCloudWatchClient:
             metric_characteristics: <p>Use this object to include parameters to provide information about your metric to CloudWatch to help it build more accurate anomaly detection models. Currently, it includes the <code>PeriodicSpikes</code> parameter.</p>
             single_metric_anomaly_detector: <p>A single metric anomaly detector to be created.</p> <p>When using <code>SingleMetricAnomalyDetector</code>, you cannot include the following parameters in the same operation:</p> <ul> <li> <p> <code>Dimensions</code> </p> </li> <li> <p> <code>MetricName</code> </p> </li> <li> <p> <code>Namespace</code> </p> </li> <li> <p> <code>Stat</code> </p> </li> <li> <p>the <code>MetricMathAnomalyDetector</code> parameters of <code>PutAnomalyDetectorInput</code> </p> </li> </ul> <p>Instead, specify the single metric anomaly detector attributes as part of the property <code>SingleMetricAnomalyDetector</code>.</p>
             metric_math_anomaly_detector: <p>The metric math anomaly detector to be created.</p> <p>When using <code>MetricMathAnomalyDetector</code>, you cannot include the following parameters in the same operation:</p> <ul> <li> <p> <code>Dimensions</code> </p> </li> <li> <p> <code>MetricName</code> </p> </li> <li> <p> <code>Namespace</code> </p> </li> <li> <p> <code>Stat</code> </p> </li> <li> <p>the <code>SingleMetricAnomalyDetector</code> parameters of <code>PutAnomalyDetectorInput</code> </p> </li> </ul> <p>Instead, specify the metric math anomaly detector attributes as part of the property <code>MetricMathAnomalyDetector</code>.</p>
+
+        Raises:
+            aws_sdk_cloudwatch.errors.internal_service_fault.InternalServiceFault: <p>Request processing has failed due to some unknown error, exception, or failure.</p>
+            aws_sdk_cloudwatch.errors.invalid_parameter_combination_exception.InvalidParameterCombinationException: <p>Parameters were used together that cannot be used together.</p>
+            aws_sdk_cloudwatch.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value of an input parameter is bad or out-of-range.</p>
+            aws_sdk_cloudwatch.errors.limit_exceeded_exception.LimitExceededException: <p>The operation exceeded one or more limits.</p>
+            aws_sdk_cloudwatch.errors.missing_required_parameter_exception.MissingRequiredParameterException: <p>An input parameter that is required is missing.</p>
+            aws_sdk_cloudwatch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2238,6 +2419,10 @@ class AsyncCloudWatchClient:
             actions_suppressor: <p> Actions will be suppressed if the suppressor alarm is in the <code>ALARM</code> state. <code>ActionsSuppressor</code> can be an AlarmName or an Amazon Resource Name (ARN) from an existing alarm. </p>
             actions_suppressor_wait_period: <p> The maximum time in seconds that the composite alarm waits for the suppressor alarm to go into the <code>ALARM</code> state. After this time, the composite alarm performs its actions. </p> <important> <p> <code>WaitPeriod</code> is required only when <code>ActionsSuppressor</code> is specified. </p> </important>
             actions_suppressor_extension_period: <p> The maximum time in seconds that the composite alarm waits after suppressor alarm goes out of the <code>ALARM</code> state. After this time, the composite alarm performs its actions. </p> <important> <p> <code>ExtensionPeriod</code> is required only when <code>ActionsSuppressor</code> is specified. </p> </important>
+
+        Raises:
+            aws_sdk_cloudwatch.errors.limit_exceeded_fault.LimitExceededFault: <p>The quota for alarms for this customer has already been reached.</p>
+            aws_sdk_cloudwatch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2299,6 +2484,12 @@ class AsyncCloudWatchClient:
             dashboard_name: <p>The name of the dashboard. If a dashboard with this name already exists, this call modifies that dashboard, replacing its current contents. Otherwise, a new dashboard is created. The maximum length is 255, and valid characters are A-Z, a-z, 0-9, \"-\", and \"_\". This parameter is required.</p>
             dashboard_body: <p>The detailed information about the dashboard in JSON format, including the widgets to include and their location on the dashboard. This parameter is required.</p> <p>For more information about the syntax, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/CloudWatch-Dashboard-Body-Structure.html\">Dashboard Body Structure and Syntax</a>.</p>
             tags: <p>A list of key-value pairs to associate with the dashboard. You can associate as many as 50 tags with a dashboard.</p> <p>Tags can help you organize and categorize your dashboards. You can also use them to scope user permissions by granting a user permission to access or change only dashboards with certain tag values.</p> <p>You can use this parameter only when creating a new dashboard. If you specify <code>Tags</code> when updating an existing dashboard, the tag updates are ignored. To add or update tags on an existing dashboard, use <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_TagResource.html\">TagResource</a>. To remove tags, use <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_UntagResource.html\">UntagResource</a>.</p>
+
+        Raises:
+            aws_sdk_cloudwatch.errors.conflict_exception.ConflictException: <p>This operation attempted to create a resource that already exists.</p>
+            aws_sdk_cloudwatch.errors.dashboard_invalid_input_error.DashboardInvalidInputError: <p>Some part of the dashboard data is invalid.</p>
+            aws_sdk_cloudwatch.errors.internal_service_fault.InternalServiceFault: <p>Request processing has failed due to some unknown error, exception, or failure.</p>
+            aws_sdk_cloudwatch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2352,6 +2543,12 @@ class AsyncCloudWatchClient:
             rule_definition: <p>The definition of the rule, as a JSON object. For details on the valid syntax, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/ContributorInsights-RuleSyntax.html\">Contributor Insights Rule Syntax</a>.</p>
             tags: <p>A list of key-value pairs to associate with the Contributor Insights rule. You can associate as many as 50 tags with a rule.</p> <p>Tags can help you organize and categorize your resources. You can also use them to scope user permissions, by granting a user permission to access or change only the resources that have certain tag values.</p> <p>To be able to associate tags with a rule, you must have the <code>cloudwatch:TagResource</code> permission in addition to the <code>cloudwatch:PutInsightRule</code> permission.</p> <p>If you are using this operation to update an existing Contributor Insights rule, any tags you specify in this parameter are ignored. To change the tags of an existing rule, use <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_TagResource.html\">TagResource</a>.</p>
             apply_on_transformed_logs: <p>Specify <code>true</code> to have this rule evaluate log events after they have been transformed by <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation.html\">Log transformation</a>. If you specify <code>true</code>, then the log events in log groups that have transformers will be evaluated by Contributor Insights after being transformed. Log groups that don't have transformers will still have their original log events evaluated by Contributor Insights.</p> <p>The default is <code>false</code> </p> <note> <p>If a log group has a transformer, and transformation fails for some log events, those log events won't be evaluated by Contributor Insights. For information about investigating log transformation failures, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Transformation-Errors-Metrics.html\">Transformation metrics and errors</a>.</p> </note>
+
+        Raises:
+            aws_sdk_cloudwatch.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value of an input parameter is bad or out-of-range.</p>
+            aws_sdk_cloudwatch.errors.limit_exceeded_exception.LimitExceededException: <p>The operation exceeded one or more limits.</p>
+            aws_sdk_cloudwatch.errors.missing_required_parameter_exception.MissingRequiredParameterException: <p>An input parameter that is required is missing.</p>
+            aws_sdk_cloudwatch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2397,6 +2594,11 @@ class AsyncCloudWatchClient:
 
         Args:
             managed_rules: <p> A list of <code>ManagedRules</code> to enable. </p>
+
+        Raises:
+            aws_sdk_cloudwatch.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value of an input parameter is bad or out-of-range.</p>
+            aws_sdk_cloudwatch.errors.missing_required_parameter_exception.MissingRequiredParameterException: <p>An input parameter that is required is missing.</p>
+            aws_sdk_cloudwatch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2511,6 +2713,10 @@ class AsyncCloudWatchClient:
             threshold_metric_id: <p>If this is an alarm based on an anomaly detection model, make this value match the ID of the <code>ANOMALY_DETECTION_BAND</code> function.</p> <p>For an example of how to use this parameter, see the <b>Anomaly Detection Model Alarm</b> example on this page.</p> <p>If your alarm uses this parameter, it cannot have Auto Scaling actions.</p>
             evaluation_criteria: <p>The evaluation criteria for the alarm. For each <code>PutMetricAlarm</code> operation, you must specify either <code>MetricName</code>, a <code>Metrics</code> array, or an <code>EvaluationCriteria</code>.</p> <p>If you use the <code>EvaluationCriteria</code> parameter, you cannot include the <code>Namespace</code>, <code>MetricName</code>, <code>Dimensions</code>, <code>Period</code>, <code>Unit</code>, <code>Statistic</code>, <code>ExtendedStatistic</code>, <code>Metrics</code>, <code>Threshold</code>, <code>ComparisonOperator</code>, <code>ThresholdMetricId</code>, <code>EvaluationPeriods</code>, or <code>DatapointsToAlarm</code> parameters of <code>PutMetricAlarm</code> in the same operation. Instead, all evaluation parameters are defined within this structure.</p> <p>For an example of how to use this parameter, see the <b>PromQL alarm</b> example on this page.</p>
             evaluation_interval: <p>The frequency, in seconds, at which the alarm is evaluated. Valid values are 10, 20, 30, and any multiple of 60.</p> <p>This parameter is required for alarms that use <code>EvaluationCriteria</code>, and cannot be specified for alarms configured with <code>MetricName</code> or <code>Metrics</code>.</p>
+
+        Raises:
+            aws_sdk_cloudwatch.errors.limit_exceeded_fault.LimitExceededFault: <p>The quota for alarms for this customer has already been reached.</p>
+            aws_sdk_cloudwatch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2605,6 +2811,13 @@ class AsyncCloudWatchClient:
             metric_data: <p>The data for the metrics. Use this parameter if your metrics do not contain associated entities. The array can include no more than 1000 metrics per call.</p> <p>The limit of metrics allowed, 1000, is the sum of both <code>EntityMetricData</code> and <code>MetricData</code> metrics.</p>
             entity_metric_data: <p>Data for metrics that contain associated entity information. You can include up to two <code>EntityMetricData</code> objects, each of which can contain a single <code>Entity</code> and associated metrics.</p> <p>The limit of metrics allowed, 1000, is the sum of both <code>EntityMetricData</code> and <code>MetricData</code> metrics.</p>
             strict_entity_validation: <p>Whether to accept valid metric data when an invalid entity is sent.</p> <ul> <li> <p>When set to <code>true</code>: Any validation error (for entity or metric data) will fail the entire request, and no data will be ingested. The failed operation will return a 400 result with the error.</p> </li> <li> <p>When set to <code>false</code>: Validation errors in the entity will not associate the metric with the entity, but the metric data will still be accepted and ingested. Validation errors in the metric data will fail the entire request, and no data will be ingested.</p> <p>In the case of an invalid entity, the operation will return a <code>200</code> status, but an additional response header will contain information about the validation errors. The new header, <code>X-Amzn-Failure-Message</code> is an enumeration of the following values:</p> <ul> <li> <p> <code>InvalidEntity</code> - The provided entity is invalid.</p> </li> <li> <p> <code>InvalidKeyAttributes</code> - The provided <code>KeyAttributes</code> of an entity is invalid.</p> </li> <li> <p> <code>InvalidAttributes</code> - The provided <code>Attributes</code> of an entity is invalid.</p> </li> <li> <p> <code>InvalidTypeValue</code> - The provided <code>Type</code> in the <code>KeyAttributes</code> of an entity is invalid.</p> </li> <li> <p> <code>EntitySizeTooLarge</code> - The number of <code>EntityMetricData</code> objects allowed is 2.</p> </li> <li> <p> <code>MissingRequiredFields</code> - There are missing required fields in the <code>KeyAttributes</code> for the provided <code>Type</code>.</p> </li> </ul> <p>For details of the requirements for specifying an entity, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/adding-your-own-related-telemetry.html\">How to add related information to telemetry</a> in the <i>CloudWatch User Guide</i>.</p> </li> </ul> <p>This parameter is <i>required</i> when <code>EntityMetricData</code> is included.</p>
+
+        Raises:
+            aws_sdk_cloudwatch.errors.internal_service_fault.InternalServiceFault: <p>Request processing has failed due to some unknown error, exception, or failure.</p>
+            aws_sdk_cloudwatch.errors.invalid_parameter_combination_exception.InvalidParameterCombinationException: <p>Parameters were used together that cannot be used together.</p>
+            aws_sdk_cloudwatch.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value of an input parameter is bad or out-of-range.</p>
+            aws_sdk_cloudwatch.errors.missing_required_parameter_exception.MissingRequiredParameterException: <p>An input parameter that is required is missing.</p>
+            aws_sdk_cloudwatch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2671,6 +2884,14 @@ class AsyncCloudWatchClient:
             tags: <p>A list of key-value pairs to associate with the metric stream. You can associate as many as 50 tags with a metric stream.</p> <p>Tags can help you organize and categorize your resources. You can also use them to scope user permissions by granting a user permission to access or change only resources with certain tag values.</p> <p>You can use this parameter only when you are creating a new metric stream. If you are using this operation to update an existing metric stream, any tags you specify in this parameter are ignored. To change the tags of an existing metric stream, use <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_TagResource.html\">TagResource</a> or <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_UntagResource.html\">UntagResource</a>.</p>
             statistics_configurations: <p>By default, a metric stream always sends the <code>MAX</code>, <code>MIN</code>, <code>SUM</code>, and <code>SAMPLECOUNT</code> statistics for each metric that is streamed. You can use this parameter to have the metric stream also send additional statistics in the stream. This array can have up to 100 members.</p> <p>For each entry in this array, you specify one or more metrics and the list of additional statistics to stream for those metrics. The additional statistics that you can stream depend on the stream's <code>OutputFormat</code>. If the <code>OutputFormat</code> is <code>json</code>, you can stream any additional statistic that is supported by CloudWatch, listed in <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Statistics-definitions.html.html\"> CloudWatch statistics definitions</a>. If the <code>OutputFormat</code> is <code>opentelemetry1.0</code> or <code>opentelemetry0.7</code>, you can stream percentile statistics such as p95, p99.9, and so on.</p>
             include_linked_accounts_metrics: <p>If you are creating a metric stream in a monitoring account, specify <code>true</code> to include metrics from source accounts in the metric stream.</p>
+
+        Raises:
+            aws_sdk_cloudwatch.errors.concurrent_modification_exception.ConcurrentModificationException: <p>More than one process tried to modify a resource at the same time.</p>
+            aws_sdk_cloudwatch.errors.internal_service_fault.InternalServiceFault: <p>Request processing has failed due to some unknown error, exception, or failure.</p>
+            aws_sdk_cloudwatch.errors.invalid_parameter_combination_exception.InvalidParameterCombinationException: <p>Parameters were used together that cannot be used together.</p>
+            aws_sdk_cloudwatch.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value of an input parameter is bad or out-of-range.</p>
+            aws_sdk_cloudwatch.errors.missing_required_parameter_exception.MissingRequiredParameterException: <p>An input parameter that is required is missing.</p>
+            aws_sdk_cloudwatch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2730,6 +2951,11 @@ class AsyncCloudWatchClient:
             state_value: <p>The value of the state.</p>
             state_reason: <p>The reason that this alarm is set to this specific state, in text format.</p>
             state_reason_data: <p>The reason that this alarm is set to this specific state, in JSON format.</p> <p>For SNS or EC2 alarm actions, this is just informational. But for EC2 Auto Scaling or application Auto Scaling alarm actions, the Auto Scaling policy uses the information in this field to take the correct action.</p>
+
+        Raises:
+            aws_sdk_cloudwatch.errors.invalid_format_fault.InvalidFormatFault: <p>Data was not syntactically valid JSON.</p>
+            aws_sdk_cloudwatch.errors.resource_not_found.ResourceNotFound: <p>The named resource does not exist.</p>
+            aws_sdk_cloudwatch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2772,6 +2998,12 @@ class AsyncCloudWatchClient:
 
         Args:
             names: <p>The array of the names of metric streams to start streaming.</p> <p>This is an \"all or nothing\" operation. If you do not have permission to access all of the metric streams that you list here, then none of the streams that you list in the operation will start streaming.</p>
+
+        Raises:
+            aws_sdk_cloudwatch.errors.internal_service_fault.InternalServiceFault: <p>Request processing has failed due to some unknown error, exception, or failure.</p>
+            aws_sdk_cloudwatch.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value of an input parameter is bad or out-of-range.</p>
+            aws_sdk_cloudwatch.errors.missing_required_parameter_exception.MissingRequiredParameterException: <p>An input parameter that is required is missing.</p>
+            aws_sdk_cloudwatch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2803,7 +3035,11 @@ class AsyncCloudWatchClient:
     async def start_o_tel_enrichment(
         self, *, config_overrides: Optional[AsyncCloudWatchClientConfig] = None
     ) -> "aws_sdk_cloudwatch.types.start_o_tel_enrichment_output.StartOTelEnrichmentOutput":
-        r"""<p>Enables enrichment and PromQL access for CloudWatch vended metrics for <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/UsingResourceTagsForTelemetry.html\">supported Amazon Web Services resources</a> in the account. Once enabled, metrics that contain a resource identifier dimension (for example, EC2 <code>CPUUtilization</code> with an <code>InstanceId</code> dimension) are enriched with resource ARN and resource tag labels and become queryable using PromQL.</p> <p>Before calling this operation, you must enable resource tags on telemetry for your account. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/EnableResourceTagsOnTelemetry.html\">Enable resource tags on telemetry</a>.</p>"""
+        r"""<p>Enables enrichment and PromQL access for CloudWatch vended metrics for <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/UsingResourceTagsForTelemetry.html\">supported Amazon Web Services resources</a> in the account. Once enabled, metrics that contain a resource identifier dimension (for example, EC2 <code>CPUUtilization</code> with an <code>InstanceId</code> dimension) are enriched with resource ARN and resource tag labels and become queryable using PromQL.</p> <p>Before calling this operation, you must enable resource tags on telemetry for your account. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/EnableResourceTagsOnTelemetry.html\">Enable resource tags on telemetry</a>.</p>
+
+        Raises:
+            aws_sdk_cloudwatch.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_cloudwatch.types.start_o_tel_enrichment_input.StartOTelEnrichmentInput]",
@@ -2840,6 +3076,12 @@ class AsyncCloudWatchClient:
 
         Args:
             names: <p>The array of the names of metric streams to stop streaming.</p> <p>This is an \"all or nothing\" operation. If you do not have permission to access all of the metric streams that you list here, then none of the streams that you list in the operation will stop streaming.</p>
+
+        Raises:
+            aws_sdk_cloudwatch.errors.internal_service_fault.InternalServiceFault: <p>Request processing has failed due to some unknown error, exception, or failure.</p>
+            aws_sdk_cloudwatch.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value of an input parameter is bad or out-of-range.</p>
+            aws_sdk_cloudwatch.errors.missing_required_parameter_exception.MissingRequiredParameterException: <p>An input parameter that is required is missing.</p>
+            aws_sdk_cloudwatch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2873,7 +3115,11 @@ class AsyncCloudWatchClient:
     ) -> (
         "aws_sdk_cloudwatch.types.stop_o_tel_enrichment_output.StopOTelEnrichmentOutput"
     ):
-        r"""<p>Disables enrichment and PromQL access for CloudWatch vended metrics for <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/UsingResourceTagsForTelemetry.html\">supported Amazon Web Services resources</a> in the account. After disabling, these metrics are no longer enriched with resource ARN and resource tag labels, and cannot be queried using PromQL.</p>"""
+        r"""<p>Disables enrichment and PromQL access for CloudWatch vended metrics for <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/UsingResourceTagsForTelemetry.html\">supported Amazon Web Services resources</a> in the account. After disabling, these metrics are no longer enriched with resource ARN and resource tag labels, and cannot be queried using PromQL.</p>
+
+        Raises:
+            aws_sdk_cloudwatch.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_cloudwatch.types.stop_o_tel_enrichment_input.StopOTelEnrichmentInput]",
@@ -2912,6 +3158,14 @@ class AsyncCloudWatchClient:
         Args:
             resource_arn: <p>The ARN of the CloudWatch resource that you're adding tags to.</p> <p>The ARN format of an alarm is <code>arn:aws:cloudwatch:<i>Region</i>:<i>account-id</i>:alarm:<i>alarm-name</i> </code> </p> <p>The ARN format of a Contributor Insights rule is <code>arn:aws:cloudwatch:<i>Region</i>:<i>account-id</i>:insight-rule/<i>insight-rule-name</i> </code> </p> <p>The ARN format of a dashboard is <code>arn:aws:cloudwatch::<i>account-id</i>:dashboard/<i>dashboard-name</i> </code> </p> <p>The ARN format of a metric stream is <code>arn:aws:cloudwatch:<i>Region</i>:<i>account-id</i>:metric-stream/<i>metric-stream-name</i> </code> </p> <p>For more information about ARN format, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazoncloudwatch.html#amazoncloudwatch-resources-for-iam-policies\"> Resource Types Defined by Amazon CloudWatch</a> in the <i>Amazon Web Services General Reference</i>.</p>
             tags: <p>The list of key-value pairs to associate with the alarm.</p>
+
+        Raises:
+            aws_sdk_cloudwatch.errors.concurrent_modification_exception.ConcurrentModificationException: <p>More than one process tried to modify a resource at the same time.</p>
+            aws_sdk_cloudwatch.errors.conflict_exception.ConflictException: <p>This operation attempted to create a resource that already exists.</p>
+            aws_sdk_cloudwatch.errors.internal_service_fault.InternalServiceFault: <p>Request processing has failed due to some unknown error, exception, or failure.</p>
+            aws_sdk_cloudwatch.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value of an input parameter is bad or out-of-range.</p>
+            aws_sdk_cloudwatch.errors.resource_not_found_exception.ResourceNotFoundException: <p>The named resource does not exist.</p>
+            aws_sdk_cloudwatch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2953,6 +3207,14 @@ class AsyncCloudWatchClient:
         Args:
             resource_arn: <p>The ARN of the CloudWatch resource that you're removing tags from.</p> <p>The ARN format of an alarm is <code>arn:aws:cloudwatch:<i>Region</i>:<i>account-id</i>:alarm:<i>alarm-name</i> </code> </p> <p>The ARN format of a Contributor Insights rule is <code>arn:aws:cloudwatch:<i>Region</i>:<i>account-id</i>:insight-rule/<i>insight-rule-name</i> </code> </p> <p>The ARN format of a dashboard is <code>arn:aws:cloudwatch::<i>account-id</i>:dashboard/<i>dashboard-name</i> </code> </p> <p>The ARN format of a metric stream is <code>arn:aws:cloudwatch:<i>Region</i>:<i>account-id</i>:metric-stream/<i>metric-stream-name</i> </code> </p> <p>For more information about ARN format, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazoncloudwatch.html#amazoncloudwatch-resources-for-iam-policies\"> Resource Types Defined by Amazon CloudWatch</a> in the <i>Amazon Web Services General Reference</i>.</p>
             tag_keys: <p>The list of tag keys to remove from the resource.</p>
+
+        Raises:
+            aws_sdk_cloudwatch.errors.concurrent_modification_exception.ConcurrentModificationException: <p>More than one process tried to modify a resource at the same time.</p>
+            aws_sdk_cloudwatch.errors.conflict_exception.ConflictException: <p>This operation attempted to create a resource that already exists.</p>
+            aws_sdk_cloudwatch.errors.internal_service_fault.InternalServiceFault: <p>Request processing has failed due to some unknown error, exception, or failure.</p>
+            aws_sdk_cloudwatch.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value of an input parameter is bad or out-of-range.</p>
+            aws_sdk_cloudwatch.errors.resource_not_found_exception.ResourceNotFoundException: <p>The named resource does not exist.</p>
+            aws_sdk_cloudwatch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

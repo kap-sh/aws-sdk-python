@@ -177,6 +177,13 @@ class CodeGuruSecurityClient:
 
         Args:
             finding_identifiers: <p>A list of finding identifiers. Each identifier consists of a <code>scanName</code> and a <code>findingId</code>. You retrieve the <code>findingId</code> when you call <code>GetFindings</code>.</p>
+
+        Raises:
+            aws_sdk_codeguru_security.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_codeguru_security.errors.internal_server_exception.InternalServerException: <p>The server encountered an internal error and is unable to complete the request.</p>
+            aws_sdk_codeguru_security.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_codeguru_security.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints.</p>
+            aws_sdk_codeguru_security.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -230,6 +237,15 @@ class CodeGuruSecurityClient:
             scan_type: <p>The type of scan, either <code>Standard</code> or <code>Express</code>. Defaults to <code>Standard</code> type if missing.</p> <p> <code>Express</code> scans run on limited resources and use a limited set of detectors to analyze your code in near-real time. <code>Standard</code> scans have standard resource limits and use the full set of detectors to analyze your code.</p>
             analysis_type: <p>The type of analysis you want CodeGuru Security to perform in the scan, either <code>Security</code> or <code>All</code>. The <code>Security</code> type only generates findings related to security. The <code>All</code> type generates both security findings and quality findings. Defaults to <code>Security</code> type if missing.</p>
             tags: <p>An array of key-value pairs used to tag a scan. A tag is a custom attribute label with two parts:</p> <ul> <li> <p>A tag key. For example, <code>CostCenter</code>, <code>Environment</code>, or <code>Secret</code>. Tag keys are case sensitive.</p> </li> <li> <p>An optional tag value field. For example, <code>111122223333</code>, <code>Production</code>, or a team name. Omitting the tag value is the same as using an empty string. Tag values are case sensitive.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_codeguru_security.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_codeguru_security.errors.conflict_exception.ConflictException: <p>The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request.</p>
+            aws_sdk_codeguru_security.errors.internal_server_exception.InternalServerException: <p>The server encountered an internal error and is unable to complete the request.</p>
+            aws_sdk_codeguru_security.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request was not found.</p>
+            aws_sdk_codeguru_security.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_codeguru_security.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints.</p>
+            aws_sdk_codeguru_security.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -276,6 +292,13 @@ class CodeGuruSecurityClient:
 
         Args:
             scan_name: <p>The name of the scan that will use the uploaded resource. CodeGuru Security uses the unique scan name to track revisions across multiple scans of the same resource. Use this <code>scanName</code> when you call <code>CreateScan</code> on the code resource you upload to this URL.</p>
+
+        Raises:
+            aws_sdk_codeguru_security.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_codeguru_security.errors.internal_server_exception.InternalServerException: <p>The server encountered an internal error and is unable to complete the request.</p>
+            aws_sdk_codeguru_security.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_codeguru_security.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints.</p>
+            aws_sdk_codeguru_security.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -306,7 +329,15 @@ class CodeGuruSecurityClient:
     def get_account_configuration(
         self, *, config_overrides: Optional[CodeGuruSecurityClientConfig] = None
     ) -> "aws_sdk_codeguru_security.types.get_account_configuration_response.GetAccountConfigurationResponse":
-        """<p>Use to get the encryption configuration for an account.</p>"""
+        """<p>Use to get the encryption configuration for an account.</p>
+
+        Raises:
+            aws_sdk_codeguru_security.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_codeguru_security.errors.internal_server_exception.InternalServerException: <p>The server encountered an internal error and is unable to complete the request.</p>
+            aws_sdk_codeguru_security.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_codeguru_security.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints.</p>
+            aws_sdk_codeguru_security.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_codeguru_security.types.get_account_configuration_request.GetAccountConfigurationRequest]",
@@ -350,6 +381,15 @@ class CodeGuruSecurityClient:
             next_token: <p>A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request. For subsequent calls, use the <code>nextToken</code> value returned from the previous request to continue listing results after the first page.</p>
             max_results: <p>The maximum number of results to return in the response. Use this parameter when paginating results. If additional results exist beyond the number you specify, the <code>nextToken</code> element is returned in the response. Use <code>nextToken</code> in a subsequent request to retrieve additional results. If not specified, returns 1000 results.</p>
             status: <p>The status of the findings you want to get. Pass either <code>Open</code>, <code>Closed</code>, or <code>All</code>.</p>
+
+        Raises:
+            aws_sdk_codeguru_security.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_codeguru_security.errors.conflict_exception.ConflictException: <p>The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request.</p>
+            aws_sdk_codeguru_security.errors.internal_server_exception.InternalServerException: <p>The server encountered an internal error and is unable to complete the request.</p>
+            aws_sdk_codeguru_security.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request was not found.</p>
+            aws_sdk_codeguru_security.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_codeguru_security.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints.</p>
+            aws_sdk_codeguru_security.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -420,6 +460,13 @@ class CodeGuruSecurityClient:
 
         Args:
             date: <p>The date you want to retrieve summary metrics from, rounded to the nearest day. The date must be within the past two years.</p>
+
+        Raises:
+            aws_sdk_codeguru_security.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_codeguru_security.errors.internal_server_exception.InternalServerException: <p>The server encountered an internal error and is unable to complete the request.</p>
+            aws_sdk_codeguru_security.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_codeguru_security.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints.</p>
+            aws_sdk_codeguru_security.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -459,6 +506,14 @@ class CodeGuruSecurityClient:
         Args:
             scan_name: <p>The name of the scan you want to view details about.</p>
             run_id: <p>UUID that identifies the individual scan run you want to view details about. You retrieve this when you call the <code>CreateScan</code> operation. Defaults to the latest scan run if missing.</p>
+
+        Raises:
+            aws_sdk_codeguru_security.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_codeguru_security.errors.internal_server_exception.InternalServerException: <p>The server encountered an internal error and is unable to complete the request.</p>
+            aws_sdk_codeguru_security.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request was not found.</p>
+            aws_sdk_codeguru_security.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_codeguru_security.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints.</p>
+            aws_sdk_codeguru_security.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -506,6 +561,13 @@ class CodeGuruSecurityClient:
             max_results: <p>The maximum number of results to return in the response. Use this parameter when paginating results. If additional results exist beyond the number you specify, the <code>nextToken</code> element is returned in the response. Use <code>nextToken</code> in a subsequent request to retrieve additional results. If not specified, returns 1000 results.</p>
             start_date: <p>The start date of the interval which you want to retrieve metrics from. Rounds to the nearest day.</p>
             end_date: <p>The end date of the interval which you want to retrieve metrics from. Round to the nearest day.</p>
+
+        Raises:
+            aws_sdk_codeguru_security.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_codeguru_security.errors.internal_server_exception.InternalServerException: <p>The server encountered an internal error and is unable to complete the request.</p>
+            aws_sdk_codeguru_security.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_codeguru_security.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints.</p>
+            aws_sdk_codeguru_security.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -579,6 +641,13 @@ class CodeGuruSecurityClient:
         Args:
             next_token: <p>A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request. For subsequent calls, use the <code>nextToken</code> value returned from the previous request to continue listing results after the first page.</p>
             max_results: <p>The maximum number of results to return in the response. Use this parameter when paginating results. If additional results exist beyond the number you specify, the <code>nextToken</code> element is returned in the response. Use <code>nextToken</code> in a subsequent request to retrieve additional results. If not specified, returns 100 results.</p>
+
+        Raises:
+            aws_sdk_codeguru_security.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_codeguru_security.errors.internal_server_exception.InternalServerException: <p>The server encountered an internal error and is unable to complete the request.</p>
+            aws_sdk_codeguru_security.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_codeguru_security.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints.</p>
+            aws_sdk_codeguru_security.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -642,6 +711,15 @@ class CodeGuruSecurityClient:
 
         Args:
             resource_arn: <p>The ARN of the <code>ScanName</code> object. You can retrieve this ARN by calling <code>CreateScan</code>, <code>ListScans</code>, or <code>GetScan</code>.</p>
+
+        Raises:
+            aws_sdk_codeguru_security.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_codeguru_security.errors.conflict_exception.ConflictException: <p>The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request.</p>
+            aws_sdk_codeguru_security.errors.internal_server_exception.InternalServerException: <p>The server encountered an internal error and is unable to complete the request.</p>
+            aws_sdk_codeguru_security.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request was not found.</p>
+            aws_sdk_codeguru_security.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_codeguru_security.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints.</p>
+            aws_sdk_codeguru_security.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -681,6 +759,15 @@ class CodeGuruSecurityClient:
         Args:
             resource_arn: <p>The ARN of the <code>ScanName</code> object. You can retrieve this ARN by calling <code>CreateScan</code>, <code>ListScans</code>, or <code>GetScan</code>.</p>
             tags: <p>An array of key-value pairs used to tag an existing scan. A tag is a custom attribute label with two parts:</p> <ul> <li> <p>A tag key. For example, <code>CostCenter</code>, <code>Environment</code>, or <code>Secret</code>. Tag keys are case sensitive.</p> </li> <li> <p>An optional tag value field. For example, <code>111122223333</code>, <code>Production</code>, or a team name. Omitting the tag value is the same as using an empty string. Tag values are case sensitive.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_codeguru_security.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_codeguru_security.errors.conflict_exception.ConflictException: <p>The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request.</p>
+            aws_sdk_codeguru_security.errors.internal_server_exception.InternalServerException: <p>The server encountered an internal error and is unable to complete the request.</p>
+            aws_sdk_codeguru_security.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request was not found.</p>
+            aws_sdk_codeguru_security.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_codeguru_security.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints.</p>
+            aws_sdk_codeguru_security.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -723,6 +810,15 @@ class CodeGuruSecurityClient:
         Args:
             resource_arn: <p>The ARN of the <code>ScanName</code> object. You can retrieve this ARN by calling <code>CreateScan</code>, <code>ListScans</code>, or <code>GetScan</code>.</p>
             tag_keys: <p>A list of keys for each tag you want to remove from a scan.</p>
+
+        Raises:
+            aws_sdk_codeguru_security.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_codeguru_security.errors.conflict_exception.ConflictException: <p>The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request.</p>
+            aws_sdk_codeguru_security.errors.internal_server_exception.InternalServerException: <p>The server encountered an internal error and is unable to complete the request.</p>
+            aws_sdk_codeguru_security.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request was not found.</p>
+            aws_sdk_codeguru_security.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_codeguru_security.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints.</p>
+            aws_sdk_codeguru_security.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -761,6 +857,14 @@ class CodeGuruSecurityClient:
 
         Args:
             encryption_config: <p>The customer-managed KMS key ARN you want to use for encryption. If not specified, CodeGuru Security will use an AWS-managed key for encryption. If you previously specified a customer-managed KMS key and want CodeGuru Security to use an AWS-managed key for encryption instead, pass nothing.</p>
+
+        Raises:
+            aws_sdk_codeguru_security.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_codeguru_security.errors.internal_server_exception.InternalServerException: <p>The server encountered an internal error and is unable to complete the request.</p>
+            aws_sdk_codeguru_security.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request was not found.</p>
+            aws_sdk_codeguru_security.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_codeguru_security.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints.</p>
+            aws_sdk_codeguru_security.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(

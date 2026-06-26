@@ -207,6 +207,14 @@ class GlacierClient:
             vault_name: <p>The name of the vault.</p>
             upload_id: <p>The upload ID of the multipart upload to delete.</p>
 
+        Raises:
+            aws_sdk_glacier.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>Returned if a parameter of the request is incorrectly specified.</p>
+            aws_sdk_glacier.errors.missing_parameter_value_exception.MissingParameterValueException: <p>Returned if a required header or parameter is missing from the request.</p>
+            aws_sdk_glacier.errors.no_longer_supported_exception.NoLongerSupportedException: <p>Returned if the request was made by a customer with no Amazon Glacier storage. The request is denied as the API is no longer supported for new customers. Please use Amazon S3 Glacier storage classes instead.</p>
+            aws_sdk_glacier.errors.resource_not_found_exception.ResourceNotFoundException: <p>Returned if the specified resource (such as a vault, upload ID, or job ID) doesn't exist.</p>
+            aws_sdk_glacier.errors.service_unavailable_exception.ServiceUnavailableException: <p>Returned if the service cannot complete the request.</p>
+            aws_sdk_glacier.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To abort a multipart upload identified by the upload ID
             The example deletes an in-progress multipart upload to a vault named my-vault:
@@ -251,6 +259,14 @@ class GlacierClient:
         Args:
             account_id: <p>The <code>AccountId</code> value is the AWS account ID. This value must match the AWS account ID associated with the credentials used to sign the request. You can either specify an AWS account ID or optionally a single '<code>-</code>' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you specify your account ID, do not include any hyphens ('-') in the ID.</p>
             vault_name: <p>The name of the vault.</p>
+
+        Raises:
+            aws_sdk_glacier.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>Returned if a parameter of the request is incorrectly specified.</p>
+            aws_sdk_glacier.errors.missing_parameter_value_exception.MissingParameterValueException: <p>Returned if a required header or parameter is missing from the request.</p>
+            aws_sdk_glacier.errors.no_longer_supported_exception.NoLongerSupportedException: <p>Returned if the request was made by a customer with no Amazon Glacier storage. The request is denied as the API is no longer supported for new customers. Please use Amazon S3 Glacier storage classes instead.</p>
+            aws_sdk_glacier.errors.resource_not_found_exception.ResourceNotFoundException: <p>Returned if the specified resource (such as a vault, upload ID, or job ID) doesn't exist.</p>
+            aws_sdk_glacier.errors.service_unavailable_exception.ServiceUnavailableException: <p>Returned if the service cannot complete the request.</p>
+            aws_sdk_glacier.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To abort a vault lock
@@ -297,6 +313,15 @@ class GlacierClient:
             account_id: <p>The <code>AccountId</code> value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '<code>-</code>' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.</p>
             vault_name: <p>The name of the vault.</p>
             tags: <p>The tags to add to the vault. Each tag is composed of a key and a value. The value can be an empty string.</p>
+
+        Raises:
+            aws_sdk_glacier.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>Returned if a parameter of the request is incorrectly specified.</p>
+            aws_sdk_glacier.errors.limit_exceeded_exception.LimitExceededException: <p>Returned if the request results in a vault or account limit being exceeded.</p>
+            aws_sdk_glacier.errors.missing_parameter_value_exception.MissingParameterValueException: <p>Returned if a required header or parameter is missing from the request.</p>
+            aws_sdk_glacier.errors.no_longer_supported_exception.NoLongerSupportedException: <p>Returned if the request was made by a customer with no Amazon Glacier storage. The request is denied as the API is no longer supported for new customers. Please use Amazon S3 Glacier storage classes instead.</p>
+            aws_sdk_glacier.errors.resource_not_found_exception.ResourceNotFoundException: <p>Returned if the specified resource (such as a vault, upload ID, or job ID) doesn't exist.</p>
+            aws_sdk_glacier.errors.service_unavailable_exception.ServiceUnavailableException: <p>Returned if the service cannot complete the request.</p>
+            aws_sdk_glacier.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To add tags to a vault
@@ -349,6 +374,14 @@ class GlacierClient:
             upload_id: <p>The upload ID of the multipart upload.</p>
             archive_size: <p>The total size, in bytes, of the entire archive. This value should be the sum of all the sizes of the individual parts that you uploaded.</p>
             checksum: <p>The SHA256 tree hash of the entire archive. It is the tree hash of SHA256 tree hash of the individual parts. If the value you specify in the request does not match the SHA256 tree hash of the final assembled archive as computed by Amazon Glacier (Glacier), Glacier returns an error and the request fails.</p>
+
+        Raises:
+            aws_sdk_glacier.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>Returned if a parameter of the request is incorrectly specified.</p>
+            aws_sdk_glacier.errors.missing_parameter_value_exception.MissingParameterValueException: <p>Returned if a required header or parameter is missing from the request.</p>
+            aws_sdk_glacier.errors.no_longer_supported_exception.NoLongerSupportedException: <p>Returned if the request was made by a customer with no Amazon Glacier storage. The request is denied as the API is no longer supported for new customers. Please use Amazon S3 Glacier storage classes instead.</p>
+            aws_sdk_glacier.errors.resource_not_found_exception.ResourceNotFoundException: <p>Returned if the specified resource (such as a vault, upload ID, or job ID) doesn't exist.</p>
+            aws_sdk_glacier.errors.service_unavailable_exception.ServiceUnavailableException: <p>Returned if the service cannot complete the request.</p>
+            aws_sdk_glacier.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To complete a multipart upload
@@ -403,6 +436,14 @@ class GlacierClient:
             vault_name: <p>The name of the vault.</p>
             lock_id: <p>The <code>lockId</code> value is the lock ID obtained from a <a>InitiateVaultLock</a> request.</p>
 
+        Raises:
+            aws_sdk_glacier.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>Returned if a parameter of the request is incorrectly specified.</p>
+            aws_sdk_glacier.errors.missing_parameter_value_exception.MissingParameterValueException: <p>Returned if a required header or parameter is missing from the request.</p>
+            aws_sdk_glacier.errors.no_longer_supported_exception.NoLongerSupportedException: <p>Returned if the request was made by a customer with no Amazon Glacier storage. The request is denied as the API is no longer supported for new customers. Please use Amazon S3 Glacier storage classes instead.</p>
+            aws_sdk_glacier.errors.resource_not_found_exception.ResourceNotFoundException: <p>Returned if the specified resource (such as a vault, upload ID, or job ID) doesn't exist.</p>
+            aws_sdk_glacier.errors.service_unavailable_exception.ServiceUnavailableException: <p>Returned if the service cannot complete the request.</p>
+            aws_sdk_glacier.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To complete a vault lock
             The example completes the vault locking process by transitioning the vault lock from the InProgress state to the Locked state.
@@ -447,6 +488,14 @@ class GlacierClient:
         Args:
             account_id: <p>The <code>AccountId</code> value is the AWS account ID. This value must match the AWS account ID associated with the credentials used to sign the request. You can either specify an AWS account ID or optionally a single '<code>-</code>' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you specify your account ID, do not include any hyphens ('-') in the ID.</p>
             vault_name: <p>The name of the vault.</p>
+
+        Raises:
+            aws_sdk_glacier.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>Returned if a parameter of the request is incorrectly specified.</p>
+            aws_sdk_glacier.errors.limit_exceeded_exception.LimitExceededException: <p>Returned if the request results in a vault or account limit being exceeded.</p>
+            aws_sdk_glacier.errors.missing_parameter_value_exception.MissingParameterValueException: <p>Returned if a required header or parameter is missing from the request.</p>
+            aws_sdk_glacier.errors.no_longer_supported_exception.NoLongerSupportedException: <p>Returned if the request was made by a customer with no Amazon Glacier storage. The request is denied as the API is no longer supported for new customers. Please use Amazon S3 Glacier storage classes instead.</p>
+            aws_sdk_glacier.errors.service_unavailable_exception.ServiceUnavailableException: <p>Returned if the service cannot complete the request.</p>
+            aws_sdk_glacier.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To create a new vault
@@ -496,6 +545,14 @@ class GlacierClient:
             vault_name: <p>The name of the vault.</p>
             archive_id: <p>The ID of the archive to delete.</p>
 
+        Raises:
+            aws_sdk_glacier.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>Returned if a parameter of the request is incorrectly specified.</p>
+            aws_sdk_glacier.errors.missing_parameter_value_exception.MissingParameterValueException: <p>Returned if a required header or parameter is missing from the request.</p>
+            aws_sdk_glacier.errors.no_longer_supported_exception.NoLongerSupportedException: <p>Returned if the request was made by a customer with no Amazon Glacier storage. The request is denied as the API is no longer supported for new customers. Please use Amazon S3 Glacier storage classes instead.</p>
+            aws_sdk_glacier.errors.resource_not_found_exception.ResourceNotFoundException: <p>Returned if the specified resource (such as a vault, upload ID, or job ID) doesn't exist.</p>
+            aws_sdk_glacier.errors.service_unavailable_exception.ServiceUnavailableException: <p>Returned if the service cannot complete the request.</p>
+            aws_sdk_glacier.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To delete an archive
             The example deletes the archive specified by the archive ID.
@@ -541,6 +598,14 @@ class GlacierClient:
             account_id: <p>The <code>AccountId</code> value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '<code>-</code>' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.</p>
             vault_name: <p>The name of the vault.</p>
 
+        Raises:
+            aws_sdk_glacier.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>Returned if a parameter of the request is incorrectly specified.</p>
+            aws_sdk_glacier.errors.missing_parameter_value_exception.MissingParameterValueException: <p>Returned if a required header or parameter is missing from the request.</p>
+            aws_sdk_glacier.errors.no_longer_supported_exception.NoLongerSupportedException: <p>Returned if the request was made by a customer with no Amazon Glacier storage. The request is denied as the API is no longer supported for new customers. Please use Amazon S3 Glacier storage classes instead.</p>
+            aws_sdk_glacier.errors.resource_not_found_exception.ResourceNotFoundException: <p>Returned if the specified resource (such as a vault, upload ID, or job ID) doesn't exist.</p>
+            aws_sdk_glacier.errors.service_unavailable_exception.ServiceUnavailableException: <p>Returned if the service cannot complete the request.</p>
+            aws_sdk_glacier.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To delete a vault
             The example deletes a vault named my-vault:
@@ -585,6 +650,14 @@ class GlacierClient:
             account_id: <p>The <code>AccountId</code> value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '<code>-</code>' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID. </p>
             vault_name: <p>The name of the vault.</p>
 
+        Raises:
+            aws_sdk_glacier.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>Returned if a parameter of the request is incorrectly specified.</p>
+            aws_sdk_glacier.errors.missing_parameter_value_exception.MissingParameterValueException: <p>Returned if a required header or parameter is missing from the request.</p>
+            aws_sdk_glacier.errors.no_longer_supported_exception.NoLongerSupportedException: <p>Returned if the request was made by a customer with no Amazon Glacier storage. The request is denied as the API is no longer supported for new customers. Please use Amazon S3 Glacier storage classes instead.</p>
+            aws_sdk_glacier.errors.resource_not_found_exception.ResourceNotFoundException: <p>Returned if the specified resource (such as a vault, upload ID, or job ID) doesn't exist.</p>
+            aws_sdk_glacier.errors.service_unavailable_exception.ServiceUnavailableException: <p>Returned if the service cannot complete the request.</p>
+            aws_sdk_glacier.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To delete the vault access policy
             The example deletes the access policy associated with the vault named examplevault.
@@ -628,6 +701,14 @@ class GlacierClient:
         Args:
             account_id: <p>The <code>AccountId</code> value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '<code>-</code>' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID. </p>
             vault_name: <p>The name of the vault.</p>
+
+        Raises:
+            aws_sdk_glacier.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>Returned if a parameter of the request is incorrectly specified.</p>
+            aws_sdk_glacier.errors.missing_parameter_value_exception.MissingParameterValueException: <p>Returned if a required header or parameter is missing from the request.</p>
+            aws_sdk_glacier.errors.no_longer_supported_exception.NoLongerSupportedException: <p>Returned if the request was made by a customer with no Amazon Glacier storage. The request is denied as the API is no longer supported for new customers. Please use Amazon S3 Glacier storage classes instead.</p>
+            aws_sdk_glacier.errors.resource_not_found_exception.ResourceNotFoundException: <p>Returned if the specified resource (such as a vault, upload ID, or job ID) doesn't exist.</p>
+            aws_sdk_glacier.errors.service_unavailable_exception.ServiceUnavailableException: <p>Returned if the service cannot complete the request.</p>
+            aws_sdk_glacier.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To delete the notification configuration set for a vault
@@ -675,6 +756,14 @@ class GlacierClient:
             vault_name: <p>The name of the vault.</p>
             job_id: <p>The ID of the job to describe.</p>
 
+        Raises:
+            aws_sdk_glacier.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>Returned if a parameter of the request is incorrectly specified.</p>
+            aws_sdk_glacier.errors.missing_parameter_value_exception.MissingParameterValueException: <p>Returned if a required header or parameter is missing from the request.</p>
+            aws_sdk_glacier.errors.no_longer_supported_exception.NoLongerSupportedException: <p>Returned if the request was made by a customer with no Amazon Glacier storage. The request is denied as the API is no longer supported for new customers. Please use Amazon S3 Glacier storage classes instead.</p>
+            aws_sdk_glacier.errors.resource_not_found_exception.ResourceNotFoundException: <p>Returned if the specified resource (such as a vault, upload ID, or job ID) doesn't exist.</p>
+            aws_sdk_glacier.errors.service_unavailable_exception.ServiceUnavailableException: <p>Returned if the service cannot complete the request.</p>
+            aws_sdk_glacier.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To get information about a previously initiated job
             The example returns information about the previously initiated job specified by the job ID.
@@ -721,6 +810,14 @@ class GlacierClient:
         Args:
             account_id: <p>The <code>AccountId</code> value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '<code>-</code>' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID. </p>
             vault_name: <p>The name of the vault.</p>
+
+        Raises:
+            aws_sdk_glacier.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>Returned if a parameter of the request is incorrectly specified.</p>
+            aws_sdk_glacier.errors.missing_parameter_value_exception.MissingParameterValueException: <p>Returned if a required header or parameter is missing from the request.</p>
+            aws_sdk_glacier.errors.no_longer_supported_exception.NoLongerSupportedException: <p>Returned if the request was made by a customer with no Amazon Glacier storage. The request is denied as the API is no longer supported for new customers. Please use Amazon S3 Glacier storage classes instead.</p>
+            aws_sdk_glacier.errors.resource_not_found_exception.ResourceNotFoundException: <p>Returned if the specified resource (such as a vault, upload ID, or job ID) doesn't exist.</p>
+            aws_sdk_glacier.errors.service_unavailable_exception.ServiceUnavailableException: <p>Returned if the service cannot complete the request.</p>
+            aws_sdk_glacier.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To retrieve information about a vault
@@ -854,6 +951,13 @@ class GlacierClient:
         Args:
             account_id: <p>The <code>AccountId</code> value is the AWS account ID. This value must match the AWS account ID associated with the credentials used to sign the request. You can either specify an AWS account ID or optionally a single '<code>-</code>' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you specify your account ID, do not include any hyphens ('-') in the ID. </p>
 
+        Raises:
+            aws_sdk_glacier.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>Returned if a parameter of the request is incorrectly specified.</p>
+            aws_sdk_glacier.errors.missing_parameter_value_exception.MissingParameterValueException: <p>Returned if a required header or parameter is missing from the request.</p>
+            aws_sdk_glacier.errors.no_longer_supported_exception.NoLongerSupportedException: <p>Returned if the request was made by a customer with no Amazon Glacier storage. The request is denied as the API is no longer supported for new customers. Please use Amazon S3 Glacier storage classes instead.</p>
+            aws_sdk_glacier.errors.service_unavailable_exception.ServiceUnavailableException: <p>Returned if the service cannot complete the request.</p>
+            aws_sdk_glacier.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To get the current data retrieval policy for an account
             The example returns the current data retrieval policy for the account.
@@ -904,6 +1008,14 @@ class GlacierClient:
             job_id: <p>The job ID whose data is downloaded.</p>
             range: <p>The range of bytes to retrieve from the output. For example, if you want to download the first 1,048,576 bytes, specify the range as <code>bytes=0-1048575</code>. By default, this operation downloads the entire output.</p> <p>If the job output is large, then you can use a range to retrieve a portion of the output. This allows you to download the entire output in smaller chunks of bytes. For example, suppose you have 1 GB of job output you want to download and you decide to download 128 MB chunks of data at a time, which is a total of eight Get Job Output requests. You use the following process to download the job output:</p> <ol> <li> <p>Download a 128 MB chunk of output by specifying the appropriate byte range. Verify that all 128 MB of data was received.</p> </li> <li> <p>Along with the data, the response includes a SHA256 tree hash of the payload. You compute the checksum of the payload on the client and compare it with the checksum you received in the response to ensure you received all the expected data.</p> </li> <li> <p>Repeat steps 1 and 2 for all the eight 128 MB chunks of output data, each time specifying the appropriate byte range.</p> </li> <li> <p>After downloading all the parts of the job output, you have a list of eight checksum values. Compute the tree hash of these values to find the checksum of the entire output. Using the <a>DescribeJob</a> API, obtain job information of the job that provided you the output. The response includes the checksum of the entire archive stored in Amazon Glacier. You compare this value with the checksum you computed to ensure you have downloaded the entire archive content with no errors.</p> <p></p> </li> </ol>
 
+        Raises:
+            aws_sdk_glacier.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>Returned if a parameter of the request is incorrectly specified.</p>
+            aws_sdk_glacier.errors.missing_parameter_value_exception.MissingParameterValueException: <p>Returned if a required header or parameter is missing from the request.</p>
+            aws_sdk_glacier.errors.no_longer_supported_exception.NoLongerSupportedException: <p>Returned if the request was made by a customer with no Amazon Glacier storage. The request is denied as the API is no longer supported for new customers. Please use Amazon S3 Glacier storage classes instead.</p>
+            aws_sdk_glacier.errors.resource_not_found_exception.ResourceNotFoundException: <p>Returned if the specified resource (such as a vault, upload ID, or job ID) doesn't exist.</p>
+            aws_sdk_glacier.errors.service_unavailable_exception.ServiceUnavailableException: <p>Returned if the service cannot complete the request.</p>
+            aws_sdk_glacier.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To get the output of a previously initiated job
             The example downloads the output of a previously initiated inventory retrieval job that is identified by the job ID.
@@ -953,6 +1065,14 @@ class GlacierClient:
             account_id: <p>The <code>AccountId</code> value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '<code>-</code>' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.</p>
             vault_name: <p>The name of the vault.</p>
 
+        Raises:
+            aws_sdk_glacier.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>Returned if a parameter of the request is incorrectly specified.</p>
+            aws_sdk_glacier.errors.missing_parameter_value_exception.MissingParameterValueException: <p>Returned if a required header or parameter is missing from the request.</p>
+            aws_sdk_glacier.errors.no_longer_supported_exception.NoLongerSupportedException: <p>Returned if the request was made by a customer with no Amazon Glacier storage. The request is denied as the API is no longer supported for new customers. Please use Amazon S3 Glacier storage classes instead.</p>
+            aws_sdk_glacier.errors.resource_not_found_exception.ResourceNotFoundException: <p>Returned if the specified resource (such as a vault, upload ID, or job ID) doesn't exist.</p>
+            aws_sdk_glacier.errors.service_unavailable_exception.ServiceUnavailableException: <p>Returned if the service cannot complete the request.</p>
+            aws_sdk_glacier.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To  get the access-policy set on the vault
             The example retrieves the access-policy set on the vault named example-vault.
@@ -999,6 +1119,14 @@ class GlacierClient:
             account_id: <p>The <code>AccountId</code> value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '<code>-</code>' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.</p>
             vault_name: <p>The name of the vault.</p>
 
+        Raises:
+            aws_sdk_glacier.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>Returned if a parameter of the request is incorrectly specified.</p>
+            aws_sdk_glacier.errors.missing_parameter_value_exception.MissingParameterValueException: <p>Returned if a required header or parameter is missing from the request.</p>
+            aws_sdk_glacier.errors.no_longer_supported_exception.NoLongerSupportedException: <p>Returned if the request was made by a customer with no Amazon Glacier storage. The request is denied as the API is no longer supported for new customers. Please use Amazon S3 Glacier storage classes instead.</p>
+            aws_sdk_glacier.errors.resource_not_found_exception.ResourceNotFoundException: <p>Returned if the specified resource (such as a vault, upload ID, or job ID) doesn't exist.</p>
+            aws_sdk_glacier.errors.service_unavailable_exception.ServiceUnavailableException: <p>Returned if the service cannot complete the request.</p>
+            aws_sdk_glacier.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To retrieve vault lock-policy related attributes that are set on a vault
             The example retrieves the attributes from the lock-policy subresource set on the vault named examplevault.
@@ -1044,6 +1172,14 @@ class GlacierClient:
         Args:
             account_id: <p>The <code>AccountId</code> value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '<code>-</code>' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.</p>
             vault_name: <p>The name of the vault.</p>
+
+        Raises:
+            aws_sdk_glacier.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>Returned if a parameter of the request is incorrectly specified.</p>
+            aws_sdk_glacier.errors.missing_parameter_value_exception.MissingParameterValueException: <p>Returned if a required header or parameter is missing from the request.</p>
+            aws_sdk_glacier.errors.no_longer_supported_exception.NoLongerSupportedException: <p>Returned if the request was made by a customer with no Amazon Glacier storage. The request is denied as the API is no longer supported for new customers. Please use Amazon S3 Glacier storage classes instead.</p>
+            aws_sdk_glacier.errors.resource_not_found_exception.ResourceNotFoundException: <p>Returned if the specified resource (such as a vault, upload ID, or job ID) doesn't exist.</p>
+            aws_sdk_glacier.errors.service_unavailable_exception.ServiceUnavailableException: <p>Returned if the service cannot complete the request.</p>
+            aws_sdk_glacier.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To get the notification-configuration for the specified vault
@@ -1094,6 +1230,16 @@ class GlacierClient:
             account_id: <p>The <code>AccountId</code> value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '<code>-</code>' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.</p>
             vault_name: <p>The name of the vault.</p>
             job_parameters: <p>Provides options for specifying job information.</p>
+
+        Raises:
+            aws_sdk_glacier.errors.insufficient_capacity_exception.InsufficientCapacityException: <p>Returned if there is insufficient capacity to process this expedited request. This error only applies to expedited retrievals and not to standard or bulk retrievals.</p>
+            aws_sdk_glacier.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>Returned if a parameter of the request is incorrectly specified.</p>
+            aws_sdk_glacier.errors.missing_parameter_value_exception.MissingParameterValueException: <p>Returned if a required header or parameter is missing from the request.</p>
+            aws_sdk_glacier.errors.no_longer_supported_exception.NoLongerSupportedException: <p>Returned if the request was made by a customer with no Amazon Glacier storage. The request is denied as the API is no longer supported for new customers. Please use Amazon S3 Glacier storage classes instead.</p>
+            aws_sdk_glacier.errors.policy_enforced_exception.PolicyEnforcedException: <p>Returned if a retrieval job would exceed the current data policy's retrieval rate limit. For more information about data retrieval policies,</p>
+            aws_sdk_glacier.errors.resource_not_found_exception.ResourceNotFoundException: <p>Returned if the specified resource (such as a vault, upload ID, or job ID) doesn't exist.</p>
+            aws_sdk_glacier.errors.service_unavailable_exception.ServiceUnavailableException: <p>Returned if the service cannot complete the request.</p>
+            aws_sdk_glacier.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To initiate an inventory-retrieval job
@@ -1146,6 +1292,14 @@ class GlacierClient:
             vault_name: <p>The name of the vault.</p>
             archive_description: <p>The archive description that you are uploading in parts.</p> <p>The part size must be a megabyte (1024 KB) multiplied by a power of 2, for example 1048576 (1 MB), 2097152 (2 MB), 4194304 (4 MB), 8388608 (8 MB), and so on. The minimum allowable part size is 1 MB, and the maximum is 4 GB (4096 MB).</p>
             part_size: <p>The size of each part except the last, in bytes. The last part can be smaller than this part size.</p>
+
+        Raises:
+            aws_sdk_glacier.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>Returned if a parameter of the request is incorrectly specified.</p>
+            aws_sdk_glacier.errors.missing_parameter_value_exception.MissingParameterValueException: <p>Returned if a required header or parameter is missing from the request.</p>
+            aws_sdk_glacier.errors.no_longer_supported_exception.NoLongerSupportedException: <p>Returned if the request was made by a customer with no Amazon Glacier storage. The request is denied as the API is no longer supported for new customers. Please use Amazon S3 Glacier storage classes instead.</p>
+            aws_sdk_glacier.errors.resource_not_found_exception.ResourceNotFoundException: <p>Returned if the specified resource (such as a vault, upload ID, or job ID) doesn't exist.</p>
+            aws_sdk_glacier.errors.service_unavailable_exception.ServiceUnavailableException: <p>Returned if the service cannot complete the request.</p>
+            aws_sdk_glacier.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To initiate a multipart upload
@@ -1200,6 +1354,14 @@ class GlacierClient:
             account_id: <p>The <code>AccountId</code> value is the AWS account ID. This value must match the AWS account ID associated with the credentials used to sign the request. You can either specify an AWS account ID or optionally a single '<code>-</code>' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you specify your account ID, do not include any hyphens ('-') in the ID.</p>
             vault_name: <p>The name of the vault.</p>
             policy: <p>The vault lock policy as a JSON string, which uses \"\\" as an escape character.</p>
+
+        Raises:
+            aws_sdk_glacier.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>Returned if a parameter of the request is incorrectly specified.</p>
+            aws_sdk_glacier.errors.missing_parameter_value_exception.MissingParameterValueException: <p>Returned if a required header or parameter is missing from the request.</p>
+            aws_sdk_glacier.errors.no_longer_supported_exception.NoLongerSupportedException: <p>Returned if the request was made by a customer with no Amazon Glacier storage. The request is denied as the API is no longer supported for new customers. Please use Amazon S3 Glacier storage classes instead.</p>
+            aws_sdk_glacier.errors.resource_not_found_exception.ResourceNotFoundException: <p>Returned if the specified resource (such as a vault, upload ID, or job ID) doesn't exist.</p>
+            aws_sdk_glacier.errors.service_unavailable_exception.ServiceUnavailableException: <p>Returned if the service cannot complete the request.</p>
+            aws_sdk_glacier.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To initiate the vault locking process
@@ -1256,6 +1418,14 @@ class GlacierClient:
             marker: <p>An opaque string used for pagination. This value specifies the job at which the listing of jobs should begin. Get the marker value from a previous List Jobs response. You only need to include the marker if you are continuing the pagination of results started in a previous List Jobs request.</p>
             statuscode: <p>The type of job status to return. You can specify the following values: <code>InProgress</code>, <code>Succeeded</code>, or <code>Failed</code>.</p>
             completed: <p>The state of the jobs to return. You can specify <code>true</code> or <code>false</code>.</p>
+
+        Raises:
+            aws_sdk_glacier.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>Returned if a parameter of the request is incorrectly specified.</p>
+            aws_sdk_glacier.errors.missing_parameter_value_exception.MissingParameterValueException: <p>Returned if a required header or parameter is missing from the request.</p>
+            aws_sdk_glacier.errors.no_longer_supported_exception.NoLongerSupportedException: <p>Returned if the request was made by a customer with no Amazon Glacier storage. The request is denied as the API is no longer supported for new customers. Please use Amazon S3 Glacier storage classes instead.</p>
+            aws_sdk_glacier.errors.resource_not_found_exception.ResourceNotFoundException: <p>Returned if the specified resource (such as a vault, upload ID, or job ID) doesn't exist.</p>
+            aws_sdk_glacier.errors.service_unavailable_exception.ServiceUnavailableException: <p>Returned if the service cannot complete the request.</p>
+            aws_sdk_glacier.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To list jobs for a vault
@@ -1346,6 +1516,14 @@ class GlacierClient:
             limit: <p>Specifies the maximum number of uploads returned in the response body. If this value is not specified, the List Uploads operation returns up to 50 uploads.</p>
             marker: <p>An opaque string used for pagination. This value specifies the upload at which the listing of uploads should begin. Get the marker value from a previous List Uploads response. You need only include the marker if you are continuing the pagination of results started in a previous List Uploads request.</p>
 
+        Raises:
+            aws_sdk_glacier.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>Returned if a parameter of the request is incorrectly specified.</p>
+            aws_sdk_glacier.errors.missing_parameter_value_exception.MissingParameterValueException: <p>Returned if a required header or parameter is missing from the request.</p>
+            aws_sdk_glacier.errors.no_longer_supported_exception.NoLongerSupportedException: <p>Returned if the request was made by a customer with no Amazon Glacier storage. The request is denied as the API is no longer supported for new customers. Please use Amazon S3 Glacier storage classes instead.</p>
+            aws_sdk_glacier.errors.resource_not_found_exception.ResourceNotFoundException: <p>Returned if the specified resource (such as a vault, upload ID, or job ID) doesn't exist.</p>
+            aws_sdk_glacier.errors.service_unavailable_exception.ServiceUnavailableException: <p>Returned if the service cannot complete the request.</p>
+            aws_sdk_glacier.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To list all the in-progress multipart uploads for a vault
             The example lists all the in-progress multipart uploads for the vault named examplevault.
@@ -1427,6 +1605,14 @@ class GlacierClient:
             marker: <p>An opaque string used for pagination. This value specifies the part at which the listing of parts should begin. Get the marker value from the response of a previous List Parts response. You need only include the marker if you are continuing the pagination of results started in a previous List Parts request.</p>
             limit: <p>The maximum number of parts to be returned. The default limit is 50. The number of parts returned might be fewer than the specified limit, but the number of returned parts never exceeds the limit.</p>
 
+        Raises:
+            aws_sdk_glacier.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>Returned if a parameter of the request is incorrectly specified.</p>
+            aws_sdk_glacier.errors.missing_parameter_value_exception.MissingParameterValueException: <p>Returned if a required header or parameter is missing from the request.</p>
+            aws_sdk_glacier.errors.no_longer_supported_exception.NoLongerSupportedException: <p>Returned if the request was made by a customer with no Amazon Glacier storage. The request is denied as the API is no longer supported for new customers. Please use Amazon S3 Glacier storage classes instead.</p>
+            aws_sdk_glacier.errors.resource_not_found_exception.ResourceNotFoundException: <p>Returned if the specified resource (such as a vault, upload ID, or job ID) doesn't exist.</p>
+            aws_sdk_glacier.errors.service_unavailable_exception.ServiceUnavailableException: <p>Returned if the service cannot complete the request.</p>
+            aws_sdk_glacier.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To list the parts of an archive that have been uploaded in a multipart upload
             The example lists all the parts of a multipart upload.
@@ -1503,6 +1689,13 @@ class GlacierClient:
         Args:
             account_id: <p>The AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '-' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, don't include any hyphens ('-') in the ID. </p>
 
+        Raises:
+            aws_sdk_glacier.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>Returned if a parameter of the request is incorrectly specified.</p>
+            aws_sdk_glacier.errors.missing_parameter_value_exception.MissingParameterValueException: <p>Returned if a required header or parameter is missing from the request.</p>
+            aws_sdk_glacier.errors.no_longer_supported_exception.NoLongerSupportedException: <p>Returned if the request was made by a customer with no Amazon Glacier storage. The request is denied as the API is no longer supported for new customers. Please use Amazon S3 Glacier storage classes instead.</p>
+            aws_sdk_glacier.errors.service_unavailable_exception.ServiceUnavailableException: <p>Returned if the service cannot complete the request.</p>
+            aws_sdk_glacier.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To list the provisioned capacity units for an account
             The example lists the provisioned capacity units for an account.
@@ -1547,6 +1740,14 @@ class GlacierClient:
         Args:
             account_id: <p>The <code>AccountId</code> value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '<code>-</code>' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.</p>
             vault_name: <p>The name of the vault.</p>
+
+        Raises:
+            aws_sdk_glacier.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>Returned if a parameter of the request is incorrectly specified.</p>
+            aws_sdk_glacier.errors.missing_parameter_value_exception.MissingParameterValueException: <p>Returned if a required header or parameter is missing from the request.</p>
+            aws_sdk_glacier.errors.no_longer_supported_exception.NoLongerSupportedException: <p>Returned if the request was made by a customer with no Amazon Glacier storage. The request is denied as the API is no longer supported for new customers. Please use Amazon S3 Glacier storage classes instead.</p>
+            aws_sdk_glacier.errors.resource_not_found_exception.ResourceNotFoundException: <p>Returned if the specified resource (such as a vault, upload ID, or job ID) doesn't exist.</p>
+            aws_sdk_glacier.errors.service_unavailable_exception.ServiceUnavailableException: <p>Returned if the service cannot complete the request.</p>
+            aws_sdk_glacier.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To list the tags for a vault
@@ -1595,6 +1796,14 @@ class GlacierClient:
             account_id: <p>The <code>AccountId</code> value is the AWS account ID. This value must match the AWS account ID associated with the credentials used to sign the request. You can either specify an AWS account ID or optionally a single '<code>-</code>' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you specify your account ID, do not include any hyphens ('-') in the ID.</p>
             marker: <p>A string used for pagination. The marker specifies the vault ARN after which the listing of vaults should begin.</p>
             limit: <p>The maximum number of vaults to be returned. The default limit is 10. The number of vaults returned might be fewer than the specified limit, but the number of returned vaults never exceeds the limit.</p>
+
+        Raises:
+            aws_sdk_glacier.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>Returned if a parameter of the request is incorrectly specified.</p>
+            aws_sdk_glacier.errors.missing_parameter_value_exception.MissingParameterValueException: <p>Returned if a required header or parameter is missing from the request.</p>
+            aws_sdk_glacier.errors.no_longer_supported_exception.NoLongerSupportedException: <p>Returned if the request was made by a customer with no Amazon Glacier storage. The request is denied as the API is no longer supported for new customers. Please use Amazon S3 Glacier storage classes instead.</p>
+            aws_sdk_glacier.errors.resource_not_found_exception.ResourceNotFoundException: <p>Returned if the specified resource (such as a vault, upload ID, or job ID) doesn't exist.</p>
+            aws_sdk_glacier.errors.service_unavailable_exception.ServiceUnavailableException: <p>Returned if the service cannot complete the request.</p>
+            aws_sdk_glacier.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To list all vaults owned by the calling user's account
@@ -1666,6 +1875,14 @@ class GlacierClient:
         Args:
             account_id: <p>The AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '-' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, don't include any hyphens ('-') in the ID. </p>
 
+        Raises:
+            aws_sdk_glacier.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>Returned if a parameter of the request is incorrectly specified.</p>
+            aws_sdk_glacier.errors.limit_exceeded_exception.LimitExceededException: <p>Returned if the request results in a vault or account limit being exceeded.</p>
+            aws_sdk_glacier.errors.missing_parameter_value_exception.MissingParameterValueException: <p>Returned if a required header or parameter is missing from the request.</p>
+            aws_sdk_glacier.errors.no_longer_supported_exception.NoLongerSupportedException: <p>Returned if the request was made by a customer with no Amazon Glacier storage. The request is denied as the API is no longer supported for new customers. Please use Amazon S3 Glacier storage classes instead.</p>
+            aws_sdk_glacier.errors.service_unavailable_exception.ServiceUnavailableException: <p>Returned if the service cannot complete the request.</p>
+            aws_sdk_glacier.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To purchases a provisioned capacity unit for an AWS account
             The example purchases provisioned capacity unit for an AWS account.
@@ -1712,6 +1929,14 @@ class GlacierClient:
             account_id: <p>The <code>AccountId</code> value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '<code>-</code>' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.</p>
             vault_name: <p>The name of the vault.</p>
             tag_keys: <p>A list of tag keys. Each corresponding tag is removed from the vault.</p>
+
+        Raises:
+            aws_sdk_glacier.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>Returned if a parameter of the request is incorrectly specified.</p>
+            aws_sdk_glacier.errors.missing_parameter_value_exception.MissingParameterValueException: <p>Returned if a required header or parameter is missing from the request.</p>
+            aws_sdk_glacier.errors.no_longer_supported_exception.NoLongerSupportedException: <p>Returned if the request was made by a customer with no Amazon Glacier storage. The request is denied as the API is no longer supported for new customers. Please use Amazon S3 Glacier storage classes instead.</p>
+            aws_sdk_glacier.errors.resource_not_found_exception.ResourceNotFoundException: <p>Returned if the specified resource (such as a vault, upload ID, or job ID) doesn't exist.</p>
+            aws_sdk_glacier.errors.service_unavailable_exception.ServiceUnavailableException: <p>Returned if the service cannot complete the request.</p>
+            aws_sdk_glacier.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To remove tags from a vault
@@ -1760,6 +1985,13 @@ class GlacierClient:
         Args:
             account_id: <p>The <code>AccountId</code> value is the AWS account ID. This value must match the AWS account ID associated with the credentials used to sign the request. You can either specify an AWS account ID or optionally a single '<code>-</code>' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you specify your account ID, do not include any hyphens ('-') in the ID.</p>
             policy: <p>The data retrieval policy in JSON format.</p>
+
+        Raises:
+            aws_sdk_glacier.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>Returned if a parameter of the request is incorrectly specified.</p>
+            aws_sdk_glacier.errors.missing_parameter_value_exception.MissingParameterValueException: <p>Returned if a required header or parameter is missing from the request.</p>
+            aws_sdk_glacier.errors.no_longer_supported_exception.NoLongerSupportedException: <p>Returned if the request was made by a customer with no Amazon Glacier storage. The request is denied as the API is no longer supported for new customers. Please use Amazon S3 Glacier storage classes instead.</p>
+            aws_sdk_glacier.errors.service_unavailable_exception.ServiceUnavailableException: <p>Returned if the service cannot complete the request.</p>
+            aws_sdk_glacier.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To set and then enact a data retrieval policy
@@ -1810,6 +2042,14 @@ class GlacierClient:
             vault_name: <p>The name of the vault.</p>
             policy: <p>The vault access policy as a JSON string.</p>
 
+        Raises:
+            aws_sdk_glacier.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>Returned if a parameter of the request is incorrectly specified.</p>
+            aws_sdk_glacier.errors.missing_parameter_value_exception.MissingParameterValueException: <p>Returned if a required header or parameter is missing from the request.</p>
+            aws_sdk_glacier.errors.no_longer_supported_exception.NoLongerSupportedException: <p>Returned if the request was made by a customer with no Amazon Glacier storage. The request is denied as the API is no longer supported for new customers. Please use Amazon S3 Glacier storage classes instead.</p>
+            aws_sdk_glacier.errors.resource_not_found_exception.ResourceNotFoundException: <p>Returned if the specified resource (such as a vault, upload ID, or job ID) doesn't exist.</p>
+            aws_sdk_glacier.errors.service_unavailable_exception.ServiceUnavailableException: <p>Returned if the service cannot complete the request.</p>
+            aws_sdk_glacier.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To set the access-policy on a vault
             The example configures an access policy for the vault named examplevault.
@@ -1859,6 +2099,14 @@ class GlacierClient:
             account_id: <p>The <code>AccountId</code> value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '<code>-</code>' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.</p>
             vault_name: <p>The name of the vault.</p>
             vault_notification_config: <p>Provides options for specifying notification configuration.</p>
+
+        Raises:
+            aws_sdk_glacier.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>Returned if a parameter of the request is incorrectly specified.</p>
+            aws_sdk_glacier.errors.missing_parameter_value_exception.MissingParameterValueException: <p>Returned if a required header or parameter is missing from the request.</p>
+            aws_sdk_glacier.errors.no_longer_supported_exception.NoLongerSupportedException: <p>Returned if the request was made by a customer with no Amazon Glacier storage. The request is denied as the API is no longer supported for new customers. Please use Amazon S3 Glacier storage classes instead.</p>
+            aws_sdk_glacier.errors.resource_not_found_exception.ResourceNotFoundException: <p>Returned if the specified resource (such as a vault, upload ID, or job ID) doesn't exist.</p>
+            aws_sdk_glacier.errors.service_unavailable_exception.ServiceUnavailableException: <p>Returned if the service cannot complete the request.</p>
+            aws_sdk_glacier.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To configure a vault to post a message to an Amazon SNS topic when jobs complete
@@ -1911,6 +2159,15 @@ class GlacierClient:
             archive_description: <p>The optional description of the archive you are uploading.</p>
             checksum: <p>The SHA256 tree hash of the data being uploaded.</p>
             body: <p>The data to upload.</p>
+
+        Raises:
+            aws_sdk_glacier.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>Returned if a parameter of the request is incorrectly specified.</p>
+            aws_sdk_glacier.errors.missing_parameter_value_exception.MissingParameterValueException: <p>Returned if a required header or parameter is missing from the request.</p>
+            aws_sdk_glacier.errors.no_longer_supported_exception.NoLongerSupportedException: <p>Returned if the request was made by a customer with no Amazon Glacier storage. The request is denied as the API is no longer supported for new customers. Please use Amazon S3 Glacier storage classes instead.</p>
+            aws_sdk_glacier.errors.request_timeout_exception.RequestTimeoutException: <p>Returned if, when uploading an archive, Amazon Glacier times out while receiving the upload.</p>
+            aws_sdk_glacier.errors.resource_not_found_exception.ResourceNotFoundException: <p>Returned if the specified resource (such as a vault, upload ID, or job ID) doesn't exist.</p>
+            aws_sdk_glacier.errors.service_unavailable_exception.ServiceUnavailableException: <p>Returned if the service cannot complete the request.</p>
+            aws_sdk_glacier.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To upload an archive
@@ -1971,6 +2228,15 @@ class GlacierClient:
             checksum: <p>The SHA256 tree hash of the data being uploaded.</p>
             range: <p>Identifies the range of bytes in the assembled archive that will be uploaded in this part. Amazon Glacier uses this information to assemble the archive in the proper sequence. The format of this header follows RFC 2616. An example header is Content-Range:bytes 0-4194303/*.</p>
             body: <p>The data to upload.</p>
+
+        Raises:
+            aws_sdk_glacier.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>Returned if a parameter of the request is incorrectly specified.</p>
+            aws_sdk_glacier.errors.missing_parameter_value_exception.MissingParameterValueException: <p>Returned if a required header or parameter is missing from the request.</p>
+            aws_sdk_glacier.errors.no_longer_supported_exception.NoLongerSupportedException: <p>Returned if the request was made by a customer with no Amazon Glacier storage. The request is denied as the API is no longer supported for new customers. Please use Amazon S3 Glacier storage classes instead.</p>
+            aws_sdk_glacier.errors.request_timeout_exception.RequestTimeoutException: <p>Returned if, when uploading an archive, Amazon Glacier times out while receiving the upload.</p>
+            aws_sdk_glacier.errors.resource_not_found_exception.ResourceNotFoundException: <p>Returned if the specified resource (such as a vault, upload ID, or job ID) doesn't exist.</p>
+            aws_sdk_glacier.errors.service_unavailable_exception.ServiceUnavailableException: <p>Returned if the service cannot complete the request.</p>
+            aws_sdk_glacier.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To upload the first part of an archive

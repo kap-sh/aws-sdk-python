@@ -44,6 +44,14 @@ class GenericResource:
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource whose tags you want to retrieve.</p> <ul> <li> <p>Format example: <code>arn:aws:geo:region:account-id:resourcetype/ExampleResource</code> </p> </li> </ul>
+
+        Raises:
+            aws_sdk_location.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because of insufficient access or permissions. Check with an administrator to verify your permissions.</p>
+            aws_sdk_location.errors.internal_server_exception.InternalServerException: <p>The request has failed to process because of an unknown server error, exception, or failure.</p>
+            aws_sdk_location.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource that you've entered was not found in your AWS account.</p>
+            aws_sdk_location.errors.throttling_exception.ThrottlingException: <p>The request was denied because of request throttling.</p>
+            aws_sdk_location.errors.validation_exception.ValidationException: <p>The input failed to meet the constraints specified by the AWS service. </p>
+            aws_sdk_location.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -83,6 +91,14 @@ class GenericResource:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource whose tags you want to update.</p> <ul> <li> <p>Format example: <code>arn:aws:geo:region:account-id:resourcetype/ExampleResource</code> </p> </li> </ul>
             tags: <p>Applies one or more tags to specific resource. A tag is a key-value pair that helps you manage, identify, search, and filter your resources.</p> <p>Format: <code>\"key\" : \"value\"</code> </p> <p>Restrictions:</p> <ul> <li> <p>Maximum 50 tags per resource.</p> </li> <li> <p>Each tag key must be unique and must have exactly one associated value.</p> </li> <li> <p>Maximum key length: 128 Unicode characters in UTF-8.</p> </li> <li> <p>Maximum value length: 256 Unicode characters in UTF-8.</p> </li> <li> <p>Can use alphanumeric characters (A–Z, a–z, 0–9), and the following characters: + - = . _ : / @</p> </li> <li> <p>Cannot use \"aws:\" as a prefix for a key.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_location.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because of insufficient access or permissions. Check with an administrator to verify your permissions.</p>
+            aws_sdk_location.errors.internal_server_exception.InternalServerException: <p>The request has failed to process because of an unknown server error, exception, or failure.</p>
+            aws_sdk_location.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource that you've entered was not found in your AWS account.</p>
+            aws_sdk_location.errors.throttling_exception.ThrottlingException: <p>The request was denied because of request throttling.</p>
+            aws_sdk_location.errors.validation_exception.ValidationException: <p>The input failed to meet the constraints specified by the AWS service. </p>
+            aws_sdk_location.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -123,6 +139,14 @@ class GenericResource:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource from which you want to remove tags.</p> <ul> <li> <p>Format example: <code>arn:aws:geo:region:account-id:resourcetype/ExampleResource</code> </p> </li> </ul>
             tag_keys: <p>The list of tag keys to remove from the specified resource.</p>
+
+        Raises:
+            aws_sdk_location.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because of insufficient access or permissions. Check with an administrator to verify your permissions.</p>
+            aws_sdk_location.errors.internal_server_exception.InternalServerException: <p>The request has failed to process because of an unknown server error, exception, or failure.</p>
+            aws_sdk_location.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource that you've entered was not found in your AWS account.</p>
+            aws_sdk_location.errors.throttling_exception.ThrottlingException: <p>The request was denied because of request throttling.</p>
+            aws_sdk_location.errors.validation_exception.ValidationException: <p>The input failed to meet the constraints specified by the AWS service. </p>
+            aws_sdk_location.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -166,6 +190,14 @@ class AsyncGenericResource:
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource whose tags you want to retrieve.</p> <ul> <li> <p>Format example: <code>arn:aws:geo:region:account-id:resourcetype/ExampleResource</code> </p> </li> </ul>
+
+        Raises:
+            aws_sdk_location.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because of insufficient access or permissions. Check with an administrator to verify your permissions.</p>
+            aws_sdk_location.errors.internal_server_exception.InternalServerException: <p>The request has failed to process because of an unknown server error, exception, or failure.</p>
+            aws_sdk_location.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource that you've entered was not found in your AWS account.</p>
+            aws_sdk_location.errors.throttling_exception.ThrottlingException: <p>The request was denied because of request throttling.</p>
+            aws_sdk_location.errors.validation_exception.ValidationException: <p>The input failed to meet the constraints specified by the AWS service. </p>
+            aws_sdk_location.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -206,6 +238,14 @@ class AsyncGenericResource:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource whose tags you want to update.</p> <ul> <li> <p>Format example: <code>arn:aws:geo:region:account-id:resourcetype/ExampleResource</code> </p> </li> </ul>
             tags: <p>Applies one or more tags to specific resource. A tag is a key-value pair that helps you manage, identify, search, and filter your resources.</p> <p>Format: <code>\"key\" : \"value\"</code> </p> <p>Restrictions:</p> <ul> <li> <p>Maximum 50 tags per resource.</p> </li> <li> <p>Each tag key must be unique and must have exactly one associated value.</p> </li> <li> <p>Maximum key length: 128 Unicode characters in UTF-8.</p> </li> <li> <p>Maximum value length: 256 Unicode characters in UTF-8.</p> </li> <li> <p>Can use alphanumeric characters (A–Z, a–z, 0–9), and the following characters: + - = . _ : / @</p> </li> <li> <p>Cannot use \"aws:\" as a prefix for a key.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_location.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because of insufficient access or permissions. Check with an administrator to verify your permissions.</p>
+            aws_sdk_location.errors.internal_server_exception.InternalServerException: <p>The request has failed to process because of an unknown server error, exception, or failure.</p>
+            aws_sdk_location.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource that you've entered was not found in your AWS account.</p>
+            aws_sdk_location.errors.throttling_exception.ThrottlingException: <p>The request was denied because of request throttling.</p>
+            aws_sdk_location.errors.validation_exception.ValidationException: <p>The input failed to meet the constraints specified by the AWS service. </p>
+            aws_sdk_location.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -247,6 +287,14 @@ class AsyncGenericResource:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource from which you want to remove tags.</p> <ul> <li> <p>Format example: <code>arn:aws:geo:region:account-id:resourcetype/ExampleResource</code> </p> </li> </ul>
             tag_keys: <p>The list of tag keys to remove from the specified resource.</p>
+
+        Raises:
+            aws_sdk_location.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because of insufficient access or permissions. Check with an administrator to verify your permissions.</p>
+            aws_sdk_location.errors.internal_server_exception.InternalServerException: <p>The request has failed to process because of an unknown server error, exception, or failure.</p>
+            aws_sdk_location.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource that you've entered was not found in your AWS account.</p>
+            aws_sdk_location.errors.throttling_exception.ThrottlingException: <p>The request was denied because of request throttling.</p>
+            aws_sdk_location.errors.validation_exception.ValidationException: <p>The input failed to meet the constraints specified by the AWS service. </p>
+            aws_sdk_location.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

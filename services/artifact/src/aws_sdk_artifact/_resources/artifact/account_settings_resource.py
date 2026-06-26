@@ -35,6 +35,16 @@ class AccountSettingsResource:
     ) -> "aws_sdk_artifact.types.get_account_settings_response.GetAccountSettingsResponse":
         """<p>Get the account settings for Artifact.</p>
 
+        Raises:
+            aws_sdk_artifact.errors.access_denied_exception.AccessDeniedException: <p>User does not have sufficient access to perform this action.</p>
+            aws_sdk_artifact.errors.conflict_exception.ConflictException: <p>Request to create/modify content would result in a conflict.</p>
+            aws_sdk_artifact.errors.internal_server_exception.InternalServerException: <p>An unknown server exception has occurred.</p>
+            aws_sdk_artifact.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_artifact.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Request would cause a service quota to be exceeded.</p>
+            aws_sdk_artifact.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_artifact.errors.validation_exception.ValidationException: <p>Request fails to satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_artifact.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Invoke GetAccountSettings operation
             Get the current account settings.
@@ -78,6 +88,16 @@ class AccountSettingsResource:
 
         Args:
             notification_subscription_status: <p>Desired notification subscription status.</p>
+
+        Raises:
+            aws_sdk_artifact.errors.access_denied_exception.AccessDeniedException: <p>User does not have sufficient access to perform this action.</p>
+            aws_sdk_artifact.errors.conflict_exception.ConflictException: <p>Request to create/modify content would result in a conflict.</p>
+            aws_sdk_artifact.errors.internal_server_exception.InternalServerException: <p>An unknown server exception has occurred.</p>
+            aws_sdk_artifact.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_artifact.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Request would cause a service quota to be exceeded.</p>
+            aws_sdk_artifact.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_artifact.errors.validation_exception.ValidationException: <p>Request fails to satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_artifact.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Invoke PutAccountSettings operation
@@ -124,6 +144,16 @@ class AsyncAccountSettingsResource:
     ) -> "aws_sdk_artifact.types.get_account_settings_response.GetAccountSettingsResponse":
         """<p>Get the account settings for Artifact.</p>
 
+        Raises:
+            aws_sdk_artifact.errors.access_denied_exception.AccessDeniedException: <p>User does not have sufficient access to perform this action.</p>
+            aws_sdk_artifact.errors.conflict_exception.ConflictException: <p>Request to create/modify content would result in a conflict.</p>
+            aws_sdk_artifact.errors.internal_server_exception.InternalServerException: <p>An unknown server exception has occurred.</p>
+            aws_sdk_artifact.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_artifact.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Request would cause a service quota to be exceeded.</p>
+            aws_sdk_artifact.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_artifact.errors.validation_exception.ValidationException: <p>Request fails to satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_artifact.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Invoke GetAccountSettings operation
             Get the current account settings.
@@ -168,6 +198,16 @@ class AsyncAccountSettingsResource:
 
         Args:
             notification_subscription_status: <p>Desired notification subscription status.</p>
+
+        Raises:
+            aws_sdk_artifact.errors.access_denied_exception.AccessDeniedException: <p>User does not have sufficient access to perform this action.</p>
+            aws_sdk_artifact.errors.conflict_exception.ConflictException: <p>Request to create/modify content would result in a conflict.</p>
+            aws_sdk_artifact.errors.internal_server_exception.InternalServerException: <p>An unknown server exception has occurred.</p>
+            aws_sdk_artifact.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_artifact.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Request would cause a service quota to be exceeded.</p>
+            aws_sdk_artifact.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_artifact.errors.validation_exception.ValidationException: <p>Request fails to satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_artifact.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Invoke PutAccountSettings operation

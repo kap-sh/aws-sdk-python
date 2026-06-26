@@ -460,6 +460,14 @@ class AsyncCustomerProfilesClient:
             key_name: <p>A searchable identifier of a customer profile. The predefined keys you can use include: _account, _profileId, _assetId, _caseId, _orderId, _fullName, _phone, _email, _ctrContactId, _marketoLeadId, _salesforceAccountId, _salesforceContactId, _salesforceAssetId, _zendeskUserId, _zendeskExternalId, _zendeskTicketId, _serviceNowSystemId, _serviceNowIncidentId, _segmentUserId, _shopifyCustomerId, _shopifyOrderId.</p>
             values: <p>A list of key values.</p>
             domain_name: <p>The unique name of the domain.</p>
+
+        Raises:
+            aws_sdk_customer_profiles.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_customer_profiles.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_customer_profiles.errors.internal_server_exception.InternalServerException: <p>An internal service error occurred.</p>
+            aws_sdk_customer_profiles.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource does not exist, or access was denied.</p>
+            aws_sdk_customer_profiles.errors.throttling_exception.ThrottlingException: <p>You exceeded the maximum number of requests.</p>
+            aws_sdk_customer_profiles.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -509,6 +517,14 @@ class AsyncCustomerProfilesClient:
             domain_name: <p>The unique name of the domain.</p>
             profile_ids: <p>List of unique identifiers for customer profiles to retrieve.</p>
             condition_overrides: <p>Overrides the condition block within the original calculated attribute definition.</p>
+
+        Raises:
+            aws_sdk_customer_profiles.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_customer_profiles.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_customer_profiles.errors.internal_server_exception.InternalServerException: <p>An internal service error occurred.</p>
+            aws_sdk_customer_profiles.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource does not exist, or access was denied.</p>
+            aws_sdk_customer_profiles.errors.throttling_exception.ThrottlingException: <p>You exceeded the maximum number of requests.</p>
+            aws_sdk_customer_profiles.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -553,6 +569,14 @@ class AsyncCustomerProfilesClient:
         Args:
             domain_name: <p>The unique name of the domain.</p>
             profile_ids: <p>List of unique identifiers for customer profiles to retrieve.</p>
+
+        Raises:
+            aws_sdk_customer_profiles.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_customer_profiles.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_customer_profiles.errors.internal_server_exception.InternalServerException: <p>An internal service error occurred.</p>
+            aws_sdk_customer_profiles.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource does not exist, or access was denied.</p>
+            aws_sdk_customer_profiles.errors.throttling_exception.ThrottlingException: <p>You exceeded the maximum number of requests.</p>
+            aws_sdk_customer_profiles.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -596,6 +620,14 @@ class AsyncCustomerProfilesClient:
             domain_name: <p>The unique name of the domain.</p>
             object_type_name: <p>The name of the profile object type.</p>
             items: <p>A list of items to add to the domain.</p>
+
+        Raises:
+            aws_sdk_customer_profiles.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_customer_profiles.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_customer_profiles.errors.internal_server_exception.InternalServerException: <p>An internal service error occurred.</p>
+            aws_sdk_customer_profiles.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource does not exist, or access was denied.</p>
+            aws_sdk_customer_profiles.errors.throttling_exception.ThrottlingException: <p>You exceeded the maximum number of requests.</p>
+            aws_sdk_customer_profiles.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -662,6 +694,14 @@ class AsyncCustomerProfilesClient:
             statistic: <p>The aggregation operation to perform for the calculated attribute.</p>
             use_historical_data: <p>Whether historical data ingested before the Calculated Attribute was created should be included in calculations.</p>
             tags: <p>The tags used to organize, track, or control access for this resource.</p>
+
+        Raises:
+            aws_sdk_customer_profiles.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_customer_profiles.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_customer_profiles.errors.internal_server_exception.InternalServerException: <p>An internal service error occurred.</p>
+            aws_sdk_customer_profiles.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource does not exist, or access was denied.</p>
+            aws_sdk_customer_profiles.errors.throttling_exception.ThrottlingException: <p>You exceeded the maximum number of requests.</p>
+            aws_sdk_customer_profiles.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -739,6 +779,14 @@ class AsyncCustomerProfilesClient:
             rule_based_matching: <p>The process of matching duplicate profiles using the Rule-Based matching. If <code>RuleBasedMatching</code> = true, Connect Customer Customer Profiles will start to match and merge your profiles according to your configuration in the <code>RuleBasedMatchingRequest</code>. You can use the <code>ListRuleBasedMatches</code> and <code>GetSimilarProfiles</code> API to return and review the results. Also, if you have configured <code>ExportingConfig</code> in the <code>RuleBasedMatchingRequest</code>, you can download the results from S3.</p>
             data_store: <p>Set to true to enabled data store for this domain.</p>
             tags: <p>The tags used to organize, track, or control access for this resource.</p>
+
+        Raises:
+            aws_sdk_customer_profiles.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_customer_profiles.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_customer_profiles.errors.internal_server_exception.InternalServerException: <p>An internal service error occurred.</p>
+            aws_sdk_customer_profiles.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource does not exist, or access was denied.</p>
+            aws_sdk_customer_profiles.errors.throttling_exception.ThrottlingException: <p>You exceeded the maximum number of requests.</p>
+            aws_sdk_customer_profiles.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -804,6 +852,14 @@ class AsyncCustomerProfilesClient:
             layout_type: <p>The type of layout that can be used to view data under a Customer Profiles domain.</p>
             layout: <p>A customizable layout that can be used to view data under a Customer Profiles domain.</p>
             tags: <p>The tags used to organize, track, or control access for this resource.</p>
+
+        Raises:
+            aws_sdk_customer_profiles.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_customer_profiles.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_customer_profiles.errors.internal_server_exception.InternalServerException: <p>An internal service error occurred.</p>
+            aws_sdk_customer_profiles.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource does not exist, or access was denied.</p>
+            aws_sdk_customer_profiles.errors.throttling_exception.ThrottlingException: <p>You exceeded the maximum number of requests.</p>
+            aws_sdk_customer_profiles.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -857,6 +913,14 @@ class AsyncCustomerProfilesClient:
             uri: <p>The StreamARN of the destination to deliver profile events to. For example, arn:aws:kinesis:region:account-id:stream/stream-name</p>
             event_stream_name: <p>The name of the event stream.</p>
             tags: <p>The tags used to organize, track, or control access for this resource.</p>
+
+        Raises:
+            aws_sdk_customer_profiles.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_customer_profiles.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_customer_profiles.errors.internal_server_exception.InternalServerException: <p>An internal service error occurred.</p>
+            aws_sdk_customer_profiles.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource does not exist, or access was denied.</p>
+            aws_sdk_customer_profiles.errors.throttling_exception.ThrottlingException: <p>You exceeded the maximum number of requests.</p>
+            aws_sdk_customer_profiles.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -917,6 +981,14 @@ class AsyncCustomerProfilesClient:
             segment_filter: <p>The destination is triggered only for profiles that meet the criteria of a segment definition.</p>
             event_trigger_limits: <p>Defines limits controlling whether an event triggers the destination, based on ingestion latency and the number of invocations per profile over specific time periods.</p>
             tags: <p>An array of key-value pairs to apply to this resource.</p>
+
+        Raises:
+            aws_sdk_customer_profiles.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_customer_profiles.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_customer_profiles.errors.internal_server_exception.InternalServerException: <p>An internal service error occurred.</p>
+            aws_sdk_customer_profiles.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource does not exist, or access was denied.</p>
+            aws_sdk_customer_profiles.errors.throttling_exception.ThrottlingException: <p>You exceeded the maximum number of requests.</p>
+            aws_sdk_customer_profiles.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -976,6 +1048,14 @@ class AsyncCustomerProfilesClient:
             object_type_name: <p>The name of the profile object type.</p>
             role_arn: <p>The Amazon Resource Name (ARN) of the IAM role. Customer Profiles assumes this role to create resources on your behalf as part of workflow execution.</p>
             tags: <p>The tags used to organize, track, or control access for this resource.</p>
+
+        Raises:
+            aws_sdk_customer_profiles.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_customer_profiles.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_customer_profiles.errors.internal_server_exception.InternalServerException: <p>An internal service error occurred.</p>
+            aws_sdk_customer_profiles.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource does not exist, or access was denied.</p>
+            aws_sdk_customer_profiles.errors.throttling_exception.ThrottlingException: <p>You exceeded the maximum number of requests.</p>
+            aws_sdk_customer_profiles.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1118,6 +1198,14 @@ class AsyncCustomerProfilesClient:
             gender_string: <p>An alternative to <code>Gender</code> which accepts any string as input.</p>
             profile_type: <p>The type of the profile.</p>
             engagement_preferences: <p>Object that defines the preferred methods of engagement, per channel.</p>
+
+        Raises:
+            aws_sdk_customer_profiles.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_customer_profiles.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_customer_profiles.errors.internal_server_exception.InternalServerException: <p>An internal service error occurred.</p>
+            aws_sdk_customer_profiles.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource does not exist, or access was denied.</p>
+            aws_sdk_customer_profiles.errors.throttling_exception.ThrottlingException: <p>You exceeded the maximum number of requests.</p>
+            aws_sdk_customer_profiles.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1224,6 +1312,14 @@ class AsyncCustomerProfilesClient:
             description: <p>The description of the domain object type.</p>
             recommender_schema_name: <p>The name of the recommender schema to use for this recommender. If not specified, the default schema is used.</p>
             tags: <p>The tags used to organize, track, or control access for this resource.</p>
+
+        Raises:
+            aws_sdk_customer_profiles.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_customer_profiles.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_customer_profiles.errors.internal_server_exception.InternalServerException: <p>An internal service error occurred.</p>
+            aws_sdk_customer_profiles.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource does not exist, or access was denied.</p>
+            aws_sdk_customer_profiles.errors.throttling_exception.ThrottlingException: <p>You exceeded the maximum number of requests.</p>
+            aws_sdk_customer_profiles.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1286,6 +1382,14 @@ class AsyncCustomerProfilesClient:
             recommender_schema_name: <p>The name of the recommender schema to use for this recommender filter. If not specified, the default schema is used.</p>
             description: <p>A description of the recommender filter.</p>
             tags: <p>The tags used to organize, track, or control access for this resource.</p>
+
+        Raises:
+            aws_sdk_customer_profiles.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_customer_profiles.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_customer_profiles.errors.internal_server_exception.InternalServerException: <p>An internal service error occurred.</p>
+            aws_sdk_customer_profiles.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource does not exist, or access was denied.</p>
+            aws_sdk_customer_profiles.errors.throttling_exception.ThrottlingException: <p>You exceeded the maximum number of requests.</p>
+            aws_sdk_customer_profiles.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1338,6 +1442,14 @@ class AsyncCustomerProfilesClient:
             recommender_schema_name: <p>The name of the recommender schema. The name must be unique within the domain.</p>
             fields: <p>A map of dataset type to column definitions that specifies which data columns to include in the schema. The <code>_webAnalytics</code> and <code>_catalogItem</code> keys are supported.</p>
             tags: <p>The tags used to organize, track, or control access for this resource.</p>
+
+        Raises:
+            aws_sdk_customer_profiles.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_customer_profiles.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_customer_profiles.errors.internal_server_exception.InternalServerException: <p>An internal service error occurred.</p>
+            aws_sdk_customer_profiles.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource does not exist, or access was denied.</p>
+            aws_sdk_customer_profiles.errors.throttling_exception.ThrottlingException: <p>You exceeded the maximum number of requests.</p>
+            aws_sdk_customer_profiles.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1402,6 +1514,14 @@ class AsyncCustomerProfilesClient:
             segment_sql_query: <p>The segment SQL query.</p>
             segment_sort: <p>The segment sort.</p>
             tags: <p>The tags used to organize, track, or control access for this resource.</p>
+
+        Raises:
+            aws_sdk_customer_profiles.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_customer_profiles.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_customer_profiles.errors.internal_server_exception.InternalServerException: <p>An internal service error occurred.</p>
+            aws_sdk_customer_profiles.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource does not exist, or access was denied.</p>
+            aws_sdk_customer_profiles.errors.throttling_exception.ThrottlingException: <p>You exceeded the maximum number of requests.</p>
+            aws_sdk_customer_profiles.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1460,6 +1580,14 @@ class AsyncCustomerProfilesClient:
             domain_name: <p>The unique name of the domain.</p>
             segment_query: <p>The segment query for calculating a segment estimate.</p>
             segment_sql_query: <p>The segment SQL query.</p>
+
+        Raises:
+            aws_sdk_customer_profiles.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_customer_profiles.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_customer_profiles.errors.internal_server_exception.InternalServerException: <p>An internal service error occurred.</p>
+            aws_sdk_customer_profiles.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource does not exist, or access was denied.</p>
+            aws_sdk_customer_profiles.errors.throttling_exception.ThrottlingException: <p>You exceeded the maximum number of requests.</p>
+            aws_sdk_customer_profiles.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1516,6 +1644,14 @@ class AsyncCustomerProfilesClient:
             encryption_key: <p>The Amazon Resource Name (ARN) of the KMS key used to encrypt the exported segment.</p>
             role_arn: <p>The Amazon Resource Name (ARN) of the IAM role that allows Customer Profiles service principal to assume the role for conducting KMS and S3 operations.</p>
             destination_uri: <p>The destination to which the segment will be exported. This field must be provided if the request is not submitted from the Connect Customer Admin Website.</p>
+
+        Raises:
+            aws_sdk_customer_profiles.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_customer_profiles.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_customer_profiles.errors.internal_server_exception.InternalServerException: <p>An internal service error occurred.</p>
+            aws_sdk_customer_profiles.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource does not exist, or access was denied.</p>
+            aws_sdk_customer_profiles.errors.throttling_exception.ThrottlingException: <p>You exceeded the maximum number of requests.</p>
+            aws_sdk_customer_profiles.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1572,6 +1708,14 @@ class AsyncCustomerProfilesClient:
             fields: <p>The mapping between CSV Columns and Profile Object attributes. A map of the name and ObjectType field.</p>
             unique_key: <p>The unique key columns for de-duping the profiles used to map data to the profile. </p>
             data_expiry: <p>The expiry duration for the profiles ingested with the job. If not provided, the system default of 2 weeks is used. </p>
+
+        Raises:
+            aws_sdk_customer_profiles.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_customer_profiles.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_customer_profiles.errors.internal_server_exception.InternalServerException: <p>An internal service error occurred.</p>
+            aws_sdk_customer_profiles.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource does not exist, or access was denied.</p>
+            aws_sdk_customer_profiles.errors.throttling_exception.ThrottlingException: <p>You exceeded the maximum number of requests.</p>
+            aws_sdk_customer_profiles.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1617,6 +1761,14 @@ class AsyncCustomerProfilesClient:
         Args:
             domain_name: <p>The unique name of the domain.</p>
             calculated_attribute_name: <p>The unique name of the calculated attribute.</p>
+
+        Raises:
+            aws_sdk_customer_profiles.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_customer_profiles.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_customer_profiles.errors.internal_server_exception.InternalServerException: <p>An internal service error occurred.</p>
+            aws_sdk_customer_profiles.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource does not exist, or access was denied.</p>
+            aws_sdk_customer_profiles.errors.throttling_exception.ThrottlingException: <p>You exceeded the maximum number of requests.</p>
+            aws_sdk_customer_profiles.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1656,6 +1808,14 @@ class AsyncCustomerProfilesClient:
 
         Args:
             domain_name: <p>The unique name of the domain.</p>
+
+        Raises:
+            aws_sdk_customer_profiles.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_customer_profiles.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_customer_profiles.errors.internal_server_exception.InternalServerException: <p>An internal service error occurred.</p>
+            aws_sdk_customer_profiles.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource does not exist, or access was denied.</p>
+            aws_sdk_customer_profiles.errors.throttling_exception.ThrottlingException: <p>You exceeded the maximum number of requests.</p>
+            aws_sdk_customer_profiles.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1696,6 +1856,14 @@ class AsyncCustomerProfilesClient:
         Args:
             domain_name: <p>The unique name of the domain.</p>
             layout_definition_name: <p>The unique name of the layout.</p>
+
+        Raises:
+            aws_sdk_customer_profiles.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_customer_profiles.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_customer_profiles.errors.internal_server_exception.InternalServerException: <p>An internal service error occurred.</p>
+            aws_sdk_customer_profiles.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource does not exist, or access was denied.</p>
+            aws_sdk_customer_profiles.errors.throttling_exception.ThrottlingException: <p>You exceeded the maximum number of requests.</p>
+            aws_sdk_customer_profiles.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1737,6 +1905,14 @@ class AsyncCustomerProfilesClient:
         Args:
             domain_name: <p>The unique name of the domain.</p>
             object_type_name: <p>The unique name of the domain object type.</p>
+
+        Raises:
+            aws_sdk_customer_profiles.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_customer_profiles.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_customer_profiles.errors.internal_server_exception.InternalServerException: <p>An internal service error occurred.</p>
+            aws_sdk_customer_profiles.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource does not exist, or access was denied.</p>
+            aws_sdk_customer_profiles.errors.throttling_exception.ThrottlingException: <p>You exceeded the maximum number of requests.</p>
+            aws_sdk_customer_profiles.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1778,6 +1954,14 @@ class AsyncCustomerProfilesClient:
         Args:
             domain_name: <p>The unique name of the domain.</p>
             event_stream_name: <p>The name of the event stream</p>
+
+        Raises:
+            aws_sdk_customer_profiles.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_customer_profiles.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_customer_profiles.errors.internal_server_exception.InternalServerException: <p>An internal service error occurred.</p>
+            aws_sdk_customer_profiles.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource does not exist, or access was denied.</p>
+            aws_sdk_customer_profiles.errors.throttling_exception.ThrottlingException: <p>You exceeded the maximum number of requests.</p>
+            aws_sdk_customer_profiles.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1819,6 +2003,14 @@ class AsyncCustomerProfilesClient:
         Args:
             domain_name: <p>The unique name of the domain.</p>
             event_trigger_name: <p>The unique name of the event trigger.</p>
+
+        Raises:
+            aws_sdk_customer_profiles.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_customer_profiles.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_customer_profiles.errors.internal_server_exception.InternalServerException: <p>An internal service error occurred.</p>
+            aws_sdk_customer_profiles.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource does not exist, or access was denied.</p>
+            aws_sdk_customer_profiles.errors.throttling_exception.ThrottlingException: <p>You exceeded the maximum number of requests.</p>
+            aws_sdk_customer_profiles.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1860,6 +2052,14 @@ class AsyncCustomerProfilesClient:
         Args:
             domain_name: <p>The unique name of the domain.</p>
             uri: <p>The URI of the S3 bucket or any other type of data source.</p>
+
+        Raises:
+            aws_sdk_customer_profiles.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_customer_profiles.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_customer_profiles.errors.internal_server_exception.InternalServerException: <p>An internal service error occurred.</p>
+            aws_sdk_customer_profiles.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource does not exist, or access was denied.</p>
+            aws_sdk_customer_profiles.errors.throttling_exception.ThrottlingException: <p>You exceeded the maximum number of requests.</p>
+            aws_sdk_customer_profiles.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1903,6 +2103,14 @@ class AsyncCustomerProfilesClient:
         Args:
             profile_id: <p>The unique identifier of a customer profile.</p>
             domain_name: <p>The unique name of the domain.</p>
+
+        Raises:
+            aws_sdk_customer_profiles.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_customer_profiles.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_customer_profiles.errors.internal_server_exception.InternalServerException: <p>An internal service error occurred.</p>
+            aws_sdk_customer_profiles.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource does not exist, or access was denied.</p>
+            aws_sdk_customer_profiles.errors.throttling_exception.ThrottlingException: <p>You exceeded the maximum number of requests.</p>
+            aws_sdk_customer_profiles.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1948,6 +2156,14 @@ class AsyncCustomerProfilesClient:
             key_name: <p>A searchable identifier of a customer profile.</p>
             values: <p>A list of key values.</p>
             domain_name: <p>The unique name of the domain.</p>
+
+        Raises:
+            aws_sdk_customer_profiles.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_customer_profiles.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_customer_profiles.errors.internal_server_exception.InternalServerException: <p>An internal service error occurred.</p>
+            aws_sdk_customer_profiles.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource does not exist, or access was denied.</p>
+            aws_sdk_customer_profiles.errors.throttling_exception.ThrottlingException: <p>You exceeded the maximum number of requests.</p>
+            aws_sdk_customer_profiles.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1995,6 +2211,14 @@ class AsyncCustomerProfilesClient:
             profile_object_unique_key: <p>The unique identifier of the profile object generated by the service.</p>
             object_type_name: <p>The name of the profile object type.</p>
             domain_name: <p>The unique name of the domain.</p>
+
+        Raises:
+            aws_sdk_customer_profiles.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_customer_profiles.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_customer_profiles.errors.internal_server_exception.InternalServerException: <p>An internal service error occurred.</p>
+            aws_sdk_customer_profiles.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource does not exist, or access was denied.</p>
+            aws_sdk_customer_profiles.errors.throttling_exception.ThrottlingException: <p>You exceeded the maximum number of requests.</p>
+            aws_sdk_customer_profiles.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2038,6 +2262,14 @@ class AsyncCustomerProfilesClient:
         Args:
             domain_name: <p>The unique name of the domain.</p>
             object_type_name: <p>The name of the profile object type.</p>
+
+        Raises:
+            aws_sdk_customer_profiles.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_customer_profiles.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_customer_profiles.errors.internal_server_exception.InternalServerException: <p>An internal service error occurred.</p>
+            aws_sdk_customer_profiles.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource does not exist, or access was denied.</p>
+            aws_sdk_customer_profiles.errors.throttling_exception.ThrottlingException: <p>You exceeded the maximum number of requests.</p>
+            aws_sdk_customer_profiles.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2079,6 +2311,14 @@ class AsyncCustomerProfilesClient:
         Args:
             domain_name: <p>The unique name of the domain.</p>
             recommender_name: <p>The recommender name.</p>
+
+        Raises:
+            aws_sdk_customer_profiles.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_customer_profiles.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_customer_profiles.errors.internal_server_exception.InternalServerException: <p>An internal service error occurred.</p>
+            aws_sdk_customer_profiles.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource does not exist, or access was denied.</p>
+            aws_sdk_customer_profiles.errors.throttling_exception.ThrottlingException: <p>You exceeded the maximum number of requests.</p>
+            aws_sdk_customer_profiles.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2120,6 +2360,14 @@ class AsyncCustomerProfilesClient:
         Args:
             domain_name: <p>The unique name of the domain.</p>
             recommender_filter_name: <p>The name of the recommender filter to delete.</p>
+
+        Raises:
+            aws_sdk_customer_profiles.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_customer_profiles.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_customer_profiles.errors.internal_server_exception.InternalServerException: <p>An internal service error occurred.</p>
+            aws_sdk_customer_profiles.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource does not exist, or access was denied.</p>
+            aws_sdk_customer_profiles.errors.throttling_exception.ThrottlingException: <p>You exceeded the maximum number of requests.</p>
+            aws_sdk_customer_profiles.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2161,6 +2409,14 @@ class AsyncCustomerProfilesClient:
         Args:
             domain_name: <p>The unique name of the domain.</p>
             recommender_schema_name: <p>The name of the recommender schema to delete.</p>
+
+        Raises:
+            aws_sdk_customer_profiles.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_customer_profiles.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_customer_profiles.errors.internal_server_exception.InternalServerException: <p>An internal service error occurred.</p>
+            aws_sdk_customer_profiles.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource does not exist, or access was denied.</p>
+            aws_sdk_customer_profiles.errors.throttling_exception.ThrottlingException: <p>You exceeded the maximum number of requests.</p>
+            aws_sdk_customer_profiles.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2202,6 +2458,14 @@ class AsyncCustomerProfilesClient:
         Args:
             domain_name: <p>The unique name of the domain.</p>
             segment_definition_name: <p>The unique name of the segment definition.</p>
+
+        Raises:
+            aws_sdk_customer_profiles.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_customer_profiles.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_customer_profiles.errors.internal_server_exception.InternalServerException: <p>An internal service error occurred.</p>
+            aws_sdk_customer_profiles.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource does not exist, or access was denied.</p>
+            aws_sdk_customer_profiles.errors.throttling_exception.ThrottlingException: <p>You exceeded the maximum number of requests.</p>
+            aws_sdk_customer_profiles.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2243,6 +2507,14 @@ class AsyncCustomerProfilesClient:
         Args:
             domain_name: <p>The unique name of the domain.</p>
             workflow_id: <p>Unique identifier for the workflow.</p>
+
+        Raises:
+            aws_sdk_customer_profiles.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_customer_profiles.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_customer_profiles.errors.internal_server_exception.InternalServerException: <p>An internal service error occurred.</p>
+            aws_sdk_customer_profiles.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource does not exist, or access was denied.</p>
+            aws_sdk_customer_profiles.errors.throttling_exception.ThrottlingException: <p>You exceeded the maximum number of requests.</p>
+            aws_sdk_customer_profiles.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2284,6 +2556,14 @@ class AsyncCustomerProfilesClient:
         Args:
             objects: <p>A string that is serialized from a JSON object.</p>
             domain_name: <p>The unique name of the domain.</p>
+
+        Raises:
+            aws_sdk_customer_profiles.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_customer_profiles.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_customer_profiles.errors.internal_server_exception.InternalServerException: <p>An internal service error occurred.</p>
+            aws_sdk_customer_profiles.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource does not exist, or access was denied.</p>
+            aws_sdk_customer_profiles.errors.throttling_exception.ThrottlingException: <p>You exceeded the maximum number of requests.</p>
+            aws_sdk_customer_profiles.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2331,6 +2611,14 @@ class AsyncCustomerProfilesClient:
             consolidation: <p>A list of matching attributes that represent matching criteria.</p>
             conflict_resolution: <p>How the auto-merging process should resolve conflicts between different profiles.</p>
             min_allowed_confidence_score_for_merging: <p>Minimum confidence score required for profiles within a matching group to be merged during the auto-merge process.</p>
+
+        Raises:
+            aws_sdk_customer_profiles.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_customer_profiles.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_customer_profiles.errors.internal_server_exception.InternalServerException: <p>An internal service error occurred.</p>
+            aws_sdk_customer_profiles.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource does not exist, or access was denied.</p>
+            aws_sdk_customer_profiles.errors.throttling_exception.ThrottlingException: <p>You exceeded the maximum number of requests.</p>
+            aws_sdk_customer_profiles.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2377,6 +2665,14 @@ class AsyncCustomerProfilesClient:
         Args:
             domain_name: <p>The unique name of the domain.</p>
             calculated_attribute_name: <p>The unique name of the calculated attribute.</p>
+
+        Raises:
+            aws_sdk_customer_profiles.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_customer_profiles.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_customer_profiles.errors.internal_server_exception.InternalServerException: <p>An internal service error occurred.</p>
+            aws_sdk_customer_profiles.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource does not exist, or access was denied.</p>
+            aws_sdk_customer_profiles.errors.throttling_exception.ThrottlingException: <p>You exceeded the maximum number of requests.</p>
+            aws_sdk_customer_profiles.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2420,6 +2716,14 @@ class AsyncCustomerProfilesClient:
             domain_name: <p>The unique name of the domain.</p>
             profile_id: <p>The unique identifier of a customer profile.</p>
             calculated_attribute_name: <p>The unique name of the calculated attribute.</p>
+
+        Raises:
+            aws_sdk_customer_profiles.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_customer_profiles.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_customer_profiles.errors.internal_server_exception.InternalServerException: <p>An internal service error occurred.</p>
+            aws_sdk_customer_profiles.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource does not exist, or access was denied.</p>
+            aws_sdk_customer_profiles.errors.throttling_exception.ThrottlingException: <p>You exceeded the maximum number of requests.</p>
+            aws_sdk_customer_profiles.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2460,6 +2764,14 @@ class AsyncCustomerProfilesClient:
 
         Args:
             domain_name: <p>The unique name of the domain.</p>
+
+        Raises:
+            aws_sdk_customer_profiles.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_customer_profiles.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_customer_profiles.errors.internal_server_exception.InternalServerException: <p>An internal service error occurred.</p>
+            aws_sdk_customer_profiles.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource does not exist, or access was denied.</p>
+            aws_sdk_customer_profiles.errors.throttling_exception.ThrottlingException: <p>You exceeded the maximum number of requests.</p>
+            aws_sdk_customer_profiles.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2500,6 +2812,14 @@ class AsyncCustomerProfilesClient:
         Args:
             domain_name: <p>The unique name of the domain.</p>
             layout_definition_name: <p>The unique name of the layout.</p>
+
+        Raises:
+            aws_sdk_customer_profiles.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_customer_profiles.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_customer_profiles.errors.internal_server_exception.InternalServerException: <p>An internal service error occurred.</p>
+            aws_sdk_customer_profiles.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource does not exist, or access was denied.</p>
+            aws_sdk_customer_profiles.errors.throttling_exception.ThrottlingException: <p>You exceeded the maximum number of requests.</p>
+            aws_sdk_customer_profiles.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2541,6 +2861,14 @@ class AsyncCustomerProfilesClient:
         Args:
             domain_name: <p>The unique name of the domain.</p>
             object_type_name: <p>The unique name of the domain object type.</p>
+
+        Raises:
+            aws_sdk_customer_profiles.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_customer_profiles.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_customer_profiles.errors.internal_server_exception.InternalServerException: <p>An internal service error occurred.</p>
+            aws_sdk_customer_profiles.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource does not exist, or access was denied.</p>
+            aws_sdk_customer_profiles.errors.throttling_exception.ThrottlingException: <p>You exceeded the maximum number of requests.</p>
+            aws_sdk_customer_profiles.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2582,6 +2910,14 @@ class AsyncCustomerProfilesClient:
         Args:
             domain_name: <p>The unique name of the domain.</p>
             event_stream_name: <p>The name of the event stream provided during create operations.</p>
+
+        Raises:
+            aws_sdk_customer_profiles.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_customer_profiles.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_customer_profiles.errors.internal_server_exception.InternalServerException: <p>An internal service error occurred.</p>
+            aws_sdk_customer_profiles.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource does not exist, or access was denied.</p>
+            aws_sdk_customer_profiles.errors.throttling_exception.ThrottlingException: <p>You exceeded the maximum number of requests.</p>
+            aws_sdk_customer_profiles.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2623,6 +2959,14 @@ class AsyncCustomerProfilesClient:
         Args:
             domain_name: <p>The unique name of the domain.</p>
             event_trigger_name: <p>The unique name of the event trigger.</p>
+
+        Raises:
+            aws_sdk_customer_profiles.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_customer_profiles.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_customer_profiles.errors.internal_server_exception.InternalServerException: <p>An internal service error occurred.</p>
+            aws_sdk_customer_profiles.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource does not exist, or access was denied.</p>
+            aws_sdk_customer_profiles.errors.throttling_exception.ThrottlingException: <p>You exceeded the maximum number of requests.</p>
+            aws_sdk_customer_profiles.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2664,6 +3008,14 @@ class AsyncCustomerProfilesClient:
         Args:
             domain_name: <p>The unique name of the domain.</p>
             job_id: <p>The unique identifier of the Identity Resolution Job.</p>
+
+        Raises:
+            aws_sdk_customer_profiles.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_customer_profiles.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_customer_profiles.errors.internal_server_exception.InternalServerException: <p>An internal service error occurred.</p>
+            aws_sdk_customer_profiles.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource does not exist, or access was denied.</p>
+            aws_sdk_customer_profiles.errors.throttling_exception.ThrottlingException: <p>You exceeded the maximum number of requests.</p>
+            aws_sdk_customer_profiles.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2705,6 +3057,14 @@ class AsyncCustomerProfilesClient:
         Args:
             domain_name: <p>The unique name of the domain.</p>
             uri: <p>The URI of the S3 bucket or any other type of data source.</p>
+
+        Raises:
+            aws_sdk_customer_profiles.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_customer_profiles.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_customer_profiles.errors.internal_server_exception.InternalServerException: <p>An internal service error occurred.</p>
+            aws_sdk_customer_profiles.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource does not exist, or access was denied.</p>
+            aws_sdk_customer_profiles.errors.throttling_exception.ThrottlingException: <p>You exceeded the maximum number of requests.</p>
+            aws_sdk_customer_profiles.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2750,6 +3110,14 @@ class AsyncCustomerProfilesClient:
             next_token: <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
             max_results: <p>The maximum number of results to return per page.</p>
             domain_name: <p>The unique name of the domain.</p>
+
+        Raises:
+            aws_sdk_customer_profiles.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_customer_profiles.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_customer_profiles.errors.internal_server_exception.InternalServerException: <p>An internal service error occurred.</p>
+            aws_sdk_customer_profiles.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource does not exist, or access was denied.</p>
+            aws_sdk_customer_profiles.errors.throttling_exception.ThrottlingException: <p>You exceeded the maximum number of requests.</p>
+            aws_sdk_customer_profiles.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2796,6 +3164,14 @@ class AsyncCustomerProfilesClient:
             domain_name: <p>The unique name of the domain.</p>
             object_type_name: <p>The unique name of the domain object type.</p>
             attribute_name: <p>The attribute name.</p>
+
+        Raises:
+            aws_sdk_customer_profiles.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_customer_profiles.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_customer_profiles.errors.internal_server_exception.InternalServerException: <p>An internal service error occurred.</p>
+            aws_sdk_customer_profiles.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource does not exist, or access was denied.</p>
+            aws_sdk_customer_profiles.errors.throttling_exception.ThrottlingException: <p>You exceeded the maximum number of requests.</p>
+            aws_sdk_customer_profiles.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2840,6 +3216,14 @@ class AsyncCustomerProfilesClient:
             domain_name: <p>The unique name of the domain for which to return a profile history record.</p>
             profile_id: <p>The unique identifier of the profile for which to return a history record.</p>
             id: <p>The unique identifier of the profile history record to return.</p>
+
+        Raises:
+            aws_sdk_customer_profiles.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_customer_profiles.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_customer_profiles.errors.internal_server_exception.InternalServerException: <p>An internal service error occurred.</p>
+            aws_sdk_customer_profiles.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource does not exist, or access was denied.</p>
+            aws_sdk_customer_profiles.errors.throttling_exception.ThrottlingException: <p>You exceeded the maximum number of requests.</p>
+            aws_sdk_customer_profiles.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2882,6 +3266,14 @@ class AsyncCustomerProfilesClient:
         Args:
             domain_name: <p>The unique name of the domain.</p>
             object_type_name: <p>The name of the profile object type.</p>
+
+        Raises:
+            aws_sdk_customer_profiles.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_customer_profiles.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_customer_profiles.errors.internal_server_exception.InternalServerException: <p>An internal service error occurred.</p>
+            aws_sdk_customer_profiles.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource does not exist, or access was denied.</p>
+            aws_sdk_customer_profiles.errors.throttling_exception.ThrottlingException: <p>You exceeded the maximum number of requests.</p>
+            aws_sdk_customer_profiles.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2921,6 +3313,14 @@ class AsyncCustomerProfilesClient:
 
         Args:
             template_id: <p>A unique identifier for the object template.</p>
+
+        Raises:
+            aws_sdk_customer_profiles.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_customer_profiles.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_customer_profiles.errors.internal_server_exception.InternalServerException: <p>An internal service error occurred.</p>
+            aws_sdk_customer_profiles.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource does not exist, or access was denied.</p>
+            aws_sdk_customer_profiles.errors.throttling_exception.ThrottlingException: <p>You exceeded the maximum number of requests.</p>
+            aws_sdk_customer_profiles.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2987,6 +3387,14 @@ class AsyncCustomerProfilesClient:
             candidate_ids: <p>A list of item IDs to rank for the user. Use this when you want to re-rank a specific set of items rather than getting recommendations from the full item catalog. Required for personalized-ranking use cases.</p>
             max_results: <p>The maximum number of recommendations to return. The default value is 10.</p>
             metadata_config: <p>Configuration for including item metadata in the recommendation response. Use this to specify which metadata columns to return alongside recommended items.</p>
+
+        Raises:
+            aws_sdk_customer_profiles.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_customer_profiles.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_customer_profiles.errors.internal_server_exception.InternalServerException: <p>An internal service error occurred.</p>
+            aws_sdk_customer_profiles.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource does not exist, or access was denied.</p>
+            aws_sdk_customer_profiles.errors.throttling_exception.ThrottlingException: <p>You exceeded the maximum number of requests.</p>
+            aws_sdk_customer_profiles.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3045,6 +3453,14 @@ class AsyncCustomerProfilesClient:
             domain_name: <p>The unique name of the domain.</p>
             recommender_name: <p>The name of the recommender.</p>
             training_metrics_count: <p>The number of training metrics to retrieve for the recommender.</p>
+
+        Raises:
+            aws_sdk_customer_profiles.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_customer_profiles.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_customer_profiles.errors.internal_server_exception.InternalServerException: <p>An internal service error occurred.</p>
+            aws_sdk_customer_profiles.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource does not exist, or access was denied.</p>
+            aws_sdk_customer_profiles.errors.throttling_exception.ThrottlingException: <p>You exceeded the maximum number of requests.</p>
+            aws_sdk_customer_profiles.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3088,6 +3504,14 @@ class AsyncCustomerProfilesClient:
         Args:
             domain_name: <p>The unique name of the domain.</p>
             recommender_filter_name: <p>The name of the recommender filter to retrieve.</p>
+
+        Raises:
+            aws_sdk_customer_profiles.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_customer_profiles.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_customer_profiles.errors.internal_server_exception.InternalServerException: <p>An internal service error occurred.</p>
+            aws_sdk_customer_profiles.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource does not exist, or access was denied.</p>
+            aws_sdk_customer_profiles.errors.throttling_exception.ThrottlingException: <p>You exceeded the maximum number of requests.</p>
+            aws_sdk_customer_profiles.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3129,6 +3553,14 @@ class AsyncCustomerProfilesClient:
         Args:
             domain_name: <p>The unique name of the domain.</p>
             recommender_schema_name: <p>The name of the recommender schema to retrieve.</p>
+
+        Raises:
+            aws_sdk_customer_profiles.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_customer_profiles.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_customer_profiles.errors.internal_server_exception.InternalServerException: <p>An internal service error occurred.</p>
+            aws_sdk_customer_profiles.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource does not exist, or access was denied.</p>
+            aws_sdk_customer_profiles.errors.throttling_exception.ThrottlingException: <p>You exceeded the maximum number of requests.</p>
+            aws_sdk_customer_profiles.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3170,6 +3602,14 @@ class AsyncCustomerProfilesClient:
         Args:
             domain_name: <p>The unique name of the domain.</p>
             segment_definition_name: <p>The unique name of the segment definition.</p>
+
+        Raises:
+            aws_sdk_customer_profiles.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_customer_profiles.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_customer_profiles.errors.internal_server_exception.InternalServerException: <p>An internal service error occurred.</p>
+            aws_sdk_customer_profiles.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource does not exist, or access was denied.</p>
+            aws_sdk_customer_profiles.errors.throttling_exception.ThrottlingException: <p>You exceeded the maximum number of requests.</p>
+            aws_sdk_customer_profiles.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3211,6 +3651,14 @@ class AsyncCustomerProfilesClient:
         Args:
             domain_name: <p>The unique name of the domain.</p>
             estimate_id: <p>The query Id passed by a previous <code>CreateSegmentEstimate</code> operation.</p>
+
+        Raises:
+            aws_sdk_customer_profiles.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_customer_profiles.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_customer_profiles.errors.internal_server_exception.InternalServerException: <p>An internal service error occurred.</p>
+            aws_sdk_customer_profiles.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource does not exist, or access was denied.</p>
+            aws_sdk_customer_profiles.errors.throttling_exception.ThrottlingException: <p>You exceeded the maximum number of requests.</p>
+            aws_sdk_customer_profiles.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3254,6 +3702,14 @@ class AsyncCustomerProfilesClient:
             domain_name: <p>The unique name of the domain.</p>
             segment_definition_name: <p>The Id of the wanted segment. Needs to be a valid, and existing segment Id.</p>
             profile_ids: <p>The list of profile IDs to query for.</p>
+
+        Raises:
+            aws_sdk_customer_profiles.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_customer_profiles.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_customer_profiles.errors.internal_server_exception.InternalServerException: <p>An internal service error occurred.</p>
+            aws_sdk_customer_profiles.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource does not exist, or access was denied.</p>
+            aws_sdk_customer_profiles.errors.throttling_exception.ThrottlingException: <p>You exceeded the maximum number of requests.</p>
+            aws_sdk_customer_profiles.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3298,6 +3754,14 @@ class AsyncCustomerProfilesClient:
             domain_name: <p>The unique identifier of the domain.</p>
             segment_definition_name: <p>The unique name of the segment definition.</p>
             snapshot_id: <p>The unique identifier of the segment snapshot.</p>
+
+        Raises:
+            aws_sdk_customer_profiles.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_customer_profiles.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_customer_profiles.errors.internal_server_exception.InternalServerException: <p>An internal service error occurred.</p>
+            aws_sdk_customer_profiles.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource does not exist, or access was denied.</p>
+            aws_sdk_customer_profiles.errors.throttling_exception.ThrottlingException: <p>You exceeded the maximum number of requests.</p>
+            aws_sdk_customer_profiles.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3350,6 +3814,14 @@ class AsyncCustomerProfilesClient:
             match_type: <p>Specify the type of matching to get similar profiles for.</p>
             search_key: <p>The string indicating the search key to be used.</p>
             search_value: <p>The string based on <code>SearchKey</code> to be searched for similar profiles.</p>
+
+        Raises:
+            aws_sdk_customer_profiles.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_customer_profiles.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_customer_profiles.errors.internal_server_exception.InternalServerException: <p>An internal service error occurred.</p>
+            aws_sdk_customer_profiles.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource does not exist, or access was denied.</p>
+            aws_sdk_customer_profiles.errors.throttling_exception.ThrottlingException: <p>You exceeded the maximum number of requests.</p>
+            aws_sdk_customer_profiles.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3428,6 +3900,14 @@ class AsyncCustomerProfilesClient:
         Args:
             domain_name: <p>The unique name of the domain containing the upload job. </p>
             job_id: <p>The unique identifier of the upload job to retrieve. </p>
+
+        Raises:
+            aws_sdk_customer_profiles.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_customer_profiles.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_customer_profiles.errors.internal_server_exception.InternalServerException: <p>An internal service error occurred.</p>
+            aws_sdk_customer_profiles.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource does not exist, or access was denied.</p>
+            aws_sdk_customer_profiles.errors.throttling_exception.ThrottlingException: <p>You exceeded the maximum number of requests.</p>
+            aws_sdk_customer_profiles.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3469,6 +3949,14 @@ class AsyncCustomerProfilesClient:
         Args:
             domain_name: <p>The unique name of the domain containing the upload job. </p>
             job_id: <p>The unique identifier of the upload job to retrieve the upload path for. This is generated from the CreateUploadJob API. </p>
+
+        Raises:
+            aws_sdk_customer_profiles.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_customer_profiles.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_customer_profiles.errors.internal_server_exception.InternalServerException: <p>An internal service error occurred.</p>
+            aws_sdk_customer_profiles.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource does not exist, or access was denied.</p>
+            aws_sdk_customer_profiles.errors.throttling_exception.ThrottlingException: <p>You exceeded the maximum number of requests.</p>
+            aws_sdk_customer_profiles.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3510,6 +3998,14 @@ class AsyncCustomerProfilesClient:
         Args:
             domain_name: <p>The unique name of the domain.</p>
             workflow_id: <p>Unique identifier for the workflow.</p>
+
+        Raises:
+            aws_sdk_customer_profiles.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_customer_profiles.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_customer_profiles.errors.internal_server_exception.InternalServerException: <p>An internal service error occurred.</p>
+            aws_sdk_customer_profiles.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource does not exist, or access was denied.</p>
+            aws_sdk_customer_profiles.errors.throttling_exception.ThrottlingException: <p>You exceeded the maximum number of requests.</p>
+            aws_sdk_customer_profiles.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3557,6 +4053,14 @@ class AsyncCustomerProfilesClient:
             workflow_id: <p>Unique identifier for the workflow.</p>
             next_token: <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
             max_results: <p>The maximum number of results to return per page.</p>
+
+        Raises:
+            aws_sdk_customer_profiles.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_customer_profiles.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_customer_profiles.errors.internal_server_exception.InternalServerException: <p>An internal service error occurred.</p>
+            aws_sdk_customer_profiles.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource does not exist, or access was denied.</p>
+            aws_sdk_customer_profiles.errors.throttling_exception.ThrottlingException: <p>You exceeded the maximum number of requests.</p>
+            aws_sdk_customer_profiles.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3610,6 +4114,14 @@ class AsyncCustomerProfilesClient:
             next_token: <p>The pagination token from the previous ListAccountIntegrations API call.</p>
             max_results: <p>The maximum number of objects returned per page.</p>
             include_hidden: <p>Boolean to indicate if hidden integration should be returned. Defaults to <code>False</code>.</p>
+
+        Raises:
+            aws_sdk_customer_profiles.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_customer_profiles.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_customer_profiles.errors.internal_server_exception.InternalServerException: <p>An internal service error occurred.</p>
+            aws_sdk_customer_profiles.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource does not exist, or access was denied.</p>
+            aws_sdk_customer_profiles.errors.throttling_exception.ThrottlingException: <p>You exceeded the maximum number of requests.</p>
+            aws_sdk_customer_profiles.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3660,6 +4172,14 @@ class AsyncCustomerProfilesClient:
             domain_name: <p>The unique name of the domain.</p>
             next_token: <p>The pagination token from the previous call to ListCalculatedAttributeDefinitions.</p>
             max_results: <p>The maximum number of calculated attribute definitions returned per page.</p>
+
+        Raises:
+            aws_sdk_customer_profiles.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_customer_profiles.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_customer_profiles.errors.internal_server_exception.InternalServerException: <p>An internal service error occurred.</p>
+            aws_sdk_customer_profiles.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource does not exist, or access was denied.</p>
+            aws_sdk_customer_profiles.errors.throttling_exception.ThrottlingException: <p>You exceeded the maximum number of requests.</p>
+            aws_sdk_customer_profiles.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3710,6 +4230,14 @@ class AsyncCustomerProfilesClient:
             max_results: <p>The maximum number of calculated attributes returned per page.</p>
             domain_name: <p>The unique name of the domain.</p>
             profile_id: <p>The unique identifier of a customer profile.</p>
+
+        Raises:
+            aws_sdk_customer_profiles.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_customer_profiles.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_customer_profiles.errors.internal_server_exception.InternalServerException: <p>An internal service error occurred.</p>
+            aws_sdk_customer_profiles.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource does not exist, or access was denied.</p>
+            aws_sdk_customer_profiles.errors.throttling_exception.ThrottlingException: <p>You exceeded the maximum number of requests.</p>
+            aws_sdk_customer_profiles.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3759,6 +4287,14 @@ class AsyncCustomerProfilesClient:
             domain_name: <p>The unique name of the domain.</p>
             next_token: <p>Identifies the next page of results to return.</p>
             max_results: <p>The maximum number of objects returned per page.</p>
+
+        Raises:
+            aws_sdk_customer_profiles.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_customer_profiles.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_customer_profiles.errors.internal_server_exception.InternalServerException: <p>An internal service error occurred.</p>
+            aws_sdk_customer_profiles.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource does not exist, or access was denied.</p>
+            aws_sdk_customer_profiles.errors.throttling_exception.ThrottlingException: <p>You exceeded the maximum number of requests.</p>
+            aws_sdk_customer_profiles.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3832,6 +4368,14 @@ class AsyncCustomerProfilesClient:
             domain_name: <p>The unique name of the domain.</p>
             max_results: <p>The maximum number of domain object types returned per page.</p>
             next_token: <p>The pagination token from the previous call to ListDomainObjectTypes.</p>
+
+        Raises:
+            aws_sdk_customer_profiles.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_customer_profiles.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_customer_profiles.errors.internal_server_exception.InternalServerException: <p>An internal service error occurred.</p>
+            aws_sdk_customer_profiles.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource does not exist, or access was denied.</p>
+            aws_sdk_customer_profiles.errors.throttling_exception.ThrottlingException: <p>You exceeded the maximum number of requests.</p>
+            aws_sdk_customer_profiles.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3903,6 +4447,14 @@ class AsyncCustomerProfilesClient:
         Args:
             next_token: <p>The pagination token from the previous ListDomain API call.</p>
             max_results: <p>The maximum number of objects returned per page.</p>
+
+        Raises:
+            aws_sdk_customer_profiles.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_customer_profiles.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_customer_profiles.errors.internal_server_exception.InternalServerException: <p>An internal service error occurred.</p>
+            aws_sdk_customer_profiles.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource does not exist, or access was denied.</p>
+            aws_sdk_customer_profiles.errors.throttling_exception.ThrottlingException: <p>You exceeded the maximum number of requests.</p>
+            aws_sdk_customer_profiles.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3950,6 +4502,14 @@ class AsyncCustomerProfilesClient:
             domain_name: <p>The unique name of the domain.</p>
             next_token: <p>Identifies the next page of results to return.</p>
             max_results: <p>The maximum number of objects returned per page.</p>
+
+        Raises:
+            aws_sdk_customer_profiles.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_customer_profiles.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_customer_profiles.errors.internal_server_exception.InternalServerException: <p>An internal service error occurred.</p>
+            aws_sdk_customer_profiles.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource does not exist, or access was denied.</p>
+            aws_sdk_customer_profiles.errors.throttling_exception.ThrottlingException: <p>You exceeded the maximum number of requests.</p>
+            aws_sdk_customer_profiles.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4023,6 +4583,14 @@ class AsyncCustomerProfilesClient:
             domain_name: <p>The unique name of the domain.</p>
             next_token: <p>The pagination token to use with ListEventTriggers.</p>
             max_results: <p>The maximum number of results to return per page.</p>
+
+        Raises:
+            aws_sdk_customer_profiles.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_customer_profiles.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_customer_profiles.errors.internal_server_exception.InternalServerException: <p>An internal service error occurred.</p>
+            aws_sdk_customer_profiles.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource does not exist, or access was denied.</p>
+            aws_sdk_customer_profiles.errors.throttling_exception.ThrottlingException: <p>You exceeded the maximum number of requests.</p>
+            aws_sdk_customer_profiles.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4096,6 +4664,14 @@ class AsyncCustomerProfilesClient:
             domain_name: <p>The unique name of the domain.</p>
             next_token: <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
             max_results: <p>The maximum number of results to return per page.</p>
+
+        Raises:
+            aws_sdk_customer_profiles.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_customer_profiles.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_customer_profiles.errors.internal_server_exception.InternalServerException: <p>An internal service error occurred.</p>
+            aws_sdk_customer_profiles.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource does not exist, or access was denied.</p>
+            aws_sdk_customer_profiles.errors.throttling_exception.ThrottlingException: <p>You exceeded the maximum number of requests.</p>
+            aws_sdk_customer_profiles.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4148,6 +4724,14 @@ class AsyncCustomerProfilesClient:
             next_token: <p>The pagination token from the previous ListIntegrations API call.</p>
             max_results: <p>The maximum number of objects returned per page.</p>
             include_hidden: <p>Boolean to indicate if hidden integration should be returned. Defaults to <code>False</code>.</p>
+
+        Raises:
+            aws_sdk_customer_profiles.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_customer_profiles.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_customer_profiles.errors.internal_server_exception.InternalServerException: <p>An internal service error occurred.</p>
+            aws_sdk_customer_profiles.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource does not exist, or access was denied.</p>
+            aws_sdk_customer_profiles.errors.throttling_exception.ThrottlingException: <p>You exceeded the maximum number of requests.</p>
+            aws_sdk_customer_profiles.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4200,6 +4784,14 @@ class AsyncCustomerProfilesClient:
             max_results: <p>The maximum number of objects returned per page.</p>
             domain_name: <p>The unique identifier of the domain.</p>
             object_type_name: <p>The name of the profile object type.</p>
+
+        Raises:
+            aws_sdk_customer_profiles.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_customer_profiles.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_customer_profiles.errors.internal_server_exception.InternalServerException: <p>An internal service error occurred.</p>
+            aws_sdk_customer_profiles.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource does not exist, or access was denied.</p>
+            aws_sdk_customer_profiles.errors.throttling_exception.ThrottlingException: <p>You exceeded the maximum number of requests.</p>
+            aws_sdk_customer_profiles.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4280,6 +4872,14 @@ class AsyncCustomerProfilesClient:
             domain_name: <p>The unique name of the domain.</p>
             object_type_name: <p>The unique name of the domain object type.</p>
             attribute_name: <p>The attribute name.</p>
+
+        Raises:
+            aws_sdk_customer_profiles.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_customer_profiles.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_customer_profiles.errors.internal_server_exception.InternalServerException: <p>An internal service error occurred.</p>
+            aws_sdk_customer_profiles.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource does not exist, or access was denied.</p>
+            aws_sdk_customer_profiles.errors.throttling_exception.ThrottlingException: <p>You exceeded the maximum number of requests.</p>
+            aws_sdk_customer_profiles.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4326,6 +4926,14 @@ class AsyncCustomerProfilesClient:
         Args:
             domain_name: <p>The unique identifier of the domain.</p>
             attribute_name: <p>The attribute name.</p>
+
+        Raises:
+            aws_sdk_customer_profiles.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_customer_profiles.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_customer_profiles.errors.internal_server_exception.InternalServerException: <p>An internal service error occurred.</p>
+            aws_sdk_customer_profiles.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource does not exist, or access was denied.</p>
+            aws_sdk_customer_profiles.errors.throttling_exception.ThrottlingException: <p>You exceeded the maximum number of requests.</p>
+            aws_sdk_customer_profiles.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4385,6 +4993,14 @@ class AsyncCustomerProfilesClient:
             max_results: <p>The maximum number of results to return per page.</p>
             action_type: <p>Applies a filter to include profile history records only with the specified <code>ActionType</code> value in the response.</p>
             performed_by: <p>Applies a filter to include profile history records only with the specified <code>PerformedBy</code> value in the response. The <code>PerformedBy</code> value can be the Amazon Resource Name (ARN) of the person or service principal who performed the action.</p>
+
+        Raises:
+            aws_sdk_customer_profiles.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_customer_profiles.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_customer_profiles.errors.internal_server_exception.InternalServerException: <p>An internal service error occurred.</p>
+            aws_sdk_customer_profiles.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource does not exist, or access was denied.</p>
+            aws_sdk_customer_profiles.errors.throttling_exception.ThrottlingException: <p>You exceeded the maximum number of requests.</p>
+            aws_sdk_customer_profiles.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4448,6 +5064,14 @@ class AsyncCustomerProfilesClient:
             object_type_name: <p>The name of the profile object type.</p>
             profile_id: <p>The unique identifier of a customer profile.</p>
             object_filter: <p>Applies a filter to the response to include profile objects with the specified index values.</p>
+
+        Raises:
+            aws_sdk_customer_profiles.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_customer_profiles.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_customer_profiles.errors.internal_server_exception.InternalServerException: <p>An internal service error occurred.</p>
+            aws_sdk_customer_profiles.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource does not exist, or access was denied.</p>
+            aws_sdk_customer_profiles.errors.throttling_exception.ThrottlingException: <p>You exceeded the maximum number of requests.</p>
+            aws_sdk_customer_profiles.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4500,6 +5124,14 @@ class AsyncCustomerProfilesClient:
             domain_name: <p>The unique name of the domain.</p>
             next_token: <p>Identifies the next page of results to return.</p>
             max_results: <p>The maximum number of objects returned per page.</p>
+
+        Raises:
+            aws_sdk_customer_profiles.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_customer_profiles.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_customer_profiles.errors.internal_server_exception.InternalServerException: <p>An internal service error occurred.</p>
+            aws_sdk_customer_profiles.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource does not exist, or access was denied.</p>
+            aws_sdk_customer_profiles.errors.throttling_exception.ThrottlingException: <p>You exceeded the maximum number of requests.</p>
+            aws_sdk_customer_profiles.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4546,6 +5178,14 @@ class AsyncCustomerProfilesClient:
         Args:
             next_token: <p>The pagination token from the previous ListObjectTypeTemplates API call.</p>
             max_results: <p>The maximum number of objects returned per page.</p>
+
+        Raises:
+            aws_sdk_customer_profiles.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_customer_profiles.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_customer_profiles.errors.internal_server_exception.InternalServerException: <p>An internal service error occurred.</p>
+            aws_sdk_customer_profiles.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource does not exist, or access was denied.</p>
+            aws_sdk_customer_profiles.errors.throttling_exception.ThrottlingException: <p>You exceeded the maximum number of requests.</p>
+            aws_sdk_customer_profiles.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4593,6 +5233,14 @@ class AsyncCustomerProfilesClient:
             domain_name: <p>The unique name of the domain.</p>
             max_results: <p>The maximum number of recommender filters to return in the response. The default value is 100.</p>
             next_token: <p>A token received from a previous ListRecommenderFilters call to retrieve the next page of results.</p>
+
+        Raises:
+            aws_sdk_customer_profiles.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_customer_profiles.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_customer_profiles.errors.internal_server_exception.InternalServerException: <p>An internal service error occurred.</p>
+            aws_sdk_customer_profiles.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource does not exist, or access was denied.</p>
+            aws_sdk_customer_profiles.errors.throttling_exception.ThrottlingException: <p>You exceeded the maximum number of requests.</p>
+            aws_sdk_customer_profiles.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4664,6 +5312,13 @@ class AsyncCustomerProfilesClient:
         Args:
             max_results: <p>The maximum number of recommender recipes to return in the response. The default value is 100.</p>
             next_token: <p>A token received from a previous ListRecommenderRecipes call to retrieve the next page of results.</p>
+
+        Raises:
+            aws_sdk_customer_profiles.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_customer_profiles.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_customer_profiles.errors.internal_server_exception.InternalServerException: <p>An internal service error occurred.</p>
+            aws_sdk_customer_profiles.errors.throttling_exception.ThrottlingException: <p>You exceeded the maximum number of requests.</p>
+            aws_sdk_customer_profiles.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4734,6 +5389,14 @@ class AsyncCustomerProfilesClient:
             domain_name: <p>The unique name of the domain.</p>
             max_results: <p>The maximum number of recommenders to return in the response. The default value is 100.</p>
             next_token: <p>A token received from a previous ListRecommenders call to retrieve the next page of results.</p>
+
+        Raises:
+            aws_sdk_customer_profiles.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_customer_profiles.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_customer_profiles.errors.internal_server_exception.InternalServerException: <p>An internal service error occurred.</p>
+            aws_sdk_customer_profiles.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource does not exist, or access was denied.</p>
+            aws_sdk_customer_profiles.errors.throttling_exception.ThrottlingException: <p>You exceeded the maximum number of requests.</p>
+            aws_sdk_customer_profiles.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4807,6 +5470,14 @@ class AsyncCustomerProfilesClient:
             domain_name: <p>The unique name of the domain.</p>
             max_results: <p>The maximum number of recommender schemas to return in the response. The default value is 100.</p>
             next_token: <p>A token received from a previous ListRecommenderSchemas call to retrieve the next page of results.</p>
+
+        Raises:
+            aws_sdk_customer_profiles.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_customer_profiles.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_customer_profiles.errors.internal_server_exception.InternalServerException: <p>An internal service error occurred.</p>
+            aws_sdk_customer_profiles.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource does not exist, or access was denied.</p>
+            aws_sdk_customer_profiles.errors.throttling_exception.ThrottlingException: <p>You exceeded the maximum number of requests.</p>
+            aws_sdk_customer_profiles.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4880,6 +5551,14 @@ class AsyncCustomerProfilesClient:
             next_token: <p>The pagination token from the previous <code>ListRuleBasedMatches</code> API call.</p>
             max_results: <p>The maximum number of <code>MatchIds</code> returned per page.</p>
             domain_name: <p>The unique name of the domain.</p>
+
+        Raises:
+            aws_sdk_customer_profiles.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_customer_profiles.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_customer_profiles.errors.internal_server_exception.InternalServerException: <p>An internal service error occurred.</p>
+            aws_sdk_customer_profiles.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource does not exist, or access was denied.</p>
+            aws_sdk_customer_profiles.errors.throttling_exception.ThrottlingException: <p>You exceeded the maximum number of requests.</p>
+            aws_sdk_customer_profiles.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4953,6 +5632,14 @@ class AsyncCustomerProfilesClient:
             domain_name: <p>The unique identifier of the domain.</p>
             max_results: <p>The maximum number of objects returned per page.</p>
             next_token: <p>The pagination token from the previous call. </p>
+
+        Raises:
+            aws_sdk_customer_profiles.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_customer_profiles.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_customer_profiles.errors.internal_server_exception.InternalServerException: <p>An internal service error occurred.</p>
+            aws_sdk_customer_profiles.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource does not exist, or access was denied.</p>
+            aws_sdk_customer_profiles.errors.throttling_exception.ThrottlingException: <p>You exceeded the maximum number of requests.</p>
+            aws_sdk_customer_profiles.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5020,6 +5707,12 @@ class AsyncCustomerProfilesClient:
 
         Args:
             resource_arn: <p>The ARN of the resource for which you want to view tags.</p>
+
+        Raises:
+            aws_sdk_customer_profiles.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_customer_profiles.errors.internal_server_exception.InternalServerException: <p>An internal service error occurred.</p>
+            aws_sdk_customer_profiles.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource does not exist, or access was denied.</p>
+            aws_sdk_customer_profiles.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5064,6 +5757,14 @@ class AsyncCustomerProfilesClient:
             domain_name: <p>The unique name of the domain to list upload jobs for. </p>
             max_results: <p>The maximum number of upload jobs to return per page. </p>
             next_token: <p>The pagination token from the previous call to retrieve the next page of results. </p>
+
+        Raises:
+            aws_sdk_customer_profiles.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_customer_profiles.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_customer_profiles.errors.internal_server_exception.InternalServerException: <p>An internal service error occurred.</p>
+            aws_sdk_customer_profiles.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource does not exist, or access was denied.</p>
+            aws_sdk_customer_profiles.errors.throttling_exception.ThrottlingException: <p>You exceeded the maximum number of requests.</p>
+            aws_sdk_customer_profiles.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5153,6 +5854,14 @@ class AsyncCustomerProfilesClient:
             query_end_date: <p>Retrieve workflows ended after timestamp.</p>
             next_token: <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
             max_results: <p>The maximum number of results to return per page.</p>
+
+        Raises:
+            aws_sdk_customer_profiles.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_customer_profiles.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_customer_profiles.errors.internal_server_exception.InternalServerException: <p>An internal service error occurred.</p>
+            aws_sdk_customer_profiles.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource does not exist, or access was denied.</p>
+            aws_sdk_customer_profiles.errors.throttling_exception.ThrottlingException: <p>You exceeded the maximum number of requests.</p>
+            aws_sdk_customer_profiles.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5213,6 +5922,13 @@ class AsyncCustomerProfilesClient:
             main_profile_id: <p>The identifier of the profile to be taken.</p>
             profile_ids_to_be_merged: <p>The identifier of the profile to be merged into MainProfileId.</p>
             field_source_profile_ids: <p>The identifiers of the fields in the profile that has the information you want to apply to the merge. For example, say you want to merge EmailAddress from Profile1 into MainProfile. This would be the identifier of the EmailAddress field in Profile1. </p>
+
+        Raises:
+            aws_sdk_customer_profiles.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_customer_profiles.errors.internal_server_exception.InternalServerException: <p>An internal service error occurred.</p>
+            aws_sdk_customer_profiles.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource does not exist, or access was denied.</p>
+            aws_sdk_customer_profiles.errors.throttling_exception.ThrottlingException: <p>You exceeded the maximum number of requests.</p>
+            aws_sdk_customer_profiles.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5269,6 +5985,14 @@ class AsyncCustomerProfilesClient:
             encryption_key: <p>The customer provided KMS key used to encrypt this type of domain object.</p>
             fields: <p>A map of field names to their corresponding domain object type field definitions.</p>
             tags: <p>The tags used to organize, track, or control access for this resource.</p>
+
+        Raises:
+            aws_sdk_customer_profiles.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_customer_profiles.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_customer_profiles.errors.internal_server_exception.InternalServerException: <p>An internal service error occurred.</p>
+            aws_sdk_customer_profiles.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource does not exist, or access was denied.</p>
+            aws_sdk_customer_profiles.errors.throttling_exception.ThrottlingException: <p>You exceeded the maximum number of requests.</p>
+            aws_sdk_customer_profiles.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5341,6 +6065,14 @@ class AsyncCustomerProfilesClient:
             role_arn: <p>The Amazon Resource Name (ARN) of the IAM role. The Integration uses this role to make Customer Profiles requests on your behalf.</p>
             event_trigger_names: <p>A list of unique names for active event triggers associated with the integration.</p>
             scope: <p>Specifies whether the integration applies to profile level data (associated with profiles) or domain level data (not associated with any specific profile). The default value is PROFILE.</p>
+
+        Raises:
+            aws_sdk_customer_profiles.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_customer_profiles.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_customer_profiles.errors.internal_server_exception.InternalServerException: <p>An internal service error occurred.</p>
+            aws_sdk_customer_profiles.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource does not exist, or access was denied.</p>
+            aws_sdk_customer_profiles.errors.throttling_exception.ThrottlingException: <p>You exceeded the maximum number of requests.</p>
+            aws_sdk_customer_profiles.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5399,6 +6131,14 @@ class AsyncCustomerProfilesClient:
             object_type_name: <p>The name of the profile object type.</p>
             object: <p>A string that is serialized from a JSON object.</p>
             domain_name: <p>The unique name of the domain.</p>
+
+        Raises:
+            aws_sdk_customer_profiles.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_customer_profiles.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_customer_profiles.errors.internal_server_exception.InternalServerException: <p>An internal service error occurred.</p>
+            aws_sdk_customer_profiles.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource does not exist, or access was denied.</p>
+            aws_sdk_customer_profiles.errors.throttling_exception.ThrottlingException: <p>You exceeded the maximum number of requests.</p>
+            aws_sdk_customer_profiles.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5475,6 +6215,14 @@ class AsyncCustomerProfilesClient:
             fields: <p>A map of the name and ObjectType field.</p>
             keys: <p>A list of unique keys that can be used to map data to the profile.</p>
             tags: <p>The tags used to organize, track, or control access for this resource.</p>
+
+        Raises:
+            aws_sdk_customer_profiles.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_customer_profiles.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_customer_profiles.errors.internal_server_exception.InternalServerException: <p>An internal service error occurred.</p>
+            aws_sdk_customer_profiles.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource does not exist, or access was denied.</p>
+            aws_sdk_customer_profiles.errors.throttling_exception.ThrottlingException: <p>You exceeded the maximum number of requests.</p>
+            aws_sdk_customer_profiles.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5555,6 +6303,14 @@ class AsyncCustomerProfilesClient:
             values: <p>A list of key values.</p>
             additional_search_keys: <p>A list of <code>AdditionalSearchKey</code> objects that are each searchable identifiers of a profile. Each <code>AdditionalSearchKey</code> object contains a <code>KeyName</code> and a list of <code>Values</code> associated with that specific key (i.e., a key-value(s) pair). These additional search keys will be used in conjunction with the <code>LogicalOperator</code> and the required <code>KeyName</code> and <code>Values</code> parameters to search for profiles that satisfy the search criteria. </p>
             logical_operator: <p>Relationship between all specified search keys that will be used to search for profiles. This includes the required <code>KeyName</code> and <code>Values</code> parameters as well as any key-value(s) pairs specified in the <code>AdditionalSearchKeys</code> list.</p> <p>This parameter influences which profiles will be returned in the response in the following manner:</p> <ul> <li> <p> <code>AND</code> - The response only includes profiles that match all of the search keys.</p> </li> <li> <p> <code>OR</code> - The response includes profiles that match at least one of the search keys.</p> </li> </ul> <p>The <code>OR</code> relationship is the default behavior if this parameter is not included in the request.</p>
+
+        Raises:
+            aws_sdk_customer_profiles.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_customer_profiles.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_customer_profiles.errors.internal_server_exception.InternalServerException: <p>An internal service error occurred.</p>
+            aws_sdk_customer_profiles.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource does not exist, or access was denied.</p>
+            aws_sdk_customer_profiles.errors.throttling_exception.ThrottlingException: <p>You exceeded the maximum number of requests.</p>
+            aws_sdk_customer_profiles.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5605,6 +6361,14 @@ class AsyncCustomerProfilesClient:
         Args:
             domain_name: <p>The unique name of the domain.</p>
             recommender_name: <p>The name of the recommender to start.</p>
+
+        Raises:
+            aws_sdk_customer_profiles.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_customer_profiles.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_customer_profiles.errors.internal_server_exception.InternalServerException: <p>An internal service error occurred.</p>
+            aws_sdk_customer_profiles.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource does not exist, or access was denied.</p>
+            aws_sdk_customer_profiles.errors.throttling_exception.ThrottlingException: <p>You exceeded the maximum number of requests.</p>
+            aws_sdk_customer_profiles.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5646,6 +6410,14 @@ class AsyncCustomerProfilesClient:
         Args:
             domain_name: <p>The unique name of the domain containing the upload job to start. </p>
             job_id: <p>The unique identifier of the upload job to start. </p>
+
+        Raises:
+            aws_sdk_customer_profiles.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_customer_profiles.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_customer_profiles.errors.internal_server_exception.InternalServerException: <p>An internal service error occurred.</p>
+            aws_sdk_customer_profiles.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource does not exist, or access was denied.</p>
+            aws_sdk_customer_profiles.errors.throttling_exception.ThrottlingException: <p>You exceeded the maximum number of requests.</p>
+            aws_sdk_customer_profiles.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5687,6 +6459,14 @@ class AsyncCustomerProfilesClient:
         Args:
             domain_name: <p>The unique name of the domain.</p>
             recommender_name: <p>The name of the recommender to stop.</p>
+
+        Raises:
+            aws_sdk_customer_profiles.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_customer_profiles.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_customer_profiles.errors.internal_server_exception.InternalServerException: <p>An internal service error occurred.</p>
+            aws_sdk_customer_profiles.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource does not exist, or access was denied.</p>
+            aws_sdk_customer_profiles.errors.throttling_exception.ThrottlingException: <p>You exceeded the maximum number of requests.</p>
+            aws_sdk_customer_profiles.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5730,6 +6510,14 @@ class AsyncCustomerProfilesClient:
         Args:
             domain_name: <p>The unique name of the domain containing the upload job to stop. </p>
             job_id: <p>The unique identifier of the upload job to stop. </p>
+
+        Raises:
+            aws_sdk_customer_profiles.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_customer_profiles.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_customer_profiles.errors.internal_server_exception.InternalServerException: <p>An internal service error occurred.</p>
+            aws_sdk_customer_profiles.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource does not exist, or access was denied.</p>
+            aws_sdk_customer_profiles.errors.throttling_exception.ThrottlingException: <p>You exceeded the maximum number of requests.</p>
+            aws_sdk_customer_profiles.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5771,6 +6559,12 @@ class AsyncCustomerProfilesClient:
         Args:
             resource_arn: <p>The ARN of the resource that you're adding tags to.</p>
             tags: <p>The tags used to organize, track, or control access for this resource.</p>
+
+        Raises:
+            aws_sdk_customer_profiles.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_customer_profiles.errors.internal_server_exception.InternalServerException: <p>An internal service error occurred.</p>
+            aws_sdk_customer_profiles.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource does not exist, or access was denied.</p>
+            aws_sdk_customer_profiles.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5814,6 +6608,12 @@ class AsyncCustomerProfilesClient:
         Args:
             resource_arn: <p>The ARN of the resource from which you are removing tags.</p>
             tag_keys: <p>The list of tag keys to remove from the resource.</p>
+
+        Raises:
+            aws_sdk_customer_profiles.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_customer_profiles.errors.internal_server_exception.InternalServerException: <p>An internal service error occurred.</p>
+            aws_sdk_customer_profiles.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource does not exist, or access was denied.</p>
+            aws_sdk_customer_profiles.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5867,6 +6667,14 @@ class AsyncCustomerProfilesClient:
             display_name: <p>The display name of the calculated attribute.</p>
             description: <p>The description of the calculated attribute.</p>
             conditions: <p>The conditions including range, object count, and threshold for the calculated attribute.</p>
+
+        Raises:
+            aws_sdk_customer_profiles.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_customer_profiles.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_customer_profiles.errors.internal_server_exception.InternalServerException: <p>An internal service error occurred.</p>
+            aws_sdk_customer_profiles.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource does not exist, or access was denied.</p>
+            aws_sdk_customer_profiles.errors.throttling_exception.ThrottlingException: <p>You exceeded the maximum number of requests.</p>
+            aws_sdk_customer_profiles.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5938,6 +6746,14 @@ class AsyncCustomerProfilesClient:
             rule_based_matching: <p>The process of matching duplicate profiles using the rule-Based matching. If <code>RuleBasedMatching</code> = true, Connect Customer Customer Profiles will start to match and merge your profiles according to your configuration in the <code>RuleBasedMatchingRequest</code>. You can use the <code>ListRuleBasedMatches</code> and <code>GetSimilarProfiles</code> API to return and review the results. Also, if you have configured <code>ExportingConfig</code> in the <code>RuleBasedMatchingRequest</code>, you can download the results from S3.</p>
             data_store: <p>Set to true to enabled data store for this domain.</p>
             tags: <p>The tags used to organize, track, or control access for this resource.</p>
+
+        Raises:
+            aws_sdk_customer_profiles.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_customer_profiles.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_customer_profiles.errors.internal_server_exception.InternalServerException: <p>An internal service error occurred.</p>
+            aws_sdk_customer_profiles.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource does not exist, or access was denied.</p>
+            aws_sdk_customer_profiles.errors.throttling_exception.ThrottlingException: <p>You exceeded the maximum number of requests.</p>
+            aws_sdk_customer_profiles.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -6010,6 +6826,14 @@ class AsyncCustomerProfilesClient:
             is_default: <p>If set to true for a layout, this layout will be used by default to view data. If set to false, then the layout will not be used by default, but it can be used to view data by explicitly selecting it in the console.</p>
             layout_type: <p>The type of layout that can be used to view data under a Customer Profiles domain.</p>
             layout: <p>A customizable layout that can be used to view data under a Customer Profiles domain.</p>
+
+        Raises:
+            aws_sdk_customer_profiles.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_customer_profiles.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_customer_profiles.errors.internal_server_exception.InternalServerException: <p>An internal service error occurred.</p>
+            aws_sdk_customer_profiles.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource does not exist, or access was denied.</p>
+            aws_sdk_customer_profiles.errors.throttling_exception.ThrottlingException: <p>You exceeded the maximum number of requests.</p>
+            aws_sdk_customer_profiles.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -6079,6 +6903,14 @@ class AsyncCustomerProfilesClient:
             event_trigger_conditions: <p>A list of conditions that determine when an event should trigger the destination.</p>
             segment_filter: <p>The destination is triggered only for profiles that meet the criteria of a segment definition.</p>
             event_trigger_limits: <p>Defines limits controlling whether an event triggers the destination, based on ingestion latency and the number of invocations per profile over specific time periods.</p>
+
+        Raises:
+            aws_sdk_customer_profiles.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_customer_profiles.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_customer_profiles.errors.internal_server_exception.InternalServerException: <p>An internal service error occurred.</p>
+            aws_sdk_customer_profiles.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource does not exist, or access was denied.</p>
+            aws_sdk_customer_profiles.errors.throttling_exception.ThrottlingException: <p>You exceeded the maximum number of requests.</p>
+            aws_sdk_customer_profiles.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -6230,6 +7062,14 @@ class AsyncCustomerProfilesClient:
             gender_string: <p>An alternative to <code>Gender</code> which accepts any string as input.</p>
             profile_type: <p>Determines the type of the profile.</p>
             engagement_preferences: <p>Object that defines users preferred methods of engagement.</p>
+
+        Raises:
+            aws_sdk_customer_profiles.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_customer_profiles.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_customer_profiles.errors.internal_server_exception.InternalServerException: <p>An internal service error occurred.</p>
+            aws_sdk_customer_profiles.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource does not exist, or access was denied.</p>
+            aws_sdk_customer_profiles.errors.throttling_exception.ThrottlingException: <p>You exceeded the maximum number of requests.</p>
+            aws_sdk_customer_profiles.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -6329,6 +7169,14 @@ class AsyncCustomerProfilesClient:
             recommender_name: <p>The name of the recommender to update.</p>
             description: <p>The new description to assign to the recommender.</p>
             recommender_config: <p>The new configuration settings to apply to the recommender, including updated parameters and settings that define its behavior.</p>
+
+        Raises:
+            aws_sdk_customer_profiles.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_customer_profiles.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_customer_profiles.errors.internal_server_exception.InternalServerException: <p>An internal service error occurred.</p>
+            aws_sdk_customer_profiles.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource does not exist, or access was denied.</p>
+            aws_sdk_customer_profiles.errors.throttling_exception.ThrottlingException: <p>You exceeded the maximum number of requests.</p>
+            aws_sdk_customer_profiles.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

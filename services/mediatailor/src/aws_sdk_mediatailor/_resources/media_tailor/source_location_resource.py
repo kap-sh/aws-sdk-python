@@ -74,6 +74,9 @@ class SourceLocationResource:
             segment_delivery_configurations: <p>A list of the segment delivery configurations associated with this resource.</p>
             source_location_name: <p>The name associated with the source location.</p>
             tags: <p>The tags to assign to the source location. Tags are key-value pairs that you can associate with Amazon resources to help with organization, access control, and cost tracking. For more information, see <a href=\"https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html\">Tagging AWS Elemental MediaTailor Resources</a>.</p>
+
+        Raises:
+            aws_sdk_mediatailor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -122,6 +125,9 @@ class SourceLocationResource:
 
         Args:
             source_location_name: <p>The name of the source location.</p>
+
+        Raises:
+            aws_sdk_mediatailor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -173,6 +179,9 @@ class SourceLocationResource:
             http_configuration: <p>The HTTP configuration for the source location.</p>
             segment_delivery_configurations: <p>A list of the segment delivery configurations associated with this resource.</p>
             source_location_name: <p>The name of the source location.</p>
+
+        Raises:
+            aws_sdk_mediatailor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -219,6 +228,9 @@ class SourceLocationResource:
 
         Args:
             source_location_name: <p>The name of the source location.</p>
+
+        Raises:
+            aws_sdk_mediatailor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -260,6 +272,9 @@ class SourceLocationResource:
         Args:
             max_results: <p> The maximum number of source locations that you want MediaTailor to return in response to the current request. If there are more than <code>MaxResults</code> source locations, use the value of <code>NextToken</code> in the response to get the next page of results.</p> <p>The default value is 100. MediaTailor uses DynamoDB-based pagination, which means that a response might contain fewer than <code>MaxResults</code> items, including 0 items, even when more results are available. To retrieve all results, you must continue making requests using the <code>NextToken</code> value from each response until the response no longer includes a <code>NextToken</code> value.</p>
             next_token: <p>Pagination token returned by the list request when results exceed the maximum allowed. Use the token to fetch the next page of results.</p> <p>For the first <code>ListSourceLocations</code> request, omit this value. For subsequent requests, get the value of <code>NextToken</code> from the previous response and specify that value for <code>NextToken</code> in the request. Continue making requests until the response no longer includes a <code>NextToken</code> value, which indicates that all results have been retrieved.</p>
+
+        Raises:
+            aws_sdk_mediatailor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -323,6 +338,9 @@ class AsyncSourceLocationResource:
             segment_delivery_configurations: <p>A list of the segment delivery configurations associated with this resource.</p>
             source_location_name: <p>The name associated with the source location.</p>
             tags: <p>The tags to assign to the source location. Tags are key-value pairs that you can associate with Amazon resources to help with organization, access control, and cost tracking. For more information, see <a href=\"https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html\">Tagging AWS Elemental MediaTailor Resources</a>.</p>
+
+        Raises:
+            aws_sdk_mediatailor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -372,6 +390,9 @@ class AsyncSourceLocationResource:
 
         Args:
             source_location_name: <p>The name of the source location.</p>
+
+        Raises:
+            aws_sdk_mediatailor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -424,6 +445,9 @@ class AsyncSourceLocationResource:
             http_configuration: <p>The HTTP configuration for the source location.</p>
             segment_delivery_configurations: <p>A list of the segment delivery configurations associated with this resource.</p>
             source_location_name: <p>The name of the source location.</p>
+
+        Raises:
+            aws_sdk_mediatailor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -471,6 +495,9 @@ class AsyncSourceLocationResource:
 
         Args:
             source_location_name: <p>The name of the source location.</p>
+
+        Raises:
+            aws_sdk_mediatailor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -513,6 +540,9 @@ class AsyncSourceLocationResource:
         Args:
             max_results: <p> The maximum number of source locations that you want MediaTailor to return in response to the current request. If there are more than <code>MaxResults</code> source locations, use the value of <code>NextToken</code> in the response to get the next page of results.</p> <p>The default value is 100. MediaTailor uses DynamoDB-based pagination, which means that a response might contain fewer than <code>MaxResults</code> items, including 0 items, even when more results are available. To retrieve all results, you must continue making requests using the <code>NextToken</code> value from each response until the response no longer includes a <code>NextToken</code> value.</p>
             next_token: <p>Pagination token returned by the list request when results exceed the maximum allowed. Use the token to fetch the next page of results.</p> <p>For the first <code>ListSourceLocations</code> request, omit this value. For subsequent requests, get the value of <code>NextToken</code> from the previous response and specify that value for <code>NextToken</code> in the request. Continue making requests until the response no longer includes a <code>NextToken</code> value, which indicates that all results have been retrieved.</p>
+
+        Raises:
+            aws_sdk_mediatailor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

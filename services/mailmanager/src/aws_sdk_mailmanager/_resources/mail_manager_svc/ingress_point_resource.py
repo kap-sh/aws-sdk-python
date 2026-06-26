@@ -84,6 +84,12 @@ class IngressPointResource:
             tls_policy: <p>The Transport Layer Security (TLS) policy for the ingress point. The FIPS value is only valid in US and Canada regions.</p>
             tags: <p>The tags used to organize, track, or control access for the resource. For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.</p>
 
+        Raises:
+            aws_sdk_mailmanager.errors.conflict_exception.ConflictException: <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
+            aws_sdk_mailmanager.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Occurs when an operation exceeds a predefined service quota or limit.</p>
+            aws_sdk_mailmanager.errors.validation_exception.ValidationException: <p>The request validation has failed. For details, see the accompanying error message.</p>
+            aws_sdk_mailmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Create Open IngressPoint
 
@@ -148,6 +154,11 @@ class IngressPointResource:
         Args:
             ingress_point_id: <p>The identifier of an ingress endpoint.</p>
             include_trust_store_contents: <p>Whether to include the trust store contents in the response. Use INCLUDE to retrieve trust store certificate and CRL contents.</p>
+
+        Raises:
+            aws_sdk_mailmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p>Occurs when a requested resource is not found.</p>
+            aws_sdk_mailmanager.errors.validation_exception.ValidationException: <p>The request validation has failed. For details, see the accompanying error message.</p>
+            aws_sdk_mailmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Get Open IngressPoint
@@ -216,6 +227,12 @@ class IngressPointResource:
             ingress_point_configuration: <p>If you choose an Authenticated ingress endpoint, you must configure either an SMTP password or a secret ARN.</p>
             tls_policy: <p>The Transport Layer Security (TLS) policy for the ingress point. Valid values are REQUIRED, OPTIONAL. Only ingress endpoints using REQUIRED or OPTIONAL as TlsPolicy can be updated.</p>
 
+        Raises:
+            aws_sdk_mailmanager.errors.conflict_exception.ConflictException: <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
+            aws_sdk_mailmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p>Occurs when a requested resource is not found.</p>
+            aws_sdk_mailmanager.errors.validation_exception.ValidationException: <p>The request validation has failed. For details, see the accompanying error message.</p>
+            aws_sdk_mailmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Update Open/Auth IngressPoint with new Name
 
@@ -279,6 +296,12 @@ class IngressPointResource:
         Args:
             ingress_point_id: <p>The identifier of the ingress endpoint resource that you want to delete.</p>
 
+        Raises:
+            aws_sdk_mailmanager.errors.conflict_exception.ConflictException: <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
+            aws_sdk_mailmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p>Occurs when a requested resource is not found.</p>
+            aws_sdk_mailmanager.errors.validation_exception.ValidationException: <p>The request validation has failed. For details, see the accompanying error message.</p>
+            aws_sdk_mailmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Delete IngressPoint
 
@@ -324,6 +347,10 @@ class IngressPointResource:
         Args:
             page_size: <p>The maximum number of ingress endpoint resources that are returned per call. You can use NextToken to obtain further ingress endpoints.</p>
             next_token: <p>If you received a pagination token from a previous call to this API, you can provide it here to continue paginating through the next page of results.</p>
+
+        Raises:
+            aws_sdk_mailmanager.errors.validation_exception.ValidationException: <p>The request validation has failed. For details, see the accompanying error message.</p>
+            aws_sdk_mailmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             List IngressPoints
@@ -403,6 +430,12 @@ class AsyncIngressPointResource:
             tls_policy: <p>The Transport Layer Security (TLS) policy for the ingress point. The FIPS value is only valid in US and Canada regions.</p>
             tags: <p>The tags used to organize, track, or control access for the resource. For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.</p>
 
+        Raises:
+            aws_sdk_mailmanager.errors.conflict_exception.ConflictException: <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
+            aws_sdk_mailmanager.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Occurs when an operation exceeds a predefined service quota or limit.</p>
+            aws_sdk_mailmanager.errors.validation_exception.ValidationException: <p>The request validation has failed. For details, see the accompanying error message.</p>
+            aws_sdk_mailmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Create Open IngressPoint
 
@@ -468,6 +501,11 @@ class AsyncIngressPointResource:
         Args:
             ingress_point_id: <p>The identifier of an ingress endpoint.</p>
             include_trust_store_contents: <p>Whether to include the trust store contents in the response. Use INCLUDE to retrieve trust store certificate and CRL contents.</p>
+
+        Raises:
+            aws_sdk_mailmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p>Occurs when a requested resource is not found.</p>
+            aws_sdk_mailmanager.errors.validation_exception.ValidationException: <p>The request validation has failed. For details, see the accompanying error message.</p>
+            aws_sdk_mailmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Get Open IngressPoint
@@ -537,6 +575,12 @@ class AsyncIngressPointResource:
             ingress_point_configuration: <p>If you choose an Authenticated ingress endpoint, you must configure either an SMTP password or a secret ARN.</p>
             tls_policy: <p>The Transport Layer Security (TLS) policy for the ingress point. Valid values are REQUIRED, OPTIONAL. Only ingress endpoints using REQUIRED or OPTIONAL as TlsPolicy can be updated.</p>
 
+        Raises:
+            aws_sdk_mailmanager.errors.conflict_exception.ConflictException: <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
+            aws_sdk_mailmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p>Occurs when a requested resource is not found.</p>
+            aws_sdk_mailmanager.errors.validation_exception.ValidationException: <p>The request validation has failed. For details, see the accompanying error message.</p>
+            aws_sdk_mailmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Update Open/Auth IngressPoint with new Name
 
@@ -601,6 +645,12 @@ class AsyncIngressPointResource:
         Args:
             ingress_point_id: <p>The identifier of the ingress endpoint resource that you want to delete.</p>
 
+        Raises:
+            aws_sdk_mailmanager.errors.conflict_exception.ConflictException: <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
+            aws_sdk_mailmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p>Occurs when a requested resource is not found.</p>
+            aws_sdk_mailmanager.errors.validation_exception.ValidationException: <p>The request validation has failed. For details, see the accompanying error message.</p>
+            aws_sdk_mailmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Delete IngressPoint
 
@@ -647,6 +697,10 @@ class AsyncIngressPointResource:
         Args:
             page_size: <p>The maximum number of ingress endpoint resources that are returned per call. You can use NextToken to obtain further ingress endpoints.</p>
             next_token: <p>If you received a pagination token from a previous call to this API, you can provide it here to continue paginating through the next page of results.</p>
+
+        Raises:
+            aws_sdk_mailmanager.errors.validation_exception.ValidationException: <p>The request validation has failed. For details, see the accompanying error message.</p>
+            aws_sdk_mailmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             List IngressPoints

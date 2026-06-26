@@ -238,6 +238,14 @@ class AsyncServiceDiscoveryClient:
             description: <p>A description for the namespace.</p>
             tags: <p>The tags to add to the namespace. Each tag consists of a key and an optional value that you define. Tags keys can be up to 128 characters in length, and tag values can be up to 256 characters in length.</p>
 
+        Raises:
+            aws_sdk_servicediscovery.errors.duplicate_request.DuplicateRequest: <p>The operation is already in progress.</p>
+            aws_sdk_servicediscovery.errors.invalid_input.InvalidInput: <p>One or more specified values aren't valid. For example, a required value might be missing, a numeric value might be outside the allowed range, or a string value might exceed length constraints.</p>
+            aws_sdk_servicediscovery.errors.namespace_already_exists.NamespaceAlreadyExists: <p>The namespace that you're trying to create already exists.</p>
+            aws_sdk_servicediscovery.errors.resource_limit_exceeded.ResourceLimitExceeded: <p>The resource can't be created because you've reached the quota on the number of resources.</p>
+            aws_sdk_servicediscovery.errors.too_many_tags_exception.TooManyTagsException: <p>The list of tags on the resource is over the quota. The maximum number of tags that can be applied to a resource is 50.</p>
+            aws_sdk_servicediscovery.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             CreateHttpNamespace example
             This example creates an HTTP namespace.
@@ -303,6 +311,14 @@ class AsyncServiceDiscoveryClient:
             vpc: <p>The ID of the Amazon VPC that you want to associate the namespace with.</p>
             tags: <p>The tags to add to the namespace. Each tag consists of a key and an optional value that you define. Tags keys can be up to 128 characters in length, and tag values can be up to 256 characters in length.</p>
             properties: <p>Properties for the private DNS namespace.</p>
+
+        Raises:
+            aws_sdk_servicediscovery.errors.duplicate_request.DuplicateRequest: <p>The operation is already in progress.</p>
+            aws_sdk_servicediscovery.errors.invalid_input.InvalidInput: <p>One or more specified values aren't valid. For example, a required value might be missing, a numeric value might be outside the allowed range, or a string value might exceed length constraints.</p>
+            aws_sdk_servicediscovery.errors.namespace_already_exists.NamespaceAlreadyExists: <p>The namespace that you're trying to create already exists.</p>
+            aws_sdk_servicediscovery.errors.resource_limit_exceeded.ResourceLimitExceeded: <p>The resource can't be created because you've reached the quota on the number of resources.</p>
+            aws_sdk_servicediscovery.errors.too_many_tags_exception.TooManyTagsException: <p>The list of tags on the resource is over the quota. The maximum number of tags that can be applied to a resource is 50.</p>
+            aws_sdk_servicediscovery.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Example: Create private DNS namespace
@@ -370,6 +386,14 @@ class AsyncServiceDiscoveryClient:
             description: <p>A description for the namespace.</p>
             tags: <p>The tags to add to the namespace. Each tag consists of a key and an optional value that you define. Tags keys can be up to 128 characters in length, and tag values can be up to 256 characters in length.</p>
             properties: <p>Properties for the public DNS namespace.</p>
+
+        Raises:
+            aws_sdk_servicediscovery.errors.duplicate_request.DuplicateRequest: <p>The operation is already in progress.</p>
+            aws_sdk_servicediscovery.errors.invalid_input.InvalidInput: <p>One or more specified values aren't valid. For example, a required value might be missing, a numeric value might be outside the allowed range, or a string value might exceed length constraints.</p>
+            aws_sdk_servicediscovery.errors.namespace_already_exists.NamespaceAlreadyExists: <p>The namespace that you're trying to create already exists.</p>
+            aws_sdk_servicediscovery.errors.resource_limit_exceeded.ResourceLimitExceeded: <p>The resource can't be created because you've reached the quota on the number of resources.</p>
+            aws_sdk_servicediscovery.errors.too_many_tags_exception.TooManyTagsException: <p>The list of tags on the resource is over the quota. The maximum number of tags that can be applied to a resource is 50.</p>
+            aws_sdk_servicediscovery.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             CreatePublicDnsNamespace example
@@ -451,6 +475,14 @@ class AsyncServiceDiscoveryClient:
             tags: <p>The tags to add to the service. Each tag consists of a key and an optional value that you define. Tags keys can be up to 128 characters in length, and tag values can be up to 256 characters in length.</p>
             type: <p>If present, specifies that the service instances are only discoverable using the <code>DiscoverInstances</code> API operation. No DNS records is registered for the service instances. The only valid value is <code>HTTP</code>.</p>
 
+        Raises:
+            aws_sdk_servicediscovery.errors.invalid_input.InvalidInput: <p>One or more specified values aren't valid. For example, a required value might be missing, a numeric value might be outside the allowed range, or a string value might exceed length constraints.</p>
+            aws_sdk_servicediscovery.errors.namespace_not_found.NamespaceNotFound: <p>No namespace exists with the specified ID.</p>
+            aws_sdk_servicediscovery.errors.resource_limit_exceeded.ResourceLimitExceeded: <p>The resource can't be created because you've reached the quota on the number of resources.</p>
+            aws_sdk_servicediscovery.errors.service_already_exists.ServiceAlreadyExists: <p>The service can't be created because a service with the same name already exists.</p>
+            aws_sdk_servicediscovery.errors.too_many_tags_exception.TooManyTagsException: <p>The list of tags on the resource is over the quota. The maximum number of tags that can be applied to a resource is 50.</p>
+            aws_sdk_servicediscovery.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Example: Create service
             Example: Create service
@@ -515,6 +547,13 @@ class AsyncServiceDiscoveryClient:
         Args:
             id: <p>The ID or Amazon Resource Name (ARN) of the namespace that you want to delete.</p>
 
+        Raises:
+            aws_sdk_servicediscovery.errors.duplicate_request.DuplicateRequest: <p>The operation is already in progress.</p>
+            aws_sdk_servicediscovery.errors.invalid_input.InvalidInput: <p>One or more specified values aren't valid. For example, a required value might be missing, a numeric value might be outside the allowed range, or a string value might exceed length constraints.</p>
+            aws_sdk_servicediscovery.errors.namespace_not_found.NamespaceNotFound: <p>No namespace exists with the specified ID.</p>
+            aws_sdk_servicediscovery.errors.resource_in_use.ResourceInUse: <p>The specified resource can't be deleted because it contains other resources. For example, you can't delete a service that contains any instances.</p>
+            aws_sdk_servicediscovery.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Example: Delete namespace
             Example: Delete namespace
@@ -562,6 +601,12 @@ class AsyncServiceDiscoveryClient:
 
         Args:
             id: <p>The ID or Amazon Resource Name (ARN) of the service that you want to delete. If the namespace associated with the service is shared with your Amazon Web Services account, specify the service ARN. For more information about shared namespaces, see <a href=\"https://docs.aws.amazon.com/cloud-map/latest/dg/sharing-namespaces.html\">Cross-account Cloud Map namespace sharing</a>.</p>
+
+        Raises:
+            aws_sdk_servicediscovery.errors.invalid_input.InvalidInput: <p>One or more specified values aren't valid. For example, a required value might be missing, a numeric value might be outside the allowed range, or a string value might exceed length constraints.</p>
+            aws_sdk_servicediscovery.errors.resource_in_use.ResourceInUse: <p>The specified resource can't be deleted because it contains other resources. For example, you can't delete a service that contains any instances.</p>
+            aws_sdk_servicediscovery.errors.service_not_found.ServiceNotFound: <p>No service exists with the specified ID.</p>
+            aws_sdk_servicediscovery.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Example: Delete service
@@ -613,6 +658,11 @@ class AsyncServiceDiscoveryClient:
             service_id: <p>The ID or Amazon Resource Name (ARN) of the service from which the attributes will be deleted. For services created in a namespace shared with your Amazon Web Services account, specify the service ARN. For more information about shared namespaces, see <a href=\"https://docs.aws.amazon.com/cloud-map/latest/dg/sharing-namespaces.html\">Cross-account Cloud Map namespace sharing</a> in the <i>Cloud Map Developer Guide</i>.</p>
             attributes: <p>A list of keys corresponding to each attribute that you want to delete.</p>
 
+        Raises:
+            aws_sdk_servicediscovery.errors.invalid_input.InvalidInput: <p>One or more specified values aren't valid. For example, a required value might be missing, a numeric value might be outside the allowed range, or a string value might exceed length constraints.</p>
+            aws_sdk_servicediscovery.errors.service_not_found.ServiceNotFound: <p>No service exists with the specified ID.</p>
+            aws_sdk_servicediscovery.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             DeleteServiceAttributes example
             Example: Delete service attribute by providing attribute key and service ID
@@ -663,6 +713,14 @@ class AsyncServiceDiscoveryClient:
         Args:
             service_id: <p>The ID or Amazon Resource Name (ARN) of the service that the instance is associated with. If the namespace associated with the service is shared with your account, specify the service ARN. For more information about shared namespaces, see <a href=\"https://docs.aws.amazon.com/cloud-map/latest/dg/sharing-namespaces.html\">Cross-account Cloud Map namespace sharing</a> in the <i>Cloud Map Developer Guide</i>.</p>
             instance_id: <p>The value that you specified for <code>Id</code> in the <a href=\"https://docs.aws.amazon.com/cloud-map/latest/api/API_RegisterInstance.html\">RegisterInstance</a> request.</p>
+
+        Raises:
+            aws_sdk_servicediscovery.errors.duplicate_request.DuplicateRequest: <p>The operation is already in progress.</p>
+            aws_sdk_servicediscovery.errors.instance_not_found.InstanceNotFound: <p>No instance exists with the specified ID, or the instance was recently registered, and information about the instance hasn't propagated yet.</p>
+            aws_sdk_servicediscovery.errors.invalid_input.InvalidInput: <p>One or more specified values aren't valid. For example, a required value might be missing, a numeric value might be outside the allowed range, or a string value might exceed length constraints.</p>
+            aws_sdk_servicediscovery.errors.resource_in_use.ResourceInUse: <p>The specified resource can't be deleted because it contains other resources. For example, you can't delete a service that contains any instances.</p>
+            aws_sdk_servicediscovery.errors.service_not_found.ServiceNotFound: <p>No service exists with the specified ID.</p>
+            aws_sdk_servicediscovery.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Example: Deregister a service instance
@@ -735,6 +793,13 @@ class AsyncServiceDiscoveryClient:
             health_status: <p>The health status of the instances that you want to discover. This parameter is ignored for services that don't have a health check configured, and all instances are returned.</p> <dl> <dt>HEALTHY</dt> <dd> <p>Returns healthy instances.</p> </dd> <dt>UNHEALTHY</dt> <dd> <p>Returns unhealthy instances.</p> </dd> <dt>ALL</dt> <dd> <p>Returns all instances.</p> </dd> <dt>HEALTHY_OR_ELSE_ALL</dt> <dd> <p>Returns healthy instances, unless none are reporting a healthy state. In that case, return all instances. This is also called failing open.</p> </dd> </dl>
             owner_account: <p>The ID of the Amazon Web Services account that owns the namespace associated with the instance, as specified in the namespace <code>ResourceOwner</code> field. For instances associated with namespaces that are shared with your account, you must specify an <code>OwnerAccount</code>.</p>
 
+        Raises:
+            aws_sdk_servicediscovery.errors.invalid_input.InvalidInput: <p>One or more specified values aren't valid. For example, a required value might be missing, a numeric value might be outside the allowed range, or a string value might exceed length constraints.</p>
+            aws_sdk_servicediscovery.errors.namespace_not_found.NamespaceNotFound: <p>No namespace exists with the specified ID.</p>
+            aws_sdk_servicediscovery.errors.request_limit_exceeded.RequestLimitExceeded: <p>The operation can't be completed because you've reached the quota for the number of requests. For more information, see <a href=\"https://docs.aws.amazon.com/cloud-map/latest/dg/throttling.html\">Cloud Map API request throttling quota</a> in the <i>Cloud Map Developer Guide</i>.</p>
+            aws_sdk_servicediscovery.errors.service_not_found.ServiceNotFound: <p>No service exists with the specified ID.</p>
+            aws_sdk_servicediscovery.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Discover instances using owner account
             Discovers instances in a shared namespace by specifying the OwnerAccount parameter, useful when working with shared namespaces.
@@ -800,6 +865,13 @@ class AsyncServiceDiscoveryClient:
             service_name: <p>The name of the service that you specified when you registered the instance.</p>
             owner_account: <p>The ID of the Amazon Web Services account that owns the namespace associated with the instance, as specified in the namespace <code>ResourceOwner</code> field. For instances associated with namespaces that are shared with your account, you must specify an <code>OwnerAccount</code>. For more information about shared namespaces, see <a href=\"https://docs.aws.amazon.com/cloud-map/latest/dg/sharing-namespaces.html\">Cross-account Cloud Map namespace sharing</a> in the <i>Cloud Map Developer Guide</i>.</p>
 
+        Raises:
+            aws_sdk_servicediscovery.errors.invalid_input.InvalidInput: <p>One or more specified values aren't valid. For example, a required value might be missing, a numeric value might be outside the allowed range, or a string value might exceed length constraints.</p>
+            aws_sdk_servicediscovery.errors.namespace_not_found.NamespaceNotFound: <p>No namespace exists with the specified ID.</p>
+            aws_sdk_servicediscovery.errors.request_limit_exceeded.RequestLimitExceeded: <p>The operation can't be completed because you've reached the quota for the number of requests. For more information, see <a href=\"https://docs.aws.amazon.com/cloud-map/latest/dg/throttling.html\">Cloud Map API request throttling quota</a> in the <i>Cloud Map Developer Guide</i>.</p>
+            aws_sdk_servicediscovery.errors.service_not_found.ServiceNotFound: <p>No service exists with the specified ID.</p>
+            aws_sdk_servicediscovery.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Discover instances revision using owner account
             Discovers the instances revision in a shared namespace by specifying the OwnerAccount parameter, useful when working with shared namespaces.
@@ -852,6 +924,12 @@ class AsyncServiceDiscoveryClient:
         Args:
             service_id: <p>The ID or Amazon Resource Name (ARN) of the service that the instance is associated with. For services created in a shared namespace, specify the service ARN. For more information about shared namespaces, see <a href=\"https://docs.aws.amazon.com/cloud-map/latest/dg/sharing-namespaces.html\">Cross-account Cloud Map namespace sharing</a> in the <i>Cloud Map Developer Guide</i>.</p>
             instance_id: <p>The ID of the instance that you want to get information about.</p>
+
+        Raises:
+            aws_sdk_servicediscovery.errors.instance_not_found.InstanceNotFound: <p>No instance exists with the specified ID, or the instance was recently registered, and information about the instance hasn't propagated yet.</p>
+            aws_sdk_servicediscovery.errors.invalid_input.InvalidInput: <p>One or more specified values aren't valid. For example, a required value might be missing, a numeric value might be outside the allowed range, or a string value might exceed length constraints.</p>
+            aws_sdk_servicediscovery.errors.service_not_found.ServiceNotFound: <p>No service exists with the specified ID.</p>
+            aws_sdk_servicediscovery.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             GetInstance example
@@ -914,6 +992,12 @@ class AsyncServiceDiscoveryClient:
             max_results: <p>The maximum number of instances that you want Cloud Map to return in the response to a <code>GetInstancesHealthStatus</code> request. If you don't specify a value for <code>MaxResults</code>, Cloud Map returns up to 100 instances.</p>
             next_token: <p>For the first <code>GetInstancesHealthStatus</code> request, omit this value.</p> <p>If more than <code>MaxResults</code> instances match the specified criteria, you can submit another <code>GetInstancesHealthStatus</code> request to get the next group of results. Specify the value of <code>NextToken</code> from the previous response in the next request.</p>
 
+        Raises:
+            aws_sdk_servicediscovery.errors.instance_not_found.InstanceNotFound: <p>No instance exists with the specified ID, or the instance was recently registered, and information about the instance hasn't propagated yet.</p>
+            aws_sdk_servicediscovery.errors.invalid_input.InvalidInput: <p>One or more specified values aren't valid. For example, a required value might be missing, a numeric value might be outside the allowed range, or a string value might exceed length constraints.</p>
+            aws_sdk_servicediscovery.errors.service_not_found.ServiceNotFound: <p>No service exists with the specified ID.</p>
+            aws_sdk_servicediscovery.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             GetInstancesHealthStatus example
             This example gets the current health status of one or more instances that are associate with a specified service.
@@ -967,6 +1051,11 @@ class AsyncServiceDiscoveryClient:
 
         Args:
             id: <p>The ID or Amazon Resource Name (ARN) of the namespace that you want to get information about. For namespaces shared with your Amazon Web Services account, specify the namespace ARN. For more information about shared namespaces, see <a href=\"https://docs.aws.amazon.com/cloud-map/latest/dg/sharing-namespaces.html\">Cross-account Cloud Map namespace sharing</a> in the <i>Cloud Map Developer Guide</i> </p>
+
+        Raises:
+            aws_sdk_servicediscovery.errors.invalid_input.InvalidInput: <p>One or more specified values aren't valid. For example, a required value might be missing, a numeric value might be outside the allowed range, or a string value might exceed length constraints.</p>
+            aws_sdk_servicediscovery.errors.namespace_not_found.NamespaceNotFound: <p>No namespace exists with the specified ID.</p>
+            aws_sdk_servicediscovery.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1009,6 +1098,11 @@ class AsyncServiceDiscoveryClient:
         Args:
             operation_id: <p>The ID of the operation that you want to get more information about.</p>
             owner_account: <p>The ID of the Amazon Web Services account that owns the namespace associated with the operation, as specified in the namespace <code>ResourceOwner</code> field. For operations associated with namespaces that are shared with your account, you must specify an <code>OwnerAccount</code>.</p>
+
+        Raises:
+            aws_sdk_servicediscovery.errors.invalid_input.InvalidInput: <p>One or more specified values aren't valid. For example, a required value might be missing, a numeric value might be outside the allowed range, or a string value might exceed length constraints.</p>
+            aws_sdk_servicediscovery.errors.operation_not_found.OperationNotFound: <p>No operation exists with the specified ID.</p>
+            aws_sdk_servicediscovery.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Example: Get operation result
@@ -1056,6 +1150,11 @@ class AsyncServiceDiscoveryClient:
         Args:
             id: <p>The ID or Amazon Resource Name (ARN) of the service that you want to get settings for. For services created by consumers in a shared namespace, specify the service ARN. For more information about shared namespaces, see <a href=\"https://docs.aws.amazon.com/cloud-map/latest/dg/sharing-namespaces.html\">Cross-account Cloud Map namespace sharing</a> in the <i>Cloud Map Developer Guide</i>.</p>
 
+        Raises:
+            aws_sdk_servicediscovery.errors.invalid_input.InvalidInput: <p>One or more specified values aren't valid. For example, a required value might be missing, a numeric value might be outside the allowed range, or a string value might exceed length constraints.</p>
+            aws_sdk_servicediscovery.errors.service_not_found.ServiceNotFound: <p>No service exists with the specified ID.</p>
+            aws_sdk_servicediscovery.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Get service using service ARN
             Gets service settings using a service ARN instead of service ID, useful when working with shared namespaces. Shows a service created by a sharee (111122223333) in a namespace owned by another account (123456789012).
@@ -1099,6 +1198,11 @@ class AsyncServiceDiscoveryClient:
 
         Args:
             service_id: <p>The ID or Amazon Resource Name (ARN) of the service that you want to get attributes for. For services created in a namespace shared with your Amazon Web Services account, specify the service ARN. For more information about shared namespaces, see <a href=\"https://docs.aws.amazon.com/cloud-map/latest/dg/sharing-namespaces.html\">Cross-account Cloud Map namespace sharing</a> in the <i>Cloud Map Developer Guide</i>.</p>
+
+        Raises:
+            aws_sdk_servicediscovery.errors.invalid_input.InvalidInput: <p>One or more specified values aren't valid. For example, a required value might be missing, a numeric value might be outside the allowed range, or a string value might exceed length constraints.</p>
+            aws_sdk_servicediscovery.errors.service_not_found.ServiceNotFound: <p>No service exists with the specified ID.</p>
+            aws_sdk_servicediscovery.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Get service attributes using service ARN
@@ -1155,6 +1259,11 @@ class AsyncServiceDiscoveryClient:
             service_id: <p>The ID or Amazon Resource Name (ARN) of the service that you want to list instances for. For services created in a shared namespace, specify the service ARN. For more information about shared namespaces, see <a href=\"https://docs.aws.amazon.com/cloud-map/latest/dg/sharing-namespaces.html\">Cross-account Cloud Map namespace sharing</a> in the <i>Cloud Map Developer Guide</i>.</p>
             next_token: <p>For the first <code>ListInstances</code> request, omit this value.</p> <p>If more than <code>MaxResults</code> instances match the specified criteria, you can submit another <code>ListInstances</code> request to get the next group of results. Specify the value of <code>NextToken</code> from the previous response in the next request.</p>
             max_results: <p>The maximum number of instances that you want Cloud Map to return in the response to a <code>ListInstances</code> request. If you don't specify a value for <code>MaxResults</code>, Cloud Map returns up to 100 instances.</p>
+
+        Raises:
+            aws_sdk_servicediscovery.errors.invalid_input.InvalidInput: <p>One or more specified values aren't valid. For example, a required value might be missing, a numeric value might be outside the allowed range, or a string value might exceed length constraints.</p>
+            aws_sdk_servicediscovery.errors.service_not_found.ServiceNotFound: <p>No service exists with the specified ID.</p>
+            aws_sdk_servicediscovery.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Example: List service instances
@@ -1219,6 +1328,10 @@ class AsyncServiceDiscoveryClient:
             next_token: <p>For the first <code>ListNamespaces</code> request, omit this value.</p> <p>If the response contains <code>NextToken</code>, submit another <code>ListNamespaces</code> request to get the next group of results. Specify the value of <code>NextToken</code> from the previous response in the next request.</p> <note> <p>Cloud Map gets <code>MaxResults</code> namespaces and then filters them based on the specified criteria. It's possible that no namespaces in the first <code>MaxResults</code> namespaces matched the specified criteria but that subsequent groups of <code>MaxResults</code> namespaces do contain namespaces that match the criteria.</p> </note>
             max_results: <p>The maximum number of namespaces that you want Cloud Map to return in the response to a <code>ListNamespaces</code> request. If you don't specify a value for <code>MaxResults</code>, Cloud Map returns up to 100 namespaces.</p>
             filters: <p>A complex type that contains specifications for the namespaces that you want to list.</p> <p>If you specify more than one filter, a namespace must match all filters to be returned by <code>ListNamespaces</code>.</p>
+
+        Raises:
+            aws_sdk_servicediscovery.errors.invalid_input.InvalidInput: <p>One or more specified values aren't valid. For example, a required value might be missing, a numeric value might be outside the allowed range, or a string value might exceed length constraints.</p>
+            aws_sdk_servicediscovery.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Example: List namespaces
@@ -1285,6 +1398,10 @@ class AsyncServiceDiscoveryClient:
             max_results: <p>The maximum number of items that you want Cloud Map to return in the response to a <code>ListOperations</code> request. If you don't specify a value for <code>MaxResults</code>, Cloud Map returns up to 100 operations.</p>
             filters: <p>A complex type that contains specifications for the operations that you want to list, for example, operations that you started between a specified start date and end date.</p> <p>If you specify more than one filter, an operation must match all filters to be returned by <code>ListOperations</code>.</p>
 
+        Raises:
+            aws_sdk_servicediscovery.errors.invalid_input.InvalidInput: <p>One or more specified values aren't valid. For example, a required value might be missing, a numeric value might be outside the allowed range, or a string value might exceed length constraints.</p>
+            aws_sdk_servicediscovery.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             ListOperations Example
             This example gets the operations that have a STATUS of either PENDING or SUCCESS.
@@ -1344,6 +1461,10 @@ class AsyncServiceDiscoveryClient:
             max_results: <p>The maximum number of services that you want Cloud Map to return in the response to a <code>ListServices</code> request. If you don't specify a value for <code>MaxResults</code>, Cloud Map returns up to 100 services.</p>
             filters: <p>A complex type that contains specifications for the namespaces that you want to list services for. </p> <p>If you specify more than one filter, an operation must match all filters to be returned by <code>ListServices</code>.</p>
 
+        Raises:
+            aws_sdk_servicediscovery.errors.invalid_input.InvalidInput: <p>One or more specified values aren't valid. For example, a required value might be missing, a numeric value might be outside the allowed range, or a string value might exceed length constraints.</p>
+            aws_sdk_servicediscovery.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Example: List services
             Example: List services
@@ -1392,6 +1513,11 @@ class AsyncServiceDiscoveryClient:
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource that you want to retrieve tags for.</p>
+
+        Raises:
+            aws_sdk_servicediscovery.errors.invalid_input.InvalidInput: <p>One or more specified values aren't valid. For example, a required value might be missing, a numeric value might be outside the allowed range, or a string value might exceed length constraints.</p>
+            aws_sdk_servicediscovery.errors.resource_not_found_exception.ResourceNotFoundException: <p>The operation can't be completed because the resource was not found.</p>
+            aws_sdk_servicediscovery.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             ListTagsForResource example
@@ -1444,6 +1570,14 @@ class AsyncServiceDiscoveryClient:
             instance_id: <p>An identifier that you want to associate with the instance. Note the following:</p> <ul> <li> <p>If the service that's specified by <code>ServiceId</code> includes settings for an <code>SRV</code> record, the value of <code>InstanceId</code> is automatically included as part of the value for the <code>SRV</code> record. For more information, see <a href=\"https://docs.aws.amazon.com/cloud-map/latest/api/API_DnsRecord.html#cloudmap-Type-DnsRecord-Type\">DnsRecord > Type</a>.</p> </li> <li> <p>You can use this value to update an existing instance.</p> </li> <li> <p>To register a new instance, you must specify a value that's unique among instances that you register by using the same service. </p> </li> <li> <p>If you specify an existing <code>InstanceId</code> and <code>ServiceId</code>, Cloud Map updates the existing DNS records, if any. If there's also an existing health check, Cloud Map deletes the old health check and creates a new one. </p> <note> <p>The health check isn't deleted immediately, so it will still appear for a while if you submit a <code>ListHealthChecks</code> request, for example.</p> </note> </li> </ul> <note> <p>Do not include sensitive information in <code>InstanceId</code> if the namespace is discoverable by public DNS queries and any <code>Type</code> member of <code>DnsRecord</code> for the service contains <code>SRV</code> because the <code>InstanceId</code> is discoverable by public DNS queries.</p> </note>
             creator_request_id: <p>A unique string that identifies the request and that allows failed <code>RegisterInstance</code> requests to be retried without the risk of executing the operation twice. You must use a unique <code>CreatorRequestId</code> string every time you submit a <code>RegisterInstance</code> request if you're registering additional instances for the same namespace and service. <code>CreatorRequestId</code> can be any unique string (for example, a date/time stamp).</p>
             attributes: <p>A string map that contains the following information for the service that you specify in <code>ServiceId</code>:</p> <ul> <li> <p>The attributes that apply to the records that are defined in the service. </p> </li> <li> <p>For each attribute, the applicable value.</p> </li> </ul> <important> <p>Do not include sensitive information in the attributes if the namespace is discoverable by public DNS queries.</p> </important> <p>The following are the supported attribute keys.</p> <dl> <dt>AWS_ALIAS_DNS_NAME</dt> <dd> <p>If you want Cloud Map to create an Amazon Route 53 alias record that routes traffic to an Elastic Load Balancing load balancer, specify the DNS name that's associated with the load balancer. For information about how to get the DNS name, see \"DNSName\" in the topic <a href=\"https://docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html\">AliasTarget</a> in the <i>Route 53 API Reference</i>.</p> <p>Note the following:</p> <ul> <li> <p>The configuration for the service that's specified by <code>ServiceId</code> must include settings for an <code>A</code> record, an <code>AAAA</code> record, or both.</p> </li> <li> <p>In the service that's specified by <code>ServiceId</code>, the value of <code>RoutingPolicy</code> must be <code>WEIGHTED</code>.</p> </li> <li> <p>If the service that's specified by <code>ServiceId</code> includes <code>HealthCheckConfig</code> settings, Cloud Map will create the Route 53 health check, but it doesn't associate the health check with the alias record.</p> </li> <li> <p>Cloud Map currently doesn't support creating alias records that route traffic to Amazon Web Services resources other than Elastic Load Balancing load balancers.</p> </li> <li> <p>If you specify a value for <code>AWS_ALIAS_DNS_NAME</code>, don't specify values for any of the <code>AWS_INSTANCE</code> attributes.</p> </li> <li> <p>The <code>AWS_ALIAS_DNS_NAME</code> is not supported in the GovCloud (US) Regions.</p> </li> </ul> </dd> <dt>AWS_EC2_INSTANCE_ID</dt> <dd> <p> <i>HTTP namespaces only.</i> The Amazon EC2 instance ID for the instance. If the <code>AWS_EC2_INSTANCE_ID</code> attribute is specified, then the only other attribute that can be specified is <code>AWS_INIT_HEALTH_STATUS</code>. When the <code>AWS_EC2_INSTANCE_ID</code> attribute is specified, then the <code>AWS_INSTANCE_IPV4</code> attribute will be filled out with the primary private IPv4 address.</p> </dd> <dt>AWS_INIT_HEALTH_STATUS</dt> <dd> <p>If the service configuration includes <code>HealthCheckCustomConfig</code>, you can optionally use <code>AWS_INIT_HEALTH_STATUS</code> to specify the initial status of the custom health check, <code>HEALTHY</code> or <code>UNHEALTHY</code>. If you don't specify a value for <code>AWS_INIT_HEALTH_STATUS</code>, the initial status is <code>HEALTHY</code>.</p> </dd> <dt>AWS_INSTANCE_CNAME</dt> <dd> <p>If the service configuration includes a <code>CNAME</code> record, the domain name that you want Route 53 to return in response to DNS queries (for example, <code>example.com</code>).</p> <p>This value is required if the service specified by <code>ServiceId</code> includes settings for an <code>CNAME</code> record.</p> </dd> <dt>AWS_INSTANCE_IPV4</dt> <dd> <p>If the service configuration includes an <code>A</code> record, the IPv4 address that you want Route 53 to return in response to DNS queries (for example, <code>192.0.2.44</code>).</p> <p>This value is required if the service specified by <code>ServiceId</code> includes settings for an <code>A</code> record. If the service includes settings for an <code>SRV</code> record, you must specify a value for <code>AWS_INSTANCE_IPV4</code>, <code>AWS_INSTANCE_IPV6</code>, or both.</p> </dd> <dt>AWS_INSTANCE_IPV6</dt> <dd> <p>If the service configuration includes an <code>AAAA</code> record, the IPv6 address that you want Route 53 to return in response to DNS queries (for example, <code>2001:0db8:85a3:0000:0000:abcd:0001:2345</code>).</p> <p>This value is required if the service specified by <code>ServiceId</code> includes settings for an <code>AAAA</code> record. If the service includes settings for an <code>SRV</code> record, you must specify a value for <code>AWS_INSTANCE_IPV4</code>, <code>AWS_INSTANCE_IPV6</code>, or both.</p> </dd> <dt>AWS_INSTANCE_PORT</dt> <dd> <p>If the service includes an <code>SRV</code> record, the value that you want Route 53 to return for the port.</p> <p>If the service includes <code>HealthCheckConfig</code>, the port on the endpoint that you want Route 53 to send requests to. </p> <p>This value is required if you specified settings for an <code>SRV</code> record or a Route 53 health check when you created the service.</p> </dd> <dt>Custom attributes</dt> <dd> <p>You can add up to 30 custom attributes. For each key-value pair, the maximum length of the attribute name is 255 characters, and the maximum length of the attribute value is 1,024 characters. The total size of all provided attributes (sum of all keys and values) must not exceed 5,000 characters.</p> </dd> </dl>
+
+        Raises:
+            aws_sdk_servicediscovery.errors.duplicate_request.DuplicateRequest: <p>The operation is already in progress.</p>
+            aws_sdk_servicediscovery.errors.invalid_input.InvalidInput: <p>One or more specified values aren't valid. For example, a required value might be missing, a numeric value might be outside the allowed range, or a string value might exceed length constraints.</p>
+            aws_sdk_servicediscovery.errors.resource_in_use.ResourceInUse: <p>The specified resource can't be deleted because it contains other resources. For example, you can't delete a service that contains any instances.</p>
+            aws_sdk_servicediscovery.errors.resource_limit_exceeded.ResourceLimitExceeded: <p>The resource can't be created because you've reached the quota on the number of resources.</p>
+            aws_sdk_servicediscovery.errors.service_not_found.ServiceNotFound: <p>No service exists with the specified ID.</p>
+            aws_sdk_servicediscovery.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Example: Register Instance
@@ -1499,6 +1633,12 @@ class AsyncServiceDiscoveryClient:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource that you want to retrieve tags for.</p>
             tags: <p>The tags to add to the specified resource. Specifying the tag key is required. You can set the value of a tag to an empty string, but you can't set the value of a tag to null.</p>
 
+        Raises:
+            aws_sdk_servicediscovery.errors.invalid_input.InvalidInput: <p>One or more specified values aren't valid. For example, a required value might be missing, a numeric value might be outside the allowed range, or a string value might exceed length constraints.</p>
+            aws_sdk_servicediscovery.errors.resource_not_found_exception.ResourceNotFoundException: <p>The operation can't be completed because the resource was not found.</p>
+            aws_sdk_servicediscovery.errors.too_many_tags_exception.TooManyTagsException: <p>The list of tags on the resource is over the quota. The maximum number of tags that can be applied to a resource is 50.</p>
+            aws_sdk_servicediscovery.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             TagResource example
             This example adds "Department" and "Project" tags to a resource.
@@ -1545,6 +1685,11 @@ class AsyncServiceDiscoveryClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource that you want to retrieve tags for.</p>
             tag_keys: <p>The tag keys to remove from the specified resource.</p>
+
+        Raises:
+            aws_sdk_servicediscovery.errors.invalid_input.InvalidInput: <p>One or more specified values aren't valid. For example, a required value might be missing, a numeric value might be outside the allowed range, or a string value might exceed length constraints.</p>
+            aws_sdk_servicediscovery.errors.resource_not_found_exception.ResourceNotFoundException: <p>The operation can't be completed because the resource was not found.</p>
+            aws_sdk_servicediscovery.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             UntagResource example
@@ -1596,6 +1741,13 @@ class AsyncServiceDiscoveryClient:
             id: <p>The ID or Amazon Resource Name (ARN) of the namespace that you want to update.</p>
             updater_request_id: <p>A unique string that identifies the request and that allows failed <code>UpdateHttpNamespace</code> requests to be retried without the risk of running the operation twice. <code>UpdaterRequestId</code> can be any unique string (for example, a date/timestamp).</p>
             namespace: <p>Updated properties for the the HTTP namespace.</p>
+
+        Raises:
+            aws_sdk_servicediscovery.errors.duplicate_request.DuplicateRequest: <p>The operation is already in progress.</p>
+            aws_sdk_servicediscovery.errors.invalid_input.InvalidInput: <p>One or more specified values aren't valid. For example, a required value might be missing, a numeric value might be outside the allowed range, or a string value might exceed length constraints.</p>
+            aws_sdk_servicediscovery.errors.namespace_not_found.NamespaceNotFound: <p>No namespace exists with the specified ID.</p>
+            aws_sdk_servicediscovery.errors.resource_in_use.ResourceInUse: <p>The specified resource can't be deleted because it contains other resources. For example, you can't delete a service that contains any instances.</p>
+            aws_sdk_servicediscovery.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To update a HTTP namespace
@@ -1652,6 +1804,13 @@ class AsyncServiceDiscoveryClient:
             instance_id: <p>The ID of the instance that you want to change the health status for.</p>
             status: <p>The new status of the instance, <code>HEALTHY</code> or <code>UNHEALTHY</code>.</p>
 
+        Raises:
+            aws_sdk_servicediscovery.errors.custom_health_not_found.CustomHealthNotFound: <p>The health check for the instance that's specified by <code>ServiceId</code> and <code>InstanceId</code> isn't a custom health check. </p>
+            aws_sdk_servicediscovery.errors.instance_not_found.InstanceNotFound: <p>No instance exists with the specified ID, or the instance was recently registered, and information about the instance hasn't propagated yet.</p>
+            aws_sdk_servicediscovery.errors.invalid_input.InvalidInput: <p>One or more specified values aren't valid. For example, a required value might be missing, a numeric value might be outside the allowed range, or a string value might exceed length constraints.</p>
+            aws_sdk_servicediscovery.errors.service_not_found.ServiceNotFound: <p>No service exists with the specified ID.</p>
+            aws_sdk_servicediscovery.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Update instance custom health status using service ARN
             Updates instance custom health status using a service ARN instead of service ID, useful when working with shared namespaces.
@@ -1705,6 +1864,13 @@ class AsyncServiceDiscoveryClient:
             id: <p>The ID or Amazon Resource Name (ARN) of the namespace that you want to update.</p>
             updater_request_id: <p>A unique string that identifies the request and that allows failed <code>UpdatePrivateDnsNamespace</code> requests to be retried without the risk of running the operation twice. <code>UpdaterRequestId</code> can be any unique string (for example, a date/timestamp).</p>
             namespace: <p>Updated properties for the private DNS namespace.</p>
+
+        Raises:
+            aws_sdk_servicediscovery.errors.duplicate_request.DuplicateRequest: <p>The operation is already in progress.</p>
+            aws_sdk_servicediscovery.errors.invalid_input.InvalidInput: <p>One or more specified values aren't valid. For example, a required value might be missing, a numeric value might be outside the allowed range, or a string value might exceed length constraints.</p>
+            aws_sdk_servicediscovery.errors.namespace_not_found.NamespaceNotFound: <p>No namespace exists with the specified ID.</p>
+            aws_sdk_servicediscovery.errors.resource_in_use.ResourceInUse: <p>The specified resource can't be deleted because it contains other resources. For example, you can't delete a service that contains any instances.</p>
+            aws_sdk_servicediscovery.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To update a private DNS namespace
@@ -1763,6 +1929,13 @@ class AsyncServiceDiscoveryClient:
             updater_request_id: <p>A unique string that identifies the request and that allows failed <code>UpdatePublicDnsNamespace</code> requests to be retried without the risk of running the operation twice. <code>UpdaterRequestId</code> can be any unique string (for example, a date/timestamp).</p>
             namespace: <p>Updated properties for the public DNS namespace.</p>
 
+        Raises:
+            aws_sdk_servicediscovery.errors.duplicate_request.DuplicateRequest: <p>The operation is already in progress.</p>
+            aws_sdk_servicediscovery.errors.invalid_input.InvalidInput: <p>One or more specified values aren't valid. For example, a required value might be missing, a numeric value might be outside the allowed range, or a string value might exceed length constraints.</p>
+            aws_sdk_servicediscovery.errors.namespace_not_found.NamespaceNotFound: <p>No namespace exists with the specified ID.</p>
+            aws_sdk_servicediscovery.errors.resource_in_use.ResourceInUse: <p>The specified resource can't be deleted because it contains other resources. For example, you can't delete a service that contains any instances.</p>
+            aws_sdk_servicediscovery.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To update a public DNS namespace
             The following example updates the description of a public DNS namespace.
@@ -1816,6 +1989,12 @@ class AsyncServiceDiscoveryClient:
             id: <p>The ID or Amazon Resource Name (ARN) of the service that you want to update. If the namespace associated with the service is shared with your Amazon Web Services account, specify the service ARN. For more information about shared namespaces, see <a href=\"https://docs.aws.amazon.com/cloud-map/latest/dg/sharing-namespaces.html\">Cross-account Cloud Map namespace sharing</a> in the <i>Cloud Map Developer Guide</i> </p>
             service: <p>A complex type that contains the new settings for the service. You can specify a maximum of 30 attributes (key-value pairs).</p>
 
+        Raises:
+            aws_sdk_servicediscovery.errors.duplicate_request.DuplicateRequest: <p>The operation is already in progress.</p>
+            aws_sdk_servicediscovery.errors.invalid_input.InvalidInput: <p>One or more specified values aren't valid. For example, a required value might be missing, a numeric value might be outside the allowed range, or a string value might exceed length constraints.</p>
+            aws_sdk_servicediscovery.errors.service_not_found.ServiceNotFound: <p>No service exists with the specified ID.</p>
+            aws_sdk_servicediscovery.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             UpdateService Example
             This example submits a request to replace the DnsConfig and HealthCheckConfig settings of a specified service.
@@ -1866,6 +2045,12 @@ class AsyncServiceDiscoveryClient:
         Args:
             service_id: <p>The ID or Amazon Resource Name (ARN) of the service that you want to update. For services created in a namespace shared with your Amazon Web Services account, specify the service ARN.</p>
             attributes: <p>A string map that contains attribute key-value pairs.</p>
+
+        Raises:
+            aws_sdk_servicediscovery.errors.invalid_input.InvalidInput: <p>One or more specified values aren't valid. For example, a required value might be missing, a numeric value might be outside the allowed range, or a string value might exceed length constraints.</p>
+            aws_sdk_servicediscovery.errors.service_attributes_limit_exceeded_exception.ServiceAttributesLimitExceededException: <p>The attribute can't be added to the service because you've exceeded the quota for the number of attributes you can add to a service.</p>
+            aws_sdk_servicediscovery.errors.service_not_found.ServiceNotFound: <p>No service exists with the specified ID.</p>
+            aws_sdk_servicediscovery.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Update service attributes using service ARN

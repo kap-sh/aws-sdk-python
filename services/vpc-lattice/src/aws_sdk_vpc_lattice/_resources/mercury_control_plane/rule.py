@@ -76,6 +76,16 @@ class Rule:
             action: <p>The action for the default rule.</p>
             client_token: <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If you retry a request that completed successfully using the same client token and parameters, the retry succeeds without performing any actions. If the parameters aren't identical, the retry fails.</p>
             tags: <p>The tags for the rule.</p>
+
+        Raises:
+            aws_sdk_vpc_lattice.errors.access_denied_exception.AccessDeniedException: <p>The user does not have sufficient access to perform this action.</p>
+            aws_sdk_vpc_lattice.errors.conflict_exception.ConflictException: <p>The request conflicts with the current state of the resource. Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_vpc_lattice.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing the request.</p>
+            aws_sdk_vpc_lattice.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource that does not exist.</p>
+            aws_sdk_vpc_lattice.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request would cause a service quota to be exceeded.</p>
+            aws_sdk_vpc_lattice.errors.throttling_exception.ThrottlingException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_vpc_lattice.errors.validation_exception.ValidationException: <p>The input does not satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_vpc_lattice.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -126,6 +136,14 @@ class Rule:
             service_identifier: <p>The ID or ARN of the service.</p>
             listener_identifier: <p>The ID or ARN of the listener.</p>
             rule_identifier: <p>The ID or ARN of the listener rule.</p>
+
+        Raises:
+            aws_sdk_vpc_lattice.errors.access_denied_exception.AccessDeniedException: <p>The user does not have sufficient access to perform this action.</p>
+            aws_sdk_vpc_lattice.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing the request.</p>
+            aws_sdk_vpc_lattice.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource that does not exist.</p>
+            aws_sdk_vpc_lattice.errors.throttling_exception.ThrottlingException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_vpc_lattice.errors.validation_exception.ValidationException: <p>The input does not satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_vpc_lattice.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -177,6 +195,16 @@ class Rule:
             match: <p>The rule match.</p>
             priority: <p>The rule priority. A listener can't have multiple rules with the same priority.</p>
             action: <p>Information about the action for the specified listener rule.</p>
+
+        Raises:
+            aws_sdk_vpc_lattice.errors.access_denied_exception.AccessDeniedException: <p>The user does not have sufficient access to perform this action.</p>
+            aws_sdk_vpc_lattice.errors.conflict_exception.ConflictException: <p>The request conflicts with the current state of the resource. Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_vpc_lattice.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing the request.</p>
+            aws_sdk_vpc_lattice.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource that does not exist.</p>
+            aws_sdk_vpc_lattice.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request would cause a service quota to be exceeded.</p>
+            aws_sdk_vpc_lattice.errors.throttling_exception.ThrottlingException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_vpc_lattice.errors.validation_exception.ValidationException: <p>The input does not satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_vpc_lattice.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -226,6 +254,15 @@ class Rule:
             service_identifier: <p>The ID or ARN of the service.</p>
             listener_identifier: <p>The ID or ARN of the listener.</p>
             rule_identifier: <p>The ID or ARN of the rule.</p>
+
+        Raises:
+            aws_sdk_vpc_lattice.errors.access_denied_exception.AccessDeniedException: <p>The user does not have sufficient access to perform this action.</p>
+            aws_sdk_vpc_lattice.errors.conflict_exception.ConflictException: <p>The request conflicts with the current state of the resource. Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_vpc_lattice.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing the request.</p>
+            aws_sdk_vpc_lattice.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource that does not exist.</p>
+            aws_sdk_vpc_lattice.errors.throttling_exception.ThrottlingException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_vpc_lattice.errors.validation_exception.ValidationException: <p>The input does not satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_vpc_lattice.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -273,6 +310,14 @@ class Rule:
             listener_identifier: <p>The ID or ARN of the listener.</p>
             max_results: <p>The maximum number of results to return.</p>
             next_token: <p>A pagination token for the next page of results.</p>
+
+        Raises:
+            aws_sdk_vpc_lattice.errors.access_denied_exception.AccessDeniedException: <p>The user does not have sufficient access to perform this action.</p>
+            aws_sdk_vpc_lattice.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing the request.</p>
+            aws_sdk_vpc_lattice.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource that does not exist.</p>
+            aws_sdk_vpc_lattice.errors.throttling_exception.ThrottlingException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_vpc_lattice.errors.validation_exception.ValidationException: <p>The input does not satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_vpc_lattice.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -336,6 +381,16 @@ class AsyncRule:
             action: <p>The action for the default rule.</p>
             client_token: <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If you retry a request that completed successfully using the same client token and parameters, the retry succeeds without performing any actions. If the parameters aren't identical, the retry fails.</p>
             tags: <p>The tags for the rule.</p>
+
+        Raises:
+            aws_sdk_vpc_lattice.errors.access_denied_exception.AccessDeniedException: <p>The user does not have sufficient access to perform this action.</p>
+            aws_sdk_vpc_lattice.errors.conflict_exception.ConflictException: <p>The request conflicts with the current state of the resource. Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_vpc_lattice.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing the request.</p>
+            aws_sdk_vpc_lattice.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource that does not exist.</p>
+            aws_sdk_vpc_lattice.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request would cause a service quota to be exceeded.</p>
+            aws_sdk_vpc_lattice.errors.throttling_exception.ThrottlingException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_vpc_lattice.errors.validation_exception.ValidationException: <p>The input does not satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_vpc_lattice.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -387,6 +442,14 @@ class AsyncRule:
             service_identifier: <p>The ID or ARN of the service.</p>
             listener_identifier: <p>The ID or ARN of the listener.</p>
             rule_identifier: <p>The ID or ARN of the listener rule.</p>
+
+        Raises:
+            aws_sdk_vpc_lattice.errors.access_denied_exception.AccessDeniedException: <p>The user does not have sufficient access to perform this action.</p>
+            aws_sdk_vpc_lattice.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing the request.</p>
+            aws_sdk_vpc_lattice.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource that does not exist.</p>
+            aws_sdk_vpc_lattice.errors.throttling_exception.ThrottlingException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_vpc_lattice.errors.validation_exception.ValidationException: <p>The input does not satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_vpc_lattice.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -439,6 +502,16 @@ class AsyncRule:
             match: <p>The rule match.</p>
             priority: <p>The rule priority. A listener can't have multiple rules with the same priority.</p>
             action: <p>Information about the action for the specified listener rule.</p>
+
+        Raises:
+            aws_sdk_vpc_lattice.errors.access_denied_exception.AccessDeniedException: <p>The user does not have sufficient access to perform this action.</p>
+            aws_sdk_vpc_lattice.errors.conflict_exception.ConflictException: <p>The request conflicts with the current state of the resource. Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_vpc_lattice.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing the request.</p>
+            aws_sdk_vpc_lattice.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource that does not exist.</p>
+            aws_sdk_vpc_lattice.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request would cause a service quota to be exceeded.</p>
+            aws_sdk_vpc_lattice.errors.throttling_exception.ThrottlingException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_vpc_lattice.errors.validation_exception.ValidationException: <p>The input does not satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_vpc_lattice.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -489,6 +562,15 @@ class AsyncRule:
             service_identifier: <p>The ID or ARN of the service.</p>
             listener_identifier: <p>The ID or ARN of the listener.</p>
             rule_identifier: <p>The ID or ARN of the rule.</p>
+
+        Raises:
+            aws_sdk_vpc_lattice.errors.access_denied_exception.AccessDeniedException: <p>The user does not have sufficient access to perform this action.</p>
+            aws_sdk_vpc_lattice.errors.conflict_exception.ConflictException: <p>The request conflicts with the current state of the resource. Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_vpc_lattice.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing the request.</p>
+            aws_sdk_vpc_lattice.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource that does not exist.</p>
+            aws_sdk_vpc_lattice.errors.throttling_exception.ThrottlingException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_vpc_lattice.errors.validation_exception.ValidationException: <p>The input does not satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_vpc_lattice.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -537,6 +619,14 @@ class AsyncRule:
             listener_identifier: <p>The ID or ARN of the listener.</p>
             max_results: <p>The maximum number of results to return.</p>
             next_token: <p>A pagination token for the next page of results.</p>
+
+        Raises:
+            aws_sdk_vpc_lattice.errors.access_denied_exception.AccessDeniedException: <p>The user does not have sufficient access to perform this action.</p>
+            aws_sdk_vpc_lattice.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing the request.</p>
+            aws_sdk_vpc_lattice.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource that does not exist.</p>
+            aws_sdk_vpc_lattice.errors.throttling_exception.ThrottlingException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_vpc_lattice.errors.validation_exception.ValidationException: <p>The input does not satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_vpc_lattice.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

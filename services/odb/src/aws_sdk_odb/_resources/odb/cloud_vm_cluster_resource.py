@@ -93,6 +93,16 @@ class CloudVmClusterResource:
             time_zone: <p>The time zone for the VM cluster. For a list of valid values for time zone, you can check the options in the console.</p> <p>Default: UTC</p>
             client_token: <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If you don't specify a client token, the Amazon Web Services SDK automatically generates a client token and uses it for the request to ensure idempotency. The client token is valid for up to 24 hours after it's first used.</p>
             scan_listener_port_tcp: <p>The port number for TCP connections to the single client access name (SCAN) listener. </p> <p>Valid values: <code>1024–8999</code> with the following exceptions: <code>2484</code>, <code>6100</code>, <code>6200</code>, <code>7060</code>, <code>7070</code>, <code>7085</code>, and <code>7879</code> </p> <p>Default: <code>1521</code> </p>
+
+        Raises:
+            aws_sdk_odb.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action. Make sure you have the required permissions and try again.</p>
+            aws_sdk_odb.errors.conflict_exception.ConflictException: <p>Occurs when a conflict with the current status of your resource. Fix any inconsistencies with your resource and try again.</p>
+            aws_sdk_odb.errors.internal_server_exception.InternalServerException: <p>Occurs when there is an internal failure in the Oracle Database@Amazon Web Services service. Wait and try again.</p>
+            aws_sdk_odb.errors.resource_not_found_exception.ResourceNotFoundException: <p>The operation tried to access a resource that doesn't exist. Make sure you provided the correct resource and try again.</p>
+            aws_sdk_odb.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You have exceeded the service quota.</p>
+            aws_sdk_odb.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_odb.errors.validation_exception.ValidationException: <p>The request has failed validation because it is missing required fields or has invalid inputs.</p>
+            aws_sdk_odb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -164,6 +174,14 @@ class CloudVmClusterResource:
 
         Args:
             cloud_vm_cluster_id: <p>The unique identifier of the VM cluster.</p>
+
+        Raises:
+            aws_sdk_odb.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action. Make sure you have the required permissions and try again.</p>
+            aws_sdk_odb.errors.internal_server_exception.InternalServerException: <p>Occurs when there is an internal failure in the Oracle Database@Amazon Web Services service. Wait and try again.</p>
+            aws_sdk_odb.errors.resource_not_found_exception.ResourceNotFoundException: <p>The operation tried to access a resource that doesn't exist. Make sure you provided the correct resource and try again.</p>
+            aws_sdk_odb.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_odb.errors.validation_exception.ValidationException: <p>The request has failed validation because it is missing required fields or has invalid inputs.</p>
+            aws_sdk_odb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -201,6 +219,14 @@ class CloudVmClusterResource:
 
         Args:
             cloud_vm_cluster_id: <p>The unique identifier of the VM cluster to delete.</p>
+
+        Raises:
+            aws_sdk_odb.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action. Make sure you have the required permissions and try again.</p>
+            aws_sdk_odb.errors.conflict_exception.ConflictException: <p>Occurs when a conflict with the current status of your resource. Fix any inconsistencies with your resource and try again.</p>
+            aws_sdk_odb.errors.internal_server_exception.InternalServerException: <p>Occurs when there is an internal failure in the Oracle Database@Amazon Web Services service. Wait and try again.</p>
+            aws_sdk_odb.errors.resource_not_found_exception.ResourceNotFoundException: <p>The operation tried to access a resource that doesn't exist. Make sure you provided the correct resource and try again.</p>
+            aws_sdk_odb.errors.validation_exception.ValidationException: <p>The request has failed validation because it is missing required fields or has invalid inputs.</p>
+            aws_sdk_odb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -244,6 +270,14 @@ class CloudVmClusterResource:
             max_results: <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output.</p> <p>Default: <code>10</code> </p>
             next_token: <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
             cloud_exadata_infrastructure_id: <p>The unique identifier of the Oracle Exadata infrastructure.</p>
+
+        Raises:
+            aws_sdk_odb.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action. Make sure you have the required permissions and try again.</p>
+            aws_sdk_odb.errors.internal_server_exception.InternalServerException: <p>Occurs when there is an internal failure in the Oracle Database@Amazon Web Services service. Wait and try again.</p>
+            aws_sdk_odb.errors.resource_not_found_exception.ResourceNotFoundException: <p>The operation tried to access a resource that doesn't exist. Make sure you provided the correct resource and try again.</p>
+            aws_sdk_odb.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_odb.errors.validation_exception.ValidationException: <p>The request has failed validation because it is missing required fields or has invalid inputs.</p>
+            aws_sdk_odb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -335,6 +369,16 @@ class AsyncCloudVmClusterResource:
             time_zone: <p>The time zone for the VM cluster. For a list of valid values for time zone, you can check the options in the console.</p> <p>Default: UTC</p>
             client_token: <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If you don't specify a client token, the Amazon Web Services SDK automatically generates a client token and uses it for the request to ensure idempotency. The client token is valid for up to 24 hours after it's first used.</p>
             scan_listener_port_tcp: <p>The port number for TCP connections to the single client access name (SCAN) listener. </p> <p>Valid values: <code>1024–8999</code> with the following exceptions: <code>2484</code>, <code>6100</code>, <code>6200</code>, <code>7060</code>, <code>7070</code>, <code>7085</code>, and <code>7879</code> </p> <p>Default: <code>1521</code> </p>
+
+        Raises:
+            aws_sdk_odb.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action. Make sure you have the required permissions and try again.</p>
+            aws_sdk_odb.errors.conflict_exception.ConflictException: <p>Occurs when a conflict with the current status of your resource. Fix any inconsistencies with your resource and try again.</p>
+            aws_sdk_odb.errors.internal_server_exception.InternalServerException: <p>Occurs when there is an internal failure in the Oracle Database@Amazon Web Services service. Wait and try again.</p>
+            aws_sdk_odb.errors.resource_not_found_exception.ResourceNotFoundException: <p>The operation tried to access a resource that doesn't exist. Make sure you provided the correct resource and try again.</p>
+            aws_sdk_odb.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You have exceeded the service quota.</p>
+            aws_sdk_odb.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_odb.errors.validation_exception.ValidationException: <p>The request has failed validation because it is missing required fields or has invalid inputs.</p>
+            aws_sdk_odb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -407,6 +451,14 @@ class AsyncCloudVmClusterResource:
 
         Args:
             cloud_vm_cluster_id: <p>The unique identifier of the VM cluster.</p>
+
+        Raises:
+            aws_sdk_odb.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action. Make sure you have the required permissions and try again.</p>
+            aws_sdk_odb.errors.internal_server_exception.InternalServerException: <p>Occurs when there is an internal failure in the Oracle Database@Amazon Web Services service. Wait and try again.</p>
+            aws_sdk_odb.errors.resource_not_found_exception.ResourceNotFoundException: <p>The operation tried to access a resource that doesn't exist. Make sure you provided the correct resource and try again.</p>
+            aws_sdk_odb.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_odb.errors.validation_exception.ValidationException: <p>The request has failed validation because it is missing required fields or has invalid inputs.</p>
+            aws_sdk_odb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -445,6 +497,14 @@ class AsyncCloudVmClusterResource:
 
         Args:
             cloud_vm_cluster_id: <p>The unique identifier of the VM cluster to delete.</p>
+
+        Raises:
+            aws_sdk_odb.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action. Make sure you have the required permissions and try again.</p>
+            aws_sdk_odb.errors.conflict_exception.ConflictException: <p>Occurs when a conflict with the current status of your resource. Fix any inconsistencies with your resource and try again.</p>
+            aws_sdk_odb.errors.internal_server_exception.InternalServerException: <p>Occurs when there is an internal failure in the Oracle Database@Amazon Web Services service. Wait and try again.</p>
+            aws_sdk_odb.errors.resource_not_found_exception.ResourceNotFoundException: <p>The operation tried to access a resource that doesn't exist. Make sure you provided the correct resource and try again.</p>
+            aws_sdk_odb.errors.validation_exception.ValidationException: <p>The request has failed validation because it is missing required fields or has invalid inputs.</p>
+            aws_sdk_odb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -489,6 +549,14 @@ class AsyncCloudVmClusterResource:
             max_results: <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output.</p> <p>Default: <code>10</code> </p>
             next_token: <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
             cloud_exadata_infrastructure_id: <p>The unique identifier of the Oracle Exadata infrastructure.</p>
+
+        Raises:
+            aws_sdk_odb.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action. Make sure you have the required permissions and try again.</p>
+            aws_sdk_odb.errors.internal_server_exception.InternalServerException: <p>Occurs when there is an internal failure in the Oracle Database@Amazon Web Services service. Wait and try again.</p>
+            aws_sdk_odb.errors.resource_not_found_exception.ResourceNotFoundException: <p>The operation tried to access a resource that doesn't exist. Make sure you provided the correct resource and try again.</p>
+            aws_sdk_odb.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_odb.errors.validation_exception.ValidationException: <p>The request has failed validation because it is missing required fields or has invalid inputs.</p>
+            aws_sdk_odb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

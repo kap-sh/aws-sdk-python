@@ -155,6 +155,14 @@ class AsyncSageMakerGeospatialClient:
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource you want to tag.</p>
+
+        Raises:
+            aws_sdk_sagemaker_geospatial.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_sagemaker_geospatial.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure.</p>
+            aws_sdk_sagemaker_geospatial.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource which does not exist.</p>
+            aws_sdk_sagemaker_geospatial.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_sagemaker_geospatial.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_sagemaker_geospatial.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -195,6 +203,14 @@ class AsyncSageMakerGeospatialClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource you want to tag.</p>
             tags: <p>Each tag consists of a key and a value.</p>
+
+        Raises:
+            aws_sdk_sagemaker_geospatial.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_sagemaker_geospatial.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure.</p>
+            aws_sdk_sagemaker_geospatial.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource which does not exist.</p>
+            aws_sdk_sagemaker_geospatial.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_sagemaker_geospatial.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_sagemaker_geospatial.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -236,6 +252,14 @@ class AsyncSageMakerGeospatialClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource you want to untag.</p>
             tag_keys: <p>Keys of the tags you want to remove.</p>
+
+        Raises:
+            aws_sdk_sagemaker_geospatial.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_sagemaker_geospatial.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure.</p>
+            aws_sdk_sagemaker_geospatial.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource which does not exist.</p>
+            aws_sdk_sagemaker_geospatial.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_sagemaker_geospatial.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_sagemaker_geospatial.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

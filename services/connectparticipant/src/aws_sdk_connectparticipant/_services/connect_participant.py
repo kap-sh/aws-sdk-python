@@ -178,6 +178,13 @@ class ConnectParticipantClient:
         Args:
             session_id: <p>The <code>sessionId</code> provided in the <code>authenticationInitiated</code> event.</p>
             connection_token: <p>The authentication token associated with the participant's connection.</p>
+
+        Raises:
+            aws_sdk_connectparticipant.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_connectparticipant.errors.internal_server_exception.InternalServerException: <p>This exception occurs when there is an internal failure in the Amazon Connect service.</p>
+            aws_sdk_connectparticipant.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_connectparticipant.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by Amazon Connect.</p>
+            aws_sdk_connectparticipant.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -220,6 +227,15 @@ class ConnectParticipantClient:
             attachment_ids: <p>A list of unique identifiers for the attachments.</p>
             client_token: <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see <a href=\"https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/\">Making retries safe with idempotent APIs</a>.</p>
             connection_token: <p>The authentication token associated with the participant's connection.</p>
+
+        Raises:
+            aws_sdk_connectparticipant.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_connectparticipant.errors.conflict_exception.ConflictException: <p>The requested operation conflicts with the current state of a service resource associated with the request. </p>
+            aws_sdk_connectparticipant.errors.internal_server_exception.InternalServerException: <p>This exception occurs when there is an internal failure in the Amazon Connect service.</p>
+            aws_sdk_connectparticipant.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The number of attachments per contact exceeds the quota.</p>
+            aws_sdk_connectparticipant.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_connectparticipant.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by Amazon Connect.</p>
+            aws_sdk_connectparticipant.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -267,6 +283,13 @@ class ConnectParticipantClient:
             type: <p>Type of connection information required. If you need <code>CONNECTION_CREDENTIALS</code> along with marking participant as connected, pass <code>CONNECTION_CREDENTIALS</code> in <code>Type</code>.</p>
             participant_token: <p>This is a header parameter.</p> <p>The ParticipantToken as obtained from <a href=\"https://docs.aws.amazon.com/connect/latest/APIReference/API_StartChatContact.html\">StartChatContact</a> API response.</p>
             connect_participant: <p>Amazon Connect Participant is used to mark the participant as connected for customer participant in message streaming, as well as for agent or manager participant in non-streaming chats.</p>
+
+        Raises:
+            aws_sdk_connectparticipant.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_connectparticipant.errors.internal_server_exception.InternalServerException: <p>This exception occurs when there is an internal failure in the Amazon Connect service.</p>
+            aws_sdk_connectparticipant.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_connectparticipant.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by Amazon Connect.</p>
+            aws_sdk_connectparticipant.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -310,6 +333,14 @@ class ConnectParticipantClient:
         Args:
             view_token: <p>An encrypted token originating from the interactive message of a ShowView block operation. Represents the desired view.</p>
             connection_token: <p>The connection token.</p>
+
+        Raises:
+            aws_sdk_connectparticipant.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_connectparticipant.errors.internal_server_exception.InternalServerException: <p>This exception occurs when there is an internal failure in the Amazon Connect service.</p>
+            aws_sdk_connectparticipant.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource was not found.</p>
+            aws_sdk_connectparticipant.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_connectparticipant.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by Amazon Connect.</p>
+            aws_sdk_connectparticipant.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -352,6 +383,13 @@ class ConnectParticipantClient:
         Args:
             client_token: <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see <a href=\"https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/\">Making retries safe with idempotent APIs</a>.</p>
             connection_token: <p>The authentication token associated with the participant's connection.</p>
+
+        Raises:
+            aws_sdk_connectparticipant.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_connectparticipant.errors.internal_server_exception.InternalServerException: <p>This exception occurs when there is an internal failure in the Amazon Connect service.</p>
+            aws_sdk_connectparticipant.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_connectparticipant.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by Amazon Connect.</p>
+            aws_sdk_connectparticipant.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -399,6 +437,13 @@ class ConnectParticipantClient:
             attachment_id: <p>A unique identifier for the attachment.</p>
             connection_token: <p>The authentication token associated with the participant's connection.</p>
             url_expiry_in_seconds: <p>The expiration time of the URL in ISO timestamp. It's specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For example, 2019-11-08T02:41:28.172Z.</p>
+
+        Raises:
+            aws_sdk_connectparticipant.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_connectparticipant.errors.internal_server_exception.InternalServerException: <p>This exception occurs when there is an internal failure in the Amazon Connect service.</p>
+            aws_sdk_connectparticipant.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_connectparticipant.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by Amazon Connect.</p>
+            aws_sdk_connectparticipant.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -443,6 +488,13 @@ class ConnectParticipantClient:
             session_id: <p>The sessionId provided in the authenticationInitiated event.</p>
             redirect_uri: <p>The URL where the customer will be redirected after Amazon Cognito authorizes the user.</p>
             connection_token: <p>The authentication token associated with the participant's connection.</p>
+
+        Raises:
+            aws_sdk_connectparticipant.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_connectparticipant.errors.internal_server_exception.InternalServerException: <p>This exception occurs when there is an internal failure in the Amazon Connect service.</p>
+            aws_sdk_connectparticipant.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_connectparticipant.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by Amazon Connect.</p>
+            aws_sdk_connectparticipant.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -508,6 +560,13 @@ class ConnectParticipantClient:
             sort_order: <p>The sort order for the records. Default: DESCENDING.</p>
             start_position: <p>A filtering option for where to start.</p>
             connection_token: <p>The authentication token associated with the participant's connection.</p>
+
+        Raises:
+            aws_sdk_connectparticipant.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_connectparticipant.errors.internal_server_exception.InternalServerException: <p>This exception occurs when there is an internal failure in the Amazon Connect service.</p>
+            aws_sdk_connectparticipant.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_connectparticipant.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by Amazon Connect.</p>
+            aws_sdk_connectparticipant.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -567,6 +626,14 @@ class ConnectParticipantClient:
             content: <p>The content of the event to be sent (for example, message text). For content related to message receipts, this is supported in the form of a JSON string.</p> <p>Sample Content: \"{\\"messageId\\":\\"11111111-aaaa-bbbb-cccc-EXAMPLE01234\\"}\"</p>
             client_token: <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see <a href=\"https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/\">Making retries safe with idempotent APIs</a>.</p>
             connection_token: <p>The authentication token associated with the participant's connection.</p>
+
+        Raises:
+            aws_sdk_connectparticipant.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_connectparticipant.errors.conflict_exception.ConflictException: <p>The requested operation conflicts with the current state of a service resource associated with the request. </p>
+            aws_sdk_connectparticipant.errors.internal_server_exception.InternalServerException: <p>This exception occurs when there is an internal failure in the Amazon Connect service.</p>
+            aws_sdk_connectparticipant.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_connectparticipant.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by Amazon Connect.</p>
+            aws_sdk_connectparticipant.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -617,6 +684,13 @@ class ConnectParticipantClient:
             content: <p>The content of the message. </p> <ul> <li> <p>For <code>text/plain</code> and <code>text/markdown</code>, the Length Constraints are Minimum of 1, Maximum of 1024. </p> </li> <li> <p>For <code>application/json</code>, the Length Constraints are Minimum of 1, Maximum of 12000. </p> </li> <li> <p>For <code>application/vnd.amazonaws.connect.message.interactive.response</code>, the Length Constraints are Minimum of 1, Maximum of 12288.</p> </li> </ul>
             client_token: <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see <a href=\"https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/\">Making retries safe with idempotent APIs</a>.</p>
             connection_token: <p>The authentication token associated with the connection.</p>
+
+        Raises:
+            aws_sdk_connectparticipant.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_connectparticipant.errors.internal_server_exception.InternalServerException: <p>This exception occurs when there is an internal failure in the Amazon Connect service.</p>
+            aws_sdk_connectparticipant.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_connectparticipant.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by Amazon Connect.</p>
+            aws_sdk_connectparticipant.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -666,6 +740,14 @@ class ConnectParticipantClient:
             attachment_name: <p>A case-sensitive name of the attachment being uploaded.</p>
             client_token: <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see <a href=\"https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/\">Making retries safe with idempotent APIs</a>.</p>
             connection_token: <p>The authentication token associated with the participant's connection.</p>
+
+        Raises:
+            aws_sdk_connectparticipant.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_connectparticipant.errors.internal_server_exception.InternalServerException: <p>This exception occurs when there is an internal failure in the Amazon Connect service.</p>
+            aws_sdk_connectparticipant.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The number of attachments per contact exceeds the quota.</p>
+            aws_sdk_connectparticipant.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_connectparticipant.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by Amazon Connect.</p>
+            aws_sdk_connectparticipant.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(

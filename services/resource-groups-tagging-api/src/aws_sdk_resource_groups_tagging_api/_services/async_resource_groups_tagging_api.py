@@ -173,7 +173,15 @@ class AsyncResourceGroupsTaggingAPIClient:
         *,
         config_overrides: Optional[AsyncResourceGroupsTaggingAPIClientConfig] = None,
     ) -> "aws_sdk_resource_groups_tagging_api.types.describe_report_creation_output.DescribeReportCreationOutput":
-        """<p>Describes the status of the <code>StartReportCreation</code> operation. </p> <p>You can call this operation only from the organization's management account and from the us-east-1 Region.</p>"""
+        """<p>Describes the status of the <code>StartReportCreation</code> operation. </p> <p>You can call this operation only from the organization's management account and from the us-east-1 Region.</p>
+
+        Raises:
+            aws_sdk_resource_groups_tagging_api.errors.constraint_violation_exception.ConstraintViolationException: <p>The request failed because performing the operation would violate a constraint.</p> <p>Some of the reasons in the following list might not apply to this specific operation.</p> <ul> <li> <p>You must meet the prerequisites for using tag policies. For information, see <a href=\"https://docs.aws.amazon.com/tag-editor/latest/userguide/tag-policies-orgs.html#tag-policies-prereqs\">Prerequisites and permissions</a> in the <i>Tagging Amazon Web Services resources and Tag Editor</i> user guide. </p> </li> <li> <p>You must enable the tag policies service principal (<code>tagpolicies.tag.amazonaws.com</code>) to integrate with Organizations For information, see <a href=\"https://docs.aws.amazon.com/organizations/latest/APIReference/API_EnableAWSServiceAccess.html\">EnableAWSServiceAccess</a>.</p> </li> <li> <p>You must have a tag policy attached to the organization root, an OU, or an account.</p> </li> </ul>
+            aws_sdk_resource_groups_tagging_api.errors.internal_service_exception.InternalServiceException: <p>The request processing failed because of an unknown error, exception, or failure. You can retry the request.</p>
+            aws_sdk_resource_groups_tagging_api.errors.invalid_parameter_exception.InvalidParameterException: <p>The request failed because of one of the following reasons:</p> <ul> <li> <p>A required parameter is missing.</p> </li> <li> <p>A provided string parameter is malformed.</p> </li> <li> <p>An provided parameter value is out of range.</p> </li> <li> <p>The target ID is invalid, unsupported, or doesn't exist.</p> </li> <li> <p>You can't access the Amazon S3 bucket for report storage. For more information, see <a href=\"https://docs.aws.amazon.com/tag-editor/latest/userguide/tag-policies-orgs.html#bucket-policy\">Amazon S3 bucket policy for report storage</a> in the <i>Tagging Amazon Web Services resources and Tag Editor</i> user guide. </p> </li> <li> <p>The partition specified in an ARN parameter in the request doesn't match the partition where you invoked the operation. The partition is specified by the second field of the ARN.</p> </li> </ul>
+            aws_sdk_resource_groups_tagging_api.errors.throttled_exception.ThrottledException: <p>The request failed because it exceeded the allowed frequency of submitted requests.</p>
+            aws_sdk_resource_groups_tagging_api.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_resource_groups_tagging_api.types.describe_report_creation_input.DescribeReportCreationInput]",
@@ -236,6 +244,13 @@ class AsyncResourceGroupsTaggingAPIClient:
             group_by: <p>Specifies a list of attributes to group the counts of noncompliant resources by. If supplied, the counts are sorted by those attributes.</p>
             max_results: <p>Specifies the maximum number of results to be returned in each page. A query can return fewer than this maximum, even if there are more results still to return. You should always check the <code>PaginationToken</code> response value to see if there are more results. You can specify a minimum of 1 and a maximum value of 100.</p>
             pagination_token: <p>Specifies a <code>PaginationToken</code> response value from a previous request to indicate that you want the next page of results. Leave this parameter empty in your initial request.</p>
+
+        Raises:
+            aws_sdk_resource_groups_tagging_api.errors.constraint_violation_exception.ConstraintViolationException: <p>The request failed because performing the operation would violate a constraint.</p> <p>Some of the reasons in the following list might not apply to this specific operation.</p> <ul> <li> <p>You must meet the prerequisites for using tag policies. For information, see <a href=\"https://docs.aws.amazon.com/tag-editor/latest/userguide/tag-policies-orgs.html#tag-policies-prereqs\">Prerequisites and permissions</a> in the <i>Tagging Amazon Web Services resources and Tag Editor</i> user guide. </p> </li> <li> <p>You must enable the tag policies service principal (<code>tagpolicies.tag.amazonaws.com</code>) to integrate with Organizations For information, see <a href=\"https://docs.aws.amazon.com/organizations/latest/APIReference/API_EnableAWSServiceAccess.html\">EnableAWSServiceAccess</a>.</p> </li> <li> <p>You must have a tag policy attached to the organization root, an OU, or an account.</p> </li> </ul>
+            aws_sdk_resource_groups_tagging_api.errors.internal_service_exception.InternalServiceException: <p>The request processing failed because of an unknown error, exception, or failure. You can retry the request.</p>
+            aws_sdk_resource_groups_tagging_api.errors.invalid_parameter_exception.InvalidParameterException: <p>The request failed because of one of the following reasons:</p> <ul> <li> <p>A required parameter is missing.</p> </li> <li> <p>A provided string parameter is malformed.</p> </li> <li> <p>An provided parameter value is out of range.</p> </li> <li> <p>The target ID is invalid, unsupported, or doesn't exist.</p> </li> <li> <p>You can't access the Amazon S3 bucket for report storage. For more information, see <a href=\"https://docs.aws.amazon.com/tag-editor/latest/userguide/tag-policies-orgs.html#bucket-policy\">Amazon S3 bucket policy for report storage</a> in the <i>Tagging Amazon Web Services resources and Tag Editor</i> user guide. </p> </li> <li> <p>The partition specified in an ARN parameter in the request doesn't match the partition where you invoked the operation. The partition is specified by the second field of the ARN.</p> </li> </ul>
+            aws_sdk_resource_groups_tagging_api.errors.throttled_exception.ThrottledException: <p>The request failed because it exceeded the allowed frequency of submitted requests.</p>
+            aws_sdk_resource_groups_tagging_api.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -362,6 +377,13 @@ class AsyncResourceGroupsTaggingAPIClient:
             include_compliance_details: <p>Specifies whether to include details regarding the compliance with the effective tag policy. Set this to <code>true</code> to determine whether resources are compliant with the tag policy and to get details.</p>
             exclude_compliant_resources: <p>Specifies whether to exclude resources that are compliant with the tag policy. Set this to <code>true</code> if you are interested in retrieving information on noncompliant resources only.</p> <p>You can use this parameter only if the <code>IncludeComplianceDetails</code> parameter is also set to <code>true</code>.</p>
             resource_arn_list: <p>Specifies a list of ARNs of resources for which you want to retrieve tag data.</p> <p>You can't specify both this parameter and the <code>ResourceTypeFilters</code> parameter in the same request. If you do, you get an <code>Invalid Parameter</code> exception.</p> <p>You can't specify both this parameter and the <code>TagFilters</code> parameter in the same request. If you do, you get an <code>Invalid Parameter</code> exception.</p> <p>You can't specify both this parameter and any of the pagination parameters (<code>ResourcesPerPage</code>, <code>TagsPerPage</code>, <code>PaginationToken</code>) in the same request. If you do, you get an <code>Invalid Parameter</code> exception.</p> <p>If a resource specified by this parameter doesn't exist, it doesn't generate an error; it simply isn't included in the response.</p> <p>An ARN (Amazon Resource Name) uniquely identifies a resource. For more information, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
+
+        Raises:
+            aws_sdk_resource_groups_tagging_api.errors.internal_service_exception.InternalServiceException: <p>The request processing failed because of an unknown error, exception, or failure. You can retry the request.</p>
+            aws_sdk_resource_groups_tagging_api.errors.invalid_parameter_exception.InvalidParameterException: <p>The request failed because of one of the following reasons:</p> <ul> <li> <p>A required parameter is missing.</p> </li> <li> <p>A provided string parameter is malformed.</p> </li> <li> <p>An provided parameter value is out of range.</p> </li> <li> <p>The target ID is invalid, unsupported, or doesn't exist.</p> </li> <li> <p>You can't access the Amazon S3 bucket for report storage. For more information, see <a href=\"https://docs.aws.amazon.com/tag-editor/latest/userguide/tag-policies-orgs.html#bucket-policy\">Amazon S3 bucket policy for report storage</a> in the <i>Tagging Amazon Web Services resources and Tag Editor</i> user guide. </p> </li> <li> <p>The partition specified in an ARN parameter in the request doesn't match the partition where you invoked the operation. The partition is specified by the second field of the ARN.</p> </li> </ul>
+            aws_sdk_resource_groups_tagging_api.errors.pagination_token_expired_exception.PaginationTokenExpiredException: <p>The request failed because the specified <code>PaginationToken</code> has expired. A <code>PaginationToken</code> is valid for a maximum of 15 minutes.</p>
+            aws_sdk_resource_groups_tagging_api.errors.throttled_exception.ThrottledException: <p>The request failed because it exceeded the allowed frequency of submitted requests.</p>
+            aws_sdk_resource_groups_tagging_api.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -468,6 +490,13 @@ class AsyncResourceGroupsTaggingAPIClient:
 
         Args:
             pagination_token: <p>Specifies a <code>PaginationToken</code> response value from a previous request to indicate that you want the next page of results. Leave this parameter empty in your initial request.</p>
+
+        Raises:
+            aws_sdk_resource_groups_tagging_api.errors.internal_service_exception.InternalServiceException: <p>The request processing failed because of an unknown error, exception, or failure. You can retry the request.</p>
+            aws_sdk_resource_groups_tagging_api.errors.invalid_parameter_exception.InvalidParameterException: <p>The request failed because of one of the following reasons:</p> <ul> <li> <p>A required parameter is missing.</p> </li> <li> <p>A provided string parameter is malformed.</p> </li> <li> <p>An provided parameter value is out of range.</p> </li> <li> <p>The target ID is invalid, unsupported, or doesn't exist.</p> </li> <li> <p>You can't access the Amazon S3 bucket for report storage. For more information, see <a href=\"https://docs.aws.amazon.com/tag-editor/latest/userguide/tag-policies-orgs.html#bucket-policy\">Amazon S3 bucket policy for report storage</a> in the <i>Tagging Amazon Web Services resources and Tag Editor</i> user guide. </p> </li> <li> <p>The partition specified in an ARN parameter in the request doesn't match the partition where you invoked the operation. The partition is specified by the second field of the ARN.</p> </li> </ul>
+            aws_sdk_resource_groups_tagging_api.errors.pagination_token_expired_exception.PaginationTokenExpiredException: <p>The request failed because the specified <code>PaginationToken</code> has expired. A <code>PaginationToken</code> is valid for a maximum of 15 minutes.</p>
+            aws_sdk_resource_groups_tagging_api.errors.throttled_exception.ThrottledException: <p>The request failed because it exceeded the allowed frequency of submitted requests.</p>
+            aws_sdk_resource_groups_tagging_api.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -532,6 +561,13 @@ class AsyncResourceGroupsTaggingAPIClient:
         Args:
             pagination_token: <p>Specifies a <code>PaginationToken</code> response value from a previous request to indicate that you want the next page of results. Leave this parameter empty in your initial request.</p>
             key: <p>Specifies the tag key for which you want to list all existing values that are currently used in the specified Amazon Web Services Region for the calling account.</p>
+
+        Raises:
+            aws_sdk_resource_groups_tagging_api.errors.internal_service_exception.InternalServiceException: <p>The request processing failed because of an unknown error, exception, or failure. You can retry the request.</p>
+            aws_sdk_resource_groups_tagging_api.errors.invalid_parameter_exception.InvalidParameterException: <p>The request failed because of one of the following reasons:</p> <ul> <li> <p>A required parameter is missing.</p> </li> <li> <p>A provided string parameter is malformed.</p> </li> <li> <p>An provided parameter value is out of range.</p> </li> <li> <p>The target ID is invalid, unsupported, or doesn't exist.</p> </li> <li> <p>You can't access the Amazon S3 bucket for report storage. For more information, see <a href=\"https://docs.aws.amazon.com/tag-editor/latest/userguide/tag-policies-orgs.html#bucket-policy\">Amazon S3 bucket policy for report storage</a> in the <i>Tagging Amazon Web Services resources and Tag Editor</i> user guide. </p> </li> <li> <p>The partition specified in an ARN parameter in the request doesn't match the partition where you invoked the operation. The partition is specified by the second field of the ARN.</p> </li> </ul>
+            aws_sdk_resource_groups_tagging_api.errors.pagination_token_expired_exception.PaginationTokenExpiredException: <p>The request failed because the specified <code>PaginationToken</code> has expired. A <code>PaginationToken</code> is valid for a maximum of 15 minutes.</p>
+            aws_sdk_resource_groups_tagging_api.errors.throttled_exception.ThrottledException: <p>The request failed because it exceeded the allowed frequency of submitted requests.</p>
+            aws_sdk_resource_groups_tagging_api.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -601,6 +637,13 @@ class AsyncResourceGroupsTaggingAPIClient:
         Args:
             next_token: <p>A token for requesting another page of required tags if the <code>NextToken</code> response element indicates that more required tags are available. Use the value of the returned <code>NextToken</code> element in your request until the token comes back as null. Pass null if this is the first call.</p>
             max_results: <p>The maximum number of required tags.</p>
+
+        Raises:
+            aws_sdk_resource_groups_tagging_api.errors.internal_service_exception.InternalServiceException: <p>The request processing failed because of an unknown error, exception, or failure. You can retry the request.</p>
+            aws_sdk_resource_groups_tagging_api.errors.invalid_parameter_exception.InvalidParameterException: <p>The request failed because of one of the following reasons:</p> <ul> <li> <p>A required parameter is missing.</p> </li> <li> <p>A provided string parameter is malformed.</p> </li> <li> <p>An provided parameter value is out of range.</p> </li> <li> <p>The target ID is invalid, unsupported, or doesn't exist.</p> </li> <li> <p>You can't access the Amazon S3 bucket for report storage. For more information, see <a href=\"https://docs.aws.amazon.com/tag-editor/latest/userguide/tag-policies-orgs.html#bucket-policy\">Amazon S3 bucket policy for report storage</a> in the <i>Tagging Amazon Web Services resources and Tag Editor</i> user guide. </p> </li> <li> <p>The partition specified in an ARN parameter in the request doesn't match the partition where you invoked the operation. The partition is specified by the second field of the ARN.</p> </li> </ul>
+            aws_sdk_resource_groups_tagging_api.errors.pagination_token_expired_exception.PaginationTokenExpiredException: <p>The request failed because the specified <code>PaginationToken</code> has expired. A <code>PaginationToken</code> is valid for a maximum of 15 minutes.</p>
+            aws_sdk_resource_groups_tagging_api.errors.throttled_exception.ThrottledException: <p>The request failed because it exceeded the allowed frequency of submitted requests.</p>
+            aws_sdk_resource_groups_tagging_api.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -667,6 +710,14 @@ class AsyncResourceGroupsTaggingAPIClient:
 
         Args:
             s3_bucket: <p>The name of the Amazon S3 bucket where the report will be stored; for example:</p> <p> <code>amzn-s3-demo-bucket</code> </p> <p>For more information on S3 bucket requirements, including an example bucket policy, see the example Amazon S3 bucket policy on this page.</p>
+
+        Raises:
+            aws_sdk_resource_groups_tagging_api.errors.concurrent_modification_exception.ConcurrentModificationException: <p>The request failed because the target of the operation is currently being modified by a different request. Try again later.</p>
+            aws_sdk_resource_groups_tagging_api.errors.constraint_violation_exception.ConstraintViolationException: <p>The request failed because performing the operation would violate a constraint.</p> <p>Some of the reasons in the following list might not apply to this specific operation.</p> <ul> <li> <p>You must meet the prerequisites for using tag policies. For information, see <a href=\"https://docs.aws.amazon.com/tag-editor/latest/userguide/tag-policies-orgs.html#tag-policies-prereqs\">Prerequisites and permissions</a> in the <i>Tagging Amazon Web Services resources and Tag Editor</i> user guide. </p> </li> <li> <p>You must enable the tag policies service principal (<code>tagpolicies.tag.amazonaws.com</code>) to integrate with Organizations For information, see <a href=\"https://docs.aws.amazon.com/organizations/latest/APIReference/API_EnableAWSServiceAccess.html\">EnableAWSServiceAccess</a>.</p> </li> <li> <p>You must have a tag policy attached to the organization root, an OU, or an account.</p> </li> </ul>
+            aws_sdk_resource_groups_tagging_api.errors.internal_service_exception.InternalServiceException: <p>The request processing failed because of an unknown error, exception, or failure. You can retry the request.</p>
+            aws_sdk_resource_groups_tagging_api.errors.invalid_parameter_exception.InvalidParameterException: <p>The request failed because of one of the following reasons:</p> <ul> <li> <p>A required parameter is missing.</p> </li> <li> <p>A provided string parameter is malformed.</p> </li> <li> <p>An provided parameter value is out of range.</p> </li> <li> <p>The target ID is invalid, unsupported, or doesn't exist.</p> </li> <li> <p>You can't access the Amazon S3 bucket for report storage. For more information, see <a href=\"https://docs.aws.amazon.com/tag-editor/latest/userguide/tag-policies-orgs.html#bucket-policy\">Amazon S3 bucket policy for report storage</a> in the <i>Tagging Amazon Web Services resources and Tag Editor</i> user guide. </p> </li> <li> <p>The partition specified in an ARN parameter in the request doesn't match the partition where you invoked the operation. The partition is specified by the second field of the ARN.</p> </li> </ul>
+            aws_sdk_resource_groups_tagging_api.errors.throttled_exception.ThrottledException: <p>The request failed because it exceeded the allowed frequency of submitted requests.</p>
+            aws_sdk_resource_groups_tagging_api.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -707,6 +758,12 @@ class AsyncResourceGroupsTaggingAPIClient:
         Args:
             resource_arn_list: <p>Specifies the list of ARNs of the resources that you want to apply tags to.</p> <p>An ARN (Amazon Resource Name) uniquely identifies a resource. For more information, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
             tags: <p>Specifies a list of tags that you want to add to the specified resources. A tag consists of a key and a value that you define.</p>
+
+        Raises:
+            aws_sdk_resource_groups_tagging_api.errors.internal_service_exception.InternalServiceException: <p>The request processing failed because of an unknown error, exception, or failure. You can retry the request.</p>
+            aws_sdk_resource_groups_tagging_api.errors.invalid_parameter_exception.InvalidParameterException: <p>The request failed because of one of the following reasons:</p> <ul> <li> <p>A required parameter is missing.</p> </li> <li> <p>A provided string parameter is malformed.</p> </li> <li> <p>An provided parameter value is out of range.</p> </li> <li> <p>The target ID is invalid, unsupported, or doesn't exist.</p> </li> <li> <p>You can't access the Amazon S3 bucket for report storage. For more information, see <a href=\"https://docs.aws.amazon.com/tag-editor/latest/userguide/tag-policies-orgs.html#bucket-policy\">Amazon S3 bucket policy for report storage</a> in the <i>Tagging Amazon Web Services resources and Tag Editor</i> user guide. </p> </li> <li> <p>The partition specified in an ARN parameter in the request doesn't match the partition where you invoked the operation. The partition is specified by the second field of the ARN.</p> </li> </ul>
+            aws_sdk_resource_groups_tagging_api.errors.throttled_exception.ThrottledException: <p>The request failed because it exceeded the allowed frequency of submitted requests.</p>
+            aws_sdk_resource_groups_tagging_api.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -748,6 +805,12 @@ class AsyncResourceGroupsTaggingAPIClient:
         Args:
             resource_arn_list: <p>Specifies a list of ARNs of the resources that you want to remove tags from.</p> <p>An ARN (Amazon Resource Name) uniquely identifies a resource. For more information, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
             tag_keys: <p>Specifies a list of tag keys that you want to remove from the specified resources.</p>
+
+        Raises:
+            aws_sdk_resource_groups_tagging_api.errors.internal_service_exception.InternalServiceException: <p>The request processing failed because of an unknown error, exception, or failure. You can retry the request.</p>
+            aws_sdk_resource_groups_tagging_api.errors.invalid_parameter_exception.InvalidParameterException: <p>The request failed because of one of the following reasons:</p> <ul> <li> <p>A required parameter is missing.</p> </li> <li> <p>A provided string parameter is malformed.</p> </li> <li> <p>An provided parameter value is out of range.</p> </li> <li> <p>The target ID is invalid, unsupported, or doesn't exist.</p> </li> <li> <p>You can't access the Amazon S3 bucket for report storage. For more information, see <a href=\"https://docs.aws.amazon.com/tag-editor/latest/userguide/tag-policies-orgs.html#bucket-policy\">Amazon S3 bucket policy for report storage</a> in the <i>Tagging Amazon Web Services resources and Tag Editor</i> user guide. </p> </li> <li> <p>The partition specified in an ARN parameter in the request doesn't match the partition where you invoked the operation. The partition is specified by the second field of the ARN.</p> </li> </ul>
+            aws_sdk_resource_groups_tagging_api.errors.throttled_exception.ThrottledException: <p>The request failed because it exceeded the allowed frequency of submitted requests.</p>
+            aws_sdk_resource_groups_tagging_api.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

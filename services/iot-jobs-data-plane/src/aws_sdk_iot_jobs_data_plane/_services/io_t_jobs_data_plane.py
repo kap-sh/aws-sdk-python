@@ -167,6 +167,15 @@ class IoTJobsDataPlaneClient:
             thing_name: <p>The thing name associated with the device the job execution is running on.</p>
             include_job_document: <p>Optional. Unless set to false, the response contains the job document. The default is true.</p>
             execution_number: <p>Optional. A number that identifies a particular job execution on a particular device. If not specified, the latest job execution is returned.</p>
+
+        Raises:
+            aws_sdk_iot_jobs_data_plane.errors.certificate_validation_exception.CertificateValidationException: <p>The certificate is invalid.</p>
+            aws_sdk_iot_jobs_data_plane.errors.invalid_request_exception.InvalidRequestException: <p>The contents of the request were invalid.</p>
+            aws_sdk_iot_jobs_data_plane.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot_jobs_data_plane.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot_jobs_data_plane.errors.terminal_state_exception.TerminalStateException: <p>The job is in a terminal state.</p>
+            aws_sdk_iot_jobs_data_plane.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot_jobs_data_plane.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -209,6 +218,14 @@ class IoTJobsDataPlaneClient:
 
         Args:
             thing_name: <p>The name of the thing that is executing the job.</p>
+
+        Raises:
+            aws_sdk_iot_jobs_data_plane.errors.certificate_validation_exception.CertificateValidationException: <p>The certificate is invalid.</p>
+            aws_sdk_iot_jobs_data_plane.errors.invalid_request_exception.InvalidRequestException: <p>The contents of the request were invalid.</p>
+            aws_sdk_iot_jobs_data_plane.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot_jobs_data_plane.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot_jobs_data_plane.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot_jobs_data_plane.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -260,6 +277,15 @@ class IoTJobsDataPlaneClient:
             parameters: <p>A list of parameters that are required by the <code>StartCommandExecution</code> API when performing the command on a device.</p>
             execution_timeout_seconds: <p>Specifies the amount of time in second the device has to finish the command execution. A timer is started as soon as the command execution is created. If the command execution status is not set to another terminal state before the timer expires, it will automatically update to <code>TIMED_OUT</code>.</p>
             client_token: <p>The client token is used to implement idempotency. It ensures that the request completes no more than one time. If you retry a request with the same token and the same parameters, the request will complete successfully. However, if you retry the request using the same token but different parameters, an HTTP 409 conflict occurs. If you omit this value, Amazon Web Services SDKs will automatically generate a unique client request.</p>
+
+        Raises:
+            aws_sdk_iot_jobs_data_plane.errors.conflict_exception.ConflictException: <p>A conflict has occurred when performing the API request.</p>
+            aws_sdk_iot_jobs_data_plane.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred when performing the API request.</p>
+            aws_sdk_iot_jobs_data_plane.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot_jobs_data_plane.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The service quota has been exceeded for this request.</p>
+            aws_sdk_iot_jobs_data_plane.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot_jobs_data_plane.errors.validation_exception.ValidationException: <p>A validation error occurred when performing the API request.</p>
+            aws_sdk_iot_jobs_data_plane.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -312,6 +338,14 @@ class IoTJobsDataPlaneClient:
             thing_name: <p>The name of the thing associated with the device.</p>
             status_details: <p>A collection of name/value pairs that describe the status of the job execution. If not specified, the statusDetails are unchanged.</p> <p>The maximum length of the value in the name/value pair is 1,024 characters.</p>
             step_timeout_in_minutes: <p>Specifies the amount of time this device has to finish execution of this job. If the job execution status is not set to a terminal state before this timer expires, or before the timer is reset (by calling <code>UpdateJobExecution</code>, setting the status to <code>IN_PROGRESS</code>, and specifying a new timeout value in field <code>stepTimeoutInMinutes</code>) the job execution status will be automatically set to <code>TIMED_OUT</code>. Note that setting the step timeout has no effect on the in progress timeout that may have been specified when the job was created (<code>CreateJob</code> using field <code>timeoutConfig</code>).</p> <p>Valid values for this parameter range from 1 to 10080 (1 minute to 7 days).</p>
+
+        Raises:
+            aws_sdk_iot_jobs_data_plane.errors.certificate_validation_exception.CertificateValidationException: <p>The certificate is invalid.</p>
+            aws_sdk_iot_jobs_data_plane.errors.invalid_request_exception.InvalidRequestException: <p>The contents of the request were invalid.</p>
+            aws_sdk_iot_jobs_data_plane.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot_jobs_data_plane.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot_jobs_data_plane.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot_jobs_data_plane.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -381,6 +415,15 @@ class IoTJobsDataPlaneClient:
             include_job_execution_state: <p>Optional. When included and set to true, the response contains the JobExecutionState data. The default is false.</p>
             include_job_document: <p>Optional. When set to true, the response contains the job document. The default is false.</p>
             execution_number: <p>Optional. A number that identifies a particular job execution on a particular device.</p>
+
+        Raises:
+            aws_sdk_iot_jobs_data_plane.errors.certificate_validation_exception.CertificateValidationException: <p>The certificate is invalid.</p>
+            aws_sdk_iot_jobs_data_plane.errors.invalid_request_exception.InvalidRequestException: <p>The contents of the request were invalid.</p>
+            aws_sdk_iot_jobs_data_plane.errors.invalid_state_transition_exception.InvalidStateTransitionException: <p>An update attempted to change the job execution to a state that is invalid because of the job execution's current state (for example, an attempt to change a request in state SUCCESS to state IN_PROGRESS). In this case, the body of the error message also contains the executionState field.</p>
+            aws_sdk_iot_jobs_data_plane.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot_jobs_data_plane.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot_jobs_data_plane.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot_jobs_data_plane.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(

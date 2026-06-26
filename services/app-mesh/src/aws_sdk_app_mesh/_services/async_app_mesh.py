@@ -155,6 +155,15 @@ class AsyncAppMeshClient:
             resource_arn: <p>The Amazon Resource Name (ARN) that identifies the resource to list the tags for.</p>
             next_token: <p>The <code>nextToken</code> value returned from a previous paginated <code>ListTagsForResource</code> request where <code>limit</code> was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the <code>nextToken</code> value.</p>
             limit: <p>The maximum number of tag results returned by <code>ListTagsForResource</code> in paginated output. When this parameter is used, <code>ListTagsForResource</code> returns only <code>limit</code> results in a single page along with a <code>nextToken</code> response element. You can see the remaining results of the initial request by sending another <code>ListTagsForResource</code> request with the returned <code>nextToken</code> value. This value can be between 1 and 100. If you don't use this parameter, <code>ListTagsForResource</code> returns up to 100 results and a <code>nextToken</code> value if applicable.</p>
+
+        Raises:
+            aws_sdk_app_mesh.errors.bad_request_exception.BadRequestException: <p>The request syntax was malformed. Check your request syntax and try again.</p>
+            aws_sdk_app_mesh.errors.forbidden_exception.ForbiddenException: <p>You don't have permissions to perform this action.</p>
+            aws_sdk_app_mesh.errors.internal_server_error_exception.InternalServerErrorException: <p>The request processing has failed because of an unknown error, exception, or failure.</p>
+            aws_sdk_app_mesh.errors.not_found_exception.NotFoundException: <p>The specified resource doesn't exist. Check your request syntax and try again.</p>
+            aws_sdk_app_mesh.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request has failed due to a temporary failure of the service.</p>
+            aws_sdk_app_mesh.errors.too_many_requests_exception.TooManyRequestsException: <p>The maximum request rate permitted by the App Mesh APIs has been exceeded for your account. For best results, use an increasing or variable sleep interval between requests.</p>
+            aws_sdk_app_mesh.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -222,6 +231,16 @@ class AsyncAppMeshClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource to add tags to.</p>
             tags: <p>The tags to add to the resource. A tag is an array of key-value pairs. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.</p>
+
+        Raises:
+            aws_sdk_app_mesh.errors.bad_request_exception.BadRequestException: <p>The request syntax was malformed. Check your request syntax and try again.</p>
+            aws_sdk_app_mesh.errors.forbidden_exception.ForbiddenException: <p>You don't have permissions to perform this action.</p>
+            aws_sdk_app_mesh.errors.internal_server_error_exception.InternalServerErrorException: <p>The request processing has failed because of an unknown error, exception, or failure.</p>
+            aws_sdk_app_mesh.errors.not_found_exception.NotFoundException: <p>The specified resource doesn't exist. Check your request syntax and try again.</p>
+            aws_sdk_app_mesh.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request has failed due to a temporary failure of the service.</p>
+            aws_sdk_app_mesh.errors.too_many_requests_exception.TooManyRequestsException: <p>The maximum request rate permitted by the App Mesh APIs has been exceeded for your account. For best results, use an increasing or variable sleep interval between requests.</p>
+            aws_sdk_app_mesh.errors.too_many_tags_exception.TooManyTagsException: <p>The request exceeds the maximum allowed number of tags allowed per resource. The current limit is 50 user tags per resource. You must reduce the number of tags in the request. None of the tags in this request were applied.</p>
+            aws_sdk_app_mesh.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -263,6 +282,15 @@ class AsyncAppMeshClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource to delete tags from.</p>
             tag_keys: <p>The keys of the tags to be removed.</p>
+
+        Raises:
+            aws_sdk_app_mesh.errors.bad_request_exception.BadRequestException: <p>The request syntax was malformed. Check your request syntax and try again.</p>
+            aws_sdk_app_mesh.errors.forbidden_exception.ForbiddenException: <p>You don't have permissions to perform this action.</p>
+            aws_sdk_app_mesh.errors.internal_server_error_exception.InternalServerErrorException: <p>The request processing has failed because of an unknown error, exception, or failure.</p>
+            aws_sdk_app_mesh.errors.not_found_exception.NotFoundException: <p>The specified resource doesn't exist. Check your request syntax and try again.</p>
+            aws_sdk_app_mesh.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request has failed due to a temporary failure of the service.</p>
+            aws_sdk_app_mesh.errors.too_many_requests_exception.TooManyRequestsException: <p>The maximum request rate permitted by the App Mesh APIs has been exceeded for your account. For best results, use an increasing or variable sleep interval between requests.</p>
+            aws_sdk_app_mesh.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

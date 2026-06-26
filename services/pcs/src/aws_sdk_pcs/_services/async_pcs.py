@@ -149,6 +149,10 @@ class AsyncPCSClient:
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource for which to list tags.</p>
+
+        Raises:
+            aws_sdk_pcs.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found. The cluster, node group, or queue you're attempting to get, update, list, or delete doesn't exist.</p> <p> <u>Examples</u> </p>
+            aws_sdk_pcs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -189,6 +193,11 @@ class AsyncPCSClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource.</p>
             tags: <p>1 or more tags added to the resource. Each tag consists of a tag key and tag value. The tag value is optional and can be an empty string.</p>
+
+        Raises:
+            aws_sdk_pcs.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found. The cluster, node group, or queue you're attempting to get, update, list, or delete doesn't exist.</p> <p> <u>Examples</u> </p>
+            aws_sdk_pcs.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You exceeded your service quota. Service quotas, also referred to as limits, are the maximum number of service resources or operations for your Amazon Web Services account. To learn how to increase your service quota, see <a href=\"https://docs.aws.amazon.com/servicequotas/latest/userguide/request-quota-increase.html\">Requesting a quota increase</a> in the <i>Service Quotas User Guide</i> </p> <p> <u>Examples</u> </p> <ul> <li> <p>The max number of clusters or queues has been reached for the account.</p> </li> <li> <p>The max number of compute node groups has been reached for the associated cluster.</p> </li> <li> <p>The total of <code>maxInstances</code> across all compute node groups has been reached for associated cluster.</p> </li> </ul>
+            aws_sdk_pcs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -230,6 +239,10 @@ class AsyncPCSClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource.</p>
             tag_keys: <p>1 or more tag keys to remove from the resource. Specify only tag keys and not tag values.</p>
+
+        Raises:
+            aws_sdk_pcs.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found. The cluster, node group, or queue you're attempting to get, update, list, or delete doesn't exist.</p> <p> <u>Examples</u> </p>
+            aws_sdk_pcs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

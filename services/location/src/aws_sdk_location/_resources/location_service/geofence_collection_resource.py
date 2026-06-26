@@ -92,6 +92,15 @@ class GeofenceCollectionResource:
             description: <p>An optional description for the geofence collection.</p>
             tags: <p>Applies one or more tags to the geofence collection. A tag is a key-value pair helps manage, identify, search, and filter your resources by labelling them.</p> <p>Format: <code>\"key\" : \"value\"</code> </p> <p>Restrictions:</p> <ul> <li> <p>Maximum 50 tags per resource</p> </li> <li> <p>Each resource tag must be unique with a maximum of one value.</p> </li> <li> <p>Maximum key length: 128 Unicode characters in UTF-8</p> </li> <li> <p>Maximum value length: 256 Unicode characters in UTF-8</p> </li> <li> <p>Can use alphanumeric characters (A–Z, a–z, 0–9), and the following characters: + - = . _ : / @. </p> </li> <li> <p>Cannot use \"aws:\" as a prefix for a key.</p> </li> </ul>
             kms_key_id: <p>A key identifier for an <a href=\"https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html\">Amazon Web Services KMS customer managed key</a>. Enter a key ID, key ARN, alias name, or alias ARN. </p>
+
+        Raises:
+            aws_sdk_location.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because of insufficient access or permissions. Check with an administrator to verify your permissions.</p>
+            aws_sdk_location.errors.conflict_exception.ConflictException: <p>The request was unsuccessful because of a conflict.</p>
+            aws_sdk_location.errors.internal_server_exception.InternalServerException: <p>The request has failed to process because of an unknown server error, exception, or failure.</p>
+            aws_sdk_location.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The operation was denied because the request would exceed the maximum <a href=\"https://docs.aws.amazon.com/location/previous/developerguide/location-quotas.html\">quota</a> set for Amazon Location Service.</p>
+            aws_sdk_location.errors.throttling_exception.ThrottlingException: <p>The request was denied because of request throttling.</p>
+            aws_sdk_location.errors.validation_exception.ValidationException: <p>The input failed to meet the constraints specified by the AWS service. </p>
+            aws_sdk_location.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -139,6 +148,14 @@ class GeofenceCollectionResource:
 
         Args:
             collection_name: <p>The name of the geofence collection.</p>
+
+        Raises:
+            aws_sdk_location.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because of insufficient access or permissions. Check with an administrator to verify your permissions.</p>
+            aws_sdk_location.errors.internal_server_exception.InternalServerException: <p>The request has failed to process because of an unknown server error, exception, or failure.</p>
+            aws_sdk_location.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource that you've entered was not found in your AWS account.</p>
+            aws_sdk_location.errors.throttling_exception.ThrottlingException: <p>The request was denied because of request throttling.</p>
+            aws_sdk_location.errors.validation_exception.ValidationException: <p>The input failed to meet the constraints specified by the AWS service. </p>
+            aws_sdk_location.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -186,6 +203,14 @@ class GeofenceCollectionResource:
             pricing_plan: <p>No longer used. If included, the only allowed value is <code>RequestBasedUsage</code>.</p>
             pricing_plan_data_source: <p>This parameter is no longer used.</p>
             description: <p>Updates the description for the geofence collection.</p>
+
+        Raises:
+            aws_sdk_location.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because of insufficient access or permissions. Check with an administrator to verify your permissions.</p>
+            aws_sdk_location.errors.internal_server_exception.InternalServerException: <p>The request has failed to process because of an unknown server error, exception, or failure.</p>
+            aws_sdk_location.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource that you've entered was not found in your AWS account.</p>
+            aws_sdk_location.errors.throttling_exception.ThrottlingException: <p>The request was denied because of request throttling.</p>
+            aws_sdk_location.errors.validation_exception.ValidationException: <p>The input failed to meet the constraints specified by the AWS service. </p>
+            aws_sdk_location.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -229,6 +254,14 @@ class GeofenceCollectionResource:
 
         Args:
             collection_name: <p>The name of the geofence collection to be deleted.</p>
+
+        Raises:
+            aws_sdk_location.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because of insufficient access or permissions. Check with an administrator to verify your permissions.</p>
+            aws_sdk_location.errors.internal_server_exception.InternalServerException: <p>The request has failed to process because of an unknown server error, exception, or failure.</p>
+            aws_sdk_location.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource that you've entered was not found in your AWS account.</p>
+            aws_sdk_location.errors.throttling_exception.ThrottlingException: <p>The request was denied because of request throttling.</p>
+            aws_sdk_location.errors.validation_exception.ValidationException: <p>The input failed to meet the constraints specified by the AWS service. </p>
+            aws_sdk_location.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -268,6 +301,13 @@ class GeofenceCollectionResource:
         Args:
             max_results: <p>An optional limit for the number of resources returned in a single call. </p> <p>Default value: <code>100</code> </p>
             next_token: <p>The pagination token specifying which page of results to return in the response. If no token is provided, the default page is the first page. </p> <p>Default value: <code>null</code> </p>
+
+        Raises:
+            aws_sdk_location.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because of insufficient access or permissions. Check with an administrator to verify your permissions.</p>
+            aws_sdk_location.errors.internal_server_exception.InternalServerException: <p>The request has failed to process because of an unknown server error, exception, or failure.</p>
+            aws_sdk_location.errors.throttling_exception.ThrottlingException: <p>The request was denied because of request throttling.</p>
+            aws_sdk_location.errors.validation_exception.ValidationException: <p>The input failed to meet the constraints specified by the AWS service. </p>
+            aws_sdk_location.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -310,6 +350,14 @@ class GeofenceCollectionResource:
         Args:
             collection_name: <p>The geofence collection storing the geofences to be deleted.</p>
             geofence_ids: <p>The batch of geofences to be deleted.</p>
+
+        Raises:
+            aws_sdk_location.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because of insufficient access or permissions. Check with an administrator to verify your permissions.</p>
+            aws_sdk_location.errors.internal_server_exception.InternalServerException: <p>The request has failed to process because of an unknown server error, exception, or failure.</p>
+            aws_sdk_location.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource that you've entered was not found in your AWS account.</p>
+            aws_sdk_location.errors.throttling_exception.ThrottlingException: <p>The request was denied because of request throttling.</p>
+            aws_sdk_location.errors.validation_exception.ValidationException: <p>The input failed to meet the constraints specified by the AWS service. </p>
+            aws_sdk_location.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -350,6 +398,14 @@ class GeofenceCollectionResource:
         Args:
             collection_name: <p>The geofence collection used in evaluating the position of devices against its geofences.</p>
             device_position_updates: <p>Contains device details for each device to be evaluated against the given geofence collection.</p>
+
+        Raises:
+            aws_sdk_location.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because of insufficient access or permissions. Check with an administrator to verify your permissions.</p>
+            aws_sdk_location.errors.internal_server_exception.InternalServerException: <p>The request has failed to process because of an unknown server error, exception, or failure.</p>
+            aws_sdk_location.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource that you've entered was not found in your AWS account.</p>
+            aws_sdk_location.errors.throttling_exception.ThrottlingException: <p>The request was denied because of request throttling.</p>
+            aws_sdk_location.errors.validation_exception.ValidationException: <p>The input failed to meet the constraints specified by the AWS service. </p>
+            aws_sdk_location.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -390,6 +446,14 @@ class GeofenceCollectionResource:
         Args:
             collection_name: <p>The geofence collection storing the geofences.</p>
             entries: <p>The batch of geofences to be stored in a geofence collection.</p>
+
+        Raises:
+            aws_sdk_location.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because of insufficient access or permissions. Check with an administrator to verify your permissions.</p>
+            aws_sdk_location.errors.internal_server_exception.InternalServerException: <p>The request has failed to process because of an unknown server error, exception, or failure.</p>
+            aws_sdk_location.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource that you've entered was not found in your AWS account.</p>
+            aws_sdk_location.errors.throttling_exception.ThrottlingException: <p>The request was denied because of request throttling.</p>
+            aws_sdk_location.errors.validation_exception.ValidationException: <p>The input failed to meet the constraints specified by the AWS service. </p>
+            aws_sdk_location.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -442,6 +506,14 @@ class GeofenceCollectionResource:
             speed_unit: <p>The speed unit for the device captured by the device state. The measurement system must match for <code>DistanceUnit</code> and <code>SpeedUnit</code>; if <code>Kilometers</code> is specified for <code>DistanceUnit</code>, then <code>SpeedUnit</code> must be <code>KilometersPerHour</code>.</p> <p>Default Value: <code>KilometersPerHour</code>.</p>
             next_token: <p>The pagination token specifying which page of results to return in the response. If no token is provided, the default page is the first page.</p> <p>Default value: <code>null</code> </p>
             max_results: <p>An optional limit for the number of resources returned in a single call.</p> <p>Default value: <code>20</code> </p>
+
+        Raises:
+            aws_sdk_location.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because of insufficient access or permissions. Check with an administrator to verify your permissions.</p>
+            aws_sdk_location.errors.internal_server_exception.InternalServerException: <p>The request has failed to process because of an unknown server error, exception, or failure.</p>
+            aws_sdk_location.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource that you've entered was not found in your AWS account.</p>
+            aws_sdk_location.errors.throttling_exception.ThrottlingException: <p>The request was denied because of request throttling.</p>
+            aws_sdk_location.errors.validation_exception.ValidationException: <p>The input failed to meet the constraints specified by the AWS service. </p>
+            aws_sdk_location.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -492,6 +564,14 @@ class GeofenceCollectionResource:
         Args:
             collection_name: <p>The geofence collection storing the target geofence.</p>
             geofence_id: <p>The geofence you're retrieving details for.</p>
+
+        Raises:
+            aws_sdk_location.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because of insufficient access or permissions. Check with an administrator to verify your permissions.</p>
+            aws_sdk_location.errors.internal_server_exception.InternalServerException: <p>The request has failed to process because of an unknown server error, exception, or failure.</p>
+            aws_sdk_location.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource that you've entered was not found in your AWS account.</p>
+            aws_sdk_location.errors.throttling_exception.ThrottlingException: <p>The request was denied because of request throttling.</p>
+            aws_sdk_location.errors.validation_exception.ValidationException: <p>The input failed to meet the constraints specified by the AWS service. </p>
+            aws_sdk_location.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -534,6 +614,14 @@ class GeofenceCollectionResource:
             collection_name: <p>The name of the geofence collection storing the list of geofences.</p>
             next_token: <p>The pagination token specifying which page of results to return in the response. If no token is provided, the default page is the first page. </p> <p>Default value: <code>null</code> </p>
             max_results: <p>An optional limit for the number of geofences returned in a single call. </p> <p>Default value: <code>100</code> </p>
+
+        Raises:
+            aws_sdk_location.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because of insufficient access or permissions. Check with an administrator to verify your permissions.</p>
+            aws_sdk_location.errors.internal_server_exception.InternalServerException: <p>The request has failed to process because of an unknown server error, exception, or failure.</p>
+            aws_sdk_location.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource that you've entered was not found in your AWS account.</p>
+            aws_sdk_location.errors.throttling_exception.ThrottlingException: <p>The request was denied because of request throttling.</p>
+            aws_sdk_location.errors.validation_exception.ValidationException: <p>The input failed to meet the constraints specified by the AWS service. </p>
+            aws_sdk_location.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -583,6 +671,15 @@ class GeofenceCollectionResource:
             geofence_id: <p>An identifier for the geofence. For example, <code>ExampleGeofence-1</code>.</p>
             geometry: <p>Contains the details to specify the position of the geofence. Can be a circle, a polygon, or a multipolygon. <code>Polygon</code> and <code>MultiPolygon</code> geometries can be defined using their respective parameters, or encoded in Geobuf format using the <code>Geobuf</code> parameter. Including multiple geometry types in the same request will return a validation error.</p> <note> <p>The geofence <code>Polygon</code> and <code>MultiPolygon</code> formats support a maximum of 1,000 total vertices. The <code>Geobuf</code> format supports a maximum of 100,000 vertices.</p> </note>
             geofence_properties: <p>Associates one of more properties with the geofence. A property is a key-value pair stored with the geofence and added to any geofence event triggered with that geofence.</p> <p>Format: <code>\"key\" : \"value\"</code> </p>
+
+        Raises:
+            aws_sdk_location.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because of insufficient access or permissions. Check with an administrator to verify your permissions.</p>
+            aws_sdk_location.errors.conflict_exception.ConflictException: <p>The request was unsuccessful because of a conflict.</p>
+            aws_sdk_location.errors.internal_server_exception.InternalServerException: <p>The request has failed to process because of an unknown server error, exception, or failure.</p>
+            aws_sdk_location.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource that you've entered was not found in your AWS account.</p>
+            aws_sdk_location.errors.throttling_exception.ThrottlingException: <p>The request was denied because of request throttling.</p>
+            aws_sdk_location.errors.validation_exception.ValidationException: <p>The input failed to meet the constraints specified by the AWS service. </p>
+            aws_sdk_location.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -643,6 +740,15 @@ class AsyncGeofenceCollectionResource:
             description: <p>An optional description for the geofence collection.</p>
             tags: <p>Applies one or more tags to the geofence collection. A tag is a key-value pair helps manage, identify, search, and filter your resources by labelling them.</p> <p>Format: <code>\"key\" : \"value\"</code> </p> <p>Restrictions:</p> <ul> <li> <p>Maximum 50 tags per resource</p> </li> <li> <p>Each resource tag must be unique with a maximum of one value.</p> </li> <li> <p>Maximum key length: 128 Unicode characters in UTF-8</p> </li> <li> <p>Maximum value length: 256 Unicode characters in UTF-8</p> </li> <li> <p>Can use alphanumeric characters (A–Z, a–z, 0–9), and the following characters: + - = . _ : / @. </p> </li> <li> <p>Cannot use \"aws:\" as a prefix for a key.</p> </li> </ul>
             kms_key_id: <p>A key identifier for an <a href=\"https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html\">Amazon Web Services KMS customer managed key</a>. Enter a key ID, key ARN, alias name, or alias ARN. </p>
+
+        Raises:
+            aws_sdk_location.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because of insufficient access or permissions. Check with an administrator to verify your permissions.</p>
+            aws_sdk_location.errors.conflict_exception.ConflictException: <p>The request was unsuccessful because of a conflict.</p>
+            aws_sdk_location.errors.internal_server_exception.InternalServerException: <p>The request has failed to process because of an unknown server error, exception, or failure.</p>
+            aws_sdk_location.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The operation was denied because the request would exceed the maximum <a href=\"https://docs.aws.amazon.com/location/previous/developerguide/location-quotas.html\">quota</a> set for Amazon Location Service.</p>
+            aws_sdk_location.errors.throttling_exception.ThrottlingException: <p>The request was denied because of request throttling.</p>
+            aws_sdk_location.errors.validation_exception.ValidationException: <p>The input failed to meet the constraints specified by the AWS service. </p>
+            aws_sdk_location.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -691,6 +797,14 @@ class AsyncGeofenceCollectionResource:
 
         Args:
             collection_name: <p>The name of the geofence collection.</p>
+
+        Raises:
+            aws_sdk_location.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because of insufficient access or permissions. Check with an administrator to verify your permissions.</p>
+            aws_sdk_location.errors.internal_server_exception.InternalServerException: <p>The request has failed to process because of an unknown server error, exception, or failure.</p>
+            aws_sdk_location.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource that you've entered was not found in your AWS account.</p>
+            aws_sdk_location.errors.throttling_exception.ThrottlingException: <p>The request was denied because of request throttling.</p>
+            aws_sdk_location.errors.validation_exception.ValidationException: <p>The input failed to meet the constraints specified by the AWS service. </p>
+            aws_sdk_location.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -739,6 +853,14 @@ class AsyncGeofenceCollectionResource:
             pricing_plan: <p>No longer used. If included, the only allowed value is <code>RequestBasedUsage</code>.</p>
             pricing_plan_data_source: <p>This parameter is no longer used.</p>
             description: <p>Updates the description for the geofence collection.</p>
+
+        Raises:
+            aws_sdk_location.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because of insufficient access or permissions. Check with an administrator to verify your permissions.</p>
+            aws_sdk_location.errors.internal_server_exception.InternalServerException: <p>The request has failed to process because of an unknown server error, exception, or failure.</p>
+            aws_sdk_location.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource that you've entered was not found in your AWS account.</p>
+            aws_sdk_location.errors.throttling_exception.ThrottlingException: <p>The request was denied because of request throttling.</p>
+            aws_sdk_location.errors.validation_exception.ValidationException: <p>The input failed to meet the constraints specified by the AWS service. </p>
+            aws_sdk_location.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -783,6 +905,14 @@ class AsyncGeofenceCollectionResource:
 
         Args:
             collection_name: <p>The name of the geofence collection to be deleted.</p>
+
+        Raises:
+            aws_sdk_location.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because of insufficient access or permissions. Check with an administrator to verify your permissions.</p>
+            aws_sdk_location.errors.internal_server_exception.InternalServerException: <p>The request has failed to process because of an unknown server error, exception, or failure.</p>
+            aws_sdk_location.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource that you've entered was not found in your AWS account.</p>
+            aws_sdk_location.errors.throttling_exception.ThrottlingException: <p>The request was denied because of request throttling.</p>
+            aws_sdk_location.errors.validation_exception.ValidationException: <p>The input failed to meet the constraints specified by the AWS service. </p>
+            aws_sdk_location.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -823,6 +953,13 @@ class AsyncGeofenceCollectionResource:
         Args:
             max_results: <p>An optional limit for the number of resources returned in a single call. </p> <p>Default value: <code>100</code> </p>
             next_token: <p>The pagination token specifying which page of results to return in the response. If no token is provided, the default page is the first page. </p> <p>Default value: <code>null</code> </p>
+
+        Raises:
+            aws_sdk_location.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because of insufficient access or permissions. Check with an administrator to verify your permissions.</p>
+            aws_sdk_location.errors.internal_server_exception.InternalServerException: <p>The request has failed to process because of an unknown server error, exception, or failure.</p>
+            aws_sdk_location.errors.throttling_exception.ThrottlingException: <p>The request was denied because of request throttling.</p>
+            aws_sdk_location.errors.validation_exception.ValidationException: <p>The input failed to meet the constraints specified by the AWS service. </p>
+            aws_sdk_location.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -866,6 +1003,14 @@ class AsyncGeofenceCollectionResource:
         Args:
             collection_name: <p>The geofence collection storing the geofences to be deleted.</p>
             geofence_ids: <p>The batch of geofences to be deleted.</p>
+
+        Raises:
+            aws_sdk_location.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because of insufficient access or permissions. Check with an administrator to verify your permissions.</p>
+            aws_sdk_location.errors.internal_server_exception.InternalServerException: <p>The request has failed to process because of an unknown server error, exception, or failure.</p>
+            aws_sdk_location.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource that you've entered was not found in your AWS account.</p>
+            aws_sdk_location.errors.throttling_exception.ThrottlingException: <p>The request was denied because of request throttling.</p>
+            aws_sdk_location.errors.validation_exception.ValidationException: <p>The input failed to meet the constraints specified by the AWS service. </p>
+            aws_sdk_location.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -907,6 +1052,14 @@ class AsyncGeofenceCollectionResource:
         Args:
             collection_name: <p>The geofence collection used in evaluating the position of devices against its geofences.</p>
             device_position_updates: <p>Contains device details for each device to be evaluated against the given geofence collection.</p>
+
+        Raises:
+            aws_sdk_location.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because of insufficient access or permissions. Check with an administrator to verify your permissions.</p>
+            aws_sdk_location.errors.internal_server_exception.InternalServerException: <p>The request has failed to process because of an unknown server error, exception, or failure.</p>
+            aws_sdk_location.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource that you've entered was not found in your AWS account.</p>
+            aws_sdk_location.errors.throttling_exception.ThrottlingException: <p>The request was denied because of request throttling.</p>
+            aws_sdk_location.errors.validation_exception.ValidationException: <p>The input failed to meet the constraints specified by the AWS service. </p>
+            aws_sdk_location.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -948,6 +1101,14 @@ class AsyncGeofenceCollectionResource:
         Args:
             collection_name: <p>The geofence collection storing the geofences.</p>
             entries: <p>The batch of geofences to be stored in a geofence collection.</p>
+
+        Raises:
+            aws_sdk_location.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because of insufficient access or permissions. Check with an administrator to verify your permissions.</p>
+            aws_sdk_location.errors.internal_server_exception.InternalServerException: <p>The request has failed to process because of an unknown server error, exception, or failure.</p>
+            aws_sdk_location.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource that you've entered was not found in your AWS account.</p>
+            aws_sdk_location.errors.throttling_exception.ThrottlingException: <p>The request was denied because of request throttling.</p>
+            aws_sdk_location.errors.validation_exception.ValidationException: <p>The input failed to meet the constraints specified by the AWS service. </p>
+            aws_sdk_location.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1001,6 +1162,14 @@ class AsyncGeofenceCollectionResource:
             speed_unit: <p>The speed unit for the device captured by the device state. The measurement system must match for <code>DistanceUnit</code> and <code>SpeedUnit</code>; if <code>Kilometers</code> is specified for <code>DistanceUnit</code>, then <code>SpeedUnit</code> must be <code>KilometersPerHour</code>.</p> <p>Default Value: <code>KilometersPerHour</code>.</p>
             next_token: <p>The pagination token specifying which page of results to return in the response. If no token is provided, the default page is the first page.</p> <p>Default value: <code>null</code> </p>
             max_results: <p>An optional limit for the number of resources returned in a single call.</p> <p>Default value: <code>20</code> </p>
+
+        Raises:
+            aws_sdk_location.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because of insufficient access or permissions. Check with an administrator to verify your permissions.</p>
+            aws_sdk_location.errors.internal_server_exception.InternalServerException: <p>The request has failed to process because of an unknown server error, exception, or failure.</p>
+            aws_sdk_location.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource that you've entered was not found in your AWS account.</p>
+            aws_sdk_location.errors.throttling_exception.ThrottlingException: <p>The request was denied because of request throttling.</p>
+            aws_sdk_location.errors.validation_exception.ValidationException: <p>The input failed to meet the constraints specified by the AWS service. </p>
+            aws_sdk_location.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1052,6 +1221,14 @@ class AsyncGeofenceCollectionResource:
         Args:
             collection_name: <p>The geofence collection storing the target geofence.</p>
             geofence_id: <p>The geofence you're retrieving details for.</p>
+
+        Raises:
+            aws_sdk_location.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because of insufficient access or permissions. Check with an administrator to verify your permissions.</p>
+            aws_sdk_location.errors.internal_server_exception.InternalServerException: <p>The request has failed to process because of an unknown server error, exception, or failure.</p>
+            aws_sdk_location.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource that you've entered was not found in your AWS account.</p>
+            aws_sdk_location.errors.throttling_exception.ThrottlingException: <p>The request was denied because of request throttling.</p>
+            aws_sdk_location.errors.validation_exception.ValidationException: <p>The input failed to meet the constraints specified by the AWS service. </p>
+            aws_sdk_location.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1095,6 +1272,14 @@ class AsyncGeofenceCollectionResource:
             collection_name: <p>The name of the geofence collection storing the list of geofences.</p>
             next_token: <p>The pagination token specifying which page of results to return in the response. If no token is provided, the default page is the first page. </p> <p>Default value: <code>null</code> </p>
             max_results: <p>An optional limit for the number of geofences returned in a single call. </p> <p>Default value: <code>100</code> </p>
+
+        Raises:
+            aws_sdk_location.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because of insufficient access or permissions. Check with an administrator to verify your permissions.</p>
+            aws_sdk_location.errors.internal_server_exception.InternalServerException: <p>The request has failed to process because of an unknown server error, exception, or failure.</p>
+            aws_sdk_location.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource that you've entered was not found in your AWS account.</p>
+            aws_sdk_location.errors.throttling_exception.ThrottlingException: <p>The request was denied because of request throttling.</p>
+            aws_sdk_location.errors.validation_exception.ValidationException: <p>The input failed to meet the constraints specified by the AWS service. </p>
+            aws_sdk_location.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1145,6 +1330,15 @@ class AsyncGeofenceCollectionResource:
             geofence_id: <p>An identifier for the geofence. For example, <code>ExampleGeofence-1</code>.</p>
             geometry: <p>Contains the details to specify the position of the geofence. Can be a circle, a polygon, or a multipolygon. <code>Polygon</code> and <code>MultiPolygon</code> geometries can be defined using their respective parameters, or encoded in Geobuf format using the <code>Geobuf</code> parameter. Including multiple geometry types in the same request will return a validation error.</p> <note> <p>The geofence <code>Polygon</code> and <code>MultiPolygon</code> formats support a maximum of 1,000 total vertices. The <code>Geobuf</code> format supports a maximum of 100,000 vertices.</p> </note>
             geofence_properties: <p>Associates one of more properties with the geofence. A property is a key-value pair stored with the geofence and added to any geofence event triggered with that geofence.</p> <p>Format: <code>\"key\" : \"value\"</code> </p>
+
+        Raises:
+            aws_sdk_location.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because of insufficient access or permissions. Check with an administrator to verify your permissions.</p>
+            aws_sdk_location.errors.conflict_exception.ConflictException: <p>The request was unsuccessful because of a conflict.</p>
+            aws_sdk_location.errors.internal_server_exception.InternalServerException: <p>The request has failed to process because of an unknown server error, exception, or failure.</p>
+            aws_sdk_location.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource that you've entered was not found in your AWS account.</p>
+            aws_sdk_location.errors.throttling_exception.ThrottlingException: <p>The request was denied because of request throttling.</p>
+            aws_sdk_location.errors.validation_exception.ValidationException: <p>The input failed to meet the constraints specified by the AWS service. </p>
+            aws_sdk_location.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

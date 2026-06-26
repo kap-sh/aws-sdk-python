@@ -231,6 +231,17 @@ class ShieldClient:
 
         Args:
             log_bucket: <p>The Amazon S3 bucket that contains the logs that you want to share.</p>
+
+        Raises:
+            aws_sdk_shield.errors.access_denied_for_dependency_exception.AccessDeniedForDependencyException: <p>In order to grant the necessary access to the Shield Response Team (SRT) the user submitting the request must have the <code>iam:PassRole</code> permission. This error indicates the user did not have the appropriate permissions. For more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html\">Granting a User Permissions to Pass a Role to an Amazon Web Services Service</a>. </p>
+            aws_sdk_shield.errors.internal_error_exception.InternalErrorException: <p>Exception that indicates that a problem occurred with the service infrastructure. You can retry the request.</p>
+            aws_sdk_shield.errors.invalid_operation_exception.InvalidOperationException: <p>Exception that indicates that the operation would not cause any change to occur.</p>
+            aws_sdk_shield.errors.invalid_parameter_exception.InvalidParameterException: <p>Exception that indicates that the parameters passed to the API are invalid. If available, this exception includes details in additional properties. </p>
+            aws_sdk_shield.errors.limits_exceeded_exception.LimitsExceededException: <p>Exception that indicates that the operation would exceed a limit.</p>
+            aws_sdk_shield.errors.no_associated_role_exception.NoAssociatedRoleException: <p>The ARN of the role that you specified does not exist.</p>
+            aws_sdk_shield.errors.optimistic_lock_exception.OptimisticLockException: <p>Exception that indicates that the resource state has been modified by another client. Retrieve the resource and then retry your request.</p>
+            aws_sdk_shield.errors.resource_not_found_exception.ResourceNotFoundException: <p>Exception indicating the specified resource does not exist. If available, this exception includes details in additional properties. </p>
+            aws_sdk_shield.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -268,6 +279,15 @@ class ShieldClient:
 
         Args:
             role_arn: <p>The Amazon Resource Name (ARN) of the role the SRT will use to access your Amazon Web Services account.</p> <p>Prior to making the <code>AssociateDRTRole</code> request, you must attach the <a href=\"https://console.aws.amazon.com/iam/home?#/policies/arn:aws:iam::aws:policy/service-role/AWSShieldDRTAccessPolicy\">AWSShieldDRTAccessPolicy</a> managed policy to this role. For more information see <a href=\" https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_manage-attach-detach.html\">Attaching and Detaching IAM Policies</a>.</p>
+
+        Raises:
+            aws_sdk_shield.errors.access_denied_for_dependency_exception.AccessDeniedForDependencyException: <p>In order to grant the necessary access to the Shield Response Team (SRT) the user submitting the request must have the <code>iam:PassRole</code> permission. This error indicates the user did not have the appropriate permissions. For more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html\">Granting a User Permissions to Pass a Role to an Amazon Web Services Service</a>. </p>
+            aws_sdk_shield.errors.internal_error_exception.InternalErrorException: <p>Exception that indicates that a problem occurred with the service infrastructure. You can retry the request.</p>
+            aws_sdk_shield.errors.invalid_operation_exception.InvalidOperationException: <p>Exception that indicates that the operation would not cause any change to occur.</p>
+            aws_sdk_shield.errors.invalid_parameter_exception.InvalidParameterException: <p>Exception that indicates that the parameters passed to the API are invalid. If available, this exception includes details in additional properties. </p>
+            aws_sdk_shield.errors.optimistic_lock_exception.OptimisticLockException: <p>Exception that indicates that the resource state has been modified by another client. Retrieve the resource and then retry your request.</p>
+            aws_sdk_shield.errors.resource_not_found_exception.ResourceNotFoundException: <p>Exception indicating the specified resource does not exist. If available, this exception includes details in additional properties. </p>
+            aws_sdk_shield.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -307,6 +327,15 @@ class ShieldClient:
         Args:
             protection_id: <p>The unique identifier (ID) for the <a>Protection</a> object to add the health check association to. </p>
             health_check_arn: <p>The Amazon Resource Name (ARN) of the health check to associate with the protection.</p>
+
+        Raises:
+            aws_sdk_shield.errors.internal_error_exception.InternalErrorException: <p>Exception that indicates that a problem occurred with the service infrastructure. You can retry the request.</p>
+            aws_sdk_shield.errors.invalid_parameter_exception.InvalidParameterException: <p>Exception that indicates that the parameters passed to the API are invalid. If available, this exception includes details in additional properties. </p>
+            aws_sdk_shield.errors.invalid_resource_exception.InvalidResourceException: <p>Exception that indicates that the resource is invalid. You might not have access to the resource, or the resource might not exist.</p>
+            aws_sdk_shield.errors.limits_exceeded_exception.LimitsExceededException: <p>Exception that indicates that the operation would exceed a limit.</p>
+            aws_sdk_shield.errors.optimistic_lock_exception.OptimisticLockException: <p>Exception that indicates that the resource state has been modified by another client. Retrieve the resource and then retry your request.</p>
+            aws_sdk_shield.errors.resource_not_found_exception.ResourceNotFoundException: <p>Exception indicating the specified resource does not exist. If available, this exception includes details in additional properties. </p>
+            aws_sdk_shield.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -345,6 +374,14 @@ class ShieldClient:
 
         Args:
             emergency_contact_list: <p>A list of email addresses and phone numbers that the Shield Response Team (SRT) can use to contact you for escalations to the SRT and to initiate proactive customer support. </p> <p>To enable proactive engagement, the contact list must include at least one phone number.</p> <note> <p>The contacts that you provide here replace any contacts that were already defined. If you already have contacts defined and want to use them, retrieve the list using <code>DescribeEmergencyContactSettings</code> and then provide it here. </p> </note>
+
+        Raises:
+            aws_sdk_shield.errors.internal_error_exception.InternalErrorException: <p>Exception that indicates that a problem occurred with the service infrastructure. You can retry the request.</p>
+            aws_sdk_shield.errors.invalid_operation_exception.InvalidOperationException: <p>Exception that indicates that the operation would not cause any change to occur.</p>
+            aws_sdk_shield.errors.invalid_parameter_exception.InvalidParameterException: <p>Exception that indicates that the parameters passed to the API are invalid. If available, this exception includes details in additional properties. </p>
+            aws_sdk_shield.errors.optimistic_lock_exception.OptimisticLockException: <p>Exception that indicates that the resource state has been modified by another client. Retrieve the resource and then retry your request.</p>
+            aws_sdk_shield.errors.resource_not_found_exception.ResourceNotFoundException: <p>Exception indicating the specified resource does not exist. If available, this exception includes details in additional properties. </p>
+            aws_sdk_shield.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -386,6 +423,17 @@ class ShieldClient:
             name: <p>Friendly name for the <code>Protection</code> you are creating.</p>
             resource_arn: <p>The ARN (Amazon Resource Name) of the resource to be protected.</p> <p>The ARN should be in one of the following formats:</p> <ul> <li> <p>For an Application Load Balancer: <code>arn:aws:elasticloadbalancing:<i>region</i>:<i>account-id</i>:loadbalancer/app/<i>load-balancer-name</i>/<i>load-balancer-id</i> </code> </p> </li> <li> <p>For an Elastic Load Balancer (Classic Load Balancer): <code>arn:aws:elasticloadbalancing:<i>region</i>:<i>account-id</i>:loadbalancer/<i>load-balancer-name</i> </code> </p> </li> <li> <p>For an Amazon CloudFront distribution: <code>arn:aws:cloudfront::<i>account-id</i>:distribution/<i>distribution-id</i> </code> </p> </li> <li> <p>For an Global Accelerator standard accelerator: <code>arn:aws:globalaccelerator::<i>account-id</i>:accelerator/<i>accelerator-id</i> </code> </p> </li> <li> <p>For Amazon Route 53: <code>arn:aws:route53:::hostedzone/<i>hosted-zone-id</i> </code> </p> </li> <li> <p>For an Elastic IP address: <code>arn:aws:ec2:<i>region</i>:<i>account-id</i>:eip-allocation/<i>allocation-id</i> </code> </p> </li> </ul>
             tags: <p>One or more tag key-value pairs for the <a>Protection</a> object that is created.</p>
+
+        Raises:
+            aws_sdk_shield.errors.internal_error_exception.InternalErrorException: <p>Exception that indicates that a problem occurred with the service infrastructure. You can retry the request.</p>
+            aws_sdk_shield.errors.invalid_operation_exception.InvalidOperationException: <p>Exception that indicates that the operation would not cause any change to occur.</p>
+            aws_sdk_shield.errors.invalid_parameter_exception.InvalidParameterException: <p>Exception that indicates that the parameters passed to the API are invalid. If available, this exception includes details in additional properties. </p>
+            aws_sdk_shield.errors.invalid_resource_exception.InvalidResourceException: <p>Exception that indicates that the resource is invalid. You might not have access to the resource, or the resource might not exist.</p>
+            aws_sdk_shield.errors.limits_exceeded_exception.LimitsExceededException: <p>Exception that indicates that the operation would exceed a limit.</p>
+            aws_sdk_shield.errors.optimistic_lock_exception.OptimisticLockException: <p>Exception that indicates that the resource state has been modified by another client. Retrieve the resource and then retry your request.</p>
+            aws_sdk_shield.errors.resource_already_exists_exception.ResourceAlreadyExistsException: <p>Exception indicating the specified resource already exists. If available, this exception includes details in additional properties. </p>
+            aws_sdk_shield.errors.resource_not_found_exception.ResourceNotFoundException: <p>Exception indicating the specified resource does not exist. If available, this exception includes details in additional properties. </p>
+            aws_sdk_shield.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -440,6 +488,15 @@ class ShieldClient:
             resource_type: <p>The resource type to include in the protection group. All protected resources of this type are included in the protection group. Newly protected resources of this type are automatically added to the group. You must set this when you set <code>Pattern</code> to <code>BY_RESOURCE_TYPE</code> and you must not set it for any other <code>Pattern</code> setting. </p>
             members: <p>The Amazon Resource Names (ARNs) of the resources to include in the protection group. You must set this when you set <code>Pattern</code> to <code>ARBITRARY</code> and you must not set it for any other <code>Pattern</code> setting. </p>
             tags: <p>One or more tag key-value pairs for the protection group.</p>
+
+        Raises:
+            aws_sdk_shield.errors.internal_error_exception.InternalErrorException: <p>Exception that indicates that a problem occurred with the service infrastructure. You can retry the request.</p>
+            aws_sdk_shield.errors.invalid_parameter_exception.InvalidParameterException: <p>Exception that indicates that the parameters passed to the API are invalid. If available, this exception includes details in additional properties. </p>
+            aws_sdk_shield.errors.limits_exceeded_exception.LimitsExceededException: <p>Exception that indicates that the operation would exceed a limit.</p>
+            aws_sdk_shield.errors.optimistic_lock_exception.OptimisticLockException: <p>Exception that indicates that the resource state has been modified by another client. Retrieve the resource and then retry your request.</p>
+            aws_sdk_shield.errors.resource_already_exists_exception.ResourceAlreadyExistsException: <p>Exception indicating the specified resource already exists. If available, this exception includes details in additional properties. </p>
+            aws_sdk_shield.errors.resource_not_found_exception.ResourceNotFoundException: <p>Exception indicating the specified resource does not exist. If available, this exception includes details in additional properties. </p>
+            aws_sdk_shield.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -478,7 +535,13 @@ class ShieldClient:
     def create_subscription(
         self, *, config_overrides: Optional[ShieldClientConfig] = None
     ) -> "aws_sdk_shield.types.create_subscription_response.CreateSubscriptionResponse":
-        """<p>Activates Shield Advanced for an account.</p> <note> <p>For accounts that are members of an Organizations organization, Shield Advanced subscriptions are billed against the organization's payer account, regardless of whether the payer account itself is subscribed. </p> </note> <p>When you initially create a subscription, your subscription is set to be automatically renewed at the end of the existing subscription period. You can change this by submitting an <code>UpdateSubscription</code> request. </p>"""
+        """<p>Activates Shield Advanced for an account.</p> <note> <p>For accounts that are members of an Organizations organization, Shield Advanced subscriptions are billed against the organization's payer account, regardless of whether the payer account itself is subscribed. </p> </note> <p>When you initially create a subscription, your subscription is set to be automatically renewed at the end of the existing subscription period. You can change this by submitting an <code>UpdateSubscription</code> request. </p>
+
+        Raises:
+            aws_sdk_shield.errors.internal_error_exception.InternalErrorException: <p>Exception that indicates that a problem occurred with the service infrastructure. You can retry the request.</p>
+            aws_sdk_shield.errors.resource_already_exists_exception.ResourceAlreadyExistsException: <p>Exception indicating the specified resource already exists. If available, this exception includes details in additional properties. </p>
+            aws_sdk_shield.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_shield.types.create_subscription_request.CreateSubscriptionRequest]",
@@ -514,6 +577,12 @@ class ShieldClient:
 
         Args:
             protection_id: <p>The unique identifier (ID) for the <a>Protection</a> object to be deleted.</p>
+
+        Raises:
+            aws_sdk_shield.errors.internal_error_exception.InternalErrorException: <p>Exception that indicates that a problem occurred with the service infrastructure. You can retry the request.</p>
+            aws_sdk_shield.errors.optimistic_lock_exception.OptimisticLockException: <p>Exception that indicates that the resource state has been modified by another client. Retrieve the resource and then retry your request.</p>
+            aws_sdk_shield.errors.resource_not_found_exception.ResourceNotFoundException: <p>Exception indicating the specified resource does not exist. If available, this exception includes details in additional properties. </p>
+            aws_sdk_shield.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -551,6 +620,12 @@ class ShieldClient:
 
         Args:
             protection_group_id: <p>The name of the protection group. You use this to identify the protection group in lists and to manage the protection group, for example to update, delete, or describe it. </p>
+
+        Raises:
+            aws_sdk_shield.errors.internal_error_exception.InternalErrorException: <p>Exception that indicates that a problem occurred with the service infrastructure. You can retry the request.</p>
+            aws_sdk_shield.errors.optimistic_lock_exception.OptimisticLockException: <p>Exception that indicates that the resource state has been modified by another client. Retrieve the resource and then retry your request.</p>
+            aws_sdk_shield.errors.resource_not_found_exception.ResourceNotFoundException: <p>Exception indicating the specified resource does not exist. If available, this exception includes details in additional properties. </p>
+            aws_sdk_shield.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -581,7 +656,14 @@ class ShieldClient:
     def delete_subscription(
         self, *, config_overrides: Optional[ShieldClientConfig] = None
     ) -> "aws_sdk_shield.types.delete_subscription_response.DeleteSubscriptionResponse":
-        """<p>Removes Shield Advanced from an account. Shield Advanced requires a 1-year subscription commitment. You cannot delete a subscription prior to the completion of that commitment. </p>"""
+        """<p>Removes Shield Advanced from an account. Shield Advanced requires a 1-year subscription commitment. You cannot delete a subscription prior to the completion of that commitment. </p>
+
+        Raises:
+            aws_sdk_shield.errors.internal_error_exception.InternalErrorException: <p>Exception that indicates that a problem occurred with the service infrastructure. You can retry the request.</p>
+            aws_sdk_shield.errors.locked_subscription_exception.LockedSubscriptionException: <p>You are trying to update a subscription that has not yet completed the 1-year commitment. You can change the <code>AutoRenew</code> parameter during the last 30 days of your subscription. This exception indicates that you are attempting to change <code>AutoRenew</code> prior to that period.</p>
+            aws_sdk_shield.errors.resource_not_found_exception.ResourceNotFoundException: <p>Exception indicating the specified resource does not exist. If available, this exception includes details in additional properties. </p>
+            aws_sdk_shield.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_shield.types.delete_subscription_request.DeleteSubscriptionRequest]",
@@ -617,6 +699,11 @@ class ShieldClient:
 
         Args:
             attack_id: <p>The unique identifier (ID) for the attack.</p>
+
+        Raises:
+            aws_sdk_shield.errors.access_denied_exception.AccessDeniedException: <p>Exception that indicates the specified <code>AttackId</code> does not exist, or the requester does not have the appropriate permissions to access the <code>AttackId</code>.</p>
+            aws_sdk_shield.errors.internal_error_exception.InternalErrorException: <p>Exception that indicates that a problem occurred with the service infrastructure. You can retry the request.</p>
+            aws_sdk_shield.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -647,7 +734,12 @@ class ShieldClient:
     def describe_attack_statistics(
         self, *, config_overrides: Optional[ShieldClientConfig] = None
     ) -> "aws_sdk_shield.types.describe_attack_statistics_response.DescribeAttackStatisticsResponse":
-        """<p>Provides information about the number and type of attacks Shield has detected in the last year for all resources that belong to your account, regardless of whether you've defined Shield protections for them. This operation is available to Shield customers as well as to Shield Advanced customers.</p> <p>The operation returns data for the time range of midnight UTC, one year ago, to midnight UTC, today. For example, if the current time is <code>2020-10-26 15:39:32 PDT</code>, equal to <code>2020-10-26 22:39:32 UTC</code>, then the time range for the attack data returned is from <code>2019-10-26 00:00:00 UTC</code> to <code>2020-10-26 00:00:00 UTC</code>. </p> <p>The time range indicates the period covered by the attack statistics data items.</p>"""
+        """<p>Provides information about the number and type of attacks Shield has detected in the last year for all resources that belong to your account, regardless of whether you've defined Shield protections for them. This operation is available to Shield customers as well as to Shield Advanced customers.</p> <p>The operation returns data for the time range of midnight UTC, one year ago, to midnight UTC, today. For example, if the current time is <code>2020-10-26 15:39:32 PDT</code>, equal to <code>2020-10-26 22:39:32 UTC</code>, then the time range for the attack data returned is from <code>2019-10-26 00:00:00 UTC</code> to <code>2020-10-26 00:00:00 UTC</code>. </p> <p>The time range indicates the period covered by the attack statistics data items.</p>
+
+        Raises:
+            aws_sdk_shield.errors.internal_error_exception.InternalErrorException: <p>Exception that indicates that a problem occurred with the service infrastructure. You can retry the request.</p>
+            aws_sdk_shield.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_shield.types.describe_attack_statistics_request.DescribeAttackStatisticsRequest]",
@@ -676,7 +768,13 @@ class ShieldClient:
     def describe_drt_access(
         self, *, config_overrides: Optional[ShieldClientConfig] = None
     ) -> "aws_sdk_shield.types.describe_drt_access_response.DescribeDRTAccessResponse":
-        """<p>Returns the current role and list of Amazon S3 log buckets used by the Shield Response Team (SRT) to access your Amazon Web Services account while assisting with attack mitigation.</p>"""
+        """<p>Returns the current role and list of Amazon S3 log buckets used by the Shield Response Team (SRT) to access your Amazon Web Services account while assisting with attack mitigation.</p>
+
+        Raises:
+            aws_sdk_shield.errors.internal_error_exception.InternalErrorException: <p>Exception that indicates that a problem occurred with the service infrastructure. You can retry the request.</p>
+            aws_sdk_shield.errors.resource_not_found_exception.ResourceNotFoundException: <p>Exception indicating the specified resource does not exist. If available, this exception includes details in additional properties. </p>
+            aws_sdk_shield.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_shield.types.describe_drt_access_request.DescribeDRTAccessRequest]",
@@ -705,7 +803,13 @@ class ShieldClient:
     def describe_emergency_contact_settings(
         self, *, config_overrides: Optional[ShieldClientConfig] = None
     ) -> "aws_sdk_shield.types.describe_emergency_contact_settings_response.DescribeEmergencyContactSettingsResponse":
-        """<p>A list of email addresses and phone numbers that the Shield Response Team (SRT) can use to contact you if you have proactive engagement enabled, for escalations to the SRT and to initiate proactive customer support.</p>"""
+        """<p>A list of email addresses and phone numbers that the Shield Response Team (SRT) can use to contact you if you have proactive engagement enabled, for escalations to the SRT and to initiate proactive customer support.</p>
+
+        Raises:
+            aws_sdk_shield.errors.internal_error_exception.InternalErrorException: <p>Exception that indicates that a problem occurred with the service infrastructure. You can retry the request.</p>
+            aws_sdk_shield.errors.resource_not_found_exception.ResourceNotFoundException: <p>Exception indicating the specified resource does not exist. If available, this exception includes details in additional properties. </p>
+            aws_sdk_shield.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_shield.types.describe_emergency_contact_settings_request.DescribeEmergencyContactSettingsRequest]",
@@ -745,6 +849,12 @@ class ShieldClient:
         Args:
             protection_id: <p>The unique identifier (ID) for the <a>Protection</a> object to describe. You must provide either the <code>ResourceArn</code> of the protected resource or the <code>ProtectionID</code> of the protection, but not both.</p>
             resource_arn: <p>The ARN (Amazon Resource Name) of the protected Amazon Web Services resource. You must provide either the <code>ResourceArn</code> of the protected resource or the <code>ProtectionID</code> of the protection, but not both.</p>
+
+        Raises:
+            aws_sdk_shield.errors.internal_error_exception.InternalErrorException: <p>Exception that indicates that a problem occurred with the service infrastructure. You can retry the request.</p>
+            aws_sdk_shield.errors.invalid_parameter_exception.InvalidParameterException: <p>Exception that indicates that the parameters passed to the API are invalid. If available, this exception includes details in additional properties. </p>
+            aws_sdk_shield.errors.resource_not_found_exception.ResourceNotFoundException: <p>Exception indicating the specified resource does not exist. If available, this exception includes details in additional properties. </p>
+            aws_sdk_shield.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -785,6 +895,11 @@ class ShieldClient:
 
         Args:
             protection_group_id: <p>The name of the protection group. You use this to identify the protection group in lists and to manage the protection group, for example to update, delete, or describe it. </p>
+
+        Raises:
+            aws_sdk_shield.errors.internal_error_exception.InternalErrorException: <p>Exception that indicates that a problem occurred with the service infrastructure. You can retry the request.</p>
+            aws_sdk_shield.errors.resource_not_found_exception.ResourceNotFoundException: <p>Exception indicating the specified resource does not exist. If available, this exception includes details in additional properties. </p>
+            aws_sdk_shield.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -815,7 +930,13 @@ class ShieldClient:
     def describe_subscription(
         self, *, config_overrides: Optional[ShieldClientConfig] = None
     ) -> "aws_sdk_shield.types.describe_subscription_response.DescribeSubscriptionResponse":
-        """<p>Provides details about the Shield Advanced subscription for an account.</p>"""
+        """<p>Provides details about the Shield Advanced subscription for an account.</p>
+
+        Raises:
+            aws_sdk_shield.errors.internal_error_exception.InternalErrorException: <p>Exception that indicates that a problem occurred with the service infrastructure. You can retry the request.</p>
+            aws_sdk_shield.errors.resource_not_found_exception.ResourceNotFoundException: <p>Exception indicating the specified resource does not exist. If available, this exception includes details in additional properties. </p>
+            aws_sdk_shield.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_shield.types.describe_subscription_request.DescribeSubscriptionRequest]",
@@ -851,6 +972,14 @@ class ShieldClient:
 
         Args:
             resource_arn: <p>The ARN (Amazon Resource Name) of the protected resource.</p>
+
+        Raises:
+            aws_sdk_shield.errors.internal_error_exception.InternalErrorException: <p>Exception that indicates that a problem occurred with the service infrastructure. You can retry the request.</p>
+            aws_sdk_shield.errors.invalid_operation_exception.InvalidOperationException: <p>Exception that indicates that the operation would not cause any change to occur.</p>
+            aws_sdk_shield.errors.invalid_parameter_exception.InvalidParameterException: <p>Exception that indicates that the parameters passed to the API are invalid. If available, this exception includes details in additional properties. </p>
+            aws_sdk_shield.errors.optimistic_lock_exception.OptimisticLockException: <p>Exception that indicates that the resource state has been modified by another client. Retrieve the resource and then retry your request.</p>
+            aws_sdk_shield.errors.resource_not_found_exception.ResourceNotFoundException: <p>Exception indicating the specified resource does not exist. If available, this exception includes details in additional properties. </p>
+            aws_sdk_shield.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -881,7 +1010,16 @@ class ShieldClient:
     def disable_proactive_engagement(
         self, *, config_overrides: Optional[ShieldClientConfig] = None
     ) -> "aws_sdk_shield.types.disable_proactive_engagement_response.DisableProactiveEngagementResponse":
-        """<p>Removes authorization from the Shield Response Team (SRT) to notify contacts about escalations to the SRT and to initiate proactive customer support.</p>"""
+        """<p>Removes authorization from the Shield Response Team (SRT) to notify contacts about escalations to the SRT and to initiate proactive customer support.</p>
+
+        Raises:
+            aws_sdk_shield.errors.internal_error_exception.InternalErrorException: <p>Exception that indicates that a problem occurred with the service infrastructure. You can retry the request.</p>
+            aws_sdk_shield.errors.invalid_operation_exception.InvalidOperationException: <p>Exception that indicates that the operation would not cause any change to occur.</p>
+            aws_sdk_shield.errors.invalid_parameter_exception.InvalidParameterException: <p>Exception that indicates that the parameters passed to the API are invalid. If available, this exception includes details in additional properties. </p>
+            aws_sdk_shield.errors.optimistic_lock_exception.OptimisticLockException: <p>Exception that indicates that the resource state has been modified by another client. Retrieve the resource and then retry your request.</p>
+            aws_sdk_shield.errors.resource_not_found_exception.ResourceNotFoundException: <p>Exception indicating the specified resource does not exist. If available, this exception includes details in additional properties. </p>
+            aws_sdk_shield.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_shield.types.disable_proactive_engagement_request.DisableProactiveEngagementRequest]",
@@ -917,6 +1055,15 @@ class ShieldClient:
 
         Args:
             log_bucket: <p>The Amazon S3 bucket that contains the logs that you want to share.</p>
+
+        Raises:
+            aws_sdk_shield.errors.access_denied_for_dependency_exception.AccessDeniedForDependencyException: <p>In order to grant the necessary access to the Shield Response Team (SRT) the user submitting the request must have the <code>iam:PassRole</code> permission. This error indicates the user did not have the appropriate permissions. For more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html\">Granting a User Permissions to Pass a Role to an Amazon Web Services Service</a>. </p>
+            aws_sdk_shield.errors.internal_error_exception.InternalErrorException: <p>Exception that indicates that a problem occurred with the service infrastructure. You can retry the request.</p>
+            aws_sdk_shield.errors.invalid_operation_exception.InvalidOperationException: <p>Exception that indicates that the operation would not cause any change to occur.</p>
+            aws_sdk_shield.errors.no_associated_role_exception.NoAssociatedRoleException: <p>The ARN of the role that you specified does not exist.</p>
+            aws_sdk_shield.errors.optimistic_lock_exception.OptimisticLockException: <p>Exception that indicates that the resource state has been modified by another client. Retrieve the resource and then retry your request.</p>
+            aws_sdk_shield.errors.resource_not_found_exception.ResourceNotFoundException: <p>Exception indicating the specified resource does not exist. If available, this exception includes details in additional properties. </p>
+            aws_sdk_shield.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -947,7 +1094,15 @@ class ShieldClient:
     def disassociate_drt_role(
         self, *, config_overrides: Optional[ShieldClientConfig] = None
     ) -> "aws_sdk_shield.types.disassociate_drt_role_response.DisassociateDRTRoleResponse":
-        """<p>Removes the Shield Response Team's (SRT) access to your Amazon Web Services account.</p>"""
+        """<p>Removes the Shield Response Team's (SRT) access to your Amazon Web Services account.</p>
+
+        Raises:
+            aws_sdk_shield.errors.internal_error_exception.InternalErrorException: <p>Exception that indicates that a problem occurred with the service infrastructure. You can retry the request.</p>
+            aws_sdk_shield.errors.invalid_operation_exception.InvalidOperationException: <p>Exception that indicates that the operation would not cause any change to occur.</p>
+            aws_sdk_shield.errors.optimistic_lock_exception.OptimisticLockException: <p>Exception that indicates that the resource state has been modified by another client. Retrieve the resource and then retry your request.</p>
+            aws_sdk_shield.errors.resource_not_found_exception.ResourceNotFoundException: <p>Exception indicating the specified resource does not exist. If available, this exception includes details in additional properties. </p>
+            aws_sdk_shield.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_shield.types.disassociate_drt_role_request.DisassociateDRTRoleRequest]",
@@ -985,6 +1140,14 @@ class ShieldClient:
         Args:
             protection_id: <p>The unique identifier (ID) for the <a>Protection</a> object to remove the health check association from. </p>
             health_check_arn: <p>The Amazon Resource Name (ARN) of the health check that is associated with the protection.</p>
+
+        Raises:
+            aws_sdk_shield.errors.internal_error_exception.InternalErrorException: <p>Exception that indicates that a problem occurred with the service infrastructure. You can retry the request.</p>
+            aws_sdk_shield.errors.invalid_parameter_exception.InvalidParameterException: <p>Exception that indicates that the parameters passed to the API are invalid. If available, this exception includes details in additional properties. </p>
+            aws_sdk_shield.errors.invalid_resource_exception.InvalidResourceException: <p>Exception that indicates that the resource is invalid. You might not have access to the resource, or the resource might not exist.</p>
+            aws_sdk_shield.errors.optimistic_lock_exception.OptimisticLockException: <p>Exception that indicates that the resource state has been modified by another client. Retrieve the resource and then retry your request.</p>
+            aws_sdk_shield.errors.resource_not_found_exception.ResourceNotFoundException: <p>Exception indicating the specified resource does not exist. If available, this exception includes details in additional properties. </p>
+            aws_sdk_shield.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1025,6 +1188,15 @@ class ShieldClient:
         Args:
             resource_arn: <p>The ARN (Amazon Resource Name) of the protected resource.</p>
             action: <p>Specifies the action setting that Shield Advanced should use in the WAF rules that it creates on behalf of the protected resource in response to DDoS attacks. You specify this as part of the configuration for the automatic application layer DDoS mitigation feature, when you enable or update automatic mitigation. Shield Advanced creates the WAF rules in a Shield Advanced-managed rule group, inside the web ACL that you have associated with the resource. </p>
+
+        Raises:
+            aws_sdk_shield.errors.internal_error_exception.InternalErrorException: <p>Exception that indicates that a problem occurred with the service infrastructure. You can retry the request.</p>
+            aws_sdk_shield.errors.invalid_operation_exception.InvalidOperationException: <p>Exception that indicates that the operation would not cause any change to occur.</p>
+            aws_sdk_shield.errors.invalid_parameter_exception.InvalidParameterException: <p>Exception that indicates that the parameters passed to the API are invalid. If available, this exception includes details in additional properties. </p>
+            aws_sdk_shield.errors.limits_exceeded_exception.LimitsExceededException: <p>Exception that indicates that the operation would exceed a limit.</p>
+            aws_sdk_shield.errors.optimistic_lock_exception.OptimisticLockException: <p>Exception that indicates that the resource state has been modified by another client. Retrieve the resource and then retry your request.</p>
+            aws_sdk_shield.errors.resource_not_found_exception.ResourceNotFoundException: <p>Exception indicating the specified resource does not exist. If available, this exception includes details in additional properties. </p>
+            aws_sdk_shield.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1056,7 +1228,16 @@ class ShieldClient:
     def enable_proactive_engagement(
         self, *, config_overrides: Optional[ShieldClientConfig] = None
     ) -> "aws_sdk_shield.types.enable_proactive_engagement_response.EnableProactiveEngagementResponse":
-        """<p>Authorizes the Shield Response Team (SRT) to use email and phone to notify contacts about escalations to the SRT and to initiate proactive customer support.</p>"""
+        """<p>Authorizes the Shield Response Team (SRT) to use email and phone to notify contacts about escalations to the SRT and to initiate proactive customer support.</p>
+
+        Raises:
+            aws_sdk_shield.errors.internal_error_exception.InternalErrorException: <p>Exception that indicates that a problem occurred with the service infrastructure. You can retry the request.</p>
+            aws_sdk_shield.errors.invalid_operation_exception.InvalidOperationException: <p>Exception that indicates that the operation would not cause any change to occur.</p>
+            aws_sdk_shield.errors.invalid_parameter_exception.InvalidParameterException: <p>Exception that indicates that the parameters passed to the API are invalid. If available, this exception includes details in additional properties. </p>
+            aws_sdk_shield.errors.optimistic_lock_exception.OptimisticLockException: <p>Exception that indicates that the resource state has been modified by another client. Retrieve the resource and then retry your request.</p>
+            aws_sdk_shield.errors.resource_not_found_exception.ResourceNotFoundException: <p>Exception indicating the specified resource does not exist. If available, this exception includes details in additional properties. </p>
+            aws_sdk_shield.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_shield.types.enable_proactive_engagement_request.EnableProactiveEngagementRequest]",
@@ -1085,7 +1266,12 @@ class ShieldClient:
     def get_subscription_state(
         self, *, config_overrides: Optional[ShieldClientConfig] = None
     ) -> "aws_sdk_shield.types.get_subscription_state_response.GetSubscriptionStateResponse":
-        """<p>Returns the <code>SubscriptionState</code>, either <code>Active</code> or <code>Inactive</code>.</p>"""
+        """<p>Returns the <code>SubscriptionState</code>, either <code>Active</code> or <code>Inactive</code>.</p>
+
+        Raises:
+            aws_sdk_shield.errors.internal_error_exception.InternalErrorException: <p>Exception that indicates that a problem occurred with the service infrastructure. You can retry the request.</p>
+            aws_sdk_shield.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_shield.types.get_subscription_state_request.GetSubscriptionStateRequest]",
@@ -1131,6 +1317,12 @@ class ShieldClient:
             end_time: <p>The end of the time period for the attacks. This is a <code>timestamp</code> type. The request syntax listing for this call indicates a <code>number</code> type, but you can provide the time in any valid <a href=\"https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-parameters-types.html#parameter-type-timestamp\">timestamp format</a> setting. </p>
             next_token: <p>When you request a list of objects from Shield Advanced, if the response does not include all of the remaining available objects, Shield Advanced includes a <code>NextToken</code> value in the response. You can retrieve the next batch of objects by requesting the list again and providing the token that was returned by the prior call in your request. </p> <p>You can indicate the maximum number of objects that you want Shield Advanced to return for a single call with the <code>MaxResults</code> setting. Shield Advanced will not return more than <code>MaxResults</code> objects, but may return fewer, even if more objects are still available.</p> <p>Whenever more objects remain that Shield Advanced has not yet returned to you, the response will include a <code>NextToken</code> value.</p> <p>On your first call to a list operation, leave this setting empty.</p>
             max_results: <p>The greatest number of objects that you want Shield Advanced to return to the list request. Shield Advanced might return fewer objects than you indicate in this setting, even if more objects are available. If there are more objects remaining, Shield Advanced will always also return a <code>NextToken</code> value in the response.</p> <p>The default setting is 20.</p>
+
+        Raises:
+            aws_sdk_shield.errors.internal_error_exception.InternalErrorException: <p>Exception that indicates that a problem occurred with the service infrastructure. You can retry the request.</p>
+            aws_sdk_shield.errors.invalid_operation_exception.InvalidOperationException: <p>Exception that indicates that the operation would not cause any change to occur.</p>
+            aws_sdk_shield.errors.invalid_parameter_exception.InvalidParameterException: <p>Exception that indicates that the parameters passed to the API are invalid. If available, this exception includes details in additional properties. </p>
+            aws_sdk_shield.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1212,6 +1404,12 @@ class ShieldClient:
             next_token: <p>When you request a list of objects from Shield Advanced, if the response does not include all of the remaining available objects, Shield Advanced includes a <code>NextToken</code> value in the response. You can retrieve the next batch of objects by requesting the list again and providing the token that was returned by the prior call in your request. </p> <p>You can indicate the maximum number of objects that you want Shield Advanced to return for a single call with the <code>MaxResults</code> setting. Shield Advanced will not return more than <code>MaxResults</code> objects, but may return fewer, even if more objects are still available.</p> <p>Whenever more objects remain that Shield Advanced has not yet returned to you, the response will include a <code>NextToken</code> value.</p> <p>On your first call to a list operation, leave this setting empty.</p>
             max_results: <p>The greatest number of objects that you want Shield Advanced to return to the list request. Shield Advanced might return fewer objects than you indicate in this setting, even if more objects are available. If there are more objects remaining, Shield Advanced will always also return a <code>NextToken</code> value in the response.</p> <p>The default setting is 20.</p>
             inclusion_filters: <p>Narrows the set of protection groups that the call retrieves. You can retrieve a single protection group by its name and you can retrieve all protection groups that are configured with specific pattern or aggregation settings. You can provide up to one criteria per filter type. Shield Advanced returns the protection groups that exactly match all of the search criteria that you provide.</p>
+
+        Raises:
+            aws_sdk_shield.errors.internal_error_exception.InternalErrorException: <p>Exception that indicates that a problem occurred with the service infrastructure. You can retry the request.</p>
+            aws_sdk_shield.errors.invalid_pagination_token_exception.InvalidPaginationTokenException: <p>Exception that indicates that the <code>NextToken</code> specified in the request is invalid. Submit the request using the <code>NextToken</code> value that was returned in the prior response.</p>
+            aws_sdk_shield.errors.resource_not_found_exception.ResourceNotFoundException: <p>Exception indicating the specified resource does not exist. If available, this exception includes details in additional properties. </p>
+            aws_sdk_shield.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1260,6 +1458,12 @@ class ShieldClient:
             next_token: <p>When you request a list of objects from Shield Advanced, if the response does not include all of the remaining available objects, Shield Advanced includes a <code>NextToken</code> value in the response. You can retrieve the next batch of objects by requesting the list again and providing the token that was returned by the prior call in your request. </p> <p>You can indicate the maximum number of objects that you want Shield Advanced to return for a single call with the <code>MaxResults</code> setting. Shield Advanced will not return more than <code>MaxResults</code> objects, but may return fewer, even if more objects are still available.</p> <p>Whenever more objects remain that Shield Advanced has not yet returned to you, the response will include a <code>NextToken</code> value.</p> <p>On your first call to a list operation, leave this setting empty.</p>
             max_results: <p>The greatest number of objects that you want Shield Advanced to return to the list request. Shield Advanced might return fewer objects than you indicate in this setting, even if more objects are available. If there are more objects remaining, Shield Advanced will always also return a <code>NextToken</code> value in the response.</p> <p>The default setting is 20.</p>
             inclusion_filters: <p>Narrows the set of protections that the call retrieves. You can retrieve a single protection by providing its name or the ARN (Amazon Resource Name) of its protected resource. You can also retrieve all protections for a specific resource type. You can provide up to one criteria per filter type. Shield Advanced returns protections that exactly match all of the filter criteria that you provide.</p>
+
+        Raises:
+            aws_sdk_shield.errors.internal_error_exception.InternalErrorException: <p>Exception that indicates that a problem occurred with the service infrastructure. You can retry the request.</p>
+            aws_sdk_shield.errors.invalid_pagination_token_exception.InvalidPaginationTokenException: <p>Exception that indicates that the <code>NextToken</code> specified in the request is invalid. Submit the request using the <code>NextToken</code> value that was returned in the prior response.</p>
+            aws_sdk_shield.errors.resource_not_found_exception.ResourceNotFoundException: <p>Exception indicating the specified resource does not exist. If available, this exception includes details in additional properties. </p>
+            aws_sdk_shield.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1331,6 +1535,12 @@ class ShieldClient:
             protection_group_id: <p>The name of the protection group. You use this to identify the protection group in lists and to manage the protection group, for example to update, delete, or describe it. </p>
             next_token: <p>When you request a list of objects from Shield Advanced, if the response does not include all of the remaining available objects, Shield Advanced includes a <code>NextToken</code> value in the response. You can retrieve the next batch of objects by requesting the list again and providing the token that was returned by the prior call in your request. </p> <p>You can indicate the maximum number of objects that you want Shield Advanced to return for a single call with the <code>MaxResults</code> setting. Shield Advanced will not return more than <code>MaxResults</code> objects, but may return fewer, even if more objects are still available.</p> <p>Whenever more objects remain that Shield Advanced has not yet returned to you, the response will include a <code>NextToken</code> value.</p> <p>On your first call to a list operation, leave this setting empty.</p>
             max_results: <p>The greatest number of objects that you want Shield Advanced to return to the list request. Shield Advanced might return fewer objects than you indicate in this setting, even if more objects are available. If there are more objects remaining, Shield Advanced will always also return a <code>NextToken</code> value in the response.</p> <p>The default setting is 20.</p>
+
+        Raises:
+            aws_sdk_shield.errors.internal_error_exception.InternalErrorException: <p>Exception that indicates that a problem occurred with the service infrastructure. You can retry the request.</p>
+            aws_sdk_shield.errors.invalid_pagination_token_exception.InvalidPaginationTokenException: <p>Exception that indicates that the <code>NextToken</code> specified in the request is invalid. Submit the request using the <code>NextToken</code> value that was returned in the prior response.</p>
+            aws_sdk_shield.errors.resource_not_found_exception.ResourceNotFoundException: <p>Exception indicating the specified resource does not exist. If available, this exception includes details in additional properties. </p>
+            aws_sdk_shield.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1372,6 +1582,12 @@ class ShieldClient:
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource to get tags for.</p>
+
+        Raises:
+            aws_sdk_shield.errors.internal_error_exception.InternalErrorException: <p>Exception that indicates that a problem occurred with the service infrastructure. You can retry the request.</p>
+            aws_sdk_shield.errors.invalid_resource_exception.InvalidResourceException: <p>Exception that indicates that the resource is invalid. You might not have access to the resource, or the resource might not exist.</p>
+            aws_sdk_shield.errors.resource_not_found_exception.ResourceNotFoundException: <p>Exception indicating the specified resource does not exist. If available, this exception includes details in additional properties. </p>
+            aws_sdk_shield.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1411,6 +1627,13 @@ class ShieldClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource that you want to add or update tags for.</p>
             tags: <p>The tags that you want to modify or add to the resource.</p>
+
+        Raises:
+            aws_sdk_shield.errors.internal_error_exception.InternalErrorException: <p>Exception that indicates that a problem occurred with the service infrastructure. You can retry the request.</p>
+            aws_sdk_shield.errors.invalid_parameter_exception.InvalidParameterException: <p>Exception that indicates that the parameters passed to the API are invalid. If available, this exception includes details in additional properties. </p>
+            aws_sdk_shield.errors.invalid_resource_exception.InvalidResourceException: <p>Exception that indicates that the resource is invalid. You might not have access to the resource, or the resource might not exist.</p>
+            aws_sdk_shield.errors.resource_not_found_exception.ResourceNotFoundException: <p>Exception indicating the specified resource does not exist. If available, this exception includes details in additional properties. </p>
+            aws_sdk_shield.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1451,6 +1674,13 @@ class ShieldClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource that you want to remove tags from.</p>
             tag_keys: <p>The tag key for each tag that you want to remove from the resource.</p>
+
+        Raises:
+            aws_sdk_shield.errors.internal_error_exception.InternalErrorException: <p>Exception that indicates that a problem occurred with the service infrastructure. You can retry the request.</p>
+            aws_sdk_shield.errors.invalid_parameter_exception.InvalidParameterException: <p>Exception that indicates that the parameters passed to the API are invalid. If available, this exception includes details in additional properties. </p>
+            aws_sdk_shield.errors.invalid_resource_exception.InvalidResourceException: <p>Exception that indicates that the resource is invalid. You might not have access to the resource, or the resource might not exist.</p>
+            aws_sdk_shield.errors.resource_not_found_exception.ResourceNotFoundException: <p>Exception indicating the specified resource does not exist. If available, this exception includes details in additional properties. </p>
+            aws_sdk_shield.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1491,6 +1721,14 @@ class ShieldClient:
         Args:
             resource_arn: <p>The ARN (Amazon Resource Name) of the resource.</p>
             action: <p>Specifies the action setting that Shield Advanced should use in the WAF rules that it creates on behalf of the protected resource in response to DDoS attacks. You specify this as part of the configuration for the automatic application layer DDoS mitigation feature, when you enable or update automatic mitigation. Shield Advanced creates the WAF rules in a Shield Advanced-managed rule group, inside the web ACL that you have associated with the resource. </p>
+
+        Raises:
+            aws_sdk_shield.errors.internal_error_exception.InternalErrorException: <p>Exception that indicates that a problem occurred with the service infrastructure. You can retry the request.</p>
+            aws_sdk_shield.errors.invalid_operation_exception.InvalidOperationException: <p>Exception that indicates that the operation would not cause any change to occur.</p>
+            aws_sdk_shield.errors.invalid_parameter_exception.InvalidParameterException: <p>Exception that indicates that the parameters passed to the API are invalid. If available, this exception includes details in additional properties. </p>
+            aws_sdk_shield.errors.optimistic_lock_exception.OptimisticLockException: <p>Exception that indicates that the resource state has been modified by another client. Retrieve the resource and then retry your request.</p>
+            aws_sdk_shield.errors.resource_not_found_exception.ResourceNotFoundException: <p>Exception indicating the specified resource does not exist. If available, this exception includes details in additional properties. </p>
+            aws_sdk_shield.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1531,6 +1769,13 @@ class ShieldClient:
 
         Args:
             emergency_contact_list: <p>A list of email addresses and phone numbers that the Shield Response Team (SRT) can use to contact you if you have proactive engagement enabled, for escalations to the SRT and to initiate proactive customer support.</p> <p>If you have proactive engagement enabled, the contact list must include at least one phone number.</p>
+
+        Raises:
+            aws_sdk_shield.errors.internal_error_exception.InternalErrorException: <p>Exception that indicates that a problem occurred with the service infrastructure. You can retry the request.</p>
+            aws_sdk_shield.errors.invalid_parameter_exception.InvalidParameterException: <p>Exception that indicates that the parameters passed to the API are invalid. If available, this exception includes details in additional properties. </p>
+            aws_sdk_shield.errors.optimistic_lock_exception.OptimisticLockException: <p>Exception that indicates that the resource state has been modified by another client. Retrieve the resource and then retry your request.</p>
+            aws_sdk_shield.errors.resource_not_found_exception.ResourceNotFoundException: <p>Exception indicating the specified resource does not exist. If available, this exception includes details in additional properties. </p>
+            aws_sdk_shield.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1581,6 +1826,13 @@ class ShieldClient:
             pattern: <p>The criteria to use to choose the protected resources for inclusion in the group. You can include all resources that have protections, provide a list of resource Amazon Resource Names (ARNs), or include all resources of a specified resource type.</p>
             resource_type: <p>The resource type to include in the protection group. All protected resources of this type are included in the protection group. You must set this when you set <code>Pattern</code> to <code>BY_RESOURCE_TYPE</code> and you must not set it for any other <code>Pattern</code> setting. </p>
             members: <p>The Amazon Resource Names (ARNs) of the resources to include in the protection group. You must set this when you set <code>Pattern</code> to <code>ARBITRARY</code> and you must not set it for any other <code>Pattern</code> setting. </p>
+
+        Raises:
+            aws_sdk_shield.errors.internal_error_exception.InternalErrorException: <p>Exception that indicates that a problem occurred with the service infrastructure. You can retry the request.</p>
+            aws_sdk_shield.errors.invalid_parameter_exception.InvalidParameterException: <p>Exception that indicates that the parameters passed to the API are invalid. If available, this exception includes details in additional properties. </p>
+            aws_sdk_shield.errors.optimistic_lock_exception.OptimisticLockException: <p>Exception that indicates that the resource state has been modified by another client. Retrieve the resource and then retry your request.</p>
+            aws_sdk_shield.errors.resource_not_found_exception.ResourceNotFoundException: <p>Exception indicating the specified resource does not exist. If available, this exception includes details in additional properties. </p>
+            aws_sdk_shield.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1624,6 +1876,14 @@ class ShieldClient:
 
         Args:
             auto_renew: <p>When you initally create a subscription, <code>AutoRenew</code> is set to <code>ENABLED</code>. If <code>ENABLED</code>, the subscription will be automatically renewed at the end of the existing subscription period. You can change this by submitting an <code>UpdateSubscription</code> request. If the <code>UpdateSubscription</code> request does not included a value for <code>AutoRenew</code>, the existing value for <code>AutoRenew</code> remains unchanged.</p>
+
+        Raises:
+            aws_sdk_shield.errors.internal_error_exception.InternalErrorException: <p>Exception that indicates that a problem occurred with the service infrastructure. You can retry the request.</p>
+            aws_sdk_shield.errors.invalid_parameter_exception.InvalidParameterException: <p>Exception that indicates that the parameters passed to the API are invalid. If available, this exception includes details in additional properties. </p>
+            aws_sdk_shield.errors.locked_subscription_exception.LockedSubscriptionException: <p>You are trying to update a subscription that has not yet completed the 1-year commitment. You can change the <code>AutoRenew</code> parameter during the last 30 days of your subscription. This exception indicates that you are attempting to change <code>AutoRenew</code> prior to that period.</p>
+            aws_sdk_shield.errors.optimistic_lock_exception.OptimisticLockException: <p>Exception that indicates that the resource state has been modified by another client. Retrieve the resource and then retry your request.</p>
+            aws_sdk_shield.errors.resource_not_found_exception.ResourceNotFoundException: <p>Exception indicating the specified resource does not exist. If available, this exception includes details in additional properties. </p>
+            aws_sdk_shield.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(

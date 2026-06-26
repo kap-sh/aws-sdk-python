@@ -155,6 +155,12 @@ class AsyncEMRServerlessClient:
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) that identifies the resource to list the tags for. Currently, the supported resources are Amazon EMR Serverless applications and job runs.</p>
+
+        Raises:
+            aws_sdk_emr_serverless.errors.internal_server_exception.InternalServerException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_emr_serverless.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_emr_serverless.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_emr_serverless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -195,6 +201,12 @@ class AsyncEMRServerlessClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) that identifies the resource to list the tags for. Currently, the supported resources are Amazon EMR Serverless applications and job runs.</p>
             tags: <p>The tags to add to the resource. A tag is an array of key-value pairs.</p>
+
+        Raises:
+            aws_sdk_emr_serverless.errors.internal_server_exception.InternalServerException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_emr_serverless.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_emr_serverless.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_emr_serverless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -236,6 +248,12 @@ class AsyncEMRServerlessClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) that identifies the resource to list the tags for. Currently, the supported resources are Amazon EMR Serverless applications and job runs.</p>
             tag_keys: <p>The keys of the tags to be removed.</p>
+
+        Raises:
+            aws_sdk_emr_serverless.errors.internal_server_exception.InternalServerException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_emr_serverless.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_emr_serverless.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_emr_serverless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

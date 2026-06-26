@@ -263,6 +263,15 @@ class LexModelBuildingServiceClient:
         Args:
             name: <p>The name of the bot that you want to create a new version of. The name is case sensitive. </p>
             checksum: <p>Identifies a specific revision of the <code>$LATEST</code> version of the bot. If you specify a checksum and the <code>$LATEST</code> version of the bot has a different checksum, a <code>PreconditionFailedException</code> exception is returned and Amazon Lex doesn't publish a new version. If you don't specify a checksum, Amazon Lex publishes the <code>$LATEST</code> version.</p>
+
+        Raises:
+            aws_sdk_lex_model_building_service.errors.bad_request_exception.BadRequestException: <p>The request is not well formed. For example, a value is invalid or a required field is missing. Check the field values, and try again.</p>
+            aws_sdk_lex_model_building_service.errors.conflict_exception.ConflictException: <p> There was a conflict processing the request. Try your request again. </p>
+            aws_sdk_lex_model_building_service.errors.internal_failure_exception.InternalFailureException: <p>An internal Amazon Lex error occurred. Try your request again.</p>
+            aws_sdk_lex_model_building_service.errors.limit_exceeded_exception.LimitExceededException: <p>The request exceeded a limit. Try your request again.</p>
+            aws_sdk_lex_model_building_service.errors.not_found_exception.NotFoundException: <p>The resource specified in the request was not found. Check the resource and try again.</p>
+            aws_sdk_lex_model_building_service.errors.precondition_failed_exception.PreconditionFailedException: <p> The checksum of the resource that you are trying to change does not match the checksum in the request. Check the resource's checksum and try again.</p>
+            aws_sdk_lex_model_building_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -306,6 +315,15 @@ class LexModelBuildingServiceClient:
         Args:
             name: <p>The name of the intent that you want to create a new version of. The name is case sensitive. </p>
             checksum: <p>Checksum of the <code>$LATEST</code> version of the intent that should be used to create the new version. If you specify a checksum and the <code>$LATEST</code> version of the intent has a different checksum, Amazon Lex returns a <code>PreconditionFailedException</code> exception and doesn't publish a new version. If you don't specify a checksum, Amazon Lex publishes the <code>$LATEST</code> version.</p>
+
+        Raises:
+            aws_sdk_lex_model_building_service.errors.bad_request_exception.BadRequestException: <p>The request is not well formed. For example, a value is invalid or a required field is missing. Check the field values, and try again.</p>
+            aws_sdk_lex_model_building_service.errors.conflict_exception.ConflictException: <p> There was a conflict processing the request. Try your request again. </p>
+            aws_sdk_lex_model_building_service.errors.internal_failure_exception.InternalFailureException: <p>An internal Amazon Lex error occurred. Try your request again.</p>
+            aws_sdk_lex_model_building_service.errors.limit_exceeded_exception.LimitExceededException: <p>The request exceeded a limit. Try your request again.</p>
+            aws_sdk_lex_model_building_service.errors.not_found_exception.NotFoundException: <p>The resource specified in the request was not found. Check the resource and try again.</p>
+            aws_sdk_lex_model_building_service.errors.precondition_failed_exception.PreconditionFailedException: <p> The checksum of the resource that you are trying to change does not match the checksum in the request. Check the resource's checksum and try again.</p>
+            aws_sdk_lex_model_building_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -349,6 +367,15 @@ class LexModelBuildingServiceClient:
         Args:
             name: <p>The name of the slot type that you want to create a new version for. The name is case sensitive. </p>
             checksum: <p>Checksum for the <code>$LATEST</code> version of the slot type that you want to publish. If you specify a checksum and the <code>$LATEST</code> version of the slot type has a different checksum, Amazon Lex returns a <code>PreconditionFailedException</code> exception and doesn't publish the new version. If you don't specify a checksum, Amazon Lex publishes the <code>$LATEST</code> version.</p>
+
+        Raises:
+            aws_sdk_lex_model_building_service.errors.bad_request_exception.BadRequestException: <p>The request is not well formed. For example, a value is invalid or a required field is missing. Check the field values, and try again.</p>
+            aws_sdk_lex_model_building_service.errors.conflict_exception.ConflictException: <p> There was a conflict processing the request. Try your request again. </p>
+            aws_sdk_lex_model_building_service.errors.internal_failure_exception.InternalFailureException: <p>An internal Amazon Lex error occurred. Try your request again.</p>
+            aws_sdk_lex_model_building_service.errors.limit_exceeded_exception.LimitExceededException: <p>The request exceeded a limit. Try your request again.</p>
+            aws_sdk_lex_model_building_service.errors.not_found_exception.NotFoundException: <p>The resource specified in the request was not found. Check the resource and try again.</p>
+            aws_sdk_lex_model_building_service.errors.precondition_failed_exception.PreconditionFailedException: <p> The checksum of the resource that you are trying to change does not match the checksum in the request. Check the resource's checksum and try again.</p>
+            aws_sdk_lex_model_building_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -388,6 +415,15 @@ class LexModelBuildingServiceClient:
 
         Args:
             name: <p>The name of the bot. The name is case sensitive. </p>
+
+        Raises:
+            aws_sdk_lex_model_building_service.errors.bad_request_exception.BadRequestException: <p>The request is not well formed. For example, a value is invalid or a required field is missing. Check the field values, and try again.</p>
+            aws_sdk_lex_model_building_service.errors.conflict_exception.ConflictException: <p> There was a conflict processing the request. Try your request again. </p>
+            aws_sdk_lex_model_building_service.errors.internal_failure_exception.InternalFailureException: <p>An internal Amazon Lex error occurred. Try your request again.</p>
+            aws_sdk_lex_model_building_service.errors.limit_exceeded_exception.LimitExceededException: <p>The request exceeded a limit. Try your request again.</p>
+            aws_sdk_lex_model_building_service.errors.not_found_exception.NotFoundException: <p>The resource specified in the request was not found. Check the resource and try again.</p>
+            aws_sdk_lex_model_building_service.errors.resource_in_use_exception.ResourceInUseException: <p>The resource that you are attempting to delete is referred to by another resource. Use this information to remove references to the resource that you are trying to delete.</p> <p>The body of the exception contains a JSON object that describes the resource.</p> <p> <code>{ \"resourceType\": BOT | BOTALIAS | BOTCHANNEL | INTENT,</code> </p> <p> <code>\"resourceReference\": {</code> </p> <p> <code>\"name\": <i>string</i>, \"version\": <i>string</i> } }</code> </p>
+            aws_sdk_lex_model_building_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -425,6 +461,15 @@ class LexModelBuildingServiceClient:
         Args:
             name: <p>The name of the alias to delete. The name is case sensitive. </p>
             bot_name: <p>The name of the bot that the alias points to.</p>
+
+        Raises:
+            aws_sdk_lex_model_building_service.errors.bad_request_exception.BadRequestException: <p>The request is not well formed. For example, a value is invalid or a required field is missing. Check the field values, and try again.</p>
+            aws_sdk_lex_model_building_service.errors.conflict_exception.ConflictException: <p> There was a conflict processing the request. Try your request again. </p>
+            aws_sdk_lex_model_building_service.errors.internal_failure_exception.InternalFailureException: <p>An internal Amazon Lex error occurred. Try your request again.</p>
+            aws_sdk_lex_model_building_service.errors.limit_exceeded_exception.LimitExceededException: <p>The request exceeded a limit. Try your request again.</p>
+            aws_sdk_lex_model_building_service.errors.not_found_exception.NotFoundException: <p>The resource specified in the request was not found. Check the resource and try again.</p>
+            aws_sdk_lex_model_building_service.errors.resource_in_use_exception.ResourceInUseException: <p>The resource that you are attempting to delete is referred to by another resource. Use this information to remove references to the resource that you are trying to delete.</p> <p>The body of the exception contains a JSON object that describes the resource.</p> <p> <code>{ \"resourceType\": BOT | BOTALIAS | BOTCHANNEL | INTENT,</code> </p> <p> <code>\"resourceReference\": {</code> </p> <p> <code>\"name\": <i>string</i>, \"version\": <i>string</i> } }</code> </p>
+            aws_sdk_lex_model_building_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -465,6 +510,14 @@ class LexModelBuildingServiceClient:
             name: <p>The name of the association. The name is case sensitive. </p>
             bot_name: <p>The name of the Amazon Lex bot.</p>
             bot_alias: <p>An alias that points to the specific version of the Amazon Lex bot to which this association is being made.</p>
+
+        Raises:
+            aws_sdk_lex_model_building_service.errors.bad_request_exception.BadRequestException: <p>The request is not well formed. For example, a value is invalid or a required field is missing. Check the field values, and try again.</p>
+            aws_sdk_lex_model_building_service.errors.conflict_exception.ConflictException: <p> There was a conflict processing the request. Try your request again. </p>
+            aws_sdk_lex_model_building_service.errors.internal_failure_exception.InternalFailureException: <p>An internal Amazon Lex error occurred. Try your request again.</p>
+            aws_sdk_lex_model_building_service.errors.limit_exceeded_exception.LimitExceededException: <p>The request exceeded a limit. Try your request again.</p>
+            aws_sdk_lex_model_building_service.errors.not_found_exception.NotFoundException: <p>The resource specified in the request was not found. Check the resource and try again.</p>
+            aws_sdk_lex_model_building_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -504,6 +557,15 @@ class LexModelBuildingServiceClient:
         Args:
             name: <p>The name of the bot.</p>
             version: <p>The version of the bot to delete. You cannot delete the <code>$LATEST</code> version of the bot. To delete the <code>$LATEST</code> version, use the <a>DeleteBot</a> operation.</p>
+
+        Raises:
+            aws_sdk_lex_model_building_service.errors.bad_request_exception.BadRequestException: <p>The request is not well formed. For example, a value is invalid or a required field is missing. Check the field values, and try again.</p>
+            aws_sdk_lex_model_building_service.errors.conflict_exception.ConflictException: <p> There was a conflict processing the request. Try your request again. </p>
+            aws_sdk_lex_model_building_service.errors.internal_failure_exception.InternalFailureException: <p>An internal Amazon Lex error occurred. Try your request again.</p>
+            aws_sdk_lex_model_building_service.errors.limit_exceeded_exception.LimitExceededException: <p>The request exceeded a limit. Try your request again.</p>
+            aws_sdk_lex_model_building_service.errors.not_found_exception.NotFoundException: <p>The resource specified in the request was not found. Check the resource and try again.</p>
+            aws_sdk_lex_model_building_service.errors.resource_in_use_exception.ResourceInUseException: <p>The resource that you are attempting to delete is referred to by another resource. Use this information to remove references to the resource that you are trying to delete.</p> <p>The body of the exception contains a JSON object that describes the resource.</p> <p> <code>{ \"resourceType\": BOT | BOTALIAS | BOTCHANNEL | INTENT,</code> </p> <p> <code>\"resourceReference\": {</code> </p> <p> <code>\"name\": <i>string</i>, \"version\": <i>string</i> } }</code> </p>
+            aws_sdk_lex_model_building_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -540,6 +602,15 @@ class LexModelBuildingServiceClient:
 
         Args:
             name: <p>The name of the intent. The name is case sensitive. </p>
+
+        Raises:
+            aws_sdk_lex_model_building_service.errors.bad_request_exception.BadRequestException: <p>The request is not well formed. For example, a value is invalid or a required field is missing. Check the field values, and try again.</p>
+            aws_sdk_lex_model_building_service.errors.conflict_exception.ConflictException: <p> There was a conflict processing the request. Try your request again. </p>
+            aws_sdk_lex_model_building_service.errors.internal_failure_exception.InternalFailureException: <p>An internal Amazon Lex error occurred. Try your request again.</p>
+            aws_sdk_lex_model_building_service.errors.limit_exceeded_exception.LimitExceededException: <p>The request exceeded a limit. Try your request again.</p>
+            aws_sdk_lex_model_building_service.errors.not_found_exception.NotFoundException: <p>The resource specified in the request was not found. Check the resource and try again.</p>
+            aws_sdk_lex_model_building_service.errors.resource_in_use_exception.ResourceInUseException: <p>The resource that you are attempting to delete is referred to by another resource. Use this information to remove references to the resource that you are trying to delete.</p> <p>The body of the exception contains a JSON object that describes the resource.</p> <p> <code>{ \"resourceType\": BOT | BOTALIAS | BOTCHANNEL | INTENT,</code> </p> <p> <code>\"resourceReference\": {</code> </p> <p> <code>\"name\": <i>string</i>, \"version\": <i>string</i> } }</code> </p>
+            aws_sdk_lex_model_building_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -577,6 +648,15 @@ class LexModelBuildingServiceClient:
         Args:
             name: <p>The name of the intent.</p>
             version: <p>The version of the intent to delete. You cannot delete the <code>$LATEST</code> version of the intent. To delete the <code>$LATEST</code> version, use the <a>DeleteIntent</a> operation.</p>
+
+        Raises:
+            aws_sdk_lex_model_building_service.errors.bad_request_exception.BadRequestException: <p>The request is not well formed. For example, a value is invalid or a required field is missing. Check the field values, and try again.</p>
+            aws_sdk_lex_model_building_service.errors.conflict_exception.ConflictException: <p> There was a conflict processing the request. Try your request again. </p>
+            aws_sdk_lex_model_building_service.errors.internal_failure_exception.InternalFailureException: <p>An internal Amazon Lex error occurred. Try your request again.</p>
+            aws_sdk_lex_model_building_service.errors.limit_exceeded_exception.LimitExceededException: <p>The request exceeded a limit. Try your request again.</p>
+            aws_sdk_lex_model_building_service.errors.not_found_exception.NotFoundException: <p>The resource specified in the request was not found. Check the resource and try again.</p>
+            aws_sdk_lex_model_building_service.errors.resource_in_use_exception.ResourceInUseException: <p>The resource that you are attempting to delete is referred to by another resource. Use this information to remove references to the resource that you are trying to delete.</p> <p>The body of the exception contains a JSON object that describes the resource.</p> <p> <code>{ \"resourceType\": BOT | BOTALIAS | BOTCHANNEL | INTENT,</code> </p> <p> <code>\"resourceReference\": {</code> </p> <p> <code>\"name\": <i>string</i>, \"version\": <i>string</i> } }</code> </p>
+            aws_sdk_lex_model_building_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -613,6 +693,15 @@ class LexModelBuildingServiceClient:
 
         Args:
             name: <p>The name of the slot type. The name is case sensitive. </p>
+
+        Raises:
+            aws_sdk_lex_model_building_service.errors.bad_request_exception.BadRequestException: <p>The request is not well formed. For example, a value is invalid or a required field is missing. Check the field values, and try again.</p>
+            aws_sdk_lex_model_building_service.errors.conflict_exception.ConflictException: <p> There was a conflict processing the request. Try your request again. </p>
+            aws_sdk_lex_model_building_service.errors.internal_failure_exception.InternalFailureException: <p>An internal Amazon Lex error occurred. Try your request again.</p>
+            aws_sdk_lex_model_building_service.errors.limit_exceeded_exception.LimitExceededException: <p>The request exceeded a limit. Try your request again.</p>
+            aws_sdk_lex_model_building_service.errors.not_found_exception.NotFoundException: <p>The resource specified in the request was not found. Check the resource and try again.</p>
+            aws_sdk_lex_model_building_service.errors.resource_in_use_exception.ResourceInUseException: <p>The resource that you are attempting to delete is referred to by another resource. Use this information to remove references to the resource that you are trying to delete.</p> <p>The body of the exception contains a JSON object that describes the resource.</p> <p> <code>{ \"resourceType\": BOT | BOTALIAS | BOTCHANNEL | INTENT,</code> </p> <p> <code>\"resourceReference\": {</code> </p> <p> <code>\"name\": <i>string</i>, \"version\": <i>string</i> } }</code> </p>
+            aws_sdk_lex_model_building_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -650,6 +739,15 @@ class LexModelBuildingServiceClient:
         Args:
             name: <p>The name of the slot type.</p>
             version: <p>The version of the slot type to delete. You cannot delete the <code>$LATEST</code> version of the slot type. To delete the <code>$LATEST</code> version, use the <a>DeleteSlotType</a> operation.</p>
+
+        Raises:
+            aws_sdk_lex_model_building_service.errors.bad_request_exception.BadRequestException: <p>The request is not well formed. For example, a value is invalid or a required field is missing. Check the field values, and try again.</p>
+            aws_sdk_lex_model_building_service.errors.conflict_exception.ConflictException: <p> There was a conflict processing the request. Try your request again. </p>
+            aws_sdk_lex_model_building_service.errors.internal_failure_exception.InternalFailureException: <p>An internal Amazon Lex error occurred. Try your request again.</p>
+            aws_sdk_lex_model_building_service.errors.limit_exceeded_exception.LimitExceededException: <p>The request exceeded a limit. Try your request again.</p>
+            aws_sdk_lex_model_building_service.errors.not_found_exception.NotFoundException: <p>The resource specified in the request was not found. Check the resource and try again.</p>
+            aws_sdk_lex_model_building_service.errors.resource_in_use_exception.ResourceInUseException: <p>The resource that you are attempting to delete is referred to by another resource. Use this information to remove references to the resource that you are trying to delete.</p> <p>The body of the exception contains a JSON object that describes the resource.</p> <p> <code>{ \"resourceType\": BOT | BOTALIAS | BOTCHANNEL | INTENT,</code> </p> <p> <code>\"resourceReference\": {</code> </p> <p> <code>\"name\": <i>string</i>, \"version\": <i>string</i> } }</code> </p>
+            aws_sdk_lex_model_building_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -688,6 +786,13 @@ class LexModelBuildingServiceClient:
         Args:
             bot_name: <p>The name of the bot that stored the utterances.</p>
             user_id: <p> The unique identifier for the user that made the utterances. This is the user ID that was sent in the <a href=\"http://docs.aws.amazon.com/lex/latest/dg/API_runtime_PostContent.html\">PostContent</a> or <a href=\"http://docs.aws.amazon.com/lex/latest/dg/API_runtime_PostText.html\">PostText</a> operation request that contained the utterance.</p>
+
+        Raises:
+            aws_sdk_lex_model_building_service.errors.bad_request_exception.BadRequestException: <p>The request is not well formed. For example, a value is invalid or a required field is missing. Check the field values, and try again.</p>
+            aws_sdk_lex_model_building_service.errors.internal_failure_exception.InternalFailureException: <p>An internal Amazon Lex error occurred. Try your request again.</p>
+            aws_sdk_lex_model_building_service.errors.limit_exceeded_exception.LimitExceededException: <p>The request exceeded a limit. Try your request again.</p>
+            aws_sdk_lex_model_building_service.errors.not_found_exception.NotFoundException: <p>The resource specified in the request was not found. Check the resource and try again.</p>
+            aws_sdk_lex_model_building_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -726,6 +831,13 @@ class LexModelBuildingServiceClient:
         Args:
             name: <p>The name of the bot. The name is case sensitive. </p>
             version_or_alias: <p>The version or alias of the bot.</p>
+
+        Raises:
+            aws_sdk_lex_model_building_service.errors.bad_request_exception.BadRequestException: <p>The request is not well formed. For example, a value is invalid or a required field is missing. Check the field values, and try again.</p>
+            aws_sdk_lex_model_building_service.errors.internal_failure_exception.InternalFailureException: <p>An internal Amazon Lex error occurred. Try your request again.</p>
+            aws_sdk_lex_model_building_service.errors.limit_exceeded_exception.LimitExceededException: <p>The request exceeded a limit. Try your request again.</p>
+            aws_sdk_lex_model_building_service.errors.not_found_exception.NotFoundException: <p>The resource specified in the request was not found. Check the resource and try again.</p>
+            aws_sdk_lex_model_building_service.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To get information about a bot
@@ -772,6 +884,13 @@ class LexModelBuildingServiceClient:
         Args:
             name: <p>The name of the bot alias. The name is case sensitive.</p>
             bot_name: <p>The name of the bot.</p>
+
+        Raises:
+            aws_sdk_lex_model_building_service.errors.bad_request_exception.BadRequestException: <p>The request is not well formed. For example, a value is invalid or a required field is missing. Check the field values, and try again.</p>
+            aws_sdk_lex_model_building_service.errors.internal_failure_exception.InternalFailureException: <p>An internal Amazon Lex error occurred. Try your request again.</p>
+            aws_sdk_lex_model_building_service.errors.limit_exceeded_exception.LimitExceededException: <p>The request exceeded a limit. Try your request again.</p>
+            aws_sdk_lex_model_building_service.errors.not_found_exception.NotFoundException: <p>The resource specified in the request was not found. Check the resource and try again.</p>
+            aws_sdk_lex_model_building_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -822,6 +941,12 @@ class LexModelBuildingServiceClient:
             next_token: <p>A pagination token for fetching the next page of aliases. If the response to this call is truncated, Amazon Lex returns a pagination token in the response. To fetch the next page of aliases, specify the pagination token in the next request. </p>
             max_results: <p>The maximum number of aliases to return in the response. The default is 50. . </p>
             name_contains: <p>Substring to match in bot alias names. An alias will be returned if any part of its name matches the substring. For example, \"xyz\" matches both \"xyzabc\" and \"abcxyz.\"</p>
+
+        Raises:
+            aws_sdk_lex_model_building_service.errors.bad_request_exception.BadRequestException: <p>The request is not well formed. For example, a value is invalid or a required field is missing. Check the field values, and try again.</p>
+            aws_sdk_lex_model_building_service.errors.internal_failure_exception.InternalFailureException: <p>An internal Amazon Lex error occurred. Try your request again.</p>
+            aws_sdk_lex_model_building_service.errors.limit_exceeded_exception.LimitExceededException: <p>The request exceeded a limit. Try your request again.</p>
+            aws_sdk_lex_model_building_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -869,6 +994,13 @@ class LexModelBuildingServiceClient:
             name: <p>The name of the association between the bot and the channel. The name is case sensitive. </p>
             bot_name: <p>The name of the Amazon Lex bot.</p>
             bot_alias: <p>An alias pointing to the specific version of the Amazon Lex bot to which this association is being made.</p>
+
+        Raises:
+            aws_sdk_lex_model_building_service.errors.bad_request_exception.BadRequestException: <p>The request is not well formed. For example, a value is invalid or a required field is missing. Check the field values, and try again.</p>
+            aws_sdk_lex_model_building_service.errors.internal_failure_exception.InternalFailureException: <p>An internal Amazon Lex error occurred. Try your request again.</p>
+            aws_sdk_lex_model_building_service.errors.limit_exceeded_exception.LimitExceededException: <p>The request exceeded a limit. Try your request again.</p>
+            aws_sdk_lex_model_building_service.errors.not_found_exception.NotFoundException: <p>The resource specified in the request was not found. Check the resource and try again.</p>
+            aws_sdk_lex_model_building_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -922,6 +1054,12 @@ class LexModelBuildingServiceClient:
             next_token: <p>A pagination token for fetching the next page of associations. If the response to this call is truncated, Amazon Lex returns a pagination token in the response. To fetch the next page of associations, specify the pagination token in the next request. </p>
             max_results: <p>The maximum number of associations to return in the response. The default is 50. </p>
             name_contains: <p>Substring to match in channel association names. An association will be returned if any part of its name matches the substring. For example, \"xyz\" matches both \"xyzabc\" and \"abcxyz.\" To return all bot channel associations, use a hyphen (\"-\") as the <code>nameContains</code> parameter.</p>
+
+        Raises:
+            aws_sdk_lex_model_building_service.errors.bad_request_exception.BadRequestException: <p>The request is not well formed. For example, a value is invalid or a required field is missing. Check the field values, and try again.</p>
+            aws_sdk_lex_model_building_service.errors.internal_failure_exception.InternalFailureException: <p>An internal Amazon Lex error occurred. Try your request again.</p>
+            aws_sdk_lex_model_building_service.errors.limit_exceeded_exception.LimitExceededException: <p>The request exceeded a limit. Try your request again.</p>
+            aws_sdk_lex_model_building_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -976,6 +1114,13 @@ class LexModelBuildingServiceClient:
             next_token: <p>A pagination token that fetches the next page of bots. If the response to this call is truncated, Amazon Lex returns a pagination token in the response. To fetch the next page of bots, specify the pagination token in the next request. </p>
             max_results: <p>The maximum number of bots to return in the response that the request will return. The default is 10.</p>
             name_contains: <p>Substring to match in bot names. A bot will be returned if any part of its name matches the substring. For example, \"xyz\" matches both \"xyzabc\" and \"abcxyz.\"</p>
+
+        Raises:
+            aws_sdk_lex_model_building_service.errors.bad_request_exception.BadRequestException: <p>The request is not well formed. For example, a value is invalid or a required field is missing. Check the field values, and try again.</p>
+            aws_sdk_lex_model_building_service.errors.internal_failure_exception.InternalFailureException: <p>An internal Amazon Lex error occurred. Try your request again.</p>
+            aws_sdk_lex_model_building_service.errors.limit_exceeded_exception.LimitExceededException: <p>The request exceeded a limit. Try your request again.</p>
+            aws_sdk_lex_model_building_service.errors.not_found_exception.NotFoundException: <p>The resource specified in the request was not found. Check the resource and try again.</p>
+            aws_sdk_lex_model_building_service.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To get a list of bots
@@ -1032,6 +1177,13 @@ class LexModelBuildingServiceClient:
             name: <p>The name of the bot for which versions should be returned.</p>
             next_token: <p>A pagination token for fetching the next page of bot versions. If the response to this call is truncated, Amazon Lex returns a pagination token in the response. To fetch the next page of versions, specify the pagination token in the next request. </p>
             max_results: <p>The maximum number of bot versions to return in the response. The default is 10.</p>
+
+        Raises:
+            aws_sdk_lex_model_building_service.errors.bad_request_exception.BadRequestException: <p>The request is not well formed. For example, a value is invalid or a required field is missing. Check the field values, and try again.</p>
+            aws_sdk_lex_model_building_service.errors.internal_failure_exception.InternalFailureException: <p>An internal Amazon Lex error occurred. Try your request again.</p>
+            aws_sdk_lex_model_building_service.errors.limit_exceeded_exception.LimitExceededException: <p>The request exceeded a limit. Try your request again.</p>
+            aws_sdk_lex_model_building_service.errors.not_found_exception.NotFoundException: <p>The resource specified in the request was not found. Check the resource and try again.</p>
+            aws_sdk_lex_model_building_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1073,6 +1225,13 @@ class LexModelBuildingServiceClient:
 
         Args:
             signature: <p>The unique identifier for a built-in intent. To find the signature for an intent, see <a href=\"https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/built-in-intent-ref/standard-intents\">Standard Built-in Intents</a> in the <i>Alexa Skills Kit</i>.</p>
+
+        Raises:
+            aws_sdk_lex_model_building_service.errors.bad_request_exception.BadRequestException: <p>The request is not well formed. For example, a value is invalid or a required field is missing. Check the field values, and try again.</p>
+            aws_sdk_lex_model_building_service.errors.internal_failure_exception.InternalFailureException: <p>An internal Amazon Lex error occurred. Try your request again.</p>
+            aws_sdk_lex_model_building_service.errors.limit_exceeded_exception.LimitExceededException: <p>The request exceeded a limit. Try your request again.</p>
+            aws_sdk_lex_model_building_service.errors.not_found_exception.NotFoundException: <p>The resource specified in the request was not found. Check the resource and try again.</p>
+            aws_sdk_lex_model_building_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1124,6 +1283,12 @@ class LexModelBuildingServiceClient:
             signature_contains: <p>Substring to match in built-in intent signatures. An intent will be returned if any part of its signature matches the substring. For example, \"xyz\" matches both \"xyzabc\" and \"abcxyz.\" To find the signature for an intent, see <a href=\"https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/built-in-intent-ref/standard-intents\">Standard Built-in Intents</a> in the <i>Alexa Skills Kit</i>.</p>
             next_token: <p>A pagination token that fetches the next page of intents. If this API call is truncated, Amazon Lex returns a pagination token in the response. To fetch the next page of intents, use the pagination token in the next request.</p>
             max_results: <p>The maximum number of intents to return in the response. The default is 10.</p>
+
+        Raises:
+            aws_sdk_lex_model_building_service.errors.bad_request_exception.BadRequestException: <p>The request is not well formed. For example, a value is invalid or a required field is missing. Check the field values, and try again.</p>
+            aws_sdk_lex_model_building_service.errors.internal_failure_exception.InternalFailureException: <p>An internal Amazon Lex error occurred. Try your request again.</p>
+            aws_sdk_lex_model_building_service.errors.limit_exceeded_exception.LimitExceededException: <p>The request exceeded a limit. Try your request again.</p>
+            aws_sdk_lex_model_building_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1182,6 +1347,12 @@ class LexModelBuildingServiceClient:
             signature_contains: <p>Substring to match in built-in slot type signatures. A slot type will be returned if any part of its signature matches the substring. For example, \"xyz\" matches both \"xyzabc\" and \"abcxyz.\"</p>
             next_token: <p>A pagination token that fetches the next page of slot types. If the response to this API call is truncated, Amazon Lex returns a pagination token in the response. To fetch the next page of slot types, specify the pagination token in the next request.</p>
             max_results: <p>The maximum number of slot types to return in the response. The default is 10.</p>
+
+        Raises:
+            aws_sdk_lex_model_building_service.errors.bad_request_exception.BadRequestException: <p>The request is not well formed. For example, a value is invalid or a required field is missing. Check the field values, and try again.</p>
+            aws_sdk_lex_model_building_service.errors.internal_failure_exception.InternalFailureException: <p>An internal Amazon Lex error occurred. Try your request again.</p>
+            aws_sdk_lex_model_building_service.errors.limit_exceeded_exception.LimitExceededException: <p>The request exceeded a limit. Try your request again.</p>
+            aws_sdk_lex_model_building_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1234,6 +1405,13 @@ class LexModelBuildingServiceClient:
             version: <p>The version of the bot to export.</p>
             resource_type: <p>The type of resource to export. </p>
             export_type: <p>The format of the exported data.</p>
+
+        Raises:
+            aws_sdk_lex_model_building_service.errors.bad_request_exception.BadRequestException: <p>The request is not well formed. For example, a value is invalid or a required field is missing. Check the field values, and try again.</p>
+            aws_sdk_lex_model_building_service.errors.internal_failure_exception.InternalFailureException: <p>An internal Amazon Lex error occurred. Try your request again.</p>
+            aws_sdk_lex_model_building_service.errors.limit_exceeded_exception.LimitExceededException: <p>The request exceeded a limit. Try your request again.</p>
+            aws_sdk_lex_model_building_service.errors.not_found_exception.NotFoundException: <p>The resource specified in the request was not found. Check the resource and try again.</p>
+            aws_sdk_lex_model_building_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1276,6 +1454,13 @@ class LexModelBuildingServiceClient:
 
         Args:
             import_id: <p>The identifier of the import job information to return.</p>
+
+        Raises:
+            aws_sdk_lex_model_building_service.errors.bad_request_exception.BadRequestException: <p>The request is not well formed. For example, a value is invalid or a required field is missing. Check the field values, and try again.</p>
+            aws_sdk_lex_model_building_service.errors.internal_failure_exception.InternalFailureException: <p>An internal Amazon Lex error occurred. Try your request again.</p>
+            aws_sdk_lex_model_building_service.errors.limit_exceeded_exception.LimitExceededException: <p>The request exceeded a limit. Try your request again.</p>
+            aws_sdk_lex_model_building_service.errors.not_found_exception.NotFoundException: <p>The resource specified in the request was not found. Check the resource and try again.</p>
+            aws_sdk_lex_model_building_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1317,6 +1502,13 @@ class LexModelBuildingServiceClient:
         Args:
             name: <p>The name of the intent. The name is case sensitive. </p>
             version: <p>The version of the intent.</p>
+
+        Raises:
+            aws_sdk_lex_model_building_service.errors.bad_request_exception.BadRequestException: <p>The request is not well formed. For example, a value is invalid or a required field is missing. Check the field values, and try again.</p>
+            aws_sdk_lex_model_building_service.errors.internal_failure_exception.InternalFailureException: <p>An internal Amazon Lex error occurred. Try your request again.</p>
+            aws_sdk_lex_model_building_service.errors.limit_exceeded_exception.LimitExceededException: <p>The request exceeded a limit. Try your request again.</p>
+            aws_sdk_lex_model_building_service.errors.not_found_exception.NotFoundException: <p>The resource specified in the request was not found. Check the resource and try again.</p>
+            aws_sdk_lex_model_building_service.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To get a information about an intent
@@ -1371,6 +1563,13 @@ class LexModelBuildingServiceClient:
             next_token: <p>A pagination token that fetches the next page of intents. If the response to this API call is truncated, Amazon Lex returns a pagination token in the response. To fetch the next page of intents, specify the pagination token in the next request. </p>
             max_results: <p>The maximum number of intents to return in the response. The default is 10.</p>
             name_contains: <p>Substring to match in intent names. An intent will be returned if any part of its name matches the substring. For example, \"xyz\" matches both \"xyzabc\" and \"abcxyz.\"</p>
+
+        Raises:
+            aws_sdk_lex_model_building_service.errors.bad_request_exception.BadRequestException: <p>The request is not well formed. For example, a value is invalid or a required field is missing. Check the field values, and try again.</p>
+            aws_sdk_lex_model_building_service.errors.internal_failure_exception.InternalFailureException: <p>An internal Amazon Lex error occurred. Try your request again.</p>
+            aws_sdk_lex_model_building_service.errors.limit_exceeded_exception.LimitExceededException: <p>The request exceeded a limit. Try your request again.</p>
+            aws_sdk_lex_model_building_service.errors.not_found_exception.NotFoundException: <p>The resource specified in the request was not found. Check the resource and try again.</p>
+            aws_sdk_lex_model_building_service.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To get a list of intents
@@ -1427,6 +1626,13 @@ class LexModelBuildingServiceClient:
             name: <p>The name of the intent for which versions should be returned.</p>
             next_token: <p>A pagination token for fetching the next page of intent versions. If the response to this call is truncated, Amazon Lex returns a pagination token in the response. To fetch the next page of versions, specify the pagination token in the next request. </p>
             max_results: <p>The maximum number of intent versions to return in the response. The default is 10.</p>
+
+        Raises:
+            aws_sdk_lex_model_building_service.errors.bad_request_exception.BadRequestException: <p>The request is not well formed. For example, a value is invalid or a required field is missing. Check the field values, and try again.</p>
+            aws_sdk_lex_model_building_service.errors.internal_failure_exception.InternalFailureException: <p>An internal Amazon Lex error occurred. Try your request again.</p>
+            aws_sdk_lex_model_building_service.errors.limit_exceeded_exception.LimitExceededException: <p>The request exceeded a limit. Try your request again.</p>
+            aws_sdk_lex_model_building_service.errors.not_found_exception.NotFoundException: <p>The resource specified in the request was not found. Check the resource and try again.</p>
+            aws_sdk_lex_model_building_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1468,6 +1674,13 @@ class LexModelBuildingServiceClient:
 
         Args:
             migration_id: <p>The unique identifier of the migration to view. The <code>migrationID</code> is returned by the operation.</p>
+
+        Raises:
+            aws_sdk_lex_model_building_service.errors.bad_request_exception.BadRequestException: <p>The request is not well formed. For example, a value is invalid or a required field is missing. Check the field values, and try again.</p>
+            aws_sdk_lex_model_building_service.errors.internal_failure_exception.InternalFailureException: <p>An internal Amazon Lex error occurred. Try your request again.</p>
+            aws_sdk_lex_model_building_service.errors.limit_exceeded_exception.LimitExceededException: <p>The request exceeded a limit. Try your request again.</p>
+            aws_sdk_lex_model_building_service.errors.not_found_exception.NotFoundException: <p>The resource specified in the request was not found. Check the resource and try again.</p>
+            aws_sdk_lex_model_building_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1527,6 +1740,12 @@ class LexModelBuildingServiceClient:
             migration_status_equals: <p>Filters the list to contain only migrations in the specified state.</p>
             max_results: <p>The maximum number of migrations to return in the response. The default is 10.</p>
             next_token: <p>A pagination token that fetches the next page of migrations. If the response to this operation is truncated, Amazon Lex returns a pagination token in the response. To fetch the next page of migrations, specify the pagination token in the request.</p>
+
+        Raises:
+            aws_sdk_lex_model_building_service.errors.bad_request_exception.BadRequestException: <p>The request is not well formed. For example, a value is invalid or a required field is missing. Check the field values, and try again.</p>
+            aws_sdk_lex_model_building_service.errors.internal_failure_exception.InternalFailureException: <p>An internal Amazon Lex error occurred. Try your request again.</p>
+            aws_sdk_lex_model_building_service.errors.limit_exceeded_exception.LimitExceededException: <p>The request exceeded a limit. Try your request again.</p>
+            aws_sdk_lex_model_building_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1577,6 +1796,13 @@ class LexModelBuildingServiceClient:
         Args:
             name: <p>The name of the slot type. The name is case sensitive. </p>
             version: <p>The version of the slot type. </p>
+
+        Raises:
+            aws_sdk_lex_model_building_service.errors.bad_request_exception.BadRequestException: <p>The request is not well formed. For example, a value is invalid or a required field is missing. Check the field values, and try again.</p>
+            aws_sdk_lex_model_building_service.errors.internal_failure_exception.InternalFailureException: <p>An internal Amazon Lex error occurred. Try your request again.</p>
+            aws_sdk_lex_model_building_service.errors.limit_exceeded_exception.LimitExceededException: <p>The request exceeded a limit. Try your request again.</p>
+            aws_sdk_lex_model_building_service.errors.not_found_exception.NotFoundException: <p>The resource specified in the request was not found. Check the resource and try again.</p>
+            aws_sdk_lex_model_building_service.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To get information about a slot type
@@ -1631,6 +1857,13 @@ class LexModelBuildingServiceClient:
             next_token: <p>A pagination token that fetches the next page of slot types. If the response to this API call is truncated, Amazon Lex returns a pagination token in the response. To fetch next page of slot types, specify the pagination token in the next request.</p>
             max_results: <p>The maximum number of slot types to return in the response. The default is 10.</p>
             name_contains: <p>Substring to match in slot type names. A slot type will be returned if any part of its name matches the substring. For example, \"xyz\" matches both \"xyzabc\" and \"abcxyz.\"</p>
+
+        Raises:
+            aws_sdk_lex_model_building_service.errors.bad_request_exception.BadRequestException: <p>The request is not well formed. For example, a value is invalid or a required field is missing. Check the field values, and try again.</p>
+            aws_sdk_lex_model_building_service.errors.internal_failure_exception.InternalFailureException: <p>An internal Amazon Lex error occurred. Try your request again.</p>
+            aws_sdk_lex_model_building_service.errors.limit_exceeded_exception.LimitExceededException: <p>The request exceeded a limit. Try your request again.</p>
+            aws_sdk_lex_model_building_service.errors.not_found_exception.NotFoundException: <p>The resource specified in the request was not found. Check the resource and try again.</p>
+            aws_sdk_lex_model_building_service.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To get a list of slot types
@@ -1687,6 +1920,13 @@ class LexModelBuildingServiceClient:
             name: <p>The name of the slot type for which versions should be returned.</p>
             next_token: <p>A pagination token for fetching the next page of slot type versions. If the response to this call is truncated, Amazon Lex returns a pagination token in the response. To fetch the next page of versions, specify the pagination token in the next request. </p>
             max_results: <p>The maximum number of slot type versions to return in the response. The default is 10.</p>
+
+        Raises:
+            aws_sdk_lex_model_building_service.errors.bad_request_exception.BadRequestException: <p>The request is not well formed. For example, a value is invalid or a required field is missing. Check the field values, and try again.</p>
+            aws_sdk_lex_model_building_service.errors.internal_failure_exception.InternalFailureException: <p>An internal Amazon Lex error occurred. Try your request again.</p>
+            aws_sdk_lex_model_building_service.errors.limit_exceeded_exception.LimitExceededException: <p>The request exceeded a limit. Try your request again.</p>
+            aws_sdk_lex_model_building_service.errors.not_found_exception.NotFoundException: <p>The resource specified in the request was not found. Check the resource and try again.</p>
+            aws_sdk_lex_model_building_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1732,6 +1972,12 @@ class LexModelBuildingServiceClient:
             bot_name: <p>The name of the bot for which utterance information should be returned.</p>
             bot_versions: <p>An array of bot versions for which utterance information should be returned. The limit is 5 versions per request.</p>
             status_type: <p>To return utterances that were recognized and handled, use <code>Detected</code>. To return utterances that were not recognized, use <code>Missed</code>.</p>
+
+        Raises:
+            aws_sdk_lex_model_building_service.errors.bad_request_exception.BadRequestException: <p>The request is not well formed. For example, a value is invalid or a required field is missing. Check the field values, and try again.</p>
+            aws_sdk_lex_model_building_service.errors.internal_failure_exception.InternalFailureException: <p>An internal Amazon Lex error occurred. Try your request again.</p>
+            aws_sdk_lex_model_building_service.errors.limit_exceeded_exception.LimitExceededException: <p>The request exceeded a limit. Try your request again.</p>
+            aws_sdk_lex_model_building_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1771,6 +2017,13 @@ class LexModelBuildingServiceClient:
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource to get a list of tags for.</p>
+
+        Raises:
+            aws_sdk_lex_model_building_service.errors.bad_request_exception.BadRequestException: <p>The request is not well formed. For example, a value is invalid or a required field is missing. Check the field values, and try again.</p>
+            aws_sdk_lex_model_building_service.errors.internal_failure_exception.InternalFailureException: <p>An internal Amazon Lex error occurred. Try your request again.</p>
+            aws_sdk_lex_model_building_service.errors.limit_exceeded_exception.LimitExceededException: <p>The request exceeded a limit. Try your request again.</p>
+            aws_sdk_lex_model_building_service.errors.not_found_exception.NotFoundException: <p>The resource specified in the request was not found. Check the resource and try again.</p>
+            aws_sdk_lex_model_building_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1865,6 +2118,14 @@ class LexModelBuildingServiceClient:
             create_version: <p>When set to <code>true</code> a new numbered version of the bot is created. This is the same as calling the <code>CreateBotVersion</code> operation. If you don't specify <code>createVersion</code>, the default is <code>false</code>.</p>
             tags: <p>A list of tags to add to the bot. You can only add tags when you create a bot, you can't use the <code>PutBot</code> operation to update the tags on a bot. To update tags, use the <code>TagResource</code> operation.</p>
 
+        Raises:
+            aws_sdk_lex_model_building_service.errors.bad_request_exception.BadRequestException: <p>The request is not well formed. For example, a value is invalid or a required field is missing. Check the field values, and try again.</p>
+            aws_sdk_lex_model_building_service.errors.conflict_exception.ConflictException: <p> There was a conflict processing the request. Try your request again. </p>
+            aws_sdk_lex_model_building_service.errors.internal_failure_exception.InternalFailureException: <p>An internal Amazon Lex error occurred. Try your request again.</p>
+            aws_sdk_lex_model_building_service.errors.limit_exceeded_exception.LimitExceededException: <p>The request exceeded a limit. Try your request again.</p>
+            aws_sdk_lex_model_building_service.errors.precondition_failed_exception.PreconditionFailedException: <p> The checksum of the resource that you are trying to change does not match the checksum in the request. Check the resource's checksum and try again.</p>
+            aws_sdk_lex_model_building_service.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To create a bot
             This example shows how to create a bot for ordering pizzas.
@@ -1955,6 +2216,14 @@ class LexModelBuildingServiceClient:
             checksum: <p>Identifies a specific revision of the <code>$LATEST</code> version.</p> <p>When you create a new bot alias, leave the <code>checksum</code> field blank. If you specify a checksum you get a <code>BadRequestException</code> exception.</p> <p>When you want to update a bot alias, set the <code>checksum</code> field to the checksum of the most recent revision of the <code>$LATEST</code> version. If you don't specify the <code> checksum</code> field, or if the checksum does not match the <code>$LATEST</code> version, you get a <code>PreconditionFailedException</code> exception.</p>
             conversation_logs: <p>Settings for conversation logs for the alias.</p>
             tags: <p>A list of tags to add to the bot alias. You can only add tags when you create an alias, you can't use the <code>PutBotAlias</code> operation to update the tags on a bot alias. To update tags, use the <code>TagResource</code> operation.</p>
+
+        Raises:
+            aws_sdk_lex_model_building_service.errors.bad_request_exception.BadRequestException: <p>The request is not well formed. For example, a value is invalid or a required field is missing. Check the field values, and try again.</p>
+            aws_sdk_lex_model_building_service.errors.conflict_exception.ConflictException: <p> There was a conflict processing the request. Try your request again. </p>
+            aws_sdk_lex_model_building_service.errors.internal_failure_exception.InternalFailureException: <p>An internal Amazon Lex error occurred. Try your request again.</p>
+            aws_sdk_lex_model_building_service.errors.limit_exceeded_exception.LimitExceededException: <p>The request exceeded a limit. Try your request again.</p>
+            aws_sdk_lex_model_building_service.errors.precondition_failed_exception.PreconditionFailedException: <p> The checksum of the resource that you are trying to change does not match the checksum in the request. Check the resource's checksum and try again.</p>
+            aws_sdk_lex_model_building_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2065,6 +2334,14 @@ class LexModelBuildingServiceClient:
             input_contexts: <p>An array of <code>InputContext</code> objects that lists the contexts that must be active for Amazon Lex to choose the intent in a conversation with the user.</p>
             output_contexts: <p>An array of <code>OutputContext</code> objects that lists the contexts that the intent activates when the intent is fulfilled.</p>
 
+        Raises:
+            aws_sdk_lex_model_building_service.errors.bad_request_exception.BadRequestException: <p>The request is not well formed. For example, a value is invalid or a required field is missing. Check the field values, and try again.</p>
+            aws_sdk_lex_model_building_service.errors.conflict_exception.ConflictException: <p> There was a conflict processing the request. Try your request again. </p>
+            aws_sdk_lex_model_building_service.errors.internal_failure_exception.InternalFailureException: <p>An internal Amazon Lex error occurred. Try your request again.</p>
+            aws_sdk_lex_model_building_service.errors.limit_exceeded_exception.LimitExceededException: <p>The request exceeded a limit. Try your request again.</p>
+            aws_sdk_lex_model_building_service.errors.precondition_failed_exception.PreconditionFailedException: <p> The checksum of the resource that you are trying to change does not match the checksum in the request. Check the resource's checksum and try again.</p>
+            aws_sdk_lex_model_building_service.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To create an intent
             This example shows how to create an intent for ordering pizzas.
@@ -2166,6 +2443,14 @@ class LexModelBuildingServiceClient:
             parent_slot_type_signature: <p>The built-in slot type used as the parent of the slot type. When you define a parent slot type, the new slot type has all of the same configuration as the parent.</p> <p>Only <code>AMAZON.AlphaNumeric</code> is supported.</p>
             slot_type_configurations: <p>Configuration information that extends the parent built-in slot type. The configuration is added to the settings for the parent slot type.</p>
 
+        Raises:
+            aws_sdk_lex_model_building_service.errors.bad_request_exception.BadRequestException: <p>The request is not well formed. For example, a value is invalid or a required field is missing. Check the field values, and try again.</p>
+            aws_sdk_lex_model_building_service.errors.conflict_exception.ConflictException: <p> There was a conflict processing the request. Try your request again. </p>
+            aws_sdk_lex_model_building_service.errors.internal_failure_exception.InternalFailureException: <p>An internal Amazon Lex error occurred. Try your request again.</p>
+            aws_sdk_lex_model_building_service.errors.limit_exceeded_exception.LimitExceededException: <p>The request exceeded a limit. Try your request again.</p>
+            aws_sdk_lex_model_building_service.errors.precondition_failed_exception.PreconditionFailedException: <p> The checksum of the resource that you are trying to change does not match the checksum in the request. Check the resource's checksum and try again.</p>
+            aws_sdk_lex_model_building_service.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To Create a Slot Type
             This example shows how to create a slot type that describes pizza sauces.
@@ -2230,6 +2515,12 @@ class LexModelBuildingServiceClient:
             resource_type: <p>Specifies the type of resource to export. Each resource also exports any resources that it depends on. </p> <ul> <li> <p>A bot exports dependent intents.</p> </li> <li> <p>An intent exports dependent slot types.</p> </li> </ul>
             merge_strategy: <p>Specifies the action that the <code>StartImport</code> operation should take when there is an existing resource with the same name.</p> <ul> <li> <p>FAIL_ON_CONFLICT - The import operation is stopped on the first conflict between a resource in the import file and an existing resource. The name of the resource causing the conflict is in the <code>failureReason</code> field of the response to the <code>GetImport</code> operation.</p> <p>OVERWRITE_LATEST - The import operation proceeds even if there is a conflict with an existing resource. The $LASTEST version of the existing resource is overwritten with the data from the import file.</p> </li> </ul>
             tags: <p>A list of tags to add to the imported bot. You can only add tags when you import a bot, you can't add tags to an intent or slot type.</p>
+
+        Raises:
+            aws_sdk_lex_model_building_service.errors.bad_request_exception.BadRequestException: <p>The request is not well formed. For example, a value is invalid or a required field is missing. Check the field values, and try again.</p>
+            aws_sdk_lex_model_building_service.errors.internal_failure_exception.InternalFailureException: <p>An internal Amazon Lex error occurred. Try your request again.</p>
+            aws_sdk_lex_model_building_service.errors.limit_exceeded_exception.LimitExceededException: <p>The request exceeded a limit. Try your request again.</p>
+            aws_sdk_lex_model_building_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2279,6 +2570,14 @@ class LexModelBuildingServiceClient:
             v2_bot_name: <p>The name of the Amazon Lex V2 bot that you are migrating the Amazon Lex V1 bot to. </p> <ul> <li> <p>If the Amazon Lex V2 bot doesn't exist, you must use the <code>CREATE_NEW</code> migration strategy.</p> </li> <li> <p>If the Amazon Lex V2 bot exists, you must use the <code>UPDATE_EXISTING</code> migration strategy to change the contents of the Amazon Lex V2 bot.</p> </li> </ul>
             v2_bot_role: <p>The IAM role that Amazon Lex uses to run the Amazon Lex V2 bot.</p>
             migration_strategy: <p>The strategy used to conduct the migration.</p> <ul> <li> <p> <code>CREATE_NEW</code> - Creates a new Amazon Lex V2 bot and migrates the Amazon Lex V1 bot to the new bot.</p> </li> <li> <p> <code>UPDATE_EXISTING</code> - Overwrites the existing Amazon Lex V2 bot metadata and the locale being migrated. It doesn't change any other locales in the Amazon Lex V2 bot. If the locale doesn't exist, a new locale is created in the Amazon Lex V2 bot.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_lex_model_building_service.errors.access_denied_exception.AccessDeniedException: <p>Your IAM user or role does not have permission to call the Amazon Lex V2 APIs required to migrate your bot.</p>
+            aws_sdk_lex_model_building_service.errors.bad_request_exception.BadRequestException: <p>The request is not well formed. For example, a value is invalid or a required field is missing. Check the field values, and try again.</p>
+            aws_sdk_lex_model_building_service.errors.internal_failure_exception.InternalFailureException: <p>An internal Amazon Lex error occurred. Try your request again.</p>
+            aws_sdk_lex_model_building_service.errors.limit_exceeded_exception.LimitExceededException: <p>The request exceeded a limit. Try your request again.</p>
+            aws_sdk_lex_model_building_service.errors.not_found_exception.NotFoundException: <p>The resource specified in the request was not found. Check the resource and try again.</p>
+            aws_sdk_lex_model_building_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2322,6 +2621,14 @@ class LexModelBuildingServiceClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the bot, bot alias, or bot channel to tag.</p>
             tags: <p>A list of tag keys to add to the resource. If a tag key already exists, the existing value is replaced with the new value.</p>
+
+        Raises:
+            aws_sdk_lex_model_building_service.errors.bad_request_exception.BadRequestException: <p>The request is not well formed. For example, a value is invalid or a required field is missing. Check the field values, and try again.</p>
+            aws_sdk_lex_model_building_service.errors.conflict_exception.ConflictException: <p> There was a conflict processing the request. Try your request again. </p>
+            aws_sdk_lex_model_building_service.errors.internal_failure_exception.InternalFailureException: <p>An internal Amazon Lex error occurred. Try your request again.</p>
+            aws_sdk_lex_model_building_service.errors.limit_exceeded_exception.LimitExceededException: <p>The request exceeded a limit. Try your request again.</p>
+            aws_sdk_lex_model_building_service.errors.not_found_exception.NotFoundException: <p>The resource specified in the request was not found. Check the resource and try again.</p>
+            aws_sdk_lex_model_building_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2362,6 +2669,14 @@ class LexModelBuildingServiceClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource to remove the tags from.</p>
             tag_keys: <p>A list of tag keys to remove from the resource. If a tag key does not exist on the resource, it is ignored.</p>
+
+        Raises:
+            aws_sdk_lex_model_building_service.errors.bad_request_exception.BadRequestException: <p>The request is not well formed. For example, a value is invalid or a required field is missing. Check the field values, and try again.</p>
+            aws_sdk_lex_model_building_service.errors.conflict_exception.ConflictException: <p> There was a conflict processing the request. Try your request again. </p>
+            aws_sdk_lex_model_building_service.errors.internal_failure_exception.InternalFailureException: <p>An internal Amazon Lex error occurred. Try your request again.</p>
+            aws_sdk_lex_model_building_service.errors.limit_exceeded_exception.LimitExceededException: <p>The request exceeded a limit. Try your request again.</p>
+            aws_sdk_lex_model_building_service.errors.not_found_exception.NotFoundException: <p>The resource specified in the request was not found. Check the resource and try again.</p>
+            aws_sdk_lex_model_building_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(

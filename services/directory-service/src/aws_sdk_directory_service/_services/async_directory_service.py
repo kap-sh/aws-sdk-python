@@ -387,6 +387,14 @@ class AsyncDirectoryServiceClient:
 
         Args:
             shared_directory_id: <p>Identifier of the shared directory in the directory consumer account. This identifier is different for each directory owner account. </p>
+
+        Raises:
+            aws_sdk_directory_service.errors.client_exception.ClientException: <p>A client exception has occurred.</p>
+            aws_sdk_directory_service.errors.directory_already_shared_exception.DirectoryAlreadySharedException: <p>The specified directory has already been shared with this Amazon Web Services account.</p>
+            aws_sdk_directory_service.errors.entity_does_not_exist_exception.EntityDoesNotExistException: <p>The specified entity could not be found.</p>
+            aws_sdk_directory_service.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters are not valid.</p>
+            aws_sdk_directory_service.errors.service_exception.ServiceException: <p>An exception has occurred in Directory Service.</p>
+            aws_sdk_directory_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -431,6 +439,16 @@ class AsyncDirectoryServiceClient:
             directory_id: <p>Identifier (ID) of the directory to which to add the address block.</p>
             ip_routes: <p>IP address blocks, using CIDR format, of the traffic to route. This is often the IP address block of the DNS server used for your self-managed domain.</p>
             update_security_group_for_directory_controllers: <p>If set to true, updates the inbound and outbound rules of the security group that has the description: \"Amazon Web Services created security group for <i>directory ID</i> directory controllers.\" Following are the new rules: </p> <p>Inbound:</p> <ul> <li> <p>Type: Custom UDP Rule, Protocol: UDP, Range: 88, Source: Managed Microsoft AD VPC IPv4 CIDR</p> </li> <li> <p>Type: Custom UDP Rule, Protocol: UDP, Range: 123, Source: Managed Microsoft AD VPC IPv4 CIDR</p> </li> <li> <p>Type: Custom UDP Rule, Protocol: UDP, Range: 138, Source: Managed Microsoft AD VPC IPv4 CIDR</p> </li> <li> <p>Type: Custom UDP Rule, Protocol: UDP, Range: 389, Source: Managed Microsoft AD VPC IPv4 CIDR</p> </li> <li> <p>Type: Custom UDP Rule, Protocol: UDP, Range: 464, Source: Managed Microsoft AD VPC IPv4 CIDR</p> </li> <li> <p>Type: Custom UDP Rule, Protocol: UDP, Range: 445, Source: Managed Microsoft AD VPC IPv4 CIDR</p> </li> <li> <p>Type: Custom TCP Rule, Protocol: TCP, Range: 88, Source: Managed Microsoft AD VPC IPv4 CIDR</p> </li> <li> <p>Type: Custom TCP Rule, Protocol: TCP, Range: 135, Source: Managed Microsoft AD VPC IPv4 CIDR</p> </li> <li> <p>Type: Custom TCP Rule, Protocol: TCP, Range: 445, Source: Managed Microsoft AD VPC IPv4 CIDR</p> </li> <li> <p>Type: Custom TCP Rule, Protocol: TCP, Range: 464, Source: Managed Microsoft AD VPC IPv4 CIDR</p> </li> <li> <p>Type: Custom TCP Rule, Protocol: TCP, Range: 636, Source: Managed Microsoft AD VPC IPv4 CIDR</p> </li> <li> <p>Type: Custom TCP Rule, Protocol: TCP, Range: 1024-65535, Source: Managed Microsoft AD VPC IPv4 CIDR</p> </li> <li> <p>Type: Custom TCP Rule, Protocol: TCP, Range: 3268-33269, Source: Managed Microsoft AD VPC IPv4 CIDR</p> </li> <li> <p>Type: DNS (UDP), Protocol: UDP, Range: 53, Source: Managed Microsoft AD VPC IPv4 CIDR</p> </li> <li> <p>Type: DNS (TCP), Protocol: TCP, Range: 53, Source: Managed Microsoft AD VPC IPv4 CIDR</p> </li> <li> <p>Type: LDAP, Protocol: TCP, Range: 389, Source: Managed Microsoft AD VPC IPv4 CIDR</p> </li> <li> <p>Type: All ICMP, Protocol: All, Range: N/A, Source: Managed Microsoft AD VPC IPv4 CIDR</p> </li> </ul> <p></p> <p>Outbound:</p> <ul> <li> <p>Type: All traffic, Protocol: All, Range: All, Destination: 0.0.0.0/0</p> </li> </ul> <p>These security rules impact an internal network interface that is not exposed publicly.</p>
+
+        Raises:
+            aws_sdk_directory_service.errors.client_exception.ClientException: <p>A client exception has occurred.</p>
+            aws_sdk_directory_service.errors.directory_unavailable_exception.DirectoryUnavailableException: <p>The specified directory is unavailable.</p>
+            aws_sdk_directory_service.errors.entity_already_exists_exception.EntityAlreadyExistsException: <p>The specified entity already exists.</p>
+            aws_sdk_directory_service.errors.entity_does_not_exist_exception.EntityDoesNotExistException: <p>The specified entity could not be found.</p>
+            aws_sdk_directory_service.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters are not valid.</p>
+            aws_sdk_directory_service.errors.ip_route_limit_exceeded_exception.IpRouteLimitExceededException: <p>The maximum allowed number of IP addresses was exceeded. The default limit is 100 IP address blocks.</p>
+            aws_sdk_directory_service.errors.service_exception.ServiceException: <p>An exception has occurred in Directory Service.</p>
+            aws_sdk_directory_service.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To add a CIDR address block that routes traffic for Microsoft AD
@@ -483,6 +501,19 @@ class AsyncDirectoryServiceClient:
         Args:
             directory_id: <p>The identifier of the directory to which you want to add Region replication.</p>
             region_name: <p>The name of the Region where you want to add domain controllers for replication. For example, <code>us-east-1</code>.</p>
+
+        Raises:
+            aws_sdk_directory_service.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_directory_service.errors.client_exception.ClientException: <p>A client exception has occurred.</p>
+            aws_sdk_directory_service.errors.directory_already_in_region_exception.DirectoryAlreadyInRegionException: <p>The Region you specified is the same Region where the Managed Microsoft AD directory was created. Specify a different Region and try again.</p>
+            aws_sdk_directory_service.errors.directory_does_not_exist_exception.DirectoryDoesNotExistException: <p>The specified directory does not exist in the system.</p>
+            aws_sdk_directory_service.errors.directory_unavailable_exception.DirectoryUnavailableException: <p>The specified directory is unavailable.</p>
+            aws_sdk_directory_service.errors.entity_does_not_exist_exception.EntityDoesNotExistException: <p>The specified entity could not be found.</p>
+            aws_sdk_directory_service.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters are not valid.</p>
+            aws_sdk_directory_service.errors.region_limit_exceeded_exception.RegionLimitExceededException: <p>You have reached the limit for maximum number of simultaneous Region replications per directory.</p>
+            aws_sdk_directory_service.errors.service_exception.ServiceException: <p>An exception has occurred in Directory Service.</p>
+            aws_sdk_directory_service.errors.unsupported_operation_exception.UnsupportedOperationException: <p>The operation is not supported.</p>
+            aws_sdk_directory_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -525,6 +556,14 @@ class AsyncDirectoryServiceClient:
         Args:
             resource_id: <p>Identifier (ID) for the directory to which to add the tag.</p>
             tags: <p>The tags to be assigned to the directory.</p>
+
+        Raises:
+            aws_sdk_directory_service.errors.client_exception.ClientException: <p>A client exception has occurred.</p>
+            aws_sdk_directory_service.errors.entity_does_not_exist_exception.EntityDoesNotExistException: <p>The specified entity could not be found.</p>
+            aws_sdk_directory_service.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters are not valid.</p>
+            aws_sdk_directory_service.errors.service_exception.ServiceException: <p>An exception has occurred in Directory Service.</p>
+            aws_sdk_directory_service.errors.tag_limit_exceeded_exception.TagLimitExceededException: <p>The maximum allowed number of tags was exceeded.</p>
+            aws_sdk_directory_service.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To add tags to a directory
@@ -572,6 +611,12 @@ class AsyncDirectoryServiceClient:
         Args:
             directory_id: <p>The identifier of the directory whose schema extension will be canceled.</p>
             schema_extension_id: <p>The identifier of the schema extension that will be canceled.</p>
+
+        Raises:
+            aws_sdk_directory_service.errors.client_exception.ClientException: <p>A client exception has occurred.</p>
+            aws_sdk_directory_service.errors.entity_does_not_exist_exception.EntityDoesNotExistException: <p>The specified entity could not be found.</p>
+            aws_sdk_directory_service.errors.service_exception.ServiceException: <p>An exception has occurred in Directory Service.</p>
+            aws_sdk_directory_service.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To cancel a Microsoft AD schema extension that is in progress
@@ -638,6 +683,13 @@ class AsyncDirectoryServiceClient:
             tags: <p>The tags to be assigned to AD Connector.</p>
             network_type: <p>The network type for your directory. The default value is <code>IPv4</code> or <code>IPv6</code> based on the provided subnet capabilities.</p>
 
+        Raises:
+            aws_sdk_directory_service.errors.client_exception.ClientException: <p>A client exception has occurred.</p>
+            aws_sdk_directory_service.errors.directory_limit_exceeded_exception.DirectoryLimitExceededException: <p>The maximum number of directories in the region has been reached. You can use the <a>GetDirectoryLimits</a> operation to determine your directory limits in the region.</p>
+            aws_sdk_directory_service.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters are not valid.</p>
+            aws_sdk_directory_service.errors.service_exception.ServiceException: <p>An exception has occurred in Directory Service.</p>
+            aws_sdk_directory_service.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To connect to an on-premises directory
             The following example creates an AD Connector to connect to an on-premises directory.
@@ -695,6 +747,14 @@ class AsyncDirectoryServiceClient:
             directory_id: <p>The identifier of the directory for which to create the alias.</p>
             alias: <p>The requested alias.</p> <p>The alias must be unique amongst all aliases in Amazon Web Services. This operation throws an <code>EntityAlreadyExistsException</code> error if the alias already exists.</p>
 
+        Raises:
+            aws_sdk_directory_service.errors.client_exception.ClientException: <p>A client exception has occurred.</p>
+            aws_sdk_directory_service.errors.entity_already_exists_exception.EntityAlreadyExistsException: <p>The specified entity already exists.</p>
+            aws_sdk_directory_service.errors.entity_does_not_exist_exception.EntityDoesNotExistException: <p>The specified entity could not be found.</p>
+            aws_sdk_directory_service.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters are not valid.</p>
+            aws_sdk_directory_service.errors.service_exception.ServiceException: <p>An exception has occurred in Directory Service.</p>
+            aws_sdk_directory_service.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To create an alias for a directory
             The following example creates an alias for a directory.
@@ -751,6 +811,17 @@ class AsyncDirectoryServiceClient:
             password: <p>A one-time password that is used to join the computer to the directory. You should generate a random, strong password to use for this parameter.</p>
             organizational_unit_distinguished_name: <p>The fully-qualified distinguished name of the organizational unit to place the computer account in.</p>
             computer_attributes: <p>An array of <a>Attribute</a> objects that contain any LDAP attributes to apply to the computer account.</p>
+
+        Raises:
+            aws_sdk_directory_service.errors.authentication_failed_exception.AuthenticationFailedException: <p>An authentication error occurred.</p>
+            aws_sdk_directory_service.errors.client_exception.ClientException: <p>A client exception has occurred.</p>
+            aws_sdk_directory_service.errors.directory_unavailable_exception.DirectoryUnavailableException: <p>The specified directory is unavailable.</p>
+            aws_sdk_directory_service.errors.entity_already_exists_exception.EntityAlreadyExistsException: <p>The specified entity already exists.</p>
+            aws_sdk_directory_service.errors.entity_does_not_exist_exception.EntityDoesNotExistException: <p>The specified entity could not be found.</p>
+            aws_sdk_directory_service.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters are not valid.</p>
+            aws_sdk_directory_service.errors.service_exception.ServiceException: <p>An exception has occurred in Directory Service.</p>
+            aws_sdk_directory_service.errors.unsupported_operation_exception.UnsupportedOperationException: <p>The operation is not supported.</p>
+            aws_sdk_directory_service.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To create a computer account
@@ -813,6 +884,16 @@ class AsyncDirectoryServiceClient:
             remote_domain_name: <p>The fully qualified domain name (FQDN) of the remote domain with which you will set up a trust relationship.</p>
             dns_ip_addrs: <p>The IP addresses of the remote DNS server associated with RemoteDomainName.</p>
             dns_ipv6_addrs: <p>The IPv6 addresses of the remote DNS server associated with RemoteDomainName.</p>
+
+        Raises:
+            aws_sdk_directory_service.errors.client_exception.ClientException: <p>A client exception has occurred.</p>
+            aws_sdk_directory_service.errors.directory_unavailable_exception.DirectoryUnavailableException: <p>The specified directory is unavailable.</p>
+            aws_sdk_directory_service.errors.entity_already_exists_exception.EntityAlreadyExistsException: <p>The specified entity already exists.</p>
+            aws_sdk_directory_service.errors.entity_does_not_exist_exception.EntityDoesNotExistException: <p>The specified entity could not be found.</p>
+            aws_sdk_directory_service.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters are not valid.</p>
+            aws_sdk_directory_service.errors.service_exception.ServiceException: <p>An exception has occurred in Directory Service.</p>
+            aws_sdk_directory_service.errors.unsupported_operation_exception.UnsupportedOperationException: <p>The operation is not supported.</p>
+            aws_sdk_directory_service.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To create a conditional forwarder
@@ -887,6 +968,13 @@ class AsyncDirectoryServiceClient:
             tags: <p>The tags to be assigned to the Simple AD directory.</p>
             network_type: <p>The network type for your directory. Simple AD supports IPv4 and Dual-stack only.</p>
 
+        Raises:
+            aws_sdk_directory_service.errors.client_exception.ClientException: <p>A client exception has occurred.</p>
+            aws_sdk_directory_service.errors.directory_limit_exceeded_exception.DirectoryLimitExceededException: <p>The maximum number of directories in the region has been reached. You can use the <a>GetDirectoryLimits</a> operation to determine your directory limits in the region.</p>
+            aws_sdk_directory_service.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters are not valid.</p>
+            aws_sdk_directory_service.errors.service_exception.ServiceException: <p>An exception has occurred in Directory Service.</p>
+            aws_sdk_directory_service.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To create a Simple AD directory
             The following example creates a Simple AD directory.
@@ -946,6 +1034,16 @@ class AsyncDirectoryServiceClient:
             secret_arn: <p>The Amazon Resource Name (ARN) of the Amazon Web Services Secrets Manager secret that contains the credentials for the service account used to join hybrid domain controllers to your self-managed AD domain. This secret is used once and not stored.</p> <p>The secret must contain key-value pairs with keys matching <code>customerAdAdminDomainUsername</code> and <code>customerAdAdminDomainPassword</code>. For example: <code>{\"customerAdAdminDomainUsername\":\"carlos_salazar\",\"customerAdAdminDomainPassword\":\"ExamplePassword123!\"}</code>.</p>
             assessment_id: <p>The unique identifier of the successful directory assessment that validates your self-managed AD environment. You must have a successful directory assessment before you create a hybrid directory.</p>
             tags: <p>The tags to be assigned to the directory. Each tag consists of a key and value pair. You can specify multiple tags as a list.</p>
+
+        Raises:
+            aws_sdk_directory_service.errors.ad_assessment_limit_exceeded_exception.ADAssessmentLimitExceededException: <p>A directory assessment is automatically created when you create a hybrid directory. There are two types of assessments: <code>CUSTOMER</code> and <code>SYSTEM</code>. Your Amazon Web Services account has a limit of 100 <code>CUSTOMER</code> directory assessments.</p> <p>If you attempt to create a hybrid directory; and you already have 100 <code>CUSTOMER</code> directory assessments;, you will encounter an error. Delete assessments to free up capacity before trying again.</p> <p>You can request an increase to your <code>CUSTOMER</code> directory assessment quota by contacting customer support or delete existing CUSTOMER directory assessments; to free up capacity.</p>
+            aws_sdk_directory_service.errors.client_exception.ClientException: <p>A client exception has occurred.</p>
+            aws_sdk_directory_service.errors.directory_limit_exceeded_exception.DirectoryLimitExceededException: <p>The maximum number of directories in the region has been reached. You can use the <a>GetDirectoryLimits</a> operation to determine your directory limits in the region.</p>
+            aws_sdk_directory_service.errors.entity_does_not_exist_exception.EntityDoesNotExistException: <p>The specified entity could not be found.</p>
+            aws_sdk_directory_service.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters are not valid.</p>
+            aws_sdk_directory_service.errors.service_exception.ServiceException: <p>An exception has occurred in Directory Service.</p>
+            aws_sdk_directory_service.errors.unsupported_operation_exception.UnsupportedOperationException: <p>The operation is not supported.</p>
+            aws_sdk_directory_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -989,6 +1087,15 @@ class AsyncDirectoryServiceClient:
         Args:
             directory_id: <p>Identifier of the directory to which you want to subscribe and receive real-time logs to your specified CloudWatch log group.</p>
             log_group_name: <p>The name of the CloudWatch log group where the real-time domain controller logs are forwarded.</p>
+
+        Raises:
+            aws_sdk_directory_service.errors.client_exception.ClientException: <p>A client exception has occurred.</p>
+            aws_sdk_directory_service.errors.entity_already_exists_exception.EntityAlreadyExistsException: <p>The specified entity already exists.</p>
+            aws_sdk_directory_service.errors.entity_does_not_exist_exception.EntityDoesNotExistException: <p>The specified entity could not be found.</p>
+            aws_sdk_directory_service.errors.insufficient_permissions_exception.InsufficientPermissionsException: <p>The account does not have sufficient permission to perform the operation.</p>
+            aws_sdk_directory_service.errors.service_exception.ServiceException: <p>An exception has occurred in Directory Service.</p>
+            aws_sdk_directory_service.errors.unsupported_operation_exception.UnsupportedOperationException: <p>The operation is not supported.</p>
+            aws_sdk_directory_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1051,6 +1158,14 @@ class AsyncDirectoryServiceClient:
             tags: <p>The tags to be assigned to the Managed Microsoft AD directory.</p>
             network_type: <p> The network type for your domain. The default value is <code>IPv4</code> or <code>IPv6</code> based on the provided subnet capabilities.</p>
 
+        Raises:
+            aws_sdk_directory_service.errors.client_exception.ClientException: <p>A client exception has occurred.</p>
+            aws_sdk_directory_service.errors.directory_limit_exceeded_exception.DirectoryLimitExceededException: <p>The maximum number of directories in the region has been reached. You can use the <a>GetDirectoryLimits</a> operation to determine your directory limits in the region.</p>
+            aws_sdk_directory_service.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters are not valid.</p>
+            aws_sdk_directory_service.errors.service_exception.ServiceException: <p>An exception has occurred in Directory Service.</p>
+            aws_sdk_directory_service.errors.unsupported_operation_exception.UnsupportedOperationException: <p>The operation is not supported.</p>
+            aws_sdk_directory_service.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To create a Microsoft AD directory
             The following example creates a Microsoft AD directory in the AWS cloud.
@@ -1110,6 +1225,14 @@ class AsyncDirectoryServiceClient:
         Args:
             directory_id: <p>The identifier of the directory of which to take a snapshot.</p>
             name: <p>The descriptive name to apply to the snapshot.</p>
+
+        Raises:
+            aws_sdk_directory_service.errors.client_exception.ClientException: <p>A client exception has occurred.</p>
+            aws_sdk_directory_service.errors.entity_does_not_exist_exception.EntityDoesNotExistException: <p>The specified entity could not be found.</p>
+            aws_sdk_directory_service.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters are not valid.</p>
+            aws_sdk_directory_service.errors.service_exception.ServiceException: <p>An exception has occurred in Directory Service.</p>
+            aws_sdk_directory_service.errors.snapshot_limit_exceeded_exception.SnapshotLimitExceededException: <p>The maximum number of manual snapshots for the directory has been reached. You can use the <a>GetSnapshotLimits</a> operation to determine the snapshot limits for a directory.</p>
+            aws_sdk_directory_service.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To create a snapshot of a directory
@@ -1179,6 +1302,15 @@ class AsyncDirectoryServiceClient:
             conditional_forwarder_ipv6_addrs: <p>The IPv6 addresses of the remote DNS server associated with RemoteDomainName.</p>
             selective_auth: <p>Optional parameter to enable selective authentication for the trust.</p>
 
+        Raises:
+            aws_sdk_directory_service.errors.client_exception.ClientException: <p>A client exception has occurred.</p>
+            aws_sdk_directory_service.errors.entity_already_exists_exception.EntityAlreadyExistsException: <p>The specified entity already exists.</p>
+            aws_sdk_directory_service.errors.entity_does_not_exist_exception.EntityDoesNotExistException: <p>The specified entity could not be found.</p>
+            aws_sdk_directory_service.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters are not valid.</p>
+            aws_sdk_directory_service.errors.service_exception.ServiceException: <p>An exception has occurred in Directory Service.</p>
+            aws_sdk_directory_service.errors.unsupported_operation_exception.UnsupportedOperationException: <p>The operation is not supported.</p>
+            aws_sdk_directory_service.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To create a trust
             The following example creates a trust between Microsoft AD in the AWS cloud and an external domain.
@@ -1235,6 +1367,14 @@ class AsyncDirectoryServiceClient:
 
         Args:
             assessment_id: <p>The unique identifier of the directory assessment to delete.</p>
+
+        Raises:
+            aws_sdk_directory_service.errors.client_exception.ClientException: <p>A client exception has occurred.</p>
+            aws_sdk_directory_service.errors.entity_does_not_exist_exception.EntityDoesNotExistException: <p>The specified entity could not be found.</p>
+            aws_sdk_directory_service.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters are not valid.</p>
+            aws_sdk_directory_service.errors.service_exception.ServiceException: <p>An exception has occurred in Directory Service.</p>
+            aws_sdk_directory_service.errors.unsupported_operation_exception.UnsupportedOperationException: <p>The operation is not supported.</p>
+            aws_sdk_directory_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1275,6 +1415,15 @@ class AsyncDirectoryServiceClient:
         Args:
             directory_id: <p>The directory ID for which you are deleting the conditional forwarder.</p>
             remote_domain_name: <p>The fully qualified domain name (FQDN) of the remote domain with which you are deleting the conditional forwarder.</p>
+
+        Raises:
+            aws_sdk_directory_service.errors.client_exception.ClientException: <p>A client exception has occurred.</p>
+            aws_sdk_directory_service.errors.directory_unavailable_exception.DirectoryUnavailableException: <p>The specified directory is unavailable.</p>
+            aws_sdk_directory_service.errors.entity_does_not_exist_exception.EntityDoesNotExistException: <p>The specified entity could not be found.</p>
+            aws_sdk_directory_service.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters are not valid.</p>
+            aws_sdk_directory_service.errors.service_exception.ServiceException: <p>An exception has occurred in Directory Service.</p>
+            aws_sdk_directory_service.errors.unsupported_operation_exception.UnsupportedOperationException: <p>The operation is not supported.</p>
+            aws_sdk_directory_service.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To delete a conditional forwarder
@@ -1323,6 +1472,12 @@ class AsyncDirectoryServiceClient:
         Args:
             directory_id: <p>The identifier of the directory to delete.</p>
 
+        Raises:
+            aws_sdk_directory_service.errors.client_exception.ClientException: <p>A client exception has occurred.</p>
+            aws_sdk_directory_service.errors.entity_does_not_exist_exception.EntityDoesNotExistException: <p>The specified entity could not be found.</p>
+            aws_sdk_directory_service.errors.service_exception.ServiceException: <p>An exception has occurred in Directory Service.</p>
+            aws_sdk_directory_service.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To delete a directory
             The following example deletes a directory from your AWS account.
@@ -1366,6 +1521,13 @@ class AsyncDirectoryServiceClient:
 
         Args:
             directory_id: <p>Identifier of the directory whose log subscription you want to delete.</p>
+
+        Raises:
+            aws_sdk_directory_service.errors.client_exception.ClientException: <p>A client exception has occurred.</p>
+            aws_sdk_directory_service.errors.entity_does_not_exist_exception.EntityDoesNotExistException: <p>The specified entity could not be found.</p>
+            aws_sdk_directory_service.errors.service_exception.ServiceException: <p>An exception has occurred in Directory Service.</p>
+            aws_sdk_directory_service.errors.unsupported_operation_exception.UnsupportedOperationException: <p>The operation is not supported.</p>
+            aws_sdk_directory_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1404,6 +1566,13 @@ class AsyncDirectoryServiceClient:
 
         Args:
             snapshot_id: <p>The identifier of the directory snapshot to be deleted.</p>
+
+        Raises:
+            aws_sdk_directory_service.errors.client_exception.ClientException: <p>A client exception has occurred.</p>
+            aws_sdk_directory_service.errors.entity_does_not_exist_exception.EntityDoesNotExistException: <p>The specified entity could not be found.</p>
+            aws_sdk_directory_service.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters are not valid.</p>
+            aws_sdk_directory_service.errors.service_exception.ServiceException: <p>An exception has occurred in Directory Service.</p>
+            aws_sdk_directory_service.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To delete a snapshot
@@ -1452,6 +1621,14 @@ class AsyncDirectoryServiceClient:
         Args:
             trust_id: <p>The Trust ID of the trust relationship to be deleted.</p>
             delete_associated_conditional_forwarder: <p>Delete a conditional forwarder as part of a DeleteTrustRequest.</p>
+
+        Raises:
+            aws_sdk_directory_service.errors.client_exception.ClientException: <p>A client exception has occurred.</p>
+            aws_sdk_directory_service.errors.entity_does_not_exist_exception.EntityDoesNotExistException: <p>The specified entity could not be found.</p>
+            aws_sdk_directory_service.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters are not valid.</p>
+            aws_sdk_directory_service.errors.service_exception.ServiceException: <p>An exception has occurred in Directory Service.</p>
+            aws_sdk_directory_service.errors.unsupported_operation_exception.UnsupportedOperationException: <p>The operation is not supported.</p>
+            aws_sdk_directory_service.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To delete a trust
@@ -1502,6 +1679,17 @@ class AsyncDirectoryServiceClient:
         Args:
             directory_id: <p>The identifier of the directory.</p>
             certificate_id: <p>The identifier of the certificate.</p>
+
+        Raises:
+            aws_sdk_directory_service.errors.certificate_does_not_exist_exception.CertificateDoesNotExistException: <p>The certificate is not present in the system for describe or deregister activities.</p>
+            aws_sdk_directory_service.errors.certificate_in_use_exception.CertificateInUseException: <p>The certificate is being used for the LDAP security connection and cannot be removed without disabling LDAP security.</p>
+            aws_sdk_directory_service.errors.client_exception.ClientException: <p>A client exception has occurred.</p>
+            aws_sdk_directory_service.errors.directory_does_not_exist_exception.DirectoryDoesNotExistException: <p>The specified directory does not exist in the system.</p>
+            aws_sdk_directory_service.errors.directory_unavailable_exception.DirectoryUnavailableException: <p>The specified directory is unavailable.</p>
+            aws_sdk_directory_service.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters are not valid.</p>
+            aws_sdk_directory_service.errors.service_exception.ServiceException: <p>An exception has occurred in Directory Service.</p>
+            aws_sdk_directory_service.errors.unsupported_operation_exception.UnsupportedOperationException: <p>The operation is not supported.</p>
+            aws_sdk_directory_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1543,6 +1731,13 @@ class AsyncDirectoryServiceClient:
         Args:
             directory_id: <p>The Directory ID to remove as a publisher. This directory will no longer send messages to the specified Amazon SNS topic.</p>
             topic_name: <p>The name of the Amazon SNS topic from which to remove the directory as a publisher.</p>
+
+        Raises:
+            aws_sdk_directory_service.errors.client_exception.ClientException: <p>A client exception has occurred.</p>
+            aws_sdk_directory_service.errors.entity_does_not_exist_exception.EntityDoesNotExistException: <p>The specified entity could not be found.</p>
+            aws_sdk_directory_service.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters are not valid.</p>
+            aws_sdk_directory_service.errors.service_exception.ServiceException: <p>An exception has occurred in Directory Service.</p>
+            aws_sdk_directory_service.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To remove an event topic
@@ -1588,6 +1783,14 @@ class AsyncDirectoryServiceClient:
 
         Args:
             assessment_id: <p>The identifier of the directory assessment to describe.</p>
+
+        Raises:
+            aws_sdk_directory_service.errors.client_exception.ClientException: <p>A client exception has occurred.</p>
+            aws_sdk_directory_service.errors.entity_does_not_exist_exception.EntityDoesNotExistException: <p>The specified entity could not be found.</p>
+            aws_sdk_directory_service.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters are not valid.</p>
+            aws_sdk_directory_service.errors.service_exception.ServiceException: <p>An exception has occurred in Directory Service.</p>
+            aws_sdk_directory_service.errors.unsupported_operation_exception.UnsupportedOperationException: <p>The operation is not supported.</p>
+            aws_sdk_directory_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1626,6 +1829,13 @@ class AsyncDirectoryServiceClient:
 
         Args:
             directory_id: <p>The identifier of the directory for which to retrieve the CA enrollment policy information.</p>
+
+        Raises:
+            aws_sdk_directory_service.errors.client_exception.ClientException: <p>A client exception has occurred.</p>
+            aws_sdk_directory_service.errors.directory_does_not_exist_exception.DirectoryDoesNotExistException: <p>The specified directory does not exist in the system.</p>
+            aws_sdk_directory_service.errors.service_exception.ServiceException: <p>An exception has occurred in Directory Service.</p>
+            aws_sdk_directory_service.errors.unsupported_operation_exception.UnsupportedOperationException: <p>The operation is not supported.</p>
+            aws_sdk_directory_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1666,6 +1876,15 @@ class AsyncDirectoryServiceClient:
         Args:
             directory_id: <p>The identifier of the directory.</p>
             certificate_id: <p>The identifier of the certificate.</p>
+
+        Raises:
+            aws_sdk_directory_service.errors.certificate_does_not_exist_exception.CertificateDoesNotExistException: <p>The certificate is not present in the system for describe or deregister activities.</p>
+            aws_sdk_directory_service.errors.client_exception.ClientException: <p>A client exception has occurred.</p>
+            aws_sdk_directory_service.errors.directory_does_not_exist_exception.DirectoryDoesNotExistException: <p>The specified directory does not exist in the system.</p>
+            aws_sdk_directory_service.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters are not valid.</p>
+            aws_sdk_directory_service.errors.service_exception.ServiceException: <p>An exception has occurred in Directory Service.</p>
+            aws_sdk_directory_service.errors.unsupported_operation_exception.UnsupportedOperationException: <p>The operation is not supported.</p>
+            aws_sdk_directory_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1715,6 +1934,15 @@ class AsyncDirectoryServiceClient:
             type: <p>The type of client authentication for which to retrieve information. If no type is specified, a list of all client authentication types that are supported for the specified directory is retrieved.</p>
             next_token: <p>The <i>DescribeClientAuthenticationSettingsResult.NextToken</i> value from a previous call to <a>DescribeClientAuthenticationSettings</a>. Pass null if this is the first call.</p>
             limit: <p>The maximum number of items to return. If this value is zero, the maximum number of items is specified by the limitations of the operation. </p>
+
+        Raises:
+            aws_sdk_directory_service.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_directory_service.errors.client_exception.ClientException: <p>A client exception has occurred.</p>
+            aws_sdk_directory_service.errors.directory_does_not_exist_exception.DirectoryDoesNotExistException: <p>The specified directory does not exist in the system.</p>
+            aws_sdk_directory_service.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters are not valid.</p>
+            aws_sdk_directory_service.errors.service_exception.ServiceException: <p>An exception has occurred in Directory Service.</p>
+            aws_sdk_directory_service.errors.unsupported_operation_exception.UnsupportedOperationException: <p>The operation is not supported.</p>
+            aws_sdk_directory_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1793,6 +2021,15 @@ class AsyncDirectoryServiceClient:
             directory_id: <p>The directory ID for which to get the list of associated conditional forwarders.</p>
             remote_domain_names: <p>The fully qualified domain names (FQDN) of the remote domains for which to get the list of associated conditional forwarders. If this member is null, all conditional forwarders are returned.</p>
 
+        Raises:
+            aws_sdk_directory_service.errors.client_exception.ClientException: <p>A client exception has occurred.</p>
+            aws_sdk_directory_service.errors.directory_unavailable_exception.DirectoryUnavailableException: <p>The specified directory is unavailable.</p>
+            aws_sdk_directory_service.errors.entity_does_not_exist_exception.EntityDoesNotExistException: <p>The specified entity could not be found.</p>
+            aws_sdk_directory_service.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters are not valid.</p>
+            aws_sdk_directory_service.errors.service_exception.ServiceException: <p>An exception has occurred in Directory Service.</p>
+            aws_sdk_directory_service.errors.unsupported_operation_exception.UnsupportedOperationException: <p>The operation is not supported.</p>
+            aws_sdk_directory_service.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To describe conditional forwarders
             The following example obtains information about the conditional forwarders for a specified directory.
@@ -1846,6 +2083,14 @@ class AsyncDirectoryServiceClient:
             directory_ids: <p>A list of identifiers of the directories for which to obtain the information. If this member is null, all directories that belong to the current account are returned.</p> <p>An empty list results in an <code>InvalidParameterException</code> being thrown.</p>
             next_token: <p>The <code>DescribeDirectoriesResult.NextToken</code> value from a previous call to <a>DescribeDirectories</a>. Pass null if this is the first call.</p>
             limit: <p>The maximum number of items to return. If this value is zero, the maximum number of items is specified by the limitations of the operation.</p>
+
+        Raises:
+            aws_sdk_directory_service.errors.client_exception.ClientException: <p>A client exception has occurred.</p>
+            aws_sdk_directory_service.errors.entity_does_not_exist_exception.EntityDoesNotExistException: <p>The specified entity could not be found.</p>
+            aws_sdk_directory_service.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The <code>NextToken</code> value is not valid.</p>
+            aws_sdk_directory_service.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters are not valid.</p>
+            aws_sdk_directory_service.errors.service_exception.ServiceException: <p>An exception has occurred in Directory Service.</p>
+            aws_sdk_directory_service.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To describe one or more directories
@@ -1922,6 +2167,14 @@ class AsyncDirectoryServiceClient:
 
         Args:
             directory_id: <p>The directory identifier.</p>
+
+        Raises:
+            aws_sdk_directory_service.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_directory_service.errors.client_exception.ClientException: <p>A client exception has occurred.</p>
+            aws_sdk_directory_service.errors.directory_does_not_exist_exception.DirectoryDoesNotExistException: <p>The specified directory does not exist in the system.</p>
+            aws_sdk_directory_service.errors.service_exception.ServiceException: <p>An exception has occurred in Directory Service.</p>
+            aws_sdk_directory_service.errors.unsupported_operation_exception.UnsupportedOperationException: <p>The operation is not supported.</p>
+            aws_sdk_directory_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1970,6 +2223,15 @@ class AsyncDirectoryServiceClient:
             domain_controller_ids: <p>A list of identifiers for the domain controllers whose information will be provided.</p>
             next_token: <p>The <i>DescribeDomainControllers.NextToken</i> value from a previous call to <a>DescribeDomainControllers</a>. Pass null if this is the first call. </p>
             limit: <p>The maximum number of items to return.</p>
+
+        Raises:
+            aws_sdk_directory_service.errors.client_exception.ClientException: <p>A client exception has occurred.</p>
+            aws_sdk_directory_service.errors.entity_does_not_exist_exception.EntityDoesNotExistException: <p>The specified entity could not be found.</p>
+            aws_sdk_directory_service.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The <code>NextToken</code> value is not valid.</p>
+            aws_sdk_directory_service.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters are not valid.</p>
+            aws_sdk_directory_service.errors.service_exception.ServiceException: <p>An exception has occurred in Directory Service.</p>
+            aws_sdk_directory_service.errors.unsupported_operation_exception.UnsupportedOperationException: <p>The operation is not supported.</p>
+            aws_sdk_directory_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2020,6 +2282,13 @@ class AsyncDirectoryServiceClient:
         Args:
             directory_id: <p>The Directory ID for which to get the list of associated Amazon SNS topics. If this member is null, associations for all Directory IDs are returned.</p>
             topic_names: <p>A list of Amazon SNS topic names for which to obtain the information. If this member is null, all associations for the specified Directory ID are returned.</p> <p>An empty list results in an <code>InvalidParameterException</code> being thrown.</p>
+
+        Raises:
+            aws_sdk_directory_service.errors.client_exception.ClientException: <p>A client exception has occurred.</p>
+            aws_sdk_directory_service.errors.entity_does_not_exist_exception.EntityDoesNotExistException: <p>The specified entity could not be found.</p>
+            aws_sdk_directory_service.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters are not valid.</p>
+            aws_sdk_directory_service.errors.service_exception.ServiceException: <p>An exception has occurred in Directory Service.</p>
+            aws_sdk_directory_service.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To describe event topics
@@ -2075,6 +2344,15 @@ class AsyncDirectoryServiceClient:
             directory_id: <p>The identifier of the hybrid directory for which to retrieve update information.</p>
             update_type: <p>The type of update activities to retrieve. Valid values include <code>SelfManagedInstances</code> and <code>HybridAdministratorAccount</code>.</p>
             next_token: <p>The pagination token from a previous request to <a>DescribeHybridADUpdate</a>. Pass null if this is the first request.</p>
+
+        Raises:
+            aws_sdk_directory_service.errors.client_exception.ClientException: <p>A client exception has occurred.</p>
+            aws_sdk_directory_service.errors.directory_does_not_exist_exception.DirectoryDoesNotExistException: <p>The specified directory does not exist in the system.</p>
+            aws_sdk_directory_service.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The <code>NextToken</code> value is not valid.</p>
+            aws_sdk_directory_service.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters are not valid.</p>
+            aws_sdk_directory_service.errors.service_exception.ServiceException: <p>An exception has occurred in Directory Service.</p>
+            aws_sdk_directory_service.errors.unsupported_operation_exception.UnsupportedOperationException: <p>The operation is not supported.</p>
+            aws_sdk_directory_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2125,6 +2403,15 @@ class AsyncDirectoryServiceClient:
             type: <p>The type of LDAP security to enable. Currently only the value <code>Client</code> is supported.</p>
             next_token: <p>The type of next token used for pagination.</p>
             limit: <p>Specifies the number of items that should be displayed on one page.</p>
+
+        Raises:
+            aws_sdk_directory_service.errors.client_exception.ClientException: <p>A client exception has occurred.</p>
+            aws_sdk_directory_service.errors.directory_does_not_exist_exception.DirectoryDoesNotExistException: <p>The specified directory does not exist in the system.</p>
+            aws_sdk_directory_service.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The <code>NextToken</code> value is not valid.</p>
+            aws_sdk_directory_service.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters are not valid.</p>
+            aws_sdk_directory_service.errors.service_exception.ServiceException: <p>An exception has occurred in Directory Service.</p>
+            aws_sdk_directory_service.errors.unsupported_operation_exception.UnsupportedOperationException: <p>The operation is not supported.</p>
+            aws_sdk_directory_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2206,6 +2493,16 @@ class AsyncDirectoryServiceClient:
             directory_id: <p>The identifier of the directory.</p>
             region_name: <p>The name of the Region. For example, <code>us-east-1</code>.</p>
             next_token: <p>The <code>DescribeRegionsResult.NextToken</code> value from a previous call to <a>DescribeRegions</a>. Pass null if this is the first call.</p>
+
+        Raises:
+            aws_sdk_directory_service.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_directory_service.errors.client_exception.ClientException: <p>A client exception has occurred.</p>
+            aws_sdk_directory_service.errors.directory_does_not_exist_exception.DirectoryDoesNotExistException: <p>The specified directory does not exist in the system.</p>
+            aws_sdk_directory_service.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The <code>NextToken</code> value is not valid.</p>
+            aws_sdk_directory_service.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters are not valid.</p>
+            aws_sdk_directory_service.errors.service_exception.ServiceException: <p>An exception has occurred in Directory Service.</p>
+            aws_sdk_directory_service.errors.unsupported_operation_exception.UnsupportedOperationException: <p>The operation is not supported.</p>
+            aws_sdk_directory_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2283,6 +2580,15 @@ class AsyncDirectoryServiceClient:
             directory_id: <p>The identifier of the directory for which to retrieve information.</p>
             status: <p>The status of the directory settings for which to retrieve information.</p>
             next_token: <p>The <code>DescribeSettingsResult.NextToken</code> value from a previous call to <a>DescribeSettings</a>. Pass null if this is the first call.</p>
+
+        Raises:
+            aws_sdk_directory_service.errors.client_exception.ClientException: <p>A client exception has occurred.</p>
+            aws_sdk_directory_service.errors.directory_does_not_exist_exception.DirectoryDoesNotExistException: <p>The specified directory does not exist in the system.</p>
+            aws_sdk_directory_service.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The <code>NextToken</code> value is not valid.</p>
+            aws_sdk_directory_service.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters are not valid.</p>
+            aws_sdk_directory_service.errors.service_exception.ServiceException: <p>An exception has occurred in Directory Service.</p>
+            aws_sdk_directory_service.errors.unsupported_operation_exception.UnsupportedOperationException: <p>The operation is not supported.</p>
+            aws_sdk_directory_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2335,6 +2641,15 @@ class AsyncDirectoryServiceClient:
             shared_directory_ids: <p>A list of identifiers of all shared directories in your account. </p>
             next_token: <p>The <code>DescribeSharedDirectoriesResult.NextToken</code> value from a previous call to <a>DescribeSharedDirectories</a>. Pass null if this is the first call. </p>
             limit: <p>The number of shared directories to return in the response object.</p>
+
+        Raises:
+            aws_sdk_directory_service.errors.client_exception.ClientException: <p>A client exception has occurred.</p>
+            aws_sdk_directory_service.errors.entity_does_not_exist_exception.EntityDoesNotExistException: <p>The specified entity could not be found.</p>
+            aws_sdk_directory_service.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The <code>NextToken</code> value is not valid.</p>
+            aws_sdk_directory_service.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters are not valid.</p>
+            aws_sdk_directory_service.errors.service_exception.ServiceException: <p>An exception has occurred in Directory Service.</p>
+            aws_sdk_directory_service.errors.unsupported_operation_exception.UnsupportedOperationException: <p>The operation is not supported.</p>
+            aws_sdk_directory_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2420,6 +2735,14 @@ class AsyncDirectoryServiceClient:
             snapshot_ids: <p>A list of identifiers of the snapshots to obtain the information for. If this member is null or empty, all snapshots are returned using the <i>Limit</i> and <i>NextToken</i> members.</p>
             next_token: <p>The <i>DescribeSnapshotsResult.NextToken</i> value from a previous call to <a>DescribeSnapshots</a>. Pass null if this is the first call.</p>
             limit: <p>The maximum number of objects to return.</p>
+
+        Raises:
+            aws_sdk_directory_service.errors.client_exception.ClientException: <p>A client exception has occurred.</p>
+            aws_sdk_directory_service.errors.entity_does_not_exist_exception.EntityDoesNotExistException: <p>The specified entity could not be found.</p>
+            aws_sdk_directory_service.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The <code>NextToken</code> value is not valid.</p>
+            aws_sdk_directory_service.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters are not valid.</p>
+            aws_sdk_directory_service.errors.service_exception.ServiceException: <p>An exception has occurred in Directory Service.</p>
+            aws_sdk_directory_service.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To describe snapshots
@@ -2515,6 +2838,15 @@ class AsyncDirectoryServiceClient:
             next_token: <p>The <i>DescribeTrustsResult.NextToken</i> value from a previous call to <a>DescribeTrusts</a>. Pass null if this is the first call.</p>
             limit: <p>The maximum number of objects to return.</p>
 
+        Raises:
+            aws_sdk_directory_service.errors.client_exception.ClientException: <p>A client exception has occurred.</p>
+            aws_sdk_directory_service.errors.entity_does_not_exist_exception.EntityDoesNotExistException: <p>The specified entity could not be found.</p>
+            aws_sdk_directory_service.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The <code>NextToken</code> value is not valid.</p>
+            aws_sdk_directory_service.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters are not valid.</p>
+            aws_sdk_directory_service.errors.service_exception.ServiceException: <p>An exception has occurred in Directory Service.</p>
+            aws_sdk_directory_service.errors.unsupported_operation_exception.UnsupportedOperationException: <p>The operation is not supported.</p>
+            aws_sdk_directory_service.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To describe a trust
             The following example obtains information about the trust relationship for a specified directory.
@@ -2606,6 +2938,15 @@ class AsyncDirectoryServiceClient:
             update_type: <p> The type of updates you want to describe for the directory. </p>
             region_name: <p> The name of the Region. </p>
             next_token: <p> The <code>DescribeUpdateDirectoryResult</code>. NextToken value from a previous call to <a>DescribeUpdateDirectory</a>. Pass null if this is the first call. </p>
+
+        Raises:
+            aws_sdk_directory_service.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_directory_service.errors.client_exception.ClientException: <p>A client exception has occurred.</p>
+            aws_sdk_directory_service.errors.directory_does_not_exist_exception.DirectoryDoesNotExistException: <p>The specified directory does not exist in the system.</p>
+            aws_sdk_directory_service.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The <code>NextToken</code> value is not valid.</p>
+            aws_sdk_directory_service.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters are not valid.</p>
+            aws_sdk_directory_service.errors.service_exception.ServiceException: <p>An exception has occurred in Directory Service.</p>
+            aws_sdk_directory_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2678,6 +3019,17 @@ class AsyncDirectoryServiceClient:
 
         Args:
             directory_id: <p>The identifier of the directory for which to disable the CA enrollment policy.</p>
+
+        Raises:
+            aws_sdk_directory_service.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_directory_service.errors.client_exception.ClientException: <p>A client exception has occurred.</p>
+            aws_sdk_directory_service.errors.directory_does_not_exist_exception.DirectoryDoesNotExistException: <p>The specified directory does not exist in the system.</p>
+            aws_sdk_directory_service.errors.directory_unavailable_exception.DirectoryUnavailableException: <p>The specified directory is unavailable.</p>
+            aws_sdk_directory_service.errors.disable_already_in_progress_exception.DisableAlreadyInProgressException: <p>A disable operation for CA enrollment policy is already in progress for this directory.</p>
+            aws_sdk_directory_service.errors.entity_does_not_exist_exception.EntityDoesNotExistException: <p>The specified entity could not be found.</p>
+            aws_sdk_directory_service.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters are not valid.</p>
+            aws_sdk_directory_service.errors.service_exception.ServiceException: <p>An exception has occurred in Directory Service.</p>
+            aws_sdk_directory_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2718,6 +3070,15 @@ class AsyncDirectoryServiceClient:
         Args:
             directory_id: <p>The identifier of the directory </p>
             type: <p>The type of client authentication to disable. Currently the only parameter <code>\"SmartCard\"</code> is supported.</p>
+
+        Raises:
+            aws_sdk_directory_service.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_directory_service.errors.client_exception.ClientException: <p>A client exception has occurred.</p>
+            aws_sdk_directory_service.errors.directory_does_not_exist_exception.DirectoryDoesNotExistException: <p>The specified directory does not exist in the system.</p>
+            aws_sdk_directory_service.errors.invalid_client_auth_status_exception.InvalidClientAuthStatusException: <p>Client authentication is already enabled.</p>
+            aws_sdk_directory_service.errors.service_exception.ServiceException: <p>An exception has occurred in Directory Service.</p>
+            aws_sdk_directory_service.errors.unsupported_operation_exception.UnsupportedOperationException: <p>The operation is not supported.</p>
+            aws_sdk_directory_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2757,6 +3118,16 @@ class AsyncDirectoryServiceClient:
 
         Args:
             directory_id: <p>The directory identifier.</p>
+
+        Raises:
+            aws_sdk_directory_service.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_directory_service.errors.client_exception.ClientException: <p>A client exception has occurred.</p>
+            aws_sdk_directory_service.errors.directory_does_not_exist_exception.DirectoryDoesNotExistException: <p>The specified directory does not exist in the system.</p>
+            aws_sdk_directory_service.errors.directory_in_desired_state_exception.DirectoryInDesiredStateException: <p> The directory is already updated to desired update type settings. </p>
+            aws_sdk_directory_service.errors.directory_unavailable_exception.DirectoryUnavailableException: <p>The specified directory is unavailable.</p>
+            aws_sdk_directory_service.errors.service_exception.ServiceException: <p>An exception has occurred in Directory Service.</p>
+            aws_sdk_directory_service.errors.unsupported_operation_exception.UnsupportedOperationException: <p>The operation is not supported.</p>
+            aws_sdk_directory_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2797,6 +3168,16 @@ class AsyncDirectoryServiceClient:
         Args:
             directory_id: <p>The identifier of the directory.</p>
             type: <p>The type of LDAP security to enable. Currently only the value <code>Client</code> is supported.</p>
+
+        Raises:
+            aws_sdk_directory_service.errors.client_exception.ClientException: <p>A client exception has occurred.</p>
+            aws_sdk_directory_service.errors.directory_does_not_exist_exception.DirectoryDoesNotExistException: <p>The specified directory does not exist in the system.</p>
+            aws_sdk_directory_service.errors.directory_unavailable_exception.DirectoryUnavailableException: <p>The specified directory is unavailable.</p>
+            aws_sdk_directory_service.errors.invalid_ldaps_status_exception.InvalidLDAPSStatusException: <p>The LDAP activities could not be performed because they are limited by the LDAPS status.</p>
+            aws_sdk_directory_service.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters are not valid.</p>
+            aws_sdk_directory_service.errors.service_exception.ServiceException: <p>An exception has occurred in Directory Service.</p>
+            aws_sdk_directory_service.errors.unsupported_operation_exception.UnsupportedOperationException: <p>The operation is not supported.</p>
+            aws_sdk_directory_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2836,6 +3217,12 @@ class AsyncDirectoryServiceClient:
 
         Args:
             directory_id: <p>The identifier of the directory for which to disable MFA.</p>
+
+        Raises:
+            aws_sdk_directory_service.errors.client_exception.ClientException: <p>A client exception has occurred.</p>
+            aws_sdk_directory_service.errors.entity_does_not_exist_exception.EntityDoesNotExistException: <p>The specified entity could not be found.</p>
+            aws_sdk_directory_service.errors.service_exception.ServiceException: <p>An exception has occurred in Directory Service.</p>
+            aws_sdk_directory_service.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To disable radius
@@ -2889,6 +3276,14 @@ class AsyncDirectoryServiceClient:
             user_name: <p>The username of an alternate account to use to disable single-sign on. This is only used for AD Connector directories. This account must have privileges to remove a service principal name.</p> <p>If the AD Connector service account does not have privileges to remove a service principal name, you can specify an alternate account with the <i>UserName</i> and <i>Password</i> parameters. These credentials are only used to disable single sign-on and are not stored by the service. The AD Connector service account is not changed.</p>
             password: <p>The password of an alternate account to use to disable single-sign on. This is only used for AD Connector directories. For more information, see the <i>UserName</i> parameter.</p>
 
+        Raises:
+            aws_sdk_directory_service.errors.authentication_failed_exception.AuthenticationFailedException: <p>An authentication error occurred.</p>
+            aws_sdk_directory_service.errors.client_exception.ClientException: <p>A client exception has occurred.</p>
+            aws_sdk_directory_service.errors.entity_does_not_exist_exception.EntityDoesNotExistException: <p>The specified entity could not be found.</p>
+            aws_sdk_directory_service.errors.insufficient_permissions_exception.InsufficientPermissionsException: <p>The account does not have sufficient permission to perform the operation.</p>
+            aws_sdk_directory_service.errors.service_exception.ServiceException: <p>An exception has occurred in Directory Service.</p>
+            aws_sdk_directory_service.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To disable SSO
             The following example disables single sign-on for a specified directory.
@@ -2938,6 +3333,18 @@ class AsyncDirectoryServiceClient:
         Args:
             directory_id: <p>The identifier of the directory for which to enable the CA enrollment policy.</p>
             pca_connector_arn: <p>The Amazon Resource Name (ARN) of the Private Certificate Authority (PCA) connector to use for automatic certificate enrollment. This connector must be properly configured and accessible from the directory.</p> <p>The ARN format is: <code>arn:aws:pca-connector-ad:<i>region</i>:<i>account-id</i>:connector/<i>connector-id</i> </code> </p>
+
+        Raises:
+            aws_sdk_directory_service.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_directory_service.errors.client_exception.ClientException: <p>A client exception has occurred.</p>
+            aws_sdk_directory_service.errors.directory_does_not_exist_exception.DirectoryDoesNotExistException: <p>The specified directory does not exist in the system.</p>
+            aws_sdk_directory_service.errors.directory_unavailable_exception.DirectoryUnavailableException: <p>The specified directory is unavailable.</p>
+            aws_sdk_directory_service.errors.enable_already_in_progress_exception.EnableAlreadyInProgressException: <p>An enable operation for CA enrollment policy is already in progress for this directory.</p>
+            aws_sdk_directory_service.errors.entity_already_exists_exception.EntityAlreadyExistsException: <p>The specified entity already exists.</p>
+            aws_sdk_directory_service.errors.entity_does_not_exist_exception.EntityDoesNotExistException: <p>The specified entity could not be found.</p>
+            aws_sdk_directory_service.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters are not valid.</p>
+            aws_sdk_directory_service.errors.service_exception.ServiceException: <p>An exception has occurred in Directory Service.</p>
+            aws_sdk_directory_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2979,6 +3386,16 @@ class AsyncDirectoryServiceClient:
         Args:
             directory_id: <p>The identifier of the specified directory. </p>
             type: <p>The type of client authentication to enable. Currently only the value <code>SmartCard</code> is supported. Smart card authentication in AD Connector requires that you enable Kerberos Constrained Delegation for the Service User to the LDAP service in your self-managed AD. </p>
+
+        Raises:
+            aws_sdk_directory_service.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_directory_service.errors.client_exception.ClientException: <p>A client exception has occurred.</p>
+            aws_sdk_directory_service.errors.directory_does_not_exist_exception.DirectoryDoesNotExistException: <p>The specified directory does not exist in the system.</p>
+            aws_sdk_directory_service.errors.invalid_client_auth_status_exception.InvalidClientAuthStatusException: <p>Client authentication is already enabled.</p>
+            aws_sdk_directory_service.errors.no_available_certificate_exception.NoAvailableCertificateException: <p>Client authentication setup could not be completed because at least one valid certificate must be registered in the system.</p>
+            aws_sdk_directory_service.errors.service_exception.ServiceException: <p>An exception has occurred in Directory Service.</p>
+            aws_sdk_directory_service.errors.unsupported_operation_exception.UnsupportedOperationException: <p>The operation is not supported.</p>
+            aws_sdk_directory_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3018,6 +3435,16 @@ class AsyncDirectoryServiceClient:
 
         Args:
             directory_id: <p>The directory identifier.</p>
+
+        Raises:
+            aws_sdk_directory_service.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_directory_service.errors.client_exception.ClientException: <p>A client exception has occurred.</p>
+            aws_sdk_directory_service.errors.directory_does_not_exist_exception.DirectoryDoesNotExistException: <p>The specified directory does not exist in the system.</p>
+            aws_sdk_directory_service.errors.directory_in_desired_state_exception.DirectoryInDesiredStateException: <p> The directory is already updated to desired update type settings. </p>
+            aws_sdk_directory_service.errors.directory_unavailable_exception.DirectoryUnavailableException: <p>The specified directory is unavailable.</p>
+            aws_sdk_directory_service.errors.service_exception.ServiceException: <p>An exception has occurred in Directory Service.</p>
+            aws_sdk_directory_service.errors.unsupported_operation_exception.UnsupportedOperationException: <p>The operation is not supported.</p>
+            aws_sdk_directory_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3058,6 +3485,17 @@ class AsyncDirectoryServiceClient:
         Args:
             directory_id: <p>The identifier of the directory.</p>
             type: <p>The type of LDAP security to enable. Currently only the value <code>Client</code> is supported.</p>
+
+        Raises:
+            aws_sdk_directory_service.errors.client_exception.ClientException: <p>A client exception has occurred.</p>
+            aws_sdk_directory_service.errors.directory_does_not_exist_exception.DirectoryDoesNotExistException: <p>The specified directory does not exist in the system.</p>
+            aws_sdk_directory_service.errors.directory_unavailable_exception.DirectoryUnavailableException: <p>The specified directory is unavailable.</p>
+            aws_sdk_directory_service.errors.invalid_ldaps_status_exception.InvalidLDAPSStatusException: <p>The LDAP activities could not be performed because they are limited by the LDAPS status.</p>
+            aws_sdk_directory_service.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters are not valid.</p>
+            aws_sdk_directory_service.errors.no_available_certificate_exception.NoAvailableCertificateException: <p>Client authentication setup could not be completed because at least one valid certificate must be registered in the system.</p>
+            aws_sdk_directory_service.errors.service_exception.ServiceException: <p>An exception has occurred in Directory Service.</p>
+            aws_sdk_directory_service.errors.unsupported_operation_exception.UnsupportedOperationException: <p>The operation is not supported.</p>
+            aws_sdk_directory_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3099,6 +3537,14 @@ class AsyncDirectoryServiceClient:
         Args:
             directory_id: <p>The identifier of the directory for which to enable MFA.</p>
             radius_settings: <p>A <a>RadiusSettings</a> object that contains information about the RADIUS server.</p>
+
+        Raises:
+            aws_sdk_directory_service.errors.client_exception.ClientException: <p>A client exception has occurred.</p>
+            aws_sdk_directory_service.errors.entity_already_exists_exception.EntityAlreadyExistsException: <p>The specified entity already exists.</p>
+            aws_sdk_directory_service.errors.entity_does_not_exist_exception.EntityDoesNotExistException: <p>The specified entity could not be found.</p>
+            aws_sdk_directory_service.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters are not valid.</p>
+            aws_sdk_directory_service.errors.service_exception.ServiceException: <p>An exception has occurred in Directory Service.</p>
+            aws_sdk_directory_service.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To enable radius
@@ -3153,6 +3599,14 @@ class AsyncDirectoryServiceClient:
             user_name: <p>The username of an alternate account to use to enable single-sign on. This is only used for AD Connector directories. This account must have privileges to add a service principal name.</p> <p>If the AD Connector service account does not have privileges to add a service principal name, you can specify an alternate account with the <i>UserName</i> and <i>Password</i> parameters. These credentials are only used to enable single sign-on and are not stored by the service. The AD Connector service account is not changed.</p>
             password: <p>The password of an alternate account to use to enable single-sign on. This is only used for AD Connector directories. For more information, see the <i>UserName</i> parameter.</p>
 
+        Raises:
+            aws_sdk_directory_service.errors.authentication_failed_exception.AuthenticationFailedException: <p>An authentication error occurred.</p>
+            aws_sdk_directory_service.errors.client_exception.ClientException: <p>A client exception has occurred.</p>
+            aws_sdk_directory_service.errors.entity_does_not_exist_exception.EntityDoesNotExistException: <p>The specified entity could not be found.</p>
+            aws_sdk_directory_service.errors.insufficient_permissions_exception.InsufficientPermissionsException: <p>The account does not have sufficient permission to perform the operation.</p>
+            aws_sdk_directory_service.errors.service_exception.ServiceException: <p>An exception has occurred in Directory Service.</p>
+            aws_sdk_directory_service.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To enable SSO
             To enable single sign-on for a specified directory.
@@ -3194,6 +3648,12 @@ class AsyncDirectoryServiceClient:
         self, *, config_overrides: Optional[AsyncDirectoryServiceClientConfig] = None
     ) -> "aws_sdk_directory_service.types.get_directory_limits_result.GetDirectoryLimitsResult":
         """<p>Obtains directory limit information for the current Region.</p>
+
+        Raises:
+            aws_sdk_directory_service.errors.client_exception.ClientException: <p>A client exception has occurred.</p>
+            aws_sdk_directory_service.errors.entity_does_not_exist_exception.EntityDoesNotExistException: <p>The specified entity could not be found.</p>
+            aws_sdk_directory_service.errors.service_exception.ServiceException: <p>An exception has occurred in Directory Service.</p>
+            aws_sdk_directory_service.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To get directory limits
@@ -3237,6 +3697,12 @@ class AsyncDirectoryServiceClient:
 
         Args:
             directory_id: <p>Contains the identifier of the directory to obtain the limits for.</p>
+
+        Raises:
+            aws_sdk_directory_service.errors.client_exception.ClientException: <p>A client exception has occurred.</p>
+            aws_sdk_directory_service.errors.entity_does_not_exist_exception.EntityDoesNotExistException: <p>The specified entity could not be found.</p>
+            aws_sdk_directory_service.errors.service_exception.ServiceException: <p>An exception has occurred in Directory Service.</p>
+            aws_sdk_directory_service.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To get snapshot limits
@@ -3291,6 +3757,14 @@ class AsyncDirectoryServiceClient:
             directory_id: <p>The identifier of the directory for which to list assessments. If not specified, all assessments in your account are returned.</p>
             next_token: <p>The pagination token from a previous request to <a>ListADAssessments</a>. Pass null if this is the first request.</p>
             limit: <p>The maximum number of assessment summaries to return.</p>
+
+        Raises:
+            aws_sdk_directory_service.errors.client_exception.ClientException: <p>A client exception has occurred.</p>
+            aws_sdk_directory_service.errors.directory_does_not_exist_exception.DirectoryDoesNotExistException: <p>The specified directory does not exist in the system.</p>
+            aws_sdk_directory_service.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters are not valid.</p>
+            aws_sdk_directory_service.errors.service_exception.ServiceException: <p>An exception has occurred in Directory Service.</p>
+            aws_sdk_directory_service.errors.unsupported_operation_exception.UnsupportedOperationException: <p>The operation is not supported.</p>
+            aws_sdk_directory_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3369,6 +3843,15 @@ class AsyncDirectoryServiceClient:
             directory_id: <p>The identifier of the directory.</p>
             next_token: <p>A token for requesting another page of certificates if the <code>NextToken</code> response element indicates that more certificates are available. Use the value of the returned <code>NextToken</code> element in your request until the token comes back as <code>null</code>. Pass <code>null</code> if this is the first call.</p>
             limit: <p>The number of items that should show up on one page</p>
+
+        Raises:
+            aws_sdk_directory_service.errors.client_exception.ClientException: <p>A client exception has occurred.</p>
+            aws_sdk_directory_service.errors.directory_does_not_exist_exception.DirectoryDoesNotExistException: <p>The specified directory does not exist in the system.</p>
+            aws_sdk_directory_service.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The <code>NextToken</code> value is not valid.</p>
+            aws_sdk_directory_service.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters are not valid.</p>
+            aws_sdk_directory_service.errors.service_exception.ServiceException: <p>An exception has occurred in Directory Service.</p>
+            aws_sdk_directory_service.errors.unsupported_operation_exception.UnsupportedOperationException: <p>The operation is not supported.</p>
+            aws_sdk_directory_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3442,6 +3925,14 @@ class AsyncDirectoryServiceClient:
             directory_id: <p>Identifier (ID) of the directory for which you want to retrieve the IP addresses.</p>
             next_token: <p>The <i>ListIpRoutes.NextToken</i> value from a previous call to <a>ListIpRoutes</a>. Pass null if this is the first call.</p>
             limit: <p>Maximum number of items to return. If this value is zero, the maximum number of items is specified by the limitations of the operation.</p>
+
+        Raises:
+            aws_sdk_directory_service.errors.client_exception.ClientException: <p>A client exception has occurred.</p>
+            aws_sdk_directory_service.errors.entity_does_not_exist_exception.EntityDoesNotExistException: <p>The specified entity could not be found.</p>
+            aws_sdk_directory_service.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The <code>NextToken</code> value is not valid.</p>
+            aws_sdk_directory_service.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters are not valid.</p>
+            aws_sdk_directory_service.errors.service_exception.ServiceException: <p>An exception has occurred in Directory Service.</p>
+            aws_sdk_directory_service.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To list IP routes
@@ -3523,6 +4014,13 @@ class AsyncDirectoryServiceClient:
             directory_id: <p>If a <i>DirectoryID</i> is provided, lists only the log subscription associated with that directory. If no <i>DirectoryId</i> is provided, lists all log subscriptions associated with your Amazon Web Services account. If there are no log subscriptions for the Amazon Web Services account or the directory, an empty list will be returned.</p>
             next_token: <p>The token for the next set of items to return.</p>
             limit: <p>The maximum number of items returned.</p>
+
+        Raises:
+            aws_sdk_directory_service.errors.client_exception.ClientException: <p>A client exception has occurred.</p>
+            aws_sdk_directory_service.errors.entity_does_not_exist_exception.EntityDoesNotExistException: <p>The specified entity could not be found.</p>
+            aws_sdk_directory_service.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The <code>NextToken</code> value is not valid.</p>
+            aws_sdk_directory_service.errors.service_exception.ServiceException: <p>An exception has occurred in Directory Service.</p>
+            aws_sdk_directory_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3599,6 +4097,13 @@ class AsyncDirectoryServiceClient:
             directory_id: <p>The identifier of the directory from which to retrieve the schema extension information.</p>
             next_token: <p>The <code>ListSchemaExtensions.NextToken</code> value from a previous call to <code>ListSchemaExtensions</code>. Pass null if this is the first call.</p>
             limit: <p>The maximum number of items to return.</p>
+
+        Raises:
+            aws_sdk_directory_service.errors.client_exception.ClientException: <p>A client exception has occurred.</p>
+            aws_sdk_directory_service.errors.entity_does_not_exist_exception.EntityDoesNotExistException: <p>The specified entity could not be found.</p>
+            aws_sdk_directory_service.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The <code>NextToken</code> value is not valid.</p>
+            aws_sdk_directory_service.errors.service_exception.ServiceException: <p>An exception has occurred in Directory Service.</p>
+            aws_sdk_directory_service.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To list schema extensions
@@ -3678,6 +4183,14 @@ class AsyncDirectoryServiceClient:
             resource_id: <p>Identifier (ID) of the directory for which you want to retrieve tags.</p>
             next_token: <p>Reserved for future use.</p>
             limit: <p>Reserved for future use.</p>
+
+        Raises:
+            aws_sdk_directory_service.errors.client_exception.ClientException: <p>A client exception has occurred.</p>
+            aws_sdk_directory_service.errors.entity_does_not_exist_exception.EntityDoesNotExistException: <p>The specified entity could not be found.</p>
+            aws_sdk_directory_service.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The <code>NextToken</code> value is not valid.</p>
+            aws_sdk_directory_service.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters are not valid.</p>
+            aws_sdk_directory_service.errors.service_exception.ServiceException: <p>An exception has occurred in Directory Service.</p>
+            aws_sdk_directory_service.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To list tags for a directory
@@ -3761,6 +4274,18 @@ class AsyncDirectoryServiceClient:
             certificate_data: <p>The certificate PEM string that needs to be registered.</p>
             type: <p>The function that the registered certificate performs. Valid values include <code>ClientLDAPS</code> or <code>ClientCertAuth</code>. The default value is <code>ClientLDAPS</code>.</p>
             client_cert_auth_settings: <p>A <code>ClientCertAuthSettings</code> object that contains client certificate authentication settings.</p>
+
+        Raises:
+            aws_sdk_directory_service.errors.certificate_already_exists_exception.CertificateAlreadyExistsException: <p>The certificate has already been registered into the system.</p>
+            aws_sdk_directory_service.errors.certificate_limit_exceeded_exception.CertificateLimitExceededException: <p>The certificate could not be added because the certificate limit has been reached.</p>
+            aws_sdk_directory_service.errors.client_exception.ClientException: <p>A client exception has occurred.</p>
+            aws_sdk_directory_service.errors.directory_does_not_exist_exception.DirectoryDoesNotExistException: <p>The specified directory does not exist in the system.</p>
+            aws_sdk_directory_service.errors.directory_unavailable_exception.DirectoryUnavailableException: <p>The specified directory is unavailable.</p>
+            aws_sdk_directory_service.errors.invalid_certificate_exception.InvalidCertificateException: <p>The certificate PEM that was provided has incorrect encoding.</p>
+            aws_sdk_directory_service.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters are not valid.</p>
+            aws_sdk_directory_service.errors.service_exception.ServiceException: <p>An exception has occurred in Directory Service.</p>
+            aws_sdk_directory_service.errors.unsupported_operation_exception.UnsupportedOperationException: <p>The operation is not supported.</p>
+            aws_sdk_directory_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3807,6 +4332,13 @@ class AsyncDirectoryServiceClient:
             directory_id: <p>The Directory ID that will publish status messages to the Amazon SNS topic.</p>
             topic_name: <p>The Amazon SNS topic name to which the directory will publish status messages. This Amazon SNS topic must be in the same region as the specified Directory ID.</p>
 
+        Raises:
+            aws_sdk_directory_service.errors.client_exception.ClientException: <p>A client exception has occurred.</p>
+            aws_sdk_directory_service.errors.entity_does_not_exist_exception.EntityDoesNotExistException: <p>The specified entity could not be found.</p>
+            aws_sdk_directory_service.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters are not valid.</p>
+            aws_sdk_directory_service.errors.service_exception.ServiceException: <p>An exception has occurred in Directory Service.</p>
+            aws_sdk_directory_service.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To register an event topic
             The following example associates a directory with an SNS topic.
@@ -3851,6 +4383,14 @@ class AsyncDirectoryServiceClient:
 
         Args:
             shared_directory_id: <p>Identifier of the shared directory in the directory consumer account. This identifier is different for each directory owner account.</p>
+
+        Raises:
+            aws_sdk_directory_service.errors.client_exception.ClientException: <p>A client exception has occurred.</p>
+            aws_sdk_directory_service.errors.directory_already_shared_exception.DirectoryAlreadySharedException: <p>The specified directory has already been shared with this Amazon Web Services account.</p>
+            aws_sdk_directory_service.errors.entity_does_not_exist_exception.EntityDoesNotExistException: <p>The specified entity could not be found.</p>
+            aws_sdk_directory_service.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters are not valid.</p>
+            aws_sdk_directory_service.errors.service_exception.ServiceException: <p>An exception has occurred in Directory Service.</p>
+            aws_sdk_directory_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3895,6 +4435,14 @@ class AsyncDirectoryServiceClient:
             directory_id: <p>Identifier (ID) of the directory from which you want to remove the IP addresses.</p>
             cidr_ips: <p>IP address blocks that you want to remove.</p>
             cidr_ipv6s: <p>IPv6 address blocks that you want to remove.</p>
+
+        Raises:
+            aws_sdk_directory_service.errors.client_exception.ClientException: <p>A client exception has occurred.</p>
+            aws_sdk_directory_service.errors.directory_unavailable_exception.DirectoryUnavailableException: <p>The specified directory is unavailable.</p>
+            aws_sdk_directory_service.errors.entity_does_not_exist_exception.EntityDoesNotExistException: <p>The specified entity could not be found.</p>
+            aws_sdk_directory_service.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters are not valid.</p>
+            aws_sdk_directory_service.errors.service_exception.ServiceException: <p>An exception has occurred in Directory Service.</p>
+            aws_sdk_directory_service.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To remove IP routes
@@ -3943,6 +4491,15 @@ class AsyncDirectoryServiceClient:
 
         Args:
             directory_id: <p>The identifier of the directory for which you want to remove Region replication.</p>
+
+        Raises:
+            aws_sdk_directory_service.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_directory_service.errors.client_exception.ClientException: <p>A client exception has occurred.</p>
+            aws_sdk_directory_service.errors.directory_does_not_exist_exception.DirectoryDoesNotExistException: <p>The specified directory does not exist in the system.</p>
+            aws_sdk_directory_service.errors.directory_unavailable_exception.DirectoryUnavailableException: <p>The specified directory is unavailable.</p>
+            aws_sdk_directory_service.errors.service_exception.ServiceException: <p>An exception has occurred in Directory Service.</p>
+            aws_sdk_directory_service.errors.unsupported_operation_exception.UnsupportedOperationException: <p>The operation is not supported.</p>
+            aws_sdk_directory_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3983,6 +4540,13 @@ class AsyncDirectoryServiceClient:
         Args:
             resource_id: <p>Identifier (ID) of the directory from which to remove the tag.</p>
             tag_keys: <p>The tag key (name) of the tag to be removed.</p>
+
+        Raises:
+            aws_sdk_directory_service.errors.client_exception.ClientException: <p>A client exception has occurred.</p>
+            aws_sdk_directory_service.errors.entity_does_not_exist_exception.EntityDoesNotExistException: <p>The specified entity could not be found.</p>
+            aws_sdk_directory_service.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters are not valid.</p>
+            aws_sdk_directory_service.errors.service_exception.ServiceException: <p>An exception has occurred in Directory Service.</p>
+            aws_sdk_directory_service.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To remove tags from a directory
@@ -4032,6 +4596,16 @@ class AsyncDirectoryServiceClient:
             directory_id: <p>Identifier of the Managed Microsoft AD or Simple AD directory in which the user resides.</p>
             user_name: <p>The user name of the user whose password will be reset.</p>
             new_password: <p>The new password that will be reset.</p>
+
+        Raises:
+            aws_sdk_directory_service.errors.client_exception.ClientException: <p>A client exception has occurred.</p>
+            aws_sdk_directory_service.errors.directory_unavailable_exception.DirectoryUnavailableException: <p>The specified directory is unavailable.</p>
+            aws_sdk_directory_service.errors.entity_does_not_exist_exception.EntityDoesNotExistException: <p>The specified entity could not be found.</p>
+            aws_sdk_directory_service.errors.invalid_password_exception.InvalidPasswordException: <p>The new password provided by the user does not meet the password complexity requirements defined in your directory.</p>
+            aws_sdk_directory_service.errors.service_exception.ServiceException: <p>An exception has occurred in Directory Service.</p>
+            aws_sdk_directory_service.errors.unsupported_operation_exception.UnsupportedOperationException: <p>The operation is not supported.</p>
+            aws_sdk_directory_service.errors.user_does_not_exist_exception.UserDoesNotExistException: <p>The user provided a username that does not exist in your directory.</p>
+            aws_sdk_directory_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4072,6 +4646,13 @@ class AsyncDirectoryServiceClient:
 
         Args:
             snapshot_id: <p>The identifier of the snapshot to restore from.</p>
+
+        Raises:
+            aws_sdk_directory_service.errors.client_exception.ClientException: <p>A client exception has occurred.</p>
+            aws_sdk_directory_service.errors.entity_does_not_exist_exception.EntityDoesNotExistException: <p>The specified entity could not be found.</p>
+            aws_sdk_directory_service.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters are not valid.</p>
+            aws_sdk_directory_service.errors.service_exception.ServiceException: <p>An exception has occurred in Directory Service.</p>
+            aws_sdk_directory_service.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To restore a snapshot
@@ -4122,6 +4703,19 @@ class AsyncDirectoryServiceClient:
             share_notes: <p>A directory share request that is sent by the directory owner to the directory consumer. The request includes a typed message to help the directory consumer administrator determine whether to approve or reject the share invitation.</p>
             share_target: <p>Identifier for the directory consumer account with whom the directory is to be shared.</p>
             share_method: <p>The method used when sharing a directory to determine whether the directory should be shared within your Amazon Web Services organization (<code>ORGANIZATIONS</code>) or with any Amazon Web Services account by sending a directory sharing request (<code>HANDSHAKE</code>).</p>
+
+        Raises:
+            aws_sdk_directory_service.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_directory_service.errors.client_exception.ClientException: <p>A client exception has occurred.</p>
+            aws_sdk_directory_service.errors.directory_already_shared_exception.DirectoryAlreadySharedException: <p>The specified directory has already been shared with this Amazon Web Services account.</p>
+            aws_sdk_directory_service.errors.entity_does_not_exist_exception.EntityDoesNotExistException: <p>The specified entity could not be found.</p>
+            aws_sdk_directory_service.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters are not valid.</p>
+            aws_sdk_directory_service.errors.invalid_target_exception.InvalidTargetException: <p>The specified shared target is not valid.</p>
+            aws_sdk_directory_service.errors.organizations_exception.OrganizationsException: <p>Exception encountered while trying to access your Amazon Web Services organization.</p>
+            aws_sdk_directory_service.errors.service_exception.ServiceException: <p>An exception has occurred in Directory Service.</p>
+            aws_sdk_directory_service.errors.share_limit_exceeded_exception.ShareLimitExceededException: <p>The maximum number of Amazon Web Services accounts that you can share with this directory has been reached.</p>
+            aws_sdk_directory_service.errors.unsupported_operation_exception.UnsupportedOperationException: <p>The operation is not supported.</p>
+            aws_sdk_directory_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4170,6 +4764,15 @@ class AsyncDirectoryServiceClient:
         Args:
             assessment_configuration: <p>Configuration parameters for the directory assessment, including DNS server information, domain name, Amazon VPC subnet, and Amazon Web Services System Manager managed node details.</p>
             directory_id: <p>The identifier of the directory for which to perform the assessment. This should be an existing directory. If the assessment is not for an existing directory, this parameter should be omitted.</p>
+
+        Raises:
+            aws_sdk_directory_service.errors.ad_assessment_limit_exceeded_exception.ADAssessmentLimitExceededException: <p>A directory assessment is automatically created when you create a hybrid directory. There are two types of assessments: <code>CUSTOMER</code> and <code>SYSTEM</code>. Your Amazon Web Services account has a limit of 100 <code>CUSTOMER</code> directory assessments.</p> <p>If you attempt to create a hybrid directory; and you already have 100 <code>CUSTOMER</code> directory assessments;, you will encounter an error. Delete assessments to free up capacity before trying again.</p> <p>You can request an increase to your <code>CUSTOMER</code> directory assessment quota by contacting customer support or delete existing CUSTOMER directory assessments; to free up capacity.</p>
+            aws_sdk_directory_service.errors.client_exception.ClientException: <p>A client exception has occurred.</p>
+            aws_sdk_directory_service.errors.directory_does_not_exist_exception.DirectoryDoesNotExistException: <p>The specified directory does not exist in the system.</p>
+            aws_sdk_directory_service.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters are not valid.</p>
+            aws_sdk_directory_service.errors.service_exception.ServiceException: <p>An exception has occurred in Directory Service.</p>
+            aws_sdk_directory_service.errors.unsupported_operation_exception.UnsupportedOperationException: <p>The operation is not supported.</p>
+            aws_sdk_directory_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4217,6 +4820,15 @@ class AsyncDirectoryServiceClient:
             create_snapshot_before_schema_extension: <p>If true, creates a snapshot of the directory before applying the schema extension.</p>
             ldif_content: <p>The LDIF file represented as a string. To construct the LdifContent string, precede each line as it would be formatted in an ldif file with \n. See the example request below for more details. The file size can be no larger than 1MB.</p>
             description: <p>A description of the schema extension.</p>
+
+        Raises:
+            aws_sdk_directory_service.errors.client_exception.ClientException: <p>A client exception has occurred.</p>
+            aws_sdk_directory_service.errors.directory_unavailable_exception.DirectoryUnavailableException: <p>The specified directory is unavailable.</p>
+            aws_sdk_directory_service.errors.entity_does_not_exist_exception.EntityDoesNotExistException: <p>The specified entity could not be found.</p>
+            aws_sdk_directory_service.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters are not valid.</p>
+            aws_sdk_directory_service.errors.service_exception.ServiceException: <p>An exception has occurred in Directory Service.</p>
+            aws_sdk_directory_service.errors.snapshot_limit_exceeded_exception.SnapshotLimitExceededException: <p>The maximum number of manual snapshots for the directory has been reached. You can use the <a>GetSnapshotLimits</a> operation to determine the snapshot limits for a directory.</p>
+            aws_sdk_directory_service.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To start a schema extension
@@ -4268,6 +4880,14 @@ class AsyncDirectoryServiceClient:
         Args:
             directory_id: <p>The identifier of the Managed Microsoft AD directory that you want to stop sharing.</p>
             unshare_target: <p>Identifier for the directory consumer account with whom the directory has to be unshared.</p>
+
+        Raises:
+            aws_sdk_directory_service.errors.client_exception.ClientException: <p>A client exception has occurred.</p>
+            aws_sdk_directory_service.errors.directory_not_shared_exception.DirectoryNotSharedException: <p>The specified directory has not been shared with this Amazon Web Services account.</p>
+            aws_sdk_directory_service.errors.entity_does_not_exist_exception.EntityDoesNotExistException: <p>The specified entity could not be found.</p>
+            aws_sdk_directory_service.errors.invalid_target_exception.InvalidTargetException: <p>The specified shared target is not valid.</p>
+            aws_sdk_directory_service.errors.service_exception.ServiceException: <p>An exception has occurred in Directory Service.</p>
+            aws_sdk_directory_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4317,6 +4937,15 @@ class AsyncDirectoryServiceClient:
             remote_domain_name: <p>The fully qualified domain name (FQDN) of the remote domain with which you will set up a trust relationship.</p>
             dns_ip_addrs: <p>The updated IP addresses of the remote DNS server associated with the conditional forwarder.</p>
             dns_ipv6_addrs: <p>The updated IPv6 addresses of the remote DNS server associated with the conditional forwarder.</p>
+
+        Raises:
+            aws_sdk_directory_service.errors.client_exception.ClientException: <p>A client exception has occurred.</p>
+            aws_sdk_directory_service.errors.directory_unavailable_exception.DirectoryUnavailableException: <p>The specified directory is unavailable.</p>
+            aws_sdk_directory_service.errors.entity_does_not_exist_exception.EntityDoesNotExistException: <p>The specified entity could not be found.</p>
+            aws_sdk_directory_service.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters are not valid.</p>
+            aws_sdk_directory_service.errors.service_exception.ServiceException: <p>An exception has occurred in Directory Service.</p>
+            aws_sdk_directory_service.errors.unsupported_operation_exception.UnsupportedOperationException: <p>The operation is not supported.</p>
+            aws_sdk_directory_service.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To update a conditional forwarder
@@ -4384,6 +5013,18 @@ class AsyncDirectoryServiceClient:
             directory_size_update_settings: <p>Directory size configuration to apply during the update operation.</p>
             network_update_settings: <p>Network configuration to apply during the directory update operation.</p>
             create_snapshot_before_update: <p>Specifies whether to create a directory snapshot before performing the update.</p>
+
+        Raises:
+            aws_sdk_directory_service.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_directory_service.errors.client_exception.ClientException: <p>A client exception has occurred.</p>
+            aws_sdk_directory_service.errors.directory_does_not_exist_exception.DirectoryDoesNotExistException: <p>The specified directory does not exist in the system.</p>
+            aws_sdk_directory_service.errors.directory_in_desired_state_exception.DirectoryInDesiredStateException: <p> The directory is already updated to desired update type settings. </p>
+            aws_sdk_directory_service.errors.directory_unavailable_exception.DirectoryUnavailableException: <p>The specified directory is unavailable.</p>
+            aws_sdk_directory_service.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters are not valid.</p>
+            aws_sdk_directory_service.errors.service_exception.ServiceException: <p>An exception has occurred in Directory Service.</p>
+            aws_sdk_directory_service.errors.snapshot_limit_exceeded_exception.SnapshotLimitExceededException: <p>The maximum number of manual snapshots for the directory has been reached. You can use the <a>GetSnapshotLimits</a> operation to determine the snapshot limits for a directory.</p>
+            aws_sdk_directory_service.errors.unsupported_operation_exception.UnsupportedOperationException: <p>The operation is not supported.</p>
+            aws_sdk_directory_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4439,6 +5080,15 @@ class AsyncDirectoryServiceClient:
             directory_id: <p>The identifier of the hybrid directory to update.</p>
             hybrid_administrator_account_update: <p>We create a hybrid directory administrator account when we create a hybrid directory. Use <code>HybridAdministratorAccountUpdate</code> to recover the hybrid directory administrator account if you have deleted it.</p> <p>To recover your hybrid directory administrator account, we need temporary access to a user in your self-managed AD with administrator permissions in the form of a secret from Amazon Web Services Secrets Manager. We use these credentials once during recovery and don't store them.</p> <p>If your hybrid directory administrator account exists, then you don’t need to use <code>HybridAdministratorAccountUpdate</code>, even if you have updated your self-managed AD administrator user.</p>
             self_managed_instances_settings: <p>Updates to the self-managed AD configuration, including DNS server IP addresses and Amazon Web Services System Manager managed node identifiers.</p>
+
+        Raises:
+            aws_sdk_directory_service.errors.ad_assessment_limit_exceeded_exception.ADAssessmentLimitExceededException: <p>A directory assessment is automatically created when you create a hybrid directory. There are two types of assessments: <code>CUSTOMER</code> and <code>SYSTEM</code>. Your Amazon Web Services account has a limit of 100 <code>CUSTOMER</code> directory assessments.</p> <p>If you attempt to create a hybrid directory; and you already have 100 <code>CUSTOMER</code> directory assessments;, you will encounter an error. Delete assessments to free up capacity before trying again.</p> <p>You can request an increase to your <code>CUSTOMER</code> directory assessment quota by contacting customer support or delete existing CUSTOMER directory assessments; to free up capacity.</p>
+            aws_sdk_directory_service.errors.client_exception.ClientException: <p>A client exception has occurred.</p>
+            aws_sdk_directory_service.errors.directory_does_not_exist_exception.DirectoryDoesNotExistException: <p>The specified directory does not exist in the system.</p>
+            aws_sdk_directory_service.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters are not valid.</p>
+            aws_sdk_directory_service.errors.service_exception.ServiceException: <p>An exception has occurred in Directory Service.</p>
+            aws_sdk_directory_service.errors.unsupported_operation_exception.UnsupportedOperationException: <p>The operation is not supported.</p>
+            aws_sdk_directory_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4485,6 +5135,16 @@ class AsyncDirectoryServiceClient:
         Args:
             directory_id: <p>Identifier of the directory to which the domain controllers will be added or removed.</p>
             desired_number: <p>The number of domain controllers desired in the directory.</p>
+
+        Raises:
+            aws_sdk_directory_service.errors.client_exception.ClientException: <p>A client exception has occurred.</p>
+            aws_sdk_directory_service.errors.directory_unavailable_exception.DirectoryUnavailableException: <p>The specified directory is unavailable.</p>
+            aws_sdk_directory_service.errors.domain_controller_limit_exceeded_exception.DomainControllerLimitExceededException: <p>The maximum allowed number of domain controllers per directory was exceeded. The default limit per directory is 20 domain controllers.</p>
+            aws_sdk_directory_service.errors.entity_does_not_exist_exception.EntityDoesNotExistException: <p>The specified entity could not be found.</p>
+            aws_sdk_directory_service.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters are not valid.</p>
+            aws_sdk_directory_service.errors.service_exception.ServiceException: <p>An exception has occurred in Directory Service.</p>
+            aws_sdk_directory_service.errors.unsupported_operation_exception.UnsupportedOperationException: <p>The operation is not supported.</p>
+            aws_sdk_directory_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4526,6 +5186,13 @@ class AsyncDirectoryServiceClient:
         Args:
             directory_id: <p>The identifier of the directory for which to update the RADIUS server information.</p>
             radius_settings: <p>A <a>RadiusSettings</a> object that contains information about the RADIUS server.</p>
+
+        Raises:
+            aws_sdk_directory_service.errors.client_exception.ClientException: <p>A client exception has occurred.</p>
+            aws_sdk_directory_service.errors.entity_does_not_exist_exception.EntityDoesNotExistException: <p>The specified entity could not be found.</p>
+            aws_sdk_directory_service.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters are not valid.</p>
+            aws_sdk_directory_service.errors.service_exception.ServiceException: <p>An exception has occurred in Directory Service.</p>
+            aws_sdk_directory_service.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To update Radius
@@ -4573,6 +5240,17 @@ class AsyncDirectoryServiceClient:
         Args:
             directory_id: <p>The identifier of the directory for which to update settings.</p>
             settings: <p>The list of <a>Setting</a> objects.</p>
+
+        Raises:
+            aws_sdk_directory_service.errors.client_exception.ClientException: <p>A client exception has occurred.</p>
+            aws_sdk_directory_service.errors.directory_does_not_exist_exception.DirectoryDoesNotExistException: <p>The specified directory does not exist in the system.</p>
+            aws_sdk_directory_service.errors.directory_unavailable_exception.DirectoryUnavailableException: <p>The specified directory is unavailable.</p>
+            aws_sdk_directory_service.errors.incompatible_settings_exception.IncompatibleSettingsException: <p>The specified directory setting is not compatible with other settings.</p>
+            aws_sdk_directory_service.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters are not valid.</p>
+            aws_sdk_directory_service.errors.service_exception.ServiceException: <p>An exception has occurred in Directory Service.</p>
+            aws_sdk_directory_service.errors.unsupported_operation_exception.UnsupportedOperationException: <p>The operation is not supported.</p>
+            aws_sdk_directory_service.errors.unsupported_settings_exception.UnsupportedSettingsException: <p>The specified directory setting is not supported.</p>
+            aws_sdk_directory_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4616,6 +5294,13 @@ class AsyncDirectoryServiceClient:
         Args:
             trust_id: <p>Identifier of the trust relationship.</p>
             selective_auth: <p>Updates selective authentication for the trust.</p>
+
+        Raises:
+            aws_sdk_directory_service.errors.client_exception.ClientException: <p>A client exception has occurred.</p>
+            aws_sdk_directory_service.errors.entity_does_not_exist_exception.EntityDoesNotExistException: <p>The specified entity could not be found.</p>
+            aws_sdk_directory_service.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters are not valid.</p>
+            aws_sdk_directory_service.errors.service_exception.ServiceException: <p>An exception has occurred in Directory Service.</p>
+            aws_sdk_directory_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4656,6 +5341,14 @@ class AsyncDirectoryServiceClient:
 
         Args:
             trust_id: <p>The unique Trust ID of the trust relationship to verify.</p>
+
+        Raises:
+            aws_sdk_directory_service.errors.client_exception.ClientException: <p>A client exception has occurred.</p>
+            aws_sdk_directory_service.errors.entity_does_not_exist_exception.EntityDoesNotExistException: <p>The specified entity could not be found.</p>
+            aws_sdk_directory_service.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters are not valid.</p>
+            aws_sdk_directory_service.errors.service_exception.ServiceException: <p>An exception has occurred in Directory Service.</p>
+            aws_sdk_directory_service.errors.unsupported_operation_exception.UnsupportedOperationException: <p>The operation is not supported.</p>
+            aws_sdk_directory_service.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To verify a trust

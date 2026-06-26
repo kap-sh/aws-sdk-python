@@ -349,6 +349,15 @@ class AsyncPersonalizeClient:
             tags: <p>A list of <a href=\"https://docs.aws.amazon.com/personalize/latest/dg/tagging-resources.html\">tags</a> to apply to the batch inference job.</p>
             batch_inference_job_mode: <p>The mode of the batch inference job. To generate descriptive themes for groups of similar items, set the job mode to <code>THEME_GENERATION</code>. If you don't want to generate themes, use the default <code>BATCH_INFERENCE</code>.</p> <p> When you get batch recommendations with themes, you will incur additional costs. For more information, see <a href=\"https://aws.amazon.com/personalize/pricing/\">Amazon Personalize pricing</a>. </p>
             theme_generation_config: <p>For theme generation jobs, specify the name of the column in your Items dataset that contains each item's name.</p>
+
+        Raises:
+            aws_sdk_personalize.errors.invalid_input_exception.InvalidInputException: <p>Provide a valid value for the field or parameter.</p>
+            aws_sdk_personalize.errors.limit_exceeded_exception.LimitExceededException: <p>The limit on the number of requests per second has been exceeded.</p>
+            aws_sdk_personalize.errors.resource_already_exists_exception.ResourceAlreadyExistsException: <p>The specified resource already exists.</p>
+            aws_sdk_personalize.errors.resource_in_use_exception.ResourceInUseException: <p>The specified resource is in use.</p>
+            aws_sdk_personalize.errors.resource_not_found_exception.ResourceNotFoundException: <p>Could not find the specified resource.</p>
+            aws_sdk_personalize.errors.too_many_tags_exception.TooManyTagsException: <p>You have exceeded the maximum number of tags you can apply to this resource. </p>
+            aws_sdk_personalize.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -419,6 +428,15 @@ class AsyncPersonalizeClient:
             job_output: <p>The Amazon S3 path for the bucket where the job's output will be stored.</p>
             role_arn: <p>The ARN of the Amazon Identity and Access Management role that has permissions to read and write to your input and output Amazon S3 buckets respectively.</p>
             tags: <p>A list of <a href=\"https://docs.aws.amazon.com/personalize/latest/dg/tagging-resources.html\">tags</a> to apply to the batch segment job.</p>
+
+        Raises:
+            aws_sdk_personalize.errors.invalid_input_exception.InvalidInputException: <p>Provide a valid value for the field or parameter.</p>
+            aws_sdk_personalize.errors.limit_exceeded_exception.LimitExceededException: <p>The limit on the number of requests per second has been exceeded.</p>
+            aws_sdk_personalize.errors.resource_already_exists_exception.ResourceAlreadyExistsException: <p>The specified resource already exists.</p>
+            aws_sdk_personalize.errors.resource_in_use_exception.ResourceInUseException: <p>The specified resource is in use.</p>
+            aws_sdk_personalize.errors.resource_not_found_exception.ResourceNotFoundException: <p>Could not find the specified resource.</p>
+            aws_sdk_personalize.errors.too_many_tags_exception.TooManyTagsException: <p>You have exceeded the maximum number of tags you can apply to this resource. </p>
+            aws_sdk_personalize.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -479,6 +497,15 @@ class AsyncPersonalizeClient:
             min_provisioned_tps: <p>Specifies the requested minimum provisioned transactions (recommendations) per second that Amazon Personalize will support. A high <code>minProvisionedTPS</code> will increase your bill. We recommend starting with 1 for <code>minProvisionedTPS</code> (the default). Track your usage using Amazon CloudWatch metrics, and increase the <code>minProvisionedTPS</code> as necessary.</p>
             campaign_config: <p>The configuration details of a campaign.</p>
             tags: <p>A list of <a href=\"https://docs.aws.amazon.com/personalize/latest/dg/tagging-resources.html\">tags</a> to apply to the campaign.</p>
+
+        Raises:
+            aws_sdk_personalize.errors.invalid_input_exception.InvalidInputException: <p>Provide a valid value for the field or parameter.</p>
+            aws_sdk_personalize.errors.limit_exceeded_exception.LimitExceededException: <p>The limit on the number of requests per second has been exceeded.</p>
+            aws_sdk_personalize.errors.resource_already_exists_exception.ResourceAlreadyExistsException: <p>The specified resource already exists.</p>
+            aws_sdk_personalize.errors.resource_in_use_exception.ResourceInUseException: <p>The specified resource is in use.</p>
+            aws_sdk_personalize.errors.resource_not_found_exception.ResourceNotFoundException: <p>Could not find the specified resource.</p>
+            aws_sdk_personalize.errors.too_many_tags_exception.TooManyTagsException: <p>You have exceeded the maximum number of tags you can apply to this resource. </p>
+            aws_sdk_personalize.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -532,6 +559,15 @@ class AsyncPersonalizeClient:
             data_source: <p>The Amazon S3 bucket that contains the list of userIds of the users to delete.</p>
             role_arn: <p>The Amazon Resource Name (ARN) of the IAM role that has permissions to read from the Amazon S3 data source.</p>
             tags: <p>A list of <a href=\"https://docs.aws.amazon.com/personalize/latest/dg/tagging-resources.html\">tags</a> to apply to the data deletion job.</p>
+
+        Raises:
+            aws_sdk_personalize.errors.invalid_input_exception.InvalidInputException: <p>Provide a valid value for the field or parameter.</p>
+            aws_sdk_personalize.errors.limit_exceeded_exception.LimitExceededException: <p>The limit on the number of requests per second has been exceeded.</p>
+            aws_sdk_personalize.errors.resource_already_exists_exception.ResourceAlreadyExistsException: <p>The specified resource already exists.</p>
+            aws_sdk_personalize.errors.resource_in_use_exception.ResourceInUseException: <p>The specified resource is in use.</p>
+            aws_sdk_personalize.errors.resource_not_found_exception.ResourceNotFoundException: <p>Could not find the specified resource.</p>
+            aws_sdk_personalize.errors.too_many_tags_exception.TooManyTagsException: <p>You have exceeded the maximum number of tags you can apply to this resource. </p>
+            aws_sdk_personalize.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -583,6 +619,15 @@ class AsyncPersonalizeClient:
             dataset_group_arn: <p>The Amazon Resource Name (ARN) of the dataset group to add the dataset to.</p>
             dataset_type: <p>The type of dataset.</p> <p>One of the following (case insensitive) values:</p> <ul> <li> <p>Interactions</p> </li> <li> <p>Items</p> </li> <li> <p>Users</p> </li> <li> <p>Actions</p> </li> <li> <p>Action_Interactions</p> </li> </ul>
             tags: <p>A list of <a href=\"https://docs.aws.amazon.com/personalize/latest/dg/tagging-resources.html\">tags</a> to apply to the dataset.</p>
+
+        Raises:
+            aws_sdk_personalize.errors.invalid_input_exception.InvalidInputException: <p>Provide a valid value for the field or parameter.</p>
+            aws_sdk_personalize.errors.limit_exceeded_exception.LimitExceededException: <p>The limit on the number of requests per second has been exceeded.</p>
+            aws_sdk_personalize.errors.resource_already_exists_exception.ResourceAlreadyExistsException: <p>The specified resource already exists.</p>
+            aws_sdk_personalize.errors.resource_in_use_exception.ResourceInUseException: <p>The specified resource is in use.</p>
+            aws_sdk_personalize.errors.resource_not_found_exception.ResourceNotFoundException: <p>Could not find the specified resource.</p>
+            aws_sdk_personalize.errors.too_many_tags_exception.TooManyTagsException: <p>You have exceeded the maximum number of tags you can apply to this resource. </p>
+            aws_sdk_personalize.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -638,6 +683,15 @@ class AsyncPersonalizeClient:
             role_arn: <p>The Amazon Resource Name (ARN) of the IAM service role that has permissions to add data to your output Amazon S3 bucket.</p>
             job_output: <p>The path to the Amazon S3 bucket where the job's output is stored.</p>
             tags: <p>A list of <a href=\"https://docs.aws.amazon.com/personalize/latest/dg/tagging-resources.html\">tags</a> to apply to the dataset export job.</p>
+
+        Raises:
+            aws_sdk_personalize.errors.invalid_input_exception.InvalidInputException: <p>Provide a valid value for the field or parameter.</p>
+            aws_sdk_personalize.errors.limit_exceeded_exception.LimitExceededException: <p>The limit on the number of requests per second has been exceeded.</p>
+            aws_sdk_personalize.errors.resource_already_exists_exception.ResourceAlreadyExistsException: <p>The specified resource already exists.</p>
+            aws_sdk_personalize.errors.resource_in_use_exception.ResourceInUseException: <p>The specified resource is in use.</p>
+            aws_sdk_personalize.errors.resource_not_found_exception.ResourceNotFoundException: <p>Could not find the specified resource.</p>
+            aws_sdk_personalize.errors.too_many_tags_exception.TooManyTagsException: <p>You have exceeded the maximum number of tags you can apply to this resource. </p>
+            aws_sdk_personalize.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -691,6 +745,13 @@ class AsyncPersonalizeClient:
             kms_key_arn: <p>The Amazon Resource Name (ARN) of a Key Management Service (KMS) key used to encrypt the datasets.</p>
             domain: <p>The domain of the dataset group. Specify a domain to create a Domain dataset group. The domain you specify determines the default schemas for datasets and the use cases available for recommenders. If you don't specify a domain, you create a Custom dataset group with solution versions that you deploy with a campaign. </p>
             tags: <p>A list of <a href=\"https://docs.aws.amazon.com/personalize/latest/dg/tagging-resources.html\">tags</a> to apply to the dataset group.</p>
+
+        Raises:
+            aws_sdk_personalize.errors.invalid_input_exception.InvalidInputException: <p>Provide a valid value for the field or parameter.</p>
+            aws_sdk_personalize.errors.limit_exceeded_exception.LimitExceededException: <p>The limit on the number of requests per second has been exceeded.</p>
+            aws_sdk_personalize.errors.resource_already_exists_exception.ResourceAlreadyExistsException: <p>The specified resource already exists.</p>
+            aws_sdk_personalize.errors.too_many_tags_exception.TooManyTagsException: <p>You have exceeded the maximum number of tags you can apply to this resource. </p>
+            aws_sdk_personalize.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -753,6 +814,15 @@ class AsyncPersonalizeClient:
             tags: <p>A list of <a href=\"https://docs.aws.amazon.com/personalize/latest/dg/tagging-resources.html\">tags</a> to apply to the dataset import job.</p>
             import_mode: <p>Specify how to add the new records to an existing dataset. The default import mode is <code>FULL</code>. If you haven't imported bulk records into the dataset previously, you can only specify <code>FULL</code>.</p> <ul> <li> <p>Specify <code>FULL</code> to overwrite all existing bulk data in your dataset. Data you imported individually is not replaced.</p> </li> <li> <p>Specify <code>INCREMENTAL</code> to append the new records to the existing data in your dataset. Amazon Personalize replaces any record with the same ID with the new one.</p> </li> </ul>
             publish_attribution_metrics_to_s3: <p>If you created a metric attribution, specify whether to publish metrics for this import job to Amazon S3</p>
+
+        Raises:
+            aws_sdk_personalize.errors.invalid_input_exception.InvalidInputException: <p>Provide a valid value for the field or parameter.</p>
+            aws_sdk_personalize.errors.limit_exceeded_exception.LimitExceededException: <p>The limit on the number of requests per second has been exceeded.</p>
+            aws_sdk_personalize.errors.resource_already_exists_exception.ResourceAlreadyExistsException: <p>The specified resource already exists.</p>
+            aws_sdk_personalize.errors.resource_in_use_exception.ResourceInUseException: <p>The specified resource is in use.</p>
+            aws_sdk_personalize.errors.resource_not_found_exception.ResourceNotFoundException: <p>Could not find the specified resource.</p>
+            aws_sdk_personalize.errors.too_many_tags_exception.TooManyTagsException: <p>You have exceeded the maximum number of tags you can apply to this resource. </p>
+            aws_sdk_personalize.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -807,6 +877,15 @@ class AsyncPersonalizeClient:
             name: <p>The name for the event tracker.</p>
             dataset_group_arn: <p>The Amazon Resource Name (ARN) of the dataset group that receives the event data.</p>
             tags: <p>A list of <a href=\"https://docs.aws.amazon.com/personalize/latest/dg/tagging-resources.html\">tags</a> to apply to the event tracker.</p>
+
+        Raises:
+            aws_sdk_personalize.errors.invalid_input_exception.InvalidInputException: <p>Provide a valid value for the field or parameter.</p>
+            aws_sdk_personalize.errors.limit_exceeded_exception.LimitExceededException: <p>The limit on the number of requests per second has been exceeded.</p>
+            aws_sdk_personalize.errors.resource_already_exists_exception.ResourceAlreadyExistsException: <p>The specified resource already exists.</p>
+            aws_sdk_personalize.errors.resource_in_use_exception.ResourceInUseException: <p>The specified resource is in use.</p>
+            aws_sdk_personalize.errors.resource_not_found_exception.ResourceNotFoundException: <p>Could not find the specified resource.</p>
+            aws_sdk_personalize.errors.too_many_tags_exception.TooManyTagsException: <p>You have exceeded the maximum number of tags you can apply to this resource. </p>
+            aws_sdk_personalize.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -854,6 +933,14 @@ class AsyncPersonalizeClient:
             dataset_group_arn: <p>The ARN of the dataset group that the filter will belong to.</p>
             filter_expression: <p>The filter expression defines which items are included or excluded from recommendations. Filter expression must follow specific format rules. For information about filter expression structure and syntax, see <a href=\"https://docs.aws.amazon.com/personalize/latest/dg/filter-expressions.html\">Filter expressions</a>.</p>
             tags: <p>A list of <a href=\"https://docs.aws.amazon.com/personalize/latest/dg/tagging-resources.html\">tags</a> to apply to the filter.</p>
+
+        Raises:
+            aws_sdk_personalize.errors.invalid_input_exception.InvalidInputException: <p>Provide a valid value for the field or parameter.</p>
+            aws_sdk_personalize.errors.limit_exceeded_exception.LimitExceededException: <p>The limit on the number of requests per second has been exceeded.</p>
+            aws_sdk_personalize.errors.resource_already_exists_exception.ResourceAlreadyExistsException: <p>The specified resource already exists.</p>
+            aws_sdk_personalize.errors.resource_not_found_exception.ResourceNotFoundException: <p>Could not find the specified resource.</p>
+            aws_sdk_personalize.errors.too_many_tags_exception.TooManyTagsException: <p>You have exceeded the maximum number of tags you can apply to this resource. </p>
+            aws_sdk_personalize.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -902,6 +989,14 @@ class AsyncPersonalizeClient:
             dataset_group_arn: <p>The Amazon Resource Name (ARN) of the destination dataset group for the metric attribution.</p>
             metrics: <p>A list of metric attributes for the metric attribution. Each metric attribute specifies an event type to track and a function. Available functions are <code>SUM()</code> or <code>SAMPLECOUNT()</code>. For SUM() functions, provide the dataset type (either Interactions or Items) and column to sum as a parameter. For example SUM(Items.PRICE).</p>
             metrics_output_config: <p>The output configuration details for the metric attribution.</p>
+
+        Raises:
+            aws_sdk_personalize.errors.invalid_input_exception.InvalidInputException: <p>Provide a valid value for the field or parameter.</p>
+            aws_sdk_personalize.errors.limit_exceeded_exception.LimitExceededException: <p>The limit on the number of requests per second has been exceeded.</p>
+            aws_sdk_personalize.errors.resource_already_exists_exception.ResourceAlreadyExistsException: <p>The specified resource already exists.</p>
+            aws_sdk_personalize.errors.resource_in_use_exception.ResourceInUseException: <p>The specified resource is in use.</p>
+            aws_sdk_personalize.errors.resource_not_found_exception.ResourceNotFoundException: <p>Could not find the specified resource.</p>
+            aws_sdk_personalize.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -953,6 +1048,15 @@ class AsyncPersonalizeClient:
             recipe_arn: <p>The Amazon Resource Name (ARN) of the recipe that the recommender will use. For a recommender, a recipe is a Domain dataset group use case. Only Domain dataset group use cases can be used to create a recommender. For information about use cases see <a href=\"https://docs.aws.amazon.com/personalize/latest/dg/domain-use-cases.html\">Choosing recommender use cases</a>. </p>
             recommender_config: <p>The configuration details of the recommender.</p>
             tags: <p>A list of <a href=\"https://docs.aws.amazon.com/personalize/latest/dg/tagging-resources.html\">tags</a> to apply to the recommender.</p>
+
+        Raises:
+            aws_sdk_personalize.errors.invalid_input_exception.InvalidInputException: <p>Provide a valid value for the field or parameter.</p>
+            aws_sdk_personalize.errors.limit_exceeded_exception.LimitExceededException: <p>The limit on the number of requests per second has been exceeded.</p>
+            aws_sdk_personalize.errors.resource_already_exists_exception.ResourceAlreadyExistsException: <p>The specified resource already exists.</p>
+            aws_sdk_personalize.errors.resource_in_use_exception.ResourceInUseException: <p>The specified resource is in use.</p>
+            aws_sdk_personalize.errors.resource_not_found_exception.ResourceNotFoundException: <p>Could not find the specified resource.</p>
+            aws_sdk_personalize.errors.too_many_tags_exception.TooManyTagsException: <p>You have exceeded the maximum number of tags you can apply to this resource. </p>
+            aws_sdk_personalize.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1001,6 +1105,12 @@ class AsyncPersonalizeClient:
             name: <p>The name for the schema.</p>
             schema: <p>A schema in Avro JSON format.</p>
             domain: <p>The domain for the schema. If you are creating a schema for a dataset in a Domain dataset group, specify the domain you chose when you created the Domain dataset group.</p>
+
+        Raises:
+            aws_sdk_personalize.errors.invalid_input_exception.InvalidInputException: <p>Provide a valid value for the field or parameter.</p>
+            aws_sdk_personalize.errors.limit_exceeded_exception.LimitExceededException: <p>The limit on the number of requests per second has been exceeded.</p>
+            aws_sdk_personalize.errors.resource_already_exists_exception.ResourceAlreadyExistsException: <p>The specified resource already exists.</p>
+            aws_sdk_personalize.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1068,6 +1178,15 @@ class AsyncPersonalizeClient:
             event_type: <p>When your have multiple event types (using an <code>EVENT_TYPE</code> schema field), this parameter specifies which event type (for example, 'click' or 'like') is used for training the model.</p> <p>If you do not provide an <code>eventType</code>, Amazon Personalize will use all interactions for training with equal weight regardless of type.</p>
             solution_config: <p>The configuration properties for the solution. When <code>performAutoML</code> is set to true, Amazon Personalize only evaluates the <code>autoMLConfig</code> section of the solution configuration.</p> <note> <p>Amazon Personalize doesn't support configuring the <code>hpoObjective</code> at this time.</p> </note>
             tags: <p>A list of <a href=\"https://docs.aws.amazon.com/personalize/latest/dg/tagging-resources.html\">tags</a> to apply to the solution.</p>
+
+        Raises:
+            aws_sdk_personalize.errors.invalid_input_exception.InvalidInputException: <p>Provide a valid value for the field or parameter.</p>
+            aws_sdk_personalize.errors.limit_exceeded_exception.LimitExceededException: <p>The limit on the number of requests per second has been exceeded.</p>
+            aws_sdk_personalize.errors.resource_already_exists_exception.ResourceAlreadyExistsException: <p>The specified resource already exists.</p>
+            aws_sdk_personalize.errors.resource_in_use_exception.ResourceInUseException: <p>The specified resource is in use.</p>
+            aws_sdk_personalize.errors.resource_not_found_exception.ResourceNotFoundException: <p>Could not find the specified resource.</p>
+            aws_sdk_personalize.errors.too_many_tags_exception.TooManyTagsException: <p>You have exceeded the maximum number of tags you can apply to this resource. </p>
+            aws_sdk_personalize.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1131,6 +1250,15 @@ class AsyncPersonalizeClient:
             solution_arn: <p>The Amazon Resource Name (ARN) of the solution containing the training configuration information.</p>
             training_mode: <p>The scope of training to be performed when creating the solution version. The default is <code>FULL</code>. This creates a completely new model based on the entirety of the training data from the datasets in your dataset group. </p> <p>If you use <a href=\"https://docs.aws.amazon.com/personalize/latest/dg/native-recipe-new-item-USER_PERSONALIZATION.html\">User-Personalization</a>, you can specify a training mode of <code>UPDATE</code>. This updates the model to consider new items for recommendations. It is not a full retraining. You should still complete a full retraining weekly. If you specify <code>UPDATE</code>, Amazon Personalize will stop automatic updates for the solution version. To resume updates, create a new solution with training mode set to <code>FULL</code> and deploy it in a campaign. For more information about automatic updates, see <a href=\"https://docs.aws.amazon.com/personalize/latest/dg/use-case-recipe-features.html#maintaining-with-automatic-updates\">Automatic updates</a>. </p> <p>The <code>UPDATE</code> option can only be used when you already have an active solution version created from the input solution using the <code>FULL</code> option and the input solution was trained with the <a href=\"https://docs.aws.amazon.com/personalize/latest/dg/native-recipe-new-item-USER_PERSONALIZATION.html\">User-Personalization</a> recipe or the legacy <a href=\"https://docs.aws.amazon.com/personalize/latest/dg/native-recipe-hrnn-coldstart.html\">HRNN-Coldstart</a> recipe.</p>
             tags: <p>A list of <a href=\"https://docs.aws.amazon.com/personalize/latest/dg/tagging-resources.html\">tags</a> to apply to the solution version.</p>
+
+        Raises:
+            aws_sdk_personalize.errors.invalid_input_exception.InvalidInputException: <p>Provide a valid value for the field or parameter.</p>
+            aws_sdk_personalize.errors.limit_exceeded_exception.LimitExceededException: <p>The limit on the number of requests per second has been exceeded.</p>
+            aws_sdk_personalize.errors.resource_already_exists_exception.ResourceAlreadyExistsException: <p>The specified resource already exists.</p>
+            aws_sdk_personalize.errors.resource_in_use_exception.ResourceInUseException: <p>The specified resource is in use.</p>
+            aws_sdk_personalize.errors.resource_not_found_exception.ResourceNotFoundException: <p>Could not find the specified resource.</p>
+            aws_sdk_personalize.errors.too_many_tags_exception.TooManyTagsException: <p>You have exceeded the maximum number of tags you can apply to this resource. </p>
+            aws_sdk_personalize.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1175,6 +1303,12 @@ class AsyncPersonalizeClient:
 
         Args:
             campaign_arn: <p>The Amazon Resource Name (ARN) of the campaign to delete.</p>
+
+        Raises:
+            aws_sdk_personalize.errors.invalid_input_exception.InvalidInputException: <p>Provide a valid value for the field or parameter.</p>
+            aws_sdk_personalize.errors.resource_in_use_exception.ResourceInUseException: <p>The specified resource is in use.</p>
+            aws_sdk_personalize.errors.resource_not_found_exception.ResourceNotFoundException: <p>Could not find the specified resource.</p>
+            aws_sdk_personalize.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1211,6 +1345,12 @@ class AsyncPersonalizeClient:
 
         Args:
             dataset_arn: <p>The Amazon Resource Name (ARN) of the dataset to delete.</p>
+
+        Raises:
+            aws_sdk_personalize.errors.invalid_input_exception.InvalidInputException: <p>Provide a valid value for the field or parameter.</p>
+            aws_sdk_personalize.errors.resource_in_use_exception.ResourceInUseException: <p>The specified resource is in use.</p>
+            aws_sdk_personalize.errors.resource_not_found_exception.ResourceNotFoundException: <p>Could not find the specified resource.</p>
+            aws_sdk_personalize.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1247,6 +1387,12 @@ class AsyncPersonalizeClient:
 
         Args:
             dataset_group_arn: <p>The ARN of the dataset group to delete.</p>
+
+        Raises:
+            aws_sdk_personalize.errors.invalid_input_exception.InvalidInputException: <p>Provide a valid value for the field or parameter.</p>
+            aws_sdk_personalize.errors.resource_in_use_exception.ResourceInUseException: <p>The specified resource is in use.</p>
+            aws_sdk_personalize.errors.resource_not_found_exception.ResourceNotFoundException: <p>Could not find the specified resource.</p>
+            aws_sdk_personalize.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1283,6 +1429,12 @@ class AsyncPersonalizeClient:
 
         Args:
             event_tracker_arn: <p>The Amazon Resource Name (ARN) of the event tracker to delete.</p>
+
+        Raises:
+            aws_sdk_personalize.errors.invalid_input_exception.InvalidInputException: <p>Provide a valid value for the field or parameter.</p>
+            aws_sdk_personalize.errors.resource_in_use_exception.ResourceInUseException: <p>The specified resource is in use.</p>
+            aws_sdk_personalize.errors.resource_not_found_exception.ResourceNotFoundException: <p>Could not find the specified resource.</p>
+            aws_sdk_personalize.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1319,6 +1471,12 @@ class AsyncPersonalizeClient:
 
         Args:
             filter_arn: <p>The ARN of the filter to delete.</p>
+
+        Raises:
+            aws_sdk_personalize.errors.invalid_input_exception.InvalidInputException: <p>Provide a valid value for the field or parameter.</p>
+            aws_sdk_personalize.errors.resource_in_use_exception.ResourceInUseException: <p>The specified resource is in use.</p>
+            aws_sdk_personalize.errors.resource_not_found_exception.ResourceNotFoundException: <p>Could not find the specified resource.</p>
+            aws_sdk_personalize.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1355,6 +1513,12 @@ class AsyncPersonalizeClient:
 
         Args:
             metric_attribution_arn: <p>The metric attribution's Amazon Resource Name (ARN).</p>
+
+        Raises:
+            aws_sdk_personalize.errors.invalid_input_exception.InvalidInputException: <p>Provide a valid value for the field or parameter.</p>
+            aws_sdk_personalize.errors.resource_in_use_exception.ResourceInUseException: <p>The specified resource is in use.</p>
+            aws_sdk_personalize.errors.resource_not_found_exception.ResourceNotFoundException: <p>Could not find the specified resource.</p>
+            aws_sdk_personalize.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1391,6 +1555,12 @@ class AsyncPersonalizeClient:
 
         Args:
             recommender_arn: <p>The Amazon Resource Name (ARN) of the recommender to delete.</p>
+
+        Raises:
+            aws_sdk_personalize.errors.invalid_input_exception.InvalidInputException: <p>Provide a valid value for the field or parameter.</p>
+            aws_sdk_personalize.errors.resource_in_use_exception.ResourceInUseException: <p>The specified resource is in use.</p>
+            aws_sdk_personalize.errors.resource_not_found_exception.ResourceNotFoundException: <p>Could not find the specified resource.</p>
+            aws_sdk_personalize.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1427,6 +1597,12 @@ class AsyncPersonalizeClient:
 
         Args:
             schema_arn: <p>The Amazon Resource Name (ARN) of the schema to delete.</p>
+
+        Raises:
+            aws_sdk_personalize.errors.invalid_input_exception.InvalidInputException: <p>Provide a valid value for the field or parameter.</p>
+            aws_sdk_personalize.errors.resource_in_use_exception.ResourceInUseException: <p>The specified resource is in use.</p>
+            aws_sdk_personalize.errors.resource_not_found_exception.ResourceNotFoundException: <p>Could not find the specified resource.</p>
+            aws_sdk_personalize.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1463,6 +1639,12 @@ class AsyncPersonalizeClient:
 
         Args:
             solution_arn: <p>The ARN of the solution to delete.</p>
+
+        Raises:
+            aws_sdk_personalize.errors.invalid_input_exception.InvalidInputException: <p>Provide a valid value for the field or parameter.</p>
+            aws_sdk_personalize.errors.resource_in_use_exception.ResourceInUseException: <p>The specified resource is in use.</p>
+            aws_sdk_personalize.errors.resource_not_found_exception.ResourceNotFoundException: <p>Could not find the specified resource.</p>
+            aws_sdk_personalize.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1499,6 +1681,11 @@ class AsyncPersonalizeClient:
 
         Args:
             algorithm_arn: <p>The Amazon Resource Name (ARN) of the algorithm to describe.</p>
+
+        Raises:
+            aws_sdk_personalize.errors.invalid_input_exception.InvalidInputException: <p>Provide a valid value for the field or parameter.</p>
+            aws_sdk_personalize.errors.resource_not_found_exception.ResourceNotFoundException: <p>Could not find the specified resource.</p>
+            aws_sdk_personalize.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1537,6 +1724,11 @@ class AsyncPersonalizeClient:
 
         Args:
             batch_inference_job_arn: <p>The ARN of the batch inference job to describe.</p>
+
+        Raises:
+            aws_sdk_personalize.errors.invalid_input_exception.InvalidInputException: <p>Provide a valid value for the field or parameter.</p>
+            aws_sdk_personalize.errors.resource_not_found_exception.ResourceNotFoundException: <p>Could not find the specified resource.</p>
+            aws_sdk_personalize.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1575,6 +1767,11 @@ class AsyncPersonalizeClient:
 
         Args:
             batch_segment_job_arn: <p>The ARN of the batch segment job to describe.</p>
+
+        Raises:
+            aws_sdk_personalize.errors.invalid_input_exception.InvalidInputException: <p>Provide a valid value for the field or parameter.</p>
+            aws_sdk_personalize.errors.resource_not_found_exception.ResourceNotFoundException: <p>Could not find the specified resource.</p>
+            aws_sdk_personalize.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1615,6 +1812,11 @@ class AsyncPersonalizeClient:
 
         Args:
             campaign_arn: <p>The Amazon Resource Name (ARN) of the campaign.</p>
+
+        Raises:
+            aws_sdk_personalize.errors.invalid_input_exception.InvalidInputException: <p>Provide a valid value for the field or parameter.</p>
+            aws_sdk_personalize.errors.resource_not_found_exception.ResourceNotFoundException: <p>Could not find the specified resource.</p>
+            aws_sdk_personalize.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1653,6 +1855,11 @@ class AsyncPersonalizeClient:
 
         Args:
             data_deletion_job_arn: <p>The Amazon Resource Name (ARN) of the data deletion job.</p>
+
+        Raises:
+            aws_sdk_personalize.errors.invalid_input_exception.InvalidInputException: <p>Provide a valid value for the field or parameter.</p>
+            aws_sdk_personalize.errors.resource_not_found_exception.ResourceNotFoundException: <p>Could not find the specified resource.</p>
+            aws_sdk_personalize.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1691,6 +1898,11 @@ class AsyncPersonalizeClient:
 
         Args:
             dataset_arn: <p>The Amazon Resource Name (ARN) of the dataset to describe.</p>
+
+        Raises:
+            aws_sdk_personalize.errors.invalid_input_exception.InvalidInputException: <p>Provide a valid value for the field or parameter.</p>
+            aws_sdk_personalize.errors.resource_not_found_exception.ResourceNotFoundException: <p>Could not find the specified resource.</p>
+            aws_sdk_personalize.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1729,6 +1941,11 @@ class AsyncPersonalizeClient:
 
         Args:
             dataset_export_job_arn: <p>The Amazon Resource Name (ARN) of the dataset export job to describe.</p>
+
+        Raises:
+            aws_sdk_personalize.errors.invalid_input_exception.InvalidInputException: <p>Provide a valid value for the field or parameter.</p>
+            aws_sdk_personalize.errors.resource_not_found_exception.ResourceNotFoundException: <p>Could not find the specified resource.</p>
+            aws_sdk_personalize.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1767,6 +1984,11 @@ class AsyncPersonalizeClient:
 
         Args:
             dataset_group_arn: <p>The Amazon Resource Name (ARN) of the dataset group to describe.</p>
+
+        Raises:
+            aws_sdk_personalize.errors.invalid_input_exception.InvalidInputException: <p>Provide a valid value for the field or parameter.</p>
+            aws_sdk_personalize.errors.resource_not_found_exception.ResourceNotFoundException: <p>Could not find the specified resource.</p>
+            aws_sdk_personalize.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1805,6 +2027,11 @@ class AsyncPersonalizeClient:
 
         Args:
             dataset_import_job_arn: <p>The Amazon Resource Name (ARN) of the dataset import job to describe.</p>
+
+        Raises:
+            aws_sdk_personalize.errors.invalid_input_exception.InvalidInputException: <p>Provide a valid value for the field or parameter.</p>
+            aws_sdk_personalize.errors.resource_not_found_exception.ResourceNotFoundException: <p>Could not find the specified resource.</p>
+            aws_sdk_personalize.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1843,6 +2070,11 @@ class AsyncPersonalizeClient:
 
         Args:
             event_tracker_arn: <p>The Amazon Resource Name (ARN) of the event tracker to describe.</p>
+
+        Raises:
+            aws_sdk_personalize.errors.invalid_input_exception.InvalidInputException: <p>Provide a valid value for the field or parameter.</p>
+            aws_sdk_personalize.errors.resource_not_found_exception.ResourceNotFoundException: <p>Could not find the specified resource.</p>
+            aws_sdk_personalize.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1881,6 +2113,11 @@ class AsyncPersonalizeClient:
 
         Args:
             feature_transformation_arn: <p>The Amazon Resource Name (ARN) of the feature transformation to describe.</p>
+
+        Raises:
+            aws_sdk_personalize.errors.invalid_input_exception.InvalidInputException: <p>Provide a valid value for the field or parameter.</p>
+            aws_sdk_personalize.errors.resource_not_found_exception.ResourceNotFoundException: <p>Could not find the specified resource.</p>
+            aws_sdk_personalize.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1919,6 +2156,11 @@ class AsyncPersonalizeClient:
 
         Args:
             filter_arn: <p>The ARN of the filter to describe.</p>
+
+        Raises:
+            aws_sdk_personalize.errors.invalid_input_exception.InvalidInputException: <p>Provide a valid value for the field or parameter.</p>
+            aws_sdk_personalize.errors.resource_not_found_exception.ResourceNotFoundException: <p>Could not find the specified resource.</p>
+            aws_sdk_personalize.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1957,6 +2199,11 @@ class AsyncPersonalizeClient:
 
         Args:
             metric_attribution_arn: <p>The metric attribution's Amazon Resource Name (ARN).</p>
+
+        Raises:
+            aws_sdk_personalize.errors.invalid_input_exception.InvalidInputException: <p>Provide a valid value for the field or parameter.</p>
+            aws_sdk_personalize.errors.resource_not_found_exception.ResourceNotFoundException: <p>Could not find the specified resource.</p>
+            aws_sdk_personalize.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1995,6 +2242,11 @@ class AsyncPersonalizeClient:
 
         Args:
             recipe_arn: <p>The Amazon Resource Name (ARN) of the recipe to describe.</p>
+
+        Raises:
+            aws_sdk_personalize.errors.invalid_input_exception.InvalidInputException: <p>Provide a valid value for the field or parameter.</p>
+            aws_sdk_personalize.errors.resource_not_found_exception.ResourceNotFoundException: <p>Could not find the specified resource.</p>
+            aws_sdk_personalize.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2033,6 +2285,11 @@ class AsyncPersonalizeClient:
 
         Args:
             recommender_arn: <p>The Amazon Resource Name (ARN) of the recommender to describe.</p>
+
+        Raises:
+            aws_sdk_personalize.errors.invalid_input_exception.InvalidInputException: <p>Provide a valid value for the field or parameter.</p>
+            aws_sdk_personalize.errors.resource_not_found_exception.ResourceNotFoundException: <p>Could not find the specified resource.</p>
+            aws_sdk_personalize.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2071,6 +2328,11 @@ class AsyncPersonalizeClient:
 
         Args:
             schema_arn: <p>The Amazon Resource Name (ARN) of the schema to retrieve.</p>
+
+        Raises:
+            aws_sdk_personalize.errors.invalid_input_exception.InvalidInputException: <p>Provide a valid value for the field or parameter.</p>
+            aws_sdk_personalize.errors.resource_not_found_exception.ResourceNotFoundException: <p>Could not find the specified resource.</p>
+            aws_sdk_personalize.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2111,6 +2373,11 @@ class AsyncPersonalizeClient:
 
         Args:
             solution_arn: <p>The Amazon Resource Name (ARN) of the solution to describe.</p>
+
+        Raises:
+            aws_sdk_personalize.errors.invalid_input_exception.InvalidInputException: <p>Provide a valid value for the field or parameter.</p>
+            aws_sdk_personalize.errors.resource_not_found_exception.ResourceNotFoundException: <p>Could not find the specified resource.</p>
+            aws_sdk_personalize.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2149,6 +2416,11 @@ class AsyncPersonalizeClient:
 
         Args:
             solution_version_arn: <p>The Amazon Resource Name (ARN) of the solution version.</p>
+
+        Raises:
+            aws_sdk_personalize.errors.invalid_input_exception.InvalidInputException: <p>Provide a valid value for the field or parameter.</p>
+            aws_sdk_personalize.errors.resource_not_found_exception.ResourceNotFoundException: <p>Could not find the specified resource.</p>
+            aws_sdk_personalize.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2187,6 +2459,12 @@ class AsyncPersonalizeClient:
 
         Args:
             solution_version_arn: <p>The Amazon Resource Name (ARN) of the solution version for which to get metrics.</p>
+
+        Raises:
+            aws_sdk_personalize.errors.invalid_input_exception.InvalidInputException: <p>Provide a valid value for the field or parameter.</p>
+            aws_sdk_personalize.errors.resource_in_use_exception.ResourceInUseException: <p>The specified resource is in use.</p>
+            aws_sdk_personalize.errors.resource_not_found_exception.ResourceNotFoundException: <p>Could not find the specified resource.</p>
+            aws_sdk_personalize.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2231,6 +2509,11 @@ class AsyncPersonalizeClient:
             solution_version_arn: <p>The Amazon Resource Name (ARN) of the solution version from which the batch inference jobs were created.</p>
             next_token: <p>The token to request the next page of results.</p>
             max_results: <p>The maximum number of batch inference job results to return in each page. The default value is 100.</p>
+
+        Raises:
+            aws_sdk_personalize.errors.invalid_input_exception.InvalidInputException: <p>Provide a valid value for the field or parameter.</p>
+            aws_sdk_personalize.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The token is not valid.</p>
+            aws_sdk_personalize.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2305,6 +2588,11 @@ class AsyncPersonalizeClient:
             solution_version_arn: <p>The Amazon Resource Name (ARN) of the solution version that the batch segment jobs used to generate batch segments.</p>
             next_token: <p>The token to request the next page of results.</p>
             max_results: <p>The maximum number of batch segment job results to return in each page. The default value is 100.</p>
+
+        Raises:
+            aws_sdk_personalize.errors.invalid_input_exception.InvalidInputException: <p>Provide a valid value for the field or parameter.</p>
+            aws_sdk_personalize.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The token is not valid.</p>
+            aws_sdk_personalize.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2379,6 +2667,11 @@ class AsyncPersonalizeClient:
             solution_arn: <p>The Amazon Resource Name (ARN) of the solution to list the campaigns for. When a solution is not specified, all the campaigns associated with the account are listed.</p>
             next_token: <p>A token returned from the previous call to <a href=\"https://docs.aws.amazon.com/personalize/latest/dg/API_ListCampaigns.html\">ListCampaigns</a> for getting the next set of campaigns (if they exist).</p>
             max_results: <p>The maximum number of campaigns to return.</p>
+
+        Raises:
+            aws_sdk_personalize.errors.invalid_input_exception.InvalidInputException: <p>Provide a valid value for the field or parameter.</p>
+            aws_sdk_personalize.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The token is not valid.</p>
+            aws_sdk_personalize.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2453,6 +2746,11 @@ class AsyncPersonalizeClient:
             dataset_group_arn: <p>The Amazon Resource Name (ARN) of the dataset group to list data deletion jobs for.</p>
             next_token: <p>A token returned from the previous call to <code>ListDataDeletionJobs</code> for getting the next set of jobs (if they exist).</p>
             max_results: <p>The maximum number of data deletion jobs to return.</p>
+
+        Raises:
+            aws_sdk_personalize.errors.invalid_input_exception.InvalidInputException: <p>Provide a valid value for the field or parameter.</p>
+            aws_sdk_personalize.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The token is not valid.</p>
+            aws_sdk_personalize.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2502,6 +2800,11 @@ class AsyncPersonalizeClient:
             dataset_arn: <p>The Amazon Resource Name (ARN) of the dataset to list the dataset export jobs for.</p>
             next_token: <p>A token returned from the previous call to <code>ListDatasetExportJobs</code> for getting the next set of dataset export jobs (if they exist).</p>
             max_results: <p>The maximum number of dataset export jobs to return.</p>
+
+        Raises:
+            aws_sdk_personalize.errors.invalid_input_exception.InvalidInputException: <p>Provide a valid value for the field or parameter.</p>
+            aws_sdk_personalize.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The token is not valid.</p>
+            aws_sdk_personalize.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2574,6 +2877,10 @@ class AsyncPersonalizeClient:
         Args:
             next_token: <p>A token returned from the previous call to <code>ListDatasetGroups</code> for getting the next set of dataset groups (if they exist).</p>
             max_results: <p>The maximum number of dataset groups to return.</p>
+
+        Raises:
+            aws_sdk_personalize.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The token is not valid.</p>
+            aws_sdk_personalize.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2644,6 +2951,11 @@ class AsyncPersonalizeClient:
             dataset_arn: <p>The Amazon Resource Name (ARN) of the dataset to list the dataset import jobs for.</p>
             next_token: <p>A token returned from the previous call to <code>ListDatasetImportJobs</code> for getting the next set of dataset import jobs (if they exist).</p>
             max_results: <p>The maximum number of dataset import jobs to return.</p>
+
+        Raises:
+            aws_sdk_personalize.errors.invalid_input_exception.InvalidInputException: <p>Provide a valid value for the field or parameter.</p>
+            aws_sdk_personalize.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The token is not valid.</p>
+            aws_sdk_personalize.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2718,6 +3030,11 @@ class AsyncPersonalizeClient:
             dataset_group_arn: <p>The Amazon Resource Name (ARN) of the dataset group that contains the datasets to list.</p>
             next_token: <p>A token returned from the previous call to <code>ListDatasets</code> for getting the next set of dataset import jobs (if they exist).</p>
             max_results: <p>The maximum number of datasets to return.</p>
+
+        Raises:
+            aws_sdk_personalize.errors.invalid_input_exception.InvalidInputException: <p>Provide a valid value for the field or parameter.</p>
+            aws_sdk_personalize.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The token is not valid.</p>
+            aws_sdk_personalize.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2792,6 +3109,11 @@ class AsyncPersonalizeClient:
             dataset_group_arn: <p>The ARN of a dataset group used to filter the response.</p>
             next_token: <p>A token returned from the previous call to <code>ListEventTrackers</code> for getting the next set of event trackers (if they exist).</p>
             max_results: <p>The maximum number of event trackers to return.</p>
+
+        Raises:
+            aws_sdk_personalize.errors.invalid_input_exception.InvalidInputException: <p>Provide a valid value for the field or parameter.</p>
+            aws_sdk_personalize.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The token is not valid.</p>
+            aws_sdk_personalize.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2866,6 +3188,11 @@ class AsyncPersonalizeClient:
             dataset_group_arn: <p>The ARN of the dataset group that contains the filters.</p>
             next_token: <p>A token returned from the previous call to <code>ListFilters</code> for getting the next set of filters (if they exist).</p>
             max_results: <p>The maximum number of filters to return.</p>
+
+        Raises:
+            aws_sdk_personalize.errors.invalid_input_exception.InvalidInputException: <p>Provide a valid value for the field or parameter.</p>
+            aws_sdk_personalize.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The token is not valid.</p>
+            aws_sdk_personalize.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2940,6 +3267,11 @@ class AsyncPersonalizeClient:
             metric_attribution_arn: <p>The Amazon Resource Name (ARN) of the metric attribution to retrieve attributes for.</p>
             next_token: <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
             max_results: <p>The maximum number of metrics to return in one page of results.</p>
+
+        Raises:
+            aws_sdk_personalize.errors.invalid_input_exception.InvalidInputException: <p>Provide a valid value for the field or parameter.</p>
+            aws_sdk_personalize.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The token is not valid.</p>
+            aws_sdk_personalize.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3014,6 +3346,11 @@ class AsyncPersonalizeClient:
             dataset_group_arn: <p>The metric attributions' dataset group Amazon Resource Name (ARN).</p>
             next_token: <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
             max_results: <p>The maximum number of metric attributions to return in one page of results.</p>
+
+        Raises:
+            aws_sdk_personalize.errors.invalid_input_exception.InvalidInputException: <p>Provide a valid value for the field or parameter.</p>
+            aws_sdk_personalize.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The token is not valid.</p>
+            aws_sdk_personalize.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3092,6 +3429,11 @@ class AsyncPersonalizeClient:
             next_token: <p>A token returned from the previous call to <code>ListRecipes</code> for getting the next set of recipes (if they exist).</p>
             max_results: <p>The maximum number of recipes to return.</p>
             domain: <p> Filters returned recipes by domain for a Domain dataset group. Only recipes (Domain dataset group use cases) for this domain are included in the response. If you don't specify a domain, all recipes are returned. </p>
+
+        Raises:
+            aws_sdk_personalize.errors.invalid_input_exception.InvalidInputException: <p>Provide a valid value for the field or parameter.</p>
+            aws_sdk_personalize.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The token is not valid.</p>
+            aws_sdk_personalize.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3174,6 +3516,11 @@ class AsyncPersonalizeClient:
             dataset_group_arn: <p>The Amazon Resource Name (ARN) of the Domain dataset group to list the recommenders for. When a Domain dataset group is not specified, all the recommenders associated with the account are listed.</p>
             next_token: <p>A token returned from the previous call to <code>ListRecommenders</code> for getting the next set of recommenders (if they exist).</p>
             max_results: <p>The maximum number of recommenders to return.</p>
+
+        Raises:
+            aws_sdk_personalize.errors.invalid_input_exception.InvalidInputException: <p>Provide a valid value for the field or parameter.</p>
+            aws_sdk_personalize.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The token is not valid.</p>
+            aws_sdk_personalize.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3246,6 +3593,10 @@ class AsyncPersonalizeClient:
         Args:
             next_token: <p>A token returned from the previous call to <code>ListSchemas</code> for getting the next set of schemas (if they exist).</p>
             max_results: <p>The maximum number of schemas to return.</p>
+
+        Raises:
+            aws_sdk_personalize.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The token is not valid.</p>
+            aws_sdk_personalize.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3316,6 +3667,11 @@ class AsyncPersonalizeClient:
             dataset_group_arn: <p>The Amazon Resource Name (ARN) of the dataset group.</p>
             next_token: <p>A token returned from the previous call to <code>ListSolutions</code> for getting the next set of solutions (if they exist).</p>
             max_results: <p>The maximum number of solutions to return.</p>
+
+        Raises:
+            aws_sdk_personalize.errors.invalid_input_exception.InvalidInputException: <p>Provide a valid value for the field or parameter.</p>
+            aws_sdk_personalize.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The token is not valid.</p>
+            aws_sdk_personalize.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3390,6 +3746,12 @@ class AsyncPersonalizeClient:
             solution_arn: <p>The Amazon Resource Name (ARN) of the solution.</p>
             next_token: <p>A token returned from the previous call to <code>ListSolutionVersions</code> for getting the next set of solution versions (if they exist).</p>
             max_results: <p>The maximum number of solution versions to return.</p>
+
+        Raises:
+            aws_sdk_personalize.errors.invalid_input_exception.InvalidInputException: <p>Provide a valid value for the field or parameter.</p>
+            aws_sdk_personalize.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The token is not valid.</p>
+            aws_sdk_personalize.errors.resource_not_found_exception.ResourceNotFoundException: <p>Could not find the specified resource.</p>
+            aws_sdk_personalize.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3458,6 +3820,12 @@ class AsyncPersonalizeClient:
 
         Args:
             resource_arn: <p>The resource's Amazon Resource Name (ARN).</p>
+
+        Raises:
+            aws_sdk_personalize.errors.invalid_input_exception.InvalidInputException: <p>Provide a valid value for the field or parameter.</p>
+            aws_sdk_personalize.errors.resource_in_use_exception.ResourceInUseException: <p>The specified resource is in use.</p>
+            aws_sdk_personalize.errors.resource_not_found_exception.ResourceNotFoundException: <p>Could not find the specified resource.</p>
+            aws_sdk_personalize.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3498,6 +3866,12 @@ class AsyncPersonalizeClient:
 
         Args:
             recommender_arn: <p>The Amazon Resource Name (ARN) of the recommender to start.</p>
+
+        Raises:
+            aws_sdk_personalize.errors.invalid_input_exception.InvalidInputException: <p>Provide a valid value for the field or parameter.</p>
+            aws_sdk_personalize.errors.resource_in_use_exception.ResourceInUseException: <p>The specified resource is in use.</p>
+            aws_sdk_personalize.errors.resource_not_found_exception.ResourceNotFoundException: <p>Could not find the specified resource.</p>
+            aws_sdk_personalize.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3536,6 +3910,12 @@ class AsyncPersonalizeClient:
 
         Args:
             recommender_arn: <p>The Amazon Resource Name (ARN) of the recommender to stop.</p>
+
+        Raises:
+            aws_sdk_personalize.errors.invalid_input_exception.InvalidInputException: <p>Provide a valid value for the field or parameter.</p>
+            aws_sdk_personalize.errors.resource_in_use_exception.ResourceInUseException: <p>The specified resource is in use.</p>
+            aws_sdk_personalize.errors.resource_not_found_exception.ResourceNotFoundException: <p>Could not find the specified resource.</p>
+            aws_sdk_personalize.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3574,6 +3954,12 @@ class AsyncPersonalizeClient:
 
         Args:
             solution_version_arn: <p>The Amazon Resource Name (ARN) of the solution version you want to stop creating.</p>
+
+        Raises:
+            aws_sdk_personalize.errors.invalid_input_exception.InvalidInputException: <p>Provide a valid value for the field or parameter.</p>
+            aws_sdk_personalize.errors.resource_in_use_exception.ResourceInUseException: <p>The specified resource is in use.</p>
+            aws_sdk_personalize.errors.resource_not_found_exception.ResourceNotFoundException: <p>Could not find the specified resource.</p>
+            aws_sdk_personalize.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3612,6 +3998,14 @@ class AsyncPersonalizeClient:
         Args:
             resource_arn: <p>The resource's Amazon Resource Name (ARN).</p>
             tags: <p>Tags to apply to the resource. For more information see <a href=\"https://docs.aws.amazon.com/personalize/latest/dg/tagging-resources.html\">Tagging Amazon Personalize resources</a>.</p>
+
+        Raises:
+            aws_sdk_personalize.errors.invalid_input_exception.InvalidInputException: <p>Provide a valid value for the field or parameter.</p>
+            aws_sdk_personalize.errors.limit_exceeded_exception.LimitExceededException: <p>The limit on the number of requests per second has been exceeded.</p>
+            aws_sdk_personalize.errors.resource_in_use_exception.ResourceInUseException: <p>The specified resource is in use.</p>
+            aws_sdk_personalize.errors.resource_not_found_exception.ResourceNotFoundException: <p>Could not find the specified resource.</p>
+            aws_sdk_personalize.errors.too_many_tags_exception.TooManyTagsException: <p>You have exceeded the maximum number of tags you can apply to this resource. </p>
+            aws_sdk_personalize.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3653,6 +4047,13 @@ class AsyncPersonalizeClient:
         Args:
             resource_arn: <p>The resource's Amazon Resource Name (ARN).</p>
             tag_keys: <p>The keys of the tags to be removed.</p>
+
+        Raises:
+            aws_sdk_personalize.errors.invalid_input_exception.InvalidInputException: <p>Provide a valid value for the field or parameter.</p>
+            aws_sdk_personalize.errors.resource_in_use_exception.ResourceInUseException: <p>The specified resource is in use.</p>
+            aws_sdk_personalize.errors.resource_not_found_exception.ResourceNotFoundException: <p>Could not find the specified resource.</p>
+            aws_sdk_personalize.errors.too_many_tag_keys_exception.TooManyTagKeysException: <p>The request contains more tag keys than can be associated with a resource (50 tag keys per resource). </p>
+            aws_sdk_personalize.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3702,6 +4103,12 @@ class AsyncPersonalizeClient:
             solution_version_arn: <p>The Amazon Resource Name (ARN) of a new model to deploy. To specify the latest solution version of your solution, specify the ARN of your <i>solution</i> in <code>SolutionArn/$LATEST</code> format. You must use this format if you set <code>syncWithLatestSolutionVersion</code> to <code>True</code> in the <a href=\"https://docs.aws.amazon.com/personalize/latest/dg/API_CampaignConfig.html\">CampaignConfig</a>. </p> <p> To deploy a model that isn't the latest solution version of your solution, specify the ARN of the solution version. </p> <p> For more information about automatic campaign updates, see <a href=\"https://docs.aws.amazon.com/personalize/latest/dg/campaigns.html#create-campaign-automatic-latest-sv-update\">Enabling automatic campaign updates</a>. </p>
             min_provisioned_tps: <p>Specifies the requested minimum provisioned transactions (recommendations) per second that Amazon Personalize will support. A high <code>minProvisionedTPS</code> will increase your bill. We recommend starting with 1 for <code>minProvisionedTPS</code> (the default). Track your usage using Amazon CloudWatch metrics, and increase the <code>minProvisionedTPS</code> as necessary.</p>
             campaign_config: <p>The configuration details of a campaign.</p>
+
+        Raises:
+            aws_sdk_personalize.errors.invalid_input_exception.InvalidInputException: <p>Provide a valid value for the field or parameter.</p>
+            aws_sdk_personalize.errors.resource_in_use_exception.ResourceInUseException: <p>The specified resource is in use.</p>
+            aws_sdk_personalize.errors.resource_not_found_exception.ResourceNotFoundException: <p>Could not find the specified resource.</p>
+            aws_sdk_personalize.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3748,6 +4155,12 @@ class AsyncPersonalizeClient:
         Args:
             dataset_arn: <p>The Amazon Resource Name (ARN) of the dataset that you want to update.</p>
             schema_arn: <p>The Amazon Resource Name (ARN) of the new schema you want use.</p>
+
+        Raises:
+            aws_sdk_personalize.errors.invalid_input_exception.InvalidInputException: <p>Provide a valid value for the field or parameter.</p>
+            aws_sdk_personalize.errors.resource_in_use_exception.ResourceInUseException: <p>The specified resource is in use.</p>
+            aws_sdk_personalize.errors.resource_not_found_exception.ResourceNotFoundException: <p>Could not find the specified resource.</p>
+            aws_sdk_personalize.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3799,6 +4212,13 @@ class AsyncPersonalizeClient:
             remove_metrics: <p>Remove metric attributes from the metric attribution.</p>
             metrics_output_config: <p>An output config for the metric attribution.</p>
             metric_attribution_arn: <p>The Amazon Resource Name (ARN) for the metric attribution to update.</p>
+
+        Raises:
+            aws_sdk_personalize.errors.invalid_input_exception.InvalidInputException: <p>Provide a valid value for the field or parameter.</p>
+            aws_sdk_personalize.errors.resource_already_exists_exception.ResourceAlreadyExistsException: <p>The specified resource already exists.</p>
+            aws_sdk_personalize.errors.resource_in_use_exception.ResourceInUseException: <p>The specified resource is in use.</p>
+            aws_sdk_personalize.errors.resource_not_found_exception.ResourceNotFoundException: <p>Could not find the specified resource.</p>
+            aws_sdk_personalize.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3846,6 +4266,12 @@ class AsyncPersonalizeClient:
         Args:
             recommender_arn: <p>The Amazon Resource Name (ARN) of the recommender to modify.</p>
             recommender_config: <p>The configuration details of the recommender.</p>
+
+        Raises:
+            aws_sdk_personalize.errors.invalid_input_exception.InvalidInputException: <p>Provide a valid value for the field or parameter.</p>
+            aws_sdk_personalize.errors.resource_in_use_exception.ResourceInUseException: <p>The specified resource is in use.</p>
+            aws_sdk_personalize.errors.resource_not_found_exception.ResourceNotFoundException: <p>Could not find the specified resource.</p>
+            aws_sdk_personalize.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3897,6 +4323,13 @@ class AsyncPersonalizeClient:
             perform_auto_training: <p>Whether the solution uses automatic training to create new solution versions (trained models). You can change the training frequency by specifying a <code>schedulingExpression</code> in the <code>AutoTrainingConfig</code> as part of solution configuration. </p> <p> If you turn on automatic training, the first automatic training starts within one hour after the solution update completes. If you manually create a solution version within the hour, the solution skips the first automatic training. For more information about automatic training, see <a href=\"https://docs.aws.amazon.com/personalize/latest/dg/solution-config-auto-training.html\">Configuring automatic training</a>. </p> <p> After training starts, you can get the solution version's Amazon Resource Name (ARN) with the <a href=\"https://docs.aws.amazon.com/personalize/latest/dg/API_ListSolutionVersions.html\">ListSolutionVersions</a> API operation. To get its status, use the <a href=\"https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeSolutionVersion.html\">DescribeSolutionVersion</a>. </p>
             perform_incremental_update: <p>Whether to perform incremental training updates on your model. When enabled, this allows the model to learn from new data more frequently without requiring full retraining, which enables near real-time personalization. This parameter is supported only for solutions that use the semantic-similarity recipe.</p>
             solution_update_config: <p>The new configuration details of the solution.</p>
+
+        Raises:
+            aws_sdk_personalize.errors.invalid_input_exception.InvalidInputException: <p>Provide a valid value for the field or parameter.</p>
+            aws_sdk_personalize.errors.limit_exceeded_exception.LimitExceededException: <p>The limit on the number of requests per second has been exceeded.</p>
+            aws_sdk_personalize.errors.resource_in_use_exception.ResourceInUseException: <p>The specified resource is in use.</p>
+            aws_sdk_personalize.errors.resource_not_found_exception.ResourceNotFoundException: <p>Could not find the specified resource.</p>
+            aws_sdk_personalize.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

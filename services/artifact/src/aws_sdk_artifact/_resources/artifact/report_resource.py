@@ -58,6 +58,15 @@ class ReportResource:
             report_id: <p>Unique resource ID for the report resource.</p>
             report_version: <p>Version for the report resource.</p>
 
+        Raises:
+            aws_sdk_artifact.errors.access_denied_exception.AccessDeniedException: <p>User does not have sufficient access to perform this action.</p>
+            aws_sdk_artifact.errors.internal_server_exception.InternalServerException: <p>An unknown server exception has occurred.</p>
+            aws_sdk_artifact.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_artifact.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Request would cause a service quota to be exceeded.</p>
+            aws_sdk_artifact.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_artifact.errors.validation_exception.ValidationException: <p>Request fails to satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_artifact.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Invoke GetReportMetadata operation on the latest version of a specific report
             The GetReportMetadata operation is invoked on a reportId and on a optional version.
@@ -110,6 +119,15 @@ class ReportResource:
             max_results: <p>Maximum number of resources to return in the paginated response.</p>
             next_token: <p>Pagination token to request the next page of resources.</p>
 
+        Raises:
+            aws_sdk_artifact.errors.access_denied_exception.AccessDeniedException: <p>User does not have sufficient access to perform this action.</p>
+            aws_sdk_artifact.errors.internal_server_exception.InternalServerException: <p>An unknown server exception has occurred.</p>
+            aws_sdk_artifact.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_artifact.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Request would cause a service quota to be exceeded.</p>
+            aws_sdk_artifact.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_artifact.errors.validation_exception.ValidationException: <p>Request fails to satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_artifact.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Invoke ListReports operation
             The ListReports operation returns a collection of report resources.
@@ -161,6 +179,16 @@ class ReportResource:
             report_id: <p>Unique resource ID for the report resource.</p>
             report_version: <p>Version for the report resource.</p>
             term_token: <p>Unique download token provided by GetTermForReport API.</p>
+
+        Raises:
+            aws_sdk_artifact.errors.access_denied_exception.AccessDeniedException: <p>User does not have sufficient access to perform this action.</p>
+            aws_sdk_artifact.errors.conflict_exception.ConflictException: <p>Request to create/modify content would result in a conflict.</p>
+            aws_sdk_artifact.errors.internal_server_exception.InternalServerException: <p>An unknown server exception has occurred.</p>
+            aws_sdk_artifact.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_artifact.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Request would cause a service quota to be exceeded.</p>
+            aws_sdk_artifact.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_artifact.errors.validation_exception.ValidationException: <p>Request fails to satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_artifact.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Invoke GetReport operation on the latest version of a specific report
@@ -215,6 +243,16 @@ class ReportResource:
             report_id: <p>Unique resource ID for the report resource.</p>
             report_version: <p>Version for the report resource.</p>
 
+        Raises:
+            aws_sdk_artifact.errors.access_denied_exception.AccessDeniedException: <p>User does not have sufficient access to perform this action.</p>
+            aws_sdk_artifact.errors.conflict_exception.ConflictException: <p>Request to create/modify content would result in a conflict.</p>
+            aws_sdk_artifact.errors.internal_server_exception.InternalServerException: <p>An unknown server exception has occurred.</p>
+            aws_sdk_artifact.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_artifact.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Request would cause a service quota to be exceeded.</p>
+            aws_sdk_artifact.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_artifact.errors.validation_exception.ValidationException: <p>Request fails to satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_artifact.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Invoke GetTermForReport operation on the latest version of a specific report
             The GetTermForReport operation is invoked on a reportId and on a optional version.
@@ -268,6 +306,15 @@ class ReportResource:
             report_id: <p>Unique resource ID for the report resource.</p>
             max_results: <p>Maximum number of resources to return in the paginated response.</p>
             next_token: <p>Pagination token to request the next page of resources.</p>
+
+        Raises:
+            aws_sdk_artifact.errors.access_denied_exception.AccessDeniedException: <p>User does not have sufficient access to perform this action.</p>
+            aws_sdk_artifact.errors.internal_server_exception.InternalServerException: <p>An unknown server exception has occurred.</p>
+            aws_sdk_artifact.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_artifact.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Request would cause a service quota to be exceeded.</p>
+            aws_sdk_artifact.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_artifact.errors.validation_exception.ValidationException: <p>Request fails to satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_artifact.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Invoke ListReportVersions operation
@@ -328,6 +375,15 @@ class AsyncReportResource:
             report_id: <p>Unique resource ID for the report resource.</p>
             report_version: <p>Version for the report resource.</p>
 
+        Raises:
+            aws_sdk_artifact.errors.access_denied_exception.AccessDeniedException: <p>User does not have sufficient access to perform this action.</p>
+            aws_sdk_artifact.errors.internal_server_exception.InternalServerException: <p>An unknown server exception has occurred.</p>
+            aws_sdk_artifact.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_artifact.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Request would cause a service quota to be exceeded.</p>
+            aws_sdk_artifact.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_artifact.errors.validation_exception.ValidationException: <p>Request fails to satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_artifact.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Invoke GetReportMetadata operation on the latest version of a specific report
             The GetReportMetadata operation is invoked on a reportId and on a optional version.
@@ -381,6 +437,15 @@ class AsyncReportResource:
             max_results: <p>Maximum number of resources to return in the paginated response.</p>
             next_token: <p>Pagination token to request the next page of resources.</p>
 
+        Raises:
+            aws_sdk_artifact.errors.access_denied_exception.AccessDeniedException: <p>User does not have sufficient access to perform this action.</p>
+            aws_sdk_artifact.errors.internal_server_exception.InternalServerException: <p>An unknown server exception has occurred.</p>
+            aws_sdk_artifact.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_artifact.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Request would cause a service quota to be exceeded.</p>
+            aws_sdk_artifact.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_artifact.errors.validation_exception.ValidationException: <p>Request fails to satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_artifact.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Invoke ListReports operation
             The ListReports operation returns a collection of report resources.
@@ -433,6 +498,16 @@ class AsyncReportResource:
             report_id: <p>Unique resource ID for the report resource.</p>
             report_version: <p>Version for the report resource.</p>
             term_token: <p>Unique download token provided by GetTermForReport API.</p>
+
+        Raises:
+            aws_sdk_artifact.errors.access_denied_exception.AccessDeniedException: <p>User does not have sufficient access to perform this action.</p>
+            aws_sdk_artifact.errors.conflict_exception.ConflictException: <p>Request to create/modify content would result in a conflict.</p>
+            aws_sdk_artifact.errors.internal_server_exception.InternalServerException: <p>An unknown server exception has occurred.</p>
+            aws_sdk_artifact.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_artifact.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Request would cause a service quota to be exceeded.</p>
+            aws_sdk_artifact.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_artifact.errors.validation_exception.ValidationException: <p>Request fails to satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_artifact.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Invoke GetReport operation on the latest version of a specific report
@@ -488,6 +563,16 @@ class AsyncReportResource:
             report_id: <p>Unique resource ID for the report resource.</p>
             report_version: <p>Version for the report resource.</p>
 
+        Raises:
+            aws_sdk_artifact.errors.access_denied_exception.AccessDeniedException: <p>User does not have sufficient access to perform this action.</p>
+            aws_sdk_artifact.errors.conflict_exception.ConflictException: <p>Request to create/modify content would result in a conflict.</p>
+            aws_sdk_artifact.errors.internal_server_exception.InternalServerException: <p>An unknown server exception has occurred.</p>
+            aws_sdk_artifact.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_artifact.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Request would cause a service quota to be exceeded.</p>
+            aws_sdk_artifact.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_artifact.errors.validation_exception.ValidationException: <p>Request fails to satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_artifact.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Invoke GetTermForReport operation on the latest version of a specific report
             The GetTermForReport operation is invoked on a reportId and on a optional version.
@@ -542,6 +627,15 @@ class AsyncReportResource:
             report_id: <p>Unique resource ID for the report resource.</p>
             max_results: <p>Maximum number of resources to return in the paginated response.</p>
             next_token: <p>Pagination token to request the next page of resources.</p>
+
+        Raises:
+            aws_sdk_artifact.errors.access_denied_exception.AccessDeniedException: <p>User does not have sufficient access to perform this action.</p>
+            aws_sdk_artifact.errors.internal_server_exception.InternalServerException: <p>An unknown server exception has occurred.</p>
+            aws_sdk_artifact.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_artifact.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Request would cause a service quota to be exceeded.</p>
+            aws_sdk_artifact.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_artifact.errors.validation_exception.ValidationException: <p>Request fails to satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_artifact.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Invoke ListReportVersions operation

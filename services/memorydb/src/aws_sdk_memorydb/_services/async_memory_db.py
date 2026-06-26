@@ -270,6 +270,11 @@ class AsyncMemoryDBClient:
         Args:
             cluster_names: <p>The cluster names to apply the updates.</p>
             service_update: <p>The unique ID of the service update</p>
+
+        Raises:
+            aws_sdk_memorydb.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The specified parameter value is not valid.</p>
+            aws_sdk_memorydb.errors.service_update_not_found_fault.ServiceUpdateNotFoundFault: <p>The specified service update does not exist.</p>
+            aws_sdk_memorydb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -320,6 +325,17 @@ class AsyncMemoryDBClient:
             target_bucket: <p>The Amazon S3 bucket to which the snapshot is exported. This parameter is used only when exporting a snapshot for external access. When using this parameter to export a snapshot, be sure MemoryDB has the needed permissions to this S3 bucket. For more information, see <a href=\"https://docs.aws.amazon.com/MemoryDB/latest/devguide/snapshots-exporting.html\">Step 2: Grant MemoryDB Access to Your Amazon S3 Bucket</a>. </p>
             kms_key_id: <p>The ID of the KMS key used to encrypt the target snapshot.</p>
             tags: <p>A list of tags to be added to this resource. A tag is a key-value pair. A tag key must be accompanied by a tag value, although null is accepted.</p>
+
+        Raises:
+            aws_sdk_memorydb.errors.invalid_parameter_combination_exception.InvalidParameterCombinationException: <p>The specified parameter combination is not valid.</p>
+            aws_sdk_memorydb.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The specified parameter value is not valid.</p>
+            aws_sdk_memorydb.errors.invalid_snapshot_state_fault.InvalidSnapshotStateFault: <p>The snapshot is not in a valid state for the requested operation.</p>
+            aws_sdk_memorydb.errors.service_linked_role_not_found_fault.ServiceLinkedRoleNotFoundFault: <p>The required service-linked role was not found.</p>
+            aws_sdk_memorydb.errors.snapshot_already_exists_fault.SnapshotAlreadyExistsFault: <p>A snapshot with the specified name already exists.</p>
+            aws_sdk_memorydb.errors.snapshot_not_found_fault.SnapshotNotFoundFault: <p>The specified snapshot does not exist.</p>
+            aws_sdk_memorydb.errors.snapshot_quota_exceeded_fault.SnapshotQuotaExceededFault: <p>The request cannot be processed because it would exceed the maximum number of snapshots allowed.</p>
+            aws_sdk_memorydb.errors.tag_quota_per_resource_exceeded.TagQuotaPerResourceExceeded: <p>The request cannot be processed because it would exceed the maximum number of tags allowed per resource.</p>
+            aws_sdk_memorydb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -371,6 +387,16 @@ class AsyncMemoryDBClient:
             acl_name: <p>The name of the Access Control List.</p>
             user_names: <p>The list of users that belong to the Access Control List.</p>
             tags: <p>A list of tags to be added to this resource. A tag is a key-value pair. A tag key must be accompanied by a tag value, although null is accepted.</p>
+
+        Raises:
+            aws_sdk_memorydb.errors.acl_already_exists_fault.ACLAlreadyExistsFault: <p>An ACL with the specified name already exists.</p>
+            aws_sdk_memorydb.errors.acl_quota_exceeded_fault.ACLQuotaExceededFault: <p>The request cannot be processed because it would exceed the maximum number of ACLs allowed.</p>
+            aws_sdk_memorydb.errors.default_user_required.DefaultUserRequired: <p>A default user is required and must be specified.</p>
+            aws_sdk_memorydb.errors.duplicate_user_name_fault.DuplicateUserNameFault: <p>A user with the specified name already exists.</p>
+            aws_sdk_memorydb.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The specified parameter value is not valid.</p>
+            aws_sdk_memorydb.errors.tag_quota_per_resource_exceeded.TagQuotaPerResourceExceeded: <p>The request cannot be processed because it would exceed the maximum number of tags allowed per resource.</p>
+            aws_sdk_memorydb.errors.user_not_found_fault.UserNotFoundFault: <p>The specified user does not exist.</p>
+            aws_sdk_memorydb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -487,6 +513,27 @@ class AsyncMemoryDBClient:
             data_tiering: <p>Enables data tiering. Data tiering is only supported for clusters using the r6gd node type. This parameter must be set when using r6gd nodes. For more information, see <a href=\"https://docs.aws.amazon.com/memorydb/latest/devguide/data-tiering.html\">Data tiering</a>.</p>
             network_type: <p>Specifies the IP address type for the cluster. Valid values are 'ipv4', 'ipv6', or 'dual_stack'. When set to 'ipv4', the cluster will only be accessible via IPv4 addresses. When set to 'ipv6', the cluster will only be accessible via IPv6 addresses. When set to 'dual_stack', the cluster will be accessible via both IPv4 and IPv6 addresses. If not specified, the default is 'ipv4'.</p>
             ip_discovery: <p>The mechanism for discovering IP addresses for the cluster discovery protocol. Valid values are 'ipv4' or 'ipv6'. When set to 'ipv4', cluster discovery functions such as cluster slots, cluster shards, and cluster nodes return IPv4 addresses for cluster nodes. When set to 'ipv6', the cluster discovery functions return IPv6 addresses for cluster nodes. The value must be compatible with the NetworkType parameter. If not specified, the default is 'ipv4'.</p>
+
+        Raises:
+            aws_sdk_memorydb.errors.acl_not_found_fault.ACLNotFoundFault: <p>The specified ACL does not exist.</p>
+            aws_sdk_memorydb.errors.cluster_already_exists_fault.ClusterAlreadyExistsFault: <p>A cluster with the specified name already exists.</p>
+            aws_sdk_memorydb.errors.cluster_quota_for_customer_exceeded_fault.ClusterQuotaForCustomerExceededFault: <p>The request cannot be processed because it would exceed the maximum number of clusters allowed for this customer.</p>
+            aws_sdk_memorydb.errors.insufficient_cluster_capacity_fault.InsufficientClusterCapacityFault: <p>The cluster does not have sufficient capacity to perform the requested operation.</p>
+            aws_sdk_memorydb.errors.invalid_acl_state_fault.InvalidACLStateFault: <p>The ACL is not in a valid state for the requested operation.</p>
+            aws_sdk_memorydb.errors.invalid_credentials_exception.InvalidCredentialsException: <p>The provided credentials are not valid.</p>
+            aws_sdk_memorydb.errors.invalid_multi_region_cluster_state_fault.InvalidMultiRegionClusterStateFault: <p>The requested operation cannot be performed on the multi-Region cluster in its current state.</p>
+            aws_sdk_memorydb.errors.invalid_parameter_combination_exception.InvalidParameterCombinationException: <p>The specified parameter combination is not valid.</p>
+            aws_sdk_memorydb.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The specified parameter value is not valid.</p>
+            aws_sdk_memorydb.errors.invalid_vpc_network_state_fault.InvalidVPCNetworkStateFault: <p>The VPC network is not in a valid state for the requested operation.</p>
+            aws_sdk_memorydb.errors.multi_region_cluster_not_found_fault.MultiRegionClusterNotFoundFault: <p>The specified multi-Region cluster does not exist.</p>
+            aws_sdk_memorydb.errors.node_quota_for_cluster_exceeded_fault.NodeQuotaForClusterExceededFault: <p>The request cannot be processed because it would exceed the maximum number of nodes allowed for this cluster.</p>
+            aws_sdk_memorydb.errors.node_quota_for_customer_exceeded_fault.NodeQuotaForCustomerExceededFault: <p>The request cannot be processed because it would exceed the maximum number of nodes allowed for this customer.</p>
+            aws_sdk_memorydb.errors.parameter_group_not_found_fault.ParameterGroupNotFoundFault: <p>The specified parameter group does not exist.</p>
+            aws_sdk_memorydb.errors.service_linked_role_not_found_fault.ServiceLinkedRoleNotFoundFault: <p>The required service-linked role was not found.</p>
+            aws_sdk_memorydb.errors.shards_per_cluster_quota_exceeded_fault.ShardsPerClusterQuotaExceededFault: <p>The request cannot be processed because it would exceed the maximum number of shards allowed per cluster.</p>
+            aws_sdk_memorydb.errors.subnet_group_not_found_fault.SubnetGroupNotFoundFault: <p>The specified subnet group does not exist.</p>
+            aws_sdk_memorydb.errors.tag_quota_per_resource_exceeded.TagQuotaPerResourceExceeded: <p>The request cannot be processed because it would exceed the maximum number of tags allowed per resource.</p>
+            aws_sdk_memorydb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -595,6 +642,15 @@ class AsyncMemoryDBClient:
             num_shards: <p>The number of shards for the multi-Region cluster.</p>
             tls_enabled: <p>Whether to enable TLS encryption for the multi-Region cluster.</p>
             tags: <p>A list of tags to be applied to the multi-Region cluster.</p>
+
+        Raises:
+            aws_sdk_memorydb.errors.cluster_quota_for_customer_exceeded_fault.ClusterQuotaForCustomerExceededFault: <p>The request cannot be processed because it would exceed the maximum number of clusters allowed for this customer.</p>
+            aws_sdk_memorydb.errors.invalid_parameter_combination_exception.InvalidParameterCombinationException: <p>The specified parameter combination is not valid.</p>
+            aws_sdk_memorydb.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The specified parameter value is not valid.</p>
+            aws_sdk_memorydb.errors.multi_region_cluster_already_exists_fault.MultiRegionClusterAlreadyExistsFault: <p>A multi-Region cluster with the specified name already exists.</p>
+            aws_sdk_memorydb.errors.multi_region_parameter_group_not_found_fault.MultiRegionParameterGroupNotFoundFault: <p>The specified multi-Region parameter group does not exist.</p>
+            aws_sdk_memorydb.errors.tag_quota_per_resource_exceeded.TagQuotaPerResourceExceeded: <p>The request cannot be processed because it would exceed the maximum number of tags allowed per resource.</p>
+            aws_sdk_memorydb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -656,6 +712,16 @@ class AsyncMemoryDBClient:
             family: <p>The name of the parameter group family that the parameter group can be used with.</p>
             description: <p>An optional description of the parameter group.</p>
             tags: <p>A list of tags to be added to this resource. A tag is a key-value pair. A tag key must be accompanied by a tag value, although null is accepted.</p>
+
+        Raises:
+            aws_sdk_memorydb.errors.invalid_parameter_combination_exception.InvalidParameterCombinationException: <p>The specified parameter combination is not valid.</p>
+            aws_sdk_memorydb.errors.invalid_parameter_group_state_fault.InvalidParameterGroupStateFault: <p>The parameter group is not in a valid state for the requested operation.</p>
+            aws_sdk_memorydb.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The specified parameter value is not valid.</p>
+            aws_sdk_memorydb.errors.parameter_group_already_exists_fault.ParameterGroupAlreadyExistsFault: <p>A parameter group with the specified name already exists.</p>
+            aws_sdk_memorydb.errors.parameter_group_quota_exceeded_fault.ParameterGroupQuotaExceededFault: <p>The request cannot be processed because it would exceed the maximum number of parameter groups allowed.</p>
+            aws_sdk_memorydb.errors.service_linked_role_not_found_fault.ServiceLinkedRoleNotFoundFault: <p>The required service-linked role was not found.</p>
+            aws_sdk_memorydb.errors.tag_quota_per_resource_exceeded.TagQuotaPerResourceExceeded: <p>The request cannot be processed because it would exceed the maximum number of tags allowed per resource.</p>
+            aws_sdk_memorydb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -705,6 +771,17 @@ class AsyncMemoryDBClient:
             snapshot_name: <p>A name for the snapshot being created.</p>
             kms_key_id: <p>The ID of the KMS key used to encrypt the snapshot.</p>
             tags: <p>A list of tags to be added to this resource. A tag is a key-value pair. A tag key must be accompanied by a tag value, although null is accepted.</p>
+
+        Raises:
+            aws_sdk_memorydb.errors.cluster_not_found_fault.ClusterNotFoundFault: <p>The specified cluster does not exist.</p>
+            aws_sdk_memorydb.errors.invalid_cluster_state_fault.InvalidClusterStateFault: <p>The cluster is not in a valid state for the requested operation.</p>
+            aws_sdk_memorydb.errors.invalid_parameter_combination_exception.InvalidParameterCombinationException: <p>The specified parameter combination is not valid.</p>
+            aws_sdk_memorydb.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The specified parameter value is not valid.</p>
+            aws_sdk_memorydb.errors.service_linked_role_not_found_fault.ServiceLinkedRoleNotFoundFault: <p>The required service-linked role was not found.</p>
+            aws_sdk_memorydb.errors.snapshot_already_exists_fault.SnapshotAlreadyExistsFault: <p>A snapshot with the specified name already exists.</p>
+            aws_sdk_memorydb.errors.snapshot_quota_exceeded_fault.SnapshotQuotaExceededFault: <p>The request cannot be processed because it would exceed the maximum number of snapshots allowed.</p>
+            aws_sdk_memorydb.errors.tag_quota_per_resource_exceeded.TagQuotaPerResourceExceeded: <p>The request cannot be processed because it would exceed the maximum number of tags allowed per resource.</p>
+            aws_sdk_memorydb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -756,6 +833,16 @@ class AsyncMemoryDBClient:
             description: <p>A description for the subnet group.</p>
             subnet_ids: <p>A list of VPC subnet IDs for the subnet group.</p>
             tags: <p>A list of tags to be added to this resource. A tag is a key-value pair. A tag key must be accompanied by a tag value, although null is accepted.</p>
+
+        Raises:
+            aws_sdk_memorydb.errors.invalid_subnet.InvalidSubnet: <p>The specified subnet is not valid.</p>
+            aws_sdk_memorydb.errors.service_linked_role_not_found_fault.ServiceLinkedRoleNotFoundFault: <p>The required service-linked role was not found.</p>
+            aws_sdk_memorydb.errors.subnet_group_already_exists_fault.SubnetGroupAlreadyExistsFault: <p>A subnet group with the specified name already exists.</p>
+            aws_sdk_memorydb.errors.subnet_group_quota_exceeded_fault.SubnetGroupQuotaExceededFault: <p>The request cannot be processed because it would exceed the maximum number of subnet groups allowed.</p>
+            aws_sdk_memorydb.errors.subnet_not_allowed_fault.SubnetNotAllowedFault: <p>The specified subnet is not allowed for this operation.</p>
+            aws_sdk_memorydb.errors.subnet_quota_exceeded_fault.SubnetQuotaExceededFault: <p>The request cannot be processed because it would exceed the maximum number of subnets allowed.</p>
+            aws_sdk_memorydb.errors.tag_quota_per_resource_exceeded.TagQuotaPerResourceExceeded: <p>The request cannot be processed because it would exceed the maximum number of tags allowed per resource.</p>
+            aws_sdk_memorydb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -805,6 +892,15 @@ class AsyncMemoryDBClient:
             authentication_mode: <p>Denotes the user's authentication properties, such as whether it requires a password to authenticate.</p>
             access_string: <p>Access permissions string used for this user.</p>
             tags: <p>A list of tags to be added to this resource. A tag is a key-value pair. A tag key must be accompanied by a tag value, although null is accepted.</p>
+
+        Raises:
+            aws_sdk_memorydb.errors.duplicate_user_name_fault.DuplicateUserNameFault: <p>A user with the specified name already exists.</p>
+            aws_sdk_memorydb.errors.invalid_parameter_combination_exception.InvalidParameterCombinationException: <p>The specified parameter combination is not valid.</p>
+            aws_sdk_memorydb.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The specified parameter value is not valid.</p>
+            aws_sdk_memorydb.errors.tag_quota_per_resource_exceeded.TagQuotaPerResourceExceeded: <p>The request cannot be processed because it would exceed the maximum number of tags allowed per resource.</p>
+            aws_sdk_memorydb.errors.user_already_exists_fault.UserAlreadyExistsFault: <p>A user with the specified name already exists.</p>
+            aws_sdk_memorydb.errors.user_quota_exceeded_fault.UserQuotaExceededFault: <p>The request cannot be processed because it would exceed the maximum number of users allowed.</p>
+            aws_sdk_memorydb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -847,6 +943,12 @@ class AsyncMemoryDBClient:
 
         Args:
             acl_name: <p>The name of the Access Control List to delete.</p>
+
+        Raises:
+            aws_sdk_memorydb.errors.acl_not_found_fault.ACLNotFoundFault: <p>The specified ACL does not exist.</p>
+            aws_sdk_memorydb.errors.invalid_acl_state_fault.InvalidACLStateFault: <p>The ACL is not in a valid state for the requested operation.</p>
+            aws_sdk_memorydb.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The specified parameter value is not valid.</p>
+            aws_sdk_memorydb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -891,6 +993,15 @@ class AsyncMemoryDBClient:
             cluster_name: <p>The name of the cluster to be deleted</p>
             multi_region_cluster_name: <p>The name of the multi-Region cluster to be deleted.</p>
             final_snapshot_name: <p>The user-supplied name of a final cluster snapshot. This is the unique name that identifies the snapshot. MemoryDB creates the snapshot, and then deletes the cluster immediately afterward.</p>
+
+        Raises:
+            aws_sdk_memorydb.errors.cluster_not_found_fault.ClusterNotFoundFault: <p>The specified cluster does not exist.</p>
+            aws_sdk_memorydb.errors.invalid_cluster_state_fault.InvalidClusterStateFault: <p>The cluster is not in a valid state for the requested operation.</p>
+            aws_sdk_memorydb.errors.invalid_parameter_combination_exception.InvalidParameterCombinationException: <p>The specified parameter combination is not valid.</p>
+            aws_sdk_memorydb.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The specified parameter value is not valid.</p>
+            aws_sdk_memorydb.errors.service_linked_role_not_found_fault.ServiceLinkedRoleNotFoundFault: <p>The required service-linked role was not found.</p>
+            aws_sdk_memorydb.errors.snapshot_already_exists_fault.SnapshotAlreadyExistsFault: <p>A snapshot with the specified name already exists.</p>
+            aws_sdk_memorydb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -933,6 +1044,12 @@ class AsyncMemoryDBClient:
 
         Args:
             multi_region_cluster_name: <p>The name of the multi-Region cluster to be deleted.</p>
+
+        Raises:
+            aws_sdk_memorydb.errors.invalid_multi_region_cluster_state_fault.InvalidMultiRegionClusterStateFault: <p>The requested operation cannot be performed on the multi-Region cluster in its current state.</p>
+            aws_sdk_memorydb.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The specified parameter value is not valid.</p>
+            aws_sdk_memorydb.errors.multi_region_cluster_not_found_fault.MultiRegionClusterNotFoundFault: <p>The specified multi-Region cluster does not exist.</p>
+            aws_sdk_memorydb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -971,6 +1088,14 @@ class AsyncMemoryDBClient:
 
         Args:
             parameter_group_name: <p>The name of the parameter group to delete.</p>
+
+        Raises:
+            aws_sdk_memorydb.errors.invalid_parameter_combination_exception.InvalidParameterCombinationException: <p>The specified parameter combination is not valid.</p>
+            aws_sdk_memorydb.errors.invalid_parameter_group_state_fault.InvalidParameterGroupStateFault: <p>The parameter group is not in a valid state for the requested operation.</p>
+            aws_sdk_memorydb.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The specified parameter value is not valid.</p>
+            aws_sdk_memorydb.errors.parameter_group_not_found_fault.ParameterGroupNotFoundFault: <p>The specified parameter group does not exist.</p>
+            aws_sdk_memorydb.errors.service_linked_role_not_found_fault.ServiceLinkedRoleNotFoundFault: <p>The required service-linked role was not found.</p>
+            aws_sdk_memorydb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1009,6 +1134,14 @@ class AsyncMemoryDBClient:
 
         Args:
             snapshot_name: <p>The name of the snapshot to delete.</p>
+
+        Raises:
+            aws_sdk_memorydb.errors.invalid_parameter_combination_exception.InvalidParameterCombinationException: <p>The specified parameter combination is not valid.</p>
+            aws_sdk_memorydb.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The specified parameter value is not valid.</p>
+            aws_sdk_memorydb.errors.invalid_snapshot_state_fault.InvalidSnapshotStateFault: <p>The snapshot is not in a valid state for the requested operation.</p>
+            aws_sdk_memorydb.errors.service_linked_role_not_found_fault.ServiceLinkedRoleNotFoundFault: <p>The required service-linked role was not found.</p>
+            aws_sdk_memorydb.errors.snapshot_not_found_fault.SnapshotNotFoundFault: <p>The specified snapshot does not exist.</p>
+            aws_sdk_memorydb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1049,6 +1182,12 @@ class AsyncMemoryDBClient:
 
         Args:
             subnet_group_name: <p>The name of the subnet group to delete.</p>
+
+        Raises:
+            aws_sdk_memorydb.errors.service_linked_role_not_found_fault.ServiceLinkedRoleNotFoundFault: <p>The required service-linked role was not found.</p>
+            aws_sdk_memorydb.errors.subnet_group_in_use_fault.SubnetGroupInUseFault: <p>The subnet group is currently in use and cannot be deleted.</p>
+            aws_sdk_memorydb.errors.subnet_group_not_found_fault.SubnetGroupNotFoundFault: <p>The specified subnet group does not exist.</p>
+            aws_sdk_memorydb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1087,6 +1226,12 @@ class AsyncMemoryDBClient:
 
         Args:
             user_name: <p>The name of the user to delete</p>
+
+        Raises:
+            aws_sdk_memorydb.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The specified parameter value is not valid.</p>
+            aws_sdk_memorydb.errors.invalid_user_state_fault.InvalidUserStateFault: <p>The user is not in a valid state for the requested operation.</p>
+            aws_sdk_memorydb.errors.user_not_found_fault.UserNotFoundFault: <p>The specified user does not exist.</p>
+            aws_sdk_memorydb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1131,6 +1276,11 @@ class AsyncMemoryDBClient:
             acl_name: <p>The name of the ACL.</p>
             max_results: <p>The maximum number of records to include in the response. If more records exist than the specified MaxResults value, a token is included in the response so that the remaining results can be retrieved.</p>
             next_token: <p>An optional argument to pass in case the total number of records exceeds the value of MaxResults. If nextToken is returned, there are more results available. The value of nextToken is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. </p>
+
+        Raises:
+            aws_sdk_memorydb.errors.acl_not_found_fault.ACLNotFoundFault: <p>The specified ACL does not exist.</p>
+            aws_sdk_memorydb.errors.invalid_parameter_combination_exception.InvalidParameterCombinationException: <p>The specified parameter combination is not valid.</p>
+            aws_sdk_memorydb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1209,6 +1359,13 @@ class AsyncMemoryDBClient:
             max_results: <p>The maximum number of records to include in the response. If more records exist than the specified MaxResults value, a token is included in the response so that the remaining results can be retrieved.</p>
             next_token: <p>An optional argument to pass in case the total number of records exceeds the value of MaxResults. If nextToken is returned, there are more results available. The value of nextToken is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. </p>
             show_shard_details: <p>An optional flag that can be included in the request to retrieve information about the individual shard(s).</p>
+
+        Raises:
+            aws_sdk_memorydb.errors.cluster_not_found_fault.ClusterNotFoundFault: <p>The specified cluster does not exist.</p>
+            aws_sdk_memorydb.errors.invalid_parameter_combination_exception.InvalidParameterCombinationException: <p>The specified parameter combination is not valid.</p>
+            aws_sdk_memorydb.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The specified parameter value is not valid.</p>
+            aws_sdk_memorydb.errors.service_linked_role_not_found_fault.ServiceLinkedRoleNotFoundFault: <p>The required service-linked role was not found.</p>
+            aws_sdk_memorydb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1295,6 +1452,12 @@ class AsyncMemoryDBClient:
             max_results: <p>The maximum number of records to include in the response. If more records exist than the specified MaxResults value, a token is included in the response so that the remaining results can be retrieved.</p>
             next_token: <p>An optional argument to pass in case the total number of records exceeds the value of MaxResults. If nextToken is returned, there are more results available. The value of nextToken is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. </p>
             default_only: <p>If true, specifies that only the default version of the specified engine or engine and major version combination is to be returned.</p>
+
+        Raises:
+            aws_sdk_memorydb.errors.invalid_parameter_combination_exception.InvalidParameterCombinationException: <p>The specified parameter combination is not valid.</p>
+            aws_sdk_memorydb.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The specified parameter value is not valid.</p>
+            aws_sdk_memorydb.errors.service_linked_role_not_found_fault.ServiceLinkedRoleNotFoundFault: <p>The required service-linked role was not found.</p>
+            aws_sdk_memorydb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1391,6 +1554,12 @@ class AsyncMemoryDBClient:
             duration: <p>The number of minutes worth of events to retrieve.</p>
             max_results: <p>The maximum number of records to include in the response. If more records exist than the specified MaxResults value, a token is included in the response so that the remaining results can be retrieved.</p>
             next_token: <p>An optional argument to pass in case the total number of records exceeds the value of MaxResults. If nextToken is returned, there are more results available. The value of nextToken is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. </p>
+
+        Raises:
+            aws_sdk_memorydb.errors.invalid_parameter_combination_exception.InvalidParameterCombinationException: <p>The specified parameter combination is not valid.</p>
+            aws_sdk_memorydb.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The specified parameter value is not valid.</p>
+            aws_sdk_memorydb.errors.service_linked_role_not_found_fault.ServiceLinkedRoleNotFoundFault: <p>The required service-linked role was not found.</p>
+            aws_sdk_memorydb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1489,6 +1658,13 @@ class AsyncMemoryDBClient:
             max_results: <p>The maximum number of results to return.</p>
             next_token: <p>A token to specify where to start paginating.</p>
             show_cluster_details: <p>Details about the multi-Region cluster.</p>
+
+        Raises:
+            aws_sdk_memorydb.errors.cluster_not_found_fault.ClusterNotFoundFault: <p>The specified cluster does not exist.</p>
+            aws_sdk_memorydb.errors.invalid_parameter_combination_exception.InvalidParameterCombinationException: <p>The specified parameter combination is not valid.</p>
+            aws_sdk_memorydb.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The specified parameter value is not valid.</p>
+            aws_sdk_memorydb.errors.multi_region_cluster_not_found_fault.MultiRegionClusterNotFoundFault: <p>The specified multi-Region cluster does not exist.</p>
+            aws_sdk_memorydb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1575,6 +1751,13 @@ class AsyncMemoryDBClient:
             multi_region_parameter_group_name: <p>The request for information on a specific multi-region parameter group.</p>
             max_results: <p>The maximum number of records to include in the response. If more records exist than the specified MaxResults value, a token is included in the response so that the remaining results can be retrieved.</p>
             next_token: <p>An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by MaxResults.</p>
+
+        Raises:
+            aws_sdk_memorydb.errors.invalid_parameter_combination_exception.InvalidParameterCombinationException: <p>The specified parameter combination is not valid.</p>
+            aws_sdk_memorydb.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The specified parameter value is not valid.</p>
+            aws_sdk_memorydb.errors.multi_region_parameter_group_not_found_fault.MultiRegionParameterGroupNotFoundFault: <p>The specified multi-Region parameter group does not exist.</p>
+            aws_sdk_memorydb.errors.service_linked_role_not_found_fault.ServiceLinkedRoleNotFoundFault: <p>The required service-linked role was not found.</p>
+            aws_sdk_memorydb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1628,6 +1811,13 @@ class AsyncMemoryDBClient:
             source: <p>The parameter types to return. Valid values: user | system | engine-default</p>
             max_results: <p>The maximum number of records to include in the response. If more records exist than the specified MaxResults value, a token is included in the response so that the remaining results can be retrieved.</p>
             next_token: <p>An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by MaxResults.</p>
+
+        Raises:
+            aws_sdk_memorydb.errors.invalid_parameter_combination_exception.InvalidParameterCombinationException: <p>The specified parameter combination is not valid.</p>
+            aws_sdk_memorydb.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The specified parameter value is not valid.</p>
+            aws_sdk_memorydb.errors.multi_region_parameter_group_not_found_fault.MultiRegionParameterGroupNotFoundFault: <p>The specified multi-Region parameter group does not exist.</p>
+            aws_sdk_memorydb.errors.service_linked_role_not_found_fault.ServiceLinkedRoleNotFoundFault: <p>The required service-linked role was not found.</p>
+            aws_sdk_memorydb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1678,6 +1868,13 @@ class AsyncMemoryDBClient:
             parameter_group_name: <p>The name of a specific parameter group to return details for.</p>
             max_results: <p>The maximum number of records to include in the response. If more records exist than the specified MaxResults value, a token is included in the response so that the remaining results can be retrieved.</p>
             next_token: <p>An optional argument to pass in case the total number of records exceeds the value of MaxResults. If nextToken is returned, there are more results available. The value of nextToken is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. </p>
+
+        Raises:
+            aws_sdk_memorydb.errors.invalid_parameter_combination_exception.InvalidParameterCombinationException: <p>The specified parameter combination is not valid.</p>
+            aws_sdk_memorydb.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The specified parameter value is not valid.</p>
+            aws_sdk_memorydb.errors.parameter_group_not_found_fault.ParameterGroupNotFoundFault: <p>The specified parameter group does not exist.</p>
+            aws_sdk_memorydb.errors.service_linked_role_not_found_fault.ServiceLinkedRoleNotFoundFault: <p>The required service-linked role was not found.</p>
+            aws_sdk_memorydb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1754,6 +1951,13 @@ class AsyncMemoryDBClient:
             parameter_group_name: <p>he name of a specific parameter group to return details for.</p>
             max_results: <p>The maximum number of records to include in the response. If more records exist than the specified MaxResults value, a token is included in the response so that the remaining results can be retrieved.</p>
             next_token: <p>An optional argument to pass in case the total number of records exceeds the value of MaxResults. If nextToken is returned, there are more results available. The value of nextToken is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. </p>
+
+        Raises:
+            aws_sdk_memorydb.errors.invalid_parameter_combination_exception.InvalidParameterCombinationException: <p>The specified parameter combination is not valid.</p>
+            aws_sdk_memorydb.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The specified parameter value is not valid.</p>
+            aws_sdk_memorydb.errors.parameter_group_not_found_fault.ParameterGroupNotFoundFault: <p>The specified parameter group does not exist.</p>
+            aws_sdk_memorydb.errors.service_linked_role_not_found_fault.ServiceLinkedRoleNotFoundFault: <p>The required service-linked role was not found.</p>
+            aws_sdk_memorydb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1837,6 +2041,13 @@ class AsyncMemoryDBClient:
             offering_type: <p>The offering type filter value. Use this parameter to show only the available offerings matching the specified offering type. Valid values: \"All Upfront\"|\"Partial Upfront\"| \"No Upfront\"</p>
             max_results: <p>The maximum number of records to include in the response. If more records exist than the specified MaxRecords value, a marker is included in the response so that the remaining results can be retrieved.</p>
             next_token: <p>An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by MaxRecords.</p>
+
+        Raises:
+            aws_sdk_memorydb.errors.invalid_parameter_combination_exception.InvalidParameterCombinationException: <p>The specified parameter combination is not valid.</p>
+            aws_sdk_memorydb.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The specified parameter value is not valid.</p>
+            aws_sdk_memorydb.errors.reserved_node_not_found_fault.ReservedNodeNotFoundFault: <p>The requested node does not exist.</p>
+            aws_sdk_memorydb.errors.service_linked_role_not_found_fault.ServiceLinkedRoleNotFoundFault: <p>The required service-linked role was not found.</p>
+            aws_sdk_memorydb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1937,6 +2148,13 @@ class AsyncMemoryDBClient:
             offering_type: <p>The offering type filter value. Use this parameter to show only the available offerings matching the specified offering type. Valid values: \"All Upfront\"|\"Partial Upfront\"| \"No Upfront\"</p>
             max_results: <p>The maximum number of records to include in the response. If more records exist than the specified MaxRecords value, a marker is included in the response so that the remaining results can be retrieved.</p>
             next_token: <p>An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by MaxRecords.</p>
+
+        Raises:
+            aws_sdk_memorydb.errors.invalid_parameter_combination_exception.InvalidParameterCombinationException: <p>The specified parameter combination is not valid.</p>
+            aws_sdk_memorydb.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The specified parameter value is not valid.</p>
+            aws_sdk_memorydb.errors.reserved_nodes_offering_not_found_fault.ReservedNodesOfferingNotFoundFault: <p>The requested node offering does not exist. </p>
+            aws_sdk_memorydb.errors.service_linked_role_not_found_fault.ServiceLinkedRoleNotFoundFault: <p>The required service-linked role was not found.</p>
+            aws_sdk_memorydb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2033,6 +2251,11 @@ class AsyncMemoryDBClient:
             status: <p>The status(es) of the service updates to filter on.</p>
             max_results: <p>The maximum number of records to include in the response. If more records exist than the specified MaxResults value, a token is included in the response so that the remaining results can be retrieved.</p>
             next_token: <p>An optional argument to pass in case the total number of records exceeds the value of MaxResults. If nextToken is returned, there are more results available. The value of nextToken is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. </p>
+
+        Raises:
+            aws_sdk_memorydb.errors.invalid_parameter_combination_exception.InvalidParameterCombinationException: <p>The specified parameter combination is not valid.</p>
+            aws_sdk_memorydb.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The specified parameter value is not valid.</p>
+            aws_sdk_memorydb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2127,6 +2350,13 @@ class AsyncMemoryDBClient:
             next_token: <p>An optional argument to pass in case the total number of records exceeds the value of MaxResults. If nextToken is returned, there are more results available. The value of nextToken is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. </p>
             max_results: <p>The maximum number of records to include in the response. If more records exist than the specified MaxResults value, a token is included in the response so that the remaining results can be retrieved.</p>
             show_detail: <p>A Boolean value which if true, the shard configuration is included in the snapshot description.</p>
+
+        Raises:
+            aws_sdk_memorydb.errors.invalid_parameter_combination_exception.InvalidParameterCombinationException: <p>The specified parameter combination is not valid.</p>
+            aws_sdk_memorydb.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The specified parameter value is not valid.</p>
+            aws_sdk_memorydb.errors.service_linked_role_not_found_fault.ServiceLinkedRoleNotFoundFault: <p>The required service-linked role was not found.</p>
+            aws_sdk_memorydb.errors.snapshot_not_found_fault.SnapshotNotFoundFault: <p>The specified snapshot does not exist.</p>
+            aws_sdk_memorydb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2215,6 +2445,11 @@ class AsyncMemoryDBClient:
             subnet_group_name: <p>The name of the subnet group to return details for.</p>
             max_results: <p>The maximum number of records to include in the response. If more records exist than the specified MaxResults value, a token is included in the response so that the remaining results can be retrieved.</p>
             next_token: <p>An optional argument to pass in case the total number of records exceeds the value of MaxResults. If nextToken is returned, there are more results available. The value of nextToken is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. </p>
+
+        Raises:
+            aws_sdk_memorydb.errors.service_linked_role_not_found_fault.ServiceLinkedRoleNotFoundFault: <p>The required service-linked role was not found.</p>
+            aws_sdk_memorydb.errors.subnet_group_not_found_fault.SubnetGroupNotFoundFault: <p>The specified subnet group does not exist.</p>
+            aws_sdk_memorydb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2291,6 +2526,11 @@ class AsyncMemoryDBClient:
             filters: <p>Filter to determine the list of users to return.</p>
             max_results: <p>The maximum number of records to include in the response. If more records exist than the specified MaxResults value, a token is included in the response so that the remaining results can be retrieved.</p>
             next_token: <p>An optional argument to pass in case the total number of records exceeds the value of MaxResults. If nextToken is returned, there are more results available. The value of nextToken is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. </p>
+
+        Raises:
+            aws_sdk_memorydb.errors.invalid_parameter_combination_exception.InvalidParameterCombinationException: <p>The specified parameter combination is not valid.</p>
+            aws_sdk_memorydb.errors.user_not_found_fault.UserNotFoundFault: <p>The specified user does not exist.</p>
+            aws_sdk_memorydb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2365,6 +2605,17 @@ class AsyncMemoryDBClient:
         Args:
             cluster_name: <p>The cluster being failed over.</p>
             shard_name: <p>The name of the shard.</p>
+
+        Raises:
+            aws_sdk_memorydb.errors.api_call_rate_for_customer_exceeded_fault.APICallRateForCustomerExceededFault: <p>The customer has exceeded the maximum number of API requests allowed per time period.</p>
+            aws_sdk_memorydb.errors.cluster_not_found_fault.ClusterNotFoundFault: <p>The specified cluster does not exist.</p>
+            aws_sdk_memorydb.errors.invalid_cluster_state_fault.InvalidClusterStateFault: <p>The cluster is not in a valid state for the requested operation.</p>
+            aws_sdk_memorydb.errors.invalid_kms_key_fault.InvalidKMSKeyFault: <p>The specified KMS key is not valid or accessible.</p>
+            aws_sdk_memorydb.errors.invalid_parameter_combination_exception.InvalidParameterCombinationException: <p>The specified parameter combination is not valid.</p>
+            aws_sdk_memorydb.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The specified parameter value is not valid.</p>
+            aws_sdk_memorydb.errors.shard_not_found_fault.ShardNotFoundFault: <p>The specified shard does not exist.</p>
+            aws_sdk_memorydb.errors.test_failover_not_available_fault.TestFailoverNotAvailableFault: <p>Test failover is not available for this cluster configuration.</p>
+            aws_sdk_memorydb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2404,6 +2655,12 @@ class AsyncMemoryDBClient:
 
         Args:
             multi_region_cluster_name: <p>The name of the multi-Region cluster.</p>
+
+        Raises:
+            aws_sdk_memorydb.errors.invalid_parameter_combination_exception.InvalidParameterCombinationException: <p>The specified parameter combination is not valid.</p>
+            aws_sdk_memorydb.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The specified parameter value is not valid.</p>
+            aws_sdk_memorydb.errors.multi_region_cluster_not_found_fault.MultiRegionClusterNotFoundFault: <p>The specified multi-Region cluster does not exist.</p>
+            aws_sdk_memorydb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2442,6 +2699,13 @@ class AsyncMemoryDBClient:
 
         Args:
             cluster_name: <p>The name of the cluster you want to scale. MemoryDB uses the cluster name to identify the current node type being used by this cluster, and from that to create a list of node types you can scale up to.</p>
+
+        Raises:
+            aws_sdk_memorydb.errors.cluster_not_found_fault.ClusterNotFoundFault: <p>The specified cluster does not exist.</p>
+            aws_sdk_memorydb.errors.invalid_parameter_combination_exception.InvalidParameterCombinationException: <p>The specified parameter combination is not valid.</p>
+            aws_sdk_memorydb.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The specified parameter value is not valid.</p>
+            aws_sdk_memorydb.errors.service_linked_role_not_found_fault.ServiceLinkedRoleNotFoundFault: <p>The required service-linked role was not found.</p>
+            aws_sdk_memorydb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2480,6 +2744,20 @@ class AsyncMemoryDBClient:
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource for which you want the list of tags.</p>
+
+        Raises:
+            aws_sdk_memorydb.errors.acl_not_found_fault.ACLNotFoundFault: <p>The specified ACL does not exist.</p>
+            aws_sdk_memorydb.errors.cluster_not_found_fault.ClusterNotFoundFault: <p>The specified cluster does not exist.</p>
+            aws_sdk_memorydb.errors.invalid_arn_fault.InvalidARNFault: <p>The specified Amazon Resource Name (ARN) is not valid.</p>
+            aws_sdk_memorydb.errors.invalid_cluster_state_fault.InvalidClusterStateFault: <p>The cluster is not in a valid state for the requested operation.</p>
+            aws_sdk_memorydb.errors.multi_region_cluster_not_found_fault.MultiRegionClusterNotFoundFault: <p>The specified multi-Region cluster does not exist.</p>
+            aws_sdk_memorydb.errors.multi_region_parameter_group_not_found_fault.MultiRegionParameterGroupNotFoundFault: <p>The specified multi-Region parameter group does not exist.</p>
+            aws_sdk_memorydb.errors.parameter_group_not_found_fault.ParameterGroupNotFoundFault: <p>The specified parameter group does not exist.</p>
+            aws_sdk_memorydb.errors.service_linked_role_not_found_fault.ServiceLinkedRoleNotFoundFault: <p>The required service-linked role was not found.</p>
+            aws_sdk_memorydb.errors.snapshot_not_found_fault.SnapshotNotFoundFault: <p>The specified snapshot does not exist.</p>
+            aws_sdk_memorydb.errors.subnet_group_not_found_fault.SubnetGroupNotFoundFault: <p>The specified subnet group does not exist.</p>
+            aws_sdk_memorydb.errors.user_not_found_fault.UserNotFoundFault: <p>The specified user does not exist.</p>
+            aws_sdk_memorydb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2526,6 +2804,16 @@ class AsyncMemoryDBClient:
             reservation_id: <p>A customer-specified identifier to track this reservation.</p>
             node_count: <p>The number of node instances to reserve.</p>
             tags: <p>A list of tags to be added to this resource. A tag is a key-value pair. A tag key must be accompanied by a tag value, although null is accepted.</p>
+
+        Raises:
+            aws_sdk_memorydb.errors.invalid_parameter_combination_exception.InvalidParameterCombinationException: <p>The specified parameter combination is not valid.</p>
+            aws_sdk_memorydb.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The specified parameter value is not valid.</p>
+            aws_sdk_memorydb.errors.reserved_node_already_exists_fault.ReservedNodeAlreadyExistsFault: <p>You already have a reservation with the given identifier.</p>
+            aws_sdk_memorydb.errors.reserved_node_quota_exceeded_fault.ReservedNodeQuotaExceededFault: <p>The request cannot be processed because it would exceed the user's node quota.</p>
+            aws_sdk_memorydb.errors.reserved_nodes_offering_not_found_fault.ReservedNodesOfferingNotFoundFault: <p>The requested node offering does not exist. </p>
+            aws_sdk_memorydb.errors.service_linked_role_not_found_fault.ServiceLinkedRoleNotFoundFault: <p>The required service-linked role was not found.</p>
+            aws_sdk_memorydb.errors.tag_quota_per_resource_exceeded.TagQuotaPerResourceExceeded: <p>The request cannot be processed because it would exceed the maximum number of tags allowed per resource.</p>
+            aws_sdk_memorydb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2576,6 +2864,14 @@ class AsyncMemoryDBClient:
             parameter_group_name: <p>The name of the parameter group to reset.</p>
             all_parameters: <p>If true, all parameters in the parameter group are reset to their default values. If false, only the parameters listed by ParameterNames are reset to their default values.</p>
             parameter_names: <p>An array of parameter names to reset to their default values. If AllParameters is true, do not use ParameterNames. If AllParameters is false, you must specify the name of at least one parameter to reset.</p>
+
+        Raises:
+            aws_sdk_memorydb.errors.invalid_parameter_combination_exception.InvalidParameterCombinationException: <p>The specified parameter combination is not valid.</p>
+            aws_sdk_memorydb.errors.invalid_parameter_group_state_fault.InvalidParameterGroupStateFault: <p>The parameter group is not in a valid state for the requested operation.</p>
+            aws_sdk_memorydb.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The specified parameter value is not valid.</p>
+            aws_sdk_memorydb.errors.parameter_group_not_found_fault.ParameterGroupNotFoundFault: <p>The specified parameter group does not exist.</p>
+            aws_sdk_memorydb.errors.service_linked_role_not_found_fault.ServiceLinkedRoleNotFoundFault: <p>The required service-linked role was not found.</p>
+            aws_sdk_memorydb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2620,6 +2916,22 @@ class AsyncMemoryDBClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource to which the tags are to be added.</p>
             tags: <p>A list of tags to be added to this resource. A tag is a key-value pair. A tag key must be accompanied by a tag value, although null is accepted.</p>
+
+        Raises:
+            aws_sdk_memorydb.errors.acl_not_found_fault.ACLNotFoundFault: <p>The specified ACL does not exist.</p>
+            aws_sdk_memorydb.errors.cluster_not_found_fault.ClusterNotFoundFault: <p>The specified cluster does not exist.</p>
+            aws_sdk_memorydb.errors.invalid_arn_fault.InvalidARNFault: <p>The specified Amazon Resource Name (ARN) is not valid.</p>
+            aws_sdk_memorydb.errors.invalid_cluster_state_fault.InvalidClusterStateFault: <p>The cluster is not in a valid state for the requested operation.</p>
+            aws_sdk_memorydb.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The specified parameter value is not valid.</p>
+            aws_sdk_memorydb.errors.multi_region_cluster_not_found_fault.MultiRegionClusterNotFoundFault: <p>The specified multi-Region cluster does not exist.</p>
+            aws_sdk_memorydb.errors.multi_region_parameter_group_not_found_fault.MultiRegionParameterGroupNotFoundFault: <p>The specified multi-Region parameter group does not exist.</p>
+            aws_sdk_memorydb.errors.parameter_group_not_found_fault.ParameterGroupNotFoundFault: <p>The specified parameter group does not exist.</p>
+            aws_sdk_memorydb.errors.service_linked_role_not_found_fault.ServiceLinkedRoleNotFoundFault: <p>The required service-linked role was not found.</p>
+            aws_sdk_memorydb.errors.snapshot_not_found_fault.SnapshotNotFoundFault: <p>The specified snapshot does not exist.</p>
+            aws_sdk_memorydb.errors.subnet_group_not_found_fault.SubnetGroupNotFoundFault: <p>The specified subnet group does not exist.</p>
+            aws_sdk_memorydb.errors.tag_quota_per_resource_exceeded.TagQuotaPerResourceExceeded: <p>The request cannot be processed because it would exceed the maximum number of tags allowed per resource.</p>
+            aws_sdk_memorydb.errors.user_not_found_fault.UserNotFoundFault: <p>The specified user does not exist.</p>
+            aws_sdk_memorydb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2661,6 +2973,22 @@ class AsyncMemoryDBClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource to which the tags are to be removed.</p>
             tag_keys: <p>The list of keys of the tags that are to be removed.</p>
+
+        Raises:
+            aws_sdk_memorydb.errors.acl_not_found_fault.ACLNotFoundFault: <p>The specified ACL does not exist.</p>
+            aws_sdk_memorydb.errors.cluster_not_found_fault.ClusterNotFoundFault: <p>The specified cluster does not exist.</p>
+            aws_sdk_memorydb.errors.invalid_arn_fault.InvalidARNFault: <p>The specified Amazon Resource Name (ARN) is not valid.</p>
+            aws_sdk_memorydb.errors.invalid_cluster_state_fault.InvalidClusterStateFault: <p>The cluster is not in a valid state for the requested operation.</p>
+            aws_sdk_memorydb.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The specified parameter value is not valid.</p>
+            aws_sdk_memorydb.errors.multi_region_cluster_not_found_fault.MultiRegionClusterNotFoundFault: <p>The specified multi-Region cluster does not exist.</p>
+            aws_sdk_memorydb.errors.multi_region_parameter_group_not_found_fault.MultiRegionParameterGroupNotFoundFault: <p>The specified multi-Region parameter group does not exist.</p>
+            aws_sdk_memorydb.errors.parameter_group_not_found_fault.ParameterGroupNotFoundFault: <p>The specified parameter group does not exist.</p>
+            aws_sdk_memorydb.errors.service_linked_role_not_found_fault.ServiceLinkedRoleNotFoundFault: <p>The required service-linked role was not found.</p>
+            aws_sdk_memorydb.errors.snapshot_not_found_fault.SnapshotNotFoundFault: <p>The specified snapshot does not exist.</p>
+            aws_sdk_memorydb.errors.subnet_group_not_found_fault.SubnetGroupNotFoundFault: <p>The specified subnet group does not exist.</p>
+            aws_sdk_memorydb.errors.tag_not_found_fault.TagNotFoundFault: <p>The specified tag does not exist.</p>
+            aws_sdk_memorydb.errors.user_not_found_fault.UserNotFoundFault: <p>The specified user does not exist.</p>
+            aws_sdk_memorydb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2708,6 +3036,16 @@ class AsyncMemoryDBClient:
             acl_name: <p>The name of the Access Control List.</p>
             user_names_to_add: <p>The list of users to add to the Access Control List.</p>
             user_names_to_remove: <p>The list of users to remove from the Access Control List.</p>
+
+        Raises:
+            aws_sdk_memorydb.errors.acl_not_found_fault.ACLNotFoundFault: <p>The specified ACL does not exist.</p>
+            aws_sdk_memorydb.errors.default_user_required.DefaultUserRequired: <p>A default user is required and must be specified.</p>
+            aws_sdk_memorydb.errors.duplicate_user_name_fault.DuplicateUserNameFault: <p>A user with the specified name already exists.</p>
+            aws_sdk_memorydb.errors.invalid_acl_state_fault.InvalidACLStateFault: <p>The ACL is not in a valid state for the requested operation.</p>
+            aws_sdk_memorydb.errors.invalid_parameter_combination_exception.InvalidParameterCombinationException: <p>The specified parameter combination is not valid.</p>
+            aws_sdk_memorydb.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The specified parameter value is not valid.</p>
+            aws_sdk_memorydb.errors.user_not_found_fault.UserNotFoundFault: <p>The specified user does not exist.</p>
+            aws_sdk_memorydb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2790,6 +3128,25 @@ class AsyncMemoryDBClient:
             shard_configuration: <p>The number of shards in the cluster.</p>
             acl_name: <p>The Access Control List that is associated with the cluster.</p>
             ip_discovery: <p>The mechanism for discovering IP addresses for the cluster discovery protocol. Valid values are 'ipv4' or 'ipv6'. When set to 'ipv4', cluster discovery functions such as cluster slots, cluster shards, and cluster nodes will return IPv4 addresses for cluster nodes. When set to 'ipv6', the cluster discovery functions return IPv6 addresses for cluster nodes. The value must be compatible with the NetworkType parameter. If not specified, the default is 'ipv4'.</p>
+
+        Raises:
+            aws_sdk_memorydb.errors.acl_not_found_fault.ACLNotFoundFault: <p>The specified ACL does not exist.</p>
+            aws_sdk_memorydb.errors.cluster_not_found_fault.ClusterNotFoundFault: <p>The specified cluster does not exist.</p>
+            aws_sdk_memorydb.errors.cluster_quota_for_customer_exceeded_fault.ClusterQuotaForCustomerExceededFault: <p>The request cannot be processed because it would exceed the maximum number of clusters allowed for this customer.</p>
+            aws_sdk_memorydb.errors.invalid_acl_state_fault.InvalidACLStateFault: <p>The ACL is not in a valid state for the requested operation.</p>
+            aws_sdk_memorydb.errors.invalid_cluster_state_fault.InvalidClusterStateFault: <p>The cluster is not in a valid state for the requested operation.</p>
+            aws_sdk_memorydb.errors.invalid_kms_key_fault.InvalidKMSKeyFault: <p>The specified KMS key is not valid or accessible.</p>
+            aws_sdk_memorydb.errors.invalid_node_state_fault.InvalidNodeStateFault: <p>The node is not in a valid state for the requested operation.</p>
+            aws_sdk_memorydb.errors.invalid_parameter_combination_exception.InvalidParameterCombinationException: <p>The specified parameter combination is not valid.</p>
+            aws_sdk_memorydb.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The specified parameter value is not valid.</p>
+            aws_sdk_memorydb.errors.invalid_vpc_network_state_fault.InvalidVPCNetworkStateFault: <p>The VPC network is not in a valid state for the requested operation.</p>
+            aws_sdk_memorydb.errors.node_quota_for_cluster_exceeded_fault.NodeQuotaForClusterExceededFault: <p>The request cannot be processed because it would exceed the maximum number of nodes allowed for this cluster.</p>
+            aws_sdk_memorydb.errors.node_quota_for_customer_exceeded_fault.NodeQuotaForCustomerExceededFault: <p>The request cannot be processed because it would exceed the maximum number of nodes allowed for this customer.</p>
+            aws_sdk_memorydb.errors.no_operation_fault.NoOperationFault: <p>The requested operation would result in no changes.</p>
+            aws_sdk_memorydb.errors.parameter_group_not_found_fault.ParameterGroupNotFoundFault: <p>The specified parameter group does not exist.</p>
+            aws_sdk_memorydb.errors.service_linked_role_not_found_fault.ServiceLinkedRoleNotFoundFault: <p>The required service-linked role was not found.</p>
+            aws_sdk_memorydb.errors.shards_per_cluster_quota_exceeded_fault.ShardsPerClusterQuotaExceededFault: <p>The request cannot be processed because it would exceed the maximum number of shards allowed per cluster.</p>
+            aws_sdk_memorydb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2875,6 +3232,14 @@ class AsyncMemoryDBClient:
             engine_version: <p>The new engine version to be used for the multi-Region cluster.</p>
             multi_region_parameter_group_name: <p>The new multi-Region parameter group to be associated with the cluster.</p>
             update_strategy: <p>The strategy to use for the update operation. Supported values are \"coordinated\" or \"uncoordinated\".</p>
+
+        Raises:
+            aws_sdk_memorydb.errors.invalid_multi_region_cluster_state_fault.InvalidMultiRegionClusterStateFault: <p>The requested operation cannot be performed on the multi-Region cluster in its current state.</p>
+            aws_sdk_memorydb.errors.invalid_parameter_combination_exception.InvalidParameterCombinationException: <p>The specified parameter combination is not valid.</p>
+            aws_sdk_memorydb.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The specified parameter value is not valid.</p>
+            aws_sdk_memorydb.errors.multi_region_cluster_not_found_fault.MultiRegionClusterNotFoundFault: <p>The specified multi-Region cluster does not exist.</p>
+            aws_sdk_memorydb.errors.multi_region_parameter_group_not_found_fault.MultiRegionParameterGroupNotFoundFault: <p>The specified multi-Region parameter group does not exist.</p>
+            aws_sdk_memorydb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2929,6 +3294,14 @@ class AsyncMemoryDBClient:
         Args:
             parameter_group_name: <p>The name of the parameter group to update.</p>
             parameter_name_values: <p>An array of parameter names and values for the parameter update. You must supply at least one parameter name and value; subsequent arguments are optional. A maximum of 20 parameters may be updated per request.</p>
+
+        Raises:
+            aws_sdk_memorydb.errors.invalid_parameter_combination_exception.InvalidParameterCombinationException: <p>The specified parameter combination is not valid.</p>
+            aws_sdk_memorydb.errors.invalid_parameter_group_state_fault.InvalidParameterGroupStateFault: <p>The parameter group is not in a valid state for the requested operation.</p>
+            aws_sdk_memorydb.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The specified parameter value is not valid.</p>
+            aws_sdk_memorydb.errors.parameter_group_not_found_fault.ParameterGroupNotFoundFault: <p>The specified parameter group does not exist.</p>
+            aws_sdk_memorydb.errors.service_linked_role_not_found_fault.ServiceLinkedRoleNotFoundFault: <p>The required service-linked role was not found.</p>
+            aws_sdk_memorydb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2976,6 +3349,15 @@ class AsyncMemoryDBClient:
             subnet_group_name: <p>The name of the subnet group</p>
             description: <p>A description of the subnet group</p>
             subnet_ids: <p>The EC2 subnet IDs for the subnet group.</p>
+
+        Raises:
+            aws_sdk_memorydb.errors.invalid_subnet.InvalidSubnet: <p>The specified subnet is not valid.</p>
+            aws_sdk_memorydb.errors.service_linked_role_not_found_fault.ServiceLinkedRoleNotFoundFault: <p>The required service-linked role was not found.</p>
+            aws_sdk_memorydb.errors.subnet_group_not_found_fault.SubnetGroupNotFoundFault: <p>The specified subnet group does not exist.</p>
+            aws_sdk_memorydb.errors.subnet_in_use.SubnetInUse: <p>The subnet is currently in use and cannot be deleted.</p>
+            aws_sdk_memorydb.errors.subnet_not_allowed_fault.SubnetNotAllowedFault: <p>The specified subnet is not allowed for this operation.</p>
+            aws_sdk_memorydb.errors.subnet_quota_exceeded_fault.SubnetQuotaExceededFault: <p>The request cannot be processed because it would exceed the maximum number of subnets allowed.</p>
+            aws_sdk_memorydb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3026,6 +3408,13 @@ class AsyncMemoryDBClient:
             user_name: <p>The name of the user</p>
             authentication_mode: <p>Denotes the user's authentication properties, such as whether it requires a password to authenticate.</p>
             access_string: <p>Access permissions string used for this user.</p>
+
+        Raises:
+            aws_sdk_memorydb.errors.invalid_parameter_combination_exception.InvalidParameterCombinationException: <p>The specified parameter combination is not valid.</p>
+            aws_sdk_memorydb.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The specified parameter value is not valid.</p>
+            aws_sdk_memorydb.errors.invalid_user_state_fault.InvalidUserStateFault: <p>The user is not in a valid state for the requested operation.</p>
+            aws_sdk_memorydb.errors.user_not_found_fault.UserNotFoundFault: <p>The specified user does not exist.</p>
+            aws_sdk_memorydb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

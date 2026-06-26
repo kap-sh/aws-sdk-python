@@ -55,6 +55,12 @@ class CodegenJobResource:
             environment_name: <p>The name of the backend environment that is a part of the Amplify app.</p>
             client_token: <p>The idempotency token used to ensure that the code generation job request completes only once.</p>
             codegen_job_to_create: <p>The code generation job resource configuration.</p>
+
+        Raises:
+            aws_sdk_amplifyuibuilder.errors.internal_server_exception.InternalServerException: <p>An internal error has occurred. Please retry your request.</p>
+            aws_sdk_amplifyuibuilder.errors.invalid_parameter_exception.InvalidParameterException: <p>An invalid or out-of-range value was supplied for the input parameter.</p>
+            aws_sdk_amplifyuibuilder.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_amplifyuibuilder.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -102,6 +108,13 @@ class CodegenJobResource:
             app_id: <p>The unique ID of the Amplify app associated with the code generation job.</p>
             environment_name: <p>The name of the backend environment that is a part of the Amplify app associated with the code generation job.</p>
             id: <p>The unique ID of the code generation job.</p>
+
+        Raises:
+            aws_sdk_amplifyuibuilder.errors.internal_server_exception.InternalServerException: <p>An internal error has occurred. Please retry your request.</p>
+            aws_sdk_amplifyuibuilder.errors.invalid_parameter_exception.InvalidParameterException: <p>An invalid or out-of-range value was supplied for the input parameter.</p>
+            aws_sdk_amplifyuibuilder.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource does not exist, or access was denied.</p>
+            aws_sdk_amplifyuibuilder.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_amplifyuibuilder.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -149,6 +162,12 @@ class CodegenJobResource:
             environment_name: <p>The name of the backend environment that is a part of the Amplify app.</p>
             next_token: <p>The token to request the next page of results.</p>
             max_results: <p>The maximum number of jobs to retrieve.</p>
+
+        Raises:
+            aws_sdk_amplifyuibuilder.errors.internal_server_exception.InternalServerException: <p>An internal error has occurred. Please retry your request.</p>
+            aws_sdk_amplifyuibuilder.errors.invalid_parameter_exception.InvalidParameterException: <p>An invalid or out-of-range value was supplied for the input parameter.</p>
+            aws_sdk_amplifyuibuilder.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_amplifyuibuilder.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -202,6 +221,12 @@ class AsyncCodegenJobResource:
             environment_name: <p>The name of the backend environment that is a part of the Amplify app.</p>
             client_token: <p>The idempotency token used to ensure that the code generation job request completes only once.</p>
             codegen_job_to_create: <p>The code generation job resource configuration.</p>
+
+        Raises:
+            aws_sdk_amplifyuibuilder.errors.internal_server_exception.InternalServerException: <p>An internal error has occurred. Please retry your request.</p>
+            aws_sdk_amplifyuibuilder.errors.invalid_parameter_exception.InvalidParameterException: <p>An invalid or out-of-range value was supplied for the input parameter.</p>
+            aws_sdk_amplifyuibuilder.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_amplifyuibuilder.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -250,6 +275,13 @@ class AsyncCodegenJobResource:
             app_id: <p>The unique ID of the Amplify app associated with the code generation job.</p>
             environment_name: <p>The name of the backend environment that is a part of the Amplify app associated with the code generation job.</p>
             id: <p>The unique ID of the code generation job.</p>
+
+        Raises:
+            aws_sdk_amplifyuibuilder.errors.internal_server_exception.InternalServerException: <p>An internal error has occurred. Please retry your request.</p>
+            aws_sdk_amplifyuibuilder.errors.invalid_parameter_exception.InvalidParameterException: <p>An invalid or out-of-range value was supplied for the input parameter.</p>
+            aws_sdk_amplifyuibuilder.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource does not exist, or access was denied.</p>
+            aws_sdk_amplifyuibuilder.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_amplifyuibuilder.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -298,6 +330,12 @@ class AsyncCodegenJobResource:
             environment_name: <p>The name of the backend environment that is a part of the Amplify app.</p>
             next_token: <p>The token to request the next page of results.</p>
             max_results: <p>The maximum number of jobs to retrieve.</p>
+
+        Raises:
+            aws_sdk_amplifyuibuilder.errors.internal_server_exception.InternalServerException: <p>An internal error has occurred. Please retry your request.</p>
+            aws_sdk_amplifyuibuilder.errors.invalid_parameter_exception.InvalidParameterException: <p>An invalid or out-of-range value was supplied for the input parameter.</p>
+            aws_sdk_amplifyuibuilder.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_amplifyuibuilder.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

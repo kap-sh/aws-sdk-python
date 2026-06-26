@@ -265,6 +265,15 @@ class EntityResolutionClient:
             action: <p>The action that the principal can use on the resource. </p> <p>For example, <code>entityresolution:GetIdMappingJob</code>, <code>entityresolution:GetMatchingJob</code>.</p>
             principal: <p>The Amazon Web Services service or Amazon Web Services account that can access the resource defined as ARN.</p>
             condition: <p>A set of condition keys that you can use in key policies.</p>
+
+        Raises:
+            aws_sdk_entityresolution.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action. </p>
+            aws_sdk_entityresolution.errors.conflict_exception.ConflictException: <p>The request couldn't be processed because of conflict in the current state of the resource. Example: Workflow already exists, Schema already exists, Workflow is currently running, etc. </p>
+            aws_sdk_entityresolution.errors.internal_server_exception.InternalServerException: <p>This exception occurs when there is an internal failure in the Entity Resolution service. </p>
+            aws_sdk_entityresolution.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource couldn't be found. </p>
+            aws_sdk_entityresolution.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. </p>
+            aws_sdk_entityresolution.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by Entity Resolution. </p>
+            aws_sdk_entityresolution.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -312,6 +321,12 @@ class EntityResolutionClient:
             workflow_name: <p>The name of the workflow.</p>
             input_source: <p>The input source for the batch delete unique ID operation.</p>
             unique_ids: <p>The unique IDs to delete.</p>
+
+        Raises:
+            aws_sdk_entityresolution.errors.internal_server_exception.InternalServerException: <p>This exception occurs when there is an internal failure in the Entity Resolution service. </p>
+            aws_sdk_entityresolution.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource couldn't be found. </p>
+            aws_sdk_entityresolution.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by Entity Resolution. </p>
+            aws_sdk_entityresolution.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -374,6 +389,15 @@ class EntityResolutionClient:
             incremental_run_config: <p> The incremental run configuration for the ID mapping workflow.</p>
             role_arn: <p>The Amazon Resource Name (ARN) of the IAM role. Entity Resolution assumes this role to create resources on your behalf as part of workflow execution.</p>
             tags: <p>The tags used to organize, track, or control access for this resource.</p>
+
+        Raises:
+            aws_sdk_entityresolution.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action. </p>
+            aws_sdk_entityresolution.errors.conflict_exception.ConflictException: <p>The request couldn't be processed because of conflict in the current state of the resource. Example: Workflow already exists, Schema already exists, Workflow is currently running, etc. </p>
+            aws_sdk_entityresolution.errors.exceeds_limit_exception.ExceedsLimitException: <p>The request was rejected because it attempted to create resources beyond the current Entity Resolution account limits. The error message describes the limit exceeded. </p>
+            aws_sdk_entityresolution.errors.internal_server_exception.InternalServerException: <p>This exception occurs when there is an internal failure in the Entity Resolution service. </p>
+            aws_sdk_entityresolution.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. </p>
+            aws_sdk_entityresolution.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by Entity Resolution. </p>
+            aws_sdk_entityresolution.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -441,6 +465,15 @@ class EntityResolutionClient:
             type: <p>The type of ID namespace. There are two types: <code>SOURCE</code> and <code>TARGET</code>. </p> <p>The <code>SOURCE</code> contains configurations for <code>sourceId</code> data that will be processed in an ID mapping workflow. </p> <p>The <code>TARGET</code> contains a configuration of <code>targetId</code> to which all <code>sourceIds</code> will resolve to.</p>
             role_arn: <p>The Amazon Resource Name (ARN) of the IAM role. Entity Resolution assumes this role to access the resources defined in this <code>IdNamespace</code> on your behalf as part of the workflow run.</p>
             tags: <p>The tags used to organize, track, or control access for this resource.</p>
+
+        Raises:
+            aws_sdk_entityresolution.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action. </p>
+            aws_sdk_entityresolution.errors.conflict_exception.ConflictException: <p>The request couldn't be processed because of conflict in the current state of the resource. Example: Workflow already exists, Schema already exists, Workflow is currently running, etc. </p>
+            aws_sdk_entityresolution.errors.exceeds_limit_exception.ExceedsLimitException: <p>The request was rejected because it attempted to create resources beyond the current Entity Resolution account limits. The error message describes the limit exceeded. </p>
+            aws_sdk_entityresolution.errors.internal_server_exception.InternalServerException: <p>This exception occurs when there is an internal failure in the Entity Resolution service. </p>
+            aws_sdk_entityresolution.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. </p>
+            aws_sdk_entityresolution.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by Entity Resolution. </p>
+            aws_sdk_entityresolution.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -507,6 +540,15 @@ class EntityResolutionClient:
             incremental_run_config: <p>Optional. An object that defines the incremental run type. This object contains only the <code>incrementalRunType</code> field, which appears as \"Automatic\" in the console. </p> <important> <p>For workflows where <code>resolutionType</code> is <code>ML_MATCHING</code> or <code>PROVIDER</code>, incremental processing is not supported. </p> </important>
             role_arn: <p>The Amazon Resource Name (ARN) of the IAM role. Entity Resolution assumes this role to create resources on your behalf as part of workflow execution.</p>
             tags: <p>The tags used to organize, track, or control access for this resource.</p>
+
+        Raises:
+            aws_sdk_entityresolution.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action. </p>
+            aws_sdk_entityresolution.errors.conflict_exception.ConflictException: <p>The request couldn't be processed because of conflict in the current state of the resource. Example: Workflow already exists, Schema already exists, Workflow is currently running, etc. </p>
+            aws_sdk_entityresolution.errors.exceeds_limit_exception.ExceedsLimitException: <p>The request was rejected because it attempted to create resources beyond the current Entity Resolution account limits. The error message describes the limit exceeded. </p>
+            aws_sdk_entityresolution.errors.internal_server_exception.InternalServerException: <p>This exception occurs when there is an internal failure in the Entity Resolution service. </p>
+            aws_sdk_entityresolution.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. </p>
+            aws_sdk_entityresolution.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by Entity Resolution. </p>
+            aws_sdk_entityresolution.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -562,6 +604,15 @@ class EntityResolutionClient:
             description: <p>A description of the schema.</p>
             mapped_input_fields: <p>A list of <code>MappedInputFields</code>. Each <code>MappedInputField</code> corresponds to a column the source data table, and contains column name plus additional information that Entity Resolution uses for matching.</p>
             tags: <p>The tags used to organize, track, or control access for this resource.</p>
+
+        Raises:
+            aws_sdk_entityresolution.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action. </p>
+            aws_sdk_entityresolution.errors.conflict_exception.ConflictException: <p>The request couldn't be processed because of conflict in the current state of the resource. Example: Workflow already exists, Schema already exists, Workflow is currently running, etc. </p>
+            aws_sdk_entityresolution.errors.exceeds_limit_exception.ExceedsLimitException: <p>The request was rejected because it attempted to create resources beyond the current Entity Resolution account limits. The error message describes the limit exceeded. </p>
+            aws_sdk_entityresolution.errors.internal_server_exception.InternalServerException: <p>This exception occurs when there is an internal failure in the Entity Resolution service. </p>
+            aws_sdk_entityresolution.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. </p>
+            aws_sdk_entityresolution.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by Entity Resolution. </p>
+            aws_sdk_entityresolution.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -604,6 +655,14 @@ class EntityResolutionClient:
 
         Args:
             workflow_name: <p>The name of the workflow to be deleted.</p>
+
+        Raises:
+            aws_sdk_entityresolution.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action. </p>
+            aws_sdk_entityresolution.errors.conflict_exception.ConflictException: <p>The request couldn't be processed because of conflict in the current state of the resource. Example: Workflow already exists, Schema already exists, Workflow is currently running, etc. </p>
+            aws_sdk_entityresolution.errors.internal_server_exception.InternalServerException: <p>This exception occurs when there is an internal failure in the Entity Resolution service. </p>
+            aws_sdk_entityresolution.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. </p>
+            aws_sdk_entityresolution.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by Entity Resolution. </p>
+            aws_sdk_entityresolution.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -641,6 +700,13 @@ class EntityResolutionClient:
 
         Args:
             id_namespace_name: <p>The name of the ID namespace.</p>
+
+        Raises:
+            aws_sdk_entityresolution.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action. </p>
+            aws_sdk_entityresolution.errors.internal_server_exception.InternalServerException: <p>This exception occurs when there is an internal failure in the Entity Resolution service. </p>
+            aws_sdk_entityresolution.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. </p>
+            aws_sdk_entityresolution.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by Entity Resolution. </p>
+            aws_sdk_entityresolution.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -678,6 +744,14 @@ class EntityResolutionClient:
 
         Args:
             workflow_name: <p>The name of the workflow to be retrieved.</p>
+
+        Raises:
+            aws_sdk_entityresolution.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action. </p>
+            aws_sdk_entityresolution.errors.conflict_exception.ConflictException: <p>The request couldn't be processed because of conflict in the current state of the resource. Example: Workflow already exists, Schema already exists, Workflow is currently running, etc. </p>
+            aws_sdk_entityresolution.errors.internal_server_exception.InternalServerException: <p>This exception occurs when there is an internal failure in the Entity Resolution service. </p>
+            aws_sdk_entityresolution.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. </p>
+            aws_sdk_entityresolution.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by Entity Resolution. </p>
+            aws_sdk_entityresolution.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -717,6 +791,15 @@ class EntityResolutionClient:
         Args:
             arn: <p>The ARN of the resource for which the policy need to be deleted.</p>
             statement_id: <p>A statement identifier that differentiates the statement from others in the same policy.</p>
+
+        Raises:
+            aws_sdk_entityresolution.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action. </p>
+            aws_sdk_entityresolution.errors.conflict_exception.ConflictException: <p>The request couldn't be processed because of conflict in the current state of the resource. Example: Workflow already exists, Schema already exists, Workflow is currently running, etc. </p>
+            aws_sdk_entityresolution.errors.internal_server_exception.InternalServerException: <p>This exception occurs when there is an internal failure in the Entity Resolution service. </p>
+            aws_sdk_entityresolution.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource couldn't be found. </p>
+            aws_sdk_entityresolution.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. </p>
+            aws_sdk_entityresolution.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by Entity Resolution. </p>
+            aws_sdk_entityresolution.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -755,6 +838,14 @@ class EntityResolutionClient:
 
         Args:
             schema_name: <p>The name of the schema to delete.</p>
+
+        Raises:
+            aws_sdk_entityresolution.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action. </p>
+            aws_sdk_entityresolution.errors.conflict_exception.ConflictException: <p>The request couldn't be processed because of conflict in the current state of the resource. Example: Workflow already exists, Schema already exists, Workflow is currently running, etc. </p>
+            aws_sdk_entityresolution.errors.internal_server_exception.InternalServerException: <p>This exception occurs when there is an internal failure in the Entity Resolution service. </p>
+            aws_sdk_entityresolution.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. </p>
+            aws_sdk_entityresolution.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by Entity Resolution. </p>
+            aws_sdk_entityresolution.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -800,6 +891,14 @@ class EntityResolutionClient:
             workflow_name: <p> The name of the rule-based matching workflow.</p>
             records: <p> The records to match.</p>
             processing_type: <p>The processing mode that determines how Match IDs are generated and results are saved. Each mode provides different levels of accuracy, response time, and completeness of results.</p> <p>If not specified, defaults to <code>CONSISTENT</code>.</p> <p> <code>CONSISTENT</code>: Performs immediate lookup and matching against all existing records, with results saved synchronously. Provides highest accuracy but slower response time.</p> <p> <code>EVENTUAL</code> (shown as <i>Background</i> in the console): Performs initial match ID lookup or generation immediately, with record updates processed asynchronously in the background. Offers faster initial response time, with complete matching results available later in S3. </p> <p> <code>EVENTUAL_NO_LOOKUP</code> (shown as <i>Quick ID generation</i> in the console): Generates new match IDs without checking existing matches, with updates processed asynchronously. Provides fastest response time but should only be used for records known to be unique. </p>
+
+        Raises:
+            aws_sdk_entityresolution.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action. </p>
+            aws_sdk_entityresolution.errors.internal_server_exception.InternalServerException: <p>This exception occurs when there is an internal failure in the Entity Resolution service. </p>
+            aws_sdk_entityresolution.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource couldn't be found. </p>
+            aws_sdk_entityresolution.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. </p>
+            aws_sdk_entityresolution.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by Entity Resolution. </p>
+            aws_sdk_entityresolution.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -844,6 +943,14 @@ class EntityResolutionClient:
         Args:
             workflow_name: <p>The name of the workflow.</p>
             job_id: <p>The ID of the job.</p>
+
+        Raises:
+            aws_sdk_entityresolution.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action. </p>
+            aws_sdk_entityresolution.errors.internal_server_exception.InternalServerException: <p>This exception occurs when there is an internal failure in the Entity Resolution service. </p>
+            aws_sdk_entityresolution.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource couldn't be found. </p>
+            aws_sdk_entityresolution.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. </p>
+            aws_sdk_entityresolution.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by Entity Resolution. </p>
+            aws_sdk_entityresolution.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -882,6 +989,14 @@ class EntityResolutionClient:
 
         Args:
             workflow_name: <p>The name of the workflow.</p>
+
+        Raises:
+            aws_sdk_entityresolution.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action. </p>
+            aws_sdk_entityresolution.errors.internal_server_exception.InternalServerException: <p>This exception occurs when there is an internal failure in the Entity Resolution service. </p>
+            aws_sdk_entityresolution.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource couldn't be found. </p>
+            aws_sdk_entityresolution.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. </p>
+            aws_sdk_entityresolution.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by Entity Resolution. </p>
+            aws_sdk_entityresolution.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -919,6 +1034,14 @@ class EntityResolutionClient:
 
         Args:
             id_namespace_name: <p>The name of the ID namespace.</p>
+
+        Raises:
+            aws_sdk_entityresolution.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action. </p>
+            aws_sdk_entityresolution.errors.internal_server_exception.InternalServerException: <p>This exception occurs when there is an internal failure in the Entity Resolution service. </p>
+            aws_sdk_entityresolution.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource couldn't be found. </p>
+            aws_sdk_entityresolution.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. </p>
+            aws_sdk_entityresolution.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by Entity Resolution. </p>
+            aws_sdk_entityresolution.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -960,6 +1083,14 @@ class EntityResolutionClient:
             workflow_name: <p>The name of the workflow.</p>
             record: <p>The record to fetch the Match ID for.</p>
             apply_normalization: <p>Normalizes the attributes defined in the schema in the input data. For example, if an attribute has an <code>AttributeType</code> of <code>PHONE_NUMBER</code>, and the data in the input table is in a format of 1234567890, Entity Resolution will normalize this field in the output to (123)-456-7890.</p>
+
+        Raises:
+            aws_sdk_entityresolution.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action. </p>
+            aws_sdk_entityresolution.errors.internal_server_exception.InternalServerException: <p>This exception occurs when there is an internal failure in the Entity Resolution service. </p>
+            aws_sdk_entityresolution.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource couldn't be found. </p>
+            aws_sdk_entityresolution.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. </p>
+            aws_sdk_entityresolution.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by Entity Resolution. </p>
+            aws_sdk_entityresolution.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1002,6 +1133,14 @@ class EntityResolutionClient:
         Args:
             workflow_name: <p>The name of the workflow.</p>
             job_id: <p>The ID of the job.</p>
+
+        Raises:
+            aws_sdk_entityresolution.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action. </p>
+            aws_sdk_entityresolution.errors.internal_server_exception.InternalServerException: <p>This exception occurs when there is an internal failure in the Entity Resolution service. </p>
+            aws_sdk_entityresolution.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource couldn't be found. </p>
+            aws_sdk_entityresolution.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. </p>
+            aws_sdk_entityresolution.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by Entity Resolution. </p>
+            aws_sdk_entityresolution.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1040,6 +1179,14 @@ class EntityResolutionClient:
 
         Args:
             workflow_name: <p>The name of the workflow.</p>
+
+        Raises:
+            aws_sdk_entityresolution.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action. </p>
+            aws_sdk_entityresolution.errors.internal_server_exception.InternalServerException: <p>This exception occurs when there is an internal failure in the Entity Resolution service. </p>
+            aws_sdk_entityresolution.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource couldn't be found. </p>
+            aws_sdk_entityresolution.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. </p>
+            aws_sdk_entityresolution.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by Entity Resolution. </p>
+            aws_sdk_entityresolution.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1077,6 +1224,14 @@ class EntityResolutionClient:
 
         Args:
             arn: <p>The Amazon Resource Name (ARN) of the resource for which the policy need to be returned.</p>
+
+        Raises:
+            aws_sdk_entityresolution.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action. </p>
+            aws_sdk_entityresolution.errors.internal_server_exception.InternalServerException: <p>This exception occurs when there is an internal failure in the Entity Resolution service. </p>
+            aws_sdk_entityresolution.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource couldn't be found. </p>
+            aws_sdk_entityresolution.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. </p>
+            aws_sdk_entityresolution.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by Entity Resolution. </p>
+            aws_sdk_entityresolution.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1116,6 +1271,14 @@ class EntityResolutionClient:
         Args:
             provider_name: <p>The name of the provider. This name is typically the company name.</p>
             provider_service_name: <p>The ARN (Amazon Resource Name) of the product that the provider service provides.</p>
+
+        Raises:
+            aws_sdk_entityresolution.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action. </p>
+            aws_sdk_entityresolution.errors.internal_server_exception.InternalServerException: <p>This exception occurs when there is an internal failure in the Entity Resolution service. </p>
+            aws_sdk_entityresolution.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource couldn't be found. </p>
+            aws_sdk_entityresolution.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. </p>
+            aws_sdk_entityresolution.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by Entity Resolution. </p>
+            aws_sdk_entityresolution.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1154,6 +1317,14 @@ class EntityResolutionClient:
 
         Args:
             schema_name: <p>The name of the schema to be retrieved.</p>
+
+        Raises:
+            aws_sdk_entityresolution.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action. </p>
+            aws_sdk_entityresolution.errors.internal_server_exception.InternalServerException: <p>This exception occurs when there is an internal failure in the Entity Resolution service. </p>
+            aws_sdk_entityresolution.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource couldn't be found. </p>
+            aws_sdk_entityresolution.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. </p>
+            aws_sdk_entityresolution.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by Entity Resolution. </p>
+            aws_sdk_entityresolution.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1197,6 +1368,14 @@ class EntityResolutionClient:
             workflow_name: <p>The name of the workflow to be retrieved.</p>
             next_token: <p>The pagination token from the previous API call.</p>
             max_results: <p>The maximum number of objects returned per page.</p>
+
+        Raises:
+            aws_sdk_entityresolution.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action. </p>
+            aws_sdk_entityresolution.errors.internal_server_exception.InternalServerException: <p>This exception occurs when there is an internal failure in the Entity Resolution service. </p>
+            aws_sdk_entityresolution.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource couldn't be found. </p>
+            aws_sdk_entityresolution.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. </p>
+            aws_sdk_entityresolution.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by Entity Resolution. </p>
+            aws_sdk_entityresolution.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1267,6 +1446,13 @@ class EntityResolutionClient:
         Args:
             next_token: <p>The pagination token from the previous API call.</p>
             max_results: <p>The maximum number of objects returned per page.</p>
+
+        Raises:
+            aws_sdk_entityresolution.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action. </p>
+            aws_sdk_entityresolution.errors.internal_server_exception.InternalServerException: <p>This exception occurs when there is an internal failure in the Entity Resolution service. </p>
+            aws_sdk_entityresolution.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. </p>
+            aws_sdk_entityresolution.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by Entity Resolution. </p>
+            aws_sdk_entityresolution.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1334,6 +1520,13 @@ class EntityResolutionClient:
         Args:
             next_token: <p>The pagination token from the previous API call.</p>
             max_results: <p>The maximum number of <code>IdNamespace</code> objects returned per page.</p>
+
+        Raises:
+            aws_sdk_entityresolution.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action. </p>
+            aws_sdk_entityresolution.errors.internal_server_exception.InternalServerException: <p>This exception occurs when there is an internal failure in the Entity Resolution service. </p>
+            aws_sdk_entityresolution.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. </p>
+            aws_sdk_entityresolution.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by Entity Resolution. </p>
+            aws_sdk_entityresolution.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1403,6 +1596,14 @@ class EntityResolutionClient:
             workflow_name: <p>The name of the workflow to be retrieved.</p>
             next_token: <p>The pagination token from the previous API call.</p>
             max_results: <p>The maximum number of objects returned per page.</p>
+
+        Raises:
+            aws_sdk_entityresolution.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action. </p>
+            aws_sdk_entityresolution.errors.internal_server_exception.InternalServerException: <p>This exception occurs when there is an internal failure in the Entity Resolution service. </p>
+            aws_sdk_entityresolution.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource couldn't be found. </p>
+            aws_sdk_entityresolution.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. </p>
+            aws_sdk_entityresolution.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by Entity Resolution. </p>
+            aws_sdk_entityresolution.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1473,6 +1674,13 @@ class EntityResolutionClient:
         Args:
             next_token: <p>The pagination token from the previous API call.</p>
             max_results: <p>The maximum number of objects returned per page.</p>
+
+        Raises:
+            aws_sdk_entityresolution.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action. </p>
+            aws_sdk_entityresolution.errors.internal_server_exception.InternalServerException: <p>This exception occurs when there is an internal failure in the Entity Resolution service. </p>
+            aws_sdk_entityresolution.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. </p>
+            aws_sdk_entityresolution.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by Entity Resolution. </p>
+            aws_sdk_entityresolution.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1544,6 +1752,13 @@ class EntityResolutionClient:
             next_token: <p>The pagination token from the previous API call.</p>
             max_results: <p>The maximum number of objects returned per page.</p>
             provider_name: <p>The name of the provider. This name is typically the company name.</p>
+
+        Raises:
+            aws_sdk_entityresolution.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action. </p>
+            aws_sdk_entityresolution.errors.internal_server_exception.InternalServerException: <p>This exception occurs when there is an internal failure in the Entity Resolution service. </p>
+            aws_sdk_entityresolution.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. </p>
+            aws_sdk_entityresolution.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by Entity Resolution. </p>
+            aws_sdk_entityresolution.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1617,6 +1832,13 @@ class EntityResolutionClient:
         Args:
             next_token: <p>The pagination token from the previous API call.</p>
             max_results: <p>The maximum number of objects returned per page.</p>
+
+        Raises:
+            aws_sdk_entityresolution.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action. </p>
+            aws_sdk_entityresolution.errors.internal_server_exception.InternalServerException: <p>This exception occurs when there is an internal failure in the Entity Resolution service. </p>
+            aws_sdk_entityresolution.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. </p>
+            aws_sdk_entityresolution.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by Entity Resolution. </p>
+            aws_sdk_entityresolution.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1680,6 +1902,12 @@ class EntityResolutionClient:
 
         Args:
             resource_arn: <p>The ARN of the resource for which you want to view tags.</p>
+
+        Raises:
+            aws_sdk_entityresolution.errors.internal_server_exception.InternalServerException: <p>This exception occurs when there is an internal failure in the Entity Resolution service. </p>
+            aws_sdk_entityresolution.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource couldn't be found. </p>
+            aws_sdk_entityresolution.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by Entity Resolution. </p>
+            aws_sdk_entityresolution.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1723,6 +1951,15 @@ class EntityResolutionClient:
             arn: <p>The Amazon Resource Name (ARN) of the resource for which the policy needs to be updated.</p>
             token: <p>A unique identifier for the current revision of the policy.</p>
             policy: <p>The resource-based policy.</p> <important> <p>If you set the value of the <code>effect</code> parameter in the <code>policy</code> to <code>Deny</code> for the <code>PutPolicy</code> operation, you must also set the value of the <code>effect</code> parameter to <code>Deny</code> for the <code>AddPolicyStatement</code> operation.</p> </important>
+
+        Raises:
+            aws_sdk_entityresolution.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action. </p>
+            aws_sdk_entityresolution.errors.conflict_exception.ConflictException: <p>The request couldn't be processed because of conflict in the current state of the resource. Example: Workflow already exists, Schema already exists, Workflow is currently running, etc. </p>
+            aws_sdk_entityresolution.errors.internal_server_exception.InternalServerException: <p>This exception occurs when there is an internal failure in the Entity Resolution service. </p>
+            aws_sdk_entityresolution.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource couldn't be found. </p>
+            aws_sdk_entityresolution.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. </p>
+            aws_sdk_entityresolution.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by Entity Resolution. </p>
+            aws_sdk_entityresolution.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1769,6 +2006,16 @@ class EntityResolutionClient:
             workflow_name: <p>The name of the ID mapping job to be retrieved.</p>
             output_source_config: <p>A list of <code>OutputSource</code> objects.</p>
             job_type: <p> The job type for the ID mapping job.</p> <p>If the <code>jobType</code> value is set to <code>INCREMENTAL</code>, only new or changed data is processed since the last job run. This is the default value if the <code>CreateIdMappingWorkflow</code> API is configured with an <code>incrementalRunConfig</code>.</p> <p>If the <code>jobType</code> value is set to <code>BATCH</code>, all data is processed from the input source, regardless of previous job runs. This is the default value if the <code>CreateIdMappingWorkflow</code> API isn't configured with an <code>incrementalRunConfig</code>.</p> <p>If the <code>jobType</code> value is set to <code>DELETE_ONLY</code>, only deletion requests from <code>BatchDeleteUniqueIds</code> are processed.</p>
+
+        Raises:
+            aws_sdk_entityresolution.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action. </p>
+            aws_sdk_entityresolution.errors.conflict_exception.ConflictException: <p>The request couldn't be processed because of conflict in the current state of the resource. Example: Workflow already exists, Schema already exists, Workflow is currently running, etc. </p>
+            aws_sdk_entityresolution.errors.exceeds_limit_exception.ExceedsLimitException: <p>The request was rejected because it attempted to create resources beyond the current Entity Resolution account limits. The error message describes the limit exceeded. </p>
+            aws_sdk_entityresolution.errors.internal_server_exception.InternalServerException: <p>This exception occurs when there is an internal failure in the Entity Resolution service. </p>
+            aws_sdk_entityresolution.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource couldn't be found. </p>
+            aws_sdk_entityresolution.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. </p>
+            aws_sdk_entityresolution.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by Entity Resolution. </p>
+            aws_sdk_entityresolution.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1810,6 +2057,16 @@ class EntityResolutionClient:
 
         Args:
             workflow_name: <p>The name of the matching job to be retrieved.</p>
+
+        Raises:
+            aws_sdk_entityresolution.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action. </p>
+            aws_sdk_entityresolution.errors.conflict_exception.ConflictException: <p>The request couldn't be processed because of conflict in the current state of the resource. Example: Workflow already exists, Schema already exists, Workflow is currently running, etc. </p>
+            aws_sdk_entityresolution.errors.exceeds_limit_exception.ExceedsLimitException: <p>The request was rejected because it attempted to create resources beyond the current Entity Resolution account limits. The error message describes the limit exceeded. </p>
+            aws_sdk_entityresolution.errors.internal_server_exception.InternalServerException: <p>This exception occurs when there is an internal failure in the Entity Resolution service. </p>
+            aws_sdk_entityresolution.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource couldn't be found. </p>
+            aws_sdk_entityresolution.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. </p>
+            aws_sdk_entityresolution.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by Entity Resolution. </p>
+            aws_sdk_entityresolution.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1849,6 +2106,12 @@ class EntityResolutionClient:
         Args:
             resource_arn: <p>The ARN of the resource for which you want to view tags.</p>
             tags: <p>The tags used to organize, track, or control access for this resource.</p>
+
+        Raises:
+            aws_sdk_entityresolution.errors.internal_server_exception.InternalServerException: <p>This exception occurs when there is an internal failure in the Entity Resolution service. </p>
+            aws_sdk_entityresolution.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource couldn't be found. </p>
+            aws_sdk_entityresolution.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by Entity Resolution. </p>
+            aws_sdk_entityresolution.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1889,6 +2152,11 @@ class EntityResolutionClient:
         Args:
             resource_arn: <p>The ARN of the resource for which you want to untag.</p>
             tag_keys: <p>The list of tag keys to remove from the resource.</p>
+
+        Raises:
+            aws_sdk_entityresolution.errors.internal_server_exception.InternalServerException: <p>This exception occurs when there is an internal failure in the Entity Resolution service. </p>
+            aws_sdk_entityresolution.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource couldn't be found. </p>
+            aws_sdk_entityresolution.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1947,6 +2215,14 @@ class EntityResolutionClient:
             id_mapping_techniques: <p>An object which defines the ID mapping technique and any additional configurations.</p>
             incremental_run_config: <p> The incremental run configuration for the update ID mapping workflow.</p>
             role_arn: <p>The Amazon Resource Name (ARN) of the IAM role. Entity Resolution assumes this role to access Amazon Web Services resources on your behalf.</p>
+
+        Raises:
+            aws_sdk_entityresolution.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action. </p>
+            aws_sdk_entityresolution.errors.internal_server_exception.InternalServerException: <p>This exception occurs when there is an internal failure in the Entity Resolution service. </p>
+            aws_sdk_entityresolution.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource couldn't be found. </p>
+            aws_sdk_entityresolution.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. </p>
+            aws_sdk_entityresolution.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by Entity Resolution. </p>
+            aws_sdk_entityresolution.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2008,6 +2284,14 @@ class EntityResolutionClient:
             input_source_config: <p>A list of <code>InputSource</code> objects, which have the fields <code>InputSourceARN</code> and <code>SchemaName</code>.</p>
             id_mapping_workflow_properties: <p>Determines the properties of <code>IdMappingWorkflow</code> where this <code>IdNamespace</code> can be used as a <code>Source</code> or a <code>Target</code>.</p>
             role_arn: <p>The Amazon Resource Name (ARN) of the IAM role. Entity Resolution assumes this role to access the resources defined in this <code>IdNamespace</code> on your behalf as part of a workflow run.</p>
+
+        Raises:
+            aws_sdk_entityresolution.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action. </p>
+            aws_sdk_entityresolution.errors.internal_server_exception.InternalServerException: <p>This exception occurs when there is an internal failure in the Entity Resolution service. </p>
+            aws_sdk_entityresolution.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource couldn't be found. </p>
+            aws_sdk_entityresolution.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. </p>
+            aws_sdk_entityresolution.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by Entity Resolution. </p>
+            aws_sdk_entityresolution.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2069,6 +2353,14 @@ class EntityResolutionClient:
             resolution_techniques: <p>An object which defines the <code>resolutionType</code> and the <code>ruleBasedProperties</code>.</p>
             incremental_run_config: <p>Optional. An object that defines the incremental run type. This object contains only the <code>incrementalRunType</code> field, which appears as \"Automatic\" in the console. </p> <important> <p>For workflows where <code>resolutionType</code> is <code>ML_MATCHING</code> or <code>PROVIDER</code>, incremental processing is not supported. </p> </important>
             role_arn: <p>The Amazon Resource Name (ARN) of the IAM role. Entity Resolution assumes this role to create resources on your behalf as part of workflow execution.</p>
+
+        Raises:
+            aws_sdk_entityresolution.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action. </p>
+            aws_sdk_entityresolution.errors.internal_server_exception.InternalServerException: <p>This exception occurs when there is an internal failure in the Entity Resolution service. </p>
+            aws_sdk_entityresolution.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource couldn't be found. </p>
+            aws_sdk_entityresolution.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. </p>
+            aws_sdk_entityresolution.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by Entity Resolution. </p>
+            aws_sdk_entityresolution.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2120,6 +2412,15 @@ class EntityResolutionClient:
             schema_name: <p>The name of the schema. There can't be multiple <code>SchemaMappings</code> with the same name.</p>
             description: <p>A description of the schema.</p>
             mapped_input_fields: <p>A list of <code>MappedInputFields</code>. Each <code>MappedInputField</code> corresponds to a column the source data table, and contains column name plus additional information that Entity Resolution uses for matching.</p>
+
+        Raises:
+            aws_sdk_entityresolution.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action. </p>
+            aws_sdk_entityresolution.errors.conflict_exception.ConflictException: <p>The request couldn't be processed because of conflict in the current state of the resource. Example: Workflow already exists, Schema already exists, Workflow is currently running, etc. </p>
+            aws_sdk_entityresolution.errors.internal_server_exception.InternalServerException: <p>This exception occurs when there is an internal failure in the Entity Resolution service. </p>
+            aws_sdk_entityresolution.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource couldn't be found. </p>
+            aws_sdk_entityresolution.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. </p>
+            aws_sdk_entityresolution.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by Entity Resolution. </p>
+            aws_sdk_entityresolution.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(

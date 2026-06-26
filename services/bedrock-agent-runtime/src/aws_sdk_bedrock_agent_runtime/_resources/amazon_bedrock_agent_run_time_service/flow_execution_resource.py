@@ -65,6 +65,14 @@ class FlowExecutionResource:
             flow_identifier: <p>The unique identifier of the flow.</p>
             flow_alias_identifier: <p>The unique identifier of the flow alias used for the flow execution.</p>
             execution_identifier: <p>The unique identifier of the flow execution.</p>
+
+        Raises:
+            aws_sdk_bedrock_agent_runtime.errors.access_denied_exception.AccessDeniedException: <p>The request is denied because of missing access permissions. Check your permissions and retry your request.</p>
+            aws_sdk_bedrock_agent_runtime.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_bedrock_agent_runtime.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource Amazon Resource Name (ARN) was not found. Check the Amazon Resource Name (ARN) and try your request again.</p>
+            aws_sdk_bedrock_agent_runtime.errors.throttling_exception.ThrottlingException: <p>The number of requests exceeds the limit. Resubmit your request later.</p>
+            aws_sdk_bedrock_agent_runtime.errors.validation_exception.ValidationException: <p>Input validation failed. Check your request parameters and retry the request.</p>
+            aws_sdk_bedrock_agent_runtime.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -108,6 +116,14 @@ class FlowExecutionResource:
             flow_identifier: <p>The unique identifier of the flow.</p>
             flow_alias_identifier: <p>The unique identifier of the flow alias used for the execution.</p>
             execution_identifier: <p>The unique identifier of the flow execution to retrieve.</p>
+
+        Raises:
+            aws_sdk_bedrock_agent_runtime.errors.access_denied_exception.AccessDeniedException: <p>The request is denied because of missing access permissions. Check your permissions and retry your request.</p>
+            aws_sdk_bedrock_agent_runtime.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_bedrock_agent_runtime.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource Amazon Resource Name (ARN) was not found. Check the Amazon Resource Name (ARN) and try your request again.</p>
+            aws_sdk_bedrock_agent_runtime.errors.throttling_exception.ThrottlingException: <p>The number of requests exceeds the limit. Resubmit your request later.</p>
+            aws_sdk_bedrock_agent_runtime.errors.validation_exception.ValidationException: <p>Input validation failed. Check your request parameters and retry the request.</p>
+            aws_sdk_bedrock_agent_runtime.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -161,6 +177,14 @@ class FlowExecutionResource:
             max_results: <p>The maximum number of events to return in a single response. If more events exist than the specified maxResults value, a token is included in the response so that the remaining results can be retrieved.</p>
             next_token: <p>A token to retrieve the next set of results. This value is returned in the response if more results are available.</p>
             event_type: <p>The type of events to retrieve. Specify <code>Node</code> for node-level events or <code>Flow</code> for flow-level events.</p>
+
+        Raises:
+            aws_sdk_bedrock_agent_runtime.errors.access_denied_exception.AccessDeniedException: <p>The request is denied because of missing access permissions. Check your permissions and retry your request.</p>
+            aws_sdk_bedrock_agent_runtime.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_bedrock_agent_runtime.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource Amazon Resource Name (ARN) was not found. Check the Amazon Resource Name (ARN) and try your request again.</p>
+            aws_sdk_bedrock_agent_runtime.errors.throttling_exception.ThrottlingException: <p>The number of requests exceeds the limit. Resubmit your request later.</p>
+            aws_sdk_bedrock_agent_runtime.errors.validation_exception.ValidationException: <p>Input validation failed. Check your request parameters and retry the request.</p>
+            aws_sdk_bedrock_agent_runtime.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -217,6 +241,14 @@ class FlowExecutionResource:
             flow_alias_identifier: <p>The unique identifier of the flow alias to list executions for.</p>
             max_results: <p>The maximum number of flow executions to return in a single response. If more executions exist than the specified <code>maxResults</code> value, a token is included in the response so that the remaining results can be retrieved.</p>
             next_token: <p>A token to retrieve the next set of results. This value is returned in the response if more results are available.</p>
+
+        Raises:
+            aws_sdk_bedrock_agent_runtime.errors.access_denied_exception.AccessDeniedException: <p>The request is denied because of missing access permissions. Check your permissions and retry your request.</p>
+            aws_sdk_bedrock_agent_runtime.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_bedrock_agent_runtime.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource Amazon Resource Name (ARN) was not found. Check the Amazon Resource Name (ARN) and try your request again.</p>
+            aws_sdk_bedrock_agent_runtime.errors.throttling_exception.ThrottlingException: <p>The number of requests exceeds the limit. Resubmit your request later.</p>
+            aws_sdk_bedrock_agent_runtime.errors.validation_exception.ValidationException: <p>Input validation failed. Check your request parameters and retry the request.</p>
+            aws_sdk_bedrock_agent_runtime.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -272,6 +304,18 @@ class FlowExecutionResource:
             flow_execution_name: <p>The unique name for the flow execution. If you don't provide one, a system-generated name is used.</p>
             inputs: <p>The input data required for the flow execution. This must match the input schema defined in the flow.</p>
             model_performance_configuration: <p>The performance settings for the foundation model used in the flow execution.</p>
+
+        Raises:
+            aws_sdk_bedrock_agent_runtime.errors.access_denied_exception.AccessDeniedException: <p>The request is denied because of missing access permissions. Check your permissions and retry your request.</p>
+            aws_sdk_bedrock_agent_runtime.errors.bad_gateway_exception.BadGatewayException: <p>There was an issue with a dependency due to a server issue. Retry your request.</p>
+            aws_sdk_bedrock_agent_runtime.errors.conflict_exception.ConflictException: <p>There was a conflict performing an operation. Resolve the conflict and retry your request.</p>
+            aws_sdk_bedrock_agent_runtime.errors.dependency_failed_exception.DependencyFailedException: <p>There was an issue with a dependency. Check the resource configurations and retry the request.</p>
+            aws_sdk_bedrock_agent_runtime.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_bedrock_agent_runtime.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource Amazon Resource Name (ARN) was not found. Check the Amazon Resource Name (ARN) and try your request again.</p>
+            aws_sdk_bedrock_agent_runtime.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The number of requests exceeds the service quota. Resubmit your request later.</p>
+            aws_sdk_bedrock_agent_runtime.errors.throttling_exception.ThrottlingException: <p>The number of requests exceeds the limit. Resubmit your request later.</p>
+            aws_sdk_bedrock_agent_runtime.errors.validation_exception.ValidationException: <p>Input validation failed. Check your request parameters and retry the request.</p>
+            aws_sdk_bedrock_agent_runtime.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -319,6 +363,17 @@ class FlowExecutionResource:
             flow_identifier: <p>The unique identifier of the flow.</p>
             flow_alias_identifier: <p>The unique identifier of the flow alias used for the execution.</p>
             execution_identifier: <p>The unique identifier of the flow execution to stop.</p>
+
+        Raises:
+            aws_sdk_bedrock_agent_runtime.errors.access_denied_exception.AccessDeniedException: <p>The request is denied because of missing access permissions. Check your permissions and retry your request.</p>
+            aws_sdk_bedrock_agent_runtime.errors.bad_gateway_exception.BadGatewayException: <p>There was an issue with a dependency due to a server issue. Retry your request.</p>
+            aws_sdk_bedrock_agent_runtime.errors.conflict_exception.ConflictException: <p>There was a conflict performing an operation. Resolve the conflict and retry your request.</p>
+            aws_sdk_bedrock_agent_runtime.errors.dependency_failed_exception.DependencyFailedException: <p>There was an issue with a dependency. Check the resource configurations and retry the request.</p>
+            aws_sdk_bedrock_agent_runtime.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_bedrock_agent_runtime.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource Amazon Resource Name (ARN) was not found. Check the Amazon Resource Name (ARN) and try your request again.</p>
+            aws_sdk_bedrock_agent_runtime.errors.throttling_exception.ThrottlingException: <p>The number of requests exceeds the limit. Resubmit your request later.</p>
+            aws_sdk_bedrock_agent_runtime.errors.validation_exception.ValidationException: <p>Input validation failed. Check your request parameters and retry the request.</p>
+            aws_sdk_bedrock_agent_runtime.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -367,6 +422,14 @@ class AsyncFlowExecutionResource:
             flow_identifier: <p>The unique identifier of the flow.</p>
             flow_alias_identifier: <p>The unique identifier of the flow alias used for the flow execution.</p>
             execution_identifier: <p>The unique identifier of the flow execution.</p>
+
+        Raises:
+            aws_sdk_bedrock_agent_runtime.errors.access_denied_exception.AccessDeniedException: <p>The request is denied because of missing access permissions. Check your permissions and retry your request.</p>
+            aws_sdk_bedrock_agent_runtime.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_bedrock_agent_runtime.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource Amazon Resource Name (ARN) was not found. Check the Amazon Resource Name (ARN) and try your request again.</p>
+            aws_sdk_bedrock_agent_runtime.errors.throttling_exception.ThrottlingException: <p>The number of requests exceeds the limit. Resubmit your request later.</p>
+            aws_sdk_bedrock_agent_runtime.errors.validation_exception.ValidationException: <p>Input validation failed. Check your request parameters and retry the request.</p>
+            aws_sdk_bedrock_agent_runtime.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -411,6 +474,14 @@ class AsyncFlowExecutionResource:
             flow_identifier: <p>The unique identifier of the flow.</p>
             flow_alias_identifier: <p>The unique identifier of the flow alias used for the execution.</p>
             execution_identifier: <p>The unique identifier of the flow execution to retrieve.</p>
+
+        Raises:
+            aws_sdk_bedrock_agent_runtime.errors.access_denied_exception.AccessDeniedException: <p>The request is denied because of missing access permissions. Check your permissions and retry your request.</p>
+            aws_sdk_bedrock_agent_runtime.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_bedrock_agent_runtime.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource Amazon Resource Name (ARN) was not found. Check the Amazon Resource Name (ARN) and try your request again.</p>
+            aws_sdk_bedrock_agent_runtime.errors.throttling_exception.ThrottlingException: <p>The number of requests exceeds the limit. Resubmit your request later.</p>
+            aws_sdk_bedrock_agent_runtime.errors.validation_exception.ValidationException: <p>Input validation failed. Check your request parameters and retry the request.</p>
+            aws_sdk_bedrock_agent_runtime.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -465,6 +536,14 @@ class AsyncFlowExecutionResource:
             max_results: <p>The maximum number of events to return in a single response. If more events exist than the specified maxResults value, a token is included in the response so that the remaining results can be retrieved.</p>
             next_token: <p>A token to retrieve the next set of results. This value is returned in the response if more results are available.</p>
             event_type: <p>The type of events to retrieve. Specify <code>Node</code> for node-level events or <code>Flow</code> for flow-level events.</p>
+
+        Raises:
+            aws_sdk_bedrock_agent_runtime.errors.access_denied_exception.AccessDeniedException: <p>The request is denied because of missing access permissions. Check your permissions and retry your request.</p>
+            aws_sdk_bedrock_agent_runtime.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_bedrock_agent_runtime.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource Amazon Resource Name (ARN) was not found. Check the Amazon Resource Name (ARN) and try your request again.</p>
+            aws_sdk_bedrock_agent_runtime.errors.throttling_exception.ThrottlingException: <p>The number of requests exceeds the limit. Resubmit your request later.</p>
+            aws_sdk_bedrock_agent_runtime.errors.validation_exception.ValidationException: <p>Input validation failed. Check your request parameters and retry the request.</p>
+            aws_sdk_bedrock_agent_runtime.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -522,6 +601,14 @@ class AsyncFlowExecutionResource:
             flow_alias_identifier: <p>The unique identifier of the flow alias to list executions for.</p>
             max_results: <p>The maximum number of flow executions to return in a single response. If more executions exist than the specified <code>maxResults</code> value, a token is included in the response so that the remaining results can be retrieved.</p>
             next_token: <p>A token to retrieve the next set of results. This value is returned in the response if more results are available.</p>
+
+        Raises:
+            aws_sdk_bedrock_agent_runtime.errors.access_denied_exception.AccessDeniedException: <p>The request is denied because of missing access permissions. Check your permissions and retry your request.</p>
+            aws_sdk_bedrock_agent_runtime.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_bedrock_agent_runtime.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource Amazon Resource Name (ARN) was not found. Check the Amazon Resource Name (ARN) and try your request again.</p>
+            aws_sdk_bedrock_agent_runtime.errors.throttling_exception.ThrottlingException: <p>The number of requests exceeds the limit. Resubmit your request later.</p>
+            aws_sdk_bedrock_agent_runtime.errors.validation_exception.ValidationException: <p>Input validation failed. Check your request parameters and retry the request.</p>
+            aws_sdk_bedrock_agent_runtime.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -578,6 +665,18 @@ class AsyncFlowExecutionResource:
             flow_execution_name: <p>The unique name for the flow execution. If you don't provide one, a system-generated name is used.</p>
             inputs: <p>The input data required for the flow execution. This must match the input schema defined in the flow.</p>
             model_performance_configuration: <p>The performance settings for the foundation model used in the flow execution.</p>
+
+        Raises:
+            aws_sdk_bedrock_agent_runtime.errors.access_denied_exception.AccessDeniedException: <p>The request is denied because of missing access permissions. Check your permissions and retry your request.</p>
+            aws_sdk_bedrock_agent_runtime.errors.bad_gateway_exception.BadGatewayException: <p>There was an issue with a dependency due to a server issue. Retry your request.</p>
+            aws_sdk_bedrock_agent_runtime.errors.conflict_exception.ConflictException: <p>There was a conflict performing an operation. Resolve the conflict and retry your request.</p>
+            aws_sdk_bedrock_agent_runtime.errors.dependency_failed_exception.DependencyFailedException: <p>There was an issue with a dependency. Check the resource configurations and retry the request.</p>
+            aws_sdk_bedrock_agent_runtime.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_bedrock_agent_runtime.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource Amazon Resource Name (ARN) was not found. Check the Amazon Resource Name (ARN) and try your request again.</p>
+            aws_sdk_bedrock_agent_runtime.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The number of requests exceeds the service quota. Resubmit your request later.</p>
+            aws_sdk_bedrock_agent_runtime.errors.throttling_exception.ThrottlingException: <p>The number of requests exceeds the limit. Resubmit your request later.</p>
+            aws_sdk_bedrock_agent_runtime.errors.validation_exception.ValidationException: <p>Input validation failed. Check your request parameters and retry the request.</p>
+            aws_sdk_bedrock_agent_runtime.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -626,6 +725,17 @@ class AsyncFlowExecutionResource:
             flow_identifier: <p>The unique identifier of the flow.</p>
             flow_alias_identifier: <p>The unique identifier of the flow alias used for the execution.</p>
             execution_identifier: <p>The unique identifier of the flow execution to stop.</p>
+
+        Raises:
+            aws_sdk_bedrock_agent_runtime.errors.access_denied_exception.AccessDeniedException: <p>The request is denied because of missing access permissions. Check your permissions and retry your request.</p>
+            aws_sdk_bedrock_agent_runtime.errors.bad_gateway_exception.BadGatewayException: <p>There was an issue with a dependency due to a server issue. Retry your request.</p>
+            aws_sdk_bedrock_agent_runtime.errors.conflict_exception.ConflictException: <p>There was a conflict performing an operation. Resolve the conflict and retry your request.</p>
+            aws_sdk_bedrock_agent_runtime.errors.dependency_failed_exception.DependencyFailedException: <p>There was an issue with a dependency. Check the resource configurations and retry the request.</p>
+            aws_sdk_bedrock_agent_runtime.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_bedrock_agent_runtime.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource Amazon Resource Name (ARN) was not found. Check the Amazon Resource Name (ARN) and try your request again.</p>
+            aws_sdk_bedrock_agent_runtime.errors.throttling_exception.ThrottlingException: <p>The number of requests exceeds the limit. Resubmit your request later.</p>
+            aws_sdk_bedrock_agent_runtime.errors.validation_exception.ValidationException: <p>Input validation failed. Check your request parameters and retry the request.</p>
+            aws_sdk_bedrock_agent_runtime.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

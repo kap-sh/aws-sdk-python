@@ -55,6 +55,14 @@ class AudienceExportJob:
             name: <p>The name of the audience export job.</p>
             audience_generation_job_arn: <p>The Amazon Resource Name (ARN) of the audience generation job that you want to export.</p>
             description: <p>The description of the audience export job.</p>
+
+        Raises:
+            aws_sdk_cleanroomsml.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_cleanroomsml.errors.conflict_exception.ConflictException: <p>You can't complete this action because another resource depends on this resource.</p>
+            aws_sdk_cleanroomsml.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource you are requesting does not exist.</p>
+            aws_sdk_cleanroomsml.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You have exceeded your service quota.</p>
+            aws_sdk_cleanroomsml.errors.validation_exception.ValidationException: <p>The request parameters for this request are incorrect.</p>
+            aws_sdk_cleanroomsml.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -102,6 +110,11 @@ class AudienceExportJob:
             next_token: <p>The token value retrieved from a previous call to access the next page of results.</p>
             max_results: <p>The maximum size of the results that is returned per call.</p>
             audience_generation_job_arn: <p>The Amazon Resource Name (ARN) of the audience generation job that you are interested in.</p>
+
+        Raises:
+            aws_sdk_cleanroomsml.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_cleanroomsml.errors.validation_exception.ValidationException: <p>The request parameters for this request are incorrect.</p>
+            aws_sdk_cleanroomsml.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -156,6 +169,14 @@ class AsyncAudienceExportJob:
             name: <p>The name of the audience export job.</p>
             audience_generation_job_arn: <p>The Amazon Resource Name (ARN) of the audience generation job that you want to export.</p>
             description: <p>The description of the audience export job.</p>
+
+        Raises:
+            aws_sdk_cleanroomsml.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_cleanroomsml.errors.conflict_exception.ConflictException: <p>You can't complete this action because another resource depends on this resource.</p>
+            aws_sdk_cleanroomsml.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource you are requesting does not exist.</p>
+            aws_sdk_cleanroomsml.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You have exceeded your service quota.</p>
+            aws_sdk_cleanroomsml.errors.validation_exception.ValidationException: <p>The request parameters for this request are incorrect.</p>
+            aws_sdk_cleanroomsml.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -204,6 +225,11 @@ class AsyncAudienceExportJob:
             next_token: <p>The token value retrieved from a previous call to access the next page of results.</p>
             max_results: <p>The maximum size of the results that is returned per call.</p>
             audience_generation_job_arn: <p>The Amazon Resource Name (ARN) of the audience generation job that you are interested in.</p>
+
+        Raises:
+            aws_sdk_cleanroomsml.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_cleanroomsml.errors.validation_exception.ValidationException: <p>The request parameters for this request are incorrect.</p>
+            aws_sdk_cleanroomsml.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

@@ -57,6 +57,15 @@ class TemplateSyncConfigResource:
             repository_name: <p>The repository name (for example, <code>myrepos/myrepo</code>).</p>
             branch: <p>The repository branch for your template.</p>
             subdirectory: <p>A repository subdirectory path to your template bundle directory. When included, Proton limits the template bundle search to this repository directory.</p>
+
+        Raises:
+            aws_sdk_proton.errors.access_denied_exception.AccessDeniedException: <p>There <i>isn't</i> sufficient access for performing this action.</p>
+            aws_sdk_proton.errors.conflict_exception.ConflictException: <p>The request <i>couldn't</i> be made due to a conflicting operation or resource.</p>
+            aws_sdk_proton.errors.internal_server_exception.InternalServerException: <p>The request failed to register with the service.</p>
+            aws_sdk_proton.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>A quota was exceeded. For more information, see <a href=\"https://docs.aws.amazon.com/proton/latest/userguide/ag-limits.html\">Proton Quotas</a> in the <i>Proton User Guide</i>.</p>
+            aws_sdk_proton.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_proton.errors.validation_exception.ValidationException: <p>The input is invalid or an out-of-range value was supplied for the input parameter.</p>
+            aws_sdk_proton.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -102,6 +111,14 @@ class TemplateSyncConfigResource:
         Args:
             template_name: <p>The template name.</p>
             template_type: <p>The template type.</p>
+
+        Raises:
+            aws_sdk_proton.errors.access_denied_exception.AccessDeniedException: <p>There <i>isn't</i> sufficient access for performing this action.</p>
+            aws_sdk_proton.errors.internal_server_exception.InternalServerException: <p>The request failed to register with the service.</p>
+            aws_sdk_proton.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource <i>wasn't</i> found.</p>
+            aws_sdk_proton.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_proton.errors.validation_exception.ValidationException: <p>The input is invalid or an out-of-range value was supplied for the input parameter.</p>
+            aws_sdk_proton.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -150,6 +167,15 @@ class TemplateSyncConfigResource:
             repository_name: <p>The repository name (for example, <code>myrepos/myrepo</code>).</p>
             branch: <p>The repository branch for your template.</p>
             subdirectory: <p>A subdirectory path to your template bundle version. When included, limits the template bundle search to this repository directory.</p>
+
+        Raises:
+            aws_sdk_proton.errors.access_denied_exception.AccessDeniedException: <p>There <i>isn't</i> sufficient access for performing this action.</p>
+            aws_sdk_proton.errors.conflict_exception.ConflictException: <p>The request <i>couldn't</i> be made due to a conflicting operation or resource.</p>
+            aws_sdk_proton.errors.internal_server_exception.InternalServerException: <p>The request failed to register with the service.</p>
+            aws_sdk_proton.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource <i>wasn't</i> found.</p>
+            aws_sdk_proton.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_proton.errors.validation_exception.ValidationException: <p>The input is invalid or an out-of-range value was supplied for the input parameter.</p>
+            aws_sdk_proton.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -195,6 +221,15 @@ class TemplateSyncConfigResource:
         Args:
             template_name: <p>The template name.</p>
             template_type: <p>The template type.</p>
+
+        Raises:
+            aws_sdk_proton.errors.access_denied_exception.AccessDeniedException: <p>There <i>isn't</i> sufficient access for performing this action.</p>
+            aws_sdk_proton.errors.conflict_exception.ConflictException: <p>The request <i>couldn't</i> be made due to a conflicting operation or resource.</p>
+            aws_sdk_proton.errors.internal_server_exception.InternalServerException: <p>The request failed to register with the service.</p>
+            aws_sdk_proton.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource <i>wasn't</i> found.</p>
+            aws_sdk_proton.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_proton.errors.validation_exception.ValidationException: <p>The input is invalid or an out-of-range value was supplied for the input parameter.</p>
+            aws_sdk_proton.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -248,6 +283,15 @@ class AsyncTemplateSyncConfigResource:
             repository_name: <p>The repository name (for example, <code>myrepos/myrepo</code>).</p>
             branch: <p>The repository branch for your template.</p>
             subdirectory: <p>A repository subdirectory path to your template bundle directory. When included, Proton limits the template bundle search to this repository directory.</p>
+
+        Raises:
+            aws_sdk_proton.errors.access_denied_exception.AccessDeniedException: <p>There <i>isn't</i> sufficient access for performing this action.</p>
+            aws_sdk_proton.errors.conflict_exception.ConflictException: <p>The request <i>couldn't</i> be made due to a conflicting operation or resource.</p>
+            aws_sdk_proton.errors.internal_server_exception.InternalServerException: <p>The request failed to register with the service.</p>
+            aws_sdk_proton.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>A quota was exceeded. For more information, see <a href=\"https://docs.aws.amazon.com/proton/latest/userguide/ag-limits.html\">Proton Quotas</a> in the <i>Proton User Guide</i>.</p>
+            aws_sdk_proton.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_proton.errors.validation_exception.ValidationException: <p>The input is invalid or an out-of-range value was supplied for the input parameter.</p>
+            aws_sdk_proton.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -294,6 +338,14 @@ class AsyncTemplateSyncConfigResource:
         Args:
             template_name: <p>The template name.</p>
             template_type: <p>The template type.</p>
+
+        Raises:
+            aws_sdk_proton.errors.access_denied_exception.AccessDeniedException: <p>There <i>isn't</i> sufficient access for performing this action.</p>
+            aws_sdk_proton.errors.internal_server_exception.InternalServerException: <p>The request failed to register with the service.</p>
+            aws_sdk_proton.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource <i>wasn't</i> found.</p>
+            aws_sdk_proton.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_proton.errors.validation_exception.ValidationException: <p>The input is invalid or an out-of-range value was supplied for the input parameter.</p>
+            aws_sdk_proton.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -343,6 +395,15 @@ class AsyncTemplateSyncConfigResource:
             repository_name: <p>The repository name (for example, <code>myrepos/myrepo</code>).</p>
             branch: <p>The repository branch for your template.</p>
             subdirectory: <p>A subdirectory path to your template bundle version. When included, limits the template bundle search to this repository directory.</p>
+
+        Raises:
+            aws_sdk_proton.errors.access_denied_exception.AccessDeniedException: <p>There <i>isn't</i> sufficient access for performing this action.</p>
+            aws_sdk_proton.errors.conflict_exception.ConflictException: <p>The request <i>couldn't</i> be made due to a conflicting operation or resource.</p>
+            aws_sdk_proton.errors.internal_server_exception.InternalServerException: <p>The request failed to register with the service.</p>
+            aws_sdk_proton.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource <i>wasn't</i> found.</p>
+            aws_sdk_proton.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_proton.errors.validation_exception.ValidationException: <p>The input is invalid or an out-of-range value was supplied for the input parameter.</p>
+            aws_sdk_proton.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -389,6 +450,15 @@ class AsyncTemplateSyncConfigResource:
         Args:
             template_name: <p>The template name.</p>
             template_type: <p>The template type.</p>
+
+        Raises:
+            aws_sdk_proton.errors.access_denied_exception.AccessDeniedException: <p>There <i>isn't</i> sufficient access for performing this action.</p>
+            aws_sdk_proton.errors.conflict_exception.ConflictException: <p>The request <i>couldn't</i> be made due to a conflicting operation or resource.</p>
+            aws_sdk_proton.errors.internal_server_exception.InternalServerException: <p>The request failed to register with the service.</p>
+            aws_sdk_proton.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource <i>wasn't</i> found.</p>
+            aws_sdk_proton.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_proton.errors.validation_exception.ValidationException: <p>The input is invalid or an out-of-range value was supplied for the input parameter.</p>
+            aws_sdk_proton.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

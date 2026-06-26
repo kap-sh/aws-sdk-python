@@ -538,6 +538,17 @@ class LightsailClient:
 
         Args:
             static_ip_name: <p>The name of the static IP address.</p>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.account_setup_in_progress_exception.AccountSetupInProgressException: <p>Lightsail throws this exception when an account is still in the setup in progress state.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.not_found_exception.NotFoundException: <p>Lightsail throws this exception when it cannot find a resource.</p>
+            aws_sdk_lightsail.errors.operation_failure_exception.OperationFailureException: <p>Lightsail throws this exception when an operation fails to execute.</p>
+            aws_sdk_lightsail.errors.region_setup_in_progress_exception.RegionSetupInProgressException: <p>Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -577,6 +588,15 @@ class LightsailClient:
         Args:
             distribution_name: <p>The name of the distribution that the certificate will be attached to.</p> <p>Use the <code>GetDistributions</code> action to get a list of distribution names that you can specify.</p>
             certificate_name: <p>The name of the certificate to attach to a distribution.</p> <p>Only certificates with a status of <code>ISSUED</code> can be attached to a distribution.</p> <p>Use the <code>GetCertificates</code> action to get a list of certificate names that you can specify.</p> <note> <p>This is the name of the certificate resource type and is used only to reference the certificate in other API actions. It can be different than the domain name of the certificate. For example, your certificate name might be <code>WordPress-Blog-Certificate</code> and the domain name of the certificate might be <code>example.com</code>.</p> </note>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.not_found_exception.NotFoundException: <p>Lightsail throws this exception when it cannot find a resource.</p>
+            aws_sdk_lightsail.errors.operation_failure_exception.OperationFailureException: <p>Lightsail throws this exception when an operation fails to execute.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -621,6 +641,17 @@ class LightsailClient:
             instance_name: <p>The name of the Lightsail instance where you want to utilize the storage disk.</p>
             disk_path: <p>The disk path to expose to the instance (<code>/dev/xvdf</code>).</p>
             auto_mounting: <p>A Boolean value used to determine the automatic mounting of a storage volume to a virtual computer. The default value is <code>False</code>.</p> <important> <p>This value only applies to Lightsail for Research resources.</p> </important>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.account_setup_in_progress_exception.AccountSetupInProgressException: <p>Lightsail throws this exception when an account is still in the setup in progress state.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.not_found_exception.NotFoundException: <p>Lightsail throws this exception when it cannot find a resource.</p>
+            aws_sdk_lightsail.errors.operation_failure_exception.OperationFailureException: <p>Lightsail throws this exception when an operation fails to execute.</p>
+            aws_sdk_lightsail.errors.region_setup_in_progress_exception.RegionSetupInProgressException: <p>Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -664,6 +695,17 @@ class LightsailClient:
         Args:
             load_balancer_name: <p>The name of the load balancer.</p>
             instance_names: <p>An array of strings representing the instance name(s) you want to attach to your load balancer.</p> <p>An instance must be <code>running</code> before you can attach it to your load balancer.</p> <p>There are no additional limits on the number of instances you can attach to your load balancer, aside from the limit of Lightsail instances you can create in your account (20).</p>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.account_setup_in_progress_exception.AccountSetupInProgressException: <p>Lightsail throws this exception when an account is still in the setup in progress state.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.not_found_exception.NotFoundException: <p>Lightsail throws this exception when it cannot find a resource.</p>
+            aws_sdk_lightsail.errors.operation_failure_exception.OperationFailureException: <p>Lightsail throws this exception when an operation fails to execute.</p>
+            aws_sdk_lightsail.errors.region_setup_in_progress_exception.RegionSetupInProgressException: <p>Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -704,6 +746,17 @@ class LightsailClient:
         Args:
             load_balancer_name: <p>The name of the load balancer to which you want to associate the SSL/TLS certificate.</p>
             certificate_name: <p>The name of your SSL/TLS certificate.</p>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.account_setup_in_progress_exception.AccountSetupInProgressException: <p>Lightsail throws this exception when an account is still in the setup in progress state.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.not_found_exception.NotFoundException: <p>Lightsail throws this exception when it cannot find a resource.</p>
+            aws_sdk_lightsail.errors.operation_failure_exception.OperationFailureException: <p>Lightsail throws this exception when an operation fails to execute.</p>
+            aws_sdk_lightsail.errors.region_setup_in_progress_exception.RegionSetupInProgressException: <p>Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -744,6 +797,17 @@ class LightsailClient:
         Args:
             static_ip_name: <p>The name of the static IP.</p>
             instance_name: <p>The instance name to which you want to attach the static IP address.</p>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.account_setup_in_progress_exception.AccountSetupInProgressException: <p>Lightsail throws this exception when an account is still in the setup in progress state.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.not_found_exception.NotFoundException: <p>Lightsail throws this exception when it cannot find a resource.</p>
+            aws_sdk_lightsail.errors.operation_failure_exception.OperationFailureException: <p>Lightsail throws this exception when an operation fails to execute.</p>
+            aws_sdk_lightsail.errors.region_setup_in_progress_exception.RegionSetupInProgressException: <p>Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -784,6 +848,17 @@ class LightsailClient:
         Args:
             port_info: <p>An object to describe the ports to close for the specified instance.</p>
             instance_name: <p>The name of the instance for which to close ports.</p>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.account_setup_in_progress_exception.AccountSetupInProgressException: <p>Lightsail throws this exception when an account is still in the setup in progress state.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.not_found_exception.NotFoundException: <p>Lightsail throws this exception when it cannot find a resource.</p>
+            aws_sdk_lightsail.errors.operation_failure_exception.OperationFailureException: <p>Lightsail throws this exception when an operation fails to execute.</p>
+            aws_sdk_lightsail.errors.region_setup_in_progress_exception.RegionSetupInProgressException: <p>Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -836,6 +911,17 @@ class LightsailClient:
             use_latest_restorable_auto_snapshot: <p>A Boolean value to indicate whether to use the latest available automatic snapshot of the specified source instance or disk.</p> <p>Constraints:</p> <ul> <li> <p>This parameter cannot be defined together with the <code>restore date</code> parameter. The <code>use latest restorable auto snapshot</code> and <code>restore date</code> parameters are mutually exclusive.</p> </li> <li> <p>Define this parameter only when copying an automatic snapshot as a manual snapshot. For more information, see the <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-keeping-automatic-snapshots\">Amazon Lightsail Developer Guide</a>.</p> </li> </ul>
             target_snapshot_name: <p>The name of the new manual snapshot to be created as a copy.</p>
             source_region: <p>The Amazon Web Services Region where the source manual or automatic snapshot is located.</p>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.account_setup_in_progress_exception.AccountSetupInProgressException: <p>Lightsail throws this exception when an account is still in the setup in progress state.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.not_found_exception.NotFoundException: <p>Lightsail throws this exception when it cannot find a resource.</p>
+            aws_sdk_lightsail.errors.operation_failure_exception.OperationFailureException: <p>Lightsail throws this exception when an operation fails to execute.</p>
+            aws_sdk_lightsail.errors.region_setup_in_progress_exception.RegionSetupInProgressException: <p>Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -892,6 +978,14 @@ class LightsailClient:
             bundle_id: <p>The ID of the bundle to use for the bucket.</p> <p>A bucket bundle specifies the monthly cost, storage space, and data transfer quota for a bucket.</p> <p>Use the <a href=\"https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetBucketBundles.html\">GetBucketBundles</a> action to get a list of bundle IDs that you can specify.</p> <p>Use the <a href=\"https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_UpdateBucketBundle.html\">UpdateBucketBundle</a> action to change the bundle after the bucket is created.</p>
             tags: <p>The tag keys and optional values to add to the bucket during creation.</p> <p>Use the <a href=\"https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_TagResource.html\">TagResource</a> action to tag the bucket after it's created.</p>
             enable_object_versioning: <p>A Boolean value that indicates whether to enable versioning of objects in the bucket.</p> <p>For more information about versioning, see <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-managing-bucket-object-versioning\">Enabling and suspending object versioning in a bucket in Amazon Lightsail</a> in the <i>Amazon Lightsail Developer Guide</i>.</p>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.region_setup_in_progress_exception.RegionSetupInProgressException: <p>Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -934,6 +1028,15 @@ class LightsailClient:
 
         Args:
             bucket_name: <p>The name of the bucket that the new access key will belong to, and grant access to.</p>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.not_found_exception.NotFoundException: <p>Lightsail throws this exception when it cannot find a resource.</p>
+            aws_sdk_lightsail.errors.region_setup_in_progress_exception.RegionSetupInProgressException: <p>Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -979,6 +1082,15 @@ class LightsailClient:
             domain_name: <p>The domain name (<code>example.com</code>) for the certificate.</p>
             subject_alternative_names: <p>An array of strings that specify the alternate domains (<code>example2.com</code>) and subdomains (<code>blog.example.com</code>) for the certificate.</p> <p>You can specify a maximum of nine alternate domains (in addition to the primary domain name).</p> <p>Wildcard domain entries (<code>*.example.com</code>) are not supported.</p>
             tags: <p>The tag keys and optional values to add to the certificate during create.</p> <p>Use the <code>TagResource</code> action to tag a resource after it's created.</p>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.not_found_exception.NotFoundException: <p>Lightsail throws this exception when it cannot find a resource.</p>
+            aws_sdk_lightsail.errors.region_setup_in_progress_exception.RegionSetupInProgressException: <p>Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1021,6 +1133,17 @@ class LightsailClient:
 
         Args:
             instances: <p>An array of parameters that will be used to create the new Amazon EC2 instance. You can only pass one instance entry at a time in this array. You will get an invalid parameter error if you pass more than one instance entry in this array.</p>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.account_setup_in_progress_exception.AccountSetupInProgressException: <p>Lightsail throws this exception when an account is still in the setup in progress state.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.not_found_exception.NotFoundException: <p>Lightsail throws this exception when it cannot find a resource.</p>
+            aws_sdk_lightsail.errors.operation_failure_exception.OperationFailureException: <p>Lightsail throws this exception when an operation fails to execute.</p>
+            aws_sdk_lightsail.errors.region_setup_in_progress_exception.RegionSetupInProgressException: <p>Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1064,6 +1187,16 @@ class LightsailClient:
             protocol: <p>The protocol of the contact method, such as <code>Email</code> or <code>SMS</code> (text messaging).</p> <p>The <code>SMS</code> protocol is supported only in the following Amazon Web Services Regions.</p> <ul> <li> <p>US East (N. Virginia) (<code>us-east-1</code>)</p> </li> <li> <p>US West (Oregon) (<code>us-west-2</code>)</p> </li> <li> <p>Europe (Ireland) (<code>eu-west-1</code>)</p> </li> <li> <p>Asia Pacific (Tokyo) (<code>ap-northeast-1</code>)</p> </li> <li> <p>Asia Pacific (Singapore) (<code>ap-southeast-1</code>)</p> </li> <li> <p>Asia Pacific (Sydney) (<code>ap-southeast-2</code>)</p> </li> </ul> <p>For a list of countries/regions where SMS text messages can be sent, and the latest Amazon Web Services Regions where SMS text messaging is supported, see <a href=\"https://docs.aws.amazon.com/sns/latest/dg/sns-supported-regions-countries.html\">Supported Regions and Countries</a> in the <i>Amazon SNS Developer Guide</i>.</p> <p>For more information about notifications in Amazon Lightsail, see <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-notifications\">Notifications in Amazon Lightsail</a>.</p>
             contact_endpoint: <p>The destination of the contact method, such as an email address or a mobile phone number.</p> <p>Use the E.164 format when specifying a mobile phone number. E.164 is a standard for the phone number structure used for international telecommunication. Phone numbers that follow this format can have a maximum of 15 digits, and they are prefixed with the plus character (+) and the country code. For example, a U.S. phone number in E.164 format would be specified as +1XXX5550100. For more information, see <a href=\"https://en.wikipedia.org/wiki/E.164\">E.164</a> on <i>Wikipedia</i>.</p>
             tags: <p>The tag keys and optional values to add to the contact method during create.</p> <p>Use the <code>TagResource</code> action to tag a resource after it's created.</p>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.not_found_exception.NotFoundException: <p>Lightsail throws this exception when it cannot find a resource.</p>
+            aws_sdk_lightsail.errors.operation_failure_exception.OperationFailureException: <p>Lightsail throws this exception when an operation fails to execute.</p>
+            aws_sdk_lightsail.errors.region_setup_in_progress_exception.RegionSetupInProgressException: <p>Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1122,6 +1255,15 @@ class LightsailClient:
             public_domain_names: <p>The public domain names to use with the container service, such as <code>example.com</code> and <code>www.example.com</code>.</p> <p>You can specify up to four public domain names for a container service. The domain names that you specify are used when you create a deployment with a container configured as the public endpoint of your container service.</p> <p>If you don't specify public domain names, then you can use the default domain of the container service.</p> <important> <p>You must create and validate an SSL/TLS certificate before you can use public domain names with your container service. Use the <code>CreateCertificate</code> action to create a certificate for the public domain names you want to use with your container service.</p> </important> <p>You can specify public domain names using a string to array map as shown in the example later on this page.</p>
             deployment: <p>An object that describes a deployment for the container service.</p> <p>A deployment specifies the containers that will be launched on the container service and their settings, such as the ports to open, the environment variables to apply, and the launch command to run. It also specifies the container that will serve as the public endpoint of the deployment and its settings, such as the HTTP or HTTPS port to use, and the health check configuration.</p>
             private_registry_access: <p>An object to describe the configuration for the container service to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-container-service-ecr-private-repo-access\">Configuring access to an Amazon ECR private repository for an Amazon Lightsail container service</a> in the <i>Amazon Lightsail Developer Guide</i>.</p>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.not_found_exception.NotFoundException: <p>Lightsail throws this exception when it cannot find a resource.</p>
+            aws_sdk_lightsail.errors.region_setup_in_progress_exception.RegionSetupInProgressException: <p>Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1177,6 +1319,15 @@ class LightsailClient:
             service_name: <p>The name of the container service for which to create the deployment.</p>
             containers: <p>An object that describes the settings of the containers that will be launched on the container service.</p>
             public_endpoint: <p>An object that describes the settings of the public endpoint for the container service.</p>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.not_found_exception.NotFoundException: <p>Lightsail throws this exception when it cannot find a resource.</p>
+            aws_sdk_lightsail.errors.region_setup_in_progress_exception.RegionSetupInProgressException: <p>Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1211,7 +1362,17 @@ class LightsailClient:
     def create_container_service_registry_login(
         self, *, config_overrides: Optional[LightsailClientConfig] = None
     ) -> "aws_sdk_lightsail.types.create_container_service_registry_login_result.CreateContainerServiceRegistryLoginResult":
-        r"""<p>Creates a temporary set of log in credentials that you can use to log in to the Docker process on your local machine. After you're logged in, you can use the native Docker commands to push your local container images to the container image registry of your Amazon Lightsail account so that you can use them with your Lightsail container service. The log in credentials expire 12 hours after they are created, at which point you will need to create a new set of log in credentials.</p> <note> <p>You can only push container images to the container service registry of your Lightsail account. You cannot pull container images or perform any other container image management actions on the container service registry.</p> </note> <p>After you push your container images to the container image registry of your Lightsail account, use the <code>RegisterContainerImage</code> action to register the pushed images to a specific Lightsail container service.</p> <note> <p>This action is not required if you install and use the Lightsail Control (lightsailctl) plugin to push container images to your Lightsail container service. For more information, see <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-pushing-container-images\">Pushing and managing container images on your Amazon Lightsail container services</a> in the <i>Amazon Lightsail Developer Guide</i>.</p> </note>"""
+        r"""<p>Creates a temporary set of log in credentials that you can use to log in to the Docker process on your local machine. After you're logged in, you can use the native Docker commands to push your local container images to the container image registry of your Amazon Lightsail account so that you can use them with your Lightsail container service. The log in credentials expire 12 hours after they are created, at which point you will need to create a new set of log in credentials.</p> <note> <p>You can only push container images to the container service registry of your Lightsail account. You cannot pull container images or perform any other container image management actions on the container service registry.</p> </note> <p>After you push your container images to the container image registry of your Lightsail account, use the <code>RegisterContainerImage</code> action to register the pushed images to a specific Lightsail container service.</p> <note> <p>This action is not required if you install and use the Lightsail Control (lightsailctl) plugin to push container images to your Lightsail container service. For more information, see <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-pushing-container-images\">Pushing and managing container images on your Amazon Lightsail container services</a> in the <i>Amazon Lightsail Developer Guide</i>.</p> </note>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.not_found_exception.NotFoundException: <p>Lightsail throws this exception when it cannot find a resource.</p>
+            aws_sdk_lightsail.errors.region_setup_in_progress_exception.RegionSetupInProgressException: <p>Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_lightsail.types.create_container_service_registry_login_request.CreateContainerServiceRegistryLoginRequest]",
@@ -1257,6 +1418,17 @@ class LightsailClient:
             size_in_gb: <p>The size of the disk in GB (<code>32</code>).</p>
             tags: <p>The tag keys and optional values to add to the resource during create.</p> <p>Use the <code>TagResource</code> action to tag a resource after it's created.</p>
             add_ons: <p>An array of objects that represent the add-ons to enable for the new disk.</p>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.account_setup_in_progress_exception.AccountSetupInProgressException: <p>Lightsail throws this exception when an account is still in the setup in progress state.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.not_found_exception.NotFoundException: <p>Lightsail throws this exception when it cannot find a resource.</p>
+            aws_sdk_lightsail.errors.operation_failure_exception.OperationFailureException: <p>Lightsail throws this exception when an operation fails to execute.</p>
+            aws_sdk_lightsail.errors.region_setup_in_progress_exception.RegionSetupInProgressException: <p>Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1322,6 +1494,17 @@ class LightsailClient:
             source_disk_name: <p>The name of the source disk from which the source automatic snapshot was created.</p> <p>Constraints:</p> <ul> <li> <p>This parameter cannot be defined together with the <code>disk snapshot name</code> parameter. The <code>source disk name</code> and <code>disk snapshot name</code> parameters are mutually exclusive.</p> </li> <li> <p>Define this parameter only when creating a new disk from an automatic snapshot. For more information, see the <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-configuring-automatic-snapshots\">Amazon Lightsail Developer Guide</a>.</p> </li> </ul>
             restore_date: <p>The date of the automatic snapshot to use for the new disk. Use the <code>get auto snapshots</code> operation to identify the dates of the available automatic snapshots.</p> <p>Constraints:</p> <ul> <li> <p>Must be specified in <code>YYYY-MM-DD</code> format.</p> </li> <li> <p>This parameter cannot be defined together with the <code>use latest restorable auto snapshot</code> parameter. The <code>restore date</code> and <code>use latest restorable auto snapshot</code> parameters are mutually exclusive.</p> </li> <li> <p>Define this parameter only when creating a new disk from an automatic snapshot. For more information, see the <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-configuring-automatic-snapshots\">Amazon Lightsail Developer Guide</a>.</p> </li> </ul>
             use_latest_restorable_auto_snapshot: <p>A Boolean value to indicate whether to use the latest available automatic snapshot.</p> <p>Constraints:</p> <ul> <li> <p>This parameter cannot be defined together with the <code>restore date</code> parameter. The <code>use latest restorable auto snapshot</code> and <code>restore date</code> parameters are mutually exclusive.</p> </li> <li> <p>Define this parameter only when creating a new disk from an automatic snapshot. For more information, see the <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-configuring-automatic-snapshots\">Amazon Lightsail Developer Guide</a>.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.account_setup_in_progress_exception.AccountSetupInProgressException: <p>Lightsail throws this exception when an account is still in the setup in progress state.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.not_found_exception.NotFoundException: <p>Lightsail throws this exception when it cannot find a resource.</p>
+            aws_sdk_lightsail.errors.operation_failure_exception.OperationFailureException: <p>Lightsail throws this exception when an operation fails to execute.</p>
+            aws_sdk_lightsail.errors.region_setup_in_progress_exception.RegionSetupInProgressException: <p>Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1385,6 +1568,17 @@ class LightsailClient:
             disk_snapshot_name: <p>The name of the destination disk snapshot (<code>my-disk-snapshot</code>) based on the source disk.</p>
             instance_name: <p>The unique name of the source instance (<code>Amazon_Linux-512MB-Virginia-1</code>). When this is defined, a snapshot of the instance's system volume is created.</p> <note> <p>This parameter cannot be defined together with the <code>disk name</code> parameter. The <code>instance name</code> and <code>disk name</code> parameters are mutually exclusive.</p> </note>
             tags: <p>The tag keys and optional values to add to the resource during create.</p> <p>Use the <code>TagResource</code> action to tag a resource after it's created.</p>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.account_setup_in_progress_exception.AccountSetupInProgressException: <p>Lightsail throws this exception when an account is still in the setup in progress state.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.not_found_exception.NotFoundException: <p>Lightsail throws this exception when it cannot find a resource.</p>
+            aws_sdk_lightsail.errors.operation_failure_exception.OperationFailureException: <p>Lightsail throws this exception when an operation fails to execute.</p>
+            aws_sdk_lightsail.errors.region_setup_in_progress_exception.RegionSetupInProgressException: <p>Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1456,6 +1650,15 @@ class LightsailClient:
             tags: <p>The tag keys and optional values to add to the distribution during create.</p> <p>Use the <code>TagResource</code> action to tag a resource after it's created.</p>
             certificate_name: <p>The name of the SSL/TLS certificate that you want to attach to the distribution.</p> <p>Use the <a href=\"https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetCertificates.html\">GetCertificates</a> action to get a list of certificate names that you can specify.</p>
             viewer_minimum_tls_protocol_version: <p>The minimum TLS protocol version for the SSL/TLS certificate.</p>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.not_found_exception.NotFoundException: <p>Lightsail throws this exception when it cannot find a resource.</p>
+            aws_sdk_lightsail.errors.operation_failure_exception.OperationFailureException: <p>Lightsail throws this exception when an operation fails to execute.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1512,6 +1715,17 @@ class LightsailClient:
         Args:
             domain_name: <p>The domain name to manage (<code>example.com</code>).</p>
             tags: <p>The tag keys and optional values to add to the resource during create.</p> <p>Use the <code>TagResource</code> action to tag a resource after it's created.</p>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.account_setup_in_progress_exception.AccountSetupInProgressException: <p>Lightsail throws this exception when an account is still in the setup in progress state.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.not_found_exception.NotFoundException: <p>Lightsail throws this exception when it cannot find a resource.</p>
+            aws_sdk_lightsail.errors.operation_failure_exception.OperationFailureException: <p>Lightsail throws this exception when an operation fails to execute.</p>
+            aws_sdk_lightsail.errors.region_setup_in_progress_exception.RegionSetupInProgressException: <p>Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1553,6 +1767,17 @@ class LightsailClient:
         Args:
             domain_name: <p>The domain name (<code>example.com</code>) for which you want to create the domain entry.</p>
             domain_entry: <p>An array of key-value pairs containing information about the domain entry request.</p>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.account_setup_in_progress_exception.AccountSetupInProgressException: <p>Lightsail throws this exception when an account is still in the setup in progress state.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.not_found_exception.NotFoundException: <p>Lightsail throws this exception when it cannot find a resource.</p>
+            aws_sdk_lightsail.errors.operation_failure_exception.OperationFailureException: <p>Lightsail throws this exception when an operation fails to execute.</p>
+            aws_sdk_lightsail.errors.region_setup_in_progress_exception.RegionSetupInProgressException: <p>Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1591,6 +1816,15 @@ class LightsailClient:
 
         Args:
             resource_name: <p>The resource name.</p>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.not_found_exception.NotFoundException: <p>Lightsail throws this exception when it cannot find a resource.</p>
+            aws_sdk_lightsail.errors.region_setup_in_progress_exception.RegionSetupInProgressException: <p>Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1654,6 +1888,17 @@ class LightsailClient:
             tags: <p>The tag keys and optional values to add to the resource during create.</p> <p>Use the <code>TagResource</code> action to tag a resource after it's created.</p>
             add_ons: <p>An array of objects representing the add-ons to enable for the new instance.</p>
             ip_address_type: <p>The IP address type for the instance.</p> <p>The possible values are <code>ipv4</code> for IPv4 only, <code>ipv6</code> for IPv6 only, and <code>dualstack</code> for IPv4 and IPv6.</p> <p>The default value is <code>dualstack</code>.</p>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.account_setup_in_progress_exception.AccountSetupInProgressException: <p>Lightsail throws this exception when an account is still in the setup in progress state.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.not_found_exception.NotFoundException: <p>Lightsail throws this exception when it cannot find a resource.</p>
+            aws_sdk_lightsail.errors.operation_failure_exception.OperationFailureException: <p>Lightsail throws this exception when an operation fails to execute.</p>
+            aws_sdk_lightsail.errors.region_setup_in_progress_exception.RegionSetupInProgressException: <p>Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1742,6 +1987,17 @@ class LightsailClient:
             source_instance_name: <p>The name of the source instance from which the source automatic snapshot was created.</p> <p>Constraints:</p> <ul> <li> <p>This parameter cannot be defined together with the <code>instance snapshot name</code> parameter. The <code>source instance name</code> and <code>instance snapshot name</code> parameters are mutually exclusive.</p> </li> <li> <p>Define this parameter only when creating a new instance from an automatic snapshot. For more information, see the <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-configuring-automatic-snapshots\">Amazon Lightsail Developer Guide</a>.</p> </li> </ul>
             restore_date: <p>The date of the automatic snapshot to use for the new instance. Use the <code>get auto snapshots</code> operation to identify the dates of the available automatic snapshots.</p> <p>Constraints:</p> <ul> <li> <p>Must be specified in <code>YYYY-MM-DD</code> format.</p> </li> <li> <p>This parameter cannot be defined together with the <code>use latest restorable auto snapshot</code> parameter. The <code>restore date</code> and <code>use latest restorable auto snapshot</code> parameters are mutually exclusive.</p> </li> <li> <p>Define this parameter only when creating a new instance from an automatic snapshot. For more information, see the <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-configuring-automatic-snapshots\">Amazon Lightsail Developer Guide</a>.</p> </li> </ul>
             use_latest_restorable_auto_snapshot: <p>A Boolean value to indicate whether to use the latest available automatic snapshot.</p> <p>Constraints:</p> <ul> <li> <p>This parameter cannot be defined together with the <code>restore date</code> parameter. The <code>use latest restorable auto snapshot</code> and <code>restore date</code> parameters are mutually exclusive.</p> </li> <li> <p>Define this parameter only when creating a new instance from an automatic snapshot. For more information, see the <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-configuring-automatic-snapshots\">Amazon Lightsail Developer Guide</a>.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.account_setup_in_progress_exception.AccountSetupInProgressException: <p>Lightsail throws this exception when an account is still in the setup in progress state.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.not_found_exception.NotFoundException: <p>Lightsail throws this exception when it cannot find a resource.</p>
+            aws_sdk_lightsail.errors.operation_failure_exception.OperationFailureException: <p>Lightsail throws this exception when an operation fails to execute.</p>
+            aws_sdk_lightsail.errors.region_setup_in_progress_exception.RegionSetupInProgressException: <p>Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1807,6 +2063,17 @@ class LightsailClient:
             instance_snapshot_name: <p>The name for your new snapshot.</p>
             instance_name: <p>The Lightsail instance on which to base your snapshot.</p>
             tags: <p>The tag keys and optional values to add to the resource during create.</p> <p>Use the <code>TagResource</code> action to tag a resource after it's created.</p>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.account_setup_in_progress_exception.AccountSetupInProgressException: <p>Lightsail throws this exception when an account is still in the setup in progress state.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.not_found_exception.NotFoundException: <p>Lightsail throws this exception when it cannot find a resource.</p>
+            aws_sdk_lightsail.errors.operation_failure_exception.OperationFailureException: <p>Lightsail throws this exception when an operation fails to execute.</p>
+            aws_sdk_lightsail.errors.region_setup_in_progress_exception.RegionSetupInProgressException: <p>Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1849,6 +2116,17 @@ class LightsailClient:
         Args:
             key_pair_name: <p>The name for your new key pair.</p>
             tags: <p>The tag keys and optional values to add to the resource during create.</p> <p>Use the <code>TagResource</code> action to tag a resource after it's created.</p>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.account_setup_in_progress_exception.AccountSetupInProgressException: <p>Lightsail throws this exception when an account is still in the setup in progress state.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.not_found_exception.NotFoundException: <p>Lightsail throws this exception when it cannot find a resource.</p>
+            aws_sdk_lightsail.errors.operation_failure_exception.OperationFailureException: <p>Lightsail throws this exception when an operation fails to execute.</p>
+            aws_sdk_lightsail.errors.region_setup_in_progress_exception.RegionSetupInProgressException: <p>Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1912,6 +2190,17 @@ class LightsailClient:
             tags: <p>The tag keys and optional values to add to the resource during create.</p> <p>Use the <code>TagResource</code> action to tag a resource after it's created.</p>
             ip_address_type: <p>The IP address type for the load balancer.</p> <p>The possible values are <code>ipv4</code> for IPv4 only, <code>ipv6</code> for IPv6 only, and <code>dualstack</code> for IPv4 and IPv6.</p> <p>The default value is <code>dualstack</code>.</p>
             tls_policy_name: <p>The name of the TLS policy to apply to the load balancer.</p> <p>Use the <a href=\"https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetLoadBalancerTlsPolicies.html\">GetLoadBalancerTlsPolicies</a> action to get a list of TLS policy names that you can specify.</p> <p>For more information about load balancer TLS policies, see <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-configure-load-balancer-tls-security-policy\">Configuring TLS security policies on your Amazon Lightsail load balancers</a> in the <i>Amazon Lightsail Developer Guide</i>.</p>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.account_setup_in_progress_exception.AccountSetupInProgressException: <p>Lightsail throws this exception when an account is still in the setup in progress state.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.not_found_exception.NotFoundException: <p>Lightsail throws this exception when it cannot find a resource.</p>
+            aws_sdk_lightsail.errors.operation_failure_exception.OperationFailureException: <p>Lightsail throws this exception when an operation fails to execute.</p>
+            aws_sdk_lightsail.errors.region_setup_in_progress_exception.RegionSetupInProgressException: <p>Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1974,6 +2263,17 @@ class LightsailClient:
             certificate_domain_name: <p>The domain name (<code>example.com</code>) for your SSL/TLS certificate.</p>
             certificate_alternative_names: <p>An array of strings listing alternative domains and subdomains for your SSL/TLS certificate. Lightsail will de-dupe the names for you. You can have a maximum of 9 alternative names (in addition to the 1 primary domain). We do not support wildcards (<code>*.example.com</code>).</p>
             tags: <p>The tag keys and optional values to add to the resource during create.</p> <p>Use the <code>TagResource</code> action to tag a resource after it's created.</p>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.account_setup_in_progress_exception.AccountSetupInProgressException: <p>Lightsail throws this exception when an account is still in the setup in progress state.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.not_found_exception.NotFoundException: <p>Lightsail throws this exception when it cannot find a resource.</p>
+            aws_sdk_lightsail.errors.operation_failure_exception.OperationFailureException: <p>Lightsail throws this exception when an operation fails to execute.</p>
+            aws_sdk_lightsail.errors.region_setup_in_progress_exception.RegionSetupInProgressException: <p>Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2043,6 +2343,17 @@ class LightsailClient:
             preferred_maintenance_window: <p>The weekly time range during which system maintenance can occur on your new database.</p> <p>The default is a 30-minute window selected at random from an 8-hour block of time for each AWS Region, occurring on a random day of the week.</p> <p>Constraints:</p> <ul> <li> <p>Must be in the <code>ddd:hh24:mi-ddd:hh24:mi</code> format.</p> </li> <li> <p>Valid days: Mon, Tue, Wed, Thu, Fri, Sat, Sun.</p> </li> <li> <p>Must be at least 30 minutes.</p> </li> <li> <p>Specified in Coordinated Universal Time (UTC).</p> </li> <li> <p>Example: <code>Tue:17:00-Tue:17:30</code> </p> </li> </ul>
             publicly_accessible: <p>Specifies the accessibility options for your new database. A value of <code>true</code> specifies a database that is available to resources outside of your Lightsail account. A value of <code>false</code> specifies a database that is available only to your Lightsail resources in the same region as your database.</p>
             tags: <p>The tag keys and optional values to add to the resource during create.</p> <p>Use the <code>TagResource</code> action to tag a resource after it's created.</p>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.account_setup_in_progress_exception.AccountSetupInProgressException: <p>Lightsail throws this exception when an account is still in the setup in progress state.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.not_found_exception.NotFoundException: <p>Lightsail throws this exception when it cannot find a resource.</p>
+            aws_sdk_lightsail.errors.operation_failure_exception.OperationFailureException: <p>Lightsail throws this exception when an operation fails to execute.</p>
+            aws_sdk_lightsail.errors.region_setup_in_progress_exception.RegionSetupInProgressException: <p>Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2120,6 +2431,17 @@ class LightsailClient:
             restore_time: <p>The date and time to restore your database from.</p> <p>Constraints:</p> <ul> <li> <p>Must be before the latest restorable time for the database.</p> </li> <li> <p>Cannot be specified if the <code>use latest restorable time</code> parameter is <code>true</code>.</p> </li> <li> <p>Specified in Coordinated Universal Time (UTC).</p> </li> <li> <p>Specified in the Unix time format.</p> <p>For example, if you wish to use a restore time of October 1, 2018, at 8 PM UTC, then you input <code>1538424000</code> as the restore time.</p> </li> </ul>
             use_latest_restorable_time: <p>Specifies whether your database is restored from the latest backup time. A value of <code>true</code> restores from the latest backup time. </p> <p>Default: <code>false</code> </p> <p>Constraints: Cannot be specified if the <code>restore time</code> parameter is provided.</p>
             tags: <p>The tag keys and optional values to add to the resource during create.</p> <p>Use the <code>TagResource</code> action to tag a resource after it's created.</p>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.account_setup_in_progress_exception.AccountSetupInProgressException: <p>Lightsail throws this exception when an account is still in the setup in progress state.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.not_found_exception.NotFoundException: <p>Lightsail throws this exception when it cannot find a resource.</p>
+            aws_sdk_lightsail.errors.operation_failure_exception.OperationFailureException: <p>Lightsail throws this exception when an operation fails to execute.</p>
+            aws_sdk_lightsail.errors.region_setup_in_progress_exception.RegionSetupInProgressException: <p>Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2179,6 +2501,17 @@ class LightsailClient:
             relational_database_name: <p>The name of the database on which to base your new snapshot.</p>
             relational_database_snapshot_name: <p>The name for your new database snapshot.</p> <p>Constraints:</p> <ul> <li> <p>Must contain from 2 to 255 alphanumeric characters, or hyphens.</p> </li> <li> <p>The first and last character must be a letter or number.</p> </li> </ul>
             tags: <p>The tag keys and optional values to add to the resource during create.</p> <p>Use the <code>TagResource</code> action to tag a resource after it's created.</p>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.account_setup_in_progress_exception.AccountSetupInProgressException: <p>Lightsail throws this exception when an account is still in the setup in progress state.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.not_found_exception.NotFoundException: <p>Lightsail throws this exception when it cannot find a resource.</p>
+            aws_sdk_lightsail.errors.operation_failure_exception.OperationFailureException: <p>Lightsail throws this exception when an operation fails to execute.</p>
+            aws_sdk_lightsail.errors.region_setup_in_progress_exception.RegionSetupInProgressException: <p>Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2219,6 +2552,16 @@ class LightsailClient:
 
         Args:
             alarm_name: <p>The name of the alarm to delete.</p>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.not_found_exception.NotFoundException: <p>Lightsail throws this exception when it cannot find a resource.</p>
+            aws_sdk_lightsail.errors.operation_failure_exception.OperationFailureException: <p>Lightsail throws this exception when an operation fails to execute.</p>
+            aws_sdk_lightsail.errors.region_setup_in_progress_exception.RegionSetupInProgressException: <p>Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2258,6 +2601,16 @@ class LightsailClient:
         Args:
             resource_name: <p>The name of the source instance or disk from which to delete the automatic snapshot.</p>
             date: <p>The date of the automatic snapshot to delete in <code>YYYY-MM-DD</code> format. Use the <code>get auto snapshots</code> operation to get the available automatic snapshots for a resource.</p>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.not_found_exception.NotFoundException: <p>Lightsail throws this exception when it cannot find a resource.</p>
+            aws_sdk_lightsail.errors.operation_failure_exception.OperationFailureException: <p>Lightsail throws this exception when an operation fails to execute.</p>
+            aws_sdk_lightsail.errors.region_setup_in_progress_exception.RegionSetupInProgressException: <p>Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2298,6 +2651,15 @@ class LightsailClient:
         Args:
             bucket_name: <p>The name of the bucket to delete.</p> <p>Use the <a href=\"https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetBuckets.html\">GetBuckets</a> action to get a list of bucket names that you can specify.</p>
             force_delete: <p>A Boolean value that indicates whether to force delete the bucket.</p> <p>You must force delete the bucket if it has one of the following conditions:</p> <ul> <li> <p>The bucket is the origin of a distribution.</p> </li> <li> <p>The bucket has instances that were granted access to it using the <a href=\"https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_SetResourceAccessForBucket.html\">SetResourceAccessForBucket</a> action.</p> </li> <li> <p>The bucket has objects.</p> </li> <li> <p>The bucket has access keys.</p> </li> </ul> <important> <p>Force deleting a bucket might impact other resources that rely on the bucket, such as instances, distributions, or software that use the issued access keys.</p> </important>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.not_found_exception.NotFoundException: <p>Lightsail throws this exception when it cannot find a resource.</p>
+            aws_sdk_lightsail.errors.region_setup_in_progress_exception.RegionSetupInProgressException: <p>Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2339,6 +2701,15 @@ class LightsailClient:
         Args:
             bucket_name: <p>The name of the bucket that the access key belongs to.</p>
             access_key_id: <p>The ID of the access key to delete.</p> <p>Use the <a href=\"https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetBucketAccessKeys.html\">GetBucketAccessKeys</a> action to get a list of access key IDs that you can specify.</p>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.not_found_exception.NotFoundException: <p>Lightsail throws this exception when it cannot find a resource.</p>
+            aws_sdk_lightsail.errors.region_setup_in_progress_exception.RegionSetupInProgressException: <p>Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2377,6 +2748,15 @@ class LightsailClient:
 
         Args:
             certificate_name: <p>The name of the certificate to delete.</p> <p>Use the <code>GetCertificates</code> action to get a list of certificate names that you can specify.</p>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.not_found_exception.NotFoundException: <p>Lightsail throws this exception when it cannot find a resource.</p>
+            aws_sdk_lightsail.errors.region_setup_in_progress_exception.RegionSetupInProgressException: <p>Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2416,6 +2796,16 @@ class LightsailClient:
 
         Args:
             protocol: <p>The protocol that will be deleted, such as <code>Email</code> or <code>SMS</code> (text messaging).</p> <note> <p>To delete an <code>Email</code> and an <code>SMS</code> contact method if you added both, you must run separate <code>DeleteContactMethod</code> actions to delete each protocol.</p> </note>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.not_found_exception.NotFoundException: <p>Lightsail throws this exception when it cannot find a resource.</p>
+            aws_sdk_lightsail.errors.operation_failure_exception.OperationFailureException: <p>Lightsail throws this exception when an operation fails to execute.</p>
+            aws_sdk_lightsail.errors.region_setup_in_progress_exception.RegionSetupInProgressException: <p>Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2455,6 +2845,15 @@ class LightsailClient:
         Args:
             service_name: <p>The name of the container service for which to delete a registered container image.</p>
             image: <p>The name of the container image to delete from the container service.</p> <p>Use the <code>GetContainerImages</code> action to get the name of the container images that are registered to a container service.</p> <note> <p>Container images sourced from your Lightsail container service, that are registered and stored on your service, start with a colon (<code>:</code>). For example, <code>:container-service-1.mystaticwebsite.1</code>. Container images sourced from a public registry like Docker Hub don't start with a colon. For example, <code>nginx:latest</code> or <code>nginx</code>.</p> </note>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.not_found_exception.NotFoundException: <p>Lightsail throws this exception when it cannot find a resource.</p>
+            aws_sdk_lightsail.errors.region_setup_in_progress_exception.RegionSetupInProgressException: <p>Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2493,6 +2892,15 @@ class LightsailClient:
 
         Args:
             service_name: <p>The name of the container service to delete.</p>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.not_found_exception.NotFoundException: <p>Lightsail throws this exception when it cannot find a resource.</p>
+            aws_sdk_lightsail.errors.region_setup_in_progress_exception.RegionSetupInProgressException: <p>Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2534,6 +2942,17 @@ class LightsailClient:
         Args:
             disk_name: <p>The unique name of the disk you want to delete (<code>my-disk</code>).</p>
             force_delete_add_ons: <p>A Boolean value to indicate whether to delete all add-ons for the disk.</p>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.account_setup_in_progress_exception.AccountSetupInProgressException: <p>Lightsail throws this exception when an account is still in the setup in progress state.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.not_found_exception.NotFoundException: <p>Lightsail throws this exception when it cannot find a resource.</p>
+            aws_sdk_lightsail.errors.operation_failure_exception.OperationFailureException: <p>Lightsail throws this exception when an operation fails to execute.</p>
+            aws_sdk_lightsail.errors.region_setup_in_progress_exception.RegionSetupInProgressException: <p>Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2573,6 +2992,17 @@ class LightsailClient:
 
         Args:
             disk_snapshot_name: <p>The name of the disk snapshot you want to delete (<code>my-disk-snapshot</code>).</p>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.account_setup_in_progress_exception.AccountSetupInProgressException: <p>Lightsail throws this exception when an account is still in the setup in progress state.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.not_found_exception.NotFoundException: <p>Lightsail throws this exception when it cannot find a resource.</p>
+            aws_sdk_lightsail.errors.operation_failure_exception.OperationFailureException: <p>Lightsail throws this exception when an operation fails to execute.</p>
+            aws_sdk_lightsail.errors.region_setup_in_progress_exception.RegionSetupInProgressException: <p>Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2612,6 +3042,15 @@ class LightsailClient:
 
         Args:
             distribution_name: <p>The name of the distribution to delete.</p> <p>Use the <code>GetDistributions</code> action to get a list of distribution names that you can specify.</p>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.not_found_exception.NotFoundException: <p>Lightsail throws this exception when it cannot find a resource.</p>
+            aws_sdk_lightsail.errors.operation_failure_exception.OperationFailureException: <p>Lightsail throws this exception when an operation fails to execute.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2650,6 +3089,17 @@ class LightsailClient:
 
         Args:
             domain_name: <p>The specific domain name to delete.</p>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.account_setup_in_progress_exception.AccountSetupInProgressException: <p>Lightsail throws this exception when an account is still in the setup in progress state.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.not_found_exception.NotFoundException: <p>Lightsail throws this exception when it cannot find a resource.</p>
+            aws_sdk_lightsail.errors.operation_failure_exception.OperationFailureException: <p>Lightsail throws this exception when an operation fails to execute.</p>
+            aws_sdk_lightsail.errors.region_setup_in_progress_exception.RegionSetupInProgressException: <p>Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2689,6 +3139,17 @@ class LightsailClient:
         Args:
             domain_name: <p>The name of the domain entry to delete.</p>
             domain_entry: <p>An array of key-value pairs containing information about your domain entries.</p>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.account_setup_in_progress_exception.AccountSetupInProgressException: <p>Lightsail throws this exception when an account is still in the setup in progress state.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.not_found_exception.NotFoundException: <p>Lightsail throws this exception when it cannot find a resource.</p>
+            aws_sdk_lightsail.errors.operation_failure_exception.OperationFailureException: <p>Lightsail throws this exception when an operation fails to execute.</p>
+            aws_sdk_lightsail.errors.region_setup_in_progress_exception.RegionSetupInProgressException: <p>Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2731,6 +3192,17 @@ class LightsailClient:
         Args:
             instance_name: <p>The name of the instance to delete.</p>
             force_delete_add_ons: <p>A Boolean value to indicate whether to delete all add-ons for the instance.</p>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.account_setup_in_progress_exception.AccountSetupInProgressException: <p>Lightsail throws this exception when an account is still in the setup in progress state.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.not_found_exception.NotFoundException: <p>Lightsail throws this exception when it cannot find a resource.</p>
+            aws_sdk_lightsail.errors.operation_failure_exception.OperationFailureException: <p>Lightsail throws this exception when an operation fails to execute.</p>
+            aws_sdk_lightsail.errors.region_setup_in_progress_exception.RegionSetupInProgressException: <p>Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2770,6 +3242,17 @@ class LightsailClient:
 
         Args:
             instance_snapshot_name: <p>The name of the snapshot to delete.</p>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.account_setup_in_progress_exception.AccountSetupInProgressException: <p>Lightsail throws this exception when an account is still in the setup in progress state.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.not_found_exception.NotFoundException: <p>Lightsail throws this exception when it cannot find a resource.</p>
+            aws_sdk_lightsail.errors.operation_failure_exception.OperationFailureException: <p>Lightsail throws this exception when an operation fails to execute.</p>
+            aws_sdk_lightsail.errors.region_setup_in_progress_exception.RegionSetupInProgressException: <p>Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2809,6 +3292,17 @@ class LightsailClient:
         Args:
             key_pair_name: <p>The name of the key pair to delete.</p>
             expected_fingerprint: <p>The RSA fingerprint of the Lightsail default key pair to delete.</p> <note> <p>The <code>expectedFingerprint</code> parameter is required only when specifying to delete a Lightsail default key pair.</p> </note>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.account_setup_in_progress_exception.AccountSetupInProgressException: <p>Lightsail throws this exception when an account is still in the setup in progress state.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.not_found_exception.NotFoundException: <p>Lightsail throws this exception when it cannot find a resource.</p>
+            aws_sdk_lightsail.errors.operation_failure_exception.OperationFailureException: <p>Lightsail throws this exception when an operation fails to execute.</p>
+            aws_sdk_lightsail.errors.region_setup_in_progress_exception.RegionSetupInProgressException: <p>Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2848,6 +3342,17 @@ class LightsailClient:
 
         Args:
             instance_name: <p>The name of the instance for which you want to reset the host key or certificate.</p>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.account_setup_in_progress_exception.AccountSetupInProgressException: <p>Lightsail throws this exception when an account is still in the setup in progress state.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.not_found_exception.NotFoundException: <p>Lightsail throws this exception when it cannot find a resource.</p>
+            aws_sdk_lightsail.errors.operation_failure_exception.OperationFailureException: <p>Lightsail throws this exception when an operation fails to execute.</p>
+            aws_sdk_lightsail.errors.region_setup_in_progress_exception.RegionSetupInProgressException: <p>Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2885,6 +3390,17 @@ class LightsailClient:
 
         Args:
             load_balancer_name: <p>The name of the load balancer you want to delete.</p>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.account_setup_in_progress_exception.AccountSetupInProgressException: <p>Lightsail throws this exception when an account is still in the setup in progress state.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.not_found_exception.NotFoundException: <p>Lightsail throws this exception when it cannot find a resource.</p>
+            aws_sdk_lightsail.errors.operation_failure_exception.OperationFailureException: <p>Lightsail throws this exception when an operation fails to execute.</p>
+            aws_sdk_lightsail.errors.region_setup_in_progress_exception.RegionSetupInProgressException: <p>Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2926,6 +3442,17 @@ class LightsailClient:
             load_balancer_name: <p>The load balancer name.</p>
             certificate_name: <p>The SSL/TLS certificate name.</p>
             force: <p>When <code>true</code>, forces the deletion of an SSL/TLS certificate.</p> <p>There can be two certificates associated with a Lightsail load balancer: the primary and the backup. The <code>force</code> parameter is required when the primary SSL/TLS certificate is in use by an instance attached to the load balancer.</p>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.account_setup_in_progress_exception.AccountSetupInProgressException: <p>Lightsail throws this exception when an account is still in the setup in progress state.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.not_found_exception.NotFoundException: <p>Lightsail throws this exception when it cannot find a resource.</p>
+            aws_sdk_lightsail.errors.operation_failure_exception.OperationFailureException: <p>Lightsail throws this exception when an operation fails to execute.</p>
+            aws_sdk_lightsail.errors.region_setup_in_progress_exception.RegionSetupInProgressException: <p>Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2972,6 +3499,17 @@ class LightsailClient:
             relational_database_name: <p>The name of the database that you are deleting.</p>
             skip_final_snapshot: <p>Determines whether a final database snapshot is created before your database is deleted. If <code>true</code> is specified, no database snapshot is created. If <code>false</code> is specified, a database snapshot is created before your database is deleted.</p> <p>You must specify the <code>final relational database snapshot name</code> parameter if the <code>skip final snapshot</code> parameter is <code>false</code>.</p> <p>Default: <code>false</code> </p>
             final_relational_database_snapshot_name: <p>The name of the database snapshot created if <code>skip final snapshot</code> is <code>false</code>, which is the default value for that parameter.</p> <note> <p>Specifying this parameter and also specifying the <code>skip final snapshot</code> parameter to <code>true</code> results in an error.</p> </note> <p>Constraints:</p> <ul> <li> <p>Must contain from 2 to 255 alphanumeric characters, or hyphens.</p> </li> <li> <p>The first and last character must be a letter or number.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.account_setup_in_progress_exception.AccountSetupInProgressException: <p>Lightsail throws this exception when an account is still in the setup in progress state.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.not_found_exception.NotFoundException: <p>Lightsail throws this exception when it cannot find a resource.</p>
+            aws_sdk_lightsail.errors.operation_failure_exception.OperationFailureException: <p>Lightsail throws this exception when an operation fails to execute.</p>
+            aws_sdk_lightsail.errors.region_setup_in_progress_exception.RegionSetupInProgressException: <p>Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3015,6 +3553,17 @@ class LightsailClient:
 
         Args:
             relational_database_snapshot_name: <p>The name of the database snapshot that you are deleting.</p>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.account_setup_in_progress_exception.AccountSetupInProgressException: <p>Lightsail throws this exception when an account is still in the setup in progress state.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.not_found_exception.NotFoundException: <p>Lightsail throws this exception when it cannot find a resource.</p>
+            aws_sdk_lightsail.errors.operation_failure_exception.OperationFailureException: <p>Lightsail throws this exception when an operation fails to execute.</p>
+            aws_sdk_lightsail.errors.region_setup_in_progress_exception.RegionSetupInProgressException: <p>Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3052,6 +3601,15 @@ class LightsailClient:
 
         Args:
             distribution_name: <p>The name of the distribution from which to detach the certificate.</p> <p>Use the <code>GetDistributions</code> action to get a list of distribution names that you can specify.</p>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.not_found_exception.NotFoundException: <p>Lightsail throws this exception when it cannot find a resource.</p>
+            aws_sdk_lightsail.errors.operation_failure_exception.OperationFailureException: <p>Lightsail throws this exception when an operation fails to execute.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3089,6 +3647,17 @@ class LightsailClient:
 
         Args:
             disk_name: <p>The unique name of the disk you want to detach from your instance (<code>my-disk</code>).</p>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.account_setup_in_progress_exception.AccountSetupInProgressException: <p>Lightsail throws this exception when an account is still in the setup in progress state.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.not_found_exception.NotFoundException: <p>Lightsail throws this exception when it cannot find a resource.</p>
+            aws_sdk_lightsail.errors.operation_failure_exception.OperationFailureException: <p>Lightsail throws this exception when an operation fails to execute.</p>
+            aws_sdk_lightsail.errors.region_setup_in_progress_exception.RegionSetupInProgressException: <p>Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3128,6 +3697,17 @@ class LightsailClient:
         Args:
             load_balancer_name: <p>The name of the Lightsail load balancer.</p>
             instance_names: <p>An array of strings containing the names of the instances you want to detach from the load balancer.</p>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.account_setup_in_progress_exception.AccountSetupInProgressException: <p>Lightsail throws this exception when an account is still in the setup in progress state.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.not_found_exception.NotFoundException: <p>Lightsail throws this exception when it cannot find a resource.</p>
+            aws_sdk_lightsail.errors.operation_failure_exception.OperationFailureException: <p>Lightsail throws this exception when an operation fails to execute.</p>
+            aws_sdk_lightsail.errors.region_setup_in_progress_exception.RegionSetupInProgressException: <p>Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3166,6 +3746,17 @@ class LightsailClient:
 
         Args:
             static_ip_name: <p>The name of the static IP to detach from the instance.</p>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.account_setup_in_progress_exception.AccountSetupInProgressException: <p>Lightsail throws this exception when an account is still in the setup in progress state.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.not_found_exception.NotFoundException: <p>Lightsail throws this exception when it cannot find a resource.</p>
+            aws_sdk_lightsail.errors.operation_failure_exception.OperationFailureException: <p>Lightsail throws this exception when an operation fails to execute.</p>
+            aws_sdk_lightsail.errors.region_setup_in_progress_exception.RegionSetupInProgressException: <p>Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3205,6 +3796,16 @@ class LightsailClient:
         Args:
             add_on_type: <p>The add-on type to disable.</p>
             resource_name: <p>The name of the source resource for which to disable the add-on.</p>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.not_found_exception.NotFoundException: <p>Lightsail throws this exception when it cannot find a resource.</p>
+            aws_sdk_lightsail.errors.operation_failure_exception.OperationFailureException: <p>Lightsail throws this exception when an operation fails to execute.</p>
+            aws_sdk_lightsail.errors.region_setup_in_progress_exception.RegionSetupInProgressException: <p>Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3236,7 +3837,19 @@ class LightsailClient:
     def download_default_key_pair(
         self, *, config_overrides: Optional[LightsailClientConfig] = None
     ) -> "aws_sdk_lightsail.types.download_default_key_pair_result.DownloadDefaultKeyPairResult":
-        """<p>Downloads the regional Amazon Lightsail default key pair.</p> <p>This action also creates a Lightsail default key pair if a default key pair does not currently exist in the Amazon Web Services Region.</p>"""
+        """<p>Downloads the regional Amazon Lightsail default key pair.</p> <p>This action also creates a Lightsail default key pair if a default key pair does not currently exist in the Amazon Web Services Region.</p>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.account_setup_in_progress_exception.AccountSetupInProgressException: <p>Lightsail throws this exception when an account is still in the setup in progress state.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.not_found_exception.NotFoundException: <p>Lightsail throws this exception when it cannot find a resource.</p>
+            aws_sdk_lightsail.errors.operation_failure_exception.OperationFailureException: <p>Lightsail throws this exception when an operation fails to execute.</p>
+            aws_sdk_lightsail.errors.region_setup_in_progress_exception.RegionSetupInProgressException: <p>Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_lightsail.types.download_default_key_pair_request.DownloadDefaultKeyPairRequest]",
@@ -3274,6 +3887,16 @@ class LightsailClient:
         Args:
             resource_name: <p>The name of the source resource for which to enable or modify the add-on.</p>
             add_on_request: <p>An array of strings representing the add-on to enable or modify.</p>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.not_found_exception.NotFoundException: <p>Lightsail throws this exception when it cannot find a resource.</p>
+            aws_sdk_lightsail.errors.operation_failure_exception.OperationFailureException: <p>Lightsail throws this exception when an operation fails to execute.</p>
+            aws_sdk_lightsail.errors.region_setup_in_progress_exception.RegionSetupInProgressException: <p>Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3312,6 +3935,17 @@ class LightsailClient:
 
         Args:
             source_snapshot_name: <p>The name of the instance or disk snapshot to be exported to Amazon EC2.</p>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.account_setup_in_progress_exception.AccountSetupInProgressException: <p>Lightsail throws this exception when an account is still in the setup in progress state.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.not_found_exception.NotFoundException: <p>Lightsail throws this exception when it cannot find a resource.</p>
+            aws_sdk_lightsail.errors.operation_failure_exception.OperationFailureException: <p>Lightsail throws this exception when an operation fails to execute.</p>
+            aws_sdk_lightsail.errors.region_setup_in_progress_exception.RegionSetupInProgressException: <p>Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3349,6 +3983,17 @@ class LightsailClient:
 
         Args:
             page_token: <p>The token to advance to the next page of results from your request.</p> <p>To get a page token, perform an initial <code>GetActiveNames</code> request. If your results are paginated, the response will return a next page token that you can specify as the page token in a subsequent request.</p>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.account_setup_in_progress_exception.AccountSetupInProgressException: <p>Lightsail throws this exception when an account is still in the setup in progress state.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.not_found_exception.NotFoundException: <p>Lightsail throws this exception when it cannot find a resource.</p>
+            aws_sdk_lightsail.errors.operation_failure_exception.OperationFailureException: <p>Lightsail throws this exception when an operation fails to execute.</p>
+            aws_sdk_lightsail.errors.region_setup_in_progress_exception.RegionSetupInProgressException: <p>Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3395,6 +4040,16 @@ class LightsailClient:
             alarm_name: <p>The name of the alarm.</p> <p>Specify an alarm name to return information about a specific alarm.</p>
             page_token: <p>The token to advance to the next page of results from your request.</p> <p>To get a page token, perform an initial <code>GetAlarms</code> request. If your results are paginated, the response will return a next page token that you can specify as the page token in a subsequent request.</p>
             monitored_resource_name: <p>The name of the Lightsail resource being monitored by the alarm.</p> <p>Specify a monitored resource name to return information about all alarms for a specific resource.</p>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.not_found_exception.NotFoundException: <p>Lightsail throws this exception when it cannot find a resource.</p>
+            aws_sdk_lightsail.errors.operation_failure_exception.OperationFailureException: <p>Lightsail throws this exception when an operation fails to execute.</p>
+            aws_sdk_lightsail.errors.region_setup_in_progress_exception.RegionSetupInProgressException: <p>Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3437,6 +4092,16 @@ class LightsailClient:
 
         Args:
             resource_name: <p>The name of the source instance or disk from which to get automatic snapshot information.</p>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.not_found_exception.NotFoundException: <p>Lightsail throws this exception when it cannot find a resource.</p>
+            aws_sdk_lightsail.errors.operation_failure_exception.OperationFailureException: <p>Lightsail throws this exception when an operation fails to execute.</p>
+            aws_sdk_lightsail.errors.region_setup_in_progress_exception.RegionSetupInProgressException: <p>Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3480,6 +4145,17 @@ class LightsailClient:
             include_inactive: <p>A Boolean value that indicates whether to include inactive (unavailable) blueprints in the response of your request.</p>
             page_token: <p>The token to advance to the next page of results from your request.</p> <p>To get a page token, perform an initial <code>GetBlueprints</code> request. If your results are paginated, the response will return a next page token that you can specify as the page token in a subsequent request.</p>
             app_category: <p>Returns a list of blueprints that are specific to Lightsail for Research.</p> <important> <p>You must use this parameter to view Lightsail for Research blueprints.</p> </important>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.account_setup_in_progress_exception.AccountSetupInProgressException: <p>Lightsail throws this exception when an account is still in the setup in progress state.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.not_found_exception.NotFoundException: <p>Lightsail throws this exception when it cannot find a resource.</p>
+            aws_sdk_lightsail.errors.operation_failure_exception.OperationFailureException: <p>Lightsail throws this exception when an operation fails to execute.</p>
+            aws_sdk_lightsail.errors.region_setup_in_progress_exception.RegionSetupInProgressException: <p>Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3522,6 +4198,15 @@ class LightsailClient:
 
         Args:
             bucket_name: <p>The name of the bucket for which to return access keys.</p>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.not_found_exception.NotFoundException: <p>Lightsail throws this exception when it cannot find a resource.</p>
+            aws_sdk_lightsail.errors.region_setup_in_progress_exception.RegionSetupInProgressException: <p>Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3559,6 +4244,14 @@ class LightsailClient:
 
         Args:
             include_inactive: <p>A Boolean value that indicates whether to include inactive (unavailable) bundles in the response of your request.</p>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.region_setup_in_progress_exception.RegionSetupInProgressException: <p>Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3609,6 +4302,15 @@ class LightsailClient:
             period: <p>The granularity, in seconds, of the returned data points.</p> <note> <p>Bucket storage metrics are reported once per day. Therefore, you should specify a period of 86400 seconds, which is the number of seconds in a day.</p> </note>
             statistics: <p>The statistic for the metric.</p> <p>The following statistics are available:</p> <ul> <li> <p> <code>Minimum</code> - The lowest value observed during the specified period. Use this value to determine low volumes of activity for your application.</p> </li> <li> <p> <code>Maximum</code> - The highest value observed during the specified period. Use this value to determine high volumes of activity for your application.</p> </li> <li> <p> <code>Sum</code> - The sum of all values submitted for the matching metric. You can use this statistic to determine the total volume of a metric.</p> </li> <li> <p> <code>Average</code> - The value of <code>Sum</code> / <code>SampleCount</code> during the specified period. By comparing this statistic with the <code>Minimum</code> and <code>Maximum</code> values, you can determine the full scope of a metric and how close the average use is to the <code>Minimum</code> and <code>Maximum</code> values. This comparison helps you to know when to increase or decrease your resources.</p> </li> <li> <p> <code>SampleCount</code> - The count, or number, of data points used for the statistical calculation.</p> </li> </ul>
             unit: <p>The unit for the metric data request.</p> <p>Valid units depend on the metric data being requested. For the valid units with each available metric, see the <code>metricName</code> parameter.</p>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.not_found_exception.NotFoundException: <p>Lightsail throws this exception when it cannot find a resource.</p>
+            aws_sdk_lightsail.errors.region_setup_in_progress_exception.RegionSetupInProgressException: <p>Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3660,6 +4362,15 @@ class LightsailClient:
             page_token: <p>The token to advance to the next page of results from your request.</p> <p>To get a page token, perform an initial <code>GetBuckets</code> request. If your results are paginated, the response will return a next page token that you can specify as the page token in a subsequent request.</p>
             include_connected_resources: <p>A Boolean value that indicates whether to include Lightsail instances that were given access to the bucket using the <a href=\"https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_SetResourceAccessForBucket.html\">SetResourceAccessForBucket</a> action.</p>
             include_cors: <p>A Boolean value that indicates whether to include Lightsail bucket CORS configuration in the response. For more information, see <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/configure-cors.html\">Configuring cross-origin resource sharing (CORS)</a>.</p> <note> <p>This parameter is only supported when getting a single bucket with <code>bucketName</code> specified. The default value for this parameter is <code>False</code>.</p> </note>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.not_found_exception.NotFoundException: <p>Lightsail throws this exception when it cannot find a resource.</p>
+            aws_sdk_lightsail.errors.region_setup_in_progress_exception.RegionSetupInProgressException: <p>Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3710,6 +4421,17 @@ class LightsailClient:
             include_inactive: <p>A Boolean value that indicates whether to include inactive (unavailable) bundles in the response of your request.</p>
             page_token: <p>The token to advance to the next page of results from your request.</p> <p>To get a page token, perform an initial <code>GetBundles</code> request. If your results are paginated, the response will return a next page token that you can specify as the page token in a subsequent request.</p>
             app_category: <p>Returns a list of bundles that are specific to Lightsail for Research.</p> <important> <p>You must use this parameter to view Lightsail for Research bundles.</p> </important>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.account_setup_in_progress_exception.AccountSetupInProgressException: <p>Lightsail throws this exception when an account is still in the setup in progress state.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.not_found_exception.NotFoundException: <p>Lightsail throws this exception when it cannot find a resource.</p>
+            aws_sdk_lightsail.errors.operation_failure_exception.OperationFailureException: <p>Lightsail throws this exception when an operation fails to execute.</p>
+            aws_sdk_lightsail.errors.region_setup_in_progress_exception.RegionSetupInProgressException: <p>Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3764,6 +4486,15 @@ class LightsailClient:
             include_certificate_details: <p>Indicates whether to include detailed information about the certificates in the response.</p> <p>When omitted, the response includes only the certificate names, Amazon Resource Names (ARNs), domain names, and tags.</p>
             certificate_name: <p>The name for the certificate for which to return information.</p> <p>When omitted, the response includes all of your certificates in the Amazon Web Services Region where the request is made.</p>
             page_token: <p>The token to advance to the next page of results from your request.</p> <p>To get a page token, perform an initial <code>GetCertificates</code> request. If your results are paginated, the response will return a next page token that you can specify as the page token in a subsequent request.</p>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.not_found_exception.NotFoundException: <p>Lightsail throws this exception when it cannot find a resource.</p>
+            aws_sdk_lightsail.errors.region_setup_in_progress_exception.RegionSetupInProgressException: <p>Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3808,6 +4539,17 @@ class LightsailClient:
 
         Args:
             page_token: <p>The token to advance to the next page of results from your request.</p> <p>To get a page token, perform an initial <code>GetClouFormationStackRecords</code> request. If your results are paginated, the response will return a next page token that you can specify as the page token in a subsequent request.</p>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.account_setup_in_progress_exception.AccountSetupInProgressException: <p>Lightsail throws this exception when an account is still in the setup in progress state.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.not_found_exception.NotFoundException: <p>Lightsail throws this exception when it cannot find a resource.</p>
+            aws_sdk_lightsail.errors.operation_failure_exception.OperationFailureException: <p>Lightsail throws this exception when an operation fails to execute.</p>
+            aws_sdk_lightsail.errors.region_setup_in_progress_exception.RegionSetupInProgressException: <p>Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3848,6 +4590,16 @@ class LightsailClient:
 
         Args:
             protocols: <p>The protocols used to send notifications, such as <code>Email</code>, or <code>SMS</code> (text messaging).</p> <p>Specify a protocol in your request to return information about a specific contact method protocol.</p>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.not_found_exception.NotFoundException: <p>Lightsail throws this exception when it cannot find a resource.</p>
+            aws_sdk_lightsail.errors.operation_failure_exception.OperationFailureException: <p>Lightsail throws this exception when an operation fails to execute.</p>
+            aws_sdk_lightsail.errors.region_setup_in_progress_exception.RegionSetupInProgressException: <p>Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3879,7 +4631,15 @@ class LightsailClient:
     def get_container_api_metadata(
         self, *, config_overrides: Optional[LightsailClientConfig] = None
     ) -> "aws_sdk_lightsail.types.get_container_api_metadata_result.GetContainerAPIMetadataResult":
-        """<p>Returns information about Amazon Lightsail containers, such as the current version of the Lightsail Control (lightsailctl) plugin.</p>"""
+        """<p>Returns information about Amazon Lightsail containers, such as the current version of the Lightsail Control (lightsailctl) plugin.</p>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.region_setup_in_progress_exception.RegionSetupInProgressException: <p>Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_lightsail.types.get_container_api_metadata_request.GetContainerAPIMetadataRequest]",
@@ -3915,6 +4675,15 @@ class LightsailClient:
 
         Args:
             service_name: <p>The name of the container service for which to return registered container images.</p>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.not_found_exception.NotFoundException: <p>Lightsail throws this exception when it cannot find a resource.</p>
+            aws_sdk_lightsail.errors.region_setup_in_progress_exception.RegionSetupInProgressException: <p>Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3962,6 +4731,15 @@ class LightsailClient:
             end_time: <p>The end of the time interval for which to get log data.</p> <p>Constraints:</p> <ul> <li> <p>Specified in Coordinated Universal Time (UTC).</p> </li> <li> <p>Specified in the Unix time format.</p> <p>For example, if you wish to use an end time of October 1, 2018, at 9 PM UTC, specify <code>1538427600</code> as the end time.</p> </li> </ul> <p>You can convert a human-friendly time to Unix time format using a converter like <a href=\"https://www.epochconverter.com/\">Epoch converter</a>.</p>
             filter_pattern: <p>The pattern to use to filter the returned log events to a specific term.</p> <p>The following are a few examples of filter patterns that you can specify:</p> <ul> <li> <p>To return all log events, specify a filter pattern of <code>\"\"</code>.</p> </li> <li> <p>To exclude log events that contain the <code>ERROR</code> term, and return all other log events, specify a filter pattern of <code>\"-ERROR\"</code>.</p> </li> <li> <p>To return log events that contain the <code>ERROR</code> term, specify a filter pattern of <code>\"ERROR\"</code>.</p> </li> <li> <p>To return log events that contain both the <code>ERROR</code> and <code>Exception</code> terms, specify a filter pattern of <code>\"ERROR Exception\"</code>.</p> </li> <li> <p>To return log events that contain the <code>ERROR</code> <i>or</i> the <code>Exception</code> term, specify a filter pattern of <code>\"?ERROR ?Exception\"</code>.</p> </li> </ul>
             page_token: <p>The token to advance to the next page of results from your request.</p> <p>To get a page token, perform an initial <code>GetContainerLog</code> request. If your results are paginated, the response will return a next page token that you can specify as the page token in a subsequent request.</p>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.not_found_exception.NotFoundException: <p>Lightsail throws this exception when it cannot find a resource.</p>
+            aws_sdk_lightsail.errors.region_setup_in_progress_exception.RegionSetupInProgressException: <p>Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4008,6 +4786,15 @@ class LightsailClient:
 
         Args:
             service_name: <p>The name of the container service for which to return deployments.</p>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.not_found_exception.NotFoundException: <p>Lightsail throws this exception when it cannot find a resource.</p>
+            aws_sdk_lightsail.errors.region_setup_in_progress_exception.RegionSetupInProgressException: <p>Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4055,6 +4842,15 @@ class LightsailClient:
             end_time: <p>The end time of the time period.</p>
             period: <p>The granularity, in seconds, of the returned data points.</p> <p>All container service metric data is available in 5-minute (300 seconds) granularity.</p>
             statistics: <p>The statistic for the metric.</p> <p>The following statistics are available:</p> <ul> <li> <p> <code>Minimum</code> - The lowest value observed during the specified period. Use this value to determine low volumes of activity for your application.</p> </li> <li> <p> <code>Maximum</code> - The highest value observed during the specified period. Use this value to determine high volumes of activity for your application.</p> </li> <li> <p> <code>Sum</code> - All values submitted for the matching metric added together. You can use this statistic to determine the total volume of a metric.</p> </li> <li> <p> <code>Average</code> - The value of <code>Sum</code> / <code>SampleCount</code> during the specified period. By comparing this statistic with the <code>Minimum</code> and <code>Maximum</code> values, you can determine the full scope of a metric and how close the average use is to the <code>Minimum</code> and <code>Maximum</code> values. This comparison helps you to know when to increase or decrease your resources.</p> </li> <li> <p> <code>SampleCount</code> - The count, or number, of data points used for the statistical calculation.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.not_found_exception.NotFoundException: <p>Lightsail throws this exception when it cannot find a resource.</p>
+            aws_sdk_lightsail.errors.region_setup_in_progress_exception.RegionSetupInProgressException: <p>Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4090,7 +4886,17 @@ class LightsailClient:
     def get_container_service_powers(
         self, *, config_overrides: Optional[LightsailClientConfig] = None
     ) -> "aws_sdk_lightsail.types.get_container_service_powers_result.GetContainerServicePowersResult":
-        """<p>Returns the list of powers that can be specified for your Amazon Lightsail container services.</p> <p>The power specifies the amount of memory, the number of vCPUs, and the base price of the container service.</p>"""
+        """<p>Returns the list of powers that can be specified for your Amazon Lightsail container services.</p> <p>The power specifies the amount of memory, the number of vCPUs, and the base price of the container service.</p>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.not_found_exception.NotFoundException: <p>Lightsail throws this exception when it cannot find a resource.</p>
+            aws_sdk_lightsail.errors.region_setup_in_progress_exception.RegionSetupInProgressException: <p>Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_lightsail.types.get_container_service_powers_request.GetContainerServicePowersRequest]",
@@ -4128,6 +4934,15 @@ class LightsailClient:
 
         Args:
             service_name: <p>The name of the container service for which to return information.</p> <p>When omitted, the response includes all of your container services in the Amazon Web Services Region where the request is made.</p>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.not_found_exception.NotFoundException: <p>Lightsail throws this exception when it cannot find a resource.</p>
+            aws_sdk_lightsail.errors.region_setup_in_progress_exception.RegionSetupInProgressException: <p>Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4170,6 +4985,15 @@ class LightsailClient:
             resource_name: <p>The resource name.</p>
             start_time: <p>The cost estimate start time.</p> <p>Constraints:</p> <ul> <li> <p>Specified in Coordinated Universal Time (UTC).</p> </li> <li> <p>Specified in the Unix time format.</p> <p>For example, if you want to use a start time of October 1, 2018, at 8 PM UTC, specify <code>1538424000</code> as the start time.</p> </li> </ul> <p>You can convert a human-friendly time to Unix time format using a converter like <a href=\"https://www.epochconverter.com/\">Epoch converter</a>.</p>
             end_time: <p>The cost estimate end time.</p> <p>Constraints:</p> <ul> <li> <p>Specified in Coordinated Universal Time (UTC).</p> </li> <li> <p>Specified in the Unix time format.</p> <p>For example, if you want to use an end time of October 1, 2018, at 9 PM UTC, specify <code>1538427600</code> as the end time.</p> </li> </ul> <p>You can convert a human-friendly time to Unix time format using a converter like <a href=\"https://www.epochconverter.com/\">Epoch converter</a>.</p>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.not_found_exception.NotFoundException: <p>Lightsail throws this exception when it cannot find a resource.</p>
+            aws_sdk_lightsail.errors.region_setup_in_progress_exception.RegionSetupInProgressException: <p>Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4209,6 +5033,17 @@ class LightsailClient:
 
         Args:
             disk_name: <p>The name of the disk (<code>my-disk</code>).</p>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.account_setup_in_progress_exception.AccountSetupInProgressException: <p>Lightsail throws this exception when an account is still in the setup in progress state.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.not_found_exception.NotFoundException: <p>Lightsail throws this exception when it cannot find a resource.</p>
+            aws_sdk_lightsail.errors.operation_failure_exception.OperationFailureException: <p>Lightsail throws this exception when an operation fails to execute.</p>
+            aws_sdk_lightsail.errors.region_setup_in_progress_exception.RegionSetupInProgressException: <p>Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4244,6 +5079,17 @@ class LightsailClient:
 
         Args:
             page_token: <p>The token to advance to the next page of results from your request.</p> <p>To get a page token, perform an initial <code>GetDisks</code> request. If your results are paginated, the response will return a next page token that you can specify as the page token in a subsequent request.</p>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.account_setup_in_progress_exception.AccountSetupInProgressException: <p>Lightsail throws this exception when an account is still in the setup in progress state.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.not_found_exception.NotFoundException: <p>Lightsail throws this exception when it cannot find a resource.</p>
+            aws_sdk_lightsail.errors.operation_failure_exception.OperationFailureException: <p>Lightsail throws this exception when an operation fails to execute.</p>
+            aws_sdk_lightsail.errors.region_setup_in_progress_exception.RegionSetupInProgressException: <p>Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4282,6 +5128,17 @@ class LightsailClient:
 
         Args:
             disk_snapshot_name: <p>The name of the disk snapshot (<code>my-disk-snapshot</code>).</p>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.account_setup_in_progress_exception.AccountSetupInProgressException: <p>Lightsail throws this exception when an account is still in the setup in progress state.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.not_found_exception.NotFoundException: <p>Lightsail throws this exception when it cannot find a resource.</p>
+            aws_sdk_lightsail.errors.operation_failure_exception.OperationFailureException: <p>Lightsail throws this exception when an operation fails to execute.</p>
+            aws_sdk_lightsail.errors.region_setup_in_progress_exception.RegionSetupInProgressException: <p>Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4319,6 +5176,17 @@ class LightsailClient:
 
         Args:
             page_token: <p>The token to advance to the next page of results from your request.</p> <p>To get a page token, perform an initial <code>GetDiskSnapshots</code> request. If your results are paginated, the response will return a next page token that you can specify as the page token in a subsequent request.</p>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.account_setup_in_progress_exception.AccountSetupInProgressException: <p>Lightsail throws this exception when an account is still in the setup in progress state.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.not_found_exception.NotFoundException: <p>Lightsail throws this exception when it cannot find a resource.</p>
+            aws_sdk_lightsail.errors.operation_failure_exception.OperationFailureException: <p>Lightsail throws this exception when an operation fails to execute.</p>
+            aws_sdk_lightsail.errors.region_setup_in_progress_exception.RegionSetupInProgressException: <p>Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4350,7 +5218,17 @@ class LightsailClient:
     def get_distribution_bundles(
         self, *, config_overrides: Optional[LightsailClientConfig] = None
     ) -> "aws_sdk_lightsail.types.get_distribution_bundles_result.GetDistributionBundlesResult":
-        """<p>Returns the bundles that can be applied to your Amazon Lightsail content delivery network (CDN) distributions.</p> <p>A distribution bundle specifies the monthly network transfer quota and monthly cost of your distribution.</p>"""
+        """<p>Returns the bundles that can be applied to your Amazon Lightsail content delivery network (CDN) distributions.</p> <p>A distribution bundle specifies the monthly network transfer quota and monthly cost of your distribution.</p>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.not_found_exception.NotFoundException: <p>Lightsail throws this exception when it cannot find a resource.</p>
+            aws_sdk_lightsail.errors.operation_failure_exception.OperationFailureException: <p>Lightsail throws this exception when an operation fails to execute.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_lightsail.types.get_distribution_bundles_request.GetDistributionBundlesRequest]",
@@ -4388,6 +5266,15 @@ class LightsailClient:
 
         Args:
             distribution_name: <p>The name of the distribution for which to return the timestamp of the last cache reset.</p> <p>Use the <code>GetDistributions</code> action to get a list of distribution names that you can specify.</p> <p>When omitted, the response includes the latest cache reset timestamp of all your distributions.</p>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.not_found_exception.NotFoundException: <p>Lightsail throws this exception when it cannot find a resource.</p>
+            aws_sdk_lightsail.errors.operation_failure_exception.OperationFailureException: <p>Lightsail throws this exception when an operation fails to execute.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4438,6 +5325,15 @@ class LightsailClient:
             period: <p>The granularity, in seconds, for the metric data points that will be returned.</p>
             unit: <p>The unit for the metric data request.</p> <p>Valid units depend on the metric data being requested. For the valid units with each available metric, see the <code>metricName</code> parameter.</p>
             statistics: <p>The statistic for the metric.</p> <p>The following statistics are available:</p> <ul> <li> <p> <code>Minimum</code> - The lowest value observed during the specified period. Use this value to determine low volumes of activity for your application.</p> </li> <li> <p> <code>Maximum</code> - The highest value observed during the specified period. Use this value to determine high volumes of activity for your application.</p> </li> <li> <p> <code>Sum</code> - All values submitted for the matching metric added together. You can use this statistic to determine the total volume of a metric.</p> </li> <li> <p> <code>Average</code> - The value of Sum / SampleCount during the specified period. By comparing this statistic with the Minimum and Maximum values, you can determine the full scope of a metric and how close the average use is to the Minimum and Maximum values. This comparison helps you to know when to increase or decrease your resources.</p> </li> <li> <p> <code>SampleCount</code> - The count, or number, of data points used for the statistical calculation.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.not_found_exception.NotFoundException: <p>Lightsail throws this exception when it cannot find a resource.</p>
+            aws_sdk_lightsail.errors.operation_failure_exception.OperationFailureException: <p>Lightsail throws this exception when an operation fails to execute.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4485,6 +5381,15 @@ class LightsailClient:
         Args:
             distribution_name: <p>The name of the distribution for which to return information.</p> <p>When omitted, the response includes all of your distributions in the Amazon Web Services Region where the request is made.</p>
             page_token: <p>The token to advance to the next page of results from your request.</p> <p>To get a page token, perform an initial <code>GetDistributions</code> request. If your results are paginated, the response will return a next page token that you can specify as the page token in a subsequent request.</p>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.not_found_exception.NotFoundException: <p>Lightsail throws this exception when it cannot find a resource.</p>
+            aws_sdk_lightsail.errors.operation_failure_exception.OperationFailureException: <p>Lightsail throws this exception when an operation fails to execute.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4525,6 +5430,17 @@ class LightsailClient:
 
         Args:
             domain_name: <p>The domain name for which your want to return information about.</p>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.account_setup_in_progress_exception.AccountSetupInProgressException: <p>Lightsail throws this exception when an account is still in the setup in progress state.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.not_found_exception.NotFoundException: <p>Lightsail throws this exception when it cannot find a resource.</p>
+            aws_sdk_lightsail.errors.operation_failure_exception.OperationFailureException: <p>Lightsail throws this exception when an operation fails to execute.</p>
+            aws_sdk_lightsail.errors.region_setup_in_progress_exception.RegionSetupInProgressException: <p>Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4562,6 +5478,17 @@ class LightsailClient:
 
         Args:
             page_token: <p>The token to advance to the next page of results from your request.</p> <p>To get a page token, perform an initial <code>GetDomains</code> request. If your results are paginated, the response will return a next page token that you can specify as the page token in a subsequent request.</p>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.account_setup_in_progress_exception.AccountSetupInProgressException: <p>Lightsail throws this exception when an account is still in the setup in progress state.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.not_found_exception.NotFoundException: <p>Lightsail throws this exception when it cannot find a resource.</p>
+            aws_sdk_lightsail.errors.operation_failure_exception.OperationFailureException: <p>Lightsail throws this exception when an operation fails to execute.</p>
+            aws_sdk_lightsail.errors.region_setup_in_progress_exception.RegionSetupInProgressException: <p>Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4600,6 +5527,17 @@ class LightsailClient:
 
         Args:
             page_token: <p>The token to advance to the next page of results from your request.</p> <p>To get a page token, perform an initial <code>GetExportSnapshotRecords</code> request. If your results are paginated, the response will return a next page token that you can specify as the page token in a subsequent request.</p>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.account_setup_in_progress_exception.AccountSetupInProgressException: <p>Lightsail throws this exception when an account is still in the setup in progress state.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.not_found_exception.NotFoundException: <p>Lightsail throws this exception when it cannot find a resource.</p>
+            aws_sdk_lightsail.errors.operation_failure_exception.OperationFailureException: <p>Lightsail throws this exception when an operation fails to execute.</p>
+            aws_sdk_lightsail.errors.region_setup_in_progress_exception.RegionSetupInProgressException: <p>Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4638,6 +5576,17 @@ class LightsailClient:
 
         Args:
             instance_name: <p>The name of the instance.</p>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.account_setup_in_progress_exception.AccountSetupInProgressException: <p>Lightsail throws this exception when an account is still in the setup in progress state.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.not_found_exception.NotFoundException: <p>Lightsail throws this exception when it cannot find a resource.</p>
+            aws_sdk_lightsail.errors.operation_failure_exception.OperationFailureException: <p>Lightsail throws this exception when an operation fails to execute.</p>
+            aws_sdk_lightsail.errors.region_setup_in_progress_exception.RegionSetupInProgressException: <p>Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4679,6 +5628,17 @@ class LightsailClient:
         Args:
             instance_name: <p>The name of the instance to access.</p>
             protocol: <p>The protocol to use to connect to your instance. Defaults to <code>ssh</code>.</p>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.account_setup_in_progress_exception.AccountSetupInProgressException: <p>Lightsail throws this exception when an account is still in the setup in progress state.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.not_found_exception.NotFoundException: <p>Lightsail throws this exception when it cannot find a resource.</p>
+            aws_sdk_lightsail.errors.operation_failure_exception.OperationFailureException: <p>Lightsail throws this exception when an operation fails to execute.</p>
+            aws_sdk_lightsail.errors.region_setup_in_progress_exception.RegionSetupInProgressException: <p>Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4730,6 +5690,17 @@ class LightsailClient:
             end_time: <p>The end time of the time period.</p>
             unit: <p>The unit for the metric data request. Valid units depend on the metric data being requested. For the valid units to specify with each available metric, see the <code>metricName</code> parameter.</p>
             statistics: <p>The statistic for the metric.</p> <p>The following statistics are available:</p> <ul> <li> <p> <code>Minimum</code> - The lowest value observed during the specified period. Use this value to determine low volumes of activity for your application.</p> </li> <li> <p> <code>Maximum</code> - The highest value observed during the specified period. Use this value to determine high volumes of activity for your application.</p> </li> <li> <p> <code>Sum</code> - All values submitted for the matching metric added together. You can use this statistic to determine the total volume of a metric.</p> </li> <li> <p> <code>Average</code> - The value of Sum / SampleCount during the specified period. By comparing this statistic with the Minimum and Maximum values, you can determine the full scope of a metric and how close the average use is to the Minimum and Maximum values. This comparison helps you to know when to increase or decrease your resources.</p> </li> <li> <p> <code>SampleCount</code> - The count, or number, of data points used for the statistical calculation.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.account_setup_in_progress_exception.AccountSetupInProgressException: <p>Lightsail throws this exception when an account is still in the setup in progress state.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.not_found_exception.NotFoundException: <p>Lightsail throws this exception when it cannot find a resource.</p>
+            aws_sdk_lightsail.errors.operation_failure_exception.OperationFailureException: <p>Lightsail throws this exception when an operation fails to execute.</p>
+            aws_sdk_lightsail.errors.region_setup_in_progress_exception.RegionSetupInProgressException: <p>Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4773,6 +5744,17 @@ class LightsailClient:
 
         Args:
             instance_name: <p>The name of the instance for which to return firewall port states.</p>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.account_setup_in_progress_exception.AccountSetupInProgressException: <p>Lightsail throws this exception when an account is still in the setup in progress state.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.not_found_exception.NotFoundException: <p>Lightsail throws this exception when it cannot find a resource.</p>
+            aws_sdk_lightsail.errors.operation_failure_exception.OperationFailureException: <p>Lightsail throws this exception when an operation fails to execute.</p>
+            aws_sdk_lightsail.errors.region_setup_in_progress_exception.RegionSetupInProgressException: <p>Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4810,6 +5792,17 @@ class LightsailClient:
 
         Args:
             page_token: <p>The token to advance to the next page of results from your request.</p> <p>To get a page token, perform an initial <code>GetInstances</code> request. If your results are paginated, the response will return a next page token that you can specify as the page token in a subsequent request.</p>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.account_setup_in_progress_exception.AccountSetupInProgressException: <p>Lightsail throws this exception when an account is still in the setup in progress state.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.not_found_exception.NotFoundException: <p>Lightsail throws this exception when it cannot find a resource.</p>
+            aws_sdk_lightsail.errors.operation_failure_exception.OperationFailureException: <p>Lightsail throws this exception when an operation fails to execute.</p>
+            aws_sdk_lightsail.errors.region_setup_in_progress_exception.RegionSetupInProgressException: <p>Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4850,6 +5843,17 @@ class LightsailClient:
 
         Args:
             instance_snapshot_name: <p>The name of the snapshot for which you are requesting information.</p>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.account_setup_in_progress_exception.AccountSetupInProgressException: <p>Lightsail throws this exception when an account is still in the setup in progress state.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.not_found_exception.NotFoundException: <p>Lightsail throws this exception when it cannot find a resource.</p>
+            aws_sdk_lightsail.errors.operation_failure_exception.OperationFailureException: <p>Lightsail throws this exception when an operation fails to execute.</p>
+            aws_sdk_lightsail.errors.region_setup_in_progress_exception.RegionSetupInProgressException: <p>Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4887,6 +5891,17 @@ class LightsailClient:
 
         Args:
             page_token: <p>The token to advance to the next page of results from your request.</p> <p>To get a page token, perform an initial <code>GetInstanceSnapshots</code> request. If your results are paginated, the response will return a next page token that you can specify as the page token in a subsequent request.</p>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.account_setup_in_progress_exception.AccountSetupInProgressException: <p>Lightsail throws this exception when an account is still in the setup in progress state.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.not_found_exception.NotFoundException: <p>Lightsail throws this exception when it cannot find a resource.</p>
+            aws_sdk_lightsail.errors.operation_failure_exception.OperationFailureException: <p>Lightsail throws this exception when an operation fails to execute.</p>
+            aws_sdk_lightsail.errors.region_setup_in_progress_exception.RegionSetupInProgressException: <p>Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4925,6 +5940,17 @@ class LightsailClient:
 
         Args:
             instance_name: <p>The name of the instance to get state information about.</p>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.account_setup_in_progress_exception.AccountSetupInProgressException: <p>Lightsail throws this exception when an account is still in the setup in progress state.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.not_found_exception.NotFoundException: <p>Lightsail throws this exception when it cannot find a resource.</p>
+            aws_sdk_lightsail.errors.operation_failure_exception.OperationFailureException: <p>Lightsail throws this exception when an operation fails to execute.</p>
+            aws_sdk_lightsail.errors.region_setup_in_progress_exception.RegionSetupInProgressException: <p>Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4962,6 +5988,17 @@ class LightsailClient:
 
         Args:
             key_pair_name: <p>The name of the key pair for which you are requesting information.</p>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.account_setup_in_progress_exception.AccountSetupInProgressException: <p>Lightsail throws this exception when an account is still in the setup in progress state.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.not_found_exception.NotFoundException: <p>Lightsail throws this exception when it cannot find a resource.</p>
+            aws_sdk_lightsail.errors.operation_failure_exception.OperationFailureException: <p>Lightsail throws this exception when an operation fails to execute.</p>
+            aws_sdk_lightsail.errors.region_setup_in_progress_exception.RegionSetupInProgressException: <p>Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5003,6 +6040,17 @@ class LightsailClient:
         Args:
             page_token: <p>The token to advance to the next page of results from your request.</p> <p>To get a page token, perform an initial <code>GetKeyPairs</code> request. If your results are paginated, the response will return a next page token that you can specify as the page token in a subsequent request.</p>
             include_default_key_pair: <p>A Boolean value that indicates whether to include the default key pair in the response of your request.</p>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.account_setup_in_progress_exception.AccountSetupInProgressException: <p>Lightsail throws this exception when an account is still in the setup in progress state.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.not_found_exception.NotFoundException: <p>Lightsail throws this exception when it cannot find a resource.</p>
+            aws_sdk_lightsail.errors.operation_failure_exception.OperationFailureException: <p>Lightsail throws this exception when an operation fails to execute.</p>
+            aws_sdk_lightsail.errors.region_setup_in_progress_exception.RegionSetupInProgressException: <p>Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5043,6 +6091,17 @@ class LightsailClient:
 
         Args:
             load_balancer_name: <p>The name of the load balancer.</p>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.account_setup_in_progress_exception.AccountSetupInProgressException: <p>Lightsail throws this exception when an account is still in the setup in progress state.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.not_found_exception.NotFoundException: <p>Lightsail throws this exception when it cannot find a resource.</p>
+            aws_sdk_lightsail.errors.operation_failure_exception.OperationFailureException: <p>Lightsail throws this exception when an operation fails to execute.</p>
+            aws_sdk_lightsail.errors.region_setup_in_progress_exception.RegionSetupInProgressException: <p>Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5092,6 +6151,17 @@ class LightsailClient:
             end_time: <p>The end time of the period.</p>
             unit: <p>The unit for the metric data request. Valid units depend on the metric data being requested. For the valid units with each available metric, see the <code>metricName</code> parameter.</p>
             statistics: <p>The statistic for the metric.</p> <p>The following statistics are available:</p> <ul> <li> <p> <code>Minimum</code> - The lowest value observed during the specified period. Use this value to determine low volumes of activity for your application.</p> </li> <li> <p> <code>Maximum</code> - The highest value observed during the specified period. Use this value to determine high volumes of activity for your application.</p> </li> <li> <p> <code>Sum</code> - All values submitted for the matching metric added together. You can use this statistic to determine the total volume of a metric.</p> </li> <li> <p> <code>Average</code> - The value of Sum / SampleCount during the specified period. By comparing this statistic with the Minimum and Maximum values, you can determine the full scope of a metric and how close the average use is to the Minimum and Maximum values. This comparison helps you to know when to increase or decrease your resources.</p> </li> <li> <p> <code>SampleCount</code> - The count, or number, of data points used for the statistical calculation.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.account_setup_in_progress_exception.AccountSetupInProgressException: <p>Lightsail throws this exception when an account is still in the setup in progress state.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.not_found_exception.NotFoundException: <p>Lightsail throws this exception when it cannot find a resource.</p>
+            aws_sdk_lightsail.errors.operation_failure_exception.OperationFailureException: <p>Lightsail throws this exception when an operation fails to execute.</p>
+            aws_sdk_lightsail.errors.region_setup_in_progress_exception.RegionSetupInProgressException: <p>Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5135,6 +6205,17 @@ class LightsailClient:
 
         Args:
             page_token: <p>The token to advance to the next page of results from your request.</p> <p>To get a page token, perform an initial <code>GetLoadBalancers</code> request. If your results are paginated, the response will return a next page token that you can specify as the page token in a subsequent request.</p>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.account_setup_in_progress_exception.AccountSetupInProgressException: <p>Lightsail throws this exception when an account is still in the setup in progress state.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.not_found_exception.NotFoundException: <p>Lightsail throws this exception when it cannot find a resource.</p>
+            aws_sdk_lightsail.errors.operation_failure_exception.OperationFailureException: <p>Lightsail throws this exception when an operation fails to execute.</p>
+            aws_sdk_lightsail.errors.region_setup_in_progress_exception.RegionSetupInProgressException: <p>Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5173,6 +6254,17 @@ class LightsailClient:
 
         Args:
             load_balancer_name: <p>The name of the load balancer you associated with your SSL/TLS certificate.</p>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.account_setup_in_progress_exception.AccountSetupInProgressException: <p>Lightsail throws this exception when an account is still in the setup in progress state.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.not_found_exception.NotFoundException: <p>Lightsail throws this exception when it cannot find a resource.</p>
+            aws_sdk_lightsail.errors.operation_failure_exception.OperationFailureException: <p>Lightsail throws this exception when an operation fails to execute.</p>
+            aws_sdk_lightsail.errors.region_setup_in_progress_exception.RegionSetupInProgressException: <p>Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5210,6 +6302,15 @@ class LightsailClient:
 
         Args:
             page_token: <p>The token to advance to the next page of results from your request.</p> <p>To get a page token, perform an initial <code>GetLoadBalancerTlsPolicies</code> request. If your results are paginated, the response will return a next page token that you can specify as the page token in a subsequent request.</p>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.account_setup_in_progress_exception.AccountSetupInProgressException: <p>Lightsail throws this exception when an account is still in the setup in progress state.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.region_setup_in_progress_exception.RegionSetupInProgressException: <p>Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5248,6 +6349,17 @@ class LightsailClient:
 
         Args:
             operation_id: <p>A GUID used to identify the operation.</p>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.account_setup_in_progress_exception.AccountSetupInProgressException: <p>Lightsail throws this exception when an account is still in the setup in progress state.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.not_found_exception.NotFoundException: <p>Lightsail throws this exception when it cannot find a resource.</p>
+            aws_sdk_lightsail.errors.operation_failure_exception.OperationFailureException: <p>Lightsail throws this exception when an operation fails to execute.</p>
+            aws_sdk_lightsail.errors.region_setup_in_progress_exception.RegionSetupInProgressException: <p>Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5285,6 +6397,17 @@ class LightsailClient:
 
         Args:
             page_token: <p>The token to advance to the next page of results from your request.</p> <p>To get a page token, perform an initial <code>GetOperations</code> request. If your results are paginated, the response will return a next page token that you can specify as the page token in a subsequent request.</p>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.account_setup_in_progress_exception.AccountSetupInProgressException: <p>Lightsail throws this exception when an account is still in the setup in progress state.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.not_found_exception.NotFoundException: <p>Lightsail throws this exception when it cannot find a resource.</p>
+            aws_sdk_lightsail.errors.operation_failure_exception.OperationFailureException: <p>Lightsail throws this exception when an operation fails to execute.</p>
+            aws_sdk_lightsail.errors.region_setup_in_progress_exception.RegionSetupInProgressException: <p>Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5325,6 +6448,17 @@ class LightsailClient:
         Args:
             resource_name: <p>The name of the resource for which you are requesting information.</p>
             page_token: <p>The token to advance to the next page of results from your request.</p> <p>To get a page token, perform an initial <code>GetOperationsForResource</code> request. If your results are paginated, the response will return a next page token that you can specify as the page token in a subsequent request.</p>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.account_setup_in_progress_exception.AccountSetupInProgressException: <p>Lightsail throws this exception when an account is still in the setup in progress state.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.not_found_exception.NotFoundException: <p>Lightsail throws this exception when it cannot find a resource.</p>
+            aws_sdk_lightsail.errors.operation_failure_exception.OperationFailureException: <p>Lightsail throws this exception when an operation fails to execute.</p>
+            aws_sdk_lightsail.errors.region_setup_in_progress_exception.RegionSetupInProgressException: <p>Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5370,6 +6504,17 @@ class LightsailClient:
         Args:
             include_availability_zones: <p>A Boolean value indicating whether to also include Availability Zones in your get regions request. Availability Zones are indicated with a letter: <code>us-east-2a</code>.</p>
             include_relational_database_availability_zones: <p>A Boolean value indicating whether to also include Availability Zones for databases in your get regions request. Availability Zones are indicated with a letter (<code>us-east-2a</code>).</p>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.account_setup_in_progress_exception.AccountSetupInProgressException: <p>Lightsail throws this exception when an account is still in the setup in progress state.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.not_found_exception.NotFoundException: <p>Lightsail throws this exception when it cannot find a resource.</p>
+            aws_sdk_lightsail.errors.operation_failure_exception.OperationFailureException: <p>Lightsail throws this exception when an operation fails to execute.</p>
+            aws_sdk_lightsail.errors.region_setup_in_progress_exception.RegionSetupInProgressException: <p>Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5412,6 +6557,17 @@ class LightsailClient:
 
         Args:
             relational_database_name: <p>The name of the database that you are looking up.</p>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.account_setup_in_progress_exception.AccountSetupInProgressException: <p>Lightsail throws this exception when an account is still in the setup in progress state.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.not_found_exception.NotFoundException: <p>Lightsail throws this exception when it cannot find a resource.</p>
+            aws_sdk_lightsail.errors.operation_failure_exception.OperationFailureException: <p>Lightsail throws this exception when an operation fails to execute.</p>
+            aws_sdk_lightsail.errors.region_setup_in_progress_exception.RegionSetupInProgressException: <p>Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5449,6 +6605,17 @@ class LightsailClient:
 
         Args:
             page_token: <p>The token to advance to the next page of results from your request.</p> <p>To get a page token, perform an initial <code>GetRelationalDatabaseBlueprints</code> request. If your results are paginated, the response will return a next page token that you can specify as the page token in a subsequent request.</p>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.account_setup_in_progress_exception.AccountSetupInProgressException: <p>Lightsail throws this exception when an account is still in the setup in progress state.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.not_found_exception.NotFoundException: <p>Lightsail throws this exception when it cannot find a resource.</p>
+            aws_sdk_lightsail.errors.operation_failure_exception.OperationFailureException: <p>Lightsail throws this exception when an operation fails to execute.</p>
+            aws_sdk_lightsail.errors.region_setup_in_progress_exception.RegionSetupInProgressException: <p>Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5489,6 +6656,17 @@ class LightsailClient:
         Args:
             page_token: <p>The token to advance to the next page of results from your request.</p> <p>To get a page token, perform an initial <code>GetRelationalDatabaseBundles</code> request. If your results are paginated, the response will return a next page token that you can specify as the page token in a subsequent request.</p>
             include_inactive: <p>A Boolean value that indicates whether to include inactive (unavailable) bundles in the response of your request.</p>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.account_setup_in_progress_exception.AccountSetupInProgressException: <p>Lightsail throws this exception when an account is still in the setup in progress state.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.not_found_exception.NotFoundException: <p>Lightsail throws this exception when it cannot find a resource.</p>
+            aws_sdk_lightsail.errors.operation_failure_exception.OperationFailureException: <p>Lightsail throws this exception when an operation fails to execute.</p>
+            aws_sdk_lightsail.errors.region_setup_in_progress_exception.RegionSetupInProgressException: <p>Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5533,6 +6711,17 @@ class LightsailClient:
             relational_database_name: <p>The name of the database from which to get events.</p>
             duration_in_minutes: <p>The number of minutes in the past from which to retrieve events. For example, to get all events from the past 2 hours, enter 120.</p> <p>Default: <code>60</code> </p> <p>The minimum is 1 and the maximum is 14 days (20160 minutes).</p>
             page_token: <p>The token to advance to the next page of results from your request.</p> <p>To get a page token, perform an initial <code>GetRelationalDatabaseEvents</code> request. If your results are paginated, the response will return a next page token that you can specify as the page token in a subsequent request.</p>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.account_setup_in_progress_exception.AccountSetupInProgressException: <p>Lightsail throws this exception when an account is still in the setup in progress state.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.not_found_exception.NotFoundException: <p>Lightsail throws this exception when it cannot find a resource.</p>
+            aws_sdk_lightsail.errors.operation_failure_exception.OperationFailureException: <p>Lightsail throws this exception when an operation fails to execute.</p>
+            aws_sdk_lightsail.errors.region_setup_in_progress_exception.RegionSetupInProgressException: <p>Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5584,6 +6773,17 @@ class LightsailClient:
             end_time: <p>The end of the time interval from which to get log events.</p> <p>Constraints:</p> <ul> <li> <p>Specified in Coordinated Universal Time (UTC).</p> </li> <li> <p>Specified in the Unix time format.</p> <p>For example, if you wish to use an end time of October 1, 2018, at 8 PM UTC, then you input <code>1538424000</code> as the end time.</p> </li> </ul>
             start_from_head: <p>Parameter to specify if the log should start from head or tail. If <code>true</code> is specified, the log event starts from the head of the log. If <code>false</code> is specified, the log event starts from the tail of the log.</p> <note> <p>For PostgreSQL, the default value of <code>false</code> is the only option available.</p> </note>
             page_token: <p>The token to advance to the next or previous page of results from your request.</p> <p>To get a page token, perform an initial <code>GetRelationalDatabaseLogEvents</code> request. If your results are paginated, the response will return a next forward token and/or next backward token that you can specify as the page token in a subsequent request.</p>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.account_setup_in_progress_exception.AccountSetupInProgressException: <p>Lightsail throws this exception when an account is still in the setup in progress state.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.not_found_exception.NotFoundException: <p>Lightsail throws this exception when it cannot find a resource.</p>
+            aws_sdk_lightsail.errors.operation_failure_exception.OperationFailureException: <p>Lightsail throws this exception when an operation fails to execute.</p>
+            aws_sdk_lightsail.errors.region_setup_in_progress_exception.RegionSetupInProgressException: <p>Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5630,6 +6830,17 @@ class LightsailClient:
 
         Args:
             relational_database_name: <p>The name of your database for which to get log streams.</p>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.account_setup_in_progress_exception.AccountSetupInProgressException: <p>Lightsail throws this exception when an account is still in the setup in progress state.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.not_found_exception.NotFoundException: <p>Lightsail throws this exception when it cannot find a resource.</p>
+            aws_sdk_lightsail.errors.operation_failure_exception.OperationFailureException: <p>Lightsail throws this exception when an operation fails to execute.</p>
+            aws_sdk_lightsail.errors.region_setup_in_progress_exception.RegionSetupInProgressException: <p>Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5671,6 +6882,17 @@ class LightsailClient:
         Args:
             relational_database_name: <p>The name of your database for which to get the master user password.</p>
             password_version: <p>The password version to return.</p> <p>Specifying <code>CURRENT</code> or <code>PREVIOUS</code> returns the current or previous passwords respectively. Specifying <code>PENDING</code> returns the newest version of the password that will rotate to <code>CURRENT</code>. After the <code>PENDING</code> password rotates to <code>CURRENT</code>, the <code>PENDING</code> password is no longer available.</p> <p>Default: <code>CURRENT</code> </p>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.account_setup_in_progress_exception.AccountSetupInProgressException: <p>Lightsail throws this exception when an account is still in the setup in progress state.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.not_found_exception.NotFoundException: <p>Lightsail throws this exception when it cannot find a resource.</p>
+            aws_sdk_lightsail.errors.operation_failure_exception.OperationFailureException: <p>Lightsail throws this exception when an operation fails to execute.</p>
+            aws_sdk_lightsail.errors.region_setup_in_progress_exception.RegionSetupInProgressException: <p>Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5722,6 +6944,17 @@ class LightsailClient:
             end_time: <p>The end of the time interval from which to get metric data.</p> <p>Constraints:</p> <ul> <li> <p>Specified in Coordinated Universal Time (UTC).</p> </li> <li> <p>Specified in the Unix time format.</p> <p>For example, if you wish to use an end time of October 1, 2018, at 8 PM UTC, then you input <code>1538424000</code> as the end time.</p> </li> </ul>
             unit: <p>The unit for the metric data request. Valid units depend on the metric data being requested. For the valid units with each available metric, see the <code>metricName</code> parameter.</p>
             statistics: <p>The statistic for the metric.</p> <p>The following statistics are available:</p> <ul> <li> <p> <code>Minimum</code> - The lowest value observed during the specified period. Use this value to determine low volumes of activity for your application.</p> </li> <li> <p> <code>Maximum</code> - The highest value observed during the specified period. Use this value to determine high volumes of activity for your application.</p> </li> <li> <p> <code>Sum</code> - All values submitted for the matching metric added together. You can use this statistic to determine the total volume of a metric.</p> </li> <li> <p> <code>Average</code> - The value of Sum / SampleCount during the specified period. By comparing this statistic with the Minimum and Maximum values, you can determine the full scope of a metric and how close the average use is to the Minimum and Maximum values. This comparison helps you to know when to increase or decrease your resources.</p> </li> <li> <p> <code>SampleCount</code> - The count, or number, of data points used for the statistical calculation.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.account_setup_in_progress_exception.AccountSetupInProgressException: <p>Lightsail throws this exception when an account is still in the setup in progress state.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.not_found_exception.NotFoundException: <p>Lightsail throws this exception when it cannot find a resource.</p>
+            aws_sdk_lightsail.errors.operation_failure_exception.OperationFailureException: <p>Lightsail throws this exception when an operation fails to execute.</p>
+            aws_sdk_lightsail.errors.region_setup_in_progress_exception.RegionSetupInProgressException: <p>Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5767,6 +7000,17 @@ class LightsailClient:
         Args:
             relational_database_name: <p>The name of your database for which to get parameters.</p>
             page_token: <p>The token to advance to the next page of results from your request.</p> <p>To get a page token, perform an initial <code>GetRelationalDatabaseParameters</code> request. If your results are paginated, the response will return a next page token that you can specify as the page token in a subsequent request.</p>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.account_setup_in_progress_exception.AccountSetupInProgressException: <p>Lightsail throws this exception when an account is still in the setup in progress state.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.not_found_exception.NotFoundException: <p>Lightsail throws this exception when it cannot find a resource.</p>
+            aws_sdk_lightsail.errors.operation_failure_exception.OperationFailureException: <p>Lightsail throws this exception when an operation fails to execute.</p>
+            aws_sdk_lightsail.errors.region_setup_in_progress_exception.RegionSetupInProgressException: <p>Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5806,6 +7050,17 @@ class LightsailClient:
 
         Args:
             page_token: <p>The token to advance to the next page of results from your request.</p> <p>To get a page token, perform an initial <code>GetRelationalDatabases</code> request. If your results are paginated, the response will return a next page token that you can specify as the page token in a subsequent request.</p>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.account_setup_in_progress_exception.AccountSetupInProgressException: <p>Lightsail throws this exception when an account is still in the setup in progress state.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.not_found_exception.NotFoundException: <p>Lightsail throws this exception when it cannot find a resource.</p>
+            aws_sdk_lightsail.errors.operation_failure_exception.OperationFailureException: <p>Lightsail throws this exception when an operation fails to execute.</p>
+            aws_sdk_lightsail.errors.region_setup_in_progress_exception.RegionSetupInProgressException: <p>Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5844,6 +7099,17 @@ class LightsailClient:
 
         Args:
             relational_database_snapshot_name: <p>The name of the database snapshot for which to get information.</p>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.account_setup_in_progress_exception.AccountSetupInProgressException: <p>Lightsail throws this exception when an account is still in the setup in progress state.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.not_found_exception.NotFoundException: <p>Lightsail throws this exception when it cannot find a resource.</p>
+            aws_sdk_lightsail.errors.operation_failure_exception.OperationFailureException: <p>Lightsail throws this exception when an operation fails to execute.</p>
+            aws_sdk_lightsail.errors.region_setup_in_progress_exception.RegionSetupInProgressException: <p>Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5881,6 +7147,17 @@ class LightsailClient:
 
         Args:
             page_token: <p>The token to advance to the next page of results from your request.</p> <p>To get a page token, perform an initial <code>GetRelationalDatabaseSnapshots</code> request. If your results are paginated, the response will return a next page token that you can specify as the page token in a subsequent request.</p>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.account_setup_in_progress_exception.AccountSetupInProgressException: <p>Lightsail throws this exception when an account is still in the setup in progress state.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.not_found_exception.NotFoundException: <p>Lightsail throws this exception when it cannot find a resource.</p>
+            aws_sdk_lightsail.errors.operation_failure_exception.OperationFailureException: <p>Lightsail throws this exception when an operation fails to execute.</p>
+            aws_sdk_lightsail.errors.region_setup_in_progress_exception.RegionSetupInProgressException: <p>Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5923,6 +7200,15 @@ class LightsailClient:
         Args:
             resource_name: <p>The name of the resource for which you are requesting information.</p>
             page_token: <p>The token to advance to the next page of results from your request.</p> <p>To get a page token, perform an initial <code>GetSetupHistory</code> request. If your results are paginated, the response will return a next page token that you can specify as the page token in a subsequent request.</p>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.not_found_exception.NotFoundException: <p>Lightsail throws this exception when it cannot find a resource.</p>
+            aws_sdk_lightsail.errors.region_setup_in_progress_exception.RegionSetupInProgressException: <p>Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5962,6 +7248,17 @@ class LightsailClient:
 
         Args:
             static_ip_name: <p>The name of the static IP in Lightsail.</p>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.account_setup_in_progress_exception.AccountSetupInProgressException: <p>Lightsail throws this exception when an account is still in the setup in progress state.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.not_found_exception.NotFoundException: <p>Lightsail throws this exception when it cannot find a resource.</p>
+            aws_sdk_lightsail.errors.operation_failure_exception.OperationFailureException: <p>Lightsail throws this exception when an operation fails to execute.</p>
+            aws_sdk_lightsail.errors.region_setup_in_progress_exception.RegionSetupInProgressException: <p>Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5999,6 +7296,17 @@ class LightsailClient:
 
         Args:
             page_token: <p>The token to advance to the next page of results from your request.</p> <p>To get a page token, perform an initial <code>GetStaticIps</code> request. If your results are paginated, the response will return a next page token that you can specify as the page token in a subsequent request.</p>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.account_setup_in_progress_exception.AccountSetupInProgressException: <p>Lightsail throws this exception when an account is still in the setup in progress state.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.not_found_exception.NotFoundException: <p>Lightsail throws this exception when it cannot find a resource.</p>
+            aws_sdk_lightsail.errors.operation_failure_exception.OperationFailureException: <p>Lightsail throws this exception when an operation fails to execute.</p>
+            aws_sdk_lightsail.errors.region_setup_in_progress_exception.RegionSetupInProgressException: <p>Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6039,6 +7347,17 @@ class LightsailClient:
         Args:
             key_pair_name: <p>The name of the key pair for which you want to import the public key.</p>
             public_key_base64: <p>A base64-encoded public key of the <code>ssh-rsa</code> type.</p>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.account_setup_in_progress_exception.AccountSetupInProgressException: <p>Lightsail throws this exception when an account is still in the setup in progress state.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.not_found_exception.NotFoundException: <p>Lightsail throws this exception when it cannot find a resource.</p>
+            aws_sdk_lightsail.errors.operation_failure_exception.OperationFailureException: <p>Lightsail throws this exception when an operation fails to execute.</p>
+            aws_sdk_lightsail.errors.region_setup_in_progress_exception.RegionSetupInProgressException: <p>Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6070,7 +7389,19 @@ class LightsailClient:
     def is_vpc_peered(
         self, *, config_overrides: Optional[LightsailClientConfig] = None
     ) -> "aws_sdk_lightsail.types.is_vpc_peered_result.IsVpcPeeredResult":
-        """<p>Returns a Boolean value indicating whether your Lightsail VPC is peered.</p>"""
+        """<p>Returns a Boolean value indicating whether your Lightsail VPC is peered.</p>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.account_setup_in_progress_exception.AccountSetupInProgressException: <p>Lightsail throws this exception when an account is still in the setup in progress state.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.not_found_exception.NotFoundException: <p>Lightsail throws this exception when it cannot find a resource.</p>
+            aws_sdk_lightsail.errors.operation_failure_exception.OperationFailureException: <p>Lightsail throws this exception when an operation fails to execute.</p>
+            aws_sdk_lightsail.errors.region_setup_in_progress_exception.RegionSetupInProgressException: <p>Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_lightsail.types.is_vpc_peered_request.IsVpcPeeredRequest]",
@@ -6108,6 +7439,17 @@ class LightsailClient:
         Args:
             port_info: <p>An object to describe the ports to open for the specified instance.</p>
             instance_name: <p>The name of the instance for which to open ports.</p>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.account_setup_in_progress_exception.AccountSetupInProgressException: <p>Lightsail throws this exception when an account is still in the setup in progress state.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.not_found_exception.NotFoundException: <p>Lightsail throws this exception when it cannot find a resource.</p>
+            aws_sdk_lightsail.errors.operation_failure_exception.OperationFailureException: <p>Lightsail throws this exception when an operation fails to execute.</p>
+            aws_sdk_lightsail.errors.region_setup_in_progress_exception.RegionSetupInProgressException: <p>Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6139,7 +7481,19 @@ class LightsailClient:
     def peer_vpc(
         self, *, config_overrides: Optional[LightsailClientConfig] = None
     ) -> "aws_sdk_lightsail.types.peer_vpc_result.PeerVpcResult":
-        """<p>Peers the Lightsail VPC with the user's default VPC.</p>"""
+        """<p>Peers the Lightsail VPC with the user's default VPC.</p>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.account_setup_in_progress_exception.AccountSetupInProgressException: <p>Lightsail throws this exception when an account is still in the setup in progress state.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.not_found_exception.NotFoundException: <p>Lightsail throws this exception when it cannot find a resource.</p>
+            aws_sdk_lightsail.errors.operation_failure_exception.OperationFailureException: <p>Lightsail throws this exception when an operation fails to execute.</p>
+            aws_sdk_lightsail.errors.region_setup_in_progress_exception.RegionSetupInProgressException: <p>Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_lightsail.types.peer_vpc_request.PeerVpcRequest]",
@@ -6203,6 +7557,16 @@ class LightsailClient:
             notification_triggers: <p>The alarm states that trigger a notification.</p> <p>An alarm has the following possible states:</p> <ul> <li> <p> <code>ALARM</code> - The metric is outside of the defined threshold.</p> </li> <li> <p> <code>INSUFFICIENT_DATA</code> - The alarm has just started, the metric is not available, or not enough data is available for the metric to determine the alarm state.</p> </li> <li> <p> <code>OK</code> - The metric is within the defined threshold.</p> </li> </ul> <p>When you specify a notification trigger, the <code>ALARM</code> state must be specified. The <code>INSUFFICIENT_DATA</code> and <code>OK</code> states can be specified in addition to the <code>ALARM</code> state.</p> <ul> <li> <p>If you specify <code>OK</code> as an alarm trigger, a notification is sent when the alarm switches from an <code>ALARM</code> or <code>INSUFFICIENT_DATA</code> alarm state to an <code>OK</code> state. This can be thought of as an <i>all clear</i> alarm notification.</p> </li> <li> <p>If you specify <code>INSUFFICIENT_DATA</code> as the alarm trigger, a notification is sent when the alarm switches from an <code>OK</code> or <code>ALARM</code> alarm state to an <code>INSUFFICIENT_DATA</code> state.</p> </li> </ul> <p>The notification trigger defaults to <code>ALARM</code> if you don't specify this parameter.</p>
             notification_enabled: <p>Indicates whether the alarm is enabled.</p> <p>Notifications are enabled by default if you don't specify this parameter.</p>
             tags: <p>The tag keys and optional values to add to the alarm during create.</p> <p>Use the <code>TagResource</code> action to tag a resource after it's created.</p>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.not_found_exception.NotFoundException: <p>Lightsail throws this exception when it cannot find a resource.</p>
+            aws_sdk_lightsail.errors.operation_failure_exception.OperationFailureException: <p>Lightsail throws this exception when an operation fails to execute.</p>
+            aws_sdk_lightsail.errors.region_setup_in_progress_exception.RegionSetupInProgressException: <p>Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6259,6 +7623,17 @@ class LightsailClient:
         Args:
             port_infos: <p>An array of objects to describe the ports to open for the specified instance.</p>
             instance_name: <p>The name of the instance for which to open ports.</p>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.account_setup_in_progress_exception.AccountSetupInProgressException: <p>Lightsail throws this exception when an account is still in the setup in progress state.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.not_found_exception.NotFoundException: <p>Lightsail throws this exception when it cannot find a resource.</p>
+            aws_sdk_lightsail.errors.operation_failure_exception.OperationFailureException: <p>Lightsail throws this exception when an operation fails to execute.</p>
+            aws_sdk_lightsail.errors.region_setup_in_progress_exception.RegionSetupInProgressException: <p>Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6297,6 +7672,17 @@ class LightsailClient:
 
         Args:
             instance_name: <p>The name of the instance to reboot.</p>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.account_setup_in_progress_exception.AccountSetupInProgressException: <p>Lightsail throws this exception when an account is still in the setup in progress state.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.not_found_exception.NotFoundException: <p>Lightsail throws this exception when it cannot find a resource.</p>
+            aws_sdk_lightsail.errors.operation_failure_exception.OperationFailureException: <p>Lightsail throws this exception when an operation fails to execute.</p>
+            aws_sdk_lightsail.errors.region_setup_in_progress_exception.RegionSetupInProgressException: <p>Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6334,6 +7720,17 @@ class LightsailClient:
 
         Args:
             relational_database_name: <p>The name of your database to reboot.</p>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.account_setup_in_progress_exception.AccountSetupInProgressException: <p>Lightsail throws this exception when an account is still in the setup in progress state.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.not_found_exception.NotFoundException: <p>Lightsail throws this exception when it cannot find a resource.</p>
+            aws_sdk_lightsail.errors.operation_failure_exception.OperationFailureException: <p>Lightsail throws this exception when an operation fails to execute.</p>
+            aws_sdk_lightsail.errors.region_setup_in_progress_exception.RegionSetupInProgressException: <p>Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6375,6 +7772,15 @@ class LightsailClient:
             service_name: <p>The name of the container service for which to register a container image.</p>
             label: <p>The label for the container image when it's registered to the container service.</p> <p>Use a descriptive label that you can use to track the different versions of your registered container images.</p> <p>Use the <code>GetContainerImages</code> action to return the container images registered to a Lightsail container service. The label is the <code><imagelabel></code> portion of the following image name example:</p> <ul> <li> <p> <code>:container-service-1.<imagelabel>.1</code> </p> </li> </ul> <p>If the name of your container service is <code>mycontainerservice</code>, and the label that you specify is <code>mystaticwebsite</code>, then the name of the registered container image will be <code>:mycontainerservice.mystaticwebsite.1</code>.</p> <p>The number at the end of these image name examples represents the version of the registered container image. If you push and register another container image to the same Lightsail container service, with the same label, then the version number for the new registered container image will be <code>2</code>. If you push and register another container image, the version number will be <code>3</code>, and so on.</p>
             digest: <p>The digest of the container image to be registered.</p>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.not_found_exception.NotFoundException: <p>Lightsail throws this exception when it cannot find a resource.</p>
+            aws_sdk_lightsail.errors.region_setup_in_progress_exception.RegionSetupInProgressException: <p>Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6414,6 +7820,17 @@ class LightsailClient:
 
         Args:
             static_ip_name: <p>The name of the static IP to delete.</p>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.account_setup_in_progress_exception.AccountSetupInProgressException: <p>Lightsail throws this exception when an account is still in the setup in progress state.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.not_found_exception.NotFoundException: <p>Lightsail throws this exception when it cannot find a resource.</p>
+            aws_sdk_lightsail.errors.operation_failure_exception.OperationFailureException: <p>Lightsail throws this exception when an operation fails to execute.</p>
+            aws_sdk_lightsail.errors.region_setup_in_progress_exception.RegionSetupInProgressException: <p>Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6453,6 +7870,15 @@ class LightsailClient:
 
         Args:
             distribution_name: <p>The name of the distribution for which to reset cache.</p> <p>Use the <code>GetDistributions</code> action to get a list of distribution names that you can specify.</p>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.not_found_exception.NotFoundException: <p>Lightsail throws this exception when it cannot find a resource.</p>
+            aws_sdk_lightsail.errors.operation_failure_exception.OperationFailureException: <p>Lightsail throws this exception when an operation fails to execute.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6491,6 +7917,16 @@ class LightsailClient:
 
         Args:
             protocol: <p>The protocol to verify, such as <code>Email</code> or <code>SMS</code> (text messaging).</p>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.not_found_exception.NotFoundException: <p>Lightsail throws this exception when it cannot find a resource.</p>
+            aws_sdk_lightsail.errors.operation_failure_exception.OperationFailureException: <p>Lightsail throws this exception when an operation fails to execute.</p>
+            aws_sdk_lightsail.errors.region_setup_in_progress_exception.RegionSetupInProgressException: <p>Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6536,6 +7972,17 @@ class LightsailClient:
             resource_name: <p>The name of the resource for which to set the IP address type.</p>
             ip_address_type: <p>The IP address type to set for the specified resource.</p> <p>The possible values are <code>ipv4</code> for IPv4 only, <code>ipv6</code> for IPv6 only, and <code>dualstack</code> for IPv4 and IPv6.</p>
             accept_bundle_update: <p>Required parameter to accept the instance bundle update when changing to, and from, IPv6-only.</p> <note> <p>An instance bundle will change when switching from <code>dual-stack</code> or <code>ipv4</code>, to <code>ipv6</code>. It also changes when switching from <code>ipv6</code>, to <code>dual-stack</code> or <code>ipv4</code>.</p> <p>You must include this parameter in the command to update the bundle. For example, if you switch from <code>dual-stack</code> to <code>ipv6</code>, the bundle will be updated, and billing for the IPv6-only instance bundle begins immediately.</p> </note>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.account_setup_in_progress_exception.AccountSetupInProgressException: <p>Lightsail throws this exception when an account is still in the setup in progress state.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.not_found_exception.NotFoundException: <p>Lightsail throws this exception when it cannot find a resource.</p>
+            aws_sdk_lightsail.errors.operation_failure_exception.OperationFailureException: <p>Lightsail throws this exception when an operation fails to execute.</p>
+            aws_sdk_lightsail.errors.region_setup_in_progress_exception.RegionSetupInProgressException: <p>Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6581,6 +8028,15 @@ class LightsailClient:
             resource_name: <p>The name of the Lightsail instance for which to set bucket access. The instance must be in a running or stopped state.</p>
             bucket_name: <p>The name of the bucket for which to set access to another Lightsail resource.</p>
             access: <p>The access setting.</p> <p>The following access settings are available:</p> <ul> <li> <p> <code>allow</code> - Allows access to the bucket and its objects.</p> </li> <li> <p> <code>deny</code> - Denies access to the bucket and its objects. Use this setting to remove access for a resource previously set to <code>allow</code>.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.not_found_exception.NotFoundException: <p>Lightsail throws this exception when it cannot find a resource.</p>
+            aws_sdk_lightsail.errors.region_setup_in_progress_exception.RegionSetupInProgressException: <p>Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6626,6 +8082,15 @@ class LightsailClient:
             email_address: <p>The contact method for SSL/TLS certificate renewal alerts. You can enter one email address. </p>
             domain_names: <p>The name of the domain and subdomains that were specified for the SSL/TLS certificate.</p>
             certificate_provider: <p>The certificate authority that issues the SSL/TLS certificate.</p>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.not_found_exception.NotFoundException: <p>Lightsail throws this exception when it cannot find a resource.</p>
+            aws_sdk_lightsail.errors.region_setup_in_progress_exception.RegionSetupInProgressException: <p>Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6666,6 +8131,15 @@ class LightsailClient:
 
         Args:
             resource_name: <p>The resource name.</p>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.not_found_exception.NotFoundException: <p>Lightsail throws this exception when it cannot find a resource.</p>
+            aws_sdk_lightsail.errors.region_setup_in_progress_exception.RegionSetupInProgressException: <p>Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6703,6 +8177,17 @@ class LightsailClient:
 
         Args:
             instance_name: <p>The name of the instance (a virtual private server) to start.</p>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.account_setup_in_progress_exception.AccountSetupInProgressException: <p>Lightsail throws this exception when an account is still in the setup in progress state.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.not_found_exception.NotFoundException: <p>Lightsail throws this exception when it cannot find a resource.</p>
+            aws_sdk_lightsail.errors.operation_failure_exception.OperationFailureException: <p>Lightsail throws this exception when an operation fails to execute.</p>
+            aws_sdk_lightsail.errors.region_setup_in_progress_exception.RegionSetupInProgressException: <p>Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6740,6 +8225,17 @@ class LightsailClient:
 
         Args:
             relational_database_name: <p>The name of your database to start.</p>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.account_setup_in_progress_exception.AccountSetupInProgressException: <p>Lightsail throws this exception when an account is still in the setup in progress state.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.not_found_exception.NotFoundException: <p>Lightsail throws this exception when it cannot find a resource.</p>
+            aws_sdk_lightsail.errors.operation_failure_exception.OperationFailureException: <p>Lightsail throws this exception when an operation fails to execute.</p>
+            aws_sdk_lightsail.errors.region_setup_in_progress_exception.RegionSetupInProgressException: <p>Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6777,6 +8273,15 @@ class LightsailClient:
 
         Args:
             resource_name: <p>The resource name.</p>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.not_found_exception.NotFoundException: <p>Lightsail throws this exception when it cannot find a resource.</p>
+            aws_sdk_lightsail.errors.region_setup_in_progress_exception.RegionSetupInProgressException: <p>Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6816,6 +8321,17 @@ class LightsailClient:
         Args:
             instance_name: <p>The name of the instance (a virtual private server) to stop.</p>
             force: <p>When set to <code>True</code>, forces a Lightsail instance that is stuck in a <code>stopping</code> state to stop.</p> <important> <p>Only use the <code>force</code> parameter if your instance is stuck in the <code>stopping</code> state. In any other state, your instance should stop normally without adding this parameter to your API request.</p> </important>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.account_setup_in_progress_exception.AccountSetupInProgressException: <p>Lightsail throws this exception when an account is still in the setup in progress state.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.not_found_exception.NotFoundException: <p>Lightsail throws this exception when it cannot find a resource.</p>
+            aws_sdk_lightsail.errors.operation_failure_exception.OperationFailureException: <p>Lightsail throws this exception when an operation fails to execute.</p>
+            aws_sdk_lightsail.errors.region_setup_in_progress_exception.RegionSetupInProgressException: <p>Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6859,6 +8375,17 @@ class LightsailClient:
         Args:
             relational_database_name: <p>The name of your database to stop.</p>
             relational_database_snapshot_name: <p>The name of your new database snapshot to be created before stopping your database.</p>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.account_setup_in_progress_exception.AccountSetupInProgressException: <p>Lightsail throws this exception when an account is still in the setup in progress state.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.not_found_exception.NotFoundException: <p>Lightsail throws this exception when it cannot find a resource.</p>
+            aws_sdk_lightsail.errors.operation_failure_exception.OperationFailureException: <p>Lightsail throws this exception when an operation fails to execute.</p>
+            aws_sdk_lightsail.errors.region_setup_in_progress_exception.RegionSetupInProgressException: <p>Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6906,6 +8433,17 @@ class LightsailClient:
             resource_name: <p>The name of the resource to which you are adding tags.</p>
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource to which you want to add a tag.</p>
             tags: <p>The tag key and optional value.</p>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.account_setup_in_progress_exception.AccountSetupInProgressException: <p>Lightsail throws this exception when an account is still in the setup in progress state.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.not_found_exception.NotFoundException: <p>Lightsail throws this exception when it cannot find a resource.</p>
+            aws_sdk_lightsail.errors.operation_failure_exception.OperationFailureException: <p>Lightsail throws this exception when an operation fails to execute.</p>
+            aws_sdk_lightsail.errors.region_setup_in_progress_exception.RegionSetupInProgressException: <p>Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6948,6 +8486,16 @@ class LightsailClient:
         Args:
             alarm_name: <p>The name of the alarm to test.</p>
             state: <p>The alarm state to test.</p> <p>An alarm has the following possible states that can be tested:</p> <ul> <li> <p> <code>ALARM</code> - The metric is outside of the defined threshold.</p> </li> <li> <p> <code>INSUFFICIENT_DATA</code> - The alarm has just started, the metric is not available, or not enough data is available for the metric to determine the alarm state.</p> </li> <li> <p> <code>OK</code> - The metric is within the defined threshold.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.not_found_exception.NotFoundException: <p>Lightsail throws this exception when it cannot find a resource.</p>
+            aws_sdk_lightsail.errors.operation_failure_exception.OperationFailureException: <p>Lightsail throws this exception when an operation fails to execute.</p>
+            aws_sdk_lightsail.errors.region_setup_in_progress_exception.RegionSetupInProgressException: <p>Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6979,7 +8527,19 @@ class LightsailClient:
     def unpeer_vpc(
         self, *, config_overrides: Optional[LightsailClientConfig] = None
     ) -> "aws_sdk_lightsail.types.unpeer_vpc_result.UnpeerVpcResult":
-        """<p>Unpeers the Lightsail VPC from the user's default VPC.</p>"""
+        """<p>Unpeers the Lightsail VPC from the user's default VPC.</p>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.account_setup_in_progress_exception.AccountSetupInProgressException: <p>Lightsail throws this exception when an account is still in the setup in progress state.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.not_found_exception.NotFoundException: <p>Lightsail throws this exception when it cannot find a resource.</p>
+            aws_sdk_lightsail.errors.operation_failure_exception.OperationFailureException: <p>Lightsail throws this exception when an operation fails to execute.</p>
+            aws_sdk_lightsail.errors.region_setup_in_progress_exception.RegionSetupInProgressException: <p>Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_lightsail.types.unpeer_vpc_request.UnpeerVpcRequest]",
@@ -7021,6 +8581,17 @@ class LightsailClient:
             resource_name: <p>The name of the resource from which you are removing a tag.</p>
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource from which you want to remove a tag.</p>
             tag_keys: <p>The tag keys to delete from the specified resource.</p>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.account_setup_in_progress_exception.AccountSetupInProgressException: <p>Lightsail throws this exception when an account is still in the setup in progress state.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.not_found_exception.NotFoundException: <p>Lightsail throws this exception when it cannot find a resource.</p>
+            aws_sdk_lightsail.errors.operation_failure_exception.OperationFailureException: <p>Lightsail throws this exception when an operation fails to execute.</p>
+            aws_sdk_lightsail.errors.region_setup_in_progress_exception.RegionSetupInProgressException: <p>Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -7081,6 +8652,15 @@ class LightsailClient:
             readonly_access_accounts: <p>An array of strings to specify the Amazon Web Services account IDs that can access the bucket.</p> <p>You can give a maximum of 10 Amazon Web Services accounts access to a bucket.</p>
             access_log_config: <p>An object that describes the access log configuration for the bucket.</p>
             cors: <p>Sets the cross-origin resource sharing (CORS) configuration for your bucket. If a CORS configuration exists, it is replaced with the specified configuration. For AWS CLI operations, this parameter can also be passed as a file. For more information, see <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/configure-cors.html\">Configuring cross-origin resource sharing (CORS)</a>.</p> <note> <p>CORS information is only returned in a response when you update the CORS policy.</p> </note>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.not_found_exception.NotFoundException: <p>Lightsail throws this exception when it cannot find a resource.</p>
+            aws_sdk_lightsail.errors.region_setup_in_progress_exception.RegionSetupInProgressException: <p>Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -7130,6 +8710,15 @@ class LightsailClient:
         Args:
             bucket_name: <p>The name of the bucket for which to update the bundle.</p>
             bundle_id: <p>The ID of the new bundle to apply to the bucket.</p> <p>Use the <a href=\"https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetBucketBundles.html\">GetBucketBundles</a> action to get a list of bundle IDs that you can specify.</p>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.not_found_exception.NotFoundException: <p>Lightsail throws this exception when it cannot find a resource.</p>
+            aws_sdk_lightsail.errors.region_setup_in_progress_exception.RegionSetupInProgressException: <p>Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -7186,6 +8775,15 @@ class LightsailClient:
             is_disabled: <p>A Boolean value to indicate whether the container service is disabled.</p>
             public_domain_names: <p>The public domain names to use with the container service, such as <code>example.com</code> and <code>www.example.com</code>.</p> <p>You can specify up to four public domain names for a container service. The domain names that you specify are used when you create a deployment with a container configured as the public endpoint of your container service.</p> <p>If you don't specify public domain names, then you can use the default domain of the container service.</p> <important> <p>You must create and validate an SSL/TLS certificate before you can use public domain names with your container service. Use the <code>CreateCertificate</code> action to create a certificate for the public domain names you want to use with your container service.</p> </important> <p>You can specify public domain names using a string to array map as shown in the example later on this page.</p>
             private_registry_access: <p>An object to describe the configuration for the container service to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-container-service-ecr-private-repo-access\">Configuring access to an Amazon ECR private repository for an Amazon Lightsail container service</a> in the <i>Amazon Lightsail Developer Guide</i>.</p>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.not_found_exception.NotFoundException: <p>Lightsail throws this exception when it cannot find a resource.</p>
+            aws_sdk_lightsail.errors.region_setup_in_progress_exception.RegionSetupInProgressException: <p>Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -7261,6 +8859,15 @@ class LightsailClient:
             viewer_minimum_tls_protocol_version: <p>Use this parameter to update the minimum TLS protocol version for the SSL/TLS certificate that's attached to the distribution.</p>
             certificate_name: <p>The name of the SSL/TLS certificate that you want to attach to the distribution.</p> <p>Only certificates with a status of <code>ISSUED</code> can be attached to a distribution.</p> <p>Use the <a href=\"https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetCertificates.html\">GetCertificates</a> action to get a list of certificate names that you can specify.</p>
             use_default_certificate: <p>Indicates whether the default SSL/TLS certificate is attached to the distribution. The default value is <code>true</code>. When <code>true</code>, the distribution uses the default domain name such as <code>d111111abcdef8.cloudfront.net</code>.</p> <p> Set this value to <code>false</code> to attach a new certificate to the distribution.</p>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.not_found_exception.NotFoundException: <p>Lightsail throws this exception when it cannot find a resource.</p>
+            aws_sdk_lightsail.errors.operation_failure_exception.OperationFailureException: <p>Lightsail throws this exception when an operation fails to execute.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -7320,6 +8927,15 @@ class LightsailClient:
         Args:
             distribution_name: <p>The name of the distribution for which to update the bundle.</p> <p>Use the <code>GetDistributions</code> action to get a list of distribution names that you can specify.</p>
             bundle_id: <p>The bundle ID of the new bundle to apply to your distribution.</p> <p>Use the <code>GetDistributionBundles</code> action to get a list of distribution bundle IDs that you can specify.</p>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.not_found_exception.NotFoundException: <p>Lightsail throws this exception when it cannot find a resource.</p>
+            aws_sdk_lightsail.errors.operation_failure_exception.OperationFailureException: <p>Lightsail throws this exception when an operation fails to execute.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -7362,6 +8978,17 @@ class LightsailClient:
         Args:
             domain_name: <p>The name of the domain recordset to update.</p>
             domain_entry: <p>An array of key-value pairs containing information about the domain entry.</p>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.account_setup_in_progress_exception.AccountSetupInProgressException: <p>Lightsail throws this exception when an account is still in the setup in progress state.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.not_found_exception.NotFoundException: <p>Lightsail throws this exception when it cannot find a resource.</p>
+            aws_sdk_lightsail.errors.operation_failure_exception.OperationFailureException: <p>Lightsail throws this exception when an operation fails to execute.</p>
+            aws_sdk_lightsail.errors.region_setup_in_progress_exception.RegionSetupInProgressException: <p>Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -7414,6 +9041,17 @@ class LightsailClient:
             http_endpoint: <p>Enables or disables the HTTP metadata endpoint on your instances. If this parameter is not specified, the existing state is maintained.</p> <p>If you specify a value of <code>disabled</code>, you cannot access your instance metadata.</p>
             http_put_response_hop_limit: <p>The desired HTTP PUT response hop limit for instance metadata requests. A larger number means that the instance metadata requests can travel farther. If no parameter is specified, the existing state is maintained.</p>
             http_protocol_ipv6: <p>Enables or disables the IPv6 endpoint for the instance metadata service. This setting applies only when the HTTP metadata endpoint is enabled.</p> <note> <p>This parameter is available only for instances in the Europe (Stockholm) Amazon Web Services Region (<code>eu-north-1</code>).</p> </note>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.account_setup_in_progress_exception.AccountSetupInProgressException: <p>Lightsail throws this exception when an account is still in the setup in progress state.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.not_found_exception.NotFoundException: <p>Lightsail throws this exception when it cannot find a resource.</p>
+            aws_sdk_lightsail.errors.operation_failure_exception.OperationFailureException: <p>Lightsail throws this exception when an operation fails to execute.</p>
+            aws_sdk_lightsail.errors.region_setup_in_progress_exception.RegionSetupInProgressException: <p>Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -7463,6 +9101,17 @@ class LightsailClient:
             load_balancer_name: <p>The name of the load balancer that you want to modify (<code>my-load-balancer</code>.</p>
             attribute_name: <p>The name of the attribute you want to update.</p>
             attribute_value: <p>The value that you want to specify for the attribute name.</p> <p>The following values are supported depending on what you specify for the <code>attributeName</code> request parameter:</p> <ul> <li> <p>If you specify <code>HealthCheckPath</code> for the <code>attributeName</code> request parameter, then the <code>attributeValue</code> request parameter must be the path to ping on the target (for example, <code>/weather/us/wa/seattle</code>).</p> </li> <li> <p>If you specify <code>SessionStickinessEnabled</code> for the <code>attributeName</code> request parameter, then the <code>attributeValue</code> request parameter must be <code>true</code> to activate session stickiness or <code>false</code> to deactivate session stickiness.</p> </li> <li> <p>If you specify <code>SessionStickiness_LB_CookieDurationSeconds</code> for the <code>attributeName</code> request parameter, then the <code>attributeValue</code> request parameter must be an interger that represents the cookie duration in seconds.</p> </li> <li> <p>If you specify <code>HttpsRedirectionEnabled</code> for the <code>attributeName</code> request parameter, then the <code>attributeValue</code> request parameter must be <code>true</code> to activate HTTP to HTTPS redirection or <code>false</code> to deactivate HTTP to HTTPS redirection.</p> </li> <li> <p>If you specify <code>TlsPolicyName</code> for the <code>attributeName</code> request parameter, then the <code>attributeValue</code> request parameter must be the name of the TLS policy.</p> <p>Use the <a href=\"https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetLoadBalancerTlsPolicies.html\">GetLoadBalancerTlsPolicies</a> action to get a list of TLS policy names that you can specify.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.account_setup_in_progress_exception.AccountSetupInProgressException: <p>Lightsail throws this exception when an account is still in the setup in progress state.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.not_found_exception.NotFoundException: <p>Lightsail throws this exception when it cannot find a resource.</p>
+            aws_sdk_lightsail.errors.operation_failure_exception.OperationFailureException: <p>Lightsail throws this exception when an operation fails to execute.</p>
+            aws_sdk_lightsail.errors.region_setup_in_progress_exception.RegionSetupInProgressException: <p>Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -7538,6 +9187,17 @@ class LightsailClient:
             apply_immediately: <p>When <code>true</code>, applies changes immediately. When <code>false</code>, applies changes during the preferred maintenance window. Some changes may cause an outage.</p> <p>Default: <code>false</code> </p>
             ca_certificate_identifier: <p>Indicates the certificate that needs to be associated with the database.</p>
             relational_database_blueprint_id: <p>This parameter is used to update the major version of the database. Enter the <code>blueprintId</code> for the major version that you want to update to.</p> <p>Use the <a href=\"https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetRelationalDatabaseBlueprints.html\">GetRelationalDatabaseBlueprints</a> action to get a list of available blueprint IDs.</p>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.account_setup_in_progress_exception.AccountSetupInProgressException: <p>Lightsail throws this exception when an account is still in the setup in progress state.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.not_found_exception.NotFoundException: <p>Lightsail throws this exception when it cannot find a resource.</p>
+            aws_sdk_lightsail.errors.operation_failure_exception.OperationFailureException: <p>Lightsail throws this exception when an operation fails to execute.</p>
+            aws_sdk_lightsail.errors.region_setup_in_progress_exception.RegionSetupInProgressException: <p>Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -7599,6 +9259,17 @@ class LightsailClient:
         Args:
             relational_database_name: <p>The name of your database for which to update parameters.</p>
             parameters: <p>The database parameters to update.</p>
+
+        Raises:
+            aws_sdk_lightsail.errors.access_denied_exception.AccessDeniedException: <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.</p>
+            aws_sdk_lightsail.errors.account_setup_in_progress_exception.AccountSetupInProgressException: <p>Lightsail throws this exception when an account is still in the setup in progress state.</p>
+            aws_sdk_lightsail.errors.invalid_input_exception.InvalidInputException: <p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit these resources.</p> </note>
+            aws_sdk_lightsail.errors.not_found_exception.NotFoundException: <p>Lightsail throws this exception when it cannot find a resource.</p>
+            aws_sdk_lightsail.errors.operation_failure_exception.OperationFailureException: <p>Lightsail throws this exception when an operation fails to execute.</p>
+            aws_sdk_lightsail.errors.region_setup_in_progress_exception.RegionSetupInProgressException: <p>Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.</p>
+            aws_sdk_lightsail.errors.service_exception.ServiceException: <p>A general service exception.</p>
+            aws_sdk_lightsail.errors.unauthenticated_exception.UnauthenticatedException: <p>Lightsail throws this exception when the user has not been authenticated.</p>
+            aws_sdk_lightsail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(

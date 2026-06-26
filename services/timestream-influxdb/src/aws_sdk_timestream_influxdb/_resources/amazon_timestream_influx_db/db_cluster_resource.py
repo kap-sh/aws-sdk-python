@@ -134,6 +134,16 @@ class DbClusterResource:
             log_delivery_configuration: <p>Configuration for sending InfluxDB engine logs to a specified S3 bucket.</p>
             maintenance_schedule: <p>Specifies the maintenance schedule for the DB cluster, including the preferred maintenance window and timezone.</p>
             tags: <p>A list of key-value pairs to associate with the DB instance.</p>
+
+        Raises:
+            aws_sdk_timestream_influxdb.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_timestream_influxdb.errors.conflict_exception.ConflictException: <p>The request conflicts with an existing resource in Timestream for InfluxDB.</p>
+            aws_sdk_timestream_influxdb.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_timestream_influxdb.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource was not found or does not exist.</p>
+            aws_sdk_timestream_influxdb.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request exceeds the service quota.</p>
+            aws_sdk_timestream_influxdb.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_timestream_influxdb.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by Timestream for InfluxDB.</p>
+            aws_sdk_timestream_influxdb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -204,6 +214,14 @@ class DbClusterResource:
 
         Args:
             db_cluster_id: <p>Service-generated unique identifier of the DB cluster to retrieve.</p>
+
+        Raises:
+            aws_sdk_timestream_influxdb.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_timestream_influxdb.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_timestream_influxdb.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource was not found or does not exist.</p>
+            aws_sdk_timestream_influxdb.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_timestream_influxdb.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by Timestream for InfluxDB.</p>
+            aws_sdk_timestream_influxdb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -263,6 +281,15 @@ class DbClusterResource:
             db_instance_type: <p>Update the DB cluster to use the specified DB instance Type.</p>
             failover_mode: <p>Update the DB cluster's failover behavior.</p>
             maintenance_schedule: <p>Specifies the maintenance schedule for the DB cluster, including the preferred maintenance window and timezone.</p>
+
+        Raises:
+            aws_sdk_timestream_influxdb.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_timestream_influxdb.errors.conflict_exception.ConflictException: <p>The request conflicts with an existing resource in Timestream for InfluxDB.</p>
+            aws_sdk_timestream_influxdb.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_timestream_influxdb.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource was not found or does not exist.</p>
+            aws_sdk_timestream_influxdb.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_timestream_influxdb.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by Timestream for InfluxDB.</p>
+            aws_sdk_timestream_influxdb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -312,6 +339,15 @@ class DbClusterResource:
 
         Args:
             db_cluster_id: <p>Service-generated unique identifier of the DB cluster.</p>
+
+        Raises:
+            aws_sdk_timestream_influxdb.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_timestream_influxdb.errors.conflict_exception.ConflictException: <p>The request conflicts with an existing resource in Timestream for InfluxDB.</p>
+            aws_sdk_timestream_influxdb.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_timestream_influxdb.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource was not found or does not exist.</p>
+            aws_sdk_timestream_influxdb.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_timestream_influxdb.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by Timestream for InfluxDB.</p>
+            aws_sdk_timestream_influxdb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -357,6 +393,14 @@ class DbClusterResource:
         Args:
             next_token: <p>The pagination token. To resume pagination, provide the nextToken value as an argument of a subsequent API invocation.</p>
             max_results: <p>The maximum number of items to return in the output. If the total number of items available is more than the value specified, a nextToken is provided in the output. To resume pagination, provide the nextToken value as an argument of a subsequent API invocation.</p>
+
+        Raises:
+            aws_sdk_timestream_influxdb.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_timestream_influxdb.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_timestream_influxdb.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource was not found or does not exist.</p>
+            aws_sdk_timestream_influxdb.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_timestream_influxdb.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by Timestream for InfluxDB.</p>
+            aws_sdk_timestream_influxdb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -405,6 +449,14 @@ class DbClusterResource:
             db_cluster_id: <p>Service-generated unique identifier of the DB cluster.</p>
             next_token: <p>The pagination token. To resume pagination, provide the nextToken value as an argument of a subsequent API invocation.</p>
             max_results: <p>The maximum number of items to return in the output. If the total number of items available is more than the value specified, a nextToken is provided in the output. To resume pagination, provide the nextToken value as an argument of a subsequent API invocation.</p>
+
+        Raises:
+            aws_sdk_timestream_influxdb.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_timestream_influxdb.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_timestream_influxdb.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource was not found or does not exist.</p>
+            aws_sdk_timestream_influxdb.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_timestream_influxdb.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by Timestream for InfluxDB.</p>
+            aws_sdk_timestream_influxdb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -450,6 +502,15 @@ class DbClusterResource:
         Args:
             db_cluster_id: <p>Service-generated unique identifier of the DB cluster to reboot.</p>
             instance_ids: <p>A list of service-generated unique DB Instance Ids belonging to the DB Cluster to reboot.</p>
+
+        Raises:
+            aws_sdk_timestream_influxdb.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_timestream_influxdb.errors.conflict_exception.ConflictException: <p>The request conflicts with an existing resource in Timestream for InfluxDB.</p>
+            aws_sdk_timestream_influxdb.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_timestream_influxdb.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource was not found or does not exist.</p>
+            aws_sdk_timestream_influxdb.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_timestream_influxdb.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by Timestream for InfluxDB.</p>
+            aws_sdk_timestream_influxdb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -554,6 +615,16 @@ class AsyncDbClusterResource:
             log_delivery_configuration: <p>Configuration for sending InfluxDB engine logs to a specified S3 bucket.</p>
             maintenance_schedule: <p>Specifies the maintenance schedule for the DB cluster, including the preferred maintenance window and timezone.</p>
             tags: <p>A list of key-value pairs to associate with the DB instance.</p>
+
+        Raises:
+            aws_sdk_timestream_influxdb.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_timestream_influxdb.errors.conflict_exception.ConflictException: <p>The request conflicts with an existing resource in Timestream for InfluxDB.</p>
+            aws_sdk_timestream_influxdb.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_timestream_influxdb.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource was not found or does not exist.</p>
+            aws_sdk_timestream_influxdb.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request exceeds the service quota.</p>
+            aws_sdk_timestream_influxdb.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_timestream_influxdb.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by Timestream for InfluxDB.</p>
+            aws_sdk_timestream_influxdb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -625,6 +696,14 @@ class AsyncDbClusterResource:
 
         Args:
             db_cluster_id: <p>Service-generated unique identifier of the DB cluster to retrieve.</p>
+
+        Raises:
+            aws_sdk_timestream_influxdb.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_timestream_influxdb.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_timestream_influxdb.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource was not found or does not exist.</p>
+            aws_sdk_timestream_influxdb.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_timestream_influxdb.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by Timestream for InfluxDB.</p>
+            aws_sdk_timestream_influxdb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -685,6 +764,15 @@ class AsyncDbClusterResource:
             db_instance_type: <p>Update the DB cluster to use the specified DB instance Type.</p>
             failover_mode: <p>Update the DB cluster's failover behavior.</p>
             maintenance_schedule: <p>Specifies the maintenance schedule for the DB cluster, including the preferred maintenance window and timezone.</p>
+
+        Raises:
+            aws_sdk_timestream_influxdb.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_timestream_influxdb.errors.conflict_exception.ConflictException: <p>The request conflicts with an existing resource in Timestream for InfluxDB.</p>
+            aws_sdk_timestream_influxdb.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_timestream_influxdb.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource was not found or does not exist.</p>
+            aws_sdk_timestream_influxdb.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_timestream_influxdb.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by Timestream for InfluxDB.</p>
+            aws_sdk_timestream_influxdb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -735,6 +823,15 @@ class AsyncDbClusterResource:
 
         Args:
             db_cluster_id: <p>Service-generated unique identifier of the DB cluster.</p>
+
+        Raises:
+            aws_sdk_timestream_influxdb.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_timestream_influxdb.errors.conflict_exception.ConflictException: <p>The request conflicts with an existing resource in Timestream for InfluxDB.</p>
+            aws_sdk_timestream_influxdb.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_timestream_influxdb.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource was not found or does not exist.</p>
+            aws_sdk_timestream_influxdb.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_timestream_influxdb.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by Timestream for InfluxDB.</p>
+            aws_sdk_timestream_influxdb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -781,6 +878,14 @@ class AsyncDbClusterResource:
         Args:
             next_token: <p>The pagination token. To resume pagination, provide the nextToken value as an argument of a subsequent API invocation.</p>
             max_results: <p>The maximum number of items to return in the output. If the total number of items available is more than the value specified, a nextToken is provided in the output. To resume pagination, provide the nextToken value as an argument of a subsequent API invocation.</p>
+
+        Raises:
+            aws_sdk_timestream_influxdb.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_timestream_influxdb.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_timestream_influxdb.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource was not found or does not exist.</p>
+            aws_sdk_timestream_influxdb.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_timestream_influxdb.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by Timestream for InfluxDB.</p>
+            aws_sdk_timestream_influxdb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -830,6 +935,14 @@ class AsyncDbClusterResource:
             db_cluster_id: <p>Service-generated unique identifier of the DB cluster.</p>
             next_token: <p>The pagination token. To resume pagination, provide the nextToken value as an argument of a subsequent API invocation.</p>
             max_results: <p>The maximum number of items to return in the output. If the total number of items available is more than the value specified, a nextToken is provided in the output. To resume pagination, provide the nextToken value as an argument of a subsequent API invocation.</p>
+
+        Raises:
+            aws_sdk_timestream_influxdb.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_timestream_influxdb.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_timestream_influxdb.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource was not found or does not exist.</p>
+            aws_sdk_timestream_influxdb.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_timestream_influxdb.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by Timestream for InfluxDB.</p>
+            aws_sdk_timestream_influxdb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -876,6 +989,15 @@ class AsyncDbClusterResource:
         Args:
             db_cluster_id: <p>Service-generated unique identifier of the DB cluster to reboot.</p>
             instance_ids: <p>A list of service-generated unique DB Instance Ids belonging to the DB Cluster to reboot.</p>
+
+        Raises:
+            aws_sdk_timestream_influxdb.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_timestream_influxdb.errors.conflict_exception.ConflictException: <p>The request conflicts with an existing resource in Timestream for InfluxDB.</p>
+            aws_sdk_timestream_influxdb.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_timestream_influxdb.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource was not found or does not exist.</p>
+            aws_sdk_timestream_influxdb.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_timestream_influxdb.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by Timestream for InfluxDB.</p>
+            aws_sdk_timestream_influxdb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

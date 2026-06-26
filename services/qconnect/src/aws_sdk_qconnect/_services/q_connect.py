@@ -147,6 +147,10 @@ class QConnectClient:
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource.</p>
+
+        Raises:
+            aws_sdk_qconnect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_qconnect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -186,6 +190,11 @@ class QConnectClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource.</p>
             tags: <p>The tags used to organize, track, or control access for this resource.</p>
+
+        Raises:
+            aws_sdk_qconnect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_qconnect.errors.too_many_tags_exception.TooManyTagsException: <p>Amazon Q in Connect throws this exception if you have too many tags in your tag set.</p>
+            aws_sdk_qconnect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -226,6 +235,10 @@ class QConnectClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource.</p>
             tag_keys: <p>The tag keys.</p>
+
+        Raises:
+            aws_sdk_qconnect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_qconnect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(

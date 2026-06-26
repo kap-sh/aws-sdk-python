@@ -370,6 +370,15 @@ class AsyncAPIGatewayClient:
             stage_keys: <p>DEPRECATED FOR USAGE PLANS - Specifies stages associated with the API key.</p>
             customer_id: <p>An Amazon Web Services Marketplace customer identifier, when integrating with the Amazon Web Services SaaS Marketplace.</p>
             tags: <p>The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with <code>aws:</code>. The tag value can be up to 256 characters.</p>
+
+        Raises:
+            aws_sdk_api_gateway.errors.bad_request_exception.BadRequestException: <p>The submitted request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_api_gateway.errors.conflict_exception.ConflictException: <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
+            aws_sdk_api_gateway.errors.limit_exceeded_exception.LimitExceededException: <p>The request exceeded the rate limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.not_found_exception.NotFoundException: <p>The requested resource is not found. Make sure that the request URI is correct.</p>
+            aws_sdk_api_gateway.errors.too_many_requests_exception.TooManyRequestsException: <p>The request has reached its throttling limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.unauthorized_exception.UnauthorizedException: <p>The request is denied because the caller has insufficient permissions.</p>
+            aws_sdk_api_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -447,6 +456,15 @@ class AsyncAPIGatewayClient:
             identity_source: <p>The identity source for which authorization is requested. For a <code>TOKEN</code> or <code>COGNITO_USER_POOLS</code> authorizer, this is required and specifies the request header mapping expression for the custom header holding the authorization token submitted by the client. For example, if the token header name is <code>Auth</code>, the header mapping expression is <code>method.request.header.Auth</code>. For the <code>REQUEST</code> authorizer, this is required when authorization caching is enabled. The value is a comma-separated string of one or more mapping expressions of the specified request parameters. For example, if an <code>Auth</code> header, a <code>Name</code> query string parameter are defined as identity sources, this value is <code>method.request.header.Auth, method.request.querystring.Name</code>. These parameters will be used to derive the authorization caching key and to perform runtime validation of the <code>REQUEST</code> authorizer by verifying all of the identity-related request parameters are present, not null and non-empty. Only when this is true does the authorizer invoke the authorizer Lambda function, otherwise, it returns a 401 Unauthorized response without calling the Lambda function. The valid value is a string of comma-separated mapping expressions of the specified request parameters. When the authorization caching is not enabled, this property is optional.</p>
             identity_validation_expression: <p>A validation expression for the incoming identity token. For <code>TOKEN</code> authorizers, this value is a regular expression. For <code>COGNITO_USER_POOLS</code> authorizers, API Gateway will match the <code>aud</code> field of the incoming token from the client against the specified regular expression. It will invoke the authorizer's Lambda function when there is a match. Otherwise, it will return a 401 Unauthorized response without calling the Lambda function. The validation expression does not apply to the <code>REQUEST</code> authorizer.</p>
             authorizer_result_ttl_in_seconds: <p>The TTL in seconds of cached authorizer results. If it equals 0, authorization caching is disabled. If it is greater than 0, API Gateway will cache authorizer responses. If this field is not set, the default value is 300. The maximum value is 3600, or 1 hour.</p>
+
+        Raises:
+            aws_sdk_api_gateway.errors.bad_request_exception.BadRequestException: <p>The submitted request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_api_gateway.errors.conflict_exception.ConflictException: <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
+            aws_sdk_api_gateway.errors.limit_exceeded_exception.LimitExceededException: <p>The request exceeded the rate limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.not_found_exception.NotFoundException: <p>The requested resource is not found. Make sure that the request URI is correct.</p>
+            aws_sdk_api_gateway.errors.too_many_requests_exception.TooManyRequestsException: <p>The request has reached its throttling limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.unauthorized_exception.UnauthorizedException: <p>The request is denied because the caller has insufficient permissions.</p>
+            aws_sdk_api_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -509,6 +527,15 @@ class AsyncAPIGatewayClient:
             base_path: <p>The base path name that callers of the API must provide as part of the URL after the domain name. This value must be unique for all of the mappings across a single API. Specify '(none)' if you do not want callers to specify a base path name after the domain name.</p>
             rest_api_id: <p>The string identifier of the associated RestApi.</p>
             stage: <p>The name of the API's stage that you want to use for this mapping. Specify '(none)' if you want callers to explicitly specify the stage name after any base path name.</p>
+
+        Raises:
+            aws_sdk_api_gateway.errors.bad_request_exception.BadRequestException: <p>The submitted request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_api_gateway.errors.conflict_exception.ConflictException: <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
+            aws_sdk_api_gateway.errors.limit_exceeded_exception.LimitExceededException: <p>The request exceeded the rate limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.not_found_exception.NotFoundException: <p>The requested resource is not found. Make sure that the request URI is correct.</p>
+            aws_sdk_api_gateway.errors.too_many_requests_exception.TooManyRequestsException: <p>The request has reached its throttling limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.unauthorized_exception.UnauthorizedException: <p>The request is denied because the caller has insufficient permissions.</p>
+            aws_sdk_api_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -580,6 +607,16 @@ class AsyncAPIGatewayClient:
             variables: <p>A map that defines the stage variables for the Stage resource that is associated with the new deployment. Variable names can have alphanumeric and underscore characters, and the values must match <code>[A-Za-z0-9-._~:/?#&=,]+</code>.</p>
             canary_settings: <p>The input configuration for the canary deployment when the deployment is a canary release deployment. </p>
             tracing_enabled: <p>Specifies whether active tracing with X-ray is enabled for the Stage.</p>
+
+        Raises:
+            aws_sdk_api_gateway.errors.bad_request_exception.BadRequestException: <p>The submitted request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_api_gateway.errors.conflict_exception.ConflictException: <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
+            aws_sdk_api_gateway.errors.limit_exceeded_exception.LimitExceededException: <p>The request exceeded the rate limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.not_found_exception.NotFoundException: <p>The requested resource is not found. Make sure that the request URI is correct.</p>
+            aws_sdk_api_gateway.errors.service_unavailable_exception.ServiceUnavailableException: <p>The requested service is not available. For details see the accompanying error message. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.too_many_requests_exception.TooManyRequestsException: <p>The request has reached its throttling limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.unauthorized_exception.UnauthorizedException: <p>The request is denied because the caller has insufficient permissions.</p>
+            aws_sdk_api_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -636,6 +673,15 @@ class AsyncAPIGatewayClient:
             rest_api_id: <p>The string identifier of the associated RestApi.</p>
             location: <p>The location of the targeted API entity of the to-be-created documentation part.</p>
             properties: <p>The new documentation content map of the targeted API entity. Enclosed key-value pairs are API-specific, but only OpenAPI-compliant key-value pairs can be exported and, hence, published.</p>
+
+        Raises:
+            aws_sdk_api_gateway.errors.bad_request_exception.BadRequestException: <p>The submitted request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_api_gateway.errors.conflict_exception.ConflictException: <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
+            aws_sdk_api_gateway.errors.limit_exceeded_exception.LimitExceededException: <p>The request exceeded the rate limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.not_found_exception.NotFoundException: <p>The requested resource is not found. Make sure that the request URI is correct.</p>
+            aws_sdk_api_gateway.errors.too_many_requests_exception.TooManyRequestsException: <p>The request has reached its throttling limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.unauthorized_exception.UnauthorizedException: <p>The request is denied because the caller has insufficient permissions.</p>
+            aws_sdk_api_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -682,6 +728,15 @@ class AsyncAPIGatewayClient:
             documentation_version: <p>The version identifier of the new snapshot.</p>
             stage_name: <p>The stage name to be associated with the new documentation snapshot.</p>
             description: <p>A description about the new documentation snapshot.</p>
+
+        Raises:
+            aws_sdk_api_gateway.errors.bad_request_exception.BadRequestException: <p>The submitted request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_api_gateway.errors.conflict_exception.ConflictException: <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
+            aws_sdk_api_gateway.errors.limit_exceeded_exception.LimitExceededException: <p>The request exceeded the rate limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.not_found_exception.NotFoundException: <p>The requested resource is not found. Make sure that the request URI is correct.</p>
+            aws_sdk_api_gateway.errors.too_many_requests_exception.TooManyRequestsException: <p>The request has reached its throttling limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.unauthorized_exception.UnauthorizedException: <p>The request is denied because the caller has insufficient permissions.</p>
+            aws_sdk_api_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -774,6 +829,14 @@ class AsyncAPIGatewayClient:
             ownership_verification_certificate_arn: <p>The ARN of the public certificate issued by ACM to validate ownership of your custom domain. Only required when configuring mutual TLS and using an ACM imported or private CA certificate ARN as the regionalCertificateArn.</p>
             policy: <p>A stringified JSON policy document that applies to the <code>execute-api</code> service for this DomainName regardless of the caller and Method configuration. Supported only for private custom domain names.</p>
             routing_mode: <p> The routing mode for this domain name. The routing mode determines how API Gateway sends traffic from your custom domain name to your private APIs. </p>
+
+        Raises:
+            aws_sdk_api_gateway.errors.bad_request_exception.BadRequestException: <p>The submitted request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_api_gateway.errors.conflict_exception.ConflictException: <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
+            aws_sdk_api_gateway.errors.limit_exceeded_exception.LimitExceededException: <p>The request exceeded the rate limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.too_many_requests_exception.TooManyRequestsException: <p>The request has reached its throttling limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.unauthorized_exception.UnauthorizedException: <p>The request is denied because the caller has insufficient permissions.</p>
+            aws_sdk_api_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -850,6 +913,14 @@ class AsyncAPIGatewayClient:
             access_association_source_type: <p> The type of the domain name access association source. </p>
             access_association_source: <p> The identifier of the domain name access association source. For a VPCE, the value is the VPC endpoint ID. </p>
             tags: <p>The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with <code>aws:</code>. The tag value can be up to 256 characters.</p>
+
+        Raises:
+            aws_sdk_api_gateway.errors.bad_request_exception.BadRequestException: <p>The submitted request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_api_gateway.errors.conflict_exception.ConflictException: <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
+            aws_sdk_api_gateway.errors.limit_exceeded_exception.LimitExceededException: <p>The request exceeded the rate limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.too_many_requests_exception.TooManyRequestsException: <p>The request has reached its throttling limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.unauthorized_exception.UnauthorizedException: <p>The request is denied because the caller has insufficient permissions.</p>
+            aws_sdk_api_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -900,6 +971,15 @@ class AsyncAPIGatewayClient:
             description: <p>The description of the model.</p>
             schema: <p>The schema for the model. For <code>application/json</code> models, this should be JSON schema draft 4 model. The maximum size of the model is 400 KB.</p>
             content_type: <p>The content-type for the model.</p>
+
+        Raises:
+            aws_sdk_api_gateway.errors.bad_request_exception.BadRequestException: <p>The submitted request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_api_gateway.errors.conflict_exception.ConflictException: <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
+            aws_sdk_api_gateway.errors.limit_exceeded_exception.LimitExceededException: <p>The request exceeded the rate limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.not_found_exception.NotFoundException: <p>The requested resource is not found. Make sure that the request URI is correct.</p>
+            aws_sdk_api_gateway.errors.too_many_requests_exception.TooManyRequestsException: <p>The request has reached its throttling limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.unauthorized_exception.UnauthorizedException: <p>The request is denied because the caller has insufficient permissions.</p>
+            aws_sdk_api_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -952,6 +1032,15 @@ class AsyncAPIGatewayClient:
             name: <p>The name of the to-be-created RequestValidator.</p>
             validate_request_body: <p>A Boolean flag to indicate whether to validate request body according to the configured model schema for the method (<code>true</code>) or not (<code>false</code>).</p>
             validate_request_parameters: <p>A Boolean flag to indicate whether to validate request parameters, <code>true</code>, or not <code>false</code>.</p>
+
+        Raises:
+            aws_sdk_api_gateway.errors.bad_request_exception.BadRequestException: <p>The submitted request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_api_gateway.errors.conflict_exception.ConflictException: <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
+            aws_sdk_api_gateway.errors.limit_exceeded_exception.LimitExceededException: <p>The request exceeded the rate limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.not_found_exception.NotFoundException: <p>The requested resource is not found. Make sure that the request URI is correct.</p>
+            aws_sdk_api_gateway.errors.too_many_requests_exception.TooManyRequestsException: <p>The request has reached its throttling limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.unauthorized_exception.UnauthorizedException: <p>The request is denied because the caller has insufficient permissions.</p>
+            aws_sdk_api_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1000,6 +1089,15 @@ class AsyncAPIGatewayClient:
             rest_api_id: <p>The string identifier of the associated RestApi.</p>
             parent_id: <p>The parent resource's identifier.</p>
             path_part: <p>The last path segment for this resource.</p>
+
+        Raises:
+            aws_sdk_api_gateway.errors.bad_request_exception.BadRequestException: <p>The submitted request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_api_gateway.errors.conflict_exception.ConflictException: <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
+            aws_sdk_api_gateway.errors.limit_exceeded_exception.LimitExceededException: <p>The request exceeded the rate limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.not_found_exception.NotFoundException: <p>The requested resource is not found. Make sure that the request URI is correct.</p>
+            aws_sdk_api_gateway.errors.too_many_requests_exception.TooManyRequestsException: <p>The request has reached its throttling limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.unauthorized_exception.UnauthorizedException: <p>The request is denied because the caller has insufficient permissions.</p>
+            aws_sdk_api_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1078,6 +1176,14 @@ class AsyncAPIGatewayClient:
             disable_execute_api_endpoint: <p>Specifies whether clients can invoke your API by using the default <code>execute-api</code> endpoint. By default, clients can invoke your API with the default <code>https://{api_id}.execute-api.{region}.amazonaws.com</code> endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint</p>
             security_policy: <p> The Transport Layer Security (TLS) version + cipher suite for this RestApi. </p>
             endpoint_access_mode: <p> The endpoint access mode of the RestApi. Only available for RestApis that use security policies that start with <code>SecurityPolicy_</code>.</p>
+
+        Raises:
+            aws_sdk_api_gateway.errors.bad_request_exception.BadRequestException: <p>The submitted request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_api_gateway.errors.conflict_exception.ConflictException: <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
+            aws_sdk_api_gateway.errors.limit_exceeded_exception.LimitExceededException: <p>The request exceeded the rate limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.too_many_requests_exception.TooManyRequestsException: <p>The request has reached its throttling limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.unauthorized_exception.UnauthorizedException: <p>The request is denied because the caller has insufficient permissions.</p>
+            aws_sdk_api_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1170,6 +1276,15 @@ class AsyncAPIGatewayClient:
             canary_settings: <p>The canary deployment settings of this stage.</p>
             tracing_enabled: <p>Specifies whether active tracing with X-ray is enabled for the Stage.</p>
             tags: <p>The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with <code>aws:</code>. The tag value can be up to 256 characters.</p>
+
+        Raises:
+            aws_sdk_api_gateway.errors.bad_request_exception.BadRequestException: <p>The submitted request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_api_gateway.errors.conflict_exception.ConflictException: <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
+            aws_sdk_api_gateway.errors.limit_exceeded_exception.LimitExceededException: <p>The request exceeded the rate limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.not_found_exception.NotFoundException: <p>The requested resource is not found. Make sure that the request URI is correct.</p>
+            aws_sdk_api_gateway.errors.too_many_requests_exception.TooManyRequestsException: <p>The request has reached its throttling limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.unauthorized_exception.UnauthorizedException: <p>The request is denied because the caller has insufficient permissions.</p>
+            aws_sdk_api_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1242,6 +1357,15 @@ class AsyncAPIGatewayClient:
             throttle: <p>The throttling limits of the usage plan.</p>
             quota: <p>The quota of the usage plan.</p>
             tags: <p>The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with <code>aws:</code>. The tag value can be up to 256 characters.</p>
+
+        Raises:
+            aws_sdk_api_gateway.errors.bad_request_exception.BadRequestException: <p>The submitted request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_api_gateway.errors.conflict_exception.ConflictException: <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
+            aws_sdk_api_gateway.errors.limit_exceeded_exception.LimitExceededException: <p>The request exceeded the rate limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.not_found_exception.NotFoundException: <p>The requested resource is not found. Make sure that the request URI is correct.</p>
+            aws_sdk_api_gateway.errors.too_many_requests_exception.TooManyRequestsException: <p>The request has reached its throttling limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.unauthorized_exception.UnauthorizedException: <p>The request is denied because the caller has insufficient permissions.</p>
+            aws_sdk_api_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1292,6 +1416,15 @@ class AsyncAPIGatewayClient:
             usage_plan_id: <p>The Id of the UsagePlan resource representing the usage plan containing the to-be-created UsagePlanKey resource representing a plan customer.</p>
             key_id: <p>The identifier of a UsagePlanKey resource for a plan customer.</p>
             key_type: <p>The type of a UsagePlanKey resource for a plan customer.</p>
+
+        Raises:
+            aws_sdk_api_gateway.errors.bad_request_exception.BadRequestException: <p>The submitted request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_api_gateway.errors.conflict_exception.ConflictException: <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
+            aws_sdk_api_gateway.errors.limit_exceeded_exception.LimitExceededException: <p>The request exceeded the rate limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.not_found_exception.NotFoundException: <p>The requested resource is not found. Make sure that the request URI is correct.</p>
+            aws_sdk_api_gateway.errors.too_many_requests_exception.TooManyRequestsException: <p>The request has reached its throttling limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.unauthorized_exception.UnauthorizedException: <p>The request is denied because the caller has insufficient permissions.</p>
+            aws_sdk_api_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1340,6 +1473,14 @@ class AsyncAPIGatewayClient:
             description: <p>The description of the VPC link.</p>
             target_arns: <p>The ARN of the network load balancer of the VPC targeted by the VPC link. The network load balancer must be owned by the same Amazon Web Services account of the API owner.</p>
             tags: <p>The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with <code>aws:</code>. The tag value can be up to 256 characters.</p>
+
+        Raises:
+            aws_sdk_api_gateway.errors.bad_request_exception.BadRequestException: <p>The submitted request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_api_gateway.errors.conflict_exception.ConflictException: <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
+            aws_sdk_api_gateway.errors.limit_exceeded_exception.LimitExceededException: <p>The request exceeded the rate limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.too_many_requests_exception.TooManyRequestsException: <p>The request has reached its throttling limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.unauthorized_exception.UnauthorizedException: <p>The request is denied because the caller has insufficient permissions.</p>
+            aws_sdk_api_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1381,6 +1522,14 @@ class AsyncAPIGatewayClient:
 
         Args:
             api_key: <p>The identifier of the ApiKey resource to be deleted.</p>
+
+        Raises:
+            aws_sdk_api_gateway.errors.bad_request_exception.BadRequestException: <p>The submitted request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_api_gateway.errors.conflict_exception.ConflictException: <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
+            aws_sdk_api_gateway.errors.not_found_exception.NotFoundException: <p>The requested resource is not found. Make sure that the request URI is correct.</p>
+            aws_sdk_api_gateway.errors.too_many_requests_exception.TooManyRequestsException: <p>The request has reached its throttling limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.unauthorized_exception.UnauthorizedException: <p>The request is denied because the caller has insufficient permissions.</p>
+            aws_sdk_api_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1419,6 +1568,14 @@ class AsyncAPIGatewayClient:
         Args:
             rest_api_id: <p>The string identifier of the associated RestApi.</p>
             authorizer_id: <p>The identifier of the Authorizer resource.</p>
+
+        Raises:
+            aws_sdk_api_gateway.errors.bad_request_exception.BadRequestException: <p>The submitted request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_api_gateway.errors.conflict_exception.ConflictException: <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
+            aws_sdk_api_gateway.errors.not_found_exception.NotFoundException: <p>The requested resource is not found. Make sure that the request URI is correct.</p>
+            aws_sdk_api_gateway.errors.too_many_requests_exception.TooManyRequestsException: <p>The request has reached its throttling limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.unauthorized_exception.UnauthorizedException: <p>The request is denied because the caller has insufficient permissions.</p>
+            aws_sdk_api_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1460,6 +1617,14 @@ class AsyncAPIGatewayClient:
             domain_name: <p>The domain name of the BasePathMapping resource to delete.</p>
             domain_name_id: <p> The identifier for the domain name resource. Supported only for private custom domain names. </p>
             base_path: <p>The base path name of the BasePathMapping resource to delete.</p> <p>To specify an empty base path, set this parameter to <code>'(none)'</code>.</p>
+
+        Raises:
+            aws_sdk_api_gateway.errors.bad_request_exception.BadRequestException: <p>The submitted request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_api_gateway.errors.conflict_exception.ConflictException: <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
+            aws_sdk_api_gateway.errors.not_found_exception.NotFoundException: <p>The requested resource is not found. Make sure that the request URI is correct.</p>
+            aws_sdk_api_gateway.errors.too_many_requests_exception.TooManyRequestsException: <p>The request has reached its throttling limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.unauthorized_exception.UnauthorizedException: <p>The request is denied because the caller has insufficient permissions.</p>
+            aws_sdk_api_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1499,6 +1664,14 @@ class AsyncAPIGatewayClient:
 
         Args:
             client_certificate_id: <p>The identifier of the ClientCertificate resource to be deleted.</p>
+
+        Raises:
+            aws_sdk_api_gateway.errors.bad_request_exception.BadRequestException: <p>The submitted request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_api_gateway.errors.conflict_exception.ConflictException: <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
+            aws_sdk_api_gateway.errors.not_found_exception.NotFoundException: <p>The requested resource is not found. Make sure that the request URI is correct.</p>
+            aws_sdk_api_gateway.errors.too_many_requests_exception.TooManyRequestsException: <p>The request has reached its throttling limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.unauthorized_exception.UnauthorizedException: <p>The request is denied because the caller has insufficient permissions.</p>
+            aws_sdk_api_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1537,6 +1710,15 @@ class AsyncAPIGatewayClient:
         Args:
             rest_api_id: <p>The string identifier of the associated RestApi.</p>
             deployment_id: <p>The identifier of the Deployment resource to delete.</p>
+
+        Raises:
+            aws_sdk_api_gateway.errors.bad_request_exception.BadRequestException: <p>The submitted request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_api_gateway.errors.conflict_exception.ConflictException: <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
+            aws_sdk_api_gateway.errors.limit_exceeded_exception.LimitExceededException: <p>The request exceeded the rate limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.not_found_exception.NotFoundException: <p>The requested resource is not found. Make sure that the request URI is correct.</p>
+            aws_sdk_api_gateway.errors.too_many_requests_exception.TooManyRequestsException: <p>The request has reached its throttling limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.unauthorized_exception.UnauthorizedException: <p>The request is denied because the caller has insufficient permissions.</p>
+            aws_sdk_api_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1576,6 +1758,14 @@ class AsyncAPIGatewayClient:
         Args:
             rest_api_id: <p>The string identifier of the associated RestApi.</p>
             documentation_part_id: <p>The identifier of the to-be-deleted documentation part.</p>
+
+        Raises:
+            aws_sdk_api_gateway.errors.bad_request_exception.BadRequestException: <p>The submitted request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_api_gateway.errors.conflict_exception.ConflictException: <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
+            aws_sdk_api_gateway.errors.not_found_exception.NotFoundException: <p>The requested resource is not found. Make sure that the request URI is correct.</p>
+            aws_sdk_api_gateway.errors.too_many_requests_exception.TooManyRequestsException: <p>The request has reached its throttling limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.unauthorized_exception.UnauthorizedException: <p>The request is denied because the caller has insufficient permissions.</p>
+            aws_sdk_api_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1615,6 +1805,14 @@ class AsyncAPIGatewayClient:
         Args:
             rest_api_id: <p>The string identifier of the associated RestApi.</p>
             documentation_version: <p>The version identifier of a to-be-deleted documentation snapshot.</p>
+
+        Raises:
+            aws_sdk_api_gateway.errors.bad_request_exception.BadRequestException: <p>The submitted request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_api_gateway.errors.conflict_exception.ConflictException: <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
+            aws_sdk_api_gateway.errors.not_found_exception.NotFoundException: <p>The requested resource is not found. Make sure that the request URI is correct.</p>
+            aws_sdk_api_gateway.errors.too_many_requests_exception.TooManyRequestsException: <p>The request has reached its throttling limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.unauthorized_exception.UnauthorizedException: <p>The request is denied because the caller has insufficient permissions.</p>
+            aws_sdk_api_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1654,6 +1852,14 @@ class AsyncAPIGatewayClient:
         Args:
             domain_name: <p>The name of the DomainName resource to be deleted.</p>
             domain_name_id: <p> The identifier for the domain name resource. Supported only for private custom domain names. </p>
+
+        Raises:
+            aws_sdk_api_gateway.errors.bad_request_exception.BadRequestException: <p>The submitted request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_api_gateway.errors.conflict_exception.ConflictException: <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
+            aws_sdk_api_gateway.errors.not_found_exception.NotFoundException: <p>The requested resource is not found. Make sure that the request URI is correct.</p>
+            aws_sdk_api_gateway.errors.too_many_requests_exception.TooManyRequestsException: <p>The request has reached its throttling limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.unauthorized_exception.UnauthorizedException: <p>The request is denied because the caller has insufficient permissions.</p>
+            aws_sdk_api_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1692,6 +1898,14 @@ class AsyncAPIGatewayClient:
 
         Args:
             domain_name_access_association_arn: <p> The ARN of the domain name access association resource.</p>
+
+        Raises:
+            aws_sdk_api_gateway.errors.bad_request_exception.BadRequestException: <p>The submitted request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_api_gateway.errors.conflict_exception.ConflictException: <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
+            aws_sdk_api_gateway.errors.not_found_exception.NotFoundException: <p>The requested resource is not found. Make sure that the request URI is correct.</p>
+            aws_sdk_api_gateway.errors.too_many_requests_exception.TooManyRequestsException: <p>The request has reached its throttling limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.unauthorized_exception.UnauthorizedException: <p>The request is denied because the caller has insufficient permissions.</p>
+            aws_sdk_api_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1732,6 +1946,14 @@ class AsyncAPIGatewayClient:
         Args:
             rest_api_id: <p>The string identifier of the associated RestApi.</p>
             response_type: <p>The response type of the associated GatewayResponse.</p>
+
+        Raises:
+            aws_sdk_api_gateway.errors.bad_request_exception.BadRequestException: <p>The submitted request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_api_gateway.errors.conflict_exception.ConflictException: <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
+            aws_sdk_api_gateway.errors.not_found_exception.NotFoundException: <p>The requested resource is not found. Make sure that the request URI is correct.</p>
+            aws_sdk_api_gateway.errors.too_many_requests_exception.TooManyRequestsException: <p>The request has reached its throttling limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.unauthorized_exception.UnauthorizedException: <p>The request is denied because the caller has insufficient permissions.</p>
+            aws_sdk_api_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1773,6 +1995,14 @@ class AsyncAPIGatewayClient:
             rest_api_id: <p>The string identifier of the associated RestApi.</p>
             resource_id: <p>Specifies a delete integration request's resource identifier.</p>
             http_method: <p>Specifies a delete integration request's HTTP method.</p>
+
+        Raises:
+            aws_sdk_api_gateway.errors.bad_request_exception.BadRequestException: <p>The submitted request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_api_gateway.errors.conflict_exception.ConflictException: <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
+            aws_sdk_api_gateway.errors.not_found_exception.NotFoundException: <p>The requested resource is not found. Make sure that the request URI is correct.</p>
+            aws_sdk_api_gateway.errors.too_many_requests_exception.TooManyRequestsException: <p>The request has reached its throttling limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.unauthorized_exception.UnauthorizedException: <p>The request is denied because the caller has insufficient permissions.</p>
+            aws_sdk_api_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1817,6 +2047,14 @@ class AsyncAPIGatewayClient:
             resource_id: <p>Specifies a delete integration response request's resource identifier.</p>
             http_method: <p>Specifies a delete integration response request's HTTP method.</p>
             status_code: <p>Specifies a delete integration response request's status code.</p>
+
+        Raises:
+            aws_sdk_api_gateway.errors.bad_request_exception.BadRequestException: <p>The submitted request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_api_gateway.errors.conflict_exception.ConflictException: <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
+            aws_sdk_api_gateway.errors.not_found_exception.NotFoundException: <p>The requested resource is not found. Make sure that the request URI is correct.</p>
+            aws_sdk_api_gateway.errors.too_many_requests_exception.TooManyRequestsException: <p>The request has reached its throttling limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.unauthorized_exception.UnauthorizedException: <p>The request is denied because the caller has insufficient permissions.</p>
+            aws_sdk_api_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1860,6 +2098,13 @@ class AsyncAPIGatewayClient:
             rest_api_id: <p>The string identifier of the associated RestApi.</p>
             resource_id: <p>The Resource identifier for the Method resource.</p>
             http_method: <p>The HTTP verb of the Method resource.</p>
+
+        Raises:
+            aws_sdk_api_gateway.errors.conflict_exception.ConflictException: <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
+            aws_sdk_api_gateway.errors.not_found_exception.NotFoundException: <p>The requested resource is not found. Make sure that the request URI is correct.</p>
+            aws_sdk_api_gateway.errors.too_many_requests_exception.TooManyRequestsException: <p>The request has reached its throttling limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.unauthorized_exception.UnauthorizedException: <p>The request is denied because the caller has insufficient permissions.</p>
+            aws_sdk_api_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1904,6 +2149,14 @@ class AsyncAPIGatewayClient:
             resource_id: <p>The Resource identifier for the MethodResponse resource.</p>
             http_method: <p>The HTTP verb of the Method resource.</p>
             status_code: <p>The status code identifier for the MethodResponse resource.</p>
+
+        Raises:
+            aws_sdk_api_gateway.errors.bad_request_exception.BadRequestException: <p>The submitted request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_api_gateway.errors.conflict_exception.ConflictException: <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
+            aws_sdk_api_gateway.errors.not_found_exception.NotFoundException: <p>The requested resource is not found. Make sure that the request URI is correct.</p>
+            aws_sdk_api_gateway.errors.too_many_requests_exception.TooManyRequestsException: <p>The request has reached its throttling limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.unauthorized_exception.UnauthorizedException: <p>The request is denied because the caller has insufficient permissions.</p>
+            aws_sdk_api_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1945,6 +2198,14 @@ class AsyncAPIGatewayClient:
         Args:
             rest_api_id: <p>The string identifier of the associated RestApi.</p>
             model_name: <p>The name of the model to delete.</p>
+
+        Raises:
+            aws_sdk_api_gateway.errors.bad_request_exception.BadRequestException: <p>The submitted request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_api_gateway.errors.conflict_exception.ConflictException: <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
+            aws_sdk_api_gateway.errors.not_found_exception.NotFoundException: <p>The requested resource is not found. Make sure that the request URI is correct.</p>
+            aws_sdk_api_gateway.errors.too_many_requests_exception.TooManyRequestsException: <p>The request has reached its throttling limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.unauthorized_exception.UnauthorizedException: <p>The request is denied because the caller has insufficient permissions.</p>
+            aws_sdk_api_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1984,6 +2245,14 @@ class AsyncAPIGatewayClient:
         Args:
             rest_api_id: <p>The string identifier of the associated RestApi.</p>
             request_validator_id: <p>The identifier of the RequestValidator to be deleted.</p>
+
+        Raises:
+            aws_sdk_api_gateway.errors.bad_request_exception.BadRequestException: <p>The submitted request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_api_gateway.errors.conflict_exception.ConflictException: <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
+            aws_sdk_api_gateway.errors.not_found_exception.NotFoundException: <p>The requested resource is not found. Make sure that the request URI is correct.</p>
+            aws_sdk_api_gateway.errors.too_many_requests_exception.TooManyRequestsException: <p>The request has reached its throttling limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.unauthorized_exception.UnauthorizedException: <p>The request is denied because the caller has insufficient permissions.</p>
+            aws_sdk_api_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2023,6 +2292,14 @@ class AsyncAPIGatewayClient:
         Args:
             rest_api_id: <p>The string identifier of the associated RestApi.</p>
             resource_id: <p>The identifier of the Resource resource.</p>
+
+        Raises:
+            aws_sdk_api_gateway.errors.bad_request_exception.BadRequestException: <p>The submitted request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_api_gateway.errors.conflict_exception.ConflictException: <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
+            aws_sdk_api_gateway.errors.not_found_exception.NotFoundException: <p>The requested resource is not found. Make sure that the request URI is correct.</p>
+            aws_sdk_api_gateway.errors.too_many_requests_exception.TooManyRequestsException: <p>The request has reached its throttling limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.unauthorized_exception.UnauthorizedException: <p>The request is denied because the caller has insufficient permissions.</p>
+            aws_sdk_api_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2060,6 +2337,14 @@ class AsyncAPIGatewayClient:
 
         Args:
             rest_api_id: <p>The string identifier of the associated RestApi.</p>
+
+        Raises:
+            aws_sdk_api_gateway.errors.bad_request_exception.BadRequestException: <p>The submitted request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_api_gateway.errors.conflict_exception.ConflictException: <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
+            aws_sdk_api_gateway.errors.not_found_exception.NotFoundException: <p>The requested resource is not found. Make sure that the request URI is correct.</p>
+            aws_sdk_api_gateway.errors.too_many_requests_exception.TooManyRequestsException: <p>The request has reached its throttling limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.unauthorized_exception.UnauthorizedException: <p>The request is denied because the caller has insufficient permissions.</p>
+            aws_sdk_api_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2098,6 +2383,15 @@ class AsyncAPIGatewayClient:
         Args:
             rest_api_id: <p>The string identifier of the associated RestApi.</p>
             stage_name: <p>The name of the Stage resource to delete.</p>
+
+        Raises:
+            aws_sdk_api_gateway.errors.bad_request_exception.BadRequestException: <p>The submitted request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_api_gateway.errors.conflict_exception.ConflictException: <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
+            aws_sdk_api_gateway.errors.limit_exceeded_exception.LimitExceededException: <p>The request exceeded the rate limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.not_found_exception.NotFoundException: <p>The requested resource is not found. Make sure that the request URI is correct.</p>
+            aws_sdk_api_gateway.errors.too_many_requests_exception.TooManyRequestsException: <p>The request has reached its throttling limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.unauthorized_exception.UnauthorizedException: <p>The request is denied because the caller has insufficient permissions.</p>
+            aws_sdk_api_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2135,6 +2429,14 @@ class AsyncAPIGatewayClient:
 
         Args:
             usage_plan_id: <p>The Id of the to-be-deleted usage plan.</p>
+
+        Raises:
+            aws_sdk_api_gateway.errors.bad_request_exception.BadRequestException: <p>The submitted request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_api_gateway.errors.conflict_exception.ConflictException: <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
+            aws_sdk_api_gateway.errors.not_found_exception.NotFoundException: <p>The requested resource is not found. Make sure that the request URI is correct.</p>
+            aws_sdk_api_gateway.errors.too_many_requests_exception.TooManyRequestsException: <p>The request has reached its throttling limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.unauthorized_exception.UnauthorizedException: <p>The request is denied because the caller has insufficient permissions.</p>
+            aws_sdk_api_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2173,6 +2475,14 @@ class AsyncAPIGatewayClient:
         Args:
             usage_plan_id: <p>The Id of the UsagePlan resource representing the usage plan containing the to-be-deleted UsagePlanKey resource representing a plan customer.</p>
             key_id: <p>The Id of the UsagePlanKey resource to be deleted.</p>
+
+        Raises:
+            aws_sdk_api_gateway.errors.bad_request_exception.BadRequestException: <p>The submitted request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_api_gateway.errors.conflict_exception.ConflictException: <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
+            aws_sdk_api_gateway.errors.not_found_exception.NotFoundException: <p>The requested resource is not found. Make sure that the request URI is correct.</p>
+            aws_sdk_api_gateway.errors.too_many_requests_exception.TooManyRequestsException: <p>The request has reached its throttling limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.unauthorized_exception.UnauthorizedException: <p>The request is denied because the caller has insufficient permissions.</p>
+            aws_sdk_api_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2210,6 +2520,14 @@ class AsyncAPIGatewayClient:
 
         Args:
             vpc_link_id: <p>The identifier of the VpcLink. It is used in an Integration to reference this VpcLink.</p>
+
+        Raises:
+            aws_sdk_api_gateway.errors.bad_request_exception.BadRequestException: <p>The submitted request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_api_gateway.errors.conflict_exception.ConflictException: <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
+            aws_sdk_api_gateway.errors.not_found_exception.NotFoundException: <p>The requested resource is not found. Make sure that the request URI is correct.</p>
+            aws_sdk_api_gateway.errors.too_many_requests_exception.TooManyRequestsException: <p>The request has reached its throttling limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.unauthorized_exception.UnauthorizedException: <p>The request is denied because the caller has insufficient permissions.</p>
+            aws_sdk_api_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2248,6 +2566,15 @@ class AsyncAPIGatewayClient:
         Args:
             rest_api_id: <p>The string identifier of the associated RestApi.</p>
             stage_name: <p>The name of the stage to flush.</p>
+
+        Raises:
+            aws_sdk_api_gateway.errors.bad_request_exception.BadRequestException: <p>The submitted request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_api_gateway.errors.conflict_exception.ConflictException: <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
+            aws_sdk_api_gateway.errors.limit_exceeded_exception.LimitExceededException: <p>The request exceeded the rate limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.not_found_exception.NotFoundException: <p>The requested resource is not found. Make sure that the request URI is correct.</p>
+            aws_sdk_api_gateway.errors.too_many_requests_exception.TooManyRequestsException: <p>The request has reached its throttling limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.unauthorized_exception.UnauthorizedException: <p>The request is denied because the caller has insufficient permissions.</p>
+            aws_sdk_api_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2287,6 +2614,15 @@ class AsyncAPIGatewayClient:
         Args:
             rest_api_id: <p>The string identifier of the associated RestApi.</p>
             stage_name: <p>The name of the stage to flush its cache.</p>
+
+        Raises:
+            aws_sdk_api_gateway.errors.bad_request_exception.BadRequestException: <p>The submitted request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_api_gateway.errors.conflict_exception.ConflictException: <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
+            aws_sdk_api_gateway.errors.limit_exceeded_exception.LimitExceededException: <p>The request exceeded the rate limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.not_found_exception.NotFoundException: <p>The requested resource is not found. Make sure that the request URI is correct.</p>
+            aws_sdk_api_gateway.errors.too_many_requests_exception.TooManyRequestsException: <p>The request has reached its throttling limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.unauthorized_exception.UnauthorizedException: <p>The request is denied because the caller has insufficient permissions.</p>
+            aws_sdk_api_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2328,6 +2664,14 @@ class AsyncAPIGatewayClient:
         Args:
             description: <p>The description of the ClientCertificate.</p>
             tags: <p>The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with <code>aws:</code>. The tag value can be up to 256 characters.</p>
+
+        Raises:
+            aws_sdk_api_gateway.errors.bad_request_exception.BadRequestException: <p>The submitted request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_api_gateway.errors.conflict_exception.ConflictException: <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
+            aws_sdk_api_gateway.errors.limit_exceeded_exception.LimitExceededException: <p>The request exceeded the rate limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.too_many_requests_exception.TooManyRequestsException: <p>The request has reached its throttling limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.unauthorized_exception.UnauthorizedException: <p>The request is denied because the caller has insufficient permissions.</p>
+            aws_sdk_api_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2362,7 +2706,15 @@ class AsyncAPIGatewayClient:
     async def get_account(
         self, *, config_overrides: Optional[AsyncAPIGatewayClientConfig] = None
     ) -> "aws_sdk_api_gateway.types.account.Account":
-        """<p>Gets information about the current Account resource.</p>"""
+        """<p>Gets information about the current Account resource.</p>
+
+        Raises:
+            aws_sdk_api_gateway.errors.bad_request_exception.BadRequestException: <p>The submitted request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_api_gateway.errors.not_found_exception.NotFoundException: <p>The requested resource is not found. Make sure that the request URI is correct.</p>
+            aws_sdk_api_gateway.errors.too_many_requests_exception.TooManyRequestsException: <p>The request has reached its throttling limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.unauthorized_exception.UnauthorizedException: <p>The request is denied because the caller has insufficient permissions.</p>
+            aws_sdk_api_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_api_gateway.types.get_account_request.GetAccountRequest]",
@@ -2401,6 +2753,13 @@ class AsyncAPIGatewayClient:
         Args:
             api_key: <p>The identifier of the ApiKey resource.</p>
             include_value: <p>A boolean flag to specify whether (<code>true</code>) or not (<code>false</code>) the result contains the key value.</p>
+
+        Raises:
+            aws_sdk_api_gateway.errors.bad_request_exception.BadRequestException: <p>The submitted request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_api_gateway.errors.not_found_exception.NotFoundException: <p>The requested resource is not found. Make sure that the request URI is correct.</p>
+            aws_sdk_api_gateway.errors.too_many_requests_exception.TooManyRequestsException: <p>The request has reached its throttling limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.unauthorized_exception.UnauthorizedException: <p>The request is denied because the caller has insufficient permissions.</p>
+            aws_sdk_api_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2451,6 +2810,13 @@ class AsyncAPIGatewayClient:
             name_query: <p>The name of queried API keys.</p>
             customer_id: <p>The identifier of a customer in Amazon Web Services Marketplace or an external system, such as a developer portal.</p>
             include_values: <p>A boolean flag to specify whether (<code>true</code>) or not (<code>false</code>) the result contains key values.</p>
+
+        Raises:
+            aws_sdk_api_gateway.errors.bad_request_exception.BadRequestException: <p>The submitted request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_api_gateway.errors.not_found_exception.NotFoundException: <p>The requested resource is not found. Make sure that the request URI is correct.</p>
+            aws_sdk_api_gateway.errors.too_many_requests_exception.TooManyRequestsException: <p>The request has reached its throttling limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.unauthorized_exception.UnauthorizedException: <p>The request is denied because the caller has insufficient permissions.</p>
+            aws_sdk_api_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2529,6 +2895,13 @@ class AsyncAPIGatewayClient:
         Args:
             rest_api_id: <p>The string identifier of the associated RestApi.</p>
             authorizer_id: <p>The identifier of the Authorizer resource.</p>
+
+        Raises:
+            aws_sdk_api_gateway.errors.bad_request_exception.BadRequestException: <p>The submitted request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_api_gateway.errors.not_found_exception.NotFoundException: <p>The requested resource is not found. Make sure that the request URI is correct.</p>
+            aws_sdk_api_gateway.errors.too_many_requests_exception.TooManyRequestsException: <p>The request has reached its throttling limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.unauthorized_exception.UnauthorizedException: <p>The request is denied because the caller has insufficient permissions.</p>
+            aws_sdk_api_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2572,6 +2945,13 @@ class AsyncAPIGatewayClient:
             rest_api_id: <p>The string identifier of the associated RestApi.</p>
             position: <p>The current pagination position in the paged result set.</p>
             limit: <p>The maximum number of returned results per page. The default value is 25 and the maximum value is 500.</p>
+
+        Raises:
+            aws_sdk_api_gateway.errors.bad_request_exception.BadRequestException: <p>The submitted request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_api_gateway.errors.not_found_exception.NotFoundException: <p>The requested resource is not found. Make sure that the request URI is correct.</p>
+            aws_sdk_api_gateway.errors.too_many_requests_exception.TooManyRequestsException: <p>The request has reached its throttling limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.unauthorized_exception.UnauthorizedException: <p>The request is denied because the caller has insufficient permissions.</p>
+            aws_sdk_api_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2618,6 +2998,13 @@ class AsyncAPIGatewayClient:
             domain_name: <p>The domain name of the BasePathMapping resource to be described.</p>
             domain_name_id: <p>The identifier for the domain name resource. Supported only for private custom domain names. </p>
             base_path: <p>The base path name that callers of the API must provide as part of the URL after the domain name. This value must be unique for all of the mappings across a single API. Specify '(none)' if you do not want callers to specify any base path name after the domain name.</p>
+
+        Raises:
+            aws_sdk_api_gateway.errors.bad_request_exception.BadRequestException: <p>The submitted request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_api_gateway.errors.not_found_exception.NotFoundException: <p>The requested resource is not found. Make sure that the request URI is correct.</p>
+            aws_sdk_api_gateway.errors.too_many_requests_exception.TooManyRequestsException: <p>The request has reached its throttling limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.unauthorized_exception.UnauthorizedException: <p>The request is denied because the caller has insufficient permissions.</p>
+            aws_sdk_api_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2667,6 +3054,13 @@ class AsyncAPIGatewayClient:
             domain_name_id: <p> The identifier for the domain name resource. Supported only for private custom domain names. </p>
             position: <p>The current pagination position in the paged result set.</p>
             limit: <p>The maximum number of returned results per page. The default value is 25 and the maximum value is 500.</p>
+
+        Raises:
+            aws_sdk_api_gateway.errors.bad_request_exception.BadRequestException: <p>The submitted request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_api_gateway.errors.not_found_exception.NotFoundException: <p>The requested resource is not found. Make sure that the request URI is correct.</p>
+            aws_sdk_api_gateway.errors.too_many_requests_exception.TooManyRequestsException: <p>The request has reached its throttling limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.unauthorized_exception.UnauthorizedException: <p>The request is denied because the caller has insufficient permissions.</p>
+            aws_sdk_api_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2738,6 +3132,13 @@ class AsyncAPIGatewayClient:
 
         Args:
             client_certificate_id: <p>The identifier of the ClientCertificate resource to be described.</p>
+
+        Raises:
+            aws_sdk_api_gateway.errors.bad_request_exception.BadRequestException: <p>The submitted request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_api_gateway.errors.not_found_exception.NotFoundException: <p>The requested resource is not found. Make sure that the request URI is correct.</p>
+            aws_sdk_api_gateway.errors.too_many_requests_exception.TooManyRequestsException: <p>The request has reached its throttling limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.unauthorized_exception.UnauthorizedException: <p>The request is denied because the caller has insufficient permissions.</p>
+            aws_sdk_api_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2780,6 +3181,13 @@ class AsyncAPIGatewayClient:
         Args:
             position: <p>The current pagination position in the paged result set.</p>
             limit: <p>The maximum number of returned results per page. The default value is 25 and the maximum value is 500.</p>
+
+        Raises:
+            aws_sdk_api_gateway.errors.bad_request_exception.BadRequestException: <p>The submitted request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_api_gateway.errors.not_found_exception.NotFoundException: <p>The requested resource is not found. Make sure that the request URI is correct.</p>
+            aws_sdk_api_gateway.errors.too_many_requests_exception.TooManyRequestsException: <p>The request has reached its throttling limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.unauthorized_exception.UnauthorizedException: <p>The request is denied because the caller has insufficient permissions.</p>
+            aws_sdk_api_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2850,6 +3258,14 @@ class AsyncAPIGatewayClient:
             rest_api_id: <p>The string identifier of the associated RestApi.</p>
             deployment_id: <p>The identifier of the Deployment resource to get information about.</p>
             embed: <p>A query parameter to retrieve the specified embedded resources of the returned Deployment resource in the response. In a REST API call, this <code>embed</code> parameter value is a list of comma-separated strings, as in <code>GET /restapis/{restapi_id}/deployments/{deployment_id}?embed=var1,var2</code>. The SDK and other platform-dependent libraries might use a different format for the list. Currently, this request supports only retrieval of the embedded API summary this way. Hence, the parameter value must be a single-valued list containing only the <code>\"apisummary\"</code> string. For example, <code>GET /restapis/{restapi_id}/deployments/{deployment_id}?embed=apisummary</code>.</p>
+
+        Raises:
+            aws_sdk_api_gateway.errors.bad_request_exception.BadRequestException: <p>The submitted request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_api_gateway.errors.not_found_exception.NotFoundException: <p>The requested resource is not found. Make sure that the request URI is correct.</p>
+            aws_sdk_api_gateway.errors.service_unavailable_exception.ServiceUnavailableException: <p>The requested service is not available. For details see the accompanying error message. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.too_many_requests_exception.TooManyRequestsException: <p>The request has reached its throttling limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.unauthorized_exception.UnauthorizedException: <p>The request is denied because the caller has insufficient permissions.</p>
+            aws_sdk_api_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2895,6 +3311,14 @@ class AsyncAPIGatewayClient:
             rest_api_id: <p>The string identifier of the associated RestApi.</p>
             position: <p>The current pagination position in the paged result set.</p>
             limit: <p>The maximum number of returned results per page. The default value is 25 and the maximum value is 500.</p>
+
+        Raises:
+            aws_sdk_api_gateway.errors.bad_request_exception.BadRequestException: <p>The submitted request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_api_gateway.errors.not_found_exception.NotFoundException: <p>The requested resource is not found. Make sure that the request URI is correct.</p>
+            aws_sdk_api_gateway.errors.service_unavailable_exception.ServiceUnavailableException: <p>The requested service is not available. For details see the accompanying error message. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.too_many_requests_exception.TooManyRequestsException: <p>The request has reached its throttling limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.unauthorized_exception.UnauthorizedException: <p>The request is denied because the caller has insufficient permissions.</p>
+            aws_sdk_api_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2964,6 +3388,13 @@ class AsyncAPIGatewayClient:
         Args:
             rest_api_id: <p>The string identifier of the associated RestApi.</p>
             documentation_part_id: <p>The string identifier of the associated RestApi.</p>
+
+        Raises:
+            aws_sdk_api_gateway.errors.bad_request_exception.BadRequestException: <p>The submitted request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_api_gateway.errors.not_found_exception.NotFoundException: <p>The requested resource is not found. Make sure that the request URI is correct.</p>
+            aws_sdk_api_gateway.errors.too_many_requests_exception.TooManyRequestsException: <p>The request has reached its throttling limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.unauthorized_exception.UnauthorizedException: <p>The request is denied because the caller has insufficient permissions.</p>
+            aws_sdk_api_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3021,6 +3452,13 @@ class AsyncAPIGatewayClient:
             position: <p>The current pagination position in the paged result set.</p>
             limit: <p>The maximum number of returned results per page. The default value is 25 and the maximum value is 500.</p>
             location_status: <p>The status of the API documentation parts to retrieve. Valid values are <code>DOCUMENTED</code> for retrieving DocumentationPart resources with content and <code>UNDOCUMENTED</code> for DocumentationPart resources without content.</p>
+
+        Raises:
+            aws_sdk_api_gateway.errors.bad_request_exception.BadRequestException: <p>The submitted request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_api_gateway.errors.not_found_exception.NotFoundException: <p>The requested resource is not found. Make sure that the request URI is correct.</p>
+            aws_sdk_api_gateway.errors.too_many_requests_exception.TooManyRequestsException: <p>The request has reached its throttling limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.unauthorized_exception.UnauthorizedException: <p>The request is denied because the caller has insufficient permissions.</p>
+            aws_sdk_api_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3073,6 +3511,12 @@ class AsyncAPIGatewayClient:
         Args:
             rest_api_id: <p>The string identifier of the associated RestApi.</p>
             documentation_version: <p>The version identifier of the to-be-retrieved documentation snapshot.</p>
+
+        Raises:
+            aws_sdk_api_gateway.errors.not_found_exception.NotFoundException: <p>The requested resource is not found. Make sure that the request URI is correct.</p>
+            aws_sdk_api_gateway.errors.too_many_requests_exception.TooManyRequestsException: <p>The request has reached its throttling limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.unauthorized_exception.UnauthorizedException: <p>The request is denied because the caller has insufficient permissions.</p>
+            aws_sdk_api_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3118,6 +3562,13 @@ class AsyncAPIGatewayClient:
             rest_api_id: <p>The string identifier of the associated RestApi.</p>
             position: <p>The current pagination position in the paged result set.</p>
             limit: <p>The maximum number of returned results per page. The default value is 25 and the maximum value is 500.</p>
+
+        Raises:
+            aws_sdk_api_gateway.errors.bad_request_exception.BadRequestException: <p>The submitted request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_api_gateway.errors.not_found_exception.NotFoundException: <p>The requested resource is not found. Make sure that the request URI is correct.</p>
+            aws_sdk_api_gateway.errors.too_many_requests_exception.TooManyRequestsException: <p>The request has reached its throttling limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.unauthorized_exception.UnauthorizedException: <p>The request is denied because the caller has insufficient permissions.</p>
+            aws_sdk_api_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3162,6 +3613,13 @@ class AsyncAPIGatewayClient:
         Args:
             domain_name: <p>The name of the DomainName resource.</p>
             domain_name_id: <p> The identifier for the domain name resource. Required for private custom domain names. </p>
+
+        Raises:
+            aws_sdk_api_gateway.errors.bad_request_exception.BadRequestException: <p>The submitted request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_api_gateway.errors.not_found_exception.NotFoundException: <p>The requested resource is not found. Make sure that the request URI is correct.</p>
+            aws_sdk_api_gateway.errors.too_many_requests_exception.TooManyRequestsException: <p>The request has reached its throttling limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.unauthorized_exception.UnauthorizedException: <p>The request is denied because the caller has insufficient permissions.</p>
+            aws_sdk_api_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3208,6 +3666,13 @@ class AsyncAPIGatewayClient:
             position: <p>The current pagination position in the paged result set. </p>
             limit: <p>The maximum number of returned results per page. The default value is 25 and the maximum value is 500. </p>
             resource_owner: <p> The owner of the domain name access association. Use <code>SELF</code> to only list the domain name access associations owned by your own account. Use <code>OTHER_ACCOUNTS</code> to list the domain name access associations with your private custom domain names that are owned by other AWS accounts.</p>
+
+        Raises:
+            aws_sdk_api_gateway.errors.bad_request_exception.BadRequestException: <p>The submitted request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_api_gateway.errors.not_found_exception.NotFoundException: <p>The requested resource is not found. Make sure that the request URI is correct.</p>
+            aws_sdk_api_gateway.errors.too_many_requests_exception.TooManyRequestsException: <p>The request has reached its throttling limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.unauthorized_exception.UnauthorizedException: <p>The request is denied because the caller has insufficient permissions.</p>
+            aws_sdk_api_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3259,6 +3724,13 @@ class AsyncAPIGatewayClient:
             position: <p>The current pagination position in the paged result set.</p>
             limit: <p>The maximum number of returned results per page. The default value is 25 and the maximum value is 500.</p>
             resource_owner: <p>The owner of the domain name access association. </p>
+
+        Raises:
+            aws_sdk_api_gateway.errors.bad_request_exception.BadRequestException: <p>The submitted request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_api_gateway.errors.not_found_exception.NotFoundException: <p>The requested resource is not found. Make sure that the request URI is correct.</p>
+            aws_sdk_api_gateway.errors.too_many_requests_exception.TooManyRequestsException: <p>The request has reached its throttling limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.unauthorized_exception.UnauthorizedException: <p>The request is denied because the caller has insufficient permissions.</p>
+            aws_sdk_api_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3339,6 +3811,15 @@ class AsyncAPIGatewayClient:
             export_type: <p>The type of export. Acceptable values are 'oas30' for OpenAPI 3.0.x and 'swagger' for Swagger/OpenAPI 2.0.</p>
             parameters: <p>A key-value map of query string parameters that specify properties of the export, depending on the requested <code>exportType</code>. For <code>exportType</code> <code>oas30</code> and <code>swagger</code>, any combination of the following parameters are supported: <code>extensions='integrations'</code> or <code>extensions='apigateway'</code> will export the API with x-amazon-apigateway-integration extensions. <code>extensions='authorizers'</code> will export the API with x-amazon-apigateway-authorizer extensions. <code>postman</code> will export the API with Postman extensions, allowing for import to the Postman tool</p>
             accepts: <p>The content-type of the export, for example <code>application/json</code>. Currently <code>application/json</code> and <code>application/yaml</code> are supported for <code>exportType</code> of<code>oas30</code> and <code>swagger</code>. This should be specified in the <code>Accept</code> header for direct API requests.</p>
+
+        Raises:
+            aws_sdk_api_gateway.errors.bad_request_exception.BadRequestException: <p>The submitted request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_api_gateway.errors.conflict_exception.ConflictException: <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
+            aws_sdk_api_gateway.errors.limit_exceeded_exception.LimitExceededException: <p>The request exceeded the rate limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.not_found_exception.NotFoundException: <p>The requested resource is not found. Make sure that the request URI is correct.</p>
+            aws_sdk_api_gateway.errors.too_many_requests_exception.TooManyRequestsException: <p>The request has reached its throttling limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.unauthorized_exception.UnauthorizedException: <p>The request is denied because the caller has insufficient permissions.</p>
+            aws_sdk_api_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3385,6 +3866,13 @@ class AsyncAPIGatewayClient:
         Args:
             rest_api_id: <p>The string identifier of the associated RestApi.</p>
             response_type: <p>The response type of the associated GatewayResponse.</p>
+
+        Raises:
+            aws_sdk_api_gateway.errors.bad_request_exception.BadRequestException: <p>The submitted request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_api_gateway.errors.not_found_exception.NotFoundException: <p>The requested resource is not found. Make sure that the request URI is correct.</p>
+            aws_sdk_api_gateway.errors.too_many_requests_exception.TooManyRequestsException: <p>The request has reached its throttling limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.unauthorized_exception.UnauthorizedException: <p>The request is denied because the caller has insufficient permissions.</p>
+            aws_sdk_api_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3430,6 +3918,13 @@ class AsyncAPIGatewayClient:
             rest_api_id: <p>The string identifier of the associated RestApi.</p>
             position: <p>The current pagination position in the paged result set. The GatewayResponse collection does not support pagination and the position does not apply here.</p>
             limit: <p>The maximum number of returned results per page. The default value is 25 and the maximum value is 500. The GatewayResponses collection does not support pagination and the limit does not apply here.</p>
+
+        Raises:
+            aws_sdk_api_gateway.errors.bad_request_exception.BadRequestException: <p>The submitted request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_api_gateway.errors.not_found_exception.NotFoundException: <p>The requested resource is not found. Make sure that the request URI is correct.</p>
+            aws_sdk_api_gateway.errors.too_many_requests_exception.TooManyRequestsException: <p>The request has reached its throttling limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.unauthorized_exception.UnauthorizedException: <p>The request is denied because the caller has insufficient permissions.</p>
+            aws_sdk_api_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3476,6 +3971,13 @@ class AsyncAPIGatewayClient:
             rest_api_id: <p>The string identifier of the associated RestApi.</p>
             resource_id: <p>Specifies a get integration request's resource identifier</p>
             http_method: <p>Specifies a get integration request's HTTP method.</p>
+
+        Raises:
+            aws_sdk_api_gateway.errors.bad_request_exception.BadRequestException: <p>The submitted request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_api_gateway.errors.not_found_exception.NotFoundException: <p>The requested resource is not found. Make sure that the request URI is correct.</p>
+            aws_sdk_api_gateway.errors.too_many_requests_exception.TooManyRequestsException: <p>The request has reached its throttling limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.unauthorized_exception.UnauthorizedException: <p>The request is denied because the caller has insufficient permissions.</p>
+            aws_sdk_api_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3522,6 +4024,13 @@ class AsyncAPIGatewayClient:
             resource_id: <p>Specifies a get integration response request's resource identifier.</p>
             http_method: <p>Specifies a get integration response request's HTTP method.</p>
             status_code: <p>Specifies a get integration response request's status code.</p>
+
+        Raises:
+            aws_sdk_api_gateway.errors.bad_request_exception.BadRequestException: <p>The submitted request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_api_gateway.errors.not_found_exception.NotFoundException: <p>The requested resource is not found. Make sure that the request URI is correct.</p>
+            aws_sdk_api_gateway.errors.too_many_requests_exception.TooManyRequestsException: <p>The request has reached its throttling limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.unauthorized_exception.UnauthorizedException: <p>The request is denied because the caller has insufficient permissions.</p>
+            aws_sdk_api_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3567,6 +4076,12 @@ class AsyncAPIGatewayClient:
             rest_api_id: <p>The string identifier of the associated RestApi.</p>
             resource_id: <p>The Resource identifier for the Method resource.</p>
             http_method: <p>Specifies the method request's HTTP method type.</p>
+
+        Raises:
+            aws_sdk_api_gateway.errors.not_found_exception.NotFoundException: <p>The requested resource is not found. Make sure that the request URI is correct.</p>
+            aws_sdk_api_gateway.errors.too_many_requests_exception.TooManyRequestsException: <p>The request has reached its throttling limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.unauthorized_exception.UnauthorizedException: <p>The request is denied because the caller has insufficient permissions.</p>
+            aws_sdk_api_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3611,6 +4126,12 @@ class AsyncAPIGatewayClient:
             resource_id: <p>The Resource identifier for the MethodResponse resource.</p>
             http_method: <p>The HTTP verb of the Method resource.</p>
             status_code: <p>The status code for the MethodResponse resource.</p>
+
+        Raises:
+            aws_sdk_api_gateway.errors.not_found_exception.NotFoundException: <p>The requested resource is not found. Make sure that the request URI is correct.</p>
+            aws_sdk_api_gateway.errors.too_many_requests_exception.TooManyRequestsException: <p>The request has reached its throttling limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.unauthorized_exception.UnauthorizedException: <p>The request is denied because the caller has insufficient permissions.</p>
+            aws_sdk_api_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3656,6 +4177,13 @@ class AsyncAPIGatewayClient:
             rest_api_id: <p>The RestApi identifier under which the Model exists.</p>
             model_name: <p>The name of the model as an identifier.</p>
             flatten: <p>A query parameter of a Boolean value to resolve (<code>true</code>) all external model references and returns a flattened model schema or not (<code>false</code>) The default is <code>false</code>.</p>
+
+        Raises:
+            aws_sdk_api_gateway.errors.bad_request_exception.BadRequestException: <p>The submitted request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_api_gateway.errors.not_found_exception.NotFoundException: <p>The requested resource is not found. Make sure that the request URI is correct.</p>
+            aws_sdk_api_gateway.errors.too_many_requests_exception.TooManyRequestsException: <p>The request has reached its throttling limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.unauthorized_exception.UnauthorizedException: <p>The request is denied because the caller has insufficient permissions.</p>
+            aws_sdk_api_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3701,6 +4229,13 @@ class AsyncAPIGatewayClient:
             rest_api_id: <p>The string identifier of the associated RestApi.</p>
             position: <p>The current pagination position in the paged result set.</p>
             limit: <p>The maximum number of returned results per page. The default value is 25 and the maximum value is 500.</p>
+
+        Raises:
+            aws_sdk_api_gateway.errors.bad_request_exception.BadRequestException: <p>The submitted request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_api_gateway.errors.not_found_exception.NotFoundException: <p>The requested resource is not found. Make sure that the request URI is correct.</p>
+            aws_sdk_api_gateway.errors.too_many_requests_exception.TooManyRequestsException: <p>The request has reached its throttling limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.unauthorized_exception.UnauthorizedException: <p>The request is denied because the caller has insufficient permissions.</p>
+            aws_sdk_api_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3768,6 +4303,13 @@ class AsyncAPIGatewayClient:
         Args:
             rest_api_id: <p>The string identifier of the associated RestApi.</p>
             model_name: <p>The name of the model for which to generate a template.</p>
+
+        Raises:
+            aws_sdk_api_gateway.errors.bad_request_exception.BadRequestException: <p>The submitted request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_api_gateway.errors.not_found_exception.NotFoundException: <p>The requested resource is not found. Make sure that the request URI is correct.</p>
+            aws_sdk_api_gateway.errors.too_many_requests_exception.TooManyRequestsException: <p>The request has reached its throttling limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.unauthorized_exception.UnauthorizedException: <p>The request is denied because the caller has insufficient permissions.</p>
+            aws_sdk_api_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3807,6 +4349,13 @@ class AsyncAPIGatewayClient:
         Args:
             rest_api_id: <p>The string identifier of the associated RestApi.</p>
             request_validator_id: <p>The identifier of the RequestValidator to be retrieved.</p>
+
+        Raises:
+            aws_sdk_api_gateway.errors.bad_request_exception.BadRequestException: <p>The submitted request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_api_gateway.errors.not_found_exception.NotFoundException: <p>The requested resource is not found. Make sure that the request URI is correct.</p>
+            aws_sdk_api_gateway.errors.too_many_requests_exception.TooManyRequestsException: <p>The request has reached its throttling limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.unauthorized_exception.UnauthorizedException: <p>The request is denied because the caller has insufficient permissions.</p>
+            aws_sdk_api_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3852,6 +4401,13 @@ class AsyncAPIGatewayClient:
             rest_api_id: <p>The string identifier of the associated RestApi.</p>
             position: <p>The current pagination position in the paged result set.</p>
             limit: <p>The maximum number of returned results per page. The default value is 25 and the maximum value is 500.</p>
+
+        Raises:
+            aws_sdk_api_gateway.errors.bad_request_exception.BadRequestException: <p>The submitted request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_api_gateway.errors.not_found_exception.NotFoundException: <p>The requested resource is not found. Make sure that the request URI is correct.</p>
+            aws_sdk_api_gateway.errors.too_many_requests_exception.TooManyRequestsException: <p>The request has reached its throttling limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.unauthorized_exception.UnauthorizedException: <p>The request is denied because the caller has insufficient permissions.</p>
+            aws_sdk_api_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3898,6 +4454,12 @@ class AsyncAPIGatewayClient:
             rest_api_id: <p>The string identifier of the associated RestApi.</p>
             resource_id: <p>The identifier for the Resource resource.</p>
             embed: <p>A query parameter to retrieve the specified resources embedded in the returned Resource representation in the response. This <code>embed</code> parameter value is a list of comma-separated strings. Currently, the request supports only retrieval of the embedded Method resources this way. The query parameter value must be a single-valued list and contain the <code>\"methods\"</code> string. For example, <code>GET /restapis/{restapi_id}/resources/{resource_id}?embed=methods</code>.</p>
+
+        Raises:
+            aws_sdk_api_gateway.errors.not_found_exception.NotFoundException: <p>The requested resource is not found. Make sure that the request URI is correct.</p>
+            aws_sdk_api_gateway.errors.too_many_requests_exception.TooManyRequestsException: <p>The request has reached its throttling limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.unauthorized_exception.UnauthorizedException: <p>The request is denied because the caller has insufficient permissions.</p>
+            aws_sdk_api_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3945,6 +4507,13 @@ class AsyncAPIGatewayClient:
             position: <p>The current pagination position in the paged result set.</p>
             limit: <p>The maximum number of returned results per page. The default value is 25 and the maximum value is 500.</p>
             embed: <p>A query parameter used to retrieve the specified resources embedded in the returned Resources resource in the response. This <code>embed</code> parameter value is a list of comma-separated strings. Currently, the request supports only retrieval of the embedded Method resources this way. The query parameter value must be a single-valued list and contain the <code>\"methods\"</code> string. For example, <code>GET /restapis/{restapi_id}/resources?embed=methods</code>.</p>
+
+        Raises:
+            aws_sdk_api_gateway.errors.bad_request_exception.BadRequestException: <p>The submitted request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_api_gateway.errors.not_found_exception.NotFoundException: <p>The requested resource is not found. Make sure that the request URI is correct.</p>
+            aws_sdk_api_gateway.errors.too_many_requests_exception.TooManyRequestsException: <p>The request has reached its throttling limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.unauthorized_exception.UnauthorizedException: <p>The request is denied because the caller has insufficient permissions.</p>
+            aws_sdk_api_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4014,6 +4583,13 @@ class AsyncAPIGatewayClient:
 
         Args:
             rest_api_id: <p>The string identifier of the associated RestApi.</p>
+
+        Raises:
+            aws_sdk_api_gateway.errors.bad_request_exception.BadRequestException: <p>The submitted request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_api_gateway.errors.not_found_exception.NotFoundException: <p>The requested resource is not found. Make sure that the request URI is correct.</p>
+            aws_sdk_api_gateway.errors.too_many_requests_exception.TooManyRequestsException: <p>The request has reached its throttling limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.unauthorized_exception.UnauthorizedException: <p>The request is denied because the caller has insufficient permissions.</p>
+            aws_sdk_api_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4054,6 +4630,13 @@ class AsyncAPIGatewayClient:
         Args:
             position: <p>The current pagination position in the paged result set.</p>
             limit: <p>The maximum number of returned results per page. The default value is 25 and the maximum value is 500.</p>
+
+        Raises:
+            aws_sdk_api_gateway.errors.bad_request_exception.BadRequestException: <p>The submitted request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_api_gateway.errors.not_found_exception.NotFoundException: <p>The requested resource is not found. Make sure that the request URI is correct.</p>
+            aws_sdk_api_gateway.errors.too_many_requests_exception.TooManyRequestsException: <p>The request has reached its throttling limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.unauthorized_exception.UnauthorizedException: <p>The request is denied because the caller has insufficient permissions.</p>
+            aws_sdk_api_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4124,6 +4707,15 @@ class AsyncAPIGatewayClient:
             stage_name: <p>The name of the Stage that the SDK will use.</p>
             sdk_type: <p>The language for the generated SDK. Currently <code>java</code>, <code>javascript</code>, <code>android</code>, <code>objectivec</code> (for iOS), <code>swift</code> (for iOS), and <code>ruby</code> are supported.</p>
             parameters: <p>A string-to-string key-value map of query parameters <code>sdkType</code>-dependent properties of the SDK. For <code>sdkType</code> of <code>objectivec</code> or <code>swift</code>, a parameter named <code>classPrefix</code> is required. For <code>sdkType</code> of <code>android</code>, parameters named <code>groupId</code>, <code>artifactId</code>, <code>artifactVersion</code>, and <code>invokerPackage</code> are required. For <code>sdkType</code> of <code>java</code>, parameters named <code>serviceName</code> and <code>javaPackageName</code> are required. </p>
+
+        Raises:
+            aws_sdk_api_gateway.errors.bad_request_exception.BadRequestException: <p>The submitted request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_api_gateway.errors.conflict_exception.ConflictException: <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
+            aws_sdk_api_gateway.errors.limit_exceeded_exception.LimitExceededException: <p>The request exceeded the rate limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.not_found_exception.NotFoundException: <p>The requested resource is not found. Make sure that the request URI is correct.</p>
+            aws_sdk_api_gateway.errors.too_many_requests_exception.TooManyRequestsException: <p>The request has reached its throttling limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.unauthorized_exception.UnauthorizedException: <p>The request is denied because the caller has insufficient permissions.</p>
+            aws_sdk_api_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4166,6 +4758,13 @@ class AsyncAPIGatewayClient:
 
         Args:
             id: <p>The identifier of the queried SdkType instance.</p>
+
+        Raises:
+            aws_sdk_api_gateway.errors.bad_request_exception.BadRequestException: <p>The submitted request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_api_gateway.errors.not_found_exception.NotFoundException: <p>The requested resource is not found. Make sure that the request URI is correct.</p>
+            aws_sdk_api_gateway.errors.too_many_requests_exception.TooManyRequestsException: <p>The request has reached its throttling limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.unauthorized_exception.UnauthorizedException: <p>The request is denied because the caller has insufficient permissions.</p>
+            aws_sdk_api_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4206,6 +4805,13 @@ class AsyncAPIGatewayClient:
         Args:
             position: <p>The current pagination position in the paged result set.</p>
             limit: <p>The maximum number of returned results per page. The default value is 25 and the maximum value is 500.</p>
+
+        Raises:
+            aws_sdk_api_gateway.errors.bad_request_exception.BadRequestException: <p>The submitted request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_api_gateway.errors.not_found_exception.NotFoundException: <p>The requested resource is not found. Make sure that the request URI is correct.</p>
+            aws_sdk_api_gateway.errors.too_many_requests_exception.TooManyRequestsException: <p>The request has reached its throttling limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.unauthorized_exception.UnauthorizedException: <p>The request is denied because the caller has insufficient permissions.</p>
+            aws_sdk_api_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4247,6 +4853,15 @@ class AsyncAPIGatewayClient:
         Args:
             rest_api_id: <p>The string identifier of the associated RestApi.</p>
             stage_name: <p>The name of the Stage resource to get information about.</p>
+
+        Raises:
+            aws_sdk_api_gateway.errors.bad_request_exception.BadRequestException: <p>The submitted request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_api_gateway.errors.conflict_exception.ConflictException: <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
+            aws_sdk_api_gateway.errors.limit_exceeded_exception.LimitExceededException: <p>The request exceeded the rate limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.not_found_exception.NotFoundException: <p>The requested resource is not found. Make sure that the request URI is correct.</p>
+            aws_sdk_api_gateway.errors.too_many_requests_exception.TooManyRequestsException: <p>The request has reached its throttling limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.unauthorized_exception.UnauthorizedException: <p>The request is denied because the caller has insufficient permissions.</p>
+            aws_sdk_api_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4286,6 +4901,15 @@ class AsyncAPIGatewayClient:
         Args:
             rest_api_id: <p>The string identifier of the associated RestApi.</p>
             deployment_id: <p>The stages' deployment identifiers.</p>
+
+        Raises:
+            aws_sdk_api_gateway.errors.bad_request_exception.BadRequestException: <p>The submitted request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_api_gateway.errors.conflict_exception.ConflictException: <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
+            aws_sdk_api_gateway.errors.limit_exceeded_exception.LimitExceededException: <p>The request exceeded the rate limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.not_found_exception.NotFoundException: <p>The requested resource is not found. Make sure that the request URI is correct.</p>
+            aws_sdk_api_gateway.errors.too_many_requests_exception.TooManyRequestsException: <p>The request has reached its throttling limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.unauthorized_exception.UnauthorizedException: <p>The request is denied because the caller has insufficient permissions.</p>
+            aws_sdk_api_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4330,6 +4954,13 @@ class AsyncAPIGatewayClient:
             resource_arn: <p>The ARN of a resource that can be tagged.</p>
             position: <p>(Not currently supported) The current pagination position in the paged result set.</p>
             limit: <p>(Not currently supported) The maximum number of returned results per page. The default value is 25 and the maximum value is 500.</p>
+
+        Raises:
+            aws_sdk_api_gateway.errors.bad_request_exception.BadRequestException: <p>The submitted request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_api_gateway.errors.not_found_exception.NotFoundException: <p>The requested resource is not found. Make sure that the request URI is correct.</p>
+            aws_sdk_api_gateway.errors.too_many_requests_exception.TooManyRequestsException: <p>The request has reached its throttling limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.unauthorized_exception.UnauthorizedException: <p>The request is denied because the caller has insufficient permissions.</p>
+            aws_sdk_api_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4382,6 +5013,13 @@ class AsyncAPIGatewayClient:
             end_date: <p>The ending date (e.g., 2016-12-31) of the usage data.</p>
             position: <p>The current pagination position in the paged result set.</p>
             limit: <p>The maximum number of returned results per page. The default value is 25 and the maximum value is 500.</p>
+
+        Raises:
+            aws_sdk_api_gateway.errors.bad_request_exception.BadRequestException: <p>The submitted request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_api_gateway.errors.not_found_exception.NotFoundException: <p>The requested resource is not found. Make sure that the request URI is correct.</p>
+            aws_sdk_api_gateway.errors.too_many_requests_exception.TooManyRequestsException: <p>The request has reached its throttling limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.unauthorized_exception.UnauthorizedException: <p>The request is denied because the caller has insufficient permissions.</p>
+            aws_sdk_api_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4457,6 +5095,13 @@ class AsyncAPIGatewayClient:
 
         Args:
             usage_plan_id: <p>The identifier of the UsagePlan resource to be retrieved.</p>
+
+        Raises:
+            aws_sdk_api_gateway.errors.bad_request_exception.BadRequestException: <p>The submitted request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_api_gateway.errors.not_found_exception.NotFoundException: <p>The requested resource is not found. Make sure that the request URI is correct.</p>
+            aws_sdk_api_gateway.errors.too_many_requests_exception.TooManyRequestsException: <p>The request has reached its throttling limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.unauthorized_exception.UnauthorizedException: <p>The request is denied because the caller has insufficient permissions.</p>
+            aws_sdk_api_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4495,6 +5140,13 @@ class AsyncAPIGatewayClient:
         Args:
             usage_plan_id: <p>The Id of the UsagePlan resource representing the usage plan containing the to-be-retrieved UsagePlanKey resource representing a plan customer.</p>
             key_id: <p>The key Id of the to-be-retrieved UsagePlanKey resource representing a plan customer.</p>
+
+        Raises:
+            aws_sdk_api_gateway.errors.bad_request_exception.BadRequestException: <p>The submitted request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_api_gateway.errors.not_found_exception.NotFoundException: <p>The requested resource is not found. Make sure that the request URI is correct.</p>
+            aws_sdk_api_gateway.errors.too_many_requests_exception.TooManyRequestsException: <p>The request has reached its throttling limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.unauthorized_exception.UnauthorizedException: <p>The request is denied because the caller has insufficient permissions.</p>
+            aws_sdk_api_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4542,6 +5194,13 @@ class AsyncAPIGatewayClient:
             position: <p>The current pagination position in the paged result set.</p>
             limit: <p>The maximum number of returned results per page. The default value is 25 and the maximum value is 500.</p>
             name_query: <p>A query parameter specifying the name of the to-be-returned usage plan keys.</p>
+
+        Raises:
+            aws_sdk_api_gateway.errors.bad_request_exception.BadRequestException: <p>The submitted request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_api_gateway.errors.not_found_exception.NotFoundException: <p>The requested resource is not found. Make sure that the request URI is correct.</p>
+            aws_sdk_api_gateway.errors.too_many_requests_exception.TooManyRequestsException: <p>The request has reached its throttling limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.unauthorized_exception.UnauthorizedException: <p>The request is denied because the caller has insufficient permissions.</p>
+            aws_sdk_api_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4619,6 +5278,13 @@ class AsyncAPIGatewayClient:
             position: <p>The current pagination position in the paged result set.</p>
             key_id: <p>The identifier of the API key associated with the usage plans.</p>
             limit: <p>The maximum number of returned results per page. The default value is 25 and the maximum value is 500.</p>
+
+        Raises:
+            aws_sdk_api_gateway.errors.bad_request_exception.BadRequestException: <p>The submitted request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_api_gateway.errors.not_found_exception.NotFoundException: <p>The requested resource is not found. Make sure that the request URI is correct.</p>
+            aws_sdk_api_gateway.errors.too_many_requests_exception.TooManyRequestsException: <p>The request has reached its throttling limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.unauthorized_exception.UnauthorizedException: <p>The request is denied because the caller has insufficient permissions.</p>
+            aws_sdk_api_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4685,6 +5351,13 @@ class AsyncAPIGatewayClient:
 
         Args:
             vpc_link_id: <p>The identifier of the VpcLink. It is used in an Integration to reference this VpcLink.</p>
+
+        Raises:
+            aws_sdk_api_gateway.errors.bad_request_exception.BadRequestException: <p>The submitted request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_api_gateway.errors.not_found_exception.NotFoundException: <p>The requested resource is not found. Make sure that the request URI is correct.</p>
+            aws_sdk_api_gateway.errors.too_many_requests_exception.TooManyRequestsException: <p>The request has reached its throttling limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.unauthorized_exception.UnauthorizedException: <p>The request is denied because the caller has insufficient permissions.</p>
+            aws_sdk_api_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4725,6 +5398,13 @@ class AsyncAPIGatewayClient:
         Args:
             position: <p>The current pagination position in the paged result set.</p>
             limit: <p>The maximum number of returned results per page. The default value is 25 and the maximum value is 500.</p>
+
+        Raises:
+            aws_sdk_api_gateway.errors.bad_request_exception.BadRequestException: <p>The submitted request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_api_gateway.errors.not_found_exception.NotFoundException: <p>The requested resource is not found. Make sure that the request URI is correct.</p>
+            aws_sdk_api_gateway.errors.too_many_requests_exception.TooManyRequestsException: <p>The request has reached its throttling limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.unauthorized_exception.UnauthorizedException: <p>The request is denied because the caller has insufficient permissions.</p>
+            aws_sdk_api_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4791,6 +5471,15 @@ class AsyncAPIGatewayClient:
             body: <p>The payload of the POST request to import API keys. For the payload format, see API Key File Format.</p>
             format: <p>A query parameter to specify the input format to imported API keys. Currently, only the <code>csv</code> format is supported.</p>
             fail_on_warnings: <p>A query parameter to indicate whether to rollback ApiKey importation (<code>true</code>) or not (<code>false</code>) when error is encountered.</p>
+
+        Raises:
+            aws_sdk_api_gateway.errors.bad_request_exception.BadRequestException: <p>The submitted request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_api_gateway.errors.conflict_exception.ConflictException: <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
+            aws_sdk_api_gateway.errors.limit_exceeded_exception.LimitExceededException: <p>The request exceeded the rate limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.not_found_exception.NotFoundException: <p>The requested resource is not found. Make sure that the request URI is correct.</p>
+            aws_sdk_api_gateway.errors.too_many_requests_exception.TooManyRequestsException: <p>The request has reached its throttling limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.unauthorized_exception.UnauthorizedException: <p>The request is denied because the caller has insufficient permissions.</p>
+            aws_sdk_api_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4836,6 +5525,15 @@ class AsyncAPIGatewayClient:
             mode: <p>A query parameter to indicate whether to overwrite (<code>overwrite</code>) any existing DocumentationParts definition or to merge (<code>merge</code>) the new definition into the existing one. The default value is <code>merge</code>.</p>
             fail_on_warnings: <p>A query parameter to specify whether to rollback the documentation importation (<code>true</code>) or not (<code>false</code>) when a warning is encountered. The default value is <code>false</code>.</p>
             body: <p>Raw byte array representing the to-be-imported documentation parts. To import from an OpenAPI file, this is a JSON object.</p>
+
+        Raises:
+            aws_sdk_api_gateway.errors.bad_request_exception.BadRequestException: <p>The submitted request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_api_gateway.errors.conflict_exception.ConflictException: <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
+            aws_sdk_api_gateway.errors.limit_exceeded_exception.LimitExceededException: <p>The request exceeded the rate limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.not_found_exception.NotFoundException: <p>The requested resource is not found. Make sure that the request URI is correct.</p>
+            aws_sdk_api_gateway.errors.too_many_requests_exception.TooManyRequestsException: <p>The request has reached its throttling limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.unauthorized_exception.UnauthorizedException: <p>The request is denied because the caller has insufficient permissions.</p>
+            aws_sdk_api_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4885,6 +5583,15 @@ class AsyncAPIGatewayClient:
             fail_on_warnings: <p>A query parameter to indicate whether to rollback the API creation (<code>true</code>) or not (<code>false</code>) when a warning is encountered. The default value is <code>false</code>.</p>
             parameters: <p>A key-value map of context-specific query string parameters specifying the behavior of different API importing operations. The following shows operation-specific parameters and their supported values.</p> <p> To exclude DocumentationParts from the import, set <code>parameters</code> as <code>ignore=documentation</code>.</p> <p> To configure the endpoint type, set <code>parameters</code> as <code>endpointConfigurationTypes=EDGE</code>, <code>endpointConfigurationTypes=REGIONAL</code>, or <code>endpointConfigurationTypes=PRIVATE</code>. The default endpoint type is <code>EDGE</code>.</p> <p> To handle imported <code>basepath</code>, set <code>parameters</code> as <code>basepath=ignore</code>, <code>basepath=prepend</code> or <code>basepath=split</code>.</p>
             body: <p>The POST request body containing external API definitions. Currently, only OpenAPI definition JSON/YAML files are supported. The maximum size of the API definition file is 6MB.</p>
+
+        Raises:
+            aws_sdk_api_gateway.errors.bad_request_exception.BadRequestException: <p>The submitted request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_api_gateway.errors.conflict_exception.ConflictException: <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
+            aws_sdk_api_gateway.errors.limit_exceeded_exception.LimitExceededException: <p>The request exceeded the rate limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.not_found_exception.NotFoundException: <p>The requested resource is not found. Make sure that the request URI is correct.</p>
+            aws_sdk_api_gateway.errors.too_many_requests_exception.TooManyRequestsException: <p>The request has reached its throttling limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.unauthorized_exception.UnauthorizedException: <p>The request is denied because the caller has insufficient permissions.</p>
+            aws_sdk_api_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4939,6 +5646,15 @@ class AsyncAPIGatewayClient:
             status_code: <p>The HTTP status code of the GatewayResponse.</p>
             response_parameters: <p>Response parameters (paths, query strings and headers) of the GatewayResponse as a string-to-string map of key-value pairs.</p>
             response_templates: <p>Response templates of the GatewayResponse as a string-to-string map of key-value pairs.</p>
+
+        Raises:
+            aws_sdk_api_gateway.errors.bad_request_exception.BadRequestException: <p>The submitted request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_api_gateway.errors.conflict_exception.ConflictException: <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
+            aws_sdk_api_gateway.errors.limit_exceeded_exception.LimitExceededException: <p>The request exceeded the rate limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.not_found_exception.NotFoundException: <p>The requested resource is not found. Make sure that the request URI is correct.</p>
+            aws_sdk_api_gateway.errors.too_many_requests_exception.TooManyRequestsException: <p>The request has reached its throttling limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.unauthorized_exception.UnauthorizedException: <p>The request is denied because the caller has insufficient permissions.</p>
+            aws_sdk_api_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5037,6 +5753,15 @@ class AsyncAPIGatewayClient:
             timeout_in_millis: <p>Custom timeout between 50 and 29,000 milliseconds. The default value is 29,000 milliseconds or 29 seconds. You can increase the default value to longer than 29 seconds for Regional or private APIs only.</p>
             response_transfer_mode: <p> The response transfer mode of the integration. </p>
             integration_target: <p> The ALB or NLB listener to send the request to. </p>
+
+        Raises:
+            aws_sdk_api_gateway.errors.bad_request_exception.BadRequestException: <p>The submitted request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_api_gateway.errors.conflict_exception.ConflictException: <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
+            aws_sdk_api_gateway.errors.limit_exceeded_exception.LimitExceededException: <p>The request exceeded the rate limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.not_found_exception.NotFoundException: <p>The requested resource is not found. Make sure that the request URI is correct.</p>
+            aws_sdk_api_gateway.errors.too_many_requests_exception.TooManyRequestsException: <p>The request has reached its throttling limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.unauthorized_exception.UnauthorizedException: <p>The request is denied because the caller has insufficient permissions.</p>
+            aws_sdk_api_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5128,6 +5853,15 @@ class AsyncAPIGatewayClient:
             response_parameters: <p>A key-value map specifying response parameters that are passed to the method response from the back end. The key is a method response header parameter name and the mapped value is an integration response header value, a static value enclosed within a pair of single quotes, or a JSON expression from the integration response body. The mapping key must match the pattern of <code>method.response.header.{name}</code>, where <code>name</code> is a valid and unique header name. The mapped non-static value must match the pattern of <code>integration.response.header.{name}</code> or <code>integration.response.body.{JSON-expression}</code>, where <code>name</code> must be a valid and unique response header name and <code>JSON-expression</code> a valid JSON expression without the <code>$</code> prefix.</p>
             response_templates: <p>Specifies a put integration response's templates.</p>
             content_handling: <p>Specifies how to handle response payload content type conversions. Supported values are <code>CONVERT_TO_BINARY</code> and <code>CONVERT_TO_TEXT</code>, with the following behaviors:</p> <p>If this property is not defined, the response payload will be passed through from the integration response to the method response without modification.</p>
+
+        Raises:
+            aws_sdk_api_gateway.errors.bad_request_exception.BadRequestException: <p>The submitted request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_api_gateway.errors.conflict_exception.ConflictException: <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
+            aws_sdk_api_gateway.errors.limit_exceeded_exception.LimitExceededException: <p>The request exceeded the rate limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.not_found_exception.NotFoundException: <p>The requested resource is not found. Make sure that the request URI is correct.</p>
+            aws_sdk_api_gateway.errors.too_many_requests_exception.TooManyRequestsException: <p>The request has reached its throttling limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.unauthorized_exception.UnauthorizedException: <p>The request is denied because the caller has insufficient permissions.</p>
+            aws_sdk_api_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5205,6 +5939,15 @@ class AsyncAPIGatewayClient:
             request_models: <p>Specifies the Model resources used for the request's content type. Request models are represented as a key/value map, with a content type as the key and a Model name as the value.</p>
             request_validator_id: <p>The identifier of a RequestValidator for validating the method request.</p>
             authorization_scopes: <p>A list of authorization scopes configured on the method. The scopes are used with a <code>COGNITO_USER_POOLS</code> authorizer to authorize the method invocation. The authorization works by matching the method scopes against the scopes parsed from the access token in the incoming request. The method invocation is authorized if any method scopes matches a claimed scope in the access token. Otherwise, the invocation is not authorized. When the method scope is configured, the client must provide an access token instead of an identity token for authorization purposes.</p>
+
+        Raises:
+            aws_sdk_api_gateway.errors.bad_request_exception.BadRequestException: <p>The submitted request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_api_gateway.errors.conflict_exception.ConflictException: <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
+            aws_sdk_api_gateway.errors.limit_exceeded_exception.LimitExceededException: <p>The request exceeded the rate limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.not_found_exception.NotFoundException: <p>The requested resource is not found. Make sure that the request URI is correct.</p>
+            aws_sdk_api_gateway.errors.too_many_requests_exception.TooManyRequestsException: <p>The request has reached its throttling limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.unauthorized_exception.UnauthorizedException: <p>The request is denied because the caller has insufficient permissions.</p>
+            aws_sdk_api_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5272,6 +6015,15 @@ class AsyncAPIGatewayClient:
             status_code: <p>The method response's status code.</p>
             response_parameters: <p>A key-value map specifying required or optional response parameters that API Gateway can send back to the caller. A key defines a method response header name and the associated value is a Boolean flag indicating whether the method response parameter is required or not. The method response header names must match the pattern of <code>method.response.header.{name}</code>, where <code>name</code> is a valid and unique header name. The response parameter names defined here are available in the integration response to be mapped from an integration response header expressed in <code>integration.response.header.{name}</code>, a static value enclosed within a pair of single quotes (e.g., <code>'application/json'</code>), or a JSON expression from the back-end response payload in the form of <code>integration.response.body.{JSON-expression}</code>, where <code>JSON-expression</code> is a valid JSON expression without the <code>$</code> prefix.)</p>
             response_models: <p>Specifies the Model resources used for the response's content type. Response models are represented as a key/value map, with a content type as the key and a Model name as the value.</p>
+
+        Raises:
+            aws_sdk_api_gateway.errors.bad_request_exception.BadRequestException: <p>The submitted request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_api_gateway.errors.conflict_exception.ConflictException: <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
+            aws_sdk_api_gateway.errors.limit_exceeded_exception.LimitExceededException: <p>The request exceeded the rate limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.not_found_exception.NotFoundException: <p>The requested resource is not found. Make sure that the request URI is correct.</p>
+            aws_sdk_api_gateway.errors.too_many_requests_exception.TooManyRequestsException: <p>The request has reached its throttling limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.unauthorized_exception.UnauthorizedException: <p>The request is denied because the caller has insufficient permissions.</p>
+            aws_sdk_api_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5327,6 +6079,15 @@ class AsyncAPIGatewayClient:
             fail_on_warnings: <p>A query parameter to indicate whether to rollback the API update (<code>true</code>) or not (<code>false</code>) when a warning is encountered. The default value is <code>false</code>.</p>
             parameters: <p>Custom header parameters as part of the request. For example, to exclude DocumentationParts from an imported API, set <code>ignore=documentation</code> as a <code>parameters</code> value, as in the AWS CLI command of <code>aws apigateway import-rest-api --parameters ignore=documentation --body 'file:///path/to/imported-api-body.json'</code>.</p>
             body: <p>The PUT request body containing external API definitions. Currently, only OpenAPI definition JSON/YAML files are supported. The maximum size of the API definition file is 6MB.</p>
+
+        Raises:
+            aws_sdk_api_gateway.errors.bad_request_exception.BadRequestException: <p>The submitted request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_api_gateway.errors.conflict_exception.ConflictException: <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
+            aws_sdk_api_gateway.errors.limit_exceeded_exception.LimitExceededException: <p>The request exceeded the rate limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.not_found_exception.NotFoundException: <p>The requested resource is not found. Make sure that the request URI is correct.</p>
+            aws_sdk_api_gateway.errors.too_many_requests_exception.TooManyRequestsException: <p>The request has reached its throttling limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.unauthorized_exception.UnauthorizedException: <p>The request is denied because the caller has insufficient permissions.</p>
+            aws_sdk_api_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5372,6 +6133,14 @@ class AsyncAPIGatewayClient:
         Args:
             domain_name_access_association_arn: <p>The ARN of the domain name access association resource. </p>
             domain_name_arn: <p> The ARN of the domain name. </p>
+
+        Raises:
+            aws_sdk_api_gateway.errors.bad_request_exception.BadRequestException: <p>The submitted request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_api_gateway.errors.conflict_exception.ConflictException: <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
+            aws_sdk_api_gateway.errors.not_found_exception.NotFoundException: <p>The requested resource is not found. Make sure that the request URI is correct.</p>
+            aws_sdk_api_gateway.errors.too_many_requests_exception.TooManyRequestsException: <p>The request has reached its throttling limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.unauthorized_exception.UnauthorizedException: <p>The request is denied because the caller has insufficient permissions.</p>
+            aws_sdk_api_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5413,6 +6182,15 @@ class AsyncAPIGatewayClient:
         Args:
             resource_arn: <p>The ARN of a resource that can be tagged.</p>
             tags: <p>The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with <code>aws:</code>. The tag value can be up to 256 characters.</p>
+
+        Raises:
+            aws_sdk_api_gateway.errors.bad_request_exception.BadRequestException: <p>The submitted request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_api_gateway.errors.conflict_exception.ConflictException: <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
+            aws_sdk_api_gateway.errors.limit_exceeded_exception.LimitExceededException: <p>The request exceeded the rate limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.not_found_exception.NotFoundException: <p>The requested resource is not found. Make sure that the request URI is correct.</p>
+            aws_sdk_api_gateway.errors.too_many_requests_exception.TooManyRequestsException: <p>The request has reached its throttling limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.unauthorized_exception.UnauthorizedException: <p>The request is denied because the caller has insufficient permissions.</p>
+            aws_sdk_api_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5474,6 +6252,13 @@ class AsyncAPIGatewayClient:
             body: <p>The simulated request body of an incoming invocation request.</p>
             stage_variables: <p>A key-value map of stage variables to simulate an invocation on a deployed Stage.</p>
             additional_context: <p>A key-value map of additional context variables.</p>
+
+        Raises:
+            aws_sdk_api_gateway.errors.bad_request_exception.BadRequestException: <p>The submitted request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_api_gateway.errors.not_found_exception.NotFoundException: <p>The requested resource is not found. Make sure that the request URI is correct.</p>
+            aws_sdk_api_gateway.errors.too_many_requests_exception.TooManyRequestsException: <p>The request has reached its throttling limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.unauthorized_exception.UnauthorizedException: <p>The request is denied because the caller has insufficient permissions.</p>
+            aws_sdk_api_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5553,6 +6338,13 @@ class AsyncAPIGatewayClient:
             multi_value_headers: <p>The headers as a map from string to list of values to simulate an incoming invocation request.</p>
             client_certificate_id: <p>A ClientCertificate identifier to use in the test invocation. API Gateway will use the certificate when making the HTTPS request to the defined back-end endpoint.</p>
             stage_variables: <p>A key-value map of stage variables to simulate an invocation on a deployed Stage.</p>
+
+        Raises:
+            aws_sdk_api_gateway.errors.bad_request_exception.BadRequestException: <p>The submitted request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_api_gateway.errors.not_found_exception.NotFoundException: <p>The requested resource is not found. Make sure that the request URI is correct.</p>
+            aws_sdk_api_gateway.errors.too_many_requests_exception.TooManyRequestsException: <p>The request has reached its throttling limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.unauthorized_exception.UnauthorizedException: <p>The request is denied because the caller has insufficient permissions.</p>
+            aws_sdk_api_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5607,6 +6399,15 @@ class AsyncAPIGatewayClient:
         Args:
             resource_arn: <p>The ARN of a resource that can be tagged.</p>
             tag_keys: <p>The Tag keys to delete.</p>
+
+        Raises:
+            aws_sdk_api_gateway.errors.bad_request_exception.BadRequestException: <p>The submitted request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_api_gateway.errors.conflict_exception.ConflictException: <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
+            aws_sdk_api_gateway.errors.limit_exceeded_exception.LimitExceededException: <p>The request exceeded the rate limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.not_found_exception.NotFoundException: <p>The requested resource is not found. Make sure that the request URI is correct.</p>
+            aws_sdk_api_gateway.errors.too_many_requests_exception.TooManyRequestsException: <p>The request has reached its throttling limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.unauthorized_exception.UnauthorizedException: <p>The request is denied because the caller has insufficient permissions.</p>
+            aws_sdk_api_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5646,6 +6447,15 @@ class AsyncAPIGatewayClient:
 
         Args:
             patch_operations: <p>For more information about supported patch operations, see <a href=\"https://docs.aws.amazon.com/apigateway/latest/api/patch-operations.html\">Patch Operations</a>.</p>
+
+        Raises:
+            aws_sdk_api_gateway.errors.bad_request_exception.BadRequestException: <p>The submitted request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_api_gateway.errors.conflict_exception.ConflictException: <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
+            aws_sdk_api_gateway.errors.limit_exceeded_exception.LimitExceededException: <p>The request exceeded the rate limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.not_found_exception.NotFoundException: <p>The requested resource is not found. Make sure that the request URI is correct.</p>
+            aws_sdk_api_gateway.errors.too_many_requests_exception.TooManyRequestsException: <p>The request has reached its throttling limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.unauthorized_exception.UnauthorizedException: <p>The request is denied because the caller has insufficient permissions.</p>
+            aws_sdk_api_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5687,6 +6497,15 @@ class AsyncAPIGatewayClient:
         Args:
             api_key: <p>The identifier of the ApiKey resource to be updated.</p>
             patch_operations: <p>For more information about supported patch operations, see <a href=\"https://docs.aws.amazon.com/apigateway/latest/api/patch-operations.html\">Patch Operations</a>.</p>
+
+        Raises:
+            aws_sdk_api_gateway.errors.bad_request_exception.BadRequestException: <p>The submitted request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_api_gateway.errors.conflict_exception.ConflictException: <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
+            aws_sdk_api_gateway.errors.limit_exceeded_exception.LimitExceededException: <p>The request exceeded the rate limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.not_found_exception.NotFoundException: <p>The requested resource is not found. Make sure that the request URI is correct.</p>
+            aws_sdk_api_gateway.errors.too_many_requests_exception.TooManyRequestsException: <p>The request has reached its throttling limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.unauthorized_exception.UnauthorizedException: <p>The request is denied because the caller has insufficient permissions.</p>
+            aws_sdk_api_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5731,6 +6550,15 @@ class AsyncAPIGatewayClient:
             rest_api_id: <p>The string identifier of the associated RestApi.</p>
             authorizer_id: <p>The identifier of the Authorizer resource.</p>
             patch_operations: <p>For more information about supported patch operations, see <a href=\"https://docs.aws.amazon.com/apigateway/latest/api/patch-operations.html\">Patch Operations</a>.</p>
+
+        Raises:
+            aws_sdk_api_gateway.errors.bad_request_exception.BadRequestException: <p>The submitted request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_api_gateway.errors.conflict_exception.ConflictException: <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
+            aws_sdk_api_gateway.errors.limit_exceeded_exception.LimitExceededException: <p>The request exceeded the rate limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.not_found_exception.NotFoundException: <p>The requested resource is not found. Make sure that the request URI is correct.</p>
+            aws_sdk_api_gateway.errors.too_many_requests_exception.TooManyRequestsException: <p>The request has reached its throttling limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.unauthorized_exception.UnauthorizedException: <p>The request is denied because the caller has insufficient permissions.</p>
+            aws_sdk_api_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5778,6 +6606,15 @@ class AsyncAPIGatewayClient:
             domain_name_id: <p> The identifier for the domain name resource. Supported only for private custom domain names. </p>
             base_path: <p>The base path of the BasePathMapping resource to change.</p> <p>To specify an empty base path, set this parameter to <code>'(none)'</code>.</p>
             patch_operations: <p>For more information about supported patch operations, see <a href=\"https://docs.aws.amazon.com/apigateway/latest/api/patch-operations.html\">Patch Operations</a>.</p>
+
+        Raises:
+            aws_sdk_api_gateway.errors.bad_request_exception.BadRequestException: <p>The submitted request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_api_gateway.errors.conflict_exception.ConflictException: <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
+            aws_sdk_api_gateway.errors.limit_exceeded_exception.LimitExceededException: <p>The request exceeded the rate limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.not_found_exception.NotFoundException: <p>The requested resource is not found. Make sure that the request URI is correct.</p>
+            aws_sdk_api_gateway.errors.too_many_requests_exception.TooManyRequestsException: <p>The request has reached its throttling limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.unauthorized_exception.UnauthorizedException: <p>The request is denied because the caller has insufficient permissions.</p>
+            aws_sdk_api_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5825,6 +6662,15 @@ class AsyncAPIGatewayClient:
         Args:
             client_certificate_id: <p>The identifier of the ClientCertificate resource to be updated.</p>
             patch_operations: <p>For more information about supported patch operations, see <a href=\"https://docs.aws.amazon.com/apigateway/latest/api/patch-operations.html\">Patch Operations</a>.</p>
+
+        Raises:
+            aws_sdk_api_gateway.errors.bad_request_exception.BadRequestException: <p>The submitted request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_api_gateway.errors.conflict_exception.ConflictException: <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
+            aws_sdk_api_gateway.errors.limit_exceeded_exception.LimitExceededException: <p>The request exceeded the rate limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.not_found_exception.NotFoundException: <p>The requested resource is not found. Make sure that the request URI is correct.</p>
+            aws_sdk_api_gateway.errors.too_many_requests_exception.TooManyRequestsException: <p>The request has reached its throttling limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.unauthorized_exception.UnauthorizedException: <p>The request is denied because the caller has insufficient permissions.</p>
+            aws_sdk_api_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5871,6 +6717,16 @@ class AsyncAPIGatewayClient:
             rest_api_id: <p>The string identifier of the associated RestApi.</p>
             deployment_id: <p>The replacement identifier for the Deployment resource to change information about.</p>
             patch_operations: <p>For more information about supported patch operations, see <a href=\"https://docs.aws.amazon.com/apigateway/latest/api/patch-operations.html\">Patch Operations</a>.</p>
+
+        Raises:
+            aws_sdk_api_gateway.errors.bad_request_exception.BadRequestException: <p>The submitted request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_api_gateway.errors.conflict_exception.ConflictException: <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
+            aws_sdk_api_gateway.errors.limit_exceeded_exception.LimitExceededException: <p>The request exceeded the rate limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.not_found_exception.NotFoundException: <p>The requested resource is not found. Make sure that the request URI is correct.</p>
+            aws_sdk_api_gateway.errors.service_unavailable_exception.ServiceUnavailableException: <p>The requested service is not available. For details see the accompanying error message. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.too_many_requests_exception.TooManyRequestsException: <p>The request has reached its throttling limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.unauthorized_exception.UnauthorizedException: <p>The request is denied because the caller has insufficient permissions.</p>
+            aws_sdk_api_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5916,6 +6772,15 @@ class AsyncAPIGatewayClient:
             rest_api_id: <p>The string identifier of the associated RestApi.</p>
             documentation_part_id: <p>The identifier of the to-be-updated documentation part.</p>
             patch_operations: <p>For more information about supported patch operations, see <a href=\"https://docs.aws.amazon.com/apigateway/latest/api/patch-operations.html\">Patch Operations</a>.</p>
+
+        Raises:
+            aws_sdk_api_gateway.errors.bad_request_exception.BadRequestException: <p>The submitted request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_api_gateway.errors.conflict_exception.ConflictException: <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
+            aws_sdk_api_gateway.errors.limit_exceeded_exception.LimitExceededException: <p>The request exceeded the rate limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.not_found_exception.NotFoundException: <p>The requested resource is not found. Make sure that the request URI is correct.</p>
+            aws_sdk_api_gateway.errors.too_many_requests_exception.TooManyRequestsException: <p>The request has reached its throttling limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.unauthorized_exception.UnauthorizedException: <p>The request is denied because the caller has insufficient permissions.</p>
+            aws_sdk_api_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5963,6 +6828,15 @@ class AsyncAPIGatewayClient:
             rest_api_id: <p>The string identifier of the associated RestApi.</p>
             documentation_version: <p>The version identifier of the to-be-updated documentation version.</p>
             patch_operations: <p>For more information about supported patch operations, see <a href=\"https://docs.aws.amazon.com/apigateway/latest/api/patch-operations.html\">Patch Operations</a>.</p>
+
+        Raises:
+            aws_sdk_api_gateway.errors.bad_request_exception.BadRequestException: <p>The submitted request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_api_gateway.errors.conflict_exception.ConflictException: <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
+            aws_sdk_api_gateway.errors.limit_exceeded_exception.LimitExceededException: <p>The request exceeded the rate limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.not_found_exception.NotFoundException: <p>The requested resource is not found. Make sure that the request URI is correct.</p>
+            aws_sdk_api_gateway.errors.too_many_requests_exception.TooManyRequestsException: <p>The request has reached its throttling limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.unauthorized_exception.UnauthorizedException: <p>The request is denied because the caller has insufficient permissions.</p>
+            aws_sdk_api_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -6010,6 +6884,15 @@ class AsyncAPIGatewayClient:
             domain_name: <p>The name of the DomainName resource to be changed.</p>
             domain_name_id: <p> The identifier for the domain name resource. Supported only for private custom domain names. </p>
             patch_operations: <p>For more information about supported patch operations, see <a href=\"https://docs.aws.amazon.com/apigateway/latest/api/patch-operations.html\">Patch Operations</a>.</p>
+
+        Raises:
+            aws_sdk_api_gateway.errors.bad_request_exception.BadRequestException: <p>The submitted request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_api_gateway.errors.conflict_exception.ConflictException: <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
+            aws_sdk_api_gateway.errors.limit_exceeded_exception.LimitExceededException: <p>The request exceeded the rate limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.not_found_exception.NotFoundException: <p>The requested resource is not found. Make sure that the request URI is correct.</p>
+            aws_sdk_api_gateway.errors.too_many_requests_exception.TooManyRequestsException: <p>The request has reached its throttling limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.unauthorized_exception.UnauthorizedException: <p>The request is denied because the caller has insufficient permissions.</p>
+            aws_sdk_api_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -6056,6 +6939,15 @@ class AsyncAPIGatewayClient:
             rest_api_id: <p>The string identifier of the associated RestApi.</p>
             response_type: <p>The response type of the associated GatewayResponse.</p>
             patch_operations: <p>For more information about supported patch operations, see <a href=\"https://docs.aws.amazon.com/apigateway/latest/api/patch-operations.html\">Patch Operations</a>.</p>
+
+        Raises:
+            aws_sdk_api_gateway.errors.bad_request_exception.BadRequestException: <p>The submitted request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_api_gateway.errors.conflict_exception.ConflictException: <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
+            aws_sdk_api_gateway.errors.limit_exceeded_exception.LimitExceededException: <p>The request exceeded the rate limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.not_found_exception.NotFoundException: <p>The requested resource is not found. Make sure that the request URI is correct.</p>
+            aws_sdk_api_gateway.errors.too_many_requests_exception.TooManyRequestsException: <p>The request has reached its throttling limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.unauthorized_exception.UnauthorizedException: <p>The request is denied because the caller has insufficient permissions.</p>
+            aws_sdk_api_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -6105,6 +6997,15 @@ class AsyncAPIGatewayClient:
             resource_id: <p>Represents an update integration request's resource identifier.</p>
             http_method: <p>Represents an update integration request's HTTP method.</p>
             patch_operations: <p>For more information about supported patch operations, see <a href=\"https://docs.aws.amazon.com/apigateway/latest/api/patch-operations.html\">Patch Operations</a>.</p>
+
+        Raises:
+            aws_sdk_api_gateway.errors.bad_request_exception.BadRequestException: <p>The submitted request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_api_gateway.errors.conflict_exception.ConflictException: <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
+            aws_sdk_api_gateway.errors.limit_exceeded_exception.LimitExceededException: <p>The request exceeded the rate limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.not_found_exception.NotFoundException: <p>The requested resource is not found. Make sure that the request URI is correct.</p>
+            aws_sdk_api_gateway.errors.too_many_requests_exception.TooManyRequestsException: <p>The request has reached its throttling limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.unauthorized_exception.UnauthorizedException: <p>The request is denied because the caller has insufficient permissions.</p>
+            aws_sdk_api_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -6157,6 +7058,15 @@ class AsyncAPIGatewayClient:
             http_method: <p>Specifies an update integration response request's HTTP method.</p>
             status_code: <p>Specifies an update integration response request's status code.</p>
             patch_operations: <p>For more information about supported patch operations, see <a href=\"https://docs.aws.amazon.com/apigateway/latest/api/patch-operations.html\">Patch Operations</a>.</p>
+
+        Raises:
+            aws_sdk_api_gateway.errors.bad_request_exception.BadRequestException: <p>The submitted request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_api_gateway.errors.conflict_exception.ConflictException: <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
+            aws_sdk_api_gateway.errors.limit_exceeded_exception.LimitExceededException: <p>The request exceeded the rate limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.not_found_exception.NotFoundException: <p>The requested resource is not found. Make sure that the request URI is correct.</p>
+            aws_sdk_api_gateway.errors.too_many_requests_exception.TooManyRequestsException: <p>The request has reached its throttling limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.unauthorized_exception.UnauthorizedException: <p>The request is denied because the caller has insufficient permissions.</p>
+            aws_sdk_api_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -6208,6 +7118,14 @@ class AsyncAPIGatewayClient:
             resource_id: <p>The Resource identifier for the Method resource.</p>
             http_method: <p>The HTTP verb of the Method resource.</p>
             patch_operations: <p>For more information about supported patch operations, see <a href=\"https://docs.aws.amazon.com/apigateway/latest/api/patch-operations.html\">Patch Operations</a>.</p>
+
+        Raises:
+            aws_sdk_api_gateway.errors.bad_request_exception.BadRequestException: <p>The submitted request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_api_gateway.errors.conflict_exception.ConflictException: <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
+            aws_sdk_api_gateway.errors.not_found_exception.NotFoundException: <p>The requested resource is not found. Make sure that the request URI is correct.</p>
+            aws_sdk_api_gateway.errors.too_many_requests_exception.TooManyRequestsException: <p>The request has reached its throttling limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.unauthorized_exception.UnauthorizedException: <p>The request is denied because the caller has insufficient permissions.</p>
+            aws_sdk_api_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -6258,6 +7176,15 @@ class AsyncAPIGatewayClient:
             http_method: <p>The HTTP verb of the Method resource.</p>
             status_code: <p>The status code for the MethodResponse resource.</p>
             patch_operations: <p>For more information about supported patch operations, see <a href=\"https://docs.aws.amazon.com/apigateway/latest/api/patch-operations.html\">Patch Operations</a>.</p>
+
+        Raises:
+            aws_sdk_api_gateway.errors.bad_request_exception.BadRequestException: <p>The submitted request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_api_gateway.errors.conflict_exception.ConflictException: <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
+            aws_sdk_api_gateway.errors.limit_exceeded_exception.LimitExceededException: <p>The request exceeded the rate limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.not_found_exception.NotFoundException: <p>The requested resource is not found. Make sure that the request URI is correct.</p>
+            aws_sdk_api_gateway.errors.too_many_requests_exception.TooManyRequestsException: <p>The request has reached its throttling limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.unauthorized_exception.UnauthorizedException: <p>The request is denied because the caller has insufficient permissions.</p>
+            aws_sdk_api_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -6307,6 +7234,15 @@ class AsyncAPIGatewayClient:
             rest_api_id: <p>The string identifier of the associated RestApi.</p>
             model_name: <p>The name of the model to update.</p>
             patch_operations: <p>For more information about supported patch operations, see <a href=\"https://docs.aws.amazon.com/apigateway/latest/api/patch-operations.html\">Patch Operations</a>.</p>
+
+        Raises:
+            aws_sdk_api_gateway.errors.bad_request_exception.BadRequestException: <p>The submitted request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_api_gateway.errors.conflict_exception.ConflictException: <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
+            aws_sdk_api_gateway.errors.limit_exceeded_exception.LimitExceededException: <p>The request exceeded the rate limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.not_found_exception.NotFoundException: <p>The requested resource is not found. Make sure that the request URI is correct.</p>
+            aws_sdk_api_gateway.errors.too_many_requests_exception.TooManyRequestsException: <p>The request has reached its throttling limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.unauthorized_exception.UnauthorizedException: <p>The request is denied because the caller has insufficient permissions.</p>
+            aws_sdk_api_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -6352,6 +7288,15 @@ class AsyncAPIGatewayClient:
             rest_api_id: <p>The string identifier of the associated RestApi.</p>
             request_validator_id: <p>The identifier of RequestValidator to be updated.</p>
             patch_operations: <p>For more information about supported patch operations, see <a href=\"https://docs.aws.amazon.com/apigateway/latest/api/patch-operations.html\">Patch Operations</a>.</p>
+
+        Raises:
+            aws_sdk_api_gateway.errors.bad_request_exception.BadRequestException: <p>The submitted request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_api_gateway.errors.conflict_exception.ConflictException: <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
+            aws_sdk_api_gateway.errors.limit_exceeded_exception.LimitExceededException: <p>The request exceeded the rate limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.not_found_exception.NotFoundException: <p>The requested resource is not found. Make sure that the request URI is correct.</p>
+            aws_sdk_api_gateway.errors.too_many_requests_exception.TooManyRequestsException: <p>The request has reached its throttling limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.unauthorized_exception.UnauthorizedException: <p>The request is denied because the caller has insufficient permissions.</p>
+            aws_sdk_api_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -6399,6 +7344,14 @@ class AsyncAPIGatewayClient:
             rest_api_id: <p>The string identifier of the associated RestApi.</p>
             resource_id: <p>The identifier of the Resource resource.</p>
             patch_operations: <p>For more information about supported patch operations, see <a href=\"https://docs.aws.amazon.com/apigateway/latest/api/patch-operations.html\">Patch Operations</a>.</p>
+
+        Raises:
+            aws_sdk_api_gateway.errors.bad_request_exception.BadRequestException: <p>The submitted request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_api_gateway.errors.conflict_exception.ConflictException: <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
+            aws_sdk_api_gateway.errors.not_found_exception.NotFoundException: <p>The requested resource is not found. Make sure that the request URI is correct.</p>
+            aws_sdk_api_gateway.errors.too_many_requests_exception.TooManyRequestsException: <p>The request has reached its throttling limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.unauthorized_exception.UnauthorizedException: <p>The request is denied because the caller has insufficient permissions.</p>
+            aws_sdk_api_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -6442,6 +7395,15 @@ class AsyncAPIGatewayClient:
         Args:
             rest_api_id: <p>The string identifier of the associated RestApi.</p>
             patch_operations: <p>For more information about supported patch operations, see <a href=\"https://docs.aws.amazon.com/apigateway/latest/api/patch-operations.html\">Patch Operations</a>.</p>
+
+        Raises:
+            aws_sdk_api_gateway.errors.bad_request_exception.BadRequestException: <p>The submitted request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_api_gateway.errors.conflict_exception.ConflictException: <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
+            aws_sdk_api_gateway.errors.limit_exceeded_exception.LimitExceededException: <p>The request exceeded the rate limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.not_found_exception.NotFoundException: <p>The requested resource is not found. Make sure that the request URI is correct.</p>
+            aws_sdk_api_gateway.errors.too_many_requests_exception.TooManyRequestsException: <p>The request has reached its throttling limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.unauthorized_exception.UnauthorizedException: <p>The request is denied because the caller has insufficient permissions.</p>
+            aws_sdk_api_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -6486,6 +7448,15 @@ class AsyncAPIGatewayClient:
             rest_api_id: <p>The string identifier of the associated RestApi.</p>
             stage_name: <p>The name of the Stage resource to change information about.</p>
             patch_operations: <p>For more information about supported patch operations, see <a href=\"https://docs.aws.amazon.com/apigateway/latest/api/patch-operations.html\">Patch Operations</a>.</p>
+
+        Raises:
+            aws_sdk_api_gateway.errors.bad_request_exception.BadRequestException: <p>The submitted request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_api_gateway.errors.conflict_exception.ConflictException: <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
+            aws_sdk_api_gateway.errors.limit_exceeded_exception.LimitExceededException: <p>The request exceeded the rate limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.not_found_exception.NotFoundException: <p>The requested resource is not found. Make sure that the request URI is correct.</p>
+            aws_sdk_api_gateway.errors.too_many_requests_exception.TooManyRequestsException: <p>The request has reached its throttling limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.unauthorized_exception.UnauthorizedException: <p>The request is denied because the caller has insufficient permissions.</p>
+            aws_sdk_api_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -6531,6 +7502,15 @@ class AsyncAPIGatewayClient:
             usage_plan_id: <p>The Id of the usage plan associated with the usage data.</p>
             key_id: <p>The identifier of the API key associated with the usage plan in which a temporary extension is granted to the remaining quota.</p>
             patch_operations: <p>For more information about supported patch operations, see <a href=\"https://docs.aws.amazon.com/apigateway/latest/api/patch-operations.html\">Patch Operations</a>.</p>
+
+        Raises:
+            aws_sdk_api_gateway.errors.bad_request_exception.BadRequestException: <p>The submitted request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_api_gateway.errors.conflict_exception.ConflictException: <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
+            aws_sdk_api_gateway.errors.limit_exceeded_exception.LimitExceededException: <p>The request exceeded the rate limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.not_found_exception.NotFoundException: <p>The requested resource is not found. Make sure that the request URI is correct.</p>
+            aws_sdk_api_gateway.errors.too_many_requests_exception.TooManyRequestsException: <p>The request has reached its throttling limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.unauthorized_exception.UnauthorizedException: <p>The request is denied because the caller has insufficient permissions.</p>
+            aws_sdk_api_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -6574,6 +7554,15 @@ class AsyncAPIGatewayClient:
         Args:
             usage_plan_id: <p>The Id of the to-be-updated usage plan.</p>
             patch_operations: <p>For more information about supported patch operations, see <a href=\"https://docs.aws.amazon.com/apigateway/latest/api/patch-operations.html\">Patch Operations</a>.</p>
+
+        Raises:
+            aws_sdk_api_gateway.errors.bad_request_exception.BadRequestException: <p>The submitted request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_api_gateway.errors.conflict_exception.ConflictException: <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
+            aws_sdk_api_gateway.errors.limit_exceeded_exception.LimitExceededException: <p>The request exceeded the rate limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.not_found_exception.NotFoundException: <p>The requested resource is not found. Make sure that the request URI is correct.</p>
+            aws_sdk_api_gateway.errors.too_many_requests_exception.TooManyRequestsException: <p>The request has reached its throttling limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.unauthorized_exception.UnauthorizedException: <p>The request is denied because the caller has insufficient permissions.</p>
+            aws_sdk_api_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -6616,6 +7605,15 @@ class AsyncAPIGatewayClient:
         Args:
             vpc_link_id: <p>The identifier of the VpcLink. It is used in an Integration to reference this VpcLink.</p>
             patch_operations: <p>For more information about supported patch operations, see <a href=\"https://docs.aws.amazon.com/apigateway/latest/api/patch-operations.html\">Patch Operations</a>.</p>
+
+        Raises:
+            aws_sdk_api_gateway.errors.bad_request_exception.BadRequestException: <p>The submitted request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_api_gateway.errors.conflict_exception.ConflictException: <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
+            aws_sdk_api_gateway.errors.limit_exceeded_exception.LimitExceededException: <p>The request exceeded the rate limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.not_found_exception.NotFoundException: <p>The requested resource is not found. Make sure that the request URI is correct.</p>
+            aws_sdk_api_gateway.errors.too_many_requests_exception.TooManyRequestsException: <p>The request has reached its throttling limit. Retry after the specified time period.</p>
+            aws_sdk_api_gateway.errors.unauthorized_exception.UnauthorizedException: <p>The request is denied because the caller has insufficient permissions.</p>
+            aws_sdk_api_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

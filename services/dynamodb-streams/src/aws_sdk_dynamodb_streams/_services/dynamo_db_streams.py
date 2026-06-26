@@ -160,6 +160,11 @@ class DynamoDBStreamsClient:
             limit: <p>The maximum number of shard objects to return. The upper limit is 100.</p>
             exclusive_start_shard_id: <p>The shard ID of the first item that this operation will evaluate. Use the value that was returned for <code>LastEvaluatedShardId</code> in the previous operation. </p>
             shard_filter: <p>This optional field contains the filter definition for the <code>DescribeStream</code> API.</p>
+
+        Raises:
+            aws_sdk_dynamodb_streams.errors.internal_server_error.InternalServerError: <p>An error occurred on the server side.</p>
+            aws_sdk_dynamodb_streams.errors.resource_not_found_exception.ResourceNotFoundException: <p>The operation tried to access a nonexistent table or index. The resource might not be specified correctly, or its status might not be <code>ACTIVE</code>.</p>
+            aws_sdk_dynamodb_streams.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -207,6 +212,14 @@ class DynamoDBStreamsClient:
         Args:
             shard_iterator: <p>A shard iterator that was retrieved from a previous GetShardIterator operation. This iterator can be used to access the stream records in this shard.</p>
             limit: <p>The maximum number of records to return from the shard. The upper limit is 1000.</p>
+
+        Raises:
+            aws_sdk_dynamodb_streams.errors.expired_iterator_exception.ExpiredIteratorException: <p>The shard iterator has expired and can no longer be used to retrieve stream records. A shard iterator expires 15 minutes after it is retrieved using the <code>GetShardIterator</code> action.</p>
+            aws_sdk_dynamodb_streams.errors.internal_server_error.InternalServerError: <p>An error occurred on the server side.</p>
+            aws_sdk_dynamodb_streams.errors.limit_exceeded_exception.LimitExceededException: <p>There is no limit to the number of daily on-demand backups that can be taken. </p> <p>For most purposes, up to 500 simultaneous table operations are allowed per account. These operations include <code>CreateTable</code>, <code>UpdateTable</code>, <code>DeleteTable</code>,<code>UpdateTimeToLive</code>, <code>RestoreTableFromBackup</code>, and <code>RestoreTableToPointInTime</code>. </p> <p>When you are creating a table with one or more secondary indexes, you can have up to 250 such requests running at a time. However, if the table or index specifications are complex, then DynamoDB might temporarily reduce the number of concurrent operations.</p> <p>When importing into DynamoDB, up to 50 simultaneous import table operations are allowed per account.</p> <p>There is a soft account quota of 2,500 tables.</p> <p>GetRecords was called with a value of more than 1000 for the limit request parameter.</p> <p>More than 2 processes are reading from the same streams shard at the same time. Exceeding this limit may result in request throttling.</p>
+            aws_sdk_dynamodb_streams.errors.resource_not_found_exception.ResourceNotFoundException: <p>The operation tried to access a nonexistent table or index. The resource might not be specified correctly, or its status might not be <code>ACTIVE</code>.</p>
+            aws_sdk_dynamodb_streams.errors.trimmed_data_access_exception.TrimmedDataAccessException: <p>The operation attempted to read past the oldest stream record in a shard.</p> <p>In DynamoDB Streams, there is a 24 hour limit on data retention. Stream records whose age exceeds this limit are subject to removal (trimming) from the stream. You might receive a TrimmedDataAccessException if:</p> <ul> <li> <p>You request a shard iterator with a sequence number older than the trim point (24 hours).</p> </li> <li> <p>You obtain a shard iterator, but before you use the iterator in a <code>GetRecords</code> request, a stream record in the shard exceeds the 24 hour period and is trimmed. This causes the iterator to access a record that no longer exists.</p> </li> </ul>
+            aws_sdk_dynamodb_streams.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -254,6 +267,12 @@ class DynamoDBStreamsClient:
             shard_id: <p>The identifier of the shard. The iterator will be returned for this shard ID.</p>
             shard_iterator_type: <p>Determines how the shard iterator is used to start reading stream records from the shard:</p> <ul> <li> <p> <code>AT_SEQUENCE_NUMBER</code> - Start reading exactly from the position denoted by a specific sequence number.</p> </li> <li> <p> <code>AFTER_SEQUENCE_NUMBER</code> - Start reading right after the position denoted by a specific sequence number.</p> </li> <li> <p> <code>TRIM_HORIZON</code> - Start reading at the last (untrimmed) stream record, which is the oldest record in the shard. In DynamoDB Streams, there is a 24 hour limit on data retention. Stream records whose age exceeds this limit are subject to removal (trimming) from the stream.</p> </li> <li> <p> <code>LATEST</code> - Start reading just after the most recent stream record in the shard, so that you always read the most recent data in the shard.</p> </li> </ul>
             sequence_number: <p>The sequence number of a stream record in the shard from which to start reading.</p>
+
+        Raises:
+            aws_sdk_dynamodb_streams.errors.internal_server_error.InternalServerError: <p>An error occurred on the server side.</p>
+            aws_sdk_dynamodb_streams.errors.resource_not_found_exception.ResourceNotFoundException: <p>The operation tried to access a nonexistent table or index. The resource might not be specified correctly, or its status might not be <code>ACTIVE</code>.</p>
+            aws_sdk_dynamodb_streams.errors.trimmed_data_access_exception.TrimmedDataAccessException: <p>The operation attempted to read past the oldest stream record in a shard.</p> <p>In DynamoDB Streams, there is a 24 hour limit on data retention. Stream records whose age exceeds this limit are subject to removal (trimming) from the stream. You might receive a TrimmedDataAccessException if:</p> <ul> <li> <p>You request a shard iterator with a sequence number older than the trim point (24 hours).</p> </li> <li> <p>You obtain a shard iterator, but before you use the iterator in a <code>GetRecords</code> request, a stream record in the shard exceeds the 24 hour period and is trimmed. This causes the iterator to access a record that no longer exists.</p> </li> </ul>
+            aws_sdk_dynamodb_streams.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To obtain a shard iterator for the provided stream ARN and shard ID
@@ -311,6 +330,11 @@ class DynamoDBStreamsClient:
             table_name: <p>If this parameter is provided, then only the streams associated with this table name are returned.</p>
             limit: <p>The maximum number of streams to return. The upper limit is 100.</p>
             exclusive_start_stream_arn: <p>The ARN (Amazon Resource Name) of the first item that this operation will evaluate. Use the value that was returned for <code>LastEvaluatedStreamArn</code> in the previous operation. </p>
+
+        Raises:
+            aws_sdk_dynamodb_streams.errors.internal_server_error.InternalServerError: <p>An error occurred on the server side.</p>
+            aws_sdk_dynamodb_streams.errors.resource_not_found_exception.ResourceNotFoundException: <p>The operation tried to access a nonexistent table or index. The resource might not be specified correctly, or its status might not be <code>ACTIVE</code>.</p>
+            aws_sdk_dynamodb_streams.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To list all of the stream ARNs

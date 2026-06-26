@@ -205,6 +205,16 @@ class signerClient:
             principal: <p>The AWS principal receiving cross-account permissions. This may be an IAM role or another AWS account ID.</p>
             revision_id: <p>A unique identifier for the current profile revision.</p>
             statement_id: <p>A unique identifier for the cross-account permission statement.</p>
+
+        Raises:
+            aws_sdk_signer.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_signer.errors.conflict_exception.ConflictException: <p>The resource encountered a conflicting state.</p>
+            aws_sdk_signer.errors.internal_service_error_exception.InternalServiceErrorException: <p>An internal error occurred.</p>
+            aws_sdk_signer.errors.resource_not_found_exception.ResourceNotFoundException: <p>A specified resource could not be found.</p>
+            aws_sdk_signer.errors.service_limit_exceeded_exception.ServiceLimitExceededException: <p>The client is making a request that exceeds service limits.</p>
+            aws_sdk_signer.errors.too_many_requests_exception.TooManyRequestsException: <p>The allowed number of job-signing requests has been exceeded.</p> <p>This error supersedes the error <code>ThrottlingException</code>.</p>
+            aws_sdk_signer.errors.validation_exception.ValidationException: <p>You signing certificate could not be validated.</p>
+            aws_sdk_signer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -249,6 +259,13 @@ class signerClient:
 
         Args:
             profile_name: <p>The name of the signing profile to be canceled.</p>
+
+        Raises:
+            aws_sdk_signer.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_signer.errors.internal_service_error_exception.InternalServiceErrorException: <p>An internal error occurred.</p>
+            aws_sdk_signer.errors.resource_not_found_exception.ResourceNotFoundException: <p>A specified resource could not be found.</p>
+            aws_sdk_signer.errors.too_many_requests_exception.TooManyRequestsException: <p>The allowed number of job-signing requests has been exceeded.</p> <p>This error supersedes the error <code>ThrottlingException</code>.</p>
+            aws_sdk_signer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -286,6 +303,13 @@ class signerClient:
 
         Args:
             job_id: <p>The ID of the signing job on input.</p>
+
+        Raises:
+            aws_sdk_signer.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_signer.errors.internal_service_error_exception.InternalServiceErrorException: <p>An internal error occurred.</p>
+            aws_sdk_signer.errors.resource_not_found_exception.ResourceNotFoundException: <p>A specified resource could not be found.</p>
+            aws_sdk_signer.errors.too_many_requests_exception.TooManyRequestsException: <p>The allowed number of job-signing requests has been exceeded.</p> <p>This error supersedes the error <code>ThrottlingException</code>.</p>
+            aws_sdk_signer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -331,6 +355,13 @@ class signerClient:
             profile_version_arn: <p>The version of a signing profile.</p>
             job_arn: <p>The ARN of a signing job.</p>
             certificate_hashes: <p>A list of composite signed hashes that identify certificates.</p> <p>A certificate identifier consists of a subject certificate TBS hash (signed by the parent CA) combined with a parent CA TBS hash (signed by the parent CA’s CA). Root certificates are defined as their own CA.</p> <p>The following example shows how to calculate a hash for this parameter using OpenSSL commands: </p> <p> <code>openssl asn1parse -in childCert.pem -strparse 4 -out childCert.tbs</code> </p> <p> <code>openssl sha384 < childCert.tbs -binary > childCertTbsHash</code> </p> <p> <code>openssl asn1parse -in parentCert.pem -strparse 4 -out parentCert.tbs</code> </p> <p> <code>openssl sha384 < parentCert.tbs -binary > parentCertTbsHash xxd -p childCertTbsHash > certificateHash.hex xxd -p parentCertTbsHash >> certificateHash.hex</code> </p> <p> <code>cat certificateHash.hex | tr -d '\n'</code> </p>
+
+        Raises:
+            aws_sdk_signer.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_signer.errors.internal_service_error_exception.InternalServiceErrorException: <p>An internal error occurred.</p>
+            aws_sdk_signer.errors.too_many_requests_exception.TooManyRequestsException: <p>The allowed number of job-signing requests has been exceeded.</p> <p>This error supersedes the error <code>ThrottlingException</code>.</p>
+            aws_sdk_signer.errors.validation_exception.ValidationException: <p>You signing certificate could not be validated.</p>
+            aws_sdk_signer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -374,6 +405,13 @@ class signerClient:
 
         Args:
             platform_id: <p>The ID of the target signing platform.</p>
+
+        Raises:
+            aws_sdk_signer.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_signer.errors.internal_service_error_exception.InternalServiceErrorException: <p>An internal error occurred.</p>
+            aws_sdk_signer.errors.resource_not_found_exception.ResourceNotFoundException: <p>A specified resource could not be found.</p>
+            aws_sdk_signer.errors.too_many_requests_exception.TooManyRequestsException: <p>The allowed number of job-signing requests has been exceeded.</p> <p>This error supersedes the error <code>ThrottlingException</code>.</p>
+            aws_sdk_signer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -413,6 +451,13 @@ class signerClient:
         Args:
             profile_name: <p>The name of the target signing profile.</p>
             profile_owner: <p>The AWS account ID of the profile owner.</p>
+
+        Raises:
+            aws_sdk_signer.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_signer.errors.internal_service_error_exception.InternalServiceErrorException: <p>An internal error occurred.</p>
+            aws_sdk_signer.errors.resource_not_found_exception.ResourceNotFoundException: <p>A specified resource could not be found.</p>
+            aws_sdk_signer.errors.too_many_requests_exception.TooManyRequestsException: <p>The allowed number of job-signing requests has been exceeded.</p> <p>This error supersedes the error <code>ThrottlingException</code>.</p>
+            aws_sdk_signer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -454,6 +499,14 @@ class signerClient:
         Args:
             profile_name: <p>Name of the signing profile containing the cross-account permissions.</p>
             next_token: <p>String for specifying the next set of paginated results.</p>
+
+        Raises:
+            aws_sdk_signer.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_signer.errors.internal_service_error_exception.InternalServiceErrorException: <p>An internal error occurred.</p>
+            aws_sdk_signer.errors.resource_not_found_exception.ResourceNotFoundException: <p>A specified resource could not be found.</p>
+            aws_sdk_signer.errors.too_many_requests_exception.TooManyRequestsException: <p>The allowed number of job-signing requests has been exceeded.</p> <p>This error supersedes the error <code>ThrottlingException</code>.</p>
+            aws_sdk_signer.errors.validation_exception.ValidationException: <p>You signing certificate could not be validated.</p>
+            aws_sdk_signer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -513,6 +566,13 @@ class signerClient:
             signature_expires_before: <p>Filters results to return only signing jobs with signatures expiring before a specified timestamp.</p>
             signature_expires_after: <p>Filters results to return only signing jobs with signatures expiring after a specified timestamp.</p>
             job_invoker: <p>Filters results to return only signing jobs initiated by a specified IAM entity.</p>
+
+        Raises:
+            aws_sdk_signer.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_signer.errors.internal_service_error_exception.InternalServiceErrorException: <p>An internal error occurred.</p>
+            aws_sdk_signer.errors.too_many_requests_exception.TooManyRequestsException: <p>The allowed number of job-signing requests has been exceeded.</p> <p>This error supersedes the error <code>ThrottlingException</code>.</p>
+            aws_sdk_signer.errors.validation_exception.ValidationException: <p>You signing certificate could not be validated.</p>
+            aws_sdk_signer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -575,6 +635,13 @@ class signerClient:
             target: <p>The validation template that is used by the target signing platform.</p>
             max_results: <p>The maximum number of results to be returned by this operation.</p>
             next_token: <p>Value for specifying the next set of paginated results to return. After you receive a response with truncated results, use this parameter in a subsequent request. Set it to the value of <code>nextToken</code> from the response that you just received.</p>
+
+        Raises:
+            aws_sdk_signer.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_signer.errors.internal_service_error_exception.InternalServiceErrorException: <p>An internal error occurred.</p>
+            aws_sdk_signer.errors.too_many_requests_exception.TooManyRequestsException: <p>The allowed number of job-signing requests has been exceeded.</p> <p>This error supersedes the error <code>ThrottlingException</code>.</p>
+            aws_sdk_signer.errors.validation_exception.ValidationException: <p>You signing certificate could not be validated.</p>
+            aws_sdk_signer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -629,6 +696,12 @@ class signerClient:
             next_token: <p>Value for specifying the next set of paginated results to return. After you receive a response with truncated results, use this parameter in a subsequent request. Set it to the value of <code>nextToken</code> from the response that you just received.</p>
             platform_id: <p>Filters results to return only signing jobs initiated for a specified signing platform.</p>
             statuses: <p>Filters results to return only signing jobs with statuses in the specified list.</p>
+
+        Raises:
+            aws_sdk_signer.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_signer.errors.internal_service_error_exception.InternalServiceErrorException: <p>An internal error occurred.</p>
+            aws_sdk_signer.errors.too_many_requests_exception.TooManyRequestsException: <p>The allowed number of job-signing requests has been exceeded.</p> <p>This error supersedes the error <code>ThrottlingException</code>.</p>
+            aws_sdk_signer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -675,6 +748,13 @@ class signerClient:
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) for the signing profile.</p>
+
+        Raises:
+            aws_sdk_signer.errors.bad_request_exception.BadRequestException: <p>The request contains invalid parameters for the ARN or tags. This exception also occurs when you call a tagging API on a cancelled signing profile.</p>
+            aws_sdk_signer.errors.internal_service_error_exception.InternalServiceErrorException: <p>An internal error occurred.</p>
+            aws_sdk_signer.errors.not_found_exception.NotFoundException: <p>The signing profile was not found.</p>
+            aws_sdk_signer.errors.too_many_requests_exception.TooManyRequestsException: <p>The allowed number of job-signing requests has been exceeded.</p> <p>This error supersedes the error <code>ThrottlingException</code>.</p>
+            aws_sdk_signer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -732,6 +812,14 @@ class signerClient:
             overrides: <p>A subfield of <code>platform</code>. This specifies any different configuration options that you want to apply to the chosen platform (such as a different <code>hash-algorithm</code> or <code>signing-algorithm</code>).</p>
             signing_parameters: <p>Map of key-value pairs for signing. These can include any information that you want to use during signing.</p>
             tags: <p>Tags to be associated with the signing profile that is being created.</p>
+
+        Raises:
+            aws_sdk_signer.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_signer.errors.internal_service_error_exception.InternalServiceErrorException: <p>An internal error occurred.</p>
+            aws_sdk_signer.errors.resource_not_found_exception.ResourceNotFoundException: <p>A specified resource could not be found.</p>
+            aws_sdk_signer.errors.too_many_requests_exception.TooManyRequestsException: <p>The allowed number of job-signing requests has been exceeded.</p> <p>This error supersedes the error <code>ThrottlingException</code>.</p>
+            aws_sdk_signer.errors.validation_exception.ValidationException: <p>You signing certificate could not be validated.</p>
+            aws_sdk_signer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -784,6 +872,15 @@ class signerClient:
             profile_name: <p>A human-readable name for the signing profile with permissions to be removed.</p>
             revision_id: <p>An identifier for the current revision of the signing profile permissions.</p>
             statement_id: <p>A unique identifier for the cross-account permissions statement.</p>
+
+        Raises:
+            aws_sdk_signer.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_signer.errors.conflict_exception.ConflictException: <p>The resource encountered a conflicting state.</p>
+            aws_sdk_signer.errors.internal_service_error_exception.InternalServiceErrorException: <p>An internal error occurred.</p>
+            aws_sdk_signer.errors.resource_not_found_exception.ResourceNotFoundException: <p>A specified resource could not be found.</p>
+            aws_sdk_signer.errors.too_many_requests_exception.TooManyRequestsException: <p>The allowed number of job-signing requests has been exceeded.</p> <p>This error supersedes the error <code>ThrottlingException</code>.</p>
+            aws_sdk_signer.errors.validation_exception.ValidationException: <p>You signing certificate could not be validated.</p>
+            aws_sdk_signer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -827,6 +924,14 @@ class signerClient:
             job_id: <p>ID of the signing job to be revoked.</p>
             job_owner: <p>AWS account ID of the job owner.</p>
             reason: <p>The reason for revoking the signing job.</p>
+
+        Raises:
+            aws_sdk_signer.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_signer.errors.internal_service_error_exception.InternalServiceErrorException: <p>An internal error occurred.</p>
+            aws_sdk_signer.errors.resource_not_found_exception.ResourceNotFoundException: <p>A specified resource could not be found.</p>
+            aws_sdk_signer.errors.too_many_requests_exception.TooManyRequestsException: <p>The allowed number of job-signing requests has been exceeded.</p> <p>This error supersedes the error <code>ThrottlingException</code>.</p>
+            aws_sdk_signer.errors.validation_exception.ValidationException: <p>You signing certificate could not be validated.</p>
+            aws_sdk_signer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -871,6 +976,14 @@ class signerClient:
             profile_version: <p>The version of the signing profile to be revoked.</p>
             reason: <p>The reason for revoking a signing profile.</p>
             effective_time: <p>A timestamp for when revocation of a Signing Profile should become effective. Signatures generated using the signing profile after this timestamp are not trusted.</p>
+
+        Raises:
+            aws_sdk_signer.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_signer.errors.internal_service_error_exception.InternalServiceErrorException: <p>An internal error occurred.</p>
+            aws_sdk_signer.errors.resource_not_found_exception.ResourceNotFoundException: <p>A specified resource could not be found.</p>
+            aws_sdk_signer.errors.too_many_requests_exception.TooManyRequestsException: <p>The allowed number of job-signing requests has been exceeded.</p> <p>This error supersedes the error <code>ThrottlingException</code>.</p>
+            aws_sdk_signer.errors.validation_exception.ValidationException: <p>You signing certificate could not be validated.</p>
+            aws_sdk_signer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -915,6 +1028,14 @@ class signerClient:
             profile_owner: <p>The AWS account ID of the profile owner.</p>
             payload: <p>Specifies the object digest (hash) to sign.</p>
             payload_format: <p>Payload content type. The single valid type is <code>application/vnd.cncf.notary.payload.v1+json</code>.</p>
+
+        Raises:
+            aws_sdk_signer.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_signer.errors.internal_service_error_exception.InternalServiceErrorException: <p>An internal error occurred.</p>
+            aws_sdk_signer.errors.resource_not_found_exception.ResourceNotFoundException: <p>A specified resource could not be found.</p>
+            aws_sdk_signer.errors.too_many_requests_exception.TooManyRequestsException: <p>The allowed number of job-signing requests has been exceeded.</p> <p>This error supersedes the error <code>ThrottlingException</code>.</p>
+            aws_sdk_signer.errors.validation_exception.ValidationException: <p>You signing certificate could not be validated.</p>
+            aws_sdk_signer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -964,6 +1085,15 @@ class signerClient:
             profile_name: <p>The name of the signing profile.</p>
             client_request_token: <p>String that identifies the signing request. All calls after the first that use this token return the same response as the first call.</p>
             profile_owner: <p>The AWS account ID of the signing profile owner.</p>
+
+        Raises:
+            aws_sdk_signer.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_signer.errors.internal_service_error_exception.InternalServiceErrorException: <p>An internal error occurred.</p>
+            aws_sdk_signer.errors.resource_not_found_exception.ResourceNotFoundException: <p>A specified resource could not be found.</p>
+            aws_sdk_signer.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p> <p>Instead of this error, <code>TooManyRequestsException</code> should be used.</p>
+            aws_sdk_signer.errors.too_many_requests_exception.TooManyRequestsException: <p>The allowed number of job-signing requests has been exceeded.</p> <p>This error supersedes the error <code>ThrottlingException</code>.</p>
+            aws_sdk_signer.errors.validation_exception.ValidationException: <p>You signing certificate could not be validated.</p>
+            aws_sdk_signer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1008,6 +1138,13 @@ class signerClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) for the signing profile.</p>
             tags: <p>One or more tags to be associated with the signing profile.</p>
+
+        Raises:
+            aws_sdk_signer.errors.bad_request_exception.BadRequestException: <p>The request contains invalid parameters for the ARN or tags. This exception also occurs when you call a tagging API on a cancelled signing profile.</p>
+            aws_sdk_signer.errors.internal_service_error_exception.InternalServiceErrorException: <p>An internal error occurred.</p>
+            aws_sdk_signer.errors.not_found_exception.NotFoundException: <p>The signing profile was not found.</p>
+            aws_sdk_signer.errors.too_many_requests_exception.TooManyRequestsException: <p>The allowed number of job-signing requests has been exceeded.</p> <p>This error supersedes the error <code>ThrottlingException</code>.</p>
+            aws_sdk_signer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1048,6 +1185,13 @@ class signerClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) for the signing profile.</p>
             tag_keys: <p>A list of tag keys to be removed from the signing profile.</p>
+
+        Raises:
+            aws_sdk_signer.errors.bad_request_exception.BadRequestException: <p>The request contains invalid parameters for the ARN or tags. This exception also occurs when you call a tagging API on a cancelled signing profile.</p>
+            aws_sdk_signer.errors.internal_service_error_exception.InternalServiceErrorException: <p>An internal error occurred.</p>
+            aws_sdk_signer.errors.not_found_exception.NotFoundException: <p>The signing profile was not found.</p>
+            aws_sdk_signer.errors.too_many_requests_exception.TooManyRequestsException: <p>The allowed number of job-signing requests has been exceeded.</p> <p>This error supersedes the error <code>ThrottlingException</code>.</p>
+            aws_sdk_signer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(

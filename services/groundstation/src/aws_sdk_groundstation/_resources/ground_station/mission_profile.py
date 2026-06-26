@@ -84,6 +84,12 @@ class MissionProfile:
             tags: <p>Tags assigned to a mission profile.</p>
             streams_kms_key: <p>KMS key to use for encrypting streams.</p>
             streams_kms_role: <p>Role to use for encrypting streams with KMS key.</p>
+
+        Raises:
+            aws_sdk_groundstation.errors.dependency_exception.DependencyException: <p>Dependency encountered an error.</p>
+            aws_sdk_groundstation.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters are not valid.</p>
+            aws_sdk_groundstation.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource was not found.</p>
+            aws_sdk_groundstation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -142,6 +148,12 @@ class MissionProfile:
 
         Args:
             mission_profile_id: <p>UUID of a mission profile.</p>
+
+        Raises:
+            aws_sdk_groundstation.errors.dependency_exception.DependencyException: <p>Dependency encountered an error.</p>
+            aws_sdk_groundstation.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters are not valid.</p>
+            aws_sdk_groundstation.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource was not found.</p>
+            aws_sdk_groundstation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -211,6 +223,12 @@ class MissionProfile:
             telemetry_sink_config_arn: <p>ARN of a telemetry sink <code>Config</code>.</p>
             streams_kms_key: <p>KMS key to use for encrypting streams.</p>
             streams_kms_role: <p>Role to use for encrypting streams with KMS key.</p>
+
+        Raises:
+            aws_sdk_groundstation.errors.dependency_exception.DependencyException: <p>Dependency encountered an error.</p>
+            aws_sdk_groundstation.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters are not valid.</p>
+            aws_sdk_groundstation.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource was not found.</p>
+            aws_sdk_groundstation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -272,6 +290,12 @@ class MissionProfile:
 
         Args:
             mission_profile_id: <p>UUID of a mission profile.</p>
+
+        Raises:
+            aws_sdk_groundstation.errors.dependency_exception.DependencyException: <p>Dependency encountered an error.</p>
+            aws_sdk_groundstation.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters are not valid.</p>
+            aws_sdk_groundstation.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource was not found.</p>
+            aws_sdk_groundstation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -315,6 +339,12 @@ class MissionProfile:
         Args:
             max_results: <p>Maximum number of mission profiles returned.</p>
             next_token: <p>Next token returned in the request of a previous <code>ListMissionProfiles</code> call. Used to get the next page of results.</p>
+
+        Raises:
+            aws_sdk_groundstation.errors.dependency_exception.DependencyException: <p>Dependency encountered an error.</p>
+            aws_sdk_groundstation.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters are not valid.</p>
+            aws_sdk_groundstation.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource was not found.</p>
+            aws_sdk_groundstation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -386,6 +416,12 @@ class AsyncMissionProfile:
             tags: <p>Tags assigned to a mission profile.</p>
             streams_kms_key: <p>KMS key to use for encrypting streams.</p>
             streams_kms_role: <p>Role to use for encrypting streams with KMS key.</p>
+
+        Raises:
+            aws_sdk_groundstation.errors.dependency_exception.DependencyException: <p>Dependency encountered an error.</p>
+            aws_sdk_groundstation.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters are not valid.</p>
+            aws_sdk_groundstation.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource was not found.</p>
+            aws_sdk_groundstation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -445,6 +481,12 @@ class AsyncMissionProfile:
 
         Args:
             mission_profile_id: <p>UUID of a mission profile.</p>
+
+        Raises:
+            aws_sdk_groundstation.errors.dependency_exception.DependencyException: <p>Dependency encountered an error.</p>
+            aws_sdk_groundstation.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters are not valid.</p>
+            aws_sdk_groundstation.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource was not found.</p>
+            aws_sdk_groundstation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -515,6 +557,12 @@ class AsyncMissionProfile:
             telemetry_sink_config_arn: <p>ARN of a telemetry sink <code>Config</code>.</p>
             streams_kms_key: <p>KMS key to use for encrypting streams.</p>
             streams_kms_role: <p>Role to use for encrypting streams with KMS key.</p>
+
+        Raises:
+            aws_sdk_groundstation.errors.dependency_exception.DependencyException: <p>Dependency encountered an error.</p>
+            aws_sdk_groundstation.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters are not valid.</p>
+            aws_sdk_groundstation.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource was not found.</p>
+            aws_sdk_groundstation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -577,6 +625,12 @@ class AsyncMissionProfile:
 
         Args:
             mission_profile_id: <p>UUID of a mission profile.</p>
+
+        Raises:
+            aws_sdk_groundstation.errors.dependency_exception.DependencyException: <p>Dependency encountered an error.</p>
+            aws_sdk_groundstation.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters are not valid.</p>
+            aws_sdk_groundstation.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource was not found.</p>
+            aws_sdk_groundstation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -621,6 +675,12 @@ class AsyncMissionProfile:
         Args:
             max_results: <p>Maximum number of mission profiles returned.</p>
             next_token: <p>Next token returned in the request of a previous <code>ListMissionProfiles</code> call. Used to get the next page of results.</p>
+
+        Raises:
+            aws_sdk_groundstation.errors.dependency_exception.DependencyException: <p>Dependency encountered an error.</p>
+            aws_sdk_groundstation.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters are not valid.</p>
+            aws_sdk_groundstation.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource was not found.</p>
+            aws_sdk_groundstation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

@@ -222,6 +222,17 @@ class QAppsClient:
             instance_id: <p>The unique identifier for the Amazon Q Business application environment instance.</p>
             library_item_id: <p>The unique identifier of the library item to associate the review with.</p>
 
+        Raises:
+            aws_sdk_qapps.errors.access_denied_exception.AccessDeniedException: <p>The client is not authorized to perform the requested operation.</p>
+            aws_sdk_qapps.errors.conflict_exception.ConflictException: <p>The requested operation could not be completed due to a conflict with the current state of the resource.</p>
+            aws_sdk_qapps.errors.internal_server_exception.InternalServerException: <p>An internal service error occurred while processing the request.</p>
+            aws_sdk_qapps.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource could not be found.</p>
+            aws_sdk_qapps.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The requested operation could not be completed because it would exceed the service's quota or limit.</p>
+            aws_sdk_qapps.errors.throttling_exception.ThrottlingException: <p>The requested operation could not be completed because too many requests were sent at once. Wait a bit and try again later.</p>
+            aws_sdk_qapps.errors.unauthorized_exception.UnauthorizedException: <p>The client is not authenticated or authorized to perform the requested operation.</p>
+            aws_sdk_qapps.errors.validation_exception.ValidationException: <p>The input failed to satisfy the constraints specified by the service.</p>
+            aws_sdk_qapps.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Increase the rating counter by 1 for the related app for this user
 
@@ -264,6 +275,16 @@ class QAppsClient:
         Args:
             instance_id: <p>The unique identifier of the Amazon Q Business application environment instance.</p>
             app_id: <p>The ID of the Amazon Q App to associate with the user.</p>
+
+        Raises:
+            aws_sdk_qapps.errors.access_denied_exception.AccessDeniedException: <p>The client is not authorized to perform the requested operation.</p>
+            aws_sdk_qapps.errors.internal_server_exception.InternalServerException: <p>An internal service error occurred while processing the request.</p>
+            aws_sdk_qapps.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource could not be found.</p>
+            aws_sdk_qapps.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The requested operation could not be completed because it would exceed the service's quota or limit.</p>
+            aws_sdk_qapps.errors.throttling_exception.ThrottlingException: <p>The requested operation could not be completed because too many requests were sent at once. Wait a bit and try again later.</p>
+            aws_sdk_qapps.errors.unauthorized_exception.UnauthorizedException: <p>The client is not authenticated or authorized to perform the requested operation.</p>
+            aws_sdk_qapps.errors.validation_exception.ValidationException: <p>The input failed to satisfy the constraints specified by the service.</p>
+            aws_sdk_qapps.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Links an Amazon Q App to the invoker's list of apps
@@ -308,6 +329,16 @@ class QAppsClient:
             instance_id: <p>The unique identifier of the Amazon Q Business application environment instance.</p>
             categories: <p>The list of category objects to be created</p>
 
+        Raises:
+            aws_sdk_qapps.errors.access_denied_exception.AccessDeniedException: <p>The client is not authorized to perform the requested operation.</p>
+            aws_sdk_qapps.errors.conflict_exception.ConflictException: <p>The requested operation could not be completed due to a conflict with the current state of the resource.</p>
+            aws_sdk_qapps.errors.internal_server_exception.InternalServerException: <p>An internal service error occurred while processing the request.</p>
+            aws_sdk_qapps.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource could not be found.</p>
+            aws_sdk_qapps.errors.throttling_exception.ThrottlingException: <p>The requested operation could not be completed because too many requests were sent at once. Wait a bit and try again later.</p>
+            aws_sdk_qapps.errors.unauthorized_exception.UnauthorizedException: <p>The client is not authenticated or authorized to perform the requested operation.</p>
+            aws_sdk_qapps.errors.validation_exception.ValidationException: <p>The input failed to satisfy the constraints specified by the service.</p>
+            aws_sdk_qapps.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Creates the categories for the library
 
@@ -351,6 +382,16 @@ class QAppsClient:
             instance_id: <p>The unique identifier of the Amazon Q Business application environment instance.</p>
             categories: <p>The list of IDs of the categories to be deleted.</p>
 
+        Raises:
+            aws_sdk_qapps.errors.access_denied_exception.AccessDeniedException: <p>The client is not authorized to perform the requested operation.</p>
+            aws_sdk_qapps.errors.conflict_exception.ConflictException: <p>The requested operation could not be completed due to a conflict with the current state of the resource.</p>
+            aws_sdk_qapps.errors.internal_server_exception.InternalServerException: <p>An internal service error occurred while processing the request.</p>
+            aws_sdk_qapps.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource could not be found.</p>
+            aws_sdk_qapps.errors.throttling_exception.ThrottlingException: <p>The requested operation could not be completed because too many requests were sent at once. Wait a bit and try again later.</p>
+            aws_sdk_qapps.errors.unauthorized_exception.UnauthorizedException: <p>The client is not authenticated or authorized to perform the requested operation.</p>
+            aws_sdk_qapps.errors.validation_exception.ValidationException: <p>The input failed to satisfy the constraints specified by the service.</p>
+            aws_sdk_qapps.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Deletes the categories in the library
 
@@ -393,6 +434,16 @@ class QAppsClient:
         Args:
             instance_id: <p>The unique identifier of the Amazon Q Business application environment instance.</p>
             categories: <p>The list of categories to be updated with their new values.</p>
+
+        Raises:
+            aws_sdk_qapps.errors.access_denied_exception.AccessDeniedException: <p>The client is not authorized to perform the requested operation.</p>
+            aws_sdk_qapps.errors.conflict_exception.ConflictException: <p>The requested operation could not be completed due to a conflict with the current state of the resource.</p>
+            aws_sdk_qapps.errors.internal_server_exception.InternalServerException: <p>An internal service error occurred while processing the request.</p>
+            aws_sdk_qapps.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource could not be found.</p>
+            aws_sdk_qapps.errors.throttling_exception.ThrottlingException: <p>The requested operation could not be completed because too many requests were sent at once. Wait a bit and try again later.</p>
+            aws_sdk_qapps.errors.unauthorized_exception.UnauthorizedException: <p>The client is not authenticated or authorized to perform the requested operation.</p>
+            aws_sdk_qapps.errors.validation_exception.ValidationException: <p>The input failed to satisfy the constraints specified by the service.</p>
+            aws_sdk_qapps.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Updates the categories in the library
@@ -440,6 +491,16 @@ class QAppsClient:
             app_id: <p>The unique identifier of the Amazon Q App to publish to the library.</p>
             app_version: <p>The version of the Amazon Q App to publish to the library.</p>
             categories: <p>The categories to associate with the library item for easier discovery.</p>
+
+        Raises:
+            aws_sdk_qapps.errors.access_denied_exception.AccessDeniedException: <p>The client is not authorized to perform the requested operation.</p>
+            aws_sdk_qapps.errors.internal_server_exception.InternalServerException: <p>An internal service error occurred while processing the request.</p>
+            aws_sdk_qapps.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource could not be found.</p>
+            aws_sdk_qapps.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The requested operation could not be completed because it would exceed the service's quota or limit.</p>
+            aws_sdk_qapps.errors.throttling_exception.ThrottlingException: <p>The requested operation could not be completed because too many requests were sent at once. Wait a bit and try again later.</p>
+            aws_sdk_qapps.errors.unauthorized_exception.UnauthorizedException: <p>The client is not authenticated or authorized to perform the requested operation.</p>
+            aws_sdk_qapps.errors.validation_exception.ValidationException: <p>The input failed to satisfy the constraints specified by the service.</p>
+            aws_sdk_qapps.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Create a Library Item
@@ -497,6 +558,14 @@ class QAppsClient:
             file_name: <p>The name of the file to be uploaded.</p>
             scope: <p>Whether the file is associated with a Q App definition or a specific Q App session.</p>
             session_id: <p>The unique identifier of the Q App session the file is associated with, if applicable.</p>
+
+        Raises:
+            aws_sdk_qapps.errors.access_denied_exception.AccessDeniedException: <p>The client is not authorized to perform the requested operation.</p>
+            aws_sdk_qapps.errors.internal_server_exception.InternalServerException: <p>An internal service error occurred while processing the request.</p>
+            aws_sdk_qapps.errors.throttling_exception.ThrottlingException: <p>The requested operation could not be completed because too many requests were sent at once. Wait a bit and try again later.</p>
+            aws_sdk_qapps.errors.unauthorized_exception.UnauthorizedException: <p>The client is not authenticated or authorized to perform the requested operation.</p>
+            aws_sdk_qapps.errors.validation_exception.ValidationException: <p>The input failed to satisfy the constraints specified by the service.</p>
+            aws_sdk_qapps.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Upload a file to a specific session
@@ -558,6 +627,17 @@ class QAppsClient:
             app_definition: <p>The definition of the new Q App, specifying the cards and flow.</p>
             tags: <p>Optional tags to associate with the new Q App.</p>
 
+        Raises:
+            aws_sdk_qapps.errors.access_denied_exception.AccessDeniedException: <p>The client is not authorized to perform the requested operation.</p>
+            aws_sdk_qapps.errors.conflict_exception.ConflictException: <p>The requested operation could not be completed due to a conflict with the current state of the resource.</p>
+            aws_sdk_qapps.errors.content_too_large_exception.ContentTooLargeException: <p>The requested operation could not be completed because the content exceeds the maximum allowed size.</p>
+            aws_sdk_qapps.errors.internal_server_exception.InternalServerException: <p>An internal service error occurred while processing the request.</p>
+            aws_sdk_qapps.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The requested operation could not be completed because it would exceed the service's quota or limit.</p>
+            aws_sdk_qapps.errors.throttling_exception.ThrottlingException: <p>The requested operation could not be completed because too many requests were sent at once. Wait a bit and try again later.</p>
+            aws_sdk_qapps.errors.unauthorized_exception.UnauthorizedException: <p>The client is not authenticated or authorized to perform the requested operation.</p>
+            aws_sdk_qapps.errors.validation_exception.ValidationException: <p>The input failed to satisfy the constraints specified by the service.</p>
+            aws_sdk_qapps.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             A basic application with 1 text input card and 1 output card
 
@@ -608,6 +688,16 @@ class QAppsClient:
             instance_id: <p>The unique identifier of the Amazon Q Business application environment instance.</p>
             library_item_id: <p>The unique identifier of the library item to delete.</p>
 
+        Raises:
+            aws_sdk_qapps.errors.access_denied_exception.AccessDeniedException: <p>The client is not authorized to perform the requested operation.</p>
+            aws_sdk_qapps.errors.internal_server_exception.InternalServerException: <p>An internal service error occurred while processing the request.</p>
+            aws_sdk_qapps.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource could not be found.</p>
+            aws_sdk_qapps.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The requested operation could not be completed because it would exceed the service's quota or limit.</p>
+            aws_sdk_qapps.errors.throttling_exception.ThrottlingException: <p>The requested operation could not be completed because too many requests were sent at once. Wait a bit and try again later.</p>
+            aws_sdk_qapps.errors.unauthorized_exception.UnauthorizedException: <p>The client is not authenticated or authorized to perform the requested operation.</p>
+            aws_sdk_qapps.errors.validation_exception.ValidationException: <p>The input failed to satisfy the constraints specified by the service.</p>
+            aws_sdk_qapps.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Delete a library item
 
@@ -651,6 +741,15 @@ class QAppsClient:
             instance_id: <p>The unique identifier of the Amazon Q Business application environment instance.</p>
             app_id: <p>The unique identifier of the Q App to delete.</p>
 
+        Raises:
+            aws_sdk_qapps.errors.access_denied_exception.AccessDeniedException: <p>The client is not authorized to perform the requested operation.</p>
+            aws_sdk_qapps.errors.internal_server_exception.InternalServerException: <p>An internal service error occurred while processing the request.</p>
+            aws_sdk_qapps.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource could not be found.</p>
+            aws_sdk_qapps.errors.throttling_exception.ThrottlingException: <p>The requested operation could not be completed because too many requests were sent at once. Wait a bit and try again later.</p>
+            aws_sdk_qapps.errors.unauthorized_exception.UnauthorizedException: <p>The client is not authenticated or authorized to perform the requested operation.</p>
+            aws_sdk_qapps.errors.validation_exception.ValidationException: <p>The input failed to satisfy the constraints specified by the service.</p>
+            aws_sdk_qapps.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Delete an Amazon Q App
 
@@ -693,6 +792,15 @@ class QAppsClient:
         Args:
             instance_id: <p>The unique identifier of the Amazon Q Business application environment instance.</p>
             app_id: <p>The unique identifier of the Amazon Q App for which to retrieve permissions.</p>
+
+        Raises:
+            aws_sdk_qapps.errors.access_denied_exception.AccessDeniedException: <p>The client is not authorized to perform the requested operation.</p>
+            aws_sdk_qapps.errors.internal_server_exception.InternalServerException: <p>An internal service error occurred while processing the request.</p>
+            aws_sdk_qapps.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource could not be found.</p>
+            aws_sdk_qapps.errors.throttling_exception.ThrottlingException: <p>The requested operation could not be completed because too many requests were sent at once. Wait a bit and try again later.</p>
+            aws_sdk_qapps.errors.unauthorized_exception.UnauthorizedException: <p>The client is not authenticated or authorized to perform the requested operation.</p>
+            aws_sdk_qapps.errors.validation_exception.ValidationException: <p>The input failed to satisfy the constraints specified by the service.</p>
+            aws_sdk_qapps.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Describe permissions for the app
@@ -739,6 +847,17 @@ class QAppsClient:
             instance_id: <p>The unique identifier of the Amazon Q Business application environment instance.</p>
             library_item_id: <p>The unique identifier of the library item to remove the review from.</p>
 
+        Raises:
+            aws_sdk_qapps.errors.access_denied_exception.AccessDeniedException: <p>The client is not authorized to perform the requested operation.</p>
+            aws_sdk_qapps.errors.conflict_exception.ConflictException: <p>The requested operation could not be completed due to a conflict with the current state of the resource.</p>
+            aws_sdk_qapps.errors.internal_server_exception.InternalServerException: <p>An internal service error occurred while processing the request.</p>
+            aws_sdk_qapps.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource could not be found.</p>
+            aws_sdk_qapps.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The requested operation could not be completed because it would exceed the service's quota or limit.</p>
+            aws_sdk_qapps.errors.throttling_exception.ThrottlingException: <p>The requested operation could not be completed because too many requests were sent at once. Wait a bit and try again later.</p>
+            aws_sdk_qapps.errors.unauthorized_exception.UnauthorizedException: <p>The client is not authenticated or authorized to perform the requested operation.</p>
+            aws_sdk_qapps.errors.validation_exception.ValidationException: <p>The input failed to satisfy the constraints specified by the service.</p>
+            aws_sdk_qapps.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Decrease the rating counter by 1 for the related app for this user
 
@@ -782,6 +901,15 @@ class QAppsClient:
             instance_id: <p>The unique identifier of the Amazon Q Business application environment instance.</p>
             app_id: <p>The unique identifier of the Q App to disassociate from the user.</p>
 
+        Raises:
+            aws_sdk_qapps.errors.access_denied_exception.AccessDeniedException: <p>The client is not authorized to perform the requested operation.</p>
+            aws_sdk_qapps.errors.internal_server_exception.InternalServerException: <p>An internal service error occurred while processing the request.</p>
+            aws_sdk_qapps.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource could not be found.</p>
+            aws_sdk_qapps.errors.throttling_exception.ThrottlingException: <p>The requested operation could not be completed because too many requests were sent at once. Wait a bit and try again later.</p>
+            aws_sdk_qapps.errors.unauthorized_exception.UnauthorizedException: <p>The client is not authenticated or authorized to perform the requested operation.</p>
+            aws_sdk_qapps.errors.validation_exception.ValidationException: <p>The input failed to satisfy the constraints specified by the service.</p>
+            aws_sdk_qapps.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Unlinks an Amazon Q App from the invoker's list of apps
 
@@ -824,6 +952,17 @@ class QAppsClient:
         Args:
             instance_id: <p>The unique identifier of the Amazon Q Business application environment instance.</p>
             session_id: <p>The unique identifier of the Q App data collection session.</p>
+
+        Raises:
+            aws_sdk_qapps.errors.access_denied_exception.AccessDeniedException: <p>The client is not authorized to perform the requested operation.</p>
+            aws_sdk_qapps.errors.conflict_exception.ConflictException: <p>The requested operation could not be completed due to a conflict with the current state of the resource.</p>
+            aws_sdk_qapps.errors.internal_server_exception.InternalServerException: <p>An internal service error occurred while processing the request.</p>
+            aws_sdk_qapps.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource could not be found.</p>
+            aws_sdk_qapps.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The requested operation could not be completed because it would exceed the service's quota or limit.</p>
+            aws_sdk_qapps.errors.throttling_exception.ThrottlingException: <p>The requested operation could not be completed because too many requests were sent at once. Wait a bit and try again later.</p>
+            aws_sdk_qapps.errors.unauthorized_exception.UnauthorizedException: <p>The client is not authenticated or authorized to perform the requested operation.</p>
+            aws_sdk_qapps.errors.validation_exception.ValidationException: <p>The input failed to satisfy the constraints specified by the service.</p>
+            aws_sdk_qapps.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -866,6 +1005,15 @@ class QAppsClient:
             instance_id: <p>The unique identifier of the Amazon Q Business application environment instance.</p>
             library_item_id: <p>The unique identifier of the library item to retrieve.</p>
             app_id: <p>The unique identifier of the Amazon Q App associated with the library item.</p>
+
+        Raises:
+            aws_sdk_qapps.errors.access_denied_exception.AccessDeniedException: <p>The client is not authorized to perform the requested operation.</p>
+            aws_sdk_qapps.errors.internal_server_exception.InternalServerException: <p>An internal service error occurred while processing the request.</p>
+            aws_sdk_qapps.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource could not be found.</p>
+            aws_sdk_qapps.errors.throttling_exception.ThrottlingException: <p>The requested operation could not be completed because too many requests were sent at once. Wait a bit and try again later.</p>
+            aws_sdk_qapps.errors.unauthorized_exception.UnauthorizedException: <p>The client is not authenticated or authorized to perform the requested operation.</p>
+            aws_sdk_qapps.errors.validation_exception.ValidationException: <p>The input failed to satisfy the constraints specified by the service.</p>
+            aws_sdk_qapps.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Retrieve a library item
@@ -916,6 +1064,15 @@ class QAppsClient:
             app_id: <p>The unique identifier of the Q App to retrieve.</p>
             app_version: <p>The version of the Q App.</p>
 
+        Raises:
+            aws_sdk_qapps.errors.access_denied_exception.AccessDeniedException: <p>The client is not authorized to perform the requested operation.</p>
+            aws_sdk_qapps.errors.internal_server_exception.InternalServerException: <p>An internal service error occurred while processing the request.</p>
+            aws_sdk_qapps.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource could not be found.</p>
+            aws_sdk_qapps.errors.throttling_exception.ThrottlingException: <p>The requested operation could not be completed because too many requests were sent at once. Wait a bit and try again later.</p>
+            aws_sdk_qapps.errors.unauthorized_exception.UnauthorizedException: <p>The client is not authenticated or authorized to perform the requested operation.</p>
+            aws_sdk_qapps.errors.validation_exception.ValidationException: <p>The input failed to satisfy the constraints specified by the service.</p>
+            aws_sdk_qapps.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             A basic application with 1 text input card and 1 output card
 
@@ -961,6 +1118,16 @@ class QAppsClient:
             instance_id: <p>The unique identifier of the Amazon Q Business application environment instance.</p>
             session_id: <p>The unique identifier of the Q App session to retrieve.</p>
 
+        Raises:
+            aws_sdk_qapps.errors.access_denied_exception.AccessDeniedException: <p>The client is not authorized to perform the requested operation.</p>
+            aws_sdk_qapps.errors.internal_server_exception.InternalServerException: <p>An internal service error occurred while processing the request.</p>
+            aws_sdk_qapps.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource could not be found.</p>
+            aws_sdk_qapps.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The requested operation could not be completed because it would exceed the service's quota or limit.</p>
+            aws_sdk_qapps.errors.throttling_exception.ThrottlingException: <p>The requested operation could not be completed because too many requests were sent at once. Wait a bit and try again later.</p>
+            aws_sdk_qapps.errors.unauthorized_exception.UnauthorizedException: <p>The client is not authenticated or authorized to perform the requested operation.</p>
+            aws_sdk_qapps.errors.validation_exception.ValidationException: <p>The input failed to satisfy the constraints specified by the service.</p>
+            aws_sdk_qapps.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Retrieves an existing session for an Amazon Q App
 
@@ -1005,6 +1172,16 @@ class QAppsClient:
         Args:
             instance_id: <p>The unique identifier of the Amazon Q Business application environment instance.</p>
             session_id: <p>The unique identifier of the Q App session.</p>
+
+        Raises:
+            aws_sdk_qapps.errors.access_denied_exception.AccessDeniedException: <p>The client is not authorized to perform the requested operation.</p>
+            aws_sdk_qapps.errors.internal_server_exception.InternalServerException: <p>An internal service error occurred while processing the request.</p>
+            aws_sdk_qapps.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource could not be found.</p>
+            aws_sdk_qapps.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The requested operation could not be completed because it would exceed the service's quota or limit.</p>
+            aws_sdk_qapps.errors.throttling_exception.ThrottlingException: <p>The requested operation could not be completed because too many requests were sent at once. Wait a bit and try again later.</p>
+            aws_sdk_qapps.errors.unauthorized_exception.UnauthorizedException: <p>The client is not authenticated or authorized to perform the requested operation.</p>
+            aws_sdk_qapps.errors.validation_exception.ValidationException: <p>The input failed to satisfy the constraints specified by the service.</p>
+            aws_sdk_qapps.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Retrieves an existing session metadata for an Amazon Q App
@@ -1061,6 +1238,17 @@ class QAppsClient:
             scope: <p>Whether the file is associated with a Q App definition or a specific Q App session.</p>
             session_id: <p>The unique identifier of the Q App session the file is associated with, if applicable.</p>
 
+        Raises:
+            aws_sdk_qapps.errors.access_denied_exception.AccessDeniedException: <p>The client is not authorized to perform the requested operation.</p>
+            aws_sdk_qapps.errors.content_too_large_exception.ContentTooLargeException: <p>The requested operation could not be completed because the content exceeds the maximum allowed size.</p>
+            aws_sdk_qapps.errors.internal_server_exception.InternalServerException: <p>An internal service error occurred while processing the request.</p>
+            aws_sdk_qapps.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource could not be found.</p>
+            aws_sdk_qapps.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The requested operation could not be completed because it would exceed the service's quota or limit.</p>
+            aws_sdk_qapps.errors.throttling_exception.ThrottlingException: <p>The requested operation could not be completed because too many requests were sent at once. Wait a bit and try again later.</p>
+            aws_sdk_qapps.errors.unauthorized_exception.UnauthorizedException: <p>The client is not authenticated or authorized to perform the requested operation.</p>
+            aws_sdk_qapps.errors.validation_exception.ValidationException: <p>The input failed to satisfy the constraints specified by the service.</p>
+            aws_sdk_qapps.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Upload a file to a specific session
 
@@ -1113,6 +1301,15 @@ class QAppsClient:
         Args:
             instance_id: <p>The unique identifier of the Amazon Q Business application environment instance.</p>
 
+        Raises:
+            aws_sdk_qapps.errors.access_denied_exception.AccessDeniedException: <p>The client is not authorized to perform the requested operation.</p>
+            aws_sdk_qapps.errors.internal_server_exception.InternalServerException: <p>An internal service error occurred while processing the request.</p>
+            aws_sdk_qapps.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource could not be found.</p>
+            aws_sdk_qapps.errors.throttling_exception.ThrottlingException: <p>The requested operation could not be completed because too many requests were sent at once. Wait a bit and try again later.</p>
+            aws_sdk_qapps.errors.unauthorized_exception.UnauthorizedException: <p>The client is not authenticated or authorized to perform the requested operation.</p>
+            aws_sdk_qapps.errors.validation_exception.ValidationException: <p>The input failed to satisfy the constraints specified by the service.</p>
+            aws_sdk_qapps.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             List categories available for the library items in this instance
 
@@ -1162,6 +1359,15 @@ class QAppsClient:
             limit: <p>The maximum number of library items to return in the response.</p>
             next_token: <p>The token to request the next page of results.</p>
             category_id: <p>Optional category to filter the library items by.</p>
+
+        Raises:
+            aws_sdk_qapps.errors.access_denied_exception.AccessDeniedException: <p>The client is not authorized to perform the requested operation.</p>
+            aws_sdk_qapps.errors.internal_server_exception.InternalServerException: <p>An internal service error occurred while processing the request.</p>
+            aws_sdk_qapps.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource could not be found.</p>
+            aws_sdk_qapps.errors.throttling_exception.ThrottlingException: <p>The requested operation could not be completed because too many requests were sent at once. Wait a bit and try again later.</p>
+            aws_sdk_qapps.errors.unauthorized_exception.UnauthorizedException: <p>The client is not authenticated or authorized to perform the requested operation.</p>
+            aws_sdk_qapps.errors.validation_exception.ValidationException: <p>The input failed to satisfy the constraints specified by the service.</p>
+            aws_sdk_qapps.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             List at most 3 library items for this instance
@@ -1244,6 +1450,14 @@ class QAppsClient:
             limit: <p>The maximum number of Q Apps to return in the response.</p>
             next_token: <p>The token to request the next page of results.</p>
 
+        Raises:
+            aws_sdk_qapps.errors.access_denied_exception.AccessDeniedException: <p>The client is not authorized to perform the requested operation.</p>
+            aws_sdk_qapps.errors.internal_server_exception.InternalServerException: <p>An internal service error occurred while processing the request.</p>
+            aws_sdk_qapps.errors.throttling_exception.ThrottlingException: <p>The requested operation could not be completed because too many requests were sent at once. Wait a bit and try again later.</p>
+            aws_sdk_qapps.errors.unauthorized_exception.UnauthorizedException: <p>The client is not authenticated or authorized to perform the requested operation.</p>
+            aws_sdk_qapps.errors.validation_exception.ValidationException: <p>The input failed to satisfy the constraints specified by the service.</p>
+            aws_sdk_qapps.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             List at most 3 Amazon Q Apps in an Q Business application
 
@@ -1319,6 +1533,16 @@ class QAppsClient:
         Args:
             instance_id: <p>The unique identifier of the Amazon Q Business application environment instance.</p>
             session_id: <p>The unique identifier of the Q App data collection session.</p>
+
+        Raises:
+            aws_sdk_qapps.errors.access_denied_exception.AccessDeniedException: <p>The client is not authorized to perform the requested operation.</p>
+            aws_sdk_qapps.errors.internal_server_exception.InternalServerException: <p>An internal service error occurred while processing the request.</p>
+            aws_sdk_qapps.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource could not be found.</p>
+            aws_sdk_qapps.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The requested operation could not be completed because it would exceed the service's quota or limit.</p>
+            aws_sdk_qapps.errors.throttling_exception.ThrottlingException: <p>The requested operation could not be completed because too many requests were sent at once. Wait a bit and try again later.</p>
+            aws_sdk_qapps.errors.unauthorized_exception.UnauthorizedException: <p>The client is not authenticated or authorized to perform the requested operation.</p>
+            aws_sdk_qapps.errors.validation_exception.ValidationException: <p>The input failed to satisfy the constraints specified by the service.</p>
+            aws_sdk_qapps.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1357,6 +1581,14 @@ class QAppsClient:
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource whose tags should be listed.</p>
+
+        Raises:
+            aws_sdk_qapps.errors.access_denied_exception.AccessDeniedException: <p>The client is not authorized to perform the requested operation.</p>
+            aws_sdk_qapps.errors.internal_server_exception.InternalServerException: <p>An internal service error occurred while processing the request.</p>
+            aws_sdk_qapps.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource could not be found.</p>
+            aws_sdk_qapps.errors.throttling_exception.ThrottlingException: <p>The requested operation could not be completed because too many requests were sent at once. Wait a bit and try again later.</p>
+            aws_sdk_qapps.errors.validation_exception.ValidationException: <p>The input failed to satisfy the constraints specified by the service.</p>
+            aws_sdk_qapps.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             A call to list tags for a resource
@@ -1403,6 +1635,14 @@ class QAppsClient:
         Args:
             instance_id: <p>The unique identifier of the Amazon Q Business application environment instance.</p>
             options: <p>The input to generate the Q App definition from, either a conversation or problem statement.</p>
+
+        Raises:
+            aws_sdk_qapps.errors.access_denied_exception.AccessDeniedException: <p>The client is not authorized to perform the requested operation.</p>
+            aws_sdk_qapps.errors.internal_server_exception.InternalServerException: <p>An internal service error occurred while processing the request.</p>
+            aws_sdk_qapps.errors.throttling_exception.ThrottlingException: <p>The requested operation could not be completed because too many requests were sent at once. Wait a bit and try again later.</p>
+            aws_sdk_qapps.errors.unauthorized_exception.UnauthorizedException: <p>The client is not authenticated or authorized to perform the requested operation.</p>
+            aws_sdk_qapps.errors.validation_exception.ValidationException: <p>The input failed to satisfy the constraints specified by the service.</p>
+            aws_sdk_qapps.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1455,6 +1695,16 @@ class QAppsClient:
             session_id: <p>The unique identifier of the a Q App session.</p>
             tags: <p>Optional tags to associate with the new Q App session.</p>
 
+        Raises:
+            aws_sdk_qapps.errors.access_denied_exception.AccessDeniedException: <p>The client is not authorized to perform the requested operation.</p>
+            aws_sdk_qapps.errors.internal_server_exception.InternalServerException: <p>An internal service error occurred while processing the request.</p>
+            aws_sdk_qapps.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource could not be found.</p>
+            aws_sdk_qapps.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The requested operation could not be completed because it would exceed the service's quota or limit.</p>
+            aws_sdk_qapps.errors.throttling_exception.ThrottlingException: <p>The requested operation could not be completed because too many requests were sent at once. Wait a bit and try again later.</p>
+            aws_sdk_qapps.errors.unauthorized_exception.UnauthorizedException: <p>The client is not authenticated or authorized to perform the requested operation.</p>
+            aws_sdk_qapps.errors.validation_exception.ValidationException: <p>The input failed to satisfy the constraints specified by the service.</p>
+            aws_sdk_qapps.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Start a session for an Amazon Q App using version 1, passing in initial values for one card
 
@@ -1506,6 +1756,16 @@ class QAppsClient:
         Args:
             instance_id: <p>The unique identifier of the Amazon Q Business application environment instance.</p>
             session_id: <p>The unique identifier of the Q App session to stop.</p>
+
+        Raises:
+            aws_sdk_qapps.errors.access_denied_exception.AccessDeniedException: <p>The client is not authorized to perform the requested operation.</p>
+            aws_sdk_qapps.errors.internal_server_exception.InternalServerException: <p>An internal service error occurred while processing the request.</p>
+            aws_sdk_qapps.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource could not be found.</p>
+            aws_sdk_qapps.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The requested operation could not be completed because it would exceed the service's quota or limit.</p>
+            aws_sdk_qapps.errors.throttling_exception.ThrottlingException: <p>The requested operation could not be completed because too many requests were sent at once. Wait a bit and try again later.</p>
+            aws_sdk_qapps.errors.unauthorized_exception.UnauthorizedException: <p>The client is not authenticated or authorized to perform the requested operation.</p>
+            aws_sdk_qapps.errors.validation_exception.ValidationException: <p>The input failed to satisfy the constraints specified by the service.</p>
+            aws_sdk_qapps.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1544,6 +1804,15 @@ class QAppsClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource to tag.</p>
             tags: <p>The tags to associate with the resource.</p>
+
+        Raises:
+            aws_sdk_qapps.errors.access_denied_exception.AccessDeniedException: <p>The client is not authorized to perform the requested operation.</p>
+            aws_sdk_qapps.errors.conflict_exception.ConflictException: <p>The requested operation could not be completed due to a conflict with the current state of the resource.</p>
+            aws_sdk_qapps.errors.internal_server_exception.InternalServerException: <p>An internal service error occurred while processing the request.</p>
+            aws_sdk_qapps.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource could not be found.</p>
+            aws_sdk_qapps.errors.throttling_exception.ThrottlingException: <p>The requested operation could not be completed because too many requests were sent at once. Wait a bit and try again later.</p>
+            aws_sdk_qapps.errors.validation_exception.ValidationException: <p>The input failed to satisfy the constraints specified by the service.</p>
+            aws_sdk_qapps.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             A call to tag a resource
@@ -1589,6 +1858,14 @@ class QAppsClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource to disassociate the tag from.</p>
             tag_keys: <p>The keys of the tags to disassociate from the resource.</p>
+
+        Raises:
+            aws_sdk_qapps.errors.access_denied_exception.AccessDeniedException: <p>The client is not authorized to perform the requested operation.</p>
+            aws_sdk_qapps.errors.internal_server_exception.InternalServerException: <p>An internal service error occurred while processing the request.</p>
+            aws_sdk_qapps.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource could not be found.</p>
+            aws_sdk_qapps.errors.throttling_exception.ThrottlingException: <p>The requested operation could not be completed because too many requests were sent at once. Wait a bit and try again later.</p>
+            aws_sdk_qapps.errors.validation_exception.ValidationException: <p>The input failed to satisfy the constraints specified by the service.</p>
+            aws_sdk_qapps.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             A call to untag a resource
@@ -1643,6 +1920,16 @@ class QAppsClient:
             status: <p>The new status to set for the library item, such as \"Published\" or \"Hidden\".</p>
             categories: <p>The new categories to associate with the library item.</p>
 
+        Raises:
+            aws_sdk_qapps.errors.access_denied_exception.AccessDeniedException: <p>The client is not authorized to perform the requested operation.</p>
+            aws_sdk_qapps.errors.conflict_exception.ConflictException: <p>The requested operation could not be completed due to a conflict with the current state of the resource.</p>
+            aws_sdk_qapps.errors.internal_server_exception.InternalServerException: <p>An internal service error occurred while processing the request.</p>
+            aws_sdk_qapps.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource could not be found.</p>
+            aws_sdk_qapps.errors.throttling_exception.ThrottlingException: <p>The requested operation could not be completed because too many requests were sent at once. Wait a bit and try again later.</p>
+            aws_sdk_qapps.errors.unauthorized_exception.UnauthorizedException: <p>The client is not authenticated or authorized to perform the requested operation.</p>
+            aws_sdk_qapps.errors.validation_exception.ValidationException: <p>The input failed to satisfy the constraints specified by the service.</p>
+            aws_sdk_qapps.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Sets the status of a library item to DISABLED
 
@@ -1693,6 +1980,16 @@ class QAppsClient:
             instance_id: <p>The unique identifier of the Amazon Q Business application environment instance.</p>
             library_item_id: <p>The unique identifier of the updated library item.</p>
             is_verified: <p>The verification status of the library item</p>
+
+        Raises:
+            aws_sdk_qapps.errors.access_denied_exception.AccessDeniedException: <p>The client is not authorized to perform the requested operation.</p>
+            aws_sdk_qapps.errors.conflict_exception.ConflictException: <p>The requested operation could not be completed due to a conflict with the current state of the resource.</p>
+            aws_sdk_qapps.errors.internal_server_exception.InternalServerException: <p>An internal service error occurred while processing the request.</p>
+            aws_sdk_qapps.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource could not be found.</p>
+            aws_sdk_qapps.errors.throttling_exception.ThrottlingException: <p>The requested operation could not be completed because too many requests were sent at once. Wait a bit and try again later.</p>
+            aws_sdk_qapps.errors.unauthorized_exception.UnauthorizedException: <p>The client is not authenticated or authorized to perform the requested operation.</p>
+            aws_sdk_qapps.errors.validation_exception.ValidationException: <p>The input failed to satisfy the constraints specified by the service.</p>
+            aws_sdk_qapps.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Update a library item to be verified
@@ -1746,6 +2043,16 @@ class QAppsClient:
             title: <p>The new title for the Q App.</p>
             description: <p>The new description for the Q App.</p>
             app_definition: <p>The new definition specifying the cards and flow for the Q App.</p>
+
+        Raises:
+            aws_sdk_qapps.errors.access_denied_exception.AccessDeniedException: <p>The client is not authorized to perform the requested operation.</p>
+            aws_sdk_qapps.errors.content_too_large_exception.ContentTooLargeException: <p>The requested operation could not be completed because the content exceeds the maximum allowed size.</p>
+            aws_sdk_qapps.errors.internal_server_exception.InternalServerException: <p>An internal service error occurred while processing the request.</p>
+            aws_sdk_qapps.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource could not be found.</p>
+            aws_sdk_qapps.errors.throttling_exception.ThrottlingException: <p>The requested operation could not be completed because too many requests were sent at once. Wait a bit and try again later.</p>
+            aws_sdk_qapps.errors.unauthorized_exception.UnauthorizedException: <p>The client is not authenticated or authorized to perform the requested operation.</p>
+            aws_sdk_qapps.errors.validation_exception.ValidationException: <p>The input failed to satisfy the constraints specified by the service.</p>
+            aws_sdk_qapps.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Updating the title of an app
@@ -1809,6 +2116,15 @@ class QAppsClient:
             grant_permissions: <p>The list of permissions to grant for the Amazon Q App.</p>
             revoke_permissions: <p>The list of permissions to revoke for the Amazon Q App.</p>
 
+        Raises:
+            aws_sdk_qapps.errors.access_denied_exception.AccessDeniedException: <p>The client is not authorized to perform the requested operation.</p>
+            aws_sdk_qapps.errors.internal_server_exception.InternalServerException: <p>An internal service error occurred while processing the request.</p>
+            aws_sdk_qapps.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource could not be found.</p>
+            aws_sdk_qapps.errors.throttling_exception.ThrottlingException: <p>The requested operation could not be completed because too many requests were sent at once. Wait a bit and try again later.</p>
+            aws_sdk_qapps.errors.unauthorized_exception.UnauthorizedException: <p>The client is not authenticated or authorized to perform the requested operation.</p>
+            aws_sdk_qapps.errors.validation_exception.ValidationException: <p>The input failed to satisfy the constraints specified by the service.</p>
+            aws_sdk_qapps.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Grant permissions for the app
 
@@ -1862,6 +2178,16 @@ class QAppsClient:
             instance_id: <p>The unique identifier of the Amazon Q Business application environment instance.</p>
             session_id: <p>The unique identifier of the Q App session to provide input for.</p>
             values: <p>The input values to provide for the current state of the Q App session.</p>
+
+        Raises:
+            aws_sdk_qapps.errors.access_denied_exception.AccessDeniedException: <p>The client is not authorized to perform the requested operation.</p>
+            aws_sdk_qapps.errors.internal_server_exception.InternalServerException: <p>An internal service error occurred while processing the request.</p>
+            aws_sdk_qapps.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource could not be found.</p>
+            aws_sdk_qapps.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The requested operation could not be completed because it would exceed the service's quota or limit.</p>
+            aws_sdk_qapps.errors.throttling_exception.ThrottlingException: <p>The requested operation could not be completed because too many requests were sent at once. Wait a bit and try again later.</p>
+            aws_sdk_qapps.errors.unauthorized_exception.UnauthorizedException: <p>The client is not authenticated or authorized to perform the requested operation.</p>
+            aws_sdk_qapps.errors.validation_exception.ValidationException: <p>The input failed to satisfy the constraints specified by the service.</p>
+            aws_sdk_qapps.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1908,6 +2234,16 @@ class QAppsClient:
             session_id: <p>The unique identifier of the Q App session to update configuration for.</p>
             session_name: <p>The new name for the Q App session.</p>
             sharing_configuration: <p>The new sharing configuration for the Q App data collection session.</p>
+
+        Raises:
+            aws_sdk_qapps.errors.access_denied_exception.AccessDeniedException: <p>The client is not authorized to perform the requested operation.</p>
+            aws_sdk_qapps.errors.internal_server_exception.InternalServerException: <p>An internal service error occurred while processing the request.</p>
+            aws_sdk_qapps.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource could not be found.</p>
+            aws_sdk_qapps.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The requested operation could not be completed because it would exceed the service's quota or limit.</p>
+            aws_sdk_qapps.errors.throttling_exception.ThrottlingException: <p>The requested operation could not be completed because too many requests were sent at once. Wait a bit and try again later.</p>
+            aws_sdk_qapps.errors.unauthorized_exception.UnauthorizedException: <p>The client is not authenticated or authorized to perform the requested operation.</p>
+            aws_sdk_qapps.errors.validation_exception.ValidationException: <p>The input failed to satisfy the constraints specified by the service.</p>
+            aws_sdk_qapps.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Updates an existing session metadata for an Amazon Q App

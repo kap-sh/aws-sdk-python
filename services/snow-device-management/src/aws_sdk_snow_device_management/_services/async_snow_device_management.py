@@ -148,6 +148,12 @@ class AsyncSnowDeviceManagementClient:
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the device or task.</p>
+
+        Raises:
+            aws_sdk_snow_device_management.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing the request.</p>
+            aws_sdk_snow_device_management.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource that doesn't exist.</p>
+            aws_sdk_snow_device_management.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_snow_device_management.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -188,6 +194,12 @@ class AsyncSnowDeviceManagementClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the device or task.</p>
             tags: <p>Optional metadata that you assign to a resource. You can use tags to categorize a resource in different ways, such as by purpose, owner, or environment.</p>
+
+        Raises:
+            aws_sdk_snow_device_management.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing the request.</p>
+            aws_sdk_snow_device_management.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource that doesn't exist.</p>
+            aws_sdk_snow_device_management.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_snow_device_management.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -227,6 +239,12 @@ class AsyncSnowDeviceManagementClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the device or task.</p>
             tag_keys: <p>Optional metadata that you assign to a resource. You can use tags to categorize a resource in different ways, such as by purpose, owner, or environment.</p>
+
+        Raises:
+            aws_sdk_snow_device_management.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing the request.</p>
+            aws_sdk_snow_device_management.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource that doesn't exist.</p>
+            aws_sdk_snow_device_management.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_snow_device_management.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

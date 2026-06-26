@@ -266,6 +266,13 @@ class IoTTwinMakerClient:
         Args:
             workspace_id: <p>The ID of the workspace that contains the properties to set.</p>
             entries: <p>An object that maps strings to the property value entries to set. Each string in the mapping must be unique to this object.</p>
+
+        Raises:
+            aws_sdk_iottwinmaker.errors.internal_server_exception.InternalServerException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iottwinmaker.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource wasn't found.</p>
+            aws_sdk_iottwinmaker.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iottwinmaker.errors.validation_exception.ValidationException: <p>Failed</p>
+            aws_sdk_iottwinmaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -304,6 +311,15 @@ class IoTTwinMakerClient:
 
         Args:
             metadata_transfer_job_id: <p>The metadata transfer job Id.</p>
+
+        Raises:
+            aws_sdk_iottwinmaker.errors.access_denied_exception.AccessDeniedException: <p>Access is denied.</p>
+            aws_sdk_iottwinmaker.errors.conflict_exception.ConflictException: <p>A conflict occurred.</p>
+            aws_sdk_iottwinmaker.errors.internal_server_exception.InternalServerException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iottwinmaker.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource wasn't found.</p>
+            aws_sdk_iottwinmaker.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iottwinmaker.errors.validation_exception.ValidationException: <p>Failed</p>
+            aws_sdk_iottwinmaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -375,6 +391,15 @@ class IoTTwinMakerClient:
             property_groups: <p/>
             component_type_name: <p>A friendly name for the component type.</p>
             composite_component_types: <p>This is an object that maps strings to <code>compositeComponentTypes</code> of the <code>componentType</code>. <code>CompositeComponentType</code> is referenced by <code>componentTypeId</code>.</p>
+
+        Raises:
+            aws_sdk_iottwinmaker.errors.access_denied_exception.AccessDeniedException: <p>Access is denied.</p>
+            aws_sdk_iottwinmaker.errors.conflict_exception.ConflictException: <p>A conflict occurred.</p>
+            aws_sdk_iottwinmaker.errors.internal_server_exception.InternalServerException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iottwinmaker.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The service quota was exceeded.</p>
+            aws_sdk_iottwinmaker.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iottwinmaker.errors.validation_exception.ValidationException: <p>Failed</p>
+            aws_sdk_iottwinmaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -453,6 +478,15 @@ class IoTTwinMakerClient:
             composite_components: <p>This is an object that maps strings to <code>compositeComponent</code> updates in the request. Each key of the map represents the <code>componentPath</code> of the <code>compositeComponent</code>.</p>
             parent_entity_id: <p>The ID of the entity's parent entity.</p>
             tags: <p>Metadata that you can use to manage the entity.</p>
+
+        Raises:
+            aws_sdk_iottwinmaker.errors.access_denied_exception.AccessDeniedException: <p>Access is denied.</p>
+            aws_sdk_iottwinmaker.errors.conflict_exception.ConflictException: <p>A conflict occurred.</p>
+            aws_sdk_iottwinmaker.errors.internal_server_exception.InternalServerException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iottwinmaker.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The service quota was exceeded.</p>
+            aws_sdk_iottwinmaker.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iottwinmaker.errors.validation_exception.ValidationException: <p>Failed</p>
+            aws_sdk_iottwinmaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -511,6 +545,16 @@ class IoTTwinMakerClient:
             description: <p>The metadata transfer job description.</p>
             sources: <p>The metadata transfer job sources.</p>
             destination: <p>The metadata transfer job destination.</p>
+
+        Raises:
+            aws_sdk_iottwinmaker.errors.access_denied_exception.AccessDeniedException: <p>Access is denied.</p>
+            aws_sdk_iottwinmaker.errors.conflict_exception.ConflictException: <p>A conflict occurred.</p>
+            aws_sdk_iottwinmaker.errors.internal_server_exception.InternalServerException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iottwinmaker.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource wasn't found.</p>
+            aws_sdk_iottwinmaker.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The service quota was exceeded.</p>
+            aws_sdk_iottwinmaker.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iottwinmaker.errors.validation_exception.ValidationException: <p>Failed</p>
+            aws_sdk_iottwinmaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -571,6 +615,15 @@ class IoTTwinMakerClient:
             capabilities: <p>A list of capabilities that the scene uses to render itself.</p>
             tags: <p>Metadata that you can use to manage the scene.</p>
             scene_metadata: <p>The request metadata.</p>
+
+        Raises:
+            aws_sdk_iottwinmaker.errors.access_denied_exception.AccessDeniedException: <p>Access is denied.</p>
+            aws_sdk_iottwinmaker.errors.conflict_exception.ConflictException: <p>A conflict occurred.</p>
+            aws_sdk_iottwinmaker.errors.internal_server_exception.InternalServerException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iottwinmaker.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The service quota was exceeded.</p>
+            aws_sdk_iottwinmaker.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iottwinmaker.errors.validation_exception.ValidationException: <p>Failed</p>
+            aws_sdk_iottwinmaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -624,6 +677,15 @@ class IoTTwinMakerClient:
             sync_source: <p>The sync source.</p> <note> <p>Currently the only supported syncSoource is <code>SITEWISE </code>.</p> </note>
             sync_role: <p>The SyncJob IAM role. This IAM role is used by the SyncJob to read from the syncSource, and create, update, or delete the corresponding resources.</p>
             tags: <p>The SyncJob tags.</p>
+
+        Raises:
+            aws_sdk_iottwinmaker.errors.access_denied_exception.AccessDeniedException: <p>Access is denied.</p>
+            aws_sdk_iottwinmaker.errors.conflict_exception.ConflictException: <p>A conflict occurred.</p>
+            aws_sdk_iottwinmaker.errors.internal_server_exception.InternalServerException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iottwinmaker.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The service quota was exceeded.</p>
+            aws_sdk_iottwinmaker.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iottwinmaker.errors.validation_exception.ValidationException: <p>Failed</p>
+            aws_sdk_iottwinmaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -677,6 +739,15 @@ class IoTTwinMakerClient:
             s3_location: <p>The ARN of the S3 bucket where resources associated with the workspace are stored.</p>
             role: <p>The ARN of the execution role associated with the workspace.</p>
             tags: <p>Metadata that you can use to manage the workspace</p>
+
+        Raises:
+            aws_sdk_iottwinmaker.errors.access_denied_exception.AccessDeniedException: <p>Access is denied.</p>
+            aws_sdk_iottwinmaker.errors.conflict_exception.ConflictException: <p>A conflict occurred.</p>
+            aws_sdk_iottwinmaker.errors.internal_server_exception.InternalServerException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iottwinmaker.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The service quota was exceeded.</p>
+            aws_sdk_iottwinmaker.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iottwinmaker.errors.validation_exception.ValidationException: <p>Failed</p>
+            aws_sdk_iottwinmaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -724,6 +795,14 @@ class IoTTwinMakerClient:
         Args:
             workspace_id: <p>The ID of the workspace that contains the component type.</p>
             component_type_id: <p>The ID of the component type to delete.</p>
+
+        Raises:
+            aws_sdk_iottwinmaker.errors.access_denied_exception.AccessDeniedException: <p>Access is denied.</p>
+            aws_sdk_iottwinmaker.errors.internal_server_exception.InternalServerException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iottwinmaker.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource wasn't found.</p>
+            aws_sdk_iottwinmaker.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iottwinmaker.errors.validation_exception.ValidationException: <p>Failed</p>
+            aws_sdk_iottwinmaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -766,6 +845,14 @@ class IoTTwinMakerClient:
             workspace_id: <p>The ID of the workspace that contains the entity to delete.</p>
             entity_id: <p>The ID of the entity to delete.</p>
             is_recursive: <p>A Boolean value that specifies whether the operation deletes child entities.</p>
+
+        Raises:
+            aws_sdk_iottwinmaker.errors.internal_server_exception.InternalServerException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iottwinmaker.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource wasn't found.</p>
+            aws_sdk_iottwinmaker.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The service quota was exceeded.</p>
+            aws_sdk_iottwinmaker.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iottwinmaker.errors.validation_exception.ValidationException: <p>Failed</p>
+            aws_sdk_iottwinmaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -808,6 +895,14 @@ class IoTTwinMakerClient:
         Args:
             workspace_id: <p>The ID of the workspace.</p>
             scene_id: <p>The ID of the scene to delete.</p>
+
+        Raises:
+            aws_sdk_iottwinmaker.errors.access_denied_exception.AccessDeniedException: <p>Access is denied.</p>
+            aws_sdk_iottwinmaker.errors.internal_server_exception.InternalServerException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iottwinmaker.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource wasn't found.</p>
+            aws_sdk_iottwinmaker.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iottwinmaker.errors.validation_exception.ValidationException: <p>Failed</p>
+            aws_sdk_iottwinmaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -848,6 +943,15 @@ class IoTTwinMakerClient:
         Args:
             workspace_id: <p>The workspace ID.</p>
             sync_source: <p>The sync source.</p> <note> <p>Currently the only supported syncSource is <code>SITEWISE </code>.</p> </note>
+
+        Raises:
+            aws_sdk_iottwinmaker.errors.access_denied_exception.AccessDeniedException: <p>Access is denied.</p>
+            aws_sdk_iottwinmaker.errors.internal_server_exception.InternalServerException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iottwinmaker.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource wasn't found.</p>
+            aws_sdk_iottwinmaker.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The service quota was exceeded.</p>
+            aws_sdk_iottwinmaker.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iottwinmaker.errors.validation_exception.ValidationException: <p>Failed</p>
+            aws_sdk_iottwinmaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -886,6 +990,14 @@ class IoTTwinMakerClient:
 
         Args:
             workspace_id: <p>The ID of the workspace to delete.</p>
+
+        Raises:
+            aws_sdk_iottwinmaker.errors.access_denied_exception.AccessDeniedException: <p>Access is denied.</p>
+            aws_sdk_iottwinmaker.errors.internal_server_exception.InternalServerException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iottwinmaker.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource wasn't found.</p>
+            aws_sdk_iottwinmaker.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iottwinmaker.errors.validation_exception.ValidationException: <p>Failed</p>
+            aws_sdk_iottwinmaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -931,6 +1043,15 @@ class IoTTwinMakerClient:
             query_statement: <p>The query statement.</p>
             max_results: <p>The maximum number of results to return at one time. The default is 50.</p>
             next_token: <p>The string that specifies the next page of results.</p>
+
+        Raises:
+            aws_sdk_iottwinmaker.errors.access_denied_exception.AccessDeniedException: <p>Access is denied.</p>
+            aws_sdk_iottwinmaker.errors.internal_server_exception.InternalServerException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iottwinmaker.errors.query_timeout_exception.QueryTimeoutException: <p>The query timeout exception.</p>
+            aws_sdk_iottwinmaker.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The service quota was exceeded.</p>
+            aws_sdk_iottwinmaker.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iottwinmaker.errors.validation_exception.ValidationException: <p>Failed</p>
+            aws_sdk_iottwinmaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -975,6 +1096,14 @@ class IoTTwinMakerClient:
         Args:
             workspace_id: <p>The ID of the workspace that contains the component type.</p>
             component_type_id: <p>The ID of the component type.</p>
+
+        Raises:
+            aws_sdk_iottwinmaker.errors.access_denied_exception.AccessDeniedException: <p>Access is denied.</p>
+            aws_sdk_iottwinmaker.errors.internal_server_exception.InternalServerException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iottwinmaker.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource wasn't found.</p>
+            aws_sdk_iottwinmaker.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iottwinmaker.errors.validation_exception.ValidationException: <p>Failed</p>
+            aws_sdk_iottwinmaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1015,6 +1144,14 @@ class IoTTwinMakerClient:
         Args:
             workspace_id: <p>The ID of the workspace.</p>
             entity_id: <p>The ID of the entity.</p>
+
+        Raises:
+            aws_sdk_iottwinmaker.errors.internal_server_exception.InternalServerException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iottwinmaker.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource wasn't found.</p>
+            aws_sdk_iottwinmaker.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The service quota was exceeded.</p>
+            aws_sdk_iottwinmaker.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iottwinmaker.errors.validation_exception.ValidationException: <p>Failed</p>
+            aws_sdk_iottwinmaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1053,6 +1190,14 @@ class IoTTwinMakerClient:
 
         Args:
             metadata_transfer_job_id: <p>The metadata transfer job Id.</p>
+
+        Raises:
+            aws_sdk_iottwinmaker.errors.access_denied_exception.AccessDeniedException: <p>Access is denied.</p>
+            aws_sdk_iottwinmaker.errors.internal_server_exception.InternalServerException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iottwinmaker.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource wasn't found.</p>
+            aws_sdk_iottwinmaker.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iottwinmaker.errors.validation_exception.ValidationException: <p>Failed</p>
+            aws_sdk_iottwinmaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1083,7 +1228,15 @@ class IoTTwinMakerClient:
     def get_pricing_plan(
         self, *, config_overrides: Optional[IoTTwinMakerClientConfig] = None
     ) -> "aws_sdk_iottwinmaker.types.get_pricing_plan_response.GetPricingPlanResponse":
-        """<p>Gets the pricing plan.</p>"""
+        """<p>Gets the pricing plan.</p>
+
+        Raises:
+            aws_sdk_iottwinmaker.errors.access_denied_exception.AccessDeniedException: <p>Access is denied.</p>
+            aws_sdk_iottwinmaker.errors.internal_server_exception.InternalServerException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iottwinmaker.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iottwinmaker.errors.validation_exception.ValidationException: <p>Failed</p>
+            aws_sdk_iottwinmaker.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_iottwinmaker.types.get_pricing_plan_request.GetPricingPlanRequest]",
@@ -1145,6 +1298,16 @@ class IoTTwinMakerClient:
             next_token: <p>The string that specifies the next page of results.</p>
             property_group_name: <p>The property group name.</p>
             tabular_conditions: <p>The tabular conditions.</p>
+
+        Raises:
+            aws_sdk_iottwinmaker.errors.access_denied_exception.AccessDeniedException: <p>Access is denied.</p>
+            aws_sdk_iottwinmaker.errors.connector_failure_exception.ConnectorFailureException: <p>The connector failed.</p>
+            aws_sdk_iottwinmaker.errors.connector_timeout_exception.ConnectorTimeoutException: <p>The connector timed out.</p>
+            aws_sdk_iottwinmaker.errors.internal_server_exception.InternalServerException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iottwinmaker.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource wasn't found.</p>
+            aws_sdk_iottwinmaker.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iottwinmaker.errors.validation_exception.ValidationException: <p>Failed</p>
+            aws_sdk_iottwinmaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1243,6 +1406,16 @@ class IoTTwinMakerClient:
             order_by_time: <p>The time direction to use in the result order.</p>
             start_time: <p>The ISO8601 DateTime of the earliest property value to return.</p> <p>For more information about the ISO8601 DateTime format, see the data type <a href=\"https://docs.aws.amazon.com/iot-twinmaker/latest/apireference/API_PropertyValue.html\">PropertyValue</a>.</p>
             end_time: <p>The ISO8601 DateTime of the latest property value to return.</p> <p>For more information about the ISO8601 DateTime format, see the data type <a href=\"https://docs.aws.amazon.com/iot-twinmaker/latest/apireference/API_PropertyValue.html\">PropertyValue</a>.</p>
+
+        Raises:
+            aws_sdk_iottwinmaker.errors.access_denied_exception.AccessDeniedException: <p>Access is denied.</p>
+            aws_sdk_iottwinmaker.errors.connector_failure_exception.ConnectorFailureException: <p>The connector failed.</p>
+            aws_sdk_iottwinmaker.errors.connector_timeout_exception.ConnectorTimeoutException: <p>The connector timed out.</p>
+            aws_sdk_iottwinmaker.errors.internal_server_exception.InternalServerException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iottwinmaker.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource wasn't found.</p>
+            aws_sdk_iottwinmaker.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iottwinmaker.errors.validation_exception.ValidationException: <p>Failed</p>
+            aws_sdk_iottwinmaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1309,6 +1482,14 @@ class IoTTwinMakerClient:
         Args:
             workspace_id: <p>The ID of the workspace that contains the scene.</p>
             scene_id: <p>The ID of the scene.</p>
+
+        Raises:
+            aws_sdk_iottwinmaker.errors.access_denied_exception.AccessDeniedException: <p>Access is denied.</p>
+            aws_sdk_iottwinmaker.errors.internal_server_exception.InternalServerException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iottwinmaker.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource wasn't found.</p>
+            aws_sdk_iottwinmaker.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iottwinmaker.errors.validation_exception.ValidationException: <p>Failed</p>
+            aws_sdk_iottwinmaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1349,6 +1530,15 @@ class IoTTwinMakerClient:
         Args:
             sync_source: <p>The sync source.</p> <note> <p>Currently the only supported syncSource is <code>SITEWISE </code>.</p> </note>
             workspace_id: <p>The workspace ID.</p>
+
+        Raises:
+            aws_sdk_iottwinmaker.errors.access_denied_exception.AccessDeniedException: <p>Access is denied.</p>
+            aws_sdk_iottwinmaker.errors.internal_server_exception.InternalServerException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iottwinmaker.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource wasn't found.</p>
+            aws_sdk_iottwinmaker.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The service quota was exceeded.</p>
+            aws_sdk_iottwinmaker.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iottwinmaker.errors.validation_exception.ValidationException: <p>Failed</p>
+            aws_sdk_iottwinmaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1388,6 +1578,14 @@ class IoTTwinMakerClient:
 
         Args:
             workspace_id: <p>The ID of the workspace.</p>
+
+        Raises:
+            aws_sdk_iottwinmaker.errors.internal_server_exception.InternalServerException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iottwinmaker.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource wasn't found.</p>
+            aws_sdk_iottwinmaker.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The service quota was exceeded.</p>
+            aws_sdk_iottwinmaker.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iottwinmaker.errors.validation_exception.ValidationException: <p>Failed</p>
+            aws_sdk_iottwinmaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1437,6 +1635,14 @@ class IoTTwinMakerClient:
             component_path: <p>This string specifies the path to the composite component, starting from the top-level component.</p>
             max_results: <p>The maximum number of results returned at one time. The default is 25.</p>
             next_token: <p>The string that specifies the next page of results.</p>
+
+        Raises:
+            aws_sdk_iottwinmaker.errors.access_denied_exception.AccessDeniedException: <p>Access is denied.</p>
+            aws_sdk_iottwinmaker.errors.internal_server_exception.InternalServerException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iottwinmaker.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource wasn't found.</p>
+            aws_sdk_iottwinmaker.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iottwinmaker.errors.validation_exception.ValidationException: <p>Failed</p>
+            aws_sdk_iottwinmaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1491,6 +1697,13 @@ class IoTTwinMakerClient:
             filters: <p>A list of objects that filter the request.</p>
             next_token: <p>The string that specifies the next page of results.</p>
             max_results: <p>The maximum number of results to return at one time. The default is 25.</p> <p>Valid Range: Minimum value of 1. Maximum value of 250.</p>
+
+        Raises:
+            aws_sdk_iottwinmaker.errors.access_denied_exception.AccessDeniedException: <p>Access is denied.</p>
+            aws_sdk_iottwinmaker.errors.internal_server_exception.InternalServerException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iottwinmaker.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iottwinmaker.errors.validation_exception.ValidationException: <p>Failed</p>
+            aws_sdk_iottwinmaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1544,6 +1757,13 @@ class IoTTwinMakerClient:
             filters: <p>A list of objects that filter the request.</p> <note> <p>Only one object is accepted as a valid input.</p> </note>
             max_results: <p>The maximum number of results to return at one time. The default is 25.</p> <p>Valid Range: Minimum value of 1. Maximum value of 250.</p>
             next_token: <p>The string that specifies the next page of results.</p>
+
+        Raises:
+            aws_sdk_iottwinmaker.errors.internal_server_exception.InternalServerException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iottwinmaker.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The service quota was exceeded.</p>
+            aws_sdk_iottwinmaker.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iottwinmaker.errors.validation_exception.ValidationException: <p>Failed</p>
+            aws_sdk_iottwinmaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1599,6 +1819,13 @@ class IoTTwinMakerClient:
             filters: <p>An object that filters metadata transfer jobs.</p>
             next_token: <p>The string that specifies the next page of results.</p>
             max_results: <p>The maximum number of results to return at one time.</p>
+
+        Raises:
+            aws_sdk_iottwinmaker.errors.access_denied_exception.AccessDeniedException: <p>Access is denied.</p>
+            aws_sdk_iottwinmaker.errors.internal_server_exception.InternalServerException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iottwinmaker.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iottwinmaker.errors.validation_exception.ValidationException: <p>Failed</p>
+            aws_sdk_iottwinmaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1657,6 +1884,14 @@ class IoTTwinMakerClient:
             entity_id: <p>The ID for the entity whose metadata (component/properties) is returned by the operation.</p>
             max_results: <p>The maximum number of results returned at one time. The default is 25.</p>
             next_token: <p>The string that specifies the next page of results.</p>
+
+        Raises:
+            aws_sdk_iottwinmaker.errors.access_denied_exception.AccessDeniedException: <p>Access is denied.</p>
+            aws_sdk_iottwinmaker.errors.internal_server_exception.InternalServerException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iottwinmaker.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource wasn't found.</p>
+            aws_sdk_iottwinmaker.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iottwinmaker.errors.validation_exception.ValidationException: <p>Failed</p>
+            aws_sdk_iottwinmaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1709,6 +1944,13 @@ class IoTTwinMakerClient:
             workspace_id: <p>The ID of the workspace that contains the scenes.</p>
             max_results: <p>Specifies the maximum number of results to display.</p>
             next_token: <p>The string that specifies the next page of results.</p>
+
+        Raises:
+            aws_sdk_iottwinmaker.errors.access_denied_exception.AccessDeniedException: <p>Access is denied.</p>
+            aws_sdk_iottwinmaker.errors.internal_server_exception.InternalServerException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iottwinmaker.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iottwinmaker.errors.validation_exception.ValidationException: <p>Failed</p>
+            aws_sdk_iottwinmaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1756,6 +1998,14 @@ class IoTTwinMakerClient:
             workspace_id: <p>The ID of the workspace that contains the sync job.</p>
             max_results: <p>The maximum number of results to return at one time. The default is 50.</p> <p>Valid Range: Minimum value of 0. Maximum value of 200.</p>
             next_token: <p>The string that specifies the next page of results.</p>
+
+        Raises:
+            aws_sdk_iottwinmaker.errors.access_denied_exception.AccessDeniedException: <p>Access is denied.</p>
+            aws_sdk_iottwinmaker.errors.internal_server_exception.InternalServerException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iottwinmaker.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The service quota was exceeded.</p>
+            aws_sdk_iottwinmaker.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iottwinmaker.errors.validation_exception.ValidationException: <p>Failed</p>
+            aws_sdk_iottwinmaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1809,6 +2059,14 @@ class IoTTwinMakerClient:
             filters: <p>A list of objects that filter the request.</p> <p>The following filter combinations are supported:</p> <ul> <li> <p>Filter with state</p> </li> <li> <p>Filter with ResourceType and ResourceId</p> </li> <li> <p>Filter with ResourceType and ExternalId</p> </li> </ul>
             max_results: <p>The maximum number of results to return at one time. The default is 50.</p> <p>Valid Range: Minimum value of 0. Maximum value of 200.</p>
             next_token: <p>The string that specifies the next page of results.</p>
+
+        Raises:
+            aws_sdk_iottwinmaker.errors.access_denied_exception.AccessDeniedException: <p>Access is denied.</p>
+            aws_sdk_iottwinmaker.errors.internal_server_exception.InternalServerException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iottwinmaker.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The service quota was exceeded.</p>
+            aws_sdk_iottwinmaker.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iottwinmaker.errors.validation_exception.ValidationException: <p>Failed</p>
+            aws_sdk_iottwinmaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1859,6 +2117,11 @@ class IoTTwinMakerClient:
             resource_arn: <p>The ARN of the resource.</p>
             max_results: <p>The maximum number of results to return at one time. The default is 25.</p> <p>Valid Range: Minimum value of 1. Maximum value of 250.</p>
             next_token: <p>The string that specifies the next page of results.</p>
+
+        Raises:
+            aws_sdk_iottwinmaker.errors.access_denied_exception.AccessDeniedException: <p>Access is denied.</p>
+            aws_sdk_iottwinmaker.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource wasn't found.</p>
+            aws_sdk_iottwinmaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1904,6 +2167,13 @@ class IoTTwinMakerClient:
         Args:
             max_results: <p>The maximum number of results to return at one time. The default is 25.</p> <p>Valid Range: Minimum value of 1. Maximum value of 250.</p>
             next_token: <p>The string that specifies the next page of results.</p>
+
+        Raises:
+            aws_sdk_iottwinmaker.errors.internal_server_exception.InternalServerException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iottwinmaker.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The service quota was exceeded.</p>
+            aws_sdk_iottwinmaker.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iottwinmaker.errors.validation_exception.ValidationException: <p>Failed</p>
+            aws_sdk_iottwinmaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1946,6 +2216,12 @@ class IoTTwinMakerClient:
         Args:
             resource_arn: <p>The ARN of the resource.</p>
             tags: <p>Metadata to add to this resource.</p>
+
+        Raises:
+            aws_sdk_iottwinmaker.errors.access_denied_exception.AccessDeniedException: <p>Access is denied.</p>
+            aws_sdk_iottwinmaker.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource wasn't found.</p>
+            aws_sdk_iottwinmaker.errors.too_many_tags_exception.TooManyTagsException: <p>The number of tags exceeds the limit.</p>
+            aws_sdk_iottwinmaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1986,6 +2262,11 @@ class IoTTwinMakerClient:
         Args:
             resource_arn: <p>The ARN of the resource.</p>
             tag_keys: <p>A list of tag key names to remove from the resource. You don't specify the value. Both the key and its associated value are removed.</p>
+
+        Raises:
+            aws_sdk_iottwinmaker.errors.access_denied_exception.AccessDeniedException: <p>Access is denied.</p>
+            aws_sdk_iottwinmaker.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource wasn't found.</p>
+            aws_sdk_iottwinmaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2056,6 +2337,15 @@ class IoTTwinMakerClient:
             property_groups: <p>The property groups.</p>
             component_type_name: <p>The component type name.</p>
             composite_component_types: <p>This is an object that maps strings to <code>compositeComponentTypes</code> of the <code>componentType</code>. <code>CompositeComponentType</code> is referenced by <code>componentTypeId</code>.</p>
+
+        Raises:
+            aws_sdk_iottwinmaker.errors.access_denied_exception.AccessDeniedException: <p>Access is denied.</p>
+            aws_sdk_iottwinmaker.errors.internal_server_exception.InternalServerException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iottwinmaker.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource wasn't found.</p>
+            aws_sdk_iottwinmaker.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The service quota was exceeded.</p>
+            aws_sdk_iottwinmaker.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iottwinmaker.errors.validation_exception.ValidationException: <p>Failed</p>
+            aws_sdk_iottwinmaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2132,6 +2422,16 @@ class IoTTwinMakerClient:
             component_updates: <p>An object that maps strings to the component updates in the request. Each string in the mapping must be unique to this object.</p>
             composite_component_updates: <p>This is an object that maps strings to <code>compositeComponent</code> updates in the request. Each key of the map represents the <code>componentPath</code> of the <code>compositeComponent</code>.</p>
             parent_entity_update: <p>An object that describes the update request for a parent entity.</p>
+
+        Raises:
+            aws_sdk_iottwinmaker.errors.access_denied_exception.AccessDeniedException: <p>Access is denied.</p>
+            aws_sdk_iottwinmaker.errors.conflict_exception.ConflictException: <p>A conflict occurred.</p>
+            aws_sdk_iottwinmaker.errors.internal_server_exception.InternalServerException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iottwinmaker.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource wasn't found.</p>
+            aws_sdk_iottwinmaker.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The service quota was exceeded.</p>
+            aws_sdk_iottwinmaker.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iottwinmaker.errors.validation_exception.ValidationException: <p>Failed</p>
+            aws_sdk_iottwinmaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2184,6 +2484,13 @@ class IoTTwinMakerClient:
         Args:
             pricing_mode: <p>The pricing mode.</p>
             bundle_names: <p>The bundle names.</p>
+
+        Raises:
+            aws_sdk_iottwinmaker.errors.access_denied_exception.AccessDeniedException: <p>Access is denied.</p>
+            aws_sdk_iottwinmaker.errors.internal_server_exception.InternalServerException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iottwinmaker.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iottwinmaker.errors.validation_exception.ValidationException: <p>Failed</p>
+            aws_sdk_iottwinmaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2239,6 +2546,14 @@ class IoTTwinMakerClient:
             description: <p>The description of this scene.</p>
             capabilities: <p>A list of capabilities that the scene uses to render.</p>
             scene_metadata: <p>The scene metadata.</p>
+
+        Raises:
+            aws_sdk_iottwinmaker.errors.access_denied_exception.AccessDeniedException: <p>Access is denied.</p>
+            aws_sdk_iottwinmaker.errors.internal_server_exception.InternalServerException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iottwinmaker.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource wasn't found.</p>
+            aws_sdk_iottwinmaker.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iottwinmaker.errors.validation_exception.ValidationException: <p>Failed</p>
+            aws_sdk_iottwinmaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2295,6 +2610,15 @@ class IoTTwinMakerClient:
             description: <p>The description of the workspace.</p>
             role: <p>The ARN of the execution role associated with the workspace.</p>
             s3_location: <p>The ARN of the S3 bucket where resources associated with the workspace are stored.</p>
+
+        Raises:
+            aws_sdk_iottwinmaker.errors.access_denied_exception.AccessDeniedException: <p>Access is denied.</p>
+            aws_sdk_iottwinmaker.errors.internal_server_exception.InternalServerException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iottwinmaker.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource wasn't found.</p>
+            aws_sdk_iottwinmaker.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The service quota was exceeded.</p>
+            aws_sdk_iottwinmaker.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iottwinmaker.errors.validation_exception.ValidationException: <p>Failed</p>
+            aws_sdk_iottwinmaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(

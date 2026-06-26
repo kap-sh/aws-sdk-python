@@ -67,6 +67,12 @@ class RelayResource:
             server_port: <p>The destination relay server port.</p>
             authentication: <p>Authentication for the relay destination server—specify the secretARN where the SMTP credentials are stored.</p>
             tags: <p>The tags used to organize, track, or control access for the resource. For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.</p>
+
+        Raises:
+            aws_sdk_mailmanager.errors.conflict_exception.ConflictException: <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
+            aws_sdk_mailmanager.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Occurs when an operation exceeds a predefined service quota or limit.</p>
+            aws_sdk_mailmanager.errors.validation_exception.ValidationException: <p>The request validation has failed. For details, see the accompanying error message.</p>
+            aws_sdk_mailmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -111,6 +117,11 @@ class RelayResource:
 
         Args:
             relay_id: <p>A unique relay identifier.</p>
+
+        Raises:
+            aws_sdk_mailmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p>Occurs when a requested resource is not found.</p>
+            aws_sdk_mailmanager.errors.validation_exception.ValidationException: <p>The request validation has failed. For details, see the accompanying error message.</p>
+            aws_sdk_mailmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -162,6 +173,12 @@ class RelayResource:
             server_name: <p>The destination relay server address.</p>
             server_port: <p>The destination relay server port.</p>
             authentication: <p>Authentication for the relay destination server—specify the secretARN where the SMTP credentials are stored.</p>
+
+        Raises:
+            aws_sdk_mailmanager.errors.conflict_exception.ConflictException: <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
+            aws_sdk_mailmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p>Occurs when a requested resource is not found.</p>
+            aws_sdk_mailmanager.errors.validation_exception.ValidationException: <p>The request validation has failed. For details, see the accompanying error message.</p>
+            aws_sdk_mailmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -207,6 +224,12 @@ class RelayResource:
 
         Args:
             relay_id: <p>The unique relay identifier.</p>
+
+        Raises:
+            aws_sdk_mailmanager.errors.conflict_exception.ConflictException: <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
+            aws_sdk_mailmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p>Occurs when a requested resource is not found.</p>
+            aws_sdk_mailmanager.errors.validation_exception.ValidationException: <p>The request validation has failed. For details, see the accompanying error message.</p>
+            aws_sdk_mailmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -248,6 +271,10 @@ class RelayResource:
         Args:
             page_size: <p>The number of relays to be returned in one request.</p>
             next_token: <p>If you received a pagination token from a previous call to this API, you can provide it here to continue paginating through the next page of results.</p>
+
+        Raises:
+            aws_sdk_mailmanager.errors.validation_exception.ValidationException: <p>The request validation has failed. For details, see the accompanying error message.</p>
+            aws_sdk_mailmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -305,6 +332,12 @@ class AsyncRelayResource:
             server_port: <p>The destination relay server port.</p>
             authentication: <p>Authentication for the relay destination server—specify the secretARN where the SMTP credentials are stored.</p>
             tags: <p>The tags used to organize, track, or control access for the resource. For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.</p>
+
+        Raises:
+            aws_sdk_mailmanager.errors.conflict_exception.ConflictException: <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
+            aws_sdk_mailmanager.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Occurs when an operation exceeds a predefined service quota or limit.</p>
+            aws_sdk_mailmanager.errors.validation_exception.ValidationException: <p>The request validation has failed. For details, see the accompanying error message.</p>
+            aws_sdk_mailmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -350,6 +383,11 @@ class AsyncRelayResource:
 
         Args:
             relay_id: <p>A unique relay identifier.</p>
+
+        Raises:
+            aws_sdk_mailmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p>Occurs when a requested resource is not found.</p>
+            aws_sdk_mailmanager.errors.validation_exception.ValidationException: <p>The request validation has failed. For details, see the accompanying error message.</p>
+            aws_sdk_mailmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -402,6 +440,12 @@ class AsyncRelayResource:
             server_name: <p>The destination relay server address.</p>
             server_port: <p>The destination relay server port.</p>
             authentication: <p>Authentication for the relay destination server—specify the secretARN where the SMTP credentials are stored.</p>
+
+        Raises:
+            aws_sdk_mailmanager.errors.conflict_exception.ConflictException: <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
+            aws_sdk_mailmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p>Occurs when a requested resource is not found.</p>
+            aws_sdk_mailmanager.errors.validation_exception.ValidationException: <p>The request validation has failed. For details, see the accompanying error message.</p>
+            aws_sdk_mailmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -448,6 +492,12 @@ class AsyncRelayResource:
 
         Args:
             relay_id: <p>The unique relay identifier.</p>
+
+        Raises:
+            aws_sdk_mailmanager.errors.conflict_exception.ConflictException: <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
+            aws_sdk_mailmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p>Occurs when a requested resource is not found.</p>
+            aws_sdk_mailmanager.errors.validation_exception.ValidationException: <p>The request validation has failed. For details, see the accompanying error message.</p>
+            aws_sdk_mailmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -490,6 +540,10 @@ class AsyncRelayResource:
         Args:
             page_size: <p>The number of relays to be returned in one request.</p>
             next_token: <p>If you received a pagination token from a previous call to this API, you can provide it here to continue paginating through the next page of results.</p>
+
+        Raises:
+            aws_sdk_mailmanager.errors.validation_exception.ValidationException: <p>The request validation has failed. For details, see the accompanying error message.</p>
+            aws_sdk_mailmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

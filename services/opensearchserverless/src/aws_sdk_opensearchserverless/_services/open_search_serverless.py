@@ -218,6 +218,11 @@ class OpenSearchServerlessClient:
         Args:
             ids: <p>A list of collection IDs. You can't provide names and IDs in the same request. The ID is part of the collection endpoint. You can also retrieve it using the <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/ServerlessAPIReference/API_ListCollections.html\">ListCollections</a> API.</p>
             names: <p>A list of collection names. You can't provide names and IDs in the same request.</p>
+
+        Raises:
+            aws_sdk_opensearchserverless.errors.internal_server_exception.InternalServerException: <p>Thrown when an error internal to the service occurs while processing a request.</p>
+            aws_sdk_opensearchserverless.errors.validation_exception.ValidationException: <p>Thrown when the HTTP request contains invalid input or is missing required input.</p>
+            aws_sdk_opensearchserverless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -264,6 +269,11 @@ class OpenSearchServerlessClient:
         Args:
             ids: <p>A list of collection group IDs. You can't provide names and IDs in the same request.</p>
             names: <p>A list of collection group names. You can't provide names and IDs in the same request.</p>
+
+        Raises:
+            aws_sdk_opensearchserverless.errors.internal_server_exception.InternalServerException: <p>Thrown when an error internal to the service occurs while processing a request.</p>
+            aws_sdk_opensearchserverless.errors.validation_exception.ValidationException: <p>Thrown when the HTTP request contains invalid input or is missing required input.</p>
+            aws_sdk_opensearchserverless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -304,6 +314,11 @@ class OpenSearchServerlessClient:
 
         Args:
             resource_identifiers: <p>The unique identifiers of policy types and resource names.</p>
+
+        Raises:
+            aws_sdk_opensearchserverless.errors.internal_server_exception.InternalServerException: <p>Thrown when an error internal to the service occurs while processing a request.</p>
+            aws_sdk_opensearchserverless.errors.validation_exception.ValidationException: <p>Thrown when the HTTP request contains invalid input or is missing required input.</p>
+            aws_sdk_opensearchserverless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -341,6 +356,11 @@ class OpenSearchServerlessClient:
 
         Args:
             identifiers: <p>The unique identifiers of policy types and policy names.</p>
+
+        Raises:
+            aws_sdk_opensearchserverless.errors.internal_server_exception.InternalServerException: <p>Thrown when an error internal to the service occurs while processing a request.</p>
+            aws_sdk_opensearchserverless.errors.validation_exception.ValidationException: <p>Thrown when the HTTP request contains invalid input or is missing required input.</p>
+            aws_sdk_opensearchserverless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -378,6 +398,11 @@ class OpenSearchServerlessClient:
 
         Args:
             ids: <p>A list of VPC endpoint identifiers.</p>
+
+        Raises:
+            aws_sdk_opensearchserverless.errors.internal_server_exception.InternalServerException: <p>Thrown when an error internal to the service occurs while processing a request.</p>
+            aws_sdk_opensearchserverless.errors.validation_exception.ValidationException: <p>Thrown when the HTTP request contains invalid input or is missing required input.</p>
+            aws_sdk_opensearchserverless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -427,6 +452,13 @@ class OpenSearchServerlessClient:
             description: <p>A description of the lifecycle policy.</p>
             policy: <p>The JSON policy document to use as the content for the lifecycle policy.</p>
             client_token: <p>A unique, case-sensitive identifier to ensure idempotency of the request.</p>
+
+        Raises:
+            aws_sdk_opensearchserverless.errors.conflict_exception.ConflictException: <p>When creating a resource, thrown when a resource with the same name already exists or is being created. When deleting a resource, thrown when the resource is not in the ACTIVE, FAILED, or UPDATE_FAILED state.</p>
+            aws_sdk_opensearchserverless.errors.internal_server_exception.InternalServerException: <p>Thrown when an error internal to the service occurs while processing a request.</p>
+            aws_sdk_opensearchserverless.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Thrown when you attempt to create more resources than the service allows based on service quotas.</p>
+            aws_sdk_opensearchserverless.errors.validation_exception.ValidationException: <p>Thrown when the HTTP request contains invalid input or is missing required input.</p>
+            aws_sdk_opensearchserverless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -482,6 +514,13 @@ class OpenSearchServerlessClient:
             description: <p>A description of the policy. Typically used to store information about the permissions defined in the policy.</p>
             policy: <p>The JSON policy document to use as the content for the new policy.</p>
             client_token: <p>Unique, case-sensitive identifier to ensure idempotency of the request.</p>
+
+        Raises:
+            aws_sdk_opensearchserverless.errors.conflict_exception.ConflictException: <p>When creating a resource, thrown when a resource with the same name already exists or is being created. When deleting a resource, thrown when the resource is not in the ACTIVE, FAILED, or UPDATE_FAILED state.</p>
+            aws_sdk_opensearchserverless.errors.internal_server_exception.InternalServerException: <p>Thrown when an error internal to the service occurs while processing a request.</p>
+            aws_sdk_opensearchserverless.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Thrown when you attempt to create more resources than the service allows based on service quotas.</p>
+            aws_sdk_opensearchserverless.errors.validation_exception.ValidationException: <p>Thrown when the HTTP request contains invalid input or is missing required input.</p>
+            aws_sdk_opensearchserverless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -518,7 +557,13 @@ class OpenSearchServerlessClient:
     def get_account_settings(
         self, *, config_overrides: Optional[OpenSearchServerlessClientConfig] = None
     ) -> "aws_sdk_opensearchserverless.types.get_account_settings_response.GetAccountSettingsResponse":
-        """<p>Returns account-level settings related to OpenSearch Serverless.</p>"""
+        """<p>Returns account-level settings related to OpenSearch Serverless.</p>
+
+        Raises:
+            aws_sdk_opensearchserverless.errors.internal_server_exception.InternalServerException: <p>Thrown when an error internal to the service occurs while processing a request.</p>
+            aws_sdk_opensearchserverless.errors.validation_exception.ValidationException: <p>Thrown when the HTTP request contains invalid input or is missing required input.</p>
+            aws_sdk_opensearchserverless.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_opensearchserverless.types.get_account_settings_request.GetAccountSettingsRequest]",
@@ -547,7 +592,12 @@ class OpenSearchServerlessClient:
     def get_policies_stats(
         self, *, config_overrides: Optional[OpenSearchServerlessClientConfig] = None
     ) -> "aws_sdk_opensearchserverless.types.get_policies_stats_response.GetPoliciesStatsResponse":
-        """<p>Returns statistical information about your OpenSearch Serverless access policies, security configurations, and security policies.</p>"""
+        """<p>Returns statistical information about your OpenSearch Serverless access policies, security configurations, and security policies.</p>
+
+        Raises:
+            aws_sdk_opensearchserverless.errors.internal_server_exception.InternalServerException: <p>Thrown when an error internal to the service occurs while processing a request.</p>
+            aws_sdk_opensearchserverless.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_opensearchserverless.types.get_policies_stats_request.GetPoliciesStatsRequest]",
@@ -583,6 +633,12 @@ class OpenSearchServerlessClient:
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource. The resource must be active (not in the <code>DELETING</code> state), and must be owned by the account ID included in the request.</p>
+
+        Raises:
+            aws_sdk_opensearchserverless.errors.internal_server_exception.InternalServerException: <p>Thrown when an error internal to the service occurs while processing a request.</p>
+            aws_sdk_opensearchserverless.errors.resource_not_found_exception.ResourceNotFoundException: <p>Thrown when accessing or deleting a resource that does not exist.</p>
+            aws_sdk_opensearchserverless.errors.validation_exception.ValidationException: <p>Thrown when the HTTP request contains invalid input or is missing required input.</p>
+            aws_sdk_opensearchserverless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -622,6 +678,14 @@ class OpenSearchServerlessClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource. The resource must be active (not in the <code>DELETING</code> state), and must be owned by the account ID included in the request.</p>
             tags: <p>A list of tags (key-value pairs) to add to the resource. All tag keys in the request must be unique.</p>
+
+        Raises:
+            aws_sdk_opensearchserverless.errors.conflict_exception.ConflictException: <p>When creating a resource, thrown when a resource with the same name already exists or is being created. When deleting a resource, thrown when the resource is not in the ACTIVE, FAILED, or UPDATE_FAILED state.</p>
+            aws_sdk_opensearchserverless.errors.internal_server_exception.InternalServerException: <p>Thrown when an error internal to the service occurs while processing a request.</p>
+            aws_sdk_opensearchserverless.errors.resource_not_found_exception.ResourceNotFoundException: <p>Thrown when accessing or deleting a resource that does not exist.</p>
+            aws_sdk_opensearchserverless.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Thrown when you attempt to create more resources than the service allows based on service quotas.</p>
+            aws_sdk_opensearchserverless.errors.validation_exception.ValidationException: <p>Thrown when the HTTP request contains invalid input or is missing required input.</p>
+            aws_sdk_opensearchserverless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -662,6 +726,13 @@ class OpenSearchServerlessClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource to remove tags from. The resource must be active (not in the <code>DELETING</code> state), and must be owned by the account ID included in the request.</p>
             tag_keys: <p>The tag or set of tags to remove from the resource. All tag keys in the request must be unique.</p>
+
+        Raises:
+            aws_sdk_opensearchserverless.errors.conflict_exception.ConflictException: <p>When creating a resource, thrown when a resource with the same name already exists or is being created. When deleting a resource, thrown when the resource is not in the ACTIVE, FAILED, or UPDATE_FAILED state.</p>
+            aws_sdk_opensearchserverless.errors.internal_server_exception.InternalServerException: <p>Thrown when an error internal to the service occurs while processing a request.</p>
+            aws_sdk_opensearchserverless.errors.resource_not_found_exception.ResourceNotFoundException: <p>Thrown when accessing or deleting a resource that does not exist.</p>
+            aws_sdk_opensearchserverless.errors.validation_exception.ValidationException: <p>Thrown when the HTTP request contains invalid input or is missing required input.</p>
+            aws_sdk_opensearchserverless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -698,7 +769,14 @@ class OpenSearchServerlessClient:
             "aws_sdk_opensearchserverless.types.capacity_limits.CapacityLimits"
         ] = None,
     ) -> "aws_sdk_opensearchserverless.types.update_account_settings_response.UpdateAccountSettingsResponse":
-        r"""<p>Update the OpenSearch Serverless settings for the current Amazon Web Services account. For more information, see <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-scaling.html\">Managing capacity limits for Amazon OpenSearch Serverless</a>.</p>"""
+        r"""<p>Update the OpenSearch Serverless settings for the current Amazon Web Services account. For more information, see <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-scaling.html\">Managing capacity limits for Amazon OpenSearch Serverless</a>.</p>
+
+        Raises:
+            aws_sdk_opensearchserverless.errors.internal_server_exception.InternalServerException: <p>Thrown when an error internal to the service occurs while processing a request.</p>
+            aws_sdk_opensearchserverless.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Thrown when you attempt to create more resources than the service allows based on service quotas.</p>
+            aws_sdk_opensearchserverless.errors.validation_exception.ValidationException: <p>Thrown when the HTTP request contains invalid input or is missing required input.</p>
+            aws_sdk_opensearchserverless.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_opensearchserverless.types.update_account_settings_request.UpdateAccountSettingsRequest]",
@@ -756,6 +834,12 @@ class OpenSearchServerlessClient:
             add_security_group_ids: <p>The unique identifiers of the security groups to add to the endpoint. Security groups define the ports, protocols, and sources for inbound traffic that you are authorizing into your endpoint.</p>
             remove_security_group_ids: <p>The unique identifiers of the security groups to remove from the endpoint.</p>
             client_token: <p>Unique, case-sensitive identifier to ensure idempotency of the request.</p>
+
+        Raises:
+            aws_sdk_opensearchserverless.errors.conflict_exception.ConflictException: <p>When creating a resource, thrown when a resource with the same name already exists or is being created. When deleting a resource, thrown when the resource is not in the ACTIVE, FAILED, or UPDATE_FAILED state.</p>
+            aws_sdk_opensearchserverless.errors.internal_server_exception.InternalServerException: <p>Thrown when an error internal to the service occurs while processing a request.</p>
+            aws_sdk_opensearchserverless.errors.validation_exception.ValidationException: <p>Thrown when the HTTP request contains invalid input or is missing required input.</p>
+            aws_sdk_opensearchserverless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(

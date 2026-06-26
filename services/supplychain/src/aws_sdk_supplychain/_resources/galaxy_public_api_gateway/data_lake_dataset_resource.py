@@ -77,6 +77,16 @@ class DataLakeDatasetResource:
             partition_spec: <p>The partition specification of the dataset. Partitioning can effectively improve the dataset query performance by reducing the amount of data scanned during query execution. But partitioning or not will affect how data get ingested by data ingestion methods, such as SendDataIntegrationEvent's dataset UPSERT will upsert records within partition (instead of within whole dataset). For more details, refer to those data ingestion documentations.</p>
             tags: <p>The tags of the dataset.</p>
 
+        Raises:
+            aws_sdk_supplychain.errors.access_denied_exception.AccessDeniedException: <p>You do not have the required privileges to perform this action.</p>
+            aws_sdk_supplychain.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_supplychain.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_supplychain.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_supplychain.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Request would cause a service quota to be exceeded.</p>
+            aws_sdk_supplychain.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_supplychain.errors.validation_exception.ValidationException: <p>The input does not satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_supplychain.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Create an AWS Supply Chain inbound order dataset
 
@@ -136,6 +146,16 @@ class DataLakeDatasetResource:
             namespace: <p>The namespace of the dataset, besides the custom defined namespace, every instance comes with below pre-defined namespaces:</p> <ul> <li> <p> <b>asc</b> - For information on the Amazon Web Services Supply Chain supported datasets see <a href=\"https://docs.aws.amazon.com/aws-supply-chain/latest/userguide/data-model-asc.html\">https://docs.aws.amazon.com/aws-supply-chain/latest/userguide/data-model-asc.html</a>.</p> </li> <li> <p> <b>default</b> - For datasets with custom user-defined schemas.</p> </li> </ul>
             name: <p>The name of the dataset. For <b>asc</b> namespace, the name must be one of the supported data entities under <a href=\"https://docs.aws.amazon.com/aws-supply-chain/latest/userguide/data-model-asc.html\">https://docs.aws.amazon.com/aws-supply-chain/latest/userguide/data-model-asc.html</a>.</p>
 
+        Raises:
+            aws_sdk_supplychain.errors.access_denied_exception.AccessDeniedException: <p>You do not have the required privileges to perform this action.</p>
+            aws_sdk_supplychain.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_supplychain.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_supplychain.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_supplychain.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Request would cause a service quota to be exceeded.</p>
+            aws_sdk_supplychain.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_supplychain.errors.validation_exception.ValidationException: <p>The input does not satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_supplychain.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Get properties of an existing AWS Supply Chain inbound order dataset
 
@@ -191,6 +211,16 @@ class DataLakeDatasetResource:
             name: <p>The name of the dataset. For <b>asc</b> namespace, the name must be one of the supported data entities under <a href=\"https://docs.aws.amazon.com/aws-supply-chain/latest/userguide/data-model-asc.html\">https://docs.aws.amazon.com/aws-supply-chain/latest/userguide/data-model-asc.html</a>.</p>
             description: <p>The updated description of the data lake dataset.</p>
 
+        Raises:
+            aws_sdk_supplychain.errors.access_denied_exception.AccessDeniedException: <p>You do not have the required privileges to perform this action.</p>
+            aws_sdk_supplychain.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_supplychain.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_supplychain.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_supplychain.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Request would cause a service quota to be exceeded.</p>
+            aws_sdk_supplychain.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_supplychain.errors.validation_exception.ValidationException: <p>The input does not satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_supplychain.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Update description of an existing AWS Supply Chain inbound order dataset
 
@@ -243,6 +273,16 @@ class DataLakeDatasetResource:
             instance_id: <p>The AWS Supply Chain instance identifier.</p>
             namespace: <p>The namespace of the dataset, besides the custom defined namespace, every instance comes with below pre-defined namespaces:</p> <ul> <li> <p> <b>asc</b> - For information on the Amazon Web Services Supply Chain supported datasets see <a href=\"https://docs.aws.amazon.com/aws-supply-chain/latest/userguide/data-model-asc.html\">https://docs.aws.amazon.com/aws-supply-chain/latest/userguide/data-model-asc.html</a>.</p> </li> <li> <p> <b>default</b> - For datasets with custom user-defined schemas.</p> </li> </ul>
             name: <p>The name of the dataset. For <b>asc</b> namespace, the name must be one of the supported data entities under <a href=\"https://docs.aws.amazon.com/aws-supply-chain/latest/userguide/data-model-asc.html\">https://docs.aws.amazon.com/aws-supply-chain/latest/userguide/data-model-asc.html</a>.</p>
+
+        Raises:
+            aws_sdk_supplychain.errors.access_denied_exception.AccessDeniedException: <p>You do not have the required privileges to perform this action.</p>
+            aws_sdk_supplychain.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_supplychain.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_supplychain.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_supplychain.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Request would cause a service quota to be exceeded.</p>
+            aws_sdk_supplychain.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_supplychain.errors.validation_exception.ValidationException: <p>The input does not satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_supplychain.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Delete an AWS Supply Chain inbound_order dataset
@@ -300,6 +340,16 @@ class DataLakeDatasetResource:
             namespace: <p>The namespace of the dataset, besides the custom defined namespace, every instance comes with below pre-defined namespaces:</p> <ul> <li> <p> <b>asc</b> - For information on the Amazon Web Services Supply Chain supported datasets see <a href=\"https://docs.aws.amazon.com/aws-supply-chain/latest/userguide/data-model-asc.html\">https://docs.aws.amazon.com/aws-supply-chain/latest/userguide/data-model-asc.html</a>.</p> </li> <li> <p> <b>default</b> - For datasets with custom user-defined schemas.</p> </li> </ul>
             next_token: <p>The pagination token to fetch next page of datasets.</p>
             max_results: <p>The max number of datasets to fetch in this paginated request.</p>
+
+        Raises:
+            aws_sdk_supplychain.errors.access_denied_exception.AccessDeniedException: <p>You do not have the required privileges to perform this action.</p>
+            aws_sdk_supplychain.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_supplychain.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_supplychain.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_supplychain.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Request would cause a service quota to be exceeded.</p>
+            aws_sdk_supplychain.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_supplychain.errors.validation_exception.ValidationException: <p>The input does not satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_supplychain.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             List AWS Supply Chain datasets
@@ -374,6 +424,16 @@ class AsyncDataLakeDatasetResource:
             partition_spec: <p>The partition specification of the dataset. Partitioning can effectively improve the dataset query performance by reducing the amount of data scanned during query execution. But partitioning or not will affect how data get ingested by data ingestion methods, such as SendDataIntegrationEvent's dataset UPSERT will upsert records within partition (instead of within whole dataset). For more details, refer to those data ingestion documentations.</p>
             tags: <p>The tags of the dataset.</p>
 
+        Raises:
+            aws_sdk_supplychain.errors.access_denied_exception.AccessDeniedException: <p>You do not have the required privileges to perform this action.</p>
+            aws_sdk_supplychain.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_supplychain.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_supplychain.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_supplychain.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Request would cause a service quota to be exceeded.</p>
+            aws_sdk_supplychain.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_supplychain.errors.validation_exception.ValidationException: <p>The input does not satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_supplychain.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Create an AWS Supply Chain inbound order dataset
 
@@ -434,6 +494,16 @@ class AsyncDataLakeDatasetResource:
             namespace: <p>The namespace of the dataset, besides the custom defined namespace, every instance comes with below pre-defined namespaces:</p> <ul> <li> <p> <b>asc</b> - For information on the Amazon Web Services Supply Chain supported datasets see <a href=\"https://docs.aws.amazon.com/aws-supply-chain/latest/userguide/data-model-asc.html\">https://docs.aws.amazon.com/aws-supply-chain/latest/userguide/data-model-asc.html</a>.</p> </li> <li> <p> <b>default</b> - For datasets with custom user-defined schemas.</p> </li> </ul>
             name: <p>The name of the dataset. For <b>asc</b> namespace, the name must be one of the supported data entities under <a href=\"https://docs.aws.amazon.com/aws-supply-chain/latest/userguide/data-model-asc.html\">https://docs.aws.amazon.com/aws-supply-chain/latest/userguide/data-model-asc.html</a>.</p>
 
+        Raises:
+            aws_sdk_supplychain.errors.access_denied_exception.AccessDeniedException: <p>You do not have the required privileges to perform this action.</p>
+            aws_sdk_supplychain.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_supplychain.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_supplychain.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_supplychain.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Request would cause a service quota to be exceeded.</p>
+            aws_sdk_supplychain.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_supplychain.errors.validation_exception.ValidationException: <p>The input does not satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_supplychain.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Get properties of an existing AWS Supply Chain inbound order dataset
 
@@ -490,6 +560,16 @@ class AsyncDataLakeDatasetResource:
             name: <p>The name of the dataset. For <b>asc</b> namespace, the name must be one of the supported data entities under <a href=\"https://docs.aws.amazon.com/aws-supply-chain/latest/userguide/data-model-asc.html\">https://docs.aws.amazon.com/aws-supply-chain/latest/userguide/data-model-asc.html</a>.</p>
             description: <p>The updated description of the data lake dataset.</p>
 
+        Raises:
+            aws_sdk_supplychain.errors.access_denied_exception.AccessDeniedException: <p>You do not have the required privileges to perform this action.</p>
+            aws_sdk_supplychain.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_supplychain.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_supplychain.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_supplychain.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Request would cause a service quota to be exceeded.</p>
+            aws_sdk_supplychain.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_supplychain.errors.validation_exception.ValidationException: <p>The input does not satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_supplychain.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Update description of an existing AWS Supply Chain inbound order dataset
 
@@ -543,6 +623,16 @@ class AsyncDataLakeDatasetResource:
             instance_id: <p>The AWS Supply Chain instance identifier.</p>
             namespace: <p>The namespace of the dataset, besides the custom defined namespace, every instance comes with below pre-defined namespaces:</p> <ul> <li> <p> <b>asc</b> - For information on the Amazon Web Services Supply Chain supported datasets see <a href=\"https://docs.aws.amazon.com/aws-supply-chain/latest/userguide/data-model-asc.html\">https://docs.aws.amazon.com/aws-supply-chain/latest/userguide/data-model-asc.html</a>.</p> </li> <li> <p> <b>default</b> - For datasets with custom user-defined schemas.</p> </li> </ul>
             name: <p>The name of the dataset. For <b>asc</b> namespace, the name must be one of the supported data entities under <a href=\"https://docs.aws.amazon.com/aws-supply-chain/latest/userguide/data-model-asc.html\">https://docs.aws.amazon.com/aws-supply-chain/latest/userguide/data-model-asc.html</a>.</p>
+
+        Raises:
+            aws_sdk_supplychain.errors.access_denied_exception.AccessDeniedException: <p>You do not have the required privileges to perform this action.</p>
+            aws_sdk_supplychain.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_supplychain.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_supplychain.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_supplychain.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Request would cause a service quota to be exceeded.</p>
+            aws_sdk_supplychain.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_supplychain.errors.validation_exception.ValidationException: <p>The input does not satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_supplychain.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Delete an AWS Supply Chain inbound_order dataset
@@ -601,6 +691,16 @@ class AsyncDataLakeDatasetResource:
             namespace: <p>The namespace of the dataset, besides the custom defined namespace, every instance comes with below pre-defined namespaces:</p> <ul> <li> <p> <b>asc</b> - For information on the Amazon Web Services Supply Chain supported datasets see <a href=\"https://docs.aws.amazon.com/aws-supply-chain/latest/userguide/data-model-asc.html\">https://docs.aws.amazon.com/aws-supply-chain/latest/userguide/data-model-asc.html</a>.</p> </li> <li> <p> <b>default</b> - For datasets with custom user-defined schemas.</p> </li> </ul>
             next_token: <p>The pagination token to fetch next page of datasets.</p>
             max_results: <p>The max number of datasets to fetch in this paginated request.</p>
+
+        Raises:
+            aws_sdk_supplychain.errors.access_denied_exception.AccessDeniedException: <p>You do not have the required privileges to perform this action.</p>
+            aws_sdk_supplychain.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_supplychain.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_supplychain.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_supplychain.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Request would cause a service quota to be exceeded.</p>
+            aws_sdk_supplychain.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_supplychain.errors.validation_exception.ValidationException: <p>The input does not satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_supplychain.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             List AWS Supply Chain datasets

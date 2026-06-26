@@ -213,6 +213,14 @@ class Route53RecoveryReadinessClient:
         Args:
             cell_name: <p>The name of the cell to create.</p>
             cells: <p>A list of cell Amazon Resource Names (ARNs) contained within this cell, for use in nested cells. For example, Availability Zones within specific Amazon Web Services Regions.</p>
+
+        Raises:
+            aws_sdk_route53_recovery_readiness.errors.access_denied_exception.AccessDeniedException: User does not have sufficient access to perform this action.
+            aws_sdk_route53_recovery_readiness.errors.conflict_exception.ConflictException: Updating or deleting a resource can cause an inconsistent state.
+            aws_sdk_route53_recovery_readiness.errors.internal_server_exception.InternalServerException: An unexpected error occurred.
+            aws_sdk_route53_recovery_readiness.errors.throttling_exception.ThrottlingException: Request was denied due to request throttling.
+            aws_sdk_route53_recovery_readiness.errors.validation_exception.ValidationException: The input fails to satisfy the constraints specified by an AWS service.
+            aws_sdk_route53_recovery_readiness.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -254,6 +262,14 @@ class Route53RecoveryReadinessClient:
 
         Args:
             cross_account_authorization: <p>The cross-account authorization.</p>
+
+        Raises:
+            aws_sdk_route53_recovery_readiness.errors.access_denied_exception.AccessDeniedException: User does not have sufficient access to perform this action.
+            aws_sdk_route53_recovery_readiness.errors.conflict_exception.ConflictException: Updating or deleting a resource can cause an inconsistent state.
+            aws_sdk_route53_recovery_readiness.errors.internal_server_exception.InternalServerException: An unexpected error occurred.
+            aws_sdk_route53_recovery_readiness.errors.throttling_exception.ThrottlingException: Request was denied due to request throttling.
+            aws_sdk_route53_recovery_readiness.errors.validation_exception.ValidationException: The input fails to satisfy the constraints specified by an AWS service.
+            aws_sdk_route53_recovery_readiness.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -294,6 +310,14 @@ class Route53RecoveryReadinessClient:
         Args:
             readiness_check_name: <p>The name of the readiness check to create.</p>
             resource_set_name: <p>The name of the resource set to check.</p>
+
+        Raises:
+            aws_sdk_route53_recovery_readiness.errors.access_denied_exception.AccessDeniedException: User does not have sufficient access to perform this action.
+            aws_sdk_route53_recovery_readiness.errors.conflict_exception.ConflictException: Updating or deleting a resource can cause an inconsistent state.
+            aws_sdk_route53_recovery_readiness.errors.internal_server_exception.InternalServerException: An unexpected error occurred.
+            aws_sdk_route53_recovery_readiness.errors.throttling_exception.ThrottlingException: Request was denied due to request throttling.
+            aws_sdk_route53_recovery_readiness.errors.validation_exception.ValidationException: The input fails to satisfy the constraints specified by an AWS service.
+            aws_sdk_route53_recovery_readiness.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -339,6 +363,14 @@ class Route53RecoveryReadinessClient:
         Args:
             cells: <p>A list of the cell Amazon Resource Names (ARNs) in the recovery group.</p>
             recovery_group_name: <p>The name of the recovery group to create.</p>
+
+        Raises:
+            aws_sdk_route53_recovery_readiness.errors.access_denied_exception.AccessDeniedException: User does not have sufficient access to perform this action.
+            aws_sdk_route53_recovery_readiness.errors.conflict_exception.ConflictException: Updating or deleting a resource can cause an inconsistent state.
+            aws_sdk_route53_recovery_readiness.errors.internal_server_exception.InternalServerException: An unexpected error occurred.
+            aws_sdk_route53_recovery_readiness.errors.throttling_exception.ThrottlingException: Request was denied due to request throttling.
+            aws_sdk_route53_recovery_readiness.errors.validation_exception.ValidationException: The input fails to satisfy the constraints specified by an AWS service.
+            aws_sdk_route53_recovery_readiness.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -386,6 +418,14 @@ class Route53RecoveryReadinessClient:
             resource_set_type: <p>The resource type of the resources in the resource set. Enter one of the following values for resource type:</p> <p>AWS::ApiGateway::Stage, AWS::ApiGatewayV2::Stage, AWS::AutoScaling::AutoScalingGroup, AWS::CloudWatch::Alarm, AWS::EC2::CustomerGateway, AWS::DynamoDB::Table, AWS::EC2::Volume, AWS::ElasticLoadBalancing::LoadBalancer, AWS::ElasticLoadBalancingV2::LoadBalancer, AWS::Lambda::Function, AWS::MSK::Cluster, AWS::RDS::DBCluster, AWS::Route53::HealthCheck, AWS::SQS::Queue, AWS::SNS::Topic, AWS::SNS::Subscription, AWS::EC2::VPC, AWS::EC2::VPNConnection, AWS::EC2::VPNGateway, AWS::Route53RecoveryReadiness::DNSTargetResource</p>
             resources: <p>A list of resource objects in the resource set.</p>
             tags: <p>A tag to associate with the parameters for a resource set.</p>
+
+        Raises:
+            aws_sdk_route53_recovery_readiness.errors.access_denied_exception.AccessDeniedException: User does not have sufficient access to perform this action.
+            aws_sdk_route53_recovery_readiness.errors.conflict_exception.ConflictException: Updating or deleting a resource can cause an inconsistent state.
+            aws_sdk_route53_recovery_readiness.errors.internal_server_exception.InternalServerException: An unexpected error occurred.
+            aws_sdk_route53_recovery_readiness.errors.throttling_exception.ThrottlingException: Request was denied due to request throttling.
+            aws_sdk_route53_recovery_readiness.errors.validation_exception.ValidationException: The input fails to satisfy the constraints specified by an AWS service.
+            aws_sdk_route53_recovery_readiness.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -427,6 +467,14 @@ class Route53RecoveryReadinessClient:
 
         Args:
             cell_name: <p>The name of the cell.</p>
+
+        Raises:
+            aws_sdk_route53_recovery_readiness.errors.access_denied_exception.AccessDeniedException: User does not have sufficient access to perform this action.
+            aws_sdk_route53_recovery_readiness.errors.internal_server_exception.InternalServerException: An unexpected error occurred.
+            aws_sdk_route53_recovery_readiness.errors.resource_not_found_exception.ResourceNotFoundException: The requested resource does not exist.
+            aws_sdk_route53_recovery_readiness.errors.throttling_exception.ThrottlingException: Request was denied due to request throttling.
+            aws_sdk_route53_recovery_readiness.errors.validation_exception.ValidationException: The input fails to satisfy the constraints specified by an AWS service.
+            aws_sdk_route53_recovery_readiness.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -462,6 +510,13 @@ class Route53RecoveryReadinessClient:
 
         Args:
             cross_account_authorization: <p>The cross-account authorization.</p>
+
+        Raises:
+            aws_sdk_route53_recovery_readiness.errors.access_denied_exception.AccessDeniedException: User does not have sufficient access to perform this action.
+            aws_sdk_route53_recovery_readiness.errors.internal_server_exception.InternalServerException: An unexpected error occurred.
+            aws_sdk_route53_recovery_readiness.errors.throttling_exception.ThrottlingException: Request was denied due to request throttling.
+            aws_sdk_route53_recovery_readiness.errors.validation_exception.ValidationException: The input fails to satisfy the constraints specified by an AWS service.
+            aws_sdk_route53_recovery_readiness.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -499,6 +554,14 @@ class Route53RecoveryReadinessClient:
 
         Args:
             readiness_check_name: <p>Name of a readiness check.</p>
+
+        Raises:
+            aws_sdk_route53_recovery_readiness.errors.access_denied_exception.AccessDeniedException: User does not have sufficient access to perform this action.
+            aws_sdk_route53_recovery_readiness.errors.internal_server_exception.InternalServerException: An unexpected error occurred.
+            aws_sdk_route53_recovery_readiness.errors.resource_not_found_exception.ResourceNotFoundException: The requested resource does not exist.
+            aws_sdk_route53_recovery_readiness.errors.throttling_exception.ThrottlingException: Request was denied due to request throttling.
+            aws_sdk_route53_recovery_readiness.errors.validation_exception.ValidationException: The input fails to satisfy the constraints specified by an AWS service.
+            aws_sdk_route53_recovery_readiness.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -534,6 +597,14 @@ class Route53RecoveryReadinessClient:
 
         Args:
             recovery_group_name: <p>The name of a recovery group.</p>
+
+        Raises:
+            aws_sdk_route53_recovery_readiness.errors.access_denied_exception.AccessDeniedException: User does not have sufficient access to perform this action.
+            aws_sdk_route53_recovery_readiness.errors.internal_server_exception.InternalServerException: An unexpected error occurred.
+            aws_sdk_route53_recovery_readiness.errors.resource_not_found_exception.ResourceNotFoundException: The requested resource does not exist.
+            aws_sdk_route53_recovery_readiness.errors.throttling_exception.ThrottlingException: Request was denied due to request throttling.
+            aws_sdk_route53_recovery_readiness.errors.validation_exception.ValidationException: The input fails to satisfy the constraints specified by an AWS service.
+            aws_sdk_route53_recovery_readiness.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -569,6 +640,14 @@ class Route53RecoveryReadinessClient:
 
         Args:
             resource_set_name: <p>Name of a resource set.</p>
+
+        Raises:
+            aws_sdk_route53_recovery_readiness.errors.access_denied_exception.AccessDeniedException: User does not have sufficient access to perform this action.
+            aws_sdk_route53_recovery_readiness.errors.internal_server_exception.InternalServerException: An unexpected error occurred.
+            aws_sdk_route53_recovery_readiness.errors.resource_not_found_exception.ResourceNotFoundException: The requested resource does not exist.
+            aws_sdk_route53_recovery_readiness.errors.throttling_exception.ThrottlingException: Request was denied due to request throttling.
+            aws_sdk_route53_recovery_readiness.errors.validation_exception.ValidationException: The input fails to satisfy the constraints specified by an AWS service.
+            aws_sdk_route53_recovery_readiness.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -612,6 +691,14 @@ class Route53RecoveryReadinessClient:
             max_results: <p>The number of objects that you want to return with this call.</p>
             next_token: <p>The token that identifies which batch of results you want to see.</p>
             recovery_group_name: <p>The name of a recovery group.</p>
+
+        Raises:
+            aws_sdk_route53_recovery_readiness.errors.access_denied_exception.AccessDeniedException: User does not have sufficient access to perform this action.
+            aws_sdk_route53_recovery_readiness.errors.internal_server_exception.InternalServerException: An unexpected error occurred.
+            aws_sdk_route53_recovery_readiness.errors.resource_not_found_exception.ResourceNotFoundException: The requested resource does not exist.
+            aws_sdk_route53_recovery_readiness.errors.throttling_exception.ThrottlingException: Request was denied due to request throttling.
+            aws_sdk_route53_recovery_readiness.errors.validation_exception.ValidationException: The input fails to satisfy the constraints specified by an AWS service.
+            aws_sdk_route53_recovery_readiness.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -653,6 +740,14 @@ class Route53RecoveryReadinessClient:
 
         Args:
             cell_name: <p>The name of the cell.</p>
+
+        Raises:
+            aws_sdk_route53_recovery_readiness.errors.access_denied_exception.AccessDeniedException: User does not have sufficient access to perform this action.
+            aws_sdk_route53_recovery_readiness.errors.internal_server_exception.InternalServerException: An unexpected error occurred.
+            aws_sdk_route53_recovery_readiness.errors.resource_not_found_exception.ResourceNotFoundException: The requested resource does not exist.
+            aws_sdk_route53_recovery_readiness.errors.throttling_exception.ThrottlingException: Request was denied due to request throttling.
+            aws_sdk_route53_recovery_readiness.errors.validation_exception.ValidationException: The input fails to satisfy the constraints specified by an AWS service.
+            aws_sdk_route53_recovery_readiness.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -698,6 +793,14 @@ class Route53RecoveryReadinessClient:
             cell_name: <p>The name of the cell.</p>
             max_results: <p>The number of objects that you want to return with this call.</p>
             next_token: <p>The token that identifies which batch of results you want to see.</p>
+
+        Raises:
+            aws_sdk_route53_recovery_readiness.errors.access_denied_exception.AccessDeniedException: User does not have sufficient access to perform this action.
+            aws_sdk_route53_recovery_readiness.errors.internal_server_exception.InternalServerException: An unexpected error occurred.
+            aws_sdk_route53_recovery_readiness.errors.resource_not_found_exception.ResourceNotFoundException: The requested resource does not exist.
+            aws_sdk_route53_recovery_readiness.errors.throttling_exception.ThrottlingException: Request was denied due to request throttling.
+            aws_sdk_route53_recovery_readiness.errors.validation_exception.ValidationException: The input fails to satisfy the constraints specified by an AWS service.
+            aws_sdk_route53_recovery_readiness.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -766,6 +869,14 @@ class Route53RecoveryReadinessClient:
 
         Args:
             readiness_check_name: <p>Name of a readiness check.</p>
+
+        Raises:
+            aws_sdk_route53_recovery_readiness.errors.access_denied_exception.AccessDeniedException: User does not have sufficient access to perform this action.
+            aws_sdk_route53_recovery_readiness.errors.internal_server_exception.InternalServerException: An unexpected error occurred.
+            aws_sdk_route53_recovery_readiness.errors.resource_not_found_exception.ResourceNotFoundException: The requested resource does not exist.
+            aws_sdk_route53_recovery_readiness.errors.throttling_exception.ThrottlingException: Request was denied due to request throttling.
+            aws_sdk_route53_recovery_readiness.errors.validation_exception.ValidationException: The input fails to satisfy the constraints specified by an AWS service.
+            aws_sdk_route53_recovery_readiness.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -813,6 +924,14 @@ class Route53RecoveryReadinessClient:
             next_token: <p>The token that identifies which batch of results you want to see.</p>
             readiness_check_name: <p>Name of a readiness check.</p>
             resource_identifier: <p>The resource identifier, which is the Amazon Resource Name (ARN) or the identifier generated for the resource by Application Recovery Controller (for example, for a DNS target resource).</p>
+
+        Raises:
+            aws_sdk_route53_recovery_readiness.errors.access_denied_exception.AccessDeniedException: User does not have sufficient access to perform this action.
+            aws_sdk_route53_recovery_readiness.errors.internal_server_exception.InternalServerException: An unexpected error occurred.
+            aws_sdk_route53_recovery_readiness.errors.resource_not_found_exception.ResourceNotFoundException: The requested resource does not exist.
+            aws_sdk_route53_recovery_readiness.errors.throttling_exception.ThrottlingException: Request was denied due to request throttling.
+            aws_sdk_route53_recovery_readiness.errors.validation_exception.ValidationException: The input fails to satisfy the constraints specified by an AWS service.
+            aws_sdk_route53_recovery_readiness.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -892,6 +1011,14 @@ class Route53RecoveryReadinessClient:
             max_results: <p>The number of objects that you want to return with this call.</p>
             next_token: <p>The token that identifies which batch of results you want to see.</p>
             readiness_check_name: <p>Name of a readiness check.</p>
+
+        Raises:
+            aws_sdk_route53_recovery_readiness.errors.access_denied_exception.AccessDeniedException: User does not have sufficient access to perform this action.
+            aws_sdk_route53_recovery_readiness.errors.internal_server_exception.InternalServerException: An unexpected error occurred.
+            aws_sdk_route53_recovery_readiness.errors.resource_not_found_exception.ResourceNotFoundException: The requested resource does not exist.
+            aws_sdk_route53_recovery_readiness.errors.throttling_exception.ThrottlingException: Request was denied due to request throttling.
+            aws_sdk_route53_recovery_readiness.errors.validation_exception.ValidationException: The input fails to satisfy the constraints specified by an AWS service.
+            aws_sdk_route53_recovery_readiness.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -960,6 +1087,14 @@ class Route53RecoveryReadinessClient:
 
         Args:
             recovery_group_name: <p>The name of a recovery group.</p>
+
+        Raises:
+            aws_sdk_route53_recovery_readiness.errors.access_denied_exception.AccessDeniedException: User does not have sufficient access to perform this action.
+            aws_sdk_route53_recovery_readiness.errors.internal_server_exception.InternalServerException: An unexpected error occurred.
+            aws_sdk_route53_recovery_readiness.errors.resource_not_found_exception.ResourceNotFoundException: The requested resource does not exist.
+            aws_sdk_route53_recovery_readiness.errors.throttling_exception.ThrottlingException: Request was denied due to request throttling.
+            aws_sdk_route53_recovery_readiness.errors.validation_exception.ValidationException: The input fails to satisfy the constraints specified by an AWS service.
+            aws_sdk_route53_recovery_readiness.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1005,6 +1140,14 @@ class Route53RecoveryReadinessClient:
             max_results: <p>The number of objects that you want to return with this call.</p>
             next_token: <p>The token that identifies which batch of results you want to see.</p>
             recovery_group_name: <p>The name of a recovery group.</p>
+
+        Raises:
+            aws_sdk_route53_recovery_readiness.errors.access_denied_exception.AccessDeniedException: User does not have sufficient access to perform this action.
+            aws_sdk_route53_recovery_readiness.errors.internal_server_exception.InternalServerException: An unexpected error occurred.
+            aws_sdk_route53_recovery_readiness.errors.resource_not_found_exception.ResourceNotFoundException: The requested resource does not exist.
+            aws_sdk_route53_recovery_readiness.errors.throttling_exception.ThrottlingException: Request was denied due to request throttling.
+            aws_sdk_route53_recovery_readiness.errors.validation_exception.ValidationException: The input fails to satisfy the constraints specified by an AWS service.
+            aws_sdk_route53_recovery_readiness.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1073,6 +1216,14 @@ class Route53RecoveryReadinessClient:
 
         Args:
             resource_set_name: <p>Name of a resource set.</p>
+
+        Raises:
+            aws_sdk_route53_recovery_readiness.errors.access_denied_exception.AccessDeniedException: User does not have sufficient access to perform this action.
+            aws_sdk_route53_recovery_readiness.errors.internal_server_exception.InternalServerException: An unexpected error occurred.
+            aws_sdk_route53_recovery_readiness.errors.resource_not_found_exception.ResourceNotFoundException: The requested resource does not exist.
+            aws_sdk_route53_recovery_readiness.errors.throttling_exception.ThrottlingException: Request was denied due to request throttling.
+            aws_sdk_route53_recovery_readiness.errors.validation_exception.ValidationException: The input fails to satisfy the constraints specified by an AWS service.
+            aws_sdk_route53_recovery_readiness.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1118,6 +1269,13 @@ class Route53RecoveryReadinessClient:
         Args:
             max_results: <p>The number of objects that you want to return with this call.</p>
             next_token: <p>The token that identifies which batch of results you want to see.</p>
+
+        Raises:
+            aws_sdk_route53_recovery_readiness.errors.access_denied_exception.AccessDeniedException: User does not have sufficient access to perform this action.
+            aws_sdk_route53_recovery_readiness.errors.internal_server_exception.InternalServerException: An unexpected error occurred.
+            aws_sdk_route53_recovery_readiness.errors.throttling_exception.ThrottlingException: Request was denied due to request throttling.
+            aws_sdk_route53_recovery_readiness.errors.validation_exception.ValidationException: The input fails to satisfy the constraints specified by an AWS service.
+            aws_sdk_route53_recovery_readiness.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1189,6 +1347,13 @@ class Route53RecoveryReadinessClient:
         Args:
             max_results: <p>The number of objects that you want to return with this call.</p>
             next_token: <p>The token that identifies which batch of results you want to see.</p>
+
+        Raises:
+            aws_sdk_route53_recovery_readiness.errors.access_denied_exception.AccessDeniedException: User does not have sufficient access to perform this action.
+            aws_sdk_route53_recovery_readiness.errors.internal_server_exception.InternalServerException: An unexpected error occurred.
+            aws_sdk_route53_recovery_readiness.errors.throttling_exception.ThrottlingException: Request was denied due to request throttling.
+            aws_sdk_route53_recovery_readiness.errors.validation_exception.ValidationException: The input fails to satisfy the constraints specified by an AWS service.
+            aws_sdk_route53_recovery_readiness.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1260,6 +1425,13 @@ class Route53RecoveryReadinessClient:
         Args:
             max_results: <p>The number of objects that you want to return with this call.</p>
             next_token: <p>The token that identifies which batch of results you want to see.</p>
+
+        Raises:
+            aws_sdk_route53_recovery_readiness.errors.access_denied_exception.AccessDeniedException: User does not have sufficient access to perform this action.
+            aws_sdk_route53_recovery_readiness.errors.internal_server_exception.InternalServerException: An unexpected error occurred.
+            aws_sdk_route53_recovery_readiness.errors.throttling_exception.ThrottlingException: Request was denied due to request throttling.
+            aws_sdk_route53_recovery_readiness.errors.validation_exception.ValidationException: The input fails to satisfy the constraints specified by an AWS service.
+            aws_sdk_route53_recovery_readiness.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1331,6 +1503,13 @@ class Route53RecoveryReadinessClient:
         Args:
             max_results: <p>The number of objects that you want to return with this call.</p>
             next_token: <p>The token that identifies which batch of results you want to see.</p>
+
+        Raises:
+            aws_sdk_route53_recovery_readiness.errors.access_denied_exception.AccessDeniedException: User does not have sufficient access to perform this action.
+            aws_sdk_route53_recovery_readiness.errors.internal_server_exception.InternalServerException: An unexpected error occurred.
+            aws_sdk_route53_recovery_readiness.errors.throttling_exception.ThrottlingException: Request was denied due to request throttling.
+            aws_sdk_route53_recovery_readiness.errors.validation_exception.ValidationException: The input fails to satisfy the constraints specified by an AWS service.
+            aws_sdk_route53_recovery_readiness.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1402,6 +1581,13 @@ class Route53RecoveryReadinessClient:
         Args:
             max_results: <p>The number of objects that you want to return with this call.</p>
             next_token: <p>The token that identifies which batch of results you want to see.</p>
+
+        Raises:
+            aws_sdk_route53_recovery_readiness.errors.access_denied_exception.AccessDeniedException: User does not have sufficient access to perform this action.
+            aws_sdk_route53_recovery_readiness.errors.internal_server_exception.InternalServerException: An unexpected error occurred.
+            aws_sdk_route53_recovery_readiness.errors.throttling_exception.ThrottlingException: Request was denied due to request throttling.
+            aws_sdk_route53_recovery_readiness.errors.validation_exception.ValidationException: The input fails to satisfy the constraints specified by an AWS service.
+            aws_sdk_route53_recovery_readiness.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1479,6 +1665,13 @@ class Route53RecoveryReadinessClient:
             max_results: <p>The number of objects that you want to return with this call.</p>
             next_token: <p>The token that identifies which batch of results you want to see.</p>
             resource_type: <p>The resource type that a readiness rule applies to.</p>
+
+        Raises:
+            aws_sdk_route53_recovery_readiness.errors.access_denied_exception.AccessDeniedException: User does not have sufficient access to perform this action.
+            aws_sdk_route53_recovery_readiness.errors.internal_server_exception.InternalServerException: An unexpected error occurred.
+            aws_sdk_route53_recovery_readiness.errors.throttling_exception.ThrottlingException: Request was denied due to request throttling.
+            aws_sdk_route53_recovery_readiness.errors.validation_exception.ValidationException: The input fails to satisfy the constraints specified by an AWS service.
+            aws_sdk_route53_recovery_readiness.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1550,6 +1743,12 @@ class Route53RecoveryReadinessClient:
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) for a resource.</p>
+
+        Raises:
+            aws_sdk_route53_recovery_readiness.errors.internal_server_exception.InternalServerException: An unexpected error occurred.
+            aws_sdk_route53_recovery_readiness.errors.resource_not_found_exception.ResourceNotFoundException: The requested resource does not exist.
+            aws_sdk_route53_recovery_readiness.errors.validation_exception.ValidationException: The input fails to satisfy the constraints specified by an AWS service.
+            aws_sdk_route53_recovery_readiness.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1589,6 +1788,12 @@ class Route53RecoveryReadinessClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) for a resource.</p>
             tags: <p></p>
+
+        Raises:
+            aws_sdk_route53_recovery_readiness.errors.internal_server_exception.InternalServerException: An unexpected error occurred.
+            aws_sdk_route53_recovery_readiness.errors.resource_not_found_exception.ResourceNotFoundException: The requested resource does not exist.
+            aws_sdk_route53_recovery_readiness.errors.validation_exception.ValidationException: The input fails to satisfy the constraints specified by an AWS service.
+            aws_sdk_route53_recovery_readiness.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1629,6 +1834,12 @@ class Route53RecoveryReadinessClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) for a resource.</p>
             tag_keys: <p>The keys for tags you add to resources.</p>
+
+        Raises:
+            aws_sdk_route53_recovery_readiness.errors.internal_server_exception.InternalServerException: An unexpected error occurred.
+            aws_sdk_route53_recovery_readiness.errors.resource_not_found_exception.ResourceNotFoundException: The requested resource does not exist.
+            aws_sdk_route53_recovery_readiness.errors.validation_exception.ValidationException: The input fails to satisfy the constraints specified by an AWS service.
+            aws_sdk_route53_recovery_readiness.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1667,6 +1878,14 @@ class Route53RecoveryReadinessClient:
         Args:
             cell_name: <p>The name of the cell.</p>
             cells: <p>A list of cell Amazon Resource Names (ARNs), which completely replaces the previous list.</p>
+
+        Raises:
+            aws_sdk_route53_recovery_readiness.errors.access_denied_exception.AccessDeniedException: User does not have sufficient access to perform this action.
+            aws_sdk_route53_recovery_readiness.errors.internal_server_exception.InternalServerException: An unexpected error occurred.
+            aws_sdk_route53_recovery_readiness.errors.resource_not_found_exception.ResourceNotFoundException: The requested resource does not exist.
+            aws_sdk_route53_recovery_readiness.errors.throttling_exception.ThrottlingException: Request was denied due to request throttling.
+            aws_sdk_route53_recovery_readiness.errors.validation_exception.ValidationException: The input fails to satisfy the constraints specified by an AWS service.
+            aws_sdk_route53_recovery_readiness.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1707,6 +1926,14 @@ class Route53RecoveryReadinessClient:
         Args:
             readiness_check_name: <p>Name of a readiness check.</p>
             resource_set_name: <p>The name of the resource set to be checked.</p>
+
+        Raises:
+            aws_sdk_route53_recovery_readiness.errors.access_denied_exception.AccessDeniedException: User does not have sufficient access to perform this action.
+            aws_sdk_route53_recovery_readiness.errors.internal_server_exception.InternalServerException: An unexpected error occurred.
+            aws_sdk_route53_recovery_readiness.errors.resource_not_found_exception.ResourceNotFoundException: The requested resource does not exist.
+            aws_sdk_route53_recovery_readiness.errors.throttling_exception.ThrottlingException: Request was denied due to request throttling.
+            aws_sdk_route53_recovery_readiness.errors.validation_exception.ValidationException: The input fails to satisfy the constraints specified by an AWS service.
+            aws_sdk_route53_recovery_readiness.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1747,6 +1974,14 @@ class Route53RecoveryReadinessClient:
         Args:
             cells: <p>A list of cell Amazon Resource Names (ARNs). This list completely replaces the previous list.</p>
             recovery_group_name: <p>The name of a recovery group.</p>
+
+        Raises:
+            aws_sdk_route53_recovery_readiness.errors.access_denied_exception.AccessDeniedException: User does not have sufficient access to perform this action.
+            aws_sdk_route53_recovery_readiness.errors.internal_server_exception.InternalServerException: An unexpected error occurred.
+            aws_sdk_route53_recovery_readiness.errors.resource_not_found_exception.ResourceNotFoundException: The requested resource does not exist.
+            aws_sdk_route53_recovery_readiness.errors.throttling_exception.ThrottlingException: Request was denied due to request throttling.
+            aws_sdk_route53_recovery_readiness.errors.validation_exception.ValidationException: The input fails to satisfy the constraints specified by an AWS service.
+            aws_sdk_route53_recovery_readiness.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1789,6 +2024,14 @@ class Route53RecoveryReadinessClient:
             resource_set_name: <p>Name of a resource set.</p>
             resource_set_type: <p>The resource type of the resources in the resource set. Enter one of the following values for resource type:</p> <p>AWS::ApiGateway::Stage, AWS::ApiGatewayV2::Stage, AWS::AutoScaling::AutoScalingGroup, AWS::CloudWatch::Alarm, AWS::EC2::CustomerGateway, AWS::DynamoDB::Table, AWS::EC2::Volume, AWS::ElasticLoadBalancing::LoadBalancer, AWS::ElasticLoadBalancingV2::LoadBalancer, AWS::Lambda::Function, AWS::MSK::Cluster, AWS::RDS::DBCluster, AWS::Route53::HealthCheck, AWS::SQS::Queue, AWS::SNS::Topic, AWS::SNS::Subscription, AWS::EC2::VPC, AWS::EC2::VPNConnection, AWS::EC2::VPNGateway, AWS::Route53RecoveryReadiness::DNSTargetResource</p>
             resources: <p>A list of resource objects.</p>
+
+        Raises:
+            aws_sdk_route53_recovery_readiness.errors.access_denied_exception.AccessDeniedException: User does not have sufficient access to perform this action.
+            aws_sdk_route53_recovery_readiness.errors.internal_server_exception.InternalServerException: An unexpected error occurred.
+            aws_sdk_route53_recovery_readiness.errors.resource_not_found_exception.ResourceNotFoundException: The requested resource does not exist.
+            aws_sdk_route53_recovery_readiness.errors.throttling_exception.ThrottlingException: Request was denied due to request throttling.
+            aws_sdk_route53_recovery_readiness.errors.validation_exception.ValidationException: The input fails to satisfy the constraints specified by an AWS service.
+            aws_sdk_route53_recovery_readiness.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(

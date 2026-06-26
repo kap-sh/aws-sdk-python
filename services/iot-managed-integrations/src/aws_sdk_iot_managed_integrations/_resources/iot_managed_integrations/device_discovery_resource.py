@@ -107,6 +107,17 @@ class DeviceDiscoveryResource:
             connector_device_id_list: <p>Used as a filter for PLA discoveries.</p>
             protocol: <p>The protocol type for capability rediscovery (ZWAVE, ZIGBEE, or CUSTOM).</p> <note> <p>This parameter is only available when the discovery type is CONTROLLER_CAPABILITY_REDISCOVERY.</p> </note>
             end_device_identifier: <p>The unique id of the end device for capability rediscovery.</p> <note> <p>This parameter is only available when the discovery type is CONTROLLER_CAPABILITY_REDISCOVERY.</p> </note>
+
+        Raises:
+            aws_sdk_iot_managed_integrations.errors.access_denied_exception.AccessDeniedException: <p>User is not authorized.</p>
+            aws_sdk_iot_managed_integrations.errors.conflict_exception.ConflictException: <p>There is a conflict with the request.</p>
+            aws_sdk_iot_managed_integrations.errors.internal_server_exception.InternalServerException: <p>Internal error from the service that indicates an unexpected error or that the service is unavailable.</p>
+            aws_sdk_iot_managed_integrations.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot_managed_integrations.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot_managed_integrations.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot_managed_integrations.errors.unauthorized_exception.UnauthorizedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_iot_managed_integrations.errors.validation_exception.ValidationException: <p>A validation error occurred when performing the API request.</p>
+            aws_sdk_iot_managed_integrations.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -168,6 +179,16 @@ class DeviceDiscoveryResource:
 
         Args:
             identifier: <p>The id of the device discovery job request.</p>
+
+        Raises:
+            aws_sdk_iot_managed_integrations.errors.access_denied_exception.AccessDeniedException: <p>User is not authorized.</p>
+            aws_sdk_iot_managed_integrations.errors.internal_server_exception.InternalServerException: <p>Internal error from the service that indicates an unexpected error or that the service is unavailable.</p>
+            aws_sdk_iot_managed_integrations.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot_managed_integrations.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot_managed_integrations.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot_managed_integrations.errors.unauthorized_exception.UnauthorizedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_iot_managed_integrations.errors.validation_exception.ValidationException: <p>A validation error occurred when performing the API request.</p>
+            aws_sdk_iot_managed_integrations.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -219,6 +240,15 @@ class DeviceDiscoveryResource:
             max_results: <p>The maximum number of device discovery jobs to return in a single response.</p>
             type_filter: <p>The discovery type to filter device discovery jobs by.</p>
             status_filter: <p>The status to filter device discovery jobs by.</p>
+
+        Raises:
+            aws_sdk_iot_managed_integrations.errors.access_denied_exception.AccessDeniedException: <p>User is not authorized.</p>
+            aws_sdk_iot_managed_integrations.errors.internal_server_exception.InternalServerException: <p>Internal error from the service that indicates an unexpected error or that the service is unavailable.</p>
+            aws_sdk_iot_managed_integrations.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot_managed_integrations.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot_managed_integrations.errors.unauthorized_exception.UnauthorizedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_iot_managed_integrations.errors.validation_exception.ValidationException: <p>A validation error occurred when performing the API request.</p>
+            aws_sdk_iot_managed_integrations.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -271,6 +301,16 @@ class DeviceDiscoveryResource:
             identifier: <p>The identifier of the device discovery job to list discovered devices for.</p>
             next_token: <p>A token used for pagination of results.</p>
             max_results: <p>The maximum number of discovered devices to return in a single response.</p>
+
+        Raises:
+            aws_sdk_iot_managed_integrations.errors.access_denied_exception.AccessDeniedException: <p>User is not authorized.</p>
+            aws_sdk_iot_managed_integrations.errors.internal_server_exception.InternalServerException: <p>Internal error from the service that indicates an unexpected error or that the service is unavailable.</p>
+            aws_sdk_iot_managed_integrations.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot_managed_integrations.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot_managed_integrations.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot_managed_integrations.errors.unauthorized_exception.UnauthorizedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_iot_managed_integrations.errors.validation_exception.ValidationException: <p>A validation error occurred when performing the API request.</p>
+            aws_sdk_iot_managed_integrations.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -361,6 +401,17 @@ class AsyncDeviceDiscoveryResource:
             connector_device_id_list: <p>Used as a filter for PLA discoveries.</p>
             protocol: <p>The protocol type for capability rediscovery (ZWAVE, ZIGBEE, or CUSTOM).</p> <note> <p>This parameter is only available when the discovery type is CONTROLLER_CAPABILITY_REDISCOVERY.</p> </note>
             end_device_identifier: <p>The unique id of the end device for capability rediscovery.</p> <note> <p>This parameter is only available when the discovery type is CONTROLLER_CAPABILITY_REDISCOVERY.</p> </note>
+
+        Raises:
+            aws_sdk_iot_managed_integrations.errors.access_denied_exception.AccessDeniedException: <p>User is not authorized.</p>
+            aws_sdk_iot_managed_integrations.errors.conflict_exception.ConflictException: <p>There is a conflict with the request.</p>
+            aws_sdk_iot_managed_integrations.errors.internal_server_exception.InternalServerException: <p>Internal error from the service that indicates an unexpected error or that the service is unavailable.</p>
+            aws_sdk_iot_managed_integrations.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot_managed_integrations.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot_managed_integrations.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot_managed_integrations.errors.unauthorized_exception.UnauthorizedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_iot_managed_integrations.errors.validation_exception.ValidationException: <p>A validation error occurred when performing the API request.</p>
+            aws_sdk_iot_managed_integrations.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -423,6 +474,16 @@ class AsyncDeviceDiscoveryResource:
 
         Args:
             identifier: <p>The id of the device discovery job request.</p>
+
+        Raises:
+            aws_sdk_iot_managed_integrations.errors.access_denied_exception.AccessDeniedException: <p>User is not authorized.</p>
+            aws_sdk_iot_managed_integrations.errors.internal_server_exception.InternalServerException: <p>Internal error from the service that indicates an unexpected error or that the service is unavailable.</p>
+            aws_sdk_iot_managed_integrations.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot_managed_integrations.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot_managed_integrations.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot_managed_integrations.errors.unauthorized_exception.UnauthorizedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_iot_managed_integrations.errors.validation_exception.ValidationException: <p>A validation error occurred when performing the API request.</p>
+            aws_sdk_iot_managed_integrations.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -475,6 +536,15 @@ class AsyncDeviceDiscoveryResource:
             max_results: <p>The maximum number of device discovery jobs to return in a single response.</p>
             type_filter: <p>The discovery type to filter device discovery jobs by.</p>
             status_filter: <p>The status to filter device discovery jobs by.</p>
+
+        Raises:
+            aws_sdk_iot_managed_integrations.errors.access_denied_exception.AccessDeniedException: <p>User is not authorized.</p>
+            aws_sdk_iot_managed_integrations.errors.internal_server_exception.InternalServerException: <p>Internal error from the service that indicates an unexpected error or that the service is unavailable.</p>
+            aws_sdk_iot_managed_integrations.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot_managed_integrations.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot_managed_integrations.errors.unauthorized_exception.UnauthorizedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_iot_managed_integrations.errors.validation_exception.ValidationException: <p>A validation error occurred when performing the API request.</p>
+            aws_sdk_iot_managed_integrations.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -528,6 +598,16 @@ class AsyncDeviceDiscoveryResource:
             identifier: <p>The identifier of the device discovery job to list discovered devices for.</p>
             next_token: <p>A token used for pagination of results.</p>
             max_results: <p>The maximum number of discovered devices to return in a single response.</p>
+
+        Raises:
+            aws_sdk_iot_managed_integrations.errors.access_denied_exception.AccessDeniedException: <p>User is not authorized.</p>
+            aws_sdk_iot_managed_integrations.errors.internal_server_exception.InternalServerException: <p>Internal error from the service that indicates an unexpected error or that the service is unavailable.</p>
+            aws_sdk_iot_managed_integrations.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot_managed_integrations.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot_managed_integrations.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot_managed_integrations.errors.unauthorized_exception.UnauthorizedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_iot_managed_integrations.errors.validation_exception.ValidationException: <p>A validation error occurred when performing the API request.</p>
+            aws_sdk_iot_managed_integrations.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

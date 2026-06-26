@@ -53,6 +53,15 @@ class NamespaceResource:
         Args:
             table_bucket_arn: <p>The Amazon Resource Name (ARN) of the table bucket to create the namespace in.</p>
             namespace: <p>A name for the namespace.</p>
+
+        Raises:
+            aws_sdk_s3tables.errors.bad_request_exception.BadRequestException: <p>The request is invalid or malformed.</p>
+            aws_sdk_s3tables.errors.conflict_exception.ConflictException: <p>The request failed because there is a conflict with a previous write. You can retry the request.</p>
+            aws_sdk_s3tables.errors.forbidden_exception.ForbiddenException: <p>The caller isn't authorized to make the request.</p>
+            aws_sdk_s3tables.errors.internal_server_error_exception.InternalServerErrorException: <p>The request failed due to an internal server error.</p>
+            aws_sdk_s3tables.errors.not_found_exception.NotFoundException: <p>The request was rejected because the specified resource could not be found.</p>
+            aws_sdk_s3tables.errors.too_many_requests_exception.TooManyRequestsException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_s3tables.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -93,6 +102,15 @@ class NamespaceResource:
         Args:
             table_bucket_arn: <p>The Amazon Resource Name (ARN) of the table bucket associated with the namespace.</p>
             namespace: <p>The name of the namespace.</p>
+
+        Raises:
+            aws_sdk_s3tables.errors.bad_request_exception.BadRequestException: <p>The request is invalid or malformed.</p>
+            aws_sdk_s3tables.errors.conflict_exception.ConflictException: <p>The request failed because there is a conflict with a previous write. You can retry the request.</p>
+            aws_sdk_s3tables.errors.forbidden_exception.ForbiddenException: <p>The caller isn't authorized to make the request.</p>
+            aws_sdk_s3tables.errors.internal_server_error_exception.InternalServerErrorException: <p>The request failed due to an internal server error.</p>
+            aws_sdk_s3tables.errors.not_found_exception.NotFoundException: <p>The request was rejected because the specified resource could not be found.</p>
+            aws_sdk_s3tables.errors.too_many_requests_exception.TooManyRequestsException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_s3tables.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -131,6 +149,16 @@ class NamespaceResource:
         Args:
             table_bucket_arn: <p>The Amazon Resource Name (ARN) of the table bucket.</p>
             namespace: <p>The name of the namespace.</p>
+
+        Raises:
+            aws_sdk_s3tables.errors.access_denied_exception.AccessDeniedException: <p>The action cannot be performed because you do not have the required permission.</p>
+            aws_sdk_s3tables.errors.bad_request_exception.BadRequestException: <p>The request is invalid or malformed.</p>
+            aws_sdk_s3tables.errors.conflict_exception.ConflictException: <p>The request failed because there is a conflict with a previous write. You can retry the request.</p>
+            aws_sdk_s3tables.errors.forbidden_exception.ForbiddenException: <p>The caller isn't authorized to make the request.</p>
+            aws_sdk_s3tables.errors.internal_server_error_exception.InternalServerErrorException: <p>The request failed due to an internal server error.</p>
+            aws_sdk_s3tables.errors.not_found_exception.NotFoundException: <p>The request was rejected because the specified resource could not be found.</p>
+            aws_sdk_s3tables.errors.too_many_requests_exception.TooManyRequestsException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_s3tables.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -179,6 +207,16 @@ class NamespaceResource:
             prefix: <p>The prefix of the namespaces.</p>
             continuation_token: <p> <code>ContinuationToken</code> indicates to Amazon S3 that the list is being continued on this bucket with a token. <code>ContinuationToken</code> is obfuscated and is not a real key. You can use this <code>ContinuationToken</code> for pagination of the list results.</p>
             max_namespaces: <p>The maximum number of namespaces to return in the list.</p>
+
+        Raises:
+            aws_sdk_s3tables.errors.access_denied_exception.AccessDeniedException: <p>The action cannot be performed because you do not have the required permission.</p>
+            aws_sdk_s3tables.errors.bad_request_exception.BadRequestException: <p>The request is invalid or malformed.</p>
+            aws_sdk_s3tables.errors.conflict_exception.ConflictException: <p>The request failed because there is a conflict with a previous write. You can retry the request.</p>
+            aws_sdk_s3tables.errors.forbidden_exception.ForbiddenException: <p>The caller isn't authorized to make the request.</p>
+            aws_sdk_s3tables.errors.internal_server_error_exception.InternalServerErrorException: <p>The request failed due to an internal server error.</p>
+            aws_sdk_s3tables.errors.not_found_exception.NotFoundException: <p>The request was rejected because the specified resource could not be found.</p>
+            aws_sdk_s3tables.errors.too_many_requests_exception.TooManyRequestsException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_s3tables.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -229,6 +267,15 @@ class AsyncNamespaceResource:
         Args:
             table_bucket_arn: <p>The Amazon Resource Name (ARN) of the table bucket to create the namespace in.</p>
             namespace: <p>A name for the namespace.</p>
+
+        Raises:
+            aws_sdk_s3tables.errors.bad_request_exception.BadRequestException: <p>The request is invalid or malformed.</p>
+            aws_sdk_s3tables.errors.conflict_exception.ConflictException: <p>The request failed because there is a conflict with a previous write. You can retry the request.</p>
+            aws_sdk_s3tables.errors.forbidden_exception.ForbiddenException: <p>The caller isn't authorized to make the request.</p>
+            aws_sdk_s3tables.errors.internal_server_error_exception.InternalServerErrorException: <p>The request failed due to an internal server error.</p>
+            aws_sdk_s3tables.errors.not_found_exception.NotFoundException: <p>The request was rejected because the specified resource could not be found.</p>
+            aws_sdk_s3tables.errors.too_many_requests_exception.TooManyRequestsException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_s3tables.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -270,6 +317,15 @@ class AsyncNamespaceResource:
         Args:
             table_bucket_arn: <p>The Amazon Resource Name (ARN) of the table bucket associated with the namespace.</p>
             namespace: <p>The name of the namespace.</p>
+
+        Raises:
+            aws_sdk_s3tables.errors.bad_request_exception.BadRequestException: <p>The request is invalid or malformed.</p>
+            aws_sdk_s3tables.errors.conflict_exception.ConflictException: <p>The request failed because there is a conflict with a previous write. You can retry the request.</p>
+            aws_sdk_s3tables.errors.forbidden_exception.ForbiddenException: <p>The caller isn't authorized to make the request.</p>
+            aws_sdk_s3tables.errors.internal_server_error_exception.InternalServerErrorException: <p>The request failed due to an internal server error.</p>
+            aws_sdk_s3tables.errors.not_found_exception.NotFoundException: <p>The request was rejected because the specified resource could not be found.</p>
+            aws_sdk_s3tables.errors.too_many_requests_exception.TooManyRequestsException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_s3tables.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -309,6 +365,16 @@ class AsyncNamespaceResource:
         Args:
             table_bucket_arn: <p>The Amazon Resource Name (ARN) of the table bucket.</p>
             namespace: <p>The name of the namespace.</p>
+
+        Raises:
+            aws_sdk_s3tables.errors.access_denied_exception.AccessDeniedException: <p>The action cannot be performed because you do not have the required permission.</p>
+            aws_sdk_s3tables.errors.bad_request_exception.BadRequestException: <p>The request is invalid or malformed.</p>
+            aws_sdk_s3tables.errors.conflict_exception.ConflictException: <p>The request failed because there is a conflict with a previous write. You can retry the request.</p>
+            aws_sdk_s3tables.errors.forbidden_exception.ForbiddenException: <p>The caller isn't authorized to make the request.</p>
+            aws_sdk_s3tables.errors.internal_server_error_exception.InternalServerErrorException: <p>The request failed due to an internal server error.</p>
+            aws_sdk_s3tables.errors.not_found_exception.NotFoundException: <p>The request was rejected because the specified resource could not be found.</p>
+            aws_sdk_s3tables.errors.too_many_requests_exception.TooManyRequestsException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_s3tables.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -358,6 +424,16 @@ class AsyncNamespaceResource:
             prefix: <p>The prefix of the namespaces.</p>
             continuation_token: <p> <code>ContinuationToken</code> indicates to Amazon S3 that the list is being continued on this bucket with a token. <code>ContinuationToken</code> is obfuscated and is not a real key. You can use this <code>ContinuationToken</code> for pagination of the list results.</p>
             max_namespaces: <p>The maximum number of namespaces to return in the list.</p>
+
+        Raises:
+            aws_sdk_s3tables.errors.access_denied_exception.AccessDeniedException: <p>The action cannot be performed because you do not have the required permission.</p>
+            aws_sdk_s3tables.errors.bad_request_exception.BadRequestException: <p>The request is invalid or malformed.</p>
+            aws_sdk_s3tables.errors.conflict_exception.ConflictException: <p>The request failed because there is a conflict with a previous write. You can retry the request.</p>
+            aws_sdk_s3tables.errors.forbidden_exception.ForbiddenException: <p>The caller isn't authorized to make the request.</p>
+            aws_sdk_s3tables.errors.internal_server_error_exception.InternalServerErrorException: <p>The request failed due to an internal server error.</p>
+            aws_sdk_s3tables.errors.not_found_exception.NotFoundException: <p>The request was rejected because the specified resource could not be found.</p>
+            aws_sdk_s3tables.errors.too_many_requests_exception.TooManyRequestsException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_s3tables.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

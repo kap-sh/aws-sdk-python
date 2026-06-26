@@ -44,6 +44,13 @@ class VirtualMachineResource:
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the virtual machine.</p>
+
+        Raises:
+            aws_sdk_backup_gateway.errors.internal_server_exception.InternalServerException: <p>The operation did not succeed because an internal error occurred. Try again later.</p>
+            aws_sdk_backup_gateway.errors.throttling_exception.ThrottlingException: <p>TPS has been limited to protect against intentional or unintentional high request volumes.</p>
+            aws_sdk_backup_gateway.errors.validation_exception.ValidationException: <p>The operation did not succeed because a validation error occurred.</p>
+            aws_sdk_backup_gateway.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource that is required for the action wasn't found.</p>
+            aws_sdk_backup_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -91,6 +98,12 @@ class VirtualMachineResource:
             hypervisor_arn: <p>The Amazon Resource Name (ARN) of the hypervisor connected to your virtual machine.</p>
             max_results: <p>The maximum number of virtual machines to list.</p>
             next_token: <p>The next item following a partial list of returned resources. For example, if a request is made to return <code>maxResults</code> number of resources, <code>NextToken</code> allows you to return more items in your list starting at the location pointed to by the next token.</p>
+
+        Raises:
+            aws_sdk_backup_gateway.errors.internal_server_exception.InternalServerException: <p>The operation did not succeed because an internal error occurred. Try again later.</p>
+            aws_sdk_backup_gateway.errors.throttling_exception.ThrottlingException: <p>TPS has been limited to protect against intentional or unintentional high request volumes.</p>
+            aws_sdk_backup_gateway.errors.validation_exception.ValidationException: <p>The operation did not succeed because a validation error occurred.</p>
+            aws_sdk_backup_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -138,6 +151,13 @@ class AsyncVirtualMachineResource:
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the virtual machine.</p>
+
+        Raises:
+            aws_sdk_backup_gateway.errors.internal_server_exception.InternalServerException: <p>The operation did not succeed because an internal error occurred. Try again later.</p>
+            aws_sdk_backup_gateway.errors.throttling_exception.ThrottlingException: <p>TPS has been limited to protect against intentional or unintentional high request volumes.</p>
+            aws_sdk_backup_gateway.errors.validation_exception.ValidationException: <p>The operation did not succeed because a validation error occurred.</p>
+            aws_sdk_backup_gateway.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource that is required for the action wasn't found.</p>
+            aws_sdk_backup_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -186,6 +206,12 @@ class AsyncVirtualMachineResource:
             hypervisor_arn: <p>The Amazon Resource Name (ARN) of the hypervisor connected to your virtual machine.</p>
             max_results: <p>The maximum number of virtual machines to list.</p>
             next_token: <p>The next item following a partial list of returned resources. For example, if a request is made to return <code>maxResults</code> number of resources, <code>NextToken</code> allows you to return more items in your list starting at the location pointed to by the next token.</p>
+
+        Raises:
+            aws_sdk_backup_gateway.errors.internal_server_exception.InternalServerException: <p>The operation did not succeed because an internal error occurred. Try again later.</p>
+            aws_sdk_backup_gateway.errors.throttling_exception.ThrottlingException: <p>TPS has been limited to protect against intentional or unintentional high request volumes.</p>
+            aws_sdk_backup_gateway.errors.validation_exception.ValidationException: <p>The operation did not succeed because a validation error occurred.</p>
+            aws_sdk_backup_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

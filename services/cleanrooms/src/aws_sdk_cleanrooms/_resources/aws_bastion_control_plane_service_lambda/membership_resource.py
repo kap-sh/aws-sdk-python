@@ -123,6 +123,16 @@ class MembershipResource:
             default_job_result_configuration: <p>The default job result configuration that determines how job results are protected and managed within this membership. This configuration applies to all jobs.</p>
             payment_configuration: <p>The payment responsibilities accepted by the collaboration member.</p> <p>Not required if the collaboration member has the member ability to run queries. </p> <p>Required if the collaboration member doesn't have the member ability to run queries but is configured as a payer by the collaboration creator. </p>
             is_metrics_enabled: <p>An indicator as to whether Amazon CloudWatch metrics have been enabled or disabled for the membership.</p> <p>Amazon CloudWatch metrics are only available when the collaboration has metrics enabled. This option can be set by collaboration members who have the ability to run queries (analysis runners) or by members who are configured as payers.</p> <p>When <code>true</code>, metrics about query execution are collected in Amazon CloudWatch. The default value is <code>false</code>.</p>
+
+        Raises:
+            aws_sdk_cleanrooms.errors.access_denied_exception.AccessDeniedException: <p>Caller does not have sufficient access to perform this action.</p>
+            aws_sdk_cleanrooms.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_cleanrooms.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_cleanrooms.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_cleanrooms.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Request denied because service quota has been exceeded.</p>
+            aws_sdk_cleanrooms.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_cleanrooms.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints.</p>
+            aws_sdk_cleanrooms.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -175,6 +185,14 @@ class MembershipResource:
 
         Args:
             membership_identifier: <p>The identifier for a membership resource.</p>
+
+        Raises:
+            aws_sdk_cleanrooms.errors.access_denied_exception.AccessDeniedException: <p>Caller does not have sufficient access to perform this action.</p>
+            aws_sdk_cleanrooms.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_cleanrooms.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_cleanrooms.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_cleanrooms.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints.</p>
+            aws_sdk_cleanrooms.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -232,6 +250,15 @@ class MembershipResource:
             default_result_configuration: <p>The default protected query result configuration as specified by the member who can receive results.</p>
             default_job_result_configuration: <p> The default job result configuration.</p>
             membership_payment_configuration: <p>The payment configuration to update for the membership.</p>
+
+        Raises:
+            aws_sdk_cleanrooms.errors.access_denied_exception.AccessDeniedException: <p>Caller does not have sufficient access to perform this action.</p>
+            aws_sdk_cleanrooms.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_cleanrooms.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_cleanrooms.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_cleanrooms.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_cleanrooms.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints.</p>
+            aws_sdk_cleanrooms.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -283,6 +310,15 @@ class MembershipResource:
 
         Args:
             membership_identifier: <p>The identifier for a membership resource.</p>
+
+        Raises:
+            aws_sdk_cleanrooms.errors.access_denied_exception.AccessDeniedException: <p>Caller does not have sufficient access to perform this action.</p>
+            aws_sdk_cleanrooms.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_cleanrooms.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_cleanrooms.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_cleanrooms.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_cleanrooms.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints.</p>
+            aws_sdk_cleanrooms.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -328,6 +364,13 @@ class MembershipResource:
             next_token: <p>The pagination token that's used to fetch the next set of results.</p>
             max_results: <p>The maximum number of results that are returned for an API request call. The service chooses a default number if you don't set one. The service might return a `nextToken` even if the `maxResults` value has not been met.</p>
             status: <p>A filter which will return only memberships in the specified status.</p>
+
+        Raises:
+            aws_sdk_cleanrooms.errors.access_denied_exception.AccessDeniedException: <p>Caller does not have sufficient access to perform this action.</p>
+            aws_sdk_cleanrooms.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_cleanrooms.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_cleanrooms.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints.</p>
+            aws_sdk_cleanrooms.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -372,6 +415,14 @@ class MembershipResource:
         Args:
             membership_identifier: <p> The identifier for a membership in a protected job instance.</p>
             protected_job_identifier: <p> The identifier for the protected job instance.</p>
+
+        Raises:
+            aws_sdk_cleanrooms.errors.access_denied_exception.AccessDeniedException: <p>Caller does not have sufficient access to perform this action.</p>
+            aws_sdk_cleanrooms.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_cleanrooms.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_cleanrooms.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_cleanrooms.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints.</p>
+            aws_sdk_cleanrooms.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -412,6 +463,14 @@ class MembershipResource:
         Args:
             membership_identifier: <p>The identifier for a membership in a protected query instance.</p>
             protected_query_identifier: <p>The identifier for a protected query instance.</p>
+
+        Raises:
+            aws_sdk_cleanrooms.errors.access_denied_exception.AccessDeniedException: <p>Caller does not have sufficient access to perform this action.</p>
+            aws_sdk_cleanrooms.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_cleanrooms.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_cleanrooms.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_cleanrooms.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints.</p>
+            aws_sdk_cleanrooms.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -464,6 +523,14 @@ class MembershipResource:
             next_token: <p>The pagination token that's used to fetch the next set of results.</p>
             max_results: <p>The maximum number of results that are returned for an API request call. The service chooses a default number if you don't set one. The service might return a `nextToken` even if the `maxResults` value has not been met.</p>
             access_budget_resource_arn: <p>The Amazon Resource Name (ARN) of the access budget resource to filter privacy budgets by.</p>
+
+        Raises:
+            aws_sdk_cleanrooms.errors.access_denied_exception.AccessDeniedException: <p>Caller does not have sufficient access to perform this action.</p>
+            aws_sdk_cleanrooms.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_cleanrooms.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_cleanrooms.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_cleanrooms.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints.</p>
+            aws_sdk_cleanrooms.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -518,6 +585,14 @@ class MembershipResource:
             status: <p>A filter on the status of the protected job.</p>
             next_token: <p>The pagination token that's used to fetch the next set of results.</p>
             max_results: <p>The maximum number of results that are returned for an API request call. The service chooses a default number if you don't set one. The service might return a `nextToken` even if the `maxResults` value has not been met. </p>
+
+        Raises:
+            aws_sdk_cleanrooms.errors.access_denied_exception.AccessDeniedException: <p>Caller does not have sufficient access to perform this action.</p>
+            aws_sdk_cleanrooms.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_cleanrooms.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_cleanrooms.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_cleanrooms.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints.</p>
+            aws_sdk_cleanrooms.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -571,6 +646,14 @@ class MembershipResource:
             status: <p>A filter on the status of the protected query.</p>
             next_token: <p>The pagination token that's used to fetch the next set of results.</p>
             max_results: <p>The maximum number of results that are returned for an API request call. The service chooses a default number if you don't set one. The service might return a `nextToken` even if the `maxResults` value has not been met. </p>
+
+        Raises:
+            aws_sdk_cleanrooms.errors.access_denied_exception.AccessDeniedException: <p>Caller does not have sufficient access to perform this action.</p>
+            aws_sdk_cleanrooms.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_cleanrooms.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_cleanrooms.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_cleanrooms.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints.</p>
+            aws_sdk_cleanrooms.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -616,6 +699,14 @@ class MembershipResource:
         Args:
             membership_identifier: <p>A unique identifier for one of your memberships for a collaboration. Accepts a membership ID.</p>
             parameters: <p>Specifies the desired epsilon and noise parameters to preview.</p>
+
+        Raises:
+            aws_sdk_cleanrooms.errors.access_denied_exception.AccessDeniedException: <p>Caller does not have sufficient access to perform this action.</p>
+            aws_sdk_cleanrooms.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_cleanrooms.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_cleanrooms.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_cleanrooms.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints.</p>
+            aws_sdk_cleanrooms.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -670,6 +761,15 @@ class MembershipResource:
             result_configuration: <p>The details needed to write the job results.</p>
             compute_configuration: <p>The compute configuration for the protected job.</p>
             job_compute_payer_account_id: <p>The account ID of the member that pays for the job compute costs.</p>
+
+        Raises:
+            aws_sdk_cleanrooms.errors.access_denied_exception.AccessDeniedException: <p>Caller does not have sufficient access to perform this action.</p>
+            aws_sdk_cleanrooms.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_cleanrooms.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_cleanrooms.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Request denied because service quota has been exceeded.</p>
+            aws_sdk_cleanrooms.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_cleanrooms.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints.</p>
+            aws_sdk_cleanrooms.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -731,6 +831,15 @@ class MembershipResource:
             result_configuration: <p>The details needed to write the query results.</p>
             compute_configuration: <p> The compute configuration for the protected query.</p>
             query_compute_payer_account_id: <p>The account ID of the member that pays for the query compute costs.</p>
+
+        Raises:
+            aws_sdk_cleanrooms.errors.access_denied_exception.AccessDeniedException: <p>Caller does not have sufficient access to perform this action.</p>
+            aws_sdk_cleanrooms.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_cleanrooms.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_cleanrooms.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Request denied because service quota has been exceeded.</p>
+            aws_sdk_cleanrooms.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_cleanrooms.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints.</p>
+            aws_sdk_cleanrooms.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -782,6 +891,15 @@ class MembershipResource:
             membership_identifier: <p>The identifier for a member of a protected job instance.</p>
             protected_job_identifier: <p> The identifier of the protected job to update.</p>
             target_status: <p>The target status of a protected job. Used to update the execution status of a currently running job.</p>
+
+        Raises:
+            aws_sdk_cleanrooms.errors.access_denied_exception.AccessDeniedException: <p>Caller does not have sufficient access to perform this action.</p>
+            aws_sdk_cleanrooms.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_cleanrooms.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_cleanrooms.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_cleanrooms.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_cleanrooms.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints.</p>
+            aws_sdk_cleanrooms.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -825,6 +943,15 @@ class MembershipResource:
             membership_identifier: <p>The identifier for a member of a protected query instance.</p>
             protected_query_identifier: <p>The identifier for a protected query instance.</p>
             target_status: <p>The target status of a query. Used to update the execution status of a currently running query.</p>
+
+        Raises:
+            aws_sdk_cleanrooms.errors.access_denied_exception.AccessDeniedException: <p>Caller does not have sufficient access to perform this action.</p>
+            aws_sdk_cleanrooms.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_cleanrooms.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_cleanrooms.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_cleanrooms.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_cleanrooms.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints.</p>
+            aws_sdk_cleanrooms.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -891,6 +1018,16 @@ class AsyncMembershipResource:
             default_job_result_configuration: <p>The default job result configuration that determines how job results are protected and managed within this membership. This configuration applies to all jobs.</p>
             payment_configuration: <p>The payment responsibilities accepted by the collaboration member.</p> <p>Not required if the collaboration member has the member ability to run queries. </p> <p>Required if the collaboration member doesn't have the member ability to run queries but is configured as a payer by the collaboration creator. </p>
             is_metrics_enabled: <p>An indicator as to whether Amazon CloudWatch metrics have been enabled or disabled for the membership.</p> <p>Amazon CloudWatch metrics are only available when the collaboration has metrics enabled. This option can be set by collaboration members who have the ability to run queries (analysis runners) or by members who are configured as payers.</p> <p>When <code>true</code>, metrics about query execution are collected in Amazon CloudWatch. The default value is <code>false</code>.</p>
+
+        Raises:
+            aws_sdk_cleanrooms.errors.access_denied_exception.AccessDeniedException: <p>Caller does not have sufficient access to perform this action.</p>
+            aws_sdk_cleanrooms.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_cleanrooms.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_cleanrooms.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_cleanrooms.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Request denied because service quota has been exceeded.</p>
+            aws_sdk_cleanrooms.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_cleanrooms.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints.</p>
+            aws_sdk_cleanrooms.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -944,6 +1081,14 @@ class AsyncMembershipResource:
 
         Args:
             membership_identifier: <p>The identifier for a membership resource.</p>
+
+        Raises:
+            aws_sdk_cleanrooms.errors.access_denied_exception.AccessDeniedException: <p>Caller does not have sufficient access to perform this action.</p>
+            aws_sdk_cleanrooms.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_cleanrooms.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_cleanrooms.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_cleanrooms.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints.</p>
+            aws_sdk_cleanrooms.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1002,6 +1147,15 @@ class AsyncMembershipResource:
             default_result_configuration: <p>The default protected query result configuration as specified by the member who can receive results.</p>
             default_job_result_configuration: <p> The default job result configuration.</p>
             membership_payment_configuration: <p>The payment configuration to update for the membership.</p>
+
+        Raises:
+            aws_sdk_cleanrooms.errors.access_denied_exception.AccessDeniedException: <p>Caller does not have sufficient access to perform this action.</p>
+            aws_sdk_cleanrooms.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_cleanrooms.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_cleanrooms.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_cleanrooms.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_cleanrooms.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints.</p>
+            aws_sdk_cleanrooms.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1054,6 +1208,15 @@ class AsyncMembershipResource:
 
         Args:
             membership_identifier: <p>The identifier for a membership resource.</p>
+
+        Raises:
+            aws_sdk_cleanrooms.errors.access_denied_exception.AccessDeniedException: <p>Caller does not have sufficient access to perform this action.</p>
+            aws_sdk_cleanrooms.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_cleanrooms.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_cleanrooms.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_cleanrooms.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_cleanrooms.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints.</p>
+            aws_sdk_cleanrooms.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1100,6 +1263,13 @@ class AsyncMembershipResource:
             next_token: <p>The pagination token that's used to fetch the next set of results.</p>
             max_results: <p>The maximum number of results that are returned for an API request call. The service chooses a default number if you don't set one. The service might return a `nextToken` even if the `maxResults` value has not been met.</p>
             status: <p>A filter which will return only memberships in the specified status.</p>
+
+        Raises:
+            aws_sdk_cleanrooms.errors.access_denied_exception.AccessDeniedException: <p>Caller does not have sufficient access to perform this action.</p>
+            aws_sdk_cleanrooms.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_cleanrooms.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_cleanrooms.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints.</p>
+            aws_sdk_cleanrooms.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1145,6 +1315,14 @@ class AsyncMembershipResource:
         Args:
             membership_identifier: <p> The identifier for a membership in a protected job instance.</p>
             protected_job_identifier: <p> The identifier for the protected job instance.</p>
+
+        Raises:
+            aws_sdk_cleanrooms.errors.access_denied_exception.AccessDeniedException: <p>Caller does not have sufficient access to perform this action.</p>
+            aws_sdk_cleanrooms.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_cleanrooms.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_cleanrooms.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_cleanrooms.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints.</p>
+            aws_sdk_cleanrooms.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1186,6 +1364,14 @@ class AsyncMembershipResource:
         Args:
             membership_identifier: <p>The identifier for a membership in a protected query instance.</p>
             protected_query_identifier: <p>The identifier for a protected query instance.</p>
+
+        Raises:
+            aws_sdk_cleanrooms.errors.access_denied_exception.AccessDeniedException: <p>Caller does not have sufficient access to perform this action.</p>
+            aws_sdk_cleanrooms.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_cleanrooms.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_cleanrooms.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_cleanrooms.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints.</p>
+            aws_sdk_cleanrooms.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1239,6 +1425,14 @@ class AsyncMembershipResource:
             next_token: <p>The pagination token that's used to fetch the next set of results.</p>
             max_results: <p>The maximum number of results that are returned for an API request call. The service chooses a default number if you don't set one. The service might return a `nextToken` even if the `maxResults` value has not been met.</p>
             access_budget_resource_arn: <p>The Amazon Resource Name (ARN) of the access budget resource to filter privacy budgets by.</p>
+
+        Raises:
+            aws_sdk_cleanrooms.errors.access_denied_exception.AccessDeniedException: <p>Caller does not have sufficient access to perform this action.</p>
+            aws_sdk_cleanrooms.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_cleanrooms.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_cleanrooms.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_cleanrooms.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints.</p>
+            aws_sdk_cleanrooms.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1294,6 +1488,14 @@ class AsyncMembershipResource:
             status: <p>A filter on the status of the protected job.</p>
             next_token: <p>The pagination token that's used to fetch the next set of results.</p>
             max_results: <p>The maximum number of results that are returned for an API request call. The service chooses a default number if you don't set one. The service might return a `nextToken` even if the `maxResults` value has not been met. </p>
+
+        Raises:
+            aws_sdk_cleanrooms.errors.access_denied_exception.AccessDeniedException: <p>Caller does not have sufficient access to perform this action.</p>
+            aws_sdk_cleanrooms.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_cleanrooms.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_cleanrooms.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_cleanrooms.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints.</p>
+            aws_sdk_cleanrooms.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1348,6 +1550,14 @@ class AsyncMembershipResource:
             status: <p>A filter on the status of the protected query.</p>
             next_token: <p>The pagination token that's used to fetch the next set of results.</p>
             max_results: <p>The maximum number of results that are returned for an API request call. The service chooses a default number if you don't set one. The service might return a `nextToken` even if the `maxResults` value has not been met. </p>
+
+        Raises:
+            aws_sdk_cleanrooms.errors.access_denied_exception.AccessDeniedException: <p>Caller does not have sufficient access to perform this action.</p>
+            aws_sdk_cleanrooms.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_cleanrooms.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_cleanrooms.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_cleanrooms.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints.</p>
+            aws_sdk_cleanrooms.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1394,6 +1604,14 @@ class AsyncMembershipResource:
         Args:
             membership_identifier: <p>A unique identifier for one of your memberships for a collaboration. Accepts a membership ID.</p>
             parameters: <p>Specifies the desired epsilon and noise parameters to preview.</p>
+
+        Raises:
+            aws_sdk_cleanrooms.errors.access_denied_exception.AccessDeniedException: <p>Caller does not have sufficient access to perform this action.</p>
+            aws_sdk_cleanrooms.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_cleanrooms.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_cleanrooms.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_cleanrooms.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints.</p>
+            aws_sdk_cleanrooms.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1449,6 +1667,15 @@ class AsyncMembershipResource:
             result_configuration: <p>The details needed to write the job results.</p>
             compute_configuration: <p>The compute configuration for the protected job.</p>
             job_compute_payer_account_id: <p>The account ID of the member that pays for the job compute costs.</p>
+
+        Raises:
+            aws_sdk_cleanrooms.errors.access_denied_exception.AccessDeniedException: <p>Caller does not have sufficient access to perform this action.</p>
+            aws_sdk_cleanrooms.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_cleanrooms.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_cleanrooms.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Request denied because service quota has been exceeded.</p>
+            aws_sdk_cleanrooms.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_cleanrooms.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints.</p>
+            aws_sdk_cleanrooms.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1511,6 +1738,15 @@ class AsyncMembershipResource:
             result_configuration: <p>The details needed to write the query results.</p>
             compute_configuration: <p> The compute configuration for the protected query.</p>
             query_compute_payer_account_id: <p>The account ID of the member that pays for the query compute costs.</p>
+
+        Raises:
+            aws_sdk_cleanrooms.errors.access_denied_exception.AccessDeniedException: <p>Caller does not have sufficient access to perform this action.</p>
+            aws_sdk_cleanrooms.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_cleanrooms.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_cleanrooms.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Request denied because service quota has been exceeded.</p>
+            aws_sdk_cleanrooms.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_cleanrooms.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints.</p>
+            aws_sdk_cleanrooms.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1563,6 +1799,15 @@ class AsyncMembershipResource:
             membership_identifier: <p>The identifier for a member of a protected job instance.</p>
             protected_job_identifier: <p> The identifier of the protected job to update.</p>
             target_status: <p>The target status of a protected job. Used to update the execution status of a currently running job.</p>
+
+        Raises:
+            aws_sdk_cleanrooms.errors.access_denied_exception.AccessDeniedException: <p>Caller does not have sufficient access to perform this action.</p>
+            aws_sdk_cleanrooms.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_cleanrooms.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_cleanrooms.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_cleanrooms.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_cleanrooms.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints.</p>
+            aws_sdk_cleanrooms.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1607,6 +1852,15 @@ class AsyncMembershipResource:
             membership_identifier: <p>The identifier for a member of a protected query instance.</p>
             protected_query_identifier: <p>The identifier for a protected query instance.</p>
             target_status: <p>The target status of a query. Used to update the execution status of a currently running query.</p>
+
+        Raises:
+            aws_sdk_cleanrooms.errors.access_denied_exception.AccessDeniedException: <p>Caller does not have sufficient access to perform this action.</p>
+            aws_sdk_cleanrooms.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_cleanrooms.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_cleanrooms.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_cleanrooms.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_cleanrooms.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints.</p>
+            aws_sdk_cleanrooms.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

@@ -541,6 +541,10 @@ class S3Client:
             expected_bucket_owner: <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
             if_match_initiated_time: <p>If present, this header aborts an in progress multipart upload only if it was initiated on the provided timestamp. If the initiated timestamp of the multipart upload does not match the provided value, the operation returns a <code>412 Precondition Failed</code> error. If the initiated timestamp matches or if the multipart upload doesn’t exist, the operation returns a <code>204 Success (No Content)</code> response. </p> <note> <p>This functionality is only supported for directory buckets.</p> </note>
 
+        Raises:
+            aws_sdk_s3.errors.no_such_upload.NoSuchUpload: <p>The specified multipart upload does not exist.</p>
+            aws_sdk_s3.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To abort a multipart upload
             The following example aborts a multipart upload.
@@ -660,6 +664,9 @@ class S3Client:
             sse_customer_algorithm: <p>The server-side encryption (SSE) algorithm used to encrypt the object. This parameter is required only when the object was created using a checksum algorithm or if your bucket policy requires the use of SSE-C. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/ServerSideEncryptionCustomerKeys.html#ssec-require-condition-key\">Protecting data using SSE-C keys</a> in the <i>Amazon S3 User Guide</i>.</p> <note> <p>This functionality is not supported for directory buckets.</p> </note>
             sse_customer_key: <p>The server-side encryption (SSE) customer managed key. This parameter is needed only when the object was created using a checksum algorithm. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html\">Protecting data using SSE-C keys</a> in the <i>Amazon S3 User Guide</i>.</p> <note> <p>This functionality is not supported for directory buckets.</p> </note>
             sse_customer_key_md5: <p>The MD5 server-side encryption (SSE) customer managed key. This parameter is needed only when the object was created using a checksum algorithm. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html\">Protecting data using SSE-C keys</a> in the <i>Amazon S3 User Guide</i>.</p> <note> <p>This functionality is not supported for directory buckets.</p> </note>
+
+        Raises:
+            aws_sdk_s3.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To complete multipart upload
@@ -881,6 +888,10 @@ class S3Client:
             expected_bucket_owner: <p>The account ID of the expected destination bucket owner. If the account ID that you provide does not match the actual owner of the destination bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
             expected_source_bucket_owner: <p>The account ID of the expected source bucket owner. If the account ID that you provide does not match the actual owner of the source bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
 
+        Raises:
+            aws_sdk_s3.errors.object_not_in_active_tier_error.ObjectNotInActiveTierError: <p>The source object of the COPY action is not in the active tier and is only stored in Amazon S3 Glacier.</p>
+            aws_sdk_s3.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To copy an object
             The following example copies an object from one bucket to another.
@@ -1039,6 +1050,11 @@ class S3Client:
             object_lock_enabled_for_bucket: <p>Specifies whether you want S3 Object Lock to be enabled for the new bucket.</p> <note> <p>This functionality is not supported for directory buckets.</p> </note>
             bucket_namespace: <p>Specifies the namespace where you want to create your general purpose bucket. When you create a general purpose bucket, you can choose to create a bucket in the shared global namespace or you can choose to create a bucket in your account regional namespace. Your account regional namespace is a subdivision of the global namespace that only your account can create buckets in. For more information on bucket namespaces, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/gpbucketnamespaces.html\">Namespaces for general purpose buckets</a>.</p> <p>General purpose buckets in your account regional namespace must follow a specific naming convention. These buckets consist of a bucket name prefix that you create, and a suffix that contains your 12-digit Amazon Web Services Account ID, the Amazon Web Services Region code, and ends with <code>-an</code>. Bucket names must follow the format <code>bucket-name-prefix-accountId-region-an</code> (for example, <code>amzn-s3-demo-bucket-111122223333-us-west-2-an</code>). For information about bucket naming restrictions, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html#account-regional-naming-rules\">Account regional namespace naming rules</a> in the <i>Amazon S3 User Guide</i>.</p> <note> <p>This functionality is not supported for directory buckets.</p> </note>
 
+        Raises:
+            aws_sdk_s3.errors.bucket_already_exists.BucketAlreadyExists: <p>The requested bucket name is not available. The bucket namespace is shared by all users of the system. Select a different name and try again.</p>
+            aws_sdk_s3.errors.bucket_already_owned_by_you.BucketAlreadyOwnedByYou: <p>The bucket you tried to create already exists, and you own it. Amazon S3 returns this error in all Amazon Web Services Regions except in the North Virginia Region. For legacy compatibility, if you re-create an existing bucket that you already own in the North Virginia Region, Amazon S3 returns 200 OK and resets the bucket access control lists (ACLs).</p>
+            aws_sdk_s3.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To create a bucket in a specific region
             The following example creates a bucket. The request specifies an AWS region where to create the bucket.
@@ -1115,6 +1131,9 @@ class S3Client:
             checksum_algorithm: <p> The checksum algorithm to use with your metadata configuration. </p>
             metadata_configuration: <p> The contents of your metadata configuration. </p>
             expected_bucket_owner: <p> The expected owner of the general purpose bucket that corresponds to your metadata configuration. </p>
+
+        Raises:
+            aws_sdk_s3.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1167,6 +1186,9 @@ class S3Client:
             checksum_algorithm: <p> The checksum algorithm to use with your metadata table configuration. </p>
             metadata_table_configuration: <p> The contents of your metadata table configuration. </p>
             expected_bucket_owner: <p> The expected owner of the general purpose bucket that corresponds to your metadata table configuration. </p>
+
+        Raises:
+            aws_sdk_s3.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1301,6 +1323,9 @@ class S3Client:
             checksum_algorithm: <p>Indicates the algorithm that you want Amazon S3 to use to create the checksum for the object. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html\">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
             checksum_type: <p>Indicates the checksum type that you want Amazon S3 to use to calculate the object’s checksum value. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html\">Checking object integrity in the Amazon S3 User Guide</a>.</p>
 
+        Raises:
+            aws_sdk_s3.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To initiate a multipart upload
             The following example initiates a multipart upload.
@@ -1418,6 +1443,10 @@ class S3Client:
             ssekms_key_id: <p>If you specify <code>x-amz-server-side-encryption</code> with <code>aws:kms</code>, you must specify the <code> x-amz-server-side-encryption-aws-kms-key-id</code> header with the ID (Key ID or Key ARN) of the KMS symmetric encryption customer managed key to use. Otherwise, you get an HTTP <code>400 Bad Request</code> error. Only use the key ID or key ARN. The key alias format of the KMS key isn't supported. Also, if the KMS key doesn't exist in the same account that't issuing the command, you must use the full Key ARN not the Key ID. </p> <p>Your SSE-KMS configuration can only support 1 <a href=\"https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk\">customer managed key</a> per directory bucket's lifetime. The <a href=\"https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk\">Amazon Web Services managed key</a> (<code>aws/s3</code>) isn't supported. </p>
             ssekms_encryption_context: <p>Specifies the Amazon Web Services KMS Encryption Context as an additional encryption context to use for object encryption. The value of this header is a Base64 encoded string of a UTF-8 encoded JSON, which contains the encryption context as key-value pairs. This value is stored as object metadata and automatically gets passed on to Amazon Web Services KMS for future <code>GetObject</code> operations on this object.</p> <p> <b>General purpose buckets</b> - This value must be explicitly added during <code>CopyObject</code> operations if you want an additional encryption context for your object. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/UsingKMSEncryption.html#encryption-context\">Encryption context</a> in the <i>Amazon S3 User Guide</i>.</p> <p> <b>Directory buckets</b> - You can optionally provide an explicit encryption context value. The value must match the default encryption context - the bucket Amazon Resource Name (ARN). An additional encryption context value is not supported. </p>
             bucket_key_enabled: <p>Specifies whether Amazon S3 should use an S3 Bucket Key for object encryption with server-side encryption using KMS keys (SSE-KMS).</p> <p>S3 Bucket Keys are always enabled for <code>GET</code> and <code>PUT</code> operations in a directory bucket and can’t be disabled. S3 Bucket Keys aren't supported, when you copy SSE-KMS encrypted objects from general purpose buckets to directory buckets, from directory buckets to general purpose buckets, or between directory buckets, through <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_CopyObject.html\">CopyObject</a>, <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_UploadPartCopy.html\">UploadPartCopy</a>, <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-buckets-objects-Batch-Ops\">the Copy operation in Batch Operations</a>, or <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/create-import-job\">the import jobs</a>. In this case, Amazon S3 makes a call to KMS every time a copy request is made for a KMS-encrypted object.</p>
+
+        Raises:
+            aws_sdk_s3.errors.no_such_bucket.NoSuchBucket: <p>The specified bucket does not exist.</p>
+            aws_sdk_s3.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1468,6 +1497,9 @@ class S3Client:
             bucket: <p>Specifies the bucket being deleted.</p> <p> <b>Directory buckets </b> - When you use this operation with a directory bucket, you must use path-style requests in the format <code>https://s3express-control.<i>region-code</i>.amazonaws.com/<i>bucket-name</i> </code>. Virtual-hosted-style requests aren't supported. Directory bucket names must be unique in the chosen Zone (Availability Zone or Local Zone). Bucket names must also follow the format <code> <i>bucket-base-name</i>--<i>zone-id</i>--x-s3</code> (for example, <code> <i>DOC-EXAMPLE-BUCKET</i>--<i>usw2-az1</i>--x-s3</code>). For information about bucket naming restrictions, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-bucket-naming-rules.html\">Directory bucket naming rules</a> in the <i>Amazon S3 User Guide</i> </p>
             expected_bucket_owner: <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p> <note> <p>For directory buckets, this header is not supported in this API operation. If you specify this header, the request fails with the HTTP status code <code>501 Not Implemented</code>.</p> </note>
 
+        Raises:
+            aws_sdk_s3.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To delete a bucket
             The following example deletes the specified bucket.
@@ -1514,6 +1546,9 @@ class S3Client:
             bucket: <p>The name of the bucket from which an analytics configuration is deleted.</p>
             id: <p>The ID that identifies the analytics configuration.</p>
             expected_bucket_owner: <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
+
+        Raises:
+            aws_sdk_s3.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1554,6 +1589,9 @@ class S3Client:
         Args:
             bucket: <p>Specifies the bucket whose <code>cors</code> configuration is being deleted.</p>
             expected_bucket_owner: <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
+
+        Raises:
+            aws_sdk_s3.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To delete cors configuration on a bucket.
@@ -1599,6 +1637,9 @@ class S3Client:
         Args:
             bucket: <p>The name of the bucket containing the server-side encryption configuration to delete.</p> <p> <b>Directory buckets </b> - When you use this operation with a directory bucket, you must use path-style requests in the format <code>https://s3express-control.<i>region-code</i>.amazonaws.com/<i>bucket-name</i> </code>. Virtual-hosted-style requests aren't supported. Directory bucket names must be unique in the chosen Zone (Availability Zone or Local Zone). Bucket names must also follow the format <code> <i>bucket-base-name</i>--<i>zone-id</i>--x-s3</code> (for example, <code> <i>DOC-EXAMPLE-BUCKET</i>--<i>usw2-az1</i>--x-s3</code>). For information about bucket naming restrictions, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-bucket-naming-rules.html\">Directory bucket naming rules</a> in the <i>Amazon S3 User Guide</i> </p>
             expected_bucket_owner: <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p> <note> <p>For directory buckets, this header is not supported in this API operation. If you specify this header, the request fails with the HTTP status code <code>501 Not Implemented</code>.</p> </note>
+
+        Raises:
+            aws_sdk_s3.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1640,6 +1681,9 @@ class S3Client:
             bucket: <p>The name of the Amazon S3 bucket whose configuration you want to modify or retrieve.</p>
             id: <p>The ID used to identify the S3 Intelligent-Tiering configuration.</p>
             expected_bucket_owner: <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
+
+        Raises:
+            aws_sdk_s3.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1682,6 +1726,9 @@ class S3Client:
             bucket: <p>The name of the bucket containing the inventory configuration to delete.</p> <p> <b>Directory buckets </b> - When you use this operation with a directory bucket, you must use path-style requests in the format <code>https://s3express-control.<i>region-code</i>.amazonaws.com/<i>bucket-name</i> </code>. Virtual-hosted-style requests aren't supported. Directory bucket names must be unique in the chosen Zone (Availability Zone or Local Zone). Bucket names must also follow the format <code> <i>bucket-base-name</i>--<i>zone-id</i>--x-s3</code> (for example, <code> <i>DOC-EXAMPLE-BUCKET</i>--<i>usw2-az1</i>--x-s3</code>). For information about bucket naming restrictions, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-bucket-naming-rules.html\">Directory bucket naming rules</a> in the <i>Amazon S3 User Guide</i> </p>
             id: <p>The ID used to identify the inventory configuration.</p>
             expected_bucket_owner: <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p> <note> <p>For directory buckets, this header is not supported in this API operation. If you specify this header, the request fails with the HTTP status code <code>501 Not Implemented</code>.</p> </note>
+
+        Raises:
+            aws_sdk_s3.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1722,6 +1769,9 @@ class S3Client:
         Args:
             bucket: <p>The bucket name of the lifecycle to delete.</p>
             expected_bucket_owner: <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p> <note> <p>This parameter applies to general purpose buckets only. It is not supported for directory bucket lifecycle configurations.</p> </note>
+
+        Raises:
+            aws_sdk_s3.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To delete lifecycle configuration on a bucket.
@@ -1767,6 +1817,9 @@ class S3Client:
         Args:
             bucket: <p> The general purpose bucket that you want to remove the metadata configuration from. </p>
             expected_bucket_owner: <p> The expected bucket owner of the general purpose bucket that you want to remove the metadata table configuration from. </p>
+
+        Raises:
+            aws_sdk_s3.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1806,6 +1859,9 @@ class S3Client:
         Args:
             bucket: <p> The general purpose bucket that you want to remove the metadata table configuration from. </p>
             expected_bucket_owner: <p> The expected bucket owner of the general purpose bucket that you want to remove the metadata table configuration from. </p>
+
+        Raises:
+            aws_sdk_s3.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1847,6 +1903,9 @@ class S3Client:
             bucket: <p>The name of the bucket containing the metrics configuration to delete.</p> <p> <b>Directory buckets </b> - When you use this operation with a directory bucket, you must use path-style requests in the format <code>https://s3express-control.<i>region-code</i>.amazonaws.com/<i>bucket-name</i> </code>. Virtual-hosted-style requests aren't supported. Directory bucket names must be unique in the chosen Zone (Availability Zone or Local Zone). Bucket names must also follow the format <code> <i>bucket-base-name</i>--<i>zone-id</i>--x-s3</code> (for example, <code> <i>DOC-EXAMPLE-BUCKET</i>--<i>usw2-az1</i>--x-s3</code>). For information about bucket naming restrictions, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-bucket-naming-rules.html\">Directory bucket naming rules</a> in the <i>Amazon S3 User Guide</i> </p>
             id: <p>The ID used to identify the metrics configuration. The ID has a 64 character limit and can only contain letters, numbers, periods, dashes, and underscores.</p>
             expected_bucket_owner: <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p> <note> <p>For directory buckets, this header is not supported in this API operation. If you specify this header, the request fails with the HTTP status code <code>501 Not Implemented</code>.</p> </note>
+
+        Raises:
+            aws_sdk_s3.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1887,6 +1946,9 @@ class S3Client:
         Args:
             bucket: <p>The Amazon S3 bucket whose <code>OwnershipControls</code> you want to delete. </p>
             expected_bucket_owner: <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
+
+        Raises:
+            aws_sdk_s3.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1926,6 +1988,9 @@ class S3Client:
         Args:
             bucket: <p>The bucket name.</p> <p> <b>Directory buckets </b> - When you use this operation with a directory bucket, you must use path-style requests in the format <code>https://s3express-control.<i>region-code</i>.amazonaws.com/<i>bucket-name</i> </code>. Virtual-hosted-style requests aren't supported. Directory bucket names must be unique in the chosen Zone (Availability Zone or Local Zone). Bucket names must also follow the format <code> <i>bucket-base-name</i>--<i>zone-id</i>--x-s3</code> (for example, <code> <i>DOC-EXAMPLE-BUCKET</i>--<i>usw2-az1</i>--x-s3</code>). For information about bucket naming restrictions, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-bucket-naming-rules.html\">Directory bucket naming rules</a> in the <i>Amazon S3 User Guide</i> </p>
             expected_bucket_owner: <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p> <note> <p>For directory buckets, this header is not supported in this API operation. If you specify this header, the request fails with the HTTP status code <code>501 Not Implemented</code>.</p> </note>
+
+        Raises:
+            aws_sdk_s3.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To delete bucket policy
@@ -1972,6 +2037,9 @@ class S3Client:
             bucket: <p> The bucket name. </p>
             expected_bucket_owner: <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
 
+        Raises:
+            aws_sdk_s3.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To delete bucket replication configuration
             The following example deletes replication configuration set on bucket.
@@ -2017,6 +2085,9 @@ class S3Client:
             bucket: <p>The bucket that has the tag set to be removed.</p>
             expected_bucket_owner: <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
 
+        Raises:
+            aws_sdk_s3.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To delete bucket tags
             The following example deletes bucket tags.
@@ -2061,6 +2132,9 @@ class S3Client:
         Args:
             bucket: <p>The bucket name for which you want to remove the website configuration. </p>
             expected_bucket_owner: <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
+
+        Raises:
+            aws_sdk_s3.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To delete bucket website configuration
@@ -2127,6 +2201,9 @@ class S3Client:
             if_match: <p>Deletes the object if the ETag (entity tag) value provided during the delete operation matches the ETag of the object in S3. If the ETag values do not match, the operation returns a <code>412 Precondition Failed</code> error.</p> <p>Expects the ETag value as a string. <code>If-Match</code> does accept a string value of an '*' (asterisk) character to denote a match of any ETag.</p> <p>For more information about conditional requests, see <a href=\"https://tools.ietf.org/html/rfc7232\">RFC 7232</a>.</p>
             if_match_last_modified_time: <p>If present, the object is deleted only if its modification times matches the provided <code>Timestamp</code>. If the <code>Timestamp</code> values do not match, the operation returns a <code>412 Precondition Failed</code> error. If the <code>Timestamp</code> matches or if the object doesn’t exist, the operation returns a <code>204 Success (No Content)</code> response.</p> <note> <p>This functionality is only supported for directory buckets.</p> </note>
             if_match_size: <p>If present, the object is deleted only if its size matches the provided size in bytes. If the <code>Size</code> value does not match, the operation returns a <code>412 Precondition Failed</code> error. If the <code>Size</code> matches or if the object doesn’t exist, the operation returns a <code>204 Success (No Content)</code> response.</p> <note> <p>This functionality is only supported for directory buckets.</p> </note> <important> <p>You can use the <code>If-Match</code>, <code>x-amz-if-match-last-modified-time</code> and <code>x-amz-if-match-size</code> conditional headers in conjunction with each-other or individually.</p> </important>
+
+        Raises:
+            aws_sdk_s3.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To delete an object (from a non-versioned bucket)
@@ -2271,6 +2348,9 @@ class S3Client:
             expected_bucket_owner: <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
             checksum_algorithm: <p>Indicates the algorithm used to create the checksum for the object when you use the SDK. This header will not provide any additional functionality if you don't use the SDK. When you send this header, there must be a corresponding <code>x-amz-checksum-<i>algorithm</i> </code> or <code>x-amz-trailer</code> header sent. Otherwise, Amazon S3 fails the request with the HTTP status code <code>400 Bad Request</code>.</p> <p>For the <code>x-amz-checksum-<i>algorithm</i> </code> header, replace <code> <i>algorithm</i> </code> with the supported algorithm from the following list: </p> <ul> <li> <p> <code>CRC32</code> </p> </li> <li> <p> <code>CRC32C</code> </p> </li> <li> <p> <code>CRC64NVME</code> </p> </li> <li> <p> <code>MD5</code> </p> </li> <li> <p> <code>SHA1</code> </p> </li> <li> <p> <code>SHA256</code> </p> </li> <li> <p> <code>SHA512</code> </p> </li> <li> <p> <code>XXHASH3</code> </p> </li> <li> <p> <code>XXHASH64</code> </p> </li> <li> <p> <code>XXHASH128</code> </p> </li> </ul> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html\">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p> <p>If the individual checksum value you provide through <code>x-amz-checksum-<i>algorithm</i> </code> doesn't match the checksum algorithm you set through <code>x-amz-sdk-checksum-algorithm</code>, Amazon S3 fails the request with a <code>BadDigest</code> error.</p> <p>If you provide an individual checksum, Amazon S3 ignores any provided <code>ChecksumAlgorithm</code> parameter.</p>
 
+        Raises:
+            aws_sdk_s3.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To delete multiple object versions from a versioned bucket
             The following example deletes objects from a bucket. The request specifies object versions. S3 deletes specific object versions and returns the key and versions of deleted objects in the response.
@@ -2337,6 +2417,9 @@ class S3Client:
             version_id: <p>The versionId of the object that the tag-set will be removed from.</p>
             expected_bucket_owner: <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
 
+        Raises:
+            aws_sdk_s3.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To remove tag set from an object
             The following example removes tag set associated with the specified object. If the bucket is versioning enabled, the operation removes tag set from the latest object version.
@@ -2390,6 +2473,9 @@ class S3Client:
         Args:
             bucket: <p>The Amazon S3 bucket whose <code>PublicAccessBlock</code> configuration you want to delete. </p>
             expected_bucket_owner: <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
+
+        Raises:
+            aws_sdk_s3.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2429,6 +2515,9 @@ class S3Client:
         Args:
             bucket: <p>The name of the general purpose bucket.</p>
             expected_bucket_owner: <p>The Amazon Web Services account ID of the general purpose bucket's owner. </p>
+
+        Raises:
+            aws_sdk_s3.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2471,6 +2560,9 @@ class S3Client:
         Args:
             bucket: <p>The name of the bucket for which the accelerate configuration is retrieved.</p>
             expected_bucket_owner: <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
+
+        Raises:
+            aws_sdk_s3.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2514,6 +2606,9 @@ class S3Client:
         Args:
             bucket: <p>Specifies the S3 bucket whose ACL is being requested.</p> <p>When you use this API operation with an access point, provide the alias of the access point in place of the bucket name.</p> <p>When you use this API operation with an Object Lambda access point, provide the alias of the Object Lambda access point in place of the bucket name. If the Object Lambda access point alias in a request is not valid, the error code <code>InvalidAccessPointAliasError</code> is returned. For more information about <code>InvalidAccessPointAliasError</code>, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#ErrorCodeList\">List of Error Codes</a>.</p>
             expected_bucket_owner: <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
+
+        Raises:
+            aws_sdk_s3.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2557,6 +2652,9 @@ class S3Client:
             bucket: <p>The name of the bucket from which an analytics configuration is retrieved.</p>
             id: <p>The ID that identifies the analytics configuration.</p>
             expected_bucket_owner: <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
+
+        Raises:
+            aws_sdk_s3.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2599,6 +2697,9 @@ class S3Client:
         Args:
             bucket: <p>The bucket name for which to get the cors configuration.</p> <p>When you use this API operation with an access point, provide the alias of the access point in place of the bucket name.</p> <p>When you use this API operation with an Object Lambda access point, provide the alias of the Object Lambda access point in place of the bucket name. If the Object Lambda access point alias in a request is not valid, the error code <code>InvalidAccessPointAliasError</code> is returned. For more information about <code>InvalidAccessPointAliasError</code>, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#ErrorCodeList\">List of Error Codes</a>.</p>
             expected_bucket_owner: <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
+
+        Raises:
+            aws_sdk_s3.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To get cors configuration set on a bucket
@@ -2646,6 +2747,9 @@ class S3Client:
         Args:
             bucket: <p>The name of the bucket from which the server-side encryption configuration is retrieved.</p> <p> <b>Directory buckets </b> - When you use this operation with a directory bucket, you must use path-style requests in the format <code>https://s3express-control.<i>region-code</i>.amazonaws.com/<i>bucket-name</i> </code>. Virtual-hosted-style requests aren't supported. Directory bucket names must be unique in the chosen Zone (Availability Zone or Local Zone). Bucket names must also follow the format <code> <i>bucket-base-name</i>--<i>zone-id</i>--x-s3</code> (for example, <code> <i>DOC-EXAMPLE-BUCKET</i>--<i>usw2-az1</i>--x-s3</code>). For information about bucket naming restrictions, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-bucket-naming-rules.html\">Directory bucket naming rules</a> in the <i>Amazon S3 User Guide</i> </p>
             expected_bucket_owner: <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p> <note> <p>For directory buckets, this header is not supported in this API operation. If you specify this header, the request fails with the HTTP status code <code>501 Not Implemented</code>.</p> </note>
+
+        Raises:
+            aws_sdk_s3.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2689,6 +2793,9 @@ class S3Client:
             bucket: <p>The name of the Amazon S3 bucket whose configuration you want to modify or retrieve.</p>
             id: <p>The ID used to identify the S3 Intelligent-Tiering configuration.</p>
             expected_bucket_owner: <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
+
+        Raises:
+            aws_sdk_s3.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2733,6 +2840,9 @@ class S3Client:
             bucket: <p>The name of the bucket containing the inventory configuration to retrieve.</p> <p> <b>Directory buckets </b> - When you use this operation with a directory bucket, you must use path-style requests in the format <code>https://s3express-control.<i>region-code</i>.amazonaws.com/<i>bucket-name</i> </code>. Virtual-hosted-style requests aren't supported. Directory bucket names must be unique in the chosen Zone (Availability Zone or Local Zone). Bucket names must also follow the format <code> <i>bucket-base-name</i>--<i>zone-id</i>--x-s3</code> (for example, <code> <i>DOC-EXAMPLE-BUCKET</i>--<i>usw2-az1</i>--x-s3</code>). For information about bucket naming restrictions, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-bucket-naming-rules.html\">Directory bucket naming rules</a> in the <i>Amazon S3 User Guide</i> </p>
             id: <p>The ID used to identify the inventory configuration.</p>
             expected_bucket_owner: <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p> <note> <p>For directory buckets, this header is not supported in this API operation. If you specify this header, the request fails with the HTTP status code <code>501 Not Implemented</code>.</p> </note>
+
+        Raises:
+            aws_sdk_s3.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2775,6 +2885,9 @@ class S3Client:
         Args:
             bucket: <p>The name of the bucket for which to get the lifecycle information.</p>
             expected_bucket_owner: <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p> <note> <p>This parameter applies to general purpose buckets only. It is not supported for directory bucket lifecycle configurations.</p> </note>
+
+        Raises:
+            aws_sdk_s3.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To get lifecycle configuration on a bucket
@@ -2823,6 +2936,9 @@ class S3Client:
             bucket: <p>The name of the bucket for which to get the location.</p> <p>When you use this API operation with an access point, provide the alias of the access point in place of the bucket name.</p> <p>When you use this API operation with an Object Lambda access point, provide the alias of the Object Lambda access point in place of the bucket name. If the Object Lambda access point alias in a request is not valid, the error code <code>InvalidAccessPointAliasError</code> is returned. For more information about <code>InvalidAccessPointAliasError</code>, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#ErrorCodeList\">List of Error Codes</a>.</p>
             expected_bucket_owner: <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
 
+        Raises:
+            aws_sdk_s3.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To get bucket location
             The following example returns bucket location.
@@ -2869,6 +2985,9 @@ class S3Client:
         Args:
             bucket: <p>The bucket name for which to get the logging information.</p>
             expected_bucket_owner: <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
+
+        Raises:
+            aws_sdk_s3.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2910,6 +3029,9 @@ class S3Client:
         Args:
             bucket: <p> The general purpose bucket that corresponds to the metadata configuration that you want to retrieve. </p>
             expected_bucket_owner: <p> The expected owner of the general purpose bucket that you want to retrieve the metadata table configuration for. </p>
+
+        Raises:
+            aws_sdk_s3.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2951,6 +3073,9 @@ class S3Client:
         Args:
             bucket: <p> The general purpose bucket that corresponds to the metadata table configuration that you want to retrieve. </p>
             expected_bucket_owner: <p> The expected owner of the general purpose bucket that you want to retrieve the metadata table configuration for. </p>
+
+        Raises:
+            aws_sdk_s3.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2994,6 +3119,9 @@ class S3Client:
             bucket: <p>The name of the bucket containing the metrics configuration to retrieve.</p> <p> <b>Directory buckets </b> - When you use this operation with a directory bucket, you must use path-style requests in the format <code>https://s3express-control.<i>region-code</i>.amazonaws.com/<i>bucket-name</i> </code>. Virtual-hosted-style requests aren't supported. Directory bucket names must be unique in the chosen Zone (Availability Zone or Local Zone). Bucket names must also follow the format <code> <i>bucket-base-name</i>--<i>zone-id</i>--x-s3</code> (for example, <code> <i>DOC-EXAMPLE-BUCKET</i>--<i>usw2-az1</i>--x-s3</code>). For information about bucket naming restrictions, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-bucket-naming-rules.html\">Directory bucket naming rules</a> in the <i>Amazon S3 User Guide</i> </p>
             id: <p>The ID used to identify the metrics configuration. The ID has a 64 character limit and can only contain letters, numbers, periods, dashes, and underscores.</p>
             expected_bucket_owner: <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p> <note> <p>For directory buckets, this header is not supported in this API operation. If you specify this header, the request fails with the HTTP status code <code>501 Not Implemented</code>.</p> </note>
+
+        Raises:
+            aws_sdk_s3.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3036,6 +3164,9 @@ class S3Client:
         Args:
             bucket: <p>The name of the bucket for which to get the notification configuration.</p> <p>When you use this API operation with an access point, provide the alias of the access point in place of the bucket name.</p> <p>When you use this API operation with an Object Lambda access point, provide the alias of the Object Lambda access point in place of the bucket name. If the Object Lambda access point alias in a request is not valid, the error code <code>InvalidAccessPointAliasError</code> is returned. For more information about <code>InvalidAccessPointAliasError</code>, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#ErrorCodeList\">List of Error Codes</a>.</p>
             expected_bucket_owner: <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
+
+        Raises:
+            aws_sdk_s3.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3077,6 +3208,9 @@ class S3Client:
         Args:
             bucket: <p>The name of the Amazon S3 bucket whose <code>OwnershipControls</code> you want to retrieve. </p>
             expected_bucket_owner: <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
+
+        Raises:
+            aws_sdk_s3.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3118,6 +3252,9 @@ class S3Client:
         Args:
             bucket: <p>The bucket name to get the bucket policy for.</p> <p> <b>Directory buckets </b> - When you use this operation with a directory bucket, you must use path-style requests in the format <code>https://s3express-control.<i>region-code</i>.amazonaws.com/<i>bucket-name</i> </code>. Virtual-hosted-style requests aren't supported. Directory bucket names must be unique in the chosen Zone (Availability Zone or Local Zone). Bucket names must also follow the format <code> <i>bucket-base-name</i>--<i>zone-id</i>--x-s3</code> (for example, <code> <i>DOC-EXAMPLE-BUCKET</i>--<i>usw2-az1</i>--x-s3</code>). For information about bucket naming restrictions, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-bucket-naming-rules.html\">Directory bucket naming rules</a> in the <i>Amazon S3 User Guide</i> </p> <p> <b>Access points</b> - When you use this API operation with an access point, provide the alias of the access point in place of the bucket name.</p> <p> <b>Object Lambda access points</b> - When you use this API operation with an Object Lambda access point, provide the alias of the Object Lambda access point in place of the bucket name. If the Object Lambda access point alias in a request is not valid, the error code <code>InvalidAccessPointAliasError</code> is returned. For more information about <code>InvalidAccessPointAliasError</code>, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#ErrorCodeList\">List of Error Codes</a>.</p> <note> <p>Object Lambda access points are not supported by directory buckets.</p> </note>
             expected_bucket_owner: <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p> <note> <p>For directory buckets, this header is not supported in this API operation. If you specify this header, the request fails with the HTTP status code <code>501 Not Implemented</code>.</p> </note>
+
+        Raises:
+            aws_sdk_s3.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To get bucket policy
@@ -3165,6 +3302,9 @@ class S3Client:
         Args:
             bucket: <p>The name of the Amazon S3 bucket whose policy status you want to retrieve.</p>
             expected_bucket_owner: <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
+
+        Raises:
+            aws_sdk_s3.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3206,6 +3346,9 @@ class S3Client:
         Args:
             bucket: <p>The bucket name for which to get the replication information.</p>
             expected_bucket_owner: <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
+
+        Raises:
+            aws_sdk_s3.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To get replication configuration set on a bucket
@@ -3254,6 +3397,9 @@ class S3Client:
             bucket: <p>The name of the bucket for which to get the payment request configuration</p>
             expected_bucket_owner: <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
 
+        Raises:
+            aws_sdk_s3.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To get bucket versioning configuration
             The following example retrieves bucket versioning configuration.
@@ -3300,6 +3446,9 @@ class S3Client:
         Args:
             bucket: <p>The name of the bucket for which to get the tagging information.</p>
             expected_bucket_owner: <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
+
+        Raises:
+            aws_sdk_s3.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To get tag set associated with a bucket
@@ -3348,6 +3497,9 @@ class S3Client:
             bucket: <p>The name of the bucket for which to get the versioning information.</p>
             expected_bucket_owner: <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
 
+        Raises:
+            aws_sdk_s3.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To get bucket versioning configuration
             The following example retrieves bucket versioning configuration.
@@ -3394,6 +3546,9 @@ class S3Client:
         Args:
             bucket: <p>The bucket name for which to get the website configuration.</p>
             expected_bucket_owner: <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
+
+        Raises:
+            aws_sdk_s3.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To get bucket website configuration
@@ -3503,6 +3658,11 @@ class S3Client:
             part_number: <p>Part number of the object being read. This is a positive integer between 1 and 10,000. Effectively performs a 'ranged' GET request for the part specified. Useful for downloading just a part of an object.</p>
             expected_bucket_owner: <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
             checksum_mode: <p>To retrieve the checksum, this mode must be enabled.</p>
+
+        Raises:
+            aws_sdk_s3.errors.invalid_object_state.InvalidObjectState: <p>Object is archived and inaccessible until restored.</p> <p>If the object you are retrieving is stored in the S3 Glacier Flexible Retrieval storage class, the S3 Glacier Deep Archive storage class, the S3 Intelligent-Tiering Archive Access tier, or the S3 Intelligent-Tiering Deep Archive Access tier, before you can retrieve the object you must first restore a copy using <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_RestoreObject.html\">RestoreObject</a>. Otherwise, this operation returns an <code>InvalidObjectState</code> error. For information about restoring archived objects, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/restoring-objects.html\">Restoring Archived Objects</a> in the <i>Amazon S3 User Guide</i>.</p>
+            aws_sdk_s3.errors.no_such_key.NoSuchKey: <p>The specified key does not exist.</p>
+            aws_sdk_s3.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To retrieve a byte range of an object
@@ -3712,6 +3872,10 @@ class S3Client:
             version_id: <p>Version ID used to reference a specific version of the object.</p> <note> <p>This functionality is not supported for directory buckets.</p> </note>
             expected_bucket_owner: <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
 
+        Raises:
+            aws_sdk_s3.errors.no_such_key.NoSuchKey: <p>The specified key does not exist.</p>
+            aws_sdk_s3.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To retrieve object ACL
             The following example retrieves access control list (ACL) of an object.
@@ -3790,6 +3954,10 @@ class S3Client:
             sse_customer_key_md5: <p>Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.</p> <note> <p>This functionality is not supported for directory buckets.</p> </note>
             expected_bucket_owner: <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
             object_attributes: <p>Specifies the fields at the root level that you want returned in the response. Fields that you do not specify are not returned.</p>
+
+        Raises:
+            aws_sdk_s3.errors.no_such_key.NoSuchKey: <p>The specified key does not exist.</p>
+            aws_sdk_s3.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3854,6 +4022,9 @@ class S3Client:
             key: <p>The key name for the object whose legal hold status you want to retrieve.</p>
             version_id: <p>The version ID of the object whose legal hold status you want to retrieve.</p>
             expected_bucket_owner: <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
+
+        Raises:
+            aws_sdk_s3.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3900,6 +4071,9 @@ class S3Client:
         Args:
             bucket: <p>The bucket whose Object Lock configuration you want to retrieve.</p> <p> <b>Access points</b> - When you use this action with an access point for general purpose buckets, you must provide the alias of the access point in place of the bucket name or specify the access point ARN. When you use this action with an access point for directory buckets, you must provide the access point name in place of the bucket name. When using the access point ARN, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html\">Using access points</a> in the <i>Amazon S3 User Guide</i>.</p>
             expected_bucket_owner: <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
+
+        Raises:
+            aws_sdk_s3.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3948,6 +4122,9 @@ class S3Client:
             key: <p>The key name for the object whose retention settings you want to retrieve.</p>
             version_id: <p>The version ID for the object whose retention settings you want to retrieve.</p>
             expected_bucket_owner: <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
+
+        Raises:
+            aws_sdk_s3.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4001,6 +4178,9 @@ class S3Client:
             key: <p>Object key for which to get the tagging information.</p>
             version_id: <p>The versionId of the object for which to get the tagging information.</p>
             expected_bucket_owner: <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
+
+        Raises:
+            aws_sdk_s3.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To retrieve tag set of a specific object version
@@ -4062,6 +4242,9 @@ class S3Client:
             key: <p>The object key for which to get the information.</p>
             expected_bucket_owner: <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
 
+        Raises:
+            aws_sdk_s3.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To retrieve torrent files for an object
             The following example retrieves torrent files of an object.
@@ -4111,6 +4294,9 @@ class S3Client:
         Args:
             bucket: <p>The name of the Amazon S3 bucket whose <code>PublicAccessBlock</code> configuration you want to retrieve. </p>
             expected_bucket_owner: <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
+
+        Raises:
+            aws_sdk_s3.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4152,6 +4338,10 @@ class S3Client:
         Args:
             bucket: <p>The bucket name.</p> <p> <b>Directory buckets</b> - When you use this operation with a directory bucket, you must use virtual-hosted-style requests in the format <code> <i>Bucket-name</i>.s3express-<i>zone-id</i>.<i>region-code</i>.amazonaws.com</code>. Path-style requests are not supported. Directory bucket names must be unique in the chosen Zone (Availability Zone or Local Zone). Bucket names must follow the format <code> <i>bucket-base-name</i>--<i>zone-id</i>--x-s3</code> (for example, <code> <i>amzn-s3-demo-bucket</i>--<i>usw2-az1</i>--x-s3</code>). For information about bucket naming restrictions, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-bucket-naming-rules.html\">Directory bucket naming rules</a> in the <i>Amazon S3 User Guide</i>.</p> <p> <b>Access points</b> - When you use this action with an access point for general purpose buckets, you must provide the alias of the access point in place of the bucket name or specify the access point ARN. When you use this action with an access point for directory buckets, you must provide the access point name in place of the bucket name. When using the access point ARN, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html\">Using access points</a> in the <i>Amazon S3 User Guide</i>.</p> <p> <b>Object Lambda access points</b> - When you use this API operation with an Object Lambda access point, provide the alias of the Object Lambda access point in place of the bucket name. If the Object Lambda access point alias in a request is not valid, the error code <code>InvalidAccessPointAliasError</code> is returned. For more information about <code>InvalidAccessPointAliasError</code>, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#ErrorCodeList\">List of Error Codes</a>.</p> <note> <p>Object Lambda access points are not supported by directory buckets.</p> </note> <p> <b>S3 on Outposts</b> - When you use this action with S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <code> <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com</code>. When you use this action with S3 on Outposts, the destination bucket must be the Outposts access point ARN or the access point alias. For more information about S3 on Outposts, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html\">What is S3 on Outposts?</a> in the <i>Amazon S3 User Guide</i>.</p>
             expected_bucket_owner: <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
+
+        Raises:
+            aws_sdk_s3.errors.not_found.NotFound: <p>The specified content does not exist.</p>
+            aws_sdk_s3.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To determine if bucket exists
@@ -4352,6 +4542,10 @@ class S3Client:
             part_number: <p>Part number of the object being read. This is a positive integer between 1 and 10,000. Effectively performs a 'ranged' HEAD request for the part specified. Useful querying about the size of the part and the number of parts in this object.</p>
             expected_bucket_owner: <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
             checksum_mode: <p>To retrieve the checksum, this parameter must be enabled.</p> <p> <b>General purpose buckets</b> - If you enable checksum mode and the object is uploaded with a <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_Checksum.html\">checksum</a> and encrypted with an Key Management Service (KMS) key, you must have permission to use the <code>kms:Decrypt</code> action to retrieve the checksum.</p> <p> <b>Directory buckets</b> - If you enable <code>ChecksumMode</code> and the object is encrypted with Amazon Web Services Key Management Service (Amazon Web Services KMS), you must also have the <code>kms:GenerateDataKey</code> and <code>kms:Decrypt</code> permissions in IAM identity-based policies and KMS key policies for the KMS key to retrieve the checksum of the object.</p>
+
+        Raises:
+            aws_sdk_s3.errors.not_found.NotFound: <p>The specified content does not exist.</p>
+            aws_sdk_s3.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To retrieve metadata of an object without returning the object itself
@@ -4805,6 +4999,9 @@ class S3Client:
             bucket: <p>The name of the bucket from which analytics configurations are retrieved.</p>
             continuation_token: <p>The <code>ContinuationToken</code> that represents a placeholder from where this request should begin.</p>
             expected_bucket_owner: <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
+
+        Raises:
+            aws_sdk_s3.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4850,6 +5047,9 @@ class S3Client:
             bucket: <p>The name of the Amazon S3 bucket whose configuration you want to modify or retrieve.</p>
             continuation_token: <p>The <code>ContinuationToken</code> that represents a placeholder from where this request should begin.</p>
             expected_bucket_owner: <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
+
+        Raises:
+            aws_sdk_s3.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4895,6 +5095,9 @@ class S3Client:
             bucket: <p>The name of the bucket containing the inventory configurations to retrieve.</p> <p> <b>Directory buckets </b> - When you use this operation with a directory bucket, you must use path-style requests in the format <code>https://s3express-control.<i>region-code</i>.amazonaws.com/<i>bucket-name</i> </code>. Virtual-hosted-style requests aren't supported. Directory bucket names must be unique in the chosen Zone (Availability Zone or Local Zone). Bucket names must also follow the format <code> <i>bucket-base-name</i>--<i>zone-id</i>--x-s3</code> (for example, <code> <i>DOC-EXAMPLE-BUCKET</i>--<i>usw2-az1</i>--x-s3</code>). For information about bucket naming restrictions, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-bucket-naming-rules.html\">Directory bucket naming rules</a> in the <i>Amazon S3 User Guide</i> </p>
             continuation_token: <p>The marker used to continue an inventory configuration listing that has been truncated. Use the <code>NextContinuationToken</code> from a previously truncated list response to continue the listing. The continuation token is an opaque value that Amazon S3 understands.</p>
             expected_bucket_owner: <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p> <note> <p>For directory buckets, this header is not supported in this API operation. If you specify this header, the request fails with the HTTP status code <code>501 Not Implemented</code>.</p> </note>
+
+        Raises:
+            aws_sdk_s3.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4940,6 +5143,9 @@ class S3Client:
             bucket: <p>The name of the bucket containing the metrics configurations to retrieve.</p> <p> <b>Directory buckets </b> - When you use this operation with a directory bucket, you must use path-style requests in the format <code>https://s3express-control.<i>region-code</i>.amazonaws.com/<i>bucket-name</i> </code>. Virtual-hosted-style requests aren't supported. Directory bucket names must be unique in the chosen Zone (Availability Zone or Local Zone). Bucket names must also follow the format <code> <i>bucket-base-name</i>--<i>zone-id</i>--x-s3</code> (for example, <code> <i>DOC-EXAMPLE-BUCKET</i>--<i>usw2-az1</i>--x-s3</code>). For information about bucket naming restrictions, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-bucket-naming-rules.html\">Directory bucket naming rules</a> in the <i>Amazon S3 User Guide</i> </p>
             continuation_token: <p>The marker that is used to continue a metrics configuration listing that has been truncated. Use the <code>NextContinuationToken</code> from a previously truncated list response to continue the listing. The continuation token is an opaque value that Amazon S3 understands.</p>
             expected_bucket_owner: <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p> <note> <p>For directory buckets, this header is not supported in this API operation. If you specify this header, the request fails with the HTTP status code <code>501 Not Implemented</code>.</p> </note>
+
+        Raises:
+            aws_sdk_s3.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4987,6 +5193,9 @@ class S3Client:
             continuation_token: <p> <code>ContinuationToken</code> indicates to Amazon S3 that the list is being continued on this bucket with a token. <code>ContinuationToken</code> is obfuscated and is not a real key. You can use this <code>ContinuationToken</code> for pagination of the list results. </p> <p>Length Constraints: Minimum length of 0. Maximum length of 1024.</p> <p>Required: No.</p> <note> <p>If you specify the <code>bucket-region</code>, <code>prefix</code>, or <code>continuation-token</code> query parameters without using <code>max-buckets</code> to set the maximum number of buckets returned in the response, Amazon S3 applies a default page size of 10,000 and provides a continuation token if there are more buckets.</p> </note>
             prefix: <p>Limits the response to bucket names that begin with the specified bucket name prefix.</p>
             bucket_region: <p>Limits the response to buckets that are located in the specified Amazon Web Services Region. The Amazon Web Services Region must be expressed according to the Amazon Web Services Region code, such as <code>us-west-2</code> for the US West (Oregon) Region. For a list of the valid values for all of the Amazon Web Services Regions, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region\">Regions and Endpoints</a>.</p> <note> <p>Requests made to a Regional endpoint that is different from the <code>bucket-region</code> parameter are not supported. For example, if you want to limit the response to your buckets in Region <code>us-west-2</code>, the request must be made to an endpoint in Region <code>us-west-2</code>.</p> </note>
+
+        Raises:
+            aws_sdk_s3.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To list all buckets
@@ -5068,6 +5277,9 @@ class S3Client:
         Args:
             continuation_token: <p> <code>ContinuationToken</code> indicates to Amazon S3 that the list is being continued on buckets in this account with a token. <code>ContinuationToken</code> is obfuscated and is not a real bucket name. You can use this <code>ContinuationToken</code> for the pagination of the list results. </p>
             max_directory_buckets: <p>Maximum number of buckets to be returned in response. When the number is more than the count of buckets that are owned by an Amazon Web Services account, return all the buckets in response.</p>
+
+        Raises:
+            aws_sdk_s3.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5150,6 +5362,9 @@ class S3Client:
             upload_id_marker: <p>Together with key-marker, specifies the multipart upload after which listing should begin. If key-marker is not specified, the upload-id-marker parameter is ignored. Otherwise, any multipart uploads for a key equal to the key-marker might be included in the list only if they have an upload ID lexicographically greater than the specified <code>upload-id-marker</code>.</p> <note> <p>This functionality is not supported for directory buckets.</p> </note>
             expected_bucket_owner: <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
 
+        Raises:
+            aws_sdk_s3.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             List next set of multipart uploads when previous result is truncated
             The following example specifies the upload-id-marker and key-marker from previous truncated response to retrieve next setup of multipart uploads.
@@ -5229,6 +5444,10 @@ class S3Client:
             request_payer: <p>Confirms that the requester knows that she or he will be charged for the list objects request. Bucket owners need not specify this parameter in their requests.</p>
             expected_bucket_owner: <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
             optional_object_attributes: <p>Specifies the optional fields that you want returned in the response. Fields that you do not specify are not returned.</p>
+
+        Raises:
+            aws_sdk_s3.errors.no_such_bucket.NoSuchBucket: <p>The specified bucket does not exist.</p>
+            aws_sdk_s3.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To list objects in a bucket
@@ -5310,6 +5529,10 @@ class S3Client:
             request_payer: <p>Confirms that the requester knows that she or he will be charged for the list objects request in V2 style. Bucket owners need not specify this parameter in their requests.</p> <note> <p>This functionality is not supported for directory buckets.</p> </note>
             expected_bucket_owner: <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
             optional_object_attributes: <p>Specifies the optional fields that you want returned in the response. Fields that you do not specify are not returned.</p> <note> <p>This functionality is not supported for directory buckets.</p> </note>
+
+        Raises:
+            aws_sdk_s3.errors.no_such_bucket.NoSuchBucket: <p>The specified bucket does not exist.</p>
+            aws_sdk_s3.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To get object list
@@ -5393,6 +5616,9 @@ class S3Client:
             version_id_marker: <p>Specifies the object version you want to start listing from.</p>
             expected_bucket_owner: <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
             optional_object_attributes: <p>Specifies the optional fields that you want returned in the response. Fields that you do not specify are not returned.</p>
+
+        Raises:
+            aws_sdk_s3.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To list object versions
@@ -5479,6 +5705,9 @@ class S3Client:
             sse_customer_algorithm: <p>The server-side encryption (SSE) algorithm used to encrypt the object. This parameter is needed only when the object was created using a checksum algorithm. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html\">Protecting data using SSE-C keys</a> in the <i>Amazon S3 User Guide</i>.</p> <note> <p>This functionality is not supported for directory buckets.</p> </note>
             sse_customer_key: <p>The server-side encryption (SSE) customer managed key. This parameter is needed only when the object was created using a checksum algorithm. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html\">Protecting data using SSE-C keys</a> in the <i>Amazon S3 User Guide</i>.</p> <note> <p>This functionality is not supported for directory buckets.</p> </note>
             sse_customer_key_md5: <p>The MD5 server-side encryption (SSE) customer managed key. This parameter is needed only when the object was created using a checksum algorithm. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html\">Protecting data using SSE-C keys</a> in the <i>Amazon S3 User Guide</i>.</p> <note> <p>This functionality is not supported for directory buckets.</p> </note>
+
+        Raises:
+            aws_sdk_s3.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To list parts of a multipart upload.
@@ -5591,6 +5820,9 @@ class S3Client:
             checksum_algorithm: <p>Indicates the algorithm that you want Amazon S3 to use to create the checksum. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html\"> Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
             expected_bucket_owner: <p>The Amazon Web Services account ID of the general purpose bucket's owner. </p>
             abac_status: <p>The ABAC status of the general purpose bucket. When ABAC is enabled for the general purpose bucket, you can use tags to manage access to the general purpose buckets as well as for cost tracking purposes. When ABAC is disabled for the general purpose buckets, you can only use tags for cost tracking purposes. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/buckets-tagging.html\">Using tags with S3 general purpose buckets</a>. </p>
+
+        Raises:
+            aws_sdk_s3.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5641,6 +5873,9 @@ class S3Client:
             accelerate_configuration: <p>Container for setting the transfer acceleration state.</p>
             expected_bucket_owner: <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
             checksum_algorithm: <p>Indicates the algorithm used to create the checksum for the request when you use the SDK. This header will not provide any additional functionality if you don't use the SDK. When you send this header, there must be a corresponding <code>x-amz-checksum</code> or <code>x-amz-trailer</code> header sent. Otherwise, Amazon S3 fails the request with the HTTP status code <code>400 Bad Request</code>. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html\">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p> <p>If you provide an individual checksum, Amazon S3 ignores any provided <code>ChecksumAlgorithm</code> parameter.</p>
+
+        Raises:
+            aws_sdk_s3.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5710,6 +5945,9 @@ class S3Client:
             grant_write_acp: <p>Allows grantee to write the ACL for the applicable bucket.</p>
             expected_bucket_owner: <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
 
+        Raises:
+            aws_sdk_s3.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Put bucket acl
             The following example replaces existing ACL on a bucket. The ACL grants the bucket owner (specified using the owner ID) and write permission to the LogDelivery group. Because this is a replace operation, you must specify all the grants in your request. To incrementally add or remove ACL grants, you might use the console.
@@ -5776,6 +6014,9 @@ class S3Client:
             id: <p>The ID that identifies the analytics configuration.</p>
             analytics_configuration: <p>The configuration and any analyses for the analytics filter.</p>
             expected_bucket_owner: <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
+
+        Raises:
+            aws_sdk_s3.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5825,6 +6066,9 @@ class S3Client:
             content_md5: <p>The Base64 encoded 128-bit <code>MD5</code> digest of the data. This header must be used as a message integrity check to verify that the request body was not corrupted in transit. For more information, go to <a href=\"http://www.ietf.org/rfc/rfc1864.txt\">RFC 1864.</a> </p> <p>For requests made using the Amazon Web Services Command Line Interface (CLI) or Amazon Web Services SDKs, this field is calculated automatically.</p>
             checksum_algorithm: <p>Indicates the algorithm used to create the checksum for the request when you use the SDK. This header will not provide any additional functionality if you don't use the SDK. When you send this header, there must be a corresponding <code>x-amz-checksum</code> or <code>x-amz-trailer</code> header sent. Otherwise, Amazon S3 fails the request with the HTTP status code <code>400 Bad Request</code>. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html\">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p> <p>If you provide an individual checksum, Amazon S3 ignores any provided <code>ChecksumAlgorithm</code> parameter.</p>
             expected_bucket_owner: <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
+
+        Raises:
+            aws_sdk_s3.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To set cors configuration on a bucket.
@@ -5882,6 +6126,9 @@ class S3Client:
             content_md5: <p>The Base64 encoded 128-bit <code>MD5</code> digest of the server-side encryption configuration.</p> <p>For requests made using the Amazon Web Services Command Line Interface (CLI) or Amazon Web Services SDKs, this field is calculated automatically.</p> <note> <p>This functionality is not supported for directory buckets.</p> </note>
             checksum_algorithm: <p>Indicates the algorithm used to create the checksum for the request when you use the SDK. This header will not provide any additional functionality if you don't use the SDK. When you send this header, there must be a corresponding <code>x-amz-checksum</code> or <code>x-amz-trailer</code> header sent. Otherwise, Amazon S3 fails the request with the HTTP status code <code>400 Bad Request</code>. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html\">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p> <p>If you provide an individual checksum, Amazon S3 ignores any provided <code>ChecksumAlgorithm</code> parameter.</p> <note> <p>For directory buckets, when you use Amazon Web Services SDKs, <code>CRC32</code> is the default checksum algorithm that's used for performance.</p> </note>
             expected_bucket_owner: <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p> <note> <p>For directory buckets, this header is not supported in this API operation. If you specify this header, the request fails with the HTTP status code <code>501 Not Implemented</code>.</p> </note>
+
+        Raises:
+            aws_sdk_s3.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5932,6 +6179,9 @@ class S3Client:
             id: <p>The ID used to identify the S3 Intelligent-Tiering configuration.</p>
             expected_bucket_owner: <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
             intelligent_tiering_configuration: <p>Container for S3 Intelligent-Tiering configuration.</p>
+
+        Raises:
+            aws_sdk_s3.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5977,6 +6227,9 @@ class S3Client:
             id: <p>The ID used to identify the inventory configuration.</p>
             inventory_configuration: <p>Specifies the inventory configuration.</p>
             expected_bucket_owner: <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p> <note> <p>For directory buckets, this header is not supported in this API operation. If you specify this header, the request fails with the HTTP status code <code>501 Not Implemented</code>.</p> </note>
+
+        Raises:
+            aws_sdk_s3.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6030,6 +6283,9 @@ class S3Client:
             lifecycle_configuration: <p>Container for lifecycle rules. You can add as many as 1,000 rules.</p>
             expected_bucket_owner: <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p> <note> <p>This parameter applies to general purpose buckets only. It is not supported for directory bucket lifecycle configurations.</p> </note>
             transition_default_minimum_object_size: <p>Indicates which default minimum object size behavior is applied to the lifecycle configuration.</p> <note> <p>This parameter applies to general purpose buckets only. It is not supported for directory bucket lifecycle configurations.</p> </note> <ul> <li> <p> <code>all_storage_classes_128K</code> - Objects smaller than 128 KB will not transition to any storage class by default. </p> </li> <li> <p> <code>varies_by_storage_class</code> - Objects smaller than 128 KB will transition to Glacier Flexible Retrieval or Glacier Deep Archive storage classes. By default, all other storage classes will prevent transitions smaller than 128 KB. </p> </li> </ul> <p>To customize the minimum object size for any transition you can add a filter that specifies a custom <code>ObjectSizeGreaterThan</code> or <code>ObjectSizeLessThan</code> in the body of your transition rule. Custom filters always take precedence over the default transition behavior.</p>
+
+        Raises:
+            aws_sdk_s3.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Put bucket lifecycle
@@ -6094,6 +6350,9 @@ class S3Client:
             checksum_algorithm: <p>Indicates the algorithm used to create the checksum for the request when you use the SDK. This header will not provide any additional functionality if you don't use the SDK. When you send this header, there must be a corresponding <code>x-amz-checksum</code> or <code>x-amz-trailer</code> header sent. Otherwise, Amazon S3 fails the request with the HTTP status code <code>400 Bad Request</code>. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html\">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p> <p>If you provide an individual checksum, Amazon S3 ignores any provided <code>ChecksumAlgorithm</code> parameter.</p>
             expected_bucket_owner: <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
 
+        Raises:
+            aws_sdk_s3.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Set logging configuration for a bucket
             The following example sets logging policy on a bucket. For the Log Delivery group to deliver logs to the destination bucket, it needs permission for the READ_ACP action which the policy grants.
@@ -6147,6 +6406,9 @@ class S3Client:
             id: <p>The ID used to identify the metrics configuration. The ID has a 64 character limit and can only contain letters, numbers, periods, dashes, and underscores.</p>
             metrics_configuration: <p>Specifies the metrics configuration.</p>
             expected_bucket_owner: <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p> <note> <p>For directory buckets, this header is not supported in this API operation. If you specify this header, the request fails with the HTTP status code <code>501 Not Implemented</code>.</p> </note>
+
+        Raises:
+            aws_sdk_s3.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6193,6 +6455,9 @@ class S3Client:
             bucket: <p>The name of the bucket.</p>
             expected_bucket_owner: <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
             skip_destination_validation: <p>Skips validation of Amazon SQS, Amazon SNS, and Lambda destinations. True or false value.</p>
+
+        Raises:
+            aws_sdk_s3.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Set notification configuration for a bucket
@@ -6249,6 +6514,9 @@ class S3Client:
             expected_bucket_owner: <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
             ownership_controls: <p>The <code>OwnershipControls</code> (BucketOwnerEnforced, BucketOwnerPreferred, or ObjectWriter) that you want to apply to this Amazon S3 bucket.</p>
             checksum_algorithm: <p> Indicates the algorithm used to create the checksum for the object when you use the SDK. This header will not provide any additional functionality if you don't use the SDK. When you send this header, there must be a corresponding <code>x-amz-checksum-<i>algorithm</i> </code> header sent. Otherwise, Amazon S3 fails the request with the HTTP status code <code>400 Bad Request</code>. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html\">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p> <p>If you provide an individual checksum, Amazon S3 ignores any provided <code>ChecksumAlgorithm</code> parameter. </p>
+
+        Raises:
+            aws_sdk_s3.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6305,6 +6573,9 @@ class S3Client:
             confirm_remove_self_bucket_access: <p>Set this parameter to true to confirm that you want to remove your permissions to change this bucket policy in the future.</p> <note> <p>This functionality is not supported for directory buckets.</p> </note>
             policy: <p>The bucket policy as a JSON document.</p> <p>For directory buckets, the only IAM action supported in the bucket policy is <code>s3express:CreateSession</code>.</p>
             expected_bucket_owner: <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p> <note> <p>For directory buckets, this header is not supported in this API operation. If you specify this header, the request fails with the HTTP status code <code>501 Not Implemented</code>.</p> </note>
+
+        Raises:
+            aws_sdk_s3.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Set bucket policy
@@ -6369,6 +6640,9 @@ class S3Client:
             token: <p>A token to allow Object Lock to be enabled for an existing bucket.</p>
             expected_bucket_owner: <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
 
+        Raises:
+            aws_sdk_s3.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Set replication configuration on a bucket
             The following example sets replication configuration on a bucket.
@@ -6429,6 +6703,9 @@ class S3Client:
             request_payment_configuration: <p>Container for Payer.</p>
             expected_bucket_owner: <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
 
+        Raises:
+            aws_sdk_s3.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Set request payment configuration on a bucket.
             The following example sets request payment configuration on a bucket so that person requesting the download is charged.
@@ -6486,6 +6763,9 @@ class S3Client:
             checksum_algorithm: <p>Indicates the algorithm used to create the checksum for the request when you use the SDK. This header will not provide any additional functionality if you don't use the SDK. When you send this header, there must be a corresponding <code>x-amz-checksum</code> or <code>x-amz-trailer</code> header sent. Otherwise, Amazon S3 fails the request with the HTTP status code <code>400 Bad Request</code>. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html\">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p> <p>If you provide an individual checksum, Amazon S3 ignores any provided <code>ChecksumAlgorithm</code> parameter.</p>
             tagging: <p>Container for the <code>TagSet</code> and <code>Tag</code> elements.</p>
             expected_bucket_owner: <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
+
+        Raises:
+            aws_sdk_s3.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Set tags on a bucket
@@ -6547,6 +6827,9 @@ class S3Client:
             versioning_configuration: <p>Container for setting the versioning state.</p>
             expected_bucket_owner: <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
 
+        Raises:
+            aws_sdk_s3.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Set versioning configuration on a bucket
             The following example sets versioning configuration on bucket. The configuration enables versioning on the bucket.
@@ -6606,6 +6889,9 @@ class S3Client:
             checksum_algorithm: <p>Indicates the algorithm used to create the checksum for the request when you use the SDK. This header will not provide any additional functionality if you don't use the SDK. When you send this header, there must be a corresponding <code>x-amz-checksum</code> or <code>x-amz-trailer</code> header sent. Otherwise, Amazon S3 fails the request with the HTTP status code <code>400 Bad Request</code>. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html\">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p> <p>If you provide an individual checksum, Amazon S3 ignores any provided <code>ChecksumAlgorithm</code> parameter.</p>
             website_configuration: <p>Container for the request.</p>
             expected_bucket_owner: <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
+
+        Raises:
+            aws_sdk_s3.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Set website configuration on a bucket
@@ -6795,6 +7081,13 @@ class S3Client:
             object_lock_retain_until_date: <p>The date and time when you want this object's Object Lock to expire. Must be formatted as a timestamp parameter.</p> <note> <p>This functionality is not supported for directory buckets.</p> </note>
             object_lock_legal_hold_status: <p>Specifies whether a legal hold will be applied to this object. For more information about S3 Object Lock, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html\">Object Lock</a> in the <i>Amazon S3 User Guide</i>.</p> <note> <p>This functionality is not supported for directory buckets.</p> </note>
             expected_bucket_owner: <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
+
+        Raises:
+            aws_sdk_s3.errors.encryption_type_mismatch.EncryptionTypeMismatch: <p> The existing object was created with a different encryption type. Subsequent write requests must include the appropriate encryption parameters in the request or while creating the session. </p>
+            aws_sdk_s3.errors.invalid_request.InvalidRequest: <p>A parameter or header in your request isn't valid. For details, see the description of this API operation.</p>
+            aws_sdk_s3.errors.invalid_write_offset.InvalidWriteOffset: <p> The write offset value that you specified does not match the current object size. </p>
+            aws_sdk_s3.errors.too_many_parts.TooManyParts: <p> You have attempted to add more parts than the maximum of 10000 that are allowed for this object. You can use the CopyObject operation to copy this object to another and then add more data to the newly copied object. </p>
+            aws_sdk_s3.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To create an object.
@@ -7200,6 +7493,10 @@ class S3Client:
             version_id: <p>Version ID used to reference a specific version of the object.</p> <note> <p>This functionality is not supported for directory buckets.</p> </note>
             expected_bucket_owner: <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
 
+        Raises:
+            aws_sdk_s3.errors.no_such_key.NoSuchKey: <p>The specified key does not exist.</p>
+            aws_sdk_s3.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To grant permissions using object ACL
             The following example adds grants to an object ACL. The first permission grants user1 and user2 FULL_CONTROL and the AllUsers group READ permission.
@@ -7286,6 +7583,9 @@ class S3Client:
             content_md5: <p>The MD5 hash for the request body.</p> <p>For requests made using the Amazon Web Services Command Line Interface (CLI) or Amazon Web Services SDKs, this field is calculated automatically.</p>
             checksum_algorithm: <p>Indicates the algorithm used to create the checksum for the object when you use the SDK. This header will not provide any additional functionality if you don't use the SDK. When you send this header, there must be a corresponding <code>x-amz-checksum</code> or <code>x-amz-trailer</code> header sent. Otherwise, Amazon S3 fails the request with the HTTP status code <code>400 Bad Request</code>. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html\">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p> <p>If you provide an individual checksum, Amazon S3 ignores any provided <code>ChecksumAlgorithm</code> parameter.</p>
             expected_bucket_owner: <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
+
+        Raises:
+            aws_sdk_s3.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -7351,6 +7651,9 @@ class S3Client:
             content_md5: <p>The MD5 hash for the request body.</p> <p>For requests made using the Amazon Web Services Command Line Interface (CLI) or Amazon Web Services SDKs, this field is calculated automatically.</p>
             checksum_algorithm: <p>Indicates the algorithm used to create the checksum for the object when you use the SDK. This header will not provide any additional functionality if you don't use the SDK. When you send this header, there must be a corresponding <code>x-amz-checksum</code> or <code>x-amz-trailer</code> header sent. Otherwise, Amazon S3 fails the request with the HTTP status code <code>400 Bad Request</code>. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html\">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p> <p>If you provide an individual checksum, Amazon S3 ignores any provided <code>ChecksumAlgorithm</code> parameter.</p>
             expected_bucket_owner: <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
+
+        Raises:
+            aws_sdk_s3.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -7423,6 +7726,9 @@ class S3Client:
             content_md5: <p>The MD5 hash for the request body.</p> <p>For requests made using the Amazon Web Services Command Line Interface (CLI) or Amazon Web Services SDKs, this field is calculated automatically.</p>
             checksum_algorithm: <p>Indicates the algorithm used to create the checksum for the object when you use the SDK. This header will not provide any additional functionality if you don't use the SDK. When you send this header, there must be a corresponding <code>x-amz-checksum</code> or <code>x-amz-trailer</code> header sent. Otherwise, Amazon S3 fails the request with the HTTP status code <code>400 Bad Request</code>. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html\">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p> <p>If you provide an individual checksum, Amazon S3 ignores any provided <code>ChecksumAlgorithm</code> parameter.</p>
             expected_bucket_owner: <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
+
+        Raises:
+            aws_sdk_s3.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -7494,6 +7800,9 @@ class S3Client:
             expected_bucket_owner: <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
             request_payer: <p>Confirms that the requester knows that she or he will be charged for the tagging object request. Bucket owners need not specify this parameter in their requests.</p>
 
+        Raises:
+            aws_sdk_s3.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To add tags to an existing object
             The following example adds tags to an existing object.
@@ -7558,6 +7867,9 @@ class S3Client:
             checksum_algorithm: <p>Indicates the algorithm used to create the checksum for the object when you use the SDK. This header will not provide any additional functionality if you don't use the SDK. When you send this header, there must be a corresponding <code>x-amz-checksum</code> or <code>x-amz-trailer</code> header sent. Otherwise, Amazon S3 fails the request with the HTTP status code <code>400 Bad Request</code>. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html\">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p> <p>If you provide an individual checksum, Amazon S3 ignores any provided <code>ChecksumAlgorithm</code> parameter.</p>
             public_access_block_configuration: <p>The <code>PublicAccessBlock</code> configuration that you want to apply to this Amazon S3 bucket. You can enable the configuration options in any combination. For more information about when Amazon S3 considers a bucket or object public, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status\">The Meaning of \"Public\"</a> in the <i>Amazon S3 User Guide</i>.</p>
             expected_bucket_owner: <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
+
+        Raises:
+            aws_sdk_s3.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -7636,6 +7948,10 @@ class S3Client:
             source_if_modified_since: <p>Renames the object if the source exists and if it has been modified since the specified time.</p>
             source_if_unmodified_since: <p>Renames the object if the source exists and hasn't been modified since the specified time.</p>
             client_token: <p> A unique string with a max of 64 ASCII characters in the ASCII range of 33 - 126.</p> <note> <p> <code>RenameObject</code> supports idempotency using a client token. To make an idempotent API request using <code>RenameObject</code>, specify a client token in the request. You should not reuse the same client token for other API requests. If you retry a request that completed successfully using the same client token and the same parameters, the retry succeeds without performing any further actions. If you retry a successful request using the same client token, but one or more of the parameters are different, the retry fails and an <code>IdempotentParameterMismatch</code> error is returned. </p> </note>
+
+        Raises:
+            aws_sdk_s3.errors.idempotency_parameter_mismatch.IdempotencyParameterMismatch: <p>Parameters on this idempotent request are inconsistent with parameters used in previous request(s). </p> <p>For a list of error codes and more information on Amazon S3 errors, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#ErrorCodeList\">Error codes</a>.</p> <note> <p>Idempotency ensures that an API request completes no more than one time. With an idempotent request, if the original request completes successfully, any subsequent retries complete successfully without performing any further actions.</p> </note>
+            aws_sdk_s3.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -7709,6 +8025,10 @@ class S3Client:
             version_id: <p>VersionId used to reference a specific version of the object.</p>
             checksum_algorithm: <p>Indicates the algorithm used to create the checksum for the object when you use the SDK. This header will not provide any additional functionality if you don't use the SDK. When you send this header, there must be a corresponding <code>x-amz-checksum</code> or <code>x-amz-trailer</code> header sent. Otherwise, Amazon S3 fails the request with the HTTP status code <code>400 Bad Request</code>. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html\">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p> <p>If you provide an individual checksum, Amazon S3 ignores any provided <code>ChecksumAlgorithm</code> parameter.</p>
             expected_bucket_owner: <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
+
+        Raises:
+            aws_sdk_s3.errors.object_already_in_active_tier_error.ObjectAlreadyInActiveTierError: <p>This action is not allowed against this storage tier.</p>
+            aws_sdk_s3.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To restore an archived object
@@ -7794,6 +8114,9 @@ class S3Client:
             output_serialization: <p>Describes the format of the data that you want Amazon S3 to return in response.</p>
             scan_range: <p>Specifies the byte range of the object to get the records from. A record is processed when its first byte is contained by the range. This parameter is optional, but when specified, it must not be empty. See RFC 2616, Section 14.35.1 about how to specify the start and end of the range.</p> <p> <code>ScanRange</code>may be used in the following ways:</p> <ul> <li> <p> <code><scanrange><start>50</start><end>100</end></scanrange></code> - process only the records starting between the bytes 50 and 100 (inclusive, counting from zero)</p> </li> <li> <p> <code><scanrange><start>50</start></scanrange></code> - process only the records starting after the byte 50</p> </li> <li> <p> <code><scanrange><end>50</end></scanrange></code> - process only the records within the last 50 bytes of the file.</p> </li> </ul>
             expected_bucket_owner: <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
+
+        Raises:
+            aws_sdk_s3.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -7858,6 +8181,9 @@ class S3Client:
             checksum_algorithm: <p> The checksum algorithm to use with your inventory table configuration. </p>
             inventory_table_configuration: <p> The contents of your inventory table configuration. </p>
             expected_bucket_owner: <p> The expected owner of the general purpose bucket that corresponds to the metadata table configuration that you want to enable or disable an inventory table for. </p>
+
+        Raises:
+            aws_sdk_s3.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -7910,6 +8236,9 @@ class S3Client:
             checksum_algorithm: <p> The checksum algorithm to use with your journal table configuration. </p>
             journal_table_configuration: <p> The contents of your journal table configuration. </p>
             expected_bucket_owner: <p> The expected owner of the general purpose bucket that corresponds to the metadata table configuration that you want to enable or disable journal table record expiration for. </p>
+
+        Raises:
+            aws_sdk_s3.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -7969,6 +8298,12 @@ class S3Client:
             expected_bucket_owner: <p> The account ID of the expected bucket owner. If the account ID that you provide doesn't match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied). </p>
             content_md5: <p> The MD5 hash for the request body. For requests made using the Amazon Web Services Command Line Interface (CLI) or Amazon Web Services SDKs, this field is calculated automatically. </p>
             checksum_algorithm: <p> Indicates the algorithm used to create the checksum for the object when you use an Amazon Web Services SDK. This header doesn't provide any additional functionality if you don't use the SDK. When you send this header, there must be a corresponding <code>x-amz-checksum</code> or <code>x-amz-trailer</code> header sent. Otherwise, Amazon S3 fails the request with the HTTP status code <code>400 Bad Request</code>. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html\"> Checking object integrity </a> in the <i>Amazon S3 User Guide</i>. </p> <p>If you provide an individual checksum, Amazon S3 ignores any provided <code>ChecksumAlgorithm</code> parameter.</p>
+
+        Raises:
+            aws_sdk_s3.errors.access_denied.AccessDenied: <p> You might receive this error for several reasons. For details, see the description of this API operation.</p>
+            aws_sdk_s3.errors.invalid_request.InvalidRequest: <p>A parameter or header in your request isn't valid. For details, see the description of this API operation.</p>
+            aws_sdk_s3.errors.no_such_key.NoSuchKey: <p>The specified key does not exist.</p>
+            aws_sdk_s3.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -8087,6 +8422,9 @@ class S3Client:
             sse_customer_key: <p>Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon S3 does not store the encryption key. The key must be appropriate for use with the algorithm specified in the <code>x-amz-server-side-encryption-customer-algorithm header</code>. This must be the same encryption key specified in the initiate multipart upload request.</p> <note> <p>This functionality is not supported for directory buckets.</p> </note>
             sse_customer_key_md5: <p>Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.</p> <note> <p>This functionality is not supported for directory buckets.</p> </note>
             expected_bucket_owner: <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
+
+        Raises:
+            aws_sdk_s3.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To upload a part
@@ -8349,6 +8687,9 @@ class S3Client:
             expected_bucket_owner: <p>The account ID of the expected destination bucket owner. If the account ID that you provide does not match the actual owner of the destination bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
             expected_source_bucket_owner: <p>The account ID of the expected source bucket owner. If the account ID that you provide does not match the actual owner of the source bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
 
+        Raises:
+            aws_sdk_s3.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To upload a part by copying byte range from an existing object as data source
             The following example uploads a part of a multipart upload by copying a specified byte range from an existing object as data source.
@@ -8566,6 +8907,9 @@ class S3Client:
             tag_count: <p>The number of tags, if any, on the object.</p>
             version_id: <p>An ID used to reference a specific version of the object.</p>
             bucket_key_enabled: <p> Indicates whether the object stored in Amazon S3 uses an S3 bucket key for server-side encryption with Amazon Web Services KMS (SSE-KMS).</p>
+
+        Raises:
+            aws_sdk_s3.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(

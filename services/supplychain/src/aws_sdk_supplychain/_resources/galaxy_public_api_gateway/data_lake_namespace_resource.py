@@ -64,6 +64,16 @@ class DataLakeNamespaceResource:
             description: <p>The description of the namespace.</p>
             tags: <p>The tags of the namespace.</p>
 
+        Raises:
+            aws_sdk_supplychain.errors.access_denied_exception.AccessDeniedException: <p>You do not have the required privileges to perform this action.</p>
+            aws_sdk_supplychain.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_supplychain.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_supplychain.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_supplychain.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Request would cause a service quota to be exceeded.</p>
+            aws_sdk_supplychain.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_supplychain.errors.validation_exception.ValidationException: <p>The input does not satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_supplychain.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Create a data lake namespace
 
@@ -112,6 +122,16 @@ class DataLakeNamespaceResource:
         Args:
             instance_id: <p>The Amazon Web Services Supply Chain instance identifier.</p>
             name: <p>The name of the namespace. Besides the namespaces user created, you can also specify the pre-defined namespaces:</p> <ul> <li> <p> <b>asc</b> - Pre-defined namespace containing Amazon Web Services Supply Chain supported datasets, see <a href=\"https://docs.aws.amazon.com/aws-supply-chain/latest/userguide/data-model-asc.html\">https://docs.aws.amazon.com/aws-supply-chain/latest/userguide/data-model-asc.html</a>.</p> </li> <li> <p> <b>default</b> - Pre-defined namespace containing datasets with custom user-defined schemas.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_supplychain.errors.access_denied_exception.AccessDeniedException: <p>You do not have the required privileges to perform this action.</p>
+            aws_sdk_supplychain.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_supplychain.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_supplychain.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_supplychain.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Request would cause a service quota to be exceeded.</p>
+            aws_sdk_supplychain.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_supplychain.errors.validation_exception.ValidationException: <p>The input does not satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_supplychain.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Get properties of an existing AWS Supply Chain namespace
@@ -165,6 +185,16 @@ class DataLakeNamespaceResource:
             name: <p>The name of the namespace. Noted you cannot update namespace with name starting with <b>asc</b>, <b>default</b>, <b>scn</b>, <b>aws</b>, <b>amazon</b>, <b>amzn</b> </p>
             description: <p>The updated description of the data lake namespace.</p>
 
+        Raises:
+            aws_sdk_supplychain.errors.access_denied_exception.AccessDeniedException: <p>You do not have the required privileges to perform this action.</p>
+            aws_sdk_supplychain.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_supplychain.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_supplychain.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_supplychain.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Request would cause a service quota to be exceeded.</p>
+            aws_sdk_supplychain.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_supplychain.errors.validation_exception.ValidationException: <p>The input does not satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_supplychain.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Update description of an existing AWS Supply Chain namespace
 
@@ -211,6 +241,16 @@ class DataLakeNamespaceResource:
         Args:
             instance_id: <p>The AWS Supply Chain instance identifier.</p>
             name: <p>The name of the namespace. Noted you cannot delete pre-defined namespace like <b>asc</b>, <b>default</b> which are only deleted through instance deletion.</p>
+
+        Raises:
+            aws_sdk_supplychain.errors.access_denied_exception.AccessDeniedException: <p>You do not have the required privileges to perform this action.</p>
+            aws_sdk_supplychain.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_supplychain.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_supplychain.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_supplychain.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Request would cause a service quota to be exceeded.</p>
+            aws_sdk_supplychain.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_supplychain.errors.validation_exception.ValidationException: <p>The input does not satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_supplychain.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Delete an AWS Supply Chain namespace
@@ -262,6 +302,16 @@ class DataLakeNamespaceResource:
             instance_id: <p>The Amazon Web Services Supply Chain instance identifier.</p>
             next_token: <p>The pagination token to fetch next page of namespaces.</p>
             max_results: <p>The max number of namespaces to fetch in this paginated request.</p>
+
+        Raises:
+            aws_sdk_supplychain.errors.access_denied_exception.AccessDeniedException: <p>You do not have the required privileges to perform this action.</p>
+            aws_sdk_supplychain.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_supplychain.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_supplychain.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_supplychain.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Request would cause a service quota to be exceeded.</p>
+            aws_sdk_supplychain.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_supplychain.errors.validation_exception.ValidationException: <p>The input does not satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_supplychain.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             List AWS Supply Chain namespaces
@@ -325,6 +375,16 @@ class AsyncDataLakeNamespaceResource:
             description: <p>The description of the namespace.</p>
             tags: <p>The tags of the namespace.</p>
 
+        Raises:
+            aws_sdk_supplychain.errors.access_denied_exception.AccessDeniedException: <p>You do not have the required privileges to perform this action.</p>
+            aws_sdk_supplychain.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_supplychain.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_supplychain.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_supplychain.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Request would cause a service quota to be exceeded.</p>
+            aws_sdk_supplychain.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_supplychain.errors.validation_exception.ValidationException: <p>The input does not satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_supplychain.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Create a data lake namespace
 
@@ -374,6 +434,16 @@ class AsyncDataLakeNamespaceResource:
         Args:
             instance_id: <p>The Amazon Web Services Supply Chain instance identifier.</p>
             name: <p>The name of the namespace. Besides the namespaces user created, you can also specify the pre-defined namespaces:</p> <ul> <li> <p> <b>asc</b> - Pre-defined namespace containing Amazon Web Services Supply Chain supported datasets, see <a href=\"https://docs.aws.amazon.com/aws-supply-chain/latest/userguide/data-model-asc.html\">https://docs.aws.amazon.com/aws-supply-chain/latest/userguide/data-model-asc.html</a>.</p> </li> <li> <p> <b>default</b> - Pre-defined namespace containing datasets with custom user-defined schemas.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_supplychain.errors.access_denied_exception.AccessDeniedException: <p>You do not have the required privileges to perform this action.</p>
+            aws_sdk_supplychain.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_supplychain.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_supplychain.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_supplychain.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Request would cause a service quota to be exceeded.</p>
+            aws_sdk_supplychain.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_supplychain.errors.validation_exception.ValidationException: <p>The input does not satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_supplychain.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Get properties of an existing AWS Supply Chain namespace
@@ -428,6 +498,16 @@ class AsyncDataLakeNamespaceResource:
             name: <p>The name of the namespace. Noted you cannot update namespace with name starting with <b>asc</b>, <b>default</b>, <b>scn</b>, <b>aws</b>, <b>amazon</b>, <b>amzn</b> </p>
             description: <p>The updated description of the data lake namespace.</p>
 
+        Raises:
+            aws_sdk_supplychain.errors.access_denied_exception.AccessDeniedException: <p>You do not have the required privileges to perform this action.</p>
+            aws_sdk_supplychain.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_supplychain.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_supplychain.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_supplychain.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Request would cause a service quota to be exceeded.</p>
+            aws_sdk_supplychain.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_supplychain.errors.validation_exception.ValidationException: <p>The input does not satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_supplychain.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Update description of an existing AWS Supply Chain namespace
 
@@ -475,6 +555,16 @@ class AsyncDataLakeNamespaceResource:
         Args:
             instance_id: <p>The AWS Supply Chain instance identifier.</p>
             name: <p>The name of the namespace. Noted you cannot delete pre-defined namespace like <b>asc</b>, <b>default</b> which are only deleted through instance deletion.</p>
+
+        Raises:
+            aws_sdk_supplychain.errors.access_denied_exception.AccessDeniedException: <p>You do not have the required privileges to perform this action.</p>
+            aws_sdk_supplychain.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_supplychain.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_supplychain.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_supplychain.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Request would cause a service quota to be exceeded.</p>
+            aws_sdk_supplychain.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_supplychain.errors.validation_exception.ValidationException: <p>The input does not satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_supplychain.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Delete an AWS Supply Chain namespace
@@ -527,6 +617,16 @@ class AsyncDataLakeNamespaceResource:
             instance_id: <p>The Amazon Web Services Supply Chain instance identifier.</p>
             next_token: <p>The pagination token to fetch next page of namespaces.</p>
             max_results: <p>The max number of namespaces to fetch in this paginated request.</p>
+
+        Raises:
+            aws_sdk_supplychain.errors.access_denied_exception.AccessDeniedException: <p>You do not have the required privileges to perform this action.</p>
+            aws_sdk_supplychain.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_supplychain.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_supplychain.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_supplychain.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Request would cause a service quota to be exceeded.</p>
+            aws_sdk_supplychain.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_supplychain.errors.validation_exception.ValidationException: <p>The input does not satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_supplychain.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             List AWS Supply Chain namespaces

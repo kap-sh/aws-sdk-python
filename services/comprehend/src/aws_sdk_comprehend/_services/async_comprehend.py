@@ -372,6 +372,13 @@ class AsyncComprehendClient:
 
         Args:
             text_list: <p>A list containing the UTF-8 encoded text of the input documents. The list can contain a maximum of 25 documents. Each document should contain at least 20 characters. The maximum size of each document is 5 KB.</p>
+
+        Raises:
+            aws_sdk_comprehend.errors.batch_size_limit_exceeded_exception.BatchSizeLimitExceededException: <p>The number of documents in the request exceeds the limit of 25. Try your request again with fewer documents.</p>
+            aws_sdk_comprehend.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_comprehend.errors.invalid_request_exception.InvalidRequestException: <p>The request is invalid.</p>
+            aws_sdk_comprehend.errors.text_size_limit_exceeded_exception.TextSizeLimitExceededException: <p>The size of the input text exceeds the limit. Use a smaller document.</p>
+            aws_sdk_comprehend.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -412,6 +419,14 @@ class AsyncComprehendClient:
         Args:
             text_list: <p>A list containing the UTF-8 encoded text of the input documents. The list can contain a maximum of 25 documents. The maximum size of each document is 5 KB.</p>
             language_code: <p>The language of the input documents. You can specify any of the primary languages supported by Amazon Comprehend. All documents must be in the same language.</p>
+
+        Raises:
+            aws_sdk_comprehend.errors.batch_size_limit_exceeded_exception.BatchSizeLimitExceededException: <p>The number of documents in the request exceeds the limit of 25. Try your request again with fewer documents.</p>
+            aws_sdk_comprehend.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_comprehend.errors.invalid_request_exception.InvalidRequestException: <p>The request is invalid.</p>
+            aws_sdk_comprehend.errors.text_size_limit_exceeded_exception.TextSizeLimitExceededException: <p>The size of the input text exceeds the limit. Use a smaller document.</p>
+            aws_sdk_comprehend.errors.unsupported_language_exception.UnsupportedLanguageException: <p>Amazon Comprehend can't process the language of the input text. For a list of supported languages, <a href=\"https://docs.aws.amazon.com/comprehend/latest/dg/supported-languages.html\">Supported languages</a> in the Comprehend Developer Guide. </p>
+            aws_sdk_comprehend.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -453,6 +468,14 @@ class AsyncComprehendClient:
         Args:
             text_list: <p>A list containing the UTF-8 encoded text of the input documents. The list can contain a maximum of 25 documents. The maximum size of each document is 5 KB.</p>
             language_code: <p>The language of the input documents. You can specify any of the primary languages supported by Amazon Comprehend. All documents must be in the same language.</p>
+
+        Raises:
+            aws_sdk_comprehend.errors.batch_size_limit_exceeded_exception.BatchSizeLimitExceededException: <p>The number of documents in the request exceeds the limit of 25. Try your request again with fewer documents.</p>
+            aws_sdk_comprehend.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_comprehend.errors.invalid_request_exception.InvalidRequestException: <p>The request is invalid.</p>
+            aws_sdk_comprehend.errors.text_size_limit_exceeded_exception.TextSizeLimitExceededException: <p>The size of the input text exceeds the limit. Use a smaller document.</p>
+            aws_sdk_comprehend.errors.unsupported_language_exception.UnsupportedLanguageException: <p>Amazon Comprehend can't process the language of the input text. For a list of supported languages, <a href=\"https://docs.aws.amazon.com/comprehend/latest/dg/supported-languages.html\">Supported languages</a> in the Comprehend Developer Guide. </p>
+            aws_sdk_comprehend.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -494,6 +517,14 @@ class AsyncComprehendClient:
         Args:
             text_list: <p>A list containing the UTF-8 encoded text of the input documents. The list can contain a maximum of 25 documents. The maximum size of each document is 5 KB. </p>
             language_code: <p>The language of the input documents. You can specify any of the primary languages supported by Amazon Comprehend. All documents must be in the same language.</p>
+
+        Raises:
+            aws_sdk_comprehend.errors.batch_size_limit_exceeded_exception.BatchSizeLimitExceededException: <p>The number of documents in the request exceeds the limit of 25. Try your request again with fewer documents.</p>
+            aws_sdk_comprehend.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_comprehend.errors.invalid_request_exception.InvalidRequestException: <p>The request is invalid.</p>
+            aws_sdk_comprehend.errors.text_size_limit_exceeded_exception.TextSizeLimitExceededException: <p>The size of the input text exceeds the limit. Use a smaller document.</p>
+            aws_sdk_comprehend.errors.unsupported_language_exception.UnsupportedLanguageException: <p>Amazon Comprehend can't process the language of the input text. For a list of supported languages, <a href=\"https://docs.aws.amazon.com/comprehend/latest/dg/supported-languages.html\">Supported languages</a> in the Comprehend Developer Guide. </p>
+            aws_sdk_comprehend.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -535,6 +566,14 @@ class AsyncComprehendClient:
         Args:
             text_list: <p>A list containing the UTF-8 encoded text of the input documents. The list can contain a maximum of 25 documents. The maximum size for each document is 5 KB.</p>
             language_code: <p>The language of the input documents. You can specify any of the following languages supported by Amazon Comprehend: German (\"de\"), English (\"en\"), Spanish (\"es\"), French (\"fr\"), Italian (\"it\"), or Portuguese (\"pt\"). All documents must be in the same language.</p>
+
+        Raises:
+            aws_sdk_comprehend.errors.batch_size_limit_exceeded_exception.BatchSizeLimitExceededException: <p>The number of documents in the request exceeds the limit of 25. Try your request again with fewer documents.</p>
+            aws_sdk_comprehend.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_comprehend.errors.invalid_request_exception.InvalidRequestException: <p>The request is invalid.</p>
+            aws_sdk_comprehend.errors.text_size_limit_exceeded_exception.TextSizeLimitExceededException: <p>The size of the input text exceeds the limit. Use a smaller document.</p>
+            aws_sdk_comprehend.errors.unsupported_language_exception.UnsupportedLanguageException: <p>Amazon Comprehend can't process the language of the input text. For a list of supported languages, <a href=\"https://docs.aws.amazon.com/comprehend/latest/dg/supported-languages.html\">Supported languages</a> in the Comprehend Developer Guide. </p>
+            aws_sdk_comprehend.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -576,6 +615,14 @@ class AsyncComprehendClient:
         Args:
             text_list: <p>A list containing the UTF-8 encoded text of the input documents. The list can contain a maximum of 25 documents. The maximum size of each document is 5 KB.</p>
             language_code: <p>The language of the input documents. Currently, English is the only supported language.</p>
+
+        Raises:
+            aws_sdk_comprehend.errors.batch_size_limit_exceeded_exception.BatchSizeLimitExceededException: <p>The number of documents in the request exceeds the limit of 25. Try your request again with fewer documents.</p>
+            aws_sdk_comprehend.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_comprehend.errors.invalid_request_exception.InvalidRequestException: <p>The request is invalid.</p>
+            aws_sdk_comprehend.errors.text_size_limit_exceeded_exception.TextSizeLimitExceededException: <p>The size of the input text exceeds the limit. Use a smaller document.</p>
+            aws_sdk_comprehend.errors.unsupported_language_exception.UnsupportedLanguageException: <p>Amazon Comprehend can't process the language of the input text. For a list of supported languages, <a href=\"https://docs.aws.amazon.com/comprehend/latest/dg/supported-languages.html\">Supported languages</a> in the Comprehend Developer Guide. </p>
+            aws_sdk_comprehend.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -627,6 +674,13 @@ class AsyncComprehendClient:
             endpoint_arn: <p>The Amazon Resource Number (ARN) of the endpoint. </p> <p>For prompt safety classification, Amazon Comprehend provides the endpoint ARN. For more information about prompt safety classifiers, see <a href=\"https://docs.aws.amazon.com/comprehend/latest/dg/trust-safety.html#prompt-classification\">Prompt safety classification</a> in the <i>Amazon Comprehend Developer Guide</i> </p> <p>For custom classification, you create an endpoint for your custom model. For more information, see <a href=\"https://docs.aws.amazon.com/comprehend/latest/dg/using-endpoints.html\">Using Amazon Comprehend endpoints</a>.</p>
             bytes: <p>Use the <code>Bytes</code> parameter to input a text, PDF, Word or image file.</p> <p>When you classify a document using a custom model, you can also use the <code>Bytes</code> parameter to input an Amazon Textract <code>DetectDocumentText</code> or <code>AnalyzeDocument</code> output file.</p> <p>To classify a document using the prompt safety classifier, use the <code>Text</code> parameter for input.</p> <p>Provide the input document as a sequence of base64-encoded bytes. If your code uses an Amazon Web Services SDK to classify documents, the SDK may encode the document file bytes for you. </p> <p>The maximum length of this field depends on the input document type. For details, see <a href=\"https://docs.aws.amazon.com/comprehend/latest/dg/idp-inputs-sync.html\"> Inputs for real-time custom analysis</a> in the Comprehend Developer Guide. </p> <p>If you use the <code>Bytes</code> parameter, do not use the <code>Text</code> parameter.</p>
             document_reader_config: <p>Provides configuration parameters to override the default actions for extracting text from PDF documents and image files.</p>
+
+        Raises:
+            aws_sdk_comprehend.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_comprehend.errors.invalid_request_exception.InvalidRequestException: <p>The request is invalid.</p>
+            aws_sdk_comprehend.errors.resource_unavailable_exception.ResourceUnavailableException: <p>The specified resource is not available. Check the resource and try your request again.</p>
+            aws_sdk_comprehend.errors.text_size_limit_exceeded_exception.TextSizeLimitExceededException: <p>The size of the input text exceeds the limit. Use a smaller document.</p>
+            aws_sdk_comprehend.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -673,6 +727,13 @@ class AsyncComprehendClient:
         Args:
             text: <p>A UTF-8 text string. The maximum string size is 100 KB.</p>
             language_code: <p>The language of the input documents.</p>
+
+        Raises:
+            aws_sdk_comprehend.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_comprehend.errors.invalid_request_exception.InvalidRequestException: <p>The request is invalid.</p>
+            aws_sdk_comprehend.errors.text_size_limit_exceeded_exception.TextSizeLimitExceededException: <p>The size of the input text exceeds the limit. Use a smaller document.</p>
+            aws_sdk_comprehend.errors.unsupported_language_exception.UnsupportedLanguageException: <p>Amazon Comprehend can't process the language of the input text. For a list of supported languages, <a href=\"https://docs.aws.amazon.com/comprehend/latest/dg/supported-languages.html\">Supported languages</a> in the Comprehend Developer Guide. </p>
+            aws_sdk_comprehend.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -730,6 +791,16 @@ class AsyncComprehendClient:
             input_data_config: <p>Information about the input data configuration. The type of input data varies based on the format of the input and whether the data is for a classifier model or an entity recognition model.</p>
             client_request_token: <p>A unique identifier for the request. If you don't set the client request token, Amazon Comprehend generates one.</p>
             tags: <p>Tags for the dataset.</p>
+
+        Raises:
+            aws_sdk_comprehend.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_comprehend.errors.invalid_request_exception.InvalidRequestException: <p>The request is invalid.</p>
+            aws_sdk_comprehend.errors.resource_in_use_exception.ResourceInUseException: <p>The specified resource name is already in use. Use a different name and try your request again.</p>
+            aws_sdk_comprehend.errors.resource_limit_exceeded_exception.ResourceLimitExceededException: <p>The maximum number of resources per account has been exceeded. Review the resources, and then try your request again.</p>
+            aws_sdk_comprehend.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource ARN was not found. Check the ARN and try your request again.</p>
+            aws_sdk_comprehend.errors.too_many_requests_exception.TooManyRequestsException: <p>The number of requests exceeds the limit. Resubmit your request later.</p>
+            aws_sdk_comprehend.errors.too_many_tags_exception.TooManyTagsException: <p>The request contains more tags than can be associated with a resource (50 tags per resource). The maximum number of tags includes both existing tags and those included in your current request. </p>
+            aws_sdk_comprehend.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -814,6 +885,17 @@ class AsyncComprehendClient:
             mode: <p>Indicates the mode in which the classifier will be trained. The classifier can be trained in multi-class (single-label) mode or multi-label mode. Multi-class mode identifies a single class label for each document and multi-label mode identifies one or more class labels for each document. Multiple labels for an individual document are separated by a delimiter. The default delimiter between labels is a pipe (|).</p>
             model_kms_key_id: <p>ID for the KMS key that Amazon Comprehend uses to encrypt trained custom models. The ModelKmsKeyId can be either of the following formats:</p> <ul> <li> <p>KMS Key ID: <code>\"1234abcd-12ab-34cd-56ef-1234567890ab\"</code> </p> </li> <li> <p>Amazon Resource Name (ARN) of a KMS Key: <code>\"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab\"</code> </p> </li> </ul>
             model_policy: <p>The resource-based policy to attach to your custom document classifier model. You can use this policy to allow another Amazon Web Services account to import your custom model.</p> <p>Provide your policy as a JSON body that you enter as a UTF-8 encoded string without line breaks. To provide valid JSON, enclose the attribute names and values in double quotes. If the JSON body is also enclosed in double quotes, then you must escape the double quotes that are inside the policy:</p> <p> <code>\"{\\"attribute\\": \\"value\\", \\"attribute\\": [\\"value\\"]}\"</code> </p> <p>To avoid escaping quotes, you can use single quotes to enclose the policy and double quotes to enclose the JSON names and values:</p> <p> <code>'{\"attribute\": \"value\", \"attribute\": [\"value\"]}'</code> </p>
+
+        Raises:
+            aws_sdk_comprehend.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_comprehend.errors.invalid_request_exception.InvalidRequestException: <p>The request is invalid.</p>
+            aws_sdk_comprehend.errors.kms_key_validation_exception.KmsKeyValidationException: <p>The KMS customer managed key (CMK) entered cannot be validated. Verify the key and re-enter it.</p>
+            aws_sdk_comprehend.errors.resource_in_use_exception.ResourceInUseException: <p>The specified resource name is already in use. Use a different name and try your request again.</p>
+            aws_sdk_comprehend.errors.resource_limit_exceeded_exception.ResourceLimitExceededException: <p>The maximum number of resources per account has been exceeded. Review the resources, and then try your request again.</p>
+            aws_sdk_comprehend.errors.too_many_requests_exception.TooManyRequestsException: <p>The number of requests exceeds the limit. Resubmit your request later.</p>
+            aws_sdk_comprehend.errors.too_many_tags_exception.TooManyTagsException: <p>The request contains more tags than can be associated with a resource (50 tags per resource). The maximum number of tags includes both existing tags and those included in your current request. </p>
+            aws_sdk_comprehend.errors.unsupported_language_exception.UnsupportedLanguageException: <p>Amazon Comprehend can't process the language of the input text. For a list of supported languages, <a href=\"https://docs.aws.amazon.com/comprehend/latest/dg/supported-languages.html\">Supported languages</a> in the Comprehend Developer Guide. </p>
+            aws_sdk_comprehend.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -893,6 +975,17 @@ class AsyncComprehendClient:
             tags: <p>Tags to associate with the endpoint. A tag is a key-value pair that adds metadata to the endpoint. For example, a tag with \"Sales\" as the key might be added to an endpoint to indicate its use by the sales department. </p>
             data_access_role_arn: <p>The Amazon Resource Name (ARN) of the IAM role that grants Amazon Comprehend read access to trained custom models encrypted with a customer managed key (ModelKmsKeyId).</p>
             flywheel_arn: <p>The Amazon Resource Number (ARN) of the flywheel to which the endpoint will be attached.</p>
+
+        Raises:
+            aws_sdk_comprehend.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_comprehend.errors.invalid_request_exception.InvalidRequestException: <p>The request is invalid.</p>
+            aws_sdk_comprehend.errors.resource_in_use_exception.ResourceInUseException: <p>The specified resource name is already in use. Use a different name and try your request again.</p>
+            aws_sdk_comprehend.errors.resource_limit_exceeded_exception.ResourceLimitExceededException: <p>The maximum number of resources per account has been exceeded. Review the resources, and then try your request again.</p>
+            aws_sdk_comprehend.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource ARN was not found. Check the ARN and try your request again.</p>
+            aws_sdk_comprehend.errors.resource_unavailable_exception.ResourceUnavailableException: <p>The specified resource is not available. Check the resource and try your request again.</p>
+            aws_sdk_comprehend.errors.too_many_requests_exception.TooManyRequestsException: <p>The number of requests exceeds the limit. Resubmit your request later.</p>
+            aws_sdk_comprehend.errors.too_many_tags_exception.TooManyTagsException: <p>The request contains more tags than can be associated with a resource (50 tags per resource). The maximum number of tags includes both existing tags and those included in your current request. </p>
+            aws_sdk_comprehend.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -970,6 +1063,17 @@ class AsyncComprehendClient:
             vpc_config: <p>Configuration parameters for an optional private Virtual Private Cloud (VPC) containing the resources you are using for your custom entity recognizer. For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html\">Amazon VPC</a>. </p>
             model_kms_key_id: <p>ID for the KMS key that Amazon Comprehend uses to encrypt trained custom models. The ModelKmsKeyId can be either of the following formats:</p> <ul> <li> <p>KMS Key ID: <code>\"1234abcd-12ab-34cd-56ef-1234567890ab\"</code> </p> </li> <li> <p>Amazon Resource Name (ARN) of a KMS Key: <code>\"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab\"</code> </p> </li> </ul>
             model_policy: <p>The JSON resource-based policy to attach to your custom entity recognizer model. You can use this policy to allow another Amazon Web Services account to import your custom model.</p> <p>Provide your JSON as a UTF-8 encoded string without line breaks. To provide valid JSON for your policy, enclose the attribute names and values in double quotes. If the JSON body is also enclosed in double quotes, then you must escape the double quotes that are inside the policy:</p> <p> <code>\"{\\"attribute\\": \\"value\\", \\"attribute\\": [\\"value\\"]}\"</code> </p> <p>To avoid escaping quotes, you can use single quotes to enclose the policy and double quotes to enclose the JSON names and values:</p> <p> <code>'{\"attribute\": \"value\", \"attribute\": [\"value\"]}'</code> </p>
+
+        Raises:
+            aws_sdk_comprehend.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_comprehend.errors.invalid_request_exception.InvalidRequestException: <p>The request is invalid.</p>
+            aws_sdk_comprehend.errors.kms_key_validation_exception.KmsKeyValidationException: <p>The KMS customer managed key (CMK) entered cannot be validated. Verify the key and re-enter it.</p>
+            aws_sdk_comprehend.errors.resource_in_use_exception.ResourceInUseException: <p>The specified resource name is already in use. Use a different name and try your request again.</p>
+            aws_sdk_comprehend.errors.resource_limit_exceeded_exception.ResourceLimitExceededException: <p>The maximum number of resources per account has been exceeded. Review the resources, and then try your request again.</p>
+            aws_sdk_comprehend.errors.too_many_requests_exception.TooManyRequestsException: <p>The number of requests exceeds the limit. Resubmit your request later.</p>
+            aws_sdk_comprehend.errors.too_many_tags_exception.TooManyTagsException: <p>The request contains more tags than can be associated with a resource (50 tags per resource). The maximum number of tags includes both existing tags and those included in your current request. </p>
+            aws_sdk_comprehend.errors.unsupported_language_exception.UnsupportedLanguageException: <p>Amazon Comprehend can't process the language of the input text. For a list of supported languages, <a href=\"https://docs.aws.amazon.com/comprehend/latest/dg/supported-languages.html\">Supported languages</a> in the Comprehend Developer Guide. </p>
+            aws_sdk_comprehend.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1047,6 +1151,19 @@ class AsyncComprehendClient:
             data_security_config: <p>Data security configurations.</p>
             client_request_token: <p>A unique identifier for the request. If you don't set the client request token, Amazon Comprehend generates one.</p>
             tags: <p>The tags to associate with this flywheel.</p>
+
+        Raises:
+            aws_sdk_comprehend.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_comprehend.errors.invalid_request_exception.InvalidRequestException: <p>The request is invalid.</p>
+            aws_sdk_comprehend.errors.kms_key_validation_exception.KmsKeyValidationException: <p>The KMS customer managed key (CMK) entered cannot be validated. Verify the key and re-enter it.</p>
+            aws_sdk_comprehend.errors.resource_in_use_exception.ResourceInUseException: <p>The specified resource name is already in use. Use a different name and try your request again.</p>
+            aws_sdk_comprehend.errors.resource_limit_exceeded_exception.ResourceLimitExceededException: <p>The maximum number of resources per account has been exceeded. Review the resources, and then try your request again.</p>
+            aws_sdk_comprehend.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource ARN was not found. Check the ARN and try your request again.</p>
+            aws_sdk_comprehend.errors.resource_unavailable_exception.ResourceUnavailableException: <p>The specified resource is not available. Check the resource and try your request again.</p>
+            aws_sdk_comprehend.errors.too_many_requests_exception.TooManyRequestsException: <p>The number of requests exceeds the limit. Resubmit your request later.</p>
+            aws_sdk_comprehend.errors.too_many_tags_exception.TooManyTagsException: <p>The request contains more tags than can be associated with a resource (50 tags per resource). The maximum number of tags includes both existing tags and those included in your current request. </p>
+            aws_sdk_comprehend.errors.unsupported_language_exception.UnsupportedLanguageException: <p>Amazon Comprehend can't process the language of the input text. For a list of supported languages, <a href=\"https://docs.aws.amazon.com/comprehend/latest/dg/supported-languages.html\">Supported languages</a> in the Comprehend Developer Guide. </p>
+            aws_sdk_comprehend.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1099,6 +1216,15 @@ class AsyncComprehendClient:
 
         Args:
             document_classifier_arn: <p>The Amazon Resource Name (ARN) that identifies the document classifier. </p>
+
+        Raises:
+            aws_sdk_comprehend.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_comprehend.errors.invalid_request_exception.InvalidRequestException: <p>The request is invalid.</p>
+            aws_sdk_comprehend.errors.resource_in_use_exception.ResourceInUseException: <p>The specified resource name is already in use. Use a different name and try your request again.</p>
+            aws_sdk_comprehend.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource ARN was not found. Check the ARN and try your request again.</p>
+            aws_sdk_comprehend.errors.resource_unavailable_exception.ResourceUnavailableException: <p>The specified resource is not available. Check the resource and try your request again.</p>
+            aws_sdk_comprehend.errors.too_many_requests_exception.TooManyRequestsException: <p>The number of requests exceeds the limit. Resubmit your request later.</p>
+            aws_sdk_comprehend.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1137,6 +1263,14 @@ class AsyncComprehendClient:
 
         Args:
             endpoint_arn: <p>The Amazon Resource Number (ARN) of the endpoint being deleted.</p>
+
+        Raises:
+            aws_sdk_comprehend.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_comprehend.errors.invalid_request_exception.InvalidRequestException: <p>The request is invalid.</p>
+            aws_sdk_comprehend.errors.resource_in_use_exception.ResourceInUseException: <p>The specified resource name is already in use. Use a different name and try your request again.</p>
+            aws_sdk_comprehend.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource ARN was not found. Check the ARN and try your request again.</p>
+            aws_sdk_comprehend.errors.too_many_requests_exception.TooManyRequestsException: <p>The number of requests exceeds the limit. Resubmit your request later.</p>
+            aws_sdk_comprehend.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1175,6 +1309,15 @@ class AsyncComprehendClient:
 
         Args:
             entity_recognizer_arn: <p>The Amazon Resource Name (ARN) that identifies the entity recognizer.</p>
+
+        Raises:
+            aws_sdk_comprehend.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_comprehend.errors.invalid_request_exception.InvalidRequestException: <p>The request is invalid.</p>
+            aws_sdk_comprehend.errors.resource_in_use_exception.ResourceInUseException: <p>The specified resource name is already in use. Use a different name and try your request again.</p>
+            aws_sdk_comprehend.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource ARN was not found. Check the ARN and try your request again.</p>
+            aws_sdk_comprehend.errors.resource_unavailable_exception.ResourceUnavailableException: <p>The specified resource is not available. Check the resource and try your request again.</p>
+            aws_sdk_comprehend.errors.too_many_requests_exception.TooManyRequestsException: <p>The number of requests exceeds the limit. Resubmit your request later.</p>
+            aws_sdk_comprehend.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1213,6 +1356,15 @@ class AsyncComprehendClient:
 
         Args:
             flywheel_arn: <p>The Amazon Resource Number (ARN) of the flywheel to delete.</p>
+
+        Raises:
+            aws_sdk_comprehend.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_comprehend.errors.invalid_request_exception.InvalidRequestException: <p>The request is invalid.</p>
+            aws_sdk_comprehend.errors.resource_in_use_exception.ResourceInUseException: <p>The specified resource name is already in use. Use a different name and try your request again.</p>
+            aws_sdk_comprehend.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource ARN was not found. Check the ARN and try your request again.</p>
+            aws_sdk_comprehend.errors.resource_unavailable_exception.ResourceUnavailableException: <p>The specified resource is not available. Check the resource and try your request again.</p>
+            aws_sdk_comprehend.errors.too_many_requests_exception.TooManyRequestsException: <p>The number of requests exceeds the limit. Resubmit your request later.</p>
+            aws_sdk_comprehend.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1255,6 +1407,12 @@ class AsyncComprehendClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the custom model version that has the policy to delete.</p>
             policy_revision_id: <p>The revision ID of the policy to delete.</p>
+
+        Raises:
+            aws_sdk_comprehend.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_comprehend.errors.invalid_request_exception.InvalidRequestException: <p>The request is invalid.</p>
+            aws_sdk_comprehend.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource ARN was not found. Check the ARN and try your request again.</p>
+            aws_sdk_comprehend.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1295,6 +1453,13 @@ class AsyncComprehendClient:
 
         Args:
             dataset_arn: <p>The ARN of the dataset.</p>
+
+        Raises:
+            aws_sdk_comprehend.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_comprehend.errors.invalid_request_exception.InvalidRequestException: <p>The request is invalid.</p>
+            aws_sdk_comprehend.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource ARN was not found. Check the ARN and try your request again.</p>
+            aws_sdk_comprehend.errors.too_many_requests_exception.TooManyRequestsException: <p>The number of requests exceeds the limit. Resubmit your request later.</p>
+            aws_sdk_comprehend.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1333,6 +1498,13 @@ class AsyncComprehendClient:
 
         Args:
             job_id: <p>The identifier that Amazon Comprehend generated for the job. The <code>StartDocumentClassificationJob</code> operation returns this identifier in its response.</p>
+
+        Raises:
+            aws_sdk_comprehend.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_comprehend.errors.invalid_request_exception.InvalidRequestException: <p>The request is invalid.</p>
+            aws_sdk_comprehend.errors.job_not_found_exception.JobNotFoundException: <p>The specified job was not found. Check the job ID and try again.</p>
+            aws_sdk_comprehend.errors.too_many_requests_exception.TooManyRequestsException: <p>The number of requests exceeds the limit. Resubmit your request later.</p>
+            aws_sdk_comprehend.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1371,6 +1543,13 @@ class AsyncComprehendClient:
 
         Args:
             document_classifier_arn: <p>The Amazon Resource Name (ARN) that identifies the document classifier. The <code>CreateDocumentClassifier</code> operation returns this identifier in its response.</p>
+
+        Raises:
+            aws_sdk_comprehend.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_comprehend.errors.invalid_request_exception.InvalidRequestException: <p>The request is invalid.</p>
+            aws_sdk_comprehend.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource ARN was not found. Check the ARN and try your request again.</p>
+            aws_sdk_comprehend.errors.too_many_requests_exception.TooManyRequestsException: <p>The number of requests exceeds the limit. Resubmit your request later.</p>
+            aws_sdk_comprehend.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1409,6 +1588,13 @@ class AsyncComprehendClient:
 
         Args:
             job_id: <p>The identifier that Amazon Comprehend generated for the job. The <code>StartDominantLanguageDetectionJob</code> operation returns this identifier in its response.</p>
+
+        Raises:
+            aws_sdk_comprehend.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_comprehend.errors.invalid_request_exception.InvalidRequestException: <p>The request is invalid.</p>
+            aws_sdk_comprehend.errors.job_not_found_exception.JobNotFoundException: <p>The specified job was not found. Check the job ID and try again.</p>
+            aws_sdk_comprehend.errors.too_many_requests_exception.TooManyRequestsException: <p>The number of requests exceeds the limit. Resubmit your request later.</p>
+            aws_sdk_comprehend.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1447,6 +1633,13 @@ class AsyncComprehendClient:
 
         Args:
             endpoint_arn: <p>The Amazon Resource Number (ARN) of the endpoint being described.</p>
+
+        Raises:
+            aws_sdk_comprehend.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_comprehend.errors.invalid_request_exception.InvalidRequestException: <p>The request is invalid.</p>
+            aws_sdk_comprehend.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource ARN was not found. Check the ARN and try your request again.</p>
+            aws_sdk_comprehend.errors.too_many_requests_exception.TooManyRequestsException: <p>The number of requests exceeds the limit. Resubmit your request later.</p>
+            aws_sdk_comprehend.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1485,6 +1678,13 @@ class AsyncComprehendClient:
 
         Args:
             job_id: <p>The identifier that Amazon Comprehend generated for the job. The <code>StartEntitiesDetectionJob</code> operation returns this identifier in its response.</p>
+
+        Raises:
+            aws_sdk_comprehend.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_comprehend.errors.invalid_request_exception.InvalidRequestException: <p>The request is invalid.</p>
+            aws_sdk_comprehend.errors.job_not_found_exception.JobNotFoundException: <p>The specified job was not found. Check the job ID and try again.</p>
+            aws_sdk_comprehend.errors.too_many_requests_exception.TooManyRequestsException: <p>The number of requests exceeds the limit. Resubmit your request later.</p>
+            aws_sdk_comprehend.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1523,6 +1723,13 @@ class AsyncComprehendClient:
 
         Args:
             entity_recognizer_arn: <p>The Amazon Resource Name (ARN) that identifies the entity recognizer.</p>
+
+        Raises:
+            aws_sdk_comprehend.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_comprehend.errors.invalid_request_exception.InvalidRequestException: <p>The request is invalid.</p>
+            aws_sdk_comprehend.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource ARN was not found. Check the ARN and try your request again.</p>
+            aws_sdk_comprehend.errors.too_many_requests_exception.TooManyRequestsException: <p>The number of requests exceeds the limit. Resubmit your request later.</p>
+            aws_sdk_comprehend.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1561,6 +1768,13 @@ class AsyncComprehendClient:
 
         Args:
             job_id: <p>The identifier of the events detection job.</p>
+
+        Raises:
+            aws_sdk_comprehend.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_comprehend.errors.invalid_request_exception.InvalidRequestException: <p>The request is invalid.</p>
+            aws_sdk_comprehend.errors.job_not_found_exception.JobNotFoundException: <p>The specified job was not found. Check the job ID and try again.</p>
+            aws_sdk_comprehend.errors.too_many_requests_exception.TooManyRequestsException: <p>The number of requests exceeds the limit. Resubmit your request later.</p>
+            aws_sdk_comprehend.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1599,6 +1813,13 @@ class AsyncComprehendClient:
 
         Args:
             flywheel_arn: <p>The Amazon Resource Number (ARN) of the flywheel.</p>
+
+        Raises:
+            aws_sdk_comprehend.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_comprehend.errors.invalid_request_exception.InvalidRequestException: <p>The request is invalid.</p>
+            aws_sdk_comprehend.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource ARN was not found. Check the ARN and try your request again.</p>
+            aws_sdk_comprehend.errors.too_many_requests_exception.TooManyRequestsException: <p>The number of requests exceeds the limit. Resubmit your request later.</p>
+            aws_sdk_comprehend.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1639,6 +1860,13 @@ class AsyncComprehendClient:
         Args:
             flywheel_arn: <p></p>
             flywheel_iteration_id: <p></p>
+
+        Raises:
+            aws_sdk_comprehend.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_comprehend.errors.invalid_request_exception.InvalidRequestException: <p>The request is invalid.</p>
+            aws_sdk_comprehend.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource ARN was not found. Check the ARN and try your request again.</p>
+            aws_sdk_comprehend.errors.too_many_requests_exception.TooManyRequestsException: <p>The number of requests exceeds the limit. Resubmit your request later.</p>
+            aws_sdk_comprehend.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1678,6 +1906,13 @@ class AsyncComprehendClient:
 
         Args:
             job_id: <p>The identifier that Amazon Comprehend generated for the job. The <code>StartKeyPhrasesDetectionJob</code> operation returns this identifier in its response.</p>
+
+        Raises:
+            aws_sdk_comprehend.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_comprehend.errors.invalid_request_exception.InvalidRequestException: <p>The request is invalid.</p>
+            aws_sdk_comprehend.errors.job_not_found_exception.JobNotFoundException: <p>The specified job was not found. Check the job ID and try again.</p>
+            aws_sdk_comprehend.errors.too_many_requests_exception.TooManyRequestsException: <p>The number of requests exceeds the limit. Resubmit your request later.</p>
+            aws_sdk_comprehend.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1716,6 +1951,13 @@ class AsyncComprehendClient:
 
         Args:
             job_id: <p>The identifier that Amazon Comprehend generated for the job. The operation returns this identifier in its response.</p>
+
+        Raises:
+            aws_sdk_comprehend.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_comprehend.errors.invalid_request_exception.InvalidRequestException: <p>The request is invalid.</p>
+            aws_sdk_comprehend.errors.job_not_found_exception.JobNotFoundException: <p>The specified job was not found. Check the job ID and try again.</p>
+            aws_sdk_comprehend.errors.too_many_requests_exception.TooManyRequestsException: <p>The number of requests exceeds the limit. Resubmit your request later.</p>
+            aws_sdk_comprehend.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1754,6 +1996,12 @@ class AsyncComprehendClient:
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the custom model version that has the resource policy.</p>
+
+        Raises:
+            aws_sdk_comprehend.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_comprehend.errors.invalid_request_exception.InvalidRequestException: <p>The request is invalid.</p>
+            aws_sdk_comprehend.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource ARN was not found. Check the ARN and try your request again.</p>
+            aws_sdk_comprehend.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1792,6 +2040,13 @@ class AsyncComprehendClient:
 
         Args:
             job_id: <p>The identifier that Amazon Comprehend generated for the job. The operation returns this identifier in its response.</p>
+
+        Raises:
+            aws_sdk_comprehend.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_comprehend.errors.invalid_request_exception.InvalidRequestException: <p>The request is invalid.</p>
+            aws_sdk_comprehend.errors.job_not_found_exception.JobNotFoundException: <p>The specified job was not found. Check the job ID and try again.</p>
+            aws_sdk_comprehend.errors.too_many_requests_exception.TooManyRequestsException: <p>The number of requests exceeds the limit. Resubmit your request later.</p>
+            aws_sdk_comprehend.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1830,6 +2085,13 @@ class AsyncComprehendClient:
 
         Args:
             job_id: <p>The identifier that Amazon Comprehend generated for the job. The <code>StartTargetedSentimentDetectionJob</code> operation returns this identifier in its response.</p>
+
+        Raises:
+            aws_sdk_comprehend.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_comprehend.errors.invalid_request_exception.InvalidRequestException: <p>The request is invalid.</p>
+            aws_sdk_comprehend.errors.job_not_found_exception.JobNotFoundException: <p>The specified job was not found. Check the job ID and try again.</p>
+            aws_sdk_comprehend.errors.too_many_requests_exception.TooManyRequestsException: <p>The number of requests exceeds the limit. Resubmit your request later.</p>
+            aws_sdk_comprehend.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1868,6 +2130,13 @@ class AsyncComprehendClient:
 
         Args:
             job_id: <p>The identifier assigned by the user to the detection job.</p>
+
+        Raises:
+            aws_sdk_comprehend.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_comprehend.errors.invalid_request_exception.InvalidRequestException: <p>The request is invalid.</p>
+            aws_sdk_comprehend.errors.job_not_found_exception.JobNotFoundException: <p>The specified job was not found. Check the job ID and try again.</p>
+            aws_sdk_comprehend.errors.too_many_requests_exception.TooManyRequestsException: <p>The number of requests exceeds the limit. Resubmit your request later.</p>
+            aws_sdk_comprehend.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1906,6 +2175,12 @@ class AsyncComprehendClient:
 
         Args:
             text: <p>A UTF-8 text string. The string must contain at least 20 characters. The maximum string size is 100 KB.</p>
+
+        Raises:
+            aws_sdk_comprehend.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_comprehend.errors.invalid_request_exception.InvalidRequestException: <p>The request is invalid.</p>
+            aws_sdk_comprehend.errors.text_size_limit_exceeded_exception.TextSizeLimitExceededException: <p>The size of the input text exceeds the limit. Use a smaller document.</p>
+            aws_sdk_comprehend.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1962,6 +2237,14 @@ class AsyncComprehendClient:
             endpoint_arn: <p>The Amazon Resource Name of an endpoint that is associated with a custom entity recognition model. Provide an endpoint if you want to detect entities by using your own custom model instead of the default model that is used by Amazon Comprehend.</p> <p>If you specify an endpoint, Amazon Comprehend uses the language of your custom model, and it ignores any language code that you provide in your request.</p> <p>For information about endpoints, see <a href=\"https://docs.aws.amazon.com/comprehend/latest/dg/manage-endpoints.html\">Managing endpoints</a>.</p>
             bytes: <p>This field applies only when you use a custom entity recognition model that was trained with PDF annotations. For other cases, enter your text input in the <code>Text</code> field.</p> <p> Use the <code>Bytes</code> parameter to input a text, PDF, Word or image file. Using a plain-text file in the <code>Bytes</code> parameter is equivelent to using the <code>Text</code> parameter (the <code>Entities</code> field in the response is identical).</p> <p>You can also use the <code>Bytes</code> parameter to input an Amazon Textract <code>DetectDocumentText</code> or <code>AnalyzeDocument</code> output file.</p> <p>Provide the input document as a sequence of base64-encoded bytes. If your code uses an Amazon Web Services SDK to detect entities, the SDK may encode the document file bytes for you. </p> <p>The maximum length of this field depends on the input document type. For details, see <a href=\"https://docs.aws.amazon.com/comprehend/latest/dg/idp-inputs-sync.html\"> Inputs for real-time custom analysis</a> in the Comprehend Developer Guide. </p> <p>If you use the <code>Bytes</code> parameter, do not use the <code>Text</code> parameter.</p>
             document_reader_config: <p>Provides configuration parameters to override the default actions for extracting text from PDF documents and image files.</p>
+
+        Raises:
+            aws_sdk_comprehend.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_comprehend.errors.invalid_request_exception.InvalidRequestException: <p>The request is invalid.</p>
+            aws_sdk_comprehend.errors.resource_unavailable_exception.ResourceUnavailableException: <p>The specified resource is not available. Check the resource and try your request again.</p>
+            aws_sdk_comprehend.errors.text_size_limit_exceeded_exception.TextSizeLimitExceededException: <p>The size of the input text exceeds the limit. Use a smaller document.</p>
+            aws_sdk_comprehend.errors.unsupported_language_exception.UnsupportedLanguageException: <p>Amazon Comprehend can't process the language of the input text. For a list of supported languages, <a href=\"https://docs.aws.amazon.com/comprehend/latest/dg/supported-languages.html\">Supported languages</a> in the Comprehend Developer Guide. </p>
+            aws_sdk_comprehend.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2013,6 +2296,13 @@ class AsyncComprehendClient:
         Args:
             text: <p>A UTF-8 text string. The string must contain less than 100 KB of UTF-8 encoded characters.</p>
             language_code: <p>The language of the input documents. You can specify any of the primary languages supported by Amazon Comprehend. All documents must be in the same language.</p>
+
+        Raises:
+            aws_sdk_comprehend.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_comprehend.errors.invalid_request_exception.InvalidRequestException: <p>The request is invalid.</p>
+            aws_sdk_comprehend.errors.text_size_limit_exceeded_exception.TextSizeLimitExceededException: <p>The size of the input text exceeds the limit. Use a smaller document.</p>
+            aws_sdk_comprehend.errors.unsupported_language_exception.UnsupportedLanguageException: <p>Amazon Comprehend can't process the language of the input text. For a list of supported languages, <a href=\"https://docs.aws.amazon.com/comprehend/latest/dg/supported-languages.html\">Supported languages</a> in the Comprehend Developer Guide. </p>
+            aws_sdk_comprehend.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2054,6 +2344,13 @@ class AsyncComprehendClient:
         Args:
             text: <p>A UTF-8 text string. The maximum string size is 100 KB.</p>
             language_code: <p>The language of the input text. Enter the language code for English (en) or Spanish (es).</p>
+
+        Raises:
+            aws_sdk_comprehend.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_comprehend.errors.invalid_request_exception.InvalidRequestException: <p>The request is invalid.</p>
+            aws_sdk_comprehend.errors.text_size_limit_exceeded_exception.TextSizeLimitExceededException: <p>The size of the input text exceeds the limit. Use a smaller document.</p>
+            aws_sdk_comprehend.errors.unsupported_language_exception.UnsupportedLanguageException: <p>Amazon Comprehend can't process the language of the input text. For a list of supported languages, <a href=\"https://docs.aws.amazon.com/comprehend/latest/dg/supported-languages.html\">Supported languages</a> in the Comprehend Developer Guide. </p>
+            aws_sdk_comprehend.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2095,6 +2392,13 @@ class AsyncComprehendClient:
         Args:
             text: <p>A UTF-8 text string. The maximum string size is 5 KB.</p>
             language_code: <p>The language of the input documents. You can specify any of the primary languages supported by Amazon Comprehend. All documents must be in the same language.</p>
+
+        Raises:
+            aws_sdk_comprehend.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_comprehend.errors.invalid_request_exception.InvalidRequestException: <p>The request is invalid.</p>
+            aws_sdk_comprehend.errors.text_size_limit_exceeded_exception.TextSizeLimitExceededException: <p>The size of the input text exceeds the limit. Use a smaller document.</p>
+            aws_sdk_comprehend.errors.unsupported_language_exception.UnsupportedLanguageException: <p>Amazon Comprehend can't process the language of the input text. For a list of supported languages, <a href=\"https://docs.aws.amazon.com/comprehend/latest/dg/supported-languages.html\">Supported languages</a> in the Comprehend Developer Guide. </p>
+            aws_sdk_comprehend.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2136,6 +2440,13 @@ class AsyncComprehendClient:
         Args:
             text: <p>A UTF-8 string. The maximum string size is 5 KB.</p>
             language_code: <p>The language code of the input documents. You can specify any of the following languages supported by Amazon Comprehend: German (\"de\"), English (\"en\"), Spanish (\"es\"), French (\"fr\"), Italian (\"it\"), or Portuguese (\"pt\").</p>
+
+        Raises:
+            aws_sdk_comprehend.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_comprehend.errors.invalid_request_exception.InvalidRequestException: <p>The request is invalid.</p>
+            aws_sdk_comprehend.errors.text_size_limit_exceeded_exception.TextSizeLimitExceededException: <p>The size of the input text exceeds the limit. Use a smaller document.</p>
+            aws_sdk_comprehend.errors.unsupported_language_exception.UnsupportedLanguageException: <p>Amazon Comprehend can't process the language of the input text. For a list of supported languages, <a href=\"https://docs.aws.amazon.com/comprehend/latest/dg/supported-languages.html\">Supported languages</a> in the Comprehend Developer Guide. </p>
+            aws_sdk_comprehend.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2177,6 +2488,13 @@ class AsyncComprehendClient:
         Args:
             text: <p>A UTF-8 text string. The maximum string length is 5 KB.</p>
             language_code: <p>The language of the input documents. Currently, English is the only supported language.</p>
+
+        Raises:
+            aws_sdk_comprehend.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_comprehend.errors.invalid_request_exception.InvalidRequestException: <p>The request is invalid.</p>
+            aws_sdk_comprehend.errors.text_size_limit_exceeded_exception.TextSizeLimitExceededException: <p>The size of the input text exceeds the limit. Use a smaller document.</p>
+            aws_sdk_comprehend.errors.unsupported_language_exception.UnsupportedLanguageException: <p>Amazon Comprehend can't process the language of the input text. For a list of supported languages, <a href=\"https://docs.aws.amazon.com/comprehend/latest/dg/supported-languages.html\">Supported languages</a> in the Comprehend Developer Guide. </p>
+            aws_sdk_comprehend.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2218,6 +2536,13 @@ class AsyncComprehendClient:
         Args:
             text_segments: <p>A list of up to 10 text strings. Each string has a maximum size of 1 KB, and the maximum size of the list is 10 KB.</p>
             language_code: <p>The language of the input text. Currently, English is the only supported language.</p>
+
+        Raises:
+            aws_sdk_comprehend.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_comprehend.errors.invalid_request_exception.InvalidRequestException: <p>The request is invalid.</p>
+            aws_sdk_comprehend.errors.text_size_limit_exceeded_exception.TextSizeLimitExceededException: <p>The size of the input text exceeds the limit. Use a smaller document.</p>
+            aws_sdk_comprehend.errors.unsupported_language_exception.UnsupportedLanguageException: <p>Amazon Comprehend can't process the language of the input text. For a list of supported languages, <a href=\"https://docs.aws.amazon.com/comprehend/latest/dg/supported-languages.html\">Supported languages</a> in the Comprehend Developer Guide. </p>
+            aws_sdk_comprehend.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2275,6 +2600,18 @@ class AsyncComprehendClient:
             model_kms_key_id: <p>ID for the KMS key that Amazon Comprehend uses to encrypt trained custom models. The ModelKmsKeyId can be either of the following formats:</p> <ul> <li> <p>KMS Key ID: <code>\"1234abcd-12ab-34cd-56ef-1234567890ab\"</code> </p> </li> <li> <p>Amazon Resource Name (ARN) of a KMS Key: <code>\"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab\"</code> </p> </li> </ul>
             data_access_role_arn: <p>The Amazon Resource Name (ARN) of the IAM role that grants Amazon Comprehend permission to use Amazon Key Management Service (KMS) to encrypt or decrypt the custom model.</p>
             tags: <p>Tags to associate with the custom model that is created by this import. A tag is a key-value pair that adds as a metadata to a resource used by Amazon Comprehend. For example, a tag with \"Sales\" as the key might be added to a resource to indicate its use by the sales department.</p>
+
+        Raises:
+            aws_sdk_comprehend.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_comprehend.errors.invalid_request_exception.InvalidRequestException: <p>The request is invalid.</p>
+            aws_sdk_comprehend.errors.kms_key_validation_exception.KmsKeyValidationException: <p>The KMS customer managed key (CMK) entered cannot be validated. Verify the key and re-enter it.</p>
+            aws_sdk_comprehend.errors.resource_in_use_exception.ResourceInUseException: <p>The specified resource name is already in use. Use a different name and try your request again.</p>
+            aws_sdk_comprehend.errors.resource_limit_exceeded_exception.ResourceLimitExceededException: <p>The maximum number of resources per account has been exceeded. Review the resources, and then try your request again.</p>
+            aws_sdk_comprehend.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource ARN was not found. Check the ARN and try your request again.</p>
+            aws_sdk_comprehend.errors.resource_unavailable_exception.ResourceUnavailableException: <p>The specified resource is not available. Check the resource and try your request again.</p>
+            aws_sdk_comprehend.errors.too_many_requests_exception.TooManyRequestsException: <p>The number of requests exceeds the limit. Resubmit your request later.</p>
+            aws_sdk_comprehend.errors.too_many_tags_exception.TooManyTagsException: <p>The request contains more tags than can be associated with a resource (50 tags per resource). The maximum number of tags includes both existing tags and those included in your current request. </p>
+            aws_sdk_comprehend.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2335,6 +2672,14 @@ class AsyncComprehendClient:
             filter: <p>Filters the datasets to be returned in the response.</p>
             next_token: <p>Identifies the next page of results to return.</p>
             max_results: <p>Maximum number of results to return in a response. The default is 100.</p>
+
+        Raises:
+            aws_sdk_comprehend.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_comprehend.errors.invalid_filter_exception.InvalidFilterException: <p>The filter specified for the operation is invalid. Specify a different filter.</p>
+            aws_sdk_comprehend.errors.invalid_request_exception.InvalidRequestException: <p>The request is invalid.</p>
+            aws_sdk_comprehend.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource ARN was not found. Check the ARN and try your request again.</p>
+            aws_sdk_comprehend.errors.too_many_requests_exception.TooManyRequestsException: <p>The number of requests exceeds the limit. Resubmit your request later.</p>
+            aws_sdk_comprehend.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2388,6 +2733,13 @@ class AsyncComprehendClient:
             filter: <p>Filters the jobs that are returned. You can filter jobs on their names, status, or the date and time that they were submitted. You can only set one filter at a time.</p>
             next_token: <p>Identifies the next page of results to return.</p>
             max_results: <p>The maximum number of results to return in each page. The default is 100.</p>
+
+        Raises:
+            aws_sdk_comprehend.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_comprehend.errors.invalid_filter_exception.InvalidFilterException: <p>The filter specified for the operation is invalid. Specify a different filter.</p>
+            aws_sdk_comprehend.errors.invalid_request_exception.InvalidRequestException: <p>The request is invalid.</p>
+            aws_sdk_comprehend.errors.too_many_requests_exception.TooManyRequestsException: <p>The number of requests exceeds the limit. Resubmit your request later.</p>
+            aws_sdk_comprehend.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2439,6 +2791,13 @@ class AsyncComprehendClient:
             filter: <p>Filters the jobs that are returned. You can filter jobs on their name, status, or the date and time that they were submitted. You can only set one filter at a time.</p>
             next_token: <p>Identifies the next page of results to return.</p>
             max_results: <p>The maximum number of results to return in each page. The default is 100.</p>
+
+        Raises:
+            aws_sdk_comprehend.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_comprehend.errors.invalid_filter_exception.InvalidFilterException: <p>The filter specified for the operation is invalid. Specify a different filter.</p>
+            aws_sdk_comprehend.errors.invalid_request_exception.InvalidRequestException: <p>The request is invalid.</p>
+            aws_sdk_comprehend.errors.too_many_requests_exception.TooManyRequestsException: <p>The number of requests exceeds the limit. Resubmit your request later.</p>
+            aws_sdk_comprehend.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2486,6 +2845,12 @@ class AsyncComprehendClient:
         Args:
             next_token: <p>Identifies the next page of results to return.</p>
             max_results: <p>The maximum number of results to return on each page. The default is 100.</p>
+
+        Raises:
+            aws_sdk_comprehend.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_comprehend.errors.invalid_request_exception.InvalidRequestException: <p>The request is invalid.</p>
+            aws_sdk_comprehend.errors.too_many_requests_exception.TooManyRequestsException: <p>The number of requests exceeds the limit. Resubmit your request later.</p>
+            aws_sdk_comprehend.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2535,6 +2900,13 @@ class AsyncComprehendClient:
             filter: <p>Filters that jobs that are returned. You can filter jobs on their name, status, or the date and time that they were submitted. You can only set one filter at a time.</p>
             next_token: <p>Identifies the next page of results to return.</p>
             max_results: <p>The maximum number of results to return in each page. The default is 100.</p>
+
+        Raises:
+            aws_sdk_comprehend.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_comprehend.errors.invalid_filter_exception.InvalidFilterException: <p>The filter specified for the operation is invalid. Specify a different filter.</p>
+            aws_sdk_comprehend.errors.invalid_request_exception.InvalidRequestException: <p>The request is invalid.</p>
+            aws_sdk_comprehend.errors.too_many_requests_exception.TooManyRequestsException: <p>The number of requests exceeds the limit. Resubmit your request later.</p>
+            aws_sdk_comprehend.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2586,6 +2958,12 @@ class AsyncComprehendClient:
             filter: <p>Filters the endpoints that are returned. You can filter endpoints on their name, model, status, or the date and time that they were created. You can only set one filter at a time. </p>
             next_token: <p>Identifies the next page of results to return.</p>
             max_results: <p>The maximum number of results to return in each page. The default is 100.</p>
+
+        Raises:
+            aws_sdk_comprehend.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_comprehend.errors.invalid_request_exception.InvalidRequestException: <p>The request is invalid.</p>
+            aws_sdk_comprehend.errors.too_many_requests_exception.TooManyRequestsException: <p>The number of requests exceeds the limit. Resubmit your request later.</p>
+            aws_sdk_comprehend.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2666,6 +3044,13 @@ class AsyncComprehendClient:
             filter: <p>Filters the jobs that are returned. You can filter jobs on their name, status, or the date and time that they were submitted. You can only set one filter at a time.</p>
             next_token: <p>Identifies the next page of results to return.</p>
             max_results: <p>The maximum number of results to return in each page. The default is 100.</p>
+
+        Raises:
+            aws_sdk_comprehend.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_comprehend.errors.invalid_filter_exception.InvalidFilterException: <p>The filter specified for the operation is invalid. Specify a different filter.</p>
+            aws_sdk_comprehend.errors.invalid_request_exception.InvalidRequestException: <p>The request is invalid.</p>
+            aws_sdk_comprehend.errors.too_many_requests_exception.TooManyRequestsException: <p>The number of requests exceeds the limit. Resubmit your request later.</p>
+            aws_sdk_comprehend.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2717,6 +3102,13 @@ class AsyncComprehendClient:
             filter: <p>Filters the list of entities returned. You can filter on <code>Status</code>, <code>SubmitTimeBefore</code>, or <code>SubmitTimeAfter</code>. You can only set one filter at a time.</p>
             next_token: <p>Identifies the next page of results to return.</p>
             max_results: <p> The maximum number of results to return on each page. The default is 100.</p>
+
+        Raises:
+            aws_sdk_comprehend.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_comprehend.errors.invalid_filter_exception.InvalidFilterException: <p>The filter specified for the operation is invalid. Specify a different filter.</p>
+            aws_sdk_comprehend.errors.invalid_request_exception.InvalidRequestException: <p>The request is invalid.</p>
+            aws_sdk_comprehend.errors.too_many_requests_exception.TooManyRequestsException: <p>The number of requests exceeds the limit. Resubmit your request later.</p>
+            aws_sdk_comprehend.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2764,6 +3156,12 @@ class AsyncComprehendClient:
         Args:
             next_token: <p>Identifies the next page of results to return.</p>
             max_results: <p>The maximum number of results to return on each page. The default is 100.</p>
+
+        Raises:
+            aws_sdk_comprehend.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_comprehend.errors.invalid_request_exception.InvalidRequestException: <p>The request is invalid.</p>
+            aws_sdk_comprehend.errors.too_many_requests_exception.TooManyRequestsException: <p>The number of requests exceeds the limit. Resubmit your request later.</p>
+            aws_sdk_comprehend.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2813,6 +3211,13 @@ class AsyncComprehendClient:
             filter: <p>Filters the jobs that are returned. You can filter jobs on their name, status, or the date and time that they were submitted. You can only set one filter at a time.</p>
             next_token: <p>Identifies the next page of results to return.</p>
             max_results: <p>The maximum number of results to return in each page.</p>
+
+        Raises:
+            aws_sdk_comprehend.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_comprehend.errors.invalid_filter_exception.InvalidFilterException: <p>The filter specified for the operation is invalid. Specify a different filter.</p>
+            aws_sdk_comprehend.errors.invalid_request_exception.InvalidRequestException: <p>The request is invalid.</p>
+            aws_sdk_comprehend.errors.too_many_requests_exception.TooManyRequestsException: <p>The number of requests exceeds the limit. Resubmit your request later.</p>
+            aws_sdk_comprehend.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2866,6 +3271,14 @@ class AsyncComprehendClient:
             filter: <p>Filter the flywheel iteration history based on creation time.</p>
             next_token: <p>Next token</p>
             max_results: <p>Maximum number of iteration history results to return</p>
+
+        Raises:
+            aws_sdk_comprehend.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_comprehend.errors.invalid_filter_exception.InvalidFilterException: <p>The filter specified for the operation is invalid. Specify a different filter.</p>
+            aws_sdk_comprehend.errors.invalid_request_exception.InvalidRequestException: <p>The request is invalid.</p>
+            aws_sdk_comprehend.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource ARN was not found. Check the ARN and try your request again.</p>
+            aws_sdk_comprehend.errors.too_many_requests_exception.TooManyRequestsException: <p>The number of requests exceeds the limit. Resubmit your request later.</p>
+            aws_sdk_comprehend.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2918,6 +3331,13 @@ class AsyncComprehendClient:
             filter: <p>Filters the flywheels that are returned. You can filter flywheels on their status, or the date and time that they were submitted. You can only set one filter at a time. </p>
             next_token: <p>Identifies the next page of results to return.</p>
             max_results: <p>Maximum number of results to return in a response. The default is 100.</p>
+
+        Raises:
+            aws_sdk_comprehend.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_comprehend.errors.invalid_filter_exception.InvalidFilterException: <p>The filter specified for the operation is invalid. Specify a different filter.</p>
+            aws_sdk_comprehend.errors.invalid_request_exception.InvalidRequestException: <p>The request is invalid.</p>
+            aws_sdk_comprehend.errors.too_many_requests_exception.TooManyRequestsException: <p>The number of requests exceeds the limit. Resubmit your request later.</p>
+            aws_sdk_comprehend.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2969,6 +3389,13 @@ class AsyncComprehendClient:
             filter: <p>Filters the jobs that are returned. You can filter jobs on their name, status, or the date and time that they were submitted. You can only set one filter at a time.</p>
             next_token: <p>Identifies the next page of results to return.</p>
             max_results: <p>The maximum number of results to return in each page. The default is 100.</p>
+
+        Raises:
+            aws_sdk_comprehend.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_comprehend.errors.invalid_filter_exception.InvalidFilterException: <p>The filter specified for the operation is invalid. Specify a different filter.</p>
+            aws_sdk_comprehend.errors.invalid_request_exception.InvalidRequestException: <p>The request is invalid.</p>
+            aws_sdk_comprehend.errors.too_many_requests_exception.TooManyRequestsException: <p>The number of requests exceeds the limit. Resubmit your request later.</p>
+            aws_sdk_comprehend.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3020,6 +3447,13 @@ class AsyncComprehendClient:
             filter: <p>Filters the jobs that are returned. You can filter jobs on their name, status, or the date and time that they were submitted. You can only set one filter at a time.</p>
             next_token: <p>Identifies the next page of results to return.</p>
             max_results: <p>The maximum number of results to return in each page.</p>
+
+        Raises:
+            aws_sdk_comprehend.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_comprehend.errors.invalid_filter_exception.InvalidFilterException: <p>The filter specified for the operation is invalid. Specify a different filter.</p>
+            aws_sdk_comprehend.errors.invalid_request_exception.InvalidRequestException: <p>The request is invalid.</p>
+            aws_sdk_comprehend.errors.too_many_requests_exception.TooManyRequestsException: <p>The number of requests exceeds the limit. Resubmit your request later.</p>
+            aws_sdk_comprehend.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3100,6 +3534,13 @@ class AsyncComprehendClient:
             filter: <p>Filters the jobs that are returned. You can filter jobs on their name, status, or the date and time that they were submitted. You can only set one filter at a time.</p>
             next_token: <p>Identifies the next page of results to return.</p>
             max_results: <p>The maximum number of results to return in each page. The default is 100.</p>
+
+        Raises:
+            aws_sdk_comprehend.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_comprehend.errors.invalid_filter_exception.InvalidFilterException: <p>The filter specified for the operation is invalid. Specify a different filter.</p>
+            aws_sdk_comprehend.errors.invalid_request_exception.InvalidRequestException: <p>The request is invalid.</p>
+            aws_sdk_comprehend.errors.too_many_requests_exception.TooManyRequestsException: <p>The number of requests exceeds the limit. Resubmit your request later.</p>
+            aws_sdk_comprehend.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3143,6 +3584,12 @@ class AsyncComprehendClient:
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the given Amazon Comprehend resource you are querying. </p>
+
+        Raises:
+            aws_sdk_comprehend.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_comprehend.errors.invalid_request_exception.InvalidRequestException: <p>The request is invalid.</p>
+            aws_sdk_comprehend.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource ARN was not found. Check the ARN and try your request again.</p>
+            aws_sdk_comprehend.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3189,6 +3636,13 @@ class AsyncComprehendClient:
             filter: <p>Filters the jobs that are returned. You can filter jobs on their name, status, or the date and time that they were submitted. You can only set one filter at a time.</p>
             next_token: <p>Identifies the next page of results to return.</p>
             max_results: <p>The maximum number of results to return in each page. The default is 100.</p>
+
+        Raises:
+            aws_sdk_comprehend.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_comprehend.errors.invalid_filter_exception.InvalidFilterException: <p>The filter specified for the operation is invalid. Specify a different filter.</p>
+            aws_sdk_comprehend.errors.invalid_request_exception.InvalidRequestException: <p>The request is invalid.</p>
+            aws_sdk_comprehend.errors.too_many_requests_exception.TooManyRequestsException: <p>The number of requests exceeds the limit. Resubmit your request later.</p>
+            aws_sdk_comprehend.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3240,6 +3694,13 @@ class AsyncComprehendClient:
             filter: <p>Filters the jobs that are returned. Jobs can be filtered on their name, status, or the date and time that they were submitted. You can set only one filter at a time.</p>
             next_token: <p>Identifies the next page of results to return.</p>
             max_results: <p>The maximum number of results to return in each page. The default is 100.</p>
+
+        Raises:
+            aws_sdk_comprehend.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_comprehend.errors.invalid_filter_exception.InvalidFilterException: <p>The filter specified for the operation is invalid. Specify a different filter.</p>
+            aws_sdk_comprehend.errors.invalid_request_exception.InvalidRequestException: <p>The request is invalid.</p>
+            aws_sdk_comprehend.errors.too_many_requests_exception.TooManyRequestsException: <p>The number of requests exceeds the limit. Resubmit your request later.</p>
+            aws_sdk_comprehend.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3289,6 +3750,12 @@ class AsyncComprehendClient:
             resource_arn: <p>The Amazon Resource Name (ARN) of the custom model to attach the policy to.</p>
             resource_policy: <p>The JSON resource-based policy to attach to your custom model. Provide your JSON as a UTF-8 encoded string without line breaks. To provide valid JSON for your policy, enclose the attribute names and values in double quotes. If the JSON body is also enclosed in double quotes, then you must escape the double quotes that are inside the policy:</p> <p> <code>\"{\\"attribute\\": \\"value\\", \\"attribute\\": [\\"value\\"]}\"</code> </p> <p>To avoid escaping quotes, you can use single quotes to enclose the policy and double quotes to enclose the JSON names and values:</p> <p> <code>'{\"attribute\": \"value\", \"attribute\": [\"value\"]}'</code> </p>
             policy_revision_id: <p>The revision ID that Amazon Comprehend assigned to the policy that you are updating. If you are creating a new policy that has no prior version, don't use this parameter. Amazon Comprehend creates the revision ID for you.</p>
+
+        Raises:
+            aws_sdk_comprehend.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_comprehend.errors.invalid_request_exception.InvalidRequestException: <p>The request is invalid.</p>
+            aws_sdk_comprehend.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource ARN was not found. Check the ARN and try your request again.</p>
+            aws_sdk_comprehend.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3356,6 +3823,17 @@ class AsyncComprehendClient:
             vpc_config: <p>Configuration parameters for an optional private Virtual Private Cloud (VPC) containing the resources you are using for your document classification job. For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html\">Amazon VPC</a>. </p>
             tags: <p>Tags to associate with the document classification job. A tag is a key-value pair that adds metadata to a resource used by Amazon Comprehend. For example, a tag with \"Sales\" as the key might be added to a resource to indicate its use by the sales department.</p>
             flywheel_arn: <p>The Amazon Resource Number (ARN) of the flywheel associated with the model to use.</p>
+
+        Raises:
+            aws_sdk_comprehend.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_comprehend.errors.invalid_request_exception.InvalidRequestException: <p>The request is invalid.</p>
+            aws_sdk_comprehend.errors.kms_key_validation_exception.KmsKeyValidationException: <p>The KMS customer managed key (CMK) entered cannot be validated. Verify the key and re-enter it.</p>
+            aws_sdk_comprehend.errors.resource_in_use_exception.ResourceInUseException: <p>The specified resource name is already in use. Use a different name and try your request again.</p>
+            aws_sdk_comprehend.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource ARN was not found. Check the ARN and try your request again.</p>
+            aws_sdk_comprehend.errors.resource_unavailable_exception.ResourceUnavailableException: <p>The specified resource is not available. Check the resource and try your request again.</p>
+            aws_sdk_comprehend.errors.too_many_requests_exception.TooManyRequestsException: <p>The number of requests exceeds the limit. Resubmit your request later.</p>
+            aws_sdk_comprehend.errors.too_many_tags_exception.TooManyTagsException: <p>The request contains more tags than can be associated with a resource (50 tags per resource). The maximum number of tags includes both existing tags and those included in your current request. </p>
+            aws_sdk_comprehend.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3428,6 +3906,15 @@ class AsyncComprehendClient:
             volume_kms_key_id: <p>ID for the Amazon Web Services Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that process the analysis job. The VolumeKmsKeyId can be either of the following formats:</p> <ul> <li> <p>KMS Key ID: <code>\"1234abcd-12ab-34cd-56ef-1234567890ab\"</code> </p> </li> <li> <p>Amazon Resource Name (ARN) of a KMS Key: <code>\"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab\"</code> </p> </li> </ul>
             vpc_config: <p>Configuration parameters for an optional private Virtual Private Cloud (VPC) containing the resources you are using for your dominant language detection job. For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html\">Amazon VPC</a>. </p>
             tags: <p>Tags to associate with the dominant language detection job. A tag is a key-value pair that adds metadata to a resource used by Amazon Comprehend. For example, a tag with \"Sales\" as the key might be added to a resource to indicate its use by the sales department.</p>
+
+        Raises:
+            aws_sdk_comprehend.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_comprehend.errors.invalid_request_exception.InvalidRequestException: <p>The request is invalid.</p>
+            aws_sdk_comprehend.errors.kms_key_validation_exception.KmsKeyValidationException: <p>The KMS customer managed key (CMK) entered cannot be validated. Verify the key and re-enter it.</p>
+            aws_sdk_comprehend.errors.resource_in_use_exception.ResourceInUseException: <p>The specified resource name is already in use. Use a different name and try your request again.</p>
+            aws_sdk_comprehend.errors.too_many_requests_exception.TooManyRequestsException: <p>The number of requests exceeds the limit. Resubmit your request later.</p>
+            aws_sdk_comprehend.errors.too_many_tags_exception.TooManyTagsException: <p>The request contains more tags than can be associated with a resource (50 tags per resource). The maximum number of tags includes both existing tags and those included in your current request. </p>
+            aws_sdk_comprehend.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3506,6 +3993,17 @@ class AsyncComprehendClient:
             vpc_config: <p>Configuration parameters for an optional private Virtual Private Cloud (VPC) containing the resources you are using for your entity detection job. For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html\">Amazon VPC</a>. </p>
             tags: <p>Tags to associate with the entities detection job. A tag is a key-value pair that adds metadata to a resource used by Amazon Comprehend. For example, a tag with \"Sales\" as the key might be added to a resource to indicate its use by the sales department.</p>
             flywheel_arn: <p>The Amazon Resource Number (ARN) of the flywheel associated with the model to use.</p>
+
+        Raises:
+            aws_sdk_comprehend.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_comprehend.errors.invalid_request_exception.InvalidRequestException: <p>The request is invalid.</p>
+            aws_sdk_comprehend.errors.kms_key_validation_exception.KmsKeyValidationException: <p>The KMS customer managed key (CMK) entered cannot be validated. Verify the key and re-enter it.</p>
+            aws_sdk_comprehend.errors.resource_in_use_exception.ResourceInUseException: <p>The specified resource name is already in use. Use a different name and try your request again.</p>
+            aws_sdk_comprehend.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource ARN was not found. Check the ARN and try your request again.</p>
+            aws_sdk_comprehend.errors.resource_unavailable_exception.ResourceUnavailableException: <p>The specified resource is not available. Check the resource and try your request again.</p>
+            aws_sdk_comprehend.errors.too_many_requests_exception.TooManyRequestsException: <p>The number of requests exceeds the limit. Resubmit your request later.</p>
+            aws_sdk_comprehend.errors.too_many_tags_exception.TooManyTagsException: <p>The request contains more tags than can be associated with a resource (50 tags per resource). The maximum number of tags includes both existing tags and those included in your current request. </p>
+            aws_sdk_comprehend.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3577,6 +4075,15 @@ class AsyncComprehendClient:
             client_request_token: <p>An unique identifier for the request. If you don't set the client request token, Amazon Comprehend generates one.</p>
             target_event_types: <p>The types of events to detect in the input documents.</p>
             tags: <p>Tags to associate with the events detection job. A tag is a key-value pair that adds metadata to a resource used by Amazon Comprehend. For example, a tag with \"Sales\" as the key might be added to a resource to indicate its use by the sales department.</p>
+
+        Raises:
+            aws_sdk_comprehend.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_comprehend.errors.invalid_request_exception.InvalidRequestException: <p>The request is invalid.</p>
+            aws_sdk_comprehend.errors.kms_key_validation_exception.KmsKeyValidationException: <p>The KMS customer managed key (CMK) entered cannot be validated. Verify the key and re-enter it.</p>
+            aws_sdk_comprehend.errors.resource_in_use_exception.ResourceInUseException: <p>The specified resource name is already in use. Use a different name and try your request again.</p>
+            aws_sdk_comprehend.errors.too_many_requests_exception.TooManyRequestsException: <p>The number of requests exceeds the limit. Resubmit your request later.</p>
+            aws_sdk_comprehend.errors.too_many_tags_exception.TooManyTagsException: <p>The request contains more tags than can be associated with a resource (50 tags per resource). The maximum number of tags includes both existing tags and those included in your current request. </p>
+            aws_sdk_comprehend.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3629,6 +4136,14 @@ class AsyncComprehendClient:
         Args:
             flywheel_arn: <p>The ARN of the flywheel.</p>
             client_request_token: <p>A unique identifier for the request. If you don't set the client request token, Amazon Comprehend generates one.</p>
+
+        Raises:
+            aws_sdk_comprehend.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_comprehend.errors.invalid_request_exception.InvalidRequestException: <p>The request is invalid.</p>
+            aws_sdk_comprehend.errors.resource_in_use_exception.ResourceInUseException: <p>The specified resource name is already in use. Use a different name and try your request again.</p>
+            aws_sdk_comprehend.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource ARN was not found. Check the ARN and try your request again.</p>
+            aws_sdk_comprehend.errors.too_many_requests_exception.TooManyRequestsException: <p>The number of requests exceeds the limit. Resubmit your request later.</p>
+            aws_sdk_comprehend.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3689,6 +4204,15 @@ class AsyncComprehendClient:
             volume_kms_key_id: <p>ID for the Amazon Web Services Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that process the analysis job. The VolumeKmsKeyId can be either of the following formats:</p> <ul> <li> <p>KMS Key ID: <code>\"1234abcd-12ab-34cd-56ef-1234567890ab\"</code> </p> </li> <li> <p>Amazon Resource Name (ARN) of a KMS Key: <code>\"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab\"</code> </p> </li> </ul>
             vpc_config: <p> Configuration parameters for an optional private Virtual Private Cloud (VPC) containing the resources you are using for your key phrases detection job. For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html\">Amazon VPC</a>. </p>
             tags: <p>Tags to associate with the key phrases detection job. A tag is a key-value pair that adds metadata to a resource used by Amazon Comprehend. For example, a tag with \"Sales\" as the key might be added to a resource to indicate its use by the sales department.</p>
+
+        Raises:
+            aws_sdk_comprehend.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_comprehend.errors.invalid_request_exception.InvalidRequestException: <p>The request is invalid.</p>
+            aws_sdk_comprehend.errors.kms_key_validation_exception.KmsKeyValidationException: <p>The KMS customer managed key (CMK) entered cannot be validated. Verify the key and re-enter it.</p>
+            aws_sdk_comprehend.errors.resource_in_use_exception.ResourceInUseException: <p>The specified resource name is already in use. Use a different name and try your request again.</p>
+            aws_sdk_comprehend.errors.too_many_requests_exception.TooManyRequestsException: <p>The number of requests exceeds the limit. Resubmit your request later.</p>
+            aws_sdk_comprehend.errors.too_many_tags_exception.TooManyTagsException: <p>The request contains more tags than can be associated with a resource (50 tags per resource). The maximum number of tags includes both existing tags and those included in your current request. </p>
+            aws_sdk_comprehend.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3760,6 +4284,15 @@ class AsyncComprehendClient:
             language_code: <p>The language of the input documents. Enter the language code for English (en) or Spanish (es).</p>
             client_request_token: <p>A unique identifier for the request. If you don't set the client request token, Amazon Comprehend generates one.</p>
             tags: <p>Tags to associate with the PII entities detection job. A tag is a key-value pair that adds metadata to a resource used by Amazon Comprehend. For example, a tag with \"Sales\" as the key might be added to a resource to indicate its use by the sales department.</p>
+
+        Raises:
+            aws_sdk_comprehend.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_comprehend.errors.invalid_request_exception.InvalidRequestException: <p>The request is invalid.</p>
+            aws_sdk_comprehend.errors.kms_key_validation_exception.KmsKeyValidationException: <p>The KMS customer managed key (CMK) entered cannot be validated. Verify the key and re-enter it.</p>
+            aws_sdk_comprehend.errors.resource_in_use_exception.ResourceInUseException: <p>The specified resource name is already in use. Use a different name and try your request again.</p>
+            aws_sdk_comprehend.errors.too_many_requests_exception.TooManyRequestsException: <p>The number of requests exceeds the limit. Resubmit your request later.</p>
+            aws_sdk_comprehend.errors.too_many_tags_exception.TooManyTagsException: <p>The request contains more tags than can be associated with a resource (50 tags per resource). The maximum number of tags includes both existing tags and those included in your current request. </p>
+            aws_sdk_comprehend.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3830,6 +4363,15 @@ class AsyncComprehendClient:
             volume_kms_key_id: <p>ID for the Amazon Web Services Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that process the analysis job. The VolumeKmsKeyId can be either of the following formats:</p> <ul> <li> <p>KMS Key ID: <code>\"1234abcd-12ab-34cd-56ef-1234567890ab\"</code> </p> </li> <li> <p>Amazon Resource Name (ARN) of a KMS Key: <code>\"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab\"</code> </p> </li> </ul>
             vpc_config: <p>Configuration parameters for an optional private Virtual Private Cloud (VPC) containing the resources you are using for your sentiment detection job. For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html\">Amazon VPC</a>. </p>
             tags: <p>Tags to associate with the sentiment detection job. A tag is a key-value pair that adds metadata to a resource used by Amazon Comprehend. For example, a tag with \"Sales\" as the key might be added to a resource to indicate its use by the sales department.</p>
+
+        Raises:
+            aws_sdk_comprehend.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_comprehend.errors.invalid_request_exception.InvalidRequestException: <p>The request is invalid.</p>
+            aws_sdk_comprehend.errors.kms_key_validation_exception.KmsKeyValidationException: <p>The KMS customer managed key (CMK) entered cannot be validated. Verify the key and re-enter it.</p>
+            aws_sdk_comprehend.errors.resource_in_use_exception.ResourceInUseException: <p>The specified resource name is already in use. Use a different name and try your request again.</p>
+            aws_sdk_comprehend.errors.too_many_requests_exception.TooManyRequestsException: <p>The number of requests exceeds the limit. Resubmit your request later.</p>
+            aws_sdk_comprehend.errors.too_many_tags_exception.TooManyTagsException: <p>The request contains more tags than can be associated with a resource (50 tags per resource). The maximum number of tags includes both existing tags and those included in your current request. </p>
+            aws_sdk_comprehend.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3899,6 +4441,15 @@ class AsyncComprehendClient:
             client_request_token: <p>A unique identifier for the request. If you don't set the client request token, Amazon Comprehend generates one.</p>
             volume_kms_key_id: <p>ID for the KMS key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that process the analysis job. The VolumeKmsKeyId can be either of the following formats:</p> <ul> <li> <p>KMS Key ID: <code>\"1234abcd-12ab-34cd-56ef-1234567890ab\"</code> </p> </li> <li> <p>Amazon Resource Name (ARN) of a KMS Key: <code>\"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab\"</code> </p> </li> </ul>
             tags: <p>Tags to associate with the targeted sentiment detection job. A tag is a key-value pair that adds metadata to a resource used by Amazon Comprehend. For example, a tag with \"Sales\" as the key might be added to a resource to indicate its use by the sales department.</p>
+
+        Raises:
+            aws_sdk_comprehend.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_comprehend.errors.invalid_request_exception.InvalidRequestException: <p>The request is invalid.</p>
+            aws_sdk_comprehend.errors.kms_key_validation_exception.KmsKeyValidationException: <p>The KMS customer managed key (CMK) entered cannot be validated. Verify the key and re-enter it.</p>
+            aws_sdk_comprehend.errors.resource_in_use_exception.ResourceInUseException: <p>The specified resource name is already in use. Use a different name and try your request again.</p>
+            aws_sdk_comprehend.errors.too_many_requests_exception.TooManyRequestsException: <p>The number of requests exceeds the limit. Resubmit your request later.</p>
+            aws_sdk_comprehend.errors.too_many_tags_exception.TooManyTagsException: <p>The request contains more tags than can be associated with a resource (50 tags per resource). The maximum number of tags includes both existing tags and those included in your current request. </p>
+            aws_sdk_comprehend.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3972,6 +4523,15 @@ class AsyncComprehendClient:
             volume_kms_key_id: <p>ID for the Amazon Web Services Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that process the analysis job. The VolumeKmsKeyId can be either of the following formats:</p> <ul> <li> <p>KMS Key ID: <code>\"1234abcd-12ab-34cd-56ef-1234567890ab\"</code> </p> </li> <li> <p>Amazon Resource Name (ARN) of a KMS Key: <code>\"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab\"</code> </p> </li> </ul>
             vpc_config: <p>Configuration parameters for an optional private Virtual Private Cloud (VPC) containing the resources you are using for your topic detection job. For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html\">Amazon VPC</a>. </p>
             tags: <p>Tags to associate with the topics detection job. A tag is a key-value pair that adds metadata to a resource used by Amazon Comprehend. For example, a tag with \"Sales\" as the key might be added to a resource to indicate its use by the sales department.</p>
+
+        Raises:
+            aws_sdk_comprehend.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_comprehend.errors.invalid_request_exception.InvalidRequestException: <p>The request is invalid.</p>
+            aws_sdk_comprehend.errors.kms_key_validation_exception.KmsKeyValidationException: <p>The KMS customer managed key (CMK) entered cannot be validated. Verify the key and re-enter it.</p>
+            aws_sdk_comprehend.errors.resource_in_use_exception.ResourceInUseException: <p>The specified resource name is already in use. Use a different name and try your request again.</p>
+            aws_sdk_comprehend.errors.too_many_requests_exception.TooManyRequestsException: <p>The number of requests exceeds the limit. Resubmit your request later.</p>
+            aws_sdk_comprehend.errors.too_many_tags_exception.TooManyTagsException: <p>The request contains more tags than can be associated with a resource (50 tags per resource). The maximum number of tags includes both existing tags and those included in your current request. </p>
+            aws_sdk_comprehend.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4024,6 +4584,12 @@ class AsyncComprehendClient:
 
         Args:
             job_id: <p>The identifier of the dominant language detection job to stop.</p>
+
+        Raises:
+            aws_sdk_comprehend.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_comprehend.errors.invalid_request_exception.InvalidRequestException: <p>The request is invalid.</p>
+            aws_sdk_comprehend.errors.job_not_found_exception.JobNotFoundException: <p>The specified job was not found. Check the job ID and try again.</p>
+            aws_sdk_comprehend.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4062,6 +4628,12 @@ class AsyncComprehendClient:
 
         Args:
             job_id: <p>The identifier of the entities detection job to stop.</p>
+
+        Raises:
+            aws_sdk_comprehend.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_comprehend.errors.invalid_request_exception.InvalidRequestException: <p>The request is invalid.</p>
+            aws_sdk_comprehend.errors.job_not_found_exception.JobNotFoundException: <p>The specified job was not found. Check the job ID and try again.</p>
+            aws_sdk_comprehend.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4100,6 +4672,12 @@ class AsyncComprehendClient:
 
         Args:
             job_id: <p>The identifier of the events detection job to stop.</p>
+
+        Raises:
+            aws_sdk_comprehend.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_comprehend.errors.invalid_request_exception.InvalidRequestException: <p>The request is invalid.</p>
+            aws_sdk_comprehend.errors.job_not_found_exception.JobNotFoundException: <p>The specified job was not found. Check the job ID and try again.</p>
+            aws_sdk_comprehend.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4138,6 +4716,12 @@ class AsyncComprehendClient:
 
         Args:
             job_id: <p>The identifier of the key phrases detection job to stop.</p>
+
+        Raises:
+            aws_sdk_comprehend.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_comprehend.errors.invalid_request_exception.InvalidRequestException: <p>The request is invalid.</p>
+            aws_sdk_comprehend.errors.job_not_found_exception.JobNotFoundException: <p>The specified job was not found. Check the job ID and try again.</p>
+            aws_sdk_comprehend.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4176,6 +4760,12 @@ class AsyncComprehendClient:
 
         Args:
             job_id: <p>The identifier of the PII entities detection job to stop.</p>
+
+        Raises:
+            aws_sdk_comprehend.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_comprehend.errors.invalid_request_exception.InvalidRequestException: <p>The request is invalid.</p>
+            aws_sdk_comprehend.errors.job_not_found_exception.JobNotFoundException: <p>The specified job was not found. Check the job ID and try again.</p>
+            aws_sdk_comprehend.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4214,6 +4804,12 @@ class AsyncComprehendClient:
 
         Args:
             job_id: <p>The identifier of the sentiment detection job to stop.</p>
+
+        Raises:
+            aws_sdk_comprehend.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_comprehend.errors.invalid_request_exception.InvalidRequestException: <p>The request is invalid.</p>
+            aws_sdk_comprehend.errors.job_not_found_exception.JobNotFoundException: <p>The specified job was not found. Check the job ID and try again.</p>
+            aws_sdk_comprehend.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4252,6 +4848,12 @@ class AsyncComprehendClient:
 
         Args:
             job_id: <p>The identifier of the targeted sentiment detection job to stop.</p>
+
+        Raises:
+            aws_sdk_comprehend.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_comprehend.errors.invalid_request_exception.InvalidRequestException: <p>The request is invalid.</p>
+            aws_sdk_comprehend.errors.job_not_found_exception.JobNotFoundException: <p>The specified job was not found. Check the job ID and try again.</p>
+            aws_sdk_comprehend.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4290,6 +4892,13 @@ class AsyncComprehendClient:
 
         Args:
             document_classifier_arn: <p>The Amazon Resource Name (ARN) that identifies the document classifier currently being trained.</p>
+
+        Raises:
+            aws_sdk_comprehend.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_comprehend.errors.invalid_request_exception.InvalidRequestException: <p>The request is invalid.</p>
+            aws_sdk_comprehend.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource ARN was not found. Check the ARN and try your request again.</p>
+            aws_sdk_comprehend.errors.too_many_requests_exception.TooManyRequestsException: <p>The number of requests exceeds the limit. Resubmit your request later.</p>
+            aws_sdk_comprehend.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4328,6 +4937,13 @@ class AsyncComprehendClient:
 
         Args:
             entity_recognizer_arn: <p>The Amazon Resource Name (ARN) that identifies the entity recognizer currently being trained.</p>
+
+        Raises:
+            aws_sdk_comprehend.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_comprehend.errors.invalid_request_exception.InvalidRequestException: <p>The request is invalid.</p>
+            aws_sdk_comprehend.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource ARN was not found. Check the ARN and try your request again.</p>
+            aws_sdk_comprehend.errors.too_many_requests_exception.TooManyRequestsException: <p>The number of requests exceeds the limit. Resubmit your request later.</p>
+            aws_sdk_comprehend.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4368,6 +4984,14 @@ class AsyncComprehendClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the given Amazon Comprehend resource to which you want to associate the tags. </p>
             tags: <p>Tags being associated with a specific Amazon Comprehend resource. There can be a maximum of 50 tags (both existing and pending) associated with a specific resource. </p>
+
+        Raises:
+            aws_sdk_comprehend.errors.concurrent_modification_exception.ConcurrentModificationException: <p>Concurrent modification of the tags associated with an Amazon Comprehend resource is not supported. </p>
+            aws_sdk_comprehend.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_comprehend.errors.invalid_request_exception.InvalidRequestException: <p>The request is invalid.</p>
+            aws_sdk_comprehend.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource ARN was not found. Check the ARN and try your request again.</p>
+            aws_sdk_comprehend.errors.too_many_tags_exception.TooManyTagsException: <p>The request contains more tags than can be associated with a resource (50 tags per resource). The maximum number of tags includes both existing tags and those included in your current request. </p>
+            aws_sdk_comprehend.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4409,6 +5033,14 @@ class AsyncComprehendClient:
         Args:
             resource_arn: <p> The Amazon Resource Name (ARN) of the given Amazon Comprehend resource from which you want to remove the tags. </p>
             tag_keys: <p>The initial part of a key-value pair that forms a tag being removed from a given resource. For example, a tag with \"Sales\" as the key might be added to a resource to indicate its use by the sales department. Keys must be unique and cannot be duplicated for a particular resource. </p>
+
+        Raises:
+            aws_sdk_comprehend.errors.concurrent_modification_exception.ConcurrentModificationException: <p>Concurrent modification of the tags associated with an Amazon Comprehend resource is not supported. </p>
+            aws_sdk_comprehend.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_comprehend.errors.invalid_request_exception.InvalidRequestException: <p>The request is invalid.</p>
+            aws_sdk_comprehend.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource ARN was not found. Check the ARN and try your request again.</p>
+            aws_sdk_comprehend.errors.too_many_tag_keys_exception.TooManyTagKeysException: <p>The request contains more tag keys than can be associated with a resource (50 tag keys per resource).</p>
+            aws_sdk_comprehend.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4464,6 +5096,16 @@ class AsyncComprehendClient:
             desired_inference_units: <p> The desired number of inference units to be used by the model using this endpoint. Each inference unit represents of a throughput of 100 characters per second.</p>
             desired_data_access_role_arn: <p>Data access role ARN to use in case the new model is encrypted with a customer CMK.</p>
             flywheel_arn: <p>The Amazon Resource Number (ARN) of the flywheel</p>
+
+        Raises:
+            aws_sdk_comprehend.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_comprehend.errors.invalid_request_exception.InvalidRequestException: <p>The request is invalid.</p>
+            aws_sdk_comprehend.errors.resource_in_use_exception.ResourceInUseException: <p>The specified resource name is already in use. Use a different name and try your request again.</p>
+            aws_sdk_comprehend.errors.resource_limit_exceeded_exception.ResourceLimitExceededException: <p>The maximum number of resources per account has been exceeded. Review the resources, and then try your request again.</p>
+            aws_sdk_comprehend.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource ARN was not found. Check the ARN and try your request again.</p>
+            aws_sdk_comprehend.errors.resource_unavailable_exception.ResourceUnavailableException: <p>The specified resource is not available. Check the resource and try your request again.</p>
+            aws_sdk_comprehend.errors.too_many_requests_exception.TooManyRequestsException: <p>The number of requests exceeds the limit. Resubmit your request later.</p>
+            aws_sdk_comprehend.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4522,6 +5164,14 @@ class AsyncComprehendClient:
             active_model_arn: <p>The Amazon Resource Number (ARN) of the active model version.</p>
             data_access_role_arn: <p>The Amazon Resource Name (ARN) of the IAM role that grants Amazon Comprehend permission to access the flywheel data.</p>
             data_security_config: <p>Flywheel data security configuration.</p>
+
+        Raises:
+            aws_sdk_comprehend.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_comprehend.errors.invalid_request_exception.InvalidRequestException: <p>The request is invalid.</p>
+            aws_sdk_comprehend.errors.kms_key_validation_exception.KmsKeyValidationException: <p>The KMS customer managed key (CMK) entered cannot be validated. Verify the key and re-enter it.</p>
+            aws_sdk_comprehend.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource ARN was not found. Check the ARN and try your request again.</p>
+            aws_sdk_comprehend.errors.too_many_requests_exception.TooManyRequestsException: <p>The number of requests exceeds the limit. Resubmit your request later.</p>
+            aws_sdk_comprehend.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

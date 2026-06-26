@@ -224,6 +224,14 @@ class AccessAnalyzerClient:
             analyzer_arn: <p>The Amazon resource name (ARN) of the analyzer.</p>
             rule_name: <p>The name of the rule to apply.</p>
             client_token: <p>A client token.</p>
+
+        Raises:
+            aws_sdk_accessanalyzer.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_accessanalyzer.errors.internal_server_exception.InternalServerException: <p>Internal server error.</p>
+            aws_sdk_accessanalyzer.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_accessanalyzer.errors.throttling_exception.ThrottlingException: <p>Throttling limit exceeded error.</p>
+            aws_sdk_accessanalyzer.errors.validation_exception.ValidationException: <p>Validation exception error.</p>
+            aws_sdk_accessanalyzer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -262,6 +270,13 @@ class AccessAnalyzerClient:
 
         Args:
             job_id: <p>The <code>JobId</code> that is returned by the <code>StartPolicyGeneration</code> operation. The <code>JobId</code> can be used with <code>GetGeneratedPolicy</code> to retrieve the generated policies or used with <code>CancelPolicyGeneration</code> to cancel the policy generation request.</p>
+
+        Raises:
+            aws_sdk_accessanalyzer.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_accessanalyzer.errors.internal_server_exception.InternalServerException: <p>Internal server error.</p>
+            aws_sdk_accessanalyzer.errors.throttling_exception.ThrottlingException: <p>Throttling limit exceeded error.</p>
+            aws_sdk_accessanalyzer.errors.validation_exception.ValidationException: <p>Validation exception error.</p>
+            aws_sdk_accessanalyzer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -303,6 +318,15 @@ class AccessAnalyzerClient:
             policy_document: <p>The JSON policy document to use as the content for the policy.</p>
             access: <p>An access object containing the permissions that shouldn't be granted by the specified policy. If only actions are specified, IAM Access Analyzer checks for access to peform at least one of the actions on any resource in the policy. If only resources are specified, then IAM Access Analyzer checks for access to perform any action on at least one of the resources. If both actions and resources are specified, IAM Access Analyzer checks for access to perform at least one of the specified actions on at least one of the specified resources.</p>
             policy_type: <p>The type of policy. Identity policies grant permissions to IAM principals. Identity policies include managed and inline policies for IAM roles, users, and groups.</p> <p>Resource policies grant permissions on Amazon Web Services resources. Resource policies include trust policies for IAM roles and bucket policies for Amazon S3 buckets.</p>
+
+        Raises:
+            aws_sdk_accessanalyzer.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_accessanalyzer.errors.internal_server_exception.InternalServerException: <p>Internal server error.</p>
+            aws_sdk_accessanalyzer.errors.invalid_parameter_exception.InvalidParameterException: <p>The specified parameter is invalid.</p>
+            aws_sdk_accessanalyzer.errors.throttling_exception.ThrottlingException: <p>Throttling limit exceeded error.</p>
+            aws_sdk_accessanalyzer.errors.unprocessable_entity_exception.UnprocessableEntityException: <p>The specified entity could not be processed.</p>
+            aws_sdk_accessanalyzer.errors.validation_exception.ValidationException: <p>Validation exception error.</p>
+            aws_sdk_accessanalyzer.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Passing check. Restrictive identity policy.
@@ -357,6 +381,15 @@ class AccessAnalyzerClient:
             new_policy_document: <p>The JSON policy document to use as the content for the updated policy.</p>
             existing_policy_document: <p>The JSON policy document to use as the content for the existing policy.</p>
             policy_type: <p>The type of policy to compare. Identity policies grant permissions to IAM principals. Identity policies include managed and inline policies for IAM roles, users, and groups.</p> <p>Resource policies grant permissions on Amazon Web Services resources. Resource policies include trust policies for IAM roles and bucket policies for Amazon S3 buckets. You can provide a generic input such as identity policy or resource policy or a specific input such as managed policy or Amazon S3 bucket policy.</p>
+
+        Raises:
+            aws_sdk_accessanalyzer.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_accessanalyzer.errors.internal_server_exception.InternalServerException: <p>Internal server error.</p>
+            aws_sdk_accessanalyzer.errors.invalid_parameter_exception.InvalidParameterException: <p>The specified parameter is invalid.</p>
+            aws_sdk_accessanalyzer.errors.throttling_exception.ThrottlingException: <p>Throttling limit exceeded error.</p>
+            aws_sdk_accessanalyzer.errors.unprocessable_entity_exception.UnprocessableEntityException: <p>The specified entity could not be processed.</p>
+            aws_sdk_accessanalyzer.errors.validation_exception.ValidationException: <p>Validation exception error.</p>
+            aws_sdk_accessanalyzer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -398,6 +431,15 @@ class AccessAnalyzerClient:
         Args:
             policy_document: <p>The JSON policy document to evaluate for public access.</p>
             resource_type: <p>The type of resource to evaluate for public access. For example, to check for public access to Amazon S3 buckets, you can choose <code>AWS::S3::Bucket</code> for the resource type.</p> <p>For resource types not supported as valid values, IAM Access Analyzer will return an error.</p>
+
+        Raises:
+            aws_sdk_accessanalyzer.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_accessanalyzer.errors.internal_server_exception.InternalServerException: <p>Internal server error.</p>
+            aws_sdk_accessanalyzer.errors.invalid_parameter_exception.InvalidParameterException: <p>The specified parameter is invalid.</p>
+            aws_sdk_accessanalyzer.errors.throttling_exception.ThrottlingException: <p>Throttling limit exceeded error.</p>
+            aws_sdk_accessanalyzer.errors.unprocessable_entity_exception.UnprocessableEntityException: <p>The specified entity could not be processed.</p>
+            aws_sdk_accessanalyzer.errors.validation_exception.ValidationException: <p>Validation exception error.</p>
+            aws_sdk_accessanalyzer.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Passing check. S3 Bucket policy without public access.
@@ -448,6 +490,16 @@ class AccessAnalyzerClient:
             analyzer_arn: <p>The <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-getting-started.html#permission-resources\">ARN of the account analyzer</a> used to generate the access preview. You can only create an access preview for analyzers with an <code>Account</code> type and <code>Active</code> status.</p>
             configurations: <p>Access control configuration for your resource that is used to generate the access preview. The access preview includes findings for external access allowed to the resource with the proposed access control configuration. The configuration must contain exactly one element.</p>
             client_token: <p>A client token.</p>
+
+        Raises:
+            aws_sdk_accessanalyzer.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_accessanalyzer.errors.conflict_exception.ConflictException: <p>A conflict exception error.</p>
+            aws_sdk_accessanalyzer.errors.internal_server_exception.InternalServerException: <p>Internal server error.</p>
+            aws_sdk_accessanalyzer.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_accessanalyzer.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Service quote met error.</p>
+            aws_sdk_accessanalyzer.errors.throttling_exception.ThrottlingException: <p>Throttling limit exceeded error.</p>
+            aws_sdk_accessanalyzer.errors.validation_exception.ValidationException: <p>Validation exception error.</p>
+            aws_sdk_accessanalyzer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -498,6 +550,15 @@ class AccessAnalyzerClient:
             archive_rules: <p>Specifies the archive rules to add for the analyzer. Archive rules automatically archive findings that meet the criteria you define for the rule.</p>
             client_token: <p>A client token.</p>
             configuration: <p>Specifies the configuration of the analyzer. The specified scope of unused access is used for the configuration.</p>
+
+        Raises:
+            aws_sdk_accessanalyzer.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_accessanalyzer.errors.conflict_exception.ConflictException: <p>A conflict exception error.</p>
+            aws_sdk_accessanalyzer.errors.internal_server_exception.InternalServerException: <p>Internal server error.</p>
+            aws_sdk_accessanalyzer.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Service quote met error.</p>
+            aws_sdk_accessanalyzer.errors.throttling_exception.ThrottlingException: <p>Throttling limit exceeded error.</p>
+            aws_sdk_accessanalyzer.errors.validation_exception.ValidationException: <p>Validation exception error.</p>
+            aws_sdk_accessanalyzer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -544,6 +605,13 @@ class AccessAnalyzerClient:
             analyzer_arn: <p>The <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-getting-started.html#permission-resources\">ARN of the analyzer</a> used to generate the finding recommendation.</p>
             id: <p>The unique ID for the finding recommendation.</p>
 
+        Raises:
+            aws_sdk_accessanalyzer.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_accessanalyzer.errors.internal_server_exception.InternalServerException: <p>Internal server error.</p>
+            aws_sdk_accessanalyzer.errors.throttling_exception.ThrottlingException: <p>Throttling limit exceeded error.</p>
+            aws_sdk_accessanalyzer.errors.validation_exception.ValidationException: <p>Validation exception error.</p>
+            aws_sdk_accessanalyzer.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Successfully started generating finding recommendation
 
@@ -589,6 +657,14 @@ class AccessAnalyzerClient:
         Args:
             access_preview_id: <p>The unique ID for the access preview.</p>
             analyzer_arn: <p>The <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-getting-started.html#permission-resources\">ARN of the analyzer</a> used to generate the access preview.</p>
+
+        Raises:
+            aws_sdk_accessanalyzer.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_accessanalyzer.errors.internal_server_exception.InternalServerException: <p>Internal server error.</p>
+            aws_sdk_accessanalyzer.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_accessanalyzer.errors.throttling_exception.ThrottlingException: <p>Throttling limit exceeded error.</p>
+            aws_sdk_accessanalyzer.errors.validation_exception.ValidationException: <p>Validation exception error.</p>
+            aws_sdk_accessanalyzer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -629,6 +705,14 @@ class AccessAnalyzerClient:
         Args:
             analyzer_arn: <p>The <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-getting-started.html#permission-resources\">ARN of the analyzer</a> to retrieve information from.</p>
             resource_arn: <p>The ARN of the resource to retrieve information about.</p>
+
+        Raises:
+            aws_sdk_accessanalyzer.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_accessanalyzer.errors.internal_server_exception.InternalServerException: <p>Internal server error.</p>
+            aws_sdk_accessanalyzer.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_accessanalyzer.errors.throttling_exception.ThrottlingException: <p>Throttling limit exceeded error.</p>
+            aws_sdk_accessanalyzer.errors.validation_exception.ValidationException: <p>Validation exception error.</p>
+            aws_sdk_accessanalyzer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -669,6 +753,14 @@ class AccessAnalyzerClient:
         Args:
             analyzer_arn: <p>The <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-getting-started.html#permission-resources\">ARN of the analyzer</a> that generated the finding.</p>
             id: <p>The ID of the finding to retrieve.</p>
+
+        Raises:
+            aws_sdk_accessanalyzer.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_accessanalyzer.errors.internal_server_exception.InternalServerException: <p>Internal server error.</p>
+            aws_sdk_accessanalyzer.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_accessanalyzer.errors.throttling_exception.ThrottlingException: <p>Throttling limit exceeded error.</p>
+            aws_sdk_accessanalyzer.errors.validation_exception.ValidationException: <p>Validation exception error.</p>
+            aws_sdk_accessanalyzer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -713,6 +805,14 @@ class AccessAnalyzerClient:
             id: <p>The unique ID for the finding recommendation.</p>
             max_results: <p>The maximum number of results to return in the response.</p>
             next_token: <p>A token used for pagination of results returned.</p>
+
+        Raises:
+            aws_sdk_accessanalyzer.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_accessanalyzer.errors.internal_server_exception.InternalServerException: <p>Internal server error.</p>
+            aws_sdk_accessanalyzer.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_accessanalyzer.errors.throttling_exception.ThrottlingException: <p>Throttling limit exceeded error.</p>
+            aws_sdk_accessanalyzer.errors.validation_exception.ValidationException: <p>Validation exception error.</p>
+            aws_sdk_accessanalyzer.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Successfully fetched finding recommendation
@@ -794,6 +894,14 @@ class AccessAnalyzerClient:
 
         Args:
             analyzer_arn: <p>The <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-getting-started.html#permission-resources\">ARN of the analyzer</a> used to generate the statistics.</p>
+
+        Raises:
+            aws_sdk_accessanalyzer.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_accessanalyzer.errors.internal_server_exception.InternalServerException: <p>Internal server error.</p>
+            aws_sdk_accessanalyzer.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_accessanalyzer.errors.throttling_exception.ThrottlingException: <p>Throttling limit exceeded error.</p>
+            aws_sdk_accessanalyzer.errors.validation_exception.ValidationException: <p>Validation exception error.</p>
+            aws_sdk_accessanalyzer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -837,6 +945,14 @@ class AccessAnalyzerClient:
             id: <p>The ID of the finding to retrieve.</p>
             max_results: <p>The maximum number of results to return in the response.</p>
             next_token: <p>A token used for pagination of results returned.</p>
+
+        Raises:
+            aws_sdk_accessanalyzer.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_accessanalyzer.errors.internal_server_exception.InternalServerException: <p>Internal server error.</p>
+            aws_sdk_accessanalyzer.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_accessanalyzer.errors.throttling_exception.ThrottlingException: <p>Throttling limit exceeded error.</p>
+            aws_sdk_accessanalyzer.errors.validation_exception.ValidationException: <p>Validation exception error.</p>
+            aws_sdk_accessanalyzer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -883,6 +999,13 @@ class AccessAnalyzerClient:
             job_id: <p>The <code>JobId</code> that is returned by the <code>StartPolicyGeneration</code> operation. The <code>JobId</code> can be used with <code>GetGeneratedPolicy</code> to retrieve the generated policies or used with <code>CancelPolicyGeneration</code> to cancel the policy generation request.</p>
             include_resource_placeholders: <p>The level of detail that you want to generate. You can specify whether to generate policies with placeholders for resource ARNs for actions that support resource level granularity in policies.</p> <p>For example, in the resource section of a policy, you can receive a placeholder such as <code>\"Resource\":\"arn:aws:s3:::${BucketName}\"</code> instead of <code>\"*\"</code>.</p>
             include_service_level_template: <p>The level of detail that you want to generate. You can specify whether to generate service-level policies. </p> <p>IAM Access Analyzer uses <code>iam:servicelastaccessed</code> to identify services that have been used recently to create this service-level template.</p>
+
+        Raises:
+            aws_sdk_accessanalyzer.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_accessanalyzer.errors.internal_server_exception.InternalServerException: <p>Internal server error.</p>
+            aws_sdk_accessanalyzer.errors.throttling_exception.ThrottlingException: <p>Throttling limit exceeded error.</p>
+            aws_sdk_accessanalyzer.errors.validation_exception.ValidationException: <p>Validation exception error.</p>
+            aws_sdk_accessanalyzer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -934,6 +1057,15 @@ class AccessAnalyzerClient:
             filter: <p>Criteria to filter the returned findings.</p>
             next_token: <p>A token used for pagination of results returned.</p>
             max_results: <p>The maximum number of results to return in the response.</p>
+
+        Raises:
+            aws_sdk_accessanalyzer.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_accessanalyzer.errors.conflict_exception.ConflictException: <p>A conflict exception error.</p>
+            aws_sdk_accessanalyzer.errors.internal_server_exception.InternalServerException: <p>Internal server error.</p>
+            aws_sdk_accessanalyzer.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_accessanalyzer.errors.throttling_exception.ThrottlingException: <p>Throttling limit exceeded error.</p>
+            aws_sdk_accessanalyzer.errors.validation_exception.ValidationException: <p>Validation exception error.</p>
+            aws_sdk_accessanalyzer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -982,6 +1114,14 @@ class AccessAnalyzerClient:
             analyzer_arn: <p>The <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-getting-started.html#permission-resources\">ARN of the analyzer</a> used to generate the access preview.</p>
             next_token: <p>A token used for pagination of results returned.</p>
             max_results: <p>The maximum number of results to return in the response.</p>
+
+        Raises:
+            aws_sdk_accessanalyzer.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_accessanalyzer.errors.internal_server_exception.InternalServerException: <p>Internal server error.</p>
+            aws_sdk_accessanalyzer.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_accessanalyzer.errors.throttling_exception.ThrottlingException: <p>Throttling limit exceeded error.</p>
+            aws_sdk_accessanalyzer.errors.validation_exception.ValidationException: <p>Validation exception error.</p>
+            aws_sdk_accessanalyzer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1031,6 +1171,14 @@ class AccessAnalyzerClient:
             resource_type: <p>The type of resource.</p>
             next_token: <p>A token used for pagination of results returned.</p>
             max_results: <p>The maximum number of results to return in the response.</p>
+
+        Raises:
+            aws_sdk_accessanalyzer.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_accessanalyzer.errors.internal_server_exception.InternalServerException: <p>Internal server error.</p>
+            aws_sdk_accessanalyzer.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_accessanalyzer.errors.throttling_exception.ThrottlingException: <p>Throttling limit exceeded error.</p>
+            aws_sdk_accessanalyzer.errors.validation_exception.ValidationException: <p>Validation exception error.</p>
+            aws_sdk_accessanalyzer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1086,6 +1234,14 @@ class AccessAnalyzerClient:
             sort: <p>The sort order for the findings returned.</p>
             next_token: <p>A token used for pagination of results returned.</p>
             max_results: <p>The maximum number of results to return in the response.</p>
+
+        Raises:
+            aws_sdk_accessanalyzer.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_accessanalyzer.errors.internal_server_exception.InternalServerException: <p>Internal server error.</p>
+            aws_sdk_accessanalyzer.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_accessanalyzer.errors.throttling_exception.ThrottlingException: <p>Throttling limit exceeded error.</p>
+            aws_sdk_accessanalyzer.errors.validation_exception.ValidationException: <p>Validation exception error.</p>
+            aws_sdk_accessanalyzer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1144,6 +1300,14 @@ class AccessAnalyzerClient:
             filter: <p>A filter to match for the findings to return.</p>
             max_results: <p>The maximum number of results to return in the response.</p>
             next_token: <p>A token used for pagination of results returned.</p>
+
+        Raises:
+            aws_sdk_accessanalyzer.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_accessanalyzer.errors.internal_server_exception.InternalServerException: <p>Internal server error.</p>
+            aws_sdk_accessanalyzer.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_accessanalyzer.errors.throttling_exception.ThrottlingException: <p>Throttling limit exceeded error.</p>
+            aws_sdk_accessanalyzer.errors.validation_exception.ValidationException: <p>Validation exception error.</p>
+            aws_sdk_accessanalyzer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1195,6 +1359,13 @@ class AccessAnalyzerClient:
             principal_arn: <p>The ARN of the IAM entity (user or role) for which you are generating a policy. Use this with <code>ListGeneratedPolicies</code> to filter the results to only include results for a specific principal.</p>
             max_results: <p>The maximum number of results to return in the response.</p>
             next_token: <p>A token used for pagination of results returned.</p>
+
+        Raises:
+            aws_sdk_accessanalyzer.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_accessanalyzer.errors.internal_server_exception.InternalServerException: <p>Internal server error.</p>
+            aws_sdk_accessanalyzer.errors.throttling_exception.ThrottlingException: <p>Throttling limit exceeded error.</p>
+            aws_sdk_accessanalyzer.errors.validation_exception.ValidationException: <p>Validation exception error.</p>
+            aws_sdk_accessanalyzer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1237,6 +1408,14 @@ class AccessAnalyzerClient:
 
         Args:
             resource_arn: <p>The ARN of the resource to retrieve tags from.</p>
+
+        Raises:
+            aws_sdk_accessanalyzer.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_accessanalyzer.errors.internal_server_exception.InternalServerException: <p>Internal server error.</p>
+            aws_sdk_accessanalyzer.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_accessanalyzer.errors.throttling_exception.ThrottlingException: <p>Throttling limit exceeded error.</p>
+            aws_sdk_accessanalyzer.errors.validation_exception.ValidationException: <p>Validation exception error.</p>
+            aws_sdk_accessanalyzer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1280,6 +1459,15 @@ class AccessAnalyzerClient:
             policy_generation_details: <p>Contains the ARN of the IAM entity (user or role) for which you are generating a policy.</p>
             cloud_trail_details: <p>A <code>CloudTrailDetails</code> object that contains details about a <code>Trail</code> that you want to analyze to generate policies.</p>
             client_token: <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. Idempotency ensures that an API request completes only once. With an idempotent request, if the original request completes successfully, the subsequent retries with the same client token return the result from the original successful request and they have no additional effect.</p> <p>If you do not specify a client token, one is automatically generated by the Amazon Web Services SDK.</p>
+
+        Raises:
+            aws_sdk_accessanalyzer.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_accessanalyzer.errors.conflict_exception.ConflictException: <p>A conflict exception error.</p>
+            aws_sdk_accessanalyzer.errors.internal_server_exception.InternalServerException: <p>Internal server error.</p>
+            aws_sdk_accessanalyzer.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Service quote met error.</p>
+            aws_sdk_accessanalyzer.errors.throttling_exception.ThrottlingException: <p>Throttling limit exceeded error.</p>
+            aws_sdk_accessanalyzer.errors.validation_exception.ValidationException: <p>Validation exception error.</p>
+            aws_sdk_accessanalyzer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1325,6 +1513,14 @@ class AccessAnalyzerClient:
             analyzer_arn: <p>The <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-getting-started.html#permission-resources\">ARN of the analyzer</a> to use to scan the policies applied to the specified resource.</p>
             resource_arn: <p>The ARN of the resource to scan.</p>
             resource_owner_account: <p>The Amazon Web Services account ID that owns the resource. For most Amazon Web Services resources, the owning account is the account in which the resource was created.</p>
+
+        Raises:
+            aws_sdk_accessanalyzer.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_accessanalyzer.errors.internal_server_exception.InternalServerException: <p>Internal server error.</p>
+            aws_sdk_accessanalyzer.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_accessanalyzer.errors.throttling_exception.ThrottlingException: <p>Throttling limit exceeded error.</p>
+            aws_sdk_accessanalyzer.errors.validation_exception.ValidationException: <p>Validation exception error.</p>
+            aws_sdk_accessanalyzer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1365,6 +1561,14 @@ class AccessAnalyzerClient:
         Args:
             resource_arn: <p>The ARN of the resource to add the tag to.</p>
             tags: <p>The tags to add to the resource.</p>
+
+        Raises:
+            aws_sdk_accessanalyzer.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_accessanalyzer.errors.internal_server_exception.InternalServerException: <p>Internal server error.</p>
+            aws_sdk_accessanalyzer.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_accessanalyzer.errors.throttling_exception.ThrottlingException: <p>Throttling limit exceeded error.</p>
+            aws_sdk_accessanalyzer.errors.validation_exception.ValidationException: <p>Validation exception error.</p>
+            aws_sdk_accessanalyzer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1405,6 +1609,14 @@ class AccessAnalyzerClient:
         Args:
             resource_arn: <p>The ARN of the resource to remove the tag from.</p>
             tag_keys: <p>The key for the tag to add.</p>
+
+        Raises:
+            aws_sdk_accessanalyzer.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_accessanalyzer.errors.internal_server_exception.InternalServerException: <p>Internal server error.</p>
+            aws_sdk_accessanalyzer.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_accessanalyzer.errors.throttling_exception.ThrottlingException: <p>Throttling limit exceeded error.</p>
+            aws_sdk_accessanalyzer.errors.validation_exception.ValidationException: <p>Validation exception error.</p>
+            aws_sdk_accessanalyzer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1455,6 +1667,14 @@ class AccessAnalyzerClient:
             ids: <p>The IDs of the findings to update.</p>
             resource_arn: <p>The ARN of the resource identified in the finding.</p>
             client_token: <p>A client token.</p>
+
+        Raises:
+            aws_sdk_accessanalyzer.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_accessanalyzer.errors.internal_server_exception.InternalServerException: <p>Internal server error.</p>
+            aws_sdk_accessanalyzer.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_accessanalyzer.errors.throttling_exception.ThrottlingException: <p>Throttling limit exceeded error.</p>
+            aws_sdk_accessanalyzer.errors.validation_exception.ValidationException: <p>Validation exception error.</p>
+            aws_sdk_accessanalyzer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1509,6 +1729,13 @@ class AccessAnalyzerClient:
             policy_document: <p>The JSON policy document to use as the content for the policy.</p>
             policy_type: <p>The type of policy to validate. Identity policies grant permissions to IAM principals. Identity policies include managed and inline policies for IAM roles, users, and groups.</p> <p>Resource policies grant permissions on Amazon Web Services resources. Resource policies include trust policies for IAM roles and bucket policies for Amazon S3 buckets. You can provide a generic input such as identity policy or resource policy or a specific input such as managed policy or Amazon S3 bucket policy. </p> <p>Service control policies (SCPs) are a type of organization policy attached to an Amazon Web Services organization, organizational unit (OU), or an account.</p>
             validate_policy_resource_type: <p>The type of resource to attach to your resource policy. Specify a value for the policy validation resource type only if the policy type is <code>RESOURCE_POLICY</code>. For example, to validate a resource policy to attach to an Amazon S3 bucket, you can choose <code>AWS::S3::Bucket</code> for the policy validation resource type.</p> <p>For resource types not supported as valid values, IAM Access Analyzer runs policy checks that apply to all resource policies. For example, to validate a resource policy to attach to a KMS key, do not specify a value for the policy validation resource type and IAM Access Analyzer will run policy checks that apply to all resource policies.</p>
+
+        Raises:
+            aws_sdk_accessanalyzer.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_accessanalyzer.errors.internal_server_exception.InternalServerException: <p>Internal server error.</p>
+            aws_sdk_accessanalyzer.errors.throttling_exception.ThrottlingException: <p>Throttling limit exceeded error.</p>
+            aws_sdk_accessanalyzer.errors.validation_exception.ValidationException: <p>Validation exception error.</p>
+            aws_sdk_accessanalyzer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(

@@ -74,6 +74,16 @@ class DaemonResource:
             enable_execute_command: <p>Determines whether the execute command functionality is turned on for the daemon. If <code>true</code>, the execute command functionality is turned on for all tasks in the daemon.</p>
             client_token: <p>An identifier that you provide to ensure the idempotency of the request. It must be unique and is case sensitive. Up to 36 ASCII characters in the range of 33-126 (inclusive) are allowed.</p>
 
+        Raises:
+            aws_sdk_ecs.errors.access_denied_exception.AccessDeniedException: <p>You don't have authorization to perform the requested action.</p>
+            aws_sdk_ecs.errors.client_exception.ClientException: <p>These errors are usually caused by a client action. This client action might be using an action or resource on behalf of a user that doesn't have permissions to use the action or resource. Or, it might be specifying an identifier that isn't valid.</p>
+            aws_sdk_ecs.errors.cluster_not_found_exception.ClusterNotFoundException: <p>The specified cluster wasn't found. You can view your available clusters with <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListClusters.html\">ListClusters</a>. Amazon ECS clusters are Region specific.</p>
+            aws_sdk_ecs.errors.invalid_parameter_exception.InvalidParameterException: <p>The specified parameter isn't valid. Review the available parameters for the API request.</p> <p>For more information about service event errors, see <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-event-messages-list.html\">Amazon ECS service event messages</a>. </p>
+            aws_sdk_ecs.errors.platform_unknown_exception.PlatformUnknownException: <p>The specified platform version doesn't exist.</p>
+            aws_sdk_ecs.errors.server_exception.ServerException: <p>These errors are usually caused by a server issue.</p>
+            aws_sdk_ecs.errors.unsupported_feature_exception.UnsupportedFeatureException: <p>The specified task isn't supported in this Region.</p>
+            aws_sdk_ecs.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To create a daemon
             This example creates a daemon named my-monitoring-daemon in the specified cluster that uses the monitoring-agent daemon task definition and deploys to the specified capacity provider.
@@ -133,6 +143,17 @@ class DaemonResource:
         Args:
             daemon_arn: <p>The Amazon Resource Name (ARN) of the daemon to delete.</p>
 
+        Raises:
+            aws_sdk_ecs.errors.access_denied_exception.AccessDeniedException: <p>You don't have authorization to perform the requested action.</p>
+            aws_sdk_ecs.errors.client_exception.ClientException: <p>These errors are usually caused by a client action. This client action might be using an action or resource on behalf of a user that doesn't have permissions to use the action or resource. Or, it might be specifying an identifier that isn't valid.</p>
+            aws_sdk_ecs.errors.cluster_not_found_exception.ClusterNotFoundException: <p>The specified cluster wasn't found. You can view your available clusters with <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListClusters.html\">ListClusters</a>. Amazon ECS clusters are Region specific.</p>
+            aws_sdk_ecs.errors.daemon_not_active_exception.DaemonNotActiveException: <p>The specified daemon isn't active. You can't update a daemon that's inactive. If you have previously deleted a daemon, you can re-create it with <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateDaemon.html\">CreateDaemon</a>.</p>
+            aws_sdk_ecs.errors.daemon_not_found_exception.DaemonNotFoundException: <p>The specified daemon wasn't found. You can view your available daemons with <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListDaemons.html\">ListDaemons</a>. Amazon ECS daemons are cluster specific and Region specific.</p>
+            aws_sdk_ecs.errors.invalid_parameter_exception.InvalidParameterException: <p>The specified parameter isn't valid. Review the available parameters for the API request.</p> <p>For more information about service event errors, see <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-event-messages-list.html\">Amazon ECS service event messages</a>. </p>
+            aws_sdk_ecs.errors.server_exception.ServerException: <p>These errors are usually caused by a server issue.</p>
+            aws_sdk_ecs.errors.unsupported_feature_exception.UnsupportedFeatureException: <p>The specified task isn't supported in this Region.</p>
+            aws_sdk_ecs.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To delete a daemon
             This example deletes the my-monitoring-daemon daemon.
@@ -175,6 +196,16 @@ class DaemonResource:
 
         Args:
             daemon_arn: <p>The Amazon Resource Name (ARN) of the daemon to describe.</p>
+
+        Raises:
+            aws_sdk_ecs.errors.access_denied_exception.AccessDeniedException: <p>You don't have authorization to perform the requested action.</p>
+            aws_sdk_ecs.errors.client_exception.ClientException: <p>These errors are usually caused by a client action. This client action might be using an action or resource on behalf of a user that doesn't have permissions to use the action or resource. Or, it might be specifying an identifier that isn't valid.</p>
+            aws_sdk_ecs.errors.cluster_not_found_exception.ClusterNotFoundException: <p>The specified cluster wasn't found. You can view your available clusters with <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListClusters.html\">ListClusters</a>. Amazon ECS clusters are Region specific.</p>
+            aws_sdk_ecs.errors.daemon_not_found_exception.DaemonNotFoundException: <p>The specified daemon wasn't found. You can view your available daemons with <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListDaemons.html\">ListDaemons</a>. Amazon ECS daemons are cluster specific and Region specific.</p>
+            aws_sdk_ecs.errors.invalid_parameter_exception.InvalidParameterException: <p>The specified parameter isn't valid. Review the available parameters for the API request.</p> <p>For more information about service event errors, see <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-event-messages-list.html\">Amazon ECS service event messages</a>. </p>
+            aws_sdk_ecs.errors.server_exception.ServerException: <p>These errors are usually caused by a server issue.</p>
+            aws_sdk_ecs.errors.unsupported_feature_exception.UnsupportedFeatureException: <p>The specified task isn't supported in this Region.</p>
+            aws_sdk_ecs.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To describe a daemon
@@ -228,6 +259,15 @@ class DaemonResource:
             created_at: <p>An optional filter to narrow the <code>ListDaemonDeployments</code> results by creation time. If you don't specify a time range, all deployments are returned.</p>
             max_results: <p>The maximum number of daemon deployment results that <code>ListDaemonDeployments</code> returned in paginated output. When this parameter is used, <code>ListDaemonDeployments</code> only returns <code>maxResults</code> results in a single page along with a <code>nextToken</code> response element. The remaining results of the initial request can be seen by sending another <code>ListDaemonDeployments</code> request with the returned <code>nextToken</code> value. This value can be between 1 and 100. If this parameter isn't used, then <code>ListDaemonDeployments</code> returns up to 20 results and a <code>nextToken</code> value if applicable.</p>
             next_token: <p>The <code>nextToken</code> value returned from a <code>ListDaemonDeployments</code> request indicating that more results are available to fulfill the request and further calls will be needed. If <code>maxResults</code> was provided, it's possible for the number of results to be fewer than <code>maxResults</code>.</p> <note> <p>This token should be treated as an opaque identifier that is only used to retrieve the next items in a list and not for other programmatic purposes.</p> </note>
+
+        Raises:
+            aws_sdk_ecs.errors.access_denied_exception.AccessDeniedException: <p>You don't have authorization to perform the requested action.</p>
+            aws_sdk_ecs.errors.client_exception.ClientException: <p>These errors are usually caused by a client action. This client action might be using an action or resource on behalf of a user that doesn't have permissions to use the action or resource. Or, it might be specifying an identifier that isn't valid.</p>
+            aws_sdk_ecs.errors.cluster_not_found_exception.ClusterNotFoundException: <p>The specified cluster wasn't found. You can view your available clusters with <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListClusters.html\">ListClusters</a>. Amazon ECS clusters are Region specific.</p>
+            aws_sdk_ecs.errors.invalid_parameter_exception.InvalidParameterException: <p>The specified parameter isn't valid. Review the available parameters for the API request.</p> <p>For more information about service event errors, see <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-event-messages-list.html\">Amazon ECS service event messages</a>. </p>
+            aws_sdk_ecs.errors.server_exception.ServerException: <p>These errors are usually caused by a server issue.</p>
+            aws_sdk_ecs.errors.unsupported_feature_exception.UnsupportedFeatureException: <p>The specified task isn't supported in this Region.</p>
+            aws_sdk_ecs.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To list daemon deployments
@@ -287,6 +327,15 @@ class DaemonResource:
             capacity_provider_arns: <p>The Amazon Resource Names (ARNs) of the capacity providers to filter daemons by. Only daemons associated with the specified capacity providers are returned.</p>
             max_results: <p>The maximum number of daemon results that <code>ListDaemons</code> returned in paginated output. When this parameter is used, <code>ListDaemons</code> only returns <code>maxResults</code> results in a single page along with a <code>nextToken</code> response element. The remaining results of the initial request can be seen by sending another <code>ListDaemons</code> request with the returned <code>nextToken</code> value. This value can be between 1 and 100. If this parameter isn't used, then <code>ListDaemons</code> returns up to 100 results and a <code>nextToken</code> value if applicable.</p>
             next_token: <p>The <code>nextToken</code> value returned from a <code>ListDaemons</code> request indicating that more results are available to fulfill the request and further calls will be needed. If <code>maxResults</code> was provided, it's possible for the number of results to be fewer than <code>maxResults</code>.</p> <note> <p>This token should be treated as an opaque identifier that is only used to retrieve the next items in a list and not for other programmatic purposes.</p> </note>
+
+        Raises:
+            aws_sdk_ecs.errors.access_denied_exception.AccessDeniedException: <p>You don't have authorization to perform the requested action.</p>
+            aws_sdk_ecs.errors.client_exception.ClientException: <p>These errors are usually caused by a client action. This client action might be using an action or resource on behalf of a user that doesn't have permissions to use the action or resource. Or, it might be specifying an identifier that isn't valid.</p>
+            aws_sdk_ecs.errors.cluster_not_found_exception.ClusterNotFoundException: <p>The specified cluster wasn't found. You can view your available clusters with <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListClusters.html\">ListClusters</a>. Amazon ECS clusters are Region specific.</p>
+            aws_sdk_ecs.errors.invalid_parameter_exception.InvalidParameterException: <p>The specified parameter isn't valid. Review the available parameters for the API request.</p> <p>For more information about service event errors, see <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-event-messages-list.html\">Amazon ECS service event messages</a>. </p>
+            aws_sdk_ecs.errors.server_exception.ServerException: <p>These errors are usually caused by a server issue.</p>
+            aws_sdk_ecs.errors.unsupported_feature_exception.UnsupportedFeatureException: <p>The specified task isn't supported in this Region.</p>
+            aws_sdk_ecs.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To list daemons in a cluster
@@ -353,6 +402,18 @@ class DaemonResource:
             propagate_tags: <p>Specifies whether to propagate the tags from the daemon to the daemon tasks. If you don't specify a value, the tags aren't propagated. You can only propagate tags to daemon tasks during task creation.</p>
             enable_ecs_managed_tags: <p>Specifies whether to turn on Amazon ECS managed tags for the tasks in the daemon. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html\">Tagging your Amazon ECS resources</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
             enable_execute_command: <p>If <code>true</code>, the execute command functionality is turned on for all tasks in the daemon. If <code>false</code>, the execute command functionality is turned off.</p>
+
+        Raises:
+            aws_sdk_ecs.errors.access_denied_exception.AccessDeniedException: <p>You don't have authorization to perform the requested action.</p>
+            aws_sdk_ecs.errors.client_exception.ClientException: <p>These errors are usually caused by a client action. This client action might be using an action or resource on behalf of a user that doesn't have permissions to use the action or resource. Or, it might be specifying an identifier that isn't valid.</p>
+            aws_sdk_ecs.errors.cluster_not_found_exception.ClusterNotFoundException: <p>The specified cluster wasn't found. You can view your available clusters with <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListClusters.html\">ListClusters</a>. Amazon ECS clusters are Region specific.</p>
+            aws_sdk_ecs.errors.daemon_not_active_exception.DaemonNotActiveException: <p>The specified daemon isn't active. You can't update a daemon that's inactive. If you have previously deleted a daemon, you can re-create it with <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateDaemon.html\">CreateDaemon</a>.</p>
+            aws_sdk_ecs.errors.daemon_not_found_exception.DaemonNotFoundException: <p>The specified daemon wasn't found. You can view your available daemons with <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListDaemons.html\">ListDaemons</a>. Amazon ECS daemons are cluster specific and Region specific.</p>
+            aws_sdk_ecs.errors.invalid_parameter_exception.InvalidParameterException: <p>The specified parameter isn't valid. Review the available parameters for the API request.</p> <p>For more information about service event errors, see <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-event-messages-list.html\">Amazon ECS service event messages</a>. </p>
+            aws_sdk_ecs.errors.platform_unknown_exception.PlatformUnknownException: <p>The specified platform version doesn't exist.</p>
+            aws_sdk_ecs.errors.server_exception.ServerException: <p>These errors are usually caused by a server issue.</p>
+            aws_sdk_ecs.errors.unsupported_feature_exception.UnsupportedFeatureException: <p>The specified task isn't supported in this Region.</p>
+            aws_sdk_ecs.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To update a daemon
@@ -434,6 +495,16 @@ class AsyncDaemonResource:
             enable_execute_command: <p>Determines whether the execute command functionality is turned on for the daemon. If <code>true</code>, the execute command functionality is turned on for all tasks in the daemon.</p>
             client_token: <p>An identifier that you provide to ensure the idempotency of the request. It must be unique and is case sensitive. Up to 36 ASCII characters in the range of 33-126 (inclusive) are allowed.</p>
 
+        Raises:
+            aws_sdk_ecs.errors.access_denied_exception.AccessDeniedException: <p>You don't have authorization to perform the requested action.</p>
+            aws_sdk_ecs.errors.client_exception.ClientException: <p>These errors are usually caused by a client action. This client action might be using an action or resource on behalf of a user that doesn't have permissions to use the action or resource. Or, it might be specifying an identifier that isn't valid.</p>
+            aws_sdk_ecs.errors.cluster_not_found_exception.ClusterNotFoundException: <p>The specified cluster wasn't found. You can view your available clusters with <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListClusters.html\">ListClusters</a>. Amazon ECS clusters are Region specific.</p>
+            aws_sdk_ecs.errors.invalid_parameter_exception.InvalidParameterException: <p>The specified parameter isn't valid. Review the available parameters for the API request.</p> <p>For more information about service event errors, see <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-event-messages-list.html\">Amazon ECS service event messages</a>. </p>
+            aws_sdk_ecs.errors.platform_unknown_exception.PlatformUnknownException: <p>The specified platform version doesn't exist.</p>
+            aws_sdk_ecs.errors.server_exception.ServerException: <p>These errors are usually caused by a server issue.</p>
+            aws_sdk_ecs.errors.unsupported_feature_exception.UnsupportedFeatureException: <p>The specified task isn't supported in this Region.</p>
+            aws_sdk_ecs.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To create a daemon
             This example creates a daemon named my-monitoring-daemon in the specified cluster that uses the monitoring-agent daemon task definition and deploys to the specified capacity provider.
@@ -494,6 +565,17 @@ class AsyncDaemonResource:
         Args:
             daemon_arn: <p>The Amazon Resource Name (ARN) of the daemon to delete.</p>
 
+        Raises:
+            aws_sdk_ecs.errors.access_denied_exception.AccessDeniedException: <p>You don't have authorization to perform the requested action.</p>
+            aws_sdk_ecs.errors.client_exception.ClientException: <p>These errors are usually caused by a client action. This client action might be using an action or resource on behalf of a user that doesn't have permissions to use the action or resource. Or, it might be specifying an identifier that isn't valid.</p>
+            aws_sdk_ecs.errors.cluster_not_found_exception.ClusterNotFoundException: <p>The specified cluster wasn't found. You can view your available clusters with <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListClusters.html\">ListClusters</a>. Amazon ECS clusters are Region specific.</p>
+            aws_sdk_ecs.errors.daemon_not_active_exception.DaemonNotActiveException: <p>The specified daemon isn't active. You can't update a daemon that's inactive. If you have previously deleted a daemon, you can re-create it with <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateDaemon.html\">CreateDaemon</a>.</p>
+            aws_sdk_ecs.errors.daemon_not_found_exception.DaemonNotFoundException: <p>The specified daemon wasn't found. You can view your available daemons with <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListDaemons.html\">ListDaemons</a>. Amazon ECS daemons are cluster specific and Region specific.</p>
+            aws_sdk_ecs.errors.invalid_parameter_exception.InvalidParameterException: <p>The specified parameter isn't valid. Review the available parameters for the API request.</p> <p>For more information about service event errors, see <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-event-messages-list.html\">Amazon ECS service event messages</a>. </p>
+            aws_sdk_ecs.errors.server_exception.ServerException: <p>These errors are usually caused by a server issue.</p>
+            aws_sdk_ecs.errors.unsupported_feature_exception.UnsupportedFeatureException: <p>The specified task isn't supported in this Region.</p>
+            aws_sdk_ecs.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To delete a daemon
             This example deletes the my-monitoring-daemon daemon.
@@ -537,6 +619,16 @@ class AsyncDaemonResource:
 
         Args:
             daemon_arn: <p>The Amazon Resource Name (ARN) of the daemon to describe.</p>
+
+        Raises:
+            aws_sdk_ecs.errors.access_denied_exception.AccessDeniedException: <p>You don't have authorization to perform the requested action.</p>
+            aws_sdk_ecs.errors.client_exception.ClientException: <p>These errors are usually caused by a client action. This client action might be using an action or resource on behalf of a user that doesn't have permissions to use the action or resource. Or, it might be specifying an identifier that isn't valid.</p>
+            aws_sdk_ecs.errors.cluster_not_found_exception.ClusterNotFoundException: <p>The specified cluster wasn't found. You can view your available clusters with <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListClusters.html\">ListClusters</a>. Amazon ECS clusters are Region specific.</p>
+            aws_sdk_ecs.errors.daemon_not_found_exception.DaemonNotFoundException: <p>The specified daemon wasn't found. You can view your available daemons with <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListDaemons.html\">ListDaemons</a>. Amazon ECS daemons are cluster specific and Region specific.</p>
+            aws_sdk_ecs.errors.invalid_parameter_exception.InvalidParameterException: <p>The specified parameter isn't valid. Review the available parameters for the API request.</p> <p>For more information about service event errors, see <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-event-messages-list.html\">Amazon ECS service event messages</a>. </p>
+            aws_sdk_ecs.errors.server_exception.ServerException: <p>These errors are usually caused by a server issue.</p>
+            aws_sdk_ecs.errors.unsupported_feature_exception.UnsupportedFeatureException: <p>The specified task isn't supported in this Region.</p>
+            aws_sdk_ecs.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To describe a daemon
@@ -591,6 +683,15 @@ class AsyncDaemonResource:
             created_at: <p>An optional filter to narrow the <code>ListDaemonDeployments</code> results by creation time. If you don't specify a time range, all deployments are returned.</p>
             max_results: <p>The maximum number of daemon deployment results that <code>ListDaemonDeployments</code> returned in paginated output. When this parameter is used, <code>ListDaemonDeployments</code> only returns <code>maxResults</code> results in a single page along with a <code>nextToken</code> response element. The remaining results of the initial request can be seen by sending another <code>ListDaemonDeployments</code> request with the returned <code>nextToken</code> value. This value can be between 1 and 100. If this parameter isn't used, then <code>ListDaemonDeployments</code> returns up to 20 results and a <code>nextToken</code> value if applicable.</p>
             next_token: <p>The <code>nextToken</code> value returned from a <code>ListDaemonDeployments</code> request indicating that more results are available to fulfill the request and further calls will be needed. If <code>maxResults</code> was provided, it's possible for the number of results to be fewer than <code>maxResults</code>.</p> <note> <p>This token should be treated as an opaque identifier that is only used to retrieve the next items in a list and not for other programmatic purposes.</p> </note>
+
+        Raises:
+            aws_sdk_ecs.errors.access_denied_exception.AccessDeniedException: <p>You don't have authorization to perform the requested action.</p>
+            aws_sdk_ecs.errors.client_exception.ClientException: <p>These errors are usually caused by a client action. This client action might be using an action or resource on behalf of a user that doesn't have permissions to use the action or resource. Or, it might be specifying an identifier that isn't valid.</p>
+            aws_sdk_ecs.errors.cluster_not_found_exception.ClusterNotFoundException: <p>The specified cluster wasn't found. You can view your available clusters with <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListClusters.html\">ListClusters</a>. Amazon ECS clusters are Region specific.</p>
+            aws_sdk_ecs.errors.invalid_parameter_exception.InvalidParameterException: <p>The specified parameter isn't valid. Review the available parameters for the API request.</p> <p>For more information about service event errors, see <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-event-messages-list.html\">Amazon ECS service event messages</a>. </p>
+            aws_sdk_ecs.errors.server_exception.ServerException: <p>These errors are usually caused by a server issue.</p>
+            aws_sdk_ecs.errors.unsupported_feature_exception.UnsupportedFeatureException: <p>The specified task isn't supported in this Region.</p>
+            aws_sdk_ecs.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To list daemon deployments
@@ -651,6 +752,15 @@ class AsyncDaemonResource:
             capacity_provider_arns: <p>The Amazon Resource Names (ARNs) of the capacity providers to filter daemons by. Only daemons associated with the specified capacity providers are returned.</p>
             max_results: <p>The maximum number of daemon results that <code>ListDaemons</code> returned in paginated output. When this parameter is used, <code>ListDaemons</code> only returns <code>maxResults</code> results in a single page along with a <code>nextToken</code> response element. The remaining results of the initial request can be seen by sending another <code>ListDaemons</code> request with the returned <code>nextToken</code> value. This value can be between 1 and 100. If this parameter isn't used, then <code>ListDaemons</code> returns up to 100 results and a <code>nextToken</code> value if applicable.</p>
             next_token: <p>The <code>nextToken</code> value returned from a <code>ListDaemons</code> request indicating that more results are available to fulfill the request and further calls will be needed. If <code>maxResults</code> was provided, it's possible for the number of results to be fewer than <code>maxResults</code>.</p> <note> <p>This token should be treated as an opaque identifier that is only used to retrieve the next items in a list and not for other programmatic purposes.</p> </note>
+
+        Raises:
+            aws_sdk_ecs.errors.access_denied_exception.AccessDeniedException: <p>You don't have authorization to perform the requested action.</p>
+            aws_sdk_ecs.errors.client_exception.ClientException: <p>These errors are usually caused by a client action. This client action might be using an action or resource on behalf of a user that doesn't have permissions to use the action or resource. Or, it might be specifying an identifier that isn't valid.</p>
+            aws_sdk_ecs.errors.cluster_not_found_exception.ClusterNotFoundException: <p>The specified cluster wasn't found. You can view your available clusters with <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListClusters.html\">ListClusters</a>. Amazon ECS clusters are Region specific.</p>
+            aws_sdk_ecs.errors.invalid_parameter_exception.InvalidParameterException: <p>The specified parameter isn't valid. Review the available parameters for the API request.</p> <p>For more information about service event errors, see <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-event-messages-list.html\">Amazon ECS service event messages</a>. </p>
+            aws_sdk_ecs.errors.server_exception.ServerException: <p>These errors are usually caused by a server issue.</p>
+            aws_sdk_ecs.errors.unsupported_feature_exception.UnsupportedFeatureException: <p>The specified task isn't supported in this Region.</p>
+            aws_sdk_ecs.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To list daemons in a cluster
@@ -718,6 +828,18 @@ class AsyncDaemonResource:
             propagate_tags: <p>Specifies whether to propagate the tags from the daemon to the daemon tasks. If you don't specify a value, the tags aren't propagated. You can only propagate tags to daemon tasks during task creation.</p>
             enable_ecs_managed_tags: <p>Specifies whether to turn on Amazon ECS managed tags for the tasks in the daemon. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html\">Tagging your Amazon ECS resources</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
             enable_execute_command: <p>If <code>true</code>, the execute command functionality is turned on for all tasks in the daemon. If <code>false</code>, the execute command functionality is turned off.</p>
+
+        Raises:
+            aws_sdk_ecs.errors.access_denied_exception.AccessDeniedException: <p>You don't have authorization to perform the requested action.</p>
+            aws_sdk_ecs.errors.client_exception.ClientException: <p>These errors are usually caused by a client action. This client action might be using an action or resource on behalf of a user that doesn't have permissions to use the action or resource. Or, it might be specifying an identifier that isn't valid.</p>
+            aws_sdk_ecs.errors.cluster_not_found_exception.ClusterNotFoundException: <p>The specified cluster wasn't found. You can view your available clusters with <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListClusters.html\">ListClusters</a>. Amazon ECS clusters are Region specific.</p>
+            aws_sdk_ecs.errors.daemon_not_active_exception.DaemonNotActiveException: <p>The specified daemon isn't active. You can't update a daemon that's inactive. If you have previously deleted a daemon, you can re-create it with <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateDaemon.html\">CreateDaemon</a>.</p>
+            aws_sdk_ecs.errors.daemon_not_found_exception.DaemonNotFoundException: <p>The specified daemon wasn't found. You can view your available daemons with <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListDaemons.html\">ListDaemons</a>. Amazon ECS daemons are cluster specific and Region specific.</p>
+            aws_sdk_ecs.errors.invalid_parameter_exception.InvalidParameterException: <p>The specified parameter isn't valid. Review the available parameters for the API request.</p> <p>For more information about service event errors, see <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-event-messages-list.html\">Amazon ECS service event messages</a>. </p>
+            aws_sdk_ecs.errors.platform_unknown_exception.PlatformUnknownException: <p>The specified platform version doesn't exist.</p>
+            aws_sdk_ecs.errors.server_exception.ServerException: <p>These errors are usually caused by a server issue.</p>
+            aws_sdk_ecs.errors.unsupported_feature_exception.UnsupportedFeatureException: <p>The specified task isn't supported in this Region.</p>
+            aws_sdk_ecs.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To update a daemon

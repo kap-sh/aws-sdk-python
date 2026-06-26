@@ -293,6 +293,16 @@ class AsynccodeartifactClient:
             domain_owner: <p> The 12-digit account number of the Amazon Web Services account that owns the domain. It does not include dashes or spaces. </p>
             repository: <p> The name of the repository to which the external connection is added. </p>
             external_connection: <p> The name of the external connection to add to the repository. The following values are supported: </p> <ul> <li> <p> <code>public:npmjs</code> - for the npm public repository. </p> </li> <li> <p> <code>public:nuget-org</code> - for the NuGet Gallery. </p> </li> <li> <p> <code>public:pypi</code> - for the Python Package Index. </p> </li> <li> <p> <code>public:maven-central</code> - for Maven Central. </p> </li> <li> <p> <code>public:maven-googleandroid</code> - for the Google Android repository. </p> </li> <li> <p> <code>public:maven-gradleplugins</code> - for the Gradle plugins repository. </p> </li> <li> <p> <code>public:maven-commonsware</code> - for the CommonsWare Android repository. </p> </li> <li> <p> <code>public:maven-clojars</code> - for the Clojars repository. </p> </li> <li> <p> <code>public:ruby-gems-org</code> - for RubyGems.org. </p> </li> <li> <p> <code>public:crates-io</code> - for Crates.io. </p> </li> </ul>
+
+        Raises:
+            aws_sdk_codeartifact.errors.access_denied_exception.AccessDeniedException: <p> The operation did not succeed because of an unauthorized access attempt. </p>
+            aws_sdk_codeartifact.errors.conflict_exception.ConflictException: <p> The operation did not succeed because prerequisites are not met. </p>
+            aws_sdk_codeartifact.errors.internal_server_exception.InternalServerException: <p> The operation did not succeed because of an error that occurred inside CodeArtifact. </p>
+            aws_sdk_codeartifact.errors.resource_not_found_exception.ResourceNotFoundException: <p> The operation did not succeed because the resource requested is not found in the service. </p>
+            aws_sdk_codeartifact.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p> The operation did not succeed because it would have exceeded a service limit for your account. </p>
+            aws_sdk_codeartifact.errors.throttling_exception.ThrottlingException: <p> The operation did not succeed because too many requests are sent to the service. </p>
+            aws_sdk_codeartifact.errors.validation_exception.ValidationException: <p> The operation did not succeed because a parameter in the request was sent with an invalid value. </p>
+            aws_sdk_codeartifact.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -367,6 +377,16 @@ class AsynccodeartifactClient:
             version_revisions: <p> A list of key-value pairs. The keys are package versions and the values are package version revisions. A <code>CopyPackageVersion</code> operation succeeds if the specified versions in the source repository match the specified package version revision. </p> <note> <p> You must specify <code>versions</code> or <code>versionRevisions</code>. You cannot specify both. </p> </note>
             allow_overwrite: <p> Set to true to overwrite a package version that already exists in the destination repository. If set to false and the package version already exists in the destination repository, the package version is returned in the <code>failedVersions</code> field of the response with an <code>ALREADY_EXISTS</code> error code. </p>
             include_from_upstream: <p> Set to true to copy packages from repositories that are upstream from the source repository to the destination repository. The default setting is false. For more information, see <a href=\"https://docs.aws.amazon.com/codeartifact/latest/ug/repos-upstream.html\">Working with upstream repositories</a>. </p>
+
+        Raises:
+            aws_sdk_codeartifact.errors.access_denied_exception.AccessDeniedException: <p> The operation did not succeed because of an unauthorized access attempt. </p>
+            aws_sdk_codeartifact.errors.conflict_exception.ConflictException: <p> The operation did not succeed because prerequisites are not met. </p>
+            aws_sdk_codeartifact.errors.internal_server_exception.InternalServerException: <p> The operation did not succeed because of an error that occurred inside CodeArtifact. </p>
+            aws_sdk_codeartifact.errors.resource_not_found_exception.ResourceNotFoundException: <p> The operation did not succeed because the resource requested is not found in the service. </p>
+            aws_sdk_codeartifact.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p> The operation did not succeed because it would have exceeded a service limit for your account. </p>
+            aws_sdk_codeartifact.errors.throttling_exception.ThrottlingException: <p> The operation did not succeed because too many requests are sent to the service. </p>
+            aws_sdk_codeartifact.errors.validation_exception.ValidationException: <p> The operation did not succeed because a parameter in the request was sent with an invalid value. </p>
+            aws_sdk_codeartifact.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -425,6 +445,16 @@ class AsynccodeartifactClient:
             domain: <p> The name of the domain to create. All domain names in an Amazon Web Services Region that are in the same Amazon Web Services account must be unique. The domain name is used as the prefix in DNS hostnames. Do not use sensitive information in a domain name because it is publicly discoverable. </p>
             encryption_key: <p> The encryption key for the domain. This is used to encrypt content stored in a domain. An encryption key can be a key ID, a key Amazon Resource Name (ARN), a key alias, or a key alias ARN. To specify an <code>encryptionKey</code>, your IAM role must have <code>kms:DescribeKey</code> and <code>kms:CreateGrant</code> permissions on the encryption key that is used. For more information, see <a href=\"https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestSyntax\">DescribeKey</a> in the <i>Key Management Service API Reference</i> and <a href=\"https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html\">Key Management Service API Permissions Reference</a> in the <i>Key Management Service Developer Guide</i>. </p> <important> <p> CodeArtifact supports only symmetric CMKs. Do not associate an asymmetric CMK with your domain. For more information, see <a href=\"https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html\">Using symmetric and asymmetric keys</a> in the <i>Key Management Service Developer Guide</i>. </p> </important>
             tags: <p>One or more tag key-value pairs for the domain.</p>
+
+        Raises:
+            aws_sdk_codeartifact.errors.access_denied_exception.AccessDeniedException: <p> The operation did not succeed because of an unauthorized access attempt. </p>
+            aws_sdk_codeartifact.errors.conflict_exception.ConflictException: <p> The operation did not succeed because prerequisites are not met. </p>
+            aws_sdk_codeartifact.errors.internal_server_exception.InternalServerException: <p> The operation did not succeed because of an error that occurred inside CodeArtifact. </p>
+            aws_sdk_codeartifact.errors.resource_not_found_exception.ResourceNotFoundException: <p> The operation did not succeed because the resource requested is not found in the service. </p>
+            aws_sdk_codeartifact.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p> The operation did not succeed because it would have exceeded a service limit for your account. </p>
+            aws_sdk_codeartifact.errors.throttling_exception.ThrottlingException: <p> The operation did not succeed because too many requests are sent to the service. </p>
+            aws_sdk_codeartifact.errors.validation_exception.ValidationException: <p> The operation did not succeed because a parameter in the request was sent with an invalid value. </p>
+            aws_sdk_codeartifact.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -483,6 +513,16 @@ class AsynccodeartifactClient:
             contact_info: <p> The contact information for the created package group. </p>
             description: <p> A description of the package group. </p>
             tags: <p>One or more tag key-value pairs for the package group.</p>
+
+        Raises:
+            aws_sdk_codeartifact.errors.access_denied_exception.AccessDeniedException: <p> The operation did not succeed because of an unauthorized access attempt. </p>
+            aws_sdk_codeartifact.errors.conflict_exception.ConflictException: <p> The operation did not succeed because prerequisites are not met. </p>
+            aws_sdk_codeartifact.errors.internal_server_exception.InternalServerException: <p> The operation did not succeed because of an error that occurred inside CodeArtifact. </p>
+            aws_sdk_codeartifact.errors.resource_not_found_exception.ResourceNotFoundException: <p> The operation did not succeed because the resource requested is not found in the service. </p>
+            aws_sdk_codeartifact.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p> The operation did not succeed because it would have exceeded a service limit for your account. </p>
+            aws_sdk_codeartifact.errors.throttling_exception.ThrottlingException: <p> The operation did not succeed because too many requests are sent to the service. </p>
+            aws_sdk_codeartifact.errors.validation_exception.ValidationException: <p> The operation did not succeed because a parameter in the request was sent with an invalid value. </p>
+            aws_sdk_codeartifact.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -546,6 +586,16 @@ class AsynccodeartifactClient:
             description: <p> A description of the created repository. </p>
             upstreams: <p> A list of upstream repositories to associate with the repository. The order of the upstream repositories in the list determines their priority order when CodeArtifact looks for a requested package version. For more information, see <a href=\"https://docs.aws.amazon.com/codeartifact/latest/ug/repos-upstream.html\">Working with upstream repositories</a>. </p>
             tags: <p>One or more tag key-value pairs for the repository.</p>
+
+        Raises:
+            aws_sdk_codeartifact.errors.access_denied_exception.AccessDeniedException: <p> The operation did not succeed because of an unauthorized access attempt. </p>
+            aws_sdk_codeartifact.errors.conflict_exception.ConflictException: <p> The operation did not succeed because prerequisites are not met. </p>
+            aws_sdk_codeartifact.errors.internal_server_exception.InternalServerException: <p> The operation did not succeed because of an error that occurred inside CodeArtifact. </p>
+            aws_sdk_codeartifact.errors.resource_not_found_exception.ResourceNotFoundException: <p> The operation did not succeed because the resource requested is not found in the service. </p>
+            aws_sdk_codeartifact.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p> The operation did not succeed because it would have exceeded a service limit for your account. </p>
+            aws_sdk_codeartifact.errors.throttling_exception.ThrottlingException: <p> The operation did not succeed because too many requests are sent to the service. </p>
+            aws_sdk_codeartifact.errors.validation_exception.ValidationException: <p> The operation did not succeed because a parameter in the request was sent with an invalid value. </p>
+            aws_sdk_codeartifact.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -597,6 +647,14 @@ class AsynccodeartifactClient:
         Args:
             domain: <p> The name of the domain to delete. </p>
             domain_owner: <p> The 12-digit account number of the Amazon Web Services account that owns the domain. It does not include dashes or spaces. </p>
+
+        Raises:
+            aws_sdk_codeartifact.errors.access_denied_exception.AccessDeniedException: <p> The operation did not succeed because of an unauthorized access attempt. </p>
+            aws_sdk_codeartifact.errors.conflict_exception.ConflictException: <p> The operation did not succeed because prerequisites are not met. </p>
+            aws_sdk_codeartifact.errors.internal_server_exception.InternalServerException: <p> The operation did not succeed because of an error that occurred inside CodeArtifact. </p>
+            aws_sdk_codeartifact.errors.throttling_exception.ThrottlingException: <p> The operation did not succeed because too many requests are sent to the service. </p>
+            aws_sdk_codeartifact.errors.validation_exception.ValidationException: <p> The operation did not succeed because a parameter in the request was sent with an invalid value. </p>
+            aws_sdk_codeartifact.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -645,6 +703,15 @@ class AsynccodeartifactClient:
             domain: <p> The name of the domain associated with the resource policy to be deleted. </p>
             domain_owner: <p> The 12-digit account number of the Amazon Web Services account that owns the domain. It does not include dashes or spaces. </p>
             policy_revision: <p> The current revision of the resource policy to be deleted. This revision is used for optimistic locking, which prevents others from overwriting your changes to the domain's resource policy. </p>
+
+        Raises:
+            aws_sdk_codeartifact.errors.access_denied_exception.AccessDeniedException: <p> The operation did not succeed because of an unauthorized access attempt. </p>
+            aws_sdk_codeartifact.errors.conflict_exception.ConflictException: <p> The operation did not succeed because prerequisites are not met. </p>
+            aws_sdk_codeartifact.errors.internal_server_exception.InternalServerException: <p> The operation did not succeed because of an error that occurred inside CodeArtifact. </p>
+            aws_sdk_codeartifact.errors.resource_not_found_exception.ResourceNotFoundException: <p> The operation did not succeed because the resource requested is not found in the service. </p>
+            aws_sdk_codeartifact.errors.throttling_exception.ThrottlingException: <p> The operation did not succeed because too many requests are sent to the service. </p>
+            aws_sdk_codeartifact.errors.validation_exception.ValidationException: <p> The operation did not succeed because a parameter in the request was sent with an invalid value. </p>
+            aws_sdk_codeartifact.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -701,6 +768,15 @@ class AsynccodeartifactClient:
             format: <p>The format of the requested package to delete.</p>
             namespace: <p>The namespace of the package to delete. The package component that specifies its namespace depends on its type. For example:</p> <note> <p>The namespace is required when deleting packages of the following formats:</p> <ul> <li> <p>Maven</p> </li> <li> <p>Swift</p> </li> <li> <p>generic</p> </li> </ul> </note> <ul> <li> <p> The namespace of a Maven package version is its <code>groupId</code>. </p> </li> <li> <p> The namespace of an npm or Swift package version is its <code>scope</code>. </p> </li> <li> <p>The namespace of a generic package is its <code>namespace</code>.</p> </li> <li> <p> Python, NuGet, Ruby, and Cargo package versions do not contain a corresponding component, package versions of those formats do not have a namespace. </p> </li> </ul>
             package: <p>The name of the package to delete.</p>
+
+        Raises:
+            aws_sdk_codeartifact.errors.access_denied_exception.AccessDeniedException: <p> The operation did not succeed because of an unauthorized access attempt. </p>
+            aws_sdk_codeartifact.errors.conflict_exception.ConflictException: <p> The operation did not succeed because prerequisites are not met. </p>
+            aws_sdk_codeartifact.errors.internal_server_exception.InternalServerException: <p> The operation did not succeed because of an error that occurred inside CodeArtifact. </p>
+            aws_sdk_codeartifact.errors.resource_not_found_exception.ResourceNotFoundException: <p> The operation did not succeed because the resource requested is not found in the service. </p>
+            aws_sdk_codeartifact.errors.throttling_exception.ThrottlingException: <p> The operation did not succeed because too many requests are sent to the service. </p>
+            aws_sdk_codeartifact.errors.validation_exception.ValidationException: <p> The operation did not succeed because a parameter in the request was sent with an invalid value. </p>
+            aws_sdk_codeartifact.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -752,6 +828,16 @@ class AsynccodeartifactClient:
             domain: <p> The domain that contains the package group to be deleted. </p>
             domain_owner: <p> The 12-digit account number of the Amazon Web Services account that owns the domain. It does not include dashes or spaces. </p>
             package_group: <p>The pattern of the package group to be deleted.</p>
+
+        Raises:
+            aws_sdk_codeartifact.errors.access_denied_exception.AccessDeniedException: <p> The operation did not succeed because of an unauthorized access attempt. </p>
+            aws_sdk_codeartifact.errors.conflict_exception.ConflictException: <p> The operation did not succeed because prerequisites are not met. </p>
+            aws_sdk_codeartifact.errors.internal_server_exception.InternalServerException: <p> The operation did not succeed because of an error that occurred inside CodeArtifact. </p>
+            aws_sdk_codeartifact.errors.resource_not_found_exception.ResourceNotFoundException: <p> The operation did not succeed because the resource requested is not found in the service. </p>
+            aws_sdk_codeartifact.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p> The operation did not succeed because it would have exceeded a service limit for your account. </p>
+            aws_sdk_codeartifact.errors.throttling_exception.ThrottlingException: <p> The operation did not succeed because too many requests are sent to the service. </p>
+            aws_sdk_codeartifact.errors.validation_exception.ValidationException: <p> The operation did not succeed because a parameter in the request was sent with an invalid value. </p>
+            aws_sdk_codeartifact.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -813,6 +899,15 @@ class AsynccodeartifactClient:
             package: <p> The name of the package with the versions to delete. </p>
             versions: <p> An array of strings that specify the versions of the package to delete. </p>
             expected_status: <p> The expected status of the package version to delete. </p>
+
+        Raises:
+            aws_sdk_codeartifact.errors.access_denied_exception.AccessDeniedException: <p> The operation did not succeed because of an unauthorized access attempt. </p>
+            aws_sdk_codeartifact.errors.conflict_exception.ConflictException: <p> The operation did not succeed because prerequisites are not met. </p>
+            aws_sdk_codeartifact.errors.internal_server_exception.InternalServerException: <p> The operation did not succeed because of an error that occurred inside CodeArtifact. </p>
+            aws_sdk_codeartifact.errors.resource_not_found_exception.ResourceNotFoundException: <p> The operation did not succeed because the resource requested is not found in the service. </p>
+            aws_sdk_codeartifact.errors.throttling_exception.ThrottlingException: <p> The operation did not succeed because too many requests are sent to the service. </p>
+            aws_sdk_codeartifact.errors.validation_exception.ValidationException: <p> The operation did not succeed because a parameter in the request was sent with an invalid value. </p>
+            aws_sdk_codeartifact.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -867,6 +962,15 @@ class AsynccodeartifactClient:
             domain: <p> The name of the domain that contains the repository to delete. </p>
             domain_owner: <p> The 12-digit account number of the Amazon Web Services account that owns the domain. It does not include dashes or spaces. </p>
             repository: <p> The name of the repository to delete. </p>
+
+        Raises:
+            aws_sdk_codeartifact.errors.access_denied_exception.AccessDeniedException: <p> The operation did not succeed because of an unauthorized access attempt. </p>
+            aws_sdk_codeartifact.errors.conflict_exception.ConflictException: <p> The operation did not succeed because prerequisites are not met. </p>
+            aws_sdk_codeartifact.errors.internal_server_exception.InternalServerException: <p> The operation did not succeed because of an error that occurred inside CodeArtifact. </p>
+            aws_sdk_codeartifact.errors.resource_not_found_exception.ResourceNotFoundException: <p> The operation did not succeed because the resource requested is not found in the service. </p>
+            aws_sdk_codeartifact.errors.throttling_exception.ThrottlingException: <p> The operation did not succeed because too many requests are sent to the service. </p>
+            aws_sdk_codeartifact.errors.validation_exception.ValidationException: <p> The operation did not succeed because a parameter in the request was sent with an invalid value. </p>
+            aws_sdk_codeartifact.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -918,6 +1022,15 @@ class AsynccodeartifactClient:
             domain_owner: <p> The 12-digit account number of the Amazon Web Services account that owns the domain. It does not include dashes or spaces. </p>
             repository: <p> The name of the repository that is associated with the resource policy to be deleted </p>
             policy_revision: <p> The revision of the repository's resource policy to be deleted. This revision is used for optimistic locking, which prevents others from accidentally overwriting your changes to the repository's resource policy. </p>
+
+        Raises:
+            aws_sdk_codeartifact.errors.access_denied_exception.AccessDeniedException: <p> The operation did not succeed because of an unauthorized access attempt. </p>
+            aws_sdk_codeartifact.errors.conflict_exception.ConflictException: <p> The operation did not succeed because prerequisites are not met. </p>
+            aws_sdk_codeartifact.errors.internal_server_exception.InternalServerException: <p> The operation did not succeed because of an error that occurred inside CodeArtifact. </p>
+            aws_sdk_codeartifact.errors.resource_not_found_exception.ResourceNotFoundException: <p> The operation did not succeed because the resource requested is not found in the service. </p>
+            aws_sdk_codeartifact.errors.throttling_exception.ThrottlingException: <p> The operation did not succeed because too many requests are sent to the service. </p>
+            aws_sdk_codeartifact.errors.validation_exception.ValidationException: <p> The operation did not succeed because a parameter in the request was sent with an invalid value. </p>
+            aws_sdk_codeartifact.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -965,6 +1078,14 @@ class AsynccodeartifactClient:
         Args:
             domain: <p> A string that specifies the name of the requested domain. </p>
             domain_owner: <p> The 12-digit account number of the Amazon Web Services account that owns the domain. It does not include dashes or spaces. </p>
+
+        Raises:
+            aws_sdk_codeartifact.errors.access_denied_exception.AccessDeniedException: <p> The operation did not succeed because of an unauthorized access attempt. </p>
+            aws_sdk_codeartifact.errors.internal_server_exception.InternalServerException: <p> The operation did not succeed because of an error that occurred inside CodeArtifact. </p>
+            aws_sdk_codeartifact.errors.resource_not_found_exception.ResourceNotFoundException: <p> The operation did not succeed because the resource requested is not found in the service. </p>
+            aws_sdk_codeartifact.errors.throttling_exception.ThrottlingException: <p> The operation did not succeed because too many requests are sent to the service. </p>
+            aws_sdk_codeartifact.errors.validation_exception.ValidationException: <p> The operation did not succeed because a parameter in the request was sent with an invalid value. </p>
+            aws_sdk_codeartifact.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1019,6 +1140,14 @@ class AsynccodeartifactClient:
             format: <p>A format that specifies the type of the requested package.</p>
             namespace: <p>The namespace of the requested package. The package component that specifies its namespace depends on its type. For example:</p> <note> <p>The namespace is required when requesting packages of the following formats:</p> <ul> <li> <p>Maven</p> </li> <li> <p>Swift</p> </li> <li> <p>generic</p> </li> </ul> </note> <ul> <li> <p> The namespace of a Maven package version is its <code>groupId</code>. </p> </li> <li> <p> The namespace of an npm or Swift package version is its <code>scope</code>. </p> </li> <li> <p>The namespace of a generic package is its <code>namespace</code>.</p> </li> <li> <p> Python, NuGet, Ruby, and Cargo package versions do not contain a corresponding component, package versions of those formats do not have a namespace. </p> </li> </ul>
             package: <p>The name of the requested package.</p>
+
+        Raises:
+            aws_sdk_codeartifact.errors.access_denied_exception.AccessDeniedException: <p> The operation did not succeed because of an unauthorized access attempt. </p>
+            aws_sdk_codeartifact.errors.internal_server_exception.InternalServerException: <p> The operation did not succeed because of an error that occurred inside CodeArtifact. </p>
+            aws_sdk_codeartifact.errors.resource_not_found_exception.ResourceNotFoundException: <p> The operation did not succeed because the resource requested is not found in the service. </p>
+            aws_sdk_codeartifact.errors.throttling_exception.ThrottlingException: <p> The operation did not succeed because too many requests are sent to the service. </p>
+            aws_sdk_codeartifact.errors.validation_exception.ValidationException: <p> The operation did not succeed because a parameter in the request was sent with an invalid value. </p>
+            aws_sdk_codeartifact.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1070,6 +1199,14 @@ class AsynccodeartifactClient:
             domain: <p> The name of the domain that contains the package group. </p>
             domain_owner: <p> The 12-digit account number of the Amazon Web Services account that owns the domain. It does not include dashes or spaces. </p>
             package_group: <p>The pattern of the requested package group.</p>
+
+        Raises:
+            aws_sdk_codeartifact.errors.access_denied_exception.AccessDeniedException: <p> The operation did not succeed because of an unauthorized access attempt. </p>
+            aws_sdk_codeartifact.errors.internal_server_exception.InternalServerException: <p> The operation did not succeed because of an error that occurred inside CodeArtifact. </p>
+            aws_sdk_codeartifact.errors.resource_not_found_exception.ResourceNotFoundException: <p> The operation did not succeed because the resource requested is not found in the service. </p>
+            aws_sdk_codeartifact.errors.throttling_exception.ThrottlingException: <p> The operation did not succeed because too many requests are sent to the service. </p>
+            aws_sdk_codeartifact.errors.validation_exception.ValidationException: <p> The operation did not succeed because a parameter in the request was sent with an invalid value. </p>
+            aws_sdk_codeartifact.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1127,6 +1264,15 @@ class AsynccodeartifactClient:
             namespace: <p>The namespace of the requested package version. The package component that specifies its namespace depends on its type. For example:</p> <note> <p>The namespace is required when requesting package versions of the following formats:</p> <ul> <li> <p>Maven</p> </li> <li> <p>Swift</p> </li> <li> <p>generic</p> </li> </ul> </note> <ul> <li> <p> The namespace of a Maven package version is its <code>groupId</code>. </p> </li> <li> <p> The namespace of an npm or Swift package version is its <code>scope</code>. </p> </li> <li> <p>The namespace of a generic package is its <code>namespace</code>.</p> </li> <li> <p> Python, NuGet, Ruby, and Cargo package versions do not contain a corresponding component, package versions of those formats do not have a namespace. </p> </li> </ul>
             package: <p> The name of the requested package version. </p>
             package_version: <p> A string that contains the package version (for example, <code>3.5.2</code>). </p>
+
+        Raises:
+            aws_sdk_codeartifact.errors.access_denied_exception.AccessDeniedException: <p> The operation did not succeed because of an unauthorized access attempt. </p>
+            aws_sdk_codeartifact.errors.conflict_exception.ConflictException: <p> The operation did not succeed because prerequisites are not met. </p>
+            aws_sdk_codeartifact.errors.internal_server_exception.InternalServerException: <p> The operation did not succeed because of an error that occurred inside CodeArtifact. </p>
+            aws_sdk_codeartifact.errors.resource_not_found_exception.ResourceNotFoundException: <p> The operation did not succeed because the resource requested is not found in the service. </p>
+            aws_sdk_codeartifact.errors.throttling_exception.ThrottlingException: <p> The operation did not succeed because too many requests are sent to the service. </p>
+            aws_sdk_codeartifact.errors.validation_exception.ValidationException: <p> The operation did not succeed because a parameter in the request was sent with an invalid value. </p>
+            aws_sdk_codeartifact.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1181,6 +1327,14 @@ class AsynccodeartifactClient:
             domain: <p> The name of the domain that contains the repository to describe. </p>
             domain_owner: <p> The 12-digit account number of the Amazon Web Services account that owns the domain. It does not include dashes or spaces. </p>
             repository: <p> A string that specifies the name of the requested repository. </p>
+
+        Raises:
+            aws_sdk_codeartifact.errors.access_denied_exception.AccessDeniedException: <p> The operation did not succeed because of an unauthorized access attempt. </p>
+            aws_sdk_codeartifact.errors.internal_server_exception.InternalServerException: <p> The operation did not succeed because of an error that occurred inside CodeArtifact. </p>
+            aws_sdk_codeartifact.errors.resource_not_found_exception.ResourceNotFoundException: <p> The operation did not succeed because the resource requested is not found in the service. </p>
+            aws_sdk_codeartifact.errors.throttling_exception.ThrottlingException: <p> The operation did not succeed because too many requests are sent to the service. </p>
+            aws_sdk_codeartifact.errors.validation_exception.ValidationException: <p> The operation did not succeed because a parameter in the request was sent with an invalid value. </p>
+            aws_sdk_codeartifact.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1230,6 +1384,16 @@ class AsynccodeartifactClient:
             domain_owner: <p> The 12-digit account number of the Amazon Web Services account that owns the domain. It does not include dashes or spaces. </p>
             repository: <p>The name of the repository from which the external connection will be removed. </p>
             external_connection: <p>The name of the external connection to be removed from the repository. </p>
+
+        Raises:
+            aws_sdk_codeartifact.errors.access_denied_exception.AccessDeniedException: <p> The operation did not succeed because of an unauthorized access attempt. </p>
+            aws_sdk_codeartifact.errors.conflict_exception.ConflictException: <p> The operation did not succeed because prerequisites are not met. </p>
+            aws_sdk_codeartifact.errors.internal_server_exception.InternalServerException: <p> The operation did not succeed because of an error that occurred inside CodeArtifact. </p>
+            aws_sdk_codeartifact.errors.resource_not_found_exception.ResourceNotFoundException: <p> The operation did not succeed because the resource requested is not found in the service. </p>
+            aws_sdk_codeartifact.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p> The operation did not succeed because it would have exceeded a service limit for your account. </p>
+            aws_sdk_codeartifact.errors.throttling_exception.ThrottlingException: <p> The operation did not succeed because too many requests are sent to the service. </p>
+            aws_sdk_codeartifact.errors.validation_exception.ValidationException: <p> The operation did not succeed because a parameter in the request was sent with an invalid value. </p>
+            aws_sdk_codeartifact.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1296,6 +1460,15 @@ class AsynccodeartifactClient:
             versions: <p> The versions of the package you want to dispose. </p>
             version_revisions: <p> The revisions of the package versions you want to dispose. </p>
             expected_status: <p> The expected status of the package version to dispose. </p>
+
+        Raises:
+            aws_sdk_codeartifact.errors.access_denied_exception.AccessDeniedException: <p> The operation did not succeed because of an unauthorized access attempt. </p>
+            aws_sdk_codeartifact.errors.conflict_exception.ConflictException: <p> The operation did not succeed because prerequisites are not met. </p>
+            aws_sdk_codeartifact.errors.internal_server_exception.InternalServerException: <p> The operation did not succeed because of an error that occurred inside CodeArtifact. </p>
+            aws_sdk_codeartifact.errors.resource_not_found_exception.ResourceNotFoundException: <p> The operation did not succeed because the resource requested is not found in the service. </p>
+            aws_sdk_codeartifact.errors.throttling_exception.ThrottlingException: <p> The operation did not succeed because too many requests are sent to the service. </p>
+            aws_sdk_codeartifact.errors.validation_exception.ValidationException: <p> The operation did not succeed because a parameter in the request was sent with an invalid value. </p>
+            aws_sdk_codeartifact.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1358,6 +1531,13 @@ class AsynccodeartifactClient:
             format: <p> The format of the package from which to get the associated package group. </p>
             namespace: <p>The namespace of the package from which to get the associated package group. The package component that specifies its namespace depends on its type. For example:</p> <note> <p>The namespace is required when getting associated package groups from packages of the following formats:</p> <ul> <li> <p>Maven</p> </li> <li> <p>Swift</p> </li> <li> <p>generic</p> </li> </ul> </note> <ul> <li> <p> The namespace of a Maven package version is its <code>groupId</code>. </p> </li> <li> <p> The namespace of an npm or Swift package version is its <code>scope</code>. </p> </li> <li> <p>The namespace of a generic package is its <code>namespace</code>.</p> </li> <li> <p> Python, NuGet, Ruby, and Cargo package versions do not contain a corresponding component, package versions of those formats do not have a namespace. </p> </li> </ul>
             package: <p> The package from which to get the associated package group. </p>
+
+        Raises:
+            aws_sdk_codeartifact.errors.access_denied_exception.AccessDeniedException: <p> The operation did not succeed because of an unauthorized access attempt. </p>
+            aws_sdk_codeartifact.errors.internal_server_exception.InternalServerException: <p> The operation did not succeed because of an error that occurred inside CodeArtifact. </p>
+            aws_sdk_codeartifact.errors.resource_not_found_exception.ResourceNotFoundException: <p> The operation did not succeed because the resource requested is not found in the service. </p>
+            aws_sdk_codeartifact.errors.validation_exception.ValidationException: <p> The operation did not succeed because a parameter in the request was sent with an invalid value. </p>
+            aws_sdk_codeartifact.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1410,6 +1590,14 @@ class AsynccodeartifactClient:
             domain: <p> The name of the domain that is in scope for the generated authorization token. </p>
             domain_owner: <p> The 12-digit account number of the Amazon Web Services account that owns the domain. It does not include dashes or spaces. </p>
             duration_seconds: <p>The time, in seconds, that the generated authorization token is valid. Valid values are <code>0</code> and any number between <code>900</code> (15 minutes) and <code>43200</code> (12 hours). A value of <code>0</code> will set the expiration of the authorization token to the same expiration of the user's role's temporary credentials.</p>
+
+        Raises:
+            aws_sdk_codeartifact.errors.access_denied_exception.AccessDeniedException: <p> The operation did not succeed because of an unauthorized access attempt. </p>
+            aws_sdk_codeartifact.errors.internal_server_exception.InternalServerException: <p> The operation did not succeed because of an error that occurred inside CodeArtifact. </p>
+            aws_sdk_codeartifact.errors.resource_not_found_exception.ResourceNotFoundException: <p> The operation did not succeed because the resource requested is not found in the service. </p>
+            aws_sdk_codeartifact.errors.throttling_exception.ThrottlingException: <p> The operation did not succeed because too many requests are sent to the service. </p>
+            aws_sdk_codeartifact.errors.validation_exception.ValidationException: <p> The operation did not succeed because a parameter in the request was sent with an invalid value. </p>
+            aws_sdk_codeartifact.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1456,6 +1644,14 @@ class AsynccodeartifactClient:
         Args:
             domain: <p> The name of the domain to which the resource policy is attached. </p>
             domain_owner: <p> The 12-digit account number of the Amazon Web Services account that owns the domain. It does not include dashes or spaces. </p>
+
+        Raises:
+            aws_sdk_codeartifact.errors.access_denied_exception.AccessDeniedException: <p> The operation did not succeed because of an unauthorized access attempt. </p>
+            aws_sdk_codeartifact.errors.internal_server_exception.InternalServerException: <p> The operation did not succeed because of an error that occurred inside CodeArtifact. </p>
+            aws_sdk_codeartifact.errors.resource_not_found_exception.ResourceNotFoundException: <p> The operation did not succeed because the resource requested is not found in the service. </p>
+            aws_sdk_codeartifact.errors.throttling_exception.ThrottlingException: <p> The operation did not succeed because too many requests are sent to the service. </p>
+            aws_sdk_codeartifact.errors.validation_exception.ValidationException: <p> The operation did not succeed because a parameter in the request was sent with an invalid value. </p>
+            aws_sdk_codeartifact.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1519,6 +1715,15 @@ class AsynccodeartifactClient:
             package_version: <p> A string that contains the package version (for example, <code>3.5.2</code>). </p>
             asset: <p> The name of the requested asset. </p>
             package_version_revision: <p> The name of the package version revision that contains the requested asset. </p>
+
+        Raises:
+            aws_sdk_codeartifact.errors.access_denied_exception.AccessDeniedException: <p> The operation did not succeed because of an unauthorized access attempt. </p>
+            aws_sdk_codeartifact.errors.conflict_exception.ConflictException: <p> The operation did not succeed because prerequisites are not met. </p>
+            aws_sdk_codeartifact.errors.internal_server_exception.InternalServerException: <p> The operation did not succeed because of an error that occurred inside CodeArtifact. </p>
+            aws_sdk_codeartifact.errors.resource_not_found_exception.ResourceNotFoundException: <p> The operation did not succeed because the resource requested is not found in the service. </p>
+            aws_sdk_codeartifact.errors.throttling_exception.ThrottlingException: <p> The operation did not succeed because too many requests are sent to the service. </p>
+            aws_sdk_codeartifact.errors.validation_exception.ValidationException: <p> The operation did not succeed because a parameter in the request was sent with an invalid value. </p>
+            aws_sdk_codeartifact.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1584,6 +1789,14 @@ class AsynccodeartifactClient:
             namespace: <p>The namespace of the package version with the requested readme file. The package component that specifies its namespace depends on its type. For example:</p> <note> <p>The namespace is required when requesting the readme from package versions of the following formats:</p> <ul> <li> <p>Maven</p> </li> <li> <p>Swift</p> </li> <li> <p>generic</p> </li> </ul> </note> <ul> <li> <p> The namespace of a Maven package version is its <code>groupId</code>. </p> </li> <li> <p> The namespace of an npm or Swift package version is its <code>scope</code>. </p> </li> <li> <p>The namespace of a generic package is its <code>namespace</code>.</p> </li> <li> <p> Python, NuGet, Ruby, and Cargo package versions do not contain a corresponding component, package versions of those formats do not have a namespace. </p> </li> </ul>
             package: <p> The name of the package version that contains the requested readme file. </p>
             package_version: <p> A string that contains the package version (for example, <code>3.5.2</code>). </p>
+
+        Raises:
+            aws_sdk_codeartifact.errors.access_denied_exception.AccessDeniedException: <p> The operation did not succeed because of an unauthorized access attempt. </p>
+            aws_sdk_codeartifact.errors.internal_server_exception.InternalServerException: <p> The operation did not succeed because of an error that occurred inside CodeArtifact. </p>
+            aws_sdk_codeartifact.errors.resource_not_found_exception.ResourceNotFoundException: <p> The operation did not succeed because the resource requested is not found in the service. </p>
+            aws_sdk_codeartifact.errors.throttling_exception.ThrottlingException: <p> The operation did not succeed because too many requests are sent to the service. </p>
+            aws_sdk_codeartifact.errors.validation_exception.ValidationException: <p> The operation did not succeed because a parameter in the request was sent with an invalid value. </p>
+            aws_sdk_codeartifact.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1642,6 +1855,14 @@ class AsynccodeartifactClient:
             repository: <p> The name of the repository. </p>
             format: <p> Returns which endpoint of a repository to return. A repository has one endpoint for each package format. </p>
             endpoint_type: <p>A string that specifies the type of endpoint.</p>
+
+        Raises:
+            aws_sdk_codeartifact.errors.access_denied_exception.AccessDeniedException: <p> The operation did not succeed because of an unauthorized access attempt. </p>
+            aws_sdk_codeartifact.errors.internal_server_exception.InternalServerException: <p> The operation did not succeed because of an error that occurred inside CodeArtifact. </p>
+            aws_sdk_codeartifact.errors.resource_not_found_exception.ResourceNotFoundException: <p> The operation did not succeed because the resource requested is not found in the service. </p>
+            aws_sdk_codeartifact.errors.throttling_exception.ThrottlingException: <p> The operation did not succeed because too many requests are sent to the service. </p>
+            aws_sdk_codeartifact.errors.validation_exception.ValidationException: <p> The operation did not succeed because a parameter in the request was sent with an invalid value. </p>
+            aws_sdk_codeartifact.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1692,6 +1913,14 @@ class AsynccodeartifactClient:
             domain: <p> The name of the domain containing the repository whose associated resource policy is to be retrieved. </p>
             domain_owner: <p> The 12-digit account number of the Amazon Web Services account that owns the domain. It does not include dashes or spaces. </p>
             repository: <p> The name of the repository whose associated resource policy is to be retrieved. </p>
+
+        Raises:
+            aws_sdk_codeartifact.errors.access_denied_exception.AccessDeniedException: <p> The operation did not succeed because of an unauthorized access attempt. </p>
+            aws_sdk_codeartifact.errors.internal_server_exception.InternalServerException: <p> The operation did not succeed because of an error that occurred inside CodeArtifact. </p>
+            aws_sdk_codeartifact.errors.resource_not_found_exception.ResourceNotFoundException: <p> The operation did not succeed because the resource requested is not found in the service. </p>
+            aws_sdk_codeartifact.errors.throttling_exception.ThrottlingException: <p> The operation did not succeed because too many requests are sent to the service. </p>
+            aws_sdk_codeartifact.errors.validation_exception.ValidationException: <p> The operation did not succeed because a parameter in the request was sent with an invalid value. </p>
+            aws_sdk_codeartifact.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1749,6 +1978,15 @@ class AsynccodeartifactClient:
             origin_restriction_type: <p>The origin configuration restriction type of which to list allowed repositories.</p>
             max_results: <p> The maximum number of results to return per page. </p>
             next_token: <p> The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results. </p>
+
+        Raises:
+            aws_sdk_codeartifact.errors.access_denied_exception.AccessDeniedException: <p> The operation did not succeed because of an unauthorized access attempt. </p>
+            aws_sdk_codeartifact.errors.internal_server_exception.InternalServerException: <p> The operation did not succeed because of an error that occurred inside CodeArtifact. </p>
+            aws_sdk_codeartifact.errors.resource_not_found_exception.ResourceNotFoundException: <p> The operation did not succeed because the resource requested is not found in the service. </p>
+            aws_sdk_codeartifact.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p> The operation did not succeed because it would have exceeded a service limit for your account. </p>
+            aws_sdk_codeartifact.errors.throttling_exception.ThrottlingException: <p> The operation did not succeed because too many requests are sent to the service. </p>
+            aws_sdk_codeartifact.errors.validation_exception.ValidationException: <p> The operation did not succeed because a parameter in the request was sent with an invalid value. </p>
+            aws_sdk_codeartifact.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1848,6 +2086,13 @@ class AsynccodeartifactClient:
             max_results: <p> The maximum number of results to return per page. </p>
             next_token: <p> The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results. </p>
             preview: <p> When this flag is included, <code>ListAssociatedPackages</code> will return a list of packages that would be associated with a package group, even if it does not exist. </p>
+
+        Raises:
+            aws_sdk_codeartifact.errors.access_denied_exception.AccessDeniedException: <p> The operation did not succeed because of an unauthorized access attempt. </p>
+            aws_sdk_codeartifact.errors.internal_server_exception.InternalServerException: <p> The operation did not succeed because of an error that occurred inside CodeArtifact. </p>
+            aws_sdk_codeartifact.errors.resource_not_found_exception.ResourceNotFoundException: <p> The operation did not succeed because the resource requested is not found in the service. </p>
+            aws_sdk_codeartifact.errors.validation_exception.ValidationException: <p> The operation did not succeed because a parameter in the request was sent with an invalid value. </p>
+            aws_sdk_codeartifact.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1940,6 +2185,13 @@ class AsynccodeartifactClient:
         Args:
             max_results: <p> The maximum number of results to return per page. </p>
             next_token: <p> The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results. </p>
+
+        Raises:
+            aws_sdk_codeartifact.errors.access_denied_exception.AccessDeniedException: <p> The operation did not succeed because of an unauthorized access attempt. </p>
+            aws_sdk_codeartifact.errors.internal_server_exception.InternalServerException: <p> The operation did not succeed because of an error that occurred inside CodeArtifact. </p>
+            aws_sdk_codeartifact.errors.throttling_exception.ThrottlingException: <p> The operation did not succeed because too many requests are sent to the service. </p>
+            aws_sdk_codeartifact.errors.validation_exception.ValidationException: <p> The operation did not succeed because a parameter in the request was sent with an invalid value. </p>
+            aws_sdk_codeartifact.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2024,6 +2276,14 @@ class AsynccodeartifactClient:
             max_results: <p> The maximum number of results to return per page. </p>
             next_token: <p> The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results. </p>
             prefix: <p> A prefix for which to search package groups. When included, <code>ListPackageGroups</code> will return only package groups with patterns that match the prefix. </p>
+
+        Raises:
+            aws_sdk_codeartifact.errors.access_denied_exception.AccessDeniedException: <p> The operation did not succeed because of an unauthorized access attempt. </p>
+            aws_sdk_codeartifact.errors.internal_server_exception.InternalServerException: <p> The operation did not succeed because of an error that occurred inside CodeArtifact. </p>
+            aws_sdk_codeartifact.errors.resource_not_found_exception.ResourceNotFoundException: <p> The operation did not succeed because the resource requested is not found in the service. </p>
+            aws_sdk_codeartifact.errors.throttling_exception.ThrottlingException: <p> The operation did not succeed because too many requests are sent to the service. </p>
+            aws_sdk_codeartifact.errors.validation_exception.ValidationException: <p> The operation did not succeed because a parameter in the request was sent with an invalid value. </p>
+            aws_sdk_codeartifact.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2139,6 +2399,14 @@ class AsynccodeartifactClient:
             next_token: <p> The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results. </p>
             publish: <p>The value of the <code>Publish</code> package origin control restriction used to filter requested packages. Only packages with the provided restriction are returned. For more information, see <a href=\"https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageOriginRestrictions.html\">PackageOriginRestrictions</a>.</p>
             upstream: <p>The value of the <code>Upstream</code> package origin control restriction used to filter requested packages. Only packages with the provided restriction are returned. For more information, see <a href=\"https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageOriginRestrictions.html\">PackageOriginRestrictions</a>.</p>
+
+        Raises:
+            aws_sdk_codeartifact.errors.access_denied_exception.AccessDeniedException: <p> The operation did not succeed because of an unauthorized access attempt. </p>
+            aws_sdk_codeartifact.errors.internal_server_exception.InternalServerException: <p> The operation did not succeed because of an error that occurred inside CodeArtifact. </p>
+            aws_sdk_codeartifact.errors.resource_not_found_exception.ResourceNotFoundException: <p> The operation did not succeed because the resource requested is not found in the service. </p>
+            aws_sdk_codeartifact.errors.throttling_exception.ThrottlingException: <p> The operation did not succeed because too many requests are sent to the service. </p>
+            aws_sdk_codeartifact.errors.validation_exception.ValidationException: <p> The operation did not succeed because a parameter in the request was sent with an invalid value. </p>
+            aws_sdk_codeartifact.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2271,6 +2539,14 @@ class AsynccodeartifactClient:
             package_version: <p> A string that contains the package version (for example, <code>3.5.2</code>). </p>
             max_results: <p> The maximum number of results to return per page. </p>
             next_token: <p> The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results. </p>
+
+        Raises:
+            aws_sdk_codeartifact.errors.access_denied_exception.AccessDeniedException: <p> The operation did not succeed because of an unauthorized access attempt. </p>
+            aws_sdk_codeartifact.errors.internal_server_exception.InternalServerException: <p> The operation did not succeed because of an error that occurred inside CodeArtifact. </p>
+            aws_sdk_codeartifact.errors.resource_not_found_exception.ResourceNotFoundException: <p> The operation did not succeed because the resource requested is not found in the service. </p>
+            aws_sdk_codeartifact.errors.throttling_exception.ThrottlingException: <p> The operation did not succeed because too many requests are sent to the service. </p>
+            aws_sdk_codeartifact.errors.validation_exception.ValidationException: <p> The operation did not succeed because a parameter in the request was sent with an invalid value. </p>
+            aws_sdk_codeartifact.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2384,6 +2660,14 @@ class AsynccodeartifactClient:
             package: <p> The name of the package versions' package. </p>
             package_version: <p> A string that contains the package version (for example, <code>3.5.2</code>). </p>
             next_token: <p> The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results. </p>
+
+        Raises:
+            aws_sdk_codeartifact.errors.access_denied_exception.AccessDeniedException: <p> The operation did not succeed because of an unauthorized access attempt. </p>
+            aws_sdk_codeartifact.errors.internal_server_exception.InternalServerException: <p> The operation did not succeed because of an error that occurred inside CodeArtifact. </p>
+            aws_sdk_codeartifact.errors.resource_not_found_exception.ResourceNotFoundException: <p> The operation did not succeed because the resource requested is not found in the service. </p>
+            aws_sdk_codeartifact.errors.throttling_exception.ThrottlingException: <p> The operation did not succeed because too many requests are sent to the service. </p>
+            aws_sdk_codeartifact.errors.validation_exception.ValidationException: <p> The operation did not succeed because a parameter in the request was sent with an invalid value. </p>
+            aws_sdk_codeartifact.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2466,6 +2750,14 @@ class AsynccodeartifactClient:
             max_results: <p> The maximum number of results to return per page. </p>
             next_token: <p> The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results. </p>
             origin_type: <p>The <code>originType</code> used to filter package versions. Only package versions with the provided <code>originType</code> will be returned.</p>
+
+        Raises:
+            aws_sdk_codeartifact.errors.access_denied_exception.AccessDeniedException: <p> The operation did not succeed because of an unauthorized access attempt. </p>
+            aws_sdk_codeartifact.errors.internal_server_exception.InternalServerException: <p> The operation did not succeed because of an error that occurred inside CodeArtifact. </p>
+            aws_sdk_codeartifact.errors.resource_not_found_exception.ResourceNotFoundException: <p> The operation did not succeed because the resource requested is not found in the service. </p>
+            aws_sdk_codeartifact.errors.throttling_exception.ThrottlingException: <p> The operation did not succeed because too many requests are sent to the service. </p>
+            aws_sdk_codeartifact.errors.validation_exception.ValidationException: <p> The operation did not succeed because a parameter in the request was sent with an invalid value. </p>
+            aws_sdk_codeartifact.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2584,6 +2876,13 @@ class AsynccodeartifactClient:
             repository_prefix: <p> A prefix used to filter returned repositories. Only repositories with names that start with <code>repositoryPrefix</code> are returned.</p>
             max_results: <p> The maximum number of results to return per page. </p>
             next_token: <p> The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results. </p>
+
+        Raises:
+            aws_sdk_codeartifact.errors.access_denied_exception.AccessDeniedException: <p> The operation did not succeed because of an unauthorized access attempt. </p>
+            aws_sdk_codeartifact.errors.internal_server_exception.InternalServerException: <p> The operation did not succeed because of an error that occurred inside CodeArtifact. </p>
+            aws_sdk_codeartifact.errors.throttling_exception.ThrottlingException: <p> The operation did not succeed because too many requests are sent to the service. </p>
+            aws_sdk_codeartifact.errors.validation_exception.ValidationException: <p> The operation did not succeed because a parameter in the request was sent with an invalid value. </p>
+            aws_sdk_codeartifact.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2678,6 +2977,14 @@ class AsynccodeartifactClient:
             repository_prefix: <p> A prefix used to filter returned repositories. Only repositories with names that start with <code>repositoryPrefix</code> are returned. </p>
             max_results: <p> The maximum number of results to return per page. </p>
             next_token: <p> The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results. </p>
+
+        Raises:
+            aws_sdk_codeartifact.errors.access_denied_exception.AccessDeniedException: <p> The operation did not succeed because of an unauthorized access attempt. </p>
+            aws_sdk_codeartifact.errors.internal_server_exception.InternalServerException: <p> The operation did not succeed because of an error that occurred inside CodeArtifact. </p>
+            aws_sdk_codeartifact.errors.resource_not_found_exception.ResourceNotFoundException: <p> The operation did not succeed because the resource requested is not found in the service. </p>
+            aws_sdk_codeartifact.errors.throttling_exception.ThrottlingException: <p> The operation did not succeed because too many requests are sent to the service. </p>
+            aws_sdk_codeartifact.errors.validation_exception.ValidationException: <p> The operation did not succeed because a parameter in the request was sent with an invalid value. </p>
+            aws_sdk_codeartifact.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2781,6 +3088,14 @@ class AsynccodeartifactClient:
             package_group: <p> The pattern of the package group from which to list sub package groups. </p>
             max_results: <p> The maximum number of results to return per page. </p>
             next_token: <p> The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results. </p>
+
+        Raises:
+            aws_sdk_codeartifact.errors.access_denied_exception.AccessDeniedException: <p> The operation did not succeed because of an unauthorized access attempt. </p>
+            aws_sdk_codeartifact.errors.internal_server_exception.InternalServerException: <p> The operation did not succeed because of an error that occurred inside CodeArtifact. </p>
+            aws_sdk_codeartifact.errors.resource_not_found_exception.ResourceNotFoundException: <p> The operation did not succeed because the resource requested is not found in the service. </p>
+            aws_sdk_codeartifact.errors.throttling_exception.ThrottlingException: <p> The operation did not succeed because too many requests are sent to the service. </p>
+            aws_sdk_codeartifact.errors.validation_exception.ValidationException: <p> The operation did not succeed because a parameter in the request was sent with an invalid value. </p>
+            aws_sdk_codeartifact.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2859,6 +3174,13 @@ class AsynccodeartifactClient:
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource to get tags for.</p>
+
+        Raises:
+            aws_sdk_codeartifact.errors.access_denied_exception.AccessDeniedException: <p> The operation did not succeed because of an unauthorized access attempt. </p>
+            aws_sdk_codeartifact.errors.resource_not_found_exception.ResourceNotFoundException: <p> The operation did not succeed because the resource requested is not found in the service. </p>
+            aws_sdk_codeartifact.errors.throttling_exception.ThrottlingException: <p> The operation did not succeed because too many requests are sent to the service. </p>
+            aws_sdk_codeartifact.errors.validation_exception.ValidationException: <p> The operation did not succeed because a parameter in the request was sent with an invalid value. </p>
+            aws_sdk_codeartifact.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2923,6 +3245,16 @@ class AsynccodeartifactClient:
             asset_name: <p>The name of the asset to publish. Asset names can include Unicode letters and numbers, and the following special characters: <code>~ ! @ ^ & ( ) - ` _ + [ ] { } ; , . `</code> </p>
             asset_sha256: <p>The SHA256 hash of the <code>assetContent</code> to publish. This value must be calculated by the caller and provided with the request (see <a href=\"https://docs.aws.amazon.com/codeartifact/latest/ug/using-generic.html#publishing-generic-packages\">Publishing a generic package</a> in the <i>CodeArtifact User Guide</i>).</p> <p>This value is used as an integrity check to verify that the <code>assetContent</code> has not changed after it was originally sent.</p>
             unfinished: <p>Specifies whether the package version should remain in the <code>unfinished</code> state. If omitted, the package version status will be set to <code>Published</code> (see <a href=\"https://docs.aws.amazon.com/codeartifact/latest/ug/packages-overview.html#package-version-status\">Package version status</a> in the <i>CodeArtifact User Guide</i>).</p> <p>Valid values: <code>unfinished</code> </p>
+
+        Raises:
+            aws_sdk_codeartifact.errors.access_denied_exception.AccessDeniedException: <p> The operation did not succeed because of an unauthorized access attempt. </p>
+            aws_sdk_codeartifact.errors.conflict_exception.ConflictException: <p> The operation did not succeed because prerequisites are not met. </p>
+            aws_sdk_codeartifact.errors.internal_server_exception.InternalServerException: <p> The operation did not succeed because of an error that occurred inside CodeArtifact. </p>
+            aws_sdk_codeartifact.errors.resource_not_found_exception.ResourceNotFoundException: <p> The operation did not succeed because the resource requested is not found in the service. </p>
+            aws_sdk_codeartifact.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p> The operation did not succeed because it would have exceeded a service limit for your account. </p>
+            aws_sdk_codeartifact.errors.throttling_exception.ThrottlingException: <p> The operation did not succeed because too many requests are sent to the service. </p>
+            aws_sdk_codeartifact.errors.validation_exception.ValidationException: <p> The operation did not succeed because a parameter in the request was sent with an invalid value. </p>
+            aws_sdk_codeartifact.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2984,6 +3316,16 @@ class AsynccodeartifactClient:
             domain_owner: <p> The 12-digit account number of the Amazon Web Services account that owns the domain. It does not include dashes or spaces. </p>
             policy_revision: <p> The current revision of the resource policy to be set. This revision is used for optimistic locking, which prevents others from overwriting your changes to the domain's resource policy. </p>
             policy_document: <p> A valid displayable JSON Aspen policy string to be set as the access control resource policy on the provided domain. </p>
+
+        Raises:
+            aws_sdk_codeartifact.errors.access_denied_exception.AccessDeniedException: <p> The operation did not succeed because of an unauthorized access attempt. </p>
+            aws_sdk_codeartifact.errors.conflict_exception.ConflictException: <p> The operation did not succeed because prerequisites are not met. </p>
+            aws_sdk_codeartifact.errors.internal_server_exception.InternalServerException: <p> The operation did not succeed because of an error that occurred inside CodeArtifact. </p>
+            aws_sdk_codeartifact.errors.resource_not_found_exception.ResourceNotFoundException: <p> The operation did not succeed because the resource requested is not found in the service. </p>
+            aws_sdk_codeartifact.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p> The operation did not succeed because it would have exceeded a service limit for your account. </p>
+            aws_sdk_codeartifact.errors.throttling_exception.ThrottlingException: <p> The operation did not succeed because too many requests are sent to the service. </p>
+            aws_sdk_codeartifact.errors.validation_exception.ValidationException: <p> The operation did not succeed because a parameter in the request was sent with an invalid value. </p>
+            aws_sdk_codeartifact.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3043,6 +3385,14 @@ class AsynccodeartifactClient:
             namespace: <p>The namespace of the package to be updated. The package component that specifies its namespace depends on its type. For example:</p> <ul> <li> <p> The namespace of a Maven package version is its <code>groupId</code>. </p> </li> <li> <p> The namespace of an npm or Swift package version is its <code>scope</code>. </p> </li> <li> <p>The namespace of a generic package is its <code>namespace</code>.</p> </li> <li> <p> Python, NuGet, Ruby, and Cargo package versions do not contain a corresponding component, package versions of those formats do not have a namespace. </p> </li> </ul>
             package: <p>The name of the package to be updated.</p>
             restrictions: <p>A <a href=\"https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageOriginRestrictions.html\">PackageOriginRestrictions</a> object that contains information about the <code>upstream</code> and <code>publish</code> package origin restrictions. The <code>upstream</code> restriction determines if new package versions can be ingested or retained from external connections or upstream repositories. The <code>publish</code> restriction determines if new package versions can be published directly to the repository.</p> <p>You must include both the desired <code>upstream</code> and <code>publish</code> restrictions.</p>
+
+        Raises:
+            aws_sdk_codeartifact.errors.access_denied_exception.AccessDeniedException: <p> The operation did not succeed because of an unauthorized access attempt. </p>
+            aws_sdk_codeartifact.errors.internal_server_exception.InternalServerException: <p> The operation did not succeed because of an error that occurred inside CodeArtifact. </p>
+            aws_sdk_codeartifact.errors.resource_not_found_exception.ResourceNotFoundException: <p> The operation did not succeed because the resource requested is not found in the service. </p>
+            aws_sdk_codeartifact.errors.throttling_exception.ThrottlingException: <p> The operation did not succeed because too many requests are sent to the service. </p>
+            aws_sdk_codeartifact.errors.validation_exception.ValidationException: <p> The operation did not succeed because a parameter in the request was sent with an invalid value. </p>
+            aws_sdk_codeartifact.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3101,6 +3451,16 @@ class AsynccodeartifactClient:
             repository: <p> The name of the repository to set the resource policy on. </p>
             policy_revision: <p> Sets the revision of the resource policy that specifies permissions to access the repository. This revision is used for optimistic locking, which prevents others from overwriting your changes to the repository's resource policy. </p>
             policy_document: <p> A valid displayable JSON Aspen policy string to be set as the access control resource policy on the provided repository. </p>
+
+        Raises:
+            aws_sdk_codeartifact.errors.access_denied_exception.AccessDeniedException: <p> The operation did not succeed because of an unauthorized access attempt. </p>
+            aws_sdk_codeartifact.errors.conflict_exception.ConflictException: <p> The operation did not succeed because prerequisites are not met. </p>
+            aws_sdk_codeartifact.errors.internal_server_exception.InternalServerException: <p> The operation did not succeed because of an error that occurred inside CodeArtifact. </p>
+            aws_sdk_codeartifact.errors.resource_not_found_exception.ResourceNotFoundException: <p> The operation did not succeed because the resource requested is not found in the service. </p>
+            aws_sdk_codeartifact.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p> The operation did not succeed because it would have exceeded a service limit for your account. </p>
+            aws_sdk_codeartifact.errors.throttling_exception.ThrottlingException: <p> The operation did not succeed because too many requests are sent to the service. </p>
+            aws_sdk_codeartifact.errors.validation_exception.ValidationException: <p> The operation did not succeed because a parameter in the request was sent with an invalid value. </p>
+            aws_sdk_codeartifact.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3147,6 +3507,14 @@ class AsynccodeartifactClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource that you want to add or update tags for.</p>
             tags: <p>The tags you want to modify or add to the resource.</p>
+
+        Raises:
+            aws_sdk_codeartifact.errors.access_denied_exception.AccessDeniedException: <p> The operation did not succeed because of an unauthorized access attempt. </p>
+            aws_sdk_codeartifact.errors.resource_not_found_exception.ResourceNotFoundException: <p> The operation did not succeed because the resource requested is not found in the service. </p>
+            aws_sdk_codeartifact.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p> The operation did not succeed because it would have exceeded a service limit for your account. </p>
+            aws_sdk_codeartifact.errors.throttling_exception.ThrottlingException: <p> The operation did not succeed because too many requests are sent to the service. </p>
+            aws_sdk_codeartifact.errors.validation_exception.ValidationException: <p> The operation did not succeed because a parameter in the request was sent with an invalid value. </p>
+            aws_sdk_codeartifact.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3188,6 +3556,13 @@ class AsynccodeartifactClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource that you want to remove tags from.</p>
             tag_keys: <p>The tag key for each tag that you want to remove from the resource.</p>
+
+        Raises:
+            aws_sdk_codeartifact.errors.access_denied_exception.AccessDeniedException: <p> The operation did not succeed because of an unauthorized access attempt. </p>
+            aws_sdk_codeartifact.errors.resource_not_found_exception.ResourceNotFoundException: <p> The operation did not succeed because the resource requested is not found in the service. </p>
+            aws_sdk_codeartifact.errors.throttling_exception.ThrottlingException: <p> The operation did not succeed because too many requests are sent to the service. </p>
+            aws_sdk_codeartifact.errors.validation_exception.ValidationException: <p> The operation did not succeed because a parameter in the request was sent with an invalid value. </p>
+            aws_sdk_codeartifact.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3241,6 +3616,15 @@ class AsynccodeartifactClient:
             package_group: <p> The pattern of the package group to be updated. </p>
             contact_info: <p> Contact information which you want to update the requested package group with. </p>
             description: <p> The description you want to update the requested package group with. </p>
+
+        Raises:
+            aws_sdk_codeartifact.errors.access_denied_exception.AccessDeniedException: <p> The operation did not succeed because of an unauthorized access attempt. </p>
+            aws_sdk_codeartifact.errors.internal_server_exception.InternalServerException: <p> The operation did not succeed because of an error that occurred inside CodeArtifact. </p>
+            aws_sdk_codeartifact.errors.resource_not_found_exception.ResourceNotFoundException: <p> The operation did not succeed because the resource requested is not found in the service. </p>
+            aws_sdk_codeartifact.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p> The operation did not succeed because it would have exceeded a service limit for your account. </p>
+            aws_sdk_codeartifact.errors.throttling_exception.ThrottlingException: <p> The operation did not succeed because too many requests are sent to the service. </p>
+            aws_sdk_codeartifact.errors.validation_exception.ValidationException: <p> The operation did not succeed because a parameter in the request was sent with an invalid value. </p>
+            aws_sdk_codeartifact.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3304,6 +3688,15 @@ class AsynccodeartifactClient:
             restrictions: <p> The origin configuration settings that determine how package versions can enter repositories. </p>
             add_allowed_repositories: <p>The repository name and restrictions to add to the allowed repository list of the specified package group.</p>
             remove_allowed_repositories: <p>The repository name and restrictions to remove from the allowed repository list of the specified package group.</p>
+
+        Raises:
+            aws_sdk_codeartifact.errors.access_denied_exception.AccessDeniedException: <p> The operation did not succeed because of an unauthorized access attempt. </p>
+            aws_sdk_codeartifact.errors.internal_server_exception.InternalServerException: <p> The operation did not succeed because of an error that occurred inside CodeArtifact. </p>
+            aws_sdk_codeartifact.errors.resource_not_found_exception.ResourceNotFoundException: <p> The operation did not succeed because the resource requested is not found in the service. </p>
+            aws_sdk_codeartifact.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p> The operation did not succeed because it would have exceeded a service limit for your account. </p>
+            aws_sdk_codeartifact.errors.throttling_exception.ThrottlingException: <p> The operation did not succeed because too many requests are sent to the service. </p>
+            aws_sdk_codeartifact.errors.validation_exception.ValidationException: <p> The operation did not succeed because a parameter in the request was sent with an invalid value. </p>
+            aws_sdk_codeartifact.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3377,6 +3770,15 @@ class AsynccodeartifactClient:
             version_revisions: <p> A map of package versions and package version revisions. The map <code>key</code> is the package version (for example, <code>3.5.2</code>), and the map <code>value</code> is the package version revision. </p>
             expected_status: <p> The package version’s expected status before it is updated. If <code>expectedStatus</code> is provided, the package version's status is updated only if its status at the time <code>UpdatePackageVersionsStatus</code> is called matches <code>expectedStatus</code>. </p>
             target_status: <p> The status you want to change the package version status to. </p>
+
+        Raises:
+            aws_sdk_codeartifact.errors.access_denied_exception.AccessDeniedException: <p> The operation did not succeed because of an unauthorized access attempt. </p>
+            aws_sdk_codeartifact.errors.conflict_exception.ConflictException: <p> The operation did not succeed because prerequisites are not met. </p>
+            aws_sdk_codeartifact.errors.internal_server_exception.InternalServerException: <p> The operation did not succeed because of an error that occurred inside CodeArtifact. </p>
+            aws_sdk_codeartifact.errors.resource_not_found_exception.ResourceNotFoundException: <p> The operation did not succeed because the resource requested is not found in the service. </p>
+            aws_sdk_codeartifact.errors.throttling_exception.ThrottlingException: <p> The operation did not succeed because too many requests are sent to the service. </p>
+            aws_sdk_codeartifact.errors.validation_exception.ValidationException: <p> The operation did not succeed because a parameter in the request was sent with an invalid value. </p>
+            aws_sdk_codeartifact.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3442,6 +3844,16 @@ class AsynccodeartifactClient:
             repository: <p> The name of the repository to update. </p>
             description: <p> An updated repository description. </p>
             upstreams: <p> A list of upstream repositories to associate with the repository. The order of the upstream repositories in the list determines their priority order when CodeArtifact looks for a requested package version. For more information, see <a href=\"https://docs.aws.amazon.com/codeartifact/latest/ug/repos-upstream.html\">Working with upstream repositories</a>. </p>
+
+        Raises:
+            aws_sdk_codeartifact.errors.access_denied_exception.AccessDeniedException: <p> The operation did not succeed because of an unauthorized access attempt. </p>
+            aws_sdk_codeartifact.errors.conflict_exception.ConflictException: <p> The operation did not succeed because prerequisites are not met. </p>
+            aws_sdk_codeartifact.errors.internal_server_exception.InternalServerException: <p> The operation did not succeed because of an error that occurred inside CodeArtifact. </p>
+            aws_sdk_codeartifact.errors.resource_not_found_exception.ResourceNotFoundException: <p> The operation did not succeed because the resource requested is not found in the service. </p>
+            aws_sdk_codeartifact.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p> The operation did not succeed because it would have exceeded a service limit for your account. </p>
+            aws_sdk_codeartifact.errors.throttling_exception.ThrottlingException: <p> The operation did not succeed because too many requests are sent to the service. </p>
+            aws_sdk_codeartifact.errors.validation_exception.ValidationException: <p> The operation did not succeed because a parameter in the request was sent with an invalid value. </p>
+            aws_sdk_codeartifact.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

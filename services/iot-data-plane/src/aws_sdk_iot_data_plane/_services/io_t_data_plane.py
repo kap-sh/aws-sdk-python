@@ -186,6 +186,14 @@ class IoTDataPlaneClient:
             client_id: <p>The unique identifier of the MQTT client to disconnect. The client ID can't start with a dollar sign ($).</p> <p>MQTT client IDs must be URL encoded (percent-encoded) when they contain characters that are not valid in HTTP requests, such as spaces, forward slashes (/), and UTF-8 characters.</p>
             clean_session: <p>Specifies whether to remove the client's persistent session state when disconnecting. Set to <code>TRUE</code> to delete all session information, including subscriptions and queued messages. Set to <code>FALSE</code> to preserve the session state for <a href=\"https://docs.aws.amazon.com/iot/latest/developerguide/mqtt.html#mqtt-persistent-sessions\">persistent sessions</a>. For clean sessions this parameter will be ignored. By default, this is set to <code>FALSE</code> (preserves the session state).</p>
             prevent_will_message: <p>Controls if Amazon Web Services IoT Core publishes the client's Last Will and Testament (LWT) message upon disconnection. Set to <code>TRUE</code> to prevent publishing the LWT message. Set to <code>FALSE</code> to ensure that LWT is published. By default, this is set to <code>FALSE</code> (LWT message is published).</p>
+
+        Raises:
+            aws_sdk_iot_data_plane.errors.forbidden_exception.ForbiddenException: <p>The caller isn't authorized to make the request.</p>
+            aws_sdk_iot_data_plane.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot_data_plane.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot_data_plane.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot_data_plane.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot_data_plane.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -229,6 +237,17 @@ class IoTDataPlaneClient:
         Args:
             thing_name: <p>The name of the thing.</p>
             shadow_name: <p>The name of the shadow.</p>
+
+        Raises:
+            aws_sdk_iot_data_plane.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot_data_plane.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot_data_plane.errors.method_not_allowed_exception.MethodNotAllowedException: <p>The specified combination of HTTP verb and URI is not supported.</p>
+            aws_sdk_iot_data_plane.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot_data_plane.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot_data_plane.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot_data_plane.errors.unauthorized_exception.UnauthorizedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_iot_data_plane.errors.unsupported_document_encoding_exception.UnsupportedDocumentEncodingException: <p>The document encoding is not supported.</p>
+            aws_sdk_iot_data_plane.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -272,6 +291,14 @@ class IoTDataPlaneClient:
         Args:
             client_id: <p>The unique identifier of the MQTT client to retrieve connection information. The client ID can't start with a dollar sign ($).</p> <p>MQTT client IDs must be URL encoded (percent-encoded) when they contain characters that are not valid in HTTP requests, such as spaces, forward slashes (/), and UTF-8 characters.</p>
             include_socket_information: <p>Specifies if socket information (sourcePort, targetPort, sourceIp, targetIp) should be included in the GetConnection response. Set to <code>TRUE</code> to include socket information. Set to <code>FALSE</code> to omit socket information. By default, this is set to <code>FALSE</code>. See the <a href=\"https://docs.aws.amazon.com/iot/latest/developerguide/mqtt.html#mqtt-client-disconnect\">developer guide</a> for how to authorize this parameter.</p>
+
+        Raises:
+            aws_sdk_iot_data_plane.errors.forbidden_exception.ForbiddenException: <p>The caller isn't authorized to make the request.</p>
+            aws_sdk_iot_data_plane.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot_data_plane.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot_data_plane.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot_data_plane.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot_data_plane.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -311,6 +338,16 @@ class IoTDataPlaneClient:
 
         Args:
             topic: <p>The topic name of the retained message to retrieve.</p>
+
+        Raises:
+            aws_sdk_iot_data_plane.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot_data_plane.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot_data_plane.errors.method_not_allowed_exception.MethodNotAllowedException: <p>The specified combination of HTTP verb and URI is not supported.</p>
+            aws_sdk_iot_data_plane.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot_data_plane.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot_data_plane.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot_data_plane.errors.unauthorized_exception.UnauthorizedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_iot_data_plane.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -354,6 +391,17 @@ class IoTDataPlaneClient:
         Args:
             thing_name: <p>The name of the thing.</p>
             shadow_name: <p>The name of the shadow.</p>
+
+        Raises:
+            aws_sdk_iot_data_plane.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot_data_plane.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot_data_plane.errors.method_not_allowed_exception.MethodNotAllowedException: <p>The specified combination of HTTP verb and URI is not supported.</p>
+            aws_sdk_iot_data_plane.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot_data_plane.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot_data_plane.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot_data_plane.errors.unauthorized_exception.UnauthorizedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_iot_data_plane.errors.unsupported_document_encoding_exception.UnsupportedDocumentEncodingException: <p>The document encoding is not supported.</p>
+            aws_sdk_iot_data_plane.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -399,6 +447,16 @@ class IoTDataPlaneClient:
             thing_name: <p>The name of the thing.</p>
             next_token: <p>The token to retrieve the next set of results.</p>
             page_size: <p>The result page size.</p>
+
+        Raises:
+            aws_sdk_iot_data_plane.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot_data_plane.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot_data_plane.errors.method_not_allowed_exception.MethodNotAllowedException: <p>The specified combination of HTTP verb and URI is not supported.</p>
+            aws_sdk_iot_data_plane.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot_data_plane.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot_data_plane.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot_data_plane.errors.unauthorized_exception.UnauthorizedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_iot_data_plane.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -446,6 +504,15 @@ class IoTDataPlaneClient:
         Args:
             next_token: <p>To retrieve the next set of results, the <code>nextToken</code> value from a previous response; otherwise <b>null</b> to receive the first set of results.</p>
             max_results: <p>The maximum number of results to return at one time.</p>
+
+        Raises:
+            aws_sdk_iot_data_plane.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot_data_plane.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot_data_plane.errors.method_not_allowed_exception.MethodNotAllowedException: <p>The specified combination of HTTP verb and URI is not supported.</p>
+            aws_sdk_iot_data_plane.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot_data_plane.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot_data_plane.errors.unauthorized_exception.UnauthorizedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_iot_data_plane.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -519,6 +586,14 @@ class IoTDataPlaneClient:
             client_id: <p>The unique identifier of the MQTT client to list subscriptions for. The client ID can't start with a dollar sign ($).</p> <p>MQTT client IDs must be URL encoded (percent-encoded) when they contain characters that are not valid in HTTP requests, such as spaces, forward slashes (/), and UTF-8 characters.</p>
             next_token: <p>To retrieve the next set of results, the <code>nextToken</code> value from a previous response; otherwise <b>null</b> to receive the first set of results.</p>
             max_results: <p>The maximum number of subscriptions to return in a single request. By default, this is set to 20.</p>
+
+        Raises:
+            aws_sdk_iot_data_plane.errors.forbidden_exception.ForbiddenException: <p>The caller isn't authorized to make the request.</p>
+            aws_sdk_iot_data_plane.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot_data_plane.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot_data_plane.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot_data_plane.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot_data_plane.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -617,6 +692,14 @@ class IoTDataPlaneClient:
             response_topic: <p>A UTF-8 encoded string that's used as the topic name for a response message. The response topic is used to describe the topic which the receiver should publish to as part of the request-response flow. The topic must not contain wildcard characters.</p>
             correlation_data: <p>The base64-encoded binary data used by the sender of the request message to identify which request the response message is for when it's received. <code>correlationData</code> is an HTTP header value in the API.</p>
             message_expiry: <p>A user-defined integer value that represents the message expiry interval in seconds. If absent, the message doesn't expire. For more information about the limits of <code>messageExpiry</code>, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/iot-core.html#message-broker-limits\">Amazon Web Services IoT Core message broker and protocol limits and quotas </a> from the Amazon Web Services Reference Guide.</p>
+
+        Raises:
+            aws_sdk_iot_data_plane.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot_data_plane.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot_data_plane.errors.method_not_allowed_exception.MethodNotAllowedException: <p>The specified combination of HTTP verb and URI is not supported.</p>
+            aws_sdk_iot_data_plane.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot_data_plane.errors.unauthorized_exception.UnauthorizedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_iot_data_plane.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -702,6 +785,17 @@ class IoTDataPlaneClient:
             user_properties: <p>A JSON string that contains an array of JSON objects. If you don't use Amazon Web Services SDK or CLI, you must encode the JSON string to base64 format before adding it to the HTTP header. <code>userProperties</code> is an HTTP header value in the API.</p> <p>For MQTT 3.1.1 clients, user properties are silently dropped.</p> <p>The following example <code>userProperties</code> parameter is a JSON string which represents two User Properties. Note that it needs to be base64-encoded:</p> <p> <code>[{\"deviceName\": \"alpha\"}, {\"deviceCnt\": \"45\"}]</code> </p>
             payload_format_indicator: <p>An <code>Enum</code> string value that indicates whether the payload is formatted as UTF-8. <code>payloadFormatIndicator</code> is an HTTP header value in the API.</p>
             correlation_data: <p>The base64-encoded binary data used by the sender of the request message to identify which request the response message is for when it's received. <code>correlationData</code> is an HTTP header value in the API.</p>
+
+        Raises:
+            aws_sdk_iot_data_plane.errors.forbidden_exception.ForbiddenException: <p>The caller isn't authorized to make the request.</p>
+            aws_sdk_iot_data_plane.errors.gateway_timeout_exception.GatewayTimeoutException: <p>The delivery confirmation was not received from the client within the specified timeout period.</p>
+            aws_sdk_iot_data_plane.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot_data_plane.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot_data_plane.errors.request_entity_too_large_exception.RequestEntityTooLargeException: <p>The payload exceeds the maximum size allowed.</p>
+            aws_sdk_iot_data_plane.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot_data_plane.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot_data_plane.errors.unauthorized_exception.UnauthorizedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_iot_data_plane.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -762,6 +856,18 @@ class IoTDataPlaneClient:
             thing_name: <p>The name of the thing.</p>
             shadow_name: <p>The name of the shadow.</p>
             payload: <p>The state information, in JSON format.</p>
+
+        Raises:
+            aws_sdk_iot_data_plane.errors.conflict_exception.ConflictException: <p>The specified version does not match the version of the document.</p>
+            aws_sdk_iot_data_plane.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot_data_plane.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_iot_data_plane.errors.method_not_allowed_exception.MethodNotAllowedException: <p>The specified combination of HTTP verb and URI is not supported.</p>
+            aws_sdk_iot_data_plane.errors.request_entity_too_large_exception.RequestEntityTooLargeException: <p>The payload exceeds the maximum size allowed.</p>
+            aws_sdk_iot_data_plane.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot_data_plane.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot_data_plane.errors.unauthorized_exception.UnauthorizedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_iot_data_plane.errors.unsupported_document_encoding_exception.UnsupportedDocumentEncodingException: <p>The document encoding is not supported.</p>
+            aws_sdk_iot_data_plane.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(

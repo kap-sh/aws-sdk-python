@@ -56,6 +56,18 @@ class PrivateConnectionResource:
             name: <p>Unique name for this Private Connection within the account.</p>
             mode: <p>Private Connection mode configuration.</p>
             tags: <p>Tags to add to the Private Connection at creation time.</p>
+
+        Raises:
+            aws_sdk_devops_agent.errors.access_denied_exception.AccessDeniedException: <p>Access to the requested resource is denied due to insufficient permissions.</p>
+            aws_sdk_devops_agent.errors.conflict_exception.ConflictException: <p>The request conflicts with the current state of the resource.</p>
+            aws_sdk_devops_agent.errors.content_size_exceeded_exception.ContentSizeExceededException: <p>This exception is thrown when the content size exceeds the allowed limit.</p>
+            aws_sdk_devops_agent.errors.internal_server_exception.InternalServerException: <p>This exception is thrown when an unexpected error occurs in the processing of a request.</p>
+            aws_sdk_devops_agent.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters provided in the request are invalid.</p>
+            aws_sdk_devops_agent.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource could not be found.</p>
+            aws_sdk_devops_agent.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request would exceed the service quota limit.</p>
+            aws_sdk_devops_agent.errors.throttling_exception.ThrottlingException: <p>The request was throttled due to too many requests. Please slow down and try again.</p>
+            aws_sdk_devops_agent.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by the service.</p>
+            aws_sdk_devops_agent.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -96,6 +108,18 @@ class PrivateConnectionResource:
 
         Args:
             name: <p>The name of the Private Connection.</p>
+
+        Raises:
+            aws_sdk_devops_agent.errors.access_denied_exception.AccessDeniedException: <p>Access to the requested resource is denied due to insufficient permissions.</p>
+            aws_sdk_devops_agent.errors.conflict_exception.ConflictException: <p>The request conflicts with the current state of the resource.</p>
+            aws_sdk_devops_agent.errors.content_size_exceeded_exception.ContentSizeExceededException: <p>This exception is thrown when the content size exceeds the allowed limit.</p>
+            aws_sdk_devops_agent.errors.internal_server_exception.InternalServerException: <p>This exception is thrown when an unexpected error occurs in the processing of a request.</p>
+            aws_sdk_devops_agent.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters provided in the request are invalid.</p>
+            aws_sdk_devops_agent.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource could not be found.</p>
+            aws_sdk_devops_agent.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request would exceed the service quota limit.</p>
+            aws_sdk_devops_agent.errors.throttling_exception.ThrottlingException: <p>The request was throttled due to too many requests. Please slow down and try again.</p>
+            aws_sdk_devops_agent.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by the service.</p>
+            aws_sdk_devops_agent.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -133,6 +157,18 @@ class PrivateConnectionResource:
 
         Args:
             name: <p>The name of the Private Connection.</p>
+
+        Raises:
+            aws_sdk_devops_agent.errors.access_denied_exception.AccessDeniedException: <p>Access to the requested resource is denied due to insufficient permissions.</p>
+            aws_sdk_devops_agent.errors.conflict_exception.ConflictException: <p>The request conflicts with the current state of the resource.</p>
+            aws_sdk_devops_agent.errors.content_size_exceeded_exception.ContentSizeExceededException: <p>This exception is thrown when the content size exceeds the allowed limit.</p>
+            aws_sdk_devops_agent.errors.internal_server_exception.InternalServerException: <p>This exception is thrown when an unexpected error occurs in the processing of a request.</p>
+            aws_sdk_devops_agent.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters provided in the request are invalid.</p>
+            aws_sdk_devops_agent.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource could not be found.</p>
+            aws_sdk_devops_agent.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request would exceed the service quota limit.</p>
+            aws_sdk_devops_agent.errors.throttling_exception.ThrottlingException: <p>The request was throttled due to too many requests. Please slow down and try again.</p>
+            aws_sdk_devops_agent.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by the service.</p>
+            aws_sdk_devops_agent.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -163,7 +199,20 @@ class PrivateConnectionResource:
     def list(
         self, *, config_overrides: Optional[DevOpsAgentClientConfig] = None
     ) -> "aws_sdk_devops_agent.types.list_private_connections_output.ListPrivateConnectionsOutput":
-        """<p>Lists all Private Connections in the caller's account.</p>"""
+        """<p>Lists all Private Connections in the caller's account.</p>
+
+        Raises:
+            aws_sdk_devops_agent.errors.access_denied_exception.AccessDeniedException: <p>Access to the requested resource is denied due to insufficient permissions.</p>
+            aws_sdk_devops_agent.errors.conflict_exception.ConflictException: <p>The request conflicts with the current state of the resource.</p>
+            aws_sdk_devops_agent.errors.content_size_exceeded_exception.ContentSizeExceededException: <p>This exception is thrown when the content size exceeds the allowed limit.</p>
+            aws_sdk_devops_agent.errors.internal_server_exception.InternalServerException: <p>This exception is thrown when an unexpected error occurs in the processing of a request.</p>
+            aws_sdk_devops_agent.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters provided in the request are invalid.</p>
+            aws_sdk_devops_agent.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource could not be found.</p>
+            aws_sdk_devops_agent.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request would exceed the service quota limit.</p>
+            aws_sdk_devops_agent.errors.throttling_exception.ThrottlingException: <p>The request was throttled due to too many requests. Please slow down and try again.</p>
+            aws_sdk_devops_agent.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by the service.</p>
+            aws_sdk_devops_agent.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_devops_agent.types.list_private_connections_input.ListPrivateConnectionsInput]",
@@ -201,6 +250,18 @@ class PrivateConnectionResource:
         Args:
             name: <p>The name of the Private Connection.</p>
             certificate: <p>The new certificate for the Private Connection.</p>
+
+        Raises:
+            aws_sdk_devops_agent.errors.access_denied_exception.AccessDeniedException: <p>Access to the requested resource is denied due to insufficient permissions.</p>
+            aws_sdk_devops_agent.errors.conflict_exception.ConflictException: <p>The request conflicts with the current state of the resource.</p>
+            aws_sdk_devops_agent.errors.content_size_exceeded_exception.ContentSizeExceededException: <p>This exception is thrown when the content size exceeds the allowed limit.</p>
+            aws_sdk_devops_agent.errors.internal_server_exception.InternalServerException: <p>This exception is thrown when an unexpected error occurs in the processing of a request.</p>
+            aws_sdk_devops_agent.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters provided in the request are invalid.</p>
+            aws_sdk_devops_agent.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource could not be found.</p>
+            aws_sdk_devops_agent.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request would exceed the service quota limit.</p>
+            aws_sdk_devops_agent.errors.throttling_exception.ThrottlingException: <p>The request was throttled due to too many requests. Please slow down and try again.</p>
+            aws_sdk_devops_agent.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by the service.</p>
+            aws_sdk_devops_agent.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -248,6 +309,18 @@ class AsyncPrivateConnectionResource:
             name: <p>Unique name for this Private Connection within the account.</p>
             mode: <p>Private Connection mode configuration.</p>
             tags: <p>Tags to add to the Private Connection at creation time.</p>
+
+        Raises:
+            aws_sdk_devops_agent.errors.access_denied_exception.AccessDeniedException: <p>Access to the requested resource is denied due to insufficient permissions.</p>
+            aws_sdk_devops_agent.errors.conflict_exception.ConflictException: <p>The request conflicts with the current state of the resource.</p>
+            aws_sdk_devops_agent.errors.content_size_exceeded_exception.ContentSizeExceededException: <p>This exception is thrown when the content size exceeds the allowed limit.</p>
+            aws_sdk_devops_agent.errors.internal_server_exception.InternalServerException: <p>This exception is thrown when an unexpected error occurs in the processing of a request.</p>
+            aws_sdk_devops_agent.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters provided in the request are invalid.</p>
+            aws_sdk_devops_agent.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource could not be found.</p>
+            aws_sdk_devops_agent.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request would exceed the service quota limit.</p>
+            aws_sdk_devops_agent.errors.throttling_exception.ThrottlingException: <p>The request was throttled due to too many requests. Please slow down and try again.</p>
+            aws_sdk_devops_agent.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by the service.</p>
+            aws_sdk_devops_agent.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -289,6 +362,18 @@ class AsyncPrivateConnectionResource:
 
         Args:
             name: <p>The name of the Private Connection.</p>
+
+        Raises:
+            aws_sdk_devops_agent.errors.access_denied_exception.AccessDeniedException: <p>Access to the requested resource is denied due to insufficient permissions.</p>
+            aws_sdk_devops_agent.errors.conflict_exception.ConflictException: <p>The request conflicts with the current state of the resource.</p>
+            aws_sdk_devops_agent.errors.content_size_exceeded_exception.ContentSizeExceededException: <p>This exception is thrown when the content size exceeds the allowed limit.</p>
+            aws_sdk_devops_agent.errors.internal_server_exception.InternalServerException: <p>This exception is thrown when an unexpected error occurs in the processing of a request.</p>
+            aws_sdk_devops_agent.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters provided in the request are invalid.</p>
+            aws_sdk_devops_agent.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource could not be found.</p>
+            aws_sdk_devops_agent.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request would exceed the service quota limit.</p>
+            aws_sdk_devops_agent.errors.throttling_exception.ThrottlingException: <p>The request was throttled due to too many requests. Please slow down and try again.</p>
+            aws_sdk_devops_agent.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by the service.</p>
+            aws_sdk_devops_agent.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -327,6 +412,18 @@ class AsyncPrivateConnectionResource:
 
         Args:
             name: <p>The name of the Private Connection.</p>
+
+        Raises:
+            aws_sdk_devops_agent.errors.access_denied_exception.AccessDeniedException: <p>Access to the requested resource is denied due to insufficient permissions.</p>
+            aws_sdk_devops_agent.errors.conflict_exception.ConflictException: <p>The request conflicts with the current state of the resource.</p>
+            aws_sdk_devops_agent.errors.content_size_exceeded_exception.ContentSizeExceededException: <p>This exception is thrown when the content size exceeds the allowed limit.</p>
+            aws_sdk_devops_agent.errors.internal_server_exception.InternalServerException: <p>This exception is thrown when an unexpected error occurs in the processing of a request.</p>
+            aws_sdk_devops_agent.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters provided in the request are invalid.</p>
+            aws_sdk_devops_agent.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource could not be found.</p>
+            aws_sdk_devops_agent.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request would exceed the service quota limit.</p>
+            aws_sdk_devops_agent.errors.throttling_exception.ThrottlingException: <p>The request was throttled due to too many requests. Please slow down and try again.</p>
+            aws_sdk_devops_agent.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by the service.</p>
+            aws_sdk_devops_agent.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -358,7 +455,20 @@ class AsyncPrivateConnectionResource:
     async def list(
         self, *, config_overrides: Optional[AsyncDevOpsAgentClientConfig] = None
     ) -> "aws_sdk_devops_agent.types.list_private_connections_output.ListPrivateConnectionsOutput":
-        """<p>Lists all Private Connections in the caller's account.</p>"""
+        """<p>Lists all Private Connections in the caller's account.</p>
+
+        Raises:
+            aws_sdk_devops_agent.errors.access_denied_exception.AccessDeniedException: <p>Access to the requested resource is denied due to insufficient permissions.</p>
+            aws_sdk_devops_agent.errors.conflict_exception.ConflictException: <p>The request conflicts with the current state of the resource.</p>
+            aws_sdk_devops_agent.errors.content_size_exceeded_exception.ContentSizeExceededException: <p>This exception is thrown when the content size exceeds the allowed limit.</p>
+            aws_sdk_devops_agent.errors.internal_server_exception.InternalServerException: <p>This exception is thrown when an unexpected error occurs in the processing of a request.</p>
+            aws_sdk_devops_agent.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters provided in the request are invalid.</p>
+            aws_sdk_devops_agent.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource could not be found.</p>
+            aws_sdk_devops_agent.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request would exceed the service quota limit.</p>
+            aws_sdk_devops_agent.errors.throttling_exception.ThrottlingException: <p>The request was throttled due to too many requests. Please slow down and try again.</p>
+            aws_sdk_devops_agent.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by the service.</p>
+            aws_sdk_devops_agent.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_devops_agent.types.list_private_connections_input.ListPrivateConnectionsInput]",
@@ -397,6 +507,18 @@ class AsyncPrivateConnectionResource:
         Args:
             name: <p>The name of the Private Connection.</p>
             certificate: <p>The new certificate for the Private Connection.</p>
+
+        Raises:
+            aws_sdk_devops_agent.errors.access_denied_exception.AccessDeniedException: <p>Access to the requested resource is denied due to insufficient permissions.</p>
+            aws_sdk_devops_agent.errors.conflict_exception.ConflictException: <p>The request conflicts with the current state of the resource.</p>
+            aws_sdk_devops_agent.errors.content_size_exceeded_exception.ContentSizeExceededException: <p>This exception is thrown when the content size exceeds the allowed limit.</p>
+            aws_sdk_devops_agent.errors.internal_server_exception.InternalServerException: <p>This exception is thrown when an unexpected error occurs in the processing of a request.</p>
+            aws_sdk_devops_agent.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters provided in the request are invalid.</p>
+            aws_sdk_devops_agent.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource could not be found.</p>
+            aws_sdk_devops_agent.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request would exceed the service quota limit.</p>
+            aws_sdk_devops_agent.errors.throttling_exception.ThrottlingException: <p>The request was throttled due to too many requests. Please slow down and try again.</p>
+            aws_sdk_devops_agent.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by the service.</p>
+            aws_sdk_devops_agent.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

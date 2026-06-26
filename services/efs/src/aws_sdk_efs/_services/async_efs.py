@@ -227,6 +227,16 @@ class AsyncEFSClient:
             file_system_id: <p>The ID of the EFS file system that the access point provides access to.</p>
             posix_user: <p>The operating system user and group applied to all file system requests made using the access point.</p>
             root_directory: <p>Specifies the directory on the EFS file system that the access point exposes as the root directory of your file system to NFS clients using the access point. The clients using the access point can only access the root directory and below. If the <code>RootDirectory</code> > <code>Path</code> specified does not exist, Amazon EFS creates it and applies the <code>CreationInfo</code> settings when a client connects to an access point. When specifying a <code>RootDirectory</code>, you must provide the <code>Path</code>, and the <code>CreationInfo</code>.</p> <p>Amazon EFS creates a root directory only if you have provided the CreationInfo: OwnUid, OwnGID, and permissions for the directory. If you do not provide this information, Amazon EFS does not create the root directory. If the root directory does not exist, attempts to mount using the access point will fail.</p>
+
+        Raises:
+            aws_sdk_efs.errors.access_point_already_exists.AccessPointAlreadyExists: <p>Returned if the access point that you are trying to create already exists, with the creation token you provided in the request.</p>
+            aws_sdk_efs.errors.access_point_limit_exceeded.AccessPointLimitExceeded: <p>Returned if the Amazon Web Services account has already created the maximum number of access points allowed per file system. For more informaton, see <a href=\"https://docs.aws.amazon.com/efs/latest/ug/limits.html#limits-efs-resources-per-account-per-region\">https://docs.aws.amazon.com/efs/latest/ug/limits.html#limits-efs-resources-per-account-per-region</a>.</p>
+            aws_sdk_efs.errors.bad_request.BadRequest: <p>Returned if the request is malformed or contains an error such as an invalid parameter value or a missing required parameter.</p>
+            aws_sdk_efs.errors.file_system_not_found.FileSystemNotFound: <p>Returned if the specified <code>FileSystemId</code> value doesn't exist in the requester's Amazon Web Services account.</p>
+            aws_sdk_efs.errors.incorrect_file_system_life_cycle_state.IncorrectFileSystemLifeCycleState: <p>Returned if the file system's lifecycle state is not \"available\".</p>
+            aws_sdk_efs.errors.internal_server_error.InternalServerError: <p>Returned if an error occurred on the server side.</p>
+            aws_sdk_efs.errors.throttling_exception.ThrottlingException: <p>Returned when the <code>CreateAccessPoint</code> API action is called too quickly and the number of Access Points on the file system is nearing the <a href=\"https://docs.aws.amazon.com/efs/latest/ug/limits.html#limits-efs-resources-per-account-per-region\">limit of 120</a>.</p>
+            aws_sdk_efs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -296,6 +306,16 @@ class AsyncEFSClient:
             availability_zone_name: <p>For One Zone file systems, specify the Amazon Web Services Availability Zone in which to create the file system. Use the format <code>us-east-1a</code> to specify the Availability Zone. For more information about One Zone file systems, see <a href=\"https://docs.aws.amazon.com/efs/latest/ug/availability-durability.html#file-system-type\">EFS file system types</a> in the <i>Amazon EFS User Guide</i>.</p> <note> <p>One Zone file systems are not available in all Availability Zones in Amazon Web Services Regions where Amazon EFS is available.</p> </note>
             backup: <p>Specifies whether automatic backups are enabled on the file system that you are creating. Set the value to <code>true</code> to enable automatic backups. If you are creating a One Zone file system, automatic backups are enabled by default. For more information, see <a href=\"https://docs.aws.amazon.com/efs/latest/ug/awsbackup.html#automatic-backups\">Automatic backups</a> in the <i>Amazon EFS User Guide</i>.</p> <p>Default is <code>false</code>. However, if you specify an <code>AvailabilityZoneName</code>, the default is <code>true</code>.</p> <note> <p>Backup is not available in all Amazon Web Services Regions where Amazon EFS is available.</p> </note>
             tags: <p>Use to create one or more tags associated with the file system. Each tag is a user-defined key-value pair. Name your file system on creation by including a <code>\"Key\":\"Name\",\"Value\":\"{value}\"</code> key-value pair. Each key must be unique. For more information, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html\">Tagging Amazon Web Services resources</a> in the <i>Amazon Web Services General Reference Guide</i>.</p>
+
+        Raises:
+            aws_sdk_efs.errors.bad_request.BadRequest: <p>Returned if the request is malformed or contains an error such as an invalid parameter value or a missing required parameter.</p>
+            aws_sdk_efs.errors.file_system_already_exists.FileSystemAlreadyExists: <p>Returned if the file system you are trying to create already exists, with the creation token you provided.</p>
+            aws_sdk_efs.errors.file_system_limit_exceeded.FileSystemLimitExceeded: <p>Returned if the Amazon Web Services account has already created the maximum number of file systems allowed per account.</p>
+            aws_sdk_efs.errors.insufficient_throughput_capacity.InsufficientThroughputCapacity: <p>Returned if there's not enough capacity to provision additional throughput. This value might be returned when you try to create a file system in provisioned throughput mode, when you attempt to increase the provisioned throughput of an existing file system, or when you attempt to change an existing file system from Bursting Throughput to Provisioned Throughput mode. Try again later.</p>
+            aws_sdk_efs.errors.internal_server_error.InternalServerError: <p>Returned if an error occurred on the server side.</p>
+            aws_sdk_efs.errors.throughput_limit_exceeded.ThroughputLimitExceeded: <p>Returned if the throughput mode or amount of provisioned throughput can't be changed because the throughput limit of 1024 MiB/s has been reached.</p>
+            aws_sdk_efs.errors.unsupported_availability_zone.UnsupportedAvailabilityZone: <p>Returned if the requested Amazon EFS functionality is not available in the specified Availability Zone.</p>
+            aws_sdk_efs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -365,6 +385,22 @@ class AsyncEFSClient:
             ip_address_type: <p>Specify the type of IP address of the mount target you are creating. Options are IPv4, dual stack, or IPv6. If you don’t specify an IpAddressType, then IPv4 is used.</p> <ul> <li> <p>IPV4_ONLY – Create mount target with IPv4 only subnet or dual-stack subnet.</p> </li> <li> <p>DUAL_STACK – Create mount target with dual-stack subnet.</p> </li> <li> <p>IPV6_ONLY – Create mount target with IPv6 only subnet.</p> </li> </ul> <note> <p>Creating IPv6 mount target only ENI in dual-stack subnet is not supported.</p> </note>
             security_groups: <p>VPC security group IDs, of the form <code>sg-xxxxxxxx</code>. These must be for the same VPC as the subnet specified. The maximum number of security groups depends on account quota. For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html\">Amazon VPC Quotas</a> in the <i>Amazon VPC User Guide</i> (see the <b>Security Groups</b> table). </p>
 
+        Raises:
+            aws_sdk_efs.errors.availability_zones_mismatch.AvailabilityZonesMismatch: <p>Returned if the Availability Zone that was specified for a mount target is different from the Availability Zone that was specified for One Zone storage. For more information, see <a href=\"https://docs.aws.amazon.com/efs/latest/ug/availability-durability.html\">Regional and One Zone storage redundancy</a>.</p>
+            aws_sdk_efs.errors.bad_request.BadRequest: <p>Returned if the request is malformed or contains an error such as an invalid parameter value or a missing required parameter.</p>
+            aws_sdk_efs.errors.file_system_not_found.FileSystemNotFound: <p>Returned if the specified <code>FileSystemId</code> value doesn't exist in the requester's Amazon Web Services account.</p>
+            aws_sdk_efs.errors.incorrect_file_system_life_cycle_state.IncorrectFileSystemLifeCycleState: <p>Returned if the file system's lifecycle state is not \"available\".</p>
+            aws_sdk_efs.errors.internal_server_error.InternalServerError: <p>Returned if an error occurred on the server side.</p>
+            aws_sdk_efs.errors.ip_address_in_use.IpAddressInUse: <p>Returned if the request specified an <code>IpAddress</code> that is already in use in the subnet.</p>
+            aws_sdk_efs.errors.mount_target_conflict.MountTargetConflict: <p>Returned if the mount target would violate one of the specified restrictions based on the file system's existing mount targets.</p>
+            aws_sdk_efs.errors.network_interface_limit_exceeded.NetworkInterfaceLimitExceeded: <p>The calling account has reached the limit for elastic network interfaces for the specific Amazon Web Services Region. Either delete some network interfaces or request that the account quota be raised. For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html\">Amazon VPC Quotas</a> in the <i>Amazon VPC User Guide</i> (see the <b>Network interfaces per Region</b> entry in the <b>Network interfaces</b> table). </p>
+            aws_sdk_efs.errors.no_free_addresses_in_subnet.NoFreeAddressesInSubnet: <p>Returned if <code>IpAddress</code> was not specified in the request and there are no free IP addresses in the subnet.</p>
+            aws_sdk_efs.errors.security_group_limit_exceeded.SecurityGroupLimitExceeded: <p>Returned if the number of <code>SecurityGroups</code> specified in the request is greater than the limit, which is based on account quota. Either delete some security groups or request that the account quota be raised. For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html\">Amazon VPC Quotas</a> in the <i>Amazon VPC User Guide</i> (see the <b>Security Groups</b> table). </p>
+            aws_sdk_efs.errors.security_group_not_found.SecurityGroupNotFound: <p>Returned if one of the specified security groups doesn't exist in the subnet's virtual private cloud (VPC).</p>
+            aws_sdk_efs.errors.subnet_not_found.SubnetNotFound: <p>Returned if there is no subnet with ID <code>SubnetId</code> provided in the request.</p>
+            aws_sdk_efs.errors.unsupported_availability_zone.UnsupportedAvailabilityZone: <p>Returned if the requested Amazon EFS functionality is not available in the specified Availability Zone.</p>
+            aws_sdk_efs.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To create a new mount target
             This operation creates a new mount target for an EFS file system.
@@ -419,6 +455,20 @@ class AsyncEFSClient:
         Args:
             source_file_system_id: <p>Specifies the Amazon EFS file system that you want to replicate. This file system cannot already be a source or destination file system in another replication configuration.</p>
             destinations: <p>An array of destination configuration objects. Only one destination configuration object is supported.</p>
+
+        Raises:
+            aws_sdk_efs.errors.bad_request.BadRequest: <p>Returned if the request is malformed or contains an error such as an invalid parameter value or a missing required parameter.</p>
+            aws_sdk_efs.errors.conflict_exception.ConflictException: <p>Returned if the source file system in a replication is encrypted but the destination file system is unencrypted.</p>
+            aws_sdk_efs.errors.file_system_limit_exceeded.FileSystemLimitExceeded: <p>Returned if the Amazon Web Services account has already created the maximum number of file systems allowed per account.</p>
+            aws_sdk_efs.errors.file_system_not_found.FileSystemNotFound: <p>Returned if the specified <code>FileSystemId</code> value doesn't exist in the requester's Amazon Web Services account.</p>
+            aws_sdk_efs.errors.incorrect_file_system_life_cycle_state.IncorrectFileSystemLifeCycleState: <p>Returned if the file system's lifecycle state is not \"available\".</p>
+            aws_sdk_efs.errors.insufficient_throughput_capacity.InsufficientThroughputCapacity: <p>Returned if there's not enough capacity to provision additional throughput. This value might be returned when you try to create a file system in provisioned throughput mode, when you attempt to increase the provisioned throughput of an existing file system, or when you attempt to change an existing file system from Bursting Throughput to Provisioned Throughput mode. Try again later.</p>
+            aws_sdk_efs.errors.internal_server_error.InternalServerError: <p>Returned if an error occurred on the server side.</p>
+            aws_sdk_efs.errors.replication_not_found.ReplicationNotFound: <p>Returned if the specified file system does not have a replication configuration.</p>
+            aws_sdk_efs.errors.throughput_limit_exceeded.ThroughputLimitExceeded: <p>Returned if the throughput mode or amount of provisioned throughput can't be changed because the throughput limit of 1024 MiB/s has been reached.</p>
+            aws_sdk_efs.errors.unsupported_availability_zone.UnsupportedAvailabilityZone: <p>Returned if the requested Amazon EFS functionality is not available in the specified Availability Zone.</p>
+            aws_sdk_efs.errors.validation_exception.ValidationException: <p>Returned if the Backup service is not available in the Amazon Web Services Region in which the request was made.</p>
+            aws_sdk_efs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -460,6 +510,12 @@ class AsyncEFSClient:
         Args:
             file_system_id: <p>The ID of the file system whose tags you want to modify (String). This operation modifies the tags only, not the file system.</p>
             tags: <p>An array of <code>Tag</code> objects to add. Each <code>Tag</code> object is a key-value pair. </p>
+
+        Raises:
+            aws_sdk_efs.errors.bad_request.BadRequest: <p>Returned if the request is malformed or contains an error such as an invalid parameter value or a missing required parameter.</p>
+            aws_sdk_efs.errors.file_system_not_found.FileSystemNotFound: <p>Returned if the specified <code>FileSystemId</code> value doesn't exist in the requester's Amazon Web Services account.</p>
+            aws_sdk_efs.errors.internal_server_error.InternalServerError: <p>Returned if an error occurred on the server side.</p>
+            aws_sdk_efs.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To create a new tag
@@ -503,6 +559,12 @@ class AsyncEFSClient:
 
         Args:
             access_point_id: <p>The ID of the access point that you want to delete.</p>
+
+        Raises:
+            aws_sdk_efs.errors.access_point_not_found.AccessPointNotFound: <p>Returned if the specified <code>AccessPointId</code> value doesn't exist in the requester's Amazon Web Services account.</p>
+            aws_sdk_efs.errors.bad_request.BadRequest: <p>Returned if the request is malformed or contains an error such as an invalid parameter value or a missing required parameter.</p>
+            aws_sdk_efs.errors.internal_server_error.InternalServerError: <p>Returned if an error occurred on the server side.</p>
+            aws_sdk_efs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -539,6 +601,13 @@ class AsyncEFSClient:
 
         Args:
             file_system_id: <p>The ID of the file system you want to delete.</p>
+
+        Raises:
+            aws_sdk_efs.errors.bad_request.BadRequest: <p>Returned if the request is malformed or contains an error such as an invalid parameter value or a missing required parameter.</p>
+            aws_sdk_efs.errors.file_system_in_use.FileSystemInUse: <p>Returned if a file system has mount targets.</p>
+            aws_sdk_efs.errors.file_system_not_found.FileSystemNotFound: <p>Returned if the specified <code>FileSystemId</code> value doesn't exist in the requester's Amazon Web Services account.</p>
+            aws_sdk_efs.errors.internal_server_error.InternalServerError: <p>Returned if an error occurred on the server side.</p>
+            aws_sdk_efs.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To delete a file system
@@ -581,6 +650,13 @@ class AsyncEFSClient:
 
         Args:
             file_system_id: <p>Specifies the EFS file system for which to delete the <code>FileSystemPolicy</code>.</p>
+
+        Raises:
+            aws_sdk_efs.errors.bad_request.BadRequest: <p>Returned if the request is malformed or contains an error such as an invalid parameter value or a missing required parameter.</p>
+            aws_sdk_efs.errors.file_system_not_found.FileSystemNotFound: <p>Returned if the specified <code>FileSystemId</code> value doesn't exist in the requester's Amazon Web Services account.</p>
+            aws_sdk_efs.errors.incorrect_file_system_life_cycle_state.IncorrectFileSystemLifeCycleState: <p>Returned if the file system's lifecycle state is not \"available\".</p>
+            aws_sdk_efs.errors.internal_server_error.InternalServerError: <p>Returned if an error occurred on the server side.</p>
+            aws_sdk_efs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -617,6 +693,13 @@ class AsyncEFSClient:
 
         Args:
             mount_target_id: <p>The ID of the mount target to delete (String).</p>
+
+        Raises:
+            aws_sdk_efs.errors.bad_request.BadRequest: <p>Returned if the request is malformed or contains an error such as an invalid parameter value or a missing required parameter.</p>
+            aws_sdk_efs.errors.dependency_timeout.DependencyTimeout: <p>The service timed out trying to fulfill the request, and the client should try the call again.</p>
+            aws_sdk_efs.errors.internal_server_error.InternalServerError: <p>Returned if an error occurred on the server side.</p>
+            aws_sdk_efs.errors.mount_target_not_found.MountTargetNotFound: <p>Returned if there is no mount target with the specified ID found in the caller's Amazon Web Services account.</p>
+            aws_sdk_efs.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To delete a mount target
@@ -661,6 +744,13 @@ class AsyncEFSClient:
         Args:
             source_file_system_id: <p>The ID of the source file system in the replication configuration.</p>
             deletion_mode: <p>When replicating across Amazon Web Services accounts or across Amazon Web Services Regions, Amazon EFS deletes the replication configuration from both the source and destination account or Region (<code>ALL_CONFIGURATIONS</code>) by default. If there's a configuration or permissions issue that prevents Amazon EFS from deleting the replication configuration from both sides, you can use the <code>LOCAL_CONFIGURATION_ONLY</code> mode to delete the replication configuration from only the local side (the account or Region from which the delete is performed). </p> <note> <p>Only use the <code>LOCAL_CONFIGURATION_ONLY</code> mode in the case that Amazon EFS is unable to delete the replication configuration in both the source and destination account or Region. Deleting the local configuration leaves the configuration in the other account or Region unrecoverable.</p> <p>Additionally, do not use this mode for same-account, same-region replication as doing so results in a BadRequest exception error.</p> </note>
+
+        Raises:
+            aws_sdk_efs.errors.bad_request.BadRequest: <p>Returned if the request is malformed or contains an error such as an invalid parameter value or a missing required parameter.</p>
+            aws_sdk_efs.errors.file_system_not_found.FileSystemNotFound: <p>Returned if the specified <code>FileSystemId</code> value doesn't exist in the requester's Amazon Web Services account.</p>
+            aws_sdk_efs.errors.internal_server_error.InternalServerError: <p>Returned if an error occurred on the server side.</p>
+            aws_sdk_efs.errors.replication_not_found.ReplicationNotFound: <p>Returned if the specified file system does not have a replication configuration.</p>
+            aws_sdk_efs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -701,6 +791,12 @@ class AsyncEFSClient:
         Args:
             file_system_id: <p>The ID of the file system whose tags you want to delete (String).</p>
             tag_keys: <p>A list of tag keys to delete.</p>
+
+        Raises:
+            aws_sdk_efs.errors.bad_request.BadRequest: <p>Returned if the request is malformed or contains an error such as an invalid parameter value or a missing required parameter.</p>
+            aws_sdk_efs.errors.file_system_not_found.FileSystemNotFound: <p>Returned if the specified <code>FileSystemId</code> value doesn't exist in the requester's Amazon Web Services account.</p>
+            aws_sdk_efs.errors.internal_server_error.InternalServerError: <p>Returned if an error occurred on the server side.</p>
+            aws_sdk_efs.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To delete tags for an EFS file system
@@ -756,6 +852,13 @@ class AsyncEFSClient:
             next_token: <p> <code>NextToken</code> is present if the response is paginated. You can use <code>NextMarker</code> in the subsequent request to fetch the next page of access point descriptions.</p>
             access_point_id: <p>(Optional) Specifies an EFS access point to describe in the response; mutually exclusive with <code>FileSystemId</code>.</p>
             file_system_id: <p>(Optional) If you provide a <code>FileSystemId</code>, EFS returns all access points for that file system; mutually exclusive with <code>AccessPointId</code>.</p>
+
+        Raises:
+            aws_sdk_efs.errors.access_point_not_found.AccessPointNotFound: <p>Returned if the specified <code>AccessPointId</code> value doesn't exist in the requester's Amazon Web Services account.</p>
+            aws_sdk_efs.errors.bad_request.BadRequest: <p>Returned if the request is malformed or contains an error such as an invalid parameter value or a missing required parameter.</p>
+            aws_sdk_efs.errors.file_system_not_found.FileSystemNotFound: <p>Returned if the specified <code>FileSystemId</code> value doesn't exist in the requester's Amazon Web Services account.</p>
+            aws_sdk_efs.errors.internal_server_error.InternalServerError: <p>Returned if an error occurred on the server side.</p>
+            aws_sdk_efs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -832,6 +935,10 @@ class AsyncEFSClient:
         Args:
             next_token: <p>(Optional) You can use <code>NextToken</code> in a subsequent request to fetch the next page of Amazon Web Services account preferences if the response payload was paginated.</p>
             max_results: <p>(Optional) When retrieving account preferences, you can optionally specify the <code>MaxItems</code> parameter to limit the number of objects returned in a response. The default value is 100. </p>
+
+        Raises:
+            aws_sdk_efs.errors.internal_server_error.InternalServerError: <p>Returned if an error occurred on the server side.</p>
+            aws_sdk_efs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -873,6 +980,14 @@ class AsyncEFSClient:
 
         Args:
             file_system_id: <p>Specifies which EFS file system for which to retrieve the <code>BackupPolicy</code>.</p>
+
+        Raises:
+            aws_sdk_efs.errors.bad_request.BadRequest: <p>Returned if the request is malformed or contains an error such as an invalid parameter value or a missing required parameter.</p>
+            aws_sdk_efs.errors.file_system_not_found.FileSystemNotFound: <p>Returned if the specified <code>FileSystemId</code> value doesn't exist in the requester's Amazon Web Services account.</p>
+            aws_sdk_efs.errors.internal_server_error.InternalServerError: <p>Returned if an error occurred on the server side.</p>
+            aws_sdk_efs.errors.policy_not_found.PolicyNotFound: <p>Returned if <code>no backup</code> is specified for a One Zone EFS file system.</p>
+            aws_sdk_efs.errors.validation_exception.ValidationException: <p>Returned if the Backup service is not available in the Amazon Web Services Region in which the request was made.</p>
+            aws_sdk_efs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -911,6 +1026,13 @@ class AsyncEFSClient:
 
         Args:
             file_system_id: <p>Specifies which EFS file system to retrieve the <code>FileSystemPolicy</code> for.</p>
+
+        Raises:
+            aws_sdk_efs.errors.bad_request.BadRequest: <p>Returned if the request is malformed or contains an error such as an invalid parameter value or a missing required parameter.</p>
+            aws_sdk_efs.errors.file_system_not_found.FileSystemNotFound: <p>Returned if the specified <code>FileSystemId</code> value doesn't exist in the requester's Amazon Web Services account.</p>
+            aws_sdk_efs.errors.internal_server_error.InternalServerError: <p>Returned if an error occurred on the server side.</p>
+            aws_sdk_efs.errors.policy_not_found.PolicyNotFound: <p>Returned if <code>no backup</code> is specified for a One Zone EFS file system.</p>
+            aws_sdk_efs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -959,6 +1081,12 @@ class AsyncEFSClient:
             marker: <p>(Optional) Opaque pagination token returned from a previous <code>DescribeFileSystems</code> operation (String). If present, specifies to continue the list from where the returning call had left off. </p>
             creation_token: <p>(Optional) Restricts the list to the file system with this creation token (String). You specify a creation token when you create an Amazon EFS file system.</p>
             file_system_id: <p>(Optional) ID of the file system whose description you want to retrieve (String).</p>
+
+        Raises:
+            aws_sdk_efs.errors.bad_request.BadRequest: <p>Returned if the request is malformed or contains an error such as an invalid parameter value or a missing required parameter.</p>
+            aws_sdk_efs.errors.file_system_not_found.FileSystemNotFound: <p>Returned if the specified <code>FileSystemId</code> value doesn't exist in the requester's Amazon Web Services account.</p>
+            aws_sdk_efs.errors.internal_server_error.InternalServerError: <p>Returned if an error occurred on the server side.</p>
+            aws_sdk_efs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1036,6 +1164,12 @@ class AsyncEFSClient:
         Args:
             file_system_id: <p>The ID of the file system whose <code>LifecycleConfiguration</code> object you want to retrieve (String).</p>
 
+        Raises:
+            aws_sdk_efs.errors.bad_request.BadRequest: <p>Returned if the request is malformed or contains an error such as an invalid parameter value or a missing required parameter.</p>
+            aws_sdk_efs.errors.file_system_not_found.FileSystemNotFound: <p>Returned if the specified <code>FileSystemId</code> value doesn't exist in the requester's Amazon Web Services account.</p>
+            aws_sdk_efs.errors.internal_server_error.InternalServerError: <p>Returned if an error occurred on the server side.</p>
+            aws_sdk_efs.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To describe the lifecycle configuration for a file system
             This operation describes a file system's LifecycleConfiguration. EFS lifecycle management uses the LifecycleConfiguration object to identify which files to move to the EFS Infrequent Access (IA) storage class.
@@ -1095,6 +1229,14 @@ class AsyncEFSClient:
             file_system_id: <p>(Optional) ID of the file system whose mount targets you want to list (String). It must be included in your request if an <code>AccessPointId</code> or <code>MountTargetId</code> is not included. Accepts either a file system ID or ARN as input.</p>
             mount_target_id: <p>(Optional) ID of the mount target that you want to have described (String). It must be included in your request if <code>FileSystemId</code> is not included. Accepts either a mount target ID or ARN as input.</p>
             access_point_id: <p>(Optional) The ID of the access point whose mount targets that you want to list. It must be included in your request if a <code>FileSystemId</code> or <code>MountTargetId</code> is not included in your request. Accepts either an access point ID or ARN as input.</p>
+
+        Raises:
+            aws_sdk_efs.errors.access_point_not_found.AccessPointNotFound: <p>Returned if the specified <code>AccessPointId</code> value doesn't exist in the requester's Amazon Web Services account.</p>
+            aws_sdk_efs.errors.bad_request.BadRequest: <p>Returned if the request is malformed or contains an error such as an invalid parameter value or a missing required parameter.</p>
+            aws_sdk_efs.errors.file_system_not_found.FileSystemNotFound: <p>Returned if the specified <code>FileSystemId</code> value doesn't exist in the requester's Amazon Web Services account.</p>
+            aws_sdk_efs.errors.internal_server_error.InternalServerError: <p>Returned if an error occurred on the server side.</p>
+            aws_sdk_efs.errors.mount_target_not_found.MountTargetNotFound: <p>Returned if there is no mount target with the specified ID found in the caller's Amazon Web Services account.</p>
+            aws_sdk_efs.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To describe the mount targets for a file system
@@ -1182,6 +1324,13 @@ class AsyncEFSClient:
         Args:
             mount_target_id: <p>The ID of the mount target whose security groups you want to retrieve.</p>
 
+        Raises:
+            aws_sdk_efs.errors.bad_request.BadRequest: <p>Returned if the request is malformed or contains an error such as an invalid parameter value or a missing required parameter.</p>
+            aws_sdk_efs.errors.incorrect_mount_target_state.IncorrectMountTargetState: <p>Returned if the mount target is not in the correct state for the operation.</p>
+            aws_sdk_efs.errors.internal_server_error.InternalServerError: <p>Returned if an error occurred on the server side.</p>
+            aws_sdk_efs.errors.mount_target_not_found.MountTargetNotFound: <p>Returned if there is no mount target with the specified ID found in the caller's Amazon Web Services account.</p>
+            aws_sdk_efs.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To describe the security groups for a mount target
             This operation describes all of the security groups for a file system's mount target.
@@ -1231,6 +1380,14 @@ class AsyncEFSClient:
             file_system_id: <p>You can retrieve the replication configuration for a specific file system by providing its file system ID. For cross-account,cross-region replication, an account can only describe the replication configuration for a file system in its own Region.</p>
             next_token: <p> <code>NextToken</code> is present if the response is paginated. You can use <code>NextToken</code> in a subsequent request to fetch the next page of output.</p>
             max_results: <p>(Optional) To limit the number of objects returned in a response, you can specify the <code>MaxItems</code> parameter. The default value is 100. </p>
+
+        Raises:
+            aws_sdk_efs.errors.bad_request.BadRequest: <p>Returned if the request is malformed or contains an error such as an invalid parameter value or a missing required parameter.</p>
+            aws_sdk_efs.errors.file_system_not_found.FileSystemNotFound: <p>Returned if the specified <code>FileSystemId</code> value doesn't exist in the requester's Amazon Web Services account.</p>
+            aws_sdk_efs.errors.internal_server_error.InternalServerError: <p>Returned if an error occurred on the server side.</p>
+            aws_sdk_efs.errors.replication_not_found.ReplicationNotFound: <p>Returned if the specified file system does not have a replication configuration.</p>
+            aws_sdk_efs.errors.validation_exception.ValidationException: <p>Returned if the Backup service is not available in the Amazon Web Services Region in which the request was made.</p>
+            aws_sdk_efs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1303,6 +1460,12 @@ class AsyncEFSClient:
             max_items: <p>(Optional) The maximum number of file system tags to return in the response. Currently, this number is automatically set to 100, and other values are ignored. The response is paginated at 100 per page if you have more than 100 tags.</p>
             marker: <p>(Optional) An opaque pagination token returned from a previous <code>DescribeTags</code> operation (String). If present, it specifies to continue the list from where the previous call left off.</p>
             file_system_id: <p>The ID of the file system whose tag set you want to retrieve.</p>
+
+        Raises:
+            aws_sdk_efs.errors.bad_request.BadRequest: <p>Returned if the request is malformed or contains an error such as an invalid parameter value or a missing required parameter.</p>
+            aws_sdk_efs.errors.file_system_not_found.FileSystemNotFound: <p>Returned if the specified <code>FileSystemId</code> value doesn't exist in the requester's Amazon Web Services account.</p>
+            aws_sdk_efs.errors.internal_server_error.InternalServerError: <p>Returned if an error occurred on the server side.</p>
+            aws_sdk_efs.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To describe the tags for a file system
@@ -1380,6 +1543,13 @@ class AsyncEFSClient:
             resource_id: <p>Specifies the EFS resource you want to retrieve tags for. You can retrieve tags for EFS file systems and access points using this API endpoint.</p>
             max_results: <p>(Optional) Specifies the maximum number of tag objects to return in the response. The default value is 100.</p>
             next_token: <p>(Optional) You can use <code>NextToken</code> in a subsequent request to fetch the next page of access point descriptions if the response payload was paginated.</p>
+
+        Raises:
+            aws_sdk_efs.errors.access_point_not_found.AccessPointNotFound: <p>Returned if the specified <code>AccessPointId</code> value doesn't exist in the requester's Amazon Web Services account.</p>
+            aws_sdk_efs.errors.bad_request.BadRequest: <p>Returned if the request is malformed or contains an error such as an invalid parameter value or a missing required parameter.</p>
+            aws_sdk_efs.errors.file_system_not_found.FileSystemNotFound: <p>Returned if the specified <code>FileSystemId</code> value doesn't exist in the requester's Amazon Web Services account.</p>
+            aws_sdk_efs.errors.internal_server_error.InternalServerError: <p>Returned if an error occurred on the server side.</p>
+            aws_sdk_efs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1427,6 +1597,15 @@ class AsyncEFSClient:
             mount_target_id: <p>The ID of the mount target whose security groups you want to modify.</p>
             security_groups: <p>An array of VPC security group IDs. </p>
 
+        Raises:
+            aws_sdk_efs.errors.bad_request.BadRequest: <p>Returned if the request is malformed or contains an error such as an invalid parameter value or a missing required parameter.</p>
+            aws_sdk_efs.errors.incorrect_mount_target_state.IncorrectMountTargetState: <p>Returned if the mount target is not in the correct state for the operation.</p>
+            aws_sdk_efs.errors.internal_server_error.InternalServerError: <p>Returned if an error occurred on the server side.</p>
+            aws_sdk_efs.errors.mount_target_not_found.MountTargetNotFound: <p>Returned if there is no mount target with the specified ID found in the caller's Amazon Web Services account.</p>
+            aws_sdk_efs.errors.security_group_limit_exceeded.SecurityGroupLimitExceeded: <p>Returned if the number of <code>SecurityGroups</code> specified in the request is greater than the limit, which is based on account quota. Either delete some security groups or request that the account quota be raised. For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html\">Amazon VPC Quotas</a> in the <i>Amazon VPC User Guide</i> (see the <b>Security Groups</b> table). </p>
+            aws_sdk_efs.errors.security_group_not_found.SecurityGroupNotFound: <p>Returned if one of the specified security groups doesn't exist in the subnet's virtual private cloud (VPC).</p>
+            aws_sdk_efs.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To modify the security groups associated with a mount target for a file system
             This operation modifies the security groups associated with a mount target for a file system.
@@ -1470,6 +1649,11 @@ class AsyncEFSClient:
 
         Args:
             resource_id_type: <p>Specifies the EFS resource ID preference to set for the user's Amazon Web Services account, in the current Amazon Web Services Region, either <code>LONG_ID</code> (17 characters), or <code>SHORT_ID</code> (8 characters).</p> <note> <p>Starting in October, 2021, you will receive an error when setting the account preference to <code>SHORT_ID</code>. Contact Amazon Web Services support if you receive an error and must use short IDs for file system and mount target resources.</p> </note>
+
+        Raises:
+            aws_sdk_efs.errors.bad_request.BadRequest: <p>Returned if the request is malformed or contains an error such as an invalid parameter value or a missing required parameter.</p>
+            aws_sdk_efs.errors.internal_server_error.InternalServerError: <p>Returned if an error occurred on the server side.</p>
+            aws_sdk_efs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1510,6 +1694,14 @@ class AsyncEFSClient:
         Args:
             file_system_id: <p>Specifies which EFS file system to update the backup policy for.</p>
             backup_policy: <p>The backup policy included in the <code>PutBackupPolicy</code> request.</p>
+
+        Raises:
+            aws_sdk_efs.errors.bad_request.BadRequest: <p>Returned if the request is malformed or contains an error such as an invalid parameter value or a missing required parameter.</p>
+            aws_sdk_efs.errors.file_system_not_found.FileSystemNotFound: <p>Returned if the specified <code>FileSystemId</code> value doesn't exist in the requester's Amazon Web Services account.</p>
+            aws_sdk_efs.errors.incorrect_file_system_life_cycle_state.IncorrectFileSystemLifeCycleState: <p>Returned if the file system's lifecycle state is not \"available\".</p>
+            aws_sdk_efs.errors.internal_server_error.InternalServerError: <p>Returned if an error occurred on the server side.</p>
+            aws_sdk_efs.errors.validation_exception.ValidationException: <p>Returned if the Backup service is not available in the Amazon Web Services Region in which the request was made.</p>
+            aws_sdk_efs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1555,6 +1747,14 @@ class AsyncEFSClient:
             file_system_id: <p>The ID of the EFS file system that you want to create or update the <code>FileSystemPolicy</code> for.</p>
             policy: <p>The <code>FileSystemPolicy</code> that you're creating. Accepts a JSON formatted policy definition. EFS file system policies have a 20,000 character limit. To find out more about the elements that make up a file system policy, see <a href=\"https://docs.aws.amazon.com/efs/latest/ug/security_iam_service-with-iam.html#security_iam_service-with-iam-resource-based-policies\">Resource-based policies within Amazon EFS</a>. </p>
             bypass_policy_lockout_safety_check: <p>(Optional) A boolean that specifies whether or not to bypass the <code>FileSystemPolicy</code> lockout safety check. The lockout safety check determines whether the policy in the request will lock out, or prevent, the IAM principal that is making the request from making future <code>PutFileSystemPolicy</code> requests on this file system. Set <code>BypassPolicyLockoutSafetyCheck</code> to <code>True</code> only when you intend to prevent the IAM principal that is making the request from making subsequent <code>PutFileSystemPolicy</code> requests on this file system. The default value is <code>False</code>. </p>
+
+        Raises:
+            aws_sdk_efs.errors.bad_request.BadRequest: <p>Returned if the request is malformed or contains an error such as an invalid parameter value or a missing required parameter.</p>
+            aws_sdk_efs.errors.file_system_not_found.FileSystemNotFound: <p>Returned if the specified <code>FileSystemId</code> value doesn't exist in the requester's Amazon Web Services account.</p>
+            aws_sdk_efs.errors.incorrect_file_system_life_cycle_state.IncorrectFileSystemLifeCycleState: <p>Returned if the file system's lifecycle state is not \"available\".</p>
+            aws_sdk_efs.errors.internal_server_error.InternalServerError: <p>Returned if an error occurred on the server side.</p>
+            aws_sdk_efs.errors.invalid_policy_exception.InvalidPolicyException: <p>Returned if the <code>FileSystemPolicy</code> is malformed or contains an error such as a parameter value that is not valid or a missing required parameter. Returned in the case of a policy lockout safety check error.</p>
+            aws_sdk_efs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1600,6 +1800,13 @@ class AsyncEFSClient:
         Args:
             file_system_id: <p>The ID of the file system for which you are creating the <code>LifecycleConfiguration</code> object (String).</p>
             lifecycle_policies: <p>An array of <code>LifecyclePolicy</code> objects that define the file system's <code>LifecycleConfiguration</code> object. A <code>LifecycleConfiguration</code> object informs lifecycle management of the following:</p> <ul> <li> <p> <b> <code>TransitionToIA</code> </b> – When to move files in the file system from primary storage (Standard storage class) into the Infrequent Access (IA) storage.</p> </li> <li> <p> <b> <code>TransitionToArchive</code> </b> – When to move files in the file system from their current storage class (either IA or Standard storage) into the Archive storage.</p> <p>File systems cannot transition into Archive storage before transitioning into IA storage. Therefore, TransitionToArchive must either not be set or must be later than TransitionToIA.</p> <note> <p>The Archive storage class is available only for file systems that use the Elastic throughput mode and the General Purpose performance mode. </p> </note> </li> <li> <p> <b> <code>TransitionToPrimaryStorageClass</code> </b> – Whether to move files in the file system back to primary storage (Standard storage class) after they are accessed in IA or Archive storage.</p> </li> </ul> <note> <p>When using the <code>put-lifecycle-configuration</code> CLI command or the <code>PutLifecycleConfiguration</code> API action, Amazon EFS requires that each <code>LifecyclePolicy</code> object have only a single transition. This means that in a request body, <code>LifecyclePolicies</code> must be structured as an array of <code>LifecyclePolicy</code> objects, one object for each storage transition. See the example requests in the following section for more information.</p> </note>
+
+        Raises:
+            aws_sdk_efs.errors.bad_request.BadRequest: <p>Returned if the request is malformed or contains an error such as an invalid parameter value or a missing required parameter.</p>
+            aws_sdk_efs.errors.file_system_not_found.FileSystemNotFound: <p>Returned if the specified <code>FileSystemId</code> value doesn't exist in the requester's Amazon Web Services account.</p>
+            aws_sdk_efs.errors.incorrect_file_system_life_cycle_state.IncorrectFileSystemLifeCycleState: <p>Returned if the file system's lifecycle state is not \"available\".</p>
+            aws_sdk_efs.errors.internal_server_error.InternalServerError: <p>Returned if an error occurred on the server side.</p>
+            aws_sdk_efs.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Creates a new lifecycleconfiguration object for a file system
@@ -1647,6 +1854,13 @@ class AsyncEFSClient:
         Args:
             resource_id: <p>The ID specifying the EFS resource that you want to create a tag for.</p>
             tags: <p>An array of <code>Tag</code> objects to add. Each <code>Tag</code> object is a key-value pair.</p>
+
+        Raises:
+            aws_sdk_efs.errors.access_point_not_found.AccessPointNotFound: <p>Returned if the specified <code>AccessPointId</code> value doesn't exist in the requester's Amazon Web Services account.</p>
+            aws_sdk_efs.errors.bad_request.BadRequest: <p>Returned if the request is malformed or contains an error such as an invalid parameter value or a missing required parameter.</p>
+            aws_sdk_efs.errors.file_system_not_found.FileSystemNotFound: <p>Returned if the specified <code>FileSystemId</code> value doesn't exist in the requester's Amazon Web Services account.</p>
+            aws_sdk_efs.errors.internal_server_error.InternalServerError: <p>Returned if an error occurred on the server side.</p>
+            aws_sdk_efs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1686,6 +1900,13 @@ class AsyncEFSClient:
         Args:
             resource_id: <p>Specifies the EFS resource that you want to remove tags from.</p>
             tag_keys: <p>The keys of the key-value tag pairs that you want to remove from the specified EFS resource.</p>
+
+        Raises:
+            aws_sdk_efs.errors.access_point_not_found.AccessPointNotFound: <p>Returned if the specified <code>AccessPointId</code> value doesn't exist in the requester's Amazon Web Services account.</p>
+            aws_sdk_efs.errors.bad_request.BadRequest: <p>Returned if the request is malformed or contains an error such as an invalid parameter value or a missing required parameter.</p>
+            aws_sdk_efs.errors.file_system_not_found.FileSystemNotFound: <p>Returned if the specified <code>FileSystemId</code> value doesn't exist in the requester's Amazon Web Services account.</p>
+            aws_sdk_efs.errors.internal_server_error.InternalServerError: <p>Returned if an error occurred on the server side.</p>
+            aws_sdk_efs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1731,6 +1952,16 @@ class AsyncEFSClient:
             file_system_id: <p>The ID of the file system that you want to update.</p>
             throughput_mode: <p>(Optional) Updates the file system's throughput mode. If you're not updating your throughput mode, you don't need to provide this value in your request. If you are changing the <code>ThroughputMode</code> to <code>provisioned</code>, you must also set a value for <code>ProvisionedThroughputInMibps</code>.</p>
             provisioned_throughput_in_mibps: <p>(Optional) The throughput, measured in mebibytes per second (MiBps), that you want to provision for a file system that you're creating. Required if <code>ThroughputMode</code> is set to <code>provisioned</code>. Valid values are 1-3414 MiBps, with the upper limit depending on Region. To increase this limit, contact Amazon Web Services Support. For more information, see <a href=\"https://docs.aws.amazon.com/efs/latest/ug/limits.html#soft-limits\">Amazon EFS quotas that you can increase</a> in the <i>Amazon EFS User Guide</i>.</p>
+
+        Raises:
+            aws_sdk_efs.errors.bad_request.BadRequest: <p>Returned if the request is malformed or contains an error such as an invalid parameter value or a missing required parameter.</p>
+            aws_sdk_efs.errors.file_system_not_found.FileSystemNotFound: <p>Returned if the specified <code>FileSystemId</code> value doesn't exist in the requester's Amazon Web Services account.</p>
+            aws_sdk_efs.errors.incorrect_file_system_life_cycle_state.IncorrectFileSystemLifeCycleState: <p>Returned if the file system's lifecycle state is not \"available\".</p>
+            aws_sdk_efs.errors.insufficient_throughput_capacity.InsufficientThroughputCapacity: <p>Returned if there's not enough capacity to provision additional throughput. This value might be returned when you try to create a file system in provisioned throughput mode, when you attempt to increase the provisioned throughput of an existing file system, or when you attempt to change an existing file system from Bursting Throughput to Provisioned Throughput mode. Try again later.</p>
+            aws_sdk_efs.errors.internal_server_error.InternalServerError: <p>Returned if an error occurred on the server side.</p>
+            aws_sdk_efs.errors.throughput_limit_exceeded.ThroughputLimitExceeded: <p>Returned if the throughput mode or amount of provisioned throughput can't be changed because the throughput limit of 1024 MiB/s has been reached.</p>
+            aws_sdk_efs.errors.too_many_requests.TooManyRequests: <p>Returned if you don’t wait at least 24 hours before either changing the throughput mode, or decreasing the Provisioned Throughput value.</p>
+            aws_sdk_efs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1777,6 +2008,17 @@ class AsyncEFSClient:
         Args:
             file_system_id: <p>The ID of the file system to update. </p>
             replication_overwrite_protection: <p>The status of the file system's replication overwrite protection.</p> <ul> <li> <p> <code>ENABLED</code> – The file system cannot be used as the destination file system in a replication configuration. The file system is writeable. Replication overwrite protection is <code>ENABLED</code> by default. </p> </li> <li> <p> <code>DISABLED</code> – The file system can be used as the destination file system in a replication configuration. The file system is read-only and can only be modified by EFS replication.</p> </li> <li> <p> <code>REPLICATING</code> – The file system is being used as the destination file system in a replication configuration. The file system is read-only and is only modified only by EFS replication.</p> </li> </ul> <p>If the replication configuration is deleted, the file system's replication overwrite protection is re-enabled and the file system becomes writeable.</p>
+
+        Raises:
+            aws_sdk_efs.errors.bad_request.BadRequest: <p>Returned if the request is malformed or contains an error such as an invalid parameter value or a missing required parameter.</p>
+            aws_sdk_efs.errors.file_system_not_found.FileSystemNotFound: <p>Returned if the specified <code>FileSystemId</code> value doesn't exist in the requester's Amazon Web Services account.</p>
+            aws_sdk_efs.errors.incorrect_file_system_life_cycle_state.IncorrectFileSystemLifeCycleState: <p>Returned if the file system's lifecycle state is not \"available\".</p>
+            aws_sdk_efs.errors.insufficient_throughput_capacity.InsufficientThroughputCapacity: <p>Returned if there's not enough capacity to provision additional throughput. This value might be returned when you try to create a file system in provisioned throughput mode, when you attempt to increase the provisioned throughput of an existing file system, or when you attempt to change an existing file system from Bursting Throughput to Provisioned Throughput mode. Try again later.</p>
+            aws_sdk_efs.errors.internal_server_error.InternalServerError: <p>Returned if an error occurred on the server side.</p>
+            aws_sdk_efs.errors.replication_already_exists.ReplicationAlreadyExists: <p>Returned if the file system is already included in a replication configuration.></p>
+            aws_sdk_efs.errors.throughput_limit_exceeded.ThroughputLimitExceeded: <p>Returned if the throughput mode or amount of provisioned throughput can't be changed because the throughput limit of 1024 MiB/s has been reached.</p>
+            aws_sdk_efs.errors.too_many_requests.TooManyRequests: <p>Returned if you don’t wait at least 24 hours before either changing the throughput mode, or decreasing the Provisioned Throughput value.</p>
+            aws_sdk_efs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

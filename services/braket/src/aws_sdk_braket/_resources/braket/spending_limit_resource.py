@@ -58,6 +58,14 @@ class SpendingLimitResource:
             spending_limit: <p>The maximum amount that can be spent on the specified device, in USD.</p>
             time_period: <p>The time period during which the spending limit is active, including start and end dates.</p>
             tags: <p>The tags to apply to the spending limit. Each tag consists of a key and an optional value.</p>
+
+        Raises:
+            aws_sdk_braket.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_braket.errors.device_retired_exception.DeviceRetiredException: <p>The specified device has been retired.</p>
+            aws_sdk_braket.errors.internal_service_exception.InternalServiceException: <p>The request failed because of an unknown error.</p>
+            aws_sdk_braket.errors.throttling_exception.ThrottlingException: <p>The API throttling rate limit is exceeded.</p>
+            aws_sdk_braket.errors.validation_exception.ValidationException: <p>The input request failed to satisfy constraints expected by Amazon Braket.</p>
+            aws_sdk_braket.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -107,6 +115,14 @@ class SpendingLimitResource:
             client_token: <p>A unique, case-sensitive identifier to ensure that the operation completes no more than one time. If this token matches a previous request, Amazon Braket ignores the request, but does not return an error.</p>
             spending_limit: <p>The new maximum amount that can be spent on the specified device, in USD.</p>
             time_period: <p>The new time period during which the spending limit is active, including start and end dates.</p>
+
+        Raises:
+            aws_sdk_braket.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_braket.errors.internal_service_exception.InternalServiceException: <p>The request failed because of an unknown error.</p>
+            aws_sdk_braket.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_braket.errors.throttling_exception.ThrottlingException: <p>The API throttling rate limit is exceeded.</p>
+            aws_sdk_braket.errors.validation_exception.ValidationException: <p>The input request failed to satisfy constraints expected by Amazon Braket.</p>
+            aws_sdk_braket.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -149,6 +165,14 @@ class SpendingLimitResource:
 
         Args:
             spending_limit_arn: <p>The Amazon Resource Name (ARN) of the spending limit to delete.</p>
+
+        Raises:
+            aws_sdk_braket.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_braket.errors.internal_service_exception.InternalServiceException: <p>The request failed because of an unknown error.</p>
+            aws_sdk_braket.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_braket.errors.throttling_exception.ThrottlingException: <p>The API throttling rate limit is exceeded.</p>
+            aws_sdk_braket.errors.validation_exception.ValidationException: <p>The input request failed to satisfy constraints expected by Amazon Braket.</p>
+            aws_sdk_braket.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -192,6 +216,13 @@ class SpendingLimitResource:
             next_token: <p>The token to retrieve the next page of results. This value is returned from a previous call to SearchSpendingLimits when there are more results available.</p>
             max_results: <p>The maximum number of results to return in a single call. Minimum value of 1, maximum value of 100. Default is 20.</p>
             filters: <p>The filters to apply when searching for spending limits. Use filters to narrow down the results based on specific criteria.</p>
+
+        Raises:
+            aws_sdk_braket.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_braket.errors.internal_service_exception.InternalServiceException: <p>The request failed because of an unknown error.</p>
+            aws_sdk_braket.errors.throttling_exception.ThrottlingException: <p>The API throttling rate limit is exceeded.</p>
+            aws_sdk_braket.errors.validation_exception.ValidationException: <p>The input request failed to satisfy constraints expected by Amazon Braket.</p>
+            aws_sdk_braket.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -247,6 +278,14 @@ class AsyncSpendingLimitResource:
             spending_limit: <p>The maximum amount that can be spent on the specified device, in USD.</p>
             time_period: <p>The time period during which the spending limit is active, including start and end dates.</p>
             tags: <p>The tags to apply to the spending limit. Each tag consists of a key and an optional value.</p>
+
+        Raises:
+            aws_sdk_braket.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_braket.errors.device_retired_exception.DeviceRetiredException: <p>The specified device has been retired.</p>
+            aws_sdk_braket.errors.internal_service_exception.InternalServiceException: <p>The request failed because of an unknown error.</p>
+            aws_sdk_braket.errors.throttling_exception.ThrottlingException: <p>The API throttling rate limit is exceeded.</p>
+            aws_sdk_braket.errors.validation_exception.ValidationException: <p>The input request failed to satisfy constraints expected by Amazon Braket.</p>
+            aws_sdk_braket.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -297,6 +336,14 @@ class AsyncSpendingLimitResource:
             client_token: <p>A unique, case-sensitive identifier to ensure that the operation completes no more than one time. If this token matches a previous request, Amazon Braket ignores the request, but does not return an error.</p>
             spending_limit: <p>The new maximum amount that can be spent on the specified device, in USD.</p>
             time_period: <p>The new time period during which the spending limit is active, including start and end dates.</p>
+
+        Raises:
+            aws_sdk_braket.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_braket.errors.internal_service_exception.InternalServiceException: <p>The request failed because of an unknown error.</p>
+            aws_sdk_braket.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_braket.errors.throttling_exception.ThrottlingException: <p>The API throttling rate limit is exceeded.</p>
+            aws_sdk_braket.errors.validation_exception.ValidationException: <p>The input request failed to satisfy constraints expected by Amazon Braket.</p>
+            aws_sdk_braket.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -340,6 +387,14 @@ class AsyncSpendingLimitResource:
 
         Args:
             spending_limit_arn: <p>The Amazon Resource Name (ARN) of the spending limit to delete.</p>
+
+        Raises:
+            aws_sdk_braket.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_braket.errors.internal_service_exception.InternalServiceException: <p>The request failed because of an unknown error.</p>
+            aws_sdk_braket.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_braket.errors.throttling_exception.ThrottlingException: <p>The API throttling rate limit is exceeded.</p>
+            aws_sdk_braket.errors.validation_exception.ValidationException: <p>The input request failed to satisfy constraints expected by Amazon Braket.</p>
+            aws_sdk_braket.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -384,6 +439,13 @@ class AsyncSpendingLimitResource:
             next_token: <p>The token to retrieve the next page of results. This value is returned from a previous call to SearchSpendingLimits when there are more results available.</p>
             max_results: <p>The maximum number of results to return in a single call. Minimum value of 1, maximum value of 100. Default is 20.</p>
             filters: <p>The filters to apply when searching for spending limits. Use filters to narrow down the results based on specific criteria.</p>
+
+        Raises:
+            aws_sdk_braket.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_braket.errors.internal_service_exception.InternalServiceException: <p>The request failed because of an unknown error.</p>
+            aws_sdk_braket.errors.throttling_exception.ThrottlingException: <p>The API throttling rate limit is exceeded.</p>
+            aws_sdk_braket.errors.validation_exception.ValidationException: <p>The input request failed to satisfy constraints expected by Amazon Braket.</p>
+            aws_sdk_braket.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

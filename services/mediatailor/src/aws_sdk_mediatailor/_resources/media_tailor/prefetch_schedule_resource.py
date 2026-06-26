@@ -79,6 +79,9 @@ class PrefetchScheduleResource:
             schedule_type: <p>The frequency that MediaTailor creates prefetch schedules. <code>SINGLE</code> indicates that this schedule applies to one ad break. <code>RECURRING</code> indicates that MediaTailor automatically creates a schedule for each ad avail in a live event.</p> <p>For more information about the prefetch types and when you might use each, see <a href=\"https://docs.aws.amazon.com/mediatailor/latest/ug/prefetching-ads.html\">Prefetching ads in Elemental MediaTailor.</a> </p>
             stream_id: <p>An optional stream identifier that MediaTailor uses to prefetch ads for multiple streams that use the same playback configuration. If <code>StreamId</code> is specified, MediaTailor returns all of the prefetch schedules with an exact match on <code>StreamId</code>. If not specified, MediaTailor returns all of the prefetch schedules for the playback configuration, regardless of <code>StreamId</code>.</p>
             tags: <p>The tags to assign to the prefetch schedule. Tags are key-value pairs that you can associate with Amazon resources to help with organization, access control, and cost tracking. For more information, see <a href=\"https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html\">Tagging AWS Elemental MediaTailor Resources</a>.</p>
+
+        Raises:
+            aws_sdk_mediatailor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -133,6 +136,9 @@ class PrefetchScheduleResource:
         Args:
             name: <p>The name of the prefetch schedule. The name must be unique among all prefetch schedules that are associated with the specified playback configuration.</p>
             playback_configuration_name: <p>Returns information about the prefetch schedule for a specific playback configuration. If you call <code>GetPrefetchSchedule</code> on an expired prefetch schedule, MediaTailor returns an HTTP 404 status code.</p>
+
+        Raises:
+            aws_sdk_mediatailor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -173,6 +179,9 @@ class PrefetchScheduleResource:
         Args:
             name: <p>The name of the prefetch schedule. If the action is successful, the service sends back an HTTP 204 response with an empty HTTP body.</p>
             playback_configuration_name: <p>The name of the playback configuration for this prefetch schedule.</p>
+
+        Raises:
+            aws_sdk_mediatailor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -223,6 +232,9 @@ class PrefetchScheduleResource:
             playback_configuration_name: <p>Retrieves the prefetch schedule(s) for a specific playback configuration.</p>
             schedule_type: <p>The type of prefetch schedules that you want to list. <code>SINGLE</code> indicates that you want to list the configured single prefetch schedules. <code>RECURRING</code> indicates that you want to list the configured recurring prefetch schedules. <code>ALL</code> indicates that you want to list all configured prefetch schedules.</p>
             stream_id: <p>An optional filtering parameter whereby MediaTailor filters the prefetch schedules to include only specific streams.</p>
+
+        Raises:
+            aws_sdk_mediatailor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -297,6 +309,9 @@ class AsyncPrefetchScheduleResource:
             schedule_type: <p>The frequency that MediaTailor creates prefetch schedules. <code>SINGLE</code> indicates that this schedule applies to one ad break. <code>RECURRING</code> indicates that MediaTailor automatically creates a schedule for each ad avail in a live event.</p> <p>For more information about the prefetch types and when you might use each, see <a href=\"https://docs.aws.amazon.com/mediatailor/latest/ug/prefetching-ads.html\">Prefetching ads in Elemental MediaTailor.</a> </p>
             stream_id: <p>An optional stream identifier that MediaTailor uses to prefetch ads for multiple streams that use the same playback configuration. If <code>StreamId</code> is specified, MediaTailor returns all of the prefetch schedules with an exact match on <code>StreamId</code>. If not specified, MediaTailor returns all of the prefetch schedules for the playback configuration, regardless of <code>StreamId</code>.</p>
             tags: <p>The tags to assign to the prefetch schedule. Tags are key-value pairs that you can associate with Amazon resources to help with organization, access control, and cost tracking. For more information, see <a href=\"https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html\">Tagging AWS Elemental MediaTailor Resources</a>.</p>
+
+        Raises:
+            aws_sdk_mediatailor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -352,6 +367,9 @@ class AsyncPrefetchScheduleResource:
         Args:
             name: <p>The name of the prefetch schedule. The name must be unique among all prefetch schedules that are associated with the specified playback configuration.</p>
             playback_configuration_name: <p>Returns information about the prefetch schedule for a specific playback configuration. If you call <code>GetPrefetchSchedule</code> on an expired prefetch schedule, MediaTailor returns an HTTP 404 status code.</p>
+
+        Raises:
+            aws_sdk_mediatailor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -393,6 +411,9 @@ class AsyncPrefetchScheduleResource:
         Args:
             name: <p>The name of the prefetch schedule. If the action is successful, the service sends back an HTTP 204 response with an empty HTTP body.</p>
             playback_configuration_name: <p>The name of the playback configuration for this prefetch schedule.</p>
+
+        Raises:
+            aws_sdk_mediatailor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -444,6 +465,9 @@ class AsyncPrefetchScheduleResource:
             playback_configuration_name: <p>Retrieves the prefetch schedule(s) for a specific playback configuration.</p>
             schedule_type: <p>The type of prefetch schedules that you want to list. <code>SINGLE</code> indicates that you want to list the configured single prefetch schedules. <code>RECURRING</code> indicates that you want to list the configured recurring prefetch schedules. <code>ALL</code> indicates that you want to list all configured prefetch schedules.</p>
             stream_id: <p>An optional filtering parameter whereby MediaTailor filters the prefetch schedules to include only specific streams.</p>
+
+        Raises:
+            aws_sdk_mediatailor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

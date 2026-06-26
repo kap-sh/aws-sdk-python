@@ -240,6 +240,14 @@ class AsyncSSMIncidentsClient:
         Args:
             incident_record_arn: <p>The Amazon Resource Name (ARN) of the incident for which you want to view finding details.</p>
             finding_ids: <p>A list of IDs of findings for which you want to view details.</p>
+
+        Raises:
+            aws_sdk_ssm_incidents.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this operation.</p>
+            aws_sdk_ssm_incidents.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_ssm_incidents.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which doesn't exist. </p>
+            aws_sdk_ssm_incidents.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_ssm_incidents.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_ssm_incidents.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -285,6 +293,15 @@ class AsyncSSMIncidentsClient:
             regions: <p>The Regions that Incident Manager replicates your data to. You can have up to three Regions in your replication set.</p>
             client_token: <p>A token that ensures that the operation is called only once with the specified details.</p>
             tags: <p>A list of tags to add to the replication set.</p>
+
+        Raises:
+            aws_sdk_ssm_incidents.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this operation.</p>
+            aws_sdk_ssm_incidents.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource causes an inconsistent state.</p>
+            aws_sdk_ssm_incidents.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_ssm_incidents.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Request would cause a service quota to be exceeded.</p>
+            aws_sdk_ssm_incidents.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_ssm_incidents.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_ssm_incidents.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -355,6 +372,15 @@ class AsyncSSMIncidentsClient:
             actions: <p>The actions that the response plan starts at the beginning of an incident.</p>
             tags: <p>A list of tags that you are adding to the response plan.</p>
             integrations: <p>Information about third-party services integrated into the response plan.</p>
+
+        Raises:
+            aws_sdk_ssm_incidents.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this operation.</p>
+            aws_sdk_ssm_incidents.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource causes an inconsistent state.</p>
+            aws_sdk_ssm_incidents.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_ssm_incidents.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which doesn't exist. </p>
+            aws_sdk_ssm_incidents.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_ssm_incidents.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_ssm_incidents.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -422,6 +448,15 @@ class AsyncSSMIncidentsClient:
             event_type: <p>The type of event. You can create timeline events of type <code>Custom Event</code> and <code>Note</code>.</p> <p>To make a Note-type event appear on the <i>Incident notes</i> panel in the console, specify <code>eventType</code> as <code>Note</code>and enter the Amazon Resource Name (ARN) of the incident as the value for <code>eventReference</code>.</p>
             event_data: <p>A short description of the event.</p>
             event_references: <p>Adds one or more references to the <code>TimelineEvent</code>. A reference is an Amazon Web Services resource involved or associated with the incident. To specify a reference, enter its Amazon Resource Name (ARN). You can also specify a related item associated with a resource. For example, to specify an Amazon DynamoDB (DynamoDB) table as a resource, use the table's ARN. You can also specify an Amazon CloudWatch metric associated with the DynamoDB table as a related item.</p>
+
+        Raises:
+            aws_sdk_ssm_incidents.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this operation.</p>
+            aws_sdk_ssm_incidents.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource causes an inconsistent state.</p>
+            aws_sdk_ssm_incidents.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_ssm_incidents.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which doesn't exist. </p>
+            aws_sdk_ssm_incidents.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_ssm_incidents.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_ssm_incidents.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -467,6 +502,13 @@ class AsyncSSMIncidentsClient:
 
         Args:
             arn: <p>The Amazon Resource Name (ARN) of the incident record you are deleting.</p>
+
+        Raises:
+            aws_sdk_ssm_incidents.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this operation.</p>
+            aws_sdk_ssm_incidents.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_ssm_incidents.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_ssm_incidents.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_ssm_incidents.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -505,6 +547,14 @@ class AsyncSSMIncidentsClient:
 
         Args:
             arn: <p>The Amazon Resource Name (ARN) of the replication set you're deleting.</p>
+
+        Raises:
+            aws_sdk_ssm_incidents.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this operation.</p>
+            aws_sdk_ssm_incidents.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_ssm_incidents.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which doesn't exist. </p>
+            aws_sdk_ssm_incidents.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_ssm_incidents.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_ssm_incidents.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -545,6 +595,14 @@ class AsyncSSMIncidentsClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource you're deleting the policy from.</p>
             policy_id: <p>The ID of the resource policy you're deleting.</p>
+
+        Raises:
+            aws_sdk_ssm_incidents.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this operation.</p>
+            aws_sdk_ssm_incidents.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_ssm_incidents.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which doesn't exist. </p>
+            aws_sdk_ssm_incidents.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_ssm_incidents.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_ssm_incidents.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -584,6 +642,13 @@ class AsyncSSMIncidentsClient:
 
         Args:
             arn: <p>The Amazon Resource Name (ARN) of the response plan.</p>
+
+        Raises:
+            aws_sdk_ssm_incidents.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this operation.</p>
+            aws_sdk_ssm_incidents.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_ssm_incidents.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_ssm_incidents.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_ssm_incidents.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -624,6 +689,13 @@ class AsyncSSMIncidentsClient:
         Args:
             incident_record_arn: <p>The Amazon Resource Name (ARN) of the incident that includes the timeline event.</p>
             event_id: <p>The ID of the event to update. You can use <code>ListTimelineEvents</code> to find an event's ID.</p>
+
+        Raises:
+            aws_sdk_ssm_incidents.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this operation.</p>
+            aws_sdk_ssm_incidents.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_ssm_incidents.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_ssm_incidents.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_ssm_incidents.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -665,6 +737,14 @@ class AsyncSSMIncidentsClient:
 
         Args:
             arn: <p>The Amazon Resource Name (ARN) of the incident record.</p>
+
+        Raises:
+            aws_sdk_ssm_incidents.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this operation.</p>
+            aws_sdk_ssm_incidents.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_ssm_incidents.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which doesn't exist. </p>
+            aws_sdk_ssm_incidents.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_ssm_incidents.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_ssm_incidents.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -705,6 +785,14 @@ class AsyncSSMIncidentsClient:
 
         Args:
             arn: <p>The Amazon Resource Name (ARN) of the replication set you want to retrieve.</p>
+
+        Raises:
+            aws_sdk_ssm_incidents.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this operation.</p>
+            aws_sdk_ssm_incidents.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_ssm_incidents.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which doesn't exist. </p>
+            aws_sdk_ssm_incidents.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_ssm_incidents.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_ssm_incidents.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -749,6 +837,14 @@ class AsyncSSMIncidentsClient:
             resource_arn: <p>The Amazon Resource Name (ARN) of the response plan with the attached resource policy. </p>
             max_results: <p>The maximum number of resource policies to display for each page of results.</p>
             next_token: <p>The pagination token for the next set of items to return. (You received this token from a previous call.)</p>
+
+        Raises:
+            aws_sdk_ssm_incidents.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this operation.</p>
+            aws_sdk_ssm_incidents.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_ssm_incidents.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which doesn't exist. </p>
+            aws_sdk_ssm_incidents.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_ssm_incidents.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_ssm_incidents.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -816,6 +912,14 @@ class AsyncSSMIncidentsClient:
 
         Args:
             arn: <p>The Amazon Resource Name (ARN) of the response plan.</p>
+
+        Raises:
+            aws_sdk_ssm_incidents.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this operation.</p>
+            aws_sdk_ssm_incidents.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_ssm_incidents.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which doesn't exist. </p>
+            aws_sdk_ssm_incidents.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_ssm_incidents.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_ssm_incidents.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -856,6 +960,14 @@ class AsyncSSMIncidentsClient:
         Args:
             incident_record_arn: <p>The Amazon Resource Name (ARN) of the incident that includes the timeline event.</p>
             event_id: <p>The ID of the event. You can get an event's ID when you create it, or by using <code>ListTimelineEvents</code>.</p>
+
+        Raises:
+            aws_sdk_ssm_incidents.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this operation.</p>
+            aws_sdk_ssm_incidents.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_ssm_incidents.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which doesn't exist. </p>
+            aws_sdk_ssm_incidents.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_ssm_incidents.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_ssm_incidents.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -899,6 +1011,14 @@ class AsyncSSMIncidentsClient:
             incident_record_arn: <p>The Amazon Resource Name (ARN) of the incident for which you want to view associated findings.</p>
             max_results: <p>The maximum number of findings to retrieve per call.</p>
             next_token: <p>The pagination token for the next set of items to return. (You received this token from a previous call.)</p>
+
+        Raises:
+            aws_sdk_ssm_incidents.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this operation.</p>
+            aws_sdk_ssm_incidents.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_ssm_incidents.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which doesn't exist. </p>
+            aws_sdk_ssm_incidents.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_ssm_incidents.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_ssm_incidents.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -970,6 +1090,13 @@ class AsyncSSMIncidentsClient:
             filters: <p>Filters the list of incident records you want to search through. You can filter on the following keys:</p> <ul> <li> <p> <code>creationTime</code> </p> </li> <li> <p> <code>impact</code> </p> </li> <li> <p> <code>status</code> </p> </li> <li> <p> <code>createdBy</code> </p> </li> </ul> <p>Note the following when when you use Filters:</p> <ul> <li> <p>If you don't specify a Filter, the response includes all incident records.</p> </li> <li> <p>If you specify more than one filter in a single request, the response returns incident records that match all filters.</p> </li> <li> <p>If you specify a filter with more than one value, the response returns incident records that match any of the values provided.</p> </li> </ul>
             max_results: <p>The maximum number of results per page.</p>
             next_token: <p>The pagination token for the next set of items to return. (You received this token from a previous call.)</p>
+
+        Raises:
+            aws_sdk_ssm_incidents.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this operation.</p>
+            aws_sdk_ssm_incidents.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_ssm_incidents.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_ssm_incidents.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_ssm_incidents.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1044,6 +1171,13 @@ class AsyncSSMIncidentsClient:
             incident_record_arn: <p>The Amazon Resource Name (ARN) of the incident record containing the listed related items.</p>
             max_results: <p>The maximum number of related items per page.</p>
             next_token: <p>The pagination token for the next set of items to return. (You received this token from a previous call.)</p>
+
+        Raises:
+            aws_sdk_ssm_incidents.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this operation.</p>
+            aws_sdk_ssm_incidents.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_ssm_incidents.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_ssm_incidents.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_ssm_incidents.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1115,6 +1249,13 @@ class AsyncSSMIncidentsClient:
         Args:
             max_results: <p>The maximum number of results per page. </p>
             next_token: <p>The pagination token for the next set of items to return. (You received this token from a previous call.)</p>
+
+        Raises:
+            aws_sdk_ssm_incidents.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this operation.</p>
+            aws_sdk_ssm_incidents.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_ssm_incidents.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_ssm_incidents.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_ssm_incidents.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1185,6 +1326,13 @@ class AsyncSSMIncidentsClient:
         Args:
             max_results: <p>The maximum number of response plans per page.</p>
             next_token: <p>The pagination token for the next set of items to return. (You received this token from a previous call.)</p>
+
+        Raises:
+            aws_sdk_ssm_incidents.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this operation.</p>
+            aws_sdk_ssm_incidents.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_ssm_incidents.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_ssm_incidents.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_ssm_incidents.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1249,6 +1397,14 @@ class AsyncSSMIncidentsClient:
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the response plan or incident.</p>
+
+        Raises:
+            aws_sdk_ssm_incidents.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this operation.</p>
+            aws_sdk_ssm_incidents.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_ssm_incidents.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which doesn't exist. </p>
+            aws_sdk_ssm_incidents.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_ssm_incidents.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_ssm_incidents.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1301,6 +1457,13 @@ class AsyncSSMIncidentsClient:
             sort_order: <p>Sorts the order of timeline events by the value specified in the <code>sortBy</code> field.</p>
             max_results: <p>The maximum number of results per page.</p>
             next_token: <p>The pagination token for the next set of items to return. (You received this token from a previous call.)</p>
+
+        Raises:
+            aws_sdk_ssm_incidents.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this operation.</p>
+            aws_sdk_ssm_incidents.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_ssm_incidents.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_ssm_incidents.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_ssm_incidents.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1386,6 +1549,14 @@ class AsyncSSMIncidentsClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the response plan to add the resource policy to.</p>
             policy: <p>Details of the resource policy.</p>
+
+        Raises:
+            aws_sdk_ssm_incidents.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this operation.</p>
+            aws_sdk_ssm_incidents.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_ssm_incidents.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which doesn't exist. </p>
+            aws_sdk_ssm_incidents.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_ssm_incidents.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_ssm_incidents.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1443,6 +1614,15 @@ class AsyncSSMIncidentsClient:
             impact: <p>Defines the impact to the customers. Providing an impact overwrites the impact provided by a response plan.</p> <p class=\"title\"> <b>Supported impact codes</b> </p> <ul> <li> <p> <code>1</code> - Critical</p> </li> <li> <p> <code>2</code> - High</p> </li> <li> <p> <code>3</code> - Medium</p> </li> <li> <p> <code>4</code> - Low</p> </li> <li> <p> <code>5</code> - No Impact</p> </li> </ul>
             trigger_details: <p>Details of what created the incident record in Incident Manager.</p>
             related_items: <p>Add related items to the incident for other responders to use. Related items are Amazon Web Services resources, external links, or files uploaded to an Amazon S3 bucket. </p>
+
+        Raises:
+            aws_sdk_ssm_incidents.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this operation.</p>
+            aws_sdk_ssm_incidents.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource causes an inconsistent state.</p>
+            aws_sdk_ssm_incidents.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_ssm_incidents.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which doesn't exist. </p>
+            aws_sdk_ssm_incidents.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_ssm_incidents.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_ssm_incidents.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1493,6 +1673,16 @@ class AsyncSSMIncidentsClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the response plan you're adding the tags to.</p>
             tags: <p>A list of tags to add to the response plan.</p>
+
+        Raises:
+            aws_sdk_ssm_incidents.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this operation.</p>
+            aws_sdk_ssm_incidents.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource causes an inconsistent state.</p>
+            aws_sdk_ssm_incidents.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_ssm_incidents.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which doesn't exist. </p>
+            aws_sdk_ssm_incidents.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Request would cause a service quota to be exceeded.</p>
+            aws_sdk_ssm_incidents.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_ssm_incidents.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_ssm_incidents.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1534,6 +1724,15 @@ class AsyncSSMIncidentsClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the response plan you're removing a tag from.</p>
             tag_keys: <p>The name of the tag to remove from the response plan.</p>
+
+        Raises:
+            aws_sdk_ssm_incidents.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this operation.</p>
+            aws_sdk_ssm_incidents.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource causes an inconsistent state.</p>
+            aws_sdk_ssm_incidents.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_ssm_incidents.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which doesn't exist. </p>
+            aws_sdk_ssm_incidents.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_ssm_incidents.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_ssm_incidents.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1579,6 +1778,14 @@ class AsyncSSMIncidentsClient:
             arn: <p>The Amazon Resource Name (ARN) of the replication set to update.</p>
             deletion_protected: <p>Specifies if deletion protection is turned on or off in your account. </p>
             client_token: <p>A token that ensures that the operation is called only once with the specified details.</p>
+
+        Raises:
+            aws_sdk_ssm_incidents.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this operation.</p>
+            aws_sdk_ssm_incidents.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_ssm_incidents.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which doesn't exist. </p>
+            aws_sdk_ssm_incidents.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_ssm_incidents.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_ssm_incidents.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1646,6 +1853,15 @@ class AsyncSSMIncidentsClient:
             status: <p>The status of the incident. Possible statuses are <code>Open</code> or <code>Resolved</code>.</p>
             chat_channel: <p>The Chatbot chat channel where responders can collaborate.</p>
             notification_targets: <p>The Amazon SNS targets that Incident Manager notifies when a client updates an incident.</p> <p>Using multiple SNS topics creates redundancy in the event that a Region is down during the incident.</p>
+
+        Raises:
+            aws_sdk_ssm_incidents.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this operation.</p>
+            aws_sdk_ssm_incidents.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource causes an inconsistent state.</p>
+            aws_sdk_ssm_incidents.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_ssm_incidents.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which doesn't exist. </p>
+            aws_sdk_ssm_incidents.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_ssm_incidents.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_ssm_incidents.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1704,6 +1920,15 @@ class AsyncSSMIncidentsClient:
             client_token: <p>A token that ensures that a client calls the operation only once with the specified details.</p>
             incident_record_arn: <p>The Amazon Resource Name (ARN) of the incident record that contains the related items that you update.</p>
             related_items_update: <p>Details about the item that you are add to, or delete from, an incident.</p>
+
+        Raises:
+            aws_sdk_ssm_incidents.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this operation.</p>
+            aws_sdk_ssm_incidents.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource causes an inconsistent state.</p>
+            aws_sdk_ssm_incidents.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_ssm_incidents.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which doesn't exist. </p>
+            aws_sdk_ssm_incidents.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_ssm_incidents.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_ssm_incidents.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1751,6 +1976,15 @@ class AsyncSSMIncidentsClient:
             arn: <p>The Amazon Resource Name (ARN) of the replication set you're updating.</p>
             actions: <p>An action to add or delete a Region.</p>
             client_token: <p>A token that ensures that the operation is called only once with the specified details.</p>
+
+        Raises:
+            aws_sdk_ssm_incidents.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this operation.</p>
+            aws_sdk_ssm_incidents.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource causes an inconsistent state.</p>
+            aws_sdk_ssm_incidents.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_ssm_incidents.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which doesn't exist. </p>
+            aws_sdk_ssm_incidents.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_ssm_incidents.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_ssm_incidents.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1840,6 +2074,15 @@ class AsyncSSMIncidentsClient:
             actions: <p>The actions that this response plan takes at the beginning of an incident.</p>
             incident_template_tags: <p>Tags to assign to the template. When the <code>StartIncident</code> API action is called, Incident Manager assigns the tags specified in the template to the incident. To call this action, you must also have permission to call the <code>TagResource</code> API action for the incident record resource.</p>
             integrations: <p>Information about third-party services integrated into the response plan.</p>
+
+        Raises:
+            aws_sdk_ssm_incidents.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this operation.</p>
+            aws_sdk_ssm_incidents.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource causes an inconsistent state.</p>
+            aws_sdk_ssm_incidents.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_ssm_incidents.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which doesn't exist. </p>
+            aws_sdk_ssm_incidents.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_ssm_incidents.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_ssm_incidents.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1922,6 +2165,15 @@ class AsyncSSMIncidentsClient:
             event_type: <p>The type of event. You can update events of type <code>Custom Event</code> and <code>Note</code>.</p>
             event_data: <p>A short description of the event.</p>
             event_references: <p>Updates all existing references in a <code>TimelineEvent</code>. A reference is an Amazon Web Services resource involved or associated with the incident. To specify a reference, enter its Amazon Resource Name (ARN). You can also specify a related item associated with that resource. For example, to specify an Amazon DynamoDB (DynamoDB) table as a resource, use its ARN. You can also specify an Amazon CloudWatch metric associated with the DynamoDB table as a related item.</p> <important> <p>This update action overrides all existing references. If you want to keep existing references, you must specify them in the call. If you don't, this action removes any existing references and enters only new references.</p> </important>
+
+        Raises:
+            aws_sdk_ssm_incidents.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this operation.</p>
+            aws_sdk_ssm_incidents.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource causes an inconsistent state.</p>
+            aws_sdk_ssm_incidents.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_ssm_incidents.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which doesn't exist. </p>
+            aws_sdk_ssm_incidents.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_ssm_incidents.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_ssm_incidents.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

@@ -201,6 +201,14 @@ class DetectiveClient:
 
         Args:
             graph_arn: <p>The ARN of the behavior graph that the member account is accepting the invitation for.</p> <p>The member account status in the behavior graph must be <code>INVITED</code>.</p>
+
+        Raises:
+            aws_sdk_detective.errors.access_denied_exception.AccessDeniedException: <p>The request issuer does not have permission to access this resource or perform this operation.</p>
+            aws_sdk_detective.errors.conflict_exception.ConflictException: <p>The request attempted an invalid action.</p>
+            aws_sdk_detective.errors.internal_server_exception.InternalServerException: <p>The request was valid but failed because of a problem with the service.</p>
+            aws_sdk_detective.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request refers to a nonexistent resource.</p>
+            aws_sdk_detective.errors.validation_exception.ValidationException: <p>The request parameters are invalid.</p>
+            aws_sdk_detective.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -238,6 +246,13 @@ class DetectiveClient:
         Args:
             graph_arn: <p>The ARN of the behavior graph.</p>
             account_ids: <p>The list of Amazon Web Services accounts to get data source package information on.</p>
+
+        Raises:
+            aws_sdk_detective.errors.access_denied_exception.AccessDeniedException: <p>The request issuer does not have permission to access this resource or perform this operation.</p>
+            aws_sdk_detective.errors.internal_server_exception.InternalServerException: <p>The request was valid but failed because of a problem with the service.</p>
+            aws_sdk_detective.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request refers to a nonexistent resource.</p>
+            aws_sdk_detective.errors.validation_exception.ValidationException: <p>The request parameters are invalid.</p>
+            aws_sdk_detective.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -276,6 +291,13 @@ class DetectiveClient:
 
         Args:
             graph_arns: <p>The ARN of the behavior graph.</p>
+
+        Raises:
+            aws_sdk_detective.errors.access_denied_exception.AccessDeniedException: <p>The request issuer does not have permission to access this resource or perform this operation.</p>
+            aws_sdk_detective.errors.internal_server_exception.InternalServerException: <p>The request was valid but failed because of a problem with the service.</p>
+            aws_sdk_detective.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request refers to a nonexistent resource.</p>
+            aws_sdk_detective.errors.validation_exception.ValidationException: <p>The request parameters are invalid.</p>
+            aws_sdk_detective.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -313,6 +335,13 @@ class DetectiveClient:
 
         Args:
             tags: <p>The tags to assign to the new behavior graph. You can add up to 50 tags. For each tag, you provide the tag key and the tag value. Each tag key can contain up to 128 characters. Each tag value can contain up to 256 characters.</p>
+
+        Raises:
+            aws_sdk_detective.errors.access_denied_exception.AccessDeniedException: <p>The request issuer does not have permission to access this resource or perform this operation.</p>
+            aws_sdk_detective.errors.conflict_exception.ConflictException: <p>The request attempted an invalid action.</p>
+            aws_sdk_detective.errors.internal_server_exception.InternalServerException: <p>The request was valid but failed because of a problem with the service.</p>
+            aws_sdk_detective.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>This request cannot be completed for one of the following reasons.</p> <ul> <li> <p>This request cannot be completed if it would cause the number of member accounts in the behavior graph to exceed the maximum allowed. A behavior graph cannot have more than 1,200 member accounts.</p> </li> <li> <p>This request cannot be completed if the current volume ingested is above the limit of 10 TB per day. Detective will not allow you to add additional member accounts.</p> </li> </ul>
+            aws_sdk_detective.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -359,6 +388,14 @@ class DetectiveClient:
             message: <p>Customized message text to include in the invitation email message to the invited member accounts.</p>
             disable_email_notification: <p>if set to <code>true</code>, then the invited accounts do not receive email notifications. By default, this is set to <code>false</code>, and the invited accounts receive email notifications.</p> <p>Organization accounts in the organization behavior graph do not receive email notifications.</p>
             accounts: <p>The list of Amazon Web Services accounts to invite or to enable. You can invite or enable up to 50 accounts at a time. For each invited account, the account list contains the account identifier and the Amazon Web Services account root user email address. For organization accounts in the organization behavior graph, the email address is not required.</p>
+
+        Raises:
+            aws_sdk_detective.errors.access_denied_exception.AccessDeniedException: <p>The request issuer does not have permission to access this resource or perform this operation.</p>
+            aws_sdk_detective.errors.internal_server_exception.InternalServerException: <p>The request was valid but failed because of a problem with the service.</p>
+            aws_sdk_detective.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request refers to a nonexistent resource.</p>
+            aws_sdk_detective.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>This request cannot be completed for one of the following reasons.</p> <ul> <li> <p>This request cannot be completed if it would cause the number of member accounts in the behavior graph to exceed the maximum allowed. A behavior graph cannot have more than 1,200 member accounts.</p> </li> <li> <p>This request cannot be completed if the current volume ingested is above the limit of 10 TB per day. Detective will not allow you to add additional member accounts.</p> </li> </ul>
+            aws_sdk_detective.errors.validation_exception.ValidationException: <p>The request parameters are invalid.</p>
+            aws_sdk_detective.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -401,6 +438,13 @@ class DetectiveClient:
 
         Args:
             graph_arn: <p>The ARN of the behavior graph to disable.</p>
+
+        Raises:
+            aws_sdk_detective.errors.access_denied_exception.AccessDeniedException: <p>The request issuer does not have permission to access this resource or perform this operation.</p>
+            aws_sdk_detective.errors.internal_server_exception.InternalServerException: <p>The request was valid but failed because of a problem with the service.</p>
+            aws_sdk_detective.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request refers to a nonexistent resource.</p>
+            aws_sdk_detective.errors.validation_exception.ValidationException: <p>The request parameters are invalid.</p>
+            aws_sdk_detective.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -438,6 +482,14 @@ class DetectiveClient:
         Args:
             graph_arn: <p>The ARN of the behavior graph to remove members from.</p>
             account_ids: <p>The list of Amazon Web Services account identifiers for the member accounts to remove from the behavior graph. You can remove up to 50 member accounts at a time.</p>
+
+        Raises:
+            aws_sdk_detective.errors.access_denied_exception.AccessDeniedException: <p>The request issuer does not have permission to access this resource or perform this operation.</p>
+            aws_sdk_detective.errors.conflict_exception.ConflictException: <p>The request attempted an invalid action.</p>
+            aws_sdk_detective.errors.internal_server_exception.InternalServerException: <p>The request was valid but failed because of a problem with the service.</p>
+            aws_sdk_detective.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request refers to a nonexistent resource.</p>
+            aws_sdk_detective.errors.validation_exception.ValidationException: <p>The request parameters are invalid.</p>
+            aws_sdk_detective.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -476,6 +528,13 @@ class DetectiveClient:
 
         Args:
             graph_arn: <p>The ARN of the organization behavior graph.</p>
+
+        Raises:
+            aws_sdk_detective.errors.access_denied_exception.AccessDeniedException: <p>The request issuer does not have permission to access this resource or perform this operation.</p>
+            aws_sdk_detective.errors.internal_server_exception.InternalServerException: <p>The request was valid but failed because of a problem with the service.</p>
+            aws_sdk_detective.errors.too_many_requests_exception.TooManyRequestsException: <p>The request cannot be completed because too many other requests are occurring at the same time.</p>
+            aws_sdk_detective.errors.validation_exception.ValidationException: <p>The request parameters are invalid.</p>
+            aws_sdk_detective.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -506,7 +565,15 @@ class DetectiveClient:
     def disable_organization_admin_account(
         self, *, config_overrides: Optional[DetectiveClientConfig] = None
     ) -> None:
-        """<p>Removes the Detective administrator account in the current Region. Deletes the organization behavior graph.</p> <p>Can only be called by the organization management account.</p> <p>Removing the Detective administrator account does not affect the delegated administrator account for Detective in Organizations.</p> <p>To remove the delegated administrator account in Organizations, use the Organizations API. Removing the delegated administrator account also removes the Detective administrator account in all Regions, except for Regions where the Detective administrator account is the organization management account.</p>"""
+        """<p>Removes the Detective administrator account in the current Region. Deletes the organization behavior graph.</p> <p>Can only be called by the organization management account.</p> <p>Removing the Detective administrator account does not affect the delegated administrator account for Detective in Organizations.</p> <p>To remove the delegated administrator account in Organizations, use the Organizations API. Removing the delegated administrator account also removes the Detective administrator account in all Regions, except for Regions where the Detective administrator account is the organization management account.</p>
+
+        Raises:
+            aws_sdk_detective.errors.access_denied_exception.AccessDeniedException: <p>The request issuer does not have permission to access this resource or perform this operation.</p>
+            aws_sdk_detective.errors.internal_server_exception.InternalServerException: <p>The request was valid but failed because of a problem with the service.</p>
+            aws_sdk_detective.errors.too_many_requests_exception.TooManyRequestsException: <p>The request cannot be completed because too many other requests are occurring at the same time.</p>
+            aws_sdk_detective.errors.validation_exception.ValidationException: <p>The request parameters are invalid.</p>
+            aws_sdk_detective.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(req: "OperationRequest[None]") -> OperationResponse[None]:
             import aws_sdk_detective._operations.amazon_detective.disable_organization_admin_account
@@ -537,6 +604,14 @@ class DetectiveClient:
 
         Args:
             graph_arn: <p>The ARN of the behavior graph to remove the member account from.</p> <p>The member account's member status in the behavior graph must be <code>ENABLED</code>.</p>
+
+        Raises:
+            aws_sdk_detective.errors.access_denied_exception.AccessDeniedException: <p>The request issuer does not have permission to access this resource or perform this operation.</p>
+            aws_sdk_detective.errors.conflict_exception.ConflictException: <p>The request attempted an invalid action.</p>
+            aws_sdk_detective.errors.internal_server_exception.InternalServerException: <p>The request was valid but failed because of a problem with the service.</p>
+            aws_sdk_detective.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request refers to a nonexistent resource.</p>
+            aws_sdk_detective.errors.validation_exception.ValidationException: <p>The request parameters are invalid.</p>
+            aws_sdk_detective.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -572,6 +647,13 @@ class DetectiveClient:
 
         Args:
             account_id: <p>The Amazon Web Services account identifier of the account to designate as the Detective administrator account for the organization.</p>
+
+        Raises:
+            aws_sdk_detective.errors.access_denied_exception.AccessDeniedException: <p>The request issuer does not have permission to access this resource or perform this operation.</p>
+            aws_sdk_detective.errors.internal_server_exception.InternalServerException: <p>The request was valid but failed because of a problem with the service.</p>
+            aws_sdk_detective.errors.too_many_requests_exception.TooManyRequestsException: <p>The request cannot be completed because too many other requests are occurring at the same time.</p>
+            aws_sdk_detective.errors.validation_exception.ValidationException: <p>The request parameters are invalid.</p>
+            aws_sdk_detective.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -609,6 +691,14 @@ class DetectiveClient:
         Args:
             graph_arn: <p>The Amazon Resource Name (ARN) of the behavior graph.</p>
             investigation_id: <p>The investigation ID of the investigation report.</p>
+
+        Raises:
+            aws_sdk_detective.errors.access_denied_exception.AccessDeniedException: <p>The request issuer does not have permission to access this resource or perform this operation.</p>
+            aws_sdk_detective.errors.internal_server_exception.InternalServerException: <p>The request was valid but failed because of a problem with the service.</p>
+            aws_sdk_detective.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request refers to a nonexistent resource.</p>
+            aws_sdk_detective.errors.too_many_requests_exception.TooManyRequestsException: <p>The request cannot be completed because too many other requests are occurring at the same time.</p>
+            aws_sdk_detective.errors.validation_exception.ValidationException: <p>The request parameters are invalid.</p>
+            aws_sdk_detective.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -649,6 +739,13 @@ class DetectiveClient:
         Args:
             graph_arn: <p>The ARN of the behavior graph for which to request the member details.</p>
             account_ids: <p>The list of Amazon Web Services account identifiers for the member account for which to return member details. You can request details for up to 50 member accounts at a time.</p> <p>You cannot use <code>GetMembers</code> to retrieve information about member accounts that were removed from the behavior graph.</p>
+
+        Raises:
+            aws_sdk_detective.errors.access_denied_exception.AccessDeniedException: <p>The request issuer does not have permission to access this resource or perform this operation.</p>
+            aws_sdk_detective.errors.internal_server_exception.InternalServerException: <p>The request was valid but failed because of a problem with the service.</p>
+            aws_sdk_detective.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request refers to a nonexistent resource.</p>
+            aws_sdk_detective.errors.validation_exception.ValidationException: <p>The request parameters are invalid.</p>
+            aws_sdk_detective.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -695,6 +792,13 @@ class DetectiveClient:
             graph_arn: <p>The ARN of the behavior graph.</p>
             next_token: <p>For requests to get the next page of results, the pagination token that was returned with the previous set of results. The initial request does not include a pagination token.</p>
             max_results: <p>The maximum number of results to return.</p>
+
+        Raises:
+            aws_sdk_detective.errors.access_denied_exception.AccessDeniedException: <p>The request issuer does not have permission to access this resource or perform this operation.</p>
+            aws_sdk_detective.errors.internal_server_exception.InternalServerException: <p>The request was valid but failed because of a problem with the service.</p>
+            aws_sdk_detective.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request refers to a nonexistent resource.</p>
+            aws_sdk_detective.errors.validation_exception.ValidationException: <p>The request parameters are invalid.</p>
+            aws_sdk_detective.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -742,6 +846,12 @@ class DetectiveClient:
         Args:
             next_token: <p>For requests to get the next page of results, the pagination token that was returned with the previous set of results. The initial request does not include a pagination token.</p>
             max_results: <p>The maximum number of graphs to return at a time. The total must be less than the overall limit on the number of results to return, which is currently 200.</p>
+
+        Raises:
+            aws_sdk_detective.errors.access_denied_exception.AccessDeniedException: <p>The request issuer does not have permission to access this resource or perform this operation.</p>
+            aws_sdk_detective.errors.internal_server_exception.InternalServerException: <p>The request was valid but failed because of a problem with the service.</p>
+            aws_sdk_detective.errors.validation_exception.ValidationException: <p>The request parameters are invalid.</p>
+            aws_sdk_detective.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -794,6 +904,14 @@ class DetectiveClient:
             indicator_type: <p>For the list of indicators of compromise that are generated by Detective investigations, see <a href=\"https://docs.aws.amazon.com/detective/latest/userguide/detective-investigation-about.html\">Detective investigations</a>.</p>
             next_token: <p>Lists if there are more results available. The value of nextToken is a unique pagination token for each page. Repeat the call using the returned token to retrieve the next page. Keep all other arguments unchanged.</p> <p>Each pagination token expires after 24 hours. Using an expired pagination token will return a Validation Exception error.</p>
             max_results: <p>Lists the maximum number of indicators in a page.</p>
+
+        Raises:
+            aws_sdk_detective.errors.access_denied_exception.AccessDeniedException: <p>The request issuer does not have permission to access this resource or perform this operation.</p>
+            aws_sdk_detective.errors.internal_server_exception.InternalServerException: <p>The request was valid but failed because of a problem with the service.</p>
+            aws_sdk_detective.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request refers to a nonexistent resource.</p>
+            aws_sdk_detective.errors.too_many_requests_exception.TooManyRequestsException: <p>The request cannot be completed because too many other requests are occurring at the same time.</p>
+            aws_sdk_detective.errors.validation_exception.ValidationException: <p>The request parameters are invalid.</p>
+            aws_sdk_detective.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -852,6 +970,14 @@ class DetectiveClient:
             max_results: <p>Lists the maximum number of investigations in a page.</p>
             filter_criteria: <p>Filters the investigation results based on a criteria.</p>
             sort_criteria: <p>Sorts the investigation results based on a criteria.</p>
+
+        Raises:
+            aws_sdk_detective.errors.access_denied_exception.AccessDeniedException: <p>The request issuer does not have permission to access this resource or perform this operation.</p>
+            aws_sdk_detective.errors.internal_server_exception.InternalServerException: <p>The request was valid but failed because of a problem with the service.</p>
+            aws_sdk_detective.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request refers to a nonexistent resource.</p>
+            aws_sdk_detective.errors.too_many_requests_exception.TooManyRequestsException: <p>The request cannot be completed because too many other requests are occurring at the same time.</p>
+            aws_sdk_detective.errors.validation_exception.ValidationException: <p>The request parameters are invalid.</p>
+            aws_sdk_detective.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -903,6 +1029,12 @@ class DetectiveClient:
         Args:
             next_token: <p>For requests to retrieve the next page of results, the pagination token that was returned with the previous page of results. The initial request does not include a pagination token.</p>
             max_results: <p>The maximum number of behavior graph invitations to return in the response. The total must be less than the overall limit on the number of results to return, which is currently 200.</p>
+
+        Raises:
+            aws_sdk_detective.errors.access_denied_exception.AccessDeniedException: <p>The request issuer does not have permission to access this resource or perform this operation.</p>
+            aws_sdk_detective.errors.internal_server_exception.InternalServerException: <p>The request was valid but failed because of a problem with the service.</p>
+            aws_sdk_detective.errors.validation_exception.ValidationException: <p>The request parameters are invalid.</p>
+            aws_sdk_detective.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -951,6 +1083,13 @@ class DetectiveClient:
             graph_arn: <p>The ARN of the behavior graph for which to retrieve the list of member accounts.</p>
             next_token: <p>For requests to retrieve the next page of member account results, the pagination token that was returned with the previous page of results. The initial request does not include a pagination token.</p>
             max_results: <p>The maximum number of member accounts to include in the response. The total must be less than the overall limit on the number of results to return, which is currently 200.</p>
+
+        Raises:
+            aws_sdk_detective.errors.access_denied_exception.AccessDeniedException: <p>The request issuer does not have permission to access this resource or perform this operation.</p>
+            aws_sdk_detective.errors.internal_server_exception.InternalServerException: <p>The request was valid but failed because of a problem with the service.</p>
+            aws_sdk_detective.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request refers to a nonexistent resource.</p>
+            aws_sdk_detective.errors.validation_exception.ValidationException: <p>The request parameters are invalid.</p>
+            aws_sdk_detective.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -998,6 +1137,13 @@ class DetectiveClient:
         Args:
             next_token: <p>For requests to get the next page of results, the pagination token that was returned with the previous set of results. The initial request does not include a pagination token.</p>
             max_results: <p>The maximum number of results to return.</p>
+
+        Raises:
+            aws_sdk_detective.errors.access_denied_exception.AccessDeniedException: <p>The request issuer does not have permission to access this resource or perform this operation.</p>
+            aws_sdk_detective.errors.internal_server_exception.InternalServerException: <p>The request was valid but failed because of a problem with the service.</p>
+            aws_sdk_detective.errors.too_many_requests_exception.TooManyRequestsException: <p>The request cannot be completed because too many other requests are occurring at the same time.</p>
+            aws_sdk_detective.errors.validation_exception.ValidationException: <p>The request parameters are invalid.</p>
+            aws_sdk_detective.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1038,6 +1184,13 @@ class DetectiveClient:
 
         Args:
             resource_arn: <p>The ARN of the behavior graph for which to retrieve the tag values.</p>
+
+        Raises:
+            aws_sdk_detective.errors.access_denied_exception.AccessDeniedException: <p>The request issuer does not have permission to access this resource or perform this operation.</p>
+            aws_sdk_detective.errors.internal_server_exception.InternalServerException: <p>The request was valid but failed because of a problem with the service.</p>
+            aws_sdk_detective.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request refers to a nonexistent resource.</p>
+            aws_sdk_detective.errors.validation_exception.ValidationException: <p>The request parameters are invalid.</p>
+            aws_sdk_detective.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1075,6 +1228,14 @@ class DetectiveClient:
 
         Args:
             graph_arn: <p>The ARN of the behavior graph to reject the invitation to.</p> <p>The member account's current member status in the behavior graph must be <code>INVITED</code>.</p>
+
+        Raises:
+            aws_sdk_detective.errors.access_denied_exception.AccessDeniedException: <p>The request issuer does not have permission to access this resource or perform this operation.</p>
+            aws_sdk_detective.errors.conflict_exception.ConflictException: <p>The request attempted an invalid action.</p>
+            aws_sdk_detective.errors.internal_server_exception.InternalServerException: <p>The request was valid but failed because of a problem with the service.</p>
+            aws_sdk_detective.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request refers to a nonexistent resource.</p>
+            aws_sdk_detective.errors.validation_exception.ValidationException: <p>The request parameters are invalid.</p>
+            aws_sdk_detective.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1116,6 +1277,14 @@ class DetectiveClient:
             entity_arn: <p>The unique Amazon Resource Name (ARN) of the IAM user and IAM role.</p>
             scope_start_time: <p>The data and time when the investigation began. The value is an UTC ISO8601 formatted string. For example, <code>2021-08-18T16:35:56.284Z</code>.</p>
             scope_end_time: <p>The data and time when the investigation ended. The value is an UTC ISO8601 formatted string. For example, <code>2021-08-18T16:35:56.284Z</code>.</p>
+
+        Raises:
+            aws_sdk_detective.errors.access_denied_exception.AccessDeniedException: <p>The request issuer does not have permission to access this resource or perform this operation.</p>
+            aws_sdk_detective.errors.internal_server_exception.InternalServerException: <p>The request was valid but failed because of a problem with the service.</p>
+            aws_sdk_detective.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request refers to a nonexistent resource.</p>
+            aws_sdk_detective.errors.too_many_requests_exception.TooManyRequestsException: <p>The request cannot be completed because too many other requests are occurring at the same time.</p>
+            aws_sdk_detective.errors.validation_exception.ValidationException: <p>The request parameters are invalid.</p>
+            aws_sdk_detective.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1158,6 +1327,15 @@ class DetectiveClient:
         Args:
             graph_arn: <p>The ARN of the behavior graph.</p>
             account_id: <p>The account ID of the member account to try to enable.</p> <p>The account must be an invited member account with a status of <code>ACCEPTED_BUT_DISABLED</code>. </p>
+
+        Raises:
+            aws_sdk_detective.errors.access_denied_exception.AccessDeniedException: <p>The request issuer does not have permission to access this resource or perform this operation.</p>
+            aws_sdk_detective.errors.conflict_exception.ConflictException: <p>The request attempted an invalid action.</p>
+            aws_sdk_detective.errors.internal_server_exception.InternalServerException: <p>The request was valid but failed because of a problem with the service.</p>
+            aws_sdk_detective.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request refers to a nonexistent resource.</p>
+            aws_sdk_detective.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>This request cannot be completed for one of the following reasons.</p> <ul> <li> <p>This request cannot be completed if it would cause the number of member accounts in the behavior graph to exceed the maximum allowed. A behavior graph cannot have more than 1,200 member accounts.</p> </li> <li> <p>This request cannot be completed if the current volume ingested is above the limit of 10 TB per day. Detective will not allow you to add additional member accounts.</p> </li> </ul>
+            aws_sdk_detective.errors.validation_exception.ValidationException: <p>The request parameters are invalid.</p>
+            aws_sdk_detective.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1196,6 +1374,13 @@ class DetectiveClient:
         Args:
             resource_arn: <p>The ARN of the behavior graph to assign the tags to.</p>
             tags: <p>The tags to assign to the behavior graph. You can add up to 50 tags. For each tag, you provide the tag key and the tag value. Each tag key can contain up to 128 characters. Each tag value can contain up to 256 characters.</p>
+
+        Raises:
+            aws_sdk_detective.errors.access_denied_exception.AccessDeniedException: <p>The request issuer does not have permission to access this resource or perform this operation.</p>
+            aws_sdk_detective.errors.internal_server_exception.InternalServerException: <p>The request was valid but failed because of a problem with the service.</p>
+            aws_sdk_detective.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request refers to a nonexistent resource.</p>
+            aws_sdk_detective.errors.validation_exception.ValidationException: <p>The request parameters are invalid.</p>
+            aws_sdk_detective.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1236,6 +1421,13 @@ class DetectiveClient:
         Args:
             resource_arn: <p>The ARN of the behavior graph to remove the tags from.</p>
             tag_keys: <p>The tag keys of the tags to remove from the behavior graph. You can remove up to 50 tags at a time.</p>
+
+        Raises:
+            aws_sdk_detective.errors.access_denied_exception.AccessDeniedException: <p>The request issuer does not have permission to access this resource or perform this operation.</p>
+            aws_sdk_detective.errors.internal_server_exception.InternalServerException: <p>The request was valid but failed because of a problem with the service.</p>
+            aws_sdk_detective.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request refers to a nonexistent resource.</p>
+            aws_sdk_detective.errors.validation_exception.ValidationException: <p>The request parameters are invalid.</p>
+            aws_sdk_detective.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1276,6 +1468,14 @@ class DetectiveClient:
         Args:
             graph_arn: <p>The ARN of the behavior graph.</p>
             datasource_packages: <p>The data source package to start for the behavior graph.</p>
+
+        Raises:
+            aws_sdk_detective.errors.access_denied_exception.AccessDeniedException: <p>The request issuer does not have permission to access this resource or perform this operation.</p>
+            aws_sdk_detective.errors.internal_server_exception.InternalServerException: <p>The request was valid but failed because of a problem with the service.</p>
+            aws_sdk_detective.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request refers to a nonexistent resource.</p>
+            aws_sdk_detective.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>This request cannot be completed for one of the following reasons.</p> <ul> <li> <p>This request cannot be completed if it would cause the number of member accounts in the behavior graph to exceed the maximum allowed. A behavior graph cannot have more than 1,200 member accounts.</p> </li> <li> <p>This request cannot be completed if the current volume ingested is above the limit of 10 TB per day. Detective will not allow you to add additional member accounts.</p> </li> </ul>
+            aws_sdk_detective.errors.validation_exception.ValidationException: <p>The request parameters are invalid.</p>
+            aws_sdk_detective.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1316,6 +1516,14 @@ class DetectiveClient:
             graph_arn: <p>The Amazon Resource Name (ARN) of the behavior graph.</p>
             investigation_id: <p>The investigation ID of the investigation report.</p>
             state: <p>The current state of the investigation. An archived investigation indicates you have completed reviewing the investigation.</p>
+
+        Raises:
+            aws_sdk_detective.errors.access_denied_exception.AccessDeniedException: <p>The request issuer does not have permission to access this resource or perform this operation.</p>
+            aws_sdk_detective.errors.internal_server_exception.InternalServerException: <p>The request was valid but failed because of a problem with the service.</p>
+            aws_sdk_detective.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request refers to a nonexistent resource.</p>
+            aws_sdk_detective.errors.too_many_requests_exception.TooManyRequestsException: <p>The request cannot be completed because too many other requests are occurring at the same time.</p>
+            aws_sdk_detective.errors.validation_exception.ValidationException: <p>The request parameters are invalid.</p>
+            aws_sdk_detective.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1355,6 +1563,13 @@ class DetectiveClient:
         Args:
             graph_arn: <p>The ARN of the organization behavior graph.</p>
             auto_enable: <p>Indicates whether to automatically enable new organization accounts as member accounts in the organization behavior graph.</p>
+
+        Raises:
+            aws_sdk_detective.errors.access_denied_exception.AccessDeniedException: <p>The request issuer does not have permission to access this resource or perform this operation.</p>
+            aws_sdk_detective.errors.internal_server_exception.InternalServerException: <p>The request was valid but failed because of a problem with the service.</p>
+            aws_sdk_detective.errors.too_many_requests_exception.TooManyRequestsException: <p>The request cannot be completed because too many other requests are occurring at the same time.</p>
+            aws_sdk_detective.errors.validation_exception.ValidationException: <p>The request parameters are invalid.</p>
+            aws_sdk_detective.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(

@@ -60,6 +60,16 @@ class Stream:
             format: <p>The format of the stream records.</p>
             tags: <p>A map of key and value pairs to use to tag your stream.</p>
             client_token: <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. Idempotency ensures that an API request completes only once. With an idempotent request, if the original request completes successfully, the subsequent retries with the same client token return the result from the original successful request and they have no additional effect.</p> <p>If you don't specify a client token, the Amazon Web Services SDK automatically generates one.</p>
+
+        Raises:
+            aws_sdk_dsql.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_dsql.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_dsql.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_dsql.errors.validation_exception.ValidationException: <p>The input failed to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_dsql.errors.conflict_exception.ConflictException: <p>The submitted action has conflicts.</p>
+            aws_sdk_dsql.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_dsql.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The service limit was exceeded.</p>
+            aws_sdk_dsql.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -106,6 +116,14 @@ class Stream:
         Args:
             cluster_identifier: <p>The ID of the cluster containing the stream to retrieve.</p>
             stream_identifier: <p>The ID of the stream to retrieve.</p>
+
+        Raises:
+            aws_sdk_dsql.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_dsql.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_dsql.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_dsql.errors.validation_exception.ValidationException: <p>The input failed to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_dsql.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_dsql.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -144,6 +162,15 @@ class Stream:
             cluster_identifier: <p>The ID of the cluster containing the stream to delete.</p>
             stream_identifier: <p>The ID of the stream to delete.</p>
             client_token: <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. Idempotency ensures that an API request completes only once. With an idempotent request, if the original request completes successfully, the subsequent retries with the same client token return the result from the original successful request and they have no additional effect.</p> <p>If you don't specify a client token, the Amazon Web Services SDK automatically generates one.</p>
+
+        Raises:
+            aws_sdk_dsql.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_dsql.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_dsql.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_dsql.errors.validation_exception.ValidationException: <p>The input failed to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_dsql.errors.conflict_exception.ConflictException: <p>The submitted action has conflicts.</p>
+            aws_sdk_dsql.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_dsql.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -188,6 +215,14 @@ class Stream:
             cluster_identifier: <p>The ID of the cluster for which to list streams.</p>
             max_results: <p>An optional parameter that specifies the maximum number of results to return. You can use nextToken to display the next page of results. Default: 10.</p>
             next_token: <p>If your initial ListStreams operation returns a nextToken, you can include the returned nextToken in following ListStreams operations, which returns results in the next page.</p>
+
+        Raises:
+            aws_sdk_dsql.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_dsql.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_dsql.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_dsql.errors.validation_exception.ValidationException: <p>The input failed to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_dsql.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_dsql.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -244,6 +279,16 @@ class AsyncStream:
             format: <p>The format of the stream records.</p>
             tags: <p>A map of key and value pairs to use to tag your stream.</p>
             client_token: <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. Idempotency ensures that an API request completes only once. With an idempotent request, if the original request completes successfully, the subsequent retries with the same client token return the result from the original successful request and they have no additional effect.</p> <p>If you don't specify a client token, the Amazon Web Services SDK automatically generates one.</p>
+
+        Raises:
+            aws_sdk_dsql.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_dsql.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_dsql.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_dsql.errors.validation_exception.ValidationException: <p>The input failed to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_dsql.errors.conflict_exception.ConflictException: <p>The submitted action has conflicts.</p>
+            aws_sdk_dsql.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_dsql.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The service limit was exceeded.</p>
+            aws_sdk_dsql.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -291,6 +336,14 @@ class AsyncStream:
         Args:
             cluster_identifier: <p>The ID of the cluster containing the stream to retrieve.</p>
             stream_identifier: <p>The ID of the stream to retrieve.</p>
+
+        Raises:
+            aws_sdk_dsql.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_dsql.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_dsql.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_dsql.errors.validation_exception.ValidationException: <p>The input failed to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_dsql.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_dsql.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -334,6 +387,15 @@ class AsyncStream:
             cluster_identifier: <p>The ID of the cluster containing the stream to delete.</p>
             stream_identifier: <p>The ID of the stream to delete.</p>
             client_token: <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. Idempotency ensures that an API request completes only once. With an idempotent request, if the original request completes successfully, the subsequent retries with the same client token return the result from the original successful request and they have no additional effect.</p> <p>If you don't specify a client token, the Amazon Web Services SDK automatically generates one.</p>
+
+        Raises:
+            aws_sdk_dsql.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_dsql.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_dsql.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_dsql.errors.validation_exception.ValidationException: <p>The input failed to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_dsql.errors.conflict_exception.ConflictException: <p>The submitted action has conflicts.</p>
+            aws_sdk_dsql.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_dsql.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -379,6 +441,14 @@ class AsyncStream:
             cluster_identifier: <p>The ID of the cluster for which to list streams.</p>
             max_results: <p>An optional parameter that specifies the maximum number of results to return. You can use nextToken to display the next page of results. Default: 10.</p>
             next_token: <p>If your initial ListStreams operation returns a nextToken, you can include the returned nextToken in following ListStreams operations, which returns results in the next page.</p>
+
+        Raises:
+            aws_sdk_dsql.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_dsql.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_dsql.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_dsql.errors.validation_exception.ValidationException: <p>The input failed to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_dsql.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_dsql.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

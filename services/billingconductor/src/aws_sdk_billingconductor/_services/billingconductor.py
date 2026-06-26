@@ -193,6 +193,14 @@ class billingconductorClient:
             group_by: <p>A list of strings that specify the attributes that are used to break down costs in the margin summary reports for the billing group. For example, you can view your costs by the Amazon Web Services service name or the billing period.</p>
             max_results: <p>The maximum number of margin summary reports to retrieve.</p>
             next_token: <p>The pagination token used on subsequent calls to get reports.</p>
+
+        Raises:
+            aws_sdk_billingconductor.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action. </p>
+            aws_sdk_billingconductor.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request. </p>
+            aws_sdk_billingconductor.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource that doesn't exist. </p>
+            aws_sdk_billingconductor.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. </p>
+            aws_sdk_billingconductor.errors.validation_exception.ValidationException: <p>The input doesn't match with the constraints specified by Amazon Web Services services.</p>
+            aws_sdk_billingconductor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -279,6 +287,14 @@ class billingconductorClient:
             billing_period: <p> The preferred billing period to get account associations. </p>
             filters: <p>The filter on the account ID of the linked account, or any of the following:</p> <p> <code>MONITORED</code>: linked accounts that are associated to billing groups.</p> <p> <code>UNMONITORED</code>: linked accounts that aren't associated to billing groups.</p> <p> <code>Billing Group Arn</code>: linked accounts that are associated to the provided billing group Arn. </p>
             next_token: <p> The pagination token that's used on subsequent calls to retrieve accounts. </p>
+
+        Raises:
+            aws_sdk_billingconductor.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action. </p>
+            aws_sdk_billingconductor.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request. </p>
+            aws_sdk_billingconductor.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource that doesn't exist. </p>
+            aws_sdk_billingconductor.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. </p>
+            aws_sdk_billingconductor.errors.validation_exception.ValidationException: <p>The input doesn't match with the constraints specified by Amazon Web Services services.</p>
+            aws_sdk_billingconductor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -360,6 +376,14 @@ class billingconductorClient:
             max_results: <p>The maximum number of reports to retrieve. </p>
             next_token: <p>The pagination token that's used on subsequent calls to get reports. </p>
             filters: <p>A <code>ListBillingGroupCostReportsFilter</code> to specify billing groups to retrieve reports from. </p>
+
+        Raises:
+            aws_sdk_billingconductor.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action. </p>
+            aws_sdk_billingconductor.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request. </p>
+            aws_sdk_billingconductor.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource that doesn't exist. </p>
+            aws_sdk_billingconductor.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. </p>
+            aws_sdk_billingconductor.errors.validation_exception.ValidationException: <p>The input doesn't match with the constraints specified by Amazon Web Services services.</p>
+            aws_sdk_billingconductor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -435,6 +459,14 @@ class billingconductorClient:
 
         Args:
             resource_arn: <p> The Amazon Resource Name (ARN) that identifies the resource to list the tags. </p>
+
+        Raises:
+            aws_sdk_billingconductor.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action. </p>
+            aws_sdk_billingconductor.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request. </p>
+            aws_sdk_billingconductor.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource that doesn't exist. </p>
+            aws_sdk_billingconductor.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. </p>
+            aws_sdk_billingconductor.errors.validation_exception.ValidationException: <p>The input doesn't match with the constraints specified by Amazon Web Services services.</p>
+            aws_sdk_billingconductor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -474,6 +506,14 @@ class billingconductorClient:
         Args:
             resource_arn: <p> The Amazon Resource Name (ARN) of the resource to which to add tags. </p>
             tags: <p> The tags to add to the resource as a list of key-value pairs. </p>
+
+        Raises:
+            aws_sdk_billingconductor.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action. </p>
+            aws_sdk_billingconductor.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request. </p>
+            aws_sdk_billingconductor.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource that doesn't exist. </p>
+            aws_sdk_billingconductor.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. </p>
+            aws_sdk_billingconductor.errors.validation_exception.ValidationException: <p>The input doesn't match with the constraints specified by Amazon Web Services services.</p>
+            aws_sdk_billingconductor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -514,6 +554,14 @@ class billingconductorClient:
         Args:
             resource_arn: <p> The Amazon Resource Name (ARN) of the resource to which to delete tags. </p>
             tag_keys: <p> The tags to delete from the resource as a list of key-value pairs. </p>
+
+        Raises:
+            aws_sdk_billingconductor.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action. </p>
+            aws_sdk_billingconductor.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request. </p>
+            aws_sdk_billingconductor.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource that doesn't exist. </p>
+            aws_sdk_billingconductor.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. </p>
+            aws_sdk_billingconductor.errors.validation_exception.ValidationException: <p>The input doesn't match with the constraints specified by Amazon Web Services services.</p>
+            aws_sdk_billingconductor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(

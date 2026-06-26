@@ -100,6 +100,14 @@ class Simulation:
             maximum_duration: <p>The maximum running time of the simulation, specified as a number of minutes (m or M), hours (h or H), or days (d or D). The simulation stops when it reaches this limit. The maximum value is <code>14D</code>, or its equivalent in the other units. The default value is <code>14D</code>. A value equivalent to <code>0</code> makes the simulation immediately transition to <code>Stopping</code> as soon as it reaches <code>Started</code>.</p>
             tags: <p>A list of tags for the simulation. For more information about tags, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html\">Tagging Amazon Web Services resources</a> in the <i>Amazon Web Services General Reference</i>.</p>
             snapshot_s3_location: <p>The location of the snapshot .zip file in Amazon Simple Storage Service (Amazon S3). For more information about Amazon S3, see the <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html\"> <i>Amazon Simple Storage Service User Guide</i> </a>.</p> <p>Provide a <code>SnapshotS3Location</code> to start your simulation from a snapshot.</p> <p>The Amazon S3 bucket must be in the same Amazon Web Services Region as the simulation.</p> <p>If you provide a <code>SnapshotS3Location</code> then you can't provide a <code>SchemaS3Location</code>.</p>
+
+        Raises:
+            aws_sdk_simspaceweaver.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_simspaceweaver.errors.conflict_exception.ConflictException: <p/>
+            aws_sdk_simspaceweaver.errors.internal_server_exception.InternalServerException: <p/>
+            aws_sdk_simspaceweaver.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p/>
+            aws_sdk_simspaceweaver.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_simspaceweaver.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -150,6 +158,13 @@ class Simulation:
 
         Args:
             simulation: <p>The name of the simulation.</p>
+
+        Raises:
+            aws_sdk_simspaceweaver.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_simspaceweaver.errors.internal_server_exception.InternalServerException: <p/>
+            aws_sdk_simspaceweaver.errors.resource_not_found_exception.ResourceNotFoundException: <p/>
+            aws_sdk_simspaceweaver.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_simspaceweaver.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -187,6 +202,14 @@ class Simulation:
 
         Args:
             simulation: <p>The name of the simulation.</p>
+
+        Raises:
+            aws_sdk_simspaceweaver.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_simspaceweaver.errors.conflict_exception.ConflictException: <p/>
+            aws_sdk_simspaceweaver.errors.internal_server_exception.InternalServerException: <p/>
+            aws_sdk_simspaceweaver.errors.resource_not_found_exception.ResourceNotFoundException: <p/>
+            aws_sdk_simspaceweaver.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_simspaceweaver.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -224,6 +247,14 @@ class Simulation:
 
         Args:
             simulation: <p>The name of the simulation.</p>
+
+        Raises:
+            aws_sdk_simspaceweaver.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_simspaceweaver.errors.conflict_exception.ConflictException: <p/>
+            aws_sdk_simspaceweaver.errors.internal_server_exception.InternalServerException: <p/>
+            aws_sdk_simspaceweaver.errors.resource_not_found_exception.ResourceNotFoundException: <p/>
+            aws_sdk_simspaceweaver.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_simspaceweaver.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -267,6 +298,12 @@ class Simulation:
         Args:
             max_results: <p>The maximum number of simulations to list.</p>
             next_token: <p>If SimSpace Weaver returns <code>nextToken</code>, then there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page, call the operation again using the returned token. Keep all other arguments unchanged. If no results remain, then <code>nextToken</code> is set to <code>null</code>. Each pagination token expires after 24 hours. If you provide a token that isn't valid, then you receive an <i>HTTP 400 ValidationException</i> error.</p>
+
+        Raises:
+            aws_sdk_simspaceweaver.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_simspaceweaver.errors.internal_server_exception.InternalServerException: <p/>
+            aws_sdk_simspaceweaver.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_simspaceweaver.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -309,6 +346,14 @@ class Simulation:
         Args:
             simulation: <p>The name of the simulation.</p>
             destination: <p>The Amazon S3 bucket and optional folder (object key prefix) where SimSpace Weaver creates the snapshot file.</p> <p>The Amazon S3 bucket must be in the same Amazon Web Services Region as the simulation.</p>
+
+        Raises:
+            aws_sdk_simspaceweaver.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_simspaceweaver.errors.conflict_exception.ConflictException: <p/>
+            aws_sdk_simspaceweaver.errors.internal_server_exception.InternalServerException: <p/>
+            aws_sdk_simspaceweaver.errors.resource_not_found_exception.ResourceNotFoundException: <p/>
+            aws_sdk_simspaceweaver.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_simspaceweaver.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -351,6 +396,14 @@ class Simulation:
             simulation: <p>The name of the simulation of the app.</p>
             domain: <p>The name of the domain of the app.</p>
             app: <p>The name of the app.</p>
+
+        Raises:
+            aws_sdk_simspaceweaver.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_simspaceweaver.errors.conflict_exception.ConflictException: <p/>
+            aws_sdk_simspaceweaver.errors.internal_server_exception.InternalServerException: <p/>
+            aws_sdk_simspaceweaver.errors.resource_not_found_exception.ResourceNotFoundException: <p/>
+            aws_sdk_simspaceweaver.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_simspaceweaver.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -394,6 +447,13 @@ class Simulation:
             simulation: <p>The name of the simulation of the app.</p>
             domain: <p>The name of the domain of the app.</p>
             app: <p>The name of the app.</p>
+
+        Raises:
+            aws_sdk_simspaceweaver.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_simspaceweaver.errors.internal_server_exception.InternalServerException: <p/>
+            aws_sdk_simspaceweaver.errors.resource_not_found_exception.ResourceNotFoundException: <p/>
+            aws_sdk_simspaceweaver.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_simspaceweaver.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -445,6 +505,13 @@ class Simulation:
             domain: <p>The name of the domain that you want to list apps for.</p>
             max_results: <p>The maximum number of apps to list.</p>
             next_token: <p>If SimSpace Weaver returns <code>nextToken</code>, then there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page, call the operation again using the returned token. Keep all other arguments unchanged. If no results remain, then <code>nextToken</code> is set to <code>null</code>. Each pagination token expires after 24 hours. If you provide a token that isn't valid, then you receive an <i>HTTP 400 ValidationException</i> error.</p>
+
+        Raises:
+            aws_sdk_simspaceweaver.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_simspaceweaver.errors.internal_server_exception.InternalServerException: <p/>
+            aws_sdk_simspaceweaver.errors.resource_not_found_exception.ResourceNotFoundException: <p/>
+            aws_sdk_simspaceweaver.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_simspaceweaver.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -503,6 +570,14 @@ class Simulation:
             domain: <p>The name of the domain of the app.</p>
             name: <p>The name of the app.</p>
             description: <p>The description of the app.</p>
+
+        Raises:
+            aws_sdk_simspaceweaver.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_simspaceweaver.errors.conflict_exception.ConflictException: <p/>
+            aws_sdk_simspaceweaver.errors.internal_server_exception.InternalServerException: <p/>
+            aws_sdk_simspaceweaver.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p/>
+            aws_sdk_simspaceweaver.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_simspaceweaver.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -548,6 +623,14 @@ class Simulation:
 
         Args:
             simulation: <p>The name of the simulation.</p>
+
+        Raises:
+            aws_sdk_simspaceweaver.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_simspaceweaver.errors.conflict_exception.ConflictException: <p/>
+            aws_sdk_simspaceweaver.errors.internal_server_exception.InternalServerException: <p/>
+            aws_sdk_simspaceweaver.errors.resource_not_found_exception.ResourceNotFoundException: <p/>
+            aws_sdk_simspaceweaver.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_simspaceweaver.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -589,6 +672,14 @@ class Simulation:
             simulation: <p>The name of the simulation of the app.</p>
             domain: <p>The name of the domain of the app.</p>
             app: <p>The name of the app.</p>
+
+        Raises:
+            aws_sdk_simspaceweaver.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_simspaceweaver.errors.conflict_exception.ConflictException: <p/>
+            aws_sdk_simspaceweaver.errors.internal_server_exception.InternalServerException: <p/>
+            aws_sdk_simspaceweaver.errors.resource_not_found_exception.ResourceNotFoundException: <p/>
+            aws_sdk_simspaceweaver.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_simspaceweaver.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -628,6 +719,14 @@ class Simulation:
 
         Args:
             simulation: <p>The name of the simulation.</p>
+
+        Raises:
+            aws_sdk_simspaceweaver.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_simspaceweaver.errors.conflict_exception.ConflictException: <p/>
+            aws_sdk_simspaceweaver.errors.internal_server_exception.InternalServerException: <p/>
+            aws_sdk_simspaceweaver.errors.resource_not_found_exception.ResourceNotFoundException: <p/>
+            aws_sdk_simspaceweaver.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_simspaceweaver.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -694,6 +793,14 @@ class AsyncSimulation:
             maximum_duration: <p>The maximum running time of the simulation, specified as a number of minutes (m or M), hours (h or H), or days (d or D). The simulation stops when it reaches this limit. The maximum value is <code>14D</code>, or its equivalent in the other units. The default value is <code>14D</code>. A value equivalent to <code>0</code> makes the simulation immediately transition to <code>Stopping</code> as soon as it reaches <code>Started</code>.</p>
             tags: <p>A list of tags for the simulation. For more information about tags, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html\">Tagging Amazon Web Services resources</a> in the <i>Amazon Web Services General Reference</i>.</p>
             snapshot_s3_location: <p>The location of the snapshot .zip file in Amazon Simple Storage Service (Amazon S3). For more information about Amazon S3, see the <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html\"> <i>Amazon Simple Storage Service User Guide</i> </a>.</p> <p>Provide a <code>SnapshotS3Location</code> to start your simulation from a snapshot.</p> <p>The Amazon S3 bucket must be in the same Amazon Web Services Region as the simulation.</p> <p>If you provide a <code>SnapshotS3Location</code> then you can't provide a <code>SchemaS3Location</code>.</p>
+
+        Raises:
+            aws_sdk_simspaceweaver.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_simspaceweaver.errors.conflict_exception.ConflictException: <p/>
+            aws_sdk_simspaceweaver.errors.internal_server_exception.InternalServerException: <p/>
+            aws_sdk_simspaceweaver.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p/>
+            aws_sdk_simspaceweaver.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_simspaceweaver.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -745,6 +852,13 @@ class AsyncSimulation:
 
         Args:
             simulation: <p>The name of the simulation.</p>
+
+        Raises:
+            aws_sdk_simspaceweaver.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_simspaceweaver.errors.internal_server_exception.InternalServerException: <p/>
+            aws_sdk_simspaceweaver.errors.resource_not_found_exception.ResourceNotFoundException: <p/>
+            aws_sdk_simspaceweaver.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_simspaceweaver.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -783,6 +897,14 @@ class AsyncSimulation:
 
         Args:
             simulation: <p>The name of the simulation.</p>
+
+        Raises:
+            aws_sdk_simspaceweaver.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_simspaceweaver.errors.conflict_exception.ConflictException: <p/>
+            aws_sdk_simspaceweaver.errors.internal_server_exception.InternalServerException: <p/>
+            aws_sdk_simspaceweaver.errors.resource_not_found_exception.ResourceNotFoundException: <p/>
+            aws_sdk_simspaceweaver.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_simspaceweaver.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -821,6 +943,14 @@ class AsyncSimulation:
 
         Args:
             simulation: <p>The name of the simulation.</p>
+
+        Raises:
+            aws_sdk_simspaceweaver.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_simspaceweaver.errors.conflict_exception.ConflictException: <p/>
+            aws_sdk_simspaceweaver.errors.internal_server_exception.InternalServerException: <p/>
+            aws_sdk_simspaceweaver.errors.resource_not_found_exception.ResourceNotFoundException: <p/>
+            aws_sdk_simspaceweaver.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_simspaceweaver.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -865,6 +995,12 @@ class AsyncSimulation:
         Args:
             max_results: <p>The maximum number of simulations to list.</p>
             next_token: <p>If SimSpace Weaver returns <code>nextToken</code>, then there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page, call the operation again using the returned token. Keep all other arguments unchanged. If no results remain, then <code>nextToken</code> is set to <code>null</code>. Each pagination token expires after 24 hours. If you provide a token that isn't valid, then you receive an <i>HTTP 400 ValidationException</i> error.</p>
+
+        Raises:
+            aws_sdk_simspaceweaver.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_simspaceweaver.errors.internal_server_exception.InternalServerException: <p/>
+            aws_sdk_simspaceweaver.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_simspaceweaver.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -908,6 +1044,14 @@ class AsyncSimulation:
         Args:
             simulation: <p>The name of the simulation.</p>
             destination: <p>The Amazon S3 bucket and optional folder (object key prefix) where SimSpace Weaver creates the snapshot file.</p> <p>The Amazon S3 bucket must be in the same Amazon Web Services Region as the simulation.</p>
+
+        Raises:
+            aws_sdk_simspaceweaver.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_simspaceweaver.errors.conflict_exception.ConflictException: <p/>
+            aws_sdk_simspaceweaver.errors.internal_server_exception.InternalServerException: <p/>
+            aws_sdk_simspaceweaver.errors.resource_not_found_exception.ResourceNotFoundException: <p/>
+            aws_sdk_simspaceweaver.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_simspaceweaver.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -951,6 +1095,14 @@ class AsyncSimulation:
             simulation: <p>The name of the simulation of the app.</p>
             domain: <p>The name of the domain of the app.</p>
             app: <p>The name of the app.</p>
+
+        Raises:
+            aws_sdk_simspaceweaver.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_simspaceweaver.errors.conflict_exception.ConflictException: <p/>
+            aws_sdk_simspaceweaver.errors.internal_server_exception.InternalServerException: <p/>
+            aws_sdk_simspaceweaver.errors.resource_not_found_exception.ResourceNotFoundException: <p/>
+            aws_sdk_simspaceweaver.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_simspaceweaver.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -995,6 +1147,13 @@ class AsyncSimulation:
             simulation: <p>The name of the simulation of the app.</p>
             domain: <p>The name of the domain of the app.</p>
             app: <p>The name of the app.</p>
+
+        Raises:
+            aws_sdk_simspaceweaver.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_simspaceweaver.errors.internal_server_exception.InternalServerException: <p/>
+            aws_sdk_simspaceweaver.errors.resource_not_found_exception.ResourceNotFoundException: <p/>
+            aws_sdk_simspaceweaver.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_simspaceweaver.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1047,6 +1206,13 @@ class AsyncSimulation:
             domain: <p>The name of the domain that you want to list apps for.</p>
             max_results: <p>The maximum number of apps to list.</p>
             next_token: <p>If SimSpace Weaver returns <code>nextToken</code>, then there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page, call the operation again using the returned token. Keep all other arguments unchanged. If no results remain, then <code>nextToken</code> is set to <code>null</code>. Each pagination token expires after 24 hours. If you provide a token that isn't valid, then you receive an <i>HTTP 400 ValidationException</i> error.</p>
+
+        Raises:
+            aws_sdk_simspaceweaver.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_simspaceweaver.errors.internal_server_exception.InternalServerException: <p/>
+            aws_sdk_simspaceweaver.errors.resource_not_found_exception.ResourceNotFoundException: <p/>
+            aws_sdk_simspaceweaver.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_simspaceweaver.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1106,6 +1272,14 @@ class AsyncSimulation:
             domain: <p>The name of the domain of the app.</p>
             name: <p>The name of the app.</p>
             description: <p>The description of the app.</p>
+
+        Raises:
+            aws_sdk_simspaceweaver.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_simspaceweaver.errors.conflict_exception.ConflictException: <p/>
+            aws_sdk_simspaceweaver.errors.internal_server_exception.InternalServerException: <p/>
+            aws_sdk_simspaceweaver.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p/>
+            aws_sdk_simspaceweaver.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_simspaceweaver.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1152,6 +1326,14 @@ class AsyncSimulation:
 
         Args:
             simulation: <p>The name of the simulation.</p>
+
+        Raises:
+            aws_sdk_simspaceweaver.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_simspaceweaver.errors.conflict_exception.ConflictException: <p/>
+            aws_sdk_simspaceweaver.errors.internal_server_exception.InternalServerException: <p/>
+            aws_sdk_simspaceweaver.errors.resource_not_found_exception.ResourceNotFoundException: <p/>
+            aws_sdk_simspaceweaver.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_simspaceweaver.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1194,6 +1376,14 @@ class AsyncSimulation:
             simulation: <p>The name of the simulation of the app.</p>
             domain: <p>The name of the domain of the app.</p>
             app: <p>The name of the app.</p>
+
+        Raises:
+            aws_sdk_simspaceweaver.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_simspaceweaver.errors.conflict_exception.ConflictException: <p/>
+            aws_sdk_simspaceweaver.errors.internal_server_exception.InternalServerException: <p/>
+            aws_sdk_simspaceweaver.errors.resource_not_found_exception.ResourceNotFoundException: <p/>
+            aws_sdk_simspaceweaver.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_simspaceweaver.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1234,6 +1424,14 @@ class AsyncSimulation:
 
         Args:
             simulation: <p>The name of the simulation.</p>
+
+        Raises:
+            aws_sdk_simspaceweaver.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_simspaceweaver.errors.conflict_exception.ConflictException: <p/>
+            aws_sdk_simspaceweaver.errors.internal_server_exception.InternalServerException: <p/>
+            aws_sdk_simspaceweaver.errors.resource_not_found_exception.ResourceNotFoundException: <p/>
+            aws_sdk_simspaceweaver.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_simspaceweaver.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

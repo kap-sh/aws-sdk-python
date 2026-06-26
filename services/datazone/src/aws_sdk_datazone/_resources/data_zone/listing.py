@@ -49,6 +49,15 @@ class Listing:
             domain_identifier: <p>The ID of the Amazon DataZone domain.</p>
             identifier: <p>The ID of the listing.</p>
             listing_revision: <p>The revision of the listing.</p>
+
+        Raises:
+            aws_sdk_datazone.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_datazone.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_datazone.errors.unauthorized_exception.UnauthorizedException: <p>You do not have permission to perform this action.</p>
+            aws_sdk_datazone.errors.internal_server_exception.InternalServerException: <p>The request has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_datazone.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource cannot be found.</p>
+            aws_sdk_datazone.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by the Amazon Web Services service.</p>
+            aws_sdk_datazone.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -91,6 +100,16 @@ class Listing:
         Args:
             domain_identifier: <p>The ID of the Amazon DataZone domain.</p>
             identifier: <p>The ID of the listing to be deleted.</p>
+
+        Raises:
+            aws_sdk_datazone.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_datazone.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_datazone.errors.unauthorized_exception.UnauthorizedException: <p>You do not have permission to perform this action.</p>
+            aws_sdk_datazone.errors.conflict_exception.ConflictException: <p>There is a conflict while performing this action.</p>
+            aws_sdk_datazone.errors.internal_server_exception.InternalServerException: <p>The request has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_datazone.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource cannot be found.</p>
+            aws_sdk_datazone.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by the Amazon Web Services service.</p>
+            aws_sdk_datazone.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -138,6 +157,15 @@ class AsyncListing:
             domain_identifier: <p>The ID of the Amazon DataZone domain.</p>
             identifier: <p>The ID of the listing.</p>
             listing_revision: <p>The revision of the listing.</p>
+
+        Raises:
+            aws_sdk_datazone.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_datazone.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_datazone.errors.unauthorized_exception.UnauthorizedException: <p>You do not have permission to perform this action.</p>
+            aws_sdk_datazone.errors.internal_server_exception.InternalServerException: <p>The request has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_datazone.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource cannot be found.</p>
+            aws_sdk_datazone.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by the Amazon Web Services service.</p>
+            aws_sdk_datazone.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -181,6 +209,16 @@ class AsyncListing:
         Args:
             domain_identifier: <p>The ID of the Amazon DataZone domain.</p>
             identifier: <p>The ID of the listing to be deleted.</p>
+
+        Raises:
+            aws_sdk_datazone.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_datazone.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_datazone.errors.unauthorized_exception.UnauthorizedException: <p>You do not have permission to perform this action.</p>
+            aws_sdk_datazone.errors.conflict_exception.ConflictException: <p>There is a conflict while performing this action.</p>
+            aws_sdk_datazone.errors.internal_server_exception.InternalServerException: <p>The request has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_datazone.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource cannot be found.</p>
+            aws_sdk_datazone.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by the Amazon Web Services service.</p>
+            aws_sdk_datazone.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

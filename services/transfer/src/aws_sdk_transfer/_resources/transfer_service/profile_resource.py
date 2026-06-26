@@ -58,6 +58,14 @@ class ProfileResource:
             profile_type: <p>Determines the type of profile to create:</p> <ul> <li> <p>Specify <code>LOCAL</code> to create a local profile. A local profile represents the AS2-enabled Transfer Family server organization or party.</p> </li> <li> <p>Specify <code>PARTNER</code> to create a partner profile. A partner profile represents a remote organization, external to Transfer Family.</p> </li> </ul>
             certificate_ids: <p>An array of identifiers for the imported certificates. You use this identifier for working with profiles and partner profiles.</p>
             tags: <p>Key-value pairs that can be used to group and search for AS2 profiles.</p>
+
+        Raises:
+            aws_sdk_transfer.errors.internal_service_error.InternalServiceError: <p>This exception is thrown when an error occurs in the Transfer Family service.</p>
+            aws_sdk_transfer.errors.invalid_request_exception.InvalidRequestException: <p>This exception is thrown when the client submits a malformed request.</p>
+            aws_sdk_transfer.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when a resource is not found by the Amazon Web ServicesTransfer Family service.</p>
+            aws_sdk_transfer.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request has failed because the Amazon Web ServicesTransfer Family service is not available.</p>
+            aws_sdk_transfer.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_transfer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -100,6 +108,13 @@ class ProfileResource:
 
         Args:
             profile_id: <p>The identifier of the profile that you want described.</p>
+
+        Raises:
+            aws_sdk_transfer.errors.internal_service_error.InternalServiceError: <p>This exception is thrown when an error occurs in the Transfer Family service.</p>
+            aws_sdk_transfer.errors.invalid_request_exception.InvalidRequestException: <p>This exception is thrown when the client submits a malformed request.</p>
+            aws_sdk_transfer.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when a resource is not found by the Amazon Web ServicesTransfer Family service.</p>
+            aws_sdk_transfer.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request has failed because the Amazon Web ServicesTransfer Family service is not available.</p>
+            aws_sdk_transfer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -141,6 +156,14 @@ class ProfileResource:
         Args:
             profile_id: <p>The identifier of the profile object that you are updating.</p>
             certificate_ids: <p>An array of identifiers for the imported certificates. You use this identifier for working with profiles and partner profiles.</p>
+
+        Raises:
+            aws_sdk_transfer.errors.internal_service_error.InternalServiceError: <p>This exception is thrown when an error occurs in the Transfer Family service.</p>
+            aws_sdk_transfer.errors.invalid_request_exception.InvalidRequestException: <p>This exception is thrown when the client submits a malformed request.</p>
+            aws_sdk_transfer.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when a resource is not found by the Amazon Web ServicesTransfer Family service.</p>
+            aws_sdk_transfer.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request has failed because the Amazon Web ServicesTransfer Family service is not available.</p>
+            aws_sdk_transfer.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_transfer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -180,6 +203,13 @@ class ProfileResource:
 
         Args:
             profile_id: <p>The identifier of the profile that you are deleting.</p>
+
+        Raises:
+            aws_sdk_transfer.errors.internal_service_error.InternalServiceError: <p>This exception is thrown when an error occurs in the Transfer Family service.</p>
+            aws_sdk_transfer.errors.invalid_request_exception.InvalidRequestException: <p>This exception is thrown when the client submits a malformed request.</p>
+            aws_sdk_transfer.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when a resource is not found by the Amazon Web ServicesTransfer Family service.</p>
+            aws_sdk_transfer.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request has failed because the Amazon Web ServicesTransfer Family service is not available.</p>
+            aws_sdk_transfer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -221,6 +251,14 @@ class ProfileResource:
             max_results: <p>The maximum number of items to return.</p>
             next_token: <p>When there are additional results that were not returned, a <code>NextToken</code> parameter is returned. You can use that value for a subsequent call to <code>ListProfiles</code> to continue listing results.</p>
             profile_type: <p>Indicates whether to list only <code>LOCAL</code> type profiles or only <code>PARTNER</code> type profiles. If not supplied in the request, the command lists all types of profiles.</p>
+
+        Raises:
+            aws_sdk_transfer.errors.internal_service_error.InternalServiceError: <p>This exception is thrown when an error occurs in the Transfer Family service.</p>
+            aws_sdk_transfer.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The <code>NextToken</code> parameter that was passed is invalid.</p>
+            aws_sdk_transfer.errors.invalid_request_exception.InvalidRequestException: <p>This exception is thrown when the client submits a malformed request.</p>
+            aws_sdk_transfer.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when a resource is not found by the Amazon Web ServicesTransfer Family service.</p>
+            aws_sdk_transfer.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request has failed because the Amazon Web ServicesTransfer Family service is not available.</p>
+            aws_sdk_transfer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -276,6 +314,14 @@ class AsyncProfileResource:
             profile_type: <p>Determines the type of profile to create:</p> <ul> <li> <p>Specify <code>LOCAL</code> to create a local profile. A local profile represents the AS2-enabled Transfer Family server organization or party.</p> </li> <li> <p>Specify <code>PARTNER</code> to create a partner profile. A partner profile represents a remote organization, external to Transfer Family.</p> </li> </ul>
             certificate_ids: <p>An array of identifiers for the imported certificates. You use this identifier for working with profiles and partner profiles.</p>
             tags: <p>Key-value pairs that can be used to group and search for AS2 profiles.</p>
+
+        Raises:
+            aws_sdk_transfer.errors.internal_service_error.InternalServiceError: <p>This exception is thrown when an error occurs in the Transfer Family service.</p>
+            aws_sdk_transfer.errors.invalid_request_exception.InvalidRequestException: <p>This exception is thrown when the client submits a malformed request.</p>
+            aws_sdk_transfer.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when a resource is not found by the Amazon Web ServicesTransfer Family service.</p>
+            aws_sdk_transfer.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request has failed because the Amazon Web ServicesTransfer Family service is not available.</p>
+            aws_sdk_transfer.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_transfer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -319,6 +365,13 @@ class AsyncProfileResource:
 
         Args:
             profile_id: <p>The identifier of the profile that you want described.</p>
+
+        Raises:
+            aws_sdk_transfer.errors.internal_service_error.InternalServiceError: <p>This exception is thrown when an error occurs in the Transfer Family service.</p>
+            aws_sdk_transfer.errors.invalid_request_exception.InvalidRequestException: <p>This exception is thrown when the client submits a malformed request.</p>
+            aws_sdk_transfer.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when a resource is not found by the Amazon Web ServicesTransfer Family service.</p>
+            aws_sdk_transfer.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request has failed because the Amazon Web ServicesTransfer Family service is not available.</p>
+            aws_sdk_transfer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -361,6 +414,14 @@ class AsyncProfileResource:
         Args:
             profile_id: <p>The identifier of the profile object that you are updating.</p>
             certificate_ids: <p>An array of identifiers for the imported certificates. You use this identifier for working with profiles and partner profiles.</p>
+
+        Raises:
+            aws_sdk_transfer.errors.internal_service_error.InternalServiceError: <p>This exception is thrown when an error occurs in the Transfer Family service.</p>
+            aws_sdk_transfer.errors.invalid_request_exception.InvalidRequestException: <p>This exception is thrown when the client submits a malformed request.</p>
+            aws_sdk_transfer.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when a resource is not found by the Amazon Web ServicesTransfer Family service.</p>
+            aws_sdk_transfer.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request has failed because the Amazon Web ServicesTransfer Family service is not available.</p>
+            aws_sdk_transfer.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_transfer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -401,6 +462,13 @@ class AsyncProfileResource:
 
         Args:
             profile_id: <p>The identifier of the profile that you are deleting.</p>
+
+        Raises:
+            aws_sdk_transfer.errors.internal_service_error.InternalServiceError: <p>This exception is thrown when an error occurs in the Transfer Family service.</p>
+            aws_sdk_transfer.errors.invalid_request_exception.InvalidRequestException: <p>This exception is thrown when the client submits a malformed request.</p>
+            aws_sdk_transfer.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when a resource is not found by the Amazon Web ServicesTransfer Family service.</p>
+            aws_sdk_transfer.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request has failed because the Amazon Web ServicesTransfer Family service is not available.</p>
+            aws_sdk_transfer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -443,6 +511,14 @@ class AsyncProfileResource:
             max_results: <p>The maximum number of items to return.</p>
             next_token: <p>When there are additional results that were not returned, a <code>NextToken</code> parameter is returned. You can use that value for a subsequent call to <code>ListProfiles</code> to continue listing results.</p>
             profile_type: <p>Indicates whether to list only <code>LOCAL</code> type profiles or only <code>PARTNER</code> type profiles. If not supplied in the request, the command lists all types of profiles.</p>
+
+        Raises:
+            aws_sdk_transfer.errors.internal_service_error.InternalServiceError: <p>This exception is thrown when an error occurs in the Transfer Family service.</p>
+            aws_sdk_transfer.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The <code>NextToken</code> parameter that was passed is invalid.</p>
+            aws_sdk_transfer.errors.invalid_request_exception.InvalidRequestException: <p>This exception is thrown when the client submits a malformed request.</p>
+            aws_sdk_transfer.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when a resource is not found by the Amazon Web ServicesTransfer Family service.</p>
+            aws_sdk_transfer.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request has failed because the Amazon Web ServicesTransfer Family service is not available.</p>
+            aws_sdk_transfer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

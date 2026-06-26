@@ -232,6 +232,19 @@ class AsyncRAMClient:
         Args:
             resource_share_invitation_arn: <p>The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Name (ARN)</a> of the invitation that you want to accept.</p>
             client_token: <p>Specifies a unique, case-sensitive identifier that you provide to ensure the idempotency of the request. This lets you safely retry the request without accidentally performing the same operation a second time. Passing the same value to a later call to an operation requires that you also pass the same value for all other parameters. We recommend that you use a <a href=\"https://wikipedia.org/wiki/Universally_unique_identifier\">UUID type of value.</a>.</p> <p>If you don't provide this value, then Amazon Web Services generates a random one for you.</p> <p>If you retry the operation with the same <code>ClientToken</code>, but with different parameters, the retry fails with an <code>IdempotentParameterMismatch</code> error.</p>
+
+        Raises:
+            aws_sdk_ram.errors.idempotent_parameter_mismatch_exception.IdempotentParameterMismatchException: <p>The operation failed because the client token input parameter matched one that was used with a previous call to the operation, but at least one of the other input parameters is different from the previous call.</p>
+            aws_sdk_ram.errors.invalid_client_token_exception.InvalidClientTokenException: <p>The operation failed because the specified client token isn't valid.</p>
+            aws_sdk_ram.errors.malformed_arn_exception.MalformedArnException: <p>The operation failed because the specified <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Name (ARN)</a> has a format that isn't valid.</p>
+            aws_sdk_ram.errors.operation_not_permitted_exception.OperationNotPermittedException: <p>The operation failed because the requested operation isn't permitted.</p>
+            aws_sdk_ram.errors.resource_share_invitation_already_accepted_exception.ResourceShareInvitationAlreadyAcceptedException: <p>The operation failed because the specified invitation was already accepted.</p>
+            aws_sdk_ram.errors.resource_share_invitation_already_rejected_exception.ResourceShareInvitationAlreadyRejectedException: <p>The operation failed because the specified invitation was already rejected.</p>
+            aws_sdk_ram.errors.resource_share_invitation_arn_not_found_exception.ResourceShareInvitationArnNotFoundException: <p>The operation failed because the specified <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Name (ARN)</a> for an invitation was not found.</p>
+            aws_sdk_ram.errors.resource_share_invitation_expired_exception.ResourceShareInvitationExpiredException: <p>The operation failed because the specified invitation is past its expiration date and time.</p>
+            aws_sdk_ram.errors.server_internal_exception.ServerInternalException: <p>The operation failed because the service could not respond to the request due to an internal problem. Try again later.</p>
+            aws_sdk_ram.errors.service_unavailable_exception.ServiceUnavailableException: <p>The operation failed because the service isn't available. Try again later.</p>
+            aws_sdk_ram.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -286,6 +299,20 @@ class AsyncRAMClient:
             principals: <p>Specifies a list of principals to whom you want to the resource share. This can be <code>null</code> if you want to add only resources.</p> <p>What the principals can do with the resources in the share is determined by the RAM permissions that you associate with the resource share. See <a>AssociateResourceSharePermission</a>.</p> <p>You can include the following values:</p> <ul> <li> <p>An Amazon Web Services account ID, for example: <code>123456789012</code> </p> </li> <li> <p>An <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Name (ARN)</a> of an organization in Organizations, for example: <code>organizations::123456789012:organization/o-exampleorgid</code> </p> </li> <li> <p>An ARN of an organizational unit (OU) in Organizations, for example: <code>organizations::123456789012:ou/o-exampleorgid/ou-examplerootid-exampleouid123</code> </p> </li> <li> <p>An ARN of an IAM role, for example: <code>iam::123456789012:role/rolename</code> </p> </li> <li> <p>An ARN of an IAM user, for example: <code>iam::123456789012user/username</code> </p> </li> <li> <p>A service principal name, for example: <code>service-id.amazonaws.com</code> </p> </li> </ul> <note> <p>Not all resource types can be shared with IAM roles and users. For more information, see <a href=\"https://docs.aws.amazon.com/ram/latest/userguide/permissions.html#permissions-rbp-supported-resource-types\">Sharing with IAM roles and users</a> in the <i>Resource Access Manager User Guide</i>.</p> </note>
             client_token: <p>Specifies a unique, case-sensitive identifier that you provide to ensure the idempotency of the request. This lets you safely retry the request without accidentally performing the same operation a second time. Passing the same value to a later call to an operation requires that you also pass the same value for all other parameters. We recommend that you use a <a href=\"https://wikipedia.org/wiki/Universally_unique_identifier\">UUID type of value.</a>.</p> <p>If you don't provide this value, then Amazon Web Services generates a random one for you.</p> <p>If you retry the operation with the same <code>ClientToken</code>, but with different parameters, the retry fails with an <code>IdempotentParameterMismatch</code> error.</p>
             sources: <p>Specifies source constraints (accounts, ARNs, organization IDs, or organization paths) that limit when service principals can access resources in this resource share. When a service principal attempts to access a shared resource, validation is performed to ensure the request originates from one of the specified sources. This helps prevent confused deputy attacks by applying constraints on where service principals can access resources from.</p>
+
+        Raises:
+            aws_sdk_ram.errors.idempotent_parameter_mismatch_exception.IdempotentParameterMismatchException: <p>The operation failed because the client token input parameter matched one that was used with a previous call to the operation, but at least one of the other input parameters is different from the previous call.</p>
+            aws_sdk_ram.errors.invalid_client_token_exception.InvalidClientTokenException: <p>The operation failed because the specified client token isn't valid.</p>
+            aws_sdk_ram.errors.invalid_parameter_exception.InvalidParameterException: <p>The operation failed because a parameter you specified isn't valid.</p>
+            aws_sdk_ram.errors.invalid_state_transition_exception.InvalidStateTransitionException: <p>The operation failed because the requested operation isn't valid for the resource share in its current state.</p>
+            aws_sdk_ram.errors.malformed_arn_exception.MalformedArnException: <p>The operation failed because the specified <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Name (ARN)</a> has a format that isn't valid.</p>
+            aws_sdk_ram.errors.operation_not_permitted_exception.OperationNotPermittedException: <p>The operation failed because the requested operation isn't permitted.</p>
+            aws_sdk_ram.errors.resource_share_limit_exceeded_exception.ResourceShareLimitExceededException: <p>The operation failed because it would exceed the limit for resource shares for your account. You can associate up to 100 resources per call. To view the limits for your Amazon Web Services account, see the <a href=\"https://console.aws.amazon.com/servicequotas/home/services/ram/quotas\">RAM page in the Service Quotas console</a>.</p>
+            aws_sdk_ram.errors.server_internal_exception.ServerInternalException: <p>The operation failed because the service could not respond to the request due to an internal problem. Try again later.</p>
+            aws_sdk_ram.errors.service_unavailable_exception.ServiceUnavailableException: <p>The operation failed because the service isn't available. Try again later.</p>
+            aws_sdk_ram.errors.throttling_exception.ThrottlingException: <p>The operation failed because it exceeded the rate at which you are allowed to perform this operation. Please try again later.</p>
+            aws_sdk_ram.errors.unknown_resource_exception.UnknownResourceException: <p>The operation failed because a specified resource couldn't be found.</p>
+            aws_sdk_ram.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -340,6 +367,16 @@ class AsyncRAMClient:
             replace: <p>Specifies whether the specified permission should replace the existing permission associated with the resource share. Use <code>true</code> to replace the current permissions. Use <code>false</code> to add the permission to a resource share that currently doesn't have a permission. The default value is <code>false</code>.</p> <note> <p>A resource share can have only one permission per resource type. If a resource share already has a permission for the specified resource type and you don't set <code>replace</code> to <code>true</code> then the operation returns an error. This helps prevent accidental overwriting of a permission.</p> </note>
             client_token: <p>Specifies a unique, case-sensitive identifier that you provide to ensure the idempotency of the request. This lets you safely retry the request without accidentally performing the same operation a second time. Passing the same value to a later call to an operation requires that you also pass the same value for all other parameters. We recommend that you use a <a href=\"https://wikipedia.org/wiki/Universally_unique_identifier\">UUID type of value.</a>.</p> <p>If you don't provide this value, then Amazon Web Services generates a random one for you.</p> <p>If you retry the operation with the same <code>ClientToken</code>, but with different parameters, the retry fails with an <code>IdempotentParameterMismatch</code> error.</p>
             permission_version: <p>Specifies the version of the RAM permission to associate with the resource share. You can specify <i>only</i> the version that is currently set as the default version for the permission. If you also set the <code>replace</code> pararameter to <code>true</code>, then this operation updates an outdated version of the permission to the current default version.</p> <note> <p>You don't need to specify this parameter because the default behavior is to use the version that is currently set as the default version for the permission. This parameter is supported for backwards compatibility.</p> </note>
+
+        Raises:
+            aws_sdk_ram.errors.invalid_client_token_exception.InvalidClientTokenException: <p>The operation failed because the specified client token isn't valid.</p>
+            aws_sdk_ram.errors.invalid_parameter_exception.InvalidParameterException: <p>The operation failed because a parameter you specified isn't valid.</p>
+            aws_sdk_ram.errors.malformed_arn_exception.MalformedArnException: <p>The operation failed because the specified <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Name (ARN)</a> has a format that isn't valid.</p>
+            aws_sdk_ram.errors.operation_not_permitted_exception.OperationNotPermittedException: <p>The operation failed because the requested operation isn't permitted.</p>
+            aws_sdk_ram.errors.server_internal_exception.ServerInternalException: <p>The operation failed because the service could not respond to the request due to an internal problem. Try again later.</p>
+            aws_sdk_ram.errors.service_unavailable_exception.ServiceUnavailableException: <p>The operation failed because the service isn't available. Try again later.</p>
+            aws_sdk_ram.errors.unknown_resource_exception.UnknownResourceException: <p>The operation failed because a specified resource couldn't be found.</p>
+            aws_sdk_ram.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -393,6 +430,19 @@ class AsyncRAMClient:
             policy_template: <p>A string in JSON format string that contains the following elements of a resource-based policy:</p> <ul> <li> <p> <b>Effect</b>: must be set to <code>ALLOW</code>.</p> </li> <li> <p> <b>Action</b>: specifies the actions that are allowed by this customer managed permission. The list must contain only actions that are supported by the specified resource type. For a list of all actions supported by each resource type, see <a href=\"https://docs.aws.amazon.com/service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.html\">Actions, resources, and condition keys for Amazon Web Services services</a> in the <i>Identity and Access Management User Guide</i>.</p> </li> <li> <p> <b>Condition</b>: (optional) specifies conditional parameters that must evaluate to true when a user attempts an action for that action to be allowed. For more information about the Condition element, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_condition.html\">IAM policies: Condition element</a> in the <i>Identity and Access Management User Guide</i>.</p> </li> </ul> <p>This template can't include either the <code>Resource</code> or <code>Principal</code> elements. Those are both filled in by RAM when it instantiates the resource-based policy on each resource shared using this managed permission. The <code>Resource</code> comes from the ARN of the specific resource that you are sharing. The <code>Principal</code> comes from the list of identities added to the resource share.</p>
             client_token: <p>Specifies a unique, case-sensitive identifier that you provide to ensure the idempotency of the request. This lets you safely retry the request without accidentally performing the same operation a second time. Passing the same value to a later call to an operation requires that you also pass the same value for all other parameters. We recommend that you use a <a href=\"https://wikipedia.org/wiki/Universally_unique_identifier\">UUID type of value.</a>.</p> <p>If you don't provide this value, then Amazon Web Services generates a random one for you.</p> <p>If you retry the operation with the same <code>ClientToken</code>, but with different parameters, the retry fails with an <code>IdempotentParameterMismatch</code> error.</p>
             tags: <p>Specifies a list of one or more tag key and value pairs to attach to the permission.</p>
+
+        Raises:
+            aws_sdk_ram.errors.idempotent_parameter_mismatch_exception.IdempotentParameterMismatchException: <p>The operation failed because the client token input parameter matched one that was used with a previous call to the operation, but at least one of the other input parameters is different from the previous call.</p>
+            aws_sdk_ram.errors.invalid_client_token_exception.InvalidClientTokenException: <p>The operation failed because the specified client token isn't valid.</p>
+            aws_sdk_ram.errors.invalid_parameter_exception.InvalidParameterException: <p>The operation failed because a parameter you specified isn't valid.</p>
+            aws_sdk_ram.errors.invalid_policy_exception.InvalidPolicyException: <p>The operation failed because a policy you specified isn't valid.</p>
+            aws_sdk_ram.errors.malformed_policy_template_exception.MalformedPolicyTemplateException: <p>The operation failed because the policy template that you provided isn't valid.</p>
+            aws_sdk_ram.errors.operation_not_permitted_exception.OperationNotPermittedException: <p>The operation failed because the requested operation isn't permitted.</p>
+            aws_sdk_ram.errors.permission_already_exists_exception.PermissionAlreadyExistsException: <p>The operation failed because a permission with the specified name already exists in the requested Amazon Web Services Region. Choose a different name.</p>
+            aws_sdk_ram.errors.permission_limit_exceeded_exception.PermissionLimitExceededException: <p>The operation failed because it would exceed the maximum number of permissions you can create in each Amazon Web Services Region. To view the limits for your Amazon Web Services account, see the <a href=\"https://console.aws.amazon.com/servicequotas/home/services/ram/quotas\">RAM page in the Service Quotas console</a>.</p>
+            aws_sdk_ram.errors.server_internal_exception.ServerInternalException: <p>The operation failed because the service could not respond to the request due to an internal problem. Try again later.</p>
+            aws_sdk_ram.errors.service_unavailable_exception.ServiceUnavailableException: <p>The operation failed because the service isn't available. Try again later.</p>
+            aws_sdk_ram.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -441,6 +491,19 @@ class AsyncRAMClient:
             permission_arn: <p>Specifies the <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Name (ARN)</a> of the customer managed permission you're creating a new version for.</p>
             policy_template: <p>A string in JSON format string that contains the following elements of a resource-based policy:</p> <ul> <li> <p> <b>Effect</b>: must be set to <code>ALLOW</code>.</p> </li> <li> <p> <b>Action</b>: specifies the actions that are allowed by this customer managed permission. The list must contain only actions that are supported by the specified resource type. For a list of all actions supported by each resource type, see <a href=\"https://docs.aws.amazon.com/service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.html\">Actions, resources, and condition keys for Amazon Web Services services</a> in the <i>Identity and Access Management User Guide</i>.</p> </li> <li> <p> <b>Condition</b>: (optional) specifies conditional parameters that must evaluate to true when a user attempts an action for that action to be allowed. For more information about the Condition element, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_condition.html\">IAM policies: Condition element</a> in the <i>Identity and Access Management User Guide</i>.</p> </li> </ul> <p>This template can't include either the <code>Resource</code> or <code>Principal</code> elements. Those are both filled in by RAM when it instantiates the resource-based policy on each resource shared using this managed permission. The <code>Resource</code> comes from the ARN of the specific resource that you are sharing. The <code>Principal</code> comes from the list of identities added to the resource share.</p>
             client_token: <p>Specifies a unique, case-sensitive identifier that you provide to ensure the idempotency of the request. This lets you safely retry the request without accidentally performing the same operation a second time. Passing the same value to a later call to an operation requires that you also pass the same value for all other parameters. We recommend that you use a <a href=\"https://wikipedia.org/wiki/Universally_unique_identifier\">UUID type of value.</a>.</p> <p>If you don't provide this value, then Amazon Web Services generates a random one for you.</p> <p>If you retry the operation with the same <code>ClientToken</code>, but with different parameters, the retry fails with an <code>IdempotentParameterMismatch</code> error.</p>
+
+        Raises:
+            aws_sdk_ram.errors.idempotent_parameter_mismatch_exception.IdempotentParameterMismatchException: <p>The operation failed because the client token input parameter matched one that was used with a previous call to the operation, but at least one of the other input parameters is different from the previous call.</p>
+            aws_sdk_ram.errors.invalid_client_token_exception.InvalidClientTokenException: <p>The operation failed because the specified client token isn't valid.</p>
+            aws_sdk_ram.errors.invalid_parameter_exception.InvalidParameterException: <p>The operation failed because a parameter you specified isn't valid.</p>
+            aws_sdk_ram.errors.invalid_policy_exception.InvalidPolicyException: <p>The operation failed because a policy you specified isn't valid.</p>
+            aws_sdk_ram.errors.malformed_arn_exception.MalformedArnException: <p>The operation failed because the specified <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Name (ARN)</a> has a format that isn't valid.</p>
+            aws_sdk_ram.errors.malformed_policy_template_exception.MalformedPolicyTemplateException: <p>The operation failed because the policy template that you provided isn't valid.</p>
+            aws_sdk_ram.errors.permission_versions_limit_exceeded_exception.PermissionVersionsLimitExceededException: <p>The operation failed because it would exceed the limit for the number of versions you can have for a permission. To view the limits for your Amazon Web Services account, see the <a href=\"https://console.aws.amazon.com/servicequotas/home/services/ram/quotas\">RAM page in the Service Quotas console</a>.</p>
+            aws_sdk_ram.errors.server_internal_exception.ServerInternalException: <p>The operation failed because the service could not respond to the request due to an internal problem. Try again later.</p>
+            aws_sdk_ram.errors.service_unavailable_exception.ServiceUnavailableException: <p>The operation failed because the service isn't available. Try again later.</p>
+            aws_sdk_ram.errors.unknown_resource_exception.UnknownResourceException: <p>The operation failed because a specified resource couldn't be found.</p>
+            aws_sdk_ram.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -508,6 +571,22 @@ class AsyncRAMClient:
             permission_arns: <p>Specifies the <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs)</a> of the RAM permission to associate with the resource share. If you do not specify an ARN for the permission, RAM automatically attaches the default version of the permission for each resource type. You can associate only one permission with each resource type included in the resource share.</p>
             sources: <p>Specifies source constraints (accounts, ARNs, organization IDs, or organization paths) that limit when service principals can access resources in this resource share. When a service principal attempts to access a shared resource, validation is performed to ensure the request originates from one of the specified sources. This helps prevent confused deputy attacks by applying constraints on where service principals can access resources from.</p>
             resource_share_configuration: <p>Specifies the configuration of this resource share.</p>
+
+        Raises:
+            aws_sdk_ram.errors.idempotent_parameter_mismatch_exception.IdempotentParameterMismatchException: <p>The operation failed because the client token input parameter matched one that was used with a previous call to the operation, but at least one of the other input parameters is different from the previous call.</p>
+            aws_sdk_ram.errors.invalid_client_token_exception.InvalidClientTokenException: <p>The operation failed because the specified client token isn't valid.</p>
+            aws_sdk_ram.errors.invalid_parameter_exception.InvalidParameterException: <p>The operation failed because a parameter you specified isn't valid.</p>
+            aws_sdk_ram.errors.invalid_state_transition_exception.InvalidStateTransitionException: <p>The operation failed because the requested operation isn't valid for the resource share in its current state.</p>
+            aws_sdk_ram.errors.malformed_arn_exception.MalformedArnException: <p>The operation failed because the specified <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Name (ARN)</a> has a format that isn't valid.</p>
+            aws_sdk_ram.errors.operation_not_permitted_exception.OperationNotPermittedException: <p>The operation failed because the requested operation isn't permitted.</p>
+            aws_sdk_ram.errors.resource_share_limit_exceeded_exception.ResourceShareLimitExceededException: <p>The operation failed because it would exceed the limit for resource shares for your account. You can associate up to 100 resources per call. To view the limits for your Amazon Web Services account, see the <a href=\"https://console.aws.amazon.com/servicequotas/home/services/ram/quotas\">RAM page in the Service Quotas console</a>.</p>
+            aws_sdk_ram.errors.server_internal_exception.ServerInternalException: <p>The operation failed because the service could not respond to the request due to an internal problem. Try again later.</p>
+            aws_sdk_ram.errors.service_unavailable_exception.ServiceUnavailableException: <p>The operation failed because the service isn't available. Try again later.</p>
+            aws_sdk_ram.errors.tag_limit_exceeded_exception.TagLimitExceededException: <p>The operation failed because it would exceed the limit for tags for your Amazon Web Services account.</p>
+            aws_sdk_ram.errors.tag_policy_violation_exception.TagPolicyViolationException: <p>The operation failed because the specified tag key is a reserved word and can't be used.</p>
+            aws_sdk_ram.errors.throttling_exception.ThrottlingException: <p>The operation failed because it exceeded the rate at which you are allowed to perform this operation. Please try again later.</p>
+            aws_sdk_ram.errors.unknown_resource_exception.UnknownResourceException: <p>The operation failed because a specified resource couldn't be found.</p>
+            aws_sdk_ram.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -564,6 +643,16 @@ class AsyncRAMClient:
         Args:
             permission_arn: <p>Specifies the <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Name (ARN)</a> of the customer managed permission that you want to delete.</p>
             client_token: <p>Specifies a unique, case-sensitive identifier that you provide to ensure the idempotency of the request. This lets you safely retry the request without accidentally performing the same operation a second time. Passing the same value to a later call to an operation requires that you also pass the same value for all other parameters. We recommend that you use a <a href=\"https://wikipedia.org/wiki/Universally_unique_identifier\">UUID type of value.</a>.</p> <p>If you don't provide this value, then Amazon Web Services generates a random one for you.</p> <p>If you retry the operation with the same <code>ClientToken</code>, but with different parameters, the retry fails with an <code>IdempotentParameterMismatch</code> error.</p>
+
+        Raises:
+            aws_sdk_ram.errors.idempotent_parameter_mismatch_exception.IdempotentParameterMismatchException: <p>The operation failed because the client token input parameter matched one that was used with a previous call to the operation, but at least one of the other input parameters is different from the previous call.</p>
+            aws_sdk_ram.errors.invalid_client_token_exception.InvalidClientTokenException: <p>The operation failed because the specified client token isn't valid.</p>
+            aws_sdk_ram.errors.malformed_arn_exception.MalformedArnException: <p>The operation failed because the specified <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Name (ARN)</a> has a format that isn't valid.</p>
+            aws_sdk_ram.errors.operation_not_permitted_exception.OperationNotPermittedException: <p>The operation failed because the requested operation isn't permitted.</p>
+            aws_sdk_ram.errors.server_internal_exception.ServerInternalException: <p>The operation failed because the service could not respond to the request due to an internal problem. Try again later.</p>
+            aws_sdk_ram.errors.service_unavailable_exception.ServiceUnavailableException: <p>The operation failed because the service isn't available. Try again later.</p>
+            aws_sdk_ram.errors.unknown_resource_exception.UnknownResourceException: <p>The operation failed because a specified resource couldn't be found.</p>
+            aws_sdk_ram.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -608,6 +697,17 @@ class AsyncRAMClient:
             permission_arn: <p>Specifies the <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Name (ARN)</a> of the permission with the version you want to delete.</p>
             permission_version: <p>Specifies the version number to delete.</p> <p>You can't delete the default version for a customer managed permission.</p> <p>You can't delete a version if it's the only version of the permission. You must either first create another version, or delete the permission completely.</p> <p>You can't delete a version if it is attached to any resource shares. If the version is the default, you must first use <a>SetDefaultPermissionVersion</a> to set a different version as the default for the customer managed permission, and then use <a>AssociateResourceSharePermission</a> to update your resource shares to use the new default version.</p>
             client_token: <p>Specifies a unique, case-sensitive identifier that you provide to ensure the idempotency of the request. This lets you safely retry the request without accidentally performing the same operation a second time. Passing the same value to a later call to an operation requires that you also pass the same value for all other parameters. We recommend that you use a <a href=\"https://wikipedia.org/wiki/Universally_unique_identifier\">UUID type of value.</a>.</p> <p>If you don't provide this value, then Amazon Web Services generates a random one for you.</p> <p>If you retry the operation with the same <code>ClientToken</code>, but with different parameters, the retry fails with an <code>IdempotentParameterMismatch</code> error.</p>
+
+        Raises:
+            aws_sdk_ram.errors.idempotent_parameter_mismatch_exception.IdempotentParameterMismatchException: <p>The operation failed because the client token input parameter matched one that was used with a previous call to the operation, but at least one of the other input parameters is different from the previous call.</p>
+            aws_sdk_ram.errors.invalid_client_token_exception.InvalidClientTokenException: <p>The operation failed because the specified client token isn't valid.</p>
+            aws_sdk_ram.errors.invalid_parameter_exception.InvalidParameterException: <p>The operation failed because a parameter you specified isn't valid.</p>
+            aws_sdk_ram.errors.malformed_arn_exception.MalformedArnException: <p>The operation failed because the specified <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Name (ARN)</a> has a format that isn't valid.</p>
+            aws_sdk_ram.errors.operation_not_permitted_exception.OperationNotPermittedException: <p>The operation failed because the requested operation isn't permitted.</p>
+            aws_sdk_ram.errors.server_internal_exception.ServerInternalException: <p>The operation failed because the service could not respond to the request due to an internal problem. Try again later.</p>
+            aws_sdk_ram.errors.service_unavailable_exception.ServiceUnavailableException: <p>The operation failed because the service isn't available. Try again later.</p>
+            aws_sdk_ram.errors.unknown_resource_exception.UnknownResourceException: <p>The operation failed because a specified resource couldn't be found.</p>
+            aws_sdk_ram.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -651,6 +751,19 @@ class AsyncRAMClient:
         Args:
             resource_share_arn: <p>Specifies the <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Name (ARN)</a> of the resource share to delete.</p>
             client_token: <p>Specifies a unique, case-sensitive identifier that you provide to ensure the idempotency of the request. This lets you safely retry the request without accidentally performing the same operation a second time. Passing the same value to a later call to an operation requires that you also pass the same value for all other parameters. We recommend that you use a <a href=\"https://wikipedia.org/wiki/Universally_unique_identifier\">UUID type of value.</a>.</p> <p>If you don't provide this value, then Amazon Web Services generates a random one for you.</p> <p>If you retry the operation with the same <code>ClientToken</code>, but with different parameters, the retry fails with an <code>IdempotentParameterMismatch</code> error.</p>
+
+        Raises:
+            aws_sdk_ram.errors.idempotent_parameter_mismatch_exception.IdempotentParameterMismatchException: <p>The operation failed because the client token input parameter matched one that was used with a previous call to the operation, but at least one of the other input parameters is different from the previous call.</p>
+            aws_sdk_ram.errors.invalid_client_token_exception.InvalidClientTokenException: <p>The operation failed because the specified client token isn't valid.</p>
+            aws_sdk_ram.errors.invalid_parameter_exception.InvalidParameterException: <p>The operation failed because a parameter you specified isn't valid.</p>
+            aws_sdk_ram.errors.invalid_state_transition_exception.InvalidStateTransitionException: <p>The operation failed because the requested operation isn't valid for the resource share in its current state.</p>
+            aws_sdk_ram.errors.malformed_arn_exception.MalformedArnException: <p>The operation failed because the specified <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Name (ARN)</a> has a format that isn't valid.</p>
+            aws_sdk_ram.errors.operation_not_permitted_exception.OperationNotPermittedException: <p>The operation failed because the requested operation isn't permitted.</p>
+            aws_sdk_ram.errors.server_internal_exception.ServerInternalException: <p>The operation failed because the service could not respond to the request due to an internal problem. Try again later.</p>
+            aws_sdk_ram.errors.service_unavailable_exception.ServiceUnavailableException: <p>The operation failed because the service isn't available. Try again later.</p>
+            aws_sdk_ram.errors.throttling_exception.ThrottlingException: <p>The operation failed because it exceeded the rate at which you are allowed to perform this operation. Please try again later.</p>
+            aws_sdk_ram.errors.unknown_resource_exception.UnknownResourceException: <p>The operation failed because a specified resource couldn't be found.</p>
+            aws_sdk_ram.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -705,6 +818,20 @@ class AsyncRAMClient:
             principals: <p>Specifies a list of one or more principals that no longer are to have access to the resources in this resource share.</p> <p>You can include the following values:</p> <ul> <li> <p>An Amazon Web Services account ID, for example: <code>123456789012</code> </p> </li> <li> <p>An <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Name (ARN)</a> of an organization in Organizations, for example: <code>organizations::123456789012:organization/o-exampleorgid</code> </p> </li> <li> <p>An ARN of an organizational unit (OU) in Organizations, for example: <code>organizations::123456789012:ou/o-exampleorgid/ou-examplerootid-exampleouid123</code> </p> </li> <li> <p>An ARN of an IAM role, for example: <code>iam::123456789012:role/rolename</code> </p> </li> <li> <p>An ARN of an IAM user, for example: <code>iam::123456789012user/username</code> </p> </li> <li> <p>A service principal name, for example: <code>service-id.amazonaws.com</code> </p> </li> </ul> <note> <p>Not all resource types can be shared with IAM roles and users. For more information, see <a href=\"https://docs.aws.amazon.com/ram/latest/userguide/permissions.html#permissions-rbp-supported-resource-types\">Sharing with IAM roles and users</a> in the <i>Resource Access Manager User Guide</i>.</p> </note>
             client_token: <p>Specifies a unique, case-sensitive identifier that you provide to ensure the idempotency of the request. This lets you safely retry the request without accidentally performing the same operation a second time. Passing the same value to a later call to an operation requires that you also pass the same value for all other parameters. We recommend that you use a <a href=\"https://wikipedia.org/wiki/Universally_unique_identifier\">UUID type of value.</a>.</p> <p>If you don't provide this value, then Amazon Web Services generates a random one for you.</p> <p>If you retry the operation with the same <code>ClientToken</code>, but with different parameters, the retry fails with an <code>IdempotentParameterMismatch</code> error.</p>
             sources: <p>Specifies source constraints (accounts, ARNs, organization IDs, or organization paths) to remove from the resource share. This enables granular management of source constraints while maintaining service principal associations. At least one source must remain when service principals are present.</p>
+
+        Raises:
+            aws_sdk_ram.errors.idempotent_parameter_mismatch_exception.IdempotentParameterMismatchException: <p>The operation failed because the client token input parameter matched one that was used with a previous call to the operation, but at least one of the other input parameters is different from the previous call.</p>
+            aws_sdk_ram.errors.invalid_client_token_exception.InvalidClientTokenException: <p>The operation failed because the specified client token isn't valid.</p>
+            aws_sdk_ram.errors.invalid_parameter_exception.InvalidParameterException: <p>The operation failed because a parameter you specified isn't valid.</p>
+            aws_sdk_ram.errors.invalid_state_transition_exception.InvalidStateTransitionException: <p>The operation failed because the requested operation isn't valid for the resource share in its current state.</p>
+            aws_sdk_ram.errors.malformed_arn_exception.MalformedArnException: <p>The operation failed because the specified <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Name (ARN)</a> has a format that isn't valid.</p>
+            aws_sdk_ram.errors.operation_not_permitted_exception.OperationNotPermittedException: <p>The operation failed because the requested operation isn't permitted.</p>
+            aws_sdk_ram.errors.resource_share_limit_exceeded_exception.ResourceShareLimitExceededException: <p>The operation failed because it would exceed the limit for resource shares for your account. You can associate up to 100 resources per call. To view the limits for your Amazon Web Services account, see the <a href=\"https://console.aws.amazon.com/servicequotas/home/services/ram/quotas\">RAM page in the Service Quotas console</a>.</p>
+            aws_sdk_ram.errors.server_internal_exception.ServerInternalException: <p>The operation failed because the service could not respond to the request due to an internal problem. Try again later.</p>
+            aws_sdk_ram.errors.service_unavailable_exception.ServiceUnavailableException: <p>The operation failed because the service isn't available. Try again later.</p>
+            aws_sdk_ram.errors.throttling_exception.ThrottlingException: <p>The operation failed because it exceeded the rate at which you are allowed to perform this operation. Please try again later.</p>
+            aws_sdk_ram.errors.unknown_resource_exception.UnknownResourceException: <p>The operation failed because a specified resource couldn't be found.</p>
+            aws_sdk_ram.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -755,6 +882,17 @@ class AsyncRAMClient:
             resource_share_arn: <p>The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Name (ARN)</a> of the resource share that you want to remove the managed permission from.</p>
             permission_arn: <p>The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Name (ARN)</a> of the managed permission to disassociate from the resource share. Changes to permissions take effect immediately.</p>
             client_token: <p>Specifies a unique, case-sensitive identifier that you provide to ensure the idempotency of the request. This lets you safely retry the request without accidentally performing the same operation a second time. Passing the same value to a later call to an operation requires that you also pass the same value for all other parameters. We recommend that you use a <a href=\"https://wikipedia.org/wiki/Universally_unique_identifier\">UUID type of value.</a>.</p> <p>If you don't provide this value, then Amazon Web Services generates a random one for you.</p> <p>If you retry the operation with the same <code>ClientToken</code>, but with different parameters, the retry fails with an <code>IdempotentParameterMismatch</code> error.</p>
+
+        Raises:
+            aws_sdk_ram.errors.invalid_client_token_exception.InvalidClientTokenException: <p>The operation failed because the specified client token isn't valid.</p>
+            aws_sdk_ram.errors.invalid_parameter_exception.InvalidParameterException: <p>The operation failed because a parameter you specified isn't valid.</p>
+            aws_sdk_ram.errors.invalid_state_transition_exception.InvalidStateTransitionException: <p>The operation failed because the requested operation isn't valid for the resource share in its current state.</p>
+            aws_sdk_ram.errors.malformed_arn_exception.MalformedArnException: <p>The operation failed because the specified <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Name (ARN)</a> has a format that isn't valid.</p>
+            aws_sdk_ram.errors.operation_not_permitted_exception.OperationNotPermittedException: <p>The operation failed because the requested operation isn't permitted.</p>
+            aws_sdk_ram.errors.server_internal_exception.ServerInternalException: <p>The operation failed because the service could not respond to the request due to an internal problem. Try again later.</p>
+            aws_sdk_ram.errors.service_unavailable_exception.ServiceUnavailableException: <p>The operation failed because the service isn't available. Try again later.</p>
+            aws_sdk_ram.errors.unknown_resource_exception.UnknownResourceException: <p>The operation failed because a specified resource couldn't be found.</p>
+            aws_sdk_ram.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -789,7 +927,14 @@ class AsyncRAMClient:
     async def enable_sharing_with_aws_organization(
         self, *, config_overrides: Optional[AsyncRAMClientConfig] = None
     ) -> "aws_sdk_ram.types.enable_sharing_with_aws_organization_response.EnableSharingWithAwsOrganizationResponse":
-        """<p>Enables resource sharing within your organization in Organizations. This operation creates a service-linked role called <code>AWSServiceRoleForResourceAccessManager</code> that has the IAM managed policy named AWSResourceAccessManagerServiceRolePolicy attached. This role permits RAM to retrieve information about the organization and its structure. This lets you share resources with all of the accounts in the calling account's organization by specifying the organization ID, or all of the accounts in an organizational unit (OU) by specifying the OU ID. Until you enable sharing within the organization, you can specify only individual Amazon Web Services accounts, or for supported resource types, IAM roles and users.</p> <p>You must call this operation from an IAM role or user in the organization's management account.</p> <p></p>"""
+        """<p>Enables resource sharing within your organization in Organizations. This operation creates a service-linked role called <code>AWSServiceRoleForResourceAccessManager</code> that has the IAM managed policy named AWSResourceAccessManagerServiceRolePolicy attached. This role permits RAM to retrieve information about the organization and its structure. This lets you share resources with all of the accounts in the calling account's organization by specifying the organization ID, or all of the accounts in an organizational unit (OU) by specifying the OU ID. Until you enable sharing within the organization, you can specify only individual Amazon Web Services accounts, or for supported resource types, IAM roles and users.</p> <p>You must call this operation from an IAM role or user in the organization's management account.</p> <p></p>
+
+        Raises:
+            aws_sdk_ram.errors.operation_not_permitted_exception.OperationNotPermittedException: <p>The operation failed because the requested operation isn't permitted.</p>
+            aws_sdk_ram.errors.server_internal_exception.ServerInternalException: <p>The operation failed because the service could not respond to the request due to an internal problem. Try again later.</p>
+            aws_sdk_ram.errors.service_unavailable_exception.ServiceUnavailableException: <p>The operation failed because the service isn't available. Try again later.</p>
+            aws_sdk_ram.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_ram.types.enable_sharing_with_aws_organization_request.EnableSharingWithAwsOrganizationRequest]",
@@ -828,6 +973,15 @@ class AsyncRAMClient:
         Args:
             permission_arn: <p>Specifies the <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Name (ARN)</a> of the permission whose contents you want to retrieve. To find the ARN for a permission, use either the <a>ListPermissions</a> operation or go to the <a href=\"https://console.aws.amazon.com/ram/home#Permissions:\">Permissions library</a> page in the RAM console and then choose the name of the permission. The ARN is displayed on the detail page.</p>
             permission_version: <p>Specifies the version number of the RAM permission to retrieve. If you don't specify this parameter, the operation retrieves the default version.</p> <p>To see the list of available versions, use <a>ListPermissionVersions</a>.</p>
+
+        Raises:
+            aws_sdk_ram.errors.invalid_parameter_exception.InvalidParameterException: <p>The operation failed because a parameter you specified isn't valid.</p>
+            aws_sdk_ram.errors.malformed_arn_exception.MalformedArnException: <p>The operation failed because the specified <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Name (ARN)</a> has a format that isn't valid.</p>
+            aws_sdk_ram.errors.operation_not_permitted_exception.OperationNotPermittedException: <p>The operation failed because the requested operation isn't permitted.</p>
+            aws_sdk_ram.errors.server_internal_exception.ServerInternalException: <p>The operation failed because the service could not respond to the request due to an internal problem. Try again later.</p>
+            aws_sdk_ram.errors.service_unavailable_exception.ServiceUnavailableException: <p>The operation failed because the service isn't available. Try again later.</p>
+            aws_sdk_ram.errors.unknown_resource_exception.UnknownResourceException: <p>The operation failed because a specified resource couldn't be found.</p>
+            aws_sdk_ram.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -874,6 +1028,15 @@ class AsyncRAMClient:
             principal: <p>Specifies the principal.</p>
             next_token: <p>Specifies that you want to receive the next page of results. Valid only if you received a <code>NextToken</code> response in the previous request. If you did, it indicates that more output is available. Set this parameter to the value provided by the previous call's <code>NextToken</code> response to request the next page of results.</p>
             max_results: <p>Specifies the total number of results that you want included on each page of the response. If you do not include this parameter, it defaults to a value that is specific to the operation. If additional items exist beyond the number you specify, the <code>NextToken</code> response element is returned with a value (not null). Include the specified value as the <code>NextToken</code> request parameter in the next call to the operation to get the next part of the results. Note that the service might return fewer results than the maximum even when there are more results available. You should check <code>NextToken</code> after every operation to ensure that you receive all of the results.</p>
+
+        Raises:
+            aws_sdk_ram.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The operation failed because the specified value for <code>NextToken</code> isn't valid. You must specify a value you received in the <code>NextToken</code> response of a previous call to this operation.</p>
+            aws_sdk_ram.errors.invalid_parameter_exception.InvalidParameterException: <p>The operation failed because a parameter you specified isn't valid.</p>
+            aws_sdk_ram.errors.malformed_arn_exception.MalformedArnException: <p>The operation failed because the specified <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Name (ARN)</a> has a format that isn't valid.</p>
+            aws_sdk_ram.errors.resource_arn_not_found_exception.ResourceArnNotFoundException: <p>The operation failed because the specified <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Name (ARN)</a> was not found.</p>
+            aws_sdk_ram.errors.server_internal_exception.ServerInternalException: <p>The operation failed because the service could not respond to the request due to an internal problem. Try again later.</p>
+            aws_sdk_ram.errors.service_unavailable_exception.ServiceUnavailableException: <p>The operation failed because the service isn't available. Try again later.</p>
+            aws_sdk_ram.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -934,6 +1097,16 @@ class AsyncRAMClient:
             association_status: <p>Specifies that you want to retrieve only associations that have this status.</p>
             next_token: <p>Specifies that you want to receive the next page of results. Valid only if you received a <code>NextToken</code> response in the previous request. If you did, it indicates that more output is available. Set this parameter to the value provided by the previous call's <code>NextToken</code> response to request the next page of results.</p>
             max_results: <p>Specifies the total number of results that you want included on each page of the response. If you do not include this parameter, it defaults to a value that is specific to the operation. If additional items exist beyond the number you specify, the <code>NextToken</code> response element is returned with a value (not null). Include the specified value as the <code>NextToken</code> request parameter in the next call to the operation to get the next part of the results. Note that the service might return fewer results than the maximum even when there are more results available. You should check <code>NextToken</code> after every operation to ensure that you receive all of the results.</p>
+
+        Raises:
+            aws_sdk_ram.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The operation failed because the specified value for <code>NextToken</code> isn't valid. You must specify a value you received in the <code>NextToken</code> response of a previous call to this operation.</p>
+            aws_sdk_ram.errors.invalid_parameter_exception.InvalidParameterException: <p>The operation failed because a parameter you specified isn't valid.</p>
+            aws_sdk_ram.errors.malformed_arn_exception.MalformedArnException: <p>The operation failed because the specified <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Name (ARN)</a> has a format that isn't valid.</p>
+            aws_sdk_ram.errors.operation_not_permitted_exception.OperationNotPermittedException: <p>The operation failed because the requested operation isn't permitted.</p>
+            aws_sdk_ram.errors.server_internal_exception.ServerInternalException: <p>The operation failed because the service could not respond to the request due to an internal problem. Try again later.</p>
+            aws_sdk_ram.errors.service_unavailable_exception.ServiceUnavailableException: <p>The operation failed because the service isn't available. Try again later.</p>
+            aws_sdk_ram.errors.unknown_resource_exception.UnknownResourceException: <p>The operation failed because a specified resource couldn't be found.</p>
+            aws_sdk_ram.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -994,6 +1167,17 @@ class AsyncRAMClient:
             resource_share_arns: <p>Specifies that you want details about invitations only for the resource shares described by this list of <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs)</a> </p>
             next_token: <p>Specifies that you want to receive the next page of results. Valid only if you received a <code>NextToken</code> response in the previous request. If you did, it indicates that more output is available. Set this parameter to the value provided by the previous call's <code>NextToken</code> response to request the next page of results.</p>
             max_results: <p>Specifies the total number of results that you want included on each page of the response. If you do not include this parameter, it defaults to a value that is specific to the operation. If additional items exist beyond the number you specify, the <code>NextToken</code> response element is returned with a value (not null). Include the specified value as the <code>NextToken</code> request parameter in the next call to the operation to get the next part of the results. Note that the service might return fewer results than the maximum even when there are more results available. You should check <code>NextToken</code> after every operation to ensure that you receive all of the results.</p>
+
+        Raises:
+            aws_sdk_ram.errors.invalid_max_results_exception.InvalidMaxResultsException: <p>The operation failed because the specified value for <code>MaxResults</code> isn't valid.</p>
+            aws_sdk_ram.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The operation failed because the specified value for <code>NextToken</code> isn't valid. You must specify a value you received in the <code>NextToken</code> response of a previous call to this operation.</p>
+            aws_sdk_ram.errors.invalid_parameter_exception.InvalidParameterException: <p>The operation failed because a parameter you specified isn't valid.</p>
+            aws_sdk_ram.errors.malformed_arn_exception.MalformedArnException: <p>The operation failed because the specified <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Name (ARN)</a> has a format that isn't valid.</p>
+            aws_sdk_ram.errors.resource_share_invitation_arn_not_found_exception.ResourceShareInvitationArnNotFoundException: <p>The operation failed because the specified <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Name (ARN)</a> for an invitation was not found.</p>
+            aws_sdk_ram.errors.server_internal_exception.ServerInternalException: <p>The operation failed because the service could not respond to the request due to an internal problem. Try again later.</p>
+            aws_sdk_ram.errors.service_unavailable_exception.ServiceUnavailableException: <p>The operation failed because the service isn't available. Try again later.</p>
+            aws_sdk_ram.errors.unknown_resource_exception.UnknownResourceException: <p>The operation failed because a specified resource couldn't be found.</p>
+            aws_sdk_ram.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1059,6 +1243,15 @@ class AsyncRAMClient:
             max_results: <p>Specifies the total number of results that you want included on each page of the response. If you do not include this parameter, it defaults to a value that is specific to the operation. If additional items exist beyond the number you specify, the <code>NextToken</code> response element is returned with a value (not null). Include the specified value as the <code>NextToken</code> request parameter in the next call to the operation to get the next part of the results. Note that the service might return fewer results than the maximum even when there are more results available. You should check <code>NextToken</code> after every operation to ensure that you receive all of the results.</p>
             permission_arn: <p>Specifies that you want to retrieve details of only those resource shares that use the managed permission with this <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Name (ARN)</a>.</p>
             permission_version: <p>Specifies that you want to retrieve details for only those resource shares that use the specified version of the managed permission.</p>
+
+        Raises:
+            aws_sdk_ram.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The operation failed because the specified value for <code>NextToken</code> isn't valid. You must specify a value you received in the <code>NextToken</code> response of a previous call to this operation.</p>
+            aws_sdk_ram.errors.invalid_parameter_exception.InvalidParameterException: <p>The operation failed because a parameter you specified isn't valid.</p>
+            aws_sdk_ram.errors.malformed_arn_exception.MalformedArnException: <p>The operation failed because the specified <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Name (ARN)</a> has a format that isn't valid.</p>
+            aws_sdk_ram.errors.server_internal_exception.ServerInternalException: <p>The operation failed because the service could not respond to the request due to an internal problem. Try again later.</p>
+            aws_sdk_ram.errors.service_unavailable_exception.ServiceUnavailableException: <p>The operation failed because the service isn't available. Try again later.</p>
+            aws_sdk_ram.errors.unknown_resource_exception.UnknownResourceException: <p>The operation failed because a specified resource couldn't be found.</p>
+            aws_sdk_ram.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1121,6 +1314,18 @@ class AsyncRAMClient:
             next_token: <p>Specifies that you want to receive the next page of results. Valid only if you received a <code>NextToken</code> response in the previous request. If you did, it indicates that more output is available. Set this parameter to the value provided by the previous call's <code>NextToken</code> response to request the next page of results.</p>
             max_results: <p>Specifies the total number of results that you want included on each page of the response. If you do not include this parameter, it defaults to a value that is specific to the operation. If additional items exist beyond the number you specify, the <code>NextToken</code> response element is returned with a value (not null). Include the specified value as the <code>NextToken</code> request parameter in the next call to the operation to get the next part of the results. Note that the service might return fewer results than the maximum even when there are more results available. You should check <code>NextToken</code> after every operation to ensure that you receive all of the results.</p>
             resource_region_scope: <p>Specifies that you want the results to include only resources that have the specified scope.</p> <ul> <li> <p> <code>ALL</code> – the results include both global and regional resources or resource types.</p> </li> <li> <p> <code>GLOBAL</code> – the results include only global resources or resource types.</p> </li> <li> <p> <code>REGIONAL</code> – the results include only regional resources or resource types.</p> </li> </ul> <p>The default value is <code>ALL</code>.</p>
+
+        Raises:
+            aws_sdk_ram.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The operation failed because the specified value for <code>NextToken</code> isn't valid. You must specify a value you received in the <code>NextToken</code> response of a previous call to this operation.</p>
+            aws_sdk_ram.errors.invalid_parameter_exception.InvalidParameterException: <p>The operation failed because a parameter you specified isn't valid.</p>
+            aws_sdk_ram.errors.malformed_arn_exception.MalformedArnException: <p>The operation failed because the specified <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Name (ARN)</a> has a format that isn't valid.</p>
+            aws_sdk_ram.errors.missing_required_parameter_exception.MissingRequiredParameterException: <p>The operation failed because a required input parameter is missing.</p>
+            aws_sdk_ram.errors.resource_share_invitation_already_rejected_exception.ResourceShareInvitationAlreadyRejectedException: <p>The operation failed because the specified invitation was already rejected.</p>
+            aws_sdk_ram.errors.resource_share_invitation_arn_not_found_exception.ResourceShareInvitationArnNotFoundException: <p>The operation failed because the specified <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Name (ARN)</a> for an invitation was not found.</p>
+            aws_sdk_ram.errors.resource_share_invitation_expired_exception.ResourceShareInvitationExpiredException: <p>The operation failed because the specified invitation is past its expiration date and time.</p>
+            aws_sdk_ram.errors.server_internal_exception.ServerInternalException: <p>The operation failed because the service could not respond to the request due to an internal problem. Try again later.</p>
+            aws_sdk_ram.errors.service_unavailable_exception.ServiceUnavailableException: <p>The operation failed because the service isn't available. Try again later.</p>
+            aws_sdk_ram.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1183,6 +1388,14 @@ class AsyncRAMClient:
             default_version: <p>When <code>true</code>, specifies that you want to list only those associations with resource shares that use the default version of the specified managed permission.</p> <p>When <code>false</code> (the default value), lists associations with resource shares that use any version of the specified managed permission.</p>
             next_token: <p>Specifies that you want to receive the next page of results. Valid only if you received a <code>NextToken</code> response in the previous request. If you did, it indicates that more output is available. Set this parameter to the value provided by the previous call's <code>NextToken</code> response to request the next page of results.</p>
             max_results: <p>Specifies the total number of results that you want included on each page of the response. If you do not include this parameter, it defaults to a value that is specific to the operation. If additional items exist beyond the number you specify, the <code>NextToken</code> response element is returned with a value (not null). Include the specified value as the <code>NextToken</code> request parameter in the next call to the operation to get the next part of the results. Note that the service might return fewer results than the maximum even when there are more results available. You should check <code>NextToken</code> after every operation to ensure that you receive all of the results.</p>
+
+        Raises:
+            aws_sdk_ram.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The operation failed because the specified value for <code>NextToken</code> isn't valid. You must specify a value you received in the <code>NextToken</code> response of a previous call to this operation.</p>
+            aws_sdk_ram.errors.invalid_parameter_exception.InvalidParameterException: <p>The operation failed because a parameter you specified isn't valid.</p>
+            aws_sdk_ram.errors.malformed_arn_exception.MalformedArnException: <p>The operation failed because the specified <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Name (ARN)</a> has a format that isn't valid.</p>
+            aws_sdk_ram.errors.server_internal_exception.ServerInternalException: <p>The operation failed because the service could not respond to the request due to an internal problem. Try again later.</p>
+            aws_sdk_ram.errors.service_unavailable_exception.ServiceUnavailableException: <p>The operation failed because the service isn't available. Try again later.</p>
+            aws_sdk_ram.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1244,6 +1457,14 @@ class AsyncRAMClient:
             next_token: <p>Specifies that you want to receive the next page of results. Valid only if you received a <code>NextToken</code> response in the previous request. If you did, it indicates that more output is available. Set this parameter to the value provided by the previous call's <code>NextToken</code> response to request the next page of results.</p>
             max_results: <p>Specifies the total number of results that you want included on each page of the response. If you do not include this parameter, it defaults to a value that is specific to the operation. If additional items exist beyond the number you specify, the <code>NextToken</code> response element is returned with a value (not null). Include the specified value as the <code>NextToken</code> request parameter in the next call to the operation to get the next part of the results. Note that the service might return fewer results than the maximum even when there are more results available. You should check <code>NextToken</code> after every operation to ensure that you receive all of the results.</p>
             permission_type: <p>Specifies that you want to list only permissions of this type:</p> <ul> <li> <p> <code>AWS</code> – returns only Amazon Web Services managed permissions.</p> </li> <li> <p> <code>LOCAL</code> – returns only customer managed permissions</p> </li> <li> <p> <code>ALL</code> – returns both Amazon Web Services managed permissions and customer managed permissions.</p> </li> </ul> <p>If you don't specify this parameter, the default is <code>All</code>.</p>
+
+        Raises:
+            aws_sdk_ram.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The operation failed because the specified value for <code>NextToken</code> isn't valid. You must specify a value you received in the <code>NextToken</code> response of a previous call to this operation.</p>
+            aws_sdk_ram.errors.invalid_parameter_exception.InvalidParameterException: <p>The operation failed because a parameter you specified isn't valid.</p>
+            aws_sdk_ram.errors.operation_not_permitted_exception.OperationNotPermittedException: <p>The operation failed because the requested operation isn't permitted.</p>
+            aws_sdk_ram.errors.server_internal_exception.ServerInternalException: <p>The operation failed because the service could not respond to the request due to an internal problem. Try again later.</p>
+            aws_sdk_ram.errors.service_unavailable_exception.ServiceUnavailableException: <p>The operation failed because the service isn't available. Try again later.</p>
+            aws_sdk_ram.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1293,6 +1514,16 @@ class AsyncRAMClient:
             permission_arn: <p>Specifies the <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Name (ARN)</a> of the RAM permission whose versions you want to list. You can use the <code>permissionVersion</code> parameter on the <a>AssociateResourceSharePermission</a> operation to specify a non-default version to attach.</p>
             next_token: <p>Specifies that you want to receive the next page of results. Valid only if you received a <code>NextToken</code> response in the previous request. If you did, it indicates that more output is available. Set this parameter to the value provided by the previous call's <code>NextToken</code> response to request the next page of results.</p>
             max_results: <p>Specifies the total number of results that you want included on each page of the response. If you do not include this parameter, it defaults to a value that is specific to the operation. If additional items exist beyond the number you specify, the <code>NextToken</code> response element is returned with a value (not null). Include the specified value as the <code>NextToken</code> request parameter in the next call to the operation to get the next part of the results. Note that the service might return fewer results than the maximum even when there are more results available. You should check <code>NextToken</code> after every operation to ensure that you receive all of the results.</p>
+
+        Raises:
+            aws_sdk_ram.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The operation failed because the specified value for <code>NextToken</code> isn't valid. You must specify a value you received in the <code>NextToken</code> response of a previous call to this operation.</p>
+            aws_sdk_ram.errors.invalid_parameter_exception.InvalidParameterException: <p>The operation failed because a parameter you specified isn't valid.</p>
+            aws_sdk_ram.errors.malformed_arn_exception.MalformedArnException: <p>The operation failed because the specified <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Name (ARN)</a> has a format that isn't valid.</p>
+            aws_sdk_ram.errors.operation_not_permitted_exception.OperationNotPermittedException: <p>The operation failed because the requested operation isn't permitted.</p>
+            aws_sdk_ram.errors.server_internal_exception.ServerInternalException: <p>The operation failed because the service could not respond to the request due to an internal problem. Try again later.</p>
+            aws_sdk_ram.errors.service_unavailable_exception.ServiceUnavailableException: <p>The operation failed because the service isn't available. Try again later.</p>
+            aws_sdk_ram.errors.unknown_resource_exception.UnknownResourceException: <p>The operation failed because a specified resource couldn't be found.</p>
+            aws_sdk_ram.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1351,6 +1582,15 @@ class AsyncRAMClient:
             resource_share_arns: <p>Specifies that you want to list information for only principals associated with the resource shares specified by a list the <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs)</a>.</p>
             next_token: <p>Specifies that you want to receive the next page of results. Valid only if you received a <code>NextToken</code> response in the previous request. If you did, it indicates that more output is available. Set this parameter to the value provided by the previous call's <code>NextToken</code> response to request the next page of results.</p>
             max_results: <p>Specifies the total number of results that you want included on each page of the response. If you do not include this parameter, it defaults to a value that is specific to the operation. If additional items exist beyond the number you specify, the <code>NextToken</code> response element is returned with a value (not null). Include the specified value as the <code>NextToken</code> request parameter in the next call to the operation to get the next part of the results. Note that the service might return fewer results than the maximum even when there are more results available. You should check <code>NextToken</code> after every operation to ensure that you receive all of the results.</p>
+
+        Raises:
+            aws_sdk_ram.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The operation failed because the specified value for <code>NextToken</code> isn't valid. You must specify a value you received in the <code>NextToken</code> response of a previous call to this operation.</p>
+            aws_sdk_ram.errors.invalid_parameter_exception.InvalidParameterException: <p>The operation failed because a parameter you specified isn't valid.</p>
+            aws_sdk_ram.errors.malformed_arn_exception.MalformedArnException: <p>The operation failed because the specified <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Name (ARN)</a> has a format that isn't valid.</p>
+            aws_sdk_ram.errors.server_internal_exception.ServerInternalException: <p>The operation failed because the service could not respond to the request due to an internal problem. Try again later.</p>
+            aws_sdk_ram.errors.service_unavailable_exception.ServiceUnavailableException: <p>The operation failed because the service isn't available. Try again later.</p>
+            aws_sdk_ram.errors.unknown_resource_exception.UnknownResourceException: <p>The operation failed because a specified resource couldn't be found.</p>
+            aws_sdk_ram.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1411,6 +1651,13 @@ class AsyncRAMClient:
             status: <p>Specifies that you want to see only the details about requests with a status that matches this value.</p>
             next_token: <p>Specifies that you want to receive the next page of results. Valid only if you received a <code>NextToken</code> response in the previous request. If you did, it indicates that more output is available. Set this parameter to the value provided by the previous call's <code>NextToken</code> response to request the next page of results.</p>
             max_results: <p>Specifies the total number of results that you want included on each page of the response. If you do not include this parameter, it defaults to a value that is specific to the operation. If additional items exist beyond the number you specify, the <code>NextToken</code> response element is returned with a value (not null). Include the specified value as the <code>NextToken</code> request parameter in the next call to the operation to get the next part of the results. Note that the service might return fewer results than the maximum even when there are more results available. You should check <code>NextToken</code> after every operation to ensure that you receive all of the results.</p>
+
+        Raises:
+            aws_sdk_ram.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The operation failed because the specified value for <code>NextToken</code> isn't valid. You must specify a value you received in the <code>NextToken</code> response of a previous call to this operation.</p>
+            aws_sdk_ram.errors.invalid_parameter_exception.InvalidParameterException: <p>The operation failed because a parameter you specified isn't valid.</p>
+            aws_sdk_ram.errors.server_internal_exception.ServerInternalException: <p>The operation failed because the service could not respond to the request due to an internal problem. Try again later.</p>
+            aws_sdk_ram.errors.service_unavailable_exception.ServiceUnavailableException: <p>The operation failed because the service isn't available. Try again later.</p>
+            aws_sdk_ram.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1476,6 +1723,16 @@ class AsyncRAMClient:
             next_token: <p>Specifies that you want to receive the next page of results. Valid only if you received a <code>NextToken</code> response in the previous request. If you did, it indicates that more output is available. Set this parameter to the value provided by the previous call's <code>NextToken</code> response to request the next page of results.</p>
             max_results: <p>Specifies the total number of results that you want included on each page of the response. If you do not include this parameter, it defaults to a value that is specific to the operation. If additional items exist beyond the number you specify, the <code>NextToken</code> response element is returned with a value (not null). Include the specified value as the <code>NextToken</code> request parameter in the next call to the operation to get the next part of the results. Note that the service might return fewer results than the maximum even when there are more results available. You should check <code>NextToken</code> after every operation to ensure that you receive all of the results.</p>
             resource_region_scope: <p>Specifies that you want the results to include only resources that have the specified scope.</p> <ul> <li> <p> <code>ALL</code> – the results include both global and regional resources or resource types.</p> </li> <li> <p> <code>GLOBAL</code> – the results include only global resources or resource types.</p> </li> <li> <p> <code>REGIONAL</code> – the results include only regional resources or resource types.</p> </li> </ul> <p>The default value is <code>ALL</code>.</p>
+
+        Raises:
+            aws_sdk_ram.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The operation failed because the specified value for <code>NextToken</code> isn't valid. You must specify a value you received in the <code>NextToken</code> response of a previous call to this operation.</p>
+            aws_sdk_ram.errors.invalid_parameter_exception.InvalidParameterException: <p>The operation failed because a parameter you specified isn't valid.</p>
+            aws_sdk_ram.errors.invalid_resource_type_exception.InvalidResourceTypeException: <p>The operation failed because the specified resource type isn't valid.</p>
+            aws_sdk_ram.errors.malformed_arn_exception.MalformedArnException: <p>The operation failed because the specified <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Name (ARN)</a> has a format that isn't valid.</p>
+            aws_sdk_ram.errors.server_internal_exception.ServerInternalException: <p>The operation failed because the service could not respond to the request due to an internal problem. Try again later.</p>
+            aws_sdk_ram.errors.service_unavailable_exception.ServiceUnavailableException: <p>The operation failed because the service isn't available. Try again later.</p>
+            aws_sdk_ram.errors.unknown_resource_exception.UnknownResourceException: <p>The operation failed because a specified resource couldn't be found.</p>
+            aws_sdk_ram.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1532,6 +1789,16 @@ class AsyncRAMClient:
             resource_share_arn: <p>Specifies the <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Name (ARN)</a> of the resource share for which you want to retrieve the associated permissions.</p>
             next_token: <p>Specifies that you want to receive the next page of results. Valid only if you received a <code>NextToken</code> response in the previous request. If you did, it indicates that more output is available. Set this parameter to the value provided by the previous call's <code>NextToken</code> response to request the next page of results.</p>
             max_results: <p>Specifies the total number of results that you want included on each page of the response. If you do not include this parameter, it defaults to a value that is specific to the operation. If additional items exist beyond the number you specify, the <code>NextToken</code> response element is returned with a value (not null). Include the specified value as the <code>NextToken</code> request parameter in the next call to the operation to get the next part of the results. Note that the service might return fewer results than the maximum even when there are more results available. You should check <code>NextToken</code> after every operation to ensure that you receive all of the results.</p>
+
+        Raises:
+            aws_sdk_ram.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The operation failed because the specified value for <code>NextToken</code> isn't valid. You must specify a value you received in the <code>NextToken</code> response of a previous call to this operation.</p>
+            aws_sdk_ram.errors.invalid_parameter_exception.InvalidParameterException: <p>The operation failed because a parameter you specified isn't valid.</p>
+            aws_sdk_ram.errors.malformed_arn_exception.MalformedArnException: <p>The operation failed because the specified <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Name (ARN)</a> has a format that isn't valid.</p>
+            aws_sdk_ram.errors.operation_not_permitted_exception.OperationNotPermittedException: <p>The operation failed because the requested operation isn't permitted.</p>
+            aws_sdk_ram.errors.server_internal_exception.ServerInternalException: <p>The operation failed because the service could not respond to the request due to an internal problem. Try again later.</p>
+            aws_sdk_ram.errors.service_unavailable_exception.ServiceUnavailableException: <p>The operation failed because the service isn't available. Try again later.</p>
+            aws_sdk_ram.errors.unknown_resource_exception.UnknownResourceException: <p>The operation failed because a specified resource couldn't be found.</p>
+            aws_sdk_ram.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1580,6 +1847,13 @@ class AsyncRAMClient:
             next_token: <p>Specifies that you want to receive the next page of results. Valid only if you received a <code>NextToken</code> response in the previous request. If you did, it indicates that more output is available. Set this parameter to the value provided by the previous call's <code>NextToken</code> response to request the next page of results.</p>
             max_results: <p>Specifies the total number of results that you want included on each page of the response. If you do not include this parameter, it defaults to a value that is specific to the operation. If additional items exist beyond the number you specify, the <code>NextToken</code> response element is returned with a value (not null). Include the specified value as the <code>NextToken</code> request parameter in the next call to the operation to get the next part of the results. Note that the service might return fewer results than the maximum even when there are more results available. You should check <code>NextToken</code> after every operation to ensure that you receive all of the results.</p>
             resource_region_scope: <p>Specifies that you want the results to include only resources that have the specified scope.</p> <ul> <li> <p> <code>ALL</code> – the results include both global and regional resources or resource types.</p> </li> <li> <p> <code>GLOBAL</code> – the results include only global resources or resource types.</p> </li> <li> <p> <code>REGIONAL</code> – the results include only regional resources or resource types.</p> </li> </ul> <p>The default value is <code>ALL</code>.</p>
+
+        Raises:
+            aws_sdk_ram.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The operation failed because the specified value for <code>NextToken</code> isn't valid. You must specify a value you received in the <code>NextToken</code> response of a previous call to this operation.</p>
+            aws_sdk_ram.errors.invalid_parameter_exception.InvalidParameterException: <p>The operation failed because a parameter you specified isn't valid.</p>
+            aws_sdk_ram.errors.server_internal_exception.ServerInternalException: <p>The operation failed because the service could not respond to the request due to an internal problem. Try again later.</p>
+            aws_sdk_ram.errors.service_unavailable_exception.ServiceUnavailableException: <p>The operation failed because the service isn't available. Try again later.</p>
+            aws_sdk_ram.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1637,6 +1911,15 @@ class AsyncRAMClient:
             association_status: <p>The status of the source associations that you want to retrieve.</p>
             next_token: <p>The pagination token that indicates the next set of results to retrieve.</p>
             max_results: <p>The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+
+        Raises:
+            aws_sdk_ram.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The operation failed because the specified value for <code>NextToken</code> isn't valid. You must specify a value you received in the <code>NextToken</code> response of a previous call to this operation.</p>
+            aws_sdk_ram.errors.invalid_parameter_exception.InvalidParameterException: <p>The operation failed because a parameter you specified isn't valid.</p>
+            aws_sdk_ram.errors.malformed_arn_exception.MalformedArnException: <p>The operation failed because the specified <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Name (ARN)</a> has a format that isn't valid.</p>
+            aws_sdk_ram.errors.server_internal_exception.ServerInternalException: <p>The operation failed because the service could not respond to the request due to an internal problem. Try again later.</p>
+            aws_sdk_ram.errors.service_unavailable_exception.ServiceUnavailableException: <p>The operation failed because the service isn't available. Try again later.</p>
+            aws_sdk_ram.errors.unknown_resource_exception.UnknownResourceException: <p>The operation failed because a specified resource couldn't be found.</p>
+            aws_sdk_ram.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1723,6 +2006,17 @@ class AsyncRAMClient:
             permission_arn: <p>Specifies the <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Name (ARN)</a> of the <code>CREATED_FROM_POLICY</code> permission that you want to promote. You can get this <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Name (ARN)</a> by calling the <a>ListResourceSharePermissions</a> operation.</p>
             name: <p>Specifies a name for the promoted customer managed permission.</p>
             client_token: <p>Specifies a unique, case-sensitive identifier that you provide to ensure the idempotency of the request. This lets you safely retry the request without accidentally performing the same operation a second time. Passing the same value to a later call to an operation requires that you also pass the same value for all other parameters. We recommend that you use a <a href=\"https://wikipedia.org/wiki/Universally_unique_identifier\">UUID type of value.</a>.</p> <p>If you don't provide this value, then Amazon Web Services generates a random one for you.</p> <p>If you retry the operation with the same <code>ClientToken</code>, but with different parameters, the retry fails with an <code>IdempotentParameterMismatch</code> error.</p>
+
+        Raises:
+            aws_sdk_ram.errors.invalid_parameter_exception.InvalidParameterException: <p>The operation failed because a parameter you specified isn't valid.</p>
+            aws_sdk_ram.errors.invalid_policy_exception.InvalidPolicyException: <p>The operation failed because a policy you specified isn't valid.</p>
+            aws_sdk_ram.errors.malformed_arn_exception.MalformedArnException: <p>The operation failed because the specified <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Name (ARN)</a> has a format that isn't valid.</p>
+            aws_sdk_ram.errors.missing_required_parameter_exception.MissingRequiredParameterException: <p>The operation failed because a required input parameter is missing.</p>
+            aws_sdk_ram.errors.operation_not_permitted_exception.OperationNotPermittedException: <p>The operation failed because the requested operation isn't permitted.</p>
+            aws_sdk_ram.errors.server_internal_exception.ServerInternalException: <p>The operation failed because the service could not respond to the request due to an internal problem. Try again later.</p>
+            aws_sdk_ram.errors.service_unavailable_exception.ServiceUnavailableException: <p>The operation failed because the service isn't available. Try again later.</p>
+            aws_sdk_ram.errors.unknown_resource_exception.UnknownResourceException: <p>The operation failed because a specified resource couldn't be found.</p>
+            aws_sdk_ram.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1764,6 +2058,19 @@ class AsyncRAMClient:
 
         Args:
             resource_share_arn: <p>Specifies the <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Name (ARN)</a> of the resource share to promote.</p>
+
+        Raises:
+            aws_sdk_ram.errors.invalid_parameter_exception.InvalidParameterException: <p>The operation failed because a parameter you specified isn't valid.</p>
+            aws_sdk_ram.errors.invalid_state_transition_exception.InvalidStateTransitionException: <p>The operation failed because the requested operation isn't valid for the resource share in its current state.</p>
+            aws_sdk_ram.errors.malformed_arn_exception.MalformedArnException: <p>The operation failed because the specified <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Name (ARN)</a> has a format that isn't valid.</p>
+            aws_sdk_ram.errors.missing_required_parameter_exception.MissingRequiredParameterException: <p>The operation failed because a required input parameter is missing.</p>
+            aws_sdk_ram.errors.operation_not_permitted_exception.OperationNotPermittedException: <p>The operation failed because the requested operation isn't permitted.</p>
+            aws_sdk_ram.errors.resource_share_limit_exceeded_exception.ResourceShareLimitExceededException: <p>The operation failed because it would exceed the limit for resource shares for your account. You can associate up to 100 resources per call. To view the limits for your Amazon Web Services account, see the <a href=\"https://console.aws.amazon.com/servicequotas/home/services/ram/quotas\">RAM page in the Service Quotas console</a>.</p>
+            aws_sdk_ram.errors.server_internal_exception.ServerInternalException: <p>The operation failed because the service could not respond to the request due to an internal problem. Try again later.</p>
+            aws_sdk_ram.errors.service_unavailable_exception.ServiceUnavailableException: <p>The operation failed because the service isn't available. Try again later.</p>
+            aws_sdk_ram.errors.unknown_resource_exception.UnknownResourceException: <p>The operation failed because a specified resource couldn't be found.</p>
+            aws_sdk_ram.errors.unmatched_policy_permission_exception.UnmatchedPolicyPermissionException: <p>There isn't an existing managed permission defined in RAM that has the same IAM permissions as the resource-based policy attached to the resource. You should first run <a>PromotePermissionCreatedFromPolicy</a> to create that managed permission.</p>
+            aws_sdk_ram.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1804,6 +2111,19 @@ class AsyncRAMClient:
         Args:
             resource_share_invitation_arn: <p>Specifies the <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Name (ARN)</a> of the invitation that you want to reject.</p>
             client_token: <p>Specifies a unique, case-sensitive identifier that you provide to ensure the idempotency of the request. This lets you safely retry the request without accidentally performing the same operation a second time. Passing the same value to a later call to an operation requires that you also pass the same value for all other parameters. We recommend that you use a <a href=\"https://wikipedia.org/wiki/Universally_unique_identifier\">UUID type of value.</a>.</p> <p>If you don't provide this value, then Amazon Web Services generates a random one for you.</p> <p>If you retry the operation with the same <code>ClientToken</code>, but with different parameters, the retry fails with an <code>IdempotentParameterMismatch</code> error.</p>
+
+        Raises:
+            aws_sdk_ram.errors.idempotent_parameter_mismatch_exception.IdempotentParameterMismatchException: <p>The operation failed because the client token input parameter matched one that was used with a previous call to the operation, but at least one of the other input parameters is different from the previous call.</p>
+            aws_sdk_ram.errors.invalid_client_token_exception.InvalidClientTokenException: <p>The operation failed because the specified client token isn't valid.</p>
+            aws_sdk_ram.errors.malformed_arn_exception.MalformedArnException: <p>The operation failed because the specified <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Name (ARN)</a> has a format that isn't valid.</p>
+            aws_sdk_ram.errors.operation_not_permitted_exception.OperationNotPermittedException: <p>The operation failed because the requested operation isn't permitted.</p>
+            aws_sdk_ram.errors.resource_share_invitation_already_accepted_exception.ResourceShareInvitationAlreadyAcceptedException: <p>The operation failed because the specified invitation was already accepted.</p>
+            aws_sdk_ram.errors.resource_share_invitation_already_rejected_exception.ResourceShareInvitationAlreadyRejectedException: <p>The operation failed because the specified invitation was already rejected.</p>
+            aws_sdk_ram.errors.resource_share_invitation_arn_not_found_exception.ResourceShareInvitationArnNotFoundException: <p>The operation failed because the specified <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Name (ARN)</a> for an invitation was not found.</p>
+            aws_sdk_ram.errors.resource_share_invitation_expired_exception.ResourceShareInvitationExpiredException: <p>The operation failed because the specified invitation is past its expiration date and time.</p>
+            aws_sdk_ram.errors.server_internal_exception.ServerInternalException: <p>The operation failed because the service could not respond to the request due to an internal problem. Try again later.</p>
+            aws_sdk_ram.errors.service_unavailable_exception.ServiceUnavailableException: <p>The operation failed because the service isn't available. Try again later.</p>
+            aws_sdk_ram.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1850,6 +2170,17 @@ class AsyncRAMClient:
             from_permission_version: <p>Specifies that you want to updated the permissions for only those resource shares that use the specified version of the managed permission.</p>
             to_permission_arn: <p>Specifies the ARN of the managed permission that you want to associate with resource shares in place of the one specified by <code>fromPerssionArn</code> and <code>fromPermissionVersion</code>.</p> <p>The operation always associates the version that is currently the default for the specified managed permission.</p>
             client_token: <p>Specifies a unique, case-sensitive identifier that you provide to ensure the idempotency of the request. This lets you safely retry the request without accidentally performing the same operation a second time. Passing the same value to a later call to an operation requires that you also pass the same value for all other parameters. We recommend that you use a <a href=\"https://wikipedia.org/wiki/Universally_unique_identifier\">UUID type of value.</a>.</p> <p>If you don't provide this value, then Amazon Web Services generates a random one for you.</p> <p>If you retry the operation with the same <code>ClientToken</code>, but with different parameters, the retry fails with an <code>IdempotentParameterMismatch</code> error.</p>
+
+        Raises:
+            aws_sdk_ram.errors.idempotent_parameter_mismatch_exception.IdempotentParameterMismatchException: <p>The operation failed because the client token input parameter matched one that was used with a previous call to the operation, but at least one of the other input parameters is different from the previous call.</p>
+            aws_sdk_ram.errors.invalid_client_token_exception.InvalidClientTokenException: <p>The operation failed because the specified client token isn't valid.</p>
+            aws_sdk_ram.errors.invalid_parameter_exception.InvalidParameterException: <p>The operation failed because a parameter you specified isn't valid.</p>
+            aws_sdk_ram.errors.malformed_arn_exception.MalformedArnException: <p>The operation failed because the specified <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Name (ARN)</a> has a format that isn't valid.</p>
+            aws_sdk_ram.errors.operation_not_permitted_exception.OperationNotPermittedException: <p>The operation failed because the requested operation isn't permitted.</p>
+            aws_sdk_ram.errors.server_internal_exception.ServerInternalException: <p>The operation failed because the service could not respond to the request due to an internal problem. Try again later.</p>
+            aws_sdk_ram.errors.service_unavailable_exception.ServiceUnavailableException: <p>The operation failed because the service isn't available. Try again later.</p>
+            aws_sdk_ram.errors.unknown_resource_exception.UnknownResourceException: <p>The operation failed because a specified resource couldn't be found.</p>
+            aws_sdk_ram.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1897,6 +2228,16 @@ class AsyncRAMClient:
             permission_arn: <p>Specifies the <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Name (ARN)</a> of the customer managed permission whose default version you want to change.</p>
             permission_version: <p>Specifies the version number that you want to designate as the default for customer managed permission. To see a list of all available version numbers, use <a>ListPermissionVersions</a>.</p>
             client_token: <p>Specifies a unique, case-sensitive identifier that you provide to ensure the idempotency of the request. This lets you safely retry the request without accidentally performing the same operation a second time. Passing the same value to a later call to an operation requires that you also pass the same value for all other parameters. We recommend that you use a <a href=\"https://wikipedia.org/wiki/Universally_unique_identifier\">UUID type of value.</a>.</p> <p>If you don't provide this value, then Amazon Web Services generates a random one for you.</p> <p>If you retry the operation with the same <code>ClientToken</code>, but with different parameters, the retry fails with an <code>IdempotentParameterMismatch</code> error.</p>
+
+        Raises:
+            aws_sdk_ram.errors.idempotent_parameter_mismatch_exception.IdempotentParameterMismatchException: <p>The operation failed because the client token input parameter matched one that was used with a previous call to the operation, but at least one of the other input parameters is different from the previous call.</p>
+            aws_sdk_ram.errors.invalid_client_token_exception.InvalidClientTokenException: <p>The operation failed because the specified client token isn't valid.</p>
+            aws_sdk_ram.errors.invalid_parameter_exception.InvalidParameterException: <p>The operation failed because a parameter you specified isn't valid.</p>
+            aws_sdk_ram.errors.malformed_arn_exception.MalformedArnException: <p>The operation failed because the specified <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Name (ARN)</a> has a format that isn't valid.</p>
+            aws_sdk_ram.errors.server_internal_exception.ServerInternalException: <p>The operation failed because the service could not respond to the request due to an internal problem. Try again later.</p>
+            aws_sdk_ram.errors.service_unavailable_exception.ServiceUnavailableException: <p>The operation failed because the service isn't available. Try again later.</p>
+            aws_sdk_ram.errors.unknown_resource_exception.UnknownResourceException: <p>The operation failed because a specified resource couldn't be found.</p>
+            aws_sdk_ram.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1942,6 +2283,17 @@ class AsyncRAMClient:
             resource_share_arn: <p>Specifies the <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Name (ARN)</a> of the resource share that you want to add tags to. You must specify <i>either</i> <code>resourceShareArn</code>, or <code>resourceArn</code>, but not both.</p>
             tags: <p>A list of one or more tag key and value pairs. The tag key must be present and not be an empty string. The tag value must be present but can be an empty string.</p>
             resource_arn: <p>Specifies the <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Name (ARN)</a> of the managed permission that you want to add tags to. You must specify <i>either</i> <code>resourceArn</code>, or <code>resourceShareArn</code>, but not both.</p>
+
+        Raises:
+            aws_sdk_ram.errors.invalid_parameter_exception.InvalidParameterException: <p>The operation failed because a parameter you specified isn't valid.</p>
+            aws_sdk_ram.errors.malformed_arn_exception.MalformedArnException: <p>The operation failed because the specified <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Name (ARN)</a> has a format that isn't valid.</p>
+            aws_sdk_ram.errors.resource_arn_not_found_exception.ResourceArnNotFoundException: <p>The operation failed because the specified <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Name (ARN)</a> was not found.</p>
+            aws_sdk_ram.errors.server_internal_exception.ServerInternalException: <p>The operation failed because the service could not respond to the request due to an internal problem. Try again later.</p>
+            aws_sdk_ram.errors.service_unavailable_exception.ServiceUnavailableException: <p>The operation failed because the service isn't available. Try again later.</p>
+            aws_sdk_ram.errors.tag_limit_exceeded_exception.TagLimitExceededException: <p>The operation failed because it would exceed the limit for tags for your Amazon Web Services account.</p>
+            aws_sdk_ram.errors.tag_policy_violation_exception.TagPolicyViolationException: <p>The operation failed because the specified tag key is a reserved word and can't be used.</p>
+            aws_sdk_ram.errors.unknown_resource_exception.UnknownResourceException: <p>The operation failed because a specified resource couldn't be found.</p>
+            aws_sdk_ram.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1988,6 +2340,14 @@ class AsyncRAMClient:
             resource_share_arn: <p>Specifies the <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Name (ARN)</a> of the resource share that you want to remove tags from. The tags are removed from the resource share, not the resources in the resource share. You must specify either <code>resourceShareArn</code>, or <code>resourceArn</code>, but not both.</p>
             tag_keys: <p>Specifies a list of one or more tag keys that you want to remove.</p>
             resource_arn: <p>Specifies the <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Name (ARN)</a> of the managed permission that you want to remove tags from. You must specify either <code>resourceArn</code>, or <code>resourceShareArn</code>, but not both.</p>
+
+        Raises:
+            aws_sdk_ram.errors.invalid_parameter_exception.InvalidParameterException: <p>The operation failed because a parameter you specified isn't valid.</p>
+            aws_sdk_ram.errors.malformed_arn_exception.MalformedArnException: <p>The operation failed because the specified <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Name (ARN)</a> has a format that isn't valid.</p>
+            aws_sdk_ram.errors.server_internal_exception.ServerInternalException: <p>The operation failed because the service could not respond to the request due to an internal problem. Try again later.</p>
+            aws_sdk_ram.errors.service_unavailable_exception.ServiceUnavailableException: <p>The operation failed because the service isn't available. Try again later.</p>
+            aws_sdk_ram.errors.unknown_resource_exception.UnknownResourceException: <p>The operation failed because a specified resource couldn't be found.</p>
+            aws_sdk_ram.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2036,6 +2396,18 @@ class AsyncRAMClient:
             name: <p>If specified, the new name that you want to attach to the resource share.</p>
             allow_external_principals: <p>Specifies whether principals outside your organization in Organizations can be associated with a resource share.</p>
             client_token: <p>Specifies a unique, case-sensitive identifier that you provide to ensure the idempotency of the request. This lets you safely retry the request without accidentally performing the same operation a second time. Passing the same value to a later call to an operation requires that you also pass the same value for all other parameters. We recommend that you use a <a href=\"https://wikipedia.org/wiki/Universally_unique_identifier\">UUID type of value.</a>.</p> <p>If you don't provide this value, then Amazon Web Services generates a random one for you.</p> <p>If you retry the operation with the same <code>ClientToken</code>, but with different parameters, the retry fails with an <code>IdempotentParameterMismatch</code> error.</p>
+
+        Raises:
+            aws_sdk_ram.errors.idempotent_parameter_mismatch_exception.IdempotentParameterMismatchException: <p>The operation failed because the client token input parameter matched one that was used with a previous call to the operation, but at least one of the other input parameters is different from the previous call.</p>
+            aws_sdk_ram.errors.invalid_client_token_exception.InvalidClientTokenException: <p>The operation failed because the specified client token isn't valid.</p>
+            aws_sdk_ram.errors.invalid_parameter_exception.InvalidParameterException: <p>The operation failed because a parameter you specified isn't valid.</p>
+            aws_sdk_ram.errors.malformed_arn_exception.MalformedArnException: <p>The operation failed because the specified <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Name (ARN)</a> has a format that isn't valid.</p>
+            aws_sdk_ram.errors.missing_required_parameter_exception.MissingRequiredParameterException: <p>The operation failed because a required input parameter is missing.</p>
+            aws_sdk_ram.errors.operation_not_permitted_exception.OperationNotPermittedException: <p>The operation failed because the requested operation isn't permitted.</p>
+            aws_sdk_ram.errors.server_internal_exception.ServerInternalException: <p>The operation failed because the service could not respond to the request due to an internal problem. Try again later.</p>
+            aws_sdk_ram.errors.service_unavailable_exception.ServiceUnavailableException: <p>The operation failed because the service isn't available. Try again later.</p>
+            aws_sdk_ram.errors.unknown_resource_exception.UnknownResourceException: <p>The operation failed because a specified resource couldn't be found.</p>
+            aws_sdk_ram.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

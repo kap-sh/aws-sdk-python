@@ -141,6 +141,13 @@ class AppConfigDataClient:
 
         Args:
             configuration_token: <p>Token describing the current state of the configuration session. To obtain a token, first call the <a>StartConfigurationSession</a> API. Note that every call to <code>GetLatestConfiguration</code> will return a new <code>ConfigurationToken</code> (<code>NextPollConfigurationToken</code> in the response) and <i>must</i> be provided to subsequent <code>GetLatestConfiguration</code> API calls.</p> <important> <p>This token should only be used once. To support long poll use cases, the token is valid for up to 24 hours. If a <code>GetLatestConfiguration</code> call uses an expired token, the system returns <code>BadRequestException</code>.</p> </important>
+
+        Raises:
+            aws_sdk_appconfigdata.errors.bad_request_exception.BadRequestException: <p>The input fails to satisfy the constraints specified by the service.</p>
+            aws_sdk_appconfigdata.errors.internal_server_exception.InternalServerException: <p>There was an internal failure in the service.</p>
+            aws_sdk_appconfigdata.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource could not be found.</p>
+            aws_sdk_appconfigdata.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_appconfigdata.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(

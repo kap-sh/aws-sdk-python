@@ -159,6 +159,11 @@ class RTBFabricClient:
             max_results: <p>The maximum number of results that are returned per call. You can use <code>nextToken</code> to obtain further pages of results.</p> <p>This is only an upper limit. The actual number of results returned per call might be fewer than the specified maximum.</p>
             next_token: <p>If <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an <i>HTTP 400 InvalidToken error</i>.</p>
 
+        Raises:
+            aws_sdk_rtbfabric.errors.internal_server_exception.InternalServerException: <p>The request could not be completed because of an internal server error. Try your call again.</p>
+            aws_sdk_rtbfabric.errors.validation_exception.ValidationException: <p>The request could not be completed because it fails satisfy the constraints specified by the service.</p>
+            aws_sdk_rtbfabric.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             List requester gateways with default pagination
             Lists requester gateways using default pagination settings
@@ -232,6 +237,11 @@ class RTBFabricClient:
             max_results: <p>The maximum number of results that are returned per call. You can use <code>nextToken</code> to obtain further pages of results.</p> <p>This is only an upper limit. The actual number of results returned per call might be fewer than the specified maximum.</p>
             next_token: <p>If <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an <i>HTTP 400 InvalidToken error</i>.</p>
 
+        Raises:
+            aws_sdk_rtbfabric.errors.internal_server_exception.InternalServerException: <p>The request could not be completed because of an internal server error. Try your call again.</p>
+            aws_sdk_rtbfabric.errors.validation_exception.ValidationException: <p>The request could not be completed because it fails satisfy the constraints specified by the service.</p>
+            aws_sdk_rtbfabric.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             List responder gateways with default pagination
             Lists responder gateways using default pagination settings
@@ -303,6 +313,14 @@ class RTBFabricClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource for which you want to retrieve tags.</p>
 
+        Raises:
+            aws_sdk_rtbfabric.errors.access_denied_exception.AccessDeniedException: <p>The request could not be completed because you do not have sufficient access to perform this action.</p>
+            aws_sdk_rtbfabric.errors.internal_server_exception.InternalServerException: <p>The request could not be completed because of an internal server error. Try your call again.</p>
+            aws_sdk_rtbfabric.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request could not be completed because the resource does not exist.</p>
+            aws_sdk_rtbfabric.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_rtbfabric.errors.validation_exception.ValidationException: <p>The request could not be completed because it fails satisfy the constraints specified by the service.</p>
+            aws_sdk_rtbfabric.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             List tags for a resource
             Lists tags for a resource
@@ -347,6 +365,14 @@ class RTBFabricClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource that you want to tag.</p>
             tags: <p>A map of the key-value pairs of the tag or tags to assign to the resource.</p>
+
+        Raises:
+            aws_sdk_rtbfabric.errors.access_denied_exception.AccessDeniedException: <p>The request could not be completed because you do not have sufficient access to perform this action.</p>
+            aws_sdk_rtbfabric.errors.internal_server_exception.InternalServerException: <p>The request could not be completed because of an internal server error. Try your call again.</p>
+            aws_sdk_rtbfabric.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request could not be completed because the resource does not exist.</p>
+            aws_sdk_rtbfabric.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_rtbfabric.errors.validation_exception.ValidationException: <p>The request could not be completed because it fails satisfy the constraints specified by the service.</p>
+            aws_sdk_rtbfabric.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Add tags to a resource
@@ -393,6 +419,14 @@ class RTBFabricClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource that you want to untag.</p>
             tag_keys: <p>The keys of the key-value pairs for the tag or tags you want to remove from the specified resource.</p>
+
+        Raises:
+            aws_sdk_rtbfabric.errors.access_denied_exception.AccessDeniedException: <p>The request could not be completed because you do not have sufficient access to perform this action.</p>
+            aws_sdk_rtbfabric.errors.internal_server_exception.InternalServerException: <p>The request could not be completed because of an internal server error. Try your call again.</p>
+            aws_sdk_rtbfabric.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request could not be completed because the resource does not exist.</p>
+            aws_sdk_rtbfabric.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_rtbfabric.errors.validation_exception.ValidationException: <p>The request could not be completed because it fails satisfy the constraints specified by the service.</p>
+            aws_sdk_rtbfabric.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Remove tags from a resource

@@ -147,6 +147,12 @@ class PersonalizeEventsClient:
         Args:
             tracking_id: <p>The ID of your action interaction event tracker. When you create an Action interactions dataset, Amazon Personalize creates an action interaction event tracker for you. For more information, see <a href=\"https://docs.aws.amazon.com/personalize/latest/dg/action-interaction-tracker-id.html\">Action interaction event tracker ID</a>.</p>
             action_interactions: <p>A list of action interaction events from the session.</p>
+
+        Raises:
+            aws_sdk_personalize_events.errors.invalid_input_exception.InvalidInputException: <p>Provide a valid value for the field or parameter.</p>
+            aws_sdk_personalize_events.errors.resource_in_use_exception.ResourceInUseException: <p>The specified resource is in use.</p>
+            aws_sdk_personalize_events.errors.resource_not_found_exception.ResourceNotFoundException: <p>Could not find the specified resource.</p>
+            aws_sdk_personalize_events.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -185,6 +191,12 @@ class PersonalizeEventsClient:
         Args:
             dataset_arn: <p>The Amazon Resource Name (ARN) of the Actions dataset you are adding the action or actions to.</p>
             actions: <p>A list of action data.</p>
+
+        Raises:
+            aws_sdk_personalize_events.errors.invalid_input_exception.InvalidInputException: <p>Provide a valid value for the field or parameter.</p>
+            aws_sdk_personalize_events.errors.resource_in_use_exception.ResourceInUseException: <p>The specified resource is in use.</p>
+            aws_sdk_personalize_events.errors.resource_not_found_exception.ResourceNotFoundException: <p>Could not find the specified resource.</p>
+            aws_sdk_personalize_events.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -227,6 +239,10 @@ class PersonalizeEventsClient:
             user_id: <p>The user associated with the event.</p>
             session_id: <p>The session ID associated with the user's visit. Your application generates the sessionId when a user first visits your website or uses your application. Amazon Personalize uses the sessionId to associate events with the user before they log in. For more information, see <a href=\"https://docs.aws.amazon.com/personalize/latest/dg/recording-item-interaction-events.html\">Recording item interaction events</a>.</p>
             event_list: <p>A list of event data from the session.</p>
+
+        Raises:
+            aws_sdk_personalize_events.errors.invalid_input_exception.InvalidInputException: <p>Provide a valid value for the field or parameter.</p>
+            aws_sdk_personalize_events.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -268,6 +284,12 @@ class PersonalizeEventsClient:
         Args:
             dataset_arn: <p>The Amazon Resource Name (ARN) of the Items dataset you are adding the item or items to.</p>
             items: <p>A list of item data.</p>
+
+        Raises:
+            aws_sdk_personalize_events.errors.invalid_input_exception.InvalidInputException: <p>Provide a valid value for the field or parameter.</p>
+            aws_sdk_personalize_events.errors.resource_in_use_exception.ResourceInUseException: <p>The specified resource is in use.</p>
+            aws_sdk_personalize_events.errors.resource_not_found_exception.ResourceNotFoundException: <p>Could not find the specified resource.</p>
+            aws_sdk_personalize_events.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -306,6 +328,12 @@ class PersonalizeEventsClient:
         Args:
             dataset_arn: <p>The Amazon Resource Name (ARN) of the Users dataset you are adding the user or users to.</p>
             users: <p>A list of user data.</p>
+
+        Raises:
+            aws_sdk_personalize_events.errors.invalid_input_exception.InvalidInputException: <p>Provide a valid value for the field or parameter.</p>
+            aws_sdk_personalize_events.errors.resource_in_use_exception.ResourceInUseException: <p>The specified resource is in use.</p>
+            aws_sdk_personalize_events.errors.resource_not_found_exception.ResourceNotFoundException: <p>Could not find the specified resource.</p>
+            aws_sdk_personalize_events.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(

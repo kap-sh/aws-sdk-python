@@ -223,6 +223,18 @@ class AsyncBudgetsClient:
             budget: <p>The budget object that you want to create.</p>
             notifications_with_subscribers: <p>A notification that you want to associate with a budget. A budget can have up to five notifications, and each notification can have one SNS subscriber and up to 10 email subscribers. If you include notifications and subscribers in your <code>CreateBudget</code> call, Amazon Web Services creates the notifications and subscribers for you.</p>
             resource_tags: <p>An optional list of tags to associate with the specified budget. Each tag consists of a key and a value, and each key must be unique for the resource.</p>
+
+        Raises:
+            aws_sdk_budgets.errors.access_denied_exception.AccessDeniedException: <p>You are not authorized to use this operation with the given parameters.</p>
+            aws_sdk_budgets.errors.billing_view_health_status_exception.BillingViewHealthStatusException: <p> The billing view status must be HEALTHY to perform this action. Try again when the status is HEALTHY. </p>
+            aws_sdk_budgets.errors.creation_limit_exceeded_exception.CreationLimitExceededException: <p>You've exceeded the notification or subscriber limit.</p>
+            aws_sdk_budgets.errors.duplicate_record_exception.DuplicateRecordException: <p>The budget name already exists. Budget names must be unique within an account.</p>
+            aws_sdk_budgets.errors.internal_error_exception.InternalErrorException: <p>An error on the server occurred during the processing of your request. Try again later.</p>
+            aws_sdk_budgets.errors.invalid_parameter_exception.InvalidParameterException: <p>An error on the client occurred. Typically, the cause is an invalid input value.</p>
+            aws_sdk_budgets.errors.not_found_exception.NotFoundException: <p>We can’t locate the resource that you specified.</p>
+            aws_sdk_budgets.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You've reached a Service Quota limit on this resource.</p>
+            aws_sdk_budgets.errors.throttling_exception.ThrottlingException: <p>The number of API requests has exceeded the maximum allowed API request throttling limit for the account.</p>
+            aws_sdk_budgets.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -282,6 +294,17 @@ class AsyncBudgetsClient:
             execution_role_arn: <p> The role passed for action execution and reversion. Roles and actions must be in the same account. </p>
             approval_model: <p> This specifies if the action needs manual or automatic approval. </p>
             resource_tags: <p>An optional list of tags to associate with the specified budget action. Each tag consists of a key and a value, and each key must be unique for the resource.</p>
+
+        Raises:
+            aws_sdk_budgets.errors.access_denied_exception.AccessDeniedException: <p>You are not authorized to use this operation with the given parameters.</p>
+            aws_sdk_budgets.errors.creation_limit_exceeded_exception.CreationLimitExceededException: <p>You've exceeded the notification or subscriber limit.</p>
+            aws_sdk_budgets.errors.duplicate_record_exception.DuplicateRecordException: <p>The budget name already exists. Budget names must be unique within an account.</p>
+            aws_sdk_budgets.errors.internal_error_exception.InternalErrorException: <p>An error on the server occurred during the processing of your request. Try again later.</p>
+            aws_sdk_budgets.errors.invalid_parameter_exception.InvalidParameterException: <p>An error on the client occurred. Typically, the cause is an invalid input value.</p>
+            aws_sdk_budgets.errors.not_found_exception.NotFoundException: <p>We can’t locate the resource that you specified.</p>
+            aws_sdk_budgets.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You've reached a Service Quota limit on this resource.</p>
+            aws_sdk_budgets.errors.throttling_exception.ThrottlingException: <p>The number of API requests has exceeded the maximum allowed API request throttling limit for the account.</p>
+            aws_sdk_budgets.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -338,6 +361,16 @@ class AsyncBudgetsClient:
             budget_name: <p>The name of the budget that you want Amazon Web Services to notify you about. Budget names must be unique within an account.</p>
             notification: <p>The notification that you want to create.</p>
             subscribers: <p>A list of subscribers that you want to associate with the notification. Each notification can have one SNS subscriber and up to 10 email subscribers.</p>
+
+        Raises:
+            aws_sdk_budgets.errors.access_denied_exception.AccessDeniedException: <p>You are not authorized to use this operation with the given parameters.</p>
+            aws_sdk_budgets.errors.creation_limit_exceeded_exception.CreationLimitExceededException: <p>You've exceeded the notification or subscriber limit.</p>
+            aws_sdk_budgets.errors.duplicate_record_exception.DuplicateRecordException: <p>The budget name already exists. Budget names must be unique within an account.</p>
+            aws_sdk_budgets.errors.internal_error_exception.InternalErrorException: <p>An error on the server occurred during the processing of your request. Try again later.</p>
+            aws_sdk_budgets.errors.invalid_parameter_exception.InvalidParameterException: <p>An error on the client occurred. Typically, the cause is an invalid input value.</p>
+            aws_sdk_budgets.errors.not_found_exception.NotFoundException: <p>We can’t locate the resource that you specified.</p>
+            aws_sdk_budgets.errors.throttling_exception.ThrottlingException: <p>The number of API requests has exceeded the maximum allowed API request throttling limit for the account.</p>
+            aws_sdk_budgets.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -385,6 +418,16 @@ class AsyncBudgetsClient:
             budget_name: <p>The name of the budget that you want to subscribe to. Budget names must be unique within an account.</p>
             notification: <p>The notification that you want to create a subscriber for.</p>
             subscriber: <p>The subscriber that you want to associate with a budget notification.</p>
+
+        Raises:
+            aws_sdk_budgets.errors.access_denied_exception.AccessDeniedException: <p>You are not authorized to use this operation with the given parameters.</p>
+            aws_sdk_budgets.errors.creation_limit_exceeded_exception.CreationLimitExceededException: <p>You've exceeded the notification or subscriber limit.</p>
+            aws_sdk_budgets.errors.duplicate_record_exception.DuplicateRecordException: <p>The budget name already exists. Budget names must be unique within an account.</p>
+            aws_sdk_budgets.errors.internal_error_exception.InternalErrorException: <p>An error on the server occurred during the processing of your request. Try again later.</p>
+            aws_sdk_budgets.errors.invalid_parameter_exception.InvalidParameterException: <p>An error on the client occurred. Typically, the cause is an invalid input value.</p>
+            aws_sdk_budgets.errors.not_found_exception.NotFoundException: <p>We can’t locate the resource that you specified.</p>
+            aws_sdk_budgets.errors.throttling_exception.ThrottlingException: <p>The number of API requests has exceeded the maximum allowed API request throttling limit for the account.</p>
+            aws_sdk_budgets.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -428,6 +471,14 @@ class AsyncBudgetsClient:
         Args:
             account_id: <p>The <code>accountId</code> that is associated with the budget that you want to delete.</p>
             budget_name: <p>The name of the budget that you want to delete.</p>
+
+        Raises:
+            aws_sdk_budgets.errors.access_denied_exception.AccessDeniedException: <p>You are not authorized to use this operation with the given parameters.</p>
+            aws_sdk_budgets.errors.internal_error_exception.InternalErrorException: <p>An error on the server occurred during the processing of your request. Try again later.</p>
+            aws_sdk_budgets.errors.invalid_parameter_exception.InvalidParameterException: <p>An error on the client occurred. Typically, the cause is an invalid input value.</p>
+            aws_sdk_budgets.errors.not_found_exception.NotFoundException: <p>We can’t locate the resource that you specified.</p>
+            aws_sdk_budgets.errors.throttling_exception.ThrottlingException: <p>The number of API requests has exceeded the maximum allowed API request throttling limit for the account.</p>
+            aws_sdk_budgets.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -471,6 +522,15 @@ class AsyncBudgetsClient:
 
         Args:
             action_id: <p> A system-generated universally unique identifier (UUID) for the action. </p>
+
+        Raises:
+            aws_sdk_budgets.errors.access_denied_exception.AccessDeniedException: <p>You are not authorized to use this operation with the given parameters.</p>
+            aws_sdk_budgets.errors.internal_error_exception.InternalErrorException: <p>An error on the server occurred during the processing of your request. Try again later.</p>
+            aws_sdk_budgets.errors.invalid_parameter_exception.InvalidParameterException: <p>An error on the client occurred. Typically, the cause is an invalid input value.</p>
+            aws_sdk_budgets.errors.not_found_exception.NotFoundException: <p>We can’t locate the resource that you specified.</p>
+            aws_sdk_budgets.errors.resource_locked_exception.ResourceLockedException: <p>The request was received and recognized by the server, but the server rejected that particular method for the requested resource.</p>
+            aws_sdk_budgets.errors.throttling_exception.ThrottlingException: <p>The number of API requests has exceeded the maximum allowed API request throttling limit for the account.</p>
+            aws_sdk_budgets.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -517,6 +577,14 @@ class AsyncBudgetsClient:
             account_id: <p>The <code>accountId</code> that is associated with the budget whose notification you want to delete.</p>
             budget_name: <p>The name of the budget whose notification you want to delete.</p>
             notification: <p>The notification that you want to delete.</p>
+
+        Raises:
+            aws_sdk_budgets.errors.access_denied_exception.AccessDeniedException: <p>You are not authorized to use this operation with the given parameters.</p>
+            aws_sdk_budgets.errors.internal_error_exception.InternalErrorException: <p>An error on the server occurred during the processing of your request. Try again later.</p>
+            aws_sdk_budgets.errors.invalid_parameter_exception.InvalidParameterException: <p>An error on the client occurred. Typically, the cause is an invalid input value.</p>
+            aws_sdk_budgets.errors.not_found_exception.NotFoundException: <p>We can’t locate the resource that you specified.</p>
+            aws_sdk_budgets.errors.throttling_exception.ThrottlingException: <p>The number of API requests has exceeded the maximum allowed API request throttling limit for the account.</p>
+            aws_sdk_budgets.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -563,6 +631,14 @@ class AsyncBudgetsClient:
             budget_name: <p>The name of the budget whose subscriber you want to delete.</p>
             notification: <p>The notification whose subscriber you want to delete.</p>
             subscriber: <p>The subscriber that you want to delete.</p>
+
+        Raises:
+            aws_sdk_budgets.errors.access_denied_exception.AccessDeniedException: <p>You are not authorized to use this operation with the given parameters.</p>
+            aws_sdk_budgets.errors.internal_error_exception.InternalErrorException: <p>An error on the server occurred during the processing of your request. Try again later.</p>
+            aws_sdk_budgets.errors.invalid_parameter_exception.InvalidParameterException: <p>An error on the client occurred. Typically, the cause is an invalid input value.</p>
+            aws_sdk_budgets.errors.not_found_exception.NotFoundException: <p>We can’t locate the resource that you specified.</p>
+            aws_sdk_budgets.errors.throttling_exception.ThrottlingException: <p>The number of API requests has exceeded the maximum allowed API request throttling limit for the account.</p>
+            aws_sdk_budgets.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -610,6 +686,14 @@ class AsyncBudgetsClient:
             account_id: <p>The <code>accountId</code> that is associated with the budget that you want a description of.</p>
             budget_name: <p>The name of the budget that you want a description of.</p>
             show_filter_expression: <p>Specifies whether the response includes the filter expression associated with the budget. By showing the filter expression, you can see detailed filtering logic applied to the budget, such as Amazon Web Services services or tags that are being tracked.</p>
+
+        Raises:
+            aws_sdk_budgets.errors.access_denied_exception.AccessDeniedException: <p>You are not authorized to use this operation with the given parameters.</p>
+            aws_sdk_budgets.errors.internal_error_exception.InternalErrorException: <p>An error on the server occurred during the processing of your request. Try again later.</p>
+            aws_sdk_budgets.errors.invalid_parameter_exception.InvalidParameterException: <p>An error on the client occurred. Typically, the cause is an invalid input value.</p>
+            aws_sdk_budgets.errors.not_found_exception.NotFoundException: <p>We can’t locate the resource that you specified.</p>
+            aws_sdk_budgets.errors.throttling_exception.ThrottlingException: <p>The number of API requests has exceeded the maximum allowed API request throttling limit for the account.</p>
+            aws_sdk_budgets.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -653,6 +737,14 @@ class AsyncBudgetsClient:
 
         Args:
             action_id: <p> A system-generated universally unique identifier (UUID) for the action. </p>
+
+        Raises:
+            aws_sdk_budgets.errors.access_denied_exception.AccessDeniedException: <p>You are not authorized to use this operation with the given parameters.</p>
+            aws_sdk_budgets.errors.internal_error_exception.InternalErrorException: <p>An error on the server occurred during the processing of your request. Try again later.</p>
+            aws_sdk_budgets.errors.invalid_parameter_exception.InvalidParameterException: <p>An error on the client occurred. Typically, the cause is an invalid input value.</p>
+            aws_sdk_budgets.errors.not_found_exception.NotFoundException: <p>We can’t locate the resource that you specified.</p>
+            aws_sdk_budgets.errors.throttling_exception.ThrottlingException: <p>The number of API requests has exceeded the maximum allowed API request throttling limit for the account.</p>
+            aws_sdk_budgets.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -700,6 +792,15 @@ class AsyncBudgetsClient:
 
         Args:
             action_id: <p> A system-generated universally unique identifier (UUID) for the action. </p>
+
+        Raises:
+            aws_sdk_budgets.errors.access_denied_exception.AccessDeniedException: <p>You are not authorized to use this operation with the given parameters.</p>
+            aws_sdk_budgets.errors.internal_error_exception.InternalErrorException: <p>An error on the server occurred during the processing of your request. Try again later.</p>
+            aws_sdk_budgets.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The pagination token is invalid.</p>
+            aws_sdk_budgets.errors.invalid_parameter_exception.InvalidParameterException: <p>An error on the client occurred. Typically, the cause is an invalid input value.</p>
+            aws_sdk_budgets.errors.not_found_exception.NotFoundException: <p>We can’t locate the resource that you specified.</p>
+            aws_sdk_budgets.errors.throttling_exception.ThrottlingException: <p>The number of API requests has exceeded the maximum allowed API request throttling limit for the account.</p>
+            aws_sdk_budgets.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -777,7 +878,16 @@ class AsyncBudgetsClient:
             "aws_sdk_budgets.types.generic_string.GenericString"
         ] = None,
     ) -> "aws_sdk_budgets.types.describe_budget_actions_for_account_response.DescribeBudgetActionsForAccountResponse":
-        """<p> Describes all of the budget actions for an account. </p>"""
+        """<p> Describes all of the budget actions for an account. </p>
+
+        Raises:
+            aws_sdk_budgets.errors.access_denied_exception.AccessDeniedException: <p>You are not authorized to use this operation with the given parameters.</p>
+            aws_sdk_budgets.errors.internal_error_exception.InternalErrorException: <p>An error on the server occurred during the processing of your request. Try again later.</p>
+            aws_sdk_budgets.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The pagination token is invalid.</p>
+            aws_sdk_budgets.errors.invalid_parameter_exception.InvalidParameterException: <p>An error on the client occurred. Typically, the cause is an invalid input value.</p>
+            aws_sdk_budgets.errors.throttling_exception.ThrottlingException: <p>The number of API requests has exceeded the maximum allowed API request throttling limit for the account.</p>
+            aws_sdk_budgets.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_budgets.types.describe_budget_actions_for_account_request.DescribeBudgetActionsForAccountRequest]",
@@ -845,7 +955,17 @@ class AsyncBudgetsClient:
             "aws_sdk_budgets.types.generic_string.GenericString"
         ] = None,
     ) -> "aws_sdk_budgets.types.describe_budget_actions_for_budget_response.DescribeBudgetActionsForBudgetResponse":
-        """<p> Describes all of the budget actions for a budget. </p>"""
+        """<p> Describes all of the budget actions for a budget. </p>
+
+        Raises:
+            aws_sdk_budgets.errors.access_denied_exception.AccessDeniedException: <p>You are not authorized to use this operation with the given parameters.</p>
+            aws_sdk_budgets.errors.internal_error_exception.InternalErrorException: <p>An error on the server occurred during the processing of your request. Try again later.</p>
+            aws_sdk_budgets.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The pagination token is invalid.</p>
+            aws_sdk_budgets.errors.invalid_parameter_exception.InvalidParameterException: <p>An error on the client occurred. Typically, the cause is an invalid input value.</p>
+            aws_sdk_budgets.errors.not_found_exception.NotFoundException: <p>We can’t locate the resource that you specified.</p>
+            aws_sdk_budgets.errors.throttling_exception.ThrottlingException: <p>The number of API requests has exceeded the maximum allowed API request throttling limit for the account.</p>
+            aws_sdk_budgets.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_budgets.types.describe_budget_actions_for_budget_request.DescribeBudgetActionsForBudgetRequest]",
@@ -921,6 +1041,16 @@ class AsyncBudgetsClient:
 
         Args:
             max_results: <p> An integer that represents how many budgets a paginated response contains. The default is 50. </p>
+
+        Raises:
+            aws_sdk_budgets.errors.access_denied_exception.AccessDeniedException: <p>You are not authorized to use this operation with the given parameters.</p>
+            aws_sdk_budgets.errors.expired_next_token_exception.ExpiredNextTokenException: <p>The pagination token expired.</p>
+            aws_sdk_budgets.errors.internal_error_exception.InternalErrorException: <p>An error on the server occurred during the processing of your request. Try again later.</p>
+            aws_sdk_budgets.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The pagination token is invalid.</p>
+            aws_sdk_budgets.errors.invalid_parameter_exception.InvalidParameterException: <p>An error on the client occurred. Typically, the cause is an invalid input value.</p>
+            aws_sdk_budgets.errors.not_found_exception.NotFoundException: <p>We can’t locate the resource that you specified.</p>
+            aws_sdk_budgets.errors.throttling_exception.ThrottlingException: <p>The number of API requests has exceeded the maximum allowed API request throttling limit for the account.</p>
+            aws_sdk_budgets.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -996,6 +1126,17 @@ class AsyncBudgetsClient:
 
         Args:
             time_period: <p>Retrieves how often the budget went into an <code>ALARM</code> state for the specified time period.</p>
+
+        Raises:
+            aws_sdk_budgets.errors.access_denied_exception.AccessDeniedException: <p>You are not authorized to use this operation with the given parameters.</p>
+            aws_sdk_budgets.errors.billing_view_health_status_exception.BillingViewHealthStatusException: <p> The billing view status must be HEALTHY to perform this action. Try again when the status is HEALTHY. </p>
+            aws_sdk_budgets.errors.expired_next_token_exception.ExpiredNextTokenException: <p>The pagination token expired.</p>
+            aws_sdk_budgets.errors.internal_error_exception.InternalErrorException: <p>An error on the server occurred during the processing of your request. Try again later.</p>
+            aws_sdk_budgets.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The pagination token is invalid.</p>
+            aws_sdk_budgets.errors.invalid_parameter_exception.InvalidParameterException: <p>An error on the client occurred. Typically, the cause is an invalid input value.</p>
+            aws_sdk_budgets.errors.not_found_exception.NotFoundException: <p>We can’t locate the resource that you specified.</p>
+            aws_sdk_budgets.errors.throttling_exception.ThrottlingException: <p>The number of API requests has exceeded the maximum allowed API request throttling limit for the account.</p>
+            aws_sdk_budgets.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1053,6 +1194,16 @@ class AsyncBudgetsClient:
             max_results: <p>An integer that represents how many budgets a paginated response contains. The default is 100.</p>
             next_token: <p>The pagination token that you include in your request to indicate the next set of results that you want to retrieve.</p>
             show_filter_expression: <p>Specifies whether the response includes the filter expression associated with the budgets. By showing the filter expression, you can see detailed filtering logic applied to the budgets, such as Amazon Web Services services or tags that are being tracked.</p>
+
+        Raises:
+            aws_sdk_budgets.errors.access_denied_exception.AccessDeniedException: <p>You are not authorized to use this operation with the given parameters.</p>
+            aws_sdk_budgets.errors.expired_next_token_exception.ExpiredNextTokenException: <p>The pagination token expired.</p>
+            aws_sdk_budgets.errors.internal_error_exception.InternalErrorException: <p>An error on the server occurred during the processing of your request. Try again later.</p>
+            aws_sdk_budgets.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The pagination token is invalid.</p>
+            aws_sdk_budgets.errors.invalid_parameter_exception.InvalidParameterException: <p>An error on the client occurred. Typically, the cause is an invalid input value.</p>
+            aws_sdk_budgets.errors.not_found_exception.NotFoundException: <p>We can’t locate the resource that you specified.</p>
+            aws_sdk_budgets.errors.throttling_exception.ThrottlingException: <p>The number of API requests has exceeded the maximum allowed API request throttling limit for the account.</p>
+            aws_sdk_budgets.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1136,6 +1287,16 @@ class AsyncBudgetsClient:
             budget_name: <p>The name of the budget whose notifications you want descriptions of.</p>
             max_results: <p>An optional integer that represents how many entries a paginated response contains.</p>
             next_token: <p>The pagination token that you include in your request to indicate the next set of results that you want to retrieve.</p>
+
+        Raises:
+            aws_sdk_budgets.errors.access_denied_exception.AccessDeniedException: <p>You are not authorized to use this operation with the given parameters.</p>
+            aws_sdk_budgets.errors.expired_next_token_exception.ExpiredNextTokenException: <p>The pagination token expired.</p>
+            aws_sdk_budgets.errors.internal_error_exception.InternalErrorException: <p>An error on the server occurred during the processing of your request. Try again later.</p>
+            aws_sdk_budgets.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The pagination token is invalid.</p>
+            aws_sdk_budgets.errors.invalid_parameter_exception.InvalidParameterException: <p>An error on the client occurred. Typically, the cause is an invalid input value.</p>
+            aws_sdk_budgets.errors.not_found_exception.NotFoundException: <p>We can’t locate the resource that you specified.</p>
+            aws_sdk_budgets.errors.throttling_exception.ThrottlingException: <p>The number of API requests has exceeded the maximum allowed API request throttling limit for the account.</p>
+            aws_sdk_budgets.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1216,6 +1377,16 @@ class AsyncBudgetsClient:
             notification: <p>The notification whose subscribers you want to list.</p>
             max_results: <p>An optional integer that represents how many entries a paginated response contains.</p>
             next_token: <p>The pagination token that you include in your request to indicate the next set of results that you want to retrieve.</p>
+
+        Raises:
+            aws_sdk_budgets.errors.access_denied_exception.AccessDeniedException: <p>You are not authorized to use this operation with the given parameters.</p>
+            aws_sdk_budgets.errors.expired_next_token_exception.ExpiredNextTokenException: <p>The pagination token expired.</p>
+            aws_sdk_budgets.errors.internal_error_exception.InternalErrorException: <p>An error on the server occurred during the processing of your request. Try again later.</p>
+            aws_sdk_budgets.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The pagination token is invalid.</p>
+            aws_sdk_budgets.errors.invalid_parameter_exception.InvalidParameterException: <p>An error on the client occurred. Typically, the cause is an invalid input value.</p>
+            aws_sdk_budgets.errors.not_found_exception.NotFoundException: <p>We can’t locate the resource that you specified.</p>
+            aws_sdk_budgets.errors.throttling_exception.ThrottlingException: <p>The number of API requests has exceeded the maximum allowed API request throttling limit for the account.</p>
+            aws_sdk_budgets.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1293,6 +1464,15 @@ class AsyncBudgetsClient:
         Args:
             action_id: <p> A system-generated universally unique identifier (UUID) for the action. </p>
             execution_type: <p> The type of execution. </p>
+
+        Raises:
+            aws_sdk_budgets.errors.access_denied_exception.AccessDeniedException: <p>You are not authorized to use this operation with the given parameters.</p>
+            aws_sdk_budgets.errors.internal_error_exception.InternalErrorException: <p>An error on the server occurred during the processing of your request. Try again later.</p>
+            aws_sdk_budgets.errors.invalid_parameter_exception.InvalidParameterException: <p>An error on the client occurred. Typically, the cause is an invalid input value.</p>
+            aws_sdk_budgets.errors.not_found_exception.NotFoundException: <p>We can’t locate the resource that you specified.</p>
+            aws_sdk_budgets.errors.resource_locked_exception.ResourceLockedException: <p>The request was received and recognized by the server, but the server rejected that particular method for the requested resource.</p>
+            aws_sdk_budgets.errors.throttling_exception.ThrottlingException: <p>The number of API requests has exceeded the maximum allowed API request throttling limit for the account.</p>
+            aws_sdk_budgets.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1334,6 +1514,14 @@ class AsyncBudgetsClient:
 
         Args:
             resource_arn: <p>The unique identifier for the resource.</p>
+
+        Raises:
+            aws_sdk_budgets.errors.access_denied_exception.AccessDeniedException: <p>You are not authorized to use this operation with the given parameters.</p>
+            aws_sdk_budgets.errors.internal_error_exception.InternalErrorException: <p>An error on the server occurred during the processing of your request. Try again later.</p>
+            aws_sdk_budgets.errors.invalid_parameter_exception.InvalidParameterException: <p>An error on the client occurred. Typically, the cause is an invalid input value.</p>
+            aws_sdk_budgets.errors.not_found_exception.NotFoundException: <p>We can’t locate the resource that you specified.</p>
+            aws_sdk_budgets.errors.throttling_exception.ThrottlingException: <p>The number of API requests has exceeded the maximum allowed API request throttling limit for the account.</p>
+            aws_sdk_budgets.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1374,6 +1562,15 @@ class AsyncBudgetsClient:
         Args:
             resource_arn: <p>The unique identifier for the resource.</p>
             resource_tags: <p>The tags associated with the resource.</p>
+
+        Raises:
+            aws_sdk_budgets.errors.access_denied_exception.AccessDeniedException: <p>You are not authorized to use this operation with the given parameters.</p>
+            aws_sdk_budgets.errors.internal_error_exception.InternalErrorException: <p>An error on the server occurred during the processing of your request. Try again later.</p>
+            aws_sdk_budgets.errors.invalid_parameter_exception.InvalidParameterException: <p>An error on the client occurred. Typically, the cause is an invalid input value.</p>
+            aws_sdk_budgets.errors.not_found_exception.NotFoundException: <p>We can’t locate the resource that you specified.</p>
+            aws_sdk_budgets.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You've reached a Service Quota limit on this resource.</p>
+            aws_sdk_budgets.errors.throttling_exception.ThrottlingException: <p>The number of API requests has exceeded the maximum allowed API request throttling limit for the account.</p>
+            aws_sdk_budgets.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1415,6 +1612,14 @@ class AsyncBudgetsClient:
         Args:
             resource_arn: <p>The unique identifier for the resource.</p>
             resource_tag_keys: <p>The key that's associated with the tag.</p>
+
+        Raises:
+            aws_sdk_budgets.errors.access_denied_exception.AccessDeniedException: <p>You are not authorized to use this operation with the given parameters.</p>
+            aws_sdk_budgets.errors.internal_error_exception.InternalErrorException: <p>An error on the server occurred during the processing of your request. Try again later.</p>
+            aws_sdk_budgets.errors.invalid_parameter_exception.InvalidParameterException: <p>An error on the client occurred. Typically, the cause is an invalid input value.</p>
+            aws_sdk_budgets.errors.not_found_exception.NotFoundException: <p>We can’t locate the resource that you specified.</p>
+            aws_sdk_budgets.errors.throttling_exception.ThrottlingException: <p>The number of API requests has exceeded the maximum allowed API request throttling limit for the account.</p>
+            aws_sdk_budgets.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1456,6 +1661,16 @@ class AsyncBudgetsClient:
         Args:
             account_id: <p>The <code>accountId</code> that is associated with the budget that you want to update.</p>
             new_budget: <p>The budget that you want to update your budget to.</p>
+
+        Raises:
+            aws_sdk_budgets.errors.access_denied_exception.AccessDeniedException: <p>You are not authorized to use this operation with the given parameters.</p>
+            aws_sdk_budgets.errors.billing_view_health_status_exception.BillingViewHealthStatusException: <p> The billing view status must be HEALTHY to perform this action. Try again when the status is HEALTHY. </p>
+            aws_sdk_budgets.errors.internal_error_exception.InternalErrorException: <p>An error on the server occurred during the processing of your request. Try again later.</p>
+            aws_sdk_budgets.errors.invalid_parameter_exception.InvalidParameterException: <p>An error on the client occurred. Typically, the cause is an invalid input value.</p>
+            aws_sdk_budgets.errors.not_found_exception.NotFoundException: <p>We can’t locate the resource that you specified.</p>
+            aws_sdk_budgets.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You've reached a Service Quota limit on this resource.</p>
+            aws_sdk_budgets.errors.throttling_exception.ThrottlingException: <p>The number of API requests has exceeded the maximum allowed API request throttling limit for the account.</p>
+            aws_sdk_budgets.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1513,6 +1728,15 @@ class AsyncBudgetsClient:
             action_id: <p> A system-generated universally unique identifier (UUID) for the action. </p>
             execution_role_arn: <p> The role passed for action execution and reversion. Roles and actions must be in the same account. </p>
             approval_model: <p> This specifies if the action needs manual or automatic approval. </p>
+
+        Raises:
+            aws_sdk_budgets.errors.access_denied_exception.AccessDeniedException: <p>You are not authorized to use this operation with the given parameters.</p>
+            aws_sdk_budgets.errors.internal_error_exception.InternalErrorException: <p>An error on the server occurred during the processing of your request. Try again later.</p>
+            aws_sdk_budgets.errors.invalid_parameter_exception.InvalidParameterException: <p>An error on the client occurred. Typically, the cause is an invalid input value.</p>
+            aws_sdk_budgets.errors.not_found_exception.NotFoundException: <p>We can’t locate the resource that you specified.</p>
+            aws_sdk_budgets.errors.resource_locked_exception.ResourceLockedException: <p>The request was received and recognized by the server, but the server rejected that particular method for the requested resource.</p>
+            aws_sdk_budgets.errors.throttling_exception.ThrottlingException: <p>The number of API requests has exceeded the maximum allowed API request throttling limit for the account.</p>
+            aws_sdk_budgets.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1573,6 +1797,15 @@ class AsyncBudgetsClient:
             budget_name: <p>The name of the budget whose notification you want to update.</p>
             old_notification: <p>The previous notification that is associated with a budget.</p>
             new_notification: <p>The updated notification to be associated with a budget.</p>
+
+        Raises:
+            aws_sdk_budgets.errors.access_denied_exception.AccessDeniedException: <p>You are not authorized to use this operation with the given parameters.</p>
+            aws_sdk_budgets.errors.duplicate_record_exception.DuplicateRecordException: <p>The budget name already exists. Budget names must be unique within an account.</p>
+            aws_sdk_budgets.errors.internal_error_exception.InternalErrorException: <p>An error on the server occurred during the processing of your request. Try again later.</p>
+            aws_sdk_budgets.errors.invalid_parameter_exception.InvalidParameterException: <p>An error on the client occurred. Typically, the cause is an invalid input value.</p>
+            aws_sdk_budgets.errors.not_found_exception.NotFoundException: <p>We can’t locate the resource that you specified.</p>
+            aws_sdk_budgets.errors.throttling_exception.ThrottlingException: <p>The number of API requests has exceeded the maximum allowed API request throttling limit for the account.</p>
+            aws_sdk_budgets.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1622,6 +1855,15 @@ class AsyncBudgetsClient:
             notification: <p>The notification whose subscriber you want to update.</p>
             old_subscriber: <p>The previous subscriber that is associated with a budget notification.</p>
             new_subscriber: <p>The updated subscriber that is associated with a budget notification.</p>
+
+        Raises:
+            aws_sdk_budgets.errors.access_denied_exception.AccessDeniedException: <p>You are not authorized to use this operation with the given parameters.</p>
+            aws_sdk_budgets.errors.duplicate_record_exception.DuplicateRecordException: <p>The budget name already exists. Budget names must be unique within an account.</p>
+            aws_sdk_budgets.errors.internal_error_exception.InternalErrorException: <p>An error on the server occurred during the processing of your request. Try again later.</p>
+            aws_sdk_budgets.errors.invalid_parameter_exception.InvalidParameterException: <p>An error on the client occurred. Typically, the cause is an invalid input value.</p>
+            aws_sdk_budgets.errors.not_found_exception.NotFoundException: <p>We can’t locate the resource that you specified.</p>
+            aws_sdk_budgets.errors.throttling_exception.ThrottlingException: <p>The number of API requests has exceeded the maximum allowed API request throttling limit for the account.</p>
+            aws_sdk_budgets.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

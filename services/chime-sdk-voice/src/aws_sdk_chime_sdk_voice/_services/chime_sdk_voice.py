@@ -376,6 +376,17 @@ class ChimeSDKVoiceClient:
             voice_connector_id: <p>The Voice Connector ID.</p>
             e164_phone_numbers: <p>List of phone numbers, in E.164 format.</p>
             force_associate: <p>If true, associates the provided phone numbers with the provided Amazon Chime SDK Voice Connector and removes any previously existing associations. If false, does not associate any phone numbers that have previously existing associations.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_voice.errors.access_denied_exception.AccessDeniedException: <p>You don't have the permissions needed to run this action.</p>
+            aws_sdk_chime_sdk_voice.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_voice.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_voice.errors.not_found_exception.NotFoundException: <p>The requested resource couldn't be found.</p>
+            aws_sdk_chime_sdk_voice.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_voice.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_voice.errors.throttled_client_exception.ThrottledClientException: <p>The number of customer requests exceeds the request rate limit.</p>
+            aws_sdk_chime_sdk_voice.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client isn't authorized to request a resource.</p>
+            aws_sdk_chime_sdk_voice.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -422,6 +433,17 @@ class ChimeSDKVoiceClient:
             voice_connector_group_id: <p>The Amazon Chime SDK Voice Connector group ID.</p>
             e164_phone_numbers: <p>List of phone numbers, in E.164 format.</p>
             force_associate: <p>If true, associates the provided phone numbers with the provided Amazon Chime SDK Voice Connector Group and removes any previously existing associations. If false, does not associate any phone numbers that have previously existing associations.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_voice.errors.access_denied_exception.AccessDeniedException: <p>You don't have the permissions needed to run this action.</p>
+            aws_sdk_chime_sdk_voice.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_voice.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_voice.errors.not_found_exception.NotFoundException: <p>The requested resource couldn't be found.</p>
+            aws_sdk_chime_sdk_voice.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_voice.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_voice.errors.throttled_client_exception.ThrottledClientException: <p>The number of customer requests exceeds the request rate limit.</p>
+            aws_sdk_chime_sdk_voice.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client isn't authorized to request a resource.</p>
+            aws_sdk_chime_sdk_voice.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -462,6 +484,16 @@ class ChimeSDKVoiceClient:
 
         Args:
             phone_number_ids: <p>List of phone number IDs.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_voice.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_voice.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_voice.errors.not_found_exception.NotFoundException: <p>The requested resource couldn't be found.</p>
+            aws_sdk_chime_sdk_voice.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_voice.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_voice.errors.throttled_client_exception.ThrottledClientException: <p>The number of customer requests exceeds the request rate limit.</p>
+            aws_sdk_chime_sdk_voice.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client isn't authorized to request a resource.</p>
+            aws_sdk_chime_sdk_voice.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -499,6 +531,16 @@ class ChimeSDKVoiceClient:
 
         Args:
             update_phone_number_request_items: <p>Lists the phone numbers in the update request.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_voice.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_voice.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_voice.errors.not_found_exception.NotFoundException: <p>The requested resource couldn't be found.</p>
+            aws_sdk_chime_sdk_voice.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_voice.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_voice.errors.throttled_client_exception.ThrottledClientException: <p>The number of customer requests exceeds the request rate limit.</p>
+            aws_sdk_chime_sdk_voice.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client isn't authorized to request a resource.</p>
+            aws_sdk_chime_sdk_voice.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -542,6 +584,17 @@ class ChimeSDKVoiceClient:
             product_type: <p>The phone number product type.</p>
             e164_phone_numbers: <p>List of phone numbers, in E.164 format.</p>
             name: <p>Specifies the name assigned to one or more phone numbers.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_voice.errors.access_denied_exception.AccessDeniedException: <p>You don't have the permissions needed to run this action.</p>
+            aws_sdk_chime_sdk_voice.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_voice.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_voice.errors.resource_limit_exceeded_exception.ResourceLimitExceededException: <p>The request exceeds the resource limit.</p>
+            aws_sdk_chime_sdk_voice.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_voice.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_voice.errors.throttled_client_exception.ThrottledClientException: <p>The number of customer requests exceeds the request rate limit.</p>
+            aws_sdk_chime_sdk_voice.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client isn't authorized to request a resource.</p>
+            aws_sdk_chime_sdk_voice.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -606,6 +659,16 @@ class ChimeSDKVoiceClient:
             number_selection_behavior: <p>The preference for proxy phone number reuse, or stickiness, between the same participants across sessions.</p>
             geo_match_level: <p>The preference for matching the country or area code of the proxy phone number with that of the first participant.</p>
             geo_match_params: <p>The country and area code for the proxy phone number.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_voice.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_voice.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_voice.errors.not_found_exception.NotFoundException: <p>The requested resource couldn't be found.</p>
+            aws_sdk_chime_sdk_voice.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_voice.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_voice.errors.throttled_client_exception.ThrottledClientException: <p>The number of customer requests exceeds the request rate limit.</p>
+            aws_sdk_chime_sdk_voice.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client isn't authorized to request a resource.</p>
+            aws_sdk_chime_sdk_voice.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -661,6 +724,18 @@ class ChimeSDKVoiceClient:
             name: <p>The SIP media application's name.</p>
             endpoints: <p>List of endpoints (Lambda ARNs) specified for the SIP media application.</p>
             tags: <p>The tags assigned to the SIP media application.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_voice.errors.access_denied_exception.AccessDeniedException: <p>You don't have the permissions needed to run this action.</p>
+            aws_sdk_chime_sdk_voice.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_voice.errors.conflict_exception.ConflictException: <p>Multiple instances of the same request were made simultaneously.</p>
+            aws_sdk_chime_sdk_voice.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_voice.errors.resource_limit_exceeded_exception.ResourceLimitExceededException: <p>The request exceeds the resource limit.</p>
+            aws_sdk_chime_sdk_voice.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_voice.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_voice.errors.throttled_client_exception.ThrottledClientException: <p>The number of customer requests exceeds the request rate limit.</p>
+            aws_sdk_chime_sdk_voice.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client isn't authorized to request a resource.</p>
+            aws_sdk_chime_sdk_voice.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -714,6 +789,17 @@ class ChimeSDKVoiceClient:
             sip_media_application_id: <p>The ID of the SIP media application.</p>
             sip_headers: <p>The SIP headers added to an outbound call leg.</p>
             arguments_map: <p>Context passed to a CreateSipMediaApplication API call. For example, you could pass key-value pairs such as: <code>\"FirstName\": \"John\", \"LastName\": \"Doe\"</code> </p>
+
+        Raises:
+            aws_sdk_chime_sdk_voice.errors.access_denied_exception.AccessDeniedException: <p>You don't have the permissions needed to run this action.</p>
+            aws_sdk_chime_sdk_voice.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_voice.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_voice.errors.resource_limit_exceeded_exception.ResourceLimitExceededException: <p>The request exceeds the resource limit.</p>
+            aws_sdk_chime_sdk_voice.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_voice.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_voice.errors.throttled_client_exception.ThrottledClientException: <p>The number of customer requests exceeds the request rate limit.</p>
+            aws_sdk_chime_sdk_voice.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client isn't authorized to request a resource.</p>
+            aws_sdk_chime_sdk_voice.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -769,6 +855,18 @@ class ChimeSDKVoiceClient:
             trigger_value: <p>If <code>TriggerType</code> is <code>RequestUriHostname</code>, the value can be the outbound host name of a Voice Connector. If <code>TriggerType</code> is <code>ToPhoneNumber</code>, the value can be a customer-owned phone number in the E164 format. The <code>SipMediaApplication</code> specified in the <code>SipRule</code> is triggered if the request URI in an incoming SIP request matches the <code>RequestUriHostname</code>, or if the <code>To</code> header in the incoming SIP request matches the <code>ToPhoneNumber</code> value.</p>
             disabled: <p>Disables or enables a SIP rule. You must disable SIP rules before you can delete them.</p>
             target_applications: <p>List of SIP media applications, with priority and AWS Region. Only one SIP application per AWS Region can be used.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_voice.errors.access_denied_exception.AccessDeniedException: <p>You don't have the permissions needed to run this action.</p>
+            aws_sdk_chime_sdk_voice.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_voice.errors.conflict_exception.ConflictException: <p>Multiple instances of the same request were made simultaneously.</p>
+            aws_sdk_chime_sdk_voice.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_voice.errors.resource_limit_exceeded_exception.ResourceLimitExceededException: <p>The request exceeds the resource limit.</p>
+            aws_sdk_chime_sdk_voice.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_voice.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_voice.errors.throttled_client_exception.ThrottledClientException: <p>The number of customer requests exceeds the request rate limit.</p>
+            aws_sdk_chime_sdk_voice.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client isn't authorized to request a resource.</p>
+            aws_sdk_chime_sdk_voice.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -828,6 +926,17 @@ class ChimeSDKVoiceClient:
             tags: <p>The tags assigned to the Voice Connector.</p>
             integration_type: <p>The connectors for use with Connect Customer.</p> <p>The following options are available:</p> <ul> <li> <p> <code>CONNECT_CALL_TRANSFER_CONNECTOR</code> - Enables enterprises to integrate Connect Customer with other voice systems to directly transfer voice calls and metadata without using the public telephone network. They can use Connect Customer telephony and Interactive Voice Response (IVR) with their existing voice systems to modernize the IVR experience of their existing contact center and their enterprise and branch voice systems. Additionally, enterprises migrating their contact center to Connect Customer can start with Connect telephony and IVR for immediate modernization ahead of agent migration.</p> </li> <li> <p> <code>CONNECT_ANALYTICS_CONNECTOR</code> - Enables enterprises to integrate Connect Customer with other voice systems for real-time and post-call analytics. They can use Connect Customer Contact Lens with their existing voice systems to provides call recordings, conversational analytics (including contact transcript, sensitive data redaction, content categorization, theme detection, sentiment analysis, real-time alerts, and post-contact summary), and agent performance evaluations (including evaluation forms, automated evaluation, supervisor review) with a rich user experience to display, search and filter customer interactions, and programmatic access to data streams and the data lake. Additionally, enterprises migrating their contact center to Connect Customer can start with Contact Lens analytics and performance insights ahead of agent migration.</p> </li> </ul>
             network_type: <p>The type of network for the Voice Connector. Either IPv4 only or dual-stack (IPv4 and IPv6).</p>
+
+        Raises:
+            aws_sdk_chime_sdk_voice.errors.access_denied_exception.AccessDeniedException: <p>You don't have the permissions needed to run this action.</p>
+            aws_sdk_chime_sdk_voice.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_voice.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_voice.errors.resource_limit_exceeded_exception.ResourceLimitExceededException: <p>The request exceeds the resource limit.</p>
+            aws_sdk_chime_sdk_voice.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_voice.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_voice.errors.throttled_client_exception.ThrottledClientException: <p>The number of customer requests exceeds the request rate limit.</p>
+            aws_sdk_chime_sdk_voice.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client isn't authorized to request a resource.</p>
+            aws_sdk_chime_sdk_voice.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -878,6 +987,17 @@ class ChimeSDKVoiceClient:
         Args:
             name: <p>The name of the Voice Connector group.</p>
             voice_connector_items: <p>Lists the Voice Connectors that inbound calls are routed to.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_voice.errors.access_denied_exception.AccessDeniedException: <p>You don't have the permissions needed to run this action.</p>
+            aws_sdk_chime_sdk_voice.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_voice.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_voice.errors.resource_limit_exceeded_exception.ResourceLimitExceededException: <p>The request exceeds the resource limit.</p>
+            aws_sdk_chime_sdk_voice.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_voice.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_voice.errors.throttled_client_exception.ThrottledClientException: <p>The number of customer requests exceeds the request rate limit.</p>
+            aws_sdk_chime_sdk_voice.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client isn't authorized to request a resource.</p>
+            aws_sdk_chime_sdk_voice.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -917,6 +1037,20 @@ class ChimeSDKVoiceClient:
 
         Args:
             speaker_search_task_id: <p>The ID of the speaker search task.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_voice.errors.access_denied_exception.AccessDeniedException: <p>You don't have the permissions needed to run this action.</p>
+            aws_sdk_chime_sdk_voice.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_voice.errors.conflict_exception.ConflictException: <p>Multiple instances of the same request were made simultaneously.</p>
+            aws_sdk_chime_sdk_voice.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_voice.errors.gone_exception.GoneException: <p>Access to the target resource is no longer available at the origin server. This condition is likely to be permanent.</p>
+            aws_sdk_chime_sdk_voice.errors.not_found_exception.NotFoundException: <p>The requested resource couldn't be found.</p>
+            aws_sdk_chime_sdk_voice.errors.resource_limit_exceeded_exception.ResourceLimitExceededException: <p>The request exceeds the resource limit.</p>
+            aws_sdk_chime_sdk_voice.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_voice.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_voice.errors.throttled_client_exception.ThrottledClientException: <p>The number of customer requests exceeds the request rate limit.</p>
+            aws_sdk_chime_sdk_voice.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client isn't authorized to request a resource.</p>
+            aws_sdk_chime_sdk_voice.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -966,6 +1100,18 @@ class ChimeSDKVoiceClient:
             server_side_encryption_configuration: <p>The server-side encryption configuration for the request.</p>
             client_request_token: <p>The unique identifier for the client request. Use a different token for different domain creation requests.</p>
             tags: <p>The tags assigned to the domain.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_voice.errors.access_denied_exception.AccessDeniedException: <p>You don't have the permissions needed to run this action.</p>
+            aws_sdk_chime_sdk_voice.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_voice.errors.conflict_exception.ConflictException: <p>Multiple instances of the same request were made simultaneously.</p>
+            aws_sdk_chime_sdk_voice.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_voice.errors.resource_limit_exceeded_exception.ResourceLimitExceededException: <p>The request exceeds the resource limit.</p>
+            aws_sdk_chime_sdk_voice.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_voice.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_voice.errors.throttled_client_exception.ThrottledClientException: <p>The number of customer requests exceeds the request rate limit.</p>
+            aws_sdk_chime_sdk_voice.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client isn't authorized to request a resource.</p>
+            aws_sdk_chime_sdk_voice.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1012,6 +1158,16 @@ class ChimeSDKVoiceClient:
 
         Args:
             phone_number_id: <p>The phone number ID.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_voice.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_voice.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_voice.errors.not_found_exception.NotFoundException: <p>The requested resource couldn't be found.</p>
+            aws_sdk_chime_sdk_voice.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_voice.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_voice.errors.throttled_client_exception.ThrottledClientException: <p>The number of customer requests exceeds the request rate limit.</p>
+            aws_sdk_chime_sdk_voice.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client isn't authorized to request a resource.</p>
+            aws_sdk_chime_sdk_voice.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1049,6 +1205,16 @@ class ChimeSDKVoiceClient:
         Args:
             voice_connector_id: <p>The Voice Connector ID.</p>
             proxy_session_id: <p>The proxy session ID.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_voice.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_voice.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_voice.errors.not_found_exception.NotFoundException: <p>The requested resource couldn't be found.</p>
+            aws_sdk_chime_sdk_voice.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_voice.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_voice.errors.throttled_client_exception.ThrottledClientException: <p>The number of customer requests exceeds the request rate limit.</p>
+            aws_sdk_chime_sdk_voice.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client isn't authorized to request a resource.</p>
+            aws_sdk_chime_sdk_voice.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1085,6 +1251,17 @@ class ChimeSDKVoiceClient:
 
         Args:
             sip_media_application_id: <p>The SIP media application ID.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_voice.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_voice.errors.conflict_exception.ConflictException: <p>Multiple instances of the same request were made simultaneously.</p>
+            aws_sdk_chime_sdk_voice.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_voice.errors.not_found_exception.NotFoundException: <p>The requested resource couldn't be found.</p>
+            aws_sdk_chime_sdk_voice.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_voice.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_voice.errors.throttled_client_exception.ThrottledClientException: <p>The number of customer requests exceeds the request rate limit.</p>
+            aws_sdk_chime_sdk_voice.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client isn't authorized to request a resource.</p>
+            aws_sdk_chime_sdk_voice.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1120,6 +1297,17 @@ class ChimeSDKVoiceClient:
 
         Args:
             sip_rule_id: <p>The SIP rule ID.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_voice.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_voice.errors.conflict_exception.ConflictException: <p>Multiple instances of the same request were made simultaneously.</p>
+            aws_sdk_chime_sdk_voice.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_voice.errors.not_found_exception.NotFoundException: <p>The requested resource couldn't be found.</p>
+            aws_sdk_chime_sdk_voice.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_voice.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_voice.errors.throttled_client_exception.ThrottledClientException: <p>The number of customer requests exceeds the request rate limit.</p>
+            aws_sdk_chime_sdk_voice.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client isn't authorized to request a resource.</p>
+            aws_sdk_chime_sdk_voice.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1155,6 +1343,17 @@ class ChimeSDKVoiceClient:
 
         Args:
             voice_connector_id: <p>The Voice Connector ID.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_voice.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_voice.errors.conflict_exception.ConflictException: <p>Multiple instances of the same request were made simultaneously.</p>
+            aws_sdk_chime_sdk_voice.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_voice.errors.not_found_exception.NotFoundException: <p>The requested resource couldn't be found.</p>
+            aws_sdk_chime_sdk_voice.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_voice.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_voice.errors.throttled_client_exception.ThrottledClientException: <p>The number of customer requests exceeds the request rate limit.</p>
+            aws_sdk_chime_sdk_voice.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client isn't authorized to request a resource.</p>
+            aws_sdk_chime_sdk_voice.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1190,6 +1389,16 @@ class ChimeSDKVoiceClient:
 
         Args:
             voice_connector_id: <p>The Voice Connector ID.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_voice.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_voice.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_voice.errors.not_found_exception.NotFoundException: <p>The requested resource couldn't be found.</p>
+            aws_sdk_chime_sdk_voice.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_voice.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_voice.errors.throttled_client_exception.ThrottledClientException: <p>The number of customer requests exceeds the request rate limit.</p>
+            aws_sdk_chime_sdk_voice.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client isn't authorized to request a resource.</p>
+            aws_sdk_chime_sdk_voice.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1225,6 +1434,16 @@ class ChimeSDKVoiceClient:
 
         Args:
             voice_connector_id: <p>The ID of the Voice Connector for which to delete the external system configuration.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_voice.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_voice.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_voice.errors.not_found_exception.NotFoundException: <p>The requested resource couldn't be found.</p>
+            aws_sdk_chime_sdk_voice.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_voice.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_voice.errors.throttled_client_exception.ThrottledClientException: <p>The number of customer requests exceeds the request rate limit.</p>
+            aws_sdk_chime_sdk_voice.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client isn't authorized to request a resource.</p>
+            aws_sdk_chime_sdk_voice.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1260,6 +1479,17 @@ class ChimeSDKVoiceClient:
 
         Args:
             voice_connector_group_id: <p>The Voice Connector Group ID.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_voice.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_voice.errors.conflict_exception.ConflictException: <p>Multiple instances of the same request were made simultaneously.</p>
+            aws_sdk_chime_sdk_voice.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_voice.errors.not_found_exception.NotFoundException: <p>The requested resource couldn't be found.</p>
+            aws_sdk_chime_sdk_voice.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_voice.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_voice.errors.throttled_client_exception.ThrottledClientException: <p>The number of customer requests exceeds the request rate limit.</p>
+            aws_sdk_chime_sdk_voice.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client isn't authorized to request a resource.</p>
+            aws_sdk_chime_sdk_voice.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1295,6 +1525,16 @@ class ChimeSDKVoiceClient:
 
         Args:
             voice_connector_id: <p>The Voice Connector ID.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_voice.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_voice.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_voice.errors.not_found_exception.NotFoundException: <p>The requested resource couldn't be found.</p>
+            aws_sdk_chime_sdk_voice.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_voice.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_voice.errors.throttled_client_exception.ThrottledClientException: <p>The number of customer requests exceeds the request rate limit.</p>
+            aws_sdk_chime_sdk_voice.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client isn't authorized to request a resource.</p>
+            aws_sdk_chime_sdk_voice.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1330,6 +1570,16 @@ class ChimeSDKVoiceClient:
 
         Args:
             voice_connector_id: <p>The Voice Connector ID.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_voice.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_voice.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_voice.errors.not_found_exception.NotFoundException: <p>The requested resource couldn't be found.</p>
+            aws_sdk_chime_sdk_voice.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_voice.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_voice.errors.throttled_client_exception.ThrottledClientException: <p>The number of customer requests exceeds the request rate limit.</p>
+            aws_sdk_chime_sdk_voice.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client isn't authorized to request a resource.</p>
+            aws_sdk_chime_sdk_voice.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1365,6 +1615,16 @@ class ChimeSDKVoiceClient:
 
         Args:
             voice_connector_id: <p>The Voice Connector ID.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_voice.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_voice.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_voice.errors.not_found_exception.NotFoundException: <p>The requested resource couldn't be found.</p>
+            aws_sdk_chime_sdk_voice.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_voice.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_voice.errors.throttled_client_exception.ThrottledClientException: <p>The number of customer requests exceeds the request rate limit.</p>
+            aws_sdk_chime_sdk_voice.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client isn't authorized to request a resource.</p>
+            aws_sdk_chime_sdk_voice.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1400,6 +1660,16 @@ class ChimeSDKVoiceClient:
 
         Args:
             voice_connector_id: <p>The Voice Connector ID.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_voice.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_voice.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_voice.errors.not_found_exception.NotFoundException: <p>The requested resource couldn't be found.</p>
+            aws_sdk_chime_sdk_voice.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_voice.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_voice.errors.throttled_client_exception.ThrottledClientException: <p>The number of customer requests exceeds the request rate limit.</p>
+            aws_sdk_chime_sdk_voice.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client isn't authorized to request a resource.</p>
+            aws_sdk_chime_sdk_voice.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1437,6 +1707,16 @@ class ChimeSDKVoiceClient:
         Args:
             voice_connector_id: <p>The Voice Connector ID.</p>
             usernames: <p>The RFC2617 compliant username associated with the SIP credentials, in US-ASCII format.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_voice.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_voice.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_voice.errors.not_found_exception.NotFoundException: <p>The requested resource couldn't be found.</p>
+            aws_sdk_chime_sdk_voice.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_voice.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_voice.errors.throttled_client_exception.ThrottledClientException: <p>The number of customer requests exceeds the request rate limit.</p>
+            aws_sdk_chime_sdk_voice.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client isn't authorized to request a resource.</p>
+            aws_sdk_chime_sdk_voice.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1473,6 +1753,18 @@ class ChimeSDKVoiceClient:
 
         Args:
             voice_profile_id: <p>The voice profile ID.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_voice.errors.access_denied_exception.AccessDeniedException: <p>You don't have the permissions needed to run this action.</p>
+            aws_sdk_chime_sdk_voice.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_voice.errors.conflict_exception.ConflictException: <p>Multiple instances of the same request were made simultaneously.</p>
+            aws_sdk_chime_sdk_voice.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_voice.errors.not_found_exception.NotFoundException: <p>The requested resource couldn't be found.</p>
+            aws_sdk_chime_sdk_voice.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_voice.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_voice.errors.throttled_client_exception.ThrottledClientException: <p>The number of customer requests exceeds the request rate limit.</p>
+            aws_sdk_chime_sdk_voice.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client isn't authorized to request a resource.</p>
+            aws_sdk_chime_sdk_voice.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1508,6 +1800,18 @@ class ChimeSDKVoiceClient:
 
         Args:
             voice_profile_domain_id: <p>The voice profile domain ID.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_voice.errors.access_denied_exception.AccessDeniedException: <p>You don't have the permissions needed to run this action.</p>
+            aws_sdk_chime_sdk_voice.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_voice.errors.conflict_exception.ConflictException: <p>Multiple instances of the same request were made simultaneously.</p>
+            aws_sdk_chime_sdk_voice.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_voice.errors.not_found_exception.NotFoundException: <p>The requested resource couldn't be found.</p>
+            aws_sdk_chime_sdk_voice.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_voice.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_voice.errors.throttled_client_exception.ThrottledClientException: <p>The number of customer requests exceeds the request rate limit.</p>
+            aws_sdk_chime_sdk_voice.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client isn't authorized to request a resource.</p>
+            aws_sdk_chime_sdk_voice.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1545,6 +1849,16 @@ class ChimeSDKVoiceClient:
         Args:
             voice_connector_id: <p>The Voice Connector ID.</p>
             e164_phone_numbers: <p>List of phone numbers, in E.164 format.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_voice.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_voice.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_voice.errors.not_found_exception.NotFoundException: <p>The requested resource couldn't be found.</p>
+            aws_sdk_chime_sdk_voice.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_voice.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_voice.errors.throttled_client_exception.ThrottledClientException: <p>The number of customer requests exceeds the request rate limit.</p>
+            aws_sdk_chime_sdk_voice.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client isn't authorized to request a resource.</p>
+            aws_sdk_chime_sdk_voice.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1585,6 +1899,16 @@ class ChimeSDKVoiceClient:
         Args:
             voice_connector_group_id: <p>The Voice Connector group ID.</p>
             e164_phone_numbers: <p>The list of phone numbers, in E.164 format.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_voice.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_voice.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_voice.errors.not_found_exception.NotFoundException: <p>The requested resource couldn't be found.</p>
+            aws_sdk_chime_sdk_voice.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_voice.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_voice.errors.throttled_client_exception.ThrottledClientException: <p>The number of customer requests exceeds the request rate limit.</p>
+            aws_sdk_chime_sdk_voice.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client isn't authorized to request a resource.</p>
+            aws_sdk_chime_sdk_voice.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1616,7 +1940,17 @@ class ChimeSDKVoiceClient:
     def get_global_settings(
         self, *, config_overrides: Optional[ChimeSDKVoiceClientConfig] = None
     ) -> "aws_sdk_chime_sdk_voice.types.get_global_settings_response.GetGlobalSettingsResponse":
-        """<p>Retrieves the global settings for the Amazon Chime SDK Voice Connectors in an AWS account.</p>"""
+        """<p>Retrieves the global settings for the Amazon Chime SDK Voice Connectors in an AWS account.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_voice.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_voice.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_voice.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_voice.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_voice.errors.throttled_client_exception.ThrottledClientException: <p>The number of customer requests exceeds the request rate limit.</p>
+            aws_sdk_chime_sdk_voice.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client isn't authorized to request a resource.</p>
+            aws_sdk_chime_sdk_voice.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[None]",
@@ -1653,6 +1987,16 @@ class ChimeSDKVoiceClient:
 
         Args:
             phone_number_id: <p>The phone number ID.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_voice.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_voice.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_voice.errors.not_found_exception.NotFoundException: <p>The requested resource couldn't be found.</p>
+            aws_sdk_chime_sdk_voice.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_voice.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_voice.errors.throttled_client_exception.ThrottledClientException: <p>The number of customer requests exceeds the request rate limit.</p>
+            aws_sdk_chime_sdk_voice.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client isn't authorized to request a resource.</p>
+            aws_sdk_chime_sdk_voice.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1690,6 +2034,16 @@ class ChimeSDKVoiceClient:
 
         Args:
             phone_number_order_id: <p>The ID of the phone number order .</p>
+
+        Raises:
+            aws_sdk_chime_sdk_voice.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_voice.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_voice.errors.not_found_exception.NotFoundException: <p>The requested resource couldn't be found.</p>
+            aws_sdk_chime_sdk_voice.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_voice.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_voice.errors.throttled_client_exception.ThrottledClientException: <p>The number of customer requests exceeds the request rate limit.</p>
+            aws_sdk_chime_sdk_voice.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client isn't authorized to request a resource.</p>
+            aws_sdk_chime_sdk_voice.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1720,7 +2074,17 @@ class ChimeSDKVoiceClient:
     def get_phone_number_settings(
         self, *, config_overrides: Optional[ChimeSDKVoiceClientConfig] = None
     ) -> "aws_sdk_chime_sdk_voice.types.get_phone_number_settings_response.GetPhoneNumberSettingsResponse":
-        """<p>Retrieves the phone number settings for the administrator's AWS account, such as the default outbound calling name.</p>"""
+        """<p>Retrieves the phone number settings for the administrator's AWS account, such as the default outbound calling name.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_voice.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_voice.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_voice.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_voice.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_voice.errors.throttled_client_exception.ThrottledClientException: <p>The number of customer requests exceeds the request rate limit.</p>
+            aws_sdk_chime_sdk_voice.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client isn't authorized to request a resource.</p>
+            aws_sdk_chime_sdk_voice.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[None]",
@@ -1757,6 +2121,16 @@ class ChimeSDKVoiceClient:
         Args:
             voice_connector_id: <p>The Voice Connector ID.</p>
             proxy_session_id: <p>The proxy session ID.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_voice.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_voice.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_voice.errors.not_found_exception.NotFoundException: <p>The requested resource couldn't be found.</p>
+            aws_sdk_chime_sdk_voice.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_voice.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_voice.errors.throttled_client_exception.ThrottledClientException: <p>The number of customer requests exceeds the request rate limit.</p>
+            aws_sdk_chime_sdk_voice.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client isn't authorized to request a resource.</p>
+            aws_sdk_chime_sdk_voice.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1795,6 +2169,16 @@ class ChimeSDKVoiceClient:
 
         Args:
             sip_media_application_id: <p>The SIP media application ID .</p>
+
+        Raises:
+            aws_sdk_chime_sdk_voice.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_voice.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_voice.errors.not_found_exception.NotFoundException: <p>The requested resource couldn't be found.</p>
+            aws_sdk_chime_sdk_voice.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_voice.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_voice.errors.throttled_client_exception.ThrottledClientException: <p>The number of customer requests exceeds the request rate limit.</p>
+            aws_sdk_chime_sdk_voice.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client isn't authorized to request a resource.</p>
+            aws_sdk_chime_sdk_voice.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1832,6 +2216,16 @@ class ChimeSDKVoiceClient:
 
         Args:
             sip_media_application_id: <p>The SIP media application ID.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_voice.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_voice.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_voice.errors.not_found_exception.NotFoundException: <p>The requested resource couldn't be found.</p>
+            aws_sdk_chime_sdk_voice.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_voice.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_voice.errors.throttled_client_exception.ThrottledClientException: <p>The number of customer requests exceeds the request rate limit.</p>
+            aws_sdk_chime_sdk_voice.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client isn't authorized to request a resource.</p>
+            aws_sdk_chime_sdk_voice.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1869,6 +2263,16 @@ class ChimeSDKVoiceClient:
 
         Args:
             sip_media_application_id: <p>The SIP media application ID.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_voice.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_voice.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_voice.errors.not_found_exception.NotFoundException: <p>The requested resource couldn't be found.</p>
+            aws_sdk_chime_sdk_voice.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_voice.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_voice.errors.throttled_client_exception.ThrottledClientException: <p>The number of customer requests exceeds the request rate limit.</p>
+            aws_sdk_chime_sdk_voice.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client isn't authorized to request a resource.</p>
+            aws_sdk_chime_sdk_voice.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1906,6 +2310,16 @@ class ChimeSDKVoiceClient:
 
         Args:
             sip_rule_id: <p>The SIP rule ID.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_voice.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_voice.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_voice.errors.not_found_exception.NotFoundException: <p>The requested resource couldn't be found.</p>
+            aws_sdk_chime_sdk_voice.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_voice.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_voice.errors.throttled_client_exception.ThrottledClientException: <p>The number of customer requests exceeds the request rate limit.</p>
+            aws_sdk_chime_sdk_voice.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client isn't authorized to request a resource.</p>
+            aws_sdk_chime_sdk_voice.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1945,6 +2359,18 @@ class ChimeSDKVoiceClient:
         Args:
             voice_connector_id: <p>The Voice Connector ID.</p>
             speaker_search_task_id: <p>The ID of the speaker search task.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_voice.errors.access_denied_exception.AccessDeniedException: <p>You don't have the permissions needed to run this action.</p>
+            aws_sdk_chime_sdk_voice.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_voice.errors.conflict_exception.ConflictException: <p>Multiple instances of the same request were made simultaneously.</p>
+            aws_sdk_chime_sdk_voice.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_voice.errors.not_found_exception.NotFoundException: <p>The requested resource couldn't be found.</p>
+            aws_sdk_chime_sdk_voice.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_voice.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_voice.errors.throttled_client_exception.ThrottledClientException: <p>The number of customer requests exceeds the request rate limit.</p>
+            aws_sdk_chime_sdk_voice.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client isn't authorized to request a resource.</p>
+            aws_sdk_chime_sdk_voice.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1983,6 +2409,16 @@ class ChimeSDKVoiceClient:
 
         Args:
             voice_connector_id: <p>The Voice Connector ID.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_voice.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_voice.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_voice.errors.not_found_exception.NotFoundException: <p>The requested resource couldn't be found.</p>
+            aws_sdk_chime_sdk_voice.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_voice.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_voice.errors.throttled_client_exception.ThrottledClientException: <p>The number of customer requests exceeds the request rate limit.</p>
+            aws_sdk_chime_sdk_voice.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client isn't authorized to request a resource.</p>
+            aws_sdk_chime_sdk_voice.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2020,6 +2456,16 @@ class ChimeSDKVoiceClient:
 
         Args:
             voice_connector_id: <p>The Voice Connector ID.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_voice.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_voice.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_voice.errors.not_found_exception.NotFoundException: <p>The requested resource couldn't be found.</p>
+            aws_sdk_chime_sdk_voice.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_voice.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_voice.errors.throttled_client_exception.ThrottledClientException: <p>The number of customer requests exceeds the request rate limit.</p>
+            aws_sdk_chime_sdk_voice.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client isn't authorized to request a resource.</p>
+            aws_sdk_chime_sdk_voice.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2057,6 +2503,16 @@ class ChimeSDKVoiceClient:
 
         Args:
             voice_connector_id: <p>The ID of the Voice Connector for which to return information about the external system configuration.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_voice.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_voice.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_voice.errors.not_found_exception.NotFoundException: <p>The requested resource couldn't be found.</p>
+            aws_sdk_chime_sdk_voice.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_voice.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_voice.errors.throttled_client_exception.ThrottledClientException: <p>The number of customer requests exceeds the request rate limit.</p>
+            aws_sdk_chime_sdk_voice.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client isn't authorized to request a resource.</p>
+            aws_sdk_chime_sdk_voice.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2094,6 +2550,16 @@ class ChimeSDKVoiceClient:
 
         Args:
             voice_connector_group_id: <p>The Voice Connector group ID.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_voice.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_voice.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_voice.errors.not_found_exception.NotFoundException: <p>The requested resource couldn't be found.</p>
+            aws_sdk_chime_sdk_voice.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_voice.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_voice.errors.throttled_client_exception.ThrottledClientException: <p>The number of customer requests exceeds the request rate limit.</p>
+            aws_sdk_chime_sdk_voice.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client isn't authorized to request a resource.</p>
+            aws_sdk_chime_sdk_voice.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2131,6 +2597,16 @@ class ChimeSDKVoiceClient:
 
         Args:
             voice_connector_id: <p>The Voice Connector ID.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_voice.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_voice.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_voice.errors.not_found_exception.NotFoundException: <p>The requested resource couldn't be found.</p>
+            aws_sdk_chime_sdk_voice.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_voice.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_voice.errors.throttled_client_exception.ThrottledClientException: <p>The number of customer requests exceeds the request rate limit.</p>
+            aws_sdk_chime_sdk_voice.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client isn't authorized to request a resource.</p>
+            aws_sdk_chime_sdk_voice.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2168,6 +2644,16 @@ class ChimeSDKVoiceClient:
 
         Args:
             voice_connector_id: <p>The Voice Connector ID.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_voice.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_voice.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_voice.errors.not_found_exception.NotFoundException: <p>The requested resource couldn't be found.</p>
+            aws_sdk_chime_sdk_voice.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_voice.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_voice.errors.throttled_client_exception.ThrottledClientException: <p>The number of customer requests exceeds the request rate limit.</p>
+            aws_sdk_chime_sdk_voice.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client isn't authorized to request a resource.</p>
+            aws_sdk_chime_sdk_voice.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2205,6 +2691,16 @@ class ChimeSDKVoiceClient:
 
         Args:
             voice_connector_id: <p>The Voice Connector ID.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_voice.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_voice.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_voice.errors.not_found_exception.NotFoundException: <p>The requested resource couldn't be found.</p>
+            aws_sdk_chime_sdk_voice.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_voice.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_voice.errors.throttled_client_exception.ThrottledClientException: <p>The number of customer requests exceeds the request rate limit.</p>
+            aws_sdk_chime_sdk_voice.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client isn't authorized to request a resource.</p>
+            aws_sdk_chime_sdk_voice.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2242,6 +2738,16 @@ class ChimeSDKVoiceClient:
 
         Args:
             voice_connector_id: <p>The Voice Connector ID.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_voice.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_voice.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_voice.errors.not_found_exception.NotFoundException: <p>The requested resource couldn't be found.</p>
+            aws_sdk_chime_sdk_voice.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_voice.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_voice.errors.throttled_client_exception.ThrottledClientException: <p>The number of customer requests exceeds the request rate limit.</p>
+            aws_sdk_chime_sdk_voice.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client isn't authorized to request a resource.</p>
+            aws_sdk_chime_sdk_voice.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2279,6 +2785,16 @@ class ChimeSDKVoiceClient:
 
         Args:
             voice_connector_id: <p>The Voice Connector ID.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_voice.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_voice.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_voice.errors.not_found_exception.NotFoundException: <p>The requested resource couldn't be found.</p>
+            aws_sdk_chime_sdk_voice.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_voice.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_voice.errors.throttled_client_exception.ThrottledClientException: <p>The number of customer requests exceeds the request rate limit.</p>
+            aws_sdk_chime_sdk_voice.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client isn't authorized to request a resource.</p>
+            aws_sdk_chime_sdk_voice.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2316,6 +2832,16 @@ class ChimeSDKVoiceClient:
 
         Args:
             voice_connector_id: <p>The Voice Connector ID.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_voice.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_voice.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_voice.errors.not_found_exception.NotFoundException: <p>The requested resource couldn't be found.</p>
+            aws_sdk_chime_sdk_voice.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_voice.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_voice.errors.throttled_client_exception.ThrottledClientException: <p>The number of customer requests exceeds the request rate limit.</p>
+            aws_sdk_chime_sdk_voice.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client isn't authorized to request a resource.</p>
+            aws_sdk_chime_sdk_voice.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2353,6 +2879,17 @@ class ChimeSDKVoiceClient:
 
         Args:
             voice_profile_id: <p>The voice profile ID.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_voice.errors.access_denied_exception.AccessDeniedException: <p>You don't have the permissions needed to run this action.</p>
+            aws_sdk_chime_sdk_voice.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_voice.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_voice.errors.not_found_exception.NotFoundException: <p>The requested resource couldn't be found.</p>
+            aws_sdk_chime_sdk_voice.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_voice.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_voice.errors.throttled_client_exception.ThrottledClientException: <p>The number of customer requests exceeds the request rate limit.</p>
+            aws_sdk_chime_sdk_voice.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client isn't authorized to request a resource.</p>
+            aws_sdk_chime_sdk_voice.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2390,6 +2927,17 @@ class ChimeSDKVoiceClient:
 
         Args:
             voice_profile_domain_id: <p>The voice profile domain ID.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_voice.errors.access_denied_exception.AccessDeniedException: <p>You don't have the permissions needed to run this action.</p>
+            aws_sdk_chime_sdk_voice.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_voice.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_voice.errors.not_found_exception.NotFoundException: <p>The requested resource couldn't be found.</p>
+            aws_sdk_chime_sdk_voice.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_voice.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_voice.errors.throttled_client_exception.ThrottledClientException: <p>The number of customer requests exceeds the request rate limit.</p>
+            aws_sdk_chime_sdk_voice.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client isn't authorized to request a resource.</p>
+            aws_sdk_chime_sdk_voice.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2431,6 +2979,18 @@ class ChimeSDKVoiceClient:
             voice_connector_id: <p>The Voice Connector ID.</p>
             voice_tone_analysis_task_id: <p>The ID of the voice tone analysis task.</p>
             is_caller: <p>Specifies whether the voice being analyzed is the caller (originator) or the callee (responder).</p>
+
+        Raises:
+            aws_sdk_chime_sdk_voice.errors.access_denied_exception.AccessDeniedException: <p>You don't have the permissions needed to run this action.</p>
+            aws_sdk_chime_sdk_voice.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_voice.errors.conflict_exception.ConflictException: <p>Multiple instances of the same request were made simultaneously.</p>
+            aws_sdk_chime_sdk_voice.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_voice.errors.not_found_exception.NotFoundException: <p>The requested resource couldn't be found.</p>
+            aws_sdk_chime_sdk_voice.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_voice.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_voice.errors.throttled_client_exception.ThrottledClientException: <p>The number of customer requests exceeds the request rate limit.</p>
+            aws_sdk_chime_sdk_voice.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client isn't authorized to request a resource.</p>
+            aws_sdk_chime_sdk_voice.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2463,7 +3023,17 @@ class ChimeSDKVoiceClient:
     def list_available_voice_connector_regions(
         self, *, config_overrides: Optional[ChimeSDKVoiceClientConfig] = None
     ) -> "aws_sdk_chime_sdk_voice.types.list_available_voice_connector_regions_response.ListAvailableVoiceConnectorRegionsResponse":
-        """<p>Lists the available AWS Regions in which you can create an Amazon Chime SDK Voice Connector.</p>"""
+        """<p>Lists the available AWS Regions in which you can create an Amazon Chime SDK Voice Connector.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_voice.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_voice.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_voice.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_voice.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_voice.errors.throttled_client_exception.ThrottledClientException: <p>The number of customer requests exceeds the request rate limit.</p>
+            aws_sdk_chime_sdk_voice.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client isn't authorized to request a resource.</p>
+            aws_sdk_chime_sdk_voice.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[None]",
@@ -2502,6 +3072,15 @@ class ChimeSDKVoiceClient:
         Args:
             next_token: <p>The token used to retrieve the next page of results.</p>
             max_results: <p>The maximum number of results to return in a single call.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_voice.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_voice.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_voice.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_voice.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_voice.errors.throttled_client_exception.ThrottledClientException: <p>The number of customer requests exceeds the request rate limit.</p>
+            aws_sdk_chime_sdk_voice.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client isn't authorized to request a resource.</p>
+            aws_sdk_chime_sdk_voice.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2558,6 +3137,16 @@ class ChimeSDKVoiceClient:
             filter_value: <p>The filter value.</p>
             max_results: <p>The maximum number of results to return in a single call.</p>
             next_token: <p>The token used to return the next page of results.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_voice.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_voice.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_voice.errors.not_found_exception.NotFoundException: <p>The requested resource couldn't be found.</p>
+            aws_sdk_chime_sdk_voice.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_voice.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_voice.errors.throttled_client_exception.ThrottledClientException: <p>The number of customer requests exceeds the request rate limit.</p>
+            aws_sdk_chime_sdk_voice.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client isn't authorized to request a resource.</p>
+            aws_sdk_chime_sdk_voice.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2618,6 +3207,16 @@ class ChimeSDKVoiceClient:
             status: <p>The proxy session status.</p>
             next_token: <p>The token used to retrieve the next page of results.</p>
             max_results: <p>The maximum number of results to return in a single call.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_voice.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_voice.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_voice.errors.not_found_exception.NotFoundException: <p>The requested resource couldn't be found.</p>
+            aws_sdk_chime_sdk_voice.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_voice.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_voice.errors.throttled_client_exception.ThrottledClientException: <p>The number of customer requests exceeds the request rate limit.</p>
+            aws_sdk_chime_sdk_voice.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client isn't authorized to request a resource.</p>
+            aws_sdk_chime_sdk_voice.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2667,6 +3266,15 @@ class ChimeSDKVoiceClient:
         Args:
             max_results: <p>The maximum number of results to return in a single call. Defaults to 100.</p>
             next_token: <p>The token used to return the next page of results.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_voice.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_voice.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_voice.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_voice.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_voice.errors.throttled_client_exception.ThrottledClientException: <p>The number of customer requests exceeds the request rate limit.</p>
+            aws_sdk_chime_sdk_voice.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client isn't authorized to request a resource.</p>
+            aws_sdk_chime_sdk_voice.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2742,6 +3350,15 @@ class ChimeSDKVoiceClient:
             sip_media_application_id: <p>The SIP media application ID.</p>
             max_results: <p>The maximum number of results to return in a single call. Defaults to 100.</p>
             next_token: <p>The token used to return the next page of results.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_voice.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_voice.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_voice.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_voice.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_voice.errors.throttled_client_exception.ThrottledClientException: <p>The number of customer requests exceeds the request rate limit.</p>
+            aws_sdk_chime_sdk_voice.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client isn't authorized to request a resource.</p>
+            aws_sdk_chime_sdk_voice.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2813,6 +3430,16 @@ class ChimeSDKVoiceClient:
 
         Args:
             product_type: <p>The phone number product type.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_voice.errors.access_denied_exception.AccessDeniedException: <p>You don't have the permissions needed to run this action.</p>
+            aws_sdk_chime_sdk_voice.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_voice.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_voice.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_voice.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_voice.errors.throttled_client_exception.ThrottledClientException: <p>The number of customer requests exceeds the request rate limit.</p>
+            aws_sdk_chime_sdk_voice.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client isn't authorized to request a resource.</p>
+            aws_sdk_chime_sdk_voice.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2850,6 +3477,15 @@ class ChimeSDKVoiceClient:
 
         Args:
             resource_arn: <p>The resource ARN.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_voice.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_voice.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_voice.errors.not_found_exception.NotFoundException: <p>The requested resource couldn't be found.</p>
+            aws_sdk_chime_sdk_voice.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_voice.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_voice.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client isn't authorized to request a resource.</p>
+            aws_sdk_chime_sdk_voice.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2891,6 +3527,15 @@ class ChimeSDKVoiceClient:
         Args:
             next_token: <p>The token used to return the next page of results.</p>
             max_results: <p>The maximum number of results to return in a single call. </p>
+
+        Raises:
+            aws_sdk_chime_sdk_voice.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_voice.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_voice.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_voice.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_voice.errors.throttled_client_exception.ThrottledClientException: <p>The number of customer requests exceeds the request rate limit.</p>
+            aws_sdk_chime_sdk_voice.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client isn't authorized to request a resource.</p>
+            aws_sdk_chime_sdk_voice.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2935,6 +3580,15 @@ class ChimeSDKVoiceClient:
         Args:
             next_token: <p>The token used to return the next page of results.</p>
             max_results: <p>The maximum number of results to return in a single call.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_voice.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_voice.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_voice.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_voice.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_voice.errors.throttled_client_exception.ThrottledClientException: <p>The number of customer requests exceeds the request rate limit.</p>
+            aws_sdk_chime_sdk_voice.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client isn't authorized to request a resource.</p>
+            aws_sdk_chime_sdk_voice.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2975,6 +3629,16 @@ class ChimeSDKVoiceClient:
 
         Args:
             voice_connector_id: <p>The Voice Connector ID.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_voice.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_voice.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_voice.errors.not_found_exception.NotFoundException: <p>The requested resource couldn't be found.</p>
+            aws_sdk_chime_sdk_voice.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_voice.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_voice.errors.throttled_client_exception.ThrottledClientException: <p>The number of customer requests exceeds the request rate limit.</p>
+            aws_sdk_chime_sdk_voice.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client isn't authorized to request a resource.</p>
+            aws_sdk_chime_sdk_voice.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3016,6 +3680,16 @@ class ChimeSDKVoiceClient:
         Args:
             next_token: <p>The token used to return the next page of results.</p>
             max_results: <p>The maximum number of results to return in a single call.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_voice.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_voice.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_voice.errors.not_found_exception.NotFoundException: <p>The requested resource couldn't be found.</p>
+            aws_sdk_chime_sdk_voice.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_voice.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_voice.errors.throttled_client_exception.ThrottledClientException: <p>The number of customer requests exceeds the request rate limit.</p>
+            aws_sdk_chime_sdk_voice.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client isn't authorized to request a resource.</p>
+            aws_sdk_chime_sdk_voice.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3062,6 +3736,16 @@ class ChimeSDKVoiceClient:
             voice_profile_domain_id: <p>The ID of the voice profile domain.</p>
             next_token: <p>The token used to retrieve the next page of results.</p>
             max_results: <p>The maximum number of results in the request.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_voice.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_voice.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_voice.errors.not_found_exception.NotFoundException: <p>The requested resource couldn't be found.</p>
+            aws_sdk_chime_sdk_voice.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_voice.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_voice.errors.throttled_client_exception.ThrottledClientException: <p>The number of customer requests exceeds the request rate limit.</p>
+            aws_sdk_chime_sdk_voice.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client isn't authorized to request a resource.</p>
+            aws_sdk_chime_sdk_voice.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3107,6 +3791,16 @@ class ChimeSDKVoiceClient:
         Args:
             sip_media_application_id: <p>The SIP media application ID.</p>
             sip_media_application_alexa_skill_configuration: <p>The Alexa Skill configuration.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_voice.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_voice.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_voice.errors.not_found_exception.NotFoundException: <p>The requested resource couldn't be found.</p>
+            aws_sdk_chime_sdk_voice.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_voice.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_voice.errors.throttled_client_exception.ThrottledClientException: <p>The number of customer requests exceeds the request rate limit.</p>
+            aws_sdk_chime_sdk_voice.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client isn't authorized to request a resource.</p>
+            aws_sdk_chime_sdk_voice.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3152,6 +3846,16 @@ class ChimeSDKVoiceClient:
         Args:
             sip_media_application_id: <p>The SIP media application ID.</p>
             sip_media_application_logging_configuration: <p>The logging configuration for the specified SIP media application.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_voice.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_voice.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_voice.errors.not_found_exception.NotFoundException: <p>The requested resource couldn't be found.</p>
+            aws_sdk_chime_sdk_voice.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_voice.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_voice.errors.throttled_client_exception.ThrottledClientException: <p>The number of customer requests exceeds the request rate limit.</p>
+            aws_sdk_chime_sdk_voice.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client isn't authorized to request a resource.</p>
+            aws_sdk_chime_sdk_voice.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3195,6 +3899,16 @@ class ChimeSDKVoiceClient:
         Args:
             voice_connector_id: <p>The Voice Connector ID.</p>
             emergency_calling_configuration: <p>The configuration being updated.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_voice.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_voice.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_voice.errors.not_found_exception.NotFoundException: <p>The requested resource couldn't be found.</p>
+            aws_sdk_chime_sdk_voice.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_voice.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_voice.errors.throttled_client_exception.ThrottledClientException: <p>The number of customer requests exceeds the request rate limit.</p>
+            aws_sdk_chime_sdk_voice.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client isn't authorized to request a resource.</p>
+            aws_sdk_chime_sdk_voice.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3241,6 +3955,17 @@ class ChimeSDKVoiceClient:
             voice_connector_id: <p>The ID of the Voice Connector for which to add the external system configuration.</p>
             session_border_controller_types: <p>The session border controllers to use.</p>
             contact_center_system_types: <p>The contact center system to use.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_voice.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_voice.errors.conflict_exception.ConflictException: <p>Multiple instances of the same request were made simultaneously.</p>
+            aws_sdk_chime_sdk_voice.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_voice.errors.not_found_exception.NotFoundException: <p>The requested resource couldn't be found.</p>
+            aws_sdk_chime_sdk_voice.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_voice.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_voice.errors.throttled_client_exception.ThrottledClientException: <p>The number of customer requests exceeds the request rate limit.</p>
+            aws_sdk_chime_sdk_voice.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client isn't authorized to request a resource.</p>
+            aws_sdk_chime_sdk_voice.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3284,6 +4009,16 @@ class ChimeSDKVoiceClient:
         Args:
             voice_connector_id: <p>The Voice Connector ID.</p>
             logging_configuration: <p>The logging configuration being updated.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_voice.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_voice.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_voice.errors.not_found_exception.NotFoundException: <p>The requested resource couldn't be found.</p>
+            aws_sdk_chime_sdk_voice.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_voice.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_voice.errors.throttled_client_exception.ThrottledClientException: <p>The number of customer requests exceeds the request rate limit.</p>
+            aws_sdk_chime_sdk_voice.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client isn't authorized to request a resource.</p>
+            aws_sdk_chime_sdk_voice.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3324,6 +4059,16 @@ class ChimeSDKVoiceClient:
         Args:
             voice_connector_id: <p>The Voice Connector ID.</p>
             origination: <p>The origination settings being updated.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_voice.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_voice.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_voice.errors.not_found_exception.NotFoundException: <p>The requested resource couldn't be found.</p>
+            aws_sdk_chime_sdk_voice.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_voice.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_voice.errors.throttled_client_exception.ThrottledClientException: <p>The number of customer requests exceeds the request rate limit.</p>
+            aws_sdk_chime_sdk_voice.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client isn't authorized to request a resource.</p>
+            aws_sdk_chime_sdk_voice.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3372,6 +4117,17 @@ class ChimeSDKVoiceClient:
             phone_number_pool_countries: <p>The countries for proxy phone numbers to be selected from.</p>
             fall_back_phone_number: <p>The phone number to route calls to after a proxy session expires.</p>
             disabled: <p>When true, stops proxy sessions from being created on the specified Amazon Chime SDK Voice Connector.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_voice.errors.access_denied_exception.AccessDeniedException: <p>You don't have the permissions needed to run this action.</p>
+            aws_sdk_chime_sdk_voice.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_voice.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_voice.errors.not_found_exception.NotFoundException: <p>The requested resource couldn't be found.</p>
+            aws_sdk_chime_sdk_voice.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_voice.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_voice.errors.throttled_client_exception.ThrottledClientException: <p>The number of customer requests exceeds the request rate limit.</p>
+            aws_sdk_chime_sdk_voice.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client isn't authorized to request a resource.</p>
+            aws_sdk_chime_sdk_voice.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3417,6 +4173,16 @@ class ChimeSDKVoiceClient:
         Args:
             voice_connector_id: <p>The Voice Connector ID.</p>
             streaming_configuration: <p>The streaming settings being updated.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_voice.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_voice.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_voice.errors.not_found_exception.NotFoundException: <p>The requested resource couldn't be found.</p>
+            aws_sdk_chime_sdk_voice.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_voice.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_voice.errors.throttled_client_exception.ThrottledClientException: <p>The number of customer requests exceeds the request rate limit.</p>
+            aws_sdk_chime_sdk_voice.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client isn't authorized to request a resource.</p>
+            aws_sdk_chime_sdk_voice.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3457,6 +4223,17 @@ class ChimeSDKVoiceClient:
         Args:
             voice_connector_id: <p>The Voice Connector ID.</p>
             termination: <p>The termination settings to be updated.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_voice.errors.access_denied_exception.AccessDeniedException: <p>You don't have the permissions needed to run this action.</p>
+            aws_sdk_chime_sdk_voice.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_voice.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_voice.errors.not_found_exception.NotFoundException: <p>The requested resource couldn't be found.</p>
+            aws_sdk_chime_sdk_voice.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_voice.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_voice.errors.throttled_client_exception.ThrottledClientException: <p>The number of customer requests exceeds the request rate limit.</p>
+            aws_sdk_chime_sdk_voice.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client isn't authorized to request a resource.</p>
+            aws_sdk_chime_sdk_voice.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3499,6 +4276,16 @@ class ChimeSDKVoiceClient:
         Args:
             voice_connector_id: <p>The Voice Connector ID.</p>
             credentials: <p>The termination credentials being updated.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_voice.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_voice.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_voice.errors.not_found_exception.NotFoundException: <p>The requested resource couldn't be found.</p>
+            aws_sdk_chime_sdk_voice.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_voice.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_voice.errors.throttled_client_exception.ThrottledClientException: <p>The number of customer requests exceeds the request rate limit.</p>
+            aws_sdk_chime_sdk_voice.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client isn't authorized to request a resource.</p>
+            aws_sdk_chime_sdk_voice.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3536,6 +4323,17 @@ class ChimeSDKVoiceClient:
 
         Args:
             phone_number_id: <p>The ID of the phone number being restored.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_voice.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_voice.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_voice.errors.not_found_exception.NotFoundException: <p>The requested resource couldn't be found.</p>
+            aws_sdk_chime_sdk_voice.errors.resource_limit_exceeded_exception.ResourceLimitExceededException: <p>The request exceeds the resource limit.</p>
+            aws_sdk_chime_sdk_voice.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_voice.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_voice.errors.throttled_client_exception.ThrottledClientException: <p>The number of customer requests exceeds the request rate limit.</p>
+            aws_sdk_chime_sdk_voice.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client isn't authorized to request a resource.</p>
+            aws_sdk_chime_sdk_voice.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3595,6 +4393,16 @@ class ChimeSDKVoiceClient:
             phone_number_type: <p>Confines a search to just the phone numbers associated with the specified phone number type, either <b>local</b> or <b>toll-free</b>.</p>
             max_results: <p>The maximum number of results to return.</p>
             next_token: <p>The token used to return the next page of results.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_voice.errors.access_denied_exception.AccessDeniedException: <p>You don't have the permissions needed to run this action.</p>
+            aws_sdk_chime_sdk_voice.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_voice.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_voice.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_voice.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_voice.errors.throttled_client_exception.ThrottledClientException: <p>The number of customer requests exceeds the request rate limit.</p>
+            aws_sdk_chime_sdk_voice.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client isn't authorized to request a resource.</p>
+            aws_sdk_chime_sdk_voice.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3659,6 +4467,21 @@ class ChimeSDKVoiceClient:
             voice_profile_domain_id: <p>The ID of the voice profile domain that will store the voice profile.</p>
             client_request_token: <p>The unique identifier for the client request. Use a different token for different speaker search tasks.</p>
             call_leg: <p>Specifies which call leg to stream for speaker search.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_voice.errors.access_denied_exception.AccessDeniedException: <p>You don't have the permissions needed to run this action.</p>
+            aws_sdk_chime_sdk_voice.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_voice.errors.conflict_exception.ConflictException: <p>Multiple instances of the same request were made simultaneously.</p>
+            aws_sdk_chime_sdk_voice.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_voice.errors.gone_exception.GoneException: <p>Access to the target resource is no longer available at the origin server. This condition is likely to be permanent.</p>
+            aws_sdk_chime_sdk_voice.errors.not_found_exception.NotFoundException: <p>The requested resource couldn't be found.</p>
+            aws_sdk_chime_sdk_voice.errors.resource_limit_exceeded_exception.ResourceLimitExceededException: <p>The request exceeds the resource limit.</p>
+            aws_sdk_chime_sdk_voice.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_voice.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_voice.errors.throttled_client_exception.ThrottledClientException: <p>The number of customer requests exceeds the request rate limit.</p>
+            aws_sdk_chime_sdk_voice.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client isn't authorized to request a resource.</p>
+            aws_sdk_chime_sdk_voice.errors.unprocessable_entity_exception.UnprocessableEntityException: <p>A well-formed request couldn't be followed due to semantic errors.</p>
+            aws_sdk_chime_sdk_voice.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3710,6 +4533,21 @@ class ChimeSDKVoiceClient:
             transaction_id: <p>The transaction ID.</p>
             language_code: <p>The language code.</p>
             client_request_token: <p>The unique identifier for the client request. Use a different token for different voice tone analysis tasks.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_voice.errors.access_denied_exception.AccessDeniedException: <p>You don't have the permissions needed to run this action.</p>
+            aws_sdk_chime_sdk_voice.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_voice.errors.conflict_exception.ConflictException: <p>Multiple instances of the same request were made simultaneously.</p>
+            aws_sdk_chime_sdk_voice.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_voice.errors.gone_exception.GoneException: <p>Access to the target resource is no longer available at the origin server. This condition is likely to be permanent.</p>
+            aws_sdk_chime_sdk_voice.errors.not_found_exception.NotFoundException: <p>The requested resource couldn't be found.</p>
+            aws_sdk_chime_sdk_voice.errors.resource_limit_exceeded_exception.ResourceLimitExceededException: <p>The request exceeds the resource limit.</p>
+            aws_sdk_chime_sdk_voice.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_voice.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_voice.errors.throttled_client_exception.ThrottledClientException: <p>The number of customer requests exceeds the request rate limit.</p>
+            aws_sdk_chime_sdk_voice.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client isn't authorized to request a resource.</p>
+            aws_sdk_chime_sdk_voice.errors.unprocessable_entity_exception.UnprocessableEntityException: <p>A well-formed request couldn't be followed due to semantic errors.</p>
+            aws_sdk_chime_sdk_voice.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3753,6 +4591,19 @@ class ChimeSDKVoiceClient:
         Args:
             voice_connector_id: <p>The Voice Connector ID.</p>
             speaker_search_task_id: <p>The speaker search task ID.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_voice.errors.access_denied_exception.AccessDeniedException: <p>You don't have the permissions needed to run this action.</p>
+            aws_sdk_chime_sdk_voice.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_voice.errors.conflict_exception.ConflictException: <p>Multiple instances of the same request were made simultaneously.</p>
+            aws_sdk_chime_sdk_voice.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_voice.errors.not_found_exception.NotFoundException: <p>The requested resource couldn't be found.</p>
+            aws_sdk_chime_sdk_voice.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_voice.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_voice.errors.throttled_client_exception.ThrottledClientException: <p>The number of customer requests exceeds the request rate limit.</p>
+            aws_sdk_chime_sdk_voice.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client isn't authorized to request a resource.</p>
+            aws_sdk_chime_sdk_voice.errors.unprocessable_entity_exception.UnprocessableEntityException: <p>A well-formed request couldn't be followed due to semantic errors.</p>
+            aws_sdk_chime_sdk_voice.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3791,6 +4642,19 @@ class ChimeSDKVoiceClient:
         Args:
             voice_connector_id: <p>The Voice Connector ID.</p>
             voice_tone_analysis_task_id: <p>The ID of the voice tone analysis task.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_voice.errors.access_denied_exception.AccessDeniedException: <p>You don't have the permissions needed to run this action.</p>
+            aws_sdk_chime_sdk_voice.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_voice.errors.conflict_exception.ConflictException: <p>Multiple instances of the same request were made simultaneously.</p>
+            aws_sdk_chime_sdk_voice.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_voice.errors.not_found_exception.NotFoundException: <p>The requested resource couldn't be found.</p>
+            aws_sdk_chime_sdk_voice.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_voice.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_voice.errors.throttled_client_exception.ThrottledClientException: <p>The number of customer requests exceeds the request rate limit.</p>
+            aws_sdk_chime_sdk_voice.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client isn't authorized to request a resource.</p>
+            aws_sdk_chime_sdk_voice.errors.unprocessable_entity_exception.UnprocessableEntityException: <p>A well-formed request couldn't be followed due to semantic errors.</p>
+            aws_sdk_chime_sdk_voice.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3829,6 +4693,16 @@ class ChimeSDKVoiceClient:
         Args:
             resource_arn: <p>The ARN of the resource being tagged. </p>
             tags: <p>A list of the tags being added to the resource.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_voice.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_voice.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_voice.errors.not_found_exception.NotFoundException: <p>The requested resource couldn't be found.</p>
+            aws_sdk_chime_sdk_voice.errors.resource_limit_exceeded_exception.ResourceLimitExceededException: <p>The request exceeds the resource limit.</p>
+            aws_sdk_chime_sdk_voice.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_voice.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_voice.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client isn't authorized to request a resource.</p>
+            aws_sdk_chime_sdk_voice.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3867,6 +4741,15 @@ class ChimeSDKVoiceClient:
         Args:
             resource_arn: <p>The ARN of the resource having its tags removed.</p>
             tag_keys: <p>The keys of the tags being removed from the resource.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_voice.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_voice.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_voice.errors.not_found_exception.NotFoundException: <p>The requested resource couldn't be found.</p>
+            aws_sdk_chime_sdk_voice.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_voice.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_voice.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client isn't authorized to request a resource.</p>
+            aws_sdk_chime_sdk_voice.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3905,6 +4788,15 @@ class ChimeSDKVoiceClient:
 
         Args:
             voice_connector: <p>The Voice Connector settings.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_voice.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_voice.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_voice.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_voice.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_voice.errors.throttled_client_exception.ThrottledClientException: <p>The number of customer requests exceeds the request rate limit.</p>
+            aws_sdk_chime_sdk_voice.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client isn't authorized to request a resource.</p>
+            aws_sdk_chime_sdk_voice.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3953,6 +4845,17 @@ class ChimeSDKVoiceClient:
             product_type: <p>The product type.</p>
             calling_name: <p>The outbound calling name associated with the phone number.</p>
             name: <p>Specifies the updated name assigned to one or more phone numbers.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_voice.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_voice.errors.conflict_exception.ConflictException: <p>Multiple instances of the same request were made simultaneously.</p>
+            aws_sdk_chime_sdk_voice.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_voice.errors.not_found_exception.NotFoundException: <p>The requested resource couldn't be found.</p>
+            aws_sdk_chime_sdk_voice.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_voice.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_voice.errors.throttled_client_exception.ThrottledClientException: <p>The number of customer requests exceeds the request rate limit.</p>
+            aws_sdk_chime_sdk_voice.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client isn't authorized to request a resource.</p>
+            aws_sdk_chime_sdk_voice.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3996,6 +4899,15 @@ class ChimeSDKVoiceClient:
 
         Args:
             calling_name: <p>The default outbound calling name for the account.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_voice.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_voice.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_voice.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_voice.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_voice.errors.throttled_client_exception.ThrottledClientException: <p>The number of customer requests exceeds the request rate limit.</p>
+            aws_sdk_chime_sdk_voice.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client isn't authorized to request a resource.</p>
+            aws_sdk_chime_sdk_voice.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4039,6 +4951,16 @@ class ChimeSDKVoiceClient:
             proxy_session_id: <p>The proxy session ID.</p>
             capabilities: <p>The proxy session capabilities.</p>
             expiry_minutes: <p>The number of minutes allowed for the proxy session.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_voice.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_voice.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_voice.errors.not_found_exception.NotFoundException: <p>The requested resource couldn't be found.</p>
+            aws_sdk_chime_sdk_voice.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_voice.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_voice.errors.throttled_client_exception.ThrottledClientException: <p>The number of customer requests exceeds the request rate limit.</p>
+            aws_sdk_chime_sdk_voice.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client isn't authorized to request a resource.</p>
+            aws_sdk_chime_sdk_voice.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4088,6 +5010,17 @@ class ChimeSDKVoiceClient:
             sip_media_application_id: <p>The SIP media application ID.</p>
             name: <p>The new name for the specified SIP media application.</p>
             endpoints: <p>The new set of endpoints for the specified SIP media application.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_voice.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_voice.errors.conflict_exception.ConflictException: <p>Multiple instances of the same request were made simultaneously.</p>
+            aws_sdk_chime_sdk_voice.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_voice.errors.not_found_exception.NotFoundException: <p>The requested resource couldn't be found.</p>
+            aws_sdk_chime_sdk_voice.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_voice.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_voice.errors.throttled_client_exception.ThrottledClientException: <p>The number of customer requests exceeds the request rate limit.</p>
+            aws_sdk_chime_sdk_voice.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client isn't authorized to request a resource.</p>
+            aws_sdk_chime_sdk_voice.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4133,6 +5066,17 @@ class ChimeSDKVoiceClient:
             sip_media_application_id: <p>The ID of the SIP media application handling the call.</p>
             transaction_id: <p>The ID of the call transaction.</p>
             arguments: <p>Arguments made available to the Lambda function as part of the <code>CALL_UPDATE_REQUESTED</code> event. Can contain 0-20 key-value pairs.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_voice.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_voice.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_voice.errors.not_found_exception.NotFoundException: <p>The requested resource couldn't be found.</p>
+            aws_sdk_chime_sdk_voice.errors.resource_limit_exceeded_exception.ResourceLimitExceededException: <p>The request exceeds the resource limit.</p>
+            aws_sdk_chime_sdk_voice.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_voice.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_voice.errors.throttled_client_exception.ThrottledClientException: <p>The number of customer requests exceeds the request rate limit.</p>
+            aws_sdk_chime_sdk_voice.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client isn't authorized to request a resource.</p>
+            aws_sdk_chime_sdk_voice.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4182,6 +5126,18 @@ class ChimeSDKVoiceClient:
             name: <p>The new name for the specified SIP rule.</p>
             disabled: <p>The new value that indicates whether the rule is disabled.</p>
             target_applications: <p>The new list of target applications.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_voice.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_voice.errors.conflict_exception.ConflictException: <p>Multiple instances of the same request were made simultaneously.</p>
+            aws_sdk_chime_sdk_voice.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_voice.errors.not_found_exception.NotFoundException: <p>The requested resource couldn't be found.</p>
+            aws_sdk_chime_sdk_voice.errors.resource_limit_exceeded_exception.ResourceLimitExceededException: <p>The request exceeds the resource limit.</p>
+            aws_sdk_chime_sdk_voice.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_voice.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_voice.errors.throttled_client_exception.ThrottledClientException: <p>The number of customer requests exceeds the request rate limit.</p>
+            aws_sdk_chime_sdk_voice.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client isn't authorized to request a resource.</p>
+            aws_sdk_chime_sdk_voice.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4228,6 +5184,16 @@ class ChimeSDKVoiceClient:
             voice_connector_id: <p>The Voice Connector ID.</p>
             name: <p>The name of the Voice Connector.</p>
             require_encryption: <p>When enabled, requires encryption for the Voice Connector.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_voice.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_voice.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_voice.errors.not_found_exception.NotFoundException: <p>The requested resource couldn't be found.</p>
+            aws_sdk_chime_sdk_voice.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_voice.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_voice.errors.throttled_client_exception.ThrottledClientException: <p>The number of customer requests exceeds the request rate limit.</p>
+            aws_sdk_chime_sdk_voice.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client isn't authorized to request a resource.</p>
+            aws_sdk_chime_sdk_voice.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4271,6 +5237,17 @@ class ChimeSDKVoiceClient:
             voice_connector_group_id: <p>The Voice Connector ID.</p>
             name: <p>The name of the Voice Connector group.</p>
             voice_connector_items: <p>The <code>VoiceConnectorItems</code> to associate with the Voice Connector group.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_voice.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_voice.errors.conflict_exception.ConflictException: <p>Multiple instances of the same request were made simultaneously.</p>
+            aws_sdk_chime_sdk_voice.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_voice.errors.not_found_exception.NotFoundException: <p>The requested resource couldn't be found.</p>
+            aws_sdk_chime_sdk_voice.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_voice.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_voice.errors.throttled_client_exception.ThrottledClientException: <p>The number of customer requests exceeds the request rate limit.</p>
+            aws_sdk_chime_sdk_voice.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client isn't authorized to request a resource.</p>
+            aws_sdk_chime_sdk_voice.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4312,6 +5289,19 @@ class ChimeSDKVoiceClient:
         Args:
             voice_profile_id: <p>The profile ID.</p>
             speaker_search_task_id: <p>The ID of the speaker search task.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_voice.errors.access_denied_exception.AccessDeniedException: <p>You don't have the permissions needed to run this action.</p>
+            aws_sdk_chime_sdk_voice.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_voice.errors.conflict_exception.ConflictException: <p>Multiple instances of the same request were made simultaneously.</p>
+            aws_sdk_chime_sdk_voice.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_voice.errors.gone_exception.GoneException: <p>Access to the target resource is no longer available at the origin server. This condition is likely to be permanent.</p>
+            aws_sdk_chime_sdk_voice.errors.not_found_exception.NotFoundException: <p>The requested resource couldn't be found.</p>
+            aws_sdk_chime_sdk_voice.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_voice.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_voice.errors.throttled_client_exception.ThrottledClientException: <p>The number of customer requests exceeds the request rate limit.</p>
+            aws_sdk_chime_sdk_voice.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client isn't authorized to request a resource.</p>
+            aws_sdk_chime_sdk_voice.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4358,6 +5348,17 @@ class ChimeSDKVoiceClient:
             voice_profile_domain_id: <p>The domain ID.</p>
             name: <p>The name of the voice profile domain.</p>
             description: <p>The description of the voice profile domain.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_voice.errors.access_denied_exception.AccessDeniedException: <p>You don't have the permissions needed to run this action.</p>
+            aws_sdk_chime_sdk_voice.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_voice.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_voice.errors.not_found_exception.NotFoundException: <p>The requested resource couldn't be found.</p>
+            aws_sdk_chime_sdk_voice.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_voice.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_voice.errors.throttled_client_exception.ThrottledClientException: <p>The number of customer requests exceeds the request rate limit.</p>
+            aws_sdk_chime_sdk_voice.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client isn't authorized to request a resource.</p>
+            aws_sdk_chime_sdk_voice.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4411,6 +5412,17 @@ class ChimeSDKVoiceClient:
             state: <p>The address state, such as <code>ME</code>.</p>
             country: <p>The country in the address being validated as two-letter country code in ISO 3166-1 alpha-2 format, such as <code>US</code>. For more information, see <a href=\"https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2\">ISO 3166-1 alpha-2</a> in Wikipedia.</p>
             postal_code: <p>The dress postal code, such <code>04352</code>.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_voice.errors.access_denied_exception.AccessDeniedException: <p>You don't have the permissions needed to run this action.</p>
+            aws_sdk_chime_sdk_voice.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_voice.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_voice.errors.not_found_exception.NotFoundException: <p>The requested resource couldn't be found.</p>
+            aws_sdk_chime_sdk_voice.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_voice.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_voice.errors.throttled_client_exception.ThrottledClientException: <p>The number of customer requests exceeds the request rate limit.</p>
+            aws_sdk_chime_sdk_voice.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client isn't authorized to request a resource.</p>
+            aws_sdk_chime_sdk_voice.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(

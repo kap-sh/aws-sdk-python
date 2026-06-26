@@ -163,6 +163,14 @@ class PartnerCentralAccountClient:
 
         Args:
             verification_type: <p>The type of verification to retrieve information for. Valid values include business verification for company registration details and registrant verification for individual identity confirmation.</p>
+
+        Raises:
+            aws_sdk_partnercentral_account.errors.access_denied_exception.AccessDeniedException: <p>The request was denied due to insufficient permissions. The caller does not have the required permissions to perform this operation.</p>
+            aws_sdk_partnercentral_account.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred while processing the request. This is typically a temporary condition and the request may be retried.</p>
+            aws_sdk_partnercentral_account.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found. This may occur when referencing a resource that does not exist or has been deleted.</p>
+            aws_sdk_partnercentral_account.errors.throttling_exception.ThrottlingException: <p>The request was throttled due to too many requests being sent in a short period of time. The client should implement exponential backoff and retry the request.</p>
+            aws_sdk_partnercentral_account.errors.validation_exception.ValidationException: <p>The request failed validation. One or more input parameters are invalid, missing, or do not meet the required format or constraints.</p>
+            aws_sdk_partnercentral_account.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -200,6 +208,14 @@ class PartnerCentralAccountClient:
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource to list tags for.</p>
+
+        Raises:
+            aws_sdk_partnercentral_account.errors.access_denied_exception.AccessDeniedException: <p>The request was denied due to insufficient permissions. The caller does not have the required permissions to perform this operation.</p>
+            aws_sdk_partnercentral_account.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred while processing the request. This is typically a temporary condition and the request may be retried.</p>
+            aws_sdk_partnercentral_account.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found. This may occur when referencing a resource that does not exist or has been deleted.</p>
+            aws_sdk_partnercentral_account.errors.throttling_exception.ThrottlingException: <p>The request was throttled due to too many requests being sent in a short period of time. The client should implement exponential backoff and retry the request.</p>
+            aws_sdk_partnercentral_account.errors.validation_exception.ValidationException: <p>The request failed validation. One or more input parameters are invalid, missing, or do not meet the required format or constraints.</p>
+            aws_sdk_partnercentral_account.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -239,6 +255,14 @@ class PartnerCentralAccountClient:
         Args:
             catalog: <p>The catalog identifier for the partner account.</p>
             email: <p>The email address to send the verification code to.</p>
+
+        Raises:
+            aws_sdk_partnercentral_account.errors.access_denied_exception.AccessDeniedException: <p>The request was denied due to insufficient permissions. The caller does not have the required permissions to perform this operation.</p>
+            aws_sdk_partnercentral_account.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred while processing the request. This is typically a temporary condition and the request may be retried.</p>
+            aws_sdk_partnercentral_account.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request was rejected because it would exceed a service quota or limit. This may occur when trying to create more resources than allowed by the service limits.</p>
+            aws_sdk_partnercentral_account.errors.throttling_exception.ThrottlingException: <p>The request was throttled due to too many requests being sent in a short period of time. The client should implement exponential backoff and retry the request.</p>
+            aws_sdk_partnercentral_account.errors.validation_exception.ValidationException: <p>The request failed validation. One or more input parameters are invalid, missing, or do not meet the required format or constraints.</p>
+            aws_sdk_partnercentral_account.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -283,6 +307,15 @@ class PartnerCentralAccountClient:
         Args:
             client_token: <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. This prevents duplicate verification processes from being started accidentally.</p>
             verification_details: <p>The specific details required for the verification process, including business information for business verification or personal information for registrant verification.</p>
+
+        Raises:
+            aws_sdk_partnercentral_account.errors.access_denied_exception.AccessDeniedException: <p>The request was denied due to insufficient permissions. The caller does not have the required permissions to perform this operation.</p>
+            aws_sdk_partnercentral_account.errors.conflict_exception.ConflictException: <p>The request could not be completed due to a conflict with the current state of the resource. This typically occurs when trying to create a resource that already exists or modify a resource that has been changed by another process.</p>
+            aws_sdk_partnercentral_account.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred while processing the request. This is typically a temporary condition and the request may be retried.</p>
+            aws_sdk_partnercentral_account.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request was rejected because it would exceed a service quota or limit. This may occur when trying to create more resources than allowed by the service limits.</p>
+            aws_sdk_partnercentral_account.errors.throttling_exception.ThrottlingException: <p>The request was throttled due to too many requests being sent in a short period of time. The client should implement exponential backoff and retry the request.</p>
+            aws_sdk_partnercentral_account.errors.validation_exception.ValidationException: <p>The request failed validation. One or more input parameters are invalid, missing, or do not meet the required format or constraints.</p>
+            aws_sdk_partnercentral_account.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -327,6 +360,15 @@ class PartnerCentralAccountClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource to tag.</p>
             tags: <p>A list of tags to add or update for the specified resource.</p>
+
+        Raises:
+            aws_sdk_partnercentral_account.errors.access_denied_exception.AccessDeniedException: <p>The request was denied due to insufficient permissions. The caller does not have the required permissions to perform this operation.</p>
+            aws_sdk_partnercentral_account.errors.conflict_exception.ConflictException: <p>The request could not be completed due to a conflict with the current state of the resource. This typically occurs when trying to create a resource that already exists or modify a resource that has been changed by another process.</p>
+            aws_sdk_partnercentral_account.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred while processing the request. This is typically a temporary condition and the request may be retried.</p>
+            aws_sdk_partnercentral_account.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found. This may occur when referencing a resource that does not exist or has been deleted.</p>
+            aws_sdk_partnercentral_account.errors.throttling_exception.ThrottlingException: <p>The request was throttled due to too many requests being sent in a short period of time. The client should implement exponential backoff and retry the request.</p>
+            aws_sdk_partnercentral_account.errors.validation_exception.ValidationException: <p>The request failed validation. One or more input parameters are invalid, missing, or do not meet the required format or constraints.</p>
+            aws_sdk_partnercentral_account.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -367,6 +409,15 @@ class PartnerCentralAccountClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource to remove tags from.</p>
             tag_keys: <p>A list of tag keys to remove from the specified resource.</p>
+
+        Raises:
+            aws_sdk_partnercentral_account.errors.access_denied_exception.AccessDeniedException: <p>The request was denied due to insufficient permissions. The caller does not have the required permissions to perform this operation.</p>
+            aws_sdk_partnercentral_account.errors.conflict_exception.ConflictException: <p>The request could not be completed due to a conflict with the current state of the resource. This typically occurs when trying to create a resource that already exists or modify a resource that has been changed by another process.</p>
+            aws_sdk_partnercentral_account.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred while processing the request. This is typically a temporary condition and the request may be retried.</p>
+            aws_sdk_partnercentral_account.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found. This may occur when referencing a resource that does not exist or has been deleted.</p>
+            aws_sdk_partnercentral_account.errors.throttling_exception.ThrottlingException: <p>The request was throttled due to too many requests being sent in a short period of time. The client should implement exponential backoff and retry the request.</p>
+            aws_sdk_partnercentral_account.errors.validation_exception.ValidationException: <p>The request failed validation. One or more input parameters are invalid, missing, or do not meet the required format or constraints.</p>
+            aws_sdk_partnercentral_account.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(

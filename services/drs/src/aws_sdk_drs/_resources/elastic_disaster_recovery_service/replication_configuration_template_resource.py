@@ -92,6 +92,15 @@ class ReplicationConfigurationTemplateResource:
             tags: <p>A set of tags to be associated with the Replication Configuration Template resource.</p>
             auto_replicate_new_disks: <p>Whether to allow the AWS replication agent to automatically replicate newly added disks.</p>
             internet_protocol: <p>Which version of the Internet Protocol to use for replication of data. (IPv4 or IPv6)</p>
+
+        Raises:
+            aws_sdk_drs.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_drs.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_drs.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request could not be completed because its exceeded the service quota.</p>
+            aws_sdk_drs.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_drs.errors.uninitialized_account_exception.UninitializedAccountException: <p>The account performing the request has not been initialized.</p>
+            aws_sdk_drs.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by the AWS service.</p>
+            aws_sdk_drs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -208,6 +217,15 @@ class ReplicationConfigurationTemplateResource:
             pit_policy: <p>The Point in time (PIT) policy to manage snapshots taken during replication.</p>
             auto_replicate_new_disks: <p>Whether to allow the AWS replication agent to automatically replicate newly added disks.</p>
             internet_protocol: <p>Which version of the Internet Protocol to use for replication of data. (IPv4 or IPv6)</p>
+
+        Raises:
+            aws_sdk_drs.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_drs.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_drs.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource for this operation was not found.</p>
+            aws_sdk_drs.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_drs.errors.uninitialized_account_exception.UninitializedAccountException: <p>The account performing the request has not been initialized.</p>
+            aws_sdk_drs.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by the AWS service.</p>
+            aws_sdk_drs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -287,6 +305,14 @@ class ReplicationConfigurationTemplateResource:
 
         Args:
             replication_configuration_template_id: <p>The ID of the Replication Configuration Template to be deleted.</p>
+
+        Raises:
+            aws_sdk_drs.errors.conflict_exception.ConflictException: <p>The request could not be completed due to a conflict with the current state of the target resource.</p>
+            aws_sdk_drs.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_drs.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource for this operation was not found.</p>
+            aws_sdk_drs.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_drs.errors.uninitialized_account_exception.UninitializedAccountException: <p>The account performing the request has not been initialized.</p>
+            aws_sdk_drs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -336,6 +362,14 @@ class ReplicationConfigurationTemplateResource:
             replication_configuration_template_i_ds: <p>The IDs of the Replication Configuration Templates to retrieve. An empty list means all Replication Configuration Templates.</p>
             max_results: <p>Maximum number of Replication Configuration Templates to retrieve.</p>
             next_token: <p>The token of the next Replication Configuration Template to retrieve.</p>
+
+        Raises:
+            aws_sdk_drs.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_drs.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource for this operation was not found.</p>
+            aws_sdk_drs.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_drs.errors.uninitialized_account_exception.UninitializedAccountException: <p>The account performing the request has not been initialized.</p>
+            aws_sdk_drs.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by the AWS service.</p>
+            aws_sdk_drs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -423,6 +457,15 @@ class AsyncReplicationConfigurationTemplateResource:
             tags: <p>A set of tags to be associated with the Replication Configuration Template resource.</p>
             auto_replicate_new_disks: <p>Whether to allow the AWS replication agent to automatically replicate newly added disks.</p>
             internet_protocol: <p>Which version of the Internet Protocol to use for replication of data. (IPv4 or IPv6)</p>
+
+        Raises:
+            aws_sdk_drs.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_drs.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_drs.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request could not be completed because its exceeded the service quota.</p>
+            aws_sdk_drs.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_drs.errors.uninitialized_account_exception.UninitializedAccountException: <p>The account performing the request has not been initialized.</p>
+            aws_sdk_drs.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by the AWS service.</p>
+            aws_sdk_drs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -540,6 +583,15 @@ class AsyncReplicationConfigurationTemplateResource:
             pit_policy: <p>The Point in time (PIT) policy to manage snapshots taken during replication.</p>
             auto_replicate_new_disks: <p>Whether to allow the AWS replication agent to automatically replicate newly added disks.</p>
             internet_protocol: <p>Which version of the Internet Protocol to use for replication of data. (IPv4 or IPv6)</p>
+
+        Raises:
+            aws_sdk_drs.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_drs.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_drs.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource for this operation was not found.</p>
+            aws_sdk_drs.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_drs.errors.uninitialized_account_exception.UninitializedAccountException: <p>The account performing the request has not been initialized.</p>
+            aws_sdk_drs.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by the AWS service.</p>
+            aws_sdk_drs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -620,6 +672,14 @@ class AsyncReplicationConfigurationTemplateResource:
 
         Args:
             replication_configuration_template_id: <p>The ID of the Replication Configuration Template to be deleted.</p>
+
+        Raises:
+            aws_sdk_drs.errors.conflict_exception.ConflictException: <p>The request could not be completed due to a conflict with the current state of the target resource.</p>
+            aws_sdk_drs.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_drs.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource for this operation was not found.</p>
+            aws_sdk_drs.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_drs.errors.uninitialized_account_exception.UninitializedAccountException: <p>The account performing the request has not been initialized.</p>
+            aws_sdk_drs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -670,6 +730,14 @@ class AsyncReplicationConfigurationTemplateResource:
             replication_configuration_template_i_ds: <p>The IDs of the Replication Configuration Templates to retrieve. An empty list means all Replication Configuration Templates.</p>
             max_results: <p>Maximum number of Replication Configuration Templates to retrieve.</p>
             next_token: <p>The token of the next Replication Configuration Template to retrieve.</p>
+
+        Raises:
+            aws_sdk_drs.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_drs.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource for this operation was not found.</p>
+            aws_sdk_drs.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_drs.errors.uninitialized_account_exception.UninitializedAccountException: <p>The account performing the request has not been initialized.</p>
+            aws_sdk_drs.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by the AWS service.</p>
+            aws_sdk_drs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

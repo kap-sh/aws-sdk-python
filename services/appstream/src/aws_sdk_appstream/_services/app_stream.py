@@ -390,6 +390,14 @@ class AppStreamClient:
         Args:
             app_block_arn: <p>The ARN of the app block.</p>
             app_block_builder_name: <p>The name of the app block builder.</p>
+
+        Raises:
+            aws_sdk_appstream.errors.concurrent_modification_exception.ConcurrentModificationException: <p>An API error occurred. Wait a few minutes and try again.</p>
+            aws_sdk_appstream.errors.invalid_parameter_combination_exception.InvalidParameterCombinationException: <p>Indicates an incorrect combination of parameters, or a missing parameter.</p>
+            aws_sdk_appstream.errors.limit_exceeded_exception.LimitExceededException: <p>The requested limit exceeds the permitted limit for an account.</p>
+            aws_sdk_appstream.errors.operation_not_permitted_exception.OperationNotPermittedException: <p>The attempted operation is not permitted.</p>
+            aws_sdk_appstream.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_appstream.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -430,6 +438,14 @@ class AppStreamClient:
         Args:
             fleet_name: <p>The name of the fleet.</p>
             application_arn: <p>The ARN of the application.</p>
+
+        Raises:
+            aws_sdk_appstream.errors.concurrent_modification_exception.ConcurrentModificationException: <p>An API error occurred. Wait a few minutes and try again.</p>
+            aws_sdk_appstream.errors.invalid_parameter_combination_exception.InvalidParameterCombinationException: <p>Indicates an incorrect combination of parameters, or a missing parameter.</p>
+            aws_sdk_appstream.errors.limit_exceeded_exception.LimitExceededException: <p>The requested limit exceeds the permitted limit for an account.</p>
+            aws_sdk_appstream.errors.operation_not_permitted_exception.OperationNotPermittedException: <p>The attempted operation is not permitted.</p>
+            aws_sdk_appstream.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_appstream.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -472,6 +488,13 @@ class AppStreamClient:
             stack_name: <p>The name of the stack.</p>
             entitlement_name: <p>The name of the entitlement.</p>
             application_identifier: <p>The identifier of the application.</p>
+
+        Raises:
+            aws_sdk_appstream.errors.entitlement_not_found_exception.EntitlementNotFoundException: <p>The entitlement can't be found.</p>
+            aws_sdk_appstream.errors.limit_exceeded_exception.LimitExceededException: <p>The requested limit exceeds the permitted limit for an account.</p>
+            aws_sdk_appstream.errors.operation_not_permitted_exception.OperationNotPermittedException: <p>The attempted operation is not permitted.</p>
+            aws_sdk_appstream.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_appstream.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -513,6 +536,15 @@ class AppStreamClient:
         Args:
             fleet_name: <p>The name of the fleet. </p>
             stack_name: <p>The name of the stack.</p>
+
+        Raises:
+            aws_sdk_appstream.errors.concurrent_modification_exception.ConcurrentModificationException: <p>An API error occurred. Wait a few minutes and try again.</p>
+            aws_sdk_appstream.errors.incompatible_image_exception.IncompatibleImageException: <p>The image can't be updated because it's not compatible for updates.</p>
+            aws_sdk_appstream.errors.invalid_account_status_exception.InvalidAccountStatusException: <p>The resource cannot be created because your AWS account is suspended. For assistance, contact AWS Support. </p>
+            aws_sdk_appstream.errors.limit_exceeded_exception.LimitExceededException: <p>The requested limit exceeds the permitted limit for an account.</p>
+            aws_sdk_appstream.errors.operation_not_permitted_exception.OperationNotPermittedException: <p>The attempted operation is not permitted.</p>
+            aws_sdk_appstream.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_appstream.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -553,6 +585,14 @@ class AppStreamClient:
         Args:
             image_builder_name: <p>The name of the target image builder instance.</p>
             software_names: <p>The list of license included applications to associate with the image builder.</p> <p>Possible values include the following:</p> <ul> <li> <p>Microsoft_Office_2021_LTSC_Professional_Plus_32Bit</p> </li> <li> <p>Microsoft_Office_2021_LTSC_Professional_Plus_64Bit</p> </li> <li> <p>Microsoft_Office_2024_LTSC_Professional_Plus_32Bit</p> </li> <li> <p>Microsoft_Office_2024_LTSC_Professional_Plus_64Bit</p> </li> <li> <p>Microsoft_Visio_2021_LTSC_Professional_32Bit</p> </li> <li> <p>Microsoft_Visio_2021_LTSC_Professional_64Bit</p> </li> <li> <p>Microsoft_Visio_2024_LTSC_Professional_32Bit</p> </li> <li> <p>Microsoft_Visio_2024_LTSC_Professional_64Bit</p> </li> <li> <p>Microsoft_Project_2021_Professional_32Bit</p> </li> <li> <p>Microsoft_Project_2021_Professional_64Bit</p> </li> <li> <p>Microsoft_Project_2024_Professional_32Bit</p> </li> <li> <p>Microsoft_Project_2024_Professional_64Bit</p> </li> <li> <p>Microsoft_Office_2021_LTSC_Standard_32Bit</p> </li> <li> <p>Microsoft_Office_2021_LTSC_Standard_64Bit</p> </li> <li> <p>Microsoft_Office_2024_LTSC_Standard_32Bit</p> </li> <li> <p>Microsoft_Office_2024_LTSC_Standard_64Bit</p> </li> <li> <p>Microsoft_Visio_2021_LTSC_Standard_32Bit</p> </li> <li> <p>Microsoft_Visio_2021_LTSC_Standard_64Bit</p> </li> <li> <p>Microsoft_Visio_2024_LTSC_Standard_32Bit</p> </li> <li> <p>Microsoft_Visio_2024_LTSC_Standard_64Bit</p> </li> <li> <p>Microsoft_Project_2021_Standard_32Bit</p> </li> <li> <p>Microsoft_Project_2021_Standard_64Bit</p> </li> <li> <p>Microsoft_Project_2024_Standard_32Bit</p> </li> <li> <p>Microsoft_Project_2024_Standard_64Bit</p> </li> </ul>
+
+        Raises:
+            aws_sdk_appstream.errors.concurrent_modification_exception.ConcurrentModificationException: <p>An API error occurred. Wait a few minutes and try again.</p>
+            aws_sdk_appstream.errors.incompatible_image_exception.IncompatibleImageException: <p>The image can't be updated because it's not compatible for updates.</p>
+            aws_sdk_appstream.errors.invalid_parameter_combination_exception.InvalidParameterCombinationException: <p>Indicates an incorrect combination of parameters, or a missing parameter.</p>
+            aws_sdk_appstream.errors.operation_not_permitted_exception.OperationNotPermittedException: <p>The attempted operation is not permitted.</p>
+            aws_sdk_appstream.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_appstream.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -591,6 +631,11 @@ class AppStreamClient:
 
         Args:
             user_stack_associations: <p>The list of UserStackAssociation objects.</p>
+
+        Raises:
+            aws_sdk_appstream.errors.invalid_parameter_combination_exception.InvalidParameterCombinationException: <p>Indicates an incorrect combination of parameters, or a missing parameter.</p>
+            aws_sdk_appstream.errors.operation_not_permitted_exception.OperationNotPermittedException: <p>The attempted operation is not permitted.</p>
+            aws_sdk_appstream.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -628,6 +673,11 @@ class AppStreamClient:
 
         Args:
             user_stack_associations: <p>The list of UserStackAssociation objects.</p>
+
+        Raises:
+            aws_sdk_appstream.errors.invalid_parameter_combination_exception.InvalidParameterCombinationException: <p>Indicates an incorrect combination of parameters, or a missing parameter.</p>
+            aws_sdk_appstream.errors.operation_not_permitted_exception.OperationNotPermittedException: <p>The attempted operation is not permitted.</p>
+            aws_sdk_appstream.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -673,6 +723,15 @@ class AppStreamClient:
             destination_image_name: <p>The name that the image will have when it is copied to the destination.</p>
             destination_region: <p>The destination region to which the image will be copied. This parameter is required, even if you are copying an image within the same region.</p>
             destination_image_description: <p>The description that the image will have when it is copied to the destination.</p>
+
+        Raises:
+            aws_sdk_appstream.errors.incompatible_image_exception.IncompatibleImageException: <p>The image can't be updated because it's not compatible for updates.</p>
+            aws_sdk_appstream.errors.invalid_account_status_exception.InvalidAccountStatusException: <p>The resource cannot be created because your AWS account is suspended. For assistance, contact AWS Support. </p>
+            aws_sdk_appstream.errors.limit_exceeded_exception.LimitExceededException: <p>The requested limit exceeds the permitted limit for an account.</p>
+            aws_sdk_appstream.errors.resource_already_exists_exception.ResourceAlreadyExistsException: <p>The specified resource already exists.</p>
+            aws_sdk_appstream.errors.resource_not_available_exception.ResourceNotAvailableException: <p>The specified resource exists and is not in use, but isn't available.</p>
+            aws_sdk_appstream.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_appstream.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -736,6 +795,13 @@ class AppStreamClient:
             tags: <p>The tags assigned to the app block.</p>
             post_setup_script_details: <p>The post setup script details of the app block. This can only be provided for the <code>APPSTREAM2</code> PackagingType.</p>
             packaging_type: <p>The packaging type of the app block.</p>
+
+        Raises:
+            aws_sdk_appstream.errors.concurrent_modification_exception.ConcurrentModificationException: <p>An API error occurred. Wait a few minutes and try again.</p>
+            aws_sdk_appstream.errors.limit_exceeded_exception.LimitExceededException: <p>The requested limit exceeds the permitted limit for an account.</p>
+            aws_sdk_appstream.errors.operation_not_permitted_exception.OperationNotPermittedException: <p>The attempted operation is not permitted.</p>
+            aws_sdk_appstream.errors.resource_already_exists_exception.ResourceAlreadyExistsException: <p>The specified resource already exists.</p>
+            aws_sdk_appstream.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -814,6 +880,19 @@ class AppStreamClient:
             iam_role_arn: <p>The Amazon Resource Name (ARN) of the IAM role to apply to the app block builder. To assume a role, the app block builder calls the AWS Security Token Service (STS) <code>AssumeRole</code> API operation and passes the ARN of the role to use. The operation creates a new session with temporary credentials. WorkSpaces Applications retrieves the temporary credentials and creates the <b>appstream_machine_role</b> credential profile on the instance.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/appstream2/latest/developerguide/using-iam-roles-to-grant-permissions-to-applications-scripts-streaming-instances.html\">Using an IAM Role to Grant Permissions to Applications and Scripts Running on WorkSpaces Applications Streaming Instances</a> in the <i>Amazon WorkSpaces Applications Administration Guide</i>.</p>
             access_endpoints: <p>The list of interface VPC endpoint (interface endpoint) objects. Administrators can connect to the app block builder only through the specified endpoints.</p>
             disable_imdsv1: <p>Set to true to disable Instance Metadata Service Version 1 (IMDSv1) and enforce IMDSv2. Set to false to enable both IMDSv1 and IMDSv2.</p>
+
+        Raises:
+            aws_sdk_appstream.errors.concurrent_modification_exception.ConcurrentModificationException: <p>An API error occurred. Wait a few minutes and try again.</p>
+            aws_sdk_appstream.errors.invalid_account_status_exception.InvalidAccountStatusException: <p>The resource cannot be created because your AWS account is suspended. For assistance, contact AWS Support. </p>
+            aws_sdk_appstream.errors.invalid_parameter_combination_exception.InvalidParameterCombinationException: <p>Indicates an incorrect combination of parameters, or a missing parameter.</p>
+            aws_sdk_appstream.errors.invalid_role_exception.InvalidRoleException: <p>The specified role is invalid.</p>
+            aws_sdk_appstream.errors.limit_exceeded_exception.LimitExceededException: <p>The requested limit exceeds the permitted limit for an account.</p>
+            aws_sdk_appstream.errors.operation_not_permitted_exception.OperationNotPermittedException: <p>The attempted operation is not permitted.</p>
+            aws_sdk_appstream.errors.request_limit_exceeded_exception.RequestLimitExceededException: <p>WorkSpaces Applications can’t process the request right now because the Describe calls from your AWS account are being throttled by Amazon EC2. Try again later.</p>
+            aws_sdk_appstream.errors.resource_already_exists_exception.ResourceAlreadyExistsException: <p>The specified resource already exists.</p>
+            aws_sdk_appstream.errors.resource_not_available_exception.ResourceNotAvailableException: <p>The specified resource exists and is not in use, but isn't available.</p>
+            aws_sdk_appstream.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_appstream.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -870,6 +949,11 @@ class AppStreamClient:
         Args:
             app_block_builder_name: <p>The name of the app block builder.</p>
             validity: <p>The time that the streaming URL will be valid, in seconds. Specify a value between 1 and 604800 seconds. The default is 3600 seconds.</p>
+
+        Raises:
+            aws_sdk_appstream.errors.operation_not_permitted_exception.OperationNotPermittedException: <p>The attempted operation is not permitted.</p>
+            aws_sdk_appstream.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_appstream.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -931,6 +1015,14 @@ class AppStreamClient:
             instance_families: <p>The instance families the application supports. Valid values are GENERAL_PURPOSE and GRAPHICS_G4.</p>
             app_block_arn: <p>The app block ARN to which the application should be associated</p>
             tags: <p>The tags assigned to the application.</p>
+
+        Raises:
+            aws_sdk_appstream.errors.concurrent_modification_exception.ConcurrentModificationException: <p>An API error occurred. Wait a few minutes and try again.</p>
+            aws_sdk_appstream.errors.limit_exceeded_exception.LimitExceededException: <p>The requested limit exceeds the permitted limit for an account.</p>
+            aws_sdk_appstream.errors.operation_not_permitted_exception.OperationNotPermittedException: <p>The attempted operation is not permitted.</p>
+            aws_sdk_appstream.errors.resource_already_exists_exception.ResourceAlreadyExistsException: <p>The specified resource already exists.</p>
+            aws_sdk_appstream.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_appstream.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -993,6 +1085,15 @@ class AppStreamClient:
             organizational_unit_distinguished_names: <p>The distinguished names of the organizational units for computer accounts.</p>
             service_account_credentials: <p>The credentials for the service account used by the fleet or image builder to connect to the directory.</p>
             certificate_based_auth_properties: <p>The certificate-based authentication properties used to authenticate SAML 2.0 Identity Provider (IdP) user identities to Active Directory domain-joined streaming instances. Fallback is turned on by default when certificate-based authentication is <b>Enabled</b> . Fallback allows users to log in using their AD domain password if certificate-based authentication is unsuccessful, or to unlock a desktop lock screen. <b>Enabled_no_directory_login_fallback</b> enables certificate-based authentication, but does not allow users to log in using their AD domain password. Users will be disconnected to re-authenticate using certificates.</p>
+
+        Raises:
+            aws_sdk_appstream.errors.invalid_account_status_exception.InvalidAccountStatusException: <p>The resource cannot be created because your AWS account is suspended. For assistance, contact AWS Support. </p>
+            aws_sdk_appstream.errors.invalid_role_exception.InvalidRoleException: <p>The specified role is invalid.</p>
+            aws_sdk_appstream.errors.limit_exceeded_exception.LimitExceededException: <p>The requested limit exceeds the permitted limit for an account.</p>
+            aws_sdk_appstream.errors.operation_not_permitted_exception.OperationNotPermittedException: <p>The attempted operation is not permitted.</p>
+            aws_sdk_appstream.errors.resource_already_exists_exception.ResourceAlreadyExistsException: <p>The specified resource already exists.</p>
+            aws_sdk_appstream.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_appstream.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1047,6 +1148,13 @@ class AppStreamClient:
             description: <p>The description of the entitlement.</p>
             app_visibility: <p>Specifies whether all or selected apps are entitled.</p>
             attributes: <p>The attributes of the entitlement.</p>
+
+        Raises:
+            aws_sdk_appstream.errors.entitlement_already_exists_exception.EntitlementAlreadyExistsException: <p>The entitlement already exists.</p>
+            aws_sdk_appstream.errors.limit_exceeded_exception.LimitExceededException: <p>The requested limit exceeds the permitted limit for an account.</p>
+            aws_sdk_appstream.errors.operation_not_permitted_exception.OperationNotPermittedException: <p>The attempted operation is not permitted.</p>
+            aws_sdk_appstream.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_appstream.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1099,6 +1207,16 @@ class AppStreamClient:
             iam_role_arn: <p>The ARN of the IAM role that allows WorkSpaces Applications to create the AMI. The role must have permissions to copy images, describe images, and create tags, with a trust relationship allowing appstream.amazonaws.com to assume the role.</p>
             tag_specifications: <p>The tags to apply to the exported AMI. These tags help you organize and manage your EC2 AMIs.</p>
             ami_description: <p>An optional description for the exported AMI. This description will be applied to the resulting EC2 AMI.</p>
+
+        Raises:
+            aws_sdk_appstream.errors.concurrent_modification_exception.ConcurrentModificationException: <p>An API error occurred. Wait a few minutes and try again.</p>
+            aws_sdk_appstream.errors.invalid_account_status_exception.InvalidAccountStatusException: <p>The resource cannot be created because your AWS account is suspended. For assistance, contact AWS Support. </p>
+            aws_sdk_appstream.errors.invalid_role_exception.InvalidRoleException: <p>The specified role is invalid.</p>
+            aws_sdk_appstream.errors.limit_exceeded_exception.LimitExceededException: <p>The requested limit exceeds the permitted limit for an account.</p>
+            aws_sdk_appstream.errors.operation_not_permitted_exception.OperationNotPermittedException: <p>The attempted operation is not permitted.</p>
+            aws_sdk_appstream.errors.resource_not_available_exception.ResourceNotAvailableException: <p>The specified resource exists and is not in use, but isn't available.</p>
+            aws_sdk_appstream.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_appstream.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1214,6 +1332,20 @@ class AppStreamClient:
             max_sessions_per_instance: <p>The maximum number of user sessions on an instance. This only applies to multi-session fleets.</p>
             root_volume_config: <p>The configuration for the root volume of fleet instances. Use this to customize storage capacity from 200 GB up to 500 GB based on your application requirements.</p>
             disable_imdsv1: <p>Set to true to disable Instance Metadata Service Version 1 (IMDSv1) and enforce IMDSv2. Set to false to enable both IMDSv1 and IMDSv2.</p> <note> <p>Before disabling IMDSv1, ensure your WorkSpaces Applications images are running the agent version or managed image update released on or after January 16, 2024 to support IMDSv2 enforcement.</p> </note>
+
+        Raises:
+            aws_sdk_appstream.errors.concurrent_modification_exception.ConcurrentModificationException: <p>An API error occurred. Wait a few minutes and try again.</p>
+            aws_sdk_appstream.errors.incompatible_image_exception.IncompatibleImageException: <p>The image can't be updated because it's not compatible for updates.</p>
+            aws_sdk_appstream.errors.invalid_account_status_exception.InvalidAccountStatusException: <p>The resource cannot be created because your AWS account is suspended. For assistance, contact AWS Support. </p>
+            aws_sdk_appstream.errors.invalid_parameter_combination_exception.InvalidParameterCombinationException: <p>Indicates an incorrect combination of parameters, or a missing parameter.</p>
+            aws_sdk_appstream.errors.invalid_role_exception.InvalidRoleException: <p>The specified role is invalid.</p>
+            aws_sdk_appstream.errors.limit_exceeded_exception.LimitExceededException: <p>The requested limit exceeds the permitted limit for an account.</p>
+            aws_sdk_appstream.errors.operation_not_permitted_exception.OperationNotPermittedException: <p>The attempted operation is not permitted.</p>
+            aws_sdk_appstream.errors.request_limit_exceeded_exception.RequestLimitExceededException: <p>WorkSpaces Applications can’t process the request right now because the Describe calls from your AWS account are being throttled by Amazon EC2. Try again later.</p>
+            aws_sdk_appstream.errors.resource_already_exists_exception.ResourceAlreadyExistsException: <p>The specified resource already exists.</p>
+            aws_sdk_appstream.errors.resource_not_available_exception.ResourceNotAvailableException: <p>The specified resource exists and is not in use, but isn't available.</p>
+            aws_sdk_appstream.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_appstream.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1348,6 +1480,20 @@ class AppStreamClient:
             softwares_to_install: <p>The list of license included applications to install on the image builder during creation.</p> <p>Possible values include the following:</p> <ul> <li> <p>Microsoft_Office_2021_LTSC_Professional_Plus_32Bit</p> </li> <li> <p>Microsoft_Office_2021_LTSC_Professional_Plus_64Bit</p> </li> <li> <p>Microsoft_Office_2024_LTSC_Professional_Plus_32Bit</p> </li> <li> <p>Microsoft_Office_2024_LTSC_Professional_Plus_64Bit</p> </li> <li> <p>Microsoft_Visio_2021_LTSC_Professional_32Bit</p> </li> <li> <p>Microsoft_Visio_2021_LTSC_Professional_64Bit</p> </li> <li> <p>Microsoft_Visio_2024_LTSC_Professional_32Bit</p> </li> <li> <p>Microsoft_Visio_2024_LTSC_Professional_64Bit</p> </li> <li> <p>Microsoft_Project_2021_Professional_32Bit</p> </li> <li> <p>Microsoft_Project_2021_Professional_64Bit</p> </li> <li> <p>Microsoft_Project_2024_Professional_32Bit</p> </li> <li> <p>Microsoft_Project_2024_Professional_64Bit</p> </li> <li> <p>Microsoft_Office_2021_LTSC_Standard_32Bit</p> </li> <li> <p>Microsoft_Office_2021_LTSC_Standard_64Bit</p> </li> <li> <p>Microsoft_Office_2024_LTSC_Standard_32Bit</p> </li> <li> <p>Microsoft_Office_2024_LTSC_Standard_64Bit</p> </li> <li> <p>Microsoft_Visio_2021_LTSC_Standard_32Bit</p> </li> <li> <p>Microsoft_Visio_2021_LTSC_Standard_64Bit</p> </li> <li> <p>Microsoft_Visio_2024_LTSC_Standard_32Bit</p> </li> <li> <p>Microsoft_Visio_2024_LTSC_Standard_64Bit</p> </li> <li> <p>Microsoft_Project_2021_Standard_32Bit</p> </li> <li> <p>Microsoft_Project_2021_Standard_64Bit</p> </li> <li> <p>Microsoft_Project_2024_Standard_32Bit</p> </li> <li> <p>Microsoft_Project_2024_Standard_64Bit</p> </li> </ul>
             softwares_to_uninstall: <p>The list of license included applications to uninstall from the image builder during creation.</p> <p>Possible values include the following:</p> <ul> <li> <p>Microsoft_Office_2021_LTSC_Professional_Plus_32Bit</p> </li> <li> <p>Microsoft_Office_2021_LTSC_Professional_Plus_64Bit</p> </li> <li> <p>Microsoft_Office_2024_LTSC_Professional_Plus_32Bit</p> </li> <li> <p>Microsoft_Office_2024_LTSC_Professional_Plus_64Bit</p> </li> <li> <p>Microsoft_Visio_2021_LTSC_Professional_32Bit</p> </li> <li> <p>Microsoft_Visio_2021_LTSC_Professional_64Bit</p> </li> <li> <p>Microsoft_Visio_2024_LTSC_Professional_32Bit</p> </li> <li> <p>Microsoft_Visio_2024_LTSC_Professional_64Bit</p> </li> <li> <p>Microsoft_Project_2021_Professional_32Bit</p> </li> <li> <p>Microsoft_Project_2021_Professional_64Bit</p> </li> <li> <p>Microsoft_Project_2024_Professional_32Bit</p> </li> <li> <p>Microsoft_Project_2024_Professional_64Bit</p> </li> <li> <p>Microsoft_Office_2021_LTSC_Standard_32Bit</p> </li> <li> <p>Microsoft_Office_2021_LTSC_Standard_64Bit</p> </li> <li> <p>Microsoft_Office_2024_LTSC_Standard_32Bit</p> </li> <li> <p>Microsoft_Office_2024_LTSC_Standard_64Bit</p> </li> <li> <p>Microsoft_Visio_2021_LTSC_Standard_32Bit</p> </li> <li> <p>Microsoft_Visio_2021_LTSC_Standard_64Bit</p> </li> <li> <p>Microsoft_Visio_2024_LTSC_Standard_32Bit</p> </li> <li> <p>Microsoft_Visio_2024_LTSC_Standard_64Bit</p> </li> <li> <p>Microsoft_Project_2021_Standard_32Bit</p> </li> <li> <p>Microsoft_Project_2021_Standard_64Bit</p> </li> <li> <p>Microsoft_Project_2024_Standard_32Bit</p> </li> <li> <p>Microsoft_Project_2024_Standard_64Bit</p> </li> </ul>
             disable_imdsv1: <p>Set to true to disable Instance Metadata Service Version 1 (IMDSv1) and enforce IMDSv2. Set to false to enable both IMDSv1 and IMDSv2.</p> <note> <p>Before disabling IMDSv1, ensure your WorkSpaces Applications images are running the agent version or managed image update released on or after January 16, 2024 to support IMDSv2 enforcement.</p> </note>
+
+        Raises:
+            aws_sdk_appstream.errors.concurrent_modification_exception.ConcurrentModificationException: <p>An API error occurred. Wait a few minutes and try again.</p>
+            aws_sdk_appstream.errors.incompatible_image_exception.IncompatibleImageException: <p>The image can't be updated because it's not compatible for updates.</p>
+            aws_sdk_appstream.errors.invalid_account_status_exception.InvalidAccountStatusException: <p>The resource cannot be created because your AWS account is suspended. For assistance, contact AWS Support. </p>
+            aws_sdk_appstream.errors.invalid_parameter_combination_exception.InvalidParameterCombinationException: <p>Indicates an incorrect combination of parameters, or a missing parameter.</p>
+            aws_sdk_appstream.errors.invalid_role_exception.InvalidRoleException: <p>The specified role is invalid.</p>
+            aws_sdk_appstream.errors.limit_exceeded_exception.LimitExceededException: <p>The requested limit exceeds the permitted limit for an account.</p>
+            aws_sdk_appstream.errors.operation_not_permitted_exception.OperationNotPermittedException: <p>The attempted operation is not permitted.</p>
+            aws_sdk_appstream.errors.request_limit_exceeded_exception.RequestLimitExceededException: <p>WorkSpaces Applications can’t process the request right now because the Describe calls from your AWS account are being throttled by Amazon EC2. Try again later.</p>
+            aws_sdk_appstream.errors.resource_already_exists_exception.ResourceAlreadyExistsException: <p>The specified resource already exists.</p>
+            aws_sdk_appstream.errors.resource_not_available_exception.ResourceNotAvailableException: <p>The specified resource exists and is not in use, but isn't available.</p>
+            aws_sdk_appstream.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_appstream.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1418,6 +1564,11 @@ class AppStreamClient:
         Args:
             name: <p>The name of the image builder.</p>
             validity: <p>The time that the streaming URL will be valid, in seconds. Specify a value between 1 and 604800 seconds. The default is 3600 seconds.</p>
+
+        Raises:
+            aws_sdk_appstream.errors.operation_not_permitted_exception.OperationNotPermittedException: <p>The attempted operation is not permitted.</p>
+            aws_sdk_appstream.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_appstream.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1493,6 +1644,18 @@ class AppStreamClient:
             agent_software_version: <p>The version of the WorkSpaces Applications agent to use for the imported image. Choose CURRENT_LATEST to use the agent version available at the time of import, or ALWAYS_LATEST to automatically update to the latest agent version when new versions are released.</p>
             app_catalog_config: <p>Configuration for the application catalog of the imported image. This allows you to specify applications available for streaming, including their paths, icons, and launch parameters. This field contains sensitive data.</p>
             dry_run: <p>When set to true, performs validation checks without actually creating the imported image. Use this to verify your configuration before executing the actual import operation.</p>
+
+        Raises:
+            aws_sdk_appstream.errors.dry_run_operation_exception.DryRunOperationException: <p>The exception that is thrown when a dry run operation is requested. This indicates that the validation checks have been performed successfully, but no actual resources were created or modified.</p>
+            aws_sdk_appstream.errors.incompatible_image_exception.IncompatibleImageException: <p>The image can't be updated because it's not compatible for updates.</p>
+            aws_sdk_appstream.errors.invalid_account_status_exception.InvalidAccountStatusException: <p>The resource cannot be created because your AWS account is suspended. For assistance, contact AWS Support. </p>
+            aws_sdk_appstream.errors.invalid_parameter_combination_exception.InvalidParameterCombinationException: <p>Indicates an incorrect combination of parameters, or a missing parameter.</p>
+            aws_sdk_appstream.errors.invalid_role_exception.InvalidRoleException: <p>The specified role is invalid.</p>
+            aws_sdk_appstream.errors.limit_exceeded_exception.LimitExceededException: <p>The requested limit exceeds the permitted limit for an account.</p>
+            aws_sdk_appstream.errors.operation_not_permitted_exception.OperationNotPermittedException: <p>The attempted operation is not permitted.</p>
+            aws_sdk_appstream.errors.resource_already_exists_exception.ResourceAlreadyExistsException: <p>The specified resource already exists.</p>
+            aws_sdk_appstream.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_appstream.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1597,6 +1760,17 @@ class AppStreamClient:
             embed_host_domains: <p>The domains where WorkSpaces Applications streaming sessions can be embedded in an iframe. You must approve the domains that you want to host embedded WorkSpaces Applications streaming sessions. </p>
             streaming_experience_settings: <p>The streaming protocol you want your stack to prefer. This can be UDP or TCP. Currently, UDP is only supported in the Windows native client.</p>
             agent_access_config: <p>The configuration for agent access on the stack. If specified, agent access is enabled for the stack.</p>
+
+        Raises:
+            aws_sdk_appstream.errors.concurrent_modification_exception.ConcurrentModificationException: <p>An API error occurred. Wait a few minutes and try again.</p>
+            aws_sdk_appstream.errors.invalid_account_status_exception.InvalidAccountStatusException: <p>The resource cannot be created because your AWS account is suspended. For assistance, contact AWS Support. </p>
+            aws_sdk_appstream.errors.invalid_parameter_combination_exception.InvalidParameterCombinationException: <p>Indicates an incorrect combination of parameters, or a missing parameter.</p>
+            aws_sdk_appstream.errors.invalid_role_exception.InvalidRoleException: <p>The specified role is invalid.</p>
+            aws_sdk_appstream.errors.limit_exceeded_exception.LimitExceededException: <p>The requested limit exceeds the permitted limit for an account.</p>
+            aws_sdk_appstream.errors.operation_not_permitted_exception.OperationNotPermittedException: <p>The attempted operation is not permitted.</p>
+            aws_sdk_appstream.errors.resource_already_exists_exception.ResourceAlreadyExistsException: <p>The specified resource already exists.</p>
+            aws_sdk_appstream.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_appstream.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1670,6 +1844,13 @@ class AppStreamClient:
             application_id: <p>The name of the application to launch after the session starts. This is the name that you specified as <b>Name</b> in the Image Assistant. If your fleet is enabled for the <b>Desktop</b> stream view, you can also choose to launch directly to the operating system desktop. To do so, specify <b>Desktop</b>.</p>
             validity: <p>The time that the streaming URL will be valid, in seconds. Specify a value between 1 and 604800 seconds. The default is 60 seconds.</p>
             session_context: <p>The session context. For more information, see <a href=\"https://docs.aws.amazon.com/appstream2/latest/developerguide/managing-stacks-fleets.html#managing-stacks-fleets-parameters\">Session Context</a> in the <i>Amazon WorkSpaces Applications Administration Guide</i>.</p>
+
+        Raises:
+            aws_sdk_appstream.errors.invalid_parameter_combination_exception.InvalidParameterCombinationException: <p>Indicates an incorrect combination of parameters, or a missing parameter.</p>
+            aws_sdk_appstream.errors.operation_not_permitted_exception.OperationNotPermittedException: <p>The attempted operation is not permitted.</p>
+            aws_sdk_appstream.errors.resource_not_available_exception.ResourceNotAvailableException: <p>The specified resource exists and is not in use, but isn't available.</p>
+            aws_sdk_appstream.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_appstream.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1727,6 +1908,15 @@ class AppStreamClient:
             theme_styling: <p>The color theme that is applied to website links, text, and buttons. These colors are also applied as accents in the background for the streaming application catalog page.</p>
             organization_logo_s3_location: <p>The organization logo that appears on the streaming application catalog page.</p>
             favicon_s3_location: <p>The S3 location of the favicon. The favicon enables users to recognize their application streaming site in a browser full of tabs or bookmarks. It is displayed at the top of the browser tab for the application streaming site during users' streaming sessions.</p>
+
+        Raises:
+            aws_sdk_appstream.errors.concurrent_modification_exception.ConcurrentModificationException: <p>An API error occurred. Wait a few minutes and try again.</p>
+            aws_sdk_appstream.errors.invalid_account_status_exception.InvalidAccountStatusException: <p>The resource cannot be created because your AWS account is suspended. For assistance, contact AWS Support. </p>
+            aws_sdk_appstream.errors.limit_exceeded_exception.LimitExceededException: <p>The requested limit exceeds the permitted limit for an account.</p>
+            aws_sdk_appstream.errors.operation_not_permitted_exception.OperationNotPermittedException: <p>The attempted operation is not permitted.</p>
+            aws_sdk_appstream.errors.resource_already_exists_exception.ResourceAlreadyExistsException: <p>The specified resource already exists.</p>
+            aws_sdk_appstream.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_appstream.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1784,6 +1974,16 @@ class AppStreamClient:
             new_image_display_name: <p>The name to display for the new image.</p>
             new_image_tags: <p>The tags to associate with the new image. A tag is a key-value pair, and the value is optional. For example, Environment=Test. If you do not specify a value, Environment=. </p> <p>Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following special characters: </p> <p>_ . : / = + \ - @</p> <p>If you do not specify a value, the value is set to an empty string.</p> <p>For more information about tags, see <a href=\"https://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html\">Tagging Your Resources</a> in the <i>Amazon WorkSpaces Applications Administration Guide</i>.</p>
             dry_run: <p>Indicates whether to display the status of image update availability before WorkSpaces Applications initiates the process of creating a new updated image. If this value is set to <code>true</code>, WorkSpaces Applications displays whether image updates are available. If this value is set to <code>false</code>, WorkSpaces Applications initiates the process of creating a new updated image without displaying whether image updates are available.</p>
+
+        Raises:
+            aws_sdk_appstream.errors.concurrent_modification_exception.ConcurrentModificationException: <p>An API error occurred. Wait a few minutes and try again.</p>
+            aws_sdk_appstream.errors.incompatible_image_exception.IncompatibleImageException: <p>The image can't be updated because it's not compatible for updates.</p>
+            aws_sdk_appstream.errors.invalid_account_status_exception.InvalidAccountStatusException: <p>The resource cannot be created because your AWS account is suspended. For assistance, contact AWS Support. </p>
+            aws_sdk_appstream.errors.limit_exceeded_exception.LimitExceededException: <p>The requested limit exceeds the permitted limit for an account.</p>
+            aws_sdk_appstream.errors.operation_not_permitted_exception.OperationNotPermittedException: <p>The attempted operation is not permitted.</p>
+            aws_sdk_appstream.errors.resource_already_exists_exception.ResourceAlreadyExistsException: <p>The specified resource already exists.</p>
+            aws_sdk_appstream.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_appstream.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1823,7 +2023,14 @@ class AppStreamClient:
     def create_usage_report_subscription(
         self, *, config_overrides: Optional[AppStreamClientConfig] = None
     ) -> "aws_sdk_appstream.types.create_usage_report_subscription_result.CreateUsageReportSubscriptionResult":
-        """<p>Creates a usage report subscription. Usage reports are generated daily.</p>"""
+        """<p>Creates a usage report subscription. Usage reports are generated daily.</p>
+
+        Raises:
+            aws_sdk_appstream.errors.invalid_account_status_exception.InvalidAccountStatusException: <p>The resource cannot be created because your AWS account is suspended. For assistance, contact AWS Support. </p>
+            aws_sdk_appstream.errors.invalid_role_exception.InvalidRoleException: <p>The specified role is invalid.</p>
+            aws_sdk_appstream.errors.limit_exceeded_exception.LimitExceededException: <p>The requested limit exceeds the permitted limit for an account.</p>
+            aws_sdk_appstream.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_appstream.types.create_usage_report_subscription_request.CreateUsageReportSubscriptionRequest]",
@@ -1873,6 +2080,14 @@ class AppStreamClient:
             first_name: <p>The first name, or given name, of the user.</p>
             last_name: <p>The last name, or surname, of the user.</p>
             authentication_type: <p>The authentication type for the user. You must specify USERPOOL. </p>
+
+        Raises:
+            aws_sdk_appstream.errors.invalid_account_status_exception.InvalidAccountStatusException: <p>The resource cannot be created because your AWS account is suspended. For assistance, contact AWS Support. </p>
+            aws_sdk_appstream.errors.invalid_parameter_combination_exception.InvalidParameterCombinationException: <p>Indicates an incorrect combination of parameters, or a missing parameter.</p>
+            aws_sdk_appstream.errors.limit_exceeded_exception.LimitExceededException: <p>The requested limit exceeds the permitted limit for an account.</p>
+            aws_sdk_appstream.errors.operation_not_permitted_exception.OperationNotPermittedException: <p>The attempted operation is not permitted.</p>
+            aws_sdk_appstream.errors.resource_already_exists_exception.ResourceAlreadyExistsException: <p>The specified resource already exists.</p>
+            aws_sdk_appstream.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1917,6 +2132,12 @@ class AppStreamClient:
 
         Args:
             name: <p>The name of the app block.</p>
+
+        Raises:
+            aws_sdk_appstream.errors.concurrent_modification_exception.ConcurrentModificationException: <p>An API error occurred. Wait a few minutes and try again.</p>
+            aws_sdk_appstream.errors.resource_in_use_exception.ResourceInUseException: <p>The specified resource is in use.</p>
+            aws_sdk_appstream.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_appstream.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1954,6 +2175,13 @@ class AppStreamClient:
 
         Args:
             name: <p>The name of the app block builder.</p>
+
+        Raises:
+            aws_sdk_appstream.errors.concurrent_modification_exception.ConcurrentModificationException: <p>An API error occurred. Wait a few minutes and try again.</p>
+            aws_sdk_appstream.errors.operation_not_permitted_exception.OperationNotPermittedException: <p>The attempted operation is not permitted.</p>
+            aws_sdk_appstream.errors.resource_in_use_exception.ResourceInUseException: <p>The specified resource is in use.</p>
+            aws_sdk_appstream.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_appstream.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1991,6 +2219,13 @@ class AppStreamClient:
 
         Args:
             name: <p>The name of the application.</p>
+
+        Raises:
+            aws_sdk_appstream.errors.concurrent_modification_exception.ConcurrentModificationException: <p>An API error occurred. Wait a few minutes and try again.</p>
+            aws_sdk_appstream.errors.operation_not_permitted_exception.OperationNotPermittedException: <p>The attempted operation is not permitted.</p>
+            aws_sdk_appstream.errors.resource_in_use_exception.ResourceInUseException: <p>The specified resource is in use.</p>
+            aws_sdk_appstream.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_appstream.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2028,6 +2263,11 @@ class AppStreamClient:
 
         Args:
             directory_name: <p>The name of the directory configuration.</p>
+
+        Raises:
+            aws_sdk_appstream.errors.resource_in_use_exception.ResourceInUseException: <p>The specified resource is in use.</p>
+            aws_sdk_appstream.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_appstream.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2067,6 +2307,13 @@ class AppStreamClient:
         Args:
             name: <p>The name of the entitlement.</p>
             stack_name: <p>The name of the stack with which the entitlement is associated.</p>
+
+        Raises:
+            aws_sdk_appstream.errors.concurrent_modification_exception.ConcurrentModificationException: <p>An API error occurred. Wait a few minutes and try again.</p>
+            aws_sdk_appstream.errors.entitlement_not_found_exception.EntitlementNotFoundException: <p>The entitlement can't be found.</p>
+            aws_sdk_appstream.errors.operation_not_permitted_exception.OperationNotPermittedException: <p>The attempted operation is not permitted.</p>
+            aws_sdk_appstream.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_appstream.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2105,6 +2352,12 @@ class AppStreamClient:
 
         Args:
             name: <p>The name of the fleet.</p>
+
+        Raises:
+            aws_sdk_appstream.errors.concurrent_modification_exception.ConcurrentModificationException: <p>An API error occurred. Wait a few minutes and try again.</p>
+            aws_sdk_appstream.errors.resource_in_use_exception.ResourceInUseException: <p>The specified resource is in use.</p>
+            aws_sdk_appstream.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_appstream.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2142,6 +2395,13 @@ class AppStreamClient:
 
         Args:
             name: <p>The name of the image.</p>
+
+        Raises:
+            aws_sdk_appstream.errors.concurrent_modification_exception.ConcurrentModificationException: <p>An API error occurred. Wait a few minutes and try again.</p>
+            aws_sdk_appstream.errors.operation_not_permitted_exception.OperationNotPermittedException: <p>The attempted operation is not permitted.</p>
+            aws_sdk_appstream.errors.resource_in_use_exception.ResourceInUseException: <p>The specified resource is in use.</p>
+            aws_sdk_appstream.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_appstream.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2179,6 +2439,12 @@ class AppStreamClient:
 
         Args:
             name: <p>The name of the image builder.</p>
+
+        Raises:
+            aws_sdk_appstream.errors.concurrent_modification_exception.ConcurrentModificationException: <p>An API error occurred. Wait a few minutes and try again.</p>
+            aws_sdk_appstream.errors.operation_not_permitted_exception.OperationNotPermittedException: <p>The attempted operation is not permitted.</p>
+            aws_sdk_appstream.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_appstream.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2218,6 +2484,11 @@ class AppStreamClient:
         Args:
             name: <p>The name of the private image.</p>
             shared_account_id: <p>The 12-digit identifier of the AWS account for which to delete image permissions.</p>
+
+        Raises:
+            aws_sdk_appstream.errors.resource_not_available_exception.ResourceNotAvailableException: <p>The specified resource exists and is not in use, but isn't available.</p>
+            aws_sdk_appstream.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_appstream.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2256,6 +2527,13 @@ class AppStreamClient:
 
         Args:
             name: <p>The name of the stack.</p>
+
+        Raises:
+            aws_sdk_appstream.errors.concurrent_modification_exception.ConcurrentModificationException: <p>An API error occurred. Wait a few minutes and try again.</p>
+            aws_sdk_appstream.errors.operation_not_permitted_exception.OperationNotPermittedException: <p>The attempted operation is not permitted.</p>
+            aws_sdk_appstream.errors.resource_in_use_exception.ResourceInUseException: <p>The specified resource is in use.</p>
+            aws_sdk_appstream.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_appstream.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2293,6 +2571,12 @@ class AppStreamClient:
 
         Args:
             stack_name: <p>The name of the stack for the theme.</p>
+
+        Raises:
+            aws_sdk_appstream.errors.concurrent_modification_exception.ConcurrentModificationException: <p>An API error occurred. Wait a few minutes and try again.</p>
+            aws_sdk_appstream.errors.operation_not_permitted_exception.OperationNotPermittedException: <p>The attempted operation is not permitted.</p>
+            aws_sdk_appstream.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_appstream.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2323,7 +2607,13 @@ class AppStreamClient:
     def delete_usage_report_subscription(
         self, *, config_overrides: Optional[AppStreamClientConfig] = None
     ) -> "aws_sdk_appstream.types.delete_usage_report_subscription_result.DeleteUsageReportSubscriptionResult":
-        """<p>Disables usage report generation.</p>"""
+        """<p>Disables usage report generation.</p>
+
+        Raises:
+            aws_sdk_appstream.errors.invalid_account_status_exception.InvalidAccountStatusException: <p>The resource cannot be created because your AWS account is suspended. For assistance, contact AWS Support. </p>
+            aws_sdk_appstream.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_appstream.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_appstream.types.delete_usage_report_subscription_request.DeleteUsageReportSubscriptionRequest]",
@@ -2361,6 +2651,10 @@ class AppStreamClient:
         Args:
             user_name: <p>The email address of the user.</p> <note> <p>Users' email addresses are case-sensitive.</p> </note>
             authentication_type: <p>The authentication type for the user. You must specify USERPOOL.</p>
+
+        Raises:
+            aws_sdk_appstream.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_appstream.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2405,6 +2699,11 @@ class AppStreamClient:
             app_block_builder_name: <p>The name of the app block builder.</p>
             max_results: <p>The maximum size of each page of results.</p>
             next_token: <p>The pagination token used to retrieve the next page of results for this operation.</p>
+
+        Raises:
+            aws_sdk_appstream.errors.invalid_parameter_combination_exception.InvalidParameterCombinationException: <p>Indicates an incorrect combination of parameters, or a missing parameter.</p>
+            aws_sdk_appstream.errors.operation_not_permitted_exception.OperationNotPermittedException: <p>The attempted operation is not permitted.</p>
+            aws_sdk_appstream.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2453,6 +2752,11 @@ class AppStreamClient:
             names: <p>The names of the app block builders.</p>
             next_token: <p>The pagination token used to retrieve the next page of results for this operation.</p>
             max_results: <p>The maximum size of each page of results. The maximum value is 25.</p>
+
+        Raises:
+            aws_sdk_appstream.errors.operation_not_permitted_exception.OperationNotPermittedException: <p>The attempted operation is not permitted.</p>
+            aws_sdk_appstream.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_appstream.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2499,6 +2803,11 @@ class AppStreamClient:
             arns: <p>The ARNs of the app blocks.</p>
             next_token: <p>The pagination token used to retrieve the next page of results for this operation.</p>
             max_results: <p>The maximum size of each page of results.</p>
+
+        Raises:
+            aws_sdk_appstream.errors.operation_not_permitted_exception.OperationNotPermittedException: <p>The attempted operation is not permitted.</p>
+            aws_sdk_appstream.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_appstream.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2547,6 +2856,11 @@ class AppStreamClient:
             application_arn: <p>The ARN of the application.</p>
             max_results: <p>The maximum size of each page of results.</p>
             next_token: <p>The pagination token used to retrieve the next page of results for this operation.</p>
+
+        Raises:
+            aws_sdk_appstream.errors.invalid_parameter_combination_exception.InvalidParameterCombinationException: <p>Indicates an incorrect combination of parameters, or a missing parameter.</p>
+            aws_sdk_appstream.errors.operation_not_permitted_exception.OperationNotPermittedException: <p>The attempted operation is not permitted.</p>
+            aws_sdk_appstream.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2595,6 +2909,11 @@ class AppStreamClient:
             arns: <p>The ARNs for the applications.</p>
             next_token: <p>The pagination token used to retrieve the next page of results for this operation.</p>
             max_results: <p>The maximum size of each page of results.</p>
+
+        Raises:
+            aws_sdk_appstream.errors.operation_not_permitted_exception.OperationNotPermittedException: <p>The attempted operation is not permitted.</p>
+            aws_sdk_appstream.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_appstream.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2641,6 +2960,12 @@ class AppStreamClient:
             billing_period: <p>Billing period for the usage record.</p> <p>Specify the value in <i>yyyy-mm</i> format. For example, for August 2025, use <i>2025-08</i>.</p>
             max_results: <p>The maximum number of results to return.</p>
             next_token: <p>Token for pagination of results.</p>
+
+        Raises:
+            aws_sdk_appstream.errors.invalid_parameter_combination_exception.InvalidParameterCombinationException: <p>Indicates an incorrect combination of parameters, or a missing parameter.</p>
+            aws_sdk_appstream.errors.operation_not_permitted_exception.OperationNotPermittedException: <p>The attempted operation is not permitted.</p>
+            aws_sdk_appstream.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_appstream.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2688,6 +3013,10 @@ class AppStreamClient:
             directory_names: <p>The directory names.</p>
             max_results: <p>The maximum size of each page of results.</p>
             next_token: <p>The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.</p>
+
+        Raises:
+            aws_sdk_appstream.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_appstream.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2736,6 +3065,12 @@ class AppStreamClient:
             stack_name: <p>The name of the stack with which the entitlement is associated.</p>
             next_token: <p>The pagination token used to retrieve the next page of results for this operation.</p>
             max_results: <p>The maximum size of each page of results.</p>
+
+        Raises:
+            aws_sdk_appstream.errors.entitlement_not_found_exception.EntitlementNotFoundException: <p>The entitlement can't be found.</p>
+            aws_sdk_appstream.errors.operation_not_permitted_exception.OperationNotPermittedException: <p>The attempted operation is not permitted.</p>
+            aws_sdk_appstream.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_appstream.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2781,6 +3116,10 @@ class AppStreamClient:
         Args:
             names: <p>The names of the fleets to describe.</p>
             next_token: <p>The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.</p>
+
+        Raises:
+            aws_sdk_appstream.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_appstream.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2825,6 +3164,10 @@ class AppStreamClient:
             names: <p>The names of the image builders to describe.</p>
             max_results: <p>The maximum size of each page of results.</p>
             next_token: <p>The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.</p>
+
+        Raises:
+            aws_sdk_appstream.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_appstream.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2875,6 +3218,10 @@ class AppStreamClient:
             max_results: <p>The maximum size of each page of results.</p>
             shared_aws_account_ids: <p>The 12-digit identifier of one or more AWS accounts with which the image is shared.</p>
             next_token: <p>The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.</p>
+
+        Raises:
+            aws_sdk_appstream.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_appstream.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2928,6 +3275,11 @@ class AppStreamClient:
             type: <p>The type of image (public, private, or shared) to describe. </p>
             next_token: <p>The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.</p>
             max_results: <p>The maximum size of each page of results.</p>
+
+        Raises:
+            aws_sdk_appstream.errors.invalid_parameter_combination_exception.InvalidParameterCombinationException: <p>Indicates an incorrect combination of parameters, or a missing parameter.</p>
+            aws_sdk_appstream.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_appstream.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2988,6 +3340,10 @@ class AppStreamClient:
             limit: <p>The size of each page of results. The default value is 20 and the maximum value is 50.</p>
             authentication_type: <p>The authentication method. Specify <code>API</code> for a user authenticated using a streaming URL or <code>SAML</code> for a SAML federated user. The default is to authenticate users using a streaming URL.</p>
             instance_id: <p>The identifier for the instance hosting the session.</p>
+
+        Raises:
+            aws_sdk_appstream.errors.invalid_parameter_combination_exception.InvalidParameterCombinationException: <p>Indicates an incorrect combination of parameters, or a missing parameter.</p>
+            aws_sdk_appstream.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3040,6 +3396,11 @@ class AppStreamClient:
             associated_resource: <p>The ARN of the resource to describe software associations. Possible resources are Image and ImageBuilder.</p>
             max_results: <p>The maximum number of results to return.</p>
             next_token: <p>The pagination token to use to retrieve the next page of results for this operation.</p>
+
+        Raises:
+            aws_sdk_appstream.errors.operation_not_permitted_exception.OperationNotPermittedException: <p>The attempted operation is not permitted.</p>
+            aws_sdk_appstream.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_appstream.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3083,6 +3444,10 @@ class AppStreamClient:
         Args:
             names: <p>The names of the stacks to describe.</p>
             next_token: <p>The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.</p>
+
+        Raises:
+            aws_sdk_appstream.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_appstream.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3123,6 +3488,11 @@ class AppStreamClient:
 
         Args:
             stack_name: <p>The name of the stack for the theme.</p>
+
+        Raises:
+            aws_sdk_appstream.errors.operation_not_permitted_exception.OperationNotPermittedException: <p>The attempted operation is not permitted.</p>
+            aws_sdk_appstream.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_appstream.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3162,6 +3532,11 @@ class AppStreamClient:
         Args:
             max_results: <p>The maximum size of each page of results.</p>
             next_token: <p>The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.</p>
+
+        Raises:
+            aws_sdk_appstream.errors.invalid_account_status_exception.InvalidAccountStatusException: <p>The resource cannot be created because your AWS account is suspended. For assistance, contact AWS Support. </p>
+            aws_sdk_appstream.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_appstream.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3206,6 +3581,12 @@ class AppStreamClient:
             authentication_type: <p>The authentication type for the users in the user pool to describe. You must specify USERPOOL.</p>
             max_results: <p>The maximum size of each page of results.</p>
             next_token: <p>The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.</p>
+
+        Raises:
+            aws_sdk_appstream.errors.invalid_parameter_combination_exception.InvalidParameterCombinationException: <p>Indicates an incorrect combination of parameters, or a missing parameter.</p>
+            aws_sdk_appstream.errors.operation_not_permitted_exception.OperationNotPermittedException: <p>The attempted operation is not permitted.</p>
+            aws_sdk_appstream.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_appstream.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3257,6 +3638,11 @@ class AppStreamClient:
             authentication_type: <p>The authentication type for the user who is associated with the stack. You must specify USERPOOL.</p>
             max_results: <p>The maximum size of each page of results.</p>
             next_token: <p>The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.</p>
+
+        Raises:
+            aws_sdk_appstream.errors.invalid_parameter_combination_exception.InvalidParameterCombinationException: <p>Indicates an incorrect combination of parameters, or a missing parameter.</p>
+            aws_sdk_appstream.errors.operation_not_permitted_exception.OperationNotPermittedException: <p>The attempted operation is not permitted.</p>
+            aws_sdk_appstream.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3305,6 +3691,10 @@ class AppStreamClient:
         Args:
             user_name: <p>The email address of the user.</p> <note> <p>Users' email addresses are case-sensitive.</p> </note>
             authentication_type: <p>The authentication type for the user. You must specify USERPOOL.</p>
+
+        Raises:
+            aws_sdk_appstream.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_appstream.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3345,6 +3735,13 @@ class AppStreamClient:
         Args:
             app_block_arn: <p>The ARN of the app block.</p>
             app_block_builder_name: <p>The name of the app block builder.</p>
+
+        Raises:
+            aws_sdk_appstream.errors.concurrent_modification_exception.ConcurrentModificationException: <p>An API error occurred. Wait a few minutes and try again.</p>
+            aws_sdk_appstream.errors.invalid_parameter_combination_exception.InvalidParameterCombinationException: <p>Indicates an incorrect combination of parameters, or a missing parameter.</p>
+            aws_sdk_appstream.errors.operation_not_permitted_exception.OperationNotPermittedException: <p>The attempted operation is not permitted.</p>
+            aws_sdk_appstream.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_appstream.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3385,6 +3782,12 @@ class AppStreamClient:
         Args:
             fleet_name: <p>The name of the fleet.</p>
             application_arn: <p>The ARN of the application.</p>
+
+        Raises:
+            aws_sdk_appstream.errors.concurrent_modification_exception.ConcurrentModificationException: <p>An API error occurred. Wait a few minutes and try again.</p>
+            aws_sdk_appstream.errors.invalid_parameter_combination_exception.InvalidParameterCombinationException: <p>Indicates an incorrect combination of parameters, or a missing parameter.</p>
+            aws_sdk_appstream.errors.operation_not_permitted_exception.OperationNotPermittedException: <p>The attempted operation is not permitted.</p>
+            aws_sdk_appstream.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3427,6 +3830,12 @@ class AppStreamClient:
             stack_name: <p>The name of the stack with which the entitlement is associated.</p>
             entitlement_name: <p>The name of the entitlement.</p>
             application_identifier: <p>The identifier of the application to remove from the entitlement.</p>
+
+        Raises:
+            aws_sdk_appstream.errors.entitlement_not_found_exception.EntitlementNotFoundException: <p>The entitlement can't be found.</p>
+            aws_sdk_appstream.errors.operation_not_permitted_exception.OperationNotPermittedException: <p>The attempted operation is not permitted.</p>
+            aws_sdk_appstream.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_appstream.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3468,6 +3877,13 @@ class AppStreamClient:
         Args:
             fleet_name: <p>The name of the fleet.</p>
             stack_name: <p>The name of the stack.</p>
+
+        Raises:
+            aws_sdk_appstream.errors.concurrent_modification_exception.ConcurrentModificationException: <p>An API error occurred. Wait a few minutes and try again.</p>
+            aws_sdk_appstream.errors.operation_not_permitted_exception.OperationNotPermittedException: <p>The attempted operation is not permitted.</p>
+            aws_sdk_appstream.errors.resource_in_use_exception.ResourceInUseException: <p>The specified resource is in use.</p>
+            aws_sdk_appstream.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_appstream.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3508,6 +3924,13 @@ class AppStreamClient:
         Args:
             image_builder_name: <p>The name of the target image builder instance.</p>
             software_names: <p>The list of license included applications to disassociate from the image builder.</p> <p>Possible values include the following:</p> <ul> <li> <p>Microsoft_Office_2021_LTSC_Professional_Plus_32Bit</p> </li> <li> <p>Microsoft_Office_2021_LTSC_Professional_Plus_64Bit</p> </li> <li> <p>Microsoft_Office_2024_LTSC_Professional_Plus_32Bit</p> </li> <li> <p>Microsoft_Office_2024_LTSC_Professional_Plus_64Bit</p> </li> <li> <p>Microsoft_Visio_2021_LTSC_Professional_32Bit</p> </li> <li> <p>Microsoft_Visio_2021_LTSC_Professional_64Bit</p> </li> <li> <p>Microsoft_Visio_2024_LTSC_Professional_32Bit</p> </li> <li> <p>Microsoft_Visio_2024_LTSC_Professional_64Bit</p> </li> <li> <p>Microsoft_Project_2021_Professional_32Bit</p> </li> <li> <p>Microsoft_Project_2021_Professional_64Bit</p> </li> <li> <p>Microsoft_Project_2024_Professional_32Bit</p> </li> <li> <p>Microsoft_Project_2024_Professional_64Bit</p> </li> <li> <p>Microsoft_Office_2021_LTSC_Standard_32Bit</p> </li> <li> <p>Microsoft_Office_2021_LTSC_Standard_64Bit</p> </li> <li> <p>Microsoft_Office_2024_LTSC_Standard_32Bit</p> </li> <li> <p>Microsoft_Office_2024_LTSC_Standard_64Bit</p> </li> <li> <p>Microsoft_Visio_2021_LTSC_Standard_32Bit</p> </li> <li> <p>Microsoft_Visio_2021_LTSC_Standard_64Bit</p> </li> <li> <p>Microsoft_Visio_2024_LTSC_Standard_32Bit</p> </li> <li> <p>Microsoft_Visio_2024_LTSC_Standard_64Bit</p> </li> <li> <p>Microsoft_Project_2021_Standard_32Bit</p> </li> <li> <p>Microsoft_Project_2021_Standard_64Bit</p> </li> <li> <p>Microsoft_Project_2024_Standard_32Bit</p> </li> <li> <p>Microsoft_Project_2024_Standard_64Bit</p> </li> </ul>
+
+        Raises:
+            aws_sdk_appstream.errors.concurrent_modification_exception.ConcurrentModificationException: <p>An API error occurred. Wait a few minutes and try again.</p>
+            aws_sdk_appstream.errors.invalid_parameter_combination_exception.InvalidParameterCombinationException: <p>Indicates an incorrect combination of parameters, or a missing parameter.</p>
+            aws_sdk_appstream.errors.operation_not_permitted_exception.OperationNotPermittedException: <p>The attempted operation is not permitted.</p>
+            aws_sdk_appstream.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_appstream.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3546,6 +3969,12 @@ class AppStreamClient:
 
         Args:
             session_id: <p>The identifier of the streaming session.</p>
+
+        Raises:
+            aws_sdk_appstream.errors.concurrent_modification_exception.ConcurrentModificationException: <p>An API error occurred. Wait a few minutes and try again.</p>
+            aws_sdk_appstream.errors.operation_not_permitted_exception.OperationNotPermittedException: <p>The attempted operation is not permitted.</p>
+            aws_sdk_appstream.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_appstream.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3585,6 +4014,11 @@ class AppStreamClient:
         Args:
             user_name: <p>The email address of the user.</p> <note> <p>Users' email addresses are case-sensitive. During login, if they specify an email address that doesn't use the same capitalization as the email address specified when their user pool account was created, a \"user does not exist\" error message displays. </p> </note>
             authentication_type: <p>The authentication type for the user. You must specify USERPOOL.</p>
+
+        Raises:
+            aws_sdk_appstream.errors.invalid_account_status_exception.InvalidAccountStatusException: <p>The resource cannot be created because your AWS account is suspended. For assistance, contact AWS Support. </p>
+            aws_sdk_appstream.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_appstream.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3623,6 +4057,9 @@ class AppStreamClient:
 
         Args:
             session_id: <p>The identifier of the streaming session.</p>
+
+        Raises:
+            aws_sdk_appstream.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3662,6 +4099,11 @@ class AppStreamClient:
 
         Args:
             task_id: <p>The unique identifier of the export image task to retrieve information about.</p>
+
+        Raises:
+            aws_sdk_appstream.errors.operation_not_permitted_exception.OperationNotPermittedException: <p>The attempted operation is not permitted.</p>
+            aws_sdk_appstream.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_appstream.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3702,6 +4144,9 @@ class AppStreamClient:
         Args:
             stack_name: <p>The name of the stack.</p>
             next_token: <p>The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.</p>
+
+        Raises:
+            aws_sdk_appstream.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3743,6 +4188,9 @@ class AppStreamClient:
         Args:
             fleet_name: <p>The name of the fleet.</p>
             next_token: <p>The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.</p>
+
+        Raises:
+            aws_sdk_appstream.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3788,6 +4236,12 @@ class AppStreamClient:
             entitlement_name: <p>The name of the entitlement.</p>
             next_token: <p>The pagination token used to retrieve the next page of results for this operation.</p>
             max_results: <p>The maximum size of each page of results.</p>
+
+        Raises:
+            aws_sdk_appstream.errors.entitlement_not_found_exception.EntitlementNotFoundException: <p>The entitlement can't be found.</p>
+            aws_sdk_appstream.errors.operation_not_permitted_exception.OperationNotPermittedException: <p>The attempted operation is not permitted.</p>
+            aws_sdk_appstream.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_appstream.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3834,6 +4288,10 @@ class AppStreamClient:
             filters: <p>Optional filters to apply when listing export image tasks. Filters help you narrow down the results based on specific criteria.</p>
             max_results: <p>The maximum number of export image tasks to return in a single request. The valid range is 1-500, with a default of 50.</p>
             next_token: <p>The pagination token from a previous request. Use this to retrieve the next page of results when there are more tasks than the MaxResults limit.</p>
+
+        Raises:
+            aws_sdk_appstream.errors.operation_not_permitted_exception.OperationNotPermittedException: <p>The attempted operation is not permitted.</p>
+            aws_sdk_appstream.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3876,6 +4334,10 @@ class AppStreamClient:
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource.</p>
+
+        Raises:
+            aws_sdk_appstream.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_appstream.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3913,6 +4375,16 @@ class AppStreamClient:
 
         Args:
             name: <p>The name of the app block builder.</p>
+
+        Raises:
+            aws_sdk_appstream.errors.concurrent_modification_exception.ConcurrentModificationException: <p>An API error occurred. Wait a few minutes and try again.</p>
+            aws_sdk_appstream.errors.invalid_account_status_exception.InvalidAccountStatusException: <p>The resource cannot be created because your AWS account is suspended. For assistance, contact AWS Support. </p>
+            aws_sdk_appstream.errors.limit_exceeded_exception.LimitExceededException: <p>The requested limit exceeds the permitted limit for an account.</p>
+            aws_sdk_appstream.errors.operation_not_permitted_exception.OperationNotPermittedException: <p>The attempted operation is not permitted.</p>
+            aws_sdk_appstream.errors.request_limit_exceeded_exception.RequestLimitExceededException: <p>WorkSpaces Applications can’t process the request right now because the Describe calls from your AWS account are being throttled by Amazon EC2. Try again later.</p>
+            aws_sdk_appstream.errors.resource_not_available_exception.ResourceNotAvailableException: <p>The specified resource exists and is not in use, but isn't available.</p>
+            aws_sdk_appstream.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_appstream.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3950,6 +4422,17 @@ class AppStreamClient:
 
         Args:
             name: <p>The name of the fleet.</p>
+
+        Raises:
+            aws_sdk_appstream.errors.concurrent_modification_exception.ConcurrentModificationException: <p>An API error occurred. Wait a few minutes and try again.</p>
+            aws_sdk_appstream.errors.invalid_account_status_exception.InvalidAccountStatusException: <p>The resource cannot be created because your AWS account is suspended. For assistance, contact AWS Support. </p>
+            aws_sdk_appstream.errors.invalid_role_exception.InvalidRoleException: <p>The specified role is invalid.</p>
+            aws_sdk_appstream.errors.limit_exceeded_exception.LimitExceededException: <p>The requested limit exceeds the permitted limit for an account.</p>
+            aws_sdk_appstream.errors.operation_not_permitted_exception.OperationNotPermittedException: <p>The attempted operation is not permitted.</p>
+            aws_sdk_appstream.errors.request_limit_exceeded_exception.RequestLimitExceededException: <p>WorkSpaces Applications can’t process the request right now because the Describe calls from your AWS account are being throttled by Amazon EC2. Try again later.</p>
+            aws_sdk_appstream.errors.resource_not_available_exception.ResourceNotAvailableException: <p>The specified resource exists and is not in use, but isn't available.</p>
+            aws_sdk_appstream.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_appstream.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3991,6 +4474,14 @@ class AppStreamClient:
         Args:
             name: <p>The name of the image builder.</p>
             appstream_agent_version: <p>The version of the WorkSpaces Applications agent to use for this image builder. To use the latest version of the WorkSpaces Applications agent, specify [LATEST]. </p>
+
+        Raises:
+            aws_sdk_appstream.errors.concurrent_modification_exception.ConcurrentModificationException: <p>An API error occurred. Wait a few minutes and try again.</p>
+            aws_sdk_appstream.errors.incompatible_image_exception.IncompatibleImageException: <p>The image can't be updated because it's not compatible for updates.</p>
+            aws_sdk_appstream.errors.invalid_account_status_exception.InvalidAccountStatusException: <p>The resource cannot be created because your AWS account is suspended. For assistance, contact AWS Support. </p>
+            aws_sdk_appstream.errors.resource_not_available_exception.ResourceNotAvailableException: <p>The specified resource exists and is not in use, but isn't available.</p>
+            aws_sdk_appstream.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_appstream.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4034,6 +4525,12 @@ class AppStreamClient:
         Args:
             image_builder_name: <p>The name of the target image builder instance.</p>
             retry_failed_deployments: <p>Whether to retry previously failed license included application deployments.</p>
+
+        Raises:
+            aws_sdk_appstream.errors.concurrent_modification_exception.ConcurrentModificationException: <p>An API error occurred. Wait a few minutes and try again.</p>
+            aws_sdk_appstream.errors.operation_not_permitted_exception.OperationNotPermittedException: <p>The attempted operation is not permitted.</p>
+            aws_sdk_appstream.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_appstream.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4073,6 +4570,12 @@ class AppStreamClient:
 
         Args:
             name: <p>The name of the app block builder.</p>
+
+        Raises:
+            aws_sdk_appstream.errors.concurrent_modification_exception.ConcurrentModificationException: <p>An API error occurred. Wait a few minutes and try again.</p>
+            aws_sdk_appstream.errors.operation_not_permitted_exception.OperationNotPermittedException: <p>The attempted operation is not permitted.</p>
+            aws_sdk_appstream.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_appstream.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4110,6 +4613,11 @@ class AppStreamClient:
 
         Args:
             name: <p>The name of the fleet.</p>
+
+        Raises:
+            aws_sdk_appstream.errors.concurrent_modification_exception.ConcurrentModificationException: <p>An API error occurred. Wait a few minutes and try again.</p>
+            aws_sdk_appstream.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_appstream.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4147,6 +4655,12 @@ class AppStreamClient:
 
         Args:
             name: <p>The name of the image builder.</p>
+
+        Raises:
+            aws_sdk_appstream.errors.concurrent_modification_exception.ConcurrentModificationException: <p>An API error occurred. Wait a few minutes and try again.</p>
+            aws_sdk_appstream.errors.operation_not_permitted_exception.OperationNotPermittedException: <p>The attempted operation is not permitted.</p>
+            aws_sdk_appstream.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_appstream.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4186,6 +4700,12 @@ class AppStreamClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource.</p>
             tags: <p>The tags to associate. A tag is a key-value pair, and the value is optional. For example, Environment=Test. If you do not specify a value, Environment=. </p> <p>If you do not specify a value, the value is set to an empty string.</p> <p>Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following special characters: </p> <p>_ . : / = + \ - @</p>
+
+        Raises:
+            aws_sdk_appstream.errors.invalid_account_status_exception.InvalidAccountStatusException: <p>The resource cannot be created because your AWS account is suspended. For assistance, contact AWS Support. </p>
+            aws_sdk_appstream.errors.limit_exceeded_exception.LimitExceededException: <p>The requested limit exceeds the permitted limit for an account.</p>
+            aws_sdk_appstream.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_appstream.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4226,6 +4746,10 @@ class AppStreamClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource.</p>
             tag_keys: <p>The tag keys for the tags to disassociate.</p>
+
+        Raises:
+            aws_sdk_appstream.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_appstream.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4294,6 +4818,19 @@ class AppStreamClient:
             access_endpoints: <p>The list of interface VPC endpoint (interface endpoint) objects. Administrators can connect to the app block builder only through the specified endpoints.</p>
             attributes_to_delete: <p>The attributes to delete from the app block builder.</p>
             disable_imdsv1: <p>Set to true to disable Instance Metadata Service Version 1 (IMDSv1) and enforce IMDSv2. Set to false to enable both IMDSv1 and IMDSv2.</p>
+
+        Raises:
+            aws_sdk_appstream.errors.concurrent_modification_exception.ConcurrentModificationException: <p>An API error occurred. Wait a few minutes and try again.</p>
+            aws_sdk_appstream.errors.invalid_account_status_exception.InvalidAccountStatusException: <p>The resource cannot be created because your AWS account is suspended. For assistance, contact AWS Support. </p>
+            aws_sdk_appstream.errors.invalid_parameter_combination_exception.InvalidParameterCombinationException: <p>Indicates an incorrect combination of parameters, or a missing parameter.</p>
+            aws_sdk_appstream.errors.invalid_role_exception.InvalidRoleException: <p>The specified role is invalid.</p>
+            aws_sdk_appstream.errors.limit_exceeded_exception.LimitExceededException: <p>The requested limit exceeds the permitted limit for an account.</p>
+            aws_sdk_appstream.errors.operation_not_permitted_exception.OperationNotPermittedException: <p>The attempted operation is not permitted.</p>
+            aws_sdk_appstream.errors.request_limit_exceeded_exception.RequestLimitExceededException: <p>WorkSpaces Applications can’t process the request right now because the Describe calls from your AWS account are being throttled by Amazon EC2. Try again later.</p>
+            aws_sdk_appstream.errors.resource_in_use_exception.ResourceInUseException: <p>The specified resource is in use.</p>
+            aws_sdk_appstream.errors.resource_not_available_exception.ResourceNotAvailableException: <p>The specified resource exists and is not in use, but isn't available.</p>
+            aws_sdk_appstream.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_appstream.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4373,6 +4910,12 @@ class AppStreamClient:
             launch_parameters: <p>The launch parameters of the application.</p>
             app_block_arn: <p>The ARN of the app block.</p>
             attributes_to_delete: <p>The attributes to delete for an application.</p>
+
+        Raises:
+            aws_sdk_appstream.errors.concurrent_modification_exception.ConcurrentModificationException: <p>An API error occurred. Wait a few minutes and try again.</p>
+            aws_sdk_appstream.errors.operation_not_permitted_exception.OperationNotPermittedException: <p>The attempted operation is not permitted.</p>
+            aws_sdk_appstream.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_appstream.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4438,6 +4981,15 @@ class AppStreamClient:
             organizational_unit_distinguished_names: <p>The distinguished names of the organizational units for computer accounts.</p>
             service_account_credentials: <p>The credentials for the service account used by the fleet or image builder to connect to the directory.</p>
             certificate_based_auth_properties: <p>The certificate-based authentication properties used to authenticate SAML 2.0 Identity Provider (IdP) user identities to Active Directory domain-joined streaming instances. Fallback is turned on by default when certificate-based authentication is <b>Enabled</b> . Fallback allows users to log in using their AD domain password if certificate-based authentication is unsuccessful, or to unlock a desktop lock screen. <b>Enabled_no_directory_login_fallback</b> enables certificate-based authentication, but does not allow users to log in using their AD domain password. Users will be disconnected to re-authenticate using certificates.</p>
+
+        Raises:
+            aws_sdk_appstream.errors.concurrent_modification_exception.ConcurrentModificationException: <p>An API error occurred. Wait a few minutes and try again.</p>
+            aws_sdk_appstream.errors.incompatible_image_exception.IncompatibleImageException: <p>The image can't be updated because it's not compatible for updates.</p>
+            aws_sdk_appstream.errors.invalid_role_exception.InvalidRoleException: <p>The specified role is invalid.</p>
+            aws_sdk_appstream.errors.operation_not_permitted_exception.OperationNotPermittedException: <p>The attempted operation is not permitted.</p>
+            aws_sdk_appstream.errors.resource_in_use_exception.ResourceInUseException: <p>The specified resource is in use.</p>
+            aws_sdk_appstream.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_appstream.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4497,6 +5049,13 @@ class AppStreamClient:
             description: <p>The description of the entitlement.</p>
             app_visibility: <p>Specifies whether all or only selected apps are entitled.</p>
             attributes: <p>The attributes of the entitlement.</p>
+
+        Raises:
+            aws_sdk_appstream.errors.concurrent_modification_exception.ConcurrentModificationException: <p>An API error occurred. Wait a few minutes and try again.</p>
+            aws_sdk_appstream.errors.entitlement_not_found_exception.EntitlementNotFoundException: <p>The entitlement can't be found.</p>
+            aws_sdk_appstream.errors.operation_not_permitted_exception.OperationNotPermittedException: <p>The attempted operation is not permitted.</p>
+            aws_sdk_appstream.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_appstream.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4615,6 +5174,20 @@ class AppStreamClient:
             max_sessions_per_instance: <p>The maximum number of user sessions on an instance. This only applies to multi-session fleets.</p>
             root_volume_config: <p>The updated configuration for the root volume of fleet instances. Note that volume size cannot be decreased below the image volume size.</p>
             disable_imdsv1: <p>Set to true to disable Instance Metadata Service Version 1 (IMDSv1) and enforce IMDSv2. Set to false to enable both IMDSv1 and IMDSv2.</p> <note> <p>Before disabling IMDSv1, ensure your WorkSpaces Applications images are running the agent version or managed image update released on or after January 16, 2024 to support IMDSv2 enforcement.</p> </note>
+
+        Raises:
+            aws_sdk_appstream.errors.concurrent_modification_exception.ConcurrentModificationException: <p>An API error occurred. Wait a few minutes and try again.</p>
+            aws_sdk_appstream.errors.incompatible_image_exception.IncompatibleImageException: <p>The image can't be updated because it's not compatible for updates.</p>
+            aws_sdk_appstream.errors.invalid_account_status_exception.InvalidAccountStatusException: <p>The resource cannot be created because your AWS account is suspended. For assistance, contact AWS Support. </p>
+            aws_sdk_appstream.errors.invalid_parameter_combination_exception.InvalidParameterCombinationException: <p>Indicates an incorrect combination of parameters, or a missing parameter.</p>
+            aws_sdk_appstream.errors.invalid_role_exception.InvalidRoleException: <p>The specified role is invalid.</p>
+            aws_sdk_appstream.errors.limit_exceeded_exception.LimitExceededException: <p>The requested limit exceeds the permitted limit for an account.</p>
+            aws_sdk_appstream.errors.operation_not_permitted_exception.OperationNotPermittedException: <p>The attempted operation is not permitted.</p>
+            aws_sdk_appstream.errors.request_limit_exceeded_exception.RequestLimitExceededException: <p>WorkSpaces Applications can’t process the request right now because the Describe calls from your AWS account are being throttled by Amazon EC2. Try again later.</p>
+            aws_sdk_appstream.errors.resource_in_use_exception.ResourceInUseException: <p>The specified resource is in use.</p>
+            aws_sdk_appstream.errors.resource_not_available_exception.ResourceNotAvailableException: <p>The specified resource exists and is not in use, but isn't available.</p>
+            aws_sdk_appstream.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_appstream.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4705,6 +5278,12 @@ class AppStreamClient:
             name: <p>The name of the private image.</p>
             shared_account_id: <p>The 12-digit identifier of the AWS account for which you want add or update image permissions.</p>
             image_permissions: <p>The permissions for the image.</p>
+
+        Raises:
+            aws_sdk_appstream.errors.limit_exceeded_exception.LimitExceededException: <p>The requested limit exceeds the permitted limit for an account.</p>
+            aws_sdk_appstream.errors.resource_not_available_exception.ResourceNotAvailableException: <p>The specified resource exists and is not in use, but isn't available.</p>
+            aws_sdk_appstream.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_appstream.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4797,6 +5376,18 @@ class AppStreamClient:
             embed_host_domains: <p>The domains where WorkSpaces Applications streaming sessions can be embedded in an iframe. You must approve the domains that you want to host embedded WorkSpaces Applications streaming sessions. </p>
             streaming_experience_settings: <p>The streaming protocol you want your stack to prefer. This can be UDP or TCP. Currently, UDP is only supported in the Windows native client.</p>
             agent_access_config: <p>The configuration for agent access on the stack. Specify this to update agent access settings. To remove agent access, use AttributesToDelete with the AGENT_ACCESS_CONFIG value.</p>
+
+        Raises:
+            aws_sdk_appstream.errors.concurrent_modification_exception.ConcurrentModificationException: <p>An API error occurred. Wait a few minutes and try again.</p>
+            aws_sdk_appstream.errors.incompatible_image_exception.IncompatibleImageException: <p>The image can't be updated because it's not compatible for updates.</p>
+            aws_sdk_appstream.errors.invalid_account_status_exception.InvalidAccountStatusException: <p>The resource cannot be created because your AWS account is suspended. For assistance, contact AWS Support. </p>
+            aws_sdk_appstream.errors.invalid_parameter_combination_exception.InvalidParameterCombinationException: <p>Indicates an incorrect combination of parameters, or a missing parameter.</p>
+            aws_sdk_appstream.errors.invalid_role_exception.InvalidRoleException: <p>The specified role is invalid.</p>
+            aws_sdk_appstream.errors.limit_exceeded_exception.LimitExceededException: <p>The requested limit exceeds the permitted limit for an account.</p>
+            aws_sdk_appstream.errors.operation_not_permitted_exception.OperationNotPermittedException: <p>The attempted operation is not permitted.</p>
+            aws_sdk_appstream.errors.resource_in_use_exception.ResourceInUseException: <p>The specified resource is in use.</p>
+            aws_sdk_appstream.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_appstream.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4888,6 +5479,15 @@ class AppStreamClient:
             favicon_s3_location: <p>The S3 location of the favicon. The favicon enables users to recognize their application streaming site in a browser full of tabs or bookmarks. It is displayed at the top of the browser tab for the application streaming site during users' streaming sessions.</p>
             state: <p>Specifies whether custom branding should be applied to catalog page or not.</p>
             attributes_to_delete: <p>The attributes to delete.</p>
+
+        Raises:
+            aws_sdk_appstream.errors.concurrent_modification_exception.ConcurrentModificationException: <p>An API error occurred. Wait a few minutes and try again.</p>
+            aws_sdk_appstream.errors.invalid_account_status_exception.InvalidAccountStatusException: <p>The resource cannot be created because your AWS account is suspended. For assistance, contact AWS Support. </p>
+            aws_sdk_appstream.errors.invalid_parameter_combination_exception.InvalidParameterCombinationException: <p>Indicates an incorrect combination of parameters, or a missing parameter.</p>
+            aws_sdk_appstream.errors.limit_exceeded_exception.LimitExceededException: <p>The requested limit exceeds the permitted limit for an account.</p>
+            aws_sdk_appstream.errors.operation_not_permitted_exception.OperationNotPermittedException: <p>The attempted operation is not permitted.</p>
+            aws_sdk_appstream.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_appstream.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(

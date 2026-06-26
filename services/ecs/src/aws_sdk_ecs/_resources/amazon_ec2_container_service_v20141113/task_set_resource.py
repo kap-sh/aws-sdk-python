@@ -56,6 +56,19 @@ class TaskSetResource:
             task_set: <p>The short name or full Amazon Resource Name (ARN) of the task set to update.</p>
             scale: <p>A floating-point percentage of the desired number of tasks to place and keep running in the task set.</p>
 
+        Raises:
+            aws_sdk_ecs.errors.access_denied_exception.AccessDeniedException: <p>You don't have authorization to perform the requested action.</p>
+            aws_sdk_ecs.errors.client_exception.ClientException: <p>These errors are usually caused by a client action. This client action might be using an action or resource on behalf of a user that doesn't have permissions to use the action or resource. Or, it might be specifying an identifier that isn't valid.</p>
+            aws_sdk_ecs.errors.cluster_not_found_exception.ClusterNotFoundException: <p>The specified cluster wasn't found. You can view your available clusters with <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListClusters.html\">ListClusters</a>. Amazon ECS clusters are Region specific.</p>
+            aws_sdk_ecs.errors.invalid_parameter_exception.InvalidParameterException: <p>The specified parameter isn't valid. Review the available parameters for the API request.</p> <p>For more information about service event errors, see <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-event-messages-list.html\">Amazon ECS service event messages</a>. </p>
+            aws_sdk_ecs.errors.limit_exceeded_exception.LimitExceededException: <p>The limit for the resource was exceeded.</p>
+            aws_sdk_ecs.errors.server_exception.ServerException: <p>These errors are usually caused by a server issue.</p>
+            aws_sdk_ecs.errors.service_not_active_exception.ServiceNotActiveException: <p>The specified service isn't active. You can't update a service that's inactive. If you have previously deleted a service, you can re-create it with <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateService.html\">CreateService</a>.</p>
+            aws_sdk_ecs.errors.service_not_found_exception.ServiceNotFoundException: <p>The specified service wasn't found. You can view your available services with <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListServices.html\">ListServices</a>. Amazon ECS services are cluster specific and Region specific.</p>
+            aws_sdk_ecs.errors.task_set_not_found_exception.TaskSetNotFoundException: <p>The specified task set wasn't found. You can view your available task sets with <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DescribeTaskSets.html\">DescribeTaskSets</a>. Task sets are specific to each cluster, service and Region.</p>
+            aws_sdk_ecs.errors.unsupported_feature_exception.UnsupportedFeatureException: <p>The specified task isn't supported in this Region.</p>
+            aws_sdk_ecs.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To update a task set
             This example updates the task set to adjust the scale.
@@ -107,6 +120,19 @@ class TaskSetResource:
             service: <p>The short name or full Amazon Resource Name (ARN) of the service that hosts the task set to delete.</p>
             task_set: <p>The task set ID or full Amazon Resource Name (ARN) of the task set to delete.</p>
             force: <p>If <code>true</code>, you can delete a task set even if it hasn't been scaled down to zero.</p>
+
+        Raises:
+            aws_sdk_ecs.errors.access_denied_exception.AccessDeniedException: <p>You don't have authorization to perform the requested action.</p>
+            aws_sdk_ecs.errors.client_exception.ClientException: <p>These errors are usually caused by a client action. This client action might be using an action or resource on behalf of a user that doesn't have permissions to use the action or resource. Or, it might be specifying an identifier that isn't valid.</p>
+            aws_sdk_ecs.errors.cluster_not_found_exception.ClusterNotFoundException: <p>The specified cluster wasn't found. You can view your available clusters with <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListClusters.html\">ListClusters</a>. Amazon ECS clusters are Region specific.</p>
+            aws_sdk_ecs.errors.invalid_parameter_exception.InvalidParameterException: <p>The specified parameter isn't valid. Review the available parameters for the API request.</p> <p>For more information about service event errors, see <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-event-messages-list.html\">Amazon ECS service event messages</a>. </p>
+            aws_sdk_ecs.errors.limit_exceeded_exception.LimitExceededException: <p>The limit for the resource was exceeded.</p>
+            aws_sdk_ecs.errors.server_exception.ServerException: <p>These errors are usually caused by a server issue.</p>
+            aws_sdk_ecs.errors.service_not_active_exception.ServiceNotActiveException: <p>The specified service isn't active. You can't update a service that's inactive. If you have previously deleted a service, you can re-create it with <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateService.html\">CreateService</a>.</p>
+            aws_sdk_ecs.errors.service_not_found_exception.ServiceNotFoundException: <p>The specified service wasn't found. You can view your available services with <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListServices.html\">ListServices</a>. Amazon ECS services are cluster specific and Region specific.</p>
+            aws_sdk_ecs.errors.task_set_not_found_exception.TaskSetNotFoundException: <p>The specified task set wasn't found. You can view your available task sets with <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DescribeTaskSets.html\">DescribeTaskSets</a>. Task sets are specific to each cluster, service and Region.</p>
+            aws_sdk_ecs.errors.unsupported_feature_exception.UnsupportedFeatureException: <p>The specified task isn't supported in this Region.</p>
+            aws_sdk_ecs.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To delete a task set within a service that uses the EXTERNAL deployment controller type
@@ -187,6 +213,21 @@ class TaskSetResource:
             client_token: <p>An identifier that you provide to ensure the idempotency of the request. It must be unique and is case sensitive. Up to 36 ASCII characters in the range of 33-126 (inclusive) are allowed.</p>
             tags: <p>The metadata that you apply to the task set to help you categorize and organize them. Each tag consists of a key and an optional value. You define both. When a service is deleted, the tags are deleted.</p> <p>The following basic restrictions apply to tags:</p> <ul> <li> <p>Maximum number of tags per resource - 50</p> </li> <li> <p>For each resource, each tag key must be unique, and each tag key can have only one value.</p> </li> <li> <p>Maximum key length - 128 Unicode characters in UTF-8</p> </li> <li> <p>Maximum value length - 256 Unicode characters in UTF-8</p> </li> <li> <p>If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.</p> </li> <li> <p>Tag keys and values are case-sensitive.</p> </li> <li> <p>Do not use <code>aws:</code>, <code>AWS:</code>, or any upper or lowercase combination of such as a prefix for either keys or values as it is reserved for Amazon Web Services use. You cannot edit or delete tag keys or values with this prefix. Tags with this prefix do not count against your tags per resource limit.</p> </li> </ul>
 
+        Raises:
+            aws_sdk_ecs.errors.access_denied_exception.AccessDeniedException: <p>You don't have authorization to perform the requested action.</p>
+            aws_sdk_ecs.errors.client_exception.ClientException: <p>These errors are usually caused by a client action. This client action might be using an action or resource on behalf of a user that doesn't have permissions to use the action or resource. Or, it might be specifying an identifier that isn't valid.</p>
+            aws_sdk_ecs.errors.cluster_not_found_exception.ClusterNotFoundException: <p>The specified cluster wasn't found. You can view your available clusters with <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListClusters.html\">ListClusters</a>. Amazon ECS clusters are Region specific.</p>
+            aws_sdk_ecs.errors.invalid_parameter_exception.InvalidParameterException: <p>The specified parameter isn't valid. Review the available parameters for the API request.</p> <p>For more information about service event errors, see <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-event-messages-list.html\">Amazon ECS service event messages</a>. </p>
+            aws_sdk_ecs.errors.limit_exceeded_exception.LimitExceededException: <p>The limit for the resource was exceeded.</p>
+            aws_sdk_ecs.errors.namespace_not_found_exception.NamespaceNotFoundException: <p>The specified namespace wasn't found.</p>
+            aws_sdk_ecs.errors.platform_task_definition_incompatibility_exception.PlatformTaskDefinitionIncompatibilityException: <p>The specified platform version doesn't satisfy the required capabilities of the task definition.</p>
+            aws_sdk_ecs.errors.platform_unknown_exception.PlatformUnknownException: <p>The specified platform version doesn't exist.</p>
+            aws_sdk_ecs.errors.server_exception.ServerException: <p>These errors are usually caused by a server issue.</p>
+            aws_sdk_ecs.errors.service_not_active_exception.ServiceNotActiveException: <p>The specified service isn't active. You can't update a service that's inactive. If you have previously deleted a service, you can re-create it with <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateService.html\">CreateService</a>.</p>
+            aws_sdk_ecs.errors.service_not_found_exception.ServiceNotFoundException: <p>The specified service wasn't found. You can view your available services with <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListServices.html\">ListServices</a>. Amazon ECS services are cluster specific and Region specific.</p>
+            aws_sdk_ecs.errors.unsupported_feature_exception.UnsupportedFeatureException: <p>The specified task isn't supported in this Region.</p>
+            aws_sdk_ecs.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To create a task set
             This example creates a task set in a service that uses the EXTERNAL deployment controller.
@@ -260,6 +301,17 @@ class TaskSetResource:
             task_sets: <p>The ID or full Amazon Resource Name (ARN) of task sets to describe.</p>
             include: <p>Specifies whether to see the resource tags for the task set. If <code>TAGS</code> is specified, the tags are included in the response. If this field is omitted, tags aren't included in the response.</p>
 
+        Raises:
+            aws_sdk_ecs.errors.access_denied_exception.AccessDeniedException: <p>You don't have authorization to perform the requested action.</p>
+            aws_sdk_ecs.errors.client_exception.ClientException: <p>These errors are usually caused by a client action. This client action might be using an action or resource on behalf of a user that doesn't have permissions to use the action or resource. Or, it might be specifying an identifier that isn't valid.</p>
+            aws_sdk_ecs.errors.cluster_not_found_exception.ClusterNotFoundException: <p>The specified cluster wasn't found. You can view your available clusters with <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListClusters.html\">ListClusters</a>. Amazon ECS clusters are Region specific.</p>
+            aws_sdk_ecs.errors.invalid_parameter_exception.InvalidParameterException: <p>The specified parameter isn't valid. Review the available parameters for the API request.</p> <p>For more information about service event errors, see <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-event-messages-list.html\">Amazon ECS service event messages</a>. </p>
+            aws_sdk_ecs.errors.server_exception.ServerException: <p>These errors are usually caused by a server issue.</p>
+            aws_sdk_ecs.errors.service_not_active_exception.ServiceNotActiveException: <p>The specified service isn't active. You can't update a service that's inactive. If you have previously deleted a service, you can re-create it with <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateService.html\">CreateService</a>.</p>
+            aws_sdk_ecs.errors.service_not_found_exception.ServiceNotFoundException: <p>The specified service wasn't found. You can view your available services with <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListServices.html\">ListServices</a>. Amazon ECS services are cluster specific and Region specific.</p>
+            aws_sdk_ecs.errors.unsupported_feature_exception.UnsupportedFeatureException: <p>The specified task isn't supported in this Region.</p>
+            aws_sdk_ecs.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To describe a task set
             This example describes a task set in service MyService that uses an EXTERNAL deployment controller.
@@ -319,6 +371,19 @@ class AsyncTaskSetResource:
             task_set: <p>The short name or full Amazon Resource Name (ARN) of the task set to update.</p>
             scale: <p>A floating-point percentage of the desired number of tasks to place and keep running in the task set.</p>
 
+        Raises:
+            aws_sdk_ecs.errors.access_denied_exception.AccessDeniedException: <p>You don't have authorization to perform the requested action.</p>
+            aws_sdk_ecs.errors.client_exception.ClientException: <p>These errors are usually caused by a client action. This client action might be using an action or resource on behalf of a user that doesn't have permissions to use the action or resource. Or, it might be specifying an identifier that isn't valid.</p>
+            aws_sdk_ecs.errors.cluster_not_found_exception.ClusterNotFoundException: <p>The specified cluster wasn't found. You can view your available clusters with <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListClusters.html\">ListClusters</a>. Amazon ECS clusters are Region specific.</p>
+            aws_sdk_ecs.errors.invalid_parameter_exception.InvalidParameterException: <p>The specified parameter isn't valid. Review the available parameters for the API request.</p> <p>For more information about service event errors, see <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-event-messages-list.html\">Amazon ECS service event messages</a>. </p>
+            aws_sdk_ecs.errors.limit_exceeded_exception.LimitExceededException: <p>The limit for the resource was exceeded.</p>
+            aws_sdk_ecs.errors.server_exception.ServerException: <p>These errors are usually caused by a server issue.</p>
+            aws_sdk_ecs.errors.service_not_active_exception.ServiceNotActiveException: <p>The specified service isn't active. You can't update a service that's inactive. If you have previously deleted a service, you can re-create it with <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateService.html\">CreateService</a>.</p>
+            aws_sdk_ecs.errors.service_not_found_exception.ServiceNotFoundException: <p>The specified service wasn't found. You can view your available services with <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListServices.html\">ListServices</a>. Amazon ECS services are cluster specific and Region specific.</p>
+            aws_sdk_ecs.errors.task_set_not_found_exception.TaskSetNotFoundException: <p>The specified task set wasn't found. You can view your available task sets with <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DescribeTaskSets.html\">DescribeTaskSets</a>. Task sets are specific to each cluster, service and Region.</p>
+            aws_sdk_ecs.errors.unsupported_feature_exception.UnsupportedFeatureException: <p>The specified task isn't supported in this Region.</p>
+            aws_sdk_ecs.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To update a task set
             This example updates the task set to adjust the scale.
@@ -371,6 +436,19 @@ class AsyncTaskSetResource:
             service: <p>The short name or full Amazon Resource Name (ARN) of the service that hosts the task set to delete.</p>
             task_set: <p>The task set ID or full Amazon Resource Name (ARN) of the task set to delete.</p>
             force: <p>If <code>true</code>, you can delete a task set even if it hasn't been scaled down to zero.</p>
+
+        Raises:
+            aws_sdk_ecs.errors.access_denied_exception.AccessDeniedException: <p>You don't have authorization to perform the requested action.</p>
+            aws_sdk_ecs.errors.client_exception.ClientException: <p>These errors are usually caused by a client action. This client action might be using an action or resource on behalf of a user that doesn't have permissions to use the action or resource. Or, it might be specifying an identifier that isn't valid.</p>
+            aws_sdk_ecs.errors.cluster_not_found_exception.ClusterNotFoundException: <p>The specified cluster wasn't found. You can view your available clusters with <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListClusters.html\">ListClusters</a>. Amazon ECS clusters are Region specific.</p>
+            aws_sdk_ecs.errors.invalid_parameter_exception.InvalidParameterException: <p>The specified parameter isn't valid. Review the available parameters for the API request.</p> <p>For more information about service event errors, see <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-event-messages-list.html\">Amazon ECS service event messages</a>. </p>
+            aws_sdk_ecs.errors.limit_exceeded_exception.LimitExceededException: <p>The limit for the resource was exceeded.</p>
+            aws_sdk_ecs.errors.server_exception.ServerException: <p>These errors are usually caused by a server issue.</p>
+            aws_sdk_ecs.errors.service_not_active_exception.ServiceNotActiveException: <p>The specified service isn't active. You can't update a service that's inactive. If you have previously deleted a service, you can re-create it with <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateService.html\">CreateService</a>.</p>
+            aws_sdk_ecs.errors.service_not_found_exception.ServiceNotFoundException: <p>The specified service wasn't found. You can view your available services with <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListServices.html\">ListServices</a>. Amazon ECS services are cluster specific and Region specific.</p>
+            aws_sdk_ecs.errors.task_set_not_found_exception.TaskSetNotFoundException: <p>The specified task set wasn't found. You can view your available task sets with <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DescribeTaskSets.html\">DescribeTaskSets</a>. Task sets are specific to each cluster, service and Region.</p>
+            aws_sdk_ecs.errors.unsupported_feature_exception.UnsupportedFeatureException: <p>The specified task isn't supported in this Region.</p>
+            aws_sdk_ecs.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To delete a task set within a service that uses the EXTERNAL deployment controller type
@@ -452,6 +530,21 @@ class AsyncTaskSetResource:
             client_token: <p>An identifier that you provide to ensure the idempotency of the request. It must be unique and is case sensitive. Up to 36 ASCII characters in the range of 33-126 (inclusive) are allowed.</p>
             tags: <p>The metadata that you apply to the task set to help you categorize and organize them. Each tag consists of a key and an optional value. You define both. When a service is deleted, the tags are deleted.</p> <p>The following basic restrictions apply to tags:</p> <ul> <li> <p>Maximum number of tags per resource - 50</p> </li> <li> <p>For each resource, each tag key must be unique, and each tag key can have only one value.</p> </li> <li> <p>Maximum key length - 128 Unicode characters in UTF-8</p> </li> <li> <p>Maximum value length - 256 Unicode characters in UTF-8</p> </li> <li> <p>If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.</p> </li> <li> <p>Tag keys and values are case-sensitive.</p> </li> <li> <p>Do not use <code>aws:</code>, <code>AWS:</code>, or any upper or lowercase combination of such as a prefix for either keys or values as it is reserved for Amazon Web Services use. You cannot edit or delete tag keys or values with this prefix. Tags with this prefix do not count against your tags per resource limit.</p> </li> </ul>
 
+        Raises:
+            aws_sdk_ecs.errors.access_denied_exception.AccessDeniedException: <p>You don't have authorization to perform the requested action.</p>
+            aws_sdk_ecs.errors.client_exception.ClientException: <p>These errors are usually caused by a client action. This client action might be using an action or resource on behalf of a user that doesn't have permissions to use the action or resource. Or, it might be specifying an identifier that isn't valid.</p>
+            aws_sdk_ecs.errors.cluster_not_found_exception.ClusterNotFoundException: <p>The specified cluster wasn't found. You can view your available clusters with <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListClusters.html\">ListClusters</a>. Amazon ECS clusters are Region specific.</p>
+            aws_sdk_ecs.errors.invalid_parameter_exception.InvalidParameterException: <p>The specified parameter isn't valid. Review the available parameters for the API request.</p> <p>For more information about service event errors, see <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-event-messages-list.html\">Amazon ECS service event messages</a>. </p>
+            aws_sdk_ecs.errors.limit_exceeded_exception.LimitExceededException: <p>The limit for the resource was exceeded.</p>
+            aws_sdk_ecs.errors.namespace_not_found_exception.NamespaceNotFoundException: <p>The specified namespace wasn't found.</p>
+            aws_sdk_ecs.errors.platform_task_definition_incompatibility_exception.PlatformTaskDefinitionIncompatibilityException: <p>The specified platform version doesn't satisfy the required capabilities of the task definition.</p>
+            aws_sdk_ecs.errors.platform_unknown_exception.PlatformUnknownException: <p>The specified platform version doesn't exist.</p>
+            aws_sdk_ecs.errors.server_exception.ServerException: <p>These errors are usually caused by a server issue.</p>
+            aws_sdk_ecs.errors.service_not_active_exception.ServiceNotActiveException: <p>The specified service isn't active. You can't update a service that's inactive. If you have previously deleted a service, you can re-create it with <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateService.html\">CreateService</a>.</p>
+            aws_sdk_ecs.errors.service_not_found_exception.ServiceNotFoundException: <p>The specified service wasn't found. You can view your available services with <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListServices.html\">ListServices</a>. Amazon ECS services are cluster specific and Region specific.</p>
+            aws_sdk_ecs.errors.unsupported_feature_exception.UnsupportedFeatureException: <p>The specified task isn't supported in this Region.</p>
+            aws_sdk_ecs.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To create a task set
             This example creates a task set in a service that uses the EXTERNAL deployment controller.
@@ -525,6 +618,17 @@ class AsyncTaskSetResource:
             service: <p>The short name or full Amazon Resource Name (ARN) of the service that the task sets exist in.</p>
             task_sets: <p>The ID or full Amazon Resource Name (ARN) of task sets to describe.</p>
             include: <p>Specifies whether to see the resource tags for the task set. If <code>TAGS</code> is specified, the tags are included in the response. If this field is omitted, tags aren't included in the response.</p>
+
+        Raises:
+            aws_sdk_ecs.errors.access_denied_exception.AccessDeniedException: <p>You don't have authorization to perform the requested action.</p>
+            aws_sdk_ecs.errors.client_exception.ClientException: <p>These errors are usually caused by a client action. This client action might be using an action or resource on behalf of a user that doesn't have permissions to use the action or resource. Or, it might be specifying an identifier that isn't valid.</p>
+            aws_sdk_ecs.errors.cluster_not_found_exception.ClusterNotFoundException: <p>The specified cluster wasn't found. You can view your available clusters with <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListClusters.html\">ListClusters</a>. Amazon ECS clusters are Region specific.</p>
+            aws_sdk_ecs.errors.invalid_parameter_exception.InvalidParameterException: <p>The specified parameter isn't valid. Review the available parameters for the API request.</p> <p>For more information about service event errors, see <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-event-messages-list.html\">Amazon ECS service event messages</a>. </p>
+            aws_sdk_ecs.errors.server_exception.ServerException: <p>These errors are usually caused by a server issue.</p>
+            aws_sdk_ecs.errors.service_not_active_exception.ServiceNotActiveException: <p>The specified service isn't active. You can't update a service that's inactive. If you have previously deleted a service, you can re-create it with <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateService.html\">CreateService</a>.</p>
+            aws_sdk_ecs.errors.service_not_found_exception.ServiceNotFoundException: <p>The specified service wasn't found. You can view your available services with <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListServices.html\">ListServices</a>. Amazon ECS services are cluster specific and Region specific.</p>
+            aws_sdk_ecs.errors.unsupported_feature_exception.UnsupportedFeatureException: <p>The specified task isn't supported in this Region.</p>
+            aws_sdk_ecs.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To describe a task set

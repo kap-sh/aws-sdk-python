@@ -172,6 +172,16 @@ class PricingClient:
             next_token: <p>The pagination token that indicates the next set of results that you want to retrieve.</p>
             max_results: <p>The maximum number of results that you want returned in the response.</p>
 
+        Raises:
+            aws_sdk_pricing.errors.access_denied_exception.AccessDeniedException: <p>General authentication failure. The request wasn't signed correctly.</p>
+            aws_sdk_pricing.errors.expired_next_token_exception.ExpiredNextTokenException: <p>The pagination token expired. Try again without a pagination token.</p>
+            aws_sdk_pricing.errors.internal_error_exception.InternalErrorException: <p>An error on the server occurred during the processing of your request. Try again later.</p>
+            aws_sdk_pricing.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The pagination token is invalid. Try again without a pagination token.</p>
+            aws_sdk_pricing.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters had an invalid value.</p>
+            aws_sdk_pricing.errors.not_found_exception.NotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_pricing.errors.throttling_exception.ThrottlingException: <p>You've made too many requests exceeding service quotas. </p>
+            aws_sdk_pricing.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To retrieve a list of services and service codes
             Retrieves the service for the given Service Code.
@@ -261,6 +271,16 @@ class PricingClient:
             next_token: <p>The pagination token that indicates the next set of results that you want to retrieve.</p>
             max_results: <p>The maximum number of results to return in response.</p>
 
+        Raises:
+            aws_sdk_pricing.errors.access_denied_exception.AccessDeniedException: <p>General authentication failure. The request wasn't signed correctly.</p>
+            aws_sdk_pricing.errors.expired_next_token_exception.ExpiredNextTokenException: <p>The pagination token expired. Try again without a pagination token.</p>
+            aws_sdk_pricing.errors.internal_error_exception.InternalErrorException: <p>An error on the server occurred during the processing of your request. Try again later.</p>
+            aws_sdk_pricing.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The pagination token is invalid. Try again without a pagination token.</p>
+            aws_sdk_pricing.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters had an invalid value.</p>
+            aws_sdk_pricing.errors.not_found_exception.NotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_pricing.errors.throttling_exception.ThrottlingException: <p>You've made too many requests exceeding service quotas. </p>
+            aws_sdk_pricing.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To retrieve a list of attribute values
             This operation returns a list of values available for the given attribute.
@@ -337,6 +357,15 @@ class PricingClient:
         Args:
             price_list_arn: <p>The unique identifier that maps to where your Price List files are located. <code>PriceListArn</code> can be obtained from the <a href=\"https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_pricing_ListPriceLists.html\">ListPriceLists</a> response. </p>
             file_format: <p>The format that you want to retrieve your Price List files in. The <code>FileFormat</code> can be obtained from the <a href=\"https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_pricing_ListPriceLists.html\">ListPriceLists</a> response. </p>
+
+        Raises:
+            aws_sdk_pricing.errors.access_denied_exception.AccessDeniedException: <p>General authentication failure. The request wasn't signed correctly.</p>
+            aws_sdk_pricing.errors.internal_error_exception.InternalErrorException: <p>An error on the server occurred during the processing of your request. Try again later.</p>
+            aws_sdk_pricing.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters had an invalid value.</p>
+            aws_sdk_pricing.errors.not_found_exception.NotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_pricing.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_pricing.errors.throttling_exception.ThrottlingException: <p>You've made too many requests exceeding service quotas. </p>
+            aws_sdk_pricing.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -387,6 +416,16 @@ class PricingClient:
             format_version: <p>The format version that you want the response to be in.</p> <p>Valid values are: <code>aws_v1</code> </p>
             next_token: <p>The pagination token that indicates the next set of results that you want to retrieve.</p>
             max_results: <p>The maximum number of results to return in the response.</p>
+
+        Raises:
+            aws_sdk_pricing.errors.access_denied_exception.AccessDeniedException: <p>General authentication failure. The request wasn't signed correctly.</p>
+            aws_sdk_pricing.errors.expired_next_token_exception.ExpiredNextTokenException: <p>The pagination token expired. Try again without a pagination token.</p>
+            aws_sdk_pricing.errors.internal_error_exception.InternalErrorException: <p>An error on the server occurred during the processing of your request. Try again later.</p>
+            aws_sdk_pricing.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The pagination token is invalid. Try again without a pagination token.</p>
+            aws_sdk_pricing.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters had an invalid value.</p>
+            aws_sdk_pricing.errors.not_found_exception.NotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_pricing.errors.throttling_exception.ThrottlingException: <p>You've made too many requests exceeding service quotas. </p>
+            aws_sdk_pricing.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -473,6 +512,17 @@ class PricingClient:
             currency_code: <p>The three alphabetical character ISO-4217 currency code that the Price List files are denominated in. </p>
             next_token: <p>The pagination token that indicates the next set of results that you want to retrieve. </p>
             max_results: <p>The maximum number of results to return in the response. </p>
+
+        Raises:
+            aws_sdk_pricing.errors.access_denied_exception.AccessDeniedException: <p>General authentication failure. The request wasn't signed correctly.</p>
+            aws_sdk_pricing.errors.expired_next_token_exception.ExpiredNextTokenException: <p>The pagination token expired. Try again without a pagination token.</p>
+            aws_sdk_pricing.errors.internal_error_exception.InternalErrorException: <p>An error on the server occurred during the processing of your request. Try again later.</p>
+            aws_sdk_pricing.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The pagination token is invalid. Try again without a pagination token.</p>
+            aws_sdk_pricing.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters had an invalid value.</p>
+            aws_sdk_pricing.errors.not_found_exception.NotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_pricing.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_pricing.errors.throttling_exception.ThrottlingException: <p>You've made too many requests exceeding service quotas. </p>
+            aws_sdk_pricing.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(

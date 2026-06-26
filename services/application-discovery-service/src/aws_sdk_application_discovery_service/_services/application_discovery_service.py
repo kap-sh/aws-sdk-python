@@ -233,6 +233,14 @@ class ApplicationDiscoveryServiceClient:
         Args:
             application_configuration_id: <p>The configuration ID of an application with which items are to be associated.</p>
             configuration_ids: <p>The ID of each configuration item to be associated with an application.</p>
+
+        Raises:
+            aws_sdk_application_discovery_service.errors.authorization_error_exception.AuthorizationErrorException: <p>The user does not have permission to perform the action. Check the IAM policy associated with this user.</p>
+            aws_sdk_application_discovery_service.errors.home_region_not_set_exception.HomeRegionNotSetException: <p>The home Region is not set. Set the home Region to continue.</p>
+            aws_sdk_application_discovery_service.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters are not valid. Verify the parameters and try again.</p>
+            aws_sdk_application_discovery_service.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value of one or more parameters are either invalid or out of range. Verify the parameter values and try again.</p>
+            aws_sdk_application_discovery_service.errors.server_internal_error_exception.ServerInternalErrorException: <p>The server experienced an internal error. Try again.</p>
+            aws_sdk_application_discovery_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -271,6 +279,13 @@ class ApplicationDiscoveryServiceClient:
 
         Args:
             delete_agents: <p> The list of agents to delete. </p>
+
+        Raises:
+            aws_sdk_application_discovery_service.errors.authorization_error_exception.AuthorizationErrorException: <p>The user does not have permission to perform the action. Check the IAM policy associated with this user.</p>
+            aws_sdk_application_discovery_service.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters are not valid. Verify the parameters and try again.</p>
+            aws_sdk_application_discovery_service.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value of one or more parameters are either invalid or out of range. Verify the parameter values and try again.</p>
+            aws_sdk_application_discovery_service.errors.server_internal_error_exception.ServerInternalErrorException: <p>The server experienced an internal error. Try again.</p>
+            aws_sdk_application_discovery_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -312,6 +327,14 @@ class ApplicationDiscoveryServiceClient:
         Args:
             import_task_ids: <p>The IDs for the import tasks that you want to delete.</p>
             delete_history: <p> Set to <code>true</code> to remove the deleted import task from <a>DescribeImportTasks</a>. </p>
+
+        Raises:
+            aws_sdk_application_discovery_service.errors.authorization_error_exception.AuthorizationErrorException: <p>The user does not have permission to perform the action. Check the IAM policy associated with this user.</p>
+            aws_sdk_application_discovery_service.errors.home_region_not_set_exception.HomeRegionNotSetException: <p>The home Region is not set. Set the home Region to continue.</p>
+            aws_sdk_application_discovery_service.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters are not valid. Verify the parameters and try again.</p>
+            aws_sdk_application_discovery_service.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value of one or more parameters are either invalid or out of range. Verify the parameter values and try again.</p>
+            aws_sdk_application_discovery_service.errors.server_internal_error_exception.ServerInternalErrorException: <p>The server experienced an internal error. Try again.</p>
+            aws_sdk_application_discovery_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -359,6 +382,14 @@ class ApplicationDiscoveryServiceClient:
             name: <p>The name of the application to be created.</p>
             description: <p>The description of the application to be created.</p>
             wave: <p>The name of the migration wave of the application to be created.</p>
+
+        Raises:
+            aws_sdk_application_discovery_service.errors.authorization_error_exception.AuthorizationErrorException: <p>The user does not have permission to perform the action. Check the IAM policy associated with this user.</p>
+            aws_sdk_application_discovery_service.errors.home_region_not_set_exception.HomeRegionNotSetException: <p>The home Region is not set. Set the home Region to continue.</p>
+            aws_sdk_application_discovery_service.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters are not valid. Verify the parameters and try again.</p>
+            aws_sdk_application_discovery_service.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value of one or more parameters are either invalid or out of range. Verify the parameter values and try again.</p>
+            aws_sdk_application_discovery_service.errors.server_internal_error_exception.ServerInternalErrorException: <p>The server experienced an internal error. Try again.</p>
+            aws_sdk_application_discovery_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -402,6 +433,15 @@ class ApplicationDiscoveryServiceClient:
         Args:
             configuration_ids: <p>A list of configuration items that you want to tag.</p>
             tags: <p>Tags that you want to associate with one or more configuration items. Specify the tags that you want to create in a <i>key</i>-<i>value</i> format. For example:</p> <p> <code>{\"key\": \"serverType\", \"value\": \"webServer\"}</code> </p>
+
+        Raises:
+            aws_sdk_application_discovery_service.errors.authorization_error_exception.AuthorizationErrorException: <p>The user does not have permission to perform the action. Check the IAM policy associated with this user.</p>
+            aws_sdk_application_discovery_service.errors.home_region_not_set_exception.HomeRegionNotSetException: <p>The home Region is not set. Set the home Region to continue.</p>
+            aws_sdk_application_discovery_service.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters are not valid. Verify the parameters and try again.</p>
+            aws_sdk_application_discovery_service.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value of one or more parameters are either invalid or out of range. Verify the parameter values and try again.</p>
+            aws_sdk_application_discovery_service.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified configuration ID was not located. Verify the configuration ID and try again.</p>
+            aws_sdk_application_discovery_service.errors.server_internal_error_exception.ServerInternalErrorException: <p>The server experienced an internal error. Try again.</p>
+            aws_sdk_application_discovery_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -440,6 +480,14 @@ class ApplicationDiscoveryServiceClient:
 
         Args:
             configuration_ids: <p>Configuration ID of an application to be deleted.</p>
+
+        Raises:
+            aws_sdk_application_discovery_service.errors.authorization_error_exception.AuthorizationErrorException: <p>The user does not have permission to perform the action. Check the IAM policy associated with this user.</p>
+            aws_sdk_application_discovery_service.errors.home_region_not_set_exception.HomeRegionNotSetException: <p>The home Region is not set. Set the home Region to continue.</p>
+            aws_sdk_application_discovery_service.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters are not valid. Verify the parameters and try again.</p>
+            aws_sdk_application_discovery_service.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value of one or more parameters are either invalid or out of range. Verify the parameter values and try again.</p>
+            aws_sdk_application_discovery_service.errors.server_internal_error_exception.ServerInternalErrorException: <p>The server experienced an internal error. Try again.</p>
+            aws_sdk_application_discovery_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -481,6 +529,15 @@ class ApplicationDiscoveryServiceClient:
         Args:
             configuration_ids: <p>A list of configuration items with tags that you want to delete.</p>
             tags: <p>Tags that you want to delete from one or more configuration items. Specify the tags that you want to delete in a <i>key</i>-<i>value</i> format. For example:</p> <p> <code>{\"key\": \"serverType\", \"value\": \"webServer\"}</code> </p>
+
+        Raises:
+            aws_sdk_application_discovery_service.errors.authorization_error_exception.AuthorizationErrorException: <p>The user does not have permission to perform the action. Check the IAM policy associated with this user.</p>
+            aws_sdk_application_discovery_service.errors.home_region_not_set_exception.HomeRegionNotSetException: <p>The home Region is not set. Set the home Region to continue.</p>
+            aws_sdk_application_discovery_service.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters are not valid. Verify the parameters and try again.</p>
+            aws_sdk_application_discovery_service.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value of one or more parameters are either invalid or out of range. Verify the parameter values and try again.</p>
+            aws_sdk_application_discovery_service.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified configuration ID was not located. Verify the configuration ID and try again.</p>
+            aws_sdk_application_discovery_service.errors.server_internal_error_exception.ServerInternalErrorException: <p>The server experienced an internal error. Try again.</p>
+            aws_sdk_application_discovery_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -534,6 +591,14 @@ class ApplicationDiscoveryServiceClient:
             filters: <p>You can filter the request using various logical operators and a <i>key</i>-<i>value</i> format. For example: </p> <p> <code>{\"key\": \"collectionStatus\", \"value\": \"STARTED\"}</code> </p>
             max_results: <p>The total number of agents/collectors to return in a single page of output. The maximum value is 100.</p>
             next_token: <p>Token to retrieve the next set of results. For example, if you previously specified 100 IDs for <code>DescribeAgentsRequest$agentIds</code> but set <code>DescribeAgentsRequest$maxResults</code> to 10, you received a set of 10 results along with a token. Use that token in this query to get the next set of 10.</p>
+
+        Raises:
+            aws_sdk_application_discovery_service.errors.authorization_error_exception.AuthorizationErrorException: <p>The user does not have permission to perform the action. Check the IAM policy associated with this user.</p>
+            aws_sdk_application_discovery_service.errors.home_region_not_set_exception.HomeRegionNotSetException: <p>The home Region is not set. Set the home Region to continue.</p>
+            aws_sdk_application_discovery_service.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters are not valid. Verify the parameters and try again.</p>
+            aws_sdk_application_discovery_service.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value of one or more parameters are either invalid or out of range. Verify the parameter values and try again.</p>
+            aws_sdk_application_discovery_service.errors.server_internal_error_exception.ServerInternalErrorException: <p>The server experienced an internal error. Try again.</p>
+            aws_sdk_application_discovery_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -611,6 +676,13 @@ class ApplicationDiscoveryServiceClient:
 
         Args:
             task_id: <p> The ID of the task to delete. </p>
+
+        Raises:
+            aws_sdk_application_discovery_service.errors.authorization_error_exception.AuthorizationErrorException: <p>The user does not have permission to perform the action. Check the IAM policy associated with this user.</p>
+            aws_sdk_application_discovery_service.errors.home_region_not_set_exception.HomeRegionNotSetException: <p>The home Region is not set. Set the home Region to continue.</p>
+            aws_sdk_application_discovery_service.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value of one or more parameters are either invalid or out of range. Verify the parameter values and try again.</p>
+            aws_sdk_application_discovery_service.errors.server_internal_error_exception.ServerInternalErrorException: <p>The server experienced an internal error. Try again.</p>
+            aws_sdk_application_discovery_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -648,6 +720,14 @@ class ApplicationDiscoveryServiceClient:
 
         Args:
             configuration_ids: <p>One or more configuration IDs.</p>
+
+        Raises:
+            aws_sdk_application_discovery_service.errors.authorization_error_exception.AuthorizationErrorException: <p>The user does not have permission to perform the action. Check the IAM policy associated with this user.</p>
+            aws_sdk_application_discovery_service.errors.home_region_not_set_exception.HomeRegionNotSetException: <p>The home Region is not set. Set the home Region to continue.</p>
+            aws_sdk_application_discovery_service.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters are not valid. Verify the parameters and try again.</p>
+            aws_sdk_application_discovery_service.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value of one or more parameters are either invalid or out of range. Verify the parameter values and try again.</p>
+            aws_sdk_application_discovery_service.errors.server_internal_error_exception.ServerInternalErrorException: <p>The server experienced an internal error. Try again.</p>
+            aws_sdk_application_discovery_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -695,6 +775,16 @@ class ApplicationDiscoveryServiceClient:
             export_ids: <p>The unique IDs assigned to the exports.</p>
             max_results: <p>A number between 1 and 100 specifying the maximum number of continuous export descriptions returned.</p>
             next_token: <p>The token from the previous call to <code>DescribeExportTasks</code>.</p>
+
+        Raises:
+            aws_sdk_application_discovery_service.errors.authorization_error_exception.AuthorizationErrorException: <p>The user does not have permission to perform the action. Check the IAM policy associated with this user.</p>
+            aws_sdk_application_discovery_service.errors.home_region_not_set_exception.HomeRegionNotSetException: <p>The home Region is not set. Set the home Region to continue.</p>
+            aws_sdk_application_discovery_service.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters are not valid. Verify the parameters and try again.</p>
+            aws_sdk_application_discovery_service.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value of one or more parameters are either invalid or out of range. Verify the parameter values and try again.</p>
+            aws_sdk_application_discovery_service.errors.operation_not_permitted_exception.OperationNotPermittedException: <p>This operation is not permitted.</p>
+            aws_sdk_application_discovery_service.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified configuration ID was not located. Verify the configuration ID and try again.</p>
+            aws_sdk_application_discovery_service.errors.server_internal_error_exception.ServerInternalErrorException: <p>The server experienced an internal error. Try again.</p>
+            aws_sdk_application_discovery_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -776,6 +866,15 @@ class ApplicationDiscoveryServiceClient:
             export_ids: <p>A list of continuous export IDs to search for.</p>
             max_results: <p>A number between 1 and 100 specifying the maximum number of continuous export descriptions returned.</p>
             next_token: <p>The token from the previous call to describe-export-tasks.</p>
+
+        Raises:
+            aws_sdk_application_discovery_service.errors.authorization_error_exception.AuthorizationErrorException: <p>The user does not have permission to perform the action. Check the IAM policy associated with this user.</p>
+            aws_sdk_application_discovery_service.errors.home_region_not_set_exception.HomeRegionNotSetException: <p>The home Region is not set. Set the home Region to continue.</p>
+            aws_sdk_application_discovery_service.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters are not valid. Verify the parameters and try again.</p>
+            aws_sdk_application_discovery_service.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value of one or more parameters are either invalid or out of range. Verify the parameter values and try again.</p>
+            aws_sdk_application_discovery_service.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified configuration ID was not located. Verify the configuration ID and try again.</p>
+            aws_sdk_application_discovery_service.errors.server_internal_error_exception.ServerInternalErrorException: <p>The server experienced an internal error. Try again.</p>
+            aws_sdk_application_discovery_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -861,6 +960,14 @@ class ApplicationDiscoveryServiceClient:
             filters: <p>One or more filters.</p> <ul> <li> <p> <code>AgentId</code> - ID of the agent whose collected data will be exported</p> </li> </ul>
             max_results: <p>The maximum number of volume results returned by <code>DescribeExportTasks</code> in paginated output. When this parameter is used, <code>DescribeExportTasks</code> only returns <code>maxResults</code> results in a single page along with a <code>nextToken</code> response element.</p>
             next_token: <p>The <code>nextToken</code> value returned from a previous paginated <code>DescribeExportTasks</code> request where <code>maxResults</code> was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the <code>nextToken</code> value. This value is null when there are no more results to return.</p>
+
+        Raises:
+            aws_sdk_application_discovery_service.errors.authorization_error_exception.AuthorizationErrorException: <p>The user does not have permission to perform the action. Check the IAM policy associated with this user.</p>
+            aws_sdk_application_discovery_service.errors.home_region_not_set_exception.HomeRegionNotSetException: <p>The home Region is not set. Set the home Region to continue.</p>
+            aws_sdk_application_discovery_service.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters are not valid. Verify the parameters and try again.</p>
+            aws_sdk_application_discovery_service.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value of one or more parameters are either invalid or out of range. Verify the parameter values and try again.</p>
+            aws_sdk_application_discovery_service.errors.server_internal_error_exception.ServerInternalErrorException: <p>The server experienced an internal error. Try again.</p>
+            aws_sdk_application_discovery_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -948,6 +1055,14 @@ class ApplicationDiscoveryServiceClient:
             filters: <p>An array of name-value pairs that you provide to filter the results for the <code>DescribeImportTask</code> request to a specific subset of results. Currently, wildcard values aren't supported for filters.</p>
             max_results: <p>The maximum number of results that you want this request to return, up to 100.</p>
             next_token: <p>The token to request a specific page of results.</p>
+
+        Raises:
+            aws_sdk_application_discovery_service.errors.authorization_error_exception.AuthorizationErrorException: <p>The user does not have permission to perform the action. Check the IAM policy associated with this user.</p>
+            aws_sdk_application_discovery_service.errors.home_region_not_set_exception.HomeRegionNotSetException: <p>The home Region is not set. Set the home Region to continue.</p>
+            aws_sdk_application_discovery_service.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters are not valid. Verify the parameters and try again.</p>
+            aws_sdk_application_discovery_service.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value of one or more parameters are either invalid or out of range. Verify the parameter values and try again.</p>
+            aws_sdk_application_discovery_service.errors.server_internal_error_exception.ServerInternalErrorException: <p>The server experienced an internal error. Try again.</p>
+            aws_sdk_application_discovery_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1029,6 +1144,15 @@ class ApplicationDiscoveryServiceClient:
             filters: <p>You can filter the list using a <i>key</i>-<i>value</i> format. You can separate these items by using logical operators. Allowed filters include <code>tagKey</code>, <code>tagValue</code>, and <code>configurationId</code>. </p>
             max_results: <p>The total number of items to return in a single page of output. The maximum value is 100.</p>
             next_token: <p>A token to start the list. Use this token to get the next set of results.</p>
+
+        Raises:
+            aws_sdk_application_discovery_service.errors.authorization_error_exception.AuthorizationErrorException: <p>The user does not have permission to perform the action. Check the IAM policy associated with this user.</p>
+            aws_sdk_application_discovery_service.errors.home_region_not_set_exception.HomeRegionNotSetException: <p>The home Region is not set. Set the home Region to continue.</p>
+            aws_sdk_application_discovery_service.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters are not valid. Verify the parameters and try again.</p>
+            aws_sdk_application_discovery_service.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value of one or more parameters are either invalid or out of range. Verify the parameter values and try again.</p>
+            aws_sdk_application_discovery_service.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified configuration ID was not located. Verify the configuration ID and try again.</p>
+            aws_sdk_application_discovery_service.errors.server_internal_error_exception.ServerInternalErrorException: <p>The server experienced an internal error. Try again.</p>
+            aws_sdk_application_discovery_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1102,6 +1226,14 @@ class ApplicationDiscoveryServiceClient:
         Args:
             application_configuration_id: <p>Configuration ID of an application from which each item is disassociated.</p>
             configuration_ids: <p>Configuration ID of each item to be disassociated from an application.</p>
+
+        Raises:
+            aws_sdk_application_discovery_service.errors.authorization_error_exception.AuthorizationErrorException: <p>The user does not have permission to perform the action. Check the IAM policy associated with this user.</p>
+            aws_sdk_application_discovery_service.errors.home_region_not_set_exception.HomeRegionNotSetException: <p>The home Region is not set. Set the home Region to continue.</p>
+            aws_sdk_application_discovery_service.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters are not valid. Verify the parameters and try again.</p>
+            aws_sdk_application_discovery_service.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value of one or more parameters are either invalid or out of range. Verify the parameter values and try again.</p>
+            aws_sdk_application_discovery_service.errors.server_internal_error_exception.ServerInternalErrorException: <p>The server experienced an internal error. Try again.</p>
+            aws_sdk_application_discovery_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1135,7 +1267,17 @@ class ApplicationDiscoveryServiceClient:
         *,
         config_overrides: Optional[ApplicationDiscoveryServiceClientConfig] = None,
     ) -> "aws_sdk_application_discovery_service.types.export_configurations_response.ExportConfigurationsResponse":
-        """<p>Deprecated. Use <code>StartExportTask</code> instead.</p> <p>Exports all discovered configuration data to an Amazon S3 bucket or an application that enables you to view and evaluate the data. Data includes tags and tag associations, processes, connections, servers, and system performance. This API returns an export ID that you can query using the <i>DescribeExportConfigurations</i> API. The system imposes a limit of two configuration exports in six hours.</p>"""
+        """<p>Deprecated. Use <code>StartExportTask</code> instead.</p> <p>Exports all discovered configuration data to an Amazon S3 bucket or an application that enables you to view and evaluate the data. Data includes tags and tag associations, processes, connections, servers, and system performance. This API returns an export ID that you can query using the <i>DescribeExportConfigurations</i> API. The system imposes a limit of two configuration exports in six hours.</p>
+
+        Raises:
+            aws_sdk_application_discovery_service.errors.authorization_error_exception.AuthorizationErrorException: <p>The user does not have permission to perform the action. Check the IAM policy associated with this user.</p>
+            aws_sdk_application_discovery_service.errors.home_region_not_set_exception.HomeRegionNotSetException: <p>The home Region is not set. Set the home Region to continue.</p>
+            aws_sdk_application_discovery_service.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters are not valid. Verify the parameters and try again.</p>
+            aws_sdk_application_discovery_service.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value of one or more parameters are either invalid or out of range. Verify the parameter values and try again.</p>
+            aws_sdk_application_discovery_service.errors.operation_not_permitted_exception.OperationNotPermittedException: <p>This operation is not permitted.</p>
+            aws_sdk_application_discovery_service.errors.server_internal_error_exception.ServerInternalErrorException: <p>The server experienced an internal error. Try again.</p>
+            aws_sdk_application_discovery_service.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[None]",
@@ -1165,7 +1307,16 @@ class ApplicationDiscoveryServiceClient:
         *,
         config_overrides: Optional[ApplicationDiscoveryServiceClientConfig] = None,
     ) -> "aws_sdk_application_discovery_service.types.get_discovery_summary_response.GetDiscoverySummaryResponse":
-        """<p>Retrieves a short summary of discovered assets.</p> <p>This API operation takes no request parameters and is called as is at the command prompt as shown in the example.</p>"""
+        """<p>Retrieves a short summary of discovered assets.</p> <p>This API operation takes no request parameters and is called as is at the command prompt as shown in the example.</p>
+
+        Raises:
+            aws_sdk_application_discovery_service.errors.authorization_error_exception.AuthorizationErrorException: <p>The user does not have permission to perform the action. Check the IAM policy associated with this user.</p>
+            aws_sdk_application_discovery_service.errors.home_region_not_set_exception.HomeRegionNotSetException: <p>The home Region is not set. Set the home Region to continue.</p>
+            aws_sdk_application_discovery_service.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters are not valid. Verify the parameters and try again.</p>
+            aws_sdk_application_discovery_service.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value of one or more parameters are either invalid or out of range. Verify the parameter values and try again.</p>
+            aws_sdk_application_discovery_service.errors.server_internal_error_exception.ServerInternalErrorException: <p>The server experienced an internal error. Try again.</p>
+            aws_sdk_application_discovery_service.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_application_discovery_service.types.get_discovery_summary_request.GetDiscoverySummaryRequest]",
@@ -1217,6 +1368,15 @@ class ApplicationDiscoveryServiceClient:
             max_results: <p>The total number of items to return. The maximum value is 100.</p>
             next_token: <p>Token to retrieve the next set of results. For example, if a previous call to ListConfigurations returned 100 items, but you set <code>ListConfigurationsRequest$maxResults</code> to 10, you received a set of 10 results along with a token. Use that token in this query to get the next set of 10.</p>
             order_by: <p>Certain filter criteria return output that can be sorted in ascending or descending order. For a list of output characteristics for each filter, see <a href=\"https://docs.aws.amazon.com/application-discovery/latest/userguide/discovery-api-queries.html#ListConfigurations\">Using the ListConfigurations Action</a> in the <i>Amazon Web Services Application Discovery Service User Guide</i>.</p>
+
+        Raises:
+            aws_sdk_application_discovery_service.errors.authorization_error_exception.AuthorizationErrorException: <p>The user does not have permission to perform the action. Check the IAM policy associated with this user.</p>
+            aws_sdk_application_discovery_service.errors.home_region_not_set_exception.HomeRegionNotSetException: <p>The home Region is not set. Set the home Region to continue.</p>
+            aws_sdk_application_discovery_service.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters are not valid. Verify the parameters and try again.</p>
+            aws_sdk_application_discovery_service.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value of one or more parameters are either invalid or out of range. Verify the parameter values and try again.</p>
+            aws_sdk_application_discovery_service.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified configuration ID was not located. Verify the configuration ID and try again.</p>
+            aws_sdk_application_discovery_service.errors.server_internal_error_exception.ServerInternalErrorException: <p>The server experienced an internal error. Try again.</p>
+            aws_sdk_application_discovery_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1313,6 +1473,14 @@ class ApplicationDiscoveryServiceClient:
             neighbor_configuration_ids: <p>List of configuration IDs to test for one-hop-away.</p>
             max_results: <p>Maximum number of results to return in a single page of output.</p>
             next_token: <p>Token to retrieve the next set of results. For example, if you previously specified 100 IDs for <code>ListServerNeighborsRequest$neighborConfigurationIds</code> but set <code>ListServerNeighborsRequest$maxResults</code> to 10, you received a set of 10 results along with a token. Use that token in this query to get the next set of 10.</p>
+
+        Raises:
+            aws_sdk_application_discovery_service.errors.authorization_error_exception.AuthorizationErrorException: <p>The user does not have permission to perform the action. Check the IAM policy associated with this user.</p>
+            aws_sdk_application_discovery_service.errors.home_region_not_set_exception.HomeRegionNotSetException: <p>The home Region is not set. Set the home Region to continue.</p>
+            aws_sdk_application_discovery_service.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters are not valid. Verify the parameters and try again.</p>
+            aws_sdk_application_discovery_service.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value of one or more parameters are either invalid or out of range. Verify the parameter values and try again.</p>
+            aws_sdk_application_discovery_service.errors.server_internal_error_exception.ServerInternalErrorException: <p>The server experienced an internal error. Try again.</p>
+            aws_sdk_application_discovery_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1360,6 +1528,16 @@ class ApplicationDiscoveryServiceClient:
         Args:
             configuration_type: <p> The type of configuration item to delete. Supported types are: SERVER. </p>
             configuration_ids: <p> The list of configuration IDs that will be deleted by the task. </p>
+
+        Raises:
+            aws_sdk_application_discovery_service.errors.authorization_error_exception.AuthorizationErrorException: <p>The user does not have permission to perform the action. Check the IAM policy associated with this user.</p>
+            aws_sdk_application_discovery_service.errors.home_region_not_set_exception.HomeRegionNotSetException: <p>The home Region is not set. Set the home Region to continue.</p>
+            aws_sdk_application_discovery_service.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters are not valid. Verify the parameters and try again.</p>
+            aws_sdk_application_discovery_service.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value of one or more parameters are either invalid or out of range. Verify the parameter values and try again.</p>
+            aws_sdk_application_discovery_service.errors.limit_exceeded_exception.LimitExceededException: <p> The limit of 200 configuration IDs per request has been exceeded. </p>
+            aws_sdk_application_discovery_service.errors.operation_not_permitted_exception.OperationNotPermittedException: <p>This operation is not permitted.</p>
+            aws_sdk_application_discovery_service.errors.server_internal_error_exception.ServerInternalErrorException: <p>The server experienced an internal error. Try again.</p>
+            aws_sdk_application_discovery_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1393,7 +1571,19 @@ class ApplicationDiscoveryServiceClient:
         *,
         config_overrides: Optional[ApplicationDiscoveryServiceClientConfig] = None,
     ) -> "aws_sdk_application_discovery_service.types.start_continuous_export_response.StartContinuousExportResponse":
-        """<p>Start the continuous flow of agent's discovered data into Amazon Athena.</p>"""
+        """<p>Start the continuous flow of agent's discovered data into Amazon Athena.</p>
+
+        Raises:
+            aws_sdk_application_discovery_service.errors.authorization_error_exception.AuthorizationErrorException: <p>The user does not have permission to perform the action. Check the IAM policy associated with this user.</p>
+            aws_sdk_application_discovery_service.errors.conflict_error_exception.ConflictErrorException: <p>Conflict error.</p>
+            aws_sdk_application_discovery_service.errors.home_region_not_set_exception.HomeRegionNotSetException: <p>The home Region is not set. Set the home Region to continue.</p>
+            aws_sdk_application_discovery_service.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters are not valid. Verify the parameters and try again.</p>
+            aws_sdk_application_discovery_service.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value of one or more parameters are either invalid or out of range. Verify the parameter values and try again.</p>
+            aws_sdk_application_discovery_service.errors.operation_not_permitted_exception.OperationNotPermittedException: <p>This operation is not permitted.</p>
+            aws_sdk_application_discovery_service.errors.resource_in_use_exception.ResourceInUseException: <p>This issue occurs when the same <code>clientRequestToken</code> is used with the <code>StartImportTask</code> action, but with different parameters. For example, you use the same request token but have two different import URLs, you can encounter this issue. If the import tasks are meant to be different, use a different <code>clientRequestToken</code>, and try again.</p>
+            aws_sdk_application_discovery_service.errors.server_internal_error_exception.ServerInternalErrorException: <p>The server experienced an internal error. Try again.</p>
+            aws_sdk_application_discovery_service.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_application_discovery_service.types.start_continuous_export_request.StartContinuousExportRequest]",
@@ -1429,6 +1619,14 @@ class ApplicationDiscoveryServiceClient:
 
         Args:
             agent_ids: <p>The IDs of the agents from which to start collecting data. If you send a request to an agent ID that you do not have permission to contact, according to your Amazon Web Services account, the service does not throw an exception. Instead, it returns the error in the <i>Description</i> field. If you send a request to multiple agents and you do not have permission to contact some of those agents, the system does not throw an exception. Instead, the system shows <code>Failed</code> in the <i>Description</i> field.</p>
+
+        Raises:
+            aws_sdk_application_discovery_service.errors.authorization_error_exception.AuthorizationErrorException: <p>The user does not have permission to perform the action. Check the IAM policy associated with this user.</p>
+            aws_sdk_application_discovery_service.errors.home_region_not_set_exception.HomeRegionNotSetException: <p>The home Region is not set. Set the home Region to continue.</p>
+            aws_sdk_application_discovery_service.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters are not valid. Verify the parameters and try again.</p>
+            aws_sdk_application_discovery_service.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value of one or more parameters are either invalid or out of range. Verify the parameter values and try again.</p>
+            aws_sdk_application_discovery_service.errors.server_internal_error_exception.ServerInternalErrorException: <p>The server experienced an internal error. Try again.</p>
+            aws_sdk_application_discovery_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1484,6 +1682,15 @@ class ApplicationDiscoveryServiceClient:
             start_time: <p>The start timestamp for exported data from the single Application Discovery Agent selected in the filters. If no value is specified, data is exported starting from the first data collected by the agent.</p>
             end_time: <p>The end timestamp for exported data from the single Application Discovery Agent selected in the filters. If no value is specified, exported data includes the most recent data collected by the agent.</p>
             preferences: <p> Indicates the type of data that needs to be exported. Only one <a href=\"https://docs.aws.amazon.com/application-discovery/latest/APIReference/API_ExportPreferences.html\">ExportPreferences</a> can be enabled at any time. </p>
+
+        Raises:
+            aws_sdk_application_discovery_service.errors.authorization_error_exception.AuthorizationErrorException: <p>The user does not have permission to perform the action. Check the IAM policy associated with this user.</p>
+            aws_sdk_application_discovery_service.errors.home_region_not_set_exception.HomeRegionNotSetException: <p>The home Region is not set. Set the home Region to continue.</p>
+            aws_sdk_application_discovery_service.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters are not valid. Verify the parameters and try again.</p>
+            aws_sdk_application_discovery_service.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value of one or more parameters are either invalid or out of range. Verify the parameter values and try again.</p>
+            aws_sdk_application_discovery_service.errors.operation_not_permitted_exception.OperationNotPermittedException: <p>This operation is not permitted.</p>
+            aws_sdk_application_discovery_service.errors.server_internal_error_exception.ServerInternalErrorException: <p>The server experienced an internal error. Try again.</p>
+            aws_sdk_application_discovery_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1536,6 +1743,15 @@ class ApplicationDiscoveryServiceClient:
             client_request_token: <p>Optional. A unique token that you can provide to prevent the same import request from occurring more than once. If you don't provide a token, a token is automatically generated.</p> <p>Sending more than one <code>StartImportTask</code> request with the same client request token will return information about the original import task with that client request token.</p>
             name: <p>A descriptive name for this request. You can use this name to filter future requests related to this import task, such as identifying applications and servers that were included in this import task. We recommend that you use a meaningful name for each import task.</p>
             import_url: <p>The URL for your import file that you've uploaded to Amazon S3.</p> <note> <p>If you're using the Amazon Web Services CLI, this URL is structured as follows: <code>s3://BucketName/ImportFileName.CSV</code> </p> </note>
+
+        Raises:
+            aws_sdk_application_discovery_service.errors.authorization_error_exception.AuthorizationErrorException: <p>The user does not have permission to perform the action. Check the IAM policy associated with this user.</p>
+            aws_sdk_application_discovery_service.errors.home_region_not_set_exception.HomeRegionNotSetException: <p>The home Region is not set. Set the home Region to continue.</p>
+            aws_sdk_application_discovery_service.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters are not valid. Verify the parameters and try again.</p>
+            aws_sdk_application_discovery_service.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value of one or more parameters are either invalid or out of range. Verify the parameter values and try again.</p>
+            aws_sdk_application_discovery_service.errors.resource_in_use_exception.ResourceInUseException: <p>This issue occurs when the same <code>clientRequestToken</code> is used with the <code>StartImportTask</code> action, but with different parameters. For example, you use the same request token but have two different import URLs, you can encounter this issue. If the import tasks are meant to be different, use a different <code>clientRequestToken</code>, and try again.</p>
+            aws_sdk_application_discovery_service.errors.server_internal_error_exception.ServerInternalErrorException: <p>The server experienced an internal error. Try again.</p>
+            aws_sdk_application_discovery_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1576,6 +1792,17 @@ class ApplicationDiscoveryServiceClient:
 
         Args:
             export_id: <p>The unique ID assigned to this export.</p>
+
+        Raises:
+            aws_sdk_application_discovery_service.errors.authorization_error_exception.AuthorizationErrorException: <p>The user does not have permission to perform the action. Check the IAM policy associated with this user.</p>
+            aws_sdk_application_discovery_service.errors.home_region_not_set_exception.HomeRegionNotSetException: <p>The home Region is not set. Set the home Region to continue.</p>
+            aws_sdk_application_discovery_service.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters are not valid. Verify the parameters and try again.</p>
+            aws_sdk_application_discovery_service.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value of one or more parameters are either invalid or out of range. Verify the parameter values and try again.</p>
+            aws_sdk_application_discovery_service.errors.operation_not_permitted_exception.OperationNotPermittedException: <p>This operation is not permitted.</p>
+            aws_sdk_application_discovery_service.errors.resource_in_use_exception.ResourceInUseException: <p>This issue occurs when the same <code>clientRequestToken</code> is used with the <code>StartImportTask</code> action, but with different parameters. For example, you use the same request token but have two different import URLs, you can encounter this issue. If the import tasks are meant to be different, use a different <code>clientRequestToken</code>, and try again.</p>
+            aws_sdk_application_discovery_service.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified configuration ID was not located. Verify the configuration ID and try again.</p>
+            aws_sdk_application_discovery_service.errors.server_internal_error_exception.ServerInternalErrorException: <p>The server experienced an internal error. Try again.</p>
+            aws_sdk_application_discovery_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1613,6 +1840,14 @@ class ApplicationDiscoveryServiceClient:
 
         Args:
             agent_ids: <p>The IDs of the agents from which to stop collecting data.</p>
+
+        Raises:
+            aws_sdk_application_discovery_service.errors.authorization_error_exception.AuthorizationErrorException: <p>The user does not have permission to perform the action. Check the IAM policy associated with this user.</p>
+            aws_sdk_application_discovery_service.errors.home_region_not_set_exception.HomeRegionNotSetException: <p>The home Region is not set. Set the home Region to continue.</p>
+            aws_sdk_application_discovery_service.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters are not valid. Verify the parameters and try again.</p>
+            aws_sdk_application_discovery_service.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value of one or more parameters are either invalid or out of range. Verify the parameter values and try again.</p>
+            aws_sdk_application_discovery_service.errors.server_internal_error_exception.ServerInternalErrorException: <p>The server experienced an internal error. Try again.</p>
+            aws_sdk_application_discovery_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1662,6 +1897,14 @@ class ApplicationDiscoveryServiceClient:
             name: <p>New name of the application to be updated.</p>
             description: <p>New description of the application to be updated.</p>
             wave: <p>The new migration wave of the application that you want to update.</p>
+
+        Raises:
+            aws_sdk_application_discovery_service.errors.authorization_error_exception.AuthorizationErrorException: <p>The user does not have permission to perform the action. Check the IAM policy associated with this user.</p>
+            aws_sdk_application_discovery_service.errors.home_region_not_set_exception.HomeRegionNotSetException: <p>The home Region is not set. Set the home Region to continue.</p>
+            aws_sdk_application_discovery_service.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters are not valid. Verify the parameters and try again.</p>
+            aws_sdk_application_discovery_service.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value of one or more parameters are either invalid or out of range. Verify the parameter values and try again.</p>
+            aws_sdk_application_discovery_service.errors.server_internal_error_exception.ServerInternalErrorException: <p>The server experienced an internal error. Try again.</p>
+            aws_sdk_application_discovery_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(

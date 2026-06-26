@@ -59,6 +59,16 @@ class SchemaVersionResource:
             schema_versioned_id: <p>Schema id with a version specified. If the version is missing, it defaults to latest version.</p>
             format: <p>The format of the schema version.</p>
 
+        Raises:
+            aws_sdk_iot_managed_integrations.errors.access_denied_exception.AccessDeniedException: <p>User is not authorized.</p>
+            aws_sdk_iot_managed_integrations.errors.conflict_exception.ConflictException: <p>There is a conflict with the request.</p>
+            aws_sdk_iot_managed_integrations.errors.internal_server_exception.InternalServerException: <p>Internal error from the service that indicates an unexpected error or that the service is unavailable.</p>
+            aws_sdk_iot_managed_integrations.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot_managed_integrations.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot_managed_integrations.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot_managed_integrations.errors.validation_exception.ValidationException: <p>A validation error occurred when performing the API request.</p>
+            aws_sdk_iot_managed_integrations.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             GetSchemaVersion happy path for an example schema version.
 
@@ -134,6 +144,15 @@ class SchemaVersionResource:
             visibility: <p>The visibility of the schema version.</p>
             semantic_version: <p>The schema version. If this is left blank, it defaults to the latest version.</p>
 
+        Raises:
+            aws_sdk_iot_managed_integrations.errors.access_denied_exception.AccessDeniedException: <p>User is not authorized.</p>
+            aws_sdk_iot_managed_integrations.errors.conflict_exception.ConflictException: <p>There is a conflict with the request.</p>
+            aws_sdk_iot_managed_integrations.errors.internal_server_exception.InternalServerException: <p>Internal error from the service that indicates an unexpected error or that the service is unavailable.</p>
+            aws_sdk_iot_managed_integrations.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot_managed_integrations.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot_managed_integrations.errors.validation_exception.ValidationException: <p>A validation error occurred when performing the API request.</p>
+            aws_sdk_iot_managed_integrations.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             ListSchemaVersions happy path for an example schema version.
 
@@ -204,6 +223,16 @@ class AsyncSchemaVersionResource:
             type: <p>The type of schema version.</p>
             schema_versioned_id: <p>Schema id with a version specified. If the version is missing, it defaults to latest version.</p>
             format: <p>The format of the schema version.</p>
+
+        Raises:
+            aws_sdk_iot_managed_integrations.errors.access_denied_exception.AccessDeniedException: <p>User is not authorized.</p>
+            aws_sdk_iot_managed_integrations.errors.conflict_exception.ConflictException: <p>There is a conflict with the request.</p>
+            aws_sdk_iot_managed_integrations.errors.internal_server_exception.InternalServerException: <p>Internal error from the service that indicates an unexpected error or that the service is unavailable.</p>
+            aws_sdk_iot_managed_integrations.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot_managed_integrations.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot_managed_integrations.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot_managed_integrations.errors.validation_exception.ValidationException: <p>A validation error occurred when performing the API request.</p>
+            aws_sdk_iot_managed_integrations.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             GetSchemaVersion happy path for an example schema version.
@@ -280,6 +309,15 @@ class AsyncSchemaVersionResource:
             namespace: <p>Filter on the name of the schema version.</p>
             visibility: <p>The visibility of the schema version.</p>
             semantic_version: <p>The schema version. If this is left blank, it defaults to the latest version.</p>
+
+        Raises:
+            aws_sdk_iot_managed_integrations.errors.access_denied_exception.AccessDeniedException: <p>User is not authorized.</p>
+            aws_sdk_iot_managed_integrations.errors.conflict_exception.ConflictException: <p>There is a conflict with the request.</p>
+            aws_sdk_iot_managed_integrations.errors.internal_server_exception.InternalServerException: <p>Internal error from the service that indicates an unexpected error or that the service is unavailable.</p>
+            aws_sdk_iot_managed_integrations.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot_managed_integrations.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot_managed_integrations.errors.validation_exception.ValidationException: <p>A validation error occurred when performing the API request.</p>
+            aws_sdk_iot_managed_integrations.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             ListSchemaVersions happy path for an example schema version.

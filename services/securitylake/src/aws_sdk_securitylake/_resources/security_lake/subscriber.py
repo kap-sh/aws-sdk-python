@@ -81,6 +81,15 @@ class Subscriber:
             sources: <p>The supported Amazon Web Services services from which logs and events are collected. Security Lake supports log and event collection for natively supported Amazon Web Services services.</p>
             access_types: <p>The Amazon S3 or Lake Formation access type.</p>
             tags: <p>An array of objects, one for each tag to associate with the subscriber. For each tag, you must specify both a tag key and a tag value. A tag value cannot be null, but it can be an empty string.</p>
+
+        Raises:
+            aws_sdk_securitylake.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action. Access denied errors appear when Amazon Security Lake explicitly or implicitly denies an authorization request. An explicit denial occurs when a policy contains a Deny statement for the specific Amazon Web Services action. An implicit denial occurs when there is no applicable Deny statement and also no applicable Allow statement.</p>
+            aws_sdk_securitylake.errors.bad_request_exception.BadRequestException: <p>The request is malformed or contains an error such as an invalid parameter value or a missing required parameter.</p>
+            aws_sdk_securitylake.errors.conflict_exception.ConflictException: <p>Occurs when a conflict with a previous successful write is detected. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+            aws_sdk_securitylake.errors.internal_server_exception.InternalServerException: <p>Internal service exceptions are sometimes caused by transient issues. Before you start troubleshooting, perform the operation again.</p>
+            aws_sdk_securitylake.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_securitylake.errors.throttling_exception.ThrottlingException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_securitylake.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -126,6 +135,15 @@ class Subscriber:
 
         Args:
             subscriber_id: <p>A value created by Amazon Security Lake that uniquely identifies your <code>GetSubscriber</code> API request.</p>
+
+        Raises:
+            aws_sdk_securitylake.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action. Access denied errors appear when Amazon Security Lake explicitly or implicitly denies an authorization request. An explicit denial occurs when a policy contains a Deny statement for the specific Amazon Web Services action. An implicit denial occurs when there is no applicable Deny statement and also no applicable Allow statement.</p>
+            aws_sdk_securitylake.errors.bad_request_exception.BadRequestException: <p>The request is malformed or contains an error such as an invalid parameter value or a missing required parameter.</p>
+            aws_sdk_securitylake.errors.conflict_exception.ConflictException: <p>Occurs when a conflict with a previous successful write is detected. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+            aws_sdk_securitylake.errors.internal_server_exception.InternalServerException: <p>Internal service exceptions are sometimes caused by transient issues. Before you start troubleshooting, perform the operation again.</p>
+            aws_sdk_securitylake.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_securitylake.errors.throttling_exception.ThrottlingException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_securitylake.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -181,6 +199,15 @@ class Subscriber:
             subscriber_name: <p>The name of the Security Lake account subscriber.</p>
             subscriber_description: <p>The description of the Security Lake account subscriber.</p>
             sources: <p>The supported Amazon Web Services services from which logs and events are collected. For the list of supported Amazon Web Services services, see the <a href=\"https://docs.aws.amazon.com/security-lake/latest/userguide/internal-sources.html\">Amazon Security Lake User Guide</a>.</p>
+
+        Raises:
+            aws_sdk_securitylake.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action. Access denied errors appear when Amazon Security Lake explicitly or implicitly denies an authorization request. An explicit denial occurs when a policy contains a Deny statement for the specific Amazon Web Services action. An implicit denial occurs when there is no applicable Deny statement and also no applicable Allow statement.</p>
+            aws_sdk_securitylake.errors.bad_request_exception.BadRequestException: <p>The request is malformed or contains an error such as an invalid parameter value or a missing required parameter.</p>
+            aws_sdk_securitylake.errors.conflict_exception.ConflictException: <p>Occurs when a conflict with a previous successful write is detected. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+            aws_sdk_securitylake.errors.internal_server_exception.InternalServerException: <p>Internal service exceptions are sometimes caused by transient issues. Before you start troubleshooting, perform the operation again.</p>
+            aws_sdk_securitylake.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_securitylake.errors.throttling_exception.ThrottlingException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_securitylake.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -228,6 +255,15 @@ class Subscriber:
 
         Args:
             subscriber_id: <p>A value created by Security Lake that uniquely identifies your <code>DeleteSubscriber</code> API request.</p>
+
+        Raises:
+            aws_sdk_securitylake.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action. Access denied errors appear when Amazon Security Lake explicitly or implicitly denies an authorization request. An explicit denial occurs when a policy contains a Deny statement for the specific Amazon Web Services action. An implicit denial occurs when there is no applicable Deny statement and also no applicable Allow statement.</p>
+            aws_sdk_securitylake.errors.bad_request_exception.BadRequestException: <p>The request is malformed or contains an error such as an invalid parameter value or a missing required parameter.</p>
+            aws_sdk_securitylake.errors.conflict_exception.ConflictException: <p>Occurs when a conflict with a previous successful write is detected. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+            aws_sdk_securitylake.errors.internal_server_exception.InternalServerException: <p>Internal service exceptions are sometimes caused by transient issues. Before you start troubleshooting, perform the operation again.</p>
+            aws_sdk_securitylake.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_securitylake.errors.throttling_exception.ThrottlingException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_securitylake.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -269,6 +305,15 @@ class Subscriber:
         Args:
             next_token: <p>If nextToken is returned, there are more results available. You can repeat the call using the returned token to retrieve the next page.</p>
             max_results: <p>The maximum number of accounts for which the configuration is displayed.</p>
+
+        Raises:
+            aws_sdk_securitylake.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action. Access denied errors appear when Amazon Security Lake explicitly or implicitly denies an authorization request. An explicit denial occurs when a policy contains a Deny statement for the specific Amazon Web Services action. An implicit denial occurs when there is no applicable Deny statement and also no applicable Allow statement.</p>
+            aws_sdk_securitylake.errors.bad_request_exception.BadRequestException: <p>The request is malformed or contains an error such as an invalid parameter value or a missing required parameter.</p>
+            aws_sdk_securitylake.errors.conflict_exception.ConflictException: <p>Occurs when a conflict with a previous successful write is detected. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+            aws_sdk_securitylake.errors.internal_server_exception.InternalServerException: <p>Internal service exceptions are sometimes caused by transient issues. Before you start troubleshooting, perform the operation again.</p>
+            aws_sdk_securitylake.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_securitylake.errors.throttling_exception.ThrottlingException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_securitylake.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -311,6 +356,15 @@ class Subscriber:
         Args:
             subscriber_id: <p>The subscriber ID for the notification subscription.</p>
             configuration: <p>Specify the configuration using which you want to create the subscriber notification.</p>
+
+        Raises:
+            aws_sdk_securitylake.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action. Access denied errors appear when Amazon Security Lake explicitly or implicitly denies an authorization request. An explicit denial occurs when a policy contains a Deny statement for the specific Amazon Web Services action. An implicit denial occurs when there is no applicable Deny statement and also no applicable Allow statement.</p>
+            aws_sdk_securitylake.errors.bad_request_exception.BadRequestException: <p>The request is malformed or contains an error such as an invalid parameter value or a missing required parameter.</p>
+            aws_sdk_securitylake.errors.conflict_exception.ConflictException: <p>Occurs when a conflict with a previous successful write is detected. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+            aws_sdk_securitylake.errors.internal_server_exception.InternalServerException: <p>Internal service exceptions are sometimes caused by transient issues. Before you start troubleshooting, perform the operation again.</p>
+            aws_sdk_securitylake.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_securitylake.errors.throttling_exception.ThrottlingException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_securitylake.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -349,6 +403,15 @@ class Subscriber:
 
         Args:
             subscriber_id: <p>The ID of the Security Lake subscriber account.</p>
+
+        Raises:
+            aws_sdk_securitylake.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action. Access denied errors appear when Amazon Security Lake explicitly or implicitly denies an authorization request. An explicit denial occurs when a policy contains a Deny statement for the specific Amazon Web Services action. An implicit denial occurs when there is no applicable Deny statement and also no applicable Allow statement.</p>
+            aws_sdk_securitylake.errors.bad_request_exception.BadRequestException: <p>The request is malformed or contains an error such as an invalid parameter value or a missing required parameter.</p>
+            aws_sdk_securitylake.errors.conflict_exception.ConflictException: <p>Occurs when a conflict with a previous successful write is detected. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+            aws_sdk_securitylake.errors.internal_server_exception.InternalServerException: <p>Internal service exceptions are sometimes caused by transient issues. Before you start troubleshooting, perform the operation again.</p>
+            aws_sdk_securitylake.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_securitylake.errors.throttling_exception.ThrottlingException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_securitylake.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -388,6 +451,15 @@ class Subscriber:
         Args:
             subscriber_id: <p>The subscription ID for which the subscription notification is specified.</p>
             configuration: <p>The configuration for subscriber notification.</p>
+
+        Raises:
+            aws_sdk_securitylake.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action. Access denied errors appear when Amazon Security Lake explicitly or implicitly denies an authorization request. An explicit denial occurs when a policy contains a Deny statement for the specific Amazon Web Services action. An implicit denial occurs when there is no applicable Deny statement and also no applicable Allow statement.</p>
+            aws_sdk_securitylake.errors.bad_request_exception.BadRequestException: <p>The request is malformed or contains an error such as an invalid parameter value or a missing required parameter.</p>
+            aws_sdk_securitylake.errors.conflict_exception.ConflictException: <p>Occurs when a conflict with a previous successful write is detected. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+            aws_sdk_securitylake.errors.internal_server_exception.InternalServerException: <p>Internal service exceptions are sometimes caused by transient issues. Before you start troubleshooting, perform the operation again.</p>
+            aws_sdk_securitylake.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_securitylake.errors.throttling_exception.ThrottlingException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_securitylake.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -447,6 +519,15 @@ class AsyncSubscriber:
             sources: <p>The supported Amazon Web Services services from which logs and events are collected. Security Lake supports log and event collection for natively supported Amazon Web Services services.</p>
             access_types: <p>The Amazon S3 or Lake Formation access type.</p>
             tags: <p>An array of objects, one for each tag to associate with the subscriber. For each tag, you must specify both a tag key and a tag value. A tag value cannot be null, but it can be an empty string.</p>
+
+        Raises:
+            aws_sdk_securitylake.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action. Access denied errors appear when Amazon Security Lake explicitly or implicitly denies an authorization request. An explicit denial occurs when a policy contains a Deny statement for the specific Amazon Web Services action. An implicit denial occurs when there is no applicable Deny statement and also no applicable Allow statement.</p>
+            aws_sdk_securitylake.errors.bad_request_exception.BadRequestException: <p>The request is malformed or contains an error such as an invalid parameter value or a missing required parameter.</p>
+            aws_sdk_securitylake.errors.conflict_exception.ConflictException: <p>Occurs when a conflict with a previous successful write is detected. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+            aws_sdk_securitylake.errors.internal_server_exception.InternalServerException: <p>Internal service exceptions are sometimes caused by transient issues. Before you start troubleshooting, perform the operation again.</p>
+            aws_sdk_securitylake.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_securitylake.errors.throttling_exception.ThrottlingException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_securitylake.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -493,6 +574,15 @@ class AsyncSubscriber:
 
         Args:
             subscriber_id: <p>A value created by Amazon Security Lake that uniquely identifies your <code>GetSubscriber</code> API request.</p>
+
+        Raises:
+            aws_sdk_securitylake.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action. Access denied errors appear when Amazon Security Lake explicitly or implicitly denies an authorization request. An explicit denial occurs when a policy contains a Deny statement for the specific Amazon Web Services action. An implicit denial occurs when there is no applicable Deny statement and also no applicable Allow statement.</p>
+            aws_sdk_securitylake.errors.bad_request_exception.BadRequestException: <p>The request is malformed or contains an error such as an invalid parameter value or a missing required parameter.</p>
+            aws_sdk_securitylake.errors.conflict_exception.ConflictException: <p>Occurs when a conflict with a previous successful write is detected. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+            aws_sdk_securitylake.errors.internal_server_exception.InternalServerException: <p>Internal service exceptions are sometimes caused by transient issues. Before you start troubleshooting, perform the operation again.</p>
+            aws_sdk_securitylake.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_securitylake.errors.throttling_exception.ThrottlingException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_securitylake.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -549,6 +639,15 @@ class AsyncSubscriber:
             subscriber_name: <p>The name of the Security Lake account subscriber.</p>
             subscriber_description: <p>The description of the Security Lake account subscriber.</p>
             sources: <p>The supported Amazon Web Services services from which logs and events are collected. For the list of supported Amazon Web Services services, see the <a href=\"https://docs.aws.amazon.com/security-lake/latest/userguide/internal-sources.html\">Amazon Security Lake User Guide</a>.</p>
+
+        Raises:
+            aws_sdk_securitylake.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action. Access denied errors appear when Amazon Security Lake explicitly or implicitly denies an authorization request. An explicit denial occurs when a policy contains a Deny statement for the specific Amazon Web Services action. An implicit denial occurs when there is no applicable Deny statement and also no applicable Allow statement.</p>
+            aws_sdk_securitylake.errors.bad_request_exception.BadRequestException: <p>The request is malformed or contains an error such as an invalid parameter value or a missing required parameter.</p>
+            aws_sdk_securitylake.errors.conflict_exception.ConflictException: <p>Occurs when a conflict with a previous successful write is detected. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+            aws_sdk_securitylake.errors.internal_server_exception.InternalServerException: <p>Internal service exceptions are sometimes caused by transient issues. Before you start troubleshooting, perform the operation again.</p>
+            aws_sdk_securitylake.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_securitylake.errors.throttling_exception.ThrottlingException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_securitylake.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -597,6 +696,15 @@ class AsyncSubscriber:
 
         Args:
             subscriber_id: <p>A value created by Security Lake that uniquely identifies your <code>DeleteSubscriber</code> API request.</p>
+
+        Raises:
+            aws_sdk_securitylake.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action. Access denied errors appear when Amazon Security Lake explicitly or implicitly denies an authorization request. An explicit denial occurs when a policy contains a Deny statement for the specific Amazon Web Services action. An implicit denial occurs when there is no applicable Deny statement and also no applicable Allow statement.</p>
+            aws_sdk_securitylake.errors.bad_request_exception.BadRequestException: <p>The request is malformed or contains an error such as an invalid parameter value or a missing required parameter.</p>
+            aws_sdk_securitylake.errors.conflict_exception.ConflictException: <p>Occurs when a conflict with a previous successful write is detected. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+            aws_sdk_securitylake.errors.internal_server_exception.InternalServerException: <p>Internal service exceptions are sometimes caused by transient issues. Before you start troubleshooting, perform the operation again.</p>
+            aws_sdk_securitylake.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_securitylake.errors.throttling_exception.ThrottlingException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_securitylake.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -639,6 +747,15 @@ class AsyncSubscriber:
         Args:
             next_token: <p>If nextToken is returned, there are more results available. You can repeat the call using the returned token to retrieve the next page.</p>
             max_results: <p>The maximum number of accounts for which the configuration is displayed.</p>
+
+        Raises:
+            aws_sdk_securitylake.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action. Access denied errors appear when Amazon Security Lake explicitly or implicitly denies an authorization request. An explicit denial occurs when a policy contains a Deny statement for the specific Amazon Web Services action. An implicit denial occurs when there is no applicable Deny statement and also no applicable Allow statement.</p>
+            aws_sdk_securitylake.errors.bad_request_exception.BadRequestException: <p>The request is malformed or contains an error such as an invalid parameter value or a missing required parameter.</p>
+            aws_sdk_securitylake.errors.conflict_exception.ConflictException: <p>Occurs when a conflict with a previous successful write is detected. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+            aws_sdk_securitylake.errors.internal_server_exception.InternalServerException: <p>Internal service exceptions are sometimes caused by transient issues. Before you start troubleshooting, perform the operation again.</p>
+            aws_sdk_securitylake.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_securitylake.errors.throttling_exception.ThrottlingException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_securitylake.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -682,6 +799,15 @@ class AsyncSubscriber:
         Args:
             subscriber_id: <p>The subscriber ID for the notification subscription.</p>
             configuration: <p>Specify the configuration using which you want to create the subscriber notification.</p>
+
+        Raises:
+            aws_sdk_securitylake.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action. Access denied errors appear when Amazon Security Lake explicitly or implicitly denies an authorization request. An explicit denial occurs when a policy contains a Deny statement for the specific Amazon Web Services action. An implicit denial occurs when there is no applicable Deny statement and also no applicable Allow statement.</p>
+            aws_sdk_securitylake.errors.bad_request_exception.BadRequestException: <p>The request is malformed or contains an error such as an invalid parameter value or a missing required parameter.</p>
+            aws_sdk_securitylake.errors.conflict_exception.ConflictException: <p>Occurs when a conflict with a previous successful write is detected. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+            aws_sdk_securitylake.errors.internal_server_exception.InternalServerException: <p>Internal service exceptions are sometimes caused by transient issues. Before you start troubleshooting, perform the operation again.</p>
+            aws_sdk_securitylake.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_securitylake.errors.throttling_exception.ThrottlingException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_securitylake.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -721,6 +847,15 @@ class AsyncSubscriber:
 
         Args:
             subscriber_id: <p>The ID of the Security Lake subscriber account.</p>
+
+        Raises:
+            aws_sdk_securitylake.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action. Access denied errors appear when Amazon Security Lake explicitly or implicitly denies an authorization request. An explicit denial occurs when a policy contains a Deny statement for the specific Amazon Web Services action. An implicit denial occurs when there is no applicable Deny statement and also no applicable Allow statement.</p>
+            aws_sdk_securitylake.errors.bad_request_exception.BadRequestException: <p>The request is malformed or contains an error such as an invalid parameter value or a missing required parameter.</p>
+            aws_sdk_securitylake.errors.conflict_exception.ConflictException: <p>Occurs when a conflict with a previous successful write is detected. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+            aws_sdk_securitylake.errors.internal_server_exception.InternalServerException: <p>Internal service exceptions are sometimes caused by transient issues. Before you start troubleshooting, perform the operation again.</p>
+            aws_sdk_securitylake.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_securitylake.errors.throttling_exception.ThrottlingException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_securitylake.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -761,6 +896,15 @@ class AsyncSubscriber:
         Args:
             subscriber_id: <p>The subscription ID for which the subscription notification is specified.</p>
             configuration: <p>The configuration for subscriber notification.</p>
+
+        Raises:
+            aws_sdk_securitylake.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action. Access denied errors appear when Amazon Security Lake explicitly or implicitly denies an authorization request. An explicit denial occurs when a policy contains a Deny statement for the specific Amazon Web Services action. An implicit denial occurs when there is no applicable Deny statement and also no applicable Allow statement.</p>
+            aws_sdk_securitylake.errors.bad_request_exception.BadRequestException: <p>The request is malformed or contains an error such as an invalid parameter value or a missing required parameter.</p>
+            aws_sdk_securitylake.errors.conflict_exception.ConflictException: <p>Occurs when a conflict with a previous successful write is detected. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+            aws_sdk_securitylake.errors.internal_server_exception.InternalServerException: <p>Internal service exceptions are sometimes caused by transient issues. Before you start troubleshooting, perform the operation again.</p>
+            aws_sdk_securitylake.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_securitylake.errors.throttling_exception.ThrottlingException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_securitylake.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

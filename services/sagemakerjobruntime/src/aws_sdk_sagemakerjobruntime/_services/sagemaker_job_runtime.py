@@ -149,6 +149,16 @@ class SagemakerJobRuntimeClient:
             status: The target status for the trajectory. Defaults to READY if not specified. Set to FAILED if the rollout encountered an error and the trajectory should not be used for processing.
             client_token: A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.
 
+        Raises:
+            aws_sdk_sagemakerjobruntime.errors.access_denied_exception.AccessDeniedException: You do not have permission to perform this operation.
+            aws_sdk_sagemakerjobruntime.errors.conflict_exception.ConflictException: The request conflicts with the current state of the resource.
+            aws_sdk_sagemakerjobruntime.errors.internal_service_error.InternalServiceError: An internal service error occurred. Retry the request.
+            aws_sdk_sagemakerjobruntime.errors.resource_not_found_exception.ResourceNotFoundException: The specified resource was not found.
+            aws_sdk_sagemakerjobruntime.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: You have exceeded a service quota.
+            aws_sdk_sagemakerjobruntime.errors.throttling_exception.ThrottlingException: The request was throttled. Retry the request after a brief wait.
+            aws_sdk_sagemakerjobruntime.errors.validation_exception.ValidationException: The request is not valid. Check the request syntax and parameters
+            aws_sdk_sagemakerjobruntime.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Invoke CompleteRollout
             Marks a rollout as complete so the trajectory is sealed and eligible for reward submission.
@@ -201,6 +211,15 @@ class SagemakerJobRuntimeClient:
             trajectory_id: The trajectory ID for grouping turns into a single rollout. Each turn (prompt and response) is captured for later use.
             body: The raw inference request body in OpenAI-compatible JSON format.
 
+        Raises:
+            aws_sdk_sagemakerjobruntime.errors.access_denied_exception.AccessDeniedException: You do not have permission to perform this operation.
+            aws_sdk_sagemakerjobruntime.errors.internal_service_error.InternalServiceError: An internal service error occurred. Retry the request.
+            aws_sdk_sagemakerjobruntime.errors.resource_not_found_exception.ResourceNotFoundException: The specified resource was not found.
+            aws_sdk_sagemakerjobruntime.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: You have exceeded a service quota.
+            aws_sdk_sagemakerjobruntime.errors.throttling_exception.ThrottlingException: The request was throttled. Retry the request after a brief wait.
+            aws_sdk_sagemakerjobruntime.errors.validation_exception.ValidationException: The request is not valid. Check the request syntax and parameters
+            aws_sdk_sagemakerjobruntime.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Invoke Sample
             Sends an inference request to the model and receives the response.
@@ -250,6 +269,15 @@ class SagemakerJobRuntimeClient:
             job_arn: The job ARN that identifies which model session to route the inference request to.
             trajectory_id: The trajectory ID for grouping turns into a single rollout. Each turn is captured for later use.
             body: The raw inference request body in OpenAI-compatible JSON format.
+
+        Raises:
+            aws_sdk_sagemakerjobruntime.errors.access_denied_exception.AccessDeniedException: You do not have permission to perform this operation.
+            aws_sdk_sagemakerjobruntime.errors.internal_service_error.InternalServiceError: An internal service error occurred. Retry the request.
+            aws_sdk_sagemakerjobruntime.errors.resource_not_found_exception.ResourceNotFoundException: The specified resource was not found.
+            aws_sdk_sagemakerjobruntime.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: You have exceeded a service quota.
+            aws_sdk_sagemakerjobruntime.errors.throttling_exception.ThrottlingException: The request was throttled. Retry the request after a brief wait.
+            aws_sdk_sagemakerjobruntime.errors.validation_exception.ValidationException: The request is not valid. Check the request syntax and parameters
+            aws_sdk_sagemakerjobruntime.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Invoke SampleWithResponseStream
@@ -303,6 +331,16 @@ class SagemakerJobRuntimeClient:
             trajectory_id: The trajectory ID to update with reward values.
             rewards: The list of reward values to assign to this trajectory. Provide one reward value per turn in the trajectory.
             client_token: A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.
+
+        Raises:
+            aws_sdk_sagemakerjobruntime.errors.access_denied_exception.AccessDeniedException: You do not have permission to perform this operation.
+            aws_sdk_sagemakerjobruntime.errors.conflict_exception.ConflictException: The request conflicts with the current state of the resource.
+            aws_sdk_sagemakerjobruntime.errors.internal_service_error.InternalServiceError: An internal service error occurred. Retry the request.
+            aws_sdk_sagemakerjobruntime.errors.resource_not_found_exception.ResourceNotFoundException: The specified resource was not found.
+            aws_sdk_sagemakerjobruntime.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: You have exceeded a service quota.
+            aws_sdk_sagemakerjobruntime.errors.throttling_exception.ThrottlingException: The request was throttled. Retry the request after a brief wait.
+            aws_sdk_sagemakerjobruntime.errors.validation_exception.ValidationException: The request is not valid. Check the request syntax and parameters
+            aws_sdk_sagemakerjobruntime.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Invoke UpdateReward

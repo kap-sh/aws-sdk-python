@@ -254,6 +254,16 @@ class WickrClient:
             users: <p>A list of user objects containing the details for each user to be created, including username, name, security groups, and optional invite codes. Maximum 50 users per batch request.</p>
             client_token: <p>A unique identifier for this request to ensure idempotency. If you retry a request with the same client token, the service will return the same response without creating duplicate users.</p>
 
+        Raises:
+            aws_sdk_wickr.errors.bad_request_error.BadRequestError: <p>The request was invalid or malformed. This error occurs when the request parameters do not meet the API requirements, such as invalid field values, missing required parameters, or improperly formatted data.</p>
+            aws_sdk_wickr.errors.forbidden_error.ForbiddenError: <p>Access to the requested resource is forbidden. This error occurs when the authenticated user does not have the necessary permissions to perform the requested operation, even though they are authenticated.</p>
+            aws_sdk_wickr.errors.internal_server_error.InternalServerError: <p>An unexpected error occurred on the server while processing the request. This indicates a problem with the Wickr service itself rather than with the request. If this error persists, contact Amazon Web Services Support.</p>
+            aws_sdk_wickr.errors.rate_limit_error.RateLimitError: <p>The request was throttled because too many requests were sent in a short period of time. Wait a moment and retry the request. Consider implementing exponential backoff in your application.</p>
+            aws_sdk_wickr.errors.resource_not_found_error.ResourceNotFoundError: <p>The requested resource could not be found. This error occurs when you try to access or modify a network, user, bot, security group, or other resource that doesn't exist or has been deleted.</p>
+            aws_sdk_wickr.errors.unauthorized_error.UnauthorizedError: <p>The request was not authenticated or the authentication credentials were invalid. This error occurs when the request lacks valid authentication credentials or the credentials have expired.</p>
+            aws_sdk_wickr.errors.validation_error.ValidationError: <p>One or more fields in the request failed validation. This error provides detailed information about which fields were invalid and why, allowing you to correct the request and retry.</p>
+            aws_sdk_wickr.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Create multiple users
 
@@ -305,6 +315,16 @@ class WickrClient:
             network_id: <p>The ID of the Wickr network from which users will be deleted.</p>
             user_ids: <p>A list of user IDs identifying the users to be deleted from the network. Maximum 50 users per batch request.</p>
             client_token: <p>A unique identifier for this request to ensure idempotency. If you retry a request with the same client token, the service will return the same response without attempting to delete users again.</p>
+
+        Raises:
+            aws_sdk_wickr.errors.bad_request_error.BadRequestError: <p>The request was invalid or malformed. This error occurs when the request parameters do not meet the API requirements, such as invalid field values, missing required parameters, or improperly formatted data.</p>
+            aws_sdk_wickr.errors.forbidden_error.ForbiddenError: <p>Access to the requested resource is forbidden. This error occurs when the authenticated user does not have the necessary permissions to perform the requested operation, even though they are authenticated.</p>
+            aws_sdk_wickr.errors.internal_server_error.InternalServerError: <p>An unexpected error occurred on the server while processing the request. This indicates a problem with the Wickr service itself rather than with the request. If this error persists, contact Amazon Web Services Support.</p>
+            aws_sdk_wickr.errors.rate_limit_error.RateLimitError: <p>The request was throttled because too many requests were sent in a short period of time. Wait a moment and retry the request. Consider implementing exponential backoff in your application.</p>
+            aws_sdk_wickr.errors.resource_not_found_error.ResourceNotFoundError: <p>The requested resource could not be found. This error occurs when you try to access or modify a network, user, bot, security group, or other resource that doesn't exist or has been deleted.</p>
+            aws_sdk_wickr.errors.unauthorized_error.UnauthorizedError: <p>The request was not authenticated or the authentication credentials were invalid. This error occurs when the request lacks valid authentication credentials or the credentials have expired.</p>
+            aws_sdk_wickr.errors.validation_error.ValidationError: <p>One or more fields in the request failed validation. This error provides detailed information about which fields were invalid and why, allowing you to correct the request and retry.</p>
+            aws_sdk_wickr.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Delete multiple users
@@ -358,6 +378,16 @@ class WickrClient:
             unames: <p>A list of username hashes (unames) to look up. Each uname is a unique identifier for a user's username. Maximum 50 unames per batch request.</p>
             client_token: <p>A unique identifier for this request to ensure idempotency.</p>
 
+        Raises:
+            aws_sdk_wickr.errors.bad_request_error.BadRequestError: <p>The request was invalid or malformed. This error occurs when the request parameters do not meet the API requirements, such as invalid field values, missing required parameters, or improperly formatted data.</p>
+            aws_sdk_wickr.errors.forbidden_error.ForbiddenError: <p>Access to the requested resource is forbidden. This error occurs when the authenticated user does not have the necessary permissions to perform the requested operation, even though they are authenticated.</p>
+            aws_sdk_wickr.errors.internal_server_error.InternalServerError: <p>An unexpected error occurred on the server while processing the request. This indicates a problem with the Wickr service itself rather than with the request. If this error persists, contact Amazon Web Services Support.</p>
+            aws_sdk_wickr.errors.rate_limit_error.RateLimitError: <p>The request was throttled because too many requests were sent in a short period of time. Wait a moment and retry the request. Consider implementing exponential backoff in your application.</p>
+            aws_sdk_wickr.errors.resource_not_found_error.ResourceNotFoundError: <p>The requested resource could not be found. This error occurs when you try to access or modify a network, user, bot, security group, or other resource that doesn't exist or has been deleted.</p>
+            aws_sdk_wickr.errors.unauthorized_error.UnauthorizedError: <p>The request was not authenticated or the authentication credentials were invalid. This error occurs when the request lacks valid authentication credentials or the credentials have expired.</p>
+            aws_sdk_wickr.errors.validation_error.ValidationError: <p>One or more fields in the request failed validation. This error provides detailed information about which fields were invalid and why, allowing you to correct the request and retry.</p>
+            aws_sdk_wickr.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Lookup multiple user unames
 
@@ -409,6 +439,16 @@ class WickrClient:
             network_id: <p>The ID of the Wickr network where users will be reinvited.</p>
             user_ids: <p>A list of user IDs identifying the users to be reinvited to the network. Maximum 50 users per batch request.</p>
             client_token: <p>A unique identifier for this request to ensure idempotency.</p>
+
+        Raises:
+            aws_sdk_wickr.errors.bad_request_error.BadRequestError: <p>The request was invalid or malformed. This error occurs when the request parameters do not meet the API requirements, such as invalid field values, missing required parameters, or improperly formatted data.</p>
+            aws_sdk_wickr.errors.forbidden_error.ForbiddenError: <p>Access to the requested resource is forbidden. This error occurs when the authenticated user does not have the necessary permissions to perform the requested operation, even though they are authenticated.</p>
+            aws_sdk_wickr.errors.internal_server_error.InternalServerError: <p>An unexpected error occurred on the server while processing the request. This indicates a problem with the Wickr service itself rather than with the request. If this error persists, contact Amazon Web Services Support.</p>
+            aws_sdk_wickr.errors.rate_limit_error.RateLimitError: <p>The request was throttled because too many requests were sent in a short period of time. Wait a moment and retry the request. Consider implementing exponential backoff in your application.</p>
+            aws_sdk_wickr.errors.resource_not_found_error.ResourceNotFoundError: <p>The requested resource could not be found. This error occurs when you try to access or modify a network, user, bot, security group, or other resource that doesn't exist or has been deleted.</p>
+            aws_sdk_wickr.errors.unauthorized_error.UnauthorizedError: <p>The request was not authenticated or the authentication credentials were invalid. This error occurs when the request lacks valid authentication credentials or the credentials have expired.</p>
+            aws_sdk_wickr.errors.validation_error.ValidationError: <p>One or more fields in the request failed validation. This error provides detailed information about which fields were invalid and why, allowing you to correct the request and retry.</p>
+            aws_sdk_wickr.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Batch reinvite users successfully
@@ -467,6 +507,16 @@ class WickrClient:
             app_ids: <p>A list of application IDs identifying the specific devices to be reset for the user. Maximum 50 devices per batch request.</p>
             client_token: <p>A unique identifier for this request to ensure idempotency.</p>
 
+        Raises:
+            aws_sdk_wickr.errors.bad_request_error.BadRequestError: <p>The request was invalid or malformed. This error occurs when the request parameters do not meet the API requirements, such as invalid field values, missing required parameters, or improperly formatted data.</p>
+            aws_sdk_wickr.errors.forbidden_error.ForbiddenError: <p>Access to the requested resource is forbidden. This error occurs when the authenticated user does not have the necessary permissions to perform the requested operation, even though they are authenticated.</p>
+            aws_sdk_wickr.errors.internal_server_error.InternalServerError: <p>An unexpected error occurred on the server while processing the request. This indicates a problem with the Wickr service itself rather than with the request. If this error persists, contact Amazon Web Services Support.</p>
+            aws_sdk_wickr.errors.rate_limit_error.RateLimitError: <p>The request was throttled because too many requests were sent in a short period of time. Wait a moment and retry the request. Consider implementing exponential backoff in your application.</p>
+            aws_sdk_wickr.errors.resource_not_found_error.ResourceNotFoundError: <p>The requested resource could not be found. This error occurs when you try to access or modify a network, user, bot, security group, or other resource that doesn't exist or has been deleted.</p>
+            aws_sdk_wickr.errors.unauthorized_error.UnauthorizedError: <p>The request was not authenticated or the authentication credentials were invalid. This error occurs when the request lacks valid authentication credentials or the credentials have expired.</p>
+            aws_sdk_wickr.errors.validation_error.ValidationError: <p>One or more fields in the request failed validation. This error provides detailed information about which fields were invalid and why, allowing you to correct the request and retry.</p>
+            aws_sdk_wickr.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Successful device reset
 
@@ -524,6 +574,16 @@ class WickrClient:
             suspend: <p>A boolean value indicating whether to suspend (true) or unsuspend (false) the specified users.</p>
             user_ids: <p>A list of user IDs identifying the users whose suspend status will be toggled. Maximum 50 users per batch request.</p>
             client_token: <p>A unique identifier for this request to ensure idempotency.</p>
+
+        Raises:
+            aws_sdk_wickr.errors.bad_request_error.BadRequestError: <p>The request was invalid or malformed. This error occurs when the request parameters do not meet the API requirements, such as invalid field values, missing required parameters, or improperly formatted data.</p>
+            aws_sdk_wickr.errors.forbidden_error.ForbiddenError: <p>Access to the requested resource is forbidden. This error occurs when the authenticated user does not have the necessary permissions to perform the requested operation, even though they are authenticated.</p>
+            aws_sdk_wickr.errors.internal_server_error.InternalServerError: <p>An unexpected error occurred on the server while processing the request. This indicates a problem with the Wickr service itself rather than with the request. If this error persists, contact Amazon Web Services Support.</p>
+            aws_sdk_wickr.errors.rate_limit_error.RateLimitError: <p>The request was throttled because too many requests were sent in a short period of time. Wait a moment and retry the request. Consider implementing exponential backoff in your application.</p>
+            aws_sdk_wickr.errors.resource_not_found_error.ResourceNotFoundError: <p>The requested resource could not be found. This error occurs when you try to access or modify a network, user, bot, security group, or other resource that doesn't exist or has been deleted.</p>
+            aws_sdk_wickr.errors.unauthorized_error.UnauthorizedError: <p>The request was not authenticated or the authentication credentials were invalid. This error occurs when the request lacks valid authentication credentials or the credentials have expired.</p>
+            aws_sdk_wickr.errors.validation_error.ValidationError: <p>One or more fields in the request failed validation. This error provides detailed information about which fields were invalid and why, allowing you to correct the request and retry.</p>
+            aws_sdk_wickr.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Suspend multiple users
@@ -584,6 +644,16 @@ class WickrClient:
             group_id: <p>The ID of the security group to which the bot will be assigned.</p>
             challenge: <p>The password for the bot account.</p>
 
+        Raises:
+            aws_sdk_wickr.errors.bad_request_error.BadRequestError: <p>The request was invalid or malformed. This error occurs when the request parameters do not meet the API requirements, such as invalid field values, missing required parameters, or improperly formatted data.</p>
+            aws_sdk_wickr.errors.forbidden_error.ForbiddenError: <p>Access to the requested resource is forbidden. This error occurs when the authenticated user does not have the necessary permissions to perform the requested operation, even though they are authenticated.</p>
+            aws_sdk_wickr.errors.internal_server_error.InternalServerError: <p>An unexpected error occurred on the server while processing the request. This indicates a problem with the Wickr service itself rather than with the request. If this error persists, contact Amazon Web Services Support.</p>
+            aws_sdk_wickr.errors.rate_limit_error.RateLimitError: <p>The request was throttled because too many requests were sent in a short period of time. Wait a moment and retry the request. Consider implementing exponential backoff in your application.</p>
+            aws_sdk_wickr.errors.resource_not_found_error.ResourceNotFoundError: <p>The requested resource could not be found. This error occurs when you try to access or modify a network, user, bot, security group, or other resource that doesn't exist or has been deleted.</p>
+            aws_sdk_wickr.errors.unauthorized_error.UnauthorizedError: <p>The request was not authenticated or the authentication credentials were invalid. This error occurs when the request lacks valid authentication credentials or the credentials have expired.</p>
+            aws_sdk_wickr.errors.validation_error.ValidationError: <p>One or more fields in the request failed validation. This error provides detailed information about which fields were invalid and why, allowing you to correct the request and retry.</p>
+            aws_sdk_wickr.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Create bot successfully
 
@@ -637,6 +707,16 @@ class WickrClient:
         Args:
             network_id: <p>The ID of the Wickr network where the data retention bot will be created.</p>
 
+        Raises:
+            aws_sdk_wickr.errors.bad_request_error.BadRequestError: <p>The request was invalid or malformed. This error occurs when the request parameters do not meet the API requirements, such as invalid field values, missing required parameters, or improperly formatted data.</p>
+            aws_sdk_wickr.errors.forbidden_error.ForbiddenError: <p>Access to the requested resource is forbidden. This error occurs when the authenticated user does not have the necessary permissions to perform the requested operation, even though they are authenticated.</p>
+            aws_sdk_wickr.errors.internal_server_error.InternalServerError: <p>An unexpected error occurred on the server while processing the request. This indicates a problem with the Wickr service itself rather than with the request. If this error persists, contact Amazon Web Services Support.</p>
+            aws_sdk_wickr.errors.rate_limit_error.RateLimitError: <p>The request was throttled because too many requests were sent in a short period of time. Wait a moment and retry the request. Consider implementing exponential backoff in your application.</p>
+            aws_sdk_wickr.errors.resource_not_found_error.ResourceNotFoundError: <p>The requested resource could not be found. This error occurs when you try to access or modify a network, user, bot, security group, or other resource that doesn't exist or has been deleted.</p>
+            aws_sdk_wickr.errors.unauthorized_error.UnauthorizedError: <p>The request was not authenticated or the authentication credentials were invalid. This error occurs when the request lacks valid authentication credentials or the credentials have expired.</p>
+            aws_sdk_wickr.errors.validation_error.ValidationError: <p>One or more fields in the request failed validation. This error provides detailed information about which fields were invalid and why, allowing you to correct the request and retry.</p>
+            aws_sdk_wickr.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Create data retention bot successfully
 
@@ -681,6 +761,16 @@ class WickrClient:
 
         Args:
             network_id: <p>The ID of the Wickr network containing the data retention bot.</p>
+
+        Raises:
+            aws_sdk_wickr.errors.bad_request_error.BadRequestError: <p>The request was invalid or malformed. This error occurs when the request parameters do not meet the API requirements, such as invalid field values, missing required parameters, or improperly formatted data.</p>
+            aws_sdk_wickr.errors.forbidden_error.ForbiddenError: <p>Access to the requested resource is forbidden. This error occurs when the authenticated user does not have the necessary permissions to perform the requested operation, even though they are authenticated.</p>
+            aws_sdk_wickr.errors.internal_server_error.InternalServerError: <p>An unexpected error occurred on the server while processing the request. This indicates a problem with the Wickr service itself rather than with the request. If this error persists, contact Amazon Web Services Support.</p>
+            aws_sdk_wickr.errors.rate_limit_error.RateLimitError: <p>The request was throttled because too many requests were sent in a short period of time. Wait a moment and retry the request. Consider implementing exponential backoff in your application.</p>
+            aws_sdk_wickr.errors.resource_not_found_error.ResourceNotFoundError: <p>The requested resource could not be found. This error occurs when you try to access or modify a network, user, bot, security group, or other resource that doesn't exist or has been deleted.</p>
+            aws_sdk_wickr.errors.unauthorized_error.UnauthorizedError: <p>The request was not authenticated or the authentication credentials were invalid. This error occurs when the request lacks valid authentication credentials or the credentials have expired.</p>
+            aws_sdk_wickr.errors.validation_error.ValidationError: <p>One or more fields in the request failed validation. This error provides detailed information about which fields were invalid and why, allowing you to correct the request and retry.</p>
+            aws_sdk_wickr.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Create data retention bot challenge successfully
@@ -731,6 +821,16 @@ class WickrClient:
             access_level: <p>The access level for the network. Valid values are STANDARD or PREMIUM, which determine the features and capabilities available to network members.</p>
             enable_premium_free_trial: <p>Specifies whether to enable a premium free trial for the network. It is optional and has a default value as false. When set to true, the network starts with premium features for a limited trial period. </p>
             encryption_key_arn: <p>The ARN of the Amazon Web Services KMS customer managed key to use for encrypting sensitive data in the network.</p>
+
+        Raises:
+            aws_sdk_wickr.errors.bad_request_error.BadRequestError: <p>The request was invalid or malformed. This error occurs when the request parameters do not meet the API requirements, such as invalid field values, missing required parameters, or improperly formatted data.</p>
+            aws_sdk_wickr.errors.forbidden_error.ForbiddenError: <p>Access to the requested resource is forbidden. This error occurs when the authenticated user does not have the necessary permissions to perform the requested operation, even though they are authenticated.</p>
+            aws_sdk_wickr.errors.internal_server_error.InternalServerError: <p>An unexpected error occurred on the server while processing the request. This indicates a problem with the Wickr service itself rather than with the request. If this error persists, contact Amazon Web Services Support.</p>
+            aws_sdk_wickr.errors.rate_limit_error.RateLimitError: <p>The request was throttled because too many requests were sent in a short period of time. Wait a moment and retry the request. Consider implementing exponential backoff in your application.</p>
+            aws_sdk_wickr.errors.resource_not_found_error.ResourceNotFoundError: <p>The requested resource could not be found. This error occurs when you try to access or modify a network, user, bot, security group, or other resource that doesn't exist or has been deleted.</p>
+            aws_sdk_wickr.errors.unauthorized_error.UnauthorizedError: <p>The request was not authenticated or the authentication credentials were invalid. This error occurs when the request lacks valid authentication credentials or the credentials have expired.</p>
+            aws_sdk_wickr.errors.validation_error.ValidationError: <p>One or more fields in the request failed validation. This error provides detailed information about which fields were invalid and why, allowing you to correct the request and retry.</p>
+            aws_sdk_wickr.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Create network successfully
@@ -793,6 +893,16 @@ class WickrClient:
             security_group_settings: <p>The configuration settings for the security group, including permissions, federation settings, and feature controls.</p>
             client_token: <p>A unique identifier for this request to ensure idempotency.</p>
 
+        Raises:
+            aws_sdk_wickr.errors.bad_request_error.BadRequestError: <p>The request was invalid or malformed. This error occurs when the request parameters do not meet the API requirements, such as invalid field values, missing required parameters, or improperly formatted data.</p>
+            aws_sdk_wickr.errors.forbidden_error.ForbiddenError: <p>Access to the requested resource is forbidden. This error occurs when the authenticated user does not have the necessary permissions to perform the requested operation, even though they are authenticated.</p>
+            aws_sdk_wickr.errors.internal_server_error.InternalServerError: <p>An unexpected error occurred on the server while processing the request. This indicates a problem with the Wickr service itself rather than with the request. If this error persists, contact Amazon Web Services Support.</p>
+            aws_sdk_wickr.errors.rate_limit_error.RateLimitError: <p>The request was throttled because too many requests were sent in a short period of time. Wait a moment and retry the request. Consider implementing exponential backoff in your application.</p>
+            aws_sdk_wickr.errors.resource_not_found_error.ResourceNotFoundError: <p>The requested resource could not be found. This error occurs when you try to access or modify a network, user, bot, security group, or other resource that doesn't exist or has been deleted.</p>
+            aws_sdk_wickr.errors.unauthorized_error.UnauthorizedError: <p>The request was not authenticated or the authentication credentials were invalid. This error occurs when the request lacks valid authentication credentials or the credentials have expired.</p>
+            aws_sdk_wickr.errors.validation_error.ValidationError: <p>One or more fields in the request failed validation. This error provides detailed information about which fields were invalid and why, allowing you to correct the request and retry.</p>
+            aws_sdk_wickr.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Create security group successfully
 
@@ -844,6 +954,16 @@ class WickrClient:
             network_id: <p>The ID of the Wickr network from which the bot will be deleted.</p>
             bot_id: <p>The unique identifier of the bot to be deleted.</p>
 
+        Raises:
+            aws_sdk_wickr.errors.bad_request_error.BadRequestError: <p>The request was invalid or malformed. This error occurs when the request parameters do not meet the API requirements, such as invalid field values, missing required parameters, or improperly formatted data.</p>
+            aws_sdk_wickr.errors.forbidden_error.ForbiddenError: <p>Access to the requested resource is forbidden. This error occurs when the authenticated user does not have the necessary permissions to perform the requested operation, even though they are authenticated.</p>
+            aws_sdk_wickr.errors.internal_server_error.InternalServerError: <p>An unexpected error occurred on the server while processing the request. This indicates a problem with the Wickr service itself rather than with the request. If this error persists, contact Amazon Web Services Support.</p>
+            aws_sdk_wickr.errors.rate_limit_error.RateLimitError: <p>The request was throttled because too many requests were sent in a short period of time. Wait a moment and retry the request. Consider implementing exponential backoff in your application.</p>
+            aws_sdk_wickr.errors.resource_not_found_error.ResourceNotFoundError: <p>The requested resource could not be found. This error occurs when you try to access or modify a network, user, bot, security group, or other resource that doesn't exist or has been deleted.</p>
+            aws_sdk_wickr.errors.unauthorized_error.UnauthorizedError: <p>The request was not authenticated or the authentication credentials were invalid. This error occurs when the request lacks valid authentication credentials or the credentials have expired.</p>
+            aws_sdk_wickr.errors.validation_error.ValidationError: <p>One or more fields in the request failed validation. This error provides detailed information about which fields were invalid and why, allowing you to correct the request and retry.</p>
+            aws_sdk_wickr.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Delete bot successfully
 
@@ -890,6 +1010,16 @@ class WickrClient:
         Args:
             network_id: <p>The ID of the Wickr network from which the data retention bot will be deleted.</p>
 
+        Raises:
+            aws_sdk_wickr.errors.bad_request_error.BadRequestError: <p>The request was invalid or malformed. This error occurs when the request parameters do not meet the API requirements, such as invalid field values, missing required parameters, or improperly formatted data.</p>
+            aws_sdk_wickr.errors.forbidden_error.ForbiddenError: <p>Access to the requested resource is forbidden. This error occurs when the authenticated user does not have the necessary permissions to perform the requested operation, even though they are authenticated.</p>
+            aws_sdk_wickr.errors.internal_server_error.InternalServerError: <p>An unexpected error occurred on the server while processing the request. This indicates a problem with the Wickr service itself rather than with the request. If this error persists, contact Amazon Web Services Support.</p>
+            aws_sdk_wickr.errors.rate_limit_error.RateLimitError: <p>The request was throttled because too many requests were sent in a short period of time. Wait a moment and retry the request. Consider implementing exponential backoff in your application.</p>
+            aws_sdk_wickr.errors.resource_not_found_error.ResourceNotFoundError: <p>The requested resource could not be found. This error occurs when you try to access or modify a network, user, bot, security group, or other resource that doesn't exist or has been deleted.</p>
+            aws_sdk_wickr.errors.unauthorized_error.UnauthorizedError: <p>The request was not authenticated or the authentication credentials were invalid. This error occurs when the request lacks valid authentication credentials or the credentials have expired.</p>
+            aws_sdk_wickr.errors.validation_error.ValidationError: <p>One or more fields in the request failed validation. This error provides detailed information about which fields were invalid and why, allowing you to correct the request and retry.</p>
+            aws_sdk_wickr.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Delete data retention bot successfully
 
@@ -933,6 +1063,16 @@ class WickrClient:
         Args:
             network_id: <p>The ID of the Wickr network to delete.</p>
             client_token: <p>A unique identifier for this request to ensure idempotency. If you retry a request with the same client token, the service will return the same response without attempting to delete the network again.</p>
+
+        Raises:
+            aws_sdk_wickr.errors.bad_request_error.BadRequestError: <p>The request was invalid or malformed. This error occurs when the request parameters do not meet the API requirements, such as invalid field values, missing required parameters, or improperly formatted data.</p>
+            aws_sdk_wickr.errors.forbidden_error.ForbiddenError: <p>Access to the requested resource is forbidden. This error occurs when the authenticated user does not have the necessary permissions to perform the requested operation, even though they are authenticated.</p>
+            aws_sdk_wickr.errors.internal_server_error.InternalServerError: <p>An unexpected error occurred on the server while processing the request. This indicates a problem with the Wickr service itself rather than with the request. If this error persists, contact Amazon Web Services Support.</p>
+            aws_sdk_wickr.errors.rate_limit_error.RateLimitError: <p>The request was throttled because too many requests were sent in a short period of time. Wait a moment and retry the request. Consider implementing exponential backoff in your application.</p>
+            aws_sdk_wickr.errors.resource_not_found_error.ResourceNotFoundError: <p>The requested resource could not be found. This error occurs when you try to access or modify a network, user, bot, security group, or other resource that doesn't exist or has been deleted.</p>
+            aws_sdk_wickr.errors.unauthorized_error.UnauthorizedError: <p>The request was not authenticated or the authentication credentials were invalid. This error occurs when the request lacks valid authentication credentials or the credentials have expired.</p>
+            aws_sdk_wickr.errors.validation_error.ValidationError: <p>One or more fields in the request failed validation. This error provides detailed information about which fields were invalid and why, allowing you to correct the request and retry.</p>
+            aws_sdk_wickr.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Delete network successfully
@@ -985,6 +1125,16 @@ class WickrClient:
             network_id: <p>The ID of the Wickr network from which the security group will be deleted.</p>
             group_id: <p>The unique identifier of the security group to delete.</p>
 
+        Raises:
+            aws_sdk_wickr.errors.bad_request_error.BadRequestError: <p>The request was invalid or malformed. This error occurs when the request parameters do not meet the API requirements, such as invalid field values, missing required parameters, or improperly formatted data.</p>
+            aws_sdk_wickr.errors.forbidden_error.ForbiddenError: <p>Access to the requested resource is forbidden. This error occurs when the authenticated user does not have the necessary permissions to perform the requested operation, even though they are authenticated.</p>
+            aws_sdk_wickr.errors.internal_server_error.InternalServerError: <p>An unexpected error occurred on the server while processing the request. This indicates a problem with the Wickr service itself rather than with the request. If this error persists, contact Amazon Web Services Support.</p>
+            aws_sdk_wickr.errors.rate_limit_error.RateLimitError: <p>The request was throttled because too many requests were sent in a short period of time. Wait a moment and retry the request. Consider implementing exponential backoff in your application.</p>
+            aws_sdk_wickr.errors.resource_not_found_error.ResourceNotFoundError: <p>The requested resource could not be found. This error occurs when you try to access or modify a network, user, bot, security group, or other resource that doesn't exist or has been deleted.</p>
+            aws_sdk_wickr.errors.unauthorized_error.UnauthorizedError: <p>The request was not authenticated or the authentication credentials were invalid. This error occurs when the request lacks valid authentication credentials or the credentials have expired.</p>
+            aws_sdk_wickr.errors.validation_error.ValidationError: <p>One or more fields in the request failed validation. This error provides detailed information about which fields were invalid and why, allowing you to correct the request and retry.</p>
+            aws_sdk_wickr.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Delete security group successfully
 
@@ -1033,6 +1183,16 @@ class WickrClient:
             network_id: <p>The ID of the Wickr network containing the bot.</p>
             bot_id: <p>The unique identifier of the bot to retrieve.</p>
 
+        Raises:
+            aws_sdk_wickr.errors.bad_request_error.BadRequestError: <p>The request was invalid or malformed. This error occurs when the request parameters do not meet the API requirements, such as invalid field values, missing required parameters, or improperly formatted data.</p>
+            aws_sdk_wickr.errors.forbidden_error.ForbiddenError: <p>Access to the requested resource is forbidden. This error occurs when the authenticated user does not have the necessary permissions to perform the requested operation, even though they are authenticated.</p>
+            aws_sdk_wickr.errors.internal_server_error.InternalServerError: <p>An unexpected error occurred on the server while processing the request. This indicates a problem with the Wickr service itself rather than with the request. If this error persists, contact Amazon Web Services Support.</p>
+            aws_sdk_wickr.errors.rate_limit_error.RateLimitError: <p>The request was throttled because too many requests were sent in a short period of time. Wait a moment and retry the request. Consider implementing exponential backoff in your application.</p>
+            aws_sdk_wickr.errors.resource_not_found_error.ResourceNotFoundError: <p>The requested resource could not be found. This error occurs when you try to access or modify a network, user, bot, security group, or other resource that doesn't exist or has been deleted.</p>
+            aws_sdk_wickr.errors.unauthorized_error.UnauthorizedError: <p>The request was not authenticated or the authentication credentials were invalid. This error occurs when the request lacks valid authentication credentials or the credentials have expired.</p>
+            aws_sdk_wickr.errors.validation_error.ValidationError: <p>One or more fields in the request failed validation. This error provides detailed information about which fields were invalid and why, allowing you to correct the request and retry.</p>
+            aws_sdk_wickr.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Get bot successfully
 
@@ -1076,6 +1236,16 @@ class WickrClient:
 
         Args:
             network_id: <p>The ID of the Wickr network for which to retrieve bot counts.</p>
+
+        Raises:
+            aws_sdk_wickr.errors.bad_request_error.BadRequestError: <p>The request was invalid or malformed. This error occurs when the request parameters do not meet the API requirements, such as invalid field values, missing required parameters, or improperly formatted data.</p>
+            aws_sdk_wickr.errors.forbidden_error.ForbiddenError: <p>Access to the requested resource is forbidden. This error occurs when the authenticated user does not have the necessary permissions to perform the requested operation, even though they are authenticated.</p>
+            aws_sdk_wickr.errors.internal_server_error.InternalServerError: <p>An unexpected error occurred on the server while processing the request. This indicates a problem with the Wickr service itself rather than with the request. If this error persists, contact Amazon Web Services Support.</p>
+            aws_sdk_wickr.errors.rate_limit_error.RateLimitError: <p>The request was throttled because too many requests were sent in a short period of time. Wait a moment and retry the request. Consider implementing exponential backoff in your application.</p>
+            aws_sdk_wickr.errors.resource_not_found_error.ResourceNotFoundError: <p>The requested resource could not be found. This error occurs when you try to access or modify a network, user, bot, security group, or other resource that doesn't exist or has been deleted.</p>
+            aws_sdk_wickr.errors.unauthorized_error.UnauthorizedError: <p>The request was not authenticated or the authentication credentials were invalid. This error occurs when the request lacks valid authentication credentials or the credentials have expired.</p>
+            aws_sdk_wickr.errors.validation_error.ValidationError: <p>One or more fields in the request failed validation. This error provides detailed information about which fields were invalid and why, allowing you to correct the request and retry.</p>
+            aws_sdk_wickr.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Get bots count successfully
@@ -1122,6 +1292,16 @@ class WickrClient:
         Args:
             network_id: <p>The ID of the Wickr network containing the data retention bot.</p>
 
+        Raises:
+            aws_sdk_wickr.errors.bad_request_error.BadRequestError: <p>The request was invalid or malformed. This error occurs when the request parameters do not meet the API requirements, such as invalid field values, missing required parameters, or improperly formatted data.</p>
+            aws_sdk_wickr.errors.forbidden_error.ForbiddenError: <p>Access to the requested resource is forbidden. This error occurs when the authenticated user does not have the necessary permissions to perform the requested operation, even though they are authenticated.</p>
+            aws_sdk_wickr.errors.internal_server_error.InternalServerError: <p>An unexpected error occurred on the server while processing the request. This indicates a problem with the Wickr service itself rather than with the request. If this error persists, contact Amazon Web Services Support.</p>
+            aws_sdk_wickr.errors.rate_limit_error.RateLimitError: <p>The request was throttled because too many requests were sent in a short period of time. Wait a moment and retry the request. Consider implementing exponential backoff in your application.</p>
+            aws_sdk_wickr.errors.resource_not_found_error.ResourceNotFoundError: <p>The requested resource could not be found. This error occurs when you try to access or modify a network, user, bot, security group, or other resource that doesn't exist or has been deleted.</p>
+            aws_sdk_wickr.errors.unauthorized_error.UnauthorizedError: <p>The request was not authenticated or the authentication credentials were invalid. This error occurs when the request lacks valid authentication credentials or the credentials have expired.</p>
+            aws_sdk_wickr.errors.validation_error.ValidationError: <p>One or more fields in the request failed validation. This error provides detailed information about which fields were invalid and why, allowing you to correct the request and retry.</p>
+            aws_sdk_wickr.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Get data retention bot successfully
 
@@ -1166,6 +1346,16 @@ class WickrClient:
 
         Args:
             network_id: <p>The ID of the Wickr network for which to retrieve guest user history.</p>
+
+        Raises:
+            aws_sdk_wickr.errors.bad_request_error.BadRequestError: <p>The request was invalid or malformed. This error occurs when the request parameters do not meet the API requirements, such as invalid field values, missing required parameters, or improperly formatted data.</p>
+            aws_sdk_wickr.errors.forbidden_error.ForbiddenError: <p>Access to the requested resource is forbidden. This error occurs when the authenticated user does not have the necessary permissions to perform the requested operation, even though they are authenticated.</p>
+            aws_sdk_wickr.errors.internal_server_error.InternalServerError: <p>An unexpected error occurred on the server while processing the request. This indicates a problem with the Wickr service itself rather than with the request. If this error persists, contact Amazon Web Services Support.</p>
+            aws_sdk_wickr.errors.rate_limit_error.RateLimitError: <p>The request was throttled because too many requests were sent in a short period of time. Wait a moment and retry the request. Consider implementing exponential backoff in your application.</p>
+            aws_sdk_wickr.errors.resource_not_found_error.ResourceNotFoundError: <p>The requested resource could not be found. This error occurs when you try to access or modify a network, user, bot, security group, or other resource that doesn't exist or has been deleted.</p>
+            aws_sdk_wickr.errors.unauthorized_error.UnauthorizedError: <p>The request was not authenticated or the authentication credentials were invalid. This error occurs when the request lacks valid authentication credentials or the credentials have expired.</p>
+            aws_sdk_wickr.errors.validation_error.ValidationError: <p>One or more fields in the request failed validation. This error provides detailed information about which fields were invalid and why, allowing you to correct the request and retry.</p>
+            aws_sdk_wickr.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Get guest user history count
@@ -1212,6 +1402,16 @@ class WickrClient:
         Args:
             network_id: <p>The ID of the Wickr network to retrieve.</p>
 
+        Raises:
+            aws_sdk_wickr.errors.bad_request_error.BadRequestError: <p>The request was invalid or malformed. This error occurs when the request parameters do not meet the API requirements, such as invalid field values, missing required parameters, or improperly formatted data.</p>
+            aws_sdk_wickr.errors.forbidden_error.ForbiddenError: <p>Access to the requested resource is forbidden. This error occurs when the authenticated user does not have the necessary permissions to perform the requested operation, even though they are authenticated.</p>
+            aws_sdk_wickr.errors.internal_server_error.InternalServerError: <p>An unexpected error occurred on the server while processing the request. This indicates a problem with the Wickr service itself rather than with the request. If this error persists, contact Amazon Web Services Support.</p>
+            aws_sdk_wickr.errors.rate_limit_error.RateLimitError: <p>The request was throttled because too many requests were sent in a short period of time. Wait a moment and retry the request. Consider implementing exponential backoff in your application.</p>
+            aws_sdk_wickr.errors.resource_not_found_error.ResourceNotFoundError: <p>The requested resource could not be found. This error occurs when you try to access or modify a network, user, bot, security group, or other resource that doesn't exist or has been deleted.</p>
+            aws_sdk_wickr.errors.unauthorized_error.UnauthorizedError: <p>The request was not authenticated or the authentication credentials were invalid. This error occurs when the request lacks valid authentication credentials or the credentials have expired.</p>
+            aws_sdk_wickr.errors.validation_error.ValidationError: <p>One or more fields in the request failed validation. This error provides detailed information about which fields were invalid and why, allowing you to correct the request and retry.</p>
+            aws_sdk_wickr.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Get network successfully
 
@@ -1256,6 +1456,16 @@ class WickrClient:
 
         Args:
             network_id: <p>The ID of the Wickr network whose settings will be retrieved.</p>
+
+        Raises:
+            aws_sdk_wickr.errors.bad_request_error.BadRequestError: <p>The request was invalid or malformed. This error occurs when the request parameters do not meet the API requirements, such as invalid field values, missing required parameters, or improperly formatted data.</p>
+            aws_sdk_wickr.errors.forbidden_error.ForbiddenError: <p>Access to the requested resource is forbidden. This error occurs when the authenticated user does not have the necessary permissions to perform the requested operation, even though they are authenticated.</p>
+            aws_sdk_wickr.errors.internal_server_error.InternalServerError: <p>An unexpected error occurred on the server while processing the request. This indicates a problem with the Wickr service itself rather than with the request. If this error persists, contact Amazon Web Services Support.</p>
+            aws_sdk_wickr.errors.rate_limit_error.RateLimitError: <p>The request was throttled because too many requests were sent in a short period of time. Wait a moment and retry the request. Consider implementing exponential backoff in your application.</p>
+            aws_sdk_wickr.errors.resource_not_found_error.ResourceNotFoundError: <p>The requested resource could not be found. This error occurs when you try to access or modify a network, user, bot, security group, or other resource that doesn't exist or has been deleted.</p>
+            aws_sdk_wickr.errors.unauthorized_error.UnauthorizedError: <p>The request was not authenticated or the authentication credentials were invalid. This error occurs when the request lacks valid authentication credentials or the credentials have expired.</p>
+            aws_sdk_wickr.errors.validation_error.ValidationError: <p>One or more fields in the request failed validation. This error provides detailed information about which fields were invalid and why, allowing you to correct the request and retry.</p>
+            aws_sdk_wickr.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Get network settings with mixed value types
@@ -1329,6 +1539,16 @@ class WickrClient:
             code_verifier: <p>The PKCE code verifier for enhanced security in the OAuth flow (optional).</p>
             certificate: <p>The CA certificate for secure communication with the OIDC provider (optional).</p>
 
+        Raises:
+            aws_sdk_wickr.errors.bad_request_error.BadRequestError: <p>The request was invalid or malformed. This error occurs when the request parameters do not meet the API requirements, such as invalid field values, missing required parameters, or improperly formatted data.</p>
+            aws_sdk_wickr.errors.forbidden_error.ForbiddenError: <p>Access to the requested resource is forbidden. This error occurs when the authenticated user does not have the necessary permissions to perform the requested operation, even though they are authenticated.</p>
+            aws_sdk_wickr.errors.internal_server_error.InternalServerError: <p>An unexpected error occurred on the server while processing the request. This indicates a problem with the Wickr service itself rather than with the request. If this error persists, contact Amazon Web Services Support.</p>
+            aws_sdk_wickr.errors.rate_limit_error.RateLimitError: <p>The request was throttled because too many requests were sent in a short period of time. Wait a moment and retry the request. Consider implementing exponential backoff in your application.</p>
+            aws_sdk_wickr.errors.resource_not_found_error.ResourceNotFoundError: <p>The requested resource could not be found. This error occurs when you try to access or modify a network, user, bot, security group, or other resource that doesn't exist or has been deleted.</p>
+            aws_sdk_wickr.errors.unauthorized_error.UnauthorizedError: <p>The request was not authenticated or the authentication credentials were invalid. This error occurs when the request lacks valid authentication credentials or the credentials have expired.</p>
+            aws_sdk_wickr.errors.validation_error.ValidationError: <p>One or more fields in the request failed validation. This error provides detailed information about which fields were invalid and why, allowing you to correct the request and retry.</p>
+            aws_sdk_wickr.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Get OIDC info successfully
 
@@ -1390,6 +1610,16 @@ class WickrClient:
         Args:
             network_id: <p>The ID of the Wickr network for which OpenTDF integration will be retrieved.</p>
 
+        Raises:
+            aws_sdk_wickr.errors.bad_request_error.BadRequestError: <p>The request was invalid or malformed. This error occurs when the request parameters do not meet the API requirements, such as invalid field values, missing required parameters, or improperly formatted data.</p>
+            aws_sdk_wickr.errors.forbidden_error.ForbiddenError: <p>Access to the requested resource is forbidden. This error occurs when the authenticated user does not have the necessary permissions to perform the requested operation, even though they are authenticated.</p>
+            aws_sdk_wickr.errors.internal_server_error.InternalServerError: <p>An unexpected error occurred on the server while processing the request. This indicates a problem with the Wickr service itself rather than with the request. If this error persists, contact Amazon Web Services Support.</p>
+            aws_sdk_wickr.errors.rate_limit_error.RateLimitError: <p>The request was throttled because too many requests were sent in a short period of time. Wait a moment and retry the request. Consider implementing exponential backoff in your application.</p>
+            aws_sdk_wickr.errors.resource_not_found_error.ResourceNotFoundError: <p>The requested resource could not be found. This error occurs when you try to access or modify a network, user, bot, security group, or other resource that doesn't exist or has been deleted.</p>
+            aws_sdk_wickr.errors.unauthorized_error.UnauthorizedError: <p>The request was not authenticated or the authentication credentials were invalid. This error occurs when the request lacks valid authentication credentials or the credentials have expired.</p>
+            aws_sdk_wickr.errors.validation_error.ValidationError: <p>One or more fields in the request failed validation. This error provides detailed information about which fields were invalid and why, allowing you to correct the request and retry.</p>
+            aws_sdk_wickr.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Get OpenTDF info successfully
 
@@ -1436,6 +1666,16 @@ class WickrClient:
         Args:
             network_id: <p>The ID of the Wickr network containing the security group.</p>
             group_id: <p>The unique identifier of the security group to retrieve.</p>
+
+        Raises:
+            aws_sdk_wickr.errors.bad_request_error.BadRequestError: <p>The request was invalid or malformed. This error occurs when the request parameters do not meet the API requirements, such as invalid field values, missing required parameters, or improperly formatted data.</p>
+            aws_sdk_wickr.errors.forbidden_error.ForbiddenError: <p>Access to the requested resource is forbidden. This error occurs when the authenticated user does not have the necessary permissions to perform the requested operation, even though they are authenticated.</p>
+            aws_sdk_wickr.errors.internal_server_error.InternalServerError: <p>An unexpected error occurred on the server while processing the request. This indicates a problem with the Wickr service itself rather than with the request. If this error persists, contact Amazon Web Services Support.</p>
+            aws_sdk_wickr.errors.rate_limit_error.RateLimitError: <p>The request was throttled because too many requests were sent in a short period of time. Wait a moment and retry the request. Consider implementing exponential backoff in your application.</p>
+            aws_sdk_wickr.errors.resource_not_found_error.ResourceNotFoundError: <p>The requested resource could not be found. This error occurs when you try to access or modify a network, user, bot, security group, or other resource that doesn't exist or has been deleted.</p>
+            aws_sdk_wickr.errors.unauthorized_error.UnauthorizedError: <p>The request was not authenticated or the authentication credentials were invalid. This error occurs when the request lacks valid authentication credentials or the credentials have expired.</p>
+            aws_sdk_wickr.errors.validation_error.ValidationError: <p>One or more fields in the request failed validation. This error provides detailed information about which fields were invalid and why, allowing you to correct the request and retry.</p>
+            aws_sdk_wickr.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Get security group successfully
@@ -1488,6 +1728,16 @@ class WickrClient:
             user_id: <p>The unique identifier of the user to retrieve.</p>
             start_time: <p>The start time for filtering the user's last activity. Only activity after this timestamp will be considered. Time is specified in epoch seconds.</p>
             end_time: <p>The end time for filtering the user's last activity. Only activity before this timestamp will be considered. Time is specified in epoch seconds.</p>
+
+        Raises:
+            aws_sdk_wickr.errors.bad_request_error.BadRequestError: <p>The request was invalid or malformed. This error occurs when the request parameters do not meet the API requirements, such as invalid field values, missing required parameters, or improperly formatted data.</p>
+            aws_sdk_wickr.errors.forbidden_error.ForbiddenError: <p>Access to the requested resource is forbidden. This error occurs when the authenticated user does not have the necessary permissions to perform the requested operation, even though they are authenticated.</p>
+            aws_sdk_wickr.errors.internal_server_error.InternalServerError: <p>An unexpected error occurred on the server while processing the request. This indicates a problem with the Wickr service itself rather than with the request. If this error persists, contact Amazon Web Services Support.</p>
+            aws_sdk_wickr.errors.rate_limit_error.RateLimitError: <p>The request was throttled because too many requests were sent in a short period of time. Wait a moment and retry the request. Consider implementing exponential backoff in your application.</p>
+            aws_sdk_wickr.errors.resource_not_found_error.ResourceNotFoundError: <p>The requested resource could not be found. This error occurs when you try to access or modify a network, user, bot, security group, or other resource that doesn't exist or has been deleted.</p>
+            aws_sdk_wickr.errors.unauthorized_error.UnauthorizedError: <p>The request was not authenticated or the authentication credentials were invalid. This error occurs when the request lacks valid authentication credentials or the credentials have expired.</p>
+            aws_sdk_wickr.errors.validation_error.ValidationError: <p>One or more fields in the request failed validation. This error provides detailed information about which fields were invalid and why, allowing you to correct the request and retry.</p>
+            aws_sdk_wickr.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Get user information
@@ -1542,6 +1792,16 @@ class WickrClient:
 
         Args:
             network_id: <p>The ID of the Wickr network for which to retrieve user counts.</p>
+
+        Raises:
+            aws_sdk_wickr.errors.bad_request_error.BadRequestError: <p>The request was invalid or malformed. This error occurs when the request parameters do not meet the API requirements, such as invalid field values, missing required parameters, or improperly formatted data.</p>
+            aws_sdk_wickr.errors.forbidden_error.ForbiddenError: <p>Access to the requested resource is forbidden. This error occurs when the authenticated user does not have the necessary permissions to perform the requested operation, even though they are authenticated.</p>
+            aws_sdk_wickr.errors.internal_server_error.InternalServerError: <p>An unexpected error occurred on the server while processing the request. This indicates a problem with the Wickr service itself rather than with the request. If this error persists, contact Amazon Web Services Support.</p>
+            aws_sdk_wickr.errors.rate_limit_error.RateLimitError: <p>The request was throttled because too many requests were sent in a short period of time. Wait a moment and retry the request. Consider implementing exponential backoff in your application.</p>
+            aws_sdk_wickr.errors.resource_not_found_error.ResourceNotFoundError: <p>The requested resource could not be found. This error occurs when you try to access or modify a network, user, bot, security group, or other resource that doesn't exist or has been deleted.</p>
+            aws_sdk_wickr.errors.unauthorized_error.UnauthorizedError: <p>The request was not authenticated or the authentication credentials were invalid. This error occurs when the request lacks valid authentication credentials or the credentials have expired.</p>
+            aws_sdk_wickr.errors.validation_error.ValidationError: <p>One or more fields in the request failed validation. This error provides detailed information about which fields were invalid and why, allowing you to correct the request and retry.</p>
+            aws_sdk_wickr.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Get user counts for network
@@ -1603,6 +1863,16 @@ class WickrClient:
             username: <p>Filter results to only include blocked guest users with usernames matching this value.</p>
             admin: <p>Filter results to only include blocked guest users that were blocked by this administrator.</p>
             next_token: <p>The token for retrieving the next page of results. This is returned from a previous request when there are more results available.</p>
+
+        Raises:
+            aws_sdk_wickr.errors.bad_request_error.BadRequestError: <p>The request was invalid or malformed. This error occurs when the request parameters do not meet the API requirements, such as invalid field values, missing required parameters, or improperly formatted data.</p>
+            aws_sdk_wickr.errors.forbidden_error.ForbiddenError: <p>Access to the requested resource is forbidden. This error occurs when the authenticated user does not have the necessary permissions to perform the requested operation, even though they are authenticated.</p>
+            aws_sdk_wickr.errors.internal_server_error.InternalServerError: <p>An unexpected error occurred on the server while processing the request. This indicates a problem with the Wickr service itself rather than with the request. If this error persists, contact Amazon Web Services Support.</p>
+            aws_sdk_wickr.errors.rate_limit_error.RateLimitError: <p>The request was throttled because too many requests were sent in a short period of time. Wait a moment and retry the request. Consider implementing exponential backoff in your application.</p>
+            aws_sdk_wickr.errors.resource_not_found_error.ResourceNotFoundError: <p>The requested resource could not be found. This error occurs when you try to access or modify a network, user, bot, security group, or other resource that doesn't exist or has been deleted.</p>
+            aws_sdk_wickr.errors.unauthorized_error.UnauthorizedError: <p>The request was not authenticated or the authentication credentials were invalid. This error occurs when the request lacks valid authentication credentials or the credentials have expired.</p>
+            aws_sdk_wickr.errors.validation_error.ValidationError: <p>One or more fields in the request failed validation. This error provides detailed information about which fields were invalid and why, allowing you to correct the request and retry.</p>
+            aws_sdk_wickr.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Get paginated list of blocked guest users
@@ -1720,6 +1990,16 @@ class WickrClient:
             username: <p>Filter results to only include bots with usernames matching this value.</p>
             status: <p>Filter results to only include bots with this status (1 for pending, 2 for active).</p>
             group_id: <p>Filter results to only include bots belonging to this security group.</p>
+
+        Raises:
+            aws_sdk_wickr.errors.bad_request_error.BadRequestError: <p>The request was invalid or malformed. This error occurs when the request parameters do not meet the API requirements, such as invalid field values, missing required parameters, or improperly formatted data.</p>
+            aws_sdk_wickr.errors.forbidden_error.ForbiddenError: <p>Access to the requested resource is forbidden. This error occurs when the authenticated user does not have the necessary permissions to perform the requested operation, even though they are authenticated.</p>
+            aws_sdk_wickr.errors.internal_server_error.InternalServerError: <p>An unexpected error occurred on the server while processing the request. This indicates a problem with the Wickr service itself rather than with the request. If this error persists, contact Amazon Web Services Support.</p>
+            aws_sdk_wickr.errors.rate_limit_error.RateLimitError: <p>The request was throttled because too many requests were sent in a short period of time. Wait a moment and retry the request. Consider implementing exponential backoff in your application.</p>
+            aws_sdk_wickr.errors.resource_not_found_error.ResourceNotFoundError: <p>The requested resource could not be found. This error occurs when you try to access or modify a network, user, bot, security group, or other resource that doesn't exist or has been deleted.</p>
+            aws_sdk_wickr.errors.unauthorized_error.UnauthorizedError: <p>The request was not authenticated or the authentication credentials were invalid. This error occurs when the request lacks valid authentication credentials or the credentials have expired.</p>
+            aws_sdk_wickr.errors.validation_error.ValidationError: <p>One or more fields in the request failed validation. This error provides detailed information about which fields were invalid and why, allowing you to correct the request and retry.</p>
+            aws_sdk_wickr.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             List bots with pagination
@@ -1839,6 +2119,16 @@ class WickrClient:
             sort_fields: <p>The fields to sort devices by. Multiple fields can be specified by separating them with '+'. Accepted values include 'lastlogin', 'type', 'suspend', and 'created'.</p>
             sort_direction: <p>The direction to sort results. Valid values are 'ASC' (ascending) or 'DESC' (descending). Default is 'DESC'.</p>
 
+        Raises:
+            aws_sdk_wickr.errors.bad_request_error.BadRequestError: <p>The request was invalid or malformed. This error occurs when the request parameters do not meet the API requirements, such as invalid field values, missing required parameters, or improperly formatted data.</p>
+            aws_sdk_wickr.errors.forbidden_error.ForbiddenError: <p>Access to the requested resource is forbidden. This error occurs when the authenticated user does not have the necessary permissions to perform the requested operation, even though they are authenticated.</p>
+            aws_sdk_wickr.errors.internal_server_error.InternalServerError: <p>An unexpected error occurred on the server while processing the request. This indicates a problem with the Wickr service itself rather than with the request. If this error persists, contact Amazon Web Services Support.</p>
+            aws_sdk_wickr.errors.rate_limit_error.RateLimitError: <p>The request was throttled because too many requests were sent in a short period of time. Wait a moment and retry the request. Consider implementing exponential backoff in your application.</p>
+            aws_sdk_wickr.errors.resource_not_found_error.ResourceNotFoundError: <p>The requested resource could not be found. This error occurs when you try to access or modify a network, user, bot, security group, or other resource that doesn't exist or has been deleted.</p>
+            aws_sdk_wickr.errors.unauthorized_error.UnauthorizedError: <p>The request was not authenticated or the authentication credentials were invalid. This error occurs when the request lacks valid authentication credentials or the credentials have expired.</p>
+            aws_sdk_wickr.errors.validation_error.ValidationError: <p>One or more fields in the request failed validation. This error provides detailed information about which fields were invalid and why, allowing you to correct the request and retry.</p>
+            aws_sdk_wickr.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Successful device list retrieval
 
@@ -1947,6 +2237,16 @@ class WickrClient:
             billing_period: <p>Filter results to only include guest users from this billing period (e.g., '2024-01').</p>
             next_token: <p>The token for retrieving the next page of results. This is returned from a previous request when there are more results available.</p>
 
+        Raises:
+            aws_sdk_wickr.errors.bad_request_error.BadRequestError: <p>The request was invalid or malformed. This error occurs when the request parameters do not meet the API requirements, such as invalid field values, missing required parameters, or improperly formatted data.</p>
+            aws_sdk_wickr.errors.forbidden_error.ForbiddenError: <p>Access to the requested resource is forbidden. This error occurs when the authenticated user does not have the necessary permissions to perform the requested operation, even though they are authenticated.</p>
+            aws_sdk_wickr.errors.internal_server_error.InternalServerError: <p>An unexpected error occurred on the server while processing the request. This indicates a problem with the Wickr service itself rather than with the request. If this error persists, contact Amazon Web Services Support.</p>
+            aws_sdk_wickr.errors.rate_limit_error.RateLimitError: <p>The request was throttled because too many requests were sent in a short period of time. Wait a moment and retry the request. Consider implementing exponential backoff in your application.</p>
+            aws_sdk_wickr.errors.resource_not_found_error.ResourceNotFoundError: <p>The requested resource could not be found. This error occurs when you try to access or modify a network, user, bot, security group, or other resource that doesn't exist or has been deleted.</p>
+            aws_sdk_wickr.errors.unauthorized_error.UnauthorizedError: <p>The request was not authenticated or the authentication credentials were invalid. This error occurs when the request lacks valid authentication credentials or the credentials have expired.</p>
+            aws_sdk_wickr.errors.validation_error.ValidationError: <p>One or more fields in the request failed validation. This error provides detailed information about which fields were invalid and why, allowing you to correct the request and retry.</p>
+            aws_sdk_wickr.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Get paginated list of guest users
 
@@ -2054,6 +2354,15 @@ class WickrClient:
             sort_direction: <p>The direction to sort results. Valid values are 'ASC' (ascending) or 'DESC' (descending). Default is 'DESC'.</p>
             next_token: <p>The token for retrieving the next page of results. This is returned from a previous request when there are more results available.</p>
 
+        Raises:
+            aws_sdk_wickr.errors.bad_request_error.BadRequestError: <p>The request was invalid or malformed. This error occurs when the request parameters do not meet the API requirements, such as invalid field values, missing required parameters, or improperly formatted data.</p>
+            aws_sdk_wickr.errors.forbidden_error.ForbiddenError: <p>Access to the requested resource is forbidden. This error occurs when the authenticated user does not have the necessary permissions to perform the requested operation, even though they are authenticated.</p>
+            aws_sdk_wickr.errors.internal_server_error.InternalServerError: <p>An unexpected error occurred on the server while processing the request. This indicates a problem with the Wickr service itself rather than with the request. If this error persists, contact Amazon Web Services Support.</p>
+            aws_sdk_wickr.errors.rate_limit_error.RateLimitError: <p>The request was throttled because too many requests were sent in a short period of time. Wait a moment and retry the request. Consider implementing exponential backoff in your application.</p>
+            aws_sdk_wickr.errors.unauthorized_error.UnauthorizedError: <p>The request was not authenticated or the authentication credentials were invalid. This error occurs when the request lacks valid authentication credentials or the credentials have expired.</p>
+            aws_sdk_wickr.errors.validation_error.ValidationError: <p>One or more fields in the request failed validation. This error provides detailed information about which fields were invalid and why, allowing you to correct the request and retry.</p>
+            aws_sdk_wickr.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             List networks with pagination
 
@@ -2146,6 +2455,16 @@ class WickrClient:
             max_results: <p>The maximum number of security groups to return in a single page. Valid range is 1-100. Default is 10.</p>
             sort_fields: <p>The field to sort security groups by. Accepted values include 'id' and 'name'.</p>
             sort_direction: <p>The direction to sort results. Valid values are 'ASC' (ascending) or 'DESC' (descending). Default is 'DESC'.</p>
+
+        Raises:
+            aws_sdk_wickr.errors.bad_request_error.BadRequestError: <p>The request was invalid or malformed. This error occurs when the request parameters do not meet the API requirements, such as invalid field values, missing required parameters, or improperly formatted data.</p>
+            aws_sdk_wickr.errors.forbidden_error.ForbiddenError: <p>Access to the requested resource is forbidden. This error occurs when the authenticated user does not have the necessary permissions to perform the requested operation, even though they are authenticated.</p>
+            aws_sdk_wickr.errors.internal_server_error.InternalServerError: <p>An unexpected error occurred on the server while processing the request. This indicates a problem with the Wickr service itself rather than with the request. If this error persists, contact Amazon Web Services Support.</p>
+            aws_sdk_wickr.errors.rate_limit_error.RateLimitError: <p>The request was throttled because too many requests were sent in a short period of time. Wait a moment and retry the request. Consider implementing exponential backoff in your application.</p>
+            aws_sdk_wickr.errors.resource_not_found_error.ResourceNotFoundError: <p>The requested resource could not be found. This error occurs when you try to access or modify a network, user, bot, security group, or other resource that doesn't exist or has been deleted.</p>
+            aws_sdk_wickr.errors.unauthorized_error.UnauthorizedError: <p>The request was not authenticated or the authentication credentials were invalid. This error occurs when the request lacks valid authentication credentials or the credentials have expired.</p>
+            aws_sdk_wickr.errors.validation_error.ValidationError: <p>One or more fields in the request failed validation. This error provides detailed information about which fields were invalid and why, allowing you to correct the request and retry.</p>
+            aws_sdk_wickr.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             List security groups with pagination
@@ -2244,6 +2563,16 @@ class WickrClient:
             max_results: <p>The maximum number of users to return in a single page. Valid range is 1-100. Default is 10.</p>
             sort_fields: <p>The field to sort users by. Multiple fields can be specified by separating them with '+'. Accepted values include 'username', 'firstName', and 'lastName'.</p>
             sort_direction: <p>The direction to sort results. Valid values are 'ASC' (ascending) or 'DESC' (descending). Default is 'DESC'.</p>
+
+        Raises:
+            aws_sdk_wickr.errors.bad_request_error.BadRequestError: <p>The request was invalid or malformed. This error occurs when the request parameters do not meet the API requirements, such as invalid field values, missing required parameters, or improperly formatted data.</p>
+            aws_sdk_wickr.errors.forbidden_error.ForbiddenError: <p>Access to the requested resource is forbidden. This error occurs when the authenticated user does not have the necessary permissions to perform the requested operation, even though they are authenticated.</p>
+            aws_sdk_wickr.errors.internal_server_error.InternalServerError: <p>An unexpected error occurred on the server while processing the request. This indicates a problem with the Wickr service itself rather than with the request. If this error persists, contact Amazon Web Services Support.</p>
+            aws_sdk_wickr.errors.rate_limit_error.RateLimitError: <p>The request was throttled because too many requests were sent in a short period of time. Wait a moment and retry the request. Consider implementing exponential backoff in your application.</p>
+            aws_sdk_wickr.errors.resource_not_found_error.ResourceNotFoundError: <p>The requested resource could not be found. This error occurs when you try to access or modify a network, user, bot, security group, or other resource that doesn't exist or has been deleted.</p>
+            aws_sdk_wickr.errors.unauthorized_error.UnauthorizedError: <p>The request was not authenticated or the authentication credentials were invalid. This error occurs when the request lacks valid authentication credentials or the credentials have expired.</p>
+            aws_sdk_wickr.errors.validation_error.ValidationError: <p>One or more fields in the request failed validation. This error provides detailed information about which fields were invalid and why, allowing you to correct the request and retry.</p>
+            aws_sdk_wickr.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             List security group users with pagination
@@ -2354,6 +2683,16 @@ class WickrClient:
             username: <p>Filter results to only include users with usernames matching this value.</p>
             status: <p>Filter results to only include users with this status (1 for pending, 2 for active).</p>
             group_id: <p>Filter results to only include users belonging to this security group.</p>
+
+        Raises:
+            aws_sdk_wickr.errors.bad_request_error.BadRequestError: <p>The request was invalid or malformed. This error occurs when the request parameters do not meet the API requirements, such as invalid field values, missing required parameters, or improperly formatted data.</p>
+            aws_sdk_wickr.errors.forbidden_error.ForbiddenError: <p>Access to the requested resource is forbidden. This error occurs when the authenticated user does not have the necessary permissions to perform the requested operation, even though they are authenticated.</p>
+            aws_sdk_wickr.errors.internal_server_error.InternalServerError: <p>An unexpected error occurred on the server while processing the request. This indicates a problem with the Wickr service itself rather than with the request. If this error persists, contact Amazon Web Services Support.</p>
+            aws_sdk_wickr.errors.rate_limit_error.RateLimitError: <p>The request was throttled because too many requests were sent in a short period of time. Wait a moment and retry the request. Consider implementing exponential backoff in your application.</p>
+            aws_sdk_wickr.errors.resource_not_found_error.ResourceNotFoundError: <p>The requested resource could not be found. This error occurs when you try to access or modify a network, user, bot, security group, or other resource that doesn't exist or has been deleted.</p>
+            aws_sdk_wickr.errors.unauthorized_error.UnauthorizedError: <p>The request was not authenticated or the authentication credentials were invalid. This error occurs when the request lacks valid authentication credentials or the credentials have expired.</p>
+            aws_sdk_wickr.errors.validation_error.ValidationError: <p>One or more fields in the request failed validation. This error provides detailed information about which fields were invalid and why, allowing you to correct the request and retry.</p>
+            aws_sdk_wickr.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Get paginated list of users
@@ -2486,6 +2825,16 @@ class WickrClient:
             sso_token_buffer_minutes: <p>The buffer time in minutes before the SSO token expires to refresh it (optional).</p>
             user_id: <p>Unique identifier provided by your identity provider to authenticate the access request. Also referred to as clientID.</p>
 
+        Raises:
+            aws_sdk_wickr.errors.bad_request_error.BadRequestError: <p>The request was invalid or malformed. This error occurs when the request parameters do not meet the API requirements, such as invalid field values, missing required parameters, or improperly formatted data.</p>
+            aws_sdk_wickr.errors.forbidden_error.ForbiddenError: <p>Access to the requested resource is forbidden. This error occurs when the authenticated user does not have the necessary permissions to perform the requested operation, even though they are authenticated.</p>
+            aws_sdk_wickr.errors.internal_server_error.InternalServerError: <p>An unexpected error occurred on the server while processing the request. This indicates a problem with the Wickr service itself rather than with the request. If this error persists, contact Amazon Web Services Support.</p>
+            aws_sdk_wickr.errors.rate_limit_error.RateLimitError: <p>The request was throttled because too many requests were sent in a short period of time. Wait a moment and retry the request. Consider implementing exponential backoff in your application.</p>
+            aws_sdk_wickr.errors.resource_not_found_error.ResourceNotFoundError: <p>The requested resource could not be found. This error occurs when you try to access or modify a network, user, bot, security group, or other resource that doesn't exist or has been deleted.</p>
+            aws_sdk_wickr.errors.unauthorized_error.UnauthorizedError: <p>The request was not authenticated or the authentication credentials were invalid. This error occurs when the request lacks valid authentication credentials or the credentials have expired.</p>
+            aws_sdk_wickr.errors.validation_error.ValidationError: <p>One or more fields in the request failed validation. This error provides detailed information about which fields were invalid and why, allowing you to correct the request and retry.</p>
+            aws_sdk_wickr.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Save OIDC config successfully
 
@@ -2559,6 +2908,16 @@ class WickrClient:
             scopes: <p>The OAuth scopes to test with the OIDC provider.</p>
             certificate: <p>The CA certificate for secure communication with the OIDC provider (optional).</p>
 
+        Raises:
+            aws_sdk_wickr.errors.bad_request_error.BadRequestError: <p>The request was invalid or malformed. This error occurs when the request parameters do not meet the API requirements, such as invalid field values, missing required parameters, or improperly formatted data.</p>
+            aws_sdk_wickr.errors.forbidden_error.ForbiddenError: <p>Access to the requested resource is forbidden. This error occurs when the authenticated user does not have the necessary permissions to perform the requested operation, even though they are authenticated.</p>
+            aws_sdk_wickr.errors.internal_server_error.InternalServerError: <p>An unexpected error occurred on the server while processing the request. This indicates a problem with the Wickr service itself rather than with the request. If this error persists, contact Amazon Web Services Support.</p>
+            aws_sdk_wickr.errors.rate_limit_error.RateLimitError: <p>The request was throttled because too many requests were sent in a short period of time. Wait a moment and retry the request. Consider implementing exponential backoff in your application.</p>
+            aws_sdk_wickr.errors.resource_not_found_error.ResourceNotFoundError: <p>The requested resource could not be found. This error occurs when you try to access or modify a network, user, bot, security group, or other resource that doesn't exist or has been deleted.</p>
+            aws_sdk_wickr.errors.unauthorized_error.UnauthorizedError: <p>The request was not authenticated or the authentication credentials were invalid. This error occurs when the request lacks valid authentication credentials or the credentials have expired.</p>
+            aws_sdk_wickr.errors.validation_error.ValidationError: <p>One or more fields in the request failed validation. This error provides detailed information about which fields were invalid and why, allowing you to correct the request and retry.</p>
+            aws_sdk_wickr.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Test OIDC config successfully
 
@@ -2622,6 +2981,16 @@ class WickrClient:
             domain: <p>The domain of the OpenTDF server.</p>
             provider: <p>The provider of the OpenTDF platform.</p> <note> <p>Currently only Virtru is supported as the OpenTDF provider.</p> </note>
             dry_run: <p>Perform dry-run test connection of OpenTDF configuration (optional).</p>
+
+        Raises:
+            aws_sdk_wickr.errors.bad_request_error.BadRequestError: <p>The request was invalid or malformed. This error occurs when the request parameters do not meet the API requirements, such as invalid field values, missing required parameters, or improperly formatted data.</p>
+            aws_sdk_wickr.errors.forbidden_error.ForbiddenError: <p>Access to the requested resource is forbidden. This error occurs when the authenticated user does not have the necessary permissions to perform the requested operation, even though they are authenticated.</p>
+            aws_sdk_wickr.errors.internal_server_error.InternalServerError: <p>An unexpected error occurred on the server while processing the request. This indicates a problem with the Wickr service itself rather than with the request. If this error persists, contact Amazon Web Services Support.</p>
+            aws_sdk_wickr.errors.rate_limit_error.RateLimitError: <p>The request was throttled because too many requests were sent in a short period of time. Wait a moment and retry the request. Consider implementing exponential backoff in your application.</p>
+            aws_sdk_wickr.errors.resource_not_found_error.ResourceNotFoundError: <p>The requested resource could not be found. This error occurs when you try to access or modify a network, user, bot, security group, or other resource that doesn't exist or has been deleted.</p>
+            aws_sdk_wickr.errors.unauthorized_error.UnauthorizedError: <p>The request was not authenticated or the authentication credentials were invalid. This error occurs when the request lacks valid authentication credentials or the credentials have expired.</p>
+            aws_sdk_wickr.errors.validation_error.ValidationError: <p>One or more fields in the request failed validation. This error provides detailed information about which fields were invalid and why, allowing you to correct the request and retry.</p>
+            aws_sdk_wickr.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Save OpenTDF config successfully
@@ -2697,6 +3066,16 @@ class WickrClient:
             challenge: <p>The new password for the bot account.</p>
             suspend: <p>Set to true to suspend the bot or false to unsuspend it. Omit this field for standard updates that don't affect suspension status.</p>
 
+        Raises:
+            aws_sdk_wickr.errors.bad_request_error.BadRequestError: <p>The request was invalid or malformed. This error occurs when the request parameters do not meet the API requirements, such as invalid field values, missing required parameters, or improperly formatted data.</p>
+            aws_sdk_wickr.errors.forbidden_error.ForbiddenError: <p>Access to the requested resource is forbidden. This error occurs when the authenticated user does not have the necessary permissions to perform the requested operation, even though they are authenticated.</p>
+            aws_sdk_wickr.errors.internal_server_error.InternalServerError: <p>An unexpected error occurred on the server while processing the request. This indicates a problem with the Wickr service itself rather than with the request. If this error persists, contact Amazon Web Services Support.</p>
+            aws_sdk_wickr.errors.rate_limit_error.RateLimitError: <p>The request was throttled because too many requests were sent in a short period of time. Wait a moment and retry the request. Consider implementing exponential backoff in your application.</p>
+            aws_sdk_wickr.errors.resource_not_found_error.ResourceNotFoundError: <p>The requested resource could not be found. This error occurs when you try to access or modify a network, user, bot, security group, or other resource that doesn't exist or has been deleted.</p>
+            aws_sdk_wickr.errors.unauthorized_error.UnauthorizedError: <p>The request was not authenticated or the authentication credentials were invalid. This error occurs when the request lacks valid authentication credentials or the credentials have expired.</p>
+            aws_sdk_wickr.errors.validation_error.ValidationError: <p>One or more fields in the request failed validation. This error provides detailed information about which fields were invalid and why, allowing you to correct the request and retry.</p>
+            aws_sdk_wickr.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Update bot successfully
 
@@ -2755,6 +3134,16 @@ class WickrClient:
             network_id: <p>The ID of the Wickr network containing the data retention bot.</p>
             action_type: <p>The action to perform. Valid values are 'ENABLE' (to enable the data retention service), 'DISABLE' (to disable the service), or 'PUBKEY_MSG_ACK' (to acknowledge the public key message).</p>
 
+        Raises:
+            aws_sdk_wickr.errors.bad_request_error.BadRequestError: <p>The request was invalid or malformed. This error occurs when the request parameters do not meet the API requirements, such as invalid field values, missing required parameters, or improperly formatted data.</p>
+            aws_sdk_wickr.errors.forbidden_error.ForbiddenError: <p>Access to the requested resource is forbidden. This error occurs when the authenticated user does not have the necessary permissions to perform the requested operation, even though they are authenticated.</p>
+            aws_sdk_wickr.errors.internal_server_error.InternalServerError: <p>An unexpected error occurred on the server while processing the request. This indicates a problem with the Wickr service itself rather than with the request. If this error persists, contact Amazon Web Services Support.</p>
+            aws_sdk_wickr.errors.rate_limit_error.RateLimitError: <p>The request was throttled because too many requests were sent in a short period of time. Wait a moment and retry the request. Consider implementing exponential backoff in your application.</p>
+            aws_sdk_wickr.errors.resource_not_found_error.ResourceNotFoundError: <p>The requested resource could not be found. This error occurs when you try to access or modify a network, user, bot, security group, or other resource that doesn't exist or has been deleted.</p>
+            aws_sdk_wickr.errors.unauthorized_error.UnauthorizedError: <p>The request was not authenticated or the authentication credentials were invalid. This error occurs when the request lacks valid authentication credentials or the credentials have expired.</p>
+            aws_sdk_wickr.errors.validation_error.ValidationError: <p>One or more fields in the request failed validation. This error provides detailed information about which fields were invalid and why, allowing you to correct the request and retry.</p>
+            aws_sdk_wickr.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Update data retention - enable service
 
@@ -2807,6 +3196,16 @@ class WickrClient:
             network_id: <p>The ID of the Wickr network where the guest user's status will be updated.</p>
             username_hash: <p>The username hash (unique identifier) of the guest user to update.</p>
             block: <p>Set to true to block the guest user or false to unblock them.</p>
+
+        Raises:
+            aws_sdk_wickr.errors.bad_request_error.BadRequestError: <p>The request was invalid or malformed. This error occurs when the request parameters do not meet the API requirements, such as invalid field values, missing required parameters, or improperly formatted data.</p>
+            aws_sdk_wickr.errors.forbidden_error.ForbiddenError: <p>Access to the requested resource is forbidden. This error occurs when the authenticated user does not have the necessary permissions to perform the requested operation, even though they are authenticated.</p>
+            aws_sdk_wickr.errors.internal_server_error.InternalServerError: <p>An unexpected error occurred on the server while processing the request. This indicates a problem with the Wickr service itself rather than with the request. If this error persists, contact Amazon Web Services Support.</p>
+            aws_sdk_wickr.errors.rate_limit_error.RateLimitError: <p>The request was throttled because too many requests were sent in a short period of time. Wait a moment and retry the request. Consider implementing exponential backoff in your application.</p>
+            aws_sdk_wickr.errors.resource_not_found_error.ResourceNotFoundError: <p>The requested resource could not be found. This error occurs when you try to access or modify a network, user, bot, security group, or other resource that doesn't exist or has been deleted.</p>
+            aws_sdk_wickr.errors.unauthorized_error.UnauthorizedError: <p>The request was not authenticated or the authentication credentials were invalid. This error occurs when the request lacks valid authentication credentials or the credentials have expired.</p>
+            aws_sdk_wickr.errors.validation_error.ValidationError: <p>One or more fields in the request failed validation. This error provides detailed information about which fields were invalid and why, allowing you to correct the request and retry.</p>
+            aws_sdk_wickr.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Block a guest user
@@ -2866,6 +3265,16 @@ class WickrClient:
             client_token: <p>A unique identifier for this request to ensure idempotency.</p>
             encryption_key_arn: <p>The ARN of the Amazon Web Services KMS customer managed key to use for encrypting sensitive data in the network.</p>
 
+        Raises:
+            aws_sdk_wickr.errors.bad_request_error.BadRequestError: <p>The request was invalid or malformed. This error occurs when the request parameters do not meet the API requirements, such as invalid field values, missing required parameters, or improperly formatted data.</p>
+            aws_sdk_wickr.errors.forbidden_error.ForbiddenError: <p>Access to the requested resource is forbidden. This error occurs when the authenticated user does not have the necessary permissions to perform the requested operation, even though they are authenticated.</p>
+            aws_sdk_wickr.errors.internal_server_error.InternalServerError: <p>An unexpected error occurred on the server while processing the request. This indicates a problem with the Wickr service itself rather than with the request. If this error persists, contact Amazon Web Services Support.</p>
+            aws_sdk_wickr.errors.rate_limit_error.RateLimitError: <p>The request was throttled because too many requests were sent in a short period of time. Wait a moment and retry the request. Consider implementing exponential backoff in your application.</p>
+            aws_sdk_wickr.errors.resource_not_found_error.ResourceNotFoundError: <p>The requested resource could not be found. This error occurs when you try to access or modify a network, user, bot, security group, or other resource that doesn't exist or has been deleted.</p>
+            aws_sdk_wickr.errors.unauthorized_error.UnauthorizedError: <p>The request was not authenticated or the authentication credentials were invalid. This error occurs when the request lacks valid authentication credentials or the credentials have expired.</p>
+            aws_sdk_wickr.errors.validation_error.ValidationError: <p>One or more fields in the request failed validation. This error provides detailed information about which fields were invalid and why, allowing you to correct the request and retry.</p>
+            aws_sdk_wickr.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Update network name successfully
 
@@ -2920,6 +3329,16 @@ class WickrClient:
         Args:
             network_id: <p>The ID of the Wickr network whose settings will be updated.</p>
             settings: <p>A map of setting names to their new values. Each setting should be provided with its appropriate type (boolean, string, number, etc.).</p>
+
+        Raises:
+            aws_sdk_wickr.errors.bad_request_error.BadRequestError: <p>The request was invalid or malformed. This error occurs when the request parameters do not meet the API requirements, such as invalid field values, missing required parameters, or improperly formatted data.</p>
+            aws_sdk_wickr.errors.forbidden_error.ForbiddenError: <p>Access to the requested resource is forbidden. This error occurs when the authenticated user does not have the necessary permissions to perform the requested operation, even though they are authenticated.</p>
+            aws_sdk_wickr.errors.internal_server_error.InternalServerError: <p>An unexpected error occurred on the server while processing the request. This indicates a problem with the Wickr service itself rather than with the request. If this error persists, contact Amazon Web Services Support.</p>
+            aws_sdk_wickr.errors.rate_limit_error.RateLimitError: <p>The request was throttled because too many requests were sent in a short period of time. Wait a moment and retry the request. Consider implementing exponential backoff in your application.</p>
+            aws_sdk_wickr.errors.resource_not_found_error.ResourceNotFoundError: <p>The requested resource could not be found. This error occurs when you try to access or modify a network, user, bot, security group, or other resource that doesn't exist or has been deleted.</p>
+            aws_sdk_wickr.errors.unauthorized_error.UnauthorizedError: <p>The request was not authenticated or the authentication credentials were invalid. This error occurs when the request lacks valid authentication credentials or the credentials have expired.</p>
+            aws_sdk_wickr.errors.validation_error.ValidationError: <p>One or more fields in the request failed validation. This error provides detailed information about which fields were invalid and why, allowing you to correct the request and retry.</p>
+            aws_sdk_wickr.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Update multiple network settings
@@ -2989,6 +3408,16 @@ class WickrClient:
             name: <p>The new name for the security group.</p>
             security_group_settings: <p>The updated configuration settings for the security group.</p> <p>Federation mode - 0 (Local federation), 1 (Restricted federation), 2 (Global federation) </p>
 
+        Raises:
+            aws_sdk_wickr.errors.bad_request_error.BadRequestError: <p>The request was invalid or malformed. This error occurs when the request parameters do not meet the API requirements, such as invalid field values, missing required parameters, or improperly formatted data.</p>
+            aws_sdk_wickr.errors.forbidden_error.ForbiddenError: <p>Access to the requested resource is forbidden. This error occurs when the authenticated user does not have the necessary permissions to perform the requested operation, even though they are authenticated.</p>
+            aws_sdk_wickr.errors.internal_server_error.InternalServerError: <p>An unexpected error occurred on the server while processing the request. This indicates a problem with the Wickr service itself rather than with the request. If this error persists, contact Amazon Web Services Support.</p>
+            aws_sdk_wickr.errors.rate_limit_error.RateLimitError: <p>The request was throttled because too many requests were sent in a short period of time. Wait a moment and retry the request. Consider implementing exponential backoff in your application.</p>
+            aws_sdk_wickr.errors.resource_not_found_error.ResourceNotFoundError: <p>The requested resource could not be found. This error occurs when you try to access or modify a network, user, bot, security group, or other resource that doesn't exist or has been deleted.</p>
+            aws_sdk_wickr.errors.unauthorized_error.UnauthorizedError: <p>The request was not authenticated or the authentication credentials were invalid. This error occurs when the request lacks valid authentication credentials or the credentials have expired.</p>
+            aws_sdk_wickr.errors.validation_error.ValidationError: <p>One or more fields in the request failed validation. This error provides detailed information about which fields were invalid and why, allowing you to correct the request and retry.</p>
+            aws_sdk_wickr.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Update security group successfully
 
@@ -3044,6 +3473,16 @@ class WickrClient:
             network_id: <p>The ID of the Wickr network containing the user to update.</p>
             user_id: <p>The unique identifier of the user to update.</p>
             user_details: <p>An object containing the user details to be updated, such as name, password, security groups, and invite code settings.</p>
+
+        Raises:
+            aws_sdk_wickr.errors.bad_request_error.BadRequestError: <p>The request was invalid or malformed. This error occurs when the request parameters do not meet the API requirements, such as invalid field values, missing required parameters, or improperly formatted data.</p>
+            aws_sdk_wickr.errors.forbidden_error.ForbiddenError: <p>Access to the requested resource is forbidden. This error occurs when the authenticated user does not have the necessary permissions to perform the requested operation, even though they are authenticated.</p>
+            aws_sdk_wickr.errors.internal_server_error.InternalServerError: <p>An unexpected error occurred on the server while processing the request. This indicates a problem with the Wickr service itself rather than with the request. If this error persists, contact Amazon Web Services Support.</p>
+            aws_sdk_wickr.errors.rate_limit_error.RateLimitError: <p>The request was throttled because too many requests were sent in a short period of time. Wait a moment and retry the request. Consider implementing exponential backoff in your application.</p>
+            aws_sdk_wickr.errors.resource_not_found_error.ResourceNotFoundError: <p>The requested resource could not be found. This error occurs when you try to access or modify a network, user, bot, security group, or other resource that doesn't exist or has been deleted.</p>
+            aws_sdk_wickr.errors.unauthorized_error.UnauthorizedError: <p>The request was not authenticated or the authentication credentials were invalid. This error occurs when the request lacks valid authentication credentials or the credentials have expired.</p>
+            aws_sdk_wickr.errors.validation_error.ValidationError: <p>One or more fields in the request failed validation. This error provides detailed information about which fields were invalid and why, allowing you to correct the request and retry.</p>
+            aws_sdk_wickr.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Update user information

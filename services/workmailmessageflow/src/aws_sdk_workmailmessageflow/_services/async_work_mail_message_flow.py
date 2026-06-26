@@ -141,6 +141,10 @@ class AsyncWorkMailMessageFlowClient:
 
         Args:
             message_id: <p>The identifier of the email message to retrieve.</p>
+
+        Raises:
+            aws_sdk_workmailmessageflow.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested email message is not found.</p>
+            aws_sdk_workmailmessageflow.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -181,6 +185,13 @@ class AsyncWorkMailMessageFlowClient:
         Args:
             message_id: <p>The identifier of the email message being updated.</p>
             content: <p>Describes the raw message content of the updated email message.</p>
+
+        Raises:
+            aws_sdk_workmailmessageflow.errors.invalid_content_location.InvalidContentLocation: <p>WorkMail could not access the updated email content. Possible reasons:</p> <ul> <li> <p>You made the request in a region other than your S3 bucket region.</p> </li> <li> <p>The <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-owner-condition.html\">S3 bucket owner</a> is not the same as the calling AWS account.</p> </li> <li> <p>You have an incomplete or missing S3 bucket policy. For more information about policies, see <a href=\"https://docs.aws.amazon.com/workmail/latest/adminguide/update-with-lambda.html\"> Updating message content with AWS Lambda </a> in the <i>WorkMail Administrator Guide</i>.</p> </li> </ul>
+            aws_sdk_workmailmessageflow.errors.message_frozen.MessageFrozen: <p>The requested email is not eligible for update. This is usually the case for a redirected email.</p>
+            aws_sdk_workmailmessageflow.errors.message_rejected.MessageRejected: <p>The requested email could not be updated due to an error in the MIME content. Check the error message for more information about what caused the error.</p>
+            aws_sdk_workmailmessageflow.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested email message is not found.</p>
+            aws_sdk_workmailmessageflow.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

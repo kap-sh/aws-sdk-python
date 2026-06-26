@@ -273,6 +273,14 @@ class SSMContactsClient:
             note: <p>Information provided by the user when the user acknowledges the page.</p>
             accept_code: <p>A 6-digit code used to acknowledge the page.</p>
             accept_code_validation: <p>An optional field that Incident Manager uses to <code>ENFORCE</code> <code>AcceptCode</code> validation when acknowledging an page. Acknowledgement can occur by replying to a page, or when entering the AcceptCode in the console. Enforcing AcceptCode validation causes Incident Manager to verify that the code entered by the user matches the code sent by Incident Manager with the page.</p> <p>Incident Manager can also <code>IGNORE</code> <code>AcceptCode</code> validation. Ignoring <code>AcceptCode</code> validation causes Incident Manager to accept any value entered for the <code>AcceptCode</code>.</p>
+
+        Raises:
+            aws_sdk_ssm_contacts.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this operation.</p>
+            aws_sdk_ssm_contacts.errors.internal_server_exception.InternalServerException: <p>Unexpected error occurred while processing the request.</p>
+            aws_sdk_ssm_contacts.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource that doesn't exist.</p>
+            aws_sdk_ssm_contacts.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_ssm_contacts.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_ssm_contacts.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -320,6 +328,14 @@ class SSMContactsClient:
         Args:
             contact_channel_id: <p>The Amazon Resource Name (ARN) of the contact channel.</p>
             activation_code: <p>The code sent to the contact channel when it was created in the contact.</p>
+
+        Raises:
+            aws_sdk_ssm_contacts.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this operation.</p>
+            aws_sdk_ssm_contacts.errors.internal_server_exception.InternalServerException: <p>Unexpected error occurred while processing the request.</p>
+            aws_sdk_ssm_contacts.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource that doesn't exist.</p>
+            aws_sdk_ssm_contacts.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_ssm_contacts.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_ssm_contacts.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -372,6 +388,16 @@ class SSMContactsClient:
             plan: <p>A list of stages. A contact has an engagement plan with stages that contact specified contact channels. An escalation plan uses stages that contact specified contacts.</p>
             tags: <p>Adds a tag to the target. You can only tag resources created in the first Region of your replication set.</p>
             idempotency_token: <p>A token ensuring that the operation is called only once with the specified details.</p>
+
+        Raises:
+            aws_sdk_ssm_contacts.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this operation.</p>
+            aws_sdk_ssm_contacts.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource causes an inconsistent state.</p>
+            aws_sdk_ssm_contacts.errors.data_encryption_exception.DataEncryptionException: <p>The operation failed to due an encryption key error.</p>
+            aws_sdk_ssm_contacts.errors.internal_server_exception.InternalServerException: <p>Unexpected error occurred while processing the request.</p>
+            aws_sdk_ssm_contacts.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Request would cause a service quota to be exceeded.</p>
+            aws_sdk_ssm_contacts.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_ssm_contacts.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_ssm_contacts.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -431,6 +457,15 @@ class SSMContactsClient:
             delivery_address: <p>The details that Incident Manager uses when trying to engage the contact channel. The format is dependent on the type of the contact channel. The following are the expected formats:</p> <ul> <li> <p>SMS - '+' followed by the country code and phone number</p> </li> <li> <p>VOICE - '+' followed by the country code and phone number</p> </li> <li> <p>EMAIL - any standard email format</p> </li> </ul>
             defer_activation: <p>If you want to activate the channel at a later time, you can choose to defer activation. Incident Manager can't engage your contact channel until it has been activated.</p>
             idempotency_token: <p>A token ensuring that the operation is called only once with the specified details.</p>
+
+        Raises:
+            aws_sdk_ssm_contacts.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this operation.</p>
+            aws_sdk_ssm_contacts.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource causes an inconsistent state.</p>
+            aws_sdk_ssm_contacts.errors.data_encryption_exception.DataEncryptionException: <p>The operation failed to due an encryption key error.</p>
+            aws_sdk_ssm_contacts.errors.internal_server_exception.InternalServerException: <p>Unexpected error occurred while processing the request.</p>
+            aws_sdk_ssm_contacts.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_ssm_contacts.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_ssm_contacts.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -489,6 +524,15 @@ class SSMContactsClient:
             recurrence: <p>Information about the rule that specifies when a shift's team members rotate.</p>
             tags: <p>Optional metadata to assign to the rotation. Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment. For more information, see <a href=\"https://docs.aws.amazon.com/incident-manager/latest/userguide/tagging.html\">Tagging Incident Manager resources</a> in the <i>Incident Manager User Guide</i>.</p>
             idempotency_token: <p>A token that ensures that the operation is called only once with the specified details.</p>
+
+        Raises:
+            aws_sdk_ssm_contacts.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this operation.</p>
+            aws_sdk_ssm_contacts.errors.internal_server_exception.InternalServerException: <p>Unexpected error occurred while processing the request.</p>
+            aws_sdk_ssm_contacts.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource that doesn't exist.</p>
+            aws_sdk_ssm_contacts.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Request would cause a service quota to be exceeded.</p>
+            aws_sdk_ssm_contacts.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_ssm_contacts.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_ssm_contacts.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -545,6 +589,15 @@ class SSMContactsClient:
             start_time: <p>The date and time when the override goes into effect.</p>
             end_time: <p>The date and time when the override ends.</p>
             idempotency_token: <p>A token that ensures that the operation is called only once with the specified details.</p>
+
+        Raises:
+            aws_sdk_ssm_contacts.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this operation.</p>
+            aws_sdk_ssm_contacts.errors.internal_server_exception.InternalServerException: <p>Unexpected error occurred while processing the request.</p>
+            aws_sdk_ssm_contacts.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource that doesn't exist.</p>
+            aws_sdk_ssm_contacts.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Request would cause a service quota to be exceeded.</p>
+            aws_sdk_ssm_contacts.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_ssm_contacts.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_ssm_contacts.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -587,6 +640,14 @@ class SSMContactsClient:
 
         Args:
             contact_channel_id: <p>The Amazon Resource Name (ARN) of the contact channel you're deactivating.</p>
+
+        Raises:
+            aws_sdk_ssm_contacts.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this operation.</p>
+            aws_sdk_ssm_contacts.errors.internal_server_exception.InternalServerException: <p>Unexpected error occurred while processing the request.</p>
+            aws_sdk_ssm_contacts.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource that doesn't exist.</p>
+            aws_sdk_ssm_contacts.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_ssm_contacts.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_ssm_contacts.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -624,6 +685,15 @@ class SSMContactsClient:
 
         Args:
             contact_id: <p>The Amazon Resource Name (ARN) of the contact that you're deleting.</p>
+
+        Raises:
+            aws_sdk_ssm_contacts.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this operation.</p>
+            aws_sdk_ssm_contacts.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource causes an inconsistent state.</p>
+            aws_sdk_ssm_contacts.errors.internal_server_exception.InternalServerException: <p>Unexpected error occurred while processing the request.</p>
+            aws_sdk_ssm_contacts.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource that doesn't exist.</p>
+            aws_sdk_ssm_contacts.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_ssm_contacts.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_ssm_contacts.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -661,6 +731,14 @@ class SSMContactsClient:
 
         Args:
             contact_channel_id: <p>The Amazon Resource Name (ARN) of the contact channel.</p>
+
+        Raises:
+            aws_sdk_ssm_contacts.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this operation.</p>
+            aws_sdk_ssm_contacts.errors.internal_server_exception.InternalServerException: <p>Unexpected error occurred while processing the request.</p>
+            aws_sdk_ssm_contacts.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource that doesn't exist.</p>
+            aws_sdk_ssm_contacts.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_ssm_contacts.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_ssm_contacts.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -698,6 +776,15 @@ class SSMContactsClient:
 
         Args:
             rotation_id: <p>The Amazon Resource Name (ARN) of the on-call rotation to delete.</p>
+
+        Raises:
+            aws_sdk_ssm_contacts.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this operation.</p>
+            aws_sdk_ssm_contacts.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource causes an inconsistent state.</p>
+            aws_sdk_ssm_contacts.errors.internal_server_exception.InternalServerException: <p>Unexpected error occurred while processing the request.</p>
+            aws_sdk_ssm_contacts.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource that doesn't exist.</p>
+            aws_sdk_ssm_contacts.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_ssm_contacts.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_ssm_contacts.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -737,6 +824,14 @@ class SSMContactsClient:
         Args:
             rotation_id: <p>The Amazon Resource Name (ARN) of the rotation that was overridden.</p>
             rotation_override_id: <p>The Amazon Resource Name (ARN) of the on-call rotation override to delete.</p>
+
+        Raises:
+            aws_sdk_ssm_contacts.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this operation.</p>
+            aws_sdk_ssm_contacts.errors.internal_server_exception.InternalServerException: <p>Unexpected error occurred while processing the request.</p>
+            aws_sdk_ssm_contacts.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource that doesn't exist.</p>
+            aws_sdk_ssm_contacts.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_ssm_contacts.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_ssm_contacts.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -777,6 +872,15 @@ class SSMContactsClient:
 
         Args:
             engagement_id: <p>The Amazon Resource Name (ARN) of the engagement you want the details of.</p>
+
+        Raises:
+            aws_sdk_ssm_contacts.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this operation.</p>
+            aws_sdk_ssm_contacts.errors.data_encryption_exception.DataEncryptionException: <p>The operation failed to due an encryption key error.</p>
+            aws_sdk_ssm_contacts.errors.internal_server_exception.InternalServerException: <p>Unexpected error occurred while processing the request.</p>
+            aws_sdk_ssm_contacts.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource that doesn't exist.</p>
+            aws_sdk_ssm_contacts.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_ssm_contacts.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_ssm_contacts.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -814,6 +918,15 @@ class SSMContactsClient:
 
         Args:
             page_id: <p>The ID of the engagement to a contact channel.</p>
+
+        Raises:
+            aws_sdk_ssm_contacts.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this operation.</p>
+            aws_sdk_ssm_contacts.errors.data_encryption_exception.DataEncryptionException: <p>The operation failed to due an encryption key error.</p>
+            aws_sdk_ssm_contacts.errors.internal_server_exception.InternalServerException: <p>Unexpected error occurred while processing the request.</p>
+            aws_sdk_ssm_contacts.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource that doesn't exist.</p>
+            aws_sdk_ssm_contacts.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_ssm_contacts.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_ssm_contacts.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -851,6 +964,15 @@ class SSMContactsClient:
 
         Args:
             contact_id: <p>The Amazon Resource Name (ARN) of the contact or escalation plan.</p>
+
+        Raises:
+            aws_sdk_ssm_contacts.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this operation.</p>
+            aws_sdk_ssm_contacts.errors.data_encryption_exception.DataEncryptionException: <p>The operation failed to due an encryption key error.</p>
+            aws_sdk_ssm_contacts.errors.internal_server_exception.InternalServerException: <p>Unexpected error occurred while processing the request.</p>
+            aws_sdk_ssm_contacts.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource that doesn't exist.</p>
+            aws_sdk_ssm_contacts.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_ssm_contacts.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_ssm_contacts.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -890,6 +1012,15 @@ class SSMContactsClient:
 
         Args:
             contact_channel_id: <p>The Amazon Resource Name (ARN) of the contact channel you want information about.</p>
+
+        Raises:
+            aws_sdk_ssm_contacts.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this operation.</p>
+            aws_sdk_ssm_contacts.errors.data_encryption_exception.DataEncryptionException: <p>The operation failed to due an encryption key error.</p>
+            aws_sdk_ssm_contacts.errors.internal_server_exception.InternalServerException: <p>Unexpected error occurred while processing the request.</p>
+            aws_sdk_ssm_contacts.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource that doesn't exist.</p>
+            aws_sdk_ssm_contacts.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_ssm_contacts.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_ssm_contacts.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -927,6 +1058,14 @@ class SSMContactsClient:
 
         Args:
             contact_arn: <p>The Amazon Resource Name (ARN) of the contact or escalation plan.</p>
+
+        Raises:
+            aws_sdk_ssm_contacts.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this operation.</p>
+            aws_sdk_ssm_contacts.errors.internal_server_exception.InternalServerException: <p>Unexpected error occurred while processing the request.</p>
+            aws_sdk_ssm_contacts.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource that doesn't exist.</p>
+            aws_sdk_ssm_contacts.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_ssm_contacts.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_ssm_contacts.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -964,6 +1103,14 @@ class SSMContactsClient:
 
         Args:
             rotation_id: <p>The Amazon Resource Name (ARN) of the on-call rotation to retrieve information about.</p>
+
+        Raises:
+            aws_sdk_ssm_contacts.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this operation.</p>
+            aws_sdk_ssm_contacts.errors.internal_server_exception.InternalServerException: <p>Unexpected error occurred while processing the request.</p>
+            aws_sdk_ssm_contacts.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource that doesn't exist.</p>
+            aws_sdk_ssm_contacts.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_ssm_contacts.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_ssm_contacts.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1003,6 +1150,14 @@ class SSMContactsClient:
         Args:
             rotation_id: <p>The Amazon Resource Name (ARN) of the overridden rotation to retrieve information about.</p>
             rotation_override_id: <p>The Amazon Resource Name (ARN) of the on-call rotation override to retrieve information about.</p>
+
+        Raises:
+            aws_sdk_ssm_contacts.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this operation.</p>
+            aws_sdk_ssm_contacts.errors.internal_server_exception.InternalServerException: <p>Unexpected error occurred while processing the request.</p>
+            aws_sdk_ssm_contacts.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource that doesn't exist.</p>
+            aws_sdk_ssm_contacts.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_ssm_contacts.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_ssm_contacts.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1049,6 +1204,15 @@ class SSMContactsClient:
             contact_id: <p>The Amazon Resource Name (ARN) of the contact.</p>
             next_token: <p>The pagination token to continue to the next page of results.</p>
             max_results: <p>The maximum number of contact channels per page.</p>
+
+        Raises:
+            aws_sdk_ssm_contacts.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this operation.</p>
+            aws_sdk_ssm_contacts.errors.data_encryption_exception.DataEncryptionException: <p>The operation failed to due an encryption key error.</p>
+            aws_sdk_ssm_contacts.errors.internal_server_exception.InternalServerException: <p>Unexpected error occurred while processing the request.</p>
+            aws_sdk_ssm_contacts.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource that doesn't exist.</p>
+            aws_sdk_ssm_contacts.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_ssm_contacts.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_ssm_contacts.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1129,6 +1293,13 @@ class SSMContactsClient:
             max_results: <p>The maximum number of contacts and escalation plans per page of results.</p>
             alias_prefix: <p>Used to list only contacts who's aliases start with the specified prefix.</p>
             type: <p>The type of contact.</p>
+
+        Raises:
+            aws_sdk_ssm_contacts.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this operation.</p>
+            aws_sdk_ssm_contacts.errors.internal_server_exception.InternalServerException: <p>Unexpected error occurred while processing the request.</p>
+            aws_sdk_ssm_contacts.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_ssm_contacts.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_ssm_contacts.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1218,6 +1389,13 @@ class SSMContactsClient:
             max_results: <p>The maximum number of engagements per page of results.</p>
             incident_id: <p>The Amazon Resource Name (ARN) of the incident you're listing engagements for.</p>
             time_range_value: <p>The time range to lists engagements for an incident.</p>
+
+        Raises:
+            aws_sdk_ssm_contacts.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this operation.</p>
+            aws_sdk_ssm_contacts.errors.internal_server_exception.InternalServerException: <p>Unexpected error occurred while processing the request.</p>
+            aws_sdk_ssm_contacts.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_ssm_contacts.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_ssm_contacts.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1303,6 +1481,14 @@ class SSMContactsClient:
             page_id: <p>The Amazon Resource Name (ARN) of the engagement to a specific contact channel.</p>
             next_token: <p>The pagination token to continue to the next page of results.</p>
             max_results: <p>The maximum number of acknowledgements per page of results.</p>
+
+        Raises:
+            aws_sdk_ssm_contacts.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this operation.</p>
+            aws_sdk_ssm_contacts.errors.internal_server_exception.InternalServerException: <p>Unexpected error occurred while processing the request.</p>
+            aws_sdk_ssm_contacts.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource that doesn't exist.</p>
+            aws_sdk_ssm_contacts.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_ssm_contacts.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_ssm_contacts.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1375,6 +1561,14 @@ class SSMContactsClient:
         Args:
             next_token: <p>A token to start the list. Use this token to get the next set of results.</p>
             page_id: <p>The Amazon Resource Name (ARN) of the contact engaged for the incident.</p>
+
+        Raises:
+            aws_sdk_ssm_contacts.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this operation.</p>
+            aws_sdk_ssm_contacts.errors.internal_server_exception.InternalServerException: <p>Unexpected error occurred while processing the request.</p>
+            aws_sdk_ssm_contacts.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource that doesn't exist.</p>
+            aws_sdk_ssm_contacts.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_ssm_contacts.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_ssm_contacts.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1445,6 +1639,14 @@ class SSMContactsClient:
             contact_id: <p>The Amazon Resource Name (ARN) of the contact you are retrieving engagements for.</p>
             next_token: <p>The pagination token to continue to the next page of results.</p>
             max_results: <p>The maximum number of engagements to contact channels to list per page of results. </p>
+
+        Raises:
+            aws_sdk_ssm_contacts.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this operation.</p>
+            aws_sdk_ssm_contacts.errors.internal_server_exception.InternalServerException: <p>Unexpected error occurred while processing the request.</p>
+            aws_sdk_ssm_contacts.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource that doesn't exist.</p>
+            aws_sdk_ssm_contacts.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_ssm_contacts.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_ssm_contacts.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1521,6 +1723,14 @@ class SSMContactsClient:
             engagement_id: <p>The Amazon Resource Name (ARN) of the engagement.</p>
             next_token: <p>The pagination token to continue to the next page of results.</p>
             max_results: <p>The maximum number of engagements to contact channels to list per page of results.</p>
+
+        Raises:
+            aws_sdk_ssm_contacts.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this operation.</p>
+            aws_sdk_ssm_contacts.errors.internal_server_exception.InternalServerException: <p>Unexpected error occurred while processing the request.</p>
+            aws_sdk_ssm_contacts.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource that doesn't exist.</p>
+            aws_sdk_ssm_contacts.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_ssm_contacts.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_ssm_contacts.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1613,6 +1823,13 @@ class SSMContactsClient:
             overrides: <p>Information about changes that would be made in a rotation override.</p>
             next_token: <p>A token to start the list. This token is used to get the next set of results.</p>
             max_results: <p>The maximum number of items to return for this call. The call also returns a token that can be specified in a subsequent call to get the next set of results.</p>
+
+        Raises:
+            aws_sdk_ssm_contacts.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this operation.</p>
+            aws_sdk_ssm_contacts.errors.internal_server_exception.InternalServerException: <p>Unexpected error occurred while processing the request.</p>
+            aws_sdk_ssm_contacts.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_ssm_contacts.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_ssm_contacts.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1718,6 +1935,14 @@ class SSMContactsClient:
             end_time: <p>The date and time for the end of a time range for listing overrides.</p>
             next_token: <p>A token to start the list. Use this token to get the next set of results.</p>
             max_results: <p>The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.</p>
+
+        Raises:
+            aws_sdk_ssm_contacts.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this operation.</p>
+            aws_sdk_ssm_contacts.errors.internal_server_exception.InternalServerException: <p>Unexpected error occurred while processing the request.</p>
+            aws_sdk_ssm_contacts.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource that doesn't exist.</p>
+            aws_sdk_ssm_contacts.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_ssm_contacts.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_ssm_contacts.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1802,6 +2027,14 @@ class SSMContactsClient:
             rotation_name_prefix: <p>A filter to include rotations in list results based on their common prefix. For example, entering prod returns a list of all rotation names that begin with <code>prod</code>, such as <code>production</code> and <code>prod-1</code>.</p>
             next_token: <p>A token to start the list. Use this token to get the next set of results.</p>
             max_results: <p>The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.</p>
+
+        Raises:
+            aws_sdk_ssm_contacts.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this operation.</p>
+            aws_sdk_ssm_contacts.errors.internal_server_exception.InternalServerException: <p>Unexpected error occurred while processing the request.</p>
+            aws_sdk_ssm_contacts.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource that doesn't exist.</p>
+            aws_sdk_ssm_contacts.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_ssm_contacts.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_ssm_contacts.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1885,6 +2118,15 @@ class SSMContactsClient:
             end_time: <p>The date and time for the end of the time range to list shifts for.</p>
             next_token: <p>A token to start the list. Use this token to get the next set of results.</p>
             max_results: <p>The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.</p>
+
+        Raises:
+            aws_sdk_ssm_contacts.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this operation.</p>
+            aws_sdk_ssm_contacts.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource causes an inconsistent state.</p>
+            aws_sdk_ssm_contacts.errors.internal_server_exception.InternalServerException: <p>Unexpected error occurred while processing the request.</p>
+            aws_sdk_ssm_contacts.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource that doesn't exist.</p>
+            aws_sdk_ssm_contacts.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_ssm_contacts.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_ssm_contacts.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1960,6 +2202,14 @@ class SSMContactsClient:
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the contact, escalation plan, rotation, or on-call schedule.</p>
+
+        Raises:
+            aws_sdk_ssm_contacts.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this operation.</p>
+            aws_sdk_ssm_contacts.errors.internal_server_exception.InternalServerException: <p>Unexpected error occurred while processing the request.</p>
+            aws_sdk_ssm_contacts.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource that doesn't exist.</p>
+            aws_sdk_ssm_contacts.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_ssm_contacts.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_ssm_contacts.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1999,6 +2249,15 @@ class SSMContactsClient:
         Args:
             contact_arn: <p>The Amazon Resource Name (ARN) of the contact or escalation plan.</p>
             policy: <p>Details of the resource policy.</p>
+
+        Raises:
+            aws_sdk_ssm_contacts.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this operation.</p>
+            aws_sdk_ssm_contacts.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource causes an inconsistent state.</p>
+            aws_sdk_ssm_contacts.errors.internal_server_exception.InternalServerException: <p>Unexpected error occurred while processing the request.</p>
+            aws_sdk_ssm_contacts.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource that doesn't exist.</p>
+            aws_sdk_ssm_contacts.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_ssm_contacts.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_ssm_contacts.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2037,6 +2296,16 @@ class SSMContactsClient:
 
         Args:
             contact_channel_id: <p>The Amazon Resource Name (ARN) of the contact channel.</p>
+
+        Raises:
+            aws_sdk_ssm_contacts.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this operation.</p>
+            aws_sdk_ssm_contacts.errors.data_encryption_exception.DataEncryptionException: <p>The operation failed to due an encryption key error.</p>
+            aws_sdk_ssm_contacts.errors.internal_server_exception.InternalServerException: <p>Unexpected error occurred while processing the request.</p>
+            aws_sdk_ssm_contacts.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource that doesn't exist.</p>
+            aws_sdk_ssm_contacts.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Request would cause a service quota to be exceeded.</p>
+            aws_sdk_ssm_contacts.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_ssm_contacts.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_ssm_contacts.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2096,6 +2365,15 @@ class SSMContactsClient:
             public_content: <p>The insecure content of the message that was sent to the contact. Use this field for engagements to <code>SMS</code>.</p>
             incident_id: <p>The ARN of the incident that the engagement is part of.</p>
             idempotency_token: <p>A token ensuring that the operation is called only once with the specified details.</p>
+
+        Raises:
+            aws_sdk_ssm_contacts.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this operation.</p>
+            aws_sdk_ssm_contacts.errors.data_encryption_exception.DataEncryptionException: <p>The operation failed to due an encryption key error.</p>
+            aws_sdk_ssm_contacts.errors.internal_server_exception.InternalServerException: <p>Unexpected error occurred while processing the request.</p>
+            aws_sdk_ssm_contacts.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource that doesn't exist.</p>
+            aws_sdk_ssm_contacts.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_ssm_contacts.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_ssm_contacts.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2146,6 +2424,14 @@ class SSMContactsClient:
         Args:
             engagement_id: <p>The Amazon Resource Name (ARN) of the engagement.</p>
             reason: <p>The reason that you're stopping the engagement.</p>
+
+        Raises:
+            aws_sdk_ssm_contacts.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this operation.</p>
+            aws_sdk_ssm_contacts.errors.internal_server_exception.InternalServerException: <p>Unexpected error occurred while processing the request.</p>
+            aws_sdk_ssm_contacts.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource that doesn't exist.</p>
+            aws_sdk_ssm_contacts.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_ssm_contacts.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_ssm_contacts.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2187,6 +2473,15 @@ class SSMContactsClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the contact or escalation plan.</p>
             tags: <p>A list of tags that you are adding to the contact or escalation plan.</p>
+
+        Raises:
+            aws_sdk_ssm_contacts.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this operation.</p>
+            aws_sdk_ssm_contacts.errors.internal_server_exception.InternalServerException: <p>Unexpected error occurred while processing the request.</p>
+            aws_sdk_ssm_contacts.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource that doesn't exist.</p>
+            aws_sdk_ssm_contacts.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Request would cause a service quota to be exceeded.</p>
+            aws_sdk_ssm_contacts.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_ssm_contacts.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_ssm_contacts.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2227,6 +2522,14 @@ class SSMContactsClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the contact or escalation plan.</p>
             tag_keys: <p>The key of the tag that you want to remove.</p>
+
+        Raises:
+            aws_sdk_ssm_contacts.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this operation.</p>
+            aws_sdk_ssm_contacts.errors.internal_server_exception.InternalServerException: <p>Unexpected error occurred while processing the request.</p>
+            aws_sdk_ssm_contacts.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource that doesn't exist.</p>
+            aws_sdk_ssm_contacts.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_ssm_contacts.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_ssm_contacts.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2271,6 +2574,16 @@ class SSMContactsClient:
             contact_id: <p>The Amazon Resource Name (ARN) of the contact or escalation plan you're updating.</p>
             display_name: <p>The full name of the contact or escalation plan.</p>
             plan: <p>A list of stages. A contact has an engagement plan with stages for specified contact channels. An escalation plan uses these stages to contact specified contacts.</p>
+
+        Raises:
+            aws_sdk_ssm_contacts.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this operation.</p>
+            aws_sdk_ssm_contacts.errors.data_encryption_exception.DataEncryptionException: <p>The operation failed to due an encryption key error.</p>
+            aws_sdk_ssm_contacts.errors.internal_server_exception.InternalServerException: <p>Unexpected error occurred while processing the request.</p>
+            aws_sdk_ssm_contacts.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource that doesn't exist.</p>
+            aws_sdk_ssm_contacts.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Request would cause a service quota to be exceeded.</p>
+            aws_sdk_ssm_contacts.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_ssm_contacts.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_ssm_contacts.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2318,6 +2631,16 @@ class SSMContactsClient:
             contact_channel_id: <p>The Amazon Resource Name (ARN) of the contact channel you want to update.</p>
             name: <p>The name of the contact channel.</p>
             delivery_address: <p>The details that Incident Manager uses when trying to engage the contact channel.</p>
+
+        Raises:
+            aws_sdk_ssm_contacts.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this operation.</p>
+            aws_sdk_ssm_contacts.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource causes an inconsistent state.</p>
+            aws_sdk_ssm_contacts.errors.data_encryption_exception.DataEncryptionException: <p>The operation failed to due an encryption key error.</p>
+            aws_sdk_ssm_contacts.errors.internal_server_exception.InternalServerException: <p>Unexpected error occurred while processing the request.</p>
+            aws_sdk_ssm_contacts.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource that doesn't exist.</p>
+            aws_sdk_ssm_contacts.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_ssm_contacts.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_ssm_contacts.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2371,6 +2694,15 @@ class SSMContactsClient:
             start_time: <p>The date and time the rotation goes into effect.</p>
             time_zone_id: <p>The time zone to base the updated rotation’s activity on, in Internet Assigned Numbers Authority (IANA) format. For example: \"America/Los_Angeles\", \"UTC\", or \"Asia/Seoul\". For more information, see the <a href=\"https://www.iana.org/time-zones\">Time Zone Database</a> on the IANA website.</p> <note> <p>Designators for time zones that don’t support Daylight Savings Time Rules, such as Pacific Standard Time (PST), aren't supported.</p> </note>
             recurrence: <p>Information about how long the updated rotation lasts before restarting at the beginning of the shift order.</p>
+
+        Raises:
+            aws_sdk_ssm_contacts.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this operation.</p>
+            aws_sdk_ssm_contacts.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource causes an inconsistent state.</p>
+            aws_sdk_ssm_contacts.errors.internal_server_exception.InternalServerException: <p>Unexpected error occurred while processing the request.</p>
+            aws_sdk_ssm_contacts.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource that doesn't exist.</p>
+            aws_sdk_ssm_contacts.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_ssm_contacts.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_ssm_contacts.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(

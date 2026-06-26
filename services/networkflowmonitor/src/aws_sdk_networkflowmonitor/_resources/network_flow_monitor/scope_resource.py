@@ -82,6 +82,15 @@ class ScopeResource:
             targets: <p>The targets to define the scope to be monitored. A target is an array of targetResources, which are currently Region-account pairs, defined by targetResource constructs.</p>
             client_token: <p>A unique, case-sensitive string of up to 64 ASCII characters that you specify to make an idempotent API request. Don't reuse the same client token for other API requests.</p>
             tags: <p>The tags for a scope. You can add a maximum of 200 tags.</p>
+
+        Raises:
+            aws_sdk_networkflowmonitor.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permission to perform this action.</p>
+            aws_sdk_networkflowmonitor.errors.conflict_exception.ConflictException: <p>The requested resource is in use.</p>
+            aws_sdk_networkflowmonitor.errors.internal_server_exception.InternalServerException: <p>An internal error occurred.</p>
+            aws_sdk_networkflowmonitor.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request exceeded a service quota.</p>
+            aws_sdk_networkflowmonitor.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_networkflowmonitor.errors.validation_exception.ValidationException: <p>Invalid request.</p>
+            aws_sdk_networkflowmonitor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -123,6 +132,15 @@ class ScopeResource:
 
         Args:
             scope_id: <p>The identifier for the scope that includes the resources you want to get data results for. A scope ID is an internally-generated identifier that includes all the resources for a specific root account. A scope ID is returned from a <code>CreateScope</code> API call.</p>
+
+        Raises:
+            aws_sdk_networkflowmonitor.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permission to perform this action.</p>
+            aws_sdk_networkflowmonitor.errors.internal_server_exception.InternalServerException: <p>An internal error occurred.</p>
+            aws_sdk_networkflowmonitor.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request specifies a resource that doesn't exist.</p>
+            aws_sdk_networkflowmonitor.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request exceeded a service quota.</p>
+            aws_sdk_networkflowmonitor.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_networkflowmonitor.errors.validation_exception.ValidationException: <p>Invalid request.</p>
+            aws_sdk_networkflowmonitor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -168,6 +186,16 @@ class ScopeResource:
             scope_id: <p>The identifier for the scope that includes the resources you want to get data results for. A scope ID is an internally-generated identifier that includes all the resources for a specific root account.</p>
             resources_to_add: <p>A list of resources to add to a scope.</p>
             resources_to_delete: <p>A list of resources to delete from a scope.</p>
+
+        Raises:
+            aws_sdk_networkflowmonitor.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permission to perform this action.</p>
+            aws_sdk_networkflowmonitor.errors.conflict_exception.ConflictException: <p>The requested resource is in use.</p>
+            aws_sdk_networkflowmonitor.errors.internal_server_exception.InternalServerException: <p>An internal error occurred.</p>
+            aws_sdk_networkflowmonitor.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request specifies a resource that doesn't exist.</p>
+            aws_sdk_networkflowmonitor.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request exceeded a service quota.</p>
+            aws_sdk_networkflowmonitor.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_networkflowmonitor.errors.validation_exception.ValidationException: <p>Invalid request.</p>
+            aws_sdk_networkflowmonitor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -209,6 +237,16 @@ class ScopeResource:
 
         Args:
             scope_id: <p>The identifier for the scope that includes the resources you want to get data results for. A scope ID is an internally-generated identifier that includes all the resources for a specific root account.</p>
+
+        Raises:
+            aws_sdk_networkflowmonitor.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permission to perform this action.</p>
+            aws_sdk_networkflowmonitor.errors.conflict_exception.ConflictException: <p>The requested resource is in use.</p>
+            aws_sdk_networkflowmonitor.errors.internal_server_exception.InternalServerException: <p>An internal error occurred.</p>
+            aws_sdk_networkflowmonitor.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request specifies a resource that doesn't exist.</p>
+            aws_sdk_networkflowmonitor.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request exceeded a service quota.</p>
+            aws_sdk_networkflowmonitor.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_networkflowmonitor.errors.validation_exception.ValidationException: <p>Invalid request.</p>
+            aws_sdk_networkflowmonitor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -250,6 +288,14 @@ class ScopeResource:
         Args:
             next_token: <p>The token for the next set of results. You receive this token from a previous call.</p>
             max_results: <p>The number of query results that you want to return with this call.</p>
+
+        Raises:
+            aws_sdk_networkflowmonitor.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permission to perform this action.</p>
+            aws_sdk_networkflowmonitor.errors.internal_server_exception.InternalServerException: <p>An internal error occurred.</p>
+            aws_sdk_networkflowmonitor.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request exceeded a service quota.</p>
+            aws_sdk_networkflowmonitor.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_networkflowmonitor.errors.validation_exception.ValidationException: <p>Invalid request.</p>
+            aws_sdk_networkflowmonitor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -296,6 +342,15 @@ class ScopeResource:
             query_id: <p>The identifier for the query. A query ID is an internally-generated identifier for a specific query returned from an API call to create a query.</p>
             next_token: <p>The token for the next set of results. You receive this token from a previous call.</p>
             max_results: <p>The number of query results that you want to return with this call.</p>
+
+        Raises:
+            aws_sdk_networkflowmonitor.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permission to perform this action.</p>
+            aws_sdk_networkflowmonitor.errors.internal_server_exception.InternalServerException: <p>An internal error occurred.</p>
+            aws_sdk_networkflowmonitor.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request specifies a resource that doesn't exist.</p>
+            aws_sdk_networkflowmonitor.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request exceeded a service quota.</p>
+            aws_sdk_networkflowmonitor.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_networkflowmonitor.errors.validation_exception.ValidationException: <p>Invalid request.</p>
+            aws_sdk_networkflowmonitor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -344,6 +399,15 @@ class ScopeResource:
             query_id: <p>The identifier for the query. A query ID is an internally-generated identifier for a specific query returned from an API call to create a query.</p>
             next_token: <p>The token for the next set of results. You receive this token from a previous call.</p>
             max_results: <p>The number of query results that you want to return with this call.</p>
+
+        Raises:
+            aws_sdk_networkflowmonitor.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permission to perform this action.</p>
+            aws_sdk_networkflowmonitor.errors.internal_server_exception.InternalServerException: <p>An internal error occurred.</p>
+            aws_sdk_networkflowmonitor.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request specifies a resource that doesn't exist.</p>
+            aws_sdk_networkflowmonitor.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request exceeded a service quota.</p>
+            aws_sdk_networkflowmonitor.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_networkflowmonitor.errors.validation_exception.ValidationException: <p>Invalid request.</p>
+            aws_sdk_networkflowmonitor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -388,6 +452,14 @@ class ScopeResource:
         Args:
             scope_id: <p>The identifier for the scope that includes the resources you want to get data results for. A scope ID is an internally-generated identifier that includes all the resources for a specific root account.</p>
             query_id: <p>The identifier for the query. A query ID is an internally-generated identifier for a specific query returned from an API call to start a query.</p>
+
+        Raises:
+            aws_sdk_networkflowmonitor.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permission to perform this action.</p>
+            aws_sdk_networkflowmonitor.errors.internal_server_exception.InternalServerException: <p>An internal error occurred.</p>
+            aws_sdk_networkflowmonitor.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request exceeded a service quota.</p>
+            aws_sdk_networkflowmonitor.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_networkflowmonitor.errors.validation_exception.ValidationException: <p>Invalid request.</p>
+            aws_sdk_networkflowmonitor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -428,6 +500,14 @@ class ScopeResource:
         Args:
             scope_id: <p>The identifier for the scope that includes the resources you want to get data results for. A scope ID is an internally-generated identifier that includes all the resources for a specific root account. A scope ID is returned from a <code>CreateScope</code> API call.</p>
             query_id: <p>The identifier for the query. A query ID is an internally-generated identifier for a specific query returned from an API call to start a query.</p>
+
+        Raises:
+            aws_sdk_networkflowmonitor.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permission to perform this action.</p>
+            aws_sdk_networkflowmonitor.errors.internal_server_exception.InternalServerException: <p>An internal error occurred.</p>
+            aws_sdk_networkflowmonitor.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request exceeded a service quota.</p>
+            aws_sdk_networkflowmonitor.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_networkflowmonitor.errors.validation_exception.ValidationException: <p>Invalid request.</p>
+            aws_sdk_networkflowmonitor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -476,6 +556,14 @@ class ScopeResource:
             metric_name: <p>The metric that you want to query top contributors for. That is, you can specify this metric to return the top contributor network flows, for this type of metric, for a monitor and (optionally) within a specific category, such as network flows between Availability Zones.</p>
             destination_category: <p>The destination category for a top contributors row. Destination categories can be one of the following: </p> <ul> <li> <p> <code>INTRA_AZ</code>: Top contributor network flows within a single Availability Zone</p> </li> <li> <p> <code>INTER_AZ</code>: Top contributor network flows between Availability Zones</p> </li> <li> <p> <code>INTER_REGION</code>: Top contributor network flows between Regions (to the edge of another Region)</p> </li> <li> <p> <code>INTER_VPC</code>: Top contributor network flows between VPCs</p> </li> <li> <p> <code>AWS_SERVICES</code>: Top contributor network flows to or from Amazon Web Services services</p> </li> <li> <p> <code>UNCLASSIFIED</code>: Top contributor network flows that do not have a bucket classification</p> </li> </ul>
             limit: <p>The maximum number of top contributors to return.</p>
+
+        Raises:
+            aws_sdk_networkflowmonitor.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permission to perform this action.</p>
+            aws_sdk_networkflowmonitor.errors.internal_server_exception.InternalServerException: <p>An internal error occurred.</p>
+            aws_sdk_networkflowmonitor.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request exceeded a service quota.</p>
+            aws_sdk_networkflowmonitor.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_networkflowmonitor.errors.validation_exception.ValidationException: <p>Invalid request.</p>
+            aws_sdk_networkflowmonitor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -527,6 +615,14 @@ class ScopeResource:
             end_time: <p>The timestamp that is the date and time end of the period that you want to retrieve results for with your query.</p>
             metric_name: <p>The metric that you want to query top contributors for. That is, you can specify this metric to return the top contributor network flows, for this type of metric, for a monitor and (optionally) within a specific category, such as network flows between Availability Zones.</p>
             destination_category: <p>The destination category for a top contributors. Destination categories can be one of the following: </p> <ul> <li> <p> <code>INTRA_AZ</code>: Top contributor network flows within a single Availability Zone</p> </li> <li> <p> <code>INTER_AZ</code>: Top contributor network flows between Availability Zones</p> </li> <li> <p> <code>INTER_REGION</code>: Top contributor network flows between Regions (to the edge of another Region)</p> </li> <li> <p> <code>INTER_VPC</code>: Top contributor network flows between VPCs</p> </li> <li> <p> <code>AWS_SERVICES</code>: Top contributor network flows to or from Amazon Web Services services</p> </li> <li> <p> <code>UNCLASSIFIED</code>: Top contributor network flows that do not have a bucket classification</p> </li> </ul>
+
+        Raises:
+            aws_sdk_networkflowmonitor.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permission to perform this action.</p>
+            aws_sdk_networkflowmonitor.errors.internal_server_exception.InternalServerException: <p>An internal error occurred.</p>
+            aws_sdk_networkflowmonitor.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request exceeded a service quota.</p>
+            aws_sdk_networkflowmonitor.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_networkflowmonitor.errors.validation_exception.ValidationException: <p>Invalid request.</p>
+            aws_sdk_networkflowmonitor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -570,6 +666,14 @@ class ScopeResource:
         Args:
             scope_id: <p>The identifier for the scope that includes the resources you want to get data results for. A scope ID is an internally-generated identifier that includes all the resources for a specific root account.</p>
             query_id: <p>The identifier for the query. A query ID is an internally-generated identifier for a specific query returned from an API call to create a query.</p>
+
+        Raises:
+            aws_sdk_networkflowmonitor.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permission to perform this action.</p>
+            aws_sdk_networkflowmonitor.errors.internal_server_exception.InternalServerException: <p>An internal error occurred.</p>
+            aws_sdk_networkflowmonitor.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request exceeded a service quota.</p>
+            aws_sdk_networkflowmonitor.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_networkflowmonitor.errors.validation_exception.ValidationException: <p>Invalid request.</p>
+            aws_sdk_networkflowmonitor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -610,6 +714,14 @@ class ScopeResource:
         Args:
             scope_id: <p>The identifier for the scope that includes the resources you want to get data results for. A scope ID is an internally-generated identifier that includes all the resources for a specific root account.</p>
             query_id: <p>The identifier for the query. A query ID is an internally-generated identifier for a specific query returned from an API call to create a query.</p>
+
+        Raises:
+            aws_sdk_networkflowmonitor.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permission to perform this action.</p>
+            aws_sdk_networkflowmonitor.errors.internal_server_exception.InternalServerException: <p>An internal error occurred.</p>
+            aws_sdk_networkflowmonitor.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request exceeded a service quota.</p>
+            aws_sdk_networkflowmonitor.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_networkflowmonitor.errors.validation_exception.ValidationException: <p>Invalid request.</p>
+            aws_sdk_networkflowmonitor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -659,6 +771,15 @@ class AsyncScopeResource:
             targets: <p>The targets to define the scope to be monitored. A target is an array of targetResources, which are currently Region-account pairs, defined by targetResource constructs.</p>
             client_token: <p>A unique, case-sensitive string of up to 64 ASCII characters that you specify to make an idempotent API request. Don't reuse the same client token for other API requests.</p>
             tags: <p>The tags for a scope. You can add a maximum of 200 tags.</p>
+
+        Raises:
+            aws_sdk_networkflowmonitor.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permission to perform this action.</p>
+            aws_sdk_networkflowmonitor.errors.conflict_exception.ConflictException: <p>The requested resource is in use.</p>
+            aws_sdk_networkflowmonitor.errors.internal_server_exception.InternalServerException: <p>An internal error occurred.</p>
+            aws_sdk_networkflowmonitor.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request exceeded a service quota.</p>
+            aws_sdk_networkflowmonitor.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_networkflowmonitor.errors.validation_exception.ValidationException: <p>Invalid request.</p>
+            aws_sdk_networkflowmonitor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -701,6 +822,15 @@ class AsyncScopeResource:
 
         Args:
             scope_id: <p>The identifier for the scope that includes the resources you want to get data results for. A scope ID is an internally-generated identifier that includes all the resources for a specific root account. A scope ID is returned from a <code>CreateScope</code> API call.</p>
+
+        Raises:
+            aws_sdk_networkflowmonitor.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permission to perform this action.</p>
+            aws_sdk_networkflowmonitor.errors.internal_server_exception.InternalServerException: <p>An internal error occurred.</p>
+            aws_sdk_networkflowmonitor.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request specifies a resource that doesn't exist.</p>
+            aws_sdk_networkflowmonitor.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request exceeded a service quota.</p>
+            aws_sdk_networkflowmonitor.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_networkflowmonitor.errors.validation_exception.ValidationException: <p>Invalid request.</p>
+            aws_sdk_networkflowmonitor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -747,6 +877,16 @@ class AsyncScopeResource:
             scope_id: <p>The identifier for the scope that includes the resources you want to get data results for. A scope ID is an internally-generated identifier that includes all the resources for a specific root account.</p>
             resources_to_add: <p>A list of resources to add to a scope.</p>
             resources_to_delete: <p>A list of resources to delete from a scope.</p>
+
+        Raises:
+            aws_sdk_networkflowmonitor.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permission to perform this action.</p>
+            aws_sdk_networkflowmonitor.errors.conflict_exception.ConflictException: <p>The requested resource is in use.</p>
+            aws_sdk_networkflowmonitor.errors.internal_server_exception.InternalServerException: <p>An internal error occurred.</p>
+            aws_sdk_networkflowmonitor.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request specifies a resource that doesn't exist.</p>
+            aws_sdk_networkflowmonitor.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request exceeded a service quota.</p>
+            aws_sdk_networkflowmonitor.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_networkflowmonitor.errors.validation_exception.ValidationException: <p>Invalid request.</p>
+            aws_sdk_networkflowmonitor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -789,6 +929,16 @@ class AsyncScopeResource:
 
         Args:
             scope_id: <p>The identifier for the scope that includes the resources you want to get data results for. A scope ID is an internally-generated identifier that includes all the resources for a specific root account.</p>
+
+        Raises:
+            aws_sdk_networkflowmonitor.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permission to perform this action.</p>
+            aws_sdk_networkflowmonitor.errors.conflict_exception.ConflictException: <p>The requested resource is in use.</p>
+            aws_sdk_networkflowmonitor.errors.internal_server_exception.InternalServerException: <p>An internal error occurred.</p>
+            aws_sdk_networkflowmonitor.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request specifies a resource that doesn't exist.</p>
+            aws_sdk_networkflowmonitor.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request exceeded a service quota.</p>
+            aws_sdk_networkflowmonitor.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_networkflowmonitor.errors.validation_exception.ValidationException: <p>Invalid request.</p>
+            aws_sdk_networkflowmonitor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -831,6 +981,14 @@ class AsyncScopeResource:
         Args:
             next_token: <p>The token for the next set of results. You receive this token from a previous call.</p>
             max_results: <p>The number of query results that you want to return with this call.</p>
+
+        Raises:
+            aws_sdk_networkflowmonitor.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permission to perform this action.</p>
+            aws_sdk_networkflowmonitor.errors.internal_server_exception.InternalServerException: <p>An internal error occurred.</p>
+            aws_sdk_networkflowmonitor.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request exceeded a service quota.</p>
+            aws_sdk_networkflowmonitor.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_networkflowmonitor.errors.validation_exception.ValidationException: <p>Invalid request.</p>
+            aws_sdk_networkflowmonitor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -878,6 +1036,15 @@ class AsyncScopeResource:
             query_id: <p>The identifier for the query. A query ID is an internally-generated identifier for a specific query returned from an API call to create a query.</p>
             next_token: <p>The token for the next set of results. You receive this token from a previous call.</p>
             max_results: <p>The number of query results that you want to return with this call.</p>
+
+        Raises:
+            aws_sdk_networkflowmonitor.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permission to perform this action.</p>
+            aws_sdk_networkflowmonitor.errors.internal_server_exception.InternalServerException: <p>An internal error occurred.</p>
+            aws_sdk_networkflowmonitor.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request specifies a resource that doesn't exist.</p>
+            aws_sdk_networkflowmonitor.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request exceeded a service quota.</p>
+            aws_sdk_networkflowmonitor.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_networkflowmonitor.errors.validation_exception.ValidationException: <p>Invalid request.</p>
+            aws_sdk_networkflowmonitor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -927,6 +1094,15 @@ class AsyncScopeResource:
             query_id: <p>The identifier for the query. A query ID is an internally-generated identifier for a specific query returned from an API call to create a query.</p>
             next_token: <p>The token for the next set of results. You receive this token from a previous call.</p>
             max_results: <p>The number of query results that you want to return with this call.</p>
+
+        Raises:
+            aws_sdk_networkflowmonitor.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permission to perform this action.</p>
+            aws_sdk_networkflowmonitor.errors.internal_server_exception.InternalServerException: <p>An internal error occurred.</p>
+            aws_sdk_networkflowmonitor.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request specifies a resource that doesn't exist.</p>
+            aws_sdk_networkflowmonitor.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request exceeded a service quota.</p>
+            aws_sdk_networkflowmonitor.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_networkflowmonitor.errors.validation_exception.ValidationException: <p>Invalid request.</p>
+            aws_sdk_networkflowmonitor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -972,6 +1148,14 @@ class AsyncScopeResource:
         Args:
             scope_id: <p>The identifier for the scope that includes the resources you want to get data results for. A scope ID is an internally-generated identifier that includes all the resources for a specific root account.</p>
             query_id: <p>The identifier for the query. A query ID is an internally-generated identifier for a specific query returned from an API call to start a query.</p>
+
+        Raises:
+            aws_sdk_networkflowmonitor.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permission to perform this action.</p>
+            aws_sdk_networkflowmonitor.errors.internal_server_exception.InternalServerException: <p>An internal error occurred.</p>
+            aws_sdk_networkflowmonitor.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request exceeded a service quota.</p>
+            aws_sdk_networkflowmonitor.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_networkflowmonitor.errors.validation_exception.ValidationException: <p>Invalid request.</p>
+            aws_sdk_networkflowmonitor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1013,6 +1197,14 @@ class AsyncScopeResource:
         Args:
             scope_id: <p>The identifier for the scope that includes the resources you want to get data results for. A scope ID is an internally-generated identifier that includes all the resources for a specific root account. A scope ID is returned from a <code>CreateScope</code> API call.</p>
             query_id: <p>The identifier for the query. A query ID is an internally-generated identifier for a specific query returned from an API call to start a query.</p>
+
+        Raises:
+            aws_sdk_networkflowmonitor.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permission to perform this action.</p>
+            aws_sdk_networkflowmonitor.errors.internal_server_exception.InternalServerException: <p>An internal error occurred.</p>
+            aws_sdk_networkflowmonitor.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request exceeded a service quota.</p>
+            aws_sdk_networkflowmonitor.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_networkflowmonitor.errors.validation_exception.ValidationException: <p>Invalid request.</p>
+            aws_sdk_networkflowmonitor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1062,6 +1254,14 @@ class AsyncScopeResource:
             metric_name: <p>The metric that you want to query top contributors for. That is, you can specify this metric to return the top contributor network flows, for this type of metric, for a monitor and (optionally) within a specific category, such as network flows between Availability Zones.</p>
             destination_category: <p>The destination category for a top contributors row. Destination categories can be one of the following: </p> <ul> <li> <p> <code>INTRA_AZ</code>: Top contributor network flows within a single Availability Zone</p> </li> <li> <p> <code>INTER_AZ</code>: Top contributor network flows between Availability Zones</p> </li> <li> <p> <code>INTER_REGION</code>: Top contributor network flows between Regions (to the edge of another Region)</p> </li> <li> <p> <code>INTER_VPC</code>: Top contributor network flows between VPCs</p> </li> <li> <p> <code>AWS_SERVICES</code>: Top contributor network flows to or from Amazon Web Services services</p> </li> <li> <p> <code>UNCLASSIFIED</code>: Top contributor network flows that do not have a bucket classification</p> </li> </ul>
             limit: <p>The maximum number of top contributors to return.</p>
+
+        Raises:
+            aws_sdk_networkflowmonitor.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permission to perform this action.</p>
+            aws_sdk_networkflowmonitor.errors.internal_server_exception.InternalServerException: <p>An internal error occurred.</p>
+            aws_sdk_networkflowmonitor.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request exceeded a service quota.</p>
+            aws_sdk_networkflowmonitor.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_networkflowmonitor.errors.validation_exception.ValidationException: <p>Invalid request.</p>
+            aws_sdk_networkflowmonitor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1114,6 +1314,14 @@ class AsyncScopeResource:
             end_time: <p>The timestamp that is the date and time end of the period that you want to retrieve results for with your query.</p>
             metric_name: <p>The metric that you want to query top contributors for. That is, you can specify this metric to return the top contributor network flows, for this type of metric, for a monitor and (optionally) within a specific category, such as network flows between Availability Zones.</p>
             destination_category: <p>The destination category for a top contributors. Destination categories can be one of the following: </p> <ul> <li> <p> <code>INTRA_AZ</code>: Top contributor network flows within a single Availability Zone</p> </li> <li> <p> <code>INTER_AZ</code>: Top contributor network flows between Availability Zones</p> </li> <li> <p> <code>INTER_REGION</code>: Top contributor network flows between Regions (to the edge of another Region)</p> </li> <li> <p> <code>INTER_VPC</code>: Top contributor network flows between VPCs</p> </li> <li> <p> <code>AWS_SERVICES</code>: Top contributor network flows to or from Amazon Web Services services</p> </li> <li> <p> <code>UNCLASSIFIED</code>: Top contributor network flows that do not have a bucket classification</p> </li> </ul>
+
+        Raises:
+            aws_sdk_networkflowmonitor.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permission to perform this action.</p>
+            aws_sdk_networkflowmonitor.errors.internal_server_exception.InternalServerException: <p>An internal error occurred.</p>
+            aws_sdk_networkflowmonitor.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request exceeded a service quota.</p>
+            aws_sdk_networkflowmonitor.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_networkflowmonitor.errors.validation_exception.ValidationException: <p>Invalid request.</p>
+            aws_sdk_networkflowmonitor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1158,6 +1366,14 @@ class AsyncScopeResource:
         Args:
             scope_id: <p>The identifier for the scope that includes the resources you want to get data results for. A scope ID is an internally-generated identifier that includes all the resources for a specific root account.</p>
             query_id: <p>The identifier for the query. A query ID is an internally-generated identifier for a specific query returned from an API call to create a query.</p>
+
+        Raises:
+            aws_sdk_networkflowmonitor.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permission to perform this action.</p>
+            aws_sdk_networkflowmonitor.errors.internal_server_exception.InternalServerException: <p>An internal error occurred.</p>
+            aws_sdk_networkflowmonitor.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request exceeded a service quota.</p>
+            aws_sdk_networkflowmonitor.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_networkflowmonitor.errors.validation_exception.ValidationException: <p>Invalid request.</p>
+            aws_sdk_networkflowmonitor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1199,6 +1415,14 @@ class AsyncScopeResource:
         Args:
             scope_id: <p>The identifier for the scope that includes the resources you want to get data results for. A scope ID is an internally-generated identifier that includes all the resources for a specific root account.</p>
             query_id: <p>The identifier for the query. A query ID is an internally-generated identifier for a specific query returned from an API call to create a query.</p>
+
+        Raises:
+            aws_sdk_networkflowmonitor.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permission to perform this action.</p>
+            aws_sdk_networkflowmonitor.errors.internal_server_exception.InternalServerException: <p>An internal error occurred.</p>
+            aws_sdk_networkflowmonitor.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request exceeded a service quota.</p>
+            aws_sdk_networkflowmonitor.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_networkflowmonitor.errors.validation_exception.ValidationException: <p>Invalid request.</p>
+            aws_sdk_networkflowmonitor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

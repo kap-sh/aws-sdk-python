@@ -268,6 +268,15 @@ class AsyncPinpointEmailClient:
             reputation_options: <p>An object that defines whether or not Amazon Pinpoint collects reputation metrics for the emails that you send that use the configuration set.</p>
             sending_options: <p>An object that defines whether or not Amazon Pinpoint can send email that you send using the configuration set.</p>
             tags: <p>An array of objects that define the tags (keys and values) that you want to associate with the configuration set.</p>
+
+        Raises:
+            aws_sdk_pinpoint_email.errors.already_exists_exception.AlreadyExistsException: <p>The resource specified in your request already exists.</p>
+            aws_sdk_pinpoint_email.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_pinpoint_email.errors.concurrent_modification_exception.ConcurrentModificationException: <p>The resource is being modified by another operation or thread.</p>
+            aws_sdk_pinpoint_email.errors.limit_exceeded_exception.LimitExceededException: <p>There are too many instances of the specified resource type.</p>
+            aws_sdk_pinpoint_email.errors.not_found_exception.NotFoundException: <p>The resource you attempted to access doesn't exist.</p>
+            aws_sdk_pinpoint_email.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many requests have been made to the operation.</p>
+            aws_sdk_pinpoint_email.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -320,6 +329,14 @@ class AsyncPinpointEmailClient:
             configuration_set_name: <p>The name of the configuration set that you want to add an event destination to.</p>
             event_destination_name: <p>A name that identifies the event destination within the configuration set.</p>
             event_destination: <p>An object that defines the event destination.</p>
+
+        Raises:
+            aws_sdk_pinpoint_email.errors.already_exists_exception.AlreadyExistsException: <p>The resource specified in your request already exists.</p>
+            aws_sdk_pinpoint_email.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_pinpoint_email.errors.limit_exceeded_exception.LimitExceededException: <p>There are too many instances of the specified resource type.</p>
+            aws_sdk_pinpoint_email.errors.not_found_exception.NotFoundException: <p>The resource you attempted to access doesn't exist.</p>
+            aws_sdk_pinpoint_email.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many requests have been made to the operation.</p>
+            aws_sdk_pinpoint_email.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -362,6 +379,14 @@ class AsyncPinpointEmailClient:
         Args:
             pool_name: <p>The name of the dedicated IP pool.</p>
             tags: <p>An object that defines the tags (keys and values) that you want to associate with the pool.</p>
+
+        Raises:
+            aws_sdk_pinpoint_email.errors.already_exists_exception.AlreadyExistsException: <p>The resource specified in your request already exists.</p>
+            aws_sdk_pinpoint_email.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_pinpoint_email.errors.concurrent_modification_exception.ConcurrentModificationException: <p>The resource is being modified by another operation or thread.</p>
+            aws_sdk_pinpoint_email.errors.limit_exceeded_exception.LimitExceededException: <p>There are too many instances of the specified resource type.</p>
+            aws_sdk_pinpoint_email.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many requests have been made to the operation.</p>
+            aws_sdk_pinpoint_email.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -410,6 +435,18 @@ class AsyncPinpointEmailClient:
             from_email_address: <p>The email address that the predictive inbox placement test email was sent from.</p>
             content: <p>The HTML body of the message that you sent when you performed the predictive inbox placement test.</p>
             tags: <p>An array of objects that define the tags (keys and values) that you want to associate with the predictive inbox placement test.</p>
+
+        Raises:
+            aws_sdk_pinpoint_email.errors.account_suspended_exception.AccountSuspendedException: <p>The message can't be sent because the account's ability to send email has been permanently restricted.</p>
+            aws_sdk_pinpoint_email.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_pinpoint_email.errors.concurrent_modification_exception.ConcurrentModificationException: <p>The resource is being modified by another operation or thread.</p>
+            aws_sdk_pinpoint_email.errors.limit_exceeded_exception.LimitExceededException: <p>There are too many instances of the specified resource type.</p>
+            aws_sdk_pinpoint_email.errors.mail_from_domain_not_verified_exception.MailFromDomainNotVerifiedException: <p>The message can't be sent because the sending domain isn't verified.</p>
+            aws_sdk_pinpoint_email.errors.message_rejected.MessageRejected: <p>The message can't be sent because it contains invalid content.</p>
+            aws_sdk_pinpoint_email.errors.not_found_exception.NotFoundException: <p>The resource you attempted to access doesn't exist.</p>
+            aws_sdk_pinpoint_email.errors.sending_paused_exception.SendingPausedException: <p>The message can't be sent because the account's ability to send email is currently paused.</p>
+            aws_sdk_pinpoint_email.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many requests have been made to the operation.</p>
+            aws_sdk_pinpoint_email.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -455,6 +492,13 @@ class AsyncPinpointEmailClient:
         Args:
             email_identity: <p>The email address or domain that you want to verify.</p>
             tags: <p>An array of objects that define the tags (keys and values) that you want to associate with the email identity.</p>
+
+        Raises:
+            aws_sdk_pinpoint_email.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_pinpoint_email.errors.concurrent_modification_exception.ConcurrentModificationException: <p>The resource is being modified by another operation or thread.</p>
+            aws_sdk_pinpoint_email.errors.limit_exceeded_exception.LimitExceededException: <p>There are too many instances of the specified resource type.</p>
+            aws_sdk_pinpoint_email.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many requests have been made to the operation.</p>
+            aws_sdk_pinpoint_email.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -495,6 +539,13 @@ class AsyncPinpointEmailClient:
 
         Args:
             configuration_set_name: <p>The name of the configuration set that you want to delete.</p>
+
+        Raises:
+            aws_sdk_pinpoint_email.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_pinpoint_email.errors.concurrent_modification_exception.ConcurrentModificationException: <p>The resource is being modified by another operation or thread.</p>
+            aws_sdk_pinpoint_email.errors.not_found_exception.NotFoundException: <p>The resource you attempted to access doesn't exist.</p>
+            aws_sdk_pinpoint_email.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many requests have been made to the operation.</p>
+            aws_sdk_pinpoint_email.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -535,6 +586,12 @@ class AsyncPinpointEmailClient:
         Args:
             configuration_set_name: <p>The name of the configuration set that contains the event destination that you want to delete.</p>
             event_destination_name: <p>The name of the event destination that you want to delete.</p>
+
+        Raises:
+            aws_sdk_pinpoint_email.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_pinpoint_email.errors.not_found_exception.NotFoundException: <p>The resource you attempted to access doesn't exist.</p>
+            aws_sdk_pinpoint_email.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many requests have been made to the operation.</p>
+            aws_sdk_pinpoint_email.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -574,6 +631,13 @@ class AsyncPinpointEmailClient:
 
         Args:
             pool_name: <p>The name of the dedicated IP pool that you want to delete.</p>
+
+        Raises:
+            aws_sdk_pinpoint_email.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_pinpoint_email.errors.concurrent_modification_exception.ConcurrentModificationException: <p>The resource is being modified by another operation or thread.</p>
+            aws_sdk_pinpoint_email.errors.not_found_exception.NotFoundException: <p>The resource you attempted to access doesn't exist.</p>
+            aws_sdk_pinpoint_email.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many requests have been made to the operation.</p>
+            aws_sdk_pinpoint_email.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -612,6 +676,13 @@ class AsyncPinpointEmailClient:
 
         Args:
             email_identity: <p>The identity (that is, the email address or domain) that you want to delete from your Amazon Pinpoint account.</p>
+
+        Raises:
+            aws_sdk_pinpoint_email.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_pinpoint_email.errors.concurrent_modification_exception.ConcurrentModificationException: <p>The resource is being modified by another operation or thread.</p>
+            aws_sdk_pinpoint_email.errors.not_found_exception.NotFoundException: <p>The resource you attempted to access doesn't exist.</p>
+            aws_sdk_pinpoint_email.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many requests have been made to the operation.</p>
+            aws_sdk_pinpoint_email.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -643,7 +714,13 @@ class AsyncPinpointEmailClient:
     async def get_account(
         self, *, config_overrides: Optional[AsyncPinpointEmailClientConfig] = None
     ) -> "aws_sdk_pinpoint_email.types.get_account_response.GetAccountResponse":
-        """<p>Obtain information about the email-sending status and capabilities of your Amazon Pinpoint account in the current AWS Region.</p>"""
+        """<p>Obtain information about the email-sending status and capabilities of your Amazon Pinpoint account in the current AWS Region.</p>
+
+        Raises:
+            aws_sdk_pinpoint_email.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_pinpoint_email.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many requests have been made to the operation.</p>
+            aws_sdk_pinpoint_email.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_pinpoint_email.types.get_account_request.GetAccountRequest]",
@@ -680,6 +757,12 @@ class AsyncPinpointEmailClient:
 
         Args:
             blacklist_item_names: <p>A list of IP addresses that you want to retrieve blacklist information about. You can only specify the dedicated IP addresses that you use to send email using Amazon Pinpoint or Amazon SES.</p>
+
+        Raises:
+            aws_sdk_pinpoint_email.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_pinpoint_email.errors.not_found_exception.NotFoundException: <p>The resource you attempted to access doesn't exist.</p>
+            aws_sdk_pinpoint_email.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many requests have been made to the operation.</p>
+            aws_sdk_pinpoint_email.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -718,6 +801,12 @@ class AsyncPinpointEmailClient:
 
         Args:
             configuration_set_name: <p>The name of the configuration set that you want to obtain more information about.</p>
+
+        Raises:
+            aws_sdk_pinpoint_email.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_pinpoint_email.errors.not_found_exception.NotFoundException: <p>The resource you attempted to access doesn't exist.</p>
+            aws_sdk_pinpoint_email.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many requests have been made to the operation.</p>
+            aws_sdk_pinpoint_email.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -756,6 +845,12 @@ class AsyncPinpointEmailClient:
 
         Args:
             configuration_set_name: <p>The name of the configuration set that contains the event destination.</p>
+
+        Raises:
+            aws_sdk_pinpoint_email.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_pinpoint_email.errors.not_found_exception.NotFoundException: <p>The resource you attempted to access doesn't exist.</p>
+            aws_sdk_pinpoint_email.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many requests have been made to the operation.</p>
+            aws_sdk_pinpoint_email.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -796,6 +891,12 @@ class AsyncPinpointEmailClient:
 
         Args:
             ip: <p>The IP address that you want to obtain more information about. The value you specify has to be a dedicated IP address that's assocaited with your Amazon Pinpoint account.</p>
+
+        Raises:
+            aws_sdk_pinpoint_email.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_pinpoint_email.errors.not_found_exception.NotFoundException: <p>The resource you attempted to access doesn't exist.</p>
+            aws_sdk_pinpoint_email.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many requests have been made to the operation.</p>
+            aws_sdk_pinpoint_email.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -840,6 +941,12 @@ class AsyncPinpointEmailClient:
             pool_name: <p>The name of the IP pool that the dedicated IP address is associated with.</p>
             next_token: <p>A token returned from a previous call to <code>GetDedicatedIps</code> to indicate the position of the dedicated IP pool in the list of IP pools.</p>
             page_size: <p>The number of results to show in a single call to <code>GetDedicatedIpsRequest</code>. If the number of results is larger than the number you specified in this parameter, then the response includes a <code>NextToken</code> element, which you can use to obtain additional results.</p>
+
+        Raises:
+            aws_sdk_pinpoint_email.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_pinpoint_email.errors.not_found_exception.NotFoundException: <p>The resource you attempted to access doesn't exist.</p>
+            aws_sdk_pinpoint_email.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many requests have been made to the operation.</p>
+            aws_sdk_pinpoint_email.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -876,7 +983,14 @@ class AsyncPinpointEmailClient:
     async def get_deliverability_dashboard_options(
         self, *, config_overrides: Optional[AsyncPinpointEmailClientConfig] = None
     ) -> "aws_sdk_pinpoint_email.types.get_deliverability_dashboard_options_response.GetDeliverabilityDashboardOptionsResponse":
-        r"""<p>Retrieve information about the status of the Deliverability dashboard for your Amazon Pinpoint account. When the Deliverability dashboard is enabled, you gain access to reputation, deliverability, and other metrics for the domains that you use to send email using Amazon Pinpoint. You also gain the ability to perform predictive inbox placement tests.</p> <p>When you use the Deliverability dashboard, you pay a monthly subscription charge, in addition to any other fees that you accrue by using Amazon Pinpoint. For more information about the features and cost of a Deliverability dashboard subscription, see <a href=\"http://aws.amazon.com/pinpoint/pricing/\">Amazon Pinpoint Pricing</a>.</p>"""
+        r"""<p>Retrieve information about the status of the Deliverability dashboard for your Amazon Pinpoint account. When the Deliverability dashboard is enabled, you gain access to reputation, deliverability, and other metrics for the domains that you use to send email using Amazon Pinpoint. You also gain the ability to perform predictive inbox placement tests.</p> <p>When you use the Deliverability dashboard, you pay a monthly subscription charge, in addition to any other fees that you accrue by using Amazon Pinpoint. For more information about the features and cost of a Deliverability dashboard subscription, see <a href=\"http://aws.amazon.com/pinpoint/pricing/\">Amazon Pinpoint Pricing</a>.</p>
+
+        Raises:
+            aws_sdk_pinpoint_email.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_pinpoint_email.errors.limit_exceeded_exception.LimitExceededException: <p>There are too many instances of the specified resource type.</p>
+            aws_sdk_pinpoint_email.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many requests have been made to the operation.</p>
+            aws_sdk_pinpoint_email.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_pinpoint_email.types.get_deliverability_dashboard_options_request.GetDeliverabilityDashboardOptionsRequest]",
@@ -913,6 +1027,12 @@ class AsyncPinpointEmailClient:
 
         Args:
             report_id: <p>A unique string that identifies the predictive inbox placement test.</p>
+
+        Raises:
+            aws_sdk_pinpoint_email.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_pinpoint_email.errors.not_found_exception.NotFoundException: <p>The resource you attempted to access doesn't exist.</p>
+            aws_sdk_pinpoint_email.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many requests have been made to the operation.</p>
+            aws_sdk_pinpoint_email.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -951,6 +1071,12 @@ class AsyncPinpointEmailClient:
 
         Args:
             campaign_id: <p>The unique identifier for the campaign. Amazon Pinpoint automatically generates and assigns this identifier to a campaign. This value is not the same as the campaign identifier that Amazon Pinpoint assigns to campaigns that you create and manage by using the Amazon Pinpoint API or the Amazon Pinpoint console.</p>
+
+        Raises:
+            aws_sdk_pinpoint_email.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_pinpoint_email.errors.not_found_exception.NotFoundException: <p>The resource you attempted to access doesn't exist.</p>
+            aws_sdk_pinpoint_email.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many requests have been made to the operation.</p>
+            aws_sdk_pinpoint_email.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -993,6 +1119,12 @@ class AsyncPinpointEmailClient:
             domain: <p>The domain that you want to obtain deliverability metrics for.</p>
             start_date: <p>The first day (in Unix time) that you want to obtain domain deliverability metrics for.</p>
             end_date: <p>The last day (in Unix time) that you want to obtain domain deliverability metrics for. The <code>EndDate</code> that you specify has to be less than or equal to 30 days after the <code>StartDate</code>.</p>
+
+        Raises:
+            aws_sdk_pinpoint_email.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_pinpoint_email.errors.not_found_exception.NotFoundException: <p>The resource you attempted to access doesn't exist.</p>
+            aws_sdk_pinpoint_email.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many requests have been made to the operation.</p>
+            aws_sdk_pinpoint_email.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1033,6 +1165,12 @@ class AsyncPinpointEmailClient:
 
         Args:
             email_identity: <p>The email identity that you want to retrieve details for.</p>
+
+        Raises:
+            aws_sdk_pinpoint_email.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_pinpoint_email.errors.not_found_exception.NotFoundException: <p>The resource you attempted to access doesn't exist.</p>
+            aws_sdk_pinpoint_email.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many requests have been made to the operation.</p>
+            aws_sdk_pinpoint_email.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1075,6 +1213,11 @@ class AsyncPinpointEmailClient:
         Args:
             next_token: <p>A token returned from a previous call to <code>ListConfigurationSets</code> to indicate the position in the list of configuration sets.</p>
             page_size: <p>The number of results to show in a single call to <code>ListConfigurationSets</code>. If the number of results is larger than the number you specified in this parameter, then the response includes a <code>NextToken</code> element, which you can use to obtain additional results.</p>
+
+        Raises:
+            aws_sdk_pinpoint_email.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_pinpoint_email.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many requests have been made to the operation.</p>
+            aws_sdk_pinpoint_email.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1120,6 +1263,11 @@ class AsyncPinpointEmailClient:
         Args:
             next_token: <p>A token returned from a previous call to <code>ListDedicatedIpPools</code> to indicate the position in the list of dedicated IP pools.</p>
             page_size: <p>The number of results to show in a single call to <code>ListDedicatedIpPools</code>. If the number of results is larger than the number you specified in this parameter, then the response includes a <code>NextToken</code> element, which you can use to obtain additional results.</p>
+
+        Raises:
+            aws_sdk_pinpoint_email.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_pinpoint_email.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many requests have been made to the operation.</p>
+            aws_sdk_pinpoint_email.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1165,6 +1313,12 @@ class AsyncPinpointEmailClient:
         Args:
             next_token: <p>A token returned from a previous call to <code>ListDeliverabilityTestReports</code> to indicate the position in the list of predictive inbox placement tests.</p>
             page_size: <p>The number of results to show in a single call to <code>ListDeliverabilityTestReports</code>. If the number of results is larger than the number you specified in this parameter, then the response includes a <code>NextToken</code> element, which you can use to obtain additional results.</p> <p>The value you specify has to be at least 0, and can be no more than 1000.</p>
+
+        Raises:
+            aws_sdk_pinpoint_email.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_pinpoint_email.errors.not_found_exception.NotFoundException: <p>The resource you attempted to access doesn't exist.</p>
+            aws_sdk_pinpoint_email.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many requests have been made to the operation.</p>
+            aws_sdk_pinpoint_email.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1216,6 +1370,12 @@ class AsyncPinpointEmailClient:
             subscribed_domain: <p>The domain to obtain deliverability data for.</p>
             next_token: <p>A token that’s returned from a previous call to the <code>ListDomainDeliverabilityCampaigns</code> operation. This token indicates the position of a campaign in the list of campaigns.</p>
             page_size: <p>The maximum number of results to include in response to a single call to the <code>ListDomainDeliverabilityCampaigns</code> operation. If the number of results is larger than the number that you specify in this parameter, the response includes a <code>NextToken</code> element, which you can use to obtain additional results.</p>
+
+        Raises:
+            aws_sdk_pinpoint_email.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_pinpoint_email.errors.not_found_exception.NotFoundException: <p>The resource you attempted to access doesn't exist.</p>
+            aws_sdk_pinpoint_email.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many requests have been made to the operation.</p>
+            aws_sdk_pinpoint_email.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1264,6 +1424,11 @@ class AsyncPinpointEmailClient:
         Args:
             next_token: <p>A token returned from a previous call to <code>ListEmailIdentities</code> to indicate the position in the list of identities.</p>
             page_size: <p>The number of results to show in a single call to <code>ListEmailIdentities</code>. If the number of results is larger than the number you specified in this parameter, then the response includes a <code>NextToken</code> element, which you can use to obtain additional results.</p> <p>The value you specify has to be at least 0, and can be no more than 1000.</p>
+
+        Raises:
+            aws_sdk_pinpoint_email.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_pinpoint_email.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many requests have been made to the operation.</p>
+            aws_sdk_pinpoint_email.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1305,6 +1470,12 @@ class AsyncPinpointEmailClient:
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource that you want to retrieve tag information for.</p>
+
+        Raises:
+            aws_sdk_pinpoint_email.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_pinpoint_email.errors.not_found_exception.NotFoundException: <p>The resource you attempted to access doesn't exist.</p>
+            aws_sdk_pinpoint_email.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many requests have been made to the operation.</p>
+            aws_sdk_pinpoint_email.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1345,6 +1516,11 @@ class AsyncPinpointEmailClient:
 
         Args:
             auto_warmup_enabled: <p>Enables or disables the automatic warm-up feature for dedicated IP addresses that are associated with your Amazon Pinpoint account in the current AWS Region. Set to <code>true</code> to enable the automatic warm-up feature, or set to <code>false</code> to disable it.</p>
+
+        Raises:
+            aws_sdk_pinpoint_email.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_pinpoint_email.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many requests have been made to the operation.</p>
+            aws_sdk_pinpoint_email.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1386,6 +1562,11 @@ class AsyncPinpointEmailClient:
 
         Args:
             sending_enabled: <p>Enables or disables your account's ability to send email. Set to <code>true</code> to enable email sending, or set to <code>false</code> to disable email sending.</p> <note> <p>If AWS paused your account's ability to send email, you can't use this operation to resume your account's ability to send email.</p> </note>
+
+        Raises:
+            aws_sdk_pinpoint_email.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_pinpoint_email.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many requests have been made to the operation.</p>
+            aws_sdk_pinpoint_email.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1433,6 +1614,12 @@ class AsyncPinpointEmailClient:
             configuration_set_name: <p>The name of the configuration set that you want to associate with a dedicated IP pool.</p>
             tls_policy: <p>Specifies whether messages that use the configuration set are required to use Transport Layer Security (TLS). If the value is <code>Require</code>, messages are only delivered if a TLS connection can be established. If the value is <code>Optional</code>, messages can be delivered in plain text if a TLS connection can't be established.</p>
             sending_pool_name: <p>The name of the dedicated IP pool that you want to associate with the configuration set.</p>
+
+        Raises:
+            aws_sdk_pinpoint_email.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_pinpoint_email.errors.not_found_exception.NotFoundException: <p>The resource you attempted to access doesn't exist.</p>
+            aws_sdk_pinpoint_email.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many requests have been made to the operation.</p>
+            aws_sdk_pinpoint_email.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1479,6 +1666,12 @@ class AsyncPinpointEmailClient:
         Args:
             configuration_set_name: <p>The name of the configuration set that you want to enable or disable reputation metric tracking for.</p>
             reputation_metrics_enabled: <p>If <code>true</code>, tracking of reputation metrics is enabled for the configuration set. If <code>false</code>, tracking of reputation metrics is disabled for the configuration set.</p>
+
+        Raises:
+            aws_sdk_pinpoint_email.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_pinpoint_email.errors.not_found_exception.NotFoundException: <p>The resource you attempted to access doesn't exist.</p>
+            aws_sdk_pinpoint_email.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many requests have been made to the operation.</p>
+            aws_sdk_pinpoint_email.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1523,6 +1716,12 @@ class AsyncPinpointEmailClient:
         Args:
             configuration_set_name: <p>The name of the configuration set that you want to enable or disable email sending for.</p>
             sending_enabled: <p>If <code>true</code>, email sending is enabled for the configuration set. If <code>false</code>, email sending is disabled for the configuration set.</p>
+
+        Raises:
+            aws_sdk_pinpoint_email.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_pinpoint_email.errors.not_found_exception.NotFoundException: <p>The resource you attempted to access doesn't exist.</p>
+            aws_sdk_pinpoint_email.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many requests have been made to the operation.</p>
+            aws_sdk_pinpoint_email.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1567,6 +1766,12 @@ class AsyncPinpointEmailClient:
         Args:
             configuration_set_name: <p>The name of the configuration set that you want to add a custom tracking domain to.</p>
             custom_redirect_domain: <p>The domain that you want to use to track open and click events.</p>
+
+        Raises:
+            aws_sdk_pinpoint_email.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_pinpoint_email.errors.not_found_exception.NotFoundException: <p>The resource you attempted to access doesn't exist.</p>
+            aws_sdk_pinpoint_email.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many requests have been made to the operation.</p>
+            aws_sdk_pinpoint_email.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1609,6 +1814,12 @@ class AsyncPinpointEmailClient:
         Args:
             ip: <p>The IP address that you want to move to the dedicated IP pool. The value you specify has to be a dedicated IP address that's associated with your Amazon Pinpoint account.</p>
             destination_pool_name: <p>The name of the IP pool that you want to add the dedicated IP address to. You have to specify an IP pool that already exists.</p>
+
+        Raises:
+            aws_sdk_pinpoint_email.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_pinpoint_email.errors.not_found_exception.NotFoundException: <p>The resource you attempted to access doesn't exist.</p>
+            aws_sdk_pinpoint_email.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many requests have been made to the operation.</p>
+            aws_sdk_pinpoint_email.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1650,6 +1861,12 @@ class AsyncPinpointEmailClient:
         Args:
             ip: <p>The dedicated IP address that you want to update the warm-up attributes for.</p>
             warmup_percentage: <p>The warm-up percentage that you want to associate with the dedicated IP address.</p>
+
+        Raises:
+            aws_sdk_pinpoint_email.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_pinpoint_email.errors.not_found_exception.NotFoundException: <p>The resource you attempted to access doesn't exist.</p>
+            aws_sdk_pinpoint_email.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many requests have been made to the operation.</p>
+            aws_sdk_pinpoint_email.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1693,6 +1910,14 @@ class AsyncPinpointEmailClient:
         Args:
             dashboard_enabled: <p>Specifies whether to enable the Deliverability dashboard for your Amazon Pinpoint account. To enable the dashboard, set this value to <code>true</code>.</p>
             subscribed_domains: <p>An array of objects, one for each verified domain that you use to send email and enabled the Deliverability dashboard for.</p>
+
+        Raises:
+            aws_sdk_pinpoint_email.errors.already_exists_exception.AlreadyExistsException: <p>The resource specified in your request already exists.</p>
+            aws_sdk_pinpoint_email.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_pinpoint_email.errors.limit_exceeded_exception.LimitExceededException: <p>There are too many instances of the specified resource type.</p>
+            aws_sdk_pinpoint_email.errors.not_found_exception.NotFoundException: <p>The resource you attempted to access doesn't exist.</p>
+            aws_sdk_pinpoint_email.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many requests have been made to the operation.</p>
+            aws_sdk_pinpoint_email.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1737,6 +1962,12 @@ class AsyncPinpointEmailClient:
         Args:
             email_identity: <p>The email identity that you want to change the DKIM settings for.</p>
             signing_enabled: <p>Sets the DKIM signing configuration for the identity.</p> <p>When you set this value <code>true</code>, then the messages that Amazon Pinpoint sends from the identity are DKIM-signed. When you set this value to <code>false</code>, then the messages that Amazon Pinpoint sends from the identity aren't DKIM-signed.</p>
+
+        Raises:
+            aws_sdk_pinpoint_email.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_pinpoint_email.errors.not_found_exception.NotFoundException: <p>The resource you attempted to access doesn't exist.</p>
+            aws_sdk_pinpoint_email.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many requests have been made to the operation.</p>
+            aws_sdk_pinpoint_email.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1781,6 +2012,12 @@ class AsyncPinpointEmailClient:
         Args:
             email_identity: <p>The email identity that you want to configure bounce and complaint feedback forwarding for.</p>
             email_forwarding_enabled: <p>Sets the feedback forwarding configuration for the identity.</p> <p>If the value is <code>true</code>, Amazon Pinpoint sends you email notifications when bounce or complaint events occur. Amazon Pinpoint sends this notification to the address that you specified in the Return-Path header of the original email.</p> <p>When you set this value to <code>false</code>, Amazon Pinpoint sends notifications through other mechanisms, such as by notifying an Amazon SNS topic or another event destination. You're required to have a method of tracking bounces and complaints. If you haven't set up another mechanism for receiving bounce or complaint notifications, Amazon Pinpoint sends an email notification when these events occur (even if this setting is disabled).</p>
+
+        Raises:
+            aws_sdk_pinpoint_email.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_pinpoint_email.errors.not_found_exception.NotFoundException: <p>The resource you attempted to access doesn't exist.</p>
+            aws_sdk_pinpoint_email.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many requests have been made to the operation.</p>
+            aws_sdk_pinpoint_email.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1829,6 +2066,12 @@ class AsyncPinpointEmailClient:
             email_identity: <p>The verified email identity that you want to set up the custom MAIL FROM domain for.</p>
             mail_from_domain: <p> The custom MAIL FROM domain that you want the verified identity to use. The MAIL FROM domain must meet the following criteria:</p> <ul> <li> <p>It has to be a subdomain of the verified identity.</p> </li> <li> <p>It can't be used to receive email.</p> </li> <li> <p>It can't be used in a \"From\" address if the MAIL FROM domain is a destination for feedback forwarding emails.</p> </li> </ul>
             behavior_on_mx_failure: <p>The action that you want Amazon Pinpoint to take if it can't read the required MX record when you send an email. When you set this value to <code>UseDefaultValue</code>, Amazon Pinpoint uses <i>amazonses.com</i> as the MAIL FROM domain. When you set this value to <code>RejectMessage</code>, Amazon Pinpoint returns a <code>MailFromDomainNotVerified</code> error, and doesn't attempt to deliver the email.</p> <p>These behaviors are taken when the custom MAIL FROM domain configuration is in the <code>Pending</code>, <code>Failed</code>, and <code>TemporaryFailure</code> states.</p>
+
+        Raises:
+            aws_sdk_pinpoint_email.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_pinpoint_email.errors.not_found_exception.NotFoundException: <p>The resource you attempted to access doesn't exist.</p>
+            aws_sdk_pinpoint_email.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many requests have been made to the operation.</p>
+            aws_sdk_pinpoint_email.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1893,6 +2136,17 @@ class AsyncPinpointEmailClient:
             content: <p>An object that contains the body of the message. You can send either a Simple message or a Raw message.</p>
             email_tags: <p>A list of tags, in the form of name/value pairs, to apply to an email that you send using the <code>SendEmail</code> operation. Tags correspond to characteristics of the email that you define, so that you can publish email sending events. </p>
             configuration_set_name: <p>The name of the configuration set that you want to use when sending the email.</p>
+
+        Raises:
+            aws_sdk_pinpoint_email.errors.account_suspended_exception.AccountSuspendedException: <p>The message can't be sent because the account's ability to send email has been permanently restricted.</p>
+            aws_sdk_pinpoint_email.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_pinpoint_email.errors.limit_exceeded_exception.LimitExceededException: <p>There are too many instances of the specified resource type.</p>
+            aws_sdk_pinpoint_email.errors.mail_from_domain_not_verified_exception.MailFromDomainNotVerifiedException: <p>The message can't be sent because the sending domain isn't verified.</p>
+            aws_sdk_pinpoint_email.errors.message_rejected.MessageRejected: <p>The message can't be sent because it contains invalid content.</p>
+            aws_sdk_pinpoint_email.errors.not_found_exception.NotFoundException: <p>The resource you attempted to access doesn't exist.</p>
+            aws_sdk_pinpoint_email.errors.sending_paused_exception.SendingPausedException: <p>The message can't be sent because the account's ability to send email is currently paused.</p>
+            aws_sdk_pinpoint_email.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many requests have been made to the operation.</p>
+            aws_sdk_pinpoint_email.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1946,6 +2200,13 @@ class AsyncPinpointEmailClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource that you want to add one or more tags to.</p>
             tags: <p>A list of the tags that you want to add to the resource. A tag consists of a required tag key (<code>Key</code>) and an associated tag value (<code>Value</code>). The maximum length of a tag key is 128 characters. The maximum length of a tag value is 256 characters.</p>
+
+        Raises:
+            aws_sdk_pinpoint_email.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_pinpoint_email.errors.concurrent_modification_exception.ConcurrentModificationException: <p>The resource is being modified by another operation or thread.</p>
+            aws_sdk_pinpoint_email.errors.not_found_exception.NotFoundException: <p>The resource you attempted to access doesn't exist.</p>
+            aws_sdk_pinpoint_email.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many requests have been made to the operation.</p>
+            aws_sdk_pinpoint_email.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1987,6 +2248,13 @@ class AsyncPinpointEmailClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource that you want to remove one or more tags from.</p>
             tag_keys: <p>The tags (tag keys) that you want to remove from the resource. When you specify a tag key, the action removes both that key and its associated tag value.</p> <p>To remove more than one tag from the resource, append the <code>TagKeys</code> parameter and argument for each additional tag to remove, separated by an ampersand. For example: <code>/v1/email/tags?ResourceArn=ResourceArn&TagKeys=Key1&TagKeys=Key2</code> </p>
+
+        Raises:
+            aws_sdk_pinpoint_email.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_pinpoint_email.errors.concurrent_modification_exception.ConcurrentModificationException: <p>The resource is being modified by another operation or thread.</p>
+            aws_sdk_pinpoint_email.errors.not_found_exception.NotFoundException: <p>The resource you attempted to access doesn't exist.</p>
+            aws_sdk_pinpoint_email.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many requests have been made to the operation.</p>
+            aws_sdk_pinpoint_email.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2030,6 +2298,12 @@ class AsyncPinpointEmailClient:
             configuration_set_name: <p>The name of the configuration set that contains the event destination that you want to modify.</p>
             event_destination_name: <p>The name of the event destination that you want to modify.</p>
             event_destination: <p>An object that defines the event destination.</p>
+
+        Raises:
+            aws_sdk_pinpoint_email.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_pinpoint_email.errors.not_found_exception.NotFoundException: <p>The resource you attempted to access doesn't exist.</p>
+            aws_sdk_pinpoint_email.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many requests have been made to the operation.</p>
+            aws_sdk_pinpoint_email.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

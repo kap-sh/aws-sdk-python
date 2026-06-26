@@ -317,6 +317,12 @@ class SESClient:
             rule_set_name: <p>The name of the rule set to create. The name must meet the following requirements:</p> <ul> <li> <p>Contain only ASCII letters (a-z, A-Z), numbers (0-9), underscores (_), or dashes (-).</p> </li> <li> <p>Start and end with a letter or number.</p> </li> <li> <p>Contain 64 characters or fewer.</p> </li> </ul>
             original_rule_set_name: <p>The name of the rule set to clone.</p>
 
+        Raises:
+            aws_sdk_ses.errors.already_exists_exception.AlreadyExistsException: <p>Indicates that a resource could not be created because of a naming conflict.</p>
+            aws_sdk_ses.errors.limit_exceeded_exception.LimitExceededException: <p>Indicates that a resource could not be created because of service limits. For a list of Amazon SES limits, see the <a href=\"https://docs.aws.amazon.com/ses/latest/DeveloperGuide/limits.html\">Amazon SES Developer Guide</a>.</p>
+            aws_sdk_ses.errors.rule_set_does_not_exist_exception.RuleSetDoesNotExistException: <p>Indicates that the provided receipt rule set does not exist.</p>
+            aws_sdk_ses.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             CloneReceiptRuleSet
             The following example creates a receipt rule set by cloning an existing one:
@@ -360,6 +366,12 @@ class SESClient:
 
         Args:
             configuration_set: <p>A data structure that contains the name of the configuration set.</p>
+
+        Raises:
+            aws_sdk_ses.errors.configuration_set_already_exists_exception.ConfigurationSetAlreadyExistsException: <p>Indicates that the configuration set could not be created because of a naming conflict.</p>
+            aws_sdk_ses.errors.invalid_configuration_set_exception.InvalidConfigurationSetException: <p>Indicates that the configuration set is invalid. See the error message for details.</p>
+            aws_sdk_ses.errors.limit_exceeded_exception.LimitExceededException: <p>Indicates that a resource could not be created because of service limits. For a list of Amazon SES limits, see the <a href=\"https://docs.aws.amazon.com/ses/latest/DeveloperGuide/limits.html\">Amazon SES Developer Guide</a>.</p>
+            aws_sdk_ses.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -399,6 +411,15 @@ class SESClient:
         Args:
             configuration_set_name: <p>The name of the configuration set that the event destination should be associated with.</p>
             event_destination: <p>An object that describes the Amazon Web Services service that email sending event where information is published.</p>
+
+        Raises:
+            aws_sdk_ses.errors.configuration_set_does_not_exist_exception.ConfigurationSetDoesNotExistException: <p>Indicates that the configuration set does not exist.</p>
+            aws_sdk_ses.errors.event_destination_already_exists_exception.EventDestinationAlreadyExistsException: <p>Indicates that the event destination could not be created because of a naming conflict.</p>
+            aws_sdk_ses.errors.invalid_cloud_watch_destination_exception.InvalidCloudWatchDestinationException: <p>Indicates that the Amazon CloudWatch destination is invalid. See the error message for details.</p>
+            aws_sdk_ses.errors.invalid_firehose_destination_exception.InvalidFirehoseDestinationException: <p>Indicates that the Amazon Kinesis Firehose destination is invalid. See the error message for details.</p>
+            aws_sdk_ses.errors.invalid_sns_destination_exception.InvalidSNSDestinationException: <p>Indicates that the Amazon Simple Notification Service (Amazon SNS) destination is invalid. See the error message for details.</p>
+            aws_sdk_ses.errors.limit_exceeded_exception.LimitExceededException: <p>Indicates that a resource could not be created because of service limits. For a list of Amazon SES limits, see the <a href=\"https://docs.aws.amazon.com/ses/latest/DeveloperGuide/limits.html\">Amazon SES Developer Guide</a>.</p>
+            aws_sdk_ses.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -438,6 +459,12 @@ class SESClient:
 
         Args:
             configuration_set_name: <p>The name of the configuration set that the tracking options should be associated with.</p>
+
+        Raises:
+            aws_sdk_ses.errors.configuration_set_does_not_exist_exception.ConfigurationSetDoesNotExistException: <p>Indicates that the configuration set does not exist.</p>
+            aws_sdk_ses.errors.invalid_tracking_options_exception.InvalidTrackingOptionsException: <p>Indicates that the custom domain to be used for open and click tracking redirects is invalid. This error appears most often in the following situations:</p> <ul> <li> <p>When the tracking domain you specified is not verified in Amazon SES.</p> </li> <li> <p>When the tracking domain you specified is not a valid domain or subdomain.</p> </li> </ul>
+            aws_sdk_ses.errors.tracking_options_already_exists_exception.TrackingOptionsAlreadyExistsException: <p>Indicates that the configuration set you specified already contains a TrackingOptions object.</p>
+            aws_sdk_ses.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -486,6 +513,13 @@ class SESClient:
             template_content: <p>The content of the custom verification email. The total size of the email must be less than 10 MB. The message body may contain HTML, with some limitations. For more information, see <a href=\"https://docs.aws.amazon.com/ses/latest/dg/creating-identities.html#send-email-verify-address-custom\">Custom Verification Email Frequently Asked Questions</a> in the <i>Amazon SES Developer Guide</i>.</p>
             success_redirection_url: <p>The URL that the recipient of the verification email is sent to if his or her address is successfully verified.</p>
             failure_redirection_url: <p>The URL that the recipient of the verification email is sent to if his or her address is not successfully verified.</p>
+
+        Raises:
+            aws_sdk_ses.errors.custom_verification_email_invalid_content_exception.CustomVerificationEmailInvalidContentException: <p>Indicates that custom verification email template provided content is invalid.</p>
+            aws_sdk_ses.errors.custom_verification_email_template_already_exists_exception.CustomVerificationEmailTemplateAlreadyExistsException: <p>Indicates that a custom verification email template with the name you specified already exists.</p>
+            aws_sdk_ses.errors.from_email_address_not_verified_exception.FromEmailAddressNotVerifiedException: <p>Indicates that the sender address specified for a custom verification email is not verified, and is therefore not eligible to send the custom verification email. </p>
+            aws_sdk_ses.errors.limit_exceeded_exception.LimitExceededException: <p>Indicates that a resource could not be created because of service limits. For a list of Amazon SES limits, see the <a href=\"https://docs.aws.amazon.com/ses/latest/DeveloperGuide/limits.html\">Amazon SES Developer Guide</a>.</p>
+            aws_sdk_ses.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -526,6 +560,11 @@ class SESClient:
 
         Args:
             filter: <p>A data structure that describes the IP address filter to create, which consists of a name, an IP address range, and whether to allow or block mail from it.</p>
+
+        Raises:
+            aws_sdk_ses.errors.already_exists_exception.AlreadyExistsException: <p>Indicates that a resource could not be created because of a naming conflict.</p>
+            aws_sdk_ses.errors.limit_exceeded_exception.LimitExceededException: <p>Indicates that a resource could not be created because of service limits. For a list of Amazon SES limits, see the <a href=\"https://docs.aws.amazon.com/ses/latest/DeveloperGuide/limits.html\">Amazon SES Developer Guide</a>.</p>
+            aws_sdk_ses.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             CreateReceiptFilter
@@ -574,6 +613,16 @@ class SESClient:
             after: <p>The name of an existing rule after which the new rule is placed. If this parameter is null, the new rule is inserted at the beginning of the rule list.</p>
             rule: <p>A data structure that contains the specified rule's name, actions, recipients, domains, enabled status, scan status, and TLS policy.</p>
 
+        Raises:
+            aws_sdk_ses.errors.already_exists_exception.AlreadyExistsException: <p>Indicates that a resource could not be created because of a naming conflict.</p>
+            aws_sdk_ses.errors.invalid_lambda_function_exception.InvalidLambdaFunctionException: <p>Indicates that the provided Amazon Web Services Lambda function is invalid, or that Amazon SES could not execute the provided function, possibly due to permissions issues. For information about giving permissions, see the <a href=\"https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-permissions.html\">Amazon SES Developer Guide</a>.</p>
+            aws_sdk_ses.errors.invalid_s3_configuration_exception.InvalidS3ConfigurationException: <p>Indicates that the provided Amazon S3 bucket or Amazon Web Services KMS encryption key is invalid, or that Amazon SES could not publish to the bucket, possibly due to permissions issues. For information about giving permissions, see the <a href=\"https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-permissions.html\">Amazon SES Developer Guide</a>.</p>
+            aws_sdk_ses.errors.invalid_sns_topic_exception.InvalidSnsTopicException: <p>Indicates that the provided Amazon SNS topic is invalid, or that Amazon SES could not publish to the topic, possibly due to permissions issues. For information about giving permissions, see the <a href=\"https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-permissions.html\">Amazon SES Developer Guide</a>.</p>
+            aws_sdk_ses.errors.limit_exceeded_exception.LimitExceededException: <p>Indicates that a resource could not be created because of service limits. For a list of Amazon SES limits, see the <a href=\"https://docs.aws.amazon.com/ses/latest/DeveloperGuide/limits.html\">Amazon SES Developer Guide</a>.</p>
+            aws_sdk_ses.errors.rule_does_not_exist_exception.RuleDoesNotExistException: <p>Indicates that the provided receipt rule does not exist.</p>
+            aws_sdk_ses.errors.rule_set_does_not_exist_exception.RuleSetDoesNotExistException: <p>Indicates that the provided receipt rule set does not exist.</p>
+            aws_sdk_ses.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             CreateReceiptRule
             The following example creates a new receipt rule:
@@ -620,6 +669,11 @@ class SESClient:
         Args:
             rule_set_name: <p>The name of the rule set to create. The name must meet the following requirements:</p> <ul> <li> <p>Contain only ASCII letters (a-z, A-Z), numbers (0-9), underscores (_), or dashes (-).</p> </li> <li> <p>Start and end with a letter or number.</p> </li> <li> <p>Contain 64 characters or fewer.</p> </li> </ul>
 
+        Raises:
+            aws_sdk_ses.errors.already_exists_exception.AlreadyExistsException: <p>Indicates that a resource could not be created because of a naming conflict.</p>
+            aws_sdk_ses.errors.limit_exceeded_exception.LimitExceededException: <p>Indicates that a resource could not be created because of service limits. For a list of Amazon SES limits, see the <a href=\"https://docs.aws.amazon.com/ses/latest/DeveloperGuide/limits.html\">Amazon SES Developer Guide</a>.</p>
+            aws_sdk_ses.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             CreateReceiptRuleSet
             The following example creates an empty receipt rule set:
@@ -662,6 +716,12 @@ class SESClient:
 
         Args:
             template: <p>The content of the email, composed of a subject line and either an HTML part or a text-only part.</p>
+
+        Raises:
+            aws_sdk_ses.errors.already_exists_exception.AlreadyExistsException: <p>Indicates that a resource could not be created because of a naming conflict.</p>
+            aws_sdk_ses.errors.invalid_template_exception.InvalidTemplateException: <p>Indicates that the template that you specified could not be rendered. This issue may occur when a template refers to a partial that does not exist.</p>
+            aws_sdk_ses.errors.limit_exceeded_exception.LimitExceededException: <p>Indicates that a resource could not be created because of service limits. For a list of Amazon SES limits, see the <a href=\"https://docs.aws.amazon.com/ses/latest/DeveloperGuide/limits.html\">Amazon SES Developer Guide</a>.</p>
+            aws_sdk_ses.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -699,6 +759,10 @@ class SESClient:
 
         Args:
             configuration_set_name: <p>The name of the configuration set to delete.</p>
+
+        Raises:
+            aws_sdk_ses.errors.configuration_set_does_not_exist_exception.ConfigurationSetDoesNotExistException: <p>Indicates that the configuration set does not exist.</p>
+            aws_sdk_ses.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -738,6 +802,11 @@ class SESClient:
         Args:
             configuration_set_name: <p>The name of the configuration set from which to delete the event destination.</p>
             event_destination_name: <p>The name of the event destination to delete.</p>
+
+        Raises:
+            aws_sdk_ses.errors.configuration_set_does_not_exist_exception.ConfigurationSetDoesNotExistException: <p>Indicates that the configuration set does not exist.</p>
+            aws_sdk_ses.errors.event_destination_does_not_exist_exception.EventDestinationDoesNotExistException: <p>Indicates that the event destination does not exist.</p>
+            aws_sdk_ses.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -776,6 +845,11 @@ class SESClient:
 
         Args:
             configuration_set_name: <p>The name of the configuration set.</p>
+
+        Raises:
+            aws_sdk_ses.errors.configuration_set_does_not_exist_exception.ConfigurationSetDoesNotExistException: <p>Indicates that the configuration set does not exist.</p>
+            aws_sdk_ses.errors.tracking_options_does_not_exist_exception.TrackingOptionsDoesNotExistException: <p>Indicates that the TrackingOptions object you specified does not exist.</p>
+            aws_sdk_ses.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -813,6 +887,9 @@ class SESClient:
 
         Args:
             template_name: <p>The name of the custom verification email template to delete.</p>
+
+        Raises:
+            aws_sdk_ses.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -848,6 +925,9 @@ class SESClient:
 
         Args:
             identity: <p>The identity to be removed from the list of identities for the Amazon Web Services account.</p>
+
+        Raises:
+            aws_sdk_ses.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             DeleteIdentity
@@ -896,6 +976,9 @@ class SESClient:
             identity: <p>The identity that is associated with the policy to delete. You can specify the identity by using its name or by using its Amazon Resource Name (ARN). Examples: <code>user@example.com</code>, <code>example.com</code>, <code>arn:aws:ses:us-east-1:123456789012:identity/example.com</code>.</p> <p>To successfully call this operation, you must own the identity.</p>
             policy_name: <p>The name of the policy to be deleted.</p>
 
+        Raises:
+            aws_sdk_ses.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             DeleteIdentityPolicy
             The following example deletes a sending authorization policy for an identity:
@@ -939,6 +1022,9 @@ class SESClient:
 
         Args:
             filter_name: <p>The name of the IP address filter to delete.</p>
+
+        Raises:
+            aws_sdk_ses.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             DeleteReceiptFilter
@@ -985,6 +1071,10 @@ class SESClient:
             rule_set_name: <p>The name of the receipt rule set that contains the receipt rule to delete.</p>
             rule_name: <p>The name of the receipt rule to delete.</p>
 
+        Raises:
+            aws_sdk_ses.errors.rule_set_does_not_exist_exception.RuleSetDoesNotExistException: <p>Indicates that the provided receipt rule set does not exist.</p>
+            aws_sdk_ses.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             DeleteReceiptRule
             The following example deletes a receipt rule:
@@ -1029,6 +1119,10 @@ class SESClient:
         Args:
             rule_set_name: <p>The name of the receipt rule set to delete.</p>
 
+        Raises:
+            aws_sdk_ses.errors.cannot_delete_exception.CannotDeleteException: <p>Indicates that the delete operation could not be completed.</p>
+            aws_sdk_ses.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             DeleteReceiptRuleSet
             The following example deletes a receipt rule set:
@@ -1071,6 +1165,9 @@ class SESClient:
 
         Args:
             template_name: <p>The name of the template to be deleted.</p>
+
+        Raises:
+            aws_sdk_ses.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1109,6 +1206,9 @@ class SESClient:
         Args:
             email_address: <p>An email address to be removed from the list of verified addresses.</p>
 
+        Raises:
+            aws_sdk_ses.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             DeleteVerifiedEmailAddress
             The following example deletes an email address from the list of identities that have been submitted for verification with Amazon SES:
@@ -1143,6 +1243,9 @@ class SESClient:
         self, *, config_overrides: Optional[SESClientConfig] = None
     ) -> "aws_sdk_ses.types.describe_active_receipt_rule_set_response.DescribeActiveReceiptRuleSetResponse":
         r"""<p>Returns the metadata and receipt rules for the receipt rule set that is currently active.</p> <p>For information about setting up receipt rule sets, see the <a href=\"https://docs.aws.amazon.com/ses/latest/dg/receiving-email-concepts.html#receiving-email-concepts-rules\">Amazon SES Developer Guide</a>.</p> <p>You can execute this operation no more than once per second.</p>
+
+        Raises:
+            aws_sdk_ses.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             DescribeActiveReceiptRuleSet
@@ -1189,6 +1292,10 @@ class SESClient:
         Args:
             configuration_set_name: <p>The name of the configuration set to describe.</p>
             configuration_set_attribute_names: <p>A list of configuration set attributes to return.</p>
+
+        Raises:
+            aws_sdk_ses.errors.configuration_set_does_not_exist_exception.ConfigurationSetDoesNotExistException: <p>Indicates that the configuration set does not exist.</p>
+            aws_sdk_ses.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1232,6 +1339,11 @@ class SESClient:
         Args:
             rule_set_name: <p>The name of the receipt rule set that the receipt rule belongs to.</p>
             rule_name: <p>The name of the receipt rule.</p>
+
+        Raises:
+            aws_sdk_ses.errors.rule_does_not_exist_exception.RuleDoesNotExistException: <p>Indicates that the provided receipt rule does not exist.</p>
+            aws_sdk_ses.errors.rule_set_does_not_exist_exception.RuleSetDoesNotExistException: <p>Indicates that the provided receipt rule set does not exist.</p>
+            aws_sdk_ses.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             DescribeReceiptRule
@@ -1277,6 +1389,10 @@ class SESClient:
         Args:
             rule_set_name: <p>The name of the receipt rule set to describe.</p>
 
+        Raises:
+            aws_sdk_ses.errors.rule_set_does_not_exist_exception.RuleSetDoesNotExistException: <p>Indicates that the provided receipt rule set does not exist.</p>
+            aws_sdk_ses.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             DescribeReceiptRuleSet
             The following example returns the metadata and receipt rules of a receipt rule set:
@@ -1313,6 +1429,9 @@ class SESClient:
         self, *, config_overrides: Optional[SESClientConfig] = None
     ) -> "aws_sdk_ses.types.get_account_sending_enabled_response.GetAccountSendingEnabledResponse":
         """<p>Returns the email sending status of the Amazon SES account for the current Region.</p> <p>You can execute this operation no more than once per second.</p>
+
+        Raises:
+            aws_sdk_ses.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             GetAccountSendingEnabled
@@ -1354,6 +1473,10 @@ class SESClient:
 
         Args:
             template_name: <p>The name of the custom verification email template to retrieve.</p>
+
+        Raises:
+            aws_sdk_ses.errors.custom_verification_email_template_does_not_exist_exception.CustomVerificationEmailTemplateDoesNotExistException: <p>Indicates that a custom verification email template with the name you specified does not exist.</p>
+            aws_sdk_ses.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1391,6 +1514,9 @@ class SESClient:
 
         Args:
             identities: <p>A list of one or more verified identities - email addresses, domains, or both.</p>
+
+        Raises:
+            aws_sdk_ses.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             GetIdentityDkimAttributes
@@ -1435,6 +1561,9 @@ class SESClient:
         Args:
             identities: <p>A list of one or more identities.</p>
 
+        Raises:
+            aws_sdk_ses.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             GetIdentityMailFromDomainAttributes
             The following example returns the custom MAIL FROM attributes for an identity:
@@ -1477,6 +1606,9 @@ class SESClient:
 
         Args:
             identities: <p>A list of one or more identities. You can specify an identity by using its name or by using its Amazon Resource Name (ARN). Examples: <code>user@example.com</code>, <code>example.com</code>, <code>arn:aws:ses:us-east-1:123456789012:identity/example.com</code>.</p>
+
+        Raises:
+            aws_sdk_ses.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             GetIdentityNotificationAttributes
@@ -1523,6 +1655,9 @@ class SESClient:
             identity: <p>The identity for which the policies are retrieved. You can specify an identity by using its name or by using its Amazon Resource Name (ARN). Examples: <code>user@example.com</code>, <code>example.com</code>, <code>arn:aws:ses:us-east-1:123456789012:identity/example.com</code>.</p> <p>To successfully call this operation, you must own the identity.</p>
             policy_names: <p>A list of the names of policies to be retrieved. You can retrieve a maximum of 20 policies at a time. If you do not know the names of the policies that are attached to the identity, you can use <code>ListIdentityPolicies</code>.</p>
 
+        Raises:
+            aws_sdk_ses.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             GetIdentityPolicies
             The following example returns a sending authorization policy for an identity:
@@ -1567,6 +1702,9 @@ class SESClient:
         Args:
             identities: <p>A list of identities.</p>
 
+        Raises:
+            aws_sdk_ses.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             GetIdentityVerificationAttributes
             The following example returns the verification status and the verification token for a domain identity:
@@ -1604,6 +1742,9 @@ class SESClient:
     ) -> "aws_sdk_ses.types.get_send_quota_response.GetSendQuotaResponse":
         """<p>Provides the sending limits for the Amazon SES account. </p> <p>You can execute this operation no more than once per second.</p>
 
+        Raises:
+            aws_sdk_ses.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             GetSendQuota
             The following example returns the Amazon SES sending limits for an AWS account:
@@ -1638,6 +1779,9 @@ class SESClient:
         self, *, config_overrides: Optional[SESClientConfig] = None
     ) -> "aws_sdk_ses.types.get_send_statistics_response.GetSendStatisticsResponse":
         """<p>Provides sending statistics for the current Amazon Web Services Region. The result is a list of data points, representing the last two weeks of sending activity. Each data point in the list contains statistics for a 15-minute period of time.</p> <p>You can execute this operation no more than once per second.</p>
+
+        Raises:
+            aws_sdk_ses.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             GetSendStatistics
@@ -1679,6 +1823,10 @@ class SESClient:
 
         Args:
             template_name: <p>The name of the template to retrieve.</p>
+
+        Raises:
+            aws_sdk_ses.errors.template_does_not_exist_exception.TemplateDoesNotExistException: <p>Indicates that the Template object you specified does not exist in your Amazon SES account.</p>
+            aws_sdk_ses.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1718,6 +1866,9 @@ class SESClient:
         Args:
             next_token: <p>A token returned from a previous call to <code>ListConfigurationSets</code> to indicate the position of the configuration set in the configuration set list.</p>
             max_items: <p>The number of configuration sets to return.</p>
+
+        Raises:
+            aws_sdk_ses.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1760,6 +1911,9 @@ class SESClient:
         Args:
             next_token: <p>An array the contains the name and creation time stamp for each template in your Amazon SES account.</p>
             max_results: <p>The maximum number of custom verification email templates to return. This value must be at least 1 and less than or equal to 50. If you do not specify a value, or if you specify a value less than 1 or greater than 50, the operation returns up to 50 results.</p>
+
+        Raises:
+            aws_sdk_ses.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1804,6 +1958,9 @@ class SESClient:
             identity_type: <p>The type of the identities to list. Possible values are \"EmailAddress\" and \"Domain\". If this parameter is omitted, then all identities are listed.</p>
             next_token: <p>The token to use for pagination.</p>
             max_items: <p>The maximum number of identities per page. Possible values are 1-1000 inclusive.</p>
+
+        Raises:
+            aws_sdk_ses.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             ListIdentities
@@ -1878,6 +2035,9 @@ class SESClient:
         Args:
             identity: <p>The identity that is associated with the policy for which the policies are listed. You can specify an identity by using its name or by using its Amazon Resource Name (ARN). Examples: <code>user@example.com</code>, <code>example.com</code>, <code>arn:aws:ses:us-east-1:123456789012:identity/example.com</code>.</p> <p>To successfully call this operation, you must own the identity.</p>
 
+        Raises:
+            aws_sdk_ses.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             ListIdentityPolicies
             The following example returns a list of sending authorization policies that are attached to an identity:
@@ -1914,6 +2074,9 @@ class SESClient:
         self, *, config_overrides: Optional[SESClientConfig] = None
     ) -> "aws_sdk_ses.types.list_receipt_filters_response.ListReceiptFiltersResponse":
         r"""<p>Lists the IP address filters associated with your Amazon Web Services account in the current Amazon Web Services Region.</p> <p>For information about managing IP address filters, see the <a href=\"https://docs.aws.amazon.com/ses/latest/dg/receiving-email-ip-filtering-console-walkthrough.html\">Amazon SES Developer Guide</a>.</p> <p>You can execute this operation no more than once per second.</p>
+
+        Raises:
+            aws_sdk_ses.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             ListReceiptFilters
@@ -1958,6 +2121,9 @@ class SESClient:
 
         Args:
             next_token: <p>A token returned from a previous call to <code>ListReceiptRuleSets</code> to indicate the position in the receipt rule set list.</p>
+
+        Raises:
+            aws_sdk_ses.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             ListReceiptRuleSets
@@ -2004,6 +2170,9 @@ class SESClient:
         Args:
             next_token: <p>A token returned from a previous call to <code>ListTemplates</code> to indicate the position in the list of email templates.</p>
             max_items: <p>The maximum number of templates to return. This value must be at least 1 and less than or equal to 100. If more than 100 items are requested, the page size will automatically set to 100. If you do not specify a value, 10 is the default page size. </p>
+
+        Raises:
+            aws_sdk_ses.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2038,6 +2207,9 @@ class SESClient:
         self, *, config_overrides: Optional[SESClientConfig] = None
     ) -> "aws_sdk_ses.types.list_verified_email_addresses_response.ListVerifiedEmailAddressesResponse":
         """<p>Deprecated. Use the <code>ListIdentities</code> operation to list the email addresses and domains associated with your account.</p>
+
+        Raises:
+            aws_sdk_ses.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             ListVerifiedEmailAddresses
@@ -2083,6 +2255,11 @@ class SESClient:
         Args:
             configuration_set_name: <p>The name of the configuration set.</p>
             delivery_options: <p>Specifies whether messages that use the configuration set are required to use Transport Layer Security (TLS).</p>
+
+        Raises:
+            aws_sdk_ses.errors.configuration_set_does_not_exist_exception.ConfigurationSetDoesNotExistException: <p>Indicates that the configuration set does not exist.</p>
+            aws_sdk_ses.errors.invalid_delivery_options_exception.InvalidDeliveryOptionsException: <p>Indicates that provided delivery option is invalid.</p>
+            aws_sdk_ses.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2126,6 +2303,10 @@ class SESClient:
             identity: <p>The identity to which that the policy applies. You can specify an identity by using its name or by using its Amazon Resource Name (ARN). Examples: <code>user@example.com</code>, <code>example.com</code>, <code>arn:aws:ses:us-east-1:123456789012:identity/example.com</code>.</p> <p>To successfully call this operation, you must own the identity.</p>
             policy_name: <p>The name of the policy.</p> <p>The policy name cannot exceed 64 characters and can only include alphanumeric characters, dashes, and underscores.</p>
             policy: <p>The text of the policy in JSON format. The policy cannot exceed 4 KB.</p> <p>For information about the syntax of sending authorization policies, see the <a href=\"https://docs.aws.amazon.com/ses/latest/dg/sending-authorization-policies.html\">Amazon SES Developer Guide</a>. </p>
+
+        Raises:
+            aws_sdk_ses.errors.invalid_policy_exception.InvalidPolicyException: <p>Indicates that the provided policy is invalid. Check the error stack for more information about what caused the error.</p>
+            aws_sdk_ses.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             PutIdentityPolicy
@@ -2173,6 +2354,11 @@ class SESClient:
         Args:
             rule_set_name: <p>The name of the receipt rule set to reorder.</p>
             rule_names: <p>The specified receipt rule set's receipt rules, in order.</p>
+
+        Raises:
+            aws_sdk_ses.errors.rule_does_not_exist_exception.RuleDoesNotExistException: <p>Indicates that the provided receipt rule does not exist.</p>
+            aws_sdk_ses.errors.rule_set_does_not_exist_exception.RuleSetDoesNotExistException: <p>Indicates that the provided receipt rule set does not exist.</p>
+            aws_sdk_ses.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             ReorderReceiptRuleSet
@@ -2229,6 +2415,10 @@ class SESClient:
             message_dsn: <p>Message-related DSN fields. If not specified, Amazon SES chooses the values.</p>
             bounced_recipient_info_list: <p>A list of recipients of the bounced message, including the information required to create the Delivery Status Notifications (DSNs) for the recipients. You must specify at least one <code>BouncedRecipientInfo</code> in the list.</p>
             bounce_sender_arn: <p>This parameter is used only for sending authorization. It is the ARN of the identity that is associated with the sending authorization policy that permits you to use the address in the \"From\" header of the bounce. For more information about sending authorization, see the <a href=\"https://docs.aws.amazon.com/ses/latest/dg/sending-authorization.html\">Amazon SES Developer Guide</a>.</p>
+
+        Raises:
+            aws_sdk_ses.errors.message_rejected.MessageRejected: <p>Indicates that the action failed, and the message could not be sent. Check the error stack for more information about what caused the error.</p>
+            aws_sdk_ses.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2306,6 +2496,15 @@ class SESClient:
             template_arn: <p>The ARN of the template to use when sending this email.</p>
             default_template_data: <p>A list of replacement values to apply to the template when replacement data is not specified in a Destination object. These values act as a default or fallback option when no other data is available.</p> <p>The template data is a JSON object, typically consisting of key-value pairs in which the keys correspond to replacement tags in the email template.</p>
             destinations: <p>One or more <code>Destination</code> objects. All of the recipients in a <code>Destination</code> receive the same version of the email. You can specify up to 50 <code>Destination</code> objects within a <code>Destinations</code> array.</p>
+
+        Raises:
+            aws_sdk_ses.errors.account_sending_paused_exception.AccountSendingPausedException: <p>Indicates that email sending is disabled for your entire Amazon SES account.</p> <p>You can enable or disable email sending for your Amazon SES account using <a>UpdateAccountSendingEnabled</a>.</p>
+            aws_sdk_ses.errors.configuration_set_does_not_exist_exception.ConfigurationSetDoesNotExistException: <p>Indicates that the configuration set does not exist.</p>
+            aws_sdk_ses.errors.configuration_set_sending_paused_exception.ConfigurationSetSendingPausedException: <p>Indicates that email sending is disabled for the configuration set.</p> <p>You can enable or disable email sending for a configuration set using <a>UpdateConfigurationSetSendingEnabled</a>.</p>
+            aws_sdk_ses.errors.mail_from_domain_not_verified_exception.MailFromDomainNotVerifiedException: <p> Indicates that the message could not be sent because Amazon SES could not read the MX record required to use the specified MAIL FROM domain. For information about editing the custom MAIL FROM domain settings for an identity, see the <a href=\"https://docs.aws.amazon.com/ses/latest/DeveloperGuide/mail-from-edit.html\">Amazon SES Developer Guide</a>.</p>
+            aws_sdk_ses.errors.message_rejected.MessageRejected: <p>Indicates that the action failed, and the message could not be sent. Check the error stack for more information about what caused the error.</p>
+            aws_sdk_ses.errors.template_does_not_exist_exception.TemplateDoesNotExistException: <p>Indicates that the Template object you specified does not exist in your Amazon SES account.</p>
+            aws_sdk_ses.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2366,6 +2565,14 @@ class SESClient:
             email_address: <p>The email address to verify.</p>
             template_name: <p>The name of the custom verification email template to use when sending the verification email.</p>
             configuration_set_name: <p>Name of a configuration set to use when sending the verification email.</p>
+
+        Raises:
+            aws_sdk_ses.errors.configuration_set_does_not_exist_exception.ConfigurationSetDoesNotExistException: <p>Indicates that the configuration set does not exist.</p>
+            aws_sdk_ses.errors.custom_verification_email_template_does_not_exist_exception.CustomVerificationEmailTemplateDoesNotExistException: <p>Indicates that a custom verification email template with the name you specified does not exist.</p>
+            aws_sdk_ses.errors.from_email_address_not_verified_exception.FromEmailAddressNotVerifiedException: <p>Indicates that the sender address specified for a custom verification email is not verified, and is therefore not eligible to send the custom verification email. </p>
+            aws_sdk_ses.errors.message_rejected.MessageRejected: <p>Indicates that the action failed, and the message could not be sent. Check the error stack for more information about what caused the error.</p>
+            aws_sdk_ses.errors.production_access_not_granted_exception.ProductionAccessNotGrantedException: <p>Indicates that the account has not been granted production access.</p>
+            aws_sdk_ses.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2430,6 +2637,14 @@ class SESClient:
             return_path_arn: <p>This parameter is used only for sending authorization. It is the ARN of the identity that is associated with the sending authorization policy that permits you to use the email address specified in the <code>ReturnPath</code> parameter.</p> <p>For example, if the owner of <code>example.com</code> (which has ARN <code>arn:aws:ses:us-east-1:123456789012:identity/example.com</code>) attaches a policy to it that authorizes you to use <code>feedback@example.com</code>, then you would specify the <code>ReturnPathArn</code> to be <code>arn:aws:ses:us-east-1:123456789012:identity/example.com</code>, and the <code>ReturnPath</code> to be <code>feedback@example.com</code>.</p> <p>For more information about sending authorization, see the <a href=\"https://docs.aws.amazon.com/ses/latest/dg/sending-authorization.html\">Amazon SES Developer Guide</a>.</p>
             tags: <p>A list of tags, in the form of name/value pairs, to apply to an email that you send using <code>SendEmail</code>. Tags correspond to characteristics of the email that you define, so that you can publish email sending events.</p>
             configuration_set_name: <p>The name of the configuration set to use when you send an email using <code>SendEmail</code>.</p>
+
+        Raises:
+            aws_sdk_ses.errors.account_sending_paused_exception.AccountSendingPausedException: <p>Indicates that email sending is disabled for your entire Amazon SES account.</p> <p>You can enable or disable email sending for your Amazon SES account using <a>UpdateAccountSendingEnabled</a>.</p>
+            aws_sdk_ses.errors.configuration_set_does_not_exist_exception.ConfigurationSetDoesNotExistException: <p>Indicates that the configuration set does not exist.</p>
+            aws_sdk_ses.errors.configuration_set_sending_paused_exception.ConfigurationSetSendingPausedException: <p>Indicates that email sending is disabled for the configuration set.</p> <p>You can enable or disable email sending for a configuration set using <a>UpdateConfigurationSetSendingEnabled</a>.</p>
+            aws_sdk_ses.errors.mail_from_domain_not_verified_exception.MailFromDomainNotVerifiedException: <p> Indicates that the message could not be sent because Amazon SES could not read the MX record required to use the specified MAIL FROM domain. For information about editing the custom MAIL FROM domain settings for an identity, see the <a href=\"https://docs.aws.amazon.com/ses/latest/DeveloperGuide/mail-from-edit.html\">Amazon SES Developer Guide</a>.</p>
+            aws_sdk_ses.errors.message_rejected.MessageRejected: <p>Indicates that the action failed, and the message could not be sent. Check the error stack for more information about what caused the error.</p>
+            aws_sdk_ses.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             SendEmail
@@ -2509,6 +2724,14 @@ class SESClient:
             return_path_arn: <p>This parameter is used only for sending authorization. It is the ARN of the identity that is associated with the sending authorization policy that permits you to use the email address specified in the <code>ReturnPath</code> parameter.</p> <p>For example, if the owner of <code>example.com</code> (which has ARN <code>arn:aws:ses:us-east-1:123456789012:identity/example.com</code>) attaches a policy to it that authorizes you to use <code>feedback@example.com</code>, then you would specify the <code>ReturnPathArn</code> to be <code>arn:aws:ses:us-east-1:123456789012:identity/example.com</code>, and the <code>ReturnPath</code> to be <code>feedback@example.com</code>.</p> <p>Instead of using this parameter, you can use the X-header <code>X-SES-RETURN-PATH-ARN</code> in the raw message of the email. If you use both the <code>ReturnPathArn</code> parameter and the corresponding X-header, Amazon SES uses the value of the <code>ReturnPathArn</code> parameter.</p> <note> <p>For information about when to use this parameter, see the description of <code>SendRawEmail</code> in this guide, or see the <a href=\"https://docs.aws.amazon.com/ses/latest/dg/sending-authorization-delegate-sender-tasks-email.html\">Amazon SES Developer Guide</a>.</p> </note>
             tags: <p>A list of tags, in the form of name/value pairs, to apply to an email that you send using <code>SendRawEmail</code>. Tags correspond to characteristics of the email that you define, so that you can publish email sending events.</p>
             configuration_set_name: <p>The name of the configuration set to use when you send an email using <code>SendRawEmail</code>.</p>
+
+        Raises:
+            aws_sdk_ses.errors.account_sending_paused_exception.AccountSendingPausedException: <p>Indicates that email sending is disabled for your entire Amazon SES account.</p> <p>You can enable or disable email sending for your Amazon SES account using <a>UpdateAccountSendingEnabled</a>.</p>
+            aws_sdk_ses.errors.configuration_set_does_not_exist_exception.ConfigurationSetDoesNotExistException: <p>Indicates that the configuration set does not exist.</p>
+            aws_sdk_ses.errors.configuration_set_sending_paused_exception.ConfigurationSetSendingPausedException: <p>Indicates that email sending is disabled for the configuration set.</p> <p>You can enable or disable email sending for a configuration set using <a>UpdateConfigurationSetSendingEnabled</a>.</p>
+            aws_sdk_ses.errors.mail_from_domain_not_verified_exception.MailFromDomainNotVerifiedException: <p> Indicates that the message could not be sent because Amazon SES could not read the MX record required to use the specified MAIL FROM domain. For information about editing the custom MAIL FROM domain settings for an identity, see the <a href=\"https://docs.aws.amazon.com/ses/latest/DeveloperGuide/mail-from-edit.html\">Amazon SES Developer Guide</a>.</p>
+            aws_sdk_ses.errors.message_rejected.MessageRejected: <p>Indicates that the action failed, and the message could not be sent. Check the error stack for more information about what caused the error.</p>
+            aws_sdk_ses.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             SendRawEmail
@@ -2596,6 +2819,15 @@ class SESClient:
             template: <p>The template to use when sending this email.</p>
             template_arn: <p>The ARN of the template to use when sending this email.</p>
             template_data: <p>A list of replacement values to apply to the template. This parameter is a JSON object, typically consisting of key-value pairs in which the keys correspond to replacement tags in the email template.</p>
+
+        Raises:
+            aws_sdk_ses.errors.account_sending_paused_exception.AccountSendingPausedException: <p>Indicates that email sending is disabled for your entire Amazon SES account.</p> <p>You can enable or disable email sending for your Amazon SES account using <a>UpdateAccountSendingEnabled</a>.</p>
+            aws_sdk_ses.errors.configuration_set_does_not_exist_exception.ConfigurationSetDoesNotExistException: <p>Indicates that the configuration set does not exist.</p>
+            aws_sdk_ses.errors.configuration_set_sending_paused_exception.ConfigurationSetSendingPausedException: <p>Indicates that email sending is disabled for the configuration set.</p> <p>You can enable or disable email sending for a configuration set using <a>UpdateConfigurationSetSendingEnabled</a>.</p>
+            aws_sdk_ses.errors.mail_from_domain_not_verified_exception.MailFromDomainNotVerifiedException: <p> Indicates that the message could not be sent because Amazon SES could not read the MX record required to use the specified MAIL FROM domain. For information about editing the custom MAIL FROM domain settings for an identity, see the <a href=\"https://docs.aws.amazon.com/ses/latest/DeveloperGuide/mail-from-edit.html\">Amazon SES Developer Guide</a>.</p>
+            aws_sdk_ses.errors.message_rejected.MessageRejected: <p>Indicates that the action failed, and the message could not be sent. Check the error stack for more information about what caused the error.</p>
+            aws_sdk_ses.errors.template_does_not_exist_exception.TemplateDoesNotExistException: <p>Indicates that the Template object you specified does not exist in your Amazon SES account.</p>
+            aws_sdk_ses.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2653,6 +2885,10 @@ class SESClient:
         Args:
             rule_set_name: <p>The name of the receipt rule set to make active. Setting this value to null disables all email receiving.</p>
 
+        Raises:
+            aws_sdk_ses.errors.rule_set_does_not_exist_exception.RuleSetDoesNotExistException: <p>Indicates that the provided receipt rule set does not exist.</p>
+            aws_sdk_ses.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             SetActiveReceiptRuleSet
             The following example sets the active receipt rule set:
@@ -2699,6 +2935,9 @@ class SESClient:
             identity: <p>The identity for which DKIM signing should be enabled or disabled.</p>
             dkim_enabled: <p>Sets whether DKIM signing is enabled for an identity. Set to <code>true</code> to enable DKIM signing for this identity; <code>false</code> to disable it. </p>
 
+        Raises:
+            aws_sdk_ses.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             SetIdentityDkimEnabled
             The following example configures Amazon SES to Easy DKIM-sign the email sent from an identity:
@@ -2744,6 +2983,9 @@ class SESClient:
         Args:
             identity: <p>The identity for which to set bounce and complaint notification forwarding. Examples: <code>user@example.com</code>, <code>example.com</code>.</p>
             forwarding_enabled: <p>Sets whether Amazon SES forwards bounce and complaint notifications as email. <code>true</code> specifies that Amazon SES forwards bounce and complaint notifications as email, in addition to any Amazon SNS topic publishing otherwise specified. <code>false</code> specifies that Amazon SES publishes bounce and complaint notifications only through Amazon SNS. This value can only be set to <code>false</code> when Amazon SNS topics are set for both <code>Bounce</code> and <code>Complaint</code> notification types.</p>
+
+        Raises:
+            aws_sdk_ses.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             SetIdentityFeedbackForwardingEnabled
@@ -2792,6 +3034,9 @@ class SESClient:
             identity: <p>The identity for which to enable or disable headers in notifications. Examples: <code>user@example.com</code>, <code>example.com</code>.</p>
             notification_type: <p>The notification type for which to enable or disable headers in notifications. </p>
             enabled: <p>Sets whether Amazon SES includes the original email headers in Amazon SNS notifications of the specified notification type. A value of <code>true</code> specifies that Amazon SES includes headers in notifications, and a value of <code>false</code> specifies that Amazon SES does not include headers in notifications.</p> <p>This value can only be set when <code>NotificationType</code> is already set to use a particular Amazon SNS topic.</p>
+
+        Raises:
+            aws_sdk_ses.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             SetIdentityHeadersInNotificationsEnabled
@@ -2846,6 +3091,9 @@ class SESClient:
             mail_from_domain: <p>The custom MAIL FROM domain for the verified identity to use. The MAIL FROM domain must 1) be a subdomain of the verified identity, 2) not be used in a \"From\" address if the MAIL FROM domain is the destination of email feedback forwarding (for more information, see the <a href=\"https://docs.aws.amazon.com/ses/latest/dg/mail-from.html\">Amazon SES Developer Guide</a>), and 3) not be used to receive emails. A value of <code>null</code> disables the custom MAIL FROM setting for the identity.</p>
             behavior_on_mx_failure: <p>The action for Amazon SES to take if it cannot successfully read the required MX record when you send an email. If you choose <code>UseDefaultValue</code>, Amazon SES uses amazonses.com (or a subdomain of that) as the MAIL FROM domain. If you choose <code>RejectMessage</code>, Amazon SES returns a <code>MailFromDomainNotVerified</code> error and not send the email.</p> <p>The action specified in <code>BehaviorOnMXFailure</code> is taken when the custom MAIL FROM domain setup is in the <code>Pending</code>, <code>Failed</code>, and <code>TemporaryFailure</code> states.</p>
 
+        Raises:
+            aws_sdk_ses.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             SetIdentityMailFromDomain
             The following example configures Amazon SES to use a custom MAIL FROM domain for an identity:
@@ -2899,6 +3147,9 @@ class SESClient:
             notification_type: <p>The type of notifications that are published to the specified Amazon SNS topic.</p>
             sns_topic: <p>The Amazon Resource Name (ARN) of the Amazon SNS topic. If the parameter is omitted from the request or a null value is passed, <code>SnsTopic</code> is cleared and publishing is disabled.</p>
 
+        Raises:
+            aws_sdk_ses.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             SetIdentityNotificationTopic
             The following example sets the Amazon SNS topic to which Amazon SES will publish bounce, complaint, and/or delivery notifications for emails sent with the specified identity as the Source:
@@ -2949,6 +3200,11 @@ class SESClient:
             rule_name: <p>The name of the receipt rule to reposition.</p>
             after: <p>The name of the receipt rule after which to place the specified receipt rule.</p>
 
+        Raises:
+            aws_sdk_ses.errors.rule_does_not_exist_exception.RuleDoesNotExistException: <p>Indicates that the provided receipt rule does not exist.</p>
+            aws_sdk_ses.errors.rule_set_does_not_exist_exception.RuleSetDoesNotExistException: <p>Indicates that the provided receipt rule set does not exist.</p>
+            aws_sdk_ses.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             SetReceiptRulePosition
             The following example sets the position of a receipt rule in a receipt rule set:
@@ -2996,6 +3252,12 @@ class SESClient:
         Args:
             template_name: <p>The name of the template to render.</p>
             template_data: <p>A list of replacement values to apply to the template. This parameter is a JSON object, typically consisting of key-value pairs in which the keys correspond to replacement tags in the email template.</p>
+
+        Raises:
+            aws_sdk_ses.errors.invalid_rendering_parameter_exception.InvalidRenderingParameterException: <p>Indicates that one or more of the replacement values you provided is invalid. This error may occur when the TemplateData object contains invalid JSON.</p>
+            aws_sdk_ses.errors.missing_rendering_attribute_exception.MissingRenderingAttributeException: <p>Indicates that one or more of the replacement values for the specified template was not specified. Ensure that the TemplateData object contains references to all of the replacement tags in the specified template.</p>
+            aws_sdk_ses.errors.template_does_not_exist_exception.TemplateDoesNotExistException: <p>Indicates that the Template object you specified does not exist in your Amazon SES account.</p>
+            aws_sdk_ses.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3034,6 +3296,9 @@ class SESClient:
 
         Args:
             enabled: <p>Describes whether email sending is enabled or disabled for your Amazon SES account in the current Amazon Web Services Region.</p>
+
+        Raises:
+            aws_sdk_ses.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             UpdateAccountSendingEnabled
@@ -3078,6 +3343,14 @@ class SESClient:
         Args:
             configuration_set_name: <p>The name of the configuration set that contains the event destination.</p>
             event_destination: <p>The event destination object.</p>
+
+        Raises:
+            aws_sdk_ses.errors.configuration_set_does_not_exist_exception.ConfigurationSetDoesNotExistException: <p>Indicates that the configuration set does not exist.</p>
+            aws_sdk_ses.errors.event_destination_does_not_exist_exception.EventDestinationDoesNotExistException: <p>Indicates that the event destination does not exist.</p>
+            aws_sdk_ses.errors.invalid_cloud_watch_destination_exception.InvalidCloudWatchDestinationException: <p>Indicates that the Amazon CloudWatch destination is invalid. See the error message for details.</p>
+            aws_sdk_ses.errors.invalid_firehose_destination_exception.InvalidFirehoseDestinationException: <p>Indicates that the Amazon Kinesis Firehose destination is invalid. See the error message for details.</p>
+            aws_sdk_ses.errors.invalid_sns_destination_exception.InvalidSNSDestinationException: <p>Indicates that the Amazon Simple Notification Service (Amazon SNS) destination is invalid. See the error message for details.</p>
+            aws_sdk_ses.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3118,6 +3391,10 @@ class SESClient:
         Args:
             configuration_set_name: <p>The name of the configuration set to update.</p>
             enabled: <p>Describes whether or not Amazon SES publishes reputation metrics for the configuration set, such as bounce and complaint rates, to Amazon CloudWatch.</p>
+
+        Raises:
+            aws_sdk_ses.errors.configuration_set_does_not_exist_exception.ConfigurationSetDoesNotExistException: <p>Indicates that the configuration set does not exist.</p>
+            aws_sdk_ses.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             UpdateConfigurationSetReputationMetricsEnabled
@@ -3163,6 +3440,10 @@ class SESClient:
             configuration_set_name: <p>The name of the configuration set to update.</p>
             enabled: <p>Describes whether email sending is enabled or disabled for the configuration set. </p>
 
+        Raises:
+            aws_sdk_ses.errors.configuration_set_does_not_exist_exception.ConfigurationSetDoesNotExistException: <p>Indicates that the configuration set does not exist.</p>
+            aws_sdk_ses.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             UpdateConfigurationSetReputationMetricsEnabled
             Set the sending enabled flag for a specific configuration set.
@@ -3205,6 +3486,12 @@ class SESClient:
 
         Args:
             configuration_set_name: <p>The name of the configuration set.</p>
+
+        Raises:
+            aws_sdk_ses.errors.configuration_set_does_not_exist_exception.ConfigurationSetDoesNotExistException: <p>Indicates that the configuration set does not exist.</p>
+            aws_sdk_ses.errors.invalid_tracking_options_exception.InvalidTrackingOptionsException: <p>Indicates that the custom domain to be used for open and click tracking redirects is invalid. This error appears most often in the following situations:</p> <ul> <li> <p>When the tracking domain you specified is not verified in Amazon SES.</p> </li> <li> <p>When the tracking domain you specified is not a valid domain or subdomain.</p> </li> </ul>
+            aws_sdk_ses.errors.tracking_options_does_not_exist_exception.TrackingOptionsDoesNotExistException: <p>Indicates that the TrackingOptions object you specified does not exist.</p>
+            aws_sdk_ses.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3261,6 +3548,12 @@ class SESClient:
             template_content: <p>The content of the custom verification email. The total size of the email must be less than 10 MB. The message body may contain HTML, with some limitations. For more information, see <a href=\"https://docs.aws.amazon.com/ses/latest/dg/creating-identities.html#send-email-verify-address-custom\">Custom Verification Email Frequently Asked Questions</a> in the <i>Amazon SES Developer Guide</i>.</p>
             success_redirection_url: <p>The URL that the recipient of the verification email is sent to if his or her address is successfully verified.</p>
             failure_redirection_url: <p>The URL that the recipient of the verification email is sent to if his or her address is not successfully verified.</p>
+
+        Raises:
+            aws_sdk_ses.errors.custom_verification_email_invalid_content_exception.CustomVerificationEmailInvalidContentException: <p>Indicates that custom verification email template provided content is invalid.</p>
+            aws_sdk_ses.errors.custom_verification_email_template_does_not_exist_exception.CustomVerificationEmailTemplateDoesNotExistException: <p>Indicates that a custom verification email template with the name you specified does not exist.</p>
+            aws_sdk_ses.errors.from_email_address_not_verified_exception.FromEmailAddressNotVerifiedException: <p>Indicates that the sender address specified for a custom verification email is not verified, and is therefore not eligible to send the custom verification email. </p>
+            aws_sdk_ses.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3309,6 +3602,15 @@ class SESClient:
             rule_set_name: <p>The name of the receipt rule set that the receipt rule belongs to.</p>
             rule: <p>A data structure that contains the updated receipt rule information.</p>
 
+        Raises:
+            aws_sdk_ses.errors.invalid_lambda_function_exception.InvalidLambdaFunctionException: <p>Indicates that the provided Amazon Web Services Lambda function is invalid, or that Amazon SES could not execute the provided function, possibly due to permissions issues. For information about giving permissions, see the <a href=\"https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-permissions.html\">Amazon SES Developer Guide</a>.</p>
+            aws_sdk_ses.errors.invalid_s3_configuration_exception.InvalidS3ConfigurationException: <p>Indicates that the provided Amazon S3 bucket or Amazon Web Services KMS encryption key is invalid, or that Amazon SES could not publish to the bucket, possibly due to permissions issues. For information about giving permissions, see the <a href=\"https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-permissions.html\">Amazon SES Developer Guide</a>.</p>
+            aws_sdk_ses.errors.invalid_sns_topic_exception.InvalidSnsTopicException: <p>Indicates that the provided Amazon SNS topic is invalid, or that Amazon SES could not publish to the topic, possibly due to permissions issues. For information about giving permissions, see the <a href=\"https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-permissions.html\">Amazon SES Developer Guide</a>.</p>
+            aws_sdk_ses.errors.limit_exceeded_exception.LimitExceededException: <p>Indicates that a resource could not be created because of service limits. For a list of Amazon SES limits, see the <a href=\"https://docs.aws.amazon.com/ses/latest/DeveloperGuide/limits.html\">Amazon SES Developer Guide</a>.</p>
+            aws_sdk_ses.errors.rule_does_not_exist_exception.RuleDoesNotExistException: <p>Indicates that the provided receipt rule does not exist.</p>
+            aws_sdk_ses.errors.rule_set_does_not_exist_exception.RuleSetDoesNotExistException: <p>Indicates that the provided receipt rule set does not exist.</p>
+            aws_sdk_ses.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             UpdateReceiptRule
             The following example updates a receipt rule to use an Amazon S3 action:
@@ -3348,7 +3650,13 @@ class SESClient:
         *,
         config_overrides: Optional[SESClientConfig] = None,
     ) -> "aws_sdk_ses.types.update_template_response.UpdateTemplateResponse":
-        r"""<p>Updates an email template. Email templates enable you to send personalized email to one or more destinations in a single operation. For more information, see the <a href=\"https://docs.aws.amazon.com/ses/latest/dg/send-personalized-email-api.html\">Amazon SES Developer Guide</a>.</p> <p>You can execute this operation no more than once per second.</p>"""
+        r"""<p>Updates an email template. Email templates enable you to send personalized email to one or more destinations in a single operation. For more information, see the <a href=\"https://docs.aws.amazon.com/ses/latest/dg/send-personalized-email-api.html\">Amazon SES Developer Guide</a>.</p> <p>You can execute this operation no more than once per second.</p>
+
+        Raises:
+            aws_sdk_ses.errors.invalid_template_exception.InvalidTemplateException: <p>Indicates that the template that you specified could not be rendered. This issue may occur when a template refers to a partial that does not exist.</p>
+            aws_sdk_ses.errors.template_does_not_exist_exception.TemplateDoesNotExistException: <p>Indicates that the Template object you specified does not exist in your Amazon SES account.</p>
+            aws_sdk_ses.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_ses.types.update_template_request.UpdateTemplateRequest]",
@@ -3385,6 +3693,9 @@ class SESClient:
 
         Args:
             domain: <p>The name of the domain to be verified for Easy DKIM signing.</p>
+
+        Raises:
+            aws_sdk_ses.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             VerifyDomainDkim
@@ -3431,6 +3742,9 @@ class SESClient:
         Args:
             domain: <p>The domain to be verified.</p>
 
+        Raises:
+            aws_sdk_ses.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             VerifyDomainIdentity
             The following example starts the domain verification process with Amazon SES:
@@ -3474,6 +3788,9 @@ class SESClient:
         Args:
             email_address: <p>The email address to be verified.</p>
 
+        Raises:
+            aws_sdk_ses.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             VerifyEmailAddress
             The following example starts the email address verification process with Amazon SES:
@@ -3514,6 +3831,9 @@ class SESClient:
 
         Args:
             email_address: <p>The email address to be verified.</p>
+
+        Raises:
+            aws_sdk_ses.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             VerifyEmailIdentity

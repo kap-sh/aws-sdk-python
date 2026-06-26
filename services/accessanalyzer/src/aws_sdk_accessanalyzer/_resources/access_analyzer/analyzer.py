@@ -68,6 +68,15 @@ class Analyzer:
             tags: <p>An array of key-value pairs to apply to the analyzer. You can use the set of Unicode letters, digits, whitespace, <code>_</code>, <code>.</code>, <code>/</code>, <code>=</code>, <code>+</code>, and <code>-</code>.</p> <p>For the tag key, you can specify a value that is 1 to 128 characters in length and cannot be prefixed with <code>aws:</code>.</p> <p>For the tag value, you can specify a value that is 0 to 256 characters in length.</p>
             client_token: <p>A client token.</p>
             configuration: <p>Specifies the configuration of the analyzer. If the analyzer is an unused access analyzer, the specified scope of unused access is used for the configuration. If the analyzer is an internal access analyzer, the specified internal access analysis rules are used for the configuration.</p>
+
+        Raises:
+            aws_sdk_accessanalyzer.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_accessanalyzer.errors.conflict_exception.ConflictException: <p>A conflict exception error.</p>
+            aws_sdk_accessanalyzer.errors.internal_server_exception.InternalServerException: <p>Internal server error.</p>
+            aws_sdk_accessanalyzer.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Service quote met error.</p>
+            aws_sdk_accessanalyzer.errors.throttling_exception.ThrottlingException: <p>Throttling limit exceeded error.</p>
+            aws_sdk_accessanalyzer.errors.validation_exception.ValidationException: <p>Validation exception error.</p>
+            aws_sdk_accessanalyzer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -114,6 +123,14 @@ class Analyzer:
 
         Args:
             analyzer_name: <p>The name of the analyzer retrieved.</p>
+
+        Raises:
+            aws_sdk_accessanalyzer.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_accessanalyzer.errors.internal_server_exception.InternalServerException: <p>Internal server error.</p>
+            aws_sdk_accessanalyzer.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_accessanalyzer.errors.throttling_exception.ThrottlingException: <p>Throttling limit exceeded error.</p>
+            aws_sdk_accessanalyzer.errors.validation_exception.ValidationException: <p>Validation exception error.</p>
+            aws_sdk_accessanalyzer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -154,6 +171,15 @@ class Analyzer:
 
         Args:
             analyzer_name: <p>The name of the analyzer to modify.</p>
+
+        Raises:
+            aws_sdk_accessanalyzer.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_accessanalyzer.errors.conflict_exception.ConflictException: <p>A conflict exception error.</p>
+            aws_sdk_accessanalyzer.errors.internal_server_exception.InternalServerException: <p>Internal server error.</p>
+            aws_sdk_accessanalyzer.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_accessanalyzer.errors.throttling_exception.ThrottlingException: <p>Throttling limit exceeded error.</p>
+            aws_sdk_accessanalyzer.errors.validation_exception.ValidationException: <p>Validation exception error.</p>
+            aws_sdk_accessanalyzer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -195,6 +221,14 @@ class Analyzer:
         Args:
             analyzer_name: <p>The name of the analyzer to delete.</p>
             client_token: <p>A client token.</p>
+
+        Raises:
+            aws_sdk_accessanalyzer.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_accessanalyzer.errors.internal_server_exception.InternalServerException: <p>Internal server error.</p>
+            aws_sdk_accessanalyzer.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_accessanalyzer.errors.throttling_exception.ThrottlingException: <p>Throttling limit exceeded error.</p>
+            aws_sdk_accessanalyzer.errors.validation_exception.ValidationException: <p>Validation exception error.</p>
+            aws_sdk_accessanalyzer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -236,6 +270,13 @@ class Analyzer:
             next_token: <p>A token used for pagination of results returned.</p>
             max_results: <p>The maximum number of results to return in the response.</p>
             type: <p>The type of analyzer.</p>
+
+        Raises:
+            aws_sdk_accessanalyzer.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_accessanalyzer.errors.internal_server_exception.InternalServerException: <p>Internal server error.</p>
+            aws_sdk_accessanalyzer.errors.throttling_exception.ThrottlingException: <p>Throttling limit exceeded error.</p>
+            aws_sdk_accessanalyzer.errors.validation_exception.ValidationException: <p>Validation exception error.</p>
+            aws_sdk_accessanalyzer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -280,6 +321,15 @@ class Analyzer:
         Args:
             analyzer_name: <p>The name of the service-linked analyzer to delete. Service-linked analyzer names follow the format <code>_AccessAnalyzerFor{ServiceName}-{Id}</code>.</p>
             client_token: <p>A client token.</p>
+
+        Raises:
+            aws_sdk_accessanalyzer.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_accessanalyzer.errors.conflict_exception.ConflictException: <p>A conflict exception error.</p>
+            aws_sdk_accessanalyzer.errors.internal_server_exception.InternalServerException: <p>Internal server error.</p>
+            aws_sdk_accessanalyzer.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_accessanalyzer.errors.throttling_exception.ThrottlingException: <p>Throttling limit exceeded error.</p>
+            aws_sdk_accessanalyzer.errors.validation_exception.ValidationException: <p>Validation exception error.</p>
+            aws_sdk_accessanalyzer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -336,6 +386,15 @@ class AsyncAnalyzer:
             tags: <p>An array of key-value pairs to apply to the analyzer. You can use the set of Unicode letters, digits, whitespace, <code>_</code>, <code>.</code>, <code>/</code>, <code>=</code>, <code>+</code>, and <code>-</code>.</p> <p>For the tag key, you can specify a value that is 1 to 128 characters in length and cannot be prefixed with <code>aws:</code>.</p> <p>For the tag value, you can specify a value that is 0 to 256 characters in length.</p>
             client_token: <p>A client token.</p>
             configuration: <p>Specifies the configuration of the analyzer. If the analyzer is an unused access analyzer, the specified scope of unused access is used for the configuration. If the analyzer is an internal access analyzer, the specified internal access analysis rules are used for the configuration.</p>
+
+        Raises:
+            aws_sdk_accessanalyzer.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_accessanalyzer.errors.conflict_exception.ConflictException: <p>A conflict exception error.</p>
+            aws_sdk_accessanalyzer.errors.internal_server_exception.InternalServerException: <p>Internal server error.</p>
+            aws_sdk_accessanalyzer.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Service quote met error.</p>
+            aws_sdk_accessanalyzer.errors.throttling_exception.ThrottlingException: <p>Throttling limit exceeded error.</p>
+            aws_sdk_accessanalyzer.errors.validation_exception.ValidationException: <p>Validation exception error.</p>
+            aws_sdk_accessanalyzer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -383,6 +442,14 @@ class AsyncAnalyzer:
 
         Args:
             analyzer_name: <p>The name of the analyzer retrieved.</p>
+
+        Raises:
+            aws_sdk_accessanalyzer.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_accessanalyzer.errors.internal_server_exception.InternalServerException: <p>Internal server error.</p>
+            aws_sdk_accessanalyzer.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_accessanalyzer.errors.throttling_exception.ThrottlingException: <p>Throttling limit exceeded error.</p>
+            aws_sdk_accessanalyzer.errors.validation_exception.ValidationException: <p>Validation exception error.</p>
+            aws_sdk_accessanalyzer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -424,6 +491,15 @@ class AsyncAnalyzer:
 
         Args:
             analyzer_name: <p>The name of the analyzer to modify.</p>
+
+        Raises:
+            aws_sdk_accessanalyzer.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_accessanalyzer.errors.conflict_exception.ConflictException: <p>A conflict exception error.</p>
+            aws_sdk_accessanalyzer.errors.internal_server_exception.InternalServerException: <p>Internal server error.</p>
+            aws_sdk_accessanalyzer.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_accessanalyzer.errors.throttling_exception.ThrottlingException: <p>Throttling limit exceeded error.</p>
+            aws_sdk_accessanalyzer.errors.validation_exception.ValidationException: <p>Validation exception error.</p>
+            aws_sdk_accessanalyzer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -466,6 +542,14 @@ class AsyncAnalyzer:
         Args:
             analyzer_name: <p>The name of the analyzer to delete.</p>
             client_token: <p>A client token.</p>
+
+        Raises:
+            aws_sdk_accessanalyzer.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_accessanalyzer.errors.internal_server_exception.InternalServerException: <p>Internal server error.</p>
+            aws_sdk_accessanalyzer.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_accessanalyzer.errors.throttling_exception.ThrottlingException: <p>Throttling limit exceeded error.</p>
+            aws_sdk_accessanalyzer.errors.validation_exception.ValidationException: <p>Validation exception error.</p>
+            aws_sdk_accessanalyzer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -508,6 +592,13 @@ class AsyncAnalyzer:
             next_token: <p>A token used for pagination of results returned.</p>
             max_results: <p>The maximum number of results to return in the response.</p>
             type: <p>The type of analyzer.</p>
+
+        Raises:
+            aws_sdk_accessanalyzer.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_accessanalyzer.errors.internal_server_exception.InternalServerException: <p>Internal server error.</p>
+            aws_sdk_accessanalyzer.errors.throttling_exception.ThrottlingException: <p>Throttling limit exceeded error.</p>
+            aws_sdk_accessanalyzer.errors.validation_exception.ValidationException: <p>Validation exception error.</p>
+            aws_sdk_accessanalyzer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -553,6 +644,15 @@ class AsyncAnalyzer:
         Args:
             analyzer_name: <p>The name of the service-linked analyzer to delete. Service-linked analyzer names follow the format <code>_AccessAnalyzerFor{ServiceName}-{Id}</code>.</p>
             client_token: <p>A client token.</p>
+
+        Raises:
+            aws_sdk_accessanalyzer.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_accessanalyzer.errors.conflict_exception.ConflictException: <p>A conflict exception error.</p>
+            aws_sdk_accessanalyzer.errors.internal_server_exception.InternalServerException: <p>Internal server error.</p>
+            aws_sdk_accessanalyzer.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_accessanalyzer.errors.throttling_exception.ThrottlingException: <p>Throttling limit exceeded error.</p>
+            aws_sdk_accessanalyzer.errors.validation_exception.ValidationException: <p>Validation exception error.</p>
+            aws_sdk_accessanalyzer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

@@ -309,6 +309,10 @@ class AsyncCostExplorerClient:
         Args:
             anomaly_monitor: <p>The cost anomaly detection monitor object that you want to create.</p>
             resource_tags: <p>An optional list of tags to associate with the specified <a href=\"https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_AnomalyMonitor.html\"> <code>AnomalyMonitor</code> </a>. You can use resource tags to control access to your <code>monitor</code> using IAM policies.</p> <p>Each tag consists of a key and a value, and each key must be unique for the resource. The following restrictions apply to resource tags:</p> <ul> <li> <p>Although the maximum number of array members is 200, you can assign a maximum of 50 user-tags to one resource. The remaining are reserved for Amazon Web Services use</p> </li> <li> <p>The maximum length of a key is 128 characters</p> </li> <li> <p>The maximum length of a value is 256 characters</p> </li> <li> <p>Keys and values can only contain alphanumeric characters, spaces, and any of the following: <code>_.:/=+@-</code> </p> </li> <li> <p>Keys and values are case sensitive</p> </li> <li> <p>Keys and values are trimmed for any leading or trailing whitespaces</p> </li> <li> <p>Don’t use <code>aws:</code> as a prefix for your keys. This prefix is reserved for Amazon Web Services use</p> </li> </ul>
+
+        Raises:
+            aws_sdk_cost_explorer.errors.limit_exceeded_exception.LimitExceededException: <p>You made too many calls in a short period of time. Try again later.</p>
+            aws_sdk_cost_explorer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -353,6 +357,11 @@ class AsyncCostExplorerClient:
         Args:
             anomaly_subscription: <p>The cost anomaly subscription object that you want to create. </p>
             resource_tags: <p>An optional list of tags to associate with the specified <a href=\"https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_AnomalySubscription.html\"> <code>AnomalySubscription</code> </a>. You can use resource tags to control access to your <code>subscription</code> using IAM policies.</p> <p>Each tag consists of a key and a value, and each key must be unique for the resource. The following restrictions apply to resource tags:</p> <ul> <li> <p>Although the maximum number of array members is 200, you can assign a maximum of 50 user-tags to one resource. The remaining are reserved for Amazon Web Services use</p> </li> <li> <p>The maximum length of a key is 128 characters</p> </li> <li> <p>The maximum length of a value is 256 characters</p> </li> <li> <p>Keys and values can only contain alphanumeric characters, spaces, and any of the following: <code>_.:/=+@-</code> </p> </li> <li> <p>Keys and values are case sensitive</p> </li> <li> <p>Keys and values are trimmed for any leading or trailing whitespaces</p> </li> <li> <p>Don’t use <code>aws:</code> as a prefix for your keys. This prefix is reserved for Amazon Web Services use</p> </li> </ul>
+
+        Raises:
+            aws_sdk_cost_explorer.errors.limit_exceeded_exception.LimitExceededException: <p>You made too many calls in a short period of time. Try again later.</p>
+            aws_sdk_cost_explorer.errors.unknown_monitor_exception.UnknownMonitorException: <p>The cost anomaly monitor does not exist for the account. </p>
+            aws_sdk_cost_explorer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -410,6 +419,11 @@ class AsyncCostExplorerClient:
             rules: <p>The cost category rules used to categorize costs. For more information, see <a href=\"https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_CostCategoryRule.html\">CostCategoryRule</a>.</p>
             split_charge_rules: <p> The split charge rules used to allocate your charges between your cost category values. </p>
             resource_tags: <p>An optional list of tags to associate with the specified <a href=\"https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_CostCategory.html\"> <code>CostCategory</code> </a>. You can use resource tags to control access to your <code>cost category</code> using IAM policies.</p> <p>Each tag consists of a key and a value, and each key must be unique for the resource. The following restrictions apply to resource tags:</p> <ul> <li> <p>Although the maximum number of array members is 200, you can assign a maximum of 50 user-tags to one resource. The remaining are reserved for Amazon Web Services use</p> </li> <li> <p>The maximum length of a key is 128 characters</p> </li> <li> <p>The maximum length of a value is 256 characters</p> </li> <li> <p>Keys and values can only contain alphanumeric characters, spaces, and any of the following: <code>_.:/=+@-</code> </p> </li> <li> <p>Keys and values are case sensitive</p> </li> <li> <p>Keys and values are trimmed for any leading or trailing whitespaces</p> </li> <li> <p>Don’t use <code>aws:</code> as a prefix for your keys. This prefix is reserved for Amazon Web Services use</p> </li> </ul>
+
+        Raises:
+            aws_sdk_cost_explorer.errors.limit_exceeded_exception.LimitExceededException: <p>You made too many calls in a short period of time. Try again later.</p>
+            aws_sdk_cost_explorer.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p> You've reached the limit on the number of resources you can create, or exceeded the size of an individual resource. </p>
+            aws_sdk_cost_explorer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -458,6 +472,11 @@ class AsyncCostExplorerClient:
 
         Args:
             monitor_arn: <p>The unique identifier of the cost anomaly monitor that you want to delete. </p>
+
+        Raises:
+            aws_sdk_cost_explorer.errors.limit_exceeded_exception.LimitExceededException: <p>You made too many calls in a short period of time. Try again later.</p>
+            aws_sdk_cost_explorer.errors.unknown_monitor_exception.UnknownMonitorException: <p>The cost anomaly monitor does not exist for the account. </p>
+            aws_sdk_cost_explorer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -496,6 +515,11 @@ class AsyncCostExplorerClient:
 
         Args:
             subscription_arn: <p>The unique identifier of the cost anomaly subscription that you want to delete. </p>
+
+        Raises:
+            aws_sdk_cost_explorer.errors.limit_exceeded_exception.LimitExceededException: <p>You made too many calls in a short period of time. Try again later.</p>
+            aws_sdk_cost_explorer.errors.unknown_subscription_exception.UnknownSubscriptionException: <p>The cost anomaly subscription does not exist for the account. </p>
+            aws_sdk_cost_explorer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -534,6 +558,11 @@ class AsyncCostExplorerClient:
 
         Args:
             cost_category_arn: <p>The unique identifier for your cost category. </p>
+
+        Raises:
+            aws_sdk_cost_explorer.errors.limit_exceeded_exception.LimitExceededException: <p>You made too many calls in a short period of time. Try again later.</p>
+            aws_sdk_cost_explorer.errors.resource_not_found_exception.ResourceNotFoundException: <p> The specified ARN in the request doesn't exist. </p>
+            aws_sdk_cost_explorer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -576,6 +605,11 @@ class AsyncCostExplorerClient:
         Args:
             cost_category_arn: <p>The unique identifier for your cost category. </p>
             effective_on: <p>The date when the cost category was effective. </p>
+
+        Raises:
+            aws_sdk_cost_explorer.errors.limit_exceeded_exception.LimitExceededException: <p>You made too many calls in a short period of time. Try again later.</p>
+            aws_sdk_cost_explorer.errors.resource_not_found_exception.ResourceNotFoundException: <p> The specified ARN in the request doesn't exist. </p>
+            aws_sdk_cost_explorer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -634,6 +668,11 @@ class AsyncCostExplorerClient:
             total_impact: <p>Filters anomaly results by the total impact field on the anomaly object. For example, you can filter anomalies <code>GREATER_THAN 200.00</code> to retrieve anomalies, with an estimated dollar impact greater than 200. </p>
             next_page_token: <p>The token to retrieve the next set of results. Amazon Web Services provides the token when the response from a previous call has more results than the maximum page size. </p>
             max_results: <p>The number of entries a paginated response contains. </p>
+
+        Raises:
+            aws_sdk_cost_explorer.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The pagination token is invalid. Try again without a pagination token.</p>
+            aws_sdk_cost_explorer.errors.limit_exceeded_exception.LimitExceededException: <p>You made too many calls in a short period of time. Try again later.</p>
+            aws_sdk_cost_explorer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -725,6 +764,12 @@ class AsyncCostExplorerClient:
             monitor_arn_list: <p>A list of cost anomaly monitor ARNs. </p>
             next_page_token: <p>The token to retrieve the next set of results. Amazon Web Services provides the token when the response from a previous call has more results than the maximum page size. </p>
             max_results: <p>The number of entries that a paginated response contains. </p>
+
+        Raises:
+            aws_sdk_cost_explorer.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The pagination token is invalid. Try again without a pagination token.</p>
+            aws_sdk_cost_explorer.errors.limit_exceeded_exception.LimitExceededException: <p>You made too many calls in a short period of time. Try again later.</p>
+            aws_sdk_cost_explorer.errors.unknown_monitor_exception.UnknownMonitorException: <p>The cost anomaly monitor does not exist for the account. </p>
+            aws_sdk_cost_explorer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -805,6 +850,12 @@ class AsyncCostExplorerClient:
             monitor_arn: <p>Cost anomaly monitor ARNs. </p>
             next_page_token: <p>The token to retrieve the next set of results. Amazon Web Services provides the token when the response from a previous call has more results than the maximum page size. </p>
             max_results: <p>The number of entries a paginated response contains. </p>
+
+        Raises:
+            aws_sdk_cost_explorer.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The pagination token is invalid. Try again without a pagination token.</p>
+            aws_sdk_cost_explorer.errors.limit_exceeded_exception.LimitExceededException: <p>You made too many calls in a short period of time. Try again later.</p>
+            aws_sdk_cost_explorer.errors.unknown_subscription_exception.UnknownSubscriptionException: <p>The cost anomaly subscription does not exist for the account. </p>
+            aws_sdk_cost_explorer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -887,6 +938,11 @@ class AsyncCostExplorerClient:
             granularity: <p>How granular you want the data to be. You can enable data at hourly or daily granularity.</p>
             services: <p>The service metadata for the service or services you want to query. If not specified, all elements are returned.</p>
             approximation_dimension: <p>The service to evaluate for the usage records. You can choose resource-level data at daily granularity, or hourly granularity with or without resource-level data.</p>
+
+        Raises:
+            aws_sdk_cost_explorer.errors.data_unavailable_exception.DataUnavailableException: <p>The requested data is unavailable.</p>
+            aws_sdk_cost_explorer.errors.limit_exceeded_exception.LimitExceededException: <p>You made too many calls in a short period of time. Try again later.</p>
+            aws_sdk_cost_explorer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -928,6 +984,12 @@ class AsyncCostExplorerClient:
 
         Args:
             analysis_id: <p>The analysis ID that's associated with the commitment purchase analysis.</p>
+
+        Raises:
+            aws_sdk_cost_explorer.errors.analysis_not_found_exception.AnalysisNotFoundException: <p>The requested analysis can't be found.</p>
+            aws_sdk_cost_explorer.errors.data_unavailable_exception.DataUnavailableException: <p>The requested data is unavailable.</p>
+            aws_sdk_cost_explorer.errors.limit_exceeded_exception.LimitExceededException: <p>You made too many calls in a short period of time. Try again later.</p>
+            aws_sdk_cost_explorer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -984,6 +1046,16 @@ class AsyncCostExplorerClient:
             group_by: <p>You can group Amazon Web Services costs using up to two different groups, either dimensions, tag keys, cost categories, or any two group by types.</p> <p>Valid values for the <code>DIMENSION</code> type are <code>AZ</code>, <code>INSTANCE_TYPE</code>, <code>LEGAL_ENTITY_NAME</code>, <code>INVOICING_ENTITY</code>, <code>LINKED_ACCOUNT</code>, <code>OPERATION</code>, <code>PLATFORM</code>, <code>PURCHASE_TYPE</code>, <code>SERVICE</code>, <code>TENANCY</code>, <code>RECORD_TYPE</code>, and <code>USAGE_TYPE</code>.</p> <p>When you group by the <code>TAG</code> type and include a valid tag key, you get all tag values, including empty strings.</p>
             billing_view_arn: <p>The Amazon Resource Name (ARN) that uniquely identifies a specific billing view. The ARN is used to specify which particular billing view you want to interact with or retrieve information from when making API calls related to Amazon Web Services Billing and Cost Management features. The BillingViewArn can be retrieved by calling the ListBillingViews API.</p>
             next_page_token: <p>The token to retrieve the next set of results. Amazon Web Services provides the token when the response from a previous call has more results than the maximum page size.</p>
+
+        Raises:
+            aws_sdk_cost_explorer.errors.bill_expiration_exception.BillExpirationException: <p>The requested report expired. Update the date interval and try again.</p>
+            aws_sdk_cost_explorer.errors.billing_view_health_status_exception.BillingViewHealthStatusException: <p> The billing view status must be <code>HEALTHY</code> to perform this action. Try again when the status is <code>HEALTHY</code>. </p>
+            aws_sdk_cost_explorer.errors.data_unavailable_exception.DataUnavailableException: <p>The requested data is unavailable.</p>
+            aws_sdk_cost_explorer.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The pagination token is invalid. Try again without a pagination token.</p>
+            aws_sdk_cost_explorer.errors.limit_exceeded_exception.LimitExceededException: <p>You made too many calls in a short period of time. Try again later.</p>
+            aws_sdk_cost_explorer.errors.request_changed_exception.RequestChangedException: <p>Your request parameters changed between pages. Try again with the old parameters or without a pagination token.</p>
+            aws_sdk_cost_explorer.errors.resource_not_found_exception.ResourceNotFoundException: <p> The specified ARN in the request doesn't exist. </p>
+            aws_sdk_cost_explorer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1053,6 +1125,14 @@ class AsyncCostExplorerClient:
             group_by: <p>You can group results using the attributes <code>DIMENSION</code>, <code>TAG</code>, and <code>COST_CATEGORY</code>. </p>
             max_results: <p>The maximum number of results that are returned for the request.</p>
             next_page_token: <p>The token to retrieve the next set of paginated results.</p>
+
+        Raises:
+            aws_sdk_cost_explorer.errors.billing_view_health_status_exception.BillingViewHealthStatusException: <p> The billing view status must be <code>HEALTHY</code> to perform this action. Try again when the status is <code>HEALTHY</code>. </p>
+            aws_sdk_cost_explorer.errors.data_unavailable_exception.DataUnavailableException: <p>The requested data is unavailable.</p>
+            aws_sdk_cost_explorer.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The pagination token is invalid. Try again without a pagination token.</p>
+            aws_sdk_cost_explorer.errors.limit_exceeded_exception.LimitExceededException: <p>You made too many calls in a short period of time. Try again later.</p>
+            aws_sdk_cost_explorer.errors.resource_not_found_exception.ResourceNotFoundException: <p> The specified ARN in the request doesn't exist. </p>
+            aws_sdk_cost_explorer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1164,6 +1244,16 @@ class AsyncCostExplorerClient:
             group_by: <p>You can group Amazon Web Services costs using up to two different groups: <code>DIMENSION</code>, <code>TAG</code>, <code>COST_CATEGORY</code>.</p>
             billing_view_arn: <p>The Amazon Resource Name (ARN) that uniquely identifies a specific billing view. The ARN is used to specify which particular billing view you want to interact with or retrieve information from when making API calls related to Amazon Web Services Billing and Cost Management features. The BillingViewArn can be retrieved by calling the ListBillingViews API.</p>
             next_page_token: <p>The token to retrieve the next set of results. Amazon Web Services provides the token when the response from a previous call has more results than the maximum page size.</p>
+
+        Raises:
+            aws_sdk_cost_explorer.errors.bill_expiration_exception.BillExpirationException: <p>The requested report expired. Update the date interval and try again.</p>
+            aws_sdk_cost_explorer.errors.billing_view_health_status_exception.BillingViewHealthStatusException: <p> The billing view status must be <code>HEALTHY</code> to perform this action. Try again when the status is <code>HEALTHY</code>. </p>
+            aws_sdk_cost_explorer.errors.data_unavailable_exception.DataUnavailableException: <p>The requested data is unavailable.</p>
+            aws_sdk_cost_explorer.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The pagination token is invalid. Try again without a pagination token.</p>
+            aws_sdk_cost_explorer.errors.limit_exceeded_exception.LimitExceededException: <p>You made too many calls in a short period of time. Try again later.</p>
+            aws_sdk_cost_explorer.errors.request_changed_exception.RequestChangedException: <p>Your request parameters changed between pages. Try again with the old parameters or without a pagination token.</p>
+            aws_sdk_cost_explorer.errors.resource_not_found_exception.ResourceNotFoundException: <p> The specified ARN in the request doesn't exist. </p>
+            aws_sdk_cost_explorer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1235,6 +1325,16 @@ class AsyncCostExplorerClient:
             billing_view_arn: <p>The Amazon Resource Name (ARN) that uniquely identifies a specific billing view. The ARN is used to specify which particular billing view you want to interact with or retrieve information from when making API calls related to Amazon Web Services Billing and Cost Management features. The BillingViewArn can be retrieved by calling the ListBillingViews API.</p>
             max_results: <p>This field is only used when the <code>SortBy</code> value is provided in the request.</p> <p>The maximum number of objects that are returned for this request. If <code>MaxResults</code> isn't specified with the <code>SortBy</code> value, the request returns 1000 results as the default value for this parameter.</p> <p>For <code>GetCostCategories</code>, MaxResults has an upper quota of 1000.</p>
             next_page_token: <p>If the number of objects that are still available for retrieval exceeds the quota, Amazon Web Services returns a NextPageToken value in the response. To retrieve the next batch of objects, provide the NextPageToken from the previous call in your next request.</p>
+
+        Raises:
+            aws_sdk_cost_explorer.errors.bill_expiration_exception.BillExpirationException: <p>The requested report expired. Update the date interval and try again.</p>
+            aws_sdk_cost_explorer.errors.billing_view_health_status_exception.BillingViewHealthStatusException: <p> The billing view status must be <code>HEALTHY</code> to perform this action. Try again when the status is <code>HEALTHY</code>. </p>
+            aws_sdk_cost_explorer.errors.data_unavailable_exception.DataUnavailableException: <p>The requested data is unavailable.</p>
+            aws_sdk_cost_explorer.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The pagination token is invalid. Try again without a pagination token.</p>
+            aws_sdk_cost_explorer.errors.limit_exceeded_exception.LimitExceededException: <p>You made too many calls in a short period of time. Try again later.</p>
+            aws_sdk_cost_explorer.errors.request_changed_exception.RequestChangedException: <p>Your request parameters changed between pages. Try again with the old parameters or without a pagination token.</p>
+            aws_sdk_cost_explorer.errors.resource_not_found_exception.ResourceNotFoundException: <p> The specified ARN in the request doesn't exist. </p>
+            aws_sdk_cost_explorer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1308,6 +1408,14 @@ class AsyncCostExplorerClient:
             group_by: <p>You can group results using the attributes <code>DIMENSION</code>, <code>TAG</code>, and <code>COST_CATEGORY</code>. Note that <code>SERVICE</code> and <code>USAGE_TYPE</code> dimensions are automatically included in the cost comparison drivers analysis.</p>
             max_results: <p>The maximum number of results that are returned for the request.</p>
             next_page_token: <p>The token to retrieve the next set of paginated results.</p>
+
+        Raises:
+            aws_sdk_cost_explorer.errors.billing_view_health_status_exception.BillingViewHealthStatusException: <p> The billing view status must be <code>HEALTHY</code> to perform this action. Try again when the status is <code>HEALTHY</code>. </p>
+            aws_sdk_cost_explorer.errors.data_unavailable_exception.DataUnavailableException: <p>The requested data is unavailable.</p>
+            aws_sdk_cost_explorer.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The pagination token is invalid. Try again without a pagination token.</p>
+            aws_sdk_cost_explorer.errors.limit_exceeded_exception.LimitExceededException: <p>You made too many calls in a short period of time. Try again later.</p>
+            aws_sdk_cost_explorer.errors.resource_not_found_exception.ResourceNotFoundException: <p> The specified ARN in the request doesn't exist. </p>
+            aws_sdk_cost_explorer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1415,6 +1523,13 @@ class AsyncCostExplorerClient:
             filter: <p>The filters that you want to use to filter your forecast. The <code>GetCostForecast</code> API supports filtering by the following dimensions:</p> <ul> <li> <p> <code>AZ</code> </p> </li> <li> <p> <code>INSTANCE_TYPE</code> </p> </li> <li> <p> <code>LINKED_ACCOUNT</code> </p> </li> <li> <p> <code>OPERATION</code> </p> </li> <li> <p> <code>PURCHASE_TYPE</code> </p> </li> <li> <p> <code>REGION</code> </p> </li> <li> <p> <code>SERVICE</code> </p> </li> <li> <p> <code>USAGE_TYPE</code> </p> </li> <li> <p> <code>USAGE_TYPE_GROUP</code> </p> </li> <li> <p> <code>RECORD_TYPE</code> </p> </li> <li> <p> <code>OPERATING_SYSTEM</code> </p> </li> <li> <p> <code>TENANCY</code> </p> </li> <li> <p> <code>SCOPE</code> </p> </li> <li> <p> <code>PLATFORM</code> </p> </li> <li> <p> <code>SUBSCRIPTION_ID</code> </p> </li> <li> <p> <code>LEGAL_ENTITY_NAME</code> </p> </li> <li> <p> <code>DEPLOYMENT_OPTION</code> </p> </li> <li> <p> <code>DATABASE_ENGINE</code> </p> </li> <li> <p> <code>INSTANCE_TYPE_FAMILY</code> </p> </li> <li> <p> <code>BILLING_ENTITY</code> </p> </li> <li> <p> <code>RESERVATION_ID</code> </p> </li> <li> <p> <code>SAVINGS_PLAN_ARN</code> </p> </li> </ul>
             billing_view_arn: <p>The Amazon Resource Name (ARN) that uniquely identifies a specific billing view. The ARN is used to specify which particular billing view you want to interact with or retrieve information from when making API calls related to Amazon Web Services Billing and Cost Management features. The BillingViewArn can be retrieved by calling the ListBillingViews API.</p>
             prediction_interval_level: <p>Cost Explorer always returns the mean forecast as a single point. You can request a prediction interval around the mean by specifying a confidence level. The higher the confidence level, the more confident Cost Explorer is about the actual value falling in the prediction interval. Higher confidence levels result in wider prediction intervals.</p>
+
+        Raises:
+            aws_sdk_cost_explorer.errors.billing_view_health_status_exception.BillingViewHealthStatusException: <p> The billing view status must be <code>HEALTHY</code> to perform this action. Try again when the status is <code>HEALTHY</code>. </p>
+            aws_sdk_cost_explorer.errors.data_unavailable_exception.DataUnavailableException: <p>The requested data is unavailable.</p>
+            aws_sdk_cost_explorer.errors.limit_exceeded_exception.LimitExceededException: <p>You made too many calls in a short period of time. Try again later.</p>
+            aws_sdk_cost_explorer.errors.resource_not_found_exception.ResourceNotFoundException: <p> The specified ARN in the request doesn't exist. </p>
+            aws_sdk_cost_explorer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1486,6 +1601,16 @@ class AsyncCostExplorerClient:
             billing_view_arn: <p>The Amazon Resource Name (ARN) that uniquely identifies a specific billing view. The ARN is used to specify which particular billing view you want to interact with or retrieve information from when making API calls related to Amazon Web Services Billing and Cost Management features. The BillingViewArn can be retrieved by calling the ListBillingViews API.</p>
             max_results: <p>This field is only used when SortBy is provided in the request. The maximum number of objects that are returned for this request. If MaxResults isn't specified with SortBy, the request returns 1000 results as the default value for this parameter.</p> <p>For <code>GetDimensionValues</code>, MaxResults has an upper limit of 1000.</p>
             next_page_token: <p>The token to retrieve the next set of results. Amazon Web Services provides the token when the response from a previous call has more results than the maximum page size.</p>
+
+        Raises:
+            aws_sdk_cost_explorer.errors.bill_expiration_exception.BillExpirationException: <p>The requested report expired. Update the date interval and try again.</p>
+            aws_sdk_cost_explorer.errors.billing_view_health_status_exception.BillingViewHealthStatusException: <p> The billing view status must be <code>HEALTHY</code> to perform this action. Try again when the status is <code>HEALTHY</code>. </p>
+            aws_sdk_cost_explorer.errors.data_unavailable_exception.DataUnavailableException: <p>The requested data is unavailable.</p>
+            aws_sdk_cost_explorer.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The pagination token is invalid. Try again without a pagination token.</p>
+            aws_sdk_cost_explorer.errors.limit_exceeded_exception.LimitExceededException: <p>You made too many calls in a short period of time. Try again later.</p>
+            aws_sdk_cost_explorer.errors.request_changed_exception.RequestChangedException: <p>Your request parameters changed between pages. Try again with the old parameters or without a pagination token.</p>
+            aws_sdk_cost_explorer.errors.resource_not_found_exception.ResourceNotFoundException: <p> The specified ARN in the request doesn't exist. </p>
+            aws_sdk_cost_explorer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1565,6 +1690,12 @@ class AsyncCostExplorerClient:
             next_page_token: <p>The token to retrieve the next set of results. Amazon Web Services provides the token when the response from a previous call has more results than the maximum page size.</p>
             sort_by: <p>The value by which you want to sort the data.</p> <p>The following values are supported for <code>Key</code>:</p> <ul> <li> <p> <code>OnDemandCost</code> </p> </li> <li> <p> <code>CoverageHoursPercentage</code> </p> </li> <li> <p> <code>OnDemandHours</code> </p> </li> <li> <p> <code>ReservedHours</code> </p> </li> <li> <p> <code>TotalRunningHours</code> </p> </li> <li> <p> <code>CoverageNormalizedUnitsPercentage</code> </p> </li> <li> <p> <code>OnDemandNormalizedUnits</code> </p> </li> <li> <p> <code>ReservedNormalizedUnits</code> </p> </li> <li> <p> <code>TotalRunningNormalizedUnits</code> </p> </li> <li> <p> <code>Time</code> </p> </li> </ul> <p>Supported values for <code>SortOrder</code> are <code>ASCENDING</code> or <code>DESCENDING</code>.</p>
             max_results: <p>The maximum number of objects that you returned for this request. If more objects are available, in the response, Amazon Web Services provides a NextPageToken value that you can use in a subsequent call to get the next batch of objects.</p>
+
+        Raises:
+            aws_sdk_cost_explorer.errors.data_unavailable_exception.DataUnavailableException: <p>The requested data is unavailable.</p>
+            aws_sdk_cost_explorer.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The pagination token is invalid. Try again without a pagination token.</p>
+            aws_sdk_cost_explorer.errors.limit_exceeded_exception.LimitExceededException: <p>You made too many calls in a short period of time. Try again later.</p>
+            aws_sdk_cost_explorer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1650,6 +1781,12 @@ class AsyncCostExplorerClient:
             service_specification: <p>The hardware specifications for the service instances that you want recommendations for, such as standard or convertible Amazon EC2 instances.</p>
             page_size: <p>The number of recommendations that you want returned in a single response object.</p>
             next_page_token: <p>The pagination token that indicates the next set of results that you want to retrieve.</p>
+
+        Raises:
+            aws_sdk_cost_explorer.errors.data_unavailable_exception.DataUnavailableException: <p>The requested data is unavailable.</p>
+            aws_sdk_cost_explorer.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The pagination token is invalid. Try again without a pagination token.</p>
+            aws_sdk_cost_explorer.errors.limit_exceeded_exception.LimitExceededException: <p>You made too many calls in a short period of time. Try again later.</p>
+            aws_sdk_cost_explorer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1781,6 +1918,12 @@ class AsyncCostExplorerClient:
             sort_by: <p>The value that you want to sort the data by.</p> <p>The following values are supported for <code>Key</code>:</p> <ul> <li> <p> <code>UtilizationPercentage</code> </p> </li> <li> <p> <code>UtilizationPercentageInUnits</code> </p> </li> <li> <p> <code>PurchasedHours</code> </p> </li> <li> <p> <code>PurchasedUnits</code> </p> </li> <li> <p> <code>TotalActualHours</code> </p> </li> <li> <p> <code>TotalActualUnits</code> </p> </li> <li> <p> <code>UnusedHours</code> </p> </li> <li> <p> <code>UnusedUnits</code> </p> </li> <li> <p> <code>OnDemandCostOfRIHoursUsed</code> </p> </li> <li> <p> <code>NetRISavings</code> </p> </li> <li> <p> <code>TotalPotentialRISavings</code> </p> </li> <li> <p> <code>AmortizedUpfrontFee</code> </p> </li> <li> <p> <code>AmortizedRecurringFee</code> </p> </li> <li> <p> <code>TotalAmortizedFee</code> </p> </li> <li> <p> <code>RICostForUnusedHours</code> </p> </li> <li> <p> <code>RealizedSavings</code> </p> </li> <li> <p> <code>UnrealizedSavings</code> </p> </li> </ul> <p>The supported values for <code>SortOrder</code> are <code>ASCENDING</code> and <code>DESCENDING</code>.</p>
             next_page_token: <p>The token to retrieve the next set of results. Amazon Web Services provides the token when the response from a previous call has more results than the maximum page size.</p>
             max_results: <p>The maximum number of objects that you returned for this request. If more objects are available, in the response, Amazon Web Services provides a NextPageToken value that you can use in a subsequent call to get the next batch of objects.</p>
+
+        Raises:
+            aws_sdk_cost_explorer.errors.data_unavailable_exception.DataUnavailableException: <p>The requested data is unavailable.</p>
+            aws_sdk_cost_explorer.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The pagination token is invalid. Try again without a pagination token.</p>
+            aws_sdk_cost_explorer.errors.limit_exceeded_exception.LimitExceededException: <p>You made too many calls in a short period of time. Try again later.</p>
+            aws_sdk_cost_explorer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1844,6 +1987,11 @@ class AsyncCostExplorerClient:
             service: <p>The specific service that you want recommendations for. The only valid value for <code>GetRightsizingRecommendation</code> is \"<code>AmazonEC2</code>\".</p>
             page_size: <p>The number of recommendations that you want returned in a single response object.</p>
             next_page_token: <p>The pagination token that indicates the next set of results that you want to retrieve.</p>
+
+        Raises:
+            aws_sdk_cost_explorer.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The pagination token is invalid. Try again without a pagination token.</p>
+            aws_sdk_cost_explorer.errors.limit_exceeded_exception.LimitExceededException: <p>You made too many calls in a short period of time. Try again later.</p>
+            aws_sdk_cost_explorer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1923,6 +2071,11 @@ class AsyncCostExplorerClient:
 
         Args:
             recommendation_detail_id: <p>The ID that is associated with the Savings Plan recommendation.</p>
+
+        Raises:
+            aws_sdk_cost_explorer.errors.data_unavailable_exception.DataUnavailableException: <p>The requested data is unavailable.</p>
+            aws_sdk_cost_explorer.errors.limit_exceeded_exception.LimitExceededException: <p>You made too many calls in a short period of time. Try again later.</p>
+            aws_sdk_cost_explorer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1987,6 +2140,12 @@ class AsyncCostExplorerClient:
             next_token: <p>The token to retrieve the next set of results. Amazon Web Services provides the token when the response from a previous call has more results than the maximum page size.</p>
             max_results: <p>The number of items to be returned in a response. The default is <code>20</code>, with a minimum value of <code>1</code>.</p>
             sort_by: <p>The value that you want to sort the data by.</p> <p>The following values are supported for <code>Key</code>:</p> <ul> <li> <p> <code>SpendCoveredBySavingsPlan</code> </p> </li> <li> <p> <code>OnDemandCost</code> </p> </li> <li> <p> <code>CoveragePercentage</code> </p> </li> <li> <p> <code>TotalCost</code> </p> </li> <li> <p> <code>InstanceFamily</code> </p> </li> <li> <p> <code>Region</code> </p> </li> <li> <p> <code>Service</code> </p> </li> </ul> <p>The supported values for <code>SortOrder</code> are <code>ASCENDING</code> and <code>DESCENDING</code>.</p>
+
+        Raises:
+            aws_sdk_cost_explorer.errors.data_unavailable_exception.DataUnavailableException: <p>The requested data is unavailable.</p>
+            aws_sdk_cost_explorer.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The pagination token is invalid. Try again without a pagination token.</p>
+            aws_sdk_cost_explorer.errors.limit_exceeded_exception.LimitExceededException: <p>You made too many calls in a short period of time. Try again later.</p>
+            aws_sdk_cost_explorer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2059,6 +2218,11 @@ class AsyncCostExplorerClient:
             page_size: <p>The number of recommendations that you want returned in a single response object.</p>
             lookback_period_in_days: <p>The lookback period that's used to generate the recommendation.</p>
             filter: <p>You can filter your recommendations by Account ID with the <code>LINKED_ACCOUNT</code> dimension. To filter your recommendations by Account ID, specify <code>Key</code> as <code>LINKED_ACCOUNT</code> and <code>Value</code> as the comma-separated Acount ID(s) that you want to see Savings Plans purchase recommendations for.</p> <p>For GetSavingsPlansPurchaseRecommendation, the <code>Filter</code> doesn't include <code>CostCategories</code> or <code>Tags</code>. It only includes <code>Dimensions</code>. With <code>Dimensions</code>, <code>Key</code> must be <code>LINKED_ACCOUNT</code> and <code>Value</code> can be a single Account ID or multiple comma-separated Account IDs that you want to see Savings Plans Purchase Recommendations for. <code>AND</code> and <code>OR</code> operators are not supported.</p>
+
+        Raises:
+            aws_sdk_cost_explorer.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The pagination token is invalid. Try again without a pagination token.</p>
+            aws_sdk_cost_explorer.errors.limit_exceeded_exception.LimitExceededException: <p>You made too many calls in a short period of time. Try again later.</p>
+            aws_sdk_cost_explorer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2118,6 +2282,11 @@ class AsyncCostExplorerClient:
             granularity: <p>The granularity of the Amazon Web Services utillization data for your Savings Plans.</p> <p>The <code>GetSavingsPlansUtilization</code> operation supports only <code>DAILY</code> and <code>MONTHLY</code> granularities.</p>
             filter: <p>Filters Savings Plans utilization coverage data for active Savings Plans dimensions. You can filter data with the following dimensions:</p> <ul> <li> <p> <code>LINKED_ACCOUNT</code> </p> </li> <li> <p> <code>SAVINGS_PLAN_ARN</code> </p> </li> <li> <p> <code>SAVINGS_PLANS_TYPE</code> </p> </li> <li> <p> <code>REGION</code> </p> </li> <li> <p> <code>PAYMENT_OPTION</code> </p> </li> <li> <p> <code>INSTANCE_TYPE_FAMILY</code> </p> </li> </ul> <p> <code>GetSavingsPlansUtilization</code> uses the same <a href=\"https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html\">Expression</a> object as the other operations, but only <code>AND</code> is supported among each dimension.</p>
             sort_by: <p>The value that you want to sort the data by.</p> <p>The following values are supported for <code>Key</code>:</p> <ul> <li> <p> <code>UtilizationPercentage</code> </p> </li> <li> <p> <code>TotalCommitment</code> </p> </li> <li> <p> <code>UsedCommitment</code> </p> </li> <li> <p> <code>UnusedCommitment</code> </p> </li> <li> <p> <code>NetSavings</code> </p> </li> </ul> <p>The supported values for <code>SortOrder</code> are <code>ASCENDING</code> and <code>DESCENDING</code>.</p>
+
+        Raises:
+            aws_sdk_cost_explorer.errors.data_unavailable_exception.DataUnavailableException: <p>The requested data is unavailable.</p>
+            aws_sdk_cost_explorer.errors.limit_exceeded_exception.LimitExceededException: <p>You made too many calls in a short period of time. Try again later.</p>
+            aws_sdk_cost_explorer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2180,6 +2349,12 @@ class AsyncCostExplorerClient:
             next_token: <p>The token to retrieve the next set of results. Amazon Web Services provides the token when the response from a previous call has more results than the maximum page size.</p>
             max_results: <p>The number of items to be returned in a response. The default is <code>20</code>, with a minimum value of <code>1</code>.</p>
             sort_by: <p>The value that you want to sort the data by.</p> <p>The following values are supported for <code>Key</code>:</p> <ul> <li> <p> <code>UtilizationPercentage</code> </p> </li> <li> <p> <code>TotalCommitment</code> </p> </li> <li> <p> <code>UsedCommitment</code> </p> </li> <li> <p> <code>UnusedCommitment</code> </p> </li> <li> <p> <code>NetSavings</code> </p> </li> <li> <p> <code>AmortizedRecurringCommitment</code> </p> </li> <li> <p> <code>AmortizedUpfrontCommitment</code> </p> </li> </ul> <p>The supported values for <code>SortOrder</code> are <code>ASCENDING</code> and <code>DESCENDING</code>.</p>
+
+        Raises:
+            aws_sdk_cost_explorer.errors.data_unavailable_exception.DataUnavailableException: <p>The requested data is unavailable.</p>
+            aws_sdk_cost_explorer.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The pagination token is invalid. Try again without a pagination token.</p>
+            aws_sdk_cost_explorer.errors.limit_exceeded_exception.LimitExceededException: <p>You made too many calls in a short period of time. Try again later.</p>
+            aws_sdk_cost_explorer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2251,6 +2426,16 @@ class AsyncCostExplorerClient:
             billing_view_arn: <p>The Amazon Resource Name (ARN) that uniquely identifies a specific billing view. The ARN is used to specify which particular billing view you want to interact with or retrieve information from when making API calls related to Amazon Web Services Billing and Cost Management features. The BillingViewArn can be retrieved by calling the ListBillingViews API.</p>
             max_results: <p>This field is only used when SortBy is provided in the request. The maximum number of objects that are returned for this request. If MaxResults isn't specified with SortBy, the request returns 1000 results as the default value for this parameter.</p> <p>For <code>GetTags</code>, MaxResults has an upper quota of 1000.</p>
             next_page_token: <p>The token to retrieve the next set of results. Amazon Web Services provides the token when the response from a previous call has more results than the maximum page size.</p>
+
+        Raises:
+            aws_sdk_cost_explorer.errors.bill_expiration_exception.BillExpirationException: <p>The requested report expired. Update the date interval and try again.</p>
+            aws_sdk_cost_explorer.errors.billing_view_health_status_exception.BillingViewHealthStatusException: <p> The billing view status must be <code>HEALTHY</code> to perform this action. Try again when the status is <code>HEALTHY</code>. </p>
+            aws_sdk_cost_explorer.errors.data_unavailable_exception.DataUnavailableException: <p>The requested data is unavailable.</p>
+            aws_sdk_cost_explorer.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The pagination token is invalid. Try again without a pagination token.</p>
+            aws_sdk_cost_explorer.errors.limit_exceeded_exception.LimitExceededException: <p>You made too many calls in a short period of time. Try again later.</p>
+            aws_sdk_cost_explorer.errors.request_changed_exception.RequestChangedException: <p>Your request parameters changed between pages. Try again with the old parameters or without a pagination token.</p>
+            aws_sdk_cost_explorer.errors.resource_not_found_exception.ResourceNotFoundException: <p> The specified ARN in the request doesn't exist. </p>
+            aws_sdk_cost_explorer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2317,6 +2502,14 @@ class AsyncCostExplorerClient:
             filter: <p>The filters that you want to use to filter your forecast. The <code>GetUsageForecast</code> API supports filtering by the following dimensions:</p> <ul> <li> <p> <code>AZ</code> </p> </li> <li> <p> <code>INSTANCE_TYPE</code> </p> </li> <li> <p> <code>LINKED_ACCOUNT</code> </p> </li> <li> <p> <code>LINKED_ACCOUNT_NAME</code> </p> </li> <li> <p> <code>OPERATION</code> </p> </li> <li> <p> <code>PURCHASE_TYPE</code> </p> </li> <li> <p> <code>REGION</code> </p> </li> <li> <p> <code>SERVICE</code> </p> </li> <li> <p> <code>USAGE_TYPE</code> </p> </li> <li> <p> <code>USAGE_TYPE_GROUP</code> </p> </li> <li> <p> <code>RECORD_TYPE</code> </p> </li> <li> <p> <code>OPERATING_SYSTEM</code> </p> </li> <li> <p> <code>TENANCY</code> </p> </li> <li> <p> <code>SCOPE</code> </p> </li> <li> <p> <code>PLATFORM</code> </p> </li> <li> <p> <code>SUBSCRIPTION_ID</code> </p> </li> <li> <p> <code>LEGAL_ENTITY_NAME</code> </p> </li> <li> <p> <code>DEPLOYMENT_OPTION</code> </p> </li> <li> <p> <code>DATABASE_ENGINE</code> </p> </li> <li> <p> <code>INSTANCE_TYPE_FAMILY</code> </p> </li> <li> <p> <code>BILLING_ENTITY</code> </p> </li> <li> <p> <code>RESERVATION_ID</code> </p> </li> <li> <p> <code>SAVINGS_PLAN_ARN</code> </p> </li> </ul>
             billing_view_arn: <p>The Amazon Resource Name (ARN) that uniquely identifies a specific billing view. The ARN is used to specify which particular billing view you want to interact with or retrieve information from when making API calls related to Amazon Web Services Billing and Cost Management features. The BillingViewArn can be retrieved by calling the ListBillingViews API.</p>
             prediction_interval_level: <p>Amazon Web Services Cost Explorer always returns the mean forecast as a single point. You can request a prediction interval around the mean by specifying a confidence level. The higher the confidence level, the more confident Cost Explorer is about the actual value falling in the prediction interval. Higher confidence levels result in wider prediction intervals.</p>
+
+        Raises:
+            aws_sdk_cost_explorer.errors.billing_view_health_status_exception.BillingViewHealthStatusException: <p> The billing view status must be <code>HEALTHY</code> to perform this action. Try again when the status is <code>HEALTHY</code>. </p>
+            aws_sdk_cost_explorer.errors.data_unavailable_exception.DataUnavailableException: <p>The requested data is unavailable.</p>
+            aws_sdk_cost_explorer.errors.limit_exceeded_exception.LimitExceededException: <p>You made too many calls in a short period of time. Try again later.</p>
+            aws_sdk_cost_explorer.errors.resource_not_found_exception.ResourceNotFoundException: <p> The specified ARN in the request doesn't exist. </p>
+            aws_sdk_cost_explorer.errors.unresolvable_usage_unit_exception.UnresolvableUsageUnitException: <p>Cost Explorer was unable to identify the usage unit. Provide <code>UsageType/UsageTypeGroup</code> filter selections that contain matching units, for example: <code>hours</code>.</p>
+            aws_sdk_cost_explorer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2377,6 +2570,12 @@ class AsyncCostExplorerClient:
             next_page_token: <p>The token to retrieve the next set of results.</p>
             page_size: <p>The number of analyses that you want returned in a single response object.</p>
             analysis_ids: <p>The analysis IDs associated with the commitment purchase analyses.</p>
+
+        Raises:
+            aws_sdk_cost_explorer.errors.data_unavailable_exception.DataUnavailableException: <p>The requested data is unavailable.</p>
+            aws_sdk_cost_explorer.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The pagination token is invalid. Try again without a pagination token.</p>
+            aws_sdk_cost_explorer.errors.limit_exceeded_exception.LimitExceededException: <p>You made too many calls in a short period of time. Try again later.</p>
+            aws_sdk_cost_explorer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2461,6 +2660,11 @@ class AsyncCostExplorerClient:
         Args:
             next_token: <p> The token to retrieve the next set of results. Amazon Web Services provides the token when the response from a previous call has more results than the maximum page size. </p>
             max_results: <p> The maximum number of objects that are returned for this request. </p>
+
+        Raises:
+            aws_sdk_cost_explorer.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The pagination token is invalid. Try again without a pagination token.</p>
+            aws_sdk_cost_explorer.errors.limit_exceeded_exception.LimitExceededException: <p>You made too many calls in a short period of time. Try again later.</p>
+            aws_sdk_cost_explorer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2545,6 +2749,11 @@ class AsyncCostExplorerClient:
             type: <p>The type of <code>CostAllocationTag</code> object that are returned for this request. The <code>AWSGenerated</code> type tags are tags that Amazon Web Services defines and applies to support Amazon Web Services resources for cost allocation purposes. The <code>UserDefined</code> type tags are tags that you define, create, and apply to resources. </p>
             next_token: <p>The token to retrieve the next set of results. Amazon Web Services provides the token when the response from a previous call has more results than the maximum page size. </p>
             max_results: <p>The maximum number of objects that are returned for this request. By default, the request returns 100 results. </p>
+
+        Raises:
+            aws_sdk_cost_explorer.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The pagination token is invalid. Try again without a pagination token.</p>
+            aws_sdk_cost_explorer.errors.limit_exceeded_exception.LimitExceededException: <p>You made too many calls in a short period of time. Try again later.</p>
+            aws_sdk_cost_explorer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2643,6 +2852,10 @@ class AsyncCostExplorerClient:
             next_token: <p>The token to retrieve the next set of results. Amazon Web Services provides the token when the response from a previous call has more results than the maximum page size. </p>
             max_results: <p>The number of entries a paginated response contains. </p>
             supported_resource_types: <p> Filter cost category definitions that are supported by given resource types based on the latest version. If the filter is present, the result only includes Cost Categories that supports input resource type. If the filter isn't provided, no filtering is applied. The valid values are <code>billing:rispgroupsharing</code> and <code>billing:billingview</code>. </p>
+
+        Raises:
+            aws_sdk_cost_explorer.errors.limit_exceeded_exception.LimitExceededException: <p>You made too many calls in a short period of time. Try again later.</p>
+            aws_sdk_cost_explorer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2729,6 +2942,11 @@ class AsyncCostExplorerClient:
             cost_category_arn: <p>The unique identifier for your cost category.</p>
             next_token: <p> The token to retrieve the next set of results. Amazon Web Services provides the token when the response from a previous call has more results than the maximum page size. </p>
             max_results: <p> The number of entries a paginated response contains. </p>
+
+        Raises:
+            aws_sdk_cost_explorer.errors.limit_exceeded_exception.LimitExceededException: <p>You made too many calls in a short period of time. Try again later.</p>
+            aws_sdk_cost_explorer.errors.resource_not_found_exception.ResourceNotFoundException: <p> The specified ARN in the request doesn't exist. </p>
+            aws_sdk_cost_explorer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2813,6 +3031,12 @@ class AsyncCostExplorerClient:
             recommendation_ids: <p>The IDs for each specific recommendation.</p>
             page_size: <p>The number of recommendations that you want returned in a single response object.</p>
             next_page_token: <p>The token to retrieve the next set of results.</p>
+
+        Raises:
+            aws_sdk_cost_explorer.errors.data_unavailable_exception.DataUnavailableException: <p>The requested data is unavailable.</p>
+            aws_sdk_cost_explorer.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The pagination token is invalid. Try again without a pagination token.</p>
+            aws_sdk_cost_explorer.errors.limit_exceeded_exception.LimitExceededException: <p>You made too many calls in a short period of time. Try again later.</p>
+            aws_sdk_cost_explorer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2893,6 +3117,11 @@ class AsyncCostExplorerClient:
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource. For a list of supported resources, see <a href=\"https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_ResourceTag.html\">ResourceTag</a>.</p>
+
+        Raises:
+            aws_sdk_cost_explorer.errors.limit_exceeded_exception.LimitExceededException: <p>You made too many calls in a short period of time. Try again later.</p>
+            aws_sdk_cost_explorer.errors.resource_not_found_exception.ResourceNotFoundException: <p> The specified ARN in the request doesn't exist. </p>
+            aws_sdk_cost_explorer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2933,6 +3162,10 @@ class AsyncCostExplorerClient:
         Args:
             anomaly_id: <p>A cost anomaly ID. </p>
             feedback: <p>Describes whether the cost anomaly was a planned activity or you considered it an anomaly. </p>
+
+        Raises:
+            aws_sdk_cost_explorer.errors.limit_exceeded_exception.LimitExceededException: <p>You made too many calls in a short period of time. Try again later.</p>
+            aws_sdk_cost_explorer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2972,6 +3205,13 @@ class AsyncCostExplorerClient:
 
         Args:
             commitment_purchase_analysis_configuration: <p>The configuration for the commitment purchase analysis.</p>
+
+        Raises:
+            aws_sdk_cost_explorer.errors.data_unavailable_exception.DataUnavailableException: <p>The requested data is unavailable.</p>
+            aws_sdk_cost_explorer.errors.generation_exists_exception.GenerationExistsException: <p>A request to generate a recommendation or analysis is already in progress.</p>
+            aws_sdk_cost_explorer.errors.limit_exceeded_exception.LimitExceededException: <p>You made too many calls in a short period of time. Try again later.</p>
+            aws_sdk_cost_explorer.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p> You've reached the limit on the number of resources you can create, or exceeded the size of an individual resource. </p>
+            aws_sdk_cost_explorer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3012,6 +3252,11 @@ class AsyncCostExplorerClient:
 
         Args:
             backfill_from: <p> The date you want the backfill to start from. The date can only be a first day of the month (a billing start date). Dates can't precede the previous twelve months, or in the future.</p>
+
+        Raises:
+            aws_sdk_cost_explorer.errors.backfill_limit_exceeded_exception.BackfillLimitExceededException: <p> A request to backfill is already in progress. Once the previous request is complete, you can create another request. </p>
+            aws_sdk_cost_explorer.errors.limit_exceeded_exception.LimitExceededException: <p>You made too many calls in a short period of time. Try again later.</p>
+            aws_sdk_cost_explorer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3043,7 +3288,15 @@ class AsyncCostExplorerClient:
     async def start_savings_plans_purchase_recommendation_generation(
         self, *, config_overrides: Optional[AsyncCostExplorerClientConfig] = None
     ) -> "aws_sdk_cost_explorer.types.start_savings_plans_purchase_recommendation_generation_response.StartSavingsPlansPurchaseRecommendationGenerationResponse":
-        """<p>Requests a Savings Plans recommendation generation. This enables you to calculate a fresh set of Savings Plans recommendations that takes your latest usage data and current Savings Plans inventory into account. You can refresh Savings Plans recommendations up to three times daily for a consolidated billing family.</p> <note> <p> <code>StartSavingsPlansPurchaseRecommendationGeneration</code> has no request syntax because no input parameters are needed to support this operation.</p> </note>"""
+        """<p>Requests a Savings Plans recommendation generation. This enables you to calculate a fresh set of Savings Plans recommendations that takes your latest usage data and current Savings Plans inventory into account. You can refresh Savings Plans recommendations up to three times daily for a consolidated billing family.</p> <note> <p> <code>StartSavingsPlansPurchaseRecommendationGeneration</code> has no request syntax because no input parameters are needed to support this operation.</p> </note>
+
+        Raises:
+            aws_sdk_cost_explorer.errors.data_unavailable_exception.DataUnavailableException: <p>The requested data is unavailable.</p>
+            aws_sdk_cost_explorer.errors.generation_exists_exception.GenerationExistsException: <p>A request to generate a recommendation or analysis is already in progress.</p>
+            aws_sdk_cost_explorer.errors.limit_exceeded_exception.LimitExceededException: <p>You made too many calls in a short period of time. Try again later.</p>
+            aws_sdk_cost_explorer.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p> You've reached the limit on the number of resources you can create, or exceeded the size of an individual resource. </p>
+            aws_sdk_cost_explorer.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_cost_explorer.types.start_savings_plans_purchase_recommendation_generation_request.StartSavingsPlansPurchaseRecommendationGenerationRequest]",
@@ -3082,6 +3335,12 @@ class AsyncCostExplorerClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource. For a list of supported resources, see <a href=\"https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_ResourceTag.html\">ResourceTag</a>. </p>
             resource_tags: <p> A list of tag key-value pairs to be added to the resource.</p> <p>Each tag consists of a key and a value, and each key must be unique for the resource. The following restrictions apply to resource tags:</p> <ul> <li> <p>Although the maximum number of array members is 200, you can assign a maximum of 50 user-tags to one resource. The remaining are reserved for Amazon Web Services use</p> </li> <li> <p>The maximum length of a key is 128 characters</p> </li> <li> <p>The maximum length of a value is 256 characters</p> </li> <li> <p>Keys and values can only contain alphanumeric characters, spaces, and any of the following: <code>_.:/=+@-</code> </p> </li> <li> <p>Keys and values are case sensitive</p> </li> <li> <p>Keys and values are trimmed for any leading or trailing whitespaces</p> </li> <li> <p>Don’t use <code>aws:</code> as a prefix for your keys. This prefix is reserved for Amazon Web Services use</p> </li> </ul>
+
+        Raises:
+            aws_sdk_cost_explorer.errors.limit_exceeded_exception.LimitExceededException: <p>You made too many calls in a short period of time. Try again later.</p>
+            aws_sdk_cost_explorer.errors.resource_not_found_exception.ResourceNotFoundException: <p> The specified ARN in the request doesn't exist. </p>
+            aws_sdk_cost_explorer.errors.too_many_tags_exception.TooManyTagsException: <p>Can occur if you specify a number of tags for a resource greater than the maximum 50 user tags per resource.</p>
+            aws_sdk_cost_explorer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3123,6 +3382,11 @@ class AsyncCostExplorerClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource. For a list of supported resources, see <a href=\"https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_ResourceTag.html\">ResourceTag</a>. </p>
             resource_tag_keys: <p>A list of tag keys associated with tags that need to be removed from the resource. If you specify a tag key that doesn't exist, it's ignored. Although the maximum number of array members is 200, user-tag maximum is 50. The remaining are reserved for Amazon Web Services use. </p>
+
+        Raises:
+            aws_sdk_cost_explorer.errors.limit_exceeded_exception.LimitExceededException: <p>You made too many calls in a short period of time. Try again later.</p>
+            aws_sdk_cost_explorer.errors.resource_not_found_exception.ResourceNotFoundException: <p> The specified ARN in the request doesn't exist. </p>
+            aws_sdk_cost_explorer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3166,6 +3430,11 @@ class AsyncCostExplorerClient:
         Args:
             monitor_arn: <p>Cost anomaly monitor Amazon Resource Names (ARNs). </p>
             monitor_name: <p>The new name for the cost anomaly monitor. </p>
+
+        Raises:
+            aws_sdk_cost_explorer.errors.limit_exceeded_exception.LimitExceededException: <p>You made too many calls in a short period of time. Try again later.</p>
+            aws_sdk_cost_explorer.errors.unknown_monitor_exception.UnknownMonitorException: <p>The cost anomaly monitor does not exist for the account. </p>
+            aws_sdk_cost_explorer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3230,6 +3499,12 @@ class AsyncCostExplorerClient:
             subscribers: <p>The update to the subscriber list. </p>
             subscription_name: <p>The new name of the subscription. </p>
             threshold_expression: <p>The update to the <a href=\"https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html\">Expression</a> object used to specify the anomalies that you want to generate alerts for. This supports dimensions and nested expressions. The supported dimensions are <code>ANOMALY_TOTAL_IMPACT_ABSOLUTE</code> and <code>ANOMALY_TOTAL_IMPACT_PERCENTAGE</code>, corresponding to an anomaly’s TotalImpact and TotalImpactPercentage, respectively (see <a href=\"https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Impact.html\">Impact</a> for more details). The supported nested expression types are <code>AND</code> and <code>OR</code>. The match option <code>GREATER_THAN_OR_EQUAL</code> is required. Values must be numbers between 0 and 10,000,000,000 in string format.</p> <p>You can specify either Threshold or ThresholdExpression, but not both.</p> <p>The following are examples of valid ThresholdExpressions:</p> <ul> <li> <p>Absolute threshold: <code>{ \"Dimensions\": { \"Key\": \"ANOMALY_TOTAL_IMPACT_ABSOLUTE\", \"MatchOptions\": [ \"GREATER_THAN_OR_EQUAL\" ], \"Values\": [ \"100\" ] } }</code> </p> </li> <li> <p>Percentage threshold: <code>{ \"Dimensions\": { \"Key\": \"ANOMALY_TOTAL_IMPACT_PERCENTAGE\", \"MatchOptions\": [ \"GREATER_THAN_OR_EQUAL\" ], \"Values\": [ \"100\" ] } }</code> </p> </li> <li> <p> <code>AND</code> two thresholds together: <code>{ \"And\": [ { \"Dimensions\": { \"Key\": \"ANOMALY_TOTAL_IMPACT_ABSOLUTE\", \"MatchOptions\": [ \"GREATER_THAN_OR_EQUAL\" ], \"Values\": [ \"100\" ] } }, { \"Dimensions\": { \"Key\": \"ANOMALY_TOTAL_IMPACT_PERCENTAGE\", \"MatchOptions\": [ \"GREATER_THAN_OR_EQUAL\" ], \"Values\": [ \"100\" ] } } ] }</code> </p> </li> <li> <p> <code>OR</code> two thresholds together: <code>{ \"Or\": [ { \"Dimensions\": { \"Key\": \"ANOMALY_TOTAL_IMPACT_ABSOLUTE\", \"MatchOptions\": [ \"GREATER_THAN_OR_EQUAL\" ], \"Values\": [ \"100\" ] } }, { \"Dimensions\": { \"Key\": \"ANOMALY_TOTAL_IMPACT_PERCENTAGE\", \"MatchOptions\": [ \"GREATER_THAN_OR_EQUAL\" ], \"Values\": [ \"100\" ] } } ] }</code> </p> </li> </ul>
+
+        Raises:
+            aws_sdk_cost_explorer.errors.limit_exceeded_exception.LimitExceededException: <p>You made too many calls in a short period of time. Try again later.</p>
+            aws_sdk_cost_explorer.errors.unknown_monitor_exception.UnknownMonitorException: <p>The cost anomaly monitor does not exist for the account. </p>
+            aws_sdk_cost_explorer.errors.unknown_subscription_exception.UnknownSubscriptionException: <p>The cost anomaly subscription does not exist for the account. </p>
+            aws_sdk_cost_explorer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3280,6 +3555,10 @@ class AsyncCostExplorerClient:
 
         Args:
             cost_allocation_tags_status: <p>The list of <code>CostAllocationTagStatusEntry</code> objects that are used to update cost allocation tags status for this request. </p>
+
+        Raises:
+            aws_sdk_cost_explorer.errors.limit_exceeded_exception.LimitExceededException: <p>You made too many calls in a short period of time. Try again later.</p>
+            aws_sdk_cost_explorer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3332,6 +3611,12 @@ class AsyncCostExplorerClient:
             effective_start: <p>The cost category's effective start date. It can only be a billing start date (first day of the month). If the date isn't provided, it's the first day of the current month. Dates can't be before the previous twelve months, or in the future.</p>
             rules: <p>The <code>Expression</code> object used to categorize costs. For more information, see <a href=\"https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_CostCategoryRule.html\">CostCategoryRule </a>. </p>
             split_charge_rules: <p> The split charge rules used to allocate your charges between your cost category values. </p>
+
+        Raises:
+            aws_sdk_cost_explorer.errors.limit_exceeded_exception.LimitExceededException: <p>You made too many calls in a short period of time. Try again later.</p>
+            aws_sdk_cost_explorer.errors.resource_not_found_exception.ResourceNotFoundException: <p> The specified ARN in the request doesn't exist. </p>
+            aws_sdk_cost_explorer.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p> You've reached the limit on the number of resources you can create, or exceeded the size of an individual resource. </p>
+            aws_sdk_cost_explorer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

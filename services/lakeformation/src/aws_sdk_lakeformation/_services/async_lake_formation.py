@@ -329,6 +329,15 @@ class AsyncLakeFormationClient:
             catalog_id: <p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment. </p>
             resource: <p>The database, table, or column resource to which to attach an LF-tag.</p>
             lf_tags: <p>The LF-tags to attach to the resource.</p>
+
+        Raises:
+            aws_sdk_lakeformation.errors.access_denied_exception.AccessDeniedException: <p>Access to a resource was denied.</p>
+            aws_sdk_lakeformation.errors.concurrent_modification_exception.ConcurrentModificationException: <p>Two processes are trying to modify a resource simultaneously.</p>
+            aws_sdk_lakeformation.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist.</p>
+            aws_sdk_lakeformation.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_lakeformation.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_lakeformation.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_lakeformation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -378,6 +387,14 @@ class AsyncLakeFormationClient:
             role_arn: <p>The role that represents an IAM principal whose scope down policy allows it to call credential vending APIs such as <code>GetTemporaryTableCredentials</code>. The caller must also have iam:PassRole permission on this role. </p>
             principal_arn: <p>The Amazon Resource Name (ARN) of the SAML provider in IAM that describes the IdP.</p>
             duration_seconds: <p>The time period, between 900 and 43,200 seconds, for the timeout of the temporary credentials.</p>
+
+        Raises:
+            aws_sdk_lakeformation.errors.access_denied_exception.AccessDeniedException: <p>Access to a resource was denied.</p>
+            aws_sdk_lakeformation.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist.</p>
+            aws_sdk_lakeformation.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_lakeformation.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_lakeformation.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_lakeformation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -424,6 +441,11 @@ class AsyncLakeFormationClient:
         Args:
             catalog_id: <p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment. </p>
             entries: <p>A list of up to 20 entries for resource permissions to be granted by batch operation to the principal.</p>
+
+        Raises:
+            aws_sdk_lakeformation.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_lakeformation.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_lakeformation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -468,6 +490,11 @@ class AsyncLakeFormationClient:
         Args:
             catalog_id: <p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment. </p>
             entries: <p>A list of up to 20 entries for resource permissions to be revoked by batch operation to the principal.</p>
+
+        Raises:
+            aws_sdk_lakeformation.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_lakeformation.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_lakeformation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -508,6 +535,16 @@ class AsyncLakeFormationClient:
 
         Args:
             transaction_id: <p>The transaction to cancel.</p>
+
+        Raises:
+            aws_sdk_lakeformation.errors.concurrent_modification_exception.ConcurrentModificationException: <p>Two processes are trying to modify a resource simultaneously.</p>
+            aws_sdk_lakeformation.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist.</p>
+            aws_sdk_lakeformation.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_lakeformation.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_lakeformation.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_lakeformation.errors.transaction_commit_in_progress_exception.TransactionCommitInProgressException: <p>Contains details about an error related to a transaction commit that was in progress.</p>
+            aws_sdk_lakeformation.errors.transaction_committed_exception.TransactionCommittedException: <p>Contains details about an error where the specified transaction has already been committed and cannot be used for <code>UpdateTableObjects</code>.</p>
+            aws_sdk_lakeformation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -546,6 +583,15 @@ class AsyncLakeFormationClient:
 
         Args:
             transaction_id: <p>The transaction to commit.</p>
+
+        Raises:
+            aws_sdk_lakeformation.errors.concurrent_modification_exception.ConcurrentModificationException: <p>Two processes are trying to modify a resource simultaneously.</p>
+            aws_sdk_lakeformation.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist.</p>
+            aws_sdk_lakeformation.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_lakeformation.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_lakeformation.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_lakeformation.errors.transaction_canceled_exception.TransactionCanceledException: <p>Contains details about an error related to a transaction that was cancelled.</p>
+            aws_sdk_lakeformation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -584,6 +630,16 @@ class AsyncLakeFormationClient:
 
         Args:
             table_data: <p>A <code>DataCellsFilter</code> structure containing information about the data cells filter.</p>
+
+        Raises:
+            aws_sdk_lakeformation.errors.access_denied_exception.AccessDeniedException: <p>Access to a resource was denied.</p>
+            aws_sdk_lakeformation.errors.already_exists_exception.AlreadyExistsException: <p>A resource to be created or added already exists.</p>
+            aws_sdk_lakeformation.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist.</p>
+            aws_sdk_lakeformation.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_lakeformation.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_lakeformation.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_lakeformation.errors.resource_number_limit_exceeded_exception.ResourceNumberLimitExceededException: <p>A resource numerical limit was exceeded.</p>
+            aws_sdk_lakeformation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -640,6 +696,15 @@ class AsyncLakeFormationClient:
             external_filtering: <p>A list of the account IDs of Amazon Web Services accounts of third-party applications that are allowed to access data managed by Lake Formation.</p>
             share_recipients: <p>A list of Amazon Web Services account IDs and/or Amazon Web Services organization/organizational unit ARNs that are allowed to access data managed by Lake Formation. </p> <p>If the <code>ShareRecipients</code> list includes valid values, a resource share is created with the principals you want to have access to the resources.</p> <p>If the <code>ShareRecipients</code> value is null or the list is empty, no resource share is created.</p>
             service_integrations: <p>A list of service integrations for enabling trusted identity propagation with external services such as Redshift.</p>
+
+        Raises:
+            aws_sdk_lakeformation.errors.access_denied_exception.AccessDeniedException: <p>Access to a resource was denied.</p>
+            aws_sdk_lakeformation.errors.already_exists_exception.AlreadyExistsException: <p>A resource to be created or added already exists.</p>
+            aws_sdk_lakeformation.errors.concurrent_modification_exception.ConcurrentModificationException: <p>Two processes are trying to modify a resource simultaneously.</p>
+            aws_sdk_lakeformation.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_lakeformation.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_lakeformation.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_lakeformation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -685,7 +750,18 @@ class AsyncLakeFormationClient:
         config_overrides: Optional[AsyncLakeFormationClientConfig] = None,
         condition: Optional["aws_sdk_lakeformation.types.condition.Condition"] = None,
     ) -> "aws_sdk_lakeformation.types.create_lake_formation_opt_in_response.CreateLakeFormationOptInResponse":
-        """<p>Enforce Lake Formation permissions for the given databases, tables, and principals.</p>"""
+        """<p>Enforce Lake Formation permissions for the given databases, tables, and principals.</p>
+
+        Raises:
+            aws_sdk_lakeformation.errors.access_denied_exception.AccessDeniedException: <p>Access to a resource was denied.</p>
+            aws_sdk_lakeformation.errors.concurrent_modification_exception.ConcurrentModificationException: <p>Two processes are trying to modify a resource simultaneously.</p>
+            aws_sdk_lakeformation.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist.</p>
+            aws_sdk_lakeformation.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_lakeformation.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_lakeformation.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_lakeformation.errors.resource_number_limit_exceeded_exception.ResourceNumberLimitExceededException: <p>A resource numerical limit was exceeded.</p>
+            aws_sdk_lakeformation.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_lakeformation.types.create_lake_formation_opt_in_request.CreateLakeFormationOptInRequest]",
@@ -732,6 +808,15 @@ class AsyncLakeFormationClient:
             catalog_id: <p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment. </p>
             tag_key: <p>The key-name for the LF-tag.</p>
             tag_values: <p>A list of possible values an attribute can take.</p>
+
+        Raises:
+            aws_sdk_lakeformation.errors.access_denied_exception.AccessDeniedException: <p>Access to a resource was denied.</p>
+            aws_sdk_lakeformation.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist.</p>
+            aws_sdk_lakeformation.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_lakeformation.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_lakeformation.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_lakeformation.errors.resource_number_limit_exceeded_exception.ResourceNumberLimitExceededException: <p>A resource numerical limit was exceeded.</p>
+            aws_sdk_lakeformation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -783,6 +868,15 @@ class AsyncLakeFormationClient:
             description: <p>A description with information about the LF-Tag expression.</p>
             catalog_id: <p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment. </p>
             expression: <p>A list of LF-Tag conditions (key-value pairs).</p>
+
+        Raises:
+            aws_sdk_lakeformation.errors.access_denied_exception.AccessDeniedException: <p>Access to a resource was denied.</p>
+            aws_sdk_lakeformation.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist.</p>
+            aws_sdk_lakeformation.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_lakeformation.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_lakeformation.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_lakeformation.errors.resource_number_limit_exceeded_exception.ResourceNumberLimitExceededException: <p>A resource numerical limit was exceeded.</p>
+            aws_sdk_lakeformation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -838,6 +932,14 @@ class AsyncLakeFormationClient:
             database_name: <p>A database in the Glue Data Catalog.</p>
             table_name: <p>A table in the database.</p>
             name: <p>The name given by the user to the data filter cell.</p>
+
+        Raises:
+            aws_sdk_lakeformation.errors.access_denied_exception.AccessDeniedException: <p>Access to a resource was denied.</p>
+            aws_sdk_lakeformation.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist.</p>
+            aws_sdk_lakeformation.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_lakeformation.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_lakeformation.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_lakeformation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -885,6 +987,15 @@ class AsyncLakeFormationClient:
 
         Args:
             catalog_id: <p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, view definition, and other control information to manage your Lake Formation environment.</p>
+
+        Raises:
+            aws_sdk_lakeformation.errors.access_denied_exception.AccessDeniedException: <p>Access to a resource was denied.</p>
+            aws_sdk_lakeformation.errors.concurrent_modification_exception.ConcurrentModificationException: <p>Two processes are trying to modify a resource simultaneously.</p>
+            aws_sdk_lakeformation.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist.</p>
+            aws_sdk_lakeformation.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_lakeformation.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_lakeformation.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_lakeformation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -922,7 +1033,17 @@ class AsyncLakeFormationClient:
         config_overrides: Optional[AsyncLakeFormationClientConfig] = None,
         condition: Optional["aws_sdk_lakeformation.types.condition.Condition"] = None,
     ) -> "aws_sdk_lakeformation.types.delete_lake_formation_opt_in_response.DeleteLakeFormationOptInResponse":
-        """<p>Remove the Lake Formation permissions enforcement of the given databases, tables, and principals.</p>"""
+        """<p>Remove the Lake Formation permissions enforcement of the given databases, tables, and principals.</p>
+
+        Raises:
+            aws_sdk_lakeformation.errors.access_denied_exception.AccessDeniedException: <p>Access to a resource was denied.</p>
+            aws_sdk_lakeformation.errors.concurrent_modification_exception.ConcurrentModificationException: <p>Two processes are trying to modify a resource simultaneously.</p>
+            aws_sdk_lakeformation.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist.</p>
+            aws_sdk_lakeformation.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_lakeformation.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_lakeformation.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_lakeformation.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_lakeformation.types.delete_lake_formation_opt_in_request.DeleteLakeFormationOptInRequest]",
@@ -967,6 +1088,14 @@ class AsyncLakeFormationClient:
         Args:
             catalog_id: <p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment. </p>
             tag_key: <p>The key-name for the LF-tag to delete.</p>
+
+        Raises:
+            aws_sdk_lakeformation.errors.access_denied_exception.AccessDeniedException: <p>Access to a resource was denied.</p>
+            aws_sdk_lakeformation.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist.</p>
+            aws_sdk_lakeformation.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_lakeformation.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_lakeformation.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_lakeformation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1011,6 +1140,14 @@ class AsyncLakeFormationClient:
         Args:
             name: <p>The name for the LF-Tag expression.</p>
             catalog_id: <p>The identifier for the Data Catalog. By default, the account ID in which the LF-Tag expression is saved. </p>
+
+        Raises:
+            aws_sdk_lakeformation.errors.access_denied_exception.AccessDeniedException: <p>Access to a resource was denied.</p>
+            aws_sdk_lakeformation.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist.</p>
+            aws_sdk_lakeformation.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_lakeformation.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_lakeformation.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_lakeformation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1061,6 +1198,17 @@ class AsyncLakeFormationClient:
             table_name: <p>The name of the governed table.</p>
             transaction_id: <p>ID of the transaction that the writes occur in.</p>
             objects: <p>A list of VirtualObject structures, which indicates the Amazon S3 objects to be deleted if the transaction cancels.</p>
+
+        Raises:
+            aws_sdk_lakeformation.errors.concurrent_modification_exception.ConcurrentModificationException: <p>Two processes are trying to modify a resource simultaneously.</p>
+            aws_sdk_lakeformation.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist.</p>
+            aws_sdk_lakeformation.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_lakeformation.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_lakeformation.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_lakeformation.errors.resource_not_ready_exception.ResourceNotReadyException: <p>Contains details about an error related to a resource which is not ready for a transaction.</p>
+            aws_sdk_lakeformation.errors.transaction_canceled_exception.TransactionCanceledException: <p>Contains details about an error related to a transaction that was cancelled.</p>
+            aws_sdk_lakeformation.errors.transaction_committed_exception.TransactionCommittedException: <p>Contains details about an error where the specified transaction has already been committed and cannot be used for <code>UpdateTableObjects</code>.</p>
+            aws_sdk_lakeformation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1104,6 +1252,13 @@ class AsyncLakeFormationClient:
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource that you want to deregister.</p>
+
+        Raises:
+            aws_sdk_lakeformation.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist.</p>
+            aws_sdk_lakeformation.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_lakeformation.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_lakeformation.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_lakeformation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1144,6 +1299,14 @@ class AsyncLakeFormationClient:
 
         Args:
             catalog_id: <p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.</p>
+
+        Raises:
+            aws_sdk_lakeformation.errors.access_denied_exception.AccessDeniedException: <p>Access to a resource was denied.</p>
+            aws_sdk_lakeformation.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist.</p>
+            aws_sdk_lakeformation.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_lakeformation.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_lakeformation.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_lakeformation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1183,6 +1346,13 @@ class AsyncLakeFormationClient:
 
         Args:
             resource_arn: <p>The resource ARN.</p>
+
+        Raises:
+            aws_sdk_lakeformation.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist.</p>
+            aws_sdk_lakeformation.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_lakeformation.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_lakeformation.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_lakeformation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1221,6 +1391,13 @@ class AsyncLakeFormationClient:
 
         Args:
             transaction_id: <p>The transaction for which to return status.</p>
+
+        Raises:
+            aws_sdk_lakeformation.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist.</p>
+            aws_sdk_lakeformation.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_lakeformation.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_lakeformation.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_lakeformation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1261,6 +1438,16 @@ class AsyncLakeFormationClient:
 
         Args:
             transaction_id: <p>The transaction to extend.</p>
+
+        Raises:
+            aws_sdk_lakeformation.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist.</p>
+            aws_sdk_lakeformation.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_lakeformation.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_lakeformation.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_lakeformation.errors.transaction_canceled_exception.TransactionCanceledException: <p>Contains details about an error related to a transaction that was cancelled.</p>
+            aws_sdk_lakeformation.errors.transaction_commit_in_progress_exception.TransactionCommitInProgressException: <p>Contains details about an error related to a transaction commit that was in progress.</p>
+            aws_sdk_lakeformation.errors.transaction_committed_exception.TransactionCommittedException: <p>Contains details about an error where the specified transaction has already been committed and cannot be used for <code>UpdateTableObjects</code>.</p>
+            aws_sdk_lakeformation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1306,6 +1493,14 @@ class AsyncLakeFormationClient:
             database_name: <p>A database in the Glue Data Catalog.</p>
             table_name: <p>A table in the database.</p>
             name: <p>The name given by the user to the data filter cell.</p>
+
+        Raises:
+            aws_sdk_lakeformation.errors.access_denied_exception.AccessDeniedException: <p>Access to a resource was denied.</p>
+            aws_sdk_lakeformation.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist.</p>
+            aws_sdk_lakeformation.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_lakeformation.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_lakeformation.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_lakeformation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1340,7 +1535,14 @@ class AsyncLakeFormationClient:
     async def get_data_lake_principal(
         self, *, config_overrides: Optional[AsyncLakeFormationClientConfig] = None
     ) -> "aws_sdk_lakeformation.types.get_data_lake_principal_response.GetDataLakePrincipalResponse":
-        """<p>Returns the identity of the invoking principal.</p>"""
+        """<p>Returns the identity of the invoking principal.</p>
+
+        Raises:
+            aws_sdk_lakeformation.errors.access_denied_exception.AccessDeniedException: <p>Access to a resource was denied.</p>
+            aws_sdk_lakeformation.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_lakeformation.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_lakeformation.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_lakeformation.types.get_data_lake_principal_request.GetDataLakePrincipalRequest]",
@@ -1379,6 +1581,12 @@ class AsyncLakeFormationClient:
 
         Args:
             catalog_id: <p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment. </p>
+
+        Raises:
+            aws_sdk_lakeformation.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist.</p>
+            aws_sdk_lakeformation.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_lakeformation.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_lakeformation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1426,6 +1634,13 @@ class AsyncLakeFormationClient:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource for which you want to get permissions.</p>
             next_token: <p>A continuation token, if this is not the first call to retrieve this list.</p>
             max_results: <p>The maximum number of results to return.</p>
+
+        Raises:
+            aws_sdk_lakeformation.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist.</p>
+            aws_sdk_lakeformation.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_lakeformation.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_lakeformation.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_lakeformation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1474,6 +1689,14 @@ class AsyncLakeFormationClient:
         Args:
             catalog_id: <p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment. </p>
             tag_key: <p>The key-name for the LF-tag.</p>
+
+        Raises:
+            aws_sdk_lakeformation.errors.access_denied_exception.AccessDeniedException: <p>Access to a resource was denied.</p>
+            aws_sdk_lakeformation.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist.</p>
+            aws_sdk_lakeformation.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_lakeformation.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_lakeformation.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_lakeformation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1518,6 +1741,14 @@ class AsyncLakeFormationClient:
         Args:
             name: <p>The name for the LF-Tag expression</p>
             catalog_id: <p>The identifier for the Data Catalog. By default, the account ID.</p>
+
+        Raises:
+            aws_sdk_lakeformation.errors.access_denied_exception.AccessDeniedException: <p>Access to a resource was denied.</p>
+            aws_sdk_lakeformation.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist.</p>
+            aws_sdk_lakeformation.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_lakeformation.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_lakeformation.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_lakeformation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1558,6 +1789,12 @@ class AsyncLakeFormationClient:
 
         Args:
             query_id: <p>The ID of the plan query operation.</p>
+
+        Raises:
+            aws_sdk_lakeformation.errors.access_denied_exception.AccessDeniedException: <p>Access to a resource was denied.</p>
+            aws_sdk_lakeformation.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_lakeformation.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_lakeformation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1596,6 +1833,15 @@ class AsyncLakeFormationClient:
 
         Args:
             query_id: <p>The ID of the plan query operation.</p>
+
+        Raises:
+            aws_sdk_lakeformation.errors.access_denied_exception.AccessDeniedException: <p>Access to a resource was denied.</p>
+            aws_sdk_lakeformation.errors.expired_exception.ExpiredException: <p>Contains details about an error where the query request expired.</p>
+            aws_sdk_lakeformation.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_lakeformation.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_lakeformation.errors.statistics_not_ready_yet_exception.StatisticsNotReadyYetException: <p>Contains details about an error related to statistics not being ready.</p>
+            aws_sdk_lakeformation.errors.throttled_exception.ThrottledException: <p>Contains details about an error where the query request was throttled.</p>
+            aws_sdk_lakeformation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1642,6 +1888,15 @@ class AsyncLakeFormationClient:
             catalog_id: <p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment. </p>
             resource: <p>The database, table, or column resource for which you want to return LF-tags.</p>
             show_assigned_lf_tags: <p>Indicates whether to show the assigned LF-tags.</p>
+
+        Raises:
+            aws_sdk_lakeformation.errors.access_denied_exception.AccessDeniedException: <p>Access to a resource was denied.</p>
+            aws_sdk_lakeformation.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist.</p>
+            aws_sdk_lakeformation.errors.glue_encryption_exception.GlueEncryptionException: <p>An encryption operation failed.</p>
+            aws_sdk_lakeformation.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_lakeformation.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_lakeformation.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_lakeformation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1710,6 +1965,16 @@ class AsyncLakeFormationClient:
             partition_predicate: <p>A predicate to filter the objects returned based on the partition keys defined in the governed table.</p> <ul> <li> <p>The comparison operators supported are: =, >, <, >=, <=</p> </li> <li> <p>The logical operators supported are: AND</p> </li> <li> <p>The data types supported are integer, long, date(yyyy-MM-dd), timestamp(yyyy-MM-dd HH:mm:ssXXX or yyyy-MM-dd HH:mm:ss\"), string and decimal.</p> </li> </ul>
             max_results: <p>Specifies how many values to return in a page.</p>
             next_token: <p>A continuation token if this is not the first call to retrieve these objects.</p>
+
+        Raises:
+            aws_sdk_lakeformation.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist.</p>
+            aws_sdk_lakeformation.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_lakeformation.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_lakeformation.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_lakeformation.errors.resource_not_ready_exception.ResourceNotReadyException: <p>Contains details about an error related to a resource which is not ready for a transaction.</p>
+            aws_sdk_lakeformation.errors.transaction_canceled_exception.TransactionCanceledException: <p>Contains details about an error related to a transaction that was cancelled.</p>
+            aws_sdk_lakeformation.errors.transaction_committed_exception.TransactionCommittedException: <p>Contains details about an error where the specified transaction has already been committed and cannot be used for <code>UpdateTableObjects</code>.</p>
+            aws_sdk_lakeformation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1774,6 +2039,16 @@ class AsyncLakeFormationClient:
             duration_seconds: <p>The time period, between 900 and 43,200 seconds, for the timeout of the temporary credentials.</p>
             data_locations: <p>The Amazon S3 data location that you want to access.</p>
             credentials_scope: <p>The credential scope is determined by the caller's Lake Formation permission on the associated table. Credential scope can be either:</p> <ul> <li> <p>READ - Provides read-only access to the data location.</p> </li> <li> <p>READ_WRITE - Provides both read and write access to the data location.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_lakeformation.errors.access_denied_exception.AccessDeniedException: <p>Access to a resource was denied.</p>
+            aws_sdk_lakeformation.errors.conflict_exception.ConflictException: <p>Multiple resources exist with the same Amazon S3 location</p>
+            aws_sdk_lakeformation.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist.</p>
+            aws_sdk_lakeformation.errors.glue_encryption_exception.GlueEncryptionException: <p>An encryption operation failed.</p>
+            aws_sdk_lakeformation.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_lakeformation.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_lakeformation.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_lakeformation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1837,6 +2112,15 @@ class AsyncLakeFormationClient:
             duration_seconds: <p>The time period, between 900 and 21,600 seconds, for the timeout of the temporary credentials.</p>
             audit_context: <p>A structure representing context to access a resource (column names, query ID, etc).</p>
             supported_permission_types: <p>A list of supported permission types for the partition. Valid values are <code>COLUMN_PERMISSION</code> and <code>CELL_FILTER_PERMISSION</code>.</p>
+
+        Raises:
+            aws_sdk_lakeformation.errors.access_denied_exception.AccessDeniedException: <p>Access to a resource was denied.</p>
+            aws_sdk_lakeformation.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist.</p>
+            aws_sdk_lakeformation.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_lakeformation.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_lakeformation.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_lakeformation.errors.permission_type_mismatch_exception.PermissionTypeMismatchException: <p>The engine does not support filtering data based on the enforced permissions. For example, if you call the <code>GetTemporaryGlueTableCredentials</code> operation with <code>SupportedPermissionType</code> equal to <code>ColumnPermission</code>, but cell-level permissions exist on the table, this exception is thrown.</p>
+            aws_sdk_lakeformation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1906,6 +2190,15 @@ class AsyncLakeFormationClient:
             supported_permission_types: <p>A list of supported permission types for the table. Valid values are <code>COLUMN_PERMISSION</code> and <code>CELL_FILTER_PERMISSION</code>.</p>
             s3_path: <p>The Amazon S3 path for the table.</p>
             query_session_context: <p>A structure used as a protocol between query engines and Lake Formation or Glue. Contains both a Lake Formation generated authorization identifier and information from the request's authorization context.</p>
+
+        Raises:
+            aws_sdk_lakeformation.errors.access_denied_exception.AccessDeniedException: <p>Access to a resource was denied.</p>
+            aws_sdk_lakeformation.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist.</p>
+            aws_sdk_lakeformation.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_lakeformation.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_lakeformation.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_lakeformation.errors.permission_type_mismatch_exception.PermissionTypeMismatchException: <p>The engine does not support filtering data based on the enforced permissions. For example, if you call the <code>GetTemporaryGlueTableCredentials</code> operation with <code>SupportedPermissionType</code> equal to <code>ColumnPermission</code>, but cell-level permissions exist on the table, this exception is thrown.</p>
+            aws_sdk_lakeformation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1961,6 +2254,14 @@ class AsyncLakeFormationClient:
             query_id: <p>The ID of the plan query operation for which to get results.</p>
             work_unit_id: <p>The work unit ID for which to get results. Value generated by enumerating <code>WorkUnitIdMin</code> to <code>WorkUnitIdMax</code> (inclusive) from the <code>WorkUnitRange</code> in the output of <code>GetWorkUnits</code>.</p>
             work_unit_token: <p>A work token used to query the execution service. Token output from <code>GetWorkUnits</code>.</p>
+
+        Raises:
+            aws_sdk_lakeformation.errors.access_denied_exception.AccessDeniedException: <p>Access to a resource was denied.</p>
+            aws_sdk_lakeformation.errors.expired_exception.ExpiredException: <p>Contains details about an error where the query request expired.</p>
+            aws_sdk_lakeformation.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_lakeformation.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_lakeformation.errors.throttled_exception.ThrottledException: <p>Contains details about an error where the query request was throttled.</p>
+            aws_sdk_lakeformation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2005,6 +2306,14 @@ class AsyncLakeFormationClient:
             next_token: <p>A continuation token, if this is a continuation call.</p>
             page_size: <p>The size of each page to get in the Amazon Web Services service call. This does not affect the number of items returned in the command's output. Setting a smaller page size results in more calls to the Amazon Web Services service, retrieving fewer items in each call. This can help prevent the Amazon Web Services service calls from timing out.</p>
             query_id: <p>The ID of the plan query operation.</p>
+
+        Raises:
+            aws_sdk_lakeformation.errors.access_denied_exception.AccessDeniedException: <p>Access to a resource was denied.</p>
+            aws_sdk_lakeformation.errors.expired_exception.ExpiredException: <p>Contains details about an error where the query request expired.</p>
+            aws_sdk_lakeformation.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_lakeformation.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_lakeformation.errors.work_units_not_ready_yet_exception.WorkUnitsNotReadyYetException: <p>Contains details about an error related to work units not being ready.</p>
+            aws_sdk_lakeformation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2083,6 +2392,12 @@ class AsyncLakeFormationClient:
             resource: <p>The resource to which permissions are to be granted. Resources in Lake Formation are the Data Catalog, databases, and tables.</p>
             permissions: <p>The permissions granted to the principal on the resource. Lake Formation defines privileges to grant and revoke access to metadata in the Data Catalog and data organized in underlying data storage such as Amazon S3. Lake Formation requires that each principal be authorized to perform a specific task on Lake Formation resources. </p>
             permissions_with_grant_option: <p>Indicates a list of the granted permissions that the principal may pass to other users. These permissions may only be a subset of the permissions granted in the <code>Privileges</code>.</p>
+
+        Raises:
+            aws_sdk_lakeformation.errors.concurrent_modification_exception.ConcurrentModificationException: <p>Two processes are trying to modify a resource simultaneously.</p>
+            aws_sdk_lakeformation.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist.</p>
+            aws_sdk_lakeformation.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_lakeformation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2135,6 +2450,13 @@ class AsyncLakeFormationClient:
             table: <p>A table in the Glue Data Catalog.</p>
             next_token: <p>A continuation token, if this is a continuation call.</p>
             max_results: <p>The maximum size of the response.</p>
+
+        Raises:
+            aws_sdk_lakeformation.errors.access_denied_exception.AccessDeniedException: <p>Access to a resource was denied.</p>
+            aws_sdk_lakeformation.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_lakeformation.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_lakeformation.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_lakeformation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2210,6 +2532,13 @@ class AsyncLakeFormationClient:
             resource: <p>A structure for the resource.</p>
             max_results: <p>The maximum number of results to return.</p>
             next_token: <p>A continuation token, if this is not the first call to retrieve this list.</p>
+
+        Raises:
+            aws_sdk_lakeformation.errors.access_denied_exception.AccessDeniedException: <p>Access to a resource was denied.</p>
+            aws_sdk_lakeformation.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_lakeformation.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_lakeformation.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_lakeformation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2261,6 +2590,14 @@ class AsyncLakeFormationClient:
             catalog_id: <p>The identifier for the Data Catalog. By default, the account ID. </p>
             max_results: <p>The maximum number of results to return.</p>
             next_token: <p>A continuation token, if this is not the first call to retrieve this list.</p>
+
+        Raises:
+            aws_sdk_lakeformation.errors.access_denied_exception.AccessDeniedException: <p>Access to a resource was denied.</p>
+            aws_sdk_lakeformation.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist.</p>
+            aws_sdk_lakeformation.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_lakeformation.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_lakeformation.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_lakeformation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2339,6 +2676,14 @@ class AsyncLakeFormationClient:
             resource_share_type: <p>If resource share type is <code>ALL</code>, returns both in-account LF-tags and shared LF-tags that the requester has permission to view. If resource share type is <code>FOREIGN</code>, returns all share LF-tags that the requester can view. If no resource share type is passed, lists LF-tags in the given catalog ID that the requester has permission to view.</p>
             max_results: <p>The maximum number of results to return.</p>
             next_token: <p>A continuation token, if this is not the first call to retrieve this list.</p>
+
+        Raises:
+            aws_sdk_lakeformation.errors.access_denied_exception.AccessDeniedException: <p>Access to a resource was denied.</p>
+            aws_sdk_lakeformation.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist.</p>
+            aws_sdk_lakeformation.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_lakeformation.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_lakeformation.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_lakeformation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2435,6 +2780,12 @@ class AsyncLakeFormationClient:
             next_token: <p>A continuation token, if this is not the first call to retrieve this list.</p>
             max_results: <p>The maximum number of results to return.</p>
             include_related: <p>Indicates that related permissions should be included in the results when listing permissions on a table resource.</p> <p>Set the field to <code>TRUE</code> to show the cell filters on a table resource. Default is <code>FALSE</code>. The Principal parameter must not be specified when requesting cell filter information.</p>
+
+        Raises:
+            aws_sdk_lakeformation.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_lakeformation.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_lakeformation.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_lakeformation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2492,6 +2843,12 @@ class AsyncLakeFormationClient:
             filter_condition_list: <p>Any applicable row-level and/or column-level filtering conditions for the resources.</p>
             max_results: <p>The maximum number of resource results.</p>
             next_token: <p>A continuation token, if this is not the first call to retrieve these resources.</p>
+
+        Raises:
+            aws_sdk_lakeformation.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_lakeformation.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_lakeformation.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_lakeformation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2549,6 +2906,13 @@ class AsyncLakeFormationClient:
             storage_optimizer_type: <p>The specific type of storage optimizers to list. The supported value is <code>compaction</code>.</p>
             max_results: <p>The number of storage optimizers to return on each call.</p>
             next_token: <p>A continuation token, if this is a continuation call.</p>
+
+        Raises:
+            aws_sdk_lakeformation.errors.access_denied_exception.AccessDeniedException: <p>Access to a resource was denied.</p>
+            aws_sdk_lakeformation.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist.</p>
+            aws_sdk_lakeformation.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_lakeformation.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_lakeformation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2608,6 +2972,12 @@ class AsyncLakeFormationClient:
             status_filter: <p> A filter indicating the status of transactions to return. Options are ALL | COMPLETED | COMMITTED | ABORTED | ACTIVE. The default is <code>ALL</code>.</p>
             max_results: <p>The maximum number of transactions to return in a single call.</p>
             next_token: <p>A continuation token if this is not the first call to retrieve transactions.</p>
+
+        Raises:
+            aws_sdk_lakeformation.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_lakeformation.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_lakeformation.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_lakeformation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2657,6 +3027,11 @@ class AsyncLakeFormationClient:
         Args:
             catalog_id: <p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment. </p>
             data_lake_settings: <p>A structure representing a list of Lake Formation principals designated as data lake administrators.</p>
+
+        Raises:
+            aws_sdk_lakeformation.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_lakeformation.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_lakeformation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2721,6 +3096,16 @@ class AsyncLakeFormationClient:
             hybrid_access_enabled: <p> Specifies whether the data access of tables pointing to the location can be managed by both Lake Formation permissions as well as Amazon S3 bucket policies. </p>
             with_privileged_access: <p>Grants the calling principal the permissions to perform all supported Lake Formation operations on the registered data location. </p>
             expected_resource_owner_account: <p>The Amazon Web Services account that owns the Glue tables associated with specific Amazon S3 locations. </p>
+
+        Raises:
+            aws_sdk_lakeformation.errors.access_denied_exception.AccessDeniedException: <p>Access to a resource was denied.</p>
+            aws_sdk_lakeformation.errors.already_exists_exception.AlreadyExistsException: <p>A resource to be created or added already exists.</p>
+            aws_sdk_lakeformation.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist.</p>
+            aws_sdk_lakeformation.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_lakeformation.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_lakeformation.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_lakeformation.errors.resource_number_limit_exceeded_exception.ResourceNumberLimitExceededException: <p>A resource numerical limit was exceeded.</p>
+            aws_sdk_lakeformation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2777,6 +3162,16 @@ class AsyncLakeFormationClient:
             catalog_id: <p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment. </p>
             resource: <p>The database, table, or column resource where you want to remove an LF-tag.</p>
             lf_tags: <p>The LF-tags to be removed from the resource.</p>
+
+        Raises:
+            aws_sdk_lakeformation.errors.access_denied_exception.AccessDeniedException: <p>Access to a resource was denied.</p>
+            aws_sdk_lakeformation.errors.concurrent_modification_exception.ConcurrentModificationException: <p>Two processes are trying to modify a resource simultaneously.</p>
+            aws_sdk_lakeformation.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist.</p>
+            aws_sdk_lakeformation.errors.glue_encryption_exception.GlueEncryptionException: <p>An encryption operation failed.</p>
+            aws_sdk_lakeformation.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_lakeformation.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_lakeformation.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_lakeformation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2831,6 +3226,12 @@ class AsyncLakeFormationClient:
             resource: <p>The resource to which permissions are to be revoked.</p>
             permissions: <p>The permissions revoked to the principal on the resource. For information about permissions, see <a href=\"https://docs.aws.amazon.com/lake-formation/latest/dg/security-data-access.html\">Security and Access Control to Metadata and Data</a>.</p>
             permissions_with_grant_option: <p>Indicates a list of permissions for which to revoke the grant option allowing the principal to pass permissions to other principals.</p>
+
+        Raises:
+            aws_sdk_lakeformation.errors.concurrent_modification_exception.ConcurrentModificationException: <p>Two processes are trying to modify a resource simultaneously.</p>
+            aws_sdk_lakeformation.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist.</p>
+            aws_sdk_lakeformation.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_lakeformation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2887,6 +3288,15 @@ class AsyncLakeFormationClient:
             max_results: <p>The maximum number of results to return.</p>
             catalog_id: <p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment. </p>
             expression: <p>A list of conditions (<code>LFTag</code> structures) to search for in database resources.</p>
+
+        Raises:
+            aws_sdk_lakeformation.errors.access_denied_exception.AccessDeniedException: <p>Access to a resource was denied.</p>
+            aws_sdk_lakeformation.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist.</p>
+            aws_sdk_lakeformation.errors.glue_encryption_exception.GlueEncryptionException: <p>An encryption operation failed.</p>
+            aws_sdk_lakeformation.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_lakeformation.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_lakeformation.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_lakeformation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2970,6 +3380,15 @@ class AsyncLakeFormationClient:
             max_results: <p>The maximum number of results to return.</p>
             catalog_id: <p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment. </p>
             expression: <p>A list of conditions (<code>LFTag</code> structures) to search for in table resources.</p>
+
+        Raises:
+            aws_sdk_lakeformation.errors.access_denied_exception.AccessDeniedException: <p>Access to a resource was denied.</p>
+            aws_sdk_lakeformation.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist.</p>
+            aws_sdk_lakeformation.errors.glue_encryption_exception.GlueEncryptionException: <p>An encryption operation failed.</p>
+            aws_sdk_lakeformation.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_lakeformation.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_lakeformation.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_lakeformation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3045,6 +3464,13 @@ class AsyncLakeFormationClient:
         Args:
             query_planning_context: <p>A structure containing information about the query plan.</p>
             query_string: <p>A PartiQL query statement used as an input to the planner service.</p>
+
+        Raises:
+            aws_sdk_lakeformation.errors.access_denied_exception.AccessDeniedException: <p>Access to a resource was denied.</p>
+            aws_sdk_lakeformation.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_lakeformation.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_lakeformation.errors.throttled_exception.ThrottledException: <p>Contains details about an error where the query request was throttled.</p>
+            aws_sdk_lakeformation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3086,6 +3512,11 @@ class AsyncLakeFormationClient:
 
         Args:
             transaction_type: <p>Indicates whether this transaction should be read only or read and write. Writes made using a read-only transaction ID will be rejected. Read-only transactions do not need to be committed. </p>
+
+        Raises:
+            aws_sdk_lakeformation.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_lakeformation.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_lakeformation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3125,6 +3556,15 @@ class AsyncLakeFormationClient:
 
         Args:
             table_data: <p>A <code>DataCellsFilter</code> structure containing information about the data cells filter.</p>
+
+        Raises:
+            aws_sdk_lakeformation.errors.access_denied_exception.AccessDeniedException: <p>Access to a resource was denied.</p>
+            aws_sdk_lakeformation.errors.concurrent_modification_exception.ConcurrentModificationException: <p>Two processes are trying to modify a resource simultaneously.</p>
+            aws_sdk_lakeformation.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist.</p>
+            aws_sdk_lakeformation.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_lakeformation.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_lakeformation.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_lakeformation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3181,6 +3621,15 @@ class AsyncLakeFormationClient:
             service_integrations: <p>A list of service integrations for enabling trusted identity propagation with external services such as Redshift.</p>
             application_status: <p>Allows to enable or disable the IAM Identity Center connection.</p>
             external_filtering: <p>A list of the account IDs of Amazon Web Services accounts of third-party applications that are allowed to access data managed by Lake Formation.</p>
+
+        Raises:
+            aws_sdk_lakeformation.errors.access_denied_exception.AccessDeniedException: <p>Access to a resource was denied.</p>
+            aws_sdk_lakeformation.errors.concurrent_modification_exception.ConcurrentModificationException: <p>Two processes are trying to modify a resource simultaneously.</p>
+            aws_sdk_lakeformation.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist.</p>
+            aws_sdk_lakeformation.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_lakeformation.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_lakeformation.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_lakeformation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3240,6 +3689,15 @@ class AsyncLakeFormationClient:
             tag_key: <p>The key-name for the LF-tag for which to add or delete values.</p>
             tag_values_to_delete: <p>A list of LF-tag values to delete from the LF-tag.</p>
             tag_values_to_add: <p>A list of LF-tag values to add from the LF-tag.</p>
+
+        Raises:
+            aws_sdk_lakeformation.errors.access_denied_exception.AccessDeniedException: <p>Access to a resource was denied.</p>
+            aws_sdk_lakeformation.errors.concurrent_modification_exception.ConcurrentModificationException: <p>Two processes are trying to modify a resource simultaneously.</p>
+            aws_sdk_lakeformation.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist.</p>
+            aws_sdk_lakeformation.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_lakeformation.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_lakeformation.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_lakeformation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3294,6 +3752,15 @@ class AsyncLakeFormationClient:
             description: <p>The description with information about the saved LF-Tag expression.</p>
             catalog_id: <p>The identifier for the Data Catalog. By default, the account ID. </p>
             expression: <p>The LF-Tag expression body composed of one more LF-Tag key-value pairs.</p>
+
+        Raises:
+            aws_sdk_lakeformation.errors.access_denied_exception.AccessDeniedException: <p>Access to a resource was denied.</p>
+            aws_sdk_lakeformation.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist.</p>
+            aws_sdk_lakeformation.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_lakeformation.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_lakeformation.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_lakeformation.errors.resource_number_limit_exceeded_exception.ResourceNumberLimitExceededException: <p>A resource numerical limit was exceeded.</p>
+            aws_sdk_lakeformation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3351,6 +3818,13 @@ class AsyncLakeFormationClient:
             with_federation: <p>Whether or not the resource is a federated resource.</p>
             hybrid_access_enabled: <p> Specifies whether the data access of tables pointing to the location can be managed by both Lake Formation permissions as well as Amazon S3 bucket policies. </p>
             expected_resource_owner_account: <p>The Amazon Web Services account that owns the Glue tables associated with specific Amazon S3 locations. </p>
+
+        Raises:
+            aws_sdk_lakeformation.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist.</p>
+            aws_sdk_lakeformation.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_lakeformation.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_lakeformation.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_lakeformation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3408,6 +3882,18 @@ class AsyncLakeFormationClient:
             table_name: <p>The governed table to update.</p>
             transaction_id: <p>The transaction at which to do the write.</p>
             write_operations: <p>A list of <code>WriteOperation</code> objects that define an object to add to or delete from the manifest for a governed table.</p>
+
+        Raises:
+            aws_sdk_lakeformation.errors.concurrent_modification_exception.ConcurrentModificationException: <p>Two processes are trying to modify a resource simultaneously.</p>
+            aws_sdk_lakeformation.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist.</p>
+            aws_sdk_lakeformation.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_lakeformation.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_lakeformation.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_lakeformation.errors.resource_not_ready_exception.ResourceNotReadyException: <p>Contains details about an error related to a resource which is not ready for a transaction.</p>
+            aws_sdk_lakeformation.errors.transaction_canceled_exception.TransactionCanceledException: <p>Contains details about an error related to a transaction that was cancelled.</p>
+            aws_sdk_lakeformation.errors.transaction_commit_in_progress_exception.TransactionCommitInProgressException: <p>Contains details about an error related to a transaction commit that was in progress.</p>
+            aws_sdk_lakeformation.errors.transaction_committed_exception.TransactionCommittedException: <p>Contains details about an error where the specified transaction has already been committed and cannot be used for <code>UpdateTableObjects</code>.</p>
+            aws_sdk_lakeformation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3460,6 +3946,13 @@ class AsyncLakeFormationClient:
             database_name: <p>Name of the database where the table is present.</p>
             table_name: <p>Name of the table for which to enable the storage optimizer.</p>
             storage_optimizer_config: <p>Name of the configuration for the storage optimizer.</p>
+
+        Raises:
+            aws_sdk_lakeformation.errors.access_denied_exception.AccessDeniedException: <p>Access to a resource was denied.</p>
+            aws_sdk_lakeformation.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist.</p>
+            aws_sdk_lakeformation.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_lakeformation.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_lakeformation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

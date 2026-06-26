@@ -62,6 +62,15 @@ class RequesterGateway:
             description: <p>An optional description for the requester gateway.</p>
             tags: <p>A map of the key-value pairs of the tag or tags to assign to the resource.</p>
 
+        Raises:
+            aws_sdk_rtbfabric.errors.access_denied_exception.AccessDeniedException: <p>The request could not be completed because you do not have sufficient access to perform this action.</p>
+            aws_sdk_rtbfabric.errors.internal_server_exception.InternalServerException: <p>The request could not be completed because of an internal server error. Try your call again.</p>
+            aws_sdk_rtbfabric.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request could not be completed because the resource does not exist.</p>
+            aws_sdk_rtbfabric.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request could not be completed because you exceeded a service quota.</p>
+            aws_sdk_rtbfabric.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_rtbfabric.errors.validation_exception.ValidationException: <p>The request could not be completed because it fails satisfy the constraints specified by the service.</p>
+            aws_sdk_rtbfabric.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Create a requester gateway
             Create requester gateway
@@ -112,6 +121,14 @@ class RequesterGateway:
         Args:
             gateway_id: <p>The unique identifier of the gateway.</p>
 
+        Raises:
+            aws_sdk_rtbfabric.errors.access_denied_exception.AccessDeniedException: <p>The request could not be completed because you do not have sufficient access to perform this action.</p>
+            aws_sdk_rtbfabric.errors.internal_server_exception.InternalServerException: <p>The request could not be completed because of an internal server error. Try your call again.</p>
+            aws_sdk_rtbfabric.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request could not be completed because the resource does not exist.</p>
+            aws_sdk_rtbfabric.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_rtbfabric.errors.validation_exception.ValidationException: <p>The request could not be completed because it fails satisfy the constraints specified by the service.</p>
+            aws_sdk_rtbfabric.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Get requester gateway details
             Get requester gateway
@@ -154,6 +171,15 @@ class RequesterGateway:
 
         Args:
             gateway_id: <p>The unique identifier of the gateway.</p>
+
+        Raises:
+            aws_sdk_rtbfabric.errors.access_denied_exception.AccessDeniedException: <p>The request could not be completed because you do not have sufficient access to perform this action.</p>
+            aws_sdk_rtbfabric.errors.conflict_exception.ConflictException: <p>The request could not be completed because of a conflict in the current state of the resource.</p>
+            aws_sdk_rtbfabric.errors.internal_server_exception.InternalServerException: <p>The request could not be completed because of an internal server error. Try your call again.</p>
+            aws_sdk_rtbfabric.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request could not be completed because the resource does not exist.</p>
+            aws_sdk_rtbfabric.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_rtbfabric.errors.validation_exception.ValidationException: <p>The request could not be completed because it fails satisfy the constraints specified by the service.</p>
+            aws_sdk_rtbfabric.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Delete a requester gateway
@@ -201,6 +227,15 @@ class RequesterGateway:
             client_token: <p>The unique client token.</p>
             gateway_id: <p>The unique identifier of the gateway.</p>
             description: <p>An optional description for the requester gateway.</p>
+
+        Raises:
+            aws_sdk_rtbfabric.errors.access_denied_exception.AccessDeniedException: <p>The request could not be completed because you do not have sufficient access to perform this action.</p>
+            aws_sdk_rtbfabric.errors.conflict_exception.ConflictException: <p>The request could not be completed because of a conflict in the current state of the resource.</p>
+            aws_sdk_rtbfabric.errors.internal_server_exception.InternalServerException: <p>The request could not be completed because of an internal server error. Try your call again.</p>
+            aws_sdk_rtbfabric.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request could not be completed because the resource does not exist.</p>
+            aws_sdk_rtbfabric.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_rtbfabric.errors.validation_exception.ValidationException: <p>The request could not be completed because it fails satisfy the constraints specified by the service.</p>
+            aws_sdk_rtbfabric.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Update requester gateway
@@ -263,6 +298,15 @@ class AsyncRequesterGateway:
             description: <p>An optional description for the requester gateway.</p>
             tags: <p>A map of the key-value pairs of the tag or tags to assign to the resource.</p>
 
+        Raises:
+            aws_sdk_rtbfabric.errors.access_denied_exception.AccessDeniedException: <p>The request could not be completed because you do not have sufficient access to perform this action.</p>
+            aws_sdk_rtbfabric.errors.internal_server_exception.InternalServerException: <p>The request could not be completed because of an internal server error. Try your call again.</p>
+            aws_sdk_rtbfabric.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request could not be completed because the resource does not exist.</p>
+            aws_sdk_rtbfabric.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request could not be completed because you exceeded a service quota.</p>
+            aws_sdk_rtbfabric.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_rtbfabric.errors.validation_exception.ValidationException: <p>The request could not be completed because it fails satisfy the constraints specified by the service.</p>
+            aws_sdk_rtbfabric.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Create a requester gateway
             Create requester gateway
@@ -314,6 +358,14 @@ class AsyncRequesterGateway:
         Args:
             gateway_id: <p>The unique identifier of the gateway.</p>
 
+        Raises:
+            aws_sdk_rtbfabric.errors.access_denied_exception.AccessDeniedException: <p>The request could not be completed because you do not have sufficient access to perform this action.</p>
+            aws_sdk_rtbfabric.errors.internal_server_exception.InternalServerException: <p>The request could not be completed because of an internal server error. Try your call again.</p>
+            aws_sdk_rtbfabric.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request could not be completed because the resource does not exist.</p>
+            aws_sdk_rtbfabric.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_rtbfabric.errors.validation_exception.ValidationException: <p>The request could not be completed because it fails satisfy the constraints specified by the service.</p>
+            aws_sdk_rtbfabric.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Get requester gateway details
             Get requester gateway
@@ -357,6 +409,15 @@ class AsyncRequesterGateway:
 
         Args:
             gateway_id: <p>The unique identifier of the gateway.</p>
+
+        Raises:
+            aws_sdk_rtbfabric.errors.access_denied_exception.AccessDeniedException: <p>The request could not be completed because you do not have sufficient access to perform this action.</p>
+            aws_sdk_rtbfabric.errors.conflict_exception.ConflictException: <p>The request could not be completed because of a conflict in the current state of the resource.</p>
+            aws_sdk_rtbfabric.errors.internal_server_exception.InternalServerException: <p>The request could not be completed because of an internal server error. Try your call again.</p>
+            aws_sdk_rtbfabric.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request could not be completed because the resource does not exist.</p>
+            aws_sdk_rtbfabric.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_rtbfabric.errors.validation_exception.ValidationException: <p>The request could not be completed because it fails satisfy the constraints specified by the service.</p>
+            aws_sdk_rtbfabric.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Delete a requester gateway
@@ -405,6 +466,15 @@ class AsyncRequesterGateway:
             client_token: <p>The unique client token.</p>
             gateway_id: <p>The unique identifier of the gateway.</p>
             description: <p>An optional description for the requester gateway.</p>
+
+        Raises:
+            aws_sdk_rtbfabric.errors.access_denied_exception.AccessDeniedException: <p>The request could not be completed because you do not have sufficient access to perform this action.</p>
+            aws_sdk_rtbfabric.errors.conflict_exception.ConflictException: <p>The request could not be completed because of a conflict in the current state of the resource.</p>
+            aws_sdk_rtbfabric.errors.internal_server_exception.InternalServerException: <p>The request could not be completed because of an internal server error. Try your call again.</p>
+            aws_sdk_rtbfabric.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request could not be completed because the resource does not exist.</p>
+            aws_sdk_rtbfabric.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_rtbfabric.errors.validation_exception.ValidationException: <p>The request could not be completed because it fails satisfy the constraints specified by the service.</p>
+            aws_sdk_rtbfabric.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Update requester gateway

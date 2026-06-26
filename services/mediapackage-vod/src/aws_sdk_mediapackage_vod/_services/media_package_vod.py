@@ -183,6 +183,15 @@ class MediaPackageVodClient:
 
         Args:
             id: The ID of a MediaPackage VOD PackagingGroup resource.
+
+        Raises:
+            aws_sdk_mediapackage_vod.errors.forbidden_exception.ForbiddenException: The client is not authorized to access the requested resource.
+            aws_sdk_mediapackage_vod.errors.internal_server_error_exception.InternalServerErrorException: An unexpected error occurred.
+            aws_sdk_mediapackage_vod.errors.not_found_exception.NotFoundException: The requested resource does not exist.
+            aws_sdk_mediapackage_vod.errors.service_unavailable_exception.ServiceUnavailableException: An unexpected error occurred.
+            aws_sdk_mediapackage_vod.errors.too_many_requests_exception.TooManyRequestsException: The client has exceeded their resource or throttling limits.
+            aws_sdk_mediapackage_vod.errors.unprocessable_entity_exception.UnprocessableEntityException: The parameters sent in the request are not valid.
+            aws_sdk_mediapackage_vod.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -233,6 +242,15 @@ class MediaPackageVodClient:
             resource_id: The resource ID to include in SPEKE key requests.
             source_arn: ARN of the source object in S3.
             source_role_arn: The IAM role ARN used to access the source S3 bucket.
+
+        Raises:
+            aws_sdk_mediapackage_vod.errors.forbidden_exception.ForbiddenException: The client is not authorized to access the requested resource.
+            aws_sdk_mediapackage_vod.errors.internal_server_error_exception.InternalServerErrorException: An unexpected error occurred.
+            aws_sdk_mediapackage_vod.errors.not_found_exception.NotFoundException: The requested resource does not exist.
+            aws_sdk_mediapackage_vod.errors.service_unavailable_exception.ServiceUnavailableException: An unexpected error occurred.
+            aws_sdk_mediapackage_vod.errors.too_many_requests_exception.TooManyRequestsException: The client has exceeded their resource or throttling limits.
+            aws_sdk_mediapackage_vod.errors.unprocessable_entity_exception.UnprocessableEntityException: The parameters sent in the request are not valid.
+            aws_sdk_mediapackage_vod.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -292,6 +310,15 @@ class MediaPackageVodClient:
         Args:
             id: The ID of the PackagingConfiguration.
             packaging_group_id: The ID of a PackagingGroup.
+
+        Raises:
+            aws_sdk_mediapackage_vod.errors.forbidden_exception.ForbiddenException: The client is not authorized to access the requested resource.
+            aws_sdk_mediapackage_vod.errors.internal_server_error_exception.InternalServerErrorException: An unexpected error occurred.
+            aws_sdk_mediapackage_vod.errors.not_found_exception.NotFoundException: The requested resource does not exist.
+            aws_sdk_mediapackage_vod.errors.service_unavailable_exception.ServiceUnavailableException: An unexpected error occurred.
+            aws_sdk_mediapackage_vod.errors.too_many_requests_exception.TooManyRequestsException: The client has exceeded their resource or throttling limits.
+            aws_sdk_mediapackage_vod.errors.unprocessable_entity_exception.UnprocessableEntityException: The parameters sent in the request are not valid.
+            aws_sdk_mediapackage_vod.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -347,6 +374,15 @@ class MediaPackageVodClient:
 
         Args:
             id: The ID of the PackagingGroup.
+
+        Raises:
+            aws_sdk_mediapackage_vod.errors.forbidden_exception.ForbiddenException: The client is not authorized to access the requested resource.
+            aws_sdk_mediapackage_vod.errors.internal_server_error_exception.InternalServerErrorException: An unexpected error occurred.
+            aws_sdk_mediapackage_vod.errors.not_found_exception.NotFoundException: The requested resource does not exist.
+            aws_sdk_mediapackage_vod.errors.service_unavailable_exception.ServiceUnavailableException: An unexpected error occurred.
+            aws_sdk_mediapackage_vod.errors.too_many_requests_exception.TooManyRequestsException: The client has exceeded their resource or throttling limits.
+            aws_sdk_mediapackage_vod.errors.unprocessable_entity_exception.UnprocessableEntityException: The parameters sent in the request are not valid.
+            aws_sdk_mediapackage_vod.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -390,6 +426,15 @@ class MediaPackageVodClient:
 
         Args:
             id: The ID of the MediaPackage VOD Asset resource to delete.
+
+        Raises:
+            aws_sdk_mediapackage_vod.errors.forbidden_exception.ForbiddenException: The client is not authorized to access the requested resource.
+            aws_sdk_mediapackage_vod.errors.internal_server_error_exception.InternalServerErrorException: An unexpected error occurred.
+            aws_sdk_mediapackage_vod.errors.not_found_exception.NotFoundException: The requested resource does not exist.
+            aws_sdk_mediapackage_vod.errors.service_unavailable_exception.ServiceUnavailableException: An unexpected error occurred.
+            aws_sdk_mediapackage_vod.errors.too_many_requests_exception.TooManyRequestsException: The client has exceeded their resource or throttling limits.
+            aws_sdk_mediapackage_vod.errors.unprocessable_entity_exception.UnprocessableEntityException: The parameters sent in the request are not valid.
+            aws_sdk_mediapackage_vod.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -427,6 +472,15 @@ class MediaPackageVodClient:
 
         Args:
             id: The ID of the MediaPackage VOD PackagingConfiguration resource to delete.
+
+        Raises:
+            aws_sdk_mediapackage_vod.errors.forbidden_exception.ForbiddenException: The client is not authorized to access the requested resource.
+            aws_sdk_mediapackage_vod.errors.internal_server_error_exception.InternalServerErrorException: An unexpected error occurred.
+            aws_sdk_mediapackage_vod.errors.not_found_exception.NotFoundException: The requested resource does not exist.
+            aws_sdk_mediapackage_vod.errors.service_unavailable_exception.ServiceUnavailableException: An unexpected error occurred.
+            aws_sdk_mediapackage_vod.errors.too_many_requests_exception.TooManyRequestsException: The client has exceeded their resource or throttling limits.
+            aws_sdk_mediapackage_vod.errors.unprocessable_entity_exception.UnprocessableEntityException: The parameters sent in the request are not valid.
+            aws_sdk_mediapackage_vod.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -464,6 +518,15 @@ class MediaPackageVodClient:
 
         Args:
             id: The ID of the MediaPackage VOD PackagingGroup resource to delete.
+
+        Raises:
+            aws_sdk_mediapackage_vod.errors.forbidden_exception.ForbiddenException: The client is not authorized to access the requested resource.
+            aws_sdk_mediapackage_vod.errors.internal_server_error_exception.InternalServerErrorException: An unexpected error occurred.
+            aws_sdk_mediapackage_vod.errors.not_found_exception.NotFoundException: The requested resource does not exist.
+            aws_sdk_mediapackage_vod.errors.service_unavailable_exception.ServiceUnavailableException: An unexpected error occurred.
+            aws_sdk_mediapackage_vod.errors.too_many_requests_exception.TooManyRequestsException: The client has exceeded their resource or throttling limits.
+            aws_sdk_mediapackage_vod.errors.unprocessable_entity_exception.UnprocessableEntityException: The parameters sent in the request are not valid.
+            aws_sdk_mediapackage_vod.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -501,6 +564,15 @@ class MediaPackageVodClient:
 
         Args:
             id: The ID of an MediaPackage VOD Asset resource.
+
+        Raises:
+            aws_sdk_mediapackage_vod.errors.forbidden_exception.ForbiddenException: The client is not authorized to access the requested resource.
+            aws_sdk_mediapackage_vod.errors.internal_server_error_exception.InternalServerErrorException: An unexpected error occurred.
+            aws_sdk_mediapackage_vod.errors.not_found_exception.NotFoundException: The requested resource does not exist.
+            aws_sdk_mediapackage_vod.errors.service_unavailable_exception.ServiceUnavailableException: An unexpected error occurred.
+            aws_sdk_mediapackage_vod.errors.too_many_requests_exception.TooManyRequestsException: The client has exceeded their resource or throttling limits.
+            aws_sdk_mediapackage_vod.errors.unprocessable_entity_exception.UnprocessableEntityException: The parameters sent in the request are not valid.
+            aws_sdk_mediapackage_vod.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -538,6 +610,15 @@ class MediaPackageVodClient:
 
         Args:
             id: The ID of a MediaPackage VOD PackagingConfiguration resource.
+
+        Raises:
+            aws_sdk_mediapackage_vod.errors.forbidden_exception.ForbiddenException: The client is not authorized to access the requested resource.
+            aws_sdk_mediapackage_vod.errors.internal_server_error_exception.InternalServerErrorException: An unexpected error occurred.
+            aws_sdk_mediapackage_vod.errors.not_found_exception.NotFoundException: The requested resource does not exist.
+            aws_sdk_mediapackage_vod.errors.service_unavailable_exception.ServiceUnavailableException: An unexpected error occurred.
+            aws_sdk_mediapackage_vod.errors.too_many_requests_exception.TooManyRequestsException: The client has exceeded their resource or throttling limits.
+            aws_sdk_mediapackage_vod.errors.unprocessable_entity_exception.UnprocessableEntityException: The parameters sent in the request are not valid.
+            aws_sdk_mediapackage_vod.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -575,6 +656,15 @@ class MediaPackageVodClient:
 
         Args:
             id: The ID of a MediaPackage VOD PackagingGroup resource.
+
+        Raises:
+            aws_sdk_mediapackage_vod.errors.forbidden_exception.ForbiddenException: The client is not authorized to access the requested resource.
+            aws_sdk_mediapackage_vod.errors.internal_server_error_exception.InternalServerErrorException: An unexpected error occurred.
+            aws_sdk_mediapackage_vod.errors.not_found_exception.NotFoundException: The requested resource does not exist.
+            aws_sdk_mediapackage_vod.errors.service_unavailable_exception.ServiceUnavailableException: An unexpected error occurred.
+            aws_sdk_mediapackage_vod.errors.too_many_requests_exception.TooManyRequestsException: The client has exceeded their resource or throttling limits.
+            aws_sdk_mediapackage_vod.errors.unprocessable_entity_exception.UnprocessableEntityException: The parameters sent in the request are not valid.
+            aws_sdk_mediapackage_vod.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -620,6 +710,15 @@ class MediaPackageVodClient:
             max_results: Upper bound on number of records to return.
             next_token: A token used to resume pagination from the end of a previous request.
             packaging_group_id: Returns Assets associated with the specified PackagingGroup.
+
+        Raises:
+            aws_sdk_mediapackage_vod.errors.forbidden_exception.ForbiddenException: The client is not authorized to access the requested resource.
+            aws_sdk_mediapackage_vod.errors.internal_server_error_exception.InternalServerErrorException: An unexpected error occurred.
+            aws_sdk_mediapackage_vod.errors.not_found_exception.NotFoundException: The requested resource does not exist.
+            aws_sdk_mediapackage_vod.errors.service_unavailable_exception.ServiceUnavailableException: An unexpected error occurred.
+            aws_sdk_mediapackage_vod.errors.too_many_requests_exception.TooManyRequestsException: The client has exceeded their resource or throttling limits.
+            aws_sdk_mediapackage_vod.errors.unprocessable_entity_exception.UnprocessableEntityException: The parameters sent in the request are not valid.
+            aws_sdk_mediapackage_vod.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -697,6 +796,15 @@ class MediaPackageVodClient:
             max_results: Upper bound on number of records to return.
             next_token: A token used to resume pagination from the end of a previous request.
             packaging_group_id: Returns MediaPackage VOD PackagingConfigurations associated with the specified PackagingGroup.
+
+        Raises:
+            aws_sdk_mediapackage_vod.errors.forbidden_exception.ForbiddenException: The client is not authorized to access the requested resource.
+            aws_sdk_mediapackage_vod.errors.internal_server_error_exception.InternalServerErrorException: An unexpected error occurred.
+            aws_sdk_mediapackage_vod.errors.not_found_exception.NotFoundException: The requested resource does not exist.
+            aws_sdk_mediapackage_vod.errors.service_unavailable_exception.ServiceUnavailableException: An unexpected error occurred.
+            aws_sdk_mediapackage_vod.errors.too_many_requests_exception.TooManyRequestsException: The client has exceeded their resource or throttling limits.
+            aws_sdk_mediapackage_vod.errors.unprocessable_entity_exception.UnprocessableEntityException: The parameters sent in the request are not valid.
+            aws_sdk_mediapackage_vod.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -770,6 +878,15 @@ class MediaPackageVodClient:
         Args:
             max_results: Upper bound on number of records to return.
             next_token: A token used to resume pagination from the end of a previous request.
+
+        Raises:
+            aws_sdk_mediapackage_vod.errors.forbidden_exception.ForbiddenException: The client is not authorized to access the requested resource.
+            aws_sdk_mediapackage_vod.errors.internal_server_error_exception.InternalServerErrorException: An unexpected error occurred.
+            aws_sdk_mediapackage_vod.errors.not_found_exception.NotFoundException: The requested resource does not exist.
+            aws_sdk_mediapackage_vod.errors.service_unavailable_exception.ServiceUnavailableException: An unexpected error occurred.
+            aws_sdk_mediapackage_vod.errors.too_many_requests_exception.TooManyRequestsException: The client has exceeded their resource or throttling limits.
+            aws_sdk_mediapackage_vod.errors.unprocessable_entity_exception.UnprocessableEntityException: The parameters sent in the request are not valid.
+            aws_sdk_mediapackage_vod.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -833,6 +950,9 @@ class MediaPackageVodClient:
 
         Args:
             resource_arn: The Amazon Resource Name (ARN) for the resource. You can get this from the response to any request to the resource.
+
+        Raises:
+            aws_sdk_mediapackage_vod.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -872,6 +992,9 @@ class MediaPackageVodClient:
         Args:
             resource_arn: The Amazon Resource Name (ARN) for the resource. You can get this from the response to any request to the resource.
             tags: A collection of tags associated with a resource
+
+        Raises:
+            aws_sdk_mediapackage_vod.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -910,6 +1033,9 @@ class MediaPackageVodClient:
         Args:
             resource_arn: The Amazon Resource Name (ARN) for the resource. You can get this from the response to any request to the resource.
             tag_keys: A comma-separated list of the tag keys to remove from the resource.
+
+        Raises:
+            aws_sdk_mediapackage_vod.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -949,6 +1075,15 @@ class MediaPackageVodClient:
 
         Args:
             id: The ID of a MediaPackage VOD PackagingGroup resource.
+
+        Raises:
+            aws_sdk_mediapackage_vod.errors.forbidden_exception.ForbiddenException: The client is not authorized to access the requested resource.
+            aws_sdk_mediapackage_vod.errors.internal_server_error_exception.InternalServerErrorException: An unexpected error occurred.
+            aws_sdk_mediapackage_vod.errors.not_found_exception.NotFoundException: The requested resource does not exist.
+            aws_sdk_mediapackage_vod.errors.service_unavailable_exception.ServiceUnavailableException: An unexpected error occurred.
+            aws_sdk_mediapackage_vod.errors.too_many_requests_exception.TooManyRequestsException: The client has exceeded their resource or throttling limits.
+            aws_sdk_mediapackage_vod.errors.unprocessable_entity_exception.UnprocessableEntityException: The parameters sent in the request are not valid.
+            aws_sdk_mediapackage_vod.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(

@@ -88,6 +88,15 @@ class CloudExadataInfrastructureResource:
             client_token: <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If you don't specify a client token, the Amazon Web Services SDK automatically generates a client token and uses it for the request to ensure idempotency. The client token is valid for up to 24 hours after it's first used.</p>
             database_server_type: <p>The database server model type of the Exadata infrastructure. For the list of valid model names, use the <code>ListDbSystemShapes</code> operation.</p>
             storage_server_type: <p>The storage server model type of the Exadata infrastructure. For the list of valid model names, use the <code>ListDbSystemShapes</code> operation.</p>
+
+        Raises:
+            aws_sdk_odb.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action. Make sure you have the required permissions and try again.</p>
+            aws_sdk_odb.errors.conflict_exception.ConflictException: <p>Occurs when a conflict with the current status of your resource. Fix any inconsistencies with your resource and try again.</p>
+            aws_sdk_odb.errors.internal_server_exception.InternalServerException: <p>Occurs when there is an internal failure in the Oracle Database@Amazon Web Services service. Wait and try again.</p>
+            aws_sdk_odb.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You have exceeded the service quota.</p>
+            aws_sdk_odb.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_odb.errors.validation_exception.ValidationException: <p>The request has failed validation because it is missing required fields or has invalid inputs.</p>
+            aws_sdk_odb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -146,6 +155,14 @@ class CloudExadataInfrastructureResource:
 
         Args:
             cloud_exadata_infrastructure_id: <p>The unique identifier of the Exadata infrastructure.</p>
+
+        Raises:
+            aws_sdk_odb.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action. Make sure you have the required permissions and try again.</p>
+            aws_sdk_odb.errors.internal_server_exception.InternalServerException: <p>Occurs when there is an internal failure in the Oracle Database@Amazon Web Services service. Wait and try again.</p>
+            aws_sdk_odb.errors.resource_not_found_exception.ResourceNotFoundException: <p>The operation tried to access a resource that doesn't exist. Make sure you provided the correct resource and try again.</p>
+            aws_sdk_odb.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_odb.errors.validation_exception.ValidationException: <p>The request has failed validation because it is missing required fields or has invalid inputs.</p>
+            aws_sdk_odb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -186,6 +203,15 @@ class CloudExadataInfrastructureResource:
 
         Args:
             cloud_exadata_infrastructure_id: <p>The unique identifier of the Exadata infrastructure to update.</p>
+
+        Raises:
+            aws_sdk_odb.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action. Make sure you have the required permissions and try again.</p>
+            aws_sdk_odb.errors.conflict_exception.ConflictException: <p>Occurs when a conflict with the current status of your resource. Fix any inconsistencies with your resource and try again.</p>
+            aws_sdk_odb.errors.internal_server_exception.InternalServerException: <p>Occurs when there is an internal failure in the Oracle Database@Amazon Web Services service. Wait and try again.</p>
+            aws_sdk_odb.errors.resource_not_found_exception.ResourceNotFoundException: <p>The operation tried to access a resource that doesn't exist. Make sure you provided the correct resource and try again.</p>
+            aws_sdk_odb.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_odb.errors.validation_exception.ValidationException: <p>The request has failed validation because it is missing required fields or has invalid inputs.</p>
+            aws_sdk_odb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -225,6 +251,15 @@ class CloudExadataInfrastructureResource:
 
         Args:
             cloud_exadata_infrastructure_id: <p>The unique identifier of the Exadata infrastructure to delete.</p>
+
+        Raises:
+            aws_sdk_odb.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action. Make sure you have the required permissions and try again.</p>
+            aws_sdk_odb.errors.conflict_exception.ConflictException: <p>Occurs when a conflict with the current status of your resource. Fix any inconsistencies with your resource and try again.</p>
+            aws_sdk_odb.errors.internal_server_exception.InternalServerException: <p>Occurs when there is an internal failure in the Oracle Database@Amazon Web Services service. Wait and try again.</p>
+            aws_sdk_odb.errors.resource_not_found_exception.ResourceNotFoundException: <p>The operation tried to access a resource that doesn't exist. Make sure you provided the correct resource and try again.</p>
+            aws_sdk_odb.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_odb.errors.validation_exception.ValidationException: <p>The request has failed validation because it is missing required fields or has invalid inputs.</p>
+            aws_sdk_odb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -264,6 +299,13 @@ class CloudExadataInfrastructureResource:
         Args:
             max_results: <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output.</p> <p>Default: <code>10</code> </p>
             next_token: <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
+
+        Raises:
+            aws_sdk_odb.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action. Make sure you have the required permissions and try again.</p>
+            aws_sdk_odb.errors.internal_server_exception.InternalServerException: <p>Occurs when there is an internal failure in the Oracle Database@Amazon Web Services service. Wait and try again.</p>
+            aws_sdk_odb.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_odb.errors.validation_exception.ValidationException: <p>The request has failed validation because it is missing required fields or has invalid inputs.</p>
+            aws_sdk_odb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -306,6 +348,14 @@ class CloudExadataInfrastructureResource:
         Args:
             cloud_exadata_infrastructure_id: <p>The unique identifier of the Cloud Exadata infrastructure for which to retrieve unallocated resources.</p>
             db_servers: <p>The database servers to include in the unallocated resources query.</p>
+
+        Raises:
+            aws_sdk_odb.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action. Make sure you have the required permissions and try again.</p>
+            aws_sdk_odb.errors.internal_server_exception.InternalServerException: <p>Occurs when there is an internal failure in the Oracle Database@Amazon Web Services service. Wait and try again.</p>
+            aws_sdk_odb.errors.resource_not_found_exception.ResourceNotFoundException: <p>The operation tried to access a resource that doesn't exist. Make sure you provided the correct resource and try again.</p>
+            aws_sdk_odb.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_odb.errors.validation_exception.ValidationException: <p>The request has failed validation because it is missing required fields or has invalid inputs.</p>
+            aws_sdk_odb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -347,6 +397,14 @@ class CloudExadataInfrastructureResource:
         Args:
             cloud_exadata_infrastructure_id: <p>The unique identifier of the Oracle Exadata infrastructure that contains the database server.</p>
             db_server_id: <p>The unique identifier of the database server to retrieve information about.</p>
+
+        Raises:
+            aws_sdk_odb.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action. Make sure you have the required permissions and try again.</p>
+            aws_sdk_odb.errors.internal_server_exception.InternalServerException: <p>Occurs when there is an internal failure in the Oracle Database@Amazon Web Services service. Wait and try again.</p>
+            aws_sdk_odb.errors.resource_not_found_exception.ResourceNotFoundException: <p>The operation tried to access a resource that doesn't exist. Make sure you provided the correct resource and try again.</p>
+            aws_sdk_odb.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_odb.errors.validation_exception.ValidationException: <p>The request has failed validation because it is missing required fields or has invalid inputs.</p>
+            aws_sdk_odb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -389,6 +447,14 @@ class CloudExadataInfrastructureResource:
             cloud_exadata_infrastructure_id: <p>The unique identifier of the Oracle Exadata infrastructure.</p>
             max_results: <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output.</p> <p>Default: <code>10</code> </p>
             next_token: <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
+
+        Raises:
+            aws_sdk_odb.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action. Make sure you have the required permissions and try again.</p>
+            aws_sdk_odb.errors.internal_server_exception.InternalServerException: <p>Occurs when there is an internal failure in the Oracle Database@Amazon Web Services service. Wait and try again.</p>
+            aws_sdk_odb.errors.resource_not_found_exception.ResourceNotFoundException: <p>The operation tried to access a resource that doesn't exist. Make sure you provided the correct resource and try again.</p>
+            aws_sdk_odb.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_odb.errors.validation_exception.ValidationException: <p>The request has failed validation because it is missing required fields or has invalid inputs.</p>
+            aws_sdk_odb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -467,6 +533,15 @@ class AsyncCloudExadataInfrastructureResource:
             client_token: <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If you don't specify a client token, the Amazon Web Services SDK automatically generates a client token and uses it for the request to ensure idempotency. The client token is valid for up to 24 hours after it's first used.</p>
             database_server_type: <p>The database server model type of the Exadata infrastructure. For the list of valid model names, use the <code>ListDbSystemShapes</code> operation.</p>
             storage_server_type: <p>The storage server model type of the Exadata infrastructure. For the list of valid model names, use the <code>ListDbSystemShapes</code> operation.</p>
+
+        Raises:
+            aws_sdk_odb.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action. Make sure you have the required permissions and try again.</p>
+            aws_sdk_odb.errors.conflict_exception.ConflictException: <p>Occurs when a conflict with the current status of your resource. Fix any inconsistencies with your resource and try again.</p>
+            aws_sdk_odb.errors.internal_server_exception.InternalServerException: <p>Occurs when there is an internal failure in the Oracle Database@Amazon Web Services service. Wait and try again.</p>
+            aws_sdk_odb.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You have exceeded the service quota.</p>
+            aws_sdk_odb.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_odb.errors.validation_exception.ValidationException: <p>The request has failed validation because it is missing required fields or has invalid inputs.</p>
+            aws_sdk_odb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -526,6 +601,14 @@ class AsyncCloudExadataInfrastructureResource:
 
         Args:
             cloud_exadata_infrastructure_id: <p>The unique identifier of the Exadata infrastructure.</p>
+
+        Raises:
+            aws_sdk_odb.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action. Make sure you have the required permissions and try again.</p>
+            aws_sdk_odb.errors.internal_server_exception.InternalServerException: <p>Occurs when there is an internal failure in the Oracle Database@Amazon Web Services service. Wait and try again.</p>
+            aws_sdk_odb.errors.resource_not_found_exception.ResourceNotFoundException: <p>The operation tried to access a resource that doesn't exist. Make sure you provided the correct resource and try again.</p>
+            aws_sdk_odb.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_odb.errors.validation_exception.ValidationException: <p>The request has failed validation because it is missing required fields or has invalid inputs.</p>
+            aws_sdk_odb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -567,6 +650,15 @@ class AsyncCloudExadataInfrastructureResource:
 
         Args:
             cloud_exadata_infrastructure_id: <p>The unique identifier of the Exadata infrastructure to update.</p>
+
+        Raises:
+            aws_sdk_odb.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action. Make sure you have the required permissions and try again.</p>
+            aws_sdk_odb.errors.conflict_exception.ConflictException: <p>Occurs when a conflict with the current status of your resource. Fix any inconsistencies with your resource and try again.</p>
+            aws_sdk_odb.errors.internal_server_exception.InternalServerException: <p>Occurs when there is an internal failure in the Oracle Database@Amazon Web Services service. Wait and try again.</p>
+            aws_sdk_odb.errors.resource_not_found_exception.ResourceNotFoundException: <p>The operation tried to access a resource that doesn't exist. Make sure you provided the correct resource and try again.</p>
+            aws_sdk_odb.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_odb.errors.validation_exception.ValidationException: <p>The request has failed validation because it is missing required fields or has invalid inputs.</p>
+            aws_sdk_odb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -607,6 +699,15 @@ class AsyncCloudExadataInfrastructureResource:
 
         Args:
             cloud_exadata_infrastructure_id: <p>The unique identifier of the Exadata infrastructure to delete.</p>
+
+        Raises:
+            aws_sdk_odb.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action. Make sure you have the required permissions and try again.</p>
+            aws_sdk_odb.errors.conflict_exception.ConflictException: <p>Occurs when a conflict with the current status of your resource. Fix any inconsistencies with your resource and try again.</p>
+            aws_sdk_odb.errors.internal_server_exception.InternalServerException: <p>Occurs when there is an internal failure in the Oracle Database@Amazon Web Services service. Wait and try again.</p>
+            aws_sdk_odb.errors.resource_not_found_exception.ResourceNotFoundException: <p>The operation tried to access a resource that doesn't exist. Make sure you provided the correct resource and try again.</p>
+            aws_sdk_odb.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_odb.errors.validation_exception.ValidationException: <p>The request has failed validation because it is missing required fields or has invalid inputs.</p>
+            aws_sdk_odb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -647,6 +748,13 @@ class AsyncCloudExadataInfrastructureResource:
         Args:
             max_results: <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output.</p> <p>Default: <code>10</code> </p>
             next_token: <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
+
+        Raises:
+            aws_sdk_odb.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action. Make sure you have the required permissions and try again.</p>
+            aws_sdk_odb.errors.internal_server_exception.InternalServerException: <p>Occurs when there is an internal failure in the Oracle Database@Amazon Web Services service. Wait and try again.</p>
+            aws_sdk_odb.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_odb.errors.validation_exception.ValidationException: <p>The request has failed validation because it is missing required fields or has invalid inputs.</p>
+            aws_sdk_odb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -690,6 +798,14 @@ class AsyncCloudExadataInfrastructureResource:
         Args:
             cloud_exadata_infrastructure_id: <p>The unique identifier of the Cloud Exadata infrastructure for which to retrieve unallocated resources.</p>
             db_servers: <p>The database servers to include in the unallocated resources query.</p>
+
+        Raises:
+            aws_sdk_odb.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action. Make sure you have the required permissions and try again.</p>
+            aws_sdk_odb.errors.internal_server_exception.InternalServerException: <p>Occurs when there is an internal failure in the Oracle Database@Amazon Web Services service. Wait and try again.</p>
+            aws_sdk_odb.errors.resource_not_found_exception.ResourceNotFoundException: <p>The operation tried to access a resource that doesn't exist. Make sure you provided the correct resource and try again.</p>
+            aws_sdk_odb.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_odb.errors.validation_exception.ValidationException: <p>The request has failed validation because it is missing required fields or has invalid inputs.</p>
+            aws_sdk_odb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -732,6 +848,14 @@ class AsyncCloudExadataInfrastructureResource:
         Args:
             cloud_exadata_infrastructure_id: <p>The unique identifier of the Oracle Exadata infrastructure that contains the database server.</p>
             db_server_id: <p>The unique identifier of the database server to retrieve information about.</p>
+
+        Raises:
+            aws_sdk_odb.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action. Make sure you have the required permissions and try again.</p>
+            aws_sdk_odb.errors.internal_server_exception.InternalServerException: <p>Occurs when there is an internal failure in the Oracle Database@Amazon Web Services service. Wait and try again.</p>
+            aws_sdk_odb.errors.resource_not_found_exception.ResourceNotFoundException: <p>The operation tried to access a resource that doesn't exist. Make sure you provided the correct resource and try again.</p>
+            aws_sdk_odb.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_odb.errors.validation_exception.ValidationException: <p>The request has failed validation because it is missing required fields or has invalid inputs.</p>
+            aws_sdk_odb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -775,6 +899,14 @@ class AsyncCloudExadataInfrastructureResource:
             cloud_exadata_infrastructure_id: <p>The unique identifier of the Oracle Exadata infrastructure.</p>
             max_results: <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output.</p> <p>Default: <code>10</code> </p>
             next_token: <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
+
+        Raises:
+            aws_sdk_odb.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action. Make sure you have the required permissions and try again.</p>
+            aws_sdk_odb.errors.internal_server_exception.InternalServerException: <p>Occurs when there is an internal failure in the Oracle Database@Amazon Web Services service. Wait and try again.</p>
+            aws_sdk_odb.errors.resource_not_found_exception.ResourceNotFoundException: <p>The operation tried to access a resource that doesn't exist. Make sure you provided the correct resource and try again.</p>
+            aws_sdk_odb.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_odb.errors.validation_exception.ValidationException: <p>The request has failed validation because it is missing required fields or has invalid inputs.</p>
+            aws_sdk_odb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

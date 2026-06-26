@@ -222,6 +222,19 @@ class Function:
             durable_config: <p>Configuration settings for durable functions. Enables creating functions with durability that can remember their state and continue execution even after interruptions.</p>
             tenancy_config: <p>Configuration for multi-tenant applications that use Lambda functions. Defines tenant isolation settings and resource allocations. Required for functions supporting multiple tenants.</p>
 
+        Raises:
+            aws_sdk_lambda.errors.code_signing_config_not_found_exception.CodeSigningConfigNotFoundException: <p>The specified code signing configuration does not exist.</p>
+            aws_sdk_lambda.errors.code_storage_exceeded_exception.CodeStorageExceededException: <p>Your Amazon Web Services account has exceeded its maximum total code size. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html\">Lambda quotas</a>.</p>
+            aws_sdk_lambda.errors.code_verification_failed_exception.CodeVerificationFailedException: <p>The code signature failed one or more of the validation checks for signature mismatch or expiry, and the code signing policy is set to ENFORCE. Lambda blocks the deployment.</p>
+            aws_sdk_lambda.errors.function_versions_per_capacity_provider_limit_exceeded_exception.FunctionVersionsPerCapacityProviderLimitExceededException: <p>The maximum number of function versions that can be associated with a single capacity provider has been exceeded. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html\">Lambda quotas</a>.</p>
+            aws_sdk_lambda.errors.invalid_code_signature_exception.InvalidCodeSignatureException: <p>The code signature failed the integrity check. If the integrity check fails, then Lambda blocks deployment, even if the code signing policy is set to WARN.</p>
+            aws_sdk_lambda.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One of the parameters in the request is not valid.</p>
+            aws_sdk_lambda.errors.resource_conflict_exception.ResourceConflictException: <p>The resource already exists, or another operation is in progress.</p>
+            aws_sdk_lambda.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request does not exist.</p>
+            aws_sdk_lambda.errors.service_exception.ServiceException: <p>The Lambda service encountered an internal error.</p>
+            aws_sdk_lambda.errors.too_many_requests_exception.TooManyRequestsException: <p>The request throughput limit was exceeded. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests\">Lambda quotas</a>.</p>
+            aws_sdk_lambda.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To create a function
             The following example creates a function with a deployment package in Amazon S3 and enables X-Ray tracing and environment variable encryption.
@@ -327,6 +340,12 @@ class Function:
             marker: <p>Specify the pagination token that's returned by a previous request to retrieve the next page of results.</p>
             max_items: <p>The maximum number of functions to return in the response. Note that <code>ListFunctions</code> returns a maximum of 50 items in each response, even if you set the number higher.</p>
 
+        Raises:
+            aws_sdk_lambda.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One of the parameters in the request is not valid.</p>
+            aws_sdk_lambda.errors.service_exception.ServiceException: <p>The Lambda service encountered an internal error.</p>
+            aws_sdk_lambda.errors.too_many_requests_exception.TooManyRequestsException: <p>The request throughput limit was exceeded. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests\">Lambda quotas</a>.</p>
+            aws_sdk_lambda.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To get a list of Lambda functions
             This operation returns a list of Lambda functions.
@@ -386,6 +405,14 @@ class Function:
             auth_type: <p>The type of authentication that your function URL uses. Set to <code>AWS_IAM</code> if you want to restrict access to authenticated users only. Set to <code>NONE</code> if you want to bypass IAM authentication to create a public endpoint. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html\">Control access to Lambda function URLs</a>.</p>
             cors: <p>The <a href=\"https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS\">cross-origin resource sharing (CORS)</a> settings for your function URL.</p>
             invoke_mode: <p>Use one of the following options:</p> <ul> <li> <p> <code>BUFFERED</code> – This is the default option. Lambda invokes your function using the <code>Invoke</code> API operation. Invocation results are available when the payload is complete. The maximum payload size is 6 MB.</p> </li> <li> <p> <code>RESPONSE_STREAM</code> – Your function streams payload results as they become available. Lambda invokes your function using the <code>InvokeWithResponseStream</code> API operation. The maximum response payload size is 200 MB.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_lambda.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One of the parameters in the request is not valid.</p>
+            aws_sdk_lambda.errors.resource_conflict_exception.ResourceConflictException: <p>The resource already exists, or another operation is in progress.</p>
+            aws_sdk_lambda.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request does not exist.</p>
+            aws_sdk_lambda.errors.service_exception.ServiceException: <p>The Lambda service encountered an internal error.</p>
+            aws_sdk_lambda.errors.too_many_requests_exception.TooManyRequestsException: <p>The request throughput limit was exceeded. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests\">Lambda quotas</a>.</p>
+            aws_sdk_lambda.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -431,6 +458,14 @@ class Function:
         Args:
             function_name: <p>The name or ARN of the Lambda function.</p> <p class=\"title\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> – <code>my-function</code>.</p> </li> <li> <p> <b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
 
+        Raises:
+            aws_sdk_lambda.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One of the parameters in the request is not valid.</p>
+            aws_sdk_lambda.errors.resource_conflict_exception.ResourceConflictException: <p>The resource already exists, or another operation is in progress.</p>
+            aws_sdk_lambda.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request does not exist.</p>
+            aws_sdk_lambda.errors.service_exception.ServiceException: <p>The Lambda service encountered an internal error.</p>
+            aws_sdk_lambda.errors.too_many_requests_exception.TooManyRequestsException: <p>The request throughput limit was exceeded. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests\">Lambda quotas</a>.</p>
+            aws_sdk_lambda.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To remove the reserved concurrent execution limit from a function
             The following example deletes the reserved concurrent execution limit from a function named my-function.
@@ -475,6 +510,13 @@ class Function:
         Args:
             function_name: <p>The name or ARN of the Lambda function.</p> <p class=\"title\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> – <code>my-function</code>.</p> </li> <li> <p> <b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
             qualifier: <p>The alias name.</p>
+
+        Raises:
+            aws_sdk_lambda.errors.resource_conflict_exception.ResourceConflictException: <p>The resource already exists, or another operation is in progress.</p>
+            aws_sdk_lambda.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request does not exist.</p>
+            aws_sdk_lambda.errors.service_exception.ServiceException: <p>The Lambda service encountered an internal error.</p>
+            aws_sdk_lambda.errors.too_many_requests_exception.TooManyRequestsException: <p>The request throughput limit was exceeded. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests\">Lambda quotas</a>.</p>
+            aws_sdk_lambda.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -512,6 +554,13 @@ class Function:
 
         Args:
             function_name: <p>The name or ARN of the Lambda function.</p> <p class=\"title\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> – <code>my-function</code>.</p> </li> <li> <p> <b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
+
+        Raises:
+            aws_sdk_lambda.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One of the parameters in the request is not valid.</p>
+            aws_sdk_lambda.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request does not exist.</p>
+            aws_sdk_lambda.errors.service_exception.ServiceException: <p>The Lambda service encountered an internal error.</p>
+            aws_sdk_lambda.errors.too_many_requests_exception.TooManyRequestsException: <p>The request throughput limit was exceeded. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests\">Lambda quotas</a>.</p>
+            aws_sdk_lambda.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To get the reserved concurrency setting for a function
@@ -559,6 +608,13 @@ class Function:
         Args:
             function_name: <p>The name or ARN of the Lambda function.</p> <p class=\"title\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> – <code>my-function</code>.</p> </li> <li> <p> <b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
             qualifier: <p>The alias name.</p>
+
+        Raises:
+            aws_sdk_lambda.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One of the parameters in the request is not valid.</p>
+            aws_sdk_lambda.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request does not exist.</p>
+            aws_sdk_lambda.errors.service_exception.ServiceException: <p>The Lambda service encountered an internal error.</p>
+            aws_sdk_lambda.errors.too_many_requests_exception.TooManyRequestsException: <p>The request throughput limit was exceeded. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests\">Lambda quotas</a>.</p>
+            aws_sdk_lambda.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -602,6 +658,13 @@ class Function:
             function_name: <p>The name or ARN of the Lambda function.</p> <p class=\"title\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> – <code>my-function</code>.</p> </li> <li> <p> <b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
             marker: <p>Specify the pagination token that's returned by a previous request to retrieve the next page of results.</p>
             max_items: <p>The maximum number of function URLs to return in the response. Note that <code>ListFunctionUrlConfigs</code> returns a maximum of 50 items in each response, even if you set the number higher.</p>
+
+        Raises:
+            aws_sdk_lambda.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One of the parameters in the request is not valid.</p>
+            aws_sdk_lambda.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request does not exist.</p>
+            aws_sdk_lambda.errors.service_exception.ServiceException: <p>The Lambda service encountered an internal error.</p>
+            aws_sdk_lambda.errors.too_many_requests_exception.TooManyRequestsException: <p>The request throughput limit was exceeded. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests\">Lambda quotas</a>.</p>
+            aws_sdk_lambda.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -649,6 +712,13 @@ class Function:
             function_name: <p>The name or ARN of the Lambda function.</p> <p class=\"title\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> – <code>my-function</code>.</p> </li> <li> <p> <b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
             marker: <p>Specify the pagination token that's returned by a previous request to retrieve the next page of results.</p>
             max_items: <p>Specify a number to limit the number of configurations returned.</p>
+
+        Raises:
+            aws_sdk_lambda.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One of the parameters in the request is not valid.</p>
+            aws_sdk_lambda.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request does not exist.</p>
+            aws_sdk_lambda.errors.service_exception.ServiceException: <p>The Lambda service encountered an internal error.</p>
+            aws_sdk_lambda.errors.too_many_requests_exception.TooManyRequestsException: <p>The request throughput limit was exceeded. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests\">Lambda quotas</a>.</p>
+            aws_sdk_lambda.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To get a list of provisioned concurrency configurations
@@ -698,6 +768,14 @@ class Function:
         Args:
             function_name: <p>The name or ARN of the Lambda function.</p> <p class=\"title\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> – <code>my-function</code>.</p> </li> <li> <p> <b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
             reserved_concurrent_executions: <p>The number of simultaneous executions to reserve for the function.</p>
+
+        Raises:
+            aws_sdk_lambda.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One of the parameters in the request is not valid.</p>
+            aws_sdk_lambda.errors.resource_conflict_exception.ResourceConflictException: <p>The resource already exists, or another operation is in progress.</p>
+            aws_sdk_lambda.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request does not exist.</p>
+            aws_sdk_lambda.errors.service_exception.ServiceException: <p>The Lambda service encountered an internal error.</p>
+            aws_sdk_lambda.errors.too_many_requests_exception.TooManyRequestsException: <p>The request throughput limit was exceeded. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests\">Lambda quotas</a>.</p>
+            aws_sdk_lambda.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To configure a reserved concurrency limit for a function
@@ -770,6 +848,19 @@ class Function:
             architectures: <p>The instruction set architecture that the function supports. Enter a string array with one of the valid values (arm64 or x86_64). The default value is <code>x86_64</code>.</p>
             source_kms_key_arn: <p>The ARN of the Key Management Service (KMS) customer managed key that's used to encrypt your function's .zip deployment package. If you don't provide a customer managed key, Lambda uses an Amazon Web Services managed key.</p>
             publish_to: <p>Specifies where to publish the function version or configuration.</p>
+
+        Raises:
+            aws_sdk_lambda.errors.code_signing_config_not_found_exception.CodeSigningConfigNotFoundException: <p>The specified code signing configuration does not exist.</p>
+            aws_sdk_lambda.errors.code_storage_exceeded_exception.CodeStorageExceededException: <p>Your Amazon Web Services account has exceeded its maximum total code size. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html\">Lambda quotas</a>.</p>
+            aws_sdk_lambda.errors.code_verification_failed_exception.CodeVerificationFailedException: <p>The code signature failed one or more of the validation checks for signature mismatch or expiry, and the code signing policy is set to ENFORCE. Lambda blocks the deployment.</p>
+            aws_sdk_lambda.errors.invalid_code_signature_exception.InvalidCodeSignatureException: <p>The code signature failed the integrity check. If the integrity check fails, then Lambda blocks deployment, even if the code signing policy is set to WARN.</p>
+            aws_sdk_lambda.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One of the parameters in the request is not valid.</p>
+            aws_sdk_lambda.errors.precondition_failed_exception.PreconditionFailedException: <p>The RevisionId provided does not match the latest RevisionId for the Lambda function or alias.</p> <ul> <li> <p> <b>For AddPermission and RemovePermission API operations:</b> Call <code>GetPolicy</code> to retrieve the latest RevisionId for your resource.</p> </li> <li> <p> <b>For all other API operations:</b> Call <code>GetFunction</code> or <code>GetAlias</code> to retrieve the latest RevisionId for your resource.</p> </li> </ul>
+            aws_sdk_lambda.errors.resource_conflict_exception.ResourceConflictException: <p>The resource already exists, or another operation is in progress.</p>
+            aws_sdk_lambda.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request does not exist.</p>
+            aws_sdk_lambda.errors.service_exception.ServiceException: <p>The Lambda service encountered an internal error.</p>
+            aws_sdk_lambda.errors.too_many_requests_exception.TooManyRequestsException: <p>The request throughput limit was exceeded. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests\">Lambda quotas</a>.</p>
+            aws_sdk_lambda.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To update a Lambda function's code
@@ -890,6 +981,18 @@ class Function:
             capacity_provider_config: <p>Configuration for the capacity provider that manages compute resources for Lambda functions.</p>
             durable_config: <p>Configuration settings for durable functions. Allows updating execution timeout and retention period for functions with durability enabled.</p>
 
+        Raises:
+            aws_sdk_lambda.errors.code_signing_config_not_found_exception.CodeSigningConfigNotFoundException: <p>The specified code signing configuration does not exist.</p>
+            aws_sdk_lambda.errors.code_verification_failed_exception.CodeVerificationFailedException: <p>The code signature failed one or more of the validation checks for signature mismatch or expiry, and the code signing policy is set to ENFORCE. Lambda blocks the deployment.</p>
+            aws_sdk_lambda.errors.invalid_code_signature_exception.InvalidCodeSignatureException: <p>The code signature failed the integrity check. If the integrity check fails, then Lambda blocks deployment, even if the code signing policy is set to WARN.</p>
+            aws_sdk_lambda.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One of the parameters in the request is not valid.</p>
+            aws_sdk_lambda.errors.precondition_failed_exception.PreconditionFailedException: <p>The RevisionId provided does not match the latest RevisionId for the Lambda function or alias.</p> <ul> <li> <p> <b>For AddPermission and RemovePermission API operations:</b> Call <code>GetPolicy</code> to retrieve the latest RevisionId for your resource.</p> </li> <li> <p> <b>For all other API operations:</b> Call <code>GetFunction</code> or <code>GetAlias</code> to retrieve the latest RevisionId for your resource.</p> </li> </ul>
+            aws_sdk_lambda.errors.resource_conflict_exception.ResourceConflictException: <p>The resource already exists, or another operation is in progress.</p>
+            aws_sdk_lambda.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request does not exist.</p>
+            aws_sdk_lambda.errors.service_exception.ServiceException: <p>The Lambda service encountered an internal error.</p>
+            aws_sdk_lambda.errors.too_many_requests_exception.TooManyRequestsException: <p>The request throughput limit was exceeded. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests\">Lambda quotas</a>.</p>
+            aws_sdk_lambda.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To update a Lambda function's configuration
             The following example modifies the memory size to be 256 MB for the unpublished ($LATEST) version of a function named my-function.
@@ -984,6 +1087,14 @@ class Function:
             auth_type: <p>The type of authentication that your function URL uses. Set to <code>AWS_IAM</code> if you want to restrict access to authenticated users only. Set to <code>NONE</code> if you want to bypass IAM authentication to create a public endpoint. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html\">Control access to Lambda function URLs</a>.</p>
             cors: <p>The <a href=\"https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS\">cross-origin resource sharing (CORS)</a> settings for your function URL.</p>
             invoke_mode: <p>Use one of the following options:</p> <ul> <li> <p> <code>BUFFERED</code> – This is the default option. Lambda invokes your function using the <code>Invoke</code> API operation. Invocation results are available when the payload is complete. The maximum payload size is 6 MB.</p> </li> <li> <p> <code>RESPONSE_STREAM</code> – Your function streams payload results as they become available. Lambda invokes your function using the <code>InvokeWithResponseStream</code> API operation. The maximum response payload size is 200 MB.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_lambda.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One of the parameters in the request is not valid.</p>
+            aws_sdk_lambda.errors.resource_conflict_exception.ResourceConflictException: <p>The resource already exists, or another operation is in progress.</p>
+            aws_sdk_lambda.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request does not exist.</p>
+            aws_sdk_lambda.errors.service_exception.ServiceException: <p>The Lambda service encountered an internal error.</p>
+            aws_sdk_lambda.errors.too_many_requests_exception.TooManyRequestsException: <p>The request throughput limit was exceeded. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests\">Lambda quotas</a>.</p>
+            aws_sdk_lambda.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1029,6 +1140,15 @@ class Function:
 
         Args:
             function_name: <p>The name or ARN of the Lambda function.</p> <p class=\"title\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> - <code>MyFunction</code>.</p> </li> <li> <p> <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</p> </li> <li> <p> <b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
+
+        Raises:
+            aws_sdk_lambda.errors.code_signing_config_not_found_exception.CodeSigningConfigNotFoundException: <p>The specified code signing configuration does not exist.</p>
+            aws_sdk_lambda.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One of the parameters in the request is not valid.</p>
+            aws_sdk_lambda.errors.resource_conflict_exception.ResourceConflictException: <p>The resource already exists, or another operation is in progress.</p>
+            aws_sdk_lambda.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request does not exist.</p>
+            aws_sdk_lambda.errors.service_exception.ServiceException: <p>The Lambda service encountered an internal error.</p>
+            aws_sdk_lambda.errors.too_many_requests_exception.TooManyRequestsException: <p>The request throughput limit was exceeded. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests\">Lambda quotas</a>.</p>
+            aws_sdk_lambda.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1068,6 +1188,13 @@ class Function:
         Args:
             function_name: <p>The name or ARN of the Lambda function, version, or alias.</p> <p class=\"title\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> – <code>my-function</code> (name-only), <code>my-function:v1</code> (with alias).</p> </li> <li> <p> <b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
             qualifier: <p>Specify a version or alias to get details about a published version of the function.</p>
+
+        Raises:
+            aws_sdk_lambda.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One of the parameters in the request is not valid.</p>
+            aws_sdk_lambda.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request does not exist.</p>
+            aws_sdk_lambda.errors.service_exception.ServiceException: <p>The Lambda service encountered an internal error.</p>
+            aws_sdk_lambda.errors.too_many_requests_exception.TooManyRequestsException: <p>The request throughput limit was exceeded. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests\">Lambda quotas</a>.</p>
+            aws_sdk_lambda.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To get a Lambda function
@@ -1113,6 +1240,13 @@ class Function:
 
         Args:
             function_name: <p>The name or ARN of the Lambda function.</p> <p class=\"title\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> - <code>MyFunction</code>.</p> </li> <li> <p> <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</p> </li> <li> <p> <b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
+
+        Raises:
+            aws_sdk_lambda.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One of the parameters in the request is not valid.</p>
+            aws_sdk_lambda.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request does not exist.</p>
+            aws_sdk_lambda.errors.service_exception.ServiceException: <p>The Lambda service encountered an internal error.</p>
+            aws_sdk_lambda.errors.too_many_requests_exception.TooManyRequestsException: <p>The request throughput limit was exceeded. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests\">Lambda quotas</a>.</p>
+            aws_sdk_lambda.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1154,6 +1288,13 @@ class Function:
         Args:
             function_name: <p>The name or ARN of the Lambda function, version, or alias.</p> <p class=\"title\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> – <code>my-function</code> (name-only), <code>my-function:v1</code> (with alias).</p> </li> <li> <p> <b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
             qualifier: <p>Specify a version or alias to get details about a published version of the function.</p>
+
+        Raises:
+            aws_sdk_lambda.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One of the parameters in the request is not valid.</p>
+            aws_sdk_lambda.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request does not exist.</p>
+            aws_sdk_lambda.errors.service_exception.ServiceException: <p>The Lambda service encountered an internal error.</p>
+            aws_sdk_lambda.errors.too_many_requests_exception.TooManyRequestsException: <p>The request throughput limit was exceeded. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests\">Lambda quotas</a>.</p>
+            aws_sdk_lambda.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To get a Lambda function's event source mapping
@@ -1199,6 +1340,13 @@ class Function:
 
         Args:
             function_name: <p>The name of the function.</p>
+
+        Raises:
+            aws_sdk_lambda.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One of the parameters in the request is not valid.</p>
+            aws_sdk_lambda.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request does not exist.</p>
+            aws_sdk_lambda.errors.service_exception.ServiceException: <p>The Lambda service encountered an internal error.</p>
+            aws_sdk_lambda.errors.too_many_requests_exception.TooManyRequestsException: <p>The request throughput limit was exceeded. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests\">Lambda quotas</a>.</p>
+            aws_sdk_lambda.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1238,6 +1386,13 @@ class Function:
         Args:
             function_name: <p>The name or ARN of the Lambda function.</p>
             qualifier: <p>Specify a version or alias to get the scaling configuration for a published version of the function.</p>
+
+        Raises:
+            aws_sdk_lambda.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One of the parameters in the request is not valid.</p>
+            aws_sdk_lambda.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request does not exist.</p>
+            aws_sdk_lambda.errors.service_exception.ServiceException: <p>The Lambda service encountered an internal error.</p>
+            aws_sdk_lambda.errors.too_many_requests_exception.TooManyRequestsException: <p>The request throughput limit was exceeded. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests\">Lambda quotas</a>.</p>
+            aws_sdk_lambda.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1280,6 +1435,13 @@ class Function:
         Args:
             function_name: <p>The name or ARN of the Lambda function, version, or alias.</p> <p class=\"title\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> – <code>my-function</code> (name-only), <code>my-function:v1</code> (with alias).</p> </li> <li> <p> <b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
             qualifier: <p>Specify a version or alias to get the policy for that resource.</p>
+
+        Raises:
+            aws_sdk_lambda.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One of the parameters in the request is not valid.</p>
+            aws_sdk_lambda.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request does not exist.</p>
+            aws_sdk_lambda.errors.service_exception.ServiceException: <p>The Lambda service encountered an internal error.</p>
+            aws_sdk_lambda.errors.too_many_requests_exception.TooManyRequestsException: <p>The request throughput limit was exceeded. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests\">Lambda quotas</a>.</p>
+            aws_sdk_lambda.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To retrieve a Lambda function policy
@@ -1329,6 +1491,13 @@ class Function:
         Args:
             function_name: <p>The name or ARN of the Lambda function.</p> <p class=\"title\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> – <code>my-function</code>.</p> </li> <li> <p> <b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
             qualifier: <p>Specify a version of the function. This can be <code>$LATEST</code> or a published version number. If no value is specified, the configuration for the <code>$LATEST</code> version is returned.</p>
+
+        Raises:
+            aws_sdk_lambda.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One of the parameters in the request is not valid.</p>
+            aws_sdk_lambda.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request does not exist.</p>
+            aws_sdk_lambda.errors.service_exception.ServiceException: <p>The Lambda service encountered an internal error.</p>
+            aws_sdk_lambda.errors.too_many_requests_exception.TooManyRequestsException: <p>The request throughput limit was exceeded. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests\">Lambda quotas</a>.</p>
+            aws_sdk_lambda.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1388,6 +1557,45 @@ class Function:
             payload: <p>The JSON that you want to provide to your Lambda function as input. The maximum payload size is 6 MB for synchronous invocations and 1 MB for asynchronous invocations.</p> <p>You can enter the JSON directly. For example, <code>--payload '{ \"key\": \"value\" }'</code>. You can also specify a file path. For example, <code>--payload file://payload.json</code>.</p>
             qualifier: <p>Specify a version or alias to invoke a published version of the function.</p>
             tenant_id: <p>The identifier of the tenant in a multi-tenant Lambda function.</p>
+
+        Raises:
+            aws_sdk_lambda.errors.durable_execution_already_started_exception.DurableExecutionAlreadyStartedException: <p>The durable execution with the specified name has already been started. Each durable execution name must be unique within the function. Use a different name or check the status of the existing execution.</p>
+            aws_sdk_lambda.errors.ec2_access_denied_exception.EC2AccessDeniedException: <p>Need additional permissions to configure VPC settings.</p>
+            aws_sdk_lambda.errors.ec2_throttled_exception.EC2ThrottledException: <p>Amazon EC2 throttled Lambda during Lambda function initialization using the execution role provided for the function.</p>
+            aws_sdk_lambda.errors.ec2_unexpected_exception.EC2UnexpectedException: <p>Lambda received an unexpected Amazon EC2 client exception while setting up for the Lambda function.</p>
+            aws_sdk_lambda.errors.efsio_exception.EFSIOException: <p>An error occurred when reading from or writing to a connected file system.</p>
+            aws_sdk_lambda.errors.efs_mount_connectivity_exception.EFSMountConnectivityException: <p>The Lambda function couldn't make a network connection to the configured file system.</p>
+            aws_sdk_lambda.errors.efs_mount_failure_exception.EFSMountFailureException: <p>The Lambda function couldn't mount the configured file system due to a permission or configuration issue.</p>
+            aws_sdk_lambda.errors.efs_mount_timeout_exception.EFSMountTimeoutException: <p>The Lambda function made a network connection to the configured file system, but the mount operation timed out.</p>
+            aws_sdk_lambda.errors.eni_limit_reached_exception.ENILimitReachedException: <p>Lambda couldn't create an elastic network interface in the VPC, specified as part of Lambda function configuration, because the limit for network interfaces has been reached. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html\">Lambda quotas</a>.</p>
+            aws_sdk_lambda.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One of the parameters in the request is not valid.</p>
+            aws_sdk_lambda.errors.invalid_request_content_exception.InvalidRequestContentException: <p>The request body could not be parsed as JSON, or a request header is invalid. For example, the 'x-amzn-RequestId' header is not a valid UUID string.</p>
+            aws_sdk_lambda.errors.invalid_runtime_exception.InvalidRuntimeException: <p>The runtime or runtime version specified is not supported.</p>
+            aws_sdk_lambda.errors.invalid_security_group_id_exception.InvalidSecurityGroupIDException: <p>The security group ID provided in the Lambda function VPC configuration is not valid.</p>
+            aws_sdk_lambda.errors.invalid_subnet_id_exception.InvalidSubnetIDException: <p>The subnet ID provided in the Lambda function VPC configuration is not valid.</p>
+            aws_sdk_lambda.errors.invalid_zip_file_exception.InvalidZipFileException: <p>Lambda could not unzip the deployment package.</p>
+            aws_sdk_lambda.errors.kms_access_denied_exception.KMSAccessDeniedException: <p>Lambda couldn't decrypt the environment variables because KMS access was denied. Check the Lambda function's KMS permissions.</p>
+            aws_sdk_lambda.errors.kms_disabled_exception.KMSDisabledException: <p>Lambda couldn't decrypt the environment variables because the KMS key used is disabled. Check the Lambda function's KMS key settings.</p>
+            aws_sdk_lambda.errors.kms_invalid_state_exception.KMSInvalidStateException: <p>Lambda couldn't decrypt the environment variables because the state of the KMS key used is not valid for Decrypt. Check the function's KMS key settings.</p>
+            aws_sdk_lambda.errors.kms_not_found_exception.KMSNotFoundException: <p>Lambda couldn't decrypt the environment variables because the KMS key was not found. Check the function's KMS key settings.</p>
+            aws_sdk_lambda.errors.no_published_version_exception.NoPublishedVersionException: <p>The function has no published versions available.</p>
+            aws_sdk_lambda.errors.recursive_invocation_exception.RecursiveInvocationException: <p>Lambda has detected your function being invoked in a recursive loop with other Amazon Web Services resources and stopped your function's invocation.</p>
+            aws_sdk_lambda.errors.request_too_large_exception.RequestTooLargeException: <p>The request payload exceeded the <code>Invoke</code> request body JSON input quota. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html\">Lambda quotas</a>.</p>
+            aws_sdk_lambda.errors.resource_conflict_exception.ResourceConflictException: <p>The resource already exists, or another operation is in progress.</p>
+            aws_sdk_lambda.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request does not exist.</p>
+            aws_sdk_lambda.errors.resource_not_ready_exception.ResourceNotReadyException: <p>The function is inactive and its VPC connection is no longer available. Wait for the VPC connection to reestablish and try again.</p>
+            aws_sdk_lambda.errors.s3_files_mount_connectivity_exception.S3FilesMountConnectivityException: <p>The Lambda function couldn't make a network connection to the configured S3 Files access point.</p>
+            aws_sdk_lambda.errors.s3_files_mount_failure_exception.S3FilesMountFailureException: <p>The Lambda function couldn't mount the configured S3 Files access point due to a permission or configuration issue.</p>
+            aws_sdk_lambda.errors.s3_files_mount_timeout_exception.S3FilesMountTimeoutException: <p>The Lambda function made a network connection to the configured S3 Files access point, but the mount operation timed out.</p>
+            aws_sdk_lambda.errors.serialized_request_entity_too_large_exception.SerializedRequestEntityTooLargeException: <p>The request payload exceeded the maximum allowed size for serialized request entities.</p>
+            aws_sdk_lambda.errors.service_exception.ServiceException: <p>The Lambda service encountered an internal error.</p>
+            aws_sdk_lambda.errors.snap_start_exception.SnapStartException: <p>The <code>afterRestore()</code> <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/snapstart-runtime-hooks.html\">runtime hook</a> encountered an error. For more information, check the Amazon CloudWatch logs.</p>
+            aws_sdk_lambda.errors.snap_start_not_ready_exception.SnapStartNotReadyException: <p>Lambda is initializing your function. You can invoke the function when the <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/functions-states.html\">function state</a> becomes <code>Active</code>.</p>
+            aws_sdk_lambda.errors.snap_start_timeout_exception.SnapStartTimeoutException: <p>Lambda couldn't restore the snapshot within the timeout limit.</p>
+            aws_sdk_lambda.errors.subnet_ip_address_limit_reached_exception.SubnetIPAddressLimitReachedException: <p>Lambda couldn't set up VPC access for the Lambda function because one or more configured subnets has no available IP addresses.</p>
+            aws_sdk_lambda.errors.too_many_requests_exception.TooManyRequestsException: <p>The request throughput limit was exceeded. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests\">Lambda quotas</a>.</p>
+            aws_sdk_lambda.errors.unsupported_media_type_exception.UnsupportedMediaTypeException: <p>The content type of the <code>Invoke</code> request body is not JSON.</p>
+            aws_sdk_lambda.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To invoke a Lambda function
@@ -1452,6 +1660,14 @@ class Function:
             function_name: <p>The name or ARN of the Lambda function.</p> <p class=\"title\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> – <code>my-function</code>.</p> </li> <li> <p> <b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
             invoke_args: <p>The JSON that you want to provide to your Lambda function as input.</p>
 
+        Raises:
+            aws_sdk_lambda.errors.invalid_request_content_exception.InvalidRequestContentException: <p>The request body could not be parsed as JSON, or a request header is invalid. For example, the 'x-amzn-RequestId' header is not a valid UUID string.</p>
+            aws_sdk_lambda.errors.invalid_runtime_exception.InvalidRuntimeException: <p>The runtime or runtime version specified is not supported.</p>
+            aws_sdk_lambda.errors.resource_conflict_exception.ResourceConflictException: <p>The resource already exists, or another operation is in progress.</p>
+            aws_sdk_lambda.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request does not exist.</p>
+            aws_sdk_lambda.errors.service_exception.ServiceException: <p>The Lambda service encountered an internal error.</p>
+            aws_sdk_lambda.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To invoke a Lambda function asynchronously
             The following example invokes a Lambda function asynchronously
@@ -1512,6 +1728,44 @@ class Function:
             qualifier: <p>The alias name.</p>
             payload: <p>The JSON that you want to provide to your Lambda function as input.</p> <p>You can enter the JSON directly. For example, <code>--payload '{ \"key\": \"value\" }'</code>. You can also specify a file path. For example, <code>--payload file://payload.json</code>.</p>
             tenant_id: <p>The identifier of the tenant in a multi-tenant Lambda function.</p>
+
+        Raises:
+            aws_sdk_lambda.errors.ec2_access_denied_exception.EC2AccessDeniedException: <p>Need additional permissions to configure VPC settings.</p>
+            aws_sdk_lambda.errors.ec2_throttled_exception.EC2ThrottledException: <p>Amazon EC2 throttled Lambda during Lambda function initialization using the execution role provided for the function.</p>
+            aws_sdk_lambda.errors.ec2_unexpected_exception.EC2UnexpectedException: <p>Lambda received an unexpected Amazon EC2 client exception while setting up for the Lambda function.</p>
+            aws_sdk_lambda.errors.efsio_exception.EFSIOException: <p>An error occurred when reading from or writing to a connected file system.</p>
+            aws_sdk_lambda.errors.efs_mount_connectivity_exception.EFSMountConnectivityException: <p>The Lambda function couldn't make a network connection to the configured file system.</p>
+            aws_sdk_lambda.errors.efs_mount_failure_exception.EFSMountFailureException: <p>The Lambda function couldn't mount the configured file system due to a permission or configuration issue.</p>
+            aws_sdk_lambda.errors.efs_mount_timeout_exception.EFSMountTimeoutException: <p>The Lambda function made a network connection to the configured file system, but the mount operation timed out.</p>
+            aws_sdk_lambda.errors.eni_limit_reached_exception.ENILimitReachedException: <p>Lambda couldn't create an elastic network interface in the VPC, specified as part of Lambda function configuration, because the limit for network interfaces has been reached. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html\">Lambda quotas</a>.</p>
+            aws_sdk_lambda.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One of the parameters in the request is not valid.</p>
+            aws_sdk_lambda.errors.invalid_request_content_exception.InvalidRequestContentException: <p>The request body could not be parsed as JSON, or a request header is invalid. For example, the 'x-amzn-RequestId' header is not a valid UUID string.</p>
+            aws_sdk_lambda.errors.invalid_runtime_exception.InvalidRuntimeException: <p>The runtime or runtime version specified is not supported.</p>
+            aws_sdk_lambda.errors.invalid_security_group_id_exception.InvalidSecurityGroupIDException: <p>The security group ID provided in the Lambda function VPC configuration is not valid.</p>
+            aws_sdk_lambda.errors.invalid_subnet_id_exception.InvalidSubnetIDException: <p>The subnet ID provided in the Lambda function VPC configuration is not valid.</p>
+            aws_sdk_lambda.errors.invalid_zip_file_exception.InvalidZipFileException: <p>Lambda could not unzip the deployment package.</p>
+            aws_sdk_lambda.errors.kms_access_denied_exception.KMSAccessDeniedException: <p>Lambda couldn't decrypt the environment variables because KMS access was denied. Check the Lambda function's KMS permissions.</p>
+            aws_sdk_lambda.errors.kms_disabled_exception.KMSDisabledException: <p>Lambda couldn't decrypt the environment variables because the KMS key used is disabled. Check the Lambda function's KMS key settings.</p>
+            aws_sdk_lambda.errors.kms_invalid_state_exception.KMSInvalidStateException: <p>Lambda couldn't decrypt the environment variables because the state of the KMS key used is not valid for Decrypt. Check the function's KMS key settings.</p>
+            aws_sdk_lambda.errors.kms_not_found_exception.KMSNotFoundException: <p>Lambda couldn't decrypt the environment variables because the KMS key was not found. Check the function's KMS key settings.</p>
+            aws_sdk_lambda.errors.no_published_version_exception.NoPublishedVersionException: <p>The function has no published versions available.</p>
+            aws_sdk_lambda.errors.recursive_invocation_exception.RecursiveInvocationException: <p>Lambda has detected your function being invoked in a recursive loop with other Amazon Web Services resources and stopped your function's invocation.</p>
+            aws_sdk_lambda.errors.request_too_large_exception.RequestTooLargeException: <p>The request payload exceeded the <code>Invoke</code> request body JSON input quota. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html\">Lambda quotas</a>.</p>
+            aws_sdk_lambda.errors.resource_conflict_exception.ResourceConflictException: <p>The resource already exists, or another operation is in progress.</p>
+            aws_sdk_lambda.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request does not exist.</p>
+            aws_sdk_lambda.errors.resource_not_ready_exception.ResourceNotReadyException: <p>The function is inactive and its VPC connection is no longer available. Wait for the VPC connection to reestablish and try again.</p>
+            aws_sdk_lambda.errors.s3_files_mount_connectivity_exception.S3FilesMountConnectivityException: <p>The Lambda function couldn't make a network connection to the configured S3 Files access point.</p>
+            aws_sdk_lambda.errors.s3_files_mount_failure_exception.S3FilesMountFailureException: <p>The Lambda function couldn't mount the configured S3 Files access point due to a permission or configuration issue.</p>
+            aws_sdk_lambda.errors.s3_files_mount_timeout_exception.S3FilesMountTimeoutException: <p>The Lambda function made a network connection to the configured S3 Files access point, but the mount operation timed out.</p>
+            aws_sdk_lambda.errors.serialized_request_entity_too_large_exception.SerializedRequestEntityTooLargeException: <p>The request payload exceeded the maximum allowed size for serialized request entities.</p>
+            aws_sdk_lambda.errors.service_exception.ServiceException: <p>The Lambda service encountered an internal error.</p>
+            aws_sdk_lambda.errors.snap_start_exception.SnapStartException: <p>The <code>afterRestore()</code> <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/snapstart-runtime-hooks.html\">runtime hook</a> encountered an error. For more information, check the Amazon CloudWatch logs.</p>
+            aws_sdk_lambda.errors.snap_start_not_ready_exception.SnapStartNotReadyException: <p>Lambda is initializing your function. You can invoke the function when the <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/functions-states.html\">function state</a> becomes <code>Active</code>.</p>
+            aws_sdk_lambda.errors.snap_start_timeout_exception.SnapStartTimeoutException: <p>Lambda couldn't restore the snapshot within the timeout limit.</p>
+            aws_sdk_lambda.errors.subnet_ip_address_limit_reached_exception.SubnetIPAddressLimitReachedException: <p>Lambda couldn't set up VPC access for the Lambda function because one or more configured subnets has no available IP addresses.</p>
+            aws_sdk_lambda.errors.too_many_requests_exception.TooManyRequestsException: <p>The request throughput limit was exceeded. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests\">Lambda quotas</a>.</p>
+            aws_sdk_lambda.errors.unsupported_media_type_exception.UnsupportedMediaTypeException: <p>The content type of the <code>Invoke</code> request body is not JSON.</p>
+            aws_sdk_lambda.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1563,6 +1817,15 @@ class Function:
         Args:
             code_signing_config_arn: <p>The The Amazon Resource Name (ARN) of the code signing configuration.</p>
             function_name: <p>The name or ARN of the Lambda function.</p> <p class=\"title\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> - <code>MyFunction</code>.</p> </li> <li> <p> <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</p> </li> <li> <p> <b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
+
+        Raises:
+            aws_sdk_lambda.errors.code_signing_config_not_found_exception.CodeSigningConfigNotFoundException: <p>The specified code signing configuration does not exist.</p>
+            aws_sdk_lambda.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One of the parameters in the request is not valid.</p>
+            aws_sdk_lambda.errors.resource_conflict_exception.ResourceConflictException: <p>The resource already exists, or another operation is in progress.</p>
+            aws_sdk_lambda.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request does not exist.</p>
+            aws_sdk_lambda.errors.service_exception.ServiceException: <p>The Lambda service encountered an internal error.</p>
+            aws_sdk_lambda.errors.too_many_requests_exception.TooManyRequestsException: <p>The request throughput limit was exceeded. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests\">Lambda quotas</a>.</p>
+            aws_sdk_lambda.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1603,6 +1866,14 @@ class Function:
         Args:
             function_name: <p>The name or ARN of the Lambda function.</p> <p class=\"title\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> – <code>my-function</code>.</p> </li> <li> <p> <b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
             recursive_loop: <p>If you set your function's recursive loop detection configuration to <code>Allow</code>, Lambda doesn't take any action when it detects your function being invoked as part of a recursive loop. We recommend that you only use this setting if your design intentionally uses a Lambda function to write data back to the same Amazon Web Services resource that invokes it.</p> <p>If you set your function's recursive loop detection configuration to <code>Terminate</code>, Lambda stops your function being invoked and notifies you when it detects your function being invoked as part of a recursive loop.</p> <p>By default, Lambda sets your function's configuration to <code>Terminate</code>.</p> <important> <p>If your design intentionally uses a Lambda function to write data back to the same Amazon Web Services resource that invokes the function, then use caution and implement suitable guard rails to prevent unexpected charges being billed to your Amazon Web Services account. To learn more about best practices for using recursive invocation patterns, see <a href=\"https://serverlessland.com/content/service/lambda/guides/aws-lambda-operator-guide/recursive-runaway\">Recursive patterns that cause run-away Lambda functions</a> in Serverless Land.</p> </important>
+
+        Raises:
+            aws_sdk_lambda.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One of the parameters in the request is not valid.</p>
+            aws_sdk_lambda.errors.resource_conflict_exception.ResourceConflictException: <p>The resource already exists, or another operation is in progress.</p>
+            aws_sdk_lambda.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request does not exist.</p>
+            aws_sdk_lambda.errors.service_exception.ServiceException: <p>The Lambda service encountered an internal error.</p>
+            aws_sdk_lambda.errors.too_many_requests_exception.TooManyRequestsException: <p>The request throughput limit was exceeded. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests\">Lambda quotas</a>.</p>
+            aws_sdk_lambda.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1647,6 +1918,14 @@ class Function:
             function_name: <p>The name or ARN of the Lambda function.</p>
             qualifier: <p>Specify a version or alias to set the scaling configuration for a published version of the function.</p>
             function_scaling_config: <p>The scaling configuration to apply to the function, including minimum and maximum execution environment limits.</p>
+
+        Raises:
+            aws_sdk_lambda.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One of the parameters in the request is not valid.</p>
+            aws_sdk_lambda.errors.resource_conflict_exception.ResourceConflictException: <p>The resource already exists, or another operation is in progress.</p>
+            aws_sdk_lambda.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request does not exist.</p>
+            aws_sdk_lambda.errors.service_exception.ServiceException: <p>The Lambda service encountered an internal error.</p>
+            aws_sdk_lambda.errors.too_many_requests_exception.TooManyRequestsException: <p>The request throughput limit was exceeded. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests\">Lambda quotas</a>.</p>
+            aws_sdk_lambda.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1697,6 +1976,14 @@ class Function:
             qualifier: <p>Specify a version of the function. This can be <code>$LATEST</code> or a published version number. If no value is specified, the configuration for the <code>$LATEST</code> version is returned.</p>
             update_runtime_on: <p>Specify the runtime update mode.</p> <ul> <li> <p> <b>Auto (default)</b> - Automatically update to the most recent and secure runtime version using a <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/runtimes-update.html#runtime-management-two-phase\">Two-phase runtime version rollout</a>. This is the best choice for most customers to ensure they always benefit from runtime updates.</p> </li> <li> <p> <b>Function update</b> - Lambda updates the runtime of your function to the most recent and secure runtime version when you update your function. This approach synchronizes runtime updates with function deployments, giving you control over when runtime updates are applied and allowing you to detect and mitigate rare runtime update incompatibilities early. When using this setting, you need to regularly update your functions to keep their runtime up-to-date.</p> </li> <li> <p> <b>Manual</b> - You specify a runtime version in your function configuration. The function will use this runtime version indefinitely. In the rare case where a new runtime version is incompatible with an existing function, this allows you to roll back your function to an earlier runtime version. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/runtimes-update.html#runtime-management-rollback\">Roll back a runtime version</a>.</p> </li> </ul>
             runtime_version_arn: <p>The ARN of the runtime version you want the function to use.</p> <note> <p>This is only required if you're using the <b>Manual</b> runtime update mode.</p> </note>
+
+        Raises:
+            aws_sdk_lambda.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One of the parameters in the request is not valid.</p>
+            aws_sdk_lambda.errors.resource_conflict_exception.ResourceConflictException: <p>The resource already exists, or another operation is in progress.</p>
+            aws_sdk_lambda.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request does not exist.</p>
+            aws_sdk_lambda.errors.service_exception.ServiceException: <p>The Lambda service encountered an internal error.</p>
+            aws_sdk_lambda.errors.too_many_requests_exception.TooManyRequestsException: <p>The request throughput limit was exceeded. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests\">Lambda quotas</a>.</p>
+            aws_sdk_lambda.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1821,6 +2108,19 @@ class AsyncFunction:
             durable_config: <p>Configuration settings for durable functions. Enables creating functions with durability that can remember their state and continue execution even after interruptions.</p>
             tenancy_config: <p>Configuration for multi-tenant applications that use Lambda functions. Defines tenant isolation settings and resource allocations. Required for functions supporting multiple tenants.</p>
 
+        Raises:
+            aws_sdk_lambda.errors.code_signing_config_not_found_exception.CodeSigningConfigNotFoundException: <p>The specified code signing configuration does not exist.</p>
+            aws_sdk_lambda.errors.code_storage_exceeded_exception.CodeStorageExceededException: <p>Your Amazon Web Services account has exceeded its maximum total code size. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html\">Lambda quotas</a>.</p>
+            aws_sdk_lambda.errors.code_verification_failed_exception.CodeVerificationFailedException: <p>The code signature failed one or more of the validation checks for signature mismatch or expiry, and the code signing policy is set to ENFORCE. Lambda blocks the deployment.</p>
+            aws_sdk_lambda.errors.function_versions_per_capacity_provider_limit_exceeded_exception.FunctionVersionsPerCapacityProviderLimitExceededException: <p>The maximum number of function versions that can be associated with a single capacity provider has been exceeded. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html\">Lambda quotas</a>.</p>
+            aws_sdk_lambda.errors.invalid_code_signature_exception.InvalidCodeSignatureException: <p>The code signature failed the integrity check. If the integrity check fails, then Lambda blocks deployment, even if the code signing policy is set to WARN.</p>
+            aws_sdk_lambda.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One of the parameters in the request is not valid.</p>
+            aws_sdk_lambda.errors.resource_conflict_exception.ResourceConflictException: <p>The resource already exists, or another operation is in progress.</p>
+            aws_sdk_lambda.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request does not exist.</p>
+            aws_sdk_lambda.errors.service_exception.ServiceException: <p>The Lambda service encountered an internal error.</p>
+            aws_sdk_lambda.errors.too_many_requests_exception.TooManyRequestsException: <p>The request throughput limit was exceeded. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests\">Lambda quotas</a>.</p>
+            aws_sdk_lambda.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To create a function
             The following example creates a function with a deployment package in Amazon S3 and enables X-Ray tracing and environment variable encryption.
@@ -1927,6 +2227,12 @@ class AsyncFunction:
             marker: <p>Specify the pagination token that's returned by a previous request to retrieve the next page of results.</p>
             max_items: <p>The maximum number of functions to return in the response. Note that <code>ListFunctions</code> returns a maximum of 50 items in each response, even if you set the number higher.</p>
 
+        Raises:
+            aws_sdk_lambda.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One of the parameters in the request is not valid.</p>
+            aws_sdk_lambda.errors.service_exception.ServiceException: <p>The Lambda service encountered an internal error.</p>
+            aws_sdk_lambda.errors.too_many_requests_exception.TooManyRequestsException: <p>The request throughput limit was exceeded. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests\">Lambda quotas</a>.</p>
+            aws_sdk_lambda.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To get a list of Lambda functions
             This operation returns a list of Lambda functions.
@@ -1987,6 +2293,14 @@ class AsyncFunction:
             auth_type: <p>The type of authentication that your function URL uses. Set to <code>AWS_IAM</code> if you want to restrict access to authenticated users only. Set to <code>NONE</code> if you want to bypass IAM authentication to create a public endpoint. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html\">Control access to Lambda function URLs</a>.</p>
             cors: <p>The <a href=\"https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS\">cross-origin resource sharing (CORS)</a> settings for your function URL.</p>
             invoke_mode: <p>Use one of the following options:</p> <ul> <li> <p> <code>BUFFERED</code> – This is the default option. Lambda invokes your function using the <code>Invoke</code> API operation. Invocation results are available when the payload is complete. The maximum payload size is 6 MB.</p> </li> <li> <p> <code>RESPONSE_STREAM</code> – Your function streams payload results as they become available. Lambda invokes your function using the <code>InvokeWithResponseStream</code> API operation. The maximum response payload size is 200 MB.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_lambda.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One of the parameters in the request is not valid.</p>
+            aws_sdk_lambda.errors.resource_conflict_exception.ResourceConflictException: <p>The resource already exists, or another operation is in progress.</p>
+            aws_sdk_lambda.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request does not exist.</p>
+            aws_sdk_lambda.errors.service_exception.ServiceException: <p>The Lambda service encountered an internal error.</p>
+            aws_sdk_lambda.errors.too_many_requests_exception.TooManyRequestsException: <p>The request throughput limit was exceeded. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests\">Lambda quotas</a>.</p>
+            aws_sdk_lambda.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2033,6 +2347,14 @@ class AsyncFunction:
         Args:
             function_name: <p>The name or ARN of the Lambda function.</p> <p class=\"title\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> – <code>my-function</code>.</p> </li> <li> <p> <b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
 
+        Raises:
+            aws_sdk_lambda.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One of the parameters in the request is not valid.</p>
+            aws_sdk_lambda.errors.resource_conflict_exception.ResourceConflictException: <p>The resource already exists, or another operation is in progress.</p>
+            aws_sdk_lambda.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request does not exist.</p>
+            aws_sdk_lambda.errors.service_exception.ServiceException: <p>The Lambda service encountered an internal error.</p>
+            aws_sdk_lambda.errors.too_many_requests_exception.TooManyRequestsException: <p>The request throughput limit was exceeded. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests\">Lambda quotas</a>.</p>
+            aws_sdk_lambda.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To remove the reserved concurrent execution limit from a function
             The following example deletes the reserved concurrent execution limit from a function named my-function.
@@ -2078,6 +2400,13 @@ class AsyncFunction:
         Args:
             function_name: <p>The name or ARN of the Lambda function.</p> <p class=\"title\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> – <code>my-function</code>.</p> </li> <li> <p> <b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
             qualifier: <p>The alias name.</p>
+
+        Raises:
+            aws_sdk_lambda.errors.resource_conflict_exception.ResourceConflictException: <p>The resource already exists, or another operation is in progress.</p>
+            aws_sdk_lambda.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request does not exist.</p>
+            aws_sdk_lambda.errors.service_exception.ServiceException: <p>The Lambda service encountered an internal error.</p>
+            aws_sdk_lambda.errors.too_many_requests_exception.TooManyRequestsException: <p>The request throughput limit was exceeded. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests\">Lambda quotas</a>.</p>
+            aws_sdk_lambda.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2116,6 +2445,13 @@ class AsyncFunction:
 
         Args:
             function_name: <p>The name or ARN of the Lambda function.</p> <p class=\"title\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> – <code>my-function</code>.</p> </li> <li> <p> <b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
+
+        Raises:
+            aws_sdk_lambda.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One of the parameters in the request is not valid.</p>
+            aws_sdk_lambda.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request does not exist.</p>
+            aws_sdk_lambda.errors.service_exception.ServiceException: <p>The Lambda service encountered an internal error.</p>
+            aws_sdk_lambda.errors.too_many_requests_exception.TooManyRequestsException: <p>The request throughput limit was exceeded. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests\">Lambda quotas</a>.</p>
+            aws_sdk_lambda.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To get the reserved concurrency setting for a function
@@ -2164,6 +2500,13 @@ class AsyncFunction:
         Args:
             function_name: <p>The name or ARN of the Lambda function.</p> <p class=\"title\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> – <code>my-function</code>.</p> </li> <li> <p> <b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
             qualifier: <p>The alias name.</p>
+
+        Raises:
+            aws_sdk_lambda.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One of the parameters in the request is not valid.</p>
+            aws_sdk_lambda.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request does not exist.</p>
+            aws_sdk_lambda.errors.service_exception.ServiceException: <p>The Lambda service encountered an internal error.</p>
+            aws_sdk_lambda.errors.too_many_requests_exception.TooManyRequestsException: <p>The request throughput limit was exceeded. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests\">Lambda quotas</a>.</p>
+            aws_sdk_lambda.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2208,6 +2551,13 @@ class AsyncFunction:
             function_name: <p>The name or ARN of the Lambda function.</p> <p class=\"title\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> – <code>my-function</code>.</p> </li> <li> <p> <b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
             marker: <p>Specify the pagination token that's returned by a previous request to retrieve the next page of results.</p>
             max_items: <p>The maximum number of function URLs to return in the response. Note that <code>ListFunctionUrlConfigs</code> returns a maximum of 50 items in each response, even if you set the number higher.</p>
+
+        Raises:
+            aws_sdk_lambda.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One of the parameters in the request is not valid.</p>
+            aws_sdk_lambda.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request does not exist.</p>
+            aws_sdk_lambda.errors.service_exception.ServiceException: <p>The Lambda service encountered an internal error.</p>
+            aws_sdk_lambda.errors.too_many_requests_exception.TooManyRequestsException: <p>The request throughput limit was exceeded. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests\">Lambda quotas</a>.</p>
+            aws_sdk_lambda.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2256,6 +2606,13 @@ class AsyncFunction:
             function_name: <p>The name or ARN of the Lambda function.</p> <p class=\"title\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> – <code>my-function</code>.</p> </li> <li> <p> <b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
             marker: <p>Specify the pagination token that's returned by a previous request to retrieve the next page of results.</p>
             max_items: <p>Specify a number to limit the number of configurations returned.</p>
+
+        Raises:
+            aws_sdk_lambda.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One of the parameters in the request is not valid.</p>
+            aws_sdk_lambda.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request does not exist.</p>
+            aws_sdk_lambda.errors.service_exception.ServiceException: <p>The Lambda service encountered an internal error.</p>
+            aws_sdk_lambda.errors.too_many_requests_exception.TooManyRequestsException: <p>The request throughput limit was exceeded. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests\">Lambda quotas</a>.</p>
+            aws_sdk_lambda.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To get a list of provisioned concurrency configurations
@@ -2306,6 +2663,14 @@ class AsyncFunction:
         Args:
             function_name: <p>The name or ARN of the Lambda function.</p> <p class=\"title\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> – <code>my-function</code>.</p> </li> <li> <p> <b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
             reserved_concurrent_executions: <p>The number of simultaneous executions to reserve for the function.</p>
+
+        Raises:
+            aws_sdk_lambda.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One of the parameters in the request is not valid.</p>
+            aws_sdk_lambda.errors.resource_conflict_exception.ResourceConflictException: <p>The resource already exists, or another operation is in progress.</p>
+            aws_sdk_lambda.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request does not exist.</p>
+            aws_sdk_lambda.errors.service_exception.ServiceException: <p>The Lambda service encountered an internal error.</p>
+            aws_sdk_lambda.errors.too_many_requests_exception.TooManyRequestsException: <p>The request throughput limit was exceeded. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests\">Lambda quotas</a>.</p>
+            aws_sdk_lambda.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To configure a reserved concurrency limit for a function
@@ -2379,6 +2744,19 @@ class AsyncFunction:
             architectures: <p>The instruction set architecture that the function supports. Enter a string array with one of the valid values (arm64 or x86_64). The default value is <code>x86_64</code>.</p>
             source_kms_key_arn: <p>The ARN of the Key Management Service (KMS) customer managed key that's used to encrypt your function's .zip deployment package. If you don't provide a customer managed key, Lambda uses an Amazon Web Services managed key.</p>
             publish_to: <p>Specifies where to publish the function version or configuration.</p>
+
+        Raises:
+            aws_sdk_lambda.errors.code_signing_config_not_found_exception.CodeSigningConfigNotFoundException: <p>The specified code signing configuration does not exist.</p>
+            aws_sdk_lambda.errors.code_storage_exceeded_exception.CodeStorageExceededException: <p>Your Amazon Web Services account has exceeded its maximum total code size. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html\">Lambda quotas</a>.</p>
+            aws_sdk_lambda.errors.code_verification_failed_exception.CodeVerificationFailedException: <p>The code signature failed one or more of the validation checks for signature mismatch or expiry, and the code signing policy is set to ENFORCE. Lambda blocks the deployment.</p>
+            aws_sdk_lambda.errors.invalid_code_signature_exception.InvalidCodeSignatureException: <p>The code signature failed the integrity check. If the integrity check fails, then Lambda blocks deployment, even if the code signing policy is set to WARN.</p>
+            aws_sdk_lambda.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One of the parameters in the request is not valid.</p>
+            aws_sdk_lambda.errors.precondition_failed_exception.PreconditionFailedException: <p>The RevisionId provided does not match the latest RevisionId for the Lambda function or alias.</p> <ul> <li> <p> <b>For AddPermission and RemovePermission API operations:</b> Call <code>GetPolicy</code> to retrieve the latest RevisionId for your resource.</p> </li> <li> <p> <b>For all other API operations:</b> Call <code>GetFunction</code> or <code>GetAlias</code> to retrieve the latest RevisionId for your resource.</p> </li> </ul>
+            aws_sdk_lambda.errors.resource_conflict_exception.ResourceConflictException: <p>The resource already exists, or another operation is in progress.</p>
+            aws_sdk_lambda.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request does not exist.</p>
+            aws_sdk_lambda.errors.service_exception.ServiceException: <p>The Lambda service encountered an internal error.</p>
+            aws_sdk_lambda.errors.too_many_requests_exception.TooManyRequestsException: <p>The request throughput limit was exceeded. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests\">Lambda quotas</a>.</p>
+            aws_sdk_lambda.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To update a Lambda function's code
@@ -2500,6 +2878,18 @@ class AsyncFunction:
             capacity_provider_config: <p>Configuration for the capacity provider that manages compute resources for Lambda functions.</p>
             durable_config: <p>Configuration settings for durable functions. Allows updating execution timeout and retention period for functions with durability enabled.</p>
 
+        Raises:
+            aws_sdk_lambda.errors.code_signing_config_not_found_exception.CodeSigningConfigNotFoundException: <p>The specified code signing configuration does not exist.</p>
+            aws_sdk_lambda.errors.code_verification_failed_exception.CodeVerificationFailedException: <p>The code signature failed one or more of the validation checks for signature mismatch or expiry, and the code signing policy is set to ENFORCE. Lambda blocks the deployment.</p>
+            aws_sdk_lambda.errors.invalid_code_signature_exception.InvalidCodeSignatureException: <p>The code signature failed the integrity check. If the integrity check fails, then Lambda blocks deployment, even if the code signing policy is set to WARN.</p>
+            aws_sdk_lambda.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One of the parameters in the request is not valid.</p>
+            aws_sdk_lambda.errors.precondition_failed_exception.PreconditionFailedException: <p>The RevisionId provided does not match the latest RevisionId for the Lambda function or alias.</p> <ul> <li> <p> <b>For AddPermission and RemovePermission API operations:</b> Call <code>GetPolicy</code> to retrieve the latest RevisionId for your resource.</p> </li> <li> <p> <b>For all other API operations:</b> Call <code>GetFunction</code> or <code>GetAlias</code> to retrieve the latest RevisionId for your resource.</p> </li> </ul>
+            aws_sdk_lambda.errors.resource_conflict_exception.ResourceConflictException: <p>The resource already exists, or another operation is in progress.</p>
+            aws_sdk_lambda.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request does not exist.</p>
+            aws_sdk_lambda.errors.service_exception.ServiceException: <p>The Lambda service encountered an internal error.</p>
+            aws_sdk_lambda.errors.too_many_requests_exception.TooManyRequestsException: <p>The request throughput limit was exceeded. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests\">Lambda quotas</a>.</p>
+            aws_sdk_lambda.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To update a Lambda function's configuration
             The following example modifies the memory size to be 256 MB for the unpublished ($LATEST) version of a function named my-function.
@@ -2595,6 +2985,14 @@ class AsyncFunction:
             auth_type: <p>The type of authentication that your function URL uses. Set to <code>AWS_IAM</code> if you want to restrict access to authenticated users only. Set to <code>NONE</code> if you want to bypass IAM authentication to create a public endpoint. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html\">Control access to Lambda function URLs</a>.</p>
             cors: <p>The <a href=\"https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS\">cross-origin resource sharing (CORS)</a> settings for your function URL.</p>
             invoke_mode: <p>Use one of the following options:</p> <ul> <li> <p> <code>BUFFERED</code> – This is the default option. Lambda invokes your function using the <code>Invoke</code> API operation. Invocation results are available when the payload is complete. The maximum payload size is 6 MB.</p> </li> <li> <p> <code>RESPONSE_STREAM</code> – Your function streams payload results as they become available. Lambda invokes your function using the <code>InvokeWithResponseStream</code> API operation. The maximum response payload size is 200 MB.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_lambda.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One of the parameters in the request is not valid.</p>
+            aws_sdk_lambda.errors.resource_conflict_exception.ResourceConflictException: <p>The resource already exists, or another operation is in progress.</p>
+            aws_sdk_lambda.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request does not exist.</p>
+            aws_sdk_lambda.errors.service_exception.ServiceException: <p>The Lambda service encountered an internal error.</p>
+            aws_sdk_lambda.errors.too_many_requests_exception.TooManyRequestsException: <p>The request throughput limit was exceeded. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests\">Lambda quotas</a>.</p>
+            aws_sdk_lambda.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2641,6 +3039,15 @@ class AsyncFunction:
 
         Args:
             function_name: <p>The name or ARN of the Lambda function.</p> <p class=\"title\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> - <code>MyFunction</code>.</p> </li> <li> <p> <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</p> </li> <li> <p> <b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
+
+        Raises:
+            aws_sdk_lambda.errors.code_signing_config_not_found_exception.CodeSigningConfigNotFoundException: <p>The specified code signing configuration does not exist.</p>
+            aws_sdk_lambda.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One of the parameters in the request is not valid.</p>
+            aws_sdk_lambda.errors.resource_conflict_exception.ResourceConflictException: <p>The resource already exists, or another operation is in progress.</p>
+            aws_sdk_lambda.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request does not exist.</p>
+            aws_sdk_lambda.errors.service_exception.ServiceException: <p>The Lambda service encountered an internal error.</p>
+            aws_sdk_lambda.errors.too_many_requests_exception.TooManyRequestsException: <p>The request throughput limit was exceeded. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests\">Lambda quotas</a>.</p>
+            aws_sdk_lambda.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2681,6 +3088,13 @@ class AsyncFunction:
         Args:
             function_name: <p>The name or ARN of the Lambda function, version, or alias.</p> <p class=\"title\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> – <code>my-function</code> (name-only), <code>my-function:v1</code> (with alias).</p> </li> <li> <p> <b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
             qualifier: <p>Specify a version or alias to get details about a published version of the function.</p>
+
+        Raises:
+            aws_sdk_lambda.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One of the parameters in the request is not valid.</p>
+            aws_sdk_lambda.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request does not exist.</p>
+            aws_sdk_lambda.errors.service_exception.ServiceException: <p>The Lambda service encountered an internal error.</p>
+            aws_sdk_lambda.errors.too_many_requests_exception.TooManyRequestsException: <p>The request throughput limit was exceeded. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests\">Lambda quotas</a>.</p>
+            aws_sdk_lambda.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To get a Lambda function
@@ -2727,6 +3141,13 @@ class AsyncFunction:
 
         Args:
             function_name: <p>The name or ARN of the Lambda function.</p> <p class=\"title\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> - <code>MyFunction</code>.</p> </li> <li> <p> <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</p> </li> <li> <p> <b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
+
+        Raises:
+            aws_sdk_lambda.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One of the parameters in the request is not valid.</p>
+            aws_sdk_lambda.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request does not exist.</p>
+            aws_sdk_lambda.errors.service_exception.ServiceException: <p>The Lambda service encountered an internal error.</p>
+            aws_sdk_lambda.errors.too_many_requests_exception.TooManyRequestsException: <p>The request throughput limit was exceeded. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests\">Lambda quotas</a>.</p>
+            aws_sdk_lambda.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2769,6 +3190,13 @@ class AsyncFunction:
         Args:
             function_name: <p>The name or ARN of the Lambda function, version, or alias.</p> <p class=\"title\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> – <code>my-function</code> (name-only), <code>my-function:v1</code> (with alias).</p> </li> <li> <p> <b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
             qualifier: <p>Specify a version or alias to get details about a published version of the function.</p>
+
+        Raises:
+            aws_sdk_lambda.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One of the parameters in the request is not valid.</p>
+            aws_sdk_lambda.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request does not exist.</p>
+            aws_sdk_lambda.errors.service_exception.ServiceException: <p>The Lambda service encountered an internal error.</p>
+            aws_sdk_lambda.errors.too_many_requests_exception.TooManyRequestsException: <p>The request throughput limit was exceeded. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests\">Lambda quotas</a>.</p>
+            aws_sdk_lambda.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To get a Lambda function's event source mapping
@@ -2815,6 +3243,13 @@ class AsyncFunction:
 
         Args:
             function_name: <p>The name of the function.</p>
+
+        Raises:
+            aws_sdk_lambda.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One of the parameters in the request is not valid.</p>
+            aws_sdk_lambda.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request does not exist.</p>
+            aws_sdk_lambda.errors.service_exception.ServiceException: <p>The Lambda service encountered an internal error.</p>
+            aws_sdk_lambda.errors.too_many_requests_exception.TooManyRequestsException: <p>The request throughput limit was exceeded. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests\">Lambda quotas</a>.</p>
+            aws_sdk_lambda.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2855,6 +3290,13 @@ class AsyncFunction:
         Args:
             function_name: <p>The name or ARN of the Lambda function.</p>
             qualifier: <p>Specify a version or alias to get the scaling configuration for a published version of the function.</p>
+
+        Raises:
+            aws_sdk_lambda.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One of the parameters in the request is not valid.</p>
+            aws_sdk_lambda.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request does not exist.</p>
+            aws_sdk_lambda.errors.service_exception.ServiceException: <p>The Lambda service encountered an internal error.</p>
+            aws_sdk_lambda.errors.too_many_requests_exception.TooManyRequestsException: <p>The request throughput limit was exceeded. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests\">Lambda quotas</a>.</p>
+            aws_sdk_lambda.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2898,6 +3340,13 @@ class AsyncFunction:
         Args:
             function_name: <p>The name or ARN of the Lambda function, version, or alias.</p> <p class=\"title\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> – <code>my-function</code> (name-only), <code>my-function:v1</code> (with alias).</p> </li> <li> <p> <b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
             qualifier: <p>Specify a version or alias to get the policy for that resource.</p>
+
+        Raises:
+            aws_sdk_lambda.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One of the parameters in the request is not valid.</p>
+            aws_sdk_lambda.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request does not exist.</p>
+            aws_sdk_lambda.errors.service_exception.ServiceException: <p>The Lambda service encountered an internal error.</p>
+            aws_sdk_lambda.errors.too_many_requests_exception.TooManyRequestsException: <p>The request throughput limit was exceeded. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests\">Lambda quotas</a>.</p>
+            aws_sdk_lambda.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To retrieve a Lambda function policy
@@ -2948,6 +3397,13 @@ class AsyncFunction:
         Args:
             function_name: <p>The name or ARN of the Lambda function.</p> <p class=\"title\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> – <code>my-function</code>.</p> </li> <li> <p> <b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
             qualifier: <p>Specify a version of the function. This can be <code>$LATEST</code> or a published version number. If no value is specified, the configuration for the <code>$LATEST</code> version is returned.</p>
+
+        Raises:
+            aws_sdk_lambda.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One of the parameters in the request is not valid.</p>
+            aws_sdk_lambda.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request does not exist.</p>
+            aws_sdk_lambda.errors.service_exception.ServiceException: <p>The Lambda service encountered an internal error.</p>
+            aws_sdk_lambda.errors.too_many_requests_exception.TooManyRequestsException: <p>The request throughput limit was exceeded. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests\">Lambda quotas</a>.</p>
+            aws_sdk_lambda.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3008,6 +3464,45 @@ class AsyncFunction:
             payload: <p>The JSON that you want to provide to your Lambda function as input. The maximum payload size is 6 MB for synchronous invocations and 1 MB for asynchronous invocations.</p> <p>You can enter the JSON directly. For example, <code>--payload '{ \"key\": \"value\" }'</code>. You can also specify a file path. For example, <code>--payload file://payload.json</code>.</p>
             qualifier: <p>Specify a version or alias to invoke a published version of the function.</p>
             tenant_id: <p>The identifier of the tenant in a multi-tenant Lambda function.</p>
+
+        Raises:
+            aws_sdk_lambda.errors.durable_execution_already_started_exception.DurableExecutionAlreadyStartedException: <p>The durable execution with the specified name has already been started. Each durable execution name must be unique within the function. Use a different name or check the status of the existing execution.</p>
+            aws_sdk_lambda.errors.ec2_access_denied_exception.EC2AccessDeniedException: <p>Need additional permissions to configure VPC settings.</p>
+            aws_sdk_lambda.errors.ec2_throttled_exception.EC2ThrottledException: <p>Amazon EC2 throttled Lambda during Lambda function initialization using the execution role provided for the function.</p>
+            aws_sdk_lambda.errors.ec2_unexpected_exception.EC2UnexpectedException: <p>Lambda received an unexpected Amazon EC2 client exception while setting up for the Lambda function.</p>
+            aws_sdk_lambda.errors.efsio_exception.EFSIOException: <p>An error occurred when reading from or writing to a connected file system.</p>
+            aws_sdk_lambda.errors.efs_mount_connectivity_exception.EFSMountConnectivityException: <p>The Lambda function couldn't make a network connection to the configured file system.</p>
+            aws_sdk_lambda.errors.efs_mount_failure_exception.EFSMountFailureException: <p>The Lambda function couldn't mount the configured file system due to a permission or configuration issue.</p>
+            aws_sdk_lambda.errors.efs_mount_timeout_exception.EFSMountTimeoutException: <p>The Lambda function made a network connection to the configured file system, but the mount operation timed out.</p>
+            aws_sdk_lambda.errors.eni_limit_reached_exception.ENILimitReachedException: <p>Lambda couldn't create an elastic network interface in the VPC, specified as part of Lambda function configuration, because the limit for network interfaces has been reached. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html\">Lambda quotas</a>.</p>
+            aws_sdk_lambda.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One of the parameters in the request is not valid.</p>
+            aws_sdk_lambda.errors.invalid_request_content_exception.InvalidRequestContentException: <p>The request body could not be parsed as JSON, or a request header is invalid. For example, the 'x-amzn-RequestId' header is not a valid UUID string.</p>
+            aws_sdk_lambda.errors.invalid_runtime_exception.InvalidRuntimeException: <p>The runtime or runtime version specified is not supported.</p>
+            aws_sdk_lambda.errors.invalid_security_group_id_exception.InvalidSecurityGroupIDException: <p>The security group ID provided in the Lambda function VPC configuration is not valid.</p>
+            aws_sdk_lambda.errors.invalid_subnet_id_exception.InvalidSubnetIDException: <p>The subnet ID provided in the Lambda function VPC configuration is not valid.</p>
+            aws_sdk_lambda.errors.invalid_zip_file_exception.InvalidZipFileException: <p>Lambda could not unzip the deployment package.</p>
+            aws_sdk_lambda.errors.kms_access_denied_exception.KMSAccessDeniedException: <p>Lambda couldn't decrypt the environment variables because KMS access was denied. Check the Lambda function's KMS permissions.</p>
+            aws_sdk_lambda.errors.kms_disabled_exception.KMSDisabledException: <p>Lambda couldn't decrypt the environment variables because the KMS key used is disabled. Check the Lambda function's KMS key settings.</p>
+            aws_sdk_lambda.errors.kms_invalid_state_exception.KMSInvalidStateException: <p>Lambda couldn't decrypt the environment variables because the state of the KMS key used is not valid for Decrypt. Check the function's KMS key settings.</p>
+            aws_sdk_lambda.errors.kms_not_found_exception.KMSNotFoundException: <p>Lambda couldn't decrypt the environment variables because the KMS key was not found. Check the function's KMS key settings.</p>
+            aws_sdk_lambda.errors.no_published_version_exception.NoPublishedVersionException: <p>The function has no published versions available.</p>
+            aws_sdk_lambda.errors.recursive_invocation_exception.RecursiveInvocationException: <p>Lambda has detected your function being invoked in a recursive loop with other Amazon Web Services resources and stopped your function's invocation.</p>
+            aws_sdk_lambda.errors.request_too_large_exception.RequestTooLargeException: <p>The request payload exceeded the <code>Invoke</code> request body JSON input quota. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html\">Lambda quotas</a>.</p>
+            aws_sdk_lambda.errors.resource_conflict_exception.ResourceConflictException: <p>The resource already exists, or another operation is in progress.</p>
+            aws_sdk_lambda.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request does not exist.</p>
+            aws_sdk_lambda.errors.resource_not_ready_exception.ResourceNotReadyException: <p>The function is inactive and its VPC connection is no longer available. Wait for the VPC connection to reestablish and try again.</p>
+            aws_sdk_lambda.errors.s3_files_mount_connectivity_exception.S3FilesMountConnectivityException: <p>The Lambda function couldn't make a network connection to the configured S3 Files access point.</p>
+            aws_sdk_lambda.errors.s3_files_mount_failure_exception.S3FilesMountFailureException: <p>The Lambda function couldn't mount the configured S3 Files access point due to a permission or configuration issue.</p>
+            aws_sdk_lambda.errors.s3_files_mount_timeout_exception.S3FilesMountTimeoutException: <p>The Lambda function made a network connection to the configured S3 Files access point, but the mount operation timed out.</p>
+            aws_sdk_lambda.errors.serialized_request_entity_too_large_exception.SerializedRequestEntityTooLargeException: <p>The request payload exceeded the maximum allowed size for serialized request entities.</p>
+            aws_sdk_lambda.errors.service_exception.ServiceException: <p>The Lambda service encountered an internal error.</p>
+            aws_sdk_lambda.errors.snap_start_exception.SnapStartException: <p>The <code>afterRestore()</code> <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/snapstart-runtime-hooks.html\">runtime hook</a> encountered an error. For more information, check the Amazon CloudWatch logs.</p>
+            aws_sdk_lambda.errors.snap_start_not_ready_exception.SnapStartNotReadyException: <p>Lambda is initializing your function. You can invoke the function when the <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/functions-states.html\">function state</a> becomes <code>Active</code>.</p>
+            aws_sdk_lambda.errors.snap_start_timeout_exception.SnapStartTimeoutException: <p>Lambda couldn't restore the snapshot within the timeout limit.</p>
+            aws_sdk_lambda.errors.subnet_ip_address_limit_reached_exception.SubnetIPAddressLimitReachedException: <p>Lambda couldn't set up VPC access for the Lambda function because one or more configured subnets has no available IP addresses.</p>
+            aws_sdk_lambda.errors.too_many_requests_exception.TooManyRequestsException: <p>The request throughput limit was exceeded. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests\">Lambda quotas</a>.</p>
+            aws_sdk_lambda.errors.unsupported_media_type_exception.UnsupportedMediaTypeException: <p>The content type of the <code>Invoke</code> request body is not JSON.</p>
+            aws_sdk_lambda.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To invoke a Lambda function
@@ -3073,6 +3568,14 @@ class AsyncFunction:
             function_name: <p>The name or ARN of the Lambda function.</p> <p class=\"title\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> – <code>my-function</code>.</p> </li> <li> <p> <b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
             invoke_args: <p>The JSON that you want to provide to your Lambda function as input.</p>
 
+        Raises:
+            aws_sdk_lambda.errors.invalid_request_content_exception.InvalidRequestContentException: <p>The request body could not be parsed as JSON, or a request header is invalid. For example, the 'x-amzn-RequestId' header is not a valid UUID string.</p>
+            aws_sdk_lambda.errors.invalid_runtime_exception.InvalidRuntimeException: <p>The runtime or runtime version specified is not supported.</p>
+            aws_sdk_lambda.errors.resource_conflict_exception.ResourceConflictException: <p>The resource already exists, or another operation is in progress.</p>
+            aws_sdk_lambda.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request does not exist.</p>
+            aws_sdk_lambda.errors.service_exception.ServiceException: <p>The Lambda service encountered an internal error.</p>
+            aws_sdk_lambda.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To invoke a Lambda function asynchronously
             The following example invokes a Lambda function asynchronously
@@ -3134,6 +3637,44 @@ class AsyncFunction:
             qualifier: <p>The alias name.</p>
             payload: <p>The JSON that you want to provide to your Lambda function as input.</p> <p>You can enter the JSON directly. For example, <code>--payload '{ \"key\": \"value\" }'</code>. You can also specify a file path. For example, <code>--payload file://payload.json</code>.</p>
             tenant_id: <p>The identifier of the tenant in a multi-tenant Lambda function.</p>
+
+        Raises:
+            aws_sdk_lambda.errors.ec2_access_denied_exception.EC2AccessDeniedException: <p>Need additional permissions to configure VPC settings.</p>
+            aws_sdk_lambda.errors.ec2_throttled_exception.EC2ThrottledException: <p>Amazon EC2 throttled Lambda during Lambda function initialization using the execution role provided for the function.</p>
+            aws_sdk_lambda.errors.ec2_unexpected_exception.EC2UnexpectedException: <p>Lambda received an unexpected Amazon EC2 client exception while setting up for the Lambda function.</p>
+            aws_sdk_lambda.errors.efsio_exception.EFSIOException: <p>An error occurred when reading from or writing to a connected file system.</p>
+            aws_sdk_lambda.errors.efs_mount_connectivity_exception.EFSMountConnectivityException: <p>The Lambda function couldn't make a network connection to the configured file system.</p>
+            aws_sdk_lambda.errors.efs_mount_failure_exception.EFSMountFailureException: <p>The Lambda function couldn't mount the configured file system due to a permission or configuration issue.</p>
+            aws_sdk_lambda.errors.efs_mount_timeout_exception.EFSMountTimeoutException: <p>The Lambda function made a network connection to the configured file system, but the mount operation timed out.</p>
+            aws_sdk_lambda.errors.eni_limit_reached_exception.ENILimitReachedException: <p>Lambda couldn't create an elastic network interface in the VPC, specified as part of Lambda function configuration, because the limit for network interfaces has been reached. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html\">Lambda quotas</a>.</p>
+            aws_sdk_lambda.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One of the parameters in the request is not valid.</p>
+            aws_sdk_lambda.errors.invalid_request_content_exception.InvalidRequestContentException: <p>The request body could not be parsed as JSON, or a request header is invalid. For example, the 'x-amzn-RequestId' header is not a valid UUID string.</p>
+            aws_sdk_lambda.errors.invalid_runtime_exception.InvalidRuntimeException: <p>The runtime or runtime version specified is not supported.</p>
+            aws_sdk_lambda.errors.invalid_security_group_id_exception.InvalidSecurityGroupIDException: <p>The security group ID provided in the Lambda function VPC configuration is not valid.</p>
+            aws_sdk_lambda.errors.invalid_subnet_id_exception.InvalidSubnetIDException: <p>The subnet ID provided in the Lambda function VPC configuration is not valid.</p>
+            aws_sdk_lambda.errors.invalid_zip_file_exception.InvalidZipFileException: <p>Lambda could not unzip the deployment package.</p>
+            aws_sdk_lambda.errors.kms_access_denied_exception.KMSAccessDeniedException: <p>Lambda couldn't decrypt the environment variables because KMS access was denied. Check the Lambda function's KMS permissions.</p>
+            aws_sdk_lambda.errors.kms_disabled_exception.KMSDisabledException: <p>Lambda couldn't decrypt the environment variables because the KMS key used is disabled. Check the Lambda function's KMS key settings.</p>
+            aws_sdk_lambda.errors.kms_invalid_state_exception.KMSInvalidStateException: <p>Lambda couldn't decrypt the environment variables because the state of the KMS key used is not valid for Decrypt. Check the function's KMS key settings.</p>
+            aws_sdk_lambda.errors.kms_not_found_exception.KMSNotFoundException: <p>Lambda couldn't decrypt the environment variables because the KMS key was not found. Check the function's KMS key settings.</p>
+            aws_sdk_lambda.errors.no_published_version_exception.NoPublishedVersionException: <p>The function has no published versions available.</p>
+            aws_sdk_lambda.errors.recursive_invocation_exception.RecursiveInvocationException: <p>Lambda has detected your function being invoked in a recursive loop with other Amazon Web Services resources and stopped your function's invocation.</p>
+            aws_sdk_lambda.errors.request_too_large_exception.RequestTooLargeException: <p>The request payload exceeded the <code>Invoke</code> request body JSON input quota. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html\">Lambda quotas</a>.</p>
+            aws_sdk_lambda.errors.resource_conflict_exception.ResourceConflictException: <p>The resource already exists, or another operation is in progress.</p>
+            aws_sdk_lambda.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request does not exist.</p>
+            aws_sdk_lambda.errors.resource_not_ready_exception.ResourceNotReadyException: <p>The function is inactive and its VPC connection is no longer available. Wait for the VPC connection to reestablish and try again.</p>
+            aws_sdk_lambda.errors.s3_files_mount_connectivity_exception.S3FilesMountConnectivityException: <p>The Lambda function couldn't make a network connection to the configured S3 Files access point.</p>
+            aws_sdk_lambda.errors.s3_files_mount_failure_exception.S3FilesMountFailureException: <p>The Lambda function couldn't mount the configured S3 Files access point due to a permission or configuration issue.</p>
+            aws_sdk_lambda.errors.s3_files_mount_timeout_exception.S3FilesMountTimeoutException: <p>The Lambda function made a network connection to the configured S3 Files access point, but the mount operation timed out.</p>
+            aws_sdk_lambda.errors.serialized_request_entity_too_large_exception.SerializedRequestEntityTooLargeException: <p>The request payload exceeded the maximum allowed size for serialized request entities.</p>
+            aws_sdk_lambda.errors.service_exception.ServiceException: <p>The Lambda service encountered an internal error.</p>
+            aws_sdk_lambda.errors.snap_start_exception.SnapStartException: <p>The <code>afterRestore()</code> <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/snapstart-runtime-hooks.html\">runtime hook</a> encountered an error. For more information, check the Amazon CloudWatch logs.</p>
+            aws_sdk_lambda.errors.snap_start_not_ready_exception.SnapStartNotReadyException: <p>Lambda is initializing your function. You can invoke the function when the <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/functions-states.html\">function state</a> becomes <code>Active</code>.</p>
+            aws_sdk_lambda.errors.snap_start_timeout_exception.SnapStartTimeoutException: <p>Lambda couldn't restore the snapshot within the timeout limit.</p>
+            aws_sdk_lambda.errors.subnet_ip_address_limit_reached_exception.SubnetIPAddressLimitReachedException: <p>Lambda couldn't set up VPC access for the Lambda function because one or more configured subnets has no available IP addresses.</p>
+            aws_sdk_lambda.errors.too_many_requests_exception.TooManyRequestsException: <p>The request throughput limit was exceeded. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests\">Lambda quotas</a>.</p>
+            aws_sdk_lambda.errors.unsupported_media_type_exception.UnsupportedMediaTypeException: <p>The content type of the <code>Invoke</code> request body is not JSON.</p>
+            aws_sdk_lambda.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3186,6 +3727,15 @@ class AsyncFunction:
         Args:
             code_signing_config_arn: <p>The The Amazon Resource Name (ARN) of the code signing configuration.</p>
             function_name: <p>The name or ARN of the Lambda function.</p> <p class=\"title\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> - <code>MyFunction</code>.</p> </li> <li> <p> <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</p> </li> <li> <p> <b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
+
+        Raises:
+            aws_sdk_lambda.errors.code_signing_config_not_found_exception.CodeSigningConfigNotFoundException: <p>The specified code signing configuration does not exist.</p>
+            aws_sdk_lambda.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One of the parameters in the request is not valid.</p>
+            aws_sdk_lambda.errors.resource_conflict_exception.ResourceConflictException: <p>The resource already exists, or another operation is in progress.</p>
+            aws_sdk_lambda.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request does not exist.</p>
+            aws_sdk_lambda.errors.service_exception.ServiceException: <p>The Lambda service encountered an internal error.</p>
+            aws_sdk_lambda.errors.too_many_requests_exception.TooManyRequestsException: <p>The request throughput limit was exceeded. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests\">Lambda quotas</a>.</p>
+            aws_sdk_lambda.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3227,6 +3777,14 @@ class AsyncFunction:
         Args:
             function_name: <p>The name or ARN of the Lambda function.</p> <p class=\"title\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> – <code>my-function</code>.</p> </li> <li> <p> <b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
             recursive_loop: <p>If you set your function's recursive loop detection configuration to <code>Allow</code>, Lambda doesn't take any action when it detects your function being invoked as part of a recursive loop. We recommend that you only use this setting if your design intentionally uses a Lambda function to write data back to the same Amazon Web Services resource that invokes it.</p> <p>If you set your function's recursive loop detection configuration to <code>Terminate</code>, Lambda stops your function being invoked and notifies you when it detects your function being invoked as part of a recursive loop.</p> <p>By default, Lambda sets your function's configuration to <code>Terminate</code>.</p> <important> <p>If your design intentionally uses a Lambda function to write data back to the same Amazon Web Services resource that invokes the function, then use caution and implement suitable guard rails to prevent unexpected charges being billed to your Amazon Web Services account. To learn more about best practices for using recursive invocation patterns, see <a href=\"https://serverlessland.com/content/service/lambda/guides/aws-lambda-operator-guide/recursive-runaway\">Recursive patterns that cause run-away Lambda functions</a> in Serverless Land.</p> </important>
+
+        Raises:
+            aws_sdk_lambda.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One of the parameters in the request is not valid.</p>
+            aws_sdk_lambda.errors.resource_conflict_exception.ResourceConflictException: <p>The resource already exists, or another operation is in progress.</p>
+            aws_sdk_lambda.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request does not exist.</p>
+            aws_sdk_lambda.errors.service_exception.ServiceException: <p>The Lambda service encountered an internal error.</p>
+            aws_sdk_lambda.errors.too_many_requests_exception.TooManyRequestsException: <p>The request throughput limit was exceeded. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests\">Lambda quotas</a>.</p>
+            aws_sdk_lambda.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3272,6 +3830,14 @@ class AsyncFunction:
             function_name: <p>The name or ARN of the Lambda function.</p>
             qualifier: <p>Specify a version or alias to set the scaling configuration for a published version of the function.</p>
             function_scaling_config: <p>The scaling configuration to apply to the function, including minimum and maximum execution environment limits.</p>
+
+        Raises:
+            aws_sdk_lambda.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One of the parameters in the request is not valid.</p>
+            aws_sdk_lambda.errors.resource_conflict_exception.ResourceConflictException: <p>The resource already exists, or another operation is in progress.</p>
+            aws_sdk_lambda.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request does not exist.</p>
+            aws_sdk_lambda.errors.service_exception.ServiceException: <p>The Lambda service encountered an internal error.</p>
+            aws_sdk_lambda.errors.too_many_requests_exception.TooManyRequestsException: <p>The request throughput limit was exceeded. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests\">Lambda quotas</a>.</p>
+            aws_sdk_lambda.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3323,6 +3889,14 @@ class AsyncFunction:
             qualifier: <p>Specify a version of the function. This can be <code>$LATEST</code> or a published version number. If no value is specified, the configuration for the <code>$LATEST</code> version is returned.</p>
             update_runtime_on: <p>Specify the runtime update mode.</p> <ul> <li> <p> <b>Auto (default)</b> - Automatically update to the most recent and secure runtime version using a <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/runtimes-update.html#runtime-management-two-phase\">Two-phase runtime version rollout</a>. This is the best choice for most customers to ensure they always benefit from runtime updates.</p> </li> <li> <p> <b>Function update</b> - Lambda updates the runtime of your function to the most recent and secure runtime version when you update your function. This approach synchronizes runtime updates with function deployments, giving you control over when runtime updates are applied and allowing you to detect and mitigate rare runtime update incompatibilities early. When using this setting, you need to regularly update your functions to keep their runtime up-to-date.</p> </li> <li> <p> <b>Manual</b> - You specify a runtime version in your function configuration. The function will use this runtime version indefinitely. In the rare case where a new runtime version is incompatible with an existing function, this allows you to roll back your function to an earlier runtime version. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/runtimes-update.html#runtime-management-rollback\">Roll back a runtime version</a>.</p> </li> </ul>
             runtime_version_arn: <p>The ARN of the runtime version you want the function to use.</p> <note> <p>This is only required if you're using the <b>Manual</b> runtime update mode.</p> </note>
+
+        Raises:
+            aws_sdk_lambda.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One of the parameters in the request is not valid.</p>
+            aws_sdk_lambda.errors.resource_conflict_exception.ResourceConflictException: <p>The resource already exists, or another operation is in progress.</p>
+            aws_sdk_lambda.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request does not exist.</p>
+            aws_sdk_lambda.errors.service_exception.ServiceException: <p>The Lambda service encountered an internal error.</p>
+            aws_sdk_lambda.errors.too_many_requests_exception.TooManyRequestsException: <p>The request throughput limit was exceeded. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests\">Lambda quotas</a>.</p>
+            aws_sdk_lambda.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

@@ -63,6 +63,14 @@ class NotificationConfigurationResource:
             destination_name: <p>The name of the destination for the notification configuration.</p>
             client_token: <p>An idempotency token. If you retry a request that completed successfully initially using the same client token and parameters, then the retry attempt will succeed without performing any further actions.</p>
             tags: <p>A set of key/value pairs that are used to manage the notification configuration.</p>
+
+        Raises:
+            aws_sdk_iot_managed_integrations.errors.access_denied_exception.AccessDeniedException: <p>User is not authorized.</p>
+            aws_sdk_iot_managed_integrations.errors.conflict_exception.ConflictException: <p>There is a conflict with the request.</p>
+            aws_sdk_iot_managed_integrations.errors.internal_server_exception.InternalServerException: <p>Internal error from the service that indicates an unexpected error or that the service is unavailable.</p>
+            aws_sdk_iot_managed_integrations.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot_managed_integrations.errors.validation_exception.ValidationException: <p>A validation error occurred when performing the API request.</p>
+            aws_sdk_iot_managed_integrations.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -105,6 +113,14 @@ class NotificationConfigurationResource:
 
         Args:
             event_type: <p>The type of event triggering a device notification to the customer-managed destination.</p>
+
+        Raises:
+            aws_sdk_iot_managed_integrations.errors.access_denied_exception.AccessDeniedException: <p>User is not authorized.</p>
+            aws_sdk_iot_managed_integrations.errors.internal_server_exception.InternalServerException: <p>Internal error from the service that indicates an unexpected error or that the service is unavailable.</p>
+            aws_sdk_iot_managed_integrations.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot_managed_integrations.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot_managed_integrations.errors.validation_exception.ValidationException: <p>A validation error occurred when performing the API request.</p>
+            aws_sdk_iot_managed_integrations.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -140,6 +156,14 @@ class NotificationConfigurationResource:
 
         Args:
             event_type: <p>The type of event triggering a device notification to the customer-managed destination.</p>
+
+        Raises:
+            aws_sdk_iot_managed_integrations.errors.access_denied_exception.AccessDeniedException: <p>User is not authorized.</p>
+            aws_sdk_iot_managed_integrations.errors.internal_server_exception.InternalServerException: <p>Internal error from the service that indicates an unexpected error or that the service is unavailable.</p>
+            aws_sdk_iot_managed_integrations.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot_managed_integrations.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot_managed_integrations.errors.validation_exception.ValidationException: <p>A validation error occurred when performing the API request.</p>
+            aws_sdk_iot_managed_integrations.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -183,6 +207,13 @@ class NotificationConfigurationResource:
         Args:
             max_results: <p>The maximum number of results to return at one time.</p>
             next_token: <p>A token that can be used to retrieve the next set of results.</p>
+
+        Raises:
+            aws_sdk_iot_managed_integrations.errors.access_denied_exception.AccessDeniedException: <p>User is not authorized.</p>
+            aws_sdk_iot_managed_integrations.errors.internal_server_exception.InternalServerException: <p>Internal error from the service that indicates an unexpected error or that the service is unavailable.</p>
+            aws_sdk_iot_managed_integrations.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot_managed_integrations.errors.validation_exception.ValidationException: <p>A validation error occurred when performing the API request.</p>
+            aws_sdk_iot_managed_integrations.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -225,6 +256,14 @@ class NotificationConfigurationResource:
         Args:
             event_type: <p>The type of event triggering a device notification to the customer-managed destination.</p>
             destination_name: <p>The name of the destination for the notification configuration.</p>
+
+        Raises:
+            aws_sdk_iot_managed_integrations.errors.access_denied_exception.AccessDeniedException: <p>User is not authorized.</p>
+            aws_sdk_iot_managed_integrations.errors.internal_server_exception.InternalServerException: <p>Internal error from the service that indicates an unexpected error or that the service is unavailable.</p>
+            aws_sdk_iot_managed_integrations.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot_managed_integrations.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot_managed_integrations.errors.validation_exception.ValidationException: <p>A validation error occurred when performing the API request.</p>
+            aws_sdk_iot_managed_integrations.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -276,6 +315,14 @@ class AsyncNotificationConfigurationResource:
             destination_name: <p>The name of the destination for the notification configuration.</p>
             client_token: <p>An idempotency token. If you retry a request that completed successfully initially using the same client token and parameters, then the retry attempt will succeed without performing any further actions.</p>
             tags: <p>A set of key/value pairs that are used to manage the notification configuration.</p>
+
+        Raises:
+            aws_sdk_iot_managed_integrations.errors.access_denied_exception.AccessDeniedException: <p>User is not authorized.</p>
+            aws_sdk_iot_managed_integrations.errors.conflict_exception.ConflictException: <p>There is a conflict with the request.</p>
+            aws_sdk_iot_managed_integrations.errors.internal_server_exception.InternalServerException: <p>Internal error from the service that indicates an unexpected error or that the service is unavailable.</p>
+            aws_sdk_iot_managed_integrations.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot_managed_integrations.errors.validation_exception.ValidationException: <p>A validation error occurred when performing the API request.</p>
+            aws_sdk_iot_managed_integrations.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -319,6 +366,14 @@ class AsyncNotificationConfigurationResource:
 
         Args:
             event_type: <p>The type of event triggering a device notification to the customer-managed destination.</p>
+
+        Raises:
+            aws_sdk_iot_managed_integrations.errors.access_denied_exception.AccessDeniedException: <p>User is not authorized.</p>
+            aws_sdk_iot_managed_integrations.errors.internal_server_exception.InternalServerException: <p>Internal error from the service that indicates an unexpected error or that the service is unavailable.</p>
+            aws_sdk_iot_managed_integrations.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot_managed_integrations.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot_managed_integrations.errors.validation_exception.ValidationException: <p>A validation error occurred when performing the API request.</p>
+            aws_sdk_iot_managed_integrations.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -355,6 +410,14 @@ class AsyncNotificationConfigurationResource:
 
         Args:
             event_type: <p>The type of event triggering a device notification to the customer-managed destination.</p>
+
+        Raises:
+            aws_sdk_iot_managed_integrations.errors.access_denied_exception.AccessDeniedException: <p>User is not authorized.</p>
+            aws_sdk_iot_managed_integrations.errors.internal_server_exception.InternalServerException: <p>Internal error from the service that indicates an unexpected error or that the service is unavailable.</p>
+            aws_sdk_iot_managed_integrations.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot_managed_integrations.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot_managed_integrations.errors.validation_exception.ValidationException: <p>A validation error occurred when performing the API request.</p>
+            aws_sdk_iot_managed_integrations.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -399,6 +462,13 @@ class AsyncNotificationConfigurationResource:
         Args:
             max_results: <p>The maximum number of results to return at one time.</p>
             next_token: <p>A token that can be used to retrieve the next set of results.</p>
+
+        Raises:
+            aws_sdk_iot_managed_integrations.errors.access_denied_exception.AccessDeniedException: <p>User is not authorized.</p>
+            aws_sdk_iot_managed_integrations.errors.internal_server_exception.InternalServerException: <p>Internal error from the service that indicates an unexpected error or that the service is unavailable.</p>
+            aws_sdk_iot_managed_integrations.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot_managed_integrations.errors.validation_exception.ValidationException: <p>A validation error occurred when performing the API request.</p>
+            aws_sdk_iot_managed_integrations.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -442,6 +512,14 @@ class AsyncNotificationConfigurationResource:
         Args:
             event_type: <p>The type of event triggering a device notification to the customer-managed destination.</p>
             destination_name: <p>The name of the destination for the notification configuration.</p>
+
+        Raises:
+            aws_sdk_iot_managed_integrations.errors.access_denied_exception.AccessDeniedException: <p>User is not authorized.</p>
+            aws_sdk_iot_managed_integrations.errors.internal_server_exception.InternalServerException: <p>Internal error from the service that indicates an unexpected error or that the service is unavailable.</p>
+            aws_sdk_iot_managed_integrations.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot_managed_integrations.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot_managed_integrations.errors.validation_exception.ValidationException: <p>A validation error occurred when performing the API request.</p>
+            aws_sdk_iot_managed_integrations.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

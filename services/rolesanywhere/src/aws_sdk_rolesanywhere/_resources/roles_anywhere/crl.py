@@ -57,6 +57,11 @@ class Crl:
             enabled: <p>Specifies whether the certificate revocation list (CRL) is enabled.</p>
             tags: <p>A list of tags to attach to the certificate revocation list (CRL).</p>
             trust_anchor_arn: <p>The ARN of the TrustAnchor the certificate revocation list (CRL) will provide revocation for.</p>
+
+        Raises:
+            aws_sdk_rolesanywhere.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_rolesanywhere.errors.validation_exception.ValidationException: <p>Validation exception error.</p>
+            aws_sdk_rolesanywhere.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -100,6 +105,10 @@ class Crl:
 
         Args:
             crl_id: <p>The unique identifier of the certificate revocation list (CRL).</p>
+
+        Raises:
+            aws_sdk_rolesanywhere.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_rolesanywhere.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -141,6 +150,12 @@ class Crl:
             crl_id: <p>The unique identifier of the certificate revocation list (CRL).</p>
             name: <p>The name of the Crl.</p>
             crl_data: <p>The x509 v3 specified certificate revocation list (CRL).</p>
+
+        Raises:
+            aws_sdk_rolesanywhere.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_rolesanywhere.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_rolesanywhere.errors.validation_exception.ValidationException: <p>Validation exception error.</p>
+            aws_sdk_rolesanywhere.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -182,6 +197,11 @@ class Crl:
 
         Args:
             crl_id: <p>The unique identifier of the certificate revocation list (CRL).</p>
+
+        Raises:
+            aws_sdk_rolesanywhere.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_rolesanywhere.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_rolesanywhere.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -221,6 +241,11 @@ class Crl:
         Args:
             next_token: <p>A token that indicates where the output should continue from, if a previous request did not show all results. To get the next results, make the request again with this value.</p>
             page_size: <p>The number of resources in the paginated list. </p>
+
+        Raises:
+            aws_sdk_rolesanywhere.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_rolesanywhere.errors.validation_exception.ValidationException: <p>Validation exception error.</p>
+            aws_sdk_rolesanywhere.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -261,6 +286,11 @@ class Crl:
 
         Args:
             crl_id: <p>The unique identifier of the certificate revocation list (CRL).</p>
+
+        Raises:
+            aws_sdk_rolesanywhere.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_rolesanywhere.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_rolesanywhere.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -298,6 +328,11 @@ class Crl:
 
         Args:
             crl_id: <p>The unique identifier of the certificate revocation list (CRL).</p>
+
+        Raises:
+            aws_sdk_rolesanywhere.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_rolesanywhere.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_rolesanywhere.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -348,6 +383,11 @@ class AsyncCrl:
             enabled: <p>Specifies whether the certificate revocation list (CRL) is enabled.</p>
             tags: <p>A list of tags to attach to the certificate revocation list (CRL).</p>
             trust_anchor_arn: <p>The ARN of the TrustAnchor the certificate revocation list (CRL) will provide revocation for.</p>
+
+        Raises:
+            aws_sdk_rolesanywhere.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_rolesanywhere.errors.validation_exception.ValidationException: <p>Validation exception error.</p>
+            aws_sdk_rolesanywhere.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -392,6 +432,10 @@ class AsyncCrl:
 
         Args:
             crl_id: <p>The unique identifier of the certificate revocation list (CRL).</p>
+
+        Raises:
+            aws_sdk_rolesanywhere.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_rolesanywhere.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -434,6 +478,12 @@ class AsyncCrl:
             crl_id: <p>The unique identifier of the certificate revocation list (CRL).</p>
             name: <p>The name of the Crl.</p>
             crl_data: <p>The x509 v3 specified certificate revocation list (CRL).</p>
+
+        Raises:
+            aws_sdk_rolesanywhere.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_rolesanywhere.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_rolesanywhere.errors.validation_exception.ValidationException: <p>Validation exception error.</p>
+            aws_sdk_rolesanywhere.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -476,6 +526,11 @@ class AsyncCrl:
 
         Args:
             crl_id: <p>The unique identifier of the certificate revocation list (CRL).</p>
+
+        Raises:
+            aws_sdk_rolesanywhere.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_rolesanywhere.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_rolesanywhere.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -516,6 +571,11 @@ class AsyncCrl:
         Args:
             next_token: <p>A token that indicates where the output should continue from, if a previous request did not show all results. To get the next results, make the request again with this value.</p>
             page_size: <p>The number of resources in the paginated list. </p>
+
+        Raises:
+            aws_sdk_rolesanywhere.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_rolesanywhere.errors.validation_exception.ValidationException: <p>Validation exception error.</p>
+            aws_sdk_rolesanywhere.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -557,6 +617,11 @@ class AsyncCrl:
 
         Args:
             crl_id: <p>The unique identifier of the certificate revocation list (CRL).</p>
+
+        Raises:
+            aws_sdk_rolesanywhere.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_rolesanywhere.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_rolesanywhere.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -595,6 +660,11 @@ class AsyncCrl:
 
         Args:
             crl_id: <p>The unique identifier of the certificate revocation list (CRL).</p>
+
+        Raises:
+            aws_sdk_rolesanywhere.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_rolesanywhere.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_rolesanywhere.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

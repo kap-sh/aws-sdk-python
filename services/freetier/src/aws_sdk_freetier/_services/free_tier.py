@@ -151,6 +151,13 @@ class FreeTierClient:
             activity_id: <p> A unique identifier that identifies the activity. </p>
             language_code: <p> The language code used to return translated title and description fields. </p>
 
+        Raises:
+            aws_sdk_freetier.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred during the processing of your request.</p>
+            aws_sdk_freetier.errors.resource_not_found_exception.ResourceNotFoundException: <p> This exception is thrown when the requested resource cannot be found. </p>
+            aws_sdk_freetier.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_freetier.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_freetier.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Fetching an Account activity by id
 
@@ -188,6 +195,14 @@ class FreeTierClient:
         self, *, config_overrides: Optional[FreeTierClientConfig] = None
     ) -> "aws_sdk_freetier.types.get_account_plan_state_response.GetAccountPlanStateResponse":
         """<p> This returns all of the information related to the state of the account plan related to Free Tier. </p>
+
+        Raises:
+            aws_sdk_freetier.errors.access_denied_exception.AccessDeniedException: <p> You don't have sufficient access to perform this action. </p>
+            aws_sdk_freetier.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred during the processing of your request.</p>
+            aws_sdk_freetier.errors.resource_not_found_exception.ResourceNotFoundException: <p> This exception is thrown when the requested resource cannot be found. </p>
+            aws_sdk_freetier.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_freetier.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_freetier.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Fetching account plan state by id
@@ -247,6 +262,12 @@ class FreeTierClient:
             filter: <p>An expression that specifies the conditions that you want each <code>FreeTierUsage</code> object to meet.</p>
             max_results: <p>The maximum number of results to return in the response. <code>MaxResults</code> means that there can be up to the specified number of values, but there might be fewer results based on your filters.</p>
             next_token: <p>The pagination token that indicates the next set of results to retrieve.</p>
+
+        Raises:
+            aws_sdk_freetier.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred during the processing of your request.</p>
+            aws_sdk_freetier.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_freetier.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_freetier.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -327,6 +348,12 @@ class FreeTierClient:
             max_results: <p> The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. </p>
             language_code: <p> The language code used to return translated titles. </p>
 
+        Raises:
+            aws_sdk_freetier.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred during the processing of your request.</p>
+            aws_sdk_freetier.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_freetier.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_freetier.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Fetching a page of completed activities
 
@@ -406,6 +433,14 @@ class FreeTierClient:
 
         Args:
             account_plan_type: <p> The target account plan type. This makes it explicit about the change and latest value of the <code>accountPlanType</code>. </p>
+
+        Raises:
+            aws_sdk_freetier.errors.access_denied_exception.AccessDeniedException: <p> You don't have sufficient access to perform this action. </p>
+            aws_sdk_freetier.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred during the processing of your request.</p>
+            aws_sdk_freetier.errors.resource_not_found_exception.ResourceNotFoundException: <p> This exception is thrown when the requested resource cannot be found. </p>
+            aws_sdk_freetier.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_freetier.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_freetier.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Upgrading an account plan to PAID

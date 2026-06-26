@@ -171,6 +171,10 @@ class AmplifyUIBuilderClient:
         Args:
             provider: <p>The third-party provider for the token. The only valid value is <code>figma</code>.</p>
             request: <p>Describes the configuration of the request.</p>
+
+        Raises:
+            aws_sdk_amplifyuibuilder.errors.invalid_parameter_exception.InvalidParameterException: <p>An invalid or out-of-range value was supplied for the input parameter.</p>
+            aws_sdk_amplifyuibuilder.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -211,6 +215,11 @@ class AmplifyUIBuilderClient:
         Args:
             app_id: <p>The unique ID of the Amplify app.</p>
             environment_name: <p>The name of the backend environment that is part of the Amplify app.</p>
+
+        Raises:
+            aws_sdk_amplifyuibuilder.errors.invalid_parameter_exception.InvalidParameterException: <p>An invalid or out-of-range value was supplied for the input parameter.</p>
+            aws_sdk_amplifyuibuilder.errors.unauthorized_exception.UnauthorizedException: <p>You don't have permission to perform this operation.</p>
+            aws_sdk_amplifyuibuilder.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -249,6 +258,14 @@ class AmplifyUIBuilderClient:
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) to use to list tags.</p>
+
+        Raises:
+            aws_sdk_amplifyuibuilder.errors.internal_server_exception.InternalServerException: <p>An internal error has occurred. Please retry your request.</p>
+            aws_sdk_amplifyuibuilder.errors.invalid_parameter_exception.InvalidParameterException: <p>An invalid or out-of-range value was supplied for the input parameter.</p>
+            aws_sdk_amplifyuibuilder.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource does not exist, or access was denied.</p>
+            aws_sdk_amplifyuibuilder.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_amplifyuibuilder.errors.unauthorized_exception.UnauthorizedException: <p>You don't have permission to perform this operation.</p>
+            aws_sdk_amplifyuibuilder.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -292,6 +309,11 @@ class AmplifyUIBuilderClient:
             environment_name: <p>The name of the backend environment that is part of the Amplify app.</p>
             feature_name: <p>The name of the feature associated with the metadata.</p>
             body: <p>The metadata information to store.</p>
+
+        Raises:
+            aws_sdk_amplifyuibuilder.errors.invalid_parameter_exception.InvalidParameterException: <p>An invalid or out-of-range value was supplied for the input parameter.</p>
+            aws_sdk_amplifyuibuilder.errors.unauthorized_exception.UnauthorizedException: <p>You don't have permission to perform this operation.</p>
+            aws_sdk_amplifyuibuilder.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -332,6 +354,10 @@ class AmplifyUIBuilderClient:
         Args:
             provider: <p>The third-party provider for the token. The only valid value is <code>figma</code>.</p>
             refresh_token_body: <p>Information about the refresh token request.</p>
+
+        Raises:
+            aws_sdk_amplifyuibuilder.errors.invalid_parameter_exception.InvalidParameterException: <p>An invalid or out-of-range value was supplied for the input parameter.</p>
+            aws_sdk_amplifyuibuilder.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -372,6 +398,14 @@ class AmplifyUIBuilderClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) to use to tag a resource.</p>
             tags: <p>A list of tag key value pairs for a specified Amazon Resource Name (ARN).</p>
+
+        Raises:
+            aws_sdk_amplifyuibuilder.errors.internal_server_exception.InternalServerException: <p>An internal error has occurred. Please retry your request.</p>
+            aws_sdk_amplifyuibuilder.errors.invalid_parameter_exception.InvalidParameterException: <p>An invalid or out-of-range value was supplied for the input parameter.</p>
+            aws_sdk_amplifyuibuilder.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource does not exist, or access was denied.</p>
+            aws_sdk_amplifyuibuilder.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_amplifyuibuilder.errors.unauthorized_exception.UnauthorizedException: <p>You don't have permission to perform this operation.</p>
+            aws_sdk_amplifyuibuilder.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -412,6 +446,14 @@ class AmplifyUIBuilderClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) to use to untag a resource.</p>
             tag_keys: <p>The tag keys to use to untag a resource.</p>
+
+        Raises:
+            aws_sdk_amplifyuibuilder.errors.internal_server_exception.InternalServerException: <p>An internal error has occurred. Please retry your request.</p>
+            aws_sdk_amplifyuibuilder.errors.invalid_parameter_exception.InvalidParameterException: <p>An invalid or out-of-range value was supplied for the input parameter.</p>
+            aws_sdk_amplifyuibuilder.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource does not exist, or access was denied.</p>
+            aws_sdk_amplifyuibuilder.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_amplifyuibuilder.errors.unauthorized_exception.UnauthorizedException: <p>You don't have permission to perform this operation.</p>
+            aws_sdk_amplifyuibuilder.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(

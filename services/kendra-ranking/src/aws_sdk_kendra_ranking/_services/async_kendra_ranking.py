@@ -167,6 +167,15 @@ class AsyncKendraRankingClient:
             capacity_units: <p>You can set additional capacity units to meet the needs of your rescore execution plan. You are given a single capacity unit by default. If you want to use the default capacity, you don't set additional capacity units. For more information on the default capacity and additional capacity units, see <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/adjusting-capacity.html\">Adjusting capacity</a>.</p>
             tags: <p>A list of key-value pairs that identify or categorize your rescore execution plan. You can also use tags to help control access to the rescore execution plan. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.</p>
             client_token: <p>A token that you provide to identify the request to create a rescore execution plan. Multiple calls to the <code>CreateRescoreExecutionPlanRequest</code> API with the same client token will create only one rescore execution plan.</p>
+
+        Raises:
+            aws_sdk_kendra_ranking.errors.access_denied_exception.AccessDeniedException: <p>You don’t have sufficient access to perform this action. Please ensure you have the required permission policies and user accounts and try again.</p>
+            aws_sdk_kendra_ranking.errors.conflict_exception.ConflictException: <p>A conflict occurred with the request. Please fix any inconsistencies with your resources and try again.</p>
+            aws_sdk_kendra_ranking.errors.internal_server_exception.InternalServerException: <p>An issue occurred with the internal server used for your Amazon Kendra Intelligent Ranking service. Please wait a few minutes and try again, or contact <a href=\"http://aws.amazon.com/contact-us/\">Support</a> for help.</p>
+            aws_sdk_kendra_ranking.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You have exceeded the set limits for your Amazon Kendra Intelligent Ranking service. Please see <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/quotas.html\">Quotas</a> for more information, or contact <a href=\"http://aws.amazon.com/contact-us/\">Support</a> to inquire about an increase of limits.</p>
+            aws_sdk_kendra_ranking.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. Please reduce the number of requests and try again.</p>
+            aws_sdk_kendra_ranking.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints set by the Amazon Kendra Intelligent Ranking service. Please provide the correct input and try again.</p>
+            aws_sdk_kendra_ranking.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -213,6 +222,15 @@ class AsyncKendraRankingClient:
 
         Args:
             id: <p>The identifier of the rescore execution plan that you want to delete.</p>
+
+        Raises:
+            aws_sdk_kendra_ranking.errors.access_denied_exception.AccessDeniedException: <p>You don’t have sufficient access to perform this action. Please ensure you have the required permission policies and user accounts and try again.</p>
+            aws_sdk_kendra_ranking.errors.conflict_exception.ConflictException: <p>A conflict occurred with the request. Please fix any inconsistencies with your resources and try again.</p>
+            aws_sdk_kendra_ranking.errors.internal_server_exception.InternalServerException: <p>An issue occurred with the internal server used for your Amazon Kendra Intelligent Ranking service. Please wait a few minutes and try again, or contact <a href=\"http://aws.amazon.com/contact-us/\">Support</a> for help.</p>
+            aws_sdk_kendra_ranking.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource you want to use doesn't exist. Please check you have provided the correct resource and try again.</p>
+            aws_sdk_kendra_ranking.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. Please reduce the number of requests and try again.</p>
+            aws_sdk_kendra_ranking.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints set by the Amazon Kendra Intelligent Ranking service. Please provide the correct input and try again.</p>
+            aws_sdk_kendra_ranking.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -249,6 +267,14 @@ class AsyncKendraRankingClient:
 
         Args:
             id: <p>The identifier of the rescore execution plan that you want to get information on.</p>
+
+        Raises:
+            aws_sdk_kendra_ranking.errors.access_denied_exception.AccessDeniedException: <p>You don’t have sufficient access to perform this action. Please ensure you have the required permission policies and user accounts and try again.</p>
+            aws_sdk_kendra_ranking.errors.internal_server_exception.InternalServerException: <p>An issue occurred with the internal server used for your Amazon Kendra Intelligent Ranking service. Please wait a few minutes and try again, or contact <a href=\"http://aws.amazon.com/contact-us/\">Support</a> for help.</p>
+            aws_sdk_kendra_ranking.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource you want to use doesn't exist. Please check you have provided the correct resource and try again.</p>
+            aws_sdk_kendra_ranking.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. Please reduce the number of requests and try again.</p>
+            aws_sdk_kendra_ranking.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints set by the Amazon Kendra Intelligent Ranking service. Please provide the correct input and try again.</p>
+            aws_sdk_kendra_ranking.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -293,6 +319,13 @@ class AsyncKendraRankingClient:
         Args:
             next_token: <p>If the response is truncated, Amazon Kendra Intelligent Ranking returns a pagination token in the response. You can use this pagination token to retrieve the next set of rescore execution plans.</p>
             max_results: <p>The maximum number of rescore execution plans to return.</p>
+
+        Raises:
+            aws_sdk_kendra_ranking.errors.access_denied_exception.AccessDeniedException: <p>You don’t have sufficient access to perform this action. Please ensure you have the required permission policies and user accounts and try again.</p>
+            aws_sdk_kendra_ranking.errors.internal_server_exception.InternalServerException: <p>An issue occurred with the internal server used for your Amazon Kendra Intelligent Ranking service. Please wait a few minutes and try again, or contact <a href=\"http://aws.amazon.com/contact-us/\">Support</a> for help.</p>
+            aws_sdk_kendra_ranking.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. Please reduce the number of requests and try again.</p>
+            aws_sdk_kendra_ranking.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints set by the Amazon Kendra Intelligent Ranking service. Please provide the correct input and try again.</p>
+            aws_sdk_kendra_ranking.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -334,6 +367,14 @@ class AsyncKendraRankingClient:
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the rescore execution plan to get a list of tags for.</p>
+
+        Raises:
+            aws_sdk_kendra_ranking.errors.access_denied_exception.AccessDeniedException: <p>You don’t have sufficient access to perform this action. Please ensure you have the required permission policies and user accounts and try again.</p>
+            aws_sdk_kendra_ranking.errors.internal_server_exception.InternalServerException: <p>An issue occurred with the internal server used for your Amazon Kendra Intelligent Ranking service. Please wait a few minutes and try again, or contact <a href=\"http://aws.amazon.com/contact-us/\">Support</a> for help.</p>
+            aws_sdk_kendra_ranking.errors.resource_unavailable_exception.ResourceUnavailableException: <p>The resource you want to use is unavailable. Please check you have provided the correct resource information and try again.</p>
+            aws_sdk_kendra_ranking.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. Please reduce the number of requests and try again.</p>
+            aws_sdk_kendra_ranking.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints set by the Amazon Kendra Intelligent Ranking service. Please provide the correct input and try again.</p>
+            aws_sdk_kendra_ranking.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -376,6 +417,15 @@ class AsyncKendraRankingClient:
             rescore_execution_plan_id: <p>The identifier of the rescore execution plan. A rescore execution plan is an Amazon Kendra Intelligent Ranking resource used for provisioning the <code>Rescore</code> API.</p>
             search_query: <p>The input query from the search service.</p>
             documents: <p>The list of documents for Amazon Kendra Intelligent Ranking to rescore or rank on.</p>
+
+        Raises:
+            aws_sdk_kendra_ranking.errors.access_denied_exception.AccessDeniedException: <p>You don’t have sufficient access to perform this action. Please ensure you have the required permission policies and user accounts and try again.</p>
+            aws_sdk_kendra_ranking.errors.conflict_exception.ConflictException: <p>A conflict occurred with the request. Please fix any inconsistencies with your resources and try again.</p>
+            aws_sdk_kendra_ranking.errors.internal_server_exception.InternalServerException: <p>An issue occurred with the internal server used for your Amazon Kendra Intelligent Ranking service. Please wait a few minutes and try again, or contact <a href=\"http://aws.amazon.com/contact-us/\">Support</a> for help.</p>
+            aws_sdk_kendra_ranking.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource you want to use doesn't exist. Please check you have provided the correct resource and try again.</p>
+            aws_sdk_kendra_ranking.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. Please reduce the number of requests and try again.</p>
+            aws_sdk_kendra_ranking.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints set by the Amazon Kendra Intelligent Ranking service. Please provide the correct input and try again.</p>
+            aws_sdk_kendra_ranking.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -418,6 +468,14 @@ class AsyncKendraRankingClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the rescore execution plan to tag.</p>
             tags: <p>A list of tag keys to add to a rescore execution plan. If a tag already exists, the existing value is replaced with the new value.</p>
+
+        Raises:
+            aws_sdk_kendra_ranking.errors.access_denied_exception.AccessDeniedException: <p>You don’t have sufficient access to perform this action. Please ensure you have the required permission policies and user accounts and try again.</p>
+            aws_sdk_kendra_ranking.errors.internal_server_exception.InternalServerException: <p>An issue occurred with the internal server used for your Amazon Kendra Intelligent Ranking service. Please wait a few minutes and try again, or contact <a href=\"http://aws.amazon.com/contact-us/\">Support</a> for help.</p>
+            aws_sdk_kendra_ranking.errors.resource_unavailable_exception.ResourceUnavailableException: <p>The resource you want to use is unavailable. Please check you have provided the correct resource information and try again.</p>
+            aws_sdk_kendra_ranking.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. Please reduce the number of requests and try again.</p>
+            aws_sdk_kendra_ranking.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints set by the Amazon Kendra Intelligent Ranking service. Please provide the correct input and try again.</p>
+            aws_sdk_kendra_ranking.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -459,6 +517,14 @@ class AsyncKendraRankingClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the rescore execution plan to remove the tag.</p>
             tag_keys: <p>A list of tag keys to remove from the rescore execution plan. If a tag key does not exist on the resource, it is ignored.</p>
+
+        Raises:
+            aws_sdk_kendra_ranking.errors.access_denied_exception.AccessDeniedException: <p>You don’t have sufficient access to perform this action. Please ensure you have the required permission policies and user accounts and try again.</p>
+            aws_sdk_kendra_ranking.errors.internal_server_exception.InternalServerException: <p>An issue occurred with the internal server used for your Amazon Kendra Intelligent Ranking service. Please wait a few minutes and try again, or contact <a href=\"http://aws.amazon.com/contact-us/\">Support</a> for help.</p>
+            aws_sdk_kendra_ranking.errors.resource_unavailable_exception.ResourceUnavailableException: <p>The resource you want to use is unavailable. Please check you have provided the correct resource information and try again.</p>
+            aws_sdk_kendra_ranking.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. Please reduce the number of requests and try again.</p>
+            aws_sdk_kendra_ranking.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints set by the Amazon Kendra Intelligent Ranking service. Please provide the correct input and try again.</p>
+            aws_sdk_kendra_ranking.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -510,6 +576,16 @@ class AsyncKendraRankingClient:
             name: <p>A new name for the rescore execution plan.</p>
             description: <p>A new description for the rescore execution plan.</p>
             capacity_units: <p>You can set additional capacity units to meet the needs of your rescore execution plan. You are given a single capacity unit by default. If you want to use the default capacity, you don't set additional capacity units. For more information on the default capacity and additional capacity units, see <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/adjusting-capacity.html\">Adjusting capacity</a>.</p>
+
+        Raises:
+            aws_sdk_kendra_ranking.errors.access_denied_exception.AccessDeniedException: <p>You don’t have sufficient access to perform this action. Please ensure you have the required permission policies and user accounts and try again.</p>
+            aws_sdk_kendra_ranking.errors.conflict_exception.ConflictException: <p>A conflict occurred with the request. Please fix any inconsistencies with your resources and try again.</p>
+            aws_sdk_kendra_ranking.errors.internal_server_exception.InternalServerException: <p>An issue occurred with the internal server used for your Amazon Kendra Intelligent Ranking service. Please wait a few minutes and try again, or contact <a href=\"http://aws.amazon.com/contact-us/\">Support</a> for help.</p>
+            aws_sdk_kendra_ranking.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource you want to use doesn't exist. Please check you have provided the correct resource and try again.</p>
+            aws_sdk_kendra_ranking.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You have exceeded the set limits for your Amazon Kendra Intelligent Ranking service. Please see <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/quotas.html\">Quotas</a> for more information, or contact <a href=\"http://aws.amazon.com/contact-us/\">Support</a> to inquire about an increase of limits.</p>
+            aws_sdk_kendra_ranking.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. Please reduce the number of requests and try again.</p>
+            aws_sdk_kendra_ranking.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints set by the Amazon Kendra Intelligent Ranking service. Please provide the correct input and try again.</p>
+            aws_sdk_kendra_ranking.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

@@ -155,6 +155,14 @@ class BackupSearchClient:
             search_job_identifier: <p>The unique string that specifies the search job.</p>
             next_token: <p>The next item following a partial list of returned backups included in a search job.</p> <p>For example, if a request is made to return <code>MaxResults</code> number of backups, <code>NextToken</code> allows you to return more items in your list starting at the location pointed to by the next token.</p>
             max_results: <p>The maximum number of resource list items to be returned.</p>
+
+        Raises:
+            aws_sdk_backupsearch.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_backupsearch.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_backupsearch.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_backupsearch.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by a service.</p>
+            aws_sdk_backupsearch.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource was not found for this request.</p> <p>Confirm the resource information, such as the ARN or type is correct and exists, then retry the request.</p>
+            aws_sdk_backupsearch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -223,6 +231,14 @@ class BackupSearchClient:
             search_job_identifier: <p>The unique string that specifies the search job.</p>
             next_token: <p>The next item following a partial list of returned search job results.</p> <p>For example, if a request is made to return <code>MaxResults</code> number of search job results, <code>NextToken</code> allows you to return more items in your list starting at the location pointed to by the next token.</p>
             max_results: <p>The maximum number of resource list items to be returned.</p>
+
+        Raises:
+            aws_sdk_backupsearch.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_backupsearch.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_backupsearch.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_backupsearch.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by a service.</p>
+            aws_sdk_backupsearch.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource was not found for this request.</p> <p>Confirm the resource information, such as the ARN or type is correct and exists, then retry the request.</p>
+            aws_sdk_backupsearch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -264,6 +280,14 @@ class BackupSearchClient:
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) that uniquely identifies the resource.&gt;</p>
+
+        Raises:
+            aws_sdk_backupsearch.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_backupsearch.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_backupsearch.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_backupsearch.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by a service.</p>
+            aws_sdk_backupsearch.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource was not found for this request.</p> <p>Confirm the resource information, such as the ARN or type is correct and exists, then retry the request.</p>
+            aws_sdk_backupsearch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -303,6 +327,14 @@ class BackupSearchClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) that uniquely identifies the resource.</p> <p>This is the resource that will have the indicated tags.</p>
             tags: <p>Required tags to include. A tag is a key-value pair you can use to manage, filter, and search for your resources. Allowed characters include UTF-8 letters, numbers, spaces, and the following characters: + - = . _ : /. </p>
+
+        Raises:
+            aws_sdk_backupsearch.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_backupsearch.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_backupsearch.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_backupsearch.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by a service.</p>
+            aws_sdk_backupsearch.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource was not found for this request.</p> <p>Confirm the resource information, such as the ARN or type is correct and exists, then retry the request.</p>
+            aws_sdk_backupsearch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -343,6 +375,14 @@ class BackupSearchClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) that uniquely identifies the resource where you want to remove tags.</p>
             tag_keys: <p>This required parameter contains the tag keys you want to remove from the source.</p>
+
+        Raises:
+            aws_sdk_backupsearch.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_backupsearch.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_backupsearch.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_backupsearch.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by a service.</p>
+            aws_sdk_backupsearch.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource was not found for this request.</p> <p>Confirm the resource information, such as the ARN or type is correct and exists, then retry the request.</p>
+            aws_sdk_backupsearch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(

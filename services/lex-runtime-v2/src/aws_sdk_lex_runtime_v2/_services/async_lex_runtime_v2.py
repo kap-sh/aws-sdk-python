@@ -166,6 +166,15 @@ class AsyncLexRuntimeV2Client:
             bot_alias_id: <p>The alias identifier in use for the bot that contains the session data.</p>
             locale_id: <p>The locale where the session is in use.</p>
             session_id: <p>The identifier of the session to delete.</p>
+
+        Raises:
+            aws_sdk_lex_runtime_v2.errors.access_denied_exception.AccessDeniedException: <p></p>
+            aws_sdk_lex_runtime_v2.errors.conflict_exception.ConflictException: <p></p>
+            aws_sdk_lex_runtime_v2.errors.internal_server_exception.InternalServerException: <p></p>
+            aws_sdk_lex_runtime_v2.errors.resource_not_found_exception.ResourceNotFoundException: <p></p>
+            aws_sdk_lex_runtime_v2.errors.throttling_exception.ThrottlingException: <p></p>
+            aws_sdk_lex_runtime_v2.errors.validation_exception.ValidationException: <p></p>
+            aws_sdk_lex_runtime_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -213,6 +222,14 @@ class AsyncLexRuntimeV2Client:
             bot_alias_id: <p>The alias identifier in use for the bot that contains the session data.</p>
             locale_id: <p>The locale where the session is in use.</p>
             session_id: <p>The identifier of the session to return.</p>
+
+        Raises:
+            aws_sdk_lex_runtime_v2.errors.access_denied_exception.AccessDeniedException: <p></p>
+            aws_sdk_lex_runtime_v2.errors.internal_server_exception.InternalServerException: <p></p>
+            aws_sdk_lex_runtime_v2.errors.resource_not_found_exception.ResourceNotFoundException: <p></p>
+            aws_sdk_lex_runtime_v2.errors.throttling_exception.ThrottlingException: <p></p>
+            aws_sdk_lex_runtime_v2.errors.validation_exception.ValidationException: <p></p>
+            aws_sdk_lex_runtime_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -273,6 +290,17 @@ class AsyncLexRuntimeV2Client:
             session_state: <p>Sets the state of the session with the user. You can use this to set the current intent, attributes, context, and dialog action. Use the dialog action to determine the next step that Amazon Lex V2 should use in the conversation with the user.</p>
             request_attributes: <p>Request-specific information passed between Amazon Lex V2 and the client application.</p> <p>The namespace <code>x-amz-lex:</code> is reserved for special attributes. Don't create any request attributes with the prefix <code>x-amz-lex:</code>.</p>
             response_content_type: <p>The message that Amazon Lex V2 returns in the response can be either text or speech depending on the value of this parameter. </p> <ul> <li> <p>If the value is <code>text/plain; charset=utf-8</code>, Amazon Lex V2 returns text in the response.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_lex_runtime_v2.errors.access_denied_exception.AccessDeniedException: <p></p>
+            aws_sdk_lex_runtime_v2.errors.bad_gateway_exception.BadGatewayException: <p></p>
+            aws_sdk_lex_runtime_v2.errors.conflict_exception.ConflictException: <p></p>
+            aws_sdk_lex_runtime_v2.errors.dependency_failed_exception.DependencyFailedException: <p></p>
+            aws_sdk_lex_runtime_v2.errors.internal_server_exception.InternalServerException: <p></p>
+            aws_sdk_lex_runtime_v2.errors.resource_not_found_exception.ResourceNotFoundException: <p></p>
+            aws_sdk_lex_runtime_v2.errors.throttling_exception.ThrottlingException: <p></p>
+            aws_sdk_lex_runtime_v2.errors.validation_exception.ValidationException: <p></p>
+            aws_sdk_lex_runtime_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -337,6 +365,17 @@ class AsyncLexRuntimeV2Client:
             text: <p>The text that the user entered. Amazon Lex V2 interprets this text.</p>
             session_state: <p>The current state of the dialog between the user and the bot.</p>
             request_attributes: <p>Request-specific information passed between the client application and Amazon Lex V2 </p> <p>The namespace <code>x-amz-lex:</code> is reserved for special attributes. Don't create any request attributes with the prefix <code>x-amz-lex:</code>.</p>
+
+        Raises:
+            aws_sdk_lex_runtime_v2.errors.access_denied_exception.AccessDeniedException: <p></p>
+            aws_sdk_lex_runtime_v2.errors.bad_gateway_exception.BadGatewayException: <p></p>
+            aws_sdk_lex_runtime_v2.errors.conflict_exception.ConflictException: <p></p>
+            aws_sdk_lex_runtime_v2.errors.dependency_failed_exception.DependencyFailedException: <p></p>
+            aws_sdk_lex_runtime_v2.errors.internal_server_exception.InternalServerException: <p></p>
+            aws_sdk_lex_runtime_v2.errors.resource_not_found_exception.ResourceNotFoundException: <p></p>
+            aws_sdk_lex_runtime_v2.errors.throttling_exception.ThrottlingException: <p></p>
+            aws_sdk_lex_runtime_v2.errors.validation_exception.ValidationException: <p></p>
+            aws_sdk_lex_runtime_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -406,6 +445,17 @@ class AsyncLexRuntimeV2Client:
             request_content_type: <p>Indicates the format for audio input or that the content is text. The header must start with one of the following prefixes:</p> <ul> <li> <p>PCM format, audio data must be in little-endian byte order.</p> <ul> <li> <p>audio/l16; rate=16000; channels=1</p> </li> <li> <p>audio/x-l16; sample-rate=16000; channel-count=1</p> </li> <li> <p>audio/lpcm; sample-rate=8000; sample-size-bits=16; channel-count=1; is-big-endian=false</p> </li> </ul> </li> <li> <p>Opus format</p> <ul> <li> <p>audio/x-cbr-opus-with-preamble;preamble-size=0;bit-rate=256000;frame-size-milliseconds=4</p> </li> </ul> </li> <li> <p>Text format</p> <ul> <li> <p>text/plain; charset=utf-8</p> </li> </ul> </li> </ul>
             response_content_type: <p>The message that Amazon Lex V2 returns in the response can be either text or speech based on the <code>responseContentType</code> value.</p> <ul> <li> <p>If the value is <code>text/plain;charset=utf-8</code>, Amazon Lex V2 returns text in the response.</p> </li> <li> <p>If the value begins with <code>audio/</code>, Amazon Lex V2 returns speech in the response. Amazon Lex V2 uses Amazon Polly to generate the speech using the configuration that you specified in the <code>responseContentType</code> parameter. For example, if you specify <code>audio/mpeg</code> as the value, Amazon Lex V2 returns speech in the MPEG format.</p> </li> <li> <p>If the value is <code>audio/pcm</code>, the speech returned is <code>audio/pcm</code> at 16 KHz in 16-bit, little-endian format.</p> </li> <li> <p>The following are the accepted values:</p> <ul> <li> <p>audio/mpeg</p> </li> <li> <p>audio/ogg</p> </li> <li> <p>audio/pcm (16 KHz)</p> </li> <li> <p>audio/* (defaults to mpeg)</p> </li> <li> <p>text/plain; charset=utf-8</p> </li> </ul> </li> </ul>
             input_stream: <p>User input in PCM or Opus audio format or text format as described in the <code>requestContentType</code> parameter.</p>
+
+        Raises:
+            aws_sdk_lex_runtime_v2.errors.access_denied_exception.AccessDeniedException: <p></p>
+            aws_sdk_lex_runtime_v2.errors.bad_gateway_exception.BadGatewayException: <p></p>
+            aws_sdk_lex_runtime_v2.errors.conflict_exception.ConflictException: <p></p>
+            aws_sdk_lex_runtime_v2.errors.dependency_failed_exception.DependencyFailedException: <p></p>
+            aws_sdk_lex_runtime_v2.errors.internal_server_exception.InternalServerException: <p></p>
+            aws_sdk_lex_runtime_v2.errors.resource_not_found_exception.ResourceNotFoundException: <p></p>
+            aws_sdk_lex_runtime_v2.errors.throttling_exception.ThrottlingException: <p></p>
+            aws_sdk_lex_runtime_v2.errors.validation_exception.ValidationException: <p></p>
+            aws_sdk_lex_runtime_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -469,6 +519,13 @@ class AsyncLexRuntimeV2Client:
             session_id: <p>The identifier of the user session that is having the conversation.</p>
             conversation_mode: <p>The conversation type that you are using the Amazon Lex V2. If the conversation mode is <code>AUDIO</code> you can send both audio and DTMF information. If the mode is <code>TEXT</code> you can only send text.</p>
             request_event_stream: <p>Represents the stream of events to Amazon Lex V2 from your application. The events are encoded as HTTP/2 data frames.</p>
+
+        Raises:
+            aws_sdk_lex_runtime_v2.errors.access_denied_exception.AccessDeniedException: <p></p>
+            aws_sdk_lex_runtime_v2.errors.internal_server_exception.InternalServerException: <p></p>
+            aws_sdk_lex_runtime_v2.errors.throttling_exception.ThrottlingException: <p></p>
+            aws_sdk_lex_runtime_v2.errors.validation_exception.ValidationException: <p></p>
+            aws_sdk_lex_runtime_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

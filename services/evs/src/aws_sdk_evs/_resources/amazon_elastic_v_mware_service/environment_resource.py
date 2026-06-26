@@ -130,6 +130,10 @@ class EnvironmentResource:
             connectivity_info: <p> The connectivity configuration for the environment. Amazon EVS requires that you specify two route server peer IDs. During environment creation, the route server endpoints peer with the NSX edges over the NSX uplink subnet, providing BGP-based dynamic routing for overlay networks.</p>
             vcf_hostnames: <p>The DNS hostnames for the virtual machines that host the VCF management appliances. Amazon EVS requires that you provide DNS hostnames for the following appliances: vCenter, NSX Manager, SDDC Manager, and Cloud Builder.</p>
             site_id: <p>The Broadcom Site ID that is allocated to you as part of your electronic software delivery. This ID allows customer access to the Broadcom portal, and is provided to you by Broadcom at the close of your software contract or contract renewal. Amazon EVS uses the Broadcom Site ID that you provide to meet Broadcom VCF license usage reporting requirements for Amazon EVS.</p>
+
+        Raises:
+            aws_sdk_evs.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints. You will see this exception if invalid inputs are provided for any of the Amazon EVS environment operations, or if a list operation is performed on an environment resource that is still initializing.</p>
+            aws_sdk_evs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -186,6 +190,11 @@ class EnvironmentResource:
 
         Args:
             environment_id: <p>A unique ID for the environment.</p>
+
+        Raises:
+            aws_sdk_evs.errors.resource_not_found_exception.ResourceNotFoundException: <p>A service resource associated with the request could not be found. The resource might not be specified correctly, or it may have a <code>state</code> of <code>DELETED</code>.</p>
+            aws_sdk_evs.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints. You will see this exception if invalid inputs are provided for any of the Amazon EVS environment operations, or if a list operation is performed on an environment resource that is still initializing.</p>
+            aws_sdk_evs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -225,6 +234,11 @@ class EnvironmentResource:
         Args:
             client_token: <note> <p>This parameter is not used in Amazon EVS currently. If you supply input for this parameter, it will have no effect.</p> </note> <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the environment deletion request. If you do not specify a client token, a randomly generated token is used for the request to ensure idempotency.</p>
             environment_id: <p>A unique ID associated with the environment to be deleted.</p>
+
+        Raises:
+            aws_sdk_evs.errors.resource_not_found_exception.ResourceNotFoundException: <p>A service resource associated with the request could not be found. The resource might not be specified correctly, or it may have a <code>state</code> of <code>DELETED</code>.</p>
+            aws_sdk_evs.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints. You will see this exception if invalid inputs are provided for any of the Amazon EVS environment operations, or if a list operation is performed on an environment resource that is still initializing.</p>
+            aws_sdk_evs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -272,6 +286,10 @@ class EnvironmentResource:
             next_token: <p>A unique pagination token for each page. If <code>nextToken</code> is returned, there are more results available. Make the call again using the returned token with all other arguments unchanged to retrieve the next page. Each pagination token expires after 24 hours. Using an expired pagination token will return an <i>HTTP 400 InvalidToken</i> error.</p>
             max_results: <p>The maximum number of results to return. If you specify <code>MaxResults</code> in the request, the response includes information up to the limit specified.</p>
             state: <p>The state of an environment. Used to filter response results to return only environments with the specified <code>environmentState</code>.</p>
+
+        Raises:
+            aws_sdk_evs.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints. You will see this exception if invalid inputs are provided for any of the Amazon EVS environment operations, or if a list operation is performed on an environment resource that is still initializing.</p>
+            aws_sdk_evs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -320,6 +338,12 @@ class EnvironmentResource:
             environment_id: <p>A unique ID for the environment containing the VLAN that the Elastic IP address associates with.</p>
             vlan_name: <p>The name of the VLAN. <code>hcx</code> is the only accepted VLAN name at this time.</p>
             allocation_id: <p>The Elastic IP address allocation ID.</p>
+
+        Raises:
+            aws_sdk_evs.errors.resource_not_found_exception.ResourceNotFoundException: <p>A service resource associated with the request could not be found. The resource might not be specified correctly, or it may have a <code>state</code> of <code>DELETED</code>.</p>
+            aws_sdk_evs.errors.throttling_exception.ThrottlingException: <p>The operation could not be performed because the service is throttling requests. This exception is thrown when the service endpoint receives too many concurrent requests.</p>
+            aws_sdk_evs.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints. You will see this exception if invalid inputs are provided for any of the Amazon EVS environment operations, or if a list operation is performed on an environment resource that is still initializing.</p>
+            aws_sdk_evs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -369,6 +393,12 @@ class EnvironmentResource:
             connector_id: <p>A unique ID for the connector associated with the entitlement.</p>
             entitlement_type: <p>The type of entitlement to create.</p>
             vm_ids: <p>The list of VMware vSphere virtual machine managed object IDs to create entitlements for.</p>
+
+        Raises:
+            aws_sdk_evs.errors.resource_not_found_exception.ResourceNotFoundException: <p>A service resource associated with the request could not be found. The resource might not be specified correctly, or it may have a <code>state</code> of <code>DELETED</code>.</p>
+            aws_sdk_evs.errors.throttling_exception.ThrottlingException: <p>The operation could not be performed because the service is throttling requests. This exception is thrown when the service endpoint receives too many concurrent requests.</p>
+            aws_sdk_evs.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints. You will see this exception if invalid inputs are provided for any of the Amazon EVS environment operations, or if a list operation is performed on an environment resource that is still initializing.</p>
+            aws_sdk_evs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -419,6 +449,12 @@ class EnvironmentResource:
             type: <p>The type of connector to create.</p>
             appliance_fqdn: <p>The fully qualified domain name (FQDN) of the VCF appliance that the connector targets.</p>
             secret_identifier: <p>The ARN or name of the Amazon Web Services Secrets Manager secret that stores the credentials for the VCF appliance.</p> <important> <p>Do not use credentials with Administrator privileges. We recommend using a service account with the minimum required permissions.</p> </important>
+
+        Raises:
+            aws_sdk_evs.errors.resource_not_found_exception.ResourceNotFoundException: <p>A service resource associated with the request could not be found. The resource might not be specified correctly, or it may have a <code>state</code> of <code>DELETED</code>.</p>
+            aws_sdk_evs.errors.throttling_exception.ThrottlingException: <p>The operation could not be performed because the service is throttling requests. This exception is thrown when the service endpoint receives too many concurrent requests.</p>
+            aws_sdk_evs.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints. You will see this exception if invalid inputs are provided for any of the Amazon EVS environment operations, or if a list operation is performed on an environment resource that is still initializing.</p>
+            aws_sdk_evs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -467,6 +503,11 @@ class EnvironmentResource:
             environment_id: <p>A unique ID for the environment that the host is added to.</p>
             host: <p>The host that is created and added to the environment.</p>
             esx_version: <p>The ESX version to use for the host.</p>
+
+        Raises:
+            aws_sdk_evs.errors.throttling_exception.ThrottlingException: <p>The operation could not be performed because the service is throttling requests. This exception is thrown when the service endpoint receives too many concurrent requests.</p>
+            aws_sdk_evs.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints. You will see this exception if invalid inputs are provided for any of the Amazon EVS environment operations, or if a list operation is performed on an environment resource that is still initializing.</p>
+            aws_sdk_evs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -517,6 +558,12 @@ class EnvironmentResource:
             connector_id: <p>A unique ID for the connector associated with the entitlement.</p>
             entitlement_type: <p>The type of entitlement to delete.</p>
             vm_ids: <p>The list of VMware vSphere virtual machine managed object IDs to delete entitlements for.</p>
+
+        Raises:
+            aws_sdk_evs.errors.resource_not_found_exception.ResourceNotFoundException: <p>A service resource associated with the request could not be found. The resource might not be specified correctly, or it may have a <code>state</code> of <code>DELETED</code>.</p>
+            aws_sdk_evs.errors.throttling_exception.ThrottlingException: <p>The operation could not be performed because the service is throttling requests. This exception is thrown when the service endpoint receives too many concurrent requests.</p>
+            aws_sdk_evs.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints. You will see this exception if invalid inputs are provided for any of the Amazon EVS environment operations, or if a list operation is performed on an environment resource that is still initializing.</p>
+            aws_sdk_evs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -563,6 +610,12 @@ class EnvironmentResource:
             client_token: <note> <p>This parameter is not used in Amazon EVS currently. If you supply input for this parameter, it will have no effect.</p> </note> <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the connector deletion request. If you do not specify a client token, a randomly generated token is used for the request to ensure idempotency.</p>
             environment_id: <p>A unique ID for the environment that the connector belongs to.</p>
             connector_id: <p>A unique ID for the connector to be deleted.</p>
+
+        Raises:
+            aws_sdk_evs.errors.resource_not_found_exception.ResourceNotFoundException: <p>A service resource associated with the request could not be found. The resource might not be specified correctly, or it may have a <code>state</code> of <code>DELETED</code>.</p>
+            aws_sdk_evs.errors.throttling_exception.ThrottlingException: <p>The operation could not be performed because the service is throttling requests. This exception is thrown when the service endpoint receives too many concurrent requests.</p>
+            aws_sdk_evs.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints. You will see this exception if invalid inputs are provided for any of the Amazon EVS environment operations, or if a list operation is performed on an environment resource that is still initializing.</p>
+            aws_sdk_evs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -607,6 +660,11 @@ class EnvironmentResource:
             client_token: <note> <p>This parameter is not used in Amazon EVS currently. If you supply input for this parameter, it will have no effect.</p> </note> <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the host deletion request. If you do not specify a client token, a randomly generated token is used for the request to ensure idempotency.</p>
             environment_id: <p>A unique ID for the host's environment.</p>
             host_name: <p>The DNS hostname associated with the host to be deleted.</p>
+
+        Raises:
+            aws_sdk_evs.errors.resource_not_found_exception.ResourceNotFoundException: <p>A service resource associated with the request could not be found. The resource might not be specified correctly, or it may have a <code>state</code> of <code>DELETED</code>.</p>
+            aws_sdk_evs.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints. You will see this exception if invalid inputs are provided for any of the Amazon EVS environment operations, or if a list operation is performed on an environment resource that is still initializing.</p>
+            aws_sdk_evs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -653,6 +711,12 @@ class EnvironmentResource:
             environment_id: <p>A unique ID for the environment containing the VLAN that the Elastic IP address disassociates from.</p>
             vlan_name: <p>The name of the VLAN. <code>hcx</code> is the only accepted VLAN name at this time.</p>
             association_id: <p> A unique ID for the Elastic IP address association.</p>
+
+        Raises:
+            aws_sdk_evs.errors.resource_not_found_exception.ResourceNotFoundException: <p>A service resource associated with the request could not be found. The resource might not be specified correctly, or it may have a <code>state</code> of <code>DELETED</code>.</p>
+            aws_sdk_evs.errors.throttling_exception.ThrottlingException: <p>The operation could not be performed because the service is throttling requests. This exception is thrown when the service endpoint receives too many concurrent requests.</p>
+            aws_sdk_evs.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints. You will see this exception if invalid inputs are provided for any of the Amazon EVS environment operations, or if a list operation is performed on an environment resource that is still initializing.</p>
+            aws_sdk_evs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -696,6 +760,12 @@ class EnvironmentResource:
         Args:
             environment_id: <p>The unique ID of the Amazon EVS environment to get the depot URL for.</p>
             rotate: <p>Revokes the current authentication token and returns a new depot URL with a new token. Previously issued depot URLs will stop working within 5 minutes of rotation.</p>
+
+        Raises:
+            aws_sdk_evs.errors.resource_not_found_exception.ResourceNotFoundException: <p>A service resource associated with the request could not be found. The resource might not be specified correctly, or it may have a <code>state</code> of <code>DELETED</code>.</p>
+            aws_sdk_evs.errors.throttling_exception.ThrottlingException: <p>The operation could not be performed because the service is throttling requests. This exception is thrown when the service endpoint receives too many concurrent requests.</p>
+            aws_sdk_evs.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints. You will see this exception if invalid inputs are provided for any of the Amazon EVS environment operations, or if a list operation is performed on an environment resource that is still initializing.</p>
+            aws_sdk_evs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -741,6 +811,11 @@ class EnvironmentResource:
             next_token: <p>A unique pagination token for each page. If <code>nextToken</code> is returned, there are more results available. Make the call again using the returned token with all other arguments unchanged to retrieve the next page. Each pagination token expires after 24 hours. Using an expired pagination token will return an <i>HTTP 400 InvalidToken</i> error.</p>
             max_results: <p>The maximum number of results to return. If you specify <code>MaxResults</code> in the request, the response includes information up to the limit specified.</p>
             environment_id: <p>A unique ID for the environment.</p>
+
+        Raises:
+            aws_sdk_evs.errors.resource_not_found_exception.ResourceNotFoundException: <p>A service resource associated with the request could not be found. The resource might not be specified correctly, or it may have a <code>state</code> of <code>DELETED</code>.</p>
+            aws_sdk_evs.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints. You will see this exception if invalid inputs are provided for any of the Amazon EVS environment operations, or if a list operation is performed on an environment resource that is still initializing.</p>
+            aws_sdk_evs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -790,6 +865,11 @@ class EnvironmentResource:
             next_token: <p>A unique pagination token for each page. If <code>nextToken</code> is returned, there are more results available. Make the call again using the returned token with all other arguments unchanged to retrieve the next page. Each pagination token expires after 24 hours. Using an expired pagination token will return an <i>HTTP 400 InvalidToken</i> error.</p>
             max_results: <p>The maximum number of results to return. If you specify <code>MaxResults</code> in the request, the response includes information up to the limit specified.</p>
             environment_id: <p>A unique ID for the environment.</p>
+
+        Raises:
+            aws_sdk_evs.errors.resource_not_found_exception.ResourceNotFoundException: <p>A service resource associated with the request could not be found. The resource might not be specified correctly, or it may have a <code>state</code> of <code>DELETED</code>.</p>
+            aws_sdk_evs.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints. You will see this exception if invalid inputs are provided for any of the Amazon EVS environment operations, or if a list operation is performed on an environment resource that is still initializing.</p>
+            aws_sdk_evs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -839,6 +919,11 @@ class EnvironmentResource:
             next_token: <p>A unique pagination token for each page. If <code>nextToken</code> is returned, there are more results available. Make the call again using the returned token with all other arguments unchanged to retrieve the next page. Each pagination token expires after 24 hours. Using an expired pagination token will return an <i>HTTP 400 InvalidToken</i> error.</p>
             max_results: <p>The maximum number of results to return. If you specify <code>MaxResults</code> in the request, the response includes information up to the limit specified.</p>
             environment_id: <p>A unique ID for the environment.</p>
+
+        Raises:
+            aws_sdk_evs.errors.resource_not_found_exception.ResourceNotFoundException: <p>A service resource associated with the request could not be found. The resource might not be specified correctly, or it may have a <code>state</code> of <code>DELETED</code>.</p>
+            aws_sdk_evs.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints. You will see this exception if invalid inputs are provided for any of the Amazon EVS environment operations, or if a list operation is performed on an environment resource that is still initializing.</p>
+            aws_sdk_evs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -890,6 +975,11 @@ class EnvironmentResource:
             environment_id: <p>A unique ID for the environment.</p>
             connector_id: <p>A unique ID for the connector.</p>
             entitlement_type: <p>The type of entitlement to list.</p>
+
+        Raises:
+            aws_sdk_evs.errors.resource_not_found_exception.ResourceNotFoundException: <p>A service resource associated with the request could not be found. The resource might not be specified correctly, or it may have a <code>state</code> of <code>DELETED</code>.</p>
+            aws_sdk_evs.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints. You will see this exception if invalid inputs are provided for any of the Amazon EVS environment operations, or if a list operation is performed on an environment resource that is still initializing.</p>
+            aws_sdk_evs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -945,6 +1035,12 @@ class EnvironmentResource:
             connector_id: <p>A unique ID for the connector to update.</p>
             appliance_fqdn: <p>The new fully qualified domain name (FQDN) of the VCF appliance that the connector connects to.</p>
             secret_identifier: <p>The new ARN or name of the Amazon Web Services Secrets Manager secret that stores the credentials for the VCF appliance.</p>
+
+        Raises:
+            aws_sdk_evs.errors.resource_not_found_exception.ResourceNotFoundException: <p>A service resource associated with the request could not be found. The resource might not be specified correctly, or it may have a <code>state</code> of <code>DELETED</code>.</p>
+            aws_sdk_evs.errors.throttling_exception.ThrottlingException: <p>The operation could not be performed because the service is throttling requests. This exception is thrown when the service endpoint receives too many concurrent requests.</p>
+            aws_sdk_evs.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints. You will see this exception if invalid inputs are provided for any of the Amazon EVS environment operations, or if a list operation is performed on an environment resource that is still initializing.</p>
+            aws_sdk_evs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1026,6 +1122,10 @@ class AsyncEnvironmentResource:
             connectivity_info: <p> The connectivity configuration for the environment. Amazon EVS requires that you specify two route server peer IDs. During environment creation, the route server endpoints peer with the NSX edges over the NSX uplink subnet, providing BGP-based dynamic routing for overlay networks.</p>
             vcf_hostnames: <p>The DNS hostnames for the virtual machines that host the VCF management appliances. Amazon EVS requires that you provide DNS hostnames for the following appliances: vCenter, NSX Manager, SDDC Manager, and Cloud Builder.</p>
             site_id: <p>The Broadcom Site ID that is allocated to you as part of your electronic software delivery. This ID allows customer access to the Broadcom portal, and is provided to you by Broadcom at the close of your software contract or contract renewal. Amazon EVS uses the Broadcom Site ID that you provide to meet Broadcom VCF license usage reporting requirements for Amazon EVS.</p>
+
+        Raises:
+            aws_sdk_evs.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints. You will see this exception if invalid inputs are provided for any of the Amazon EVS environment operations, or if a list operation is performed on an environment resource that is still initializing.</p>
+            aws_sdk_evs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1083,6 +1183,11 @@ class AsyncEnvironmentResource:
 
         Args:
             environment_id: <p>A unique ID for the environment.</p>
+
+        Raises:
+            aws_sdk_evs.errors.resource_not_found_exception.ResourceNotFoundException: <p>A service resource associated with the request could not be found. The resource might not be specified correctly, or it may have a <code>state</code> of <code>DELETED</code>.</p>
+            aws_sdk_evs.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints. You will see this exception if invalid inputs are provided for any of the Amazon EVS environment operations, or if a list operation is performed on an environment resource that is still initializing.</p>
+            aws_sdk_evs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1123,6 +1228,11 @@ class AsyncEnvironmentResource:
         Args:
             client_token: <note> <p>This parameter is not used in Amazon EVS currently. If you supply input for this parameter, it will have no effect.</p> </note> <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the environment deletion request. If you do not specify a client token, a randomly generated token is used for the request to ensure idempotency.</p>
             environment_id: <p>A unique ID associated with the environment to be deleted.</p>
+
+        Raises:
+            aws_sdk_evs.errors.resource_not_found_exception.ResourceNotFoundException: <p>A service resource associated with the request could not be found. The resource might not be specified correctly, or it may have a <code>state</code> of <code>DELETED</code>.</p>
+            aws_sdk_evs.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints. You will see this exception if invalid inputs are provided for any of the Amazon EVS environment operations, or if a list operation is performed on an environment resource that is still initializing.</p>
+            aws_sdk_evs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1171,6 +1281,10 @@ class AsyncEnvironmentResource:
             next_token: <p>A unique pagination token for each page. If <code>nextToken</code> is returned, there are more results available. Make the call again using the returned token with all other arguments unchanged to retrieve the next page. Each pagination token expires after 24 hours. Using an expired pagination token will return an <i>HTTP 400 InvalidToken</i> error.</p>
             max_results: <p>The maximum number of results to return. If you specify <code>MaxResults</code> in the request, the response includes information up to the limit specified.</p>
             state: <p>The state of an environment. Used to filter response results to return only environments with the specified <code>environmentState</code>.</p>
+
+        Raises:
+            aws_sdk_evs.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints. You will see this exception if invalid inputs are provided for any of the Amazon EVS environment operations, or if a list operation is performed on an environment resource that is still initializing.</p>
+            aws_sdk_evs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1220,6 +1334,12 @@ class AsyncEnvironmentResource:
             environment_id: <p>A unique ID for the environment containing the VLAN that the Elastic IP address associates with.</p>
             vlan_name: <p>The name of the VLAN. <code>hcx</code> is the only accepted VLAN name at this time.</p>
             allocation_id: <p>The Elastic IP address allocation ID.</p>
+
+        Raises:
+            aws_sdk_evs.errors.resource_not_found_exception.ResourceNotFoundException: <p>A service resource associated with the request could not be found. The resource might not be specified correctly, or it may have a <code>state</code> of <code>DELETED</code>.</p>
+            aws_sdk_evs.errors.throttling_exception.ThrottlingException: <p>The operation could not be performed because the service is throttling requests. This exception is thrown when the service endpoint receives too many concurrent requests.</p>
+            aws_sdk_evs.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints. You will see this exception if invalid inputs are provided for any of the Amazon EVS environment operations, or if a list operation is performed on an environment resource that is still initializing.</p>
+            aws_sdk_evs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1270,6 +1390,12 @@ class AsyncEnvironmentResource:
             connector_id: <p>A unique ID for the connector associated with the entitlement.</p>
             entitlement_type: <p>The type of entitlement to create.</p>
             vm_ids: <p>The list of VMware vSphere virtual machine managed object IDs to create entitlements for.</p>
+
+        Raises:
+            aws_sdk_evs.errors.resource_not_found_exception.ResourceNotFoundException: <p>A service resource associated with the request could not be found. The resource might not be specified correctly, or it may have a <code>state</code> of <code>DELETED</code>.</p>
+            aws_sdk_evs.errors.throttling_exception.ThrottlingException: <p>The operation could not be performed because the service is throttling requests. This exception is thrown when the service endpoint receives too many concurrent requests.</p>
+            aws_sdk_evs.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints. You will see this exception if invalid inputs are provided for any of the Amazon EVS environment operations, or if a list operation is performed on an environment resource that is still initializing.</p>
+            aws_sdk_evs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1321,6 +1447,12 @@ class AsyncEnvironmentResource:
             type: <p>The type of connector to create.</p>
             appliance_fqdn: <p>The fully qualified domain name (FQDN) of the VCF appliance that the connector targets.</p>
             secret_identifier: <p>The ARN or name of the Amazon Web Services Secrets Manager secret that stores the credentials for the VCF appliance.</p> <important> <p>Do not use credentials with Administrator privileges. We recommend using a service account with the minimum required permissions.</p> </important>
+
+        Raises:
+            aws_sdk_evs.errors.resource_not_found_exception.ResourceNotFoundException: <p>A service resource associated with the request could not be found. The resource might not be specified correctly, or it may have a <code>state</code> of <code>DELETED</code>.</p>
+            aws_sdk_evs.errors.throttling_exception.ThrottlingException: <p>The operation could not be performed because the service is throttling requests. This exception is thrown when the service endpoint receives too many concurrent requests.</p>
+            aws_sdk_evs.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints. You will see this exception if invalid inputs are provided for any of the Amazon EVS environment operations, or if a list operation is performed on an environment resource that is still initializing.</p>
+            aws_sdk_evs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1370,6 +1502,11 @@ class AsyncEnvironmentResource:
             environment_id: <p>A unique ID for the environment that the host is added to.</p>
             host: <p>The host that is created and added to the environment.</p>
             esx_version: <p>The ESX version to use for the host.</p>
+
+        Raises:
+            aws_sdk_evs.errors.throttling_exception.ThrottlingException: <p>The operation could not be performed because the service is throttling requests. This exception is thrown when the service endpoint receives too many concurrent requests.</p>
+            aws_sdk_evs.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints. You will see this exception if invalid inputs are provided for any of the Amazon EVS environment operations, or if a list operation is performed on an environment resource that is still initializing.</p>
+            aws_sdk_evs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1421,6 +1558,12 @@ class AsyncEnvironmentResource:
             connector_id: <p>A unique ID for the connector associated with the entitlement.</p>
             entitlement_type: <p>The type of entitlement to delete.</p>
             vm_ids: <p>The list of VMware vSphere virtual machine managed object IDs to delete entitlements for.</p>
+
+        Raises:
+            aws_sdk_evs.errors.resource_not_found_exception.ResourceNotFoundException: <p>A service resource associated with the request could not be found. The resource might not be specified correctly, or it may have a <code>state</code> of <code>DELETED</code>.</p>
+            aws_sdk_evs.errors.throttling_exception.ThrottlingException: <p>The operation could not be performed because the service is throttling requests. This exception is thrown when the service endpoint receives too many concurrent requests.</p>
+            aws_sdk_evs.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints. You will see this exception if invalid inputs are provided for any of the Amazon EVS environment operations, or if a list operation is performed on an environment resource that is still initializing.</p>
+            aws_sdk_evs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1468,6 +1611,12 @@ class AsyncEnvironmentResource:
             client_token: <note> <p>This parameter is not used in Amazon EVS currently. If you supply input for this parameter, it will have no effect.</p> </note> <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the connector deletion request. If you do not specify a client token, a randomly generated token is used for the request to ensure idempotency.</p>
             environment_id: <p>A unique ID for the environment that the connector belongs to.</p>
             connector_id: <p>A unique ID for the connector to be deleted.</p>
+
+        Raises:
+            aws_sdk_evs.errors.resource_not_found_exception.ResourceNotFoundException: <p>A service resource associated with the request could not be found. The resource might not be specified correctly, or it may have a <code>state</code> of <code>DELETED</code>.</p>
+            aws_sdk_evs.errors.throttling_exception.ThrottlingException: <p>The operation could not be performed because the service is throttling requests. This exception is thrown when the service endpoint receives too many concurrent requests.</p>
+            aws_sdk_evs.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints. You will see this exception if invalid inputs are provided for any of the Amazon EVS environment operations, or if a list operation is performed on an environment resource that is still initializing.</p>
+            aws_sdk_evs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1513,6 +1662,11 @@ class AsyncEnvironmentResource:
             client_token: <note> <p>This parameter is not used in Amazon EVS currently. If you supply input for this parameter, it will have no effect.</p> </note> <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the host deletion request. If you do not specify a client token, a randomly generated token is used for the request to ensure idempotency.</p>
             environment_id: <p>A unique ID for the host's environment.</p>
             host_name: <p>The DNS hostname associated with the host to be deleted.</p>
+
+        Raises:
+            aws_sdk_evs.errors.resource_not_found_exception.ResourceNotFoundException: <p>A service resource associated with the request could not be found. The resource might not be specified correctly, or it may have a <code>state</code> of <code>DELETED</code>.</p>
+            aws_sdk_evs.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints. You will see this exception if invalid inputs are provided for any of the Amazon EVS environment operations, or if a list operation is performed on an environment resource that is still initializing.</p>
+            aws_sdk_evs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1560,6 +1714,12 @@ class AsyncEnvironmentResource:
             environment_id: <p>A unique ID for the environment containing the VLAN that the Elastic IP address disassociates from.</p>
             vlan_name: <p>The name of the VLAN. <code>hcx</code> is the only accepted VLAN name at this time.</p>
             association_id: <p> A unique ID for the Elastic IP address association.</p>
+
+        Raises:
+            aws_sdk_evs.errors.resource_not_found_exception.ResourceNotFoundException: <p>A service resource associated with the request could not be found. The resource might not be specified correctly, or it may have a <code>state</code> of <code>DELETED</code>.</p>
+            aws_sdk_evs.errors.throttling_exception.ThrottlingException: <p>The operation could not be performed because the service is throttling requests. This exception is thrown when the service endpoint receives too many concurrent requests.</p>
+            aws_sdk_evs.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints. You will see this exception if invalid inputs are provided for any of the Amazon EVS environment operations, or if a list operation is performed on an environment resource that is still initializing.</p>
+            aws_sdk_evs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1604,6 +1764,12 @@ class AsyncEnvironmentResource:
         Args:
             environment_id: <p>The unique ID of the Amazon EVS environment to get the depot URL for.</p>
             rotate: <p>Revokes the current authentication token and returns a new depot URL with a new token. Previously issued depot URLs will stop working within 5 minutes of rotation.</p>
+
+        Raises:
+            aws_sdk_evs.errors.resource_not_found_exception.ResourceNotFoundException: <p>A service resource associated with the request could not be found. The resource might not be specified correctly, or it may have a <code>state</code> of <code>DELETED</code>.</p>
+            aws_sdk_evs.errors.throttling_exception.ThrottlingException: <p>The operation could not be performed because the service is throttling requests. This exception is thrown when the service endpoint receives too many concurrent requests.</p>
+            aws_sdk_evs.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints. You will see this exception if invalid inputs are provided for any of the Amazon EVS environment operations, or if a list operation is performed on an environment resource that is still initializing.</p>
+            aws_sdk_evs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1650,6 +1816,11 @@ class AsyncEnvironmentResource:
             next_token: <p>A unique pagination token for each page. If <code>nextToken</code> is returned, there are more results available. Make the call again using the returned token with all other arguments unchanged to retrieve the next page. Each pagination token expires after 24 hours. Using an expired pagination token will return an <i>HTTP 400 InvalidToken</i> error.</p>
             max_results: <p>The maximum number of results to return. If you specify <code>MaxResults</code> in the request, the response includes information up to the limit specified.</p>
             environment_id: <p>A unique ID for the environment.</p>
+
+        Raises:
+            aws_sdk_evs.errors.resource_not_found_exception.ResourceNotFoundException: <p>A service resource associated with the request could not be found. The resource might not be specified correctly, or it may have a <code>state</code> of <code>DELETED</code>.</p>
+            aws_sdk_evs.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints. You will see this exception if invalid inputs are provided for any of the Amazon EVS environment operations, or if a list operation is performed on an environment resource that is still initializing.</p>
+            aws_sdk_evs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1700,6 +1871,11 @@ class AsyncEnvironmentResource:
             next_token: <p>A unique pagination token for each page. If <code>nextToken</code> is returned, there are more results available. Make the call again using the returned token with all other arguments unchanged to retrieve the next page. Each pagination token expires after 24 hours. Using an expired pagination token will return an <i>HTTP 400 InvalidToken</i> error.</p>
             max_results: <p>The maximum number of results to return. If you specify <code>MaxResults</code> in the request, the response includes information up to the limit specified.</p>
             environment_id: <p>A unique ID for the environment.</p>
+
+        Raises:
+            aws_sdk_evs.errors.resource_not_found_exception.ResourceNotFoundException: <p>A service resource associated with the request could not be found. The resource might not be specified correctly, or it may have a <code>state</code> of <code>DELETED</code>.</p>
+            aws_sdk_evs.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints. You will see this exception if invalid inputs are provided for any of the Amazon EVS environment operations, or if a list operation is performed on an environment resource that is still initializing.</p>
+            aws_sdk_evs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1750,6 +1926,11 @@ class AsyncEnvironmentResource:
             next_token: <p>A unique pagination token for each page. If <code>nextToken</code> is returned, there are more results available. Make the call again using the returned token with all other arguments unchanged to retrieve the next page. Each pagination token expires after 24 hours. Using an expired pagination token will return an <i>HTTP 400 InvalidToken</i> error.</p>
             max_results: <p>The maximum number of results to return. If you specify <code>MaxResults</code> in the request, the response includes information up to the limit specified.</p>
             environment_id: <p>A unique ID for the environment.</p>
+
+        Raises:
+            aws_sdk_evs.errors.resource_not_found_exception.ResourceNotFoundException: <p>A service resource associated with the request could not be found. The resource might not be specified correctly, or it may have a <code>state</code> of <code>DELETED</code>.</p>
+            aws_sdk_evs.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints. You will see this exception if invalid inputs are provided for any of the Amazon EVS environment operations, or if a list operation is performed on an environment resource that is still initializing.</p>
+            aws_sdk_evs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1802,6 +1983,11 @@ class AsyncEnvironmentResource:
             environment_id: <p>A unique ID for the environment.</p>
             connector_id: <p>A unique ID for the connector.</p>
             entitlement_type: <p>The type of entitlement to list.</p>
+
+        Raises:
+            aws_sdk_evs.errors.resource_not_found_exception.ResourceNotFoundException: <p>A service resource associated with the request could not be found. The resource might not be specified correctly, or it may have a <code>state</code> of <code>DELETED</code>.</p>
+            aws_sdk_evs.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints. You will see this exception if invalid inputs are provided for any of the Amazon EVS environment operations, or if a list operation is performed on an environment resource that is still initializing.</p>
+            aws_sdk_evs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1858,6 +2044,12 @@ class AsyncEnvironmentResource:
             connector_id: <p>A unique ID for the connector to update.</p>
             appliance_fqdn: <p>The new fully qualified domain name (FQDN) of the VCF appliance that the connector connects to.</p>
             secret_identifier: <p>The new ARN or name of the Amazon Web Services Secrets Manager secret that stores the credentials for the VCF appliance.</p>
+
+        Raises:
+            aws_sdk_evs.errors.resource_not_found_exception.ResourceNotFoundException: <p>A service resource associated with the request could not be found. The resource might not be specified correctly, or it may have a <code>state</code> of <code>DELETED</code>.</p>
+            aws_sdk_evs.errors.throttling_exception.ThrottlingException: <p>The operation could not be performed because the service is throttling requests. This exception is thrown when the service endpoint receives too many concurrent requests.</p>
+            aws_sdk_evs.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints. You will see this exception if invalid inputs are provided for any of the Amazon EVS environment operations, or if a list operation is performed on an environment resource that is still initializing.</p>
+            aws_sdk_evs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

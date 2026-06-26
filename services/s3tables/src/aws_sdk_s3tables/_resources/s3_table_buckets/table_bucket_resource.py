@@ -78,6 +78,15 @@ class TableBucketResource:
             encryption_configuration: <p>The encryption configuration to use for the table bucket. This configuration specifies the default encryption settings that will be applied to all tables created in this bucket unless overridden at the table level. The configuration includes the encryption algorithm and, if using SSE-KMS, the KMS key to use.</p>
             storage_class_configuration: <p>The default storage class configuration for the table bucket. This configuration will be applied to all new tables created in this bucket unless overridden at the table level. If not specified, the service default storage class will be used.</p>
             tags: <p>A map of user-defined tags that you would like to apply to the table bucket that you are creating. A tag is a key-value pair that you apply to your resources. Tags can help you organize and control access to resources. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/tagging.html\">Tagging for cost allocation or attribute-based access control (ABAC)</a>.</p> <note> <p>You must have the <code>s3tables:TagResource</code> permission in addition to <code>s3tables:CreateTableBucket</code> permisson to create a table bucket with tags.</p> </note>
+
+        Raises:
+            aws_sdk_s3tables.errors.bad_request_exception.BadRequestException: <p>The request is invalid or malformed.</p>
+            aws_sdk_s3tables.errors.conflict_exception.ConflictException: <p>The request failed because there is a conflict with a previous write. You can retry the request.</p>
+            aws_sdk_s3tables.errors.forbidden_exception.ForbiddenException: <p>The caller isn't authorized to make the request.</p>
+            aws_sdk_s3tables.errors.internal_server_error_exception.InternalServerErrorException: <p>The request failed due to an internal server error.</p>
+            aws_sdk_s3tables.errors.not_found_exception.NotFoundException: <p>The request was rejected because the specified resource could not be found.</p>
+            aws_sdk_s3tables.errors.too_many_requests_exception.TooManyRequestsException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_s3tables.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -121,6 +130,15 @@ class TableBucketResource:
 
         Args:
             table_bucket_arn: <p>The Amazon Resource Name (ARN) of the table bucket.</p>
+
+        Raises:
+            aws_sdk_s3tables.errors.bad_request_exception.BadRequestException: <p>The request is invalid or malformed.</p>
+            aws_sdk_s3tables.errors.conflict_exception.ConflictException: <p>The request failed because there is a conflict with a previous write. You can retry the request.</p>
+            aws_sdk_s3tables.errors.forbidden_exception.ForbiddenException: <p>The caller isn't authorized to make the request.</p>
+            aws_sdk_s3tables.errors.internal_server_error_exception.InternalServerErrorException: <p>The request failed due to an internal server error.</p>
+            aws_sdk_s3tables.errors.not_found_exception.NotFoundException: <p>The request was rejected because the specified resource could not be found.</p>
+            aws_sdk_s3tables.errors.too_many_requests_exception.TooManyRequestsException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_s3tables.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -156,6 +174,15 @@ class TableBucketResource:
 
         Args:
             table_bucket_arn: <p>The Amazon Resource Name (ARN) of the table bucket.</p>
+
+        Raises:
+            aws_sdk_s3tables.errors.bad_request_exception.BadRequestException: <p>The request is invalid or malformed.</p>
+            aws_sdk_s3tables.errors.conflict_exception.ConflictException: <p>The request failed because there is a conflict with a previous write. You can retry the request.</p>
+            aws_sdk_s3tables.errors.forbidden_exception.ForbiddenException: <p>The caller isn't authorized to make the request.</p>
+            aws_sdk_s3tables.errors.internal_server_error_exception.InternalServerErrorException: <p>The request failed due to an internal server error.</p>
+            aws_sdk_s3tables.errors.not_found_exception.NotFoundException: <p>The request was rejected because the specified resource could not be found.</p>
+            aws_sdk_s3tables.errors.too_many_requests_exception.TooManyRequestsException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_s3tables.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -191,6 +218,16 @@ class TableBucketResource:
 
         Args:
             table_bucket_arn: <p>The Amazon Resource Name (ARN) of the table bucket.</p>
+
+        Raises:
+            aws_sdk_s3tables.errors.access_denied_exception.AccessDeniedException: <p>The action cannot be performed because you do not have the required permission.</p>
+            aws_sdk_s3tables.errors.bad_request_exception.BadRequestException: <p>The request is invalid or malformed.</p>
+            aws_sdk_s3tables.errors.conflict_exception.ConflictException: <p>The request failed because there is a conflict with a previous write. You can retry the request.</p>
+            aws_sdk_s3tables.errors.forbidden_exception.ForbiddenException: <p>The caller isn't authorized to make the request.</p>
+            aws_sdk_s3tables.errors.internal_server_error_exception.InternalServerErrorException: <p>The request failed due to an internal server error.</p>
+            aws_sdk_s3tables.errors.not_found_exception.NotFoundException: <p>The request was rejected because the specified resource could not be found.</p>
+            aws_sdk_s3tables.errors.too_many_requests_exception.TooManyRequestsException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_s3tables.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -228,6 +265,15 @@ class TableBucketResource:
 
         Args:
             table_bucket_arn: <p>The Amazon Resource Name (ARN) of the table bucket associated with the maintenance configuration.</p>
+
+        Raises:
+            aws_sdk_s3tables.errors.bad_request_exception.BadRequestException: <p>The request is invalid or malformed.</p>
+            aws_sdk_s3tables.errors.conflict_exception.ConflictException: <p>The request failed because there is a conflict with a previous write. You can retry the request.</p>
+            aws_sdk_s3tables.errors.forbidden_exception.ForbiddenException: <p>The caller isn't authorized to make the request.</p>
+            aws_sdk_s3tables.errors.internal_server_error_exception.InternalServerErrorException: <p>The request failed due to an internal server error.</p>
+            aws_sdk_s3tables.errors.not_found_exception.NotFoundException: <p>The request was rejected because the specified resource could not be found.</p>
+            aws_sdk_s3tables.errors.too_many_requests_exception.TooManyRequestsException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_s3tables.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -265,6 +311,15 @@ class TableBucketResource:
 
         Args:
             table_bucket_arn: <p>The Amazon Resource Name (ARN) of the table bucket.</p>
+
+        Raises:
+            aws_sdk_s3tables.errors.bad_request_exception.BadRequestException: <p>The request is invalid or malformed.</p>
+            aws_sdk_s3tables.errors.conflict_exception.ConflictException: <p>The request failed because there is a conflict with a previous write. You can retry the request.</p>
+            aws_sdk_s3tables.errors.forbidden_exception.ForbiddenException: <p>The caller isn't authorized to make the request.</p>
+            aws_sdk_s3tables.errors.internal_server_error_exception.InternalServerErrorException: <p>The request failed due to an internal server error.</p>
+            aws_sdk_s3tables.errors.not_found_exception.NotFoundException: <p>The request was rejected because the specified resource could not be found.</p>
+            aws_sdk_s3tables.errors.too_many_requests_exception.TooManyRequestsException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_s3tables.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -302,6 +357,15 @@ class TableBucketResource:
 
         Args:
             table_bucket_arn: <p>The Amazon Resource Name (ARN) of the table bucket.</p>
+
+        Raises:
+            aws_sdk_s3tables.errors.access_denied_exception.AccessDeniedException: <p>The action cannot be performed because you do not have the required permission.</p>
+            aws_sdk_s3tables.errors.bad_request_exception.BadRequestException: <p>The request is invalid or malformed.</p>
+            aws_sdk_s3tables.errors.forbidden_exception.ForbiddenException: <p>The caller isn't authorized to make the request.</p>
+            aws_sdk_s3tables.errors.internal_server_error_exception.InternalServerErrorException: <p>The request failed due to an internal server error.</p>
+            aws_sdk_s3tables.errors.not_found_exception.NotFoundException: <p>The request was rejected because the specified resource could not be found.</p>
+            aws_sdk_s3tables.errors.too_many_requests_exception.TooManyRequestsException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_s3tables.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -351,6 +415,16 @@ class TableBucketResource:
             continuation_token: <p> <code>ContinuationToken</code> indicates to Amazon S3 that the list is being continued on this bucket with a token. <code>ContinuationToken</code> is obfuscated and is not a real key. You can use this <code>ContinuationToken</code> for pagination of the list results.</p>
             max_buckets: <p>The maximum number of table buckets to return in the list.</p>
             type: <p>The type of table buckets to filter by in the list.</p>
+
+        Raises:
+            aws_sdk_s3tables.errors.access_denied_exception.AccessDeniedException: <p>The action cannot be performed because you do not have the required permission.</p>
+            aws_sdk_s3tables.errors.bad_request_exception.BadRequestException: <p>The request is invalid or malformed.</p>
+            aws_sdk_s3tables.errors.conflict_exception.ConflictException: <p>The request failed because there is a conflict with a previous write. You can retry the request.</p>
+            aws_sdk_s3tables.errors.forbidden_exception.ForbiddenException: <p>The caller isn't authorized to make the request.</p>
+            aws_sdk_s3tables.errors.internal_server_error_exception.InternalServerErrorException: <p>The request failed due to an internal server error.</p>
+            aws_sdk_s3tables.errors.not_found_exception.NotFoundException: <p>The request was rejected because the specified resource could not be found.</p>
+            aws_sdk_s3tables.errors.too_many_requests_exception.TooManyRequestsException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_s3tables.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -399,6 +473,15 @@ class TableBucketResource:
             table_bucket_arn: <p>The Amazon Resource Name (ARN) of the table bucket associated with the maintenance configuration.</p>
             type: <p>The type of the maintenance configuration.</p>
             value: <p>Defines the values of the maintenance configuration for the table bucket.</p>
+
+        Raises:
+            aws_sdk_s3tables.errors.bad_request_exception.BadRequestException: <p>The request is invalid or malformed.</p>
+            aws_sdk_s3tables.errors.conflict_exception.ConflictException: <p>The request failed because there is a conflict with a previous write. You can retry the request.</p>
+            aws_sdk_s3tables.errors.forbidden_exception.ForbiddenException: <p>The caller isn't authorized to make the request.</p>
+            aws_sdk_s3tables.errors.internal_server_error_exception.InternalServerErrorException: <p>The request failed due to an internal server error.</p>
+            aws_sdk_s3tables.errors.not_found_exception.NotFoundException: <p>The request was rejected because the specified resource could not be found.</p>
+            aws_sdk_s3tables.errors.too_many_requests_exception.TooManyRequestsException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_s3tables.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -436,6 +519,15 @@ class TableBucketResource:
 
         Args:
             table_bucket_arn: <p>The Amazon Resource Name (ARN) of the table bucket.</p>
+
+        Raises:
+            aws_sdk_s3tables.errors.bad_request_exception.BadRequestException: <p>The request is invalid or malformed.</p>
+            aws_sdk_s3tables.errors.conflict_exception.ConflictException: <p>The request failed because there is a conflict with a previous write. You can retry the request.</p>
+            aws_sdk_s3tables.errors.forbidden_exception.ForbiddenException: <p>The caller isn't authorized to make the request.</p>
+            aws_sdk_s3tables.errors.internal_server_error_exception.InternalServerErrorException: <p>The request failed due to an internal server error.</p>
+            aws_sdk_s3tables.errors.not_found_exception.NotFoundException: <p>The request was rejected because the specified resource could not be found.</p>
+            aws_sdk_s3tables.errors.too_many_requests_exception.TooManyRequestsException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_s3tables.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -473,6 +565,15 @@ class TableBucketResource:
         Args:
             table_bucket_arn: <p>The Amazon Resource Name (ARN) of the table bucket.</p>
             storage_class_configuration: <p>The storage class configuration to apply to the table bucket. This configuration will serve as the default for new tables created in this bucket.</p>
+
+        Raises:
+            aws_sdk_s3tables.errors.bad_request_exception.BadRequestException: <p>The request is invalid or malformed.</p>
+            aws_sdk_s3tables.errors.conflict_exception.ConflictException: <p>The request failed because there is a conflict with a previous write. You can retry the request.</p>
+            aws_sdk_s3tables.errors.forbidden_exception.ForbiddenException: <p>The caller isn't authorized to make the request.</p>
+            aws_sdk_s3tables.errors.internal_server_error_exception.InternalServerErrorException: <p>The request failed due to an internal server error.</p>
+            aws_sdk_s3tables.errors.not_found_exception.NotFoundException: <p>The request was rejected because the specified resource could not be found.</p>
+            aws_sdk_s3tables.errors.too_many_requests_exception.TooManyRequestsException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_s3tables.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -526,6 +627,15 @@ class AsyncTableBucketResource:
             encryption_configuration: <p>The encryption configuration to use for the table bucket. This configuration specifies the default encryption settings that will be applied to all tables created in this bucket unless overridden at the table level. The configuration includes the encryption algorithm and, if using SSE-KMS, the KMS key to use.</p>
             storage_class_configuration: <p>The default storage class configuration for the table bucket. This configuration will be applied to all new tables created in this bucket unless overridden at the table level. If not specified, the service default storage class will be used.</p>
             tags: <p>A map of user-defined tags that you would like to apply to the table bucket that you are creating. A tag is a key-value pair that you apply to your resources. Tags can help you organize and control access to resources. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/tagging.html\">Tagging for cost allocation or attribute-based access control (ABAC)</a>.</p> <note> <p>You must have the <code>s3tables:TagResource</code> permission in addition to <code>s3tables:CreateTableBucket</code> permisson to create a table bucket with tags.</p> </note>
+
+        Raises:
+            aws_sdk_s3tables.errors.bad_request_exception.BadRequestException: <p>The request is invalid or malformed.</p>
+            aws_sdk_s3tables.errors.conflict_exception.ConflictException: <p>The request failed because there is a conflict with a previous write. You can retry the request.</p>
+            aws_sdk_s3tables.errors.forbidden_exception.ForbiddenException: <p>The caller isn't authorized to make the request.</p>
+            aws_sdk_s3tables.errors.internal_server_error_exception.InternalServerErrorException: <p>The request failed due to an internal server error.</p>
+            aws_sdk_s3tables.errors.not_found_exception.NotFoundException: <p>The request was rejected because the specified resource could not be found.</p>
+            aws_sdk_s3tables.errors.too_many_requests_exception.TooManyRequestsException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_s3tables.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -570,6 +680,15 @@ class AsyncTableBucketResource:
 
         Args:
             table_bucket_arn: <p>The Amazon Resource Name (ARN) of the table bucket.</p>
+
+        Raises:
+            aws_sdk_s3tables.errors.bad_request_exception.BadRequestException: <p>The request is invalid or malformed.</p>
+            aws_sdk_s3tables.errors.conflict_exception.ConflictException: <p>The request failed because there is a conflict with a previous write. You can retry the request.</p>
+            aws_sdk_s3tables.errors.forbidden_exception.ForbiddenException: <p>The caller isn't authorized to make the request.</p>
+            aws_sdk_s3tables.errors.internal_server_error_exception.InternalServerErrorException: <p>The request failed due to an internal server error.</p>
+            aws_sdk_s3tables.errors.not_found_exception.NotFoundException: <p>The request was rejected because the specified resource could not be found.</p>
+            aws_sdk_s3tables.errors.too_many_requests_exception.TooManyRequestsException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_s3tables.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -606,6 +725,15 @@ class AsyncTableBucketResource:
 
         Args:
             table_bucket_arn: <p>The Amazon Resource Name (ARN) of the table bucket.</p>
+
+        Raises:
+            aws_sdk_s3tables.errors.bad_request_exception.BadRequestException: <p>The request is invalid or malformed.</p>
+            aws_sdk_s3tables.errors.conflict_exception.ConflictException: <p>The request failed because there is a conflict with a previous write. You can retry the request.</p>
+            aws_sdk_s3tables.errors.forbidden_exception.ForbiddenException: <p>The caller isn't authorized to make the request.</p>
+            aws_sdk_s3tables.errors.internal_server_error_exception.InternalServerErrorException: <p>The request failed due to an internal server error.</p>
+            aws_sdk_s3tables.errors.not_found_exception.NotFoundException: <p>The request was rejected because the specified resource could not be found.</p>
+            aws_sdk_s3tables.errors.too_many_requests_exception.TooManyRequestsException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_s3tables.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -642,6 +770,16 @@ class AsyncTableBucketResource:
 
         Args:
             table_bucket_arn: <p>The Amazon Resource Name (ARN) of the table bucket.</p>
+
+        Raises:
+            aws_sdk_s3tables.errors.access_denied_exception.AccessDeniedException: <p>The action cannot be performed because you do not have the required permission.</p>
+            aws_sdk_s3tables.errors.bad_request_exception.BadRequestException: <p>The request is invalid or malformed.</p>
+            aws_sdk_s3tables.errors.conflict_exception.ConflictException: <p>The request failed because there is a conflict with a previous write. You can retry the request.</p>
+            aws_sdk_s3tables.errors.forbidden_exception.ForbiddenException: <p>The caller isn't authorized to make the request.</p>
+            aws_sdk_s3tables.errors.internal_server_error_exception.InternalServerErrorException: <p>The request failed due to an internal server error.</p>
+            aws_sdk_s3tables.errors.not_found_exception.NotFoundException: <p>The request was rejected because the specified resource could not be found.</p>
+            aws_sdk_s3tables.errors.too_many_requests_exception.TooManyRequestsException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_s3tables.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -680,6 +818,15 @@ class AsyncTableBucketResource:
 
         Args:
             table_bucket_arn: <p>The Amazon Resource Name (ARN) of the table bucket associated with the maintenance configuration.</p>
+
+        Raises:
+            aws_sdk_s3tables.errors.bad_request_exception.BadRequestException: <p>The request is invalid or malformed.</p>
+            aws_sdk_s3tables.errors.conflict_exception.ConflictException: <p>The request failed because there is a conflict with a previous write. You can retry the request.</p>
+            aws_sdk_s3tables.errors.forbidden_exception.ForbiddenException: <p>The caller isn't authorized to make the request.</p>
+            aws_sdk_s3tables.errors.internal_server_error_exception.InternalServerErrorException: <p>The request failed due to an internal server error.</p>
+            aws_sdk_s3tables.errors.not_found_exception.NotFoundException: <p>The request was rejected because the specified resource could not be found.</p>
+            aws_sdk_s3tables.errors.too_many_requests_exception.TooManyRequestsException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_s3tables.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -718,6 +865,15 @@ class AsyncTableBucketResource:
 
         Args:
             table_bucket_arn: <p>The Amazon Resource Name (ARN) of the table bucket.</p>
+
+        Raises:
+            aws_sdk_s3tables.errors.bad_request_exception.BadRequestException: <p>The request is invalid or malformed.</p>
+            aws_sdk_s3tables.errors.conflict_exception.ConflictException: <p>The request failed because there is a conflict with a previous write. You can retry the request.</p>
+            aws_sdk_s3tables.errors.forbidden_exception.ForbiddenException: <p>The caller isn't authorized to make the request.</p>
+            aws_sdk_s3tables.errors.internal_server_error_exception.InternalServerErrorException: <p>The request failed due to an internal server error.</p>
+            aws_sdk_s3tables.errors.not_found_exception.NotFoundException: <p>The request was rejected because the specified resource could not be found.</p>
+            aws_sdk_s3tables.errors.too_many_requests_exception.TooManyRequestsException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_s3tables.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -756,6 +912,15 @@ class AsyncTableBucketResource:
 
         Args:
             table_bucket_arn: <p>The Amazon Resource Name (ARN) of the table bucket.</p>
+
+        Raises:
+            aws_sdk_s3tables.errors.access_denied_exception.AccessDeniedException: <p>The action cannot be performed because you do not have the required permission.</p>
+            aws_sdk_s3tables.errors.bad_request_exception.BadRequestException: <p>The request is invalid or malformed.</p>
+            aws_sdk_s3tables.errors.forbidden_exception.ForbiddenException: <p>The caller isn't authorized to make the request.</p>
+            aws_sdk_s3tables.errors.internal_server_error_exception.InternalServerErrorException: <p>The request failed due to an internal server error.</p>
+            aws_sdk_s3tables.errors.not_found_exception.NotFoundException: <p>The request was rejected because the specified resource could not be found.</p>
+            aws_sdk_s3tables.errors.too_many_requests_exception.TooManyRequestsException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_s3tables.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -806,6 +971,16 @@ class AsyncTableBucketResource:
             continuation_token: <p> <code>ContinuationToken</code> indicates to Amazon S3 that the list is being continued on this bucket with a token. <code>ContinuationToken</code> is obfuscated and is not a real key. You can use this <code>ContinuationToken</code> for pagination of the list results.</p>
             max_buckets: <p>The maximum number of table buckets to return in the list.</p>
             type: <p>The type of table buckets to filter by in the list.</p>
+
+        Raises:
+            aws_sdk_s3tables.errors.access_denied_exception.AccessDeniedException: <p>The action cannot be performed because you do not have the required permission.</p>
+            aws_sdk_s3tables.errors.bad_request_exception.BadRequestException: <p>The request is invalid or malformed.</p>
+            aws_sdk_s3tables.errors.conflict_exception.ConflictException: <p>The request failed because there is a conflict with a previous write. You can retry the request.</p>
+            aws_sdk_s3tables.errors.forbidden_exception.ForbiddenException: <p>The caller isn't authorized to make the request.</p>
+            aws_sdk_s3tables.errors.internal_server_error_exception.InternalServerErrorException: <p>The request failed due to an internal server error.</p>
+            aws_sdk_s3tables.errors.not_found_exception.NotFoundException: <p>The request was rejected because the specified resource could not be found.</p>
+            aws_sdk_s3tables.errors.too_many_requests_exception.TooManyRequestsException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_s3tables.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -855,6 +1030,15 @@ class AsyncTableBucketResource:
             table_bucket_arn: <p>The Amazon Resource Name (ARN) of the table bucket associated with the maintenance configuration.</p>
             type: <p>The type of the maintenance configuration.</p>
             value: <p>Defines the values of the maintenance configuration for the table bucket.</p>
+
+        Raises:
+            aws_sdk_s3tables.errors.bad_request_exception.BadRequestException: <p>The request is invalid or malformed.</p>
+            aws_sdk_s3tables.errors.conflict_exception.ConflictException: <p>The request failed because there is a conflict with a previous write. You can retry the request.</p>
+            aws_sdk_s3tables.errors.forbidden_exception.ForbiddenException: <p>The caller isn't authorized to make the request.</p>
+            aws_sdk_s3tables.errors.internal_server_error_exception.InternalServerErrorException: <p>The request failed due to an internal server error.</p>
+            aws_sdk_s3tables.errors.not_found_exception.NotFoundException: <p>The request was rejected because the specified resource could not be found.</p>
+            aws_sdk_s3tables.errors.too_many_requests_exception.TooManyRequestsException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_s3tables.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -893,6 +1077,15 @@ class AsyncTableBucketResource:
 
         Args:
             table_bucket_arn: <p>The Amazon Resource Name (ARN) of the table bucket.</p>
+
+        Raises:
+            aws_sdk_s3tables.errors.bad_request_exception.BadRequestException: <p>The request is invalid or malformed.</p>
+            aws_sdk_s3tables.errors.conflict_exception.ConflictException: <p>The request failed because there is a conflict with a previous write. You can retry the request.</p>
+            aws_sdk_s3tables.errors.forbidden_exception.ForbiddenException: <p>The caller isn't authorized to make the request.</p>
+            aws_sdk_s3tables.errors.internal_server_error_exception.InternalServerErrorException: <p>The request failed due to an internal server error.</p>
+            aws_sdk_s3tables.errors.not_found_exception.NotFoundException: <p>The request was rejected because the specified resource could not be found.</p>
+            aws_sdk_s3tables.errors.too_many_requests_exception.TooManyRequestsException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_s3tables.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -931,6 +1124,15 @@ class AsyncTableBucketResource:
         Args:
             table_bucket_arn: <p>The Amazon Resource Name (ARN) of the table bucket.</p>
             storage_class_configuration: <p>The storage class configuration to apply to the table bucket. This configuration will serve as the default for new tables created in this bucket.</p>
+
+        Raises:
+            aws_sdk_s3tables.errors.bad_request_exception.BadRequestException: <p>The request is invalid or malformed.</p>
+            aws_sdk_s3tables.errors.conflict_exception.ConflictException: <p>The request failed because there is a conflict with a previous write. You can retry the request.</p>
+            aws_sdk_s3tables.errors.forbidden_exception.ForbiddenException: <p>The caller isn't authorized to make the request.</p>
+            aws_sdk_s3tables.errors.internal_server_error_exception.InternalServerErrorException: <p>The request failed due to an internal server error.</p>
+            aws_sdk_s3tables.errors.not_found_exception.NotFoundException: <p>The request was rejected because the specified resource could not be found.</p>
+            aws_sdk_s3tables.errors.too_many_requests_exception.TooManyRequestsException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_s3tables.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

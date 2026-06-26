@@ -105,6 +105,15 @@ class CustomLineItem:
             account_id: <p>The Amazon Web Services account in which this custom line item will be applied to.</p>
             computation_rule: <p> Specifies how the custom line item charges are computed. </p>
             presentation_details: <p> Details controlling how the custom line item charges are presented in the bill. Contains specifications for which service the charges will be shown under. </p>
+
+        Raises:
+            aws_sdk_billingconductor.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action. </p>
+            aws_sdk_billingconductor.errors.conflict_exception.ConflictException: <p>You can cause an inconsistent state by updating or deleting a resource. </p>
+            aws_sdk_billingconductor.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request. </p>
+            aws_sdk_billingconductor.errors.service_limit_exceeded_exception.ServiceLimitExceededException: <p>The request would cause a service limit to exceed. </p>
+            aws_sdk_billingconductor.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. </p>
+            aws_sdk_billingconductor.errors.validation_exception.ValidationException: <p>The input doesn't match with the constraints specified by Amazon Web Services services.</p>
+            aws_sdk_billingconductor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -172,6 +181,15 @@ class CustomLineItem:
             name: <p> The new name for the custom line item. </p>
             description: <p> The new line item description of the custom line item. </p>
             charge_details: <p> A <code>ListCustomLineItemChargeDetails</code> containing the new charge details for the custom line item. </p>
+
+        Raises:
+            aws_sdk_billingconductor.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action. </p>
+            aws_sdk_billingconductor.errors.conflict_exception.ConflictException: <p>You can cause an inconsistent state by updating or deleting a resource. </p>
+            aws_sdk_billingconductor.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request. </p>
+            aws_sdk_billingconductor.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource that doesn't exist. </p>
+            aws_sdk_billingconductor.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. </p>
+            aws_sdk_billingconductor.errors.validation_exception.ValidationException: <p>The input doesn't match with the constraints specified by Amazon Web Services services.</p>
+            aws_sdk_billingconductor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -220,6 +238,14 @@ class CustomLineItem:
 
         Args:
             arn: <p> The ARN of the custom line item to be deleted. </p>
+
+        Raises:
+            aws_sdk_billingconductor.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action. </p>
+            aws_sdk_billingconductor.errors.conflict_exception.ConflictException: <p>You can cause an inconsistent state by updating or deleting a resource. </p>
+            aws_sdk_billingconductor.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request. </p>
+            aws_sdk_billingconductor.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. </p>
+            aws_sdk_billingconductor.errors.validation_exception.ValidationException: <p>The input doesn't match with the constraints specified by Amazon Web Services services.</p>
+            aws_sdk_billingconductor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -271,6 +297,14 @@ class CustomLineItem:
             max_results: <p> The maximum number of billing groups to retrieve. </p>
             next_token: <p> The pagination token that's used on subsequent calls to get custom line items (FFLIs). </p>
             filters: <p>A <code>ListCustomLineItemsFilter</code> that specifies the custom line item names and/or billing group Amazon Resource Names (ARNs) to retrieve FFLI information.</p>
+
+        Raises:
+            aws_sdk_billingconductor.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action. </p>
+            aws_sdk_billingconductor.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request. </p>
+            aws_sdk_billingconductor.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource that doesn't exist. </p>
+            aws_sdk_billingconductor.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. </p>
+            aws_sdk_billingconductor.errors.validation_exception.ValidationException: <p>The input doesn't match with the constraints specified by Amazon Web Services services.</p>
+            aws_sdk_billingconductor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -320,6 +354,16 @@ class CustomLineItem:
         Args:
             target_arn: <p> A percentage custom line item ARN to associate the resources to. </p>
             resource_arns: <p> A list containing the ARNs of the resources to be associated. </p>
+
+        Raises:
+            aws_sdk_billingconductor.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action. </p>
+            aws_sdk_billingconductor.errors.conflict_exception.ConflictException: <p>You can cause an inconsistent state by updating or deleting a resource. </p>
+            aws_sdk_billingconductor.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request. </p>
+            aws_sdk_billingconductor.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource that doesn't exist. </p>
+            aws_sdk_billingconductor.errors.service_limit_exceeded_exception.ServiceLimitExceededException: <p>The request would cause a service limit to exceed. </p>
+            aws_sdk_billingconductor.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. </p>
+            aws_sdk_billingconductor.errors.validation_exception.ValidationException: <p>The input doesn't match with the constraints specified by Amazon Web Services services.</p>
+            aws_sdk_billingconductor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -365,6 +409,15 @@ class CustomLineItem:
         Args:
             target_arn: <p> A percentage custom line item ARN to disassociate the resources from. </p>
             resource_arns: <p> A list containing the ARNs of resources to be disassociated. </p>
+
+        Raises:
+            aws_sdk_billingconductor.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action. </p>
+            aws_sdk_billingconductor.errors.conflict_exception.ConflictException: <p>You can cause an inconsistent state by updating or deleting a resource. </p>
+            aws_sdk_billingconductor.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request. </p>
+            aws_sdk_billingconductor.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource that doesn't exist. </p>
+            aws_sdk_billingconductor.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. </p>
+            aws_sdk_billingconductor.errors.validation_exception.ValidationException: <p>The input doesn't match with the constraints specified by Amazon Web Services services.</p>
+            aws_sdk_billingconductor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -415,6 +468,13 @@ class CustomLineItem:
             max_results: <p>The maximum number of custom line item versions to retrieve.</p>
             next_token: <p>The pagination token that's used on subsequent calls to retrieve custom line item versions.</p>
             filters: <p>A <code>ListCustomLineItemVersionsFilter</code> that specifies the billing period range in which the custom line item versions are applied.</p>
+
+        Raises:
+            aws_sdk_billingconductor.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action. </p>
+            aws_sdk_billingconductor.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request. </p>
+            aws_sdk_billingconductor.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. </p>
+            aws_sdk_billingconductor.errors.validation_exception.ValidationException: <p>The input doesn't match with the constraints specified by Amazon Web Services services.</p>
+            aws_sdk_billingconductor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -472,6 +532,14 @@ class CustomLineItem:
             max_results: <p> (Optional) The maximum number of resource associations to be retrieved. </p>
             next_token: <p> (Optional) The pagination token that's returned by a previous request. </p>
             filters: <p> (Optional) A <code>ListResourcesAssociatedToCustomLineItemFilter</code> that can specify the types of resources that should be retrieved. </p>
+
+        Raises:
+            aws_sdk_billingconductor.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action. </p>
+            aws_sdk_billingconductor.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request. </p>
+            aws_sdk_billingconductor.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource that doesn't exist. </p>
+            aws_sdk_billingconductor.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. </p>
+            aws_sdk_billingconductor.errors.validation_exception.ValidationException: <p>The input doesn't match with the constraints specified by Amazon Web Services services.</p>
+            aws_sdk_billingconductor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -550,6 +618,15 @@ class AsyncCustomLineItem:
             account_id: <p>The Amazon Web Services account in which this custom line item will be applied to.</p>
             computation_rule: <p> Specifies how the custom line item charges are computed. </p>
             presentation_details: <p> Details controlling how the custom line item charges are presented in the bill. Contains specifications for which service the charges will be shown under. </p>
+
+        Raises:
+            aws_sdk_billingconductor.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action. </p>
+            aws_sdk_billingconductor.errors.conflict_exception.ConflictException: <p>You can cause an inconsistent state by updating or deleting a resource. </p>
+            aws_sdk_billingconductor.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request. </p>
+            aws_sdk_billingconductor.errors.service_limit_exceeded_exception.ServiceLimitExceededException: <p>The request would cause a service limit to exceed. </p>
+            aws_sdk_billingconductor.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. </p>
+            aws_sdk_billingconductor.errors.validation_exception.ValidationException: <p>The input doesn't match with the constraints specified by Amazon Web Services services.</p>
+            aws_sdk_billingconductor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -618,6 +695,15 @@ class AsyncCustomLineItem:
             name: <p> The new name for the custom line item. </p>
             description: <p> The new line item description of the custom line item. </p>
             charge_details: <p> A <code>ListCustomLineItemChargeDetails</code> containing the new charge details for the custom line item. </p>
+
+        Raises:
+            aws_sdk_billingconductor.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action. </p>
+            aws_sdk_billingconductor.errors.conflict_exception.ConflictException: <p>You can cause an inconsistent state by updating or deleting a resource. </p>
+            aws_sdk_billingconductor.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request. </p>
+            aws_sdk_billingconductor.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource that doesn't exist. </p>
+            aws_sdk_billingconductor.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. </p>
+            aws_sdk_billingconductor.errors.validation_exception.ValidationException: <p>The input doesn't match with the constraints specified by Amazon Web Services services.</p>
+            aws_sdk_billingconductor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -667,6 +753,14 @@ class AsyncCustomLineItem:
 
         Args:
             arn: <p> The ARN of the custom line item to be deleted. </p>
+
+        Raises:
+            aws_sdk_billingconductor.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action. </p>
+            aws_sdk_billingconductor.errors.conflict_exception.ConflictException: <p>You can cause an inconsistent state by updating or deleting a resource. </p>
+            aws_sdk_billingconductor.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request. </p>
+            aws_sdk_billingconductor.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. </p>
+            aws_sdk_billingconductor.errors.validation_exception.ValidationException: <p>The input doesn't match with the constraints specified by Amazon Web Services services.</p>
+            aws_sdk_billingconductor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -719,6 +813,14 @@ class AsyncCustomLineItem:
             max_results: <p> The maximum number of billing groups to retrieve. </p>
             next_token: <p> The pagination token that's used on subsequent calls to get custom line items (FFLIs). </p>
             filters: <p>A <code>ListCustomLineItemsFilter</code> that specifies the custom line item names and/or billing group Amazon Resource Names (ARNs) to retrieve FFLI information.</p>
+
+        Raises:
+            aws_sdk_billingconductor.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action. </p>
+            aws_sdk_billingconductor.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request. </p>
+            aws_sdk_billingconductor.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource that doesn't exist. </p>
+            aws_sdk_billingconductor.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. </p>
+            aws_sdk_billingconductor.errors.validation_exception.ValidationException: <p>The input doesn't match with the constraints specified by Amazon Web Services services.</p>
+            aws_sdk_billingconductor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -769,6 +871,16 @@ class AsyncCustomLineItem:
         Args:
             target_arn: <p> A percentage custom line item ARN to associate the resources to. </p>
             resource_arns: <p> A list containing the ARNs of the resources to be associated. </p>
+
+        Raises:
+            aws_sdk_billingconductor.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action. </p>
+            aws_sdk_billingconductor.errors.conflict_exception.ConflictException: <p>You can cause an inconsistent state by updating or deleting a resource. </p>
+            aws_sdk_billingconductor.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request. </p>
+            aws_sdk_billingconductor.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource that doesn't exist. </p>
+            aws_sdk_billingconductor.errors.service_limit_exceeded_exception.ServiceLimitExceededException: <p>The request would cause a service limit to exceed. </p>
+            aws_sdk_billingconductor.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. </p>
+            aws_sdk_billingconductor.errors.validation_exception.ValidationException: <p>The input doesn't match with the constraints specified by Amazon Web Services services.</p>
+            aws_sdk_billingconductor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -815,6 +927,15 @@ class AsyncCustomLineItem:
         Args:
             target_arn: <p> A percentage custom line item ARN to disassociate the resources from. </p>
             resource_arns: <p> A list containing the ARNs of resources to be disassociated. </p>
+
+        Raises:
+            aws_sdk_billingconductor.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action. </p>
+            aws_sdk_billingconductor.errors.conflict_exception.ConflictException: <p>You can cause an inconsistent state by updating or deleting a resource. </p>
+            aws_sdk_billingconductor.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request. </p>
+            aws_sdk_billingconductor.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource that doesn't exist. </p>
+            aws_sdk_billingconductor.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. </p>
+            aws_sdk_billingconductor.errors.validation_exception.ValidationException: <p>The input doesn't match with the constraints specified by Amazon Web Services services.</p>
+            aws_sdk_billingconductor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -866,6 +987,13 @@ class AsyncCustomLineItem:
             max_results: <p>The maximum number of custom line item versions to retrieve.</p>
             next_token: <p>The pagination token that's used on subsequent calls to retrieve custom line item versions.</p>
             filters: <p>A <code>ListCustomLineItemVersionsFilter</code> that specifies the billing period range in which the custom line item versions are applied.</p>
+
+        Raises:
+            aws_sdk_billingconductor.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action. </p>
+            aws_sdk_billingconductor.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request. </p>
+            aws_sdk_billingconductor.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. </p>
+            aws_sdk_billingconductor.errors.validation_exception.ValidationException: <p>The input doesn't match with the constraints specified by Amazon Web Services services.</p>
+            aws_sdk_billingconductor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -924,6 +1052,14 @@ class AsyncCustomLineItem:
             max_results: <p> (Optional) The maximum number of resource associations to be retrieved. </p>
             next_token: <p> (Optional) The pagination token that's returned by a previous request. </p>
             filters: <p> (Optional) A <code>ListResourcesAssociatedToCustomLineItemFilter</code> that can specify the types of resources that should be retrieved. </p>
+
+        Raises:
+            aws_sdk_billingconductor.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action. </p>
+            aws_sdk_billingconductor.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request. </p>
+            aws_sdk_billingconductor.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource that doesn't exist. </p>
+            aws_sdk_billingconductor.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. </p>
+            aws_sdk_billingconductor.errors.validation_exception.ValidationException: <p>The input doesn't match with the constraints specified by Amazon Web Services services.</p>
+            aws_sdk_billingconductor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

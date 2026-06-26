@@ -280,6 +280,15 @@ class AsyncLookoutEquipmentClient:
             server_side_kms_key_id: <p>Provides the identifier of the KMS key used to encrypt dataset data by Amazon Lookout for Equipment. </p>
             client_token: <p> A unique identifier for the request. If you do not set the client request token, Amazon Lookout for Equipment generates one. </p>
             tags: <p>Any tags associated with the ingested data described in the dataset. </p>
+
+        Raises:
+            aws_sdk_lookoutequipment.errors.access_denied_exception.AccessDeniedException: <p>The request could not be completed because you do not have access to the resource. </p>
+            aws_sdk_lookoutequipment.errors.conflict_exception.ConflictException: <p> The request could not be completed due to a conflict with the current state of the target resource. </p>
+            aws_sdk_lookoutequipment.errors.internal_server_exception.InternalServerException: <p> Processing of the request has failed because of an unknown error, exception or failure. </p>
+            aws_sdk_lookoutequipment.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p> Resource limitations have been exceeded. </p>
+            aws_sdk_lookoutequipment.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_lookoutequipment.errors.validation_exception.ValidationException: <p> The input fails to satisfy constraints specified by Amazon Lookout for Equipment or a related Amazon Web Services service that's being utilized. </p>
+            aws_sdk_lookoutequipment.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -347,6 +356,16 @@ class AsyncLookoutEquipmentClient:
             server_side_kms_key_id: <p>Provides the identifier of the KMS key used to encrypt inference scheduler data by Amazon Lookout for Equipment. </p>
             client_token: <p> A unique identifier for the request. If you do not set the client request token, Amazon Lookout for Equipment generates one. </p>
             tags: <p>Any tags associated with the inference scheduler. </p>
+
+        Raises:
+            aws_sdk_lookoutequipment.errors.access_denied_exception.AccessDeniedException: <p>The request could not be completed because you do not have access to the resource. </p>
+            aws_sdk_lookoutequipment.errors.conflict_exception.ConflictException: <p> The request could not be completed due to a conflict with the current state of the target resource. </p>
+            aws_sdk_lookoutequipment.errors.internal_server_exception.InternalServerException: <p> Processing of the request has failed because of an unknown error, exception or failure. </p>
+            aws_sdk_lookoutequipment.errors.resource_not_found_exception.ResourceNotFoundException: <p> The resource requested could not be found. Verify the resource ID and retry your request. </p>
+            aws_sdk_lookoutequipment.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p> Resource limitations have been exceeded. </p>
+            aws_sdk_lookoutequipment.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_lookoutequipment.errors.validation_exception.ValidationException: <p> The input fails to satisfy constraints specified by Amazon Lookout for Equipment or a related Amazon Web Services service that's being utilized. </p>
+            aws_sdk_lookoutequipment.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -415,6 +434,16 @@ class AsyncLookoutEquipmentClient:
             notes: <p> Metadata providing additional information about the label. </p> <p>Data in this field will be retained for service usage. Follow best practices for the security of your data.</p>
             equipment: <p> Indicates that a label pertains to a particular piece of equipment. </p> <p>Data in this field will be retained for service usage. Follow best practices for the security of your data.</p>
             client_token: <p> A unique identifier for the request to create a label. If you do not set the client request token, Lookout for Equipment generates one. </p>
+
+        Raises:
+            aws_sdk_lookoutequipment.errors.access_denied_exception.AccessDeniedException: <p>The request could not be completed because you do not have access to the resource. </p>
+            aws_sdk_lookoutequipment.errors.conflict_exception.ConflictException: <p> The request could not be completed due to a conflict with the current state of the target resource. </p>
+            aws_sdk_lookoutequipment.errors.internal_server_exception.InternalServerException: <p> Processing of the request has failed because of an unknown error, exception or failure. </p>
+            aws_sdk_lookoutequipment.errors.resource_not_found_exception.ResourceNotFoundException: <p> The resource requested could not be found. Verify the resource ID and retry your request. </p>
+            aws_sdk_lookoutequipment.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p> Resource limitations have been exceeded. </p>
+            aws_sdk_lookoutequipment.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_lookoutequipment.errors.validation_exception.ValidationException: <p> The input fails to satisfy constraints specified by Amazon Lookout for Equipment or a related Amazon Web Services service that's being utilized. </p>
+            aws_sdk_lookoutequipment.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -471,6 +500,15 @@ class AsyncLookoutEquipmentClient:
             fault_codes: <p> The acceptable fault codes (indicating the type of anomaly associated with the label) that can be used with this label group.</p> <p>Data in this field will be retained for service usage. Follow best practices for the security of your data.</p>
             client_token: <p> A unique identifier for the request to create a label group. If you do not set the client request token, Lookout for Equipment generates one. </p>
             tags: <p> Tags that provide metadata about the label group you are creating. </p> <p>Data in this field will be retained for service usage. Follow best practices for the security of your data.</p>
+
+        Raises:
+            aws_sdk_lookoutequipment.errors.access_denied_exception.AccessDeniedException: <p>The request could not be completed because you do not have access to the resource. </p>
+            aws_sdk_lookoutequipment.errors.conflict_exception.ConflictException: <p> The request could not be completed due to a conflict with the current state of the target resource. </p>
+            aws_sdk_lookoutequipment.errors.internal_server_exception.InternalServerException: <p> Processing of the request has failed because of an unknown error, exception or failure. </p>
+            aws_sdk_lookoutequipment.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p> Resource limitations have been exceeded. </p>
+            aws_sdk_lookoutequipment.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_lookoutequipment.errors.validation_exception.ValidationException: <p> The input fails to satisfy constraints specified by Amazon Lookout for Equipment or a related Amazon Web Services service that's being utilized. </p>
+            aws_sdk_lookoutequipment.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -564,6 +602,16 @@ class AsyncLookoutEquipmentClient:
             tags: <p> Any tags associated with the machine learning model being created. </p>
             off_condition: <p>Indicates that the asset associated with this sensor has been shut off. As long as this condition is met, Lookout for Equipment will not use data from this asset for training, evaluation, or inference.</p>
             model_diagnostics_output_configuration: <p>The Amazon S3 location where you want Amazon Lookout for Equipment to save the pointwise model diagnostics. You must also specify the <code>RoleArn</code> request parameter.</p>
+
+        Raises:
+            aws_sdk_lookoutequipment.errors.access_denied_exception.AccessDeniedException: <p>The request could not be completed because you do not have access to the resource. </p>
+            aws_sdk_lookoutequipment.errors.conflict_exception.ConflictException: <p> The request could not be completed due to a conflict with the current state of the target resource. </p>
+            aws_sdk_lookoutequipment.errors.internal_server_exception.InternalServerException: <p> Processing of the request has failed because of an unknown error, exception or failure. </p>
+            aws_sdk_lookoutequipment.errors.resource_not_found_exception.ResourceNotFoundException: <p> The resource requested could not be found. Verify the resource ID and retry your request. </p>
+            aws_sdk_lookoutequipment.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p> Resource limitations have been exceeded. </p>
+            aws_sdk_lookoutequipment.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_lookoutequipment.errors.validation_exception.ValidationException: <p> The input fails to satisfy constraints specified by Amazon Lookout for Equipment or a related Amazon Web Services service that's being utilized. </p>
+            aws_sdk_lookoutequipment.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -647,6 +695,15 @@ class AsyncLookoutEquipmentClient:
             promote_mode: <p>Indicates how the service will use new models. In <code>MANAGED</code> mode, new models will automatically be used for inference if they have better performance than the current model. In <code>MANUAL</code> mode, the new models will not be used <a href=\"https://docs.aws.amazon.com/lookout-for-equipment/latest/ug/versioning-model.html#model-activation\">until they are manually activated</a>.</p>
             client_token: <p>A unique identifier for the request. If you do not set the client request token, Amazon Lookout for Equipment generates one. </p>
 
+        Raises:
+            aws_sdk_lookoutequipment.errors.access_denied_exception.AccessDeniedException: <p>The request could not be completed because you do not have access to the resource. </p>
+            aws_sdk_lookoutequipment.errors.conflict_exception.ConflictException: <p> The request could not be completed due to a conflict with the current state of the target resource. </p>
+            aws_sdk_lookoutequipment.errors.internal_server_exception.InternalServerException: <p> Processing of the request has failed because of an unknown error, exception or failure. </p>
+            aws_sdk_lookoutequipment.errors.resource_not_found_exception.ResourceNotFoundException: <p> The resource requested could not be found. Verify the resource ID and retry your request. </p>
+            aws_sdk_lookoutequipment.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_lookoutequipment.errors.validation_exception.ValidationException: <p> The input fails to satisfy constraints specified by Amazon Lookout for Equipment or a related Amazon Web Services service that's being utilized. </p>
+            aws_sdk_lookoutequipment.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Creates a retraining scheduler with a specific start date
 
@@ -699,6 +756,15 @@ class AsyncLookoutEquipmentClient:
 
         Args:
             dataset_name: <p>The name of the dataset to be deleted. </p>
+
+        Raises:
+            aws_sdk_lookoutequipment.errors.access_denied_exception.AccessDeniedException: <p>The request could not be completed because you do not have access to the resource. </p>
+            aws_sdk_lookoutequipment.errors.conflict_exception.ConflictException: <p> The request could not be completed due to a conflict with the current state of the target resource. </p>
+            aws_sdk_lookoutequipment.errors.internal_server_exception.InternalServerException: <p> Processing of the request has failed because of an unknown error, exception or failure. </p>
+            aws_sdk_lookoutequipment.errors.resource_not_found_exception.ResourceNotFoundException: <p> The resource requested could not be found. Verify the resource ID and retry your request. </p>
+            aws_sdk_lookoutequipment.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_lookoutequipment.errors.validation_exception.ValidationException: <p> The input fails to satisfy constraints specified by Amazon Lookout for Equipment or a related Amazon Web Services service that's being utilized. </p>
+            aws_sdk_lookoutequipment.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -735,6 +801,15 @@ class AsyncLookoutEquipmentClient:
 
         Args:
             inference_scheduler_name: <p>The name of the inference scheduler to be deleted. </p>
+
+        Raises:
+            aws_sdk_lookoutequipment.errors.access_denied_exception.AccessDeniedException: <p>The request could not be completed because you do not have access to the resource. </p>
+            aws_sdk_lookoutequipment.errors.conflict_exception.ConflictException: <p> The request could not be completed due to a conflict with the current state of the target resource. </p>
+            aws_sdk_lookoutequipment.errors.internal_server_exception.InternalServerException: <p> Processing of the request has failed because of an unknown error, exception or failure. </p>
+            aws_sdk_lookoutequipment.errors.resource_not_found_exception.ResourceNotFoundException: <p> The resource requested could not be found. Verify the resource ID and retry your request. </p>
+            aws_sdk_lookoutequipment.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_lookoutequipment.errors.validation_exception.ValidationException: <p> The input fails to satisfy constraints specified by Amazon Lookout for Equipment or a related Amazon Web Services service that's being utilized. </p>
+            aws_sdk_lookoutequipment.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -773,6 +848,15 @@ class AsyncLookoutEquipmentClient:
         Args:
             label_group_name: <p> The name of the label group that contains the label that you want to delete. Data in this field will be retained for service usage. Follow best practices for the security of your data. </p>
             label_id: <p> The ID of the label that you want to delete. </p>
+
+        Raises:
+            aws_sdk_lookoutequipment.errors.access_denied_exception.AccessDeniedException: <p>The request could not be completed because you do not have access to the resource. </p>
+            aws_sdk_lookoutequipment.errors.conflict_exception.ConflictException: <p> The request could not be completed due to a conflict with the current state of the target resource. </p>
+            aws_sdk_lookoutequipment.errors.internal_server_exception.InternalServerException: <p> Processing of the request has failed because of an unknown error, exception or failure. </p>
+            aws_sdk_lookoutequipment.errors.resource_not_found_exception.ResourceNotFoundException: <p> The resource requested could not be found. Verify the resource ID and retry your request. </p>
+            aws_sdk_lookoutequipment.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_lookoutequipment.errors.validation_exception.ValidationException: <p> The input fails to satisfy constraints specified by Amazon Lookout for Equipment or a related Amazon Web Services service that's being utilized. </p>
+            aws_sdk_lookoutequipment.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -810,6 +894,15 @@ class AsyncLookoutEquipmentClient:
 
         Args:
             label_group_name: <p> The name of the label group that you want to delete. Data in this field will be retained for service usage. Follow best practices for the security of your data. </p>
+
+        Raises:
+            aws_sdk_lookoutequipment.errors.access_denied_exception.AccessDeniedException: <p>The request could not be completed because you do not have access to the resource. </p>
+            aws_sdk_lookoutequipment.errors.conflict_exception.ConflictException: <p> The request could not be completed due to a conflict with the current state of the target resource. </p>
+            aws_sdk_lookoutequipment.errors.internal_server_exception.InternalServerException: <p> Processing of the request has failed because of an unknown error, exception or failure. </p>
+            aws_sdk_lookoutequipment.errors.resource_not_found_exception.ResourceNotFoundException: <p> The resource requested could not be found. Verify the resource ID and retry your request. </p>
+            aws_sdk_lookoutequipment.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_lookoutequipment.errors.validation_exception.ValidationException: <p> The input fails to satisfy constraints specified by Amazon Lookout for Equipment or a related Amazon Web Services service that's being utilized. </p>
+            aws_sdk_lookoutequipment.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -846,6 +939,15 @@ class AsyncLookoutEquipmentClient:
 
         Args:
             model_name: <p>The name of the machine learning model to be deleted. </p>
+
+        Raises:
+            aws_sdk_lookoutequipment.errors.access_denied_exception.AccessDeniedException: <p>The request could not be completed because you do not have access to the resource. </p>
+            aws_sdk_lookoutequipment.errors.conflict_exception.ConflictException: <p> The request could not be completed due to a conflict with the current state of the target resource. </p>
+            aws_sdk_lookoutequipment.errors.internal_server_exception.InternalServerException: <p> Processing of the request has failed because of an unknown error, exception or failure. </p>
+            aws_sdk_lookoutequipment.errors.resource_not_found_exception.ResourceNotFoundException: <p> The resource requested could not be found. Verify the resource ID and retry your request. </p>
+            aws_sdk_lookoutequipment.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_lookoutequipment.errors.validation_exception.ValidationException: <p> The input fails to satisfy constraints specified by Amazon Lookout for Equipment or a related Amazon Web Services service that's being utilized. </p>
+            aws_sdk_lookoutequipment.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -882,6 +984,15 @@ class AsyncLookoutEquipmentClient:
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource for which the resource policy should be deleted.</p>
+
+        Raises:
+            aws_sdk_lookoutequipment.errors.access_denied_exception.AccessDeniedException: <p>The request could not be completed because you do not have access to the resource. </p>
+            aws_sdk_lookoutequipment.errors.conflict_exception.ConflictException: <p> The request could not be completed due to a conflict with the current state of the target resource. </p>
+            aws_sdk_lookoutequipment.errors.internal_server_exception.InternalServerException: <p> Processing of the request has failed because of an unknown error, exception or failure. </p>
+            aws_sdk_lookoutequipment.errors.resource_not_found_exception.ResourceNotFoundException: <p> The resource requested could not be found. Verify the resource ID and retry your request. </p>
+            aws_sdk_lookoutequipment.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_lookoutequipment.errors.validation_exception.ValidationException: <p> The input fails to satisfy constraints specified by Amazon Lookout for Equipment or a related Amazon Web Services service that's being utilized. </p>
+            aws_sdk_lookoutequipment.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -918,6 +1029,15 @@ class AsyncLookoutEquipmentClient:
 
         Args:
             model_name: <p>The name of the model whose retraining scheduler you want to delete. </p>
+
+        Raises:
+            aws_sdk_lookoutequipment.errors.access_denied_exception.AccessDeniedException: <p>The request could not be completed because you do not have access to the resource. </p>
+            aws_sdk_lookoutequipment.errors.conflict_exception.ConflictException: <p> The request could not be completed due to a conflict with the current state of the target resource. </p>
+            aws_sdk_lookoutequipment.errors.internal_server_exception.InternalServerException: <p> Processing of the request has failed because of an unknown error, exception or failure. </p>
+            aws_sdk_lookoutequipment.errors.resource_not_found_exception.ResourceNotFoundException: <p> The resource requested could not be found. Verify the resource ID and retry your request. </p>
+            aws_sdk_lookoutequipment.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_lookoutequipment.errors.validation_exception.ValidationException: <p> The input fails to satisfy constraints specified by Amazon Lookout for Equipment or a related Amazon Web Services service that's being utilized. </p>
+            aws_sdk_lookoutequipment.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Deletes a retraining scheduler
@@ -959,6 +1079,14 @@ class AsyncLookoutEquipmentClient:
 
         Args:
             job_id: <p>The job ID of the data ingestion job. </p>
+
+        Raises:
+            aws_sdk_lookoutequipment.errors.access_denied_exception.AccessDeniedException: <p>The request could not be completed because you do not have access to the resource. </p>
+            aws_sdk_lookoutequipment.errors.internal_server_exception.InternalServerException: <p> Processing of the request has failed because of an unknown error, exception or failure. </p>
+            aws_sdk_lookoutequipment.errors.resource_not_found_exception.ResourceNotFoundException: <p> The resource requested could not be found. Verify the resource ID and retry your request. </p>
+            aws_sdk_lookoutequipment.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_lookoutequipment.errors.validation_exception.ValidationException: <p> The input fails to satisfy constraints specified by Amazon Lookout for Equipment or a related Amazon Web Services service that's being utilized. </p>
+            aws_sdk_lookoutequipment.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -997,6 +1125,14 @@ class AsyncLookoutEquipmentClient:
 
         Args:
             dataset_name: <p>The name of the dataset to be described. </p>
+
+        Raises:
+            aws_sdk_lookoutequipment.errors.access_denied_exception.AccessDeniedException: <p>The request could not be completed because you do not have access to the resource. </p>
+            aws_sdk_lookoutequipment.errors.internal_server_exception.InternalServerException: <p> Processing of the request has failed because of an unknown error, exception or failure. </p>
+            aws_sdk_lookoutequipment.errors.resource_not_found_exception.ResourceNotFoundException: <p> The resource requested could not be found. Verify the resource ID and retry your request. </p>
+            aws_sdk_lookoutequipment.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_lookoutequipment.errors.validation_exception.ValidationException: <p> The input fails to satisfy constraints specified by Amazon Lookout for Equipment or a related Amazon Web Services service that's being utilized. </p>
+            aws_sdk_lookoutequipment.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1035,6 +1171,14 @@ class AsyncLookoutEquipmentClient:
 
         Args:
             inference_scheduler_name: <p>The name of the inference scheduler being described. </p>
+
+        Raises:
+            aws_sdk_lookoutequipment.errors.access_denied_exception.AccessDeniedException: <p>The request could not be completed because you do not have access to the resource. </p>
+            aws_sdk_lookoutequipment.errors.internal_server_exception.InternalServerException: <p> Processing of the request has failed because of an unknown error, exception or failure. </p>
+            aws_sdk_lookoutequipment.errors.resource_not_found_exception.ResourceNotFoundException: <p> The resource requested could not be found. Verify the resource ID and retry your request. </p>
+            aws_sdk_lookoutequipment.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_lookoutequipment.errors.validation_exception.ValidationException: <p> The input fails to satisfy constraints specified by Amazon Lookout for Equipment or a related Amazon Web Services service that's being utilized. </p>
+            aws_sdk_lookoutequipment.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1075,6 +1219,14 @@ class AsyncLookoutEquipmentClient:
         Args:
             label_group_name: <p> Returns the name of the group containing the label. </p>
             label_id: <p> Returns the ID of the label. </p>
+
+        Raises:
+            aws_sdk_lookoutequipment.errors.access_denied_exception.AccessDeniedException: <p>The request could not be completed because you do not have access to the resource. </p>
+            aws_sdk_lookoutequipment.errors.internal_server_exception.InternalServerException: <p> Processing of the request has failed because of an unknown error, exception or failure. </p>
+            aws_sdk_lookoutequipment.errors.resource_not_found_exception.ResourceNotFoundException: <p> The resource requested could not be found. Verify the resource ID and retry your request. </p>
+            aws_sdk_lookoutequipment.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_lookoutequipment.errors.validation_exception.ValidationException: <p> The input fails to satisfy constraints specified by Amazon Lookout for Equipment or a related Amazon Web Services service that's being utilized. </p>
+            aws_sdk_lookoutequipment.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1114,6 +1266,14 @@ class AsyncLookoutEquipmentClient:
 
         Args:
             label_group_name: <p> Returns the name of the label group. </p>
+
+        Raises:
+            aws_sdk_lookoutequipment.errors.access_denied_exception.AccessDeniedException: <p>The request could not be completed because you do not have access to the resource. </p>
+            aws_sdk_lookoutequipment.errors.internal_server_exception.InternalServerException: <p> Processing of the request has failed because of an unknown error, exception or failure. </p>
+            aws_sdk_lookoutequipment.errors.resource_not_found_exception.ResourceNotFoundException: <p> The resource requested could not be found. Verify the resource ID and retry your request. </p>
+            aws_sdk_lookoutequipment.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_lookoutequipment.errors.validation_exception.ValidationException: <p> The input fails to satisfy constraints specified by Amazon Lookout for Equipment or a related Amazon Web Services service that's being utilized. </p>
+            aws_sdk_lookoutequipment.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1152,6 +1312,14 @@ class AsyncLookoutEquipmentClient:
 
         Args:
             model_name: <p>The name of the machine learning model to be described. </p>
+
+        Raises:
+            aws_sdk_lookoutequipment.errors.access_denied_exception.AccessDeniedException: <p>The request could not be completed because you do not have access to the resource. </p>
+            aws_sdk_lookoutequipment.errors.internal_server_exception.InternalServerException: <p> Processing of the request has failed because of an unknown error, exception or failure. </p>
+            aws_sdk_lookoutequipment.errors.resource_not_found_exception.ResourceNotFoundException: <p> The resource requested could not be found. Verify the resource ID and retry your request. </p>
+            aws_sdk_lookoutequipment.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_lookoutequipment.errors.validation_exception.ValidationException: <p> The input fails to satisfy constraints specified by Amazon Lookout for Equipment or a related Amazon Web Services service that's being utilized. </p>
+            aws_sdk_lookoutequipment.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1192,6 +1360,14 @@ class AsyncLookoutEquipmentClient:
         Args:
             model_name: <p>The name of the machine learning model that this version belongs to.</p>
             model_version: <p>The version of the machine learning model.</p>
+
+        Raises:
+            aws_sdk_lookoutequipment.errors.access_denied_exception.AccessDeniedException: <p>The request could not be completed because you do not have access to the resource. </p>
+            aws_sdk_lookoutequipment.errors.internal_server_exception.InternalServerException: <p> Processing of the request has failed because of an unknown error, exception or failure. </p>
+            aws_sdk_lookoutequipment.errors.resource_not_found_exception.ResourceNotFoundException: <p> The resource requested could not be found. Verify the resource ID and retry your request. </p>
+            aws_sdk_lookoutequipment.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_lookoutequipment.errors.validation_exception.ValidationException: <p> The input fails to satisfy constraints specified by Amazon Lookout for Equipment or a related Amazon Web Services service that's being utilized. </p>
+            aws_sdk_lookoutequipment.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1231,6 +1407,14 @@ class AsyncLookoutEquipmentClient:
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource that is associated with the resource policy.</p>
+
+        Raises:
+            aws_sdk_lookoutequipment.errors.access_denied_exception.AccessDeniedException: <p>The request could not be completed because you do not have access to the resource. </p>
+            aws_sdk_lookoutequipment.errors.internal_server_exception.InternalServerException: <p> Processing of the request has failed because of an unknown error, exception or failure. </p>
+            aws_sdk_lookoutequipment.errors.resource_not_found_exception.ResourceNotFoundException: <p> The resource requested could not be found. Verify the resource ID and retry your request. </p>
+            aws_sdk_lookoutequipment.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_lookoutequipment.errors.validation_exception.ValidationException: <p> The input fails to satisfy constraints specified by Amazon Lookout for Equipment or a related Amazon Web Services service that's being utilized. </p>
+            aws_sdk_lookoutequipment.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1269,6 +1453,14 @@ class AsyncLookoutEquipmentClient:
 
         Args:
             model_name: <p>The name of the model that the retraining scheduler is attached to. </p>
+
+        Raises:
+            aws_sdk_lookoutequipment.errors.access_denied_exception.AccessDeniedException: <p>The request could not be completed because you do not have access to the resource. </p>
+            aws_sdk_lookoutequipment.errors.internal_server_exception.InternalServerException: <p> Processing of the request has failed because of an unknown error, exception or failure. </p>
+            aws_sdk_lookoutequipment.errors.resource_not_found_exception.ResourceNotFoundException: <p> The resource requested could not be found. Verify the resource ID and retry your request. </p>
+            aws_sdk_lookoutequipment.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_lookoutequipment.errors.validation_exception.ValidationException: <p> The input fails to satisfy constraints specified by Amazon Lookout for Equipment or a related Amazon Web Services service that's being utilized. </p>
+            aws_sdk_lookoutequipment.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Describes a retraining scheduler
@@ -1324,6 +1516,16 @@ class AsyncLookoutEquipmentClient:
             client_token: <p>A unique identifier for the request. If you do not set the client request token, Amazon Lookout for Equipment generates one. </p>
             server_side_kms_key_id: <p>Provides the identifier of the KMS key key used to encrypt model data by Amazon Lookout for Equipment. </p>
             tags: <p>Any tags associated with the dataset to be created.</p>
+
+        Raises:
+            aws_sdk_lookoutequipment.errors.access_denied_exception.AccessDeniedException: <p>The request could not be completed because you do not have access to the resource. </p>
+            aws_sdk_lookoutequipment.errors.conflict_exception.ConflictException: <p> The request could not be completed due to a conflict with the current state of the target resource. </p>
+            aws_sdk_lookoutequipment.errors.internal_server_exception.InternalServerException: <p> Processing of the request has failed because of an unknown error, exception or failure. </p>
+            aws_sdk_lookoutequipment.errors.resource_not_found_exception.ResourceNotFoundException: <p> The resource requested could not be found. Verify the resource ID and retry your request. </p>
+            aws_sdk_lookoutequipment.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p> Resource limitations have been exceeded. </p>
+            aws_sdk_lookoutequipment.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_lookoutequipment.errors.validation_exception.ValidationException: <p> The input fails to satisfy constraints specified by Amazon Lookout for Equipment or a related Amazon Web Services service that's being utilized. </p>
+            aws_sdk_lookoutequipment.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1394,6 +1596,16 @@ class AsyncLookoutEquipmentClient:
             server_side_kms_key_id: <p>Provides the identifier of the KMS key key used to encrypt model data by Amazon Lookout for Equipment. </p>
             tags: <p>The tags associated with the machine learning model to be created. </p>
             inference_data_import_strategy: <p>Indicates how to import the accumulated inference data when a model version is imported. The possible values are as follows:</p> <ul> <li> <p>NO_IMPORT – Don't import the data.</p> </li> <li> <p>ADD_WHEN_EMPTY – Only import the data from the source model if there is no existing data in the target model.</p> </li> <li> <p>OVERWRITE – Import the data from the source model and overwrite the existing data in the target model.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_lookoutequipment.errors.access_denied_exception.AccessDeniedException: <p>The request could not be completed because you do not have access to the resource. </p>
+            aws_sdk_lookoutequipment.errors.conflict_exception.ConflictException: <p> The request could not be completed due to a conflict with the current state of the target resource. </p>
+            aws_sdk_lookoutequipment.errors.internal_server_exception.InternalServerException: <p> Processing of the request has failed because of an unknown error, exception or failure. </p>
+            aws_sdk_lookoutequipment.errors.resource_not_found_exception.ResourceNotFoundException: <p> The resource requested could not be found. Verify the resource ID and retry your request. </p>
+            aws_sdk_lookoutequipment.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p> Resource limitations have been exceeded. </p>
+            aws_sdk_lookoutequipment.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_lookoutequipment.errors.validation_exception.ValidationException: <p> The input fails to satisfy constraints specified by Amazon Lookout for Equipment or a related Amazon Web Services service that's being utilized. </p>
+            aws_sdk_lookoutequipment.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1460,6 +1672,13 @@ class AsyncLookoutEquipmentClient:
             next_token: <p>An opaque pagination token indicating where to continue the listing of data ingestion jobs. </p>
             max_results: <p> Specifies the maximum number of data ingestion jobs to list. </p>
             status: <p>Indicates the status of the data ingestion job. </p>
+
+        Raises:
+            aws_sdk_lookoutequipment.errors.access_denied_exception.AccessDeniedException: <p>The request could not be completed because you do not have access to the resource. </p>
+            aws_sdk_lookoutequipment.errors.internal_server_exception.InternalServerException: <p> Processing of the request has failed because of an unknown error, exception or failure. </p>
+            aws_sdk_lookoutequipment.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_lookoutequipment.errors.validation_exception.ValidationException: <p> The input fails to satisfy constraints specified by Amazon Lookout for Equipment or a related Amazon Web Services service that's being utilized. </p>
+            aws_sdk_lookoutequipment.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1515,6 +1734,13 @@ class AsyncLookoutEquipmentClient:
             next_token: <p> An opaque pagination token indicating where to continue the listing of datasets. </p>
             max_results: <p> Specifies the maximum number of datasets to list. </p>
             dataset_name_begins_with: <p>The beginning of the name of the datasets to be listed. </p>
+
+        Raises:
+            aws_sdk_lookoutequipment.errors.access_denied_exception.AccessDeniedException: <p>The request could not be completed because you do not have access to the resource. </p>
+            aws_sdk_lookoutequipment.errors.internal_server_exception.InternalServerException: <p> Processing of the request has failed because of an unknown error, exception or failure. </p>
+            aws_sdk_lookoutequipment.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_lookoutequipment.errors.validation_exception.ValidationException: <p> The input fails to satisfy constraints specified by Amazon Lookout for Equipment or a related Amazon Web Services service that's being utilized. </p>
+            aws_sdk_lookoutequipment.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1570,6 +1796,14 @@ class AsyncLookoutEquipmentClient:
             inference_scheduler_name: <p>The name of the inference scheduler for the inference events listed. </p>
             interval_start_time: <p> Lookout for Equipment will return all the inference events with an end time equal to or greater than the start time given.</p>
             interval_end_time: <p>Returns all the inference events with an end start time equal to or greater than less than the end time given.</p>
+
+        Raises:
+            aws_sdk_lookoutequipment.errors.access_denied_exception.AccessDeniedException: <p>The request could not be completed because you do not have access to the resource. </p>
+            aws_sdk_lookoutequipment.errors.internal_server_exception.InternalServerException: <p> Processing of the request has failed because of an unknown error, exception or failure. </p>
+            aws_sdk_lookoutequipment.errors.resource_not_found_exception.ResourceNotFoundException: <p> The resource requested could not be found. Verify the resource ID and retry your request. </p>
+            aws_sdk_lookoutequipment.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_lookoutequipment.errors.validation_exception.ValidationException: <p> The input fails to satisfy constraints specified by Amazon Lookout for Equipment or a related Amazon Web Services service that's being utilized. </p>
+            aws_sdk_lookoutequipment.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1634,6 +1868,14 @@ class AsyncLookoutEquipmentClient:
             data_start_time_after: <p>The time reference in the inferenced dataset after which Amazon Lookout for Equipment started the inference execution. </p>
             data_end_time_before: <p>The time reference in the inferenced dataset before which Amazon Lookout for Equipment stopped the inference execution. </p>
             status: <p>The status of the inference execution. </p>
+
+        Raises:
+            aws_sdk_lookoutequipment.errors.access_denied_exception.AccessDeniedException: <p>The request could not be completed because you do not have access to the resource. </p>
+            aws_sdk_lookoutequipment.errors.internal_server_exception.InternalServerException: <p> Processing of the request has failed because of an unknown error, exception or failure. </p>
+            aws_sdk_lookoutequipment.errors.resource_not_found_exception.ResourceNotFoundException: <p> The resource requested could not be found. Verify the resource ID and retry your request. </p>
+            aws_sdk_lookoutequipment.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_lookoutequipment.errors.validation_exception.ValidationException: <p> The input fails to satisfy constraints specified by Amazon Lookout for Equipment or a related Amazon Web Services service that's being utilized. </p>
+            aws_sdk_lookoutequipment.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1700,6 +1942,13 @@ class AsyncLookoutEquipmentClient:
             inference_scheduler_name_begins_with: <p>The beginning of the name of the inference schedulers to be listed. </p>
             model_name: <p>The name of the machine learning model used by the inference scheduler to be listed. </p>
             status: <p>Specifies the current status of the inference schedulers.</p>
+
+        Raises:
+            aws_sdk_lookoutequipment.errors.access_denied_exception.AccessDeniedException: <p>The request could not be completed because you do not have access to the resource. </p>
+            aws_sdk_lookoutequipment.errors.internal_server_exception.InternalServerException: <p> Processing of the request has failed because of an unknown error, exception or failure. </p>
+            aws_sdk_lookoutequipment.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_lookoutequipment.errors.validation_exception.ValidationException: <p> The input fails to satisfy constraints specified by Amazon Lookout for Equipment or a related Amazon Web Services service that's being utilized. </p>
+            aws_sdk_lookoutequipment.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1759,6 +2008,13 @@ class AsyncLookoutEquipmentClient:
             label_group_name_begins_with: <p> The beginning of the name of the label groups to be listed. </p>
             next_token: <p> An opaque pagination token indicating where to continue the listing of label groups. </p>
             max_results: <p> Specifies the maximum number of label groups to list. </p>
+
+        Raises:
+            aws_sdk_lookoutequipment.errors.access_denied_exception.AccessDeniedException: <p>The request could not be completed because you do not have access to the resource. </p>
+            aws_sdk_lookoutequipment.errors.internal_server_exception.InternalServerException: <p> Processing of the request has failed because of an unknown error, exception or failure. </p>
+            aws_sdk_lookoutequipment.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_lookoutequipment.errors.validation_exception.ValidationException: <p> The input fails to satisfy constraints specified by Amazon Lookout for Equipment or a related Amazon Web Services service that's being utilized. </p>
+            aws_sdk_lookoutequipment.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1826,6 +2082,13 @@ class AsyncLookoutEquipmentClient:
             equipment: <p> Lists the labels that pertain to a particular piece of equipment. </p>
             next_token: <p> An opaque pagination token indicating where to continue the listing of label groups. </p>
             max_results: <p> Specifies the maximum number of labels to list. </p>
+
+        Raises:
+            aws_sdk_lookoutequipment.errors.access_denied_exception.AccessDeniedException: <p>The request could not be completed because you do not have access to the resource. </p>
+            aws_sdk_lookoutequipment.errors.internal_server_exception.InternalServerException: <p> Processing of the request has failed because of an unknown error, exception or failure. </p>
+            aws_sdk_lookoutequipment.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_lookoutequipment.errors.validation_exception.ValidationException: <p> The input fails to satisfy constraints specified by Amazon Lookout for Equipment or a related Amazon Web Services service that's being utilized. </p>
+            aws_sdk_lookoutequipment.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1894,6 +2157,13 @@ class AsyncLookoutEquipmentClient:
             status: <p>The status of the machine learning model. </p>
             model_name_begins_with: <p>The beginning of the name of the machine learning models being listed. </p>
             dataset_name_begins_with: <p>The beginning of the name of the dataset of the machine learning models to be listed. </p>
+
+        Raises:
+            aws_sdk_lookoutequipment.errors.access_denied_exception.AccessDeniedException: <p>The request could not be completed because you do not have access to the resource. </p>
+            aws_sdk_lookoutequipment.errors.internal_server_exception.InternalServerException: <p> Processing of the request has failed because of an unknown error, exception or failure. </p>
+            aws_sdk_lookoutequipment.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_lookoutequipment.errors.validation_exception.ValidationException: <p> The input fails to satisfy constraints specified by Amazon Lookout for Equipment or a related Amazon Web Services service that's being utilized. </p>
+            aws_sdk_lookoutequipment.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1973,6 +2243,14 @@ class AsyncLookoutEquipmentClient:
             created_at_start_time: <p>Filter results to return all the model versions created after this time.</p>
             max_model_version: <p>Specifies the highest version of the model to return in the list.</p>
             min_model_version: <p>Specifies the lowest version of the model to return in the list.</p>
+
+        Raises:
+            aws_sdk_lookoutequipment.errors.access_denied_exception.AccessDeniedException: <p>The request could not be completed because you do not have access to the resource. </p>
+            aws_sdk_lookoutequipment.errors.internal_server_exception.InternalServerException: <p> Processing of the request has failed because of an unknown error, exception or failure. </p>
+            aws_sdk_lookoutequipment.errors.resource_not_found_exception.ResourceNotFoundException: <p> The resource requested could not be found. Verify the resource ID and retry your request. </p>
+            aws_sdk_lookoutequipment.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_lookoutequipment.errors.validation_exception.ValidationException: <p> The input fails to satisfy constraints specified by Amazon Lookout for Equipment or a related Amazon Web Services service that's being utilized. </p>
+            aws_sdk_lookoutequipment.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2042,6 +2320,13 @@ class AsyncLookoutEquipmentClient:
             next_token: <p>If the number of results exceeds the maximum, a pagination token is returned. Use the token in the request to show the next page of retraining schedulers.</p>
             max_results: <p>Specifies the maximum number of retraining schedulers to list. </p>
 
+        Raises:
+            aws_sdk_lookoutequipment.errors.access_denied_exception.AccessDeniedException: <p>The request could not be completed because you do not have access to the resource. </p>
+            aws_sdk_lookoutequipment.errors.internal_server_exception.InternalServerException: <p> Processing of the request has failed because of an unknown error, exception or failure. </p>
+            aws_sdk_lookoutequipment.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_lookoutequipment.errors.validation_exception.ValidationException: <p> The input fails to satisfy constraints specified by Amazon Lookout for Equipment or a related Amazon Web Services service that's being utilized. </p>
+            aws_sdk_lookoutequipment.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Listing retraining schedulers
 
@@ -2103,6 +2388,14 @@ class AsyncLookoutEquipmentClient:
             ingestion_job_id: <p> The ingestion job id associated with the list of Sensor Statistics. To get sensor statistics for a particular ingestion job id, both dataset name and ingestion job id must be submitted as inputs. </p>
             max_results: <p>Specifies the maximum number of sensors for which to retrieve statistics. </p>
             next_token: <p>An opaque pagination token indicating where to continue the listing of sensor statistics. </p>
+
+        Raises:
+            aws_sdk_lookoutequipment.errors.access_denied_exception.AccessDeniedException: <p>The request could not be completed because you do not have access to the resource. </p>
+            aws_sdk_lookoutequipment.errors.internal_server_exception.InternalServerException: <p> Processing of the request has failed because of an unknown error, exception or failure. </p>
+            aws_sdk_lookoutequipment.errors.resource_not_found_exception.ResourceNotFoundException: <p> The resource requested could not be found. Verify the resource ID and retry your request. </p>
+            aws_sdk_lookoutequipment.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_lookoutequipment.errors.validation_exception.ValidationException: <p> The input fails to satisfy constraints specified by Amazon Lookout for Equipment or a related Amazon Web Services service that's being utilized. </p>
+            aws_sdk_lookoutequipment.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2147,6 +2440,14 @@ class AsyncLookoutEquipmentClient:
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource (such as the dataset or model) that is the focus of the <code>ListTagsForResource</code> operation. </p>
+
+        Raises:
+            aws_sdk_lookoutequipment.errors.access_denied_exception.AccessDeniedException: <p>The request could not be completed because you do not have access to the resource. </p>
+            aws_sdk_lookoutequipment.errors.internal_server_exception.InternalServerException: <p> Processing of the request has failed because of an unknown error, exception or failure. </p>
+            aws_sdk_lookoutequipment.errors.resource_not_found_exception.ResourceNotFoundException: <p> The resource requested could not be found. Verify the resource ID and retry your request. </p>
+            aws_sdk_lookoutequipment.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_lookoutequipment.errors.validation_exception.ValidationException: <p> The input fails to satisfy constraints specified by Amazon Lookout for Equipment or a related Amazon Web Services service that's being utilized. </p>
+            aws_sdk_lookoutequipment.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2193,6 +2494,16 @@ class AsyncLookoutEquipmentClient:
             resource_policy: <p>The JSON-formatted resource policy to create.</p>
             policy_revision_id: <p>A unique identifier for a revision of the resource policy.</p>
             client_token: <p>A unique identifier for the request. If you do not set the client request token, Amazon Lookout for Equipment generates one. </p>
+
+        Raises:
+            aws_sdk_lookoutequipment.errors.access_denied_exception.AccessDeniedException: <p>The request could not be completed because you do not have access to the resource. </p>
+            aws_sdk_lookoutequipment.errors.conflict_exception.ConflictException: <p> The request could not be completed due to a conflict with the current state of the target resource. </p>
+            aws_sdk_lookoutequipment.errors.internal_server_exception.InternalServerException: <p> Processing of the request has failed because of an unknown error, exception or failure. </p>
+            aws_sdk_lookoutequipment.errors.resource_not_found_exception.ResourceNotFoundException: <p> The resource requested could not be found. Verify the resource ID and retry your request. </p>
+            aws_sdk_lookoutequipment.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p> Resource limitations have been exceeded. </p>
+            aws_sdk_lookoutequipment.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_lookoutequipment.errors.validation_exception.ValidationException: <p> The input fails to satisfy constraints specified by Amazon Lookout for Equipment or a related Amazon Web Services service that's being utilized. </p>
+            aws_sdk_lookoutequipment.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2241,6 +2552,16 @@ class AsyncLookoutEquipmentClient:
             ingestion_input_configuration: <p> Specifies information for the input data for the data ingestion job, including dataset S3 location. </p>
             role_arn: <p> The Amazon Resource Name (ARN) of a role with permission to access the data source for the data ingestion job. </p>
             client_token: <p> A unique identifier for the request. If you do not set the client request token, Amazon Lookout for Equipment generates one. </p>
+
+        Raises:
+            aws_sdk_lookoutequipment.errors.access_denied_exception.AccessDeniedException: <p>The request could not be completed because you do not have access to the resource. </p>
+            aws_sdk_lookoutequipment.errors.conflict_exception.ConflictException: <p> The request could not be completed due to a conflict with the current state of the target resource. </p>
+            aws_sdk_lookoutequipment.errors.internal_server_exception.InternalServerException: <p> Processing of the request has failed because of an unknown error, exception or failure. </p>
+            aws_sdk_lookoutequipment.errors.resource_not_found_exception.ResourceNotFoundException: <p> The resource requested could not be found. Verify the resource ID and retry your request. </p>
+            aws_sdk_lookoutequipment.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p> Resource limitations have been exceeded. </p>
+            aws_sdk_lookoutequipment.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_lookoutequipment.errors.validation_exception.ValidationException: <p> The input fails to satisfy constraints specified by Amazon Lookout for Equipment or a related Amazon Web Services service that's being utilized. </p>
+            aws_sdk_lookoutequipment.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2282,6 +2603,15 @@ class AsyncLookoutEquipmentClient:
 
         Args:
             inference_scheduler_name: <p>The name of the inference scheduler to be started. </p>
+
+        Raises:
+            aws_sdk_lookoutequipment.errors.access_denied_exception.AccessDeniedException: <p>The request could not be completed because you do not have access to the resource. </p>
+            aws_sdk_lookoutequipment.errors.conflict_exception.ConflictException: <p> The request could not be completed due to a conflict with the current state of the target resource. </p>
+            aws_sdk_lookoutequipment.errors.internal_server_exception.InternalServerException: <p> Processing of the request has failed because of an unknown error, exception or failure. </p>
+            aws_sdk_lookoutequipment.errors.resource_not_found_exception.ResourceNotFoundException: <p> The resource requested could not be found. Verify the resource ID and retry your request. </p>
+            aws_sdk_lookoutequipment.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_lookoutequipment.errors.validation_exception.ValidationException: <p> The input fails to satisfy constraints specified by Amazon Lookout for Equipment or a related Amazon Web Services service that's being utilized. </p>
+            aws_sdk_lookoutequipment.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2320,6 +2650,15 @@ class AsyncLookoutEquipmentClient:
 
         Args:
             model_name: <p>The name of the model whose retraining scheduler you want to start.</p>
+
+        Raises:
+            aws_sdk_lookoutequipment.errors.access_denied_exception.AccessDeniedException: <p>The request could not be completed because you do not have access to the resource. </p>
+            aws_sdk_lookoutequipment.errors.conflict_exception.ConflictException: <p> The request could not be completed due to a conflict with the current state of the target resource. </p>
+            aws_sdk_lookoutequipment.errors.internal_server_exception.InternalServerException: <p> Processing of the request has failed because of an unknown error, exception or failure. </p>
+            aws_sdk_lookoutequipment.errors.resource_not_found_exception.ResourceNotFoundException: <p> The resource requested could not be found. Verify the resource ID and retry your request. </p>
+            aws_sdk_lookoutequipment.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_lookoutequipment.errors.validation_exception.ValidationException: <p> The input fails to satisfy constraints specified by Amazon Lookout for Equipment or a related Amazon Web Services service that's being utilized. </p>
+            aws_sdk_lookoutequipment.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Starts a retraining scheduler
@@ -2363,6 +2702,15 @@ class AsyncLookoutEquipmentClient:
 
         Args:
             inference_scheduler_name: <p>The name of the inference scheduler to be stopped. </p>
+
+        Raises:
+            aws_sdk_lookoutequipment.errors.access_denied_exception.AccessDeniedException: <p>The request could not be completed because you do not have access to the resource. </p>
+            aws_sdk_lookoutequipment.errors.conflict_exception.ConflictException: <p> The request could not be completed due to a conflict with the current state of the target resource. </p>
+            aws_sdk_lookoutequipment.errors.internal_server_exception.InternalServerException: <p> Processing of the request has failed because of an unknown error, exception or failure. </p>
+            aws_sdk_lookoutequipment.errors.resource_not_found_exception.ResourceNotFoundException: <p> The resource requested could not be found. Verify the resource ID and retry your request. </p>
+            aws_sdk_lookoutequipment.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_lookoutequipment.errors.validation_exception.ValidationException: <p> The input fails to satisfy constraints specified by Amazon Lookout for Equipment or a related Amazon Web Services service that's being utilized. </p>
+            aws_sdk_lookoutequipment.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2401,6 +2749,15 @@ class AsyncLookoutEquipmentClient:
 
         Args:
             model_name: <p>The name of the model whose retraining scheduler you want to stop.</p>
+
+        Raises:
+            aws_sdk_lookoutequipment.errors.access_denied_exception.AccessDeniedException: <p>The request could not be completed because you do not have access to the resource. </p>
+            aws_sdk_lookoutequipment.errors.conflict_exception.ConflictException: <p> The request could not be completed due to a conflict with the current state of the target resource. </p>
+            aws_sdk_lookoutequipment.errors.internal_server_exception.InternalServerException: <p> Processing of the request has failed because of an unknown error, exception or failure. </p>
+            aws_sdk_lookoutequipment.errors.resource_not_found_exception.ResourceNotFoundException: <p> The resource requested could not be found. Verify the resource ID and retry your request. </p>
+            aws_sdk_lookoutequipment.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_lookoutequipment.errors.validation_exception.ValidationException: <p> The input fails to satisfy constraints specified by Amazon Lookout for Equipment or a related Amazon Web Services service that's being utilized. </p>
+            aws_sdk_lookoutequipment.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Stops a retraining scheduler
@@ -2446,6 +2803,15 @@ class AsyncLookoutEquipmentClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the specific resource to which the tag should be associated. </p>
             tags: <p>The tag or tags to be associated with a specific resource. Both the tag key and value are specified. </p>
+
+        Raises:
+            aws_sdk_lookoutequipment.errors.access_denied_exception.AccessDeniedException: <p>The request could not be completed because you do not have access to the resource. </p>
+            aws_sdk_lookoutequipment.errors.internal_server_exception.InternalServerException: <p> Processing of the request has failed because of an unknown error, exception or failure. </p>
+            aws_sdk_lookoutequipment.errors.resource_not_found_exception.ResourceNotFoundException: <p> The resource requested could not be found. Verify the resource ID and retry your request. </p>
+            aws_sdk_lookoutequipment.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p> Resource limitations have been exceeded. </p>
+            aws_sdk_lookoutequipment.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_lookoutequipment.errors.validation_exception.ValidationException: <p> The input fails to satisfy constraints specified by Amazon Lookout for Equipment or a related Amazon Web Services service that's being utilized. </p>
+            aws_sdk_lookoutequipment.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2487,6 +2853,14 @@ class AsyncLookoutEquipmentClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource to which the tag is currently associated. </p>
             tag_keys: <p>Specifies the key of the tag to be removed from a specified resource. </p>
+
+        Raises:
+            aws_sdk_lookoutequipment.errors.access_denied_exception.AccessDeniedException: <p>The request could not be completed because you do not have access to the resource. </p>
+            aws_sdk_lookoutequipment.errors.internal_server_exception.InternalServerException: <p> Processing of the request has failed because of an unknown error, exception or failure. </p>
+            aws_sdk_lookoutequipment.errors.resource_not_found_exception.ResourceNotFoundException: <p> The resource requested could not be found. Verify the resource ID and retry your request. </p>
+            aws_sdk_lookoutequipment.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_lookoutequipment.errors.validation_exception.ValidationException: <p> The input fails to satisfy constraints specified by Amazon Lookout for Equipment or a related Amazon Web Services service that's being utilized. </p>
+            aws_sdk_lookoutequipment.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2528,6 +2902,15 @@ class AsyncLookoutEquipmentClient:
         Args:
             model_name: <p>The name of the machine learning model for which the active model version is being set.</p>
             model_version: <p>The version of the machine learning model for which the active model version is being set.</p>
+
+        Raises:
+            aws_sdk_lookoutequipment.errors.access_denied_exception.AccessDeniedException: <p>The request could not be completed because you do not have access to the resource. </p>
+            aws_sdk_lookoutequipment.errors.conflict_exception.ConflictException: <p> The request could not be completed due to a conflict with the current state of the target resource. </p>
+            aws_sdk_lookoutequipment.errors.internal_server_exception.InternalServerException: <p> Processing of the request has failed because of an unknown error, exception or failure. </p>
+            aws_sdk_lookoutequipment.errors.resource_not_found_exception.ResourceNotFoundException: <p> The resource requested could not be found. Verify the resource ID and retry your request. </p>
+            aws_sdk_lookoutequipment.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_lookoutequipment.errors.validation_exception.ValidationException: <p> The input fails to satisfy constraints specified by Amazon Lookout for Equipment or a related Amazon Web Services service that's being utilized. </p>
+            aws_sdk_lookoutequipment.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2587,6 +2970,15 @@ class AsyncLookoutEquipmentClient:
             data_input_configuration: <p> Specifies information for the input data for the inference scheduler, including delimiter, format, and dataset location. </p>
             data_output_configuration: <p> Specifies information for the output results from the inference scheduler, including the output S3 location. </p>
             role_arn: <p> The Amazon Resource Name (ARN) of a role with permission to access the data source for the inference scheduler. </p>
+
+        Raises:
+            aws_sdk_lookoutequipment.errors.access_denied_exception.AccessDeniedException: <p>The request could not be completed because you do not have access to the resource. </p>
+            aws_sdk_lookoutequipment.errors.conflict_exception.ConflictException: <p> The request could not be completed due to a conflict with the current state of the target resource. </p>
+            aws_sdk_lookoutequipment.errors.internal_server_exception.InternalServerException: <p> Processing of the request has failed because of an unknown error, exception or failure. </p>
+            aws_sdk_lookoutequipment.errors.resource_not_found_exception.ResourceNotFoundException: <p> The resource requested could not be found. Verify the resource ID and retry your request. </p>
+            aws_sdk_lookoutequipment.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_lookoutequipment.errors.validation_exception.ValidationException: <p> The input fails to satisfy constraints specified by Amazon Lookout for Equipment or a related Amazon Web Services service that's being utilized. </p>
+            aws_sdk_lookoutequipment.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2637,6 +3029,15 @@ class AsyncLookoutEquipmentClient:
         Args:
             label_group_name: <p> The name of the label group to be updated. </p>
             fault_codes: <p> Updates the code indicating the type of anomaly associated with the label. </p> <p>Data in this field will be retained for service usage. Follow best practices for the security of your data.</p>
+
+        Raises:
+            aws_sdk_lookoutequipment.errors.access_denied_exception.AccessDeniedException: <p>The request could not be completed because you do not have access to the resource. </p>
+            aws_sdk_lookoutequipment.errors.conflict_exception.ConflictException: <p> The request could not be completed due to a conflict with the current state of the target resource. </p>
+            aws_sdk_lookoutequipment.errors.internal_server_exception.InternalServerException: <p> Processing of the request has failed because of an unknown error, exception or failure. </p>
+            aws_sdk_lookoutequipment.errors.resource_not_found_exception.ResourceNotFoundException: <p> The resource requested could not be found. Verify the resource ID and retry your request. </p>
+            aws_sdk_lookoutequipment.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_lookoutequipment.errors.validation_exception.ValidationException: <p> The input fails to satisfy constraints specified by Amazon Lookout for Equipment or a related Amazon Web Services service that's being utilized. </p>
+            aws_sdk_lookoutequipment.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2686,6 +3087,15 @@ class AsyncLookoutEquipmentClient:
             model_name: <p>The name of the model to update.</p>
             role_arn: <p>The ARN of the model to update.</p>
             model_diagnostics_output_configuration: <p>The Amazon S3 location where you want Amazon Lookout for Equipment to save the pointwise model diagnostics for the model. You must also specify the <code>RoleArn</code> request parameter.</p>
+
+        Raises:
+            aws_sdk_lookoutequipment.errors.access_denied_exception.AccessDeniedException: <p>The request could not be completed because you do not have access to the resource. </p>
+            aws_sdk_lookoutequipment.errors.conflict_exception.ConflictException: <p> The request could not be completed due to a conflict with the current state of the target resource. </p>
+            aws_sdk_lookoutequipment.errors.internal_server_exception.InternalServerException: <p> Processing of the request has failed because of an unknown error, exception or failure. </p>
+            aws_sdk_lookoutequipment.errors.resource_not_found_exception.ResourceNotFoundException: <p> The resource requested could not be found. Verify the resource ID and retry your request. </p>
+            aws_sdk_lookoutequipment.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_lookoutequipment.errors.validation_exception.ValidationException: <p> The input fails to satisfy constraints specified by Amazon Lookout for Equipment or a related Amazon Web Services service that's being utilized. </p>
+            aws_sdk_lookoutequipment.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Updates a model
@@ -2751,6 +3161,15 @@ class AsyncLookoutEquipmentClient:
             retraining_frequency: <p>This parameter uses the <a href=\"https://en.wikipedia.org/wiki/ISO_8601#Durations\">ISO 8601</a> standard to set the frequency at which you want retraining to occur in terms of Years, Months, and/or Days (note: other parameters like Time are not currently supported). The minimum value is 30 days (P30D) and the maximum value is 1 year (P1Y). For example, the following values are valid:</p> <ul> <li> <p>P3M15D – Every 3 months and 15 days</p> </li> <li> <p>P2M – Every 2 months</p> </li> <li> <p>P150D – Every 150 days</p> </li> </ul>
             lookback_window: <p>The number of past days of data that will be used for retraining.</p>
             promote_mode: <p>Indicates how the service will use new models. In <code>MANAGED</code> mode, new models will automatically be used for inference if they have better performance than the current model. In <code>MANUAL</code> mode, the new models will not be used <a href=\"https://docs.aws.amazon.com/lookout-for-equipment/latest/ug/versioning-model.html#model-activation\">until they are manually activated</a>.</p>
+
+        Raises:
+            aws_sdk_lookoutequipment.errors.access_denied_exception.AccessDeniedException: <p>The request could not be completed because you do not have access to the resource. </p>
+            aws_sdk_lookoutequipment.errors.conflict_exception.ConflictException: <p> The request could not be completed due to a conflict with the current state of the target resource. </p>
+            aws_sdk_lookoutequipment.errors.internal_server_exception.InternalServerException: <p> Processing of the request has failed because of an unknown error, exception or failure. </p>
+            aws_sdk_lookoutequipment.errors.resource_not_found_exception.ResourceNotFoundException: <p> The resource requested could not be found. Verify the resource ID and retry your request. </p>
+            aws_sdk_lookoutequipment.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_lookoutequipment.errors.validation_exception.ValidationException: <p> The input fails to satisfy constraints specified by Amazon Lookout for Equipment or a related Amazon Web Services service that's being utilized. </p>
+            aws_sdk_lookoutequipment.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Updates a retraining scheduler

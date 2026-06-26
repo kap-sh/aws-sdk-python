@@ -288,6 +288,16 @@ class WAFV2Client:
         Args:
             web_acl_arn: <p>The Amazon Resource Name (ARN) of the web ACL that you want to associate with the resource.</p>
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource to associate with the web ACL. </p> <p>The ARN must be in one of the following formats:</p> <ul> <li> <p>For an Application Load Balancer: <code>arn:<i>partition</i>:elasticloadbalancing:<i>region</i>:<i>account-id</i>:loadbalancer/app/<i>load-balancer-name</i>/<i>load-balancer-id</i> </code> </p> </li> <li> <p>For an Amazon API Gateway REST API: <code>arn:<i>partition</i>:apigateway:<i>region</i>::/restapis/<i>api-id</i>/stages/<i>stage-name</i> </code> </p> </li> <li> <p>For an AppSync GraphQL API: <code>arn:<i>partition</i>:appsync:<i>region</i>:<i>account-id</i>:apis/<i>GraphQLApiId</i> </code> </p> </li> <li> <p>For an Amazon Cognito user pool: <code>arn:<i>partition</i>:cognito-idp:<i>region</i>:<i>account-id</i>:userpool/<i>user-pool-id</i> </code> </p> </li> <li> <p>For an App Runner service: <code>arn:<i>partition</i>:apprunner:<i>region</i>:<i>account-id</i>:service/<i>apprunner-service-name</i>/<i>apprunner-service-id</i> </code> </p> </li> <li> <p>For an Amazon Web Services Verified Access instance: <code>arn:<i>partition</i>:ec2:<i>region</i>:<i>account-id</i>:verified-access-instance/<i>instance-id</i> </code> </p> </li> <li> <p>For an Amplify application: <code>arn:<i>partition</i>:amplify:<i>region</i>:<i>account-id</i>:apps/<i>app-id</i> </code> </p> </li> </ul>
+
+        Raises:
+            aws_sdk_wafv2.errors.waf_feature_not_included_in_pricing_plan_exception.WAFFeatureNotIncludedInPricingPlanException: <p>The operation failed because the specified WAF feature isn't supported by the CloudFront pricing plan associated with the web ACL.</p>
+            aws_sdk_wafv2.errors.waf_internal_error_exception.WAFInternalErrorException: <p>Your request is valid, but WAF couldn’t perform the operation because of a system problem. Retry your request. </p>
+            aws_sdk_wafv2.errors.waf_invalid_operation_exception.WAFInvalidOperationException: <p>The operation isn't valid. </p>
+            aws_sdk_wafv2.errors.waf_invalid_parameter_exception.WAFInvalidParameterException: <p>The operation failed because WAF didn't recognize a parameter in the request. For example: </p> <ul> <li> <p>You specified a parameter name or value that isn't valid.</p> </li> <li> <p>Your nested statement isn't valid. You might have tried to nest a statement that can’t be nested. </p> </li> <li> <p>You tried to update a <code>WebACL</code> with a <code>DefaultAction</code> that isn't among the types available at <a>DefaultAction</a>.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource with which a web ACL can't be associated.</p> </li> </ul>
+            aws_sdk_wafv2.errors.waf_limits_exceeded_exception.WAFLimitsExceededException: <p>WAF couldn’t perform the operation because you exceeded your resource limit. For example, the maximum number of <code>WebACL</code> objects that you can create for an Amazon Web Services account. For more information, see <a href=\"https://docs.aws.amazon.com/waf/latest/developerguide/limits.html\">WAF quotas</a> in the <i>WAF Developer Guide</i>.</p>
+            aws_sdk_wafv2.errors.waf_nonexistent_item_exception.WAFNonexistentItemException: <p>WAF couldn’t perform the operation because your resource doesn't exist. If you've just created a resource that you're using in this operation, you might just need to wait a few minutes. It can take from a few seconds to a number of minutes for changes to propagate. </p>
+            aws_sdk_wafv2.errors.waf_unavailable_entity_exception.WAFUnavailableEntityException: <p>WAF couldn’t retrieve a resource that you specified for this operation. If you've just created a resource that you're using in this operation, you might just need to wait a few minutes. It can take from a few seconds to a number of minutes for changes to propagate. Verify the resource specifications in your request parameters and then retry the operation.</p>
+            aws_sdk_wafv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -328,6 +338,18 @@ class WAFV2Client:
         Args:
             scope: <p>Specifies whether this is for a global resource type, such as a Amazon CloudFront distribution. For an Amplify application, use <code>CLOUDFRONT</code>.</p> <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p> <ul> <li> <p>CLI - Specify the Region when you use the CloudFront scope: <code>--scope=CLOUDFRONT --region=us-east-1</code>. </p> </li> <li> <p>API and SDKs - For all calls, use the Region endpoint us-east-1. </p> </li> </ul>
             rules: <p>An array of <a>Rule</a> that you're configuring to use in a rule group or web ACL. </p>
+
+        Raises:
+            aws_sdk_wafv2.errors.waf_expired_managed_rule_group_version_exception.WAFExpiredManagedRuleGroupVersionException: <p>The operation failed because the specified version for the managed rule group has expired. You can retrieve the available versions for the managed rule group by calling <a>ListAvailableManagedRuleGroupVersions</a>.</p>
+            aws_sdk_wafv2.errors.waf_internal_error_exception.WAFInternalErrorException: <p>Your request is valid, but WAF couldn’t perform the operation because of a system problem. Retry your request. </p>
+            aws_sdk_wafv2.errors.waf_invalid_operation_exception.WAFInvalidOperationException: <p>The operation isn't valid. </p>
+            aws_sdk_wafv2.errors.waf_invalid_parameter_exception.WAFInvalidParameterException: <p>The operation failed because WAF didn't recognize a parameter in the request. For example: </p> <ul> <li> <p>You specified a parameter name or value that isn't valid.</p> </li> <li> <p>Your nested statement isn't valid. You might have tried to nest a statement that can’t be nested. </p> </li> <li> <p>You tried to update a <code>WebACL</code> with a <code>DefaultAction</code> that isn't among the types available at <a>DefaultAction</a>.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource with which a web ACL can't be associated.</p> </li> </ul>
+            aws_sdk_wafv2.errors.waf_invalid_resource_exception.WAFInvalidResourceException: <p>WAF couldn’t perform the operation because the resource that you requested isn’t valid. Check the resource, and try again.</p>
+            aws_sdk_wafv2.errors.waf_limits_exceeded_exception.WAFLimitsExceededException: <p>WAF couldn’t perform the operation because you exceeded your resource limit. For example, the maximum number of <code>WebACL</code> objects that you can create for an Amazon Web Services account. For more information, see <a href=\"https://docs.aws.amazon.com/waf/latest/developerguide/limits.html\">WAF quotas</a> in the <i>WAF Developer Guide</i>.</p>
+            aws_sdk_wafv2.errors.waf_nonexistent_item_exception.WAFNonexistentItemException: <p>WAF couldn’t perform the operation because your resource doesn't exist. If you've just created a resource that you're using in this operation, you might just need to wait a few minutes. It can take from a few seconds to a number of minutes for changes to propagate. </p>
+            aws_sdk_wafv2.errors.waf_subscription_not_found_exception.WAFSubscriptionNotFoundException: <p>You tried to use a managed rule group that's available by subscription, but you aren't subscribed to it yet. </p>
+            aws_sdk_wafv2.errors.waf_unavailable_entity_exception.WAFUnavailableEntityException: <p>WAF couldn’t retrieve a resource that you specified for this operation. If you've just created a resource that you're using in this operation, you might just need to wait a few minutes. It can take from a few seconds to a number of minutes for changes to propagate. Verify the resource specifications in your request parameters and then retry the operation.</p>
+            aws_sdk_wafv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -368,6 +390,13 @@ class WAFV2Client:
         Args:
             scope: <p>Specifies whether this is for a global resource type, such as a Amazon CloudFront distribution. For an Amplify application, use <code>CLOUDFRONT</code>.</p> <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p> <ul> <li> <p>CLI - Specify the Region when you use the CloudFront scope: <code>--scope=CLOUDFRONT --region=us-east-1</code>. </p> </li> <li> <p>API and SDKs - For all calls, use the Region endpoint us-east-1. </p> </li> </ul>
             token_domains: <p>The client application domains that you want to use this API key for. </p> <p>Example JSON: <code>\"TokenDomains\": [\"abc.com\", \"store.abc.com\"]</code> </p> <p>Public suffixes aren't allowed. For example, you can't use <code>gov.au</code> or <code>co.uk</code> as token domains.</p>
+
+        Raises:
+            aws_sdk_wafv2.errors.waf_internal_error_exception.WAFInternalErrorException: <p>Your request is valid, but WAF couldn’t perform the operation because of a system problem. Retry your request. </p>
+            aws_sdk_wafv2.errors.waf_invalid_operation_exception.WAFInvalidOperationException: <p>The operation isn't valid. </p>
+            aws_sdk_wafv2.errors.waf_invalid_parameter_exception.WAFInvalidParameterException: <p>The operation failed because WAF didn't recognize a parameter in the request. For example: </p> <ul> <li> <p>You specified a parameter name or value that isn't valid.</p> </li> <li> <p>Your nested statement isn't valid. You might have tried to nest a statement that can’t be nested. </p> </li> <li> <p>You tried to update a <code>WebACL</code> with a <code>DefaultAction</code> that isn't among the types available at <a>DefaultAction</a>.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource with which a web ACL can't be associated.</p> </li> </ul>
+            aws_sdk_wafv2.errors.waf_limits_exceeded_exception.WAFLimitsExceededException: <p>WAF couldn’t perform the operation because you exceeded your resource limit. For example, the maximum number of <code>WebACL</code> objects that you can create for an Amazon Web Services account. For more information, see <a href=\"https://docs.aws.amazon.com/waf/latest/developerguide/limits.html\">WAF quotas</a> in the <i>WAF Developer Guide</i>.</p>
+            aws_sdk_wafv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -418,6 +447,17 @@ class WAFV2Client:
             ip_address_version: <p>The version of the IP addresses, either <code>IPV4</code> or <code>IPV6</code>. </p>
             addresses: <p>Contains an array of strings that specifies zero or more IP addresses or blocks of IP addresses that you want WAF to inspect for in incoming requests. All addresses must be specified using Classless Inter-Domain Routing (CIDR) notation. WAF supports all IPv4 and IPv6 CIDR ranges except for <code>/0</code>. </p> <p>Example address strings: </p> <ul> <li> <p>For requests that originated from the IP address 192.0.2.44, specify <code>192.0.2.44/32</code>.</p> </li> <li> <p>For requests that originated from IP addresses from 192.0.2.0 to 192.0.2.255, specify <code>192.0.2.0/24</code>.</p> </li> <li> <p>For requests that originated from the IP address 1111:0000:0000:0000:0000:0000:0000:0111, specify <code>1111:0000:0000:0000:0000:0000:0000:0111/128</code>.</p> </li> <li> <p>For requests that originated from IP addresses 1111:0000:0000:0000:0000:0000:0000:0000 to 1111:0000:0000:0000:ffff:ffff:ffff:ffff, specify <code>1111:0000:0000:0000:0000:0000:0000:0000/64</code>.</p> </li> </ul> <p>For more information about CIDR notation, see the Wikipedia entry <a href=\"https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing\">Classless Inter-Domain Routing</a>.</p> <p>Example JSON <code>Addresses</code> specifications: </p> <ul> <li> <p>Empty array: <code>\"Addresses\": []</code> </p> </li> <li> <p>Array with one address: <code>\"Addresses\": [\"192.0.2.44/32\"]</code> </p> </li> <li> <p>Array with three addresses: <code>\"Addresses\": [\"192.0.2.44/32\", \"192.0.2.0/24\", \"192.0.0.0/16\"]</code> </p> </li> <li> <p>INVALID specification: <code>\"Addresses\": [\"\"]</code> INVALID </p> </li> </ul>
             tags: <p>An array of key:value pairs to associate with the resource.</p>
+
+        Raises:
+            aws_sdk_wafv2.errors.waf_duplicate_item_exception.WAFDuplicateItemException: <p>WAF couldn’t perform the operation because the resource that you tried to save is a duplicate of an existing one.</p>
+            aws_sdk_wafv2.errors.waf_internal_error_exception.WAFInternalErrorException: <p>Your request is valid, but WAF couldn’t perform the operation because of a system problem. Retry your request. </p>
+            aws_sdk_wafv2.errors.waf_invalid_operation_exception.WAFInvalidOperationException: <p>The operation isn't valid. </p>
+            aws_sdk_wafv2.errors.waf_invalid_parameter_exception.WAFInvalidParameterException: <p>The operation failed because WAF didn't recognize a parameter in the request. For example: </p> <ul> <li> <p>You specified a parameter name or value that isn't valid.</p> </li> <li> <p>Your nested statement isn't valid. You might have tried to nest a statement that can’t be nested. </p> </li> <li> <p>You tried to update a <code>WebACL</code> with a <code>DefaultAction</code> that isn't among the types available at <a>DefaultAction</a>.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource with which a web ACL can't be associated.</p> </li> </ul>
+            aws_sdk_wafv2.errors.waf_limits_exceeded_exception.WAFLimitsExceededException: <p>WAF couldn’t perform the operation because you exceeded your resource limit. For example, the maximum number of <code>WebACL</code> objects that you can create for an Amazon Web Services account. For more information, see <a href=\"https://docs.aws.amazon.com/waf/latest/developerguide/limits.html\">WAF quotas</a> in the <i>WAF Developer Guide</i>.</p>
+            aws_sdk_wafv2.errors.waf_optimistic_lock_exception.WAFOptimisticLockException: <p>WAF couldn’t save your changes because you tried to update or delete a resource that has changed since you last retrieved it. Get the resource again, make any changes you need to make to the new copy, and retry your operation. </p>
+            aws_sdk_wafv2.errors.waf_tag_operation_exception.WAFTagOperationException: <p>An error occurred during the tagging operation. Retry your request.</p>
+            aws_sdk_wafv2.errors.waf_tag_operation_internal_error_exception.WAFTagOperationInternalErrorException: <p>WAF couldn’t perform your tagging operation because of an internal error. Retry your request.</p>
+            aws_sdk_wafv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -472,6 +512,17 @@ class WAFV2Client:
             description: <p>A description of the set that helps with identification. </p>
             regular_expression_list: <p>Array of regular expression strings. </p>
             tags: <p>An array of key:value pairs to associate with the resource.</p>
+
+        Raises:
+            aws_sdk_wafv2.errors.waf_duplicate_item_exception.WAFDuplicateItemException: <p>WAF couldn’t perform the operation because the resource that you tried to save is a duplicate of an existing one.</p>
+            aws_sdk_wafv2.errors.waf_internal_error_exception.WAFInternalErrorException: <p>Your request is valid, but WAF couldn’t perform the operation because of a system problem. Retry your request. </p>
+            aws_sdk_wafv2.errors.waf_invalid_operation_exception.WAFInvalidOperationException: <p>The operation isn't valid. </p>
+            aws_sdk_wafv2.errors.waf_invalid_parameter_exception.WAFInvalidParameterException: <p>The operation failed because WAF didn't recognize a parameter in the request. For example: </p> <ul> <li> <p>You specified a parameter name or value that isn't valid.</p> </li> <li> <p>Your nested statement isn't valid. You might have tried to nest a statement that can’t be nested. </p> </li> <li> <p>You tried to update a <code>WebACL</code> with a <code>DefaultAction</code> that isn't among the types available at <a>DefaultAction</a>.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource with which a web ACL can't be associated.</p> </li> </ul>
+            aws_sdk_wafv2.errors.waf_limits_exceeded_exception.WAFLimitsExceededException: <p>WAF couldn’t perform the operation because you exceeded your resource limit. For example, the maximum number of <code>WebACL</code> objects that you can create for an Amazon Web Services account. For more information, see <a href=\"https://docs.aws.amazon.com/waf/latest/developerguide/limits.html\">WAF quotas</a> in the <i>WAF Developer Guide</i>.</p>
+            aws_sdk_wafv2.errors.waf_optimistic_lock_exception.WAFOptimisticLockException: <p>WAF couldn’t save your changes because you tried to update or delete a resource that has changed since you last retrieved it. Get the resource again, make any changes you need to make to the new copy, and retry your operation. </p>
+            aws_sdk_wafv2.errors.waf_tag_operation_exception.WAFTagOperationException: <p>An error occurred during the tagging operation. Retry your request.</p>
+            aws_sdk_wafv2.errors.waf_tag_operation_internal_error_exception.WAFTagOperationInternalErrorException: <p>WAF couldn’t perform your tagging operation because of an internal error. Retry your request.</p>
+            aws_sdk_wafv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -533,6 +584,20 @@ class WAFV2Client:
             visibility_config: <p>Defines and enables Amazon CloudWatch metrics and web request sample collection. </p>
             tags: <p>An array of key:value pairs to associate with the resource.</p>
             custom_response_bodies: <p>A map of custom response keys and content bodies. When you create a rule with a block action, you can send a custom response to the web request. You define these for the rule group, and then use them in the rules that you define in the rule group. </p> <p>For information about customizing web requests and responses, see <a href=\"https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html\">Customizing web requests and responses in WAF</a> in the <i>WAF Developer Guide</i>. </p> <p>For information about the limits on count and size for custom request and response settings, see <a href=\"https://docs.aws.amazon.com/waf/latest/developerguide/limits.html\">WAF quotas</a> in the <i>WAF Developer Guide</i>. </p>
+
+        Raises:
+            aws_sdk_wafv2.errors.waf_duplicate_item_exception.WAFDuplicateItemException: <p>WAF couldn’t perform the operation because the resource that you tried to save is a duplicate of an existing one.</p>
+            aws_sdk_wafv2.errors.waf_internal_error_exception.WAFInternalErrorException: <p>Your request is valid, but WAF couldn’t perform the operation because of a system problem. Retry your request. </p>
+            aws_sdk_wafv2.errors.waf_invalid_operation_exception.WAFInvalidOperationException: <p>The operation isn't valid. </p>
+            aws_sdk_wafv2.errors.waf_invalid_parameter_exception.WAFInvalidParameterException: <p>The operation failed because WAF didn't recognize a parameter in the request. For example: </p> <ul> <li> <p>You specified a parameter name or value that isn't valid.</p> </li> <li> <p>Your nested statement isn't valid. You might have tried to nest a statement that can’t be nested. </p> </li> <li> <p>You tried to update a <code>WebACL</code> with a <code>DefaultAction</code> that isn't among the types available at <a>DefaultAction</a>.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource with which a web ACL can't be associated.</p> </li> </ul>
+            aws_sdk_wafv2.errors.waf_limits_exceeded_exception.WAFLimitsExceededException: <p>WAF couldn’t perform the operation because you exceeded your resource limit. For example, the maximum number of <code>WebACL</code> objects that you can create for an Amazon Web Services account. For more information, see <a href=\"https://docs.aws.amazon.com/waf/latest/developerguide/limits.html\">WAF quotas</a> in the <i>WAF Developer Guide</i>.</p>
+            aws_sdk_wafv2.errors.waf_nonexistent_item_exception.WAFNonexistentItemException: <p>WAF couldn’t perform the operation because your resource doesn't exist. If you've just created a resource that you're using in this operation, you might just need to wait a few minutes. It can take from a few seconds to a number of minutes for changes to propagate. </p>
+            aws_sdk_wafv2.errors.waf_optimistic_lock_exception.WAFOptimisticLockException: <p>WAF couldn’t save your changes because you tried to update or delete a resource that has changed since you last retrieved it. Get the resource again, make any changes you need to make to the new copy, and retry your operation. </p>
+            aws_sdk_wafv2.errors.waf_subscription_not_found_exception.WAFSubscriptionNotFoundException: <p>You tried to use a managed rule group that's available by subscription, but you aren't subscribed to it yet. </p>
+            aws_sdk_wafv2.errors.waf_tag_operation_exception.WAFTagOperationException: <p>An error occurred during the tagging operation. Retry your request.</p>
+            aws_sdk_wafv2.errors.waf_tag_operation_internal_error_exception.WAFTagOperationInternalErrorException: <p>WAF couldn’t perform your tagging operation because of an internal error. Retry your request.</p>
+            aws_sdk_wafv2.errors.waf_unavailable_entity_exception.WAFUnavailableEntityException: <p>WAF couldn’t retrieve a resource that you specified for this operation. If you've just created a resource that you're using in this operation, you might just need to wait a few minutes. It can take from a few seconds to a number of minutes for changes to propagate. Verify the resource specifications in your request parameters and then retry the operation.</p>
+            aws_sdk_wafv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -627,6 +692,23 @@ class WAFV2Client:
             association_config: <p>Specifies custom configurations for the associations between the web ACL and protected resources. </p> <p>Use this to customize the maximum size of the request body that your protected resources forward to WAF for inspection. You can customize this setting for CloudFront, API Gateway, Amazon Cognito, App Runner, or Verified Access resources. The default setting is 16 KB (16,384 bytes). </p> <note> <p>You are charged additional fees when your protected resources forward body sizes that are larger than the default. For more information, see <a href=\"http://aws.amazon.com/waf/pricing/\">WAF Pricing</a>.</p> </note> <p>For Application Load Balancer and AppSync, the limit is fixed at 8 KB (8,192 bytes).</p>
             on_source_d_do_s_protection_config: <p>Specifies the type of DDoS protection to apply to web request data for a web ACL. For most scenarios, it is recommended to use the default protection level, <code>ACTIVE_UNDER_DDOS</code>. If a web ACL is associated with multiple Application Load Balancers, the changes you make to DDoS protection in that web ACL will apply to all associated Application Load Balancers.</p>
             application_config: <p>Configures the ability for the WAF console to store and retrieve application attributes during the web ACL creation process. Application attributes help WAF give recommendations for protection packs.</p>
+
+        Raises:
+            aws_sdk_wafv2.errors.waf_configuration_warning_exception.WAFConfigurationWarningException: <p>The operation failed because you are inspecting the web request body, headers, or cookies without specifying how to handle oversize components. Rules that inspect the body must either provide an <code>OversizeHandling</code> configuration or they must be preceded by a <code>SizeConstraintStatement</code> that blocks the body content from being too large. Rules that inspect the headers or cookies must provide an <code>OversizeHandling</code> configuration. </p> <p>Provide the handling configuration and retry your operation.</p> <p>Alternately, you can suppress this warning by adding the following tag to the resource that you provide to this operation: <code>Tag</code> (key:<code>WAF:OversizeFieldsHandlingConstraintOptOut</code>, value:<code>true</code>).</p>
+            aws_sdk_wafv2.errors.waf_duplicate_item_exception.WAFDuplicateItemException: <p>WAF couldn’t perform the operation because the resource that you tried to save is a duplicate of an existing one.</p>
+            aws_sdk_wafv2.errors.waf_expired_managed_rule_group_version_exception.WAFExpiredManagedRuleGroupVersionException: <p>The operation failed because the specified version for the managed rule group has expired. You can retrieve the available versions for the managed rule group by calling <a>ListAvailableManagedRuleGroupVersions</a>.</p>
+            aws_sdk_wafv2.errors.waf_internal_error_exception.WAFInternalErrorException: <p>Your request is valid, but WAF couldn’t perform the operation because of a system problem. Retry your request. </p>
+            aws_sdk_wafv2.errors.waf_invalid_operation_exception.WAFInvalidOperationException: <p>The operation isn't valid. </p>
+            aws_sdk_wafv2.errors.waf_invalid_parameter_exception.WAFInvalidParameterException: <p>The operation failed because WAF didn't recognize a parameter in the request. For example: </p> <ul> <li> <p>You specified a parameter name or value that isn't valid.</p> </li> <li> <p>Your nested statement isn't valid. You might have tried to nest a statement that can’t be nested. </p> </li> <li> <p>You tried to update a <code>WebACL</code> with a <code>DefaultAction</code> that isn't among the types available at <a>DefaultAction</a>.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource with which a web ACL can't be associated.</p> </li> </ul>
+            aws_sdk_wafv2.errors.waf_invalid_resource_exception.WAFInvalidResourceException: <p>WAF couldn’t perform the operation because the resource that you requested isn’t valid. Check the resource, and try again.</p>
+            aws_sdk_wafv2.errors.waf_limits_exceeded_exception.WAFLimitsExceededException: <p>WAF couldn’t perform the operation because you exceeded your resource limit. For example, the maximum number of <code>WebACL</code> objects that you can create for an Amazon Web Services account. For more information, see <a href=\"https://docs.aws.amazon.com/waf/latest/developerguide/limits.html\">WAF quotas</a> in the <i>WAF Developer Guide</i>.</p>
+            aws_sdk_wafv2.errors.waf_nonexistent_item_exception.WAFNonexistentItemException: <p>WAF couldn’t perform the operation because your resource doesn't exist. If you've just created a resource that you're using in this operation, you might just need to wait a few minutes. It can take from a few seconds to a number of minutes for changes to propagate. </p>
+            aws_sdk_wafv2.errors.waf_optimistic_lock_exception.WAFOptimisticLockException: <p>WAF couldn’t save your changes because you tried to update or delete a resource that has changed since you last retrieved it. Get the resource again, make any changes you need to make to the new copy, and retry your operation. </p>
+            aws_sdk_wafv2.errors.waf_subscription_not_found_exception.WAFSubscriptionNotFoundException: <p>You tried to use a managed rule group that's available by subscription, but you aren't subscribed to it yet. </p>
+            aws_sdk_wafv2.errors.waf_tag_operation_exception.WAFTagOperationException: <p>An error occurred during the tagging operation. Retry your request.</p>
+            aws_sdk_wafv2.errors.waf_tag_operation_internal_error_exception.WAFTagOperationInternalErrorException: <p>WAF couldn’t perform your tagging operation because of an internal error. Retry your request.</p>
+            aws_sdk_wafv2.errors.waf_unavailable_entity_exception.WAFUnavailableEntityException: <p>WAF couldn’t retrieve a resource that you specified for this operation. If you've just created a resource that you're using in this operation, you might just need to wait a few minutes. It can take from a few seconds to a number of minutes for changes to propagate. Verify the resource specifications in your request parameters and then retry the operation.</p>
+            aws_sdk_wafv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -693,6 +775,14 @@ class WAFV2Client:
         Args:
             scope: <p>Specifies whether this is for a global resource type, such as a Amazon CloudFront distribution. For an Amplify application, use <code>CLOUDFRONT</code>.</p> <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p> <ul> <li> <p>CLI - Specify the Region when you use the CloudFront scope: <code>--scope=CLOUDFRONT --region=us-east-1</code>. </p> </li> <li> <p>API and SDKs - For all calls, use the Region endpoint us-east-1. </p> </li> </ul>
             api_key: <p>The encrypted API key that you want to delete. </p>
+
+        Raises:
+            aws_sdk_wafv2.errors.waf_internal_error_exception.WAFInternalErrorException: <p>Your request is valid, but WAF couldn’t perform the operation because of a system problem. Retry your request. </p>
+            aws_sdk_wafv2.errors.waf_invalid_operation_exception.WAFInvalidOperationException: <p>The operation isn't valid. </p>
+            aws_sdk_wafv2.errors.waf_invalid_parameter_exception.WAFInvalidParameterException: <p>The operation failed because WAF didn't recognize a parameter in the request. For example: </p> <ul> <li> <p>You specified a parameter name or value that isn't valid.</p> </li> <li> <p>Your nested statement isn't valid. You might have tried to nest a statement that can’t be nested. </p> </li> <li> <p>You tried to update a <code>WebACL</code> with a <code>DefaultAction</code> that isn't among the types available at <a>DefaultAction</a>.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource with which a web ACL can't be associated.</p> </li> </ul>
+            aws_sdk_wafv2.errors.waf_nonexistent_item_exception.WAFNonexistentItemException: <p>WAF couldn’t perform the operation because your resource doesn't exist. If you've just created a resource that you're using in this operation, you might just need to wait a few minutes. It can take from a few seconds to a number of minutes for changes to propagate. </p>
+            aws_sdk_wafv2.errors.waf_optimistic_lock_exception.WAFOptimisticLockException: <p>WAF couldn’t save your changes because you tried to update or delete a resource that has changed since you last retrieved it. Get the resource again, make any changes you need to make to the new copy, and retry your operation. </p>
+            aws_sdk_wafv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -733,6 +823,14 @@ class WAFV2Client:
         Args:
             web_acl_arn: <p>The Amazon Resource Name (ARN) of the web ACL.</p>
             web_acl_lock_token: <p>A token used for optimistic locking. WAF returns a token to your <code>get</code> and <code>list</code> requests, to mark the state of the entity at the time of the request. To make changes to the entity associated with the token, you provide the token to operations like <code>update</code> and <code>delete</code>. WAF uses the token to ensure that no changes have been made to the entity since you last retrieved it. If a change has been made, the update fails with a <code>WAFOptimisticLockException</code>. If this happens, perform another <code>get</code>, and use the new token returned by that operation. </p>
+
+        Raises:
+            aws_sdk_wafv2.errors.waf_internal_error_exception.WAFInternalErrorException: <p>Your request is valid, but WAF couldn’t perform the operation because of a system problem. Retry your request. </p>
+            aws_sdk_wafv2.errors.waf_invalid_operation_exception.WAFInvalidOperationException: <p>The operation isn't valid. </p>
+            aws_sdk_wafv2.errors.waf_invalid_parameter_exception.WAFInvalidParameterException: <p>The operation failed because WAF didn't recognize a parameter in the request. For example: </p> <ul> <li> <p>You specified a parameter name or value that isn't valid.</p> </li> <li> <p>Your nested statement isn't valid. You might have tried to nest a statement that can’t be nested. </p> </li> <li> <p>You tried to update a <code>WebACL</code> with a <code>DefaultAction</code> that isn't among the types available at <a>DefaultAction</a>.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource with which a web ACL can't be associated.</p> </li> </ul>
+            aws_sdk_wafv2.errors.waf_nonexistent_item_exception.WAFNonexistentItemException: <p>WAF couldn’t perform the operation because your resource doesn't exist. If you've just created a resource that you're using in this operation, you might just need to wait a few minutes. It can take from a few seconds to a number of minutes for changes to propagate. </p>
+            aws_sdk_wafv2.errors.waf_optimistic_lock_exception.WAFOptimisticLockException: <p>WAF couldn’t save your changes because you tried to update or delete a resource that has changed since you last retrieved it. Get the resource again, make any changes you need to make to the new copy, and retry your operation. </p>
+            aws_sdk_wafv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -777,6 +875,17 @@ class WAFV2Client:
             scope: <p>Specifies whether this is for a global resource type, such as a Amazon CloudFront distribution. For an Amplify application, use <code>CLOUDFRONT</code>.</p> <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p> <ul> <li> <p>CLI - Specify the Region when you use the CloudFront scope: <code>--scope=CLOUDFRONT --region=us-east-1</code>. </p> </li> <li> <p>API and SDKs - For all calls, use the Region endpoint us-east-1. </p> </li> </ul>
             id: <p>A unique identifier for the set. This ID is returned in the responses to create and list commands. You provide it to operations like update and delete.</p>
             lock_token: <p>A token used for optimistic locking. WAF returns a token to your <code>get</code> and <code>list</code> requests, to mark the state of the entity at the time of the request. To make changes to the entity associated with the token, you provide the token to operations like <code>update</code> and <code>delete</code>. WAF uses the token to ensure that no changes have been made to the entity since you last retrieved it. If a change has been made, the update fails with a <code>WAFOptimisticLockException</code>. If this happens, perform another <code>get</code>, and use the new token returned by that operation. </p>
+
+        Raises:
+            aws_sdk_wafv2.errors.waf_associated_item_exception.WAFAssociatedItemException: <p>WAF couldn’t perform the operation because your resource is being used by another resource or it’s associated with another resource. </p>
+            aws_sdk_wafv2.errors.waf_internal_error_exception.WAFInternalErrorException: <p>Your request is valid, but WAF couldn’t perform the operation because of a system problem. Retry your request. </p>
+            aws_sdk_wafv2.errors.waf_invalid_operation_exception.WAFInvalidOperationException: <p>The operation isn't valid. </p>
+            aws_sdk_wafv2.errors.waf_invalid_parameter_exception.WAFInvalidParameterException: <p>The operation failed because WAF didn't recognize a parameter in the request. For example: </p> <ul> <li> <p>You specified a parameter name or value that isn't valid.</p> </li> <li> <p>Your nested statement isn't valid. You might have tried to nest a statement that can’t be nested. </p> </li> <li> <p>You tried to update a <code>WebACL</code> with a <code>DefaultAction</code> that isn't among the types available at <a>DefaultAction</a>.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource with which a web ACL can't be associated.</p> </li> </ul>
+            aws_sdk_wafv2.errors.waf_nonexistent_item_exception.WAFNonexistentItemException: <p>WAF couldn’t perform the operation because your resource doesn't exist. If you've just created a resource that you're using in this operation, you might just need to wait a few minutes. It can take from a few seconds to a number of minutes for changes to propagate. </p>
+            aws_sdk_wafv2.errors.waf_optimistic_lock_exception.WAFOptimisticLockException: <p>WAF couldn’t save your changes because you tried to update or delete a resource that has changed since you last retrieved it. Get the resource again, make any changes you need to make to the new copy, and retry your operation. </p>
+            aws_sdk_wafv2.errors.waf_tag_operation_exception.WAFTagOperationException: <p>An error occurred during the tagging operation. Retry your request.</p>
+            aws_sdk_wafv2.errors.waf_tag_operation_internal_error_exception.WAFTagOperationInternalErrorException: <p>WAF couldn’t perform your tagging operation because of an internal error. Retry your request.</p>
+            aws_sdk_wafv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -821,6 +930,14 @@ class WAFV2Client:
             resource_arn: <p>The Amazon Resource Name (ARN) of the web ACL from which you want to delete the <a>LoggingConfiguration</a>.</p>
             log_type: <p>Used to distinguish between various logging options. Currently, there is one option.</p> <p>Default: <code>WAF_LOGS</code> </p>
             log_scope: <p>The owner of the logging configuration, which must be set to <code>CUSTOMER</code> for the configurations that you manage. </p> <p>The log scope <code>SECURITY_LAKE</code> indicates a configuration that is managed through Amazon Security Lake. You can use Security Lake to collect log and event data from various sources for normalization, analysis, and management. For information, see <a href=\"https://docs.aws.amazon.com/security-lake/latest/userguide/internal-sources.html\">Collecting data from Amazon Web Services services</a> in the <i>Amazon Security Lake user guide</i>. </p> <p>The log scope <code>CLOUDWATCH_TELEMETRY_RULE_MANAGED</code> indicates a configuration that is managed through Amazon CloudWatch Logs for telemetry data collection and analysis. For information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.html\">What is Amazon CloudWatch Logs ?</a> in the <i>Amazon CloudWatch Logs user guide</i>. </p> <p>Default: <code>CUSTOMER</code> </p>
+
+        Raises:
+            aws_sdk_wafv2.errors.waf_internal_error_exception.WAFInternalErrorException: <p>Your request is valid, but WAF couldn’t perform the operation because of a system problem. Retry your request. </p>
+            aws_sdk_wafv2.errors.waf_invalid_operation_exception.WAFInvalidOperationException: <p>The operation isn't valid. </p>
+            aws_sdk_wafv2.errors.waf_invalid_parameter_exception.WAFInvalidParameterException: <p>The operation failed because WAF didn't recognize a parameter in the request. For example: </p> <ul> <li> <p>You specified a parameter name or value that isn't valid.</p> </li> <li> <p>Your nested statement isn't valid. You might have tried to nest a statement that can’t be nested. </p> </li> <li> <p>You tried to update a <code>WebACL</code> with a <code>DefaultAction</code> that isn't among the types available at <a>DefaultAction</a>.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource with which a web ACL can't be associated.</p> </li> </ul>
+            aws_sdk_wafv2.errors.waf_nonexistent_item_exception.WAFNonexistentItemException: <p>WAF couldn’t perform the operation because your resource doesn't exist. If you've just created a resource that you're using in this operation, you might just need to wait a few minutes. It can take from a few seconds to a number of minutes for changes to propagate. </p>
+            aws_sdk_wafv2.errors.waf_optimistic_lock_exception.WAFOptimisticLockException: <p>WAF couldn’t save your changes because you tried to update or delete a resource that has changed since you last retrieved it. Get the resource again, make any changes you need to make to the new copy, and retry your operation. </p>
+            aws_sdk_wafv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -862,6 +979,12 @@ class WAFV2Client:
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the rule group from which you want to delete the policy.</p> <p>You must be the owner of the rule group to perform this operation.</p>
+
+        Raises:
+            aws_sdk_wafv2.errors.waf_internal_error_exception.WAFInternalErrorException: <p>Your request is valid, but WAF couldn’t perform the operation because of a system problem. Retry your request. </p>
+            aws_sdk_wafv2.errors.waf_invalid_parameter_exception.WAFInvalidParameterException: <p>The operation failed because WAF didn't recognize a parameter in the request. For example: </p> <ul> <li> <p>You specified a parameter name or value that isn't valid.</p> </li> <li> <p>Your nested statement isn't valid. You might have tried to nest a statement that can’t be nested. </p> </li> <li> <p>You tried to update a <code>WebACL</code> with a <code>DefaultAction</code> that isn't among the types available at <a>DefaultAction</a>.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource with which a web ACL can't be associated.</p> </li> </ul>
+            aws_sdk_wafv2.errors.waf_nonexistent_item_exception.WAFNonexistentItemException: <p>WAF couldn’t perform the operation because your resource doesn't exist. If you've just created a resource that you're using in this operation, you might just need to wait a few minutes. It can take from a few seconds to a number of minutes for changes to propagate. </p>
+            aws_sdk_wafv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -905,6 +1028,17 @@ class WAFV2Client:
             scope: <p>Specifies whether this is for a global resource type, such as a Amazon CloudFront distribution. For an Amplify application, use <code>CLOUDFRONT</code>.</p> <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p> <ul> <li> <p>CLI - Specify the Region when you use the CloudFront scope: <code>--scope=CLOUDFRONT --region=us-east-1</code>. </p> </li> <li> <p>API and SDKs - For all calls, use the Region endpoint us-east-1. </p> </li> </ul>
             id: <p>A unique identifier for the set. This ID is returned in the responses to create and list commands. You provide it to operations like update and delete.</p>
             lock_token: <p>A token used for optimistic locking. WAF returns a token to your <code>get</code> and <code>list</code> requests, to mark the state of the entity at the time of the request. To make changes to the entity associated with the token, you provide the token to operations like <code>update</code> and <code>delete</code>. WAF uses the token to ensure that no changes have been made to the entity since you last retrieved it. If a change has been made, the update fails with a <code>WAFOptimisticLockException</code>. If this happens, perform another <code>get</code>, and use the new token returned by that operation. </p>
+
+        Raises:
+            aws_sdk_wafv2.errors.waf_associated_item_exception.WAFAssociatedItemException: <p>WAF couldn’t perform the operation because your resource is being used by another resource or it’s associated with another resource. </p>
+            aws_sdk_wafv2.errors.waf_internal_error_exception.WAFInternalErrorException: <p>Your request is valid, but WAF couldn’t perform the operation because of a system problem. Retry your request. </p>
+            aws_sdk_wafv2.errors.waf_invalid_operation_exception.WAFInvalidOperationException: <p>The operation isn't valid. </p>
+            aws_sdk_wafv2.errors.waf_invalid_parameter_exception.WAFInvalidParameterException: <p>The operation failed because WAF didn't recognize a parameter in the request. For example: </p> <ul> <li> <p>You specified a parameter name or value that isn't valid.</p> </li> <li> <p>Your nested statement isn't valid. You might have tried to nest a statement that can’t be nested. </p> </li> <li> <p>You tried to update a <code>WebACL</code> with a <code>DefaultAction</code> that isn't among the types available at <a>DefaultAction</a>.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource with which a web ACL can't be associated.</p> </li> </ul>
+            aws_sdk_wafv2.errors.waf_nonexistent_item_exception.WAFNonexistentItemException: <p>WAF couldn’t perform the operation because your resource doesn't exist. If you've just created a resource that you're using in this operation, you might just need to wait a few minutes. It can take from a few seconds to a number of minutes for changes to propagate. </p>
+            aws_sdk_wafv2.errors.waf_optimistic_lock_exception.WAFOptimisticLockException: <p>WAF couldn’t save your changes because you tried to update or delete a resource that has changed since you last retrieved it. Get the resource again, make any changes you need to make to the new copy, and retry your operation. </p>
+            aws_sdk_wafv2.errors.waf_tag_operation_exception.WAFTagOperationException: <p>An error occurred during the tagging operation. Retry your request.</p>
+            aws_sdk_wafv2.errors.waf_tag_operation_internal_error_exception.WAFTagOperationInternalErrorException: <p>WAF couldn’t perform your tagging operation because of an internal error. Retry your request.</p>
+            aws_sdk_wafv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -951,6 +1085,17 @@ class WAFV2Client:
             scope: <p>Specifies whether this is for a global resource type, such as a Amazon CloudFront distribution. For an Amplify application, use <code>CLOUDFRONT</code>.</p> <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p> <ul> <li> <p>CLI - Specify the Region when you use the CloudFront scope: <code>--scope=CLOUDFRONT --region=us-east-1</code>. </p> </li> <li> <p>API and SDKs - For all calls, use the Region endpoint us-east-1. </p> </li> </ul>
             id: <p>A unique identifier for the rule group. This ID is returned in the responses to create and list commands. You provide it to operations like update and delete.</p>
             lock_token: <p>A token used for optimistic locking. WAF returns a token to your <code>get</code> and <code>list</code> requests, to mark the state of the entity at the time of the request. To make changes to the entity associated with the token, you provide the token to operations like <code>update</code> and <code>delete</code>. WAF uses the token to ensure that no changes have been made to the entity since you last retrieved it. If a change has been made, the update fails with a <code>WAFOptimisticLockException</code>. If this happens, perform another <code>get</code>, and use the new token returned by that operation. </p>
+
+        Raises:
+            aws_sdk_wafv2.errors.waf_associated_item_exception.WAFAssociatedItemException: <p>WAF couldn’t perform the operation because your resource is being used by another resource or it’s associated with another resource. </p>
+            aws_sdk_wafv2.errors.waf_internal_error_exception.WAFInternalErrorException: <p>Your request is valid, but WAF couldn’t perform the operation because of a system problem. Retry your request. </p>
+            aws_sdk_wafv2.errors.waf_invalid_operation_exception.WAFInvalidOperationException: <p>The operation isn't valid. </p>
+            aws_sdk_wafv2.errors.waf_invalid_parameter_exception.WAFInvalidParameterException: <p>The operation failed because WAF didn't recognize a parameter in the request. For example: </p> <ul> <li> <p>You specified a parameter name or value that isn't valid.</p> </li> <li> <p>Your nested statement isn't valid. You might have tried to nest a statement that can’t be nested. </p> </li> <li> <p>You tried to update a <code>WebACL</code> with a <code>DefaultAction</code> that isn't among the types available at <a>DefaultAction</a>.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource with which a web ACL can't be associated.</p> </li> </ul>
+            aws_sdk_wafv2.errors.waf_nonexistent_item_exception.WAFNonexistentItemException: <p>WAF couldn’t perform the operation because your resource doesn't exist. If you've just created a resource that you're using in this operation, you might just need to wait a few minutes. It can take from a few seconds to a number of minutes for changes to propagate. </p>
+            aws_sdk_wafv2.errors.waf_optimistic_lock_exception.WAFOptimisticLockException: <p>WAF couldn’t save your changes because you tried to update or delete a resource that has changed since you last retrieved it. Get the resource again, make any changes you need to make to the new copy, and retry your operation. </p>
+            aws_sdk_wafv2.errors.waf_tag_operation_exception.WAFTagOperationException: <p>An error occurred during the tagging operation. Retry your request.</p>
+            aws_sdk_wafv2.errors.waf_tag_operation_internal_error_exception.WAFTagOperationInternalErrorException: <p>WAF couldn’t perform your tagging operation because of an internal error. Retry your request.</p>
+            aws_sdk_wafv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -997,6 +1142,17 @@ class WAFV2Client:
             scope: <p>Specifies whether this is for a global resource type, such as a Amazon CloudFront distribution. For an Amplify application, use <code>CLOUDFRONT</code>.</p> <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p> <ul> <li> <p>CLI - Specify the Region when you use the CloudFront scope: <code>--scope=CLOUDFRONT --region=us-east-1</code>. </p> </li> <li> <p>API and SDKs - For all calls, use the Region endpoint us-east-1. </p> </li> </ul>
             id: <p>The unique identifier for the web ACL. This ID is returned in the responses to create and list commands. You provide it to operations like update and delete.</p>
             lock_token: <p>A token used for optimistic locking. WAF returns a token to your <code>get</code> and <code>list</code> requests, to mark the state of the entity at the time of the request. To make changes to the entity associated with the token, you provide the token to operations like <code>update</code> and <code>delete</code>. WAF uses the token to ensure that no changes have been made to the entity since you last retrieved it. If a change has been made, the update fails with a <code>WAFOptimisticLockException</code>. If this happens, perform another <code>get</code>, and use the new token returned by that operation. </p>
+
+        Raises:
+            aws_sdk_wafv2.errors.waf_associated_item_exception.WAFAssociatedItemException: <p>WAF couldn’t perform the operation because your resource is being used by another resource or it’s associated with another resource. </p>
+            aws_sdk_wafv2.errors.waf_internal_error_exception.WAFInternalErrorException: <p>Your request is valid, but WAF couldn’t perform the operation because of a system problem. Retry your request. </p>
+            aws_sdk_wafv2.errors.waf_invalid_operation_exception.WAFInvalidOperationException: <p>The operation isn't valid. </p>
+            aws_sdk_wafv2.errors.waf_invalid_parameter_exception.WAFInvalidParameterException: <p>The operation failed because WAF didn't recognize a parameter in the request. For example: </p> <ul> <li> <p>You specified a parameter name or value that isn't valid.</p> </li> <li> <p>Your nested statement isn't valid. You might have tried to nest a statement that can’t be nested. </p> </li> <li> <p>You tried to update a <code>WebACL</code> with a <code>DefaultAction</code> that isn't among the types available at <a>DefaultAction</a>.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource with which a web ACL can't be associated.</p> </li> </ul>
+            aws_sdk_wafv2.errors.waf_nonexistent_item_exception.WAFNonexistentItemException: <p>WAF couldn’t perform the operation because your resource doesn't exist. If you've just created a resource that you're using in this operation, you might just need to wait a few minutes. It can take from a few seconds to a number of minutes for changes to propagate. </p>
+            aws_sdk_wafv2.errors.waf_optimistic_lock_exception.WAFOptimisticLockException: <p>WAF couldn’t save your changes because you tried to update or delete a resource that has changed since you last retrieved it. Get the resource again, make any changes you need to make to the new copy, and retry your operation. </p>
+            aws_sdk_wafv2.errors.waf_tag_operation_exception.WAFTagOperationException: <p>An error occurred during the tagging operation. Retry your request.</p>
+            aws_sdk_wafv2.errors.waf_tag_operation_internal_error_exception.WAFTagOperationInternalErrorException: <p>WAF couldn’t perform your tagging operation because of an internal error. Retry your request.</p>
+            aws_sdk_wafv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1037,6 +1193,12 @@ class WAFV2Client:
 
         Args:
             scope: <p>Specifies whether this is for a global resource type, such as a Amazon CloudFront distribution. For an Amplify application, use <code>CLOUDFRONT</code>.</p> <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p> <ul> <li> <p>CLI - Specify the Region when you use the CloudFront scope: <code>--scope=CLOUDFRONT --region=us-east-1</code>. </p> </li> <li> <p>API and SDKs - For all calls, use the Region endpoint us-east-1. </p> </li> </ul>
+
+        Raises:
+            aws_sdk_wafv2.errors.waf_internal_error_exception.WAFInternalErrorException: <p>Your request is valid, but WAF couldn’t perform the operation because of a system problem. Retry your request. </p>
+            aws_sdk_wafv2.errors.waf_invalid_operation_exception.WAFInvalidOperationException: <p>The operation isn't valid. </p>
+            aws_sdk_wafv2.errors.waf_invalid_parameter_exception.WAFInvalidParameterException: <p>The operation failed because WAF didn't recognize a parameter in the request. For example: </p> <ul> <li> <p>You specified a parameter name or value that isn't valid.</p> </li> <li> <p>Your nested statement isn't valid. You might have tried to nest a statement that can’t be nested. </p> </li> <li> <p>You tried to update a <code>WebACL</code> with a <code>DefaultAction</code> that isn't among the types available at <a>DefaultAction</a>.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource with which a web ACL can't be associated.</p> </li> </ul>
+            aws_sdk_wafv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1076,6 +1238,12 @@ class WAFV2Client:
         Args:
             vendor_name: <p>The name of the managed rule group vendor. You use this, along with the rule group name, to identify a rule group.</p>
             scope: <p>Specifies whether this is for a global resource type, such as a Amazon CloudFront distribution. For an Amplify application, use <code>CLOUDFRONT</code>.</p> <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p> <ul> <li> <p>CLI - Specify the Region when you use the CloudFront scope: <code>--scope=CLOUDFRONT --region=us-east-1</code>. </p> </li> <li> <p>API and SDKs - For all calls, use the Region endpoint us-east-1. </p> </li> </ul>
+
+        Raises:
+            aws_sdk_wafv2.errors.waf_internal_error_exception.WAFInternalErrorException: <p>Your request is valid, but WAF couldn’t perform the operation because of a system problem. Retry your request. </p>
+            aws_sdk_wafv2.errors.waf_invalid_operation_exception.WAFInvalidOperationException: <p>The operation isn't valid. </p>
+            aws_sdk_wafv2.errors.waf_invalid_parameter_exception.WAFInvalidParameterException: <p>The operation failed because WAF didn't recognize a parameter in the request. For example: </p> <ul> <li> <p>You specified a parameter name or value that isn't valid.</p> </li> <li> <p>Your nested statement isn't valid. You might have tried to nest a statement that can’t be nested. </p> </li> <li> <p>You tried to update a <code>WebACL</code> with a <code>DefaultAction</code> that isn't among the types available at <a>DefaultAction</a>.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource with which a web ACL can't be associated.</p> </li> </ul>
+            aws_sdk_wafv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1122,6 +1290,15 @@ class WAFV2Client:
             name: <p>The name of the managed rule group. You use this, along with the vendor name, to identify the rule group.</p>
             scope: <p>Specifies whether this is for a global resource type, such as a Amazon CloudFront distribution. For an Amplify application, use <code>CLOUDFRONT</code>.</p> <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p> <ul> <li> <p>CLI - Specify the Region when you use the CloudFront scope: <code>--scope=CLOUDFRONT --region=us-east-1</code>. </p> </li> <li> <p>API and SDKs - For all calls, use the Region endpoint us-east-1. </p> </li> </ul>
             version_name: <p>The version of the rule group. You can only use a version that is not scheduled for expiration. If you don't provide this, WAF uses the vendor's default version. </p>
+
+        Raises:
+            aws_sdk_wafv2.errors.waf_expired_managed_rule_group_version_exception.WAFExpiredManagedRuleGroupVersionException: <p>The operation failed because the specified version for the managed rule group has expired. You can retrieve the available versions for the managed rule group by calling <a>ListAvailableManagedRuleGroupVersions</a>.</p>
+            aws_sdk_wafv2.errors.waf_internal_error_exception.WAFInternalErrorException: <p>Your request is valid, but WAF couldn’t perform the operation because of a system problem. Retry your request. </p>
+            aws_sdk_wafv2.errors.waf_invalid_operation_exception.WAFInvalidOperationException: <p>The operation isn't valid. </p>
+            aws_sdk_wafv2.errors.waf_invalid_parameter_exception.WAFInvalidParameterException: <p>The operation failed because WAF didn't recognize a parameter in the request. For example: </p> <ul> <li> <p>You specified a parameter name or value that isn't valid.</p> </li> <li> <p>Your nested statement isn't valid. You might have tried to nest a statement that can’t be nested. </p> </li> <li> <p>You tried to update a <code>WebACL</code> with a <code>DefaultAction</code> that isn't among the types available at <a>DefaultAction</a>.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource with which a web ACL can't be associated.</p> </li> </ul>
+            aws_sdk_wafv2.errors.waf_invalid_resource_exception.WAFInvalidResourceException: <p>WAF couldn’t perform the operation because the resource that you requested isn’t valid. Check the resource, and try again.</p>
+            aws_sdk_wafv2.errors.waf_nonexistent_item_exception.WAFNonexistentItemException: <p>WAF couldn’t perform the operation because your resource doesn't exist. If you've just created a resource that you're using in this operation, you might just need to wait a few minutes. It can take from a few seconds to a number of minutes for changes to propagate. </p>
+            aws_sdk_wafv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1163,6 +1340,13 @@ class WAFV2Client:
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource to disassociate from the web ACL. </p> <p>The ARN must be in one of the following formats:</p> <ul> <li> <p>For an Application Load Balancer: <code>arn:<i>partition</i>:elasticloadbalancing:<i>region</i>:<i>account-id</i>:loadbalancer/app/<i>load-balancer-name</i>/<i>load-balancer-id</i> </code> </p> </li> <li> <p>For an Amazon API Gateway REST API: <code>arn:<i>partition</i>:apigateway:<i>region</i>::/restapis/<i>api-id</i>/stages/<i>stage-name</i> </code> </p> </li> <li> <p>For an AppSync GraphQL API: <code>arn:<i>partition</i>:appsync:<i>region</i>:<i>account-id</i>:apis/<i>GraphQLApiId</i> </code> </p> </li> <li> <p>For an Amazon Cognito user pool: <code>arn:<i>partition</i>:cognito-idp:<i>region</i>:<i>account-id</i>:userpool/<i>user-pool-id</i> </code> </p> </li> <li> <p>For an App Runner service: <code>arn:<i>partition</i>:apprunner:<i>region</i>:<i>account-id</i>:service/<i>apprunner-service-name</i>/<i>apprunner-service-id</i> </code> </p> </li> <li> <p>For an Amazon Web Services Verified Access instance: <code>arn:<i>partition</i>:ec2:<i>region</i>:<i>account-id</i>:verified-access-instance/<i>instance-id</i> </code> </p> </li> <li> <p>For an Amplify application: <code>arn:<i>partition</i>:amplify:<i>region</i>:<i>account-id</i>:apps/<i>app-id</i> </code> </p> </li> </ul>
+
+        Raises:
+            aws_sdk_wafv2.errors.waf_internal_error_exception.WAFInternalErrorException: <p>Your request is valid, but WAF couldn’t perform the operation because of a system problem. Retry your request. </p>
+            aws_sdk_wafv2.errors.waf_invalid_operation_exception.WAFInvalidOperationException: <p>The operation isn't valid. </p>
+            aws_sdk_wafv2.errors.waf_invalid_parameter_exception.WAFInvalidParameterException: <p>The operation failed because WAF didn't recognize a parameter in the request. For example: </p> <ul> <li> <p>You specified a parameter name or value that isn't valid.</p> </li> <li> <p>Your nested statement isn't valid. You might have tried to nest a statement that can’t be nested. </p> </li> <li> <p>You tried to update a <code>WebACL</code> with a <code>DefaultAction</code> that isn't among the types available at <a>DefaultAction</a>.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource with which a web ACL can't be associated.</p> </li> </ul>
+            aws_sdk_wafv2.errors.waf_nonexistent_item_exception.WAFNonexistentItemException: <p>WAF couldn’t perform the operation because your resource doesn't exist. If you've just created a resource that you're using in this operation, you might just need to wait a few minutes. It can take from a few seconds to a number of minutes for changes to propagate. </p>
+            aws_sdk_wafv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1202,6 +1386,13 @@ class WAFV2Client:
         Args:
             platform: <p>The device platform.</p>
             release_version: <p>The release version. For the latest available version, specify <code>LATEST</code>.</p>
+
+        Raises:
+            aws_sdk_wafv2.errors.waf_internal_error_exception.WAFInternalErrorException: <p>Your request is valid, but WAF couldn’t perform the operation because of a system problem. Retry your request. </p>
+            aws_sdk_wafv2.errors.waf_invalid_operation_exception.WAFInvalidOperationException: <p>The operation isn't valid. </p>
+            aws_sdk_wafv2.errors.waf_invalid_parameter_exception.WAFInvalidParameterException: <p>The operation failed because WAF didn't recognize a parameter in the request. For example: </p> <ul> <li> <p>You specified a parameter name or value that isn't valid.</p> </li> <li> <p>Your nested statement isn't valid. You might have tried to nest a statement that can’t be nested. </p> </li> <li> <p>You tried to update a <code>WebACL</code> with a <code>DefaultAction</code> that isn't among the types available at <a>DefaultAction</a>.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource with which a web ACL can't be associated.</p> </li> </ul>
+            aws_sdk_wafv2.errors.waf_nonexistent_item_exception.WAFNonexistentItemException: <p>WAF couldn’t perform the operation because your resource doesn't exist. If you've just created a resource that you're using in this operation, you might just need to wait a few minutes. It can take from a few seconds to a number of minutes for changes to propagate. </p>
+            aws_sdk_wafv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1244,6 +1435,14 @@ class WAFV2Client:
         Args:
             scope: <p>Specifies whether this is for a global resource type, such as a Amazon CloudFront distribution. For an Amplify application, use <code>CLOUDFRONT</code>.</p> <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p> <ul> <li> <p>CLI - Specify the Region when you use the CloudFront scope: <code>--scope=CLOUDFRONT --region=us-east-1</code>. </p> </li> <li> <p>API and SDKs - For all calls, use the Region endpoint us-east-1. </p> </li> </ul>
             api_key: <p>The encrypted API key. </p>
+
+        Raises:
+            aws_sdk_wafv2.errors.waf_internal_error_exception.WAFInternalErrorException: <p>Your request is valid, but WAF couldn’t perform the operation because of a system problem. Retry your request. </p>
+            aws_sdk_wafv2.errors.waf_invalid_operation_exception.WAFInvalidOperationException: <p>The operation isn't valid. </p>
+            aws_sdk_wafv2.errors.waf_invalid_parameter_exception.WAFInvalidParameterException: <p>The operation failed because WAF didn't recognize a parameter in the request. For example: </p> <ul> <li> <p>You specified a parameter name or value that isn't valid.</p> </li> <li> <p>Your nested statement isn't valid. You might have tried to nest a statement that can’t be nested. </p> </li> <li> <p>You tried to update a <code>WebACL</code> with a <code>DefaultAction</code> that isn't among the types available at <a>DefaultAction</a>.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource with which a web ACL can't be associated.</p> </li> </ul>
+            aws_sdk_wafv2.errors.waf_invalid_resource_exception.WAFInvalidResourceException: <p>WAF couldn’t perform the operation because the resource that you requested isn’t valid. Check the resource, and try again.</p>
+            aws_sdk_wafv2.errors.waf_nonexistent_item_exception.WAFNonexistentItemException: <p>WAF couldn’t perform the operation because your resource doesn't exist. If you've just created a resource that you're using in this operation, you might just need to wait a few minutes. It can take from a few seconds to a number of minutes for changes to propagate. </p>
+            aws_sdk_wafv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1286,6 +1485,13 @@ class WAFV2Client:
             name: <p>The name of the IP set. You cannot change the name of an <code>IPSet</code> after you create it.</p>
             scope: <p>Specifies whether this is for a global resource type, such as a Amazon CloudFront distribution. For an Amplify application, use <code>CLOUDFRONT</code>.</p> <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p> <ul> <li> <p>CLI - Specify the Region when you use the CloudFront scope: <code>--scope=CLOUDFRONT --region=us-east-1</code>. </p> </li> <li> <p>API and SDKs - For all calls, use the Region endpoint us-east-1. </p> </li> </ul>
             id: <p>A unique identifier for the set. This ID is returned in the responses to create and list commands. You provide it to operations like update and delete.</p>
+
+        Raises:
+            aws_sdk_wafv2.errors.waf_internal_error_exception.WAFInternalErrorException: <p>Your request is valid, but WAF couldn’t perform the operation because of a system problem. Retry your request. </p>
+            aws_sdk_wafv2.errors.waf_invalid_operation_exception.WAFInvalidOperationException: <p>The operation isn't valid. </p>
+            aws_sdk_wafv2.errors.waf_invalid_parameter_exception.WAFInvalidParameterException: <p>The operation failed because WAF didn't recognize a parameter in the request. For example: </p> <ul> <li> <p>You specified a parameter name or value that isn't valid.</p> </li> <li> <p>Your nested statement isn't valid. You might have tried to nest a statement that can’t be nested. </p> </li> <li> <p>You tried to update a <code>WebACL</code> with a <code>DefaultAction</code> that isn't among the types available at <a>DefaultAction</a>.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource with which a web ACL can't be associated.</p> </li> </ul>
+            aws_sdk_wafv2.errors.waf_nonexistent_item_exception.WAFNonexistentItemException: <p>WAF couldn’t perform the operation because your resource doesn't exist. If you've just created a resource that you're using in this operation, you might just need to wait a few minutes. It can take from a few seconds to a number of minutes for changes to propagate. </p>
+            aws_sdk_wafv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1329,6 +1535,13 @@ class WAFV2Client:
             resource_arn: <p>The Amazon Resource Name (ARN) of the web ACL for which you want to get the <a>LoggingConfiguration</a>.</p>
             log_type: <p>Used to distinguish between various logging options. Currently, there is one option.</p> <p>Default: <code>WAF_LOGS</code> </p>
             log_scope: <p>The owner of the logging configuration, which must be set to <code>CUSTOMER</code> for the configurations that you manage. </p> <p>The log scope <code>SECURITY_LAKE</code> indicates a configuration that is managed through Amazon Security Lake. You can use Security Lake to collect log and event data from various sources for normalization, analysis, and management. For information, see <a href=\"https://docs.aws.amazon.com/security-lake/latest/userguide/internal-sources.html\">Collecting data from Amazon Web Services services</a> in the <i>Amazon Security Lake user guide</i>. </p> <p>The log scope <code>CLOUDWATCH_TELEMETRY_RULE_MANAGED</code> indicates a configuration that is managed through Amazon CloudWatch Logs for telemetry data collection and analysis. For information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.html\">What is Amazon CloudWatch Logs ?</a> in the <i>Amazon CloudWatch Logs user guide</i>. </p> <p>Default: <code>CUSTOMER</code> </p>
+
+        Raises:
+            aws_sdk_wafv2.errors.waf_internal_error_exception.WAFInternalErrorException: <p>Your request is valid, but WAF couldn’t perform the operation because of a system problem. Retry your request. </p>
+            aws_sdk_wafv2.errors.waf_invalid_operation_exception.WAFInvalidOperationException: <p>The operation isn't valid. </p>
+            aws_sdk_wafv2.errors.waf_invalid_parameter_exception.WAFInvalidParameterException: <p>The operation failed because WAF didn't recognize a parameter in the request. For example: </p> <ul> <li> <p>You specified a parameter name or value that isn't valid.</p> </li> <li> <p>Your nested statement isn't valid. You might have tried to nest a statement that can’t be nested. </p> </li> <li> <p>You tried to update a <code>WebACL</code> with a <code>DefaultAction</code> that isn't among the types available at <a>DefaultAction</a>.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource with which a web ACL can't be associated.</p> </li> </ul>
+            aws_sdk_wafv2.errors.waf_nonexistent_item_exception.WAFNonexistentItemException: <p>WAF couldn’t perform the operation because your resource doesn't exist. If you've just created a resource that you're using in this operation, you might just need to wait a few minutes. It can take from a few seconds to a number of minutes for changes to propagate. </p>
+            aws_sdk_wafv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1374,6 +1587,13 @@ class WAFV2Client:
             name: <p>The name of the managed rule set. You use this, along with the rule set ID, to identify the rule set.</p> <p>This name is assigned to the corresponding managed rule group, which your customers can access and use. </p>
             scope: <p>Specifies whether this is for a global resource type, such as a Amazon CloudFront distribution. For an Amplify application, use <code>CLOUDFRONT</code>.</p> <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p> <ul> <li> <p>CLI - Specify the Region when you use the CloudFront scope: <code>--scope=CLOUDFRONT --region=us-east-1</code>. </p> </li> <li> <p>API and SDKs - For all calls, use the Region endpoint us-east-1. </p> </li> </ul>
             id: <p>A unique identifier for the managed rule set. The ID is returned in the responses to commands like <code>list</code>. You provide it to operations like <code>get</code> and <code>update</code>.</p>
+
+        Raises:
+            aws_sdk_wafv2.errors.waf_internal_error_exception.WAFInternalErrorException: <p>Your request is valid, but WAF couldn’t perform the operation because of a system problem. Retry your request. </p>
+            aws_sdk_wafv2.errors.waf_invalid_operation_exception.WAFInvalidOperationException: <p>The operation isn't valid. </p>
+            aws_sdk_wafv2.errors.waf_invalid_parameter_exception.WAFInvalidParameterException: <p>The operation failed because WAF didn't recognize a parameter in the request. For example: </p> <ul> <li> <p>You specified a parameter name or value that isn't valid.</p> </li> <li> <p>Your nested statement isn't valid. You might have tried to nest a statement that can’t be nested. </p> </li> <li> <p>You tried to update a <code>WebACL</code> with a <code>DefaultAction</code> that isn't among the types available at <a>DefaultAction</a>.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource with which a web ACL can't be associated.</p> </li> </ul>
+            aws_sdk_wafv2.errors.waf_nonexistent_item_exception.WAFNonexistentItemException: <p>WAF couldn’t perform the operation because your resource doesn't exist. If you've just created a resource that you're using in this operation, you might just need to wait a few minutes. It can take from a few seconds to a number of minutes for changes to propagate. </p>
+            aws_sdk_wafv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1415,6 +1635,13 @@ class WAFV2Client:
         Args:
             platform: <p>The device platform.</p>
             release_version: <p>The release version. For the latest available version, specify <code>LATEST</code>.</p>
+
+        Raises:
+            aws_sdk_wafv2.errors.waf_internal_error_exception.WAFInternalErrorException: <p>Your request is valid, but WAF couldn’t perform the operation because of a system problem. Retry your request. </p>
+            aws_sdk_wafv2.errors.waf_invalid_operation_exception.WAFInvalidOperationException: <p>The operation isn't valid. </p>
+            aws_sdk_wafv2.errors.waf_invalid_parameter_exception.WAFInvalidParameterException: <p>The operation failed because WAF didn't recognize a parameter in the request. For example: </p> <ul> <li> <p>You specified a parameter name or value that isn't valid.</p> </li> <li> <p>Your nested statement isn't valid. You might have tried to nest a statement that can’t be nested. </p> </li> <li> <p>You tried to update a <code>WebACL</code> with a <code>DefaultAction</code> that isn't among the types available at <a>DefaultAction</a>.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource with which a web ACL can't be associated.</p> </li> </ul>
+            aws_sdk_wafv2.errors.waf_nonexistent_item_exception.WAFNonexistentItemException: <p>WAF couldn’t perform the operation because your resource doesn't exist. If you've just created a resource that you're using in this operation, you might just need to wait a few minutes. It can take from a few seconds to a number of minutes for changes to propagate. </p>
+            aws_sdk_wafv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1455,6 +1682,12 @@ class WAFV2Client:
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the rule group for which you want to get the policy.</p>
+
+        Raises:
+            aws_sdk_wafv2.errors.waf_internal_error_exception.WAFInternalErrorException: <p>Your request is valid, but WAF couldn’t perform the operation because of a system problem. Retry your request. </p>
+            aws_sdk_wafv2.errors.waf_invalid_parameter_exception.WAFInvalidParameterException: <p>The operation failed because WAF didn't recognize a parameter in the request. For example: </p> <ul> <li> <p>You specified a parameter name or value that isn't valid.</p> </li> <li> <p>Your nested statement isn't valid. You might have tried to nest a statement that can’t be nested. </p> </li> <li> <p>You tried to update a <code>WebACL</code> with a <code>DefaultAction</code> that isn't among the types available at <a>DefaultAction</a>.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource with which a web ACL can't be associated.</p> </li> </ul>
+            aws_sdk_wafv2.errors.waf_nonexistent_item_exception.WAFNonexistentItemException: <p>WAF couldn’t perform the operation because your resource doesn't exist. If you've just created a resource that you're using in this operation, you might just need to wait a few minutes. It can take from a few seconds to a number of minutes for changes to propagate. </p>
+            aws_sdk_wafv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1502,6 +1735,14 @@ class WAFV2Client:
             web_acl_id: <p>The unique identifier for the web ACL. This ID is returned in the responses to create and list commands. You provide it to operations like update and delete.</p>
             rule_group_rule_name: <p>The name of the rule group reference statement in your web ACL. This is required only when you have the rate-based rule nested inside a rule group. </p>
             rule_name: <p>The name of the rate-based rule to get the keys for. If you have the rule defined inside a rule group that you're using in your web ACL, also provide the name of the rule group reference statement in the request parameter <code>RuleGroupRuleName</code>.</p>
+
+        Raises:
+            aws_sdk_wafv2.errors.waf_internal_error_exception.WAFInternalErrorException: <p>Your request is valid, but WAF couldn’t perform the operation because of a system problem. Retry your request. </p>
+            aws_sdk_wafv2.errors.waf_invalid_operation_exception.WAFInvalidOperationException: <p>The operation isn't valid. </p>
+            aws_sdk_wafv2.errors.waf_invalid_parameter_exception.WAFInvalidParameterException: <p>The operation failed because WAF didn't recognize a parameter in the request. For example: </p> <ul> <li> <p>You specified a parameter name or value that isn't valid.</p> </li> <li> <p>Your nested statement isn't valid. You might have tried to nest a statement that can’t be nested. </p> </li> <li> <p>You tried to update a <code>WebACL</code> with a <code>DefaultAction</code> that isn't among the types available at <a>DefaultAction</a>.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource with which a web ACL can't be associated.</p> </li> </ul>
+            aws_sdk_wafv2.errors.waf_nonexistent_item_exception.WAFNonexistentItemException: <p>WAF couldn’t perform the operation because your resource doesn't exist. If you've just created a resource that you're using in this operation, you might just need to wait a few minutes. It can take from a few seconds to a number of minutes for changes to propagate. </p>
+            aws_sdk_wafv2.errors.waf_unsupported_aggregate_key_type_exception.WAFUnsupportedAggregateKeyTypeException: <p>The rule that you've named doesn't aggregate solely on the IP address or solely on the forwarded IP address. This call is only available for rate-based rules with an <code>AggregateKeyType</code> setting of <code>IP</code> or <code>FORWARDED_IP</code>.</p>
+            aws_sdk_wafv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1550,6 +1791,13 @@ class WAFV2Client:
             name: <p>The name of the set. You cannot change the name after you create the set.</p>
             scope: <p>Specifies whether this is for a global resource type, such as a Amazon CloudFront distribution. For an Amplify application, use <code>CLOUDFRONT</code>.</p> <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p> <ul> <li> <p>CLI - Specify the Region when you use the CloudFront scope: <code>--scope=CLOUDFRONT --region=us-east-1</code>. </p> </li> <li> <p>API and SDKs - For all calls, use the Region endpoint us-east-1. </p> </li> </ul>
             id: <p>A unique identifier for the set. This ID is returned in the responses to create and list commands. You provide it to operations like update and delete.</p>
+
+        Raises:
+            aws_sdk_wafv2.errors.waf_internal_error_exception.WAFInternalErrorException: <p>Your request is valid, but WAF couldn’t perform the operation because of a system problem. Retry your request. </p>
+            aws_sdk_wafv2.errors.waf_invalid_operation_exception.WAFInvalidOperationException: <p>The operation isn't valid. </p>
+            aws_sdk_wafv2.errors.waf_invalid_parameter_exception.WAFInvalidParameterException: <p>The operation failed because WAF didn't recognize a parameter in the request. For example: </p> <ul> <li> <p>You specified a parameter name or value that isn't valid.</p> </li> <li> <p>Your nested statement isn't valid. You might have tried to nest a statement that can’t be nested. </p> </li> <li> <p>You tried to update a <code>WebACL</code> with a <code>DefaultAction</code> that isn't among the types available at <a>DefaultAction</a>.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource with which a web ACL can't be associated.</p> </li> </ul>
+            aws_sdk_wafv2.errors.waf_nonexistent_item_exception.WAFNonexistentItemException: <p>WAF couldn’t perform the operation because your resource doesn't exist. If you've just created a resource that you're using in this operation, you might just need to wait a few minutes. It can take from a few seconds to a number of minutes for changes to propagate. </p>
+            aws_sdk_wafv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1595,6 +1843,13 @@ class WAFV2Client:
             scope: <p>Specifies whether this is for a global resource type, such as a Amazon CloudFront distribution. For an Amplify application, use <code>CLOUDFRONT</code>.</p> <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p> <ul> <li> <p>CLI - Specify the Region when you use the CloudFront scope: <code>--scope=CLOUDFRONT --region=us-east-1</code>. </p> </li> <li> <p>API and SDKs - For all calls, use the Region endpoint us-east-1. </p> </li> </ul>
             id: <p>A unique identifier for the rule group. This ID is returned in the responses to create and list commands. You provide it to operations like update and delete.</p>
             arn: <p>The Amazon Resource Name (ARN) of the entity.</p>
+
+        Raises:
+            aws_sdk_wafv2.errors.waf_internal_error_exception.WAFInternalErrorException: <p>Your request is valid, but WAF couldn’t perform the operation because of a system problem. Retry your request. </p>
+            aws_sdk_wafv2.errors.waf_invalid_operation_exception.WAFInvalidOperationException: <p>The operation isn't valid. </p>
+            aws_sdk_wafv2.errors.waf_invalid_parameter_exception.WAFInvalidParameterException: <p>The operation failed because WAF didn't recognize a parameter in the request. For example: </p> <ul> <li> <p>You specified a parameter name or value that isn't valid.</p> </li> <li> <p>Your nested statement isn't valid. You might have tried to nest a statement that can’t be nested. </p> </li> <li> <p>You tried to update a <code>WebACL</code> with a <code>DefaultAction</code> that isn't among the types available at <a>DefaultAction</a>.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource with which a web ACL can't be associated.</p> </li> </ul>
+            aws_sdk_wafv2.errors.waf_nonexistent_item_exception.WAFNonexistentItemException: <p>WAF couldn’t perform the operation because your resource doesn't exist. If you've just created a resource that you're using in this operation, you might just need to wait a few minutes. It can take from a few seconds to a number of minutes for changes to propagate. </p>
+            aws_sdk_wafv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1647,6 +1902,12 @@ class WAFV2Client:
             scope: <p>Specifies whether this is for a global resource type, such as a Amazon CloudFront distribution. For an Amplify application, use <code>CLOUDFRONT</code>.</p> <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p> <ul> <li> <p>CLI - Specify the Region when you use the CloudFront scope: <code>--scope=CLOUDFRONT --region=us-east-1</code>. </p> </li> <li> <p>API and SDKs - For all calls, use the Region endpoint us-east-1. </p> </li> </ul>
             time_window: <p>The start date and time and the end date and time of the range for which you want <code>GetSampledRequests</code> to return a sample of requests. You must specify the times in Coordinated Universal Time (UTC) format. UTC format includes the special designator, <code>Z</code>. For example, <code>\"2016-09-27T14:50Z\"</code>. You can specify any time range in the previous three hours. If you specify a start time that's earlier than three hours ago, WAF sets it to three hours ago.</p>
             max_items: <p>The number of requests that you want WAF to return from among the first 5,000 requests that your Amazon Web Services resource received during the time range. If your resource received fewer requests than the value of <code>MaxItems</code>, <code>GetSampledRequests</code> returns information about all of them. </p>
+
+        Raises:
+            aws_sdk_wafv2.errors.waf_internal_error_exception.WAFInternalErrorException: <p>Your request is valid, but WAF couldn’t perform the operation because of a system problem. Retry your request. </p>
+            aws_sdk_wafv2.errors.waf_invalid_parameter_exception.WAFInvalidParameterException: <p>The operation failed because WAF didn't recognize a parameter in the request. For example: </p> <ul> <li> <p>You specified a parameter name or value that isn't valid.</p> </li> <li> <p>Your nested statement isn't valid. You might have tried to nest a statement that can’t be nested. </p> </li> <li> <p>You tried to update a <code>WebACL</code> with a <code>DefaultAction</code> that isn't among the types available at <a>DefaultAction</a>.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource with which a web ACL can't be associated.</p> </li> </ul>
+            aws_sdk_wafv2.errors.waf_nonexistent_item_exception.WAFNonexistentItemException: <p>WAF couldn’t perform the operation because your resource doesn't exist. If you've just created a resource that you're using in this operation, you might just need to wait a few minutes. It can take from a few seconds to a number of minutes for changes to propagate. </p>
+            aws_sdk_wafv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1710,6 +1971,14 @@ class WAFV2Client:
             limit: <p>The maximum number of path statistics to return. Valid values are 1 to 100.</p>
             number_of_top_traffic_bots_per_path: <p>The maximum number of top bots to include in the statistics for each path. Valid values are 1 to 10.</p>
             next_marker: <p>When you request a list of objects with a <code>Limit</code> setting, if the number of objects that are still available for retrieval exceeds the limit, WAF returns a <code>NextMarker</code> value in the response. To retrieve the next batch of objects, provide the marker from the prior call in your next request.</p>
+
+        Raises:
+            aws_sdk_wafv2.errors.waf_feature_not_included_in_pricing_plan_exception.WAFFeatureNotIncludedInPricingPlanException: <p>The operation failed because the specified WAF feature isn't supported by the CloudFront pricing plan associated with the web ACL.</p>
+            aws_sdk_wafv2.errors.waf_internal_error_exception.WAFInternalErrorException: <p>Your request is valid, but WAF couldn’t perform the operation because of a system problem. Retry your request. </p>
+            aws_sdk_wafv2.errors.waf_invalid_operation_exception.WAFInvalidOperationException: <p>The operation isn't valid. </p>
+            aws_sdk_wafv2.errors.waf_invalid_parameter_exception.WAFInvalidParameterException: <p>The operation failed because WAF didn't recognize a parameter in the request. For example: </p> <ul> <li> <p>You specified a parameter name or value that isn't valid.</p> </li> <li> <p>Your nested statement isn't valid. You might have tried to nest a statement that can’t be nested. </p> </li> <li> <p>You tried to update a <code>WebACL</code> with a <code>DefaultAction</code> that isn't among the types available at <a>DefaultAction</a>.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource with which a web ACL can't be associated.</p> </li> </ul>
+            aws_sdk_wafv2.errors.waf_nonexistent_item_exception.WAFNonexistentItemException: <p>WAF couldn’t perform the operation because your resource doesn't exist. If you've just created a resource that you're using in this operation, you might just need to wait a few minutes. It can take from a few seconds to a number of minutes for changes to propagate. </p>
+            aws_sdk_wafv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1769,6 +2038,13 @@ class WAFV2Client:
             scope: <p>Specifies whether this is for a global resource type, such as a Amazon CloudFront distribution. For an Amplify application, use <code>CLOUDFRONT</code>.</p> <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p> <ul> <li> <p>CLI - Specify the Region when you use the CloudFront scope: <code>--scope=CLOUDFRONT --region=us-east-1</code>. </p> </li> <li> <p>API and SDKs - For all calls, use the Region endpoint us-east-1. </p> </li> </ul>
             id: <p>The unique identifier for the web ACL. This ID is returned in the responses to create and list commands. You provide it to operations like update and delete.</p>
             arn: <p>The Amazon Resource Name (ARN) of the web ACL that you want to retrieve. </p>
+
+        Raises:
+            aws_sdk_wafv2.errors.waf_internal_error_exception.WAFInternalErrorException: <p>Your request is valid, but WAF couldn’t perform the operation because of a system problem. Retry your request. </p>
+            aws_sdk_wafv2.errors.waf_invalid_operation_exception.WAFInvalidOperationException: <p>The operation isn't valid. </p>
+            aws_sdk_wafv2.errors.waf_invalid_parameter_exception.WAFInvalidParameterException: <p>The operation failed because WAF didn't recognize a parameter in the request. For example: </p> <ul> <li> <p>You specified a parameter name or value that isn't valid.</p> </li> <li> <p>Your nested statement isn't valid. You might have tried to nest a statement that can’t be nested. </p> </li> <li> <p>You tried to update a <code>WebACL</code> with a <code>DefaultAction</code> that isn't among the types available at <a>DefaultAction</a>.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource with which a web ACL can't be associated.</p> </li> </ul>
+            aws_sdk_wafv2.errors.waf_nonexistent_item_exception.WAFNonexistentItemException: <p>WAF couldn’t perform the operation because your resource doesn't exist. If you've just created a resource that you're using in this operation, you might just need to wait a few minutes. It can take from a few seconds to a number of minutes for changes to propagate. </p>
+            aws_sdk_wafv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1813,6 +2089,14 @@ class WAFV2Client:
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource whose web ACL you want to retrieve. </p> <p>The ARN must be in one of the following formats:</p> <ul> <li> <p>For an Application Load Balancer: <code>arn:<i>partition</i>:elasticloadbalancing:<i>region</i>:<i>account-id</i>:loadbalancer/app/<i>load-balancer-name</i>/<i>load-balancer-id</i> </code> </p> </li> <li> <p>For an Amazon API Gateway REST API: <code>arn:<i>partition</i>:apigateway:<i>region</i>::/restapis/<i>api-id</i>/stages/<i>stage-name</i> </code> </p> </li> <li> <p>For an AppSync GraphQL API: <code>arn:<i>partition</i>:appsync:<i>region</i>:<i>account-id</i>:apis/<i>GraphQLApiId</i> </code> </p> </li> <li> <p>For an Amazon Cognito user pool: <code>arn:<i>partition</i>:cognito-idp:<i>region</i>:<i>account-id</i>:userpool/<i>user-pool-id</i> </code> </p> </li> <li> <p>For an App Runner service: <code>arn:<i>partition</i>:apprunner:<i>region</i>:<i>account-id</i>:service/<i>apprunner-service-name</i>/<i>apprunner-service-id</i> </code> </p> </li> <li> <p>For an Amazon Web Services Verified Access instance: <code>arn:<i>partition</i>:ec2:<i>region</i>:<i>account-id</i>:verified-access-instance/<i>instance-id</i> </code> </p> </li> <li> <p>For an Amplify application: <code>arn:<i>partition</i>:amplify:<i>region</i>:<i>account-id</i>:apps/<i>app-id</i> </code> </p> </li> </ul>
+
+        Raises:
+            aws_sdk_wafv2.errors.waf_internal_error_exception.WAFInternalErrorException: <p>Your request is valid, but WAF couldn’t perform the operation because of a system problem. Retry your request. </p>
+            aws_sdk_wafv2.errors.waf_invalid_operation_exception.WAFInvalidOperationException: <p>The operation isn't valid. </p>
+            aws_sdk_wafv2.errors.waf_invalid_parameter_exception.WAFInvalidParameterException: <p>The operation failed because WAF didn't recognize a parameter in the request. For example: </p> <ul> <li> <p>You specified a parameter name or value that isn't valid.</p> </li> <li> <p>Your nested statement isn't valid. You might have tried to nest a statement that can’t be nested. </p> </li> <li> <p>You tried to update a <code>WebACL</code> with a <code>DefaultAction</code> that isn't among the types available at <a>DefaultAction</a>.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource with which a web ACL can't be associated.</p> </li> </ul>
+            aws_sdk_wafv2.errors.waf_nonexistent_item_exception.WAFNonexistentItemException: <p>WAF couldn’t perform the operation because your resource doesn't exist. If you've just created a resource that you're using in this operation, you might just need to wait a few minutes. It can take from a few seconds to a number of minutes for changes to propagate. </p>
+            aws_sdk_wafv2.errors.waf_unavailable_entity_exception.WAFUnavailableEntityException: <p>WAF couldn’t retrieve a resource that you specified for this operation. If you've just created a resource that you're using in this operation, you might just need to wait a few minutes. It can take from a few seconds to a number of minutes for changes to propagate. Verify the resource specifications in your request parameters and then retry the operation.</p>
+            aws_sdk_wafv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1854,6 +2138,13 @@ class WAFV2Client:
             scope: <p>Specifies whether this is for a global resource type, such as a Amazon CloudFront distribution. For an Amplify application, use <code>CLOUDFRONT</code>.</p> <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p> <ul> <li> <p>CLI - Specify the Region when you use the CloudFront scope: <code>--scope=CLOUDFRONT --region=us-east-1</code>. </p> </li> <li> <p>API and SDKs - For all calls, use the Region endpoint us-east-1. </p> </li> </ul>
             next_marker: <p>When you request a list of objects with a <code>Limit</code> setting, if the number of objects that are still available for retrieval exceeds the limit, WAF returns a <code>NextMarker</code> value in the response. To retrieve the next batch of objects, provide the marker from the prior call in your next request.</p>
             limit: <p>The maximum number of objects that you want WAF to return for this request. If more objects are available, in the response, WAF provides a <code>NextMarker</code> value that you can use in a subsequent call to get the next batch of objects.</p>
+
+        Raises:
+            aws_sdk_wafv2.errors.waf_internal_error_exception.WAFInternalErrorException: <p>Your request is valid, but WAF couldn’t perform the operation because of a system problem. Retry your request. </p>
+            aws_sdk_wafv2.errors.waf_invalid_operation_exception.WAFInvalidOperationException: <p>The operation isn't valid. </p>
+            aws_sdk_wafv2.errors.waf_invalid_parameter_exception.WAFInvalidParameterException: <p>The operation failed because WAF didn't recognize a parameter in the request. For example: </p> <ul> <li> <p>You specified a parameter name or value that isn't valid.</p> </li> <li> <p>Your nested statement isn't valid. You might have tried to nest a statement that can’t be nested. </p> </li> <li> <p>You tried to update a <code>WebACL</code> with a <code>DefaultAction</code> that isn't among the types available at <a>DefaultAction</a>.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource with which a web ACL can't be associated.</p> </li> </ul>
+            aws_sdk_wafv2.errors.waf_invalid_resource_exception.WAFInvalidResourceException: <p>WAF couldn’t perform the operation because the resource that you requested isn’t valid. Check the resource, and try again.</p>
+            aws_sdk_wafv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1899,6 +2190,12 @@ class WAFV2Client:
             scope: <p>Specifies whether this is for a global resource type, such as a Amazon CloudFront distribution. For an Amplify application, use <code>CLOUDFRONT</code>.</p> <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p> <ul> <li> <p>CLI - Specify the Region when you use the CloudFront scope: <code>--scope=CLOUDFRONT --region=us-east-1</code>. </p> </li> <li> <p>API and SDKs - For all calls, use the Region endpoint us-east-1. </p> </li> </ul>
             next_marker: <p>When you request a list of objects with a <code>Limit</code> setting, if the number of objects that are still available for retrieval exceeds the limit, WAF returns a <code>NextMarker</code> value in the response. To retrieve the next batch of objects, provide the marker from the prior call in your next request.</p>
             limit: <p>The maximum number of objects that you want WAF to return for this request. If more objects are available, in the response, WAF provides a <code>NextMarker</code> value that you can use in a subsequent call to get the next batch of objects.</p>
+
+        Raises:
+            aws_sdk_wafv2.errors.waf_internal_error_exception.WAFInternalErrorException: <p>Your request is valid, but WAF couldn’t perform the operation because of a system problem. Retry your request. </p>
+            aws_sdk_wafv2.errors.waf_invalid_operation_exception.WAFInvalidOperationException: <p>The operation isn't valid. </p>
+            aws_sdk_wafv2.errors.waf_invalid_parameter_exception.WAFInvalidParameterException: <p>The operation failed because WAF didn't recognize a parameter in the request. For example: </p> <ul> <li> <p>You specified a parameter name or value that isn't valid.</p> </li> <li> <p>Your nested statement isn't valid. You might have tried to nest a statement that can’t be nested. </p> </li> <li> <p>You tried to update a <code>WebACL</code> with a <code>DefaultAction</code> that isn't among the types available at <a>DefaultAction</a>.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource with which a web ACL can't be associated.</p> </li> </ul>
+            aws_sdk_wafv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1948,6 +2245,13 @@ class WAFV2Client:
             scope: <p>Specifies whether this is for a global resource type, such as a Amazon CloudFront distribution. For an Amplify application, use <code>CLOUDFRONT</code>.</p> <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p> <ul> <li> <p>CLI - Specify the Region when you use the CloudFront scope: <code>--scope=CLOUDFRONT --region=us-east-1</code>. </p> </li> <li> <p>API and SDKs - For all calls, use the Region endpoint us-east-1. </p> </li> </ul>
             next_marker: <p>When you request a list of objects with a <code>Limit</code> setting, if the number of objects that are still available for retrieval exceeds the limit, WAF returns a <code>NextMarker</code> value in the response. To retrieve the next batch of objects, provide the marker from the prior call in your next request.</p>
             limit: <p>The maximum number of objects that you want WAF to return for this request. If more objects are available, in the response, WAF provides a <code>NextMarker</code> value that you can use in a subsequent call to get the next batch of objects.</p>
+
+        Raises:
+            aws_sdk_wafv2.errors.waf_internal_error_exception.WAFInternalErrorException: <p>Your request is valid, but WAF couldn’t perform the operation because of a system problem. Retry your request. </p>
+            aws_sdk_wafv2.errors.waf_invalid_operation_exception.WAFInvalidOperationException: <p>The operation isn't valid. </p>
+            aws_sdk_wafv2.errors.waf_invalid_parameter_exception.WAFInvalidParameterException: <p>The operation failed because WAF didn't recognize a parameter in the request. For example: </p> <ul> <li> <p>You specified a parameter name or value that isn't valid.</p> </li> <li> <p>Your nested statement isn't valid. You might have tried to nest a statement that can’t be nested. </p> </li> <li> <p>You tried to update a <code>WebACL</code> with a <code>DefaultAction</code> that isn't among the types available at <a>DefaultAction</a>.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource with which a web ACL can't be associated.</p> </li> </ul>
+            aws_sdk_wafv2.errors.waf_nonexistent_item_exception.WAFNonexistentItemException: <p>WAF couldn’t perform the operation because your resource doesn't exist. If you've just created a resource that you're using in this operation, you might just need to wait a few minutes. It can take from a few seconds to a number of minutes for changes to propagate. </p>
+            aws_sdk_wafv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1995,6 +2299,12 @@ class WAFV2Client:
             scope: <p>Specifies whether this is for a global resource type, such as a Amazon CloudFront distribution. For an Amplify application, use <code>CLOUDFRONT</code>.</p> <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p> <ul> <li> <p>CLI - Specify the Region when you use the CloudFront scope: <code>--scope=CLOUDFRONT --region=us-east-1</code>. </p> </li> <li> <p>API and SDKs - For all calls, use the Region endpoint us-east-1. </p> </li> </ul>
             next_marker: <p>When you request a list of objects with a <code>Limit</code> setting, if the number of objects that are still available for retrieval exceeds the limit, WAF returns a <code>NextMarker</code> value in the response. To retrieve the next batch of objects, provide the marker from the prior call in your next request.</p>
             limit: <p>The maximum number of objects that you want WAF to return for this request. If more objects are available, in the response, WAF provides a <code>NextMarker</code> value that you can use in a subsequent call to get the next batch of objects.</p>
+
+        Raises:
+            aws_sdk_wafv2.errors.waf_internal_error_exception.WAFInternalErrorException: <p>Your request is valid, but WAF couldn’t perform the operation because of a system problem. Retry your request. </p>
+            aws_sdk_wafv2.errors.waf_invalid_operation_exception.WAFInvalidOperationException: <p>The operation isn't valid. </p>
+            aws_sdk_wafv2.errors.waf_invalid_parameter_exception.WAFInvalidParameterException: <p>The operation failed because WAF didn't recognize a parameter in the request. For example: </p> <ul> <li> <p>You specified a parameter name or value that isn't valid.</p> </li> <li> <p>Your nested statement isn't valid. You might have tried to nest a statement that can’t be nested. </p> </li> <li> <p>You tried to update a <code>WebACL</code> with a <code>DefaultAction</code> that isn't among the types available at <a>DefaultAction</a>.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource with which a web ACL can't be associated.</p> </li> </ul>
+            aws_sdk_wafv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2042,6 +2352,12 @@ class WAFV2Client:
             next_marker: <p>When you request a list of objects with a <code>Limit</code> setting, if the number of objects that are still available for retrieval exceeds the limit, WAF returns a <code>NextMarker</code> value in the response. To retrieve the next batch of objects, provide the marker from the prior call in your next request.</p>
             limit: <p>The maximum number of objects that you want WAF to return for this request. If more objects are available, in the response, WAF provides a <code>NextMarker</code> value that you can use in a subsequent call to get the next batch of objects.</p>
             log_scope: <p>The owner of the logging configuration, which must be set to <code>CUSTOMER</code> for the configurations that you manage. </p> <p>The log scope <code>SECURITY_LAKE</code> indicates a configuration that is managed through Amazon Security Lake. You can use Security Lake to collect log and event data from various sources for normalization, analysis, and management. For information, see <a href=\"https://docs.aws.amazon.com/security-lake/latest/userguide/internal-sources.html\">Collecting data from Amazon Web Services services</a> in the <i>Amazon Security Lake user guide</i>. </p> <p>The log scope <code>CLOUDWATCH_TELEMETRY_RULE_MANAGED</code> indicates a configuration that is managed through Amazon CloudWatch Logs for telemetry data collection and analysis. For information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.html\">What is Amazon CloudWatch Logs ?</a> in the <i>Amazon CloudWatch Logs user guide</i>. </p> <p>Default: <code>CUSTOMER</code> </p>
+
+        Raises:
+            aws_sdk_wafv2.errors.waf_internal_error_exception.WAFInternalErrorException: <p>Your request is valid, but WAF couldn’t perform the operation because of a system problem. Retry your request. </p>
+            aws_sdk_wafv2.errors.waf_invalid_operation_exception.WAFInvalidOperationException: <p>The operation isn't valid. </p>
+            aws_sdk_wafv2.errors.waf_invalid_parameter_exception.WAFInvalidParameterException: <p>The operation failed because WAF didn't recognize a parameter in the request. For example: </p> <ul> <li> <p>You specified a parameter name or value that isn't valid.</p> </li> <li> <p>Your nested statement isn't valid. You might have tried to nest a statement that can’t be nested. </p> </li> <li> <p>You tried to update a <code>WebACL</code> with a <code>DefaultAction</code> that isn't among the types available at <a>DefaultAction</a>.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource with which a web ACL can't be associated.</p> </li> </ul>
+            aws_sdk_wafv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2089,6 +2405,12 @@ class WAFV2Client:
             scope: <p>Specifies whether this is for a global resource type, such as a Amazon CloudFront distribution. For an Amplify application, use <code>CLOUDFRONT</code>.</p> <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p> <ul> <li> <p>CLI - Specify the Region when you use the CloudFront scope: <code>--scope=CLOUDFRONT --region=us-east-1</code>. </p> </li> <li> <p>API and SDKs - For all calls, use the Region endpoint us-east-1. </p> </li> </ul>
             next_marker: <p>When you request a list of objects with a <code>Limit</code> setting, if the number of objects that are still available for retrieval exceeds the limit, WAF returns a <code>NextMarker</code> value in the response. To retrieve the next batch of objects, provide the marker from the prior call in your next request.</p>
             limit: <p>The maximum number of objects that you want WAF to return for this request. If more objects are available, in the response, WAF provides a <code>NextMarker</code> value that you can use in a subsequent call to get the next batch of objects.</p>
+
+        Raises:
+            aws_sdk_wafv2.errors.waf_internal_error_exception.WAFInternalErrorException: <p>Your request is valid, but WAF couldn’t perform the operation because of a system problem. Retry your request. </p>
+            aws_sdk_wafv2.errors.waf_invalid_operation_exception.WAFInvalidOperationException: <p>The operation isn't valid. </p>
+            aws_sdk_wafv2.errors.waf_invalid_parameter_exception.WAFInvalidParameterException: <p>The operation failed because WAF didn't recognize a parameter in the request. For example: </p> <ul> <li> <p>You specified a parameter name or value that isn't valid.</p> </li> <li> <p>Your nested statement isn't valid. You might have tried to nest a statement that can’t be nested. </p> </li> <li> <p>You tried to update a <code>WebACL</code> with a <code>DefaultAction</code> that isn't among the types available at <a>DefaultAction</a>.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource with which a web ACL can't be associated.</p> </li> </ul>
+            aws_sdk_wafv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2134,6 +2456,12 @@ class WAFV2Client:
             platform: <p>The device platform to retrieve the list for.</p>
             next_marker: <p>When you request a list of objects with a <code>Limit</code> setting, if the number of objects that are still available for retrieval exceeds the limit, WAF returns a <code>NextMarker</code> value in the response. To retrieve the next batch of objects, provide the marker from the prior call in your next request.</p>
             limit: <p>The maximum number of objects that you want WAF to return for this request. If more objects are available, in the response, WAF provides a <code>NextMarker</code> value that you can use in a subsequent call to get the next batch of objects.</p>
+
+        Raises:
+            aws_sdk_wafv2.errors.waf_internal_error_exception.WAFInternalErrorException: <p>Your request is valid, but WAF couldn’t perform the operation because of a system problem. Retry your request. </p>
+            aws_sdk_wafv2.errors.waf_invalid_operation_exception.WAFInvalidOperationException: <p>The operation isn't valid. </p>
+            aws_sdk_wafv2.errors.waf_invalid_parameter_exception.WAFInvalidParameterException: <p>The operation failed because WAF didn't recognize a parameter in the request. For example: </p> <ul> <li> <p>You specified a parameter name or value that isn't valid.</p> </li> <li> <p>Your nested statement isn't valid. You might have tried to nest a statement that can’t be nested. </p> </li> <li> <p>You tried to update a <code>WebACL</code> with a <code>DefaultAction</code> that isn't among the types available at <a>DefaultAction</a>.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource with which a web ACL can't be associated.</p> </li> </ul>
+            aws_sdk_wafv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2179,6 +2507,12 @@ class WAFV2Client:
             scope: <p>Specifies whether this is for a global resource type, such as a Amazon CloudFront distribution. For an Amplify application, use <code>CLOUDFRONT</code>.</p> <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p> <ul> <li> <p>CLI - Specify the Region when you use the CloudFront scope: <code>--scope=CLOUDFRONT --region=us-east-1</code>. </p> </li> <li> <p>API and SDKs - For all calls, use the Region endpoint us-east-1. </p> </li> </ul>
             next_marker: <p>When you request a list of objects with a <code>Limit</code> setting, if the number of objects that are still available for retrieval exceeds the limit, WAF returns a <code>NextMarker</code> value in the response. To retrieve the next batch of objects, provide the marker from the prior call in your next request.</p>
             limit: <p>The maximum number of objects that you want WAF to return for this request. If more objects are available, in the response, WAF provides a <code>NextMarker</code> value that you can use in a subsequent call to get the next batch of objects.</p>
+
+        Raises:
+            aws_sdk_wafv2.errors.waf_internal_error_exception.WAFInternalErrorException: <p>Your request is valid, but WAF couldn’t perform the operation because of a system problem. Retry your request. </p>
+            aws_sdk_wafv2.errors.waf_invalid_operation_exception.WAFInvalidOperationException: <p>The operation isn't valid. </p>
+            aws_sdk_wafv2.errors.waf_invalid_parameter_exception.WAFInvalidParameterException: <p>The operation failed because WAF didn't recognize a parameter in the request. For example: </p> <ul> <li> <p>You specified a parameter name or value that isn't valid.</p> </li> <li> <p>Your nested statement isn't valid. You might have tried to nest a statement that can’t be nested. </p> </li> <li> <p>You tried to update a <code>WebACL</code> with a <code>DefaultAction</code> that isn't among the types available at <a>DefaultAction</a>.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource with which a web ACL can't be associated.</p> </li> </ul>
+            aws_sdk_wafv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2224,6 +2558,13 @@ class WAFV2Client:
         Args:
             web_acl_arn: <p>The Amazon Resource Name (ARN) of the web ACL.</p>
             resource_type: <p>Retrieves the web ACLs that are used by the specified resource type. </p> <p>For Amazon CloudFront, don't use this call. Instead, use the CloudFront call <code>ListDistributionsByWebACLId</code>. For information, see <a href=\"https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_ListDistributionsByWebACLId.html\">ListDistributionsByWebACLId</a> in the <i>Amazon CloudFront API Reference</i>. </p> <note> <p>If you don't provide a resource type, the call uses the resource type <code>APPLICATION_LOAD_BALANCER</code>. </p> </note> <p>Default: <code>APPLICATION_LOAD_BALANCER</code> </p>
+
+        Raises:
+            aws_sdk_wafv2.errors.waf_internal_error_exception.WAFInternalErrorException: <p>Your request is valid, but WAF couldn’t perform the operation because of a system problem. Retry your request. </p>
+            aws_sdk_wafv2.errors.waf_invalid_operation_exception.WAFInvalidOperationException: <p>The operation isn't valid. </p>
+            aws_sdk_wafv2.errors.waf_invalid_parameter_exception.WAFInvalidParameterException: <p>The operation failed because WAF didn't recognize a parameter in the request. For example: </p> <ul> <li> <p>You specified a parameter name or value that isn't valid.</p> </li> <li> <p>Your nested statement isn't valid. You might have tried to nest a statement that can’t be nested. </p> </li> <li> <p>You tried to update a <code>WebACL</code> with a <code>DefaultAction</code> that isn't among the types available at <a>DefaultAction</a>.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource with which a web ACL can't be associated.</p> </li> </ul>
+            aws_sdk_wafv2.errors.waf_nonexistent_item_exception.WAFNonexistentItemException: <p>WAF couldn’t perform the operation because your resource doesn't exist. If you've just created a resource that you're using in this operation, you might just need to wait a few minutes. It can take from a few seconds to a number of minutes for changes to propagate. </p>
+            aws_sdk_wafv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2267,6 +2608,12 @@ class WAFV2Client:
             scope: <p>Specifies whether this is for a global resource type, such as a Amazon CloudFront distribution. For an Amplify application, use <code>CLOUDFRONT</code>.</p> <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p> <ul> <li> <p>CLI - Specify the Region when you use the CloudFront scope: <code>--scope=CLOUDFRONT --region=us-east-1</code>. </p> </li> <li> <p>API and SDKs - For all calls, use the Region endpoint us-east-1. </p> </li> </ul>
             next_marker: <p>When you request a list of objects with a <code>Limit</code> setting, if the number of objects that are still available for retrieval exceeds the limit, WAF returns a <code>NextMarker</code> value in the response. To retrieve the next batch of objects, provide the marker from the prior call in your next request.</p>
             limit: <p>The maximum number of objects that you want WAF to return for this request. If more objects are available, in the response, WAF provides a <code>NextMarker</code> value that you can use in a subsequent call to get the next batch of objects.</p>
+
+        Raises:
+            aws_sdk_wafv2.errors.waf_internal_error_exception.WAFInternalErrorException: <p>Your request is valid, but WAF couldn’t perform the operation because of a system problem. Retry your request. </p>
+            aws_sdk_wafv2.errors.waf_invalid_operation_exception.WAFInvalidOperationException: <p>The operation isn't valid. </p>
+            aws_sdk_wafv2.errors.waf_invalid_parameter_exception.WAFInvalidParameterException: <p>The operation failed because WAF didn't recognize a parameter in the request. For example: </p> <ul> <li> <p>You specified a parameter name or value that isn't valid.</p> </li> <li> <p>Your nested statement isn't valid. You might have tried to nest a statement that can’t be nested. </p> </li> <li> <p>You tried to update a <code>WebACL</code> with a <code>DefaultAction</code> that isn't among the types available at <a>DefaultAction</a>.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource with which a web ACL can't be associated.</p> </li> </ul>
+            aws_sdk_wafv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2312,6 +2659,15 @@ class WAFV2Client:
             next_marker: <p>When you request a list of objects with a <code>Limit</code> setting, if the number of objects that are still available for retrieval exceeds the limit, WAF returns a <code>NextMarker</code> value in the response. To retrieve the next batch of objects, provide the marker from the prior call in your next request.</p>
             limit: <p>The maximum number of objects that you want WAF to return for this request. If more objects are available, in the response, WAF provides a <code>NextMarker</code> value that you can use in a subsequent call to get the next batch of objects.</p>
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource.</p>
+
+        Raises:
+            aws_sdk_wafv2.errors.waf_internal_error_exception.WAFInternalErrorException: <p>Your request is valid, but WAF couldn’t perform the operation because of a system problem. Retry your request. </p>
+            aws_sdk_wafv2.errors.waf_invalid_operation_exception.WAFInvalidOperationException: <p>The operation isn't valid. </p>
+            aws_sdk_wafv2.errors.waf_invalid_parameter_exception.WAFInvalidParameterException: <p>The operation failed because WAF didn't recognize a parameter in the request. For example: </p> <ul> <li> <p>You specified a parameter name or value that isn't valid.</p> </li> <li> <p>Your nested statement isn't valid. You might have tried to nest a statement that can’t be nested. </p> </li> <li> <p>You tried to update a <code>WebACL</code> with a <code>DefaultAction</code> that isn't among the types available at <a>DefaultAction</a>.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource with which a web ACL can't be associated.</p> </li> </ul>
+            aws_sdk_wafv2.errors.waf_nonexistent_item_exception.WAFNonexistentItemException: <p>WAF couldn’t perform the operation because your resource doesn't exist. If you've just created a resource that you're using in this operation, you might just need to wait a few minutes. It can take from a few seconds to a number of minutes for changes to propagate. </p>
+            aws_sdk_wafv2.errors.waf_tag_operation_exception.WAFTagOperationException: <p>An error occurred during the tagging operation. Retry your request.</p>
+            aws_sdk_wafv2.errors.waf_tag_operation_internal_error_exception.WAFTagOperationInternalErrorException: <p>WAF couldn’t perform your tagging operation because of an internal error. Retry your request.</p>
+            aws_sdk_wafv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2357,6 +2713,12 @@ class WAFV2Client:
             scope: <p>Specifies whether this is for a global resource type, such as a Amazon CloudFront distribution. For an Amplify application, use <code>CLOUDFRONT</code>.</p> <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p> <ul> <li> <p>CLI - Specify the Region when you use the CloudFront scope: <code>--scope=CLOUDFRONT --region=us-east-1</code>. </p> </li> <li> <p>API and SDKs - For all calls, use the Region endpoint us-east-1. </p> </li> </ul>
             next_marker: <p>When you request a list of objects with a <code>Limit</code> setting, if the number of objects that are still available for retrieval exceeds the limit, WAF returns a <code>NextMarker</code> value in the response. To retrieve the next batch of objects, provide the marker from the prior call in your next request.</p>
             limit: <p>The maximum number of objects that you want WAF to return for this request. If more objects are available, in the response, WAF provides a <code>NextMarker</code> value that you can use in a subsequent call to get the next batch of objects.</p>
+
+        Raises:
+            aws_sdk_wafv2.errors.waf_internal_error_exception.WAFInternalErrorException: <p>Your request is valid, but WAF couldn’t perform the operation because of a system problem. Retry your request. </p>
+            aws_sdk_wafv2.errors.waf_invalid_operation_exception.WAFInvalidOperationException: <p>The operation isn't valid. </p>
+            aws_sdk_wafv2.errors.waf_invalid_parameter_exception.WAFInvalidParameterException: <p>The operation failed because WAF didn't recognize a parameter in the request. For example: </p> <ul> <li> <p>You specified a parameter name or value that isn't valid.</p> </li> <li> <p>Your nested statement isn't valid. You might have tried to nest a statement that can’t be nested. </p> </li> <li> <p>You tried to update a <code>WebACL</code> with a <code>DefaultAction</code> that isn't among the types available at <a>DefaultAction</a>.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource with which a web ACL can't be associated.</p> </li> </ul>
+            aws_sdk_wafv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2398,6 +2760,18 @@ class WAFV2Client:
 
         Args:
             logging_configuration: <p></p>
+
+        Raises:
+            aws_sdk_wafv2.errors.waf_feature_not_included_in_pricing_plan_exception.WAFFeatureNotIncludedInPricingPlanException: <p>The operation failed because the specified WAF feature isn't supported by the CloudFront pricing plan associated with the web ACL.</p>
+            aws_sdk_wafv2.errors.waf_internal_error_exception.WAFInternalErrorException: <p>Your request is valid, but WAF couldn’t perform the operation because of a system problem. Retry your request. </p>
+            aws_sdk_wafv2.errors.waf_invalid_operation_exception.WAFInvalidOperationException: <p>The operation isn't valid. </p>
+            aws_sdk_wafv2.errors.waf_invalid_parameter_exception.WAFInvalidParameterException: <p>The operation failed because WAF didn't recognize a parameter in the request. For example: </p> <ul> <li> <p>You specified a parameter name or value that isn't valid.</p> </li> <li> <p>Your nested statement isn't valid. You might have tried to nest a statement that can’t be nested. </p> </li> <li> <p>You tried to update a <code>WebACL</code> with a <code>DefaultAction</code> that isn't among the types available at <a>DefaultAction</a>.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource with which a web ACL can't be associated.</p> </li> </ul>
+            aws_sdk_wafv2.errors.waf_limits_exceeded_exception.WAFLimitsExceededException: <p>WAF couldn’t perform the operation because you exceeded your resource limit. For example, the maximum number of <code>WebACL</code> objects that you can create for an Amazon Web Services account. For more information, see <a href=\"https://docs.aws.amazon.com/waf/latest/developerguide/limits.html\">WAF quotas</a> in the <i>WAF Developer Guide</i>.</p>
+            aws_sdk_wafv2.errors.waf_log_destination_permission_issue_exception.WAFLogDestinationPermissionIssueException: <p>The operation failed because you don't have the permissions that your logging configuration requires. For information, see <a href=\"https://docs.aws.amazon.com/waf/latest/developerguide/logging.html\">Logging web ACL traffic information</a> in the <i>WAF Developer Guide</i>.</p>
+            aws_sdk_wafv2.errors.waf_nonexistent_item_exception.WAFNonexistentItemException: <p>WAF couldn’t perform the operation because your resource doesn't exist. If you've just created a resource that you're using in this operation, you might just need to wait a few minutes. It can take from a few seconds to a number of minutes for changes to propagate. </p>
+            aws_sdk_wafv2.errors.waf_optimistic_lock_exception.WAFOptimisticLockException: <p>WAF couldn’t save your changes because you tried to update or delete a resource that has changed since you last retrieved it. Get the resource again, make any changes you need to make to the new copy, and retry your operation. </p>
+            aws_sdk_wafv2.errors.waf_service_linked_role_error_exception.WAFServiceLinkedRoleErrorException: <p>WAF is not able to access the service linked role. This can be caused by a previous <code>PutLoggingConfiguration</code> request, which can lock the service linked role for about 20 seconds. Please try your request again. The service linked role can also be locked by a previous <code>DeleteServiceLinkedRole</code> request, which can lock the role for 15 minutes or more. If you recently made a call to <code>DeleteServiceLinkedRole</code>, wait at least 15 minutes and try the request again. If you receive this same exception again, you will have to wait additional time until the role is unlocked.</p>
+            aws_sdk_wafv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2449,6 +2823,14 @@ class WAFV2Client:
             lock_token: <p>A token used for optimistic locking. WAF returns a token to your <code>get</code> and <code>list</code> requests, to mark the state of the entity at the time of the request. To make changes to the entity associated with the token, you provide the token to operations like <code>update</code> and <code>delete</code>. WAF uses the token to ensure that no changes have been made to the entity since you last retrieved it. If a change has been made, the update fails with a <code>WAFOptimisticLockException</code>. If this happens, perform another <code>get</code>, and use the new token returned by that operation. </p>
             recommended_version: <p>The version of the named managed rule group that you'd like your customers to choose, from among your version offerings. </p>
             versions_to_publish: <p>The versions of the named managed rule group that you want to offer to your customers. </p>
+
+        Raises:
+            aws_sdk_wafv2.errors.waf_internal_error_exception.WAFInternalErrorException: <p>Your request is valid, but WAF couldn’t perform the operation because of a system problem. Retry your request. </p>
+            aws_sdk_wafv2.errors.waf_invalid_operation_exception.WAFInvalidOperationException: <p>The operation isn't valid. </p>
+            aws_sdk_wafv2.errors.waf_invalid_parameter_exception.WAFInvalidParameterException: <p>The operation failed because WAF didn't recognize a parameter in the request. For example: </p> <ul> <li> <p>You specified a parameter name or value that isn't valid.</p> </li> <li> <p>Your nested statement isn't valid. You might have tried to nest a statement that can’t be nested. </p> </li> <li> <p>You tried to update a <code>WebACL</code> with a <code>DefaultAction</code> that isn't among the types available at <a>DefaultAction</a>.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource with which a web ACL can't be associated.</p> </li> </ul>
+            aws_sdk_wafv2.errors.waf_nonexistent_item_exception.WAFNonexistentItemException: <p>WAF couldn’t perform the operation because your resource doesn't exist. If you've just created a resource that you're using in this operation, you might just need to wait a few minutes. It can take from a few seconds to a number of minutes for changes to propagate. </p>
+            aws_sdk_wafv2.errors.waf_optimistic_lock_exception.WAFOptimisticLockException: <p>WAF couldn’t save your changes because you tried to update or delete a resource that has changed since you last retrieved it. Get the resource again, make any changes you need to make to the new copy, and retry your operation. </p>
+            aws_sdk_wafv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2497,6 +2879,13 @@ class WAFV2Client:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the <a>RuleGroup</a> to which you want to attach the policy.</p>
             policy: <p>The policy to attach to the specified rule group. </p> <p>The policy specifications must conform to the following:</p> <ul> <li> <p>The policy must be composed using IAM Policy version 2012-10-17.</p> </li> <li> <p>The policy must include specifications for <code>Effect</code>, <code>Action</code>, and <code>Principal</code>.</p> </li> <li> <p> <code>Effect</code> must specify <code>Allow</code>.</p> </li> <li> <p> <code>Action</code> must specify <code>wafv2:CreateWebACL</code>, <code>wafv2:UpdateWebACL</code>, and <code>wafv2:PutFirewallManagerRuleGroups</code> and may optionally specify <code>wafv2:GetRuleGroup</code>. WAF rejects any extra actions or wildcard actions in the policy.</p> </li> <li> <p>The policy must not include a <code>Resource</code> parameter.</p> </li> </ul> <p>For more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html\">IAM Policies</a>. </p>
+
+        Raises:
+            aws_sdk_wafv2.errors.waf_internal_error_exception.WAFInternalErrorException: <p>Your request is valid, but WAF couldn’t perform the operation because of a system problem. Retry your request. </p>
+            aws_sdk_wafv2.errors.waf_invalid_parameter_exception.WAFInvalidParameterException: <p>The operation failed because WAF didn't recognize a parameter in the request. For example: </p> <ul> <li> <p>You specified a parameter name or value that isn't valid.</p> </li> <li> <p>Your nested statement isn't valid. You might have tried to nest a statement that can’t be nested. </p> </li> <li> <p>You tried to update a <code>WebACL</code> with a <code>DefaultAction</code> that isn't among the types available at <a>DefaultAction</a>.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource with which a web ACL can't be associated.</p> </li> </ul>
+            aws_sdk_wafv2.errors.waf_invalid_permission_policy_exception.WAFInvalidPermissionPolicyException: <p>The operation failed because the specified policy isn't in the proper format. </p> <p>The policy specifications must conform to the following:</p> <ul> <li> <p>The policy must be composed using IAM Policy version 2012-10-17.</p> </li> <li> <p>The policy must include specifications for <code>Effect</code>, <code>Action</code>, and <code>Principal</code>.</p> </li> <li> <p> <code>Effect</code> must specify <code>Allow</code>.</p> </li> <li> <p> <code>Action</code> must specify <code>wafv2:CreateWebACL</code>, <code>wafv2:UpdateWebACL</code>, and <code>wafv2:PutFirewallManagerRuleGroups</code> and may optionally specify <code>wafv2:GetRuleGroup</code>. WAF rejects any extra actions or wildcard actions in the policy.</p> </li> <li> <p>The policy must not include a <code>Resource</code> parameter.</p> </li> </ul> <p>For more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html\">IAM Policies</a>. </p>
+            aws_sdk_wafv2.errors.waf_nonexistent_item_exception.WAFNonexistentItemException: <p>WAF couldn’t perform the operation because your resource doesn't exist. If you've just created a resource that you're using in this operation, you might just need to wait a few minutes. It can take from a few seconds to a number of minutes for changes to propagate. </p>
+            aws_sdk_wafv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2537,6 +2926,16 @@ class WAFV2Client:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource.</p>
             tags: <p>An array of key:value pairs to associate with the resource.</p>
+
+        Raises:
+            aws_sdk_wafv2.errors.waf_internal_error_exception.WAFInternalErrorException: <p>Your request is valid, but WAF couldn’t perform the operation because of a system problem. Retry your request. </p>
+            aws_sdk_wafv2.errors.waf_invalid_operation_exception.WAFInvalidOperationException: <p>The operation isn't valid. </p>
+            aws_sdk_wafv2.errors.waf_invalid_parameter_exception.WAFInvalidParameterException: <p>The operation failed because WAF didn't recognize a parameter in the request. For example: </p> <ul> <li> <p>You specified a parameter name or value that isn't valid.</p> </li> <li> <p>Your nested statement isn't valid. You might have tried to nest a statement that can’t be nested. </p> </li> <li> <p>You tried to update a <code>WebACL</code> with a <code>DefaultAction</code> that isn't among the types available at <a>DefaultAction</a>.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource with which a web ACL can't be associated.</p> </li> </ul>
+            aws_sdk_wafv2.errors.waf_limits_exceeded_exception.WAFLimitsExceededException: <p>WAF couldn’t perform the operation because you exceeded your resource limit. For example, the maximum number of <code>WebACL</code> objects that you can create for an Amazon Web Services account. For more information, see <a href=\"https://docs.aws.amazon.com/waf/latest/developerguide/limits.html\">WAF quotas</a> in the <i>WAF Developer Guide</i>.</p>
+            aws_sdk_wafv2.errors.waf_nonexistent_item_exception.WAFNonexistentItemException: <p>WAF couldn’t perform the operation because your resource doesn't exist. If you've just created a resource that you're using in this operation, you might just need to wait a few minutes. It can take from a few seconds to a number of minutes for changes to propagate. </p>
+            aws_sdk_wafv2.errors.waf_tag_operation_exception.WAFTagOperationException: <p>An error occurred during the tagging operation. Retry your request.</p>
+            aws_sdk_wafv2.errors.waf_tag_operation_internal_error_exception.WAFTagOperationInternalErrorException: <p>WAF couldn’t perform your tagging operation because of an internal error. Retry your request.</p>
+            aws_sdk_wafv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2577,6 +2976,15 @@ class WAFV2Client:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource.</p>
             tag_keys: <p>An array of keys identifying the tags to disassociate from the resource.</p>
+
+        Raises:
+            aws_sdk_wafv2.errors.waf_internal_error_exception.WAFInternalErrorException: <p>Your request is valid, but WAF couldn’t perform the operation because of a system problem. Retry your request. </p>
+            aws_sdk_wafv2.errors.waf_invalid_operation_exception.WAFInvalidOperationException: <p>The operation isn't valid. </p>
+            aws_sdk_wafv2.errors.waf_invalid_parameter_exception.WAFInvalidParameterException: <p>The operation failed because WAF didn't recognize a parameter in the request. For example: </p> <ul> <li> <p>You specified a parameter name or value that isn't valid.</p> </li> <li> <p>Your nested statement isn't valid. You might have tried to nest a statement that can’t be nested. </p> </li> <li> <p>You tried to update a <code>WebACL</code> with a <code>DefaultAction</code> that isn't among the types available at <a>DefaultAction</a>.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource with which a web ACL can't be associated.</p> </li> </ul>
+            aws_sdk_wafv2.errors.waf_nonexistent_item_exception.WAFNonexistentItemException: <p>WAF couldn’t perform the operation because your resource doesn't exist. If you've just created a resource that you're using in this operation, you might just need to wait a few minutes. It can take from a few seconds to a number of minutes for changes to propagate. </p>
+            aws_sdk_wafv2.errors.waf_tag_operation_exception.WAFTagOperationException: <p>An error occurred during the tagging operation. Retry your request.</p>
+            aws_sdk_wafv2.errors.waf_tag_operation_internal_error_exception.WAFTagOperationInternalErrorException: <p>WAF couldn’t perform your tagging operation because of an internal error. Retry your request.</p>
+            aws_sdk_wafv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2627,6 +3035,16 @@ class WAFV2Client:
             description: <p>A description of the IP set that helps with identification. </p>
             addresses: <p>Contains an array of strings that specifies zero or more IP addresses or blocks of IP addresses that you want WAF to inspect for in incoming requests. All addresses must be specified using Classless Inter-Domain Routing (CIDR) notation. WAF supports all IPv4 and IPv6 CIDR ranges except for <code>/0</code>. </p> <p>Example address strings: </p> <ul> <li> <p>For requests that originated from the IP address 192.0.2.44, specify <code>192.0.2.44/32</code>.</p> </li> <li> <p>For requests that originated from IP addresses from 192.0.2.0 to 192.0.2.255, specify <code>192.0.2.0/24</code>.</p> </li> <li> <p>For requests that originated from the IP address 1111:0000:0000:0000:0000:0000:0000:0111, specify <code>1111:0000:0000:0000:0000:0000:0000:0111/128</code>.</p> </li> <li> <p>For requests that originated from IP addresses 1111:0000:0000:0000:0000:0000:0000:0000 to 1111:0000:0000:0000:ffff:ffff:ffff:ffff, specify <code>1111:0000:0000:0000:0000:0000:0000:0000/64</code>.</p> </li> </ul> <p>For more information about CIDR notation, see the Wikipedia entry <a href=\"https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing\">Classless Inter-Domain Routing</a>.</p> <p>Example JSON <code>Addresses</code> specifications: </p> <ul> <li> <p>Empty array: <code>\"Addresses\": []</code> </p> </li> <li> <p>Array with one address: <code>\"Addresses\": [\"192.0.2.44/32\"]</code> </p> </li> <li> <p>Array with three addresses: <code>\"Addresses\": [\"192.0.2.44/32\", \"192.0.2.0/24\", \"192.0.0.0/16\"]</code> </p> </li> <li> <p>INVALID specification: <code>\"Addresses\": [\"\"]</code> INVALID </p> </li> </ul>
             lock_token: <p>A token used for optimistic locking. WAF returns a token to your <code>get</code> and <code>list</code> requests, to mark the state of the entity at the time of the request. To make changes to the entity associated with the token, you provide the token to operations like <code>update</code> and <code>delete</code>. WAF uses the token to ensure that no changes have been made to the entity since you last retrieved it. If a change has been made, the update fails with a <code>WAFOptimisticLockException</code>. If this happens, perform another <code>get</code>, and use the new token returned by that operation. </p>
+
+        Raises:
+            aws_sdk_wafv2.errors.waf_duplicate_item_exception.WAFDuplicateItemException: <p>WAF couldn’t perform the operation because the resource that you tried to save is a duplicate of an existing one.</p>
+            aws_sdk_wafv2.errors.waf_internal_error_exception.WAFInternalErrorException: <p>Your request is valid, but WAF couldn’t perform the operation because of a system problem. Retry your request. </p>
+            aws_sdk_wafv2.errors.waf_invalid_operation_exception.WAFInvalidOperationException: <p>The operation isn't valid. </p>
+            aws_sdk_wafv2.errors.waf_invalid_parameter_exception.WAFInvalidParameterException: <p>The operation failed because WAF didn't recognize a parameter in the request. For example: </p> <ul> <li> <p>You specified a parameter name or value that isn't valid.</p> </li> <li> <p>Your nested statement isn't valid. You might have tried to nest a statement that can’t be nested. </p> </li> <li> <p>You tried to update a <code>WebACL</code> with a <code>DefaultAction</code> that isn't among the types available at <a>DefaultAction</a>.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource with which a web ACL can't be associated.</p> </li> </ul>
+            aws_sdk_wafv2.errors.waf_limits_exceeded_exception.WAFLimitsExceededException: <p>WAF couldn’t perform the operation because you exceeded your resource limit. For example, the maximum number of <code>WebACL</code> objects that you can create for an Amazon Web Services account. For more information, see <a href=\"https://docs.aws.amazon.com/waf/latest/developerguide/limits.html\">WAF quotas</a> in the <i>WAF Developer Guide</i>.</p>
+            aws_sdk_wafv2.errors.waf_nonexistent_item_exception.WAFNonexistentItemException: <p>WAF couldn’t perform the operation because your resource doesn't exist. If you've just created a resource that you're using in this operation, you might just need to wait a few minutes. It can take from a few seconds to a number of minutes for changes to propagate. </p>
+            aws_sdk_wafv2.errors.waf_optimistic_lock_exception.WAFOptimisticLockException: <p>WAF couldn’t save your changes because you tried to update or delete a resource that has changed since you last retrieved it. Get the resource again, make any changes you need to make to the new copy, and retry your operation. </p>
+            aws_sdk_wafv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2680,6 +3098,14 @@ class WAFV2Client:
             lock_token: <p>A token used for optimistic locking. WAF returns a token to your <code>get</code> and <code>list</code> requests, to mark the state of the entity at the time of the request. To make changes to the entity associated with the token, you provide the token to operations like <code>update</code> and <code>delete</code>. WAF uses the token to ensure that no changes have been made to the entity since you last retrieved it. If a change has been made, the update fails with a <code>WAFOptimisticLockException</code>. If this happens, perform another <code>get</code>, and use the new token returned by that operation. </p>
             version_to_expire: <p>The version that you want to remove from your list of offerings for the named managed rule group. </p>
             expiry_timestamp: <p>The time that you want the version to expire.</p> <p>Times are in Coordinated Universal Time (UTC) format. UTC format includes the special designator, Z. For example, \"2016-09-27T14:50Z\". </p>
+
+        Raises:
+            aws_sdk_wafv2.errors.waf_internal_error_exception.WAFInternalErrorException: <p>Your request is valid, but WAF couldn’t perform the operation because of a system problem. Retry your request. </p>
+            aws_sdk_wafv2.errors.waf_invalid_operation_exception.WAFInvalidOperationException: <p>The operation isn't valid. </p>
+            aws_sdk_wafv2.errors.waf_invalid_parameter_exception.WAFInvalidParameterException: <p>The operation failed because WAF didn't recognize a parameter in the request. For example: </p> <ul> <li> <p>You specified a parameter name or value that isn't valid.</p> </li> <li> <p>Your nested statement isn't valid. You might have tried to nest a statement that can’t be nested. </p> </li> <li> <p>You tried to update a <code>WebACL</code> with a <code>DefaultAction</code> that isn't among the types available at <a>DefaultAction</a>.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource with which a web ACL can't be associated.</p> </li> </ul>
+            aws_sdk_wafv2.errors.waf_nonexistent_item_exception.WAFNonexistentItemException: <p>WAF couldn’t perform the operation because your resource doesn't exist. If you've just created a resource that you're using in this operation, you might just need to wait a few minutes. It can take from a few seconds to a number of minutes for changes to propagate. </p>
+            aws_sdk_wafv2.errors.waf_optimistic_lock_exception.WAFOptimisticLockException: <p>WAF couldn’t save your changes because you tried to update or delete a resource that has changed since you last retrieved it. Get the resource again, make any changes you need to make to the new copy, and retry your operation. </p>
+            aws_sdk_wafv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2734,6 +3160,16 @@ class WAFV2Client:
             description: <p>A description of the set that helps with identification. </p>
             regular_expression_list: <p></p>
             lock_token: <p>A token used for optimistic locking. WAF returns a token to your <code>get</code> and <code>list</code> requests, to mark the state of the entity at the time of the request. To make changes to the entity associated with the token, you provide the token to operations like <code>update</code> and <code>delete</code>. WAF uses the token to ensure that no changes have been made to the entity since you last retrieved it. If a change has been made, the update fails with a <code>WAFOptimisticLockException</code>. If this happens, perform another <code>get</code>, and use the new token returned by that operation. </p>
+
+        Raises:
+            aws_sdk_wafv2.errors.waf_duplicate_item_exception.WAFDuplicateItemException: <p>WAF couldn’t perform the operation because the resource that you tried to save is a duplicate of an existing one.</p>
+            aws_sdk_wafv2.errors.waf_internal_error_exception.WAFInternalErrorException: <p>Your request is valid, but WAF couldn’t perform the operation because of a system problem. Retry your request. </p>
+            aws_sdk_wafv2.errors.waf_invalid_operation_exception.WAFInvalidOperationException: <p>The operation isn't valid. </p>
+            aws_sdk_wafv2.errors.waf_invalid_parameter_exception.WAFInvalidParameterException: <p>The operation failed because WAF didn't recognize a parameter in the request. For example: </p> <ul> <li> <p>You specified a parameter name or value that isn't valid.</p> </li> <li> <p>Your nested statement isn't valid. You might have tried to nest a statement that can’t be nested. </p> </li> <li> <p>You tried to update a <code>WebACL</code> with a <code>DefaultAction</code> that isn't among the types available at <a>DefaultAction</a>.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource with which a web ACL can't be associated.</p> </li> </ul>
+            aws_sdk_wafv2.errors.waf_limits_exceeded_exception.WAFLimitsExceededException: <p>WAF couldn’t perform the operation because you exceeded your resource limit. For example, the maximum number of <code>WebACL</code> objects that you can create for an Amazon Web Services account. For more information, see <a href=\"https://docs.aws.amazon.com/waf/latest/developerguide/limits.html\">WAF quotas</a> in the <i>WAF Developer Guide</i>.</p>
+            aws_sdk_wafv2.errors.waf_nonexistent_item_exception.WAFNonexistentItemException: <p>WAF couldn’t perform the operation because your resource doesn't exist. If you've just created a resource that you're using in this operation, you might just need to wait a few minutes. It can take from a few seconds to a number of minutes for changes to propagate. </p>
+            aws_sdk_wafv2.errors.waf_optimistic_lock_exception.WAFOptimisticLockException: <p>WAF couldn’t save your changes because you tried to update or delete a resource that has changed since you last retrieved it. Get the resource again, make any changes you need to make to the new copy, and retry your operation. </p>
+            aws_sdk_wafv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2795,6 +3231,19 @@ class WAFV2Client:
             visibility_config: <p>Defines and enables Amazon CloudWatch metrics and web request sample collection. </p>
             lock_token: <p>A token used for optimistic locking. WAF returns a token to your <code>get</code> and <code>list</code> requests, to mark the state of the entity at the time of the request. To make changes to the entity associated with the token, you provide the token to operations like <code>update</code> and <code>delete</code>. WAF uses the token to ensure that no changes have been made to the entity since you last retrieved it. If a change has been made, the update fails with a <code>WAFOptimisticLockException</code>. If this happens, perform another <code>get</code>, and use the new token returned by that operation. </p>
             custom_response_bodies: <p>A map of custom response keys and content bodies. When you create a rule with a block action, you can send a custom response to the web request. You define these for the rule group, and then use them in the rules that you define in the rule group. </p> <p>For information about customizing web requests and responses, see <a href=\"https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html\">Customizing web requests and responses in WAF</a> in the <i>WAF Developer Guide</i>. </p> <p>For information about the limits on count and size for custom request and response settings, see <a href=\"https://docs.aws.amazon.com/waf/latest/developerguide/limits.html\">WAF quotas</a> in the <i>WAF Developer Guide</i>. </p>
+
+        Raises:
+            aws_sdk_wafv2.errors.waf_configuration_warning_exception.WAFConfigurationWarningException: <p>The operation failed because you are inspecting the web request body, headers, or cookies without specifying how to handle oversize components. Rules that inspect the body must either provide an <code>OversizeHandling</code> configuration or they must be preceded by a <code>SizeConstraintStatement</code> that blocks the body content from being too large. Rules that inspect the headers or cookies must provide an <code>OversizeHandling</code> configuration. </p> <p>Provide the handling configuration and retry your operation.</p> <p>Alternately, you can suppress this warning by adding the following tag to the resource that you provide to this operation: <code>Tag</code> (key:<code>WAF:OversizeFieldsHandlingConstraintOptOut</code>, value:<code>true</code>).</p>
+            aws_sdk_wafv2.errors.waf_duplicate_item_exception.WAFDuplicateItemException: <p>WAF couldn’t perform the operation because the resource that you tried to save is a duplicate of an existing one.</p>
+            aws_sdk_wafv2.errors.waf_internal_error_exception.WAFInternalErrorException: <p>Your request is valid, but WAF couldn’t perform the operation because of a system problem. Retry your request. </p>
+            aws_sdk_wafv2.errors.waf_invalid_operation_exception.WAFInvalidOperationException: <p>The operation isn't valid. </p>
+            aws_sdk_wafv2.errors.waf_invalid_parameter_exception.WAFInvalidParameterException: <p>The operation failed because WAF didn't recognize a parameter in the request. For example: </p> <ul> <li> <p>You specified a parameter name or value that isn't valid.</p> </li> <li> <p>Your nested statement isn't valid. You might have tried to nest a statement that can’t be nested. </p> </li> <li> <p>You tried to update a <code>WebACL</code> with a <code>DefaultAction</code> that isn't among the types available at <a>DefaultAction</a>.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource with which a web ACL can't be associated.</p> </li> </ul>
+            aws_sdk_wafv2.errors.waf_limits_exceeded_exception.WAFLimitsExceededException: <p>WAF couldn’t perform the operation because you exceeded your resource limit. For example, the maximum number of <code>WebACL</code> objects that you can create for an Amazon Web Services account. For more information, see <a href=\"https://docs.aws.amazon.com/waf/latest/developerguide/limits.html\">WAF quotas</a> in the <i>WAF Developer Guide</i>.</p>
+            aws_sdk_wafv2.errors.waf_nonexistent_item_exception.WAFNonexistentItemException: <p>WAF couldn’t perform the operation because your resource doesn't exist. If you've just created a resource that you're using in this operation, you might just need to wait a few minutes. It can take from a few seconds to a number of minutes for changes to propagate. </p>
+            aws_sdk_wafv2.errors.waf_optimistic_lock_exception.WAFOptimisticLockException: <p>WAF couldn’t save your changes because you tried to update or delete a resource that has changed since you last retrieved it. Get the resource again, make any changes you need to make to the new copy, and retry your operation. </p>
+            aws_sdk_wafv2.errors.waf_subscription_not_found_exception.WAFSubscriptionNotFoundException: <p>You tried to use a managed rule group that's available by subscription, but you aren't subscribed to it yet. </p>
+            aws_sdk_wafv2.errors.waf_unavailable_entity_exception.WAFUnavailableEntityException: <p>WAF couldn’t retrieve a resource that you specified for this operation. If you've just created a resource that you're using in this operation, you might just need to wait a few minutes. It can take from a few seconds to a number of minutes for changes to propagate. Verify the resource specifications in your request parameters and then retry the operation.</p>
+            aws_sdk_wafv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2890,6 +3339,22 @@ class WAFV2Client:
             association_config: <p>Specifies custom configurations for the associations between the web ACL and protected resources. </p> <p>Use this to customize the maximum size of the request body that your protected resources forward to WAF for inspection. You can customize this setting for CloudFront, API Gateway, Amazon Cognito, App Runner, or Verified Access resources. The default setting is 16 KB (16,384 bytes). </p> <note> <p>You are charged additional fees when your protected resources forward body sizes that are larger than the default. For more information, see <a href=\"http://aws.amazon.com/waf/pricing/\">WAF Pricing</a>.</p> </note> <p>For Application Load Balancer and AppSync, the limit is fixed at 8 KB (8,192 bytes).</p>
             on_source_d_do_s_protection_config: <p>Specifies the type of DDoS protection to apply to web request data for a web ACL. For most scenarios, it is recommended to use the default protection level, <code>ACTIVE_UNDER_DDOS</code>. If a web ACL is associated with multiple Application Load Balancers, the changes you make to DDoS protection in that web ACL will apply to all associated Application Load Balancers.</p>
             application_config: <p>Configures the ability for the WAF console to store and retrieve application attributes. Application attributes help WAF give recommendations for protection packs.</p> <p>When using <code>UpdateWebACL</code>, <code>ApplicationConfig</code> follows these rules:</p> <ul> <li> <p>If you omit <code>ApplicationConfig</code> from the request, all existing entries in the web ACL are retained.</p> </li> <li> <p>If you include <code>ApplicationConfig</code>, entries must match the existing values exactly. Any attempt to modify existing entries will result in an error.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_wafv2.errors.waf_configuration_warning_exception.WAFConfigurationWarningException: <p>The operation failed because you are inspecting the web request body, headers, or cookies without specifying how to handle oversize components. Rules that inspect the body must either provide an <code>OversizeHandling</code> configuration or they must be preceded by a <code>SizeConstraintStatement</code> that blocks the body content from being too large. Rules that inspect the headers or cookies must provide an <code>OversizeHandling</code> configuration. </p> <p>Provide the handling configuration and retry your operation.</p> <p>Alternately, you can suppress this warning by adding the following tag to the resource that you provide to this operation: <code>Tag</code> (key:<code>WAF:OversizeFieldsHandlingConstraintOptOut</code>, value:<code>true</code>).</p>
+            aws_sdk_wafv2.errors.waf_duplicate_item_exception.WAFDuplicateItemException: <p>WAF couldn’t perform the operation because the resource that you tried to save is a duplicate of an existing one.</p>
+            aws_sdk_wafv2.errors.waf_expired_managed_rule_group_version_exception.WAFExpiredManagedRuleGroupVersionException: <p>The operation failed because the specified version for the managed rule group has expired. You can retrieve the available versions for the managed rule group by calling <a>ListAvailableManagedRuleGroupVersions</a>.</p>
+            aws_sdk_wafv2.errors.waf_feature_not_included_in_pricing_plan_exception.WAFFeatureNotIncludedInPricingPlanException: <p>The operation failed because the specified WAF feature isn't supported by the CloudFront pricing plan associated with the web ACL.</p>
+            aws_sdk_wafv2.errors.waf_internal_error_exception.WAFInternalErrorException: <p>Your request is valid, but WAF couldn’t perform the operation because of a system problem. Retry your request. </p>
+            aws_sdk_wafv2.errors.waf_invalid_operation_exception.WAFInvalidOperationException: <p>The operation isn't valid. </p>
+            aws_sdk_wafv2.errors.waf_invalid_parameter_exception.WAFInvalidParameterException: <p>The operation failed because WAF didn't recognize a parameter in the request. For example: </p> <ul> <li> <p>You specified a parameter name or value that isn't valid.</p> </li> <li> <p>Your nested statement isn't valid. You might have tried to nest a statement that can’t be nested. </p> </li> <li> <p>You tried to update a <code>WebACL</code> with a <code>DefaultAction</code> that isn't among the types available at <a>DefaultAction</a>.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource with which a web ACL can't be associated.</p> </li> </ul>
+            aws_sdk_wafv2.errors.waf_invalid_resource_exception.WAFInvalidResourceException: <p>WAF couldn’t perform the operation because the resource that you requested isn’t valid. Check the resource, and try again.</p>
+            aws_sdk_wafv2.errors.waf_limits_exceeded_exception.WAFLimitsExceededException: <p>WAF couldn’t perform the operation because you exceeded your resource limit. For example, the maximum number of <code>WebACL</code> objects that you can create for an Amazon Web Services account. For more information, see <a href=\"https://docs.aws.amazon.com/waf/latest/developerguide/limits.html\">WAF quotas</a> in the <i>WAF Developer Guide</i>.</p>
+            aws_sdk_wafv2.errors.waf_nonexistent_item_exception.WAFNonexistentItemException: <p>WAF couldn’t perform the operation because your resource doesn't exist. If you've just created a resource that you're using in this operation, you might just need to wait a few minutes. It can take from a few seconds to a number of minutes for changes to propagate. </p>
+            aws_sdk_wafv2.errors.waf_optimistic_lock_exception.WAFOptimisticLockException: <p>WAF couldn’t save your changes because you tried to update or delete a resource that has changed since you last retrieved it. Get the resource again, make any changes you need to make to the new copy, and retry your operation. </p>
+            aws_sdk_wafv2.errors.waf_subscription_not_found_exception.WAFSubscriptionNotFoundException: <p>You tried to use a managed rule group that's available by subscription, but you aren't subscribed to it yet. </p>
+            aws_sdk_wafv2.errors.waf_unavailable_entity_exception.WAFUnavailableEntityException: <p>WAF couldn’t retrieve a resource that you specified for this operation. If you've just created a resource that you're using in this operation, you might just need to wait a few minutes. It can take from a few seconds to a number of minutes for changes to propagate. Verify the resource specifications in your request parameters and then retry the operation.</p>
+            aws_sdk_wafv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(

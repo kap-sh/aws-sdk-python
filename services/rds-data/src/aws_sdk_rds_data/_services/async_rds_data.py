@@ -167,6 +167,24 @@ class AsyncRDSDataClient:
             schema: <p>The name of the database schema.</p> <note> <p>Currently, the <code>schema</code> parameter isn't supported.</p> </note>
             parameter_sets: <p>The parameter set for the batch operation.</p> <p>The SQL statement is executed as many times as the number of parameter sets provided. To execute a SQL statement with no parameters, use one of the following options:</p> <ul> <li> <p>Specify one or more empty parameter sets.</p> </li> <li> <p>Use the <code>ExecuteStatement</code> operation instead of the <code>BatchExecuteStatement</code> operation.</p> </li> </ul> <note> <p>Array parameters are not supported.</p> </note>
             transaction_id: <p>The identifier of a transaction that was started by using the <code>BeginTransaction</code> operation. Specify the transaction ID of the transaction that you want to include the SQL statement in.</p> <p>If the SQL statement is not part of a transaction, don't set this parameter.</p>
+
+        Raises:
+            aws_sdk_rds_data.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action.</p>
+            aws_sdk_rds_data.errors.bad_request_exception.BadRequestException: <p>There is an error in the call or in a SQL statement. (This error only appears in calls from Aurora Serverless v1 databases.)</p>
+            aws_sdk_rds_data.errors.database_error_exception.DatabaseErrorException: <p>There was an error in processing the SQL statement.</p>
+            aws_sdk_rds_data.errors.database_not_found_exception.DatabaseNotFoundException: <p>The DB cluster doesn't have a DB instance.</p>
+            aws_sdk_rds_data.errors.database_resuming_exception.DatabaseResumingException: <p>A request was cancelled because the Aurora Serverless v2 DB instance was paused. The Data API request automatically resumes the DB instance. Wait a few seconds and try again.</p>
+            aws_sdk_rds_data.errors.database_unavailable_exception.DatabaseUnavailableException: <p>The writer instance in the DB cluster isn't available.</p>
+            aws_sdk_rds_data.errors.forbidden_exception.ForbiddenException: <p>There are insufficient privileges to make the call.</p>
+            aws_sdk_rds_data.errors.http_endpoint_not_enabled_exception.HttpEndpointNotEnabledException: <p>The HTTP endpoint for using RDS Data API isn't enabled for the DB cluster.</p>
+            aws_sdk_rds_data.errors.internal_server_error_exception.InternalServerErrorException: <p>An internal error occurred.</p>
+            aws_sdk_rds_data.errors.invalid_resource_state_exception.InvalidResourceStateException: <p>The resource is in an invalid state.</p>
+            aws_sdk_rds_data.errors.invalid_secret_exception.InvalidSecretException: <p>The Secrets Manager secret used with the request isn't valid.</p>
+            aws_sdk_rds_data.errors.secrets_error_exception.SecretsErrorException: <p>There was a problem with the Secrets Manager secret used with the request, caused by one of the following conditions:</p> <ul> <li> <p>RDS Data API timed out retrieving the secret.</p> </li> <li> <p>The secret provided wasn't found.</p> </li> <li> <p>The secret couldn't be decrypted.</p> </li> </ul>
+            aws_sdk_rds_data.errors.service_unavailable_error.ServiceUnavailableError: <p>The service specified by the <code>resourceArn</code> parameter isn't available.</p>
+            aws_sdk_rds_data.errors.statement_timeout_exception.StatementTimeoutException: <p>The execution of the SQL statement timed out.</p>
+            aws_sdk_rds_data.errors.transaction_not_found_exception.TransactionNotFoundException: <p>The transaction ID wasn't found.</p>
+            aws_sdk_rds_data.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -221,6 +239,24 @@ class AsyncRDSDataClient:
             secret_arn: <p>The name or ARN of the secret that enables access to the DB cluster.</p>
             database: <p>The name of the database.</p>
             schema: <p>The name of the database schema.</p>
+
+        Raises:
+            aws_sdk_rds_data.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action.</p>
+            aws_sdk_rds_data.errors.bad_request_exception.BadRequestException: <p>There is an error in the call or in a SQL statement. (This error only appears in calls from Aurora Serverless v1 databases.)</p>
+            aws_sdk_rds_data.errors.database_error_exception.DatabaseErrorException: <p>There was an error in processing the SQL statement.</p>
+            aws_sdk_rds_data.errors.database_not_found_exception.DatabaseNotFoundException: <p>The DB cluster doesn't have a DB instance.</p>
+            aws_sdk_rds_data.errors.database_resuming_exception.DatabaseResumingException: <p>A request was cancelled because the Aurora Serverless v2 DB instance was paused. The Data API request automatically resumes the DB instance. Wait a few seconds and try again.</p>
+            aws_sdk_rds_data.errors.database_unavailable_exception.DatabaseUnavailableException: <p>The writer instance in the DB cluster isn't available.</p>
+            aws_sdk_rds_data.errors.forbidden_exception.ForbiddenException: <p>There are insufficient privileges to make the call.</p>
+            aws_sdk_rds_data.errors.http_endpoint_not_enabled_exception.HttpEndpointNotEnabledException: <p>The HTTP endpoint for using RDS Data API isn't enabled for the DB cluster.</p>
+            aws_sdk_rds_data.errors.internal_server_error_exception.InternalServerErrorException: <p>An internal error occurred.</p>
+            aws_sdk_rds_data.errors.invalid_resource_state_exception.InvalidResourceStateException: <p>The resource is in an invalid state.</p>
+            aws_sdk_rds_data.errors.invalid_secret_exception.InvalidSecretException: <p>The Secrets Manager secret used with the request isn't valid.</p>
+            aws_sdk_rds_data.errors.secrets_error_exception.SecretsErrorException: <p>There was a problem with the Secrets Manager secret used with the request, caused by one of the following conditions:</p> <ul> <li> <p>RDS Data API timed out retrieving the secret.</p> </li> <li> <p>The secret provided wasn't found.</p> </li> <li> <p>The secret couldn't be decrypted.</p> </li> </ul>
+            aws_sdk_rds_data.errors.service_unavailable_error.ServiceUnavailableError: <p>The service specified by the <code>resourceArn</code> parameter isn't available.</p>
+            aws_sdk_rds_data.errors.statement_timeout_exception.StatementTimeoutException: <p>The execution of the SQL statement timed out.</p>
+            aws_sdk_rds_data.errors.transaction_not_found_exception.TransactionNotFoundException: <p>The transaction ID wasn't found.</p>
+            aws_sdk_rds_data.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -268,6 +304,24 @@ class AsyncRDSDataClient:
             resource_arn: <p>The Amazon Resource Name (ARN) of the Aurora Serverless DB cluster.</p>
             secret_arn: <p>The name or ARN of the secret that enables access to the DB cluster.</p>
             transaction_id: <p>The identifier of the transaction to end and commit.</p>
+
+        Raises:
+            aws_sdk_rds_data.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action.</p>
+            aws_sdk_rds_data.errors.bad_request_exception.BadRequestException: <p>There is an error in the call or in a SQL statement. (This error only appears in calls from Aurora Serverless v1 databases.)</p>
+            aws_sdk_rds_data.errors.database_error_exception.DatabaseErrorException: <p>There was an error in processing the SQL statement.</p>
+            aws_sdk_rds_data.errors.database_not_found_exception.DatabaseNotFoundException: <p>The DB cluster doesn't have a DB instance.</p>
+            aws_sdk_rds_data.errors.database_unavailable_exception.DatabaseUnavailableException: <p>The writer instance in the DB cluster isn't available.</p>
+            aws_sdk_rds_data.errors.forbidden_exception.ForbiddenException: <p>There are insufficient privileges to make the call.</p>
+            aws_sdk_rds_data.errors.http_endpoint_not_enabled_exception.HttpEndpointNotEnabledException: <p>The HTTP endpoint for using RDS Data API isn't enabled for the DB cluster.</p>
+            aws_sdk_rds_data.errors.internal_server_error_exception.InternalServerErrorException: <p>An internal error occurred.</p>
+            aws_sdk_rds_data.errors.invalid_resource_state_exception.InvalidResourceStateException: <p>The resource is in an invalid state.</p>
+            aws_sdk_rds_data.errors.invalid_secret_exception.InvalidSecretException: <p>The Secrets Manager secret used with the request isn't valid.</p>
+            aws_sdk_rds_data.errors.not_found_exception.NotFoundException: <p>The <code>resourceArn</code>, <code>secretArn</code>, or <code>transactionId</code> value can't be found.</p>
+            aws_sdk_rds_data.errors.secrets_error_exception.SecretsErrorException: <p>There was a problem with the Secrets Manager secret used with the request, caused by one of the following conditions:</p> <ul> <li> <p>RDS Data API timed out retrieving the secret.</p> </li> <li> <p>The secret provided wasn't found.</p> </li> <li> <p>The secret couldn't be decrypted.</p> </li> </ul>
+            aws_sdk_rds_data.errors.service_unavailable_error.ServiceUnavailableError: <p>The service specified by the <code>resourceArn</code> parameter isn't available.</p>
+            aws_sdk_rds_data.errors.statement_timeout_exception.StatementTimeoutException: <p>The execution of the SQL statement timed out.</p>
+            aws_sdk_rds_data.errors.transaction_not_found_exception.TransactionNotFoundException: <p>The transaction ID wasn't found.</p>
+            aws_sdk_rds_data.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -316,6 +370,14 @@ class AsyncRDSDataClient:
             sql_statements: <p>One or more SQL statements to run on the DB cluster.</p> <p>You can separate SQL statements from each other with a semicolon (;). Any valid SQL statement is permitted, including data definition, data manipulation, and commit statements. </p>
             database: <p>The name of the database.</p>
             schema: <p>The name of the database schema.</p>
+
+        Raises:
+            aws_sdk_rds_data.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action.</p>
+            aws_sdk_rds_data.errors.bad_request_exception.BadRequestException: <p>There is an error in the call or in a SQL statement. (This error only appears in calls from Aurora Serverless v1 databases.)</p>
+            aws_sdk_rds_data.errors.forbidden_exception.ForbiddenException: <p>There are insufficient privileges to make the call.</p>
+            aws_sdk_rds_data.errors.internal_server_error_exception.InternalServerErrorException: <p>An internal error occurred.</p>
+            aws_sdk_rds_data.errors.service_unavailable_error.ServiceUnavailableError: <p>The service specified by the <code>resourceArn</code> parameter isn't available.</p>
+            aws_sdk_rds_data.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -390,6 +452,25 @@ class AsyncRDSDataClient:
             continue_after_timeout: <p>A value that indicates whether to continue running the statement after the call times out. By default, the statement stops running when the call times out.</p> <note> <p>For DDL statements, we recommend continuing to run the statement after the call times out. When a DDL statement terminates before it is finished running, it can result in errors and possibly corrupted data structures.</p> </note>
             result_set_options: <p>Options that control how the result set is returned.</p>
             format_records_as: <p>A value that indicates whether to format the result set as a single JSON string. This parameter only applies to <code>SELECT</code> statements and is ignored for other types of statements. Allowed values are <code>NONE</code> and <code>JSON</code>. The default value is <code>NONE</code>. The result is returned in the <code>formattedRecords</code> field.</p> <p>For usage information about the JSON format for result sets, see <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html\">Using the Data API</a> in the <i>Amazon Aurora User Guide</i>.</p>
+
+        Raises:
+            aws_sdk_rds_data.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action.</p>
+            aws_sdk_rds_data.errors.bad_request_exception.BadRequestException: <p>There is an error in the call or in a SQL statement. (This error only appears in calls from Aurora Serverless v1 databases.)</p>
+            aws_sdk_rds_data.errors.database_error_exception.DatabaseErrorException: <p>There was an error in processing the SQL statement.</p>
+            aws_sdk_rds_data.errors.database_not_found_exception.DatabaseNotFoundException: <p>The DB cluster doesn't have a DB instance.</p>
+            aws_sdk_rds_data.errors.database_resuming_exception.DatabaseResumingException: <p>A request was cancelled because the Aurora Serverless v2 DB instance was paused. The Data API request automatically resumes the DB instance. Wait a few seconds and try again.</p>
+            aws_sdk_rds_data.errors.database_unavailable_exception.DatabaseUnavailableException: <p>The writer instance in the DB cluster isn't available.</p>
+            aws_sdk_rds_data.errors.forbidden_exception.ForbiddenException: <p>There are insufficient privileges to make the call.</p>
+            aws_sdk_rds_data.errors.http_endpoint_not_enabled_exception.HttpEndpointNotEnabledException: <p>The HTTP endpoint for using RDS Data API isn't enabled for the DB cluster.</p>
+            aws_sdk_rds_data.errors.internal_server_error_exception.InternalServerErrorException: <p>An internal error occurred.</p>
+            aws_sdk_rds_data.errors.invalid_resource_state_exception.InvalidResourceStateException: <p>The resource is in an invalid state.</p>
+            aws_sdk_rds_data.errors.invalid_secret_exception.InvalidSecretException: <p>The Secrets Manager secret used with the request isn't valid.</p>
+            aws_sdk_rds_data.errors.secrets_error_exception.SecretsErrorException: <p>There was a problem with the Secrets Manager secret used with the request, caused by one of the following conditions:</p> <ul> <li> <p>RDS Data API timed out retrieving the secret.</p> </li> <li> <p>The secret provided wasn't found.</p> </li> <li> <p>The secret couldn't be decrypted.</p> </li> </ul>
+            aws_sdk_rds_data.errors.service_unavailable_error.ServiceUnavailableError: <p>The service specified by the <code>resourceArn</code> parameter isn't available.</p>
+            aws_sdk_rds_data.errors.statement_timeout_exception.StatementTimeoutException: <p>The execution of the SQL statement timed out.</p>
+            aws_sdk_rds_data.errors.transaction_not_found_exception.TransactionNotFoundException: <p>The transaction ID wasn't found.</p>
+            aws_sdk_rds_data.errors.unsupported_result_exception.UnsupportedResultException: <p>There was a problem with the result because of one of the following conditions:</p> <ul> <li> <p>It contained an unsupported data type.</p> </li> <li> <p>It contained a multidimensional array.</p> </li> <li> <p>The size was too large.</p> </li> </ul>
+            aws_sdk_rds_data.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -450,6 +531,24 @@ class AsyncRDSDataClient:
             resource_arn: <p>The Amazon Resource Name (ARN) of the Aurora Serverless DB cluster.</p>
             secret_arn: <p>The name or ARN of the secret that enables access to the DB cluster.</p>
             transaction_id: <p>The identifier of the transaction to roll back.</p>
+
+        Raises:
+            aws_sdk_rds_data.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action.</p>
+            aws_sdk_rds_data.errors.bad_request_exception.BadRequestException: <p>There is an error in the call or in a SQL statement. (This error only appears in calls from Aurora Serverless v1 databases.)</p>
+            aws_sdk_rds_data.errors.database_error_exception.DatabaseErrorException: <p>There was an error in processing the SQL statement.</p>
+            aws_sdk_rds_data.errors.database_not_found_exception.DatabaseNotFoundException: <p>The DB cluster doesn't have a DB instance.</p>
+            aws_sdk_rds_data.errors.database_unavailable_exception.DatabaseUnavailableException: <p>The writer instance in the DB cluster isn't available.</p>
+            aws_sdk_rds_data.errors.forbidden_exception.ForbiddenException: <p>There are insufficient privileges to make the call.</p>
+            aws_sdk_rds_data.errors.http_endpoint_not_enabled_exception.HttpEndpointNotEnabledException: <p>The HTTP endpoint for using RDS Data API isn't enabled for the DB cluster.</p>
+            aws_sdk_rds_data.errors.internal_server_error_exception.InternalServerErrorException: <p>An internal error occurred.</p>
+            aws_sdk_rds_data.errors.invalid_resource_state_exception.InvalidResourceStateException: <p>The resource is in an invalid state.</p>
+            aws_sdk_rds_data.errors.invalid_secret_exception.InvalidSecretException: <p>The Secrets Manager secret used with the request isn't valid.</p>
+            aws_sdk_rds_data.errors.not_found_exception.NotFoundException: <p>The <code>resourceArn</code>, <code>secretArn</code>, or <code>transactionId</code> value can't be found.</p>
+            aws_sdk_rds_data.errors.secrets_error_exception.SecretsErrorException: <p>There was a problem with the Secrets Manager secret used with the request, caused by one of the following conditions:</p> <ul> <li> <p>RDS Data API timed out retrieving the secret.</p> </li> <li> <p>The secret provided wasn't found.</p> </li> <li> <p>The secret couldn't be decrypted.</p> </li> </ul>
+            aws_sdk_rds_data.errors.service_unavailable_error.ServiceUnavailableError: <p>The service specified by the <code>resourceArn</code> parameter isn't available.</p>
+            aws_sdk_rds_data.errors.statement_timeout_exception.StatementTimeoutException: <p>The execution of the SQL statement timed out.</p>
+            aws_sdk_rds_data.errors.transaction_not_found_exception.TransactionNotFoundException: <p>The transaction ID wasn't found.</p>
+            aws_sdk_rds_data.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

@@ -69,6 +69,17 @@ class SignalCatalogResource:
             description: <p>A brief description of the signal catalog.</p>
             nodes: <p> A list of information about nodes, which are a general abstraction of signals. For more information, see the API data type.</p>
             tags: <p>Metadata that can be used to manage the signal catalog.</p>
+
+        Raises:
+            aws_sdk_iotfleetwise.errors.internal_server_exception.InternalServerException: <p>The request couldn't be completed because the server temporarily failed.</p>
+            aws_sdk_iotfleetwise.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permission to perform this action.</p>
+            aws_sdk_iotfleetwise.errors.conflict_exception.ConflictException: <p>The request has conflicting operations. This can occur if you're trying to perform more than one operation on the same resource at the same time.</p>
+            aws_sdk_iotfleetwise.errors.invalid_node_exception.InvalidNodeException: <p>The specified node type doesn't match the expected node type for a node. You can specify the node type as branch, sensor, actuator, or attribute.</p>
+            aws_sdk_iotfleetwise.errors.invalid_signals_exception.InvalidSignalsException: <p>The request couldn't be completed because it contains signals that aren't valid.</p>
+            aws_sdk_iotfleetwise.errors.limit_exceeded_exception.LimitExceededException: <p>A service quota was exceeded. </p>
+            aws_sdk_iotfleetwise.errors.throttling_exception.ThrottlingException: <p>The request couldn't be completed due to throttling.</p>
+            aws_sdk_iotfleetwise.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_iotfleetwise.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -112,6 +123,14 @@ class SignalCatalogResource:
 
         Args:
             name: <p> The name of the signal catalog to retrieve information about. </p>
+
+        Raises:
+            aws_sdk_iotfleetwise.errors.internal_server_exception.InternalServerException: <p>The request couldn't be completed because the server temporarily failed.</p>
+            aws_sdk_iotfleetwise.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permission to perform this action.</p>
+            aws_sdk_iotfleetwise.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource wasn't found.</p>
+            aws_sdk_iotfleetwise.errors.throttling_exception.ThrottlingException: <p>The request couldn't be completed due to throttling.</p>
+            aws_sdk_iotfleetwise.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_iotfleetwise.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -161,6 +180,18 @@ class SignalCatalogResource:
             nodes_to_add: <p> A list of information about nodes to add to the signal catalog. </p>
             nodes_to_update: <p> A list of information about nodes to update in the signal catalog. </p>
             nodes_to_remove: <p> A list of <code>fullyQualifiedName</code> of nodes to remove from the signal catalog. </p>
+
+        Raises:
+            aws_sdk_iotfleetwise.errors.internal_server_exception.InternalServerException: <p>The request couldn't be completed because the server temporarily failed.</p>
+            aws_sdk_iotfleetwise.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permission to perform this action.</p>
+            aws_sdk_iotfleetwise.errors.conflict_exception.ConflictException: <p>The request has conflicting operations. This can occur if you're trying to perform more than one operation on the same resource at the same time.</p>
+            aws_sdk_iotfleetwise.errors.invalid_node_exception.InvalidNodeException: <p>The specified node type doesn't match the expected node type for a node. You can specify the node type as branch, sensor, actuator, or attribute.</p>
+            aws_sdk_iotfleetwise.errors.invalid_signals_exception.InvalidSignalsException: <p>The request couldn't be completed because it contains signals that aren't valid.</p>
+            aws_sdk_iotfleetwise.errors.limit_exceeded_exception.LimitExceededException: <p>A service quota was exceeded. </p>
+            aws_sdk_iotfleetwise.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource wasn't found.</p>
+            aws_sdk_iotfleetwise.errors.throttling_exception.ThrottlingException: <p>The request couldn't be completed due to throttling.</p>
+            aws_sdk_iotfleetwise.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_iotfleetwise.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -206,6 +237,14 @@ class SignalCatalogResource:
 
         Args:
             name: <p> The name of the signal catalog to delete. </p>
+
+        Raises:
+            aws_sdk_iotfleetwise.errors.internal_server_exception.InternalServerException: <p>The request couldn't be completed because the server temporarily failed.</p>
+            aws_sdk_iotfleetwise.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permission to perform this action.</p>
+            aws_sdk_iotfleetwise.errors.conflict_exception.ConflictException: <p>The request has conflicting operations. This can occur if you're trying to perform more than one operation on the same resource at the same time.</p>
+            aws_sdk_iotfleetwise.errors.throttling_exception.ThrottlingException: <p>The request couldn't be completed due to throttling.</p>
+            aws_sdk_iotfleetwise.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_iotfleetwise.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -247,6 +286,13 @@ class SignalCatalogResource:
         Args:
             next_token: <p>A pagination token for the next set of results.</p> <p>If the results of a search are large, only a portion of the results are returned, and a <code>nextToken</code> pagination token is returned in the response. To retrieve the next set of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value. </p>
             max_results: <p>The maximum number of items to return, between 1 and 100, inclusive.</p>
+
+        Raises:
+            aws_sdk_iotfleetwise.errors.internal_server_exception.InternalServerException: <p>The request couldn't be completed because the server temporarily failed.</p>
+            aws_sdk_iotfleetwise.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permission to perform this action.</p>
+            aws_sdk_iotfleetwise.errors.throttling_exception.ThrottlingException: <p>The request couldn't be completed due to throttling.</p>
+            aws_sdk_iotfleetwise.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_iotfleetwise.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -295,6 +341,17 @@ class SignalCatalogResource:
             description: <p> A brief description of the signal catalog. </p>
             vss: <p>The contents of the Vehicle Signal Specification (VSS) configuration. VSS is a precise language used to describe and model signals in vehicle networks.</p>
             tags: <p>Metadata that can be used to manage the signal catalog.</p>
+
+        Raises:
+            aws_sdk_iotfleetwise.errors.internal_server_exception.InternalServerException: <p>The request couldn't be completed because the server temporarily failed.</p>
+            aws_sdk_iotfleetwise.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permission to perform this action.</p>
+            aws_sdk_iotfleetwise.errors.conflict_exception.ConflictException: <p>The request has conflicting operations. This can occur if you're trying to perform more than one operation on the same resource at the same time.</p>
+            aws_sdk_iotfleetwise.errors.invalid_signals_exception.InvalidSignalsException: <p>The request couldn't be completed because it contains signals that aren't valid.</p>
+            aws_sdk_iotfleetwise.errors.limit_exceeded_exception.LimitExceededException: <p>A service quota was exceeded. </p>
+            aws_sdk_iotfleetwise.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource wasn't found.</p>
+            aws_sdk_iotfleetwise.errors.throttling_exception.ThrottlingException: <p>The request couldn't be completed due to throttling.</p>
+            aws_sdk_iotfleetwise.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_iotfleetwise.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -348,6 +405,15 @@ class SignalCatalogResource:
             next_token: <p>A pagination token for the next set of results.</p> <p>If the results of a search are large, only a portion of the results are returned, and a <code>nextToken</code> pagination token is returned in the response. To retrieve the next set of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value. </p>
             max_results: <p>The maximum number of items to return, between 1 and 100, inclusive.</p>
             signal_node_type: <p>The type of node in the signal catalog.</p>
+
+        Raises:
+            aws_sdk_iotfleetwise.errors.internal_server_exception.InternalServerException: <p>The request couldn't be completed because the server temporarily failed.</p>
+            aws_sdk_iotfleetwise.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permission to perform this action.</p>
+            aws_sdk_iotfleetwise.errors.limit_exceeded_exception.LimitExceededException: <p>A service quota was exceeded. </p>
+            aws_sdk_iotfleetwise.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource wasn't found.</p>
+            aws_sdk_iotfleetwise.errors.throttling_exception.ThrottlingException: <p>The request couldn't be completed due to throttling.</p>
+            aws_sdk_iotfleetwise.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_iotfleetwise.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -404,6 +470,17 @@ class AsyncSignalCatalogResource:
             description: <p>A brief description of the signal catalog.</p>
             nodes: <p> A list of information about nodes, which are a general abstraction of signals. For more information, see the API data type.</p>
             tags: <p>Metadata that can be used to manage the signal catalog.</p>
+
+        Raises:
+            aws_sdk_iotfleetwise.errors.internal_server_exception.InternalServerException: <p>The request couldn't be completed because the server temporarily failed.</p>
+            aws_sdk_iotfleetwise.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permission to perform this action.</p>
+            aws_sdk_iotfleetwise.errors.conflict_exception.ConflictException: <p>The request has conflicting operations. This can occur if you're trying to perform more than one operation on the same resource at the same time.</p>
+            aws_sdk_iotfleetwise.errors.invalid_node_exception.InvalidNodeException: <p>The specified node type doesn't match the expected node type for a node. You can specify the node type as branch, sensor, actuator, or attribute.</p>
+            aws_sdk_iotfleetwise.errors.invalid_signals_exception.InvalidSignalsException: <p>The request couldn't be completed because it contains signals that aren't valid.</p>
+            aws_sdk_iotfleetwise.errors.limit_exceeded_exception.LimitExceededException: <p>A service quota was exceeded. </p>
+            aws_sdk_iotfleetwise.errors.throttling_exception.ThrottlingException: <p>The request couldn't be completed due to throttling.</p>
+            aws_sdk_iotfleetwise.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_iotfleetwise.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -448,6 +525,14 @@ class AsyncSignalCatalogResource:
 
         Args:
             name: <p> The name of the signal catalog to retrieve information about. </p>
+
+        Raises:
+            aws_sdk_iotfleetwise.errors.internal_server_exception.InternalServerException: <p>The request couldn't be completed because the server temporarily failed.</p>
+            aws_sdk_iotfleetwise.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permission to perform this action.</p>
+            aws_sdk_iotfleetwise.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource wasn't found.</p>
+            aws_sdk_iotfleetwise.errors.throttling_exception.ThrottlingException: <p>The request couldn't be completed due to throttling.</p>
+            aws_sdk_iotfleetwise.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_iotfleetwise.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -498,6 +583,18 @@ class AsyncSignalCatalogResource:
             nodes_to_add: <p> A list of information about nodes to add to the signal catalog. </p>
             nodes_to_update: <p> A list of information about nodes to update in the signal catalog. </p>
             nodes_to_remove: <p> A list of <code>fullyQualifiedName</code> of nodes to remove from the signal catalog. </p>
+
+        Raises:
+            aws_sdk_iotfleetwise.errors.internal_server_exception.InternalServerException: <p>The request couldn't be completed because the server temporarily failed.</p>
+            aws_sdk_iotfleetwise.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permission to perform this action.</p>
+            aws_sdk_iotfleetwise.errors.conflict_exception.ConflictException: <p>The request has conflicting operations. This can occur if you're trying to perform more than one operation on the same resource at the same time.</p>
+            aws_sdk_iotfleetwise.errors.invalid_node_exception.InvalidNodeException: <p>The specified node type doesn't match the expected node type for a node. You can specify the node type as branch, sensor, actuator, or attribute.</p>
+            aws_sdk_iotfleetwise.errors.invalid_signals_exception.InvalidSignalsException: <p>The request couldn't be completed because it contains signals that aren't valid.</p>
+            aws_sdk_iotfleetwise.errors.limit_exceeded_exception.LimitExceededException: <p>A service quota was exceeded. </p>
+            aws_sdk_iotfleetwise.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource wasn't found.</p>
+            aws_sdk_iotfleetwise.errors.throttling_exception.ThrottlingException: <p>The request couldn't be completed due to throttling.</p>
+            aws_sdk_iotfleetwise.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_iotfleetwise.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -544,6 +641,14 @@ class AsyncSignalCatalogResource:
 
         Args:
             name: <p> The name of the signal catalog to delete. </p>
+
+        Raises:
+            aws_sdk_iotfleetwise.errors.internal_server_exception.InternalServerException: <p>The request couldn't be completed because the server temporarily failed.</p>
+            aws_sdk_iotfleetwise.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permission to perform this action.</p>
+            aws_sdk_iotfleetwise.errors.conflict_exception.ConflictException: <p>The request has conflicting operations. This can occur if you're trying to perform more than one operation on the same resource at the same time.</p>
+            aws_sdk_iotfleetwise.errors.throttling_exception.ThrottlingException: <p>The request couldn't be completed due to throttling.</p>
+            aws_sdk_iotfleetwise.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_iotfleetwise.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -586,6 +691,13 @@ class AsyncSignalCatalogResource:
         Args:
             next_token: <p>A pagination token for the next set of results.</p> <p>If the results of a search are large, only a portion of the results are returned, and a <code>nextToken</code> pagination token is returned in the response. To retrieve the next set of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value. </p>
             max_results: <p>The maximum number of items to return, between 1 and 100, inclusive.</p>
+
+        Raises:
+            aws_sdk_iotfleetwise.errors.internal_server_exception.InternalServerException: <p>The request couldn't be completed because the server temporarily failed.</p>
+            aws_sdk_iotfleetwise.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permission to perform this action.</p>
+            aws_sdk_iotfleetwise.errors.throttling_exception.ThrottlingException: <p>The request couldn't be completed due to throttling.</p>
+            aws_sdk_iotfleetwise.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_iotfleetwise.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -635,6 +747,17 @@ class AsyncSignalCatalogResource:
             description: <p> A brief description of the signal catalog. </p>
             vss: <p>The contents of the Vehicle Signal Specification (VSS) configuration. VSS is a precise language used to describe and model signals in vehicle networks.</p>
             tags: <p>Metadata that can be used to manage the signal catalog.</p>
+
+        Raises:
+            aws_sdk_iotfleetwise.errors.internal_server_exception.InternalServerException: <p>The request couldn't be completed because the server temporarily failed.</p>
+            aws_sdk_iotfleetwise.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permission to perform this action.</p>
+            aws_sdk_iotfleetwise.errors.conflict_exception.ConflictException: <p>The request has conflicting operations. This can occur if you're trying to perform more than one operation on the same resource at the same time.</p>
+            aws_sdk_iotfleetwise.errors.invalid_signals_exception.InvalidSignalsException: <p>The request couldn't be completed because it contains signals that aren't valid.</p>
+            aws_sdk_iotfleetwise.errors.limit_exceeded_exception.LimitExceededException: <p>A service quota was exceeded. </p>
+            aws_sdk_iotfleetwise.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource wasn't found.</p>
+            aws_sdk_iotfleetwise.errors.throttling_exception.ThrottlingException: <p>The request couldn't be completed due to throttling.</p>
+            aws_sdk_iotfleetwise.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_iotfleetwise.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -689,6 +812,15 @@ class AsyncSignalCatalogResource:
             next_token: <p>A pagination token for the next set of results.</p> <p>If the results of a search are large, only a portion of the results are returned, and a <code>nextToken</code> pagination token is returned in the response. To retrieve the next set of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value. </p>
             max_results: <p>The maximum number of items to return, between 1 and 100, inclusive.</p>
             signal_node_type: <p>The type of node in the signal catalog.</p>
+
+        Raises:
+            aws_sdk_iotfleetwise.errors.internal_server_exception.InternalServerException: <p>The request couldn't be completed because the server temporarily failed.</p>
+            aws_sdk_iotfleetwise.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permission to perform this action.</p>
+            aws_sdk_iotfleetwise.errors.limit_exceeded_exception.LimitExceededException: <p>A service quota was exceeded. </p>
+            aws_sdk_iotfleetwise.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource wasn't found.</p>
+            aws_sdk_iotfleetwise.errors.throttling_exception.ThrottlingException: <p>The request couldn't be completed due to throttling.</p>
+            aws_sdk_iotfleetwise.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_iotfleetwise.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

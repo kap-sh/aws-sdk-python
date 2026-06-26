@@ -207,6 +207,14 @@ class AsyncNotificationsClient:
             managed_notification_configuration_arn: <p>The Amazon Resource Name (ARN) of the <code>ManagedNotificationConfiguration</code> to match.</p>
             max_results: <p>The maximum number of results to be returned in this call. Defaults to 20.</p>
             next_token: <p>The start token for paginated calls. Retrieved from the response of a previous <code>ListManagedNotificationChannelAssociations</code> call.</p>
+
+        Raises:
+            aws_sdk_notifications.errors.access_denied_exception.AccessDeniedException: <p>User does not have sufficient access to perform this action.</p>
+            aws_sdk_notifications.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_notifications.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist. </p>
+            aws_sdk_notifications.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling. </p>
+            aws_sdk_notifications.errors.validation_exception.ValidationException: <p>This exception is thrown when the notification event fails validation.</p>
+            aws_sdk_notifications.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -290,6 +298,14 @@ class AsyncNotificationsClient:
             member_account: <p>The member account identifier used to filter the results.</p>
             status: <p>The status used to filter the member accounts.</p>
             organizational_unit_id: <p>The organizational unit ID used to filter the member accounts.</p>
+
+        Raises:
+            aws_sdk_notifications.errors.access_denied_exception.AccessDeniedException: <p>User does not have sufficient access to perform this action.</p>
+            aws_sdk_notifications.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_notifications.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist. </p>
+            aws_sdk_notifications.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling. </p>
+            aws_sdk_notifications.errors.validation_exception.ValidationException: <p>This exception is thrown when the notification event fails validation.</p>
+            aws_sdk_notifications.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -373,6 +389,14 @@ class AsyncNotificationsClient:
 
         Args:
             arn: <p>The Amazon Resource Name (ARN) to use to list tags.</p>
+
+        Raises:
+            aws_sdk_notifications.errors.access_denied_exception.AccessDeniedException: <p>User does not have sufficient access to perform this action.</p>
+            aws_sdk_notifications.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_notifications.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist. </p>
+            aws_sdk_notifications.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling. </p>
+            aws_sdk_notifications.errors.validation_exception.ValidationException: <p>This exception is thrown when the notification event fails validation.</p>
+            aws_sdk_notifications.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -413,6 +437,14 @@ class AsyncNotificationsClient:
         Args:
             arn: <p>The Amazon Resource Name (ARN) to use to tag a resource.</p>
             tags: <p>A map of tags assigned to a resource. A tag is a string-to-string map of key-value pairs.</p>
+
+        Raises:
+            aws_sdk_notifications.errors.access_denied_exception.AccessDeniedException: <p>User does not have sufficient access to perform this action.</p>
+            aws_sdk_notifications.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_notifications.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist. </p>
+            aws_sdk_notifications.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling. </p>
+            aws_sdk_notifications.errors.validation_exception.ValidationException: <p>This exception is thrown when the notification event fails validation.</p>
+            aws_sdk_notifications.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -454,6 +486,14 @@ class AsyncNotificationsClient:
         Args:
             arn: <p>The Amazon Resource Name (ARN) to use to untag a resource.</p>
             tag_keys: <p>The tag keys to use to untag a resource.</p>
+
+        Raises:
+            aws_sdk_notifications.errors.access_denied_exception.AccessDeniedException: <p>User does not have sufficient access to perform this action.</p>
+            aws_sdk_notifications.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_notifications.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist. </p>
+            aws_sdk_notifications.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling. </p>
+            aws_sdk_notifications.errors.validation_exception.ValidationException: <p>This exception is thrown when the notification event fails validation.</p>
+            aws_sdk_notifications.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

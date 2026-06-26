@@ -42,6 +42,14 @@ class WebAppCustomizationResource:
 
         Args:
             web_app_id: <p>Provide the unique identifier for the web app.</p>
+
+        Raises:
+            aws_sdk_transfer.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_transfer.errors.internal_service_error.InternalServiceError: <p>This exception is thrown when an error occurs in the Transfer Family service.</p>
+            aws_sdk_transfer.errors.invalid_request_exception.InvalidRequestException: <p>This exception is thrown when the client submits a malformed request.</p>
+            aws_sdk_transfer.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when a resource is not found by the Amazon Web ServicesTransfer Family service.</p>
+            aws_sdk_transfer.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_transfer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -89,6 +97,15 @@ class WebAppCustomizationResource:
             title: <p>Provide an updated title.</p>
             logo_file: <p>Specify logo file data string (in base64 encoding).</p>
             favicon_file: <p>Specify an icon file data string (in base64 encoding).</p>
+
+        Raises:
+            aws_sdk_transfer.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_transfer.errors.conflict_exception.ConflictException: <p>This exception is thrown when the <code>UpdateServer</code> is called for a file transfer protocol-enabled server that has VPC as the endpoint type and the server's <code>VpcEndpointID</code> is not in the available state.</p>
+            aws_sdk_transfer.errors.internal_service_error.InternalServiceError: <p>This exception is thrown when an error occurs in the Transfer Family service.</p>
+            aws_sdk_transfer.errors.invalid_request_exception.InvalidRequestException: <p>This exception is thrown when the client submits a malformed request.</p>
+            aws_sdk_transfer.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when a resource is not found by the Amazon Web ServicesTransfer Family service.</p>
+            aws_sdk_transfer.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_transfer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -132,6 +149,15 @@ class WebAppCustomizationResource:
 
         Args:
             web_app_id: <p>Provide the unique identifier for the web app that contains the customizations that you are deleting.</p>
+
+        Raises:
+            aws_sdk_transfer.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_transfer.errors.conflict_exception.ConflictException: <p>This exception is thrown when the <code>UpdateServer</code> is called for a file transfer protocol-enabled server that has VPC as the endpoint type and the server's <code>VpcEndpointID</code> is not in the available state.</p>
+            aws_sdk_transfer.errors.internal_service_error.InternalServiceError: <p>This exception is thrown when an error occurs in the Transfer Family service.</p>
+            aws_sdk_transfer.errors.invalid_request_exception.InvalidRequestException: <p>This exception is thrown when the client submits a malformed request.</p>
+            aws_sdk_transfer.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when a resource is not found by the Amazon Web ServicesTransfer Family service.</p>
+            aws_sdk_transfer.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_transfer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -172,6 +198,14 @@ class AsyncWebAppCustomizationResource:
 
         Args:
             web_app_id: <p>Provide the unique identifier for the web app.</p>
+
+        Raises:
+            aws_sdk_transfer.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_transfer.errors.internal_service_error.InternalServiceError: <p>This exception is thrown when an error occurs in the Transfer Family service.</p>
+            aws_sdk_transfer.errors.invalid_request_exception.InvalidRequestException: <p>This exception is thrown when the client submits a malformed request.</p>
+            aws_sdk_transfer.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when a resource is not found by the Amazon Web ServicesTransfer Family service.</p>
+            aws_sdk_transfer.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_transfer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -220,6 +254,15 @@ class AsyncWebAppCustomizationResource:
             title: <p>Provide an updated title.</p>
             logo_file: <p>Specify logo file data string (in base64 encoding).</p>
             favicon_file: <p>Specify an icon file data string (in base64 encoding).</p>
+
+        Raises:
+            aws_sdk_transfer.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_transfer.errors.conflict_exception.ConflictException: <p>This exception is thrown when the <code>UpdateServer</code> is called for a file transfer protocol-enabled server that has VPC as the endpoint type and the server's <code>VpcEndpointID</code> is not in the available state.</p>
+            aws_sdk_transfer.errors.internal_service_error.InternalServiceError: <p>This exception is thrown when an error occurs in the Transfer Family service.</p>
+            aws_sdk_transfer.errors.invalid_request_exception.InvalidRequestException: <p>This exception is thrown when the client submits a malformed request.</p>
+            aws_sdk_transfer.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when a resource is not found by the Amazon Web ServicesTransfer Family service.</p>
+            aws_sdk_transfer.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_transfer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -264,6 +307,15 @@ class AsyncWebAppCustomizationResource:
 
         Args:
             web_app_id: <p>Provide the unique identifier for the web app that contains the customizations that you are deleting.</p>
+
+        Raises:
+            aws_sdk_transfer.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_transfer.errors.conflict_exception.ConflictException: <p>This exception is thrown when the <code>UpdateServer</code> is called for a file transfer protocol-enabled server that has VPC as the endpoint type and the server's <code>VpcEndpointID</code> is not in the available state.</p>
+            aws_sdk_transfer.errors.internal_service_error.InternalServiceError: <p>This exception is thrown when an error occurs in the Transfer Family service.</p>
+            aws_sdk_transfer.errors.invalid_request_exception.InvalidRequestException: <p>This exception is thrown when the client submits a malformed request.</p>
+            aws_sdk_transfer.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when a resource is not found by the Amazon Web ServicesTransfer Family service.</p>
+            aws_sdk_transfer.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_transfer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

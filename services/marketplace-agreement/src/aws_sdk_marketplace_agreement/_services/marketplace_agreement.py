@@ -231,6 +231,15 @@ class MarketplaceAgreementClient:
         Args:
             agreement_id: <p>The unique identifier of the agreement associated with the cancellation request.</p>
             agreement_cancellation_request_id: <p>The unique identifier of the cancellation request to accept.</p>
+
+        Raises:
+            aws_sdk_marketplace_agreement.errors.access_denied_exception.AccessDeniedException: <p>User does not have sufficient access to perform this action.</p>
+            aws_sdk_marketplace_agreement.errors.conflict_exception.ConflictException: <p>Request was denied due to a resource conflict.</p>
+            aws_sdk_marketplace_agreement.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_marketplace_agreement.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_marketplace_agreement.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_marketplace_agreement.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by the service.</p>
+            aws_sdk_marketplace_agreement.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -275,6 +284,15 @@ class MarketplaceAgreementClient:
             payment_request_id: <p>The unique identifier of the payment request to accept.</p>
             agreement_id: <p>The unique identifier of the agreement associated with the payment request.</p>
             purchase_order_reference: <p>An optional purchase order reference that buyers can provide to associate the payment request with their internal purchase order system.</p>
+
+        Raises:
+            aws_sdk_marketplace_agreement.errors.access_denied_exception.AccessDeniedException: <p>User does not have sufficient access to perform this action.</p>
+            aws_sdk_marketplace_agreement.errors.conflict_exception.ConflictException: <p>Request was denied due to a resource conflict.</p>
+            aws_sdk_marketplace_agreement.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_marketplace_agreement.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_marketplace_agreement.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_marketplace_agreement.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by the service.</p>
+            aws_sdk_marketplace_agreement.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -319,6 +337,15 @@ class MarketplaceAgreementClient:
         Args:
             agreement_request_id: <p>The unique identifier of the agreement request.</p>
             purchase_orders: <p>A list of purchase orders associated with accepting a marketplace agreement request.</p>
+
+        Raises:
+            aws_sdk_marketplace_agreement.errors.access_denied_exception.AccessDeniedException: <p>User does not have sufficient access to perform this action.</p>
+            aws_sdk_marketplace_agreement.errors.conflict_exception.ConflictException: <p>Request was denied due to a resource conflict.</p>
+            aws_sdk_marketplace_agreement.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_marketplace_agreement.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_marketplace_agreement.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_marketplace_agreement.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by the service.</p>
+            aws_sdk_marketplace_agreement.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -358,6 +385,14 @@ class MarketplaceAgreementClient:
 
         Args:
             billing_adjustment_request_entries: <p>A list of billing adjustment request entries. Each entry specifies the invoice and adjustment details.</p>
+
+        Raises:
+            aws_sdk_marketplace_agreement.errors.access_denied_exception.AccessDeniedException: <p>User does not have sufficient access to perform this action.</p>
+            aws_sdk_marketplace_agreement.errors.conflict_exception.ConflictException: <p>Request was denied due to a resource conflict.</p>
+            aws_sdk_marketplace_agreement.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_marketplace_agreement.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_marketplace_agreement.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by the service.</p>
+            aws_sdk_marketplace_agreement.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Create billing adjustment requests
@@ -402,6 +437,15 @@ class MarketplaceAgreementClient:
 
         Args:
             agreement_id: <p>The unique identifier of the agreement.</p>
+
+        Raises:
+            aws_sdk_marketplace_agreement.errors.access_denied_exception.AccessDeniedException: <p>User does not have sufficient access to perform this action.</p>
+            aws_sdk_marketplace_agreement.errors.conflict_exception.ConflictException: <p>Request was denied due to a resource conflict.</p>
+            aws_sdk_marketplace_agreement.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_marketplace_agreement.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_marketplace_agreement.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_marketplace_agreement.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by the service.</p>
+            aws_sdk_marketplace_agreement.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -443,6 +487,15 @@ class MarketplaceAgreementClient:
             agreement_id: <p>The unique identifier of the agreement associated with the cancellation request.</p>
             agreement_cancellation_request_id: <p>The unique identifier of the cancellation request to cancel.</p>
             cancellation_reason: <p>A required message explaining why the cancellation request is being withdrawn (1-2000 characters).</p>
+
+        Raises:
+            aws_sdk_marketplace_agreement.errors.access_denied_exception.AccessDeniedException: <p>User does not have sufficient access to perform this action.</p>
+            aws_sdk_marketplace_agreement.errors.conflict_exception.ConflictException: <p>Request was denied due to a resource conflict.</p>
+            aws_sdk_marketplace_agreement.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_marketplace_agreement.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_marketplace_agreement.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_marketplace_agreement.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by the service.</p>
+            aws_sdk_marketplace_agreement.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Cancel a cancellation request
@@ -489,6 +542,15 @@ class MarketplaceAgreementClient:
         Args:
             payment_request_id: <p>The unique identifier of the payment request to cancel.</p>
             agreement_id: <p>The unique identifier of the agreement associated with the payment request.</p>
+
+        Raises:
+            aws_sdk_marketplace_agreement.errors.access_denied_exception.AccessDeniedException: <p>User does not have sufficient access to perform this action.</p>
+            aws_sdk_marketplace_agreement.errors.conflict_exception.ConflictException: <p>Request was denied due to a resource conflict.</p>
+            aws_sdk_marketplace_agreement.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_marketplace_agreement.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_marketplace_agreement.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_marketplace_agreement.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by the service.</p>
+            aws_sdk_marketplace_agreement.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -545,6 +607,16 @@ class MarketplaceAgreementClient:
             source_agreement_identifier: <p>The agreement's identifier that the request acts upon.</p> <important> <p> This parameter is required for all non-<code>NEW</code> intents (i.e., <code>AMEND</code> or <code>REPLACE</code>). Don't provide this parameter if the intent is <code>NEW</code>. </p> </important>
             agreement_proposal_identifier: <p>The agreement proposal signed by the proposer. The proposal includes the requested resources and the terms that outline an agreement outcome.</p> <important> <p> This parameter is required if the intent is not <code>AMEND</code>.</p> </important>
             tax_configuration: <p>Configuration for tax estimation in the agreement request response.</p>
+
+        Raises:
+            aws_sdk_marketplace_agreement.errors.access_denied_exception.AccessDeniedException: <p>User does not have sufficient access to perform this action.</p>
+            aws_sdk_marketplace_agreement.errors.conflict_exception.ConflictException: <p>Request was denied due to a resource conflict.</p>
+            aws_sdk_marketplace_agreement.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_marketplace_agreement.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_marketplace_agreement.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Request exceeded the maximum allowed limit (quota) for a specific resource or API operation.</p>
+            aws_sdk_marketplace_agreement.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_marketplace_agreement.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by the service.</p>
+            aws_sdk_marketplace_agreement.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -591,6 +663,14 @@ class MarketplaceAgreementClient:
 
         Args:
             agreement_id: <p>The unique identifier of the agreement.</p>
+
+        Raises:
+            aws_sdk_marketplace_agreement.errors.access_denied_exception.AccessDeniedException: <p>User does not have sufficient access to perform this action.</p>
+            aws_sdk_marketplace_agreement.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_marketplace_agreement.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_marketplace_agreement.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_marketplace_agreement.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by the service.</p>
+            aws_sdk_marketplace_agreement.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -630,6 +710,14 @@ class MarketplaceAgreementClient:
         Args:
             agreement_cancellation_request_id: <p>The unique identifier of the cancellation request.</p>
             agreement_id: <p>The unique identifier of the agreement associated with the cancellation request.</p>
+
+        Raises:
+            aws_sdk_marketplace_agreement.errors.access_denied_exception.AccessDeniedException: <p>User does not have sufficient access to perform this action.</p>
+            aws_sdk_marketplace_agreement.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_marketplace_agreement.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_marketplace_agreement.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_marketplace_agreement.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by the service.</p>
+            aws_sdk_marketplace_agreement.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Get a cancellation request
@@ -681,6 +769,14 @@ class MarketplaceAgreementClient:
             agreement_id: <p>The unique identifier of the agreement.</p>
             max_results: <p>The maximum number of agreement entitlements to return in the response.</p>
             next_token: <p>A token to specify where to start pagination.</p>
+
+        Raises:
+            aws_sdk_marketplace_agreement.errors.access_denied_exception.AccessDeniedException: <p>User does not have sufficient access to perform this action.</p>
+            aws_sdk_marketplace_agreement.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_marketplace_agreement.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_marketplace_agreement.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_marketplace_agreement.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by the service.</p>
+            aws_sdk_marketplace_agreement.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -751,6 +847,14 @@ class MarketplaceAgreementClient:
         Args:
             payment_request_id: <p>The identifier of the payment request.</p>
             agreement_id: <p>The unique identifier of the agreement associated with the payment request.</p>
+
+        Raises:
+            aws_sdk_marketplace_agreement.errors.access_denied_exception.AccessDeniedException: <p>User does not have sufficient access to perform this action.</p>
+            aws_sdk_marketplace_agreement.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_marketplace_agreement.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_marketplace_agreement.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_marketplace_agreement.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by the service.</p>
+            aws_sdk_marketplace_agreement.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -797,6 +901,14 @@ class MarketplaceAgreementClient:
             agreement_id: <p>The unique identifier of the agreement.</p>
             max_results: <p>The maximum number of agreements to return in the response.</p>
             next_token: <p>A token to specify where to start pagination.</p>
+
+        Raises:
+            aws_sdk_marketplace_agreement.errors.access_denied_exception.AccessDeniedException: <p>User does not have sufficient access to perform this action.</p>
+            aws_sdk_marketplace_agreement.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_marketplace_agreement.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_marketplace_agreement.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_marketplace_agreement.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by the service.</p>
+            aws_sdk_marketplace_agreement.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -868,6 +980,14 @@ class MarketplaceAgreementClient:
             agreement_id: <p>The unique identifier of the agreement associated with the billing adjustment request.</p>
             billing_adjustment_request_id: <p>The unique identifier of the billing adjustment request.</p>
 
+        Raises:
+            aws_sdk_marketplace_agreement.errors.access_denied_exception.AccessDeniedException: <p>User does not have sufficient access to perform this action.</p>
+            aws_sdk_marketplace_agreement.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_marketplace_agreement.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_marketplace_agreement.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_marketplace_agreement.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by the service.</p>
+            aws_sdk_marketplace_agreement.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Get a billing adjustment request
 
@@ -932,6 +1052,13 @@ class MarketplaceAgreementClient:
             catalog: <p>An optional parameter to filter cancellation requests by catalog (e.g., <code>AWSMarketplace</code>).</p>
             max_results: <p>The maximum number of cancellation requests to return in the response.</p>
             next_token: <p>A token to specify where to start pagination.</p>
+
+        Raises:
+            aws_sdk_marketplace_agreement.errors.access_denied_exception.AccessDeniedException: <p>User does not have sufficient access to perform this action.</p>
+            aws_sdk_marketplace_agreement.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_marketplace_agreement.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_marketplace_agreement.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by the service.</p>
+            aws_sdk_marketplace_agreement.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             List cancellation requests
@@ -1043,6 +1170,13 @@ class MarketplaceAgreementClient:
             agreement_type: <p>Filter to retrieve charges of a specific agreement type (for example, <code>PurchaseAgreement</code>).</p>
             max_results: <p>The maximum number of charges to return in the response.</p>
             next_token: <p>A token to specify where to start pagination.</p>
+
+        Raises:
+            aws_sdk_marketplace_agreement.errors.access_denied_exception.AccessDeniedException: <p>User does not have sufficient access to perform this action.</p>
+            aws_sdk_marketplace_agreement.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_marketplace_agreement.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_marketplace_agreement.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by the service.</p>
+            aws_sdk_marketplace_agreement.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1154,6 +1288,14 @@ class MarketplaceAgreementClient:
             after_issued_time: <p>An optional filter for invoices issued after the specified timestamp.</p>
             max_results: <p>The maximum number of results to return in the response.</p>
             next_token: <p>A token to specify where to start pagination.</p>
+
+        Raises:
+            aws_sdk_marketplace_agreement.errors.access_denied_exception.AccessDeniedException: <p>User does not have sufficient access to perform this action.</p>
+            aws_sdk_marketplace_agreement.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_marketplace_agreement.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_marketplace_agreement.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_marketplace_agreement.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by the service.</p>
+            aws_sdk_marketplace_agreement.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             List agreement invoice line items
@@ -1284,6 +1426,13 @@ class MarketplaceAgreementClient:
             status: <p>An optional parameter to list payment requests by status. Valid values include <code>VALIDATING</code>, <code>VALIDATION_FAILED</code>, <code>PENDING_APPROVAL</code>, <code>APPROVED</code>, <code>REJECTED</code>, and <code>CANCELLED</code>.</p>
             max_results: <p>The maximum number of payment requests to return in a single response (1-50). Default is 50.</p>
             next_token: <p>A token to specify where to start pagination.</p>
+
+        Raises:
+            aws_sdk_marketplace_agreement.errors.access_denied_exception.AccessDeniedException: <p>User does not have sufficient access to perform this action.</p>
+            aws_sdk_marketplace_agreement.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_marketplace_agreement.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_marketplace_agreement.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by the service.</p>
+            aws_sdk_marketplace_agreement.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1403,6 +1552,13 @@ class MarketplaceAgreementClient:
             agreement_type: <p>An optional filter to return billing adjustment requests by agreement type (e.g., <code>PurchaseAgreement</code>).</p>
             next_token: <p>A token to specify where to start pagination.</p>
 
+        Raises:
+            aws_sdk_marketplace_agreement.errors.access_denied_exception.AccessDeniedException: <p>User does not have sufficient access to perform this action.</p>
+            aws_sdk_marketplace_agreement.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_marketplace_agreement.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_marketplace_agreement.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by the service.</p>
+            aws_sdk_marketplace_agreement.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             List billing adjustment requests
 
@@ -1510,6 +1666,15 @@ class MarketplaceAgreementClient:
             agreement_id: <p>The unique identifier of the agreement associated with the cancellation request.</p>
             agreement_cancellation_request_id: <p>The unique identifier of the cancellation request to reject.</p>
             rejection_reason: <p>The reason for rejecting the cancellation request (1-2000 characters). This message is visible to the seller.</p>
+
+        Raises:
+            aws_sdk_marketplace_agreement.errors.access_denied_exception.AccessDeniedException: <p>User does not have sufficient access to perform this action.</p>
+            aws_sdk_marketplace_agreement.errors.conflict_exception.ConflictException: <p>Request was denied due to a resource conflict.</p>
+            aws_sdk_marketplace_agreement.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_marketplace_agreement.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_marketplace_agreement.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_marketplace_agreement.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by the service.</p>
+            aws_sdk_marketplace_agreement.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1555,6 +1720,15 @@ class MarketplaceAgreementClient:
             payment_request_id: <p>The unique identifier of the payment request to reject.</p>
             agreement_id: <p>The unique identifier of the agreement associated with the payment request.</p>
             rejection_reason: <p>An optional reason for rejecting the payment request (1-250 characters). This message is visible to the seller.</p>
+
+        Raises:
+            aws_sdk_marketplace_agreement.errors.access_denied_exception.AccessDeniedException: <p>User does not have sufficient access to perform this action.</p>
+            aws_sdk_marketplace_agreement.errors.conflict_exception.ConflictException: <p>Request was denied due to a resource conflict.</p>
+            aws_sdk_marketplace_agreement.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_marketplace_agreement.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_marketplace_agreement.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_marketplace_agreement.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by the service.</p>
+            aws_sdk_marketplace_agreement.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1609,6 +1783,13 @@ class MarketplaceAgreementClient:
             sort: <p>An object that contains the <code>SortBy</code> and <code>SortOrder</code> attributes. Only <code>EndTime</code> is supported for <code>SearchAgreements</code>. The default sort is <code>EndTime</code> descending.</p>
             max_results: <p>The maximum number of agreements to return in the response.</p>
             next_token: <p>A token to specify where to start pagination.</p>
+
+        Raises:
+            aws_sdk_marketplace_agreement.errors.access_denied_exception.AccessDeniedException: <p>User does not have sufficient access to perform this action.</p>
+            aws_sdk_marketplace_agreement.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_marketplace_agreement.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_marketplace_agreement.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by the service.</p>
+            aws_sdk_marketplace_agreement.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1699,6 +1880,15 @@ class MarketplaceAgreementClient:
             client_token: <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
             description: <p>An optional detailed description of the cancellation reason (1-2000 characters).</p>
 
+        Raises:
+            aws_sdk_marketplace_agreement.errors.access_denied_exception.AccessDeniedException: <p>User does not have sufficient access to perform this action.</p>
+            aws_sdk_marketplace_agreement.errors.conflict_exception.ConflictException: <p>Request was denied due to a resource conflict.</p>
+            aws_sdk_marketplace_agreement.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_marketplace_agreement.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_marketplace_agreement.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_marketplace_agreement.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by the service.</p>
+            aws_sdk_marketplace_agreement.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Send a cancellation request
 
@@ -1759,6 +1949,15 @@ class MarketplaceAgreementClient:
             name: <p>A descriptive name for the payment request (5-64 characters).</p>
             charge_amount: <p>The amount requested to be charged to the buyer, positive decimal value in the currency of the accepted term.</p> <note> <p>A <code>ValidationException</code> is returned if the <code>chargeAmount</code> exceeds the available balance, if the agreement doesn't have an active <code>VariablePaymentTerm</code>, or if the <code>termId</code> is invalid.</p> </note>
             description: <p>An optional detailed description of the payment request (1-2000 characters).</p>
+
+        Raises:
+            aws_sdk_marketplace_agreement.errors.access_denied_exception.AccessDeniedException: <p>User does not have sufficient access to perform this action.</p>
+            aws_sdk_marketplace_agreement.errors.conflict_exception.ConflictException: <p>Request was denied due to a resource conflict.</p>
+            aws_sdk_marketplace_agreement.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_marketplace_agreement.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_marketplace_agreement.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_marketplace_agreement.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by the service.</p>
+            aws_sdk_marketplace_agreement.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1803,6 +2002,15 @@ class MarketplaceAgreementClient:
 
         Args:
             purchase_orders: <p>Contains information about purchase order associations.</p>
+
+        Raises:
+            aws_sdk_marketplace_agreement.errors.access_denied_exception.AccessDeniedException: <p>User does not have sufficient access to perform this action.</p>
+            aws_sdk_marketplace_agreement.errors.conflict_exception.ConflictException: <p>Request was denied due to a resource conflict.</p>
+            aws_sdk_marketplace_agreement.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_marketplace_agreement.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_marketplace_agreement.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_marketplace_agreement.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by the service.</p>
+            aws_sdk_marketplace_agreement.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(

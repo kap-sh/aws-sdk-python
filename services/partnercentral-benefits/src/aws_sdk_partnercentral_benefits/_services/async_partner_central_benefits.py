@@ -210,6 +210,15 @@ class AsyncPartnerCentralBenefitsClient:
             identifier: <p>The unique identifier of the benefit application to be amended.</p>
             amendment_reason: <p>A descriptive reason explaining why the benefit application is being amended.</p>
             amendments: <p>A list of specific field amendments to apply to the benefit application.</p>
+
+        Raises:
+            aws_sdk_partnercentral_benefits.errors.access_denied_exception.AccessDeniedException: <p>Thrown when the caller does not have sufficient permissions to perform the requested operation.</p>
+            aws_sdk_partnercentral_benefits.errors.conflict_exception.ConflictException: <p>Thrown when the request conflicts with the current state of the resource, such as attempting to modify a resource that has been changed by another process.</p>
+            aws_sdk_partnercentral_benefits.errors.internal_server_exception.InternalServerException: <p>Thrown when an unexpected error occurs on the server side during request processing.</p>
+            aws_sdk_partnercentral_benefits.errors.resource_not_found_exception.ResourceNotFoundException: <p>Thrown when the requested resource cannot be found or does not exist.</p>
+            aws_sdk_partnercentral_benefits.errors.throttling_exception.ThrottlingException: <p>Thrown when the request rate exceeds the allowed limits and the request is being throttled.</p>
+            aws_sdk_partnercentral_benefits.errors.validation_exception.ValidationException: <p>Thrown when the request contains invalid parameters or fails input validation requirements.</p>
+            aws_sdk_partnercentral_benefits.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -257,6 +266,15 @@ class AsyncPartnerCentralBenefitsClient:
             catalog: <p>The catalog identifier that specifies which benefit catalog the application belongs to.</p>
             benefit_application_identifier: <p>The unique identifier of the benefit application to associate the resource with.</p>
             resource_arn: <p>The Amazon Resource Name (ARN) of the AWS resource to associate with the benefit application.</p>
+
+        Raises:
+            aws_sdk_partnercentral_benefits.errors.access_denied_exception.AccessDeniedException: <p>Thrown when the caller does not have sufficient permissions to perform the requested operation.</p>
+            aws_sdk_partnercentral_benefits.errors.conflict_exception.ConflictException: <p>Thrown when the request conflicts with the current state of the resource, such as attempting to modify a resource that has been changed by another process.</p>
+            aws_sdk_partnercentral_benefits.errors.internal_server_exception.InternalServerException: <p>Thrown when an unexpected error occurs on the server side during request processing.</p>
+            aws_sdk_partnercentral_benefits.errors.resource_not_found_exception.ResourceNotFoundException: <p>Thrown when the requested resource cannot be found or does not exist.</p>
+            aws_sdk_partnercentral_benefits.errors.throttling_exception.ThrottlingException: <p>Thrown when the request rate exceeds the allowed limits and the request is being throttled.</p>
+            aws_sdk_partnercentral_benefits.errors.validation_exception.ValidationException: <p>Thrown when the request contains invalid parameters or fails input validation requirements.</p>
+            aws_sdk_partnercentral_benefits.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -303,6 +321,15 @@ class AsyncPartnerCentralBenefitsClient:
             client_token: <p>A unique, case-sensitive identifier to ensure idempotent processing of the cancellation request.</p>
             identifier: <p>The unique identifier of the benefit application to cancel.</p>
             reason: <p>A descriptive reason explaining why the benefit application is being cancelled.</p>
+
+        Raises:
+            aws_sdk_partnercentral_benefits.errors.access_denied_exception.AccessDeniedException: <p>Thrown when the caller does not have sufficient permissions to perform the requested operation.</p>
+            aws_sdk_partnercentral_benefits.errors.conflict_exception.ConflictException: <p>Thrown when the request conflicts with the current state of the resource, such as attempting to modify a resource that has been changed by another process.</p>
+            aws_sdk_partnercentral_benefits.errors.internal_server_exception.InternalServerException: <p>Thrown when an unexpected error occurs on the server side during request processing.</p>
+            aws_sdk_partnercentral_benefits.errors.resource_not_found_exception.ResourceNotFoundException: <p>Thrown when the requested resource cannot be found or does not exist.</p>
+            aws_sdk_partnercentral_benefits.errors.throttling_exception.ThrottlingException: <p>Thrown when the request rate exceeds the allowed limits and the request is being throttled.</p>
+            aws_sdk_partnercentral_benefits.errors.validation_exception.ValidationException: <p>Thrown when the request contains invalid parameters or fails input validation requirements.</p>
+            aws_sdk_partnercentral_benefits.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -377,6 +404,15 @@ class AsyncPartnerCentralBenefitsClient:
             associated_resources: <p>AWS resources that are associated with this benefit application.</p>
             partner_contacts: <p>Contact information for partner representatives responsible for this benefit application.</p>
             file_details: <p>Supporting documents and files attached to the benefit application.</p>
+
+        Raises:
+            aws_sdk_partnercentral_benefits.errors.access_denied_exception.AccessDeniedException: <p>Thrown when the caller does not have sufficient permissions to perform the requested operation.</p>
+            aws_sdk_partnercentral_benefits.errors.conflict_exception.ConflictException: <p>Thrown when the request conflicts with the current state of the resource, such as attempting to modify a resource that has been changed by another process.</p>
+            aws_sdk_partnercentral_benefits.errors.internal_server_exception.InternalServerException: <p>Thrown when an unexpected error occurs on the server side during request processing.</p>
+            aws_sdk_partnercentral_benefits.errors.resource_not_found_exception.ResourceNotFoundException: <p>Thrown when the requested resource cannot be found or does not exist.</p>
+            aws_sdk_partnercentral_benefits.errors.throttling_exception.ThrottlingException: <p>Thrown when the request rate exceeds the allowed limits and the request is being throttled.</p>
+            aws_sdk_partnercentral_benefits.errors.validation_exception.ValidationException: <p>Thrown when the request contains invalid parameters or fails input validation requirements.</p>
+            aws_sdk_partnercentral_benefits.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -437,6 +473,15 @@ class AsyncPartnerCentralBenefitsClient:
             catalog: <p>The catalog identifier that specifies which benefit catalog the application belongs to.</p>
             benefit_application_identifier: <p>The unique identifier of the benefit application to disassociate the resource from.</p>
             resource_arn: <p>The Amazon Resource Name (ARN) of the AWS resource to disassociate from the benefit application.</p>
+
+        Raises:
+            aws_sdk_partnercentral_benefits.errors.access_denied_exception.AccessDeniedException: <p>Thrown when the caller does not have sufficient permissions to perform the requested operation.</p>
+            aws_sdk_partnercentral_benefits.errors.conflict_exception.ConflictException: <p>Thrown when the request conflicts with the current state of the resource, such as attempting to modify a resource that has been changed by another process.</p>
+            aws_sdk_partnercentral_benefits.errors.internal_server_exception.InternalServerException: <p>Thrown when an unexpected error occurs on the server side during request processing.</p>
+            aws_sdk_partnercentral_benefits.errors.resource_not_found_exception.ResourceNotFoundException: <p>Thrown when the requested resource cannot be found or does not exist.</p>
+            aws_sdk_partnercentral_benefits.errors.throttling_exception.ThrottlingException: <p>Thrown when the request rate exceeds the allowed limits and the request is being throttled.</p>
+            aws_sdk_partnercentral_benefits.errors.validation_exception.ValidationException: <p>Thrown when the request contains invalid parameters or fails input validation requirements.</p>
+            aws_sdk_partnercentral_benefits.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -479,6 +524,14 @@ class AsyncPartnerCentralBenefitsClient:
         Args:
             catalog: <p>The catalog identifier that specifies which benefit catalog to query.</p>
             identifier: <p>The unique identifier of the benefit to retrieve.</p>
+
+        Raises:
+            aws_sdk_partnercentral_benefits.errors.access_denied_exception.AccessDeniedException: <p>Thrown when the caller does not have sufficient permissions to perform the requested operation.</p>
+            aws_sdk_partnercentral_benefits.errors.internal_server_exception.InternalServerException: <p>Thrown when an unexpected error occurs on the server side during request processing.</p>
+            aws_sdk_partnercentral_benefits.errors.resource_not_found_exception.ResourceNotFoundException: <p>Thrown when the requested resource cannot be found or does not exist.</p>
+            aws_sdk_partnercentral_benefits.errors.throttling_exception.ThrottlingException: <p>Thrown when the request rate exceeds the allowed limits and the request is being throttled.</p>
+            aws_sdk_partnercentral_benefits.errors.validation_exception.ValidationException: <p>Thrown when the request contains invalid parameters or fails input validation requirements.</p>
+            aws_sdk_partnercentral_benefits.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -520,6 +573,14 @@ class AsyncPartnerCentralBenefitsClient:
         Args:
             catalog: <p>The catalog identifier that specifies which benefit catalog to query.</p>
             identifier: <p>The unique identifier of the benefit allocation to retrieve.</p>
+
+        Raises:
+            aws_sdk_partnercentral_benefits.errors.access_denied_exception.AccessDeniedException: <p>Thrown when the caller does not have sufficient permissions to perform the requested operation.</p>
+            aws_sdk_partnercentral_benefits.errors.internal_server_exception.InternalServerException: <p>Thrown when an unexpected error occurs on the server side during request processing.</p>
+            aws_sdk_partnercentral_benefits.errors.resource_not_found_exception.ResourceNotFoundException: <p>Thrown when the requested resource cannot be found or does not exist.</p>
+            aws_sdk_partnercentral_benefits.errors.throttling_exception.ThrottlingException: <p>Thrown when the request rate exceeds the allowed limits and the request is being throttled.</p>
+            aws_sdk_partnercentral_benefits.errors.validation_exception.ValidationException: <p>Thrown when the request contains invalid parameters or fails input validation requirements.</p>
+            aws_sdk_partnercentral_benefits.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -561,6 +622,15 @@ class AsyncPartnerCentralBenefitsClient:
         Args:
             catalog: <p>The catalog identifier that specifies which benefit catalog to query.</p>
             identifier: <p>The unique identifier of the benefit application to retrieve.</p>
+
+        Raises:
+            aws_sdk_partnercentral_benefits.errors.access_denied_exception.AccessDeniedException: <p>Thrown when the caller does not have sufficient permissions to perform the requested operation.</p>
+            aws_sdk_partnercentral_benefits.errors.conflict_exception.ConflictException: <p>Thrown when the request conflicts with the current state of the resource, such as attempting to modify a resource that has been changed by another process.</p>
+            aws_sdk_partnercentral_benefits.errors.internal_server_exception.InternalServerException: <p>Thrown when an unexpected error occurs on the server side during request processing.</p>
+            aws_sdk_partnercentral_benefits.errors.resource_not_found_exception.ResourceNotFoundException: <p>Thrown when the requested resource cannot be found or does not exist.</p>
+            aws_sdk_partnercentral_benefits.errors.throttling_exception.ThrottlingException: <p>Thrown when the request rate exceeds the allowed limits and the request is being throttled.</p>
+            aws_sdk_partnercentral_benefits.errors.validation_exception.ValidationException: <p>Thrown when the request contains invalid parameters or fails input validation requirements.</p>
+            aws_sdk_partnercentral_benefits.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -620,6 +690,14 @@ class AsyncPartnerCentralBenefitsClient:
             status: <p>Filter benefit allocations by their current status.</p>
             max_results: <p>The maximum number of benefit allocations to return in a single response.</p>
             next_token: <p>A pagination token to retrieve the next set of results from a previous request.</p>
+
+        Raises:
+            aws_sdk_partnercentral_benefits.errors.access_denied_exception.AccessDeniedException: <p>Thrown when the caller does not have sufficient permissions to perform the requested operation.</p>
+            aws_sdk_partnercentral_benefits.errors.internal_server_exception.InternalServerException: <p>Thrown when an unexpected error occurs on the server side during request processing.</p>
+            aws_sdk_partnercentral_benefits.errors.resource_not_found_exception.ResourceNotFoundException: <p>Thrown when the requested resource cannot be found or does not exist.</p>
+            aws_sdk_partnercentral_benefits.errors.throttling_exception.ThrottlingException: <p>Thrown when the request rate exceeds the allowed limits and the request is being throttled.</p>
+            aws_sdk_partnercentral_benefits.errors.validation_exception.ValidationException: <p>Thrown when the request contains invalid parameters or fails input validation requirements.</p>
+            aws_sdk_partnercentral_benefits.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -739,6 +817,14 @@ class AsyncPartnerCentralBenefitsClient:
             associated_resource_arns: <p>Filter benefit applications by specific AWS resource ARNs.</p>
             max_results: <p>The maximum number of benefit applications to return in a single response.</p>
             next_token: <p>A pagination token to retrieve the next set of results from a previous request.</p>
+
+        Raises:
+            aws_sdk_partnercentral_benefits.errors.access_denied_exception.AccessDeniedException: <p>Thrown when the caller does not have sufficient permissions to perform the requested operation.</p>
+            aws_sdk_partnercentral_benefits.errors.internal_server_exception.InternalServerException: <p>Thrown when an unexpected error occurs on the server side during request processing.</p>
+            aws_sdk_partnercentral_benefits.errors.resource_not_found_exception.ResourceNotFoundException: <p>Thrown when the requested resource cannot be found or does not exist.</p>
+            aws_sdk_partnercentral_benefits.errors.throttling_exception.ThrottlingException: <p>Thrown when the request rate exceeds the allowed limits and the request is being throttled.</p>
+            aws_sdk_partnercentral_benefits.errors.validation_exception.ValidationException: <p>Thrown when the request contains invalid parameters or fails input validation requirements.</p>
+            aws_sdk_partnercentral_benefits.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -862,6 +948,14 @@ class AsyncPartnerCentralBenefitsClient:
             status: <p>Filter benefits by their current status.</p>
             max_results: <p>The maximum number of benefits to return in a single response.</p>
             next_token: <p>A pagination token to retrieve the next set of results from a previous request.</p>
+
+        Raises:
+            aws_sdk_partnercentral_benefits.errors.access_denied_exception.AccessDeniedException: <p>Thrown when the caller does not have sufficient permissions to perform the requested operation.</p>
+            aws_sdk_partnercentral_benefits.errors.internal_server_exception.InternalServerException: <p>Thrown when an unexpected error occurs on the server side during request processing.</p>
+            aws_sdk_partnercentral_benefits.errors.resource_not_found_exception.ResourceNotFoundException: <p>Thrown when the requested resource cannot be found or does not exist.</p>
+            aws_sdk_partnercentral_benefits.errors.throttling_exception.ThrottlingException: <p>Thrown when the request rate exceeds the allowed limits and the request is being throttled.</p>
+            aws_sdk_partnercentral_benefits.errors.validation_exception.ValidationException: <p>Thrown when the request contains invalid parameters or fails input validation requirements.</p>
+            aws_sdk_partnercentral_benefits.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -945,6 +1039,14 @@ class AsyncPartnerCentralBenefitsClient:
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource to list tags for.</p>
+
+        Raises:
+            aws_sdk_partnercentral_benefits.errors.access_denied_exception.AccessDeniedException: <p>Thrown when the caller does not have sufficient permissions to perform the requested operation.</p>
+            aws_sdk_partnercentral_benefits.errors.internal_server_exception.InternalServerException: <p>Thrown when an unexpected error occurs on the server side during request processing.</p>
+            aws_sdk_partnercentral_benefits.errors.resource_not_found_exception.ResourceNotFoundException: <p>Thrown when the requested resource cannot be found or does not exist.</p>
+            aws_sdk_partnercentral_benefits.errors.throttling_exception.ThrottlingException: <p>Thrown when the request rate exceeds the allowed limits and the request is being throttled.</p>
+            aws_sdk_partnercentral_benefits.errors.validation_exception.ValidationException: <p>Thrown when the request contains invalid parameters or fails input validation requirements.</p>
+            aws_sdk_partnercentral_benefits.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -989,6 +1091,15 @@ class AsyncPartnerCentralBenefitsClient:
             client_token: <p>A unique, case-sensitive identifier to ensure idempotent processing of the recall request.</p>
             identifier: <p>The unique identifier of the benefit application to recall.</p>
             reason: <p>A descriptive reason explaining why the benefit application is being recalled.</p>
+
+        Raises:
+            aws_sdk_partnercentral_benefits.errors.access_denied_exception.AccessDeniedException: <p>Thrown when the caller does not have sufficient permissions to perform the requested operation.</p>
+            aws_sdk_partnercentral_benefits.errors.conflict_exception.ConflictException: <p>Thrown when the request conflicts with the current state of the resource, such as attempting to modify a resource that has been changed by another process.</p>
+            aws_sdk_partnercentral_benefits.errors.internal_server_exception.InternalServerException: <p>Thrown when an unexpected error occurs on the server side during request processing.</p>
+            aws_sdk_partnercentral_benefits.errors.resource_not_found_exception.ResourceNotFoundException: <p>Thrown when the requested resource cannot be found or does not exist.</p>
+            aws_sdk_partnercentral_benefits.errors.throttling_exception.ThrottlingException: <p>Thrown when the request rate exceeds the allowed limits and the request is being throttled.</p>
+            aws_sdk_partnercentral_benefits.errors.validation_exception.ValidationException: <p>Thrown when the request contains invalid parameters or fails input validation requirements.</p>
+            aws_sdk_partnercentral_benefits.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1033,6 +1144,15 @@ class AsyncPartnerCentralBenefitsClient:
         Args:
             catalog: <p>The catalog identifier that specifies which benefit catalog the application belongs to.</p>
             identifier: <p>The unique identifier of the benefit application to submit.</p>
+
+        Raises:
+            aws_sdk_partnercentral_benefits.errors.access_denied_exception.AccessDeniedException: <p>Thrown when the caller does not have sufficient permissions to perform the requested operation.</p>
+            aws_sdk_partnercentral_benefits.errors.conflict_exception.ConflictException: <p>Thrown when the request conflicts with the current state of the resource, such as attempting to modify a resource that has been changed by another process.</p>
+            aws_sdk_partnercentral_benefits.errors.internal_server_exception.InternalServerException: <p>Thrown when an unexpected error occurs on the server side during request processing.</p>
+            aws_sdk_partnercentral_benefits.errors.resource_not_found_exception.ResourceNotFoundException: <p>Thrown when the requested resource cannot be found or does not exist.</p>
+            aws_sdk_partnercentral_benefits.errors.throttling_exception.ThrottlingException: <p>Thrown when the request rate exceeds the allowed limits and the request is being throttled.</p>
+            aws_sdk_partnercentral_benefits.errors.validation_exception.ValidationException: <p>Thrown when the request contains invalid parameters or fails input validation requirements.</p>
+            aws_sdk_partnercentral_benefits.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1074,6 +1194,16 @@ class AsyncPartnerCentralBenefitsClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource to add tags to.</p>
             tags: <p>A list of key-value pairs to add as tags to the resource.</p>
+
+        Raises:
+            aws_sdk_partnercentral_benefits.errors.access_denied_exception.AccessDeniedException: <p>Thrown when the caller does not have sufficient permissions to perform the requested operation.</p>
+            aws_sdk_partnercentral_benefits.errors.conflict_exception.ConflictException: <p>Thrown when the request conflicts with the current state of the resource, such as attempting to modify a resource that has been changed by another process.</p>
+            aws_sdk_partnercentral_benefits.errors.internal_server_exception.InternalServerException: <p>Thrown when an unexpected error occurs on the server side during request processing.</p>
+            aws_sdk_partnercentral_benefits.errors.resource_not_found_exception.ResourceNotFoundException: <p>Thrown when the requested resource cannot be found or does not exist.</p>
+            aws_sdk_partnercentral_benefits.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Thrown when the request would exceed the service quotas or limits for the account.</p>
+            aws_sdk_partnercentral_benefits.errors.throttling_exception.ThrottlingException: <p>Thrown when the request rate exceeds the allowed limits and the request is being throttled.</p>
+            aws_sdk_partnercentral_benefits.errors.validation_exception.ValidationException: <p>Thrown when the request contains invalid parameters or fails input validation requirements.</p>
+            aws_sdk_partnercentral_benefits.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1115,6 +1245,16 @@ class AsyncPartnerCentralBenefitsClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource to remove tags from.</p>
             tag_keys: <p>A list of tag keys to remove from the resource.</p>
+
+        Raises:
+            aws_sdk_partnercentral_benefits.errors.access_denied_exception.AccessDeniedException: <p>Thrown when the caller does not have sufficient permissions to perform the requested operation.</p>
+            aws_sdk_partnercentral_benefits.errors.conflict_exception.ConflictException: <p>Thrown when the request conflicts with the current state of the resource, such as attempting to modify a resource that has been changed by another process.</p>
+            aws_sdk_partnercentral_benefits.errors.internal_server_exception.InternalServerException: <p>Thrown when an unexpected error occurs on the server side during request processing.</p>
+            aws_sdk_partnercentral_benefits.errors.resource_not_found_exception.ResourceNotFoundException: <p>Thrown when the requested resource cannot be found or does not exist.</p>
+            aws_sdk_partnercentral_benefits.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Thrown when the request would exceed the service quotas or limits for the account.</p>
+            aws_sdk_partnercentral_benefits.errors.throttling_exception.ThrottlingException: <p>Thrown when the request rate exceeds the allowed limits and the request is being throttled.</p>
+            aws_sdk_partnercentral_benefits.errors.validation_exception.ValidationException: <p>Thrown when the request contains invalid parameters or fails input validation requirements.</p>
+            aws_sdk_partnercentral_benefits.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1178,6 +1318,15 @@ class AsyncPartnerCentralBenefitsClient:
             benefit_application_details: <p>Updated detailed information and requirements specific to the benefit being requested.</p>
             partner_contacts: <p>Updated contact information for partner representatives responsible for this benefit application.</p>
             file_details: <p>Updated supporting documents and files attached to the benefit application.</p>
+
+        Raises:
+            aws_sdk_partnercentral_benefits.errors.access_denied_exception.AccessDeniedException: <p>Thrown when the caller does not have sufficient permissions to perform the requested operation.</p>
+            aws_sdk_partnercentral_benefits.errors.conflict_exception.ConflictException: <p>Thrown when the request conflicts with the current state of the resource, such as attempting to modify a resource that has been changed by another process.</p>
+            aws_sdk_partnercentral_benefits.errors.internal_server_exception.InternalServerException: <p>Thrown when an unexpected error occurs on the server side during request processing.</p>
+            aws_sdk_partnercentral_benefits.errors.resource_not_found_exception.ResourceNotFoundException: <p>Thrown when the requested resource cannot be found or does not exist.</p>
+            aws_sdk_partnercentral_benefits.errors.throttling_exception.ThrottlingException: <p>Thrown when the request rate exceeds the allowed limits and the request is being throttled.</p>
+            aws_sdk_partnercentral_benefits.errors.validation_exception.ValidationException: <p>Thrown when the request contains invalid parameters or fails input validation requirements.</p>
+            aws_sdk_partnercentral_benefits.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

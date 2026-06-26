@@ -168,6 +168,14 @@ class SSMQuickSetupClient:
             description: <p>A description of the configuration manager.</p>
             configuration_definitions: <p>The definition of the Quick Setup configuration that the configuration manager deploys.</p>
             tags: <p>Key-value pairs of metadata to assign to the configuration manager.</p>
+
+        Raises:
+            aws_sdk_ssm_quicksetup.errors.access_denied_exception.AccessDeniedException: <p>The requester has insufficient permissions to perform the operation.</p>
+            aws_sdk_ssm_quicksetup.errors.conflict_exception.ConflictException: <p>Another request is being processed. Wait a few minutes and try again.</p>
+            aws_sdk_ssm_quicksetup.errors.internal_server_exception.InternalServerException: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm_quicksetup.errors.throttling_exception.ThrottlingException: <p>The request or operation exceeds the maximum allowed request rate per Amazon Web Services account and Amazon Web Services Region.</p>
+            aws_sdk_ssm_quicksetup.errors.validation_exception.ValidationException: <p>The request is invalid. Verify the values provided for the request parameters are accurate.</p>
+            aws_sdk_ssm_quicksetup.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -211,6 +219,15 @@ class SSMQuickSetupClient:
 
         Args:
             manager_arn: <p>The ID of the configuration manager.</p>
+
+        Raises:
+            aws_sdk_ssm_quicksetup.errors.access_denied_exception.AccessDeniedException: <p>The requester has insufficient permissions to perform the operation.</p>
+            aws_sdk_ssm_quicksetup.errors.conflict_exception.ConflictException: <p>Another request is being processed. Wait a few minutes and try again.</p>
+            aws_sdk_ssm_quicksetup.errors.internal_server_exception.InternalServerException: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm_quicksetup.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource couldn't be found. Check the ID or name and try again.</p>
+            aws_sdk_ssm_quicksetup.errors.throttling_exception.ThrottlingException: <p>The request or operation exceeds the maximum allowed request rate per Amazon Web Services account and Amazon Web Services Region.</p>
+            aws_sdk_ssm_quicksetup.errors.validation_exception.ValidationException: <p>The request is invalid. Verify the values provided for the request parameters are accurate.</p>
+            aws_sdk_ssm_quicksetup.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -246,6 +263,15 @@ class SSMQuickSetupClient:
 
         Args:
             configuration_id: <p>A service generated identifier for the configuration.</p>
+
+        Raises:
+            aws_sdk_ssm_quicksetup.errors.access_denied_exception.AccessDeniedException: <p>The requester has insufficient permissions to perform the operation.</p>
+            aws_sdk_ssm_quicksetup.errors.conflict_exception.ConflictException: <p>Another request is being processed. Wait a few minutes and try again.</p>
+            aws_sdk_ssm_quicksetup.errors.internal_server_exception.InternalServerException: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm_quicksetup.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource couldn't be found. Check the ID or name and try again.</p>
+            aws_sdk_ssm_quicksetup.errors.throttling_exception.ThrottlingException: <p>The request or operation exceeds the maximum allowed request rate per Amazon Web Services account and Amazon Web Services Region.</p>
+            aws_sdk_ssm_quicksetup.errors.validation_exception.ValidationException: <p>The request is invalid. Verify the values provided for the request parameters are accurate.</p>
+            aws_sdk_ssm_quicksetup.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -283,6 +309,15 @@ class SSMQuickSetupClient:
 
         Args:
             manager_arn: <p>The ARN of the configuration manager.</p>
+
+        Raises:
+            aws_sdk_ssm_quicksetup.errors.access_denied_exception.AccessDeniedException: <p>The requester has insufficient permissions to perform the operation.</p>
+            aws_sdk_ssm_quicksetup.errors.conflict_exception.ConflictException: <p>Another request is being processed. Wait a few minutes and try again.</p>
+            aws_sdk_ssm_quicksetup.errors.internal_server_exception.InternalServerException: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm_quicksetup.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource couldn't be found. Check the ID or name and try again.</p>
+            aws_sdk_ssm_quicksetup.errors.throttling_exception.ThrottlingException: <p>The request or operation exceeds the maximum allowed request rate per Amazon Web Services account and Amazon Web Services Region.</p>
+            aws_sdk_ssm_quicksetup.errors.validation_exception.ValidationException: <p>The request is invalid. Verify the values provided for the request parameters are accurate.</p>
+            aws_sdk_ssm_quicksetup.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -313,7 +348,15 @@ class SSMQuickSetupClient:
     def get_service_settings(
         self, *, config_overrides: Optional[SSMQuickSetupClientConfig] = None
     ) -> "aws_sdk_ssm_quicksetup.types.get_service_settings_output.GetServiceSettingsOutput":
-        """<p>Returns settings configured for Quick Setup in the requesting Amazon Web Services account and Amazon Web Services Region.</p>"""
+        """<p>Returns settings configured for Quick Setup in the requesting Amazon Web Services account and Amazon Web Services Region.</p>
+
+        Raises:
+            aws_sdk_ssm_quicksetup.errors.access_denied_exception.AccessDeniedException: <p>The requester has insufficient permissions to perform the operation.</p>
+            aws_sdk_ssm_quicksetup.errors.conflict_exception.ConflictException: <p>Another request is being processed. Wait a few minutes and try again.</p>
+            aws_sdk_ssm_quicksetup.errors.internal_server_exception.InternalServerException: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm_quicksetup.errors.throttling_exception.ThrottlingException: <p>The request or operation exceeds the maximum allowed request rate per Amazon Web Services account and Amazon Web Services Region.</p>
+            aws_sdk_ssm_quicksetup.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[None]",
@@ -354,6 +397,14 @@ class SSMQuickSetupClient:
             starting_token: <p>The token to use when requesting a specific set of items from a list.</p>
             max_items: <p>Specifies the maximum number of configuration managers that are returned by the request.</p>
             filters: <p>Filters the results returned by the request.</p>
+
+        Raises:
+            aws_sdk_ssm_quicksetup.errors.access_denied_exception.AccessDeniedException: <p>The requester has insufficient permissions to perform the operation.</p>
+            aws_sdk_ssm_quicksetup.errors.conflict_exception.ConflictException: <p>Another request is being processed. Wait a few minutes and try again.</p>
+            aws_sdk_ssm_quicksetup.errors.internal_server_exception.InternalServerException: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm_quicksetup.errors.throttling_exception.ThrottlingException: <p>The request or operation exceeds the maximum allowed request rate per Amazon Web Services account and Amazon Web Services Region.</p>
+            aws_sdk_ssm_quicksetup.errors.validation_exception.ValidationException: <p>The request is invalid. Verify the values provided for the request parameters are accurate.</p>
+            aws_sdk_ssm_quicksetup.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -431,6 +482,14 @@ class SSMQuickSetupClient:
             filters: <p>Filters the results returned by the request.</p>
             manager_arn: <p>The ARN of the configuration manager.</p>
             configuration_definition_id: <p>The ID of the configuration definition.</p>
+
+        Raises:
+            aws_sdk_ssm_quicksetup.errors.access_denied_exception.AccessDeniedException: <p>The requester has insufficient permissions to perform the operation.</p>
+            aws_sdk_ssm_quicksetup.errors.internal_server_exception.InternalServerException: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm_quicksetup.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource couldn't be found. Check the ID or name and try again.</p>
+            aws_sdk_ssm_quicksetup.errors.throttling_exception.ThrottlingException: <p>The request or operation exceeds the maximum allowed request rate per Amazon Web Services account and Amazon Web Services Region.</p>
+            aws_sdk_ssm_quicksetup.errors.validation_exception.ValidationException: <p>The request is invalid. Verify the values provided for the request parameters are accurate.</p>
+            aws_sdk_ssm_quicksetup.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -499,7 +558,15 @@ class SSMQuickSetupClient:
     def list_quick_setup_types(
         self, *, config_overrides: Optional[SSMQuickSetupClientConfig] = None
     ) -> "aws_sdk_ssm_quicksetup.types.list_quick_setup_types_output.ListQuickSetupTypesOutput":
-        """<p>Returns the available Quick Setup types.</p>"""
+        """<p>Returns the available Quick Setup types.</p>
+
+        Raises:
+            aws_sdk_ssm_quicksetup.errors.access_denied_exception.AccessDeniedException: <p>The requester has insufficient permissions to perform the operation.</p>
+            aws_sdk_ssm_quicksetup.errors.conflict_exception.ConflictException: <p>Another request is being processed. Wait a few minutes and try again.</p>
+            aws_sdk_ssm_quicksetup.errors.internal_server_exception.InternalServerException: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm_quicksetup.errors.throttling_exception.ThrottlingException: <p>The request or operation exceeds the maximum allowed request rate per Amazon Web Services account and Amazon Web Services Region.</p>
+            aws_sdk_ssm_quicksetup.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[None]",
@@ -534,6 +601,15 @@ class SSMQuickSetupClient:
 
         Args:
             resource_arn: <p>The ARN of the resource the tag is assigned to.</p>
+
+        Raises:
+            aws_sdk_ssm_quicksetup.errors.access_denied_exception.AccessDeniedException: <p>The requester has insufficient permissions to perform the operation.</p>
+            aws_sdk_ssm_quicksetup.errors.conflict_exception.ConflictException: <p>Another request is being processed. Wait a few minutes and try again.</p>
+            aws_sdk_ssm_quicksetup.errors.internal_server_exception.InternalServerException: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm_quicksetup.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource couldn't be found. Check the ID or name and try again.</p>
+            aws_sdk_ssm_quicksetup.errors.throttling_exception.ThrottlingException: <p>The request or operation exceeds the maximum allowed request rate per Amazon Web Services account and Amazon Web Services Region.</p>
+            aws_sdk_ssm_quicksetup.errors.validation_exception.ValidationException: <p>The request is invalid. Verify the values provided for the request parameters are accurate.</p>
+            aws_sdk_ssm_quicksetup.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -573,6 +649,15 @@ class SSMQuickSetupClient:
         Args:
             resource_arn: <p>The ARN of the resource to tag.</p>
             tags: <p>Key-value pairs of metadata to assign to the resource.</p>
+
+        Raises:
+            aws_sdk_ssm_quicksetup.errors.access_denied_exception.AccessDeniedException: <p>The requester has insufficient permissions to perform the operation.</p>
+            aws_sdk_ssm_quicksetup.errors.conflict_exception.ConflictException: <p>Another request is being processed. Wait a few minutes and try again.</p>
+            aws_sdk_ssm_quicksetup.errors.internal_server_exception.InternalServerException: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm_quicksetup.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource couldn't be found. Check the ID or name and try again.</p>
+            aws_sdk_ssm_quicksetup.errors.throttling_exception.ThrottlingException: <p>The request or operation exceeds the maximum allowed request rate per Amazon Web Services account and Amazon Web Services Region.</p>
+            aws_sdk_ssm_quicksetup.errors.validation_exception.ValidationException: <p>The request is invalid. Verify the values provided for the request parameters are accurate.</p>
+            aws_sdk_ssm_quicksetup.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -611,6 +696,15 @@ class SSMQuickSetupClient:
         Args:
             resource_arn: <p>The ARN of the resource to remove tags from.</p>
             tag_keys: <p>The keys of the tags to remove from the resource.</p>
+
+        Raises:
+            aws_sdk_ssm_quicksetup.errors.access_denied_exception.AccessDeniedException: <p>The requester has insufficient permissions to perform the operation.</p>
+            aws_sdk_ssm_quicksetup.errors.conflict_exception.ConflictException: <p>Another request is being processed. Wait a few minutes and try again.</p>
+            aws_sdk_ssm_quicksetup.errors.internal_server_exception.InternalServerException: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm_quicksetup.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource couldn't be found. Check the ID or name and try again.</p>
+            aws_sdk_ssm_quicksetup.errors.throttling_exception.ThrottlingException: <p>The request or operation exceeds the maximum allowed request rate per Amazon Web Services account and Amazon Web Services Region.</p>
+            aws_sdk_ssm_quicksetup.errors.validation_exception.ValidationException: <p>The request is invalid. Verify the values provided for the request parameters are accurate.</p>
+            aws_sdk_ssm_quicksetup.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -661,6 +755,15 @@ class SSMQuickSetupClient:
             parameters: <p>The parameters for the configuration definition type.</p>
             local_deployment_execution_role_name: <p>The name of the IAM role used to deploy local configurations.</p>
             local_deployment_administration_role_arn: <p>The ARN of the IAM role used to administrate local configuration deployments.</p>
+
+        Raises:
+            aws_sdk_ssm_quicksetup.errors.access_denied_exception.AccessDeniedException: <p>The requester has insufficient permissions to perform the operation.</p>
+            aws_sdk_ssm_quicksetup.errors.conflict_exception.ConflictException: <p>Another request is being processed. Wait a few minutes and try again.</p>
+            aws_sdk_ssm_quicksetup.errors.internal_server_exception.InternalServerException: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm_quicksetup.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource couldn't be found. Check the ID or name and try again.</p>
+            aws_sdk_ssm_quicksetup.errors.throttling_exception.ThrottlingException: <p>The request or operation exceeds the maximum allowed request rate per Amazon Web Services account and Amazon Web Services Region.</p>
+            aws_sdk_ssm_quicksetup.errors.validation_exception.ValidationException: <p>The request is invalid. Verify the values provided for the request parameters are accurate.</p>
+            aws_sdk_ssm_quicksetup.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -713,6 +816,15 @@ class SSMQuickSetupClient:
             manager_arn: <p>The ARN of the configuration manager.</p>
             name: <p>A name for the configuration manager.</p>
             description: <p>A description of the configuration manager.</p>
+
+        Raises:
+            aws_sdk_ssm_quicksetup.errors.access_denied_exception.AccessDeniedException: <p>The requester has insufficient permissions to perform the operation.</p>
+            aws_sdk_ssm_quicksetup.errors.conflict_exception.ConflictException: <p>Another request is being processed. Wait a few minutes and try again.</p>
+            aws_sdk_ssm_quicksetup.errors.internal_server_exception.InternalServerException: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm_quicksetup.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource couldn't be found. Check the ID or name and try again.</p>
+            aws_sdk_ssm_quicksetup.errors.throttling_exception.ThrottlingException: <p>The request or operation exceeds the maximum allowed request rate per Amazon Web Services account and Amazon Web Services Region.</p>
+            aws_sdk_ssm_quicksetup.errors.validation_exception.ValidationException: <p>The request is invalid. Verify the values provided for the request parameters are accurate.</p>
+            aws_sdk_ssm_quicksetup.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -754,6 +866,14 @@ class SSMQuickSetupClient:
 
         Args:
             explorer_enabling_role_arn: <p>The IAM role used to enable Explorer.</p>
+
+        Raises:
+            aws_sdk_ssm_quicksetup.errors.access_denied_exception.AccessDeniedException: <p>The requester has insufficient permissions to perform the operation.</p>
+            aws_sdk_ssm_quicksetup.errors.conflict_exception.ConflictException: <p>Another request is being processed. Wait a few minutes and try again.</p>
+            aws_sdk_ssm_quicksetup.errors.internal_server_exception.InternalServerException: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm_quicksetup.errors.throttling_exception.ThrottlingException: <p>The request or operation exceeds the maximum allowed request rate per Amazon Web Services account and Amazon Web Services Region.</p>
+            aws_sdk_ssm_quicksetup.errors.validation_exception.ValidationException: <p>The request is invalid. Verify the values provided for the request parameters are accurate.</p>
+            aws_sdk_ssm_quicksetup.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(

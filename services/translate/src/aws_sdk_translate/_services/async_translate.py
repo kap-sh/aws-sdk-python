@@ -206,6 +206,17 @@ class AsyncTranslateClient:
             parallel_data_config: <p>Specifies the format and S3 location of the parallel data input file.</p>
             client_token: <p>A unique identifier for the request. This token is automatically generated when you use Amazon Translate through an AWS SDK.</p>
             tags: <p>Tags to be associated with this resource. A tag is a key-value pair that adds metadata to a resource. Each tag key for the resource must be unique. For more information, see <a href=\"https://docs.aws.amazon.com/translate/latest/dg/tagging.html\"> Tagging your resources</a>.</p>
+
+        Raises:
+            aws_sdk_translate.errors.concurrent_modification_exception.ConcurrentModificationException: <p>Another modification is being made. That modification must complete before you can make your change.</p>
+            aws_sdk_translate.errors.conflict_exception.ConflictException: <p>There was a conflict processing the request. Try your request again.</p>
+            aws_sdk_translate.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_translate.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value of the parameter is not valid. Review the value of the parameter you are using to correct it, and then retry your operation.</p>
+            aws_sdk_translate.errors.invalid_request_exception.InvalidRequestException: <p> The request that you made is not valid. Check your request to determine why it's not valid and then retry the request. </p>
+            aws_sdk_translate.errors.limit_exceeded_exception.LimitExceededException: <p>The specified limit has been exceeded. Review your request and retry it with a quantity below the stated limit.</p>
+            aws_sdk_translate.errors.too_many_requests_exception.TooManyRequestsException: <p> You have made too many requests within a short period of time. Wait for a short time and then try your request again.</p>
+            aws_sdk_translate.errors.too_many_tags_exception.TooManyTagsException: <p>You have added too many tags to this resource. The maximum is 50 tags.</p>
+            aws_sdk_translate.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -252,6 +263,13 @@ class AsyncTranslateClient:
 
         Args:
             name: <p>The name of the parallel data resource that is being deleted.</p>
+
+        Raises:
+            aws_sdk_translate.errors.concurrent_modification_exception.ConcurrentModificationException: <p>Another modification is being made. That modification must complete before you can make your change.</p>
+            aws_sdk_translate.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_translate.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource you are looking for has not been found. Review the resource you're looking for and see if a different resource will accomplish your needs before retrying the revised request.</p>
+            aws_sdk_translate.errors.too_many_requests_exception.TooManyRequestsException: <p> You have made too many requests within a short period of time. Wait for a short time and then try your request again.</p>
+            aws_sdk_translate.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -290,6 +308,13 @@ class AsyncTranslateClient:
 
         Args:
             name: <p>The name of the custom terminology being deleted. </p>
+
+        Raises:
+            aws_sdk_translate.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_translate.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value of the parameter is not valid. Review the value of the parameter you are using to correct it, and then retry your operation.</p>
+            aws_sdk_translate.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource you are looking for has not been found. Review the resource you're looking for and see if a different resource will accomplish your needs before retrying the revised request.</p>
+            aws_sdk_translate.errors.too_many_requests_exception.TooManyRequestsException: <p> You have made too many requests within a short period of time. Wait for a short time and then try your request again.</p>
+            aws_sdk_translate.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -326,6 +351,12 @@ class AsyncTranslateClient:
 
         Args:
             job_id: <p>The identifier that Amazon Translate generated for the job. The <a>StartTextTranslationJob</a> operation returns this identifier in its response.</p>
+
+        Raises:
+            aws_sdk_translate.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_translate.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource you are looking for has not been found. Review the resource you're looking for and see if a different resource will accomplish your needs before retrying the revised request.</p>
+            aws_sdk_translate.errors.too_many_requests_exception.TooManyRequestsException: <p> You have made too many requests within a short period of time. Wait for a short time and then try your request again.</p>
+            aws_sdk_translate.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -364,6 +395,13 @@ class AsyncTranslateClient:
 
         Args:
             name: <p>The name of the parallel data resource that is being retrieved.</p>
+
+        Raises:
+            aws_sdk_translate.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_translate.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value of the parameter is not valid. Review the value of the parameter you are using to correct it, and then retry your operation.</p>
+            aws_sdk_translate.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource you are looking for has not been found. Review the resource you're looking for and see if a different resource will accomplish your needs before retrying the revised request.</p>
+            aws_sdk_translate.errors.too_many_requests_exception.TooManyRequestsException: <p> You have made too many requests within a short period of time. Wait for a short time and then try your request again.</p>
+            aws_sdk_translate.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -406,6 +444,13 @@ class AsyncTranslateClient:
         Args:
             name: <p>The name of the custom terminology being retrieved.</p>
             terminology_data_format: <p>The data format of the custom terminology being retrieved.</p> <p>If you don't specify this parameter, Amazon Translate returns a file with the same format as the file that was imported to create the terminology. </p> <p>If you specify this parameter when you retrieve a multi-directional terminology resource, you must specify the same format as the input file that was imported to create it. Otherwise, Amazon Translate throws an error.</p>
+
+        Raises:
+            aws_sdk_translate.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_translate.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value of the parameter is not valid. Review the value of the parameter you are using to correct it, and then retry your operation.</p>
+            aws_sdk_translate.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource you are looking for has not been found. Review the resource you're looking for and see if a different resource will accomplish your needs before retrying the revised request.</p>
+            aws_sdk_translate.errors.too_many_requests_exception.TooManyRequestsException: <p> You have made too many requests within a short period of time. Wait for a short time and then try your request again.</p>
+            aws_sdk_translate.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -460,6 +505,15 @@ class AsyncTranslateClient:
             terminology_data: <p>The terminology data for the custom terminology being imported.</p>
             encryption_key: <p>The encryption key for the custom terminology being imported.</p>
             tags: <p>Tags to be associated with this resource. A tag is a key-value pair that adds metadata to a resource. Each tag key for the resource must be unique. For more information, see <a href=\"https://docs.aws.amazon.com/translate/latest/dg/tagging.html\"> Tagging your resources</a>.</p>
+
+        Raises:
+            aws_sdk_translate.errors.concurrent_modification_exception.ConcurrentModificationException: <p>Another modification is being made. That modification must complete before you can make your change.</p>
+            aws_sdk_translate.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_translate.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value of the parameter is not valid. Review the value of the parameter you are using to correct it, and then retry your operation.</p>
+            aws_sdk_translate.errors.limit_exceeded_exception.LimitExceededException: <p>The specified limit has been exceeded. Review your request and retry it with a quantity below the stated limit.</p>
+            aws_sdk_translate.errors.too_many_requests_exception.TooManyRequestsException: <p> You have made too many requests within a short period of time. Wait for a short time and then try your request again.</p>
+            aws_sdk_translate.errors.too_many_tags_exception.TooManyTagsException: <p>You have added too many tags to this resource. The maximum is 50 tags.</p>
+            aws_sdk_translate.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -514,6 +568,13 @@ class AsyncTranslateClient:
             display_language_code: <p>The language code for the language to use to display the language names in the response. The language code is <code>en</code> by default. </p>
             next_token: <p>Include the NextToken value to fetch the next group of supported languages. </p>
             max_results: <p>The maximum number of results to return in each response.</p>
+
+        Raises:
+            aws_sdk_translate.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_translate.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value of the parameter is not valid. Review the value of the parameter you are using to correct it, and then retry your operation.</p>
+            aws_sdk_translate.errors.too_many_requests_exception.TooManyRequestsException: <p> You have made too many requests within a short period of time. Wait for a short time and then try your request again.</p>
+            aws_sdk_translate.errors.unsupported_display_language_code_exception.UnsupportedDisplayLanguageCodeException: <p>Requested display language code is not supported.</p>
+            aws_sdk_translate.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -561,6 +622,12 @@ class AsyncTranslateClient:
         Args:
             next_token: <p>A string that specifies the next page of results to return in a paginated response.</p>
             max_results: <p>The maximum number of parallel data resources returned for each request.</p>
+
+        Raises:
+            aws_sdk_translate.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_translate.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value of the parameter is not valid. Review the value of the parameter you are using to correct it, and then retry your operation.</p>
+            aws_sdk_translate.errors.too_many_requests_exception.TooManyRequestsException: <p> You have made too many requests within a short period of time. Wait for a short time and then try your request again.</p>
+            aws_sdk_translate.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -602,6 +669,12 @@ class AsyncTranslateClient:
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the given Amazon Translate resource you are querying. </p>
+
+        Raises:
+            aws_sdk_translate.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_translate.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value of the parameter is not valid. Review the value of the parameter you are using to correct it, and then retry your operation.</p>
+            aws_sdk_translate.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource you are looking for has not been found. Review the resource you're looking for and see if a different resource will accomplish your needs before retrying the revised request.</p>
+            aws_sdk_translate.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -646,6 +719,12 @@ class AsyncTranslateClient:
         Args:
             next_token: <p>If the result of the request to ListTerminologies was truncated, include the NextToken to fetch the next group of custom terminologies. </p>
             max_results: <p>The maximum number of custom terminologies returned per list request.</p>
+
+        Raises:
+            aws_sdk_translate.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_translate.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value of the parameter is not valid. Review the value of the parameter you are using to correct it, and then retry your operation.</p>
+            aws_sdk_translate.errors.too_many_requests_exception.TooManyRequestsException: <p> You have made too many requests within a short period of time. Wait for a short time and then try your request again.</p>
+            aws_sdk_translate.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -695,6 +774,13 @@ class AsyncTranslateClient:
             filter: <p>The parameters that specify which batch translation jobs to retrieve. Filters include job name, job status, and submission time. You can only set one filter at a time.</p>
             next_token: <p>The token to request the next page of results.</p>
             max_results: <p>The maximum number of results to return in each page. The default value is 100.</p>
+
+        Raises:
+            aws_sdk_translate.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_translate.errors.invalid_filter_exception.InvalidFilterException: <p>The filter specified for the operation is not valid. Specify a different filter.</p>
+            aws_sdk_translate.errors.invalid_request_exception.InvalidRequestException: <p> The request that you made is not valid. Check your request to determine why it's not valid and then retry the request. </p>
+            aws_sdk_translate.errors.too_many_requests_exception.TooManyRequestsException: <p> You have made too many requests within a short period of time. Wait for a short time and then try your request again.</p>
+            aws_sdk_translate.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -762,6 +848,15 @@ class AsyncTranslateClient:
             parallel_data_names: <p>The name of a parallel data resource to add to the translation job. This resource consists of examples that show how you want segments of text to be translated. If you specify multiple target languages for the job, the parallel data file must include translations for all the target languages.</p> <p>When you add parallel data to a translation job, you create an <i>Active Custom Translation</i> job. </p> <p>This parameter accepts only one parallel data resource.</p> <note> <p>Active Custom Translation jobs are priced at a higher rate than other jobs that don't use parallel data. For more information, see <a href=\"http://aws.amazon.com/translate/pricing/\">Amazon Translate pricing</a>.</p> </note> <p>For a list of available parallel data resources, use the <a>ListParallelData</a> operation.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/translate/latest/dg/customizing-translations-parallel-data.html\"> Customizing your translations with parallel data</a>.</p>
             client_token: <p>A unique identifier for the request. This token is generated for you when using the Amazon Translate SDK.</p>
             settings: <p>Settings to configure your translation output. You can configure the following options:</p> <ul> <li> <p>Brevity: not supported.</p> </li> <li> <p>Formality: sets the formality level of the output text.</p> </li> <li> <p>Profanity: masks profane words and phrases in your translation output.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_translate.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_translate.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value of the parameter is not valid. Review the value of the parameter you are using to correct it, and then retry your operation.</p>
+            aws_sdk_translate.errors.invalid_request_exception.InvalidRequestException: <p> The request that you made is not valid. Check your request to determine why it's not valid and then retry the request. </p>
+            aws_sdk_translate.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource you are looking for has not been found. Review the resource you're looking for and see if a different resource will accomplish your needs before retrying the revised request.</p>
+            aws_sdk_translate.errors.too_many_requests_exception.TooManyRequestsException: <p> You have made too many requests within a short period of time. Wait for a short time and then try your request again.</p>
+            aws_sdk_translate.errors.unsupported_language_pair_exception.UnsupportedLanguagePairException: <p>Amazon Translate does not support translation from the language of the source text into the requested target language. For more information, see <a href=\"https://docs.aws.amazon.com/translate/latest/dg/what-is-languages.html\">Supported languages</a>. </p>
+            aws_sdk_translate.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -813,6 +908,12 @@ class AsyncTranslateClient:
 
         Args:
             job_id: <p>The job ID of the job to be stopped.</p>
+
+        Raises:
+            aws_sdk_translate.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_translate.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource you are looking for has not been found. Review the resource you're looking for and see if a different resource will accomplish your needs before retrying the revised request.</p>
+            aws_sdk_translate.errors.too_many_requests_exception.TooManyRequestsException: <p> You have made too many requests within a short period of time. Wait for a short time and then try your request again.</p>
+            aws_sdk_translate.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -853,6 +954,14 @@ class AsyncTranslateClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the given Amazon Translate resource to which you want to associate the tags. </p>
             tags: <p>Tags being associated with a specific Amazon Translate resource. There can be a maximum of 50 tags (both existing and pending) associated with a specific resource.</p>
+
+        Raises:
+            aws_sdk_translate.errors.concurrent_modification_exception.ConcurrentModificationException: <p>Another modification is being made. That modification must complete before you can make your change.</p>
+            aws_sdk_translate.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_translate.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value of the parameter is not valid. Review the value of the parameter you are using to correct it, and then retry your operation.</p>
+            aws_sdk_translate.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource you are looking for has not been found. Review the resource you're looking for and see if a different resource will accomplish your needs before retrying the revised request.</p>
+            aws_sdk_translate.errors.too_many_tags_exception.TooManyTagsException: <p>You have added too many tags to this resource. The maximum is 50 tags.</p>
+            aws_sdk_translate.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -906,6 +1015,16 @@ class AsyncTranslateClient:
             source_language_code: <p>The language code for the language of the source text. For a list of supported language codes, see <a href=\"https://docs.aws.amazon.com/translate/latest/dg/what-is-languages.html\">Supported languages</a>.</p> <p>To have Amazon Translate determine the source language of your text, you can specify <code>auto</code> in the <code>SourceLanguageCode</code> field. If you specify <code>auto</code>, Amazon Translate will call <a href=\"https://docs.aws.amazon.com/comprehend/latest/dg/comprehend-general.html\">Amazon Comprehend</a> to determine the source language.</p> <note> <p>If you specify <code>auto</code>, you must send the <code>TranslateDocument</code> request in a region that supports Amazon Comprehend. Otherwise, the request returns an error indicating that autodetect is not supported. </p> </note>
             target_language_code: <p>The language code requested for the translated document. For a list of supported language codes, see <a href=\"https://docs.aws.amazon.com/translate/latest/dg/what-is-languages.html\">Supported languages</a>.</p>
             settings: <p>Settings to configure your translation output. You can configure the following options:</p> <ul> <li> <p>Brevity: not supported.</p> </li> <li> <p>Formality: sets the formality level of the output text.</p> </li> <li> <p>Profanity: masks profane words and phrases in your translation output.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_translate.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_translate.errors.invalid_request_exception.InvalidRequestException: <p> The request that you made is not valid. Check your request to determine why it's not valid and then retry the request. </p>
+            aws_sdk_translate.errors.limit_exceeded_exception.LimitExceededException: <p>The specified limit has been exceeded. Review your request and retry it with a quantity below the stated limit.</p>
+            aws_sdk_translate.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource you are looking for has not been found. Review the resource you're looking for and see if a different resource will accomplish your needs before retrying the revised request.</p>
+            aws_sdk_translate.errors.service_unavailable_exception.ServiceUnavailableException: <p>The Amazon Translate service is temporarily unavailable. Wait a bit and then retry your request.</p>
+            aws_sdk_translate.errors.too_many_requests_exception.TooManyRequestsException: <p> You have made too many requests within a short period of time. Wait for a short time and then try your request again.</p>
+            aws_sdk_translate.errors.unsupported_language_pair_exception.UnsupportedLanguagePairException: <p>Amazon Translate does not support translation from the language of the source text into the requested target language. For more information, see <a href=\"https://docs.aws.amazon.com/translate/latest/dg/what-is-languages.html\">Supported languages</a>. </p>
+            aws_sdk_translate.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -962,6 +1081,17 @@ class AsyncTranslateClient:
             source_language_code: <p>The language code for the language of the source text. For a list of language codes, see <a href=\"https://docs.aws.amazon.com/translate/latest/dg/what-is-languages.html\">Supported languages</a>.</p> <p>To have Amazon Translate determine the source language of your text, you can specify <code>auto</code> in the <code>SourceLanguageCode</code> field. If you specify <code>auto</code>, Amazon Translate will call <a href=\"https://docs.aws.amazon.com/comprehend/latest/dg/comprehend-general.html\">Amazon Comprehend</a> to determine the source language.</p> <note> <p>If you specify <code>auto</code>, you must send the <code>TranslateText</code> request in a region that supports Amazon Comprehend. Otherwise, the request returns an error indicating that autodetect is not supported. </p> </note>
             target_language_code: <p>The language code requested for the language of the target text. For a list of language codes, see <a href=\"https://docs.aws.amazon.com/translate/latest/dg/what-is-languages.html\">Supported languages</a>.</p>
             settings: <p>Settings to configure your translation output. You can configure the following options:</p> <ul> <li> <p>Brevity: reduces the length of the translated output for most translations.</p> </li> <li> <p>Formality: sets the formality level of the output text.</p> </li> <li> <p>Profanity: masks profane words and phrases in your translation output.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_translate.errors.detected_language_low_confidence_exception.DetectedLanguageLowConfidenceException: <p>The confidence that Amazon Comprehend accurately detected the source language is low. If a low confidence level is acceptable for your application, you can use the language in the exception to call Amazon Translate again. For more information, see the <a href=\"https://docs.aws.amazon.com/comprehend/latest/dg/API_DetectDominantLanguage.html\">DetectDominantLanguage</a> operation in the <i>Amazon Comprehend Developer Guide</i>. </p>
+            aws_sdk_translate.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_translate.errors.invalid_request_exception.InvalidRequestException: <p> The request that you made is not valid. Check your request to determine why it's not valid and then retry the request. </p>
+            aws_sdk_translate.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource you are looking for has not been found. Review the resource you're looking for and see if a different resource will accomplish your needs before retrying the revised request.</p>
+            aws_sdk_translate.errors.service_unavailable_exception.ServiceUnavailableException: <p>The Amazon Translate service is temporarily unavailable. Wait a bit and then retry your request.</p>
+            aws_sdk_translate.errors.text_size_limit_exceeded_exception.TextSizeLimitExceededException: <p> The size of the text you submitted exceeds the size limit. Reduce the size of the text or use a smaller document and then retry your request. </p>
+            aws_sdk_translate.errors.too_many_requests_exception.TooManyRequestsException: <p> You have made too many requests within a short period of time. Wait for a short time and then try your request again.</p>
+            aws_sdk_translate.errors.unsupported_language_pair_exception.UnsupportedLanguagePairException: <p>Amazon Translate does not support translation from the language of the source text into the requested target language. For more information, see <a href=\"https://docs.aws.amazon.com/translate/latest/dg/what-is-languages.html\">Supported languages</a>. </p>
+            aws_sdk_translate.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1008,6 +1138,13 @@ class AsyncTranslateClient:
         Args:
             resource_arn: <p> The Amazon Resource Name (ARN) of the given Amazon Translate resource from which you want to remove the tags. </p>
             tag_keys: <p>The initial part of a key-value pair that forms a tag being removed from a given resource. Keys must be unique and cannot be duplicated for a particular resource. </p>
+
+        Raises:
+            aws_sdk_translate.errors.concurrent_modification_exception.ConcurrentModificationException: <p>Another modification is being made. That modification must complete before you can make your change.</p>
+            aws_sdk_translate.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_translate.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value of the parameter is not valid. Review the value of the parameter you are using to correct it, and then retry your operation.</p>
+            aws_sdk_translate.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource you are looking for has not been found. Review the resource you're looking for and see if a different resource will accomplish your needs before retrying the revised request.</p>
+            aws_sdk_translate.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1053,6 +1190,17 @@ class AsyncTranslateClient:
             description: <p>A custom description for the parallel data resource in Amazon Translate.</p>
             parallel_data_config: <p>Specifies the format and S3 location of the parallel data input file.</p>
             client_token: <p>A unique identifier for the request. This token is automatically generated when you use Amazon Translate through an AWS SDK.</p>
+
+        Raises:
+            aws_sdk_translate.errors.concurrent_modification_exception.ConcurrentModificationException: <p>Another modification is being made. That modification must complete before you can make your change.</p>
+            aws_sdk_translate.errors.conflict_exception.ConflictException: <p>There was a conflict processing the request. Try your request again.</p>
+            aws_sdk_translate.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_translate.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value of the parameter is not valid. Review the value of the parameter you are using to correct it, and then retry your operation.</p>
+            aws_sdk_translate.errors.invalid_request_exception.InvalidRequestException: <p> The request that you made is not valid. Check your request to determine why it's not valid and then retry the request. </p>
+            aws_sdk_translate.errors.limit_exceeded_exception.LimitExceededException: <p>The specified limit has been exceeded. Review your request and retry it with a quantity below the stated limit.</p>
+            aws_sdk_translate.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource you are looking for has not been found. Review the resource you're looking for and see if a different resource will accomplish your needs before retrying the revised request.</p>
+            aws_sdk_translate.errors.too_many_requests_exception.TooManyRequestsException: <p> You have made too many requests within a short period of time. Wait for a short time and then try your request again.</p>
+            aws_sdk_translate.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

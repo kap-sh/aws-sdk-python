@@ -41,6 +41,16 @@ class ManagedThingStateResource:
 
         Args:
             managed_thing_id: <p>The id of the device.</p>
+
+        Raises:
+            aws_sdk_iot_managed_integrations.errors.access_denied_exception.AccessDeniedException: <p>User is not authorized.</p>
+            aws_sdk_iot_managed_integrations.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot_managed_integrations.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot_managed_integrations.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot_managed_integrations.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot_managed_integrations.errors.unauthorized_exception.UnauthorizedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_iot_managed_integrations.errors.validation_exception.ValidationException: <p>A validation error occurred when performing the API request.</p>
+            aws_sdk_iot_managed_integrations.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -83,6 +93,16 @@ class AsyncManagedThingStateResource:
 
         Args:
             managed_thing_id: <p>The id of the device.</p>
+
+        Raises:
+            aws_sdk_iot_managed_integrations.errors.access_denied_exception.AccessDeniedException: <p>User is not authorized.</p>
+            aws_sdk_iot_managed_integrations.errors.internal_failure_exception.InternalFailureException: <p>An unexpected error has occurred.</p>
+            aws_sdk_iot_managed_integrations.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_iot_managed_integrations.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is temporarily unavailable.</p>
+            aws_sdk_iot_managed_integrations.errors.throttling_exception.ThrottlingException: <p>The rate exceeds the limit.</p>
+            aws_sdk_iot_managed_integrations.errors.unauthorized_exception.UnauthorizedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_iot_managed_integrations.errors.validation_exception.ValidationException: <p>A validation error occurred when performing the API request.</p>
+            aws_sdk_iot_managed_integrations.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

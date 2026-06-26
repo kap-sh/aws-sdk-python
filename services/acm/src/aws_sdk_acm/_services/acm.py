@@ -191,6 +191,16 @@ class ACMClient:
         Args:
             certificate_arn: <p>String that contains the ARN of the ACM certificate to which the tag is to be applied. This must be of the form:</p> <p> <code>arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012</code> </p> <p>For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs)</a>.</p>
             tags: <p>The key-value pair that defines the tag. The tag value is optional.</p>
+
+        Raises:
+            aws_sdk_acm.errors.invalid_arn_exception.InvalidArnException: <p>The requested Amazon Resource Name (ARN) does not refer to an existing resource.</p>
+            aws_sdk_acm.errors.invalid_parameter_exception.InvalidParameterException: <p>An input parameter was invalid.</p>
+            aws_sdk_acm.errors.invalid_tag_exception.InvalidTagException: <p>One or both of the values that make up the key-value pair is not valid. For example, you cannot specify a tag value that begins with <code>aws:</code>.</p>
+            aws_sdk_acm.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified certificate cannot be found in the caller's account or the caller's account cannot be found.</p>
+            aws_sdk_acm.errors.tag_policy_exception.TagPolicyException: <p>A specified tag did not comply with an existing tag policy and was rejected.</p>
+            aws_sdk_acm.errors.throttling_exception.ThrottlingException: <p>The request was denied because it exceeded a quota.</p>
+            aws_sdk_acm.errors.too_many_tags_exception.TooManyTagsException: <p>The request contains too many tags. Try the request again with fewer tags.</p>
+            aws_sdk_acm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -227,6 +237,15 @@ class ACMClient:
 
         Args:
             certificate_arn: <p>String that contains the ARN of the ACM certificate to be deleted. This must be of the form:</p> <p> <code>arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012</code> </p> <p>For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs)</a>.</p>
+
+        Raises:
+            aws_sdk_acm.errors.access_denied_exception.AccessDeniedException: <p>You do not have access required to perform this action.</p>
+            aws_sdk_acm.errors.conflict_exception.ConflictException: <p>You are trying to update a resource or configuration that is already being created or updated. Wait for the previous operation to finish and try again.</p>
+            aws_sdk_acm.errors.invalid_arn_exception.InvalidArnException: <p>The requested Amazon Resource Name (ARN) does not refer to an existing resource.</p>
+            aws_sdk_acm.errors.resource_in_use_exception.ResourceInUseException: <p>The certificate is in use by another Amazon Web Services service in the caller's account. Remove the association and try again.</p>
+            aws_sdk_acm.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified certificate cannot be found in the caller's account or the caller's account cannot be found.</p>
+            aws_sdk_acm.errors.throttling_exception.ThrottlingException: <p>The request was denied because it exceeded a quota.</p>
+            aws_sdk_acm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -262,6 +281,11 @@ class ACMClient:
 
         Args:
             certificate_arn: <p>The Amazon Resource Name (ARN) of the ACM certificate. The ARN must have the following form:</p> <p> <code>arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012</code> </p> <p>For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs)</a>.</p>
+
+        Raises:
+            aws_sdk_acm.errors.invalid_arn_exception.InvalidArnException: <p>The requested Amazon Resource Name (ARN) does not refer to an existing resource.</p>
+            aws_sdk_acm.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified certificate cannot be found in the caller's account or the caller's account cannot be found.</p>
+            aws_sdk_acm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -301,6 +325,13 @@ class ACMClient:
         Args:
             certificate_arn: <p>An Amazon Resource Name (ARN) of the issued certificate. This must be of the form:</p> <p> <code>arn:aws:acm:region:account:certificate/12345678-1234-1234-1234-123456789012</code> </p>
             passphrase: <p>Passphrase to associate with the encrypted exported private key. </p> <note> <p>When creating your passphrase, you can use any ASCII character except #, $, or %.</p> </note> <p>If you want to later decrypt the private key, you must have the passphrase. You can use the following OpenSSL command to decrypt a private key. After entering the command, you are prompted for the passphrase.</p> <p> <code>openssl rsa -in encrypted_key.pem -out decrypted_key.pem</code> </p>
+
+        Raises:
+            aws_sdk_acm.errors.invalid_arn_exception.InvalidArnException: <p>The requested Amazon Resource Name (ARN) does not refer to an existing resource.</p>
+            aws_sdk_acm.errors.request_in_progress_exception.RequestInProgressException: <p>The certificate request is in process and the certificate in your account has not yet been issued.</p>
+            aws_sdk_acm.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified certificate cannot be found in the caller's account or the caller's account cannot be found.</p>
+            aws_sdk_acm.errors.throttling_exception.ThrottlingException: <p>The request was denied because it exceeded a quota.</p>
+            aws_sdk_acm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -332,7 +363,13 @@ class ACMClient:
     def get_account_configuration(
         self, *, config_overrides: Optional[ACMClientConfig] = None
     ) -> "aws_sdk_acm.types.get_account_configuration_response.GetAccountConfigurationResponse":
-        """<p>Returns the account configuration options associated with an Amazon Web Services account.</p>"""
+        """<p>Returns the account configuration options associated with an Amazon Web Services account.</p>
+
+        Raises:
+            aws_sdk_acm.errors.access_denied_exception.AccessDeniedException: <p>You do not have access required to perform this action.</p>
+            aws_sdk_acm.errors.throttling_exception.ThrottlingException: <p>The request was denied because it exceeded a quota.</p>
+            aws_sdk_acm.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[None]",
@@ -367,6 +404,12 @@ class ACMClient:
 
         Args:
             certificate_arn: <p>String that contains a certificate ARN in the following format:</p> <p> <code>arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012</code> </p> <p>For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs)</a>.</p>
+
+        Raises:
+            aws_sdk_acm.errors.invalid_arn_exception.InvalidArnException: <p>The requested Amazon Resource Name (ARN) does not refer to an existing resource.</p>
+            aws_sdk_acm.errors.request_in_progress_exception.RequestInProgressException: <p>The certificate request is in process and the certificate in your account has not yet been issued.</p>
+            aws_sdk_acm.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified certificate cannot be found in the caller's account or the caller's account cannot be found.</p>
+            aws_sdk_acm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -414,6 +457,17 @@ class ACMClient:
             private_key: <p>The private key that matches the public key in the certificate.</p>
             certificate_chain: <p>The PEM encoded certificate chain.</p>
             tags: <p>One or more resource tags to associate with the imported certificate. </p> <p>Note: You cannot apply tags when reimporting a certificate.</p>
+
+        Raises:
+            aws_sdk_acm.errors.conflict_exception.ConflictException: <p>You are trying to update a resource or configuration that is already being created or updated. Wait for the previous operation to finish and try again.</p>
+            aws_sdk_acm.errors.invalid_arn_exception.InvalidArnException: <p>The requested Amazon Resource Name (ARN) does not refer to an existing resource.</p>
+            aws_sdk_acm.errors.invalid_parameter_exception.InvalidParameterException: <p>An input parameter was invalid.</p>
+            aws_sdk_acm.errors.invalid_tag_exception.InvalidTagException: <p>One or both of the values that make up the key-value pair is not valid. For example, you cannot specify a tag value that begins with <code>aws:</code>.</p>
+            aws_sdk_acm.errors.limit_exceeded_exception.LimitExceededException: <p>An ACM quota has been exceeded.</p>
+            aws_sdk_acm.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified certificate cannot be found in the caller's account or the caller's account cannot be found.</p>
+            aws_sdk_acm.errors.tag_policy_exception.TagPolicyException: <p>A specified tag did not comply with an existing tag policy and was rejected.</p>
+            aws_sdk_acm.errors.too_many_tags_exception.TooManyTagsException: <p>The request contains too many tags. Try the request again with fewer tags.</p>
+            aws_sdk_acm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -470,6 +524,11 @@ class ACMClient:
             max_items: <p>Use this parameter when paginating results to specify the maximum number of items to return in the response. If additional items exist beyond the number you specify, the <code>NextToken</code> element is sent in the response. Use this <code>NextToken</code> value in a subsequent request to retrieve additional items.</p>
             sort_by: <p>Specifies the field to sort results by. If you specify <code>SortBy</code>, you must also specify <code>SortOrder</code>.</p>
             sort_order: <p>Specifies the order of sorted results. If you specify <code>SortOrder</code>, you must also specify <code>SortBy</code>.</p>
+
+        Raises:
+            aws_sdk_acm.errors.invalid_args_exception.InvalidArgsException: <p>One or more of request parameters specified is not valid.</p>
+            aws_sdk_acm.errors.validation_exception.ValidationException: <p>The supplied input failed to satisfy constraints of an Amazon Web Services service.</p>
+            aws_sdk_acm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -549,6 +608,11 @@ class ACMClient:
 
         Args:
             certificate_arn: <p>String that contains the ARN of the ACM certificate for which you want to list the tags. This must have the following form:</p> <p> <code>arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012</code> </p> <p>For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs)</a>.</p>
+
+        Raises:
+            aws_sdk_acm.errors.invalid_arn_exception.InvalidArnException: <p>The requested Amazon Resource Name (ARN) does not refer to an existing resource.</p>
+            aws_sdk_acm.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified certificate cannot be found in the caller's account or the caller's account cannot be found.</p>
+            aws_sdk_acm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -590,6 +654,13 @@ class ACMClient:
         Args:
             expiry_events: <p>Specifies expiration events associated with an account.</p>
             idempotency_token: <p>Customer-chosen string used to distinguish between calls to <code>PutAccountConfiguration</code>. Idempotency tokens time out after one hour. If you call <code>PutAccountConfiguration</code> multiple times with the same unexpired idempotency token, ACM treats it as the same request and returns the original result. If you change the idempotency token for each call, ACM treats each call as a new request.</p>
+
+        Raises:
+            aws_sdk_acm.errors.access_denied_exception.AccessDeniedException: <p>You do not have access required to perform this action.</p>
+            aws_sdk_acm.errors.conflict_exception.ConflictException: <p>You are trying to update a resource or configuration that is already being created or updated. Wait for the previous operation to finish and try again.</p>
+            aws_sdk_acm.errors.throttling_exception.ThrottlingException: <p>The request was denied because it exceeded a quota.</p>
+            aws_sdk_acm.errors.validation_exception.ValidationException: <p>The supplied input failed to satisfy constraints of an Amazon Web Services service.</p>
+            aws_sdk_acm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -629,6 +700,15 @@ class ACMClient:
         Args:
             certificate_arn: <p>String that contains the ARN of the ACM Certificate with one or more tags that you want to remove. This must be of the form:</p> <p> <code>arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012</code> </p> <p>For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs)</a>.</p>
             tags: <p>The key-value pair that defines the tag to remove.</p>
+
+        Raises:
+            aws_sdk_acm.errors.invalid_arn_exception.InvalidArnException: <p>The requested Amazon Resource Name (ARN) does not refer to an existing resource.</p>
+            aws_sdk_acm.errors.invalid_parameter_exception.InvalidParameterException: <p>An input parameter was invalid.</p>
+            aws_sdk_acm.errors.invalid_tag_exception.InvalidTagException: <p>One or both of the values that make up the key-value pair is not valid. For example, you cannot specify a tag value that begins with <code>aws:</code>.</p>
+            aws_sdk_acm.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified certificate cannot be found in the caller's account or the caller's account cannot be found.</p>
+            aws_sdk_acm.errors.tag_policy_exception.TagPolicyException: <p>A specified tag did not comply with an existing tag policy and was rejected.</p>
+            aws_sdk_acm.errors.throttling_exception.ThrottlingException: <p>The request was denied because it exceeded a quota.</p>
+            aws_sdk_acm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -665,6 +745,12 @@ class ACMClient:
 
         Args:
             certificate_arn: <p>String that contains the ARN of the ACM certificate to be renewed. This must be of the form:</p> <p> <code>arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012</code> </p> <p>For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs)</a>.</p>
+
+        Raises:
+            aws_sdk_acm.errors.invalid_arn_exception.InvalidArnException: <p>The requested Amazon Resource Name (ARN) does not refer to an existing resource.</p>
+            aws_sdk_acm.errors.request_in_progress_exception.RequestInProgressException: <p>The certificate request is in process and the certificate in your account has not yet been issued.</p>
+            aws_sdk_acm.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified certificate cannot be found in the caller's account or the caller's account cannot be found.</p>
+            aws_sdk_acm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -730,6 +816,16 @@ class ACMClient:
             tags: <p>One or more resource tags to associate with the certificate.</p>
             key_algorithm: <p>Specifies the algorithm of the public and private key pair that your certificate uses to encrypt data. RSA is the default key algorithm for ACM certificates. Elliptic Curve Digital Signature Algorithm (ECDSA) keys are smaller, offering security comparable to RSA keys but with greater computing efficiency. However, ECDSA is not supported by all network clients. Some Amazon Web Services services may require RSA keys, or only support ECDSA keys of a particular size, while others allow the use of either RSA and ECDSA keys to ensure that compatibility is not broken. Check the requirements for the Amazon Web Services service where you plan to deploy your certificate. For more information about selecting an algorithm, see <a href=\"https://docs.aws.amazon.com/acm/latest/userguide/acm-certificate-characteristics.html#algorithms-term\">Key algorithms</a>.</p> <note> <p>Algorithms supported for an ACM certificate request include: </p> <ul> <li> <p> <code>RSA_2048</code> </p> </li> <li> <p> <code>EC_prime256v1</code> </p> </li> <li> <p> <code>EC_secp384r1</code> </p> </li> </ul> <p>Other listed algorithms are for imported certificates only. </p> </note> <note> <p>When you request a private PKI certificate signed by a CA from Amazon Web Services Private CA, the specified signing algorithm family (RSA or ECDSA) must match the algorithm family of the CA's secret key.</p> </note> <p>Default: RSA_2048</p>
             managed_by: <p>Identifies the Amazon Web Services service that manages the certificate issued by ACM.</p>
+
+        Raises:
+            aws_sdk_acm.errors.invalid_arn_exception.InvalidArnException: <p>The requested Amazon Resource Name (ARN) does not refer to an existing resource.</p>
+            aws_sdk_acm.errors.invalid_domain_validation_options_exception.InvalidDomainValidationOptionsException: <p>One or more values in the <a>DomainValidationOption</a> structure is incorrect.</p>
+            aws_sdk_acm.errors.invalid_parameter_exception.InvalidParameterException: <p>An input parameter was invalid.</p>
+            aws_sdk_acm.errors.invalid_tag_exception.InvalidTagException: <p>One or both of the values that make up the key-value pair is not valid. For example, you cannot specify a tag value that begins with <code>aws:</code>.</p>
+            aws_sdk_acm.errors.limit_exceeded_exception.LimitExceededException: <p>An ACM quota has been exceeded.</p>
+            aws_sdk_acm.errors.tag_policy_exception.TagPolicyException: <p>A specified tag did not comply with an existing tag policy and was rejected.</p>
+            aws_sdk_acm.errors.too_many_tags_exception.TooManyTagsException: <p>The request contains too many tags. Try the request again with fewer tags.</p>
+            aws_sdk_acm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -789,6 +885,13 @@ class ACMClient:
             certificate_arn: <p>String that contains the ARN of the requested certificate. The certificate ARN is generated and returned by the <a>RequestCertificate</a> action as soon as the request is made. By default, using this parameter causes email to be sent to all top-level domains you specified in the certificate request. The ARN must be of the form: </p> <p> <code>arn:aws:acm:us-east-1:123456789012:certificate/12345678-1234-1234-1234-123456789012</code> </p>
             domain: <p>The fully qualified domain name (FQDN) of the certificate that needs to be validated.</p>
             validation_domain: <p>The base validation domain that will act as the suffix of the email addresses that are used to send the emails. This must be the same as the <code>Domain</code> value or a superdomain of the <code>Domain</code> value. For example, if you requested a certificate for <code>site.subdomain.example.com</code> and specify a <b>ValidationDomain</b> of <code>subdomain.example.com</code>, ACM sends email to the the following five addresses:</p> <ul> <li> <p>admin@subdomain.example.com</p> </li> <li> <p>administrator@subdomain.example.com</p> </li> <li> <p>hostmaster@subdomain.example.com</p> </li> <li> <p>postmaster@subdomain.example.com</p> </li> <li> <p>webmaster@subdomain.example.com</p> </li> </ul>
+
+        Raises:
+            aws_sdk_acm.errors.invalid_arn_exception.InvalidArnException: <p>The requested Amazon Resource Name (ARN) does not refer to an existing resource.</p>
+            aws_sdk_acm.errors.invalid_domain_validation_options_exception.InvalidDomainValidationOptionsException: <p>One or more values in the <a>DomainValidationOption</a> structure is incorrect.</p>
+            aws_sdk_acm.errors.invalid_state_exception.InvalidStateException: <p>Processing has reached an invalid state.</p>
+            aws_sdk_acm.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified certificate cannot be found in the caller's account or the caller's account cannot be found.</p>
+            aws_sdk_acm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -828,6 +931,15 @@ class ACMClient:
         Args:
             certificate_arn: <p>The Amazon Resource Name (ARN) of the public or private certificate that will be revoked. The ARN must have the following form: </p> <p> <code>arn:aws:acm:region:account:certificate/12345678-1234-1234-1234-123456789012</code> </p>
             revocation_reason: <p>Specifies why you revoked the certificate.</p>
+
+        Raises:
+            aws_sdk_acm.errors.access_denied_exception.AccessDeniedException: <p>You do not have access required to perform this action.</p>
+            aws_sdk_acm.errors.conflict_exception.ConflictException: <p>You are trying to update a resource or configuration that is already being created or updated. Wait for the previous operation to finish and try again.</p>
+            aws_sdk_acm.errors.invalid_arn_exception.InvalidArnException: <p>The requested Amazon Resource Name (ARN) does not refer to an existing resource.</p>
+            aws_sdk_acm.errors.resource_in_use_exception.ResourceInUseException: <p>The certificate is in use by another Amazon Web Services service in the caller's account. Remove the association and try again.</p>
+            aws_sdk_acm.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified certificate cannot be found in the caller's account or the caller's account cannot be found.</p>
+            aws_sdk_acm.errors.throttling_exception.ThrottlingException: <p>The request was denied because it exceeded a quota.</p>
+            aws_sdk_acm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -882,6 +994,12 @@ class ACMClient:
             next_token: <p>Use this parameter only when paginating results and only in a subsequent request after you receive a response with truncated results. Set it to the value of <code>NextToken</code> from the response you just received.</p>
             sort_by: <p>Specifies the field to sort results by. Valid values are CREATED_AT, NOT_AFTER, STATUS, RENEWAL_STATUS, EXPORTED, IN_USE, NOT_BEFORE, KEY_ALGORITHM, TYPE, CERTIFICATE_ARN, COMMON_NAME, REVOKED_AT, RENEWAL_ELIGIBILITY, ISSUED_AT, MANAGED_BY, EXPORT_OPTION, VALIDATION_METHOD, and IMPORTED_AT.</p>
             sort_order: <p>Specifies the order of sorted results. Valid values are ASCENDING or DESCENDING.</p>
+
+        Raises:
+            aws_sdk_acm.errors.access_denied_exception.AccessDeniedException: <p>You do not have access required to perform this action.</p>
+            aws_sdk_acm.errors.throttling_exception.ThrottlingException: <p>The request was denied because it exceeded a quota.</p>
+            aws_sdk_acm.errors.validation_exception.ValidationException: <p>The supplied input failed to satisfy constraints of an Amazon Web Services service.</p>
+            aws_sdk_acm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -967,6 +1085,13 @@ class ACMClient:
         Args:
             certificate_arn: <p>ARN of the requested certificate to update. This must be of the form:</p> <p> <code>arn:aws:acm:us-east-1:<i>account</i>:certificate/<i>12345678-1234-1234-1234-123456789012</i> </code> </p>
             options: <p>Use to update the options for your certificate. Currently, you can specify whether to add your certificate to a transparency log or export your certificate. Certificate transparency makes it possible to detect SSL/TLS certificates that have been mistakenly or maliciously issued. Certificates that have not been logged typically produce an error message in a browser. </p>
+
+        Raises:
+            aws_sdk_acm.errors.invalid_arn_exception.InvalidArnException: <p>The requested Amazon Resource Name (ARN) does not refer to an existing resource.</p>
+            aws_sdk_acm.errors.invalid_state_exception.InvalidStateException: <p>Processing has reached an invalid state.</p>
+            aws_sdk_acm.errors.limit_exceeded_exception.LimitExceededException: <p>An ACM quota has been exceeded.</p>
+            aws_sdk_acm.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified certificate cannot be found in the caller's account or the caller's account cannot be found.</p>
+            aws_sdk_acm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(

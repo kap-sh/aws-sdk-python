@@ -218,6 +218,11 @@ class AsyncEMRcontainersClient:
         Args:
             id: <p>The ID of the job run to cancel.</p>
             virtual_cluster_id: <p>The ID of the virtual cluster for which the job run will be canceled.</p>
+
+        Raises:
+            aws_sdk_emr_containers.errors.internal_server_exception.InternalServerException: <p>This is an internal server exception.</p>
+            aws_sdk_emr_containers.errors.validation_exception.ValidationException: <p>There are invalid parameters in the client request.</p>
+            aws_sdk_emr_containers.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -267,6 +272,12 @@ class AsyncEMRcontainersClient:
             job_template_data: <p>The job template data which holds values of StartJobRun API request.</p>
             tags: <p>The tags that are associated with the job template.</p>
             kms_key_arn: <p>The KMS key ARN used to encrypt the job template.</p>
+
+        Raises:
+            aws_sdk_emr_containers.errors.internal_server_exception.InternalServerException: <p>This is an internal server exception.</p>
+            aws_sdk_emr_containers.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_emr_containers.errors.validation_exception.ValidationException: <p>There are invalid parameters in the client request.</p>
+            aws_sdk_emr_containers.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -331,6 +342,12 @@ class AsyncEMRcontainersClient:
             configuration_overrides: <p>The configuration settings that will be used to override existing configurations.</p>
             client_token: <p>The client idempotency token for this create call.</p>
             tags: <p>The tags of the managed endpoint. </p>
+
+        Raises:
+            aws_sdk_emr_containers.errors.internal_server_exception.InternalServerException: <p>This is an internal server exception.</p>
+            aws_sdk_emr_containers.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_emr_containers.errors.validation_exception.ValidationException: <p>There are invalid parameters in the client request.</p>
+            aws_sdk_emr_containers.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -390,6 +407,11 @@ class AsyncEMRcontainersClient:
             container_provider: <p>The container provider associated with the security configuration.</p>
             security_configuration_data: <p>Security configuration input for the request.</p>
             tags: <p>The tags to add to the security configuration.</p>
+
+        Raises:
+            aws_sdk_emr_containers.errors.internal_server_exception.InternalServerException: <p>This is an internal server exception.</p>
+            aws_sdk_emr_containers.errors.validation_exception.ValidationException: <p>There are invalid parameters in the client request.</p>
+            aws_sdk_emr_containers.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -444,6 +466,13 @@ class AsyncEMRcontainersClient:
             client_token: <p>The client token of the virtual cluster.</p>
             tags: <p>The tags assigned to the virtual cluster.</p>
             security_configuration_id: <p>The ID of the security configuration.</p>
+
+        Raises:
+            aws_sdk_emr_containers.errors.eks_request_throttled_exception.EKSRequestThrottledException: <p>The request exceeded the Amazon EKS API operation limits.</p>
+            aws_sdk_emr_containers.errors.internal_server_exception.InternalServerException: <p>This is an internal server exception.</p>
+            aws_sdk_emr_containers.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_emr_containers.errors.validation_exception.ValidationException: <p>There are invalid parameters in the client request.</p>
+            aws_sdk_emr_containers.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -488,6 +517,11 @@ class AsyncEMRcontainersClient:
 
         Args:
             id: <p>The ID of the job template that will be deleted.</p>
+
+        Raises:
+            aws_sdk_emr_containers.errors.internal_server_exception.InternalServerException: <p>This is an internal server exception.</p>
+            aws_sdk_emr_containers.errors.validation_exception.ValidationException: <p>There are invalid parameters in the client request.</p>
+            aws_sdk_emr_containers.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -528,6 +562,11 @@ class AsyncEMRcontainersClient:
         Args:
             id: <p>The ID of the managed endpoint.</p>
             virtual_cluster_id: <p>The ID of the endpoint's virtual cluster.</p>
+
+        Raises:
+            aws_sdk_emr_containers.errors.internal_server_exception.InternalServerException: <p>This is an internal server exception.</p>
+            aws_sdk_emr_containers.errors.validation_exception.ValidationException: <p>There are invalid parameters in the client request.</p>
+            aws_sdk_emr_containers.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -567,6 +606,11 @@ class AsyncEMRcontainersClient:
 
         Args:
             id: <p>The ID of the virtual cluster that will be deleted.</p>
+
+        Raises:
+            aws_sdk_emr_containers.errors.internal_server_exception.InternalServerException: <p>This is an internal server exception.</p>
+            aws_sdk_emr_containers.errors.validation_exception.ValidationException: <p>There are invalid parameters in the client request.</p>
+            aws_sdk_emr_containers.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -609,6 +653,12 @@ class AsyncEMRcontainersClient:
         Args:
             id: <p>The ID of the job run request. </p>
             virtual_cluster_id: <p>The ID of the virtual cluster for which the job run is submitted.</p>
+
+        Raises:
+            aws_sdk_emr_containers.errors.internal_server_exception.InternalServerException: <p>This is an internal server exception.</p>
+            aws_sdk_emr_containers.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_emr_containers.errors.validation_exception.ValidationException: <p>There are invalid parameters in the client request.</p>
+            aws_sdk_emr_containers.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -648,6 +698,12 @@ class AsyncEMRcontainersClient:
 
         Args:
             id: <p>The ID of the job template that will be described.</p>
+
+        Raises:
+            aws_sdk_emr_containers.errors.internal_server_exception.InternalServerException: <p>This is an internal server exception.</p>
+            aws_sdk_emr_containers.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_emr_containers.errors.validation_exception.ValidationException: <p>There are invalid parameters in the client request.</p>
+            aws_sdk_emr_containers.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -688,6 +744,12 @@ class AsyncEMRcontainersClient:
         Args:
             id: <p>This output displays ID of the managed endpoint.</p>
             virtual_cluster_id: <p>The ID of the endpoint's virtual cluster.</p>
+
+        Raises:
+            aws_sdk_emr_containers.errors.internal_server_exception.InternalServerException: <p>This is an internal server exception.</p>
+            aws_sdk_emr_containers.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_emr_containers.errors.validation_exception.ValidationException: <p>There are invalid parameters in the client request.</p>
+            aws_sdk_emr_containers.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -727,6 +789,12 @@ class AsyncEMRcontainersClient:
 
         Args:
             id: <p>The ID of the security configuration.</p>
+
+        Raises:
+            aws_sdk_emr_containers.errors.internal_server_exception.InternalServerException: <p>This is an internal server exception.</p>
+            aws_sdk_emr_containers.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_emr_containers.errors.validation_exception.ValidationException: <p>There are invalid parameters in the client request.</p>
+            aws_sdk_emr_containers.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -765,6 +833,12 @@ class AsyncEMRcontainersClient:
 
         Args:
             id: <p>The ID of the virtual cluster that will be described.</p>
+
+        Raises:
+            aws_sdk_emr_containers.errors.internal_server_exception.InternalServerException: <p>This is an internal server exception.</p>
+            aws_sdk_emr_containers.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_emr_containers.errors.validation_exception.ValidationException: <p>There are invalid parameters in the client request.</p>
+            aws_sdk_emr_containers.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -821,6 +895,13 @@ class AsyncEMRcontainersClient:
             duration_in_seconds: <p>Duration in seconds for which the session token is valid. The default duration is 15 minutes and the maximum is 12 hours.</p>
             log_context: <p>String identifier used to separate sections of the execution logs uploaded to S3.</p>
             client_token: <p>The client idempotency token of the job run request.</p>
+
+        Raises:
+            aws_sdk_emr_containers.errors.internal_server_exception.InternalServerException: <p>This is an internal server exception.</p>
+            aws_sdk_emr_containers.errors.request_throttled_exception.RequestThrottledException: <p>The request throttled.</p>
+            aws_sdk_emr_containers.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_emr_containers.errors.validation_exception.ValidationException: <p>There are invalid parameters in the client request.</p>
+            aws_sdk_emr_containers.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -888,6 +969,11 @@ class AsyncEMRcontainersClient:
             states: <p>The states of the job run.</p>
             max_results: <p>The maximum number of job runs that can be listed.</p>
             next_token: <p>The token for the next set of job runs to return.</p>
+
+        Raises:
+            aws_sdk_emr_containers.errors.internal_server_exception.InternalServerException: <p>This is an internal server exception.</p>
+            aws_sdk_emr_containers.errors.validation_exception.ValidationException: <p>There are invalid parameters in the client request.</p>
+            aws_sdk_emr_containers.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -987,6 +1073,11 @@ class AsyncEMRcontainersClient:
             created_before: <p> The date and time before which the job templates were created.</p>
             max_results: <p> The maximum number of job templates that can be listed.</p>
             next_token: <p> The token for the next set of job templates to return.</p>
+
+        Raises:
+            aws_sdk_emr_containers.errors.internal_server_exception.InternalServerException: <p>This is an internal server exception.</p>
+            aws_sdk_emr_containers.errors.validation_exception.ValidationException: <p>There are invalid parameters in the client request.</p>
+            aws_sdk_emr_containers.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1081,6 +1172,11 @@ class AsyncEMRcontainersClient:
             states: <p>The states of the managed endpoints.</p>
             max_results: <p>The maximum number of managed endpoints that can be listed.</p>
             next_token: <p> The token for the next set of managed endpoints to return. </p>
+
+        Raises:
+            aws_sdk_emr_containers.errors.internal_server_exception.InternalServerException: <p>This is an internal server exception.</p>
+            aws_sdk_emr_containers.errors.validation_exception.ValidationException: <p>There are invalid parameters in the client request.</p>
+            aws_sdk_emr_containers.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1180,6 +1276,11 @@ class AsyncEMRcontainersClient:
             created_before: <p>The date and time before which the security configuration was created.</p>
             max_results: <p>The maximum number of security configurations the operation can list.</p>
             next_token: <p>The token for the next set of security configurations to return.</p>
+
+        Raises:
+            aws_sdk_emr_containers.errors.internal_server_exception.InternalServerException: <p>This is an internal server exception.</p>
+            aws_sdk_emr_containers.errors.validation_exception.ValidationException: <p>There are invalid parameters in the client request.</p>
+            aws_sdk_emr_containers.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1254,6 +1355,12 @@ class AsyncEMRcontainersClient:
 
         Args:
             resource_arn: <p>The ARN of tagged resources.</p>
+
+        Raises:
+            aws_sdk_emr_containers.errors.internal_server_exception.InternalServerException: <p>This is an internal server exception.</p>
+            aws_sdk_emr_containers.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_emr_containers.errors.validation_exception.ValidationException: <p>There are invalid parameters in the client request.</p>
+            aws_sdk_emr_containers.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1318,6 +1425,11 @@ class AsyncEMRcontainersClient:
             max_results: <p>The maximum number of virtual clusters that can be listed.</p>
             next_token: <p>The token for the next set of virtual clusters to return. </p>
             eks_access_entry_integrated: <p>Optional Boolean that specifies whether the operation should return the virtual clusters that have the access entry integration enabled or disabled. If not specified, the operation returns all applicable virtual clusters.</p>
+
+        Raises:
+            aws_sdk_emr_containers.errors.internal_server_exception.InternalServerException: <p>This is an internal server exception.</p>
+            aws_sdk_emr_containers.errors.validation_exception.ValidationException: <p>There are invalid parameters in the client request.</p>
+            aws_sdk_emr_containers.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1452,6 +1564,12 @@ class AsyncEMRcontainersClient:
             job_template_id: <p>The job template ID to be used to start the job run.</p>
             job_template_parameters: <p>The values of job template parameters to start a job run.</p>
             retry_policy_configuration: <p>The retry policy configuration for the job run.</p>
+
+        Raises:
+            aws_sdk_emr_containers.errors.internal_server_exception.InternalServerException: <p>This is an internal server exception.</p>
+            aws_sdk_emr_containers.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_emr_containers.errors.validation_exception.ValidationException: <p>There are invalid parameters in the client request.</p>
+            aws_sdk_emr_containers.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1511,6 +1629,12 @@ class AsyncEMRcontainersClient:
         Args:
             resource_arn: <p>The ARN of resources.</p>
             tags: <p>The tags assigned to resources.</p>
+
+        Raises:
+            aws_sdk_emr_containers.errors.internal_server_exception.InternalServerException: <p>This is an internal server exception.</p>
+            aws_sdk_emr_containers.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_emr_containers.errors.validation_exception.ValidationException: <p>There are invalid parameters in the client request.</p>
+            aws_sdk_emr_containers.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1552,6 +1676,12 @@ class AsyncEMRcontainersClient:
         Args:
             resource_arn: <p>The ARN of resources.</p>
             tag_keys: <p>The tag keys of the resources.</p>
+
+        Raises:
+            aws_sdk_emr_containers.errors.internal_server_exception.InternalServerException: <p>This is an internal server exception.</p>
+            aws_sdk_emr_containers.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_emr_containers.errors.validation_exception.ValidationException: <p>There are invalid parameters in the client request.</p>
+            aws_sdk_emr_containers.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

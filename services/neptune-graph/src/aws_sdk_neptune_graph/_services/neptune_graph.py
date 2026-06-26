@@ -179,6 +179,14 @@ class NeptuneGraphClient:
         Args:
             graph_identifier: <p>The unique identifier of the Neptune Analytics graph.</p>
             query_id: <p>The unique identifier of the query to cancel.</p>
+
+        Raises:
+            aws_sdk_neptune_graph.errors.access_denied_exception.AccessDeniedException: <p>Raised in case of an authentication or authorization failure.</p>
+            aws_sdk_neptune_graph.errors.internal_server_exception.InternalServerException: <p>A failure occurred on the server.</p>
+            aws_sdk_neptune_graph.errors.resource_not_found_exception.ResourceNotFoundException: <p>A specified resource could not be located.</p>
+            aws_sdk_neptune_graph.errors.throttling_exception.ThrottlingException: <p>The exception was interrupted by throttling.</p>
+            aws_sdk_neptune_graph.errors.validation_exception.ValidationException: <p>A resource could not be validated.</p>
+            aws_sdk_neptune_graph.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -236,6 +244,15 @@ class NeptuneGraphClient:
             plan_cache: <p>Query plan cache is a feature that saves the query plan and reuses it on successive executions of the same query. This reduces query latency, and works for both <code>READ</code> and <code>UPDATE</code> queries. The plan cache is an LRU cache with a 5 minute TTL and a capacity of 1000.</p>
             explain_mode: <p>The explain mode parameter returns a query explain instead of the actual query results. A query explain can be used to gather insights about the query execution such as planning decisions, time spent on each operator, solutions flowing etc.</p>
             query_timeout_milliseconds: <p>Specifies the query timeout duration, in milliseconds. (optional)</p>
+
+        Raises:
+            aws_sdk_neptune_graph.errors.access_denied_exception.AccessDeniedException: <p>Raised in case of an authentication or authorization failure.</p>
+            aws_sdk_neptune_graph.errors.conflict_exception.ConflictException: <p>Raised when a conflict is encountered.</p>
+            aws_sdk_neptune_graph.errors.internal_server_exception.InternalServerException: <p>A failure occurred on the server.</p>
+            aws_sdk_neptune_graph.errors.throttling_exception.ThrottlingException: <p>The exception was interrupted by throttling.</p>
+            aws_sdk_neptune_graph.errors.unprocessable_exception.UnprocessableException: <p>Request cannot be processed due to known reasons. Eg. partition full.</p>
+            aws_sdk_neptune_graph.errors.validation_exception.ValidationException: <p>A resource could not be validated.</p>
+            aws_sdk_neptune_graph.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -287,6 +304,14 @@ class NeptuneGraphClient:
         Args:
             graph_identifier: <p>The unique identifier of the Neptune Analytics graph.</p>
             mode: <p>The summary mode can take one of two values: <code>basic</code> (the default), and <code>detailed</code>.</p>
+
+        Raises:
+            aws_sdk_neptune_graph.errors.access_denied_exception.AccessDeniedException: <p>Raised in case of an authentication or authorization failure.</p>
+            aws_sdk_neptune_graph.errors.internal_server_exception.InternalServerException: <p>A failure occurred on the server.</p>
+            aws_sdk_neptune_graph.errors.resource_not_found_exception.ResourceNotFoundException: <p>A specified resource could not be located.</p>
+            aws_sdk_neptune_graph.errors.throttling_exception.ThrottlingException: <p>The exception was interrupted by throttling.</p>
+            aws_sdk_neptune_graph.errors.validation_exception.ValidationException: <p>A resource could not be validated.</p>
+            aws_sdk_neptune_graph.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -328,6 +353,14 @@ class NeptuneGraphClient:
         Args:
             graph_identifier: <p>The unique identifier of the Neptune Analytics graph.</p>
             query_id: <p>The ID of the query in question.</p>
+
+        Raises:
+            aws_sdk_neptune_graph.errors.access_denied_exception.AccessDeniedException: <p>Raised in case of an authentication or authorization failure.</p>
+            aws_sdk_neptune_graph.errors.internal_server_exception.InternalServerException: <p>A failure occurred on the server.</p>
+            aws_sdk_neptune_graph.errors.resource_not_found_exception.ResourceNotFoundException: <p>A specified resource could not be located.</p>
+            aws_sdk_neptune_graph.errors.throttling_exception.ThrottlingException: <p>The exception was interrupted by throttling.</p>
+            aws_sdk_neptune_graph.errors.validation_exception.ValidationException: <p>A resource could not be validated.</p>
+            aws_sdk_neptune_graph.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -372,6 +405,13 @@ class NeptuneGraphClient:
             graph_identifier: <p>The unique identifier of the Neptune Analytics graph.</p>
             max_results: <p>The maximum number of results to be fetched by the API.</p>
             state: <p>Filtered list of queries based on state.</p>
+
+        Raises:
+            aws_sdk_neptune_graph.errors.access_denied_exception.AccessDeniedException: <p>Raised in case of an authentication or authorization failure.</p>
+            aws_sdk_neptune_graph.errors.internal_server_exception.InternalServerException: <p>A failure occurred on the server.</p>
+            aws_sdk_neptune_graph.errors.throttling_exception.ThrottlingException: <p>The exception was interrupted by throttling.</p>
+            aws_sdk_neptune_graph.errors.validation_exception.ValidationException: <p>A resource could not be validated.</p>
+            aws_sdk_neptune_graph.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -412,6 +452,13 @@ class NeptuneGraphClient:
 
         Args:
             resource_arn: <p>The ARN of the resource.</p>
+
+        Raises:
+            aws_sdk_neptune_graph.errors.internal_server_exception.InternalServerException: <p>A failure occurred on the server.</p>
+            aws_sdk_neptune_graph.errors.resource_not_found_exception.ResourceNotFoundException: <p>A specified resource could not be located.</p>
+            aws_sdk_neptune_graph.errors.throttling_exception.ThrottlingException: <p>The exception was interrupted by throttling.</p>
+            aws_sdk_neptune_graph.errors.validation_exception.ValidationException: <p>A resource could not be validated.</p>
+            aws_sdk_neptune_graph.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -451,6 +498,13 @@ class NeptuneGraphClient:
         Args:
             resource_arn: <p>ARN of the resource for which tags need to be added.</p>
             tags: <p>The tags to be assigned to the Neptune Analytics resource.</p> <p>The tags are metadata that are specified as a list of key-value pairs:</p> <p> <b>Key</b> (string) – A key is the required name of the tag. The string value can be from 1 to 128 Unicode characters in length. It can't be prefixed with <code>aws:</code> and can only contain the set of Unicode characters specified by this Java regular expression: <code>\"^([\p{L}\p{Z}\p{N}_.:/=+\-]*)$\")</code>.</p> <p> <b>Value</b> (string) – A value is the optional value of the tag. The string value can be from 1 to 256 Unicode characters in length. It can't be prefixed with <code>aws:</code> and can only contain the set of Unicode characters specified by this Java regular expression: <code>\"^([\p{L}\p{Z}\p{N}_.:/=+\-]*)$\")</code>.</p>
+
+        Raises:
+            aws_sdk_neptune_graph.errors.internal_server_exception.InternalServerException: <p>A failure occurred on the server.</p>
+            aws_sdk_neptune_graph.errors.resource_not_found_exception.ResourceNotFoundException: <p>A specified resource could not be located.</p>
+            aws_sdk_neptune_graph.errors.throttling_exception.ThrottlingException: <p>The exception was interrupted by throttling.</p>
+            aws_sdk_neptune_graph.errors.validation_exception.ValidationException: <p>A resource could not be validated.</p>
+            aws_sdk_neptune_graph.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -491,6 +545,13 @@ class NeptuneGraphClient:
         Args:
             resource_arn: <p>ARN of the resource whose tag needs to be removed.</p>
             tag_keys: <p>Tag keys for the tags to be removed.</p>
+
+        Raises:
+            aws_sdk_neptune_graph.errors.internal_server_exception.InternalServerException: <p>A failure occurred on the server.</p>
+            aws_sdk_neptune_graph.errors.resource_not_found_exception.ResourceNotFoundException: <p>A specified resource could not be located.</p>
+            aws_sdk_neptune_graph.errors.throttling_exception.ThrottlingException: <p>The exception was interrupted by throttling.</p>
+            aws_sdk_neptune_graph.errors.validation_exception.ValidationException: <p>A resource could not be validated.</p>
+            aws_sdk_neptune_graph.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(

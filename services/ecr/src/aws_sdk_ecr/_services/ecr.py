@@ -317,6 +317,12 @@ class ECRClient:
             registry_id: <p>The Amazon Web Services account ID associated with the registry that contains the image layers to check. If you do not specify a registry, the default registry is assumed.</p>
             repository_name: <p>The name of the repository that is associated with the image layers to check.</p>
             layer_digests: <p>The digests of the image layers to check.</p>
+
+        Raises:
+            aws_sdk_ecr.errors.invalid_parameter_exception.InvalidParameterException: <p>The specified parameter is invalid. Review the available parameters for the API request.</p>
+            aws_sdk_ecr.errors.repository_not_found_exception.RepositoryNotFoundException: <p>The specified repository could not be found. Check the spelling of the specified repository and ensure that you are performing operations on the correct registry.</p>
+            aws_sdk_ecr.errors.server_exception.ServerException: <p>These errors are usually caused by a server-side issue.</p>
+            aws_sdk_ecr.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -361,6 +367,12 @@ class ECRClient:
             registry_id: <p>The Amazon Web Services account ID associated with the registry that contains the image to delete. If you do not specify a registry, the default registry is assumed.</p>
             repository_name: <p>The repository that contains the image to delete.</p>
             image_ids: <p>A list of image ID references that correspond to images to delete. The format of the <code>imageIds</code> reference is <code>imageTag=tag</code> or <code>imageDigest=digest</code>.</p>
+
+        Raises:
+            aws_sdk_ecr.errors.invalid_parameter_exception.InvalidParameterException: <p>The specified parameter is invalid. Review the available parameters for the API request.</p>
+            aws_sdk_ecr.errors.repository_not_found_exception.RepositoryNotFoundException: <p>The specified repository could not be found. Check the spelling of the specified repository and ensure that you are performing operations on the correct registry.</p>
+            aws_sdk_ecr.errors.server_exception.ServerException: <p>These errors are usually caused by a server-side issue.</p>
+            aws_sdk_ecr.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To delete multiple images
@@ -416,6 +428,14 @@ class ECRClient:
             image_ids: <p>A list of image ID references that correspond to images to describe. The format of the <code>imageIds</code> reference is <code>imageTag=tag</code> or <code>imageDigest=digest</code>.</p>
             accepted_media_types: <p>The accepted media types for the request.</p> <p>Valid values: <code>application/vnd.docker.distribution.manifest.v1+json</code> | <code>application/vnd.docker.distribution.manifest.v2+json</code> | <code>application/vnd.oci.image.manifest.v1+json</code> </p>
 
+        Raises:
+            aws_sdk_ecr.errors.invalid_parameter_exception.InvalidParameterException: <p>The specified parameter is invalid. Review the available parameters for the API request.</p>
+            aws_sdk_ecr.errors.limit_exceeded_exception.LimitExceededException: <p>The operation did not succeed because it would have exceeded a service limit for your account. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonECR/latest/userguide/service-quotas.html\">Amazon ECR service quotas</a> in the Amazon Elastic Container Registry User Guide.</p>
+            aws_sdk_ecr.errors.repository_not_found_exception.RepositoryNotFoundException: <p>The specified repository could not be found. Check the spelling of the specified repository and ensure that you are performing operations on the correct registry.</p>
+            aws_sdk_ecr.errors.server_exception.ServerException: <p>These errors are usually caused by a server-side issue.</p>
+            aws_sdk_ecr.errors.unable_to_get_upstream_image_exception.UnableToGetUpstreamImageException: <p>The image or images were unable to be pulled using the pull through cache rule. This is usually caused because of an issue with the Secrets Manager secret containing the credentials for the upstream registry.</p>
+            aws_sdk_ecr.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To obtain multiple images in a single request
             This example obtains information for an image with a specified image digest ID from the repository named ubuntu in the current account.
@@ -463,6 +483,13 @@ class ECRClient:
 
         Args:
             repository_names: <p>One or more repository names to get the scanning configuration for.</p>
+
+        Raises:
+            aws_sdk_ecr.errors.invalid_parameter_exception.InvalidParameterException: <p>The specified parameter is invalid. Review the available parameters for the API request.</p>
+            aws_sdk_ecr.errors.repository_not_found_exception.RepositoryNotFoundException: <p>The specified repository could not be found. Check the spelling of the specified repository and ensure that you are performing operations on the correct registry.</p>
+            aws_sdk_ecr.errors.server_exception.ServerException: <p>These errors are usually caused by a server-side issue.</p>
+            aws_sdk_ecr.errors.validation_exception.ValidationException: <p>There was an exception validating this request.</p>
+            aws_sdk_ecr.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -506,6 +533,18 @@ class ECRClient:
             repository_name: <p>The name of the repository to associate with the image layer.</p>
             upload_id: <p>The upload ID from a previous <a>InitiateLayerUpload</a> operation to associate with the image layer.</p>
             layer_digests: <p>The <code>sha256</code> digest of the image layer.</p>
+
+        Raises:
+            aws_sdk_ecr.errors.empty_upload_exception.EmptyUploadException: <p>The specified layer upload does not contain any layer parts.</p>
+            aws_sdk_ecr.errors.invalid_layer_exception.InvalidLayerException: <p>The layer digest calculation performed by Amazon ECR upon receipt of the image layer does not match the digest specified.</p>
+            aws_sdk_ecr.errors.invalid_parameter_exception.InvalidParameterException: <p>The specified parameter is invalid. Review the available parameters for the API request.</p>
+            aws_sdk_ecr.errors.kms_exception.KmsException: <p>The operation failed due to a KMS exception.</p>
+            aws_sdk_ecr.errors.layer_already_exists_exception.LayerAlreadyExistsException: <p>The image layer already exists in the associated repository.</p>
+            aws_sdk_ecr.errors.layer_part_too_small_exception.LayerPartTooSmallException: <p>Layer parts must be at least 5 MiB in size.</p>
+            aws_sdk_ecr.errors.repository_not_found_exception.RepositoryNotFoundException: <p>The specified repository could not be found. Check the spelling of the specified repository and ensure that you are performing operations on the correct registry.</p>
+            aws_sdk_ecr.errors.server_exception.ServerException: <p>These errors are usually caused by a server-side issue.</p>
+            aws_sdk_ecr.errors.upload_not_found_exception.UploadNotFoundException: <p>The upload could not be found, or the specified upload ID is not valid for this repository.</p>
+            aws_sdk_ecr.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -567,6 +606,18 @@ class ECRClient:
             credential_arn: <p>The Amazon Resource Name (ARN) of the Amazon Web Services Secrets Manager secret that identifies the credentials to authenticate to the upstream registry.</p>
             custom_role_arn: <p>Amazon Resource Name (ARN) of the IAM role to be assumed by Amazon ECR to authenticate to the ECR upstream registry. This role must be in the same account as the registry that you are configuring.</p>
             upstream_repository_prefix: <p>The repository name prefix of the upstream registry to match with the upstream repository name. When this field isn't specified, Amazon ECR will use the <code>ROOT</code>.</p>
+
+        Raises:
+            aws_sdk_ecr.errors.invalid_parameter_exception.InvalidParameterException: <p>The specified parameter is invalid. Review the available parameters for the API request.</p>
+            aws_sdk_ecr.errors.limit_exceeded_exception.LimitExceededException: <p>The operation did not succeed because it would have exceeded a service limit for your account. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonECR/latest/userguide/service-quotas.html\">Amazon ECR service quotas</a> in the Amazon Elastic Container Registry User Guide.</p>
+            aws_sdk_ecr.errors.pull_through_cache_rule_already_exists_exception.PullThroughCacheRuleAlreadyExistsException: <p>A pull through cache rule with these settings already exists for the private registry.</p>
+            aws_sdk_ecr.errors.secret_not_found_exception.SecretNotFoundException: <p>The ARN of the secret specified in the pull through cache rule was not found. Update the pull through cache rule with a valid secret ARN and try again.</p>
+            aws_sdk_ecr.errors.server_exception.ServerException: <p>These errors are usually caused by a server-side issue.</p>
+            aws_sdk_ecr.errors.unable_to_access_secret_exception.UnableToAccessSecretException: <p>The secret is unable to be accessed. Verify the resource permissions for the secret and try again.</p>
+            aws_sdk_ecr.errors.unable_to_decrypt_secret_value_exception.UnableToDecryptSecretValueException: <p>The secret is accessible but is unable to be decrypted. Verify the resource permisisons and try again.</p>
+            aws_sdk_ecr.errors.unsupported_upstream_registry_exception.UnsupportedUpstreamRegistryException: <p>The specified upstream registry isn't supported.</p>
+            aws_sdk_ecr.errors.validation_exception.ValidationException: <p>There was an exception validating this request.</p>
+            aws_sdk_ecr.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -635,6 +686,16 @@ class ECRClient:
             image_tag_mutability_exclusion_filters: <p>A list of filters that specify which image tags should be excluded from the repository's image tag mutability setting.</p>
             image_scanning_configuration: <important> <p>The <code>imageScanningConfiguration</code> parameter is being deprecated, in favor of specifying the image scanning configuration at the registry level. For more information, see <code>PutRegistryScanningConfiguration</code>.</p> </important> <p>The image scanning configuration for the repository. This determines whether images are scanned for known vulnerabilities after being pushed to the repository.</p>
             encryption_configuration: <p>The encryption configuration for the repository. This determines how the contents of your repository are encrypted at rest.</p>
+
+        Raises:
+            aws_sdk_ecr.errors.invalid_parameter_exception.InvalidParameterException: <p>The specified parameter is invalid. Review the available parameters for the API request.</p>
+            aws_sdk_ecr.errors.invalid_tag_parameter_exception.InvalidTagParameterException: <p>An invalid parameter has been specified. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.</p>
+            aws_sdk_ecr.errors.kms_exception.KmsException: <p>The operation failed due to a KMS exception.</p>
+            aws_sdk_ecr.errors.limit_exceeded_exception.LimitExceededException: <p>The operation did not succeed because it would have exceeded a service limit for your account. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonECR/latest/userguide/service-quotas.html\">Amazon ECR service quotas</a> in the Amazon Elastic Container Registry User Guide.</p>
+            aws_sdk_ecr.errors.repository_already_exists_exception.RepositoryAlreadyExistsException: <p>The specified repository already exists in the specified registry.</p>
+            aws_sdk_ecr.errors.server_exception.ServerException: <p>These errors are usually caused by a server-side issue.</p>
+            aws_sdk_ecr.errors.too_many_tags_exception.TooManyTagsException: <p>The list of tags on the repository is over the limit. The maximum number of tags that can be applied to a repository is 50.</p>
+            aws_sdk_ecr.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To create a new repository
@@ -724,6 +785,14 @@ class ECRClient:
             lifecycle_policy: <p>The lifecycle policy to use for repositories created using the template.</p>
             applied_for: <p>A list of enumerable strings representing the Amazon ECR repository creation scenarios that this template will apply towards. The supported scenarios are <code>PULL_THROUGH_CACHE</code>, <code>REPLICATION</code>, and <code>CREATE_ON_PUSH</code> </p>
             custom_role_arn: <p>The ARN of the role to be assumed by Amazon ECR. This role must be in the same account as the registry that you are configuring. Amazon ECR will assume your supplied role when the customRoleArn is specified. When this field isn't specified, Amazon ECR will use the service-linked role for the repository creation template.</p>
+
+        Raises:
+            aws_sdk_ecr.errors.invalid_parameter_exception.InvalidParameterException: <p>The specified parameter is invalid. Review the available parameters for the API request.</p>
+            aws_sdk_ecr.errors.limit_exceeded_exception.LimitExceededException: <p>The operation did not succeed because it would have exceeded a service limit for your account. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonECR/latest/userguide/service-quotas.html\">Amazon ECR service quotas</a> in the Amazon Elastic Container Registry User Guide.</p>
+            aws_sdk_ecr.errors.server_exception.ServerException: <p>These errors are usually caused by a server-side issue.</p>
+            aws_sdk_ecr.errors.template_already_exists_exception.TemplateAlreadyExistsException: <p>The repository creation template already exists. Specify a unique prefix and try again.</p>
+            aws_sdk_ecr.errors.validation_exception.ValidationException: <p>There was an exception validating this request.</p>
+            aws_sdk_ecr.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -782,6 +851,14 @@ class ECRClient:
         Args:
             registry_id: <p>The Amazon Web Services account ID associated with the registry that contains the repository. If you do not specify a registry, the default registry is assumed.</p>
             repository_name: <p>The name of the repository.</p>
+
+        Raises:
+            aws_sdk_ecr.errors.invalid_parameter_exception.InvalidParameterException: <p>The specified parameter is invalid. Review the available parameters for the API request.</p>
+            aws_sdk_ecr.errors.lifecycle_policy_not_found_exception.LifecyclePolicyNotFoundException: <p>The lifecycle policy could not be found, and no policy is set to the repository.</p>
+            aws_sdk_ecr.errors.repository_not_found_exception.RepositoryNotFoundException: <p>The specified repository could not be found. Check the spelling of the specified repository and ensure that you are performing operations on the correct registry.</p>
+            aws_sdk_ecr.errors.server_exception.ServerException: <p>These errors are usually caused by a server-side issue.</p>
+            aws_sdk_ecr.errors.validation_exception.ValidationException: <p>There was an exception validating this request.</p>
+            aws_sdk_ecr.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -823,6 +900,13 @@ class ECRClient:
         Args:
             ecr_repository_prefix: <p>The Amazon ECR repository prefix associated with the pull through cache rule to delete.</p>
             registry_id: <p>The Amazon Web Services account ID associated with the registry that contains the pull through cache rule. If you do not specify a registry, the default registry is assumed.</p>
+
+        Raises:
+            aws_sdk_ecr.errors.invalid_parameter_exception.InvalidParameterException: <p>The specified parameter is invalid. Review the available parameters for the API request.</p>
+            aws_sdk_ecr.errors.pull_through_cache_rule_not_found_exception.PullThroughCacheRuleNotFoundException: <p>The pull through cache rule was not found. Specify a valid pull through cache rule and try again.</p>
+            aws_sdk_ecr.errors.server_exception.ServerException: <p>These errors are usually caused by a server-side issue.</p>
+            aws_sdk_ecr.errors.validation_exception.ValidationException: <p>There was an exception validating this request.</p>
+            aws_sdk_ecr.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -857,7 +941,15 @@ class ECRClient:
     ) -> (
         "aws_sdk_ecr.types.delete_registry_policy_response.DeleteRegistryPolicyResponse"
     ):
-        """<p>Deletes the registry permissions policy.</p>"""
+        """<p>Deletes the registry permissions policy.</p>
+
+        Raises:
+            aws_sdk_ecr.errors.invalid_parameter_exception.InvalidParameterException: <p>The specified parameter is invalid. Review the available parameters for the API request.</p>
+            aws_sdk_ecr.errors.registry_policy_not_found_exception.RegistryPolicyNotFoundException: <p>The registry doesn't have an associated registry policy.</p>
+            aws_sdk_ecr.errors.server_exception.ServerException: <p>These errors are usually caused by a server-side issue.</p>
+            aws_sdk_ecr.errors.validation_exception.ValidationException: <p>There was an exception validating this request.</p>
+            aws_sdk_ecr.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_ecr.types.delete_registry_policy_request.DeleteRegistryPolicyRequest]",
@@ -897,6 +989,14 @@ class ECRClient:
             registry_id: <p>The Amazon Web Services account ID associated with the registry that contains the repository to delete. If you do not specify a registry, the default registry is assumed.</p>
             repository_name: <p>The name of the repository to delete.</p>
             force: <p>If true, deleting the repository force deletes the contents of the repository. If false, the repository must be empty before attempting to delete it.</p>
+
+        Raises:
+            aws_sdk_ecr.errors.invalid_parameter_exception.InvalidParameterException: <p>The specified parameter is invalid. Review the available parameters for the API request.</p>
+            aws_sdk_ecr.errors.kms_exception.KmsException: <p>The operation failed due to a KMS exception.</p>
+            aws_sdk_ecr.errors.repository_not_empty_exception.RepositoryNotEmptyException: <p>The specified repository contains images. To delete a repository that contains images, you must force the deletion with the <code>force</code> parameter.</p>
+            aws_sdk_ecr.errors.repository_not_found_exception.RepositoryNotFoundException: <p>The specified repository could not be found. Check the spelling of the specified repository and ensure that you are performing operations on the correct registry.</p>
+            aws_sdk_ecr.errors.server_exception.ServerException: <p>These errors are usually caused by a server-side issue.</p>
+            aws_sdk_ecr.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To force delete a repository
@@ -944,6 +1044,13 @@ class ECRClient:
 
         Args:
             prefix: <p>The repository namespace prefix associated with the repository creation template.</p>
+
+        Raises:
+            aws_sdk_ecr.errors.invalid_parameter_exception.InvalidParameterException: <p>The specified parameter is invalid. Review the available parameters for the API request.</p>
+            aws_sdk_ecr.errors.server_exception.ServerException: <p>These errors are usually caused by a server-side issue.</p>
+            aws_sdk_ecr.errors.template_not_found_exception.TemplateNotFoundException: <p>The specified repository creation template can't be found. Verify the registry ID and prefix and try again.</p>
+            aws_sdk_ecr.errors.validation_exception.ValidationException: <p>There was an exception validating this request.</p>
+            aws_sdk_ecr.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -984,6 +1091,13 @@ class ECRClient:
             registry_id: <p>The Amazon Web Services account ID associated with the registry that contains the repository policy to delete. If you do not specify a registry, the default registry is assumed.</p>
             repository_name: <p>The name of the repository that is associated with the repository policy to delete.</p>
 
+        Raises:
+            aws_sdk_ecr.errors.invalid_parameter_exception.InvalidParameterException: <p>The specified parameter is invalid. Review the available parameters for the API request.</p>
+            aws_sdk_ecr.errors.repository_not_found_exception.RepositoryNotFoundException: <p>The specified repository could not be found. Check the spelling of the specified repository and ensure that you are performing operations on the correct registry.</p>
+            aws_sdk_ecr.errors.repository_policy_not_found_exception.RepositoryPolicyNotFoundException: <p>The specified repository and registry combination does not have an associated repository policy.</p>
+            aws_sdk_ecr.errors.server_exception.ServerException: <p>These errors are usually caused by a server-side issue.</p>
+            aws_sdk_ecr.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To delete the policy associated with a repository
             This example deletes the policy associated with the repository named ubuntu in the current account.
@@ -1021,7 +1135,14 @@ class ECRClient:
     def delete_signing_configuration(
         self, *, config_overrides: Optional[ECRClientConfig] = None
     ) -> "aws_sdk_ecr.types.delete_signing_configuration_response.DeleteSigningConfigurationResponse":
-        r"""<p>Deletes the registry's signing configuration. Images pushed after deletion of the signing configuration will no longer be automatically signed.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AmazonECR/latest/userguide/managed-signing.html\">Managed signing</a> in the <i>Amazon Elastic Container Registry User Guide</i>.</p> <note> <p>Deleting the signing configuration does not affect existing image signatures.</p> </note>"""
+        r"""<p>Deletes the registry's signing configuration. Images pushed after deletion of the signing configuration will no longer be automatically signed.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AmazonECR/latest/userguide/managed-signing.html\">Managed signing</a> in the <i>Amazon Elastic Container Registry User Guide</i>.</p> <note> <p>Deleting the signing configuration does not affect existing image signatures.</p> </note>
+
+        Raises:
+            aws_sdk_ecr.errors.server_exception.ServerException: <p>These errors are usually caused by a server-side issue.</p>
+            aws_sdk_ecr.errors.signing_configuration_not_found_exception.SigningConfigurationNotFoundException: <p>The specified signing configuration was not found. This occurs when attempting to retrieve or delete a signing configuration that does not exist.</p>
+            aws_sdk_ecr.errors.validation_exception.ValidationException: <p>There was an exception validating this request.</p>
+            aws_sdk_ecr.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_ecr.types.delete_signing_configuration_request.DeleteSigningConfigurationRequest]",
@@ -1057,6 +1178,14 @@ class ECRClient:
 
         Args:
             principal_arn: <p>The ARN of the IAM principal to remove from the pull time update exclusion list.</p>
+
+        Raises:
+            aws_sdk_ecr.errors.exclusion_not_found_exception.ExclusionNotFoundException: <p>The specified pull time update exclusion was not found.</p>
+            aws_sdk_ecr.errors.invalid_parameter_exception.InvalidParameterException: <p>The specified parameter is invalid. Review the available parameters for the API request.</p>
+            aws_sdk_ecr.errors.limit_exceeded_exception.LimitExceededException: <p>The operation did not succeed because it would have exceeded a service limit for your account. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonECR/latest/userguide/service-quotas.html\">Amazon ECR service quotas</a> in the Amazon Elastic Container Registry User Guide.</p>
+            aws_sdk_ecr.errors.server_exception.ServerException: <p>These errors are usually caused by a server-side issue.</p>
+            aws_sdk_ecr.errors.validation_exception.ValidationException: <p>There was an exception validating this request.</p>
+            aws_sdk_ecr.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To remove a principal from the pull time exclusion list
@@ -1103,6 +1232,14 @@ class ECRClient:
         Args:
             repository_name: <p>The name of the repository that the image is in.</p>
             registry_id: <p>The Amazon Web Services account ID associated with the registry. If you do not specify a registry, the default registry is assumed.</p>
+
+        Raises:
+            aws_sdk_ecr.errors.image_not_found_exception.ImageNotFoundException: <p>The image requested does not exist in the specified repository.</p>
+            aws_sdk_ecr.errors.invalid_parameter_exception.InvalidParameterException: <p>The specified parameter is invalid. Review the available parameters for the API request.</p>
+            aws_sdk_ecr.errors.repository_not_found_exception.RepositoryNotFoundException: <p>The specified repository could not be found. Check the spelling of the specified repository and ensure that you are performing operations on the correct registry.</p>
+            aws_sdk_ecr.errors.server_exception.ServerException: <p>These errors are usually caused by a server-side issue.</p>
+            aws_sdk_ecr.errors.validation_exception.ValidationException: <p>There was an exception validating this request.</p>
+            aws_sdk_ecr.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1157,6 +1294,13 @@ class ECRClient:
             next_token: <p>The <code>nextToken</code> value returned from a previous paginated <code>DescribeImages</code> request where <code>maxResults</code> was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the <code>nextToken</code> value. This value is <code>null</code> when there are no more results to return. This option cannot be used when you specify images with <code>imageIds</code>.</p>
             max_results: <p>The maximum number of repository results returned by <code>DescribeImages</code> in paginated output. When this parameter is used, <code>DescribeImages</code> only returns <code>maxResults</code> results in a single page along with a <code>nextToken</code> response element. The remaining results of the initial request can be seen by sending another <code>DescribeImages</code> request with the returned <code>nextToken</code> value. This value can be between 1 and 1000. If this parameter is not used, then <code>DescribeImages</code> returns up to 100 results and a <code>nextToken</code> value, if applicable. This option cannot be used when you specify images with <code>imageIds</code>.</p>
             filter: <p>The filter key and value with which to filter your <code>DescribeImages</code> results.</p>
+
+        Raises:
+            aws_sdk_ecr.errors.image_not_found_exception.ImageNotFoundException: <p>The image requested does not exist in the specified repository.</p>
+            aws_sdk_ecr.errors.invalid_parameter_exception.InvalidParameterException: <p>The specified parameter is invalid. Review the available parameters for the API request.</p>
+            aws_sdk_ecr.errors.repository_not_found_exception.RepositoryNotFoundException: <p>The specified repository could not be found. Check the spelling of the specified repository and ensure that you are performing operations on the correct registry.</p>
+            aws_sdk_ecr.errors.server_exception.ServerException: <p>These errors are usually caused by a server-side issue.</p>
+            aws_sdk_ecr.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1244,6 +1388,15 @@ class ECRClient:
             repository_name: <p>The repository for the image for which to describe the scan findings.</p>
             next_token: <p>The <code>nextToken</code> value returned from a previous paginated <code>DescribeImageScanFindings</code> request where <code>maxResults</code> was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the <code>nextToken</code> value. This value is null when there are no more results to return.</p>
             max_results: <p>The maximum number of image scan results returned by <code>DescribeImageScanFindings</code> in paginated output. When this parameter is used, <code>DescribeImageScanFindings</code> only returns <code>maxResults</code> results in a single page along with a <code>nextToken</code> response element. The remaining results of the initial request can be seen by sending another <code>DescribeImageScanFindings</code> request with the returned <code>nextToken</code> value. This value can be between 1 and 1000. If this parameter is not used, then <code>DescribeImageScanFindings</code> returns up to 100 results and a <code>nextToken</code> value, if applicable.</p>
+
+        Raises:
+            aws_sdk_ecr.errors.image_not_found_exception.ImageNotFoundException: <p>The image requested does not exist in the specified repository.</p>
+            aws_sdk_ecr.errors.invalid_parameter_exception.InvalidParameterException: <p>The specified parameter is invalid. Review the available parameters for the API request.</p>
+            aws_sdk_ecr.errors.repository_not_found_exception.RepositoryNotFoundException: <p>The specified repository could not be found. Check the spelling of the specified repository and ensure that you are performing operations on the correct registry.</p>
+            aws_sdk_ecr.errors.scan_not_found_exception.ScanNotFoundException: <p>The specified image scan could not be found. Ensure that image scanning is enabled on the repository and try again.</p>
+            aws_sdk_ecr.errors.server_exception.ServerException: <p>These errors are usually caused by a server-side issue.</p>
+            aws_sdk_ecr.errors.validation_exception.ValidationException: <p>There was an exception validating this request.</p>
+            aws_sdk_ecr.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1292,6 +1445,14 @@ class ECRClient:
             repository_name: <p>The name of the repository that contains the image.</p>
             image_id: <p>An object containing identifying information for an image.</p>
             registry_id: <p>The Amazon Web Services account ID associated with the registry that contains the repository. If you do not specify a registry, the default registry is assumed.</p>
+
+        Raises:
+            aws_sdk_ecr.errors.image_not_found_exception.ImageNotFoundException: <p>The image requested does not exist in the specified repository.</p>
+            aws_sdk_ecr.errors.invalid_parameter_exception.InvalidParameterException: <p>The specified parameter is invalid. Review the available parameters for the API request.</p>
+            aws_sdk_ecr.errors.repository_not_found_exception.RepositoryNotFoundException: <p>The specified repository could not be found. Check the spelling of the specified repository and ensure that you are performing operations on the correct registry.</p>
+            aws_sdk_ecr.errors.server_exception.ServerException: <p>These errors are usually caused by a server-side issue.</p>
+            aws_sdk_ecr.errors.validation_exception.ValidationException: <p>There was an exception validating this request.</p>
+            aws_sdk_ecr.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1340,6 +1501,13 @@ class ECRClient:
             ecr_repository_prefixes: <p>The Amazon ECR repository prefixes associated with the pull through cache rules to return. If no repository prefix value is specified, all pull through cache rules are returned.</p>
             next_token: <p>The <code>nextToken</code> value returned from a previous paginated <code>DescribePullThroughCacheRulesRequest</code> request where <code>maxResults</code> was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the <code>nextToken</code> value. This value is null when there are no more results to return.</p>
             max_results: <p>The maximum number of pull through cache rules returned by <code>DescribePullThroughCacheRulesRequest</code> in paginated output. When this parameter is used, <code>DescribePullThroughCacheRulesRequest</code> only returns <code>maxResults</code> results in a single page along with a <code>nextToken</code> response element. The remaining results of the initial request can be seen by sending another <code>DescribePullThroughCacheRulesRequest</code> request with the returned <code>nextToken</code> value. This value can be between 1 and 1000. If this parameter is not used, then <code>DescribePullThroughCacheRulesRequest</code> returns up to 100 results and a <code>nextToken</code> value, if applicable.</p>
+
+        Raises:
+            aws_sdk_ecr.errors.invalid_parameter_exception.InvalidParameterException: <p>The specified parameter is invalid. Review the available parameters for the API request.</p>
+            aws_sdk_ecr.errors.pull_through_cache_rule_not_found_exception.PullThroughCacheRuleNotFoundException: <p>The pull through cache rule was not found. Specify a valid pull through cache rule and try again.</p>
+            aws_sdk_ecr.errors.server_exception.ServerException: <p>These errors are usually caused by a server-side issue.</p>
+            aws_sdk_ecr.errors.validation_exception.ValidationException: <p>There was an exception validating this request.</p>
+            aws_sdk_ecr.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1404,7 +1572,14 @@ class ECRClient:
     def describe_registry(
         self, *, config_overrides: Optional[ECRClientConfig] = None
     ) -> "aws_sdk_ecr.types.describe_registry_response.DescribeRegistryResponse":
-        """<p>Describes the settings for a registry. The replication configuration for a repository can be created or updated with the <a>PutReplicationConfiguration</a> API action.</p>"""
+        """<p>Describes the settings for a registry. The replication configuration for a repository can be created or updated with the <a>PutReplicationConfiguration</a> API action.</p>
+
+        Raises:
+            aws_sdk_ecr.errors.invalid_parameter_exception.InvalidParameterException: <p>The specified parameter is invalid. Review the available parameters for the API request.</p>
+            aws_sdk_ecr.errors.server_exception.ServerException: <p>These errors are usually caused by a server-side issue.</p>
+            aws_sdk_ecr.errors.validation_exception.ValidationException: <p>There was an exception validating this request.</p>
+            aws_sdk_ecr.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_ecr.types.describe_registry_request.DescribeRegistryRequest]",
@@ -1450,6 +1625,12 @@ class ECRClient:
             repository_names: <p>A list of repositories to describe. If this parameter is omitted, then all repositories in a registry are described.</p>
             next_token: <p>The <code>nextToken</code> value returned from a previous paginated <code>DescribeRepositories</code> request where <code>maxResults</code> was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the <code>nextToken</code> value. This value is <code>null</code> when there are no more results to return. This option cannot be used when you specify repositories with <code>repositoryNames</code>.</p> <note> <p>This token should be treated as an opaque identifier that is only used to retrieve the next items in a list and not for other programmatic purposes.</p> </note>
             max_results: <p>The maximum number of repository results returned by <code>DescribeRepositories</code> in paginated output. When this parameter is used, <code>DescribeRepositories</code> only returns <code>maxResults</code> results in a single page along with a <code>nextToken</code> response element. The remaining results of the initial request can be seen by sending another <code>DescribeRepositories</code> request with the returned <code>nextToken</code> value. This value can be between 1 and 1000. If this parameter is not used, then <code>DescribeRepositories</code> returns up to 100 results and a <code>nextToken</code> value, if applicable. This option cannot be used when you specify repositories with <code>repositoryNames</code>.</p>
+
+        Raises:
+            aws_sdk_ecr.errors.invalid_parameter_exception.InvalidParameterException: <p>The specified parameter is invalid. Review the available parameters for the API request.</p>
+            aws_sdk_ecr.errors.repository_not_found_exception.RepositoryNotFoundException: <p>The specified repository could not be found. Check the spelling of the specified repository and ensure that you are performing operations on the correct registry.</p>
+            aws_sdk_ecr.errors.server_exception.ServerException: <p>These errors are usually caused by a server-side issue.</p>
+            aws_sdk_ecr.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To describe all repositories in the current account
@@ -1531,6 +1712,12 @@ class ECRClient:
             prefixes: <p>The repository namespace prefixes associated with the repository creation templates to describe. If this value is not specified, all repository creation templates are returned.</p>
             next_token: <p>The <code>nextToken</code> value returned from a previous paginated <code>DescribeRepositoryCreationTemplates</code> request where <code>maxResults</code> was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the <code>nextToken</code> value. This value is <code>null</code> when there are no more results to return.</p> <note> <p>This token should be treated as an opaque identifier that is only used to retrieve the next items in a list and not for other programmatic purposes.</p> </note>
             max_results: <p>The maximum number of repository results returned by <code>DescribeRepositoryCreationTemplatesRequest</code> in paginated output. When this parameter is used, <code>DescribeRepositoryCreationTemplatesRequest</code> only returns <code>maxResults</code> results in a single page along with a <code>nextToken</code> response element. The remaining results of the initial request can be seen by sending another <code>DescribeRepositoryCreationTemplatesRequest</code> request with the returned <code>nextToken</code> value. This value can be between 1 and 1000. If this parameter is not used, then <code>DescribeRepositoryCreationTemplatesRequest</code> returns up to 100 results and a <code>nextToken</code> value, if applicable.</p>
+
+        Raises:
+            aws_sdk_ecr.errors.invalid_parameter_exception.InvalidParameterException: <p>The specified parameter is invalid. Review the available parameters for the API request.</p>
+            aws_sdk_ecr.errors.server_exception.ServerException: <p>These errors are usually caused by a server-side issue.</p>
+            aws_sdk_ecr.errors.validation_exception.ValidationException: <p>There was an exception validating this request.</p>
+            aws_sdk_ecr.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1596,6 +1783,12 @@ class ECRClient:
 
         Args:
             name: <p>The name of the account setting, such as <code>BASIC_SCAN_TYPE_VERSION</code>, <code>REGISTRY_POLICY_SCOPE</code>, or <code>BLOB_MOUNTING</code>.</p>
+
+        Raises:
+            aws_sdk_ecr.errors.invalid_parameter_exception.InvalidParameterException: <p>The specified parameter is invalid. Review the available parameters for the API request.</p>
+            aws_sdk_ecr.errors.server_exception.ServerException: <p>These errors are usually caused by a server-side issue.</p>
+            aws_sdk_ecr.errors.validation_exception.ValidationException: <p>There was an exception validating this request.</p>
+            aws_sdk_ecr.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1635,6 +1828,11 @@ class ECRClient:
 
         Args:
             registry_ids: <p>A list of Amazon Web Services account IDs that are associated with the registries for which to get AuthorizationData objects. If you do not specify a registry, the default registry is assumed.</p>
+
+        Raises:
+            aws_sdk_ecr.errors.invalid_parameter_exception.InvalidParameterException: <p>The specified parameter is invalid. Review the available parameters for the API request.</p>
+            aws_sdk_ecr.errors.server_exception.ServerException: <p>These errors are usually caused by a server-side issue.</p>
+            aws_sdk_ecr.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1677,6 +1875,15 @@ class ECRClient:
             registry_id: <p>The Amazon Web Services account ID associated with the registry that contains the image layer to download. If you do not specify a registry, the default registry is assumed.</p>
             repository_name: <p>The name of the repository that is associated with the image layer to download.</p>
             layer_digest: <p>The digest of the image layer to download.</p>
+
+        Raises:
+            aws_sdk_ecr.errors.invalid_parameter_exception.InvalidParameterException: <p>The specified parameter is invalid. Review the available parameters for the API request.</p>
+            aws_sdk_ecr.errors.layer_inaccessible_exception.LayerInaccessibleException: <p>The specified layer is not available because it is not associated with an image. Unassociated image layers may be cleaned up at any time.</p>
+            aws_sdk_ecr.errors.layers_not_found_exception.LayersNotFoundException: <p>The specified layers could not be found, or the specified layer is not valid for this repository.</p>
+            aws_sdk_ecr.errors.repository_not_found_exception.RepositoryNotFoundException: <p>The specified repository could not be found. Check the spelling of the specified repository and ensure that you are performing operations on the correct registry.</p>
+            aws_sdk_ecr.errors.server_exception.ServerException: <p>These errors are usually caused by a server-side issue.</p>
+            aws_sdk_ecr.errors.unable_to_get_upstream_layer_exception.UnableToGetUpstreamLayerException: <p>There was an issue getting the upstream layer matching the pull through cache rule.</p>
+            aws_sdk_ecr.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1719,6 +1926,14 @@ class ECRClient:
         Args:
             registry_id: <p>The Amazon Web Services account ID associated with the registry that contains the repository. If you do not specify a registry, the default registry is assumed.</p>
             repository_name: <p>The name of the repository.</p>
+
+        Raises:
+            aws_sdk_ecr.errors.invalid_parameter_exception.InvalidParameterException: <p>The specified parameter is invalid. Review the available parameters for the API request.</p>
+            aws_sdk_ecr.errors.lifecycle_policy_not_found_exception.LifecyclePolicyNotFoundException: <p>The lifecycle policy could not be found, and no policy is set to the repository.</p>
+            aws_sdk_ecr.errors.repository_not_found_exception.RepositoryNotFoundException: <p>The specified repository could not be found. Check the spelling of the specified repository and ensure that you are performing operations on the correct registry.</p>
+            aws_sdk_ecr.errors.server_exception.ServerException: <p>These errors are usually caused by a server-side issue.</p>
+            aws_sdk_ecr.errors.validation_exception.ValidationException: <p>There was an exception validating this request.</p>
+            aws_sdk_ecr.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1774,6 +1989,14 @@ class ECRClient:
             next_token: <p>The <code>nextToken</code> value returned from a previous paginated <code>GetLifecyclePolicyPreviewRequest</code> request where <code>maxResults</code> was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the <code>nextToken</code> value. This value is <code>null</code> when there are no more results to return. This option cannot be used when you specify images with <code>imageIds</code>.</p>
             max_results: <p>The maximum number of repository results returned by <code>GetLifecyclePolicyPreviewRequest</code> in paginated output. When this parameter is used, <code>GetLifecyclePolicyPreviewRequest</code> only returns <code>maxResults</code> results in a single page along with a <code>nextToken</code> response element. The remaining results of the initial request can be seen by sending another <code>GetLifecyclePolicyPreviewRequest</code> request with the returned <code>nextToken</code> value. This value can be between 1 and 100. If this parameter is not used, then <code>GetLifecyclePolicyPreviewRequest</code> returns up to 100 results and a <code>nextToken</code> value, if applicable. This option cannot be used when you specify images with <code>imageIds</code>.</p>
             filter: <p>An optional parameter that filters results based on image tag status and all tags, if tagged.</p>
+
+        Raises:
+            aws_sdk_ecr.errors.invalid_parameter_exception.InvalidParameterException: <p>The specified parameter is invalid. Review the available parameters for the API request.</p>
+            aws_sdk_ecr.errors.lifecycle_policy_preview_not_found_exception.LifecyclePolicyPreviewNotFoundException: <p>There is no dry run for this repository.</p>
+            aws_sdk_ecr.errors.repository_not_found_exception.RepositoryNotFoundException: <p>The specified repository could not be found. Check the spelling of the specified repository and ensure that you are performing operations on the correct registry.</p>
+            aws_sdk_ecr.errors.server_exception.ServerException: <p>These errors are usually caused by a server-side issue.</p>
+            aws_sdk_ecr.errors.validation_exception.ValidationException: <p>There was an exception validating this request.</p>
+            aws_sdk_ecr.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1849,7 +2072,15 @@ class ECRClient:
     def get_registry_policy(
         self, *, config_overrides: Optional[ECRClientConfig] = None
     ) -> "aws_sdk_ecr.types.get_registry_policy_response.GetRegistryPolicyResponse":
-        """<p>Retrieves the permissions policy for a registry.</p>"""
+        """<p>Retrieves the permissions policy for a registry.</p>
+
+        Raises:
+            aws_sdk_ecr.errors.invalid_parameter_exception.InvalidParameterException: <p>The specified parameter is invalid. Review the available parameters for the API request.</p>
+            aws_sdk_ecr.errors.registry_policy_not_found_exception.RegistryPolicyNotFoundException: <p>The registry doesn't have an associated registry policy.</p>
+            aws_sdk_ecr.errors.server_exception.ServerException: <p>These errors are usually caused by a server-side issue.</p>
+            aws_sdk_ecr.errors.validation_exception.ValidationException: <p>There was an exception validating this request.</p>
+            aws_sdk_ecr.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_ecr.types.get_registry_policy_request.GetRegistryPolicyRequest]",
@@ -1878,7 +2109,14 @@ class ECRClient:
     def get_registry_scanning_configuration(
         self, *, config_overrides: Optional[ECRClientConfig] = None
     ) -> "aws_sdk_ecr.types.get_registry_scanning_configuration_response.GetRegistryScanningConfigurationResponse":
-        """<p>Retrieves the scanning configuration for a registry.</p>"""
+        """<p>Retrieves the scanning configuration for a registry.</p>
+
+        Raises:
+            aws_sdk_ecr.errors.invalid_parameter_exception.InvalidParameterException: <p>The specified parameter is invalid. Review the available parameters for the API request.</p>
+            aws_sdk_ecr.errors.server_exception.ServerException: <p>These errors are usually caused by a server-side issue.</p>
+            aws_sdk_ecr.errors.validation_exception.ValidationException: <p>There was an exception validating this request.</p>
+            aws_sdk_ecr.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_ecr.types.get_registry_scanning_configuration_request.GetRegistryScanningConfigurationRequest]",
@@ -1917,6 +2155,13 @@ class ECRClient:
             registry_id: <p>The Amazon Web Services account ID associated with the registry that contains the repository. If you do not specify a registry, the default registry is assumed.</p>
             repository_name: <p>The name of the repository with the policy to retrieve.</p>
 
+        Raises:
+            aws_sdk_ecr.errors.invalid_parameter_exception.InvalidParameterException: <p>The specified parameter is invalid. Review the available parameters for the API request.</p>
+            aws_sdk_ecr.errors.repository_not_found_exception.RepositoryNotFoundException: <p>The specified repository could not be found. Check the spelling of the specified repository and ensure that you are performing operations on the correct registry.</p>
+            aws_sdk_ecr.errors.repository_policy_not_found_exception.RepositoryPolicyNotFoundException: <p>The specified repository and registry combination does not have an associated repository policy.</p>
+            aws_sdk_ecr.errors.server_exception.ServerException: <p>These errors are usually caused by a server-side issue.</p>
+            aws_sdk_ecr.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To get the current policy for a repository
             This example obtains the repository policy for the repository named ubuntu.
@@ -1954,7 +2199,15 @@ class ECRClient:
     def get_signing_configuration(
         self, *, config_overrides: Optional[ECRClientConfig] = None
     ) -> "aws_sdk_ecr.types.get_signing_configuration_response.GetSigningConfigurationResponse":
-        r"""<p>Retrieves the registry's signing configuration, which defines rules for automatically signing images using Amazon Web Services Signer.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AmazonECR/latest/userguide/managed-signing.html\">Managed signing</a> in the <i>Amazon Elastic Container Registry User Guide</i>.</p>"""
+        r"""<p>Retrieves the registry's signing configuration, which defines rules for automatically signing images using Amazon Web Services Signer.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AmazonECR/latest/userguide/managed-signing.html\">Managed signing</a> in the <i>Amazon Elastic Container Registry User Guide</i>.</p>
+
+        Raises:
+            aws_sdk_ecr.errors.invalid_parameter_exception.InvalidParameterException: <p>The specified parameter is invalid. Review the available parameters for the API request.</p>
+            aws_sdk_ecr.errors.server_exception.ServerException: <p>These errors are usually caused by a server-side issue.</p>
+            aws_sdk_ecr.errors.signing_configuration_not_found_exception.SigningConfigurationNotFoundException: <p>The specified signing configuration was not found. This occurs when attempting to retrieve or delete a signing configuration that does not exist.</p>
+            aws_sdk_ecr.errors.validation_exception.ValidationException: <p>There was an exception validating this request.</p>
+            aws_sdk_ecr.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_ecr.types.get_signing_configuration_request.GetSigningConfigurationRequest]",
@@ -1992,6 +2245,13 @@ class ECRClient:
         Args:
             registry_id: <p>The Amazon Web Services account ID associated with the registry to which you intend to upload layers. If you do not specify a registry, the default registry is assumed.</p>
             repository_name: <p>The name of the repository to which you intend to upload layers.</p>
+
+        Raises:
+            aws_sdk_ecr.errors.invalid_parameter_exception.InvalidParameterException: <p>The specified parameter is invalid. Review the available parameters for the API request.</p>
+            aws_sdk_ecr.errors.kms_exception.KmsException: <p>The operation failed due to a KMS exception.</p>
+            aws_sdk_ecr.errors.repository_not_found_exception.RepositoryNotFoundException: <p>The specified repository could not be found. Check the spelling of the specified repository and ensure that you are performing operations on the correct registry.</p>
+            aws_sdk_ecr.errors.server_exception.ServerException: <p>These errors are usually caused by a server-side issue.</p>
+            aws_sdk_ecr.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2045,6 +2305,14 @@ class ECRClient:
             filter: <p>The filter key and value with which to filter your <code>ListImageReferrers</code> results. If no filter is specified, only artifacts with <code>ACTIVE</code> status are returned.</p>
             next_token: <p>The <code>nextToken</code> value returned from a previous paginated <code>ListImageReferrers</code> request where <code>maxResults</code> was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the <code>nextToken</code> value. This value is <code>null</code> when there are no more results to return.</p> <note> <p>This token should be treated as an opaque identifier that is only used to retrieve the next items in a list and not for other programmatic purposes.</p> </note>
             max_results: <p>The maximum number of image referrer results returned by <code>ListImageReferrers</code> in paginated output. When this parameter is used, <code>ListImageReferrers</code> only returns <code>maxResults</code> results in a single page along with a <code>nextToken</code> response element. The remaining results of the initial request can be seen by sending another <code>ListImageReferrers</code> request with the returned <code>nextToken</code> value. This value can be between 1 and 50. If this parameter is not used, then <code>ListImageReferrers</code> returns up to 20 results and a <code>nextToken</code> value, if applicable.</p>
+
+        Raises:
+            aws_sdk_ecr.errors.invalid_parameter_exception.InvalidParameterException: <p>The specified parameter is invalid. Review the available parameters for the API request.</p>
+            aws_sdk_ecr.errors.repository_not_found_exception.RepositoryNotFoundException: <p>The specified repository could not be found. Check the spelling of the specified repository and ensure that you are performing operations on the correct registry.</p>
+            aws_sdk_ecr.errors.server_exception.ServerException: <p>These errors are usually caused by a server-side issue.</p>
+            aws_sdk_ecr.errors.unable_to_list_upstream_image_referrers_exception.UnableToListUpstreamImageReferrersException: <p>The referrer or referrers were unable to be listed using the pull through cache rule. This is usually caused because of an issue with the Secrets Manager secret containing the credentials for the upstream registry.</p>
+            aws_sdk_ecr.errors.validation_exception.ValidationException: <p>There was an exception validating this request.</p>
+            aws_sdk_ecr.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To list both active and archived artifacts
@@ -2115,6 +2383,12 @@ class ECRClient:
             next_token: <p>The <code>nextToken</code> value returned from a previous paginated <code>ListImages</code> request where <code>maxResults</code> was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the <code>nextToken</code> value. This value is <code>null</code> when there are no more results to return.</p> <note> <p>This token should be treated as an opaque identifier that is only used to retrieve the next items in a list and not for other programmatic purposes.</p> </note>
             max_results: <p>The maximum number of image results returned by <code>ListImages</code> in paginated output. When this parameter is used, <code>ListImages</code> only returns <code>maxResults</code> results in a single page along with a <code>nextToken</code> response element. The remaining results of the initial request can be seen by sending another <code>ListImages</code> request with the returned <code>nextToken</code> value. This value can be between 1 and 1000. If this parameter is not used, then <code>ListImages</code> returns up to 100 results and a <code>nextToken</code> value, if applicable.</p>
             filter: <p>The filter key and value with which to filter your <code>ListImages</code> results.</p>
+
+        Raises:
+            aws_sdk_ecr.errors.invalid_parameter_exception.InvalidParameterException: <p>The specified parameter is invalid. Review the available parameters for the API request.</p>
+            aws_sdk_ecr.errors.repository_not_found_exception.RepositoryNotFoundException: <p>The specified repository could not be found. Check the spelling of the specified repository and ensure that you are performing operations on the correct registry.</p>
+            aws_sdk_ecr.errors.server_exception.ServerException: <p>These errors are usually caused by a server-side issue.</p>
+            aws_sdk_ecr.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To list all images in a repository
@@ -2198,6 +2472,13 @@ class ECRClient:
             max_results: <p>The maximum number of pull time update exclusion results returned by <code>ListPullTimeUpdateExclusions</code> in paginated output. When this parameter is used, <code>ListPullTimeUpdateExclusions</code> only returns <code>maxResults</code> results in a single page along with a <code>nextToken</code> response element. The remaining results of the initial request can be seen by sending another <code>ListPullTimeUpdateExclusions</code> request with the returned <code>nextToken</code> value. This value can be between 1 and 1000. If this parameter is not used, then <code>ListPullTimeUpdateExclusions</code> returns up to 100 results and a <code>nextToken</code> value, if applicable.</p>
             next_token: <p>The <code>nextToken</code> value returned from a previous paginated <code>ListPullTimeUpdateExclusions</code> request where <code>maxResults</code> was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the <code>nextToken</code> value. This value is <code>null</code> when there are no more results to return.</p> <note> <p>This token should be treated as an opaque identifier that is only used to retrieve the next items in a list and not for other programmatic purposes.</p> </note>
 
+        Raises:
+            aws_sdk_ecr.errors.invalid_parameter_exception.InvalidParameterException: <p>The specified parameter is invalid. Review the available parameters for the API request.</p>
+            aws_sdk_ecr.errors.limit_exceeded_exception.LimitExceededException: <p>The operation did not succeed because it would have exceeded a service limit for your account. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonECR/latest/userguide/service-quotas.html\">Amazon ECR service quotas</a> in the Amazon Elastic Container Registry User Guide.</p>
+            aws_sdk_ecr.errors.server_exception.ServerException: <p>These errors are usually caused by a server-side issue.</p>
+            aws_sdk_ecr.errors.validation_exception.ValidationException: <p>There was an exception validating this request.</p>
+            aws_sdk_ecr.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To list all pull time update exclusions
             This example lists all IAM principals that are excluded from having their image pull timestamps recorded in the registry.
@@ -2249,6 +2530,12 @@ class ECRClient:
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) that identifies the resource for which to list the tags. Currently, the only supported resource is an Amazon ECR repository.</p>
+
+        Raises:
+            aws_sdk_ecr.errors.invalid_parameter_exception.InvalidParameterException: <p>The specified parameter is invalid. Review the available parameters for the API request.</p>
+            aws_sdk_ecr.errors.repository_not_found_exception.RepositoryNotFoundException: <p>The specified repository could not be found. Check the spelling of the specified repository and ensure that you are performing operations on the correct registry.</p>
+            aws_sdk_ecr.errors.server_exception.ServerException: <p>These errors are usually caused by a server-side issue.</p>
+            aws_sdk_ecr.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2288,6 +2575,13 @@ class ECRClient:
         Args:
             name: <p>The name of the account setting, such as <code>BASIC_SCAN_TYPE_VERSION</code>, <code>REGISTRY_POLICY_SCOPE</code>, or <code>BLOB_MOUNTING</code>.</p>
             value: <p>Setting value that is specified. Valid value for basic scan type: <code>AWS_NATIVE</code>. Valid values for registry policy scope: <code>V2</code>. Valid values for blob mounting: <code>ENABLED</code> or <code>DISABLED</code>.</p>
+
+        Raises:
+            aws_sdk_ecr.errors.invalid_parameter_exception.InvalidParameterException: <p>The specified parameter is invalid. Review the available parameters for the API request.</p>
+            aws_sdk_ecr.errors.limit_exceeded_exception.LimitExceededException: <p>The operation did not succeed because it would have exceeded a service limit for your account. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonECR/latest/userguide/service-quotas.html\">Amazon ECR service quotas</a> in the Amazon Elastic Container Registry User Guide.</p>
+            aws_sdk_ecr.errors.server_exception.ServerException: <p>These errors are usually caused by a server-side issue.</p>
+            aws_sdk_ecr.errors.validation_exception.ValidationException: <p>There was an exception validating this request.</p>
+            aws_sdk_ecr.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2338,6 +2632,19 @@ class ECRClient:
             image_manifest_media_type: <p>The media type of the image manifest. If you push an image manifest that does not contain the <code>mediaType</code> field, you must specify the <code>imageManifestMediaType</code> in the request.</p>
             image_tag: <p>The tag to associate with the image. This parameter is optional.</p>
             image_digest: <p>The image digest of the image manifest corresponding to the image.</p>
+
+        Raises:
+            aws_sdk_ecr.errors.image_already_exists_exception.ImageAlreadyExistsException: <p>The specified image has already been pushed, and there were no changes to the manifest or image tag after the last push.</p>
+            aws_sdk_ecr.errors.image_digest_does_not_match_exception.ImageDigestDoesNotMatchException: <p>The specified image digest does not match the digest that Amazon ECR calculated for the image.</p>
+            aws_sdk_ecr.errors.image_tag_already_exists_exception.ImageTagAlreadyExistsException: <p>The specified image is tagged with a tag that already exists. The repository is configured for tag immutability.</p>
+            aws_sdk_ecr.errors.invalid_parameter_exception.InvalidParameterException: <p>The specified parameter is invalid. Review the available parameters for the API request.</p>
+            aws_sdk_ecr.errors.kms_exception.KmsException: <p>The operation failed due to a KMS exception.</p>
+            aws_sdk_ecr.errors.layers_not_found_exception.LayersNotFoundException: <p>The specified layers could not be found, or the specified layer is not valid for this repository.</p>
+            aws_sdk_ecr.errors.limit_exceeded_exception.LimitExceededException: <p>The operation did not succeed because it would have exceeded a service limit for your account. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonECR/latest/userguide/service-quotas.html\">Amazon ECR service quotas</a> in the Amazon Elastic Container Registry User Guide.</p>
+            aws_sdk_ecr.errors.referenced_images_not_found_exception.ReferencedImagesNotFoundException: <p>The manifest list is referencing an image that does not exist.</p>
+            aws_sdk_ecr.errors.repository_not_found_exception.RepositoryNotFoundException: <p>The specified repository could not be found. Check the spelling of the specified repository and ensure that you are performing operations on the correct registry.</p>
+            aws_sdk_ecr.errors.server_exception.ServerException: <p>These errors are usually caused by a server-side issue.</p>
+            aws_sdk_ecr.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2386,6 +2693,13 @@ class ECRClient:
             registry_id: <p>The Amazon Web Services account ID associated with the registry that contains the repository in which to update the image scanning configuration setting. If you do not specify a registry, the default registry is assumed.</p>
             repository_name: <p>The name of the repository in which to update the image scanning configuration setting.</p>
             image_scanning_configuration: <p>The image scanning configuration for the repository. This setting determines whether images are scanned for known vulnerabilities after being pushed to the repository.</p>
+
+        Raises:
+            aws_sdk_ecr.errors.invalid_parameter_exception.InvalidParameterException: <p>The specified parameter is invalid. Review the available parameters for the API request.</p>
+            aws_sdk_ecr.errors.repository_not_found_exception.RepositoryNotFoundException: <p>The specified repository could not be found. Check the spelling of the specified repository and ensure that you are performing operations on the correct registry.</p>
+            aws_sdk_ecr.errors.server_exception.ServerException: <p>These errors are usually caused by a server-side issue.</p>
+            aws_sdk_ecr.errors.validation_exception.ValidationException: <p>There was an exception validating this request.</p>
+            aws_sdk_ecr.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2434,6 +2748,12 @@ class ECRClient:
             repository_name: <p>The name of the repository in which to update the image tag mutability settings.</p>
             image_tag_mutability: <p>The tag mutability setting for the repository. If <code>MUTABLE</code> is specified, image tags can be overwritten. If <code>IMMUTABLE</code> is specified, all image tags within the repository will be immutable which will prevent them from being overwritten.</p>
             image_tag_mutability_exclusion_filters: <p>A list of filters that specify which image tags should be excluded from the image tag mutability setting being applied.</p>
+
+        Raises:
+            aws_sdk_ecr.errors.invalid_parameter_exception.InvalidParameterException: <p>The specified parameter is invalid. Review the available parameters for the API request.</p>
+            aws_sdk_ecr.errors.repository_not_found_exception.RepositoryNotFoundException: <p>The specified repository could not be found. Check the spelling of the specified repository and ensure that you are performing operations on the correct registry.</p>
+            aws_sdk_ecr.errors.server_exception.ServerException: <p>These errors are usually caused by a server-side issue.</p>
+            aws_sdk_ecr.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2482,6 +2802,13 @@ class ECRClient:
             registry_id: <p>The Amazon Web Services account ID associated with the registry that contains the repository. If you do not specify a registry, the default registry is assumed.</p>
             repository_name: <p>The name of the repository to receive the policy.</p>
             lifecycle_policy_text: <p>The JSON repository policy text to apply to the repository.</p>
+
+        Raises:
+            aws_sdk_ecr.errors.invalid_parameter_exception.InvalidParameterException: <p>The specified parameter is invalid. Review the available parameters for the API request.</p>
+            aws_sdk_ecr.errors.repository_not_found_exception.RepositoryNotFoundException: <p>The specified repository could not be found. Check the spelling of the specified repository and ensure that you are performing operations on the correct registry.</p>
+            aws_sdk_ecr.errors.server_exception.ServerException: <p>These errors are usually caused by a server-side issue.</p>
+            aws_sdk_ecr.errors.validation_exception.ValidationException: <p>There was an exception validating this request.</p>
+            aws_sdk_ecr.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2522,6 +2849,12 @@ class ECRClient:
 
         Args:
             policy_text: <p>The JSON policy text to apply to your registry. The policy text follows the same format as IAM policy text. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonECR/latest/userguide/registry-permissions.html\">Registry permissions</a> in the <i>Amazon Elastic Container Registry User Guide</i>.</p>
+
+        Raises:
+            aws_sdk_ecr.errors.invalid_parameter_exception.InvalidParameterException: <p>The specified parameter is invalid. Review the available parameters for the API request.</p>
+            aws_sdk_ecr.errors.server_exception.ServerException: <p>These errors are usually caused by a server-side issue.</p>
+            aws_sdk_ecr.errors.validation_exception.ValidationException: <p>There was an exception validating this request.</p>
+            aws_sdk_ecr.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2563,6 +2896,13 @@ class ECRClient:
         Args:
             scan_type: <p>The scanning type to set for the registry.</p> <p>When a registry scanning configuration is not defined, by default the <code>BASIC</code> scan type is used. When basic scanning is used, you may specify filters to determine which individual repositories, or all repositories, are scanned when new images are pushed to those repositories. Alternatively, you can do manual scans of images with basic scanning.</p> <p>When the <code>ENHANCED</code> scan type is set, Amazon Inspector provides automated vulnerability scanning. You may choose between continuous scanning or scan on push and you may specify filters to determine which individual repositories, or all repositories, are scanned.</p>
             rules: <p>The scanning rules to use for the registry. A scanning rule is used to determine which repository filters are used and at what frequency scanning will occur.</p>
+
+        Raises:
+            aws_sdk_ecr.errors.blocked_by_organization_policy_exception.BlockedByOrganizationPolicyException: <p>The operation did not succeed because the account is managed by a organization policy.</p>
+            aws_sdk_ecr.errors.invalid_parameter_exception.InvalidParameterException: <p>The specified parameter is invalid. Review the available parameters for the API request.</p>
+            aws_sdk_ecr.errors.server_exception.ServerException: <p>These errors are usually caused by a server-side issue.</p>
+            aws_sdk_ecr.errors.validation_exception.ValidationException: <p>There was an exception validating this request.</p>
+            aws_sdk_ecr.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2603,6 +2943,12 @@ class ECRClient:
 
         Args:
             replication_configuration: <p>An object representing the replication configuration for a registry.</p>
+
+        Raises:
+            aws_sdk_ecr.errors.invalid_parameter_exception.InvalidParameterException: <p>The specified parameter is invalid. Review the available parameters for the API request.</p>
+            aws_sdk_ecr.errors.server_exception.ServerException: <p>These errors are usually caused by a server-side issue.</p>
+            aws_sdk_ecr.errors.validation_exception.ValidationException: <p>There was an exception validating this request.</p>
+            aws_sdk_ecr.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2640,6 +2986,12 @@ class ECRClient:
 
         Args:
             signing_configuration: <p>The signing configuration to assign to the registry.</p>
+
+        Raises:
+            aws_sdk_ecr.errors.invalid_parameter_exception.InvalidParameterException: <p>The specified parameter is invalid. Review the available parameters for the API request.</p>
+            aws_sdk_ecr.errors.server_exception.ServerException: <p>These errors are usually caused by a server-side issue.</p>
+            aws_sdk_ecr.errors.validation_exception.ValidationException: <p>There was an exception validating this request.</p>
+            aws_sdk_ecr.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2677,6 +3029,14 @@ class ECRClient:
 
         Args:
             principal_arn: <p>The ARN of the IAM principal to exclude from having image pull times recorded.</p>
+
+        Raises:
+            aws_sdk_ecr.errors.exclusion_already_exists_exception.ExclusionAlreadyExistsException: <p>The specified pull time update exclusion already exists for the registry.</p>
+            aws_sdk_ecr.errors.invalid_parameter_exception.InvalidParameterException: <p>The specified parameter is invalid. Review the available parameters for the API request.</p>
+            aws_sdk_ecr.errors.limit_exceeded_exception.LimitExceededException: <p>The operation did not succeed because it would have exceeded a service limit for your account. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonECR/latest/userguide/service-quotas.html\">Amazon ECR service quotas</a> in the Amazon Elastic Container Registry User Guide.</p>
+            aws_sdk_ecr.errors.server_exception.ServerException: <p>These errors are usually caused by a server-side issue.</p>
+            aws_sdk_ecr.errors.validation_exception.ValidationException: <p>There was an exception validating this request.</p>
+            aws_sdk_ecr.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2720,6 +3080,12 @@ class ECRClient:
             repository_name: <p>The name of the repository to receive the policy.</p>
             policy_text: <p>The JSON repository policy text to apply to the repository. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonECR/latest/userguide/repository-policy-examples.html\">Amazon ECR repository policies</a> in the <i>Amazon Elastic Container Registry User Guide</i>.</p>
             force: <p>If the policy you are attempting to set on a repository policy would prevent you from setting another policy in the future, you must force the <a>SetRepositoryPolicy</a> operation. This is intended to prevent accidental repository lock outs.</p>
+
+        Raises:
+            aws_sdk_ecr.errors.invalid_parameter_exception.InvalidParameterException: <p>The specified parameter is invalid. Review the available parameters for the API request.</p>
+            aws_sdk_ecr.errors.repository_not_found_exception.RepositoryNotFoundException: <p>The specified repository could not be found. Check the spelling of the specified repository and ensure that you are performing operations on the correct registry.</p>
+            aws_sdk_ecr.errors.server_exception.ServerException: <p>These errors are usually caused by a server-side issue.</p>
+            aws_sdk_ecr.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2765,6 +3131,17 @@ class ECRClient:
         Args:
             registry_id: <p>The Amazon Web Services account ID associated with the registry that contains the repository in which to start an image scan request. If you do not specify a registry, the default registry is assumed.</p>
             repository_name: <p>The name of the repository that contains the images to scan.</p>
+
+        Raises:
+            aws_sdk_ecr.errors.image_archived_exception.ImageArchivedException: <p>The specified image is archived and cannot be scanned.</p>
+            aws_sdk_ecr.errors.image_not_found_exception.ImageNotFoundException: <p>The image requested does not exist in the specified repository.</p>
+            aws_sdk_ecr.errors.invalid_parameter_exception.InvalidParameterException: <p>The specified parameter is invalid. Review the available parameters for the API request.</p>
+            aws_sdk_ecr.errors.limit_exceeded_exception.LimitExceededException: <p>The operation did not succeed because it would have exceeded a service limit for your account. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonECR/latest/userguide/service-quotas.html\">Amazon ECR service quotas</a> in the Amazon Elastic Container Registry User Guide.</p>
+            aws_sdk_ecr.errors.repository_not_found_exception.RepositoryNotFoundException: <p>The specified repository could not be found. Check the spelling of the specified repository and ensure that you are performing operations on the correct registry.</p>
+            aws_sdk_ecr.errors.server_exception.ServerException: <p>These errors are usually caused by a server-side issue.</p>
+            aws_sdk_ecr.errors.unsupported_image_type_exception.UnsupportedImageTypeException: <p>The image is of a type that cannot be scanned.</p>
+            aws_sdk_ecr.errors.validation_exception.ValidationException: <p>There was an exception validating this request.</p>
+            aws_sdk_ecr.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2811,6 +3188,15 @@ class ECRClient:
             registry_id: <p>The Amazon Web Services account ID associated with the registry that contains the repository. If you do not specify a registry, the default registry is assumed.</p>
             repository_name: <p>The name of the repository to be evaluated.</p>
             lifecycle_policy_text: <p>The policy to be evaluated against. If you do not specify a policy, the current policy for the repository is used.</p>
+
+        Raises:
+            aws_sdk_ecr.errors.invalid_parameter_exception.InvalidParameterException: <p>The specified parameter is invalid. Review the available parameters for the API request.</p>
+            aws_sdk_ecr.errors.lifecycle_policy_not_found_exception.LifecyclePolicyNotFoundException: <p>The lifecycle policy could not be found, and no policy is set to the repository.</p>
+            aws_sdk_ecr.errors.lifecycle_policy_preview_in_progress_exception.LifecyclePolicyPreviewInProgressException: <p>The previous lifecycle policy preview request has not completed. Wait and try again.</p>
+            aws_sdk_ecr.errors.repository_not_found_exception.RepositoryNotFoundException: <p>The specified repository could not be found. Check the spelling of the specified repository and ensure that you are performing operations on the correct registry.</p>
+            aws_sdk_ecr.errors.server_exception.ServerException: <p>These errors are usually caused by a server-side issue.</p>
+            aws_sdk_ecr.errors.validation_exception.ValidationException: <p>There was an exception validating this request.</p>
+            aws_sdk_ecr.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2854,6 +3240,14 @@ class ECRClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the the resource to which to add tags. Currently, the only supported resource is an Amazon ECR repository.</p>
             tags: <p>The tags to add to the resource. A tag is an array of key-value pairs. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.</p>
+
+        Raises:
+            aws_sdk_ecr.errors.invalid_parameter_exception.InvalidParameterException: <p>The specified parameter is invalid. Review the available parameters for the API request.</p>
+            aws_sdk_ecr.errors.invalid_tag_parameter_exception.InvalidTagParameterException: <p>An invalid parameter has been specified. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.</p>
+            aws_sdk_ecr.errors.repository_not_found_exception.RepositoryNotFoundException: <p>The specified repository could not be found. Check the spelling of the specified repository and ensure that you are performing operations on the correct registry.</p>
+            aws_sdk_ecr.errors.server_exception.ServerException: <p>These errors are usually caused by a server-side issue.</p>
+            aws_sdk_ecr.errors.too_many_tags_exception.TooManyTagsException: <p>The list of tags on the repository is over the limit. The maximum number of tags that can be applied to a repository is 50.</p>
+            aws_sdk_ecr.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2894,6 +3288,14 @@ class ECRClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource from which to remove tags. Currently, the only supported resource is an Amazon ECR repository.</p>
             tag_keys: <p>The keys of the tags to be removed.</p>
+
+        Raises:
+            aws_sdk_ecr.errors.invalid_parameter_exception.InvalidParameterException: <p>The specified parameter is invalid. Review the available parameters for the API request.</p>
+            aws_sdk_ecr.errors.invalid_tag_parameter_exception.InvalidTagParameterException: <p>An invalid parameter has been specified. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.</p>
+            aws_sdk_ecr.errors.repository_not_found_exception.RepositoryNotFoundException: <p>The specified repository could not be found. Check the spelling of the specified repository and ensure that you are performing operations on the correct registry.</p>
+            aws_sdk_ecr.errors.server_exception.ServerException: <p>These errors are usually caused by a server-side issue.</p>
+            aws_sdk_ecr.errors.too_many_tags_exception.TooManyTagsException: <p>The list of tags on the repository is over the limit. The maximum number of tags that can be applied to a repository is 50.</p>
+            aws_sdk_ecr.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2937,6 +3339,15 @@ class ECRClient:
             registry_id: <p>The Amazon Web Services account ID associated with the registry that contains the image to transition. If you do not specify a registry, the default registry is assumed.</p>
             repository_name: <p>The name of the repository that contains the image to transition.</p>
             target_storage_class: <p>The target storage class for the image.</p>
+
+        Raises:
+            aws_sdk_ecr.errors.image_not_found_exception.ImageNotFoundException: <p>The image requested does not exist in the specified repository.</p>
+            aws_sdk_ecr.errors.image_storage_class_update_not_supported_exception.ImageStorageClassUpdateNotSupportedException: <p>The requested image storage class update is not supported.</p>
+            aws_sdk_ecr.errors.invalid_parameter_exception.InvalidParameterException: <p>The specified parameter is invalid. Review the available parameters for the API request.</p>
+            aws_sdk_ecr.errors.repository_not_found_exception.RepositoryNotFoundException: <p>The specified repository could not be found. Check the spelling of the specified repository and ensure that you are performing operations on the correct registry.</p>
+            aws_sdk_ecr.errors.server_exception.ServerException: <p>These errors are usually caused by a server-side issue.</p>
+            aws_sdk_ecr.errors.validation_exception.ValidationException: <p>There was an exception validating this request.</p>
+            aws_sdk_ecr.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To transition an image to Amazon ECR Archive
@@ -2998,6 +3409,16 @@ class ECRClient:
             ecr_repository_prefix: <p>The repository name prefix to use when caching images from the source registry.</p>
             credential_arn: <p>The Amazon Resource Name (ARN) of the Amazon Web Services Secrets Manager secret that identifies the credentials to authenticate to the upstream registry.</p>
             custom_role_arn: <p>Amazon Resource Name (ARN) of the IAM role to be assumed by Amazon ECR to authenticate to the ECR upstream registry. This role must be in the same account as the registry that you are configuring.</p>
+
+        Raises:
+            aws_sdk_ecr.errors.invalid_parameter_exception.InvalidParameterException: <p>The specified parameter is invalid. Review the available parameters for the API request.</p>
+            aws_sdk_ecr.errors.pull_through_cache_rule_not_found_exception.PullThroughCacheRuleNotFoundException: <p>The pull through cache rule was not found. Specify a valid pull through cache rule and try again.</p>
+            aws_sdk_ecr.errors.secret_not_found_exception.SecretNotFoundException: <p>The ARN of the secret specified in the pull through cache rule was not found. Update the pull through cache rule with a valid secret ARN and try again.</p>
+            aws_sdk_ecr.errors.server_exception.ServerException: <p>These errors are usually caused by a server-side issue.</p>
+            aws_sdk_ecr.errors.unable_to_access_secret_exception.UnableToAccessSecretException: <p>The secret is unable to be accessed. Verify the resource permissions for the secret and try again.</p>
+            aws_sdk_ecr.errors.unable_to_decrypt_secret_value_exception.UnableToDecryptSecretValueException: <p>The secret is accessible but is unable to be decrypted. Verify the resource permisisons and try again.</p>
+            aws_sdk_ecr.errors.validation_exception.ValidationException: <p>There was an exception validating this request.</p>
+            aws_sdk_ecr.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3074,6 +3495,13 @@ class ECRClient:
             lifecycle_policy: <p>Updates the lifecycle policy associated with the specified repository creation template.</p>
             applied_for: <p>Updates the list of enumerable strings representing the Amazon ECR repository creation scenarios that this template will apply towards. The supported scenarios are <code>PULL_THROUGH_CACHE</code>, <code>REPLICATION</code>, and <code>CREATE_ON_PUSH</code> </p>
             custom_role_arn: <p>The ARN of the role to be assumed by Amazon ECR. This role must be in the same account as the registry that you are configuring. Amazon ECR will assume your supplied role when the customRoleArn is specified. When this field isn't specified, Amazon ECR will use the service-linked role for the repository creation template.</p>
+
+        Raises:
+            aws_sdk_ecr.errors.invalid_parameter_exception.InvalidParameterException: <p>The specified parameter is invalid. Review the available parameters for the API request.</p>
+            aws_sdk_ecr.errors.server_exception.ServerException: <p>These errors are usually caused by a server-side issue.</p>
+            aws_sdk_ecr.errors.template_not_found_exception.TemplateNotFoundException: <p>The specified repository creation template can't be found. Verify the registry ID and prefix and try again.</p>
+            aws_sdk_ecr.errors.validation_exception.ValidationException: <p>There was an exception validating this request.</p>
+            aws_sdk_ecr.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3141,6 +3569,16 @@ class ECRClient:
             part_first_byte: <p>The position of the first byte of the layer part witin the overall image layer.</p>
             part_last_byte: <p>The position of the last byte of the layer part within the overall image layer.</p>
             layer_part_blob: <p>The base64-encoded layer part payload.</p>
+
+        Raises:
+            aws_sdk_ecr.errors.invalid_layer_part_exception.InvalidLayerPartException: <p>The layer part size is not valid, or the first byte specified is not consecutive to the last byte of a previous layer part upload.</p>
+            aws_sdk_ecr.errors.invalid_parameter_exception.InvalidParameterException: <p>The specified parameter is invalid. Review the available parameters for the API request.</p>
+            aws_sdk_ecr.errors.kms_exception.KmsException: <p>The operation failed due to a KMS exception.</p>
+            aws_sdk_ecr.errors.limit_exceeded_exception.LimitExceededException: <p>The operation did not succeed because it would have exceeded a service limit for your account. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonECR/latest/userguide/service-quotas.html\">Amazon ECR service quotas</a> in the Amazon Elastic Container Registry User Guide.</p>
+            aws_sdk_ecr.errors.repository_not_found_exception.RepositoryNotFoundException: <p>The specified repository could not be found. Check the spelling of the specified repository and ensure that you are performing operations on the correct registry.</p>
+            aws_sdk_ecr.errors.server_exception.ServerException: <p>These errors are usually caused by a server-side issue.</p>
+            aws_sdk_ecr.errors.upload_not_found_exception.UploadNotFoundException: <p>The upload could not be found, or the specified upload ID is not valid for this repository.</p>
+            aws_sdk_ecr.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3186,6 +3624,13 @@ class ECRClient:
         Args:
             ecr_repository_prefix: <p>The repository name prefix associated with the pull through cache rule.</p>
             registry_id: <p>The registry ID associated with the pull through cache rule. If you do not specify a registry, the default registry is assumed.</p>
+
+        Raises:
+            aws_sdk_ecr.errors.invalid_parameter_exception.InvalidParameterException: <p>The specified parameter is invalid. Review the available parameters for the API request.</p>
+            aws_sdk_ecr.errors.pull_through_cache_rule_not_found_exception.PullThroughCacheRuleNotFoundException: <p>The pull through cache rule was not found. Specify a valid pull through cache rule and try again.</p>
+            aws_sdk_ecr.errors.server_exception.ServerException: <p>These errors are usually caused by a server-side issue.</p>
+            aws_sdk_ecr.errors.validation_exception.ValidationException: <p>There was an exception validating this request.</p>
+            aws_sdk_ecr.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(

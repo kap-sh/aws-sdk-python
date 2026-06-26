@@ -229,6 +229,15 @@ class AsyncSecretsManagerClient:
             max_results: <p>The number of results to include in the response.</p> <p>If there are more results available, in the response, Secrets Manager includes <code>NextToken</code>. To get the next results, call <code>BatchGetSecretValue</code> again with the value from <code>NextToken</code>. To use this parameter, you must also use the <code>Filters</code> parameter.</p>
             next_token: <p>A token that indicates where the output should continue from, if a previous call did not show all results. To get the next results, call <code>BatchGetSecretValue</code> again with this value.</p>
 
+        Raises:
+            aws_sdk_secrets_manager.errors.decryption_failure.DecryptionFailure: <p>Secrets Manager can't decrypt the protected secret text using the provided KMS key. </p>
+            aws_sdk_secrets_manager.errors.internal_service_error.InternalServiceError: <p>An error occurred on the server side.</p>
+            aws_sdk_secrets_manager.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The <code>NextToken</code> value is invalid.</p>
+            aws_sdk_secrets_manager.errors.invalid_parameter_exception.InvalidParameterException: <p>The parameter name or value is invalid.</p>
+            aws_sdk_secrets_manager.errors.invalid_request_exception.InvalidRequestException: <p>A parameter value is not valid for the current state of the resource.</p> <p>Possible causes:</p> <ul> <li> <p>The secret is scheduled for deletion.</p> </li> <li> <p>You tried to enable rotation on a secret that doesn't already have a Lambda function ARN configured and you didn't include such an ARN as a parameter in this call. </p> </li> <li> <p>The secret is managed by another service, and you must use that service to update it. For more information, see <a href=\"https://docs.aws.amazon.com/secretsmanager/latest/userguide/service-linked-secrets.html\">Secrets managed by other Amazon Web Services services</a>.</p> </li> </ul>
+            aws_sdk_secrets_manager.errors.resource_not_found_exception.ResourceNotFoundException: <p>Secrets Manager can't find the resource that you asked for.</p>
+            aws_sdk_secrets_manager.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To retrieve the secret values for a group of secrets listed by name
             The following example gets the values for three secrets.
@@ -279,6 +288,13 @@ class AsyncSecretsManagerClient:
 
         Args:
             secret_id: <p>The ARN or name of the secret.</p> <p>For an ARN, we recommend that you specify a complete ARN rather than a partial ARN. See <a href=\"https://docs.aws.amazon.com/secretsmanager/latest/userguide/troubleshoot.html#ARN_secretnamehyphen\">Finding a secret from a partial ARN</a>.</p>
+
+        Raises:
+            aws_sdk_secrets_manager.errors.internal_service_error.InternalServiceError: <p>An error occurred on the server side.</p>
+            aws_sdk_secrets_manager.errors.invalid_parameter_exception.InvalidParameterException: <p>The parameter name or value is invalid.</p>
+            aws_sdk_secrets_manager.errors.invalid_request_exception.InvalidRequestException: <p>A parameter value is not valid for the current state of the resource.</p> <p>Possible causes:</p> <ul> <li> <p>The secret is scheduled for deletion.</p> </li> <li> <p>You tried to enable rotation on a secret that doesn't already have a Lambda function ARN configured and you didn't include such an ARN as a parameter in this call. </p> </li> <li> <p>The secret is managed by another service, and you must use that service to update it. For more information, see <a href=\"https://docs.aws.amazon.com/secretsmanager/latest/userguide/service-linked-secrets.html\">Secrets managed by other Amazon Web Services services</a>.</p> </li> </ul>
+            aws_sdk_secrets_manager.errors.resource_not_found_exception.ResourceNotFoundException: <p>Secrets Manager can't find the resource that you asked for.</p>
+            aws_sdk_secrets_manager.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To cancel scheduled rotation for a secret
@@ -360,6 +376,19 @@ class AsyncSecretsManagerClient:
             force_overwrite_replica_secret: <p>Specifies whether to overwrite a secret with the same name in the destination Region. By default, secrets aren't overwritten.</p>
             type: <p>The exact string that identifies the partner that holds the external secret. For more information, see <a href=\"https://docs.aws.amazon.com/secretsmanager/latest/userguide/managed-external-secrets.html\">Using Secrets Manager managed external secrets</a>.</p>
 
+        Raises:
+            aws_sdk_secrets_manager.errors.decryption_failure.DecryptionFailure: <p>Secrets Manager can't decrypt the protected secret text using the provided KMS key. </p>
+            aws_sdk_secrets_manager.errors.encryption_failure.EncryptionFailure: <p>Secrets Manager can't encrypt the protected secret text using the provided KMS key. Check that the KMS key is available, enabled, and not in an invalid state. For more information, see <a href=\"https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html\">Key state: Effect on your KMS key</a>.</p>
+            aws_sdk_secrets_manager.errors.internal_service_error.InternalServiceError: <p>An error occurred on the server side.</p>
+            aws_sdk_secrets_manager.errors.invalid_parameter_exception.InvalidParameterException: <p>The parameter name or value is invalid.</p>
+            aws_sdk_secrets_manager.errors.invalid_request_exception.InvalidRequestException: <p>A parameter value is not valid for the current state of the resource.</p> <p>Possible causes:</p> <ul> <li> <p>The secret is scheduled for deletion.</p> </li> <li> <p>You tried to enable rotation on a secret that doesn't already have a Lambda function ARN configured and you didn't include such an ARN as a parameter in this call. </p> </li> <li> <p>The secret is managed by another service, and you must use that service to update it. For more information, see <a href=\"https://docs.aws.amazon.com/secretsmanager/latest/userguide/service-linked-secrets.html\">Secrets managed by other Amazon Web Services services</a>.</p> </li> </ul>
+            aws_sdk_secrets_manager.errors.limit_exceeded_exception.LimitExceededException: <p>The request failed because it would exceed one of the Secrets Manager quotas.</p>
+            aws_sdk_secrets_manager.errors.malformed_policy_document_exception.MalformedPolicyDocumentException: <p>The resource policy has syntax errors.</p>
+            aws_sdk_secrets_manager.errors.precondition_not_met_exception.PreconditionNotMetException: <p>The request failed because you did not complete all the prerequisite steps.</p>
+            aws_sdk_secrets_manager.errors.resource_exists_exception.ResourceExistsException: <p>A resource with the ID you requested already exists.</p>
+            aws_sdk_secrets_manager.errors.resource_not_found_exception.ResourceNotFoundException: <p>Secrets Manager can't find the resource that you asked for.</p>
+            aws_sdk_secrets_manager.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To create a basic secret
             The following example shows how to create a secret. The credentials stored in the encrypted secret value are retrieved from a file on disk named mycreds.json.
@@ -422,6 +451,13 @@ class AsyncSecretsManagerClient:
         Args:
             secret_id: <p>The ARN or name of the secret to delete the attached resource-based policy for.</p> <p>For an ARN, we recommend that you specify a complete ARN rather than a partial ARN. See <a href=\"https://docs.aws.amazon.com/secretsmanager/latest/userguide/troubleshoot.html#ARN_secretnamehyphen\">Finding a secret from a partial ARN</a>.</p>
 
+        Raises:
+            aws_sdk_secrets_manager.errors.internal_service_error.InternalServiceError: <p>An error occurred on the server side.</p>
+            aws_sdk_secrets_manager.errors.invalid_parameter_exception.InvalidParameterException: <p>The parameter name or value is invalid.</p>
+            aws_sdk_secrets_manager.errors.invalid_request_exception.InvalidRequestException: <p>A parameter value is not valid for the current state of the resource.</p> <p>Possible causes:</p> <ul> <li> <p>The secret is scheduled for deletion.</p> </li> <li> <p>You tried to enable rotation on a secret that doesn't already have a Lambda function ARN configured and you didn't include such an ARN as a parameter in this call. </p> </li> <li> <p>The secret is managed by another service, and you must use that service to update it. For more information, see <a href=\"https://docs.aws.amazon.com/secretsmanager/latest/userguide/service-linked-secrets.html\">Secrets managed by other Amazon Web Services services</a>.</p> </li> </ul>
+            aws_sdk_secrets_manager.errors.resource_not_found_exception.ResourceNotFoundException: <p>Secrets Manager can't find the resource that you asked for.</p>
+            aws_sdk_secrets_manager.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To delete the resource-based policy attached to a secret
             The following example shows how to delete the resource-based policy that is attached to a secret.
@@ -473,6 +509,13 @@ class AsyncSecretsManagerClient:
             secret_id: <p>The ARN or name of the secret to delete.</p> <p>For an ARN, we recommend that you specify a complete ARN rather than a partial ARN. See <a href=\"https://docs.aws.amazon.com/secretsmanager/latest/userguide/troubleshoot.html#ARN_secretnamehyphen\">Finding a secret from a partial ARN</a>.</p>
             recovery_window_in_days: <p>The number of days from 7 to 30 that Secrets Manager waits before permanently deleting the secret. You can't use both this parameter and <code>ForceDeleteWithoutRecovery</code> in the same call. If you don't use either, then by default Secrets Manager uses a 30 day recovery window.</p>
             force_delete_without_recovery: <p>Specifies whether to delete the secret without any recovery window. You can't use both this parameter and <code>RecoveryWindowInDays</code> in the same call. If you don't use either, then by default Secrets Manager uses a 30 day recovery window.</p> <p>Secrets Manager performs the actual deletion with an asynchronous background process, so there might be a short delay before the secret is permanently deleted. If you delete a secret and then immediately create a secret with the same name, use appropriate back off and retry logic.</p> <p>If you forcibly delete an already deleted or nonexistent secret, the operation does not return <code>ResourceNotFoundException</code>.</p> <important> <p>Use this parameter with caution. This parameter causes the operation to skip the normal recovery window before the permanent deletion that Secrets Manager would normally impose with the <code>RecoveryWindowInDays</code> parameter. If you delete a secret with the <code>ForceDeleteWithoutRecovery</code> parameter, then you have no opportunity to recover the secret. You lose the secret permanently.</p> </important>
+
+        Raises:
+            aws_sdk_secrets_manager.errors.internal_service_error.InternalServiceError: <p>An error occurred on the server side.</p>
+            aws_sdk_secrets_manager.errors.invalid_parameter_exception.InvalidParameterException: <p>The parameter name or value is invalid.</p>
+            aws_sdk_secrets_manager.errors.invalid_request_exception.InvalidRequestException: <p>A parameter value is not valid for the current state of the resource.</p> <p>Possible causes:</p> <ul> <li> <p>The secret is scheduled for deletion.</p> </li> <li> <p>You tried to enable rotation on a secret that doesn't already have a Lambda function ARN configured and you didn't include such an ARN as a parameter in this call. </p> </li> <li> <p>The secret is managed by another service, and you must use that service to update it. For more information, see <a href=\"https://docs.aws.amazon.com/secretsmanager/latest/userguide/service-linked-secrets.html\">Secrets managed by other Amazon Web Services services</a>.</p> </li> </ul>
+            aws_sdk_secrets_manager.errors.resource_not_found_exception.ResourceNotFoundException: <p>Secrets Manager can't find the resource that you asked for.</p>
+            aws_sdk_secrets_manager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -517,6 +560,12 @@ class AsyncSecretsManagerClient:
 
         Args:
             secret_id: <p>The ARN or name of the secret. </p> <p>For an ARN, we recommend that you specify a complete ARN rather than a partial ARN. See <a href=\"https://docs.aws.amazon.com/secretsmanager/latest/userguide/troubleshoot.html#ARN_secretnamehyphen\">Finding a secret from a partial ARN</a>.</p>
+
+        Raises:
+            aws_sdk_secrets_manager.errors.internal_service_error.InternalServiceError: <p>An error occurred on the server side.</p>
+            aws_sdk_secrets_manager.errors.invalid_parameter_exception.InvalidParameterException: <p>The parameter name or value is invalid.</p>
+            aws_sdk_secrets_manager.errors.resource_not_found_exception.ResourceNotFoundException: <p>Secrets Manager can't find the resource that you asked for.</p>
+            aws_sdk_secrets_manager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -586,6 +635,12 @@ class AsyncSecretsManagerClient:
             include_space: <p>Specifies whether to include the space character. If you include this switch, the password can contain space characters.</p>
             require_each_included_type: <p>Specifies whether to include at least one upper and lowercase letter, one number, and one punctuation. If you don't include this switch, the password contains at least one of every character type.</p>
 
+        Raises:
+            aws_sdk_secrets_manager.errors.internal_service_error.InternalServiceError: <p>An error occurred on the server side.</p>
+            aws_sdk_secrets_manager.errors.invalid_parameter_exception.InvalidParameterException: <p>The parameter name or value is invalid.</p>
+            aws_sdk_secrets_manager.errors.invalid_request_exception.InvalidRequestException: <p>A parameter value is not valid for the current state of the resource.</p> <p>Possible causes:</p> <ul> <li> <p>The secret is scheduled for deletion.</p> </li> <li> <p>You tried to enable rotation on a secret that doesn't already have a Lambda function ARN configured and you didn't include such an ARN as a parameter in this call. </p> </li> <li> <p>The secret is managed by another service, and you must use that service to update it. For more information, see <a href=\"https://docs.aws.amazon.com/secretsmanager/latest/userguide/service-linked-secrets.html\">Secrets managed by other Amazon Web Services services</a>.</p> </li> </ul>
+            aws_sdk_secrets_manager.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To generate a random password
             The following example shows how to request a randomly generated password. This example includes the optional flags to require spaces and at least one character of each included type. It specifies a length of 20 characters.
@@ -645,6 +700,13 @@ class AsyncSecretsManagerClient:
         Args:
             secret_id: <p>The ARN or name of the secret to retrieve the attached resource-based policy for.</p> <p>For an ARN, we recommend that you specify a complete ARN rather than a partial ARN. See <a href=\"https://docs.aws.amazon.com/secretsmanager/latest/userguide/troubleshoot.html#ARN_secretnamehyphen\">Finding a secret from a partial ARN</a>.</p>
 
+        Raises:
+            aws_sdk_secrets_manager.errors.internal_service_error.InternalServiceError: <p>An error occurred on the server side.</p>
+            aws_sdk_secrets_manager.errors.invalid_parameter_exception.InvalidParameterException: <p>The parameter name or value is invalid.</p>
+            aws_sdk_secrets_manager.errors.invalid_request_exception.InvalidRequestException: <p>A parameter value is not valid for the current state of the resource.</p> <p>Possible causes:</p> <ul> <li> <p>The secret is scheduled for deletion.</p> </li> <li> <p>You tried to enable rotation on a secret that doesn't already have a Lambda function ARN configured and you didn't include such an ARN as a parameter in this call. </p> </li> <li> <p>The secret is managed by another service, and you must use that service to update it. For more information, see <a href=\"https://docs.aws.amazon.com/secretsmanager/latest/userguide/service-linked-secrets.html\">Secrets managed by other Amazon Web Services services</a>.</p> </li> </ul>
+            aws_sdk_secrets_manager.errors.resource_not_found_exception.ResourceNotFoundException: <p>Secrets Manager can't find the resource that you asked for.</p>
+            aws_sdk_secrets_manager.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To retrieve the resource-based policy attached to a secret
             The following example shows how to retrieve the resource-based policy that is attached to a secret.
@@ -698,6 +760,14 @@ class AsyncSecretsManagerClient:
             secret_id: <p>The ARN or name of the secret to retrieve. To retrieve a secret from another account, you must use an ARN.</p> <p>For an ARN, we recommend that you specify a complete ARN rather than a partial ARN. See <a href=\"https://docs.aws.amazon.com/secretsmanager/latest/userguide/troubleshoot.html#ARN_secretnamehyphen\">Finding a secret from a partial ARN</a>.</p>
             version_id: <p>The unique identifier of the version of the secret to retrieve. If you include both this parameter and <code>VersionStage</code>, the two parameters must refer to the same secret version. If you don't specify either a <code>VersionStage</code> or <code>VersionId</code>, then Secrets Manager returns the <code>AWSCURRENT</code> version.</p> <p>This value is typically a <a href=\"https://wikipedia.org/wiki/Universally_unique_identifier\">UUID-type</a> value with 32 hexadecimal digits.</p>
             version_stage: <p>The staging label of the version of the secret to retrieve. </p> <p>Secrets Manager uses staging labels to keep track of different versions during the rotation process. If you include both this parameter and <code>VersionId</code>, the two parameters must refer to the same secret version. If you don't specify either a <code>VersionStage</code> or <code>VersionId</code>, Secrets Manager returns the <code>AWSCURRENT</code> version.</p>
+
+        Raises:
+            aws_sdk_secrets_manager.errors.decryption_failure.DecryptionFailure: <p>Secrets Manager can't decrypt the protected secret text using the provided KMS key. </p>
+            aws_sdk_secrets_manager.errors.internal_service_error.InternalServiceError: <p>An error occurred on the server side.</p>
+            aws_sdk_secrets_manager.errors.invalid_parameter_exception.InvalidParameterException: <p>The parameter name or value is invalid.</p>
+            aws_sdk_secrets_manager.errors.invalid_request_exception.InvalidRequestException: <p>A parameter value is not valid for the current state of the resource.</p> <p>Possible causes:</p> <ul> <li> <p>The secret is scheduled for deletion.</p> </li> <li> <p>You tried to enable rotation on a secret that doesn't already have a Lambda function ARN configured and you didn't include such an ARN as a parameter in this call. </p> </li> <li> <p>The secret is managed by another service, and you must use that service to update it. For more information, see <a href=\"https://docs.aws.amazon.com/secretsmanager/latest/userguide/service-linked-secrets.html\">Secrets managed by other Amazon Web Services services</a>.</p> </li> </ul>
+            aws_sdk_secrets_manager.errors.resource_not_found_exception.ResourceNotFoundException: <p>Secrets Manager can't find the resource that you asked for.</p>
+            aws_sdk_secrets_manager.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To retrieve the encrypted secret value of a secret
@@ -769,6 +839,13 @@ class AsyncSecretsManagerClient:
             sort_order: <p>Secrets are listed by <code>CreatedDate</code>. </p>
             sort_by: <p>If not specified, secrets are listed by <code>CreatedDate</code>.</p>
 
+        Raises:
+            aws_sdk_secrets_manager.errors.internal_service_error.InternalServiceError: <p>An error occurred on the server side.</p>
+            aws_sdk_secrets_manager.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The <code>NextToken</code> value is invalid.</p>
+            aws_sdk_secrets_manager.errors.invalid_parameter_exception.InvalidParameterException: <p>The parameter name or value is invalid.</p>
+            aws_sdk_secrets_manager.errors.invalid_request_exception.InvalidRequestException: <p>A parameter value is not valid for the current state of the resource.</p> <p>Possible causes:</p> <ul> <li> <p>The secret is scheduled for deletion.</p> </li> <li> <p>You tried to enable rotation on a secret that doesn't already have a Lambda function ARN configured and you didn't include such an ARN as a parameter in this call. </p> </li> <li> <p>The secret is managed by another service, and you must use that service to update it. For more information, see <a href=\"https://docs.aws.amazon.com/secretsmanager/latest/userguide/service-linked-secrets.html\">Secrets managed by other Amazon Web Services services</a>.</p> </li> </ul>
+            aws_sdk_secrets_manager.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To list the secrets in your account
             The following example shows how to list all of the secrets in your account.
@@ -836,6 +913,13 @@ class AsyncSecretsManagerClient:
             next_token: <p>A token that indicates where the output should continue from, if a previous call did not show all results. To get the next results, call <code>ListSecretVersionIds</code> again with this value.</p>
             include_deprecated: <p>Specifies whether to include versions of secrets that don't have any staging labels attached to them. Versions without staging labels are considered deprecated and are subject to deletion by Secrets Manager. By default, versions without staging labels aren't included.</p>
 
+        Raises:
+            aws_sdk_secrets_manager.errors.internal_service_error.InternalServiceError: <p>An error occurred on the server side.</p>
+            aws_sdk_secrets_manager.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The <code>NextToken</code> value is invalid.</p>
+            aws_sdk_secrets_manager.errors.invalid_parameter_exception.InvalidParameterException: <p>The parameter name or value is invalid.</p>
+            aws_sdk_secrets_manager.errors.resource_not_found_exception.ResourceNotFoundException: <p>Secrets Manager can't find the resource that you asked for.</p>
+            aws_sdk_secrets_manager.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To list all of the secret versions associated with a secret
             The following example shows how to retrieve a list of all of the versions of a secret, including those without any staging labels.
@@ -891,6 +975,15 @@ class AsyncSecretsManagerClient:
             secret_id: <p>The ARN or name of the secret to attach the resource-based policy.</p> <p>For an ARN, we recommend that you specify a complete ARN rather than a partial ARN. See <a href=\"https://docs.aws.amazon.com/secretsmanager/latest/userguide/troubleshoot.html#ARN_secretnamehyphen\">Finding a secret from a partial ARN</a>.</p>
             resource_policy: <p>A JSON-formatted string for an Amazon Web Services resource-based policy. For example policies, see <a href=\"https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_examples.html\">Permissions policy examples</a>.</p>
             block_public_policy: <p>Specifies whether to block resource-based policies that allow broad access to the secret, for example those that use a wildcard for the principal. By default, public policies aren't blocked.</p> <important> <p>Resource policy validation and the BlockPublicPolicy parameter help protect your resources by preventing public access from being granted through the resource policies that are directly attached to your secrets. In addition to using these features, carefully inspect the following policies to confirm that they do not grant public access:</p> <ul> <li> <p>Identity-based policies attached to associated Amazon Web Services principals (for example, IAM roles)</p> </li> <li> <p>Resource-based policies attached to associated Amazon Web Services resources (for example, Key Management Service (KMS) keys)</p> </li> </ul> <p>To review permissions to your secrets, see <a href=\"https://docs.aws.amazon.com/secretsmanager/latest/userguide/determine-acccess_examine-iam-policies.html\">Determine who has permissions to your secrets</a>.</p> </important>
+
+        Raises:
+            aws_sdk_secrets_manager.errors.internal_service_error.InternalServiceError: <p>An error occurred on the server side.</p>
+            aws_sdk_secrets_manager.errors.invalid_parameter_exception.InvalidParameterException: <p>The parameter name or value is invalid.</p>
+            aws_sdk_secrets_manager.errors.invalid_request_exception.InvalidRequestException: <p>A parameter value is not valid for the current state of the resource.</p> <p>Possible causes:</p> <ul> <li> <p>The secret is scheduled for deletion.</p> </li> <li> <p>You tried to enable rotation on a secret that doesn't already have a Lambda function ARN configured and you didn't include such an ARN as a parameter in this call. </p> </li> <li> <p>The secret is managed by another service, and you must use that service to update it. For more information, see <a href=\"https://docs.aws.amazon.com/secretsmanager/latest/userguide/service-linked-secrets.html\">Secrets managed by other Amazon Web Services services</a>.</p> </li> </ul>
+            aws_sdk_secrets_manager.errors.malformed_policy_document_exception.MalformedPolicyDocumentException: <p>The resource policy has syntax errors.</p>
+            aws_sdk_secrets_manager.errors.public_policy_exception.PublicPolicyException: <p>The <code>BlockPublicPolicy</code> parameter is set to true, and the resource policy did not prevent broad access to the secret.</p>
+            aws_sdk_secrets_manager.errors.resource_not_found_exception.ResourceNotFoundException: <p>Secrets Manager can't find the resource that you asked for.</p>
+            aws_sdk_secrets_manager.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To add a resource-based policy to a secret
@@ -961,6 +1054,17 @@ class AsyncSecretsManagerClient:
             version_stages: <p>A list of staging labels to attach to this version of the secret. Secrets Manager uses staging labels to track versions of a secret through the rotation process.</p> <p>If you specify a staging label that's already associated with a different version of the same secret, then Secrets Manager removes the label from the other version and attaches it to this version. If you specify <code>AWSCURRENT</code>, and it is already attached to another version, then Secrets Manager also moves the staging label <code>AWSPREVIOUS</code> to the version that <code>AWSCURRENT</code> was removed from.</p> <p>If you don't include <code>VersionStages</code>, then Secrets Manager automatically moves the staging label <code>AWSCURRENT</code> to this version.</p>
             rotation_token: <p>A unique identifier that indicates the source of the request. Required for secret rotations using an IAM assumed role or cross-account rotation, in which you rotate a secret in one account by using a Lambda rotation function in another account. In both cases, the rotation function assumes an IAM role to call Secrets Manager, and then Secrets Manager validates the identity using the token. For more information, see <a href=\"https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotating-secrets.html\">How rotation works</a> and <a href=\"https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotate-secrets_lambda\">Rotation by Lambda functions</a>.</p> <p>Sensitive: This field contains sensitive information, so the service does not include it in CloudTrail log entries. If you create your own log entries, you must also avoid logging the information in this field.</p>
 
+        Raises:
+            aws_sdk_secrets_manager.errors.decryption_failure.DecryptionFailure: <p>Secrets Manager can't decrypt the protected secret text using the provided KMS key. </p>
+            aws_sdk_secrets_manager.errors.encryption_failure.EncryptionFailure: <p>Secrets Manager can't encrypt the protected secret text using the provided KMS key. Check that the KMS key is available, enabled, and not in an invalid state. For more information, see <a href=\"https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html\">Key state: Effect on your KMS key</a>.</p>
+            aws_sdk_secrets_manager.errors.internal_service_error.InternalServiceError: <p>An error occurred on the server side.</p>
+            aws_sdk_secrets_manager.errors.invalid_parameter_exception.InvalidParameterException: <p>The parameter name or value is invalid.</p>
+            aws_sdk_secrets_manager.errors.invalid_request_exception.InvalidRequestException: <p>A parameter value is not valid for the current state of the resource.</p> <p>Possible causes:</p> <ul> <li> <p>The secret is scheduled for deletion.</p> </li> <li> <p>You tried to enable rotation on a secret that doesn't already have a Lambda function ARN configured and you didn't include such an ARN as a parameter in this call. </p> </li> <li> <p>The secret is managed by another service, and you must use that service to update it. For more information, see <a href=\"https://docs.aws.amazon.com/secretsmanager/latest/userguide/service-linked-secrets.html\">Secrets managed by other Amazon Web Services services</a>.</p> </li> </ul>
+            aws_sdk_secrets_manager.errors.limit_exceeded_exception.LimitExceededException: <p>The request failed because it would exceed one of the Secrets Manager quotas.</p>
+            aws_sdk_secrets_manager.errors.resource_exists_exception.ResourceExistsException: <p>A resource with the ID you requested already exists.</p>
+            aws_sdk_secrets_manager.errors.resource_not_found_exception.ResourceNotFoundException: <p>Secrets Manager can't find the resource that you asked for.</p>
+            aws_sdk_secrets_manager.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To store a secret value in a new version of a secret
             The following example shows how to create a new version of the secret. Alternatively, you can use the update-secret command.
@@ -1016,6 +1120,13 @@ class AsyncSecretsManagerClient:
         Args:
             secret_id: <p>The ARN or name of the secret.</p>
             remove_replica_regions: <p>The Regions of the replicas to remove.</p>
+
+        Raises:
+            aws_sdk_secrets_manager.errors.internal_service_error.InternalServiceError: <p>An error occurred on the server side.</p>
+            aws_sdk_secrets_manager.errors.invalid_parameter_exception.InvalidParameterException: <p>The parameter name or value is invalid.</p>
+            aws_sdk_secrets_manager.errors.invalid_request_exception.InvalidRequestException: <p>A parameter value is not valid for the current state of the resource.</p> <p>Possible causes:</p> <ul> <li> <p>The secret is scheduled for deletion.</p> </li> <li> <p>You tried to enable rotation on a secret that doesn't already have a Lambda function ARN configured and you didn't include such an ARN as a parameter in this call. </p> </li> <li> <p>The secret is managed by another service, and you must use that service to update it. For more information, see <a href=\"https://docs.aws.amazon.com/secretsmanager/latest/userguide/service-linked-secrets.html\">Secrets managed by other Amazon Web Services services</a>.</p> </li> </ul>
+            aws_sdk_secrets_manager.errors.resource_not_found_exception.ResourceNotFoundException: <p>Secrets Manager can't find the resource that you asked for.</p>
+            aws_sdk_secrets_manager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1061,6 +1172,13 @@ class AsyncSecretsManagerClient:
             secret_id: <p>The ARN or name of the secret to replicate.</p>
             add_replica_regions: <p>A list of Regions in which to replicate the secret.</p>
             force_overwrite_replica_secret: <p>Specifies whether to overwrite a secret with the same name in the destination Region. By default, secrets aren't overwritten.</p>
+
+        Raises:
+            aws_sdk_secrets_manager.errors.internal_service_error.InternalServiceError: <p>An error occurred on the server side.</p>
+            aws_sdk_secrets_manager.errors.invalid_parameter_exception.InvalidParameterException: <p>The parameter name or value is invalid.</p>
+            aws_sdk_secrets_manager.errors.invalid_request_exception.InvalidRequestException: <p>A parameter value is not valid for the current state of the resource.</p> <p>Possible causes:</p> <ul> <li> <p>The secret is scheduled for deletion.</p> </li> <li> <p>You tried to enable rotation on a secret that doesn't already have a Lambda function ARN configured and you didn't include such an ARN as a parameter in this call. </p> </li> <li> <p>The secret is managed by another service, and you must use that service to update it. For more information, see <a href=\"https://docs.aws.amazon.com/secretsmanager/latest/userguide/service-linked-secrets.html\">Secrets managed by other Amazon Web Services services</a>.</p> </li> </ul>
+            aws_sdk_secrets_manager.errors.resource_not_found_exception.ResourceNotFoundException: <p>Secrets Manager can't find the resource that you asked for.</p>
+            aws_sdk_secrets_manager.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Example
@@ -1108,6 +1226,13 @@ class AsyncSecretsManagerClient:
 
         Args:
             secret_id: <p>The ARN or name of the secret to restore.</p> <p>For an ARN, we recommend that you specify a complete ARN rather than a partial ARN. See <a href=\"https://docs.aws.amazon.com/secretsmanager/latest/userguide/troubleshoot.html#ARN_secretnamehyphen\">Finding a secret from a partial ARN</a>.</p>
+
+        Raises:
+            aws_sdk_secrets_manager.errors.internal_service_error.InternalServiceError: <p>An error occurred on the server side.</p>
+            aws_sdk_secrets_manager.errors.invalid_parameter_exception.InvalidParameterException: <p>The parameter name or value is invalid.</p>
+            aws_sdk_secrets_manager.errors.invalid_request_exception.InvalidRequestException: <p>A parameter value is not valid for the current state of the resource.</p> <p>Possible causes:</p> <ul> <li> <p>The secret is scheduled for deletion.</p> </li> <li> <p>You tried to enable rotation on a secret that doesn't already have a Lambda function ARN configured and you didn't include such an ARN as a parameter in this call. </p> </li> <li> <p>The secret is managed by another service, and you must use that service to update it. For more information, see <a href=\"https://docs.aws.amazon.com/secretsmanager/latest/userguide/service-linked-secrets.html\">Secrets managed by other Amazon Web Services services</a>.</p> </li> </ul>
+            aws_sdk_secrets_manager.errors.resource_not_found_exception.ResourceNotFoundException: <p>Secrets Manager can't find the resource that you asked for.</p>
+            aws_sdk_secrets_manager.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To restore a previously deleted secret
@@ -1177,6 +1302,13 @@ class AsyncSecretsManagerClient:
             external_secret_rotation_role_arn: <p>The Amazon Resource Name (ARN) of the role that allows Secrets Manager to rotate a secret held by a third-party partner. For more information, see <a href=\"https://docs.aws.amazon.com/secretsmanager/latest/userguide/mes-security.html\">Security and permissions</a>.</p>
             rotate_immediately: <p>Specifies whether to rotate the secret immediately or wait until the next scheduled rotation window. The rotation schedule is defined in <a>RotateSecretRequest$RotationRules</a>.</p> <p>The default for <code>RotateImmediately</code> is <code>true</code>. If you don't specify this value, Secrets Manager rotates the secret immediately.</p> <p>If you set <code>RotateImmediately</code> to <code>false</code>, Secrets Manager tests the rotation configuration by running the <a href=\"https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotate-secrets_how.html\"> <code>testSecret</code> step</a> of the Lambda rotation function. This test creates an <code>AWSPENDING</code> version of the secret and then removes it.</p> <p>When changing an existing rotation schedule and setting <code>RotateImmediately</code> to <code>false</code>:</p> <ul> <li> <p>If using <code>AutomaticallyAfterDays</code> or a <code>ScheduleExpression</code> with <code>rate()</code>, the previously scheduled rotation might still occur.</p> </li> <li> <p>To prevent unintended rotations, use a <code>ScheduleExpression</code> with <code>cron()</code> for granular control over rotation windows.</p> </li> </ul> <p>Rotation is an asynchronous process. For more information, see <a href=\"https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotate-secrets_how.html\">How rotation works</a>.</p>
 
+        Raises:
+            aws_sdk_secrets_manager.errors.internal_service_error.InternalServiceError: <p>An error occurred on the server side.</p>
+            aws_sdk_secrets_manager.errors.invalid_parameter_exception.InvalidParameterException: <p>The parameter name or value is invalid.</p>
+            aws_sdk_secrets_manager.errors.invalid_request_exception.InvalidRequestException: <p>A parameter value is not valid for the current state of the resource.</p> <p>Possible causes:</p> <ul> <li> <p>The secret is scheduled for deletion.</p> </li> <li> <p>You tried to enable rotation on a secret that doesn't already have a Lambda function ARN configured and you didn't include such an ARN as a parameter in this call. </p> </li> <li> <p>The secret is managed by another service, and you must use that service to update it. For more information, see <a href=\"https://docs.aws.amazon.com/secretsmanager/latest/userguide/service-linked-secrets.html\">Secrets managed by other Amazon Web Services services</a>.</p> </li> </ul>
+            aws_sdk_secrets_manager.errors.resource_not_found_exception.ResourceNotFoundException: <p>Secrets Manager can't find the resource that you asked for.</p>
+            aws_sdk_secrets_manager.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To configure rotation for a secret
             The following example configures rotation for a secret using a cron expression. The first rotation happens immediately after the changes are stored in the secret. The rotation schedule is the first and 15th day of every month. The rotation window begins at 4:00 PM UTC and ends at 6:00 PM.
@@ -1240,6 +1372,13 @@ class AsyncSecretsManagerClient:
 
         Args:
             secret_id: <p>The name of the secret or the replica ARN. The replica ARN is the same as the original primary secret ARN expect the Region is changed to the replica Region. </p>
+
+        Raises:
+            aws_sdk_secrets_manager.errors.internal_service_error.InternalServiceError: <p>An error occurred on the server side.</p>
+            aws_sdk_secrets_manager.errors.invalid_parameter_exception.InvalidParameterException: <p>The parameter name or value is invalid.</p>
+            aws_sdk_secrets_manager.errors.invalid_request_exception.InvalidRequestException: <p>A parameter value is not valid for the current state of the resource.</p> <p>Possible causes:</p> <ul> <li> <p>The secret is scheduled for deletion.</p> </li> <li> <p>You tried to enable rotation on a secret that doesn't already have a Lambda function ARN configured and you didn't include such an ARN as a parameter in this call. </p> </li> <li> <p>The secret is managed by another service, and you must use that service to update it. For more information, see <a href=\"https://docs.aws.amazon.com/secretsmanager/latest/userguide/service-linked-secrets.html\">Secrets managed by other Amazon Web Services services</a>.</p> </li> </ul>
+            aws_sdk_secrets_manager.errors.resource_not_found_exception.ResourceNotFoundException: <p>Secrets Manager can't find the resource that you asked for.</p>
+            aws_sdk_secrets_manager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1280,6 +1419,13 @@ class AsyncSecretsManagerClient:
         Args:
             secret_id: <p>The identifier for the secret to attach tags to. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret.</p> <p>For an ARN, we recommend that you specify a complete ARN rather than a partial ARN. See <a href=\"https://docs.aws.amazon.com/secretsmanager/latest/userguide/troubleshoot.html#ARN_secretnamehyphen\">Finding a secret from a partial ARN</a>.</p>
             tags: <p>The tags to attach to the secret as a JSON text string argument. Each element in the list consists of a <code>Key</code> and a <code>Value</code>.</p> <p>For storing multiple values, we recommend that you use a JSON text string argument and specify key/value pairs. For more information, see <a href=\"https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-parameters.html\">Specifying parameter values for the Amazon Web Services CLI</a> in the Amazon Web Services CLI User Guide.</p>
+
+        Raises:
+            aws_sdk_secrets_manager.errors.internal_service_error.InternalServiceError: <p>An error occurred on the server side.</p>
+            aws_sdk_secrets_manager.errors.invalid_parameter_exception.InvalidParameterException: <p>The parameter name or value is invalid.</p>
+            aws_sdk_secrets_manager.errors.invalid_request_exception.InvalidRequestException: <p>A parameter value is not valid for the current state of the resource.</p> <p>Possible causes:</p> <ul> <li> <p>The secret is scheduled for deletion.</p> </li> <li> <p>You tried to enable rotation on a secret that doesn't already have a Lambda function ARN configured and you didn't include such an ARN as a parameter in this call. </p> </li> <li> <p>The secret is managed by another service, and you must use that service to update it. For more information, see <a href=\"https://docs.aws.amazon.com/secretsmanager/latest/userguide/service-linked-secrets.html\">Secrets managed by other Amazon Web Services services</a>.</p> </li> </ul>
+            aws_sdk_secrets_manager.errors.resource_not_found_exception.ResourceNotFoundException: <p>Secrets Manager can't find the resource that you asked for.</p>
+            aws_sdk_secrets_manager.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To add tags to a secret
@@ -1325,6 +1471,13 @@ class AsyncSecretsManagerClient:
         Args:
             secret_id: <p>The ARN or name of the secret.</p> <p>For an ARN, we recommend that you specify a complete ARN rather than a partial ARN. See <a href=\"https://docs.aws.amazon.com/secretsmanager/latest/userguide/troubleshoot.html#ARN_secretnamehyphen\">Finding a secret from a partial ARN</a>.</p>
             tag_keys: <p>A list of tag key names to remove from the secret. You don't specify the value. Both the key and its associated value are removed.</p> <p>This parameter requires a JSON text string argument.</p> <p>For storing multiple values, we recommend that you use a JSON text string argument and specify key/value pairs. For more information, see <a href=\"https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-parameters.html\">Specifying parameter values for the Amazon Web Services CLI</a> in the Amazon Web Services CLI User Guide.</p>
+
+        Raises:
+            aws_sdk_secrets_manager.errors.internal_service_error.InternalServiceError: <p>An error occurred on the server side.</p>
+            aws_sdk_secrets_manager.errors.invalid_parameter_exception.InvalidParameterException: <p>The parameter name or value is invalid.</p>
+            aws_sdk_secrets_manager.errors.invalid_request_exception.InvalidRequestException: <p>A parameter value is not valid for the current state of the resource.</p> <p>Possible causes:</p> <ul> <li> <p>The secret is scheduled for deletion.</p> </li> <li> <p>You tried to enable rotation on a secret that doesn't already have a Lambda function ARN configured and you didn't include such an ARN as a parameter in this call. </p> </li> <li> <p>The secret is managed by another service, and you must use that service to update it. For more information, see <a href=\"https://docs.aws.amazon.com/secretsmanager/latest/userguide/service-linked-secrets.html\">Secrets managed by other Amazon Web Services services</a>.</p> </li> </ul>
+            aws_sdk_secrets_manager.errors.resource_not_found_exception.ResourceNotFoundException: <p>Secrets Manager can't find the resource that you asked for.</p>
+            aws_sdk_secrets_manager.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To remove tags from a secret
@@ -1392,6 +1545,19 @@ class AsyncSecretsManagerClient:
             secret_binary: <p>The binary data to encrypt and store in the new version of the secret. We recommend that you store your binary data in a file and then pass the contents of the file as a parameter. </p> <p>Either <code>SecretBinary</code> or <code>SecretString</code> must have a value, but not both.</p> <p>You can't access this parameter in the Secrets Manager console.</p> <p>Sensitive: This field contains sensitive information, so the service does not include it in CloudTrail log entries. If you create your own log entries, you must also avoid logging the information in this field.</p>
             secret_string: <p>The text data to encrypt and store in the new version of the secret. We recommend you use a JSON structure of key/value pairs for your secret value. </p> <p>Either <code>SecretBinary</code> or <code>SecretString</code> must have a value, but not both. </p> <p>Sensitive: This field contains sensitive information, so the service does not include it in CloudTrail log entries. If you create your own log entries, you must also avoid logging the information in this field.</p>
             type: <p>The exact string that identifies the third-party partner that holds the external secret. For more information, see <a href=\"https://docs.aws.amazon.com/secretsmanager/latest/userguide/mes-partners.html\">Managed external secret partners</a>.</p>
+
+        Raises:
+            aws_sdk_secrets_manager.errors.decryption_failure.DecryptionFailure: <p>Secrets Manager can't decrypt the protected secret text using the provided KMS key. </p>
+            aws_sdk_secrets_manager.errors.encryption_failure.EncryptionFailure: <p>Secrets Manager can't encrypt the protected secret text using the provided KMS key. Check that the KMS key is available, enabled, and not in an invalid state. For more information, see <a href=\"https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html\">Key state: Effect on your KMS key</a>.</p>
+            aws_sdk_secrets_manager.errors.internal_service_error.InternalServiceError: <p>An error occurred on the server side.</p>
+            aws_sdk_secrets_manager.errors.invalid_parameter_exception.InvalidParameterException: <p>The parameter name or value is invalid.</p>
+            aws_sdk_secrets_manager.errors.invalid_request_exception.InvalidRequestException: <p>A parameter value is not valid for the current state of the resource.</p> <p>Possible causes:</p> <ul> <li> <p>The secret is scheduled for deletion.</p> </li> <li> <p>You tried to enable rotation on a secret that doesn't already have a Lambda function ARN configured and you didn't include such an ARN as a parameter in this call. </p> </li> <li> <p>The secret is managed by another service, and you must use that service to update it. For more information, see <a href=\"https://docs.aws.amazon.com/secretsmanager/latest/userguide/service-linked-secrets.html\">Secrets managed by other Amazon Web Services services</a>.</p> </li> </ul>
+            aws_sdk_secrets_manager.errors.limit_exceeded_exception.LimitExceededException: <p>The request failed because it would exceed one of the Secrets Manager quotas.</p>
+            aws_sdk_secrets_manager.errors.malformed_policy_document_exception.MalformedPolicyDocumentException: <p>The resource policy has syntax errors.</p>
+            aws_sdk_secrets_manager.errors.precondition_not_met_exception.PreconditionNotMetException: <p>The request failed because you did not complete all the prerequisite steps.</p>
+            aws_sdk_secrets_manager.errors.resource_exists_exception.ResourceExistsException: <p>A resource with the ID you requested already exists.</p>
+            aws_sdk_secrets_manager.errors.resource_not_found_exception.ResourceNotFoundException: <p>Secrets Manager can't find the resource that you asked for.</p>
+            aws_sdk_secrets_manager.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To create a new version of the encrypted secret value
@@ -1467,6 +1633,14 @@ class AsyncSecretsManagerClient:
             remove_from_version_id: <p>The ID of the version that the staging label is to be removed from. If the staging label you are trying to attach to one version is already attached to a different version, then you must include this parameter and specify the version that the label is to be removed from. If the label is attached and you either do not specify this parameter, or the version ID does not match, then the operation fails.</p>
             move_to_version_id: <p>The ID of the version to add the staging label to. To remove a label from a version, then do not specify this parameter.</p> <p>If the staging label is already attached to a different version of the secret, then you must also specify the <code>RemoveFromVersionId</code> parameter. </p>
 
+        Raises:
+            aws_sdk_secrets_manager.errors.internal_service_error.InternalServiceError: <p>An error occurred on the server side.</p>
+            aws_sdk_secrets_manager.errors.invalid_parameter_exception.InvalidParameterException: <p>The parameter name or value is invalid.</p>
+            aws_sdk_secrets_manager.errors.invalid_request_exception.InvalidRequestException: <p>A parameter value is not valid for the current state of the resource.</p> <p>Possible causes:</p> <ul> <li> <p>The secret is scheduled for deletion.</p> </li> <li> <p>You tried to enable rotation on a secret that doesn't already have a Lambda function ARN configured and you didn't include such an ARN as a parameter in this call. </p> </li> <li> <p>The secret is managed by another service, and you must use that service to update it. For more information, see <a href=\"https://docs.aws.amazon.com/secretsmanager/latest/userguide/service-linked-secrets.html\">Secrets managed by other Amazon Web Services services</a>.</p> </li> </ul>
+            aws_sdk_secrets_manager.errors.limit_exceeded_exception.LimitExceededException: <p>The request failed because it would exceed one of the Secrets Manager quotas.</p>
+            aws_sdk_secrets_manager.errors.resource_not_found_exception.ResourceNotFoundException: <p>Secrets Manager can't find the resource that you asked for.</p>
+            aws_sdk_secrets_manager.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To add a staging label attached to a version of a secret
             The following example shows you how to add a staging label to a version of a secret. You can review the results by running the operation ListSecretVersionIds and viewing the VersionStages response field for the affected version.
@@ -1527,6 +1701,14 @@ class AsyncSecretsManagerClient:
         Args:
             secret_id: <p>The ARN or name of the secret with the resource-based policy you want to validate.</p>
             resource_policy: <p>A JSON-formatted string that contains an Amazon Web Services resource-based policy. The policy in the string identifies who can access or manage this secret and its versions. For example policies, see <a href=\"https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_examples.html\">Permissions policy examples</a>.</p>
+
+        Raises:
+            aws_sdk_secrets_manager.errors.internal_service_error.InternalServiceError: <p>An error occurred on the server side.</p>
+            aws_sdk_secrets_manager.errors.invalid_parameter_exception.InvalidParameterException: <p>The parameter name or value is invalid.</p>
+            aws_sdk_secrets_manager.errors.invalid_request_exception.InvalidRequestException: <p>A parameter value is not valid for the current state of the resource.</p> <p>Possible causes:</p> <ul> <li> <p>The secret is scheduled for deletion.</p> </li> <li> <p>You tried to enable rotation on a secret that doesn't already have a Lambda function ARN configured and you didn't include such an ARN as a parameter in this call. </p> </li> <li> <p>The secret is managed by another service, and you must use that service to update it. For more information, see <a href=\"https://docs.aws.amazon.com/secretsmanager/latest/userguide/service-linked-secrets.html\">Secrets managed by other Amazon Web Services services</a>.</p> </li> </ul>
+            aws_sdk_secrets_manager.errors.malformed_policy_document_exception.MalformedPolicyDocumentException: <p>The resource policy has syntax errors.</p>
+            aws_sdk_secrets_manager.errors.resource_not_found_exception.ResourceNotFoundException: <p>Secrets Manager can't find the resource that you asked for.</p>
+            aws_sdk_secrets_manager.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To validate a resource-based policy to a secret

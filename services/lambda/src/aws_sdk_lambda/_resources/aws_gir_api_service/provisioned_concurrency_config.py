@@ -48,6 +48,14 @@ class ProvisionedConcurrencyConfig:
             qualifier: <p>The version number or alias name.</p>
             provisioned_concurrent_executions: <p>The amount of provisioned concurrency to allocate for the version or alias.</p>
 
+        Raises:
+            aws_sdk_lambda.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One of the parameters in the request is not valid.</p>
+            aws_sdk_lambda.errors.resource_conflict_exception.ResourceConflictException: <p>The resource already exists, or another operation is in progress.</p>
+            aws_sdk_lambda.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request does not exist.</p>
+            aws_sdk_lambda.errors.service_exception.ServiceException: <p>The Lambda service encountered an internal error.</p>
+            aws_sdk_lambda.errors.too_many_requests_exception.TooManyRequestsException: <p>The request throughput limit was exceeded. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests\">Lambda quotas</a>.</p>
+            aws_sdk_lambda.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To allocate provisioned concurrency
             The following example allocates 100 provisioned concurrency for the BLUE alias of the specified function.
@@ -94,6 +102,14 @@ class ProvisionedConcurrencyConfig:
         Args:
             function_name: <p>The name or ARN of the Lambda function.</p> <p class=\"title\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> – <code>my-function</code>.</p> </li> <li> <p> <b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
             qualifier: <p>The version number or alias name.</p>
+
+        Raises:
+            aws_sdk_lambda.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One of the parameters in the request is not valid.</p>
+            aws_sdk_lambda.errors.provisioned_concurrency_config_not_found_exception.ProvisionedConcurrencyConfigNotFoundException: <p>The specified configuration does not exist.</p>
+            aws_sdk_lambda.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request does not exist.</p>
+            aws_sdk_lambda.errors.service_exception.ServiceException: <p>The Lambda service encountered an internal error.</p>
+            aws_sdk_lambda.errors.too_many_requests_exception.TooManyRequestsException: <p>The request throughput limit was exceeded. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests\">Lambda quotas</a>.</p>
+            aws_sdk_lambda.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To get a provisioned concurrency configuration
@@ -144,6 +160,14 @@ class ProvisionedConcurrencyConfig:
         Args:
             function_name: <p>The name or ARN of the Lambda function.</p> <p class=\"title\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> – <code>my-function</code>.</p> </li> <li> <p> <b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
             qualifier: <p>The version number or alias name.</p>
+
+        Raises:
+            aws_sdk_lambda.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One of the parameters in the request is not valid.</p>
+            aws_sdk_lambda.errors.resource_conflict_exception.ResourceConflictException: <p>The resource already exists, or another operation is in progress.</p>
+            aws_sdk_lambda.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request does not exist.</p>
+            aws_sdk_lambda.errors.service_exception.ServiceException: <p>The Lambda service encountered an internal error.</p>
+            aws_sdk_lambda.errors.too_many_requests_exception.TooManyRequestsException: <p>The request throughput limit was exceeded. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests\">Lambda quotas</a>.</p>
+            aws_sdk_lambda.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To delete a provisioned concurrency configuration
@@ -196,6 +220,14 @@ class AsyncProvisionedConcurrencyConfig:
             qualifier: <p>The version number or alias name.</p>
             provisioned_concurrent_executions: <p>The amount of provisioned concurrency to allocate for the version or alias.</p>
 
+        Raises:
+            aws_sdk_lambda.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One of the parameters in the request is not valid.</p>
+            aws_sdk_lambda.errors.resource_conflict_exception.ResourceConflictException: <p>The resource already exists, or another operation is in progress.</p>
+            aws_sdk_lambda.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request does not exist.</p>
+            aws_sdk_lambda.errors.service_exception.ServiceException: <p>The Lambda service encountered an internal error.</p>
+            aws_sdk_lambda.errors.too_many_requests_exception.TooManyRequestsException: <p>The request throughput limit was exceeded. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests\">Lambda quotas</a>.</p>
+            aws_sdk_lambda.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To allocate provisioned concurrency
             The following example allocates 100 provisioned concurrency for the BLUE alias of the specified function.
@@ -243,6 +275,14 @@ class AsyncProvisionedConcurrencyConfig:
         Args:
             function_name: <p>The name or ARN of the Lambda function.</p> <p class=\"title\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> – <code>my-function</code>.</p> </li> <li> <p> <b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
             qualifier: <p>The version number or alias name.</p>
+
+        Raises:
+            aws_sdk_lambda.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One of the parameters in the request is not valid.</p>
+            aws_sdk_lambda.errors.provisioned_concurrency_config_not_found_exception.ProvisionedConcurrencyConfigNotFoundException: <p>The specified configuration does not exist.</p>
+            aws_sdk_lambda.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request does not exist.</p>
+            aws_sdk_lambda.errors.service_exception.ServiceException: <p>The Lambda service encountered an internal error.</p>
+            aws_sdk_lambda.errors.too_many_requests_exception.TooManyRequestsException: <p>The request throughput limit was exceeded. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests\">Lambda quotas</a>.</p>
+            aws_sdk_lambda.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To get a provisioned concurrency configuration
@@ -294,6 +334,14 @@ class AsyncProvisionedConcurrencyConfig:
         Args:
             function_name: <p>The name or ARN of the Lambda function.</p> <p class=\"title\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> – <code>my-function</code>.</p> </li> <li> <p> <b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
             qualifier: <p>The version number or alias name.</p>
+
+        Raises:
+            aws_sdk_lambda.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One of the parameters in the request is not valid.</p>
+            aws_sdk_lambda.errors.resource_conflict_exception.ResourceConflictException: <p>The resource already exists, or another operation is in progress.</p>
+            aws_sdk_lambda.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request does not exist.</p>
+            aws_sdk_lambda.errors.service_exception.ServiceException: <p>The Lambda service encountered an internal error.</p>
+            aws_sdk_lambda.errors.too_many_requests_exception.TooManyRequestsException: <p>The request throughput limit was exceeded. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests\">Lambda quotas</a>.</p>
+            aws_sdk_lambda.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To delete a provisioned concurrency configuration

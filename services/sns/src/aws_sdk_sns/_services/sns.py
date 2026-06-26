@@ -252,6 +252,13 @@ class SNSClient:
             label: <p>A unique identifier for the new policy statement.</p>
             aws_account_id: <p>The Amazon Web Services account IDs of the users (principals) who will be given access to the specified actions. The users must have Amazon Web Services account, but do not need to be signed up for this service.</p>
             action_name: <p>The action you want to allow for the specified principal(s).</p> <p>Valid values: Any Amazon SNS action name, for example <code>Publish</code>.</p>
+
+        Raises:
+            aws_sdk_sns.errors.authorization_error_exception.AuthorizationErrorException: <p>Indicates that the user has been denied access to the requested resource.</p>
+            aws_sdk_sns.errors.internal_error_exception.InternalErrorException: <p>Indicates an internal service error.</p>
+            aws_sdk_sns.errors.invalid_parameter_exception.InvalidParameterException: <p>Indicates that a request parameter does not comply with the associated constraints.</p>
+            aws_sdk_sns.errors.not_found_exception.NotFoundException: <p>Indicates that the requested resource does not exist.</p>
+            aws_sdk_sns.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -290,6 +297,13 @@ class SNSClient:
 
         Args:
             phone_number: <p>The phone number for which you want to check the opt out status.</p>
+
+        Raises:
+            aws_sdk_sns.errors.authorization_error_exception.AuthorizationErrorException: <p>Indicates that the user has been denied access to the requested resource.</p>
+            aws_sdk_sns.errors.internal_error_exception.InternalErrorException: <p>Indicates an internal service error.</p>
+            aws_sdk_sns.errors.invalid_parameter_exception.InvalidParameterException: <p>Indicates that a request parameter does not comply with the associated constraints.</p>
+            aws_sdk_sns.errors.throttled_exception.ThrottledException: <p>Indicates that the rate at which requests have been submitted for this action exceeds the limit for your Amazon Web Services account.</p>
+            aws_sdk_sns.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -333,6 +347,16 @@ class SNSClient:
             topic_arn: <p>The ARN of the topic for which you wish to confirm a subscription.</p>
             token: <p>Short-lived token sent to an endpoint during the <code>Subscribe</code> action.</p>
             authenticate_on_unsubscribe: <p>Disallows unauthenticated unsubscribes of the subscription. If the value of this parameter is <code>true</code> and the request has an Amazon Web Services signature, then only the topic owner and the subscription owner can unsubscribe the endpoint. The unsubscribe action requires Amazon Web Services authentication. </p>
+
+        Raises:
+            aws_sdk_sns.errors.authorization_error_exception.AuthorizationErrorException: <p>Indicates that the user has been denied access to the requested resource.</p>
+            aws_sdk_sns.errors.filter_policy_limit_exceeded_exception.FilterPolicyLimitExceededException: <p>Indicates that the number of filter polices in your Amazon Web Services account exceeds the limit. To add more filter polices, submit an Amazon SNS Limit Increase case in the Amazon Web Services Support Center.</p>
+            aws_sdk_sns.errors.internal_error_exception.InternalErrorException: <p>Indicates an internal service error.</p>
+            aws_sdk_sns.errors.invalid_parameter_exception.InvalidParameterException: <p>Indicates that a request parameter does not comply with the associated constraints.</p>
+            aws_sdk_sns.errors.not_found_exception.NotFoundException: <p>Indicates that the requested resource does not exist.</p>
+            aws_sdk_sns.errors.replay_limit_exceeded_exception.ReplayLimitExceededException: <p>Indicates that the request parameter has exceeded the maximum number of concurrent message replays.</p>
+            aws_sdk_sns.errors.subscription_limit_exceeded_exception.SubscriptionLimitExceededException: <p>Indicates that the customer already owns the maximum allowed number of subscriptions.</p>
+            aws_sdk_sns.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -377,6 +401,12 @@ class SNSClient:
             name: <p>Application names must be made up of only uppercase and lowercase ASCII letters, numbers, underscores, hyphens, and periods, and must be between 1 and 256 characters long.</p>
             platform: <p>The following platforms are supported: ADM (Amazon Device Messaging), APNS (Apple Push Notification Service), APNS_SANDBOX, and GCM (Firebase Cloud Messaging).</p>
             attributes: <p>For a list of attributes, see <a href=\"https://docs.aws.amazon.com/sns/latest/api/API_SetPlatformApplicationAttributes.html\"> <code>SetPlatformApplicationAttributes</code> </a>.</p>
+
+        Raises:
+            aws_sdk_sns.errors.authorization_error_exception.AuthorizationErrorException: <p>Indicates that the user has been denied access to the requested resource.</p>
+            aws_sdk_sns.errors.internal_error_exception.InternalErrorException: <p>Indicates an internal service error.</p>
+            aws_sdk_sns.errors.invalid_parameter_exception.InvalidParameterException: <p>Indicates that a request parameter does not comply with the associated constraints.</p>
+            aws_sdk_sns.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -424,6 +454,13 @@ class SNSClient:
             token: <p>Unique identifier created by the notification service for an app on a device. The specific name for Token will vary, depending on which notification service is being used. For example, when using APNS as the notification service, you need the device token. Alternatively, when using GCM (Firebase Cloud Messaging) or ADM, the device token equivalent is called the registration ID.</p>
             custom_user_data: <p>Arbitrary user data to associate with the endpoint. Amazon SNS does not use this data. The data must be in UTF-8 format and less than 2KB.</p>
             attributes: <p>For a list of attributes, see <a href=\"https://docs.aws.amazon.com/sns/latest/api/API_SetEndpointAttributes.html\"> <code>SetEndpointAttributes</code> </a>.</p>
+
+        Raises:
+            aws_sdk_sns.errors.authorization_error_exception.AuthorizationErrorException: <p>Indicates that the user has been denied access to the requested resource.</p>
+            aws_sdk_sns.errors.internal_error_exception.InternalErrorException: <p>Indicates an internal service error.</p>
+            aws_sdk_sns.errors.invalid_parameter_exception.InvalidParameterException: <p>Indicates that a request parameter does not comply with the associated constraints.</p>
+            aws_sdk_sns.errors.not_found_exception.NotFoundException: <p>Indicates that the requested resource does not exist.</p>
+            aws_sdk_sns.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -470,6 +507,15 @@ class SNSClient:
         Args:
             phone_number: <p>The destination phone number to verify. On verification, Amazon SNS adds this phone number to the list of verified phone numbers that you can send SMS messages to.</p>
             language_code: <p>The language to use for sending the OTP. The default value is <code>en-US</code>.</p>
+
+        Raises:
+            aws_sdk_sns.errors.authorization_error_exception.AuthorizationErrorException: <p>Indicates that the user has been denied access to the requested resource.</p>
+            aws_sdk_sns.errors.internal_error_exception.InternalErrorException: <p>Indicates an internal service error.</p>
+            aws_sdk_sns.errors.invalid_parameter_exception.InvalidParameterException: <p>Indicates that a request parameter does not comply with the associated constraints.</p>
+            aws_sdk_sns.errors.opted_out_exception.OptedOutException: <p>Indicates that the specified phone number opted out of receiving SMS messages from your Amazon Web Services account. You can't send SMS messages to phone numbers that opt out.</p>
+            aws_sdk_sns.errors.throttled_exception.ThrottledException: <p>Indicates that the rate at which requests have been submitted for this action exceeds the limit for your Amazon Web Services account.</p>
+            aws_sdk_sns.errors.user_error_exception.UserErrorException: <p>Indicates that a request parameter does not comply with the associated constraints.</p>
+            aws_sdk_sns.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -519,6 +565,18 @@ class SNSClient:
             attributes: <p>A map of attributes with their corresponding values.</p> <p>The following lists names, descriptions, and values of the special request parameters that the <code>CreateTopic</code> action uses:</p> <ul> <li> <p> <code>DeliveryPolicy</code> – The policy that defines how Amazon SNS retries failed deliveries to HTTP/S endpoints.</p> </li> <li> <p> <code>DisplayName</code> – The display name to use for a topic with SMS subscriptions.</p> </li> <li> <p> <code>Policy</code> – The policy that defines who can access your topic. By default, only the topic owner can publish or subscribe to the topic.</p> </li> <li> <p> <code>TracingConfig</code> – Tracing mode of an Amazon SNS topic. By default <code>TracingConfig</code> is set to <code>PassThrough</code>, and the topic passes through the tracing header it receives from an Amazon SNS publisher to its subscriptions. If set to <code>Active</code>, Amazon SNS will vend X-Ray segment data to topic owner account if the sampled flag in the tracing header is true. This is only supported on standard topics.</p> </li> <li> <p>HTTP</p> <ul> <li> <p> <code>HTTPSuccessFeedbackRoleArn</code> – Indicates successful message delivery status for an Amazon SNS topic that is subscribed to an HTTP endpoint. </p> </li> <li> <p> <code>HTTPSuccessFeedbackSampleRate</code> – Indicates percentage of successful messages to sample for an Amazon SNS topic that is subscribed to an HTTP endpoint.</p> </li> <li> <p> <code>HTTPFailureFeedbackRoleArn</code> – Indicates failed message delivery status for an Amazon SNS topic that is subscribed to an HTTP endpoint.</p> </li> </ul> </li> <li> <p>Amazon Data Firehose</p> <ul> <li> <p> <code>FirehoseSuccessFeedbackRoleArn</code> – Indicates successful message delivery status for an Amazon SNS topic that is subscribed to an Amazon Data Firehose endpoint.</p> </li> <li> <p> <code>FirehoseSuccessFeedbackSampleRate</code> – Indicates percentage of successful messages to sample for an Amazon SNS topic that is subscribed to an Amazon Data Firehose endpoint.</p> </li> <li> <p> <code>FirehoseFailureFeedbackRoleArn</code> – Indicates failed message delivery status for an Amazon SNS topic that is subscribed to an Amazon Data Firehose endpoint. </p> </li> </ul> </li> <li> <p>Lambda</p> <ul> <li> <p> <code>LambdaSuccessFeedbackRoleArn</code> – Indicates successful message delivery status for an Amazon SNS topic that is subscribed to an Lambda endpoint.</p> </li> <li> <p> <code>LambdaSuccessFeedbackSampleRate</code> – Indicates percentage of successful messages to sample for an Amazon SNS topic that is subscribed to an Lambda endpoint.</p> </li> <li> <p> <code>LambdaFailureFeedbackRoleArn</code> – Indicates failed message delivery status for an Amazon SNS topic that is subscribed to an Lambda endpoint. </p> </li> </ul> </li> <li> <p>Platform application endpoint</p> <ul> <li> <p> <code>ApplicationSuccessFeedbackRoleArn</code> – Indicates successful message delivery status for an Amazon SNS topic that is subscribed to a platform application endpoint.</p> </li> <li> <p> <code>ApplicationSuccessFeedbackSampleRate</code> – Indicates percentage of successful messages to sample for an Amazon SNS topic that is subscribed to an platform application endpoint.</p> </li> <li> <p> <code>ApplicationFailureFeedbackRoleArn</code> – Indicates failed message delivery status for an Amazon SNS topic that is subscribed to an platform application endpoint.</p> </li> </ul> <note> <p>In addition to being able to configure topic attributes for message delivery status of notification messages sent to Amazon SNS application endpoints, you can also configure application attributes for the delivery status of push notification messages sent to push notification services.</p> <p>For example, For more information, see <a href=\"https://docs.aws.amazon.com/sns/latest/dg/sns-msg-status.html\">Using Amazon SNS Application Attributes for Message Delivery Status</a>. </p> </note> </li> <li> <p>Amazon SQS</p> <ul> <li> <p> <code>SQSSuccessFeedbackRoleArn</code> – Indicates successful message delivery status for an Amazon SNS topic that is subscribed to an Amazon SQS endpoint. </p> </li> <li> <p> <code>SQSSuccessFeedbackSampleRate</code> – Indicates percentage of successful messages to sample for an Amazon SNS topic that is subscribed to an Amazon SQS endpoint. </p> </li> <li> <p> <code>SQSFailureFeedbackRoleArn</code> – Indicates failed message delivery status for an Amazon SNS topic that is subscribed to an Amazon SQS endpoint. </p> </li> </ul> </li> </ul> <note> <p>The <ENDPOINT>SuccessFeedbackRoleArn and <ENDPOINT>FailureFeedbackRoleArn attributes are used to give Amazon SNS write access to use CloudWatch Logs on your behalf. The <ENDPOINT>SuccessFeedbackSampleRate attribute is for specifying the sample rate percentage (0-100) of successfully delivered messages. After you configure the <ENDPOINT>FailureFeedbackRoleArn attribute, then all failed message deliveries generate CloudWatch Logs. </p> </note> <p>The following attribute applies only to <a href=\"https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html\">server-side encryption</a>:</p> <ul> <li> <p> <code>KmsMasterKeyId</code> – The ID of an Amazon Web Services managed customer master key (CMK) for Amazon SNS or a custom CMK. For more information, see <a href=\"https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html#sse-key-terms\">Key Terms</a>. For more examples, see <a href=\"https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters\">KeyId</a> in the <i>Key Management Service API Reference</i>. </p> </li> </ul> <p>The following attributes apply only to <a href=\"https://docs.aws.amazon.com/sns/latest/dg/sns-fifo-topics.html\">FIFO topics</a>:</p> <ul> <li> <p> <code>ArchivePolicy</code> – The policy that sets the retention period for messages stored in the message archive of an Amazon SNS FIFO topic.</p> </li> <li> <p> <code>ContentBasedDeduplication</code> – Enables content-based deduplication for FIFO topics.</p> <ul> <li> <p>By default, <code>ContentBasedDeduplication</code> is set to <code>false</code>. If you create a FIFO topic and this attribute is <code>false</code>, you must specify a value for the <code>MessageDeduplicationId</code> parameter for the <a href=\"https://docs.aws.amazon.com/sns/latest/api/API_Publish.html\">Publish</a> action. </p> </li> <li> <p>When you set <code>ContentBasedDeduplication</code> to <code>true</code>, Amazon SNS uses a SHA-256 hash to generate the <code>MessageDeduplicationId</code> using the body of the message (but not the attributes of the message).</p> <p>(Optional) To override the generated value, you can specify a value for the <code>MessageDeduplicationId</code> parameter for the <code>Publish</code> action.</p> </li> </ul> </li> </ul> <ul> <li> <p> <code>FifoThroughputScope</code> – Enables higher throughput for your FIFO topic by adjusting the scope of deduplication. This attribute has two possible values:</p> <ul> <li> <p> <code>Topic</code> – The scope of message deduplication is across the entire topic. This is the default value and maintains existing behavior, with a maximum throughput of 3000 messages per second or 20MB per second, whichever comes first.</p> </li> <li> <p> <code>MessageGroup</code> – The scope of deduplication is within each individual message group, which enables higher throughput per topic subject to regional quotas. For more information on quotas or to request an increase, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/sns.html\">Amazon SNS service quotas</a> in the Amazon Web Services General Reference.</p> </li> </ul> </li> </ul>
             tags: <p>The list of tags to add to a new topic.</p> <note> <p>To be able to tag a topic on creation, you must have the <code>sns:CreateTopic</code> and <code>sns:TagResource</code> permissions.</p> </note>
             data_protection_policy: <p>The body of the policy document you want to use for this topic.</p> <p>You can only add one policy per topic.</p> <p>The policy must be in JSON string format.</p> <p>Length Constraints: Maximum length of 30,720.</p>
+
+        Raises:
+            aws_sdk_sns.errors.authorization_error_exception.AuthorizationErrorException: <p>Indicates that the user has been denied access to the requested resource.</p>
+            aws_sdk_sns.errors.concurrent_access_exception.ConcurrentAccessException: <p>Can't perform multiple operations on a tag simultaneously. Perform the operations sequentially.</p>
+            aws_sdk_sns.errors.internal_error_exception.InternalErrorException: <p>Indicates an internal service error.</p>
+            aws_sdk_sns.errors.invalid_parameter_exception.InvalidParameterException: <p>Indicates that a request parameter does not comply with the associated constraints.</p>
+            aws_sdk_sns.errors.invalid_security_exception.InvalidSecurityException: <p>The credential signature isn't valid. You must use an HTTPS endpoint and sign your request using Signature Version 4.</p>
+            aws_sdk_sns.errors.stale_tag_exception.StaleTagException: <p>A tag has been added to a resource with the same ARN as a deleted resource. Wait a short while and then retry the operation.</p>
+            aws_sdk_sns.errors.tag_limit_exceeded_exception.TagLimitExceededException: <p>Can't add more than 50 tags to a topic.</p>
+            aws_sdk_sns.errors.tag_policy_exception.TagPolicyException: <p>The request doesn't comply with the IAM tag policy. Correct your request and then retry it.</p>
+            aws_sdk_sns.errors.topic_limit_exceeded_exception.TopicLimitExceededException: <p>Indicates that the customer already owns the maximum allowed number of topics.</p>
+            aws_sdk_sns.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -562,6 +620,12 @@ class SNSClient:
 
         Args:
             endpoint_arn: <p> <code>EndpointArn</code> of endpoint to delete.</p>
+
+        Raises:
+            aws_sdk_sns.errors.authorization_error_exception.AuthorizationErrorException: <p>Indicates that the user has been denied access to the requested resource.</p>
+            aws_sdk_sns.errors.internal_error_exception.InternalErrorException: <p>Indicates an internal service error.</p>
+            aws_sdk_sns.errors.invalid_parameter_exception.InvalidParameterException: <p>Indicates that a request parameter does not comply with the associated constraints.</p>
+            aws_sdk_sns.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -597,6 +661,12 @@ class SNSClient:
 
         Args:
             platform_application_arn: <p> <code>PlatformApplicationArn</code> of platform application object to delete.</p>
+
+        Raises:
+            aws_sdk_sns.errors.authorization_error_exception.AuthorizationErrorException: <p>Indicates that the user has been denied access to the requested resource.</p>
+            aws_sdk_sns.errors.internal_error_exception.InternalErrorException: <p>Indicates an internal service error.</p>
+            aws_sdk_sns.errors.invalid_parameter_exception.InvalidParameterException: <p>Indicates that a request parameter does not comply with the associated constraints.</p>
+            aws_sdk_sns.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -632,6 +702,15 @@ class SNSClient:
 
         Args:
             phone_number: <p>The destination phone number to delete.</p>
+
+        Raises:
+            aws_sdk_sns.errors.authorization_error_exception.AuthorizationErrorException: <p>Indicates that the user has been denied access to the requested resource.</p>
+            aws_sdk_sns.errors.internal_error_exception.InternalErrorException: <p>Indicates an internal service error.</p>
+            aws_sdk_sns.errors.invalid_parameter_exception.InvalidParameterException: <p>Indicates that a request parameter does not comply with the associated constraints.</p>
+            aws_sdk_sns.errors.resource_not_found_exception.ResourceNotFoundException: <p>Can’t perform the action on the specified resource. Make sure that the resource exists.</p>
+            aws_sdk_sns.errors.throttled_exception.ThrottledException: <p>Indicates that the rate at which requests have been submitted for this action exceeds the limit for your Amazon Web Services account.</p>
+            aws_sdk_sns.errors.user_error_exception.UserErrorException: <p>Indicates that a request parameter does not comply with the associated constraints.</p>
+            aws_sdk_sns.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -669,6 +748,17 @@ class SNSClient:
 
         Args:
             topic_arn: <p>The ARN of the topic you want to delete.</p>
+
+        Raises:
+            aws_sdk_sns.errors.authorization_error_exception.AuthorizationErrorException: <p>Indicates that the user has been denied access to the requested resource.</p>
+            aws_sdk_sns.errors.concurrent_access_exception.ConcurrentAccessException: <p>Can't perform multiple operations on a tag simultaneously. Perform the operations sequentially.</p>
+            aws_sdk_sns.errors.internal_error_exception.InternalErrorException: <p>Indicates an internal service error.</p>
+            aws_sdk_sns.errors.invalid_parameter_exception.InvalidParameterException: <p>Indicates that a request parameter does not comply with the associated constraints.</p>
+            aws_sdk_sns.errors.invalid_state_exception.InvalidStateException: <p>Indicates that the specified state is not a valid state for an event source.</p>
+            aws_sdk_sns.errors.not_found_exception.NotFoundException: <p>Indicates that the requested resource does not exist.</p>
+            aws_sdk_sns.errors.stale_tag_exception.StaleTagException: <p>A tag has been added to a resource with the same ARN as a deleted resource. Wait a short while and then retry the operation.</p>
+            aws_sdk_sns.errors.tag_policy_exception.TagPolicyException: <p>The request doesn't comply with the IAM tag policy. Correct your request and then retry it.</p>
+            aws_sdk_sns.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -704,6 +794,14 @@ class SNSClient:
 
         Args:
             resource_arn: <p>The ARN of the topic whose <code>DataProtectionPolicy</code> you want to get.</p> <p>For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs)</a> in the Amazon Web Services General Reference.</p>
+
+        Raises:
+            aws_sdk_sns.errors.authorization_error_exception.AuthorizationErrorException: <p>Indicates that the user has been denied access to the requested resource.</p>
+            aws_sdk_sns.errors.internal_error_exception.InternalErrorException: <p>Indicates an internal service error.</p>
+            aws_sdk_sns.errors.invalid_parameter_exception.InvalidParameterException: <p>Indicates that a request parameter does not comply with the associated constraints.</p>
+            aws_sdk_sns.errors.invalid_security_exception.InvalidSecurityException: <p>The credential signature isn't valid. You must use an HTTPS endpoint and sign your request using Signature Version 4.</p>
+            aws_sdk_sns.errors.not_found_exception.NotFoundException: <p>Indicates that the requested resource does not exist.</p>
+            aws_sdk_sns.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -741,6 +839,13 @@ class SNSClient:
 
         Args:
             endpoint_arn: <p> <code>EndpointArn</code> for <code>GetEndpointAttributes</code> input.</p>
+
+        Raises:
+            aws_sdk_sns.errors.authorization_error_exception.AuthorizationErrorException: <p>Indicates that the user has been denied access to the requested resource.</p>
+            aws_sdk_sns.errors.internal_error_exception.InternalErrorException: <p>Indicates an internal service error.</p>
+            aws_sdk_sns.errors.invalid_parameter_exception.InvalidParameterException: <p>Indicates that a request parameter does not comply with the associated constraints.</p>
+            aws_sdk_sns.errors.not_found_exception.NotFoundException: <p>Indicates that the requested resource does not exist.</p>
+            aws_sdk_sns.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -778,6 +883,13 @@ class SNSClient:
 
         Args:
             platform_application_arn: <p> <code>PlatformApplicationArn</code> for GetPlatformApplicationAttributesInput.</p>
+
+        Raises:
+            aws_sdk_sns.errors.authorization_error_exception.AuthorizationErrorException: <p>Indicates that the user has been denied access to the requested resource.</p>
+            aws_sdk_sns.errors.internal_error_exception.InternalErrorException: <p>Indicates an internal service error.</p>
+            aws_sdk_sns.errors.invalid_parameter_exception.InvalidParameterException: <p>Indicates that a request parameter does not comply with the associated constraints.</p>
+            aws_sdk_sns.errors.not_found_exception.NotFoundException: <p>Indicates that the requested resource does not exist.</p>
+            aws_sdk_sns.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -815,6 +927,13 @@ class SNSClient:
 
         Args:
             attributes: <p>A list of the individual attribute names, such as <code>MonthlySpendLimit</code>, for which you want values.</p> <p>For all attribute names, see <a href=\"https://docs.aws.amazon.com/sns/latest/api/API_SetSMSAttributes.html\">SetSMSAttributes</a>.</p> <p>If you don't use this parameter, Amazon SNS returns all SMS attributes.</p>
+
+        Raises:
+            aws_sdk_sns.errors.authorization_error_exception.AuthorizationErrorException: <p>Indicates that the user has been denied access to the requested resource.</p>
+            aws_sdk_sns.errors.internal_error_exception.InternalErrorException: <p>Indicates an internal service error.</p>
+            aws_sdk_sns.errors.invalid_parameter_exception.InvalidParameterException: <p>Indicates that a request parameter does not comply with the associated constraints.</p>
+            aws_sdk_sns.errors.throttled_exception.ThrottledException: <p>Indicates that the rate at which requests have been submitted for this action exceeds the limit for your Amazon Web Services account.</p>
+            aws_sdk_sns.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -846,7 +965,14 @@ class SNSClient:
     def get_sms_sandbox_account_status(
         self, *, config_overrides: Optional[SNSClientConfig] = None
     ) -> "aws_sdk_sns.types.get_sms_sandbox_account_status_result.GetSMSSandboxAccountStatusResult":
-        r"""<p>Retrieves the SMS sandbox status for the calling Amazon Web Services account in the target Amazon Web Services Region.</p> <p>When you start using Amazon SNS to send SMS messages, your Amazon Web Services account is in the <i>SMS sandbox</i>. The SMS sandbox provides a safe environment for you to try Amazon SNS features without risking your reputation as an SMS sender. While your Amazon Web Services account is in the SMS sandbox, you can use all of the features of Amazon SNS. However, you can send SMS messages only to verified destination phone numbers. For more information, including how to move out of the sandbox to send messages without restrictions, see <a href=\"https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html\">SMS sandbox</a> in the <i>Amazon SNS Developer Guide</i>.</p>"""
+        r"""<p>Retrieves the SMS sandbox status for the calling Amazon Web Services account in the target Amazon Web Services Region.</p> <p>When you start using Amazon SNS to send SMS messages, your Amazon Web Services account is in the <i>SMS sandbox</i>. The SMS sandbox provides a safe environment for you to try Amazon SNS features without risking your reputation as an SMS sender. While your Amazon Web Services account is in the SMS sandbox, you can use all of the features of Amazon SNS. However, you can send SMS messages only to verified destination phone numbers. For more information, including how to move out of the sandbox to send messages without restrictions, see <a href=\"https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html\">SMS sandbox</a> in the <i>Amazon SNS Developer Guide</i>.</p>
+
+        Raises:
+            aws_sdk_sns.errors.authorization_error_exception.AuthorizationErrorException: <p>Indicates that the user has been denied access to the requested resource.</p>
+            aws_sdk_sns.errors.internal_error_exception.InternalErrorException: <p>Indicates an internal service error.</p>
+            aws_sdk_sns.errors.throttled_exception.ThrottledException: <p>Indicates that the rate at which requests have been submitted for this action exceeds the limit for your Amazon Web Services account.</p>
+            aws_sdk_sns.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_sns.types.get_sms_sandbox_account_status_input.GetSMSSandboxAccountStatusInput]",
@@ -882,6 +1008,13 @@ class SNSClient:
 
         Args:
             subscription_arn: <p>The ARN of the subscription whose properties you want to get.</p>
+
+        Raises:
+            aws_sdk_sns.errors.authorization_error_exception.AuthorizationErrorException: <p>Indicates that the user has been denied access to the requested resource.</p>
+            aws_sdk_sns.errors.internal_error_exception.InternalErrorException: <p>Indicates an internal service error.</p>
+            aws_sdk_sns.errors.invalid_parameter_exception.InvalidParameterException: <p>Indicates that a request parameter does not comply with the associated constraints.</p>
+            aws_sdk_sns.errors.not_found_exception.NotFoundException: <p>Indicates that the requested resource does not exist.</p>
+            aws_sdk_sns.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -919,6 +1052,14 @@ class SNSClient:
 
         Args:
             topic_arn: <p>The ARN of the topic whose properties you want to get.</p>
+
+        Raises:
+            aws_sdk_sns.errors.authorization_error_exception.AuthorizationErrorException: <p>Indicates that the user has been denied access to the requested resource.</p>
+            aws_sdk_sns.errors.internal_error_exception.InternalErrorException: <p>Indicates an internal service error.</p>
+            aws_sdk_sns.errors.invalid_parameter_exception.InvalidParameterException: <p>Indicates that a request parameter does not comply with the associated constraints.</p>
+            aws_sdk_sns.errors.invalid_security_exception.InvalidSecurityException: <p>The credential signature isn't valid. You must use an HTTPS endpoint and sign your request using Signature Version 4.</p>
+            aws_sdk_sns.errors.not_found_exception.NotFoundException: <p>Indicates that the requested resource does not exist.</p>
+            aws_sdk_sns.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -958,6 +1099,13 @@ class SNSClient:
         Args:
             platform_application_arn: <p> <code>PlatformApplicationArn</code> for <code>ListEndpointsByPlatformApplicationInput</code> action.</p>
             next_token: <p> <code>NextToken</code> string is used when calling <code>ListEndpointsByPlatformApplication</code> action to retrieve additional records that are available after the first page results.</p>
+
+        Raises:
+            aws_sdk_sns.errors.authorization_error_exception.AuthorizationErrorException: <p>Indicates that the user has been denied access to the requested resource.</p>
+            aws_sdk_sns.errors.internal_error_exception.InternalErrorException: <p>Indicates an internal service error.</p>
+            aws_sdk_sns.errors.invalid_parameter_exception.InvalidParameterException: <p>Indicates that a request parameter does not comply with the associated constraints.</p>
+            aws_sdk_sns.errors.not_found_exception.NotFoundException: <p>Indicates that the requested resource does not exist.</p>
+            aws_sdk_sns.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1024,6 +1172,14 @@ class SNSClient:
         Args:
             next_token: <p>Token that the previous <code>ListOriginationNumbers</code> request returns.</p>
             max_results: <p>The maximum number of origination numbers to return.</p>
+
+        Raises:
+            aws_sdk_sns.errors.authorization_error_exception.AuthorizationErrorException: <p>Indicates that the user has been denied access to the requested resource.</p>
+            aws_sdk_sns.errors.internal_error_exception.InternalErrorException: <p>Indicates an internal service error.</p>
+            aws_sdk_sns.errors.invalid_parameter_exception.InvalidParameterException: <p>Indicates that a request parameter does not comply with the associated constraints.</p>
+            aws_sdk_sns.errors.throttled_exception.ThrottledException: <p>Indicates that the rate at which requests have been submitted for this action exceeds the limit for your Amazon Web Services account.</p>
+            aws_sdk_sns.errors.validation_exception.ValidationException: <p>Indicates that a parameter in the request is invalid.</p>
+            aws_sdk_sns.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1087,6 +1243,13 @@ class SNSClient:
 
         Args:
             next_token: <p>A <code>NextToken</code> string is used when you call the <code>ListPhoneNumbersOptedOut</code> action to retrieve additional records that are available after the first page of results.</p>
+
+        Raises:
+            aws_sdk_sns.errors.authorization_error_exception.AuthorizationErrorException: <p>Indicates that the user has been denied access to the requested resource.</p>
+            aws_sdk_sns.errors.internal_error_exception.InternalErrorException: <p>Indicates an internal service error.</p>
+            aws_sdk_sns.errors.invalid_parameter_exception.InvalidParameterException: <p>Indicates that a request parameter does not comply with the associated constraints.</p>
+            aws_sdk_sns.errors.throttled_exception.ThrottledException: <p>Indicates that the rate at which requests have been submitted for this action exceeds the limit for your Amazon Web Services account.</p>
+            aws_sdk_sns.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1144,6 +1307,12 @@ class SNSClient:
 
         Args:
             next_token: <p> <code>NextToken</code> string is used when calling <code>ListPlatformApplications</code> action to retrieve additional records that are available after the first page results.</p>
+
+        Raises:
+            aws_sdk_sns.errors.authorization_error_exception.AuthorizationErrorException: <p>Indicates that the user has been denied access to the requested resource.</p>
+            aws_sdk_sns.errors.internal_error_exception.InternalErrorException: <p>Indicates an internal service error.</p>
+            aws_sdk_sns.errors.invalid_parameter_exception.InvalidParameterException: <p>Indicates that a request parameter does not comply with the associated constraints.</p>
+            aws_sdk_sns.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1203,6 +1372,14 @@ class SNSClient:
         Args:
             next_token: <p>Token that the previous <code>ListSMSSandboxPhoneNumbersInput</code> request returns.</p>
             max_results: <p>The maximum number of phone numbers to return.</p>
+
+        Raises:
+            aws_sdk_sns.errors.authorization_error_exception.AuthorizationErrorException: <p>Indicates that the user has been denied access to the requested resource.</p>
+            aws_sdk_sns.errors.internal_error_exception.InternalErrorException: <p>Indicates an internal service error.</p>
+            aws_sdk_sns.errors.invalid_parameter_exception.InvalidParameterException: <p>Indicates that a request parameter does not comply with the associated constraints.</p>
+            aws_sdk_sns.errors.resource_not_found_exception.ResourceNotFoundException: <p>Can’t perform the action on the specified resource. Make sure that the resource exists.</p>
+            aws_sdk_sns.errors.throttled_exception.ThrottledException: <p>Indicates that the rate at which requests have been submitted for this action exceeds the limit for your Amazon Web Services account.</p>
+            aws_sdk_sns.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1264,6 +1441,12 @@ class SNSClient:
 
         Args:
             next_token: <p>Token returned by the previous <code>ListSubscriptions</code> request.</p>
+
+        Raises:
+            aws_sdk_sns.errors.authorization_error_exception.AuthorizationErrorException: <p>Indicates that the user has been denied access to the requested resource.</p>
+            aws_sdk_sns.errors.internal_error_exception.InternalErrorException: <p>Indicates an internal service error.</p>
+            aws_sdk_sns.errors.invalid_parameter_exception.InvalidParameterException: <p>Indicates that a request parameter does not comply with the associated constraints.</p>
+            aws_sdk_sns.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1323,6 +1506,13 @@ class SNSClient:
         Args:
             topic_arn: <p>The ARN of the topic for which you wish to find subscriptions.</p>
             next_token: <p>Token returned by the previous <code>ListSubscriptionsByTopic</code> request.</p>
+
+        Raises:
+            aws_sdk_sns.errors.authorization_error_exception.AuthorizationErrorException: <p>Indicates that the user has been denied access to the requested resource.</p>
+            aws_sdk_sns.errors.internal_error_exception.InternalErrorException: <p>Indicates an internal service error.</p>
+            aws_sdk_sns.errors.invalid_parameter_exception.InvalidParameterException: <p>Indicates that a request parameter does not comply with the associated constraints.</p>
+            aws_sdk_sns.errors.not_found_exception.NotFoundException: <p>Indicates that the requested resource does not exist.</p>
+            aws_sdk_sns.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1385,6 +1575,14 @@ class SNSClient:
 
         Args:
             resource_arn: <p>The ARN of the topic for which to list tags.</p>
+
+        Raises:
+            aws_sdk_sns.errors.authorization_error_exception.AuthorizationErrorException: <p>Indicates that the user has been denied access to the requested resource.</p>
+            aws_sdk_sns.errors.concurrent_access_exception.ConcurrentAccessException: <p>Can't perform multiple operations on a tag simultaneously. Perform the operations sequentially.</p>
+            aws_sdk_sns.errors.invalid_parameter_exception.InvalidParameterException: <p>Indicates that a request parameter does not comply with the associated constraints.</p>
+            aws_sdk_sns.errors.resource_not_found_exception.ResourceNotFoundException: <p>Can’t perform the action on the specified resource. Make sure that the resource exists.</p>
+            aws_sdk_sns.errors.tag_policy_exception.TagPolicyException: <p>The request doesn't comply with the IAM tag policy. Correct your request and then retry it.</p>
+            aws_sdk_sns.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1422,6 +1620,12 @@ class SNSClient:
 
         Args:
             next_token: <p>Token returned by the previous <code>ListTopics</code> request.</p>
+
+        Raises:
+            aws_sdk_sns.errors.authorization_error_exception.AuthorizationErrorException: <p>Indicates that the user has been denied access to the requested resource.</p>
+            aws_sdk_sns.errors.internal_error_exception.InternalErrorException: <p>Indicates an internal service error.</p>
+            aws_sdk_sns.errors.invalid_parameter_exception.InvalidParameterException: <p>Indicates that a request parameter does not comply with the associated constraints.</p>
+            aws_sdk_sns.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1479,6 +1683,13 @@ class SNSClient:
 
         Args:
             phone_number: <p>The phone number to opt in. Use E.164 format.</p>
+
+        Raises:
+            aws_sdk_sns.errors.authorization_error_exception.AuthorizationErrorException: <p>Indicates that the user has been denied access to the requested resource.</p>
+            aws_sdk_sns.errors.internal_error_exception.InternalErrorException: <p>Indicates an internal service error.</p>
+            aws_sdk_sns.errors.invalid_parameter_exception.InvalidParameterException: <p>Indicates that a request parameter does not comply with the associated constraints.</p>
+            aws_sdk_sns.errors.throttled_exception.ThrottledException: <p>Indicates that the rate at which requests have been submitted for this action exceeds the limit for your Amazon Web Services account.</p>
+            aws_sdk_sns.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1536,6 +1747,24 @@ class SNSClient:
             message_attributes: <p>Message attributes for Publish action.</p>
             message_deduplication_id: <ul> <li> <p>This parameter applies only to FIFO (first-in-first-out) topics. The <code>MessageDeduplicationId</code> can contain up to 128 alphanumeric characters <code>(a-z, A-Z, 0-9)</code> and punctuation <code>(!\"#$%&'()*+,-./:;<=>?@[\]^_`{|}~)</code>.</p> </li> <li> <p>Every message must have a unique <code>MessageDeduplicationId</code>, which is a token used for deduplication of sent messages within the 5 minute minimum deduplication interval.</p> </li> <li> <p>The scope of deduplication depends on the <code>FifoThroughputScope</code> attribute, when set to <code>Topic</code> the message deduplication scope is across the entire topic, when set to <code>MessageGroup</code> the message deduplication scope is within each individual message group.</p> </li> <li> <p>If a message with a particular <code>MessageDeduplicationId</code> is sent successfully, subsequent messages within the deduplication scope and interval, with the same <code>MessageDeduplicationId</code>, are accepted successfully but aren't delivered.</p> </li> <li> <p>Every message must have a unique <code>MessageDeduplicationId</code>:</p> <ul> <li> <p>You may provide a <code>MessageDeduplicationId</code> explicitly.</p> </li> <li> <p>If you aren't able to provide a <code>MessageDeduplicationId</code> and you enable <code>ContentBasedDeduplication</code> for your topic, Amazon SNS uses a SHA-256 hash to generate the <code>MessageDeduplicationId</code> using the body of the message (but not the attributes of the message).</p> </li> <li> <p>If you don't provide a <code>MessageDeduplicationId</code> and the topic doesn't have <code>ContentBasedDeduplication</code> set, the action fails with an error.</p> </li> <li> <p>If the topic has a <code>ContentBasedDeduplication</code> set, your <code>MessageDeduplicationId</code> overrides the generated one. </p> </li> </ul> </li> <li> <p>When <code>ContentBasedDeduplication</code> is in effect, messages with identical content sent within the deduplication scope and interval are treated as duplicates and only one copy of the message is delivered.</p> </li> <li> <p>If you send one message with <code>ContentBasedDeduplication</code> enabled, and then another message with a <code>MessageDeduplicationId</code> that is the same as the one generated for the first <code>MessageDeduplicationId</code>, the two messages are treated as duplicates, within the deduplication scope and interval, and only one copy of the message is delivered.</p> </li> </ul>
             message_group_id: <p>The <code>MessageGroupId</code> can contain up to 128 alphanumeric characters <code>(a-z, A-Z, 0-9)</code> and punctuation <code>(!\"#$%&'()*+,-./:;<=>?@[\]^_`{|}~)</code>.</p> <p> For FIFO topics: The <code>MessageGroupId</code> is a tag that specifies that a message belongs to a specific message group. Messages that belong to the same message group are processed in a FIFO manner (however, messages in different message groups might be processed out of order). Every message must include a <code>MessageGroupId</code>. </p> <p> For standard topics: The <code>MessageGroupId</code> is optional and is forwarded only to Amazon SQS standard subscriptions to activate <a href=\"https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-fair-queues.html\">fair queues</a>. The <code>MessageGroupId</code> is not used for, or sent to, any other endpoint types. When provided, the same validation rules apply as for FIFO topics. </p>
+
+        Raises:
+            aws_sdk_sns.errors.authorization_error_exception.AuthorizationErrorException: <p>Indicates that the user has been denied access to the requested resource.</p>
+            aws_sdk_sns.errors.endpoint_disabled_exception.EndpointDisabledException: <p>Exception error indicating endpoint disabled.</p>
+            aws_sdk_sns.errors.internal_error_exception.InternalErrorException: <p>Indicates an internal service error.</p>
+            aws_sdk_sns.errors.invalid_parameter_exception.InvalidParameterException: <p>Indicates that a request parameter does not comply with the associated constraints.</p>
+            aws_sdk_sns.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>Indicates that a request parameter does not comply with the associated constraints.</p>
+            aws_sdk_sns.errors.invalid_security_exception.InvalidSecurityException: <p>The credential signature isn't valid. You must use an HTTPS endpoint and sign your request using Signature Version 4.</p>
+            aws_sdk_sns.errors.kms_access_denied_exception.KMSAccessDeniedException: <p>The ciphertext references a key that doesn't exist or that you don't have access to.</p>
+            aws_sdk_sns.errors.kms_disabled_exception.KMSDisabledException: <p>The request was rejected because the specified Amazon Web Services KMS key isn't enabled.</p>
+            aws_sdk_sns.errors.kms_invalid_state_exception.KMSInvalidStateException: <p>The request was rejected because the state of the specified resource isn't valid for this request. For more information, see <a href=\"https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html\">Key states of Amazon Web Services KMS keys</a> in the <i>Key Management Service Developer Guide</i>.</p>
+            aws_sdk_sns.errors.kms_not_found_exception.KMSNotFoundException: <p>The request was rejected because the specified entity or resource can't be found.</p>
+            aws_sdk_sns.errors.kms_opt_in_required.KMSOptInRequired: <p>The Amazon Web Services access key ID needs a subscription for the service.</p>
+            aws_sdk_sns.errors.kms_throttling_exception.KMSThrottlingException: <p>The request was denied due to request throttling. For more information about throttling, see <a href=\"https://docs.aws.amazon.com/kms/latest/developerguide/limits.html#requests-per-second\">Limits</a> in the <i>Key Management Service Developer Guide.</i> </p>
+            aws_sdk_sns.errors.not_found_exception.NotFoundException: <p>Indicates that the requested resource does not exist.</p>
+            aws_sdk_sns.errors.platform_application_disabled_exception.PlatformApplicationDisabledException: <p>Exception error indicating platform application disabled.</p>
+            aws_sdk_sns.errors.validation_exception.ValidationException: <p>Indicates that a parameter in the request is invalid.</p>
+            aws_sdk_sns.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1589,6 +1818,29 @@ class SNSClient:
         Args:
             topic_arn: <p>The Amazon resource name (ARN) of the topic you want to batch publish to.</p>
             publish_batch_request_entries: <p>A list of <code>PublishBatch</code> request entries to be sent to the SNS topic.</p>
+
+        Raises:
+            aws_sdk_sns.errors.authorization_error_exception.AuthorizationErrorException: <p>Indicates that the user has been denied access to the requested resource.</p>
+            aws_sdk_sns.errors.batch_entry_ids_not_distinct_exception.BatchEntryIdsNotDistinctException: <p>Two or more batch entries in the request have the same <code>Id</code>.</p>
+            aws_sdk_sns.errors.batch_request_too_long_exception.BatchRequestTooLongException: <p>The length of all the batch messages put together is more than the limit.</p>
+            aws_sdk_sns.errors.empty_batch_request_exception.EmptyBatchRequestException: <p>The batch request doesn't contain any entries.</p>
+            aws_sdk_sns.errors.endpoint_disabled_exception.EndpointDisabledException: <p>Exception error indicating endpoint disabled.</p>
+            aws_sdk_sns.errors.internal_error_exception.InternalErrorException: <p>Indicates an internal service error.</p>
+            aws_sdk_sns.errors.invalid_batch_entry_id_exception.InvalidBatchEntryIdException: <p>The <code>Id</code> of a batch entry in a batch request doesn't abide by the specification. </p>
+            aws_sdk_sns.errors.invalid_parameter_exception.InvalidParameterException: <p>Indicates that a request parameter does not comply with the associated constraints.</p>
+            aws_sdk_sns.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>Indicates that a request parameter does not comply with the associated constraints.</p>
+            aws_sdk_sns.errors.invalid_security_exception.InvalidSecurityException: <p>The credential signature isn't valid. You must use an HTTPS endpoint and sign your request using Signature Version 4.</p>
+            aws_sdk_sns.errors.kms_access_denied_exception.KMSAccessDeniedException: <p>The ciphertext references a key that doesn't exist or that you don't have access to.</p>
+            aws_sdk_sns.errors.kms_disabled_exception.KMSDisabledException: <p>The request was rejected because the specified Amazon Web Services KMS key isn't enabled.</p>
+            aws_sdk_sns.errors.kms_invalid_state_exception.KMSInvalidStateException: <p>The request was rejected because the state of the specified resource isn't valid for this request. For more information, see <a href=\"https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html\">Key states of Amazon Web Services KMS keys</a> in the <i>Key Management Service Developer Guide</i>.</p>
+            aws_sdk_sns.errors.kms_not_found_exception.KMSNotFoundException: <p>The request was rejected because the specified entity or resource can't be found.</p>
+            aws_sdk_sns.errors.kms_opt_in_required.KMSOptInRequired: <p>The Amazon Web Services access key ID needs a subscription for the service.</p>
+            aws_sdk_sns.errors.kms_throttling_exception.KMSThrottlingException: <p>The request was denied due to request throttling. For more information about throttling, see <a href=\"https://docs.aws.amazon.com/kms/latest/developerguide/limits.html#requests-per-second\">Limits</a> in the <i>Key Management Service Developer Guide.</i> </p>
+            aws_sdk_sns.errors.not_found_exception.NotFoundException: <p>Indicates that the requested resource does not exist.</p>
+            aws_sdk_sns.errors.platform_application_disabled_exception.PlatformApplicationDisabledException: <p>Exception error indicating platform application disabled.</p>
+            aws_sdk_sns.errors.too_many_entries_in_batch_request_exception.TooManyEntriesInBatchRequestException: <p> The batch request contains more entries than permissible (more than 10).</p>
+            aws_sdk_sns.errors.validation_exception.ValidationException: <p>Indicates that a parameter in the request is invalid.</p>
+            aws_sdk_sns.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1629,6 +1881,14 @@ class SNSClient:
         Args:
             resource_arn: <p>The ARN of the topic whose <code>DataProtectionPolicy</code> you want to add or update.</p> <p>For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs)</a> in the Amazon Web Services General Reference.</p>
             data_protection_policy: <p>The JSON serialization of the topic's <code>DataProtectionPolicy</code>.</p> <p>The <code>DataProtectionPolicy</code> must be in JSON string format.</p> <p>Length Constraints: Maximum length of 30,720.</p>
+
+        Raises:
+            aws_sdk_sns.errors.authorization_error_exception.AuthorizationErrorException: <p>Indicates that the user has been denied access to the requested resource.</p>
+            aws_sdk_sns.errors.internal_error_exception.InternalErrorException: <p>Indicates an internal service error.</p>
+            aws_sdk_sns.errors.invalid_parameter_exception.InvalidParameterException: <p>Indicates that a request parameter does not comply with the associated constraints.</p>
+            aws_sdk_sns.errors.invalid_security_exception.InvalidSecurityException: <p>The credential signature isn't valid. You must use an HTTPS endpoint and sign your request using Signature Version 4.</p>
+            aws_sdk_sns.errors.not_found_exception.NotFoundException: <p>Indicates that the requested resource does not exist.</p>
+            aws_sdk_sns.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1667,6 +1927,13 @@ class SNSClient:
         Args:
             topic_arn: <p>The ARN of the topic whose access control policy you wish to modify.</p>
             label: <p>The unique label of the statement you want to remove.</p>
+
+        Raises:
+            aws_sdk_sns.errors.authorization_error_exception.AuthorizationErrorException: <p>Indicates that the user has been denied access to the requested resource.</p>
+            aws_sdk_sns.errors.internal_error_exception.InternalErrorException: <p>Indicates an internal service error.</p>
+            aws_sdk_sns.errors.invalid_parameter_exception.InvalidParameterException: <p>Indicates that a request parameter does not comply with the associated constraints.</p>
+            aws_sdk_sns.errors.not_found_exception.NotFoundException: <p>Indicates that the requested resource does not exist.</p>
+            aws_sdk_sns.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1705,6 +1972,13 @@ class SNSClient:
         Args:
             endpoint_arn: <p>EndpointArn used for <code>SetEndpointAttributes</code> action.</p>
             attributes: <p>A map of the endpoint attributes. Attributes in this map include the following:</p> <ul> <li> <p> <code>CustomUserData</code> – arbitrary user data to associate with the endpoint. Amazon SNS does not use this data. The data must be in UTF-8 format and less than 2KB.</p> </li> <li> <p> <code>Enabled</code> – flag that enables/disables delivery to the endpoint. Amazon SNS will set this to false when a notification service indicates to Amazon SNS that the endpoint is invalid. Users can set it back to true, typically after updating Token.</p> </li> <li> <p> <code>Token</code> – device token, also referred to as a registration id, for an app and mobile device. This is returned from the notification service when an app and mobile device are registered with the notification service.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_sns.errors.authorization_error_exception.AuthorizationErrorException: <p>Indicates that the user has been denied access to the requested resource.</p>
+            aws_sdk_sns.errors.internal_error_exception.InternalErrorException: <p>Indicates an internal service error.</p>
+            aws_sdk_sns.errors.invalid_parameter_exception.InvalidParameterException: <p>Indicates that a request parameter does not comply with the associated constraints.</p>
+            aws_sdk_sns.errors.not_found_exception.NotFoundException: <p>Indicates that the requested resource does not exist.</p>
+            aws_sdk_sns.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1743,6 +2017,13 @@ class SNSClient:
         Args:
             platform_application_arn: <p> <code>PlatformApplicationArn</code> for <code>SetPlatformApplicationAttributes</code> action.</p>
             attributes: <p>A map of the platform application attributes. Attributes in this map include the following:</p> <ul> <li> <p> <code>PlatformCredential</code> – The credential received from the notification service.</p> <ul> <li> <p>For ADM, <code>PlatformCredential</code>is client secret.</p> </li> <li> <p>For Apple Services using certificate credentials, <code>PlatformCredential</code> is private key.</p> </li> <li> <p>For Apple Services using token credentials, <code>PlatformCredential</code> is signing key.</p> </li> <li> <p>For GCM (Firebase Cloud Messaging) using key credentials, there is no <code>PlatformPrincipal</code>. The <code>PlatformCredential</code> is <code>API key</code>.</p> </li> <li> <p>For GCM (Firebase Cloud Messaging) using token credentials, there is no <code>PlatformPrincipal</code>. The <code>PlatformCredential</code> is a JSON formatted private key file. When using the Amazon Web Services CLI, the file must be in string format and special characters must be ignored. To format the file correctly, Amazon SNS recommends using the following command: <code>SERVICE_JSON=`jq @json <<< cat service.json`</code>.</p> </li> </ul> </li> </ul> <ul> <li> <p> <code>PlatformPrincipal</code> – The principal received from the notification service.</p> <ul> <li> <p>For ADM, <code>PlatformPrincipal</code>is client id.</p> </li> <li> <p>For Apple Services using certificate credentials, <code>PlatformPrincipal</code> is SSL certificate.</p> </li> <li> <p>For Apple Services using token credentials, <code>PlatformPrincipal</code> is signing key ID.</p> </li> <li> <p>For GCM (Firebase Cloud Messaging), there is no <code>PlatformPrincipal</code>. </p> </li> </ul> </li> </ul> <ul> <li> <p> <code>EventEndpointCreated</code> – Topic ARN to which <code>EndpointCreated</code> event notifications are sent.</p> </li> <li> <p> <code>EventEndpointDeleted</code> – Topic ARN to which <code>EndpointDeleted</code> event notifications are sent.</p> </li> <li> <p> <code>EventEndpointUpdated</code> – Topic ARN to which <code>EndpointUpdate</code> event notifications are sent.</p> </li> <li> <p> <code>EventDeliveryFailure</code> – Topic ARN to which <code>DeliveryFailure</code> event notifications are sent upon Direct Publish delivery failure (permanent) to one of the application's endpoints.</p> </li> <li> <p> <code>SuccessFeedbackRoleArn</code> – IAM role ARN used to give Amazon SNS write access to use CloudWatch Logs on your behalf.</p> </li> <li> <p> <code>FailureFeedbackRoleArn</code> – IAM role ARN used to give Amazon SNS write access to use CloudWatch Logs on your behalf.</p> </li> <li> <p> <code>SuccessFeedbackSampleRate</code> – Sample rate percentage (0-100) of successfully delivered messages.</p> </li> </ul> <p>The following attributes only apply to <code>APNs</code> token-based authentication:</p> <ul> <li> <p> <code>ApplePlatformTeamID</code> – The identifier that's assigned to your Apple developer account team.</p> </li> <li> <p> <code>ApplePlatformBundleID</code> – The bundle identifier that's assigned to your iOS app.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_sns.errors.authorization_error_exception.AuthorizationErrorException: <p>Indicates that the user has been denied access to the requested resource.</p>
+            aws_sdk_sns.errors.internal_error_exception.InternalErrorException: <p>Indicates an internal service error.</p>
+            aws_sdk_sns.errors.invalid_parameter_exception.InvalidParameterException: <p>Indicates that a request parameter does not comply with the associated constraints.</p>
+            aws_sdk_sns.errors.not_found_exception.NotFoundException: <p>Indicates that the requested resource does not exist.</p>
+            aws_sdk_sns.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1779,6 +2060,13 @@ class SNSClient:
 
         Args:
             attributes: <p>The default settings for sending SMS messages from your Amazon Web Services account. You can set values for the following attribute names:</p> <p> <code>MonthlySpendLimit</code> – The maximum amount in USD that you are willing to spend each month to send SMS messages. When Amazon SNS determines that sending an SMS message would incur a cost that exceeds this limit, it stops sending SMS messages within minutes.</p> <important> <p>Amazon SNS stops sending SMS messages within minutes of the limit being crossed. During that interval, if you continue to send SMS messages, you will incur costs that exceed your limit.</p> </important> <p>By default, the spend limit is set to the maximum allowed by Amazon SNS. If you want to raise the limit, submit an <a href=\"https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase&limitType=service-code-sns\">SNS Limit Increase case</a>. For <b>New limit value</b>, enter your desired monthly spend limit. In the <b>Use Case Description</b> field, explain that you are requesting an SMS monthly spend limit increase.</p> <p> <code>DeliveryStatusIAMRole</code> – The ARN of the IAM role that allows Amazon SNS to write logs about SMS deliveries in CloudWatch Logs. For each SMS message that you send, Amazon SNS writes a log that includes the message price, the success or failure status, the reason for failure (if the message failed), the message dwell time, and other information.</p> <p> <code>DeliveryStatusSuccessSamplingRate</code> – The percentage of successful SMS deliveries for which Amazon SNS will write logs in CloudWatch Logs. The value can be an integer from 0 - 100. For example, to write logs only for failed deliveries, set this value to <code>0</code>. To write logs for 10% of your successful deliveries, set it to <code>10</code>.</p> <p> <code>DefaultSenderID</code> – A string, such as your business brand, that is displayed as the sender on the receiving device. Support for sender IDs varies by country. The sender ID can be 1 - 11 alphanumeric characters, and it must contain at least one letter.</p> <p> <code>DefaultSMSType</code> – The type of SMS message that you will send by default. You can assign the following values:</p> <ul> <li> <p> <code>Promotional</code> – (Default) Noncritical messages, such as marketing messages. Amazon SNS optimizes the message delivery to incur the lowest cost.</p> </li> <li> <p> <code>Transactional</code> – Critical messages that support customer transactions, such as one-time passcodes for multi-factor authentication. Amazon SNS optimizes the message delivery to achieve the highest reliability.</p> </li> </ul> <p> <code>UsageReportS3Bucket</code> – The name of the Amazon S3 bucket to receive daily SMS usage reports from Amazon SNS. Each day, Amazon SNS will deliver a usage report as a CSV file to the bucket. The report includes the following information for each SMS message that was successfully delivered by your Amazon Web Services account:</p> <ul> <li> <p>Time that the message was published (in UTC)</p> </li> <li> <p>Message ID</p> </li> <li> <p>Destination phone number</p> </li> <li> <p>Message type</p> </li> <li> <p>Delivery status</p> </li> <li> <p>Message price (in USD)</p> </li> <li> <p>Part number (a message is split into multiple parts if it is too long for a single message)</p> </li> <li> <p>Total number of parts</p> </li> </ul> <p>To receive the report, the bucket must have a policy that allows the Amazon SNS service principal to perform the <code>s3:PutObject</code> and <code>s3:GetBucketLocation</code> actions.</p> <p>For an example bucket policy and usage report, see <a href=\"https://docs.aws.amazon.com/sns/latest/dg/sms_stats.html\">Monitoring SMS Activity</a> in the <i>Amazon SNS Developer Guide</i>.</p>
+
+        Raises:
+            aws_sdk_sns.errors.authorization_error_exception.AuthorizationErrorException: <p>Indicates that the user has been denied access to the requested resource.</p>
+            aws_sdk_sns.errors.internal_error_exception.InternalErrorException: <p>Indicates an internal service error.</p>
+            aws_sdk_sns.errors.invalid_parameter_exception.InvalidParameterException: <p>Indicates that a request parameter does not comply with the associated constraints.</p>
+            aws_sdk_sns.errors.throttled_exception.ThrottledException: <p>Indicates that the rate at which requests have been submitted for this action exceeds the limit for your Amazon Web Services account.</p>
+            aws_sdk_sns.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1822,6 +2110,15 @@ class SNSClient:
             subscription_arn: <p>The ARN of the subscription to modify.</p>
             attribute_name: <p>A map of attributes with their corresponding values.</p> <p>The following lists the names, descriptions, and values of the special request parameters that this action uses:</p> <ul> <li> <p> <code>DeliveryPolicy</code> – The policy that defines how Amazon SNS retries failed deliveries to HTTP/S endpoints.</p> </li> <li> <p> <code>FilterPolicy</code> – The simple JSON object that lets your subscriber receive only a subset of messages, rather than receiving every message published to the topic.</p> </li> <li> <p> <code>FilterPolicyScope</code> – This attribute lets you choose the filtering scope by using one of the following string value types:</p> <ul> <li> <p> <code>MessageAttributes</code> (default) – The filter is applied on the message attributes.</p> </li> <li> <p> <code>MessageBody</code> – The filter is applied on the message body.</p> </li> </ul> </li> <li> <p> <code>RawMessageDelivery</code> – When set to <code>true</code>, enables raw message delivery to Amazon SQS or HTTP/S endpoints. This eliminates the need for the endpoints to process JSON formatting, which is otherwise created for Amazon SNS metadata.</p> </li> <li> <p> <code>RedrivePolicy</code> – When specified, sends undeliverable messages to the specified Amazon SQS dead-letter queue. Messages that can't be delivered due to client errors (for example, when the subscribed endpoint is unreachable) or server errors (for example, when the service that powers the subscribed endpoint becomes unavailable) are held in the dead-letter queue for further analysis or reprocessing.</p> </li> </ul> <p>The following attribute applies only to Amazon Data Firehose delivery stream subscriptions:</p> <ul> <li> <p> <code>SubscriptionRoleArn</code> – The ARN of the IAM role that has the following:</p> <ul> <li> <p>Permission to write to the Firehose delivery stream</p> </li> <li> <p>Amazon SNS listed as a trusted entity</p> </li> </ul> <p>Specifying a valid ARN for this attribute is required for Firehose delivery stream subscriptions. For more information, see <a href=\"https://docs.aws.amazon.com/sns/latest/dg/sns-firehose-as-subscriber.html\">Fanout to Firehose delivery streams</a> in the <i>Amazon SNS Developer Guide</i>.</p> </li> </ul>
             attribute_value: <p>The new value for the attribute in JSON format.</p>
+
+        Raises:
+            aws_sdk_sns.errors.authorization_error_exception.AuthorizationErrorException: <p>Indicates that the user has been denied access to the requested resource.</p>
+            aws_sdk_sns.errors.filter_policy_limit_exceeded_exception.FilterPolicyLimitExceededException: <p>Indicates that the number of filter polices in your Amazon Web Services account exceeds the limit. To add more filter polices, submit an Amazon SNS Limit Increase case in the Amazon Web Services Support Center.</p>
+            aws_sdk_sns.errors.internal_error_exception.InternalErrorException: <p>Indicates an internal service error.</p>
+            aws_sdk_sns.errors.invalid_parameter_exception.InvalidParameterException: <p>Indicates that a request parameter does not comply with the associated constraints.</p>
+            aws_sdk_sns.errors.not_found_exception.NotFoundException: <p>Indicates that the requested resource does not exist.</p>
+            aws_sdk_sns.errors.replay_limit_exceeded_exception.ReplayLimitExceededException: <p>Indicates that the request parameter has exceeded the maximum number of concurrent message replays.</p>
+            aws_sdk_sns.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1866,6 +2163,14 @@ class SNSClient:
             topic_arn: <p>The ARN of the topic to modify.</p>
             attribute_name: <p>A map of attributes with their corresponding values.</p> <p>The following lists the names, descriptions, and values of the special request parameters that the <code>SetTopicAttributes</code> action uses:</p> <ul> <li> <p> <code>DeliveryPolicy</code> – The policy that defines how Amazon SNS retries failed deliveries to HTTP/S endpoints.</p> </li> <li> <p> <code>DisplayName</code> – The display name to use for a topic with SMS subscriptions.</p> </li> <li> <p> <code>Policy</code> – The policy that defines who can access your topic. By default, only the topic owner can publish or subscribe to the topic.</p> </li> <li> <p> <code>TracingConfig</code> – Tracing mode of an Amazon SNS topic. By default <code>TracingConfig</code> is set to <code>PassThrough</code>, and the topic passes through the tracing header it receives from an Amazon SNS publisher to its subscriptions. If set to <code>Active</code>, Amazon SNS will vend X-Ray segment data to topic owner account if the sampled flag in the tracing header is true. This is only supported on standard topics.</p> </li> <li> <p>HTTP</p> <ul> <li> <p> <code>HTTPSuccessFeedbackRoleArn</code> – Indicates successful message delivery status for an Amazon SNS topic that is subscribed to an HTTP endpoint. </p> </li> <li> <p> <code>HTTPSuccessFeedbackSampleRate</code> – Indicates percentage of successful messages to sample for an Amazon SNS topic that is subscribed to an HTTP endpoint.</p> </li> <li> <p> <code>HTTPFailureFeedbackRoleArn</code> – Indicates failed message delivery status for an Amazon SNS topic that is subscribed to an HTTP endpoint.</p> </li> </ul> </li> <li> <p>Amazon Data Firehose</p> <ul> <li> <p> <code>FirehoseSuccessFeedbackRoleArn</code> – Indicates successful message delivery status for an Amazon SNS topic that is subscribed to an Amazon Data Firehose endpoint.</p> </li> <li> <p> <code>FirehoseSuccessFeedbackSampleRate</code> – Indicates percentage of successful messages to sample for an Amazon SNS topic that is subscribed to an Amazon Data Firehose endpoint.</p> </li> <li> <p> <code>FirehoseFailureFeedbackRoleArn</code> – Indicates failed message delivery status for an Amazon SNS topic that is subscribed to an Amazon Data Firehose endpoint. </p> </li> </ul> </li> <li> <p>Lambda</p> <ul> <li> <p> <code>LambdaSuccessFeedbackRoleArn</code> – Indicates successful message delivery status for an Amazon SNS topic that is subscribed to an Lambda endpoint.</p> </li> <li> <p> <code>LambdaSuccessFeedbackSampleRate</code> – Indicates percentage of successful messages to sample for an Amazon SNS topic that is subscribed to an Lambda endpoint.</p> </li> <li> <p> <code>LambdaFailureFeedbackRoleArn</code> – Indicates failed message delivery status for an Amazon SNS topic that is subscribed to an Lambda endpoint. </p> </li> </ul> </li> <li> <p>Platform application endpoint</p> <ul> <li> <p> <code>ApplicationSuccessFeedbackRoleArn</code> – Indicates successful message delivery status for an Amazon SNS topic that is subscribed to an platform application endpoint.</p> </li> <li> <p> <code>ApplicationSuccessFeedbackSampleRate</code> – Indicates percentage of successful messages to sample for an Amazon SNS topic that is subscribed to an platform application endpoint.</p> </li> <li> <p> <code>ApplicationFailureFeedbackRoleArn</code> – Indicates failed message delivery status for an Amazon SNS topic that is subscribed to an platform application endpoint.</p> </li> </ul> <note> <p>In addition to being able to configure topic attributes for message delivery status of notification messages sent to Amazon SNS application endpoints, you can also configure application attributes for the delivery status of push notification messages sent to push notification services.</p> <p>For example, For more information, see <a href=\"https://docs.aws.amazon.com/sns/latest/dg/sns-msg-status.html\">Using Amazon SNS Application Attributes for Message Delivery Status</a>. </p> </note> </li> <li> <p>Amazon SQS</p> <ul> <li> <p> <code>SQSSuccessFeedbackRoleArn</code> – Indicates successful message delivery status for an Amazon SNS topic that is subscribed to an Amazon SQS endpoint. </p> </li> <li> <p> <code>SQSSuccessFeedbackSampleRate</code> – Indicates percentage of successful messages to sample for an Amazon SNS topic that is subscribed to an Amazon SQS endpoint. </p> </li> <li> <p> <code>SQSFailureFeedbackRoleArn</code> – Indicates failed message delivery status for an Amazon SNS topic that is subscribed to an Amazon SQS endpoint. </p> </li> </ul> </li> </ul> <note> <p>The <ENDPOINT>SuccessFeedbackRoleArn and <ENDPOINT>FailureFeedbackRoleArn attributes are used to give Amazon SNS write access to use CloudWatch Logs on your behalf. The <ENDPOINT>SuccessFeedbackSampleRate attribute is for specifying the sample rate percentage (0-100) of successfully delivered messages. After you configure the <ENDPOINT>FailureFeedbackRoleArn attribute, then all failed message deliveries generate CloudWatch Logs. </p> </note> <p>The following attribute applies only to <a href=\"https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html\">server-side-encryption</a>:</p> <ul> <li> <p> <code>KmsMasterKeyId</code> – The ID of an Amazon Web Services managed customer master key (CMK) for Amazon SNS or a custom CMK. For more information, see <a href=\"https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html#sse-key-terms\">Key Terms</a>. For more examples, see <a href=\"https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters\">KeyId</a> in the <i>Key Management Service API Reference</i>. </p> </li> <li> <p> <code>SignatureVersion</code> – The signature version corresponds to the hashing algorithm used while creating the signature of the notifications, subscription confirmations, or unsubscribe confirmation messages sent by Amazon SNS. By default, <code>SignatureVersion</code> is set to <code>1</code>.</p> </li> </ul> <p>The following attribute applies only to <a href=\"https://docs.aws.amazon.com/sns/latest/dg/sns-fifo-topics.html\">FIFO topics</a>:</p> <ul> <li> <p> <code>ArchivePolicy</code> – The policy that sets the retention period for messages stored in the message archive of an Amazon SNS FIFO topic.</p> </li> <li> <p> <code>ContentBasedDeduplication</code> – Enables content-based deduplication for FIFO topics.</p> <ul> <li> <p>By default, <code>ContentBasedDeduplication</code> is set to <code>false</code>. If you create a FIFO topic and this attribute is <code>false</code>, you must specify a value for the <code>MessageDeduplicationId</code> parameter for the <a href=\"https://docs.aws.amazon.com/sns/latest/api/API_Publish.html\">Publish</a> action. </p> </li> <li> <p>When you set <code>ContentBasedDeduplication</code> to <code>true</code>, Amazon SNS uses a SHA-256 hash to generate the <code>MessageDeduplicationId</code> using the body of the message (but not the attributes of the message).</p> <p>(Optional) To override the generated value, you can specify a value for the <code>MessageDeduplicationId</code> parameter for the <code>Publish</code> action.</p> </li> </ul> </li> </ul> <ul> <li> <p> <code>FifoThroughputScope</code> – Enables higher throughput for your FIFO topic by adjusting the scope of deduplication. This attribute has two possible values:</p> <ul> <li> <p> <code>Topic</code> – The scope of message deduplication is across the entire topic. This is the default value and maintains existing behavior, with a maximum throughput of 3000 messages per second or 20MB per second, whichever comes first.</p> </li> <li> <p> <code>MessageGroup</code> – The scope of deduplication is within each individual message group, which enables higher throughput per topic subject to regional quotas. For more information on quotas or to request an increase, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/sns.html\">Amazon SNS service quotas</a> in the Amazon Web Services General Reference.</p> </li> </ul> </li> </ul>
             attribute_value: <p>The new value for the attribute.</p>
+
+        Raises:
+            aws_sdk_sns.errors.authorization_error_exception.AuthorizationErrorException: <p>Indicates that the user has been denied access to the requested resource.</p>
+            aws_sdk_sns.errors.internal_error_exception.InternalErrorException: <p>Indicates an internal service error.</p>
+            aws_sdk_sns.errors.invalid_parameter_exception.InvalidParameterException: <p>Indicates that a request parameter does not comply with the associated constraints.</p>
+            aws_sdk_sns.errors.invalid_security_exception.InvalidSecurityException: <p>The credential signature isn't valid. You must use an HTTPS endpoint and sign your request using Signature Version 4.</p>
+            aws_sdk_sns.errors.not_found_exception.NotFoundException: <p>Indicates that the requested resource does not exist.</p>
+            aws_sdk_sns.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1914,6 +2219,17 @@ class SNSClient:
             endpoint: <p>The endpoint that you want to receive notifications. Endpoints vary by protocol:</p> <ul> <li> <p>For the <code>http</code> protocol, the (public) endpoint is a URL beginning with <code>http://</code>.</p> </li> <li> <p>For the <code>https</code> protocol, the (public) endpoint is a URL beginning with <code>https://</code>.</p> </li> <li> <p>For the <code>email</code> protocol, the endpoint is an email address.</p> </li> <li> <p>For the <code>email-json</code> protocol, the endpoint is an email address.</p> </li> <li> <p>For the <code>sms</code> protocol, the endpoint is a phone number of an SMS-enabled device.</p> </li> <li> <p>For the <code>sqs</code> protocol, the endpoint is the ARN of an Amazon SQS queue.</p> </li> <li> <p>For the <code>application</code> protocol, the endpoint is the EndpointArn of a mobile app and device.</p> </li> <li> <p>For the <code>lambda</code> protocol, the endpoint is the ARN of an Lambda function.</p> </li> <li> <p>For the <code>firehose</code> protocol, the endpoint is the ARN of an Amazon Data Firehose delivery stream.</p> </li> </ul>
             attributes: <p>A map of attributes with their corresponding values.</p> <p>The following lists the names, descriptions, and values of the special request parameters that the <code>Subscribe</code> action uses:</p> <ul> <li> <p> <code>DeliveryPolicy</code> – The policy that defines how Amazon SNS retries failed deliveries to HTTP/S endpoints.</p> </li> <li> <p> <code>FilterPolicy</code> – The simple JSON object that lets your subscriber receive only a subset of messages, rather than receiving every message published to the topic.</p> </li> <li> <p> <code>FilterPolicyScope</code> – This attribute lets you choose the filtering scope by using one of the following string value types:</p> <ul> <li> <p> <code>MessageAttributes</code> (default) – The filter is applied on the message attributes.</p> </li> <li> <p> <code>MessageBody</code> – The filter is applied on the message body.</p> </li> </ul> </li> <li> <p> <code>RawMessageDelivery</code> – When set to <code>true</code>, enables raw message delivery to Amazon SQS or HTTP/S endpoints. This eliminates the need for the endpoints to process JSON formatting, which is otherwise created for Amazon SNS metadata.</p> </li> <li> <p> <code>RedrivePolicy</code> – When specified, sends undeliverable messages to the specified Amazon SQS dead-letter queue. Messages that can't be delivered due to client errors (for example, when the subscribed endpoint is unreachable) or server errors (for example, when the service that powers the subscribed endpoint becomes unavailable) are held in the dead-letter queue for further analysis or reprocessing.</p> </li> </ul> <p>The following attribute applies only to Amazon Data Firehose delivery stream subscriptions:</p> <ul> <li> <p> <code>SubscriptionRoleArn</code> – The ARN of the IAM role that has the following:</p> <ul> <li> <p>Permission to write to the Firehose delivery stream</p> </li> <li> <p>Amazon SNS listed as a trusted entity</p> </li> </ul> <p>Specifying a valid ARN for this attribute is required for Firehose delivery stream subscriptions. For more information, see <a href=\"https://docs.aws.amazon.com/sns/latest/dg/sns-firehose-as-subscriber.html\">Fanout to Firehose delivery streams</a> in the <i>Amazon SNS Developer Guide</i>.</p> </li> </ul> <p>The following attributes apply only to <a href=\"https://docs.aws.amazon.com/sns/latest/dg/sns-fifo-topics.html\">FIFO topics</a>:</p> <ul> <li> <p> <code>ReplayPolicy</code> – Adds or updates an inline policy document for a subscription to replay messages stored in the specified Amazon SNS topic.</p> </li> <li> <p> <code>ReplayStatus</code> – Retrieves the status of the subscription message replay, which can be one of the following:</p> <ul> <li> <p> <code>Completed</code> – The replay has successfully redelivered all messages, and is now delivering newly published messages. If an ending point was specified in the <code>ReplayPolicy</code> then the subscription will no longer receive newly published messages.</p> </li> <li> <p> <code>In progress</code> – The replay is currently replaying the selected messages.</p> </li> <li> <p> <code>Failed</code> – The replay was unable to complete.</p> </li> <li> <p> <code>Pending</code> – The default state while the replay initiates.</p> </li> </ul> </li> </ul>
             return_subscription_arn: <p>Sets whether the response from the <code>Subscribe</code> request includes the subscription ARN, even if the subscription is not yet confirmed.</p> <p>If you set this parameter to <code>true</code>, the response includes the ARN in all cases, even if the subscription is not yet confirmed. In addition to the ARN for confirmed subscriptions, the response also includes the <code>pending subscription</code> ARN value for subscriptions that aren't yet confirmed. A subscription becomes confirmed when the subscriber calls the <code>ConfirmSubscription</code> action with a confirmation token.</p> <p></p> <p>The default value is <code>false</code>.</p>
+
+        Raises:
+            aws_sdk_sns.errors.authorization_error_exception.AuthorizationErrorException: <p>Indicates that the user has been denied access to the requested resource.</p>
+            aws_sdk_sns.errors.filter_policy_limit_exceeded_exception.FilterPolicyLimitExceededException: <p>Indicates that the number of filter polices in your Amazon Web Services account exceeds the limit. To add more filter polices, submit an Amazon SNS Limit Increase case in the Amazon Web Services Support Center.</p>
+            aws_sdk_sns.errors.internal_error_exception.InternalErrorException: <p>Indicates an internal service error.</p>
+            aws_sdk_sns.errors.invalid_parameter_exception.InvalidParameterException: <p>Indicates that a request parameter does not comply with the associated constraints.</p>
+            aws_sdk_sns.errors.invalid_security_exception.InvalidSecurityException: <p>The credential signature isn't valid. You must use an HTTPS endpoint and sign your request using Signature Version 4.</p>
+            aws_sdk_sns.errors.not_found_exception.NotFoundException: <p>Indicates that the requested resource does not exist.</p>
+            aws_sdk_sns.errors.replay_limit_exceeded_exception.ReplayLimitExceededException: <p>Indicates that the request parameter has exceeded the maximum number of concurrent message replays.</p>
+            aws_sdk_sns.errors.subscription_limit_exceeded_exception.SubscriptionLimitExceededException: <p>Indicates that the customer already owns the maximum allowed number of subscriptions.</p>
+            aws_sdk_sns.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1960,6 +2276,16 @@ class SNSClient:
         Args:
             resource_arn: <p>The ARN of the topic to which to add tags.</p>
             tags: <p>The tags to be added to the specified topic. A tag consists of a required key and an optional value.</p>
+
+        Raises:
+            aws_sdk_sns.errors.authorization_error_exception.AuthorizationErrorException: <p>Indicates that the user has been denied access to the requested resource.</p>
+            aws_sdk_sns.errors.concurrent_access_exception.ConcurrentAccessException: <p>Can't perform multiple operations on a tag simultaneously. Perform the operations sequentially.</p>
+            aws_sdk_sns.errors.invalid_parameter_exception.InvalidParameterException: <p>Indicates that a request parameter does not comply with the associated constraints.</p>
+            aws_sdk_sns.errors.resource_not_found_exception.ResourceNotFoundException: <p>Can’t perform the action on the specified resource. Make sure that the resource exists.</p>
+            aws_sdk_sns.errors.stale_tag_exception.StaleTagException: <p>A tag has been added to a resource with the same ARN as a deleted resource. Wait a short while and then retry the operation.</p>
+            aws_sdk_sns.errors.tag_limit_exceeded_exception.TagLimitExceededException: <p>Can't add more than 50 tags to a topic.</p>
+            aws_sdk_sns.errors.tag_policy_exception.TagPolicyException: <p>The request doesn't comply with the IAM tag policy. Correct your request and then retry it.</p>
+            aws_sdk_sns.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1998,6 +2324,14 @@ class SNSClient:
 
         Args:
             subscription_arn: <p>The ARN of the subscription to be deleted.</p>
+
+        Raises:
+            aws_sdk_sns.errors.authorization_error_exception.AuthorizationErrorException: <p>Indicates that the user has been denied access to the requested resource.</p>
+            aws_sdk_sns.errors.internal_error_exception.InternalErrorException: <p>Indicates an internal service error.</p>
+            aws_sdk_sns.errors.invalid_parameter_exception.InvalidParameterException: <p>Indicates that a request parameter does not comply with the associated constraints.</p>
+            aws_sdk_sns.errors.invalid_security_exception.InvalidSecurityException: <p>The credential signature isn't valid. You must use an HTTPS endpoint and sign your request using Signature Version 4.</p>
+            aws_sdk_sns.errors.not_found_exception.NotFoundException: <p>Indicates that the requested resource does not exist.</p>
+            aws_sdk_sns.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2035,6 +2369,16 @@ class SNSClient:
         Args:
             resource_arn: <p>The ARN of the topic from which to remove tags.</p>
             tag_keys: <p>The list of tag keys to remove from the specified topic.</p>
+
+        Raises:
+            aws_sdk_sns.errors.authorization_error_exception.AuthorizationErrorException: <p>Indicates that the user has been denied access to the requested resource.</p>
+            aws_sdk_sns.errors.concurrent_access_exception.ConcurrentAccessException: <p>Can't perform multiple operations on a tag simultaneously. Perform the operations sequentially.</p>
+            aws_sdk_sns.errors.invalid_parameter_exception.InvalidParameterException: <p>Indicates that a request parameter does not comply with the associated constraints.</p>
+            aws_sdk_sns.errors.resource_not_found_exception.ResourceNotFoundException: <p>Can’t perform the action on the specified resource. Make sure that the resource exists.</p>
+            aws_sdk_sns.errors.stale_tag_exception.StaleTagException: <p>A tag has been added to a resource with the same ARN as a deleted resource. Wait a short while and then retry the operation.</p>
+            aws_sdk_sns.errors.tag_limit_exceeded_exception.TagLimitExceededException: <p>Can't add more than 50 tags to a topic.</p>
+            aws_sdk_sns.errors.tag_policy_exception.TagPolicyException: <p>The request doesn't comply with the IAM tag policy. Correct your request and then retry it.</p>
+            aws_sdk_sns.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2075,6 +2419,15 @@ class SNSClient:
         Args:
             phone_number: <p>The destination phone number to verify.</p>
             one_time_password: <p>The OTP sent to the destination number from the <code>CreateSMSSandBoxPhoneNumber</code> call.</p>
+
+        Raises:
+            aws_sdk_sns.errors.authorization_error_exception.AuthorizationErrorException: <p>Indicates that the user has been denied access to the requested resource.</p>
+            aws_sdk_sns.errors.internal_error_exception.InternalErrorException: <p>Indicates an internal service error.</p>
+            aws_sdk_sns.errors.invalid_parameter_exception.InvalidParameterException: <p>Indicates that a request parameter does not comply with the associated constraints.</p>
+            aws_sdk_sns.errors.resource_not_found_exception.ResourceNotFoundException: <p>Can’t perform the action on the specified resource. Make sure that the resource exists.</p>
+            aws_sdk_sns.errors.throttled_exception.ThrottledException: <p>Indicates that the rate at which requests have been submitted for this action exceeds the limit for your Amazon Web Services account.</p>
+            aws_sdk_sns.errors.verification_exception.VerificationException: <p>Indicates that the one-time password (OTP) used for verification is invalid.</p>
+            aws_sdk_sns.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(

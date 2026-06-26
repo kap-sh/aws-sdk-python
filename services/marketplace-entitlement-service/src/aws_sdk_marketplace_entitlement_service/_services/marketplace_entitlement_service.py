@@ -151,6 +151,12 @@ class MarketplaceEntitlementServiceClient:
             filter: <p>Filter is used to return entitlements for a specific customer or for a specific dimension. Filters are described as keys mapped to a lists of values. Filtered requests are <i>unioned</i> for each value in the value list, and then <i>intersected</i> for each filter key.</p> <p> <code>CustomerIdentifier</code> and <code>CustomerAWSAccountId</code> are mutually exclusive parameters. You must use one or the other, but not both in the same request. </p> <note> <p>If you're migrating an existing integration, use <a href=\"https://docs.aws.amazon.com/marketplace/latest/userguide/data-feed-account.html\">Account Feeds</a> to map <code>CustomerIdentifier</code> to <code>CustomerAWSAccountId</code>, and <a href=\"https://docs.aws.amazon.com/marketplace/latest/userguide/data-feed-agreements.html\">Agreements Feeds</a> to map <code>CustomerAWSAccountId</code> and <code>LicenseArn</code>.</p> </note>
             next_token: <p>For paginated calls to GetEntitlements, pass the NextToken from the previous GetEntitlementsResult.</p>
             max_results: <p>The maximum number of items to retrieve from the GetEntitlements operation. For pagination, use the NextToken field in subsequent calls to GetEntitlements.</p>
+
+        Raises:
+            aws_sdk_marketplace_entitlement_service.errors.internal_service_error_exception.InternalServiceErrorException: <p>An internal error has occurred. Retry your request. If the problem persists, post a message with details on the AWS forums.</p>
+            aws_sdk_marketplace_entitlement_service.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters in your request was invalid.</p>
+            aws_sdk_marketplace_entitlement_service.errors.throttling_exception.ThrottlingException: <p>The calls to the GetEntitlements API are throttled.</p>
+            aws_sdk_marketplace_entitlement_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(

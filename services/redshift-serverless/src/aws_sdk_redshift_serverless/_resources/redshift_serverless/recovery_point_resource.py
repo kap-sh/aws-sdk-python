@@ -57,6 +57,15 @@ class RecoveryPointResource:
             snapshot_name: <p>The name of the snapshot.</p>
             retention_period: <p>How long to retain the snapshot.</p>
             tags: <p>An array of <a href=\"https://docs.aws.amazon.com/redshift-serverless/latest/APIReference/API_Tag.html\">Tag objects</a> to associate with the created snapshot.</p>
+
+        Raises:
+            aws_sdk_redshift_serverless.errors.conflict_exception.ConflictException: <p>The submitted action has conflicts.</p>
+            aws_sdk_redshift_serverless.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_redshift_serverless.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_redshift_serverless.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The service limit was exceeded.</p>
+            aws_sdk_redshift_serverless.errors.too_many_tags_exception.TooManyTagsException: <p>The request exceeded the number of tags allowed for a resource.</p>
+            aws_sdk_redshift_serverless.errors.validation_exception.ValidationException: <p>The input failed to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_redshift_serverless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -99,6 +108,13 @@ class RecoveryPointResource:
 
         Args:
             recovery_point_id: <p>The unique identifier of the recovery point to return information for.</p>
+
+        Raises:
+            aws_sdk_redshift_serverless.errors.conflict_exception.ConflictException: <p>The submitted action has conflicts.</p>
+            aws_sdk_redshift_serverless.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_redshift_serverless.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_redshift_serverless.errors.validation_exception.ValidationException: <p>The input failed to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_redshift_serverless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -148,6 +164,11 @@ class RecoveryPointResource:
             end_time: <p>The time when creation of the recovery point finished.</p>
             namespace_name: <p>The name of the namespace to list recovery points for.</p>
             namespace_arn: <p>The Amazon Resource Name (ARN) of the namespace from which to list recovery points.</p>
+
+        Raises:
+            aws_sdk_redshift_serverless.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_redshift_serverless.errors.validation_exception.ValidationException: <p>The input failed to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_redshift_serverless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -200,6 +221,13 @@ class RecoveryPointResource:
             recovery_point_id: <p>The unique identifier of the recovery point to restore from.</p>
             namespace_name: <p>The name of the namespace to restore data into.</p>
             workgroup_name: <p>The name of the workgroup used to restore data.</p>
+
+        Raises:
+            aws_sdk_redshift_serverless.errors.conflict_exception.ConflictException: <p>The submitted action has conflicts.</p>
+            aws_sdk_redshift_serverless.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_redshift_serverless.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_redshift_serverless.errors.validation_exception.ValidationException: <p>The input failed to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_redshift_serverless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -257,6 +285,13 @@ class RecoveryPointResource:
             target_schema_name: <p>The name of the schema to restore the table to.</p>
             new_table_name: <p>The name of the table to create from the restore operation.</p>
             activate_case_sensitive_identifier: <p>Indicates whether name identifiers for database, schema, and table are case sensitive. If true, the names are case sensitive. If false, the names are not case sensitive. The default is false.</p>
+
+        Raises:
+            aws_sdk_redshift_serverless.errors.conflict_exception.ConflictException: <p>The submitted action has conflicts.</p>
+            aws_sdk_redshift_serverless.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_redshift_serverless.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_redshift_serverless.errors.validation_exception.ValidationException: <p>The input failed to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_redshift_serverless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -320,6 +355,15 @@ class AsyncRecoveryPointResource:
             snapshot_name: <p>The name of the snapshot.</p>
             retention_period: <p>How long to retain the snapshot.</p>
             tags: <p>An array of <a href=\"https://docs.aws.amazon.com/redshift-serverless/latest/APIReference/API_Tag.html\">Tag objects</a> to associate with the created snapshot.</p>
+
+        Raises:
+            aws_sdk_redshift_serverless.errors.conflict_exception.ConflictException: <p>The submitted action has conflicts.</p>
+            aws_sdk_redshift_serverless.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_redshift_serverless.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_redshift_serverless.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The service limit was exceeded.</p>
+            aws_sdk_redshift_serverless.errors.too_many_tags_exception.TooManyTagsException: <p>The request exceeded the number of tags allowed for a resource.</p>
+            aws_sdk_redshift_serverless.errors.validation_exception.ValidationException: <p>The input failed to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_redshift_serverless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -363,6 +407,13 @@ class AsyncRecoveryPointResource:
 
         Args:
             recovery_point_id: <p>The unique identifier of the recovery point to return information for.</p>
+
+        Raises:
+            aws_sdk_redshift_serverless.errors.conflict_exception.ConflictException: <p>The submitted action has conflicts.</p>
+            aws_sdk_redshift_serverless.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_redshift_serverless.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_redshift_serverless.errors.validation_exception.ValidationException: <p>The input failed to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_redshift_serverless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -413,6 +464,11 @@ class AsyncRecoveryPointResource:
             end_time: <p>The time when creation of the recovery point finished.</p>
             namespace_name: <p>The name of the namespace to list recovery points for.</p>
             namespace_arn: <p>The Amazon Resource Name (ARN) of the namespace from which to list recovery points.</p>
+
+        Raises:
+            aws_sdk_redshift_serverless.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_redshift_serverless.errors.validation_exception.ValidationException: <p>The input failed to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_redshift_serverless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -466,6 +522,13 @@ class AsyncRecoveryPointResource:
             recovery_point_id: <p>The unique identifier of the recovery point to restore from.</p>
             namespace_name: <p>The name of the namespace to restore data into.</p>
             workgroup_name: <p>The name of the workgroup used to restore data.</p>
+
+        Raises:
+            aws_sdk_redshift_serverless.errors.conflict_exception.ConflictException: <p>The submitted action has conflicts.</p>
+            aws_sdk_redshift_serverless.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_redshift_serverless.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_redshift_serverless.errors.validation_exception.ValidationException: <p>The input failed to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_redshift_serverless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -524,6 +587,13 @@ class AsyncRecoveryPointResource:
             target_schema_name: <p>The name of the schema to restore the table to.</p>
             new_table_name: <p>The name of the table to create from the restore operation.</p>
             activate_case_sensitive_identifier: <p>Indicates whether name identifiers for database, schema, and table are case sensitive. If true, the names are case sensitive. If false, the names are not case sensitive. The default is false.</p>
+
+        Raises:
+            aws_sdk_redshift_serverless.errors.conflict_exception.ConflictException: <p>The submitted action has conflicts.</p>
+            aws_sdk_redshift_serverless.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_redshift_serverless.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_redshift_serverless.errors.validation_exception.ValidationException: <p>The input failed to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_redshift_serverless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

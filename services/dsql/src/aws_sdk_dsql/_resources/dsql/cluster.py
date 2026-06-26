@@ -83,6 +83,15 @@ class Cluster:
             policy: <p>An optional resource-based policy document in JSON format that defines access permissions for the cluster.</p>
             bypass_policy_lockout_safety_check: <p>An optional field that controls whether to bypass the lockout prevention check. When set to true, this parameter allows you to apply a policy that might lock you out of the cluster. Use with caution.</p>
 
+        Raises:
+            aws_sdk_dsql.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_dsql.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_dsql.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_dsql.errors.validation_exception.ValidationException: <p>The input failed to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_dsql.errors.conflict_exception.ConflictException: <p>The submitted action has conflicts.</p>
+            aws_sdk_dsql.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The service limit was exceeded.</p>
+            aws_sdk_dsql.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Create Cluster
 
@@ -140,6 +149,14 @@ class Cluster:
         Args:
             identifier: <p>The ID of the cluster to retrieve.</p>
 
+        Raises:
+            aws_sdk_dsql.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_dsql.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_dsql.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_dsql.errors.validation_exception.ValidationException: <p>The input failed to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_dsql.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_dsql.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Get Cluster
 
@@ -196,6 +213,15 @@ class Cluster:
             client_token: <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. Idempotency ensures that an API request completes only once. With an idempotent request, if the original request completes successfully. The subsequent retries with the same client token return the result from the original successful request and they have no additional effect.</p> <p>If you don't specify a client token, the Amazon Web Services SDK automatically generates one.</p>
             multi_region_properties: <p>The new multi-Region cluster configuration settings to be applied during an update operation.</p>
 
+        Raises:
+            aws_sdk_dsql.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_dsql.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_dsql.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_dsql.errors.validation_exception.ValidationException: <p>The input failed to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_dsql.errors.conflict_exception.ConflictException: <p>The submitted action has conflicts.</p>
+            aws_sdk_dsql.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_dsql.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Update Cluster
 
@@ -248,6 +274,15 @@ class Cluster:
             identifier: <p>The ID of the cluster to delete.</p>
             client_token: <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. Idempotency ensures that an API request completes only once. With an idempotent request, if the original request completes successfully. The subsequent retries with the same client token return the result from the original successful request and they have no additional effect.</p> <p>If you don't specify a client token, the Amazon Web Services SDK automatically generates one.</p>
 
+        Raises:
+            aws_sdk_dsql.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_dsql.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_dsql.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_dsql.errors.validation_exception.ValidationException: <p>The input failed to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_dsql.errors.conflict_exception.ConflictException: <p>The submitted action has conflicts.</p>
+            aws_sdk_dsql.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_dsql.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Delete Cluster
 
@@ -293,6 +328,14 @@ class Cluster:
         Args:
             max_results: <p>An optional parameter that specifies the maximum number of results to return. You can use nextToken to display the next page of results.</p>
             next_token: <p>If your initial ListClusters operation returns a nextToken, you can include the returned nextToken in following ListClusters operations, which returns results in the next page.</p>
+
+        Raises:
+            aws_sdk_dsql.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_dsql.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_dsql.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_dsql.errors.validation_exception.ValidationException: <p>The input failed to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_dsql.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_dsql.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             List Clusters
@@ -342,6 +385,15 @@ class Cluster:
 
         Args:
             expected_policy_version: <p>The expected version of the policy to delete. This parameter ensures that you're deleting the correct version of the policy and helps prevent accidental deletions.</p>
+
+        Raises:
+            aws_sdk_dsql.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_dsql.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_dsql.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_dsql.errors.validation_exception.ValidationException: <p>The input failed to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_dsql.errors.conflict_exception.ConflictException: <p>The submitted action has conflicts.</p>
+            aws_sdk_dsql.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_dsql.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -383,6 +435,14 @@ class Cluster:
 
         Args:
             identifier: <p>The ID of the cluster to retrieve the policy from.</p>
+
+        Raises:
+            aws_sdk_dsql.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_dsql.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_dsql.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_dsql.errors.validation_exception.ValidationException: <p>The input failed to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_dsql.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_dsql.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -420,6 +480,14 @@ class Cluster:
 
         Args:
             identifier: <p>The ID of the cluster to retrieve.</p>
+
+        Raises:
+            aws_sdk_dsql.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_dsql.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_dsql.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_dsql.errors.validation_exception.ValidationException: <p>The input failed to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_dsql.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_dsql.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Get VPC Endpoint Service Name
@@ -472,6 +540,15 @@ class Cluster:
             policy: <p>The resource-based policy document to attach to the cluster. This should be a valid JSON policy document that defines permissions and conditions.</p>
             bypass_policy_lockout_safety_check: <p>A flag that allows you to bypass the policy lockout safety check. When set to true, this parameter allows you to apply a policy that might lock you out of the cluster. Use with caution.</p>
             expected_policy_version: <p>The expected version of the current policy. This parameter ensures that you're updating the correct version of the policy and helps prevent concurrent modification conflicts.</p>
+
+        Raises:
+            aws_sdk_dsql.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_dsql.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_dsql.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_dsql.errors.validation_exception.ValidationException: <p>The input failed to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_dsql.errors.conflict_exception.ConflictException: <p>The submitted action has conflicts.</p>
+            aws_sdk_dsql.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_dsql.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -544,6 +621,15 @@ class AsyncCluster:
             policy: <p>An optional resource-based policy document in JSON format that defines access permissions for the cluster.</p>
             bypass_policy_lockout_safety_check: <p>An optional field that controls whether to bypass the lockout prevention check. When set to true, this parameter allows you to apply a policy that might lock you out of the cluster. Use with caution.</p>
 
+        Raises:
+            aws_sdk_dsql.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_dsql.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_dsql.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_dsql.errors.validation_exception.ValidationException: <p>The input failed to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_dsql.errors.conflict_exception.ConflictException: <p>The submitted action has conflicts.</p>
+            aws_sdk_dsql.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The service limit was exceeded.</p>
+            aws_sdk_dsql.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Create Cluster
 
@@ -602,6 +688,14 @@ class AsyncCluster:
         Args:
             identifier: <p>The ID of the cluster to retrieve.</p>
 
+        Raises:
+            aws_sdk_dsql.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_dsql.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_dsql.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_dsql.errors.validation_exception.ValidationException: <p>The input failed to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_dsql.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_dsql.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Get Cluster
 
@@ -659,6 +753,15 @@ class AsyncCluster:
             client_token: <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. Idempotency ensures that an API request completes only once. With an idempotent request, if the original request completes successfully. The subsequent retries with the same client token return the result from the original successful request and they have no additional effect.</p> <p>If you don't specify a client token, the Amazon Web Services SDK automatically generates one.</p>
             multi_region_properties: <p>The new multi-Region cluster configuration settings to be applied during an update operation.</p>
 
+        Raises:
+            aws_sdk_dsql.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_dsql.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_dsql.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_dsql.errors.validation_exception.ValidationException: <p>The input failed to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_dsql.errors.conflict_exception.ConflictException: <p>The submitted action has conflicts.</p>
+            aws_sdk_dsql.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_dsql.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Update Cluster
 
@@ -712,6 +815,15 @@ class AsyncCluster:
             identifier: <p>The ID of the cluster to delete.</p>
             client_token: <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. Idempotency ensures that an API request completes only once. With an idempotent request, if the original request completes successfully. The subsequent retries with the same client token return the result from the original successful request and they have no additional effect.</p> <p>If you don't specify a client token, the Amazon Web Services SDK automatically generates one.</p>
 
+        Raises:
+            aws_sdk_dsql.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_dsql.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_dsql.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_dsql.errors.validation_exception.ValidationException: <p>The input failed to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_dsql.errors.conflict_exception.ConflictException: <p>The submitted action has conflicts.</p>
+            aws_sdk_dsql.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_dsql.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Delete Cluster
 
@@ -758,6 +870,14 @@ class AsyncCluster:
         Args:
             max_results: <p>An optional parameter that specifies the maximum number of results to return. You can use nextToken to display the next page of results.</p>
             next_token: <p>If your initial ListClusters operation returns a nextToken, you can include the returned nextToken in following ListClusters operations, which returns results in the next page.</p>
+
+        Raises:
+            aws_sdk_dsql.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_dsql.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_dsql.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_dsql.errors.validation_exception.ValidationException: <p>The input failed to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_dsql.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_dsql.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             List Clusters
@@ -808,6 +928,15 @@ class AsyncCluster:
 
         Args:
             expected_policy_version: <p>The expected version of the policy to delete. This parameter ensures that you're deleting the correct version of the policy and helps prevent accidental deletions.</p>
+
+        Raises:
+            aws_sdk_dsql.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_dsql.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_dsql.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_dsql.errors.validation_exception.ValidationException: <p>The input failed to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_dsql.errors.conflict_exception.ConflictException: <p>The submitted action has conflicts.</p>
+            aws_sdk_dsql.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_dsql.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -850,6 +979,14 @@ class AsyncCluster:
 
         Args:
             identifier: <p>The ID of the cluster to retrieve the policy from.</p>
+
+        Raises:
+            aws_sdk_dsql.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_dsql.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_dsql.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_dsql.errors.validation_exception.ValidationException: <p>The input failed to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_dsql.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_dsql.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -888,6 +1025,14 @@ class AsyncCluster:
 
         Args:
             identifier: <p>The ID of the cluster to retrieve.</p>
+
+        Raises:
+            aws_sdk_dsql.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_dsql.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_dsql.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_dsql.errors.validation_exception.ValidationException: <p>The input failed to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_dsql.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_dsql.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Get VPC Endpoint Service Name
@@ -941,6 +1086,15 @@ class AsyncCluster:
             policy: <p>The resource-based policy document to attach to the cluster. This should be a valid JSON policy document that defines permissions and conditions.</p>
             bypass_policy_lockout_safety_check: <p>A flag that allows you to bypass the policy lockout safety check. When set to true, this parameter allows you to apply a policy that might lock you out of the cluster. Use with caution.</p>
             expected_policy_version: <p>The expected version of the current policy. This parameter ensures that you're updating the correct version of the policy and helps prevent concurrent modification conflicts.</p>
+
+        Raises:
+            aws_sdk_dsql.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_dsql.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_dsql.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_dsql.errors.validation_exception.ValidationException: <p>The input failed to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_dsql.errors.conflict_exception.ConflictException: <p>The submitted action has conflicts.</p>
+            aws_sdk_dsql.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_dsql.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

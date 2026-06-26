@@ -47,6 +47,16 @@ class EnvironmentResource:
         Args:
             id: <p>The identifier of the specific <a>Environment</a> to describe.</p>
 
+        Raises:
+            aws_sdk_interconnect.errors.access_denied_exception.AccessDeniedException: <p>The calling principal is not allowed to access the specified resource, or the resource does not exist.</p>
+            aws_sdk_interconnect.errors.interconnect_client_exception.InterconnectClientException: <p>The request was denied due to incorrect client supplied parameters.</p>
+            aws_sdk_interconnect.errors.interconnect_server_exception.InterconnectServerException: <p>The request resulted in an exception internal to the service.</p>
+            aws_sdk_interconnect.errors.interconnect_validation_exception.InterconnectValidationException: <p>The input fails to satisfy the constraints specified.</p>
+            aws_sdk_interconnect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request specifies a resource that does not exist on the server.</p>
+            aws_sdk_interconnect.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The requested operation would result in the calling principal exceeding their allotted quota.</p>
+            aws_sdk_interconnect.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_interconnect.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Get a specific environment
 
@@ -98,6 +108,16 @@ class EnvironmentResource:
             next_token: <p>A pagination token from a previous paginated response indicating you wish to get the next page of results.</p>
             provider: <p>Filter results to only include <a>Environment</a> objects that connect to the <a>Provider</a>.</p>
             location: <p>Filter results to only include <a>Environment</a> objects that connect to a given location distiguisher.</p>
+
+        Raises:
+            aws_sdk_interconnect.errors.access_denied_exception.AccessDeniedException: <p>The calling principal is not allowed to access the specified resource, or the resource does not exist.</p>
+            aws_sdk_interconnect.errors.interconnect_client_exception.InterconnectClientException: <p>The request was denied due to incorrect client supplied parameters.</p>
+            aws_sdk_interconnect.errors.interconnect_server_exception.InterconnectServerException: <p>The request resulted in an exception internal to the service.</p>
+            aws_sdk_interconnect.errors.interconnect_validation_exception.InterconnectValidationException: <p>The input fails to satisfy the constraints specified.</p>
+            aws_sdk_interconnect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request specifies a resource that does not exist on the server.</p>
+            aws_sdk_interconnect.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The requested operation would result in the calling principal exceeding their allotted quota.</p>
+            aws_sdk_interconnect.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_interconnect.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             List All Environments
@@ -153,6 +173,16 @@ class AsyncEnvironmentResource:
         Args:
             id: <p>The identifier of the specific <a>Environment</a> to describe.</p>
 
+        Raises:
+            aws_sdk_interconnect.errors.access_denied_exception.AccessDeniedException: <p>The calling principal is not allowed to access the specified resource, or the resource does not exist.</p>
+            aws_sdk_interconnect.errors.interconnect_client_exception.InterconnectClientException: <p>The request was denied due to incorrect client supplied parameters.</p>
+            aws_sdk_interconnect.errors.interconnect_server_exception.InterconnectServerException: <p>The request resulted in an exception internal to the service.</p>
+            aws_sdk_interconnect.errors.interconnect_validation_exception.InterconnectValidationException: <p>The input fails to satisfy the constraints specified.</p>
+            aws_sdk_interconnect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request specifies a resource that does not exist on the server.</p>
+            aws_sdk_interconnect.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The requested operation would result in the calling principal exceeding their allotted quota.</p>
+            aws_sdk_interconnect.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_interconnect.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Get a specific environment
 
@@ -205,6 +235,16 @@ class AsyncEnvironmentResource:
             next_token: <p>A pagination token from a previous paginated response indicating you wish to get the next page of results.</p>
             provider: <p>Filter results to only include <a>Environment</a> objects that connect to the <a>Provider</a>.</p>
             location: <p>Filter results to only include <a>Environment</a> objects that connect to a given location distiguisher.</p>
+
+        Raises:
+            aws_sdk_interconnect.errors.access_denied_exception.AccessDeniedException: <p>The calling principal is not allowed to access the specified resource, or the resource does not exist.</p>
+            aws_sdk_interconnect.errors.interconnect_client_exception.InterconnectClientException: <p>The request was denied due to incorrect client supplied parameters.</p>
+            aws_sdk_interconnect.errors.interconnect_server_exception.InterconnectServerException: <p>The request resulted in an exception internal to the service.</p>
+            aws_sdk_interconnect.errors.interconnect_validation_exception.InterconnectValidationException: <p>The input fails to satisfy the constraints specified.</p>
+            aws_sdk_interconnect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request specifies a resource that does not exist on the server.</p>
+            aws_sdk_interconnect.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The requested operation would result in the calling principal exceeding their allotted quota.</p>
+            aws_sdk_interconnect.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_interconnect.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             List All Environments

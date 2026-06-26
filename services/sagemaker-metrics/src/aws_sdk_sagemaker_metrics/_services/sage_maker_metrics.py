@@ -139,6 +139,9 @@ class SageMakerMetricsClient:
 
         Args:
             metric_queries: <p>Queries made to retrieve training metrics from SageMaker.</p>
+
+        Raises:
+            aws_sdk_sagemaker_metrics.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -178,6 +181,9 @@ class SageMakerMetricsClient:
         Args:
             trial_component_name: <p>The name of the Trial Component to associate with the metrics. The Trial Component name must be entirely lowercase.</p>
             metric_data: <p>A list of raw metric values to put.</p>
+
+        Raises:
+            aws_sdk_sagemaker_metrics.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(

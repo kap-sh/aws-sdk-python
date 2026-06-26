@@ -69,6 +69,15 @@ class ServiceInstanceResource:
             template_minor_version: <p>To create a new minor version of the service template, include a <code>major Version</code>.</p>
             tags: <p>An optional list of metadata items that you can associate with the Proton service instance. A tag is a key-value pair.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/proton/latest/userguide/resources.html\">Proton resources and tagging</a> in the <i>Proton User Guide</i>.</p>
             client_token: <p>The client token of the service instance to create.</p>
+
+        Raises:
+            aws_sdk_proton.errors.access_denied_exception.AccessDeniedException: <p>There <i>isn't</i> sufficient access for performing this action.</p>
+            aws_sdk_proton.errors.conflict_exception.ConflictException: <p>The request <i>couldn't</i> be made due to a conflicting operation or resource.</p>
+            aws_sdk_proton.errors.internal_server_exception.InternalServerException: <p>The request failed to register with the service.</p>
+            aws_sdk_proton.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource <i>wasn't</i> found.</p>
+            aws_sdk_proton.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_proton.errors.validation_exception.ValidationException: <p>The input is invalid or an out-of-range value was supplied for the input parameter.</p>
+            aws_sdk_proton.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -118,6 +127,14 @@ class ServiceInstanceResource:
         Args:
             name: <p>The name of a service instance that you want to get the detailed data for.</p>
             service_name: <p>The name of the service that you want the service instance input for.</p>
+
+        Raises:
+            aws_sdk_proton.errors.access_denied_exception.AccessDeniedException: <p>There <i>isn't</i> sufficient access for performing this action.</p>
+            aws_sdk_proton.errors.internal_server_exception.InternalServerException: <p>The request failed to register with the service.</p>
+            aws_sdk_proton.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource <i>wasn't</i> found.</p>
+            aws_sdk_proton.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_proton.errors.validation_exception.ValidationException: <p>The input is invalid or an out-of-range value was supplied for the input parameter.</p>
+            aws_sdk_proton.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -172,6 +189,15 @@ class ServiceInstanceResource:
             template_major_version: <p>The major version of the service template to update.</p>
             template_minor_version: <p>The minor version of the service template to update.</p>
             client_token: <p>The client token of the service instance to update.</p>
+
+        Raises:
+            aws_sdk_proton.errors.access_denied_exception.AccessDeniedException: <p>There <i>isn't</i> sufficient access for performing this action.</p>
+            aws_sdk_proton.errors.conflict_exception.ConflictException: <p>The request <i>couldn't</i> be made due to a conflicting operation or resource.</p>
+            aws_sdk_proton.errors.internal_server_exception.InternalServerException: <p>The request failed to register with the service.</p>
+            aws_sdk_proton.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource <i>wasn't</i> found.</p>
+            aws_sdk_proton.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_proton.errors.validation_exception.ValidationException: <p>The input is invalid or an out-of-range value was supplied for the input parameter.</p>
+            aws_sdk_proton.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -239,6 +265,14 @@ class ServiceInstanceResource:
             filters: <p>An array of filtering criteria that scope down the result list. By default, all service instances in the Amazon Web Services account are returned.</p>
             sort_by: <p>The field that the result list is sorted by.</p> <p>When you choose to sort by <code>serviceName</code>, service instances within each service are sorted by service instance name.</p> <p>Default: <code>serviceName</code> </p>
             sort_order: <p>Result list sort order.</p> <p>Default: <code>ASCENDING</code> </p>
+
+        Raises:
+            aws_sdk_proton.errors.access_denied_exception.AccessDeniedException: <p>There <i>isn't</i> sufficient access for performing this action.</p>
+            aws_sdk_proton.errors.internal_server_exception.InternalServerException: <p>The request failed to register with the service.</p>
+            aws_sdk_proton.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource <i>wasn't</i> found.</p>
+            aws_sdk_proton.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_proton.errors.validation_exception.ValidationException: <p>The input is invalid or an out-of-range value was supplied for the input parameter.</p>
+            aws_sdk_proton.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -308,6 +342,15 @@ class AsyncServiceInstanceResource:
             template_minor_version: <p>To create a new minor version of the service template, include a <code>major Version</code>.</p>
             tags: <p>An optional list of metadata items that you can associate with the Proton service instance. A tag is a key-value pair.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/proton/latest/userguide/resources.html\">Proton resources and tagging</a> in the <i>Proton User Guide</i>.</p>
             client_token: <p>The client token of the service instance to create.</p>
+
+        Raises:
+            aws_sdk_proton.errors.access_denied_exception.AccessDeniedException: <p>There <i>isn't</i> sufficient access for performing this action.</p>
+            aws_sdk_proton.errors.conflict_exception.ConflictException: <p>The request <i>couldn't</i> be made due to a conflicting operation or resource.</p>
+            aws_sdk_proton.errors.internal_server_exception.InternalServerException: <p>The request failed to register with the service.</p>
+            aws_sdk_proton.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource <i>wasn't</i> found.</p>
+            aws_sdk_proton.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_proton.errors.validation_exception.ValidationException: <p>The input is invalid or an out-of-range value was supplied for the input parameter.</p>
+            aws_sdk_proton.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -358,6 +401,14 @@ class AsyncServiceInstanceResource:
         Args:
             name: <p>The name of a service instance that you want to get the detailed data for.</p>
             service_name: <p>The name of the service that you want the service instance input for.</p>
+
+        Raises:
+            aws_sdk_proton.errors.access_denied_exception.AccessDeniedException: <p>There <i>isn't</i> sufficient access for performing this action.</p>
+            aws_sdk_proton.errors.internal_server_exception.InternalServerException: <p>The request failed to register with the service.</p>
+            aws_sdk_proton.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource <i>wasn't</i> found.</p>
+            aws_sdk_proton.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_proton.errors.validation_exception.ValidationException: <p>The input is invalid or an out-of-range value was supplied for the input parameter.</p>
+            aws_sdk_proton.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -413,6 +464,15 @@ class AsyncServiceInstanceResource:
             template_major_version: <p>The major version of the service template to update.</p>
             template_minor_version: <p>The minor version of the service template to update.</p>
             client_token: <p>The client token of the service instance to update.</p>
+
+        Raises:
+            aws_sdk_proton.errors.access_denied_exception.AccessDeniedException: <p>There <i>isn't</i> sufficient access for performing this action.</p>
+            aws_sdk_proton.errors.conflict_exception.ConflictException: <p>The request <i>couldn't</i> be made due to a conflicting operation or resource.</p>
+            aws_sdk_proton.errors.internal_server_exception.InternalServerException: <p>The request failed to register with the service.</p>
+            aws_sdk_proton.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource <i>wasn't</i> found.</p>
+            aws_sdk_proton.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_proton.errors.validation_exception.ValidationException: <p>The input is invalid or an out-of-range value was supplied for the input parameter.</p>
+            aws_sdk_proton.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -481,6 +541,14 @@ class AsyncServiceInstanceResource:
             filters: <p>An array of filtering criteria that scope down the result list. By default, all service instances in the Amazon Web Services account are returned.</p>
             sort_by: <p>The field that the result list is sorted by.</p> <p>When you choose to sort by <code>serviceName</code>, service instances within each service are sorted by service instance name.</p> <p>Default: <code>serviceName</code> </p>
             sort_order: <p>Result list sort order.</p> <p>Default: <code>ASCENDING</code> </p>
+
+        Raises:
+            aws_sdk_proton.errors.access_denied_exception.AccessDeniedException: <p>There <i>isn't</i> sufficient access for performing this action.</p>
+            aws_sdk_proton.errors.internal_server_exception.InternalServerException: <p>The request failed to register with the service.</p>
+            aws_sdk_proton.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource <i>wasn't</i> found.</p>
+            aws_sdk_proton.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_proton.errors.validation_exception.ValidationException: <p>The input is invalid or an out-of-range value was supplied for the input parameter.</p>
+            aws_sdk_proton.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

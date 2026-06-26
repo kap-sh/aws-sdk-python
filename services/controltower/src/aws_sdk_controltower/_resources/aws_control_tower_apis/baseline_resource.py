@@ -45,6 +45,14 @@ class BaselineResource:
 
         Args:
             baseline_identifier: <p>The ARN of the <code>Baseline</code> resource to be retrieved.</p>
+
+        Raises:
+            aws_sdk_controltower.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_controltower.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred during processing of a request.</p>
+            aws_sdk_controltower.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource that does not exist.</p>
+            aws_sdk_controltower.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_controltower.errors.validation_exception.ValidationException: <p>The input does not satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_controltower.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -86,6 +94,13 @@ class BaselineResource:
         Args:
             next_token: <p>A pagination token.</p>
             max_results: <p>The maximum number of results to be shown.</p>
+
+        Raises:
+            aws_sdk_controltower.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_controltower.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred during processing of a request.</p>
+            aws_sdk_controltower.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_controltower.errors.validation_exception.ValidationException: <p>The input does not satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_controltower.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -131,6 +146,14 @@ class AsyncBaselineResource:
 
         Args:
             baseline_identifier: <p>The ARN of the <code>Baseline</code> resource to be retrieved.</p>
+
+        Raises:
+            aws_sdk_controltower.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_controltower.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred during processing of a request.</p>
+            aws_sdk_controltower.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource that does not exist.</p>
+            aws_sdk_controltower.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_controltower.errors.validation_exception.ValidationException: <p>The input does not satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_controltower.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -173,6 +196,13 @@ class AsyncBaselineResource:
         Args:
             next_token: <p>A pagination token.</p>
             max_results: <p>The maximum number of results to be shown.</p>
+
+        Raises:
+            aws_sdk_controltower.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_controltower.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred during processing of a request.</p>
+            aws_sdk_controltower.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_controltower.errors.validation_exception.ValidationException: <p>The input does not satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_controltower.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

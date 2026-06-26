@@ -221,6 +221,16 @@ class AsyncRoute53RecoveryControlConfigClient:
             cluster_name: <p>The name of the cluster.</p>
             tags: <p>The tags associated with the cluster.</p>
             network_type: <p>The network type of the cluster. NetworkType can be one of the following: IPV4, DUALSTACK.</p>
+
+        Raises:
+            aws_sdk_route53_recovery_control_config.errors.access_denied_exception.AccessDeniedException: <p>403 response - You do not have sufficient access to perform this action.</p>
+            aws_sdk_route53_recovery_control_config.errors.conflict_exception.ConflictException: <p>409 response - ConflictException. You might be using a predefined variable.</p>
+            aws_sdk_route53_recovery_control_config.errors.internal_server_exception.InternalServerException: <p>500 response - InternalServiceError. Temporary service error. Retry the request.</p>
+            aws_sdk_route53_recovery_control_config.errors.resource_not_found_exception.ResourceNotFoundException: <p>404 response - MalformedQueryString. The query string contains a syntax error or resource not found.</p>
+            aws_sdk_route53_recovery_control_config.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>402 response - You attempted to create more resources than the service allows based on service quotas.</p>
+            aws_sdk_route53_recovery_control_config.errors.throttling_exception.ThrottlingException: <p>429 response - LimitExceededException or TooManyRequestsException.</p>
+            aws_sdk_route53_recovery_control_config.errors.validation_exception.ValidationException: <p>400 response - Multiple causes. For example, you might have a malformed query string and input parameter might be out of range, or you might have used parameters together incorrectly.</p>
+            aws_sdk_route53_recovery_control_config.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -277,6 +287,16 @@ class AsyncRoute53RecoveryControlConfigClient:
             cluster_arn: <p>The Amazon Resource Name (ARN) of the cluster for the control panel.</p>
             control_panel_name: <p>The name of the control panel.</p>
             tags: <p>The tags associated with the control panel.</p>
+
+        Raises:
+            aws_sdk_route53_recovery_control_config.errors.access_denied_exception.AccessDeniedException: <p>403 response - You do not have sufficient access to perform this action.</p>
+            aws_sdk_route53_recovery_control_config.errors.conflict_exception.ConflictException: <p>409 response - ConflictException. You might be using a predefined variable.</p>
+            aws_sdk_route53_recovery_control_config.errors.internal_server_exception.InternalServerException: <p>500 response - InternalServiceError. Temporary service error. Retry the request.</p>
+            aws_sdk_route53_recovery_control_config.errors.resource_not_found_exception.ResourceNotFoundException: <p>404 response - MalformedQueryString. The query string contains a syntax error or resource not found.</p>
+            aws_sdk_route53_recovery_control_config.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>402 response - You attempted to create more resources than the service allows based on service quotas.</p>
+            aws_sdk_route53_recovery_control_config.errors.throttling_exception.ThrottlingException: <p>429 response - LimitExceededException or TooManyRequestsException.</p>
+            aws_sdk_route53_recovery_control_config.errors.validation_exception.ValidationException: <p>400 response - Multiple causes. For example, you might have a malformed query string and input parameter might be out of range, or you might have used parameters together incorrectly.</p>
+            aws_sdk_route53_recovery_control_config.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -332,6 +352,16 @@ class AsyncRoute53RecoveryControlConfigClient:
             cluster_arn: <p>The Amazon Resource Name (ARN) of the cluster that includes the routing control.</p>
             control_panel_arn: <p>The Amazon Resource Name (ARN) of the control panel that includes the routing control.</p>
             routing_control_name: <p>The name of the routing control.</p>
+
+        Raises:
+            aws_sdk_route53_recovery_control_config.errors.access_denied_exception.AccessDeniedException: <p>403 response - You do not have sufficient access to perform this action.</p>
+            aws_sdk_route53_recovery_control_config.errors.conflict_exception.ConflictException: <p>409 response - ConflictException. You might be using a predefined variable.</p>
+            aws_sdk_route53_recovery_control_config.errors.internal_server_exception.InternalServerException: <p>500 response - InternalServiceError. Temporary service error. Retry the request.</p>
+            aws_sdk_route53_recovery_control_config.errors.resource_not_found_exception.ResourceNotFoundException: <p>404 response - MalformedQueryString. The query string contains a syntax error or resource not found.</p>
+            aws_sdk_route53_recovery_control_config.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>402 response - You attempted to create more resources than the service allows based on service quotas.</p>
+            aws_sdk_route53_recovery_control_config.errors.throttling_exception.ThrottlingException: <p>429 response - LimitExceededException or TooManyRequestsException.</p>
+            aws_sdk_route53_recovery_control_config.errors.validation_exception.ValidationException: <p>400 response - Multiple causes. For example, you might have a malformed query string and input parameter might be out of range, or you might have used parameters together incorrectly.</p>
+            aws_sdk_route53_recovery_control_config.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -391,6 +421,11 @@ class AsyncRoute53RecoveryControlConfigClient:
             client_token: <p>A unique, case-sensitive string of up to 64 ASCII characters. To make an idempotent API request with an action, specify a client token in the request.</p>
             gating_rule: <p>The gating rule requested.</p>
             tags: <p>The tags associated with the safety rule.</p>
+
+        Raises:
+            aws_sdk_route53_recovery_control_config.errors.internal_server_exception.InternalServerException: <p>500 response - InternalServiceError. Temporary service error. Retry the request.</p>
+            aws_sdk_route53_recovery_control_config.errors.validation_exception.ValidationException: <p>400 response - Multiple causes. For example, you might have a malformed query string and input parameter might be out of range, or you might have used parameters together incorrectly.</p>
+            aws_sdk_route53_recovery_control_config.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -438,6 +473,15 @@ class AsyncRoute53RecoveryControlConfigClient:
 
         Args:
             cluster_arn: <p>The Amazon Resource Name (ARN) of the cluster that you're deleting.</p>
+
+        Raises:
+            aws_sdk_route53_recovery_control_config.errors.access_denied_exception.AccessDeniedException: <p>403 response - You do not have sufficient access to perform this action.</p>
+            aws_sdk_route53_recovery_control_config.errors.conflict_exception.ConflictException: <p>409 response - ConflictException. You might be using a predefined variable.</p>
+            aws_sdk_route53_recovery_control_config.errors.internal_server_exception.InternalServerException: <p>500 response - InternalServiceError. Temporary service error. Retry the request.</p>
+            aws_sdk_route53_recovery_control_config.errors.resource_not_found_exception.ResourceNotFoundException: <p>404 response - MalformedQueryString. The query string contains a syntax error or resource not found.</p>
+            aws_sdk_route53_recovery_control_config.errors.throttling_exception.ThrottlingException: <p>429 response - LimitExceededException or TooManyRequestsException.</p>
+            aws_sdk_route53_recovery_control_config.errors.validation_exception.ValidationException: <p>400 response - Multiple causes. For example, you might have a malformed query string and input parameter might be out of range, or you might have used parameters together incorrectly.</p>
+            aws_sdk_route53_recovery_control_config.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -478,6 +522,15 @@ class AsyncRoute53RecoveryControlConfigClient:
 
         Args:
             control_panel_arn: <p>The Amazon Resource Name (ARN) of the control panel.</p>
+
+        Raises:
+            aws_sdk_route53_recovery_control_config.errors.access_denied_exception.AccessDeniedException: <p>403 response - You do not have sufficient access to perform this action.</p>
+            aws_sdk_route53_recovery_control_config.errors.conflict_exception.ConflictException: <p>409 response - ConflictException. You might be using a predefined variable.</p>
+            aws_sdk_route53_recovery_control_config.errors.internal_server_exception.InternalServerException: <p>500 response - InternalServiceError. Temporary service error. Retry the request.</p>
+            aws_sdk_route53_recovery_control_config.errors.resource_not_found_exception.ResourceNotFoundException: <p>404 response - MalformedQueryString. The query string contains a syntax error or resource not found.</p>
+            aws_sdk_route53_recovery_control_config.errors.throttling_exception.ThrottlingException: <p>429 response - LimitExceededException or TooManyRequestsException.</p>
+            aws_sdk_route53_recovery_control_config.errors.validation_exception.ValidationException: <p>400 response - Multiple causes. For example, you might have a malformed query string and input parameter might be out of range, or you might have used parameters together incorrectly.</p>
+            aws_sdk_route53_recovery_control_config.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -518,6 +571,15 @@ class AsyncRoute53RecoveryControlConfigClient:
 
         Args:
             routing_control_arn: <p>The Amazon Resource Name (ARN) of the routing control that you're deleting.</p>
+
+        Raises:
+            aws_sdk_route53_recovery_control_config.errors.access_denied_exception.AccessDeniedException: <p>403 response - You do not have sufficient access to perform this action.</p>
+            aws_sdk_route53_recovery_control_config.errors.conflict_exception.ConflictException: <p>409 response - ConflictException. You might be using a predefined variable.</p>
+            aws_sdk_route53_recovery_control_config.errors.internal_server_exception.InternalServerException: <p>500 response - InternalServiceError. Temporary service error. Retry the request.</p>
+            aws_sdk_route53_recovery_control_config.errors.resource_not_found_exception.ResourceNotFoundException: <p>404 response - MalformedQueryString. The query string contains a syntax error or resource not found.</p>
+            aws_sdk_route53_recovery_control_config.errors.throttling_exception.ThrottlingException: <p>429 response - LimitExceededException or TooManyRequestsException.</p>
+            aws_sdk_route53_recovery_control_config.errors.validation_exception.ValidationException: <p>400 response - Multiple causes. For example, you might have a malformed query string and input parameter might be out of range, or you might have used parameters together incorrectly.</p>
+            aws_sdk_route53_recovery_control_config.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -558,6 +620,12 @@ class AsyncRoute53RecoveryControlConfigClient:
 
         Args:
             safety_rule_arn: <p>The ARN of the safety rule.</p>
+
+        Raises:
+            aws_sdk_route53_recovery_control_config.errors.internal_server_exception.InternalServerException: <p>500 response - InternalServiceError. Temporary service error. Retry the request.</p>
+            aws_sdk_route53_recovery_control_config.errors.resource_not_found_exception.ResourceNotFoundException: <p>404 response - MalformedQueryString. The query string contains a syntax error or resource not found.</p>
+            aws_sdk_route53_recovery_control_config.errors.validation_exception.ValidationException: <p>400 response - Multiple causes. For example, you might have a malformed query string and input parameter might be out of range, or you might have used parameters together incorrectly.</p>
+            aws_sdk_route53_recovery_control_config.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -598,6 +666,15 @@ class AsyncRoute53RecoveryControlConfigClient:
 
         Args:
             cluster_arn: <p>The Amazon Resource Name (ARN) of the cluster.</p>
+
+        Raises:
+            aws_sdk_route53_recovery_control_config.errors.access_denied_exception.AccessDeniedException: <p>403 response - You do not have sufficient access to perform this action.</p>
+            aws_sdk_route53_recovery_control_config.errors.conflict_exception.ConflictException: <p>409 response - ConflictException. You might be using a predefined variable.</p>
+            aws_sdk_route53_recovery_control_config.errors.internal_server_exception.InternalServerException: <p>500 response - InternalServiceError. Temporary service error. Retry the request.</p>
+            aws_sdk_route53_recovery_control_config.errors.resource_not_found_exception.ResourceNotFoundException: <p>404 response - MalformedQueryString. The query string contains a syntax error or resource not found.</p>
+            aws_sdk_route53_recovery_control_config.errors.throttling_exception.ThrottlingException: <p>429 response - LimitExceededException or TooManyRequestsException.</p>
+            aws_sdk_route53_recovery_control_config.errors.validation_exception.ValidationException: <p>400 response - Multiple causes. For example, you might have a malformed query string and input parameter might be out of range, or you might have used parameters together incorrectly.</p>
+            aws_sdk_route53_recovery_control_config.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -638,6 +715,15 @@ class AsyncRoute53RecoveryControlConfigClient:
 
         Args:
             control_panel_arn: <p>The Amazon Resource Name (ARN) of the control panel.</p>
+
+        Raises:
+            aws_sdk_route53_recovery_control_config.errors.access_denied_exception.AccessDeniedException: <p>403 response - You do not have sufficient access to perform this action.</p>
+            aws_sdk_route53_recovery_control_config.errors.conflict_exception.ConflictException: <p>409 response - ConflictException. You might be using a predefined variable.</p>
+            aws_sdk_route53_recovery_control_config.errors.internal_server_exception.InternalServerException: <p>500 response - InternalServiceError. Temporary service error. Retry the request.</p>
+            aws_sdk_route53_recovery_control_config.errors.resource_not_found_exception.ResourceNotFoundException: <p>404 response - MalformedQueryString. The query string contains a syntax error or resource not found.</p>
+            aws_sdk_route53_recovery_control_config.errors.throttling_exception.ThrottlingException: <p>429 response - LimitExceededException or TooManyRequestsException.</p>
+            aws_sdk_route53_recovery_control_config.errors.validation_exception.ValidationException: <p>400 response - Multiple causes. For example, you might have a malformed query string and input parameter might be out of range, or you might have used parameters together incorrectly.</p>
+            aws_sdk_route53_recovery_control_config.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -678,6 +764,15 @@ class AsyncRoute53RecoveryControlConfigClient:
 
         Args:
             routing_control_arn: <p>The Amazon Resource Name (ARN) of the routing control.</p>
+
+        Raises:
+            aws_sdk_route53_recovery_control_config.errors.access_denied_exception.AccessDeniedException: <p>403 response - You do not have sufficient access to perform this action.</p>
+            aws_sdk_route53_recovery_control_config.errors.conflict_exception.ConflictException: <p>409 response - ConflictException. You might be using a predefined variable.</p>
+            aws_sdk_route53_recovery_control_config.errors.internal_server_exception.InternalServerException: <p>500 response - InternalServiceError. Temporary service error. Retry the request.</p>
+            aws_sdk_route53_recovery_control_config.errors.resource_not_found_exception.ResourceNotFoundException: <p>404 response - MalformedQueryString. The query string contains a syntax error or resource not found.</p>
+            aws_sdk_route53_recovery_control_config.errors.throttling_exception.ThrottlingException: <p>429 response - LimitExceededException or TooManyRequestsException.</p>
+            aws_sdk_route53_recovery_control_config.errors.validation_exception.ValidationException: <p>400 response - Multiple causes. For example, you might have a malformed query string and input parameter might be out of range, or you might have used parameters together incorrectly.</p>
+            aws_sdk_route53_recovery_control_config.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -718,6 +813,11 @@ class AsyncRoute53RecoveryControlConfigClient:
 
         Args:
             safety_rule_arn: <p>The ARN of the safety rule.</p>
+
+        Raises:
+            aws_sdk_route53_recovery_control_config.errors.resource_not_found_exception.ResourceNotFoundException: <p>404 response - MalformedQueryString. The query string contains a syntax error or resource not found.</p>
+            aws_sdk_route53_recovery_control_config.errors.validation_exception.ValidationException: <p>400 response - Multiple causes. For example, you might have a malformed query string and input parameter might be out of range, or you might have used parameters together incorrectly.</p>
+            aws_sdk_route53_recovery_control_config.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -758,6 +858,11 @@ class AsyncRoute53RecoveryControlConfigClient:
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource.</p>
+
+        Raises:
+            aws_sdk_route53_recovery_control_config.errors.internal_server_exception.InternalServerException: <p>500 response - InternalServiceError. Temporary service error. Retry the request.</p>
+            aws_sdk_route53_recovery_control_config.errors.resource_not_found_exception.ResourceNotFoundException: <p>404 response - MalformedQueryString. The query string contains a syntax error or resource not found.</p>
+            aws_sdk_route53_recovery_control_config.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -806,6 +911,12 @@ class AsyncRoute53RecoveryControlConfigClient:
             max_results: <p>The number of objects that you want to return with this call.</p>
             next_token: <p>The token that identifies which batch of results you want to see.</p>
             routing_control_arn: <p>The Amazon Resource Name (ARN) of the routing control.</p>
+
+        Raises:
+            aws_sdk_route53_recovery_control_config.errors.internal_server_exception.InternalServerException: <p>500 response - InternalServiceError. Temporary service error. Retry the request.</p>
+            aws_sdk_route53_recovery_control_config.errors.resource_not_found_exception.ResourceNotFoundException: <p>404 response - MalformedQueryString. The query string contains a syntax error or resource not found.</p>
+            aws_sdk_route53_recovery_control_config.errors.validation_exception.ValidationException: <p>400 response - Multiple causes. For example, you might have a malformed query string and input parameter might be out of range, or you might have used parameters together incorrectly.</p>
+            aws_sdk_route53_recovery_control_config.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -885,6 +996,14 @@ class AsyncRoute53RecoveryControlConfigClient:
         Args:
             max_results: <p>The number of objects that you want to return with this call.</p>
             next_token: <p>The token that identifies which batch of results you want to see.</p>
+
+        Raises:
+            aws_sdk_route53_recovery_control_config.errors.access_denied_exception.AccessDeniedException: <p>403 response - You do not have sufficient access to perform this action.</p>
+            aws_sdk_route53_recovery_control_config.errors.internal_server_exception.InternalServerException: <p>500 response - InternalServiceError. Temporary service error. Retry the request.</p>
+            aws_sdk_route53_recovery_control_config.errors.resource_not_found_exception.ResourceNotFoundException: <p>404 response - MalformedQueryString. The query string contains a syntax error or resource not found.</p>
+            aws_sdk_route53_recovery_control_config.errors.throttling_exception.ThrottlingException: <p>429 response - LimitExceededException or TooManyRequestsException.</p>
+            aws_sdk_route53_recovery_control_config.errors.validation_exception.ValidationException: <p>400 response - Multiple causes. For example, you might have a malformed query string and input parameter might be out of range, or you might have used parameters together incorrectly.</p>
+            aws_sdk_route53_recovery_control_config.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -965,6 +1084,14 @@ class AsyncRoute53RecoveryControlConfigClient:
             cluster_arn: <p>The Amazon Resource Name (ARN) of a cluster.</p>
             max_results: <p>The number of objects that you want to return with this call.</p>
             next_token: <p>The token that identifies which batch of results you want to see.</p>
+
+        Raises:
+            aws_sdk_route53_recovery_control_config.errors.access_denied_exception.AccessDeniedException: <p>403 response - You do not have sufficient access to perform this action.</p>
+            aws_sdk_route53_recovery_control_config.errors.internal_server_exception.InternalServerException: <p>500 response - InternalServiceError. Temporary service error. Retry the request.</p>
+            aws_sdk_route53_recovery_control_config.errors.resource_not_found_exception.ResourceNotFoundException: <p>404 response - MalformedQueryString. The query string contains a syntax error or resource not found.</p>
+            aws_sdk_route53_recovery_control_config.errors.throttling_exception.ThrottlingException: <p>429 response - LimitExceededException or TooManyRequestsException.</p>
+            aws_sdk_route53_recovery_control_config.errors.validation_exception.ValidationException: <p>400 response - Multiple causes. For example, you might have a malformed query string and input parameter might be out of range, or you might have used parameters together incorrectly.</p>
+            aws_sdk_route53_recovery_control_config.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1049,6 +1176,14 @@ class AsyncRoute53RecoveryControlConfigClient:
             control_panel_arn: <p>The Amazon Resource Name (ARN) of the control panel.</p>
             max_results: <p>The number of objects that you want to return with this call.</p>
             next_token: <p>The token that identifies which batch of results you want to see.</p>
+
+        Raises:
+            aws_sdk_route53_recovery_control_config.errors.access_denied_exception.AccessDeniedException: <p>403 response - You do not have sufficient access to perform this action.</p>
+            aws_sdk_route53_recovery_control_config.errors.internal_server_exception.InternalServerException: <p>500 response - InternalServiceError. Temporary service error. Retry the request.</p>
+            aws_sdk_route53_recovery_control_config.errors.resource_not_found_exception.ResourceNotFoundException: <p>404 response - MalformedQueryString. The query string contains a syntax error or resource not found.</p>
+            aws_sdk_route53_recovery_control_config.errors.throttling_exception.ThrottlingException: <p>429 response - LimitExceededException or TooManyRequestsException.</p>
+            aws_sdk_route53_recovery_control_config.errors.validation_exception.ValidationException: <p>400 response - Multiple causes. For example, you might have a malformed query string and input parameter might be out of range, or you might have used parameters together incorrectly.</p>
+            aws_sdk_route53_recovery_control_config.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1130,6 +1265,14 @@ class AsyncRoute53RecoveryControlConfigClient:
             control_panel_arn: <p>The Amazon Resource Name (ARN) of the control panel.</p>
             max_results: <p>The number of objects that you want to return with this call.</p>
             next_token: <p>The token that identifies which batch of results you want to see.</p>
+
+        Raises:
+            aws_sdk_route53_recovery_control_config.errors.access_denied_exception.AccessDeniedException: <p>403 response - You do not have sufficient access to perform this action.</p>
+            aws_sdk_route53_recovery_control_config.errors.internal_server_exception.InternalServerException: <p>500 response - InternalServiceError. Temporary service error. Retry the request.</p>
+            aws_sdk_route53_recovery_control_config.errors.resource_not_found_exception.ResourceNotFoundException: <p>404 response - MalformedQueryString. The query string contains a syntax error or resource not found.</p>
+            aws_sdk_route53_recovery_control_config.errors.throttling_exception.ThrottlingException: <p>429 response - LimitExceededException or TooManyRequestsException.</p>
+            aws_sdk_route53_recovery_control_config.errors.validation_exception.ValidationException: <p>400 response - Multiple causes. For example, you might have a malformed query string and input parameter might be out of range, or you might have used parameters together incorrectly.</p>
+            aws_sdk_route53_recovery_control_config.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1203,6 +1346,12 @@ class AsyncRoute53RecoveryControlConfigClient:
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) for the resource that's tagged.</p>
+
+        Raises:
+            aws_sdk_route53_recovery_control_config.errors.internal_server_exception.InternalServerException: <p>500 response - InternalServiceError. Temporary service error. Retry the request.</p>
+            aws_sdk_route53_recovery_control_config.errors.resource_not_found_exception.ResourceNotFoundException: <p>404 response - MalformedQueryString. The query string contains a syntax error or resource not found.</p>
+            aws_sdk_route53_recovery_control_config.errors.validation_exception.ValidationException: <p>400 response - Multiple causes. For example, you might have a malformed query string and input parameter might be out of range, or you might have used parameters together incorrectly.</p>
+            aws_sdk_route53_recovery_control_config.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1245,6 +1394,12 @@ class AsyncRoute53RecoveryControlConfigClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) for the resource that's tagged.</p>
             tags: <p>The tags associated with the resource.</p>
+
+        Raises:
+            aws_sdk_route53_recovery_control_config.errors.internal_server_exception.InternalServerException: <p>500 response - InternalServiceError. Temporary service error. Retry the request.</p>
+            aws_sdk_route53_recovery_control_config.errors.resource_not_found_exception.ResourceNotFoundException: <p>404 response - MalformedQueryString. The query string contains a syntax error or resource not found.</p>
+            aws_sdk_route53_recovery_control_config.errors.validation_exception.ValidationException: <p>400 response - Multiple causes. For example, you might have a malformed query string and input parameter might be out of range, or you might have used parameters together incorrectly.</p>
+            aws_sdk_route53_recovery_control_config.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1288,6 +1443,12 @@ class AsyncRoute53RecoveryControlConfigClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) for the resource that's tagged.</p>
             tag_keys: <p>Keys for the tags to be removed.</p>
+
+        Raises:
+            aws_sdk_route53_recovery_control_config.errors.internal_server_exception.InternalServerException: <p>500 response - InternalServiceError. Temporary service error. Retry the request.</p>
+            aws_sdk_route53_recovery_control_config.errors.resource_not_found_exception.ResourceNotFoundException: <p>404 response - MalformedQueryString. The query string contains a syntax error or resource not found.</p>
+            aws_sdk_route53_recovery_control_config.errors.validation_exception.ValidationException: <p>400 response - Multiple causes. For example, you might have a malformed query string and input parameter might be out of range, or you might have used parameters together incorrectly.</p>
+            aws_sdk_route53_recovery_control_config.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1331,6 +1492,15 @@ class AsyncRoute53RecoveryControlConfigClient:
         Args:
             cluster_arn: <p>The Amazon Resource Name (ARN) of the cluster.</p>
             network_type: <p>The network type of the cluster. NetworkType can be one of the following: IPV4, DUALSTACK.</p>
+
+        Raises:
+            aws_sdk_route53_recovery_control_config.errors.access_denied_exception.AccessDeniedException: <p>403 response - You do not have sufficient access to perform this action.</p>
+            aws_sdk_route53_recovery_control_config.errors.conflict_exception.ConflictException: <p>409 response - ConflictException. You might be using a predefined variable.</p>
+            aws_sdk_route53_recovery_control_config.errors.internal_server_exception.InternalServerException: <p>500 response - InternalServiceError. Temporary service error. Retry the request.</p>
+            aws_sdk_route53_recovery_control_config.errors.resource_not_found_exception.ResourceNotFoundException: <p>404 response - MalformedQueryString. The query string contains a syntax error or resource not found.</p>
+            aws_sdk_route53_recovery_control_config.errors.throttling_exception.ThrottlingException: <p>429 response - LimitExceededException or TooManyRequestsException.</p>
+            aws_sdk_route53_recovery_control_config.errors.validation_exception.ValidationException: <p>400 response - Multiple causes. For example, you might have a malformed query string and input parameter might be out of range, or you might have used parameters together incorrectly.</p>
+            aws_sdk_route53_recovery_control_config.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1374,6 +1544,15 @@ class AsyncRoute53RecoveryControlConfigClient:
         Args:
             control_panel_arn: <p>The Amazon Resource Name (ARN) of the control panel.</p>
             control_panel_name: <p>The name of the control panel.</p>
+
+        Raises:
+            aws_sdk_route53_recovery_control_config.errors.access_denied_exception.AccessDeniedException: <p>403 response - You do not have sufficient access to perform this action.</p>
+            aws_sdk_route53_recovery_control_config.errors.conflict_exception.ConflictException: <p>409 response - ConflictException. You might be using a predefined variable.</p>
+            aws_sdk_route53_recovery_control_config.errors.internal_server_exception.InternalServerException: <p>500 response - InternalServiceError. Temporary service error. Retry the request.</p>
+            aws_sdk_route53_recovery_control_config.errors.resource_not_found_exception.ResourceNotFoundException: <p>404 response - MalformedQueryString. The query string contains a syntax error or resource not found.</p>
+            aws_sdk_route53_recovery_control_config.errors.throttling_exception.ThrottlingException: <p>429 response - LimitExceededException or TooManyRequestsException.</p>
+            aws_sdk_route53_recovery_control_config.errors.validation_exception.ValidationException: <p>400 response - Multiple causes. For example, you might have a malformed query string and input parameter might be out of range, or you might have used parameters together incorrectly.</p>
+            aws_sdk_route53_recovery_control_config.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1417,6 +1596,15 @@ class AsyncRoute53RecoveryControlConfigClient:
         Args:
             routing_control_arn: <p>The Amazon Resource Name (ARN) of the routing control.</p>
             routing_control_name: <p>The name of the routing control.</p>
+
+        Raises:
+            aws_sdk_route53_recovery_control_config.errors.access_denied_exception.AccessDeniedException: <p>403 response - You do not have sufficient access to perform this action.</p>
+            aws_sdk_route53_recovery_control_config.errors.conflict_exception.ConflictException: <p>409 response - ConflictException. You might be using a predefined variable.</p>
+            aws_sdk_route53_recovery_control_config.errors.internal_server_exception.InternalServerException: <p>500 response - InternalServiceError. Temporary service error. Retry the request.</p>
+            aws_sdk_route53_recovery_control_config.errors.resource_not_found_exception.ResourceNotFoundException: <p>404 response - MalformedQueryString. The query string contains a syntax error or resource not found.</p>
+            aws_sdk_route53_recovery_control_config.errors.throttling_exception.ThrottlingException: <p>429 response - LimitExceededException or TooManyRequestsException.</p>
+            aws_sdk_route53_recovery_control_config.errors.validation_exception.ValidationException: <p>400 response - Multiple causes. For example, you might have a malformed query string and input parameter might be out of range, or you might have used parameters together incorrectly.</p>
+            aws_sdk_route53_recovery_control_config.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1464,6 +1652,12 @@ class AsyncRoute53RecoveryControlConfigClient:
         Args:
             assertion_rule_update: <p>The assertion rule to update.</p>
             gating_rule_update: <p>The gating rule to update.</p>
+
+        Raises:
+            aws_sdk_route53_recovery_control_config.errors.internal_server_exception.InternalServerException: <p>500 response - InternalServiceError. Temporary service error. Retry the request.</p>
+            aws_sdk_route53_recovery_control_config.errors.resource_not_found_exception.ResourceNotFoundException: <p>404 response - MalformedQueryString. The query string contains a syntax error or resource not found.</p>
+            aws_sdk_route53_recovery_control_config.errors.validation_exception.ValidationException: <p>400 response - Multiple causes. For example, you might have a malformed query string and input parameter might be out of range, or you might have used parameters together incorrectly.</p>
+            aws_sdk_route53_recovery_control_config.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

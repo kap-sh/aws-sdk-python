@@ -79,6 +79,15 @@ class ApplicationResource:
             application_log_output_uri: <p>An Amazon S3 URI to a bucket where you would like Amazon GameLift Streams to save application logs. Required if you specify one or more <code>ApplicationLogPaths</code>.</p> <note> <p>The log bucket must have permissions that give Amazon GameLift Streams access to write the log files. For more information, see <a href=\"https://docs.aws.amazon.com/gameliftstreams/latest/developerguide/applications.html#application-bucket-permission-template\">Application log bucket permission policy</a> in the <i>Amazon GameLift Streams Developer Guide</i>.</p> </note>
             tags: <p>A list of labels to assign to the new application resource. Tags are developer-defined key-value pairs. Tagging Amazon Web Services resources is useful for resource management, access management and cost allocation. See <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html\"> Tagging Amazon Web Services Resources</a> in the <i>Amazon Web Services General Reference</i>. You can use <a href=\"https://docs.aws.amazon.com/gameliftstreams/latest/apireference/API_TagResource.html\">TagResource</a> to add tags, <a href=\"https://docs.aws.amazon.com/gameliftstreams/latest/apireference/API_UntagResource.html\">UntagResource</a> to remove tags, and <a href=\"https://docs.aws.amazon.com/gameliftstreams/latest/apireference/API_ListTagsForResource.html\">ListTagsForResource</a> to view tags on existing resources.</p>
             client_token: <p> A unique identifier that represents a client request. The request is idempotent, which ensures that an API request completes only once. When users send a request, Amazon GameLift Streams automatically populates this field. </p>
+
+        Raises:
+            aws_sdk_gameliftstreams.errors.access_denied_exception.AccessDeniedException: <p>You don't have the required permissions to access this Amazon GameLift Streams resource. Correct the permissions before you try again.</p>
+            aws_sdk_gameliftstreams.errors.conflict_exception.ConflictException: <p>The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request.</p>
+            aws_sdk_gameliftstreams.errors.internal_server_exception.InternalServerException: <p>The service encountered an internal error and is unable to complete the request.</p>
+            aws_sdk_gameliftstreams.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request would cause the resource to exceed an allowed service quota. Resolve the issue before you try again.</p>
+            aws_sdk_gameliftstreams.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. Retry the request after the suggested wait time.</p>
+            aws_sdk_gameliftstreams.errors.validation_exception.ValidationException: <p>One or more parameter values in the request fail to satisfy the specified constraints. Correct the invalid parameter values before retrying the request.</p>
+            aws_sdk_gameliftstreams.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -127,6 +136,14 @@ class ApplicationResource:
 
         Args:
             identifier: <p>An <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html\">Amazon Resource Name (ARN)</a> or ID that uniquely identifies the application resource. Example ARN: <code>arn:aws:gameliftstreams:us-west-2:111122223333:application/a-9ZY8X7Wv6</code>. Example ID: <code>a-9ZY8X7Wv6</code>. </p>
+
+        Raises:
+            aws_sdk_gameliftstreams.errors.access_denied_exception.AccessDeniedException: <p>You don't have the required permissions to access this Amazon GameLift Streams resource. Correct the permissions before you try again.</p>
+            aws_sdk_gameliftstreams.errors.internal_server_exception.InternalServerException: <p>The service encountered an internal error and is unable to complete the request.</p>
+            aws_sdk_gameliftstreams.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request was not found. Correct the request before you try again.</p>
+            aws_sdk_gameliftstreams.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. Retry the request after the suggested wait time.</p>
+            aws_sdk_gameliftstreams.errors.validation_exception.ValidationException: <p>One or more parameter values in the request fail to satisfy the specified constraints. Correct the invalid parameter values before retrying the request.</p>
+            aws_sdk_gameliftstreams.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -176,6 +193,14 @@ class ApplicationResource:
             description: <p>A human-readable label for the application.</p>
             application_log_paths: <p>Locations of log files that your content generates during a stream session. Enter path values that are relative to the <code>ApplicationSourceUri</code> location, or relative to the user's home directory when using a supported path variable. You can specify up to 10 log paths. Each individual log file cannot exceed 50 MB in size.</p> <p>Each path can be a directory or an exact file path. When you specify a directory, Amazon GameLift Streams collects only files with the following extensions: <code>.txt</code>, <code>.log</code>, and <code>.utrace</code>. To collect files with other extensions, specify the exact file path. The copy operation is not performed recursively in subfolders.</p> <p>The following path variables are recognized when they appear as the first component of a path: <code>%USERPROFILE%</code> (Windows and Proton), <code>$HOME</code> or <code>~</code> (Linux). Use a path variable when your application writes logs outside of the application directory.</p> <p>Amazon GameLift Streams uploads designated log files to the Amazon S3 bucket that you specify in <code>ApplicationLogOutputUri</code> at the end of a stream session. To retrieve stored log files, call <a href=\"https://docs.aws.amazon.com/gameliftstreams/latest/apireference/API_GetStreamSession.html\">GetStreamSession</a> and get the <code>LogFileLocationUri</code>.</p>
             application_log_output_uri: <p>An Amazon S3 URI to a bucket where you would like Amazon GameLift Streams to save application logs. Required if you specify one or more <code>ApplicationLogPaths</code>.</p> <note> <p>The log bucket must have permissions that give Amazon GameLift Streams access to write the log files. For more information, see <a href=\"https://docs.aws.amazon.com/gameliftstreams/latest/developerguide/applications.html#application-bucket-permission-template\">Application log bucket permission policy</a> in the <i>Amazon GameLift Streams Developer Guide</i>. </p> </note>
+
+        Raises:
+            aws_sdk_gameliftstreams.errors.access_denied_exception.AccessDeniedException: <p>You don't have the required permissions to access this Amazon GameLift Streams resource. Correct the permissions before you try again.</p>
+            aws_sdk_gameliftstreams.errors.internal_server_exception.InternalServerException: <p>The service encountered an internal error and is unable to complete the request.</p>
+            aws_sdk_gameliftstreams.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request was not found. Correct the request before you try again.</p>
+            aws_sdk_gameliftstreams.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. Retry the request after the suggested wait time.</p>
+            aws_sdk_gameliftstreams.errors.validation_exception.ValidationException: <p>One or more parameter values in the request fail to satisfy the specified constraints. Correct the invalid parameter values before retrying the request.</p>
+            aws_sdk_gameliftstreams.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -219,6 +244,15 @@ class ApplicationResource:
 
         Args:
             identifier: <p>An <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html\">Amazon Resource Name (ARN)</a> or ID that uniquely identifies the application resource. Example ARN: <code>arn:aws:gameliftstreams:us-west-2:111122223333:application/a-9ZY8X7Wv6</code>. Example ID: <code>a-9ZY8X7Wv6</code>. </p>
+
+        Raises:
+            aws_sdk_gameliftstreams.errors.access_denied_exception.AccessDeniedException: <p>You don't have the required permissions to access this Amazon GameLift Streams resource. Correct the permissions before you try again.</p>
+            aws_sdk_gameliftstreams.errors.conflict_exception.ConflictException: <p>The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request.</p>
+            aws_sdk_gameliftstreams.errors.internal_server_exception.InternalServerException: <p>The service encountered an internal error and is unable to complete the request.</p>
+            aws_sdk_gameliftstreams.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request was not found. Correct the request before you try again.</p>
+            aws_sdk_gameliftstreams.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. Retry the request after the suggested wait time.</p>
+            aws_sdk_gameliftstreams.errors.validation_exception.ValidationException: <p>One or more parameter values in the request fail to satisfy the specified constraints. Correct the invalid parameter values before retrying the request.</p>
+            aws_sdk_gameliftstreams.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -262,6 +296,13 @@ class ApplicationResource:
         Args:
             next_token: <p>The token that marks the start of the next set of results. Use this token when you retrieve results as sequential pages. To get the first page of results, omit a token value. To get the remaining pages, provide the token returned with the previous result set. </p>
             max_results: <p>The number of results to return. Use this parameter with <code>NextToken</code> to return results in sequential pages. Default value is <code>25</code>.</p>
+
+        Raises:
+            aws_sdk_gameliftstreams.errors.access_denied_exception.AccessDeniedException: <p>You don't have the required permissions to access this Amazon GameLift Streams resource. Correct the permissions before you try again.</p>
+            aws_sdk_gameliftstreams.errors.internal_server_exception.InternalServerException: <p>The service encountered an internal error and is unable to complete the request.</p>
+            aws_sdk_gameliftstreams.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. Retry the request after the suggested wait time.</p>
+            aws_sdk_gameliftstreams.errors.validation_exception.ValidationException: <p>One or more parameter values in the request fail to satisfy the specified constraints. Correct the invalid parameter values before retrying the request.</p>
+            aws_sdk_gameliftstreams.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -327,6 +368,15 @@ class AsyncApplicationResource:
             application_log_output_uri: <p>An Amazon S3 URI to a bucket where you would like Amazon GameLift Streams to save application logs. Required if you specify one or more <code>ApplicationLogPaths</code>.</p> <note> <p>The log bucket must have permissions that give Amazon GameLift Streams access to write the log files. For more information, see <a href=\"https://docs.aws.amazon.com/gameliftstreams/latest/developerguide/applications.html#application-bucket-permission-template\">Application log bucket permission policy</a> in the <i>Amazon GameLift Streams Developer Guide</i>.</p> </note>
             tags: <p>A list of labels to assign to the new application resource. Tags are developer-defined key-value pairs. Tagging Amazon Web Services resources is useful for resource management, access management and cost allocation. See <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html\"> Tagging Amazon Web Services Resources</a> in the <i>Amazon Web Services General Reference</i>. You can use <a href=\"https://docs.aws.amazon.com/gameliftstreams/latest/apireference/API_TagResource.html\">TagResource</a> to add tags, <a href=\"https://docs.aws.amazon.com/gameliftstreams/latest/apireference/API_UntagResource.html\">UntagResource</a> to remove tags, and <a href=\"https://docs.aws.amazon.com/gameliftstreams/latest/apireference/API_ListTagsForResource.html\">ListTagsForResource</a> to view tags on existing resources.</p>
             client_token: <p> A unique identifier that represents a client request. The request is idempotent, which ensures that an API request completes only once. When users send a request, Amazon GameLift Streams automatically populates this field. </p>
+
+        Raises:
+            aws_sdk_gameliftstreams.errors.access_denied_exception.AccessDeniedException: <p>You don't have the required permissions to access this Amazon GameLift Streams resource. Correct the permissions before you try again.</p>
+            aws_sdk_gameliftstreams.errors.conflict_exception.ConflictException: <p>The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request.</p>
+            aws_sdk_gameliftstreams.errors.internal_server_exception.InternalServerException: <p>The service encountered an internal error and is unable to complete the request.</p>
+            aws_sdk_gameliftstreams.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request would cause the resource to exceed an allowed service quota. Resolve the issue before you try again.</p>
+            aws_sdk_gameliftstreams.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. Retry the request after the suggested wait time.</p>
+            aws_sdk_gameliftstreams.errors.validation_exception.ValidationException: <p>One or more parameter values in the request fail to satisfy the specified constraints. Correct the invalid parameter values before retrying the request.</p>
+            aws_sdk_gameliftstreams.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -376,6 +426,14 @@ class AsyncApplicationResource:
 
         Args:
             identifier: <p>An <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html\">Amazon Resource Name (ARN)</a> or ID that uniquely identifies the application resource. Example ARN: <code>arn:aws:gameliftstreams:us-west-2:111122223333:application/a-9ZY8X7Wv6</code>. Example ID: <code>a-9ZY8X7Wv6</code>. </p>
+
+        Raises:
+            aws_sdk_gameliftstreams.errors.access_denied_exception.AccessDeniedException: <p>You don't have the required permissions to access this Amazon GameLift Streams resource. Correct the permissions before you try again.</p>
+            aws_sdk_gameliftstreams.errors.internal_server_exception.InternalServerException: <p>The service encountered an internal error and is unable to complete the request.</p>
+            aws_sdk_gameliftstreams.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request was not found. Correct the request before you try again.</p>
+            aws_sdk_gameliftstreams.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. Retry the request after the suggested wait time.</p>
+            aws_sdk_gameliftstreams.errors.validation_exception.ValidationException: <p>One or more parameter values in the request fail to satisfy the specified constraints. Correct the invalid parameter values before retrying the request.</p>
+            aws_sdk_gameliftstreams.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -426,6 +484,14 @@ class AsyncApplicationResource:
             description: <p>A human-readable label for the application.</p>
             application_log_paths: <p>Locations of log files that your content generates during a stream session. Enter path values that are relative to the <code>ApplicationSourceUri</code> location, or relative to the user's home directory when using a supported path variable. You can specify up to 10 log paths. Each individual log file cannot exceed 50 MB in size.</p> <p>Each path can be a directory or an exact file path. When you specify a directory, Amazon GameLift Streams collects only files with the following extensions: <code>.txt</code>, <code>.log</code>, and <code>.utrace</code>. To collect files with other extensions, specify the exact file path. The copy operation is not performed recursively in subfolders.</p> <p>The following path variables are recognized when they appear as the first component of a path: <code>%USERPROFILE%</code> (Windows and Proton), <code>$HOME</code> or <code>~</code> (Linux). Use a path variable when your application writes logs outside of the application directory.</p> <p>Amazon GameLift Streams uploads designated log files to the Amazon S3 bucket that you specify in <code>ApplicationLogOutputUri</code> at the end of a stream session. To retrieve stored log files, call <a href=\"https://docs.aws.amazon.com/gameliftstreams/latest/apireference/API_GetStreamSession.html\">GetStreamSession</a> and get the <code>LogFileLocationUri</code>.</p>
             application_log_output_uri: <p>An Amazon S3 URI to a bucket where you would like Amazon GameLift Streams to save application logs. Required if you specify one or more <code>ApplicationLogPaths</code>.</p> <note> <p>The log bucket must have permissions that give Amazon GameLift Streams access to write the log files. For more information, see <a href=\"https://docs.aws.amazon.com/gameliftstreams/latest/developerguide/applications.html#application-bucket-permission-template\">Application log bucket permission policy</a> in the <i>Amazon GameLift Streams Developer Guide</i>. </p> </note>
+
+        Raises:
+            aws_sdk_gameliftstreams.errors.access_denied_exception.AccessDeniedException: <p>You don't have the required permissions to access this Amazon GameLift Streams resource. Correct the permissions before you try again.</p>
+            aws_sdk_gameliftstreams.errors.internal_server_exception.InternalServerException: <p>The service encountered an internal error and is unable to complete the request.</p>
+            aws_sdk_gameliftstreams.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request was not found. Correct the request before you try again.</p>
+            aws_sdk_gameliftstreams.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. Retry the request after the suggested wait time.</p>
+            aws_sdk_gameliftstreams.errors.validation_exception.ValidationException: <p>One or more parameter values in the request fail to satisfy the specified constraints. Correct the invalid parameter values before retrying the request.</p>
+            aws_sdk_gameliftstreams.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -470,6 +536,15 @@ class AsyncApplicationResource:
 
         Args:
             identifier: <p>An <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html\">Amazon Resource Name (ARN)</a> or ID that uniquely identifies the application resource. Example ARN: <code>arn:aws:gameliftstreams:us-west-2:111122223333:application/a-9ZY8X7Wv6</code>. Example ID: <code>a-9ZY8X7Wv6</code>. </p>
+
+        Raises:
+            aws_sdk_gameliftstreams.errors.access_denied_exception.AccessDeniedException: <p>You don't have the required permissions to access this Amazon GameLift Streams resource. Correct the permissions before you try again.</p>
+            aws_sdk_gameliftstreams.errors.conflict_exception.ConflictException: <p>The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request.</p>
+            aws_sdk_gameliftstreams.errors.internal_server_exception.InternalServerException: <p>The service encountered an internal error and is unable to complete the request.</p>
+            aws_sdk_gameliftstreams.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request was not found. Correct the request before you try again.</p>
+            aws_sdk_gameliftstreams.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. Retry the request after the suggested wait time.</p>
+            aws_sdk_gameliftstreams.errors.validation_exception.ValidationException: <p>One or more parameter values in the request fail to satisfy the specified constraints. Correct the invalid parameter values before retrying the request.</p>
+            aws_sdk_gameliftstreams.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -514,6 +589,13 @@ class AsyncApplicationResource:
         Args:
             next_token: <p>The token that marks the start of the next set of results. Use this token when you retrieve results as sequential pages. To get the first page of results, omit a token value. To get the remaining pages, provide the token returned with the previous result set. </p>
             max_results: <p>The number of results to return. Use this parameter with <code>NextToken</code> to return results in sequential pages. Default value is <code>25</code>.</p>
+
+        Raises:
+            aws_sdk_gameliftstreams.errors.access_denied_exception.AccessDeniedException: <p>You don't have the required permissions to access this Amazon GameLift Streams resource. Correct the permissions before you try again.</p>
+            aws_sdk_gameliftstreams.errors.internal_server_exception.InternalServerException: <p>The service encountered an internal error and is unable to complete the request.</p>
+            aws_sdk_gameliftstreams.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. Retry the request after the suggested wait time.</p>
+            aws_sdk_gameliftstreams.errors.validation_exception.ValidationException: <p>One or more parameter values in the request fail to satisfy the specified constraints. Correct the invalid parameter values before retrying the request.</p>
+            aws_sdk_gameliftstreams.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

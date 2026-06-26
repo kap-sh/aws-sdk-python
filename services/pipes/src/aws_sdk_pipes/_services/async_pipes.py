@@ -145,6 +145,12 @@ class AsyncPipesClient:
 
         Args:
             resource_arn: <p>The ARN of the pipe for which you want to view tags.</p>
+
+        Raises:
+            aws_sdk_pipes.errors.internal_exception.InternalException: <p>This exception occurs due to unexpected causes.</p>
+            aws_sdk_pipes.errors.not_found_exception.NotFoundException: <p>An entity that you specified does not exist.</p>
+            aws_sdk_pipes.errors.validation_exception.ValidationException: <p>Indicates that an error has occurred while performing a validate operation.</p>
+            aws_sdk_pipes.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -185,6 +191,12 @@ class AsyncPipesClient:
         Args:
             resource_arn: <p>The ARN of the pipe.</p>
             tags: <p>The list of key-value pairs associated with the pipe.</p>
+
+        Raises:
+            aws_sdk_pipes.errors.internal_exception.InternalException: <p>This exception occurs due to unexpected causes.</p>
+            aws_sdk_pipes.errors.not_found_exception.NotFoundException: <p>An entity that you specified does not exist.</p>
+            aws_sdk_pipes.errors.validation_exception.ValidationException: <p>Indicates that an error has occurred while performing a validate operation.</p>
+            aws_sdk_pipes.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -226,6 +238,12 @@ class AsyncPipesClient:
         Args:
             resource_arn: <p>The ARN of the pipe.</p>
             tag_keys: <p>The list of tag keys to remove from the pipe.</p>
+
+        Raises:
+            aws_sdk_pipes.errors.internal_exception.InternalException: <p>This exception occurs due to unexpected causes.</p>
+            aws_sdk_pipes.errors.not_found_exception.NotFoundException: <p>An entity that you specified does not exist.</p>
+            aws_sdk_pipes.errors.validation_exception.ValidationException: <p>Indicates that an error has occurred while performing a validate operation.</p>
+            aws_sdk_pipes.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

@@ -72,6 +72,16 @@ class FirewallDomainList:
             description: <p>An optional description for the firewall domain list.</p>
             name: <p>A descriptive name for the firewall domain list.</p>
             tags: <p>An array of user-defined keys and optional values. These tags can be used for categorization and organization.</p>
+
+        Raises:
+            aws_sdk_route53globalresolver.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform this operation. Check your IAM permissions and try again.</p>
+            aws_sdk_route53globalresolver.errors.conflict_exception.ConflictException: <p>The request conflicts with the current state of the resource. This can occur when trying to modify a resource that is not in a valid state for the requested operation.</p>
+            aws_sdk_route53globalresolver.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Try again later.</p>
+            aws_sdk_route53globalresolver.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found. Verify the resource ID and try again.</p>
+            aws_sdk_route53globalresolver.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request would exceed one or more service quotas. Check your current usage and quotas, then try again.</p>
+            aws_sdk_route53globalresolver.errors.throttling_exception.ThrottlingException: <p>The request was throttled due to too many requests. Wait a moment and try again.</p>
+            aws_sdk_route53globalresolver.errors.validation_exception.ValidationException: <p>The input parameters are invalid. Check the parameter values and try again.</p>
+            aws_sdk_route53globalresolver.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -116,6 +126,14 @@ class FirewallDomainList:
 
         Args:
             firewall_domain_list_id: <p>ID of the domain list.</p>
+
+        Raises:
+            aws_sdk_route53globalresolver.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform this operation. Check your IAM permissions and try again.</p>
+            aws_sdk_route53globalresolver.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Try again later.</p>
+            aws_sdk_route53globalresolver.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found. Verify the resource ID and try again.</p>
+            aws_sdk_route53globalresolver.errors.throttling_exception.ThrottlingException: <p>The request was throttled due to too many requests. Wait a moment and try again.</p>
+            aws_sdk_route53globalresolver.errors.validation_exception.ValidationException: <p>The input parameters are invalid. Check the parameter values and try again.</p>
+            aws_sdk_route53globalresolver.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -153,6 +171,15 @@ class FirewallDomainList:
 
         Args:
             firewall_domain_list_id: <p>The unique identifier of the firewall domain list to delete.</p>
+
+        Raises:
+            aws_sdk_route53globalresolver.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform this operation. Check your IAM permissions and try again.</p>
+            aws_sdk_route53globalresolver.errors.conflict_exception.ConflictException: <p>The request conflicts with the current state of the resource. This can occur when trying to modify a resource that is not in a valid state for the requested operation.</p>
+            aws_sdk_route53globalresolver.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Try again later.</p>
+            aws_sdk_route53globalresolver.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found. Verify the resource ID and try again.</p>
+            aws_sdk_route53globalresolver.errors.throttling_exception.ThrottlingException: <p>The request was throttled due to too many requests. Wait a moment and try again.</p>
+            aws_sdk_route53globalresolver.errors.validation_exception.ValidationException: <p>The input parameters are invalid. Check the parameter values and try again.</p>
+            aws_sdk_route53globalresolver.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -196,6 +223,14 @@ class FirewallDomainList:
             max_results: <p>The maximum number of results to retrieve in a single call.</p>
             next_token: <p>A pagination token used for large sets of results that can't be returned in a single response.</p>
             global_resolver_id: <p>The ID of the Global Resolver that contains the DNS view the domain lists are associated to.</p>
+
+        Raises:
+            aws_sdk_route53globalresolver.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform this operation. Check your IAM permissions and try again.</p>
+            aws_sdk_route53globalresolver.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Try again later.</p>
+            aws_sdk_route53globalresolver.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found. Verify the resource ID and try again.</p>
+            aws_sdk_route53globalresolver.errors.throttling_exception.ThrottlingException: <p>The request was throttled due to too many requests. Wait a moment and try again.</p>
+            aws_sdk_route53globalresolver.errors.validation_exception.ValidationException: <p>The input parameters are invalid. Check the parameter values and try again.</p>
+            aws_sdk_route53globalresolver.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -242,6 +277,16 @@ class FirewallDomainList:
             domain_file_url: <p>The fully qualified URL of the file in Amazon S3 that contains the list of domains to import. The file should contain one domain per line.</p>
             firewall_domain_list_id: <p>ID of the DNS Firewall domain list that you want to import the domain list to.</p>
             operation: <p>This value is <code>REPLACE</code>, and it updates the domain list to match the list of domains in the imported file.</p>
+
+        Raises:
+            aws_sdk_route53globalresolver.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform this operation. Check your IAM permissions and try again.</p>
+            aws_sdk_route53globalresolver.errors.conflict_exception.ConflictException: <p>The request conflicts with the current state of the resource. This can occur when trying to modify a resource that is not in a valid state for the requested operation.</p>
+            aws_sdk_route53globalresolver.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Try again later.</p>
+            aws_sdk_route53globalresolver.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found. Verify the resource ID and try again.</p>
+            aws_sdk_route53globalresolver.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request would exceed one or more service quotas. Check your current usage and quotas, then try again.</p>
+            aws_sdk_route53globalresolver.errors.throttling_exception.ThrottlingException: <p>The request was throttled due to too many requests. Wait a moment and try again.</p>
+            aws_sdk_route53globalresolver.errors.validation_exception.ValidationException: <p>The input parameters are invalid. Check the parameter values and try again.</p>
+            aws_sdk_route53globalresolver.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -285,6 +330,14 @@ class FirewallDomainList:
             max_results: <p>The maximum number of results to retrieve in a single call.</p>
             next_token: <p>A pagination token used for large sets of results that can't be returned in a single response.</p>
             firewall_domain_list_id: <p>ID of the DNS Firewall domain list.</p>
+
+        Raises:
+            aws_sdk_route53globalresolver.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform this operation. Check your IAM permissions and try again.</p>
+            aws_sdk_route53globalresolver.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Try again later.</p>
+            aws_sdk_route53globalresolver.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found. Verify the resource ID and try again.</p>
+            aws_sdk_route53globalresolver.errors.throttling_exception.ThrottlingException: <p>The request was throttled due to too many requests. Wait a moment and try again.</p>
+            aws_sdk_route53globalresolver.errors.validation_exception.ValidationException: <p>The input parameters are invalid. Check the parameter values and try again.</p>
+            aws_sdk_route53globalresolver.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -330,6 +383,16 @@ class FirewallDomainList:
             domains: <p>A list of the domains. You can add up to 1000 domains per request.</p>
             firewall_domain_list_id: <p>The ID of the DNS Firewall domain list to which you want to add the domains.</p>
             operation: <p>The operation for updating the domain list. The allowed values are ADD, REMOVE, and REPLACE.</p>
+
+        Raises:
+            aws_sdk_route53globalresolver.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform this operation. Check your IAM permissions and try again.</p>
+            aws_sdk_route53globalresolver.errors.conflict_exception.ConflictException: <p>The request conflicts with the current state of the resource. This can occur when trying to modify a resource that is not in a valid state for the requested operation.</p>
+            aws_sdk_route53globalresolver.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Try again later.</p>
+            aws_sdk_route53globalresolver.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found. Verify the resource ID and try again.</p>
+            aws_sdk_route53globalresolver.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request would exceed one or more service quotas. Check your current usage and quotas, then try again.</p>
+            aws_sdk_route53globalresolver.errors.throttling_exception.ThrottlingException: <p>The request was throttled due to too many requests. Wait a moment and try again.</p>
+            aws_sdk_route53globalresolver.errors.validation_exception.ValidationException: <p>The input parameters are invalid. Check the parameter values and try again.</p>
+            aws_sdk_route53globalresolver.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -386,6 +449,16 @@ class AsyncFirewallDomainList:
             description: <p>An optional description for the firewall domain list.</p>
             name: <p>A descriptive name for the firewall domain list.</p>
             tags: <p>An array of user-defined keys and optional values. These tags can be used for categorization and organization.</p>
+
+        Raises:
+            aws_sdk_route53globalresolver.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform this operation. Check your IAM permissions and try again.</p>
+            aws_sdk_route53globalresolver.errors.conflict_exception.ConflictException: <p>The request conflicts with the current state of the resource. This can occur when trying to modify a resource that is not in a valid state for the requested operation.</p>
+            aws_sdk_route53globalresolver.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Try again later.</p>
+            aws_sdk_route53globalresolver.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found. Verify the resource ID and try again.</p>
+            aws_sdk_route53globalresolver.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request would exceed one or more service quotas. Check your current usage and quotas, then try again.</p>
+            aws_sdk_route53globalresolver.errors.throttling_exception.ThrottlingException: <p>The request was throttled due to too many requests. Wait a moment and try again.</p>
+            aws_sdk_route53globalresolver.errors.validation_exception.ValidationException: <p>The input parameters are invalid. Check the parameter values and try again.</p>
+            aws_sdk_route53globalresolver.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -431,6 +504,14 @@ class AsyncFirewallDomainList:
 
         Args:
             firewall_domain_list_id: <p>ID of the domain list.</p>
+
+        Raises:
+            aws_sdk_route53globalresolver.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform this operation. Check your IAM permissions and try again.</p>
+            aws_sdk_route53globalresolver.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Try again later.</p>
+            aws_sdk_route53globalresolver.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found. Verify the resource ID and try again.</p>
+            aws_sdk_route53globalresolver.errors.throttling_exception.ThrottlingException: <p>The request was throttled due to too many requests. Wait a moment and try again.</p>
+            aws_sdk_route53globalresolver.errors.validation_exception.ValidationException: <p>The input parameters are invalid. Check the parameter values and try again.</p>
+            aws_sdk_route53globalresolver.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -469,6 +550,15 @@ class AsyncFirewallDomainList:
 
         Args:
             firewall_domain_list_id: <p>The unique identifier of the firewall domain list to delete.</p>
+
+        Raises:
+            aws_sdk_route53globalresolver.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform this operation. Check your IAM permissions and try again.</p>
+            aws_sdk_route53globalresolver.errors.conflict_exception.ConflictException: <p>The request conflicts with the current state of the resource. This can occur when trying to modify a resource that is not in a valid state for the requested operation.</p>
+            aws_sdk_route53globalresolver.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Try again later.</p>
+            aws_sdk_route53globalresolver.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found. Verify the resource ID and try again.</p>
+            aws_sdk_route53globalresolver.errors.throttling_exception.ThrottlingException: <p>The request was throttled due to too many requests. Wait a moment and try again.</p>
+            aws_sdk_route53globalresolver.errors.validation_exception.ValidationException: <p>The input parameters are invalid. Check the parameter values and try again.</p>
+            aws_sdk_route53globalresolver.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -513,6 +603,14 @@ class AsyncFirewallDomainList:
             max_results: <p>The maximum number of results to retrieve in a single call.</p>
             next_token: <p>A pagination token used for large sets of results that can't be returned in a single response.</p>
             global_resolver_id: <p>The ID of the Global Resolver that contains the DNS view the domain lists are associated to.</p>
+
+        Raises:
+            aws_sdk_route53globalresolver.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform this operation. Check your IAM permissions and try again.</p>
+            aws_sdk_route53globalresolver.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Try again later.</p>
+            aws_sdk_route53globalresolver.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found. Verify the resource ID and try again.</p>
+            aws_sdk_route53globalresolver.errors.throttling_exception.ThrottlingException: <p>The request was throttled due to too many requests. Wait a moment and try again.</p>
+            aws_sdk_route53globalresolver.errors.validation_exception.ValidationException: <p>The input parameters are invalid. Check the parameter values and try again.</p>
+            aws_sdk_route53globalresolver.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -560,6 +658,16 @@ class AsyncFirewallDomainList:
             domain_file_url: <p>The fully qualified URL of the file in Amazon S3 that contains the list of domains to import. The file should contain one domain per line.</p>
             firewall_domain_list_id: <p>ID of the DNS Firewall domain list that you want to import the domain list to.</p>
             operation: <p>This value is <code>REPLACE</code>, and it updates the domain list to match the list of domains in the imported file.</p>
+
+        Raises:
+            aws_sdk_route53globalresolver.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform this operation. Check your IAM permissions and try again.</p>
+            aws_sdk_route53globalresolver.errors.conflict_exception.ConflictException: <p>The request conflicts with the current state of the resource. This can occur when trying to modify a resource that is not in a valid state for the requested operation.</p>
+            aws_sdk_route53globalresolver.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Try again later.</p>
+            aws_sdk_route53globalresolver.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found. Verify the resource ID and try again.</p>
+            aws_sdk_route53globalresolver.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request would exceed one or more service quotas. Check your current usage and quotas, then try again.</p>
+            aws_sdk_route53globalresolver.errors.throttling_exception.ThrottlingException: <p>The request was throttled due to too many requests. Wait a moment and try again.</p>
+            aws_sdk_route53globalresolver.errors.validation_exception.ValidationException: <p>The input parameters are invalid. Check the parameter values and try again.</p>
+            aws_sdk_route53globalresolver.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -604,6 +712,14 @@ class AsyncFirewallDomainList:
             max_results: <p>The maximum number of results to retrieve in a single call.</p>
             next_token: <p>A pagination token used for large sets of results that can't be returned in a single response.</p>
             firewall_domain_list_id: <p>ID of the DNS Firewall domain list.</p>
+
+        Raises:
+            aws_sdk_route53globalresolver.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform this operation. Check your IAM permissions and try again.</p>
+            aws_sdk_route53globalresolver.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Try again later.</p>
+            aws_sdk_route53globalresolver.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found. Verify the resource ID and try again.</p>
+            aws_sdk_route53globalresolver.errors.throttling_exception.ThrottlingException: <p>The request was throttled due to too many requests. Wait a moment and try again.</p>
+            aws_sdk_route53globalresolver.errors.validation_exception.ValidationException: <p>The input parameters are invalid. Check the parameter values and try again.</p>
+            aws_sdk_route53globalresolver.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -650,6 +766,16 @@ class AsyncFirewallDomainList:
             domains: <p>A list of the domains. You can add up to 1000 domains per request.</p>
             firewall_domain_list_id: <p>The ID of the DNS Firewall domain list to which you want to add the domains.</p>
             operation: <p>The operation for updating the domain list. The allowed values are ADD, REMOVE, and REPLACE.</p>
+
+        Raises:
+            aws_sdk_route53globalresolver.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform this operation. Check your IAM permissions and try again.</p>
+            aws_sdk_route53globalresolver.errors.conflict_exception.ConflictException: <p>The request conflicts with the current state of the resource. This can occur when trying to modify a resource that is not in a valid state for the requested operation.</p>
+            aws_sdk_route53globalresolver.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Try again later.</p>
+            aws_sdk_route53globalresolver.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found. Verify the resource ID and try again.</p>
+            aws_sdk_route53globalresolver.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request would exceed one or more service quotas. Check your current usage and quotas, then try again.</p>
+            aws_sdk_route53globalresolver.errors.throttling_exception.ThrottlingException: <p>The request was throttled due to too many requests. Wait a moment and try again.</p>
+            aws_sdk_route53globalresolver.errors.validation_exception.ValidationException: <p>The input parameters are invalid. Check the parameter values and try again.</p>
+            aws_sdk_route53globalresolver.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

@@ -155,6 +155,13 @@ class AsyncBackupGatewayClient:
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource's tags to list.</p>
+
+        Raises:
+            aws_sdk_backup_gateway.errors.internal_server_exception.InternalServerException: <p>The operation did not succeed because an internal error occurred. Try again later.</p>
+            aws_sdk_backup_gateway.errors.throttling_exception.ThrottlingException: <p>TPS has been limited to protect against intentional or unintentional high request volumes.</p>
+            aws_sdk_backup_gateway.errors.validation_exception.ValidationException: <p>The operation did not succeed because a validation error occurred.</p>
+            aws_sdk_backup_gateway.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource that is required for the action wasn't found.</p>
+            aws_sdk_backup_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -195,6 +202,13 @@ class AsyncBackupGatewayClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource to tag.</p>
             tags: <p>A list of tags to assign to the resource.</p>
+
+        Raises:
+            aws_sdk_backup_gateway.errors.internal_server_exception.InternalServerException: <p>The operation did not succeed because an internal error occurred. Try again later.</p>
+            aws_sdk_backup_gateway.errors.throttling_exception.ThrottlingException: <p>TPS has been limited to protect against intentional or unintentional high request volumes.</p>
+            aws_sdk_backup_gateway.errors.validation_exception.ValidationException: <p>The operation did not succeed because a validation error occurred.</p>
+            aws_sdk_backup_gateway.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource that is required for the action wasn't found.</p>
+            aws_sdk_backup_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -236,6 +250,13 @@ class AsyncBackupGatewayClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource from which to remove tags.</p>
             tag_keys: <p>The list of tag keys specifying which tags to remove.</p>
+
+        Raises:
+            aws_sdk_backup_gateway.errors.internal_server_exception.InternalServerException: <p>The operation did not succeed because an internal error occurred. Try again later.</p>
+            aws_sdk_backup_gateway.errors.throttling_exception.ThrottlingException: <p>TPS has been limited to protect against intentional or unintentional high request volumes.</p>
+            aws_sdk_backup_gateway.errors.validation_exception.ValidationException: <p>The operation did not succeed because a validation error occurred.</p>
+            aws_sdk_backup_gateway.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource that is required for the action wasn't found.</p>
+            aws_sdk_backup_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

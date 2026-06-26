@@ -198,6 +198,13 @@ class savingsplansClient:
             purchase_time: <p>The purchase time of the Savings Plan in UTC format (YYYY-MM-DDTHH:MM:SSZ).</p>
             client_token: <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
             tags: <p>One or more tags.</p>
+
+        Raises:
+            aws_sdk_savingsplans.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred.</p>
+            aws_sdk_savingsplans.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_savingsplans.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>A service quota has been exceeded.</p>
+            aws_sdk_savingsplans.errors.validation_exception.ValidationException: <p>One of the input parameters is not valid.</p>
+            aws_sdk_savingsplans.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -244,6 +251,13 @@ class savingsplansClient:
 
         Args:
             savings_plan_id: <p>The ID of the Savings Plan.</p>
+
+        Raises:
+            aws_sdk_savingsplans.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred.</p>
+            aws_sdk_savingsplans.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_savingsplans.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>A service quota has been exceeded.</p>
+            aws_sdk_savingsplans.errors.validation_exception.ValidationException: <p>One of the input parameters is not valid.</p>
+            aws_sdk_savingsplans.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -293,6 +307,12 @@ class savingsplansClient:
             filters: <p>The filters.</p>
             next_token: <p>The token for the next page of results.</p>
             max_results: <p>The maximum number of results to return with a single call. To retrieve additional results, make another call with the returned token value.</p>
+
+        Raises:
+            aws_sdk_savingsplans.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred.</p>
+            aws_sdk_savingsplans.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_savingsplans.errors.validation_exception.ValidationException: <p>One of the input parameters is not valid.</p>
+            aws_sdk_savingsplans.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -358,6 +378,11 @@ class savingsplansClient:
             max_results: <p>The maximum number of results to return with a single call. To retrieve additional results, make another call with the returned token value.</p>
             states: <p>The current states of the Savings Plans.</p>
             filters: <p>The filters.</p>
+
+        Raises:
+            aws_sdk_savingsplans.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred.</p>
+            aws_sdk_savingsplans.errors.validation_exception.ValidationException: <p>One of the input parameters is not valid.</p>
+            aws_sdk_savingsplans.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -442,6 +467,11 @@ class savingsplansClient:
             filters: <p>The filters.</p>
             next_token: <p>The token for the next page of results.</p>
             max_results: <p>The maximum number of results to return with a single call. To retrieve additional results, make another call with the returned token value.</p>
+
+        Raises:
+            aws_sdk_savingsplans.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred.</p>
+            aws_sdk_savingsplans.errors.validation_exception.ValidationException: <p>One of the input parameters is not valid.</p>
+            aws_sdk_savingsplans.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -544,6 +574,11 @@ class savingsplansClient:
             filters: <p>The filters.</p>
             next_token: <p>The token for the next page of results.</p>
             max_results: <p>The maximum number of results to return with a single call. To retrieve additional results, make another call with the returned token value.</p>
+
+        Raises:
+            aws_sdk_savingsplans.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred.</p>
+            aws_sdk_savingsplans.errors.validation_exception.ValidationException: <p>One of the input parameters is not valid.</p>
+            aws_sdk_savingsplans.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -606,6 +641,12 @@ class savingsplansClient:
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource.</p>
+
+        Raises:
+            aws_sdk_savingsplans.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred.</p>
+            aws_sdk_savingsplans.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_savingsplans.errors.validation_exception.ValidationException: <p>One of the input parameters is not valid.</p>
+            aws_sdk_savingsplans.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -647,6 +688,13 @@ class savingsplansClient:
         Args:
             savings_plan_id: <p>The ID of the Savings Plan.</p>
             client_token: <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+
+        Raises:
+            aws_sdk_savingsplans.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred.</p>
+            aws_sdk_savingsplans.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_savingsplans.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>A service quota has been exceeded.</p>
+            aws_sdk_savingsplans.errors.validation_exception.ValidationException: <p>One of the input parameters is not valid.</p>
+            aws_sdk_savingsplans.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -688,6 +736,13 @@ class savingsplansClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource.</p>
             tags: <p>One or more tags. For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.</p>
+
+        Raises:
+            aws_sdk_savingsplans.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred.</p>
+            aws_sdk_savingsplans.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_savingsplans.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>A service quota has been exceeded.</p>
+            aws_sdk_savingsplans.errors.validation_exception.ValidationException: <p>One of the input parameters is not valid.</p>
+            aws_sdk_savingsplans.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -728,6 +783,12 @@ class savingsplansClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource.</p>
             tag_keys: <p>The tag keys.</p>
+
+        Raises:
+            aws_sdk_savingsplans.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred.</p>
+            aws_sdk_savingsplans.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_savingsplans.errors.validation_exception.ValidationException: <p>One of the input parameters is not valid.</p>
+            aws_sdk_savingsplans.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(

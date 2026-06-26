@@ -253,6 +253,13 @@ class AsyncfisClient:
             log_configuration: <p>The configuration for experiment logging.</p>
             experiment_options: <p>The experiment options for the experiment template.</p>
             experiment_report_configuration: <p>The experiment report configuration for the experiment template.</p>
+
+        Raises:
+            aws_sdk_fis.errors.conflict_exception.ConflictException: <p>The request could not be processed because of a conflict.</p>
+            aws_sdk_fis.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource cannot be found.</p>
+            aws_sdk_fis.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You have exceeded your service quota.</p>
+            aws_sdk_fis.errors.validation_exception.ValidationException: <p>The specified input is not valid, or fails to satisfy the constraints for the request.</p>
+            aws_sdk_fis.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -315,6 +322,13 @@ class AsyncfisClient:
             account_id: <p>The Amazon Web Services account ID of the target account.</p>
             role_arn: <p>The Amazon Resource Name (ARN) of an IAM role for the target account.</p>
             description: <p>The description of the target account.</p>
+
+        Raises:
+            aws_sdk_fis.errors.conflict_exception.ConflictException: <p>The request could not be processed because of a conflict.</p>
+            aws_sdk_fis.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource cannot be found.</p>
+            aws_sdk_fis.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You have exceeded your service quota.</p>
+            aws_sdk_fis.errors.validation_exception.ValidationException: <p>The specified input is not valid, or fails to satisfy the constraints for the request.</p>
+            aws_sdk_fis.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -359,6 +373,11 @@ class AsyncfisClient:
 
         Args:
             id: <p>The ID of the experiment template.</p>
+
+        Raises:
+            aws_sdk_fis.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource cannot be found.</p>
+            aws_sdk_fis.errors.validation_exception.ValidationException: <p>The specified input is not valid, or fails to satisfy the constraints for the request.</p>
+            aws_sdk_fis.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -399,6 +418,11 @@ class AsyncfisClient:
         Args:
             experiment_template_id: <p>The ID of the experiment template.</p>
             account_id: <p>The Amazon Web Services account ID of the target account.</p>
+
+        Raises:
+            aws_sdk_fis.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource cannot be found.</p>
+            aws_sdk_fis.errors.validation_exception.ValidationException: <p>The specified input is not valid, or fails to satisfy the constraints for the request.</p>
+            aws_sdk_fis.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -438,6 +462,11 @@ class AsyncfisClient:
 
         Args:
             id: <p>The ID of the action.</p>
+
+        Raises:
+            aws_sdk_fis.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource cannot be found.</p>
+            aws_sdk_fis.errors.validation_exception.ValidationException: <p>The specified input is not valid, or fails to satisfy the constraints for the request.</p>
+            aws_sdk_fis.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -476,6 +505,11 @@ class AsyncfisClient:
 
         Args:
             id: <p>The ID of the experiment.</p>
+
+        Raises:
+            aws_sdk_fis.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource cannot be found.</p>
+            aws_sdk_fis.errors.validation_exception.ValidationException: <p>The specified input is not valid, or fails to satisfy the constraints for the request.</p>
+            aws_sdk_fis.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -516,6 +550,11 @@ class AsyncfisClient:
         Args:
             experiment_id: <p>The ID of the experiment.</p>
             account_id: <p>The Amazon Web Services account ID of the target account.</p>
+
+        Raises:
+            aws_sdk_fis.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource cannot be found.</p>
+            aws_sdk_fis.errors.validation_exception.ValidationException: <p>The specified input is not valid, or fails to satisfy the constraints for the request.</p>
+            aws_sdk_fis.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -555,6 +594,11 @@ class AsyncfisClient:
 
         Args:
             id: <p>The ID of the experiment template.</p>
+
+        Raises:
+            aws_sdk_fis.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource cannot be found.</p>
+            aws_sdk_fis.errors.validation_exception.ValidationException: <p>The specified input is not valid, or fails to satisfy the constraints for the request.</p>
+            aws_sdk_fis.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -593,6 +637,10 @@ class AsyncfisClient:
 
         Args:
             id: <p> The ID of the safety lever. </p>
+
+        Raises:
+            aws_sdk_fis.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource cannot be found.</p>
+            aws_sdk_fis.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -633,6 +681,11 @@ class AsyncfisClient:
         Args:
             experiment_template_id: <p>The ID of the experiment template.</p>
             account_id: <p>The Amazon Web Services account ID of the target account.</p>
+
+        Raises:
+            aws_sdk_fis.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource cannot be found.</p>
+            aws_sdk_fis.errors.validation_exception.ValidationException: <p>The specified input is not valid, or fails to satisfy the constraints for the request.</p>
+            aws_sdk_fis.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -672,6 +725,11 @@ class AsyncfisClient:
 
         Args:
             resource_type: <p>The resource type.</p>
+
+        Raises:
+            aws_sdk_fis.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource cannot be found.</p>
+            aws_sdk_fis.errors.validation_exception.ValidationException: <p>The specified input is not valid, or fails to satisfy the constraints for the request.</p>
+            aws_sdk_fis.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -714,6 +772,10 @@ class AsyncfisClient:
         Args:
             max_results: <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
             next_token: <p>The token for the next page of results.</p>
+
+        Raises:
+            aws_sdk_fis.errors.validation_exception.ValidationException: <p>The specified input is not valid, or fails to satisfy the constraints for the request.</p>
+            aws_sdk_fis.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -786,6 +848,11 @@ class AsyncfisClient:
             max_results: <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned nextToken value.</p>
             next_token: <p>The token for the next page of results.</p>
             target_name: <p>The name of the target.</p>
+
+        Raises:
+            aws_sdk_fis.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource cannot be found.</p>
+            aws_sdk_fis.errors.validation_exception.ValidationException: <p>The specified input is not valid, or fails to satisfy the constraints for the request.</p>
+            aws_sdk_fis.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -865,6 +932,10 @@ class AsyncfisClient:
             max_results: <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
             next_token: <p>The token for the next page of results.</p>
             experiment_template_id: <p>The ID of the experiment template.</p>
+
+        Raises:
+            aws_sdk_fis.errors.validation_exception.ValidationException: <p>The specified input is not valid, or fails to satisfy the constraints for the request.</p>
+            aws_sdk_fis.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -937,6 +1008,11 @@ class AsyncfisClient:
         Args:
             experiment_id: <p>The ID of the experiment.</p>
             next_token: <p>The token for the next page of results.</p>
+
+        Raises:
+            aws_sdk_fis.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource cannot be found.</p>
+            aws_sdk_fis.errors.validation_exception.ValidationException: <p>The specified input is not valid, or fails to satisfy the constraints for the request.</p>
+            aws_sdk_fis.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -981,6 +1057,10 @@ class AsyncfisClient:
         Args:
             max_results: <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
             next_token: <p>The token for the next page of results.</p>
+
+        Raises:
+            aws_sdk_fis.errors.validation_exception.ValidationException: <p>The specified input is not valid, or fails to satisfy the constraints for the request.</p>
+            aws_sdk_fis.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1047,6 +1127,9 @@ class AsyncfisClient:
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource.</p>
+
+        Raises:
+            aws_sdk_fis.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1091,6 +1174,11 @@ class AsyncfisClient:
             experiment_template_id: <p>The ID of the experiment template.</p>
             max_results: <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned nextToken value.</p>
             next_token: <p>The token for the next page of results.</p>
+
+        Raises:
+            aws_sdk_fis.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource cannot be found.</p>
+            aws_sdk_fis.errors.validation_exception.ValidationException: <p>The specified input is not valid, or fails to satisfy the constraints for the request.</p>
+            aws_sdk_fis.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1162,6 +1250,10 @@ class AsyncfisClient:
         Args:
             max_results: <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
             next_token: <p>The token for the next page of results.</p>
+
+        Raises:
+            aws_sdk_fis.errors.validation_exception.ValidationException: <p>The specified input is not valid, or fails to satisfy the constraints for the request.</p>
+            aws_sdk_fis.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1234,6 +1326,13 @@ class AsyncfisClient:
             experiment_template_id: <p>The ID of the experiment template.</p>
             experiment_options: <p>The experiment options for running the experiment.</p>
             tags: <p>The tags to apply to the experiment.</p>
+
+        Raises:
+            aws_sdk_fis.errors.conflict_exception.ConflictException: <p>The request could not be processed because of a conflict.</p>
+            aws_sdk_fis.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource cannot be found.</p>
+            aws_sdk_fis.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You have exceeded your service quota.</p>
+            aws_sdk_fis.errors.validation_exception.ValidationException: <p>The specified input is not valid, or fails to satisfy the constraints for the request.</p>
+            aws_sdk_fis.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1277,6 +1376,11 @@ class AsyncfisClient:
 
         Args:
             id: <p>The ID of the experiment.</p>
+
+        Raises:
+            aws_sdk_fis.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource cannot be found.</p>
+            aws_sdk_fis.errors.validation_exception.ValidationException: <p>The specified input is not valid, or fails to satisfy the constraints for the request.</p>
+            aws_sdk_fis.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1317,6 +1421,9 @@ class AsyncfisClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource.</p>
             tags: <p>The tags for the resource.</p>
+
+        Raises:
+            aws_sdk_fis.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1358,6 +1465,9 @@ class AsyncfisClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource.</p>
             tag_keys: <p>The tag keys to remove.</p>
+
+        Raises:
+            aws_sdk_fis.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1428,6 +1538,12 @@ class AsyncfisClient:
             log_configuration: <p>The configuration for experiment logging.</p>
             experiment_options: <p>The experiment options for the experiment template.</p>
             experiment_report_configuration: <p>The experiment report configuration for the experiment template.</p>
+
+        Raises:
+            aws_sdk_fis.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource cannot be found.</p>
+            aws_sdk_fis.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You have exceeded your service quota.</p>
+            aws_sdk_fis.errors.validation_exception.ValidationException: <p>The specified input is not valid, or fails to satisfy the constraints for the request.</p>
+            aws_sdk_fis.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1484,6 +1600,12 @@ class AsyncfisClient:
         Args:
             id: <p> The ID of the safety lever. </p>
             state: <p> The state of the safety lever. </p>
+
+        Raises:
+            aws_sdk_fis.errors.conflict_exception.ConflictException: <p>The request could not be processed because of a conflict.</p>
+            aws_sdk_fis.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource cannot be found.</p>
+            aws_sdk_fis.errors.validation_exception.ValidationException: <p>The specified input is not valid, or fails to satisfy the constraints for the request.</p>
+            aws_sdk_fis.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1531,6 +1653,11 @@ class AsyncfisClient:
             account_id: <p>The Amazon Web Services account ID of the target account.</p>
             role_arn: <p>The Amazon Resource Name (ARN) of an IAM role for the target account.</p>
             description: <p>The description of the target account.</p>
+
+        Raises:
+            aws_sdk_fis.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource cannot be found.</p>
+            aws_sdk_fis.errors.validation_exception.ValidationException: <p>The specified input is not valid, or fails to satisfy the constraints for the request.</p>
+            aws_sdk_fis.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

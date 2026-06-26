@@ -39,6 +39,12 @@ class VcenterClientResource:
 
         Args:
             vcenter_client_id: <p>ID of resource to be deleted.</p>
+
+        Raises:
+            aws_sdk_mgn.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found exception.</p>
+            aws_sdk_mgn.errors.uninitialized_account_exception.UninitializedAccountException: <p>Uninitialized account exception.</p>
+            aws_sdk_mgn.errors.validation_exception.ValidationException: <p>Validate exception.</p>
+            aws_sdk_mgn.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -80,6 +86,12 @@ class VcenterClientResource:
         Args:
             max_results: <p>Maximum results to be returned in DescribeVcenterClients.</p>
             next_token: <p>Next pagination token to be provided for DescribeVcenterClients.</p>
+
+        Raises:
+            aws_sdk_mgn.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found exception.</p>
+            aws_sdk_mgn.errors.uninitialized_account_exception.UninitializedAccountException: <p>Uninitialized account exception.</p>
+            aws_sdk_mgn.errors.validation_exception.ValidationException: <p>Validate exception.</p>
+            aws_sdk_mgn.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -125,6 +137,12 @@ class AsyncVcenterClientResource:
 
         Args:
             vcenter_client_id: <p>ID of resource to be deleted.</p>
+
+        Raises:
+            aws_sdk_mgn.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found exception.</p>
+            aws_sdk_mgn.errors.uninitialized_account_exception.UninitializedAccountException: <p>Uninitialized account exception.</p>
+            aws_sdk_mgn.errors.validation_exception.ValidationException: <p>Validate exception.</p>
+            aws_sdk_mgn.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -167,6 +185,12 @@ class AsyncVcenterClientResource:
         Args:
             max_results: <p>Maximum results to be returned in DescribeVcenterClients.</p>
             next_token: <p>Next pagination token to be provided for DescribeVcenterClients.</p>
+
+        Raises:
+            aws_sdk_mgn.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found exception.</p>
+            aws_sdk_mgn.errors.uninitialized_account_exception.UninitializedAccountException: <p>Uninitialized account exception.</p>
+            aws_sdk_mgn.errors.validation_exception.ValidationException: <p>Validate exception.</p>
+            aws_sdk_mgn.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

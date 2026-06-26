@@ -222,6 +222,13 @@ class ACMPCAClient:
             key_storage_security_standard: <p>Specifies a cryptographic key management compliance standard for handling and protecting CA keys.</p> <p>Default: FIPS_140_2_LEVEL_3_OR_HIGHER</p> <note> <p>Some Amazon Web Services Regions don't support the default value. When you create a CA in these Regions, you must use <code>CCPC_LEVEL_1_OR_HIGHER</code> for the <code>KeyStorageSecurityStandard</code> parameter. If you don't, the operation returns an <code>InvalidArgsException</code> with this message: \"A certificate authority cannot be created in this region with the specified security standard.\"</p> <p>For information about security standard support in different Amazon Web Services Regions, see <a href=\"https://docs.aws.amazon.com/privateca/latest/userguide/data-protection.html#private-keys\">Storage and security compliance of Amazon Web Services Private CA private keys</a>.</p> </note>
             tags: <p>Key-value pairs that will be attached to the new private CA. You can associate up to 50 tags with a private CA. For information using tags with IAM to manage permissions, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access_iam-tags.html\">Controlling Access Using IAM Tags</a>.</p>
             usage_mode: <p>Specifies whether the CA issues general-purpose certificates that typically require a revocation mechanism, or short-lived certificates that may optionally omit revocation because they expire quickly. Short-lived certificate validity is limited to seven days.</p> <p>The default value is GENERAL_PURPOSE.</p>
+
+        Raises:
+            aws_sdk_acm_pca.errors.invalid_args_exception.InvalidArgsException: <p>One or more of the specified arguments was not valid.</p>
+            aws_sdk_acm_pca.errors.invalid_policy_exception.InvalidPolicyException: <p>The resource policy is invalid or is missing a required statement. For general information about IAM policy and statement structure, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#access_policies-json\">Overview of JSON Policies</a>.</p>
+            aws_sdk_acm_pca.errors.invalid_tag_exception.InvalidTagException: <p>The tag associated with the CA is not valid. The invalid argument is contained in the message field.</p>
+            aws_sdk_acm_pca.errors.limit_exceeded_exception.LimitExceededException: <p>An Amazon Web Services Private CA quota has been exceeded. See the exception message returned to determine the quota that was exceeded.</p>
+            aws_sdk_acm_pca.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -276,6 +283,15 @@ class ACMPCAClient:
             certificate_authority_arn: <p>The Amazon Resource Name (ARN) of the CA to be audited. This is of the form:</p> <p> <code>arn:aws:acm-pca:<i>region</i>:<i>account</i>:certificate-authority/<i>12345678-1234-1234-1234-123456789012</i> </code>.</p>
             s3_bucket_name: <p>The name of the S3 bucket that will contain the audit report.</p>
             audit_report_response_format: <p>The format in which to create the report. This can be either <b>JSON</b> or <b>CSV</b>.</p>
+
+        Raises:
+            aws_sdk_acm_pca.errors.invalid_args_exception.InvalidArgsException: <p>One or more of the specified arguments was not valid.</p>
+            aws_sdk_acm_pca.errors.invalid_arn_exception.InvalidArnException: <p>The requested Amazon Resource Name (ARN) does not refer to an existing resource.</p>
+            aws_sdk_acm_pca.errors.invalid_state_exception.InvalidStateException: <p>The state of the private CA does not allow this action to occur.</p>
+            aws_sdk_acm_pca.errors.request_failed_exception.RequestFailedException: <p>The request has failed for an unspecified reason.</p>
+            aws_sdk_acm_pca.errors.request_in_progress_exception.RequestInProgressException: <p>Your request is already in progress.</p>
+            aws_sdk_acm_pca.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource such as a private CA, S3 bucket, certificate, audit report, or policy cannot be found.</p>
+            aws_sdk_acm_pca.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -321,6 +337,15 @@ class ACMPCAClient:
             principal: <p>The Amazon Web Services service or identity that receives the permission. At this time, the only valid principal is <code>acm.amazonaws.com</code>.</p>
             source_account: <p>The ID of the calling account.</p>
             actions: <p>The actions that the specified Amazon Web Services service principal can use. These include <code>IssueCertificate</code>, <code>GetCertificate</code>, and <code>ListPermissions</code>.</p>
+
+        Raises:
+            aws_sdk_acm_pca.errors.invalid_arn_exception.InvalidArnException: <p>The requested Amazon Resource Name (ARN) does not refer to an existing resource.</p>
+            aws_sdk_acm_pca.errors.invalid_state_exception.InvalidStateException: <p>The state of the private CA does not allow this action to occur.</p>
+            aws_sdk_acm_pca.errors.limit_exceeded_exception.LimitExceededException: <p>An Amazon Web Services Private CA quota has been exceeded. See the exception message returned to determine the quota that was exceeded.</p>
+            aws_sdk_acm_pca.errors.permission_already_exists_exception.PermissionAlreadyExistsException: <p>The designated permission has already been given to the user.</p>
+            aws_sdk_acm_pca.errors.request_failed_exception.RequestFailedException: <p>The request has failed for an unspecified reason.</p>
+            aws_sdk_acm_pca.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource such as a private CA, S3 bucket, certificate, audit report, or policy cannot be found.</p>
+            aws_sdk_acm_pca.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -364,6 +389,13 @@ class ACMPCAClient:
         Args:
             certificate_authority_arn: <p>The Amazon Resource Name (ARN) that was returned when you called <a href=\"https://docs.aws.amazon.com/privateca/latest/APIReference/API_CreateCertificateAuthority.html\">CreateCertificateAuthority</a>. This must have the following form: </p> <p> <code>arn:aws:acm-pca:<i>region</i>:<i>account</i>:certificate-authority/<i>12345678-1234-1234-1234-123456789012</i> </code>. </p>
             permanent_deletion_time_in_days: <p>The number of days to make a CA restorable after it has been deleted. This can be anywhere from 7 to 30 days, with 30 being the default.</p>
+
+        Raises:
+            aws_sdk_acm_pca.errors.concurrent_modification_exception.ConcurrentModificationException: <p>A previous update to your private CA is still ongoing.</p>
+            aws_sdk_acm_pca.errors.invalid_arn_exception.InvalidArnException: <p>The requested Amazon Resource Name (ARN) does not refer to an existing resource.</p>
+            aws_sdk_acm_pca.errors.invalid_state_exception.InvalidStateException: <p>The state of the private CA does not allow this action to occur.</p>
+            aws_sdk_acm_pca.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource such as a private CA, S3 bucket, certificate, audit report, or policy cannot be found.</p>
+            aws_sdk_acm_pca.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -405,6 +437,13 @@ class ACMPCAClient:
             certificate_authority_arn: <p>The Amazon Resource Number (ARN) of the private CA that issued the permissions. You can find the CA's ARN by calling the <a href=\"https://docs.aws.amazon.com/privateca/latest/APIReference/API_ListCertificateAuthorities.html\">ListCertificateAuthorities</a> action. This must have the following form: </p> <p> <code>arn:aws:acm-pca:<i>region</i>:<i>account</i>:certificate-authority/<i>12345678-1234-1234-1234-123456789012</i> </code>. </p>
             principal: <p>The Amazon Web Services service or identity that will have its CA permissions revoked. At this time, the only valid service principal is <code>acm.amazonaws.com</code> </p>
             source_account: <p>The Amazon Web Services account that calls this action.</p>
+
+        Raises:
+            aws_sdk_acm_pca.errors.invalid_arn_exception.InvalidArnException: <p>The requested Amazon Resource Name (ARN) does not refer to an existing resource.</p>
+            aws_sdk_acm_pca.errors.invalid_state_exception.InvalidStateException: <p>The state of the private CA does not allow this action to occur.</p>
+            aws_sdk_acm_pca.errors.request_failed_exception.RequestFailedException: <p>The request has failed for an unspecified reason.</p>
+            aws_sdk_acm_pca.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource such as a private CA, S3 bucket, certificate, audit report, or policy cannot be found.</p>
+            aws_sdk_acm_pca.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -443,6 +482,15 @@ class ACMPCAClient:
 
         Args:
             resource_arn: <p>The Amazon Resource Number (ARN) of the private CA that will have its policy deleted. You can find the CA's ARN by calling the <a href=\"https://docs.aws.amazon.com/privateca/latest/APIReference/API_ListCertificateAuthorities.html\">ListCertificateAuthorities</a> action. The ARN value must have the form <code>arn:aws:acm-pca:region:account:certificate-authority/01234567-89ab-cdef-0123-0123456789ab</code>. </p>
+
+        Raises:
+            aws_sdk_acm_pca.errors.concurrent_modification_exception.ConcurrentModificationException: <p>A previous update to your private CA is still ongoing.</p>
+            aws_sdk_acm_pca.errors.invalid_arn_exception.InvalidArnException: <p>The requested Amazon Resource Name (ARN) does not refer to an existing resource.</p>
+            aws_sdk_acm_pca.errors.invalid_state_exception.InvalidStateException: <p>The state of the private CA does not allow this action to occur.</p>
+            aws_sdk_acm_pca.errors.lockout_prevented_exception.LockoutPreventedException: <p>The current action was prevented because it would lock the caller out from performing subsequent actions. Verify that the specified parameters would not result in the caller being denied access to the resource. </p>
+            aws_sdk_acm_pca.errors.request_failed_exception.RequestFailedException: <p>The request has failed for an unspecified reason.</p>
+            aws_sdk_acm_pca.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource such as a private CA, S3 bucket, certificate, audit report, or policy cannot be found.</p>
+            aws_sdk_acm_pca.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -478,6 +526,11 @@ class ACMPCAClient:
 
         Args:
             certificate_authority_arn: <p>The Amazon Resource Name (ARN) that was returned when you called <a href=\"https://docs.aws.amazon.com/privateca/latest/APIReference/API_CreateCertificateAuthority.html\">CreateCertificateAuthority</a>. This must be of the form: </p> <p> <code>arn:aws:acm-pca:<i>region</i>:<i>account</i>:certificate-authority/<i>12345678-1234-1234-1234-123456789012</i> </code>. </p>
+
+        Raises:
+            aws_sdk_acm_pca.errors.invalid_arn_exception.InvalidArnException: <p>The requested Amazon Resource Name (ARN) does not refer to an existing resource.</p>
+            aws_sdk_acm_pca.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource such as a private CA, S3 bucket, certificate, audit report, or policy cannot be found.</p>
+            aws_sdk_acm_pca.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -517,6 +570,12 @@ class ACMPCAClient:
         Args:
             certificate_authority_arn: <p>The Amazon Resource Name (ARN) of the private CA. This must be of the form:</p> <p> <code>arn:aws:acm-pca:<i>region</i>:<i>account</i>:certificate-authority/<i>12345678-1234-1234-1234-123456789012</i> </code>. </p>
             audit_report_id: <p>The report ID returned by calling the <a href=\"https://docs.aws.amazon.com/privateca/latest/APIReference/API_CreateCertificateAuthorityAuditReport.html\">CreateCertificateAuthorityAuditReport</a> action.</p>
+
+        Raises:
+            aws_sdk_acm_pca.errors.invalid_args_exception.InvalidArgsException: <p>One or more of the specified arguments was not valid.</p>
+            aws_sdk_acm_pca.errors.invalid_arn_exception.InvalidArnException: <p>The requested Amazon Resource Name (ARN) does not refer to an existing resource.</p>
+            aws_sdk_acm_pca.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource such as a private CA, S3 bucket, certificate, audit report, or policy cannot be found.</p>
+            aws_sdk_acm_pca.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -557,6 +616,14 @@ class ACMPCAClient:
         Args:
             certificate_authority_arn: <p>The Amazon Resource Name (ARN) that was returned when you called <a href=\"https://docs.aws.amazon.com/privateca/latest/APIReference/API_CreateCertificateAuthority.html\">CreateCertificateAuthority</a>. This must be of the form: </p> <p> <code>arn:aws:acm-pca:<i>region</i>:<i>account</i>:certificate-authority/<i>12345678-1234-1234-1234-123456789012</i> </code>. </p>
             certificate_arn: <p>The ARN of the issued certificate. The ARN contains the certificate serial number and must be in the following form: </p> <p> <code>arn:aws:acm-pca:<i>region</i>:<i>account</i>:certificate-authority/<i>12345678-1234-1234-1234-123456789012</i>/certificate/<i>286535153982981100925020015808220737245</i> </code> </p>
+
+        Raises:
+            aws_sdk_acm_pca.errors.invalid_arn_exception.InvalidArnException: <p>The requested Amazon Resource Name (ARN) does not refer to an existing resource.</p>
+            aws_sdk_acm_pca.errors.invalid_state_exception.InvalidStateException: <p>The state of the private CA does not allow this action to occur.</p>
+            aws_sdk_acm_pca.errors.request_failed_exception.RequestFailedException: <p>The request has failed for an unspecified reason.</p>
+            aws_sdk_acm_pca.errors.request_in_progress_exception.RequestInProgressException: <p>Your request is already in progress.</p>
+            aws_sdk_acm_pca.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource such as a private CA, S3 bucket, certificate, audit report, or policy cannot be found.</p>
+            aws_sdk_acm_pca.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -646,6 +713,12 @@ class ACMPCAClient:
 
         Args:
             certificate_authority_arn: <p>The Amazon Resource Name (ARN) of your private CA. This is of the form:</p> <p> <code>arn:aws:acm-pca:<i>region</i>:<i>account</i>:certificate-authority/<i>12345678-1234-1234-1234-123456789012</i> </code>. </p>
+
+        Raises:
+            aws_sdk_acm_pca.errors.invalid_arn_exception.InvalidArnException: <p>The requested Amazon Resource Name (ARN) does not refer to an existing resource.</p>
+            aws_sdk_acm_pca.errors.invalid_state_exception.InvalidStateException: <p>The state of the private CA does not allow this action to occur.</p>
+            aws_sdk_acm_pca.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource such as a private CA, S3 bucket, certificate, audit report, or policy cannot be found.</p>
+            aws_sdk_acm_pca.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -683,6 +756,14 @@ class ACMPCAClient:
 
         Args:
             certificate_authority_arn: <p>The Amazon Resource Name (ARN) that was returned when you called the <a href=\"https://docs.aws.amazon.com/privateca/latest/APIReference/API_CreateCertificateAuthority.html\">CreateCertificateAuthority</a> action. This must be of the form: </p> <p> <code>arn:aws:acm-pca:<i>region</i>:<i>account</i>:certificate-authority/<i>12345678-1234-1234-1234-123456789012</i> </code> </p>
+
+        Raises:
+            aws_sdk_acm_pca.errors.invalid_arn_exception.InvalidArnException: <p>The requested Amazon Resource Name (ARN) does not refer to an existing resource.</p>
+            aws_sdk_acm_pca.errors.invalid_state_exception.InvalidStateException: <p>The state of the private CA does not allow this action to occur.</p>
+            aws_sdk_acm_pca.errors.request_failed_exception.RequestFailedException: <p>The request has failed for an unspecified reason.</p>
+            aws_sdk_acm_pca.errors.request_in_progress_exception.RequestInProgressException: <p>Your request is already in progress.</p>
+            aws_sdk_acm_pca.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource such as a private CA, S3 bucket, certificate, audit report, or policy cannot be found.</p>
+            aws_sdk_acm_pca.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -769,6 +850,13 @@ class ACMPCAClient:
 
         Args:
             resource_arn: <p>The Amazon Resource Number (ARN) of the private CA that will have its policy retrieved. You can find the CA's ARN by calling the ListCertificateAuthorities action. </p>
+
+        Raises:
+            aws_sdk_acm_pca.errors.invalid_arn_exception.InvalidArnException: <p>The requested Amazon Resource Name (ARN) does not refer to an existing resource.</p>
+            aws_sdk_acm_pca.errors.invalid_state_exception.InvalidStateException: <p>The state of the private CA does not allow this action to occur.</p>
+            aws_sdk_acm_pca.errors.request_failed_exception.RequestFailedException: <p>The request has failed for an unspecified reason.</p>
+            aws_sdk_acm_pca.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource such as a private CA, S3 bucket, certificate, audit report, or policy cannot be found.</p>
+            aws_sdk_acm_pca.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -812,6 +900,18 @@ class ACMPCAClient:
             certificate_authority_arn: <p>The Amazon Resource Name (ARN) that was returned when you called <a href=\"https://docs.aws.amazon.com/privateca/latest/APIReference/API_CreateCertificateAuthority.html\">CreateCertificateAuthority</a>. This must be of the form: </p> <p> <code>arn:aws:acm-pca:<i>region</i>:<i>account</i>:certificate-authority/<i>12345678-1234-1234-1234-123456789012</i> </code> </p>
             certificate: <p>The PEM-encoded certificate for a private CA. This may be a self-signed certificate in the case of a root CA, or it may be signed by another CA that you control.</p>
             certificate_chain: <p>A PEM-encoded file that contains all of your certificates, other than the certificate you're importing, chaining up to your root CA. Your Amazon Web Services Private CA-hosted or on-premises root certificate is the last in the chain, and each certificate in the chain signs the one preceding. </p> <p>This parameter must be supplied when you import a subordinate CA. When you import a root CA, there is no chain.</p>
+
+        Raises:
+            aws_sdk_acm_pca.errors.certificate_mismatch_exception.CertificateMismatchException: <p>The certificate authority certificate you are importing does not comply with conditions specified in the certificate that signed it.</p>
+            aws_sdk_acm_pca.errors.concurrent_modification_exception.ConcurrentModificationException: <p>A previous update to your private CA is still ongoing.</p>
+            aws_sdk_acm_pca.errors.invalid_arn_exception.InvalidArnException: <p>The requested Amazon Resource Name (ARN) does not refer to an existing resource.</p>
+            aws_sdk_acm_pca.errors.invalid_request_exception.InvalidRequestException: <p>The request action cannot be performed or is prohibited.</p>
+            aws_sdk_acm_pca.errors.invalid_state_exception.InvalidStateException: <p>The state of the private CA does not allow this action to occur.</p>
+            aws_sdk_acm_pca.errors.malformed_certificate_exception.MalformedCertificateException: <p>One or more fields in the certificate are invalid.</p>
+            aws_sdk_acm_pca.errors.request_failed_exception.RequestFailedException: <p>The request has failed for an unspecified reason.</p>
+            aws_sdk_acm_pca.errors.request_in_progress_exception.RequestInProgressException: <p>Your request is already in progress.</p>
+            aws_sdk_acm_pca.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource such as a private CA, S3 bucket, certificate, audit report, or policy cannot be found.</p>
+            aws_sdk_acm_pca.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -868,6 +968,15 @@ class ACMPCAClient:
             validity: <p>Information describing the end of the validity period of the certificate. This parameter sets the “Not After” date for the certificate.</p> <p>Certificate validity is the period of time during which a certificate is valid. Validity can be expressed as an explicit date and time when the certificate expires, or as a span of time after issuance, stated in days, months, or years. For more information, see <a href=\"https://datatracker.ietf.org/doc/html/rfc5280#section-4.1.2.5\">Validity</a> in RFC 5280. </p> <p>This value is unaffected when <code>ValidityNotBefore</code> is also specified. For example, if <code>Validity</code> is set to 20 days in the future, the certificate will expire 20 days from issuance time regardless of the <code>ValidityNotBefore</code> value.</p> <p>The end of the validity period configured on a certificate must not exceed the limit set on its parents in the CA hierarchy.</p>
             validity_not_before: <p>Information describing the start of the validity period of the certificate. This parameter sets the “Not Before\" date for the certificate.</p> <p>By default, when issuing a certificate, Amazon Web Services Private CA sets the \"Not Before\" date to the issuance time minus 60 minutes. This compensates for clock inconsistencies across computer systems. The <code>ValidityNotBefore</code> parameter can be used to customize the “Not Before” value. </p> <p>Unlike the <code>Validity</code> parameter, the <code>ValidityNotBefore</code> parameter is optional.</p> <p>The <code>ValidityNotBefore</code> value is expressed as an explicit date and time, using the <code>Validity</code> type value <code>ABSOLUTE</code>. For more information, see <a href=\"https://docs.aws.amazon.com/privateca/latest/APIReference/API_Validity.html\">Validity</a> in this API reference and <a href=\"https://datatracker.ietf.org/doc/html/rfc5280#section-4.1.2.5\">Validity</a> in RFC 5280.</p>
             idempotency_token: <p>Alphanumeric string that can be used to distinguish between calls to the <b>IssueCertificate</b> action. Idempotency tokens for <b>IssueCertificate</b> time out after five minutes. Therefore, if you call <b>IssueCertificate</b> multiple times with the same idempotency token within five minutes, Amazon Web Services Private CA recognizes that you are requesting only one certificate and will issue only one. If you change the idempotency token for each call, Amazon Web Services Private CA recognizes that you are requesting multiple certificates.</p>
+
+        Raises:
+            aws_sdk_acm_pca.errors.invalid_args_exception.InvalidArgsException: <p>One or more of the specified arguments was not valid.</p>
+            aws_sdk_acm_pca.errors.invalid_arn_exception.InvalidArnException: <p>The requested Amazon Resource Name (ARN) does not refer to an existing resource.</p>
+            aws_sdk_acm_pca.errors.invalid_state_exception.InvalidStateException: <p>The state of the private CA does not allow this action to occur.</p>
+            aws_sdk_acm_pca.errors.limit_exceeded_exception.LimitExceededException: <p>An Amazon Web Services Private CA quota has been exceeded. See the exception message returned to determine the quota that was exceeded.</p>
+            aws_sdk_acm_pca.errors.malformed_csr_exception.MalformedCSRException: <p>The certificate signing request is invalid.</p>
+            aws_sdk_acm_pca.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource such as a private CA, S3 bucket, certificate, audit report, or policy cannot be found.</p>
+            aws_sdk_acm_pca.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -922,6 +1031,10 @@ class ACMPCAClient:
             max_results: <p>Use this parameter when paginating results to specify the maximum number of items to return in the response on each page. If additional items exist beyond the number you specify, the <code>NextToken</code> element is sent in the response. Use this <code>NextToken</code> value in a subsequent request to retrieve additional items.</p> <p>Although the maximum value is 1000, the action only returns a maximum of 100 items.</p>
             next_token: <p>Use this parameter when paginating results in a subsequent request after you receive a response with truncated results. Set it to the value of the <code>NextToken</code> parameter from the response you just received.</p>
             resource_owner: <p>Use this parameter to filter the returned set of certificate authorities based on their owner. The default is SELF.</p>
+
+        Raises:
+            aws_sdk_acm_pca.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The token specified in the <code>NextToken</code> argument is not valid. Use the token returned from your previous call to <a href=\"https://docs.aws.amazon.com/privateca/latest/APIReference/API_ListCertificateAuthorities.html\">ListCertificateAuthorities</a>.</p>
+            aws_sdk_acm_pca.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -993,6 +1106,14 @@ class ACMPCAClient:
             max_results: <p>When paginating results, use this parameter to specify the maximum number of items to return in the response. If additional items exist beyond the number you specify, the <b>NextToken</b> element is sent in the response. Use this <b>NextToken</b> value in a subsequent request to retrieve additional items.</p>
             next_token: <p>When paginating results, use this parameter in a subsequent request after you receive a response with truncated results. Set it to the value of <b>NextToken</b> from the response you just received.</p>
             certificate_authority_arn: <p>The Amazon Resource Number (ARN) of the private CA to inspect. You can find the ARN by calling the <a href=\"https://docs.aws.amazon.com/privateca/latest/APIReference/API_ListCertificateAuthorities.html\">ListCertificateAuthorities</a> action. This must be of the form: <code>arn:aws:acm-pca:region:account:certificate-authority/12345678-1234-1234-1234-123456789012</code> You can get a private CA's ARN by running the <a href=\"https://docs.aws.amazon.com/privateca/latest/APIReference/API_ListCertificateAuthorities.html\">ListCertificateAuthorities</a> action.</p>
+
+        Raises:
+            aws_sdk_acm_pca.errors.invalid_arn_exception.InvalidArnException: <p>The requested Amazon Resource Name (ARN) does not refer to an existing resource.</p>
+            aws_sdk_acm_pca.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The token specified in the <code>NextToken</code> argument is not valid. Use the token returned from your previous call to <a href=\"https://docs.aws.amazon.com/privateca/latest/APIReference/API_ListCertificateAuthorities.html\">ListCertificateAuthorities</a>.</p>
+            aws_sdk_acm_pca.errors.invalid_state_exception.InvalidStateException: <p>The state of the private CA does not allow this action to occur.</p>
+            aws_sdk_acm_pca.errors.request_failed_exception.RequestFailedException: <p>The request has failed for an unspecified reason.</p>
+            aws_sdk_acm_pca.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource such as a private CA, S3 bucket, certificate, audit report, or policy cannot be found.</p>
+            aws_sdk_acm_pca.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1061,6 +1182,13 @@ class ACMPCAClient:
             max_results: <p>Use this parameter when paginating results to specify the maximum number of items to return in the response. If additional items exist beyond the number you specify, the <b>NextToken</b> element is sent in the response. Use this <b>NextToken</b> value in a subsequent request to retrieve additional items.</p>
             next_token: <p>Use this parameter when paginating results in a subsequent request after you receive a response with truncated results. Set it to the value of <b>NextToken</b> from the response you just received.</p>
             certificate_authority_arn: <p>The Amazon Resource Name (ARN) that was returned when you called the <a href=\"https://docs.aws.amazon.com/privateca/latest/APIReference/API_CreateCertificateAuthority.html\">CreateCertificateAuthority</a> action. This must be of the form: </p> <p> <code>arn:aws:acm-pca:<i>region</i>:<i>account</i>:certificate-authority/<i>12345678-1234-1234-1234-123456789012</i> </code> </p>
+
+        Raises:
+            aws_sdk_acm_pca.errors.invalid_arn_exception.InvalidArnException: <p>The requested Amazon Resource Name (ARN) does not refer to an existing resource.</p>
+            aws_sdk_acm_pca.errors.invalid_state_exception.InvalidStateException: <p>The state of the private CA does not allow this action to occur.</p>
+            aws_sdk_acm_pca.errors.request_failed_exception.RequestFailedException: <p>The request has failed for an unspecified reason.</p>
+            aws_sdk_acm_pca.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource such as a private CA, S3 bucket, certificate, audit report, or policy cannot be found.</p>
+            aws_sdk_acm_pca.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1127,6 +1255,16 @@ class ACMPCAClient:
         Args:
             resource_arn: <p>The Amazon Resource Number (ARN) of the private CA to associate with the policy. The ARN of the CA can be found by calling the <a href=\"https://docs.aws.amazon.com/privateca/latest/APIReference/API_ListCertificateAuthorities.html\">ListCertificateAuthorities</a> action.</p> <p/>
             policy: <p>The path and file name of a JSON-formatted IAM policy to attach to the specified private CA resource. If this policy does not contain all required statements or if it includes any statement that is not allowed, the <code>PutPolicy</code> action returns an <code>InvalidPolicyException</code>. For information about IAM policy and statement structure, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#access_policies-json\">Overview of JSON Policies</a>.</p>
+
+        Raises:
+            aws_sdk_acm_pca.errors.concurrent_modification_exception.ConcurrentModificationException: <p>A previous update to your private CA is still ongoing.</p>
+            aws_sdk_acm_pca.errors.invalid_arn_exception.InvalidArnException: <p>The requested Amazon Resource Name (ARN) does not refer to an existing resource.</p>
+            aws_sdk_acm_pca.errors.invalid_policy_exception.InvalidPolicyException: <p>The resource policy is invalid or is missing a required statement. For general information about IAM policy and statement structure, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#access_policies-json\">Overview of JSON Policies</a>.</p>
+            aws_sdk_acm_pca.errors.invalid_state_exception.InvalidStateException: <p>The state of the private CA does not allow this action to occur.</p>
+            aws_sdk_acm_pca.errors.lockout_prevented_exception.LockoutPreventedException: <p>The current action was prevented because it would lock the caller out from performing subsequent actions. Verify that the specified parameters would not result in the caller being denied access to the resource. </p>
+            aws_sdk_acm_pca.errors.request_failed_exception.RequestFailedException: <p>The request has failed for an unspecified reason.</p>
+            aws_sdk_acm_pca.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource such as a private CA, S3 bucket, certificate, audit report, or policy cannot be found.</p>
+            aws_sdk_acm_pca.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1163,6 +1301,12 @@ class ACMPCAClient:
 
         Args:
             certificate_authority_arn: <p>The Amazon Resource Name (ARN) that was returned when you called the <a href=\"https://docs.aws.amazon.com/privateca/latest/APIReference/API_CreateCertificateAuthority.html\">CreateCertificateAuthority</a> action. This must be of the form: </p> <p> <code>arn:aws:acm-pca:<i>region</i>:<i>account</i>:certificate-authority/<i>12345678-1234-1234-1234-123456789012</i> </code> </p>
+
+        Raises:
+            aws_sdk_acm_pca.errors.invalid_arn_exception.InvalidArnException: <p>The requested Amazon Resource Name (ARN) does not refer to an existing resource.</p>
+            aws_sdk_acm_pca.errors.invalid_state_exception.InvalidStateException: <p>The state of the private CA does not allow this action to occur.</p>
+            aws_sdk_acm_pca.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource such as a private CA, S3 bucket, certificate, audit report, or policy cannot be found.</p>
+            aws_sdk_acm_pca.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1202,6 +1346,18 @@ class ACMPCAClient:
             certificate_authority_arn: <p>Amazon Resource Name (ARN) of the private CA that issued the certificate to be revoked. This must be of the form:</p> <p> <code>arn:aws:acm-pca:<i>region</i>:<i>account</i>:certificate-authority/<i>12345678-1234-1234-1234-123456789012</i> </code> </p>
             certificate_serial: <p>Serial number of the certificate to be revoked. This must be in hexadecimal format. You can retrieve the serial number by calling <a href=\"https://docs.aws.amazon.com/privateca/latest/APIReference/API_GetCertificate.html\">GetCertificate</a> with the Amazon Resource Name (ARN) of the certificate you want and the ARN of your private CA. The <b>GetCertificate</b> action retrieves the certificate in the PEM format. You can use the following OpenSSL command to list the certificate in text format and copy the hexadecimal serial number. </p> <p> <code>openssl x509 -in <i>file_path</i> -text -noout</code> </p> <p>You can also copy the serial number from the console or use the <a href=\"https://docs.aws.amazon.com/acm/latest/APIReference/API_DescribeCertificate.html\">DescribeCertificate</a> action in the <i>Certificate Manager API Reference</i>. </p>
             revocation_reason: <p>Specifies why you revoked the certificate.</p>
+
+        Raises:
+            aws_sdk_acm_pca.errors.concurrent_modification_exception.ConcurrentModificationException: <p>A previous update to your private CA is still ongoing.</p>
+            aws_sdk_acm_pca.errors.invalid_arn_exception.InvalidArnException: <p>The requested Amazon Resource Name (ARN) does not refer to an existing resource.</p>
+            aws_sdk_acm_pca.errors.invalid_request_exception.InvalidRequestException: <p>The request action cannot be performed or is prohibited.</p>
+            aws_sdk_acm_pca.errors.invalid_state_exception.InvalidStateException: <p>The state of the private CA does not allow this action to occur.</p>
+            aws_sdk_acm_pca.errors.limit_exceeded_exception.LimitExceededException: <p>An Amazon Web Services Private CA quota has been exceeded. See the exception message returned to determine the quota that was exceeded.</p>
+            aws_sdk_acm_pca.errors.request_already_processed_exception.RequestAlreadyProcessedException: <p>Your request has already been completed.</p>
+            aws_sdk_acm_pca.errors.request_failed_exception.RequestFailedException: <p>The request has failed for an unspecified reason.</p>
+            aws_sdk_acm_pca.errors.request_in_progress_exception.RequestInProgressException: <p>Your request is already in progress.</p>
+            aws_sdk_acm_pca.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource such as a private CA, S3 bucket, certificate, audit report, or policy cannot be found.</p>
+            aws_sdk_acm_pca.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1241,6 +1397,14 @@ class ACMPCAClient:
         Args:
             certificate_authority_arn: <p>The Amazon Resource Name (ARN) that was returned when you called <a href=\"https://docs.aws.amazon.com/privateca/latest/APIReference/API_CreateCertificateAuthority.html\">CreateCertificateAuthority</a>. This must be of the form: </p> <p> <code>arn:aws:acm-pca:<i>region</i>:<i>account</i>:certificate-authority/<i>12345678-1234-1234-1234-123456789012</i> </code> </p>
             tags: <p>List of tags to be associated with the CA.</p>
+
+        Raises:
+            aws_sdk_acm_pca.errors.invalid_arn_exception.InvalidArnException: <p>The requested Amazon Resource Name (ARN) does not refer to an existing resource.</p>
+            aws_sdk_acm_pca.errors.invalid_state_exception.InvalidStateException: <p>The state of the private CA does not allow this action to occur.</p>
+            aws_sdk_acm_pca.errors.invalid_tag_exception.InvalidTagException: <p>The tag associated with the CA is not valid. The invalid argument is contained in the message field.</p>
+            aws_sdk_acm_pca.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource such as a private CA, S3 bucket, certificate, audit report, or policy cannot be found.</p>
+            aws_sdk_acm_pca.errors.too_many_tags_exception.TooManyTagsException: <p>You can associate up to 50 tags with a private CA. Exception information is contained in the exception message field.</p>
+            aws_sdk_acm_pca.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1279,6 +1443,13 @@ class ACMPCAClient:
         Args:
             certificate_authority_arn: <p>The Amazon Resource Name (ARN) that was returned when you called <a href=\"https://docs.aws.amazon.com/privateca/latest/APIReference/API_CreateCertificateAuthority.html\">CreateCertificateAuthority</a>. This must be of the form: </p> <p> <code>arn:aws:acm-pca:<i>region</i>:<i>account</i>:certificate-authority/<i>12345678-1234-1234-1234-123456789012</i> </code> </p>
             tags: <p>List of tags to be removed from the CA.</p>
+
+        Raises:
+            aws_sdk_acm_pca.errors.invalid_arn_exception.InvalidArnException: <p>The requested Amazon Resource Name (ARN) does not refer to an existing resource.</p>
+            aws_sdk_acm_pca.errors.invalid_state_exception.InvalidStateException: <p>The state of the private CA does not allow this action to occur.</p>
+            aws_sdk_acm_pca.errors.invalid_tag_exception.InvalidTagException: <p>The tag associated with the CA is not valid. The invalid argument is contained in the message field.</p>
+            aws_sdk_acm_pca.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource such as a private CA, S3 bucket, certificate, audit report, or policy cannot be found.</p>
+            aws_sdk_acm_pca.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1323,6 +1494,15 @@ class ACMPCAClient:
             certificate_authority_arn: <p>Amazon Resource Name (ARN) of the private CA that issued the certificate to be revoked. This must be of the form:</p> <p> <code>arn:aws:acm-pca:<i>region</i>:<i>account</i>:certificate-authority/<i>12345678-1234-1234-1234-123456789012</i> </code> </p>
             revocation_configuration: <p>Contains information to enable support for Online Certificate Status Protocol (OCSP), certificate revocation list (CRL), both protocols, or neither. If you don't supply this parameter, existing capibilites remain unchanged. For more information, see the <a href=\"https://docs.aws.amazon.com/privateca/latest/APIReference/API_OcspConfiguration.html\">OcspConfiguration</a> and <a href=\"https://docs.aws.amazon.com/privateca/latest/APIReference/API_CrlConfiguration.html\">CrlConfiguration</a> types.</p> <p>The following requirements apply to revocation configurations.</p> <ul> <li> <p>A configuration disabling CRLs or OCSP must contain only the <code>Enabled=False</code> parameter, and will fail if other parameters such as <code>CustomCname</code> or <code>ExpirationInDays</code> are included.</p> </li> <li> <p>In a CRL configuration, the <code>S3BucketName</code> parameter must conform to <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html\">Amazon S3 bucket naming rules</a>.</p> </li> <li> <p>A configuration containing a custom Canonical Name (CNAME) parameter for CRLs or OCSP must conform to <a href=\"https://www.ietf.org/rfc/rfc2396.txt\">RFC2396</a> restrictions on the use of special characters in a CNAME. </p> </li> <li> <p>In a CRL or OCSP configuration, the value of a CNAME parameter must not include a protocol prefix such as \"http://\" or \"https://\".</p> </li> </ul> <important> <p> If you update the <code>S3BucketName</code> of <a href=\"https://docs.aws.amazon.com/privateca/latest/APIReference/API_CrlConfiguration.html\">CrlConfiguration</a>, you can break revocation for existing certificates. In other words, if you call <a href=\"https://docs.aws.amazon.com/privateca/latest/APIReference/API_UpdateCertificateAuthority.html\">UpdateCertificateAuthority</a> to update the CRL configuration's S3 bucket name, Amazon Web Services Private CA only writes CRLs to the new S3 bucket. Certificates issued prior to this point will have the old S3 bucket name in your CRL Distribution Point (CDP) extension, essentially breaking revocation. If you must update the S3 bucket, you'll need to reissue old certificates to keep the revocation working. Alternatively, you can use a <a href=\"https://docs.aws.amazon.com/privateca/latest/APIReference/API_CrlConfiguration.html#privateca-Type-CrlConfiguration-CustomCname\">CustomCname</a> in your CRL configuration if you might need to change the S3 bucket name in the future.</p> </important>
             status: <p>Status of your private CA.</p>
+
+        Raises:
+            aws_sdk_acm_pca.errors.concurrent_modification_exception.ConcurrentModificationException: <p>A previous update to your private CA is still ongoing.</p>
+            aws_sdk_acm_pca.errors.invalid_args_exception.InvalidArgsException: <p>One or more of the specified arguments was not valid.</p>
+            aws_sdk_acm_pca.errors.invalid_arn_exception.InvalidArnException: <p>The requested Amazon Resource Name (ARN) does not refer to an existing resource.</p>
+            aws_sdk_acm_pca.errors.invalid_policy_exception.InvalidPolicyException: <p>The resource policy is invalid or is missing a required statement. For general information about IAM policy and statement structure, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#access_policies-json\">Overview of JSON Policies</a>.</p>
+            aws_sdk_acm_pca.errors.invalid_state_exception.InvalidStateException: <p>The state of the private CA does not allow this action to occur.</p>
+            aws_sdk_acm_pca.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource such as a private CA, S3 bucket, certificate, audit report, or policy cannot be found.</p>
+            aws_sdk_acm_pca.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(

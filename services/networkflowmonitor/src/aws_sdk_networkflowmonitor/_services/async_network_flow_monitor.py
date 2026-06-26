@@ -144,6 +144,15 @@ class AsyncNetworkFlowMonitorClient:
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource.</p>
+
+        Raises:
+            aws_sdk_networkflowmonitor.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permission to perform this action.</p>
+            aws_sdk_networkflowmonitor.errors.conflict_exception.ConflictException: <p>The requested resource is in use.</p>
+            aws_sdk_networkflowmonitor.errors.internal_server_exception.InternalServerException: <p>An internal error occurred.</p>
+            aws_sdk_networkflowmonitor.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request specifies a resource that doesn't exist.</p>
+            aws_sdk_networkflowmonitor.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_networkflowmonitor.errors.validation_exception.ValidationException: <p>Invalid request.</p>
+            aws_sdk_networkflowmonitor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -184,6 +193,15 @@ class AsyncNetworkFlowMonitorClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource.</p>
             tags: <p>The tags for a resource.</p>
+
+        Raises:
+            aws_sdk_networkflowmonitor.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permission to perform this action.</p>
+            aws_sdk_networkflowmonitor.errors.conflict_exception.ConflictException: <p>The requested resource is in use.</p>
+            aws_sdk_networkflowmonitor.errors.internal_server_exception.InternalServerException: <p>An internal error occurred.</p>
+            aws_sdk_networkflowmonitor.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request specifies a resource that doesn't exist.</p>
+            aws_sdk_networkflowmonitor.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_networkflowmonitor.errors.validation_exception.ValidationException: <p>Invalid request.</p>
+            aws_sdk_networkflowmonitor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -225,6 +243,15 @@ class AsyncNetworkFlowMonitorClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource.</p>
             tag_keys: <p>Keys that you specified when you tagged a resource.</p>
+
+        Raises:
+            aws_sdk_networkflowmonitor.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permission to perform this action.</p>
+            aws_sdk_networkflowmonitor.errors.conflict_exception.ConflictException: <p>The requested resource is in use.</p>
+            aws_sdk_networkflowmonitor.errors.internal_server_exception.InternalServerException: <p>An internal error occurred.</p>
+            aws_sdk_networkflowmonitor.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request specifies a resource that doesn't exist.</p>
+            aws_sdk_networkflowmonitor.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_networkflowmonitor.errors.validation_exception.ValidationException: <p>Invalid request.</p>
+            aws_sdk_networkflowmonitor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

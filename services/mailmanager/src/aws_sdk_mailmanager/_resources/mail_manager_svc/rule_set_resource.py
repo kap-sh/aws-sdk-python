@@ -62,6 +62,12 @@ class RuleSetResource:
             rule_set_name: <p>A user-friendly name for the rule set.</p>
             rules: <p>Conditional rules that are evaluated for determining actions on email.</p>
             tags: <p>The tags used to organize, track, or control access for the resource. For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.</p>
+
+        Raises:
+            aws_sdk_mailmanager.errors.conflict_exception.ConflictException: <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
+            aws_sdk_mailmanager.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Occurs when an operation exceeds a predefined service quota or limit.</p>
+            aws_sdk_mailmanager.errors.validation_exception.ValidationException: <p>The request validation has failed. For details, see the accompanying error message.</p>
+            aws_sdk_mailmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -104,6 +110,11 @@ class RuleSetResource:
 
         Args:
             rule_set_id: <p>The identifier of an existing rule set to be retrieved.</p>
+
+        Raises:
+            aws_sdk_mailmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p>Occurs when a requested resource is not found.</p>
+            aws_sdk_mailmanager.errors.validation_exception.ValidationException: <p>The request validation has failed. For details, see the accompanying error message.</p>
+            aws_sdk_mailmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -147,6 +158,12 @@ class RuleSetResource:
             rule_set_id: <p>The identifier of a rule set you want to update.</p>
             rule_set_name: <p>A user-friendly name for the rule set resource.</p>
             rules: <p>A new set of rules to replace the current rules of the rule set—these rules will override all the rules of the rule set.</p>
+
+        Raises:
+            aws_sdk_mailmanager.errors.conflict_exception.ConflictException: <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
+            aws_sdk_mailmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p>Occurs when a requested resource is not found.</p>
+            aws_sdk_mailmanager.errors.validation_exception.ValidationException: <p>The request validation has failed. For details, see the accompanying error message.</p>
+            aws_sdk_mailmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -188,6 +205,11 @@ class RuleSetResource:
 
         Args:
             rule_set_id: <p>The identifier of an existing rule set resource to delete.</p>
+
+        Raises:
+            aws_sdk_mailmanager.errors.conflict_exception.ConflictException: <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
+            aws_sdk_mailmanager.errors.validation_exception.ValidationException: <p>The request validation has failed. For details, see the accompanying error message.</p>
+            aws_sdk_mailmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -229,6 +251,10 @@ class RuleSetResource:
         Args:
             next_token: <p>If you received a pagination token from a previous call to this API, you can provide it here to continue paginating through the next page of results.</p>
             page_size: <p>The maximum number of rule set resources that are returned per call. You can use NextToken to obtain further rule sets.</p>
+
+        Raises:
+            aws_sdk_mailmanager.errors.validation_exception.ValidationException: <p>The request validation has failed. For details, see the accompanying error message.</p>
+            aws_sdk_mailmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -282,6 +308,12 @@ class AsyncRuleSetResource:
             rule_set_name: <p>A user-friendly name for the rule set.</p>
             rules: <p>Conditional rules that are evaluated for determining actions on email.</p>
             tags: <p>The tags used to organize, track, or control access for the resource. For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.</p>
+
+        Raises:
+            aws_sdk_mailmanager.errors.conflict_exception.ConflictException: <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
+            aws_sdk_mailmanager.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Occurs when an operation exceeds a predefined service quota or limit.</p>
+            aws_sdk_mailmanager.errors.validation_exception.ValidationException: <p>The request validation has failed. For details, see the accompanying error message.</p>
+            aws_sdk_mailmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -325,6 +357,11 @@ class AsyncRuleSetResource:
 
         Args:
             rule_set_id: <p>The identifier of an existing rule set to be retrieved.</p>
+
+        Raises:
+            aws_sdk_mailmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p>Occurs when a requested resource is not found.</p>
+            aws_sdk_mailmanager.errors.validation_exception.ValidationException: <p>The request validation has failed. For details, see the accompanying error message.</p>
+            aws_sdk_mailmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -369,6 +406,12 @@ class AsyncRuleSetResource:
             rule_set_id: <p>The identifier of a rule set you want to update.</p>
             rule_set_name: <p>A user-friendly name for the rule set resource.</p>
             rules: <p>A new set of rules to replace the current rules of the rule set—these rules will override all the rules of the rule set.</p>
+
+        Raises:
+            aws_sdk_mailmanager.errors.conflict_exception.ConflictException: <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
+            aws_sdk_mailmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p>Occurs when a requested resource is not found.</p>
+            aws_sdk_mailmanager.errors.validation_exception.ValidationException: <p>The request validation has failed. For details, see the accompanying error message.</p>
+            aws_sdk_mailmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -411,6 +454,11 @@ class AsyncRuleSetResource:
 
         Args:
             rule_set_id: <p>The identifier of an existing rule set resource to delete.</p>
+
+        Raises:
+            aws_sdk_mailmanager.errors.conflict_exception.ConflictException: <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
+            aws_sdk_mailmanager.errors.validation_exception.ValidationException: <p>The request validation has failed. For details, see the accompanying error message.</p>
+            aws_sdk_mailmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -453,6 +501,10 @@ class AsyncRuleSetResource:
         Args:
             next_token: <p>If you received a pagination token from a previous call to this API, you can provide it here to continue paginating through the next page of results.</p>
             page_size: <p>The maximum number of rule set resources that are returned per call. You can use NextToken to obtain further rule sets.</p>
+
+        Raises:
+            aws_sdk_mailmanager.errors.validation_exception.ValidationException: <p>The request validation has failed. For details, see the accompanying error message.</p>
+            aws_sdk_mailmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

@@ -67,6 +67,13 @@ class RecoveryInstanceResource:
             filters: <p>A set of filters by which to return Recovery Instances.</p>
             max_results: <p>Maximum number of Recovery Instances to retrieve.</p>
             next_token: <p>The token of the next Recovery Instance to retrieve.</p>
+
+        Raises:
+            aws_sdk_drs.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_drs.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_drs.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_drs.errors.uninitialized_account_exception.UninitializedAccountException: <p>The account performing the request has not been initialized.</p>
+            aws_sdk_drs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -109,6 +116,14 @@ class RecoveryInstanceResource:
 
         Args:
             recovery_instance_id: <p>The ID of the Recovery Instance to be deleted.</p>
+
+        Raises:
+            aws_sdk_drs.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_drs.errors.conflict_exception.ConflictException: <p>The request could not be completed due to a conflict with the current state of the target resource.</p>
+            aws_sdk_drs.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_drs.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_drs.errors.uninitialized_account_exception.UninitializedAccountException: <p>The account performing the request has not been initialized.</p>
+            aws_sdk_drs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -144,6 +159,15 @@ class RecoveryInstanceResource:
 
         Args:
             recovery_instance_id: <p>The ID of the Recovery Instance to disconnect.</p>
+
+        Raises:
+            aws_sdk_drs.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_drs.errors.conflict_exception.ConflictException: <p>The request could not be completed due to a conflict with the current state of the target resource.</p>
+            aws_sdk_drs.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_drs.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource for this operation was not found.</p>
+            aws_sdk_drs.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_drs.errors.uninitialized_account_exception.UninitializedAccountException: <p>The account performing the request has not been initialized.</p>
+            aws_sdk_drs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -179,6 +203,13 @@ class RecoveryInstanceResource:
 
         Args:
             recovery_instance_id: <p>The ID of the Recovery Instance whose failback replication configuration should be returned.</p>
+
+        Raises:
+            aws_sdk_drs.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_drs.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource for this operation was not found.</p>
+            aws_sdk_drs.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_drs.errors.uninitialized_account_exception.UninitializedAccountException: <p>The account performing the request has not been initialized.</p>
+            aws_sdk_drs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -216,6 +247,16 @@ class RecoveryInstanceResource:
 
         Args:
             recovery_instance_id: <p>The ID of the Recovery Instance that we want to reverse the replication for.</p>
+
+        Raises:
+            aws_sdk_drs.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_drs.errors.conflict_exception.ConflictException: <p>The request could not be completed due to a conflict with the current state of the target resource.</p>
+            aws_sdk_drs.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_drs.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource for this operation was not found.</p>
+            aws_sdk_drs.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_drs.errors.uninitialized_account_exception.UninitializedAccountException: <p>The account performing the request has not been initialized.</p>
+            aws_sdk_drs.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by the AWS service.</p>
+            aws_sdk_drs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -253,6 +294,13 @@ class RecoveryInstanceResource:
 
         Args:
             recovery_instance_id: <p>The ID of the Recovery Instance we want to stop failback for.</p>
+
+        Raises:
+            aws_sdk_drs.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_drs.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource for this operation was not found.</p>
+            aws_sdk_drs.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_drs.errors.uninitialized_account_exception.UninitializedAccountException: <p>The account performing the request has not been initialized.</p>
+            aws_sdk_drs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -300,6 +348,14 @@ class RecoveryInstanceResource:
             bandwidth_throttling: <p>Configure bandwidth throttling for the outbound data transfer rate of the Recovery Instance in Mbps.</p>
             use_private_ip: <p>Whether to use Private IP for the failback replication of the Recovery Instance.</p>
             internet_protocol: <p>Which version of the Internet Protocol to use for replication of data. (IPv4 or IPv6)</p>
+
+        Raises:
+            aws_sdk_drs.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_drs.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_drs.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource for this operation was not found.</p>
+            aws_sdk_drs.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_drs.errors.uninitialized_account_exception.UninitializedAccountException: <p>The account performing the request has not been initialized.</p>
+            aws_sdk_drs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -345,6 +401,15 @@ class RecoveryInstanceResource:
         Args:
             recovery_instance_i_ds: <p>The IDs of the Recovery Instance whose failback launch we want to request.</p>
             tags: <p>The tags to be associated with the failback launch Job.</p>
+
+        Raises:
+            aws_sdk_drs.errors.conflict_exception.ConflictException: <p>The request could not be completed due to a conflict with the current state of the target resource.</p>
+            aws_sdk_drs.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_drs.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request could not be completed because its exceeded the service quota.</p>
+            aws_sdk_drs.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_drs.errors.uninitialized_account_exception.UninitializedAccountException: <p>The account performing the request has not been initialized.</p>
+            aws_sdk_drs.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by the AWS service.</p>
+            aws_sdk_drs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -384,6 +449,14 @@ class RecoveryInstanceResource:
 
         Args:
             recovery_instance_i_ds: <p>The IDs of the Recovery Instances that should be terminated.</p>
+
+        Raises:
+            aws_sdk_drs.errors.conflict_exception.ConflictException: <p>The request could not be completed due to a conflict with the current state of the target resource.</p>
+            aws_sdk_drs.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_drs.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request could not be completed because its exceeded the service quota.</p>
+            aws_sdk_drs.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_drs.errors.uninitialized_account_exception.UninitializedAccountException: <p>The account performing the request has not been initialized.</p>
+            aws_sdk_drs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -436,6 +509,13 @@ class AsyncRecoveryInstanceResource:
             filters: <p>A set of filters by which to return Recovery Instances.</p>
             max_results: <p>Maximum number of Recovery Instances to retrieve.</p>
             next_token: <p>The token of the next Recovery Instance to retrieve.</p>
+
+        Raises:
+            aws_sdk_drs.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_drs.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_drs.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_drs.errors.uninitialized_account_exception.UninitializedAccountException: <p>The account performing the request has not been initialized.</p>
+            aws_sdk_drs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -479,6 +559,14 @@ class AsyncRecoveryInstanceResource:
 
         Args:
             recovery_instance_id: <p>The ID of the Recovery Instance to be deleted.</p>
+
+        Raises:
+            aws_sdk_drs.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_drs.errors.conflict_exception.ConflictException: <p>The request could not be completed due to a conflict with the current state of the target resource.</p>
+            aws_sdk_drs.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_drs.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_drs.errors.uninitialized_account_exception.UninitializedAccountException: <p>The account performing the request has not been initialized.</p>
+            aws_sdk_drs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -515,6 +603,15 @@ class AsyncRecoveryInstanceResource:
 
         Args:
             recovery_instance_id: <p>The ID of the Recovery Instance to disconnect.</p>
+
+        Raises:
+            aws_sdk_drs.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_drs.errors.conflict_exception.ConflictException: <p>The request could not be completed due to a conflict with the current state of the target resource.</p>
+            aws_sdk_drs.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_drs.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource for this operation was not found.</p>
+            aws_sdk_drs.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_drs.errors.uninitialized_account_exception.UninitializedAccountException: <p>The account performing the request has not been initialized.</p>
+            aws_sdk_drs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -551,6 +648,13 @@ class AsyncRecoveryInstanceResource:
 
         Args:
             recovery_instance_id: <p>The ID of the Recovery Instance whose failback replication configuration should be returned.</p>
+
+        Raises:
+            aws_sdk_drs.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_drs.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource for this operation was not found.</p>
+            aws_sdk_drs.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_drs.errors.uninitialized_account_exception.UninitializedAccountException: <p>The account performing the request has not been initialized.</p>
+            aws_sdk_drs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -589,6 +693,16 @@ class AsyncRecoveryInstanceResource:
 
         Args:
             recovery_instance_id: <p>The ID of the Recovery Instance that we want to reverse the replication for.</p>
+
+        Raises:
+            aws_sdk_drs.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_drs.errors.conflict_exception.ConflictException: <p>The request could not be completed due to a conflict with the current state of the target resource.</p>
+            aws_sdk_drs.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_drs.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource for this operation was not found.</p>
+            aws_sdk_drs.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_drs.errors.uninitialized_account_exception.UninitializedAccountException: <p>The account performing the request has not been initialized.</p>
+            aws_sdk_drs.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by the AWS service.</p>
+            aws_sdk_drs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -627,6 +741,13 @@ class AsyncRecoveryInstanceResource:
 
         Args:
             recovery_instance_id: <p>The ID of the Recovery Instance we want to stop failback for.</p>
+
+        Raises:
+            aws_sdk_drs.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_drs.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource for this operation was not found.</p>
+            aws_sdk_drs.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_drs.errors.uninitialized_account_exception.UninitializedAccountException: <p>The account performing the request has not been initialized.</p>
+            aws_sdk_drs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -675,6 +796,14 @@ class AsyncRecoveryInstanceResource:
             bandwidth_throttling: <p>Configure bandwidth throttling for the outbound data transfer rate of the Recovery Instance in Mbps.</p>
             use_private_ip: <p>Whether to use Private IP for the failback replication of the Recovery Instance.</p>
             internet_protocol: <p>Which version of the Internet Protocol to use for replication of data. (IPv4 or IPv6)</p>
+
+        Raises:
+            aws_sdk_drs.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_drs.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_drs.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource for this operation was not found.</p>
+            aws_sdk_drs.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_drs.errors.uninitialized_account_exception.UninitializedAccountException: <p>The account performing the request has not been initialized.</p>
+            aws_sdk_drs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -721,6 +850,15 @@ class AsyncRecoveryInstanceResource:
         Args:
             recovery_instance_i_ds: <p>The IDs of the Recovery Instance whose failback launch we want to request.</p>
             tags: <p>The tags to be associated with the failback launch Job.</p>
+
+        Raises:
+            aws_sdk_drs.errors.conflict_exception.ConflictException: <p>The request could not be completed due to a conflict with the current state of the target resource.</p>
+            aws_sdk_drs.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_drs.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request could not be completed because its exceeded the service quota.</p>
+            aws_sdk_drs.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_drs.errors.uninitialized_account_exception.UninitializedAccountException: <p>The account performing the request has not been initialized.</p>
+            aws_sdk_drs.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by the AWS service.</p>
+            aws_sdk_drs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -761,6 +899,14 @@ class AsyncRecoveryInstanceResource:
 
         Args:
             recovery_instance_i_ds: <p>The IDs of the Recovery Instances that should be terminated.</p>
+
+        Raises:
+            aws_sdk_drs.errors.conflict_exception.ConflictException: <p>The request could not be completed due to a conflict with the current state of the target resource.</p>
+            aws_sdk_drs.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_drs.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request could not be completed because its exceeded the service quota.</p>
+            aws_sdk_drs.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_drs.errors.uninitialized_account_exception.UninitializedAccountException: <p>The account performing the request has not been initialized.</p>
+            aws_sdk_drs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

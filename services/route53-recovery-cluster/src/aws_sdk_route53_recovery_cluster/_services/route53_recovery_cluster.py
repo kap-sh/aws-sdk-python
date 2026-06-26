@@ -149,6 +149,15 @@ class Route53RecoveryClusterClient:
 
         Args:
             routing_control_arn: <p>The Amazon Resource Name (ARN) for the routing control that you want to get the state for.</p>
+
+        Raises:
+            aws_sdk_route53_recovery_cluster.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permissions to perform this action.</p>
+            aws_sdk_route53_recovery_cluster.errors.endpoint_temporarily_unavailable_exception.EndpointTemporarilyUnavailableException: <p>The cluster endpoint isn't available. Try another cluster endpoint.</p>
+            aws_sdk_route53_recovery_cluster.errors.internal_server_exception.InternalServerException: <p>There was an unexpected error during processing of the request.</p>
+            aws_sdk_route53_recovery_cluster.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a routing control or control panel that was not found.</p>
+            aws_sdk_route53_recovery_cluster.errors.throttling_exception.ThrottlingException: <p>The request was denied because of request throttling.</p>
+            aws_sdk_route53_recovery_cluster.errors.validation_exception.ValidationException: <p>There was a validation error on the request.</p>
+            aws_sdk_route53_recovery_cluster.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -196,6 +205,15 @@ class Route53RecoveryClusterClient:
             control_panel_arn: <p>The Amazon Resource Name (ARN) of the control panel of the routing controls to list.</p>
             next_token: <p>The token for the next set of results. You receive this token from a previous call.</p>
             max_results: <p>The number of routing controls objects that you want to return with this call. The default value is 500.</p>
+
+        Raises:
+            aws_sdk_route53_recovery_cluster.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permissions to perform this action.</p>
+            aws_sdk_route53_recovery_cluster.errors.endpoint_temporarily_unavailable_exception.EndpointTemporarilyUnavailableException: <p>The cluster endpoint isn't available. Try another cluster endpoint.</p>
+            aws_sdk_route53_recovery_cluster.errors.internal_server_exception.InternalServerException: <p>There was an unexpected error during processing of the request.</p>
+            aws_sdk_route53_recovery_cluster.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a routing control or control panel that was not found.</p>
+            aws_sdk_route53_recovery_cluster.errors.throttling_exception.ThrottlingException: <p>The request was denied because of request throttling.</p>
+            aws_sdk_route53_recovery_cluster.errors.validation_exception.ValidationException: <p>There was a validation error on the request.</p>
+            aws_sdk_route53_recovery_cluster.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -273,6 +291,16 @@ class Route53RecoveryClusterClient:
             routing_control_arn: <p>The Amazon Resource Name (ARN) for the routing control that you want to update the state for.</p>
             routing_control_state: <p>The state of the routing control. You can set the value to ON or OFF.</p>
             safety_rules_to_override: <p>The Amazon Resource Names (ARNs) for the safety rules that you want to override when you're updating the state of a routing control. You can override one safety rule or multiple safety rules by including one or more ARNs, separated by commas.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/r53recovery/latest/dg/routing-control.override-safety-rule.html\"> Override safety rules to reroute traffic</a> in the Amazon Route 53 Application Recovery Controller Developer Guide.</p>
+
+        Raises:
+            aws_sdk_route53_recovery_cluster.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permissions to perform this action.</p>
+            aws_sdk_route53_recovery_cluster.errors.conflict_exception.ConflictException: <p>There was a conflict with this request. Try again.</p>
+            aws_sdk_route53_recovery_cluster.errors.endpoint_temporarily_unavailable_exception.EndpointTemporarilyUnavailableException: <p>The cluster endpoint isn't available. Try another cluster endpoint.</p>
+            aws_sdk_route53_recovery_cluster.errors.internal_server_exception.InternalServerException: <p>There was an unexpected error during processing of the request.</p>
+            aws_sdk_route53_recovery_cluster.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a routing control or control panel that was not found.</p>
+            aws_sdk_route53_recovery_cluster.errors.throttling_exception.ThrottlingException: <p>The request was denied because of request throttling.</p>
+            aws_sdk_route53_recovery_cluster.errors.validation_exception.ValidationException: <p>There was a validation error on the request.</p>
+            aws_sdk_route53_recovery_cluster.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -317,6 +345,17 @@ class Route53RecoveryClusterClient:
         Args:
             update_routing_control_state_entries: <p>A set of routing control entries that you want to update.</p>
             safety_rules_to_override: <p>The Amazon Resource Names (ARNs) for the safety rules that you want to override when you're updating routing control states. You can override one safety rule or multiple safety rules by including one or more ARNs, separated by commas.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/r53recovery/latest/dg/routing-control.override-safety-rule.html\"> Override safety rules to reroute traffic</a> in the Amazon Route 53 Application Recovery Controller Developer Guide.</p>
+
+        Raises:
+            aws_sdk_route53_recovery_cluster.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permissions to perform this action.</p>
+            aws_sdk_route53_recovery_cluster.errors.conflict_exception.ConflictException: <p>There was a conflict with this request. Try again.</p>
+            aws_sdk_route53_recovery_cluster.errors.endpoint_temporarily_unavailable_exception.EndpointTemporarilyUnavailableException: <p>The cluster endpoint isn't available. Try another cluster endpoint.</p>
+            aws_sdk_route53_recovery_cluster.errors.internal_server_exception.InternalServerException: <p>There was an unexpected error during processing of the request.</p>
+            aws_sdk_route53_recovery_cluster.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a routing control or control panel that was not found.</p>
+            aws_sdk_route53_recovery_cluster.errors.service_limit_exceeded_exception.ServiceLimitExceededException: <p>The request can't update that many routing control states at the same time. Try again with fewer routing control states.</p>
+            aws_sdk_route53_recovery_cluster.errors.throttling_exception.ThrottlingException: <p>The request was denied because of request throttling.</p>
+            aws_sdk_route53_recovery_cluster.errors.validation_exception.ValidationException: <p>There was a validation error on the request.</p>
+            aws_sdk_route53_recovery_cluster.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(

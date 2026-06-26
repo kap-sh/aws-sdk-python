@@ -36,7 +36,14 @@ class AutoshiftObserverNotification:
     def get_autoshift_observer_notification_status(
         self, *, config_overrides: Optional[ARCZonalShiftClientConfig] = None
     ) -> "aws_sdk_arc_zonal_shift.types.get_autoshift_observer_notification_status_response.GetAutoshiftObserverNotificationStatusResponse":
-        """<p>Returns the status of the autoshift observer notification. Autoshift observer notifications notify you through Amazon EventBridge when there is an autoshift event for zonal autoshift. The status can be <code>ENABLED</code> or <code>DISABLED</code>. When <code>ENABLED</code>, a notification is sent when an autoshift is triggered. When <code>DISABLED</code>, notifications are not sent. </p>"""
+        """<p>Returns the status of the autoshift observer notification. Autoshift observer notifications notify you through Amazon EventBridge when there is an autoshift event for zonal autoshift. The status can be <code>ENABLED</code> or <code>DISABLED</code>. When <code>ENABLED</code>, a notification is sent when an autoshift is triggered. When <code>DISABLED</code>, notifications are not sent. </p>
+
+        Raises:
+            aws_sdk_arc_zonal_shift.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_arc_zonal_shift.errors.internal_server_exception.InternalServerException: <p>There was an internal server error.</p>
+            aws_sdk_arc_zonal_shift.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_arc_zonal_shift.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_arc_zonal_shift.types.get_autoshift_observer_notification_status_request.GetAutoshiftObserverNotificationStatusRequest]",
@@ -72,6 +79,13 @@ class AutoshiftObserverNotification:
 
         Args:
             status: <p>The status to set for autoshift observer notification. If the status is <code>ENABLED</code>, ARC includes all autoshift events when you use the Amazon EventBridge pattern <code>Autoshift In Progress</code>. When the status is <code>DISABLED</code>, ARC includes only autoshift events for autoshifts when one or more of your resources is included in the autoshift. </p>
+
+        Raises:
+            aws_sdk_arc_zonal_shift.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_arc_zonal_shift.errors.internal_server_exception.InternalServerException: <p>There was an internal server error.</p>
+            aws_sdk_arc_zonal_shift.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_arc_zonal_shift.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_arc_zonal_shift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -107,7 +121,14 @@ class AsyncAutoshiftObserverNotification:
     async def get_autoshift_observer_notification_status(
         self, *, config_overrides: Optional[AsyncARCZonalShiftClientConfig] = None
     ) -> "aws_sdk_arc_zonal_shift.types.get_autoshift_observer_notification_status_response.GetAutoshiftObserverNotificationStatusResponse":
-        """<p>Returns the status of the autoshift observer notification. Autoshift observer notifications notify you through Amazon EventBridge when there is an autoshift event for zonal autoshift. The status can be <code>ENABLED</code> or <code>DISABLED</code>. When <code>ENABLED</code>, a notification is sent when an autoshift is triggered. When <code>DISABLED</code>, notifications are not sent. </p>"""
+        """<p>Returns the status of the autoshift observer notification. Autoshift observer notifications notify you through Amazon EventBridge when there is an autoshift event for zonal autoshift. The status can be <code>ENABLED</code> or <code>DISABLED</code>. When <code>ENABLED</code>, a notification is sent when an autoshift is triggered. When <code>DISABLED</code>, notifications are not sent. </p>
+
+        Raises:
+            aws_sdk_arc_zonal_shift.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_arc_zonal_shift.errors.internal_server_exception.InternalServerException: <p>There was an internal server error.</p>
+            aws_sdk_arc_zonal_shift.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_arc_zonal_shift.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_arc_zonal_shift.types.get_autoshift_observer_notification_status_request.GetAutoshiftObserverNotificationStatusRequest]",
@@ -144,6 +165,13 @@ class AsyncAutoshiftObserverNotification:
 
         Args:
             status: <p>The status to set for autoshift observer notification. If the status is <code>ENABLED</code>, ARC includes all autoshift events when you use the Amazon EventBridge pattern <code>Autoshift In Progress</code>. When the status is <code>DISABLED</code>, ARC includes only autoshift events for autoshifts when one or more of your resources is included in the autoshift. </p>
+
+        Raises:
+            aws_sdk_arc_zonal_shift.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_arc_zonal_shift.errors.internal_server_exception.InternalServerException: <p>There was an internal server error.</p>
+            aws_sdk_arc_zonal_shift.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_arc_zonal_shift.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_arc_zonal_shift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

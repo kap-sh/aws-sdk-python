@@ -178,6 +178,14 @@ class AsyncTrustedAdvisorClient:
         Args:
             recommendation_resource_exclusions: <p>A list of recommendation resource ARNs and exclusion status to update</p>
 
+        Raises:
+            aws_sdk_trustedadvisor.errors.access_denied_exception.AccessDeniedException: <p>Exception that access has been denied due to insufficient access</p>
+            aws_sdk_trustedadvisor.errors.conflict_exception.ConflictException: <p>Exception that the request was denied due to conflictions in state</p>
+            aws_sdk_trustedadvisor.errors.internal_server_exception.InternalServerException: <p>Exception to notify that an unexpected internal error occurred during processing of the request</p>
+            aws_sdk_trustedadvisor.errors.throttling_exception.ThrottlingException: <p>Exception to notify that requests are being throttled</p>
+            aws_sdk_trustedadvisor.errors.validation_exception.ValidationException: <p>Exception that the request failed to satisfy service constraints</p>
+            aws_sdk_trustedadvisor.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Batch updates the exclusion status for a list of recommendation resources
 
@@ -222,6 +230,14 @@ class AsyncTrustedAdvisorClient:
 
         Args:
             organization_recommendation_identifier: <p>The Recommendation identifier</p>
+
+        Raises:
+            aws_sdk_trustedadvisor.errors.access_denied_exception.AccessDeniedException: <p>Exception that access has been denied due to insufficient access</p>
+            aws_sdk_trustedadvisor.errors.internal_server_exception.InternalServerException: <p>Exception to notify that an unexpected internal error occurred during processing of the request</p>
+            aws_sdk_trustedadvisor.errors.resource_not_found_exception.ResourceNotFoundException: <p>Exception that the requested resource has not been found</p>
+            aws_sdk_trustedadvisor.errors.throttling_exception.ThrottlingException: <p>Exception to notify that requests are being throttled</p>
+            aws_sdk_trustedadvisor.errors.validation_exception.ValidationException: <p>Exception that the request failed to satisfy service constraints</p>
+            aws_sdk_trustedadvisor.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Get an AWS Organization's Recommendation by ARN
@@ -271,6 +287,14 @@ class AsyncTrustedAdvisorClient:
         Args:
             recommendation_identifier: <p>The Recommendation identifier</p>
             language: <p>The ISO 639-1 code for the language that you want your recommendations to appear in.</p>
+
+        Raises:
+            aws_sdk_trustedadvisor.errors.access_denied_exception.AccessDeniedException: <p>Exception that access has been denied due to insufficient access</p>
+            aws_sdk_trustedadvisor.errors.internal_server_exception.InternalServerException: <p>Exception to notify that an unexpected internal error occurred during processing of the request</p>
+            aws_sdk_trustedadvisor.errors.resource_not_found_exception.ResourceNotFoundException: <p>Exception that the requested resource has not been found</p>
+            aws_sdk_trustedadvisor.errors.throttling_exception.ThrottlingException: <p>Exception to notify that requests are being throttled</p>
+            aws_sdk_trustedadvisor.errors.validation_exception.ValidationException: <p>Exception that the request failed to satisfy service constraints</p>
+            aws_sdk_trustedadvisor.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Get a Recommendation by ARN
@@ -334,6 +358,13 @@ class AsyncTrustedAdvisorClient:
             aws_service: <p>The aws service associated with the check</p>
             source: <p>The source of the check</p>
             language: <p>The ISO 639-1 code for the language that you want your checks to appear in.</p>
+
+        Raises:
+            aws_sdk_trustedadvisor.errors.access_denied_exception.AccessDeniedException: <p>Exception that access has been denied due to insufficient access</p>
+            aws_sdk_trustedadvisor.errors.internal_server_exception.InternalServerException: <p>Exception to notify that an unexpected internal error occurred during processing of the request</p>
+            aws_sdk_trustedadvisor.errors.throttling_exception.ThrottlingException: <p>Exception to notify that requests are being throttled</p>
+            aws_sdk_trustedadvisor.errors.validation_exception.ValidationException: <p>Exception that the request failed to satisfy service constraints</p>
+            aws_sdk_trustedadvisor.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             List all AWS Trusted Advisor Checks
@@ -434,6 +465,14 @@ class AsyncTrustedAdvisorClient:
             organization_recommendation_identifier: <p>The Recommendation identifier</p>
             affected_account_id: <p>An account affected by this organization recommendation</p>
 
+        Raises:
+            aws_sdk_trustedadvisor.errors.access_denied_exception.AccessDeniedException: <p>Exception that access has been denied due to insufficient access</p>
+            aws_sdk_trustedadvisor.errors.internal_server_exception.InternalServerException: <p>Exception to notify that an unexpected internal error occurred during processing of the request</p>
+            aws_sdk_trustedadvisor.errors.resource_not_found_exception.ResourceNotFoundException: <p>Exception that the requested resource has not been found</p>
+            aws_sdk_trustedadvisor.errors.throttling_exception.ThrottlingException: <p>Exception to notify that requests are being throttled</p>
+            aws_sdk_trustedadvisor.errors.validation_exception.ValidationException: <p>Exception that the request failed to satisfy service constraints</p>
+            aws_sdk_trustedadvisor.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             List all Accounts for an AWS Organization's Recommendation
 
@@ -531,6 +570,14 @@ class AsyncTrustedAdvisorClient:
             region_code: <p>The AWS Region code of the resource</p>
             organization_recommendation_identifier: <p>The AWS Organization organization's Recommendation identifier</p>
             affected_account_id: <p>An account affected by this organization recommendation</p>
+
+        Raises:
+            aws_sdk_trustedadvisor.errors.access_denied_exception.AccessDeniedException: <p>Exception that access has been denied due to insufficient access</p>
+            aws_sdk_trustedadvisor.errors.internal_server_exception.InternalServerException: <p>Exception to notify that an unexpected internal error occurred during processing of the request</p>
+            aws_sdk_trustedadvisor.errors.resource_not_found_exception.ResourceNotFoundException: <p>Exception that the requested resource has not been found</p>
+            aws_sdk_trustedadvisor.errors.throttling_exception.ThrottlingException: <p>Exception to notify that requests are being throttled</p>
+            aws_sdk_trustedadvisor.errors.validation_exception.ValidationException: <p>Exception that the request failed to satisfy service constraints</p>
+            aws_sdk_trustedadvisor.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             List all Resources for an AWS Organization's Recommendation
@@ -657,6 +704,13 @@ class AsyncTrustedAdvisorClient:
             check_identifier: <p>The check identifier of the Recommendation</p>
             after_last_updated_at: <p>After the last update of the Recommendation</p>
             before_last_updated_at: <p>Before the last update of the Recommendation</p>
+
+        Raises:
+            aws_sdk_trustedadvisor.errors.access_denied_exception.AccessDeniedException: <p>Exception that access has been denied due to insufficient access</p>
+            aws_sdk_trustedadvisor.errors.internal_server_exception.InternalServerException: <p>Exception to notify that an unexpected internal error occurred during processing of the request</p>
+            aws_sdk_trustedadvisor.errors.throttling_exception.ThrottlingException: <p>Exception to notify that requests are being throttled</p>
+            aws_sdk_trustedadvisor.errors.validation_exception.ValidationException: <p>Exception that the request failed to satisfy service constraints</p>
+            aws_sdk_trustedadvisor.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             List all of an AWS Organization's Recommendations
@@ -793,6 +847,14 @@ class AsyncTrustedAdvisorClient:
             recommendation_identifier: <p>The Recommendation identifier</p>
             language: <p>The ISO 639-1 code for the language that you want your recommendations to appear in.</p>
 
+        Raises:
+            aws_sdk_trustedadvisor.errors.access_denied_exception.AccessDeniedException: <p>Exception that access has been denied due to insufficient access</p>
+            aws_sdk_trustedadvisor.errors.internal_server_exception.InternalServerException: <p>Exception to notify that an unexpected internal error occurred during processing of the request</p>
+            aws_sdk_trustedadvisor.errors.resource_not_found_exception.ResourceNotFoundException: <p>Exception that the requested resource has not been found</p>
+            aws_sdk_trustedadvisor.errors.throttling_exception.ThrottlingException: <p>Exception to notify that requests are being throttled</p>
+            aws_sdk_trustedadvisor.errors.validation_exception.ValidationException: <p>Exception that the request failed to satisfy service constraints</p>
+            aws_sdk_trustedadvisor.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             List all Resources for a Recommendation
 
@@ -918,6 +980,13 @@ class AsyncTrustedAdvisorClient:
             after_last_updated_at: <p>After the last update of the Recommendation</p>
             before_last_updated_at: <p>Before the last update of the Recommendation</p>
             language: <p>The ISO 639-1 code for the language that you want your recommendations to appear in.</p>
+
+        Raises:
+            aws_sdk_trustedadvisor.errors.access_denied_exception.AccessDeniedException: <p>Exception that access has been denied due to insufficient access</p>
+            aws_sdk_trustedadvisor.errors.internal_server_exception.InternalServerException: <p>Exception to notify that an unexpected internal error occurred during processing of the request</p>
+            aws_sdk_trustedadvisor.errors.throttling_exception.ThrottlingException: <p>Exception to notify that requests are being throttled</p>
+            aws_sdk_trustedadvisor.errors.validation_exception.ValidationException: <p>Exception that the request failed to satisfy service constraints</p>
+            aws_sdk_trustedadvisor.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             List all Recommendations
@@ -1052,6 +1121,15 @@ class AsyncTrustedAdvisorClient:
             update_reason_code: <p>Reason code for the lifecycle state change</p>
             organization_recommendation_identifier: <p>The Recommendation identifier for AWS Trusted Advisor Priority recommendations</p>
 
+        Raises:
+            aws_sdk_trustedadvisor.errors.access_denied_exception.AccessDeniedException: <p>Exception that access has been denied due to insufficient access</p>
+            aws_sdk_trustedadvisor.errors.conflict_exception.ConflictException: <p>Exception that the request was denied due to conflictions in state</p>
+            aws_sdk_trustedadvisor.errors.internal_server_exception.InternalServerException: <p>Exception to notify that an unexpected internal error occurred during processing of the request</p>
+            aws_sdk_trustedadvisor.errors.resource_not_found_exception.ResourceNotFoundException: <p>Exception that the requested resource has not been found</p>
+            aws_sdk_trustedadvisor.errors.throttling_exception.ThrottlingException: <p>Exception to notify that requests are being throttled</p>
+            aws_sdk_trustedadvisor.errors.validation_exception.ValidationException: <p>Exception that the request failed to satisfy service constraints</p>
+            aws_sdk_trustedadvisor.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Update the lifecycle stage of an AWS Organization's Recommendation that is managed by AWS Trusted Advisor Priority
 
@@ -1109,6 +1187,15 @@ class AsyncTrustedAdvisorClient:
             update_reason: <p>Reason for the lifecycle stage change</p>
             update_reason_code: <p>Reason code for the lifecycle state change</p>
             recommendation_identifier: <p>The Recommendation identifier for AWS Trusted Advisor Priority recommendations</p>
+
+        Raises:
+            aws_sdk_trustedadvisor.errors.access_denied_exception.AccessDeniedException: <p>Exception that access has been denied due to insufficient access</p>
+            aws_sdk_trustedadvisor.errors.conflict_exception.ConflictException: <p>Exception that the request was denied due to conflictions in state</p>
+            aws_sdk_trustedadvisor.errors.internal_server_exception.InternalServerException: <p>Exception to notify that an unexpected internal error occurred during processing of the request</p>
+            aws_sdk_trustedadvisor.errors.resource_not_found_exception.ResourceNotFoundException: <p>Exception that the requested resource has not been found</p>
+            aws_sdk_trustedadvisor.errors.throttling_exception.ThrottlingException: <p>Exception to notify that requests are being throttled</p>
+            aws_sdk_trustedadvisor.errors.validation_exception.ValidationException: <p>Exception that the request failed to satisfy service constraints</p>
+            aws_sdk_trustedadvisor.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Update the lifecycle stage of a Recommendation managed by AWS Trusted Advisor Priority

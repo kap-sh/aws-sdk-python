@@ -75,6 +75,14 @@ class CapacityProviderResource:
             capacity_provider_scaling_config: <p>The scaling configuration that defines how the capacity provider scales compute instances, including maximum vCPU count and scaling policies.</p>
             kms_key_arn: <p>The ARN of the KMS key used to encrypt data associated with the capacity provider.</p>
             tags: <p>A list of tags to associate with the capacity provider.</p>
+
+        Raises:
+            aws_sdk_lambda.errors.capacity_provider_limit_exceeded_exception.CapacityProviderLimitExceededException: <p>The maximum number of capacity providers for your account has been exceeded. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html\">Lambda quotas</a> </p>
+            aws_sdk_lambda.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One of the parameters in the request is not valid.</p>
+            aws_sdk_lambda.errors.resource_conflict_exception.ResourceConflictException: <p>The resource already exists, or another operation is in progress.</p>
+            aws_sdk_lambda.errors.service_exception.ServiceException: <p>The Lambda service encountered an internal error.</p>
+            aws_sdk_lambda.errors.too_many_requests_exception.TooManyRequestsException: <p>The request throughput limit was exceeded. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests\">Lambda quotas</a>.</p>
+            aws_sdk_lambda.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -124,6 +132,13 @@ class CapacityProviderResource:
 
         Args:
             capacity_provider_name: <p>The name of the capacity provider to retrieve.</p>
+
+        Raises:
+            aws_sdk_lambda.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One of the parameters in the request is not valid.</p>
+            aws_sdk_lambda.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request does not exist.</p>
+            aws_sdk_lambda.errors.service_exception.ServiceException: <p>The Lambda service encountered an internal error.</p>
+            aws_sdk_lambda.errors.too_many_requests_exception.TooManyRequestsException: <p>The request throughput limit was exceeded. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests\">Lambda quotas</a>.</p>
+            aws_sdk_lambda.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -165,6 +180,14 @@ class CapacityProviderResource:
         Args:
             capacity_provider_name: <p>The name of the capacity provider to update.</p>
             capacity_provider_scaling_config: <p>The updated scaling configuration for the capacity provider.</p>
+
+        Raises:
+            aws_sdk_lambda.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One of the parameters in the request is not valid.</p>
+            aws_sdk_lambda.errors.resource_conflict_exception.ResourceConflictException: <p>The resource already exists, or another operation is in progress.</p>
+            aws_sdk_lambda.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request does not exist.</p>
+            aws_sdk_lambda.errors.service_exception.ServiceException: <p>The Lambda service encountered an internal error.</p>
+            aws_sdk_lambda.errors.too_many_requests_exception.TooManyRequestsException: <p>The request throughput limit was exceeded. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests\">Lambda quotas</a>.</p>
+            aws_sdk_lambda.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -206,6 +229,14 @@ class CapacityProviderResource:
 
         Args:
             capacity_provider_name: <p>The name of the capacity provider to delete.</p>
+
+        Raises:
+            aws_sdk_lambda.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One of the parameters in the request is not valid.</p>
+            aws_sdk_lambda.errors.resource_conflict_exception.ResourceConflictException: <p>The resource already exists, or another operation is in progress.</p>
+            aws_sdk_lambda.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request does not exist.</p>
+            aws_sdk_lambda.errors.service_exception.ServiceException: <p>The Lambda service encountered an internal error.</p>
+            aws_sdk_lambda.errors.too_many_requests_exception.TooManyRequestsException: <p>The request throughput limit was exceeded. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests\">Lambda quotas</a>.</p>
+            aws_sdk_lambda.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -251,6 +282,12 @@ class CapacityProviderResource:
             state: <p>Filter capacity providers by their current state.</p>
             marker: <p>Specify the pagination token that's returned by a previous request to retrieve the next page of results.</p>
             max_items: <p>The maximum number of capacity providers to return.</p>
+
+        Raises:
+            aws_sdk_lambda.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One of the parameters in the request is not valid.</p>
+            aws_sdk_lambda.errors.service_exception.ServiceException: <p>The Lambda service encountered an internal error.</p>
+            aws_sdk_lambda.errors.too_many_requests_exception.TooManyRequestsException: <p>The request throughput limit was exceeded. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests\">Lambda quotas</a>.</p>
+            aws_sdk_lambda.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -299,6 +336,13 @@ class CapacityProviderResource:
             capacity_provider_name: <p>The name of the capacity provider to list function versions for.</p>
             marker: <p>Specify the pagination token that's returned by a previous request to retrieve the next page of results.</p>
             max_items: <p>The maximum number of function versions to return in the response.</p>
+
+        Raises:
+            aws_sdk_lambda.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One of the parameters in the request is not valid.</p>
+            aws_sdk_lambda.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request does not exist.</p>
+            aws_sdk_lambda.errors.service_exception.ServiceException: <p>The Lambda service encountered an internal error.</p>
+            aws_sdk_lambda.errors.too_many_requests_exception.TooManyRequestsException: <p>The request throughput limit was exceeded. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests\">Lambda quotas</a>.</p>
+            aws_sdk_lambda.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -363,6 +407,14 @@ class AsyncCapacityProviderResource:
             capacity_provider_scaling_config: <p>The scaling configuration that defines how the capacity provider scales compute instances, including maximum vCPU count and scaling policies.</p>
             kms_key_arn: <p>The ARN of the KMS key used to encrypt data associated with the capacity provider.</p>
             tags: <p>A list of tags to associate with the capacity provider.</p>
+
+        Raises:
+            aws_sdk_lambda.errors.capacity_provider_limit_exceeded_exception.CapacityProviderLimitExceededException: <p>The maximum number of capacity providers for your account has been exceeded. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html\">Lambda quotas</a> </p>
+            aws_sdk_lambda.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One of the parameters in the request is not valid.</p>
+            aws_sdk_lambda.errors.resource_conflict_exception.ResourceConflictException: <p>The resource already exists, or another operation is in progress.</p>
+            aws_sdk_lambda.errors.service_exception.ServiceException: <p>The Lambda service encountered an internal error.</p>
+            aws_sdk_lambda.errors.too_many_requests_exception.TooManyRequestsException: <p>The request throughput limit was exceeded. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests\">Lambda quotas</a>.</p>
+            aws_sdk_lambda.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -413,6 +465,13 @@ class AsyncCapacityProviderResource:
 
         Args:
             capacity_provider_name: <p>The name of the capacity provider to retrieve.</p>
+
+        Raises:
+            aws_sdk_lambda.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One of the parameters in the request is not valid.</p>
+            aws_sdk_lambda.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request does not exist.</p>
+            aws_sdk_lambda.errors.service_exception.ServiceException: <p>The Lambda service encountered an internal error.</p>
+            aws_sdk_lambda.errors.too_many_requests_exception.TooManyRequestsException: <p>The request throughput limit was exceeded. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests\">Lambda quotas</a>.</p>
+            aws_sdk_lambda.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -455,6 +514,14 @@ class AsyncCapacityProviderResource:
         Args:
             capacity_provider_name: <p>The name of the capacity provider to update.</p>
             capacity_provider_scaling_config: <p>The updated scaling configuration for the capacity provider.</p>
+
+        Raises:
+            aws_sdk_lambda.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One of the parameters in the request is not valid.</p>
+            aws_sdk_lambda.errors.resource_conflict_exception.ResourceConflictException: <p>The resource already exists, or another operation is in progress.</p>
+            aws_sdk_lambda.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request does not exist.</p>
+            aws_sdk_lambda.errors.service_exception.ServiceException: <p>The Lambda service encountered an internal error.</p>
+            aws_sdk_lambda.errors.too_many_requests_exception.TooManyRequestsException: <p>The request throughput limit was exceeded. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests\">Lambda quotas</a>.</p>
+            aws_sdk_lambda.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -497,6 +564,14 @@ class AsyncCapacityProviderResource:
 
         Args:
             capacity_provider_name: <p>The name of the capacity provider to delete.</p>
+
+        Raises:
+            aws_sdk_lambda.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One of the parameters in the request is not valid.</p>
+            aws_sdk_lambda.errors.resource_conflict_exception.ResourceConflictException: <p>The resource already exists, or another operation is in progress.</p>
+            aws_sdk_lambda.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request does not exist.</p>
+            aws_sdk_lambda.errors.service_exception.ServiceException: <p>The Lambda service encountered an internal error.</p>
+            aws_sdk_lambda.errors.too_many_requests_exception.TooManyRequestsException: <p>The request throughput limit was exceeded. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests\">Lambda quotas</a>.</p>
+            aws_sdk_lambda.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -543,6 +618,12 @@ class AsyncCapacityProviderResource:
             state: <p>Filter capacity providers by their current state.</p>
             marker: <p>Specify the pagination token that's returned by a previous request to retrieve the next page of results.</p>
             max_items: <p>The maximum number of capacity providers to return.</p>
+
+        Raises:
+            aws_sdk_lambda.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One of the parameters in the request is not valid.</p>
+            aws_sdk_lambda.errors.service_exception.ServiceException: <p>The Lambda service encountered an internal error.</p>
+            aws_sdk_lambda.errors.too_many_requests_exception.TooManyRequestsException: <p>The request throughput limit was exceeded. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests\">Lambda quotas</a>.</p>
+            aws_sdk_lambda.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -592,6 +673,13 @@ class AsyncCapacityProviderResource:
             capacity_provider_name: <p>The name of the capacity provider to list function versions for.</p>
             marker: <p>Specify the pagination token that's returned by a previous request to retrieve the next page of results.</p>
             max_items: <p>The maximum number of function versions to return in the response.</p>
+
+        Raises:
+            aws_sdk_lambda.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One of the parameters in the request is not valid.</p>
+            aws_sdk_lambda.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request does not exist.</p>
+            aws_sdk_lambda.errors.service_exception.ServiceException: <p>The Lambda service encountered an internal error.</p>
+            aws_sdk_lambda.errors.too_many_requests_exception.TooManyRequestsException: <p>The request throughput limit was exceeded. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests\">Lambda quotas</a>.</p>
+            aws_sdk_lambda.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

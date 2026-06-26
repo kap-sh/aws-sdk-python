@@ -200,6 +200,14 @@ class KinesisAnalyticsClient:
             application_name: <p>The Kinesis Analytics application name.</p>
             current_application_version_id: <p>The version ID of the Kinesis Analytics application.</p>
             cloud_watch_logging_option: <p>Provides the CloudWatch log stream Amazon Resource Name (ARN) and the IAM role ARN. Note: To write application messages to CloudWatch, the IAM role that is used must have the <code>PutLogEvents</code> policy action enabled.</p>
+
+        Raises:
+            aws_sdk_kinesis_analytics.errors.concurrent_modification_exception.ConcurrentModificationException: <p>Exception thrown as a result of concurrent modification to an application. For example, two individuals attempting to edit the same application at the same time.</p>
+            aws_sdk_kinesis_analytics.errors.invalid_argument_exception.InvalidArgumentException: <p>Specified input parameter value is invalid.</p>
+            aws_sdk_kinesis_analytics.errors.resource_in_use_exception.ResourceInUseException: <p>Application is not available for this operation.</p>
+            aws_sdk_kinesis_analytics.errors.resource_not_found_exception.ResourceNotFoundException: <p>Specified application can't be found.</p>
+            aws_sdk_kinesis_analytics.errors.unsupported_operation_exception.UnsupportedOperationException: <p>The request was rejected because a specified parameter is not supported or a specified resource is not valid for this operation. </p>
+            aws_sdk_kinesis_analytics.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -243,6 +251,15 @@ class KinesisAnalyticsClient:
             application_name: <p>Name of your existing Amazon Kinesis Analytics application to which you want to add the streaming source.</p>
             current_application_version_id: <p>Current version of your Amazon Kinesis Analytics application. You can use the <a href=\"https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html\">DescribeApplication</a> operation to find the current application version.</p>
             input: <p>The <a href=\"https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_Input.html\">Input</a> to add.</p>
+
+        Raises:
+            aws_sdk_kinesis_analytics.errors.code_validation_exception.CodeValidationException: <p>User-provided application code (query) is invalid. This can be a simple syntax error.</p>
+            aws_sdk_kinesis_analytics.errors.concurrent_modification_exception.ConcurrentModificationException: <p>Exception thrown as a result of concurrent modification to an application. For example, two individuals attempting to edit the same application at the same time.</p>
+            aws_sdk_kinesis_analytics.errors.invalid_argument_exception.InvalidArgumentException: <p>Specified input parameter value is invalid.</p>
+            aws_sdk_kinesis_analytics.errors.resource_in_use_exception.ResourceInUseException: <p>Application is not available for this operation.</p>
+            aws_sdk_kinesis_analytics.errors.resource_not_found_exception.ResourceNotFoundException: <p>Specified application can't be found.</p>
+            aws_sdk_kinesis_analytics.errors.unsupported_operation_exception.UnsupportedOperationException: <p>The request was rejected because a specified parameter is not supported or a specified resource is not valid for this operation. </p>
+            aws_sdk_kinesis_analytics.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -288,6 +305,14 @@ class KinesisAnalyticsClient:
             current_application_version_id: <p>Version of the application to which you want to add the input processing configuration. You can use the <a href=\"https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html\">DescribeApplication</a> operation to get the current application version. If the version specified is not the current version, the <code>ConcurrentModificationException</code> is returned.</p>
             input_id: <p>The ID of the input configuration to add the input processing configuration to. You can get a list of the input IDs for an application using the <a href=\"https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html\">DescribeApplication</a> operation.</p>
             input_processing_configuration: <p>The <a href=\"https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_InputProcessingConfiguration.html\">InputProcessingConfiguration</a> to add to the application.</p>
+
+        Raises:
+            aws_sdk_kinesis_analytics.errors.concurrent_modification_exception.ConcurrentModificationException: <p>Exception thrown as a result of concurrent modification to an application. For example, two individuals attempting to edit the same application at the same time.</p>
+            aws_sdk_kinesis_analytics.errors.invalid_argument_exception.InvalidArgumentException: <p>Specified input parameter value is invalid.</p>
+            aws_sdk_kinesis_analytics.errors.resource_in_use_exception.ResourceInUseException: <p>Application is not available for this operation.</p>
+            aws_sdk_kinesis_analytics.errors.resource_not_found_exception.ResourceNotFoundException: <p>Specified application can't be found.</p>
+            aws_sdk_kinesis_analytics.errors.unsupported_operation_exception.UnsupportedOperationException: <p>The request was rejected because a specified parameter is not supported or a specified resource is not valid for this operation. </p>
+            aws_sdk_kinesis_analytics.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -332,6 +357,14 @@ class KinesisAnalyticsClient:
             application_name: <p>Name of the application to which you want to add the output configuration.</p>
             current_application_version_id: <p>Version of the application to which you want to add the output configuration. You can use the <a href=\"https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html\">DescribeApplication</a> operation to get the current application version. If the version specified is not the current version, the <code>ConcurrentModificationException</code> is returned. </p>
             output: <p>An array of objects, each describing one output configuration. In the output configuration, you specify the name of an in-application stream, a destination (that is, an Amazon Kinesis stream, an Amazon Kinesis Firehose delivery stream, or an AWS Lambda function), and record the formation to use when writing to the destination.</p>
+
+        Raises:
+            aws_sdk_kinesis_analytics.errors.concurrent_modification_exception.ConcurrentModificationException: <p>Exception thrown as a result of concurrent modification to an application. For example, two individuals attempting to edit the same application at the same time.</p>
+            aws_sdk_kinesis_analytics.errors.invalid_argument_exception.InvalidArgumentException: <p>Specified input parameter value is invalid.</p>
+            aws_sdk_kinesis_analytics.errors.resource_in_use_exception.ResourceInUseException: <p>Application is not available for this operation.</p>
+            aws_sdk_kinesis_analytics.errors.resource_not_found_exception.ResourceNotFoundException: <p>Specified application can't be found.</p>
+            aws_sdk_kinesis_analytics.errors.unsupported_operation_exception.UnsupportedOperationException: <p>The request was rejected because a specified parameter is not supported or a specified resource is not valid for this operation. </p>
+            aws_sdk_kinesis_analytics.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -375,6 +408,14 @@ class KinesisAnalyticsClient:
             application_name: <p>Name of an existing application.</p>
             current_application_version_id: <p>Version of the application for which you are adding the reference data source. You can use the <a href=\"https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html\">DescribeApplication</a> operation to get the current application version. If the version specified is not the current version, the <code>ConcurrentModificationException</code> is returned.</p>
             reference_data_source: <p>The reference data source can be an object in your Amazon S3 bucket. Amazon Kinesis Analytics reads the object and copies the data into the in-application table that is created. You provide an S3 bucket, object key name, and the resulting in-application table that is created. You must also provide an IAM role with the necessary permissions that Amazon Kinesis Analytics can assume to read the object from your S3 bucket on your behalf.</p>
+
+        Raises:
+            aws_sdk_kinesis_analytics.errors.concurrent_modification_exception.ConcurrentModificationException: <p>Exception thrown as a result of concurrent modification to an application. For example, two individuals attempting to edit the same application at the same time.</p>
+            aws_sdk_kinesis_analytics.errors.invalid_argument_exception.InvalidArgumentException: <p>Specified input parameter value is invalid.</p>
+            aws_sdk_kinesis_analytics.errors.resource_in_use_exception.ResourceInUseException: <p>Application is not available for this operation.</p>
+            aws_sdk_kinesis_analytics.errors.resource_not_found_exception.ResourceNotFoundException: <p>Specified application can't be found.</p>
+            aws_sdk_kinesis_analytics.errors.unsupported_operation_exception.UnsupportedOperationException: <p>The request was rejected because a specified parameter is not supported or a specified resource is not valid for this operation. </p>
+            aws_sdk_kinesis_analytics.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -432,6 +473,15 @@ class KinesisAnalyticsClient:
             cloud_watch_logging_options: <p>Use this parameter to configure a CloudWatch log stream to monitor application configuration errors. For more information, see <a href=\"https://docs.aws.amazon.com/kinesisanalytics/latest/dev/cloudwatch-logs.html\">Working with Amazon CloudWatch Logs</a>.</p>
             application_code: <p>One or more SQL statements that read input data, transform it, and generate output. For example, you can write a SQL statement that reads data from one in-application stream, generates a running average of the number of advertisement clicks by vendor, and insert resulting rows in another in-application stream using pumps. For more information about the typical pattern, see <a href=\"https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-app-code.html\">Application Code</a>. </p> <p>You can provide such series of SQL statements, where output of one statement can be used as the input for the next statement. You store intermediate results by creating in-application streams and pumps.</p> <p>Note that the application code must create the streams with names specified in the <code>Outputs</code>. For example, if your <code>Outputs</code> defines output streams named <code>ExampleOutputStream1</code> and <code>ExampleOutputStream2</code>, then your application code must create these streams. </p>
             tags: <p>A list of one or more tags to assign to the application. A tag is a key-value pair that identifies an application. Note that the maximum number of application tags includes system tags. The maximum number of user-defined application tags is 50. For more information, see <a href=\"https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-tagging.html\">Using Tagging</a>.</p>
+
+        Raises:
+            aws_sdk_kinesis_analytics.errors.code_validation_exception.CodeValidationException: <p>User-provided application code (query) is invalid. This can be a simple syntax error.</p>
+            aws_sdk_kinesis_analytics.errors.concurrent_modification_exception.ConcurrentModificationException: <p>Exception thrown as a result of concurrent modification to an application. For example, two individuals attempting to edit the same application at the same time.</p>
+            aws_sdk_kinesis_analytics.errors.invalid_argument_exception.InvalidArgumentException: <p>Specified input parameter value is invalid.</p>
+            aws_sdk_kinesis_analytics.errors.limit_exceeded_exception.LimitExceededException: <p>Exceeded the number of applications allowed.</p>
+            aws_sdk_kinesis_analytics.errors.resource_in_use_exception.ResourceInUseException: <p>Application is not available for this operation.</p>
+            aws_sdk_kinesis_analytics.errors.too_many_tags_exception.TooManyTagsException: <p>Application created with too many tags, or too many tags added to an application. Note that the maximum number of application tags includes system tags. The maximum number of user-defined application tags is 50.</p>
+            aws_sdk_kinesis_analytics.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -483,6 +533,13 @@ class KinesisAnalyticsClient:
         Args:
             application_name: <p>Name of the Amazon Kinesis Analytics application to delete.</p>
             create_timestamp: <p> You can use the <code>DescribeApplication</code> operation to get this value. </p>
+
+        Raises:
+            aws_sdk_kinesis_analytics.errors.concurrent_modification_exception.ConcurrentModificationException: <p>Exception thrown as a result of concurrent modification to an application. For example, two individuals attempting to edit the same application at the same time.</p>
+            aws_sdk_kinesis_analytics.errors.resource_in_use_exception.ResourceInUseException: <p>Application is not available for this operation.</p>
+            aws_sdk_kinesis_analytics.errors.resource_not_found_exception.ResourceNotFoundException: <p>Specified application can't be found.</p>
+            aws_sdk_kinesis_analytics.errors.unsupported_operation_exception.UnsupportedOperationException: <p>The request was rejected because a specified parameter is not supported or a specified resource is not valid for this operation. </p>
+            aws_sdk_kinesis_analytics.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -525,6 +582,14 @@ class KinesisAnalyticsClient:
             application_name: <p>The Kinesis Analytics application name.</p>
             current_application_version_id: <p>The version ID of the Kinesis Analytics application.</p>
             cloud_watch_logging_option_id: <p>The <code>CloudWatchLoggingOptionId</code> of the CloudWatch logging option to delete. You can get the <code>CloudWatchLoggingOptionId</code> by using the <a href=\"https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html\">DescribeApplication</a> operation. </p>
+
+        Raises:
+            aws_sdk_kinesis_analytics.errors.concurrent_modification_exception.ConcurrentModificationException: <p>Exception thrown as a result of concurrent modification to an application. For example, two individuals attempting to edit the same application at the same time.</p>
+            aws_sdk_kinesis_analytics.errors.invalid_argument_exception.InvalidArgumentException: <p>Specified input parameter value is invalid.</p>
+            aws_sdk_kinesis_analytics.errors.resource_in_use_exception.ResourceInUseException: <p>Application is not available for this operation.</p>
+            aws_sdk_kinesis_analytics.errors.resource_not_found_exception.ResourceNotFoundException: <p>Specified application can't be found.</p>
+            aws_sdk_kinesis_analytics.errors.unsupported_operation_exception.UnsupportedOperationException: <p>The request was rejected because a specified parameter is not supported or a specified resource is not valid for this operation. </p>
+            aws_sdk_kinesis_analytics.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -568,6 +633,14 @@ class KinesisAnalyticsClient:
             application_name: <p>The Kinesis Analytics application name.</p>
             current_application_version_id: <p>The version ID of the Kinesis Analytics application.</p>
             input_id: <p>The ID of the input configuration from which to delete the input processing configuration. You can get a list of the input IDs for an application by using the <a href=\"https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html\">DescribeApplication</a> operation.</p>
+
+        Raises:
+            aws_sdk_kinesis_analytics.errors.concurrent_modification_exception.ConcurrentModificationException: <p>Exception thrown as a result of concurrent modification to an application. For example, two individuals attempting to edit the same application at the same time.</p>
+            aws_sdk_kinesis_analytics.errors.invalid_argument_exception.InvalidArgumentException: <p>Specified input parameter value is invalid.</p>
+            aws_sdk_kinesis_analytics.errors.resource_in_use_exception.ResourceInUseException: <p>Application is not available for this operation.</p>
+            aws_sdk_kinesis_analytics.errors.resource_not_found_exception.ResourceNotFoundException: <p>Specified application can't be found.</p>
+            aws_sdk_kinesis_analytics.errors.unsupported_operation_exception.UnsupportedOperationException: <p>The request was rejected because a specified parameter is not supported or a specified resource is not valid for this operation. </p>
+            aws_sdk_kinesis_analytics.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -611,6 +684,14 @@ class KinesisAnalyticsClient:
             application_name: <p>Amazon Kinesis Analytics application name.</p>
             current_application_version_id: <p>Amazon Kinesis Analytics application version. You can use the <a href=\"https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html\">DescribeApplication</a> operation to get the current application version. If the version specified is not the current version, the <code>ConcurrentModificationException</code> is returned. </p>
             output_id: <p>The ID of the configuration to delete. Each output configuration that is added to the application, either when the application is created or later using the <a href=\"https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_AddApplicationOutput.html\">AddApplicationOutput</a> operation, has a unique ID. You need to provide the ID to uniquely identify the output configuration that you want to delete from the application configuration. You can use the <a href=\"https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html\">DescribeApplication</a> operation to get the specific <code>OutputId</code>. </p>
+
+        Raises:
+            aws_sdk_kinesis_analytics.errors.concurrent_modification_exception.ConcurrentModificationException: <p>Exception thrown as a result of concurrent modification to an application. For example, two individuals attempting to edit the same application at the same time.</p>
+            aws_sdk_kinesis_analytics.errors.invalid_argument_exception.InvalidArgumentException: <p>Specified input parameter value is invalid.</p>
+            aws_sdk_kinesis_analytics.errors.resource_in_use_exception.ResourceInUseException: <p>Application is not available for this operation.</p>
+            aws_sdk_kinesis_analytics.errors.resource_not_found_exception.ResourceNotFoundException: <p>Specified application can't be found.</p>
+            aws_sdk_kinesis_analytics.errors.unsupported_operation_exception.UnsupportedOperationException: <p>The request was rejected because a specified parameter is not supported or a specified resource is not valid for this operation. </p>
+            aws_sdk_kinesis_analytics.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -654,6 +735,14 @@ class KinesisAnalyticsClient:
             application_name: <p>Name of an existing application.</p>
             current_application_version_id: <p>Version of the application. You can use the <a href=\"https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html\">DescribeApplication</a> operation to get the current application version. If the version specified is not the current version, the <code>ConcurrentModificationException</code> is returned.</p>
             reference_id: <p>ID of the reference data source. When you add a reference data source to your application using the <a href=\"https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_AddApplicationReferenceDataSource.html\">AddApplicationReferenceDataSource</a>, Amazon Kinesis Analytics assigns an ID. You can use the <a href=\"https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html\">DescribeApplication</a> operation to get the reference ID. </p>
+
+        Raises:
+            aws_sdk_kinesis_analytics.errors.concurrent_modification_exception.ConcurrentModificationException: <p>Exception thrown as a result of concurrent modification to an application. For example, two individuals attempting to edit the same application at the same time.</p>
+            aws_sdk_kinesis_analytics.errors.invalid_argument_exception.InvalidArgumentException: <p>Specified input parameter value is invalid.</p>
+            aws_sdk_kinesis_analytics.errors.resource_in_use_exception.ResourceInUseException: <p>Application is not available for this operation.</p>
+            aws_sdk_kinesis_analytics.errors.resource_not_found_exception.ResourceNotFoundException: <p>Specified application can't be found.</p>
+            aws_sdk_kinesis_analytics.errors.unsupported_operation_exception.UnsupportedOperationException: <p>The request was rejected because a specified parameter is not supported or a specified resource is not valid for this operation. </p>
+            aws_sdk_kinesis_analytics.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -693,6 +782,11 @@ class KinesisAnalyticsClient:
 
         Args:
             application_name: <p>Name of the application.</p>
+
+        Raises:
+            aws_sdk_kinesis_analytics.errors.resource_not_found_exception.ResourceNotFoundException: <p>Specified application can't be found.</p>
+            aws_sdk_kinesis_analytics.errors.unsupported_operation_exception.UnsupportedOperationException: <p>The request was rejected because a specified parameter is not supported or a specified resource is not valid for this operation. </p>
+            aws_sdk_kinesis_analytics.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -746,6 +840,13 @@ class KinesisAnalyticsClient:
             input_starting_position_configuration: <p>Point at which you want Amazon Kinesis Analytics to start reading records from the specified streaming source discovery purposes.</p>
             s3_configuration: <p>Specify this parameter to discover a schema from data in an Amazon S3 object.</p>
             input_processing_configuration: <p>The <a href=\"https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_InputProcessingConfiguration.html\">InputProcessingConfiguration</a> to use to preprocess the records before discovering the schema of the records.</p>
+
+        Raises:
+            aws_sdk_kinesis_analytics.errors.invalid_argument_exception.InvalidArgumentException: <p>Specified input parameter value is invalid.</p>
+            aws_sdk_kinesis_analytics.errors.resource_provisioned_throughput_exceeded_exception.ResourceProvisionedThroughputExceededException: <p>Discovery failed to get a record from the streaming source because of the Amazon Kinesis Streams ProvisionedThroughputExceededException. For more information, see <a href=\"https://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetRecords.html\">GetRecords</a> in the Amazon Kinesis Streams API Reference.</p>
+            aws_sdk_kinesis_analytics.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is unavailable. Back off and retry the operation. </p>
+            aws_sdk_kinesis_analytics.errors.unable_to_detect_schema_exception.UnableToDetectSchemaException: <p>Data format is not valid. Amazon Kinesis Analytics is not able to detect schema for the given streaming source.</p>
+            aws_sdk_kinesis_analytics.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -800,6 +901,9 @@ class KinesisAnalyticsClient:
         Args:
             limit: <p>Maximum number of applications to list.</p>
             exclusive_start_application_name: <p>Name of the application to start the list with. When using pagination to retrieve the list, you don't need to specify this parameter in the first request. However, in subsequent requests, you add the last application name from the previous response to get the next page of applications.</p>
+
+        Raises:
+            aws_sdk_kinesis_analytics.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -842,6 +946,12 @@ class KinesisAnalyticsClient:
 
         Args:
             resource_arn: <p>The ARN of the application for which to retrieve tags.</p>
+
+        Raises:
+            aws_sdk_kinesis_analytics.errors.concurrent_modification_exception.ConcurrentModificationException: <p>Exception thrown as a result of concurrent modification to an application. For example, two individuals attempting to edit the same application at the same time.</p>
+            aws_sdk_kinesis_analytics.errors.invalid_argument_exception.InvalidArgumentException: <p>Specified input parameter value is invalid.</p>
+            aws_sdk_kinesis_analytics.errors.resource_not_found_exception.ResourceNotFoundException: <p>Specified application can't be found.</p>
+            aws_sdk_kinesis_analytics.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -881,6 +991,14 @@ class KinesisAnalyticsClient:
         Args:
             application_name: <p>Name of the application.</p>
             input_configurations: <p>Identifies the specific input, by ID, that the application starts consuming. Amazon Kinesis Analytics starts reading the streaming source associated with the input. You can also specify where in the streaming source you want Amazon Kinesis Analytics to start reading.</p>
+
+        Raises:
+            aws_sdk_kinesis_analytics.errors.invalid_application_configuration_exception.InvalidApplicationConfigurationException: <p>User-provided application configuration is not valid.</p>
+            aws_sdk_kinesis_analytics.errors.invalid_argument_exception.InvalidArgumentException: <p>Specified input parameter value is invalid.</p>
+            aws_sdk_kinesis_analytics.errors.resource_in_use_exception.ResourceInUseException: <p>Application is not available for this operation.</p>
+            aws_sdk_kinesis_analytics.errors.resource_not_found_exception.ResourceNotFoundException: <p>Specified application can't be found.</p>
+            aws_sdk_kinesis_analytics.errors.unsupported_operation_exception.UnsupportedOperationException: <p>The request was rejected because a specified parameter is not supported or a specified resource is not valid for this operation. </p>
+            aws_sdk_kinesis_analytics.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -919,6 +1037,12 @@ class KinesisAnalyticsClient:
 
         Args:
             application_name: <p>Name of the running application to stop.</p>
+
+        Raises:
+            aws_sdk_kinesis_analytics.errors.resource_in_use_exception.ResourceInUseException: <p>Application is not available for this operation.</p>
+            aws_sdk_kinesis_analytics.errors.resource_not_found_exception.ResourceNotFoundException: <p>Specified application can't be found.</p>
+            aws_sdk_kinesis_analytics.errors.unsupported_operation_exception.UnsupportedOperationException: <p>The request was rejected because a specified parameter is not supported or a specified resource is not valid for this operation. </p>
+            aws_sdk_kinesis_analytics.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -958,6 +1082,14 @@ class KinesisAnalyticsClient:
         Args:
             resource_arn: <p>The ARN of the application to assign the tags.</p>
             tags: <p>The key-value tags to assign to the application.</p>
+
+        Raises:
+            aws_sdk_kinesis_analytics.errors.concurrent_modification_exception.ConcurrentModificationException: <p>Exception thrown as a result of concurrent modification to an application. For example, two individuals attempting to edit the same application at the same time.</p>
+            aws_sdk_kinesis_analytics.errors.invalid_argument_exception.InvalidArgumentException: <p>Specified input parameter value is invalid.</p>
+            aws_sdk_kinesis_analytics.errors.resource_in_use_exception.ResourceInUseException: <p>Application is not available for this operation.</p>
+            aws_sdk_kinesis_analytics.errors.resource_not_found_exception.ResourceNotFoundException: <p>Specified application can't be found.</p>
+            aws_sdk_kinesis_analytics.errors.too_many_tags_exception.TooManyTagsException: <p>Application created with too many tags, or too many tags added to an application. Note that the maximum number of application tags includes system tags. The maximum number of user-defined application tags is 50.</p>
+            aws_sdk_kinesis_analytics.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1000,6 +1132,14 @@ class KinesisAnalyticsClient:
         Args:
             resource_arn: <p>The ARN of the Kinesis Analytics application from which to remove the tags.</p>
             tag_keys: <p>A list of keys of tags to remove from the specified application.</p>
+
+        Raises:
+            aws_sdk_kinesis_analytics.errors.concurrent_modification_exception.ConcurrentModificationException: <p>Exception thrown as a result of concurrent modification to an application. For example, two individuals attempting to edit the same application at the same time.</p>
+            aws_sdk_kinesis_analytics.errors.invalid_argument_exception.InvalidArgumentException: <p>Specified input parameter value is invalid.</p>
+            aws_sdk_kinesis_analytics.errors.resource_in_use_exception.ResourceInUseException: <p>Application is not available for this operation.</p>
+            aws_sdk_kinesis_analytics.errors.resource_not_found_exception.ResourceNotFoundException: <p>Specified application can't be found.</p>
+            aws_sdk_kinesis_analytics.errors.too_many_tags_exception.TooManyTagsException: <p>Application created with too many tags, or too many tags added to an application. Note that the maximum number of application tags includes system tags. The maximum number of user-defined application tags is 50.</p>
+            aws_sdk_kinesis_analytics.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1042,6 +1182,15 @@ class KinesisAnalyticsClient:
             application_name: <p>Name of the Amazon Kinesis Analytics application to update.</p>
             current_application_version_id: <p>The current application version ID. You can use the <a href=\"https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html\">DescribeApplication</a> operation to get this value.</p>
             application_update: <p>Describes application updates.</p>
+
+        Raises:
+            aws_sdk_kinesis_analytics.errors.code_validation_exception.CodeValidationException: <p>User-provided application code (query) is invalid. This can be a simple syntax error.</p>
+            aws_sdk_kinesis_analytics.errors.concurrent_modification_exception.ConcurrentModificationException: <p>Exception thrown as a result of concurrent modification to an application. For example, two individuals attempting to edit the same application at the same time.</p>
+            aws_sdk_kinesis_analytics.errors.invalid_argument_exception.InvalidArgumentException: <p>Specified input parameter value is invalid.</p>
+            aws_sdk_kinesis_analytics.errors.resource_in_use_exception.ResourceInUseException: <p>Application is not available for this operation.</p>
+            aws_sdk_kinesis_analytics.errors.resource_not_found_exception.ResourceNotFoundException: <p>Specified application can't be found.</p>
+            aws_sdk_kinesis_analytics.errors.unsupported_operation_exception.UnsupportedOperationException: <p>The request was rejected because a specified parameter is not supported or a specified resource is not valid for this operation. </p>
+            aws_sdk_kinesis_analytics.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(

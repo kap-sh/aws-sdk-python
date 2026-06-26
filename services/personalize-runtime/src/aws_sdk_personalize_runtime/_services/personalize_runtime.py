@@ -159,6 +159,11 @@ class PersonalizeRuntimeClient:
             num_results: <p>The number of results to return. The default is 5. The maximum is 100.</p>
             filter_arn: <p>The ARN of the filter to apply to the returned recommendations. For more information, see <a href=\"https://docs.aws.amazon.com/personalize/latest/dg/filter.html\">Filtering Recommendations</a>.</p> <p>When using this parameter, be sure the filter resource is <code>ACTIVE</code>.</p>
             filter_values: <p>The values to use when filtering recommendations. For each placeholder parameter in your filter expression, provide the parameter name (in matching case) as a key and the filter value(s) as the corresponding value. Separate multiple values for one parameter with a comma. </p> <p>For filter expressions that use an <code>INCLUDE</code> element to include actions, you must provide values for all parameters that are defined in the expression. For filters with expressions that use an <code>EXCLUDE</code> element to exclude actions, you can omit the <code>filter-values</code>. In this case, Amazon Personalize doesn't use that portion of the expression to filter recommendations.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/personalize/latest/dg/filter.html\">Filtering recommendations and user segments</a>.</p>
+
+        Raises:
+            aws_sdk_personalize_runtime.errors.invalid_input_exception.InvalidInputException: <p>Provide a valid value for the field or parameter.</p>
+            aws_sdk_personalize_runtime.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_personalize_runtime.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -221,6 +226,11 @@ class PersonalizeRuntimeClient:
             filter_arn: <p>The Amazon Resource Name (ARN) of a filter you created to include items or exclude items from recommendations for a given user. For more information, see <a href=\"https://docs.aws.amazon.com/personalize/latest/dg/filter.html\">Filtering Recommendations</a>.</p>
             filter_values: <p>The values to use when filtering recommendations. For each placeholder parameter in your filter expression, provide the parameter name (in matching case) as a key and the filter value(s) as the corresponding value. Separate multiple values for one parameter with a comma. </p> <p>For filter expressions that use an <code>INCLUDE</code> element to include items, you must provide values for all parameters that are defined in the expression. For filters with expressions that use an <code>EXCLUDE</code> element to exclude items, you can omit the <code>filter-values</code>.In this case, Amazon Personalize doesn't use that portion of the expression to filter recommendations.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/personalize/latest/dg/filter.html\">Filtering Recommendations</a>.</p>
             metadata_columns: <p>If you enabled metadata in recommendations when you created or updated the campaign, specify metadata columns from your Items dataset to include in the personalized ranking. The map key is <code>ITEMS</code> and the value is a list of column names from your Items dataset. The maximum number of columns you can provide is 10.</p> <p> For information about enabling metadata for a campaign, see <a href=\"https://docs.aws.amazon.com/personalize/latest/dg/campaigns.html#create-campaign-return-metadata\">Enabling metadata in recommendations for a campaign</a>. </p>
+
+        Raises:
+            aws_sdk_personalize_runtime.errors.invalid_input_exception.InvalidInputException: <p>Provide a valid value for the field or parameter.</p>
+            aws_sdk_personalize_runtime.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_personalize_runtime.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -294,6 +304,11 @@ class PersonalizeRuntimeClient:
             recommender_arn: <p>The Amazon Resource Name (ARN) of the recommender to use to get recommendations. Provide a recommender ARN if you created a Domain dataset group with a recommender for a domain use case.</p>
             promotions: <p>The promotions to apply to the recommendation request. A promotion defines additional business rules that apply to a configurable subset of recommended items.</p>
             metadata_columns: <p>If you enabled metadata in recommendations when you created or updated the campaign or recommender, specify the metadata columns from your Items dataset to include in item recommendations. The map key is <code>ITEMS</code> and the value is a list of column names from your Items dataset. The maximum number of columns you can provide is 10.</p> <p> For information about enabling metadata for a campaign, see <a href=\"https://docs.aws.amazon.com/personalize/latest/dg/campaigns.html#create-campaign-return-metadata\">Enabling metadata in recommendations for a campaign</a>. For information about enabling metadata for a recommender, see <a href=\"https://docs.aws.amazon.com/personalize/latest/dg/creating-recommenders.html#create-recommender-return-metadata\">Enabling metadata in recommendations for a recommender</a>. </p>
+
+        Raises:
+            aws_sdk_personalize_runtime.errors.invalid_input_exception.InvalidInputException: <p>Provide a valid value for the field or parameter.</p>
+            aws_sdk_personalize_runtime.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_personalize_runtime.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(

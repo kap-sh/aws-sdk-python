@@ -310,6 +310,18 @@ class AsyncCloudDirectoryClient:
             object_attribute_list: <p>Attributes on the facet that you are adding to the object.</p>
             object_reference: <p>A reference to the object you are adding the specified facet to.</p>
 
+        Raises:
+            aws_sdk_clouddirectory.errors.access_denied_exception.AccessDeniedException: <p>Access denied or directory not found. Either you don't have permissions for this directory or the directory does not exist. Try calling <a>ListDirectories</a> and check your permissions.</p>
+            aws_sdk_clouddirectory.errors.directory_not_enabled_exception.DirectoryNotEnabledException: <p>Operations are only permitted on enabled directories.</p>
+            aws_sdk_clouddirectory.errors.facet_validation_exception.FacetValidationException: <p>The <a>Facet</a> that you provided was not well formed or could not be validated with the schema.</p>
+            aws_sdk_clouddirectory.errors.internal_service_exception.InternalServiceException: <p>Indicates a problem that must be resolved by Amazon Web Services. This might be a transient error in which case you can retry your request until it succeeds. Otherwise, go to the <a href=\"http://status.aws.amazon.com/\">AWS Service Health Dashboard</a> site to see if there are any operational issues with the service.</p>
+            aws_sdk_clouddirectory.errors.invalid_arn_exception.InvalidArnException: <p>Indicates that the provided ARN value is not valid.</p>
+            aws_sdk_clouddirectory.errors.limit_exceeded_exception.LimitExceededException: <p>Indicates that limits are exceeded. See <a href=\"https://docs.aws.amazon.com/clouddirectory/latest/developerguide/limits.html\">Limits</a> for more information.</p>
+            aws_sdk_clouddirectory.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_clouddirectory.errors.retryable_conflict_exception.RetryableConflictException: <p>Occurs when a conflict with a previous successful write is detected. For example, if a write operation occurs on an object and then an attempt is made to read the object using “SERIALIZABLE” consistency, this exception may result. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+            aws_sdk_clouddirectory.errors.validation_exception.ValidationException: <p>Indicates that your request is malformed in some manner. See the exception message.</p>
+            aws_sdk_clouddirectory.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To add a facet to an object
 
@@ -358,6 +370,18 @@ class AsyncCloudDirectoryClient:
         Args:
             published_schema_arn: <p>Published schema Amazon Resource Name (ARN) that needs to be copied. For more information, see <a>arns</a>.</p>
             directory_arn: <p>The Amazon Resource Name (ARN) that is associated with the <a>Directory</a> into which the schema is copied. For more information, see <a>arns</a>.</p>
+
+        Raises:
+            aws_sdk_clouddirectory.errors.access_denied_exception.AccessDeniedException: <p>Access denied or directory not found. Either you don't have permissions for this directory or the directory does not exist. Try calling <a>ListDirectories</a> and check your permissions.</p>
+            aws_sdk_clouddirectory.errors.internal_service_exception.InternalServiceException: <p>Indicates a problem that must be resolved by Amazon Web Services. This might be a transient error in which case you can retry your request until it succeeds. Otherwise, go to the <a href=\"http://status.aws.amazon.com/\">AWS Service Health Dashboard</a> site to see if there are any operational issues with the service.</p>
+            aws_sdk_clouddirectory.errors.invalid_arn_exception.InvalidArnException: <p>Indicates that the provided ARN value is not valid.</p>
+            aws_sdk_clouddirectory.errors.invalid_attachment_exception.InvalidAttachmentException: <p>Indicates that an attempt to make an attachment was invalid. For example, attaching two nodes with a link type that is not applicable to the nodes or attempting to apply a schema to a directory a second time.</p>
+            aws_sdk_clouddirectory.errors.limit_exceeded_exception.LimitExceededException: <p>Indicates that limits are exceeded. See <a href=\"https://docs.aws.amazon.com/clouddirectory/latest/developerguide/limits.html\">Limits</a> for more information.</p>
+            aws_sdk_clouddirectory.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_clouddirectory.errors.retryable_conflict_exception.RetryableConflictException: <p>Occurs when a conflict with a previous successful write is detected. For example, if a write operation occurs on an object and then an attempt is made to read the object using “SERIALIZABLE” consistency, this exception may result. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+            aws_sdk_clouddirectory.errors.schema_already_exists_exception.SchemaAlreadyExistsException: <p>Indicates that a schema could not be created due to a naming conflict. Please select a different name and then try again.</p>
+            aws_sdk_clouddirectory.errors.validation_exception.ValidationException: <p>Indicates that your request is malformed in some manner. See the exception message.</p>
+            aws_sdk_clouddirectory.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To apply a schema
@@ -409,6 +433,20 @@ class AsyncCloudDirectoryClient:
             child_reference: <p>The child object reference to be attached to the object.</p>
             link_name: <p>The link name with which the child object is attached to the parent.</p>
 
+        Raises:
+            aws_sdk_clouddirectory.errors.access_denied_exception.AccessDeniedException: <p>Access denied or directory not found. Either you don't have permissions for this directory or the directory does not exist. Try calling <a>ListDirectories</a> and check your permissions.</p>
+            aws_sdk_clouddirectory.errors.directory_not_enabled_exception.DirectoryNotEnabledException: <p>Operations are only permitted on enabled directories.</p>
+            aws_sdk_clouddirectory.errors.facet_validation_exception.FacetValidationException: <p>The <a>Facet</a> that you provided was not well formed or could not be validated with the schema.</p>
+            aws_sdk_clouddirectory.errors.internal_service_exception.InternalServiceException: <p>Indicates a problem that must be resolved by Amazon Web Services. This might be a transient error in which case you can retry your request until it succeeds. Otherwise, go to the <a href=\"http://status.aws.amazon.com/\">AWS Service Health Dashboard</a> site to see if there are any operational issues with the service.</p>
+            aws_sdk_clouddirectory.errors.invalid_arn_exception.InvalidArnException: <p>Indicates that the provided ARN value is not valid.</p>
+            aws_sdk_clouddirectory.errors.invalid_attachment_exception.InvalidAttachmentException: <p>Indicates that an attempt to make an attachment was invalid. For example, attaching two nodes with a link type that is not applicable to the nodes or attempting to apply a schema to a directory a second time.</p>
+            aws_sdk_clouddirectory.errors.limit_exceeded_exception.LimitExceededException: <p>Indicates that limits are exceeded. See <a href=\"https://docs.aws.amazon.com/clouddirectory/latest/developerguide/limits.html\">Limits</a> for more information.</p>
+            aws_sdk_clouddirectory.errors.link_name_already_in_use_exception.LinkNameAlreadyInUseException: <p>Indicates that a link could not be created due to a naming conflict. Choose a different name and then try again.</p>
+            aws_sdk_clouddirectory.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_clouddirectory.errors.retryable_conflict_exception.RetryableConflictException: <p>Occurs when a conflict with a previous successful write is detected. For example, if a write operation occurs on an object and then an attempt is made to read the object using “SERIALIZABLE” consistency, this exception may result. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+            aws_sdk_clouddirectory.errors.validation_exception.ValidationException: <p>Indicates that your request is malformed in some manner. See the exception message.</p>
+            aws_sdk_clouddirectory.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To attach an object
 
@@ -459,6 +497,18 @@ class AsyncCloudDirectoryClient:
             policy_reference: <p>The reference that is associated with the policy object.</p>
             object_reference: <p>The reference that identifies the object to which the policy will be attached.</p>
 
+        Raises:
+            aws_sdk_clouddirectory.errors.access_denied_exception.AccessDeniedException: <p>Access denied or directory not found. Either you don't have permissions for this directory or the directory does not exist. Try calling <a>ListDirectories</a> and check your permissions.</p>
+            aws_sdk_clouddirectory.errors.directory_not_enabled_exception.DirectoryNotEnabledException: <p>Operations are only permitted on enabled directories.</p>
+            aws_sdk_clouddirectory.errors.internal_service_exception.InternalServiceException: <p>Indicates a problem that must be resolved by Amazon Web Services. This might be a transient error in which case you can retry your request until it succeeds. Otherwise, go to the <a href=\"http://status.aws.amazon.com/\">AWS Service Health Dashboard</a> site to see if there are any operational issues with the service.</p>
+            aws_sdk_clouddirectory.errors.invalid_arn_exception.InvalidArnException: <p>Indicates that the provided ARN value is not valid.</p>
+            aws_sdk_clouddirectory.errors.limit_exceeded_exception.LimitExceededException: <p>Indicates that limits are exceeded. See <a href=\"https://docs.aws.amazon.com/clouddirectory/latest/developerguide/limits.html\">Limits</a> for more information.</p>
+            aws_sdk_clouddirectory.errors.not_policy_exception.NotPolicyException: <p>Indicates that the requested operation can only operate on policy objects.</p>
+            aws_sdk_clouddirectory.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_clouddirectory.errors.retryable_conflict_exception.RetryableConflictException: <p>Occurs when a conflict with a previous successful write is detected. For example, if a write operation occurs on an object and then an attempt is made to read the object using “SERIALIZABLE” consistency, this exception may result. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+            aws_sdk_clouddirectory.errors.validation_exception.ValidationException: <p>Indicates that your request is malformed in some manner. See the exception message.</p>
+            aws_sdk_clouddirectory.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To attach a policy to an object
 
@@ -507,6 +557,21 @@ class AsyncCloudDirectoryClient:
             directory_arn: <p>The Amazon Resource Name (ARN) of the directory where the object and index exist.</p>
             index_reference: <p>A reference to the index that you are attaching the object to.</p>
             target_reference: <p>A reference to the object that you are attaching to the index.</p>
+
+        Raises:
+            aws_sdk_clouddirectory.errors.access_denied_exception.AccessDeniedException: <p>Access denied or directory not found. Either you don't have permissions for this directory or the directory does not exist. Try calling <a>ListDirectories</a> and check your permissions.</p>
+            aws_sdk_clouddirectory.errors.directory_not_enabled_exception.DirectoryNotEnabledException: <p>Operations are only permitted on enabled directories.</p>
+            aws_sdk_clouddirectory.errors.indexed_attribute_missing_exception.IndexedAttributeMissingException: <p>An object has been attempted to be attached to an object that does not have the appropriate attribute value.</p>
+            aws_sdk_clouddirectory.errors.internal_service_exception.InternalServiceException: <p>Indicates a problem that must be resolved by Amazon Web Services. This might be a transient error in which case you can retry your request until it succeeds. Otherwise, go to the <a href=\"http://status.aws.amazon.com/\">AWS Service Health Dashboard</a> site to see if there are any operational issues with the service.</p>
+            aws_sdk_clouddirectory.errors.invalid_arn_exception.InvalidArnException: <p>Indicates that the provided ARN value is not valid.</p>
+            aws_sdk_clouddirectory.errors.invalid_attachment_exception.InvalidAttachmentException: <p>Indicates that an attempt to make an attachment was invalid. For example, attaching two nodes with a link type that is not applicable to the nodes or attempting to apply a schema to a directory a second time.</p>
+            aws_sdk_clouddirectory.errors.limit_exceeded_exception.LimitExceededException: <p>Indicates that limits are exceeded. See <a href=\"https://docs.aws.amazon.com/clouddirectory/latest/developerguide/limits.html\">Limits</a> for more information.</p>
+            aws_sdk_clouddirectory.errors.link_name_already_in_use_exception.LinkNameAlreadyInUseException: <p>Indicates that a link could not be created due to a naming conflict. Choose a different name and then try again.</p>
+            aws_sdk_clouddirectory.errors.not_index_exception.NotIndexException: <p>Indicates that the requested operation can only operate on index objects.</p>
+            aws_sdk_clouddirectory.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_clouddirectory.errors.retryable_conflict_exception.RetryableConflictException: <p>Occurs when a conflict with a previous successful write is detected. For example, if a write operation occurs on an object and then an attempt is made to read the object using “SERIALIZABLE” consistency, this exception may result. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+            aws_sdk_clouddirectory.errors.validation_exception.ValidationException: <p>Indicates that your request is malformed in some manner. See the exception message.</p>
+            aws_sdk_clouddirectory.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To attach a index to an object
@@ -561,6 +626,19 @@ class AsyncCloudDirectoryClient:
             typed_link_facet: <p>Identifies the typed link facet that is associated with the typed link.</p>
             attributes: <p>A set of attributes that are associated with the typed link.</p>
 
+        Raises:
+            aws_sdk_clouddirectory.errors.access_denied_exception.AccessDeniedException: <p>Access denied or directory not found. Either you don't have permissions for this directory or the directory does not exist. Try calling <a>ListDirectories</a> and check your permissions.</p>
+            aws_sdk_clouddirectory.errors.directory_not_enabled_exception.DirectoryNotEnabledException: <p>Operations are only permitted on enabled directories.</p>
+            aws_sdk_clouddirectory.errors.facet_validation_exception.FacetValidationException: <p>The <a>Facet</a> that you provided was not well formed or could not be validated with the schema.</p>
+            aws_sdk_clouddirectory.errors.internal_service_exception.InternalServiceException: <p>Indicates a problem that must be resolved by Amazon Web Services. This might be a transient error in which case you can retry your request until it succeeds. Otherwise, go to the <a href=\"http://status.aws.amazon.com/\">AWS Service Health Dashboard</a> site to see if there are any operational issues with the service.</p>
+            aws_sdk_clouddirectory.errors.invalid_arn_exception.InvalidArnException: <p>Indicates that the provided ARN value is not valid.</p>
+            aws_sdk_clouddirectory.errors.invalid_attachment_exception.InvalidAttachmentException: <p>Indicates that an attempt to make an attachment was invalid. For example, attaching two nodes with a link type that is not applicable to the nodes or attempting to apply a schema to a directory a second time.</p>
+            aws_sdk_clouddirectory.errors.limit_exceeded_exception.LimitExceededException: <p>Indicates that limits are exceeded. See <a href=\"https://docs.aws.amazon.com/clouddirectory/latest/developerguide/limits.html\">Limits</a> for more information.</p>
+            aws_sdk_clouddirectory.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_clouddirectory.errors.retryable_conflict_exception.RetryableConflictException: <p>Occurs when a conflict with a previous successful write is detected. For example, if a write operation occurs on an object and then an attempt is made to read the object using “SERIALIZABLE” consistency, this exception may result. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+            aws_sdk_clouddirectory.errors.validation_exception.ValidationException: <p>Indicates that your request is malformed in some manner. See the exception message.</p>
+            aws_sdk_clouddirectory.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To attach a typed link to an object
 
@@ -614,6 +692,16 @@ class AsyncCloudDirectoryClient:
             operations: <p>A list of operations that are part of the batch.</p>
             consistency_level: <p>Represents the manner and timing in which the successful write or update of an object is reflected in a subsequent read operation of that same object.</p>
 
+        Raises:
+            aws_sdk_clouddirectory.errors.access_denied_exception.AccessDeniedException: <p>Access denied or directory not found. Either you don't have permissions for this directory or the directory does not exist. Try calling <a>ListDirectories</a> and check your permissions.</p>
+            aws_sdk_clouddirectory.errors.directory_not_enabled_exception.DirectoryNotEnabledException: <p>Operations are only permitted on enabled directories.</p>
+            aws_sdk_clouddirectory.errors.internal_service_exception.InternalServiceException: <p>Indicates a problem that must be resolved by Amazon Web Services. This might be a transient error in which case you can retry your request until it succeeds. Otherwise, go to the <a href=\"http://status.aws.amazon.com/\">AWS Service Health Dashboard</a> site to see if there are any operational issues with the service.</p>
+            aws_sdk_clouddirectory.errors.invalid_arn_exception.InvalidArnException: <p>Indicates that the provided ARN value is not valid.</p>
+            aws_sdk_clouddirectory.errors.limit_exceeded_exception.LimitExceededException: <p>Indicates that limits are exceeded. See <a href=\"https://docs.aws.amazon.com/clouddirectory/latest/developerguide/limits.html\">Limits</a> for more information.</p>
+            aws_sdk_clouddirectory.errors.retryable_conflict_exception.RetryableConflictException: <p>Occurs when a conflict with a previous successful write is detected. For example, if a write operation occurs on an object and then an attempt is made to read the object using “SERIALIZABLE” consistency, this exception may result. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+            aws_sdk_clouddirectory.errors.validation_exception.ValidationException: <p>Indicates that your request is malformed in some manner. See the exception message.</p>
+            aws_sdk_clouddirectory.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To run a batch read command
 
@@ -662,6 +750,17 @@ class AsyncCloudDirectoryClient:
             directory_arn: <p>The Amazon Resource Name (ARN) that is associated with the <a>Directory</a>. For more information, see <a>arns</a>.</p>
             operations: <p>A list of operations that are part of the batch.</p>
 
+        Raises:
+            aws_sdk_clouddirectory.errors.access_denied_exception.AccessDeniedException: <p>Access denied or directory not found. Either you don't have permissions for this directory or the directory does not exist. Try calling <a>ListDirectories</a> and check your permissions.</p>
+            aws_sdk_clouddirectory.errors.batch_write_exception.BatchWriteException: <p>A <code>BatchWrite</code> exception has occurred.</p>
+            aws_sdk_clouddirectory.errors.directory_not_enabled_exception.DirectoryNotEnabledException: <p>Operations are only permitted on enabled directories.</p>
+            aws_sdk_clouddirectory.errors.internal_service_exception.InternalServiceException: <p>Indicates a problem that must be resolved by Amazon Web Services. This might be a transient error in which case you can retry your request until it succeeds. Otherwise, go to the <a href=\"http://status.aws.amazon.com/\">AWS Service Health Dashboard</a> site to see if there are any operational issues with the service.</p>
+            aws_sdk_clouddirectory.errors.invalid_arn_exception.InvalidArnException: <p>Indicates that the provided ARN value is not valid.</p>
+            aws_sdk_clouddirectory.errors.limit_exceeded_exception.LimitExceededException: <p>Indicates that limits are exceeded. See <a href=\"https://docs.aws.amazon.com/clouddirectory/latest/developerguide/limits.html\">Limits</a> for more information.</p>
+            aws_sdk_clouddirectory.errors.retryable_conflict_exception.RetryableConflictException: <p>Occurs when a conflict with a previous successful write is detected. For example, if a write operation occurs on an object and then an attempt is made to read the object using “SERIALIZABLE” consistency, this exception may result. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+            aws_sdk_clouddirectory.errors.validation_exception.ValidationException: <p>Indicates that your request is malformed in some manner. See the exception message.</p>
+            aws_sdk_clouddirectory.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To run a batch write command
 
@@ -709,6 +808,17 @@ class AsyncCloudDirectoryClient:
         Args:
             name: <p>The name of the <a>Directory</a>. Should be unique per account, per region.</p>
             schema_arn: <p>The Amazon Resource Name (ARN) of the published schema that will be copied into the data <a>Directory</a>. For more information, see <a>arns</a>.</p>
+
+        Raises:
+            aws_sdk_clouddirectory.errors.access_denied_exception.AccessDeniedException: <p>Access denied or directory not found. Either you don't have permissions for this directory or the directory does not exist. Try calling <a>ListDirectories</a> and check your permissions.</p>
+            aws_sdk_clouddirectory.errors.directory_already_exists_exception.DirectoryAlreadyExistsException: <p>Indicates that a <a>Directory</a> could not be created due to a naming conflict. Choose a different name and try again.</p>
+            aws_sdk_clouddirectory.errors.internal_service_exception.InternalServiceException: <p>Indicates a problem that must be resolved by Amazon Web Services. This might be a transient error in which case you can retry your request until it succeeds. Otherwise, go to the <a href=\"http://status.aws.amazon.com/\">AWS Service Health Dashboard</a> site to see if there are any operational issues with the service.</p>
+            aws_sdk_clouddirectory.errors.invalid_arn_exception.InvalidArnException: <p>Indicates that the provided ARN value is not valid.</p>
+            aws_sdk_clouddirectory.errors.limit_exceeded_exception.LimitExceededException: <p>Indicates that limits are exceeded. See <a href=\"https://docs.aws.amazon.com/clouddirectory/latest/developerguide/limits.html\">Limits</a> for more information.</p>
+            aws_sdk_clouddirectory.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_clouddirectory.errors.retryable_conflict_exception.RetryableConflictException: <p>Occurs when a conflict with a previous successful write is detected. For example, if a write operation occurs on an object and then an attempt is made to read the object using “SERIALIZABLE” consistency, this exception may result. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+            aws_sdk_clouddirectory.errors.validation_exception.ValidationException: <p>Indicates that your request is malformed in some manner. See the exception message.</p>
+            aws_sdk_clouddirectory.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To create a new Cloud Directory
@@ -767,6 +877,19 @@ class AsyncCloudDirectoryClient:
             attributes: <p>The attributes that are associated with the <a>Facet</a>.</p>
             object_type: <p>Specifies whether a given object created from this facet is of type node, leaf node, policy or index.</p> <ul> <li> <p>Node: Can have multiple children but one parent.</p> </li> </ul> <ul> <li> <p>Leaf node: Cannot have children but can have multiple parents.</p> </li> </ul> <ul> <li> <p>Policy: Allows you to store a policy document and policy type. For more information, see <a href=\"https://docs.aws.amazon.com/clouddirectory/latest/developerguide/key_concepts_directory.html#key_concepts_policies\">Policies</a>.</p> </li> </ul> <ul> <li> <p>Index: Can be created with the Index API.</p> </li> </ul>
             facet_style: <p>There are two different styles that you can define on any given facet, <code>Static</code> and <code>Dynamic</code>. For static facets, all attributes must be defined in the schema. For dynamic facets, attributes can be defined during data plane operations.</p>
+
+        Raises:
+            aws_sdk_clouddirectory.errors.access_denied_exception.AccessDeniedException: <p>Access denied or directory not found. Either you don't have permissions for this directory or the directory does not exist. Try calling <a>ListDirectories</a> and check your permissions.</p>
+            aws_sdk_clouddirectory.errors.facet_already_exists_exception.FacetAlreadyExistsException: <p>A facet with the same name already exists.</p>
+            aws_sdk_clouddirectory.errors.facet_validation_exception.FacetValidationException: <p>The <a>Facet</a> that you provided was not well formed or could not be validated with the schema.</p>
+            aws_sdk_clouddirectory.errors.internal_service_exception.InternalServiceException: <p>Indicates a problem that must be resolved by Amazon Web Services. This might be a transient error in which case you can retry your request until it succeeds. Otherwise, go to the <a href=\"http://status.aws.amazon.com/\">AWS Service Health Dashboard</a> site to see if there are any operational issues with the service.</p>
+            aws_sdk_clouddirectory.errors.invalid_arn_exception.InvalidArnException: <p>Indicates that the provided ARN value is not valid.</p>
+            aws_sdk_clouddirectory.errors.invalid_rule_exception.InvalidRuleException: <p>Occurs when any of the rule parameter keys or values are invalid.</p>
+            aws_sdk_clouddirectory.errors.limit_exceeded_exception.LimitExceededException: <p>Indicates that limits are exceeded. See <a href=\"https://docs.aws.amazon.com/clouddirectory/latest/developerguide/limits.html\">Limits</a> for more information.</p>
+            aws_sdk_clouddirectory.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_clouddirectory.errors.retryable_conflict_exception.RetryableConflictException: <p>Occurs when a conflict with a previous successful write is detected. For example, if a write operation occurs on an object and then an attempt is made to read the object using “SERIALIZABLE” consistency, this exception may result. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+            aws_sdk_clouddirectory.errors.validation_exception.ValidationException: <p>Indicates that your request is malformed in some manner. See the exception message.</p>
+            aws_sdk_clouddirectory.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To create a facet
@@ -827,6 +950,20 @@ class AsyncCloudDirectoryClient:
             is_unique: <p>Indicates whether the attribute that is being indexed has unique values or not.</p>
             parent_reference: <p>A reference to the parent object that contains the index object.</p>
             link_name: <p>The name of the link between the parent object and the index object.</p>
+
+        Raises:
+            aws_sdk_clouddirectory.errors.access_denied_exception.AccessDeniedException: <p>Access denied or directory not found. Either you don't have permissions for this directory or the directory does not exist. Try calling <a>ListDirectories</a> and check your permissions.</p>
+            aws_sdk_clouddirectory.errors.directory_not_enabled_exception.DirectoryNotEnabledException: <p>Operations are only permitted on enabled directories.</p>
+            aws_sdk_clouddirectory.errors.facet_validation_exception.FacetValidationException: <p>The <a>Facet</a> that you provided was not well formed or could not be validated with the schema.</p>
+            aws_sdk_clouddirectory.errors.internal_service_exception.InternalServiceException: <p>Indicates a problem that must be resolved by Amazon Web Services. This might be a transient error in which case you can retry your request until it succeeds. Otherwise, go to the <a href=\"http://status.aws.amazon.com/\">AWS Service Health Dashboard</a> site to see if there are any operational issues with the service.</p>
+            aws_sdk_clouddirectory.errors.invalid_arn_exception.InvalidArnException: <p>Indicates that the provided ARN value is not valid.</p>
+            aws_sdk_clouddirectory.errors.limit_exceeded_exception.LimitExceededException: <p>Indicates that limits are exceeded. See <a href=\"https://docs.aws.amazon.com/clouddirectory/latest/developerguide/limits.html\">Limits</a> for more information.</p>
+            aws_sdk_clouddirectory.errors.link_name_already_in_use_exception.LinkNameAlreadyInUseException: <p>Indicates that a link could not be created due to a naming conflict. Choose a different name and then try again.</p>
+            aws_sdk_clouddirectory.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_clouddirectory.errors.retryable_conflict_exception.RetryableConflictException: <p>Occurs when a conflict with a previous successful write is detected. For example, if a write operation occurs on an object and then an attempt is made to read the object using “SERIALIZABLE” consistency, this exception may result. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+            aws_sdk_clouddirectory.errors.unsupported_index_type_exception.UnsupportedIndexTypeException: <p>Indicates that the requested index type is not supported.</p>
+            aws_sdk_clouddirectory.errors.validation_exception.ValidationException: <p>Indicates that your request is malformed in some manner. See the exception message.</p>
+            aws_sdk_clouddirectory.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To create an index
@@ -889,6 +1026,20 @@ class AsyncCloudDirectoryClient:
             parent_reference: <p>If specified, the parent reference to which this object will be attached.</p>
             link_name: <p>The name of link that is used to attach this object to a parent.</p>
 
+        Raises:
+            aws_sdk_clouddirectory.errors.access_denied_exception.AccessDeniedException: <p>Access denied or directory not found. Either you don't have permissions for this directory or the directory does not exist. Try calling <a>ListDirectories</a> and check your permissions.</p>
+            aws_sdk_clouddirectory.errors.directory_not_enabled_exception.DirectoryNotEnabledException: <p>Operations are only permitted on enabled directories.</p>
+            aws_sdk_clouddirectory.errors.facet_validation_exception.FacetValidationException: <p>The <a>Facet</a> that you provided was not well formed or could not be validated with the schema.</p>
+            aws_sdk_clouddirectory.errors.internal_service_exception.InternalServiceException: <p>Indicates a problem that must be resolved by Amazon Web Services. This might be a transient error in which case you can retry your request until it succeeds. Otherwise, go to the <a href=\"http://status.aws.amazon.com/\">AWS Service Health Dashboard</a> site to see if there are any operational issues with the service.</p>
+            aws_sdk_clouddirectory.errors.invalid_arn_exception.InvalidArnException: <p>Indicates that the provided ARN value is not valid.</p>
+            aws_sdk_clouddirectory.errors.limit_exceeded_exception.LimitExceededException: <p>Indicates that limits are exceeded. See <a href=\"https://docs.aws.amazon.com/clouddirectory/latest/developerguide/limits.html\">Limits</a> for more information.</p>
+            aws_sdk_clouddirectory.errors.link_name_already_in_use_exception.LinkNameAlreadyInUseException: <p>Indicates that a link could not be created due to a naming conflict. Choose a different name and then try again.</p>
+            aws_sdk_clouddirectory.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_clouddirectory.errors.retryable_conflict_exception.RetryableConflictException: <p>Occurs when a conflict with a previous successful write is detected. For example, if a write operation occurs on an object and then an attempt is made to read the object using “SERIALIZABLE” consistency, this exception may result. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+            aws_sdk_clouddirectory.errors.unsupported_index_type_exception.UnsupportedIndexTypeException: <p>Indicates that the requested index type is not supported.</p>
+            aws_sdk_clouddirectory.errors.validation_exception.ValidationException: <p>Indicates that your request is malformed in some manner. See the exception message.</p>
+            aws_sdk_clouddirectory.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To create an object
 
@@ -939,6 +1090,16 @@ class AsyncCloudDirectoryClient:
         Args:
             name: <p>The name that is associated with the schema. This is unique to each account and in each region.</p>
 
+        Raises:
+            aws_sdk_clouddirectory.errors.access_denied_exception.AccessDeniedException: <p>Access denied or directory not found. Either you don't have permissions for this directory or the directory does not exist. Try calling <a>ListDirectories</a> and check your permissions.</p>
+            aws_sdk_clouddirectory.errors.internal_service_exception.InternalServiceException: <p>Indicates a problem that must be resolved by Amazon Web Services. This might be a transient error in which case you can retry your request until it succeeds. Otherwise, go to the <a href=\"http://status.aws.amazon.com/\">AWS Service Health Dashboard</a> site to see if there are any operational issues with the service.</p>
+            aws_sdk_clouddirectory.errors.invalid_arn_exception.InvalidArnException: <p>Indicates that the provided ARN value is not valid.</p>
+            aws_sdk_clouddirectory.errors.limit_exceeded_exception.LimitExceededException: <p>Indicates that limits are exceeded. See <a href=\"https://docs.aws.amazon.com/clouddirectory/latest/developerguide/limits.html\">Limits</a> for more information.</p>
+            aws_sdk_clouddirectory.errors.retryable_conflict_exception.RetryableConflictException: <p>Occurs when a conflict with a previous successful write is detected. For example, if a write operation occurs on an object and then an attempt is made to read the object using “SERIALIZABLE” consistency, this exception may result. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+            aws_sdk_clouddirectory.errors.schema_already_exists_exception.SchemaAlreadyExistsException: <p>Indicates that a schema could not be created due to a naming conflict. Please select a different name and then try again.</p>
+            aws_sdk_clouddirectory.errors.validation_exception.ValidationException: <p>Indicates that your request is malformed in some manner. See the exception message.</p>
+            aws_sdk_clouddirectory.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To create a schema
 
@@ -983,6 +1144,19 @@ class AsyncCloudDirectoryClient:
         Args:
             schema_arn: <p>The Amazon Resource Name (ARN) that is associated with the schema. For more information, see <a>arns</a>.</p>
             facet: <p> <a>Facet</a> structure that is associated with the typed link facet.</p>
+
+        Raises:
+            aws_sdk_clouddirectory.errors.access_denied_exception.AccessDeniedException: <p>Access denied or directory not found. Either you don't have permissions for this directory or the directory does not exist. Try calling <a>ListDirectories</a> and check your permissions.</p>
+            aws_sdk_clouddirectory.errors.facet_already_exists_exception.FacetAlreadyExistsException: <p>A facet with the same name already exists.</p>
+            aws_sdk_clouddirectory.errors.facet_validation_exception.FacetValidationException: <p>The <a>Facet</a> that you provided was not well formed or could not be validated with the schema.</p>
+            aws_sdk_clouddirectory.errors.internal_service_exception.InternalServiceException: <p>Indicates a problem that must be resolved by Amazon Web Services. This might be a transient error in which case you can retry your request until it succeeds. Otherwise, go to the <a href=\"http://status.aws.amazon.com/\">AWS Service Health Dashboard</a> site to see if there are any operational issues with the service.</p>
+            aws_sdk_clouddirectory.errors.invalid_arn_exception.InvalidArnException: <p>Indicates that the provided ARN value is not valid.</p>
+            aws_sdk_clouddirectory.errors.invalid_rule_exception.InvalidRuleException: <p>Occurs when any of the rule parameter keys or values are invalid.</p>
+            aws_sdk_clouddirectory.errors.limit_exceeded_exception.LimitExceededException: <p>Indicates that limits are exceeded. See <a href=\"https://docs.aws.amazon.com/clouddirectory/latest/developerguide/limits.html\">Limits</a> for more information.</p>
+            aws_sdk_clouddirectory.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_clouddirectory.errors.retryable_conflict_exception.RetryableConflictException: <p>Occurs when a conflict with a previous successful write is detected. For example, if a write operation occurs on an object and then an attempt is made to read the object using “SERIALIZABLE” consistency, this exception may result. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+            aws_sdk_clouddirectory.errors.validation_exception.ValidationException: <p>Indicates that your request is malformed in some manner. See the exception message.</p>
+            aws_sdk_clouddirectory.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To create a typed link facet
@@ -1030,6 +1204,18 @@ class AsyncCloudDirectoryClient:
         Args:
             directory_arn: <p>The ARN of the directory to delete.</p>
 
+        Raises:
+            aws_sdk_clouddirectory.errors.access_denied_exception.AccessDeniedException: <p>Access denied or directory not found. Either you don't have permissions for this directory or the directory does not exist. Try calling <a>ListDirectories</a> and check your permissions.</p>
+            aws_sdk_clouddirectory.errors.directory_deleted_exception.DirectoryDeletedException: <p>A directory that has been deleted and to which access has been attempted. Note: The requested resource will eventually cease to exist.</p>
+            aws_sdk_clouddirectory.errors.directory_not_disabled_exception.DirectoryNotDisabledException: <p>An operation can only operate on a disabled directory.</p>
+            aws_sdk_clouddirectory.errors.internal_service_exception.InternalServiceException: <p>Indicates a problem that must be resolved by Amazon Web Services. This might be a transient error in which case you can retry your request until it succeeds. Otherwise, go to the <a href=\"http://status.aws.amazon.com/\">AWS Service Health Dashboard</a> site to see if there are any operational issues with the service.</p>
+            aws_sdk_clouddirectory.errors.invalid_arn_exception.InvalidArnException: <p>Indicates that the provided ARN value is not valid.</p>
+            aws_sdk_clouddirectory.errors.limit_exceeded_exception.LimitExceededException: <p>Indicates that limits are exceeded. See <a href=\"https://docs.aws.amazon.com/clouddirectory/latest/developerguide/limits.html\">Limits</a> for more information.</p>
+            aws_sdk_clouddirectory.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_clouddirectory.errors.retryable_conflict_exception.RetryableConflictException: <p>Occurs when a conflict with a previous successful write is detected. For example, if a write operation occurs on an object and then an attempt is made to read the object using “SERIALIZABLE” consistency, this exception may result. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+            aws_sdk_clouddirectory.errors.validation_exception.ValidationException: <p>Indicates that your request is malformed in some manner. See the exception message.</p>
+            aws_sdk_clouddirectory.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To delete a directory
 
@@ -1074,6 +1260,18 @@ class AsyncCloudDirectoryClient:
         Args:
             schema_arn: <p>The Amazon Resource Name (ARN) that is associated with the <a>Facet</a>. For more information, see <a>arns</a>.</p>
             name: <p>The name of the facet to delete.</p>
+
+        Raises:
+            aws_sdk_clouddirectory.errors.access_denied_exception.AccessDeniedException: <p>Access denied or directory not found. Either you don't have permissions for this directory or the directory does not exist. Try calling <a>ListDirectories</a> and check your permissions.</p>
+            aws_sdk_clouddirectory.errors.facet_in_use_exception.FacetInUseException: <p>Occurs when deleting a facet that contains an attribute that is a target to an attribute reference in a different facet.</p>
+            aws_sdk_clouddirectory.errors.facet_not_found_exception.FacetNotFoundException: <p>The specified <a>Facet</a> could not be found.</p>
+            aws_sdk_clouddirectory.errors.internal_service_exception.InternalServiceException: <p>Indicates a problem that must be resolved by Amazon Web Services. This might be a transient error in which case you can retry your request until it succeeds. Otherwise, go to the <a href=\"http://status.aws.amazon.com/\">AWS Service Health Dashboard</a> site to see if there are any operational issues with the service.</p>
+            aws_sdk_clouddirectory.errors.invalid_arn_exception.InvalidArnException: <p>Indicates that the provided ARN value is not valid.</p>
+            aws_sdk_clouddirectory.errors.limit_exceeded_exception.LimitExceededException: <p>Indicates that limits are exceeded. See <a href=\"https://docs.aws.amazon.com/clouddirectory/latest/developerguide/limits.html\">Limits</a> for more information.</p>
+            aws_sdk_clouddirectory.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_clouddirectory.errors.retryable_conflict_exception.RetryableConflictException: <p>Occurs when a conflict with a previous successful write is detected. For example, if a write operation occurs on an object and then an attempt is made to read the object using “SERIALIZABLE” consistency, this exception may result. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+            aws_sdk_clouddirectory.errors.validation_exception.ValidationException: <p>Indicates that your request is malformed in some manner. See the exception message.</p>
+            aws_sdk_clouddirectory.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To delete a facet
@@ -1121,6 +1319,18 @@ class AsyncCloudDirectoryClient:
             directory_arn: <p>The Amazon Resource Name (ARN) that is associated with the <a>Directory</a> where the object resides. For more information, see <a>arns</a>.</p>
             object_reference: <p>A reference that identifies the object.</p>
 
+        Raises:
+            aws_sdk_clouddirectory.errors.access_denied_exception.AccessDeniedException: <p>Access denied or directory not found. Either you don't have permissions for this directory or the directory does not exist. Try calling <a>ListDirectories</a> and check your permissions.</p>
+            aws_sdk_clouddirectory.errors.directory_not_enabled_exception.DirectoryNotEnabledException: <p>Operations are only permitted on enabled directories.</p>
+            aws_sdk_clouddirectory.errors.internal_service_exception.InternalServiceException: <p>Indicates a problem that must be resolved by Amazon Web Services. This might be a transient error in which case you can retry your request until it succeeds. Otherwise, go to the <a href=\"http://status.aws.amazon.com/\">AWS Service Health Dashboard</a> site to see if there are any operational issues with the service.</p>
+            aws_sdk_clouddirectory.errors.invalid_arn_exception.InvalidArnException: <p>Indicates that the provided ARN value is not valid.</p>
+            aws_sdk_clouddirectory.errors.limit_exceeded_exception.LimitExceededException: <p>Indicates that limits are exceeded. See <a href=\"https://docs.aws.amazon.com/clouddirectory/latest/developerguide/limits.html\">Limits</a> for more information.</p>
+            aws_sdk_clouddirectory.errors.object_not_detached_exception.ObjectNotDetachedException: <p>Indicates that the requested operation cannot be completed because the object has not been detached from the tree.</p>
+            aws_sdk_clouddirectory.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_clouddirectory.errors.retryable_conflict_exception.RetryableConflictException: <p>Occurs when a conflict with a previous successful write is detected. For example, if a write operation occurs on an object and then an attempt is made to read the object using “SERIALIZABLE” consistency, this exception may result. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+            aws_sdk_clouddirectory.errors.validation_exception.ValidationException: <p>Indicates that your request is malformed in some manner. See the exception message.</p>
+            aws_sdk_clouddirectory.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To delete an object
 
@@ -1164,6 +1374,17 @@ class AsyncCloudDirectoryClient:
 
         Args:
             schema_arn: <p>The Amazon Resource Name (ARN) of the development schema. For more information, see <a>arns</a>.</p>
+
+        Raises:
+            aws_sdk_clouddirectory.errors.access_denied_exception.AccessDeniedException: <p>Access denied or directory not found. Either you don't have permissions for this directory or the directory does not exist. Try calling <a>ListDirectories</a> and check your permissions.</p>
+            aws_sdk_clouddirectory.errors.internal_service_exception.InternalServiceException: <p>Indicates a problem that must be resolved by Amazon Web Services. This might be a transient error in which case you can retry your request until it succeeds. Otherwise, go to the <a href=\"http://status.aws.amazon.com/\">AWS Service Health Dashboard</a> site to see if there are any operational issues with the service.</p>
+            aws_sdk_clouddirectory.errors.invalid_arn_exception.InvalidArnException: <p>Indicates that the provided ARN value is not valid.</p>
+            aws_sdk_clouddirectory.errors.limit_exceeded_exception.LimitExceededException: <p>Indicates that limits are exceeded. See <a href=\"https://docs.aws.amazon.com/clouddirectory/latest/developerguide/limits.html\">Limits</a> for more information.</p>
+            aws_sdk_clouddirectory.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_clouddirectory.errors.retryable_conflict_exception.RetryableConflictException: <p>Occurs when a conflict with a previous successful write is detected. For example, if a write operation occurs on an object and then an attempt is made to read the object using “SERIALIZABLE” consistency, this exception may result. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+            aws_sdk_clouddirectory.errors.still_contains_links_exception.StillContainsLinksException: <p>The object could not be deleted because links still exist. Remove the links and then try the operation again.</p>
+            aws_sdk_clouddirectory.errors.validation_exception.ValidationException: <p>Indicates that your request is malformed in some manner. See the exception message.</p>
+            aws_sdk_clouddirectory.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To delete a schema
@@ -1209,6 +1430,17 @@ class AsyncCloudDirectoryClient:
         Args:
             schema_arn: <p>The Amazon Resource Name (ARN) that is associated with the schema. For more information, see <a>arns</a>.</p>
             name: <p>The unique name of the typed link facet.</p>
+
+        Raises:
+            aws_sdk_clouddirectory.errors.access_denied_exception.AccessDeniedException: <p>Access denied or directory not found. Either you don't have permissions for this directory or the directory does not exist. Try calling <a>ListDirectories</a> and check your permissions.</p>
+            aws_sdk_clouddirectory.errors.facet_not_found_exception.FacetNotFoundException: <p>The specified <a>Facet</a> could not be found.</p>
+            aws_sdk_clouddirectory.errors.internal_service_exception.InternalServiceException: <p>Indicates a problem that must be resolved by Amazon Web Services. This might be a transient error in which case you can retry your request until it succeeds. Otherwise, go to the <a href=\"http://status.aws.amazon.com/\">AWS Service Health Dashboard</a> site to see if there are any operational issues with the service.</p>
+            aws_sdk_clouddirectory.errors.invalid_arn_exception.InvalidArnException: <p>Indicates that the provided ARN value is not valid.</p>
+            aws_sdk_clouddirectory.errors.limit_exceeded_exception.LimitExceededException: <p>Indicates that limits are exceeded. See <a href=\"https://docs.aws.amazon.com/clouddirectory/latest/developerguide/limits.html\">Limits</a> for more information.</p>
+            aws_sdk_clouddirectory.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_clouddirectory.errors.retryable_conflict_exception.RetryableConflictException: <p>Occurs when a conflict with a previous successful write is detected. For example, if a write operation occurs on an object and then an attempt is made to read the object using “SERIALIZABLE” consistency, this exception may result. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+            aws_sdk_clouddirectory.errors.validation_exception.ValidationException: <p>Indicates that your request is malformed in some manner. See the exception message.</p>
+            aws_sdk_clouddirectory.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To delete a typed link facet
@@ -1257,6 +1489,19 @@ class AsyncCloudDirectoryClient:
             directory_arn: <p>The Amazon Resource Name (ARN) of the directory the index and object exist in.</p>
             index_reference: <p>A reference to the index object.</p>
             target_reference: <p>A reference to the object being detached from the index.</p>
+
+        Raises:
+            aws_sdk_clouddirectory.errors.access_denied_exception.AccessDeniedException: <p>Access denied or directory not found. Either you don't have permissions for this directory or the directory does not exist. Try calling <a>ListDirectories</a> and check your permissions.</p>
+            aws_sdk_clouddirectory.errors.directory_not_enabled_exception.DirectoryNotEnabledException: <p>Operations are only permitted on enabled directories.</p>
+            aws_sdk_clouddirectory.errors.internal_service_exception.InternalServiceException: <p>Indicates a problem that must be resolved by Amazon Web Services. This might be a transient error in which case you can retry your request until it succeeds. Otherwise, go to the <a href=\"http://status.aws.amazon.com/\">AWS Service Health Dashboard</a> site to see if there are any operational issues with the service.</p>
+            aws_sdk_clouddirectory.errors.invalid_arn_exception.InvalidArnException: <p>Indicates that the provided ARN value is not valid.</p>
+            aws_sdk_clouddirectory.errors.limit_exceeded_exception.LimitExceededException: <p>Indicates that limits are exceeded. See <a href=\"https://docs.aws.amazon.com/clouddirectory/latest/developerguide/limits.html\">Limits</a> for more information.</p>
+            aws_sdk_clouddirectory.errors.not_index_exception.NotIndexException: <p>Indicates that the requested operation can only operate on index objects.</p>
+            aws_sdk_clouddirectory.errors.object_already_detached_exception.ObjectAlreadyDetachedException: <p>Indicates that the object is not attached to the index.</p>
+            aws_sdk_clouddirectory.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_clouddirectory.errors.retryable_conflict_exception.RetryableConflictException: <p>Occurs when a conflict with a previous successful write is detected. For example, if a write operation occurs on an object and then an attempt is made to read the object using “SERIALIZABLE” consistency, this exception may result. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+            aws_sdk_clouddirectory.errors.validation_exception.ValidationException: <p>Indicates that your request is malformed in some manner. See the exception message.</p>
+            aws_sdk_clouddirectory.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To detach an object from an index
@@ -1307,6 +1552,18 @@ class AsyncCloudDirectoryClient:
             parent_reference: <p>The parent reference from which the object with the specified link name is detached.</p>
             link_name: <p>The link name associated with the object that needs to be detached.</p>
 
+        Raises:
+            aws_sdk_clouddirectory.errors.access_denied_exception.AccessDeniedException: <p>Access denied or directory not found. Either you don't have permissions for this directory or the directory does not exist. Try calling <a>ListDirectories</a> and check your permissions.</p>
+            aws_sdk_clouddirectory.errors.directory_not_enabled_exception.DirectoryNotEnabledException: <p>Operations are only permitted on enabled directories.</p>
+            aws_sdk_clouddirectory.errors.internal_service_exception.InternalServiceException: <p>Indicates a problem that must be resolved by Amazon Web Services. This might be a transient error in which case you can retry your request until it succeeds. Otherwise, go to the <a href=\"http://status.aws.amazon.com/\">AWS Service Health Dashboard</a> site to see if there are any operational issues with the service.</p>
+            aws_sdk_clouddirectory.errors.invalid_arn_exception.InvalidArnException: <p>Indicates that the provided ARN value is not valid.</p>
+            aws_sdk_clouddirectory.errors.limit_exceeded_exception.LimitExceededException: <p>Indicates that limits are exceeded. See <a href=\"https://docs.aws.amazon.com/clouddirectory/latest/developerguide/limits.html\">Limits</a> for more information.</p>
+            aws_sdk_clouddirectory.errors.not_node_exception.NotNodeException: <p>Occurs when any invalid operations are performed on an object that is not a node, such as calling <code>ListObjectChildren</code> for a leaf node object.</p>
+            aws_sdk_clouddirectory.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_clouddirectory.errors.retryable_conflict_exception.RetryableConflictException: <p>Occurs when a conflict with a previous successful write is detected. For example, if a write operation occurs on an object and then an attempt is made to read the object using “SERIALIZABLE” consistency, this exception may result. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+            aws_sdk_clouddirectory.errors.validation_exception.ValidationException: <p>Indicates that your request is malformed in some manner. See the exception message.</p>
+            aws_sdk_clouddirectory.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To detach an object from its parent object
 
@@ -1356,6 +1613,18 @@ class AsyncCloudDirectoryClient:
             policy_reference: <p>Reference that identifies the policy object.</p>
             object_reference: <p>Reference that identifies the object whose policy object will be detached.</p>
 
+        Raises:
+            aws_sdk_clouddirectory.errors.access_denied_exception.AccessDeniedException: <p>Access denied or directory not found. Either you don't have permissions for this directory or the directory does not exist. Try calling <a>ListDirectories</a> and check your permissions.</p>
+            aws_sdk_clouddirectory.errors.directory_not_enabled_exception.DirectoryNotEnabledException: <p>Operations are only permitted on enabled directories.</p>
+            aws_sdk_clouddirectory.errors.internal_service_exception.InternalServiceException: <p>Indicates a problem that must be resolved by Amazon Web Services. This might be a transient error in which case you can retry your request until it succeeds. Otherwise, go to the <a href=\"http://status.aws.amazon.com/\">AWS Service Health Dashboard</a> site to see if there are any operational issues with the service.</p>
+            aws_sdk_clouddirectory.errors.invalid_arn_exception.InvalidArnException: <p>Indicates that the provided ARN value is not valid.</p>
+            aws_sdk_clouddirectory.errors.limit_exceeded_exception.LimitExceededException: <p>Indicates that limits are exceeded. See <a href=\"https://docs.aws.amazon.com/clouddirectory/latest/developerguide/limits.html\">Limits</a> for more information.</p>
+            aws_sdk_clouddirectory.errors.not_policy_exception.NotPolicyException: <p>Indicates that the requested operation can only operate on policy objects.</p>
+            aws_sdk_clouddirectory.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_clouddirectory.errors.retryable_conflict_exception.RetryableConflictException: <p>Occurs when a conflict with a previous successful write is detected. For example, if a write operation occurs on an object and then an attempt is made to read the object using “SERIALIZABLE” consistency, this exception may result. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+            aws_sdk_clouddirectory.errors.validation_exception.ValidationException: <p>Indicates that your request is malformed in some manner. See the exception message.</p>
+            aws_sdk_clouddirectory.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To detach a policy from an object
 
@@ -1403,6 +1672,18 @@ class AsyncCloudDirectoryClient:
             directory_arn: <p>The Amazon Resource Name (ARN) of the directory where you want to detach the typed link.</p>
             typed_link_specifier: <p>Used to accept a typed link specifier as input.</p>
 
+        Raises:
+            aws_sdk_clouddirectory.errors.access_denied_exception.AccessDeniedException: <p>Access denied or directory not found. Either you don't have permissions for this directory or the directory does not exist. Try calling <a>ListDirectories</a> and check your permissions.</p>
+            aws_sdk_clouddirectory.errors.directory_not_enabled_exception.DirectoryNotEnabledException: <p>Operations are only permitted on enabled directories.</p>
+            aws_sdk_clouddirectory.errors.facet_validation_exception.FacetValidationException: <p>The <a>Facet</a> that you provided was not well formed or could not be validated with the schema.</p>
+            aws_sdk_clouddirectory.errors.internal_service_exception.InternalServiceException: <p>Indicates a problem that must be resolved by Amazon Web Services. This might be a transient error in which case you can retry your request until it succeeds. Otherwise, go to the <a href=\"http://status.aws.amazon.com/\">AWS Service Health Dashboard</a> site to see if there are any operational issues with the service.</p>
+            aws_sdk_clouddirectory.errors.invalid_arn_exception.InvalidArnException: <p>Indicates that the provided ARN value is not valid.</p>
+            aws_sdk_clouddirectory.errors.limit_exceeded_exception.LimitExceededException: <p>Indicates that limits are exceeded. See <a href=\"https://docs.aws.amazon.com/clouddirectory/latest/developerguide/limits.html\">Limits</a> for more information.</p>
+            aws_sdk_clouddirectory.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_clouddirectory.errors.retryable_conflict_exception.RetryableConflictException: <p>Occurs when a conflict with a previous successful write is detected. For example, if a write operation occurs on an object and then an attempt is made to read the object using “SERIALIZABLE” consistency, this exception may result. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+            aws_sdk_clouddirectory.errors.validation_exception.ValidationException: <p>Indicates that your request is malformed in some manner. See the exception message.</p>
+            aws_sdk_clouddirectory.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To detach a typed link from an object
 
@@ -1444,6 +1725,17 @@ class AsyncCloudDirectoryClient:
 
         Args:
             directory_arn: <p>The ARN of the directory to disable.</p>
+
+        Raises:
+            aws_sdk_clouddirectory.errors.access_denied_exception.AccessDeniedException: <p>Access denied or directory not found. Either you don't have permissions for this directory or the directory does not exist. Try calling <a>ListDirectories</a> and check your permissions.</p>
+            aws_sdk_clouddirectory.errors.directory_deleted_exception.DirectoryDeletedException: <p>A directory that has been deleted and to which access has been attempted. Note: The requested resource will eventually cease to exist.</p>
+            aws_sdk_clouddirectory.errors.internal_service_exception.InternalServiceException: <p>Indicates a problem that must be resolved by Amazon Web Services. This might be a transient error in which case you can retry your request until it succeeds. Otherwise, go to the <a href=\"http://status.aws.amazon.com/\">AWS Service Health Dashboard</a> site to see if there are any operational issues with the service.</p>
+            aws_sdk_clouddirectory.errors.invalid_arn_exception.InvalidArnException: <p>Indicates that the provided ARN value is not valid.</p>
+            aws_sdk_clouddirectory.errors.limit_exceeded_exception.LimitExceededException: <p>Indicates that limits are exceeded. See <a href=\"https://docs.aws.amazon.com/clouddirectory/latest/developerguide/limits.html\">Limits</a> for more information.</p>
+            aws_sdk_clouddirectory.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_clouddirectory.errors.retryable_conflict_exception.RetryableConflictException: <p>Occurs when a conflict with a previous successful write is detected. For example, if a write operation occurs on an object and then an attempt is made to read the object using “SERIALIZABLE” consistency, this exception may result. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+            aws_sdk_clouddirectory.errors.validation_exception.ValidationException: <p>Indicates that your request is malformed in some manner. See the exception message.</p>
+            aws_sdk_clouddirectory.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To disable a directory
@@ -1490,6 +1782,17 @@ class AsyncCloudDirectoryClient:
         Args:
             directory_arn: <p>The ARN of the directory to enable.</p>
 
+        Raises:
+            aws_sdk_clouddirectory.errors.access_denied_exception.AccessDeniedException: <p>Access denied or directory not found. Either you don't have permissions for this directory or the directory does not exist. Try calling <a>ListDirectories</a> and check your permissions.</p>
+            aws_sdk_clouddirectory.errors.directory_deleted_exception.DirectoryDeletedException: <p>A directory that has been deleted and to which access has been attempted. Note: The requested resource will eventually cease to exist.</p>
+            aws_sdk_clouddirectory.errors.internal_service_exception.InternalServiceException: <p>Indicates a problem that must be resolved by Amazon Web Services. This might be a transient error in which case you can retry your request until it succeeds. Otherwise, go to the <a href=\"http://status.aws.amazon.com/\">AWS Service Health Dashboard</a> site to see if there are any operational issues with the service.</p>
+            aws_sdk_clouddirectory.errors.invalid_arn_exception.InvalidArnException: <p>Indicates that the provided ARN value is not valid.</p>
+            aws_sdk_clouddirectory.errors.limit_exceeded_exception.LimitExceededException: <p>Indicates that limits are exceeded. See <a href=\"https://docs.aws.amazon.com/clouddirectory/latest/developerguide/limits.html\">Limits</a> for more information.</p>
+            aws_sdk_clouddirectory.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_clouddirectory.errors.retryable_conflict_exception.RetryableConflictException: <p>Occurs when a conflict with a previous successful write is detected. For example, if a write operation occurs on an object and then an attempt is made to read the object using “SERIALIZABLE” consistency, this exception may result. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+            aws_sdk_clouddirectory.errors.validation_exception.ValidationException: <p>Indicates that your request is malformed in some manner. See the exception message.</p>
+            aws_sdk_clouddirectory.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To enable a disabled directory
 
@@ -1532,6 +1835,16 @@ class AsyncCloudDirectoryClient:
 
         Args:
             schema_arn: <p>The ARN of the applied schema.</p>
+
+        Raises:
+            aws_sdk_clouddirectory.errors.access_denied_exception.AccessDeniedException: <p>Access denied or directory not found. Either you don't have permissions for this directory or the directory does not exist. Try calling <a>ListDirectories</a> and check your permissions.</p>
+            aws_sdk_clouddirectory.errors.internal_service_exception.InternalServiceException: <p>Indicates a problem that must be resolved by Amazon Web Services. This might be a transient error in which case you can retry your request until it succeeds. Otherwise, go to the <a href=\"http://status.aws.amazon.com/\">AWS Service Health Dashboard</a> site to see if there are any operational issues with the service.</p>
+            aws_sdk_clouddirectory.errors.invalid_arn_exception.InvalidArnException: <p>Indicates that the provided ARN value is not valid.</p>
+            aws_sdk_clouddirectory.errors.limit_exceeded_exception.LimitExceededException: <p>Indicates that limits are exceeded. See <a href=\"https://docs.aws.amazon.com/clouddirectory/latest/developerguide/limits.html\">Limits</a> for more information.</p>
+            aws_sdk_clouddirectory.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_clouddirectory.errors.retryable_conflict_exception.RetryableConflictException: <p>Occurs when a conflict with a previous successful write is detected. For example, if a write operation occurs on an object and then an attempt is made to read the object using “SERIALIZABLE” consistency, this exception may result. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+            aws_sdk_clouddirectory.errors.validation_exception.ValidationException: <p>Indicates that your request is malformed in some manner. See the exception message.</p>
+            aws_sdk_clouddirectory.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1570,6 +1883,15 @@ class AsyncCloudDirectoryClient:
 
         Args:
             directory_arn: <p>The ARN of the directory.</p>
+
+        Raises:
+            aws_sdk_clouddirectory.errors.access_denied_exception.AccessDeniedException: <p>Access denied or directory not found. Either you don't have permissions for this directory or the directory does not exist. Try calling <a>ListDirectories</a> and check your permissions.</p>
+            aws_sdk_clouddirectory.errors.internal_service_exception.InternalServiceException: <p>Indicates a problem that must be resolved by Amazon Web Services. This might be a transient error in which case you can retry your request until it succeeds. Otherwise, go to the <a href=\"http://status.aws.amazon.com/\">AWS Service Health Dashboard</a> site to see if there are any operational issues with the service.</p>
+            aws_sdk_clouddirectory.errors.invalid_arn_exception.InvalidArnException: <p>Indicates that the provided ARN value is not valid.</p>
+            aws_sdk_clouddirectory.errors.limit_exceeded_exception.LimitExceededException: <p>Indicates that limits are exceeded. See <a href=\"https://docs.aws.amazon.com/clouddirectory/latest/developerguide/limits.html\">Limits</a> for more information.</p>
+            aws_sdk_clouddirectory.errors.retryable_conflict_exception.RetryableConflictException: <p>Occurs when a conflict with a previous successful write is detected. For example, if a write operation occurs on an object and then an attempt is made to read the object using “SERIALIZABLE” consistency, this exception may result. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+            aws_sdk_clouddirectory.errors.validation_exception.ValidationException: <p>Indicates that your request is malformed in some manner. See the exception message.</p>
+            aws_sdk_clouddirectory.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To get information about a directory
@@ -1615,6 +1937,17 @@ class AsyncCloudDirectoryClient:
         Args:
             schema_arn: <p>The Amazon Resource Name (ARN) that is associated with the <a>Facet</a>. For more information, see <a>arns</a>.</p>
             name: <p>The name of the facet to retrieve.</p>
+
+        Raises:
+            aws_sdk_clouddirectory.errors.access_denied_exception.AccessDeniedException: <p>Access denied or directory not found. Either you don't have permissions for this directory or the directory does not exist. Try calling <a>ListDirectories</a> and check your permissions.</p>
+            aws_sdk_clouddirectory.errors.facet_not_found_exception.FacetNotFoundException: <p>The specified <a>Facet</a> could not be found.</p>
+            aws_sdk_clouddirectory.errors.internal_service_exception.InternalServiceException: <p>Indicates a problem that must be resolved by Amazon Web Services. This might be a transient error in which case you can retry your request until it succeeds. Otherwise, go to the <a href=\"http://status.aws.amazon.com/\">AWS Service Health Dashboard</a> site to see if there are any operational issues with the service.</p>
+            aws_sdk_clouddirectory.errors.invalid_arn_exception.InvalidArnException: <p>Indicates that the provided ARN value is not valid.</p>
+            aws_sdk_clouddirectory.errors.limit_exceeded_exception.LimitExceededException: <p>Indicates that limits are exceeded. See <a href=\"https://docs.aws.amazon.com/clouddirectory/latest/developerguide/limits.html\">Limits</a> for more information.</p>
+            aws_sdk_clouddirectory.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_clouddirectory.errors.retryable_conflict_exception.RetryableConflictException: <p>Occurs when a conflict with a previous successful write is detected. For example, if a write operation occurs on an object and then an attempt is made to read the object using “SERIALIZABLE” consistency, this exception may result. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+            aws_sdk_clouddirectory.errors.validation_exception.ValidationException: <p>Indicates that your request is malformed in some manner. See the exception message.</p>
+            aws_sdk_clouddirectory.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To get information about a facet
@@ -1667,6 +2000,18 @@ class AsyncCloudDirectoryClient:
             typed_link_specifier: <p>Allows a typed link specifier to be accepted as input.</p>
             attribute_names: <p>A list of attribute names whose values will be retrieved.</p>
             consistency_level: <p>The consistency level at which to retrieve the attributes on a typed link.</p>
+
+        Raises:
+            aws_sdk_clouddirectory.errors.access_denied_exception.AccessDeniedException: <p>Access denied or directory not found. Either you don't have permissions for this directory or the directory does not exist. Try calling <a>ListDirectories</a> and check your permissions.</p>
+            aws_sdk_clouddirectory.errors.directory_not_enabled_exception.DirectoryNotEnabledException: <p>Operations are only permitted on enabled directories.</p>
+            aws_sdk_clouddirectory.errors.facet_validation_exception.FacetValidationException: <p>The <a>Facet</a> that you provided was not well formed or could not be validated with the schema.</p>
+            aws_sdk_clouddirectory.errors.internal_service_exception.InternalServiceException: <p>Indicates a problem that must be resolved by Amazon Web Services. This might be a transient error in which case you can retry your request until it succeeds. Otherwise, go to the <a href=\"http://status.aws.amazon.com/\">AWS Service Health Dashboard</a> site to see if there are any operational issues with the service.</p>
+            aws_sdk_clouddirectory.errors.invalid_arn_exception.InvalidArnException: <p>Indicates that the provided ARN value is not valid.</p>
+            aws_sdk_clouddirectory.errors.limit_exceeded_exception.LimitExceededException: <p>Indicates that limits are exceeded. See <a href=\"https://docs.aws.amazon.com/clouddirectory/latest/developerguide/limits.html\">Limits</a> for more information.</p>
+            aws_sdk_clouddirectory.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_clouddirectory.errors.retryable_conflict_exception.RetryableConflictException: <p>Occurs when a conflict with a previous successful write is detected. For example, if a write operation occurs on an object and then an attempt is made to read the object using “SERIALIZABLE” consistency, this exception may result. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+            aws_sdk_clouddirectory.errors.validation_exception.ValidationException: <p>Indicates that your request is malformed in some manner. See the exception message.</p>
+            aws_sdk_clouddirectory.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1719,6 +2064,18 @@ class AsyncCloudDirectoryClient:
             consistency_level: <p>The consistency level at which to retrieve the attributes on an object.</p>
             schema_facet: <p>Identifier for the facet whose attributes will be retrieved. See <a>SchemaFacet</a> for details.</p>
             attribute_names: <p>List of attribute names whose values will be retrieved.</p>
+
+        Raises:
+            aws_sdk_clouddirectory.errors.access_denied_exception.AccessDeniedException: <p>Access denied or directory not found. Either you don't have permissions for this directory or the directory does not exist. Try calling <a>ListDirectories</a> and check your permissions.</p>
+            aws_sdk_clouddirectory.errors.directory_not_enabled_exception.DirectoryNotEnabledException: <p>Operations are only permitted on enabled directories.</p>
+            aws_sdk_clouddirectory.errors.facet_validation_exception.FacetValidationException: <p>The <a>Facet</a> that you provided was not well formed or could not be validated with the schema.</p>
+            aws_sdk_clouddirectory.errors.internal_service_exception.InternalServiceException: <p>Indicates a problem that must be resolved by Amazon Web Services. This might be a transient error in which case you can retry your request until it succeeds. Otherwise, go to the <a href=\"http://status.aws.amazon.com/\">AWS Service Health Dashboard</a> site to see if there are any operational issues with the service.</p>
+            aws_sdk_clouddirectory.errors.invalid_arn_exception.InvalidArnException: <p>Indicates that the provided ARN value is not valid.</p>
+            aws_sdk_clouddirectory.errors.limit_exceeded_exception.LimitExceededException: <p>Indicates that limits are exceeded. See <a href=\"https://docs.aws.amazon.com/clouddirectory/latest/developerguide/limits.html\">Limits</a> for more information.</p>
+            aws_sdk_clouddirectory.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_clouddirectory.errors.retryable_conflict_exception.RetryableConflictException: <p>Occurs when a conflict with a previous successful write is detected. For example, if a write operation occurs on an object and then an attempt is made to read the object using “SERIALIZABLE” consistency, this exception may result. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+            aws_sdk_clouddirectory.errors.validation_exception.ValidationException: <p>Indicates that your request is malformed in some manner. See the exception message.</p>
+            aws_sdk_clouddirectory.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1769,6 +2126,17 @@ class AsyncCloudDirectoryClient:
             object_reference: <p>A reference to the object.</p>
             consistency_level: <p>The consistency level at which to retrieve the object information.</p>
 
+        Raises:
+            aws_sdk_clouddirectory.errors.access_denied_exception.AccessDeniedException: <p>Access denied or directory not found. Either you don't have permissions for this directory or the directory does not exist. Try calling <a>ListDirectories</a> and check your permissions.</p>
+            aws_sdk_clouddirectory.errors.directory_not_enabled_exception.DirectoryNotEnabledException: <p>Operations are only permitted on enabled directories.</p>
+            aws_sdk_clouddirectory.errors.internal_service_exception.InternalServiceException: <p>Indicates a problem that must be resolved by Amazon Web Services. This might be a transient error in which case you can retry your request until it succeeds. Otherwise, go to the <a href=\"http://status.aws.amazon.com/\">AWS Service Health Dashboard</a> site to see if there are any operational issues with the service.</p>
+            aws_sdk_clouddirectory.errors.invalid_arn_exception.InvalidArnException: <p>Indicates that the provided ARN value is not valid.</p>
+            aws_sdk_clouddirectory.errors.limit_exceeded_exception.LimitExceededException: <p>Indicates that limits are exceeded. See <a href=\"https://docs.aws.amazon.com/clouddirectory/latest/developerguide/limits.html\">Limits</a> for more information.</p>
+            aws_sdk_clouddirectory.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_clouddirectory.errors.retryable_conflict_exception.RetryableConflictException: <p>Occurs when a conflict with a previous successful write is detected. For example, if a write operation occurs on an object and then an attempt is made to read the object using “SERIALIZABLE” consistency, this exception may result. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+            aws_sdk_clouddirectory.errors.validation_exception.ValidationException: <p>Indicates that your request is malformed in some manner. See the exception message.</p>
+            aws_sdk_clouddirectory.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To get information about an object
 
@@ -1815,6 +2183,16 @@ class AsyncCloudDirectoryClient:
         Args:
             schema_arn: <p>The ARN of the schema to retrieve.</p>
 
+        Raises:
+            aws_sdk_clouddirectory.errors.access_denied_exception.AccessDeniedException: <p>Access denied or directory not found. Either you don't have permissions for this directory or the directory does not exist. Try calling <a>ListDirectories</a> and check your permissions.</p>
+            aws_sdk_clouddirectory.errors.internal_service_exception.InternalServiceException: <p>Indicates a problem that must be resolved by Amazon Web Services. This might be a transient error in which case you can retry your request until it succeeds. Otherwise, go to the <a href=\"http://status.aws.amazon.com/\">AWS Service Health Dashboard</a> site to see if there are any operational issues with the service.</p>
+            aws_sdk_clouddirectory.errors.invalid_arn_exception.InvalidArnException: <p>Indicates that the provided ARN value is not valid.</p>
+            aws_sdk_clouddirectory.errors.limit_exceeded_exception.LimitExceededException: <p>Indicates that limits are exceeded. See <a href=\"https://docs.aws.amazon.com/clouddirectory/latest/developerguide/limits.html\">Limits</a> for more information.</p>
+            aws_sdk_clouddirectory.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_clouddirectory.errors.retryable_conflict_exception.RetryableConflictException: <p>Occurs when a conflict with a previous successful write is detected. For example, if a write operation occurs on an object and then an attempt is made to read the object using “SERIALIZABLE” consistency, this exception may result. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+            aws_sdk_clouddirectory.errors.validation_exception.ValidationException: <p>Indicates that your request is malformed in some manner. See the exception message.</p>
+            aws_sdk_clouddirectory.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To get schema information and display it in JSON format
 
@@ -1859,6 +2237,18 @@ class AsyncCloudDirectoryClient:
         Args:
             schema_arn: <p>The Amazon Resource Name (ARN) that is associated with the schema. For more information, see <a>arns</a>.</p>
             name: <p>The unique name of the typed link facet.</p>
+
+        Raises:
+            aws_sdk_clouddirectory.errors.access_denied_exception.AccessDeniedException: <p>Access denied or directory not found. Either you don't have permissions for this directory or the directory does not exist. Try calling <a>ListDirectories</a> and check your permissions.</p>
+            aws_sdk_clouddirectory.errors.facet_not_found_exception.FacetNotFoundException: <p>The specified <a>Facet</a> could not be found.</p>
+            aws_sdk_clouddirectory.errors.internal_service_exception.InternalServiceException: <p>Indicates a problem that must be resolved by Amazon Web Services. This might be a transient error in which case you can retry your request until it succeeds. Otherwise, go to the <a href=\"http://status.aws.amazon.com/\">AWS Service Health Dashboard</a> site to see if there are any operational issues with the service.</p>
+            aws_sdk_clouddirectory.errors.invalid_arn_exception.InvalidArnException: <p>Indicates that the provided ARN value is not valid.</p>
+            aws_sdk_clouddirectory.errors.invalid_next_token_exception.InvalidNextTokenException: <p>Indicates that the <code>NextToken</code> value is not valid.</p>
+            aws_sdk_clouddirectory.errors.limit_exceeded_exception.LimitExceededException: <p>Indicates that limits are exceeded. See <a href=\"https://docs.aws.amazon.com/clouddirectory/latest/developerguide/limits.html\">Limits</a> for more information.</p>
+            aws_sdk_clouddirectory.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_clouddirectory.errors.retryable_conflict_exception.RetryableConflictException: <p>Occurs when a conflict with a previous successful write is detected. For example, if a write operation occurs on an object and then an attempt is made to read the object using “SERIALIZABLE” consistency, this exception may result. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+            aws_sdk_clouddirectory.errors.validation_exception.ValidationException: <p>Indicates that your request is malformed in some manner. See the exception message.</p>
+            aws_sdk_clouddirectory.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To get information about a typed link facet
@@ -1913,6 +2303,17 @@ class AsyncCloudDirectoryClient:
             schema_arn: <p>The response for <code>ListAppliedSchemaArns</code> when this parameter is used will list all minor version ARNs for a major version.</p>
             next_token: <p>The pagination token.</p>
             max_results: <p>The maximum number of results to retrieve.</p>
+
+        Raises:
+            aws_sdk_clouddirectory.errors.access_denied_exception.AccessDeniedException: <p>Access denied or directory not found. Either you don't have permissions for this directory or the directory does not exist. Try calling <a>ListDirectories</a> and check your permissions.</p>
+            aws_sdk_clouddirectory.errors.internal_service_exception.InternalServiceException: <p>Indicates a problem that must be resolved by Amazon Web Services. This might be a transient error in which case you can retry your request until it succeeds. Otherwise, go to the <a href=\"http://status.aws.amazon.com/\">AWS Service Health Dashboard</a> site to see if there are any operational issues with the service.</p>
+            aws_sdk_clouddirectory.errors.invalid_arn_exception.InvalidArnException: <p>Indicates that the provided ARN value is not valid.</p>
+            aws_sdk_clouddirectory.errors.invalid_next_token_exception.InvalidNextTokenException: <p>Indicates that the <code>NextToken</code> value is not valid.</p>
+            aws_sdk_clouddirectory.errors.limit_exceeded_exception.LimitExceededException: <p>Indicates that limits are exceeded. See <a href=\"https://docs.aws.amazon.com/clouddirectory/latest/developerguide/limits.html\">Limits</a> for more information.</p>
+            aws_sdk_clouddirectory.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_clouddirectory.errors.retryable_conflict_exception.RetryableConflictException: <p>Occurs when a conflict with a previous successful write is detected. For example, if a write operation occurs on an object and then an attempt is made to read the object using “SERIALIZABLE” consistency, this exception may result. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+            aws_sdk_clouddirectory.errors.validation_exception.ValidationException: <p>Indicates that your request is malformed in some manner. See the exception message.</p>
+            aws_sdk_clouddirectory.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To list applied schema ARNs for a specified directory
@@ -1977,6 +2378,17 @@ class AsyncCloudDirectoryClient:
             max_results: <p>The maximum number of results to retrieve.</p>
             consistency_level: <p>The consistency level to use for this operation.</p>
 
+        Raises:
+            aws_sdk_clouddirectory.errors.access_denied_exception.AccessDeniedException: <p>Access denied or directory not found. Either you don't have permissions for this directory or the directory does not exist. Try calling <a>ListDirectories</a> and check your permissions.</p>
+            aws_sdk_clouddirectory.errors.directory_not_enabled_exception.DirectoryNotEnabledException: <p>Operations are only permitted on enabled directories.</p>
+            aws_sdk_clouddirectory.errors.internal_service_exception.InternalServiceException: <p>Indicates a problem that must be resolved by Amazon Web Services. This might be a transient error in which case you can retry your request until it succeeds. Otherwise, go to the <a href=\"http://status.aws.amazon.com/\">AWS Service Health Dashboard</a> site to see if there are any operational issues with the service.</p>
+            aws_sdk_clouddirectory.errors.invalid_arn_exception.InvalidArnException: <p>Indicates that the provided ARN value is not valid.</p>
+            aws_sdk_clouddirectory.errors.limit_exceeded_exception.LimitExceededException: <p>Indicates that limits are exceeded. See <a href=\"https://docs.aws.amazon.com/clouddirectory/latest/developerguide/limits.html\">Limits</a> for more information.</p>
+            aws_sdk_clouddirectory.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_clouddirectory.errors.retryable_conflict_exception.RetryableConflictException: <p>Occurs when a conflict with a previous successful write is detected. For example, if a write operation occurs on an object and then an attempt is made to read the object using “SERIALIZABLE” consistency, this exception may result. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+            aws_sdk_clouddirectory.errors.validation_exception.ValidationException: <p>Indicates that your request is malformed in some manner. See the exception message.</p>
+            aws_sdk_clouddirectory.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To list the indices attached to an object
 
@@ -2032,6 +2444,17 @@ class AsyncCloudDirectoryClient:
         Args:
             next_token: <p>The pagination token.</p>
             max_results: <p>The maximum number of results to retrieve.</p>
+
+        Raises:
+            aws_sdk_clouddirectory.errors.access_denied_exception.AccessDeniedException: <p>Access denied or directory not found. Either you don't have permissions for this directory or the directory does not exist. Try calling <a>ListDirectories</a> and check your permissions.</p>
+            aws_sdk_clouddirectory.errors.internal_service_exception.InternalServiceException: <p>Indicates a problem that must be resolved by Amazon Web Services. This might be a transient error in which case you can retry your request until it succeeds. Otherwise, go to the <a href=\"http://status.aws.amazon.com/\">AWS Service Health Dashboard</a> site to see if there are any operational issues with the service.</p>
+            aws_sdk_clouddirectory.errors.invalid_arn_exception.InvalidArnException: <p>Indicates that the provided ARN value is not valid.</p>
+            aws_sdk_clouddirectory.errors.invalid_next_token_exception.InvalidNextTokenException: <p>Indicates that the <code>NextToken</code> value is not valid.</p>
+            aws_sdk_clouddirectory.errors.limit_exceeded_exception.LimitExceededException: <p>Indicates that limits are exceeded. See <a href=\"https://docs.aws.amazon.com/clouddirectory/latest/developerguide/limits.html\">Limits</a> for more information.</p>
+            aws_sdk_clouddirectory.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_clouddirectory.errors.retryable_conflict_exception.RetryableConflictException: <p>Occurs when a conflict with a previous successful write is detected. For example, if a write operation occurs on an object and then an attempt is made to read the object using “SERIALIZABLE” consistency, this exception may result. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+            aws_sdk_clouddirectory.errors.validation_exception.ValidationException: <p>Indicates that your request is malformed in some manner. See the exception message.</p>
+            aws_sdk_clouddirectory.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To list all development schema arns in your AWS account
@@ -2091,6 +2514,16 @@ class AsyncCloudDirectoryClient:
             max_results: <p>The maximum number of results to retrieve.</p>
             state: <p>The state of the directories in the list. Can be either Enabled, Disabled, or Deleted.</p>
 
+        Raises:
+            aws_sdk_clouddirectory.errors.access_denied_exception.AccessDeniedException: <p>Access denied or directory not found. Either you don't have permissions for this directory or the directory does not exist. Try calling <a>ListDirectories</a> and check your permissions.</p>
+            aws_sdk_clouddirectory.errors.internal_service_exception.InternalServiceException: <p>Indicates a problem that must be resolved by Amazon Web Services. This might be a transient error in which case you can retry your request until it succeeds. Otherwise, go to the <a href=\"http://status.aws.amazon.com/\">AWS Service Health Dashboard</a> site to see if there are any operational issues with the service.</p>
+            aws_sdk_clouddirectory.errors.invalid_arn_exception.InvalidArnException: <p>Indicates that the provided ARN value is not valid.</p>
+            aws_sdk_clouddirectory.errors.invalid_next_token_exception.InvalidNextTokenException: <p>Indicates that the <code>NextToken</code> value is not valid.</p>
+            aws_sdk_clouddirectory.errors.limit_exceeded_exception.LimitExceededException: <p>Indicates that limits are exceeded. See <a href=\"https://docs.aws.amazon.com/clouddirectory/latest/developerguide/limits.html\">Limits</a> for more information.</p>
+            aws_sdk_clouddirectory.errors.retryable_conflict_exception.RetryableConflictException: <p>Occurs when a conflict with a previous successful write is detected. For example, if a write operation occurs on an object and then an attempt is made to read the object using “SERIALIZABLE” consistency, this exception may result. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+            aws_sdk_clouddirectory.errors.validation_exception.ValidationException: <p>Indicates that your request is malformed in some manner. See the exception message.</p>
+            aws_sdk_clouddirectory.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To list all directories in your AWS account
 
@@ -2149,6 +2582,18 @@ class AsyncCloudDirectoryClient:
             next_token: <p>The pagination token.</p>
             max_results: <p>The maximum number of results to retrieve.</p>
 
+        Raises:
+            aws_sdk_clouddirectory.errors.access_denied_exception.AccessDeniedException: <p>Access denied or directory not found. Either you don't have permissions for this directory or the directory does not exist. Try calling <a>ListDirectories</a> and check your permissions.</p>
+            aws_sdk_clouddirectory.errors.facet_not_found_exception.FacetNotFoundException: <p>The specified <a>Facet</a> could not be found.</p>
+            aws_sdk_clouddirectory.errors.internal_service_exception.InternalServiceException: <p>Indicates a problem that must be resolved by Amazon Web Services. This might be a transient error in which case you can retry your request until it succeeds. Otherwise, go to the <a href=\"http://status.aws.amazon.com/\">AWS Service Health Dashboard</a> site to see if there are any operational issues with the service.</p>
+            aws_sdk_clouddirectory.errors.invalid_arn_exception.InvalidArnException: <p>Indicates that the provided ARN value is not valid.</p>
+            aws_sdk_clouddirectory.errors.invalid_next_token_exception.InvalidNextTokenException: <p>Indicates that the <code>NextToken</code> value is not valid.</p>
+            aws_sdk_clouddirectory.errors.limit_exceeded_exception.LimitExceededException: <p>Indicates that limits are exceeded. See <a href=\"https://docs.aws.amazon.com/clouddirectory/latest/developerguide/limits.html\">Limits</a> for more information.</p>
+            aws_sdk_clouddirectory.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_clouddirectory.errors.retryable_conflict_exception.RetryableConflictException: <p>Occurs when a conflict with a previous successful write is detected. For example, if a write operation occurs on an object and then an attempt is made to read the object using “SERIALIZABLE” consistency, this exception may result. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+            aws_sdk_clouddirectory.errors.validation_exception.ValidationException: <p>Indicates that your request is malformed in some manner. See the exception message.</p>
+            aws_sdk_clouddirectory.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To list facet attributes
 
@@ -2206,6 +2651,17 @@ class AsyncCloudDirectoryClient:
             schema_arn: <p>The Amazon Resource Name (ARN) to retrieve facet names from.</p>
             next_token: <p>The pagination token.</p>
             max_results: <p>The maximum number of results to retrieve.</p>
+
+        Raises:
+            aws_sdk_clouddirectory.errors.access_denied_exception.AccessDeniedException: <p>Access denied or directory not found. Either you don't have permissions for this directory or the directory does not exist. Try calling <a>ListDirectories</a> and check your permissions.</p>
+            aws_sdk_clouddirectory.errors.internal_service_exception.InternalServiceException: <p>Indicates a problem that must be resolved by Amazon Web Services. This might be a transient error in which case you can retry your request until it succeeds. Otherwise, go to the <a href=\"http://status.aws.amazon.com/\">AWS Service Health Dashboard</a> site to see if there are any operational issues with the service.</p>
+            aws_sdk_clouddirectory.errors.invalid_arn_exception.InvalidArnException: <p>Indicates that the provided ARN value is not valid.</p>
+            aws_sdk_clouddirectory.errors.invalid_next_token_exception.InvalidNextTokenException: <p>Indicates that the <code>NextToken</code> value is not valid.</p>
+            aws_sdk_clouddirectory.errors.limit_exceeded_exception.LimitExceededException: <p>Indicates that limits are exceeded. See <a href=\"https://docs.aws.amazon.com/clouddirectory/latest/developerguide/limits.html\">Limits</a> for more information.</p>
+            aws_sdk_clouddirectory.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_clouddirectory.errors.retryable_conflict_exception.RetryableConflictException: <p>Occurs when a conflict with a previous successful write is detected. For example, if a write operation occurs on an object and then an attempt is made to read the object using “SERIALIZABLE” consistency, this exception may result. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+            aws_sdk_clouddirectory.errors.validation_exception.ValidationException: <p>Indicates that your request is malformed in some manner. See the exception message.</p>
+            aws_sdk_clouddirectory.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To list facet names
@@ -2275,6 +2731,19 @@ class AsyncCloudDirectoryClient:
             next_token: <p>The pagination token.</p>
             max_results: <p>The maximum number of results to retrieve.</p>
             consistency_level: <p>The consistency level to execute the request at.</p>
+
+        Raises:
+            aws_sdk_clouddirectory.errors.access_denied_exception.AccessDeniedException: <p>Access denied or directory not found. Either you don't have permissions for this directory or the directory does not exist. Try calling <a>ListDirectories</a> and check your permissions.</p>
+            aws_sdk_clouddirectory.errors.directory_not_enabled_exception.DirectoryNotEnabledException: <p>Operations are only permitted on enabled directories.</p>
+            aws_sdk_clouddirectory.errors.facet_validation_exception.FacetValidationException: <p>The <a>Facet</a> that you provided was not well formed or could not be validated with the schema.</p>
+            aws_sdk_clouddirectory.errors.internal_service_exception.InternalServiceException: <p>Indicates a problem that must be resolved by Amazon Web Services. This might be a transient error in which case you can retry your request until it succeeds. Otherwise, go to the <a href=\"http://status.aws.amazon.com/\">AWS Service Health Dashboard</a> site to see if there are any operational issues with the service.</p>
+            aws_sdk_clouddirectory.errors.invalid_arn_exception.InvalidArnException: <p>Indicates that the provided ARN value is not valid.</p>
+            aws_sdk_clouddirectory.errors.invalid_next_token_exception.InvalidNextTokenException: <p>Indicates that the <code>NextToken</code> value is not valid.</p>
+            aws_sdk_clouddirectory.errors.limit_exceeded_exception.LimitExceededException: <p>Indicates that limits are exceeded. See <a href=\"https://docs.aws.amazon.com/clouddirectory/latest/developerguide/limits.html\">Limits</a> for more information.</p>
+            aws_sdk_clouddirectory.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_clouddirectory.errors.retryable_conflict_exception.RetryableConflictException: <p>Occurs when a conflict with a previous successful write is detected. For example, if a write operation occurs on an object and then an attempt is made to read the object using “SERIALIZABLE” consistency, this exception may result. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+            aws_sdk_clouddirectory.errors.validation_exception.ValidationException: <p>Indicates that your request is malformed in some manner. See the exception message.</p>
+            aws_sdk_clouddirectory.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To list incoming typed links
@@ -2348,6 +2817,20 @@ class AsyncCloudDirectoryClient:
             next_token: <p>The pagination token.</p>
             consistency_level: <p>The consistency level to execute the request at.</p>
 
+        Raises:
+            aws_sdk_clouddirectory.errors.access_denied_exception.AccessDeniedException: <p>Access denied or directory not found. Either you don't have permissions for this directory or the directory does not exist. Try calling <a>ListDirectories</a> and check your permissions.</p>
+            aws_sdk_clouddirectory.errors.directory_not_enabled_exception.DirectoryNotEnabledException: <p>Operations are only permitted on enabled directories.</p>
+            aws_sdk_clouddirectory.errors.facet_validation_exception.FacetValidationException: <p>The <a>Facet</a> that you provided was not well formed or could not be validated with the schema.</p>
+            aws_sdk_clouddirectory.errors.internal_service_exception.InternalServiceException: <p>Indicates a problem that must be resolved by Amazon Web Services. This might be a transient error in which case you can retry your request until it succeeds. Otherwise, go to the <a href=\"http://status.aws.amazon.com/\">AWS Service Health Dashboard</a> site to see if there are any operational issues with the service.</p>
+            aws_sdk_clouddirectory.errors.invalid_arn_exception.InvalidArnException: <p>Indicates that the provided ARN value is not valid.</p>
+            aws_sdk_clouddirectory.errors.invalid_next_token_exception.InvalidNextTokenException: <p>Indicates that the <code>NextToken</code> value is not valid.</p>
+            aws_sdk_clouddirectory.errors.limit_exceeded_exception.LimitExceededException: <p>Indicates that limits are exceeded. See <a href=\"https://docs.aws.amazon.com/clouddirectory/latest/developerguide/limits.html\">Limits</a> for more information.</p>
+            aws_sdk_clouddirectory.errors.not_index_exception.NotIndexException: <p>Indicates that the requested operation can only operate on index objects.</p>
+            aws_sdk_clouddirectory.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_clouddirectory.errors.retryable_conflict_exception.RetryableConflictException: <p>Occurs when a conflict with a previous successful write is detected. For example, if a write operation occurs on an object and then an attempt is made to read the object using “SERIALIZABLE” consistency, this exception may result. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+            aws_sdk_clouddirectory.errors.validation_exception.ValidationException: <p>Indicates that your request is malformed in some manner. See the exception message.</p>
+            aws_sdk_clouddirectory.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To list an index
 
@@ -2407,6 +2890,15 @@ class AsyncCloudDirectoryClient:
             schema_arn: <p>The response for ListManagedSchemaArns. When this parameter is used, all minor version ARNs for a major version are listed.</p>
             next_token: <p>The pagination token.</p>
             max_results: <p>The maximum number of results to retrieve.</p>
+
+        Raises:
+            aws_sdk_clouddirectory.errors.access_denied_exception.AccessDeniedException: <p>Access denied or directory not found. Either you don't have permissions for this directory or the directory does not exist. Try calling <a>ListDirectories</a> and check your permissions.</p>
+            aws_sdk_clouddirectory.errors.internal_service_exception.InternalServiceException: <p>Indicates a problem that must be resolved by Amazon Web Services. This might be a transient error in which case you can retry your request until it succeeds. Otherwise, go to the <a href=\"http://status.aws.amazon.com/\">AWS Service Health Dashboard</a> site to see if there are any operational issues with the service.</p>
+            aws_sdk_clouddirectory.errors.invalid_arn_exception.InvalidArnException: <p>Indicates that the provided ARN value is not valid.</p>
+            aws_sdk_clouddirectory.errors.invalid_next_token_exception.InvalidNextTokenException: <p>Indicates that the <code>NextToken</code> value is not valid.</p>
+            aws_sdk_clouddirectory.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_clouddirectory.errors.validation_exception.ValidationException: <p>Indicates that your request is malformed in some manner. See the exception message.</p>
+            aws_sdk_clouddirectory.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2468,6 +2960,19 @@ class AsyncCloudDirectoryClient:
             max_results: <p>The maximum number of items to be retrieved in a single call. This is an approximate number.</p>
             consistency_level: <p>Represents the manner and timing in which the successful write or update of an object is reflected in a subsequent read operation of that same object.</p>
             facet_filter: <p>Used to filter the list of object attributes that are associated with a certain facet.</p>
+
+        Raises:
+            aws_sdk_clouddirectory.errors.access_denied_exception.AccessDeniedException: <p>Access denied or directory not found. Either you don't have permissions for this directory or the directory does not exist. Try calling <a>ListDirectories</a> and check your permissions.</p>
+            aws_sdk_clouddirectory.errors.directory_not_enabled_exception.DirectoryNotEnabledException: <p>Operations are only permitted on enabled directories.</p>
+            aws_sdk_clouddirectory.errors.facet_validation_exception.FacetValidationException: <p>The <a>Facet</a> that you provided was not well formed or could not be validated with the schema.</p>
+            aws_sdk_clouddirectory.errors.internal_service_exception.InternalServiceException: <p>Indicates a problem that must be resolved by Amazon Web Services. This might be a transient error in which case you can retry your request until it succeeds. Otherwise, go to the <a href=\"http://status.aws.amazon.com/\">AWS Service Health Dashboard</a> site to see if there are any operational issues with the service.</p>
+            aws_sdk_clouddirectory.errors.invalid_arn_exception.InvalidArnException: <p>Indicates that the provided ARN value is not valid.</p>
+            aws_sdk_clouddirectory.errors.invalid_next_token_exception.InvalidNextTokenException: <p>Indicates that the <code>NextToken</code> value is not valid.</p>
+            aws_sdk_clouddirectory.errors.limit_exceeded_exception.LimitExceededException: <p>Indicates that limits are exceeded. See <a href=\"https://docs.aws.amazon.com/clouddirectory/latest/developerguide/limits.html\">Limits</a> for more information.</p>
+            aws_sdk_clouddirectory.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_clouddirectory.errors.retryable_conflict_exception.RetryableConflictException: <p>Occurs when a conflict with a previous successful write is detected. For example, if a write operation occurs on an object and then an attempt is made to read the object using “SERIALIZABLE” consistency, this exception may result. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+            aws_sdk_clouddirectory.errors.validation_exception.ValidationException: <p>Indicates that your request is malformed in some manner. See the exception message.</p>
+            aws_sdk_clouddirectory.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To list object attributes
@@ -2535,6 +3040,19 @@ class AsyncCloudDirectoryClient:
             max_results: <p>The maximum number of items to be retrieved in a single call. This is an approximate number.</p>
             consistency_level: <p>Represents the manner and timing in which the successful write or update of an object is reflected in a subsequent read operation of that same object.</p>
 
+        Raises:
+            aws_sdk_clouddirectory.errors.access_denied_exception.AccessDeniedException: <p>Access denied or directory not found. Either you don't have permissions for this directory or the directory does not exist. Try calling <a>ListDirectories</a> and check your permissions.</p>
+            aws_sdk_clouddirectory.errors.directory_not_enabled_exception.DirectoryNotEnabledException: <p>Operations are only permitted on enabled directories.</p>
+            aws_sdk_clouddirectory.errors.internal_service_exception.InternalServiceException: <p>Indicates a problem that must be resolved by Amazon Web Services. This might be a transient error in which case you can retry your request until it succeeds. Otherwise, go to the <a href=\"http://status.aws.amazon.com/\">AWS Service Health Dashboard</a> site to see if there are any operational issues with the service.</p>
+            aws_sdk_clouddirectory.errors.invalid_arn_exception.InvalidArnException: <p>Indicates that the provided ARN value is not valid.</p>
+            aws_sdk_clouddirectory.errors.invalid_next_token_exception.InvalidNextTokenException: <p>Indicates that the <code>NextToken</code> value is not valid.</p>
+            aws_sdk_clouddirectory.errors.limit_exceeded_exception.LimitExceededException: <p>Indicates that limits are exceeded. See <a href=\"https://docs.aws.amazon.com/clouddirectory/latest/developerguide/limits.html\">Limits</a> for more information.</p>
+            aws_sdk_clouddirectory.errors.not_node_exception.NotNodeException: <p>Occurs when any invalid operations are performed on an object that is not a node, such as calling <code>ListObjectChildren</code> for a leaf node object.</p>
+            aws_sdk_clouddirectory.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_clouddirectory.errors.retryable_conflict_exception.RetryableConflictException: <p>Occurs when a conflict with a previous successful write is detected. For example, if a write operation occurs on an object and then an attempt is made to read the object using “SERIALIZABLE” consistency, this exception may result. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+            aws_sdk_clouddirectory.errors.validation_exception.ValidationException: <p>Indicates that your request is malformed in some manner. See the exception message.</p>
+            aws_sdk_clouddirectory.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To list an objects children
 
@@ -2594,6 +3112,18 @@ class AsyncCloudDirectoryClient:
             object_reference: <p>The reference that identifies the object whose parent paths are listed.</p>
             next_token: <p>The pagination token.</p>
             max_results: <p>The maximum number of items to be retrieved in a single call. This is an approximate number.</p>
+
+        Raises:
+            aws_sdk_clouddirectory.errors.access_denied_exception.AccessDeniedException: <p>Access denied or directory not found. Either you don't have permissions for this directory or the directory does not exist. Try calling <a>ListDirectories</a> and check your permissions.</p>
+            aws_sdk_clouddirectory.errors.directory_not_enabled_exception.DirectoryNotEnabledException: <p>Operations are only permitted on enabled directories.</p>
+            aws_sdk_clouddirectory.errors.internal_service_exception.InternalServiceException: <p>Indicates a problem that must be resolved by Amazon Web Services. This might be a transient error in which case you can retry your request until it succeeds. Otherwise, go to the <a href=\"http://status.aws.amazon.com/\">AWS Service Health Dashboard</a> site to see if there are any operational issues with the service.</p>
+            aws_sdk_clouddirectory.errors.invalid_arn_exception.InvalidArnException: <p>Indicates that the provided ARN value is not valid.</p>
+            aws_sdk_clouddirectory.errors.invalid_next_token_exception.InvalidNextTokenException: <p>Indicates that the <code>NextToken</code> value is not valid.</p>
+            aws_sdk_clouddirectory.errors.limit_exceeded_exception.LimitExceededException: <p>Indicates that limits are exceeded. See <a href=\"https://docs.aws.amazon.com/clouddirectory/latest/developerguide/limits.html\">Limits</a> for more information.</p>
+            aws_sdk_clouddirectory.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_clouddirectory.errors.retryable_conflict_exception.RetryableConflictException: <p>Occurs when a conflict with a previous successful write is detected. For example, if a write operation occurs on an object and then an attempt is made to read the object using “SERIALIZABLE” consistency, this exception may result. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+            aws_sdk_clouddirectory.errors.validation_exception.ValidationException: <p>Indicates that your request is malformed in some manner. See the exception message.</p>
+            aws_sdk_clouddirectory.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2655,6 +3185,19 @@ class AsyncCloudDirectoryClient:
             max_results: <p>The maximum number of items to be retrieved in a single call. This is an approximate number.</p>
             consistency_level: <p>Represents the manner and timing in which the successful write or update of an object is reflected in a subsequent read operation of that same object.</p>
             include_all_links_to_each_parent: <p>When set to True, returns all <a>ListObjectParentsResponse$ParentLinks</a>. There could be multiple links between a parent-child pair.</p>
+
+        Raises:
+            aws_sdk_clouddirectory.errors.access_denied_exception.AccessDeniedException: <p>Access denied or directory not found. Either you don't have permissions for this directory or the directory does not exist. Try calling <a>ListDirectories</a> and check your permissions.</p>
+            aws_sdk_clouddirectory.errors.cannot_list_parent_of_root_exception.CannotListParentOfRootException: <p>Cannot list the parents of a <a>Directory</a> root.</p>
+            aws_sdk_clouddirectory.errors.directory_not_enabled_exception.DirectoryNotEnabledException: <p>Operations are only permitted on enabled directories.</p>
+            aws_sdk_clouddirectory.errors.internal_service_exception.InternalServiceException: <p>Indicates a problem that must be resolved by Amazon Web Services. This might be a transient error in which case you can retry your request until it succeeds. Otherwise, go to the <a href=\"http://status.aws.amazon.com/\">AWS Service Health Dashboard</a> site to see if there are any operational issues with the service.</p>
+            aws_sdk_clouddirectory.errors.invalid_arn_exception.InvalidArnException: <p>Indicates that the provided ARN value is not valid.</p>
+            aws_sdk_clouddirectory.errors.invalid_next_token_exception.InvalidNextTokenException: <p>Indicates that the <code>NextToken</code> value is not valid.</p>
+            aws_sdk_clouddirectory.errors.limit_exceeded_exception.LimitExceededException: <p>Indicates that limits are exceeded. See <a href=\"https://docs.aws.amazon.com/clouddirectory/latest/developerguide/limits.html\">Limits</a> for more information.</p>
+            aws_sdk_clouddirectory.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_clouddirectory.errors.retryable_conflict_exception.RetryableConflictException: <p>Occurs when a conflict with a previous successful write is detected. For example, if a write operation occurs on an object and then an attempt is made to read the object using “SERIALIZABLE” consistency, this exception may result. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+            aws_sdk_clouddirectory.errors.validation_exception.ValidationException: <p>Indicates that your request is malformed in some manner. See the exception message.</p>
+            aws_sdk_clouddirectory.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2718,6 +3261,18 @@ class AsyncCloudDirectoryClient:
             next_token: <p>The pagination token.</p>
             max_results: <p>The maximum number of items to be retrieved in a single call. This is an approximate number.</p>
             consistency_level: <p>Represents the manner and timing in which the successful write or update of an object is reflected in a subsequent read operation of that same object.</p>
+
+        Raises:
+            aws_sdk_clouddirectory.errors.access_denied_exception.AccessDeniedException: <p>Access denied or directory not found. Either you don't have permissions for this directory or the directory does not exist. Try calling <a>ListDirectories</a> and check your permissions.</p>
+            aws_sdk_clouddirectory.errors.directory_not_enabled_exception.DirectoryNotEnabledException: <p>Operations are only permitted on enabled directories.</p>
+            aws_sdk_clouddirectory.errors.internal_service_exception.InternalServiceException: <p>Indicates a problem that must be resolved by Amazon Web Services. This might be a transient error in which case you can retry your request until it succeeds. Otherwise, go to the <a href=\"http://status.aws.amazon.com/\">AWS Service Health Dashboard</a> site to see if there are any operational issues with the service.</p>
+            aws_sdk_clouddirectory.errors.invalid_arn_exception.InvalidArnException: <p>Indicates that the provided ARN value is not valid.</p>
+            aws_sdk_clouddirectory.errors.invalid_next_token_exception.InvalidNextTokenException: <p>Indicates that the <code>NextToken</code> value is not valid.</p>
+            aws_sdk_clouddirectory.errors.limit_exceeded_exception.LimitExceededException: <p>Indicates that limits are exceeded. See <a href=\"https://docs.aws.amazon.com/clouddirectory/latest/developerguide/limits.html\">Limits</a> for more information.</p>
+            aws_sdk_clouddirectory.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_clouddirectory.errors.retryable_conflict_exception.RetryableConflictException: <p>Occurs when a conflict with a previous successful write is detected. For example, if a write operation occurs on an object and then an attempt is made to read the object using “SERIALIZABLE” consistency, this exception may result. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+            aws_sdk_clouddirectory.errors.validation_exception.ValidationException: <p>Indicates that your request is malformed in some manner. See the exception message.</p>
+            aws_sdk_clouddirectory.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2785,6 +3340,19 @@ class AsyncCloudDirectoryClient:
             next_token: <p>The pagination token.</p>
             max_results: <p>The maximum number of results to retrieve.</p>
             consistency_level: <p>The consistency level to execute the request at.</p>
+
+        Raises:
+            aws_sdk_clouddirectory.errors.access_denied_exception.AccessDeniedException: <p>Access denied or directory not found. Either you don't have permissions for this directory or the directory does not exist. Try calling <a>ListDirectories</a> and check your permissions.</p>
+            aws_sdk_clouddirectory.errors.directory_not_enabled_exception.DirectoryNotEnabledException: <p>Operations are only permitted on enabled directories.</p>
+            aws_sdk_clouddirectory.errors.facet_validation_exception.FacetValidationException: <p>The <a>Facet</a> that you provided was not well formed or could not be validated with the schema.</p>
+            aws_sdk_clouddirectory.errors.internal_service_exception.InternalServiceException: <p>Indicates a problem that must be resolved by Amazon Web Services. This might be a transient error in which case you can retry your request until it succeeds. Otherwise, go to the <a href=\"http://status.aws.amazon.com/\">AWS Service Health Dashboard</a> site to see if there are any operational issues with the service.</p>
+            aws_sdk_clouddirectory.errors.invalid_arn_exception.InvalidArnException: <p>Indicates that the provided ARN value is not valid.</p>
+            aws_sdk_clouddirectory.errors.invalid_next_token_exception.InvalidNextTokenException: <p>Indicates that the <code>NextToken</code> value is not valid.</p>
+            aws_sdk_clouddirectory.errors.limit_exceeded_exception.LimitExceededException: <p>Indicates that limits are exceeded. See <a href=\"https://docs.aws.amazon.com/clouddirectory/latest/developerguide/limits.html\">Limits</a> for more information.</p>
+            aws_sdk_clouddirectory.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_clouddirectory.errors.retryable_conflict_exception.RetryableConflictException: <p>Occurs when a conflict with a previous successful write is detected. For example, if a write operation occurs on an object and then an attempt is made to read the object using “SERIALIZABLE” consistency, this exception may result. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+            aws_sdk_clouddirectory.errors.validation_exception.ValidationException: <p>Indicates that your request is malformed in some manner. See the exception message.</p>
+            aws_sdk_clouddirectory.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2848,6 +3416,19 @@ class AsyncCloudDirectoryClient:
             next_token: <p>The pagination token.</p>
             max_results: <p>The maximum number of items to be retrieved in a single call. This is an approximate number.</p>
             consistency_level: <p>Represents the manner and timing in which the successful write or update of an object is reflected in a subsequent read operation of that same object.</p>
+
+        Raises:
+            aws_sdk_clouddirectory.errors.access_denied_exception.AccessDeniedException: <p>Access denied or directory not found. Either you don't have permissions for this directory or the directory does not exist. Try calling <a>ListDirectories</a> and check your permissions.</p>
+            aws_sdk_clouddirectory.errors.directory_not_enabled_exception.DirectoryNotEnabledException: <p>Operations are only permitted on enabled directories.</p>
+            aws_sdk_clouddirectory.errors.internal_service_exception.InternalServiceException: <p>Indicates a problem that must be resolved by Amazon Web Services. This might be a transient error in which case you can retry your request until it succeeds. Otherwise, go to the <a href=\"http://status.aws.amazon.com/\">AWS Service Health Dashboard</a> site to see if there are any operational issues with the service.</p>
+            aws_sdk_clouddirectory.errors.invalid_arn_exception.InvalidArnException: <p>Indicates that the provided ARN value is not valid.</p>
+            aws_sdk_clouddirectory.errors.invalid_next_token_exception.InvalidNextTokenException: <p>Indicates that the <code>NextToken</code> value is not valid.</p>
+            aws_sdk_clouddirectory.errors.limit_exceeded_exception.LimitExceededException: <p>Indicates that limits are exceeded. See <a href=\"https://docs.aws.amazon.com/clouddirectory/latest/developerguide/limits.html\">Limits</a> for more information.</p>
+            aws_sdk_clouddirectory.errors.not_policy_exception.NotPolicyException: <p>Indicates that the requested operation can only operate on policy objects.</p>
+            aws_sdk_clouddirectory.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_clouddirectory.errors.retryable_conflict_exception.RetryableConflictException: <p>Occurs when a conflict with a previous successful write is detected. For example, if a write operation occurs on an object and then an attempt is made to read the object using “SERIALIZABLE” consistency, this exception may result. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+            aws_sdk_clouddirectory.errors.validation_exception.ValidationException: <p>Indicates that your request is malformed in some manner. See the exception message.</p>
+            aws_sdk_clouddirectory.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2901,6 +3482,17 @@ class AsyncCloudDirectoryClient:
             schema_arn: <p>The response for <code>ListPublishedSchemaArns</code> when this parameter is used will list all minor version ARNs for a major version.</p>
             next_token: <p>The pagination token.</p>
             max_results: <p>The maximum number of results to retrieve.</p>
+
+        Raises:
+            aws_sdk_clouddirectory.errors.access_denied_exception.AccessDeniedException: <p>Access denied or directory not found. Either you don't have permissions for this directory or the directory does not exist. Try calling <a>ListDirectories</a> and check your permissions.</p>
+            aws_sdk_clouddirectory.errors.internal_service_exception.InternalServiceException: <p>Indicates a problem that must be resolved by Amazon Web Services. This might be a transient error in which case you can retry your request until it succeeds. Otherwise, go to the <a href=\"http://status.aws.amazon.com/\">AWS Service Health Dashboard</a> site to see if there are any operational issues with the service.</p>
+            aws_sdk_clouddirectory.errors.invalid_arn_exception.InvalidArnException: <p>Indicates that the provided ARN value is not valid.</p>
+            aws_sdk_clouddirectory.errors.invalid_next_token_exception.InvalidNextTokenException: <p>Indicates that the <code>NextToken</code> value is not valid.</p>
+            aws_sdk_clouddirectory.errors.limit_exceeded_exception.LimitExceededException: <p>Indicates that limits are exceeded. See <a href=\"https://docs.aws.amazon.com/clouddirectory/latest/developerguide/limits.html\">Limits</a> for more information.</p>
+            aws_sdk_clouddirectory.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_clouddirectory.errors.retryable_conflict_exception.RetryableConflictException: <p>Occurs when a conflict with a previous successful write is detected. For example, if a write operation occurs on an object and then an attempt is made to read the object using “SERIALIZABLE” consistency, this exception may result. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+            aws_sdk_clouddirectory.errors.validation_exception.ValidationException: <p>Indicates that your request is malformed in some manner. See the exception message.</p>
+            aws_sdk_clouddirectory.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2952,6 +3544,17 @@ class AsyncCloudDirectoryClient:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource. Tagging is only supported for directories.</p>
             next_token: <p>The pagination token. This is for future use. Currently pagination is not supported for tagging.</p>
             max_results: <p>The <code>MaxResults</code> parameter sets the maximum number of results returned in a single page. This is for future use and is not supported currently.</p>
+
+        Raises:
+            aws_sdk_clouddirectory.errors.access_denied_exception.AccessDeniedException: <p>Access denied or directory not found. Either you don't have permissions for this directory or the directory does not exist. Try calling <a>ListDirectories</a> and check your permissions.</p>
+            aws_sdk_clouddirectory.errors.internal_service_exception.InternalServiceException: <p>Indicates a problem that must be resolved by Amazon Web Services. This might be a transient error in which case you can retry your request until it succeeds. Otherwise, go to the <a href=\"http://status.aws.amazon.com/\">AWS Service Health Dashboard</a> site to see if there are any operational issues with the service.</p>
+            aws_sdk_clouddirectory.errors.invalid_arn_exception.InvalidArnException: <p>Indicates that the provided ARN value is not valid.</p>
+            aws_sdk_clouddirectory.errors.invalid_tagging_request_exception.InvalidTaggingRequestException: <p>Can occur for multiple reasons such as when you tag a resource that doesn’t exist or if you specify a higher number of tags for a resource than the allowed limit. Allowed limit is 50 tags per resource.</p>
+            aws_sdk_clouddirectory.errors.limit_exceeded_exception.LimitExceededException: <p>Indicates that limits are exceeded. See <a href=\"https://docs.aws.amazon.com/clouddirectory/latest/developerguide/limits.html\">Limits</a> for more information.</p>
+            aws_sdk_clouddirectory.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_clouddirectory.errors.retryable_conflict_exception.RetryableConflictException: <p>Occurs when a conflict with a previous successful write is detected. For example, if a write operation occurs on an object and then an attempt is made to read the object using “SERIALIZABLE” consistency, this exception may result. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+            aws_sdk_clouddirectory.errors.validation_exception.ValidationException: <p>Indicates that your request is malformed in some manner. See the exception message.</p>
+            aws_sdk_clouddirectory.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3004,6 +3607,18 @@ class AsyncCloudDirectoryClient:
             name: <p>The unique name of the typed link facet.</p>
             next_token: <p>The pagination token.</p>
             max_results: <p>The maximum number of results to retrieve.</p>
+
+        Raises:
+            aws_sdk_clouddirectory.errors.access_denied_exception.AccessDeniedException: <p>Access denied or directory not found. Either you don't have permissions for this directory or the directory does not exist. Try calling <a>ListDirectories</a> and check your permissions.</p>
+            aws_sdk_clouddirectory.errors.facet_not_found_exception.FacetNotFoundException: <p>The specified <a>Facet</a> could not be found.</p>
+            aws_sdk_clouddirectory.errors.internal_service_exception.InternalServiceException: <p>Indicates a problem that must be resolved by Amazon Web Services. This might be a transient error in which case you can retry your request until it succeeds. Otherwise, go to the <a href=\"http://status.aws.amazon.com/\">AWS Service Health Dashboard</a> site to see if there are any operational issues with the service.</p>
+            aws_sdk_clouddirectory.errors.invalid_arn_exception.InvalidArnException: <p>Indicates that the provided ARN value is not valid.</p>
+            aws_sdk_clouddirectory.errors.invalid_next_token_exception.InvalidNextTokenException: <p>Indicates that the <code>NextToken</code> value is not valid.</p>
+            aws_sdk_clouddirectory.errors.limit_exceeded_exception.LimitExceededException: <p>Indicates that limits are exceeded. See <a href=\"https://docs.aws.amazon.com/clouddirectory/latest/developerguide/limits.html\">Limits</a> for more information.</p>
+            aws_sdk_clouddirectory.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_clouddirectory.errors.retryable_conflict_exception.RetryableConflictException: <p>Occurs when a conflict with a previous successful write is detected. For example, if a write operation occurs on an object and then an attempt is made to read the object using “SERIALIZABLE” consistency, this exception may result. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+            aws_sdk_clouddirectory.errors.validation_exception.ValidationException: <p>Indicates that your request is malformed in some manner. See the exception message.</p>
+            aws_sdk_clouddirectory.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3055,6 +3670,17 @@ class AsyncCloudDirectoryClient:
             schema_arn: <p>The Amazon Resource Name (ARN) that is associated with the schema. For more information, see <a>arns</a>.</p>
             next_token: <p>The pagination token.</p>
             max_results: <p>The maximum number of results to retrieve.</p>
+
+        Raises:
+            aws_sdk_clouddirectory.errors.access_denied_exception.AccessDeniedException: <p>Access denied or directory not found. Either you don't have permissions for this directory or the directory does not exist. Try calling <a>ListDirectories</a> and check your permissions.</p>
+            aws_sdk_clouddirectory.errors.internal_service_exception.InternalServiceException: <p>Indicates a problem that must be resolved by Amazon Web Services. This might be a transient error in which case you can retry your request until it succeeds. Otherwise, go to the <a href=\"http://status.aws.amazon.com/\">AWS Service Health Dashboard</a> site to see if there are any operational issues with the service.</p>
+            aws_sdk_clouddirectory.errors.invalid_arn_exception.InvalidArnException: <p>Indicates that the provided ARN value is not valid.</p>
+            aws_sdk_clouddirectory.errors.invalid_next_token_exception.InvalidNextTokenException: <p>Indicates that the <code>NextToken</code> value is not valid.</p>
+            aws_sdk_clouddirectory.errors.limit_exceeded_exception.LimitExceededException: <p>Indicates that limits are exceeded. See <a href=\"https://docs.aws.amazon.com/clouddirectory/latest/developerguide/limits.html\">Limits</a> for more information.</p>
+            aws_sdk_clouddirectory.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_clouddirectory.errors.retryable_conflict_exception.RetryableConflictException: <p>Occurs when a conflict with a previous successful write is detected. For example, if a write operation occurs on an object and then an attempt is made to read the object using “SERIALIZABLE” consistency, this exception may result. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+            aws_sdk_clouddirectory.errors.validation_exception.ValidationException: <p>Indicates that your request is malformed in some manner. See the exception message.</p>
+            aws_sdk_clouddirectory.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3107,6 +3733,18 @@ class AsyncCloudDirectoryClient:
             object_reference: <p>Reference that identifies the object whose policies will be looked up.</p>
             next_token: <p>The token to request the next page of results.</p>
             max_results: <p>The maximum number of items to be retrieved in a single call. This is an approximate number.</p>
+
+        Raises:
+            aws_sdk_clouddirectory.errors.access_denied_exception.AccessDeniedException: <p>Access denied or directory not found. Either you don't have permissions for this directory or the directory does not exist. Try calling <a>ListDirectories</a> and check your permissions.</p>
+            aws_sdk_clouddirectory.errors.directory_not_enabled_exception.DirectoryNotEnabledException: <p>Operations are only permitted on enabled directories.</p>
+            aws_sdk_clouddirectory.errors.internal_service_exception.InternalServiceException: <p>Indicates a problem that must be resolved by Amazon Web Services. This might be a transient error in which case you can retry your request until it succeeds. Otherwise, go to the <a href=\"http://status.aws.amazon.com/\">AWS Service Health Dashboard</a> site to see if there are any operational issues with the service.</p>
+            aws_sdk_clouddirectory.errors.invalid_arn_exception.InvalidArnException: <p>Indicates that the provided ARN value is not valid.</p>
+            aws_sdk_clouddirectory.errors.invalid_next_token_exception.InvalidNextTokenException: <p>Indicates that the <code>NextToken</code> value is not valid.</p>
+            aws_sdk_clouddirectory.errors.limit_exceeded_exception.LimitExceededException: <p>Indicates that limits are exceeded. See <a href=\"https://docs.aws.amazon.com/clouddirectory/latest/developerguide/limits.html\">Limits</a> for more information.</p>
+            aws_sdk_clouddirectory.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_clouddirectory.errors.retryable_conflict_exception.RetryableConflictException: <p>Occurs when a conflict with a previous successful write is detected. For example, if a write operation occurs on an object and then an attempt is made to read the object using “SERIALIZABLE” consistency, this exception may result. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+            aws_sdk_clouddirectory.errors.validation_exception.ValidationException: <p>Indicates that your request is malformed in some manner. See the exception message.</p>
+            aws_sdk_clouddirectory.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3156,6 +3794,17 @@ class AsyncCloudDirectoryClient:
             version: <p>The major version under which the schema will be published. Schemas have both a major and minor version associated with them.</p>
             minor_version: <p>The minor version under which the schema will be published. This parameter is recommended. Schemas have both a major and minor version associated with them.</p>
             name: <p>The new name under which the schema will be published. If this is not provided, the development schema is considered.</p>
+
+        Raises:
+            aws_sdk_clouddirectory.errors.access_denied_exception.AccessDeniedException: <p>Access denied or directory not found. Either you don't have permissions for this directory or the directory does not exist. Try calling <a>ListDirectories</a> and check your permissions.</p>
+            aws_sdk_clouddirectory.errors.internal_service_exception.InternalServiceException: <p>Indicates a problem that must be resolved by Amazon Web Services. This might be a transient error in which case you can retry your request until it succeeds. Otherwise, go to the <a href=\"http://status.aws.amazon.com/\">AWS Service Health Dashboard</a> site to see if there are any operational issues with the service.</p>
+            aws_sdk_clouddirectory.errors.invalid_arn_exception.InvalidArnException: <p>Indicates that the provided ARN value is not valid.</p>
+            aws_sdk_clouddirectory.errors.limit_exceeded_exception.LimitExceededException: <p>Indicates that limits are exceeded. See <a href=\"https://docs.aws.amazon.com/clouddirectory/latest/developerguide/limits.html\">Limits</a> for more information.</p>
+            aws_sdk_clouddirectory.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_clouddirectory.errors.retryable_conflict_exception.RetryableConflictException: <p>Occurs when a conflict with a previous successful write is detected. For example, if a write operation occurs on an object and then an attempt is made to read the object using “SERIALIZABLE” consistency, this exception may result. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+            aws_sdk_clouddirectory.errors.schema_already_published_exception.SchemaAlreadyPublishedException: <p>Indicates that a schema is already published.</p>
+            aws_sdk_clouddirectory.errors.validation_exception.ValidationException: <p>Indicates that your request is malformed in some manner. See the exception message.</p>
+            aws_sdk_clouddirectory.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3201,6 +3850,17 @@ class AsyncCloudDirectoryClient:
         Args:
             schema_arn: <p>The ARN of the schema to update.</p>
             document: <p>The replacement JSON schema.</p>
+
+        Raises:
+            aws_sdk_clouddirectory.errors.access_denied_exception.AccessDeniedException: <p>Access denied or directory not found. Either you don't have permissions for this directory or the directory does not exist. Try calling <a>ListDirectories</a> and check your permissions.</p>
+            aws_sdk_clouddirectory.errors.internal_service_exception.InternalServiceException: <p>Indicates a problem that must be resolved by Amazon Web Services. This might be a transient error in which case you can retry your request until it succeeds. Otherwise, go to the <a href=\"http://status.aws.amazon.com/\">AWS Service Health Dashboard</a> site to see if there are any operational issues with the service.</p>
+            aws_sdk_clouddirectory.errors.invalid_arn_exception.InvalidArnException: <p>Indicates that the provided ARN value is not valid.</p>
+            aws_sdk_clouddirectory.errors.invalid_rule_exception.InvalidRuleException: <p>Occurs when any of the rule parameter keys or values are invalid.</p>
+            aws_sdk_clouddirectory.errors.invalid_schema_doc_exception.InvalidSchemaDocException: <p>Indicates that the provided <code>SchemaDoc</code> value is not valid.</p>
+            aws_sdk_clouddirectory.errors.limit_exceeded_exception.LimitExceededException: <p>Indicates that limits are exceeded. See <a href=\"https://docs.aws.amazon.com/clouddirectory/latest/developerguide/limits.html\">Limits</a> for more information.</p>
+            aws_sdk_clouddirectory.errors.retryable_conflict_exception.RetryableConflictException: <p>Occurs when a conflict with a previous successful write is detected. For example, if a write operation occurs on an object and then an attempt is made to read the object using “SERIALIZABLE” consistency, this exception may result. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+            aws_sdk_clouddirectory.errors.validation_exception.ValidationException: <p>Indicates that your request is malformed in some manner. See the exception message.</p>
+            aws_sdk_clouddirectory.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3244,6 +3904,18 @@ class AsyncCloudDirectoryClient:
             directory_arn: <p>The ARN of the directory in which the object resides.</p>
             schema_facet: <p>The facet to remove. See <a>SchemaFacet</a> for details.</p>
             object_reference: <p>A reference to the object to remove the facet from.</p>
+
+        Raises:
+            aws_sdk_clouddirectory.errors.access_denied_exception.AccessDeniedException: <p>Access denied or directory not found. Either you don't have permissions for this directory or the directory does not exist. Try calling <a>ListDirectories</a> and check your permissions.</p>
+            aws_sdk_clouddirectory.errors.directory_not_enabled_exception.DirectoryNotEnabledException: <p>Operations are only permitted on enabled directories.</p>
+            aws_sdk_clouddirectory.errors.facet_validation_exception.FacetValidationException: <p>The <a>Facet</a> that you provided was not well formed or could not be validated with the schema.</p>
+            aws_sdk_clouddirectory.errors.internal_service_exception.InternalServiceException: <p>Indicates a problem that must be resolved by Amazon Web Services. This might be a transient error in which case you can retry your request until it succeeds. Otherwise, go to the <a href=\"http://status.aws.amazon.com/\">AWS Service Health Dashboard</a> site to see if there are any operational issues with the service.</p>
+            aws_sdk_clouddirectory.errors.invalid_arn_exception.InvalidArnException: <p>Indicates that the provided ARN value is not valid.</p>
+            aws_sdk_clouddirectory.errors.limit_exceeded_exception.LimitExceededException: <p>Indicates that limits are exceeded. See <a href=\"https://docs.aws.amazon.com/clouddirectory/latest/developerguide/limits.html\">Limits</a> for more information.</p>
+            aws_sdk_clouddirectory.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_clouddirectory.errors.retryable_conflict_exception.RetryableConflictException: <p>Occurs when a conflict with a previous successful write is detected. For example, if a write operation occurs on an object and then an attempt is made to read the object using “SERIALIZABLE” consistency, this exception may result. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+            aws_sdk_clouddirectory.errors.validation_exception.ValidationException: <p>Indicates that your request is malformed in some manner. See the exception message.</p>
+            aws_sdk_clouddirectory.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3286,6 +3958,17 @@ class AsyncCloudDirectoryClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource. Tagging is only supported for directories.</p>
             tags: <p>A list of tag key-value pairs.</p>
+
+        Raises:
+            aws_sdk_clouddirectory.errors.access_denied_exception.AccessDeniedException: <p>Access denied or directory not found. Either you don't have permissions for this directory or the directory does not exist. Try calling <a>ListDirectories</a> and check your permissions.</p>
+            aws_sdk_clouddirectory.errors.internal_service_exception.InternalServiceException: <p>Indicates a problem that must be resolved by Amazon Web Services. This might be a transient error in which case you can retry your request until it succeeds. Otherwise, go to the <a href=\"http://status.aws.amazon.com/\">AWS Service Health Dashboard</a> site to see if there are any operational issues with the service.</p>
+            aws_sdk_clouddirectory.errors.invalid_arn_exception.InvalidArnException: <p>Indicates that the provided ARN value is not valid.</p>
+            aws_sdk_clouddirectory.errors.invalid_tagging_request_exception.InvalidTaggingRequestException: <p>Can occur for multiple reasons such as when you tag a resource that doesn’t exist or if you specify a higher number of tags for a resource than the allowed limit. Allowed limit is 50 tags per resource.</p>
+            aws_sdk_clouddirectory.errors.limit_exceeded_exception.LimitExceededException: <p>Indicates that limits are exceeded. See <a href=\"https://docs.aws.amazon.com/clouddirectory/latest/developerguide/limits.html\">Limits</a> for more information.</p>
+            aws_sdk_clouddirectory.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_clouddirectory.errors.retryable_conflict_exception.RetryableConflictException: <p>Occurs when a conflict with a previous successful write is detected. For example, if a write operation occurs on an object and then an attempt is made to read the object using “SERIALIZABLE” consistency, this exception may result. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+            aws_sdk_clouddirectory.errors.validation_exception.ValidationException: <p>Indicates that your request is malformed in some manner. See the exception message.</p>
+            aws_sdk_clouddirectory.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3327,6 +4010,17 @@ class AsyncCloudDirectoryClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource. Tagging is only supported for directories.</p>
             tag_keys: <p>Keys of the tag that need to be removed from the resource.</p>
+
+        Raises:
+            aws_sdk_clouddirectory.errors.access_denied_exception.AccessDeniedException: <p>Access denied or directory not found. Either you don't have permissions for this directory or the directory does not exist. Try calling <a>ListDirectories</a> and check your permissions.</p>
+            aws_sdk_clouddirectory.errors.internal_service_exception.InternalServiceException: <p>Indicates a problem that must be resolved by Amazon Web Services. This might be a transient error in which case you can retry your request until it succeeds. Otherwise, go to the <a href=\"http://status.aws.amazon.com/\">AWS Service Health Dashboard</a> site to see if there are any operational issues with the service.</p>
+            aws_sdk_clouddirectory.errors.invalid_arn_exception.InvalidArnException: <p>Indicates that the provided ARN value is not valid.</p>
+            aws_sdk_clouddirectory.errors.invalid_tagging_request_exception.InvalidTaggingRequestException: <p>Can occur for multiple reasons such as when you tag a resource that doesn’t exist or if you specify a higher number of tags for a resource than the allowed limit. Allowed limit is 50 tags per resource.</p>
+            aws_sdk_clouddirectory.errors.limit_exceeded_exception.LimitExceededException: <p>Indicates that limits are exceeded. See <a href=\"https://docs.aws.amazon.com/clouddirectory/latest/developerguide/limits.html\">Limits</a> for more information.</p>
+            aws_sdk_clouddirectory.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_clouddirectory.errors.retryable_conflict_exception.RetryableConflictException: <p>Occurs when a conflict with a previous successful write is detected. For example, if a write operation occurs on an object and then an attempt is made to read the object using “SERIALIZABLE” consistency, this exception may result. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+            aws_sdk_clouddirectory.errors.validation_exception.ValidationException: <p>Indicates that your request is malformed in some manner. See the exception message.</p>
+            aws_sdk_clouddirectory.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3376,6 +4070,20 @@ class AsyncCloudDirectoryClient:
             name: <p>The name of the facet.</p>
             attribute_updates: <p>List of attributes that need to be updated in a given schema <a>Facet</a>. Each attribute is followed by <code>AttributeAction</code>, which specifies the type of update operation to perform. </p>
             object_type: <p>The object type that is associated with the facet. See <a>CreateFacetRequest$ObjectType</a> for more details.</p>
+
+        Raises:
+            aws_sdk_clouddirectory.errors.access_denied_exception.AccessDeniedException: <p>Access denied or directory not found. Either you don't have permissions for this directory or the directory does not exist. Try calling <a>ListDirectories</a> and check your permissions.</p>
+            aws_sdk_clouddirectory.errors.facet_not_found_exception.FacetNotFoundException: <p>The specified <a>Facet</a> could not be found.</p>
+            aws_sdk_clouddirectory.errors.facet_validation_exception.FacetValidationException: <p>The <a>Facet</a> that you provided was not well formed or could not be validated with the schema.</p>
+            aws_sdk_clouddirectory.errors.internal_service_exception.InternalServiceException: <p>Indicates a problem that must be resolved by Amazon Web Services. This might be a transient error in which case you can retry your request until it succeeds. Otherwise, go to the <a href=\"http://status.aws.amazon.com/\">AWS Service Health Dashboard</a> site to see if there are any operational issues with the service.</p>
+            aws_sdk_clouddirectory.errors.invalid_arn_exception.InvalidArnException: <p>Indicates that the provided ARN value is not valid.</p>
+            aws_sdk_clouddirectory.errors.invalid_facet_update_exception.InvalidFacetUpdateException: <p>An attempt to modify a <a>Facet</a> resulted in an invalid schema exception.</p>
+            aws_sdk_clouddirectory.errors.invalid_rule_exception.InvalidRuleException: <p>Occurs when any of the rule parameter keys or values are invalid.</p>
+            aws_sdk_clouddirectory.errors.limit_exceeded_exception.LimitExceededException: <p>Indicates that limits are exceeded. See <a href=\"https://docs.aws.amazon.com/clouddirectory/latest/developerguide/limits.html\">Limits</a> for more information.</p>
+            aws_sdk_clouddirectory.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_clouddirectory.errors.retryable_conflict_exception.RetryableConflictException: <p>Occurs when a conflict with a previous successful write is detected. For example, if a write operation occurs on an object and then an attempt is made to read the object using “SERIALIZABLE” consistency, this exception may result. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+            aws_sdk_clouddirectory.errors.validation_exception.ValidationException: <p>Indicates that your request is malformed in some manner. See the exception message.</p>
+            aws_sdk_clouddirectory.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3423,6 +4131,18 @@ class AsyncCloudDirectoryClient:
             directory_arn: <p>The Amazon Resource Name (ARN) that is associated with the Directory where the updated typed link resides. For more information, see <a>arns</a> or <a href=\"https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink\">Typed Links</a>.</p>
             typed_link_specifier: <p>Allows a typed link specifier to be accepted as input.</p>
             attribute_updates: <p>The attributes update structure.</p>
+
+        Raises:
+            aws_sdk_clouddirectory.errors.access_denied_exception.AccessDeniedException: <p>Access denied or directory not found. Either you don't have permissions for this directory or the directory does not exist. Try calling <a>ListDirectories</a> and check your permissions.</p>
+            aws_sdk_clouddirectory.errors.directory_not_enabled_exception.DirectoryNotEnabledException: <p>Operations are only permitted on enabled directories.</p>
+            aws_sdk_clouddirectory.errors.facet_validation_exception.FacetValidationException: <p>The <a>Facet</a> that you provided was not well formed or could not be validated with the schema.</p>
+            aws_sdk_clouddirectory.errors.internal_service_exception.InternalServiceException: <p>Indicates a problem that must be resolved by Amazon Web Services. This might be a transient error in which case you can retry your request until it succeeds. Otherwise, go to the <a href=\"http://status.aws.amazon.com/\">AWS Service Health Dashboard</a> site to see if there are any operational issues with the service.</p>
+            aws_sdk_clouddirectory.errors.invalid_arn_exception.InvalidArnException: <p>Indicates that the provided ARN value is not valid.</p>
+            aws_sdk_clouddirectory.errors.limit_exceeded_exception.LimitExceededException: <p>Indicates that limits are exceeded. See <a href=\"https://docs.aws.amazon.com/clouddirectory/latest/developerguide/limits.html\">Limits</a> for more information.</p>
+            aws_sdk_clouddirectory.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_clouddirectory.errors.retryable_conflict_exception.RetryableConflictException: <p>Occurs when a conflict with a previous successful write is detected. For example, if a write operation occurs on an object and then an attempt is made to read the object using “SERIALIZABLE” consistency, this exception may result. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+            aws_sdk_clouddirectory.errors.validation_exception.ValidationException: <p>Indicates that your request is malformed in some manner. See the exception message.</p>
+            aws_sdk_clouddirectory.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3467,6 +4187,19 @@ class AsyncCloudDirectoryClient:
             directory_arn: <p>The Amazon Resource Name (ARN) that is associated with the <a>Directory</a> where the object resides. For more information, see <a>arns</a>.</p>
             object_reference: <p>The reference that identifies the object.</p>
             attribute_updates: <p>The attributes update structure.</p>
+
+        Raises:
+            aws_sdk_clouddirectory.errors.access_denied_exception.AccessDeniedException: <p>Access denied or directory not found. Either you don't have permissions for this directory or the directory does not exist. Try calling <a>ListDirectories</a> and check your permissions.</p>
+            aws_sdk_clouddirectory.errors.directory_not_enabled_exception.DirectoryNotEnabledException: <p>Operations are only permitted on enabled directories.</p>
+            aws_sdk_clouddirectory.errors.facet_validation_exception.FacetValidationException: <p>The <a>Facet</a> that you provided was not well formed or could not be validated with the schema.</p>
+            aws_sdk_clouddirectory.errors.internal_service_exception.InternalServiceException: <p>Indicates a problem that must be resolved by Amazon Web Services. This might be a transient error in which case you can retry your request until it succeeds. Otherwise, go to the <a href=\"http://status.aws.amazon.com/\">AWS Service Health Dashboard</a> site to see if there are any operational issues with the service.</p>
+            aws_sdk_clouddirectory.errors.invalid_arn_exception.InvalidArnException: <p>Indicates that the provided ARN value is not valid.</p>
+            aws_sdk_clouddirectory.errors.limit_exceeded_exception.LimitExceededException: <p>Indicates that limits are exceeded. See <a href=\"https://docs.aws.amazon.com/clouddirectory/latest/developerguide/limits.html\">Limits</a> for more information.</p>
+            aws_sdk_clouddirectory.errors.link_name_already_in_use_exception.LinkNameAlreadyInUseException: <p>Indicates that a link could not be created due to a naming conflict. Choose a different name and then try again.</p>
+            aws_sdk_clouddirectory.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_clouddirectory.errors.retryable_conflict_exception.RetryableConflictException: <p>Occurs when a conflict with a previous successful write is detected. For example, if a write operation occurs on an object and then an attempt is made to read the object using “SERIALIZABLE” consistency, this exception may result. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+            aws_sdk_clouddirectory.errors.validation_exception.ValidationException: <p>Indicates that your request is malformed in some manner. See the exception message.</p>
+            aws_sdk_clouddirectory.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3509,6 +4242,16 @@ class AsyncCloudDirectoryClient:
         Args:
             schema_arn: <p>The Amazon Resource Name (ARN) of the development schema. For more information, see <a>arns</a>.</p>
             name: <p>The name of the schema.</p>
+
+        Raises:
+            aws_sdk_clouddirectory.errors.access_denied_exception.AccessDeniedException: <p>Access denied or directory not found. Either you don't have permissions for this directory or the directory does not exist. Try calling <a>ListDirectories</a> and check your permissions.</p>
+            aws_sdk_clouddirectory.errors.internal_service_exception.InternalServiceException: <p>Indicates a problem that must be resolved by Amazon Web Services. This might be a transient error in which case you can retry your request until it succeeds. Otherwise, go to the <a href=\"http://status.aws.amazon.com/\">AWS Service Health Dashboard</a> site to see if there are any operational issues with the service.</p>
+            aws_sdk_clouddirectory.errors.invalid_arn_exception.InvalidArnException: <p>Indicates that the provided ARN value is not valid.</p>
+            aws_sdk_clouddirectory.errors.limit_exceeded_exception.LimitExceededException: <p>Indicates that limits are exceeded. See <a href=\"https://docs.aws.amazon.com/clouddirectory/latest/developerguide/limits.html\">Limits</a> for more information.</p>
+            aws_sdk_clouddirectory.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_clouddirectory.errors.retryable_conflict_exception.RetryableConflictException: <p>Occurs when a conflict with a previous successful write is detected. For example, if a write operation occurs on an object and then an attempt is made to read the object using “SERIALIZABLE” consistency, this exception may result. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+            aws_sdk_clouddirectory.errors.validation_exception.ValidationException: <p>Indicates that your request is malformed in some manner. See the exception message.</p>
+            aws_sdk_clouddirectory.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3554,6 +4297,20 @@ class AsyncCloudDirectoryClient:
             name: <p>The unique name of the typed link facet.</p>
             attribute_updates: <p>Attributes update structure.</p>
             identity_attribute_order: <p>The order of identity attributes for the facet, from most significant to least significant. The ability to filter typed links considers the order that the attributes are defined on the typed link facet. When providing ranges to a typed link selection, any inexact ranges must be specified at the end. Any attributes that do not have a range specified are presumed to match the entire range. Filters are interpreted in the order of the attributes on the typed link facet, not the order in which they are supplied to any API calls. For more information about identity attributes, see <a href=\"https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink\">Typed Links</a>.</p>
+
+        Raises:
+            aws_sdk_clouddirectory.errors.access_denied_exception.AccessDeniedException: <p>Access denied or directory not found. Either you don't have permissions for this directory or the directory does not exist. Try calling <a>ListDirectories</a> and check your permissions.</p>
+            aws_sdk_clouddirectory.errors.facet_not_found_exception.FacetNotFoundException: <p>The specified <a>Facet</a> could not be found.</p>
+            aws_sdk_clouddirectory.errors.facet_validation_exception.FacetValidationException: <p>The <a>Facet</a> that you provided was not well formed or could not be validated with the schema.</p>
+            aws_sdk_clouddirectory.errors.internal_service_exception.InternalServiceException: <p>Indicates a problem that must be resolved by Amazon Web Services. This might be a transient error in which case you can retry your request until it succeeds. Otherwise, go to the <a href=\"http://status.aws.amazon.com/\">AWS Service Health Dashboard</a> site to see if there are any operational issues with the service.</p>
+            aws_sdk_clouddirectory.errors.invalid_arn_exception.InvalidArnException: <p>Indicates that the provided ARN value is not valid.</p>
+            aws_sdk_clouddirectory.errors.invalid_facet_update_exception.InvalidFacetUpdateException: <p>An attempt to modify a <a>Facet</a> resulted in an invalid schema exception.</p>
+            aws_sdk_clouddirectory.errors.invalid_rule_exception.InvalidRuleException: <p>Occurs when any of the rule parameter keys or values are invalid.</p>
+            aws_sdk_clouddirectory.errors.limit_exceeded_exception.LimitExceededException: <p>Indicates that limits are exceeded. See <a href=\"https://docs.aws.amazon.com/clouddirectory/latest/developerguide/limits.html\">Limits</a> for more information.</p>
+            aws_sdk_clouddirectory.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_clouddirectory.errors.retryable_conflict_exception.RetryableConflictException: <p>Occurs when a conflict with a previous successful write is detected. For example, if a write operation occurs on an object and then an attempt is made to read the object using “SERIALIZABLE” consistency, this exception may result. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+            aws_sdk_clouddirectory.errors.validation_exception.ValidationException: <p>Indicates that your request is malformed in some manner. See the exception message.</p>
+            aws_sdk_clouddirectory.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3599,6 +4356,18 @@ class AsyncCloudDirectoryClient:
             published_schema_arn: <p>The revision of the published schema to upgrade the directory to.</p>
             directory_arn: <p>The ARN for the directory to which the upgraded schema will be applied.</p>
             dry_run: <p>Used for testing whether the major version schemas are backward compatible or not. If schema compatibility fails, an exception would be thrown else the call would succeed but no changes will be saved. This parameter is optional.</p>
+
+        Raises:
+            aws_sdk_clouddirectory.errors.access_denied_exception.AccessDeniedException: <p>Access denied or directory not found. Either you don't have permissions for this directory or the directory does not exist. Try calling <a>ListDirectories</a> and check your permissions.</p>
+            aws_sdk_clouddirectory.errors.incompatible_schema_exception.IncompatibleSchemaException: <p>Indicates a failure occurred while performing a check for backward compatibility between the specified schema and the schema that is currently applied to the directory.</p>
+            aws_sdk_clouddirectory.errors.internal_service_exception.InternalServiceException: <p>Indicates a problem that must be resolved by Amazon Web Services. This might be a transient error in which case you can retry your request until it succeeds. Otherwise, go to the <a href=\"http://status.aws.amazon.com/\">AWS Service Health Dashboard</a> site to see if there are any operational issues with the service.</p>
+            aws_sdk_clouddirectory.errors.invalid_arn_exception.InvalidArnException: <p>Indicates that the provided ARN value is not valid.</p>
+            aws_sdk_clouddirectory.errors.invalid_attachment_exception.InvalidAttachmentException: <p>Indicates that an attempt to make an attachment was invalid. For example, attaching two nodes with a link type that is not applicable to the nodes or attempting to apply a schema to a directory a second time.</p>
+            aws_sdk_clouddirectory.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_clouddirectory.errors.retryable_conflict_exception.RetryableConflictException: <p>Occurs when a conflict with a previous successful write is detected. For example, if a write operation occurs on an object and then an attempt is made to read the object using “SERIALIZABLE” consistency, this exception may result. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+            aws_sdk_clouddirectory.errors.schema_already_exists_exception.SchemaAlreadyExistsException: <p>Indicates that a schema could not be created due to a naming conflict. Please select a different name and then try again.</p>
+            aws_sdk_clouddirectory.errors.validation_exception.ValidationException: <p>Indicates that your request is malformed in some manner. See the exception message.</p>
+            aws_sdk_clouddirectory.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3646,6 +4415,18 @@ class AsyncCloudDirectoryClient:
             published_schema_arn: <p>The ARN of the published schema to be upgraded.</p>
             minor_version: <p>Identifies the minor version of the published schema that will be created. This parameter is NOT optional.</p>
             dry_run: <p>Used for testing whether the Development schema provided is backwards compatible, or not, with the publish schema provided by the user to be upgraded. If schema compatibility fails, an exception would be thrown else the call would succeed. This parameter is optional and defaults to false.</p>
+
+        Raises:
+            aws_sdk_clouddirectory.errors.access_denied_exception.AccessDeniedException: <p>Access denied or directory not found. Either you don't have permissions for this directory or the directory does not exist. Try calling <a>ListDirectories</a> and check your permissions.</p>
+            aws_sdk_clouddirectory.errors.incompatible_schema_exception.IncompatibleSchemaException: <p>Indicates a failure occurred while performing a check for backward compatibility between the specified schema and the schema that is currently applied to the directory.</p>
+            aws_sdk_clouddirectory.errors.internal_service_exception.InternalServiceException: <p>Indicates a problem that must be resolved by Amazon Web Services. This might be a transient error in which case you can retry your request until it succeeds. Otherwise, go to the <a href=\"http://status.aws.amazon.com/\">AWS Service Health Dashboard</a> site to see if there are any operational issues with the service.</p>
+            aws_sdk_clouddirectory.errors.invalid_arn_exception.InvalidArnException: <p>Indicates that the provided ARN value is not valid.</p>
+            aws_sdk_clouddirectory.errors.invalid_attachment_exception.InvalidAttachmentException: <p>Indicates that an attempt to make an attachment was invalid. For example, attaching two nodes with a link type that is not applicable to the nodes or attempting to apply a schema to a directory a second time.</p>
+            aws_sdk_clouddirectory.errors.limit_exceeded_exception.LimitExceededException: <p>Indicates that limits are exceeded. See <a href=\"https://docs.aws.amazon.com/clouddirectory/latest/developerguide/limits.html\">Limits</a> for more information.</p>
+            aws_sdk_clouddirectory.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_clouddirectory.errors.retryable_conflict_exception.RetryableConflictException: <p>Occurs when a conflict with a previous successful write is detected. For example, if a write operation occurs on an object and then an attempt is made to read the object using “SERIALIZABLE” consistency, this exception may result. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+            aws_sdk_clouddirectory.errors.validation_exception.ValidationException: <p>Indicates that your request is malformed in some manner. See the exception message.</p>
+            aws_sdk_clouddirectory.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

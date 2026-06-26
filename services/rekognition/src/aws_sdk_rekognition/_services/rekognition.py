@@ -403,6 +403,18 @@ class RekognitionClient:
             user_match_threshold: <p>An optional value specifying the minimum confidence in the UserID match to return. The default value is 75.</p>
             client_request_token: <p>Idempotent token used to identify the request to <code>AssociateFaces</code>. If you use the same token with multiple <code>AssociateFaces</code> requests, the same response is returned. Use ClientRequestToken to prevent the same request from being processed more than once.</p>
 
+        Raises:
+            aws_sdk_rekognition.errors.access_denied_exception.AccessDeniedException: <p>You are not authorized to perform the action.</p>
+            aws_sdk_rekognition.errors.conflict_exception.ConflictException: <p> A User with the same Id already exists within the collection, or the update or deletion of the User caused an inconsistent state. ** </p>
+            aws_sdk_rekognition.errors.idempotent_parameter_mismatch_exception.IdempotentParameterMismatchException: <p>A <code>ClientRequestToken</code> input parameter was reused with an operation, but at least one of the other input parameters is different from the previous call to the operation.</p>
+            aws_sdk_rekognition.errors.internal_server_error.InternalServerError: <p>Amazon Rekognition experienced a service issue. Try your call again.</p>
+            aws_sdk_rekognition.errors.invalid_parameter_exception.InvalidParameterException: <p>Input parameter violated a constraint. Validate your parameter before calling the API operation again.</p>
+            aws_sdk_rekognition.errors.provisioned_throughput_exceeded_exception.ProvisionedThroughputExceededException: <p>The number of requests exceeded your throughput limit. If you want to increase this limit, contact Amazon Rekognition.</p>
+            aws_sdk_rekognition.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request cannot be found.</p>
+            aws_sdk_rekognition.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p></p> <p>The size of the collection exceeds the allowed limit. For more information, see Guidelines and quotas in Amazon Rekognition in the Amazon Rekognition Developer Guide. </p>
+            aws_sdk_rekognition.errors.throttling_exception.ThrottlingException: <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
+            aws_sdk_rekognition.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             AssociateFaces
             This operation associates one or more faces with an existing UserID.
@@ -461,6 +473,17 @@ class RekognitionClient:
             target_image: <p>The target image as base64-encoded bytes or an S3 object. If you use the AWS CLI to call Amazon Rekognition operations, passing base64-encoded image bytes is not supported. </p> <p>If you are using an AWS SDK to call Amazon Rekognition, you might not need to base64-encode image bytes passed using the <code>Bytes</code> field. For more information, see Images in the Amazon Rekognition developer guide.</p>
             similarity_threshold: <p>The minimum level of confidence in the face matches that a match must meet to be included in the <code>FaceMatches</code> array.</p>
             quality_filter: <p>A filter that specifies a quality bar for how much filtering is done to identify faces. Filtered faces aren't compared. If you specify <code>AUTO</code>, Amazon Rekognition chooses the quality bar. If you specify <code>LOW</code>, <code>MEDIUM</code>, or <code>HIGH</code>, filtering removes all faces that don’t meet the chosen quality bar. The quality bar is based on a variety of common use cases. Low-quality detections can occur for a number of reasons. Some examples are an object that's misidentified as a face, a face that's too blurry, or a face with a pose that's too extreme to use. If you specify <code>NONE</code>, no filtering is performed. The default value is <code>NONE</code>. </p> <p>To use quality filtering, the collection you are using must be associated with version 3 of the face model or higher.</p>
+
+        Raises:
+            aws_sdk_rekognition.errors.access_denied_exception.AccessDeniedException: <p>You are not authorized to perform the action.</p>
+            aws_sdk_rekognition.errors.image_too_large_exception.ImageTooLargeException: <p>The input image size exceeds the allowed limit. If you are calling DetectProtectiveEquipment, the image size or resolution exceeds the allowed limit. For more information, see Guidelines and quotas in Amazon Rekognition in the Amazon Rekognition Developer Guide. </p>
+            aws_sdk_rekognition.errors.internal_server_error.InternalServerError: <p>Amazon Rekognition experienced a service issue. Try your call again.</p>
+            aws_sdk_rekognition.errors.invalid_image_format_exception.InvalidImageFormatException: <p>The provided image format is not supported. </p>
+            aws_sdk_rekognition.errors.invalid_parameter_exception.InvalidParameterException: <p>Input parameter violated a constraint. Validate your parameter before calling the API operation again.</p>
+            aws_sdk_rekognition.errors.invalid_s3_object_exception.InvalidS3ObjectException: <p>Amazon Rekognition is unable to access the S3 object specified in the request.</p>
+            aws_sdk_rekognition.errors.provisioned_throughput_exceeded_exception.ProvisionedThroughputExceededException: <p>The number of requests exceeded your throughput limit. If you want to increase this limit, contact Amazon Rekognition.</p>
+            aws_sdk_rekognition.errors.throttling_exception.ThrottlingException: <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
+            aws_sdk_rekognition.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To compare two images
@@ -522,6 +545,18 @@ class RekognitionClient:
             tags: <p>The key-value tags to assign to the model version. </p>
             kms_key_id: <p>The identifier for your AWS Key Management Service key (AWS KMS key). You can supply the Amazon Resource Name (ARN) of your KMS key, the ID of your KMS key, an alias for your KMS key, or an alias ARN. The key is used to encrypt training results and manifest files written to the output Amazon S3 bucket (<code>OutputConfig</code>).</p> <p>If you choose to use your own KMS key, you need the following permissions on the KMS key.</p> <ul> <li> <p>kms:CreateGrant</p> </li> <li> <p>kms:DescribeKey</p> </li> <li> <p>kms:GenerateDataKey</p> </li> <li> <p>kms:Decrypt</p> </li> </ul> <p>If you don't specify a value for <code>KmsKeyId</code>, images copied into the service are encrypted using a key that AWS owns and manages.</p>
 
+        Raises:
+            aws_sdk_rekognition.errors.access_denied_exception.AccessDeniedException: <p>You are not authorized to perform the action.</p>
+            aws_sdk_rekognition.errors.internal_server_error.InternalServerError: <p>Amazon Rekognition experienced a service issue. Try your call again.</p>
+            aws_sdk_rekognition.errors.invalid_parameter_exception.InvalidParameterException: <p>Input parameter violated a constraint. Validate your parameter before calling the API operation again.</p>
+            aws_sdk_rekognition.errors.limit_exceeded_exception.LimitExceededException: <p>An Amazon Rekognition service limit was exceeded. For example, if you start too many jobs concurrently, subsequent calls to start operations (ex: <code>StartLabelDetection</code>) will raise a <code>LimitExceededException</code> exception (HTTP status code: 400) until the number of concurrently running jobs is below the Amazon Rekognition service limit. </p>
+            aws_sdk_rekognition.errors.provisioned_throughput_exceeded_exception.ProvisionedThroughputExceededException: <p>The number of requests exceeded your throughput limit. If you want to increase this limit, contact Amazon Rekognition.</p>
+            aws_sdk_rekognition.errors.resource_in_use_exception.ResourceInUseException: <p>The specified resource is already being used.</p>
+            aws_sdk_rekognition.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request cannot be found.</p>
+            aws_sdk_rekognition.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p></p> <p>The size of the collection exceeds the allowed limit. For more information, see Guidelines and quotas in Amazon Rekognition in the Amazon Rekognition Developer Guide. </p>
+            aws_sdk_rekognition.errors.throttling_exception.ThrottlingException: <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
+            aws_sdk_rekognition.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             CopyProjectVersion
             Copies a version of an Amazon Rekognition Custom Labels model from a source project to a destination project.
@@ -577,6 +612,16 @@ class RekognitionClient:
             collection_id: <p>ID for the collection that you are creating.</p>
             tags: <p> A set of tags (key-value pairs) that you want to attach to the collection. </p>
 
+        Raises:
+            aws_sdk_rekognition.errors.access_denied_exception.AccessDeniedException: <p>You are not authorized to perform the action.</p>
+            aws_sdk_rekognition.errors.internal_server_error.InternalServerError: <p>Amazon Rekognition experienced a service issue. Try your call again.</p>
+            aws_sdk_rekognition.errors.invalid_parameter_exception.InvalidParameterException: <p>Input parameter violated a constraint. Validate your parameter before calling the API operation again.</p>
+            aws_sdk_rekognition.errors.provisioned_throughput_exceeded_exception.ProvisionedThroughputExceededException: <p>The number of requests exceeded your throughput limit. If you want to increase this limit, contact Amazon Rekognition.</p>
+            aws_sdk_rekognition.errors.resource_already_exists_exception.ResourceAlreadyExistsException: <p>A resource with the specified ID already exists.</p>
+            aws_sdk_rekognition.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p></p> <p>The size of the collection exceeds the allowed limit. For more information, see Guidelines and quotas in Amazon Rekognition in the Amazon Rekognition Developer Guide. </p>
+            aws_sdk_rekognition.errors.throttling_exception.ThrottlingException: <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
+            aws_sdk_rekognition.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To create a collection
             This operation creates a Rekognition collection for storing image data.
@@ -629,6 +674,18 @@ class RekognitionClient:
             dataset_type: <p> The type of the dataset. Specify <code>TRAIN</code> to create a training dataset. Specify <code>TEST</code> to create a test dataset. </p>
             project_arn: <p> The ARN of the Amazon Rekognition Custom Labels project to which you want to asssign the dataset. </p>
             tags: <p>A set of tags (key-value pairs) that you want to attach to the dataset.</p>
+
+        Raises:
+            aws_sdk_rekognition.errors.access_denied_exception.AccessDeniedException: <p>You are not authorized to perform the action.</p>
+            aws_sdk_rekognition.errors.internal_server_error.InternalServerError: <p>Amazon Rekognition experienced a service issue. Try your call again.</p>
+            aws_sdk_rekognition.errors.invalid_parameter_exception.InvalidParameterException: <p>Input parameter violated a constraint. Validate your parameter before calling the API operation again.</p>
+            aws_sdk_rekognition.errors.invalid_s3_object_exception.InvalidS3ObjectException: <p>Amazon Rekognition is unable to access the S3 object specified in the request.</p>
+            aws_sdk_rekognition.errors.limit_exceeded_exception.LimitExceededException: <p>An Amazon Rekognition service limit was exceeded. For example, if you start too many jobs concurrently, subsequent calls to start operations (ex: <code>StartLabelDetection</code>) will raise a <code>LimitExceededException</code> exception (HTTP status code: 400) until the number of concurrently running jobs is below the Amazon Rekognition service limit. </p>
+            aws_sdk_rekognition.errors.provisioned_throughput_exceeded_exception.ProvisionedThroughputExceededException: <p>The number of requests exceeded your throughput limit. If you want to increase this limit, contact Amazon Rekognition.</p>
+            aws_sdk_rekognition.errors.resource_already_exists_exception.ResourceAlreadyExistsException: <p>A resource with the specified ID already exists.</p>
+            aws_sdk_rekognition.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request cannot be found.</p>
+            aws_sdk_rekognition.errors.throttling_exception.ThrottlingException: <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
+            aws_sdk_rekognition.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To create an Amazon Rekognition Custom Labels dataset
@@ -685,6 +742,14 @@ class RekognitionClient:
             kms_key_id: <p> The identifier for your AWS Key Management Service key (AWS KMS key). Used to encrypt audit images and reference images.</p>
             settings: <p>A session settings object. It contains settings for the operation to be performed. For Face Liveness, it accepts <code>OutputConfig</code> and <code>AuditImagesLimit</code>.</p>
             client_request_token: <p>Idempotent token is used to recognize the Face Liveness request. If the same token is used with multiple <code>CreateFaceLivenessSession</code> requests, the same session is returned. This token is employed to avoid unintentionally creating the same session multiple times.</p>
+
+        Raises:
+            aws_sdk_rekognition.errors.access_denied_exception.AccessDeniedException: <p>You are not authorized to perform the action.</p>
+            aws_sdk_rekognition.errors.internal_server_error.InternalServerError: <p>Amazon Rekognition experienced a service issue. Try your call again.</p>
+            aws_sdk_rekognition.errors.invalid_parameter_exception.InvalidParameterException: <p>Input parameter violated a constraint. Validate your parameter before calling the API operation again.</p>
+            aws_sdk_rekognition.errors.provisioned_throughput_exceeded_exception.ProvisionedThroughputExceededException: <p>The number of requests exceeded your throughput limit. If you want to increase this limit, contact Amazon Rekognition.</p>
+            aws_sdk_rekognition.errors.throttling_exception.ThrottlingException: <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
+            aws_sdk_rekognition.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -737,6 +802,16 @@ class RekognitionClient:
             feature: <p>Specifies feature that is being customized. If no value is provided CUSTOM_LABELS is used as a default.</p>
             auto_update: <p>Specifies whether automatic retraining should be attempted for the versions of the project. Automatic retraining is done as a best effort. Required argument for Content Moderation. Applicable only to adapters.</p>
             tags: <p>A set of tags (key-value pairs) that you want to attach to the project.</p>
+
+        Raises:
+            aws_sdk_rekognition.errors.access_denied_exception.AccessDeniedException: <p>You are not authorized to perform the action.</p>
+            aws_sdk_rekognition.errors.internal_server_error.InternalServerError: <p>Amazon Rekognition experienced a service issue. Try your call again.</p>
+            aws_sdk_rekognition.errors.invalid_parameter_exception.InvalidParameterException: <p>Input parameter violated a constraint. Validate your parameter before calling the API operation again.</p>
+            aws_sdk_rekognition.errors.limit_exceeded_exception.LimitExceededException: <p>An Amazon Rekognition service limit was exceeded. For example, if you start too many jobs concurrently, subsequent calls to start operations (ex: <code>StartLabelDetection</code>) will raise a <code>LimitExceededException</code> exception (HTTP status code: 400) until the number of concurrently running jobs is below the Amazon Rekognition service limit. </p>
+            aws_sdk_rekognition.errors.provisioned_throughput_exceeded_exception.ProvisionedThroughputExceededException: <p>The number of requests exceeded your throughput limit. If you want to increase this limit, contact Amazon Rekognition.</p>
+            aws_sdk_rekognition.errors.resource_in_use_exception.ResourceInUseException: <p>The specified resource is already being used.</p>
+            aws_sdk_rekognition.errors.throttling_exception.ThrottlingException: <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
+            aws_sdk_rekognition.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To create an Amazon Rekognition Custom Labels project
@@ -810,6 +885,18 @@ class RekognitionClient:
             kms_key_id: <p>The identifier for your AWS Key Management Service key (AWS KMS key). You can supply the Amazon Resource Name (ARN) of your KMS key, the ID of your KMS key, an alias for your KMS key, or an alias ARN. The key is used to encrypt training images, test images, and manifest files copied into the service for the project version. Your source images are unaffected. The key is also used to encrypt training results and manifest files written to the output Amazon S3 bucket (<code>OutputConfig</code>).</p> <p>If you choose to use your own KMS key, you need the following permissions on the KMS key.</p> <ul> <li> <p>kms:CreateGrant</p> </li> <li> <p>kms:DescribeKey</p> </li> <li> <p>kms:GenerateDataKey</p> </li> <li> <p>kms:Decrypt</p> </li> </ul> <p>If you don't specify a value for <code>KmsKeyId</code>, images copied into the service are encrypted using a key that AWS owns and manages.</p>
             version_description: <p>A description applied to the project version being created.</p>
             feature_config: <p>Feature-specific configuration of the training job. If the job configuration does not match the feature type associated with the project, an InvalidParameterException is returned.</p>
+
+        Raises:
+            aws_sdk_rekognition.errors.access_denied_exception.AccessDeniedException: <p>You are not authorized to perform the action.</p>
+            aws_sdk_rekognition.errors.internal_server_error.InternalServerError: <p>Amazon Rekognition experienced a service issue. Try your call again.</p>
+            aws_sdk_rekognition.errors.invalid_parameter_exception.InvalidParameterException: <p>Input parameter violated a constraint. Validate your parameter before calling the API operation again.</p>
+            aws_sdk_rekognition.errors.limit_exceeded_exception.LimitExceededException: <p>An Amazon Rekognition service limit was exceeded. For example, if you start too many jobs concurrently, subsequent calls to start operations (ex: <code>StartLabelDetection</code>) will raise a <code>LimitExceededException</code> exception (HTTP status code: 400) until the number of concurrently running jobs is below the Amazon Rekognition service limit. </p>
+            aws_sdk_rekognition.errors.provisioned_throughput_exceeded_exception.ProvisionedThroughputExceededException: <p>The number of requests exceeded your throughput limit. If you want to increase this limit, contact Amazon Rekognition.</p>
+            aws_sdk_rekognition.errors.resource_in_use_exception.ResourceInUseException: <p>The specified resource is already being used.</p>
+            aws_sdk_rekognition.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request cannot be found.</p>
+            aws_sdk_rekognition.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p></p> <p>The size of the collection exceeds the allowed limit. For more information, see Guidelines and quotas in Amazon Rekognition in the Amazon Rekognition Developer Guide. </p>
+            aws_sdk_rekognition.errors.throttling_exception.ThrottlingException: <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
+            aws_sdk_rekognition.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To train an Amazon Rekognition Custom Labels model
@@ -890,6 +977,17 @@ class RekognitionClient:
             kms_key_id: <p> The identifier for your AWS Key Management Service key (AWS KMS key). This is an optional parameter for label detection stream processors and should not be used to create a face search stream processor. You can supply the Amazon Resource Name (ARN) of your KMS key, the ID of your KMS key, an alias for your KMS key, or an alias ARN. The key is used to encrypt results and data published to your Amazon S3 bucket, which includes image frames and hero images. Your source images are unaffected. </p> <p> </p>
             regions_of_interest: <p> Specifies locations in the frames where Amazon Rekognition checks for objects or people. You can specify up to 10 regions of interest, and each region has either a polygon or a bounding box. This is an optional parameter for label detection stream processors and should not be used to create a face search stream processor. </p>
             data_sharing_preference: <p> Shows whether you are sharing data with Rekognition to improve model performance. You can choose this option at the account level or on a per-stream basis. Note that if you opt out at the account level this setting is ignored on individual streams. </p>
+
+        Raises:
+            aws_sdk_rekognition.errors.access_denied_exception.AccessDeniedException: <p>You are not authorized to perform the action.</p>
+            aws_sdk_rekognition.errors.internal_server_error.InternalServerError: <p>Amazon Rekognition experienced a service issue. Try your call again.</p>
+            aws_sdk_rekognition.errors.invalid_parameter_exception.InvalidParameterException: <p>Input parameter violated a constraint. Validate your parameter before calling the API operation again.</p>
+            aws_sdk_rekognition.errors.limit_exceeded_exception.LimitExceededException: <p>An Amazon Rekognition service limit was exceeded. For example, if you start too many jobs concurrently, subsequent calls to start operations (ex: <code>StartLabelDetection</code>) will raise a <code>LimitExceededException</code> exception (HTTP status code: 400) until the number of concurrently running jobs is below the Amazon Rekognition service limit. </p>
+            aws_sdk_rekognition.errors.provisioned_throughput_exceeded_exception.ProvisionedThroughputExceededException: <p>The number of requests exceeded your throughput limit. If you want to increase this limit, contact Amazon Rekognition.</p>
+            aws_sdk_rekognition.errors.resource_in_use_exception.ResourceInUseException: <p>The specified resource is already being used.</p>
+            aws_sdk_rekognition.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p></p> <p>The size of the collection exceeds the allowed limit. For more information, see Guidelines and quotas in Amazon Rekognition in the Amazon Rekognition Developer Guide. </p>
+            aws_sdk_rekognition.errors.throttling_exception.ThrottlingException: <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
+            aws_sdk_rekognition.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -948,6 +1046,18 @@ class RekognitionClient:
             user_id: <p>ID for the UserID to be created. This ID needs to be unique within the collection.</p>
             client_request_token: <p>Idempotent token used to identify the request to <code>CreateUser</code>. If you use the same token with multiple <code>CreateUser</code> requests, the same response is returned. Use ClientRequestToken to prevent the same request from being processed more than once.</p>
 
+        Raises:
+            aws_sdk_rekognition.errors.access_denied_exception.AccessDeniedException: <p>You are not authorized to perform the action.</p>
+            aws_sdk_rekognition.errors.conflict_exception.ConflictException: <p> A User with the same Id already exists within the collection, or the update or deletion of the User caused an inconsistent state. ** </p>
+            aws_sdk_rekognition.errors.idempotent_parameter_mismatch_exception.IdempotentParameterMismatchException: <p>A <code>ClientRequestToken</code> input parameter was reused with an operation, but at least one of the other input parameters is different from the previous call to the operation.</p>
+            aws_sdk_rekognition.errors.internal_server_error.InternalServerError: <p>Amazon Rekognition experienced a service issue. Try your call again.</p>
+            aws_sdk_rekognition.errors.invalid_parameter_exception.InvalidParameterException: <p>Input parameter violated a constraint. Validate your parameter before calling the API operation again.</p>
+            aws_sdk_rekognition.errors.provisioned_throughput_exceeded_exception.ProvisionedThroughputExceededException: <p>The number of requests exceeded your throughput limit. If you want to increase this limit, contact Amazon Rekognition.</p>
+            aws_sdk_rekognition.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request cannot be found.</p>
+            aws_sdk_rekognition.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p></p> <p>The size of the collection exceeds the allowed limit. For more information, see Guidelines and quotas in Amazon Rekognition in the Amazon Rekognition Developer Guide. </p>
+            aws_sdk_rekognition.errors.throttling_exception.ThrottlingException: <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
+            aws_sdk_rekognition.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             CreateUser
             Creates a new User within a collection specified by CollectionId.
@@ -996,6 +1106,15 @@ class RekognitionClient:
         Args:
             collection_id: <p>ID of the collection to delete.</p>
 
+        Raises:
+            aws_sdk_rekognition.errors.access_denied_exception.AccessDeniedException: <p>You are not authorized to perform the action.</p>
+            aws_sdk_rekognition.errors.internal_server_error.InternalServerError: <p>Amazon Rekognition experienced a service issue. Try your call again.</p>
+            aws_sdk_rekognition.errors.invalid_parameter_exception.InvalidParameterException: <p>Input parameter violated a constraint. Validate your parameter before calling the API operation again.</p>
+            aws_sdk_rekognition.errors.provisioned_throughput_exceeded_exception.ProvisionedThroughputExceededException: <p>The number of requests exceeded your throughput limit. If you want to increase this limit, contact Amazon Rekognition.</p>
+            aws_sdk_rekognition.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request cannot be found.</p>
+            aws_sdk_rekognition.errors.throttling_exception.ThrottlingException: <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
+            aws_sdk_rekognition.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To delete a collection
             This operation deletes a Rekognition collection.
@@ -1038,6 +1157,17 @@ class RekognitionClient:
 
         Args:
             dataset_arn: <p> The ARN of the Amazon Rekognition Custom Labels dataset that you want to delete. </p>
+
+        Raises:
+            aws_sdk_rekognition.errors.access_denied_exception.AccessDeniedException: <p>You are not authorized to perform the action.</p>
+            aws_sdk_rekognition.errors.internal_server_error.InternalServerError: <p>Amazon Rekognition experienced a service issue. Try your call again.</p>
+            aws_sdk_rekognition.errors.invalid_parameter_exception.InvalidParameterException: <p>Input parameter violated a constraint. Validate your parameter before calling the API operation again.</p>
+            aws_sdk_rekognition.errors.limit_exceeded_exception.LimitExceededException: <p>An Amazon Rekognition service limit was exceeded. For example, if you start too many jobs concurrently, subsequent calls to start operations (ex: <code>StartLabelDetection</code>) will raise a <code>LimitExceededException</code> exception (HTTP status code: 400) until the number of concurrently running jobs is below the Amazon Rekognition service limit. </p>
+            aws_sdk_rekognition.errors.provisioned_throughput_exceeded_exception.ProvisionedThroughputExceededException: <p>The number of requests exceeded your throughput limit. If you want to increase this limit, contact Amazon Rekognition.</p>
+            aws_sdk_rekognition.errors.resource_in_use_exception.ResourceInUseException: <p>The specified resource is already being used.</p>
+            aws_sdk_rekognition.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request cannot be found.</p>
+            aws_sdk_rekognition.errors.throttling_exception.ThrottlingException: <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
+            aws_sdk_rekognition.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To delete an Amazon Rekognition Custom Labels dataset
@@ -1084,6 +1214,15 @@ class RekognitionClient:
             collection_id: <p>Collection from which to remove the specific faces.</p>
             face_ids: <p>An array of face IDs to delete.</p>
 
+        Raises:
+            aws_sdk_rekognition.errors.access_denied_exception.AccessDeniedException: <p>You are not authorized to perform the action.</p>
+            aws_sdk_rekognition.errors.internal_server_error.InternalServerError: <p>Amazon Rekognition experienced a service issue. Try your call again.</p>
+            aws_sdk_rekognition.errors.invalid_parameter_exception.InvalidParameterException: <p>Input parameter violated a constraint. Validate your parameter before calling the API operation again.</p>
+            aws_sdk_rekognition.errors.provisioned_throughput_exceeded_exception.ProvisionedThroughputExceededException: <p>The number of requests exceeded your throughput limit. If you want to increase this limit, contact Amazon Rekognition.</p>
+            aws_sdk_rekognition.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request cannot be found.</p>
+            aws_sdk_rekognition.errors.throttling_exception.ThrottlingException: <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
+            aws_sdk_rekognition.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To delete a face
             This operation deletes one or more faces from a Rekognition collection.
@@ -1127,6 +1266,16 @@ class RekognitionClient:
 
         Args:
             project_arn: <p>The Amazon Resource Name (ARN) of the project that you want to delete.</p>
+
+        Raises:
+            aws_sdk_rekognition.errors.access_denied_exception.AccessDeniedException: <p>You are not authorized to perform the action.</p>
+            aws_sdk_rekognition.errors.internal_server_error.InternalServerError: <p>Amazon Rekognition experienced a service issue. Try your call again.</p>
+            aws_sdk_rekognition.errors.invalid_parameter_exception.InvalidParameterException: <p>Input parameter violated a constraint. Validate your parameter before calling the API operation again.</p>
+            aws_sdk_rekognition.errors.provisioned_throughput_exceeded_exception.ProvisionedThroughputExceededException: <p>The number of requests exceeded your throughput limit. If you want to increase this limit, contact Amazon Rekognition.</p>
+            aws_sdk_rekognition.errors.resource_in_use_exception.ResourceInUseException: <p>The specified resource is already being used.</p>
+            aws_sdk_rekognition.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request cannot be found.</p>
+            aws_sdk_rekognition.errors.throttling_exception.ThrottlingException: <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
+            aws_sdk_rekognition.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To delete an Amazon Rekognition Custom Labels project
@@ -1177,6 +1326,16 @@ class RekognitionClient:
             policy_name: <p>The name of the policy that you want to delete.</p>
             policy_revision_id: <p>The ID of the project policy revision that you want to delete.</p>
 
+        Raises:
+            aws_sdk_rekognition.errors.access_denied_exception.AccessDeniedException: <p>You are not authorized to perform the action.</p>
+            aws_sdk_rekognition.errors.internal_server_error.InternalServerError: <p>Amazon Rekognition experienced a service issue. Try your call again.</p>
+            aws_sdk_rekognition.errors.invalid_parameter_exception.InvalidParameterException: <p>Input parameter violated a constraint. Validate your parameter before calling the API operation again.</p>
+            aws_sdk_rekognition.errors.invalid_policy_revision_id_exception.InvalidPolicyRevisionIdException: <p>The supplied revision id for the project policy is invalid.</p>
+            aws_sdk_rekognition.errors.provisioned_throughput_exceeded_exception.ProvisionedThroughputExceededException: <p>The number of requests exceeded your throughput limit. If you want to increase this limit, contact Amazon Rekognition.</p>
+            aws_sdk_rekognition.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request cannot be found.</p>
+            aws_sdk_rekognition.errors.throttling_exception.ThrottlingException: <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
+            aws_sdk_rekognition.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             DeleteProjectPolicy
             This operation deletes a revision of an existing project policy from an Amazon Rekognition Custom Labels project.
@@ -1223,6 +1382,16 @@ class RekognitionClient:
         Args:
             project_version_arn: <p>The Amazon Resource Name (ARN) of the project version that you want to delete.</p>
 
+        Raises:
+            aws_sdk_rekognition.errors.access_denied_exception.AccessDeniedException: <p>You are not authorized to perform the action.</p>
+            aws_sdk_rekognition.errors.internal_server_error.InternalServerError: <p>Amazon Rekognition experienced a service issue. Try your call again.</p>
+            aws_sdk_rekognition.errors.invalid_parameter_exception.InvalidParameterException: <p>Input parameter violated a constraint. Validate your parameter before calling the API operation again.</p>
+            aws_sdk_rekognition.errors.provisioned_throughput_exceeded_exception.ProvisionedThroughputExceededException: <p>The number of requests exceeded your throughput limit. If you want to increase this limit, contact Amazon Rekognition.</p>
+            aws_sdk_rekognition.errors.resource_in_use_exception.ResourceInUseException: <p>The specified resource is already being used.</p>
+            aws_sdk_rekognition.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request cannot be found.</p>
+            aws_sdk_rekognition.errors.throttling_exception.ThrottlingException: <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
+            aws_sdk_rekognition.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To delete an Amazon Rekognition Custom Labels model
             Deletes a version of an Amazon Rekognition Custom Labels model.
@@ -1265,6 +1434,16 @@ class RekognitionClient:
 
         Args:
             name: <p>The name of the stream processor you want to delete.</p>
+
+        Raises:
+            aws_sdk_rekognition.errors.access_denied_exception.AccessDeniedException: <p>You are not authorized to perform the action.</p>
+            aws_sdk_rekognition.errors.internal_server_error.InternalServerError: <p>Amazon Rekognition experienced a service issue. Try your call again.</p>
+            aws_sdk_rekognition.errors.invalid_parameter_exception.InvalidParameterException: <p>Input parameter violated a constraint. Validate your parameter before calling the API operation again.</p>
+            aws_sdk_rekognition.errors.provisioned_throughput_exceeded_exception.ProvisionedThroughputExceededException: <p>The number of requests exceeded your throughput limit. If you want to increase this limit, contact Amazon Rekognition.</p>
+            aws_sdk_rekognition.errors.resource_in_use_exception.ResourceInUseException: <p>The specified resource is already being used.</p>
+            aws_sdk_rekognition.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request cannot be found.</p>
+            aws_sdk_rekognition.errors.throttling_exception.ThrottlingException: <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
+            aws_sdk_rekognition.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1308,6 +1487,17 @@ class RekognitionClient:
             collection_id: <p>The ID of an existing collection from which the UserID needs to be deleted. </p>
             user_id: <p>ID for the UserID to be deleted. </p>
             client_request_token: <p>Idempotent token used to identify the request to <code>DeleteUser</code>. If you use the same token with multiple <code>DeleteUser </code>requests, the same response is returned. Use ClientRequestToken to prevent the same request from being processed more than once.</p>
+
+        Raises:
+            aws_sdk_rekognition.errors.access_denied_exception.AccessDeniedException: <p>You are not authorized to perform the action.</p>
+            aws_sdk_rekognition.errors.conflict_exception.ConflictException: <p> A User with the same Id already exists within the collection, or the update or deletion of the User caused an inconsistent state. ** </p>
+            aws_sdk_rekognition.errors.idempotent_parameter_mismatch_exception.IdempotentParameterMismatchException: <p>A <code>ClientRequestToken</code> input parameter was reused with an operation, but at least one of the other input parameters is different from the previous call to the operation.</p>
+            aws_sdk_rekognition.errors.internal_server_error.InternalServerError: <p>Amazon Rekognition experienced a service issue. Try your call again.</p>
+            aws_sdk_rekognition.errors.invalid_parameter_exception.InvalidParameterException: <p>Input parameter violated a constraint. Validate your parameter before calling the API operation again.</p>
+            aws_sdk_rekognition.errors.provisioned_throughput_exceeded_exception.ProvisionedThroughputExceededException: <p>The number of requests exceeded your throughput limit. If you want to increase this limit, contact Amazon Rekognition.</p>
+            aws_sdk_rekognition.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request cannot be found.</p>
+            aws_sdk_rekognition.errors.throttling_exception.ThrottlingException: <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
+            aws_sdk_rekognition.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             DeleteUser
@@ -1354,6 +1544,15 @@ class RekognitionClient:
 
         Args:
             collection_id: <p>The ID of the collection to describe.</p>
+
+        Raises:
+            aws_sdk_rekognition.errors.access_denied_exception.AccessDeniedException: <p>You are not authorized to perform the action.</p>
+            aws_sdk_rekognition.errors.internal_server_error.InternalServerError: <p>Amazon Rekognition experienced a service issue. Try your call again.</p>
+            aws_sdk_rekognition.errors.invalid_parameter_exception.InvalidParameterException: <p>Input parameter violated a constraint. Validate your parameter before calling the API operation again.</p>
+            aws_sdk_rekognition.errors.provisioned_throughput_exceeded_exception.ProvisionedThroughputExceededException: <p>The number of requests exceeded your throughput limit. If you want to increase this limit, contact Amazon Rekognition.</p>
+            aws_sdk_rekognition.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request cannot be found.</p>
+            aws_sdk_rekognition.errors.throttling_exception.ThrottlingException: <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
+            aws_sdk_rekognition.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1391,6 +1590,15 @@ class RekognitionClient:
 
         Args:
             dataset_arn: <p> The Amazon Resource Name (ARN) of the dataset that you want to describe. </p>
+
+        Raises:
+            aws_sdk_rekognition.errors.access_denied_exception.AccessDeniedException: <p>You are not authorized to perform the action.</p>
+            aws_sdk_rekognition.errors.internal_server_error.InternalServerError: <p>Amazon Rekognition experienced a service issue. Try your call again.</p>
+            aws_sdk_rekognition.errors.invalid_parameter_exception.InvalidParameterException: <p>Input parameter violated a constraint. Validate your parameter before calling the API operation again.</p>
+            aws_sdk_rekognition.errors.provisioned_throughput_exceeded_exception.ProvisionedThroughputExceededException: <p>The number of requests exceeded your throughput limit. If you want to increase this limit, contact Amazon Rekognition.</p>
+            aws_sdk_rekognition.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request cannot be found.</p>
+            aws_sdk_rekognition.errors.throttling_exception.ThrottlingException: <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
+            aws_sdk_rekognition.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1444,6 +1652,15 @@ class RekognitionClient:
             max_results: <p>The maximum number of results to return per paginated call. The largest value you can specify is 100. If you specify a value greater than 100, a ValidationException error occurs. The default value is 100. </p>
             project_names: <p>A list of the projects that you want Rekognition to describe. If you don't specify a value, the response includes descriptions for all the projects in your AWS account.</p>
             features: <p>Specifies the type of customization to filter projects by. If no value is specified, CUSTOM_LABELS is used as a default.</p>
+
+        Raises:
+            aws_sdk_rekognition.errors.access_denied_exception.AccessDeniedException: <p>You are not authorized to perform the action.</p>
+            aws_sdk_rekognition.errors.internal_server_error.InternalServerError: <p>Amazon Rekognition experienced a service issue. Try your call again.</p>
+            aws_sdk_rekognition.errors.invalid_pagination_token_exception.InvalidPaginationTokenException: <p>Pagination token in the request is not valid.</p>
+            aws_sdk_rekognition.errors.invalid_parameter_exception.InvalidParameterException: <p>Input parameter violated a constraint. Validate your parameter before calling the API operation again.</p>
+            aws_sdk_rekognition.errors.provisioned_throughput_exceeded_exception.ProvisionedThroughputExceededException: <p>The number of requests exceeded your throughput limit. If you want to increase this limit, contact Amazon Rekognition.</p>
+            aws_sdk_rekognition.errors.throttling_exception.ThrottlingException: <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
+            aws_sdk_rekognition.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1533,6 +1750,16 @@ class RekognitionClient:
             version_names: <p>A list of model or project version names that you want to describe. You can add up to 10 model or project version names to the list. If you don't specify a value, all project version descriptions are returned. A version name is part of a project version ARN. For example, <code>my-model.2020-01-21T09.10.15</code> is the version name in the following ARN. <code>arn:aws:rekognition:us-east-1:123456789012:project/getting-started/version/<i>my-model.2020-01-21T09.10.15</i>/1234567890123</code>.</p>
             next_token: <p>If the previous response was incomplete (because there is more results to retrieve), Amazon Rekognition returns a pagination token in the response. You can use this pagination token to retrieve the next set of results. </p>
             max_results: <p>The maximum number of results to return per paginated call. The largest value you can specify is 100. If you specify a value greater than 100, a ValidationException error occurs. The default value is 100. </p>
+
+        Raises:
+            aws_sdk_rekognition.errors.access_denied_exception.AccessDeniedException: <p>You are not authorized to perform the action.</p>
+            aws_sdk_rekognition.errors.internal_server_error.InternalServerError: <p>Amazon Rekognition experienced a service issue. Try your call again.</p>
+            aws_sdk_rekognition.errors.invalid_pagination_token_exception.InvalidPaginationTokenException: <p>Pagination token in the request is not valid.</p>
+            aws_sdk_rekognition.errors.invalid_parameter_exception.InvalidParameterException: <p>Input parameter violated a constraint. Validate your parameter before calling the API operation again.</p>
+            aws_sdk_rekognition.errors.provisioned_throughput_exceeded_exception.ProvisionedThroughputExceededException: <p>The number of requests exceeded your throughput limit. If you want to increase this limit, contact Amazon Rekognition.</p>
+            aws_sdk_rekognition.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request cannot be found.</p>
+            aws_sdk_rekognition.errors.throttling_exception.ThrottlingException: <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
+            aws_sdk_rekognition.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1607,6 +1834,15 @@ class RekognitionClient:
 
         Args:
             name: <p>Name of the stream processor for which you want information.</p>
+
+        Raises:
+            aws_sdk_rekognition.errors.access_denied_exception.AccessDeniedException: <p>You are not authorized to perform the action.</p>
+            aws_sdk_rekognition.errors.internal_server_error.InternalServerError: <p>Amazon Rekognition experienced a service issue. Try your call again.</p>
+            aws_sdk_rekognition.errors.invalid_parameter_exception.InvalidParameterException: <p>Input parameter violated a constraint. Validate your parameter before calling the API operation again.</p>
+            aws_sdk_rekognition.errors.provisioned_throughput_exceeded_exception.ProvisionedThroughputExceededException: <p>The number of requests exceeded your throughput limit. If you want to increase this limit, contact Amazon Rekognition.</p>
+            aws_sdk_rekognition.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request cannot be found.</p>
+            aws_sdk_rekognition.errors.throttling_exception.ThrottlingException: <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
+            aws_sdk_rekognition.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1649,6 +1885,20 @@ class RekognitionClient:
             project_version_arn: <p>The ARN of the model version that you want to use. Only models associated with Custom Labels projects accepted by the operation. If a provided ARN refers to a model version associated with a project for a different feature type, then an InvalidParameterException is returned.</p>
             max_results: <p>Maximum number of results you want the service to return in the response. The service returns the specified number of highest confidence labels ranked from highest confidence to lowest.</p>
             min_confidence: <p>Specifies the minimum confidence level for the labels to return. <code>DetectCustomLabels</code> doesn't return any labels with a confidence value that's lower than this specified value. If you specify a value of 0, <code>DetectCustomLabels</code> returns all labels, regardless of the assumed threshold applied to each label. If you don't specify a value for <code>MinConfidence</code>, <code>DetectCustomLabels</code> returns labels based on the assumed threshold of each label.</p>
+
+        Raises:
+            aws_sdk_rekognition.errors.access_denied_exception.AccessDeniedException: <p>You are not authorized to perform the action.</p>
+            aws_sdk_rekognition.errors.image_too_large_exception.ImageTooLargeException: <p>The input image size exceeds the allowed limit. If you are calling DetectProtectiveEquipment, the image size or resolution exceeds the allowed limit. For more information, see Guidelines and quotas in Amazon Rekognition in the Amazon Rekognition Developer Guide. </p>
+            aws_sdk_rekognition.errors.internal_server_error.InternalServerError: <p>Amazon Rekognition experienced a service issue. Try your call again.</p>
+            aws_sdk_rekognition.errors.invalid_image_format_exception.InvalidImageFormatException: <p>The provided image format is not supported. </p>
+            aws_sdk_rekognition.errors.invalid_parameter_exception.InvalidParameterException: <p>Input parameter violated a constraint. Validate your parameter before calling the API operation again.</p>
+            aws_sdk_rekognition.errors.invalid_s3_object_exception.InvalidS3ObjectException: <p>Amazon Rekognition is unable to access the S3 object specified in the request.</p>
+            aws_sdk_rekognition.errors.limit_exceeded_exception.LimitExceededException: <p>An Amazon Rekognition service limit was exceeded. For example, if you start too many jobs concurrently, subsequent calls to start operations (ex: <code>StartLabelDetection</code>) will raise a <code>LimitExceededException</code> exception (HTTP status code: 400) until the number of concurrently running jobs is below the Amazon Rekognition service limit. </p>
+            aws_sdk_rekognition.errors.provisioned_throughput_exceeded_exception.ProvisionedThroughputExceededException: <p>The number of requests exceeded your throughput limit. If you want to increase this limit, contact Amazon Rekognition.</p>
+            aws_sdk_rekognition.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request cannot be found.</p>
+            aws_sdk_rekognition.errors.resource_not_ready_exception.ResourceNotReadyException: <p>The requested resource isn't ready. For example, this exception occurs when you call <code>DetectCustomLabels</code> with a model version that isn't deployed. </p>
+            aws_sdk_rekognition.errors.throttling_exception.ThrottlingException: <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
+            aws_sdk_rekognition.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To detect custom labels in an image with an Amazon Rekognition Custom Labels model
@@ -1699,6 +1949,17 @@ class RekognitionClient:
         Args:
             image: <p>The input image as base64-encoded bytes or an S3 object. If you use the AWS CLI to call Amazon Rekognition operations, passing base64-encoded image bytes is not supported. </p> <p>If you are using an AWS SDK to call Amazon Rekognition, you might not need to base64-encode image bytes passed using the <code>Bytes</code> field. For more information, see Images in the Amazon Rekognition developer guide.</p>
             attributes: <p>An array of facial attributes you want to be returned. A <code>DEFAULT</code> subset of facial attributes - <code>BoundingBox</code>, <code>Confidence</code>, <code>Pose</code>, <code>Quality</code>, and <code>Landmarks</code> - will always be returned. You can request for specific facial attributes (in addition to the default list) - by using [<code>\"DEFAULT\", \"FACE_OCCLUDED\"</code>] or just [<code>\"FACE_OCCLUDED\"</code>]. You can request for all facial attributes by using [<code>\"ALL\"]</code>. Requesting more attributes may increase response time.</p> <p>If you provide both, <code>[\"ALL\", \"DEFAULT\"]</code>, the service uses a logical \"AND\" operator to determine which attributes to return (in this case, all attributes). </p> <p>Note that while the FaceOccluded and EyeDirection attributes are supported when using <code>DetectFaces</code>, they aren't supported when analyzing videos with <code>StartFaceDetection</code> and <code>GetFaceDetection</code>.</p>
+
+        Raises:
+            aws_sdk_rekognition.errors.access_denied_exception.AccessDeniedException: <p>You are not authorized to perform the action.</p>
+            aws_sdk_rekognition.errors.image_too_large_exception.ImageTooLargeException: <p>The input image size exceeds the allowed limit. If you are calling DetectProtectiveEquipment, the image size or resolution exceeds the allowed limit. For more information, see Guidelines and quotas in Amazon Rekognition in the Amazon Rekognition Developer Guide. </p>
+            aws_sdk_rekognition.errors.internal_server_error.InternalServerError: <p>Amazon Rekognition experienced a service issue. Try your call again.</p>
+            aws_sdk_rekognition.errors.invalid_image_format_exception.InvalidImageFormatException: <p>The provided image format is not supported. </p>
+            aws_sdk_rekognition.errors.invalid_parameter_exception.InvalidParameterException: <p>Input parameter violated a constraint. Validate your parameter before calling the API operation again.</p>
+            aws_sdk_rekognition.errors.invalid_s3_object_exception.InvalidS3ObjectException: <p>Amazon Rekognition is unable to access the S3 object specified in the request.</p>
+            aws_sdk_rekognition.errors.provisioned_throughput_exceeded_exception.ProvisionedThroughputExceededException: <p>The number of requests exceeded your throughput limit. If you want to increase this limit, contact Amazon Rekognition.</p>
+            aws_sdk_rekognition.errors.throttling_exception.ThrottlingException: <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
+            aws_sdk_rekognition.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To detect faces in an image
@@ -1756,6 +2017,17 @@ class RekognitionClient:
             min_confidence: <p>Specifies the minimum confidence level for the labels to return. Amazon Rekognition doesn't return any labels with confidence lower than this specified value.</p> <p>If <code>MinConfidence</code> is not specified, the operation returns labels with a confidence values greater than or equal to 55 percent. Only valid when GENERAL_LABELS is specified as a feature type in the Feature input parameter.</p>
             features: <p>A list of the types of analysis to perform. Specifying GENERAL_LABELS uses the label detection feature, while specifying IMAGE_PROPERTIES returns information regarding image color and quality. If no option is specified GENERAL_LABELS is used by default.</p>
             settings: <p>A list of the filters to be applied to returned detected labels and image properties. Specified filters can be inclusive, exclusive, or a combination of both. Filters can be used for individual labels or label categories. The exact label names or label categories must be supplied. For a full list of labels and label categories, see <a href=\"https://docs.aws.amazon.com/rekognition/latest/dg/labels.html\">Detecting labels</a>.</p>
+
+        Raises:
+            aws_sdk_rekognition.errors.access_denied_exception.AccessDeniedException: <p>You are not authorized to perform the action.</p>
+            aws_sdk_rekognition.errors.image_too_large_exception.ImageTooLargeException: <p>The input image size exceeds the allowed limit. If you are calling DetectProtectiveEquipment, the image size or resolution exceeds the allowed limit. For more information, see Guidelines and quotas in Amazon Rekognition in the Amazon Rekognition Developer Guide. </p>
+            aws_sdk_rekognition.errors.internal_server_error.InternalServerError: <p>Amazon Rekognition experienced a service issue. Try your call again.</p>
+            aws_sdk_rekognition.errors.invalid_image_format_exception.InvalidImageFormatException: <p>The provided image format is not supported. </p>
+            aws_sdk_rekognition.errors.invalid_parameter_exception.InvalidParameterException: <p>Input parameter violated a constraint. Validate your parameter before calling the API operation again.</p>
+            aws_sdk_rekognition.errors.invalid_s3_object_exception.InvalidS3ObjectException: <p>Amazon Rekognition is unable to access the S3 object specified in the request.</p>
+            aws_sdk_rekognition.errors.provisioned_throughput_exceeded_exception.ProvisionedThroughputExceededException: <p>The number of requests exceeded your throughput limit. If you want to increase this limit, contact Amazon Rekognition.</p>
+            aws_sdk_rekognition.errors.throttling_exception.ThrottlingException: <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
+            aws_sdk_rekognition.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To detect labels
@@ -1817,6 +2089,20 @@ class RekognitionClient:
             min_confidence: <p>Specifies the minimum confidence level for the labels to return. Amazon Rekognition doesn't return any labels with a confidence level lower than this specified value.</p> <p>If you don't specify <code>MinConfidence</code>, the operation returns labels with confidence values greater than or equal to 50 percent.</p>
             human_loop_config: <p>Sets up the configuration for human evaluation, including the FlowDefinition the image will be sent to.</p>
             project_version: <p>Identifier for the custom adapter. Expects the ProjectVersionArn as a value. Use the CreateProject or CreateProjectVersion APIs to create a custom adapter.</p>
+
+        Raises:
+            aws_sdk_rekognition.errors.access_denied_exception.AccessDeniedException: <p>You are not authorized to perform the action.</p>
+            aws_sdk_rekognition.errors.human_loop_quota_exceeded_exception.HumanLoopQuotaExceededException: <p>The number of in-progress human reviews you have has exceeded the number allowed.</p>
+            aws_sdk_rekognition.errors.image_too_large_exception.ImageTooLargeException: <p>The input image size exceeds the allowed limit. If you are calling DetectProtectiveEquipment, the image size or resolution exceeds the allowed limit. For more information, see Guidelines and quotas in Amazon Rekognition in the Amazon Rekognition Developer Guide. </p>
+            aws_sdk_rekognition.errors.internal_server_error.InternalServerError: <p>Amazon Rekognition experienced a service issue. Try your call again.</p>
+            aws_sdk_rekognition.errors.invalid_image_format_exception.InvalidImageFormatException: <p>The provided image format is not supported. </p>
+            aws_sdk_rekognition.errors.invalid_parameter_exception.InvalidParameterException: <p>Input parameter violated a constraint. Validate your parameter before calling the API operation again.</p>
+            aws_sdk_rekognition.errors.invalid_s3_object_exception.InvalidS3ObjectException: <p>Amazon Rekognition is unable to access the S3 object specified in the request.</p>
+            aws_sdk_rekognition.errors.provisioned_throughput_exceeded_exception.ProvisionedThroughputExceededException: <p>The number of requests exceeded your throughput limit. If you want to increase this limit, contact Amazon Rekognition.</p>
+            aws_sdk_rekognition.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request cannot be found.</p>
+            aws_sdk_rekognition.errors.resource_not_ready_exception.ResourceNotReadyException: <p>The requested resource isn't ready. For example, this exception occurs when you call <code>DetectCustomLabels</code> with a model version that isn't deployed. </p>
+            aws_sdk_rekognition.errors.throttling_exception.ThrottlingException: <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
+            aws_sdk_rekognition.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1864,6 +2150,17 @@ class RekognitionClient:
         Args:
             image: <p>The image in which you want to detect PPE on detected persons. The image can be passed as image bytes or you can reference an image stored in an Amazon S3 bucket. </p>
             summarization_attributes: <p>An array of PPE types that you want to summarize.</p>
+
+        Raises:
+            aws_sdk_rekognition.errors.access_denied_exception.AccessDeniedException: <p>You are not authorized to perform the action.</p>
+            aws_sdk_rekognition.errors.image_too_large_exception.ImageTooLargeException: <p>The input image size exceeds the allowed limit. If you are calling DetectProtectiveEquipment, the image size or resolution exceeds the allowed limit. For more information, see Guidelines and quotas in Amazon Rekognition in the Amazon Rekognition Developer Guide. </p>
+            aws_sdk_rekognition.errors.internal_server_error.InternalServerError: <p>Amazon Rekognition experienced a service issue. Try your call again.</p>
+            aws_sdk_rekognition.errors.invalid_image_format_exception.InvalidImageFormatException: <p>The provided image format is not supported. </p>
+            aws_sdk_rekognition.errors.invalid_parameter_exception.InvalidParameterException: <p>Input parameter violated a constraint. Validate your parameter before calling the API operation again.</p>
+            aws_sdk_rekognition.errors.invalid_s3_object_exception.InvalidS3ObjectException: <p>Amazon Rekognition is unable to access the S3 object specified in the request.</p>
+            aws_sdk_rekognition.errors.provisioned_throughput_exceeded_exception.ProvisionedThroughputExceededException: <p>The number of requests exceeded your throughput limit. If you want to increase this limit, contact Amazon Rekognition.</p>
+            aws_sdk_rekognition.errors.throttling_exception.ThrottlingException: <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
+            aws_sdk_rekognition.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1907,6 +2204,17 @@ class RekognitionClient:
         Args:
             image: <p>The input image as base64-encoded bytes or an Amazon S3 object. If you use the AWS CLI to call Amazon Rekognition operations, you can't pass image bytes. </p> <p>If you are using an AWS SDK to call Amazon Rekognition, you might not need to base64-encode image bytes passed using the <code>Bytes</code> field. For more information, see Images in the Amazon Rekognition developer guide.</p>
             filters: <p>Optional parameters that let you set the criteria that the text must meet to be included in your response.</p>
+
+        Raises:
+            aws_sdk_rekognition.errors.access_denied_exception.AccessDeniedException: <p>You are not authorized to perform the action.</p>
+            aws_sdk_rekognition.errors.image_too_large_exception.ImageTooLargeException: <p>The input image size exceeds the allowed limit. If you are calling DetectProtectiveEquipment, the image size or resolution exceeds the allowed limit. For more information, see Guidelines and quotas in Amazon Rekognition in the Amazon Rekognition Developer Guide. </p>
+            aws_sdk_rekognition.errors.internal_server_error.InternalServerError: <p>Amazon Rekognition experienced a service issue. Try your call again.</p>
+            aws_sdk_rekognition.errors.invalid_image_format_exception.InvalidImageFormatException: <p>The provided image format is not supported. </p>
+            aws_sdk_rekognition.errors.invalid_parameter_exception.InvalidParameterException: <p>Input parameter violated a constraint. Validate your parameter before calling the API operation again.</p>
+            aws_sdk_rekognition.errors.invalid_s3_object_exception.InvalidS3ObjectException: <p>Amazon Rekognition is unable to access the S3 object specified in the request.</p>
+            aws_sdk_rekognition.errors.provisioned_throughput_exceeded_exception.ProvisionedThroughputExceededException: <p>The number of requests exceeded your throughput limit. If you want to increase this limit, contact Amazon Rekognition.</p>
+            aws_sdk_rekognition.errors.throttling_exception.ThrottlingException: <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
+            aws_sdk_rekognition.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1955,6 +2263,17 @@ class RekognitionClient:
             client_request_token: <p>Idempotent token used to identify the request to <code>DisassociateFaces</code>. If you use the same token with multiple <code>DisassociateFaces</code> requests, the same response is returned. Use ClientRequestToken to prevent the same request from being processed more than once.</p>
             face_ids: <p>An array of face IDs to disassociate from the UserID. </p>
 
+        Raises:
+            aws_sdk_rekognition.errors.access_denied_exception.AccessDeniedException: <p>You are not authorized to perform the action.</p>
+            aws_sdk_rekognition.errors.conflict_exception.ConflictException: <p> A User with the same Id already exists within the collection, or the update or deletion of the User caused an inconsistent state. ** </p>
+            aws_sdk_rekognition.errors.idempotent_parameter_mismatch_exception.IdempotentParameterMismatchException: <p>A <code>ClientRequestToken</code> input parameter was reused with an operation, but at least one of the other input parameters is different from the previous call to the operation.</p>
+            aws_sdk_rekognition.errors.internal_server_error.InternalServerError: <p>Amazon Rekognition experienced a service issue. Try your call again.</p>
+            aws_sdk_rekognition.errors.invalid_parameter_exception.InvalidParameterException: <p>Input parameter violated a constraint. Validate your parameter before calling the API operation again.</p>
+            aws_sdk_rekognition.errors.provisioned_throughput_exceeded_exception.ProvisionedThroughputExceededException: <p>The number of requests exceeded your throughput limit. If you want to increase this limit, contact Amazon Rekognition.</p>
+            aws_sdk_rekognition.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request cannot be found.</p>
+            aws_sdk_rekognition.errors.throttling_exception.ThrottlingException: <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
+            aws_sdk_rekognition.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             DisassociateFaces
             Removes the association between a Face supplied in an array of FaceIds and the User.
@@ -2002,6 +2321,16 @@ class RekognitionClient:
         Args:
             datasets: <p>The ARNS for the training dataset and test dataset that you want to use. The datasets must belong to the same project. The test dataset must be empty. </p>
 
+        Raises:
+            aws_sdk_rekognition.errors.access_denied_exception.AccessDeniedException: <p>You are not authorized to perform the action.</p>
+            aws_sdk_rekognition.errors.internal_server_error.InternalServerError: <p>Amazon Rekognition experienced a service issue. Try your call again.</p>
+            aws_sdk_rekognition.errors.invalid_parameter_exception.InvalidParameterException: <p>Input parameter violated a constraint. Validate your parameter before calling the API operation again.</p>
+            aws_sdk_rekognition.errors.provisioned_throughput_exceeded_exception.ProvisionedThroughputExceededException: <p>The number of requests exceeded your throughput limit. If you want to increase this limit, contact Amazon Rekognition.</p>
+            aws_sdk_rekognition.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request cannot be found.</p>
+            aws_sdk_rekognition.errors.resource_not_ready_exception.ResourceNotReadyException: <p>The requested resource isn't ready. For example, this exception occurs when you call <code>DetectCustomLabels</code> with a model version that isn't deployed. </p>
+            aws_sdk_rekognition.errors.throttling_exception.ThrottlingException: <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
+            aws_sdk_rekognition.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To distribute an Amazon Rekognition Custom Labels dataset
             Distributes an Amazon Rekognition Custom Labels training dataset to a test dataset.
@@ -2046,6 +2375,15 @@ class RekognitionClient:
 
         Args:
             id: <p>The ID for the celebrity. You get the celebrity ID from a call to the <a>RecognizeCelebrities</a> operation, which recognizes celebrities in an image. </p>
+
+        Raises:
+            aws_sdk_rekognition.errors.access_denied_exception.AccessDeniedException: <p>You are not authorized to perform the action.</p>
+            aws_sdk_rekognition.errors.internal_server_error.InternalServerError: <p>Amazon Rekognition experienced a service issue. Try your call again.</p>
+            aws_sdk_rekognition.errors.invalid_parameter_exception.InvalidParameterException: <p>Input parameter violated a constraint. Validate your parameter before calling the API operation again.</p>
+            aws_sdk_rekognition.errors.provisioned_throughput_exceeded_exception.ProvisionedThroughputExceededException: <p>The number of requests exceeded your throughput limit. If you want to increase this limit, contact Amazon Rekognition.</p>
+            aws_sdk_rekognition.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request cannot be found.</p>
+            aws_sdk_rekognition.errors.throttling_exception.ThrottlingException: <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
+            aws_sdk_rekognition.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2095,6 +2433,16 @@ class RekognitionClient:
             max_results: <p>Maximum number of results to return per paginated call. The largest value you can specify is 1000. If you specify a value greater than 1000, a maximum of 1000 results is returned. The default value is 1000.</p>
             next_token: <p>If the previous response was incomplete (because there is more recognized celebrities to retrieve), Amazon Rekognition Video returns a pagination token in the response. You can use this pagination token to retrieve the next set of celebrities. </p>
             sort_by: <p>Sort to use for celebrities returned in <code>Celebrities</code> field. Specify <code>ID</code> to sort by the celebrity identifier, specify <code>TIMESTAMP</code> to sort by the time the celebrity was recognized.</p>
+
+        Raises:
+            aws_sdk_rekognition.errors.access_denied_exception.AccessDeniedException: <p>You are not authorized to perform the action.</p>
+            aws_sdk_rekognition.errors.internal_server_error.InternalServerError: <p>Amazon Rekognition experienced a service issue. Try your call again.</p>
+            aws_sdk_rekognition.errors.invalid_pagination_token_exception.InvalidPaginationTokenException: <p>Pagination token in the request is not valid.</p>
+            aws_sdk_rekognition.errors.invalid_parameter_exception.InvalidParameterException: <p>Input parameter violated a constraint. Validate your parameter before calling the API operation again.</p>
+            aws_sdk_rekognition.errors.provisioned_throughput_exceeded_exception.ProvisionedThroughputExceededException: <p>The number of requests exceeded your throughput limit. If you want to increase this limit, contact Amazon Rekognition.</p>
+            aws_sdk_rekognition.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request cannot be found.</p>
+            aws_sdk_rekognition.errors.throttling_exception.ThrottlingException: <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
+            aws_sdk_rekognition.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2154,6 +2502,16 @@ class RekognitionClient:
             next_token: <p>If the previous response was incomplete (because there is more data to retrieve), Amazon Rekognition returns a pagination token in the response. You can use this pagination token to retrieve the next set of content moderation labels.</p>
             sort_by: <p>Sort to use for elements in the <code>ModerationLabelDetections</code> array. Use <code>TIMESTAMP</code> to sort array elements by the time labels are detected. Use <code>NAME</code> to alphabetically group elements for a label together. Within each label group, the array element are sorted by detection confidence. The default sort is by <code>TIMESTAMP</code>.</p>
             aggregate_by: <p>Defines how to aggregate results of the StartContentModeration request. Default aggregation option is TIMESTAMPS. SEGMENTS mode aggregates moderation labels over time.</p>
+
+        Raises:
+            aws_sdk_rekognition.errors.access_denied_exception.AccessDeniedException: <p>You are not authorized to perform the action.</p>
+            aws_sdk_rekognition.errors.internal_server_error.InternalServerError: <p>Amazon Rekognition experienced a service issue. Try your call again.</p>
+            aws_sdk_rekognition.errors.invalid_pagination_token_exception.InvalidPaginationTokenException: <p>Pagination token in the request is not valid.</p>
+            aws_sdk_rekognition.errors.invalid_parameter_exception.InvalidParameterException: <p>Input parameter violated a constraint. Validate your parameter before calling the API operation again.</p>
+            aws_sdk_rekognition.errors.provisioned_throughput_exceeded_exception.ProvisionedThroughputExceededException: <p>The number of requests exceeded your throughput limit. If you want to increase this limit, contact Amazon Rekognition.</p>
+            aws_sdk_rekognition.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request cannot be found.</p>
+            aws_sdk_rekognition.errors.throttling_exception.ThrottlingException: <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
+            aws_sdk_rekognition.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2209,6 +2567,16 @@ class RekognitionClient:
             job_id: <p>Unique identifier for the face detection job. The <code>JobId</code> is returned from <code>StartFaceDetection</code>.</p>
             max_results: <p>Maximum number of results to return per paginated call. The largest value you can specify is 1000. If you specify a value greater than 1000, a maximum of 1000 results is returned. The default value is 1000.</p>
             next_token: <p>If the previous response was incomplete (because there are more faces to retrieve), Amazon Rekognition Video returns a pagination token in the response. You can use this pagination token to retrieve the next set of faces.</p>
+
+        Raises:
+            aws_sdk_rekognition.errors.access_denied_exception.AccessDeniedException: <p>You are not authorized to perform the action.</p>
+            aws_sdk_rekognition.errors.internal_server_error.InternalServerError: <p>Amazon Rekognition experienced a service issue. Try your call again.</p>
+            aws_sdk_rekognition.errors.invalid_pagination_token_exception.InvalidPaginationTokenException: <p>Pagination token in the request is not valid.</p>
+            aws_sdk_rekognition.errors.invalid_parameter_exception.InvalidParameterException: <p>Input parameter violated a constraint. Validate your parameter before calling the API operation again.</p>
+            aws_sdk_rekognition.errors.provisioned_throughput_exceeded_exception.ProvisionedThroughputExceededException: <p>The number of requests exceeded your throughput limit. If you want to increase this limit, contact Amazon Rekognition.</p>
+            aws_sdk_rekognition.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request cannot be found.</p>
+            aws_sdk_rekognition.errors.throttling_exception.ThrottlingException: <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
+            aws_sdk_rekognition.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2250,6 +2618,15 @@ class RekognitionClient:
 
         Args:
             session_id: <p>A unique 128-bit UUID. This is used to uniquely identify the session and also acts as an idempotency token for all operations associated with the session.</p>
+
+        Raises:
+            aws_sdk_rekognition.errors.access_denied_exception.AccessDeniedException: <p>You are not authorized to perform the action.</p>
+            aws_sdk_rekognition.errors.internal_server_error.InternalServerError: <p>Amazon Rekognition experienced a service issue. Try your call again.</p>
+            aws_sdk_rekognition.errors.invalid_parameter_exception.InvalidParameterException: <p>Input parameter violated a constraint. Validate your parameter before calling the API operation again.</p>
+            aws_sdk_rekognition.errors.provisioned_throughput_exceeded_exception.ProvisionedThroughputExceededException: <p>The number of requests exceeded your throughput limit. If you want to increase this limit, contact Amazon Rekognition.</p>
+            aws_sdk_rekognition.errors.session_not_found_exception.SessionNotFoundException: <p>Occurs when a given sessionId is not found.</p>
+            aws_sdk_rekognition.errors.throttling_exception.ThrottlingException: <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
+            aws_sdk_rekognition.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2299,6 +2676,16 @@ class RekognitionClient:
             max_results: <p>Maximum number of results to return per paginated call. The largest value you can specify is 1000. If you specify a value greater than 1000, a maximum of 1000 results is returned. The default value is 1000.</p>
             next_token: <p>If the previous response was incomplete (because there is more search results to retrieve), Amazon Rekognition Video returns a pagination token in the response. You can use this pagination token to retrieve the next set of search results. </p>
             sort_by: <p>Sort to use for grouping faces in the response. Use <code>TIMESTAMP</code> to group faces by the time that they are recognized. Use <code>INDEX</code> to sort by recognized faces. </p>
+
+        Raises:
+            aws_sdk_rekognition.errors.access_denied_exception.AccessDeniedException: <p>You are not authorized to perform the action.</p>
+            aws_sdk_rekognition.errors.internal_server_error.InternalServerError: <p>Amazon Rekognition experienced a service issue. Try your call again.</p>
+            aws_sdk_rekognition.errors.invalid_pagination_token_exception.InvalidPaginationTokenException: <p>Pagination token in the request is not valid.</p>
+            aws_sdk_rekognition.errors.invalid_parameter_exception.InvalidParameterException: <p>Input parameter violated a constraint. Validate your parameter before calling the API operation again.</p>
+            aws_sdk_rekognition.errors.provisioned_throughput_exceeded_exception.ProvisionedThroughputExceededException: <p>The number of requests exceeded your throughput limit. If you want to increase this limit, contact Amazon Rekognition.</p>
+            aws_sdk_rekognition.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request cannot be found.</p>
+            aws_sdk_rekognition.errors.throttling_exception.ThrottlingException: <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
+            aws_sdk_rekognition.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2358,6 +2745,16 @@ class RekognitionClient:
             next_token: <p>If the previous response was incomplete (because there are more labels to retrieve), Amazon Rekognition Video returns a pagination token in the response. You can use this pagination token to retrieve the next set of labels. </p>
             sort_by: <p>Sort to use for elements in the <code>Labels</code> array. Use <code>TIMESTAMP</code> to sort array elements by the time labels are detected. Use <code>NAME</code> to alphabetically group elements for a label together. Within each label group, the array element are sorted by detection confidence. The default sort is by <code>TIMESTAMP</code>.</p>
             aggregate_by: <p>Defines how to aggregate the returned results. Results can be aggregated by timestamps or segments.</p>
+
+        Raises:
+            aws_sdk_rekognition.errors.access_denied_exception.AccessDeniedException: <p>You are not authorized to perform the action.</p>
+            aws_sdk_rekognition.errors.internal_server_error.InternalServerError: <p>Amazon Rekognition experienced a service issue. Try your call again.</p>
+            aws_sdk_rekognition.errors.invalid_pagination_token_exception.InvalidPaginationTokenException: <p>Pagination token in the request is not valid.</p>
+            aws_sdk_rekognition.errors.invalid_parameter_exception.InvalidParameterException: <p>Input parameter violated a constraint. Validate your parameter before calling the API operation again.</p>
+            aws_sdk_rekognition.errors.provisioned_throughput_exceeded_exception.ProvisionedThroughputExceededException: <p>The number of requests exceeded your throughput limit. If you want to increase this limit, contact Amazon Rekognition.</p>
+            aws_sdk_rekognition.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request cannot be found.</p>
+            aws_sdk_rekognition.errors.throttling_exception.ThrottlingException: <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
+            aws_sdk_rekognition.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2403,6 +2800,15 @@ class RekognitionClient:
 
         Args:
             job_id: <p>Unique identifier for the media analysis job for which you want to retrieve results.</p>
+
+        Raises:
+            aws_sdk_rekognition.errors.access_denied_exception.AccessDeniedException: <p>You are not authorized to perform the action.</p>
+            aws_sdk_rekognition.errors.internal_server_error.InternalServerError: <p>Amazon Rekognition experienced a service issue. Try your call again.</p>
+            aws_sdk_rekognition.errors.invalid_parameter_exception.InvalidParameterException: <p>Input parameter violated a constraint. Validate your parameter before calling the API operation again.</p>
+            aws_sdk_rekognition.errors.provisioned_throughput_exceeded_exception.ProvisionedThroughputExceededException: <p>The number of requests exceeded your throughput limit. If you want to increase this limit, contact Amazon Rekognition.</p>
+            aws_sdk_rekognition.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request cannot be found.</p>
+            aws_sdk_rekognition.errors.throttling_exception.ThrottlingException: <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
+            aws_sdk_rekognition.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2452,6 +2858,16 @@ class RekognitionClient:
             max_results: <p>Maximum number of results to return per paginated call. The largest value you can specify is 1000. If you specify a value greater than 1000, a maximum of 1000 results is returned. The default value is 1000.</p>
             next_token: <p>If the previous response was incomplete (because there are more persons to retrieve), Amazon Rekognition Video returns a pagination token in the response. You can use this pagination token to retrieve the next set of persons. </p>
             sort_by: <p>Sort to use for elements in the <code>Persons</code> array. Use <code>TIMESTAMP</code> to sort array elements by the time persons are detected. Use <code>INDEX</code> to sort by the tracked persons. If you sort by <code>INDEX</code>, the array elements for each person are sorted by detection confidence. The default sort is by <code>TIMESTAMP</code>.</p>
+
+        Raises:
+            aws_sdk_rekognition.errors.access_denied_exception.AccessDeniedException: <p>You are not authorized to perform the action.</p>
+            aws_sdk_rekognition.errors.internal_server_error.InternalServerError: <p>Amazon Rekognition experienced a service issue. Try your call again.</p>
+            aws_sdk_rekognition.errors.invalid_pagination_token_exception.InvalidPaginationTokenException: <p>Pagination token in the request is not valid.</p>
+            aws_sdk_rekognition.errors.invalid_parameter_exception.InvalidParameterException: <p>Input parameter violated a constraint. Validate your parameter before calling the API operation again.</p>
+            aws_sdk_rekognition.errors.provisioned_throughput_exceeded_exception.ProvisionedThroughputExceededException: <p>The number of requests exceeded your throughput limit. If you want to increase this limit, contact Amazon Rekognition.</p>
+            aws_sdk_rekognition.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request cannot be found.</p>
+            aws_sdk_rekognition.errors.throttling_exception.ThrottlingException: <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
+            aws_sdk_rekognition.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2503,6 +2919,16 @@ class RekognitionClient:
             job_id: <p>Job identifier for the text detection operation for which you want results returned. You get the job identifer from an initial call to <code>StartSegmentDetection</code>.</p>
             max_results: <p>Maximum number of results to return per paginated call. The largest value you can specify is 1000.</p>
             next_token: <p>If the response is truncated, Amazon Rekognition Video returns this token that you can use in the subsequent request to retrieve the next set of text.</p>
+
+        Raises:
+            aws_sdk_rekognition.errors.access_denied_exception.AccessDeniedException: <p>You are not authorized to perform the action.</p>
+            aws_sdk_rekognition.errors.internal_server_error.InternalServerError: <p>Amazon Rekognition experienced a service issue. Try your call again.</p>
+            aws_sdk_rekognition.errors.invalid_pagination_token_exception.InvalidPaginationTokenException: <p>Pagination token in the request is not valid.</p>
+            aws_sdk_rekognition.errors.invalid_parameter_exception.InvalidParameterException: <p>Input parameter violated a constraint. Validate your parameter before calling the API operation again.</p>
+            aws_sdk_rekognition.errors.provisioned_throughput_exceeded_exception.ProvisionedThroughputExceededException: <p>The number of requests exceeded your throughput limit. If you want to increase this limit, contact Amazon Rekognition.</p>
+            aws_sdk_rekognition.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request cannot be found.</p>
+            aws_sdk_rekognition.errors.throttling_exception.ThrottlingException: <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
+            aws_sdk_rekognition.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2554,6 +2980,16 @@ class RekognitionClient:
             job_id: <p>Job identifier for the text detection operation for which you want results returned. You get the job identifer from an initial call to <code>StartTextDetection</code>.</p>
             max_results: <p>Maximum number of results to return per paginated call. The largest value you can specify is 1000.</p>
             next_token: <p>If the previous response was incomplete (because there are more labels to retrieve), Amazon Rekognition Video returns a pagination token in the response. You can use this pagination token to retrieve the next set of text.</p>
+
+        Raises:
+            aws_sdk_rekognition.errors.access_denied_exception.AccessDeniedException: <p>You are not authorized to perform the action.</p>
+            aws_sdk_rekognition.errors.internal_server_error.InternalServerError: <p>Amazon Rekognition experienced a service issue. Try your call again.</p>
+            aws_sdk_rekognition.errors.invalid_pagination_token_exception.InvalidPaginationTokenException: <p>Pagination token in the request is not valid.</p>
+            aws_sdk_rekognition.errors.invalid_parameter_exception.InvalidParameterException: <p>Input parameter violated a constraint. Validate your parameter before calling the API operation again.</p>
+            aws_sdk_rekognition.errors.provisioned_throughput_exceeded_exception.ProvisionedThroughputExceededException: <p>The number of requests exceeded your throughput limit. If you want to increase this limit, contact Amazon Rekognition.</p>
+            aws_sdk_rekognition.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request cannot be found.</p>
+            aws_sdk_rekognition.errors.throttling_exception.ThrottlingException: <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
+            aws_sdk_rekognition.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2614,6 +3050,19 @@ class RekognitionClient:
             max_faces: <p>The maximum number of faces to index. The value of <code>MaxFaces</code> must be greater than or equal to 1. <code>IndexFaces</code> returns no more than 100 detected faces in an image, even if you specify a larger value for <code>MaxFaces</code>.</p> <p>If <code>IndexFaces</code> detects more faces than the value of <code>MaxFaces</code>, the faces with the lowest quality are filtered out first. If there are still more faces than the value of <code>MaxFaces</code>, the faces with the smallest bounding boxes are filtered out (up to the number that's needed to satisfy the value of <code>MaxFaces</code>). Information about the unindexed faces is available in the <code>UnindexedFaces</code> array. </p> <p>The faces that are returned by <code>IndexFaces</code> are sorted by the largest face bounding box size to the smallest size, in descending order.</p> <p> <code>MaxFaces</code> can be used with a collection associated with any version of the face model.</p>
             quality_filter: <p>A filter that specifies a quality bar for how much filtering is done to identify faces. Filtered faces aren't indexed. If you specify <code>AUTO</code>, Amazon Rekognition chooses the quality bar. If you specify <code>LOW</code>, <code>MEDIUM</code>, or <code>HIGH</code>, filtering removes all faces that don’t meet the chosen quality bar. The default value is <code>AUTO</code>. The quality bar is based on a variety of common use cases. Low-quality detections can occur for a number of reasons. Some examples are an object that's misidentified as a face, a face that's too blurry, or a face with a pose that's too extreme to use. If you specify <code>NONE</code>, no filtering is performed. </p> <p>To use quality filtering, the collection you are using must be associated with version 3 of the face model or higher.</p>
 
+        Raises:
+            aws_sdk_rekognition.errors.access_denied_exception.AccessDeniedException: <p>You are not authorized to perform the action.</p>
+            aws_sdk_rekognition.errors.image_too_large_exception.ImageTooLargeException: <p>The input image size exceeds the allowed limit. If you are calling DetectProtectiveEquipment, the image size or resolution exceeds the allowed limit. For more information, see Guidelines and quotas in Amazon Rekognition in the Amazon Rekognition Developer Guide. </p>
+            aws_sdk_rekognition.errors.internal_server_error.InternalServerError: <p>Amazon Rekognition experienced a service issue. Try your call again.</p>
+            aws_sdk_rekognition.errors.invalid_image_format_exception.InvalidImageFormatException: <p>The provided image format is not supported. </p>
+            aws_sdk_rekognition.errors.invalid_parameter_exception.InvalidParameterException: <p>Input parameter violated a constraint. Validate your parameter before calling the API operation again.</p>
+            aws_sdk_rekognition.errors.invalid_s3_object_exception.InvalidS3ObjectException: <p>Amazon Rekognition is unable to access the S3 object specified in the request.</p>
+            aws_sdk_rekognition.errors.provisioned_throughput_exceeded_exception.ProvisionedThroughputExceededException: <p>The number of requests exceeded your throughput limit. If you want to increase this limit, contact Amazon Rekognition.</p>
+            aws_sdk_rekognition.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request cannot be found.</p>
+            aws_sdk_rekognition.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p></p> <p>The size of the collection exceeds the allowed limit. For more information, see Guidelines and quotas in Amazon Rekognition in the Amazon Rekognition Developer Guide. </p>
+            aws_sdk_rekognition.errors.throttling_exception.ThrottlingException: <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
+            aws_sdk_rekognition.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To add a face to a collection
             This operation detects faces in an image and adds them to the specified Rekognition collection.
@@ -2669,6 +3118,16 @@ class RekognitionClient:
         Args:
             next_token: <p>Pagination token from the previous response.</p>
             max_results: <p>Maximum number of collection IDs to return. </p>
+
+        Raises:
+            aws_sdk_rekognition.errors.access_denied_exception.AccessDeniedException: <p>You are not authorized to perform the action.</p>
+            aws_sdk_rekognition.errors.internal_server_error.InternalServerError: <p>Amazon Rekognition experienced a service issue. Try your call again.</p>
+            aws_sdk_rekognition.errors.invalid_pagination_token_exception.InvalidPaginationTokenException: <p>Pagination token in the request is not valid.</p>
+            aws_sdk_rekognition.errors.invalid_parameter_exception.InvalidParameterException: <p>Input parameter violated a constraint. Validate your parameter before calling the API operation again.</p>
+            aws_sdk_rekognition.errors.provisioned_throughput_exceeded_exception.ProvisionedThroughputExceededException: <p>The number of requests exceeded your throughput limit. If you want to increase this limit, contact Amazon Rekognition.</p>
+            aws_sdk_rekognition.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request cannot be found.</p>
+            aws_sdk_rekognition.errors.throttling_exception.ThrottlingException: <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
+            aws_sdk_rekognition.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To list the collections
@@ -2758,6 +3217,18 @@ class RekognitionClient:
             has_errors: <p>Specifies an error filter for the response. Specify <code>True</code> to only include entries that have errors. </p>
             next_token: <p>If the previous response was incomplete (because there is more results to retrieve), Amazon Rekognition Custom Labels returns a pagination token in the response. You can use this pagination token to retrieve the next set of results. </p>
             max_results: <p>The maximum number of results to return per paginated call. The largest value you can specify is 100. If you specify a value greater than 100, a ValidationException error occurs. The default value is 100. </p>
+
+        Raises:
+            aws_sdk_rekognition.errors.access_denied_exception.AccessDeniedException: <p>You are not authorized to perform the action.</p>
+            aws_sdk_rekognition.errors.internal_server_error.InternalServerError: <p>Amazon Rekognition experienced a service issue. Try your call again.</p>
+            aws_sdk_rekognition.errors.invalid_pagination_token_exception.InvalidPaginationTokenException: <p>Pagination token in the request is not valid.</p>
+            aws_sdk_rekognition.errors.invalid_parameter_exception.InvalidParameterException: <p>Input parameter violated a constraint. Validate your parameter before calling the API operation again.</p>
+            aws_sdk_rekognition.errors.provisioned_throughput_exceeded_exception.ProvisionedThroughputExceededException: <p>The number of requests exceeded your throughput limit. If you want to increase this limit, contact Amazon Rekognition.</p>
+            aws_sdk_rekognition.errors.resource_in_use_exception.ResourceInUseException: <p>The specified resource is already being used.</p>
+            aws_sdk_rekognition.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request cannot be found.</p>
+            aws_sdk_rekognition.errors.resource_not_ready_exception.ResourceNotReadyException: <p>The requested resource isn't ready. For example, this exception occurs when you call <code>DetectCustomLabels</code> with a model version that isn't deployed. </p>
+            aws_sdk_rekognition.errors.throttling_exception.ThrottlingException: <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
+            aws_sdk_rekognition.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To list the entries in an Amazon Rekognition Custom Labels dataset
@@ -2861,6 +3332,18 @@ class RekognitionClient:
             next_token: <p>If the previous response was incomplete (because there is more results to retrieve), Amazon Rekognition Custom Labels returns a pagination token in the response. You can use this pagination token to retrieve the next set of results. </p>
             max_results: <p>The maximum number of results to return per paginated call. The largest value you can specify is 100. If you specify a value greater than 100, a ValidationException error occurs. The default value is 100. </p>
 
+        Raises:
+            aws_sdk_rekognition.errors.access_denied_exception.AccessDeniedException: <p>You are not authorized to perform the action.</p>
+            aws_sdk_rekognition.errors.internal_server_error.InternalServerError: <p>Amazon Rekognition experienced a service issue. Try your call again.</p>
+            aws_sdk_rekognition.errors.invalid_pagination_token_exception.InvalidPaginationTokenException: <p>Pagination token in the request is not valid.</p>
+            aws_sdk_rekognition.errors.invalid_parameter_exception.InvalidParameterException: <p>Input parameter violated a constraint. Validate your parameter before calling the API operation again.</p>
+            aws_sdk_rekognition.errors.provisioned_throughput_exceeded_exception.ProvisionedThroughputExceededException: <p>The number of requests exceeded your throughput limit. If you want to increase this limit, contact Amazon Rekognition.</p>
+            aws_sdk_rekognition.errors.resource_in_use_exception.ResourceInUseException: <p>The specified resource is already being used.</p>
+            aws_sdk_rekognition.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request cannot be found.</p>
+            aws_sdk_rekognition.errors.resource_not_ready_exception.ResourceNotReadyException: <p>The requested resource isn't ready. For example, this exception occurs when you call <code>DetectCustomLabels</code> with a model version that isn't deployed. </p>
+            aws_sdk_rekognition.errors.throttling_exception.ThrottlingException: <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
+            aws_sdk_rekognition.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To list the entries in an Amazon Rekognition Custom Labels dataset
             Lists the JSON line entries in an Amazon Rekognition Custom Labels dataset.
@@ -2944,6 +3427,16 @@ class RekognitionClient:
             max_results: <p>Maximum number of faces to return.</p>
             user_id: <p>An array of user IDs to filter results with when listing faces in a collection.</p>
             face_ids: <p>An array of face IDs to filter results with when listing faces in a collection.</p>
+
+        Raises:
+            aws_sdk_rekognition.errors.access_denied_exception.AccessDeniedException: <p>You are not authorized to perform the action.</p>
+            aws_sdk_rekognition.errors.internal_server_error.InternalServerError: <p>Amazon Rekognition experienced a service issue. Try your call again.</p>
+            aws_sdk_rekognition.errors.invalid_pagination_token_exception.InvalidPaginationTokenException: <p>Pagination token in the request is not valid.</p>
+            aws_sdk_rekognition.errors.invalid_parameter_exception.InvalidParameterException: <p>Input parameter violated a constraint. Validate your parameter before calling the API operation again.</p>
+            aws_sdk_rekognition.errors.provisioned_throughput_exceeded_exception.ProvisionedThroughputExceededException: <p>The number of requests exceeded your throughput limit. If you want to increase this limit, contact Amazon Rekognition.</p>
+            aws_sdk_rekognition.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request cannot be found.</p>
+            aws_sdk_rekognition.errors.throttling_exception.ThrottlingException: <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
+            aws_sdk_rekognition.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To list the faces in a collection
@@ -3030,6 +3523,15 @@ class RekognitionClient:
         Args:
             next_token: <p>Pagination token, if the previous response was incomplete.</p>
             max_results: <p>The maximum number of results to return per paginated call. The largest value user can specify is 100. If user specifies a value greater than 100, an <code>InvalidParameterException</code> error occurs. The default value is 100.</p>
+
+        Raises:
+            aws_sdk_rekognition.errors.access_denied_exception.AccessDeniedException: <p>You are not authorized to perform the action.</p>
+            aws_sdk_rekognition.errors.internal_server_error.InternalServerError: <p>Amazon Rekognition experienced a service issue. Try your call again.</p>
+            aws_sdk_rekognition.errors.invalid_pagination_token_exception.InvalidPaginationTokenException: <p>Pagination token in the request is not valid.</p>
+            aws_sdk_rekognition.errors.invalid_parameter_exception.InvalidParameterException: <p>Input parameter violated a constraint. Validate your parameter before calling the API operation again.</p>
+            aws_sdk_rekognition.errors.provisioned_throughput_exceeded_exception.ProvisionedThroughputExceededException: <p>The number of requests exceeded your throughput limit. If you want to increase this limit, contact Amazon Rekognition.</p>
+            aws_sdk_rekognition.errors.throttling_exception.ThrottlingException: <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
+            aws_sdk_rekognition.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3078,6 +3580,16 @@ class RekognitionClient:
             project_arn: <p>The ARN of the project for which you want to list the project policies.</p>
             next_token: <p>If the previous response was incomplete (because there is more results to retrieve), Amazon Rekognition Custom Labels returns a pagination token in the response. You can use this pagination token to retrieve the next set of results. </p>
             max_results: <p>The maximum number of results to return per paginated call. The largest value you can specify is 5. If you specify a value greater than 5, a ValidationException error occurs. The default value is 5. </p>
+
+        Raises:
+            aws_sdk_rekognition.errors.access_denied_exception.AccessDeniedException: <p>You are not authorized to perform the action.</p>
+            aws_sdk_rekognition.errors.internal_server_error.InternalServerError: <p>Amazon Rekognition experienced a service issue. Try your call again.</p>
+            aws_sdk_rekognition.errors.invalid_pagination_token_exception.InvalidPaginationTokenException: <p>Pagination token in the request is not valid.</p>
+            aws_sdk_rekognition.errors.invalid_parameter_exception.InvalidParameterException: <p>Input parameter violated a constraint. Validate your parameter before calling the API operation again.</p>
+            aws_sdk_rekognition.errors.provisioned_throughput_exceeded_exception.ProvisionedThroughputExceededException: <p>The number of requests exceeded your throughput limit. If you want to increase this limit, contact Amazon Rekognition.</p>
+            aws_sdk_rekognition.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request cannot be found.</p>
+            aws_sdk_rekognition.errors.throttling_exception.ThrottlingException: <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
+            aws_sdk_rekognition.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3152,6 +3664,15 @@ class RekognitionClient:
         Args:
             next_token: <p>If the previous response was incomplete (because there are more stream processors to retrieve), Amazon Rekognition Video returns a pagination token in the response. You can use this pagination token to retrieve the next set of stream processors. </p>
             max_results: <p>Maximum number of stream processors you want Amazon Rekognition Video to return in the response. The default is 1000. </p>
+
+        Raises:
+            aws_sdk_rekognition.errors.access_denied_exception.AccessDeniedException: <p>You are not authorized to perform the action.</p>
+            aws_sdk_rekognition.errors.internal_server_error.InternalServerError: <p>Amazon Rekognition experienced a service issue. Try your call again.</p>
+            aws_sdk_rekognition.errors.invalid_pagination_token_exception.InvalidPaginationTokenException: <p>Pagination token in the request is not valid.</p>
+            aws_sdk_rekognition.errors.invalid_parameter_exception.InvalidParameterException: <p>Input parameter violated a constraint. Validate your parameter before calling the API operation again.</p>
+            aws_sdk_rekognition.errors.provisioned_throughput_exceeded_exception.ProvisionedThroughputExceededException: <p>The number of requests exceeded your throughput limit. If you want to increase this limit, contact Amazon Rekognition.</p>
+            aws_sdk_rekognition.errors.throttling_exception.ThrottlingException: <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
+            aws_sdk_rekognition.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3192,6 +3713,15 @@ class RekognitionClient:
 
         Args:
             resource_arn: <p> Amazon Resource Name (ARN) of the model, collection, or stream processor that contains the tags that you want a list of. </p>
+
+        Raises:
+            aws_sdk_rekognition.errors.access_denied_exception.AccessDeniedException: <p>You are not authorized to perform the action.</p>
+            aws_sdk_rekognition.errors.internal_server_error.InternalServerError: <p>Amazon Rekognition experienced a service issue. Try your call again.</p>
+            aws_sdk_rekognition.errors.invalid_parameter_exception.InvalidParameterException: <p>Input parameter violated a constraint. Validate your parameter before calling the API operation again.</p>
+            aws_sdk_rekognition.errors.provisioned_throughput_exceeded_exception.ProvisionedThroughputExceededException: <p>The number of requests exceeded your throughput limit. If you want to increase this limit, contact Amazon Rekognition.</p>
+            aws_sdk_rekognition.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request cannot be found.</p>
+            aws_sdk_rekognition.errors.throttling_exception.ThrottlingException: <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
+            aws_sdk_rekognition.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3237,6 +3767,16 @@ class RekognitionClient:
             collection_id: <p>The ID of an existing collection.</p>
             max_results: <p>Maximum number of UsersID to return. </p>
             next_token: <p>Pagingation token to receive the next set of UsersID.</p>
+
+        Raises:
+            aws_sdk_rekognition.errors.access_denied_exception.AccessDeniedException: <p>You are not authorized to perform the action.</p>
+            aws_sdk_rekognition.errors.internal_server_error.InternalServerError: <p>Amazon Rekognition experienced a service issue. Try your call again.</p>
+            aws_sdk_rekognition.errors.invalid_pagination_token_exception.InvalidPaginationTokenException: <p>Pagination token in the request is not valid.</p>
+            aws_sdk_rekognition.errors.invalid_parameter_exception.InvalidParameterException: <p>Input parameter violated a constraint. Validate your parameter before calling the API operation again.</p>
+            aws_sdk_rekognition.errors.provisioned_throughput_exceeded_exception.ProvisionedThroughputExceededException: <p>The number of requests exceeded your throughput limit. If you want to increase this limit, contact Amazon Rekognition.</p>
+            aws_sdk_rekognition.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request cannot be found.</p>
+            aws_sdk_rekognition.errors.throttling_exception.ThrottlingException: <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
+            aws_sdk_rekognition.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             ListUsers
@@ -3322,6 +3862,20 @@ class RekognitionClient:
             policy_revision_id: <p>The revision ID for the Project Policy. Each time you modify a policy, Amazon Rekognition Custom Labels generates and assigns a new <code>PolicyRevisionId</code> and then deletes the previous version of the policy.</p>
             policy_document: <p>A resource policy to add to the model. The policy is a JSON structure that contains one or more statements that define the policy. The policy must follow the IAM syntax. For more information about the contents of a JSON policy document, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies.html\">IAM JSON policy reference</a>. </p>
 
+        Raises:
+            aws_sdk_rekognition.errors.access_denied_exception.AccessDeniedException: <p>You are not authorized to perform the action.</p>
+            aws_sdk_rekognition.errors.internal_server_error.InternalServerError: <p>Amazon Rekognition experienced a service issue. Try your call again.</p>
+            aws_sdk_rekognition.errors.invalid_parameter_exception.InvalidParameterException: <p>Input parameter violated a constraint. Validate your parameter before calling the API operation again.</p>
+            aws_sdk_rekognition.errors.invalid_policy_revision_id_exception.InvalidPolicyRevisionIdException: <p>The supplied revision id for the project policy is invalid.</p>
+            aws_sdk_rekognition.errors.limit_exceeded_exception.LimitExceededException: <p>An Amazon Rekognition service limit was exceeded. For example, if you start too many jobs concurrently, subsequent calls to start operations (ex: <code>StartLabelDetection</code>) will raise a <code>LimitExceededException</code> exception (HTTP status code: 400) until the number of concurrently running jobs is below the Amazon Rekognition service limit. </p>
+            aws_sdk_rekognition.errors.malformed_policy_document_exception.MalformedPolicyDocumentException: <p>The format of the project policy document that you supplied to <code>PutProjectPolicy</code> is incorrect. </p>
+            aws_sdk_rekognition.errors.provisioned_throughput_exceeded_exception.ProvisionedThroughputExceededException: <p>The number of requests exceeded your throughput limit. If you want to increase this limit, contact Amazon Rekognition.</p>
+            aws_sdk_rekognition.errors.resource_already_exists_exception.ResourceAlreadyExistsException: <p>A resource with the specified ID already exists.</p>
+            aws_sdk_rekognition.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request cannot be found.</p>
+            aws_sdk_rekognition.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p></p> <p>The size of the collection exceeds the allowed limit. For more information, see Guidelines and quotas in Amazon Rekognition in the Amazon Rekognition Developer Guide. </p>
+            aws_sdk_rekognition.errors.throttling_exception.ThrottlingException: <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
+            aws_sdk_rekognition.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             PutProjectPolicy
             This operation attaches a project policy to a Amazon Rekognition Custom Labels project in a trusting AWS account.
@@ -3368,6 +3922,17 @@ class RekognitionClient:
 
         Args:
             image: <p>The input image as base64-encoded bytes or an S3 object. If you use the AWS CLI to call Amazon Rekognition operations, passing base64-encoded image bytes is not supported. </p> <p>If you are using an AWS SDK to call Amazon Rekognition, you might not need to base64-encode image bytes passed using the <code>Bytes</code> field. For more information, see Images in the Amazon Rekognition developer guide.</p>
+
+        Raises:
+            aws_sdk_rekognition.errors.access_denied_exception.AccessDeniedException: <p>You are not authorized to perform the action.</p>
+            aws_sdk_rekognition.errors.image_too_large_exception.ImageTooLargeException: <p>The input image size exceeds the allowed limit. If you are calling DetectProtectiveEquipment, the image size or resolution exceeds the allowed limit. For more information, see Guidelines and quotas in Amazon Rekognition in the Amazon Rekognition Developer Guide. </p>
+            aws_sdk_rekognition.errors.internal_server_error.InternalServerError: <p>Amazon Rekognition experienced a service issue. Try your call again.</p>
+            aws_sdk_rekognition.errors.invalid_image_format_exception.InvalidImageFormatException: <p>The provided image format is not supported. </p>
+            aws_sdk_rekognition.errors.invalid_parameter_exception.InvalidParameterException: <p>Input parameter violated a constraint. Validate your parameter before calling the API operation again.</p>
+            aws_sdk_rekognition.errors.invalid_s3_object_exception.InvalidS3ObjectException: <p>Amazon Rekognition is unable to access the S3 object specified in the request.</p>
+            aws_sdk_rekognition.errors.provisioned_throughput_exceeded_exception.ProvisionedThroughputExceededException: <p>The number of requests exceeded your throughput limit. If you want to increase this limit, contact Amazon Rekognition.</p>
+            aws_sdk_rekognition.errors.throttling_exception.ThrottlingException: <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
+            aws_sdk_rekognition.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3413,6 +3978,15 @@ class RekognitionClient:
             face_id: <p>ID of a face to find matches for in the collection.</p>
             max_faces: <p>Maximum number of faces to return. The operation returns the maximum number of faces with the highest confidence in the match.</p>
             face_match_threshold: <p>Optional value specifying the minimum confidence in the face match to return. For example, don't return any matches where confidence in matches is less than 70%. The default value is 80%. </p>
+
+        Raises:
+            aws_sdk_rekognition.errors.access_denied_exception.AccessDeniedException: <p>You are not authorized to perform the action.</p>
+            aws_sdk_rekognition.errors.internal_server_error.InternalServerError: <p>Amazon Rekognition experienced a service issue. Try your call again.</p>
+            aws_sdk_rekognition.errors.invalid_parameter_exception.InvalidParameterException: <p>Input parameter violated a constraint. Validate your parameter before calling the API operation again.</p>
+            aws_sdk_rekognition.errors.provisioned_throughput_exceeded_exception.ProvisionedThroughputExceededException: <p>The number of requests exceeded your throughput limit. If you want to increase this limit, contact Amazon Rekognition.</p>
+            aws_sdk_rekognition.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request cannot be found.</p>
+            aws_sdk_rekognition.errors.throttling_exception.ThrottlingException: <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
+            aws_sdk_rekognition.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To delete a face
@@ -3473,6 +4047,18 @@ class RekognitionClient:
             max_faces: <p>Maximum number of faces to return. The operation returns the maximum number of faces with the highest confidence in the match.</p>
             face_match_threshold: <p>(Optional) Specifies the minimum confidence in the face match to return. For example, don't return any matches where confidence in matches is less than 70%. The default value is 80%.</p>
             quality_filter: <p>A filter that specifies a quality bar for how much filtering is done to identify faces. Filtered faces aren't searched for in the collection. If you specify <code>AUTO</code>, Amazon Rekognition chooses the quality bar. If you specify <code>LOW</code>, <code>MEDIUM</code>, or <code>HIGH</code>, filtering removes all faces that don’t meet the chosen quality bar. The quality bar is based on a variety of common use cases. Low-quality detections can occur for a number of reasons. Some examples are an object that's misidentified as a face, a face that's too blurry, or a face with a pose that's too extreme to use. If you specify <code>NONE</code>, no filtering is performed. The default value is <code>NONE</code>. </p> <p>To use quality filtering, the collection you are using must be associated with version 3 of the face model or higher.</p>
+
+        Raises:
+            aws_sdk_rekognition.errors.access_denied_exception.AccessDeniedException: <p>You are not authorized to perform the action.</p>
+            aws_sdk_rekognition.errors.image_too_large_exception.ImageTooLargeException: <p>The input image size exceeds the allowed limit. If you are calling DetectProtectiveEquipment, the image size or resolution exceeds the allowed limit. For more information, see Guidelines and quotas in Amazon Rekognition in the Amazon Rekognition Developer Guide. </p>
+            aws_sdk_rekognition.errors.internal_server_error.InternalServerError: <p>Amazon Rekognition experienced a service issue. Try your call again.</p>
+            aws_sdk_rekognition.errors.invalid_image_format_exception.InvalidImageFormatException: <p>The provided image format is not supported. </p>
+            aws_sdk_rekognition.errors.invalid_parameter_exception.InvalidParameterException: <p>Input parameter violated a constraint. Validate your parameter before calling the API operation again.</p>
+            aws_sdk_rekognition.errors.invalid_s3_object_exception.InvalidS3ObjectException: <p>Amazon Rekognition is unable to access the S3 object specified in the request.</p>
+            aws_sdk_rekognition.errors.provisioned_throughput_exceeded_exception.ProvisionedThroughputExceededException: <p>The number of requests exceeded your throughput limit. If you want to increase this limit, contact Amazon Rekognition.</p>
+            aws_sdk_rekognition.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request cannot be found.</p>
+            aws_sdk_rekognition.errors.throttling_exception.ThrottlingException: <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
+            aws_sdk_rekognition.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To search for faces matching a supplied image
@@ -3535,6 +4121,15 @@ class RekognitionClient:
             face_id: <p>ID for the existing face.</p>
             user_match_threshold: <p>Optional value that specifies the minimum confidence in the matched UserID to return. Default value of 80.</p>
             max_users: <p>Maximum number of identities to return.</p>
+
+        Raises:
+            aws_sdk_rekognition.errors.access_denied_exception.AccessDeniedException: <p>You are not authorized to perform the action.</p>
+            aws_sdk_rekognition.errors.internal_server_error.InternalServerError: <p>Amazon Rekognition experienced a service issue. Try your call again.</p>
+            aws_sdk_rekognition.errors.invalid_parameter_exception.InvalidParameterException: <p>Input parameter violated a constraint. Validate your parameter before calling the API operation again.</p>
+            aws_sdk_rekognition.errors.provisioned_throughput_exceeded_exception.ProvisionedThroughputExceededException: <p>The number of requests exceeded your throughput limit. If you want to increase this limit, contact Amazon Rekognition.</p>
+            aws_sdk_rekognition.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request cannot be found.</p>
+            aws_sdk_rekognition.errors.throttling_exception.ThrottlingException: <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
+            aws_sdk_rekognition.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             SearchUsers
@@ -3600,6 +4195,18 @@ class RekognitionClient:
             max_users: <p>Maximum number of UserIDs to return.</p>
             quality_filter: <p>A filter that specifies a quality bar for how much filtering is done to identify faces. Filtered faces aren't searched for in the collection. The default value is NONE.</p>
 
+        Raises:
+            aws_sdk_rekognition.errors.access_denied_exception.AccessDeniedException: <p>You are not authorized to perform the action.</p>
+            aws_sdk_rekognition.errors.image_too_large_exception.ImageTooLargeException: <p>The input image size exceeds the allowed limit. If you are calling DetectProtectiveEquipment, the image size or resolution exceeds the allowed limit. For more information, see Guidelines and quotas in Amazon Rekognition in the Amazon Rekognition Developer Guide. </p>
+            aws_sdk_rekognition.errors.internal_server_error.InternalServerError: <p>Amazon Rekognition experienced a service issue. Try your call again.</p>
+            aws_sdk_rekognition.errors.invalid_image_format_exception.InvalidImageFormatException: <p>The provided image format is not supported. </p>
+            aws_sdk_rekognition.errors.invalid_parameter_exception.InvalidParameterException: <p>Input parameter violated a constraint. Validate your parameter before calling the API operation again.</p>
+            aws_sdk_rekognition.errors.invalid_s3_object_exception.InvalidS3ObjectException: <p>Amazon Rekognition is unable to access the S3 object specified in the request.</p>
+            aws_sdk_rekognition.errors.provisioned_throughput_exceeded_exception.ProvisionedThroughputExceededException: <p>The number of requests exceeded your throughput limit. If you want to increase this limit, contact Amazon Rekognition.</p>
+            aws_sdk_rekognition.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request cannot be found.</p>
+            aws_sdk_rekognition.errors.throttling_exception.ThrottlingException: <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
+            aws_sdk_rekognition.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             SearchUsersByImage
             Searches for UserIDs using a supplied image.
@@ -3659,6 +4266,18 @@ class RekognitionClient:
             client_request_token: <p>Idempotent token used to identify the start request. If you use the same token with multiple <code>StartCelebrityRecognition</code> requests, the same <code>JobId</code> is returned. Use <code>ClientRequestToken</code> to prevent the same job from being accidently started more than once. </p>
             notification_channel: <p>The Amazon SNS topic ARN that you want Amazon Rekognition Video to publish the completion status of the celebrity recognition analysis to. The Amazon SNS topic must have a topic name that begins with <i>AmazonRekognition</i> if you are using the AmazonRekognitionServiceRole permissions policy.</p>
             job_tag: <p>An identifier you specify that's returned in the completion notification that's published to your Amazon Simple Notification Service topic. For example, you can use <code>JobTag</code> to group related jobs and identify them in the completion notification.</p>
+
+        Raises:
+            aws_sdk_rekognition.errors.access_denied_exception.AccessDeniedException: <p>You are not authorized to perform the action.</p>
+            aws_sdk_rekognition.errors.idempotent_parameter_mismatch_exception.IdempotentParameterMismatchException: <p>A <code>ClientRequestToken</code> input parameter was reused with an operation, but at least one of the other input parameters is different from the previous call to the operation.</p>
+            aws_sdk_rekognition.errors.internal_server_error.InternalServerError: <p>Amazon Rekognition experienced a service issue. Try your call again.</p>
+            aws_sdk_rekognition.errors.invalid_parameter_exception.InvalidParameterException: <p>Input parameter violated a constraint. Validate your parameter before calling the API operation again.</p>
+            aws_sdk_rekognition.errors.invalid_s3_object_exception.InvalidS3ObjectException: <p>Amazon Rekognition is unable to access the S3 object specified in the request.</p>
+            aws_sdk_rekognition.errors.limit_exceeded_exception.LimitExceededException: <p>An Amazon Rekognition service limit was exceeded. For example, if you start too many jobs concurrently, subsequent calls to start operations (ex: <code>StartLabelDetection</code>) will raise a <code>LimitExceededException</code> exception (HTTP status code: 400) until the number of concurrently running jobs is below the Amazon Rekognition service limit. </p>
+            aws_sdk_rekognition.errors.provisioned_throughput_exceeded_exception.ProvisionedThroughputExceededException: <p>The number of requests exceeded your throughput limit. If you want to increase this limit, contact Amazon Rekognition.</p>
+            aws_sdk_rekognition.errors.throttling_exception.ThrottlingException: <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
+            aws_sdk_rekognition.errors.video_too_large_exception.VideoTooLargeException: <p>The file size or duration of the supplied media is too large. The maximum file size is 10GB. The maximum duration is 6 hours. </p>
+            aws_sdk_rekognition.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3714,6 +4333,18 @@ class RekognitionClient:
             client_request_token: <p>Idempotent token used to identify the start request. If you use the same token with multiple <code>StartContentModeration</code> requests, the same <code>JobId</code> is returned. Use <code>ClientRequestToken</code> to prevent the same job from being accidently started more than once. </p>
             notification_channel: <p>The Amazon SNS topic ARN that you want Amazon Rekognition Video to publish the completion status of the content analysis to. The Amazon SNS topic must have a topic name that begins with <i>AmazonRekognition</i> if you are using the AmazonRekognitionServiceRole permissions policy to access the topic.</p>
             job_tag: <p>An identifier you specify that's returned in the completion notification that's published to your Amazon Simple Notification Service topic. For example, you can use <code>JobTag</code> to group related jobs and identify them in the completion notification.</p>
+
+        Raises:
+            aws_sdk_rekognition.errors.access_denied_exception.AccessDeniedException: <p>You are not authorized to perform the action.</p>
+            aws_sdk_rekognition.errors.idempotent_parameter_mismatch_exception.IdempotentParameterMismatchException: <p>A <code>ClientRequestToken</code> input parameter was reused with an operation, but at least one of the other input parameters is different from the previous call to the operation.</p>
+            aws_sdk_rekognition.errors.internal_server_error.InternalServerError: <p>Amazon Rekognition experienced a service issue. Try your call again.</p>
+            aws_sdk_rekognition.errors.invalid_parameter_exception.InvalidParameterException: <p>Input parameter violated a constraint. Validate your parameter before calling the API operation again.</p>
+            aws_sdk_rekognition.errors.invalid_s3_object_exception.InvalidS3ObjectException: <p>Amazon Rekognition is unable to access the S3 object specified in the request.</p>
+            aws_sdk_rekognition.errors.limit_exceeded_exception.LimitExceededException: <p>An Amazon Rekognition service limit was exceeded. For example, if you start too many jobs concurrently, subsequent calls to start operations (ex: <code>StartLabelDetection</code>) will raise a <code>LimitExceededException</code> exception (HTTP status code: 400) until the number of concurrently running jobs is below the Amazon Rekognition service limit. </p>
+            aws_sdk_rekognition.errors.provisioned_throughput_exceeded_exception.ProvisionedThroughputExceededException: <p>The number of requests exceeded your throughput limit. If you want to increase this limit, contact Amazon Rekognition.</p>
+            aws_sdk_rekognition.errors.throttling_exception.ThrottlingException: <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
+            aws_sdk_rekognition.errors.video_too_large_exception.VideoTooLargeException: <p>The file size or duration of the supplied media is too large. The maximum file size is 10GB. The maximum duration is 6 hours. </p>
+            aws_sdk_rekognition.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3773,6 +4404,18 @@ class RekognitionClient:
             notification_channel: <p>The ARN of the Amazon SNS topic to which you want Amazon Rekognition Video to publish the completion status of the face detection operation. The Amazon SNS topic must have a topic name that begins with <i>AmazonRekognition</i> if you are using the AmazonRekognitionServiceRole permissions policy.</p>
             face_attributes: <p>The face attributes you want returned.</p> <p> <code>DEFAULT</code> - The following subset of facial attributes are returned: BoundingBox, Confidence, Pose, Quality and Landmarks. </p> <p> <code>ALL</code> - All facial attributes are returned.</p>
             job_tag: <p>An identifier you specify that's returned in the completion notification that's published to your Amazon Simple Notification Service topic. For example, you can use <code>JobTag</code> to group related jobs and identify them in the completion notification.</p>
+
+        Raises:
+            aws_sdk_rekognition.errors.access_denied_exception.AccessDeniedException: <p>You are not authorized to perform the action.</p>
+            aws_sdk_rekognition.errors.idempotent_parameter_mismatch_exception.IdempotentParameterMismatchException: <p>A <code>ClientRequestToken</code> input parameter was reused with an operation, but at least one of the other input parameters is different from the previous call to the operation.</p>
+            aws_sdk_rekognition.errors.internal_server_error.InternalServerError: <p>Amazon Rekognition experienced a service issue. Try your call again.</p>
+            aws_sdk_rekognition.errors.invalid_parameter_exception.InvalidParameterException: <p>Input parameter violated a constraint. Validate your parameter before calling the API operation again.</p>
+            aws_sdk_rekognition.errors.invalid_s3_object_exception.InvalidS3ObjectException: <p>Amazon Rekognition is unable to access the S3 object specified in the request.</p>
+            aws_sdk_rekognition.errors.limit_exceeded_exception.LimitExceededException: <p>An Amazon Rekognition service limit was exceeded. For example, if you start too many jobs concurrently, subsequent calls to start operations (ex: <code>StartLabelDetection</code>) will raise a <code>LimitExceededException</code> exception (HTTP status code: 400) until the number of concurrently running jobs is below the Amazon Rekognition service limit. </p>
+            aws_sdk_rekognition.errors.provisioned_throughput_exceeded_exception.ProvisionedThroughputExceededException: <p>The number of requests exceeded your throughput limit. If you want to increase this limit, contact Amazon Rekognition.</p>
+            aws_sdk_rekognition.errors.throttling_exception.ThrottlingException: <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
+            aws_sdk_rekognition.errors.video_too_large_exception.VideoTooLargeException: <p>The file size or duration of the supplied media is too large. The maximum file size is 10GB. The maximum duration is 6 hours. </p>
+            aws_sdk_rekognition.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3834,6 +4477,19 @@ class RekognitionClient:
             collection_id: <p>ID of the collection that contains the faces you want to search for.</p>
             notification_channel: <p>The ARN of the Amazon SNS topic to which you want Amazon Rekognition Video to publish the completion status of the search. The Amazon SNS topic must have a topic name that begins with <i>AmazonRekognition</i> if you are using the AmazonRekognitionServiceRole permissions policy to access the topic.</p>
             job_tag: <p>An identifier you specify that's returned in the completion notification that's published to your Amazon Simple Notification Service topic. For example, you can use <code>JobTag</code> to group related jobs and identify them in the completion notification.</p>
+
+        Raises:
+            aws_sdk_rekognition.errors.access_denied_exception.AccessDeniedException: <p>You are not authorized to perform the action.</p>
+            aws_sdk_rekognition.errors.idempotent_parameter_mismatch_exception.IdempotentParameterMismatchException: <p>A <code>ClientRequestToken</code> input parameter was reused with an operation, but at least one of the other input parameters is different from the previous call to the operation.</p>
+            aws_sdk_rekognition.errors.internal_server_error.InternalServerError: <p>Amazon Rekognition experienced a service issue. Try your call again.</p>
+            aws_sdk_rekognition.errors.invalid_parameter_exception.InvalidParameterException: <p>Input parameter violated a constraint. Validate your parameter before calling the API operation again.</p>
+            aws_sdk_rekognition.errors.invalid_s3_object_exception.InvalidS3ObjectException: <p>Amazon Rekognition is unable to access the S3 object specified in the request.</p>
+            aws_sdk_rekognition.errors.limit_exceeded_exception.LimitExceededException: <p>An Amazon Rekognition service limit was exceeded. For example, if you start too many jobs concurrently, subsequent calls to start operations (ex: <code>StartLabelDetection</code>) will raise a <code>LimitExceededException</code> exception (HTTP status code: 400) until the number of concurrently running jobs is below the Amazon Rekognition service limit. </p>
+            aws_sdk_rekognition.errors.provisioned_throughput_exceeded_exception.ProvisionedThroughputExceededException: <p>The number of requests exceeded your throughput limit. If you want to increase this limit, contact Amazon Rekognition.</p>
+            aws_sdk_rekognition.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request cannot be found.</p>
+            aws_sdk_rekognition.errors.throttling_exception.ThrottlingException: <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
+            aws_sdk_rekognition.errors.video_too_large_exception.VideoTooLargeException: <p>The file size or duration of the supplied media is too large. The maximum file size is 10GB. The maximum duration is 6 hours. </p>
+            aws_sdk_rekognition.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3900,6 +4556,18 @@ class RekognitionClient:
             job_tag: <p>An identifier you specify that's returned in the completion notification that's published to your Amazon Simple Notification Service topic. For example, you can use <code>JobTag</code> to group related jobs and identify them in the completion notification.</p>
             features: <p>The features to return after video analysis. You can specify that GENERAL_LABELS are returned.</p>
             settings: <p>The settings for a StartLabelDetection request.Contains the specified parameters for the label detection request of an asynchronous label analysis operation. Settings can include filters for GENERAL_LABELS.</p>
+
+        Raises:
+            aws_sdk_rekognition.errors.access_denied_exception.AccessDeniedException: <p>You are not authorized to perform the action.</p>
+            aws_sdk_rekognition.errors.idempotent_parameter_mismatch_exception.IdempotentParameterMismatchException: <p>A <code>ClientRequestToken</code> input parameter was reused with an operation, but at least one of the other input parameters is different from the previous call to the operation.</p>
+            aws_sdk_rekognition.errors.internal_server_error.InternalServerError: <p>Amazon Rekognition experienced a service issue. Try your call again.</p>
+            aws_sdk_rekognition.errors.invalid_parameter_exception.InvalidParameterException: <p>Input parameter violated a constraint. Validate your parameter before calling the API operation again.</p>
+            aws_sdk_rekognition.errors.invalid_s3_object_exception.InvalidS3ObjectException: <p>Amazon Rekognition is unable to access the S3 object specified in the request.</p>
+            aws_sdk_rekognition.errors.limit_exceeded_exception.LimitExceededException: <p>An Amazon Rekognition service limit was exceeded. For example, if you start too many jobs concurrently, subsequent calls to start operations (ex: <code>StartLabelDetection</code>) will raise a <code>LimitExceededException</code> exception (HTTP status code: 400) until the number of concurrently running jobs is below the Amazon Rekognition service limit. </p>
+            aws_sdk_rekognition.errors.provisioned_throughput_exceeded_exception.ProvisionedThroughputExceededException: <p>The number of requests exceeded your throughput limit. If you want to increase this limit, contact Amazon Rekognition.</p>
+            aws_sdk_rekognition.errors.throttling_exception.ThrottlingException: <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
+            aws_sdk_rekognition.errors.video_too_large_exception.VideoTooLargeException: <p>The file size or duration of the supplied media is too large. The maximum file size is 10GB. The maximum duration is 6 hours. </p>
+            aws_sdk_rekognition.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3964,6 +4632,20 @@ class RekognitionClient:
             output_config: <p>The Amazon S3 bucket location to store the results.</p>
             kms_key_id: <p>The identifier of customer managed AWS KMS key (name or ARN). The key is used to encrypt images copied into the service. The key is also used to encrypt results and manifest files written to the output Amazon S3 bucket.</p>
 
+        Raises:
+            aws_sdk_rekognition.errors.access_denied_exception.AccessDeniedException: <p>You are not authorized to perform the action.</p>
+            aws_sdk_rekognition.errors.idempotent_parameter_mismatch_exception.IdempotentParameterMismatchException: <p>A <code>ClientRequestToken</code> input parameter was reused with an operation, but at least one of the other input parameters is different from the previous call to the operation.</p>
+            aws_sdk_rekognition.errors.internal_server_error.InternalServerError: <p>Amazon Rekognition experienced a service issue. Try your call again.</p>
+            aws_sdk_rekognition.errors.invalid_manifest_exception.InvalidManifestException: <p>Indicates that a provided manifest file is empty or larger than the allowed limit.</p>
+            aws_sdk_rekognition.errors.invalid_parameter_exception.InvalidParameterException: <p>Input parameter violated a constraint. Validate your parameter before calling the API operation again.</p>
+            aws_sdk_rekognition.errors.invalid_s3_object_exception.InvalidS3ObjectException: <p>Amazon Rekognition is unable to access the S3 object specified in the request.</p>
+            aws_sdk_rekognition.errors.limit_exceeded_exception.LimitExceededException: <p>An Amazon Rekognition service limit was exceeded. For example, if you start too many jobs concurrently, subsequent calls to start operations (ex: <code>StartLabelDetection</code>) will raise a <code>LimitExceededException</code> exception (HTTP status code: 400) until the number of concurrently running jobs is below the Amazon Rekognition service limit. </p>
+            aws_sdk_rekognition.errors.provisioned_throughput_exceeded_exception.ProvisionedThroughputExceededException: <p>The number of requests exceeded your throughput limit. If you want to increase this limit, contact Amazon Rekognition.</p>
+            aws_sdk_rekognition.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request cannot be found.</p>
+            aws_sdk_rekognition.errors.resource_not_ready_exception.ResourceNotReadyException: <p>The requested resource isn't ready. For example, this exception occurs when you call <code>DetectCustomLabels</code> with a model version that isn't deployed. </p>
+            aws_sdk_rekognition.errors.throttling_exception.ThrottlingException: <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
+            aws_sdk_rekognition.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             StartMediaAnalysisJob
             Initiates a new media analysis job.
@@ -4024,6 +4706,18 @@ class RekognitionClient:
             client_request_token: <p>Idempotent token used to identify the start request. If you use the same token with multiple <code>StartPersonTracking</code> requests, the same <code>JobId</code> is returned. Use <code>ClientRequestToken</code> to prevent the same job from being accidently started more than once. </p>
             notification_channel: <p>The Amazon SNS topic ARN you want Amazon Rekognition Video to publish the completion status of the people detection operation to. The Amazon SNS topic must have a topic name that begins with <i>AmazonRekognition</i> if you are using the AmazonRekognitionServiceRole permissions policy.</p>
             job_tag: <p>An identifier you specify that's returned in the completion notification that's published to your Amazon Simple Notification Service topic. For example, you can use <code>JobTag</code> to group related jobs and identify them in the completion notification.</p>
+
+        Raises:
+            aws_sdk_rekognition.errors.access_denied_exception.AccessDeniedException: <p>You are not authorized to perform the action.</p>
+            aws_sdk_rekognition.errors.idempotent_parameter_mismatch_exception.IdempotentParameterMismatchException: <p>A <code>ClientRequestToken</code> input parameter was reused with an operation, but at least one of the other input parameters is different from the previous call to the operation.</p>
+            aws_sdk_rekognition.errors.internal_server_error.InternalServerError: <p>Amazon Rekognition experienced a service issue. Try your call again.</p>
+            aws_sdk_rekognition.errors.invalid_parameter_exception.InvalidParameterException: <p>Input parameter violated a constraint. Validate your parameter before calling the API operation again.</p>
+            aws_sdk_rekognition.errors.invalid_s3_object_exception.InvalidS3ObjectException: <p>Amazon Rekognition is unable to access the S3 object specified in the request.</p>
+            aws_sdk_rekognition.errors.limit_exceeded_exception.LimitExceededException: <p>An Amazon Rekognition service limit was exceeded. For example, if you start too many jobs concurrently, subsequent calls to start operations (ex: <code>StartLabelDetection</code>) will raise a <code>LimitExceededException</code> exception (HTTP status code: 400) until the number of concurrently running jobs is below the Amazon Rekognition service limit. </p>
+            aws_sdk_rekognition.errors.provisioned_throughput_exceeded_exception.ProvisionedThroughputExceededException: <p>The number of requests exceeded your throughput limit. If you want to increase this limit, contact Amazon Rekognition.</p>
+            aws_sdk_rekognition.errors.throttling_exception.ThrottlingException: <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
+            aws_sdk_rekognition.errors.video_too_large_exception.VideoTooLargeException: <p>The file size or duration of the supplied media is too large. The maximum file size is 10GB. The maximum duration is 6 hours. </p>
+            aws_sdk_rekognition.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4073,6 +4767,17 @@ class RekognitionClient:
             project_version_arn: <p>The Amazon Resource Name(ARN) of the model version that you want to start.</p>
             min_inference_units: <p>The minimum number of inference units to use. A single inference unit represents 1 hour of processing. </p> <p>Use a higher number to increase the TPS throughput of your model. You are charged for the number of inference units that you use. </p>
             max_inference_units: <p>The maximum number of inference units to use for auto-scaling the model. If you don't specify a value, Amazon Rekognition Custom Labels doesn't auto-scale the model.</p>
+
+        Raises:
+            aws_sdk_rekognition.errors.access_denied_exception.AccessDeniedException: <p>You are not authorized to perform the action.</p>
+            aws_sdk_rekognition.errors.internal_server_error.InternalServerError: <p>Amazon Rekognition experienced a service issue. Try your call again.</p>
+            aws_sdk_rekognition.errors.invalid_parameter_exception.InvalidParameterException: <p>Input parameter violated a constraint. Validate your parameter before calling the API operation again.</p>
+            aws_sdk_rekognition.errors.limit_exceeded_exception.LimitExceededException: <p>An Amazon Rekognition service limit was exceeded. For example, if you start too many jobs concurrently, subsequent calls to start operations (ex: <code>StartLabelDetection</code>) will raise a <code>LimitExceededException</code> exception (HTTP status code: 400) until the number of concurrently running jobs is below the Amazon Rekognition service limit. </p>
+            aws_sdk_rekognition.errors.provisioned_throughput_exceeded_exception.ProvisionedThroughputExceededException: <p>The number of requests exceeded your throughput limit. If you want to increase this limit, contact Amazon Rekognition.</p>
+            aws_sdk_rekognition.errors.resource_in_use_exception.ResourceInUseException: <p>The specified resource is already being used.</p>
+            aws_sdk_rekognition.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request cannot be found.</p>
+            aws_sdk_rekognition.errors.throttling_exception.ThrottlingException: <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
+            aws_sdk_rekognition.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To start an Amazon Rekognition Custom Labels model
@@ -4134,6 +4839,18 @@ class RekognitionClient:
             job_tag: <p>An identifier you specify that's returned in the completion notification that's published to your Amazon Simple Notification Service topic. For example, you can use <code>JobTag</code> to group related jobs and identify them in the completion notification.</p>
             filters: <p>Filters for technical cue or shot detection.</p>
             segment_types: <p>An array of segment types to detect in the video. Valid values are TECHNICAL_CUE and SHOT.</p>
+
+        Raises:
+            aws_sdk_rekognition.errors.access_denied_exception.AccessDeniedException: <p>You are not authorized to perform the action.</p>
+            aws_sdk_rekognition.errors.idempotent_parameter_mismatch_exception.IdempotentParameterMismatchException: <p>A <code>ClientRequestToken</code> input parameter was reused with an operation, but at least one of the other input parameters is different from the previous call to the operation.</p>
+            aws_sdk_rekognition.errors.internal_server_error.InternalServerError: <p>Amazon Rekognition experienced a service issue. Try your call again.</p>
+            aws_sdk_rekognition.errors.invalid_parameter_exception.InvalidParameterException: <p>Input parameter violated a constraint. Validate your parameter before calling the API operation again.</p>
+            aws_sdk_rekognition.errors.invalid_s3_object_exception.InvalidS3ObjectException: <p>Amazon Rekognition is unable to access the S3 object specified in the request.</p>
+            aws_sdk_rekognition.errors.limit_exceeded_exception.LimitExceededException: <p>An Amazon Rekognition service limit was exceeded. For example, if you start too many jobs concurrently, subsequent calls to start operations (ex: <code>StartLabelDetection</code>) will raise a <code>LimitExceededException</code> exception (HTTP status code: 400) until the number of concurrently running jobs is below the Amazon Rekognition service limit. </p>
+            aws_sdk_rekognition.errors.provisioned_throughput_exceeded_exception.ProvisionedThroughputExceededException: <p>The number of requests exceeded your throughput limit. If you want to increase this limit, contact Amazon Rekognition.</p>
+            aws_sdk_rekognition.errors.throttling_exception.ThrottlingException: <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
+            aws_sdk_rekognition.errors.video_too_large_exception.VideoTooLargeException: <p>The file size or duration of the supplied media is too large. The maximum file size is 10GB. The maximum duration is 6 hours. </p>
+            aws_sdk_rekognition.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4188,6 +4905,16 @@ class RekognitionClient:
             name: <p>The name of the stream processor to start processing.</p>
             start_selector: <p> Specifies the starting point in the Kinesis stream to start processing. You can use the producer timestamp or the fragment number. If you use the producer timestamp, you must put the time in milliseconds. For more information about fragment numbers, see <a href=\"https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_reader_Fragment.html\">Fragment</a>. </p> <p>This is a required parameter for label detection stream processors and should not be used to start a face search stream processor.</p>
             stop_selector: <p> Specifies when to stop processing the stream. You can specify a maximum amount of time to process the video. </p> <p>This is a required parameter for label detection stream processors and should not be used to start a face search stream processor.</p>
+
+        Raises:
+            aws_sdk_rekognition.errors.access_denied_exception.AccessDeniedException: <p>You are not authorized to perform the action.</p>
+            aws_sdk_rekognition.errors.internal_server_error.InternalServerError: <p>Amazon Rekognition experienced a service issue. Try your call again.</p>
+            aws_sdk_rekognition.errors.invalid_parameter_exception.InvalidParameterException: <p>Input parameter violated a constraint. Validate your parameter before calling the API operation again.</p>
+            aws_sdk_rekognition.errors.provisioned_throughput_exceeded_exception.ProvisionedThroughputExceededException: <p>The number of requests exceeded your throughput limit. If you want to increase this limit, contact Amazon Rekognition.</p>
+            aws_sdk_rekognition.errors.resource_in_use_exception.ResourceInUseException: <p>The specified resource is already being used.</p>
+            aws_sdk_rekognition.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request cannot be found.</p>
+            aws_sdk_rekognition.errors.throttling_exception.ThrottlingException: <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
+            aws_sdk_rekognition.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4241,6 +4968,18 @@ class RekognitionClient:
             client_request_token: <p>Idempotent token used to identify the start request. If you use the same token with multiple <code>StartTextDetection</code> requests, the same <code>JobId</code> is returned. Use <code>ClientRequestToken</code> to prevent the same job from being accidentaly started more than once.</p>
             job_tag: <p>An identifier returned in the completion status published by your Amazon Simple Notification Service topic. For example, you can use <code>JobTag</code> to group related jobs and identify them in the completion notification.</p>
             filters: <p>Optional parameters that let you set criteria the text must meet to be included in your response.</p>
+
+        Raises:
+            aws_sdk_rekognition.errors.access_denied_exception.AccessDeniedException: <p>You are not authorized to perform the action.</p>
+            aws_sdk_rekognition.errors.idempotent_parameter_mismatch_exception.IdempotentParameterMismatchException: <p>A <code>ClientRequestToken</code> input parameter was reused with an operation, but at least one of the other input parameters is different from the previous call to the operation.</p>
+            aws_sdk_rekognition.errors.internal_server_error.InternalServerError: <p>Amazon Rekognition experienced a service issue. Try your call again.</p>
+            aws_sdk_rekognition.errors.invalid_parameter_exception.InvalidParameterException: <p>Input parameter violated a constraint. Validate your parameter before calling the API operation again.</p>
+            aws_sdk_rekognition.errors.invalid_s3_object_exception.InvalidS3ObjectException: <p>Amazon Rekognition is unable to access the S3 object specified in the request.</p>
+            aws_sdk_rekognition.errors.limit_exceeded_exception.LimitExceededException: <p>An Amazon Rekognition service limit was exceeded. For example, if you start too many jobs concurrently, subsequent calls to start operations (ex: <code>StartLabelDetection</code>) will raise a <code>LimitExceededException</code> exception (HTTP status code: 400) until the number of concurrently running jobs is below the Amazon Rekognition service limit. </p>
+            aws_sdk_rekognition.errors.provisioned_throughput_exceeded_exception.ProvisionedThroughputExceededException: <p>The number of requests exceeded your throughput limit. If you want to increase this limit, contact Amazon Rekognition.</p>
+            aws_sdk_rekognition.errors.throttling_exception.ThrottlingException: <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
+            aws_sdk_rekognition.errors.video_too_large_exception.VideoTooLargeException: <p>The file size or duration of the supplied media is too large. The maximum file size is 10GB. The maximum duration is 6 hours. </p>
+            aws_sdk_rekognition.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4287,6 +5026,16 @@ class RekognitionClient:
         Args:
             project_version_arn: <p>The Amazon Resource Name (ARN) of the model version that you want to stop.</p> <p>This operation requires permissions to perform the <code>rekognition:StopProjectVersion</code> action.</p>
 
+        Raises:
+            aws_sdk_rekognition.errors.access_denied_exception.AccessDeniedException: <p>You are not authorized to perform the action.</p>
+            aws_sdk_rekognition.errors.internal_server_error.InternalServerError: <p>Amazon Rekognition experienced a service issue. Try your call again.</p>
+            aws_sdk_rekognition.errors.invalid_parameter_exception.InvalidParameterException: <p>Input parameter violated a constraint. Validate your parameter before calling the API operation again.</p>
+            aws_sdk_rekognition.errors.provisioned_throughput_exceeded_exception.ProvisionedThroughputExceededException: <p>The number of requests exceeded your throughput limit. If you want to increase this limit, contact Amazon Rekognition.</p>
+            aws_sdk_rekognition.errors.resource_in_use_exception.ResourceInUseException: <p>The specified resource is already being used.</p>
+            aws_sdk_rekognition.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request cannot be found.</p>
+            aws_sdk_rekognition.errors.throttling_exception.ThrottlingException: <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
+            aws_sdk_rekognition.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To stop an Amazon Rekognition Custom Labels model.
             Stops a version of an Amazon Rekognition Custom Labels model.
@@ -4329,6 +5078,16 @@ class RekognitionClient:
 
         Args:
             name: <p>The name of a stream processor created by <a>CreateStreamProcessor</a>.</p>
+
+        Raises:
+            aws_sdk_rekognition.errors.access_denied_exception.AccessDeniedException: <p>You are not authorized to perform the action.</p>
+            aws_sdk_rekognition.errors.internal_server_error.InternalServerError: <p>Amazon Rekognition experienced a service issue. Try your call again.</p>
+            aws_sdk_rekognition.errors.invalid_parameter_exception.InvalidParameterException: <p>Input parameter violated a constraint. Validate your parameter before calling the API operation again.</p>
+            aws_sdk_rekognition.errors.provisioned_throughput_exceeded_exception.ProvisionedThroughputExceededException: <p>The number of requests exceeded your throughput limit. If you want to increase this limit, contact Amazon Rekognition.</p>
+            aws_sdk_rekognition.errors.resource_in_use_exception.ResourceInUseException: <p>The specified resource is already being used.</p>
+            aws_sdk_rekognition.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request cannot be found.</p>
+            aws_sdk_rekognition.errors.throttling_exception.ThrottlingException: <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
+            aws_sdk_rekognition.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4368,6 +5127,16 @@ class RekognitionClient:
         Args:
             resource_arn: <p> Amazon Resource Name (ARN) of the model, collection, or stream processor that you want to assign the tags to. </p>
             tags: <p> The key-value tags to assign to the resource. </p>
+
+        Raises:
+            aws_sdk_rekognition.errors.access_denied_exception.AccessDeniedException: <p>You are not authorized to perform the action.</p>
+            aws_sdk_rekognition.errors.internal_server_error.InternalServerError: <p>Amazon Rekognition experienced a service issue. Try your call again.</p>
+            aws_sdk_rekognition.errors.invalid_parameter_exception.InvalidParameterException: <p>Input parameter violated a constraint. Validate your parameter before calling the API operation again.</p>
+            aws_sdk_rekognition.errors.provisioned_throughput_exceeded_exception.ProvisionedThroughputExceededException: <p>The number of requests exceeded your throughput limit. If you want to increase this limit, contact Amazon Rekognition.</p>
+            aws_sdk_rekognition.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request cannot be found.</p>
+            aws_sdk_rekognition.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p></p> <p>The size of the collection exceeds the allowed limit. For more information, see Guidelines and quotas in Amazon Rekognition in the Amazon Rekognition Developer Guide. </p>
+            aws_sdk_rekognition.errors.throttling_exception.ThrottlingException: <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
+            aws_sdk_rekognition.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4408,6 +5177,15 @@ class RekognitionClient:
         Args:
             resource_arn: <p> Amazon Resource Name (ARN) of the model, collection, or stream processor that you want to remove the tags from. </p>
             tag_keys: <p> A list of the tags that you want to remove. </p>
+
+        Raises:
+            aws_sdk_rekognition.errors.access_denied_exception.AccessDeniedException: <p>You are not authorized to perform the action.</p>
+            aws_sdk_rekognition.errors.internal_server_error.InternalServerError: <p>Amazon Rekognition experienced a service issue. Try your call again.</p>
+            aws_sdk_rekognition.errors.invalid_parameter_exception.InvalidParameterException: <p>Input parameter violated a constraint. Validate your parameter before calling the API operation again.</p>
+            aws_sdk_rekognition.errors.provisioned_throughput_exceeded_exception.ProvisionedThroughputExceededException: <p>The number of requests exceeded your throughput limit. If you want to increase this limit, contact Amazon Rekognition.</p>
+            aws_sdk_rekognition.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request cannot be found.</p>
+            aws_sdk_rekognition.errors.throttling_exception.ThrottlingException: <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
+            aws_sdk_rekognition.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4448,6 +5226,17 @@ class RekognitionClient:
         Args:
             dataset_arn: <p> The Amazon Resource Name (ARN) of the dataset that you want to update. </p>
             changes: <p> The changes that you want to make to the dataset. </p>
+
+        Raises:
+            aws_sdk_rekognition.errors.access_denied_exception.AccessDeniedException: <p>You are not authorized to perform the action.</p>
+            aws_sdk_rekognition.errors.internal_server_error.InternalServerError: <p>Amazon Rekognition experienced a service issue. Try your call again.</p>
+            aws_sdk_rekognition.errors.invalid_parameter_exception.InvalidParameterException: <p>Input parameter violated a constraint. Validate your parameter before calling the API operation again.</p>
+            aws_sdk_rekognition.errors.limit_exceeded_exception.LimitExceededException: <p>An Amazon Rekognition service limit was exceeded. For example, if you start too many jobs concurrently, subsequent calls to start operations (ex: <code>StartLabelDetection</code>) will raise a <code>LimitExceededException</code> exception (HTTP status code: 400) until the number of concurrently running jobs is below the Amazon Rekognition service limit. </p>
+            aws_sdk_rekognition.errors.provisioned_throughput_exceeded_exception.ProvisionedThroughputExceededException: <p>The number of requests exceeded your throughput limit. If you want to increase this limit, contact Amazon Rekognition.</p>
+            aws_sdk_rekognition.errors.resource_in_use_exception.ResourceInUseException: <p>The specified resource is already being used.</p>
+            aws_sdk_rekognition.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request cannot be found.</p>
+            aws_sdk_rekognition.errors.throttling_exception.ThrottlingException: <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
+            aws_sdk_rekognition.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To-add dataset entries to an Amazon Rekognition Custom Labels dataset
@@ -4508,6 +5297,16 @@ class RekognitionClient:
             regions_of_interest_for_update: <p> Specifies locations in the frames where Amazon Rekognition checks for objects or people. This is an optional parameter for label detection stream processors. </p>
             data_sharing_preference_for_update: <p> Shows whether you are sharing data with Rekognition to improve model performance. You can choose this option at the account level or on a per-stream basis. Note that if you opt out at the account level this setting is ignored on individual streams. </p>
             parameters_to_delete: <p> A list of parameters you want to delete from the stream processor. </p>
+
+        Raises:
+            aws_sdk_rekognition.errors.access_denied_exception.AccessDeniedException: <p>You are not authorized to perform the action.</p>
+            aws_sdk_rekognition.errors.internal_server_error.InternalServerError: <p>Amazon Rekognition experienced a service issue. Try your call again.</p>
+            aws_sdk_rekognition.errors.invalid_parameter_exception.InvalidParameterException: <p>Input parameter violated a constraint. Validate your parameter before calling the API operation again.</p>
+            aws_sdk_rekognition.errors.provisioned_throughput_exceeded_exception.ProvisionedThroughputExceededException: <p>The number of requests exceeded your throughput limit. If you want to increase this limit, contact Amazon Rekognition.</p>
+            aws_sdk_rekognition.errors.resource_in_use_exception.ResourceInUseException: <p>The specified resource is already being used.</p>
+            aws_sdk_rekognition.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request cannot be found.</p>
+            aws_sdk_rekognition.errors.throttling_exception.ThrottlingException: <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
+            aws_sdk_rekognition.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(

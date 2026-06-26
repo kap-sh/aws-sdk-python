@@ -203,6 +203,16 @@ class DirectoryServiceDataClient:
             member_realm: <p> The domain name that's associated with the group member. This parameter is required only when adding a member outside of your Managed Microsoft AD domain to a group inside of your Managed Microsoft AD domain. This parameter defaults to the Managed Microsoft AD domain. </p> <note> <p> This parameter is case insensitive. </p> </note>
             client_token: <p> A unique and case-sensitive identifier that you provide to make sure the idempotency of the request, so multiple identical calls have the same effect as one single call. </p> <p> A client token is valid for 8 hours after the first request that uses it completes. After 8 hours, any request with the same client token is treated as a new request. If the request succeeds, any future uses of that token will be idempotent for another 8 hours. </p> <p> If you submit a request with the same client token but change one of the other parameters within the 8-hour idempotency window, Directory Service Data returns an <code>ConflictException</code>. </p> <note> <p> This parameter is optional when using the CLI or SDK. </p> </note>
 
+        Raises:
+            aws_sdk_directory_service_data.errors.access_denied_exception.AccessDeniedException: <p> You don't have permission to perform the request or access the directory. It can also occur when the <code>DirectoryId</code> doesn't exist or the user, member, or group might be outside of your organizational unit (OU). </p> <p> Make sure that you have the authentication and authorization to perform the action. Review the directory information in the request, and make sure that the object isn't outside of your OU. </p>
+            aws_sdk_directory_service_data.errors.conflict_exception.ConflictException: <p> This error will occur when you try to create a resource that conflicts with an existing object. It can also occur when adding a member to a group that the member is already in.</p> <p> This error can be caused by a request sent within the 8-hour idempotency window with the same client token but different input parameters. Client tokens should not be re-used across different requests. After 8 hours, any request with the same client token is treated as a new request. </p>
+            aws_sdk_directory_service_data.errors.directory_unavailable_exception.DirectoryUnavailableException: <p> The request could not be completed due to a problem in the configuration or current state of the specified directory. </p>
+            aws_sdk_directory_service_data.errors.internal_server_exception.InternalServerException: <p> The operation didn't succeed because an internal error occurred. Try again later. </p>
+            aws_sdk_directory_service_data.errors.resource_not_found_exception.ResourceNotFoundException: <p> The resource couldn't be found. </p>
+            aws_sdk_directory_service_data.errors.throttling_exception.ThrottlingException: <p> The limit on the number of requests per second has been exceeded. </p>
+            aws_sdk_directory_service_data.errors.validation_exception.ValidationException: <p> The request isn't valid. Review the details in the error message to update the invalid parameters or values in your request. </p>
+            aws_sdk_directory_service_data.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To add a member to the Marketing group
             The following command adds an existing user to the Marketing group in the europe.example.com domain.
@@ -269,6 +279,15 @@ class DirectoryServiceDataClient:
             group_scope: <p> The scope of the AD group. For details, see <a href=\"https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/manage/understand-security-groups#group-scope\">Active Directory security group scope</a>. </p>
             other_attributes: <p> An expression that defines one or more attributes with the data type and value of each attribute. </p>
             client_token: <p> A unique and case-sensitive identifier that you provide to make sure the idempotency of the request, so multiple identical calls have the same effect as one single call. </p> <p> A client token is valid for 8 hours after the first request that uses it completes. After 8 hours, any request with the same client token is treated as a new request. If the request succeeds, any future uses of that token will be idempotent for another 8 hours. </p> <p> If you submit a request with the same client token but change one of the other parameters within the 8-hour idempotency window, Directory Service Data returns an <code>ConflictException</code>. </p> <note> <p> This parameter is optional when using the CLI or SDK. </p> </note>
+
+        Raises:
+            aws_sdk_directory_service_data.errors.access_denied_exception.AccessDeniedException: <p> You don't have permission to perform the request or access the directory. It can also occur when the <code>DirectoryId</code> doesn't exist or the user, member, or group might be outside of your organizational unit (OU). </p> <p> Make sure that you have the authentication and authorization to perform the action. Review the directory information in the request, and make sure that the object isn't outside of your OU. </p>
+            aws_sdk_directory_service_data.errors.conflict_exception.ConflictException: <p> This error will occur when you try to create a resource that conflicts with an existing object. It can also occur when adding a member to a group that the member is already in.</p> <p> This error can be caused by a request sent within the 8-hour idempotency window with the same client token but different input parameters. Client tokens should not be re-used across different requests. After 8 hours, any request with the same client token is treated as a new request. </p>
+            aws_sdk_directory_service_data.errors.directory_unavailable_exception.DirectoryUnavailableException: <p> The request could not be completed due to a problem in the configuration or current state of the specified directory. </p>
+            aws_sdk_directory_service_data.errors.internal_server_exception.InternalServerException: <p> The operation didn't succeed because an internal error occurred. Try again later. </p>
+            aws_sdk_directory_service_data.errors.throttling_exception.ThrottlingException: <p> The limit on the number of requests per second has been exceeded. </p>
+            aws_sdk_directory_service_data.errors.validation_exception.ValidationException: <p> The request isn't valid. Review the details in the error message to update the invalid parameters or values in your request. </p>
+            aws_sdk_directory_service_data.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To create a group
@@ -344,6 +363,15 @@ class DirectoryServiceDataClient:
             other_attributes: <p> An expression that defines one or more attribute names with the data type and value of each attribute. A key is an attribute name, and the value is a list of maps. For a list of supported attributes, see <a href=\"https://docs.aws.amazon.com/directoryservice/latest/admin-guide/ad_data_attributes.html\">Directory Service Data Attributes</a>. </p> <note> <p> Attribute names are case insensitive. </p> </note>
             client_token: <p> A unique and case-sensitive identifier that you provide to make sure the idempotency of the request, so multiple identical calls have the same effect as one single call. </p> <p> A client token is valid for 8 hours after the first request that uses it completes. After 8 hours, any request with the same client token is treated as a new request. If the request succeeds, any future uses of that token will be idempotent for another 8 hours. </p> <p> If you submit a request with the same client token but change one of the other parameters within the 8-hour idempotency window, Directory Service Data returns an <code>ConflictException</code>. </p> <note> <p> This parameter is optional when using the CLI or SDK. </p> </note>
 
+        Raises:
+            aws_sdk_directory_service_data.errors.access_denied_exception.AccessDeniedException: <p> You don't have permission to perform the request or access the directory. It can also occur when the <code>DirectoryId</code> doesn't exist or the user, member, or group might be outside of your organizational unit (OU). </p> <p> Make sure that you have the authentication and authorization to perform the action. Review the directory information in the request, and make sure that the object isn't outside of your OU. </p>
+            aws_sdk_directory_service_data.errors.conflict_exception.ConflictException: <p> This error will occur when you try to create a resource that conflicts with an existing object. It can also occur when adding a member to a group that the member is already in.</p> <p> This error can be caused by a request sent within the 8-hour idempotency window with the same client token but different input parameters. Client tokens should not be re-used across different requests. After 8 hours, any request with the same client token is treated as a new request. </p>
+            aws_sdk_directory_service_data.errors.directory_unavailable_exception.DirectoryUnavailableException: <p> The request could not be completed due to a problem in the configuration or current state of the specified directory. </p>
+            aws_sdk_directory_service_data.errors.internal_server_exception.InternalServerException: <p> The operation didn't succeed because an internal error occurred. Try again later. </p>
+            aws_sdk_directory_service_data.errors.throttling_exception.ThrottlingException: <p> The limit on the number of requests per second has been exceeded. </p>
+            aws_sdk_directory_service_data.errors.validation_exception.ValidationException: <p> The request isn't valid. Review the details in the error message to update the invalid parameters or values in your request. </p>
+            aws_sdk_directory_service_data.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To create a new user in the directory
             The following command
@@ -404,6 +432,16 @@ class DirectoryServiceDataClient:
             sam_account_name: <p> The name of the group. </p>
             client_token: <p> A unique and case-sensitive identifier that you provide to make sure the idempotency of the request, so multiple identical calls have the same effect as one single call. </p> <p> A client token is valid for 8 hours after the first request that uses it completes. After 8 hours, any request with the same client token is treated as a new request. If the request succeeds, any future uses of that token will be idempotent for another 8 hours. </p> <p> If you submit a request with the same client token but change one of the other parameters within the 8-hour idempotency window, Directory Service Data returns an <code>ConflictException</code>. </p> <note> <p> This parameter is optional when using the CLI or SDK. </p> </note>
 
+        Raises:
+            aws_sdk_directory_service_data.errors.access_denied_exception.AccessDeniedException: <p> You don't have permission to perform the request or access the directory. It can also occur when the <code>DirectoryId</code> doesn't exist or the user, member, or group might be outside of your organizational unit (OU). </p> <p> Make sure that you have the authentication and authorization to perform the action. Review the directory information in the request, and make sure that the object isn't outside of your OU. </p>
+            aws_sdk_directory_service_data.errors.conflict_exception.ConflictException: <p> This error will occur when you try to create a resource that conflicts with an existing object. It can also occur when adding a member to a group that the member is already in.</p> <p> This error can be caused by a request sent within the 8-hour idempotency window with the same client token but different input parameters. Client tokens should not be re-used across different requests. After 8 hours, any request with the same client token is treated as a new request. </p>
+            aws_sdk_directory_service_data.errors.directory_unavailable_exception.DirectoryUnavailableException: <p> The request could not be completed due to a problem in the configuration or current state of the specified directory. </p>
+            aws_sdk_directory_service_data.errors.internal_server_exception.InternalServerException: <p> The operation didn't succeed because an internal error occurred. Try again later. </p>
+            aws_sdk_directory_service_data.errors.resource_not_found_exception.ResourceNotFoundException: <p> The resource couldn't be found. </p>
+            aws_sdk_directory_service_data.errors.throttling_exception.ThrottlingException: <p> The limit on the number of requests per second has been exceeded. </p>
+            aws_sdk_directory_service_data.errors.validation_exception.ValidationException: <p> The request isn't valid. Review the details in the error message to update the invalid parameters or values in your request. </p>
+            aws_sdk_directory_service_data.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To delete a group
             The following command deletes the marketing group from the specified directory.
@@ -455,6 +493,16 @@ class DirectoryServiceDataClient:
             directory_id: <p> The identifier (ID) of the directory that's associated with the user. </p>
             sam_account_name: <p> The name of the user. </p>
             client_token: <p> A unique and case-sensitive identifier that you provide to make sure the idempotency of the request, so multiple identical calls have the same effect as one single call. </p> <p> A client token is valid for 8 hours after the first request that uses it completes. After 8 hours, any request with the same client token is treated as a new request. If the request succeeds, any future uses of that token will be idempotent for another 8 hours. </p> <p> If you submit a request with the same client token but change one of the other parameters within the 8-hour idempotency window, Directory Service Data returns an <code>ConflictException</code>. </p> <note> <p> This parameter is optional when using the CLI or SDK. </p> </note>
+
+        Raises:
+            aws_sdk_directory_service_data.errors.access_denied_exception.AccessDeniedException: <p> You don't have permission to perform the request or access the directory. It can also occur when the <code>DirectoryId</code> doesn't exist or the user, member, or group might be outside of your organizational unit (OU). </p> <p> Make sure that you have the authentication and authorization to perform the action. Review the directory information in the request, and make sure that the object isn't outside of your OU. </p>
+            aws_sdk_directory_service_data.errors.conflict_exception.ConflictException: <p> This error will occur when you try to create a resource that conflicts with an existing object. It can also occur when adding a member to a group that the member is already in.</p> <p> This error can be caused by a request sent within the 8-hour idempotency window with the same client token but different input parameters. Client tokens should not be re-used across different requests. After 8 hours, any request with the same client token is treated as a new request. </p>
+            aws_sdk_directory_service_data.errors.directory_unavailable_exception.DirectoryUnavailableException: <p> The request could not be completed due to a problem in the configuration or current state of the specified directory. </p>
+            aws_sdk_directory_service_data.errors.internal_server_exception.InternalServerException: <p> The operation didn't succeed because an internal error occurred. Try again later. </p>
+            aws_sdk_directory_service_data.errors.resource_not_found_exception.ResourceNotFoundException: <p> The resource couldn't be found. </p>
+            aws_sdk_directory_service_data.errors.throttling_exception.ThrottlingException: <p> The limit on the number of requests per second has been exceeded. </p>
+            aws_sdk_directory_service_data.errors.validation_exception.ValidationException: <p> The request isn't valid. Review the details in the error message to update the invalid parameters or values in your request. </p>
+            aws_sdk_directory_service_data.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To delete a user
@@ -512,6 +560,15 @@ class DirectoryServiceDataClient:
             sam_account_name: <p> The name of the group. </p>
             other_attributes: <p> One or more attributes to be returned for the group. For a list of supported attributes, see <a href=\"https://docs.aws.amazon.com/directoryservice/latest/admin-guide/ad_data_attributes.html\">Directory Service Data Attributes</a>. </p>
 
+        Raises:
+            aws_sdk_directory_service_data.errors.access_denied_exception.AccessDeniedException: <p> You don't have permission to perform the request or access the directory. It can also occur when the <code>DirectoryId</code> doesn't exist or the user, member, or group might be outside of your organizational unit (OU). </p> <p> Make sure that you have the authentication and authorization to perform the action. Review the directory information in the request, and make sure that the object isn't outside of your OU. </p>
+            aws_sdk_directory_service_data.errors.directory_unavailable_exception.DirectoryUnavailableException: <p> The request could not be completed due to a problem in the configuration or current state of the specified directory. </p>
+            aws_sdk_directory_service_data.errors.internal_server_exception.InternalServerException: <p> The operation didn't succeed because an internal error occurred. Try again later. </p>
+            aws_sdk_directory_service_data.errors.resource_not_found_exception.ResourceNotFoundException: <p> The resource couldn't be found. </p>
+            aws_sdk_directory_service_data.errors.throttling_exception.ThrottlingException: <p> The limit on the number of requests per second has been exceeded. </p>
+            aws_sdk_directory_service_data.errors.validation_exception.ValidationException: <p> The request isn't valid. Review the details in the error message to update the invalid parameters or values in your request. </p>
+            aws_sdk_directory_service_data.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To return the attributes of a group
             The following command returns the mapped attributes for a group along with the display name, description, and GUID for the group.
@@ -568,6 +625,15 @@ class DirectoryServiceDataClient:
             other_attributes: <p> One or more attribute names to be returned for the user. A key is an attribute name, and the value is a list of maps. For a list of supported attributes, see <a href=\"https://docs.aws.amazon.com/directoryservice/latest/admin-guide/ad_data_attributes.html\">Directory Service Data Attributes</a>. </p>
             realm: <p> The domain name that's associated with the user. </p> <note> <p> This parameter is optional, so you can return users outside your Managed Microsoft AD domain. When no value is defined, only your Managed Microsoft AD users are returned. </p> <p> This value is case insensitive. </p> </note>
 
+        Raises:
+            aws_sdk_directory_service_data.errors.access_denied_exception.AccessDeniedException: <p> You don't have permission to perform the request or access the directory. It can also occur when the <code>DirectoryId</code> doesn't exist or the user, member, or group might be outside of your organizational unit (OU). </p> <p> Make sure that you have the authentication and authorization to perform the action. Review the directory information in the request, and make sure that the object isn't outside of your OU. </p>
+            aws_sdk_directory_service_data.errors.directory_unavailable_exception.DirectoryUnavailableException: <p> The request could not be completed due to a problem in the configuration or current state of the specified directory. </p>
+            aws_sdk_directory_service_data.errors.internal_server_exception.InternalServerException: <p> The operation didn't succeed because an internal error occurred. Try again later. </p>
+            aws_sdk_directory_service_data.errors.resource_not_found_exception.ResourceNotFoundException: <p> The resource couldn't be found. </p>
+            aws_sdk_directory_service_data.errors.throttling_exception.ThrottlingException: <p> The limit on the number of requests per second has been exceeded. </p>
+            aws_sdk_directory_service_data.errors.validation_exception.ValidationException: <p> The request isn't valid. Review the details in the error message to update the invalid parameters or values in your request. </p>
+            aws_sdk_directory_service_data.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To return the attributes of a user
             The following command returns the mapped attributes for a user along with the department, manager, IP phone, and date the user last set a password.
@@ -621,6 +687,16 @@ class DirectoryServiceDataClient:
             directory_id: <p> The identifier (ID) of the directory that's associated with the user. </p>
             sam_account_name: <p> The name of the user. </p>
             client_token: <p> A unique and case-sensitive identifier that you provide to make sure the idempotency of the request, so multiple identical calls have the same effect as one single call. </p> <p> A client token is valid for 8 hours after the first request that uses it completes. After 8 hours, any request with the same client token is treated as a new request. If the request succeeds, any future uses of that token will be idempotent for another 8 hours. </p> <p> If you submit a request with the same client token but change one of the other parameters within the 8-hour idempotency window, Directory Service Data returns an <code>ConflictException</code>. </p> <note> <p> This parameter is optional when using the CLI or SDK. </p> </note>
+
+        Raises:
+            aws_sdk_directory_service_data.errors.access_denied_exception.AccessDeniedException: <p> You don't have permission to perform the request or access the directory. It can also occur when the <code>DirectoryId</code> doesn't exist or the user, member, or group might be outside of your organizational unit (OU). </p> <p> Make sure that you have the authentication and authorization to perform the action. Review the directory information in the request, and make sure that the object isn't outside of your OU. </p>
+            aws_sdk_directory_service_data.errors.conflict_exception.ConflictException: <p> This error will occur when you try to create a resource that conflicts with an existing object. It can also occur when adding a member to a group that the member is already in.</p> <p> This error can be caused by a request sent within the 8-hour idempotency window with the same client token but different input parameters. Client tokens should not be re-used across different requests. After 8 hours, any request with the same client token is treated as a new request. </p>
+            aws_sdk_directory_service_data.errors.directory_unavailable_exception.DirectoryUnavailableException: <p> The request could not be completed due to a problem in the configuration or current state of the specified directory. </p>
+            aws_sdk_directory_service_data.errors.internal_server_exception.InternalServerException: <p> The operation didn't succeed because an internal error occurred. Try again later. </p>
+            aws_sdk_directory_service_data.errors.resource_not_found_exception.ResourceNotFoundException: <p> The resource couldn't be found. </p>
+            aws_sdk_directory_service_data.errors.throttling_exception.ThrottlingException: <p> The limit on the number of requests per second has been exceeded. </p>
+            aws_sdk_directory_service_data.errors.validation_exception.ValidationException: <p> The request isn't valid. Review the details in the error message to update the invalid parameters or values in your request. </p>
+            aws_sdk_directory_service_data.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To disable a user account
@@ -683,6 +759,15 @@ class DirectoryServiceDataClient:
             sam_account_name: <p> The name of the group. </p>
             next_token: <p>An encoded paging token for paginated calls that can be passed back to retrieve the next page.</p>
             max_results: <p> The maximum number of results to be returned per request. </p>
+
+        Raises:
+            aws_sdk_directory_service_data.errors.access_denied_exception.AccessDeniedException: <p> You don't have permission to perform the request or access the directory. It can also occur when the <code>DirectoryId</code> doesn't exist or the user, member, or group might be outside of your organizational unit (OU). </p> <p> Make sure that you have the authentication and authorization to perform the action. Review the directory information in the request, and make sure that the object isn't outside of your OU. </p>
+            aws_sdk_directory_service_data.errors.directory_unavailable_exception.DirectoryUnavailableException: <p> The request could not be completed due to a problem in the configuration or current state of the specified directory. </p>
+            aws_sdk_directory_service_data.errors.internal_server_exception.InternalServerException: <p> The operation didn't succeed because an internal error occurred. Try again later. </p>
+            aws_sdk_directory_service_data.errors.resource_not_found_exception.ResourceNotFoundException: <p> The resource couldn't be found. </p>
+            aws_sdk_directory_service_data.errors.throttling_exception.ThrottlingException: <p> The limit on the number of requests per second has been exceeded. </p>
+            aws_sdk_directory_service_data.errors.validation_exception.ValidationException: <p> The request isn't valid. Review the details in the error message to update the invalid parameters or values in your request. </p>
+            aws_sdk_directory_service_data.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To list members of a group
@@ -781,6 +866,14 @@ class DirectoryServiceDataClient:
             next_token: <p> An encoded paging token for paginated calls that can be passed back to retrieve the next page. </p>
             max_results: <p> The maximum number of results to be returned per request. </p>
 
+        Raises:
+            aws_sdk_directory_service_data.errors.access_denied_exception.AccessDeniedException: <p> You don't have permission to perform the request or access the directory. It can also occur when the <code>DirectoryId</code> doesn't exist or the user, member, or group might be outside of your organizational unit (OU). </p> <p> Make sure that you have the authentication and authorization to perform the action. Review the directory information in the request, and make sure that the object isn't outside of your OU. </p>
+            aws_sdk_directory_service_data.errors.directory_unavailable_exception.DirectoryUnavailableException: <p> The request could not be completed due to a problem in the configuration or current state of the specified directory. </p>
+            aws_sdk_directory_service_data.errors.internal_server_exception.InternalServerException: <p> The operation didn't succeed because an internal error occurred. Try again later. </p>
+            aws_sdk_directory_service_data.errors.throttling_exception.ThrottlingException: <p> The limit on the number of requests per second has been exceeded. </p>
+            aws_sdk_directory_service_data.errors.validation_exception.ValidationException: <p> The request isn't valid. Review the details in the error message to update the invalid parameters or values in your request. </p>
+            aws_sdk_directory_service_data.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To list domain groups
             The following command lists the name and default attributes for groups on the examplecorp.com domain.
@@ -874,6 +967,15 @@ class DirectoryServiceDataClient:
             sam_account_name: <p> The <code>SAMAccountName</code> of the user, group, or computer that's a member of the group. </p>
             next_token: <p> An encoded paging token for paginated calls that can be passed back to retrieve the next page. </p>
             max_results: <p> The maximum number of results to be returned per request. </p>
+
+        Raises:
+            aws_sdk_directory_service_data.errors.access_denied_exception.AccessDeniedException: <p> You don't have permission to perform the request or access the directory. It can also occur when the <code>DirectoryId</code> doesn't exist or the user, member, or group might be outside of your organizational unit (OU). </p> <p> Make sure that you have the authentication and authorization to perform the action. Review the directory information in the request, and make sure that the object isn't outside of your OU. </p>
+            aws_sdk_directory_service_data.errors.directory_unavailable_exception.DirectoryUnavailableException: <p> The request could not be completed due to a problem in the configuration or current state of the specified directory. </p>
+            aws_sdk_directory_service_data.errors.internal_server_exception.InternalServerException: <p> The operation didn't succeed because an internal error occurred. Try again later. </p>
+            aws_sdk_directory_service_data.errors.resource_not_found_exception.ResourceNotFoundException: <p> The resource couldn't be found. </p>
+            aws_sdk_directory_service_data.errors.throttling_exception.ThrottlingException: <p> The limit on the number of requests per second has been exceeded. </p>
+            aws_sdk_directory_service_data.errors.validation_exception.ValidationException: <p> The request isn't valid. Review the details in the error message to update the invalid parameters or values in your request. </p>
+            aws_sdk_directory_service_data.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To list groups for a member
@@ -972,6 +1074,14 @@ class DirectoryServiceDataClient:
             next_token: <p> An encoded paging token for paginated calls that can be passed back to retrieve the next page. </p>
             max_results: <p> The maximum number of results to be returned per request. </p>
 
+        Raises:
+            aws_sdk_directory_service_data.errors.access_denied_exception.AccessDeniedException: <p> You don't have permission to perform the request or access the directory. It can also occur when the <code>DirectoryId</code> doesn't exist or the user, member, or group might be outside of your organizational unit (OU). </p> <p> Make sure that you have the authentication and authorization to perform the action. Review the directory information in the request, and make sure that the object isn't outside of your OU. </p>
+            aws_sdk_directory_service_data.errors.directory_unavailable_exception.DirectoryUnavailableException: <p> The request could not be completed due to a problem in the configuration or current state of the specified directory. </p>
+            aws_sdk_directory_service_data.errors.internal_server_exception.InternalServerException: <p> The operation didn't succeed because an internal error occurred. Try again later. </p>
+            aws_sdk_directory_service_data.errors.throttling_exception.ThrottlingException: <p> The limit on the number of requests per second has been exceeded. </p>
+            aws_sdk_directory_service_data.errors.validation_exception.ValidationException: <p> The request isn't valid. Review the details in the error message to update the invalid parameters or values in your request. </p>
+            aws_sdk_directory_service_data.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To list users in a realm
             The following command lists users on the examplecorp.com domain.
@@ -1062,6 +1172,16 @@ class DirectoryServiceDataClient:
             member_realm: <p> The domain name that's associated with the group member. This parameter defaults to the Managed Microsoft AD domain. </p> <note> <p> This parameter is optional and case insensitive. </p> </note>
             client_token: <p> A unique and case-sensitive identifier that you provide to make sure the idempotency of the request, so multiple identical calls have the same effect as one single call. </p> <p> A client token is valid for 8 hours after the first request that uses it completes. After 8 hours, any request with the same client token is treated as a new request. If the request succeeds, any future uses of that token will be idempotent for another 8 hours. </p> <p> If you submit a request with the same client token but change one of the other parameters within the 8-hour idempotency window, Directory Service Data returns an <code>ConflictException</code>. </p> <note> <p> This parameter is optional when using the CLI or SDK. </p> </note>
 
+        Raises:
+            aws_sdk_directory_service_data.errors.access_denied_exception.AccessDeniedException: <p> You don't have permission to perform the request or access the directory. It can also occur when the <code>DirectoryId</code> doesn't exist or the user, member, or group might be outside of your organizational unit (OU). </p> <p> Make sure that you have the authentication and authorization to perform the action. Review the directory information in the request, and make sure that the object isn't outside of your OU. </p>
+            aws_sdk_directory_service_data.errors.conflict_exception.ConflictException: <p> This error will occur when you try to create a resource that conflicts with an existing object. It can also occur when adding a member to a group that the member is already in.</p> <p> This error can be caused by a request sent within the 8-hour idempotency window with the same client token but different input parameters. Client tokens should not be re-used across different requests. After 8 hours, any request with the same client token is treated as a new request. </p>
+            aws_sdk_directory_service_data.errors.directory_unavailable_exception.DirectoryUnavailableException: <p> The request could not be completed due to a problem in the configuration or current state of the specified directory. </p>
+            aws_sdk_directory_service_data.errors.internal_server_exception.InternalServerException: <p> The operation didn't succeed because an internal error occurred. Try again later. </p>
+            aws_sdk_directory_service_data.errors.resource_not_found_exception.ResourceNotFoundException: <p> The resource couldn't be found. </p>
+            aws_sdk_directory_service_data.errors.throttling_exception.ThrottlingException: <p> The limit on the number of requests per second has been exceeded. </p>
+            aws_sdk_directory_service_data.errors.validation_exception.ValidationException: <p> The request isn't valid. Review the details in the error message to update the invalid parameters or values in your request. </p>
+            aws_sdk_directory_service_data.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To remove a member from a group
             The following command removes the specified member from the example.local domain.
@@ -1124,6 +1244,14 @@ class DirectoryServiceDataClient:
             realm: <p> The domain name that's associated with the group. </p> <note> <p> This parameter is optional, so you can return groups outside of your Managed Microsoft AD domain. When no value is defined, only your Managed Microsoft AD groups are returned. </p> <p> This value is case insensitive. </p> </note>
             next_token: <p> An encoded paging token for paginated calls that can be passed back to retrieve the next page. </p>
             max_results: <p> The maximum number of results to be returned per request. </p>
+
+        Raises:
+            aws_sdk_directory_service_data.errors.access_denied_exception.AccessDeniedException: <p> You don't have permission to perform the request or access the directory. It can also occur when the <code>DirectoryId</code> doesn't exist or the user, member, or group might be outside of your organizational unit (OU). </p> <p> Make sure that you have the authentication and authorization to perform the action. Review the directory information in the request, and make sure that the object isn't outside of your OU. </p>
+            aws_sdk_directory_service_data.errors.directory_unavailable_exception.DirectoryUnavailableException: <p> The request could not be completed due to a problem in the configuration or current state of the specified directory. </p>
+            aws_sdk_directory_service_data.errors.internal_server_exception.InternalServerException: <p> The operation didn't succeed because an internal error occurred. Try again later. </p>
+            aws_sdk_directory_service_data.errors.throttling_exception.ThrottlingException: <p> The limit on the number of requests per second has been exceeded. </p>
+            aws_sdk_directory_service_data.errors.validation_exception.ValidationException: <p> The request isn't valid. Review the details in the error message to update the invalid parameters or values in your request. </p>
+            aws_sdk_directory_service_data.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To search for groups
@@ -1222,6 +1350,14 @@ class DirectoryServiceDataClient:
             search_attributes: <p> One or more data attributes that are used to search for a user. For a list of supported attributes, see <a href=\"https://docs.aws.amazon.com/directoryservice/latest/admin-guide/ad_data_attributes.html\">Directory Service Data Attributes</a>. </p>
             next_token: <p> An encoded paging token for paginated calls that can be passed back to retrieve the next page. </p>
             max_results: <p> The maximum number of results to be returned per request. </p>
+
+        Raises:
+            aws_sdk_directory_service_data.errors.access_denied_exception.AccessDeniedException: <p> You don't have permission to perform the request or access the directory. It can also occur when the <code>DirectoryId</code> doesn't exist or the user, member, or group might be outside of your organizational unit (OU). </p> <p> Make sure that you have the authentication and authorization to perform the action. Review the directory information in the request, and make sure that the object isn't outside of your OU. </p>
+            aws_sdk_directory_service_data.errors.directory_unavailable_exception.DirectoryUnavailableException: <p> The request could not be completed due to a problem in the configuration or current state of the specified directory. </p>
+            aws_sdk_directory_service_data.errors.internal_server_exception.InternalServerException: <p> The operation didn't succeed because an internal error occurred. Try again later. </p>
+            aws_sdk_directory_service_data.errors.throttling_exception.ThrottlingException: <p> The limit on the number of requests per second has been exceeded. </p>
+            aws_sdk_directory_service_data.errors.validation_exception.ValidationException: <p> The request isn't valid. Review the details in the error message to update the invalid parameters or values in your request. </p>
+            aws_sdk_directory_service_data.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To search for users
@@ -1329,6 +1465,16 @@ class DirectoryServiceDataClient:
             update_type: <p> The type of update to be performed. If no value exists for the attribute, use <code>ADD</code>. Otherwise, use <code>REPLACE</code> to change an attribute value or <code>REMOVE</code> to clear the attribute value. </p>
             client_token: <p> A unique and case-sensitive identifier that you provide to make sure the idempotency of the request, so multiple identical calls have the same effect as one single call. </p> <p> A client token is valid for 8 hours after the first request that uses it completes. After 8 hours, any request with the same client token is treated as a new request. If the request succeeds, any future uses of that token will be idempotent for another 8 hours. </p> <p> If you submit a request with the same client token but change one of the other parameters within the 8-hour idempotency window, Directory Service Data returns an <code>ConflictException</code>. </p> <note> <p> This parameter is optional when using the CLI or SDK. </p> </note>
 
+        Raises:
+            aws_sdk_directory_service_data.errors.access_denied_exception.AccessDeniedException: <p> You don't have permission to perform the request or access the directory. It can also occur when the <code>DirectoryId</code> doesn't exist or the user, member, or group might be outside of your organizational unit (OU). </p> <p> Make sure that you have the authentication and authorization to perform the action. Review the directory information in the request, and make sure that the object isn't outside of your OU. </p>
+            aws_sdk_directory_service_data.errors.conflict_exception.ConflictException: <p> This error will occur when you try to create a resource that conflicts with an existing object. It can also occur when adding a member to a group that the member is already in.</p> <p> This error can be caused by a request sent within the 8-hour idempotency window with the same client token but different input parameters. Client tokens should not be re-used across different requests. After 8 hours, any request with the same client token is treated as a new request. </p>
+            aws_sdk_directory_service_data.errors.directory_unavailable_exception.DirectoryUnavailableException: <p> The request could not be completed due to a problem in the configuration or current state of the specified directory. </p>
+            aws_sdk_directory_service_data.errors.internal_server_exception.InternalServerException: <p> The operation didn't succeed because an internal error occurred. Try again later. </p>
+            aws_sdk_directory_service_data.errors.resource_not_found_exception.ResourceNotFoundException: <p> The resource couldn't be found. </p>
+            aws_sdk_directory_service_data.errors.throttling_exception.ThrottlingException: <p> The limit on the number of requests per second has been exceeded. </p>
+            aws_sdk_directory_service_data.errors.validation_exception.ValidationException: <p> The request isn't valid. Review the details in the error message to update the invalid parameters or values in your request. </p>
+            aws_sdk_directory_service_data.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To update a group
             The following command updates the preferred language and country attributes for the GuestsLocal group.
@@ -1408,6 +1554,16 @@ class DirectoryServiceDataClient:
             other_attributes: <p> An expression that defines one or more attribute names with the data type and value of each attribute. A key is an attribute name, and the value is a list of maps. For a list of supported attributes, see <a href=\"https://docs.aws.amazon.com/directoryservice/latest/admin-guide/ad_data_attributes.html\">Directory Service Data Attributes</a>. </p> <note> <p> Attribute names are case insensitive. </p> </note>
             update_type: <p> The type of update to be performed. If no value exists for the attribute, use <code>ADD</code>. Otherwise, use <code>REPLACE</code> to change an attribute value or <code>REMOVE</code> to clear the attribute value. </p>
             client_token: <p> A unique and case-sensitive identifier that you provide to make sure the idempotency of the request, so multiple identical calls have the same effect as one single call. </p> <p> A client token is valid for 8 hours after the first request that uses it completes. After 8 hours, any request with the same client token is treated as a new request. If the request succeeds, any future uses of that token will be idempotent for another 8 hours. </p> <p> If you submit a request with the same client token but change one of the other parameters within the 8-hour idempotency window, Directory Service Data returns an <code>ConflictException</code>. </p> <note> <p> This parameter is optional when using the CLI or SDK. </p> </note>
+
+        Raises:
+            aws_sdk_directory_service_data.errors.access_denied_exception.AccessDeniedException: <p> You don't have permission to perform the request or access the directory. It can also occur when the <code>DirectoryId</code> doesn't exist or the user, member, or group might be outside of your organizational unit (OU). </p> <p> Make sure that you have the authentication and authorization to perform the action. Review the directory information in the request, and make sure that the object isn't outside of your OU. </p>
+            aws_sdk_directory_service_data.errors.conflict_exception.ConflictException: <p> This error will occur when you try to create a resource that conflicts with an existing object. It can also occur when adding a member to a group that the member is already in.</p> <p> This error can be caused by a request sent within the 8-hour idempotency window with the same client token but different input parameters. Client tokens should not be re-used across different requests. After 8 hours, any request with the same client token is treated as a new request. </p>
+            aws_sdk_directory_service_data.errors.directory_unavailable_exception.DirectoryUnavailableException: <p> The request could not be completed due to a problem in the configuration or current state of the specified directory. </p>
+            aws_sdk_directory_service_data.errors.internal_server_exception.InternalServerException: <p> The operation didn't succeed because an internal error occurred. Try again later. </p>
+            aws_sdk_directory_service_data.errors.resource_not_found_exception.ResourceNotFoundException: <p> The resource couldn't be found. </p>
+            aws_sdk_directory_service_data.errors.throttling_exception.ThrottlingException: <p> The limit on the number of requests per second has been exceeded. </p>
+            aws_sdk_directory_service_data.errors.validation_exception.ValidationException: <p> The request isn't valid. Review the details in the error message to update the invalid parameters or values in your request. </p>
+            aws_sdk_directory_service_data.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To update user attributes

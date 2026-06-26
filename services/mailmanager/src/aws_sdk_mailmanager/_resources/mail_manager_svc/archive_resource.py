@@ -67,6 +67,14 @@ class ArchiveResource:
             retention: <p>The period for retaining emails in the archive before automatic deletion.</p>
             kms_key_arn: <p>The Amazon Resource Name (ARN) of the KMS key for encrypting emails in the archive.</p>
             tags: <p>The tags used to organize, track, or control access for the resource. For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.</p>
+
+        Raises:
+            aws_sdk_mailmanager.errors.access_denied_exception.AccessDeniedException: <p>Occurs when a user is denied access to a specific resource or action.</p>
+            aws_sdk_mailmanager.errors.conflict_exception.ConflictException: <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
+            aws_sdk_mailmanager.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Occurs when an operation exceeds a predefined service quota or limit.</p>
+            aws_sdk_mailmanager.errors.throttling_exception.ThrottlingException: <p>Occurs when a service's request rate limit is exceeded, resulting in throttling of further requests.</p>
+            aws_sdk_mailmanager.errors.validation_exception.ValidationException: <p>The request validation has failed. For details, see the accompanying error message.</p>
+            aws_sdk_mailmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -112,6 +120,13 @@ class ArchiveResource:
 
         Args:
             archive_id: <p>The identifier of the archive to retrieve.</p>
+
+        Raises:
+            aws_sdk_mailmanager.errors.access_denied_exception.AccessDeniedException: <p>Occurs when a user is denied access to a specific resource or action.</p>
+            aws_sdk_mailmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p>Occurs when a requested resource is not found.</p>
+            aws_sdk_mailmanager.errors.throttling_exception.ThrottlingException: <p>Occurs when a service's request rate limit is exceeded, resulting in throttling of further requests.</p>
+            aws_sdk_mailmanager.errors.validation_exception.ValidationException: <p>The request validation has failed. For details, see the accompanying error message.</p>
+            aws_sdk_mailmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -157,6 +172,15 @@ class ArchiveResource:
             archive_id: <p>The identifier of the archive to update.</p>
             archive_name: <p>A new, unique name for the archive.</p>
             retention: <p>A new retention period for emails in the archive.</p>
+
+        Raises:
+            aws_sdk_mailmanager.errors.access_denied_exception.AccessDeniedException: <p>Occurs when a user is denied access to a specific resource or action.</p>
+            aws_sdk_mailmanager.errors.conflict_exception.ConflictException: <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
+            aws_sdk_mailmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p>Occurs when a requested resource is not found.</p>
+            aws_sdk_mailmanager.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Occurs when an operation exceeds a predefined service quota or limit.</p>
+            aws_sdk_mailmanager.errors.throttling_exception.ThrottlingException: <p>Occurs when a service's request rate limit is exceeded, resulting in throttling of further requests.</p>
+            aws_sdk_mailmanager.errors.validation_exception.ValidationException: <p>The request validation has failed. For details, see the accompanying error message.</p>
+            aws_sdk_mailmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -198,6 +222,13 @@ class ArchiveResource:
 
         Args:
             archive_id: <p>The identifier of the archive to delete.</p>
+
+        Raises:
+            aws_sdk_mailmanager.errors.access_denied_exception.AccessDeniedException: <p>Occurs when a user is denied access to a specific resource or action.</p>
+            aws_sdk_mailmanager.errors.conflict_exception.ConflictException: <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
+            aws_sdk_mailmanager.errors.throttling_exception.ThrottlingException: <p>Occurs when a service's request rate limit is exceeded, resulting in throttling of further requests.</p>
+            aws_sdk_mailmanager.errors.validation_exception.ValidationException: <p>The request validation has failed. For details, see the accompanying error message.</p>
+            aws_sdk_mailmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -239,6 +270,12 @@ class ArchiveResource:
         Args:
             next_token: <p>If NextToken is returned, there are more results available. The value of NextToken is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. </p>
             page_size: <p>The maximum number of archives that are returned per call. You can use NextToken to obtain further pages of archives. </p>
+
+        Raises:
+            aws_sdk_mailmanager.errors.access_denied_exception.AccessDeniedException: <p>Occurs when a user is denied access to a specific resource or action.</p>
+            aws_sdk_mailmanager.errors.throttling_exception.ThrottlingException: <p>Occurs when a service's request rate limit is exceeded, resulting in throttling of further requests.</p>
+            aws_sdk_mailmanager.errors.validation_exception.ValidationException: <p>The request validation has failed. For details, see the accompanying error message.</p>
+            aws_sdk_mailmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -296,6 +333,14 @@ class AsyncArchiveResource:
             retention: <p>The period for retaining emails in the archive before automatic deletion.</p>
             kms_key_arn: <p>The Amazon Resource Name (ARN) of the KMS key for encrypting emails in the archive.</p>
             tags: <p>The tags used to organize, track, or control access for the resource. For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.</p>
+
+        Raises:
+            aws_sdk_mailmanager.errors.access_denied_exception.AccessDeniedException: <p>Occurs when a user is denied access to a specific resource or action.</p>
+            aws_sdk_mailmanager.errors.conflict_exception.ConflictException: <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
+            aws_sdk_mailmanager.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Occurs when an operation exceeds a predefined service quota or limit.</p>
+            aws_sdk_mailmanager.errors.throttling_exception.ThrottlingException: <p>Occurs when a service's request rate limit is exceeded, resulting in throttling of further requests.</p>
+            aws_sdk_mailmanager.errors.validation_exception.ValidationException: <p>The request validation has failed. For details, see the accompanying error message.</p>
+            aws_sdk_mailmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -342,6 +387,13 @@ class AsyncArchiveResource:
 
         Args:
             archive_id: <p>The identifier of the archive to retrieve.</p>
+
+        Raises:
+            aws_sdk_mailmanager.errors.access_denied_exception.AccessDeniedException: <p>Occurs when a user is denied access to a specific resource or action.</p>
+            aws_sdk_mailmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p>Occurs when a requested resource is not found.</p>
+            aws_sdk_mailmanager.errors.throttling_exception.ThrottlingException: <p>Occurs when a service's request rate limit is exceeded, resulting in throttling of further requests.</p>
+            aws_sdk_mailmanager.errors.validation_exception.ValidationException: <p>The request validation has failed. For details, see the accompanying error message.</p>
+            aws_sdk_mailmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -388,6 +440,15 @@ class AsyncArchiveResource:
             archive_id: <p>The identifier of the archive to update.</p>
             archive_name: <p>A new, unique name for the archive.</p>
             retention: <p>A new retention period for emails in the archive.</p>
+
+        Raises:
+            aws_sdk_mailmanager.errors.access_denied_exception.AccessDeniedException: <p>Occurs when a user is denied access to a specific resource or action.</p>
+            aws_sdk_mailmanager.errors.conflict_exception.ConflictException: <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
+            aws_sdk_mailmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p>Occurs when a requested resource is not found.</p>
+            aws_sdk_mailmanager.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Occurs when an operation exceeds a predefined service quota or limit.</p>
+            aws_sdk_mailmanager.errors.throttling_exception.ThrottlingException: <p>Occurs when a service's request rate limit is exceeded, resulting in throttling of further requests.</p>
+            aws_sdk_mailmanager.errors.validation_exception.ValidationException: <p>The request validation has failed. For details, see the accompanying error message.</p>
+            aws_sdk_mailmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -430,6 +491,13 @@ class AsyncArchiveResource:
 
         Args:
             archive_id: <p>The identifier of the archive to delete.</p>
+
+        Raises:
+            aws_sdk_mailmanager.errors.access_denied_exception.AccessDeniedException: <p>Occurs when a user is denied access to a specific resource or action.</p>
+            aws_sdk_mailmanager.errors.conflict_exception.ConflictException: <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
+            aws_sdk_mailmanager.errors.throttling_exception.ThrottlingException: <p>Occurs when a service's request rate limit is exceeded, resulting in throttling of further requests.</p>
+            aws_sdk_mailmanager.errors.validation_exception.ValidationException: <p>The request validation has failed. For details, see the accompanying error message.</p>
+            aws_sdk_mailmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -472,6 +540,12 @@ class AsyncArchiveResource:
         Args:
             next_token: <p>If NextToken is returned, there are more results available. The value of NextToken is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. </p>
             page_size: <p>The maximum number of archives that are returned per call. You can use NextToken to obtain further pages of archives. </p>
+
+        Raises:
+            aws_sdk_mailmanager.errors.access_denied_exception.AccessDeniedException: <p>Occurs when a user is denied access to a specific resource or action.</p>
+            aws_sdk_mailmanager.errors.throttling_exception.ThrottlingException: <p>Occurs when a service's request rate limit is exceeded, resulting in throttling of further requests.</p>
+            aws_sdk_mailmanager.errors.validation_exception.ValidationException: <p>The request validation has failed. For details, see the accompanying error message.</p>
+            aws_sdk_mailmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

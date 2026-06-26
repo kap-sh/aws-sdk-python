@@ -116,6 +116,12 @@ class LaunchConfigurationTemplateResource:
             large_volume_conf: <p>Large volume config.</p>
             enable_parameters_encryption: <p>Enable parameters encryption.</p>
             parameters_encryption_key: <p>Parameters encryption key.</p>
+
+        Raises:
+            aws_sdk_mgn.errors.access_denied_exception.AccessDeniedException: <p>Operating denied due to a file permission or access check error.</p>
+            aws_sdk_mgn.errors.uninitialized_account_exception.UninitializedAccountException: <p>Uninitialized account exception.</p>
+            aws_sdk_mgn.errors.validation_exception.ValidationException: <p>Validate exception.</p>
+            aws_sdk_mgn.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -229,6 +235,13 @@ class LaunchConfigurationTemplateResource:
             large_volume_conf: <p>Large volume config.</p>
             enable_parameters_encryption: <p>Enable parameters encryption.</p>
             parameters_encryption_key: <p>Parameters encryption key.</p>
+
+        Raises:
+            aws_sdk_mgn.errors.access_denied_exception.AccessDeniedException: <p>Operating denied due to a file permission or access check error.</p>
+            aws_sdk_mgn.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found exception.</p>
+            aws_sdk_mgn.errors.uninitialized_account_exception.UninitializedAccountException: <p>Uninitialized account exception.</p>
+            aws_sdk_mgn.errors.validation_exception.ValidationException: <p>Validate exception.</p>
+            aws_sdk_mgn.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -298,6 +311,12 @@ class LaunchConfigurationTemplateResource:
 
         Args:
             launch_configuration_template_id: <p>ID of resource to be deleted.</p>
+
+        Raises:
+            aws_sdk_mgn.errors.conflict_exception.ConflictException: <p>The request could not be completed due to a conflict with the current state of the target resource.</p>
+            aws_sdk_mgn.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found exception.</p>
+            aws_sdk_mgn.errors.uninitialized_account_exception.UninitializedAccountException: <p>Uninitialized account exception.</p>
+            aws_sdk_mgn.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -345,6 +364,12 @@ class LaunchConfigurationTemplateResource:
             launch_configuration_template_i_ds: <p>Request to filter Launch Configuration Templates list by Launch Configuration Template ID.</p>
             max_results: <p>Maximum results to be returned in DescribeLaunchConfigurationTemplates.</p>
             next_token: <p>Next pagination token returned from DescribeLaunchConfigurationTemplates.</p>
+
+        Raises:
+            aws_sdk_mgn.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found exception.</p>
+            aws_sdk_mgn.errors.uninitialized_account_exception.UninitializedAccountException: <p>Uninitialized account exception.</p>
+            aws_sdk_mgn.errors.validation_exception.ValidationException: <p>Validate exception.</p>
+            aws_sdk_mgn.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -401,6 +426,11 @@ class LaunchConfigurationTemplateResource:
             filters: <p>Filters to apply when listing template post migration custom actions.</p>
             max_results: <p>Maximum amount of items to return when listing template post migration custom actions.</p>
             next_token: <p>Next token to use when listing template post migration custom actions.</p>
+
+        Raises:
+            aws_sdk_mgn.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found exception.</p>
+            aws_sdk_mgn.errors.uninitialized_account_exception.UninitializedAccountException: <p>Uninitialized account exception.</p>
+            aws_sdk_mgn.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -482,6 +512,13 @@ class LaunchConfigurationTemplateResource:
             external_parameters: <p>Template post migration custom action external parameters.</p>
             description: <p>Template post migration custom action description.</p>
             category: <p>Template post migration custom action category.</p>
+
+        Raises:
+            aws_sdk_mgn.errors.conflict_exception.ConflictException: <p>The request could not be completed due to a conflict with the current state of the target resource.</p>
+            aws_sdk_mgn.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found exception.</p>
+            aws_sdk_mgn.errors.uninitialized_account_exception.UninitializedAccountException: <p>Uninitialized account exception.</p>
+            aws_sdk_mgn.errors.validation_exception.ValidationException: <p>Validate exception.</p>
+            aws_sdk_mgn.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -545,6 +582,12 @@ class LaunchConfigurationTemplateResource:
         Args:
             launch_configuration_template_id: <p>Launch configuration template ID of the post migration custom action to remove.</p>
             action_id: <p>Template post migration custom action ID to remove.</p>
+
+        Raises:
+            aws_sdk_mgn.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found exception.</p>
+            aws_sdk_mgn.errors.uninitialized_account_exception.UninitializedAccountException: <p>Uninitialized account exception.</p>
+            aws_sdk_mgn.errors.validation_exception.ValidationException: <p>Validate exception.</p>
+            aws_sdk_mgn.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -633,6 +676,12 @@ class AsyncLaunchConfigurationTemplateResource:
             large_volume_conf: <p>Large volume config.</p>
             enable_parameters_encryption: <p>Enable parameters encryption.</p>
             parameters_encryption_key: <p>Parameters encryption key.</p>
+
+        Raises:
+            aws_sdk_mgn.errors.access_denied_exception.AccessDeniedException: <p>Operating denied due to a file permission or access check error.</p>
+            aws_sdk_mgn.errors.uninitialized_account_exception.UninitializedAccountException: <p>Uninitialized account exception.</p>
+            aws_sdk_mgn.errors.validation_exception.ValidationException: <p>Validate exception.</p>
+            aws_sdk_mgn.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -747,6 +796,13 @@ class AsyncLaunchConfigurationTemplateResource:
             large_volume_conf: <p>Large volume config.</p>
             enable_parameters_encryption: <p>Enable parameters encryption.</p>
             parameters_encryption_key: <p>Parameters encryption key.</p>
+
+        Raises:
+            aws_sdk_mgn.errors.access_denied_exception.AccessDeniedException: <p>Operating denied due to a file permission or access check error.</p>
+            aws_sdk_mgn.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found exception.</p>
+            aws_sdk_mgn.errors.uninitialized_account_exception.UninitializedAccountException: <p>Uninitialized account exception.</p>
+            aws_sdk_mgn.errors.validation_exception.ValidationException: <p>Validate exception.</p>
+            aws_sdk_mgn.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -817,6 +873,12 @@ class AsyncLaunchConfigurationTemplateResource:
 
         Args:
             launch_configuration_template_id: <p>ID of resource to be deleted.</p>
+
+        Raises:
+            aws_sdk_mgn.errors.conflict_exception.ConflictException: <p>The request could not be completed due to a conflict with the current state of the target resource.</p>
+            aws_sdk_mgn.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found exception.</p>
+            aws_sdk_mgn.errors.uninitialized_account_exception.UninitializedAccountException: <p>Uninitialized account exception.</p>
+            aws_sdk_mgn.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -865,6 +927,12 @@ class AsyncLaunchConfigurationTemplateResource:
             launch_configuration_template_i_ds: <p>Request to filter Launch Configuration Templates list by Launch Configuration Template ID.</p>
             max_results: <p>Maximum results to be returned in DescribeLaunchConfigurationTemplates.</p>
             next_token: <p>Next pagination token returned from DescribeLaunchConfigurationTemplates.</p>
+
+        Raises:
+            aws_sdk_mgn.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found exception.</p>
+            aws_sdk_mgn.errors.uninitialized_account_exception.UninitializedAccountException: <p>Uninitialized account exception.</p>
+            aws_sdk_mgn.errors.validation_exception.ValidationException: <p>Validate exception.</p>
+            aws_sdk_mgn.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -922,6 +990,11 @@ class AsyncLaunchConfigurationTemplateResource:
             filters: <p>Filters to apply when listing template post migration custom actions.</p>
             max_results: <p>Maximum amount of items to return when listing template post migration custom actions.</p>
             next_token: <p>Next token to use when listing template post migration custom actions.</p>
+
+        Raises:
+            aws_sdk_mgn.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found exception.</p>
+            aws_sdk_mgn.errors.uninitialized_account_exception.UninitializedAccountException: <p>Uninitialized account exception.</p>
+            aws_sdk_mgn.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1004,6 +1077,13 @@ class AsyncLaunchConfigurationTemplateResource:
             external_parameters: <p>Template post migration custom action external parameters.</p>
             description: <p>Template post migration custom action description.</p>
             category: <p>Template post migration custom action category.</p>
+
+        Raises:
+            aws_sdk_mgn.errors.conflict_exception.ConflictException: <p>The request could not be completed due to a conflict with the current state of the target resource.</p>
+            aws_sdk_mgn.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found exception.</p>
+            aws_sdk_mgn.errors.uninitialized_account_exception.UninitializedAccountException: <p>Uninitialized account exception.</p>
+            aws_sdk_mgn.errors.validation_exception.ValidationException: <p>Validate exception.</p>
+            aws_sdk_mgn.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1068,6 +1148,12 @@ class AsyncLaunchConfigurationTemplateResource:
         Args:
             launch_configuration_template_id: <p>Launch configuration template ID of the post migration custom action to remove.</p>
             action_id: <p>Template post migration custom action ID to remove.</p>
+
+        Raises:
+            aws_sdk_mgn.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found exception.</p>
+            aws_sdk_mgn.errors.uninitialized_account_exception.UninitializedAccountException: <p>Uninitialized account exception.</p>
+            aws_sdk_mgn.errors.validation_exception.ValidationException: <p>Validate exception.</p>
+            aws_sdk_mgn.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

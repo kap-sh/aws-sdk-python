@@ -147,6 +147,14 @@ class MarketplaceDeploymentClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) associated with the deployment parameter resource you want to list tags on.</p>
 
+        Raises:
+            aws_sdk_marketplace_deployment.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_marketplace_deployment.errors.internal_server_exception.InternalServerException: <p>There was an internal service exception.</p>
+            aws_sdk_marketplace_deployment.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource wasn't found.</p>
+            aws_sdk_marketplace_deployment.errors.throttling_exception.ThrottlingException: <p>Too many requests.</p>
+            aws_sdk_marketplace_deployment.errors.validation_exception.ValidationException: <p>An error occurred during validation.</p>
+            aws_sdk_marketplace_deployment.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Listing tags for a deployment parameter
             The following example demonstrates listing the tags for a deployment parameter. If no tags are present, the API will return an empty map.
@@ -194,6 +202,15 @@ class MarketplaceDeploymentClient:
             resource_arn: <p>The Amazon Resource Name (ARN) associated with the resource you want to tag.</p>
             tags: <p>A map of key-value pairs, where each pair represents a tag present on the resource.</p>
 
+        Raises:
+            aws_sdk_marketplace_deployment.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_marketplace_deployment.errors.conflict_exception.ConflictException: <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
+            aws_sdk_marketplace_deployment.errors.internal_server_exception.InternalServerException: <p>There was an internal service exception.</p>
+            aws_sdk_marketplace_deployment.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource wasn't found.</p>
+            aws_sdk_marketplace_deployment.errors.throttling_exception.ThrottlingException: <p>Too many requests.</p>
+            aws_sdk_marketplace_deployment.errors.validation_exception.ValidationException: <p>An error occurred during validation.</p>
+            aws_sdk_marketplace_deployment.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Adding tags to a deployment parameter
             The following example demonstrates adding two tags to a deployment parameter. There is no output from this API.
@@ -240,6 +257,15 @@ class MarketplaceDeploymentClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) associated with the resource you want to remove the tag from.</p>
             tag_keys: <p>A list of key names of tags to be removed.</p>
+
+        Raises:
+            aws_sdk_marketplace_deployment.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_marketplace_deployment.errors.conflict_exception.ConflictException: <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
+            aws_sdk_marketplace_deployment.errors.internal_server_exception.InternalServerException: <p>There was an internal service exception.</p>
+            aws_sdk_marketplace_deployment.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource wasn't found.</p>
+            aws_sdk_marketplace_deployment.errors.throttling_exception.ThrottlingException: <p>Too many requests.</p>
+            aws_sdk_marketplace_deployment.errors.validation_exception.ValidationException: <p>An error occurred during validation.</p>
+            aws_sdk_marketplace_deployment.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Removing tags from a deployment parameter

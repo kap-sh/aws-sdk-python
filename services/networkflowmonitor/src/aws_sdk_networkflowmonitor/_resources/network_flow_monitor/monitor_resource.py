@@ -84,6 +84,15 @@ class MonitorResource:
             scope_arn: <p>The Amazon Resource Name (ARN) of the scope for the monitor.</p>
             client_token: <p>A unique, case-sensitive string of up to 64 ASCII characters that you specify to make an idempotent API request. Don't reuse the same client token for other API requests.</p>
             tags: <p>The tags for a monitor. You can add a maximum of 200 tags.</p>
+
+        Raises:
+            aws_sdk_networkflowmonitor.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permission to perform this action.</p>
+            aws_sdk_networkflowmonitor.errors.conflict_exception.ConflictException: <p>The requested resource is in use.</p>
+            aws_sdk_networkflowmonitor.errors.internal_server_exception.InternalServerException: <p>An internal error occurred.</p>
+            aws_sdk_networkflowmonitor.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request exceeded a service quota.</p>
+            aws_sdk_networkflowmonitor.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_networkflowmonitor.errors.validation_exception.ValidationException: <p>Invalid request.</p>
+            aws_sdk_networkflowmonitor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -129,6 +138,14 @@ class MonitorResource:
 
         Args:
             monitor_name: <p>The name of the monitor.</p>
+
+        Raises:
+            aws_sdk_networkflowmonitor.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permission to perform this action.</p>
+            aws_sdk_networkflowmonitor.errors.internal_server_exception.InternalServerException: <p>An internal error occurred.</p>
+            aws_sdk_networkflowmonitor.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request specifies a resource that doesn't exist.</p>
+            aws_sdk_networkflowmonitor.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_networkflowmonitor.errors.validation_exception.ValidationException: <p>Invalid request.</p>
+            aws_sdk_networkflowmonitor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -186,6 +203,14 @@ class MonitorResource:
             remote_resources_to_add: <p>The remote resources to add, as an array of resources with identifiers and types.</p> <p>A remote resource is the other endpoint in the flow of a workload, with a local resource. For example, Amazon Dynamo DB can be a remote resource. </p>
             remote_resources_to_remove: <p>The remote resources to remove, as an array of resources with identifiers and types.</p> <p>A remote resource is the other endpoint specified for the network flow of a workload, with a local resource. For example, Amazon Dynamo DB can be a remote resource. </p>
             client_token: <p>A unique, case-sensitive string of up to 64 ASCII characters that you specify to make an idempotent API request. Don't reuse the same client token for other API requests.</p>
+
+        Raises:
+            aws_sdk_networkflowmonitor.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permission to perform this action.</p>
+            aws_sdk_networkflowmonitor.errors.internal_server_exception.InternalServerException: <p>An internal error occurred.</p>
+            aws_sdk_networkflowmonitor.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request specifies a resource that doesn't exist.</p>
+            aws_sdk_networkflowmonitor.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_networkflowmonitor.errors.validation_exception.ValidationException: <p>Invalid request.</p>
+            aws_sdk_networkflowmonitor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -233,6 +258,15 @@ class MonitorResource:
 
         Args:
             monitor_name: <p>The name of the monitor to delete.</p>
+
+        Raises:
+            aws_sdk_networkflowmonitor.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permission to perform this action.</p>
+            aws_sdk_networkflowmonitor.errors.conflict_exception.ConflictException: <p>The requested resource is in use.</p>
+            aws_sdk_networkflowmonitor.errors.internal_server_exception.InternalServerException: <p>An internal error occurred.</p>
+            aws_sdk_networkflowmonitor.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request specifies a resource that doesn't exist.</p>
+            aws_sdk_networkflowmonitor.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_networkflowmonitor.errors.validation_exception.ValidationException: <p>Invalid request.</p>
+            aws_sdk_networkflowmonitor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -278,6 +312,13 @@ class MonitorResource:
             next_token: <p>The token for the next set of results. You receive this token from a previous call.</p>
             max_results: <p>The number of query results that you want to return with this call.</p>
             monitor_status: <p>The status of a monitor. The status can be one of the following</p> <ul> <li> <p> <code>PENDING</code>: The monitor is in the process of being created.</p> </li> <li> <p> <code>ACTIVE</code>: The monitor is active.</p> </li> <li> <p> <code>INACTIVE</code>: The monitor is inactive.</p> </li> <li> <p> <code>ERROR</code>: Monitor creation failed due to an error.</p> </li> <li> <p> <code>DELETING</code>: The monitor is in the process of being deleted.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_networkflowmonitor.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permission to perform this action.</p>
+            aws_sdk_networkflowmonitor.errors.internal_server_exception.InternalServerException: <p>An internal error occurred.</p>
+            aws_sdk_networkflowmonitor.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_networkflowmonitor.errors.validation_exception.ValidationException: <p>Invalid request.</p>
+            aws_sdk_networkflowmonitor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -326,6 +367,15 @@ class MonitorResource:
             query_id: <p>The identifier for the query. A query ID is an internally-generated identifier for a specific query returned from an API call to create a query.</p>
             next_token: <p>The token for the next set of results. You receive this token from a previous call.</p>
             max_results: <p>The number of query results that you want to return with this call.</p>
+
+        Raises:
+            aws_sdk_networkflowmonitor.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permission to perform this action.</p>
+            aws_sdk_networkflowmonitor.errors.internal_server_exception.InternalServerException: <p>An internal error occurred.</p>
+            aws_sdk_networkflowmonitor.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request specifies a resource that doesn't exist.</p>
+            aws_sdk_networkflowmonitor.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request exceeded a service quota.</p>
+            aws_sdk_networkflowmonitor.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_networkflowmonitor.errors.validation_exception.ValidationException: <p>Invalid request.</p>
+            aws_sdk_networkflowmonitor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -370,6 +420,14 @@ class MonitorResource:
         Args:
             monitor_name: <p>The name of the monitor.</p>
             query_id: <p>The identifier for the query. A query ID is an internally-generated identifier for a specific query returned from an API call to start a query.</p>
+
+        Raises:
+            aws_sdk_networkflowmonitor.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permission to perform this action.</p>
+            aws_sdk_networkflowmonitor.errors.internal_server_exception.InternalServerException: <p>An internal error occurred.</p>
+            aws_sdk_networkflowmonitor.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request exceeded a service quota.</p>
+            aws_sdk_networkflowmonitor.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_networkflowmonitor.errors.validation_exception.ValidationException: <p>Invalid request.</p>
+            aws_sdk_networkflowmonitor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -418,6 +476,14 @@ class MonitorResource:
             metric_name: <p>The metric that you want to query top contributors for. That is, you can specify a metric with this call and return the top contributor network flows, for that type of metric, for a monitor and (optionally) within a specific category, such as network flows between Availability Zones.</p>
             destination_category: <p>The category that you want to query top contributors for, for a specific monitor. Destination categories can be one of the following: </p> <ul> <li> <p> <code>INTRA_AZ</code>: Top contributor network flows within a single Availability Zone</p> </li> <li> <p> <code>INTER_AZ</code>: Top contributor network flows between Availability Zones</p> </li> <li> <p> <code>INTER_REGION</code>: Top contributor network flows between Regions (to the edge of another Region)</p> </li> <li> <p> <code>INTER_VPC</code>: Top contributor network flows between VPCs</p> </li> <li> <p> <code>AMAZON_S3</code>: Top contributor network flows to or from Amazon S3</p> </li> <li> <p> <code>AMAZON_DYNAMODB</code>: Top contributor network flows to or from Amazon Dynamo DB</p> </li> <li> <p> <code>UNCLASSIFIED</code>: Top contributor network flows that do not have a bucket classification</p> </li> </ul>
             limit: <p>The maximum number of top contributors to return.</p>
+
+        Raises:
+            aws_sdk_networkflowmonitor.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permission to perform this action.</p>
+            aws_sdk_networkflowmonitor.errors.internal_server_exception.InternalServerException: <p>An internal error occurred.</p>
+            aws_sdk_networkflowmonitor.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request exceeded a service quota.</p>
+            aws_sdk_networkflowmonitor.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_networkflowmonitor.errors.validation_exception.ValidationException: <p>Invalid request.</p>
+            aws_sdk_networkflowmonitor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -463,6 +529,14 @@ class MonitorResource:
         Args:
             monitor_name: <p>The name of the monitor.</p>
             query_id: <p>The identifier for the query. A query ID is an internally-generated identifier for a specific query returned from an API call to create a query.</p>
+
+        Raises:
+            aws_sdk_networkflowmonitor.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permission to perform this action.</p>
+            aws_sdk_networkflowmonitor.errors.internal_server_exception.InternalServerException: <p>An internal error occurred.</p>
+            aws_sdk_networkflowmonitor.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request exceeded a service quota.</p>
+            aws_sdk_networkflowmonitor.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_networkflowmonitor.errors.validation_exception.ValidationException: <p>Invalid request.</p>
+            aws_sdk_networkflowmonitor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -520,6 +594,15 @@ class AsyncMonitorResource:
             scope_arn: <p>The Amazon Resource Name (ARN) of the scope for the monitor.</p>
             client_token: <p>A unique, case-sensitive string of up to 64 ASCII characters that you specify to make an idempotent API request. Don't reuse the same client token for other API requests.</p>
             tags: <p>The tags for a monitor. You can add a maximum of 200 tags.</p>
+
+        Raises:
+            aws_sdk_networkflowmonitor.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permission to perform this action.</p>
+            aws_sdk_networkflowmonitor.errors.conflict_exception.ConflictException: <p>The requested resource is in use.</p>
+            aws_sdk_networkflowmonitor.errors.internal_server_exception.InternalServerException: <p>An internal error occurred.</p>
+            aws_sdk_networkflowmonitor.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request exceeded a service quota.</p>
+            aws_sdk_networkflowmonitor.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_networkflowmonitor.errors.validation_exception.ValidationException: <p>Invalid request.</p>
+            aws_sdk_networkflowmonitor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -566,6 +649,14 @@ class AsyncMonitorResource:
 
         Args:
             monitor_name: <p>The name of the monitor.</p>
+
+        Raises:
+            aws_sdk_networkflowmonitor.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permission to perform this action.</p>
+            aws_sdk_networkflowmonitor.errors.internal_server_exception.InternalServerException: <p>An internal error occurred.</p>
+            aws_sdk_networkflowmonitor.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request specifies a resource that doesn't exist.</p>
+            aws_sdk_networkflowmonitor.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_networkflowmonitor.errors.validation_exception.ValidationException: <p>Invalid request.</p>
+            aws_sdk_networkflowmonitor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -624,6 +715,14 @@ class AsyncMonitorResource:
             remote_resources_to_add: <p>The remote resources to add, as an array of resources with identifiers and types.</p> <p>A remote resource is the other endpoint in the flow of a workload, with a local resource. For example, Amazon Dynamo DB can be a remote resource. </p>
             remote_resources_to_remove: <p>The remote resources to remove, as an array of resources with identifiers and types.</p> <p>A remote resource is the other endpoint specified for the network flow of a workload, with a local resource. For example, Amazon Dynamo DB can be a remote resource. </p>
             client_token: <p>A unique, case-sensitive string of up to 64 ASCII characters that you specify to make an idempotent API request. Don't reuse the same client token for other API requests.</p>
+
+        Raises:
+            aws_sdk_networkflowmonitor.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permission to perform this action.</p>
+            aws_sdk_networkflowmonitor.errors.internal_server_exception.InternalServerException: <p>An internal error occurred.</p>
+            aws_sdk_networkflowmonitor.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request specifies a resource that doesn't exist.</p>
+            aws_sdk_networkflowmonitor.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_networkflowmonitor.errors.validation_exception.ValidationException: <p>Invalid request.</p>
+            aws_sdk_networkflowmonitor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -672,6 +771,15 @@ class AsyncMonitorResource:
 
         Args:
             monitor_name: <p>The name of the monitor to delete.</p>
+
+        Raises:
+            aws_sdk_networkflowmonitor.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permission to perform this action.</p>
+            aws_sdk_networkflowmonitor.errors.conflict_exception.ConflictException: <p>The requested resource is in use.</p>
+            aws_sdk_networkflowmonitor.errors.internal_server_exception.InternalServerException: <p>An internal error occurred.</p>
+            aws_sdk_networkflowmonitor.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request specifies a resource that doesn't exist.</p>
+            aws_sdk_networkflowmonitor.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_networkflowmonitor.errors.validation_exception.ValidationException: <p>Invalid request.</p>
+            aws_sdk_networkflowmonitor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -718,6 +826,13 @@ class AsyncMonitorResource:
             next_token: <p>The token for the next set of results. You receive this token from a previous call.</p>
             max_results: <p>The number of query results that you want to return with this call.</p>
             monitor_status: <p>The status of a monitor. The status can be one of the following</p> <ul> <li> <p> <code>PENDING</code>: The monitor is in the process of being created.</p> </li> <li> <p> <code>ACTIVE</code>: The monitor is active.</p> </li> <li> <p> <code>INACTIVE</code>: The monitor is inactive.</p> </li> <li> <p> <code>ERROR</code>: Monitor creation failed due to an error.</p> </li> <li> <p> <code>DELETING</code>: The monitor is in the process of being deleted.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_networkflowmonitor.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permission to perform this action.</p>
+            aws_sdk_networkflowmonitor.errors.internal_server_exception.InternalServerException: <p>An internal error occurred.</p>
+            aws_sdk_networkflowmonitor.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_networkflowmonitor.errors.validation_exception.ValidationException: <p>Invalid request.</p>
+            aws_sdk_networkflowmonitor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -767,6 +882,15 @@ class AsyncMonitorResource:
             query_id: <p>The identifier for the query. A query ID is an internally-generated identifier for a specific query returned from an API call to create a query.</p>
             next_token: <p>The token for the next set of results. You receive this token from a previous call.</p>
             max_results: <p>The number of query results that you want to return with this call.</p>
+
+        Raises:
+            aws_sdk_networkflowmonitor.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permission to perform this action.</p>
+            aws_sdk_networkflowmonitor.errors.internal_server_exception.InternalServerException: <p>An internal error occurred.</p>
+            aws_sdk_networkflowmonitor.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request specifies a resource that doesn't exist.</p>
+            aws_sdk_networkflowmonitor.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request exceeded a service quota.</p>
+            aws_sdk_networkflowmonitor.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_networkflowmonitor.errors.validation_exception.ValidationException: <p>Invalid request.</p>
+            aws_sdk_networkflowmonitor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -812,6 +936,14 @@ class AsyncMonitorResource:
         Args:
             monitor_name: <p>The name of the monitor.</p>
             query_id: <p>The identifier for the query. A query ID is an internally-generated identifier for a specific query returned from an API call to start a query.</p>
+
+        Raises:
+            aws_sdk_networkflowmonitor.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permission to perform this action.</p>
+            aws_sdk_networkflowmonitor.errors.internal_server_exception.InternalServerException: <p>An internal error occurred.</p>
+            aws_sdk_networkflowmonitor.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request exceeded a service quota.</p>
+            aws_sdk_networkflowmonitor.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_networkflowmonitor.errors.validation_exception.ValidationException: <p>Invalid request.</p>
+            aws_sdk_networkflowmonitor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -861,6 +993,14 @@ class AsyncMonitorResource:
             metric_name: <p>The metric that you want to query top contributors for. That is, you can specify a metric with this call and return the top contributor network flows, for that type of metric, for a monitor and (optionally) within a specific category, such as network flows between Availability Zones.</p>
             destination_category: <p>The category that you want to query top contributors for, for a specific monitor. Destination categories can be one of the following: </p> <ul> <li> <p> <code>INTRA_AZ</code>: Top contributor network flows within a single Availability Zone</p> </li> <li> <p> <code>INTER_AZ</code>: Top contributor network flows between Availability Zones</p> </li> <li> <p> <code>INTER_REGION</code>: Top contributor network flows between Regions (to the edge of another Region)</p> </li> <li> <p> <code>INTER_VPC</code>: Top contributor network flows between VPCs</p> </li> <li> <p> <code>AMAZON_S3</code>: Top contributor network flows to or from Amazon S3</p> </li> <li> <p> <code>AMAZON_DYNAMODB</code>: Top contributor network flows to or from Amazon Dynamo DB</p> </li> <li> <p> <code>UNCLASSIFIED</code>: Top contributor network flows that do not have a bucket classification</p> </li> </ul>
             limit: <p>The maximum number of top contributors to return.</p>
+
+        Raises:
+            aws_sdk_networkflowmonitor.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permission to perform this action.</p>
+            aws_sdk_networkflowmonitor.errors.internal_server_exception.InternalServerException: <p>An internal error occurred.</p>
+            aws_sdk_networkflowmonitor.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request exceeded a service quota.</p>
+            aws_sdk_networkflowmonitor.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_networkflowmonitor.errors.validation_exception.ValidationException: <p>Invalid request.</p>
+            aws_sdk_networkflowmonitor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -907,6 +1047,14 @@ class AsyncMonitorResource:
         Args:
             monitor_name: <p>The name of the monitor.</p>
             query_id: <p>The identifier for the query. A query ID is an internally-generated identifier for a specific query returned from an API call to create a query.</p>
+
+        Raises:
+            aws_sdk_networkflowmonitor.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permission to perform this action.</p>
+            aws_sdk_networkflowmonitor.errors.internal_server_exception.InternalServerException: <p>An internal error occurred.</p>
+            aws_sdk_networkflowmonitor.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request exceeded a service quota.</p>
+            aws_sdk_networkflowmonitor.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_networkflowmonitor.errors.validation_exception.ValidationException: <p>Invalid request.</p>
+            aws_sdk_networkflowmonitor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

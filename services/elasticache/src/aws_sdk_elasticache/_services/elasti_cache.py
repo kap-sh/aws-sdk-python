@@ -347,6 +347,25 @@ class ElastiCacheClient:
             resource_name: <p>The Amazon Resource Name (ARN) of the resource to which the tags are to be added, for example <code>arn:aws:elasticache:us-west-2:0123456789:cluster:myCluster</code> or <code>arn:aws:elasticache:us-west-2:0123456789:snapshot:mySnapshot</code>. ElastiCache resources are <i>cluster</i> and <i>snapshot</i>.</p> <p>For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs) and Amazon Service Namespaces</a>.</p>
             tags: <p>A list of tags to be added to this resource. A tag is a key-value pair. A tag key must be accompanied by a tag value, although null is accepted.</p>
 
+        Raises:
+            aws_sdk_elasticache.errors.cache_cluster_not_found_fault.CacheClusterNotFoundFault: <p>The requested cluster ID does not refer to an existing cluster.</p>
+            aws_sdk_elasticache.errors.cache_parameter_group_not_found_fault.CacheParameterGroupNotFoundFault: <p>The requested cache parameter group name does not refer to an existing cache parameter group.</p>
+            aws_sdk_elasticache.errors.cache_security_group_not_found_fault.CacheSecurityGroupNotFoundFault: <p>The requested cache security group name does not refer to an existing cache security group.</p>
+            aws_sdk_elasticache.errors.cache_subnet_group_not_found_fault.CacheSubnetGroupNotFoundFault: <p>The requested cache subnet group name does not refer to an existing cache subnet group.</p>
+            aws_sdk_elasticache.errors.invalid_arn_fault.InvalidARNFault: <p>The requested Amazon Resource Name (ARN) does not refer to an existing resource.</p>
+            aws_sdk_elasticache.errors.invalid_replication_group_state_fault.InvalidReplicationGroupStateFault: <p>The requested replication group is not in the <code>available</code> state.</p>
+            aws_sdk_elasticache.errors.invalid_serverless_cache_snapshot_state_fault.InvalidServerlessCacheSnapshotStateFault: <p>The state of the serverless cache snapshot was not received. Available for Valkey, Redis OSS and Serverless Memcached only.</p>
+            aws_sdk_elasticache.errors.invalid_serverless_cache_state_fault.InvalidServerlessCacheStateFault: <p>The account for these credentials is not currently active.</p>
+            aws_sdk_elasticache.errors.replication_group_not_found_fault.ReplicationGroupNotFoundFault: <p>The specified replication group does not exist.</p>
+            aws_sdk_elasticache.errors.reserved_cache_node_not_found_fault.ReservedCacheNodeNotFoundFault: <p>The requested reserved cache node was not found.</p>
+            aws_sdk_elasticache.errors.serverless_cache_not_found_fault.ServerlessCacheNotFoundFault: <p>The serverless cache was not found or does not exist.</p>
+            aws_sdk_elasticache.errors.serverless_cache_snapshot_not_found_fault.ServerlessCacheSnapshotNotFoundFault: <p>This serverless cache snapshot could not be found or does not exist. Available for Valkey, Redis OSS and Serverless Memcached only.</p>
+            aws_sdk_elasticache.errors.snapshot_not_found_fault.SnapshotNotFoundFault: <p>The requested snapshot name does not refer to an existing snapshot.</p>
+            aws_sdk_elasticache.errors.tag_quota_per_resource_exceeded.TagQuotaPerResourceExceeded: <p>The request cannot be processed because it would cause the resource to have more than the allowed number of tags. The maximum number of tags permitted on a resource is 50.</p>
+            aws_sdk_elasticache.errors.user_group_not_found_fault.UserGroupNotFoundFault: <p>The user group was not found or does not exist</p>
+            aws_sdk_elasticache.errors.user_not_found_fault.UserNotFoundFault: <p>The user does not exist or could not be found.</p>
+            aws_sdk_elasticache.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             AddTagsToResource
             Adds up to 10 tags, key/value pairs, to a cluster or snapshot resource.
@@ -394,6 +413,14 @@ class ElastiCacheClient:
             cache_security_group_name: <p>The cache security group that allows network ingress.</p>
             ec2_security_group_name: <p>The Amazon EC2 security group to be authorized for ingress to the cache security group.</p>
             ec2_security_group_owner_id: <p>The Amazon account number of the Amazon EC2 security group owner. Note that this is not the same thing as an Amazon access key ID - you must provide a valid Amazon account number for this parameter.</p>
+
+        Raises:
+            aws_sdk_elasticache.errors.authorization_already_exists_fault.AuthorizationAlreadyExistsFault: <p>The specified Amazon EC2 security group is already authorized for the specified cache security group.</p>
+            aws_sdk_elasticache.errors.cache_security_group_not_found_fault.CacheSecurityGroupNotFoundFault: <p>The requested cache security group name does not refer to an existing cache security group.</p>
+            aws_sdk_elasticache.errors.invalid_cache_security_group_state_fault.InvalidCacheSecurityGroupStateFault: <p>The current state of the cache security group does not allow deletion.</p>
+            aws_sdk_elasticache.errors.invalid_parameter_combination_exception.InvalidParameterCombinationException: <p>Two or more incompatible parameters were specified.</p>
+            aws_sdk_elasticache.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value for a parameter is invalid.</p>
+            aws_sdk_elasticache.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             AuthorizeCacheCacheSecurityGroupIngress
@@ -447,6 +474,11 @@ class ElastiCacheClient:
             replication_group_ids: <p>The replication group IDs</p>
             cache_cluster_ids: <p>The cache cluster IDs</p>
             service_update_name: <p>The unique ID of the service update</p>
+
+        Raises:
+            aws_sdk_elasticache.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value for a parameter is invalid.</p>
+            aws_sdk_elasticache.errors.service_update_not_found_fault.ServiceUpdateNotFoundFault: <p>The service update doesn't exist</p>
+            aws_sdk_elasticache.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -496,6 +528,11 @@ class ElastiCacheClient:
             replication_group_ids: <p>The replication group IDs</p>
             cache_cluster_ids: <p>The cache cluster IDs</p>
             service_update_name: <p>The unique ID of the service update</p>
+
+        Raises:
+            aws_sdk_elasticache.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value for a parameter is invalid.</p>
+            aws_sdk_elasticache.errors.service_update_not_found_fault.ServiceUpdateNotFoundFault: <p>The service update doesn't exist</p>
+            aws_sdk_elasticache.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -539,6 +576,12 @@ class ElastiCacheClient:
         Args:
             replication_group_id: <p>The ID of the replication group to which data is being migrated.</p>
             force: <p>Forces the migration to stop without ensuring that data is in sync. It is recommended to use this option only to abort the migration and not recommended when application wants to continue migration to ElastiCache.</p>
+
+        Raises:
+            aws_sdk_elasticache.errors.invalid_replication_group_state_fault.InvalidReplicationGroupStateFault: <p>The requested replication group is not in the <code>available</code> state.</p>
+            aws_sdk_elasticache.errors.replication_group_not_found_fault.ReplicationGroupNotFoundFault: <p>The specified replication group does not exist.</p>
+            aws_sdk_elasticache.errors.replication_group_not_under_migration_fault.ReplicationGroupNotUnderMigrationFault: <p>The designated replication group is not available for data migration.</p>
+            aws_sdk_elasticache.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -584,6 +627,17 @@ class ElastiCacheClient:
             target_serverless_cache_snapshot_name: <p>The identifier for the snapshot to be created. Available for Valkey, Redis OSS and Serverless Memcached only. This value is stored as a lowercase string.</p>
             kms_key_id: <p>The identifier of the KMS key used to encrypt the target snapshot. Available for Valkey, Redis OSS and Serverless Memcached only.</p>
             tags: <p>A list of tags to be added to the target snapshot resource. A tag is a key-value pair. Available for Valkey, Redis OSS and Serverless Memcached only. Default: NULL</p>
+
+        Raises:
+            aws_sdk_elasticache.errors.invalid_parameter_combination_exception.InvalidParameterCombinationException: <p>Two or more incompatible parameters were specified.</p>
+            aws_sdk_elasticache.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value for a parameter is invalid.</p>
+            aws_sdk_elasticache.errors.invalid_serverless_cache_snapshot_state_fault.InvalidServerlessCacheSnapshotStateFault: <p>The state of the serverless cache snapshot was not received. Available for Valkey, Redis OSS and Serverless Memcached only.</p>
+            aws_sdk_elasticache.errors.serverless_cache_snapshot_already_exists_fault.ServerlessCacheSnapshotAlreadyExistsFault: <p>A serverless cache snapshot with this name already exists. Available for Valkey, Redis OSS and Serverless Memcached only.</p>
+            aws_sdk_elasticache.errors.serverless_cache_snapshot_not_found_fault.ServerlessCacheSnapshotNotFoundFault: <p>This serverless cache snapshot could not be found or does not exist. Available for Valkey, Redis OSS and Serverless Memcached only.</p>
+            aws_sdk_elasticache.errors.serverless_cache_snapshot_quota_exceeded_fault.ServerlessCacheSnapshotQuotaExceededFault: <p>The number of serverless cache snapshots exceeds the customer snapshot quota. Available for Valkey, Redis OSS and Serverless Memcached only.</p>
+            aws_sdk_elasticache.errors.service_linked_role_not_found_fault.ServiceLinkedRoleNotFoundFault: <p>The specified service linked role (SLR) was not found.</p>
+            aws_sdk_elasticache.errors.tag_quota_per_resource_exceeded.TagQuotaPerResourceExceeded: <p>The request cannot be processed because it would cause the resource to have more than the allowed number of tags. The maximum number of tags permitted on a resource is 50.</p>
+            aws_sdk_elasticache.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -638,6 +692,16 @@ class ElastiCacheClient:
             target_bucket: <p>The Amazon S3 bucket to which the snapshot is exported. This parameter is used only when exporting a snapshot for external access.</p> <p>When using this parameter to export a snapshot, be sure Amazon ElastiCache has the needed permissions to this S3 bucket. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/backups-exporting.html#backups-exporting-grant-access\">Step 2: Grant ElastiCache Access to Your Amazon S3 Bucket</a> in the <i>Amazon ElastiCache User Guide</i>.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/backups-exporting.html\">Exporting a Snapshot</a> in the <i>Amazon ElastiCache User Guide</i>.</p>
             kms_key_id: <p>The ID of the KMS key used to encrypt the target snapshot.</p>
             tags: <p>A list of tags to be added to this resource. A tag is a key-value pair. A tag key must be accompanied by a tag value, although null is accepted.</p>
+
+        Raises:
+            aws_sdk_elasticache.errors.invalid_parameter_combination_exception.InvalidParameterCombinationException: <p>Two or more incompatible parameters were specified.</p>
+            aws_sdk_elasticache.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value for a parameter is invalid.</p>
+            aws_sdk_elasticache.errors.invalid_snapshot_state_fault.InvalidSnapshotStateFault: <p>The current state of the snapshot does not allow the requested operation to occur.</p>
+            aws_sdk_elasticache.errors.snapshot_already_exists_fault.SnapshotAlreadyExistsFault: <p>You already have a snapshot with the given name.</p>
+            aws_sdk_elasticache.errors.snapshot_not_found_fault.SnapshotNotFoundFault: <p>The requested snapshot name does not refer to an existing snapshot.</p>
+            aws_sdk_elasticache.errors.snapshot_quota_exceeded_fault.SnapshotQuotaExceededFault: <p>The request cannot be processed because it would exceed the maximum number of snapshots.</p>
+            aws_sdk_elasticache.errors.tag_quota_per_resource_exceeded.TagQuotaPerResourceExceeded: <p>The request cannot be processed because it would cause the resource to have more than the allowed number of tags. The maximum number of tags permitted on a resource is 50.</p>
+            aws_sdk_elasticache.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             CopySnapshot
@@ -791,6 +855,23 @@ class ElastiCacheClient:
             network_type: <p>Must be either <code>ipv4</code> | <code>ipv6</code> | <code>dual_stack</code>. IPv6 is supported for workloads using Valkey 7.2 and above, Redis OSS engine version 6.2 to 7.1 and Memcached engine version 1.6.6 and above on all instances built on the <a href=\"http://aws.amazon.com/ec2/nitro/\">Nitro system</a>. </p>
             ip_discovery: <p>The network type you choose when modifying a cluster, either <code>ipv4</code> | <code>ipv6</code>. IPv6 is supported for workloads using Valkey 7.2 and above, Redis OSS engine version 6.2 to 7.1 and Memcached engine version 1.6.6 and above on all instances built on the <a href=\"http://aws.amazon.com/ec2/nitro/\">Nitro system</a>.</p>
 
+        Raises:
+            aws_sdk_elasticache.errors.cache_cluster_already_exists_fault.CacheClusterAlreadyExistsFault: <p>You already have a cluster with the given identifier.</p>
+            aws_sdk_elasticache.errors.cache_parameter_group_not_found_fault.CacheParameterGroupNotFoundFault: <p>The requested cache parameter group name does not refer to an existing cache parameter group.</p>
+            aws_sdk_elasticache.errors.cache_security_group_not_found_fault.CacheSecurityGroupNotFoundFault: <p>The requested cache security group name does not refer to an existing cache security group.</p>
+            aws_sdk_elasticache.errors.cache_subnet_group_not_found_fault.CacheSubnetGroupNotFoundFault: <p>The requested cache subnet group name does not refer to an existing cache subnet group.</p>
+            aws_sdk_elasticache.errors.cluster_quota_for_customer_exceeded_fault.ClusterQuotaForCustomerExceededFault: <p>The request cannot be processed because it would exceed the allowed number of clusters per customer.</p>
+            aws_sdk_elasticache.errors.insufficient_cache_cluster_capacity_fault.InsufficientCacheClusterCapacityFault: <p>The requested cache node type is not available in the specified Availability Zone. For more information, see <a href=\"http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/ErrorMessages.html#ErrorMessages.INSUFFICIENT_CACHE_CLUSTER_CAPACITY\">InsufficientCacheClusterCapacity</a> in the ElastiCache User Guide.</p>
+            aws_sdk_elasticache.errors.invalid_parameter_combination_exception.InvalidParameterCombinationException: <p>Two or more incompatible parameters were specified.</p>
+            aws_sdk_elasticache.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value for a parameter is invalid.</p>
+            aws_sdk_elasticache.errors.invalid_replication_group_state_fault.InvalidReplicationGroupStateFault: <p>The requested replication group is not in the <code>available</code> state.</p>
+            aws_sdk_elasticache.errors.invalid_vpc_network_state_fault.InvalidVPCNetworkStateFault: <p>The VPC network is in an invalid state.</p>
+            aws_sdk_elasticache.errors.node_quota_for_cluster_exceeded_fault.NodeQuotaForClusterExceededFault: <p>The request cannot be processed because it would exceed the allowed number of cache nodes in a single cluster.</p>
+            aws_sdk_elasticache.errors.node_quota_for_customer_exceeded_fault.NodeQuotaForCustomerExceededFault: <p>The request cannot be processed because it would exceed the allowed number of cache nodes per customer.</p>
+            aws_sdk_elasticache.errors.replication_group_not_found_fault.ReplicationGroupNotFoundFault: <p>The specified replication group does not exist.</p>
+            aws_sdk_elasticache.errors.tag_quota_per_resource_exceeded.TagQuotaPerResourceExceeded: <p>The request cannot be processed because it would cause the resource to have more than the allowed number of tags. The maximum number of tags permitted on a resource is 50.</p>
+            aws_sdk_elasticache.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             CreateCacheCluster
             Creates a Memcached cluster with 2 nodes.
@@ -902,6 +983,15 @@ class ElastiCacheClient:
             description: <p>A user-specified description for the cache parameter group.</p>
             tags: <p>A list of tags to be added to this resource. A tag is a key-value pair. A tag key must be accompanied by a tag value, although null is accepted.</p>
 
+        Raises:
+            aws_sdk_elasticache.errors.cache_parameter_group_already_exists_fault.CacheParameterGroupAlreadyExistsFault: <p>A cache parameter group with the requested name already exists.</p>
+            aws_sdk_elasticache.errors.cache_parameter_group_quota_exceeded_fault.CacheParameterGroupQuotaExceededFault: <p>The request cannot be processed because it would exceed the maximum number of cache security groups.</p>
+            aws_sdk_elasticache.errors.invalid_cache_parameter_group_state_fault.InvalidCacheParameterGroupStateFault: <p>The current state of the cache parameter group does not allow the requested operation to occur.</p>
+            aws_sdk_elasticache.errors.invalid_parameter_combination_exception.InvalidParameterCombinationException: <p>Two or more incompatible parameters were specified.</p>
+            aws_sdk_elasticache.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value for a parameter is invalid.</p>
+            aws_sdk_elasticache.errors.tag_quota_per_resource_exceeded.TagQuotaPerResourceExceeded: <p>The request cannot be processed because it would cause the resource to have more than the allowed number of tags. The maximum number of tags permitted on a resource is 50.</p>
+            aws_sdk_elasticache.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             CreateCacheParameterGroup
             Creates the Amazon ElastiCache parameter group custom-redis2-8.
@@ -952,6 +1042,14 @@ class ElastiCacheClient:
             cache_security_group_name: <p>A name for the cache security group. This value is stored as a lowercase string.</p> <p>Constraints: Must contain no more than 255 alphanumeric characters. Cannot be the word \"Default\".</p> <p>Example: <code>mysecuritygroup</code> </p>
             description: <p>A description for the cache security group.</p>
             tags: <p>A list of tags to be added to this resource. A tag is a key-value pair. A tag key must be accompanied by a tag value, although null is accepted.</p>
+
+        Raises:
+            aws_sdk_elasticache.errors.cache_security_group_already_exists_fault.CacheSecurityGroupAlreadyExistsFault: <p>A cache security group with the specified name already exists.</p>
+            aws_sdk_elasticache.errors.cache_security_group_quota_exceeded_fault.CacheSecurityGroupQuotaExceededFault: <p>The request cannot be processed because it would exceed the allowed number of cache security groups.</p>
+            aws_sdk_elasticache.errors.invalid_parameter_combination_exception.InvalidParameterCombinationException: <p>Two or more incompatible parameters were specified.</p>
+            aws_sdk_elasticache.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value for a parameter is invalid.</p>
+            aws_sdk_elasticache.errors.tag_quota_per_resource_exceeded.TagQuotaPerResourceExceeded: <p>The request cannot be processed because it would cause the resource to have more than the allowed number of tags. The maximum number of tags permitted on a resource is 50.</p>
+            aws_sdk_elasticache.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             CreateCacheSecurityGroup
@@ -1005,6 +1103,15 @@ class ElastiCacheClient:
             subnet_ids: <p>A list of VPC subnet IDs for the cache subnet group.</p>
             tags: <p>A list of tags to be added to this resource. A tag is a key-value pair. A tag key must be accompanied by a tag value, although null is accepted.</p>
 
+        Raises:
+            aws_sdk_elasticache.errors.cache_subnet_group_already_exists_fault.CacheSubnetGroupAlreadyExistsFault: <p>The requested cache subnet group name is already in use by an existing cache subnet group.</p>
+            aws_sdk_elasticache.errors.cache_subnet_group_quota_exceeded_fault.CacheSubnetGroupQuotaExceededFault: <p>The request cannot be processed because it would exceed the allowed number of cache subnet groups.</p>
+            aws_sdk_elasticache.errors.cache_subnet_quota_exceeded_fault.CacheSubnetQuotaExceededFault: <p>The request cannot be processed because it would exceed the allowed number of subnets in a cache subnet group.</p>
+            aws_sdk_elasticache.errors.invalid_subnet.InvalidSubnet: <p>An invalid subnet identifier was specified.</p>
+            aws_sdk_elasticache.errors.subnet_not_allowed_fault.SubnetNotAllowedFault: <p>At least one subnet ID does not match the other subnet IDs. This mismatch typically occurs when a user sets one subnet ID to a regional Availability Zone and a different one to an outpost. Or when a user sets the subnet ID to an Outpost when not subscribed on this service.</p>
+            aws_sdk_elasticache.errors.tag_quota_per_resource_exceeded.TagQuotaPerResourceExceeded: <p>The request cannot be processed because it would cause the resource to have more than the allowed number of tags. The maximum number of tags permitted on a resource is 50.</p>
+            aws_sdk_elasticache.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             CreateCacheSubnet
             Creates a new cache subnet group.
@@ -1057,6 +1164,14 @@ class ElastiCacheClient:
             global_replication_group_id_suffix: <p>The suffix name of a Global datastore. Amazon ElastiCache automatically applies a prefix to the Global datastore ID when it is created. Each Amazon Region has its own prefix. For instance, a Global datastore ID created in the US-West-1 region will begin with \"dsdfu\" along with the suffix name you provide. The suffix, combined with the auto-generated prefix, guarantees uniqueness of the Global datastore name across multiple regions. </p> <p>For a full list of Amazon Regions and their respective Global datastore iD prefixes, see <a href=\"http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/Redis-Global-Datastores-CLI.html\">Using the Amazon CLI with Global datastores </a>.</p>
             global_replication_group_description: <p>Provides details of the Global datastore</p>
             primary_replication_group_id: <p>The name of the primary cluster that accepts writes and will replicate updates to the secondary cluster. This value is stored as a lowercase string.</p>
+
+        Raises:
+            aws_sdk_elasticache.errors.global_replication_group_already_exists_fault.GlobalReplicationGroupAlreadyExistsFault: <p>The Global datastore name already exists.</p>
+            aws_sdk_elasticache.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value for a parameter is invalid.</p>
+            aws_sdk_elasticache.errors.invalid_replication_group_state_fault.InvalidReplicationGroupStateFault: <p>The requested replication group is not in the <code>available</code> state.</p>
+            aws_sdk_elasticache.errors.replication_group_not_found_fault.ReplicationGroupNotFoundFault: <p>The specified replication group does not exist.</p>
+            aws_sdk_elasticache.errors.service_linked_role_not_found_fault.ServiceLinkedRoleNotFoundFault: <p>The specified service linked role (SLR) was not found.</p>
+            aws_sdk_elasticache.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1236,6 +1351,28 @@ class ElastiCacheClient:
             serverless_cache_snapshot_name: <p>The name of the snapshot used to create a replication group. Available for Valkey, Redis OSS only.</p>
             durability: <p>Specifies the durability setting for the replication group. When set to <code>default</code>, the service determines the effective durability based on the engine version, cluster mode, and other parameters. The resolved setting is reflected in the <code>EffectiveDurability</code> property of the replication group. For more information, see <a href=\"http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/Durability.html\">Durability</a>.</p>
 
+        Raises:
+            aws_sdk_elasticache.errors.cache_cluster_not_found_fault.CacheClusterNotFoundFault: <p>The requested cluster ID does not refer to an existing cluster.</p>
+            aws_sdk_elasticache.errors.cache_parameter_group_not_found_fault.CacheParameterGroupNotFoundFault: <p>The requested cache parameter group name does not refer to an existing cache parameter group.</p>
+            aws_sdk_elasticache.errors.cache_security_group_not_found_fault.CacheSecurityGroupNotFoundFault: <p>The requested cache security group name does not refer to an existing cache security group.</p>
+            aws_sdk_elasticache.errors.cache_subnet_group_not_found_fault.CacheSubnetGroupNotFoundFault: <p>The requested cache subnet group name does not refer to an existing cache subnet group.</p>
+            aws_sdk_elasticache.errors.cluster_quota_for_customer_exceeded_fault.ClusterQuotaForCustomerExceededFault: <p>The request cannot be processed because it would exceed the allowed number of clusters per customer.</p>
+            aws_sdk_elasticache.errors.global_replication_group_not_found_fault.GlobalReplicationGroupNotFoundFault: <p>The Global datastore does not exist</p>
+            aws_sdk_elasticache.errors.insufficient_cache_cluster_capacity_fault.InsufficientCacheClusterCapacityFault: <p>The requested cache node type is not available in the specified Availability Zone. For more information, see <a href=\"http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/ErrorMessages.html#ErrorMessages.INSUFFICIENT_CACHE_CLUSTER_CAPACITY\">InsufficientCacheClusterCapacity</a> in the ElastiCache User Guide.</p>
+            aws_sdk_elasticache.errors.invalid_cache_cluster_state_fault.InvalidCacheClusterStateFault: <p>The requested cluster is not in the <code>available</code> state.</p>
+            aws_sdk_elasticache.errors.invalid_global_replication_group_state_fault.InvalidGlobalReplicationGroupStateFault: <p>The Global datastore is not available or in primary-only state.</p>
+            aws_sdk_elasticache.errors.invalid_parameter_combination_exception.InvalidParameterCombinationException: <p>Two or more incompatible parameters were specified.</p>
+            aws_sdk_elasticache.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value for a parameter is invalid.</p>
+            aws_sdk_elasticache.errors.invalid_user_group_state_fault.InvalidUserGroupStateFault: <p>The user group is not in an active state.</p>
+            aws_sdk_elasticache.errors.invalid_vpc_network_state_fault.InvalidVPCNetworkStateFault: <p>The VPC network is in an invalid state.</p>
+            aws_sdk_elasticache.errors.node_groups_per_replication_group_quota_exceeded_fault.NodeGroupsPerReplicationGroupQuotaExceededFault: <p>The request cannot be processed because it would exceed the maximum allowed number of node groups (shards) in a single replication group. The default maximum is 90</p>
+            aws_sdk_elasticache.errors.node_quota_for_cluster_exceeded_fault.NodeQuotaForClusterExceededFault: <p>The request cannot be processed because it would exceed the allowed number of cache nodes in a single cluster.</p>
+            aws_sdk_elasticache.errors.node_quota_for_customer_exceeded_fault.NodeQuotaForCustomerExceededFault: <p>The request cannot be processed because it would exceed the allowed number of cache nodes per customer.</p>
+            aws_sdk_elasticache.errors.replication_group_already_exists_fault.ReplicationGroupAlreadyExistsFault: <p>The specified replication group already exists.</p>
+            aws_sdk_elasticache.errors.tag_quota_per_resource_exceeded.TagQuotaPerResourceExceeded: <p>The request cannot be processed because it would cause the resource to have more than the allowed number of tags. The maximum number of tags permitted on a resource is 50.</p>
+            aws_sdk_elasticache.errors.user_group_not_found_fault.UserGroupNotFoundFault: <p>The user group was not found or does not exist</p>
+            aws_sdk_elasticache.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             CreateCacheReplicationGroup
             Creates a Redis replication group with 3 nodes.
@@ -1399,6 +1536,20 @@ class ElastiCacheClient:
             snapshot_retention_limit: <p>The number of days for which ElastiCache retains automatic snapshots before deleting them. Available for Valkey, Redis OSS and Serverless Memcached only. The maximum value allowed is 35 days.</p>
             daily_snapshot_time: <p>The daily time that snapshots will be created from the new serverless cache. By default this number is populated with 0, i.e. no snapshots will be created on an automatic daily basis. Available for Valkey, Redis OSS and Serverless Memcached only.</p>
             network_type: <p>The IP protocol version used by the serverless cache. Must be either <code>ipv4</code> | <code>ipv6</code> | <code>dual_stack</code>. <code>ipv6</code> is only supported with IPv6-only subnets. If not specified, defaults to <code>ipv4</code>, unless all provided subnets are IPv6-only, in which case it defaults to <code>ipv6</code>. </p>
+
+        Raises:
+            aws_sdk_elasticache.errors.invalid_credentials_exception.InvalidCredentialsException: <p>You must enter valid credentials.</p>
+            aws_sdk_elasticache.errors.invalid_parameter_combination_exception.InvalidParameterCombinationException: <p>Two or more incompatible parameters were specified.</p>
+            aws_sdk_elasticache.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value for a parameter is invalid.</p>
+            aws_sdk_elasticache.errors.invalid_serverless_cache_state_fault.InvalidServerlessCacheStateFault: <p>The account for these credentials is not currently active.</p>
+            aws_sdk_elasticache.errors.invalid_user_group_state_fault.InvalidUserGroupStateFault: <p>The user group is not in an active state.</p>
+            aws_sdk_elasticache.errors.serverless_cache_already_exists_fault.ServerlessCacheAlreadyExistsFault: <p>A serverless cache with this name already exists.</p>
+            aws_sdk_elasticache.errors.serverless_cache_not_found_fault.ServerlessCacheNotFoundFault: <p>The serverless cache was not found or does not exist.</p>
+            aws_sdk_elasticache.errors.serverless_cache_quota_for_customer_exceeded_fault.ServerlessCacheQuotaForCustomerExceededFault: <p>The number of serverless caches exceeds the customer quota.</p>
+            aws_sdk_elasticache.errors.service_linked_role_not_found_fault.ServiceLinkedRoleNotFoundFault: <p>The specified service linked role (SLR) was not found.</p>
+            aws_sdk_elasticache.errors.tag_quota_per_resource_exceeded.TagQuotaPerResourceExceeded: <p>The request cannot be processed because it would cause the resource to have more than the allowed number of tags. The maximum number of tags permitted on a resource is 50.</p>
+            aws_sdk_elasticache.errors.user_group_not_found_fault.UserGroupNotFoundFault: <p>The user group was not found or does not exist</p>
+            aws_sdk_elasticache.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1467,6 +1618,17 @@ class ElastiCacheClient:
             serverless_cache_name: <p>The name of an existing serverless cache. The snapshot is created from this cache. Available for Valkey, Redis OSS and Serverless Memcached only.</p>
             kms_key_id: <p>The ID of the KMS key used to encrypt the snapshot. Available for Valkey, Redis OSS and Serverless Memcached only. Default: NULL</p>
             tags: <p>A list of tags to be added to the snapshot resource. A tag is a key-value pair. Available for Valkey, Redis OSS and Serverless Memcached only.</p>
+
+        Raises:
+            aws_sdk_elasticache.errors.invalid_parameter_combination_exception.InvalidParameterCombinationException: <p>Two or more incompatible parameters were specified.</p>
+            aws_sdk_elasticache.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value for a parameter is invalid.</p>
+            aws_sdk_elasticache.errors.invalid_serverless_cache_state_fault.InvalidServerlessCacheStateFault: <p>The account for these credentials is not currently active.</p>
+            aws_sdk_elasticache.errors.serverless_cache_not_found_fault.ServerlessCacheNotFoundFault: <p>The serverless cache was not found or does not exist.</p>
+            aws_sdk_elasticache.errors.serverless_cache_snapshot_already_exists_fault.ServerlessCacheSnapshotAlreadyExistsFault: <p>A serverless cache snapshot with this name already exists. Available for Valkey, Redis OSS and Serverless Memcached only.</p>
+            aws_sdk_elasticache.errors.serverless_cache_snapshot_quota_exceeded_fault.ServerlessCacheSnapshotQuotaExceededFault: <p>The number of serverless cache snapshots exceeds the customer snapshot quota. Available for Valkey, Redis OSS and Serverless Memcached only.</p>
+            aws_sdk_elasticache.errors.service_linked_role_not_found_fault.ServiceLinkedRoleNotFoundFault: <p>The specified service linked role (SLR) was not found.</p>
+            aws_sdk_elasticache.errors.tag_quota_per_resource_exceeded.TagQuotaPerResourceExceeded: <p>The request cannot be processed because it would cause the resource to have more than the allowed number of tags. The maximum number of tags permitted on a resource is 50.</p>
+            aws_sdk_elasticache.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1519,6 +1681,19 @@ class ElastiCacheClient:
             snapshot_name: <p>A name for the snapshot being created. This value is stored as a lowercase string.</p>
             kms_key_id: <p>The ID of the KMS key used to encrypt the snapshot.</p>
             tags: <p>A list of tags to be added to this resource. A tag is a key-value pair. A tag key must be accompanied by a tag value, although null is accepted.</p>
+
+        Raises:
+            aws_sdk_elasticache.errors.cache_cluster_not_found_fault.CacheClusterNotFoundFault: <p>The requested cluster ID does not refer to an existing cluster.</p>
+            aws_sdk_elasticache.errors.invalid_cache_cluster_state_fault.InvalidCacheClusterStateFault: <p>The requested cluster is not in the <code>available</code> state.</p>
+            aws_sdk_elasticache.errors.invalid_parameter_combination_exception.InvalidParameterCombinationException: <p>Two or more incompatible parameters were specified.</p>
+            aws_sdk_elasticache.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value for a parameter is invalid.</p>
+            aws_sdk_elasticache.errors.invalid_replication_group_state_fault.InvalidReplicationGroupStateFault: <p>The requested replication group is not in the <code>available</code> state.</p>
+            aws_sdk_elasticache.errors.replication_group_not_found_fault.ReplicationGroupNotFoundFault: <p>The specified replication group does not exist.</p>
+            aws_sdk_elasticache.errors.snapshot_already_exists_fault.SnapshotAlreadyExistsFault: <p>You already have a snapshot with the given name.</p>
+            aws_sdk_elasticache.errors.snapshot_feature_not_supported_fault.SnapshotFeatureNotSupportedFault: <p>You attempted one of the following operations:</p> <ul> <li> <p>Creating a snapshot of a Valkey or Redis OSS cluster running on a <code>cache.t1.micro</code> cache node.</p> </li> <li> <p>Creating a snapshot of a cluster that is running Memcached rather than Valkey or Redis OSS.</p> </li> </ul> <p>Neither of these are supported by ElastiCache.</p>
+            aws_sdk_elasticache.errors.snapshot_quota_exceeded_fault.SnapshotQuotaExceededFault: <p>The request cannot be processed because it would exceed the maximum number of snapshots.</p>
+            aws_sdk_elasticache.errors.tag_quota_per_resource_exceeded.TagQuotaPerResourceExceeded: <p>The request cannot be processed because it would cause the resource to have more than the allowed number of tags. The maximum number of tags permitted on a resource is 50.</p>
+            aws_sdk_elasticache.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             CreateSnapshot - NonClustered Redis, 2 read-replicas
@@ -1598,6 +1773,16 @@ class ElastiCacheClient:
             no_password_required: <p>Indicates a password is not required for this user.</p>
             tags: <p>A list of tags to be added to this resource. A tag is a key-value pair. A tag key must be accompanied by a tag value, although null is accepted.</p>
             authentication_mode: <p>Specifies how to authenticate the user.</p>
+
+        Raises:
+            aws_sdk_elasticache.errors.duplicate_user_name_fault.DuplicateUserNameFault: <p>A user with this username already exists.</p>
+            aws_sdk_elasticache.errors.invalid_parameter_combination_exception.InvalidParameterCombinationException: <p>Two or more incompatible parameters were specified.</p>
+            aws_sdk_elasticache.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value for a parameter is invalid.</p>
+            aws_sdk_elasticache.errors.service_linked_role_not_found_fault.ServiceLinkedRoleNotFoundFault: <p>The specified service linked role (SLR) was not found.</p>
+            aws_sdk_elasticache.errors.tag_quota_per_resource_exceeded.TagQuotaPerResourceExceeded: <p>The request cannot be processed because it would cause the resource to have more than the allowed number of tags. The maximum number of tags permitted on a resource is 50.</p>
+            aws_sdk_elasticache.errors.user_already_exists_fault.UserAlreadyExistsFault: <p>A user with this ID already exists.</p>
+            aws_sdk_elasticache.errors.user_quota_exceeded_fault.UserQuotaExceededFault: <p>The quota of users has been exceeded.</p>
+            aws_sdk_elasticache.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1652,6 +1837,17 @@ class ElastiCacheClient:
             engine: <p>Sets the engine listed in a user group. The options are valkey or redis.</p>
             user_ids: <p>The list of user IDs that belong to the user group.</p>
             tags: <p>A list of tags to be added to this resource. A tag is a key-value pair. A tag key must be accompanied by a tag value, although null is accepted. Available for Valkey and Redis OSS only.</p>
+
+        Raises:
+            aws_sdk_elasticache.errors.default_user_required.DefaultUserRequired: <p>You must add default user to a user group.</p>
+            aws_sdk_elasticache.errors.duplicate_user_name_fault.DuplicateUserNameFault: <p>A user with this username already exists.</p>
+            aws_sdk_elasticache.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value for a parameter is invalid.</p>
+            aws_sdk_elasticache.errors.service_linked_role_not_found_fault.ServiceLinkedRoleNotFoundFault: <p>The specified service linked role (SLR) was not found.</p>
+            aws_sdk_elasticache.errors.tag_quota_per_resource_exceeded.TagQuotaPerResourceExceeded: <p>The request cannot be processed because it would cause the resource to have more than the allowed number of tags. The maximum number of tags permitted on a resource is 50.</p>
+            aws_sdk_elasticache.errors.user_group_already_exists_fault.UserGroupAlreadyExistsFault: <p>The user group with this ID already exists.</p>
+            aws_sdk_elasticache.errors.user_group_quota_exceeded_fault.UserGroupQuotaExceededFault: <p>The number of users exceeds the user group limit.</p>
+            aws_sdk_elasticache.errors.user_not_found_fault.UserNotFoundFault: <p>The user does not exist or could not be found.</p>
+            aws_sdk_elasticache.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1704,6 +1900,13 @@ class ElastiCacheClient:
             global_node_groups_to_remove: <p>If the value of NodeGroupCount is less than the current number of node groups (shards), then either NodeGroupsToRemove or NodeGroupsToRetain is required. GlobalNodeGroupsToRemove is a list of NodeGroupIds to remove from the cluster. ElastiCache will attempt to remove all node groups listed by GlobalNodeGroupsToRemove from the cluster. </p>
             global_node_groups_to_retain: <p>If the value of NodeGroupCount is less than the current number of node groups (shards), then either NodeGroupsToRemove or NodeGroupsToRetain is required. GlobalNodeGroupsToRetain is a list of NodeGroupIds to retain from the cluster. ElastiCache will attempt to retain all node groups listed by GlobalNodeGroupsToRetain from the cluster. </p>
             apply_immediately: <p>Indicates that the shard reconfiguration process begins immediately. At present, the only permitted value for this parameter is true. </p>
+
+        Raises:
+            aws_sdk_elasticache.errors.global_replication_group_not_found_fault.GlobalReplicationGroupNotFoundFault: <p>The Global datastore does not exist</p>
+            aws_sdk_elasticache.errors.invalid_global_replication_group_state_fault.InvalidGlobalReplicationGroupStateFault: <p>The Global datastore is not available or in primary-only state.</p>
+            aws_sdk_elasticache.errors.invalid_parameter_combination_exception.InvalidParameterCombinationException: <p>Two or more incompatible parameters were specified.</p>
+            aws_sdk_elasticache.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value for a parameter is invalid.</p>
+            aws_sdk_elasticache.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1761,6 +1964,21 @@ class ElastiCacheClient:
             replica_configuration: <p>A list of <code>ConfigureShard</code> objects that can be used to configure each shard in a Valkey or Redis OSS replication group. The <code>ConfigureShard</code> has three members: <code>NewReplicaCount</code>, <code>NodeGroupId</code>, and <code>PreferredAvailabilityZones</code>.</p>
             replicas_to_remove: <p>A list of the node ids to remove from the replication group or node group (shard).</p>
             apply_immediately: <p>If <code>True</code>, the number of replica nodes is decreased immediately. <code>ApplyImmediately=False</code> is not currently supported.</p>
+
+        Raises:
+            aws_sdk_elasticache.errors.cluster_quota_for_customer_exceeded_fault.ClusterQuotaForCustomerExceededFault: <p>The request cannot be processed because it would exceed the allowed number of clusters per customer.</p>
+            aws_sdk_elasticache.errors.insufficient_cache_cluster_capacity_fault.InsufficientCacheClusterCapacityFault: <p>The requested cache node type is not available in the specified Availability Zone. For more information, see <a href=\"http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/ErrorMessages.html#ErrorMessages.INSUFFICIENT_CACHE_CLUSTER_CAPACITY\">InsufficientCacheClusterCapacity</a> in the ElastiCache User Guide.</p>
+            aws_sdk_elasticache.errors.invalid_cache_cluster_state_fault.InvalidCacheClusterStateFault: <p>The requested cluster is not in the <code>available</code> state.</p>
+            aws_sdk_elasticache.errors.invalid_parameter_combination_exception.InvalidParameterCombinationException: <p>Two or more incompatible parameters were specified.</p>
+            aws_sdk_elasticache.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value for a parameter is invalid.</p>
+            aws_sdk_elasticache.errors.invalid_replication_group_state_fault.InvalidReplicationGroupStateFault: <p>The requested replication group is not in the <code>available</code> state.</p>
+            aws_sdk_elasticache.errors.invalid_vpc_network_state_fault.InvalidVPCNetworkStateFault: <p>The VPC network is in an invalid state.</p>
+            aws_sdk_elasticache.errors.node_groups_per_replication_group_quota_exceeded_fault.NodeGroupsPerReplicationGroupQuotaExceededFault: <p>The request cannot be processed because it would exceed the maximum allowed number of node groups (shards) in a single replication group. The default maximum is 90</p>
+            aws_sdk_elasticache.errors.node_quota_for_customer_exceeded_fault.NodeQuotaForCustomerExceededFault: <p>The request cannot be processed because it would exceed the allowed number of cache nodes per customer.</p>
+            aws_sdk_elasticache.errors.no_operation_fault.NoOperationFault: <p>The operation was not performed because no changes were required.</p>
+            aws_sdk_elasticache.errors.replication_group_not_found_fault.ReplicationGroupNotFoundFault: <p>The specified replication group does not exist.</p>
+            aws_sdk_elasticache.errors.service_linked_role_not_found_fault.ServiceLinkedRoleNotFoundFault: <p>The specified service linked role (SLR) was not found.</p>
+            aws_sdk_elasticache.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1812,6 +2030,16 @@ class ElastiCacheClient:
             cache_cluster_id: <p>The cluster identifier for the cluster to be deleted. This parameter is not case sensitive.</p>
             final_snapshot_identifier: <p>The user-supplied name of a final cluster snapshot. This is the unique name that identifies the snapshot. ElastiCache creates the snapshot, and then deletes the cluster immediately afterward.</p>
 
+        Raises:
+            aws_sdk_elasticache.errors.cache_cluster_not_found_fault.CacheClusterNotFoundFault: <p>The requested cluster ID does not refer to an existing cluster.</p>
+            aws_sdk_elasticache.errors.invalid_cache_cluster_state_fault.InvalidCacheClusterStateFault: <p>The requested cluster is not in the <code>available</code> state.</p>
+            aws_sdk_elasticache.errors.invalid_parameter_combination_exception.InvalidParameterCombinationException: <p>Two or more incompatible parameters were specified.</p>
+            aws_sdk_elasticache.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value for a parameter is invalid.</p>
+            aws_sdk_elasticache.errors.snapshot_already_exists_fault.SnapshotAlreadyExistsFault: <p>You already have a snapshot with the given name.</p>
+            aws_sdk_elasticache.errors.snapshot_feature_not_supported_fault.SnapshotFeatureNotSupportedFault: <p>You attempted one of the following operations:</p> <ul> <li> <p>Creating a snapshot of a Valkey or Redis OSS cluster running on a <code>cache.t1.micro</code> cache node.</p> </li> <li> <p>Creating a snapshot of a cluster that is running Memcached rather than Valkey or Redis OSS.</p> </li> </ul> <p>Neither of these are supported by ElastiCache.</p>
+            aws_sdk_elasticache.errors.snapshot_quota_exceeded_fault.SnapshotQuotaExceededFault: <p>The request cannot be processed because it would exceed the maximum number of snapshots.</p>
+            aws_sdk_elasticache.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             DeleteCacheCluster
             Deletes an Amazon ElastiCache cluster.
@@ -1857,6 +2085,13 @@ class ElastiCacheClient:
         Args:
             cache_parameter_group_name: <p>The name of the cache parameter group to delete.</p> <note> <p>The specified cache security group must not be associated with any clusters.</p> </note>
 
+        Raises:
+            aws_sdk_elasticache.errors.cache_parameter_group_not_found_fault.CacheParameterGroupNotFoundFault: <p>The requested cache parameter group name does not refer to an existing cache parameter group.</p>
+            aws_sdk_elasticache.errors.invalid_cache_parameter_group_state_fault.InvalidCacheParameterGroupStateFault: <p>The current state of the cache parameter group does not allow the requested operation to occur.</p>
+            aws_sdk_elasticache.errors.invalid_parameter_combination_exception.InvalidParameterCombinationException: <p>Two or more incompatible parameters were specified.</p>
+            aws_sdk_elasticache.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value for a parameter is invalid.</p>
+            aws_sdk_elasticache.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             DeleteCacheParameterGroup
             Deletes the Amazon ElastiCache parameter group custom-mem1-4.
@@ -1898,6 +2133,13 @@ class ElastiCacheClient:
         Args:
             cache_security_group_name: <p>The name of the cache security group to delete.</p> <note> <p>You cannot delete the default security group.</p> </note>
 
+        Raises:
+            aws_sdk_elasticache.errors.cache_security_group_not_found_fault.CacheSecurityGroupNotFoundFault: <p>The requested cache security group name does not refer to an existing cache security group.</p>
+            aws_sdk_elasticache.errors.invalid_cache_security_group_state_fault.InvalidCacheSecurityGroupStateFault: <p>The current state of the cache security group does not allow deletion.</p>
+            aws_sdk_elasticache.errors.invalid_parameter_combination_exception.InvalidParameterCombinationException: <p>Two or more incompatible parameters were specified.</p>
+            aws_sdk_elasticache.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value for a parameter is invalid.</p>
+            aws_sdk_elasticache.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             DeleteCacheSecurityGroup
             Deletes a cache security group.
@@ -1938,6 +2180,11 @@ class ElastiCacheClient:
 
         Args:
             cache_subnet_group_name: <p>The name of the cache subnet group to delete.</p> <p>Constraints: Must contain no more than 255 alphanumeric characters or hyphens.</p>
+
+        Raises:
+            aws_sdk_elasticache.errors.cache_subnet_group_in_use.CacheSubnetGroupInUse: <p>The requested cache subnet group is currently in use.</p>
+            aws_sdk_elasticache.errors.cache_subnet_group_not_found_fault.CacheSubnetGroupNotFoundFault: <p>The requested cache subnet group name does not refer to an existing cache subnet group.</p>
+            aws_sdk_elasticache.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             DeleteCacheSubnetGroup
@@ -1981,6 +2228,12 @@ class ElastiCacheClient:
         Args:
             global_replication_group_id: <p>The name of the Global datastore</p>
             retain_primary_replication_group: <p>The primary replication group is retained as a standalone replication group. </p>
+
+        Raises:
+            aws_sdk_elasticache.errors.global_replication_group_not_found_fault.GlobalReplicationGroupNotFoundFault: <p>The Global datastore does not exist</p>
+            aws_sdk_elasticache.errors.invalid_global_replication_group_state_fault.InvalidGlobalReplicationGroupStateFault: <p>The Global datastore is not available or in primary-only state.</p>
+            aws_sdk_elasticache.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value for a parameter is invalid.</p>
+            aws_sdk_elasticache.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2027,6 +2280,16 @@ class ElastiCacheClient:
             replication_group_id: <p>The identifier for the cluster to be deleted. This parameter is not case sensitive.</p>
             retain_primary_cluster: <p>If set to <code>true</code>, all of the read replicas are deleted, but the primary node is retained.</p>
             final_snapshot_identifier: <p>The name of a final node group (shard) snapshot. ElastiCache creates the snapshot from the primary node in the cluster, rather than one of the replicas; this is to ensure that it captures the freshest data. After the final snapshot is taken, the replication group is immediately deleted.</p>
+
+        Raises:
+            aws_sdk_elasticache.errors.invalid_parameter_combination_exception.InvalidParameterCombinationException: <p>Two or more incompatible parameters were specified.</p>
+            aws_sdk_elasticache.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value for a parameter is invalid.</p>
+            aws_sdk_elasticache.errors.invalid_replication_group_state_fault.InvalidReplicationGroupStateFault: <p>The requested replication group is not in the <code>available</code> state.</p>
+            aws_sdk_elasticache.errors.replication_group_not_found_fault.ReplicationGroupNotFoundFault: <p>The specified replication group does not exist.</p>
+            aws_sdk_elasticache.errors.snapshot_already_exists_fault.SnapshotAlreadyExistsFault: <p>You already have a snapshot with the given name.</p>
+            aws_sdk_elasticache.errors.snapshot_feature_not_supported_fault.SnapshotFeatureNotSupportedFault: <p>You attempted one of the following operations:</p> <ul> <li> <p>Creating a snapshot of a Valkey or Redis OSS cluster running on a <code>cache.t1.micro</code> cache node.</p> </li> <li> <p>Creating a snapshot of a cluster that is running Memcached rather than Valkey or Redis OSS.</p> </li> </ul> <p>Neither of these are supported by ElastiCache.</p>
+            aws_sdk_elasticache.errors.snapshot_quota_exceeded_fault.SnapshotQuotaExceededFault: <p>The request cannot be processed because it would exceed the maximum number of snapshots.</p>
+            aws_sdk_elasticache.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             DeleteReplicationGroup
@@ -2076,6 +2339,16 @@ class ElastiCacheClient:
         Args:
             serverless_cache_name: <p>The identifier of the serverless cache to be deleted.</p>
             final_snapshot_name: <p>Name of the final snapshot to be taken before the serverless cache is deleted. Available for Valkey, Redis OSS and Serverless Memcached only. Default: NULL, i.e. a final snapshot is not taken.</p>
+
+        Raises:
+            aws_sdk_elasticache.errors.invalid_credentials_exception.InvalidCredentialsException: <p>You must enter valid credentials.</p>
+            aws_sdk_elasticache.errors.invalid_parameter_combination_exception.InvalidParameterCombinationException: <p>Two or more incompatible parameters were specified.</p>
+            aws_sdk_elasticache.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value for a parameter is invalid.</p>
+            aws_sdk_elasticache.errors.invalid_serverless_cache_state_fault.InvalidServerlessCacheStateFault: <p>The account for these credentials is not currently active.</p>
+            aws_sdk_elasticache.errors.serverless_cache_not_found_fault.ServerlessCacheNotFoundFault: <p>The serverless cache was not found or does not exist.</p>
+            aws_sdk_elasticache.errors.serverless_cache_snapshot_already_exists_fault.ServerlessCacheSnapshotAlreadyExistsFault: <p>A serverless cache snapshot with this name already exists. Available for Valkey, Redis OSS and Serverless Memcached only.</p>
+            aws_sdk_elasticache.errors.service_linked_role_not_found_fault.ServiceLinkedRoleNotFoundFault: <p>The specified service linked role (SLR) was not found.</p>
+            aws_sdk_elasticache.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2115,6 +2388,13 @@ class ElastiCacheClient:
 
         Args:
             serverless_cache_snapshot_name: <p>Idenfitier of the snapshot to be deleted. Available for Valkey, Redis OSS and Serverless Memcached only.</p>
+
+        Raises:
+            aws_sdk_elasticache.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value for a parameter is invalid.</p>
+            aws_sdk_elasticache.errors.invalid_serverless_cache_snapshot_state_fault.InvalidServerlessCacheSnapshotStateFault: <p>The state of the serverless cache snapshot was not received. Available for Valkey, Redis OSS and Serverless Memcached only.</p>
+            aws_sdk_elasticache.errors.serverless_cache_snapshot_not_found_fault.ServerlessCacheSnapshotNotFoundFault: <p>This serverless cache snapshot could not be found or does not exist. Available for Valkey, Redis OSS and Serverless Memcached only.</p>
+            aws_sdk_elasticache.errors.service_linked_role_not_found_fault.ServiceLinkedRoleNotFoundFault: <p>The specified service linked role (SLR) was not found.</p>
+            aws_sdk_elasticache.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2152,6 +2432,13 @@ class ElastiCacheClient:
 
         Args:
             snapshot_name: <p>The name of the snapshot to be deleted.</p>
+
+        Raises:
+            aws_sdk_elasticache.errors.invalid_parameter_combination_exception.InvalidParameterCombinationException: <p>Two or more incompatible parameters were specified.</p>
+            aws_sdk_elasticache.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value for a parameter is invalid.</p>
+            aws_sdk_elasticache.errors.invalid_snapshot_state_fault.InvalidSnapshotStateFault: <p>The current state of the snapshot does not allow the requested operation to occur.</p>
+            aws_sdk_elasticache.errors.snapshot_not_found_fault.SnapshotNotFoundFault: <p>The requested snapshot name does not refer to an existing snapshot.</p>
+            aws_sdk_elasticache.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             DeleteSnapshot
@@ -2195,6 +2482,14 @@ class ElastiCacheClient:
 
         Args:
             user_id: <p>The ID of the user.</p>
+
+        Raises:
+            aws_sdk_elasticache.errors.default_user_associated_to_user_group_fault.DefaultUserAssociatedToUserGroupFault: <p>The default user assigned to the user group.</p>
+            aws_sdk_elasticache.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value for a parameter is invalid.</p>
+            aws_sdk_elasticache.errors.invalid_user_state_fault.InvalidUserStateFault: <p>The user is not in active state.</p>
+            aws_sdk_elasticache.errors.service_linked_role_not_found_fault.ServiceLinkedRoleNotFoundFault: <p>The specified service linked role (SLR) was not found.</p>
+            aws_sdk_elasticache.errors.user_not_found_fault.UserNotFoundFault: <p>The user does not exist or could not be found.</p>
+            aws_sdk_elasticache.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2230,6 +2525,13 @@ class ElastiCacheClient:
 
         Args:
             user_group_id: <p>The ID of the user group.</p>
+
+        Raises:
+            aws_sdk_elasticache.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value for a parameter is invalid.</p>
+            aws_sdk_elasticache.errors.invalid_user_group_state_fault.InvalidUserGroupStateFault: <p>The user group is not in an active state.</p>
+            aws_sdk_elasticache.errors.service_linked_role_not_found_fault.ServiceLinkedRoleNotFoundFault: <p>The specified service linked role (SLR) was not found.</p>
+            aws_sdk_elasticache.errors.user_group_not_found_fault.UserGroupNotFoundFault: <p>The user group was not found or does not exist</p>
+            aws_sdk_elasticache.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2279,6 +2581,12 @@ class ElastiCacheClient:
             marker: <p>An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>.</p>
             show_cache_node_info: <p>An optional flag that can be included in the <code>DescribeCacheCluster</code> request to retrieve information about the individual cache nodes.</p>
             show_cache_clusters_not_in_replication_groups: <p>An optional flag that can be included in the <code>DescribeCacheCluster</code> request to show only nodes (API/CLI: clusters) that are not members of a replication group. In practice, this means Memcached and single node Valkey or Redis OSS clusters.</p>
+
+        Raises:
+            aws_sdk_elasticache.errors.cache_cluster_not_found_fault.CacheClusterNotFoundFault: <p>The requested cluster ID does not refer to an existing cluster.</p>
+            aws_sdk_elasticache.errors.invalid_parameter_combination_exception.InvalidParameterCombinationException: <p>Two or more incompatible parameters were specified.</p>
+            aws_sdk_elasticache.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value for a parameter is invalid.</p>
+            aws_sdk_elasticache.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             DescribeCacheClusters
@@ -2385,6 +2693,9 @@ class ElastiCacheClient:
             marker: <p>An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>.</p>
             default_only: <p>If <code>true</code>, specifies that only the default version of the specified engine or engine and major version combination is to be returned.</p>
 
+        Raises:
+            aws_sdk_elasticache.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             DescribeCacheEngineVersions
             Lists the details for up to 25 Memcached and Redis cache engine versions.
@@ -2484,6 +2795,12 @@ class ElastiCacheClient:
             max_records: <p>The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code> value, a marker is included in the response so that the remaining results can be retrieved.</p> <p>Default: 100</p> <p>Constraints: minimum 20; maximum 100.</p>
             marker: <p>An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>.</p>
 
+        Raises:
+            aws_sdk_elasticache.errors.cache_parameter_group_not_found_fault.CacheParameterGroupNotFoundFault: <p>The requested cache parameter group name does not refer to an existing cache parameter group.</p>
+            aws_sdk_elasticache.errors.invalid_parameter_combination_exception.InvalidParameterCombinationException: <p>Two or more incompatible parameters were specified.</p>
+            aws_sdk_elasticache.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value for a parameter is invalid.</p>
+            aws_sdk_elasticache.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             DescribeCacheParameterGroups
             Returns a list of cache parameter group descriptions. If a cache parameter group name is specified, the list contains only the descriptions for that group.
@@ -2569,6 +2886,12 @@ class ElastiCacheClient:
             max_records: <p>The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code> value, a marker is included in the response so that the remaining results can be retrieved.</p> <p>Default: 100</p> <p>Constraints: minimum 20; maximum 100.</p>
             marker: <p>An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>.</p>
 
+        Raises:
+            aws_sdk_elasticache.errors.cache_parameter_group_not_found_fault.CacheParameterGroupNotFoundFault: <p>The requested cache parameter group name does not refer to an existing cache parameter group.</p>
+            aws_sdk_elasticache.errors.invalid_parameter_combination_exception.InvalidParameterCombinationException: <p>Two or more incompatible parameters were specified.</p>
+            aws_sdk_elasticache.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value for a parameter is invalid.</p>
+            aws_sdk_elasticache.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             DescribeCacheParameters
             Lists up to 100 user parameter values for the parameter group custom.redis2.8.
@@ -2653,6 +2976,12 @@ class ElastiCacheClient:
             max_records: <p>The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code> value, a marker is included in the response so that the remaining results can be retrieved.</p> <p>Default: 100</p> <p>Constraints: minimum 20; maximum 100.</p>
             marker: <p>An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>.</p>
 
+        Raises:
+            aws_sdk_elasticache.errors.cache_security_group_not_found_fault.CacheSecurityGroupNotFoundFault: <p>The requested cache security group name does not refer to an existing cache security group.</p>
+            aws_sdk_elasticache.errors.invalid_parameter_combination_exception.InvalidParameterCombinationException: <p>Two or more incompatible parameters were specified.</p>
+            aws_sdk_elasticache.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value for a parameter is invalid.</p>
+            aws_sdk_elasticache.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             DescribeCacheSecurityGroups
             Returns a list of cache security group descriptions. If a cache security group name is specified, the list contains only the description of that group.
@@ -2736,6 +3065,10 @@ class ElastiCacheClient:
             max_records: <p>The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code> value, a marker is included in the response so that the remaining results can be retrieved.</p> <p>Default: 100</p> <p>Constraints: minimum 20; maximum 100.</p>
             marker: <p>An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>.</p>
 
+        Raises:
+            aws_sdk_elasticache.errors.cache_subnet_group_not_found_fault.CacheSubnetGroupNotFoundFault: <p>The requested cache subnet group name does not refer to an existing cache subnet group.</p>
+            aws_sdk_elasticache.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             DescribeCacheSubnetGroups
             Describes up to 25 cache subnet groups.
@@ -2816,6 +3149,11 @@ class ElastiCacheClient:
             cache_parameter_group_family: <p>The name of the cache parameter group family.</p> <p>Valid values are: <code>memcached1.4</code> | <code>memcached1.5</code> | <code>memcached1.6</code> | <code>redis2.6</code> | <code>redis2.8</code> | <code>redis3.2</code> | <code>redis4.0</code> | <code>redis5.0</code> | <code>redis6.x</code> | <code>redis6.2</code> | <code>redis7</code> </p>
             max_records: <p>The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code> value, a marker is included in the response so that the remaining results can be retrieved.</p> <p>Default: 100</p> <p>Constraints: minimum 20; maximum 100.</p>
             marker: <p>An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>.</p>
+
+        Raises:
+            aws_sdk_elasticache.errors.invalid_parameter_combination_exception.InvalidParameterCombinationException: <p>Two or more incompatible parameters were specified.</p>
+            aws_sdk_elasticache.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value for a parameter is invalid.</p>
+            aws_sdk_elasticache.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             DescribeEngineDefaultParameters
@@ -2906,6 +3244,11 @@ class ElastiCacheClient:
             duration: <p>The number of minutes worth of events to retrieve.</p>
             max_records: <p>The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code> value, a marker is included in the response so that the remaining results can be retrieved.</p> <p>Default: 100</p> <p>Constraints: minimum 20; maximum 100.</p>
             marker: <p>An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>.</p>
+
+        Raises:
+            aws_sdk_elasticache.errors.invalid_parameter_combination_exception.InvalidParameterCombinationException: <p>Two or more incompatible parameters were specified.</p>
+            aws_sdk_elasticache.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value for a parameter is invalid.</p>
+            aws_sdk_elasticache.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             DescribeEvents
@@ -3015,6 +3358,12 @@ class ElastiCacheClient:
             max_records: <p>The maximum number of records to include in the response. If more records exist than the specified MaxRecords value, a marker is included in the response so that the remaining results can be retrieved. </p>
             marker: <p>An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>. </p>
             show_member_info: <p>Returns the list of members that comprise the Global datastore.</p>
+
+        Raises:
+            aws_sdk_elasticache.errors.global_replication_group_not_found_fault.GlobalReplicationGroupNotFoundFault: <p>The Global datastore does not exist</p>
+            aws_sdk_elasticache.errors.invalid_parameter_combination_exception.InvalidParameterCombinationException: <p>Two or more incompatible parameters were specified.</p>
+            aws_sdk_elasticache.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value for a parameter is invalid.</p>
+            aws_sdk_elasticache.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3098,6 +3447,12 @@ class ElastiCacheClient:
             replication_group_id: <p>The identifier for the replication group to be described. This parameter is not case sensitive.</p> <p>If you do not specify this parameter, information about all replication groups is returned.</p>
             max_records: <p>The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code> value, a marker is included in the response so that the remaining results can be retrieved.</p> <p>Default: 100</p> <p>Constraints: minimum 20; maximum 100.</p>
             marker: <p>An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>.</p>
+
+        Raises:
+            aws_sdk_elasticache.errors.invalid_parameter_combination_exception.InvalidParameterCombinationException: <p>Two or more incompatible parameters were specified.</p>
+            aws_sdk_elasticache.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value for a parameter is invalid.</p>
+            aws_sdk_elasticache.errors.replication_group_not_found_fault.ReplicationGroupNotFoundFault: <p>The specified replication group does not exist.</p>
+            aws_sdk_elasticache.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             DescribeReplicationGroups
@@ -3195,6 +3550,12 @@ class ElastiCacheClient:
             offering_type: <p>The offering type filter value. Use this parameter to show only the available offerings matching the specified offering type.</p> <p>Valid values: <code>\"Light Utilization\"|\"Medium Utilization\"|\"Heavy Utilization\"|\"All Upfront\"|\"Partial Upfront\"| \"No Upfront\"</code> </p>
             max_records: <p>The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code> value, a marker is included in the response so that the remaining results can be retrieved.</p> <p>Default: 100</p> <p>Constraints: minimum 20; maximum 100.</p>
             marker: <p>An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>.</p>
+
+        Raises:
+            aws_sdk_elasticache.errors.invalid_parameter_combination_exception.InvalidParameterCombinationException: <p>Two or more incompatible parameters were specified.</p>
+            aws_sdk_elasticache.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value for a parameter is invalid.</p>
+            aws_sdk_elasticache.errors.reserved_cache_node_not_found_fault.ReservedCacheNodeNotFoundFault: <p>The requested reserved cache node was not found.</p>
+            aws_sdk_elasticache.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             DescribeReservedCacheNodes
@@ -3311,6 +3672,12 @@ class ElastiCacheClient:
             max_records: <p>The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code> value, a marker is included in the response so that the remaining results can be retrieved.</p> <p>Default: 100</p> <p>Constraints: minimum 20; maximum 100.</p>
             marker: <p>An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>.</p>
 
+        Raises:
+            aws_sdk_elasticache.errors.invalid_parameter_combination_exception.InvalidParameterCombinationException: <p>Two or more incompatible parameters were specified.</p>
+            aws_sdk_elasticache.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value for a parameter is invalid.</p>
+            aws_sdk_elasticache.errors.reserved_cache_nodes_offering_not_found_fault.ReservedCacheNodesOfferingNotFoundFault: <p>The requested cache node offering does not exist.</p>
+            aws_sdk_elasticache.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             DescribeReseredCacheNodeOfferings
             Lists available reserved cache node offerings for cache.r3.large nodes with a 3 year commitment.
@@ -3419,6 +3786,12 @@ class ElastiCacheClient:
             serverless_cache_name: <p>The identifier for the serverless cache. If this parameter is specified, only information about that specific serverless cache is returned. Default: NULL</p>
             max_results: <p>The maximum number of records in the response. If more records exist than the specified max-records value, the next token is included in the response so that remaining results can be retrieved. The default is 50.</p>
             next_token: <p>An optional marker returned from a prior request to support pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by MaxResults.</p>
+
+        Raises:
+            aws_sdk_elasticache.errors.invalid_parameter_combination_exception.InvalidParameterCombinationException: <p>Two or more incompatible parameters were specified.</p>
+            aws_sdk_elasticache.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value for a parameter is invalid.</p>
+            aws_sdk_elasticache.errors.serverless_cache_not_found_fault.ServerlessCacheNotFoundFault: <p>The serverless cache was not found or does not exist.</p>
+            aws_sdk_elasticache.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3502,6 +3875,13 @@ class ElastiCacheClient:
             snapshot_type: <p>The type of snapshot that is being described. Available for Valkey, Redis OSS and Serverless Memcached only.</p>
             next_token: <p>An optional marker returned from a prior request to support pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by max-results. Available for Valkey, Redis OSS and Serverless Memcached only.</p>
             max_results: <p>The maximum number of records to include in the response. If more records exist than the specified max-results value, a market is included in the response so that remaining results can be retrieved. Available for Valkey, Redis OSS and Serverless Memcached only.The default is 50. The Validation Constraints are a maximum of 50.</p>
+
+        Raises:
+            aws_sdk_elasticache.errors.invalid_parameter_combination_exception.InvalidParameterCombinationException: <p>Two or more incompatible parameters were specified.</p>
+            aws_sdk_elasticache.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value for a parameter is invalid.</p>
+            aws_sdk_elasticache.errors.serverless_cache_not_found_fault.ServerlessCacheNotFoundFault: <p>The serverless cache was not found or does not exist.</p>
+            aws_sdk_elasticache.errors.serverless_cache_snapshot_not_found_fault.ServerlessCacheSnapshotNotFoundFault: <p>This serverless cache snapshot could not be found or does not exist. Available for Valkey, Redis OSS and Serverless Memcached only.</p>
+            aws_sdk_elasticache.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3591,6 +3971,12 @@ class ElastiCacheClient:
             service_update_status: <p>The status of the service update</p>
             max_records: <p>The maximum number of records to include in the response</p>
             marker: <p>An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>.</p>
+
+        Raises:
+            aws_sdk_elasticache.errors.invalid_parameter_combination_exception.InvalidParameterCombinationException: <p>Two or more incompatible parameters were specified.</p>
+            aws_sdk_elasticache.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value for a parameter is invalid.</p>
+            aws_sdk_elasticache.errors.service_update_not_found_fault.ServiceUpdateNotFoundFault: <p>The service update doesn't exist</p>
+            aws_sdk_elasticache.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3682,6 +4068,13 @@ class ElastiCacheClient:
             marker: <p>An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>.</p>
             max_records: <p>The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code> value, a marker is included in the response so that the remaining results can be retrieved.</p> <p>Default: 50</p> <p>Constraints: minimum 20; maximum 50.</p>
             show_node_group_config: <p>A Boolean value which if true, the node group (shard) configuration is included in the snapshot description.</p>
+
+        Raises:
+            aws_sdk_elasticache.errors.cache_cluster_not_found_fault.CacheClusterNotFoundFault: <p>The requested cluster ID does not refer to an existing cluster.</p>
+            aws_sdk_elasticache.errors.invalid_parameter_combination_exception.InvalidParameterCombinationException: <p>Two or more incompatible parameters were specified.</p>
+            aws_sdk_elasticache.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value for a parameter is invalid.</p>
+            aws_sdk_elasticache.errors.snapshot_not_found_fault.SnapshotNotFoundFault: <p>The requested snapshot name does not refer to an existing snapshot.</p>
+            aws_sdk_elasticache.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             DescribeSnapshots
@@ -3807,6 +4200,11 @@ class ElastiCacheClient:
             show_node_level_update_status: <p>Dictates whether to include node level update status in the response </p>
             max_records: <p>The maximum number of records to include in the response</p>
             marker: <p>An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>.</p>
+
+        Raises:
+            aws_sdk_elasticache.errors.invalid_parameter_combination_exception.InvalidParameterCombinationException: <p>Two or more incompatible parameters were specified.</p>
+            aws_sdk_elasticache.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value for a parameter is invalid.</p>
+            aws_sdk_elasticache.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3922,6 +4320,12 @@ class ElastiCacheClient:
             user_group_id: <p>The ID of the user group.</p>
             max_records: <p>The maximum number of records to include in the response. If more records exist than the specified MaxRecords value, a marker is included in the response so that the remaining results can be retrieved. </p>
             marker: <p>An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by MaxRecords. ></p>
+
+        Raises:
+            aws_sdk_elasticache.errors.invalid_parameter_combination_exception.InvalidParameterCombinationException: <p>Two or more incompatible parameters were specified.</p>
+            aws_sdk_elasticache.errors.service_linked_role_not_found_fault.ServiceLinkedRoleNotFoundFault: <p>The specified service linked role (SLR) was not found.</p>
+            aws_sdk_elasticache.errors.user_group_not_found_fault.UserGroupNotFoundFault: <p>The user group was not found or does not exist</p>
+            aws_sdk_elasticache.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3999,6 +4403,12 @@ class ElastiCacheClient:
             filters: <p>Filter to determine the list of User IDs to return.</p>
             max_records: <p>The maximum number of records to include in the response. If more records exist than the specified MaxRecords value, a marker is included in the response so that the remaining results can be retrieved. </p>
             marker: <p>An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by MaxRecords. ></p>
+
+        Raises:
+            aws_sdk_elasticache.errors.invalid_parameter_combination_exception.InvalidParameterCombinationException: <p>Two or more incompatible parameters were specified.</p>
+            aws_sdk_elasticache.errors.service_linked_role_not_found_fault.ServiceLinkedRoleNotFoundFault: <p>The specified service linked role (SLR) was not found.</p>
+            aws_sdk_elasticache.errors.user_not_found_fault.UserNotFoundFault: <p>The user does not exist or could not be found.</p>
+            aws_sdk_elasticache.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4078,6 +4488,13 @@ class ElastiCacheClient:
             global_replication_group_id: <p>The name of the Global datastore</p>
             replication_group_id: <p>The name of the secondary cluster you wish to remove from the Global datastore</p>
             replication_group_region: <p>The Amazon region of secondary cluster you wish to remove from the Global datastore</p>
+
+        Raises:
+            aws_sdk_elasticache.errors.global_replication_group_not_found_fault.GlobalReplicationGroupNotFoundFault: <p>The Global datastore does not exist</p>
+            aws_sdk_elasticache.errors.invalid_global_replication_group_state_fault.InvalidGlobalReplicationGroupStateFault: <p>The Global datastore is not available or in primary-only state.</p>
+            aws_sdk_elasticache.errors.invalid_parameter_combination_exception.InvalidParameterCombinationException: <p>Two or more incompatible parameters were specified.</p>
+            aws_sdk_elasticache.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value for a parameter is invalid.</p>
+            aws_sdk_elasticache.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4119,6 +4536,13 @@ class ElastiCacheClient:
         Args:
             serverless_cache_snapshot_name: <p>The identifier of the serverless cache snapshot to be exported to S3. Available for Valkey and Redis OSS only.</p>
             s3_bucket_name: <p>Name of the Amazon S3 bucket to export the snapshot to. The Amazon S3 bucket must also be in same region as the snapshot. Available for Valkey and Redis OSS only.</p>
+
+        Raises:
+            aws_sdk_elasticache.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value for a parameter is invalid.</p>
+            aws_sdk_elasticache.errors.invalid_serverless_cache_snapshot_state_fault.InvalidServerlessCacheSnapshotStateFault: <p>The state of the serverless cache snapshot was not received. Available for Valkey, Redis OSS and Serverless Memcached only.</p>
+            aws_sdk_elasticache.errors.serverless_cache_snapshot_not_found_fault.ServerlessCacheSnapshotNotFoundFault: <p>This serverless cache snapshot could not be found or does not exist. Available for Valkey, Redis OSS and Serverless Memcached only.</p>
+            aws_sdk_elasticache.errors.service_linked_role_not_found_fault.ServiceLinkedRoleNotFoundFault: <p>The specified service linked role (SLR) was not found.</p>
+            aws_sdk_elasticache.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4161,6 +4585,13 @@ class ElastiCacheClient:
             global_replication_group_id: <p>The name of the Global datastore</p>
             primary_region: <p>The Amazon region of the primary cluster of the Global datastore</p>
             primary_replication_group_id: <p>The name of the primary replication group</p>
+
+        Raises:
+            aws_sdk_elasticache.errors.global_replication_group_not_found_fault.GlobalReplicationGroupNotFoundFault: <p>The Global datastore does not exist</p>
+            aws_sdk_elasticache.errors.invalid_global_replication_group_state_fault.InvalidGlobalReplicationGroupStateFault: <p>The Global datastore is not available or in primary-only state.</p>
+            aws_sdk_elasticache.errors.invalid_parameter_combination_exception.InvalidParameterCombinationException: <p>Two or more incompatible parameters were specified.</p>
+            aws_sdk_elasticache.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value for a parameter is invalid.</p>
+            aws_sdk_elasticache.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4208,6 +4639,12 @@ class ElastiCacheClient:
             node_group_count: <p>Total number of node groups you want</p>
             regional_configurations: <p>Describes the replication group IDs, the Amazon regions where they are stored and the shard configuration for each that comprise the Global datastore</p>
             apply_immediately: <p>Indicates that the process begins immediately. At present, the only permitted value for this parameter is true.</p>
+
+        Raises:
+            aws_sdk_elasticache.errors.global_replication_group_not_found_fault.GlobalReplicationGroupNotFoundFault: <p>The Global datastore does not exist</p>
+            aws_sdk_elasticache.errors.invalid_global_replication_group_state_fault.InvalidGlobalReplicationGroupStateFault: <p>The Global datastore is not available or in primary-only state.</p>
+            aws_sdk_elasticache.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value for a parameter is invalid.</p>
+            aws_sdk_elasticache.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4259,6 +4696,21 @@ class ElastiCacheClient:
             new_replica_count: <p>The number of read replica nodes you want at the completion of this operation. For Valkey or Redis OSS (cluster mode disabled) replication groups, this is the number of replica nodes in the replication group. For Valkey or Redis OSS (cluster mode enabled) replication groups, this is the number of replica nodes in each of the replication group's node groups.</p>
             replica_configuration: <p>A list of <code>ConfigureShard</code> objects that can be used to configure each shard in a Valkey or Redis OSS (cluster mode enabled) replication group. The <code>ConfigureShard</code> has three members: <code>NewReplicaCount</code>, <code>NodeGroupId</code>, and <code>PreferredAvailabilityZones</code>.</p>
             apply_immediately: <p>If <code>True</code>, the number of replica nodes is increased immediately. <code>ApplyImmediately=False</code> is not currently supported.</p>
+
+        Raises:
+            aws_sdk_elasticache.errors.cluster_quota_for_customer_exceeded_fault.ClusterQuotaForCustomerExceededFault: <p>The request cannot be processed because it would exceed the allowed number of clusters per customer.</p>
+            aws_sdk_elasticache.errors.insufficient_cache_cluster_capacity_fault.InsufficientCacheClusterCapacityFault: <p>The requested cache node type is not available in the specified Availability Zone. For more information, see <a href=\"http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/ErrorMessages.html#ErrorMessages.INSUFFICIENT_CACHE_CLUSTER_CAPACITY\">InsufficientCacheClusterCapacity</a> in the ElastiCache User Guide.</p>
+            aws_sdk_elasticache.errors.invalid_cache_cluster_state_fault.InvalidCacheClusterStateFault: <p>The requested cluster is not in the <code>available</code> state.</p>
+            aws_sdk_elasticache.errors.invalid_kms_key_fault.InvalidKMSKeyFault: <p>The KMS key supplied is not valid.</p>
+            aws_sdk_elasticache.errors.invalid_parameter_combination_exception.InvalidParameterCombinationException: <p>Two or more incompatible parameters were specified.</p>
+            aws_sdk_elasticache.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value for a parameter is invalid.</p>
+            aws_sdk_elasticache.errors.invalid_replication_group_state_fault.InvalidReplicationGroupStateFault: <p>The requested replication group is not in the <code>available</code> state.</p>
+            aws_sdk_elasticache.errors.invalid_vpc_network_state_fault.InvalidVPCNetworkStateFault: <p>The VPC network is in an invalid state.</p>
+            aws_sdk_elasticache.errors.node_groups_per_replication_group_quota_exceeded_fault.NodeGroupsPerReplicationGroupQuotaExceededFault: <p>The request cannot be processed because it would exceed the maximum allowed number of node groups (shards) in a single replication group. The default maximum is 90</p>
+            aws_sdk_elasticache.errors.node_quota_for_customer_exceeded_fault.NodeQuotaForCustomerExceededFault: <p>The request cannot be processed because it would exceed the allowed number of cache nodes per customer.</p>
+            aws_sdk_elasticache.errors.no_operation_fault.NoOperationFault: <p>The operation was not performed because no changes were required.</p>
+            aws_sdk_elasticache.errors.replication_group_not_found_fault.ReplicationGroupNotFoundFault: <p>The specified replication group does not exist.</p>
+            aws_sdk_elasticache.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4305,6 +4757,13 @@ class ElastiCacheClient:
         Args:
             cache_cluster_id: <p>The name of the cluster you want to scale up to a larger node instanced type. ElastiCache uses the cluster id to identify the current node type of this cluster and from that to create a list of node types you can scale up to.</p> <important> <p>You must provide a value for either the <code>CacheClusterId</code> or the <code>ReplicationGroupId</code>.</p> </important>
             replication_group_id: <p>The name of the replication group want to scale up to a larger node type. ElastiCache uses the replication group id to identify the current node type being used by this replication group, and from that to create a list of node types you can scale up to.</p> <important> <p>You must provide a value for either the <code>CacheClusterId</code> or the <code>ReplicationGroupId</code>.</p> </important>
+
+        Raises:
+            aws_sdk_elasticache.errors.cache_cluster_not_found_fault.CacheClusterNotFoundFault: <p>The requested cluster ID does not refer to an existing cluster.</p>
+            aws_sdk_elasticache.errors.invalid_parameter_combination_exception.InvalidParameterCombinationException: <p>Two or more incompatible parameters were specified.</p>
+            aws_sdk_elasticache.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value for a parameter is invalid.</p>
+            aws_sdk_elasticache.errors.replication_group_not_found_fault.ReplicationGroupNotFoundFault: <p>The specified replication group does not exist.</p>
+            aws_sdk_elasticache.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             ListAllowedNodeTypeModifications
@@ -4355,6 +4814,24 @@ class ElastiCacheClient:
 
         Args:
             resource_name: <p>The Amazon Resource Name (ARN) of the resource for which you want the list of tags, for example <code>arn:aws:elasticache:us-west-2:0123456789:cluster:myCluster</code> or <code>arn:aws:elasticache:us-west-2:0123456789:snapshot:mySnapshot</code>.</p> <p>For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a>.</p>
+
+        Raises:
+            aws_sdk_elasticache.errors.cache_cluster_not_found_fault.CacheClusterNotFoundFault: <p>The requested cluster ID does not refer to an existing cluster.</p>
+            aws_sdk_elasticache.errors.cache_parameter_group_not_found_fault.CacheParameterGroupNotFoundFault: <p>The requested cache parameter group name does not refer to an existing cache parameter group.</p>
+            aws_sdk_elasticache.errors.cache_security_group_not_found_fault.CacheSecurityGroupNotFoundFault: <p>The requested cache security group name does not refer to an existing cache security group.</p>
+            aws_sdk_elasticache.errors.cache_subnet_group_not_found_fault.CacheSubnetGroupNotFoundFault: <p>The requested cache subnet group name does not refer to an existing cache subnet group.</p>
+            aws_sdk_elasticache.errors.invalid_arn_fault.InvalidARNFault: <p>The requested Amazon Resource Name (ARN) does not refer to an existing resource.</p>
+            aws_sdk_elasticache.errors.invalid_replication_group_state_fault.InvalidReplicationGroupStateFault: <p>The requested replication group is not in the <code>available</code> state.</p>
+            aws_sdk_elasticache.errors.invalid_serverless_cache_snapshot_state_fault.InvalidServerlessCacheSnapshotStateFault: <p>The state of the serverless cache snapshot was not received. Available for Valkey, Redis OSS and Serverless Memcached only.</p>
+            aws_sdk_elasticache.errors.invalid_serverless_cache_state_fault.InvalidServerlessCacheStateFault: <p>The account for these credentials is not currently active.</p>
+            aws_sdk_elasticache.errors.replication_group_not_found_fault.ReplicationGroupNotFoundFault: <p>The specified replication group does not exist.</p>
+            aws_sdk_elasticache.errors.reserved_cache_node_not_found_fault.ReservedCacheNodeNotFoundFault: <p>The requested reserved cache node was not found.</p>
+            aws_sdk_elasticache.errors.serverless_cache_not_found_fault.ServerlessCacheNotFoundFault: <p>The serverless cache was not found or does not exist.</p>
+            aws_sdk_elasticache.errors.serverless_cache_snapshot_not_found_fault.ServerlessCacheSnapshotNotFoundFault: <p>This serverless cache snapshot could not be found or does not exist. Available for Valkey, Redis OSS and Serverless Memcached only.</p>
+            aws_sdk_elasticache.errors.snapshot_not_found_fault.SnapshotNotFoundFault: <p>The requested snapshot name does not refer to an existing snapshot.</p>
+            aws_sdk_elasticache.errors.user_group_not_found_fault.UserGroupNotFoundFault: <p>The user group was not found or does not exist</p>
+            aws_sdk_elasticache.errors.user_not_found_fault.UserNotFoundFault: <p>The user does not exist or could not be found.</p>
+            aws_sdk_elasticache.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             ListTagsForResource
@@ -4475,6 +4952,20 @@ class ElastiCacheClient:
             ip_discovery: <p>The network type you choose when modifying a cluster, either <code>ipv4</code> | <code>ipv6</code>. IPv6 is supported for workloads using Valkey 7.2 and above, Redis OSS engine version 6.2 to 7.1 or Memcached engine version 1.6.6 and above on all instances built on the <a href=\"http://aws.amazon.com/ec2/nitro/\">Nitro system</a>.</p>
             scale_config: <p>Configures horizontal or vertical scaling for Memcached clusters, specifying the scaling percentage and interval.</p>
 
+        Raises:
+            aws_sdk_elasticache.errors.cache_cluster_not_found_fault.CacheClusterNotFoundFault: <p>The requested cluster ID does not refer to an existing cluster.</p>
+            aws_sdk_elasticache.errors.cache_parameter_group_not_found_fault.CacheParameterGroupNotFoundFault: <p>The requested cache parameter group name does not refer to an existing cache parameter group.</p>
+            aws_sdk_elasticache.errors.cache_security_group_not_found_fault.CacheSecurityGroupNotFoundFault: <p>The requested cache security group name does not refer to an existing cache security group.</p>
+            aws_sdk_elasticache.errors.insufficient_cache_cluster_capacity_fault.InsufficientCacheClusterCapacityFault: <p>The requested cache node type is not available in the specified Availability Zone. For more information, see <a href=\"http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/ErrorMessages.html#ErrorMessages.INSUFFICIENT_CACHE_CLUSTER_CAPACITY\">InsufficientCacheClusterCapacity</a> in the ElastiCache User Guide.</p>
+            aws_sdk_elasticache.errors.invalid_cache_cluster_state_fault.InvalidCacheClusterStateFault: <p>The requested cluster is not in the <code>available</code> state.</p>
+            aws_sdk_elasticache.errors.invalid_cache_security_group_state_fault.InvalidCacheSecurityGroupStateFault: <p>The current state of the cache security group does not allow deletion.</p>
+            aws_sdk_elasticache.errors.invalid_parameter_combination_exception.InvalidParameterCombinationException: <p>Two or more incompatible parameters were specified.</p>
+            aws_sdk_elasticache.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value for a parameter is invalid.</p>
+            aws_sdk_elasticache.errors.invalid_vpc_network_state_fault.InvalidVPCNetworkStateFault: <p>The VPC network is in an invalid state.</p>
+            aws_sdk_elasticache.errors.node_quota_for_cluster_exceeded_fault.NodeQuotaForClusterExceededFault: <p>The request cannot be processed because it would exceed the allowed number of cache nodes in a single cluster.</p>
+            aws_sdk_elasticache.errors.node_quota_for_customer_exceeded_fault.NodeQuotaForCustomerExceededFault: <p>The request cannot be processed because it would exceed the allowed number of cache nodes per customer.</p>
+            aws_sdk_elasticache.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             ModifyCacheCluster
             Copies a snapshot to a specified name.
@@ -4564,6 +5055,14 @@ class ElastiCacheClient:
             cache_parameter_group_name: <p>The name of the cache parameter group to modify.</p>
             parameter_name_values: <p>An array of parameter names and values for the parameter update. You must supply at least one parameter name and value; subsequent arguments are optional. A maximum of 20 parameters may be modified per request.</p>
 
+        Raises:
+            aws_sdk_elasticache.errors.cache_parameter_group_not_found_fault.CacheParameterGroupNotFoundFault: <p>The requested cache parameter group name does not refer to an existing cache parameter group.</p>
+            aws_sdk_elasticache.errors.invalid_cache_parameter_group_state_fault.InvalidCacheParameterGroupStateFault: <p>The current state of the cache parameter group does not allow the requested operation to occur.</p>
+            aws_sdk_elasticache.errors.invalid_global_replication_group_state_fault.InvalidGlobalReplicationGroupStateFault: <p>The Global datastore is not available or in primary-only state.</p>
+            aws_sdk_elasticache.errors.invalid_parameter_combination_exception.InvalidParameterCombinationException: <p>Two or more incompatible parameters were specified.</p>
+            aws_sdk_elasticache.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value for a parameter is invalid.</p>
+            aws_sdk_elasticache.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             ModifyCacheParameterGroup
             Modifies one or more parameter values in the specified parameter group. You cannot modify any default parameter group.
@@ -4615,6 +5114,14 @@ class ElastiCacheClient:
             cache_subnet_group_name: <p>The name for the cache subnet group. This value is stored as a lowercase string.</p> <p>Constraints: Must contain no more than 255 alphanumeric characters or hyphens.</p> <p>Example: <code>mysubnetgroup</code> </p>
             cache_subnet_group_description: <p>A description of the cache subnet group.</p>
             subnet_ids: <p>The EC2 subnet IDs for the cache subnet group.</p>
+
+        Raises:
+            aws_sdk_elasticache.errors.cache_subnet_group_not_found_fault.CacheSubnetGroupNotFoundFault: <p>The requested cache subnet group name does not refer to an existing cache subnet group.</p>
+            aws_sdk_elasticache.errors.cache_subnet_quota_exceeded_fault.CacheSubnetQuotaExceededFault: <p>The request cannot be processed because it would exceed the allowed number of subnets in a cache subnet group.</p>
+            aws_sdk_elasticache.errors.invalid_subnet.InvalidSubnet: <p>An invalid subnet identifier was specified.</p>
+            aws_sdk_elasticache.errors.subnet_in_use.SubnetInUse: <p>The requested subnet is being used by another cache subnet group.</p>
+            aws_sdk_elasticache.errors.subnet_not_allowed_fault.SubnetNotAllowedFault: <p>At least one subnet ID does not match the other subnet IDs. This mismatch typically occurs when a user sets one subnet ID to a regional Availability Zone and a different one to an outpost. Or when a user sets the subnet ID to an Outpost when not subscribed on this service.</p>
+            aws_sdk_elasticache.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             ModifyCacheSubnetGroup
@@ -4682,6 +5189,12 @@ class ElastiCacheClient:
             cache_parameter_group_name: <p>The name of the cache parameter group to use with the Global datastore. It must be compatible with the major engine version used by the Global datastore.</p>
             global_replication_group_description: <p>A description of the Global datastore</p>
             automatic_failover_enabled: <p>Determines whether a read replica is automatically promoted to read/write primary if the existing primary encounters a failure. </p>
+
+        Raises:
+            aws_sdk_elasticache.errors.global_replication_group_not_found_fault.GlobalReplicationGroupNotFoundFault: <p>The Global datastore does not exist</p>
+            aws_sdk_elasticache.errors.invalid_global_replication_group_state_fault.InvalidGlobalReplicationGroupStateFault: <p>The Global datastore is not available or in primary-only state.</p>
+            aws_sdk_elasticache.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value for a parameter is invalid.</p>
+            aws_sdk_elasticache.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4837,6 +5350,25 @@ class ElastiCacheClient:
             cluster_mode: <p>Enabled or Disabled. To modify cluster mode from Disabled to Enabled, you must first set the cluster mode to Compatible. Compatible mode allows your Valkey or Redis OSS clients to connect using both cluster mode enabled and cluster mode disabled. After you migrate all Valkey or Redis OSS clients to use cluster mode enabled, you can then complete cluster mode configuration and set the cluster mode to Enabled.</p>
             durability: <p>Specifies the durability setting for the replication group. Use this parameter to change the durability mode of an existing replication group, for example from <code>sync</code> to <code>async</code> or vice versa. For more information, see <a href=\"http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/Durability.html\">Durability</a>.</p>
 
+        Raises:
+            aws_sdk_elasticache.errors.cache_cluster_not_found_fault.CacheClusterNotFoundFault: <p>The requested cluster ID does not refer to an existing cluster.</p>
+            aws_sdk_elasticache.errors.cache_parameter_group_not_found_fault.CacheParameterGroupNotFoundFault: <p>The requested cache parameter group name does not refer to an existing cache parameter group.</p>
+            aws_sdk_elasticache.errors.cache_security_group_not_found_fault.CacheSecurityGroupNotFoundFault: <p>The requested cache security group name does not refer to an existing cache security group.</p>
+            aws_sdk_elasticache.errors.insufficient_cache_cluster_capacity_fault.InsufficientCacheClusterCapacityFault: <p>The requested cache node type is not available in the specified Availability Zone. For more information, see <a href=\"http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/ErrorMessages.html#ErrorMessages.INSUFFICIENT_CACHE_CLUSTER_CAPACITY\">InsufficientCacheClusterCapacity</a> in the ElastiCache User Guide.</p>
+            aws_sdk_elasticache.errors.invalid_cache_cluster_state_fault.InvalidCacheClusterStateFault: <p>The requested cluster is not in the <code>available</code> state.</p>
+            aws_sdk_elasticache.errors.invalid_cache_security_group_state_fault.InvalidCacheSecurityGroupStateFault: <p>The current state of the cache security group does not allow deletion.</p>
+            aws_sdk_elasticache.errors.invalid_kms_key_fault.InvalidKMSKeyFault: <p>The KMS key supplied is not valid.</p>
+            aws_sdk_elasticache.errors.invalid_parameter_combination_exception.InvalidParameterCombinationException: <p>Two or more incompatible parameters were specified.</p>
+            aws_sdk_elasticache.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value for a parameter is invalid.</p>
+            aws_sdk_elasticache.errors.invalid_replication_group_state_fault.InvalidReplicationGroupStateFault: <p>The requested replication group is not in the <code>available</code> state.</p>
+            aws_sdk_elasticache.errors.invalid_user_group_state_fault.InvalidUserGroupStateFault: <p>The user group is not in an active state.</p>
+            aws_sdk_elasticache.errors.invalid_vpc_network_state_fault.InvalidVPCNetworkStateFault: <p>The VPC network is in an invalid state.</p>
+            aws_sdk_elasticache.errors.node_quota_for_cluster_exceeded_fault.NodeQuotaForClusterExceededFault: <p>The request cannot be processed because it would exceed the allowed number of cache nodes in a single cluster.</p>
+            aws_sdk_elasticache.errors.node_quota_for_customer_exceeded_fault.NodeQuotaForCustomerExceededFault: <p>The request cannot be processed because it would exceed the allowed number of cache nodes per customer.</p>
+            aws_sdk_elasticache.errors.replication_group_not_found_fault.ReplicationGroupNotFoundFault: <p>The specified replication group does not exist.</p>
+            aws_sdk_elasticache.errors.user_group_not_found_fault.UserGroupNotFoundFault: <p>The user group was not found or does not exist</p>
+            aws_sdk_elasticache.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             ModifyReplicationGroup
 
@@ -4954,6 +5486,19 @@ class ElastiCacheClient:
             resharding_configuration: <p>Specifies the preferred availability zones for each node group in the cluster. If the value of <code>NodeGroupCount</code> is greater than the current number of node groups (shards), you can use this parameter to specify the preferred availability zones of the cluster's shards. If you omit this parameter ElastiCache selects availability zones for you.</p> <p>You can specify this parameter only if the value of <code>NodeGroupCount</code> is greater than the current number of node groups (shards).</p>
             node_groups_to_remove: <p>If the value of <code>NodeGroupCount</code> is less than the current number of node groups (shards), then either <code>NodeGroupsToRemove</code> or <code>NodeGroupsToRetain</code> is required. <code>NodeGroupsToRemove</code> is a list of <code>NodeGroupId</code>s to remove from the cluster.</p> <p>ElastiCache will attempt to remove all node groups listed by <code>NodeGroupsToRemove</code> from the cluster.</p>
             node_groups_to_retain: <p>If the value of <code>NodeGroupCount</code> is less than the current number of node groups (shards), then either <code>NodeGroupsToRemove</code> or <code>NodeGroupsToRetain</code> is required. <code>NodeGroupsToRetain</code> is a list of <code>NodeGroupId</code>s to retain in the cluster.</p> <p>ElastiCache will attempt to remove all node groups except those listed by <code>NodeGroupsToRetain</code> from the cluster.</p>
+
+        Raises:
+            aws_sdk_elasticache.errors.insufficient_cache_cluster_capacity_fault.InsufficientCacheClusterCapacityFault: <p>The requested cache node type is not available in the specified Availability Zone. For more information, see <a href=\"http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/ErrorMessages.html#ErrorMessages.INSUFFICIENT_CACHE_CLUSTER_CAPACITY\">InsufficientCacheClusterCapacity</a> in the ElastiCache User Guide.</p>
+            aws_sdk_elasticache.errors.invalid_cache_cluster_state_fault.InvalidCacheClusterStateFault: <p>The requested cluster is not in the <code>available</code> state.</p>
+            aws_sdk_elasticache.errors.invalid_kms_key_fault.InvalidKMSKeyFault: <p>The KMS key supplied is not valid.</p>
+            aws_sdk_elasticache.errors.invalid_parameter_combination_exception.InvalidParameterCombinationException: <p>Two or more incompatible parameters were specified.</p>
+            aws_sdk_elasticache.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value for a parameter is invalid.</p>
+            aws_sdk_elasticache.errors.invalid_replication_group_state_fault.InvalidReplicationGroupStateFault: <p>The requested replication group is not in the <code>available</code> state.</p>
+            aws_sdk_elasticache.errors.invalid_vpc_network_state_fault.InvalidVPCNetworkStateFault: <p>The VPC network is in an invalid state.</p>
+            aws_sdk_elasticache.errors.node_groups_per_replication_group_quota_exceeded_fault.NodeGroupsPerReplicationGroupQuotaExceededFault: <p>The request cannot be processed because it would exceed the maximum allowed number of node groups (shards) in a single replication group. The default maximum is 90</p>
+            aws_sdk_elasticache.errors.node_quota_for_customer_exceeded_fault.NodeQuotaForCustomerExceededFault: <p>The request cannot be processed because it would exceed the allowed number of cache nodes per customer.</p>
+            aws_sdk_elasticache.errors.replication_group_not_found_fault.ReplicationGroupNotFoundFault: <p>The specified replication group does not exist.</p>
+            aws_sdk_elasticache.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5027,6 +5572,17 @@ class ElastiCacheClient:
             daily_snapshot_time: <p>The daily time during which Elasticache begins taking a daily snapshot of the serverless cache. Available for Valkey, Redis OSS and Serverless Memcached only. The default is NULL, i.e. the existing snapshot time configured for the cluster is not removed.</p>
             engine: <p>Modifies the engine listed in a serverless cache request. The options are valkey, memcached or redis.</p>
             major_engine_version: <p>Modifies the engine vesion listed in a serverless cache request. </p>
+
+        Raises:
+            aws_sdk_elasticache.errors.invalid_credentials_exception.InvalidCredentialsException: <p>You must enter valid credentials.</p>
+            aws_sdk_elasticache.errors.invalid_parameter_combination_exception.InvalidParameterCombinationException: <p>Two or more incompatible parameters were specified.</p>
+            aws_sdk_elasticache.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value for a parameter is invalid.</p>
+            aws_sdk_elasticache.errors.invalid_serverless_cache_state_fault.InvalidServerlessCacheStateFault: <p>The account for these credentials is not currently active.</p>
+            aws_sdk_elasticache.errors.invalid_user_group_state_fault.InvalidUserGroupStateFault: <p>The user group is not in an active state.</p>
+            aws_sdk_elasticache.errors.serverless_cache_not_found_fault.ServerlessCacheNotFoundFault: <p>The serverless cache was not found or does not exist.</p>
+            aws_sdk_elasticache.errors.service_linked_role_not_found_fault.ServiceLinkedRoleNotFoundFault: <p>The specified service linked role (SLR) was not found.</p>
+            aws_sdk_elasticache.errors.user_group_not_found_fault.UserGroupNotFoundFault: <p>The user group was not found or does not exist</p>
+            aws_sdk_elasticache.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5104,6 +5660,14 @@ class ElastiCacheClient:
             no_password_required: <p>Indicates no password is required for the user.</p>
             authentication_mode: <p>Specifies how to authenticate the user.</p>
             engine: <p>Modifies the engine listed for a user. The options are valkey or redis.</p>
+
+        Raises:
+            aws_sdk_elasticache.errors.invalid_parameter_combination_exception.InvalidParameterCombinationException: <p>Two or more incompatible parameters were specified.</p>
+            aws_sdk_elasticache.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value for a parameter is invalid.</p>
+            aws_sdk_elasticache.errors.invalid_user_state_fault.InvalidUserStateFault: <p>The user is not in active state.</p>
+            aws_sdk_elasticache.errors.service_linked_role_not_found_fault.ServiceLinkedRoleNotFoundFault: <p>The specified service linked role (SLR) was not found.</p>
+            aws_sdk_elasticache.errors.user_not_found_fault.UserNotFoundFault: <p>The user does not exist or could not be found.</p>
+            aws_sdk_elasticache.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5161,6 +5725,17 @@ class ElastiCacheClient:
             user_ids_to_add: <p>The list of user IDs to add to the user group.</p>
             user_ids_to_remove: <p>The list of user IDs to remove from the user group.</p>
             engine: <p>Modifies the engine listed in a user group. The options are valkey or redis.</p>
+
+        Raises:
+            aws_sdk_elasticache.errors.default_user_required.DefaultUserRequired: <p>You must add default user to a user group.</p>
+            aws_sdk_elasticache.errors.duplicate_user_name_fault.DuplicateUserNameFault: <p>A user with this username already exists.</p>
+            aws_sdk_elasticache.errors.invalid_parameter_combination_exception.InvalidParameterCombinationException: <p>Two or more incompatible parameters were specified.</p>
+            aws_sdk_elasticache.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value for a parameter is invalid.</p>
+            aws_sdk_elasticache.errors.invalid_user_group_state_fault.InvalidUserGroupStateFault: <p>The user group is not in an active state.</p>
+            aws_sdk_elasticache.errors.service_linked_role_not_found_fault.ServiceLinkedRoleNotFoundFault: <p>The specified service linked role (SLR) was not found.</p>
+            aws_sdk_elasticache.errors.user_group_not_found_fault.UserGroupNotFoundFault: <p>The user group was not found or does not exist</p>
+            aws_sdk_elasticache.errors.user_not_found_fault.UserNotFoundFault: <p>The user does not exist or could not be found.</p>
+            aws_sdk_elasticache.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5213,6 +5788,15 @@ class ElastiCacheClient:
             cache_node_count: <p>The number of cache node instances to reserve.</p> <p>Default: <code>1</code> </p>
             tags: <p>A list of tags to be added to this resource. A tag is a key-value pair. A tag key must be accompanied by a tag value, although null is accepted.</p>
 
+        Raises:
+            aws_sdk_elasticache.errors.invalid_parameter_combination_exception.InvalidParameterCombinationException: <p>Two or more incompatible parameters were specified.</p>
+            aws_sdk_elasticache.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value for a parameter is invalid.</p>
+            aws_sdk_elasticache.errors.reserved_cache_node_already_exists_fault.ReservedCacheNodeAlreadyExistsFault: <p>You already have a reservation with the given identifier.</p>
+            aws_sdk_elasticache.errors.reserved_cache_node_quota_exceeded_fault.ReservedCacheNodeQuotaExceededFault: <p>The request cannot be processed because it would exceed the user's cache node quota.</p>
+            aws_sdk_elasticache.errors.reserved_cache_nodes_offering_not_found_fault.ReservedCacheNodesOfferingNotFoundFault: <p>The requested cache node offering does not exist.</p>
+            aws_sdk_elasticache.errors.tag_quota_per_resource_exceeded.TagQuotaPerResourceExceeded: <p>The request cannot be processed because it would cause the resource to have more than the allowed number of tags. The maximum number of tags permitted on a resource is 50.</p>
+            aws_sdk_elasticache.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             PurchaseReservedCacheNodesOfferings
             Allows you to purchase a reserved cache node offering.
@@ -5263,6 +5847,12 @@ class ElastiCacheClient:
         Args:
             global_replication_group_id: <p>The name of the Global datastore</p>
             apply_immediately: <p>If <code>True</code>, redistribution is applied immediately.</p>
+
+        Raises:
+            aws_sdk_elasticache.errors.global_replication_group_not_found_fault.GlobalReplicationGroupNotFoundFault: <p>The Global datastore does not exist</p>
+            aws_sdk_elasticache.errors.invalid_global_replication_group_state_fault.InvalidGlobalReplicationGroupStateFault: <p>The Global datastore is not available or in primary-only state.</p>
+            aws_sdk_elasticache.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value for a parameter is invalid.</p>
+            aws_sdk_elasticache.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5305,6 +5895,11 @@ class ElastiCacheClient:
         Args:
             cache_cluster_id: <p>The cluster identifier. This parameter is stored as a lowercase string.</p>
             cache_node_ids_to_reboot: <p>A list of cache node IDs to reboot. A node ID is a numeric identifier (0001, 0002, etc.). To reboot an entire cluster, specify all of the cache node IDs.</p>
+
+        Raises:
+            aws_sdk_elasticache.errors.cache_cluster_not_found_fault.CacheClusterNotFoundFault: <p>The requested cluster ID does not refer to an existing cluster.</p>
+            aws_sdk_elasticache.errors.invalid_cache_cluster_state_fault.InvalidCacheClusterStateFault: <p>The requested cluster is not in the <code>available</code> state.</p>
+            aws_sdk_elasticache.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             RebootCacheCluster
@@ -5351,6 +5946,25 @@ class ElastiCacheClient:
         Args:
             resource_name: <p>The Amazon Resource Name (ARN) of the resource from which you want the tags removed, for example <code>arn:aws:elasticache:us-west-2:0123456789:cluster:myCluster</code> or <code>arn:aws:elasticache:us-west-2:0123456789:snapshot:mySnapshot</code>.</p> <p>For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs) and Amazon Service Namespaces</a>.</p>
             tag_keys: <p>A list of <code>TagKeys</code> identifying the tags you want removed from the named resource.</p>
+
+        Raises:
+            aws_sdk_elasticache.errors.cache_cluster_not_found_fault.CacheClusterNotFoundFault: <p>The requested cluster ID does not refer to an existing cluster.</p>
+            aws_sdk_elasticache.errors.cache_parameter_group_not_found_fault.CacheParameterGroupNotFoundFault: <p>The requested cache parameter group name does not refer to an existing cache parameter group.</p>
+            aws_sdk_elasticache.errors.cache_security_group_not_found_fault.CacheSecurityGroupNotFoundFault: <p>The requested cache security group name does not refer to an existing cache security group.</p>
+            aws_sdk_elasticache.errors.cache_subnet_group_not_found_fault.CacheSubnetGroupNotFoundFault: <p>The requested cache subnet group name does not refer to an existing cache subnet group.</p>
+            aws_sdk_elasticache.errors.invalid_arn_fault.InvalidARNFault: <p>The requested Amazon Resource Name (ARN) does not refer to an existing resource.</p>
+            aws_sdk_elasticache.errors.invalid_replication_group_state_fault.InvalidReplicationGroupStateFault: <p>The requested replication group is not in the <code>available</code> state.</p>
+            aws_sdk_elasticache.errors.invalid_serverless_cache_snapshot_state_fault.InvalidServerlessCacheSnapshotStateFault: <p>The state of the serverless cache snapshot was not received. Available for Valkey, Redis OSS and Serverless Memcached only.</p>
+            aws_sdk_elasticache.errors.invalid_serverless_cache_state_fault.InvalidServerlessCacheStateFault: <p>The account for these credentials is not currently active.</p>
+            aws_sdk_elasticache.errors.replication_group_not_found_fault.ReplicationGroupNotFoundFault: <p>The specified replication group does not exist.</p>
+            aws_sdk_elasticache.errors.reserved_cache_node_not_found_fault.ReservedCacheNodeNotFoundFault: <p>The requested reserved cache node was not found.</p>
+            aws_sdk_elasticache.errors.serverless_cache_not_found_fault.ServerlessCacheNotFoundFault: <p>The serverless cache was not found or does not exist.</p>
+            aws_sdk_elasticache.errors.serverless_cache_snapshot_not_found_fault.ServerlessCacheSnapshotNotFoundFault: <p>This serverless cache snapshot could not be found or does not exist. Available for Valkey, Redis OSS and Serverless Memcached only.</p>
+            aws_sdk_elasticache.errors.snapshot_not_found_fault.SnapshotNotFoundFault: <p>The requested snapshot name does not refer to an existing snapshot.</p>
+            aws_sdk_elasticache.errors.tag_not_found_fault.TagNotFoundFault: <p>The requested tag was not found on this resource.</p>
+            aws_sdk_elasticache.errors.user_group_not_found_fault.UserGroupNotFoundFault: <p>The user group was not found or does not exist</p>
+            aws_sdk_elasticache.errors.user_not_found_fault.UserNotFoundFault: <p>The user does not exist or could not be found.</p>
+            aws_sdk_elasticache.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             RemoveTagsFromResource
@@ -5404,6 +6018,14 @@ class ElastiCacheClient:
             reset_all_parameters: <p>If <code>true</code>, all parameters in the cache parameter group are reset to their default values. If <code>false</code>, only the parameters listed by <code>ParameterNameValues</code> are reset to their default values.</p> <p>Valid values: <code>true</code> | <code>false</code> </p>
             parameter_name_values: <p>An array of parameter names to reset to their default values. If <code>ResetAllParameters</code> is <code>true</code>, do not use <code>ParameterNameValues</code>. If <code>ResetAllParameters</code> is <code>false</code>, you must specify the name of at least one parameter to reset.</p>
 
+        Raises:
+            aws_sdk_elasticache.errors.cache_parameter_group_not_found_fault.CacheParameterGroupNotFoundFault: <p>The requested cache parameter group name does not refer to an existing cache parameter group.</p>
+            aws_sdk_elasticache.errors.invalid_cache_parameter_group_state_fault.InvalidCacheParameterGroupStateFault: <p>The current state of the cache parameter group does not allow the requested operation to occur.</p>
+            aws_sdk_elasticache.errors.invalid_global_replication_group_state_fault.InvalidGlobalReplicationGroupStateFault: <p>The Global datastore is not available or in primary-only state.</p>
+            aws_sdk_elasticache.errors.invalid_parameter_combination_exception.InvalidParameterCombinationException: <p>Two or more incompatible parameters were specified.</p>
+            aws_sdk_elasticache.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value for a parameter is invalid.</p>
+            aws_sdk_elasticache.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             ResetCacheParameterGroup
             Modifies the parameters of a cache parameter group to the engine or system default value.
@@ -5455,6 +6077,14 @@ class ElastiCacheClient:
             ec2_security_group_name: <p>The name of the Amazon EC2 security group to revoke access from.</p>
             ec2_security_group_owner_id: <p>The Amazon account number of the Amazon EC2 security group owner. Note that this is not the same thing as an Amazon access key ID - you must provide a valid Amazon account number for this parameter.</p>
 
+        Raises:
+            aws_sdk_elasticache.errors.authorization_not_found_fault.AuthorizationNotFoundFault: <p>The specified Amazon EC2 security group is not authorized for the specified cache security group.</p>
+            aws_sdk_elasticache.errors.cache_security_group_not_found_fault.CacheSecurityGroupNotFoundFault: <p>The requested cache security group name does not refer to an existing cache security group.</p>
+            aws_sdk_elasticache.errors.invalid_cache_security_group_state_fault.InvalidCacheSecurityGroupStateFault: <p>The current state of the cache security group does not allow deletion.</p>
+            aws_sdk_elasticache.errors.invalid_parameter_combination_exception.InvalidParameterCombinationException: <p>Two or more incompatible parameters were specified.</p>
+            aws_sdk_elasticache.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value for a parameter is invalid.</p>
+            aws_sdk_elasticache.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             DescribeCacheSecurityGroups
             Returns a list of cache security group descriptions. If a cache security group name is specified, the list contains only the description of that group.
@@ -5501,6 +6131,13 @@ class ElastiCacheClient:
         Args:
             replication_group_id: <p>The ID of the replication group to which data should be migrated.</p>
             customer_node_endpoint_list: <p>List of endpoints from which data should be migrated. For Valkey or Redis OSS (cluster mode disabled), the list should have only one element.</p>
+
+        Raises:
+            aws_sdk_elasticache.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value for a parameter is invalid.</p>
+            aws_sdk_elasticache.errors.invalid_replication_group_state_fault.InvalidReplicationGroupStateFault: <p>The requested replication group is not in the <code>available</code> state.</p>
+            aws_sdk_elasticache.errors.replication_group_already_under_migration_fault.ReplicationGroupAlreadyUnderMigrationFault: <p>The targeted replication group is not available. </p>
+            aws_sdk_elasticache.errors.replication_group_not_found_fault.ReplicationGroupNotFoundFault: <p>The specified replication group does not exist.</p>
+            aws_sdk_elasticache.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5541,6 +6178,18 @@ class ElastiCacheClient:
         Args:
             replication_group_id: <p>The name of the replication group (console: cluster) whose automatic failover is being tested by this operation.</p>
             node_group_id: <p>The name of the node group (called shard in the console) in this replication group on which automatic failover is to be tested. You may test automatic failover on up to 15 node groups in any rolling 24-hour period.</p>
+
+        Raises:
+            aws_sdk_elasticache.errors.api_call_rate_for_customer_exceeded_fault.APICallRateForCustomerExceededFault: <p>The customer has exceeded the allowed rate of API calls.</p>
+            aws_sdk_elasticache.errors.invalid_cache_cluster_state_fault.InvalidCacheClusterStateFault: <p>The requested cluster is not in the <code>available</code> state.</p>
+            aws_sdk_elasticache.errors.invalid_kms_key_fault.InvalidKMSKeyFault: <p>The KMS key supplied is not valid.</p>
+            aws_sdk_elasticache.errors.invalid_parameter_combination_exception.InvalidParameterCombinationException: <p>Two or more incompatible parameters were specified.</p>
+            aws_sdk_elasticache.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value for a parameter is invalid.</p>
+            aws_sdk_elasticache.errors.invalid_replication_group_state_fault.InvalidReplicationGroupStateFault: <p>The requested replication group is not in the <code>available</code> state.</p>
+            aws_sdk_elasticache.errors.node_group_not_found_fault.NodeGroupNotFoundFault: <p>The node group specified by the <code>NodeGroupId</code> parameter could not be found. Please verify that the node group exists and that you spelled the <code>NodeGroupId</code> value correctly.</p>
+            aws_sdk_elasticache.errors.replication_group_not_found_fault.ReplicationGroupNotFoundFault: <p>The specified replication group does not exist.</p>
+            aws_sdk_elasticache.errors.test_failover_not_available_fault.TestFailoverNotAvailableFault: <p>The <code>TestFailover</code> action is not available.</p>
+            aws_sdk_elasticache.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5581,6 +6230,13 @@ class ElastiCacheClient:
         Args:
             replication_group_id: <p> The ID of the replication group to which data is to be migrated. </p>
             customer_node_endpoint_list: <p> List of endpoints from which data should be migrated. List should have only one element. </p>
+
+        Raises:
+            aws_sdk_elasticache.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value for a parameter is invalid.</p>
+            aws_sdk_elasticache.errors.invalid_replication_group_state_fault.InvalidReplicationGroupStateFault: <p>The requested replication group is not in the <code>available</code> state.</p>
+            aws_sdk_elasticache.errors.replication_group_already_under_migration_fault.ReplicationGroupAlreadyUnderMigrationFault: <p>The targeted replication group is not available. </p>
+            aws_sdk_elasticache.errors.replication_group_not_found_fault.ReplicationGroupNotFoundFault: <p>The specified replication group does not exist.</p>
+            aws_sdk_elasticache.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(

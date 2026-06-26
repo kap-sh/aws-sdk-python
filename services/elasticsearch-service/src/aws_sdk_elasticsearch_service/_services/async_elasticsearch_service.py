@@ -277,6 +277,12 @@ class AsyncElasticsearchServiceClient:
 
         Args:
             cross_cluster_search_connection_id: <p>The id of the inbound connection that you want to accept.</p>
+
+        Raises:
+            aws_sdk_elasticsearch_service.errors.disabled_operation_exception.DisabledOperationException: <p>An error occured because the client wanted to access a not supported operation. Gives http status code of 409.</p>
+            aws_sdk_elasticsearch_service.errors.limit_exceeded_exception.LimitExceededException: <p>An exception for trying to create more than allowed resources or sub-resources. Gives http status code of 409.</p>
+            aws_sdk_elasticsearch_service.errors.resource_not_found_exception.ResourceNotFoundException: <p>An exception for accessing or deleting a resource that does not exist. Gives http status code of 400.</p>
+            aws_sdk_elasticsearch_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -319,6 +325,13 @@ class AsyncElasticsearchServiceClient:
         Args:
             arn: <p> Specify the <code>ARN</code> for which you want to add the tags.</p>
             tag_list: <p> List of <code>Tag</code> that need to be added for the Elasticsearch domain. </p>
+
+        Raises:
+            aws_sdk_elasticsearch_service.errors.base_exception.BaseException: <p>An error occurred while processing the request.</p>
+            aws_sdk_elasticsearch_service.errors.internal_exception.InternalException: <p>The request processing has failed because of an unknown error, exception or failure (the failure is internal to the service) . Gives http status code of 500.</p>
+            aws_sdk_elasticsearch_service.errors.limit_exceeded_exception.LimitExceededException: <p>An exception for trying to create more than allowed resources or sub-resources. Gives http status code of 409.</p>
+            aws_sdk_elasticsearch_service.errors.validation_exception.ValidationException: <p>An exception for missing / invalid input fields. Gives http status code of 400.</p>
+            aws_sdk_elasticsearch_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -358,6 +371,15 @@ class AsyncElasticsearchServiceClient:
         Args:
             package_id: <p>Internal ID of the package that you want to associate with a domain. Use <code>DescribePackages</code> to find this value.</p>
             domain_name: <p>Name of the domain that you want to associate the package with.</p>
+
+        Raises:
+            aws_sdk_elasticsearch_service.errors.access_denied_exception.AccessDeniedException: <p>An error occurred because user does not have permissions to access the resource. Returns HTTP status code 403.</p>
+            aws_sdk_elasticsearch_service.errors.base_exception.BaseException: <p>An error occurred while processing the request.</p>
+            aws_sdk_elasticsearch_service.errors.conflict_exception.ConflictException: <p>An error occurred because the client attempts to remove a resource that is currently in use. Returns HTTP status code 409.</p>
+            aws_sdk_elasticsearch_service.errors.internal_exception.InternalException: <p>The request processing has failed because of an unknown error, exception or failure (the failure is internal to the service) . Gives http status code of 500.</p>
+            aws_sdk_elasticsearch_service.errors.resource_not_found_exception.ResourceNotFoundException: <p>An exception for accessing or deleting a resource that does not exist. Gives http status code of 400.</p>
+            aws_sdk_elasticsearch_service.errors.validation_exception.ValidationException: <p>An exception for missing / invalid input fields. Gives http status code of 400.</p>
+            aws_sdk_elasticsearch_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -399,6 +421,15 @@ class AsyncElasticsearchServiceClient:
         Args:
             domain_name: <p>The name of the OpenSearch Service domain to provide access to.</p>
             account: <p>The account ID to grant access to.</p>
+
+        Raises:
+            aws_sdk_elasticsearch_service.errors.base_exception.BaseException: <p>An error occurred while processing the request.</p>
+            aws_sdk_elasticsearch_service.errors.disabled_operation_exception.DisabledOperationException: <p>An error occured because the client wanted to access a not supported operation. Gives http status code of 409.</p>
+            aws_sdk_elasticsearch_service.errors.internal_exception.InternalException: <p>The request processing has failed because of an unknown error, exception or failure (the failure is internal to the service) . Gives http status code of 500.</p>
+            aws_sdk_elasticsearch_service.errors.limit_exceeded_exception.LimitExceededException: <p>An exception for trying to create more than allowed resources or sub-resources. Gives http status code of 409.</p>
+            aws_sdk_elasticsearch_service.errors.resource_not_found_exception.ResourceNotFoundException: <p>An exception for accessing or deleting a resource that does not exist. Gives http status code of 400.</p>
+            aws_sdk_elasticsearch_service.errors.validation_exception.ValidationException: <p>An exception for missing / invalid input fields. Gives http status code of 400.</p>
+            aws_sdk_elasticsearch_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -440,6 +471,14 @@ class AsyncElasticsearchServiceClient:
         Args:
             domain_name: <p>Name of the OpenSearch Service domain configuration request to cancel.</p>
             dry_run: <p>When set to <b>True</b>, returns the list of change IDs and properties that will be cancelled without actually cancelling the change.</p>
+
+        Raises:
+            aws_sdk_elasticsearch_service.errors.base_exception.BaseException: <p>An error occurred while processing the request.</p>
+            aws_sdk_elasticsearch_service.errors.disabled_operation_exception.DisabledOperationException: <p>An error occured because the client wanted to access a not supported operation. Gives http status code of 409.</p>
+            aws_sdk_elasticsearch_service.errors.internal_exception.InternalException: <p>The request processing has failed because of an unknown error, exception or failure (the failure is internal to the service) . Gives http status code of 500.</p>
+            aws_sdk_elasticsearch_service.errors.resource_not_found_exception.ResourceNotFoundException: <p>An exception for accessing or deleting a resource that does not exist. Gives http status code of 400.</p>
+            aws_sdk_elasticsearch_service.errors.validation_exception.ValidationException: <p>An exception for missing / invalid input fields. Gives http status code of 400.</p>
+            aws_sdk_elasticsearch_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -480,6 +519,13 @@ class AsyncElasticsearchServiceClient:
 
         Args:
             domain_name: <p>The name of the domain that you want to stop the latest service software update on.</p>
+
+        Raises:
+            aws_sdk_elasticsearch_service.errors.base_exception.BaseException: <p>An error occurred while processing the request.</p>
+            aws_sdk_elasticsearch_service.errors.internal_exception.InternalException: <p>The request processing has failed because of an unknown error, exception or failure (the failure is internal to the service) . Gives http status code of 500.</p>
+            aws_sdk_elasticsearch_service.errors.resource_not_found_exception.ResourceNotFoundException: <p>An exception for accessing or deleting a resource that does not exist. Gives http status code of 400.</p>
+            aws_sdk_elasticsearch_service.errors.validation_exception.ValidationException: <p>An exception for missing / invalid input fields. Gives http status code of 400.</p>
+            aws_sdk_elasticsearch_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -586,6 +632,16 @@ class AsyncElasticsearchServiceClient:
             tag_list: <p>A list of <code>Tag</code> added during domain creation.</p>
             deployment_strategy_options: <p>Specifies the deployment strategy options.</p>
             automated_snapshot_pause_options: <p>Specifies the automated snapshot pause options for the domain.</p> <important> <p>Suspending snapshots reduces data protection. You cannot restore your domain to points in time when snapshots are suspended. Use this feature only for short-term operational needs such as migrations or maintenance windows.</p> </important> <p>Maximum suspension duration: 3 days.</p>
+
+        Raises:
+            aws_sdk_elasticsearch_service.errors.base_exception.BaseException: <p>An error occurred while processing the request.</p>
+            aws_sdk_elasticsearch_service.errors.disabled_operation_exception.DisabledOperationException: <p>An error occured because the client wanted to access a not supported operation. Gives http status code of 409.</p>
+            aws_sdk_elasticsearch_service.errors.internal_exception.InternalException: <p>The request processing has failed because of an unknown error, exception or failure (the failure is internal to the service) . Gives http status code of 500.</p>
+            aws_sdk_elasticsearch_service.errors.invalid_type_exception.InvalidTypeException: <p>An exception for trying to create or access sub-resource that is either invalid or not supported. Gives http status code of 409.</p>
+            aws_sdk_elasticsearch_service.errors.limit_exceeded_exception.LimitExceededException: <p>An exception for trying to create more than allowed resources or sub-resources. Gives http status code of 409.</p>
+            aws_sdk_elasticsearch_service.errors.resource_already_exists_exception.ResourceAlreadyExistsException: <p>An exception for creating a resource that already exists. Gives http status code of 400.</p>
+            aws_sdk_elasticsearch_service.errors.validation_exception.ValidationException: <p>An exception for missing / invalid input fields. Gives http status code of 400.</p>
+            aws_sdk_elasticsearch_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -664,6 +720,13 @@ class AsyncElasticsearchServiceClient:
             source_domain_info: <p>Specifies the <code><a>DomainInformation</a></code> for the source Elasticsearch domain.</p>
             destination_domain_info: <p>Specifies the <code><a>DomainInformation</a></code> for the destination Elasticsearch domain.</p>
             connection_alias: <p>Specifies the connection alias that will be used by the customer for this connection.</p>
+
+        Raises:
+            aws_sdk_elasticsearch_service.errors.disabled_operation_exception.DisabledOperationException: <p>An error occured because the client wanted to access a not supported operation. Gives http status code of 409.</p>
+            aws_sdk_elasticsearch_service.errors.internal_exception.InternalException: <p>The request processing has failed because of an unknown error, exception or failure (the failure is internal to the service) . Gives http status code of 500.</p>
+            aws_sdk_elasticsearch_service.errors.limit_exceeded_exception.LimitExceededException: <p>An exception for trying to create more than allowed resources or sub-resources. Gives http status code of 409.</p>
+            aws_sdk_elasticsearch_service.errors.resource_already_exists_exception.ResourceAlreadyExistsException: <p>An exception for creating a resource that already exists. Gives http status code of 400.</p>
+            aws_sdk_elasticsearch_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -712,6 +775,16 @@ class AsyncElasticsearchServiceClient:
             package_type: <p>Type of package. Currently supports only TXT-DICTIONARY.</p>
             package_description: <p>Description of the package.</p>
             package_source: <p>The customer S3 location <code>PackageSource</code> for importing the package.</p>
+
+        Raises:
+            aws_sdk_elasticsearch_service.errors.access_denied_exception.AccessDeniedException: <p>An error occurred because user does not have permissions to access the resource. Returns HTTP status code 403.</p>
+            aws_sdk_elasticsearch_service.errors.base_exception.BaseException: <p>An error occurred while processing the request.</p>
+            aws_sdk_elasticsearch_service.errors.internal_exception.InternalException: <p>The request processing has failed because of an unknown error, exception or failure (the failure is internal to the service) . Gives http status code of 500.</p>
+            aws_sdk_elasticsearch_service.errors.invalid_type_exception.InvalidTypeException: <p>An exception for trying to create or access sub-resource that is either invalid or not supported. Gives http status code of 409.</p>
+            aws_sdk_elasticsearch_service.errors.limit_exceeded_exception.LimitExceededException: <p>An exception for trying to create more than allowed resources or sub-resources. Gives http status code of 409.</p>
+            aws_sdk_elasticsearch_service.errors.resource_already_exists_exception.ResourceAlreadyExistsException: <p>An exception for creating a resource that already exists. Gives http status code of 400.</p>
+            aws_sdk_elasticsearch_service.errors.validation_exception.ValidationException: <p>An exception for missing / invalid input fields. Gives http status code of 400.</p>
+            aws_sdk_elasticsearch_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -760,6 +833,15 @@ class AsyncElasticsearchServiceClient:
             domain_arn: <p>The Amazon Resource Name (ARN) of the domain to grant access to.</p>
             vpc_options: <p>Options to specify the subnets and security groups for the endpoint.</p>
             client_token: <p>Unique, case-sensitive identifier to ensure idempotency of the request.</p>
+
+        Raises:
+            aws_sdk_elasticsearch_service.errors.base_exception.BaseException: <p>An error occurred while processing the request.</p>
+            aws_sdk_elasticsearch_service.errors.conflict_exception.ConflictException: <p>An error occurred because the client attempts to remove a resource that is currently in use. Returns HTTP status code 409.</p>
+            aws_sdk_elasticsearch_service.errors.disabled_operation_exception.DisabledOperationException: <p>An error occured because the client wanted to access a not supported operation. Gives http status code of 409.</p>
+            aws_sdk_elasticsearch_service.errors.internal_exception.InternalException: <p>The request processing has failed because of an unknown error, exception or failure (the failure is internal to the service) . Gives http status code of 500.</p>
+            aws_sdk_elasticsearch_service.errors.limit_exceeded_exception.LimitExceededException: <p>An exception for trying to create more than allowed resources or sub-resources. Gives http status code of 409.</p>
+            aws_sdk_elasticsearch_service.errors.validation_exception.ValidationException: <p>An exception for missing / invalid input fields. Gives http status code of 400.</p>
+            aws_sdk_elasticsearch_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -801,6 +883,13 @@ class AsyncElasticsearchServiceClient:
 
         Args:
             domain_name: <p>The name of the Elasticsearch domain that you want to permanently delete.</p>
+
+        Raises:
+            aws_sdk_elasticsearch_service.errors.base_exception.BaseException: <p>An error occurred while processing the request.</p>
+            aws_sdk_elasticsearch_service.errors.internal_exception.InternalException: <p>The request processing has failed because of an unknown error, exception or failure (the failure is internal to the service) . Gives http status code of 500.</p>
+            aws_sdk_elasticsearch_service.errors.resource_not_found_exception.ResourceNotFoundException: <p>An exception for accessing or deleting a resource that does not exist. Gives http status code of 400.</p>
+            aws_sdk_elasticsearch_service.errors.validation_exception.ValidationException: <p>An exception for missing / invalid input fields. Gives http status code of 400.</p>
+            aws_sdk_elasticsearch_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -834,7 +923,14 @@ class AsyncElasticsearchServiceClient:
         *,
         config_overrides: Optional[AsyncElasticsearchServiceClientConfig] = None,
     ) -> None:
-        r"""<p>Deletes the service-linked role that Elasticsearch Service uses to manage and maintain VPC domains. Role deletion will fail if any existing VPC domains use the role. You must delete any such Elasticsearch domains before deleting the role. See <a href=\"http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html#es-enabling-slr\" target=\"_blank\">Deleting Elasticsearch Service Role</a> in <i>VPC Endpoints for Amazon Elasticsearch Service Domains</i>.</p>"""
+        r"""<p>Deletes the service-linked role that Elasticsearch Service uses to manage and maintain VPC domains. Role deletion will fail if any existing VPC domains use the role. You must delete any such Elasticsearch domains before deleting the role. See <a href=\"http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html#es-enabling-slr\" target=\"_blank\">Deleting Elasticsearch Service Role</a> in <i>VPC Endpoints for Amazon Elasticsearch Service Domains</i>.</p>
+
+        Raises:
+            aws_sdk_elasticsearch_service.errors.base_exception.BaseException: <p>An error occurred while processing the request.</p>
+            aws_sdk_elasticsearch_service.errors.internal_exception.InternalException: <p>The request processing has failed because of an unknown error, exception or failure (the failure is internal to the service) . Gives http status code of 500.</p>
+            aws_sdk_elasticsearch_service.errors.validation_exception.ValidationException: <p>An exception for missing / invalid input fields. Gives http status code of 400.</p>
+            aws_sdk_elasticsearch_service.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[None]",
@@ -868,6 +964,11 @@ class AsyncElasticsearchServiceClient:
 
         Args:
             cross_cluster_search_connection_id: <p>The id of the inbound connection that you want to permanently delete.</p>
+
+        Raises:
+            aws_sdk_elasticsearch_service.errors.disabled_operation_exception.DisabledOperationException: <p>An error occured because the client wanted to access a not supported operation. Gives http status code of 409.</p>
+            aws_sdk_elasticsearch_service.errors.resource_not_found_exception.ResourceNotFoundException: <p>An exception for accessing or deleting a resource that does not exist. Gives http status code of 400.</p>
+            aws_sdk_elasticsearch_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -908,6 +1009,11 @@ class AsyncElasticsearchServiceClient:
 
         Args:
             cross_cluster_search_connection_id: <p>The id of the outbound connection that you want to permanently delete.</p>
+
+        Raises:
+            aws_sdk_elasticsearch_service.errors.disabled_operation_exception.DisabledOperationException: <p>An error occured because the client wanted to access a not supported operation. Gives http status code of 409.</p>
+            aws_sdk_elasticsearch_service.errors.resource_not_found_exception.ResourceNotFoundException: <p>An exception for accessing or deleting a resource that does not exist. Gives http status code of 400.</p>
+            aws_sdk_elasticsearch_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -948,6 +1054,15 @@ class AsyncElasticsearchServiceClient:
 
         Args:
             package_id: <p>Internal ID of the package that you want to delete. Use <code>DescribePackages</code> to find this value.</p>
+
+        Raises:
+            aws_sdk_elasticsearch_service.errors.access_denied_exception.AccessDeniedException: <p>An error occurred because user does not have permissions to access the resource. Returns HTTP status code 403.</p>
+            aws_sdk_elasticsearch_service.errors.base_exception.BaseException: <p>An error occurred while processing the request.</p>
+            aws_sdk_elasticsearch_service.errors.conflict_exception.ConflictException: <p>An error occurred because the client attempts to remove a resource that is currently in use. Returns HTTP status code 409.</p>
+            aws_sdk_elasticsearch_service.errors.internal_exception.InternalException: <p>The request processing has failed because of an unknown error, exception or failure (the failure is internal to the service) . Gives http status code of 500.</p>
+            aws_sdk_elasticsearch_service.errors.resource_not_found_exception.ResourceNotFoundException: <p>An exception for accessing or deleting a resource that does not exist. Gives http status code of 400.</p>
+            aws_sdk_elasticsearch_service.errors.validation_exception.ValidationException: <p>An exception for missing / invalid input fields. Gives http status code of 400.</p>
+            aws_sdk_elasticsearch_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -986,6 +1101,13 @@ class AsyncElasticsearchServiceClient:
 
         Args:
             vpc_endpoint_id: <p>The unique identifier of the endpoint to be deleted.</p>
+
+        Raises:
+            aws_sdk_elasticsearch_service.errors.base_exception.BaseException: <p>An error occurred while processing the request.</p>
+            aws_sdk_elasticsearch_service.errors.disabled_operation_exception.DisabledOperationException: <p>An error occured because the client wanted to access a not supported operation. Gives http status code of 409.</p>
+            aws_sdk_elasticsearch_service.errors.internal_exception.InternalException: <p>The request processing has failed because of an unknown error, exception or failure (the failure is internal to the service) . Gives http status code of 500.</p>
+            aws_sdk_elasticsearch_service.errors.resource_not_found_exception.ResourceNotFoundException: <p>An exception for accessing or deleting a resource that does not exist. Gives http status code of 400.</p>
+            aws_sdk_elasticsearch_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1032,6 +1154,13 @@ class AsyncElasticsearchServiceClient:
             domain_name: <p>Specifies the domain name for which you want Auto-Tune action details.</p>
             max_results: <p>Set this value to limit the number of results returned. If not specified, defaults to 100.</p>
             next_token: <p>NextToken is sent in case the earlier API call results contain the NextToken. It is used for pagination.</p>
+
+        Raises:
+            aws_sdk_elasticsearch_service.errors.base_exception.BaseException: <p>An error occurred while processing the request.</p>
+            aws_sdk_elasticsearch_service.errors.internal_exception.InternalException: <p>The request processing has failed because of an unknown error, exception or failure (the failure is internal to the service) . Gives http status code of 500.</p>
+            aws_sdk_elasticsearch_service.errors.resource_not_found_exception.ResourceNotFoundException: <p>An exception for accessing or deleting a resource that does not exist. Gives http status code of 400.</p>
+            aws_sdk_elasticsearch_service.errors.validation_exception.ValidationException: <p>An exception for missing / invalid input fields. Gives http status code of 400.</p>
+            aws_sdk_elasticsearch_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1076,6 +1205,13 @@ class AsyncElasticsearchServiceClient:
         Args:
             domain_name: <p>The domain you want to get the progress information about.</p>
             change_id: <p>The specific change ID for which you want to get progress information. This is an optional parameter. If omitted, the service returns information about the most recent configuration change. </p>
+
+        Raises:
+            aws_sdk_elasticsearch_service.errors.base_exception.BaseException: <p>An error occurred while processing the request.</p>
+            aws_sdk_elasticsearch_service.errors.internal_exception.InternalException: <p>The request processing has failed because of an unknown error, exception or failure (the failure is internal to the service) . Gives http status code of 500.</p>
+            aws_sdk_elasticsearch_service.errors.resource_not_found_exception.ResourceNotFoundException: <p>An exception for accessing or deleting a resource that does not exist. Gives http status code of 400.</p>
+            aws_sdk_elasticsearch_service.errors.validation_exception.ValidationException: <p>An exception for missing / invalid input fields. Gives http status code of 400.</p>
+            aws_sdk_elasticsearch_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1116,6 +1252,13 @@ class AsyncElasticsearchServiceClient:
 
         Args:
             domain_name: <p>The name of the Elasticsearch domain for which you want information.</p>
+
+        Raises:
+            aws_sdk_elasticsearch_service.errors.base_exception.BaseException: <p>An error occurred while processing the request.</p>
+            aws_sdk_elasticsearch_service.errors.internal_exception.InternalException: <p>The request processing has failed because of an unknown error, exception or failure (the failure is internal to the service) . Gives http status code of 500.</p>
+            aws_sdk_elasticsearch_service.errors.resource_not_found_exception.ResourceNotFoundException: <p>An exception for accessing or deleting a resource that does not exist. Gives http status code of 400.</p>
+            aws_sdk_elasticsearch_service.errors.validation_exception.ValidationException: <p>An exception for missing / invalid input fields. Gives http status code of 400.</p>
+            aws_sdk_elasticsearch_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1154,6 +1297,13 @@ class AsyncElasticsearchServiceClient:
 
         Args:
             domain_name: <p>The Elasticsearch domain that you want to get information about.</p>
+
+        Raises:
+            aws_sdk_elasticsearch_service.errors.base_exception.BaseException: <p>An error occurred while processing the request.</p>
+            aws_sdk_elasticsearch_service.errors.internal_exception.InternalException: <p>The request processing has failed because of an unknown error, exception or failure (the failure is internal to the service) . Gives http status code of 500.</p>
+            aws_sdk_elasticsearch_service.errors.resource_not_found_exception.ResourceNotFoundException: <p>An exception for accessing or deleting a resource that does not exist. Gives http status code of 400.</p>
+            aws_sdk_elasticsearch_service.errors.validation_exception.ValidationException: <p>An exception for missing / invalid input fields. Gives http status code of 400.</p>
+            aws_sdk_elasticsearch_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1192,6 +1342,12 @@ class AsyncElasticsearchServiceClient:
 
         Args:
             domain_names: <p>The Elasticsearch domains for which you want information.</p>
+
+        Raises:
+            aws_sdk_elasticsearch_service.errors.base_exception.BaseException: <p>An error occurred while processing the request.</p>
+            aws_sdk_elasticsearch_service.errors.internal_exception.InternalException: <p>The request processing has failed because of an unknown error, exception or failure (the failure is internal to the service) . Gives http status code of 500.</p>
+            aws_sdk_elasticsearch_service.errors.validation_exception.ValidationException: <p>An exception for missing / invalid input fields. Gives http status code of 400.</p>
+            aws_sdk_elasticsearch_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1236,6 +1392,15 @@ class AsyncElasticsearchServiceClient:
             domain_name: <p> DomainName represents the name of the Domain that we are trying to modify. This should be present only if we are querying for Elasticsearch <code> <a>Limits</a> </code> for existing domain. </p>
             instance_type: <p> The instance type for an Elasticsearch cluster for which Elasticsearch <code> <a>Limits</a> </code> are needed. </p>
             elasticsearch_version: <p> Version of Elasticsearch for which <code> <a>Limits</a> </code> are needed. </p>
+
+        Raises:
+            aws_sdk_elasticsearch_service.errors.base_exception.BaseException: <p>An error occurred while processing the request.</p>
+            aws_sdk_elasticsearch_service.errors.internal_exception.InternalException: <p>The request processing has failed because of an unknown error, exception or failure (the failure is internal to the service) . Gives http status code of 500.</p>
+            aws_sdk_elasticsearch_service.errors.invalid_type_exception.InvalidTypeException: <p>An exception for trying to create or access sub-resource that is either invalid or not supported. Gives http status code of 409.</p>
+            aws_sdk_elasticsearch_service.errors.limit_exceeded_exception.LimitExceededException: <p>An exception for trying to create more than allowed resources or sub-resources. Gives http status code of 409.</p>
+            aws_sdk_elasticsearch_service.errors.resource_not_found_exception.ResourceNotFoundException: <p>An exception for accessing or deleting a resource that does not exist. Gives http status code of 400.</p>
+            aws_sdk_elasticsearch_service.errors.validation_exception.ValidationException: <p>An exception for missing / invalid input fields. Gives http status code of 400.</p>
+            aws_sdk_elasticsearch_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1287,6 +1452,11 @@ class AsyncElasticsearchServiceClient:
             filters: <p> A list of filters used to match properties for inbound cross-cluster search connection. Available <code><a>Filter</a></code> names for this operation are: <ul> <li>cross-cluster-search-connection-id</li> <li>source-domain-info.domain-name</li> <li>source-domain-info.owner-id</li> <li>source-domain-info.region</li> <li>destination-domain-info.domain-name</li> </ul> </p>
             max_results: <p>Set this value to limit the number of results returned. If not specified, defaults to 100.</p>
             next_token: <p> NextToken is sent in case the earlier API call results contain the NextToken. It is used for pagination.</p>
+
+        Raises:
+            aws_sdk_elasticsearch_service.errors.disabled_operation_exception.DisabledOperationException: <p>An error occured because the client wanted to access a not supported operation. Gives http status code of 409.</p>
+            aws_sdk_elasticsearch_service.errors.invalid_pagination_token_exception.InvalidPaginationTokenException: <p>The request processing has failed because of invalid pagination token provided by customer. Returns an HTTP status code of 400. </p>
+            aws_sdk_elasticsearch_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1340,6 +1510,11 @@ class AsyncElasticsearchServiceClient:
             filters: <p> A list of filters used to match properties for outbound cross-cluster search connection. Available <code><a>Filter</a></code> names for this operation are: <ul> <li>cross-cluster-search-connection-id</li> <li>destination-domain-info.domain-name</li> <li>destination-domain-info.owner-id</li> <li>destination-domain-info.region</li> <li>source-domain-info.domain-name</li> </ul> </p>
             max_results: <p>Set this value to limit the number of results returned. If not specified, defaults to 100.</p>
             next_token: <p> NextToken is sent in case the earlier API call results contain the NextToken. It is used for pagination.</p>
+
+        Raises:
+            aws_sdk_elasticsearch_service.errors.disabled_operation_exception.DisabledOperationException: <p>An error occured because the client wanted to access a not supported operation. Gives http status code of 409.</p>
+            aws_sdk_elasticsearch_service.errors.invalid_pagination_token_exception.InvalidPaginationTokenException: <p>The request processing has failed because of invalid pagination token provided by customer. Returns an HTTP status code of 400. </p>
+            aws_sdk_elasticsearch_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1393,6 +1568,14 @@ class AsyncElasticsearchServiceClient:
             filters: <p>Only returns packages that match the <code>DescribePackagesFilterList</code> values.</p>
             max_results: <p>Limits results to a maximum number of packages.</p>
             next_token: <p>Used for pagination. Only necessary if a previous API call includes a non-null NextToken value. If provided, returns results for the next page.</p>
+
+        Raises:
+            aws_sdk_elasticsearch_service.errors.access_denied_exception.AccessDeniedException: <p>An error occurred because user does not have permissions to access the resource. Returns HTTP status code 403.</p>
+            aws_sdk_elasticsearch_service.errors.base_exception.BaseException: <p>An error occurred while processing the request.</p>
+            aws_sdk_elasticsearch_service.errors.internal_exception.InternalException: <p>The request processing has failed because of an unknown error, exception or failure (the failure is internal to the service) . Gives http status code of 500.</p>
+            aws_sdk_elasticsearch_service.errors.resource_not_found_exception.ResourceNotFoundException: <p>An exception for accessing or deleting a resource that does not exist. Gives http status code of 400.</p>
+            aws_sdk_elasticsearch_service.errors.validation_exception.ValidationException: <p>An exception for missing / invalid input fields. Gives http status code of 400.</p>
+            aws_sdk_elasticsearch_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1446,6 +1629,13 @@ class AsyncElasticsearchServiceClient:
             reserved_elasticsearch_instance_offering_id: <p>The offering identifier filter value. Use this parameter to show only the available offering that matches the specified reservation identifier.</p>
             max_results: <p>Set this value to limit the number of results returned. If not specified, defaults to 100.</p>
             next_token: <p>NextToken should be sent in case if earlier API call produced result containing NextToken. It is used for pagination.</p>
+
+        Raises:
+            aws_sdk_elasticsearch_service.errors.disabled_operation_exception.DisabledOperationException: <p>An error occured because the client wanted to access a not supported operation. Gives http status code of 409.</p>
+            aws_sdk_elasticsearch_service.errors.internal_exception.InternalException: <p>The request processing has failed because of an unknown error, exception or failure (the failure is internal to the service) . Gives http status code of 500.</p>
+            aws_sdk_elasticsearch_service.errors.resource_not_found_exception.ResourceNotFoundException: <p>An exception for accessing or deleting a resource that does not exist. Gives http status code of 400.</p>
+            aws_sdk_elasticsearch_service.errors.validation_exception.ValidationException: <p>An exception for missing / invalid input fields. Gives http status code of 400.</p>
+            aws_sdk_elasticsearch_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1501,6 +1691,13 @@ class AsyncElasticsearchServiceClient:
             reserved_elasticsearch_instance_id: <p>The reserved instance identifier filter value. Use this parameter to show only the reservation that matches the specified reserved Elasticsearch instance ID.</p>
             max_results: <p>Set this value to limit the number of results returned. If not specified, defaults to 100.</p>
             next_token: <p>NextToken should be sent in case if earlier API call produced result containing NextToken. It is used for pagination.</p>
+
+        Raises:
+            aws_sdk_elasticsearch_service.errors.disabled_operation_exception.DisabledOperationException: <p>An error occured because the client wanted to access a not supported operation. Gives http status code of 409.</p>
+            aws_sdk_elasticsearch_service.errors.internal_exception.InternalException: <p>The request processing has failed because of an unknown error, exception or failure (the failure is internal to the service) . Gives http status code of 500.</p>
+            aws_sdk_elasticsearch_service.errors.resource_not_found_exception.ResourceNotFoundException: <p>An exception for accessing or deleting a resource that does not exist. Gives http status code of 400.</p>
+            aws_sdk_elasticsearch_service.errors.validation_exception.ValidationException: <p>An exception for missing / invalid input fields. Gives http status code of 400.</p>
+            aws_sdk_elasticsearch_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1546,6 +1743,13 @@ class AsyncElasticsearchServiceClient:
 
         Args:
             vpc_endpoint_ids: <p>The unique identifiers of the endpoints to get information about.</p>
+
+        Raises:
+            aws_sdk_elasticsearch_service.errors.base_exception.BaseException: <p>An error occurred while processing the request.</p>
+            aws_sdk_elasticsearch_service.errors.disabled_operation_exception.DisabledOperationException: <p>An error occured because the client wanted to access a not supported operation. Gives http status code of 409.</p>
+            aws_sdk_elasticsearch_service.errors.internal_exception.InternalException: <p>The request processing has failed because of an unknown error, exception or failure (the failure is internal to the service) . Gives http status code of 500.</p>
+            aws_sdk_elasticsearch_service.errors.validation_exception.ValidationException: <p>An exception for missing / invalid input fields. Gives http status code of 400.</p>
+            aws_sdk_elasticsearch_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1586,6 +1790,15 @@ class AsyncElasticsearchServiceClient:
         Args:
             package_id: <p>Internal ID of the package that you want to associate with a domain. Use <code>DescribePackages</code> to find this value.</p>
             domain_name: <p>Name of the domain that you want to associate the package with.</p>
+
+        Raises:
+            aws_sdk_elasticsearch_service.errors.access_denied_exception.AccessDeniedException: <p>An error occurred because user does not have permissions to access the resource. Returns HTTP status code 403.</p>
+            aws_sdk_elasticsearch_service.errors.base_exception.BaseException: <p>An error occurred while processing the request.</p>
+            aws_sdk_elasticsearch_service.errors.conflict_exception.ConflictException: <p>An error occurred because the client attempts to remove a resource that is currently in use. Returns HTTP status code 409.</p>
+            aws_sdk_elasticsearch_service.errors.internal_exception.InternalException: <p>The request processing has failed because of an unknown error, exception or failure (the failure is internal to the service) . Gives http status code of 500.</p>
+            aws_sdk_elasticsearch_service.errors.resource_not_found_exception.ResourceNotFoundException: <p>An exception for accessing or deleting a resource that does not exist. Gives http status code of 400.</p>
+            aws_sdk_elasticsearch_service.errors.validation_exception.ValidationException: <p>An exception for missing / invalid input fields. Gives http status code of 400.</p>
+            aws_sdk_elasticsearch_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1623,7 +1836,16 @@ class AsyncElasticsearchServiceClient:
             "aws_sdk_elasticsearch_service.types.domain_name.DomainName"
         ] = None,
     ) -> "aws_sdk_elasticsearch_service.types.get_compatible_elasticsearch_versions_response.GetCompatibleElasticsearchVersionsResponse":
-        """<p> Returns a list of upgrade compatible Elastisearch versions. You can optionally pass a <code> <a>DomainName</a> </code> to get all upgrade compatible Elasticsearch versions for that specific domain. </p>"""
+        """<p> Returns a list of upgrade compatible Elastisearch versions. You can optionally pass a <code> <a>DomainName</a> </code> to get all upgrade compatible Elasticsearch versions for that specific domain. </p>
+
+        Raises:
+            aws_sdk_elasticsearch_service.errors.base_exception.BaseException: <p>An error occurred while processing the request.</p>
+            aws_sdk_elasticsearch_service.errors.disabled_operation_exception.DisabledOperationException: <p>An error occured because the client wanted to access a not supported operation. Gives http status code of 409.</p>
+            aws_sdk_elasticsearch_service.errors.internal_exception.InternalException: <p>The request processing has failed because of an unknown error, exception or failure (the failure is internal to the service) . Gives http status code of 500.</p>
+            aws_sdk_elasticsearch_service.errors.resource_not_found_exception.ResourceNotFoundException: <p>An exception for accessing or deleting a resource that does not exist. Gives http status code of 400.</p>
+            aws_sdk_elasticsearch_service.errors.validation_exception.ValidationException: <p>An exception for missing / invalid input fields. Gives http status code of 400.</p>
+            aws_sdk_elasticsearch_service.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_elasticsearch_service.types.get_compatible_elasticsearch_versions_request.GetCompatibleElasticsearchVersionsRequest]",
@@ -1670,6 +1892,14 @@ class AsyncElasticsearchServiceClient:
             package_id: <p>Returns an audit history of versions of the package.</p>
             max_results: <p>Limits results to a maximum number of versions.</p>
             next_token: <p>Used for pagination. Only necessary if a previous API call includes a non-null NextToken value. If provided, returns results for the next page.</p>
+
+        Raises:
+            aws_sdk_elasticsearch_service.errors.access_denied_exception.AccessDeniedException: <p>An error occurred because user does not have permissions to access the resource. Returns HTTP status code 403.</p>
+            aws_sdk_elasticsearch_service.errors.base_exception.BaseException: <p>An error occurred while processing the request.</p>
+            aws_sdk_elasticsearch_service.errors.internal_exception.InternalException: <p>The request processing has failed because of an unknown error, exception or failure (the failure is internal to the service) . Gives http status code of 500.</p>
+            aws_sdk_elasticsearch_service.errors.resource_not_found_exception.ResourceNotFoundException: <p>An exception for accessing or deleting a resource that does not exist. Gives http status code of 400.</p>
+            aws_sdk_elasticsearch_service.errors.validation_exception.ValidationException: <p>An exception for missing / invalid input fields. Gives http status code of 400.</p>
+            aws_sdk_elasticsearch_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1714,7 +1944,16 @@ class AsyncElasticsearchServiceClient:
             "aws_sdk_elasticsearch_service.types.next_token.NextToken"
         ] = None,
     ) -> "aws_sdk_elasticsearch_service.types.get_upgrade_history_response.GetUpgradeHistoryResponse":
-        """<p>Retrieves the complete history of the last 10 upgrades that were performed on the domain.</p>"""
+        """<p>Retrieves the complete history of the last 10 upgrades that were performed on the domain.</p>
+
+        Raises:
+            aws_sdk_elasticsearch_service.errors.base_exception.BaseException: <p>An error occurred while processing the request.</p>
+            aws_sdk_elasticsearch_service.errors.disabled_operation_exception.DisabledOperationException: <p>An error occured because the client wanted to access a not supported operation. Gives http status code of 409.</p>
+            aws_sdk_elasticsearch_service.errors.internal_exception.InternalException: <p>The request processing has failed because of an unknown error, exception or failure (the failure is internal to the service) . Gives http status code of 500.</p>
+            aws_sdk_elasticsearch_service.errors.resource_not_found_exception.ResourceNotFoundException: <p>An exception for accessing or deleting a resource that does not exist. Gives http status code of 400.</p>
+            aws_sdk_elasticsearch_service.errors.validation_exception.ValidationException: <p>An exception for missing / invalid input fields. Gives http status code of 400.</p>
+            aws_sdk_elasticsearch_service.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_elasticsearch_service.types.get_upgrade_history_request.GetUpgradeHistoryRequest]",
@@ -1752,7 +1991,16 @@ class AsyncElasticsearchServiceClient:
         *,
         config_overrides: Optional[AsyncElasticsearchServiceClientConfig] = None,
     ) -> "aws_sdk_elasticsearch_service.types.get_upgrade_status_response.GetUpgradeStatusResponse":
-        """<p>Retrieves the latest status of the last upgrade or upgrade eligibility check that was performed on the domain.</p>"""
+        """<p>Retrieves the latest status of the last upgrade or upgrade eligibility check that was performed on the domain.</p>
+
+        Raises:
+            aws_sdk_elasticsearch_service.errors.base_exception.BaseException: <p>An error occurred while processing the request.</p>
+            aws_sdk_elasticsearch_service.errors.disabled_operation_exception.DisabledOperationException: <p>An error occured because the client wanted to access a not supported operation. Gives http status code of 409.</p>
+            aws_sdk_elasticsearch_service.errors.internal_exception.InternalException: <p>The request processing has failed because of an unknown error, exception or failure (the failure is internal to the service) . Gives http status code of 500.</p>
+            aws_sdk_elasticsearch_service.errors.resource_not_found_exception.ResourceNotFoundException: <p>An exception for accessing or deleting a resource that does not exist. Gives http status code of 400.</p>
+            aws_sdk_elasticsearch_service.errors.validation_exception.ValidationException: <p>An exception for missing / invalid input fields. Gives http status code of 400.</p>
+            aws_sdk_elasticsearch_service.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_elasticsearch_service.types.get_upgrade_status_request.GetUpgradeStatusRequest]",
@@ -1792,6 +2040,11 @@ class AsyncElasticsearchServiceClient:
 
         Args:
             engine_type: <p> Optional parameter to filter the output by domain engine type. Acceptable values are 'Elasticsearch' and 'OpenSearch'. </p>
+
+        Raises:
+            aws_sdk_elasticsearch_service.errors.base_exception.BaseException: <p>An error occurred while processing the request.</p>
+            aws_sdk_elasticsearch_service.errors.validation_exception.ValidationException: <p>An exception for missing / invalid input fields. Gives http status code of 400.</p>
+            aws_sdk_elasticsearch_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1839,6 +2092,14 @@ class AsyncElasticsearchServiceClient:
             package_id: <p>The package for which to list domains.</p>
             max_results: <p>Limits results to a maximum number of domains.</p>
             next_token: <p>Used for pagination. Only necessary if a previous API call includes a non-null NextToken value. If provided, returns results for the next page.</p>
+
+        Raises:
+            aws_sdk_elasticsearch_service.errors.access_denied_exception.AccessDeniedException: <p>An error occurred because user does not have permissions to access the resource. Returns HTTP status code 403.</p>
+            aws_sdk_elasticsearch_service.errors.base_exception.BaseException: <p>An error occurred while processing the request.</p>
+            aws_sdk_elasticsearch_service.errors.internal_exception.InternalException: <p>The request processing has failed because of an unknown error, exception or failure (the failure is internal to the service) . Gives http status code of 500.</p>
+            aws_sdk_elasticsearch_service.errors.resource_not_found_exception.ResourceNotFoundException: <p>An exception for accessing or deleting a resource that does not exist. Gives http status code of 400.</p>
+            aws_sdk_elasticsearch_service.errors.validation_exception.ValidationException: <p>An exception for missing / invalid input fields. Gives http status code of 400.</p>
+            aws_sdk_elasticsearch_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1893,6 +2154,13 @@ class AsyncElasticsearchServiceClient:
             domain_name: <p>DomainName represents the name of the Domain that we are trying to modify. This should be present only if we are querying for list of available Elasticsearch instance types when modifying existing domain. </p>
             max_results: <p> Set this value to limit the number of results returned. Value provided must be greater than 30 else it wont be honored. </p>
             next_token: <p>NextToken should be sent in case if earlier API call produced result containing NextToken. It is used for pagination. </p>
+
+        Raises:
+            aws_sdk_elasticsearch_service.errors.base_exception.BaseException: <p>An error occurred while processing the request.</p>
+            aws_sdk_elasticsearch_service.errors.internal_exception.InternalException: <p>The request processing has failed because of an unknown error, exception or failure (the failure is internal to the service) . Gives http status code of 500.</p>
+            aws_sdk_elasticsearch_service.errors.resource_not_found_exception.ResourceNotFoundException: <p>An exception for accessing or deleting a resource that does not exist. Gives http status code of 400.</p>
+            aws_sdk_elasticsearch_service.errors.validation_exception.ValidationException: <p>An exception for missing / invalid input fields. Gives http status code of 400.</p>
+            aws_sdk_elasticsearch_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1942,6 +2210,13 @@ class AsyncElasticsearchServiceClient:
 
         Args:
             max_results: <p> Set this value to limit the number of results returned. Value provided must be greater than 10 else it wont be honored. </p>
+
+        Raises:
+            aws_sdk_elasticsearch_service.errors.base_exception.BaseException: <p>An error occurred while processing the request.</p>
+            aws_sdk_elasticsearch_service.errors.internal_exception.InternalException: <p>The request processing has failed because of an unknown error, exception or failure (the failure is internal to the service) . Gives http status code of 500.</p>
+            aws_sdk_elasticsearch_service.errors.resource_not_found_exception.ResourceNotFoundException: <p>An exception for accessing or deleting a resource that does not exist. Gives http status code of 400.</p>
+            aws_sdk_elasticsearch_service.errors.validation_exception.ValidationException: <p>An exception for missing / invalid input fields. Gives http status code of 400.</p>
+            aws_sdk_elasticsearch_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1991,6 +2266,14 @@ class AsyncElasticsearchServiceClient:
             domain_name: <p>The name of the domain for which you want to list associated packages.</p>
             max_results: <p>Limits results to a maximum number of packages.</p>
             next_token: <p>Used for pagination. Only necessary if a previous API call includes a non-null NextToken value. If provided, returns results for the next page.</p>
+
+        Raises:
+            aws_sdk_elasticsearch_service.errors.access_denied_exception.AccessDeniedException: <p>An error occurred because user does not have permissions to access the resource. Returns HTTP status code 403.</p>
+            aws_sdk_elasticsearch_service.errors.base_exception.BaseException: <p>An error occurred while processing the request.</p>
+            aws_sdk_elasticsearch_service.errors.internal_exception.InternalException: <p>The request processing has failed because of an unknown error, exception or failure (the failure is internal to the service) . Gives http status code of 500.</p>
+            aws_sdk_elasticsearch_service.errors.resource_not_found_exception.ResourceNotFoundException: <p>An exception for accessing or deleting a resource that does not exist. Gives http status code of 400.</p>
+            aws_sdk_elasticsearch_service.errors.validation_exception.ValidationException: <p>An exception for missing / invalid input fields. Gives http status code of 400.</p>
+            aws_sdk_elasticsearch_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2033,6 +2316,13 @@ class AsyncElasticsearchServiceClient:
 
         Args:
             arn: <p> Specify the <code>ARN</code> for the Elasticsearch domain to which the tags are attached that you want to view.</p>
+
+        Raises:
+            aws_sdk_elasticsearch_service.errors.base_exception.BaseException: <p>An error occurred while processing the request.</p>
+            aws_sdk_elasticsearch_service.errors.internal_exception.InternalException: <p>The request processing has failed because of an unknown error, exception or failure (the failure is internal to the service) . Gives http status code of 500.</p>
+            aws_sdk_elasticsearch_service.errors.resource_not_found_exception.ResourceNotFoundException: <p>An exception for accessing or deleting a resource that does not exist. Gives http status code of 400.</p>
+            aws_sdk_elasticsearch_service.errors.validation_exception.ValidationException: <p>An exception for missing / invalid input fields. Gives http status code of 400.</p>
+            aws_sdk_elasticsearch_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2075,6 +2365,13 @@ class AsyncElasticsearchServiceClient:
         Args:
             domain_name: <p>The name of the OpenSearch Service domain to retrieve access information for.</p>
             next_token: <p>Provides an identifier to allow retrieval of paginated results.</p>
+
+        Raises:
+            aws_sdk_elasticsearch_service.errors.base_exception.BaseException: <p>An error occurred while processing the request.</p>
+            aws_sdk_elasticsearch_service.errors.disabled_operation_exception.DisabledOperationException: <p>An error occured because the client wanted to access a not supported operation. Gives http status code of 409.</p>
+            aws_sdk_elasticsearch_service.errors.internal_exception.InternalException: <p>The request processing has failed because of an unknown error, exception or failure (the failure is internal to the service) . Gives http status code of 500.</p>
+            aws_sdk_elasticsearch_service.errors.resource_not_found_exception.ResourceNotFoundException: <p>An exception for accessing or deleting a resource that does not exist. Gives http status code of 400.</p>
+            aws_sdk_elasticsearch_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2117,6 +2414,12 @@ class AsyncElasticsearchServiceClient:
 
         Args:
             next_token: <p>Identifier to allow retrieval of paginated results.</p>
+
+        Raises:
+            aws_sdk_elasticsearch_service.errors.base_exception.BaseException: <p>An error occurred while processing the request.</p>
+            aws_sdk_elasticsearch_service.errors.disabled_operation_exception.DisabledOperationException: <p>An error occured because the client wanted to access a not supported operation. Gives http status code of 409.</p>
+            aws_sdk_elasticsearch_service.errors.internal_exception.InternalException: <p>The request processing has failed because of an unknown error, exception or failure (the failure is internal to the service) . Gives http status code of 500.</p>
+            aws_sdk_elasticsearch_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2160,6 +2463,13 @@ class AsyncElasticsearchServiceClient:
         Args:
             domain_name: <p>Name of the ElasticSearch domain whose VPC endpoints are to be listed.</p>
             next_token: <p>Provides an identifier to allow retrieval of paginated results.</p>
+
+        Raises:
+            aws_sdk_elasticsearch_service.errors.base_exception.BaseException: <p>An error occurred while processing the request.</p>
+            aws_sdk_elasticsearch_service.errors.disabled_operation_exception.DisabledOperationException: <p>An error occured because the client wanted to access a not supported operation. Gives http status code of 409.</p>
+            aws_sdk_elasticsearch_service.errors.internal_exception.InternalException: <p>The request processing has failed because of an unknown error, exception or failure (the failure is internal to the service) . Gives http status code of 500.</p>
+            aws_sdk_elasticsearch_service.errors.resource_not_found_exception.ResourceNotFoundException: <p>An exception for accessing or deleting a resource that does not exist. Gives http status code of 400.</p>
+            aws_sdk_elasticsearch_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2206,6 +2516,15 @@ class AsyncElasticsearchServiceClient:
             reserved_elasticsearch_instance_offering_id: <p>The ID of the reserved Elasticsearch instance offering to purchase.</p>
             reservation_name: <p>A customer-specified identifier to track this reservation.</p>
             instance_count: <p>The number of Elasticsearch instances to reserve.</p>
+
+        Raises:
+            aws_sdk_elasticsearch_service.errors.disabled_operation_exception.DisabledOperationException: <p>An error occured because the client wanted to access a not supported operation. Gives http status code of 409.</p>
+            aws_sdk_elasticsearch_service.errors.internal_exception.InternalException: <p>The request processing has failed because of an unknown error, exception or failure (the failure is internal to the service) . Gives http status code of 500.</p>
+            aws_sdk_elasticsearch_service.errors.limit_exceeded_exception.LimitExceededException: <p>An exception for trying to create more than allowed resources or sub-resources. Gives http status code of 409.</p>
+            aws_sdk_elasticsearch_service.errors.resource_already_exists_exception.ResourceAlreadyExistsException: <p>An exception for creating a resource that already exists. Gives http status code of 400.</p>
+            aws_sdk_elasticsearch_service.errors.resource_not_found_exception.ResourceNotFoundException: <p>An exception for accessing or deleting a resource that does not exist. Gives http status code of 400.</p>
+            aws_sdk_elasticsearch_service.errors.validation_exception.ValidationException: <p>An exception for missing / invalid input fields. Gives http status code of 400.</p>
+            aws_sdk_elasticsearch_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2249,6 +2568,11 @@ class AsyncElasticsearchServiceClient:
 
         Args:
             cross_cluster_search_connection_id: <p>The id of the inbound connection that you want to reject.</p>
+
+        Raises:
+            aws_sdk_elasticsearch_service.errors.disabled_operation_exception.DisabledOperationException: <p>An error occured because the client wanted to access a not supported operation. Gives http status code of 409.</p>
+            aws_sdk_elasticsearch_service.errors.resource_not_found_exception.ResourceNotFoundException: <p>An exception for accessing or deleting a resource that does not exist. Gives http status code of 400.</p>
+            aws_sdk_elasticsearch_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2291,6 +2615,12 @@ class AsyncElasticsearchServiceClient:
         Args:
             arn: <p>Specifies the <code>ARN</code> for the Elasticsearch domain from which you want to delete the specified tags.</p>
             tag_keys: <p>Specifies the <code>TagKey</code> list which you want to remove from the Elasticsearch domain.</p>
+
+        Raises:
+            aws_sdk_elasticsearch_service.errors.base_exception.BaseException: <p>An error occurred while processing the request.</p>
+            aws_sdk_elasticsearch_service.errors.internal_exception.InternalException: <p>The request processing has failed because of an unknown error, exception or failure (the failure is internal to the service) . Gives http status code of 500.</p>
+            aws_sdk_elasticsearch_service.errors.validation_exception.ValidationException: <p>An exception for missing / invalid input fields. Gives http status code of 400.</p>
+            aws_sdk_elasticsearch_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2330,6 +2660,14 @@ class AsyncElasticsearchServiceClient:
         Args:
             domain_name: <p>The name of the OpenSearch Service domain.</p>
             account: <p>The account ID to revoke access from.</p>
+
+        Raises:
+            aws_sdk_elasticsearch_service.errors.base_exception.BaseException: <p>An error occurred while processing the request.</p>
+            aws_sdk_elasticsearch_service.errors.disabled_operation_exception.DisabledOperationException: <p>An error occured because the client wanted to access a not supported operation. Gives http status code of 409.</p>
+            aws_sdk_elasticsearch_service.errors.internal_exception.InternalException: <p>The request processing has failed because of an unknown error, exception or failure (the failure is internal to the service) . Gives http status code of 500.</p>
+            aws_sdk_elasticsearch_service.errors.resource_not_found_exception.ResourceNotFoundException: <p>An exception for accessing or deleting a resource that does not exist. Gives http status code of 400.</p>
+            aws_sdk_elasticsearch_service.errors.validation_exception.ValidationException: <p>An exception for missing / invalid input fields. Gives http status code of 400.</p>
+            aws_sdk_elasticsearch_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2369,6 +2707,13 @@ class AsyncElasticsearchServiceClient:
 
         Args:
             domain_name: <p>The name of the domain that you want to update to the latest service software.</p>
+
+        Raises:
+            aws_sdk_elasticsearch_service.errors.base_exception.BaseException: <p>An error occurred while processing the request.</p>
+            aws_sdk_elasticsearch_service.errors.internal_exception.InternalException: <p>The request processing has failed because of an unknown error, exception or failure (the failure is internal to the service) . Gives http status code of 500.</p>
+            aws_sdk_elasticsearch_service.errors.resource_not_found_exception.ResourceNotFoundException: <p>An exception for accessing or deleting a resource that does not exist. Gives http status code of 400.</p>
+            aws_sdk_elasticsearch_service.errors.validation_exception.ValidationException: <p>An exception for missing / invalid input fields. Gives http status code of 400.</p>
+            aws_sdk_elasticsearch_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2469,6 +2814,15 @@ class AsyncElasticsearchServiceClient:
             dry_run: <p> This flag, when set to True, specifies whether the <code>UpdateElasticsearchDomain</code> request should return the results of validation checks without actually applying the change. This flag, when set to True, specifies the deployment mechanism through which the update shall be applied on the domain. This will not actually perform the Update. </p>
             deployment_strategy_options: <p>Specifies the deployment strategy options.</p>
             automated_snapshot_pause_options: <p>Specifies the automated snapshot pause options for the domain.</p> <important> <p>Suspending snapshots reduces data protection. You cannot restore your domain to points in time when snapshots are suspended. Use this feature only for short-term operational needs such as migrations or maintenance windows.</p> </important> <p>Maximum suspension duration: 3 days.</p>
+
+        Raises:
+            aws_sdk_elasticsearch_service.errors.base_exception.BaseException: <p>An error occurred while processing the request.</p>
+            aws_sdk_elasticsearch_service.errors.internal_exception.InternalException: <p>The request processing has failed because of an unknown error, exception or failure (the failure is internal to the service) . Gives http status code of 500.</p>
+            aws_sdk_elasticsearch_service.errors.invalid_type_exception.InvalidTypeException: <p>An exception for trying to create or access sub-resource that is either invalid or not supported. Gives http status code of 409.</p>
+            aws_sdk_elasticsearch_service.errors.limit_exceeded_exception.LimitExceededException: <p>An exception for trying to create more than allowed resources or sub-resources. Gives http status code of 409.</p>
+            aws_sdk_elasticsearch_service.errors.resource_not_found_exception.ResourceNotFoundException: <p>An exception for accessing or deleting a resource that does not exist. Gives http status code of 400.</p>
+            aws_sdk_elasticsearch_service.errors.validation_exception.ValidationException: <p>An exception for missing / invalid input fields. Gives http status code of 400.</p>
+            aws_sdk_elasticsearch_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2550,6 +2904,15 @@ class AsyncElasticsearchServiceClient:
             package_id: <p>Unique identifier for the package.</p>
             package_description: <p>New description of the package.</p>
             commit_message: <p>An info message for the new version which will be shown as part of <code>GetPackageVersionHistoryResponse</code>.</p>
+
+        Raises:
+            aws_sdk_elasticsearch_service.errors.access_denied_exception.AccessDeniedException: <p>An error occurred because user does not have permissions to access the resource. Returns HTTP status code 403.</p>
+            aws_sdk_elasticsearch_service.errors.base_exception.BaseException: <p>An error occurred while processing the request.</p>
+            aws_sdk_elasticsearch_service.errors.internal_exception.InternalException: <p>The request processing has failed because of an unknown error, exception or failure (the failure is internal to the service) . Gives http status code of 500.</p>
+            aws_sdk_elasticsearch_service.errors.limit_exceeded_exception.LimitExceededException: <p>An exception for trying to create more than allowed resources or sub-resources. Gives http status code of 409.</p>
+            aws_sdk_elasticsearch_service.errors.resource_not_found_exception.ResourceNotFoundException: <p>An exception for accessing or deleting a resource that does not exist. Gives http status code of 400.</p>
+            aws_sdk_elasticsearch_service.errors.validation_exception.ValidationException: <p>An exception for missing / invalid input fields. Gives http status code of 400.</p>
+            aws_sdk_elasticsearch_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2595,6 +2958,15 @@ class AsyncElasticsearchServiceClient:
         Args:
             vpc_endpoint_id: <p>Unique identifier of the VPC endpoint to be updated.</p>
             vpc_options: <p>The security groups and/or subnets to add, remove, or modify.</p>
+
+        Raises:
+            aws_sdk_elasticsearch_service.errors.base_exception.BaseException: <p>An error occurred while processing the request.</p>
+            aws_sdk_elasticsearch_service.errors.conflict_exception.ConflictException: <p>An error occurred because the client attempts to remove a resource that is currently in use. Returns HTTP status code 409.</p>
+            aws_sdk_elasticsearch_service.errors.disabled_operation_exception.DisabledOperationException: <p>An error occured because the client wanted to access a not supported operation. Gives http status code of 409.</p>
+            aws_sdk_elasticsearch_service.errors.internal_exception.InternalException: <p>The request processing has failed because of an unknown error, exception or failure (the failure is internal to the service) . Gives http status code of 500.</p>
+            aws_sdk_elasticsearch_service.errors.resource_not_found_exception.ResourceNotFoundException: <p>An exception for accessing or deleting a resource that does not exist. Gives http status code of 400.</p>
+            aws_sdk_elasticsearch_service.errors.validation_exception.ValidationException: <p>An exception for missing / invalid input fields. Gives http status code of 400.</p>
+            aws_sdk_elasticsearch_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2639,6 +3011,15 @@ class AsyncElasticsearchServiceClient:
         Args:
             target_version: <p>The version of Elasticsearch that you intend to upgrade the domain to.</p>
             perform_check_only: <p> This flag, when set to True, indicates that an Upgrade Eligibility Check needs to be performed. This will not actually perform the Upgrade. </p>
+
+        Raises:
+            aws_sdk_elasticsearch_service.errors.base_exception.BaseException: <p>An error occurred while processing the request.</p>
+            aws_sdk_elasticsearch_service.errors.disabled_operation_exception.DisabledOperationException: <p>An error occured because the client wanted to access a not supported operation. Gives http status code of 409.</p>
+            aws_sdk_elasticsearch_service.errors.internal_exception.InternalException: <p>The request processing has failed because of an unknown error, exception or failure (the failure is internal to the service) . Gives http status code of 500.</p>
+            aws_sdk_elasticsearch_service.errors.resource_already_exists_exception.ResourceAlreadyExistsException: <p>An exception for creating a resource that already exists. Gives http status code of 400.</p>
+            aws_sdk_elasticsearch_service.errors.resource_not_found_exception.ResourceNotFoundException: <p>An exception for accessing or deleting a resource that does not exist. Gives http status code of 400.</p>
+            aws_sdk_elasticsearch_service.errors.validation_exception.ValidationException: <p>An exception for missing / invalid input fields. Gives http status code of 400.</p>
+            aws_sdk_elasticsearch_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

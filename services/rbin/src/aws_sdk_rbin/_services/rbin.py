@@ -184,6 +184,12 @@ class rbinClient:
             resource_tags: <p>[Tag-level retention rules only] Specifies the resource tags to use to identify resources that are to be retained by a tag-level retention rule. For tag-level retention rules, only deleted resources, of the specified resource type, that have one or more of the specified tag key and value pairs are retained. If a resource is deleted, but it does not have any of the specified tag key and value pairs, it is immediately deleted without being retained by the retention rule.</p> <p>You can add the same tag key and value pair to a maximum or five retention rules.</p> <p>To create a Region-level retention rule, omit this parameter. A Region-level retention rule does not have any resource tags specified. It retains all deleted resources of the specified resource type in the Region in which the rule is created, even if the resources are not tagged.</p>
             lock_configuration: <p>Information about the retention rule lock configuration.</p>
             exclude_resource_tags: <p>[Region-level retention rules only] Specifies the exclusion tags to use to identify resources that are to be excluded, or ignored, by a Region-level retention rule. Resources that have any of these tags are not retained by the retention rule upon deletion.</p> <p>You can't specify exclusion tags for tag-level retention rules.</p>
+
+        Raises:
+            aws_sdk_rbin.errors.internal_server_exception.InternalServerException: <p>The service could not respond to the request due to an internal problem.</p>
+            aws_sdk_rbin.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request would cause a service quota for the number of tags per resource to be exceeded.</p>
+            aws_sdk_rbin.errors.validation_exception.ValidationException: <p>One or more of the parameters in the request is not valid.</p>
+            aws_sdk_rbin.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -232,6 +238,13 @@ class rbinClient:
 
         Args:
             identifier: <p>The unique ID of the retention rule.</p>
+
+        Raises:
+            aws_sdk_rbin.errors.conflict_exception.ConflictException: <p>The specified retention rule lock request can't be completed.</p>
+            aws_sdk_rbin.errors.internal_server_exception.InternalServerException: <p>The service could not respond to the request due to an internal problem.</p>
+            aws_sdk_rbin.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_rbin.errors.validation_exception.ValidationException: <p>One or more of the parameters in the request is not valid.</p>
+            aws_sdk_rbin.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -269,6 +282,12 @@ class rbinClient:
 
         Args:
             identifier: <p>The unique ID of the retention rule.</p>
+
+        Raises:
+            aws_sdk_rbin.errors.internal_server_exception.InternalServerException: <p>The service could not respond to the request due to an internal problem.</p>
+            aws_sdk_rbin.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_rbin.errors.validation_exception.ValidationException: <p>One or more of the parameters in the request is not valid.</p>
+            aws_sdk_rbin.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -316,6 +335,11 @@ class rbinClient:
             resource_tags: <p>[Tag-level retention rules only] Information about the resource tags used to identify resources that are retained by the retention rule.</p>
             lock_state: <p>The lock state of the retention rules to list. Only retention rules with the specified lock state are returned.</p>
             exclude_resource_tags: <p>[Region-level retention rules only] Information about the exclusion tags used to identify resources that are to be excluded, or ignored, by the retention rule.</p>
+
+        Raises:
+            aws_sdk_rbin.errors.internal_server_exception.InternalServerException: <p>The service could not respond to the request due to an internal problem.</p>
+            aws_sdk_rbin.errors.validation_exception.ValidationException: <p>One or more of the parameters in the request is not valid.</p>
+            aws_sdk_rbin.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -396,6 +420,12 @@ class rbinClient:
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the retention rule.</p>
+
+        Raises:
+            aws_sdk_rbin.errors.internal_server_exception.InternalServerException: <p>The service could not respond to the request due to an internal problem.</p>
+            aws_sdk_rbin.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_rbin.errors.validation_exception.ValidationException: <p>One or more of the parameters in the request is not valid.</p>
+            aws_sdk_rbin.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -435,6 +465,13 @@ class rbinClient:
         Args:
             identifier: <p>The unique ID of the retention rule.</p>
             lock_configuration: <p>Information about the retention rule lock configuration.</p>
+
+        Raises:
+            aws_sdk_rbin.errors.conflict_exception.ConflictException: <p>The specified retention rule lock request can't be completed.</p>
+            aws_sdk_rbin.errors.internal_server_exception.InternalServerException: <p>The service could not respond to the request due to an internal problem.</p>
+            aws_sdk_rbin.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_rbin.errors.validation_exception.ValidationException: <p>One or more of the parameters in the request is not valid.</p>
+            aws_sdk_rbin.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -475,6 +512,13 @@ class rbinClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the retention rule.</p>
             tags: <p>Information about the tags to assign to the retention rule.</p>
+
+        Raises:
+            aws_sdk_rbin.errors.internal_server_exception.InternalServerException: <p>The service could not respond to the request due to an internal problem.</p>
+            aws_sdk_rbin.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_rbin.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request would cause a service quota for the number of tags per resource to be exceeded.</p>
+            aws_sdk_rbin.errors.validation_exception.ValidationException: <p>One or more of the parameters in the request is not valid.</p>
+            aws_sdk_rbin.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -513,6 +557,13 @@ class rbinClient:
 
         Args:
             identifier: <p>The unique ID of the retention rule.</p>
+
+        Raises:
+            aws_sdk_rbin.errors.conflict_exception.ConflictException: <p>The specified retention rule lock request can't be completed.</p>
+            aws_sdk_rbin.errors.internal_server_exception.InternalServerException: <p>The service could not respond to the request due to an internal problem.</p>
+            aws_sdk_rbin.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_rbin.errors.validation_exception.ValidationException: <p>One or more of the parameters in the request is not valid.</p>
+            aws_sdk_rbin.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -552,6 +603,12 @@ class rbinClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the retention rule.</p>
             tag_keys: <p>The tag keys of the tags to unassign. All tags that have the specified tag key are unassigned.</p>
+
+        Raises:
+            aws_sdk_rbin.errors.internal_server_exception.InternalServerException: <p>The service could not respond to the request due to an internal problem.</p>
+            aws_sdk_rbin.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_rbin.errors.validation_exception.ValidationException: <p>One or more of the parameters in the request is not valid.</p>
+            aws_sdk_rbin.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -604,6 +661,14 @@ class rbinClient:
             resource_type: <note> <p>This parameter is currently not supported. You can't update a retention rule's resource type after creation.</p> </note>
             resource_tags: <p>[Tag-level retention rules only] Specifies the resource tags to use to identify resources that are to be retained by a tag-level retention rule. For tag-level retention rules, only deleted resources, of the specified resource type, that have one or more of the specified tag key and value pairs are retained. If a resource is deleted, but it does not have any of the specified tag key and value pairs, it is immediately deleted without being retained by the retention rule.</p> <p>You can add the same tag key and value pair to a maximum or five retention rules.</p> <p>To create a Region-level retention rule, omit this parameter. A Region-level retention rule does not have any resource tags specified. It retains all deleted resources of the specified resource type in the Region in which the rule is created, even if the resources are not tagged.</p>
             exclude_resource_tags: <p>[Region-level retention rules only] Specifies the exclusion tags to use to identify resources that are to be excluded, or ignored, by a Region-level retention rule. Resources that have any of these tags are not retained by the retention rule upon deletion.</p> <p>You can't specify exclusion tags for tag-level retention rules.</p>
+
+        Raises:
+            aws_sdk_rbin.errors.conflict_exception.ConflictException: <p>The specified retention rule lock request can't be completed.</p>
+            aws_sdk_rbin.errors.internal_server_exception.InternalServerException: <p>The service could not respond to the request due to an internal problem.</p>
+            aws_sdk_rbin.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_rbin.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request would cause a service quota for the number of tags per resource to be exceeded.</p>
+            aws_sdk_rbin.errors.validation_exception.ValidationException: <p>One or more of the parameters in the request is not valid.</p>
+            aws_sdk_rbin.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(

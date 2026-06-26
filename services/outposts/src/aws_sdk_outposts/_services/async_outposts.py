@@ -306,6 +306,14 @@ class AsyncOutpostsClient:
         Args:
             capacity_task_id: <p>ID of the capacity task that you want to cancel.</p>
             outpost_identifier: <p>ID or ARN of the Outpost associated with the capacity task that you want to cancel.</p>
+
+        Raises:
+            aws_sdk_outposts.errors.access_denied_exception.AccessDeniedException: <p>You do not have permission to perform this operation.</p>
+            aws_sdk_outposts.errors.conflict_exception.ConflictException: <p>Updating or deleting this resource can cause an inconsistent state.</p>
+            aws_sdk_outposts.errors.internal_server_exception.InternalServerException: <p>An internal error has occurred.</p>
+            aws_sdk_outposts.errors.not_found_exception.NotFoundException: <p>The specified request is not valid.</p>
+            aws_sdk_outposts.errors.validation_exception.ValidationException: <p>A parameter is not valid.</p>
+            aws_sdk_outposts.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -345,6 +353,14 @@ class AsyncOutpostsClient:
 
         Args:
             order_id: <p> The ID of the order. </p>
+
+        Raises:
+            aws_sdk_outposts.errors.access_denied_exception.AccessDeniedException: <p>You do not have permission to perform this operation.</p>
+            aws_sdk_outposts.errors.conflict_exception.ConflictException: <p>Updating or deleting this resource can cause an inconsistent state.</p>
+            aws_sdk_outposts.errors.internal_server_exception.InternalServerException: <p>An internal error has occurred.</p>
+            aws_sdk_outposts.errors.not_found_exception.NotFoundException: <p>The specified request is not valid.</p>
+            aws_sdk_outposts.errors.validation_exception.ValidationException: <p>A parameter is not valid.</p>
+            aws_sdk_outposts.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -393,6 +409,15 @@ class AsyncOutpostsClient:
             line_items: <p>The line items that make up the order.</p>
             payment_option: <p>The payment option.</p>
             payment_term: <p>The payment terms.</p>
+
+        Raises:
+            aws_sdk_outposts.errors.access_denied_exception.AccessDeniedException: <p>You do not have permission to perform this operation.</p>
+            aws_sdk_outposts.errors.conflict_exception.ConflictException: <p>Updating or deleting this resource can cause an inconsistent state.</p>
+            aws_sdk_outposts.errors.internal_server_exception.InternalServerException: <p>An internal error has occurred.</p>
+            aws_sdk_outposts.errors.not_found_exception.NotFoundException: <p>The specified request is not valid.</p>
+            aws_sdk_outposts.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You have exceeded a service quota.</p>
+            aws_sdk_outposts.errors.validation_exception.ValidationException: <p>A parameter is not valid.</p>
+            aws_sdk_outposts.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -452,6 +477,15 @@ class AsyncOutpostsClient:
             site_id: <p> The ID or the Amazon Resource Name (ARN) of the site. </p>
             tags: <p>The tags to apply to the Outpost.</p>
             supported_hardware_type: <p> The type of hardware for this Outpost. </p>
+
+        Raises:
+            aws_sdk_outposts.errors.access_denied_exception.AccessDeniedException: <p>You do not have permission to perform this operation.</p>
+            aws_sdk_outposts.errors.conflict_exception.ConflictException: <p>Updating or deleting this resource can cause an inconsistent state.</p>
+            aws_sdk_outposts.errors.internal_server_exception.InternalServerException: <p>An internal error has occurred.</p>
+            aws_sdk_outposts.errors.not_found_exception.NotFoundException: <p>The specified request is not valid.</p>
+            aws_sdk_outposts.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You have exceeded a service quota.</p>
+            aws_sdk_outposts.errors.validation_exception.ValidationException: <p>A parameter is not valid.</p>
+            aws_sdk_outposts.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -523,6 +557,13 @@ class AsyncOutpostsClient:
             requested_payment_options: <p>The payment options to include in the quote pricing. If not specified, all available payment options are returned.</p>
             requested_payment_terms: <p>The payment terms to include in the quote pricing. If not specified, all available payment terms are returned.</p>
             description: <p>A description for the quote.</p>
+
+        Raises:
+            aws_sdk_outposts.errors.access_denied_exception.AccessDeniedException: <p>You do not have permission to perform this operation.</p>
+            aws_sdk_outposts.errors.internal_server_exception.InternalServerException: <p>An internal error has occurred.</p>
+            aws_sdk_outposts.errors.not_found_exception.NotFoundException: <p>The specified request is not valid.</p>
+            aws_sdk_outposts.errors.validation_exception.ValidationException: <p>A parameter is not valid.</p>
+            aws_sdk_outposts.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -580,6 +621,13 @@ class AsyncOutpostsClient:
             payment_term: <p>The payment term.</p>
             outpost_identifier: <p>The ID or ARN of the Outpost.</p>
             client_token: <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+
+        Raises:
+            aws_sdk_outposts.errors.access_denied_exception.AccessDeniedException: <p>You do not have permission to perform this operation.</p>
+            aws_sdk_outposts.errors.internal_server_exception.InternalServerException: <p>An internal error has occurred.</p>
+            aws_sdk_outposts.errors.not_found_exception.NotFoundException: <p>The specified request is not valid.</p>
+            aws_sdk_outposts.errors.validation_exception.ValidationException: <p>A parameter is not valid.</p>
+            aws_sdk_outposts.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -636,6 +684,14 @@ class AsyncOutpostsClient:
             operating_address: <p> The location to install and power on the hardware. This address might be different from the shipping address. </p>
             shipping_address: <p> The location to ship the hardware. This address might be different from the operating address. </p>
             rack_physical_properties: <p> Information about the physical and logistical details for the rack at this site. For more information about hardware requirements for racks, see <a href=\"https://docs.aws.amazon.com/outposts/latest/userguide/outposts-requirements.html#checklist\">Network readiness checklist</a> in the Amazon Web Services Outposts User Guide. </p>
+
+        Raises:
+            aws_sdk_outposts.errors.access_denied_exception.AccessDeniedException: <p>You do not have permission to perform this operation.</p>
+            aws_sdk_outposts.errors.conflict_exception.ConflictException: <p>Updating or deleting this resource can cause an inconsistent state.</p>
+            aws_sdk_outposts.errors.internal_server_exception.InternalServerException: <p>An internal error has occurred.</p>
+            aws_sdk_outposts.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You have exceeded a service quota.</p>
+            aws_sdk_outposts.errors.validation_exception.ValidationException: <p>A parameter is not valid.</p>
+            aws_sdk_outposts.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -686,6 +742,14 @@ class AsyncOutpostsClient:
 
         Args:
             outpost_id: <p> The ID or ARN of the Outpost. </p>
+
+        Raises:
+            aws_sdk_outposts.errors.access_denied_exception.AccessDeniedException: <p>You do not have permission to perform this operation.</p>
+            aws_sdk_outposts.errors.conflict_exception.ConflictException: <p>Updating or deleting this resource can cause an inconsistent state.</p>
+            aws_sdk_outposts.errors.internal_server_exception.InternalServerException: <p>An internal error has occurred.</p>
+            aws_sdk_outposts.errors.not_found_exception.NotFoundException: <p>The specified request is not valid.</p>
+            aws_sdk_outposts.errors.validation_exception.ValidationException: <p>A parameter is not valid.</p>
+            aws_sdk_outposts.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -724,6 +788,13 @@ class AsyncOutpostsClient:
 
         Args:
             quote_identifier: <p>The ID or ARN of the quote.</p>
+
+        Raises:
+            aws_sdk_outposts.errors.access_denied_exception.AccessDeniedException: <p>You do not have permission to perform this operation.</p>
+            aws_sdk_outposts.errors.internal_server_exception.InternalServerException: <p>An internal error has occurred.</p>
+            aws_sdk_outposts.errors.not_found_exception.NotFoundException: <p>The specified request is not valid.</p>
+            aws_sdk_outposts.errors.validation_exception.ValidationException: <p>A parameter is not valid.</p>
+            aws_sdk_outposts.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -762,6 +833,14 @@ class AsyncOutpostsClient:
 
         Args:
             site_id: <p> The ID or the Amazon Resource Name (ARN) of the site. </p>
+
+        Raises:
+            aws_sdk_outposts.errors.access_denied_exception.AccessDeniedException: <p>You do not have permission to perform this operation.</p>
+            aws_sdk_outposts.errors.conflict_exception.ConflictException: <p>Updating or deleting this resource can cause an inconsistent state.</p>
+            aws_sdk_outposts.errors.internal_server_exception.InternalServerException: <p>An internal error has occurred.</p>
+            aws_sdk_outposts.errors.not_found_exception.NotFoundException: <p>The specified request is not valid.</p>
+            aws_sdk_outposts.errors.validation_exception.ValidationException: <p>A parameter is not valid.</p>
+            aws_sdk_outposts.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -802,6 +881,13 @@ class AsyncOutpostsClient:
         Args:
             capacity_task_id: <p>ID of the capacity task.</p>
             outpost_identifier: <p>ID or ARN of the Outpost associated with the specified capacity task.</p>
+
+        Raises:
+            aws_sdk_outposts.errors.access_denied_exception.AccessDeniedException: <p>You do not have permission to perform this operation.</p>
+            aws_sdk_outposts.errors.internal_server_exception.InternalServerException: <p>An internal error has occurred.</p>
+            aws_sdk_outposts.errors.not_found_exception.NotFoundException: <p>The specified request is not valid.</p>
+            aws_sdk_outposts.errors.validation_exception.ValidationException: <p>A parameter is not valid.</p>
+            aws_sdk_outposts.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -841,6 +927,13 @@ class AsyncOutpostsClient:
 
         Args:
             catalog_item_id: <p>The ID of the catalog item.</p>
+
+        Raises:
+            aws_sdk_outposts.errors.access_denied_exception.AccessDeniedException: <p>You do not have permission to perform this operation.</p>
+            aws_sdk_outposts.errors.internal_server_exception.InternalServerException: <p>An internal error has occurred.</p>
+            aws_sdk_outposts.errors.not_found_exception.NotFoundException: <p>The specified request is not valid.</p>
+            aws_sdk_outposts.errors.validation_exception.ValidationException: <p>A parameter is not valid.</p>
+            aws_sdk_outposts.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -879,6 +972,13 @@ class AsyncOutpostsClient:
 
         Args:
             connection_id: <p> The ID of the connection. </p>
+
+        Raises:
+            aws_sdk_outposts.errors.access_denied_exception.AccessDeniedException: <p>You do not have permission to perform this operation.</p>
+            aws_sdk_outposts.errors.internal_server_exception.InternalServerException: <p>An internal error has occurred.</p>
+            aws_sdk_outposts.errors.not_found_exception.NotFoundException: <p>The specified request is not valid.</p>
+            aws_sdk_outposts.errors.validation_exception.ValidationException: <p>A parameter is not valid.</p>
+            aws_sdk_outposts.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -917,6 +1017,12 @@ class AsyncOutpostsClient:
 
         Args:
             order_id: <p>The ID of the order.</p>
+
+        Raises:
+            aws_sdk_outposts.errors.internal_server_exception.InternalServerException: <p>An internal error has occurred.</p>
+            aws_sdk_outposts.errors.not_found_exception.NotFoundException: <p>The specified request is not valid.</p>
+            aws_sdk_outposts.errors.validation_exception.ValidationException: <p>A parameter is not valid.</p>
+            aws_sdk_outposts.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -955,6 +1061,13 @@ class AsyncOutpostsClient:
 
         Args:
             outpost_id: <p>The ID or ARN of the Outpost.</p>
+
+        Raises:
+            aws_sdk_outposts.errors.access_denied_exception.AccessDeniedException: <p>You do not have permission to perform this operation.</p>
+            aws_sdk_outposts.errors.internal_server_exception.InternalServerException: <p>An internal error has occurred.</p>
+            aws_sdk_outposts.errors.not_found_exception.NotFoundException: <p>The specified request is not valid.</p>
+            aws_sdk_outposts.errors.validation_exception.ValidationException: <p>A parameter is not valid.</p>
+            aws_sdk_outposts.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -997,6 +1110,12 @@ class AsyncOutpostsClient:
 
         Args:
             outpost_identifier: <p>The ID or ARN of the Outpost.</p>
+
+        Raises:
+            aws_sdk_outposts.errors.access_denied_exception.AccessDeniedException: <p>You do not have permission to perform this operation.</p>
+            aws_sdk_outposts.errors.internal_server_exception.InternalServerException: <p>An internal error has occurred.</p>
+            aws_sdk_outposts.errors.not_found_exception.NotFoundException: <p>The specified request is not valid.</p>
+            aws_sdk_outposts.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1068,6 +1187,13 @@ class AsyncOutpostsClient:
 
         Args:
             outpost_id: <p> The ID or ARN of the Outpost. </p>
+
+        Raises:
+            aws_sdk_outposts.errors.access_denied_exception.AccessDeniedException: <p>You do not have permission to perform this operation.</p>
+            aws_sdk_outposts.errors.internal_server_exception.InternalServerException: <p>An internal error has occurred.</p>
+            aws_sdk_outposts.errors.not_found_exception.NotFoundException: <p>The specified request is not valid.</p>
+            aws_sdk_outposts.errors.validation_exception.ValidationException: <p>A parameter is not valid.</p>
+            aws_sdk_outposts.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1143,6 +1269,13 @@ class AsyncOutpostsClient:
             outpost_identifier: <p>The ID or ARN of the Outpost.</p>
             order_id: <p>The ID for the Amazon Web Services Outposts order.</p>
             asset_id: <p>The ID of the Outpost asset. An Outpost asset can be a single server within an Outposts rack or an Outposts server configuration.</p>
+
+        Raises:
+            aws_sdk_outposts.errors.access_denied_exception.AccessDeniedException: <p>You do not have permission to perform this operation.</p>
+            aws_sdk_outposts.errors.internal_server_exception.InternalServerException: <p>An internal error has occurred.</p>
+            aws_sdk_outposts.errors.not_found_exception.NotFoundException: <p>The specified request is not valid.</p>
+            aws_sdk_outposts.errors.validation_exception.ValidationException: <p>A parameter is not valid.</p>
+            aws_sdk_outposts.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1218,6 +1351,13 @@ class AsyncOutpostsClient:
 
         Args:
             quote_identifier: <p>The ID or ARN of the quote.</p>
+
+        Raises:
+            aws_sdk_outposts.errors.access_denied_exception.AccessDeniedException: <p>You do not have permission to perform this operation.</p>
+            aws_sdk_outposts.errors.internal_server_exception.InternalServerException: <p>An internal error has occurred.</p>
+            aws_sdk_outposts.errors.not_found_exception.NotFoundException: <p>The specified request is not valid.</p>
+            aws_sdk_outposts.errors.validation_exception.ValidationException: <p>A parameter is not valid.</p>
+            aws_sdk_outposts.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1256,6 +1396,13 @@ class AsyncOutpostsClient:
 
         Args:
             outpost_identifier: <p>The ID or ARN of the Outpost.</p>
+
+        Raises:
+            aws_sdk_outposts.errors.access_denied_exception.AccessDeniedException: <p>You do not have permission to perform this operation.</p>
+            aws_sdk_outposts.errors.internal_server_exception.InternalServerException: <p>An internal error has occurred.</p>
+            aws_sdk_outposts.errors.not_found_exception.NotFoundException: <p>The specified request is not valid.</p>
+            aws_sdk_outposts.errors.validation_exception.ValidationException: <p>A parameter is not valid.</p>
+            aws_sdk_outposts.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1294,6 +1441,13 @@ class AsyncOutpostsClient:
 
         Args:
             site_id: <p> The ID or the Amazon Resource Name (ARN) of the site. </p>
+
+        Raises:
+            aws_sdk_outposts.errors.access_denied_exception.AccessDeniedException: <p>You do not have permission to perform this operation.</p>
+            aws_sdk_outposts.errors.internal_server_exception.InternalServerException: <p>An internal error has occurred.</p>
+            aws_sdk_outposts.errors.not_found_exception.NotFoundException: <p>The specified request is not valid.</p>
+            aws_sdk_outposts.errors.validation_exception.ValidationException: <p>A parameter is not valid.</p>
+            aws_sdk_outposts.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1334,6 +1488,13 @@ class AsyncOutpostsClient:
         Args:
             site_id: <p> The ID or the Amazon Resource Name (ARN) of the site. </p>
             address_type: <p>The type of the address you request. </p>
+
+        Raises:
+            aws_sdk_outposts.errors.access_denied_exception.AccessDeniedException: <p>You do not have permission to perform this operation.</p>
+            aws_sdk_outposts.errors.internal_server_exception.InternalServerException: <p>An internal error has occurred.</p>
+            aws_sdk_outposts.errors.not_found_exception.NotFoundException: <p>The specified request is not valid.</p>
+            aws_sdk_outposts.errors.validation_exception.ValidationException: <p>A parameter is not valid.</p>
+            aws_sdk_outposts.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1393,6 +1554,13 @@ class AsyncOutpostsClient:
             instance_type_filter: <p>Filters the results by instance ID.</p>
             account_id_filter: <p>Filters the results by account ID.</p>
             aws_service_filter: <p>Filters the results by Amazon Web Services service.</p>
+
+        Raises:
+            aws_sdk_outposts.errors.access_denied_exception.AccessDeniedException: <p>You do not have permission to perform this operation.</p>
+            aws_sdk_outposts.errors.internal_server_exception.InternalServerException: <p>An internal error has occurred.</p>
+            aws_sdk_outposts.errors.not_found_exception.NotFoundException: <p>The specified request is not valid.</p>
+            aws_sdk_outposts.errors.validation_exception.ValidationException: <p>A parameter is not valid.</p>
+            aws_sdk_outposts.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1498,6 +1666,13 @@ class AsyncOutpostsClient:
             host_id_filter: <p>Filters the results by the host ID of a Dedicated Host.</p>
             status_filter: <p>Filters the results by state.</p>
             asset_type_filter: <p>Filters the results by asset type.</p> <ul> <li> <p>COMPUTE - Server asset used for customer compute </p> </li> <li> <p>STORAGE - Server asset used by storage services </p> </li> <li> <p>POWERSHELF - Powershelf assets </p> </li> <li> <p>SWITCH - Switch assets </p> </li> <li> <p>NETWORKING - Asset managed by Amazon Web Services for networking purposes </p> </li> </ul>
+
+        Raises:
+            aws_sdk_outposts.errors.access_denied_exception.AccessDeniedException: <p>You do not have permission to perform this operation.</p>
+            aws_sdk_outposts.errors.internal_server_exception.InternalServerException: <p>An internal error has occurred.</p>
+            aws_sdk_outposts.errors.not_found_exception.NotFoundException: <p>The specified request is not valid.</p>
+            aws_sdk_outposts.errors.validation_exception.ValidationException: <p>A parameter is not valid.</p>
+            aws_sdk_outposts.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1587,6 +1762,13 @@ class AsyncOutpostsClient:
         Args:
             outpost_identifier: <p>The ID or ARN of the Outpost associated with the specified capacity task.</p>
             capacity_task_id: <p>The ID of the capacity task.</p>
+
+        Raises:
+            aws_sdk_outposts.errors.access_denied_exception.AccessDeniedException: <p>You do not have permission to perform this operation.</p>
+            aws_sdk_outposts.errors.internal_server_exception.InternalServerException: <p>An internal error has occurred.</p>
+            aws_sdk_outposts.errors.not_found_exception.NotFoundException: <p>The specified request is not valid.</p>
+            aws_sdk_outposts.errors.validation_exception.ValidationException: <p>A parameter is not valid.</p>
+            aws_sdk_outposts.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1667,6 +1849,13 @@ class AsyncOutpostsClient:
         Args:
             outpost_identifier_filter: <p>Filters the results by an Outpost ID or an Outpost ARN.</p>
             capacity_task_status_filter: <p>A list of statuses. For example, <code>REQUESTED</code> or <code>WAITING_FOR_EVACUATION</code>.</p>
+
+        Raises:
+            aws_sdk_outposts.errors.access_denied_exception.AccessDeniedException: <p>You do not have permission to perform this operation.</p>
+            aws_sdk_outposts.errors.internal_server_exception.InternalServerException: <p>An internal error has occurred.</p>
+            aws_sdk_outposts.errors.not_found_exception.NotFoundException: <p>The specified request is not valid.</p>
+            aws_sdk_outposts.errors.validation_exception.ValidationException: <p>A parameter is not valid.</p>
+            aws_sdk_outposts.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1757,6 +1946,13 @@ class AsyncOutpostsClient:
             item_class_filter: <p>Filters the results by item class.</p>
             supported_storage_filter: <p>Filters the results by storage option.</p>
             ec2_family_filter: <p>Filters the results by EC2 family (for example, M5).</p>
+
+        Raises:
+            aws_sdk_outposts.errors.access_denied_exception.AccessDeniedException: <p>You do not have permission to perform this operation.</p>
+            aws_sdk_outposts.errors.internal_server_exception.InternalServerException: <p>An internal error has occurred.</p>
+            aws_sdk_outposts.errors.not_found_exception.NotFoundException: <p>The specified request is not valid.</p>
+            aws_sdk_outposts.errors.validation_exception.ValidationException: <p>A parameter is not valid.</p>
+            aws_sdk_outposts.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1847,6 +2043,13 @@ class AsyncOutpostsClient:
             outpost_generation_filter: <p>Filters the results by Outpost generation. Specify <code>GENERATION_1</code> for first-generation rack deployments or <code>GENERATION_2</code> for second-generation rack deployments.</p>
             max_results: <p>The maximum page size.</p>
             next_token: <p>The pagination token.</p>
+
+        Raises:
+            aws_sdk_outposts.errors.access_denied_exception.AccessDeniedException: <p>You do not have permission to perform this operation.</p>
+            aws_sdk_outposts.errors.internal_server_exception.InternalServerException: <p>An internal error has occurred.</p>
+            aws_sdk_outposts.errors.not_found_exception.NotFoundException: <p>The specified request is not valid.</p>
+            aws_sdk_outposts.errors.validation_exception.ValidationException: <p>A parameter is not valid.</p>
+            aws_sdk_outposts.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1923,6 +2126,13 @@ class AsyncOutpostsClient:
 
         Args:
             outpost_identifier_filter: <p> The ID or the Amazon Resource Name (ARN) of the Outpost. </p>
+
+        Raises:
+            aws_sdk_outposts.errors.access_denied_exception.AccessDeniedException: <p>You do not have permission to perform this operation.</p>
+            aws_sdk_outposts.errors.internal_server_exception.InternalServerException: <p>An internal error has occurred.</p>
+            aws_sdk_outposts.errors.not_found_exception.NotFoundException: <p>The specified request is not valid.</p>
+            aws_sdk_outposts.errors.validation_exception.ValidationException: <p>A parameter is not valid.</p>
+            aws_sdk_outposts.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2007,6 +2217,12 @@ class AsyncOutpostsClient:
             life_cycle_status_filter: <p>Filters the results by the lifecycle status.</p>
             availability_zone_filter: <p>Filters the results by Availability Zone (for example, <code>us-east-1a</code>).</p>
             availability_zone_id_filter: <p>Filters the results by AZ ID (for example, <code>use1-az1</code>).</p>
+
+        Raises:
+            aws_sdk_outposts.errors.access_denied_exception.AccessDeniedException: <p>You do not have permission to perform this operation.</p>
+            aws_sdk_outposts.errors.internal_server_exception.InternalServerException: <p>An internal error has occurred.</p>
+            aws_sdk_outposts.errors.validation_exception.ValidationException: <p>A parameter is not valid.</p>
+            aws_sdk_outposts.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2093,6 +2309,11 @@ class AsyncOutpostsClient:
         Args:
             next_token: <p>The pagination token.</p>
             max_results: <p>The maximum page size.</p>
+
+        Raises:
+            aws_sdk_outposts.errors.access_denied_exception.AccessDeniedException: <p>You do not have permission to perform this operation.</p>
+            aws_sdk_outposts.errors.internal_server_exception.InternalServerException: <p>An internal error has occurred.</p>
+            aws_sdk_outposts.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2171,6 +2392,12 @@ class AsyncOutpostsClient:
             operating_address_country_code_filter: <p>Filters the results by country code.</p>
             operating_address_state_or_region_filter: <p>Filters the results by state or region.</p>
             operating_address_city_filter: <p>Filters the results by city.</p>
+
+        Raises:
+            aws_sdk_outposts.errors.access_denied_exception.AccessDeniedException: <p>You do not have permission to perform this operation.</p>
+            aws_sdk_outposts.errors.internal_server_exception.InternalServerException: <p>An internal error has occurred.</p>
+            aws_sdk_outposts.errors.validation_exception.ValidationException: <p>A parameter is not valid.</p>
+            aws_sdk_outposts.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2257,6 +2484,12 @@ class AsyncOutpostsClient:
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource.</p>
+
+        Raises:
+            aws_sdk_outposts.errors.internal_server_exception.InternalServerException: <p>An internal error has occurred.</p>
+            aws_sdk_outposts.errors.not_found_exception.NotFoundException: <p>The specified request is not valid.</p>
+            aws_sdk_outposts.errors.validation_exception.ValidationException: <p>A parameter is not valid.</p>
+            aws_sdk_outposts.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2311,6 +2544,14 @@ class AsyncOutpostsClient:
             instances_to_exclude: <p>List of user-specified running instances that must not be stopped in order to free up the capacity needed to run the capacity task.</p>
             dry_run: <p>You can request a dry run to determine if the instance type and instance size changes is above or below available instance capacity. Requesting a dry run does not make any changes to your plan.</p>
             task_action_on_blocking_instances: <p>Specify one of the following options in case an instance is blocking the capacity task from running.</p> <ul> <li> <p> <code>WAIT_FOR_EVACUATION</code> - Checks every 10 minutes over 48 hours to determine if instances have stopped and capacity is available to complete the task.</p> </li> <li> <p> <code>FAIL_TASK</code> - The capacity task fails.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_outposts.errors.access_denied_exception.AccessDeniedException: <p>You do not have permission to perform this operation.</p>
+            aws_sdk_outposts.errors.conflict_exception.ConflictException: <p>Updating or deleting this resource can cause an inconsistent state.</p>
+            aws_sdk_outposts.errors.internal_server_exception.InternalServerException: <p>An internal error has occurred.</p>
+            aws_sdk_outposts.errors.not_found_exception.NotFoundException: <p>The specified request is not valid.</p>
+            aws_sdk_outposts.errors.validation_exception.ValidationException: <p>A parameter is not valid.</p>
+            aws_sdk_outposts.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2370,6 +2611,13 @@ class AsyncOutpostsClient:
             asset_id: <p> The ID of the Outpost server.</p>
             client_public_key: <p> The public key of the client. </p>
             network_interface_device_index: <p> The device index of the network interface on the Outpost server. </p>
+
+        Raises:
+            aws_sdk_outposts.errors.access_denied_exception.AccessDeniedException: <p>You do not have permission to perform this operation.</p>
+            aws_sdk_outposts.errors.internal_server_exception.InternalServerException: <p>An internal error has occurred.</p>
+            aws_sdk_outposts.errors.not_found_exception.NotFoundException: <p>The specified request is not valid.</p>
+            aws_sdk_outposts.errors.validation_exception.ValidationException: <p>A parameter is not valid.</p>
+            aws_sdk_outposts.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2416,6 +2664,14 @@ class AsyncOutpostsClient:
         Args:
             outpost_identifier: <p>The ID or ARN of the Outpost that you want to decommission.</p>
             validate_only: <p>Validates the request without starting the decommission process.</p>
+
+        Raises:
+            aws_sdk_outposts.errors.access_denied_exception.AccessDeniedException: <p>You do not have permission to perform this operation.</p>
+            aws_sdk_outposts.errors.conflict_exception.ConflictException: <p>Updating or deleting this resource can cause an inconsistent state.</p>
+            aws_sdk_outposts.errors.internal_server_exception.InternalServerException: <p>An internal error has occurred.</p>
+            aws_sdk_outposts.errors.not_found_exception.NotFoundException: <p>The specified request is not valid.</p>
+            aws_sdk_outposts.errors.validation_exception.ValidationException: <p>A parameter is not valid.</p>
+            aws_sdk_outposts.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2458,6 +2714,12 @@ class AsyncOutpostsClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource.</p>
             tags: <p>The tags to add to the resource.</p>
+
+        Raises:
+            aws_sdk_outposts.errors.internal_server_exception.InternalServerException: <p>An internal error has occurred.</p>
+            aws_sdk_outposts.errors.not_found_exception.NotFoundException: <p>The specified request is not valid.</p>
+            aws_sdk_outposts.errors.validation_exception.ValidationException: <p>A parameter is not valid.</p>
+            aws_sdk_outposts.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2499,6 +2761,12 @@ class AsyncOutpostsClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource.</p>
             tag_keys: <p>The tag keys.</p>
+
+        Raises:
+            aws_sdk_outposts.errors.internal_server_exception.InternalServerException: <p>An internal error has occurred.</p>
+            aws_sdk_outposts.errors.not_found_exception.NotFoundException: <p>The specified request is not valid.</p>
+            aws_sdk_outposts.errors.validation_exception.ValidationException: <p>A parameter is not valid.</p>
+            aws_sdk_outposts.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2546,6 +2814,14 @@ class AsyncOutpostsClient:
         Args:
             outpost_id: <p> The ID or ARN of the Outpost. </p>
             supported_hardware_type: <p> The type of hardware for this Outpost. </p>
+
+        Raises:
+            aws_sdk_outposts.errors.access_denied_exception.AccessDeniedException: <p>You do not have permission to perform this operation.</p>
+            aws_sdk_outposts.errors.conflict_exception.ConflictException: <p>Updating or deleting this resource can cause an inconsistent state.</p>
+            aws_sdk_outposts.errors.internal_server_exception.InternalServerException: <p>An internal error has occurred.</p>
+            aws_sdk_outposts.errors.not_found_exception.NotFoundException: <p>The specified request is not valid.</p>
+            aws_sdk_outposts.errors.validation_exception.ValidationException: <p>A parameter is not valid.</p>
+            aws_sdk_outposts.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2618,6 +2894,13 @@ class AsyncOutpostsClient:
             requested_payment_options: <p>The updated payment options to include in the quote pricing.</p>
             requested_payment_terms: <p>The updated payment terms to include in the quote pricing.</p>
             description: <p>A description for the quote.</p>
+
+        Raises:
+            aws_sdk_outposts.errors.access_denied_exception.AccessDeniedException: <p>You do not have permission to perform this operation.</p>
+            aws_sdk_outposts.errors.internal_server_exception.InternalServerException: <p>An internal error has occurred.</p>
+            aws_sdk_outposts.errors.not_found_exception.NotFoundException: <p>The specified request is not valid.</p>
+            aws_sdk_outposts.errors.validation_exception.ValidationException: <p>A parameter is not valid.</p>
+            aws_sdk_outposts.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2676,6 +2959,14 @@ class AsyncOutpostsClient:
         Args:
             site_id: <p> The ID or the Amazon Resource Name (ARN) of the site. </p>
             notes: <p>Notes about a site.</p>
+
+        Raises:
+            aws_sdk_outposts.errors.access_denied_exception.AccessDeniedException: <p>You do not have permission to perform this operation.</p>
+            aws_sdk_outposts.errors.conflict_exception.ConflictException: <p>Updating or deleting this resource can cause an inconsistent state.</p>
+            aws_sdk_outposts.errors.internal_server_exception.InternalServerException: <p>An internal error has occurred.</p>
+            aws_sdk_outposts.errors.not_found_exception.NotFoundException: <p>The specified request is not valid.</p>
+            aws_sdk_outposts.errors.validation_exception.ValidationException: <p>A parameter is not valid.</p>
+            aws_sdk_outposts.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2724,6 +3015,14 @@ class AsyncOutpostsClient:
             site_id: <p> The ID or the Amazon Resource Name (ARN) of the site. </p>
             address_type: <p> The type of the address. </p>
             address: <p> The address for the site. </p>
+
+        Raises:
+            aws_sdk_outposts.errors.access_denied_exception.AccessDeniedException: <p>You do not have permission to perform this operation.</p>
+            aws_sdk_outposts.errors.conflict_exception.ConflictException: <p>Updating or deleting this resource can cause an inconsistent state.</p>
+            aws_sdk_outposts.errors.internal_server_exception.InternalServerException: <p>An internal error has occurred.</p>
+            aws_sdk_outposts.errors.not_found_exception.NotFoundException: <p>The specified request is not valid.</p>
+            aws_sdk_outposts.errors.validation_exception.ValidationException: <p>A parameter is not valid.</p>
+            aws_sdk_outposts.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2796,6 +3095,14 @@ class AsyncOutpostsClient:
             fiber_optic_cable_type: <p>The type of fiber that you will use to attach the Outpost to your network. </p>
             optical_standard: <p>The type of optical standard that you will use to attach the Outpost to your network. This field is dependent on uplink speed, fiber type, and distance to the upstream device. For more information about networking requirements for racks, see <a href=\"https://docs.aws.amazon.com/outposts/latest/userguide/outposts-requirements.html#facility-networking\">Network</a> in the Amazon Web Services Outposts User Guide. </p> <ul> <li> <p> <code>OPTIC_10GBASE_SR</code>: 10GBASE-SR</p> </li> <li> <p> <code>OPTIC_10GBASE_IR</code>: 10GBASE-IR</p> </li> <li> <p> <code>OPTIC_10GBASE_LR</code>: 10GBASE-LR</p> </li> <li> <p> <code>OPTIC_40GBASE_SR</code>: 40GBASE-SR</p> </li> <li> <p> <code>OPTIC_40GBASE_ESR</code>: 40GBASE-ESR</p> </li> <li> <p> <code>OPTIC_40GBASE_IR4_LR4L</code>: 40GBASE-IR (LR4L)</p> </li> <li> <p> <code>OPTIC_40GBASE_LR4</code>: 40GBASE-LR4</p> </li> <li> <p> <code>OPTIC_100GBASE_SR4</code>: 100GBASE-SR4</p> </li> <li> <p> <code>OPTIC_100GBASE_CWDM4</code>: 100GBASE-CWDM4</p> </li> <li> <p> <code>OPTIC_100GBASE_LR4</code>: 100GBASE-LR4</p> </li> <li> <p> <code>OPTIC_100G_PSM4_MSA</code>: 100G PSM4 MSA</p> </li> <li> <p> <code>OPTIC_1000BASE_LX</code>: 1000Base-LX</p> </li> <li> <p> <code>OPTIC_1000BASE_SX</code> : 1000Base-SX</p> </li> </ul>
             maximum_supported_weight_lbs: <p>The maximum rack weight that this site can support. <code>NO_LIMIT</code> is over 2000lbs. </p>
+
+        Raises:
+            aws_sdk_outposts.errors.access_denied_exception.AccessDeniedException: <p>You do not have permission to perform this operation.</p>
+            aws_sdk_outposts.errors.conflict_exception.ConflictException: <p>Updating or deleting this resource can cause an inconsistent state.</p>
+            aws_sdk_outposts.errors.internal_server_exception.InternalServerException: <p>An internal error has occurred.</p>
+            aws_sdk_outposts.errors.not_found_exception.NotFoundException: <p>The specified request is not valid.</p>
+            aws_sdk_outposts.errors.validation_exception.ValidationException: <p>A parameter is not valid.</p>
+            aws_sdk_outposts.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

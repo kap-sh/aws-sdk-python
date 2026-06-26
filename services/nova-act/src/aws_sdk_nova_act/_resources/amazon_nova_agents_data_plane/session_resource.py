@@ -52,6 +52,16 @@ class SessionResource:
             workflow_definition_name: <p>The name of the workflow definition containing the workflow run.</p>
             workflow_run_id: <p>The unique identifier of the workflow run to create the session in.</p>
             client_token: <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+
+        Raises:
+            aws_sdk_nova_act.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permissions to perform this action.</p>
+            aws_sdk_nova_act.errors.conflict_exception.ConflictException: <p>The request could not be completed due to a conflict with the current state of the resource.</p>
+            aws_sdk_nova_act.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Please try again later.</p>
+            aws_sdk_nova_act.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource was not found.</p>
+            aws_sdk_nova_act.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request would exceed a service quota limit.</p>
+            aws_sdk_nova_act.errors.throttling_exception.ThrottlingException: <p>The request was throttled due to too many requests. Please try again later.</p>
+            aws_sdk_nova_act.errors.validation_exception.ValidationException: <p>The input parameters for the request are invalid.</p>
+            aws_sdk_nova_act.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -100,6 +110,15 @@ class SessionResource:
             max_results: <p>The maximum number of sessions to return in a single response.</p>
             next_token: <p>The token for retrieving the next page of results.</p>
             sort_order: <p>The sort order for the returned sessions (ascending or descending).</p>
+
+        Raises:
+            aws_sdk_nova_act.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permissions to perform this action.</p>
+            aws_sdk_nova_act.errors.conflict_exception.ConflictException: <p>The request could not be completed due to a conflict with the current state of the resource.</p>
+            aws_sdk_nova_act.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Please try again later.</p>
+            aws_sdk_nova_act.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource was not found.</p>
+            aws_sdk_nova_act.errors.throttling_exception.ThrottlingException: <p>The request was throttled due to too many requests. Please try again later.</p>
+            aws_sdk_nova_act.errors.validation_exception.ValidationException: <p>The input parameters for the request are invalid.</p>
+            aws_sdk_nova_act.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -155,6 +174,16 @@ class AsyncSessionResource:
             workflow_definition_name: <p>The name of the workflow definition containing the workflow run.</p>
             workflow_run_id: <p>The unique identifier of the workflow run to create the session in.</p>
             client_token: <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+
+        Raises:
+            aws_sdk_nova_act.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permissions to perform this action.</p>
+            aws_sdk_nova_act.errors.conflict_exception.ConflictException: <p>The request could not be completed due to a conflict with the current state of the resource.</p>
+            aws_sdk_nova_act.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Please try again later.</p>
+            aws_sdk_nova_act.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource was not found.</p>
+            aws_sdk_nova_act.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request would exceed a service quota limit.</p>
+            aws_sdk_nova_act.errors.throttling_exception.ThrottlingException: <p>The request was throttled due to too many requests. Please try again later.</p>
+            aws_sdk_nova_act.errors.validation_exception.ValidationException: <p>The input parameters for the request are invalid.</p>
+            aws_sdk_nova_act.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -204,6 +233,15 @@ class AsyncSessionResource:
             max_results: <p>The maximum number of sessions to return in a single response.</p>
             next_token: <p>The token for retrieving the next page of results.</p>
             sort_order: <p>The sort order for the returned sessions (ascending or descending).</p>
+
+        Raises:
+            aws_sdk_nova_act.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permissions to perform this action.</p>
+            aws_sdk_nova_act.errors.conflict_exception.ConflictException: <p>The request could not be completed due to a conflict with the current state of the resource.</p>
+            aws_sdk_nova_act.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Please try again later.</p>
+            aws_sdk_nova_act.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource was not found.</p>
+            aws_sdk_nova_act.errors.throttling_exception.ThrottlingException: <p>The request was throttled due to too many requests. Please try again later.</p>
+            aws_sdk_nova_act.errors.validation_exception.ValidationException: <p>The input parameters for the request are invalid.</p>
+            aws_sdk_nova_act.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

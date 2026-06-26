@@ -194,6 +194,16 @@ class SupplyChainClient:
             instance_id: <p>The Amazon Web Services Supply Chain instance identifier.</p>
             event_id: <p>The unique event identifier.</p>
 
+        Raises:
+            aws_sdk_supplychain.errors.access_denied_exception.AccessDeniedException: <p>You do not have the required privileges to perform this action.</p>
+            aws_sdk_supplychain.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_supplychain.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_supplychain.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_supplychain.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Request would cause a service quota to be exceeded.</p>
+            aws_sdk_supplychain.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_supplychain.errors.validation_exception.ValidationException: <p>The input does not satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_supplychain.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Successful GetDataIntegrationEvent
 
@@ -240,6 +250,16 @@ class SupplyChainClient:
             instance_id: <p>The AWS Supply Chain instance identifier.</p>
             flow_name: <p>The flow name.</p>
             execution_id: <p>The flow execution identifier.</p>
+
+        Raises:
+            aws_sdk_supplychain.errors.access_denied_exception.AccessDeniedException: <p>You do not have the required privileges to perform this action.</p>
+            aws_sdk_supplychain.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_supplychain.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_supplychain.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_supplychain.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Request would cause a service quota to be exceeded.</p>
+            aws_sdk_supplychain.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_supplychain.errors.validation_exception.ValidationException: <p>The input does not satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_supplychain.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Successful GetDataIntegrationFlowExecution for S3 source
@@ -299,6 +319,16 @@ class SupplyChainClient:
             event_type: <p>List data integration events for the specified eventType.</p>
             next_token: <p>The pagination token to fetch the next page of the data integration events.</p>
             max_results: <p>Specify the maximum number of data integration events to fetch in one paginated request.</p>
+
+        Raises:
+            aws_sdk_supplychain.errors.access_denied_exception.AccessDeniedException: <p>You do not have the required privileges to perform this action.</p>
+            aws_sdk_supplychain.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_supplychain.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_supplychain.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_supplychain.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Request would cause a service quota to be exceeded.</p>
+            aws_sdk_supplychain.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_supplychain.errors.validation_exception.ValidationException: <p>The input does not satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_supplychain.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Successful ListDataIntegrationEvents
@@ -389,6 +419,16 @@ class SupplyChainClient:
             next_token: <p>The pagination token to fetch next page of flow executions.</p>
             max_results: <p>The number to specify the max number of flow executions to fetch in this paginated request.</p>
 
+        Raises:
+            aws_sdk_supplychain.errors.access_denied_exception.AccessDeniedException: <p>You do not have the required privileges to perform this action.</p>
+            aws_sdk_supplychain.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_supplychain.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_supplychain.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_supplychain.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Request would cause a service quota to be exceeded.</p>
+            aws_sdk_supplychain.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_supplychain.errors.validation_exception.ValidationException: <p>The input does not satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_supplychain.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Successful ListDataIntegrationFlowExecutions
 
@@ -465,6 +505,16 @@ class SupplyChainClient:
         Args:
             resource_arn: <p>The Amazon Web Services Supply chain resource ARN that needs tags to be listed.</p>
 
+        Raises:
+            aws_sdk_supplychain.errors.access_denied_exception.AccessDeniedException: <p>You do not have the required privileges to perform this action.</p>
+            aws_sdk_supplychain.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_supplychain.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_supplychain.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_supplychain.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Request would cause a service quota to be exceeded.</p>
+            aws_sdk_supplychain.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_supplychain.errors.validation_exception.ValidationException: <p>The input does not satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_supplychain.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Successful ListTagsForResource
 
@@ -522,6 +572,16 @@ class SupplyChainClient:
             event_timestamp: <p>The timestamp (in epoch seconds) associated with the event. If not provided, it will be assigned with current timestamp.</p>
             client_token: <p>The idempotent client token. The token is active for 8 hours, and within its lifetime, it ensures the request completes only once upon retry with same client token. If omitted, the AWS SDK generates a unique value so that AWS SDK can safely retry the request upon network errors.</p>
             dataset_target: <p>The target dataset configuration for <b>scn.data.dataset</b> event type.</p>
+
+        Raises:
+            aws_sdk_supplychain.errors.access_denied_exception.AccessDeniedException: <p>You do not have the required privileges to perform this action.</p>
+            aws_sdk_supplychain.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_supplychain.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_supplychain.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_supplychain.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Request would cause a service quota to be exceeded.</p>
+            aws_sdk_supplychain.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_supplychain.errors.validation_exception.ValidationException: <p>The input does not satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_supplychain.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Successful SendDataIntegrationEvent for inboundorder event type
@@ -621,6 +681,16 @@ class SupplyChainClient:
             resource_arn: <p>The Amazon Web Services Supply chain resource ARN that needs to be tagged.</p>
             tags: <p>The tags of the Amazon Web Services Supply chain resource to be created.</p>
 
+        Raises:
+            aws_sdk_supplychain.errors.access_denied_exception.AccessDeniedException: <p>You do not have the required privileges to perform this action.</p>
+            aws_sdk_supplychain.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_supplychain.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_supplychain.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_supplychain.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Request would cause a service quota to be exceeded.</p>
+            aws_sdk_supplychain.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_supplychain.errors.validation_exception.ValidationException: <p>The input does not satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_supplychain.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Successful TagResource
 
@@ -665,6 +735,16 @@ class SupplyChainClient:
         Args:
             resource_arn: <p>The Amazon Web Services Supply chain resource ARN that needs to be untagged.</p>
             tag_keys: <p>The list of tag keys to be deleted for an Amazon Web Services Supply Chain resource.</p>
+
+        Raises:
+            aws_sdk_supplychain.errors.access_denied_exception.AccessDeniedException: <p>You do not have the required privileges to perform this action.</p>
+            aws_sdk_supplychain.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_supplychain.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_supplychain.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_supplychain.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Request would cause a service quota to be exceeded.</p>
+            aws_sdk_supplychain.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_supplychain.errors.validation_exception.ValidationException: <p>The input does not satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_supplychain.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Successful UntagResource

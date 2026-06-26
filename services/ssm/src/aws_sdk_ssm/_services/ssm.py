@@ -723,6 +723,14 @@ class SSMClient:
             resource_type: <p>Specifies the type of resource you are tagging.</p> <note> <p>The <code>ManagedInstance</code> type for this API operation is for on-premises managed nodes. You must specify the name of the managed node in the following format: <code>mi-<i>ID_number</i> </code>. For example, <code>mi-1a2b3c4d5e6f</code>.</p> </note>
             resource_id: <p>The resource ID you want to tag.</p> <p>Use the ID of the resource. Here are some examples:</p> <p> <code>MaintenanceWindow</code>: <code>mw-012345abcde</code> </p> <p> <code>PatchBaseline</code>: <code>pb-012345abcde</code> </p> <p> <code>Automation</code>: <code>example-c160-4567-8519-012345abcde</code> </p> <p> <code>OpsMetadata</code> object: <code>ResourceID</code> for tagging is created from the Amazon Resource Name (ARN) for the object. Specifically, <code>ResourceID</code> is created from the strings that come after the word <code>opsmetadata</code> in the ARN. For example, an OpsMetadata object with an ARN of <code>arn:aws:ssm:us-east-2:1234567890:opsmetadata/aws/ssm/MyGroup/appmanager</code> has a <code>ResourceID</code> of either <code>aws/ssm/MyGroup/appmanager</code> or <code>/aws/ssm/MyGroup/appmanager</code>.</p> <p>For the <code>Document</code> and <code>Parameter</code> values, use the name of the resource. If you're tagging a shared document, you must use the full ARN of the document.</p> <p> <code>ManagedInstance</code>: <code>mi-012345abcde</code> </p> <note> <p>The <code>ManagedInstance</code> type for this API operation is only for on-premises managed nodes. You must specify the name of the managed node in the following format: <code>mi-<i>ID_number</i> </code>. For example, <code>mi-1a2b3c4d5e6f</code>.</p> </note>
             tags: <p>One or more tags. The value parameter is required.</p> <important> <p>Don't enter personally identifiable information in this field.</p> </important>
+
+        Raises:
+            aws_sdk_ssm.errors.internal_server_error.InternalServerError: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm.errors.invalid_resource_id.InvalidResourceId: <p>The resource ID isn't valid. Verify that you entered the correct ID and try again.</p>
+            aws_sdk_ssm.errors.invalid_resource_type.InvalidResourceType: <p>The resource type isn't valid. For example, if you are attempting to tag an EC2 instance, the instance must be a registered managed node.</p>
+            aws_sdk_ssm.errors.too_many_tags_error.TooManyTagsError: <p>The <code>Targets</code> parameter includes too many tags. Remove one or more tags and try the command again.</p>
+            aws_sdk_ssm.errors.too_many_updates.TooManyUpdates: <p>There are concurrent updates for a resource that supports one update at a time.</p>
+            aws_sdk_ssm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -768,6 +776,15 @@ class SSMClient:
             association_type: <p>The type of association that you want to create between an OpsItem and a resource. OpsCenter supports <code>IsParentOf</code> and <code>RelatesTo</code> association types.</p>
             resource_type: <p>The type of resource that you want to associate with an OpsItem. OpsCenter supports the following types:</p> <p> <code>AWS::SSMIncidents::IncidentRecord</code>: an Incident Manager incident. </p> <p> <code>AWS::SSM::Document</code>: a Systems Manager (SSM) document.</p>
             resource_uri: <p>The Amazon Resource Name (ARN) of the Amazon Web Services resource that you want to associate with the OpsItem.</p>
+
+        Raises:
+            aws_sdk_ssm.errors.internal_server_error.InternalServerError: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm.errors.ops_item_conflict_exception.OpsItemConflictException: <p>The specified OpsItem is in the process of being deleted.</p>
+            aws_sdk_ssm.errors.ops_item_invalid_parameter_exception.OpsItemInvalidParameterException: <p>A specified parameter argument isn't valid. Verify the available arguments and try again.</p>
+            aws_sdk_ssm.errors.ops_item_limit_exceeded_exception.OpsItemLimitExceededException: <p>The request caused OpsItems to exceed one or more quotas.</p>
+            aws_sdk_ssm.errors.ops_item_not_found_exception.OpsItemNotFoundException: <p>The specified OpsItem ID doesn't exist. Verify the ID and try again.</p>
+            aws_sdk_ssm.errors.ops_item_related_item_already_exists_exception.OpsItemRelatedItemAlreadyExistsException: <p>The Amazon Resource Name (ARN) is already associated with the OpsItem.</p>
+            aws_sdk_ssm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -812,6 +829,13 @@ class SSMClient:
         Args:
             command_id: <p>The ID of the command you want to cancel.</p>
             instance_ids: <p>(Optional) A list of managed node IDs on which you want to cancel the command. If not provided, the command is canceled on every node on which it was requested.</p>
+
+        Raises:
+            aws_sdk_ssm.errors.duplicate_instance_id.DuplicateInstanceId: <p>You can't specify a managed node ID in more than one association.</p>
+            aws_sdk_ssm.errors.internal_server_error.InternalServerError: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm.errors.invalid_command_id.InvalidCommandId: <p>The specified command ID isn't valid. Verify the ID and try again.</p>
+            aws_sdk_ssm.errors.invalid_instance_id.InvalidInstanceId: <p>The following problems can cause this exception:</p> <ul> <li> <p>You don't have permission to access the managed node.</p> </li> <li> <p>Amazon Web Services Systems Manager Agent (SSM Agent) isn't running. Verify that SSM Agent is running.</p> </li> <li> <p>SSM Agent isn't registered with the SSM endpoint. Try reinstalling SSM Agent.</p> </li> <li> <p>The managed node isn't in a valid state. Valid states are: <code>Running</code>, <code>Pending</code>, <code>Stopped</code>, and <code>Stopping</code>. Invalid states are: <code>Shutting-down</code> and <code>Terminated</code>.</p> </li> </ul>
+            aws_sdk_ssm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -851,6 +875,11 @@ class SSMClient:
 
         Args:
             window_execution_id: <p>The ID of the maintenance window execution to stop.</p>
+
+        Raises:
+            aws_sdk_ssm.errors.does_not_exist_exception.DoesNotExistException: <p>Error returned when the ID specified for a resource, such as a maintenance window or patch baseline, doesn't exist.</p> <p>For information about resource quotas in Amazon Web Services Systems Manager, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/ssm.html#limits_ssm\">Systems Manager service quotas</a> in the <i>Amazon Web Services General Reference</i>.</p>
+            aws_sdk_ssm.errors.internal_server_error.InternalServerError: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -910,6 +939,11 @@ class SSMClient:
             expiration_date: <p>The date by which this activation request should expire, in timestamp format, such as \"2024-07-07T00:00:00\". You can specify a date up to 30 days in advance. If you don't provide an expiration date, the activation code expires in 24 hours.</p>
             tags: <p>Optional metadata that you assign to a resource. Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment. For example, you might want to tag an activation to identify which servers or virtual machines (VMs) in your on-premises environment you intend to activate. In this case, you could specify the following key-value pairs:</p> <ul> <li> <p> <code>Key=OS,Value=Windows</code> </p> </li> <li> <p> <code>Key=Environment,Value=Production</code> </p> </li> </ul> <important> <p>When you install SSM Agent on your on-premises servers and VMs, you specify an activation ID and code. When you specify the activation ID and code, tags assigned to the activation are automatically applied to the on-premises servers or VMs.</p> </important> <p>You can't add tags to or delete tags from an existing activation. You can tag your on-premises servers, edge devices, and VMs after they connect to Systems Manager for the first time and are assigned a managed node ID. This means they are listed in the Amazon Web Services Systems Manager console with an ID that is prefixed with \"mi-\". For information about how to add tags to your managed nodes, see <a>AddTagsToResource</a>. For information about how to remove tags from your managed nodes, see <a>RemoveTagsFromResource</a>.</p>
             registration_metadata: <p>Reserved for internal use.</p>
+
+        Raises:
+            aws_sdk_ssm.errors.internal_server_error.InternalServerError: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm.errors.invalid_parameters.InvalidParameters: <p>You must specify values for all required parameters in the Amazon Web Services Systems Manager document (SSM document). You can only supply values to parameters defined in the SSM document.</p>
+            aws_sdk_ssm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1028,6 +1062,22 @@ class SSMClient:
             target_maps: <p>A key-value mapping of document parameters to target resources. Both Targets and TargetMaps can't be specified together.</p>
             tags: <p>Adds or overwrites one or more tags for a State Manager association. <i>Tags</i> are metadata that you can assign to your Amazon Web Services resources. Tags enable you to categorize your resources in different ways, for example, by purpose, owner, or environment. Each tag consists of a key and an optional value, both of which you define. </p>
             association_dispatch_assume_role: <p>A role used by association to take actions on your behalf. State Manager will assume this role and call required APIs when dispatching configurations to nodes. If not specified, <a href=\"https://docs.aws.amazon.com/systems-manager/latest/userguide/using-service-linked-roles.html\"> service-linked role for Systems Manager</a> will be used by default. </p> <note> <p>It is recommended that you define a custom IAM role so that you have full control of the permissions that State Manager has when taking actions on your behalf.</p> <p>Service-linked role support in State Manager is being phased out. Associations relying on service-linked role may require updates in the future to continue functioning properly.</p> </note>
+
+        Raises:
+            aws_sdk_ssm.errors.association_already_exists.AssociationAlreadyExists: <p>The specified association already exists.</p>
+            aws_sdk_ssm.errors.association_limit_exceeded.AssociationLimitExceeded: <p>You can have at most 2,000 active associations.</p>
+            aws_sdk_ssm.errors.internal_server_error.InternalServerError: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm.errors.invalid_document.InvalidDocument: <p>The specified SSM document doesn't exist.</p>
+            aws_sdk_ssm.errors.invalid_document_version.InvalidDocumentVersion: <p>The document version isn't valid or doesn't exist.</p>
+            aws_sdk_ssm.errors.invalid_instance_id.InvalidInstanceId: <p>The following problems can cause this exception:</p> <ul> <li> <p>You don't have permission to access the managed node.</p> </li> <li> <p>Amazon Web Services Systems Manager Agent (SSM Agent) isn't running. Verify that SSM Agent is running.</p> </li> <li> <p>SSM Agent isn't registered with the SSM endpoint. Try reinstalling SSM Agent.</p> </li> <li> <p>The managed node isn't in a valid state. Valid states are: <code>Running</code>, <code>Pending</code>, <code>Stopped</code>, and <code>Stopping</code>. Invalid states are: <code>Shutting-down</code> and <code>Terminated</code>.</p> </li> </ul>
+            aws_sdk_ssm.errors.invalid_output_location.InvalidOutputLocation: <p>The output location isn't valid or doesn't exist.</p>
+            aws_sdk_ssm.errors.invalid_parameters.InvalidParameters: <p>You must specify values for all required parameters in the Amazon Web Services Systems Manager document (SSM document). You can only supply values to parameters defined in the SSM document.</p>
+            aws_sdk_ssm.errors.invalid_schedule.InvalidSchedule: <p>The schedule is invalid. Verify your cron or rate expression and try again.</p>
+            aws_sdk_ssm.errors.invalid_tag.InvalidTag: <p>The specified tag key or value isn't valid.</p>
+            aws_sdk_ssm.errors.invalid_target.InvalidTarget: <p>The target isn't valid or doesn't exist. It might not be configured for Systems Manager or you might not have permission to perform the operation.</p>
+            aws_sdk_ssm.errors.invalid_target_maps.InvalidTargetMaps: <p>TargetMap parameter isn't valid.</p>
+            aws_sdk_ssm.errors.unsupported_platform_type.UnsupportedPlatformType: <p>The document doesn't support the platform type of the given managed node IDs. For example, you sent an document for a Windows managed node to a Linux node.</p>
+            aws_sdk_ssm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1117,6 +1167,21 @@ class SSMClient:
         Args:
             entries: <p>One or more associations.</p>
             association_dispatch_assume_role: <p>A role used by association to take actions on your behalf. State Manager will assume this role and call required APIs when dispatching configurations to nodes. If not specified, <a href=\"https://docs.aws.amazon.com/systems-manager/latest/userguide/using-service-linked-roles.html\"> service-linked role for Systems Manager</a> will be used by default. </p> <note> <p>It is recommended that you define a custom IAM role so that you have full control of the permissions that State Manager has when taking actions on your behalf.</p> <p>Service-linked role support in State Manager is being phased out. Associations relying on service-linked role may require updates in the future to continue functioning properly.</p> </note>
+
+        Raises:
+            aws_sdk_ssm.errors.association_limit_exceeded.AssociationLimitExceeded: <p>You can have at most 2,000 active associations.</p>
+            aws_sdk_ssm.errors.duplicate_instance_id.DuplicateInstanceId: <p>You can't specify a managed node ID in more than one association.</p>
+            aws_sdk_ssm.errors.internal_server_error.InternalServerError: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm.errors.invalid_document.InvalidDocument: <p>The specified SSM document doesn't exist.</p>
+            aws_sdk_ssm.errors.invalid_document_version.InvalidDocumentVersion: <p>The document version isn't valid or doesn't exist.</p>
+            aws_sdk_ssm.errors.invalid_instance_id.InvalidInstanceId: <p>The following problems can cause this exception:</p> <ul> <li> <p>You don't have permission to access the managed node.</p> </li> <li> <p>Amazon Web Services Systems Manager Agent (SSM Agent) isn't running. Verify that SSM Agent is running.</p> </li> <li> <p>SSM Agent isn't registered with the SSM endpoint. Try reinstalling SSM Agent.</p> </li> <li> <p>The managed node isn't in a valid state. Valid states are: <code>Running</code>, <code>Pending</code>, <code>Stopped</code>, and <code>Stopping</code>. Invalid states are: <code>Shutting-down</code> and <code>Terminated</code>.</p> </li> </ul>
+            aws_sdk_ssm.errors.invalid_output_location.InvalidOutputLocation: <p>The output location isn't valid or doesn't exist.</p>
+            aws_sdk_ssm.errors.invalid_parameters.InvalidParameters: <p>You must specify values for all required parameters in the Amazon Web Services Systems Manager document (SSM document). You can only supply values to parameters defined in the SSM document.</p>
+            aws_sdk_ssm.errors.invalid_schedule.InvalidSchedule: <p>The schedule is invalid. Verify your cron or rate expression and try again.</p>
+            aws_sdk_ssm.errors.invalid_target.InvalidTarget: <p>The target isn't valid or doesn't exist. It might not be configured for Systems Manager or you might not have permission to perform the operation.</p>
+            aws_sdk_ssm.errors.invalid_target_maps.InvalidTargetMaps: <p>TargetMap parameter isn't valid.</p>
+            aws_sdk_ssm.errors.unsupported_platform_type.UnsupportedPlatformType: <p>The document doesn't support the platform type of the given managed node IDs. For example, you sent an document for a Windows managed node to a Linux node.</p>
+            aws_sdk_ssm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1186,6 +1251,17 @@ class SSMClient:
             document_format: <p>Specify the document format for the request. The document format can be JSON, YAML, or TEXT. JSON is the default format.</p>
             target_type: <p>Specify a target type to define the kinds of resources the document can run on. For example, to run a document on EC2 instances, specify the following value: <code>/AWS::EC2::Instance</code>. If you specify a value of '/' the document can run on all types of resources. If you don't specify a value, the document can't run on any resources. For a list of valid resource types, see <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html\">Amazon Web Services resource and property types reference</a> in the <i>CloudFormation User Guide</i>. </p>
             tags: <p>Optional metadata that you assign to a resource. Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment. For example, you might want to tag an SSM document to identify the types of targets or the environment where it will run. In this case, you could specify the following key-value pairs:</p> <ul> <li> <p> <code>Key=OS,Value=Windows</code> </p> </li> <li> <p> <code>Key=Environment,Value=Production</code> </p> </li> </ul> <note> <p>To add tags to an existing SSM document, use the <a>AddTagsToResource</a> operation.</p> </note>
+
+        Raises:
+            aws_sdk_ssm.errors.document_already_exists.DocumentAlreadyExists: <p>The specified document already exists.</p>
+            aws_sdk_ssm.errors.document_limit_exceeded.DocumentLimitExceeded: <p>You can have at most 500 active SSM documents.</p>
+            aws_sdk_ssm.errors.internal_server_error.InternalServerError: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm.errors.invalid_document_content.InvalidDocumentContent: <p>The content for the document isn't valid.</p>
+            aws_sdk_ssm.errors.invalid_document_schema_version.InvalidDocumentSchemaVersion: <p>The version of the document schema isn't supported.</p>
+            aws_sdk_ssm.errors.max_document_size_exceeded.MaxDocumentSizeExceeded: <p>The size limit of a document is 64 KB.</p>
+            aws_sdk_ssm.errors.no_longer_supported_exception.NoLongerSupportedException: <p>The requested operation is no longer supported by Systems Manager.</p>
+            aws_sdk_ssm.errors.too_many_updates.TooManyUpdates: <p>There are concurrent updates for a resource that supports one update at a time.</p>
+            aws_sdk_ssm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1272,6 +1348,12 @@ class SSMClient:
             allow_unassociated_targets: <p>Enables a maintenance window task to run on managed nodes, even if you haven't registered those nodes as targets. If enabled, then you must specify the unregistered managed nodes (by node ID) when you register a task with the maintenance window.</p> <p>If you don't enable this option, then you must specify previously-registered targets when you register a task with the maintenance window.</p>
             client_token: <p>User-provided idempotency token.</p>
             tags: <p>Optional metadata that you assign to a resource. Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment. For example, you might want to tag a maintenance window to identify the type of tasks it will run, the types of targets, and the environment it will run in. In this case, you could specify the following key-value pairs:</p> <ul> <li> <p> <code>Key=TaskType,Value=AgentUpdate</code> </p> </li> <li> <p> <code>Key=OS,Value=Windows</code> </p> </li> <li> <p> <code>Key=Environment,Value=Production</code> </p> </li> </ul> <note> <p>To add tags to an existing maintenance window, use the <a>AddTagsToResource</a> operation.</p> </note>
+
+        Raises:
+            aws_sdk_ssm.errors.idempotent_parameter_mismatch.IdempotentParameterMismatch: <p>Error returned when an idempotent operation is retried and the parameters don't match the original call to the API with the same idempotency token. </p>
+            aws_sdk_ssm.errors.internal_server_error.InternalServerError: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm.errors.resource_limit_exceeded_exception.ResourceLimitExceededException: <p>Error returned when the caller has exceeded the default resource quotas. For example, too many maintenance windows or patch baselines have been created.</p> <p>For information about resource quotas in Systems Manager, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/ssm.html#limits_ssm\">Systems Manager service quotas</a> in the <i>Amazon Web Services General Reference</i>.</p>
+            aws_sdk_ssm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1371,6 +1453,14 @@ class SSMClient:
             planned_start_time: <p>The time specified in a change request for a runbook workflow to start. Currently supported only for the OpsItem type <code>/aws/changerequest</code>.</p>
             planned_end_time: <p>The time specified in a change request for a runbook workflow to end. Currently supported only for the OpsItem type <code>/aws/changerequest</code>.</p>
             account_id: <p>The target Amazon Web Services account where you want to create an OpsItem. To make this call, your account must be configured to work with OpsItems across accounts. For more information, see <a href=\"https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-setup.html\">Set up OpsCenter</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
+
+        Raises:
+            aws_sdk_ssm.errors.internal_server_error.InternalServerError: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm.errors.ops_item_access_denied_exception.OpsItemAccessDeniedException: <p>You don't have permission to view OpsItems in the specified account. Verify that your account is configured either as a Systems Manager delegated administrator or that you are logged into the Organizations management account.</p>
+            aws_sdk_ssm.errors.ops_item_already_exists_exception.OpsItemAlreadyExistsException: <p>The OpsItem already exists.</p>
+            aws_sdk_ssm.errors.ops_item_invalid_parameter_exception.OpsItemInvalidParameterException: <p>A specified parameter argument isn't valid. Verify the available arguments and try again.</p>
+            aws_sdk_ssm.errors.ops_item_limit_exceeded_exception.OpsItemLimitExceededException: <p>The request caused OpsItems to exceed one or more quotas.</p>
+            aws_sdk_ssm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1440,6 +1530,14 @@ class SSMClient:
             resource_id: <p>A resource ID for a new Application Manager application.</p>
             metadata: <p>Metadata for a new Application Manager application. </p>
             tags: <p>Optional metadata that you assign to a resource. You can specify a maximum of five tags for an OpsMetadata object. Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment. For example, you might want to tag an OpsMetadata object to identify an environment or target Amazon Web Services Region. In this case, you could specify the following key-value pairs:</p> <ul> <li> <p> <code>Key=Environment,Value=Production</code> </p> </li> <li> <p> <code>Key=Region,Value=us-east-2</code> </p> </li> </ul>
+
+        Raises:
+            aws_sdk_ssm.errors.internal_server_error.InternalServerError: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm.errors.ops_metadata_already_exists_exception.OpsMetadataAlreadyExistsException: <p>An OpsMetadata object already exists for the selected resource.</p>
+            aws_sdk_ssm.errors.ops_metadata_invalid_argument_exception.OpsMetadataInvalidArgumentException: <p>One of the arguments passed is invalid. </p>
+            aws_sdk_ssm.errors.ops_metadata_limit_exceeded_exception.OpsMetadataLimitExceededException: <p>Your account reached the maximum number of OpsMetadata objects allowed by Application Manager. The maximum is 200 OpsMetadata objects. Delete one or more OpsMetadata object and try again.</p>
+            aws_sdk_ssm.errors.ops_metadata_too_many_updates_exception.OpsMetadataTooManyUpdatesException: <p>The system is processing too many concurrent updates. Wait a few moments and try again.</p>
+            aws_sdk_ssm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1527,6 +1625,12 @@ class SSMClient:
             available_security_updates_compliance_status: <p>Indicates the status you want to assign to security patches that are available but not approved because they don't meet the installation criteria specified in the patch baseline.</p> <p>Example scenario: Security patches that you might want installed can be skipped if you have specified a long period to wait after a patch is released before installation. If an update to the patch is released during your specified waiting period, the waiting period for installing the patch starts over. If the waiting period is too long, multiple versions of the patch could be released but never installed.</p> <p>Supported for Windows Server managed nodes only.</p>
             client_token: <p>User-provided idempotency token.</p>
             tags: <p>Optional metadata that you assign to a resource. Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment. For example, you might want to tag a patch baseline to identify the severity level of patches it specifies and the operating system family it applies to. In this case, you could specify the following key-value pairs:</p> <ul> <li> <p> <code>Key=PatchSeverity,Value=Critical</code> </p> </li> <li> <p> <code>Key=OS,Value=Windows</code> </p> </li> </ul> <note> <p>To add tags to an existing patch baseline, use the <a>AddTagsToResource</a> operation.</p> </note>
+
+        Raises:
+            aws_sdk_ssm.errors.idempotent_parameter_mismatch.IdempotentParameterMismatch: <p>Error returned when an idempotent operation is retried and the parameters don't match the original call to the API with the same idempotency token. </p>
+            aws_sdk_ssm.errors.internal_server_error.InternalServerError: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm.errors.resource_limit_exceeded_exception.ResourceLimitExceededException: <p>Error returned when the caller has exceeded the default resource quotas. For example, too many maintenance windows or patch baselines have been created.</p> <p>For information about resource quotas in Systems Manager, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/ssm.html#limits_ssm\">Systems Manager service quotas</a> in the <i>Amazon Web Services General Reference</i>.</p>
+            aws_sdk_ssm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1608,6 +1712,13 @@ class SSMClient:
             s3_destination: <p>Amazon S3 configuration details for the sync. This parameter is required if the <code>SyncType</code> value is SyncToDestination.</p>
             sync_type: <p>Specify <code>SyncToDestination</code> to create a resource data sync that synchronizes data to an S3 bucket for Inventory. If you specify <code>SyncToDestination</code>, you must provide a value for <code>S3Destination</code>. Specify <code>SyncFromSource</code> to synchronize data from a single account and multiple Regions, or multiple Amazon Web Services accounts and Amazon Web Services Regions, as listed in Organizations for Explorer. If you specify <code>SyncFromSource</code>, you must provide a value for <code>SyncSource</code>. The default value is <code>SyncToDestination</code>.</p>
             sync_source: <p>Specify information about the data sources to synchronize. This parameter is required if the <code>SyncType</code> value is SyncFromSource.</p>
+
+        Raises:
+            aws_sdk_ssm.errors.internal_server_error.InternalServerError: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm.errors.resource_data_sync_already_exists_exception.ResourceDataSyncAlreadyExistsException: <p>A sync configuration with the same name already exists.</p>
+            aws_sdk_ssm.errors.resource_data_sync_count_exceeded_exception.ResourceDataSyncCountExceededException: <p>You have exceeded the allowed maximum sync configurations.</p>
+            aws_sdk_ssm.errors.resource_data_sync_invalid_configuration_exception.ResourceDataSyncInvalidConfigurationException: <p>The specified sync configuration is invalid.</p>
+            aws_sdk_ssm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1651,6 +1762,13 @@ class SSMClient:
 
         Args:
             activation_id: <p>The ID of the activation that you want to delete.</p>
+
+        Raises:
+            aws_sdk_ssm.errors.internal_server_error.InternalServerError: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm.errors.invalid_activation.InvalidActivation: <p>The activation isn't valid. The activation might have been deleted, or the ActivationId and the ActivationCode don't match.</p>
+            aws_sdk_ssm.errors.invalid_activation_id.InvalidActivationId: <p>The activation ID isn't valid. Verify that you entered the correct ActivationId or ActivationCode and try again.</p>
+            aws_sdk_ssm.errors.too_many_updates.TooManyUpdates: <p>There are concurrent updates for a resource that supports one update at a time.</p>
+            aws_sdk_ssm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1694,6 +1812,14 @@ class SSMClient:
             name: <p>The name of the SSM document.</p>
             instance_id: <p>The managed node ID.</p> <note> <p> <code>InstanceId</code> has been deprecated. To specify a managed node ID for an association, use the <code>Targets</code> parameter. Requests that include the parameter <code>InstanceID</code> with Systems Manager documents (SSM documents) that use schema version 2.0 or later will fail. In addition, if you use the parameter <code>InstanceId</code>, you can't use the parameters <code>AssociationName</code>, <code>DocumentVersion</code>, <code>MaxErrors</code>, <code>MaxConcurrency</code>, <code>OutputLocation</code>, or <code>ScheduleExpression</code>. To use these parameters, you must use the <code>Targets</code> parameter.</p> </note>
             association_id: <p>The association ID that you want to delete.</p>
+
+        Raises:
+            aws_sdk_ssm.errors.association_does_not_exist.AssociationDoesNotExist: <p>The specified association doesn't exist.</p>
+            aws_sdk_ssm.errors.internal_server_error.InternalServerError: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm.errors.invalid_document.InvalidDocument: <p>The specified SSM document doesn't exist.</p>
+            aws_sdk_ssm.errors.invalid_instance_id.InvalidInstanceId: <p>The following problems can cause this exception:</p> <ul> <li> <p>You don't have permission to access the managed node.</p> </li> <li> <p>Amazon Web Services Systems Manager Agent (SSM Agent) isn't running. Verify that SSM Agent is running.</p> </li> <li> <p>SSM Agent isn't registered with the SSM endpoint. Try reinstalling SSM Agent.</p> </li> <li> <p>The managed node isn't in a valid state. Valid states are: <code>Running</code>, <code>Pending</code>, <code>Stopped</code>, and <code>Stopping</code>. Invalid states are: <code>Shutting-down</code> and <code>Terminated</code>.</p> </li> </ul>
+            aws_sdk_ssm.errors.too_many_updates.TooManyUpdates: <p>There are concurrent updates for a resource that supports one update at a time.</p>
+            aws_sdk_ssm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1746,6 +1872,14 @@ class SSMClient:
             document_version: <p>The version of the document that you want to delete. If not provided, all versions of the document are deleted.</p>
             version_name: <p>The version name of the document that you want to delete. If not provided, all versions of the document are deleted.</p>
             force: <p>Some SSM document types require that you specify a <code>Force</code> flag before you can delete the document. For example, you must specify a <code>Force</code> flag to delete a document of type <code>ApplicationConfigurationSchema</code>. You can restrict access to the <code>Force</code> flag in an Identity and Access Management (IAM) policy.</p>
+
+        Raises:
+            aws_sdk_ssm.errors.associated_instances.AssociatedInstances: <p>You must disassociate a document from all managed nodes before you can delete it.</p>
+            aws_sdk_ssm.errors.internal_server_error.InternalServerError: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm.errors.invalid_document.InvalidDocument: <p>The specified SSM document doesn't exist.</p>
+            aws_sdk_ssm.errors.invalid_document_operation.InvalidDocumentOperation: <p>You attempted to delete a document while it is still shared. You must stop sharing the document before you can delete it.</p>
+            aws_sdk_ssm.errors.too_many_updates.TooManyUpdates: <p>There are concurrent updates for a resource that supports one update at a time.</p>
+            aws_sdk_ssm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1797,6 +1931,14 @@ class SSMClient:
             schema_delete_option: <p>Use the <code>SchemaDeleteOption</code> to delete a custom inventory type (schema). If you don't choose this option, the system only deletes existing inventory data associated with the custom inventory type. Choose one of the following options:</p> <p>DisableSchema: If you choose this option, the system ignores all inventory data for the specified version, and any earlier versions. To enable this schema again, you must call the <code>PutInventory</code> operation for a version greater than the disabled version.</p> <p>DeleteSchema: This option deletes the specified custom type from the Inventory service. You can recreate the schema later, if you want.</p>
             dry_run: <p>Use this option to view a summary of the deletion request without deleting any data or the data type. This option is useful when you only want to understand what will be deleted. Once you validate that the data to be deleted is what you intend to delete, you can run the same command without specifying the <code>DryRun</code> option.</p>
             client_token: <p>User-provided idempotency token.</p>
+
+        Raises:
+            aws_sdk_ssm.errors.internal_server_error.InternalServerError: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm.errors.invalid_delete_inventory_parameters_exception.InvalidDeleteInventoryParametersException: <p>One or more of the parameters specified for the delete operation isn't valid. Verify all parameters and try again.</p>
+            aws_sdk_ssm.errors.invalid_inventory_request_exception.InvalidInventoryRequestException: <p>The request isn't valid.</p>
+            aws_sdk_ssm.errors.invalid_option_exception.InvalidOptionException: <p>The delete inventory option specified isn't valid. Verify the option and try again.</p>
+            aws_sdk_ssm.errors.invalid_type_name_exception.InvalidTypeNameException: <p>The parameter type name isn't valid.</p>
+            aws_sdk_ssm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1840,6 +1982,10 @@ class SSMClient:
 
         Args:
             window_id: <p>The ID of the maintenance window to delete.</p>
+
+        Raises:
+            aws_sdk_ssm.errors.internal_server_error.InternalServerError: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1877,6 +2023,11 @@ class SSMClient:
 
         Args:
             ops_item_id: <p>The ID of the OpsItem that you want to delete.</p>
+
+        Raises:
+            aws_sdk_ssm.errors.internal_server_error.InternalServerError: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm.errors.ops_item_invalid_parameter_exception.OpsItemInvalidParameterException: <p>A specified parameter argument isn't valid. Verify the available arguments and try again.</p>
+            aws_sdk_ssm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1914,6 +2065,12 @@ class SSMClient:
 
         Args:
             ops_metadata_arn: <p>The Amazon Resource Name (ARN) of an OpsMetadata Object to delete.</p>
+
+        Raises:
+            aws_sdk_ssm.errors.internal_server_error.InternalServerError: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm.errors.ops_metadata_invalid_argument_exception.OpsMetadataInvalidArgumentException: <p>One of the arguments passed is invalid. </p>
+            aws_sdk_ssm.errors.ops_metadata_not_found_exception.OpsMetadataNotFoundException: <p>The OpsMetadata object doesn't exist. </p>
+            aws_sdk_ssm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1951,6 +2108,11 @@ class SSMClient:
 
         Args:
             name: <p>The name of the parameter to delete.</p> <note> <p>You can't enter the Amazon Resource Name (ARN) for a parameter, only the parameter name itself.</p> </note>
+
+        Raises:
+            aws_sdk_ssm.errors.internal_server_error.InternalServerError: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm.errors.parameter_not_found.ParameterNotFound: <p>The parameter couldn't be found. Verify the name and try again.</p> <note> <p>For the <code>DeleteParameter</code> and <code>GetParameter</code> actions, if the specified parameter doesn't exist, the <code>ParameterNotFound</code> exception is <i>not</i> recorded in CloudTrail event logs.</p> </note>
+            aws_sdk_ssm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1988,6 +2150,10 @@ class SSMClient:
 
         Args:
             names: <p>The names of the parameters to delete. After deleting a parameter, wait for at least 30 seconds to create a parameter with the same name.</p> <note> <p>You can't enter the Amazon Resource Name (ARN) for a parameter, only the parameter name itself.</p> </note>
+
+        Raises:
+            aws_sdk_ssm.errors.internal_server_error.InternalServerError: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2025,6 +2191,11 @@ class SSMClient:
 
         Args:
             baseline_id: <p>The ID of the patch baseline to delete.</p>
+
+        Raises:
+            aws_sdk_ssm.errors.internal_server_error.InternalServerError: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm.errors.resource_in_use_exception.ResourceInUseException: <p>Error returned if an attempt is made to delete a patch baseline that is registered for a patch group.</p>
+            aws_sdk_ssm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2066,6 +2237,12 @@ class SSMClient:
         Args:
             sync_name: <p>The name of the configuration to delete.</p>
             sync_type: <p>Specify the type of resource data sync to delete.</p>
+
+        Raises:
+            aws_sdk_ssm.errors.internal_server_error.InternalServerError: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm.errors.resource_data_sync_invalid_configuration_exception.ResourceDataSyncInvalidConfigurationException: <p>The specified sync configuration is invalid.</p>
+            aws_sdk_ssm.errors.resource_data_sync_not_found_exception.ResourceDataSyncNotFoundException: <p>The specified sync name wasn't found.</p>
+            aws_sdk_ssm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2111,6 +2288,15 @@ class SSMClient:
             resource_arn: <p>Amazon Resource Name (ARN) of the resource to which the policies are attached.</p>
             policy_id: <p>The policy ID.</p>
             policy_hash: <p>ID of the current policy version. The hash helps to prevent multiple calls from attempting to overwrite a policy.</p>
+
+        Raises:
+            aws_sdk_ssm.errors.internal_server_error.InternalServerError: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm.errors.malformed_resource_policy_document_exception.MalformedResourcePolicyDocumentException: <p>The specified policy document is malformed or invalid, or excessive <code>PutResourcePolicy</code> or <code>DeleteResourcePolicy</code> calls have been made.</p>
+            aws_sdk_ssm.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified parameter to be shared could not be found.</p>
+            aws_sdk_ssm.errors.resource_policy_conflict_exception.ResourcePolicyConflictException: <p>The hash provided in the call doesn't match the stored hash. This exception is thrown when trying to update an obsolete policy version or when multiple requests to update a policy are sent.</p>
+            aws_sdk_ssm.errors.resource_policy_invalid_parameter_exception.ResourcePolicyInvalidParameterException: <p>One or more parameters specified for the call aren't valid. Verify the parameters and their values and try again.</p>
+            aws_sdk_ssm.errors.resource_policy_not_found_exception.ResourcePolicyNotFoundException: <p>No policies with the specified policy ID and hash could be found.</p>
+            aws_sdk_ssm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2150,6 +2336,11 @@ class SSMClient:
 
         Args:
             instance_id: <p>The ID assigned to the managed node when you registered it using the activation process. </p>
+
+        Raises:
+            aws_sdk_ssm.errors.internal_server_error.InternalServerError: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm.errors.invalid_instance_id.InvalidInstanceId: <p>The following problems can cause this exception:</p> <ul> <li> <p>You don't have permission to access the managed node.</p> </li> <li> <p>Amazon Web Services Systems Manager Agent (SSM Agent) isn't running. Verify that SSM Agent is running.</p> </li> <li> <p>SSM Agent isn't registered with the SSM endpoint. Try reinstalling SSM Agent.</p> </li> <li> <p>The managed node isn't in a valid state. Valid states are: <code>Running</code>, <code>Pending</code>, <code>Stopped</code>, and <code>Stopping</code>. Invalid states are: <code>Shutting-down</code> and <code>Terminated</code>.</p> </li> </ul>
+            aws_sdk_ssm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2189,6 +2380,11 @@ class SSMClient:
         Args:
             baseline_id: <p>The ID of the patch baseline to deregister the patch group from.</p>
             patch_group: <p>The name of the patch group that should be deregistered from the patch baseline.</p>
+
+        Raises:
+            aws_sdk_ssm.errors.internal_server_error.InternalServerError: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm.errors.invalid_resource_id.InvalidResourceId: <p>The resource ID isn't valid. Verify that you entered the correct ID and try again.</p>
+            aws_sdk_ssm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2231,6 +2427,12 @@ class SSMClient:
             window_id: <p>The ID of the maintenance window the target should be removed from.</p>
             window_target_id: <p>The ID of the target definition to remove.</p>
             safe: <p>The system checks if the target is being referenced by a task. If the target is being referenced, the system returns an error and doesn't deregister the target from the maintenance window.</p>
+
+        Raises:
+            aws_sdk_ssm.errors.does_not_exist_exception.DoesNotExistException: <p>Error returned when the ID specified for a resource, such as a maintenance window or patch baseline, doesn't exist.</p> <p>For information about resource quotas in Amazon Web Services Systems Manager, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/ssm.html#limits_ssm\">Systems Manager service quotas</a> in the <i>Amazon Web Services General Reference</i>.</p>
+            aws_sdk_ssm.errors.internal_server_error.InternalServerError: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm.errors.target_in_use_exception.TargetInUseException: <p>You specified the <code>Safe</code> option for the DeregisterTargetFromMaintenanceWindow operation, but the target is still referenced in a task.</p>
+            aws_sdk_ssm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2273,6 +2475,11 @@ class SSMClient:
         Args:
             window_id: <p>The ID of the maintenance window the task should be removed from.</p>
             window_task_id: <p>The ID of the task to remove from the maintenance window.</p>
+
+        Raises:
+            aws_sdk_ssm.errors.does_not_exist_exception.DoesNotExistException: <p>Error returned when the ID specified for a resource, such as a maintenance window or patch baseline, doesn't exist.</p> <p>For information about resource quotas in Amazon Web Services Systems Manager, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/ssm.html#limits_ssm\">Systems Manager service quotas</a> in the <i>Amazon Web Services General Reference</i>.</p>
+            aws_sdk_ssm.errors.internal_server_error.InternalServerError: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2317,6 +2524,12 @@ class SSMClient:
             filters: <p>A filter to view information about your activations.</p>
             max_results: <p>The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.</p>
             next_token: <p>A token to start the list. Use this token to get the next set of results. </p>
+
+        Raises:
+            aws_sdk_ssm.errors.internal_server_error.InternalServerError: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm.errors.invalid_filter.InvalidFilter: <p>The filter name isn't valid. Verify that you entered the correct name and try again.</p>
+            aws_sdk_ssm.errors.invalid_next_token.InvalidNextToken: <p>The specified token isn't valid.</p>
+            aws_sdk_ssm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2394,6 +2607,14 @@ class SSMClient:
             instance_id: <p>The managed node ID.</p>
             association_id: <p>The association ID for which you want information.</p>
             association_version: <p>Specify the association version to retrieve. To view the latest version, either specify <code>$LATEST</code> for this parameter, or omit this parameter. To view a list of all associations for a managed node, use <a>ListAssociations</a>. To get a list of versions for a specific association, use <a>ListAssociationVersions</a>. </p>
+
+        Raises:
+            aws_sdk_ssm.errors.association_does_not_exist.AssociationDoesNotExist: <p>The specified association doesn't exist.</p>
+            aws_sdk_ssm.errors.internal_server_error.InternalServerError: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm.errors.invalid_association_version.InvalidAssociationVersion: <p>The version you specified isn't valid. Use ListAssociationVersions to view all versions of an association according to the association ID. Or, use the <code>$LATEST</code> parameter to view the latest version of the association.</p>
+            aws_sdk_ssm.errors.invalid_document.InvalidDocument: <p>The specified SSM document doesn't exist.</p>
+            aws_sdk_ssm.errors.invalid_instance_id.InvalidInstanceId: <p>The following problems can cause this exception:</p> <ul> <li> <p>You don't have permission to access the managed node.</p> </li> <li> <p>Amazon Web Services Systems Manager Agent (SSM Agent) isn't running. Verify that SSM Agent is running.</p> </li> <li> <p>SSM Agent isn't registered with the SSM endpoint. Try reinstalling SSM Agent.</p> </li> <li> <p>The managed node isn't in a valid state. Valid states are: <code>Running</code>, <code>Pending</code>, <code>Stopped</code>, and <code>Stopping</code>. Invalid states are: <code>Shutting-down</code> and <code>Terminated</code>.</p> </li> </ul>
+            aws_sdk_ssm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2446,6 +2667,12 @@ class SSMClient:
             filters: <p>Filters for the request. You can specify the following filters and values.</p> <p>ExecutionId (EQUAL)</p> <p>Status (EQUAL)</p> <p>CreatedTime (EQUAL, GREATER_THAN, LESS_THAN)</p>
             max_results: <p>The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.</p>
             next_token: <p>A token to start the list. Use this token to get the next set of results. </p>
+
+        Raises:
+            aws_sdk_ssm.errors.association_does_not_exist.AssociationDoesNotExist: <p>The specified association doesn't exist.</p>
+            aws_sdk_ssm.errors.internal_server_error.InternalServerError: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm.errors.invalid_next_token.InvalidNextToken: <p>The specified token isn't valid.</p>
+            aws_sdk_ssm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2526,6 +2753,13 @@ class SSMClient:
             filters: <p>Filters for the request. You can specify the following filters and values.</p> <p>Status (EQUAL)</p> <p>ResourceId (EQUAL)</p> <p>ResourceType (EQUAL)</p>
             max_results: <p>The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.</p>
             next_token: <p>A token to start the list. Use this token to get the next set of results. </p>
+
+        Raises:
+            aws_sdk_ssm.errors.association_does_not_exist.AssociationDoesNotExist: <p>The specified association doesn't exist.</p>
+            aws_sdk_ssm.errors.association_execution_does_not_exist.AssociationExecutionDoesNotExist: <p>The specified execution ID doesn't exist. Verify the ID number and try again.</p>
+            aws_sdk_ssm.errors.internal_server_error.InternalServerError: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm.errors.invalid_next_token.InvalidNextToken: <p>The specified token isn't valid.</p>
+            aws_sdk_ssm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2605,6 +2839,13 @@ class SSMClient:
             filters: <p>Filters used to limit the scope of executions that are requested.</p>
             max_results: <p>The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.</p>
             next_token: <p>The token for the next set of items to return. (You received this token from a previous call.)</p>
+
+        Raises:
+            aws_sdk_ssm.errors.internal_server_error.InternalServerError: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm.errors.invalid_filter_key.InvalidFilterKey: <p>The specified key isn't valid.</p>
+            aws_sdk_ssm.errors.invalid_filter_value.InvalidFilterValue: <p>The filter value isn't valid. Verify the value and try again.</p>
+            aws_sdk_ssm.errors.invalid_next_token.InvalidNextToken: <p>The specified token isn't valid.</p>
+            aws_sdk_ssm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2682,6 +2923,14 @@ class SSMClient:
             next_token: <p>The token for the next set of items to return. (You received this token from a previous call.)</p>
             max_results: <p>The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.</p>
             reverse_order: <p>Indicates whether to list step executions in reverse order by start time. The default value is 'false'.</p>
+
+        Raises:
+            aws_sdk_ssm.errors.automation_execution_not_found_exception.AutomationExecutionNotFoundException: <p>There is no automation execution information for the requested automation execution ID.</p>
+            aws_sdk_ssm.errors.internal_server_error.InternalServerError: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm.errors.invalid_filter_key.InvalidFilterKey: <p>The specified key isn't valid.</p>
+            aws_sdk_ssm.errors.invalid_filter_value.InvalidFilterValue: <p>The filter value isn't valid. Verify the value and try again.</p>
+            aws_sdk_ssm.errors.invalid_next_token.InvalidNextToken: <p>The specified token isn't valid.</p>
+            aws_sdk_ssm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2764,6 +3013,10 @@ class SSMClient:
             filters: <p>Each element in the array is a structure containing a key-value pair.</p> <p> <b>Windows Server</b> </p> <p>Supported keys for Windows Server managed node patches include the following:</p> <ul> <li> <p> <b> <code>PATCH_SET</code> </b> </p> <p>Sample values: <code>OS</code> | <code>APPLICATION</code> </p> </li> <li> <p> <b> <code>PRODUCT</code> </b> </p> <p>Sample values: <code>WindowsServer2012</code> | <code>Office 2010</code> | <code>MicrosoftDefenderAntivirus</code> </p> </li> <li> <p> <b> <code>PRODUCT_FAMILY</code> </b> </p> <p>Sample values: <code>Windows</code> | <code>Office</code> </p> </li> <li> <p> <b> <code>MSRC_SEVERITY</code> </b> </p> <p>Sample values: <code>ServicePacks</code> | <code>Important</code> | <code>Moderate</code> </p> </li> <li> <p> <b> <code>CLASSIFICATION</code> </b> </p> <p>Sample values: <code>ServicePacks</code> | <code>SecurityUpdates</code> | <code>DefinitionUpdates</code> </p> </li> <li> <p> <b> <code>PATCH_ID</code> </b> </p> <p>Sample values: <code>KB123456</code> | <code>KB4516046</code> </p> </li> </ul> <p> <b>Linux</b> </p> <important> <p>When specifying filters for Linux patches, you must specify a key-pair for <code>PRODUCT</code>. For example, using the Command Line Interface (CLI), the following command fails:</p> <p> <code>aws ssm describe-available-patches --filters Key=CVE_ID,Values=CVE-2018-3615</code> </p> <p>However, the following command succeeds:</p> <p> <code>aws ssm describe-available-patches --filters Key=PRODUCT,Values=AmazonLinux2018.03 Key=CVE_ID,Values=CVE-2018-3615</code> </p> </important> <p>Supported keys for Linux managed node patches include the following:</p> <ul> <li> <p> <b> <code>PRODUCT</code> </b> </p> <p>Sample values: <code>AmazonLinux2018.03</code> | <code>AmazonLinux2.0</code> </p> </li> <li> <p> <b> <code>NAME</code> </b> </p> <p>Sample values: <code>kernel-headers</code> | <code>samba-python</code> | <code>php</code> </p> </li> <li> <p> <b> <code>SEVERITY</code> </b> </p> <p>Sample values: <code>Critical</code> | <code>Important</code> | <code>Medium</code> | <code>Low</code> </p> </li> <li> <p> <b> <code>EPOCH</code> </b> </p> <p>Sample values: <code>0</code> | <code>1</code> </p> </li> <li> <p> <b> <code>VERSION</code> </b> </p> <p>Sample values: <code>78.6.1</code> | <code>4.10.16</code> </p> </li> <li> <p> <b> <code>RELEASE</code> </b> </p> <p>Sample values: <code>9.56.amzn1</code> | <code>1.amzn2</code> </p> </li> <li> <p> <b> <code>ARCH</code> </b> </p> <p>Sample values: <code>i686</code> | <code>x86_64</code> </p> </li> <li> <p> <b> <code>REPOSITORY</code> </b> </p> <p>Sample values: <code>Core</code> | <code>Updates</code> </p> </li> <li> <p> <b> <code>ADVISORY_ID</code> </b> </p> <p>Sample values: <code>ALAS-2018-1058</code> | <code>ALAS2-2021-1594</code> </p> </li> <li> <p> <b> <code>CVE_ID</code> </b> </p> <p>Sample values: <code>CVE-2018-3615</code> | <code>CVE-2020-1472</code> </p> </li> <li> <p> <b> <code>BUGZILLA_ID</code> </b> </p> <p>Sample values: <code>1463241</code> </p> </li> </ul>
             max_results: <p>The maximum number of patches to return (per page).</p>
             next_token: <p>The token for the next set of items to return. (You received this token from a previous call.)</p>
+
+        Raises:
+            aws_sdk_ssm.errors.internal_server_error.InternalServerError: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2841,6 +3094,12 @@ class SSMClient:
             name: <p>The name of the SSM document.</p> <note> <p>If you're calling a shared SSM document from a different Amazon Web Services account, <code>Name</code> is the full Amazon Resource Name (ARN) of the document.</p> </note>
             document_version: <p>The document version for which you want information. Can be a specific version or the default version.</p>
             version_name: <p>An optional field specifying the version of the artifact associated with the document. For example, 12.6. This value is unique across all versions of a document, and can't be changed.</p>
+
+        Raises:
+            aws_sdk_ssm.errors.internal_server_error.InternalServerError: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm.errors.invalid_document.InvalidDocument: <p>The specified SSM document doesn't exist.</p>
+            aws_sdk_ssm.errors.invalid_document_version.InvalidDocumentVersion: <p>The document version isn't valid or doesn't exist.</p>
+            aws_sdk_ssm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2890,6 +3149,14 @@ class SSMClient:
             permission_type: <p>The permission type for the document. The permission type can be <i>Share</i>.</p>
             max_results: <p>The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.</p>
             next_token: <p>The token for the next set of items to return. (You received this token from a previous call.)</p>
+
+        Raises:
+            aws_sdk_ssm.errors.internal_server_error.InternalServerError: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm.errors.invalid_document.InvalidDocument: <p>The specified SSM document doesn't exist.</p>
+            aws_sdk_ssm.errors.invalid_document_operation.InvalidDocumentOperation: <p>You attempted to delete a document while it is still shared. You must stop sharing the document before you can delete it.</p>
+            aws_sdk_ssm.errors.invalid_next_token.InvalidNextToken: <p>The specified token isn't valid.</p>
+            aws_sdk_ssm.errors.invalid_permission_type.InvalidPermissionType: <p>The permission type isn't supported. <i>Share</i> is the only supported permission type.</p>
+            aws_sdk_ssm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2938,6 +3205,12 @@ class SSMClient:
             instance_id: <p>The managed node ID for which you want to view all associations.</p>
             max_results: <p>The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.</p>
             next_token: <p>The token for the next set of items to return. (You received this token from a previous call.)</p>
+
+        Raises:
+            aws_sdk_ssm.errors.internal_server_error.InternalServerError: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm.errors.invalid_instance_id.InvalidInstanceId: <p>The following problems can cause this exception:</p> <ul> <li> <p>You don't have permission to access the managed node.</p> </li> <li> <p>Amazon Web Services Systems Manager Agent (SSM Agent) isn't running. Verify that SSM Agent is running.</p> </li> <li> <p>SSM Agent isn't registered with the SSM endpoint. Try reinstalling SSM Agent.</p> </li> <li> <p>The managed node isn't in a valid state. Valid states are: <code>Running</code>, <code>Pending</code>, <code>Stopped</code>, and <code>Stopping</code>. Invalid states are: <code>Shutting-down</code> and <code>Terminated</code>.</p> </li> </ul>
+            aws_sdk_ssm.errors.invalid_next_token.InvalidNextToken: <p>The specified token isn't valid.</p>
+            aws_sdk_ssm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3010,6 +3283,13 @@ class SSMClient:
             baseline_id: <p>The ID of the patch baseline to retrieve the effective patches for.</p>
             max_results: <p>The maximum number of patches to return (per page).</p>
             next_token: <p>The token for the next set of items to return. (You received this token from a previous call.)</p>
+
+        Raises:
+            aws_sdk_ssm.errors.does_not_exist_exception.DoesNotExistException: <p>Error returned when the ID specified for a resource, such as a maintenance window or patch baseline, doesn't exist.</p> <p>For information about resource quotas in Amazon Web Services Systems Manager, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/ssm.html#limits_ssm\">Systems Manager service quotas</a> in the <i>Amazon Web Services General Reference</i>.</p>
+            aws_sdk_ssm.errors.internal_server_error.InternalServerError: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm.errors.invalid_resource_id.InvalidResourceId: <p>The resource ID isn't valid. Verify that you entered the correct ID and try again.</p>
+            aws_sdk_ssm.errors.unsupported_operating_system.UnsupportedOperatingSystem: <p>The operating systems you specified isn't supported, or the operation isn't supported for the operating system.</p>
+            aws_sdk_ssm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3080,6 +3360,12 @@ class SSMClient:
             instance_id: <p>The managed node IDs for which you want association status information.</p>
             max_results: <p>The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.</p>
             next_token: <p>The token for the next set of items to return. (You received this token from a previous call.)</p>
+
+        Raises:
+            aws_sdk_ssm.errors.internal_server_error.InternalServerError: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm.errors.invalid_instance_id.InvalidInstanceId: <p>The following problems can cause this exception:</p> <ul> <li> <p>You don't have permission to access the managed node.</p> </li> <li> <p>Amazon Web Services Systems Manager Agent (SSM Agent) isn't running. Verify that SSM Agent is running.</p> </li> <li> <p>SSM Agent isn't registered with the SSM endpoint. Try reinstalling SSM Agent.</p> </li> <li> <p>The managed node isn't in a valid state. Valid states are: <code>Running</code>, <code>Pending</code>, <code>Stopped</code>, and <code>Stopping</code>. Invalid states are: <code>Shutting-down</code> and <code>Terminated</code>.</p> </li> </ul>
+            aws_sdk_ssm.errors.invalid_next_token.InvalidNextToken: <p>The specified token isn't valid.</p>
+            aws_sdk_ssm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3156,6 +3442,14 @@ class SSMClient:
             filters: <p>One or more filters. Use a filter to return a more specific list of managed nodes. You can filter based on tags applied to your managed nodes. Tag filters can't be combined with other filter types. Use this <code>Filters</code> data type instead of <code>InstanceInformationFilterList</code>, which is deprecated.</p>
             max_results: <p>The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results. The default value is 10 items. </p>
             next_token: <p>The token for the next set of items to return. (You received this token from a previous call.)</p>
+
+        Raises:
+            aws_sdk_ssm.errors.internal_server_error.InternalServerError: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm.errors.invalid_filter_key.InvalidFilterKey: <p>The specified key isn't valid.</p>
+            aws_sdk_ssm.errors.invalid_instance_id.InvalidInstanceId: <p>The following problems can cause this exception:</p> <ul> <li> <p>You don't have permission to access the managed node.</p> </li> <li> <p>Amazon Web Services Systems Manager Agent (SSM Agent) isn't running. Verify that SSM Agent is running.</p> </li> <li> <p>SSM Agent isn't registered with the SSM endpoint. Try reinstalling SSM Agent.</p> </li> <li> <p>The managed node isn't in a valid state. Valid states are: <code>Running</code>, <code>Pending</code>, <code>Stopped</code>, and <code>Stopping</code>. Invalid states are: <code>Shutting-down</code> and <code>Terminated</code>.</p> </li> </ul>
+            aws_sdk_ssm.errors.invalid_instance_information_filter_value.InvalidInstanceInformationFilterValue: <p>The specified filter value isn't valid.</p>
+            aws_sdk_ssm.errors.invalid_next_token.InvalidNextToken: <p>The specified token isn't valid.</p>
+            aws_sdk_ssm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3243,6 +3537,13 @@ class SSMClient:
             filters: <p>Each element in the array is a structure containing a key-value pair.</p> <p>Supported keys for <code>DescribeInstancePatches</code>include the following:</p> <ul> <li> <p> <b> <code>Classification</code> </b> </p> <p>Sample values: <code>Security</code> | <code>SecurityUpdates</code> </p> </li> <li> <p> <b> <code>KBId</code> </b> </p> <p>Sample values: <code>KB4480056</code> | <code>java-1.7.0-openjdk.x86_64</code> </p> </li> <li> <p> <b> <code>Severity</code> </b> </p> <p>Sample values: <code>Important</code> | <code>Medium</code> | <code>Low</code> </p> </li> <li> <p> <b> <code>State</code> </b> </p> <p>Sample values: <code>Installed</code> | <code>InstalledOther</code> | <code>InstalledPendingReboot</code> </p> <p>For lists of all <code>State</code> values, see <a href=\"https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-compliance-states.html\">Patch compliance state values</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p> </li> </ul>
             next_token: <p>The token for the next set of items to return. (You received this token from a previous call.)</p>
             max_results: <p>The maximum number of patches to return (per page).</p>
+
+        Raises:
+            aws_sdk_ssm.errors.internal_server_error.InternalServerError: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm.errors.invalid_filter.InvalidFilter: <p>The filter name isn't valid. Verify that you entered the correct name and try again.</p>
+            aws_sdk_ssm.errors.invalid_instance_id.InvalidInstanceId: <p>The following problems can cause this exception:</p> <ul> <li> <p>You don't have permission to access the managed node.</p> </li> <li> <p>Amazon Web Services Systems Manager Agent (SSM Agent) isn't running. Verify that SSM Agent is running.</p> </li> <li> <p>SSM Agent isn't registered with the SSM endpoint. Try reinstalling SSM Agent.</p> </li> <li> <p>The managed node isn't in a valid state. Valid states are: <code>Running</code>, <code>Pending</code>, <code>Stopped</code>, and <code>Stopping</code>. Invalid states are: <code>Shutting-down</code> and <code>Terminated</code>.</p> </li> </ul>
+            aws_sdk_ssm.errors.invalid_next_token.InvalidNextToken: <p>The specified token isn't valid.</p>
+            aws_sdk_ssm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3321,6 +3622,11 @@ class SSMClient:
             instance_ids: <p>The ID of the managed node for which patch state information should be retrieved.</p>
             next_token: <p>The token for the next set of items to return. (You received this token from a previous call.)</p>
             max_results: <p>The maximum number of managed nodes to return (per page).</p>
+
+        Raises:
+            aws_sdk_ssm.errors.internal_server_error.InternalServerError: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm.errors.invalid_next_token.InvalidNextToken: <p>The specified token isn't valid.</p>
+            aws_sdk_ssm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3397,6 +3703,12 @@ class SSMClient:
             filters: <p>Each entry in the array is a structure containing:</p> <ul> <li> <p>Key (string between 1 and 200 characters)</p> </li> <li> <p>Values (array containing a single string)</p> </li> <li> <p>Type (string \"Equal\", \"NotEqual\", \"LessThan\", \"GreaterThan\")</p> </li> </ul>
             next_token: <p>The token for the next set of items to return. (You received this token from a previous call.)</p>
             max_results: <p>The maximum number of patches to return (per page).</p>
+
+        Raises:
+            aws_sdk_ssm.errors.internal_server_error.InternalServerError: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm.errors.invalid_filter.InvalidFilter: <p>The filter name isn't valid. Verify that you entered the correct name and try again.</p>
+            aws_sdk_ssm.errors.invalid_next_token.InvalidNextToken: <p>The specified token isn't valid.</p>
+            aws_sdk_ssm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3481,6 +3793,16 @@ class SSMClient:
             filters_with_operator: <p>The request filters to use with the operator.</p>
             max_results: <p>The maximum number of items to return for the call. The call also returns a token that you can specify in a subsequent call to get the next set of results.</p>
             next_token: <p>The token provided by a previous request to use to return the next set of properties.</p>
+
+        Raises:
+            aws_sdk_ssm.errors.internal_server_error.InternalServerError: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm.errors.invalid_activation_id.InvalidActivationId: <p>The activation ID isn't valid. Verify that you entered the correct ActivationId or ActivationCode and try again.</p>
+            aws_sdk_ssm.errors.invalid_document.InvalidDocument: <p>The specified SSM document doesn't exist.</p>
+            aws_sdk_ssm.errors.invalid_filter_key.InvalidFilterKey: <p>The specified key isn't valid.</p>
+            aws_sdk_ssm.errors.invalid_instance_id.InvalidInstanceId: <p>The following problems can cause this exception:</p> <ul> <li> <p>You don't have permission to access the managed node.</p> </li> <li> <p>Amazon Web Services Systems Manager Agent (SSM Agent) isn't running. Verify that SSM Agent is running.</p> </li> <li> <p>SSM Agent isn't registered with the SSM endpoint. Try reinstalling SSM Agent.</p> </li> <li> <p>The managed node isn't in a valid state. Valid states are: <code>Running</code>, <code>Pending</code>, <code>Stopped</code>, and <code>Stopping</code>. Invalid states are: <code>Shutting-down</code> and <code>Terminated</code>.</p> </li> </ul>
+            aws_sdk_ssm.errors.invalid_instance_property_filter_value.InvalidInstancePropertyFilterValue: <p>The specified filter value isn't valid.</p>
+            aws_sdk_ssm.errors.invalid_next_token.InvalidNextToken: <p>The specified token isn't valid.</p>
+            aws_sdk_ssm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3560,6 +3882,12 @@ class SSMClient:
             deletion_id: <p>Specify the delete inventory ID for which you want information. This ID was returned by the <code>DeleteInventory</code> operation.</p>
             next_token: <p>A token to start the list. Use this token to get the next set of results. </p>
             max_results: <p>The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.</p>
+
+        Raises:
+            aws_sdk_ssm.errors.internal_server_error.InternalServerError: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm.errors.invalid_deletion_id_exception.InvalidDeletionIdException: <p>The ID specified for the delete operation doesn't exist or isn't valid. Verify the ID and try again.</p>
+            aws_sdk_ssm.errors.invalid_next_token.InvalidNextToken: <p>The specified token isn't valid.</p>
+            aws_sdk_ssm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3635,6 +3963,10 @@ class SSMClient:
             filters: <p>Each entry in the array is a structure containing:</p> <ul> <li> <p>Key. A string between 1 and 128 characters. Supported keys include <code>ExecutedBefore</code> and <code>ExecutedAfter</code>.</p> </li> <li> <p>Values. An array of strings, each between 1 and 256 characters. Supported values are date/time strings in a valid ISO 8601 date/time format, such as <code>2024-11-04T05:00:00Z</code>.</p> </li> </ul>
             max_results: <p>The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.</p>
             next_token: <p>The token for the next set of items to return. (You received this token from a previous call.)</p>
+
+        Raises:
+            aws_sdk_ssm.errors.internal_server_error.InternalServerError: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3719,6 +4051,11 @@ class SSMClient:
             filters: <p>Optional filters used to scope down the returned task invocations. The supported filter key is <code>STATUS</code> with the corresponding values <code>PENDING</code>, <code>IN_PROGRESS</code>, <code>SUCCESS</code>, <code>FAILED</code>, <code>TIMED_OUT</code>, <code>CANCELLING</code>, and <code>CANCELLED</code>.</p>
             max_results: <p>The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.</p>
             next_token: <p>The token for the next set of items to return. (You received this token from a previous call.)</p>
+
+        Raises:
+            aws_sdk_ssm.errors.does_not_exist_exception.DoesNotExistException: <p>Error returned when the ID specified for a resource, such as a maintenance window or patch baseline, doesn't exist.</p> <p>For information about resource quotas in Amazon Web Services Systems Manager, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/ssm.html#limits_ssm\">Systems Manager service quotas</a> in the <i>Amazon Web Services General Reference</i>.</p>
+            aws_sdk_ssm.errors.internal_server_error.InternalServerError: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3806,6 +4143,11 @@ class SSMClient:
             filters: <p>Optional filters used to scope down the returned tasks. The supported filter key is <code>STATUS</code> with the corresponding values <code>PENDING</code>, <code>IN_PROGRESS</code>, <code>SUCCESS</code>, <code>FAILED</code>, <code>TIMED_OUT</code>, <code>CANCELLING</code>, and <code>CANCELLED</code>.</p>
             max_results: <p>The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.</p>
             next_token: <p>The token for the next set of items to return. (You received this token from a previous call.)</p>
+
+        Raises:
+            aws_sdk_ssm.errors.does_not_exist_exception.DoesNotExistException: <p>Error returned when the ID specified for a resource, such as a maintenance window or patch baseline, doesn't exist.</p> <p>For information about resource quotas in Amazon Web Services Systems Manager, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/ssm.html#limits_ssm\">Systems Manager service quotas</a> in the <i>Amazon Web Services General Reference</i>.</p>
+            aws_sdk_ssm.errors.internal_server_error.InternalServerError: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3886,6 +4228,10 @@ class SSMClient:
             filters: <p>Optional filters used to narrow down the scope of the returned maintenance windows. Supported filter keys are <code>Name</code> and <code>Enabled</code>. For example, <code>Name=MyMaintenanceWindow</code> and <code>Enabled=True</code>.</p>
             max_results: <p>The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.</p>
             next_token: <p>The token for the next set of items to return. (You received this token from a previous call.)</p>
+
+        Raises:
+            aws_sdk_ssm.errors.internal_server_error.InternalServerError: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3973,6 +4319,11 @@ class SSMClient:
             filters: <p>Filters used to limit the range of results. For example, you can limit maintenance window executions to only those scheduled before or after a certain date and time.</p>
             max_results: <p>The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.</p>
             next_token: <p>The token for the next set of items to return. (You received this token from a previous call.)</p>
+
+        Raises:
+            aws_sdk_ssm.errors.does_not_exist_exception.DoesNotExistException: <p>Error returned when the ID specified for a resource, such as a maintenance window or patch baseline, doesn't exist.</p> <p>For information about resource quotas in Amazon Web Services Systems Manager, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/ssm.html#limits_ssm\">Systems Manager service quotas</a> in the <i>Amazon Web Services General Reference</i>.</p>
+            aws_sdk_ssm.errors.internal_server_error.InternalServerError: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4066,6 +4417,10 @@ class SSMClient:
             resource_type: <p>The type of resource you want to retrieve information about. For example, <code>INSTANCE</code>.</p>
             max_results: <p>The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.</p>
             next_token: <p>The token for the next set of items to return. (You received this token from a previous call.)</p>
+
+        Raises:
+            aws_sdk_ssm.errors.internal_server_error.InternalServerError: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4145,6 +4500,11 @@ class SSMClient:
             filters: <p>Optional filters that can be used to narrow down the scope of the returned window targets. The supported filter keys are <code>Type</code>, <code>WindowTargetId</code>, and <code>OwnerInformation</code>.</p>
             max_results: <p>The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.</p>
             next_token: <p>The token for the next set of items to return. (You received this token from a previous call.)</p>
+
+        Raises:
+            aws_sdk_ssm.errors.does_not_exist_exception.DoesNotExistException: <p>Error returned when the ID specified for a resource, such as a maintenance window or patch baseline, doesn't exist.</p> <p>For information about resource quotas in Amazon Web Services Systems Manager, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/ssm.html#limits_ssm\">Systems Manager service quotas</a> in the <i>Amazon Web Services General Reference</i>.</p>
+            aws_sdk_ssm.errors.internal_server_error.InternalServerError: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4229,6 +4589,11 @@ class SSMClient:
             filters: <p>Optional filters used to narrow down the scope of the returned tasks. The supported filter keys are <code>WindowTaskId</code>, <code>TaskArn</code>, <code>Priority</code>, and <code>TaskType</code>.</p>
             max_results: <p>The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.</p>
             next_token: <p>The token for the next set of items to return. (You received this token from a previous call.)</p>
+
+        Raises:
+            aws_sdk_ssm.errors.does_not_exist_exception.DoesNotExistException: <p>Error returned when the ID specified for a resource, such as a maintenance window or patch baseline, doesn't exist.</p> <p>For information about resource quotas in Amazon Web Services Systems Manager, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/ssm.html#limits_ssm\">Systems Manager service quotas</a> in the <i>Amazon Web Services General Reference</i>.</p>
+            aws_sdk_ssm.errors.internal_server_error.InternalServerError: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4309,6 +4674,10 @@ class SSMClient:
             ops_item_filters: <p>One or more filters to limit the response.</p> <ul> <li> <p>Key: CreatedTime</p> <p>Operations: GreaterThan, LessThan</p> </li> <li> <p>Key: LastModifiedBy</p> <p>Operations: Contains, Equals</p> </li> <li> <p>Key: LastModifiedTime</p> <p>Operations: GreaterThan, LessThan</p> </li> <li> <p>Key: Priority</p> <p>Operations: Equals</p> </li> <li> <p>Key: Source</p> <p>Operations: Contains, Equals</p> </li> <li> <p>Key: Status</p> <p>Operations: Equals</p> </li> <li> <p>Key: Title*</p> <p>Operations: Equals,Contains</p> </li> <li> <p>Key: OperationalData**</p> <p>Operations: Equals</p> </li> <li> <p>Key: OperationalDataKey</p> <p>Operations: Equals</p> </li> <li> <p>Key: OperationalDataValue</p> <p>Operations: Equals, Contains</p> </li> <li> <p>Key: OpsItemId</p> <p>Operations: Equals</p> </li> <li> <p>Key: ResourceId</p> <p>Operations: Contains</p> </li> <li> <p>Key: AutomationId</p> <p>Operations: Equals</p> </li> <li> <p>Key: AccountId</p> <p>Operations: Equals</p> </li> </ul> <p>*The Equals operator for Title matches the first 100 characters. If you specify more than 100 characters, they system returns an error that the filter value exceeds the length limit.</p> <p>**If you filter the response by using the OperationalData operator, specify a key-value pair by using the following JSON format: {\"key\":\"key_name\",\"value\":\"a_value\"}</p>
             max_results: <p>The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.</p>
             next_token: <p>A token to start the list. Use this token to get the next set of results.</p>
+
+        Raises:
+            aws_sdk_ssm.errors.internal_server_error.InternalServerError: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4390,6 +4759,14 @@ class SSMClient:
             max_results: <p>The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.</p>
             next_token: <p>The token for the next set of items to return. (You received this token from a previous call.)</p>
             shared: <p>Lists parameters that are shared with you.</p> <note> <p>By default when using this option, the command returns parameters that have been shared using a standard Resource Access Manager Resource Share. In order for a parameter that was shared using the <a>PutResourcePolicy</a> command to be returned, the associated <code>RAM Resource Share Created From Policy</code> must have been promoted to a standard Resource Share using the RAM <a href=\"https://docs.aws.amazon.com/ram/latest/APIReference/API_PromoteResourceShareCreatedFromPolicy.html\">PromoteResourceShareCreatedFromPolicy</a> API operation.</p> <p>For more information about sharing parameters, see <a href=\"https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-shared-parameters.html\">Working with shared parameters</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p> </note>
+
+        Raises:
+            aws_sdk_ssm.errors.internal_server_error.InternalServerError: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm.errors.invalid_filter_key.InvalidFilterKey: <p>The specified key isn't valid.</p>
+            aws_sdk_ssm.errors.invalid_filter_option.InvalidFilterOption: <p>The specified filter option isn't valid. Valid options are Equals and BeginsWith. For Path filter, valid options are Recursive and OneLevel.</p>
+            aws_sdk_ssm.errors.invalid_filter_value.InvalidFilterValue: <p>The filter value isn't valid. Verify the value and try again.</p>
+            aws_sdk_ssm.errors.invalid_next_token.InvalidNextToken: <p>The specified token isn't valid.</p>
+            aws_sdk_ssm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4446,6 +4823,10 @@ class SSMClient:
             filters: <p>Each element in the array is a structure containing a key-value pair.</p> <p>Supported keys for <code>DescribePatchBaselines</code> include the following:</p> <ul> <li> <p> <b> <code>NAME_PREFIX</code> </b> </p> <p>Sample values: <code>AWS-</code> | <code>My-</code> </p> </li> <li> <p> <b> <code>OWNER</code> </b> </p> <p>Sample values: <code>AWS</code> | <code>Self</code> </p> </li> <li> <p> <b> <code>OPERATING_SYSTEM</code> </b> </p> <p>Sample values: <code>AMAZON_LINUX</code> | <code>SUSE</code> | <code>WINDOWS</code> </p> </li> </ul>
             max_results: <p>The maximum number of patch baselines to return (per page).</p>
             next_token: <p>The token for the next set of items to return. (You received this token from a previous call.)</p>
+
+        Raises:
+            aws_sdk_ssm.errors.internal_server_error.InternalServerError: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4523,6 +4904,10 @@ class SSMClient:
             max_results: <p>The maximum number of patch groups to return (per page).</p>
             filters: <p>Each element in the array is a structure containing a key-value pair.</p> <p>Supported keys for <code>DescribePatchGroups</code> include the following:</p> <ul> <li> <p> <b> <code>NAME_PREFIX</code> </b> </p> <p>Sample values: <code>AWS-</code> | <code>My-</code>.</p> </li> <li> <p> <b> <code>OPERATING_SYSTEM</code> </b> </p> <p>Sample values: <code>AMAZON_LINUX</code> | <code>SUSE</code> | <code>WINDOWS</code> </p> </li> </ul>
             next_token: <p>The token for the next set of items to return. (You received this token from a previous call.)</p>
+
+        Raises:
+            aws_sdk_ssm.errors.internal_server_error.InternalServerError: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4592,6 +4977,11 @@ class SSMClient:
 
         Args:
             patch_group: <p>The name of the patch group whose patch snapshot should be retrieved.</p>
+
+        Raises:
+            aws_sdk_ssm.errors.internal_server_error.InternalServerError: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm.errors.invalid_next_token.InvalidNextToken: <p>The specified token isn't valid.</p>
+            aws_sdk_ssm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4637,6 +5027,10 @@ class SSMClient:
             patch_set: <p>Indicates whether to list patches for the Windows operating system or for applications released by Microsoft. Not applicable for the Linux or macOS operating systems.</p>
             max_results: <p>The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.</p>
             next_token: <p>The token for the next set of items to return. (You received this token from a previous call.)</p>
+
+        Raises:
+            aws_sdk_ssm.errors.internal_server_error.InternalServerError: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4718,6 +5112,12 @@ class SSMClient:
             max_results: <p>The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.</p>
             next_token: <p>The token for the next set of items to return. (You received this token from a previous call.)</p>
             filters: <p>One or more filters to limit the type of sessions returned by the request.</p>
+
+        Raises:
+            aws_sdk_ssm.errors.internal_server_error.InternalServerError: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm.errors.invalid_filter_key.InvalidFilterKey: <p>The specified key isn't valid.</p>
+            aws_sdk_ssm.errors.invalid_next_token.InvalidNextToken: <p>The specified token isn't valid.</p>
+            aws_sdk_ssm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4792,6 +5192,14 @@ class SSMClient:
         Args:
             ops_item_id: <p>The ID of the OpsItem for which you want to delete an association between the OpsItem and a related item.</p>
             association_id: <p>The ID of the association for which you want to delete an association between the OpsItem and a related item.</p>
+
+        Raises:
+            aws_sdk_ssm.errors.internal_server_error.InternalServerError: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm.errors.ops_item_conflict_exception.OpsItemConflictException: <p>The specified OpsItem is in the process of being deleted.</p>
+            aws_sdk_ssm.errors.ops_item_invalid_parameter_exception.OpsItemInvalidParameterException: <p>A specified parameter argument isn't valid. Verify the available arguments and try again.</p>
+            aws_sdk_ssm.errors.ops_item_not_found_exception.OpsItemNotFoundException: <p>The specified OpsItem ID doesn't exist. Verify the ID and try again.</p>
+            aws_sdk_ssm.errors.ops_item_related_item_association_not_found_exception.OpsItemRelatedItemAssociationNotFoundException: <p>The association wasn't found using the parameters you specified in the call. Verify the information and try again.</p>
+            aws_sdk_ssm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4830,6 +5238,14 @@ class SSMClient:
 
         Args:
             access_request_id: <p>The ID of a just-in-time node access request.</p>
+
+        Raises:
+            aws_sdk_ssm.errors.access_denied_exception.AccessDeniedException: <p>The requester doesn't have permissions to perform the requested operation.</p>
+            aws_sdk_ssm.errors.internal_server_error.InternalServerError: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified parameter to be shared could not be found.</p>
+            aws_sdk_ssm.errors.throttling_exception.ThrottlingException: <p>The request or operation couldn't be performed because the service is throttling requests.</p>
+            aws_sdk_ssm.errors.validation_exception.ValidationException: <p>The request isn't valid. Verify that you entered valid contents for the command and try again.</p>
+            aws_sdk_ssm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4869,6 +5285,11 @@ class SSMClient:
 
         Args:
             automation_execution_id: <p>The unique identifier for an existing automation execution to examine. The execution ID is returned by StartAutomationExecution when the execution of an Automation runbook is initiated.</p>
+
+        Raises:
+            aws_sdk_ssm.errors.automation_execution_not_found_exception.AutomationExecutionNotFoundException: <p>There is no automation execution information for the requested automation execution ID.</p>
+            aws_sdk_ssm.errors.internal_server_error.InternalServerError: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4908,6 +5329,13 @@ class SSMClient:
         Args:
             calendar_names: <p>The names of Amazon Resource Names (ARNs) of the Systems Manager documents (SSM documents) that represent the calendar entries for which you want to get the state.</p>
             at_time: <p>(Optional) The specific time for which you want to get calendar state information, in <a href=\"https://en.wikipedia.org/wiki/ISO_8601\">ISO 8601</a> format. If you don't specify a value or <code>AtTime</code>, the current time is used.</p>
+
+        Raises:
+            aws_sdk_ssm.errors.internal_server_error.InternalServerError: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm.errors.invalid_document.InvalidDocument: <p>The specified SSM document doesn't exist.</p>
+            aws_sdk_ssm.errors.invalid_document_type.InvalidDocumentType: <p>The SSM document type isn't valid. Valid document types are described in the <code>DocumentType</code> property.</p>
+            aws_sdk_ssm.errors.unsupported_calendar_exception.UnsupportedCalendarException: <p>The calendar entry contained in the specified SSM document isn't supported.</p>
+            aws_sdk_ssm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4953,6 +5381,14 @@ class SSMClient:
             command_id: <p>(Required) The parent command ID of the invocation plugin.</p>
             instance_id: <p>(Required) The ID of the managed node targeted by the command. A <i>managed node</i> can be an Amazon Elastic Compute Cloud (Amazon EC2) instance, edge device, and on-premises server or VM in your hybrid environment that is configured for Amazon Web Services Systems Manager.</p>
             plugin_name: <p>The name of the step for which you want detailed results. If the document contains only one step, you can omit the name and details for that step. If the document contains more than one step, you must specify the name of the step for which you want to view details. Be sure to specify the name of the step, not the name of a plugin like <code>aws:RunShellScript</code>.</p> <p>To find the <code>PluginName</code>, check the document content and find the name of the step you want details for. Alternatively, use <a>ListCommandInvocations</a> with the <code>CommandId</code> and <code>Details</code> parameters. The <code>PluginName</code> is the <code>Name</code> attribute of the <code>CommandPlugin</code> object in the <code>CommandPlugins</code> list.</p>
+
+        Raises:
+            aws_sdk_ssm.errors.internal_server_error.InternalServerError: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm.errors.invalid_command_id.InvalidCommandId: <p>The specified command ID isn't valid. Verify the ID and try again.</p>
+            aws_sdk_ssm.errors.invalid_instance_id.InvalidInstanceId: <p>The following problems can cause this exception:</p> <ul> <li> <p>You don't have permission to access the managed node.</p> </li> <li> <p>Amazon Web Services Systems Manager Agent (SSM Agent) isn't running. Verify that SSM Agent is running.</p> </li> <li> <p>SSM Agent isn't registered with the SSM endpoint. Try reinstalling SSM Agent.</p> </li> <li> <p>The managed node isn't in a valid state. Valid states are: <code>Running</code>, <code>Pending</code>, <code>Stopped</code>, and <code>Stopping</code>. Invalid states are: <code>Shutting-down</code> and <code>Terminated</code>.</p> </li> </ul>
+            aws_sdk_ssm.errors.invalid_plugin_name.InvalidPluginName: <p>The plugin name isn't valid.</p>
+            aws_sdk_ssm.errors.invocation_does_not_exist.InvocationDoesNotExist: <p>The command ID and managed node ID you specified didn't match any invocations. Verify the command ID and the managed node ID and try again. </p>
+            aws_sdk_ssm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4993,6 +5429,10 @@ class SSMClient:
 
         Args:
             target: <p>The managed node ID.</p>
+
+        Raises:
+            aws_sdk_ssm.errors.internal_server_error.InternalServerError: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5032,6 +5472,10 @@ class SSMClient:
 
         Args:
             operating_system: <p>Returns the default patch baseline for the specified operating system.</p>
+
+        Raises:
+            aws_sdk_ssm.errors.internal_server_error.InternalServerError: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5080,6 +5524,12 @@ class SSMClient:
             snapshot_id: <p>The snapshot ID provided by the user when running <code>AWS-RunPatchBaseline</code>.</p>
             baseline_override: <p>Defines the basic information about a patch baseline override.</p>
             use_s3_dual_stack_endpoint: <p>Specifies whether to use S3 dualstack endpoints for the patch snapshot download URL. Set to <code>true</code> to receive a presigned URL that supports both IPv4 and IPv6 connectivity. Set to <code>false</code> to use standard IPv4-only endpoints. Default is <code>false</code>. This parameter is required for managed nodes in IPv6-only environments. </p>
+
+        Raises:
+            aws_sdk_ssm.errors.internal_server_error.InternalServerError: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm.errors.unsupported_feature_required_exception.UnsupportedFeatureRequiredException: <p>Patching for applications released by Microsoft is only available on EC2 instances and advanced instances. To patch applications released by Microsoft on on-premises servers and VMs, you must enable advanced instances. For more information, see <a href=\"https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-managedinstances-advanced.html\">Turning on the advanced-instances tier</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
+            aws_sdk_ssm.errors.unsupported_operating_system.UnsupportedOperatingSystem: <p>The operating systems you specified isn't supported, or the operation isn't supported for the operating system.</p>
+            aws_sdk_ssm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5134,6 +5584,12 @@ class SSMClient:
             version_name: <p>An optional field specifying the version of the artifact associated with the document. For example, 12.6. This value is unique across all versions of a document and can't be changed.</p>
             document_version: <p>The document version for which you want information.</p>
             document_format: <p>Returns the document in the specified format. The document format can be either JSON or YAML. JSON is the default format.</p>
+
+        Raises:
+            aws_sdk_ssm.errors.internal_server_error.InternalServerError: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm.errors.invalid_document.InvalidDocument: <p>The specified SSM document doesn't exist.</p>
+            aws_sdk_ssm.errors.invalid_document_version.InvalidDocumentVersion: <p>The document version isn't valid or doesn't exist.</p>
+            aws_sdk_ssm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5177,6 +5633,11 @@ class SSMClient:
 
         Args:
             execution_preview_id: <p>The ID of the existing execution preview.</p>
+
+        Raises:
+            aws_sdk_ssm.errors.internal_server_error.InternalServerError: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified parameter to be shared could not be found.</p>
+            aws_sdk_ssm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5228,6 +5689,16 @@ class SSMClient:
             result_attributes: <p>The list of inventory item types to return.</p>
             next_token: <p>The token for the next set of items to return. (You received this token from a previous call.)</p>
             max_results: <p>The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.</p>
+
+        Raises:
+            aws_sdk_ssm.errors.internal_server_error.InternalServerError: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm.errors.invalid_aggregator_exception.InvalidAggregatorException: <p>The specified aggregator isn't valid for the group type. Verify that the aggregator you provided is supported.</p>
+            aws_sdk_ssm.errors.invalid_filter.InvalidFilter: <p>The filter name isn't valid. Verify that you entered the correct name and try again.</p>
+            aws_sdk_ssm.errors.invalid_inventory_group_exception.InvalidInventoryGroupException: <p>The specified inventory group isn't valid.</p>
+            aws_sdk_ssm.errors.invalid_next_token.InvalidNextToken: <p>The specified token isn't valid.</p>
+            aws_sdk_ssm.errors.invalid_result_attribute_exception.InvalidResultAttributeException: <p>The specified inventory item result attribute isn't valid.</p>
+            aws_sdk_ssm.errors.invalid_type_name_exception.InvalidTypeNameException: <p>The parameter type name isn't valid.</p>
+            aws_sdk_ssm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5323,6 +5794,12 @@ class SSMClient:
             max_results: <p>The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.</p>
             aggregator: <p>Returns inventory schemas that support aggregation. For example, this call returns the <code>AWS:InstanceInformation</code> type, because it supports aggregation based on the <code>PlatformName</code>, <code>PlatformType</code>, and <code>PlatformVersion</code> attributes.</p>
             sub_type: <p>Returns the sub-type schema for a specified inventory type.</p>
+
+        Raises:
+            aws_sdk_ssm.errors.internal_server_error.InternalServerError: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm.errors.invalid_next_token.InvalidNextToken: <p>The specified token isn't valid.</p>
+            aws_sdk_ssm.errors.invalid_type_name_exception.InvalidTypeNameException: <p>The parameter type name isn't valid.</p>
+            aws_sdk_ssm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5404,6 +5881,11 @@ class SSMClient:
 
         Args:
             window_id: <p>The ID of the maintenance window for which you want to retrieve information.</p>
+
+        Raises:
+            aws_sdk_ssm.errors.does_not_exist_exception.DoesNotExistException: <p>Error returned when the ID specified for a resource, such as a maintenance window or patch baseline, doesn't exist.</p> <p>For information about resource quotas in Amazon Web Services Systems Manager, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/ssm.html#limits_ssm\">Systems Manager service quotas</a> in the <i>Amazon Web Services General Reference</i>.</p>
+            aws_sdk_ssm.errors.internal_server_error.InternalServerError: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5441,6 +5923,11 @@ class SSMClient:
 
         Args:
             window_execution_id: <p>The ID of the maintenance window execution that includes the task.</p>
+
+        Raises:
+            aws_sdk_ssm.errors.does_not_exist_exception.DoesNotExistException: <p>Error returned when the ID specified for a resource, such as a maintenance window or patch baseline, doesn't exist.</p> <p>For information about resource quotas in Amazon Web Services Systems Manager, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/ssm.html#limits_ssm\">Systems Manager service quotas</a> in the <i>Amazon Web Services General Reference</i>.</p>
+            aws_sdk_ssm.errors.internal_server_error.InternalServerError: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5480,6 +5967,11 @@ class SSMClient:
         Args:
             window_execution_id: <p>The ID of the maintenance window execution that includes the task.</p>
             task_id: <p>The ID of the specific task execution in the maintenance window task that should be retrieved.</p>
+
+        Raises:
+            aws_sdk_ssm.errors.does_not_exist_exception.DoesNotExistException: <p>Error returned when the ID specified for a resource, such as a maintenance window or patch baseline, doesn't exist.</p> <p>For information about resource quotas in Amazon Web Services Systems Manager, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/ssm.html#limits_ssm\">Systems Manager service quotas</a> in the <i>Amazon Web Services General Reference</i>.</p>
+            aws_sdk_ssm.errors.internal_server_error.InternalServerError: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5522,6 +6014,11 @@ class SSMClient:
             window_execution_id: <p>The ID of the maintenance window execution for which the task is a part.</p>
             task_id: <p>The ID of the specific task in the maintenance window task that should be retrieved. </p>
             invocation_id: <p>The invocation ID to retrieve.</p>
+
+        Raises:
+            aws_sdk_ssm.errors.does_not_exist_exception.DoesNotExistException: <p>Error returned when the ID specified for a resource, such as a maintenance window or patch baseline, doesn't exist.</p> <p>For information about resource quotas in Amazon Web Services Systems Manager, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/ssm.html#limits_ssm\">Systems Manager service quotas</a> in the <i>Amazon Web Services General Reference</i>.</p>
+            aws_sdk_ssm.errors.internal_server_error.InternalServerError: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5563,6 +6060,11 @@ class SSMClient:
         Args:
             window_id: <p>The maintenance window ID that includes the task to retrieve.</p>
             window_task_id: <p>The maintenance window task ID to retrieve.</p>
+
+        Raises:
+            aws_sdk_ssm.errors.does_not_exist_exception.DoesNotExistException: <p>Error returned when the ID specified for a resource, such as a maintenance window or patch baseline, doesn't exist.</p> <p>For information about resource quotas in Amazon Web Services Systems Manager, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/ssm.html#limits_ssm\">Systems Manager service quotas</a> in the <i>Amazon Web Services General Reference</i>.</p>
+            aws_sdk_ssm.errors.internal_server_error.InternalServerError: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5603,6 +6105,12 @@ class SSMClient:
         Args:
             ops_item_id: <p>The ID of the OpsItem that you want to get.</p>
             ops_item_arn: <p>The OpsItem Amazon Resource Name (ARN).</p>
+
+        Raises:
+            aws_sdk_ssm.errors.internal_server_error.InternalServerError: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm.errors.ops_item_access_denied_exception.OpsItemAccessDeniedException: <p>You don't have permission to view OpsItems in the specified account. Verify that your account is configured either as a Systems Manager delegated administrator or that you are logged into the Organizations management account.</p>
+            aws_sdk_ssm.errors.ops_item_not_found_exception.OpsItemNotFoundException: <p>The specified OpsItem ID doesn't exist. Verify the ID and try again.</p>
+            aws_sdk_ssm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5648,6 +6156,12 @@ class SSMClient:
             ops_metadata_arn: <p>The Amazon Resource Name (ARN) of an OpsMetadata Object to view.</p>
             max_results: <p>The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.</p>
             next_token: <p>A token to start the list. Use this token to get the next set of results.</p>
+
+        Raises:
+            aws_sdk_ssm.errors.internal_server_error.InternalServerError: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm.errors.ops_metadata_invalid_argument_exception.OpsMetadataInvalidArgumentException: <p>One of the arguments passed is invalid. </p>
+            aws_sdk_ssm.errors.ops_metadata_not_found_exception.OpsMetadataNotFoundException: <p>The OpsMetadata object doesn't exist. </p>
+            aws_sdk_ssm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5705,6 +6219,15 @@ class SSMClient:
             result_attributes: <p>The OpsData data type to return.</p>
             next_token: <p>A token to start the list. Use this token to get the next set of results. </p>
             max_results: <p>The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.</p>
+
+        Raises:
+            aws_sdk_ssm.errors.internal_server_error.InternalServerError: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm.errors.invalid_aggregator_exception.InvalidAggregatorException: <p>The specified aggregator isn't valid for the group type. Verify that the aggregator you provided is supported.</p>
+            aws_sdk_ssm.errors.invalid_filter.InvalidFilter: <p>The filter name isn't valid. Verify that you entered the correct name and try again.</p>
+            aws_sdk_ssm.errors.invalid_next_token.InvalidNextToken: <p>The specified token isn't valid.</p>
+            aws_sdk_ssm.errors.invalid_type_name_exception.InvalidTypeNameException: <p>The parameter type name isn't valid.</p>
+            aws_sdk_ssm.errors.resource_data_sync_not_found_exception.ResourceDataSyncNotFoundException: <p>The specified sync name wasn't found.</p>
+            aws_sdk_ssm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5790,6 +6313,13 @@ class SSMClient:
         Args:
             name: <p>The name or Amazon Resource Name (ARN) of the parameter that you want to query. For parameters shared with you from another account, you must use the full ARN.</p> <p>To query by parameter label, use <code>\"Name\": \"name:label\"</code>. To query by parameter version, use <code>\"Name\": \"name:version\"</code>.</p> <p>For more information about shared parameters, see <a href=\"https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-shared-parameters.html\">Working with shared parameters</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
             with_decryption: <p>Return decrypted values for secure string parameters. This flag is ignored for <code>String</code> and <code>StringList</code> parameter types.</p>
+
+        Raises:
+            aws_sdk_ssm.errors.internal_server_error.InternalServerError: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm.errors.invalid_key_id.InvalidKeyId: <p>The query key ID isn't valid.</p>
+            aws_sdk_ssm.errors.parameter_not_found.ParameterNotFound: <p>The parameter couldn't be found. Verify the name and try again.</p> <note> <p>For the <code>DeleteParameter</code> and <code>GetParameter</code> actions, if the specified parameter doesn't exist, the <code>ParameterNotFound</code> exception is <i>not</i> recorded in CloudTrail event logs.</p> </note>
+            aws_sdk_ssm.errors.parameter_version_not_found.ParameterVersionNotFound: <p>The specified parameter version wasn't found. Verify the parameter name and version, and try again.</p>
+            aws_sdk_ssm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5835,6 +6365,13 @@ class SSMClient:
             with_decryption: <p>Return decrypted values for secure string parameters. This flag is ignored for <code>String</code> and <code>StringList</code> parameter types.</p>
             max_results: <p>The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.</p>
             next_token: <p>The token for the next set of items to return. (You received this token from a previous call.)</p>
+
+        Raises:
+            aws_sdk_ssm.errors.internal_server_error.InternalServerError: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm.errors.invalid_key_id.InvalidKeyId: <p>The query key ID isn't valid.</p>
+            aws_sdk_ssm.errors.invalid_next_token.InvalidNextToken: <p>The specified token isn't valid.</p>
+            aws_sdk_ssm.errors.parameter_not_found.ParameterNotFound: <p>The parameter couldn't be found. Verify the name and try again.</p> <note> <p>For the <code>DeleteParameter</code> and <code>GetParameter</code> actions, if the specified parameter doesn't exist, the <code>ParameterNotFound</code> exception is <i>not</i> recorded in CloudTrail event logs.</p> </note>
+            aws_sdk_ssm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5880,6 +6417,11 @@ class SSMClient:
         Args:
             names: <p>The names or Amazon Resource Names (ARNs) of the parameters that you want to query. For parameters shared with you from another account, you must use the full ARNs.</p> <p>To query by parameter label, use <code>\"Name\": \"name:label\"</code>. To query by parameter version, use <code>\"Name\": \"name:version\"</code>.</p> <note> <p>The results for <code>GetParameters</code> requests are listed in alphabetical order in query responses.</p> </note> <p>For information about shared parameters, see <a href=\"https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-shared-parameters.html\">Working with shared parameters</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
             with_decryption: <p>Return decrypted secure string value. Return decrypted values for secure string parameters. This flag is ignored for <code>String</code> and <code>StringList</code> parameter types.</p>
+
+        Raises:
+            aws_sdk_ssm.errors.internal_server_error.InternalServerError: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm.errors.invalid_key_id.InvalidKeyId: <p>The query key ID isn't valid.</p>
+            aws_sdk_ssm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5933,6 +6475,15 @@ class SSMClient:
             with_decryption: <p>Retrieve all parameters in a hierarchy with their value decrypted.</p>
             max_results: <p>The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.</p>
             next_token: <p>A token to start the list. Use this token to get the next set of results. </p>
+
+        Raises:
+            aws_sdk_ssm.errors.internal_server_error.InternalServerError: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm.errors.invalid_filter_key.InvalidFilterKey: <p>The specified key isn't valid.</p>
+            aws_sdk_ssm.errors.invalid_filter_option.InvalidFilterOption: <p>The specified filter option isn't valid. Valid options are Equals and BeginsWith. For Path filter, valid options are Recursive and OneLevel.</p>
+            aws_sdk_ssm.errors.invalid_filter_value.InvalidFilterValue: <p>The filter value isn't valid. Verify the value and try again.</p>
+            aws_sdk_ssm.errors.invalid_key_id.InvalidKeyId: <p>The query key ID isn't valid.</p>
+            aws_sdk_ssm.errors.invalid_next_token.InvalidNextToken: <p>The specified token isn't valid.</p>
+            aws_sdk_ssm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5980,6 +6531,12 @@ class SSMClient:
 
         Args:
             baseline_id: <p>The ID of the patch baseline to retrieve.</p> <note> <p>To retrieve information about an Amazon Web Services managed patch baseline, specify the full Amazon Resource Name (ARN) of the baseline. For example, for the baseline <code>AWS-AmazonLinuxDefaultPatchBaseline</code>, specify <code>arn:aws:ssm:us-east-2:733109147000:patchbaseline/pb-0e392de35e7c563b7</code> instead of <code>pb-0e392de35e7c563b7</code>.</p> </note>
+
+        Raises:
+            aws_sdk_ssm.errors.does_not_exist_exception.DoesNotExistException: <p>Error returned when the ID specified for a resource, such as a maintenance window or patch baseline, doesn't exist.</p> <p>For information about resource quotas in Amazon Web Services Systems Manager, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/ssm.html#limits_ssm\">Systems Manager service quotas</a> in the <i>Amazon Web Services General Reference</i>.</p>
+            aws_sdk_ssm.errors.internal_server_error.InternalServerError: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm.errors.invalid_resource_id.InvalidResourceId: <p>The resource ID isn't valid. Verify that you entered the correct ID and try again.</p>
+            aws_sdk_ssm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6021,6 +6578,10 @@ class SSMClient:
         Args:
             patch_group: <p>The name of the patch group whose patch baseline should be retrieved.</p>
             operating_system: <p>Returns the operating system rule specified for patch groups using the patch baseline.</p>
+
+        Raises:
+            aws_sdk_ssm.errors.internal_server_error.InternalServerError: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6066,6 +6627,12 @@ class SSMClient:
             resource_arn: <p>Amazon Resource Name (ARN) of the resource to which the policies are attached.</p>
             next_token: <p>A token to start the list. Use this token to get the next set of results.</p>
             max_results: <p>The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.</p>
+
+        Raises:
+            aws_sdk_ssm.errors.internal_server_error.InternalServerError: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified parameter to be shared could not be found.</p>
+            aws_sdk_ssm.errors.resource_policy_invalid_parameter_exception.ResourcePolicyInvalidParameterException: <p>One or more parameters specified for the call aren't valid. Verify the parameters and their values and try again.</p>
+            aws_sdk_ssm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6132,6 +6699,11 @@ class SSMClient:
 
         Args:
             setting_id: <p>The ID of the service setting to get. The setting ID can be one of the following.</p> <ul> <li> <p> <code>/ssm/appmanager/appmanager-enabled</code> </p> </li> <li> <p> <code>/ssm/automation/customer-script-log-destination</code> </p> </li> <li> <p> <code>/ssm/automation/customer-script-log-group-name</code> </p> </li> <li> <p>/ssm/automation/enable-adaptive-concurrency</p> </li> <li> <p> <code>/ssm/documents/console/public-sharing-permission</code> </p> </li> <li> <p> <code>/ssm/managed-instance/activation-tier</code> </p> </li> <li> <p> <code>/ssm/managed-instance/default-ec2-instance-management-role</code> </p> </li> <li> <p> <code>/ssm/opsinsights/opscenter</code> </p> </li> <li> <p> <code>/ssm/parameter-store/default-parameter-tier</code> </p> </li> <li> <p> <code>/ssm/parameter-store/high-throughput-enabled</code> </p> </li> </ul>
+
+        Raises:
+            aws_sdk_ssm.errors.internal_server_error.InternalServerError: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm.errors.service_setting_not_found.ServiceSettingNotFound: <p>The specified service setting wasn't found. Either the service name or the setting hasn't been provisioned by the Amazon Web Services service team.</p>
+            aws_sdk_ssm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6175,6 +6747,14 @@ class SSMClient:
             name: <p>The parameter name on which you want to attach one or more labels.</p> <note> <p>You can't enter the Amazon Resource Name (ARN) for a parameter, only the parameter name itself.</p> </note>
             parameter_version: <p>The specific version of the parameter on which you want to attach one or more labels. If no version is specified, the system attaches the label to the latest version.</p>
             labels: <p>One or more labels to attach to the specified parameter version.</p>
+
+        Raises:
+            aws_sdk_ssm.errors.internal_server_error.InternalServerError: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm.errors.parameter_not_found.ParameterNotFound: <p>The parameter couldn't be found. Verify the name and try again.</p> <note> <p>For the <code>DeleteParameter</code> and <code>GetParameter</code> actions, if the specified parameter doesn't exist, the <code>ParameterNotFound</code> exception is <i>not</i> recorded in CloudTrail event logs.</p> </note>
+            aws_sdk_ssm.errors.parameter_version_label_limit_exceeded.ParameterVersionLabelLimitExceeded: <p>A parameter version can have a maximum of ten labels.</p>
+            aws_sdk_ssm.errors.parameter_version_not_found.ParameterVersionNotFound: <p>The specified parameter version wasn't found. Verify the parameter name and version, and try again.</p>
+            aws_sdk_ssm.errors.too_many_updates.TooManyUpdates: <p>There are concurrent updates for a resource that supports one update at a time.</p>
+            aws_sdk_ssm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6221,6 +6801,11 @@ class SSMClient:
             association_filter_list: <p>One or more filters. Use a filter to return a more specific list of results.</p> <note> <p>Filtering associations using the <code>InstanceID</code> attribute only returns legacy associations created using the <code>InstanceID</code> attribute. Associations targeting the managed node that are part of the Target Attributes <code>ResourceGroup</code> or <code>Tags</code> aren't returned.</p> </note>
             max_results: <p>The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.</p>
             next_token: <p>The token for the next set of items to return. (You received this token from a previous call.)</p>
+
+        Raises:
+            aws_sdk_ssm.errors.internal_server_error.InternalServerError: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm.errors.invalid_next_token.InvalidNextToken: <p>The specified token isn't valid.</p>
+            aws_sdk_ssm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6292,6 +6877,12 @@ class SSMClient:
             association_id: <p>The association ID for which you want to view all versions.</p>
             max_results: <p>The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.</p>
             next_token: <p>A token to start the list. Use this token to get the next set of results. </p>
+
+        Raises:
+            aws_sdk_ssm.errors.association_does_not_exist.AssociationDoesNotExist: <p>The specified association doesn't exist.</p>
+            aws_sdk_ssm.errors.internal_server_error.InternalServerError: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm.errors.invalid_next_token.InvalidNextToken: <p>The specified token isn't valid.</p>
+            aws_sdk_ssm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6372,6 +6963,14 @@ class SSMClient:
             next_token: <p>(Optional) The token for the next set of items to return. (You received this token from a previous call.)</p>
             filters: <p>(Optional) One or more filters. Use a filter to return a more specific list of results.</p>
             details: <p>(Optional) If set this returns the response of the command executions and any command output. The default value is <code>false</code>. </p>
+
+        Raises:
+            aws_sdk_ssm.errors.internal_server_error.InternalServerError: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm.errors.invalid_command_id.InvalidCommandId: <p>The specified command ID isn't valid. Verify the ID and try again.</p>
+            aws_sdk_ssm.errors.invalid_filter_key.InvalidFilterKey: <p>The specified key isn't valid.</p>
+            aws_sdk_ssm.errors.invalid_instance_id.InvalidInstanceId: <p>The following problems can cause this exception:</p> <ul> <li> <p>You don't have permission to access the managed node.</p> </li> <li> <p>Amazon Web Services Systems Manager Agent (SSM Agent) isn't running. Verify that SSM Agent is running.</p> </li> <li> <p>SSM Agent isn't registered with the SSM endpoint. Try reinstalling SSM Agent.</p> </li> <li> <p>The managed node isn't in a valid state. Valid states are: <code>Running</code>, <code>Pending</code>, <code>Stopped</code>, and <code>Stopping</code>. Invalid states are: <code>Shutting-down</code> and <code>Terminated</code>.</p> </li> </ul>
+            aws_sdk_ssm.errors.invalid_next_token.InvalidNextToken: <p>The specified token isn't valid.</p>
+            aws_sdk_ssm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6465,6 +7064,14 @@ class SSMClient:
             max_results: <p>(Optional) The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.</p>
             next_token: <p>(Optional) The token for the next set of items to return. (You received this token from a previous call.)</p>
             filters: <p>(Optional) One or more filters. Use a filter to return a more specific list of results. </p>
+
+        Raises:
+            aws_sdk_ssm.errors.internal_server_error.InternalServerError: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm.errors.invalid_command_id.InvalidCommandId: <p>The specified command ID isn't valid. Verify the ID and try again.</p>
+            aws_sdk_ssm.errors.invalid_filter_key.InvalidFilterKey: <p>The specified key isn't valid.</p>
+            aws_sdk_ssm.errors.invalid_instance_id.InvalidInstanceId: <p>The following problems can cause this exception:</p> <ul> <li> <p>You don't have permission to access the managed node.</p> </li> <li> <p>Amazon Web Services Systems Manager Agent (SSM Agent) isn't running. Verify that SSM Agent is running.</p> </li> <li> <p>SSM Agent isn't registered with the SSM endpoint. Try reinstalling SSM Agent.</p> </li> <li> <p>The managed node isn't in a valid state. Valid states are: <code>Running</code>, <code>Pending</code>, <code>Stopped</code>, and <code>Stopping</code>. Invalid states are: <code>Shutting-down</code> and <code>Terminated</code>.</p> </li> </ul>
+            aws_sdk_ssm.errors.invalid_next_token.InvalidNextToken: <p>The specified token isn't valid.</p>
+            aws_sdk_ssm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6556,6 +7163,14 @@ class SSMClient:
             resource_types: <p>The type of resource from which to get compliance information. Currently, the only supported resource type is <code>ManagedInstance</code>.</p>
             next_token: <p>A token to start the list. Use this token to get the next set of results. </p>
             max_results: <p>The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.</p>
+
+        Raises:
+            aws_sdk_ssm.errors.internal_server_error.InternalServerError: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm.errors.invalid_filter.InvalidFilter: <p>The filter name isn't valid. Verify that you entered the correct name and try again.</p>
+            aws_sdk_ssm.errors.invalid_next_token.InvalidNextToken: <p>The specified token isn't valid.</p>
+            aws_sdk_ssm.errors.invalid_resource_id.InvalidResourceId: <p>The resource ID isn't valid. Verify that you entered the correct ID and try again.</p>
+            aws_sdk_ssm.errors.invalid_resource_type.InvalidResourceType: <p>The resource type isn't valid. For example, if you are attempting to tag an EC2 instance, the instance must be a registered managed node.</p>
+            aws_sdk_ssm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6641,6 +7256,12 @@ class SSMClient:
             filters: <p>One or more compliance or inventory filters. Use a filter to return a more specific list of results.</p>
             next_token: <p>A token to start the list. Use this token to get the next set of results. </p>
             max_results: <p>The maximum number of items to return for this call. Currently, you can specify null or 50. The call also returns a token that you can specify in a subsequent call to get the next set of results.</p>
+
+        Raises:
+            aws_sdk_ssm.errors.internal_server_error.InternalServerError: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm.errors.invalid_filter.InvalidFilter: <p>The filter name isn't valid. Verify that you entered the correct name and try again.</p>
+            aws_sdk_ssm.errors.invalid_next_token.InvalidNextToken: <p>The specified token isn't valid.</p>
+            aws_sdk_ssm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6718,6 +7339,13 @@ class SSMClient:
             metadata: <p>The type of data for which details are being requested. Currently, the only supported value is <code>DocumentReviews</code>.</p>
             next_token: <p>The token for the next set of items to return. (You received this token from a previous call.)</p>
             max_results: <p>The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.</p>
+
+        Raises:
+            aws_sdk_ssm.errors.internal_server_error.InternalServerError: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm.errors.invalid_document.InvalidDocument: <p>The specified SSM document doesn't exist.</p>
+            aws_sdk_ssm.errors.invalid_document_version.InvalidDocumentVersion: <p>The document version isn't valid or doesn't exist.</p>
+            aws_sdk_ssm.errors.invalid_next_token.InvalidNextToken: <p>The specified token isn't valid.</p>
+            aws_sdk_ssm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6772,6 +7400,12 @@ class SSMClient:
             filters: <p>One or more <code>DocumentKeyValuesFilter</code> objects. Use a filter to return a more specific list of results. For keys, you can specify one or more key-value pair tags that have been applied to a document. Other valid keys include <code>Owner</code>, <code>Name</code>, <code>PlatformTypes</code>, <code>DocumentType</code>, and <code>TargetType</code>. For example, to return documents you own use <code>Key=Owner,Values=Self</code>. To specify a custom key-value pair, use the format <code>Key=tag:tagName,Values=valueName</code>.</p> <note> <p>This API operation only supports filtering documents by using a single tag key and one or more tag values. For example: <code>Key=tag:tagName,Values=valueName1,valueName2</code> </p> </note>
             max_results: <p>The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.</p>
             next_token: <p>The token for the next set of items to return. (You received this token from a previous call.)</p>
+
+        Raises:
+            aws_sdk_ssm.errors.internal_server_error.InternalServerError: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm.errors.invalid_filter_key.InvalidFilterKey: <p>The specified key isn't valid.</p>
+            aws_sdk_ssm.errors.invalid_next_token.InvalidNextToken: <p>The specified token isn't valid.</p>
+            aws_sdk_ssm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6849,6 +7483,12 @@ class SSMClient:
             name: <p>The name of the document. You can specify an Amazon Resource Name (ARN).</p>
             max_results: <p>The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.</p>
             next_token: <p>The token for the next set of items to return. (You received this token from a previous call.)</p>
+
+        Raises:
+            aws_sdk_ssm.errors.internal_server_error.InternalServerError: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm.errors.invalid_document.InvalidDocument: <p>The specified SSM document doesn't exist.</p>
+            aws_sdk_ssm.errors.invalid_next_token.InvalidNextToken: <p>The specified token isn't valid.</p>
+            aws_sdk_ssm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6923,6 +7563,14 @@ class SSMClient:
             filters: <p>One or more filters. Use a filter to return a more specific list of results.</p>
             next_token: <p>The token for the next set of items to return. (You received this token from a previous call.)</p>
             max_results: <p>The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.</p>
+
+        Raises:
+            aws_sdk_ssm.errors.internal_server_error.InternalServerError: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm.errors.invalid_filter.InvalidFilter: <p>The filter name isn't valid. Verify that you entered the correct name and try again.</p>
+            aws_sdk_ssm.errors.invalid_instance_id.InvalidInstanceId: <p>The following problems can cause this exception:</p> <ul> <li> <p>You don't have permission to access the managed node.</p> </li> <li> <p>Amazon Web Services Systems Manager Agent (SSM Agent) isn't running. Verify that SSM Agent is running.</p> </li> <li> <p>SSM Agent isn't registered with the SSM endpoint. Try reinstalling SSM Agent.</p> </li> <li> <p>The managed node isn't in a valid state. Valid states are: <code>Running</code>, <code>Pending</code>, <code>Stopped</code>, and <code>Stopping</code>. Invalid states are: <code>Shutting-down</code> and <code>Terminated</code>.</p> </li> </ul>
+            aws_sdk_ssm.errors.invalid_next_token.InvalidNextToken: <p>The specified token isn't valid.</p>
+            aws_sdk_ssm.errors.invalid_type_name_exception.InvalidTypeNameException: <p>The parameter type name isn't valid.</p>
+            aws_sdk_ssm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6975,6 +7623,14 @@ class SSMClient:
             filters: <p>One or more filters. Use a filter to return a more specific list of managed nodes.</p>
             next_token: <p>The token for the next set of items to return. (You received this token from a previous call.)</p>
             max_results: <p>The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.</p>
+
+        Raises:
+            aws_sdk_ssm.errors.internal_server_error.InternalServerError: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm.errors.invalid_filter.InvalidFilter: <p>The filter name isn't valid. Verify that you entered the correct name and try again.</p>
+            aws_sdk_ssm.errors.invalid_next_token.InvalidNextToken: <p>The specified token isn't valid.</p>
+            aws_sdk_ssm.errors.resource_data_sync_not_found_exception.ResourceDataSyncNotFoundException: <p>The specified sync name wasn't found.</p>
+            aws_sdk_ssm.errors.unsupported_operation_exception.UnsupportedOperationException: <p>This operation is not supported for the current account. You must first enable the Systems Manager integrated experience in your account.</p>
+            aws_sdk_ssm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -7054,6 +7710,15 @@ class SSMClient:
             aggregators: <p>Specify one or more aggregators to return a count of managed nodes that match that expression. For example, a count of managed nodes by operating system.</p>
             next_token: <p>The token for the next set of items to return. (You received this token from a previous call.) The call also returns a token that you can specify in a subsequent call to get the next set of results.</p>
             max_results: <p>The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.</p>
+
+        Raises:
+            aws_sdk_ssm.errors.internal_server_error.InternalServerError: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm.errors.invalid_aggregator_exception.InvalidAggregatorException: <p>The specified aggregator isn't valid for the group type. Verify that the aggregator you provided is supported.</p>
+            aws_sdk_ssm.errors.invalid_filter.InvalidFilter: <p>The filter name isn't valid. Verify that you entered the correct name and try again.</p>
+            aws_sdk_ssm.errors.invalid_next_token.InvalidNextToken: <p>The specified token isn't valid.</p>
+            aws_sdk_ssm.errors.resource_data_sync_not_found_exception.ResourceDataSyncNotFoundException: <p>The specified sync name wasn't found.</p>
+            aws_sdk_ssm.errors.unsupported_operation_exception.UnsupportedOperationException: <p>This operation is not supported for the current account. You must first enable the Systems Manager integrated experience in your account.</p>
+            aws_sdk_ssm.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             ListNodesSummary
@@ -7142,6 +7807,13 @@ class SSMClient:
             filters: <p>One or more OpsItem filters. Use a filter to return a more specific list of results. </p>
             max_results: <p>The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results. </p>
             next_token: <p>A token to start the list. Use this token to get the next set of results. </p>
+
+        Raises:
+            aws_sdk_ssm.errors.internal_server_error.InternalServerError: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm.errors.ops_item_invalid_parameter_exception.OpsItemInvalidParameterException: <p>A specified parameter argument isn't valid. Verify the available arguments and try again.</p>
+            aws_sdk_ssm.errors.ops_item_limit_exceeded_exception.OpsItemLimitExceededException: <p>The request caused OpsItems to exceed one or more quotas.</p>
+            aws_sdk_ssm.errors.ops_item_not_found_exception.OpsItemNotFoundException: <p>The specified OpsItem ID doesn't exist. Verify the ID and try again.</p>
+            aws_sdk_ssm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -7221,6 +7893,11 @@ class SSMClient:
             filters: <p>One or more OpsItem filters. Use a filter to return a more specific list of results. </p>
             max_results: <p>The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.</p>
             next_token: <p>The token for the next set of items to return. (You received this token from a previous call.)</p>
+
+        Raises:
+            aws_sdk_ssm.errors.internal_server_error.InternalServerError: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm.errors.ops_item_invalid_parameter_exception.OpsItemInvalidParameterException: <p>A specified parameter argument isn't valid. Verify the available arguments and try again.</p>
+            aws_sdk_ssm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -7302,6 +7979,11 @@ class SSMClient:
             filters: <p>One or more filters to limit the number of OpsMetadata objects returned by the call.</p>
             max_results: <p>The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.</p>
             next_token: <p>A token to start the list. Use this token to get the next set of results.</p>
+
+        Raises:
+            aws_sdk_ssm.errors.internal_server_error.InternalServerError: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm.errors.ops_metadata_invalid_argument_exception.OpsMetadataInvalidArgumentException: <p>One of the arguments passed is invalid. </p>
+            aws_sdk_ssm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -7377,6 +8059,12 @@ class SSMClient:
             filters: <p>One or more filters. Use a filter to return a more specific list of results.</p>
             next_token: <p>A token to start the list. Use this token to get the next set of results. </p>
             max_results: <p>The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.</p>
+
+        Raises:
+            aws_sdk_ssm.errors.internal_server_error.InternalServerError: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm.errors.invalid_filter.InvalidFilter: <p>The filter name isn't valid. Verify that you entered the correct name and try again.</p>
+            aws_sdk_ssm.errors.invalid_next_token.InvalidNextToken: <p>The specified token isn't valid.</p>
+            aws_sdk_ssm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -7450,6 +8138,12 @@ class SSMClient:
             sync_type: <p>View a list of resource data syncs according to the sync type. Specify <code>SyncToDestination</code> to view resource data syncs that synchronize data to an Amazon S3 bucket. Specify <code>SyncFromSource</code> to view resource data syncs from Organizations or from multiple Amazon Web Services Regions.</p>
             next_token: <p>A token to start the list. Use this token to get the next set of results. </p>
             max_results: <p>The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.</p>
+
+        Raises:
+            aws_sdk_ssm.errors.internal_server_error.InternalServerError: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm.errors.invalid_next_token.InvalidNextToken: <p>The specified token isn't valid.</p>
+            aws_sdk_ssm.errors.resource_data_sync_invalid_configuration_exception.ResourceDataSyncInvalidConfigurationException: <p>The specified sync configuration is invalid.</p>
+            aws_sdk_ssm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -7519,6 +8213,12 @@ class SSMClient:
         Args:
             resource_type: <p>Returns a list of tags for a specific resource type.</p>
             resource_id: <p>The resource ID for which you want to see a list of tags.</p>
+
+        Raises:
+            aws_sdk_ssm.errors.internal_server_error.InternalServerError: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm.errors.invalid_resource_id.InvalidResourceId: <p>The resource ID isn't valid. Verify that you entered the correct ID and try again.</p>
+            aws_sdk_ssm.errors.invalid_resource_type.InvalidResourceType: <p>The resource type isn't valid. For example, if you are attempting to tag an EC2 instance, the instance must be a registered managed node.</p>
+            aws_sdk_ssm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -7571,6 +8271,14 @@ class SSMClient:
             account_ids_to_add: <p>The Amazon Web Services users that should have access to the document. The account IDs can either be a group of account IDs or <i>All</i>. You must specify a value for this parameter or the <code>AccountIdsToRemove</code> parameter.</p>
             account_ids_to_remove: <p>The Amazon Web Services users that should no longer have access to the document. The Amazon Web Services user can either be a group of account IDs or <i>All</i>. This action has a higher priority than <code>AccountIdsToAdd</code>. If you specify an ID to add and the same ID to remove, the system removes access to the document. You must specify a value for this parameter or the <code>AccountIdsToAdd</code> parameter.</p>
             shared_document_version: <p>(Optional) The version of the document to share. If it isn't specified, the system choose the <code>Default</code> version to share.</p>
+
+        Raises:
+            aws_sdk_ssm.errors.document_limit_exceeded.DocumentLimitExceeded: <p>You can have at most 500 active SSM documents.</p>
+            aws_sdk_ssm.errors.document_permission_limit.DocumentPermissionLimit: <p>The document can't be shared with more Amazon Web Services accounts. You can specify a maximum of 20 accounts per API operation to share a private document.</p> <p>By default, you can share a private document with a maximum of 1,000 accounts and publicly share up to five documents.</p> <p>If you need to increase the quota for privately or publicly shared Systems Manager documents, contact Amazon Web Services Support.</p>
+            aws_sdk_ssm.errors.internal_server_error.InternalServerError: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm.errors.invalid_document.InvalidDocument: <p>The specified SSM document doesn't exist.</p>
+            aws_sdk_ssm.errors.invalid_permission_type.InvalidPermissionType: <p>The permission type isn't supported. <i>Share</i> is the only supported permission type.</p>
+            aws_sdk_ssm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -7631,6 +8339,16 @@ class SSMClient:
             items: <p>Information about the compliance as defined by the resource type. For example, for a patch compliance type, <code>Items</code> includes information about the PatchSeverity, Classification, and so on.</p>
             item_content_hash: <p>MD5 or SHA-256 content hash. The content hash is used to determine if existing information should be overwritten or ignored. If the content hashes match, the request to put compliance information is ignored.</p>
             upload_type: <p>The mode for uploading compliance items. You can specify <code>COMPLETE</code> or <code>PARTIAL</code>. In <code>COMPLETE</code> mode, the system overwrites all existing compliance information for the resource. You must provide a full list of compliance items each time you send the request.</p> <p>In <code>PARTIAL</code> mode, the system overwrites compliance information for a specific association. The association must be configured with <code>SyncCompliance</code> set to <code>MANUAL</code>. By default, all requests use <code>COMPLETE</code> mode.</p> <note> <p>This attribute is only valid for association compliance.</p> </note>
+
+        Raises:
+            aws_sdk_ssm.errors.compliance_type_count_limit_exceeded_exception.ComplianceTypeCountLimitExceededException: <p>You specified too many custom compliance types. You can specify a maximum of 10 different types. </p>
+            aws_sdk_ssm.errors.internal_server_error.InternalServerError: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm.errors.invalid_item_content_exception.InvalidItemContentException: <p>One or more content items isn't valid.</p>
+            aws_sdk_ssm.errors.invalid_resource_id.InvalidResourceId: <p>The resource ID isn't valid. Verify that you entered the correct ID and try again.</p>
+            aws_sdk_ssm.errors.invalid_resource_type.InvalidResourceType: <p>The resource type isn't valid. For example, if you are attempting to tag an EC2 instance, the instance must be a registered managed node.</p>
+            aws_sdk_ssm.errors.item_size_limit_exceeded_exception.ItemSizeLimitExceededException: <p>The inventory item size has exceeded the size limit.</p>
+            aws_sdk_ssm.errors.total_size_limit_exceeded_exception.TotalSizeLimitExceededException: <p>The size of inventory data has exceeded the total size limit for the resource.</p>
+            aws_sdk_ssm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -7678,6 +8396,21 @@ class SSMClient:
         Args:
             instance_id: <p>An managed node ID where you want to add or update inventory items.</p>
             items: <p>The inventory items that you want to add or update on managed nodes.</p>
+
+        Raises:
+            aws_sdk_ssm.errors.custom_schema_count_limit_exceeded_exception.CustomSchemaCountLimitExceededException: <p>You have exceeded the limit for custom schemas. Delete one or more custom schemas and try again.</p>
+            aws_sdk_ssm.errors.internal_server_error.InternalServerError: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm.errors.invalid_instance_id.InvalidInstanceId: <p>The following problems can cause this exception:</p> <ul> <li> <p>You don't have permission to access the managed node.</p> </li> <li> <p>Amazon Web Services Systems Manager Agent (SSM Agent) isn't running. Verify that SSM Agent is running.</p> </li> <li> <p>SSM Agent isn't registered with the SSM endpoint. Try reinstalling SSM Agent.</p> </li> <li> <p>The managed node isn't in a valid state. Valid states are: <code>Running</code>, <code>Pending</code>, <code>Stopped</code>, and <code>Stopping</code>. Invalid states are: <code>Shutting-down</code> and <code>Terminated</code>.</p> </li> </ul>
+            aws_sdk_ssm.errors.invalid_inventory_item_context_exception.InvalidInventoryItemContextException: <p>You specified invalid keys or values in the <code>Context</code> attribute for <code>InventoryItem</code>. Verify the keys and values, and try again.</p>
+            aws_sdk_ssm.errors.invalid_item_content_exception.InvalidItemContentException: <p>One or more content items isn't valid.</p>
+            aws_sdk_ssm.errors.invalid_type_name_exception.InvalidTypeNameException: <p>The parameter type name isn't valid.</p>
+            aws_sdk_ssm.errors.item_content_mismatch_exception.ItemContentMismatchException: <p>The inventory item has invalid content. </p>
+            aws_sdk_ssm.errors.item_size_limit_exceeded_exception.ItemSizeLimitExceededException: <p>The inventory item size has exceeded the size limit.</p>
+            aws_sdk_ssm.errors.sub_type_count_limit_exceeded_exception.SubTypeCountLimitExceededException: <p>The sub-type count exceeded the limit for the inventory type.</p>
+            aws_sdk_ssm.errors.total_size_limit_exceeded_exception.TotalSizeLimitExceededException: <p>The size of inventory data has exceeded the total size limit for the resource.</p>
+            aws_sdk_ssm.errors.unsupported_inventory_item_context_exception.UnsupportedInventoryItemContextException: <p>The <code>Context</code> attribute that you specified for the <code>InventoryItem</code> isn't allowed for this inventory type. You can only use the <code>Context</code> attribute with inventory types like <code>AWS:ComplianceItem</code>.</p>
+            aws_sdk_ssm.errors.unsupported_inventory_schema_version_exception.UnsupportedInventorySchemaVersionException: <p>Inventory item type schema version has to match supported versions in the service. Check output of GetInventorySchema to see the available schema version for each type.</p>
+            aws_sdk_ssm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -7744,6 +8477,24 @@ class SSMClient:
             tier: <p>The parameter tier to assign to a parameter.</p> <p>Parameter Store offers a standard tier and an advanced tier for parameters. Standard parameters have a content size limit of 4 KB and can't be configured to use parameter policies. You can create a maximum of 10,000 standard parameters for each Region in an Amazon Web Services account. Standard parameters are offered at no additional cost. </p> <p>Advanced parameters have a content size limit of 8 KB and can be configured to use parameter policies. You can create a maximum of 100,000 advanced parameters for each Region in an Amazon Web Services account. Advanced parameters incur a charge. For more information, see <a href=\"https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-advanced-parameters.html\">Managing parameter tiers</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p> <p>You can change a standard parameter to an advanced parameter any time. But you can't revert an advanced parameter to a standard parameter. Reverting an advanced parameter to a standard parameter would result in data loss because the system would truncate the size of the parameter from 8 KB to 4 KB. Reverting would also remove any policies attached to the parameter. Lastly, advanced parameters use a different form of encryption than standard parameters. </p> <p>If you no longer need an advanced parameter, or if you no longer want to incur charges for an advanced parameter, you must delete it and recreate it as a new standard parameter. </p> <p> <b>Using the Default Tier Configuration</b> </p> <p>In <code>PutParameter</code> requests, you can specify the tier to create the parameter in. Whenever you specify a tier in the request, Parameter Store creates or updates the parameter according to that request. However, if you don't specify a tier in a request, Parameter Store assigns the tier based on the current Parameter Store default tier configuration.</p> <p>The default tier when you begin using Parameter Store is the standard-parameter tier. If you use the advanced-parameter tier, you can specify one of the following as the default:</p> <ul> <li> <p> <b>Advanced</b>: With this option, Parameter Store evaluates all requests as advanced parameters. </p> </li> <li> <p> <b>Intelligent-Tiering</b>: With this option, Parameter Store evaluates each request to determine if the parameter is standard or advanced. </p> <p>If the request doesn't include any options that require an advanced parameter, the parameter is created in the standard-parameter tier. If one or more options requiring an advanced parameter are included in the request, Parameter Store create a parameter in the advanced-parameter tier.</p> <p>This approach helps control your parameter-related costs by always creating standard parameters unless an advanced parameter is necessary. </p> </li> </ul> <p>Options that require an advanced parameter include the following:</p> <ul> <li> <p>The content size of the parameter is more than 4 KB.</p> </li> <li> <p>The parameter uses a parameter policy.</p> </li> <li> <p>More than 10,000 parameters already exist in your Amazon Web Services account in the current Amazon Web Services Region.</p> </li> </ul> <p>For more information about configuring the default tier option, see <a href=\"https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-advanced-parameters.html#ps-default-tier\">Specifying a default parameter tier</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
             policies: <p>One or more policies to apply to a parameter. This operation takes a JSON array. Parameter Store, a tool in Amazon Web Services Systems Manager supports the following policy types:</p> <p>Expiration: This policy deletes the parameter after it expires. When you create the policy, you specify the expiration date. You can update the expiration date and time by updating the policy. Updating the <i>parameter</i> doesn't affect the expiration date and time. When the expiration time is reached, Parameter Store deletes the parameter.</p> <p>ExpirationNotification: This policy initiates an event in Amazon CloudWatch Events that notifies you about the expiration. By using this policy, you can receive notification before or after the expiration time is reached, in units of days or hours.</p> <p>NoChangeNotification: This policy initiates a CloudWatch Events event if a parameter hasn't been modified for a specified period of time. This policy type is useful when, for example, a secret needs to be changed within a period of time, but it hasn't been changed.</p> <p>All existing policies are preserved until you send new policies or an empty policy. For more information about parameter policies, see <a href=\"https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-policies.html\">Assigning parameter policies</a>. </p>
             data_type: <p>The data type for a <code>String</code> parameter. Supported data types include plain text and Amazon Machine Image (AMI) IDs.</p> <p> <b>The following data type values are supported.</b> </p> <ul> <li> <p> <code>text</code> </p> </li> <li> <p> <code>aws:ec2:image</code> </p> </li> <li> <p> <code>aws:ssm:integration</code> </p> </li> </ul> <p>When you create a <code>String</code> parameter and specify <code>aws:ec2:image</code>, Amazon Web Services Systems Manager validates the parameter value is in the required format, such as <code>ami-12345abcdeEXAMPLE</code>, and that the specified AMI is available in your Amazon Web Services account.</p> <note> <p>If the action is successful, the service sends back an HTTP 200 response which indicates a successful <code>PutParameter</code> call for all cases except for data type <code>aws:ec2:image</code>. If you call <code>PutParameter</code> with <code>aws:ec2:image</code> data type, a successful HTTP 200 response does not guarantee that your parameter was successfully created or updated. The <code>aws:ec2:image</code> value is validated asynchronously, and the <code>PutParameter</code> call returns before the validation is complete. If you submit an invalid AMI value, the PutParameter operation will return success, but the asynchronous validation will fail and the parameter will not be created or updated. To monitor whether your <code>aws:ec2:image</code> parameters are created successfully, see <a href=\"https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-paramstore-cwe.html\">Setting up notifications or trigger actions based on Parameter Store events</a>. For more information about AMI format validation , see <a href=\"https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-ec2-aliases.html\">Native parameter support for Amazon Machine Image IDs</a>. </p> </note>
+
+        Raises:
+            aws_sdk_ssm.errors.hierarchy_level_limit_exceeded_exception.HierarchyLevelLimitExceededException: <p>A hierarchy can have a maximum of 15 levels. For more information, see <a href=\"https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-parameter-name-constraints.html\">Requirements and constraints for parameter names</a> in the <i>Amazon Web Services Systems Manager User Guide</i>. </p>
+            aws_sdk_ssm.errors.hierarchy_type_mismatch_exception.HierarchyTypeMismatchException: <p>Parameter Store doesn't support changing a parameter type in a hierarchy. For example, you can't change a parameter from a <code>String</code> type to a <code>SecureString</code> type. You must create a new, unique parameter.</p>
+            aws_sdk_ssm.errors.incompatible_policy_exception.IncompatiblePolicyException: <p>There is a conflict in the policies specified for this parameter. You can't, for example, specify two Expiration policies for a parameter. Review your policies, and try again.</p>
+            aws_sdk_ssm.errors.internal_server_error.InternalServerError: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm.errors.invalid_allowed_pattern_exception.InvalidAllowedPatternException: <p>The request doesn't meet the regular expression requirement.</p>
+            aws_sdk_ssm.errors.invalid_key_id.InvalidKeyId: <p>The query key ID isn't valid.</p>
+            aws_sdk_ssm.errors.invalid_policy_attribute_exception.InvalidPolicyAttributeException: <p>A policy attribute or its value is invalid. </p>
+            aws_sdk_ssm.errors.invalid_policy_type_exception.InvalidPolicyTypeException: <p>The policy type isn't supported. Parameter Store supports the following policy types: Expiration, ExpirationNotification, and NoChangeNotification.</p>
+            aws_sdk_ssm.errors.parameter_already_exists.ParameterAlreadyExists: <p>The parameter already exists. You can't create duplicate parameters.</p>
+            aws_sdk_ssm.errors.parameter_limit_exceeded.ParameterLimitExceeded: <p>You have exceeded the number of parameters for this Amazon Web Services account. Delete one or more parameters and try again.</p>
+            aws_sdk_ssm.errors.parameter_max_version_limit_exceeded.ParameterMaxVersionLimitExceeded: <p>Parameter Store retains the 100 most recently created versions of a parameter. After this number of versions has been created, Parameter Store deletes the oldest version when a new one is created. However, if the oldest version has a <i>label</i> attached to it, Parameter Store won't delete the version and instead presents this error message:</p> <p> <code>An error occurred (ParameterMaxVersionLimitExceeded) when calling the PutParameter operation: You attempted to create a new version of <i>parameter-name</i> by calling the PutParameter API with the overwrite flag. Version <i>version-number</i>, the oldest version, can't be deleted because it has a label associated with it. Move the label to another version of the parameter, and try again.</code> </p> <p>This safeguard is to prevent parameter versions with mission critical labels assigned to them from being deleted. To continue creating new parameters, first move the label from the oldest version of the parameter to a newer one for use in your operations. For information about moving parameter labels, see <a href=\"https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-paramstore-labels.html#sysman-paramstore-labels-console-move\">Move a parameter label (console)</a> or <a href=\"https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-paramstore-labels.html#sysman-paramstore-labels-cli-move\">Move a parameter label (CLI)</a> in the <i>Amazon Web Services Systems Manager User Guide</i>. </p>
+            aws_sdk_ssm.errors.parameter_pattern_mismatch_exception.ParameterPatternMismatchException: <p>The parameter name isn't valid.</p>
+            aws_sdk_ssm.errors.policies_limit_exceeded_exception.PoliciesLimitExceededException: <p>You specified more than the maximum number of allowed policies for the parameter. The maximum is 10.</p>
+            aws_sdk_ssm.errors.too_many_updates.TooManyUpdates: <p>There are concurrent updates for a resource that supports one update at a time.</p>
+            aws_sdk_ssm.errors.unsupported_parameter_type.UnsupportedParameterType: <p>The parameter type isn't supported.</p>
+            aws_sdk_ssm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -7806,6 +8557,16 @@ class SSMClient:
             policy: <p>A policy you want to associate with a resource.</p>
             policy_id: <p>The policy ID.</p>
             policy_hash: <p>ID of the current policy version. The hash helps to prevent a situation where multiple users attempt to overwrite a policy. You must provide this hash when updating or deleting a policy.</p>
+
+        Raises:
+            aws_sdk_ssm.errors.internal_server_error.InternalServerError: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm.errors.malformed_resource_policy_document_exception.MalformedResourcePolicyDocumentException: <p>The specified policy document is malformed or invalid, or excessive <code>PutResourcePolicy</code> or <code>DeleteResourcePolicy</code> calls have been made.</p>
+            aws_sdk_ssm.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified parameter to be shared could not be found.</p>
+            aws_sdk_ssm.errors.resource_policy_conflict_exception.ResourcePolicyConflictException: <p>The hash provided in the call doesn't match the stored hash. This exception is thrown when trying to update an obsolete policy version or when multiple requests to update a policy are sent.</p>
+            aws_sdk_ssm.errors.resource_policy_invalid_parameter_exception.ResourcePolicyInvalidParameterException: <p>One or more parameters specified for the call aren't valid. Verify the parameters and their values and try again.</p>
+            aws_sdk_ssm.errors.resource_policy_limit_exceeded_exception.ResourcePolicyLimitExceededException: <p>The <a>PutResourcePolicy</a> API action enforces two limits. A policy can't be greater than 1024 bytes in size. And only one policy can be attached to <code>OpsItemGroup</code>. Verify these limits and try again.</p>
+            aws_sdk_ssm.errors.resource_policy_not_found_exception.ResourcePolicyNotFoundException: <p>No policies with the specified policy ID and hash could be found.</p>
+            aws_sdk_ssm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -7848,6 +8609,12 @@ class SSMClient:
 
         Args:
             baseline_id: <p>The ID of the patch baseline that should be the default patch baseline.</p>
+
+        Raises:
+            aws_sdk_ssm.errors.does_not_exist_exception.DoesNotExistException: <p>Error returned when the ID specified for a resource, such as a maintenance window or patch baseline, doesn't exist.</p> <p>For information about resource quotas in Amazon Web Services Systems Manager, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/ssm.html#limits_ssm\">Systems Manager service quotas</a> in the <i>Amazon Web Services General Reference</i>.</p>
+            aws_sdk_ssm.errors.internal_server_error.InternalServerError: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm.errors.invalid_resource_id.InvalidResourceId: <p>The resource ID isn't valid. Verify that you entered the correct ID and try again.</p>
+            aws_sdk_ssm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -7887,6 +8654,14 @@ class SSMClient:
         Args:
             baseline_id: <p>The ID of the patch baseline to register with the patch group.</p>
             patch_group: <p>The name of the patch group to be registered with the patch baseline.</p>
+
+        Raises:
+            aws_sdk_ssm.errors.already_exists_exception.AlreadyExistsException: <p>Error returned if an attempt is made to register a patch group with a patch baseline that is already registered with a different patch baseline.</p>
+            aws_sdk_ssm.errors.does_not_exist_exception.DoesNotExistException: <p>Error returned when the ID specified for a resource, such as a maintenance window or patch baseline, doesn't exist.</p> <p>For information about resource quotas in Amazon Web Services Systems Manager, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/ssm.html#limits_ssm\">Systems Manager service quotas</a> in the <i>Amazon Web Services General Reference</i>.</p>
+            aws_sdk_ssm.errors.internal_server_error.InternalServerError: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm.errors.invalid_resource_id.InvalidResourceId: <p>The resource ID isn't valid. Verify that you entered the correct ID and try again.</p>
+            aws_sdk_ssm.errors.resource_limit_exceeded_exception.ResourceLimitExceededException: <p>Error returned when the caller has exceeded the default resource quotas. For example, too many maintenance windows or patch baselines have been created.</p> <p>For information about resource quotas in Systems Manager, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/ssm.html#limits_ssm\">Systems Manager service quotas</a> in the <i>Amazon Web Services General Reference</i>.</p>
+            aws_sdk_ssm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -7943,6 +8718,13 @@ class SSMClient:
             name: <p>An optional name for the target.</p>
             description: <p>An optional description for the target.</p>
             client_token: <p>User-provided idempotency token.</p>
+
+        Raises:
+            aws_sdk_ssm.errors.does_not_exist_exception.DoesNotExistException: <p>Error returned when the ID specified for a resource, such as a maintenance window or patch baseline, doesn't exist.</p> <p>For information about resource quotas in Amazon Web Services Systems Manager, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/ssm.html#limits_ssm\">Systems Manager service quotas</a> in the <i>Amazon Web Services General Reference</i>.</p>
+            aws_sdk_ssm.errors.idempotent_parameter_mismatch.IdempotentParameterMismatch: <p>Error returned when an idempotent operation is retried and the parameters don't match the original call to the API with the same idempotency token. </p>
+            aws_sdk_ssm.errors.internal_server_error.InternalServerError: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm.errors.resource_limit_exceeded_exception.ResourceLimitExceededException: <p>Error returned when the caller has exceeded the default resource quotas. For example, too many maintenance windows or patch baselines have been created.</p> <p>For information about resource quotas in Systems Manager, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/ssm.html#limits_ssm\">Systems Manager service quotas</a> in the <i>Amazon Web Services General Reference</i>.</p>
+            aws_sdk_ssm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -8036,6 +8818,14 @@ class SSMClient:
             client_token: <p>User-provided idempotency token.</p>
             cutoff_behavior: <p>Indicates whether tasks should continue to run after the cutoff time specified in the maintenance windows is reached. </p> <ul> <li> <p> <code>CONTINUE_TASK</code>: When the cutoff time is reached, any tasks that are running continue. The default value.</p> </li> <li> <p> <code>CANCEL_TASK</code>:</p> <ul> <li> <p>For Automation, Lambda, Step Functions tasks: When the cutoff time is reached, any task invocations that are already running continue, but no new task invocations are started.</p> </li> <li> <p>For Run Command tasks: When the cutoff time is reached, the system sends a <a>CancelCommand</a> operation that attempts to cancel the command associated with the task. However, there is no guarantee that the command will be terminated and the underlying process stopped.</p> </li> </ul> <p>The status for tasks that are not completed is <code>TIMED_OUT</code>.</p> </li> </ul>
             alarm_configuration: <p>The CloudWatch alarm you want to apply to your maintenance window task.</p>
+
+        Raises:
+            aws_sdk_ssm.errors.does_not_exist_exception.DoesNotExistException: <p>Error returned when the ID specified for a resource, such as a maintenance window or patch baseline, doesn't exist.</p> <p>For information about resource quotas in Amazon Web Services Systems Manager, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/ssm.html#limits_ssm\">Systems Manager service quotas</a> in the <i>Amazon Web Services General Reference</i>.</p>
+            aws_sdk_ssm.errors.feature_not_available_exception.FeatureNotAvailableException: <p>You attempted to register a <code>LAMBDA</code> or <code>STEP_FUNCTIONS</code> task in a region where the corresponding service isn't available. </p>
+            aws_sdk_ssm.errors.idempotent_parameter_mismatch.IdempotentParameterMismatch: <p>Error returned when an idempotent operation is retried and the parameters don't match the original call to the API with the same idempotency token. </p>
+            aws_sdk_ssm.errors.internal_server_error.InternalServerError: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm.errors.resource_limit_exceeded_exception.ResourceLimitExceededException: <p>Error returned when the caller has exceeded the default resource quotas. For example, too many maintenance windows or patch baselines have been created.</p> <p>For information about resource quotas in Systems Manager, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/ssm.html#limits_ssm\">Systems Manager service quotas</a> in the <i>Amazon Web Services General Reference</i>.</p>
+            aws_sdk_ssm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -8105,6 +8895,13 @@ class SSMClient:
             resource_type: <p>The type of resource from which you want to remove a tag.</p> <note> <p>The <code>ManagedInstance</code> type for this API operation is only for on-premises managed nodes. Specify the name of the managed node in the following format: <code>mi-<i>ID_number</i> </code>. For example, <code>mi-1a2b3c4d5e6f</code>.</p> </note>
             resource_id: <p>The ID of the resource from which you want to remove tags. For example:</p> <p>ManagedInstance: mi-012345abcde</p> <p>MaintenanceWindow: mw-012345abcde</p> <p> <code>Automation</code>: <code>example-c160-4567-8519-012345abcde</code> </p> <p>PatchBaseline: pb-012345abcde</p> <p>OpsMetadata object: <code>ResourceID</code> for tagging is created from the Amazon Resource Name (ARN) for the object. Specifically, <code>ResourceID</code> is created from the strings that come after the word <code>opsmetadata</code> in the ARN. For example, an OpsMetadata object with an ARN of <code>arn:aws:ssm:us-east-2:1234567890:opsmetadata/aws/ssm/MyGroup/appmanager</code> has a <code>ResourceID</code> of either <code>aws/ssm/MyGroup/appmanager</code> or <code>/aws/ssm/MyGroup/appmanager</code>.</p> <p>For the Document and Parameter values, use the name of the resource.</p> <note> <p>The <code>ManagedInstance</code> type for this API operation is only for on-premises managed nodes. Specify the name of the managed node in the following format: mi-ID_number. For example, mi-1a2b3c4d5e6f.</p> </note>
             tag_keys: <p>Tag keys that you want to remove from the specified resource.</p>
+
+        Raises:
+            aws_sdk_ssm.errors.internal_server_error.InternalServerError: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm.errors.invalid_resource_id.InvalidResourceId: <p>The resource ID isn't valid. Verify that you entered the correct ID and try again.</p>
+            aws_sdk_ssm.errors.invalid_resource_type.InvalidResourceType: <p>The resource type isn't valid. For example, if you are attempting to tag an EC2 instance, the instance must be a registered managed node.</p>
+            aws_sdk_ssm.errors.too_many_updates.TooManyUpdates: <p>There are concurrent updates for a resource that supports one update at a time.</p>
+            aws_sdk_ssm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -8144,6 +8941,12 @@ class SSMClient:
 
         Args:
             setting_id: <p>The Amazon Resource Name (ARN) of the service setting to reset. The setting ID can be one of the following.</p> <ul> <li> <p> <code>/ssm/appmanager/appmanager-enabled</code> </p> </li> <li> <p> <code>/ssm/automation/customer-script-log-destination</code> </p> </li> <li> <p> <code>/ssm/automation/customer-script-log-group-name</code> </p> </li> <li> <p>/ssm/automation/enable-adaptive-concurrency</p> </li> <li> <p> <code>/ssm/documents/console/public-sharing-permission</code> </p> </li> <li> <p> <code>/ssm/managed-instance/activation-tier</code> </p> </li> <li> <p> <code>/ssm/managed-instance/default-ec2-instance-management-role</code> </p> </li> <li> <p> <code>/ssm/opsinsights/opscenter</code> </p> </li> <li> <p> <code>/ssm/parameter-store/default-parameter-tier</code> </p> </li> <li> <p> <code>/ssm/parameter-store/high-throughput-enabled</code> </p> </li> </ul>
+
+        Raises:
+            aws_sdk_ssm.errors.internal_server_error.InternalServerError: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm.errors.service_setting_not_found.ServiceSettingNotFound: <p>The specified service setting wasn't found. Either the service name or the setting hasn't been provisioned by the Amazon Web Services service team.</p>
+            aws_sdk_ssm.errors.too_many_updates.TooManyUpdates: <p>There are concurrent updates for a resource that supports one update at a time.</p>
+            aws_sdk_ssm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -8181,6 +8984,11 @@ class SSMClient:
 
         Args:
             session_id: <p>The ID of the disconnected session to resume.</p>
+
+        Raises:
+            aws_sdk_ssm.errors.does_not_exist_exception.DoesNotExistException: <p>Error returned when the ID specified for a resource, such as a maintenance window or patch baseline, doesn't exist.</p> <p>For information about resource quotas in Amazon Web Services Systems Manager, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/ssm.html#limits_ssm\">Systems Manager service quotas</a> in the <i>Amazon Web Services General Reference</i>.</p>
+            aws_sdk_ssm.errors.internal_server_error.InternalServerError: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -8224,6 +9032,13 @@ class SSMClient:
             automation_execution_id: <p>The unique identifier for an existing Automation execution that you want to send the signal to.</p>
             signal_type: <p>The type of signal to send to an Automation execution. </p>
             payload: <p>The data sent with the signal. The data schema depends on the type of signal used in the request.</p> <p>For <code>Approve</code> and <code>Reject</code> signal types, the payload is an optional comment that you can send with the signal type. For example:</p> <p> <code>Comment=\"Looks good\"</code> </p> <p>For <code>StartStep</code> and <code>Resume</code> signal types, you must send the name of the Automation step to start or resume as the payload. For example:</p> <p> <code>StepName=\"step1\"</code> </p> <p>For the <code>StopStep</code> signal type, you must send the step execution ID as the payload. For example:</p> <p> <code>StepExecutionId=\"97fff367-fc5a-4299-aed8-0123456789ab\"</code> </p>
+
+        Raises:
+            aws_sdk_ssm.errors.automation_execution_not_found_exception.AutomationExecutionNotFoundException: <p>There is no automation execution information for the requested automation execution ID.</p>
+            aws_sdk_ssm.errors.automation_step_not_found_exception.AutomationStepNotFoundException: <p>The specified step name and execution ID don't exist. Verify the information and try again.</p>
+            aws_sdk_ssm.errors.internal_server_error.InternalServerError: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm.errors.invalid_automation_signal_exception.InvalidAutomationSignalException: <p>The signal isn't valid for the current Automation execution.</p>
+            aws_sdk_ssm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -8318,6 +9133,20 @@ class SSMClient:
             notification_config: <p>Configurations for sending notifications.</p>
             cloud_watch_output_config: <p>Enables Amazon Web Services Systems Manager to send Run Command output to Amazon CloudWatch Logs. Run Command is a tool in Amazon Web Services Systems Manager.</p>
             alarm_configuration: <p>The CloudWatch alarm you want to apply to your command.</p>
+
+        Raises:
+            aws_sdk_ssm.errors.duplicate_instance_id.DuplicateInstanceId: <p>You can't specify a managed node ID in more than one association.</p>
+            aws_sdk_ssm.errors.internal_server_error.InternalServerError: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm.errors.invalid_document.InvalidDocument: <p>The specified SSM document doesn't exist.</p>
+            aws_sdk_ssm.errors.invalid_document_version.InvalidDocumentVersion: <p>The document version isn't valid or doesn't exist.</p>
+            aws_sdk_ssm.errors.invalid_instance_id.InvalidInstanceId: <p>The following problems can cause this exception:</p> <ul> <li> <p>You don't have permission to access the managed node.</p> </li> <li> <p>Amazon Web Services Systems Manager Agent (SSM Agent) isn't running. Verify that SSM Agent is running.</p> </li> <li> <p>SSM Agent isn't registered with the SSM endpoint. Try reinstalling SSM Agent.</p> </li> <li> <p>The managed node isn't in a valid state. Valid states are: <code>Running</code>, <code>Pending</code>, <code>Stopped</code>, and <code>Stopping</code>. Invalid states are: <code>Shutting-down</code> and <code>Terminated</code>.</p> </li> </ul>
+            aws_sdk_ssm.errors.invalid_notification_config.InvalidNotificationConfig: <p>One or more configuration items isn't valid. Verify that a valid Amazon Resource Name (ARN) was provided for an Amazon Simple Notification Service topic.</p>
+            aws_sdk_ssm.errors.invalid_output_folder.InvalidOutputFolder: <p>The S3 bucket doesn't exist.</p>
+            aws_sdk_ssm.errors.invalid_parameters.InvalidParameters: <p>You must specify values for all required parameters in the Amazon Web Services Systems Manager document (SSM document). You can only supply values to parameters defined in the SSM document.</p>
+            aws_sdk_ssm.errors.invalid_role.InvalidRole: <p>The role name can't contain invalid characters. Also verify that you specified an IAM role for notifications that includes the required trust policy. For information about configuring the IAM role for Run Command notifications, see <a href=\"https://docs.aws.amazon.com/systems-manager/latest/userguide/monitoring-sns-notifications.html\">Monitoring Systems Manager status changes using Amazon SNS notifications</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
+            aws_sdk_ssm.errors.max_document_size_exceeded.MaxDocumentSizeExceeded: <p>The size limit of a document is 64 KB.</p>
+            aws_sdk_ssm.errors.unsupported_platform_type.UnsupportedPlatformType: <p>The document doesn't support the platform type of the given managed node IDs. For example, you sent an document for a Windows managed node to a Linux node.</p>
+            aws_sdk_ssm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -8393,6 +9222,15 @@ class SSMClient:
             reason: <p>A brief description explaining why you are requesting access to the node.</p>
             targets: <p>The node you are requesting access to.</p>
             tags: <p>Key-value pairs of metadata you want to assign to the access request.</p>
+
+        Raises:
+            aws_sdk_ssm.errors.access_denied_exception.AccessDeniedException: <p>The requester doesn't have permissions to perform the requested operation.</p>
+            aws_sdk_ssm.errors.internal_server_error.InternalServerError: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified parameter to be shared could not be found.</p>
+            aws_sdk_ssm.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request exceeds the service quota. Service quotas, also referred to as limits, are the maximum number of service resources or operations for your Amazon Web Services account.</p>
+            aws_sdk_ssm.errors.throttling_exception.ThrottlingException: <p>The request or operation couldn't be performed because the service is throttling requests.</p>
+            aws_sdk_ssm.errors.validation_exception.ValidationException: <p>The request isn't valid. Verify that you entered valid contents for the command and try again.</p>
+            aws_sdk_ssm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -8433,6 +9271,11 @@ class SSMClient:
 
         Args:
             association_ids: <p>The association IDs that you want to run immediately and only one time.</p>
+
+        Raises:
+            aws_sdk_ssm.errors.association_does_not_exist.AssociationDoesNotExist: <p>The specified association doesn't exist.</p>
+            aws_sdk_ssm.errors.invalid_association.InvalidAssociation: <p>The association isn't valid or doesn't exist. </p>
+            aws_sdk_ssm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -8512,6 +9355,16 @@ class SSMClient:
             tags: <p>Optional metadata that you assign to a resource. You can specify a maximum of five tags for an automation. Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment. For example, you might want to tag an automation to identify an environment or operating system. In this case, you could specify the following key-value pairs:</p> <ul> <li> <p> <code>Key=environment,Value=test</code> </p> </li> <li> <p> <code>Key=OS,Value=Windows</code> </p> </li> </ul> <note> <p>The <code>Array Members</code> maximum value is reported as 1000. This number includes capacity reserved for internal operations. When calling the <code>StartAutomationExecution</code> action, you can specify a maximum of 5 tags. You can, however, use the <a>AddTagsToResource</a> action to add up to a total of 50 tags to an existing automation configuration.</p> </note>
             alarm_configuration: <p>The CloudWatch alarm you want to apply to your automation.</p>
             target_locations_url: <p>Specify a publicly accessible URL for a file that contains the <code>TargetLocations</code> body. Currently, only files in presigned Amazon S3 buckets are supported. </p>
+
+        Raises:
+            aws_sdk_ssm.errors.automation_definition_not_found_exception.AutomationDefinitionNotFoundException: <p>An Automation runbook with the specified name couldn't be found.</p>
+            aws_sdk_ssm.errors.automation_definition_version_not_found_exception.AutomationDefinitionVersionNotFoundException: <p>An Automation runbook with the specified name and version couldn't be found.</p>
+            aws_sdk_ssm.errors.automation_execution_limit_exceeded_exception.AutomationExecutionLimitExceededException: <p>The number of simultaneously running Automation executions exceeded the allowable limit.</p>
+            aws_sdk_ssm.errors.idempotent_parameter_mismatch.IdempotentParameterMismatch: <p>Error returned when an idempotent operation is retried and the parameters don't match the original call to the API with the same idempotency token. </p>
+            aws_sdk_ssm.errors.internal_server_error.InternalServerError: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm.errors.invalid_automation_execution_parameters_exception.InvalidAutomationExecutionParametersException: <p>The supplied parameters for invoking the specified Automation runbook are incorrect. For example, they may not match the set of parameters permitted for the specified Automation document.</p>
+            aws_sdk_ssm.errors.invalid_target.InvalidTarget: <p>The target isn't valid or doesn't exist. It might not be configured for Systems Manager or you might not have permission to perform the operation.</p>
+            aws_sdk_ssm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -8605,6 +9458,17 @@ class SSMClient:
             tags: <p>Optional metadata that you assign to a resource. You can specify a maximum of five tags for a change request. Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment. For example, you might want to tag a change request to identify an environment or target Amazon Web Services Region. In this case, you could specify the following key-value pairs:</p> <ul> <li> <p> <code>Key=Environment,Value=Production</code> </p> </li> <li> <p> <code>Key=Region,Value=us-east-2</code> </p> </li> </ul> <note> <p>The <code>Array Members</code> maximum value is reported as 1000. This number includes capacity reserved for internal operations. When calling the <code>StartChangeRequestExecution</code> action, you can specify a maximum of 5 tags. You can, however, use the <a>AddTagsToResource</a> action to add up to a total of 50 tags to an existing change request configuration.</p> </note>
             scheduled_end_time: <p>The time that the requester expects the runbook workflow related to the change request to complete. The time is an estimate only that the requester provides for reviewers.</p>
             change_details: <p>User-provided details about the change. If no details are provided, content specified in the <b>Template information</b> section of the associated change template is added.</p>
+
+        Raises:
+            aws_sdk_ssm.errors.automation_definition_not_approved_exception.AutomationDefinitionNotApprovedException: <p>Indicates that the Change Manager change template used in the change request was rejected or is still in a pending state.</p>
+            aws_sdk_ssm.errors.automation_definition_not_found_exception.AutomationDefinitionNotFoundException: <p>An Automation runbook with the specified name couldn't be found.</p>
+            aws_sdk_ssm.errors.automation_definition_version_not_found_exception.AutomationDefinitionVersionNotFoundException: <p>An Automation runbook with the specified name and version couldn't be found.</p>
+            aws_sdk_ssm.errors.automation_execution_limit_exceeded_exception.AutomationExecutionLimitExceededException: <p>The number of simultaneously running Automation executions exceeded the allowable limit.</p>
+            aws_sdk_ssm.errors.idempotent_parameter_mismatch.IdempotentParameterMismatch: <p>Error returned when an idempotent operation is retried and the parameters don't match the original call to the API with the same idempotency token. </p>
+            aws_sdk_ssm.errors.internal_server_error.InternalServerError: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm.errors.invalid_automation_execution_parameters_exception.InvalidAutomationExecutionParametersException: <p>The supplied parameters for invoking the specified Automation runbook are incorrect. For example, they may not match the set of parameters permitted for the specified Automation document.</p>
+            aws_sdk_ssm.errors.no_longer_supported_exception.NoLongerSupportedException: <p>The requested operation is no longer supported by Systems Manager.</p>
+            aws_sdk_ssm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -8670,6 +9534,11 @@ class SSMClient:
             document_version: <p>The version of the Automation runbook to run. The default value is <code>$DEFAULT</code>.</p>
             execution_inputs: <p>Information about the inputs that can be specified for the preview operation. </p>
 
+        Raises:
+            aws_sdk_ssm.errors.internal_server_error.InternalServerError: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm.errors.validation_exception.ValidationException: <p>The request isn't valid. Verify that you entered valid contents for the command and try again.</p>
+            aws_sdk_ssm.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             StartExecutionPreview
             This example illustrates one usage of StartExecutionPreview
@@ -8724,6 +9593,12 @@ class SSMClient:
             document_name: <p>The name of the SSM document you want to use to define the type of session, input parameters, or preferences for the session. For example, <code>SSM-SessionManagerRunShell</code>. You can call the <a>GetDocument</a> API to verify the document exists before attempting to start a session. If no document name is provided, a shell to the managed node is launched by default. For more information, see <a href=\"https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager-working-with-sessions-start.html\">Start a session</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
             reason: <p>The reason for connecting to the instance. This value is included in the details for the Amazon CloudWatch Events event created when you start the session.</p>
             parameters: <p>The values you want to specify for the parameters defined in the Session document. For more information about these parameters, see <a href=\"https://docs.aws.amazon.com/systems-manager/latest/userguide/getting-started-create-preferences-cli.html\">Create a Session Manager preferences document</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
+
+        Raises:
+            aws_sdk_ssm.errors.internal_server_error.InternalServerError: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm.errors.invalid_document.InvalidDocument: <p>The specified SSM document doesn't exist.</p>
+            aws_sdk_ssm.errors.target_not_connected.TargetNotConnected: <p>The specified target managed node for the session isn't fully configured for use with Session Manager. For more information, see <a href=\"https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager-getting-started.html\">Setting up Session Manager</a> in the <i>Amazon Web Services Systems Manager User Guide</i>. This error is also returned if you attempt to start a session on a managed node that is located in a different account or Region</p>
+            aws_sdk_ssm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -8769,6 +9644,12 @@ class SSMClient:
         Args:
             automation_execution_id: <p>The execution ID of the Automation to stop.</p>
             type: <p>The stop request type. Valid types include the following: Cancel and Complete. The default type is Cancel.</p>
+
+        Raises:
+            aws_sdk_ssm.errors.automation_execution_not_found_exception.AutomationExecutionNotFoundException: <p>There is no automation execution information for the requested automation execution ID.</p>
+            aws_sdk_ssm.errors.internal_server_error.InternalServerError: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm.errors.invalid_automation_status_update_exception.InvalidAutomationStatusUpdateException: <p>The specified update status operation isn't valid.</p>
+            aws_sdk_ssm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -8808,6 +9689,10 @@ class SSMClient:
 
         Args:
             session_id: <p>The ID of the session to terminate.</p>
+
+        Raises:
+            aws_sdk_ssm.errors.internal_server_error.InternalServerError: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -8849,6 +9734,13 @@ class SSMClient:
             name: <p>The name of the parameter from which you want to delete one or more labels.</p> <note> <p>You can't enter the Amazon Resource Name (ARN) for a parameter, only the parameter name itself.</p> </note>
             parameter_version: <p>The specific version of the parameter which you want to delete one or more labels from. If it isn't present, the call will fail.</p>
             labels: <p>One or more labels to delete from the specified parameter version.</p>
+
+        Raises:
+            aws_sdk_ssm.errors.internal_server_error.InternalServerError: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm.errors.parameter_not_found.ParameterNotFound: <p>The parameter couldn't be found. Verify the name and try again.</p> <note> <p>For the <code>DeleteParameter</code> and <code>GetParameter</code> actions, if the specified parameter doesn't exist, the <code>ParameterNotFound</code> exception is <i>not</i> recorded in CloudTrail event logs.</p> </note>
+            aws_sdk_ssm.errors.parameter_version_not_found.ParameterVersionNotFound: <p>The specified parameter version wasn't found. Verify the parameter name and version, and try again.</p>
+            aws_sdk_ssm.errors.too_many_updates.TooManyUpdates: <p>There are concurrent updates for a resource that supports one update at a time.</p>
+            aws_sdk_ssm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -8959,6 +9851,22 @@ class SSMClient:
             duration: <p>The number of hours the association can run before it is canceled. Duration applies to associations that are currently running, and any pending and in progress commands on all targets. If a target was taken offline for the association to run, it is made available again immediately, without a reboot. </p> <p>The <code>Duration</code> parameter applies only when both these conditions are true:</p> <ul> <li> <p>The association for which you specify a duration is cancelable according to the parameters of the SSM command document or Automation runbook associated with this execution. </p> </li> <li> <p>The command specifies the <code> <a href=\"https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_UpdateAssociation.html#systemsmanager-UpdateAssociation-request-ApplyOnlyAtCronInterval\">ApplyOnlyAtCronInterval</a> </code> parameter, which means that the association doesn't run immediately after it is updated, but only according to the specified schedule.</p> </li> </ul>
             target_maps: <p>A key-value mapping of document parameters to target resources. Both Targets and TargetMaps can't be specified together.</p>
             association_dispatch_assume_role: <p>A role used by association to take actions on your behalf. State Manager will assume this role and call required APIs when dispatching configurations to nodes. If not specified, <a href=\"https://docs.aws.amazon.com/systems-manager/latest/userguide/using-service-linked-roles.html\"> service-linked role for Systems Manager</a> will be used by default. </p> <note> <p>It is recommended that you define a custom IAM role so that you have full control of the permissions that State Manager has when taking actions on your behalf.</p> <p>Service-linked role support in State Manager is being phased out. Associations relying on service-linked role may require updates in the future to continue functioning properly.</p> </note>
+
+        Raises:
+            aws_sdk_ssm.errors.association_does_not_exist.AssociationDoesNotExist: <p>The specified association doesn't exist.</p>
+            aws_sdk_ssm.errors.association_version_limit_exceeded.AssociationVersionLimitExceeded: <p>You have reached the maximum number versions allowed for an association. Each association has a limit of 1,000 versions. </p>
+            aws_sdk_ssm.errors.internal_server_error.InternalServerError: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm.errors.invalid_association_version.InvalidAssociationVersion: <p>The version you specified isn't valid. Use ListAssociationVersions to view all versions of an association according to the association ID. Or, use the <code>$LATEST</code> parameter to view the latest version of the association.</p>
+            aws_sdk_ssm.errors.invalid_document.InvalidDocument: <p>The specified SSM document doesn't exist.</p>
+            aws_sdk_ssm.errors.invalid_document_version.InvalidDocumentVersion: <p>The document version isn't valid or doesn't exist.</p>
+            aws_sdk_ssm.errors.invalid_output_location.InvalidOutputLocation: <p>The output location isn't valid or doesn't exist.</p>
+            aws_sdk_ssm.errors.invalid_parameters.InvalidParameters: <p>You must specify values for all required parameters in the Amazon Web Services Systems Manager document (SSM document). You can only supply values to parameters defined in the SSM document.</p>
+            aws_sdk_ssm.errors.invalid_schedule.InvalidSchedule: <p>The schedule is invalid. Verify your cron or rate expression and try again.</p>
+            aws_sdk_ssm.errors.invalid_target.InvalidTarget: <p>The target isn't valid or doesn't exist. It might not be configured for Systems Manager or you might not have permission to perform the operation.</p>
+            aws_sdk_ssm.errors.invalid_target_maps.InvalidTargetMaps: <p>TargetMap parameter isn't valid.</p>
+            aws_sdk_ssm.errors.invalid_update.InvalidUpdate: <p>The update isn't valid.</p>
+            aws_sdk_ssm.errors.too_many_updates.TooManyUpdates: <p>There are concurrent updates for a resource that supports one update at a time.</p>
+            aws_sdk_ssm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -9046,6 +9954,15 @@ class SSMClient:
             name: <p>The name of the SSM document.</p>
             instance_id: <p>The managed node ID.</p>
             association_status: <p>The association status.</p>
+
+        Raises:
+            aws_sdk_ssm.errors.association_does_not_exist.AssociationDoesNotExist: <p>The specified association doesn't exist.</p>
+            aws_sdk_ssm.errors.internal_server_error.InternalServerError: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm.errors.invalid_document.InvalidDocument: <p>The specified SSM document doesn't exist.</p>
+            aws_sdk_ssm.errors.invalid_instance_id.InvalidInstanceId: <p>The following problems can cause this exception:</p> <ul> <li> <p>You don't have permission to access the managed node.</p> </li> <li> <p>Amazon Web Services Systems Manager Agent (SSM Agent) isn't running. Verify that SSM Agent is running.</p> </li> <li> <p>SSM Agent isn't registered with the SSM endpoint. Try reinstalling SSM Agent.</p> </li> <li> <p>The managed node isn't in a valid state. Valid states are: <code>Running</code>, <code>Pending</code>, <code>Stopped</code>, and <code>Stopping</code>. Invalid states are: <code>Shutting-down</code> and <code>Terminated</code>.</p> </li> </ul>
+            aws_sdk_ssm.errors.status_unchanged.StatusUnchanged: <p>The updated status is the same as the current status.</p>
+            aws_sdk_ssm.errors.too_many_updates.TooManyUpdates: <p>There are concurrent updates for a resource that supports one update at a time.</p>
+            aws_sdk_ssm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -9109,6 +10026,19 @@ class SSMClient:
             document_version: <p>The version of the document that you want to update. Currently, Systems Manager supports updating only the latest version of the document. You can specify the version number of the latest version or use the <code>$LATEST</code> variable.</p> <note> <p>If you change a document version for a State Manager association, Systems Manager immediately runs the association unless you previously specifed the <code>apply-only-at-cron-interval</code> parameter.</p> </note>
             document_format: <p>Specify the document format for the new document version. Systems Manager supports JSON and YAML documents. JSON is the default format.</p>
             target_type: <p>Specify a new target type for the document.</p>
+
+        Raises:
+            aws_sdk_ssm.errors.document_version_limit_exceeded.DocumentVersionLimitExceeded: <p>The document has too many versions. Delete one or more document versions and try again.</p>
+            aws_sdk_ssm.errors.duplicate_document_content.DuplicateDocumentContent: <p>The content of the association document matches another document. Change the content of the document and try again.</p>
+            aws_sdk_ssm.errors.duplicate_document_version_name.DuplicateDocumentVersionName: <p>The version name has already been used in this document. Specify a different version name, and then try again.</p>
+            aws_sdk_ssm.errors.internal_server_error.InternalServerError: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm.errors.invalid_document.InvalidDocument: <p>The specified SSM document doesn't exist.</p>
+            aws_sdk_ssm.errors.invalid_document_content.InvalidDocumentContent: <p>The content for the document isn't valid.</p>
+            aws_sdk_ssm.errors.invalid_document_operation.InvalidDocumentOperation: <p>You attempted to delete a document while it is still shared. You must stop sharing the document before you can delete it.</p>
+            aws_sdk_ssm.errors.invalid_document_schema_version.InvalidDocumentSchemaVersion: <p>The version of the document schema isn't supported.</p>
+            aws_sdk_ssm.errors.invalid_document_version.InvalidDocumentVersion: <p>The document version isn't valid or doesn't exist.</p>
+            aws_sdk_ssm.errors.max_document_size_exceeded.MaxDocumentSizeExceeded: <p>The size limit of a document is 64 KB.</p>
+            aws_sdk_ssm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -9161,6 +10091,13 @@ class SSMClient:
         Args:
             name: <p>The name of a custom document that you want to set as the default version.</p>
             document_version: <p>The version of a custom document that you want to set as the default version.</p>
+
+        Raises:
+            aws_sdk_ssm.errors.internal_server_error.InternalServerError: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm.errors.invalid_document.InvalidDocument: <p>The specified SSM document doesn't exist.</p>
+            aws_sdk_ssm.errors.invalid_document_schema_version.InvalidDocumentSchemaVersion: <p>The version of the document schema isn't supported.</p>
+            aws_sdk_ssm.errors.invalid_document_version.InvalidDocumentVersion: <p>The document version isn't valid or doesn't exist.</p>
+            aws_sdk_ssm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -9205,6 +10142,14 @@ class SSMClient:
             name: <p>The name of the change template for which a version's metadata is to be updated.</p>
             document_version: <p>The version of a change template in which to update approval metadata.</p>
             document_reviews: <p>The change template review details to update.</p>
+
+        Raises:
+            aws_sdk_ssm.errors.internal_server_error.InternalServerError: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm.errors.invalid_document.InvalidDocument: <p>The specified SSM document doesn't exist.</p>
+            aws_sdk_ssm.errors.invalid_document_operation.InvalidDocumentOperation: <p>You attempted to delete a document while it is still shared. You must stop sharing the document before you can delete it.</p>
+            aws_sdk_ssm.errors.invalid_document_version.InvalidDocumentVersion: <p>The document version isn't valid or doesn't exist.</p>
+            aws_sdk_ssm.errors.too_many_updates.TooManyUpdates: <p>There are concurrent updates for a resource that supports one update at a time.</p>
+            aws_sdk_ssm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -9291,6 +10236,11 @@ class SSMClient:
             allow_unassociated_targets: <p>Whether targets must be registered with the maintenance window before tasks can be defined for those targets.</p>
             enabled: <p>Whether the maintenance window is enabled.</p>
             replace: <p>If <code>True</code>, then all fields that are required by the <a>CreateMaintenanceWindow</a> operation are also required for this API request. Optional fields that aren't specified are set to null. </p>
+
+        Raises:
+            aws_sdk_ssm.errors.does_not_exist_exception.DoesNotExistException: <p>Error returned when the ID specified for a resource, such as a maintenance window or patch baseline, doesn't exist.</p> <p>For information about resource quotas in Amazon Web Services Systems Manager, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/ssm.html#limits_ssm\">Systems Manager service quotas</a> in the <i>Amazon Web Services General Reference</i>.</p>
+            aws_sdk_ssm.errors.internal_server_error.InternalServerError: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -9370,6 +10320,11 @@ class SSMClient:
             name: <p>A name for the update.</p>
             description: <p>An optional description for the update.</p>
             replace: <p>If <code>True</code>, then all fields that are required by the <a>RegisterTargetWithMaintenanceWindow</a> operation are also required for this API request. Optional fields that aren't specified are set to null.</p>
+
+        Raises:
+            aws_sdk_ssm.errors.does_not_exist_exception.DoesNotExistException: <p>Error returned when the ID specified for a resource, such as a maintenance window or patch baseline, doesn't exist.</p> <p>For information about resource quotas in Amazon Web Services Systems Manager, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/ssm.html#limits_ssm\">Systems Manager service quotas</a> in the <i>Amazon Web Services General Reference</i>.</p>
+            aws_sdk_ssm.errors.internal_server_error.InternalServerError: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -9466,6 +10421,11 @@ class SSMClient:
             replace: <p>If True, then all fields that are required by the <a>RegisterTaskWithMaintenanceWindow</a> operation are also required for this API request. Optional fields that aren't specified are set to null.</p>
             cutoff_behavior: <p>Indicates whether tasks should continue to run after the cutoff time specified in the maintenance windows is reached. </p> <ul> <li> <p> <code>CONTINUE_TASK</code>: When the cutoff time is reached, any tasks that are running continue. The default value.</p> </li> <li> <p> <code>CANCEL_TASK</code>:</p> <ul> <li> <p>For Automation, Lambda, Step Functions tasks: When the cutoff time is reached, any task invocations that are already running continue, but no new task invocations are started.</p> </li> <li> <p>For Run Command tasks: When the cutoff time is reached, the system sends a <a>CancelCommand</a> operation that attempts to cancel the command associated with the task. However, there is no guarantee that the command will be terminated and the underlying process stopped.</p> </li> </ul> <p>The status for tasks that are not completed is <code>TIMED_OUT</code>.</p> </li> </ul>
             alarm_configuration: <p>The CloudWatch alarm you want to apply to your maintenance window task.</p>
+
+        Raises:
+            aws_sdk_ssm.errors.does_not_exist_exception.DoesNotExistException: <p>Error returned when the ID specified for a resource, such as a maintenance window or patch baseline, doesn't exist.</p> <p>For information about resource quotas in Amazon Web Services Systems Manager, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/ssm.html#limits_ssm\">Systems Manager service quotas</a> in the <i>Amazon Web Services General Reference</i>.</p>
+            aws_sdk_ssm.errors.internal_server_error.InternalServerError: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -9534,6 +10494,11 @@ class SSMClient:
         Args:
             instance_id: <p>The ID of the managed node where you want to update the role.</p>
             iam_role: <p>The name of the Identity and Access Management (IAM) role that you want to assign to the managed node. This IAM role must provide AssumeRole permissions for the Amazon Web Services Systems Manager service principal <code>ssm.amazonaws.com</code>. For more information, see <a href=\"https://docs.aws.amazon.com/systems-manager/latest/userguide/hybrid-multicloud-service-role.html\">Create the IAM service role required for Systems Manager in hybrid and multicloud environments</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p> <note> <p>You can't specify an IAM service-linked role for this parameter. You must create a unique role.</p> </note>
+
+        Raises:
+            aws_sdk_ssm.errors.internal_server_error.InternalServerError: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm.errors.invalid_instance_id.InvalidInstanceId: <p>The following problems can cause this exception:</p> <ul> <li> <p>You don't have permission to access the managed node.</p> </li> <li> <p>Amazon Web Services Systems Manager Agent (SSM Agent) isn't running. Verify that SSM Agent is running.</p> </li> <li> <p>SSM Agent isn't registered with the SSM endpoint. Try reinstalling SSM Agent.</p> </li> <li> <p>The managed node isn't in a valid state. Valid states are: <code>Running</code>, <code>Pending</code>, <code>Stopped</code>, and <code>Stopping</code>. Invalid states are: <code>Shutting-down</code> and <code>Terminated</code>.</p> </li> </ul>
+            aws_sdk_ssm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -9618,6 +10583,16 @@ class SSMClient:
             planned_start_time: <p>The time specified in a change request for a runbook workflow to start. Currently supported only for the OpsItem type <code>/aws/changerequest</code>.</p>
             planned_end_time: <p>The time specified in a change request for a runbook workflow to end. Currently supported only for the OpsItem type <code>/aws/changerequest</code>.</p>
             ops_item_arn: <p>The OpsItem Amazon Resource Name (ARN).</p>
+
+        Raises:
+            aws_sdk_ssm.errors.internal_server_error.InternalServerError: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm.errors.ops_item_access_denied_exception.OpsItemAccessDeniedException: <p>You don't have permission to view OpsItems in the specified account. Verify that your account is configured either as a Systems Manager delegated administrator or that you are logged into the Organizations management account.</p>
+            aws_sdk_ssm.errors.ops_item_already_exists_exception.OpsItemAlreadyExistsException: <p>The OpsItem already exists.</p>
+            aws_sdk_ssm.errors.ops_item_conflict_exception.OpsItemConflictException: <p>The specified OpsItem is in the process of being deleted.</p>
+            aws_sdk_ssm.errors.ops_item_invalid_parameter_exception.OpsItemInvalidParameterException: <p>A specified parameter argument isn't valid. Verify the available arguments and try again.</p>
+            aws_sdk_ssm.errors.ops_item_limit_exceeded_exception.OpsItemLimitExceededException: <p>The request caused OpsItems to exceed one or more quotas.</p>
+            aws_sdk_ssm.errors.ops_item_not_found_exception.OpsItemNotFoundException: <p>The specified OpsItem ID doesn't exist. Verify the ID and try again.</p>
+            aws_sdk_ssm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -9693,6 +10668,14 @@ class SSMClient:
             ops_metadata_arn: <p>The Amazon Resource Name (ARN) of the OpsMetadata Object to update.</p>
             metadata_to_update: <p>Metadata to add to an OpsMetadata object.</p>
             keys_to_delete: <p>The metadata keys to delete from the OpsMetadata object. </p>
+
+        Raises:
+            aws_sdk_ssm.errors.internal_server_error.InternalServerError: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm.errors.ops_metadata_invalid_argument_exception.OpsMetadataInvalidArgumentException: <p>One of the arguments passed is invalid. </p>
+            aws_sdk_ssm.errors.ops_metadata_key_limit_exceeded_exception.OpsMetadataKeyLimitExceededException: <p>The OpsMetadata object exceeds the maximum number of OpsMetadata keys that you can assign to an application in Application Manager.</p>
+            aws_sdk_ssm.errors.ops_metadata_not_found_exception.OpsMetadataNotFoundException: <p>The OpsMetadata object doesn't exist. </p>
+            aws_sdk_ssm.errors.ops_metadata_too_many_updates_exception.OpsMetadataTooManyUpdatesException: <p>The system is processing too many concurrent updates. Wait a few moments and try again.</p>
+            aws_sdk_ssm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -9776,6 +10759,11 @@ class SSMClient:
             sources: <p>Information about the patches to use to update the managed nodes, including target operating systems and source repositories. Applies to Linux managed nodes only.</p>
             available_security_updates_compliance_status: <p>Indicates the status to be assigned to security patches that are available but not approved because they don't meet the installation criteria specified in the patch baseline.</p> <p>Example scenario: Security patches that you might want installed can be skipped if you have specified a long period to wait after a patch is released before installation. If an update to the patch is released during your specified waiting period, the waiting period for installing the patch starts over. If the waiting period is too long, multiple versions of the patch could be released but never installed.</p> <p>Supported for Windows Server managed nodes only.</p>
             replace: <p>If True, then all fields that are required by the <a>CreatePatchBaseline</a> operation are also required for this API request. Optional fields that aren't specified are set to null.</p>
+
+        Raises:
+            aws_sdk_ssm.errors.does_not_exist_exception.DoesNotExistException: <p>Error returned when the ID specified for a resource, such as a maintenance window or patch baseline, doesn't exist.</p> <p>For information about resource quotas in Amazon Web Services Systems Manager, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/ssm.html#limits_ssm\">Systems Manager service quotas</a> in the <i>Amazon Web Services General Reference</i>.</p>
+            aws_sdk_ssm.errors.internal_server_error.InternalServerError: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -9847,6 +10835,13 @@ class SSMClient:
             sync_name: <p>The name of the resource data sync you want to update.</p>
             sync_type: <p>The type of resource data sync. The supported <code>SyncType</code> is SyncFromSource.</p>
             sync_source: <p>Specify information about the data sources to synchronize.</p>
+
+        Raises:
+            aws_sdk_ssm.errors.internal_server_error.InternalServerError: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm.errors.resource_data_sync_conflict_exception.ResourceDataSyncConflictException: <p>Another <code>UpdateResourceDataSync</code> request is being processed. Wait a few minutes and try again.</p>
+            aws_sdk_ssm.errors.resource_data_sync_invalid_configuration_exception.ResourceDataSyncInvalidConfigurationException: <p>The specified sync configuration is invalid.</p>
+            aws_sdk_ssm.errors.resource_data_sync_not_found_exception.ResourceDataSyncNotFoundException: <p>The specified sync name wasn't found.</p>
+            aws_sdk_ssm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -9888,6 +10883,12 @@ class SSMClient:
         Args:
             setting_id: <p>The Amazon Resource Name (ARN) of the service setting to update. For example, <code>arn:aws:ssm:us-east-1:111122223333:servicesetting/ssm/parameter-store/high-throughput-enabled</code>. The setting ID can be one of the following.</p> <ul> <li> <p> <code>/ssm/appmanager/appmanager-enabled</code> </p> </li> <li> <p> <code>/ssm/automation/customer-script-log-destination</code> </p> </li> <li> <p> <code>/ssm/automation/customer-script-log-group-name</code> </p> </li> <li> <p>/ssm/automation/enable-adaptive-concurrency</p> </li> <li> <p> <code>/ssm/documents/console/public-sharing-permission</code> </p> </li> <li> <p> <code>/ssm/managed-instance/activation-tier</code> </p> </li> <li> <p> <code>/ssm/managed-instance/default-ec2-instance-management-role</code> </p> </li> <li> <p> <code>/ssm/opsinsights/opscenter</code> </p> </li> <li> <p> <code>/ssm/parameter-store/default-parameter-tier</code> </p> </li> <li> <p> <code>/ssm/parameter-store/high-throughput-enabled</code> </p> </li> </ul> <note> <p>Permissions to update the <code>/ssm/managed-instance/default-ec2-instance-management-role</code> setting should only be provided to administrators. Implement least privilege access when allowing individuals to configure or modify the Default Host Management Configuration.</p> </note>
             setting_value: <p>The new value to specify for the service setting. The following list specifies the available values for each setting.</p> <ul> <li> <p>For <code>/ssm/appmanager/appmanager-enabled</code>, enter <code>True</code> or <code>False</code>.</p> </li> <li> <p>For <code>/ssm/automation/customer-script-log-destination</code>, enter <code>CloudWatch</code>.</p> </li> <li> <p>For <code>/ssm/automation/customer-script-log-group-name</code>, enter the name of an Amazon CloudWatch Logs log group.</p> </li> <li> <p>For <code>/ssm/documents/console/public-sharing-permission</code>, enter <code>Enable</code> or <code>Disable</code>.</p> </li> <li> <p>For <code>/ssm/managed-instance/activation-tier</code>, enter <code>standard</code> or <code>advanced</code>.</p> </li> <li> <p>For <code>/ssm/managed-instance/default-ec2-instance-management-role</code>, enter the name of an IAM role. </p> </li> <li> <p> For <code>/ssm/opsinsights/opscenter</code>, enter <code>Enabled</code> or <code>Disabled</code>. </p> </li> <li> <p>For <code>/ssm/parameter-store/default-parameter-tier</code>, enter <code>Standard</code>, <code>Advanced</code>, or <code>Intelligent-Tiering</code> </p> </li> <li> <p>For <code>/ssm/parameter-store/high-throughput-enabled</code>, enter <code>true</code> or <code>false</code>.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_ssm.errors.internal_server_error.InternalServerError: <p>An error occurred on the server side.</p>
+            aws_sdk_ssm.errors.service_setting_not_found.ServiceSettingNotFound: <p>The specified service setting wasn't found. Either the service name or the setting hasn't been provisioned by the Amazon Web Services service team.</p>
+            aws_sdk_ssm.errors.too_many_updates.TooManyUpdates: <p>There are concurrent updates for a resource that supports one update at a time.</p>
+            aws_sdk_ssm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(

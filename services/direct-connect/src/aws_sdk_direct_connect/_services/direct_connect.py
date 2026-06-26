@@ -300,6 +300,11 @@ class DirectConnectClient:
             proposal_id: <p>The ID of the request proposal.</p>
             associated_gateway_owner_account: <p>The ID of the Amazon Web Services account that owns the virtual private gateway or transit gateway.</p>
             override_allowed_prefixes_to_direct_connect_gateway: <p>Overrides the Amazon VPC prefixes advertised to the Direct Connect gateway.</p> <p>For information about how to set the prefixes, see <a href=\"https://docs.aws.amazon.com/directconnect/latest/UserGuide/multi-account-associate-vgw.html#allowed-prefixes\">Allowed Prefixes</a> in the <i>Direct Connect User Guide</i>.</p>
+
+        Raises:
+            aws_sdk_direct_connect.errors.direct_connect_client_exception.DirectConnectClientException: <p>One or more parameters are not valid.</p>
+            aws_sdk_direct_connect.errors.direct_connect_server_exception.DirectConnectServerException: <p>A server-side error occurred.</p>
+            aws_sdk_direct_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -351,6 +356,11 @@ class DirectConnectClient:
             owner_account: <p>The ID of the Amazon Web Services account of the customer for whom the connection will be provisioned.</p>
             interconnect_id: <p>The ID of the interconnect on which the connection will be provisioned.</p>
             vlan: <p>The dedicated VLAN provisioned to the connection.</p>
+
+        Raises:
+            aws_sdk_direct_connect.errors.direct_connect_client_exception.DirectConnectClientException: <p>One or more parameters are not valid.</p>
+            aws_sdk_direct_connect.errors.direct_connect_server_exception.DirectConnectServerException: <p>A server-side error occurred.</p>
+            aws_sdk_direct_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -400,6 +410,13 @@ class DirectConnectClient:
             connection_name: <p>The name of the hosted connection.</p>
             vlan: <p>The dedicated VLAN provisioned to the hosted connection.</p>
             tags: <p>The tags associated with the connection.</p>
+
+        Raises:
+            aws_sdk_direct_connect.errors.direct_connect_client_exception.DirectConnectClientException: <p>One or more parameters are not valid.</p>
+            aws_sdk_direct_connect.errors.direct_connect_server_exception.DirectConnectServerException: <p>A server-side error occurred.</p>
+            aws_sdk_direct_connect.errors.duplicate_tag_keys_exception.DuplicateTagKeysException: <p>A tag key was specified more than once.</p>
+            aws_sdk_direct_connect.errors.too_many_tags_exception.TooManyTagsException: <p>You have reached the limit on the number of tags that can be assigned.</p>
+            aws_sdk_direct_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -445,6 +462,13 @@ class DirectConnectClient:
             connection_id: <p>The ID of the connection on which the private virtual interface is provisioned.</p>
             owner_account: <p>The ID of the Amazon Web Services account that owns the virtual private interface.</p>
             new_private_virtual_interface_allocation: <p>Information about the private virtual interface.</p>
+
+        Raises:
+            aws_sdk_direct_connect.errors.direct_connect_client_exception.DirectConnectClientException: <p>One or more parameters are not valid.</p>
+            aws_sdk_direct_connect.errors.direct_connect_server_exception.DirectConnectServerException: <p>A server-side error occurred.</p>
+            aws_sdk_direct_connect.errors.duplicate_tag_keys_exception.DuplicateTagKeysException: <p>A tag key was specified more than once.</p>
+            aws_sdk_direct_connect.errors.too_many_tags_exception.TooManyTagsException: <p>You have reached the limit on the number of tags that can be assigned.</p>
+            aws_sdk_direct_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -490,6 +514,13 @@ class DirectConnectClient:
             connection_id: <p>The ID of the connection on which the public virtual interface is provisioned.</p>
             owner_account: <p>The ID of the Amazon Web Services account that owns the public virtual interface.</p>
             new_public_virtual_interface_allocation: <p>Information about the public virtual interface.</p>
+
+        Raises:
+            aws_sdk_direct_connect.errors.direct_connect_client_exception.DirectConnectClientException: <p>One or more parameters are not valid.</p>
+            aws_sdk_direct_connect.errors.direct_connect_server_exception.DirectConnectServerException: <p>A server-side error occurred.</p>
+            aws_sdk_direct_connect.errors.duplicate_tag_keys_exception.DuplicateTagKeysException: <p>A tag key was specified more than once.</p>
+            aws_sdk_direct_connect.errors.too_many_tags_exception.TooManyTagsException: <p>You have reached the limit on the number of tags that can be assigned.</p>
+            aws_sdk_direct_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -535,6 +566,13 @@ class DirectConnectClient:
             connection_id: <p>The ID of the connection on which the transit virtual interface is provisioned.</p>
             owner_account: <p>The ID of the Amazon Web Services account that owns the transit virtual interface.</p>
             new_transit_virtual_interface_allocation: <p>Information about the transit virtual interface.</p>
+
+        Raises:
+            aws_sdk_direct_connect.errors.direct_connect_client_exception.DirectConnectClientException: <p>One or more parameters are not valid.</p>
+            aws_sdk_direct_connect.errors.direct_connect_server_exception.DirectConnectServerException: <p>A server-side error occurred.</p>
+            aws_sdk_direct_connect.errors.duplicate_tag_keys_exception.DuplicateTagKeysException: <p>A tag key was specified more than once.</p>
+            aws_sdk_direct_connect.errors.too_many_tags_exception.TooManyTagsException: <p>You have reached the limit on the number of tags that can be assigned.</p>
+            aws_sdk_direct_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -578,6 +616,11 @@ class DirectConnectClient:
         Args:
             connection_id: <p>The ID of the connection.</p>
             lag_id: <p>The ID of the LAG with which to associate the connection.</p>
+
+        Raises:
+            aws_sdk_direct_connect.errors.direct_connect_client_exception.DirectConnectClientException: <p>One or more parameters are not valid.</p>
+            aws_sdk_direct_connect.errors.direct_connect_server_exception.DirectConnectServerException: <p>A server-side error occurred.</p>
+            aws_sdk_direct_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -616,6 +659,11 @@ class DirectConnectClient:
         Args:
             connection_id: <p>The ID of the hosted connection.</p>
             parent_connection_id: <p>The ID of the interconnect or the LAG.</p>
+
+        Raises:
+            aws_sdk_direct_connect.errors.direct_connect_client_exception.DirectConnectClientException: <p>One or more parameters are not valid.</p>
+            aws_sdk_direct_connect.errors.direct_connect_server_exception.DirectConnectServerException: <p>A server-side error occurred.</p>
+            aws_sdk_direct_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -660,6 +708,11 @@ class DirectConnectClient:
             secret_arn: <p>The Amazon Resource Name (ARN) of the MAC Security (MACsec) secret key to associate with the connection.</p> <p>You can use <a>DescribeConnections</a> or <a>DescribeLags</a> to retrieve the MAC Security (MACsec) secret key.</p> <p>If you use this request parameter, you do not use the <code>ckn</code> and <code>cak</code> request parameters.</p>
             ckn: <p>The MAC Security (MACsec) CKN to associate with the connection.</p> <p>You can create the CKN/CAK pair using an industry standard tool.</p> <p> The valid values are 64 hexadecimal characters (0-9, A-E).</p> <p>If you use this request parameter, you must use the <code>cak</code> request parameter and not use the <code>secretARN</code> request parameter.</p>
             cak: <p>The MAC Security (MACsec) CAK to associate with the connection.</p> <p>You can create the CKN/CAK pair using an industry standard tool.</p> <p> The valid values are 64 hexadecimal characters (0-9, A-E).</p> <p>If you use this request parameter, you must use the <code>ckn</code> request parameter and not use the <code>secretARN</code> request parameter.</p>
+
+        Raises:
+            aws_sdk_direct_connect.errors.direct_connect_client_exception.DirectConnectClientException: <p>One or more parameters are not valid.</p>
+            aws_sdk_direct_connect.errors.direct_connect_server_exception.DirectConnectServerException: <p>A server-side error occurred.</p>
+            aws_sdk_direct_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -705,6 +758,11 @@ class DirectConnectClient:
         Args:
             virtual_interface_id: <p>The ID of the virtual interface.</p>
             connection_id: <p>The ID of the LAG or connection.</p>
+
+        Raises:
+            aws_sdk_direct_connect.errors.direct_connect_client_exception.DirectConnectClientException: <p>One or more parameters are not valid.</p>
+            aws_sdk_direct_connect.errors.direct_connect_server_exception.DirectConnectServerException: <p>A server-side error occurred.</p>
+            aws_sdk_direct_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -743,6 +801,11 @@ class DirectConnectClient:
 
         Args:
             connection_id: <p>The ID of the hosted connection.</p>
+
+        Raises:
+            aws_sdk_direct_connect.errors.direct_connect_client_exception.DirectConnectClientException: <p>One or more parameters are not valid.</p>
+            aws_sdk_direct_connect.errors.direct_connect_server_exception.DirectConnectServerException: <p>A server-side error occurred.</p>
+            aws_sdk_direct_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -782,6 +845,11 @@ class DirectConnectClient:
 
         Args:
             agreement_name: <p> The name of the customer agreement. </p>
+
+        Raises:
+            aws_sdk_direct_connect.errors.direct_connect_client_exception.DirectConnectClientException: <p>One or more parameters are not valid.</p>
+            aws_sdk_direct_connect.errors.direct_connect_server_exception.DirectConnectServerException: <p>A server-side error occurred.</p>
+            aws_sdk_direct_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -828,6 +896,11 @@ class DirectConnectClient:
             virtual_interface_id: <p>The ID of the virtual interface.</p>
             virtual_gateway_id: <p>The ID of the virtual private gateway.</p>
             direct_connect_gateway_id: <p>The ID of the Direct Connect gateway.</p>
+
+        Raises:
+            aws_sdk_direct_connect.errors.direct_connect_client_exception.DirectConnectClientException: <p>One or more parameters are not valid.</p>
+            aws_sdk_direct_connect.errors.direct_connect_server_exception.DirectConnectServerException: <p>A server-side error occurred.</p>
+            aws_sdk_direct_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -869,6 +942,11 @@ class DirectConnectClient:
 
         Args:
             virtual_interface_id: <p>The ID of the virtual interface.</p>
+
+        Raises:
+            aws_sdk_direct_connect.errors.direct_connect_client_exception.DirectConnectClientException: <p>One or more parameters are not valid.</p>
+            aws_sdk_direct_connect.errors.direct_connect_server_exception.DirectConnectServerException: <p>A server-side error occurred.</p>
+            aws_sdk_direct_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -908,6 +986,11 @@ class DirectConnectClient:
         Args:
             virtual_interface_id: <p>The ID of the virtual interface.</p>
             direct_connect_gateway_id: <p>The ID of the Direct Connect gateway.</p>
+
+        Raises:
+            aws_sdk_direct_connect.errors.direct_connect_client_exception.DirectConnectClientException: <p>One or more parameters are not valid.</p>
+            aws_sdk_direct_connect.errors.direct_connect_server_exception.DirectConnectServerException: <p>A server-side error occurred.</p>
+            aws_sdk_direct_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -952,6 +1035,11 @@ class DirectConnectClient:
         Args:
             virtual_interface_id: <p>The ID of the virtual interface.</p>
             new_bgp_peer: <p>Information about the BGP peer.</p>
+
+        Raises:
+            aws_sdk_direct_connect.errors.direct_connect_client_exception.DirectConnectClientException: <p>One or more parameters are not valid.</p>
+            aws_sdk_direct_connect.errors.direct_connect_server_exception.DirectConnectServerException: <p>A server-side error occurred.</p>
+            aws_sdk_direct_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1008,6 +1096,13 @@ class DirectConnectClient:
             tags: <p>The tags to associate with the lag.</p>
             provider_name: <p>The name of the service provider associated with the requested connection.</p>
             request_mac_sec: <p>Indicates whether you want the connection to support MAC Security (MACsec).</p> <p>MAC Security (MACsec) is unavailable on hosted connections. For information about MAC Security (MACsec) prerequisites, see <a href=\"https://docs.aws.amazon.com/directconnect/latest/UserGuide/MACSec.html\">MAC Security in Direct Connect</a> in the <i>Direct Connect User Guide</i>.</p>
+
+        Raises:
+            aws_sdk_direct_connect.errors.direct_connect_client_exception.DirectConnectClientException: <p>One or more parameters are not valid.</p>
+            aws_sdk_direct_connect.errors.direct_connect_server_exception.DirectConnectServerException: <p>A server-side error occurred.</p>
+            aws_sdk_direct_connect.errors.duplicate_tag_keys_exception.DuplicateTagKeysException: <p>A tag key was specified more than once.</p>
+            aws_sdk_direct_connect.errors.too_many_tags_exception.TooManyTagsException: <p>You have reached the limit on the number of tags that can be assigned.</p>
+            aws_sdk_direct_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1059,6 +1154,11 @@ class DirectConnectClient:
             direct_connect_gateway_name: <p>The name of the Direct Connect gateway.</p>
             tags: <p>The key-value pair tags associated with the request.</p>
             amazon_side_asn: <p>The autonomous system number (ASN) for Border Gateway Protocol (BGP) to be configured on the Amazon side of the connection. The ASN must be in the private range of 64,512 to 65,534 or 4,200,000,000 to 4,294,967,294. The default is 64512.</p>
+
+        Raises:
+            aws_sdk_direct_connect.errors.direct_connect_client_exception.DirectConnectClientException: <p>One or more parameters are not valid.</p>
+            aws_sdk_direct_connect.errors.direct_connect_server_exception.DirectConnectServerException: <p>A server-side error occurred.</p>
+            aws_sdk_direct_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1112,6 +1212,11 @@ class DirectConnectClient:
             gateway_id: <p>The ID of the virtual private gateway or transit gateway.</p>
             add_allowed_prefixes_to_direct_connect_gateway: <p>The Amazon VPC prefixes to advertise to the Direct Connect gateway</p> <p>This parameter is required when you create an association to a transit gateway.</p> <p>For information about how to set the prefixes, see <a href=\"https://docs.aws.amazon.com/directconnect/latest/UserGuide/multi-account-associate-vgw.html#allowed-prefixes\">Allowed Prefixes</a> in the <i>Direct Connect User Guide</i>.</p>
             virtual_gateway_id: <p>The ID of the virtual private gateway.</p>
+
+        Raises:
+            aws_sdk_direct_connect.errors.direct_connect_client_exception.DirectConnectClientException: <p>One or more parameters are not valid.</p>
+            aws_sdk_direct_connect.errors.direct_connect_server_exception.DirectConnectServerException: <p>A server-side error occurred.</p>
+            aws_sdk_direct_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1169,6 +1274,11 @@ class DirectConnectClient:
             gateway_id: <p>The ID of the virtual private gateway or transit gateway.</p>
             add_allowed_prefixes_to_direct_connect_gateway: <p>The Amazon VPC prefixes to advertise to the Direct Connect gateway.</p>
             remove_allowed_prefixes_to_direct_connect_gateway: <p>The Amazon VPC prefixes to no longer advertise to the Direct Connect gateway.</p>
+
+        Raises:
+            aws_sdk_direct_connect.errors.direct_connect_client_exception.DirectConnectClientException: <p>One or more parameters are not valid.</p>
+            aws_sdk_direct_connect.errors.direct_connect_server_exception.DirectConnectServerException: <p>A server-side error occurred.</p>
+            aws_sdk_direct_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1234,6 +1344,13 @@ class DirectConnectClient:
             tags: <p>The tags to associate with the interconnect.</p>
             provider_name: <p>The name of the service provider associated with the interconnect.</p>
             request_mac_sec: <p>Indicates whether you want the interconnect to support MAC Security (MACsec).</p>
+
+        Raises:
+            aws_sdk_direct_connect.errors.direct_connect_client_exception.DirectConnectClientException: <p>One or more parameters are not valid.</p>
+            aws_sdk_direct_connect.errors.direct_connect_server_exception.DirectConnectServerException: <p>A server-side error occurred.</p>
+            aws_sdk_direct_connect.errors.duplicate_tag_keys_exception.DuplicateTagKeysException: <p>A tag key was specified more than once.</p>
+            aws_sdk_direct_connect.errors.too_many_tags_exception.TooManyTagsException: <p>You have reached the limit on the number of tags that can be assigned.</p>
+            aws_sdk_direct_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1305,6 +1422,13 @@ class DirectConnectClient:
             child_connection_tags: <p>The tags to associate with the automtically created LAGs.</p>
             provider_name: <p>The name of the service provider associated with the LAG.</p>
             request_mac_sec: <p>Indicates whether the connection will support MAC Security (MACsec).</p> <note> <p>All connections in the LAG must be capable of supporting MAC Security (MACsec). For information about MAC Security (MACsec) prerequisties, see <a href=\"https://docs.aws.amazon.com/directconnect/latest/UserGuide/direct-connect-mac-sec-getting-started.html#mac-sec-prerequisites\">MACsec prerequisties</a> in the <i>Direct Connect User Guide</i>.</p> </note>
+
+        Raises:
+            aws_sdk_direct_connect.errors.direct_connect_client_exception.DirectConnectClientException: <p>One or more parameters are not valid.</p>
+            aws_sdk_direct_connect.errors.direct_connect_server_exception.DirectConnectServerException: <p>A server-side error occurred.</p>
+            aws_sdk_direct_connect.errors.duplicate_tag_keys_exception.DuplicateTagKeysException: <p>A tag key was specified more than once.</p>
+            aws_sdk_direct_connect.errors.too_many_tags_exception.TooManyTagsException: <p>You have reached the limit on the number of tags that can be assigned.</p>
+            aws_sdk_direct_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1355,6 +1479,13 @@ class DirectConnectClient:
         Args:
             connection_id: <p>The ID of the connection.</p>
             new_private_virtual_interface: <p>Information about the private virtual interface.</p>
+
+        Raises:
+            aws_sdk_direct_connect.errors.direct_connect_client_exception.DirectConnectClientException: <p>One or more parameters are not valid.</p>
+            aws_sdk_direct_connect.errors.direct_connect_server_exception.DirectConnectServerException: <p>A server-side error occurred.</p>
+            aws_sdk_direct_connect.errors.duplicate_tag_keys_exception.DuplicateTagKeysException: <p>A tag key was specified more than once.</p>
+            aws_sdk_direct_connect.errors.too_many_tags_exception.TooManyTagsException: <p>You have reached the limit on the number of tags that can be assigned.</p>
+            aws_sdk_direct_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1395,6 +1526,13 @@ class DirectConnectClient:
         Args:
             connection_id: <p>The ID of the connection.</p>
             new_public_virtual_interface: <p>Information about the public virtual interface.</p>
+
+        Raises:
+            aws_sdk_direct_connect.errors.direct_connect_client_exception.DirectConnectClientException: <p>One or more parameters are not valid.</p>
+            aws_sdk_direct_connect.errors.direct_connect_server_exception.DirectConnectServerException: <p>A server-side error occurred.</p>
+            aws_sdk_direct_connect.errors.duplicate_tag_keys_exception.DuplicateTagKeysException: <p>A tag key was specified more than once.</p>
+            aws_sdk_direct_connect.errors.too_many_tags_exception.TooManyTagsException: <p>You have reached the limit on the number of tags that can be assigned.</p>
+            aws_sdk_direct_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1435,6 +1573,13 @@ class DirectConnectClient:
         Args:
             connection_id: <p>The ID of the connection.</p>
             new_transit_virtual_interface: <p>Information about the transit virtual interface.</p>
+
+        Raises:
+            aws_sdk_direct_connect.errors.direct_connect_client_exception.DirectConnectClientException: <p>One or more parameters are not valid.</p>
+            aws_sdk_direct_connect.errors.direct_connect_server_exception.DirectConnectServerException: <p>A server-side error occurred.</p>
+            aws_sdk_direct_connect.errors.duplicate_tag_keys_exception.DuplicateTagKeysException: <p>A tag key was specified more than once.</p>
+            aws_sdk_direct_connect.errors.too_many_tags_exception.TooManyTagsException: <p>You have reached the limit on the number of tags that can be assigned.</p>
+            aws_sdk_direct_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1487,6 +1632,11 @@ class DirectConnectClient:
             asn_long: <p>The long ASN for the BGP peer to be deleted from a Direct Connect virtual interface. The valid range is from 1 to 4294967294 for BGP configuration. </p> <note> <p>You can use <code>asnLong</code> or <code>asn</code>, but not both. We recommend using <code>asnLong</code> as it supports a greater pool of numbers. </p> <ul> <li> <p>The <code>asnLong</code> attribute accepts both ASN and long ASN ranges.</p> </li> <li> <p>If you provide a value in the same API call for both <code>asn</code> and <code>asnLong</code>, the API will only accept the value for <code>asnLong</code>.</p> </li> </ul> </note>
             customer_address: <p>The IP address assigned to the customer interface.</p>
             bgp_peer_id: <p>The ID of the BGP peer.</p>
+
+        Raises:
+            aws_sdk_direct_connect.errors.direct_connect_client_exception.DirectConnectClientException: <p>One or more parameters are not valid.</p>
+            aws_sdk_direct_connect.errors.direct_connect_server_exception.DirectConnectServerException: <p>A server-side error occurred.</p>
+            aws_sdk_direct_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1533,6 +1683,11 @@ class DirectConnectClient:
 
         Args:
             connection_id: <p>The ID of the connection.</p>
+
+        Raises:
+            aws_sdk_direct_connect.errors.direct_connect_client_exception.DirectConnectClientException: <p>One or more parameters are not valid.</p>
+            aws_sdk_direct_connect.errors.direct_connect_server_exception.DirectConnectServerException: <p>A server-side error occurred.</p>
+            aws_sdk_direct_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1568,6 +1723,11 @@ class DirectConnectClient:
 
         Args:
             direct_connect_gateway_id: <p>The ID of the Direct Connect gateway.</p>
+
+        Raises:
+            aws_sdk_direct_connect.errors.direct_connect_client_exception.DirectConnectClientException: <p>One or more parameters are not valid.</p>
+            aws_sdk_direct_connect.errors.direct_connect_server_exception.DirectConnectServerException: <p>A server-side error occurred.</p>
+            aws_sdk_direct_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1615,6 +1775,11 @@ class DirectConnectClient:
             association_id: <p>The ID of the Direct Connect gateway association.</p>
             direct_connect_gateway_id: <p>The ID of the Direct Connect gateway.</p>
             virtual_gateway_id: <p>The ID of the virtual private gateway.</p>
+
+        Raises:
+            aws_sdk_direct_connect.errors.direct_connect_client_exception.DirectConnectClientException: <p>One or more parameters are not valid.</p>
+            aws_sdk_direct_connect.errors.direct_connect_server_exception.DirectConnectServerException: <p>A server-side error occurred.</p>
+            aws_sdk_direct_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1657,6 +1822,11 @@ class DirectConnectClient:
 
         Args:
             proposal_id: <p>The ID of the proposal.</p>
+
+        Raises:
+            aws_sdk_direct_connect.errors.direct_connect_client_exception.DirectConnectClientException: <p>One or more parameters are not valid.</p>
+            aws_sdk_direct_connect.errors.direct_connect_server_exception.DirectConnectServerException: <p>A server-side error occurred.</p>
+            aws_sdk_direct_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1694,6 +1864,11 @@ class DirectConnectClient:
 
         Args:
             interconnect_id: <p>The ID of the interconnect.</p>
+
+        Raises:
+            aws_sdk_direct_connect.errors.direct_connect_client_exception.DirectConnectClientException: <p>One or more parameters are not valid.</p>
+            aws_sdk_direct_connect.errors.direct_connect_server_exception.DirectConnectServerException: <p>A server-side error occurred.</p>
+            aws_sdk_direct_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1731,6 +1906,11 @@ class DirectConnectClient:
 
         Args:
             lag_id: <p>The ID of the LAG.</p>
+
+        Raises:
+            aws_sdk_direct_connect.errors.direct_connect_client_exception.DirectConnectClientException: <p>One or more parameters are not valid.</p>
+            aws_sdk_direct_connect.errors.direct_connect_server_exception.DirectConnectServerException: <p>A server-side error occurred.</p>
+            aws_sdk_direct_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1766,6 +1946,11 @@ class DirectConnectClient:
 
         Args:
             virtual_interface_id: <p>The ID of the virtual interface.</p>
+
+        Raises:
+            aws_sdk_direct_connect.errors.direct_connect_client_exception.DirectConnectClientException: <p>One or more parameters are not valid.</p>
+            aws_sdk_direct_connect.errors.direct_connect_server_exception.DirectConnectServerException: <p>A server-side error occurred.</p>
+            aws_sdk_direct_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1811,6 +1996,11 @@ class DirectConnectClient:
             connection_id: <p>The ID of the connection.</p>
             provider_name: <p>The name of the APN partner or service provider who establishes connectivity on your behalf. If you specify this parameter, the LOA-CFA lists the provider name alongside your company name as the requester of the cross connect.</p>
             loa_content_type: <p>The standard media type for the LOA-CFA document. The only supported value is application/pdf.</p>
+
+        Raises:
+            aws_sdk_direct_connect.errors.direct_connect_client_exception.DirectConnectClientException: <p>One or more parameters are not valid.</p>
+            aws_sdk_direct_connect.errors.direct_connect_server_exception.DirectConnectServerException: <p>A server-side error occurred.</p>
+            aws_sdk_direct_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1862,6 +2052,11 @@ class DirectConnectClient:
             connection_id: <p>The ID of the connection.</p>
             max_results: <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p> <p>If <code>MaxResults</code> is given a value larger than 100, only 100 results are returned.</p>
             next_token: <p>The token for the next page of results.</p>
+
+        Raises:
+            aws_sdk_direct_connect.errors.direct_connect_client_exception.DirectConnectClientException: <p>One or more parameters are not valid.</p>
+            aws_sdk_direct_connect.errors.direct_connect_server_exception.DirectConnectServerException: <p>A server-side error occurred.</p>
+            aws_sdk_direct_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1902,6 +2097,11 @@ class DirectConnectClient:
 
         Args:
             interconnect_id: <p>The ID of the interconnect.</p>
+
+        Raises:
+            aws_sdk_direct_connect.errors.direct_connect_client_exception.DirectConnectClientException: <p>One or more parameters are not valid.</p>
+            aws_sdk_direct_connect.errors.direct_connect_server_exception.DirectConnectServerException: <p>A server-side error occurred.</p>
+            aws_sdk_direct_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1930,7 +2130,13 @@ class DirectConnectClient:
     def describe_customer_metadata(
         self, *, config_overrides: Optional[DirectConnectClientConfig] = None
     ) -> "aws_sdk_direct_connect.types.describe_customer_metadata_response.DescribeCustomerMetadataResponse":
-        """<p>Get and view a list of customer agreements, along with their signed status and whether the customer is an NNIPartner, NNIPartnerV2, or a nonPartner. </p>"""
+        """<p>Get and view a list of customer agreements, along with their signed status and whether the customer is an NNIPartner, NNIPartnerV2, or a nonPartner. </p>
+
+        Raises:
+            aws_sdk_direct_connect.errors.direct_connect_client_exception.DirectConnectClientException: <p>One or more parameters are not valid.</p>
+            aws_sdk_direct_connect.errors.direct_connect_server_exception.DirectConnectServerException: <p>A server-side error occurred.</p>
+            aws_sdk_direct_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[None]",
@@ -1983,6 +2189,11 @@ class DirectConnectClient:
             associated_gateway_id: <p>The ID of the associated gateway.</p>
             max_results: <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p> <p>If <code>MaxResults</code> is given a value larger than 100, only 100 results are returned.</p>
             next_token: <p>The token for the next page of results.</p>
+
+        Raises:
+            aws_sdk_direct_connect.errors.direct_connect_client_exception.DirectConnectClientException: <p>One or more parameters are not valid.</p>
+            aws_sdk_direct_connect.errors.direct_connect_server_exception.DirectConnectServerException: <p>A server-side error occurred.</p>
+            aws_sdk_direct_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2051,6 +2262,11 @@ class DirectConnectClient:
             max_results: <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p> <p>If <code>MaxResults</code> is given a value larger than 100, only 100 results are returned.</p>
             next_token: <p>The token provided in the previous call to retrieve the next page.</p>
             virtual_gateway_id: <p>The ID of the virtual private gateway or transit gateway.</p>
+
+        Raises:
+            aws_sdk_direct_connect.errors.direct_connect_client_exception.DirectConnectClientException: <p>One or more parameters are not valid.</p>
+            aws_sdk_direct_connect.errors.direct_connect_server_exception.DirectConnectServerException: <p>A server-side error occurred.</p>
+            aws_sdk_direct_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2113,6 +2329,11 @@ class DirectConnectClient:
             virtual_interface_id: <p>The ID of the virtual interface.</p>
             max_results: <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p> <p>If <code>MaxResults</code> is given a value larger than 100, only 100 results are returned.</p>
             next_token: <p>The token provided in the previous call to retrieve the next page.</p>
+
+        Raises:
+            aws_sdk_direct_connect.errors.direct_connect_client_exception.DirectConnectClientException: <p>One or more parameters are not valid.</p>
+            aws_sdk_direct_connect.errors.direct_connect_server_exception.DirectConnectServerException: <p>A server-side error occurred.</p>
+            aws_sdk_direct_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2167,6 +2388,11 @@ class DirectConnectClient:
             direct_connect_gateway_id: <p>The ID of the Direct Connect gateway.</p>
             max_results: <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p> <p>If <code>MaxResults</code> is given a value larger than 100, only 100 results are returned.</p>
             next_token: <p>The token provided in the previous call to retrieve the next page.</p>
+
+        Raises:
+            aws_sdk_direct_connect.errors.direct_connect_client_exception.DirectConnectClientException: <p>One or more parameters are not valid.</p>
+            aws_sdk_direct_connect.errors.direct_connect_server_exception.DirectConnectServerException: <p>A server-side error occurred.</p>
+            aws_sdk_direct_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2217,6 +2443,11 @@ class DirectConnectClient:
             connection_id: <p>The ID of the interconnect or LAG.</p>
             max_results: <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p> <p>If <code>MaxResults</code> is given a value larger than 100, only 100 results are returned.</p>
             next_token: <p>The token for the next page of results.</p>
+
+        Raises:
+            aws_sdk_direct_connect.errors.direct_connect_client_exception.DirectConnectClientException: <p>One or more parameters are not valid.</p>
+            aws_sdk_direct_connect.errors.direct_connect_server_exception.DirectConnectServerException: <p>A server-side error occurred.</p>
+            aws_sdk_direct_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2264,6 +2495,11 @@ class DirectConnectClient:
             interconnect_id: <p>The ID of the interconnect.</p>
             provider_name: <p>The name of the service provider who establishes connectivity on your behalf. If you supply this parameter, the LOA-CFA lists the provider name alongside your company name as the requester of the cross connect.</p>
             loa_content_type: <p>The standard media type for the LOA-CFA document. The only supported value is application/pdf.</p>
+
+        Raises:
+            aws_sdk_direct_connect.errors.direct_connect_client_exception.DirectConnectClientException: <p>One or more parameters are not valid.</p>
+            aws_sdk_direct_connect.errors.direct_connect_server_exception.DirectConnectServerException: <p>A server-side error occurred.</p>
+            aws_sdk_direct_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2315,6 +2551,11 @@ class DirectConnectClient:
             interconnect_id: <p>The ID of the interconnect.</p>
             max_results: <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p> <p>If <code>MaxResults</code> is given a value larger than 100, only 100 results are returned.</p>
             next_token: <p>The token for the next page of results.</p>
+
+        Raises:
+            aws_sdk_direct_connect.errors.direct_connect_client_exception.DirectConnectClientException: <p>One or more parameters are not valid.</p>
+            aws_sdk_direct_connect.errors.direct_connect_server_exception.DirectConnectServerException: <p>A server-side error occurred.</p>
+            aws_sdk_direct_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2365,6 +2606,11 @@ class DirectConnectClient:
             lag_id: <p>The ID of the LAG.</p>
             max_results: <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p> <p>If <code>MaxResults</code> is given a value larger than 100, only 100 results are returned.</p>
             next_token: <p>The token for the next page of results.</p>
+
+        Raises:
+            aws_sdk_direct_connect.errors.direct_connect_client_exception.DirectConnectClientException: <p>One or more parameters are not valid.</p>
+            aws_sdk_direct_connect.errors.direct_connect_server_exception.DirectConnectServerException: <p>A server-side error occurred.</p>
+            aws_sdk_direct_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2413,6 +2659,11 @@ class DirectConnectClient:
             connection_id: <p>The ID of a connection, LAG, or interconnect.</p>
             provider_name: <p>The name of the service provider who establishes connectivity on your behalf. If you specify this parameter, the LOA-CFA lists the provider name alongside your company name as the requester of the cross connect.</p>
             loa_content_type: <p>The standard media type for the LOA-CFA document. The only supported value is application/pdf.</p>
+
+        Raises:
+            aws_sdk_direct_connect.errors.direct_connect_client_exception.DirectConnectClientException: <p>One or more parameters are not valid.</p>
+            aws_sdk_direct_connect.errors.direct_connect_server_exception.DirectConnectServerException: <p>A server-side error occurred.</p>
+            aws_sdk_direct_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2445,7 +2696,13 @@ class DirectConnectClient:
     def describe_locations(
         self, *, config_overrides: Optional[DirectConnectClientConfig] = None
     ) -> "aws_sdk_direct_connect.types.locations.Locations":
-        """<p>Lists the Direct Connect locations in the current Amazon Web Services Region. These are the locations that can be selected when calling <a>CreateConnection</a> or <a>CreateInterconnect</a>.</p>"""
+        """<p>Lists the Direct Connect locations in the current Amazon Web Services Region. These are the locations that can be selected when calling <a>CreateConnection</a> or <a>CreateInterconnect</a>.</p>
+
+        Raises:
+            aws_sdk_direct_connect.errors.direct_connect_client_exception.DirectConnectClientException: <p>One or more parameters are not valid.</p>
+            aws_sdk_direct_connect.errors.direct_connect_server_exception.DirectConnectServerException: <p>A server-side error occurred.</p>
+            aws_sdk_direct_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[None]",
@@ -2482,6 +2739,11 @@ class DirectConnectClient:
         Args:
             virtual_interface_id: <p>The ID of the virtual interface.</p>
             router_type_identifier: <p>Identifies the router by a combination of vendor, platform, and software version. For example, <code>CiscoSystemsInc-2900SeriesRouters-IOS124</code>.</p>
+
+        Raises:
+            aws_sdk_direct_connect.errors.direct_connect_client_exception.DirectConnectClientException: <p>One or more parameters are not valid.</p>
+            aws_sdk_direct_connect.errors.direct_connect_server_exception.DirectConnectServerException: <p>A server-side error occurred.</p>
+            aws_sdk_direct_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2521,6 +2783,11 @@ class DirectConnectClient:
 
         Args:
             resource_arns: <p>The Amazon Resource Names (ARNs) of the resources.</p>
+
+        Raises:
+            aws_sdk_direct_connect.errors.direct_connect_client_exception.DirectConnectClientException: <p>One or more parameters are not valid.</p>
+            aws_sdk_direct_connect.errors.direct_connect_server_exception.DirectConnectServerException: <p>A server-side error occurred.</p>
+            aws_sdk_direct_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2551,7 +2818,13 @@ class DirectConnectClient:
     def describe_virtual_gateways(
         self, *, config_overrides: Optional[DirectConnectClientConfig] = None
     ) -> "aws_sdk_direct_connect.types.virtual_gateways.VirtualGateways":
-        r"""<note> <p>Deprecated. Use <code>DescribeVpnGateways</code> instead. See <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpnGateways.html\">DescribeVPNGateways</a> in the <i>Amazon Elastic Compute Cloud API Reference</i>.</p> </note> <p>Lists the virtual private gateways owned by the Amazon Web Services account.</p> <p>You can create one or more Direct Connect private virtual interfaces linked to a virtual private gateway.</p>"""
+        r"""<note> <p>Deprecated. Use <code>DescribeVpnGateways</code> instead. See <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpnGateways.html\">DescribeVPNGateways</a> in the <i>Amazon Elastic Compute Cloud API Reference</i>.</p> </note> <p>Lists the virtual private gateways owned by the Amazon Web Services account.</p> <p>You can create one or more Direct Connect private virtual interfaces linked to a virtual private gateway.</p>
+
+        Raises:
+            aws_sdk_direct_connect.errors.direct_connect_client_exception.DirectConnectClientException: <p>One or more parameters are not valid.</p>
+            aws_sdk_direct_connect.errors.direct_connect_server_exception.DirectConnectServerException: <p>A server-side error occurred.</p>
+            aws_sdk_direct_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[None]",
@@ -2600,6 +2873,11 @@ class DirectConnectClient:
             virtual_interface_id: <p>The ID of the virtual interface.</p>
             max_results: <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p> <p>If <code>MaxResults</code> is given a value larger than 100, only 100 results are returned.</p>
             next_token: <p>The token for the next page of results.</p>
+
+        Raises:
+            aws_sdk_direct_connect.errors.direct_connect_client_exception.DirectConnectClientException: <p>One or more parameters are not valid.</p>
+            aws_sdk_direct_connect.errors.direct_connect_server_exception.DirectConnectServerException: <p>A server-side error occurred.</p>
+            aws_sdk_direct_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2646,6 +2924,11 @@ class DirectConnectClient:
         Args:
             connection_id: <p>The ID of the connection.</p>
             lag_id: <p>The ID of the LAG.</p>
+
+        Raises:
+            aws_sdk_direct_connect.errors.direct_connect_client_exception.DirectConnectClientException: <p>One or more parameters are not valid.</p>
+            aws_sdk_direct_connect.errors.direct_connect_server_exception.DirectConnectServerException: <p>A server-side error occurred.</p>
+            aws_sdk_direct_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2684,6 +2967,11 @@ class DirectConnectClient:
         Args:
             connection_id: <p>The ID of the dedicated connection (dxcon-xxxx), interconnect (dxcon-xxxx), or LAG (dxlag-xxxx).</p> <p>You can use <a>DescribeConnections</a>, <a>DescribeInterconnects</a>, or <a>DescribeLags</a> to retrieve connection ID.</p>
             secret_arn: <p>The Amazon Resource Name (ARN) of the MAC Security (MACsec) secret key.</p> <p>You can use <a>DescribeConnections</a> to retrieve the ARN of the MAC Security (MACsec) secret key.</p>
+
+        Raises:
+            aws_sdk_direct_connect.errors.direct_connect_client_exception.DirectConnectClientException: <p>One or more parameters are not valid.</p>
+            aws_sdk_direct_connect.errors.direct_connect_server_exception.DirectConnectServerException: <p>A server-side error occurred.</p>
+            aws_sdk_direct_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2742,6 +3030,11 @@ class DirectConnectClient:
             status: <p>The status of the virtual interface failover test.</p>
             max_results: <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p> <p>If <code>MaxResults</code> is given a value larger than 100, only 100 results are returned.</p>
             next_token: <p>The token for the next page of results.</p>
+
+        Raises:
+            aws_sdk_direct_connect.errors.direct_connect_client_exception.DirectConnectClientException: <p>One or more parameters are not valid.</p>
+            aws_sdk_direct_connect.errors.direct_connect_server_exception.DirectConnectServerException: <p>A server-side error occurred.</p>
+            aws_sdk_direct_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2798,6 +3091,11 @@ class DirectConnectClient:
             virtual_interface_id: <p>The ID of the virtual interface you want to test.</p>
             bgp_peers: <p>The BGP peers to place in the DOWN state.</p>
             test_duration_in_minutes: <p>The time in minutes that the virtual interface failover test will last.</p> <p>Maximum value: 4,320 minutes (72 hours).</p> <p>Default: 180 minutes (3 hours).</p>
+
+        Raises:
+            aws_sdk_direct_connect.errors.direct_connect_client_exception.DirectConnectClientException: <p>One or more parameters are not valid.</p>
+            aws_sdk_direct_connect.errors.direct_connect_server_exception.DirectConnectServerException: <p>A server-side error occurred.</p>
+            aws_sdk_direct_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2839,6 +3137,11 @@ class DirectConnectClient:
 
         Args:
             virtual_interface_id: <p>The ID of the virtual interface you no longer want to test.</p>
+
+        Raises:
+            aws_sdk_direct_connect.errors.direct_connect_client_exception.DirectConnectClientException: <p>One or more parameters are not valid.</p>
+            aws_sdk_direct_connect.errors.direct_connect_server_exception.DirectConnectServerException: <p>A server-side error occurred.</p>
+            aws_sdk_direct_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2878,6 +3181,13 @@ class DirectConnectClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource.</p>
             tags: <p>The tags to add.</p>
+
+        Raises:
+            aws_sdk_direct_connect.errors.direct_connect_client_exception.DirectConnectClientException: <p>One or more parameters are not valid.</p>
+            aws_sdk_direct_connect.errors.direct_connect_server_exception.DirectConnectServerException: <p>A server-side error occurred.</p>
+            aws_sdk_direct_connect.errors.duplicate_tag_keys_exception.DuplicateTagKeysException: <p>A tag key was specified more than once.</p>
+            aws_sdk_direct_connect.errors.too_many_tags_exception.TooManyTagsException: <p>You have reached the limit on the number of tags that can be assigned.</p>
+            aws_sdk_direct_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2918,6 +3228,11 @@ class DirectConnectClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource.</p>
             tag_keys: <p>The tag keys of the tags to remove.</p>
+
+        Raises:
+            aws_sdk_direct_connect.errors.direct_connect_client_exception.DirectConnectClientException: <p>One or more parameters are not valid.</p>
+            aws_sdk_direct_connect.errors.direct_connect_server_exception.DirectConnectServerException: <p>A server-side error occurred.</p>
+            aws_sdk_direct_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2964,6 +3279,11 @@ class DirectConnectClient:
             connection_id: <p>The ID of the connection.</p> <p>You can use <a>DescribeConnections</a> to retrieve the connection ID.</p>
             connection_name: <p>The name of the connection.</p>
             encryption_mode: <p>The connection MAC Security (MACsec) encryption mode.</p> <p>The valid values are <code>no_encrypt</code>, <code>should_encrypt</code>, and <code>must_encrypt</code>.</p>
+
+        Raises:
+            aws_sdk_direct_connect.errors.direct_connect_client_exception.DirectConnectClientException: <p>One or more parameters are not valid.</p>
+            aws_sdk_direct_connect.errors.direct_connect_server_exception.DirectConnectServerException: <p>A server-side error occurred.</p>
+            aws_sdk_direct_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3005,6 +3325,11 @@ class DirectConnectClient:
         Args:
             direct_connect_gateway_id: <p>The ID of the Direct Connect gateway to update.</p>
             new_direct_connect_gateway_name: <p>The new name for the Direct Connect gateway.</p>
+
+        Raises:
+            aws_sdk_direct_connect.errors.direct_connect_client_exception.DirectConnectClientException: <p>One or more parameters are not valid.</p>
+            aws_sdk_direct_connect.errors.direct_connect_server_exception.DirectConnectServerException: <p>A server-side error occurred.</p>
+            aws_sdk_direct_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3053,6 +3378,11 @@ class DirectConnectClient:
             association_id: <p>The ID of the Direct Connect gateway association.</p>
             add_allowed_prefixes_to_direct_connect_gateway: <p>The Amazon VPC prefixes to advertise to the Direct Connect gateway.</p>
             remove_allowed_prefixes_to_direct_connect_gateway: <p>The Amazon VPC prefixes to no longer advertise to the Direct Connect gateway.</p>
+
+        Raises:
+            aws_sdk_direct_connect.errors.direct_connect_client_exception.DirectConnectClientException: <p>One or more parameters are not valid.</p>
+            aws_sdk_direct_connect.errors.direct_connect_server_exception.DirectConnectServerException: <p>A server-side error occurred.</p>
+            aws_sdk_direct_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3107,6 +3437,11 @@ class DirectConnectClient:
             lag_name: <p>The name of the LAG.</p>
             minimum_links: <p>The minimum number of physical connections that must be operational for the LAG itself to be operational.</p>
             encryption_mode: <p>The LAG MAC Security (MACsec) encryption mode.</p> <p>Amazon Web Services applies the value to all connections which are part of the LAG.</p>
+
+        Raises:
+            aws_sdk_direct_connect.errors.direct_connect_client_exception.DirectConnectClientException: <p>One or more parameters are not valid.</p>
+            aws_sdk_direct_connect.errors.direct_connect_server_exception.DirectConnectServerException: <p>A server-side error occurred.</p>
+            aws_sdk_direct_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3158,6 +3493,11 @@ class DirectConnectClient:
             mtu: <p>The maximum transmission unit (MTU), in bytes. The supported values are 1500 and 8500. The default value is 1500.</p>
             enable_site_link: <p>Indicates whether to enable or disable SiteLink.</p>
             virtual_interface_name: <p>The name of the virtual private interface.</p>
+
+        Raises:
+            aws_sdk_direct_connect.errors.direct_connect_client_exception.DirectConnectClientException: <p>One or more parameters are not valid.</p>
+            aws_sdk_direct_connect.errors.direct_connect_server_exception.DirectConnectServerException: <p>A server-side error occurred.</p>
+            aws_sdk_direct_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(

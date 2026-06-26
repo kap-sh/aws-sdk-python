@@ -53,6 +53,13 @@ class Index:
             id: <p>The unique identifier of the collection in which to create the index.</p>
             index_name: <p>The name of the index to create. Index names must be lowercase and can't begin with underscores (_) or hyphens (-).</p>
             index_schema: <p>The JSON schema definition for the index, including field mappings and settings.</p>
+
+        Raises:
+            aws_sdk_opensearchserverless.errors.conflict_exception.ConflictException: <p>When creating a resource, thrown when a resource with the same name already exists or is being created. When deleting a resource, thrown when the resource is not in the ACTIVE, FAILED, or UPDATE_FAILED state.</p>
+            aws_sdk_opensearchserverless.errors.internal_server_exception.InternalServerException: <p>Thrown when an error internal to the service occurs while processing a request.</p>
+            aws_sdk_opensearchserverless.errors.resource_not_found_exception.ResourceNotFoundException: <p>Thrown when accessing or deleting a resource that does not exist.</p>
+            aws_sdk_opensearchserverless.errors.validation_exception.ValidationException: <p>Thrown when the HTTP request contains invalid input or is missing required input.</p>
+            aws_sdk_opensearchserverless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -95,6 +102,12 @@ class Index:
         Args:
             id: <p>The unique identifier of the collection containing the index.</p>
             index_name: <p>The name of the index to retrieve information about.</p>
+
+        Raises:
+            aws_sdk_opensearchserverless.errors.internal_server_exception.InternalServerException: <p>Thrown when an error internal to the service occurs while processing a request.</p>
+            aws_sdk_opensearchserverless.errors.resource_not_found_exception.ResourceNotFoundException: <p>Thrown when accessing or deleting a resource that does not exist.</p>
+            aws_sdk_opensearchserverless.errors.validation_exception.ValidationException: <p>Thrown when the HTTP request contains invalid input or is missing required input.</p>
+            aws_sdk_opensearchserverless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -139,6 +152,12 @@ class Index:
             id: <p>The unique identifier of the collection containing the index to update.</p>
             index_name: <p>The name of the index to update.</p>
             index_schema: <p>The updated JSON schema definition for the index, including field mappings and settings. </p>
+
+        Raises:
+            aws_sdk_opensearchserverless.errors.internal_server_exception.InternalServerException: <p>Thrown when an error internal to the service occurs while processing a request.</p>
+            aws_sdk_opensearchserverless.errors.resource_not_found_exception.ResourceNotFoundException: <p>Thrown when accessing or deleting a resource that does not exist.</p>
+            aws_sdk_opensearchserverless.errors.validation_exception.ValidationException: <p>Thrown when the HTTP request contains invalid input or is missing required input.</p>
+            aws_sdk_opensearchserverless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -181,6 +200,12 @@ class Index:
         Args:
             id: <p>The unique identifier of the collection containing the index to delete.</p>
             index_name: <p>The name of the index to delete.</p>
+
+        Raises:
+            aws_sdk_opensearchserverless.errors.internal_server_exception.InternalServerException: <p>Thrown when an error internal to the service occurs while processing a request.</p>
+            aws_sdk_opensearchserverless.errors.resource_not_found_exception.ResourceNotFoundException: <p>Thrown when accessing or deleting a resource that does not exist.</p>
+            aws_sdk_opensearchserverless.errors.validation_exception.ValidationException: <p>Thrown when the HTTP request contains invalid input or is missing required input.</p>
+            aws_sdk_opensearchserverless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -230,6 +255,13 @@ class AsyncIndex:
             id: <p>The unique identifier of the collection in which to create the index.</p>
             index_name: <p>The name of the index to create. Index names must be lowercase and can't begin with underscores (_) or hyphens (-).</p>
             index_schema: <p>The JSON schema definition for the index, including field mappings and settings.</p>
+
+        Raises:
+            aws_sdk_opensearchserverless.errors.conflict_exception.ConflictException: <p>When creating a resource, thrown when a resource with the same name already exists or is being created. When deleting a resource, thrown when the resource is not in the ACTIVE, FAILED, or UPDATE_FAILED state.</p>
+            aws_sdk_opensearchserverless.errors.internal_server_exception.InternalServerException: <p>Thrown when an error internal to the service occurs while processing a request.</p>
+            aws_sdk_opensearchserverless.errors.resource_not_found_exception.ResourceNotFoundException: <p>Thrown when accessing or deleting a resource that does not exist.</p>
+            aws_sdk_opensearchserverless.errors.validation_exception.ValidationException: <p>Thrown when the HTTP request contains invalid input or is missing required input.</p>
+            aws_sdk_opensearchserverless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -273,6 +305,12 @@ class AsyncIndex:
         Args:
             id: <p>The unique identifier of the collection containing the index.</p>
             index_name: <p>The name of the index to retrieve information about.</p>
+
+        Raises:
+            aws_sdk_opensearchserverless.errors.internal_server_exception.InternalServerException: <p>Thrown when an error internal to the service occurs while processing a request.</p>
+            aws_sdk_opensearchserverless.errors.resource_not_found_exception.ResourceNotFoundException: <p>Thrown when accessing or deleting a resource that does not exist.</p>
+            aws_sdk_opensearchserverless.errors.validation_exception.ValidationException: <p>Thrown when the HTTP request contains invalid input or is missing required input.</p>
+            aws_sdk_opensearchserverless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -318,6 +356,12 @@ class AsyncIndex:
             id: <p>The unique identifier of the collection containing the index to update.</p>
             index_name: <p>The name of the index to update.</p>
             index_schema: <p>The updated JSON schema definition for the index, including field mappings and settings. </p>
+
+        Raises:
+            aws_sdk_opensearchserverless.errors.internal_server_exception.InternalServerException: <p>Thrown when an error internal to the service occurs while processing a request.</p>
+            aws_sdk_opensearchserverless.errors.resource_not_found_exception.ResourceNotFoundException: <p>Thrown when accessing or deleting a resource that does not exist.</p>
+            aws_sdk_opensearchserverless.errors.validation_exception.ValidationException: <p>Thrown when the HTTP request contains invalid input or is missing required input.</p>
+            aws_sdk_opensearchserverless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -361,6 +405,12 @@ class AsyncIndex:
         Args:
             id: <p>The unique identifier of the collection containing the index to delete.</p>
             index_name: <p>The name of the index to delete.</p>
+
+        Raises:
+            aws_sdk_opensearchserverless.errors.internal_server_exception.InternalServerException: <p>Thrown when an error internal to the service occurs while processing a request.</p>
+            aws_sdk_opensearchserverless.errors.resource_not_found_exception.ResourceNotFoundException: <p>Thrown when accessing or deleting a resource that does not exist.</p>
+            aws_sdk_opensearchserverless.errors.validation_exception.ValidationException: <p>Thrown when the HTTP request contains invalid input or is missing required input.</p>
+            aws_sdk_opensearchserverless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

@@ -288,6 +288,17 @@ class ChimeClient:
             account_id: <p>The Amazon Chime account ID.</p>
             user_id: <p>The user ID.</p>
             e164_phone_number: <p>The phone number, in E.164 format.</p>
+
+        Raises:
+            aws_sdk_chime.errors.access_denied_exception.AccessDeniedException: <p>You don't have permissions to perform the requested operation.</p>
+            aws_sdk_chime.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime.errors.not_found_exception.NotFoundException: <p>One or more of the resources in the request does not exist in the system.</p>
+            aws_sdk_chime.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime.errors.throttled_client_exception.ThrottledClientException: <p>The client exceeded its request rate limit.</p>
+            aws_sdk_chime.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client is not currently authorized to make the request.</p>
+            aws_sdk_chime.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -329,6 +340,16 @@ class ChimeClient:
         Args:
             account_id: <p>The Amazon Chime account ID.</p>
             signin_delegate_groups: <p>The sign-in delegate groups.</p>
+
+        Raises:
+            aws_sdk_chime.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime.errors.not_found_exception.NotFoundException: <p>One or more of the resources in the request does not exist in the system.</p>
+            aws_sdk_chime.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime.errors.throttled_client_exception.ThrottledClientException: <p>The client exceeded its request rate limit.</p>
+            aws_sdk_chime.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client is not currently authorized to make the request.</p>
+            aws_sdk_chime.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -371,6 +392,16 @@ class ChimeClient:
             account_id: <p>The Amazon Chime account ID.</p>
             room_id: <p>The room ID.</p>
             membership_item_list: <p>The list of membership items.</p>
+
+        Raises:
+            aws_sdk_chime.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime.errors.not_found_exception.NotFoundException: <p>One or more of the resources in the request does not exist in the system.</p>
+            aws_sdk_chime.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime.errors.throttled_client_exception.ThrottledClientException: <p>The client exceeded its request rate limit.</p>
+            aws_sdk_chime.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client is not currently authorized to make the request.</p>
+            aws_sdk_chime.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -410,6 +441,16 @@ class ChimeClient:
 
         Args:
             phone_number_ids: <p>List of phone number IDs.</p>
+
+        Raises:
+            aws_sdk_chime.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime.errors.not_found_exception.NotFoundException: <p>One or more of the resources in the request does not exist in the system.</p>
+            aws_sdk_chime.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime.errors.throttled_client_exception.ThrottledClientException: <p>The client exceeded its request rate limit.</p>
+            aws_sdk_chime.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client is not currently authorized to make the request.</p>
+            aws_sdk_chime.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -449,6 +490,16 @@ class ChimeClient:
         Args:
             account_id: <p>The Amazon Chime account ID.</p>
             user_id_list: <p>The request containing the user IDs to suspend.</p>
+
+        Raises:
+            aws_sdk_chime.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime.errors.not_found_exception.NotFoundException: <p>One or more of the resources in the request does not exist in the system.</p>
+            aws_sdk_chime.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime.errors.throttled_client_exception.ThrottledClientException: <p>The client exceeded its request rate limit.</p>
+            aws_sdk_chime.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client is not currently authorized to make the request.</p>
+            aws_sdk_chime.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -489,6 +540,16 @@ class ChimeClient:
         Args:
             account_id: <p>The Amazon Chime account ID.</p>
             user_id_list: <p>The request containing the user IDs to unsuspend.</p>
+
+        Raises:
+            aws_sdk_chime.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime.errors.not_found_exception.NotFoundException: <p>One or more of the resources in the request does not exist in the system.</p>
+            aws_sdk_chime.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime.errors.throttled_client_exception.ThrottledClientException: <p>The client exceeded its request rate limit.</p>
+            aws_sdk_chime.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client is not currently authorized to make the request.</p>
+            aws_sdk_chime.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -527,6 +588,16 @@ class ChimeClient:
 
         Args:
             update_phone_number_request_items: <p>The request containing the phone number IDs and product types or calling names to update.</p>
+
+        Raises:
+            aws_sdk_chime.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime.errors.not_found_exception.NotFoundException: <p>One or more of the resources in the request does not exist in the system.</p>
+            aws_sdk_chime.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime.errors.throttled_client_exception.ThrottledClientException: <p>The client exceeded its request rate limit.</p>
+            aws_sdk_chime.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client is not currently authorized to make the request.</p>
+            aws_sdk_chime.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -566,6 +637,16 @@ class ChimeClient:
         Args:
             account_id: <p>The Amazon Chime account ID.</p>
             update_user_request_items: <p>The request containing the user IDs and details to update.</p>
+
+        Raises:
+            aws_sdk_chime.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime.errors.not_found_exception.NotFoundException: <p>One or more of the resources in the request does not exist in the system.</p>
+            aws_sdk_chime.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime.errors.throttled_client_exception.ThrottledClientException: <p>The client exceeded its request rate limit.</p>
+            aws_sdk_chime.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client is not currently authorized to make the request.</p>
+            aws_sdk_chime.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -604,6 +685,16 @@ class ChimeClient:
 
         Args:
             name: <p>The name of the Amazon Chime account.</p>
+
+        Raises:
+            aws_sdk_chime.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime.errors.not_found_exception.NotFoundException: <p>One or more of the resources in the request does not exist in the system.</p>
+            aws_sdk_chime.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime.errors.throttled_client_exception.ThrottledClientException: <p>The client exceeded its request rate limit.</p>
+            aws_sdk_chime.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client is not currently authorized to make the request.</p>
+            aws_sdk_chime.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -645,6 +736,17 @@ class ChimeClient:
             account_id: <p>The Amazon Chime account ID.</p>
             display_name: <p>The bot display name.</p>
             domain: <p>The domain of the Amazon Chime Enterprise account.</p>
+
+        Raises:
+            aws_sdk_chime.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime.errors.not_found_exception.NotFoundException: <p>One or more of the resources in the request does not exist in the system.</p>
+            aws_sdk_chime.errors.resource_limit_exceeded_exception.ResourceLimitExceededException: <p>The request exceeds the resource limit.</p>
+            aws_sdk_chime.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime.errors.throttled_client_exception.ThrottledClientException: <p>The client exceeded its request rate limit.</p>
+            aws_sdk_chime.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client is not currently authorized to make the request.</p>
+            aws_sdk_chime.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -691,6 +793,17 @@ class ChimeClient:
             from_phone_number: <p>Phone number used as the caller ID when the remote party receives a call.</p>
             to_phone_number: <p>Phone number called when inviting someone to a meeting.</p>
             join_token: <p>Token used by the Amazon Chime SDK attendee. Call the <a href=\"https://docs.aws.amazon.com/chime/latest/APIReference/API_CreateAttendee.html\">CreateAttendee</a> action to get a join token.</p>
+
+        Raises:
+            aws_sdk_chime.errors.access_denied_exception.AccessDeniedException: <p>You don't have permissions to perform the requested operation.</p>
+            aws_sdk_chime.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime.errors.resource_limit_exceeded_exception.ResourceLimitExceededException: <p>The request exceeds the resource limit.</p>
+            aws_sdk_chime.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime.errors.throttled_client_exception.ThrottledClientException: <p>The client exceeded its request rate limit.</p>
+            aws_sdk_chime.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client is not currently authorized to make the request.</p>
+            aws_sdk_chime.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -733,6 +846,17 @@ class ChimeClient:
         Args:
             product_type: <p>The phone number product type.</p>
             e164_phone_numbers: <p>List of phone numbers, in E.164 format.</p>
+
+        Raises:
+            aws_sdk_chime.errors.access_denied_exception.AccessDeniedException: <p>You don't have permissions to perform the requested operation.</p>
+            aws_sdk_chime.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime.errors.resource_limit_exceeded_exception.ResourceLimitExceededException: <p>The request exceeds the resource limit.</p>
+            aws_sdk_chime.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime.errors.throttled_client_exception.ThrottledClientException: <p>The client exceeded its request rate limit.</p>
+            aws_sdk_chime.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client is not currently authorized to make the request.</p>
+            aws_sdk_chime.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -777,6 +901,17 @@ class ChimeClient:
             account_id: <p>The Amazon Chime account ID.</p>
             name: <p>The room name.</p>
             client_request_token: <p>The idempotency token for the request.</p>
+
+        Raises:
+            aws_sdk_chime.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime.errors.not_found_exception.NotFoundException: <p>One or more of the resources in the request does not exist in the system.</p>
+            aws_sdk_chime.errors.resource_limit_exceeded_exception.ResourceLimitExceededException: <p>The request exceeds the resource limit.</p>
+            aws_sdk_chime.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime.errors.throttled_client_exception.ThrottledClientException: <p>The client exceeded its request rate limit.</p>
+            aws_sdk_chime.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client is not currently authorized to make the request.</p>
+            aws_sdk_chime.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -825,6 +960,18 @@ class ChimeClient:
             room_id: <p>The room ID.</p>
             member_id: <p>The Amazon Chime member ID (user ID or bot ID).</p>
             role: <p>The role of the member.</p>
+
+        Raises:
+            aws_sdk_chime.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime.errors.conflict_exception.ConflictException: <p>The request could not be processed because of conflict in the current state of the resource.</p>
+            aws_sdk_chime.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime.errors.not_found_exception.NotFoundException: <p>One or more of the resources in the request does not exist in the system.</p>
+            aws_sdk_chime.errors.resource_limit_exceeded_exception.ResourceLimitExceededException: <p>The request exceeds the resource limit.</p>
+            aws_sdk_chime.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime.errors.throttled_client_exception.ThrottledClientException: <p>The client exceeded its request rate limit.</p>
+            aws_sdk_chime.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client is not currently authorized to make the request.</p>
+            aws_sdk_chime.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -872,6 +1019,17 @@ class ChimeClient:
             username: <p>The user name.</p>
             email: <p>The user's email address.</p>
             user_type: <p>The user type.</p>
+
+        Raises:
+            aws_sdk_chime.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime.errors.conflict_exception.ConflictException: <p>The request could not be processed because of conflict in the current state of the resource.</p>
+            aws_sdk_chime.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime.errors.not_found_exception.NotFoundException: <p>One or more of the resources in the request does not exist in the system.</p>
+            aws_sdk_chime.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime.errors.throttled_client_exception.ThrottledClientException: <p>The client exceeded its request rate limit.</p>
+            aws_sdk_chime.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client is not currently authorized to make the request.</p>
+            aws_sdk_chime.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -915,6 +1073,17 @@ class ChimeClient:
 
         Args:
             account_id: <p>The Amazon Chime account ID.</p>
+
+        Raises:
+            aws_sdk_chime.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime.errors.not_found_exception.NotFoundException: <p>One or more of the resources in the request does not exist in the system.</p>
+            aws_sdk_chime.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime.errors.throttled_client_exception.ThrottledClientException: <p>The client exceeded its request rate limit.</p>
+            aws_sdk_chime.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client is not currently authorized to make the request.</p>
+            aws_sdk_chime.errors.unprocessable_entity_exception.UnprocessableEntityException: <p>The request was well-formed but was unable to be followed due to semantic errors.</p>
+            aws_sdk_chime.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -954,6 +1123,15 @@ class ChimeClient:
         Args:
             account_id: <p>The Amazon Chime account ID.</p>
             bot_id: <p>The bot ID.</p>
+
+        Raises:
+            aws_sdk_chime.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime.errors.resource_limit_exceeded_exception.ResourceLimitExceededException: <p>The request exceeds the resource limit.</p>
+            aws_sdk_chime.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client is not currently authorized to make the request.</p>
+            aws_sdk_chime.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -990,6 +1168,16 @@ class ChimeClient:
 
         Args:
             phone_number_id: <p>The phone number ID.</p>
+
+        Raises:
+            aws_sdk_chime.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime.errors.not_found_exception.NotFoundException: <p>One or more of the resources in the request does not exist in the system.</p>
+            aws_sdk_chime.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime.errors.throttled_client_exception.ThrottledClientException: <p>The client exceeded its request rate limit.</p>
+            aws_sdk_chime.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client is not currently authorized to make the request.</p>
+            aws_sdk_chime.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1027,6 +1215,16 @@ class ChimeClient:
         Args:
             account_id: <p>The Amazon Chime account ID.</p>
             room_id: <p>The chat room ID.</p>
+
+        Raises:
+            aws_sdk_chime.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime.errors.not_found_exception.NotFoundException: <p>One or more of the resources in the request does not exist in the system.</p>
+            aws_sdk_chime.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime.errors.throttled_client_exception.ThrottledClientException: <p>The client exceeded its request rate limit.</p>
+            aws_sdk_chime.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client is not currently authorized to make the request.</p>
+            aws_sdk_chime.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1067,6 +1265,16 @@ class ChimeClient:
             account_id: <p>The Amazon Chime account ID.</p>
             room_id: <p>The room ID.</p>
             member_id: <p>The member ID (user ID or bot ID).</p>
+
+        Raises:
+            aws_sdk_chime.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime.errors.not_found_exception.NotFoundException: <p>One or more of the resources in the request does not exist in the system.</p>
+            aws_sdk_chime.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime.errors.throttled_client_exception.ThrottledClientException: <p>The client exceeded its request rate limit.</p>
+            aws_sdk_chime.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client is not currently authorized to make the request.</p>
+            aws_sdk_chime.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1106,6 +1314,16 @@ class ChimeClient:
         Args:
             account_id: <p>The Amazon Chime account ID.</p>
             user_id: <p>The user ID.</p>
+
+        Raises:
+            aws_sdk_chime.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime.errors.not_found_exception.NotFoundException: <p>One or more of the resources in the request does not exist in the system.</p>
+            aws_sdk_chime.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime.errors.throttled_client_exception.ThrottledClientException: <p>The client exceeded its request rate limit.</p>
+            aws_sdk_chime.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client is not currently authorized to make the request.</p>
+            aws_sdk_chime.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1146,6 +1364,16 @@ class ChimeClient:
         Args:
             account_id: <p>The Amazon Chime account ID.</p>
             group_names: <p>The sign-in delegate group names.</p>
+
+        Raises:
+            aws_sdk_chime.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime.errors.not_found_exception.NotFoundException: <p>One or more of the resources in the request does not exist in the system.</p>
+            aws_sdk_chime.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime.errors.throttled_client_exception.ThrottledClientException: <p>The client exceeded its request rate limit.</p>
+            aws_sdk_chime.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client is not currently authorized to make the request.</p>
+            aws_sdk_chime.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1184,6 +1412,16 @@ class ChimeClient:
 
         Args:
             account_id: <p>The Amazon Chime account ID.</p>
+
+        Raises:
+            aws_sdk_chime.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime.errors.not_found_exception.NotFoundException: <p>One or more of the resources in the request does not exist in the system.</p>
+            aws_sdk_chime.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime.errors.throttled_client_exception.ThrottledClientException: <p>The client exceeded its request rate limit.</p>
+            aws_sdk_chime.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client is not currently authorized to make the request.</p>
+            aws_sdk_chime.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1221,6 +1459,16 @@ class ChimeClient:
 
         Args:
             account_id: <p>The Amazon Chime account ID.</p>
+
+        Raises:
+            aws_sdk_chime.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime.errors.not_found_exception.NotFoundException: <p>One or more of the resources in the request does not exist in the system.</p>
+            aws_sdk_chime.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime.errors.throttled_client_exception.ThrottledClientException: <p>The client exceeded its request rate limit.</p>
+            aws_sdk_chime.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client is not currently authorized to make the request.</p>
+            aws_sdk_chime.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1260,6 +1508,16 @@ class ChimeClient:
         Args:
             account_id: <p>The Amazon Chime account ID.</p>
             bot_id: <p>The bot ID.</p>
+
+        Raises:
+            aws_sdk_chime.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime.errors.not_found_exception.NotFoundException: <p>One or more of the resources in the request does not exist in the system.</p>
+            aws_sdk_chime.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime.errors.throttled_client_exception.ThrottledClientException: <p>The client exceeded its request rate limit.</p>
+            aws_sdk_chime.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client is not currently authorized to make the request.</p>
+            aws_sdk_chime.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1298,6 +1556,16 @@ class ChimeClient:
         Args:
             account_id: <p>The Amazon Chime account ID.</p>
             bot_id: <p>The bot ID.</p>
+
+        Raises:
+            aws_sdk_chime.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime.errors.not_found_exception.NotFoundException: <p>One or more of the resources in the request does not exist in the system.</p>
+            aws_sdk_chime.errors.resource_limit_exceeded_exception.ResourceLimitExceededException: <p>The request exceeds the resource limit.</p>
+            aws_sdk_chime.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client is not currently authorized to make the request.</p>
+            aws_sdk_chime.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1329,7 +1597,17 @@ class ChimeClient:
     def get_global_settings(
         self, *, config_overrides: Optional[ChimeClientConfig] = None
     ) -> "aws_sdk_chime.types.get_global_settings_response.GetGlobalSettingsResponse":
-        """<p>Retrieves global settings for the administrator's AWS account, such as Amazon Chime Business Calling and Amazon Chime Voice Connector settings.</p>"""
+        """<p>Retrieves global settings for the administrator's AWS account, such as Amazon Chime Business Calling and Amazon Chime Voice Connector settings.</p>
+
+        Raises:
+            aws_sdk_chime.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime.errors.throttled_client_exception.ThrottledClientException: <p>The client exceeded its request rate limit.</p>
+            aws_sdk_chime.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client is not currently authorized to make the request.</p>
+            aws_sdk_chime.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[None]",
@@ -1364,6 +1642,16 @@ class ChimeClient:
 
         Args:
             phone_number_id: <p>The phone number ID.</p>
+
+        Raises:
+            aws_sdk_chime.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime.errors.not_found_exception.NotFoundException: <p>One or more of the resources in the request does not exist in the system.</p>
+            aws_sdk_chime.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime.errors.throttled_client_exception.ThrottledClientException: <p>The client exceeded its request rate limit.</p>
+            aws_sdk_chime.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client is not currently authorized to make the request.</p>
+            aws_sdk_chime.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1401,6 +1689,16 @@ class ChimeClient:
 
         Args:
             phone_number_order_id: <p>The ID for the phone number order.</p>
+
+        Raises:
+            aws_sdk_chime.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime.errors.not_found_exception.NotFoundException: <p>One or more of the resources in the request does not exist in the system.</p>
+            aws_sdk_chime.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime.errors.throttled_client_exception.ThrottledClientException: <p>The client exceeded its request rate limit.</p>
+            aws_sdk_chime.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client is not currently authorized to make the request.</p>
+            aws_sdk_chime.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1431,7 +1729,17 @@ class ChimeClient:
     def get_phone_number_settings(
         self, *, config_overrides: Optional[ChimeClientConfig] = None
     ) -> "aws_sdk_chime.types.get_phone_number_settings_response.GetPhoneNumberSettingsResponse":
-        """<p>Retrieves the phone number settings for the administrator's AWS account, such as the default outbound calling name.</p>"""
+        """<p>Retrieves the phone number settings for the administrator's AWS account, such as the default outbound calling name.</p>
+
+        Raises:
+            aws_sdk_chime.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime.errors.throttled_client_exception.ThrottledClientException: <p>The client exceeded its request rate limit.</p>
+            aws_sdk_chime.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client is not currently authorized to make the request.</p>
+            aws_sdk_chime.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[None]",
@@ -1466,6 +1774,16 @@ class ChimeClient:
 
         Args:
             account_id: <p>The Amazon Chime account ID.</p>
+
+        Raises:
+            aws_sdk_chime.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime.errors.not_found_exception.NotFoundException: <p>One or more of the resources in the request does not exist in the system.</p>
+            aws_sdk_chime.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime.errors.throttled_client_exception.ThrottledClientException: <p>The client exceeded its request rate limit.</p>
+            aws_sdk_chime.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client is not currently authorized to make the request.</p>
+            aws_sdk_chime.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1505,6 +1823,16 @@ class ChimeClient:
         Args:
             account_id: <p>The Amazon Chime account ID.</p>
             room_id: <p>The room ID.</p>
+
+        Raises:
+            aws_sdk_chime.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime.errors.not_found_exception.NotFoundException: <p>One or more of the resources in the request does not exist in the system.</p>
+            aws_sdk_chime.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime.errors.throttled_client_exception.ThrottledClientException: <p>The client exceeded its request rate limit.</p>
+            aws_sdk_chime.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client is not currently authorized to make the request.</p>
+            aws_sdk_chime.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1543,6 +1871,16 @@ class ChimeClient:
         Args:
             account_id: <p>The Amazon Chime account ID.</p>
             user_id: <p>The user ID.</p>
+
+        Raises:
+            aws_sdk_chime.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime.errors.not_found_exception.NotFoundException: <p>One or more of the resources in the request does not exist in the system.</p>
+            aws_sdk_chime.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime.errors.throttled_client_exception.ThrottledClientException: <p>The client exceeded its request rate limit.</p>
+            aws_sdk_chime.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client is not currently authorized to make the request.</p>
+            aws_sdk_chime.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1581,6 +1919,16 @@ class ChimeClient:
         Args:
             account_id: <p>The Amazon Chime account ID.</p>
             user_id: <p>The user ID.</p>
+
+        Raises:
+            aws_sdk_chime.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime.errors.not_found_exception.NotFoundException: <p>One or more of the resources in the request does not exist in the system.</p>
+            aws_sdk_chime.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime.errors.throttled_client_exception.ThrottledClientException: <p>The client exceeded its request rate limit.</p>
+            aws_sdk_chime.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client is not currently authorized to make the request.</p>
+            aws_sdk_chime.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1623,6 +1971,16 @@ class ChimeClient:
             account_id: <p>The Amazon Chime account ID.</p>
             user_email_list: <p>The user email addresses to which to send the email invitation.</p>
             user_type: <p>The user type.</p>
+
+        Raises:
+            aws_sdk_chime.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime.errors.not_found_exception.NotFoundException: <p>One or more of the resources in the request does not exist in the system.</p>
+            aws_sdk_chime.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime.errors.throttled_client_exception.ThrottledClientException: <p>The client exceeded its request rate limit.</p>
+            aws_sdk_chime.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client is not currently authorized to make the request.</p>
+            aws_sdk_chime.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1671,6 +2029,16 @@ class ChimeClient:
             user_email: <p>User email address with which to filter results.</p>
             next_token: <p>The token to use to retrieve the next page of results.</p>
             max_results: <p>The maximum number of results to return in a single call. Defaults to 100.</p>
+
+        Raises:
+            aws_sdk_chime.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime.errors.not_found_exception.NotFoundException: <p>One or more of the resources in the request does not exist in the system.</p>
+            aws_sdk_chime.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime.errors.throttled_client_exception.ThrottledClientException: <p>The client exceeded its request rate limit.</p>
+            aws_sdk_chime.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client is not currently authorized to make the request.</p>
+            aws_sdk_chime.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1719,6 +2087,16 @@ class ChimeClient:
             account_id: <p>The Amazon Chime account ID.</p>
             max_results: <p>The maximum number of results to return in a single call. The default is 10.</p>
             next_token: <p>The token to use to retrieve the next page of results.</p>
+
+        Raises:
+            aws_sdk_chime.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime.errors.not_found_exception.NotFoundException: <p>One or more of the resources in the request does not exist in the system.</p>
+            aws_sdk_chime.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime.errors.throttled_client_exception.ThrottledClientException: <p>The client exceeded its request rate limit.</p>
+            aws_sdk_chime.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client is not currently authorized to make the request.</p>
+            aws_sdk_chime.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1762,6 +2140,15 @@ class ChimeClient:
         Args:
             next_token: <p>The token to use to retrieve the next page of results.</p>
             max_results: <p>The maximum number of results to return in a single call.</p>
+
+        Raises:
+            aws_sdk_chime.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime.errors.throttled_client_exception.ThrottledClientException: <p>The client exceeded its request rate limit.</p>
+            aws_sdk_chime.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client is not currently authorized to make the request.</p>
+            aws_sdk_chime.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1818,6 +2205,16 @@ class ChimeClient:
             filter_value: <p>The value to use for the filter.</p>
             max_results: <p>The maximum number of results to return in a single call.</p>
             next_token: <p>The token to use to retrieve the next page of results.</p>
+
+        Raises:
+            aws_sdk_chime.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime.errors.not_found_exception.NotFoundException: <p>One or more of the resources in the request does not exist in the system.</p>
+            aws_sdk_chime.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime.errors.throttled_client_exception.ThrottledClientException: <p>The client exceeded its request rate limit.</p>
+            aws_sdk_chime.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client is not currently authorized to make the request.</p>
+            aws_sdk_chime.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1874,6 +2271,16 @@ class ChimeClient:
             room_id: <p>The room ID.</p>
             max_results: <p>The maximum number of results to return in a single call.</p>
             next_token: <p>The token to use to retrieve the next page of results.</p>
+
+        Raises:
+            aws_sdk_chime.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime.errors.not_found_exception.NotFoundException: <p>One or more of the resources in the request does not exist in the system.</p>
+            aws_sdk_chime.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime.errors.throttled_client_exception.ThrottledClientException: <p>The client exceeded its request rate limit.</p>
+            aws_sdk_chime.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client is not currently authorized to make the request.</p>
+            aws_sdk_chime.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1922,6 +2329,16 @@ class ChimeClient:
             member_id: <p>The member ID (user ID or bot ID).</p>
             max_results: <p>The maximum number of results to return in a single call.</p>
             next_token: <p>The token to use to retrieve the next page of results.</p>
+
+        Raises:
+            aws_sdk_chime.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime.errors.not_found_exception.NotFoundException: <p>One or more of the resources in the request does not exist in the system.</p>
+            aws_sdk_chime.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime.errors.throttled_client_exception.ThrottledClientException: <p>The client exceeded its request rate limit.</p>
+            aws_sdk_chime.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client is not currently authorized to make the request.</p>
+            aws_sdk_chime.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1965,6 +2382,16 @@ class ChimeClient:
 
         Args:
             product_type: <p>The phone number product type.</p>
+
+        Raises:
+            aws_sdk_chime.errors.access_denied_exception.AccessDeniedException: <p>You don't have permissions to perform the requested operation.</p>
+            aws_sdk_chime.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime.errors.throttled_client_exception.ThrottledClientException: <p>The client exceeded its request rate limit.</p>
+            aws_sdk_chime.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client is not currently authorized to make the request.</p>
+            aws_sdk_chime.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2012,6 +2439,16 @@ class ChimeClient:
             user_type: <p>The user type.</p>
             max_results: <p>The maximum number of results to return in a single call. Defaults to 100.</p>
             next_token: <p>The token to use to retrieve the next page of results.</p>
+
+        Raises:
+            aws_sdk_chime.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime.errors.not_found_exception.NotFoundException: <p>One or more of the resources in the request does not exist in the system.</p>
+            aws_sdk_chime.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime.errors.throttled_client_exception.ThrottledClientException: <p>The client exceeded its request rate limit.</p>
+            aws_sdk_chime.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client is not currently authorized to make the request.</p>
+            aws_sdk_chime.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2059,6 +2496,16 @@ class ChimeClient:
         Args:
             account_id: <p>The Amazon Chime account ID.</p>
             user_id: <p>The user ID.</p>
+
+        Raises:
+            aws_sdk_chime.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime.errors.not_found_exception.NotFoundException: <p>One or more of the resources in the request does not exist in the system.</p>
+            aws_sdk_chime.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime.errors.throttled_client_exception.ThrottledClientException: <p>The client exceeded its request rate limit.</p>
+            aws_sdk_chime.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client is not currently authorized to make the request.</p>
+            aws_sdk_chime.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2107,6 +2554,16 @@ class ChimeClient:
             bot_id: <p>The bot ID.</p>
             outbound_events_https_endpoint: <p>HTTPS endpoint that allows the bot to receive outgoing events.</p>
             lambda_function_arn: <p>Lambda function ARN that allows the bot to receive outgoing events.</p>
+
+        Raises:
+            aws_sdk_chime.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime.errors.not_found_exception.NotFoundException: <p>One or more of the resources in the request does not exist in the system.</p>
+            aws_sdk_chime.errors.resource_limit_exceeded_exception.ResourceLimitExceededException: <p>The request exceeds the resource limit.</p>
+            aws_sdk_chime.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client is not currently authorized to make the request.</p>
+            aws_sdk_chime.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2151,6 +2608,17 @@ class ChimeClient:
         Args:
             account_id: <p>The Amazon Chime account ID.</p>
             retention_settings: <p>The retention settings.</p>
+
+        Raises:
+            aws_sdk_chime.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime.errors.conflict_exception.ConflictException: <p>The request could not be processed because of conflict in the current state of the resource.</p>
+            aws_sdk_chime.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime.errors.not_found_exception.NotFoundException: <p>One or more of the resources in the request does not exist in the system.</p>
+            aws_sdk_chime.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime.errors.throttled_client_exception.ThrottledClientException: <p>The client exceeded its request rate limit.</p>
+            aws_sdk_chime.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client is not currently authorized to make the request.</p>
+            aws_sdk_chime.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2193,6 +2661,16 @@ class ChimeClient:
             account_id: <p>The Amazon Chime account ID.</p>
             conversation_id: <p>The conversation ID.</p>
             message_id: <p>The message ID.</p>
+
+        Raises:
+            aws_sdk_chime.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime.errors.not_found_exception.NotFoundException: <p>One or more of the resources in the request does not exist in the system.</p>
+            aws_sdk_chime.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime.errors.throttled_client_exception.ThrottledClientException: <p>The client exceeded its request rate limit.</p>
+            aws_sdk_chime.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client is not currently authorized to make the request.</p>
+            aws_sdk_chime.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2236,6 +2714,16 @@ class ChimeClient:
             account_id: <p>The Amazon Chime account ID.</p>
             room_id: <p>The room ID.</p>
             message_id: <p>The message ID.</p>
+
+        Raises:
+            aws_sdk_chime.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime.errors.not_found_exception.NotFoundException: <p>One or more of the resources in the request does not exist in the system.</p>
+            aws_sdk_chime.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime.errors.throttled_client_exception.ThrottledClientException: <p>The client exceeded its request rate limit.</p>
+            aws_sdk_chime.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client is not currently authorized to make the request.</p>
+            aws_sdk_chime.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2277,6 +2765,16 @@ class ChimeClient:
         Args:
             account_id: <p>The Amazon Chime account ID.</p>
             bot_id: <p>The bot ID.</p>
+
+        Raises:
+            aws_sdk_chime.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime.errors.not_found_exception.NotFoundException: <p>One or more of the resources in the request does not exist in the system.</p>
+            aws_sdk_chime.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime.errors.throttled_client_exception.ThrottledClientException: <p>The client exceeded its request rate limit.</p>
+            aws_sdk_chime.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client is not currently authorized to make the request.</p>
+            aws_sdk_chime.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2317,6 +2815,16 @@ class ChimeClient:
         Args:
             account_id: <p>The Amazon Chime account ID.</p>
             user_id: <p>The user ID.</p>
+
+        Raises:
+            aws_sdk_chime.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime.errors.not_found_exception.NotFoundException: <p>One or more of the resources in the request does not exist in the system.</p>
+            aws_sdk_chime.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime.errors.throttled_client_exception.ThrottledClientException: <p>The client exceeded its request rate limit.</p>
+            aws_sdk_chime.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client is not currently authorized to make the request.</p>
+            aws_sdk_chime.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2355,6 +2863,17 @@ class ChimeClient:
 
         Args:
             phone_number_id: <p>The phone number.</p>
+
+        Raises:
+            aws_sdk_chime.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime.errors.not_found_exception.NotFoundException: <p>One or more of the resources in the request does not exist in the system.</p>
+            aws_sdk_chime.errors.resource_limit_exceeded_exception.ResourceLimitExceededException: <p>The request exceeds the resource limit.</p>
+            aws_sdk_chime.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime.errors.throttled_client_exception.ThrottledClientException: <p>The client exceeded its request rate limit.</p>
+            aws_sdk_chime.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client is not currently authorized to make the request.</p>
+            aws_sdk_chime.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2414,6 +2933,16 @@ class ChimeClient:
             phone_number_type: <p>The phone number type used to filter results. Required for non-US numbers.</p>
             max_results: <p>The maximum number of results to return in a single call.</p>
             next_token: <p>The token used to retrieve the next page of results.</p>
+
+        Raises:
+            aws_sdk_chime.errors.access_denied_exception.AccessDeniedException: <p>You don't have permissions to perform the requested operation.</p>
+            aws_sdk_chime.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime.errors.throttled_client_exception.ThrottledClientException: <p>The client exceeded its request rate limit.</p>
+            aws_sdk_chime.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client is not currently authorized to make the request.</p>
+            aws_sdk_chime.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2470,6 +2999,16 @@ class ChimeClient:
             account_id: <p>The Amazon Chime account ID.</p>
             name: <p>The new name for the specified Amazon Chime account.</p>
             default_license: <p>The default license applied when you add users to an Amazon Chime account.</p>
+
+        Raises:
+            aws_sdk_chime.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime.errors.not_found_exception.NotFoundException: <p>One or more of the resources in the request does not exist in the system.</p>
+            aws_sdk_chime.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime.errors.throttled_client_exception.ThrottledClientException: <p>The client exceeded its request rate limit.</p>
+            aws_sdk_chime.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client is not currently authorized to make the request.</p>
+            aws_sdk_chime.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2513,6 +3052,17 @@ class ChimeClient:
         Args:
             account_id: <p>The Amazon Chime account ID.</p>
             account_settings: <p>The Amazon Chime account settings to update.</p>
+
+        Raises:
+            aws_sdk_chime.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime.errors.conflict_exception.ConflictException: <p>The request could not be processed because of conflict in the current state of the resource.</p>
+            aws_sdk_chime.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime.errors.not_found_exception.NotFoundException: <p>One or more of the resources in the request does not exist in the system.</p>
+            aws_sdk_chime.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime.errors.throttled_client_exception.ThrottledClientException: <p>The client exceeded its request rate limit.</p>
+            aws_sdk_chime.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client is not currently authorized to make the request.</p>
+            aws_sdk_chime.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2557,6 +3107,16 @@ class ChimeClient:
             account_id: <p>The Amazon Chime account ID.</p>
             bot_id: <p>The bot ID.</p>
             disabled: <p>When true, stops the specified bot from running in your account.</p>
+
+        Raises:
+            aws_sdk_chime.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime.errors.not_found_exception.NotFoundException: <p>One or more of the resources in the request does not exist in the system.</p>
+            aws_sdk_chime.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime.errors.throttled_client_exception.ThrottledClientException: <p>The client exceeded its request rate limit.</p>
+            aws_sdk_chime.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client is not currently authorized to make the request.</p>
+            aws_sdk_chime.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2603,6 +3163,15 @@ class ChimeClient:
         Args:
             business_calling: <p>The Amazon Chime Business Calling settings.</p>
             voice_connector: <p>The Amazon Chime Voice Connector settings.</p>
+
+        Raises:
+            aws_sdk_chime.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime.errors.throttled_client_exception.ThrottledClientException: <p>The client exceeded its request rate limit.</p>
+            aws_sdk_chime.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client is not currently authorized to make the request.</p>
+            aws_sdk_chime.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2647,6 +3216,17 @@ class ChimeClient:
             phone_number_id: <p>The phone number ID.</p>
             product_type: <p>The product type.</p>
             calling_name: <p>The outbound calling name associated with the phone number.</p>
+
+        Raises:
+            aws_sdk_chime.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime.errors.conflict_exception.ConflictException: <p>The request could not be processed because of conflict in the current state of the resource.</p>
+            aws_sdk_chime.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime.errors.not_found_exception.NotFoundException: <p>One or more of the resources in the request does not exist in the system.</p>
+            aws_sdk_chime.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime.errors.throttled_client_exception.ThrottledClientException: <p>The client exceeded its request rate limit.</p>
+            aws_sdk_chime.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client is not currently authorized to make the request.</p>
+            aws_sdk_chime.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2688,6 +3268,15 @@ class ChimeClient:
 
         Args:
             calling_name: <p>The default outbound calling name for the account.</p>
+
+        Raises:
+            aws_sdk_chime.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime.errors.throttled_client_exception.ThrottledClientException: <p>The client exceeded its request rate limit.</p>
+            aws_sdk_chime.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client is not currently authorized to make the request.</p>
+            aws_sdk_chime.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2727,6 +3316,16 @@ class ChimeClient:
             account_id: <p>The Amazon Chime account ID.</p>
             room_id: <p>The room ID.</p>
             name: <p>The room name.</p>
+
+        Raises:
+            aws_sdk_chime.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime.errors.not_found_exception.NotFoundException: <p>One or more of the resources in the request does not exist in the system.</p>
+            aws_sdk_chime.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime.errors.throttled_client_exception.ThrottledClientException: <p>The client exceeded its request rate limit.</p>
+            aws_sdk_chime.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client is not currently authorized to make the request.</p>
+            aws_sdk_chime.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2775,6 +3374,16 @@ class ChimeClient:
             room_id: <p>The room ID.</p>
             member_id: <p>The member ID.</p>
             role: <p>The role of the member.</p>
+
+        Raises:
+            aws_sdk_chime.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime.errors.not_found_exception.NotFoundException: <p>One or more of the resources in the request does not exist in the system.</p>
+            aws_sdk_chime.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime.errors.throttled_client_exception.ThrottledClientException: <p>The client exceeded its request rate limit.</p>
+            aws_sdk_chime.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client is not currently authorized to make the request.</p>
+            aws_sdk_chime.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2826,6 +3435,16 @@ class ChimeClient:
             license_type: <p>The user license type to update. This must be a supported license type for the Amazon Chime account that the user belongs to.</p>
             user_type: <p>The user type.</p>
             alexa_for_business_metadata: <p>The Alexa for Business metadata.</p>
+
+        Raises:
+            aws_sdk_chime.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime.errors.not_found_exception.NotFoundException: <p>One or more of the resources in the request does not exist in the system.</p>
+            aws_sdk_chime.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime.errors.throttled_client_exception.ThrottledClientException: <p>The client exceeded its request rate limit.</p>
+            aws_sdk_chime.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client is not currently authorized to make the request.</p>
+            aws_sdk_chime.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2874,6 +3493,16 @@ class ChimeClient:
             account_id: <p>The Amazon Chime account ID.</p>
             user_id: <p>The user ID.</p>
             user_settings: <p>The user settings to update.</p>
+
+        Raises:
+            aws_sdk_chime.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime.errors.not_found_exception.NotFoundException: <p>One or more of the resources in the request does not exist in the system.</p>
+            aws_sdk_chime.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime.errors.throttled_client_exception.ThrottledClientException: <p>The client exceeded its request rate limit.</p>
+            aws_sdk_chime.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client is not currently authorized to make the request.</p>
+            aws_sdk_chime.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(

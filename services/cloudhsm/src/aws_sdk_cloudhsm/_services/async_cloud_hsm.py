@@ -198,6 +198,12 @@ class AsyncCloudHSMClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the AWS CloudHSM resource to tag.</p>
             tag_list: <p>One or more tags.</p>
+
+        Raises:
+            aws_sdk_cloudhsm.errors.cloud_hsm_internal_exception.CloudHsmInternalException: <p>Indicates that an internal error occurred.</p>
+            aws_sdk_cloudhsm.errors.cloud_hsm_service_exception.CloudHsmServiceException: <p>Indicates that an exception occurred in the AWS CloudHSM service.</p>
+            aws_sdk_cloudhsm.errors.invalid_request_exception.InvalidRequestException: <p>Indicates that one or more of the request parameters are not valid.</p>
+            aws_sdk_cloudhsm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -237,6 +243,12 @@ class AsyncCloudHSMClient:
 
         Args:
             label: <p>The label of the new high-availability partition group.</p>
+
+        Raises:
+            aws_sdk_cloudhsm.errors.cloud_hsm_internal_exception.CloudHsmInternalException: <p>Indicates that an internal error occurred.</p>
+            aws_sdk_cloudhsm.errors.cloud_hsm_service_exception.CloudHsmServiceException: <p>Indicates that an exception occurred in the AWS CloudHSM service.</p>
+            aws_sdk_cloudhsm.errors.invalid_request_exception.InvalidRequestException: <p>Indicates that one or more of the request parameters are not valid.</p>
+            aws_sdk_cloudhsm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -290,6 +302,12 @@ class AsyncCloudHSMClient:
             external_id: <p>The external ID from <code>IamRoleArn</code>, if present.</p>
             client_token: <p>A user-defined token to ensure idempotence. Subsequent calls to this operation with the same token will be ignored.</p>
             syslog_ip: <p>The IP address for the syslog monitoring server. The AWS CloudHSM service only supports one syslog monitoring server.</p>
+
+        Raises:
+            aws_sdk_cloudhsm.errors.cloud_hsm_internal_exception.CloudHsmInternalException: <p>Indicates that an internal error occurred.</p>
+            aws_sdk_cloudhsm.errors.cloud_hsm_service_exception.CloudHsmServiceException: <p>Indicates that an exception occurred in the AWS CloudHSM service.</p>
+            aws_sdk_cloudhsm.errors.invalid_request_exception.InvalidRequestException: <p>Indicates that one or more of the request parameters are not valid.</p>
+            aws_sdk_cloudhsm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -341,6 +359,12 @@ class AsyncCloudHSMClient:
         Args:
             label: <p>The label for the client.</p>
             certificate: <p>The contents of a Base64-Encoded X.509 v3 certificate to be installed on the HSMs used by this client.</p>
+
+        Raises:
+            aws_sdk_cloudhsm.errors.cloud_hsm_internal_exception.CloudHsmInternalException: <p>Indicates that an internal error occurred.</p>
+            aws_sdk_cloudhsm.errors.cloud_hsm_service_exception.CloudHsmServiceException: <p>Indicates that an exception occurred in the AWS CloudHSM service.</p>
+            aws_sdk_cloudhsm.errors.invalid_request_exception.InvalidRequestException: <p>Indicates that one or more of the request parameters are not valid.</p>
+            aws_sdk_cloudhsm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -381,6 +405,12 @@ class AsyncCloudHSMClient:
 
         Args:
             hapg_arn: <p>The ARN of the high-availability partition group to delete.</p>
+
+        Raises:
+            aws_sdk_cloudhsm.errors.cloud_hsm_internal_exception.CloudHsmInternalException: <p>Indicates that an internal error occurred.</p>
+            aws_sdk_cloudhsm.errors.cloud_hsm_service_exception.CloudHsmServiceException: <p>Indicates that an exception occurred in the AWS CloudHSM service.</p>
+            aws_sdk_cloudhsm.errors.invalid_request_exception.InvalidRequestException: <p>Indicates that one or more of the request parameters are not valid.</p>
+            aws_sdk_cloudhsm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -419,6 +449,12 @@ class AsyncCloudHSMClient:
 
         Args:
             hsm_arn: <p>The ARN of the HSM to delete.</p>
+
+        Raises:
+            aws_sdk_cloudhsm.errors.cloud_hsm_internal_exception.CloudHsmInternalException: <p>Indicates that an internal error occurred.</p>
+            aws_sdk_cloudhsm.errors.cloud_hsm_service_exception.CloudHsmServiceException: <p>Indicates that an exception occurred in the AWS CloudHSM service.</p>
+            aws_sdk_cloudhsm.errors.invalid_request_exception.InvalidRequestException: <p>Indicates that one or more of the request parameters are not valid.</p>
+            aws_sdk_cloudhsm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -457,6 +493,12 @@ class AsyncCloudHSMClient:
 
         Args:
             client_arn: <p>The ARN of the client to delete.</p>
+
+        Raises:
+            aws_sdk_cloudhsm.errors.cloud_hsm_internal_exception.CloudHsmInternalException: <p>Indicates that an internal error occurred.</p>
+            aws_sdk_cloudhsm.errors.cloud_hsm_service_exception.CloudHsmServiceException: <p>Indicates that an exception occurred in the AWS CloudHSM service.</p>
+            aws_sdk_cloudhsm.errors.invalid_request_exception.InvalidRequestException: <p>Indicates that one or more of the request parameters are not valid.</p>
+            aws_sdk_cloudhsm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -495,6 +537,12 @@ class AsyncCloudHSMClient:
 
         Args:
             hapg_arn: <p>The ARN of the high-availability partition group to describe.</p>
+
+        Raises:
+            aws_sdk_cloudhsm.errors.cloud_hsm_internal_exception.CloudHsmInternalException: <p>Indicates that an internal error occurred.</p>
+            aws_sdk_cloudhsm.errors.cloud_hsm_service_exception.CloudHsmServiceException: <p>Indicates that an exception occurred in the AWS CloudHSM service.</p>
+            aws_sdk_cloudhsm.errors.invalid_request_exception.InvalidRequestException: <p>Indicates that one or more of the request parameters are not valid.</p>
+            aws_sdk_cloudhsm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -537,6 +585,12 @@ class AsyncCloudHSMClient:
         Args:
             hsm_arn: <p>The ARN of the HSM. Either the <code>HsmArn</code> or the <code>SerialNumber</code> parameter must be specified.</p>
             hsm_serial_number: <p>The serial number of the HSM. Either the <code>HsmArn</code> or the <code>HsmSerialNumber</code> parameter must be specified.</p>
+
+        Raises:
+            aws_sdk_cloudhsm.errors.cloud_hsm_internal_exception.CloudHsmInternalException: <p>Indicates that an internal error occurred.</p>
+            aws_sdk_cloudhsm.errors.cloud_hsm_service_exception.CloudHsmServiceException: <p>Indicates that an exception occurred in the AWS CloudHSM service.</p>
+            aws_sdk_cloudhsm.errors.invalid_request_exception.InvalidRequestException: <p>Indicates that one or more of the request parameters are not valid.</p>
+            aws_sdk_cloudhsm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -582,6 +636,12 @@ class AsyncCloudHSMClient:
         Args:
             client_arn: <p>The ARN of the client.</p>
             certificate_fingerprint: <p>The certificate fingerprint.</p>
+
+        Raises:
+            aws_sdk_cloudhsm.errors.cloud_hsm_internal_exception.CloudHsmInternalException: <p>Indicates that an internal error occurred.</p>
+            aws_sdk_cloudhsm.errors.cloud_hsm_service_exception.CloudHsmServiceException: <p>Indicates that an exception occurred in the AWS CloudHSM service.</p>
+            aws_sdk_cloudhsm.errors.invalid_request_exception.InvalidRequestException: <p>Indicates that one or more of the request parameters are not valid.</p>
+            aws_sdk_cloudhsm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -627,6 +687,12 @@ class AsyncCloudHSMClient:
             client_arn: <p>The ARN of the client.</p>
             client_version: <p>The client version.</p>
             hapg_list: <p>A list of ARNs that identify the high-availability partition groups that are associated with the client.</p>
+
+        Raises:
+            aws_sdk_cloudhsm.errors.cloud_hsm_internal_exception.CloudHsmInternalException: <p>Indicates that an internal error occurred.</p>
+            aws_sdk_cloudhsm.errors.cloud_hsm_service_exception.CloudHsmServiceException: <p>Indicates that an exception occurred in the AWS CloudHSM service.</p>
+            aws_sdk_cloudhsm.errors.invalid_request_exception.InvalidRequestException: <p>Indicates that one or more of the request parameters are not valid.</p>
+            aws_sdk_cloudhsm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -660,7 +726,14 @@ class AsyncCloudHSMClient:
     async def list_available_zones(
         self, *, config_overrides: Optional[AsyncCloudHSMClientConfig] = None
     ) -> "aws_sdk_cloudhsm.types.list_available_zones_response.ListAvailableZonesResponse":
-        r"""<p>This is documentation for <b>AWS CloudHSM Classic</b>. For more information, see <a href=\"http://aws.amazon.com/cloudhsm/faqs-classic/\">AWS CloudHSM Classic FAQs</a>, the <a href=\"https://docs.aws.amazon.com/cloudhsm/classic/userguide/\">AWS CloudHSM Classic User Guide</a>, and the <a href=\"https://docs.aws.amazon.com/cloudhsm/classic/APIReference/\">AWS CloudHSM Classic API Reference</a>.</p> <p> <b>For information about the current version of AWS CloudHSM</b>, see <a href=\"http://aws.amazon.com/cloudhsm/\">AWS CloudHSM</a>, the <a href=\"https://docs.aws.amazon.com/cloudhsm/latest/userguide/\">AWS CloudHSM User Guide</a>, and the <a href=\"https://docs.aws.amazon.com/cloudhsm/latest/APIReference/\">AWS CloudHSM API Reference</a>.</p> <p>Lists the Availability Zones that have available AWS CloudHSM capacity.</p>"""
+        r"""<p>This is documentation for <b>AWS CloudHSM Classic</b>. For more information, see <a href=\"http://aws.amazon.com/cloudhsm/faqs-classic/\">AWS CloudHSM Classic FAQs</a>, the <a href=\"https://docs.aws.amazon.com/cloudhsm/classic/userguide/\">AWS CloudHSM Classic User Guide</a>, and the <a href=\"https://docs.aws.amazon.com/cloudhsm/classic/APIReference/\">AWS CloudHSM Classic API Reference</a>.</p> <p> <b>For information about the current version of AWS CloudHSM</b>, see <a href=\"http://aws.amazon.com/cloudhsm/\">AWS CloudHSM</a>, the <a href=\"https://docs.aws.amazon.com/cloudhsm/latest/userguide/\">AWS CloudHSM User Guide</a>, and the <a href=\"https://docs.aws.amazon.com/cloudhsm/latest/APIReference/\">AWS CloudHSM API Reference</a>.</p> <p>Lists the Availability Zones that have available AWS CloudHSM capacity.</p>
+
+        Raises:
+            aws_sdk_cloudhsm.errors.cloud_hsm_internal_exception.CloudHsmInternalException: <p>Indicates that an internal error occurred.</p>
+            aws_sdk_cloudhsm.errors.cloud_hsm_service_exception.CloudHsmServiceException: <p>Indicates that an exception occurred in the AWS CloudHSM service.</p>
+            aws_sdk_cloudhsm.errors.invalid_request_exception.InvalidRequestException: <p>Indicates that one or more of the request parameters are not valid.</p>
+            aws_sdk_cloudhsm.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_cloudhsm.types.list_available_zones_request.ListAvailableZonesRequest]",
@@ -699,6 +772,12 @@ class AsyncCloudHSMClient:
 
         Args:
             next_token: <p>The <code>NextToken</code> value from a previous call to <code>ListHapgs</code>. Pass null if this is the first call.</p>
+
+        Raises:
+            aws_sdk_cloudhsm.errors.cloud_hsm_internal_exception.CloudHsmInternalException: <p>Indicates that an internal error occurred.</p>
+            aws_sdk_cloudhsm.errors.cloud_hsm_service_exception.CloudHsmServiceException: <p>Indicates that an exception occurred in the AWS CloudHSM service.</p>
+            aws_sdk_cloudhsm.errors.invalid_request_exception.InvalidRequestException: <p>Indicates that one or more of the request parameters are not valid.</p>
+            aws_sdk_cloudhsm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -740,6 +819,12 @@ class AsyncCloudHSMClient:
 
         Args:
             next_token: <p>The <code>NextToken</code> value from a previous call to <code>ListHsms</code>. Pass null if this is the first call.</p>
+
+        Raises:
+            aws_sdk_cloudhsm.errors.cloud_hsm_internal_exception.CloudHsmInternalException: <p>Indicates that an internal error occurred.</p>
+            aws_sdk_cloudhsm.errors.cloud_hsm_service_exception.CloudHsmServiceException: <p>Indicates that an exception occurred in the AWS CloudHSM service.</p>
+            aws_sdk_cloudhsm.errors.invalid_request_exception.InvalidRequestException: <p>Indicates that one or more of the request parameters are not valid.</p>
+            aws_sdk_cloudhsm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -781,6 +866,12 @@ class AsyncCloudHSMClient:
 
         Args:
             next_token: <p>The <code>NextToken</code> value from a previous call to <code>ListLunaClients</code>. Pass null if this is the first call.</p>
+
+        Raises:
+            aws_sdk_cloudhsm.errors.cloud_hsm_internal_exception.CloudHsmInternalException: <p>Indicates that an internal error occurred.</p>
+            aws_sdk_cloudhsm.errors.cloud_hsm_service_exception.CloudHsmServiceException: <p>Indicates that an exception occurred in the AWS CloudHSM service.</p>
+            aws_sdk_cloudhsm.errors.invalid_request_exception.InvalidRequestException: <p>Indicates that one or more of the request parameters are not valid.</p>
+            aws_sdk_cloudhsm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -820,6 +911,12 @@ class AsyncCloudHSMClient:
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the AWS CloudHSM resource.</p>
+
+        Raises:
+            aws_sdk_cloudhsm.errors.cloud_hsm_internal_exception.CloudHsmInternalException: <p>Indicates that an internal error occurred.</p>
+            aws_sdk_cloudhsm.errors.cloud_hsm_service_exception.CloudHsmServiceException: <p>Indicates that an exception occurred in the AWS CloudHSM service.</p>
+            aws_sdk_cloudhsm.errors.invalid_request_exception.InvalidRequestException: <p>Indicates that one or more of the request parameters are not valid.</p>
+            aws_sdk_cloudhsm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -864,6 +961,12 @@ class AsyncCloudHSMClient:
             hapg_arn: <p>The ARN of the high-availability partition group to modify.</p>
             label: <p>The new label for the high-availability partition group.</p>
             partition_serial_list: <p>The list of partition serial numbers to make members of the high-availability partition group.</p>
+
+        Raises:
+            aws_sdk_cloudhsm.errors.cloud_hsm_internal_exception.CloudHsmInternalException: <p>Indicates that an internal error occurred.</p>
+            aws_sdk_cloudhsm.errors.cloud_hsm_service_exception.CloudHsmServiceException: <p>Indicates that an exception occurred in the AWS CloudHSM service.</p>
+            aws_sdk_cloudhsm.errors.invalid_request_exception.InvalidRequestException: <p>Indicates that one or more of the request parameters are not valid.</p>
+            aws_sdk_cloudhsm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -916,6 +1019,12 @@ class AsyncCloudHSMClient:
             iam_role_arn: <p>The new IAM role ARN.</p>
             external_id: <p>The new external ID.</p>
             syslog_ip: <p>The new IP address for the syslog monitoring server. The AWS CloudHSM service only supports one syslog monitoring server.</p>
+
+        Raises:
+            aws_sdk_cloudhsm.errors.cloud_hsm_internal_exception.CloudHsmInternalException: <p>Indicates that an internal error occurred.</p>
+            aws_sdk_cloudhsm.errors.cloud_hsm_service_exception.CloudHsmServiceException: <p>Indicates that an exception occurred in the AWS CloudHSM service.</p>
+            aws_sdk_cloudhsm.errors.invalid_request_exception.InvalidRequestException: <p>Indicates that one or more of the request parameters are not valid.</p>
+            aws_sdk_cloudhsm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -966,6 +1075,10 @@ class AsyncCloudHSMClient:
         Args:
             client_arn: <p>The ARN of the client.</p>
             certificate: <p>The new certificate for the client.</p>
+
+        Raises:
+            aws_sdk_cloudhsm.errors.cloud_hsm_service_exception.CloudHsmServiceException: <p>Indicates that an exception occurred in the AWS CloudHSM service.</p>
+            aws_sdk_cloudhsm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1007,6 +1120,12 @@ class AsyncCloudHSMClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the AWS CloudHSM resource.</p>
             tag_key_list: <p>The tag key or keys to remove.</p> <p>Specify only the tag key to remove (not the value). To overwrite the value for an existing tag, use <a>AddTagsToResource</a>.</p>
+
+        Raises:
+            aws_sdk_cloudhsm.errors.cloud_hsm_internal_exception.CloudHsmInternalException: <p>Indicates that an internal error occurred.</p>
+            aws_sdk_cloudhsm.errors.cloud_hsm_service_exception.CloudHsmServiceException: <p>Indicates that an exception occurred in the AWS CloudHSM service.</p>
+            aws_sdk_cloudhsm.errors.invalid_request_exception.InvalidRequestException: <p>Indicates that one or more of the request parameters are not valid.</p>
+            aws_sdk_cloudhsm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

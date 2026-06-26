@@ -202,6 +202,13 @@ class ivschatClient:
             capabilities: <p>Set of capabilities that the user is allowed to perform in the room. Default: None (the capability to view messages is implicitly included in all requests).</p>
             session_duration_in_minutes: <p>Session duration (in minutes), after which the session expires. Default: 60 (1 hour).</p>
             attributes: <p>Application-provided attributes to encode into the token and attach to a chat session. Map keys and values can contain UTF-8 encoded text. The maximum length of this field is 1 KB total.</p>
+
+        Raises:
+            aws_sdk_ivschat.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_ivschat.errors.pending_verification.PendingVerification: <p/>
+            aws_sdk_ivschat.errors.resource_not_found_exception.ResourceNotFoundException: <p/>
+            aws_sdk_ivschat.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_ivschat.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -252,6 +259,15 @@ class ivschatClient:
             name: <p>Logging-configuration name. The value does not need to be unique.</p>
             destination_configuration: <p>A complex type that contains a destination configuration for where chat content will be logged. There can be only one type of destination (<code>cloudWatchLogs</code>, <code>firehose</code>, or <code>s3</code>) in a <code>destinationConfiguration</code>.</p>
             tags: <p>Tags to attach to the resource. Array of maps, each of the form <code>string:string (key:value)</code>. See <a href=\"https://docs.aws.amazon.com/tag-editor/latest/userguide/best-practices-and-strats.html\">Best practices and strategies</a> in <i>Tagging Amazon Web Services Resources and Tag Editor</i> for details, including restrictions that apply to tags and \"Tag naming limits and requirements\"; Amazon IVS Chat has no constraints on tags beyond what is documented there.</p>
+
+        Raises:
+            aws_sdk_ivschat.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_ivschat.errors.conflict_exception.ConflictException: <p/>
+            aws_sdk_ivschat.errors.pending_verification.PendingVerification: <p/>
+            aws_sdk_ivschat.errors.resource_not_found_exception.ResourceNotFoundException: <p/>
+            aws_sdk_ivschat.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p/>
+            aws_sdk_ivschat.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_ivschat.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -311,6 +327,15 @@ class ivschatClient:
             message_review_handler: <p>Configuration information for optional review of messages.</p>
             tags: <p>Tags to attach to the resource. Array of maps, each of the form <code>string:string (key:value)</code>. See <a href=\"https://docs.aws.amazon.com/tag-editor/latest/userguide/best-practices-and-strats.html\">Best practices and strategies</a> in <i>Tagging Amazon Web Services Resources and Tag Editor</i> for details, including restrictions that apply to tags and \"Tag naming limits and requirements\"; Amazon IVS Chat has no constraints beyond what is documented there.</p>
             logging_configuration_identifiers: <p>Array of logging-configuration identifiers attached to the room.</p>
+
+        Raises:
+            aws_sdk_ivschat.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_ivschat.errors.conflict_exception.ConflictException: <p/>
+            aws_sdk_ivschat.errors.pending_verification.PendingVerification: <p/>
+            aws_sdk_ivschat.errors.resource_not_found_exception.ResourceNotFoundException: <p/>
+            aws_sdk_ivschat.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p/>
+            aws_sdk_ivschat.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_ivschat.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -361,6 +386,14 @@ class ivschatClient:
 
         Args:
             identifier: <p>Identifier of the logging configuration to be deleted.</p>
+
+        Raises:
+            aws_sdk_ivschat.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_ivschat.errors.conflict_exception.ConflictException: <p/>
+            aws_sdk_ivschat.errors.pending_verification.PendingVerification: <p/>
+            aws_sdk_ivschat.errors.resource_not_found_exception.ResourceNotFoundException: <p/>
+            aws_sdk_ivschat.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_ivschat.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -400,6 +433,14 @@ class ivschatClient:
             room_identifier: <p>Identifier of the room where the message should be deleted. Currently this must be an ARN. </p>
             id: <p>ID of the message to be deleted. This is the <code>Id</code> field in the received message (see <a href=\"https://docs.aws.amazon.com/ivs/latest/chatmsgapireference/actions-message-subscribe.html\"> Message (Subscribe)</a> in the Chat Messaging API).</p>
             reason: <p>Reason for deleting the message.</p>
+
+        Raises:
+            aws_sdk_ivschat.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_ivschat.errors.pending_verification.PendingVerification: <p/>
+            aws_sdk_ivschat.errors.resource_not_found_exception.ResourceNotFoundException: <p/>
+            aws_sdk_ivschat.errors.throttling_exception.ThrottlingException: <p/>
+            aws_sdk_ivschat.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_ivschat.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -440,6 +481,13 @@ class ivschatClient:
 
         Args:
             identifier: <p>Identifier of the room to be deleted. Currently this must be an ARN.</p>
+
+        Raises:
+            aws_sdk_ivschat.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_ivschat.errors.pending_verification.PendingVerification: <p/>
+            aws_sdk_ivschat.errors.resource_not_found_exception.ResourceNotFoundException: <p/>
+            aws_sdk_ivschat.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_ivschat.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -479,6 +527,14 @@ class ivschatClient:
             room_identifier: <p>Identifier of the room from which the user's clients should be disconnected. Currently this must be an ARN.</p>
             user_id: <p>ID of the user (connection) to disconnect from the room.</p>
             reason: <p>Reason for disconnecting the user.</p>
+
+        Raises:
+            aws_sdk_ivschat.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_ivschat.errors.pending_verification.PendingVerification: <p/>
+            aws_sdk_ivschat.errors.resource_not_found_exception.ResourceNotFoundException: <p/>
+            aws_sdk_ivschat.errors.throttling_exception.ThrottlingException: <p/>
+            aws_sdk_ivschat.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_ivschat.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -519,6 +575,12 @@ class ivschatClient:
 
         Args:
             identifier: <p>Identifier of the logging configuration to be retrieved.</p>
+
+        Raises:
+            aws_sdk_ivschat.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_ivschat.errors.resource_not_found_exception.ResourceNotFoundException: <p/>
+            aws_sdk_ivschat.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_ivschat.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -556,6 +618,12 @@ class ivschatClient:
 
         Args:
             identifier: <p>Identifier of the room for which the configuration is to be retrieved. Currently this must be an ARN.</p>
+
+        Raises:
+            aws_sdk_ivschat.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_ivschat.errors.resource_not_found_exception.ResourceNotFoundException: <p/>
+            aws_sdk_ivschat.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_ivschat.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -599,6 +667,11 @@ class ivschatClient:
         Args:
             next_token: <p>The first logging configurations to retrieve. This is used for pagination; see the <code>nextToken</code> response field.</p>
             max_results: <p>Maximum number of logging configurations to return. Default: 50.</p>
+
+        Raises:
+            aws_sdk_ivschat.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_ivschat.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_ivschat.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -655,6 +728,12 @@ class ivschatClient:
             max_results: <p>Maximum number of rooms to return. Default: 50.</p>
             message_review_handler_uri: <p>Filters the list to match the specified message review handler URI.</p>
             logging_configuration_identifier: <p>Logging-configuration identifier.</p>
+
+        Raises:
+            aws_sdk_ivschat.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_ivschat.errors.resource_not_found_exception.ResourceNotFoundException: <p/>
+            aws_sdk_ivschat.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_ivschat.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -703,6 +782,12 @@ class ivschatClient:
 
         Args:
             resource_arn: <p>The ARN of the resource to be retrieved. The ARN must be URL-encoded.</p>
+
+        Raises:
+            aws_sdk_ivschat.errors.internal_server_exception.InternalServerException: <p/>
+            aws_sdk_ivschat.errors.resource_not_found_exception.ResourceNotFoundException: <p/>
+            aws_sdk_ivschat.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_ivschat.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -746,6 +831,14 @@ class ivschatClient:
             room_identifier: <p>Identifier of the room to which the event will be sent. Currently this must be an ARN.</p>
             event_name: <p>Application-defined name of the event to send to clients.</p>
             attributes: <p>Application-defined metadata to attach to the event sent to clients. The maximum length of the metadata is 1 KB total.</p>
+
+        Raises:
+            aws_sdk_ivschat.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_ivschat.errors.pending_verification.PendingVerification: <p/>
+            aws_sdk_ivschat.errors.resource_not_found_exception.ResourceNotFoundException: <p/>
+            aws_sdk_ivschat.errors.throttling_exception.ThrottlingException: <p/>
+            aws_sdk_ivschat.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_ivschat.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -788,6 +881,12 @@ class ivschatClient:
         Args:
             resource_arn: <p>The ARN of the resource to be tagged. The ARN must be URL-encoded.</p>
             tags: <p>Array of tags to be added or updated. Array of maps, each of the form <code>string:string (key:value)</code>. See <a href=\"https://docs.aws.amazon.com/tag-editor/latest/userguide/best-practices-and-strats.html\">Best practices and strategies</a> in <i>Tagging Amazon Web Services Resources and Tag Editor</i> for details, including restrictions that apply to tags and \"Tag naming limits and requirements\"; Amazon IVS Chat has no constraints beyond what is documented there.</p>
+
+        Raises:
+            aws_sdk_ivschat.errors.internal_server_exception.InternalServerException: <p/>
+            aws_sdk_ivschat.errors.resource_not_found_exception.ResourceNotFoundException: <p/>
+            aws_sdk_ivschat.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_ivschat.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -828,6 +927,12 @@ class ivschatClient:
         Args:
             resource_arn: <p>The ARN of the resource to be untagged. The ARN must be URL-encoded.</p>
             tag_keys: <p>Array of tags to be removed. Array of maps, each of the form <code>string:string (key:value)</code>. See <a href=\"https://docs.aws.amazon.com/tag-editor/latest/userguide/best-practices-and-strats.html\">Best practices and strategies</a> in <i>Tagging Amazon Web Services Resources and Tag Editor</i> for details, including restrictions that apply to tags and \"Tag naming limits and requirements\"; Amazon IVS Chat has no constraints beyond what is documented there.</p>
+
+        Raises:
+            aws_sdk_ivschat.errors.internal_server_exception.InternalServerException: <p/>
+            aws_sdk_ivschat.errors.resource_not_found_exception.ResourceNotFoundException: <p/>
+            aws_sdk_ivschat.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_ivschat.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -874,6 +979,14 @@ class ivschatClient:
             identifier: <p>Identifier of the logging configuration to be updated.</p>
             name: <p>Logging-configuration name. The value does not need to be unique.</p>
             destination_configuration: <p>A complex type that contains a destination configuration for where chat content will be logged. There can be only one type of destination (<code>cloudWatchLogs</code>, <code>firehose</code>, or <code>s3</code>) in a <code>destinationConfiguration</code>.</p>
+
+        Raises:
+            aws_sdk_ivschat.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_ivschat.errors.conflict_exception.ConflictException: <p/>
+            aws_sdk_ivschat.errors.pending_verification.PendingVerification: <p/>
+            aws_sdk_ivschat.errors.resource_not_found_exception.ResourceNotFoundException: <p/>
+            aws_sdk_ivschat.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_ivschat.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -933,6 +1046,13 @@ class ivschatClient:
             maximum_message_length: <p>The maximum number of characters in a single message. Messages are expected to be UTF-8 encoded and this limit applies specifically to rune/code-point count, not number of bytes. Default: 500.</p>
             message_review_handler: <p>Configuration information for optional review of messages. Specify an empty <code>uri</code> string to disassociate a message review handler from the specified room.</p>
             logging_configuration_identifiers: <p>Array of logging-configuration identifiers attached to the room.</p>
+
+        Raises:
+            aws_sdk_ivschat.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_ivschat.errors.pending_verification.PendingVerification: <p/>
+            aws_sdk_ivschat.errors.resource_not_found_exception.ResourceNotFoundException: <p/>
+            aws_sdk_ivschat.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_ivschat.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(

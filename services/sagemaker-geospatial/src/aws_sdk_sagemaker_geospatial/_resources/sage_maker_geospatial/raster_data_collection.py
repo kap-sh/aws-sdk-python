@@ -48,6 +48,14 @@ class RasterDataCollection:
 
         Args:
             arn: <p>The Amazon Resource Name (ARN) of the raster data collection.</p>
+
+        Raises:
+            aws_sdk_sagemaker_geospatial.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_sagemaker_geospatial.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure.</p>
+            aws_sdk_sagemaker_geospatial.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource which does not exist.</p>
+            aws_sdk_sagemaker_geospatial.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_sagemaker_geospatial.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_sagemaker_geospatial.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -89,6 +97,14 @@ class RasterDataCollection:
         Args:
             next_token: <p>If the previous response was truncated, you receive this token. Use it in your next request to receive the next set of results.</p>
             max_results: <p>The total number of items to return.</p>
+
+        Raises:
+            aws_sdk_sagemaker_geospatial.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_sagemaker_geospatial.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure.</p>
+            aws_sdk_sagemaker_geospatial.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource which does not exist.</p>
+            aws_sdk_sagemaker_geospatial.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_sagemaker_geospatial.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_sagemaker_geospatial.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -135,6 +151,14 @@ class RasterDataCollection:
             arn: <p>The Amazon Resource Name (ARN) of the raster data collection.</p>
             raster_data_collection_query: <p>RasterDataCollectionQuery consisting of <a href=\"https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_geospatial_AreaOfInterest.html\">AreaOfInterest(AOI)</a>, <a href=\"https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_geospatial_PropertyFilter.html\">PropertyFilters</a> and <a href=\"https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_geospatial_TimeRangeFilterInput.html\">TimeRangeFilterInput</a> used in <a href=\"https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_geospatial_SearchRasterDataCollection.html\">SearchRasterDataCollection</a>.</p>
             next_token: <p>If the previous response was truncated, you receive this token. Use it in your next request to receive the next set of results.</p>
+
+        Raises:
+            aws_sdk_sagemaker_geospatial.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_sagemaker_geospatial.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure.</p>
+            aws_sdk_sagemaker_geospatial.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource which does not exist.</p>
+            aws_sdk_sagemaker_geospatial.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_sagemaker_geospatial.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_sagemaker_geospatial.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -180,6 +204,14 @@ class AsyncRasterDataCollection:
 
         Args:
             arn: <p>The Amazon Resource Name (ARN) of the raster data collection.</p>
+
+        Raises:
+            aws_sdk_sagemaker_geospatial.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_sagemaker_geospatial.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure.</p>
+            aws_sdk_sagemaker_geospatial.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource which does not exist.</p>
+            aws_sdk_sagemaker_geospatial.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_sagemaker_geospatial.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_sagemaker_geospatial.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -222,6 +254,14 @@ class AsyncRasterDataCollection:
         Args:
             next_token: <p>If the previous response was truncated, you receive this token. Use it in your next request to receive the next set of results.</p>
             max_results: <p>The total number of items to return.</p>
+
+        Raises:
+            aws_sdk_sagemaker_geospatial.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_sagemaker_geospatial.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure.</p>
+            aws_sdk_sagemaker_geospatial.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource which does not exist.</p>
+            aws_sdk_sagemaker_geospatial.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_sagemaker_geospatial.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_sagemaker_geospatial.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -269,6 +309,14 @@ class AsyncRasterDataCollection:
             arn: <p>The Amazon Resource Name (ARN) of the raster data collection.</p>
             raster_data_collection_query: <p>RasterDataCollectionQuery consisting of <a href=\"https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_geospatial_AreaOfInterest.html\">AreaOfInterest(AOI)</a>, <a href=\"https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_geospatial_PropertyFilter.html\">PropertyFilters</a> and <a href=\"https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_geospatial_TimeRangeFilterInput.html\">TimeRangeFilterInput</a> used in <a href=\"https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_geospatial_SearchRasterDataCollection.html\">SearchRasterDataCollection</a>.</p>
             next_token: <p>If the previous response was truncated, you receive this token. Use it in your next request to receive the next set of results.</p>
+
+        Raises:
+            aws_sdk_sagemaker_geospatial.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_sagemaker_geospatial.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure.</p>
+            aws_sdk_sagemaker_geospatial.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource which does not exist.</p>
+            aws_sdk_sagemaker_geospatial.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_sagemaker_geospatial.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_sagemaker_geospatial.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

@@ -47,6 +47,12 @@ class JobResource:
         Args:
             job_id: <p>Request to delete Job from service by Job ID.</p>
             account_id: <p>Request to delete Job from service by Account ID.</p>
+
+        Raises:
+            aws_sdk_mgn.errors.conflict_exception.ConflictException: <p>The request could not be completed due to a conflict with the current state of the target resource.</p>
+            aws_sdk_mgn.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found exception.</p>
+            aws_sdk_mgn.errors.uninitialized_account_exception.UninitializedAccountException: <p>Uninitialized account exception.</p>
+            aws_sdk_mgn.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -98,6 +104,11 @@ class JobResource:
             max_results: <p>Request to describe job log items by max results.</p>
             next_token: <p>Request to describe job log items by next token.</p>
             account_id: <p>Request to describe job log items by Account ID.</p>
+
+        Raises:
+            aws_sdk_mgn.errors.uninitialized_account_exception.UninitializedAccountException: <p>Uninitialized account exception.</p>
+            aws_sdk_mgn.errors.validation_exception.ValidationException: <p>Validate exception.</p>
+            aws_sdk_mgn.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -154,6 +165,11 @@ class JobResource:
             max_results: <p>Request to describe Job log item maximum results.</p>
             next_token: <p>Request to describe Job log next token.</p>
             account_id: <p>Request to describe Job log Account ID.</p>
+
+        Raises:
+            aws_sdk_mgn.errors.uninitialized_account_exception.UninitializedAccountException: <p>Uninitialized account exception.</p>
+            aws_sdk_mgn.errors.validation_exception.ValidationException: <p>Validate exception.</p>
+            aws_sdk_mgn.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -204,6 +220,12 @@ class AsyncJobResource:
         Args:
             job_id: <p>Request to delete Job from service by Job ID.</p>
             account_id: <p>Request to delete Job from service by Account ID.</p>
+
+        Raises:
+            aws_sdk_mgn.errors.conflict_exception.ConflictException: <p>The request could not be completed due to a conflict with the current state of the target resource.</p>
+            aws_sdk_mgn.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found exception.</p>
+            aws_sdk_mgn.errors.uninitialized_account_exception.UninitializedAccountException: <p>Uninitialized account exception.</p>
+            aws_sdk_mgn.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -256,6 +278,11 @@ class AsyncJobResource:
             max_results: <p>Request to describe job log items by max results.</p>
             next_token: <p>Request to describe job log items by next token.</p>
             account_id: <p>Request to describe job log items by Account ID.</p>
+
+        Raises:
+            aws_sdk_mgn.errors.uninitialized_account_exception.UninitializedAccountException: <p>Uninitialized account exception.</p>
+            aws_sdk_mgn.errors.validation_exception.ValidationException: <p>Validate exception.</p>
+            aws_sdk_mgn.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -313,6 +340,11 @@ class AsyncJobResource:
             max_results: <p>Request to describe Job log item maximum results.</p>
             next_token: <p>Request to describe Job log next token.</p>
             account_id: <p>Request to describe Job log Account ID.</p>
+
+        Raises:
+            aws_sdk_mgn.errors.uninitialized_account_exception.UninitializedAccountException: <p>Uninitialized account exception.</p>
+            aws_sdk_mgn.errors.validation_exception.ValidationException: <p>Validate exception.</p>
+            aws_sdk_mgn.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

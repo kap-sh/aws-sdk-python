@@ -206,6 +206,13 @@ class HealthLakeClient:
             client_token: <p>An optional user-provided token to ensure API idempotency.</p>
             tags: <p>The resource tags applied to a data store when it is created.</p>
             identity_provider_configuration: <p>The identity provider configuration to use for the data store.</p>
+
+        Raises:
+            aws_sdk_healthlake.errors.access_denied_exception.AccessDeniedException: <p>Access is denied. Your account is not authorized to perform this operation.</p>
+            aws_sdk_healthlake.errors.internal_server_exception.InternalServerException: <p>An unknown internal error occurred in the service.</p>
+            aws_sdk_healthlake.errors.throttling_exception.ThrottlingException: <p>The user has exceeded their maximum number of allowed calls to the given API. </p>
+            aws_sdk_healthlake.errors.validation_exception.ValidationException: <p>The user input parameter was invalid.</p>
+            aws_sdk_healthlake.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -255,6 +262,15 @@ class HealthLakeClient:
 
         Args:
             datastore_id: <p> The AWS-generated identifier for the data store to be deleted.</p>
+
+        Raises:
+            aws_sdk_healthlake.errors.access_denied_exception.AccessDeniedException: <p>Access is denied. Your account is not authorized to perform this operation.</p>
+            aws_sdk_healthlake.errors.conflict_exception.ConflictException: <p>The data store is in a transition state and the user requested action cannot be performed.</p>
+            aws_sdk_healthlake.errors.internal_server_exception.InternalServerException: <p>An unknown internal error occurred in the service.</p>
+            aws_sdk_healthlake.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested data store was not found.</p>
+            aws_sdk_healthlake.errors.throttling_exception.ThrottlingException: <p>The user has exceeded their maximum number of allowed calls to the given API. </p>
+            aws_sdk_healthlake.errors.validation_exception.ValidationException: <p>The user input parameter was invalid.</p>
+            aws_sdk_healthlake.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -292,6 +308,13 @@ class HealthLakeClient:
 
         Args:
             datastore_id: <p>The data store identifier.</p>
+
+        Raises:
+            aws_sdk_healthlake.errors.internal_server_exception.InternalServerException: <p>An unknown internal error occurred in the service.</p>
+            aws_sdk_healthlake.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested data store was not found.</p>
+            aws_sdk_healthlake.errors.throttling_exception.ThrottlingException: <p>The user has exceeded their maximum number of allowed calls to the given API. </p>
+            aws_sdk_healthlake.errors.validation_exception.ValidationException: <p>The user input parameter was invalid.</p>
+            aws_sdk_healthlake.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -331,6 +354,13 @@ class HealthLakeClient:
         Args:
             datastore_id: <p>The data store identifier from which FHIR data is being exported from.</p>
             job_id: <p>The export job identifier.</p>
+
+        Raises:
+            aws_sdk_healthlake.errors.internal_server_exception.InternalServerException: <p>An unknown internal error occurred in the service.</p>
+            aws_sdk_healthlake.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested data store was not found.</p>
+            aws_sdk_healthlake.errors.throttling_exception.ThrottlingException: <p>The user has exceeded their maximum number of allowed calls to the given API. </p>
+            aws_sdk_healthlake.errors.validation_exception.ValidationException: <p>The user input parameter was invalid.</p>
+            aws_sdk_healthlake.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -371,6 +401,13 @@ class HealthLakeClient:
         Args:
             datastore_id: <p>The data store identifier.</p>
             job_id: <p>The import job identifier.</p>
+
+        Raises:
+            aws_sdk_healthlake.errors.internal_server_exception.InternalServerException: <p>An unknown internal error occurred in the service.</p>
+            aws_sdk_healthlake.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested data store was not found.</p>
+            aws_sdk_healthlake.errors.throttling_exception.ThrottlingException: <p>The user has exceeded their maximum number of allowed calls to the given API. </p>
+            aws_sdk_healthlake.errors.validation_exception.ValidationException: <p>The user input parameter was invalid.</p>
+            aws_sdk_healthlake.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -417,6 +454,12 @@ class HealthLakeClient:
             filter: <p>List all filters associated with a FHIR data store request.</p>
             next_token: <p>The token used to retrieve the next page of data stores when results are paginated.</p>
             max_results: <p>The maximum number of data stores returned on a page.</p>
+
+        Raises:
+            aws_sdk_healthlake.errors.internal_server_exception.InternalServerException: <p>An unknown internal error occurred in the service.</p>
+            aws_sdk_healthlake.errors.throttling_exception.ThrottlingException: <p>The user has exceeded their maximum number of allowed calls to the given API. </p>
+            aws_sdk_healthlake.errors.validation_exception.ValidationException: <p>The user input parameter was invalid.</p>
+            aws_sdk_healthlake.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -477,6 +520,14 @@ class HealthLakeClient:
             job_status: <p>Limits the response to export jobs with the specified job status. </p>
             submitted_before: <p>Limits the response to FHIR export jobs submitted before a user- specified date.</p>
             submitted_after: <p>Limits the response to FHIR export jobs submitted after a user-specified date.</p>
+
+        Raises:
+            aws_sdk_healthlake.errors.access_denied_exception.AccessDeniedException: <p>Access is denied. Your account is not authorized to perform this operation.</p>
+            aws_sdk_healthlake.errors.internal_server_exception.InternalServerException: <p>An unknown internal error occurred in the service.</p>
+            aws_sdk_healthlake.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested data store was not found.</p>
+            aws_sdk_healthlake.errors.throttling_exception.ThrottlingException: <p>The user has exceeded their maximum number of allowed calls to the given API. </p>
+            aws_sdk_healthlake.errors.validation_exception.ValidationException: <p>The user input parameter was invalid.</p>
+            aws_sdk_healthlake.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -544,6 +595,14 @@ class HealthLakeClient:
             job_status: <p>Limits the response to the import job with the specified job status. </p>
             submitted_before: <p>Limits the response to FHIR import jobs submitted before a user- specified date. </p>
             submitted_after: <p>Limits the response to FHIR import jobs submitted after a user-specified date.</p>
+
+        Raises:
+            aws_sdk_healthlake.errors.access_denied_exception.AccessDeniedException: <p>Access is denied. Your account is not authorized to perform this operation.</p>
+            aws_sdk_healthlake.errors.internal_server_exception.InternalServerException: <p>An unknown internal error occurred in the service.</p>
+            aws_sdk_healthlake.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested data store was not found.</p>
+            aws_sdk_healthlake.errors.throttling_exception.ThrottlingException: <p>The user has exceeded their maximum number of allowed calls to the given API. </p>
+            aws_sdk_healthlake.errors.validation_exception.ValidationException: <p>The user input parameter was invalid.</p>
+            aws_sdk_healthlake.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -593,6 +652,11 @@ class HealthLakeClient:
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the data store to which tags are being added.</p>
+
+        Raises:
+            aws_sdk_healthlake.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested data store was not found.</p>
+            aws_sdk_healthlake.errors.validation_exception.ValidationException: <p>The user input parameter was invalid.</p>
+            aws_sdk_healthlake.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -640,6 +704,14 @@ class HealthLakeClient:
             datastore_id: <p>The data store identifier from which files are being exported.</p>
             data_access_role_arn: <p>The Amazon Resource Name (ARN) used during initiation of the export job.</p>
             client_token: <p>An optional user provided token used for ensuring API idempotency.</p>
+
+        Raises:
+            aws_sdk_healthlake.errors.access_denied_exception.AccessDeniedException: <p>Access is denied. Your account is not authorized to perform this operation.</p>
+            aws_sdk_healthlake.errors.internal_server_exception.InternalServerException: <p>An unknown internal error occurred in the service.</p>
+            aws_sdk_healthlake.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested data store was not found.</p>
+            aws_sdk_healthlake.errors.throttling_exception.ThrottlingException: <p>The user has exceeded their maximum number of allowed calls to the given API. </p>
+            aws_sdk_healthlake.errors.validation_exception.ValidationException: <p>The user input parameter was invalid.</p>
+            aws_sdk_healthlake.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -698,6 +770,14 @@ class HealthLakeClient:
             data_access_role_arn: <p>The Amazon Resource Name (ARN) that grants access permission to AWS HealthLake.</p>
             client_token: <p>The optional user-provided token used for ensuring API idempotency.</p>
             validation_level: <p>The validation level of the import job.</p>
+
+        Raises:
+            aws_sdk_healthlake.errors.access_denied_exception.AccessDeniedException: <p>Access is denied. Your account is not authorized to perform this operation.</p>
+            aws_sdk_healthlake.errors.internal_server_exception.InternalServerException: <p>An unknown internal error occurred in the service.</p>
+            aws_sdk_healthlake.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested data store was not found.</p>
+            aws_sdk_healthlake.errors.throttling_exception.ThrottlingException: <p>The user has exceeded their maximum number of allowed calls to the given API. </p>
+            aws_sdk_healthlake.errors.validation_exception.ValidationException: <p>The user input parameter was invalid.</p>
+            aws_sdk_healthlake.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -746,6 +826,11 @@ class HealthLakeClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) that grants access to the data store tags are being added to.</p>
             tags: <p>The user-specified key and value pair tags being added to a data store.</p>
+
+        Raises:
+            aws_sdk_healthlake.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested data store was not found.</p>
+            aws_sdk_healthlake.errors.validation_exception.ValidationException: <p>The user input parameter was invalid.</p>
+            aws_sdk_healthlake.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -786,6 +871,11 @@ class HealthLakeClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the data store from which tags are being removed.</p>
             tag_keys: <p>The keys for the tags to be removed from the data store.</p>
+
+        Raises:
+            aws_sdk_healthlake.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested data store was not found.</p>
+            aws_sdk_healthlake.errors.validation_exception.ValidationException: <p>The user input parameter was invalid.</p>
+            aws_sdk_healthlake.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -844,6 +934,15 @@ class HealthLakeClient:
             nlp_configuration: <para>The NLP configuration for the data store.</para>
             profile_configuration: <para>The profile configuration for the data store.</para>
             identity_provider_configuration: <para>The identity provider configuration for the data store.</para>
+
+        Raises:
+            aws_sdk_healthlake.errors.access_denied_exception.AccessDeniedException: <p>Access is denied. Your account is not authorized to perform this operation.</p>
+            aws_sdk_healthlake.errors.conflict_exception.ConflictException: <p>The data store is in a transition state and the user requested action cannot be performed.</p>
+            aws_sdk_healthlake.errors.internal_server_exception.InternalServerException: <p>An unknown internal error occurred in the service.</p>
+            aws_sdk_healthlake.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested data store was not found.</p>
+            aws_sdk_healthlake.errors.throttling_exception.ThrottlingException: <p>The user has exceeded their maximum number of allowed calls to the given API. </p>
+            aws_sdk_healthlake.errors.validation_exception.ValidationException: <p>The user input parameter was invalid.</p>
+            aws_sdk_healthlake.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(

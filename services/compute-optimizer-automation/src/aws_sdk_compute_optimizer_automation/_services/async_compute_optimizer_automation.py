@@ -218,6 +218,19 @@ class AsyncComputeOptimizerAutomationClient:
         Args:
             account_ids: <p> The IDs of the member accounts to associate. You can specify up to 50 account IDs. </p>
             client_token: <p> A unique identifier to ensure idempotency of the request. Valid for 24 hours after creation. </p>
+
+        Raises:
+            aws_sdk_compute_optimizer_automation.errors.access_denied_exception.AccessDeniedException: <p> You do not have sufficient permissions to perform this action. </p>
+            aws_sdk_compute_optimizer_automation.errors.forbidden_exception.ForbiddenException: <p> You are not authorized to perform this action. </p>
+            aws_sdk_compute_optimizer_automation.errors.idempotency_token_in_use_exception.IdempotencyTokenInUseException: <p> The specified client token is already in use. </p>
+            aws_sdk_compute_optimizer_automation.errors.idempotent_parameter_mismatch_exception.IdempotentParameterMismatchException: <p>Exception thrown when the same client token is used with different parameters, indicating a mismatch in idempotent request parameters.</p>
+            aws_sdk_compute_optimizer_automation.errors.internal_server_exception.InternalServerException: <p> An internal error occurred while processing the request. </p>
+            aws_sdk_compute_optimizer_automation.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p> One or more parameter values are not valid. </p>
+            aws_sdk_compute_optimizer_automation.errors.not_management_account_exception.NotManagementAccountException: <p> The operation can only be performed by a management account. </p>
+            aws_sdk_compute_optimizer_automation.errors.opt_in_required_exception.OptInRequiredException: <p> The account must be opted in to Compute Optimizer Automation before performing this action. </p>
+            aws_sdk_compute_optimizer_automation.errors.service_unavailable_exception.ServiceUnavailableException: <p> The service is temporarily unavailable. </p>
+            aws_sdk_compute_optimizer_automation.errors.throttling_exception.ThrottlingException: <p> The request was denied due to request throttling. </p>
+            aws_sdk_compute_optimizer_automation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -288,6 +301,20 @@ class AsyncComputeOptimizerAutomationClient:
             status: <p>The status of the rule </p>
             tags: <p> The tags to associate with the rule. </p>
             client_token: <p> A unique identifier to ensure idempotency of the request. </p>
+
+        Raises:
+            aws_sdk_compute_optimizer_automation.errors.access_denied_exception.AccessDeniedException: <p> You do not have sufficient permissions to perform this action. </p>
+            aws_sdk_compute_optimizer_automation.errors.forbidden_exception.ForbiddenException: <p> You are not authorized to perform this action. </p>
+            aws_sdk_compute_optimizer_automation.errors.idempotency_token_in_use_exception.IdempotencyTokenInUseException: <p> The specified client token is already in use. </p>
+            aws_sdk_compute_optimizer_automation.errors.idempotent_parameter_mismatch_exception.IdempotentParameterMismatchException: <p>Exception thrown when the same client token is used with different parameters, indicating a mismatch in idempotent request parameters.</p>
+            aws_sdk_compute_optimizer_automation.errors.internal_server_exception.InternalServerException: <p> An internal error occurred while processing the request. </p>
+            aws_sdk_compute_optimizer_automation.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p> One or more parameter values are not valid. </p>
+            aws_sdk_compute_optimizer_automation.errors.opt_in_required_exception.OptInRequiredException: <p> The account must be opted in to Compute Optimizer Automation before performing this action. </p>
+            aws_sdk_compute_optimizer_automation.errors.resource_not_found_exception.ResourceNotFoundException: <p> The specified resource was not found. </p>
+            aws_sdk_compute_optimizer_automation.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p> The request would exceed service quotas. </p>
+            aws_sdk_compute_optimizer_automation.errors.service_unavailable_exception.ServiceUnavailableException: <p> The service is temporarily unavailable. </p>
+            aws_sdk_compute_optimizer_automation.errors.throttling_exception.ThrottlingException: <p> The request was denied due to request throttling. </p>
+            aws_sdk_compute_optimizer_automation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -348,6 +375,19 @@ class AsyncComputeOptimizerAutomationClient:
             rule_arn: <p> The ARN of the rule to delete. </p>
             rule_revision: <p> The revision number of the rule to delete. </p>
             client_token: <p> A unique identifier to ensure idempotency of the request. </p>
+
+        Raises:
+            aws_sdk_compute_optimizer_automation.errors.access_denied_exception.AccessDeniedException: <p> You do not have sufficient permissions to perform this action. </p>
+            aws_sdk_compute_optimizer_automation.errors.forbidden_exception.ForbiddenException: <p> You are not authorized to perform this action. </p>
+            aws_sdk_compute_optimizer_automation.errors.idempotency_token_in_use_exception.IdempotencyTokenInUseException: <p> The specified client token is already in use. </p>
+            aws_sdk_compute_optimizer_automation.errors.idempotent_parameter_mismatch_exception.IdempotentParameterMismatchException: <p>Exception thrown when the same client token is used with different parameters, indicating a mismatch in idempotent request parameters.</p>
+            aws_sdk_compute_optimizer_automation.errors.internal_server_exception.InternalServerException: <p> An internal error occurred while processing the request. </p>
+            aws_sdk_compute_optimizer_automation.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p> One or more parameter values are not valid. </p>
+            aws_sdk_compute_optimizer_automation.errors.opt_in_required_exception.OptInRequiredException: <p> The account must be opted in to Compute Optimizer Automation before performing this action. </p>
+            aws_sdk_compute_optimizer_automation.errors.resource_not_found_exception.ResourceNotFoundException: <p> The specified resource was not found. </p>
+            aws_sdk_compute_optimizer_automation.errors.service_unavailable_exception.ServiceUnavailableException: <p> The service is temporarily unavailable. </p>
+            aws_sdk_compute_optimizer_automation.errors.throttling_exception.ThrottlingException: <p> The request was denied due to request throttling. </p>
+            aws_sdk_compute_optimizer_automation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -393,6 +433,19 @@ class AsyncComputeOptimizerAutomationClient:
         Args:
             account_ids: <p> The IDs of the member accounts to disassociate. </p>
             client_token: <p> A unique identifier to ensure idempotency of the request. </p>
+
+        Raises:
+            aws_sdk_compute_optimizer_automation.errors.access_denied_exception.AccessDeniedException: <p> You do not have sufficient permissions to perform this action. </p>
+            aws_sdk_compute_optimizer_automation.errors.forbidden_exception.ForbiddenException: <p> You are not authorized to perform this action. </p>
+            aws_sdk_compute_optimizer_automation.errors.idempotency_token_in_use_exception.IdempotencyTokenInUseException: <p> The specified client token is already in use. </p>
+            aws_sdk_compute_optimizer_automation.errors.idempotent_parameter_mismatch_exception.IdempotentParameterMismatchException: <p>Exception thrown when the same client token is used with different parameters, indicating a mismatch in idempotent request parameters.</p>
+            aws_sdk_compute_optimizer_automation.errors.internal_server_exception.InternalServerException: <p> An internal error occurred while processing the request. </p>
+            aws_sdk_compute_optimizer_automation.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p> One or more parameter values are not valid. </p>
+            aws_sdk_compute_optimizer_automation.errors.not_management_account_exception.NotManagementAccountException: <p> The operation can only be performed by a management account. </p>
+            aws_sdk_compute_optimizer_automation.errors.opt_in_required_exception.OptInRequiredException: <p> The account must be opted in to Compute Optimizer Automation before performing this action. </p>
+            aws_sdk_compute_optimizer_automation.errors.service_unavailable_exception.ServiceUnavailableException: <p> The service is temporarily unavailable. </p>
+            aws_sdk_compute_optimizer_automation.errors.throttling_exception.ThrottlingException: <p> The request was denied due to request throttling. </p>
+            aws_sdk_compute_optimizer_automation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -433,6 +486,17 @@ class AsyncComputeOptimizerAutomationClient:
 
         Args:
             event_id: <p> The ID of the automation event to retrieve. </p>
+
+        Raises:
+            aws_sdk_compute_optimizer_automation.errors.access_denied_exception.AccessDeniedException: <p> You do not have sufficient permissions to perform this action. </p>
+            aws_sdk_compute_optimizer_automation.errors.forbidden_exception.ForbiddenException: <p> You are not authorized to perform this action. </p>
+            aws_sdk_compute_optimizer_automation.errors.internal_server_exception.InternalServerException: <p> An internal error occurred while processing the request. </p>
+            aws_sdk_compute_optimizer_automation.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p> One or more parameter values are not valid. </p>
+            aws_sdk_compute_optimizer_automation.errors.opt_in_required_exception.OptInRequiredException: <p> The account must be opted in to Compute Optimizer Automation before performing this action. </p>
+            aws_sdk_compute_optimizer_automation.errors.resource_not_found_exception.ResourceNotFoundException: <p> The specified resource was not found. </p>
+            aws_sdk_compute_optimizer_automation.errors.service_unavailable_exception.ServiceUnavailableException: <p> The service is temporarily unavailable. </p>
+            aws_sdk_compute_optimizer_automation.errors.throttling_exception.ThrottlingException: <p> The request was denied due to request throttling. </p>
+            aws_sdk_compute_optimizer_automation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -471,6 +535,17 @@ class AsyncComputeOptimizerAutomationClient:
 
         Args:
             rule_arn: <p> The ARN of the rule to retrieve. </p>
+
+        Raises:
+            aws_sdk_compute_optimizer_automation.errors.access_denied_exception.AccessDeniedException: <p> You do not have sufficient permissions to perform this action. </p>
+            aws_sdk_compute_optimizer_automation.errors.forbidden_exception.ForbiddenException: <p> You are not authorized to perform this action. </p>
+            aws_sdk_compute_optimizer_automation.errors.internal_server_exception.InternalServerException: <p> An internal error occurred while processing the request. </p>
+            aws_sdk_compute_optimizer_automation.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p> One or more parameter values are not valid. </p>
+            aws_sdk_compute_optimizer_automation.errors.opt_in_required_exception.OptInRequiredException: <p> The account must be opted in to Compute Optimizer Automation before performing this action. </p>
+            aws_sdk_compute_optimizer_automation.errors.resource_not_found_exception.ResourceNotFoundException: <p> The specified resource was not found. </p>
+            aws_sdk_compute_optimizer_automation.errors.service_unavailable_exception.ServiceUnavailableException: <p> The service is temporarily unavailable. </p>
+            aws_sdk_compute_optimizer_automation.errors.throttling_exception.ThrottlingException: <p> The request was denied due to request throttling. </p>
+            aws_sdk_compute_optimizer_automation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -504,7 +579,19 @@ class AsyncComputeOptimizerAutomationClient:
         *,
         config_overrides: Optional[AsyncComputeOptimizerAutomationClientConfig] = None,
     ) -> "aws_sdk_compute_optimizer_automation.types.get_enrollment_configuration_response.GetEnrollmentConfigurationResponse":
-        """<p> Retrieves the current enrollment configuration for Compute Optimizer Automation. </p>"""
+        """<p> Retrieves the current enrollment configuration for Compute Optimizer Automation. </p>
+
+        Raises:
+            aws_sdk_compute_optimizer_automation.errors.access_denied_exception.AccessDeniedException: <p> You do not have sufficient permissions to perform this action. </p>
+            aws_sdk_compute_optimizer_automation.errors.forbidden_exception.ForbiddenException: <p> You are not authorized to perform this action. </p>
+            aws_sdk_compute_optimizer_automation.errors.internal_server_exception.InternalServerException: <p> An internal error occurred while processing the request. </p>
+            aws_sdk_compute_optimizer_automation.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p> One or more parameter values are not valid. </p>
+            aws_sdk_compute_optimizer_automation.errors.opt_in_required_exception.OptInRequiredException: <p> The account must be opted in to Compute Optimizer Automation before performing this action. </p>
+            aws_sdk_compute_optimizer_automation.errors.resource_not_found_exception.ResourceNotFoundException: <p> The specified resource was not found. </p>
+            aws_sdk_compute_optimizer_automation.errors.service_unavailable_exception.ServiceUnavailableException: <p> The service is temporarily unavailable. </p>
+            aws_sdk_compute_optimizer_automation.errors.throttling_exception.ThrottlingException: <p> The request was denied due to request throttling. </p>
+            aws_sdk_compute_optimizer_automation.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_compute_optimizer_automation.types.get_enrollment_configuration_request.GetEnrollmentConfigurationRequest]",
@@ -545,6 +632,17 @@ class AsyncComputeOptimizerAutomationClient:
         Args:
             max_results: <p> The maximum number of results to return in a single call. </p>
             next_token: <p> The token for the next page of results. </p>
+
+        Raises:
+            aws_sdk_compute_optimizer_automation.errors.access_denied_exception.AccessDeniedException: <p> You do not have sufficient permissions to perform this action. </p>
+            aws_sdk_compute_optimizer_automation.errors.forbidden_exception.ForbiddenException: <p> You are not authorized to perform this action. </p>
+            aws_sdk_compute_optimizer_automation.errors.internal_server_exception.InternalServerException: <p> An internal error occurred while processing the request. </p>
+            aws_sdk_compute_optimizer_automation.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p> One or more parameter values are not valid. </p>
+            aws_sdk_compute_optimizer_automation.errors.not_management_account_exception.NotManagementAccountException: <p> The operation can only be performed by a management account. </p>
+            aws_sdk_compute_optimizer_automation.errors.opt_in_required_exception.OptInRequiredException: <p> The account must be opted in to Compute Optimizer Automation before performing this action. </p>
+            aws_sdk_compute_optimizer_automation.errors.service_unavailable_exception.ServiceUnavailableException: <p> The service is temporarily unavailable. </p>
+            aws_sdk_compute_optimizer_automation.errors.throttling_exception.ThrottlingException: <p> The request was denied due to request throttling. </p>
+            aws_sdk_compute_optimizer_automation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -621,6 +719,16 @@ class AsyncComputeOptimizerAutomationClient:
             end_time_exclusive: <p> The end of the time range to query for events. </p>
             max_results: <p> The maximum number of results to return in a single call. </p>
             next_token: <p> The token for the next page of results. </p>
+
+        Raises:
+            aws_sdk_compute_optimizer_automation.errors.access_denied_exception.AccessDeniedException: <p> You do not have sufficient permissions to perform this action. </p>
+            aws_sdk_compute_optimizer_automation.errors.forbidden_exception.ForbiddenException: <p> You are not authorized to perform this action. </p>
+            aws_sdk_compute_optimizer_automation.errors.internal_server_exception.InternalServerException: <p> An internal error occurred while processing the request. </p>
+            aws_sdk_compute_optimizer_automation.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p> One or more parameter values are not valid. </p>
+            aws_sdk_compute_optimizer_automation.errors.opt_in_required_exception.OptInRequiredException: <p> The account must be opted in to Compute Optimizer Automation before performing this action. </p>
+            aws_sdk_compute_optimizer_automation.errors.service_unavailable_exception.ServiceUnavailableException: <p> The service is temporarily unavailable. </p>
+            aws_sdk_compute_optimizer_automation.errors.throttling_exception.ThrottlingException: <p> The request was denied due to request throttling. </p>
+            aws_sdk_compute_optimizer_automation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -705,6 +813,17 @@ class AsyncComputeOptimizerAutomationClient:
             event_id: <p> The ID of the automation event. </p>
             max_results: <p>The maximum number of automation event steps to return in a single response. Valid range is 1-1000.</p>
             next_token: <p>A token used for pagination to retrieve the next set of results when the response is truncated.</p>
+
+        Raises:
+            aws_sdk_compute_optimizer_automation.errors.access_denied_exception.AccessDeniedException: <p> You do not have sufficient permissions to perform this action. </p>
+            aws_sdk_compute_optimizer_automation.errors.forbidden_exception.ForbiddenException: <p> You are not authorized to perform this action. </p>
+            aws_sdk_compute_optimizer_automation.errors.internal_server_exception.InternalServerException: <p> An internal error occurred while processing the request. </p>
+            aws_sdk_compute_optimizer_automation.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p> One or more parameter values are not valid. </p>
+            aws_sdk_compute_optimizer_automation.errors.opt_in_required_exception.OptInRequiredException: <p> The account must be opted in to Compute Optimizer Automation before performing this action. </p>
+            aws_sdk_compute_optimizer_automation.errors.resource_not_found_exception.ResourceNotFoundException: <p> The specified resource was not found. </p>
+            aws_sdk_compute_optimizer_automation.errors.service_unavailable_exception.ServiceUnavailableException: <p> The service is temporarily unavailable. </p>
+            aws_sdk_compute_optimizer_automation.errors.throttling_exception.ThrottlingException: <p> The request was denied due to request throttling. </p>
+            aws_sdk_compute_optimizer_automation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -784,6 +903,16 @@ class AsyncComputeOptimizerAutomationClient:
             end_date_exclusive: <p>The end date for filtering automation event summaries, exclusive. Events created before this date will be included.</p>
             max_results: <p>The maximum number of automation event summaries to return in a single response. Valid range is 1-1000.</p>
             next_token: <p>A token used for pagination to retrieve the next set of results when the response is truncated.</p>
+
+        Raises:
+            aws_sdk_compute_optimizer_automation.errors.access_denied_exception.AccessDeniedException: <p> You do not have sufficient permissions to perform this action. </p>
+            aws_sdk_compute_optimizer_automation.errors.forbidden_exception.ForbiddenException: <p> You are not authorized to perform this action. </p>
+            aws_sdk_compute_optimizer_automation.errors.internal_server_exception.InternalServerException: <p> An internal error occurred while processing the request. </p>
+            aws_sdk_compute_optimizer_automation.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p> One or more parameter values are not valid. </p>
+            aws_sdk_compute_optimizer_automation.errors.opt_in_required_exception.OptInRequiredException: <p> The account must be opted in to Compute Optimizer Automation before performing this action. </p>
+            aws_sdk_compute_optimizer_automation.errors.service_unavailable_exception.ServiceUnavailableException: <p> The service is temporarily unavailable. </p>
+            aws_sdk_compute_optimizer_automation.errors.throttling_exception.ThrottlingException: <p> The request was denied due to request throttling. </p>
+            aws_sdk_compute_optimizer_automation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -878,6 +1007,16 @@ class AsyncComputeOptimizerAutomationClient:
             criteria: <p>A set of conditions that specify which recommended action qualify for implementation. When a rule is active and a recommended action matches these criteria, Compute Optimizer implements the action at the scheduled run time. </p>
             max_results: <p>The maximum number of automation rule preview results to return in a single response. Valid range is 1-1000.</p>
             next_token: <p>A token used for pagination to retrieve the next set of results when the response is truncated.</p>
+
+        Raises:
+            aws_sdk_compute_optimizer_automation.errors.access_denied_exception.AccessDeniedException: <p> You do not have sufficient permissions to perform this action. </p>
+            aws_sdk_compute_optimizer_automation.errors.forbidden_exception.ForbiddenException: <p> You are not authorized to perform this action. </p>
+            aws_sdk_compute_optimizer_automation.errors.internal_server_exception.InternalServerException: <p> An internal error occurred while processing the request. </p>
+            aws_sdk_compute_optimizer_automation.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p> One or more parameter values are not valid. </p>
+            aws_sdk_compute_optimizer_automation.errors.opt_in_required_exception.OptInRequiredException: <p> The account must be opted in to Compute Optimizer Automation before performing this action. </p>
+            aws_sdk_compute_optimizer_automation.errors.service_unavailable_exception.ServiceUnavailableException: <p> The service is temporarily unavailable. </p>
+            aws_sdk_compute_optimizer_automation.errors.throttling_exception.ThrottlingException: <p> The request was denied due to request throttling. </p>
+            aws_sdk_compute_optimizer_automation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -975,6 +1114,16 @@ class AsyncComputeOptimizerAutomationClient:
             recommended_action_types: <p>The types of recommended actions to include in the preview.</p>
             max_results: <p>The maximum number of automation rule preview summaries to return in a single response. Valid range is 1-1000.</p>
             next_token: <p>A token used for pagination to retrieve the next set of results when the response is truncated.</p>
+
+        Raises:
+            aws_sdk_compute_optimizer_automation.errors.access_denied_exception.AccessDeniedException: <p> You do not have sufficient permissions to perform this action. </p>
+            aws_sdk_compute_optimizer_automation.errors.forbidden_exception.ForbiddenException: <p> You are not authorized to perform this action. </p>
+            aws_sdk_compute_optimizer_automation.errors.internal_server_exception.InternalServerException: <p> An internal error occurred while processing the request. </p>
+            aws_sdk_compute_optimizer_automation.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p> One or more parameter values are not valid. </p>
+            aws_sdk_compute_optimizer_automation.errors.opt_in_required_exception.OptInRequiredException: <p> The account must be opted in to Compute Optimizer Automation before performing this action. </p>
+            aws_sdk_compute_optimizer_automation.errors.service_unavailable_exception.ServiceUnavailableException: <p> The service is temporarily unavailable. </p>
+            aws_sdk_compute_optimizer_automation.errors.throttling_exception.ThrottlingException: <p> The request was denied due to request throttling. </p>
+            aws_sdk_compute_optimizer_automation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1065,6 +1214,16 @@ class AsyncComputeOptimizerAutomationClient:
             filters: <p> The filters to apply to the list of automation rules. </p>
             max_results: <p>The maximum number of automation rules to return in a single response. Valid range is 1-1000.</p>
             next_token: <p>A token used for pagination to retrieve the next set of results when the response is truncated.</p>
+
+        Raises:
+            aws_sdk_compute_optimizer_automation.errors.access_denied_exception.AccessDeniedException: <p> You do not have sufficient permissions to perform this action. </p>
+            aws_sdk_compute_optimizer_automation.errors.forbidden_exception.ForbiddenException: <p> You are not authorized to perform this action. </p>
+            aws_sdk_compute_optimizer_automation.errors.internal_server_exception.InternalServerException: <p> An internal error occurred while processing the request. </p>
+            aws_sdk_compute_optimizer_automation.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p> One or more parameter values are not valid. </p>
+            aws_sdk_compute_optimizer_automation.errors.opt_in_required_exception.OptInRequiredException: <p> The account must be opted in to Compute Optimizer Automation before performing this action. </p>
+            aws_sdk_compute_optimizer_automation.errors.service_unavailable_exception.ServiceUnavailableException: <p> The service is temporarily unavailable. </p>
+            aws_sdk_compute_optimizer_automation.errors.throttling_exception.ThrottlingException: <p> The request was denied due to request throttling. </p>
+            aws_sdk_compute_optimizer_automation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1143,6 +1302,16 @@ class AsyncComputeOptimizerAutomationClient:
             filters: <p> The filters to apply to the list of recommended actions. </p>
             max_results: <p>The maximum number of recommended actions to return in a single response. Valid range is 1-1000.</p>
             next_token: <p>A token used for pagination to retrieve the next set of results when the response is truncated.</p>
+
+        Raises:
+            aws_sdk_compute_optimizer_automation.errors.access_denied_exception.AccessDeniedException: <p> You do not have sufficient permissions to perform this action. </p>
+            aws_sdk_compute_optimizer_automation.errors.forbidden_exception.ForbiddenException: <p> You are not authorized to perform this action. </p>
+            aws_sdk_compute_optimizer_automation.errors.internal_server_exception.InternalServerException: <p> An internal error occurred while processing the request. </p>
+            aws_sdk_compute_optimizer_automation.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p> One or more parameter values are not valid. </p>
+            aws_sdk_compute_optimizer_automation.errors.opt_in_required_exception.OptInRequiredException: <p> The account must be opted in to Compute Optimizer Automation before performing this action. </p>
+            aws_sdk_compute_optimizer_automation.errors.service_unavailable_exception.ServiceUnavailableException: <p> The service is temporarily unavailable. </p>
+            aws_sdk_compute_optimizer_automation.errors.throttling_exception.ThrottlingException: <p> The request was denied due to request throttling. </p>
+            aws_sdk_compute_optimizer_automation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1221,6 +1390,16 @@ class AsyncComputeOptimizerAutomationClient:
             filters: <p>A list of filters to apply when retrieving recommended action summaries. Filters can be based on resource type, action type, account ID, and other criteria.</p>
             max_results: <p>The maximum number of recommended action summaries to return in a single response. Valid range is 1-1000.</p>
             next_token: <p>A token used for pagination to retrieve the next set of results when the response is truncated.</p>
+
+        Raises:
+            aws_sdk_compute_optimizer_automation.errors.access_denied_exception.AccessDeniedException: <p> You do not have sufficient permissions to perform this action. </p>
+            aws_sdk_compute_optimizer_automation.errors.forbidden_exception.ForbiddenException: <p> You are not authorized to perform this action. </p>
+            aws_sdk_compute_optimizer_automation.errors.internal_server_exception.InternalServerException: <p> An internal error occurred while processing the request. </p>
+            aws_sdk_compute_optimizer_automation.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p> One or more parameter values are not valid. </p>
+            aws_sdk_compute_optimizer_automation.errors.opt_in_required_exception.OptInRequiredException: <p> The account must be opted in to Compute Optimizer Automation before performing this action. </p>
+            aws_sdk_compute_optimizer_automation.errors.service_unavailable_exception.ServiceUnavailableException: <p> The service is temporarily unavailable. </p>
+            aws_sdk_compute_optimizer_automation.errors.throttling_exception.ThrottlingException: <p> The request was denied due to request throttling. </p>
+            aws_sdk_compute_optimizer_automation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1291,6 +1470,17 @@ class AsyncComputeOptimizerAutomationClient:
 
         Args:
             resource_arn: <p> The ARN of the resource to list tags for. </p>
+
+        Raises:
+            aws_sdk_compute_optimizer_automation.errors.access_denied_exception.AccessDeniedException: <p> You do not have sufficient permissions to perform this action. </p>
+            aws_sdk_compute_optimizer_automation.errors.forbidden_exception.ForbiddenException: <p> You are not authorized to perform this action. </p>
+            aws_sdk_compute_optimizer_automation.errors.internal_server_exception.InternalServerException: <p> An internal error occurred while processing the request. </p>
+            aws_sdk_compute_optimizer_automation.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p> One or more parameter values are not valid. </p>
+            aws_sdk_compute_optimizer_automation.errors.opt_in_required_exception.OptInRequiredException: <p> The account must be opted in to Compute Optimizer Automation before performing this action. </p>
+            aws_sdk_compute_optimizer_automation.errors.resource_not_found_exception.ResourceNotFoundException: <p> The specified resource was not found. </p>
+            aws_sdk_compute_optimizer_automation.errors.service_unavailable_exception.ServiceUnavailableException: <p> The service is temporarily unavailable. </p>
+            aws_sdk_compute_optimizer_automation.errors.throttling_exception.ThrottlingException: <p> The request was denied due to request throttling. </p>
+            aws_sdk_compute_optimizer_automation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1333,6 +1523,19 @@ class AsyncComputeOptimizerAutomationClient:
         Args:
             event_id: <p> The ID of the automation event to roll back. </p>
             client_token: <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. Must be 1-64 characters long and contain only alphanumeric characters, underscores, and hyphens.</p>
+
+        Raises:
+            aws_sdk_compute_optimizer_automation.errors.access_denied_exception.AccessDeniedException: <p> You do not have sufficient permissions to perform this action. </p>
+            aws_sdk_compute_optimizer_automation.errors.forbidden_exception.ForbiddenException: <p> You are not authorized to perform this action. </p>
+            aws_sdk_compute_optimizer_automation.errors.idempotency_token_in_use_exception.IdempotencyTokenInUseException: <p> The specified client token is already in use. </p>
+            aws_sdk_compute_optimizer_automation.errors.idempotent_parameter_mismatch_exception.IdempotentParameterMismatchException: <p>Exception thrown when the same client token is used with different parameters, indicating a mismatch in idempotent request parameters.</p>
+            aws_sdk_compute_optimizer_automation.errors.internal_server_exception.InternalServerException: <p> An internal error occurred while processing the request. </p>
+            aws_sdk_compute_optimizer_automation.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p> One or more parameter values are not valid. </p>
+            aws_sdk_compute_optimizer_automation.errors.opt_in_required_exception.OptInRequiredException: <p> The account must be opted in to Compute Optimizer Automation before performing this action. </p>
+            aws_sdk_compute_optimizer_automation.errors.resource_not_found_exception.ResourceNotFoundException: <p> The specified resource was not found. </p>
+            aws_sdk_compute_optimizer_automation.errors.service_unavailable_exception.ServiceUnavailableException: <p> The service is temporarily unavailable. </p>
+            aws_sdk_compute_optimizer_automation.errors.throttling_exception.ThrottlingException: <p> The request was denied due to request throttling. </p>
+            aws_sdk_compute_optimizer_automation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1377,6 +1580,20 @@ class AsyncComputeOptimizerAutomationClient:
         Args:
             recommended_action_id: <p> The ID of the recommended action to automate. </p>
             client_token: <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. Must be 1-64 characters long and contain only alphanumeric characters, underscores, and hyphens.</p>
+
+        Raises:
+            aws_sdk_compute_optimizer_automation.errors.access_denied_exception.AccessDeniedException: <p> You do not have sufficient permissions to perform this action. </p>
+            aws_sdk_compute_optimizer_automation.errors.forbidden_exception.ForbiddenException: <p> You are not authorized to perform this action. </p>
+            aws_sdk_compute_optimizer_automation.errors.idempotency_token_in_use_exception.IdempotencyTokenInUseException: <p> The specified client token is already in use. </p>
+            aws_sdk_compute_optimizer_automation.errors.idempotent_parameter_mismatch_exception.IdempotentParameterMismatchException: <p>Exception thrown when the same client token is used with different parameters, indicating a mismatch in idempotent request parameters.</p>
+            aws_sdk_compute_optimizer_automation.errors.internal_server_exception.InternalServerException: <p> An internal error occurred while processing the request. </p>
+            aws_sdk_compute_optimizer_automation.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p> One or more parameter values are not valid. </p>
+            aws_sdk_compute_optimizer_automation.errors.opt_in_required_exception.OptInRequiredException: <p> The account must be opted in to Compute Optimizer Automation before performing this action. </p>
+            aws_sdk_compute_optimizer_automation.errors.resource_not_found_exception.ResourceNotFoundException: <p> The specified resource was not found. </p>
+            aws_sdk_compute_optimizer_automation.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p> The request would exceed service quotas. </p>
+            aws_sdk_compute_optimizer_automation.errors.service_unavailable_exception.ServiceUnavailableException: <p> The service is temporarily unavailable. </p>
+            aws_sdk_compute_optimizer_automation.errors.throttling_exception.ThrottlingException: <p> The request was denied due to request throttling. </p>
+            aws_sdk_compute_optimizer_automation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1425,6 +1642,19 @@ class AsyncComputeOptimizerAutomationClient:
             rule_revision: <p>The revision number of the automation rule to tag. This ensures you're tagging the correct version of the rule.</p>
             tags: <p> The tags to add to the resource. </p>
             client_token: <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. Must be 1-64 characters long and contain only alphanumeric characters, underscores, and hyphens.</p>
+
+        Raises:
+            aws_sdk_compute_optimizer_automation.errors.access_denied_exception.AccessDeniedException: <p> You do not have sufficient permissions to perform this action. </p>
+            aws_sdk_compute_optimizer_automation.errors.forbidden_exception.ForbiddenException: <p> You are not authorized to perform this action. </p>
+            aws_sdk_compute_optimizer_automation.errors.idempotency_token_in_use_exception.IdempotencyTokenInUseException: <p> The specified client token is already in use. </p>
+            aws_sdk_compute_optimizer_automation.errors.idempotent_parameter_mismatch_exception.IdempotentParameterMismatchException: <p>Exception thrown when the same client token is used with different parameters, indicating a mismatch in idempotent request parameters.</p>
+            aws_sdk_compute_optimizer_automation.errors.internal_server_exception.InternalServerException: <p> An internal error occurred while processing the request. </p>
+            aws_sdk_compute_optimizer_automation.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p> One or more parameter values are not valid. </p>
+            aws_sdk_compute_optimizer_automation.errors.opt_in_required_exception.OptInRequiredException: <p> The account must be opted in to Compute Optimizer Automation before performing this action. </p>
+            aws_sdk_compute_optimizer_automation.errors.resource_not_found_exception.ResourceNotFoundException: <p> The specified resource was not found. </p>
+            aws_sdk_compute_optimizer_automation.errors.service_unavailable_exception.ServiceUnavailableException: <p> The service is temporarily unavailable. </p>
+            aws_sdk_compute_optimizer_automation.errors.throttling_exception.ThrottlingException: <p> The request was denied due to request throttling. </p>
+            aws_sdk_compute_optimizer_automation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1475,6 +1705,19 @@ class AsyncComputeOptimizerAutomationClient:
             rule_revision: <p>The revision number of the automation rule to untag. This ensures you're untagging the correct version of the rule.</p>
             tag_keys: <p> The keys of the tags to remove from the resource. </p>
             client_token: <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. Must be 1-64 characters long and contain only alphanumeric characters, underscores, and hyphens.</p>
+
+        Raises:
+            aws_sdk_compute_optimizer_automation.errors.access_denied_exception.AccessDeniedException: <p> You do not have sufficient permissions to perform this action. </p>
+            aws_sdk_compute_optimizer_automation.errors.forbidden_exception.ForbiddenException: <p> You are not authorized to perform this action. </p>
+            aws_sdk_compute_optimizer_automation.errors.idempotency_token_in_use_exception.IdempotencyTokenInUseException: <p> The specified client token is already in use. </p>
+            aws_sdk_compute_optimizer_automation.errors.idempotent_parameter_mismatch_exception.IdempotentParameterMismatchException: <p>Exception thrown when the same client token is used with different parameters, indicating a mismatch in idempotent request parameters.</p>
+            aws_sdk_compute_optimizer_automation.errors.internal_server_exception.InternalServerException: <p> An internal error occurred while processing the request. </p>
+            aws_sdk_compute_optimizer_automation.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p> One or more parameter values are not valid. </p>
+            aws_sdk_compute_optimizer_automation.errors.opt_in_required_exception.OptInRequiredException: <p> The account must be opted in to Compute Optimizer Automation before performing this action. </p>
+            aws_sdk_compute_optimizer_automation.errors.resource_not_found_exception.ResourceNotFoundException: <p> The specified resource was not found. </p>
+            aws_sdk_compute_optimizer_automation.errors.service_unavailable_exception.ServiceUnavailableException: <p> The service is temporarily unavailable. </p>
+            aws_sdk_compute_optimizer_automation.errors.throttling_exception.ThrottlingException: <p> The request was denied due to request throttling. </p>
+            aws_sdk_compute_optimizer_automation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1556,6 +1799,19 @@ class AsyncComputeOptimizerAutomationClient:
             schedule: <p>The updated schedule configuration for when the automation rule should execute, including cron expression, timezone, and execution window.</p>
             status: <p>The updated status of the automation rule. Can be Active or Inactive.</p>
             client_token: <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. Must be 1-64 characters long and contain only alphanumeric characters, underscores, and hyphens.</p>
+
+        Raises:
+            aws_sdk_compute_optimizer_automation.errors.access_denied_exception.AccessDeniedException: <p> You do not have sufficient permissions to perform this action. </p>
+            aws_sdk_compute_optimizer_automation.errors.forbidden_exception.ForbiddenException: <p> You are not authorized to perform this action. </p>
+            aws_sdk_compute_optimizer_automation.errors.idempotency_token_in_use_exception.IdempotencyTokenInUseException: <p> The specified client token is already in use. </p>
+            aws_sdk_compute_optimizer_automation.errors.idempotent_parameter_mismatch_exception.IdempotentParameterMismatchException: <p>Exception thrown when the same client token is used with different parameters, indicating a mismatch in idempotent request parameters.</p>
+            aws_sdk_compute_optimizer_automation.errors.internal_server_exception.InternalServerException: <p> An internal error occurred while processing the request. </p>
+            aws_sdk_compute_optimizer_automation.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p> One or more parameter values are not valid. </p>
+            aws_sdk_compute_optimizer_automation.errors.opt_in_required_exception.OptInRequiredException: <p> The account must be opted in to Compute Optimizer Automation before performing this action. </p>
+            aws_sdk_compute_optimizer_automation.errors.resource_not_found_exception.ResourceNotFoundException: <p> The specified resource was not found. </p>
+            aws_sdk_compute_optimizer_automation.errors.service_unavailable_exception.ServiceUnavailableException: <p> The service is temporarily unavailable. </p>
+            aws_sdk_compute_optimizer_automation.errors.throttling_exception.ThrottlingException: <p> The request was denied due to request throttling. </p>
+            aws_sdk_compute_optimizer_automation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1619,6 +1875,20 @@ class AsyncComputeOptimizerAutomationClient:
         Args:
             status: <p>The desired enrollment status. </p> <ul> <li> <p>Active - Enables the Automation feature for your account.</p> </li> <li> <p>Inactive - Disables the Automation feature for your account and stops all of your automation rules. If you opt in again later, all rules will be inactive, and you must enable the rules you want to run. You must wait at least 24 hours after opting out to opt in again.</p> </li> </ul> <note> <p>The <code>Pending</code> and <code>Failed</code> options cannot be used to update the enrollment status of an account. They are returned in the response of a request to update the enrollment status of an account.</p> <p>If you are a member account, your account must be disassociated from your organization’s management account before you can disable Automation. Contact your administrator to make this change.</p> </note>
             client_token: <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. Must be 1-64 characters long and contain only alphanumeric characters, underscores, and hyphens.</p>
+
+        Raises:
+            aws_sdk_compute_optimizer_automation.errors.access_denied_exception.AccessDeniedException: <p> You do not have sufficient permissions to perform this action. </p>
+            aws_sdk_compute_optimizer_automation.errors.forbidden_exception.ForbiddenException: <p> You are not authorized to perform this action. </p>
+            aws_sdk_compute_optimizer_automation.errors.idempotency_token_in_use_exception.IdempotencyTokenInUseException: <p> The specified client token is already in use. </p>
+            aws_sdk_compute_optimizer_automation.errors.idempotent_parameter_mismatch_exception.IdempotentParameterMismatchException: <p>Exception thrown when the same client token is used with different parameters, indicating a mismatch in idempotent request parameters.</p>
+            aws_sdk_compute_optimizer_automation.errors.internal_server_exception.InternalServerException: <p> An internal error occurred while processing the request. </p>
+            aws_sdk_compute_optimizer_automation.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p> One or more parameter values are not valid. </p>
+            aws_sdk_compute_optimizer_automation.errors.not_management_account_exception.NotManagementAccountException: <p> The operation can only be performed by a management account. </p>
+            aws_sdk_compute_optimizer_automation.errors.opt_in_required_exception.OptInRequiredException: <p> The account must be opted in to Compute Optimizer Automation before performing this action. </p>
+            aws_sdk_compute_optimizer_automation.errors.resource_not_found_exception.ResourceNotFoundException: <p> The specified resource was not found. </p>
+            aws_sdk_compute_optimizer_automation.errors.service_unavailable_exception.ServiceUnavailableException: <p> The service is temporarily unavailable. </p>
+            aws_sdk_compute_optimizer_automation.errors.throttling_exception.ThrottlingException: <p> The request was denied due to request throttling. </p>
+            aws_sdk_compute_optimizer_automation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

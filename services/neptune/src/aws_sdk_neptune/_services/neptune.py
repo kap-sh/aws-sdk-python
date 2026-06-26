@@ -306,6 +306,13 @@ class NeptuneClient:
             db_cluster_identifier: <p>The name of the DB cluster to associate the IAM role with.</p>
             role_arn: <p>The Amazon Resource Name (ARN) of the IAM role to associate with the Neptune DB cluster, for example <code>arn:aws:iam::123456789012:role/NeptuneAccessRole</code>.</p>
             feature_name: <p>The name of the feature for the Neptune DB cluster that the IAM role is to be associated with. For the list of supported feature names, see <a>DBEngineVersion</a>.</p>
+
+        Raises:
+            aws_sdk_neptune.errors.db_cluster_not_found_fault.DBClusterNotFoundFault: <p> <i>DBClusterIdentifier</i> does not refer to an existing DB cluster.</p>
+            aws_sdk_neptune.errors.db_cluster_role_already_exists_fault.DBClusterRoleAlreadyExistsFault: <p>The specified IAM role Amazon Resource Name (ARN) is already associated with the specified DB cluster.</p>
+            aws_sdk_neptune.errors.db_cluster_role_quota_exceeded_fault.DBClusterRoleQuotaExceededFault: <p>You have exceeded the maximum number of IAM roles that can be associated with the specified DB cluster.</p>
+            aws_sdk_neptune.errors.invalid_db_cluster_state_fault.InvalidDBClusterStateFault: <p>The DB cluster is not in a valid state.</p>
+            aws_sdk_neptune.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -346,6 +353,11 @@ class NeptuneClient:
         Args:
             subscription_name: <p>The name of the event notification subscription you want to add a source identifier to.</p>
             source_identifier: <p>The identifier of the event source to be added.</p> <p>Constraints:</p> <ul> <li> <p>If the source type is a DB instance, then a <code>DBInstanceIdentifier</code> must be supplied.</p> </li> <li> <p>If the source type is a DB security group, a <code>DBSecurityGroupName</code> must be supplied.</p> </li> <li> <p>If the source type is a DB parameter group, a <code>DBParameterGroupName</code> must be supplied.</p> </li> <li> <p>If the source type is a DB snapshot, a <code>DBSnapshotIdentifier</code> must be supplied.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_neptune.errors.source_not_found_fault.SourceNotFoundFault: <p>The source could not be found.</p>
+            aws_sdk_neptune.errors.subscription_not_found_fault.SubscriptionNotFoundFault: <p>The designated subscription could not be found.</p>
+            aws_sdk_neptune.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -386,6 +398,12 @@ class NeptuneClient:
         Args:
             resource_name: <p>The Amazon Neptune resource that the tags are added to. This value is an Amazon Resource Name (ARN). For information about creating an ARN, see <a href=\"https://docs.aws.amazon.com/neptune/latest/UserGuide/tagging.ARN.html#tagging.ARN.Constructing\"> Constructing an Amazon Resource Name (ARN)</a>.</p>
             tags: <p>The tags to be assigned to the Amazon Neptune resource.</p>
+
+        Raises:
+            aws_sdk_neptune.errors.db_cluster_not_found_fault.DBClusterNotFoundFault: <p> <i>DBClusterIdentifier</i> does not refer to an existing DB cluster.</p>
+            aws_sdk_neptune.errors.db_instance_not_found_fault.DBInstanceNotFoundFault: <p> <i>DBInstanceIdentifier</i> does not refer to an existing DB instance.</p>
+            aws_sdk_neptune.errors.db_snapshot_not_found_fault.DBSnapshotNotFoundFault: <p> <i>DBSnapshotIdentifier</i> does not refer to an existing DB snapshot.</p>
+            aws_sdk_neptune.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -426,6 +444,10 @@ class NeptuneClient:
             resource_identifier: <p>The Amazon Resource Name (ARN) of the resource that the pending maintenance action applies to. For information about creating an ARN, see <a href=\"https://docs.aws.amazon.com/neptune/latest/UserGuide/tagging.ARN.html#tagging.ARN.Constructing\"> Constructing an Amazon Resource Name (ARN)</a>.</p>
             apply_action: <p>The pending maintenance action to apply to this resource.</p> <p>Valid values: <code>system-update</code>, <code>db-upgrade</code> </p>
             opt_in_type: <p>A value that specifies the type of opt-in request, or undoes an opt-in request. An opt-in request of type <code>immediate</code> can't be undone.</p> <p>Valid values:</p> <ul> <li> <p> <code>immediate</code> - Apply the maintenance action immediately.</p> </li> <li> <p> <code>next-maintenance</code> - Apply the maintenance action during the next maintenance window for the resource.</p> </li> <li> <p> <code>undo-opt-in</code> - Cancel any existing <code>next-maintenance</code> opt-in requests.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_neptune.errors.resource_not_found_fault.ResourceNotFoundFault: <p>The specified resource ID was not found.</p>
+            aws_sdk_neptune.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -471,6 +493,12 @@ class NeptuneClient:
             target_db_cluster_parameter_group_identifier: <p>The identifier for the copied DB cluster parameter group.</p> <p>Constraints:</p> <ul> <li> <p>Cannot be null, empty, or blank</p> </li> <li> <p>Must contain from 1 to 255 letters, numbers, or hyphens</p> </li> <li> <p>First character must be a letter</p> </li> <li> <p>Cannot end with a hyphen or contain two consecutive hyphens</p> </li> </ul> <p>Example: <code>my-cluster-param-group1</code> </p>
             target_db_cluster_parameter_group_description: <p>A description for the copied DB cluster parameter group.</p>
             tags: <p>The tags to be assigned to the copied DB cluster parameter group.</p>
+
+        Raises:
+            aws_sdk_neptune.errors.db_parameter_group_already_exists_fault.DBParameterGroupAlreadyExistsFault: <p>A DB parameter group with the same name exists.</p>
+            aws_sdk_neptune.errors.db_parameter_group_not_found_fault.DBParameterGroupNotFoundFault: <p> <i>DBParameterGroupName</i> does not refer to an existing DB parameter group.</p>
+            aws_sdk_neptune.errors.db_parameter_group_quota_exceeded_fault.DBParameterGroupQuotaExceededFault: <p>Request would result in user exceeding the allowed number of DB parameter groups.</p>
+            aws_sdk_neptune.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -530,6 +558,15 @@ class NeptuneClient:
             pre_signed_url: <p>Not currently supported.</p>
             copy_tags: <p>True to copy all tags from the source DB cluster snapshot to the target DB cluster snapshot, and otherwise false. The default is false.</p>
             tags: <p>The tags to assign to the new DB cluster snapshot copy.</p>
+
+        Raises:
+            aws_sdk_neptune.errors.db_cluster_snapshot_already_exists_fault.DBClusterSnapshotAlreadyExistsFault: <p>User already has a DB cluster snapshot with the given identifier.</p>
+            aws_sdk_neptune.errors.db_cluster_snapshot_not_found_fault.DBClusterSnapshotNotFoundFault: <p> <i>DBClusterSnapshotIdentifier</i> does not refer to an existing DB cluster snapshot.</p>
+            aws_sdk_neptune.errors.invalid_db_cluster_snapshot_state_fault.InvalidDBClusterSnapshotStateFault: <p>The supplied value is not a valid DB cluster snapshot state.</p>
+            aws_sdk_neptune.errors.invalid_db_cluster_state_fault.InvalidDBClusterStateFault: <p>The DB cluster is not in a valid state.</p>
+            aws_sdk_neptune.errors.kms_key_not_accessible_fault.KMSKeyNotAccessibleFault: <p>Error accessing KMS key.</p>
+            aws_sdk_neptune.errors.snapshot_quota_exceeded_fault.SnapshotQuotaExceededFault: <p>Request would result in user exceeding the allowed number of DB snapshots.</p>
+            aws_sdk_neptune.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -586,6 +623,12 @@ class NeptuneClient:
             target_db_parameter_group_identifier: <p>The identifier for the copied DB parameter group.</p> <p>Constraints:</p> <ul> <li> <p>Cannot be null, empty, or blank.</p> </li> <li> <p>Must contain from 1 to 255 letters, numbers, or hyphens.</p> </li> <li> <p>First character must be a letter.</p> </li> <li> <p>Cannot end with a hyphen or contain two consecutive hyphens.</p> </li> </ul> <p>Example: <code>my-db-parameter-group</code> </p>
             target_db_parameter_group_description: <p>A description for the copied DB parameter group.</p>
             tags: <p>The tags to be assigned to the copied DB parameter group.</p>
+
+        Raises:
+            aws_sdk_neptune.errors.db_parameter_group_already_exists_fault.DBParameterGroupAlreadyExistsFault: <p>A DB parameter group with the same name exists.</p>
+            aws_sdk_neptune.errors.db_parameter_group_not_found_fault.DBParameterGroupNotFoundFault: <p> <i>DBParameterGroupName</i> does not refer to an existing DB parameter group.</p>
+            aws_sdk_neptune.errors.db_parameter_group_quota_exceeded_fault.DBParameterGroupQuotaExceededFault: <p>Request would result in user exceeding the allowed number of DB parameter groups.</p>
+            aws_sdk_neptune.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -715,6 +758,27 @@ class NeptuneClient:
             global_cluster_identifier: <p>The ID of the Neptune global database to which this new DB cluster should be added.</p>
             storage_type: <p>The storage type for the new DB cluster.</p> <p>Valid Values:</p> <ul> <li> <p> <b> <code>standard</code> </b> – ( <i>the default</i> ) Configures cost-effective database storage for applications with moderate to small I/O usage. When set to <code>standard</code>, the storage type is not returned in the response.</p> </li> <li> <p> <b> <code>iopt1</code> </b> – Enables <a href=\"https://docs.aws.amazon.com/neptune/latest/userguide/storage-types.html#provisioned-iops-storage\">I/O-Optimized storage</a> that's designed to meet the needs of I/O-intensive graph workloads that require predictable pricing with low I/O latency and consistent I/O throughput.</p> <p>Neptune I/O-Optimized storage is only available starting with engine release 1.3.0.0.</p> </li> </ul>
             network_type: <p>The network type of the DB cluster.</p> <p>Valid Values:</p> <ul> <li> <p> <b> <code>IPV4</code> </b> – ( <i>the default</i> ) The DB cluster uses only IPv4 addresses for communication.</p> </li> <li> <p> <b> <code>DUAL</code> </b> – The DB cluster uses both IPv4 and IPv6 addresses for communication. The DB subnet group associated with the cluster must support IPv6.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_neptune.errors.db_cluster_already_exists_fault.DBClusterAlreadyExistsFault: <p>User already has a DB cluster with the given identifier.</p>
+            aws_sdk_neptune.errors.db_cluster_not_found_fault.DBClusterNotFoundFault: <p> <i>DBClusterIdentifier</i> does not refer to an existing DB cluster.</p>
+            aws_sdk_neptune.errors.db_cluster_parameter_group_not_found_fault.DBClusterParameterGroupNotFoundFault: <p> <i>DBClusterParameterGroupName</i> does not refer to an existing DB Cluster parameter group.</p>
+            aws_sdk_neptune.errors.db_cluster_quota_exceeded_fault.DBClusterQuotaExceededFault: <p>User attempted to create a new DB cluster and the user has already reached the maximum allowed DB cluster quota.</p>
+            aws_sdk_neptune.errors.db_instance_not_found_fault.DBInstanceNotFoundFault: <p> <i>DBInstanceIdentifier</i> does not refer to an existing DB instance.</p>
+            aws_sdk_neptune.errors.db_subnet_group_does_not_cover_enough_a_zs.DBSubnetGroupDoesNotCoverEnoughAZs: <p>Subnets in the DB subnet group should cover at least two Availability Zones unless there is only one Availability Zone.</p>
+            aws_sdk_neptune.errors.db_subnet_group_not_found_fault.DBSubnetGroupNotFoundFault: <p> <i>DBSubnetGroupName</i> does not refer to an existing DB subnet group.</p>
+            aws_sdk_neptune.errors.global_cluster_not_found_fault.GlobalClusterNotFoundFault: <p>The <code>GlobalClusterIdentifier</code> doesn't refer to an existing global database cluster. </p>
+            aws_sdk_neptune.errors.insufficient_storage_cluster_capacity_fault.InsufficientStorageClusterCapacityFault: <p>There is insufficient storage available for the current action. You may be able to resolve this error by updating your subnet group to use different Availability Zones that have more storage available.</p>
+            aws_sdk_neptune.errors.invalid_db_cluster_state_fault.InvalidDBClusterStateFault: <p>The DB cluster is not in a valid state.</p>
+            aws_sdk_neptune.errors.invalid_db_instance_state_fault.InvalidDBInstanceStateFault: <p>The specified DB instance is not in the <i>available</i> state.</p>
+            aws_sdk_neptune.errors.invalid_db_subnet_group_state_fault.InvalidDBSubnetGroupStateFault: <p>The DB subnet group cannot be deleted because it is in use.</p>
+            aws_sdk_neptune.errors.invalid_global_cluster_state_fault.InvalidGlobalClusterStateFault: <p>The global cluster is in an invalid state and can't perform the requested operation. </p>
+            aws_sdk_neptune.errors.invalid_subnet.InvalidSubnet: <p>The requested subnet is invalid, or multiple subnets were requested that are not all in a common VPC.</p>
+            aws_sdk_neptune.errors.invalid_vpc_network_state_fault.InvalidVPCNetworkStateFault: <p>DB subnet group does not cover all Availability Zones after it is created because users' change.</p>
+            aws_sdk_neptune.errors.kms_key_not_accessible_fault.KMSKeyNotAccessibleFault: <p>Error accessing KMS key.</p>
+            aws_sdk_neptune.errors.network_type_not_supported_fault.NetworkTypeNotSupportedFault: <p>The specified <i>NetworkType</i> is not supported for the DB cluster, DB subnet group, or orderable DB instance option.</p>
+            aws_sdk_neptune.errors.storage_quota_exceeded_fault.StorageQuotaExceededFault: <p>Request would result in user exceeding the allowed amount of storage available across all DB instances.</p>
+            aws_sdk_neptune.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -823,6 +887,15 @@ class NeptuneClient:
             static_members: <p>List of DB instance identifiers that are part of the custom endpoint group.</p>
             excluded_members: <p>List of DB instance identifiers that aren't part of the custom endpoint group. All other eligible instances are reachable through the custom endpoint. Only relevant if the list of static members is empty.</p>
             tags: <p>The tags to be assigned to the Amazon Neptune resource.</p>
+
+        Raises:
+            aws_sdk_neptune.errors.db_cluster_endpoint_already_exists_fault.DBClusterEndpointAlreadyExistsFault: <p>The specified custom endpoint cannot be created because it already exists.</p>
+            aws_sdk_neptune.errors.db_cluster_endpoint_quota_exceeded_fault.DBClusterEndpointQuotaExceededFault: <p>The cluster already has the maximum number of custom endpoints.</p>
+            aws_sdk_neptune.errors.db_cluster_not_found_fault.DBClusterNotFoundFault: <p> <i>DBClusterIdentifier</i> does not refer to an existing DB cluster.</p>
+            aws_sdk_neptune.errors.db_instance_not_found_fault.DBInstanceNotFoundFault: <p> <i>DBInstanceIdentifier</i> does not refer to an existing DB instance.</p>
+            aws_sdk_neptune.errors.invalid_db_cluster_state_fault.InvalidDBClusterStateFault: <p>The DB cluster is not in a valid state.</p>
+            aws_sdk_neptune.errors.invalid_db_instance_state_fault.InvalidDBInstanceStateFault: <p>The specified DB instance is not in the <i>available</i> state.</p>
+            aws_sdk_neptune.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -874,6 +947,11 @@ class NeptuneClient:
             db_parameter_group_family: <p>The DB cluster parameter group family name. A DB cluster parameter group can be associated with one and only one DB cluster parameter group family, and can be applied only to a DB cluster running a database engine and engine version compatible with that DB cluster parameter group family.</p>
             description: <p>The description for the DB cluster parameter group.</p>
             tags: <p>The tags to be assigned to the new DB cluster parameter group.</p>
+
+        Raises:
+            aws_sdk_neptune.errors.db_parameter_group_already_exists_fault.DBParameterGroupAlreadyExistsFault: <p>A DB parameter group with the same name exists.</p>
+            aws_sdk_neptune.errors.db_parameter_group_quota_exceeded_fault.DBParameterGroupQuotaExceededFault: <p>Request would result in user exceeding the allowed number of DB parameter groups.</p>
+            aws_sdk_neptune.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -919,6 +997,14 @@ class NeptuneClient:
             db_cluster_snapshot_identifier: <p>The identifier of the DB cluster snapshot. This parameter is stored as a lowercase string.</p> <p>Constraints:</p> <ul> <li> <p>Must contain from 1 to 63 letters, numbers, or hyphens.</p> </li> <li> <p>First character must be a letter.</p> </li> <li> <p>Cannot end with a hyphen or contain two consecutive hyphens.</p> </li> </ul> <p>Example: <code>my-cluster1-snapshot1</code> </p>
             db_cluster_identifier: <p>The identifier of the DB cluster to create a snapshot for. This parameter is not case-sensitive.</p> <p>Constraints:</p> <ul> <li> <p>Must match the identifier of an existing DBCluster.</p> </li> </ul> <p>Example: <code>my-cluster1</code> </p>
             tags: <p>The tags to be assigned to the DB cluster snapshot.</p>
+
+        Raises:
+            aws_sdk_neptune.errors.db_cluster_not_found_fault.DBClusterNotFoundFault: <p> <i>DBClusterIdentifier</i> does not refer to an existing DB cluster.</p>
+            aws_sdk_neptune.errors.db_cluster_snapshot_already_exists_fault.DBClusterSnapshotAlreadyExistsFault: <p>User already has a DB cluster snapshot with the given identifier.</p>
+            aws_sdk_neptune.errors.invalid_db_cluster_snapshot_state_fault.InvalidDBClusterSnapshotStateFault: <p>The supplied value is not a valid DB cluster snapshot state.</p>
+            aws_sdk_neptune.errors.invalid_db_cluster_state_fault.InvalidDBClusterStateFault: <p>The DB cluster is not in a valid state.</p>
+            aws_sdk_neptune.errors.snapshot_quota_exceeded_fault.SnapshotQuotaExceededFault: <p>Request would result in user exceeding the allowed number of DB snapshots.</p>
+            aws_sdk_neptune.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1079,6 +1165,27 @@ class NeptuneClient:
             performance_insights_kms_key_id: <p> <i>(Not supported by Neptune)</i> </p>
             enable_cloudwatch_logs_exports: <p>The list of log types that need to be enabled for exporting to CloudWatch Logs.</p>
             deletion_protection: <p>A value that indicates whether the DB instance has deletion protection enabled. The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled. See <a href=\"https://docs.aws.amazon.com/neptune/latest/userguide/manage-console-instances-delete.html\">Deleting a DB Instance</a>.</p> <p>DB instances in a DB cluster can be deleted even when deletion protection is enabled in their parent DB cluster.</p>
+
+        Raises:
+            aws_sdk_neptune.errors.authorization_not_found_fault.AuthorizationNotFoundFault: <p>Specified CIDRIP or EC2 security group is not authorized for the specified DB security group.</p> <p>Neptune may not also be authorized via IAM to perform necessary actions on your behalf.</p>
+            aws_sdk_neptune.errors.db_cluster_not_found_fault.DBClusterNotFoundFault: <p> <i>DBClusterIdentifier</i> does not refer to an existing DB cluster.</p>
+            aws_sdk_neptune.errors.db_instance_already_exists_fault.DBInstanceAlreadyExistsFault: <p>User already has a DB instance with the given identifier.</p>
+            aws_sdk_neptune.errors.db_parameter_group_not_found_fault.DBParameterGroupNotFoundFault: <p> <i>DBParameterGroupName</i> does not refer to an existing DB parameter group.</p>
+            aws_sdk_neptune.errors.db_security_group_not_found_fault.DBSecurityGroupNotFoundFault: <p> <i>DBSecurityGroupName</i> does not refer to an existing DB security group.</p>
+            aws_sdk_neptune.errors.db_subnet_group_does_not_cover_enough_a_zs.DBSubnetGroupDoesNotCoverEnoughAZs: <p>Subnets in the DB subnet group should cover at least two Availability Zones unless there is only one Availability Zone.</p>
+            aws_sdk_neptune.errors.db_subnet_group_not_found_fault.DBSubnetGroupNotFoundFault: <p> <i>DBSubnetGroupName</i> does not refer to an existing DB subnet group.</p>
+            aws_sdk_neptune.errors.domain_not_found_fault.DomainNotFoundFault: <p> <i>Domain</i> does not refer to an existing Active Directory Domain.</p>
+            aws_sdk_neptune.errors.instance_quota_exceeded_fault.InstanceQuotaExceededFault: <p>Request would result in user exceeding the allowed number of DB instances.</p>
+            aws_sdk_neptune.errors.insufficient_db_instance_capacity_fault.InsufficientDBInstanceCapacityFault: <p>Specified DB instance class is not available in the specified Availability Zone.</p>
+            aws_sdk_neptune.errors.invalid_db_cluster_state_fault.InvalidDBClusterStateFault: <p>The DB cluster is not in a valid state.</p>
+            aws_sdk_neptune.errors.invalid_subnet.InvalidSubnet: <p>The requested subnet is invalid, or multiple subnets were requested that are not all in a common VPC.</p>
+            aws_sdk_neptune.errors.invalid_vpc_network_state_fault.InvalidVPCNetworkStateFault: <p>DB subnet group does not cover all Availability Zones after it is created because users' change.</p>
+            aws_sdk_neptune.errors.kms_key_not_accessible_fault.KMSKeyNotAccessibleFault: <p>Error accessing KMS key.</p>
+            aws_sdk_neptune.errors.option_group_not_found_fault.OptionGroupNotFoundFault: <p>The designated option group could not be found.</p>
+            aws_sdk_neptune.errors.provisioned_iops_not_available_in_az_fault.ProvisionedIopsNotAvailableInAZFault: <p>Provisioned IOPS not available in the specified Availability Zone.</p>
+            aws_sdk_neptune.errors.storage_quota_exceeded_fault.StorageQuotaExceededFault: <p>Request would result in user exceeding the allowed amount of storage available across all DB instances.</p>
+            aws_sdk_neptune.errors.storage_type_not_supported_fault.StorageTypeNotSupportedFault: <p> <i>StorageType</i> specified cannot be associated with the DB Instance.</p>
+            aws_sdk_neptune.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1205,6 +1312,11 @@ class NeptuneClient:
             db_parameter_group_family: <p>The DB parameter group family name. A DB parameter group can be associated with one and only one DB parameter group family, and can be applied only to a DB instance running a database engine and engine version compatible with that DB parameter group family.</p>
             description: <p>The description for the DB parameter group.</p>
             tags: <p>The tags to be assigned to the new DB parameter group.</p>
+
+        Raises:
+            aws_sdk_neptune.errors.db_parameter_group_already_exists_fault.DBParameterGroupAlreadyExistsFault: <p>A DB parameter group with the same name exists.</p>
+            aws_sdk_neptune.errors.db_parameter_group_quota_exceeded_fault.DBParameterGroupQuotaExceededFault: <p>Request would result in user exceeding the allowed number of DB parameter groups.</p>
+            aws_sdk_neptune.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1254,6 +1366,14 @@ class NeptuneClient:
             db_subnet_group_description: <p>The description for the DB subnet group.</p>
             subnet_ids: <p>The EC2 Subnet IDs for the DB subnet group.</p>
             tags: <p>The tags to be assigned to the new DB subnet group.</p>
+
+        Raises:
+            aws_sdk_neptune.errors.db_subnet_group_already_exists_fault.DBSubnetGroupAlreadyExistsFault: <p> <i>DBSubnetGroupName</i> is already used by an existing DB subnet group.</p>
+            aws_sdk_neptune.errors.db_subnet_group_does_not_cover_enough_a_zs.DBSubnetGroupDoesNotCoverEnoughAZs: <p>Subnets in the DB subnet group should cover at least two Availability Zones unless there is only one Availability Zone.</p>
+            aws_sdk_neptune.errors.db_subnet_group_quota_exceeded_fault.DBSubnetGroupQuotaExceededFault: <p>Request would result in user exceeding the allowed number of DB subnet groups.</p>
+            aws_sdk_neptune.errors.db_subnet_quota_exceeded_fault.DBSubnetQuotaExceededFault: <p>Request would result in user exceeding the allowed number of subnets in a DB subnet groups.</p>
+            aws_sdk_neptune.errors.invalid_subnet.InvalidSubnet: <p>The requested subnet is invalid, or multiple subnets were requested that are not all in a common VPC.</p>
+            aws_sdk_neptune.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1313,6 +1433,16 @@ class NeptuneClient:
             source_ids: <p>The list of identifiers of the event sources for which events are returned. If not specified, then all sources are included in the response. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it can't end with a hyphen or contain two consecutive hyphens.</p> <p>Constraints:</p> <ul> <li> <p>If SourceIds are supplied, SourceType must also be provided.</p> </li> <li> <p>If the source type is a DB instance, then a <code>DBInstanceIdentifier</code> must be supplied.</p> </li> <li> <p>If the source type is a DB security group, a <code>DBSecurityGroupName</code> must be supplied.</p> </li> <li> <p>If the source type is a DB parameter group, a <code>DBParameterGroupName</code> must be supplied.</p> </li> <li> <p>If the source type is a DB snapshot, a <code>DBSnapshotIdentifier</code> must be supplied.</p> </li> </ul>
             enabled: <p> A Boolean value; set to <b>true</b> to activate the subscription, set to <b>false</b> to create the subscription but not activate it.</p>
             tags: <p>The tags to be applied to the new event subscription.</p>
+
+        Raises:
+            aws_sdk_neptune.errors.event_subscription_quota_exceeded_fault.EventSubscriptionQuotaExceededFault: <p>You have exceeded the number of events you can subscribe to.</p>
+            aws_sdk_neptune.errors.sns_invalid_topic_fault.SNSInvalidTopicFault: <p>The SNS topic is invalid.</p>
+            aws_sdk_neptune.errors.sns_no_authorization_fault.SNSNoAuthorizationFault: <p>There is no SNS authorization.</p>
+            aws_sdk_neptune.errors.sns_topic_arn_not_found_fault.SNSTopicArnNotFoundFault: <p>The ARN of the SNS topic could not be found.</p>
+            aws_sdk_neptune.errors.source_not_found_fault.SourceNotFoundFault: <p>The source could not be found.</p>
+            aws_sdk_neptune.errors.subscription_already_exist_fault.SubscriptionAlreadyExistFault: <p>This subscription already exists.</p>
+            aws_sdk_neptune.errors.subscription_category_not_found_fault.SubscriptionCategoryNotFoundFault: <p>The designated subscription category could not be found.</p>
+            aws_sdk_neptune.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1381,6 +1511,13 @@ class NeptuneClient:
             database_name: <p>The name for the new global database (up to 64 alpha-numeric characters).</p>
             tags: <p>Tags to assign to the global cluster.</p>
             storage_encrypted: <p>The storage encryption setting for the new global database cluster.</p>
+
+        Raises:
+            aws_sdk_neptune.errors.db_cluster_not_found_fault.DBClusterNotFoundFault: <p> <i>DBClusterIdentifier</i> does not refer to an existing DB cluster.</p>
+            aws_sdk_neptune.errors.global_cluster_already_exists_fault.GlobalClusterAlreadyExistsFault: <p>The <code>GlobalClusterIdentifier</code> already exists. Choose a new global database identifier (unique name) to create a new global database cluster.</p>
+            aws_sdk_neptune.errors.global_cluster_quota_exceeded_fault.GlobalClusterQuotaExceededFault: <p>The number of global database clusters for this account is already at the maximum allowed.</p>
+            aws_sdk_neptune.errors.invalid_db_cluster_state_fault.InvalidDBClusterStateFault: <p>The DB cluster is not in a valid state.</p>
+            aws_sdk_neptune.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1438,6 +1575,14 @@ class NeptuneClient:
             db_cluster_identifier: <p>The DB cluster identifier for the DB cluster to be deleted. This parameter isn't case-sensitive.</p> <p>Constraints:</p> <ul> <li> <p>Must match an existing DBClusterIdentifier.</p> </li> </ul>
             skip_final_snapshot: <p> Determines whether a final DB cluster snapshot is created before the DB cluster is deleted. If <code>true</code> is specified, no DB cluster snapshot is created. If <code>false</code> is specified, a DB cluster snapshot is created before the DB cluster is deleted.</p> <note> <p>You must specify a <code>FinalDBSnapshotIdentifier</code> parameter if <code>SkipFinalSnapshot</code> is <code>false</code>.</p> </note> <p>Default: <code>false</code> </p>
             final_db_snapshot_identifier: <p> The DB cluster snapshot identifier of the new DB cluster snapshot created when <code>SkipFinalSnapshot</code> is set to <code>false</code>.</p> <note> <p> Specifying this parameter and also setting the <code>SkipFinalSnapshot</code> parameter to true results in an error.</p> </note> <p>Constraints:</p> <ul> <li> <p>Must be 1 to 255 letters, numbers, or hyphens.</p> </li> <li> <p>First character must be a letter</p> </li> <li> <p>Cannot end with a hyphen or contain two consecutive hyphens</p> </li> </ul>
+
+        Raises:
+            aws_sdk_neptune.errors.db_cluster_not_found_fault.DBClusterNotFoundFault: <p> <i>DBClusterIdentifier</i> does not refer to an existing DB cluster.</p>
+            aws_sdk_neptune.errors.db_cluster_snapshot_already_exists_fault.DBClusterSnapshotAlreadyExistsFault: <p>User already has a DB cluster snapshot with the given identifier.</p>
+            aws_sdk_neptune.errors.invalid_db_cluster_snapshot_state_fault.InvalidDBClusterSnapshotStateFault: <p>The supplied value is not a valid DB cluster snapshot state.</p>
+            aws_sdk_neptune.errors.invalid_db_cluster_state_fault.InvalidDBClusterStateFault: <p>The DB cluster is not in a valid state.</p>
+            aws_sdk_neptune.errors.snapshot_quota_exceeded_fault.SnapshotQuotaExceededFault: <p>Request would result in user exceeding the allowed number of DB snapshots.</p>
+            aws_sdk_neptune.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1479,6 +1624,12 @@ class NeptuneClient:
 
         Args:
             db_cluster_endpoint_identifier: <p>The identifier associated with the custom endpoint. This parameter is stored as a lowercase string.</p>
+
+        Raises:
+            aws_sdk_neptune.errors.db_cluster_endpoint_not_found_fault.DBClusterEndpointNotFoundFault: <p>The specified custom endpoint doesn't exist.</p>
+            aws_sdk_neptune.errors.invalid_db_cluster_endpoint_state_fault.InvalidDBClusterEndpointStateFault: <p>The requested operation cannot be performed on the endpoint while the endpoint is in this state.</p>
+            aws_sdk_neptune.errors.invalid_db_cluster_state_fault.InvalidDBClusterStateFault: <p>The DB cluster is not in a valid state.</p>
+            aws_sdk_neptune.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1516,6 +1667,11 @@ class NeptuneClient:
 
         Args:
             db_cluster_parameter_group_name: <p>The name of the DB cluster parameter group.</p> <p>Constraints:</p> <ul> <li> <p>Must be the name of an existing DB cluster parameter group.</p> </li> <li> <p>You can't delete a default DB cluster parameter group.</p> </li> <li> <p>Cannot be associated with any DB clusters.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_neptune.errors.db_parameter_group_not_found_fault.DBParameterGroupNotFoundFault: <p> <i>DBParameterGroupName</i> does not refer to an existing DB parameter group.</p>
+            aws_sdk_neptune.errors.invalid_db_parameter_group_state_fault.InvalidDBParameterGroupStateFault: <p>The DB parameter group is in use or is in an invalid state. If you are attempting to delete the parameter group, you cannot delete it when the parameter group is in this state.</p>
+            aws_sdk_neptune.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1551,6 +1707,11 @@ class NeptuneClient:
 
         Args:
             db_cluster_snapshot_identifier: <p>The identifier of the DB cluster snapshot to delete.</p> <p>Constraints: Must be the name of an existing DB cluster snapshot in the <code>available</code> state.</p>
+
+        Raises:
+            aws_sdk_neptune.errors.db_cluster_snapshot_not_found_fault.DBClusterSnapshotNotFoundFault: <p> <i>DBClusterSnapshotIdentifier</i> does not refer to an existing DB cluster snapshot.</p>
+            aws_sdk_neptune.errors.invalid_db_cluster_snapshot_state_fault.InvalidDBClusterSnapshotStateFault: <p>The supplied value is not a valid DB cluster snapshot state.</p>
+            aws_sdk_neptune.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1594,6 +1755,14 @@ class NeptuneClient:
             db_instance_identifier: <p>The DB instance identifier for the DB instance to be deleted. This parameter isn't case-sensitive.</p> <p>Constraints:</p> <ul> <li> <p>Must match the name of an existing DB instance.</p> </li> </ul>
             skip_final_snapshot: <p> Determines whether a final DB snapshot is created before the DB instance is deleted. If <code>true</code> is specified, no DBSnapshot is created. If <code>false</code> is specified, a DB snapshot is created before the DB instance is deleted.</p> <p>Note that when a DB instance is in a failure state and has a status of 'failed', 'incompatible-restore', or 'incompatible-network', it can only be deleted when the SkipFinalSnapshot parameter is set to \"true\".</p> <p>Specify <code>true</code> when deleting a Read Replica.</p> <note> <p>The FinalDBSnapshotIdentifier parameter must be specified if SkipFinalSnapshot is <code>false</code>.</p> </note> <p>Default: <code>false</code> </p>
             final_db_snapshot_identifier: <p> The DBSnapshotIdentifier of the new DBSnapshot created when SkipFinalSnapshot is set to <code>false</code>.</p> <note> <p>Specifying this parameter and also setting the SkipFinalSnapshot parameter to true results in an error.</p> </note> <p>Constraints:</p> <ul> <li> <p>Must be 1 to 255 letters or numbers.</p> </li> <li> <p>First character must be a letter</p> </li> <li> <p>Cannot end with a hyphen or contain two consecutive hyphens</p> </li> <li> <p>Cannot be specified when deleting a Read Replica.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_neptune.errors.db_instance_not_found_fault.DBInstanceNotFoundFault: <p> <i>DBInstanceIdentifier</i> does not refer to an existing DB instance.</p>
+            aws_sdk_neptune.errors.db_snapshot_already_exists_fault.DBSnapshotAlreadyExistsFault: <p> <i>DBSnapshotIdentifier</i> is already used by an existing snapshot.</p>
+            aws_sdk_neptune.errors.invalid_db_cluster_state_fault.InvalidDBClusterStateFault: <p>The DB cluster is not in a valid state.</p>
+            aws_sdk_neptune.errors.invalid_db_instance_state_fault.InvalidDBInstanceStateFault: <p>The specified DB instance is not in the <i>available</i> state.</p>
+            aws_sdk_neptune.errors.snapshot_quota_exceeded_fault.SnapshotQuotaExceededFault: <p>Request would result in user exceeding the allowed number of DB snapshots.</p>
+            aws_sdk_neptune.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1635,6 +1804,11 @@ class NeptuneClient:
 
         Args:
             db_parameter_group_name: <p>The name of the DB parameter group.</p> <p>Constraints:</p> <ul> <li> <p>Must be the name of an existing DB parameter group</p> </li> <li> <p>You can't delete a default DB parameter group</p> </li> <li> <p>Cannot be associated with any DB instances</p> </li> </ul>
+
+        Raises:
+            aws_sdk_neptune.errors.db_parameter_group_not_found_fault.DBParameterGroupNotFoundFault: <p> <i>DBParameterGroupName</i> does not refer to an existing DB parameter group.</p>
+            aws_sdk_neptune.errors.invalid_db_parameter_group_state_fault.InvalidDBParameterGroupStateFault: <p>The DB parameter group is in use or is in an invalid state. If you are attempting to delete the parameter group, you cannot delete it when the parameter group is in this state.</p>
+            aws_sdk_neptune.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1670,6 +1844,12 @@ class NeptuneClient:
 
         Args:
             db_subnet_group_name: <p>The name of the database subnet group to delete.</p> <note> <p>You can't delete the default subnet group.</p> </note> <p>Constraints:</p> <p>Constraints: Must match the name of an existing DBSubnetGroup. Must not be default.</p> <p>Example: <code>mySubnetgroup</code> </p>
+
+        Raises:
+            aws_sdk_neptune.errors.db_subnet_group_not_found_fault.DBSubnetGroupNotFoundFault: <p> <i>DBSubnetGroupName</i> does not refer to an existing DB subnet group.</p>
+            aws_sdk_neptune.errors.invalid_db_subnet_group_state_fault.InvalidDBSubnetGroupStateFault: <p>The DB subnet group cannot be deleted because it is in use.</p>
+            aws_sdk_neptune.errors.invalid_db_subnet_state_fault.InvalidDBSubnetStateFault: <p>The DB subnet is not in the <i>available</i> state.</p>
+            aws_sdk_neptune.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1705,6 +1885,11 @@ class NeptuneClient:
 
         Args:
             subscription_name: <p>The name of the event notification subscription you want to delete.</p>
+
+        Raises:
+            aws_sdk_neptune.errors.invalid_event_subscription_state_fault.InvalidEventSubscriptionStateFault: <p>The event subscription is in an invalid state.</p>
+            aws_sdk_neptune.errors.subscription_not_found_fault.SubscriptionNotFoundFault: <p>The designated subscription could not be found.</p>
+            aws_sdk_neptune.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1742,6 +1927,11 @@ class NeptuneClient:
 
         Args:
             global_cluster_identifier: <p>The cluster identifier of the global database cluster being deleted.</p>
+
+        Raises:
+            aws_sdk_neptune.errors.global_cluster_not_found_fault.GlobalClusterNotFoundFault: <p>The <code>GlobalClusterIdentifier</code> doesn't refer to an existing global database cluster. </p>
+            aws_sdk_neptune.errors.invalid_global_cluster_state_fault.InvalidGlobalClusterStateFault: <p>The global cluster is in an invalid state and can't perform the requested operation. </p>
+            aws_sdk_neptune.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1791,6 +1981,10 @@ class NeptuneClient:
             filters: <p>A set of name-value pairs that define which endpoints to include in the output. The filters are specified as name-value pairs, in the format <code>Name=<i>endpoint_type</i>,Values=<i>endpoint_type1</i>,<i>endpoint_type2</i>,...</code>. <code>Name</code> can be one of: <code>db-cluster-endpoint-type</code>, <code>db-cluster-endpoint-custom-type</code>, <code>db-cluster-endpoint-id</code>, <code>db-cluster-endpoint-status</code>. <code>Values</code> for the <code> db-cluster-endpoint-type</code> filter can be one or more of: <code>reader</code>, <code>writer</code>, <code>custom</code>. <code>Values</code> for the <code>db-cluster-endpoint-custom-type</code> filter can be one or more of: <code>reader</code>, <code>any</code>. <code>Values</code> for the <code>db-cluster-endpoint-status</code> filter can be one or more of: <code>available</code>, <code>creating</code>, <code>deleting</code>, <code>inactive</code>, <code>modifying</code>. </p>
             max_records: <p>The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code> value, a pagination token called a marker is included in the response so you can retrieve the remaining results.</p> <p>Default: 100</p> <p>Constraints: Minimum 20, maximum 100.</p>
             marker: <p>An optional pagination token provided by a previous <code>DescribeDBClusterEndpoints</code> request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>.</p>
+
+        Raises:
+            aws_sdk_neptune.errors.db_cluster_not_found_fault.DBClusterNotFoundFault: <p> <i>DBClusterIdentifier</i> does not refer to an existing DB cluster.</p>
+            aws_sdk_neptune.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1878,6 +2072,10 @@ class NeptuneClient:
             filters: <p>This parameter is not currently supported.</p>
             max_records: <p> The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code> value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.</p> <p>Default: 100</p> <p>Constraints: Minimum 20, maximum 100.</p>
             marker: <p> An optional pagination token provided by a previous <code>DescribeDBClusterParameterGroups</code> request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>.</p>
+
+        Raises:
+            aws_sdk_neptune.errors.db_parameter_group_not_found_fault.DBParameterGroupNotFoundFault: <p> <i>DBParameterGroupName</i> does not refer to an existing DB parameter group.</p>
+            aws_sdk_neptune.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1961,6 +2159,10 @@ class NeptuneClient:
             filters: <p>This parameter is not currently supported.</p>
             max_records: <p> The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code> value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.</p> <p>Default: 100</p> <p>Constraints: Minimum 20, maximum 100.</p>
             marker: <p> An optional pagination token provided by a previous <code>DescribeDBClusterParameters</code> request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>. </p>
+
+        Raises:
+            aws_sdk_neptune.errors.db_parameter_group_not_found_fault.DBParameterGroupNotFoundFault: <p> <i>DBParameterGroupName</i> does not refer to an existing DB parameter group.</p>
+            aws_sdk_neptune.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2043,6 +2245,10 @@ class NeptuneClient:
             filters: <p>A filter that specifies one or more DB clusters to describe.</p> <p>Supported filters:</p> <ul> <li> <p> <code>db-cluster-id</code> - Accepts DB cluster identifiers and DB cluster Amazon Resource Names (ARNs). The results list will only include information about the DB clusters identified by these ARNs.</p> </li> <li> <p> <code>engine</code> - Accepts an engine name (such as <code>neptune</code>), and restricts the results list to DB clusters created by that engine.</p> </li> </ul> <p>For example, to invoke this API from the Amazon CLI and filter so that only Neptune DB clusters are returned, you could use the following command:</p>
             max_records: <p>The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code> value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.</p> <p>Default: 100</p> <p>Constraints: Minimum 20, maximum 100.</p>
             marker: <p>An optional pagination token provided by a previous <a>DescribeDBClusters</a> request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>.</p>
+
+        Raises:
+            aws_sdk_neptune.errors.db_cluster_not_found_fault.DBClusterNotFoundFault: <p> <i>DBClusterIdentifier</i> does not refer to an existing DB cluster.</p>
+            aws_sdk_neptune.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2114,6 +2320,10 @@ class NeptuneClient:
 
         Args:
             db_cluster_snapshot_identifier: <p>The identifier for the DB cluster snapshot to describe the attributes for.</p>
+
+        Raises:
+            aws_sdk_neptune.errors.db_cluster_snapshot_not_found_fault.DBClusterSnapshotNotFoundFault: <p> <i>DBClusterSnapshotIdentifier</i> does not refer to an existing DB cluster snapshot.</p>
+            aws_sdk_neptune.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2169,6 +2379,10 @@ class NeptuneClient:
             marker: <p>An optional pagination token provided by a previous <code>DescribeDBClusterSnapshots</code> request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>. </p>
             include_shared: <p>True to include shared manual DB cluster snapshots from other Amazon accounts that this Amazon account has been given permission to copy or restore, and otherwise false. The default is <code>false</code>.</p> <p>You can give an Amazon account permission to restore a manual DB cluster snapshot from another Amazon account by the <a>ModifyDBClusterSnapshotAttribute</a> API action.</p>
             include_public: <p>True to include manual DB cluster snapshots that are public and can be copied or restored by any Amazon account, and otherwise false. The default is <code>false</code>. The default is false.</p> <p>You can share a manual DB cluster snapshot as public by using the <a>ModifyDBClusterSnapshotAttribute</a> API action.</p>
+
+        Raises:
+            aws_sdk_neptune.errors.db_cluster_snapshot_not_found_fault.DBClusterSnapshotNotFoundFault: <p> <i>DBClusterSnapshotIdentifier</i> does not refer to an existing DB cluster snapshot.</p>
+            aws_sdk_neptune.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2282,6 +2496,9 @@ class NeptuneClient:
             default_only: <p>Indicates that only the default version of the specified engine or engine and major version combination is returned.</p>
             list_supported_character_sets: <p>If this parameter is specified and the requested engine supports the <code>CharacterSetName</code> parameter for <code>CreateDBInstance</code>, the response includes a list of supported character sets for each engine version.</p>
             list_supported_timezones: <p>If this parameter is specified and the requested engine supports the <code>TimeZone</code> parameter for <code>CreateDBInstance</code>, the response includes a list of supported time zones for each engine version.</p>
+
+        Raises:
+            aws_sdk_neptune.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2387,6 +2604,10 @@ class NeptuneClient:
             filters: <p>A filter that specifies one or more DB instances to describe.</p> <p>Supported filters:</p> <ul> <li> <p> <code>db-cluster-id</code> - Accepts DB cluster identifiers and DB cluster Amazon Resource Names (ARNs). The results list will only include information about the DB instances associated with the DB clusters identified by these ARNs.</p> </li> <li> <p> <code>engine</code> - Accepts an engine name (such as <code>neptune</code>), and restricts the results list to DB instances created by that engine.</p> </li> </ul> <p>For example, to invoke this API from the Amazon CLI and filter so that only Neptune DB instances are returned, you could use the following command:</p>
             max_records: <p> The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code> value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.</p> <p>Default: 100</p> <p>Constraints: Minimum 20, maximum 100.</p>
             marker: <p> An optional pagination token provided by a previous <code>DescribeDBInstances</code> request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>.</p>
+
+        Raises:
+            aws_sdk_neptune.errors.db_instance_not_found_fault.DBInstanceNotFoundFault: <p> <i>DBInstanceIdentifier</i> does not refer to an existing DB instance.</p>
+            aws_sdk_neptune.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2466,6 +2687,10 @@ class NeptuneClient:
             filters: <p>This parameter is not currently supported.</p>
             max_records: <p>The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code> value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.</p> <p>Default: 100</p> <p>Constraints: Minimum 20, maximum 100.</p>
             marker: <p>An optional pagination token provided by a previous <code>DescribeDBParameterGroups</code> request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>.</p>
+
+        Raises:
+            aws_sdk_neptune.errors.db_parameter_group_not_found_fault.DBParameterGroupNotFoundFault: <p> <i>DBParameterGroupName</i> does not refer to an existing DB parameter group.</p>
+            aws_sdk_neptune.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2547,6 +2772,10 @@ class NeptuneClient:
             filters: <p>This parameter is not currently supported.</p>
             max_records: <p>The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code> value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.</p> <p>Default: 100</p> <p>Constraints: Minimum 20, maximum 100.</p>
             marker: <p>An optional pagination token provided by a previous <code>DescribeDBParameters</code> request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>.</p>
+
+        Raises:
+            aws_sdk_neptune.errors.db_parameter_group_not_found_fault.DBParameterGroupNotFoundFault: <p> <i>DBParameterGroupName</i> does not refer to an existing DB parameter group.</p>
+            aws_sdk_neptune.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2629,6 +2858,10 @@ class NeptuneClient:
             filters: <p>This parameter is not currently supported.</p>
             max_records: <p> The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code> value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.</p> <p>Default: 100</p> <p>Constraints: Minimum 20, maximum 100.</p>
             marker: <p> An optional pagination token provided by a previous DescribeDBSubnetGroups request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>.</p>
+
+        Raises:
+            aws_sdk_neptune.errors.db_subnet_group_not_found_fault.DBSubnetGroupNotFoundFault: <p> <i>DBSubnetGroupName</i> does not refer to an existing DB subnet group.</p>
+            aws_sdk_neptune.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2708,6 +2941,9 @@ class NeptuneClient:
             filters: <p>This parameter is not currently supported.</p>
             max_records: <p> The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code> value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.</p> <p>Default: 100</p> <p>Constraints: Minimum 20, maximum 100.</p>
             marker: <p> An optional pagination token provided by a previous <code>DescribeEngineDefaultClusterParameters</code> request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>.</p>
+
+        Raises:
+            aws_sdk_neptune.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2759,6 +2995,9 @@ class NeptuneClient:
             filters: <p>Not currently supported.</p>
             max_records: <p> The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code> value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.</p> <p>Default: 100</p> <p>Constraints: Minimum 20, maximum 100.</p>
             marker: <p> An optional pagination token provided by a previous <code>DescribeEngineDefaultParameters</code> request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>.</p>
+
+        Raises:
+            aws_sdk_neptune.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2831,6 +3070,9 @@ class NeptuneClient:
         Args:
             source_type: <p>The type of source that is generating the events.</p> <p>Valid values: db-instance | db-parameter-group | db-security-group | db-snapshot</p>
             filters: <p>This parameter is not currently supported.</p>
+
+        Raises:
+            aws_sdk_neptune.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2893,6 +3135,9 @@ class NeptuneClient:
             filters: <p>This parameter is not currently supported.</p>
             max_records: <p> The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code> value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.</p> <p>Default: 100</p> <p>Constraints: Minimum 20, maximum 100.</p>
             marker: <p> An optional pagination token provided by a previous DescribeEvents request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>.</p>
+
+        Raises:
+            aws_sdk_neptune.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2994,6 +3239,10 @@ class NeptuneClient:
             filters: <p>This parameter is not currently supported.</p>
             max_records: <p> The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code> value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.</p> <p>Default: 100</p> <p>Constraints: Minimum 20, maximum 100.</p>
             marker: <p> An optional pagination token provided by a previous DescribeOrderableDBInstanceOptions request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code> .</p>
+
+        Raises:
+            aws_sdk_neptune.errors.subscription_not_found_fault.SubscriptionNotFoundFault: <p>The designated subscription could not be found.</p>
+            aws_sdk_neptune.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3073,6 +3322,10 @@ class NeptuneClient:
             global_cluster_identifier: <p>The user-supplied DB cluster identifier. If this parameter is specified, only information about the specified DB cluster is returned. This parameter is not case-sensitive.</p> <p>Constraints: If supplied, must match an existing DB cluster identifier.</p>
             max_records: <p>The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code> value, a pagination marker token is included in the response that you can use to retrieve the remaining results.</p> <p>Default: <code>100</code> </p> <p>Constraints: Minimum 20, maximum 100.</p>
             marker: <p>(<i>Optional</i>) A pagination token returned by a previous call to <code>DescribeGlobalClusters</code>. If this parameter is specified, the response will only include records beyond the marker, up to the number specified by <code>MaxRecords</code>.</p>
+
+        Raises:
+            aws_sdk_neptune.errors.global_cluster_not_found_fault.GlobalClusterNotFoundFault: <p>The <code>GlobalClusterIdentifier</code> doesn't refer to an existing global database cluster. </p>
+            aws_sdk_neptune.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3158,6 +3411,9 @@ class NeptuneClient:
             filters: <p>This parameter is not currently supported.</p>
             max_records: <p> The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code> value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.</p> <p>Default: 100</p> <p>Constraints: Minimum 20, maximum 100.</p>
             marker: <p> An optional pagination token provided by a previous DescribeOrderableDBInstanceOptions request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code> .</p>
+
+        Raises:
+            aws_sdk_neptune.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3252,6 +3508,10 @@ class NeptuneClient:
             filters: <p>A filter that specifies one or more resources to return pending maintenance actions for.</p> <p>Supported filters:</p> <ul> <li> <p> <code>db-cluster-id</code> - Accepts DB cluster identifiers and DB cluster Amazon Resource Names (ARNs). The results list will only include pending maintenance actions for the DB clusters identified by these ARNs.</p> </li> <li> <p> <code>db-instance-id</code> - Accepts DB instance identifiers and DB instance ARNs. The results list will only include pending maintenance actions for the DB instances identified by these ARNs.</p> </li> </ul>
             marker: <p> An optional pagination token provided by a previous <code>DescribePendingMaintenanceActions</code> request. If this parameter is specified, the response includes only records beyond the marker, up to a number of records specified by <code>MaxRecords</code>.</p>
             max_records: <p> The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code> value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.</p> <p>Default: 100</p> <p>Constraints: Minimum 20, maximum 100.</p>
+
+        Raises:
+            aws_sdk_neptune.errors.resource_not_found_fault.ResourceNotFoundFault: <p>The specified resource ID was not found.</p>
+            aws_sdk_neptune.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3323,6 +3583,11 @@ class NeptuneClient:
 
         Args:
             db_instance_identifier: <p>The customer identifier or the ARN of your DB instance.</p>
+
+        Raises:
+            aws_sdk_neptune.errors.db_instance_not_found_fault.DBInstanceNotFoundFault: <p> <i>DBInstanceIdentifier</i> does not refer to an existing DB instance.</p>
+            aws_sdk_neptune.errors.invalid_db_instance_state_fault.InvalidDBInstanceStateFault: <p>The specified DB instance is not in the <i>available</i> state.</p>
+            aws_sdk_neptune.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3364,6 +3629,12 @@ class NeptuneClient:
         Args:
             db_cluster_identifier: <p>A DB cluster identifier to force a failover for. This parameter is not case-sensitive.</p> <p>Constraints:</p> <ul> <li> <p>Must match the identifier of an existing DBCluster.</p> </li> </ul>
             target_db_instance_identifier: <p>The name of the instance to promote to the primary instance.</p> <p>You must specify the instance identifier for an Read Replica in the DB cluster. For example, <code>mydbcluster-replica1</code>.</p>
+
+        Raises:
+            aws_sdk_neptune.errors.db_cluster_not_found_fault.DBClusterNotFoundFault: <p> <i>DBClusterIdentifier</i> does not refer to an existing DB cluster.</p>
+            aws_sdk_neptune.errors.invalid_db_cluster_state_fault.InvalidDBClusterStateFault: <p>The DB cluster is not in a valid state.</p>
+            aws_sdk_neptune.errors.invalid_db_instance_state_fault.InvalidDBInstanceStateFault: <p>The specified DB instance is not in the <i>available</i> state.</p>
+            aws_sdk_neptune.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3414,6 +3685,13 @@ class NeptuneClient:
             target_db_cluster_identifier: <p>The Amazon Resource Name (ARN) of the secondary Neptune DB cluster that you want to promote to primary for the global database.</p>
             allow_data_loss: <p>Specifies whether to allow data loss for this global database cluster operation. Allowing data loss triggers a global failover operation.</p> <p>If you don't specify <code>AllowDataLoss</code>, the global database cluster operation defaults to a switchover.</p> <p>Constraints: Can't be specified together with the <code>Switchover</code> parameter.</p>
             switchover: <p>Specifies whether to switch over this global database cluster.</p> <p>Constraints: Can't be specified together with the <code>AllowDataLoss</code> parameter.</p>
+
+        Raises:
+            aws_sdk_neptune.errors.db_cluster_not_found_fault.DBClusterNotFoundFault: <p> <i>DBClusterIdentifier</i> does not refer to an existing DB cluster.</p>
+            aws_sdk_neptune.errors.global_cluster_not_found_fault.GlobalClusterNotFoundFault: <p>The <code>GlobalClusterIdentifier</code> doesn't refer to an existing global database cluster. </p>
+            aws_sdk_neptune.errors.invalid_db_cluster_state_fault.InvalidDBClusterStateFault: <p>The DB cluster is not in a valid state.</p>
+            aws_sdk_neptune.errors.invalid_global_cluster_state_fault.InvalidGlobalClusterStateFault: <p>The global cluster is in an invalid state and can't perform the requested operation. </p>
+            aws_sdk_neptune.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3458,6 +3736,12 @@ class NeptuneClient:
         Args:
             resource_name: <p>The Amazon Neptune resource with tags to be listed. This value is an Amazon Resource Name (ARN). For information about creating an ARN, see <a href=\"https://docs.aws.amazon.com/neptune/latest/UserGuide/tagging.ARN.html#tagging.ARN.Constructing\"> Constructing an Amazon Resource Name (ARN)</a>.</p>
             filters: <p>This parameter is not currently supported.</p>
+
+        Raises:
+            aws_sdk_neptune.errors.db_cluster_not_found_fault.DBClusterNotFoundFault: <p> <i>DBClusterIdentifier</i> does not refer to an existing DB cluster.</p>
+            aws_sdk_neptune.errors.db_instance_not_found_fault.DBInstanceNotFoundFault: <p> <i>DBInstanceIdentifier</i> does not refer to an existing DB instance.</p>
+            aws_sdk_neptune.errors.db_snapshot_not_found_fault.DBSnapshotNotFoundFault: <p> <i>DBSnapshotIdentifier</i> does not refer to an existing DB snapshot.</p>
+            aws_sdk_neptune.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3559,6 +3843,22 @@ class NeptuneClient:
             serverless_v2_scaling_configuration: <p>Contains the scaling configuration of a Neptune Serverless DB cluster.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/neptune/latest/userguide/neptune-serverless-using.html\">Using Amazon Neptune Serverless</a> in the <i>Amazon Neptune User Guide</i>.</p>
             storage_type: <p>The storage type to associate with the DB cluster.</p> <p>Valid Values:</p> <ul> <li> <p> <b> <code>standard</code> </b> – ( <i>the default</i> ) Configures cost-effective database storage for applications with moderate to small I/O usage.</p> </li> <li> <p> <b> <code>iopt1</code> </b> – Enables <a href=\"https://docs.aws.amazon.com/neptune/latest/userguide/storage-types.html#provisioned-iops-storage\">I/O-Optimized storage</a> that's designed to meet the needs of I/O-intensive graph workloads that require predictable pricing with low I/O latency and consistent I/O throughput.</p> <p>Neptune I/O-Optimized storage is only available starting with engine release 1.3.0.0.</p> </li> </ul>
             network_type: <p>The network type of the DB cluster.</p> <p>Valid Values:</p> <ul> <li> <p> <b> <code>IPV4</code> </b> – The DB cluster uses only IPv4 addresses for communication.</p> </li> <li> <p> <b> <code>DUAL</code> </b> – The DB cluster uses both IPv4 and IPv6 addresses for communication. The DB subnet group associated with the cluster must support IPv6.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_neptune.errors.db_cluster_already_exists_fault.DBClusterAlreadyExistsFault: <p>User already has a DB cluster with the given identifier.</p>
+            aws_sdk_neptune.errors.db_cluster_not_found_fault.DBClusterNotFoundFault: <p> <i>DBClusterIdentifier</i> does not refer to an existing DB cluster.</p>
+            aws_sdk_neptune.errors.db_cluster_parameter_group_not_found_fault.DBClusterParameterGroupNotFoundFault: <p> <i>DBClusterParameterGroupName</i> does not refer to an existing DB Cluster parameter group.</p>
+            aws_sdk_neptune.errors.db_subnet_group_not_found_fault.DBSubnetGroupNotFoundFault: <p> <i>DBSubnetGroupName</i> does not refer to an existing DB subnet group.</p>
+            aws_sdk_neptune.errors.invalid_db_cluster_state_fault.InvalidDBClusterStateFault: <p>The DB cluster is not in a valid state.</p>
+            aws_sdk_neptune.errors.invalid_db_instance_state_fault.InvalidDBInstanceStateFault: <p>The specified DB instance is not in the <i>available</i> state.</p>
+            aws_sdk_neptune.errors.invalid_db_security_group_state_fault.InvalidDBSecurityGroupStateFault: <p>The state of the DB security group does not allow deletion.</p>
+            aws_sdk_neptune.errors.invalid_db_subnet_group_state_fault.InvalidDBSubnetGroupStateFault: <p>The DB subnet group cannot be deleted because it is in use.</p>
+            aws_sdk_neptune.errors.invalid_subnet.InvalidSubnet: <p>The requested subnet is invalid, or multiple subnets were requested that are not all in a common VPC.</p>
+            aws_sdk_neptune.errors.invalid_vpc_network_state_fault.InvalidVPCNetworkStateFault: <p>DB subnet group does not cover all Availability Zones after it is created because users' change.</p>
+            aws_sdk_neptune.errors.network_type_not_supported_fault.NetworkTypeNotSupportedFault: <p>The specified <i>NetworkType</i> is not supported for the DB cluster, DB subnet group, or orderable DB instance option.</p>
+            aws_sdk_neptune.errors.storage_quota_exceeded_fault.StorageQuotaExceededFault: <p>Request would result in user exceeding the allowed amount of storage available across all DB instances.</p>
+            aws_sdk_neptune.errors.storage_type_not_supported_fault.StorageTypeNotSupportedFault: <p> <i>StorageType</i> specified cannot be associated with the DB Instance.</p>
+            aws_sdk_neptune.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3652,6 +3952,14 @@ class NeptuneClient:
             endpoint_type: <p>The type of the endpoint. One of: <code>READER</code>, <code>WRITER</code>, <code>ANY</code>.</p>
             static_members: <p>List of DB instance identifiers that are part of the custom endpoint group.</p>
             excluded_members: <p>List of DB instance identifiers that aren't part of the custom endpoint group. All other eligible instances are reachable through the custom endpoint. Only relevant if the list of static members is empty.</p>
+
+        Raises:
+            aws_sdk_neptune.errors.db_cluster_endpoint_not_found_fault.DBClusterEndpointNotFoundFault: <p>The specified custom endpoint doesn't exist.</p>
+            aws_sdk_neptune.errors.db_instance_not_found_fault.DBInstanceNotFoundFault: <p> <i>DBInstanceIdentifier</i> does not refer to an existing DB instance.</p>
+            aws_sdk_neptune.errors.invalid_db_cluster_endpoint_state_fault.InvalidDBClusterEndpointStateFault: <p>The requested operation cannot be performed on the endpoint while the endpoint is in this state.</p>
+            aws_sdk_neptune.errors.invalid_db_cluster_state_fault.InvalidDBClusterStateFault: <p>The DB cluster is not in a valid state.</p>
+            aws_sdk_neptune.errors.invalid_db_instance_state_fault.InvalidDBInstanceStateFault: <p>The specified DB instance is not in the <i>available</i> state.</p>
+            aws_sdk_neptune.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3697,6 +4005,11 @@ class NeptuneClient:
         Args:
             db_cluster_parameter_group_name: <p>The name of the DB cluster parameter group to modify.</p>
             parameters: <p>A list of parameters in the DB cluster parameter group to modify.</p>
+
+        Raises:
+            aws_sdk_neptune.errors.db_parameter_group_not_found_fault.DBParameterGroupNotFoundFault: <p> <i>DBParameterGroupName</i> does not refer to an existing DB parameter group.</p>
+            aws_sdk_neptune.errors.invalid_db_parameter_group_state_fault.InvalidDBParameterGroupStateFault: <p>The DB parameter group is in use or is in an invalid state. If you are attempting to delete the parameter group, you cannot delete it when the parameter group is in this state.</p>
+            aws_sdk_neptune.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3745,6 +4058,12 @@ class NeptuneClient:
             attribute_name: <p>The name of the DB cluster snapshot attribute to modify.</p> <p>To manage authorization for other Amazon accounts to copy or restore a manual DB cluster snapshot, set this value to <code>restore</code>.</p>
             values_to_add: <p>A list of DB cluster snapshot attributes to add to the attribute specified by <code>AttributeName</code>.</p> <p>To authorize other Amazon accounts to copy or restore a manual DB cluster snapshot, set this list to include one or more Amazon account IDs, or <code>all</code> to make the manual DB cluster snapshot restorable by any Amazon account. Do not add the <code>all</code> value for any manual DB cluster snapshots that contain private information that you don't want available to all Amazon accounts.</p>
             values_to_remove: <p>A list of DB cluster snapshot attributes to remove from the attribute specified by <code>AttributeName</code>.</p> <p>To remove authorization for other Amazon accounts to copy or restore a manual DB cluster snapshot, set this list to include one or more Amazon account identifiers, or <code>all</code> to remove authorization for any Amazon account to copy or restore the DB cluster snapshot. If you specify <code>all</code>, an Amazon account whose account ID is explicitly added to the <code>restore</code> attribute can still copy or restore a manual DB cluster snapshot.</p>
+
+        Raises:
+            aws_sdk_neptune.errors.db_cluster_snapshot_not_found_fault.DBClusterSnapshotNotFoundFault: <p> <i>DBClusterSnapshotIdentifier</i> does not refer to an existing DB cluster snapshot.</p>
+            aws_sdk_neptune.errors.invalid_db_cluster_snapshot_state_fault.InvalidDBClusterSnapshotStateFault: <p>The supplied value is not a valid DB cluster snapshot state.</p>
+            aws_sdk_neptune.errors.shared_snapshot_quota_exceeded_fault.SharedSnapshotQuotaExceededFault: <p>You have exceeded the maximum number of accounts that you can share a manual DB snapshot with.</p>
+            aws_sdk_neptune.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3901,6 +4220,25 @@ class NeptuneClient:
             performance_insights_kms_key_id: <p> <i>(Not supported by Neptune)</i> </p>
             cloudwatch_logs_export_configuration: <p>The configuration setting for the log types to be enabled for export to CloudWatch Logs for a specific DB instance or DB cluster.</p>
             deletion_protection: <p>A value that indicates whether the DB instance has deletion protection enabled. The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled. See <a href=\"https://docs.aws.amazon.com/neptune/latest/userguide/manage-console-instances-delete.html\">Deleting a DB Instance</a>.</p>
+
+        Raises:
+            aws_sdk_neptune.errors.authorization_not_found_fault.AuthorizationNotFoundFault: <p>Specified CIDRIP or EC2 security group is not authorized for the specified DB security group.</p> <p>Neptune may not also be authorized via IAM to perform necessary actions on your behalf.</p>
+            aws_sdk_neptune.errors.certificate_not_found_fault.CertificateNotFoundFault: <p> <i>CertificateIdentifier</i> does not refer to an existing certificate.</p>
+            aws_sdk_neptune.errors.db_instance_already_exists_fault.DBInstanceAlreadyExistsFault: <p>User already has a DB instance with the given identifier.</p>
+            aws_sdk_neptune.errors.db_instance_not_found_fault.DBInstanceNotFoundFault: <p> <i>DBInstanceIdentifier</i> does not refer to an existing DB instance.</p>
+            aws_sdk_neptune.errors.db_parameter_group_not_found_fault.DBParameterGroupNotFoundFault: <p> <i>DBParameterGroupName</i> does not refer to an existing DB parameter group.</p>
+            aws_sdk_neptune.errors.db_security_group_not_found_fault.DBSecurityGroupNotFoundFault: <p> <i>DBSecurityGroupName</i> does not refer to an existing DB security group.</p>
+            aws_sdk_neptune.errors.db_upgrade_dependency_failure_fault.DBUpgradeDependencyFailureFault: <p>The DB upgrade failed because a resource the DB depends on could not be modified.</p>
+            aws_sdk_neptune.errors.domain_not_found_fault.DomainNotFoundFault: <p> <i>Domain</i> does not refer to an existing Active Directory Domain.</p>
+            aws_sdk_neptune.errors.insufficient_db_instance_capacity_fault.InsufficientDBInstanceCapacityFault: <p>Specified DB instance class is not available in the specified Availability Zone.</p>
+            aws_sdk_neptune.errors.invalid_db_instance_state_fault.InvalidDBInstanceStateFault: <p>The specified DB instance is not in the <i>available</i> state.</p>
+            aws_sdk_neptune.errors.invalid_db_security_group_state_fault.InvalidDBSecurityGroupStateFault: <p>The state of the DB security group does not allow deletion.</p>
+            aws_sdk_neptune.errors.invalid_vpc_network_state_fault.InvalidVPCNetworkStateFault: <p>DB subnet group does not cover all Availability Zones after it is created because users' change.</p>
+            aws_sdk_neptune.errors.option_group_not_found_fault.OptionGroupNotFoundFault: <p>The designated option group could not be found.</p>
+            aws_sdk_neptune.errors.provisioned_iops_not_available_in_az_fault.ProvisionedIopsNotAvailableInAZFault: <p>Provisioned IOPS not available in the specified Availability Zone.</p>
+            aws_sdk_neptune.errors.storage_quota_exceeded_fault.StorageQuotaExceededFault: <p>Request would result in user exceeding the allowed amount of storage available across all DB instances.</p>
+            aws_sdk_neptune.errors.storage_type_not_supported_fault.StorageTypeNotSupportedFault: <p> <i>StorageType</i> specified cannot be associated with the DB Instance.</p>
+            aws_sdk_neptune.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4016,6 +4354,11 @@ class NeptuneClient:
         Args:
             db_parameter_group_name: <p>The name of the DB parameter group.</p> <p>Constraints:</p> <ul> <li> <p>If supplied, must match the name of an existing DBParameterGroup.</p> </li> </ul>
             parameters: <p>An array of parameter names, values, and the apply method for the parameter update. At least one parameter name, value, and apply method must be supplied; subsequent arguments are optional. A maximum of 20 parameters can be modified in a single request.</p> <p>Valid Values (for the application method): <code>immediate | pending-reboot</code> </p> <note> <p>You can use the immediate value with dynamic parameters only. You can use the pending-reboot value for both dynamic and static parameters, and changes are applied when you reboot the DB instance without failover.</p> </note>
+
+        Raises:
+            aws_sdk_neptune.errors.db_parameter_group_not_found_fault.DBParameterGroupNotFoundFault: <p> <i>DBParameterGroupName</i> does not refer to an existing DB parameter group.</p>
+            aws_sdk_neptune.errors.invalid_db_parameter_group_state_fault.InvalidDBParameterGroupStateFault: <p>The DB parameter group is in use or is in an invalid state. If you are attempting to delete the parameter group, you cannot delete it when the parameter group is in this state.</p>
+            aws_sdk_neptune.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4062,6 +4405,14 @@ class NeptuneClient:
             db_subnet_group_name: <p>The name for the DB subnet group. This value is stored as a lowercase string. You can't modify the default subnet group.</p> <p>Constraints: Must match the name of an existing DBSubnetGroup. Must not be default.</p> <p>Example: <code>mySubnetgroup</code> </p>
             db_subnet_group_description: <p>The description for the DB subnet group.</p>
             subnet_ids: <p>The EC2 subnet IDs for the DB subnet group.</p>
+
+        Raises:
+            aws_sdk_neptune.errors.db_subnet_group_does_not_cover_enough_a_zs.DBSubnetGroupDoesNotCoverEnoughAZs: <p>Subnets in the DB subnet group should cover at least two Availability Zones unless there is only one Availability Zone.</p>
+            aws_sdk_neptune.errors.db_subnet_group_not_found_fault.DBSubnetGroupNotFoundFault: <p> <i>DBSubnetGroupName</i> does not refer to an existing DB subnet group.</p>
+            aws_sdk_neptune.errors.db_subnet_quota_exceeded_fault.DBSubnetQuotaExceededFault: <p>Request would result in user exceeding the allowed number of subnets in a DB subnet groups.</p>
+            aws_sdk_neptune.errors.invalid_subnet.InvalidSubnet: <p>The requested subnet is invalid, or multiple subnets were requested that are not all in a common VPC.</p>
+            aws_sdk_neptune.errors.subnet_already_in_use.SubnetAlreadyInUse: <p>The DB subnet is already in use in the Availability Zone.</p>
+            aws_sdk_neptune.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4114,6 +4465,15 @@ class NeptuneClient:
             source_type: <p>The type of source that is generating the events. For example, if you want to be notified of events generated by a DB instance, you would set this parameter to db-instance. if this value is not specified, all events are returned.</p> <p>Valid values: db-instance | db-parameter-group | db-security-group | db-snapshot</p>
             event_categories: <p> A list of event categories for a SourceType that you want to subscribe to. You can see a list of the categories for a given SourceType by using the <b>DescribeEventCategories</b> action.</p>
             enabled: <p> A Boolean value; set to <b>true</b> to activate the subscription.</p>
+
+        Raises:
+            aws_sdk_neptune.errors.event_subscription_quota_exceeded_fault.EventSubscriptionQuotaExceededFault: <p>You have exceeded the number of events you can subscribe to.</p>
+            aws_sdk_neptune.errors.sns_invalid_topic_fault.SNSInvalidTopicFault: <p>The SNS topic is invalid.</p>
+            aws_sdk_neptune.errors.sns_no_authorization_fault.SNSNoAuthorizationFault: <p>There is no SNS authorization.</p>
+            aws_sdk_neptune.errors.sns_topic_arn_not_found_fault.SNSTopicArnNotFoundFault: <p>The ARN of the SNS topic could not be found.</p>
+            aws_sdk_neptune.errors.subscription_category_not_found_fault.SubscriptionCategoryNotFoundFault: <p>The designated subscription category could not be found.</p>
+            aws_sdk_neptune.errors.subscription_not_found_fault.SubscriptionNotFoundFault: <p>The designated subscription could not be found.</p>
+            aws_sdk_neptune.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4173,6 +4533,14 @@ class NeptuneClient:
             deletion_protection: <p>Indicates whether the global database has deletion protection enabled. The global database cannot be deleted when deletion protection is enabled.</p>
             engine_version: <p>The version number of the database engine to which you want to upgrade. Changing this parameter will result in an outage. The change is applied during the next maintenance window unless <code>ApplyImmediately</code> is enabled.</p> <p>To list all of the available Neptune engine versions, use the following command:</p>
             allow_major_version_upgrade: <p>A value that indicates whether major version upgrades are allowed.</p> <p>Constraints: You must allow major version upgrades if you specify a value for the <code>EngineVersion</code> parameter that is a different major version than the DB cluster's current version.</p> <p>If you upgrade the major version of a global database, the cluster and DB instance parameter groups are set to the default parameter groups for the new version, so you will need to apply any custom parameter groups after completing the upgrade.</p>
+
+        Raises:
+            aws_sdk_neptune.errors.global_cluster_already_exists_fault.GlobalClusterAlreadyExistsFault: <p>The <code>GlobalClusterIdentifier</code> already exists. Choose a new global database identifier (unique name) to create a new global database cluster.</p>
+            aws_sdk_neptune.errors.global_cluster_not_found_fault.GlobalClusterNotFoundFault: <p>The <code>GlobalClusterIdentifier</code> doesn't refer to an existing global database cluster. </p>
+            aws_sdk_neptune.errors.invalid_db_cluster_state_fault.InvalidDBClusterStateFault: <p>The DB cluster is not in a valid state.</p>
+            aws_sdk_neptune.errors.invalid_db_instance_state_fault.InvalidDBInstanceStateFault: <p>The specified DB instance is not in the <i>available</i> state.</p>
+            aws_sdk_neptune.errors.invalid_global_cluster_state_fault.InvalidGlobalClusterStateFault: <p>The global cluster is in an invalid state and can't perform the requested operation. </p>
+            aws_sdk_neptune.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4218,6 +4586,11 @@ class NeptuneClient:
 
         Args:
             db_cluster_identifier: <p>Not supported.</p>
+
+        Raises:
+            aws_sdk_neptune.errors.db_cluster_not_found_fault.DBClusterNotFoundFault: <p> <i>DBClusterIdentifier</i> does not refer to an existing DB cluster.</p>
+            aws_sdk_neptune.errors.invalid_db_cluster_state_fault.InvalidDBClusterStateFault: <p>The DB cluster is not in a valid state.</p>
+            aws_sdk_neptune.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4259,6 +4632,11 @@ class NeptuneClient:
         Args:
             db_instance_identifier: <p>The DB instance identifier. This parameter is stored as a lowercase string.</p> <p>Constraints:</p> <ul> <li> <p>Must match the identifier of an existing DBInstance.</p> </li> </ul>
             force_failover: <p> When <code>true</code>, the reboot is conducted through a MultiAZ failover.</p> <p>Constraint: You can't specify <code>true</code> if the instance is not configured for MultiAZ.</p>
+
+        Raises:
+            aws_sdk_neptune.errors.db_instance_not_found_fault.DBInstanceNotFoundFault: <p> <i>DBInstanceIdentifier</i> does not refer to an existing DB instance.</p>
+            aws_sdk_neptune.errors.invalid_db_instance_state_fault.InvalidDBInstanceStateFault: <p>The specified DB instance is not in the <i>available</i> state.</p>
+            aws_sdk_neptune.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4300,6 +4678,12 @@ class NeptuneClient:
         Args:
             global_cluster_identifier: <p>The identifier of the Neptune global database from which to detach the specified Neptune DB cluster.</p>
             db_cluster_identifier: <p>The Amazon Resource Name (ARN) identifying the cluster to be detached from the Neptune global database cluster.</p>
+
+        Raises:
+            aws_sdk_neptune.errors.db_cluster_not_found_fault.DBClusterNotFoundFault: <p> <i>DBClusterIdentifier</i> does not refer to an existing DB cluster.</p>
+            aws_sdk_neptune.errors.global_cluster_not_found_fault.GlobalClusterNotFoundFault: <p>The <code>GlobalClusterIdentifier</code> doesn't refer to an existing global database cluster. </p>
+            aws_sdk_neptune.errors.invalid_global_cluster_state_fault.InvalidGlobalClusterStateFault: <p>The global cluster is in an invalid state and can't perform the requested operation. </p>
+            aws_sdk_neptune.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4342,6 +4726,12 @@ class NeptuneClient:
             db_cluster_identifier: <p>The name of the DB cluster to disassociate the IAM role from.</p>
             role_arn: <p>The Amazon Resource Name (ARN) of the IAM role to disassociate from the DB cluster, for example <code>arn:aws:iam::123456789012:role/NeptuneAccessRole</code>.</p>
             feature_name: <p>The name of the feature for the DB cluster that the IAM role is to be disassociated from. For the list of supported feature names, see <a>DescribeDBEngineVersions</a>.</p>
+
+        Raises:
+            aws_sdk_neptune.errors.db_cluster_not_found_fault.DBClusterNotFoundFault: <p> <i>DBClusterIdentifier</i> does not refer to an existing DB cluster.</p>
+            aws_sdk_neptune.errors.db_cluster_role_not_found_fault.DBClusterRoleNotFoundFault: <p>The specified IAM role Amazon Resource Name (ARN) is not associated with the specified DB cluster.</p>
+            aws_sdk_neptune.errors.invalid_db_cluster_state_fault.InvalidDBClusterStateFault: <p>The DB cluster is not in a valid state.</p>
+            aws_sdk_neptune.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4382,6 +4772,11 @@ class NeptuneClient:
         Args:
             subscription_name: <p>The name of the event notification subscription you want to remove a source identifier from.</p>
             source_identifier: <p> The source identifier to be removed from the subscription, such as the <b>DB instance identifier</b> for a DB instance or the name of a security group.</p>
+
+        Raises:
+            aws_sdk_neptune.errors.source_not_found_fault.SourceNotFoundFault: <p>The source could not be found.</p>
+            aws_sdk_neptune.errors.subscription_not_found_fault.SubscriptionNotFoundFault: <p>The designated subscription could not be found.</p>
+            aws_sdk_neptune.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4422,6 +4817,12 @@ class NeptuneClient:
         Args:
             resource_name: <p>The Amazon Neptune resource that the tags are removed from. This value is an Amazon Resource Name (ARN). For information about creating an ARN, see <a href=\"https://docs.aws.amazon.com/neptune/latest/UserGuide/tagging.ARN.html#tagging.ARN.Constructing\"> Constructing an Amazon Resource Name (ARN)</a>.</p>
             tag_keys: <p>The tag key (name) of the tag to be removed.</p>
+
+        Raises:
+            aws_sdk_neptune.errors.db_cluster_not_found_fault.DBClusterNotFoundFault: <p> <i>DBClusterIdentifier</i> does not refer to an existing DB cluster.</p>
+            aws_sdk_neptune.errors.db_instance_not_found_fault.DBInstanceNotFoundFault: <p> <i>DBInstanceIdentifier</i> does not refer to an existing DB instance.</p>
+            aws_sdk_neptune.errors.db_snapshot_not_found_fault.DBSnapshotNotFoundFault: <p> <i>DBSnapshotIdentifier</i> does not refer to an existing DB snapshot.</p>
+            aws_sdk_neptune.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4464,6 +4865,11 @@ class NeptuneClient:
             db_cluster_parameter_group_name: <p>The name of the DB cluster parameter group to reset.</p>
             reset_all_parameters: <p>A value that is set to <code>true</code> to reset all parameters in the DB cluster parameter group to their default values, and <code>false</code> otherwise. You can't use this parameter if there is a list of parameter names specified for the <code>Parameters</code> parameter.</p>
             parameters: <p>A list of parameter names in the DB cluster parameter group to reset to the default values. You can't use this parameter if the <code>ResetAllParameters</code> parameter is set to <code>true</code>.</p>
+
+        Raises:
+            aws_sdk_neptune.errors.db_parameter_group_not_found_fault.DBParameterGroupNotFoundFault: <p> <i>DBParameterGroupName</i> does not refer to an existing DB parameter group.</p>
+            aws_sdk_neptune.errors.invalid_db_parameter_group_state_fault.InvalidDBParameterGroupStateFault: <p>The DB parameter group is in use or is in an invalid state. If you are attempting to delete the parameter group, you cannot delete it when the parameter group is in this state.</p>
+            aws_sdk_neptune.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4511,6 +4917,11 @@ class NeptuneClient:
             db_parameter_group_name: <p>The name of the DB parameter group.</p> <p>Constraints:</p> <ul> <li> <p>Must match the name of an existing DBParameterGroup.</p> </li> </ul>
             reset_all_parameters: <p>Specifies whether (<code>true</code>) or not (<code>false</code>) to reset all parameters in the DB parameter group to default values.</p> <p>Default: <code>true</code> </p>
             parameters: <p>To reset the entire DB parameter group, specify the <code>DBParameterGroup</code> name and <code>ResetAllParameters</code> parameters. To reset specific parameters, provide a list of the following: <code>ParameterName</code> and <code>ApplyMethod</code>. A maximum of 20 parameters can be modified in a single request.</p> <p>Valid Values (for Apply method): <code>pending-reboot</code> </p>
+
+        Raises:
+            aws_sdk_neptune.errors.db_parameter_group_not_found_fault.DBParameterGroupNotFoundFault: <p> <i>DBParameterGroupName</i> does not refer to an existing DB parameter group.</p>
+            aws_sdk_neptune.errors.invalid_db_parameter_group_state_fault.InvalidDBParameterGroupStateFault: <p>The DB parameter group is in use or is in an invalid state. If you are attempting to delete the parameter group, you cannot delete it when the parameter group is in this state.</p>
+            aws_sdk_neptune.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4606,6 +5017,26 @@ class NeptuneClient:
             serverless_v2_scaling_configuration: <p>Contains the scaling configuration of a Neptune Serverless DB cluster.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/neptune/latest/userguide/neptune-serverless-using.html\">Using Amazon Neptune Serverless</a> in the <i>Amazon Neptune User Guide</i>.</p>
             storage_type: <p>Specifies the storage type to be associated with the DB cluster.</p> <p>Valid values: <code>standard</code>, <code>iopt1</code> </p> <p>Default: <code>standard</code> </p>
             network_type: <p>The network type of the DB cluster.</p> <p>Valid Values:</p> <ul> <li> <p> <b> <code>IPV4</code> </b> – ( <i>the default</i> ) The DB cluster uses only IPv4 addresses for communication.</p> </li> <li> <p> <b> <code>DUAL</code> </b> – The DB cluster uses both IPv4 and IPv6 addresses for communication. The DB subnet group associated with the cluster must support IPv6.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_neptune.errors.db_cluster_already_exists_fault.DBClusterAlreadyExistsFault: <p>User already has a DB cluster with the given identifier.</p>
+            aws_sdk_neptune.errors.db_cluster_parameter_group_not_found_fault.DBClusterParameterGroupNotFoundFault: <p> <i>DBClusterParameterGroupName</i> does not refer to an existing DB Cluster parameter group.</p>
+            aws_sdk_neptune.errors.db_cluster_quota_exceeded_fault.DBClusterQuotaExceededFault: <p>User attempted to create a new DB cluster and the user has already reached the maximum allowed DB cluster quota.</p>
+            aws_sdk_neptune.errors.db_cluster_snapshot_not_found_fault.DBClusterSnapshotNotFoundFault: <p> <i>DBClusterSnapshotIdentifier</i> does not refer to an existing DB cluster snapshot.</p>
+            aws_sdk_neptune.errors.db_snapshot_not_found_fault.DBSnapshotNotFoundFault: <p> <i>DBSnapshotIdentifier</i> does not refer to an existing DB snapshot.</p>
+            aws_sdk_neptune.errors.db_subnet_group_not_found_fault.DBSubnetGroupNotFoundFault: <p> <i>DBSubnetGroupName</i> does not refer to an existing DB subnet group.</p>
+            aws_sdk_neptune.errors.insufficient_db_cluster_capacity_fault.InsufficientDBClusterCapacityFault: <p>The DB cluster does not have enough capacity for the current operation.</p>
+            aws_sdk_neptune.errors.insufficient_storage_cluster_capacity_fault.InsufficientStorageClusterCapacityFault: <p>There is insufficient storage available for the current action. You may be able to resolve this error by updating your subnet group to use different Availability Zones that have more storage available.</p>
+            aws_sdk_neptune.errors.invalid_db_cluster_snapshot_state_fault.InvalidDBClusterSnapshotStateFault: <p>The supplied value is not a valid DB cluster snapshot state.</p>
+            aws_sdk_neptune.errors.invalid_db_snapshot_state_fault.InvalidDBSnapshotStateFault: <p>The state of the DB snapshot does not allow deletion.</p>
+            aws_sdk_neptune.errors.invalid_restore_fault.InvalidRestoreFault: <p>Cannot restore from vpc backup to non-vpc DB instance.</p>
+            aws_sdk_neptune.errors.invalid_subnet.InvalidSubnet: <p>The requested subnet is invalid, or multiple subnets were requested that are not all in a common VPC.</p>
+            aws_sdk_neptune.errors.invalid_vpc_network_state_fault.InvalidVPCNetworkStateFault: <p>DB subnet group does not cover all Availability Zones after it is created because users' change.</p>
+            aws_sdk_neptune.errors.kms_key_not_accessible_fault.KMSKeyNotAccessibleFault: <p>Error accessing KMS key.</p>
+            aws_sdk_neptune.errors.network_type_not_supported_fault.NetworkTypeNotSupportedFault: <p>The specified <i>NetworkType</i> is not supported for the DB cluster, DB subnet group, or orderable DB instance option.</p>
+            aws_sdk_neptune.errors.option_group_not_found_fault.OptionGroupNotFoundFault: <p>The designated option group could not be found.</p>
+            aws_sdk_neptune.errors.storage_quota_exceeded_fault.StorageQuotaExceededFault: <p>Request would result in user exceeding the allowed amount of storage available across all DB instances.</p>
+            aws_sdk_neptune.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4731,6 +5162,27 @@ class NeptuneClient:
             serverless_v2_scaling_configuration: <p>Contains the scaling configuration of a Neptune Serverless DB cluster.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/neptune/latest/userguide/neptune-serverless-using.html\">Using Amazon Neptune Serverless</a> in the <i>Amazon Neptune User Guide</i>.</p>
             storage_type: <p>Specifies the storage type to be associated with the DB cluster.</p> <p>Valid values: <code>standard</code>, <code>iopt1</code> </p> <p>Default: <code>standard</code> </p>
             network_type: <p>The network type of the DB cluster.</p> <p>Valid Values:</p> <ul> <li> <p> <b> <code>IPV4</code> </b> – ( <i>the default</i> ) The DB cluster uses only IPv4 addresses for communication.</p> </li> <li> <p> <b> <code>DUAL</code> </b> – The DB cluster uses both IPv4 and IPv6 addresses for communication. The DB subnet group associated with the cluster must support IPv6.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_neptune.errors.db_cluster_already_exists_fault.DBClusterAlreadyExistsFault: <p>User already has a DB cluster with the given identifier.</p>
+            aws_sdk_neptune.errors.db_cluster_not_found_fault.DBClusterNotFoundFault: <p> <i>DBClusterIdentifier</i> does not refer to an existing DB cluster.</p>
+            aws_sdk_neptune.errors.db_cluster_parameter_group_not_found_fault.DBClusterParameterGroupNotFoundFault: <p> <i>DBClusterParameterGroupName</i> does not refer to an existing DB Cluster parameter group.</p>
+            aws_sdk_neptune.errors.db_cluster_quota_exceeded_fault.DBClusterQuotaExceededFault: <p>User attempted to create a new DB cluster and the user has already reached the maximum allowed DB cluster quota.</p>
+            aws_sdk_neptune.errors.db_cluster_snapshot_not_found_fault.DBClusterSnapshotNotFoundFault: <p> <i>DBClusterSnapshotIdentifier</i> does not refer to an existing DB cluster snapshot.</p>
+            aws_sdk_neptune.errors.db_subnet_group_not_found_fault.DBSubnetGroupNotFoundFault: <p> <i>DBSubnetGroupName</i> does not refer to an existing DB subnet group.</p>
+            aws_sdk_neptune.errors.insufficient_db_cluster_capacity_fault.InsufficientDBClusterCapacityFault: <p>The DB cluster does not have enough capacity for the current operation.</p>
+            aws_sdk_neptune.errors.insufficient_storage_cluster_capacity_fault.InsufficientStorageClusterCapacityFault: <p>There is insufficient storage available for the current action. You may be able to resolve this error by updating your subnet group to use different Availability Zones that have more storage available.</p>
+            aws_sdk_neptune.errors.invalid_db_cluster_snapshot_state_fault.InvalidDBClusterSnapshotStateFault: <p>The supplied value is not a valid DB cluster snapshot state.</p>
+            aws_sdk_neptune.errors.invalid_db_cluster_state_fault.InvalidDBClusterStateFault: <p>The DB cluster is not in a valid state.</p>
+            aws_sdk_neptune.errors.invalid_db_snapshot_state_fault.InvalidDBSnapshotStateFault: <p>The state of the DB snapshot does not allow deletion.</p>
+            aws_sdk_neptune.errors.invalid_restore_fault.InvalidRestoreFault: <p>Cannot restore from vpc backup to non-vpc DB instance.</p>
+            aws_sdk_neptune.errors.invalid_subnet.InvalidSubnet: <p>The requested subnet is invalid, or multiple subnets were requested that are not all in a common VPC.</p>
+            aws_sdk_neptune.errors.invalid_vpc_network_state_fault.InvalidVPCNetworkStateFault: <p>DB subnet group does not cover all Availability Zones after it is created because users' change.</p>
+            aws_sdk_neptune.errors.kms_key_not_accessible_fault.KMSKeyNotAccessibleFault: <p>Error accessing KMS key.</p>
+            aws_sdk_neptune.errors.network_type_not_supported_fault.NetworkTypeNotSupportedFault: <p>The specified <i>NetworkType</i> is not supported for the DB cluster, DB subnet group, or orderable DB instance option.</p>
+            aws_sdk_neptune.errors.option_group_not_found_fault.OptionGroupNotFoundFault: <p>The designated option group could not be found.</p>
+            aws_sdk_neptune.errors.storage_quota_exceeded_fault.StorageQuotaExceededFault: <p>Request would result in user exceeding the allowed amount of storage available across all DB instances.</p>
+            aws_sdk_neptune.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4805,6 +5257,12 @@ class NeptuneClient:
 
         Args:
             db_cluster_identifier: <p>The DB cluster identifier of the Neptune DB cluster to be started. This parameter is stored as a lowercase string.</p>
+
+        Raises:
+            aws_sdk_neptune.errors.db_cluster_not_found_fault.DBClusterNotFoundFault: <p> <i>DBClusterIdentifier</i> does not refer to an existing DB cluster.</p>
+            aws_sdk_neptune.errors.invalid_db_cluster_state_fault.InvalidDBClusterStateFault: <p>The DB cluster is not in a valid state.</p>
+            aws_sdk_neptune.errors.invalid_db_instance_state_fault.InvalidDBInstanceStateFault: <p>The specified DB instance is not in the <i>available</i> state.</p>
+            aws_sdk_neptune.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4842,6 +5300,12 @@ class NeptuneClient:
 
         Args:
             db_cluster_identifier: <p>The DB cluster identifier of the Neptune DB cluster to be stopped. This parameter is stored as a lowercase string.</p>
+
+        Raises:
+            aws_sdk_neptune.errors.db_cluster_not_found_fault.DBClusterNotFoundFault: <p> <i>DBClusterIdentifier</i> does not refer to an existing DB cluster.</p>
+            aws_sdk_neptune.errors.invalid_db_cluster_state_fault.InvalidDBClusterStateFault: <p>The DB cluster is not in a valid state.</p>
+            aws_sdk_neptune.errors.invalid_db_instance_state_fault.InvalidDBInstanceStateFault: <p>The specified DB instance is not in the <i>available</i> state.</p>
+            aws_sdk_neptune.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4881,6 +5345,13 @@ class NeptuneClient:
         Args:
             global_cluster_identifier: <p>The identifier of the global database cluster to switch over. This parameter isn't case-sensitive.</p> <p>Constraints: Must match the identifier of an existing global database cluster.</p>
             target_db_cluster_identifier: <p>The Amazon Resource Name (ARN) of the secondary Neptune DB cluster that you want to promote to primary for the global database.</p>
+
+        Raises:
+            aws_sdk_neptune.errors.db_cluster_not_found_fault.DBClusterNotFoundFault: <p> <i>DBClusterIdentifier</i> does not refer to an existing DB cluster.</p>
+            aws_sdk_neptune.errors.global_cluster_not_found_fault.GlobalClusterNotFoundFault: <p>The <code>GlobalClusterIdentifier</code> doesn't refer to an existing global database cluster. </p>
+            aws_sdk_neptune.errors.invalid_db_cluster_state_fault.InvalidDBClusterStateFault: <p>The DB cluster is not in a valid state.</p>
+            aws_sdk_neptune.errors.invalid_global_cluster_state_fault.InvalidGlobalClusterStateFault: <p>The global cluster is in an invalid state and can't perform the requested operation. </p>
+            aws_sdk_neptune.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(

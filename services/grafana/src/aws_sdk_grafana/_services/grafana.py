@@ -173,6 +173,14 @@ class grafanaClient:
 
         Args:
             resource_arn: <p>The ARN of the resource the list of tags are associated with.</p>
+
+        Raises:
+            aws_sdk_grafana.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action. </p>
+            aws_sdk_grafana.errors.internal_server_exception.InternalServerException: <p>Unexpected error while processing the request. Retry the request.</p>
+            aws_sdk_grafana.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource that does not exist.</p>
+            aws_sdk_grafana.errors.throttling_exception.ThrottlingException: <p>The request was denied because of request throttling. Retry the request.</p>
+            aws_sdk_grafana.errors.validation_exception.ValidationException: <p>The value of a parameter in the request caused an error.</p>
+            aws_sdk_grafana.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -216,6 +224,14 @@ class grafanaClient:
             max_results: <p>The maximum number of results to include in the response.</p>
             next_token: <p>The token to use when requesting the next set of results. You receive this token from a previous <code>ListVersions</code> operation.</p>
             workspace_id: <p>The ID of the workspace to list the available upgrade versions. If not included, lists all versions of Grafana that are supported for <code>CreateWorkspace</code>.</p>
+
+        Raises:
+            aws_sdk_grafana.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action. </p>
+            aws_sdk_grafana.errors.internal_server_exception.InternalServerException: <p>Unexpected error while processing the request. Retry the request.</p>
+            aws_sdk_grafana.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource that does not exist.</p>
+            aws_sdk_grafana.errors.throttling_exception.ThrottlingException: <p>The request was denied because of request throttling. Retry the request.</p>
+            aws_sdk_grafana.errors.validation_exception.ValidationException: <p>The value of a parameter in the request caused an error.</p>
+            aws_sdk_grafana.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -285,6 +301,14 @@ class grafanaClient:
         Args:
             resource_arn: <p>The ARN of the resource the tag is associated with.</p>
             tags: <p>The list of tag keys and values to associate with the resource. You can associate tag keys only, tags (key and values) only or a combination of tag keys and tags.</p>
+
+        Raises:
+            aws_sdk_grafana.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action. </p>
+            aws_sdk_grafana.errors.internal_server_exception.InternalServerException: <p>Unexpected error while processing the request. Retry the request.</p>
+            aws_sdk_grafana.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource that does not exist.</p>
+            aws_sdk_grafana.errors.throttling_exception.ThrottlingException: <p>The request was denied because of request throttling. Retry the request.</p>
+            aws_sdk_grafana.errors.validation_exception.ValidationException: <p>The value of a parameter in the request caused an error.</p>
+            aws_sdk_grafana.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -325,6 +349,14 @@ class grafanaClient:
         Args:
             resource_arn: <p>The ARN of the resource the tag association is removed from. </p>
             tag_keys: <p>The key values of the tag to be removed from the resource.</p>
+
+        Raises:
+            aws_sdk_grafana.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action. </p>
+            aws_sdk_grafana.errors.internal_server_exception.InternalServerException: <p>Unexpected error while processing the request. Retry the request.</p>
+            aws_sdk_grafana.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource that does not exist.</p>
+            aws_sdk_grafana.errors.throttling_exception.ThrottlingException: <p>The request was denied because of request throttling. Retry the request.</p>
+            aws_sdk_grafana.errors.validation_exception.ValidationException: <p>The value of a parameter in the request caused an error.</p>
+            aws_sdk_grafana.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(

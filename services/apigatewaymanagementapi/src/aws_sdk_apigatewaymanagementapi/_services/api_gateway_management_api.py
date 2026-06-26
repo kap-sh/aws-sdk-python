@@ -134,7 +134,14 @@ class ApiGatewayManagementApiClient:
         *,
         config_overrides: Optional[ApiGatewayManagementApiClientConfig] = None,
     ) -> None:
-        """<p>Delete the connection with the provided id.</p>"""
+        """<p>Delete the connection with the provided id.</p>
+
+        Raises:
+            aws_sdk_apigatewaymanagementapi.errors.forbidden_exception.ForbiddenException: <p>The caller is not authorized to invoke this operation.</p>
+            aws_sdk_apigatewaymanagementapi.errors.gone_exception.GoneException: <p>The connection with the provided id no longer exists.</p>
+            aws_sdk_apigatewaymanagementapi.errors.limit_exceeded_exception.LimitExceededException: <p>The client is sending more than the allowed number of requests per unit of time or the WebSocket client side buffer is full.</p>
+            aws_sdk_apigatewaymanagementapi.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_apigatewaymanagementapi.types.delete_connection_request.DeleteConnectionRequest]",
@@ -165,7 +172,14 @@ class ApiGatewayManagementApiClient:
         *,
         config_overrides: Optional[ApiGatewayManagementApiClientConfig] = None,
     ) -> "aws_sdk_apigatewaymanagementapi.types.get_connection_response.GetConnectionResponse":
-        """<p>Get information about the connection with the provided id.</p>"""
+        """<p>Get information about the connection with the provided id.</p>
+
+        Raises:
+            aws_sdk_apigatewaymanagementapi.errors.forbidden_exception.ForbiddenException: <p>The caller is not authorized to invoke this operation.</p>
+            aws_sdk_apigatewaymanagementapi.errors.gone_exception.GoneException: <p>The connection with the provided id no longer exists.</p>
+            aws_sdk_apigatewaymanagementapi.errors.limit_exceeded_exception.LimitExceededException: <p>The client is sending more than the allowed number of requests per unit of time or the WebSocket client side buffer is full.</p>
+            aws_sdk_apigatewaymanagementapi.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_apigatewaymanagementapi.types.get_connection_request.GetConnectionRequest]",
@@ -204,6 +218,13 @@ class ApiGatewayManagementApiClient:
         Args:
             data: <p>The data to be sent to the client specified by its connection id.</p>
             connection_id: <p>The identifier of the connection that a specific client is using.</p>
+
+        Raises:
+            aws_sdk_apigatewaymanagementapi.errors.forbidden_exception.ForbiddenException: <p>The caller is not authorized to invoke this operation.</p>
+            aws_sdk_apigatewaymanagementapi.errors.gone_exception.GoneException: <p>The connection with the provided id no longer exists.</p>
+            aws_sdk_apigatewaymanagementapi.errors.limit_exceeded_exception.LimitExceededException: <p>The client is sending more than the allowed number of requests per unit of time or the WebSocket client side buffer is full.</p>
+            aws_sdk_apigatewaymanagementapi.errors.payload_too_large_exception.PayloadTooLargeException: <p>The data has exceeded the maximum size allowed.</p>
+            aws_sdk_apigatewaymanagementapi.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(

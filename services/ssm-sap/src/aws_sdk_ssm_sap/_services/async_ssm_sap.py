@@ -227,6 +227,12 @@ class AsyncSsmSapClient:
             action_type: <p>Delete or restore the permissions on the target database.</p>
             source_resource_arn: <p>The Amazon Resource Name (ARN) of the source resource.</p>
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource.</p>
+
+        Raises:
+            aws_sdk_ssm_sap.errors.internal_server_exception.InternalServerException: <p>An internal error has occurred.</p>
+            aws_sdk_ssm_sap.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource is not available.</p>
+            aws_sdk_ssm_sap.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service. </p>
+            aws_sdk_ssm_sap.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -269,6 +275,12 @@ class AsyncSsmSapClient:
 
         Args:
             application_id: <p>The ID of the application.</p>
+
+        Raises:
+            aws_sdk_ssm_sap.errors.internal_server_exception.InternalServerException: <p>An internal error has occurred.</p>
+            aws_sdk_ssm_sap.errors.unauthorized_exception.UnauthorizedException: <p>The request is not authorized.</p>
+            aws_sdk_ssm_sap.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service. </p>
+            aws_sdk_ssm_sap.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -315,6 +327,11 @@ class AsyncSsmSapClient:
             application_id: <p>The ID of the application.</p>
             application_arn: <p>The Amazon Resource Name (ARN) of the application. </p>
             app_registry_arn: <p>The Amazon Resource Name (ARN) of the application registry.</p>
+
+        Raises:
+            aws_sdk_ssm_sap.errors.internal_server_exception.InternalServerException: <p>An internal error has occurred.</p>
+            aws_sdk_ssm_sap.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service. </p>
+            aws_sdk_ssm_sap.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -360,6 +377,12 @@ class AsyncSsmSapClient:
         Args:
             application_id: <p>The ID of the application.</p>
             component_id: <p>The ID of the component.</p>
+
+        Raises:
+            aws_sdk_ssm_sap.errors.internal_server_exception.InternalServerException: <p>An internal error has occurred.</p>
+            aws_sdk_ssm_sap.errors.unauthorized_exception.UnauthorizedException: <p>The request is not authorized.</p>
+            aws_sdk_ssm_sap.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service. </p>
+            aws_sdk_ssm_sap.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -399,6 +422,11 @@ class AsyncSsmSapClient:
 
         Args:
             operation_id: <p>The ID of the configuration check operation.</p>
+
+        Raises:
+            aws_sdk_ssm_sap.errors.internal_server_exception.InternalServerException: <p>An internal error has occurred.</p>
+            aws_sdk_ssm_sap.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service. </p>
+            aws_sdk_ssm_sap.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -445,6 +473,11 @@ class AsyncSsmSapClient:
             component_id: <p>The ID of the component.</p>
             database_id: <p>The ID of the database.</p>
             database_arn: <p>The Amazon Resource Name (ARN) of the database.</p>
+
+        Raises:
+            aws_sdk_ssm_sap.errors.internal_server_exception.InternalServerException: <p>An internal error has occurred.</p>
+            aws_sdk_ssm_sap.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service. </p>
+            aws_sdk_ssm_sap.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -490,6 +523,11 @@ class AsyncSsmSapClient:
 
         Args:
             operation_id: <p>The ID of the operation.</p>
+
+        Raises:
+            aws_sdk_ssm_sap.errors.internal_server_exception.InternalServerException: <p>An internal error has occurred.</p>
+            aws_sdk_ssm_sap.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service. </p>
+            aws_sdk_ssm_sap.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -532,6 +570,12 @@ class AsyncSsmSapClient:
         Args:
             action_type: <p/>
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource.</p>
+
+        Raises:
+            aws_sdk_ssm_sap.errors.internal_server_exception.InternalServerException: <p>An internal error has occurred.</p>
+            aws_sdk_ssm_sap.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource is not available.</p>
+            aws_sdk_ssm_sap.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service. </p>
+            aws_sdk_ssm_sap.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -576,6 +620,12 @@ class AsyncSsmSapClient:
             next_token: <p>The token for the next page of results.</p>
             max_results: <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned nextToken value.</p>
             filters: <p>The filter of name, value, and operator.</p>
+
+        Raises:
+            aws_sdk_ssm_sap.errors.internal_server_exception.InternalServerException: <p>An internal error has occurred.</p>
+            aws_sdk_ssm_sap.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource is not available.</p>
+            aws_sdk_ssm_sap.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service. </p>
+            aws_sdk_ssm_sap.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -648,6 +698,13 @@ class AsyncSsmSapClient:
             application_id: <p>The ID of the application.</p>
             next_token: <p>The token for the next page of results.</p>
             max_results: <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned nextToken value.</p> <p>If you do not specify a value for MaxResults, the request returns 50 items per page by default.</p>
+
+        Raises:
+            aws_sdk_ssm_sap.errors.internal_server_exception.InternalServerException: <p>An internal error has occurred.</p>
+            aws_sdk_ssm_sap.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource is not available.</p>
+            aws_sdk_ssm_sap.errors.unauthorized_exception.UnauthorizedException: <p>The request is not authorized.</p>
+            aws_sdk_ssm_sap.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service. </p>
+            aws_sdk_ssm_sap.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -718,6 +775,11 @@ class AsyncSsmSapClient:
         Args:
             max_results: <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned nextToken value.</p>
             next_token: <p>The token for the next page of results.</p>
+
+        Raises:
+            aws_sdk_ssm_sap.errors.internal_server_exception.InternalServerException: <p>An internal error has occurred.</p>
+            aws_sdk_ssm_sap.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service. </p>
+            aws_sdk_ssm_sap.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -790,6 +852,12 @@ class AsyncSsmSapClient:
             max_results: <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned nextToken value.</p>
             next_token: <p>The token for the next page of results.</p>
             filters: <p>The filters of an operation.</p>
+
+        Raises:
+            aws_sdk_ssm_sap.errors.internal_server_exception.InternalServerException: <p>An internal error has occurred.</p>
+            aws_sdk_ssm_sap.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource is not available.</p>
+            aws_sdk_ssm_sap.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service. </p>
+            aws_sdk_ssm_sap.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -873,6 +941,12 @@ class AsyncSsmSapClient:
             component_id: <p>The ID of the component.</p>
             next_token: <p>The token for the next page of results. </p>
             max_results: <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned nextToken value. If you do not specify a value for MaxResults, the request returns 50 items per page by default.</p>
+
+        Raises:
+            aws_sdk_ssm_sap.errors.internal_server_exception.InternalServerException: <p>An internal error has occurred.</p>
+            aws_sdk_ssm_sap.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource is not available.</p>
+            aws_sdk_ssm_sap.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service. </p>
+            aws_sdk_ssm_sap.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -951,6 +1025,11 @@ class AsyncSsmSapClient:
             max_results: <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned nextToken value.</p> <p>If you do not specify a value for <code>MaxResults</code>, the request returns 50 items per page by default.</p>
             next_token: <p>The token to use to retrieve the next page of results. This value is null when there are no more results to return.</p>
             filters: <p>Optionally specify filters to narrow the returned operation event items.</p> <p>Valid filter names include <code>status</code>, <code>resourceID</code>, and <code>resourceType</code>. The valid operator for all three filters is <code>Equals</code>.</p>
+
+        Raises:
+            aws_sdk_ssm_sap.errors.internal_server_exception.InternalServerException: <p>An internal error has occurred.</p>
+            aws_sdk_ssm_sap.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service. </p>
+            aws_sdk_ssm_sap.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1026,6 +1105,11 @@ class AsyncSsmSapClient:
             max_results: <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned nextToken value. If you do not specify a value for MaxResults, the request returns 50 items per page by default.</p>
             next_token: <p>The token for the next page of results. </p>
             filters: <p>The filters of an operation.</p>
+
+        Raises:
+            aws_sdk_ssm_sap.errors.internal_server_exception.InternalServerException: <p>An internal error has occurred.</p>
+            aws_sdk_ssm_sap.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service. </p>
+            aws_sdk_ssm_sap.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1101,6 +1185,11 @@ class AsyncSsmSapClient:
             operation_id: <p>The ID of the configuration check operation.</p>
             max_results: <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned nextToken value.</p>
             next_token: <p>The token for the next page of results.</p>
+
+        Raises:
+            aws_sdk_ssm_sap.errors.internal_server_exception.InternalServerException: <p>An internal error has occurred.</p>
+            aws_sdk_ssm_sap.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service. </p>
+            aws_sdk_ssm_sap.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1170,6 +1259,11 @@ class AsyncSsmSapClient:
             sub_check_result_id: <p>The ID of the sub check result.</p>
             max_results: <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned nextToken value.</p>
             next_token: <p>The token for the next page of results.</p>
+
+        Raises:
+            aws_sdk_ssm_sap.errors.internal_server_exception.InternalServerException: <p>An internal error has occurred.</p>
+            aws_sdk_ssm_sap.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service. </p>
+            aws_sdk_ssm_sap.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1235,6 +1329,12 @@ class AsyncSsmSapClient:
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource.</p>
+
+        Raises:
+            aws_sdk_ssm_sap.errors.conflict_exception.ConflictException: <p>A conflict has occurred.</p>
+            aws_sdk_ssm_sap.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource is not available.</p>
+            aws_sdk_ssm_sap.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service. </p>
+            aws_sdk_ssm_sap.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1277,6 +1377,12 @@ class AsyncSsmSapClient:
             action_type: <p/>
             source_resource_arn: <p/>
             resource_arn: <p/>
+
+        Raises:
+            aws_sdk_ssm_sap.errors.internal_server_exception.InternalServerException: <p>An internal error has occurred.</p>
+            aws_sdk_ssm_sap.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource is not available.</p>
+            aws_sdk_ssm_sap.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service. </p>
+            aws_sdk_ssm_sap.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1339,6 +1445,13 @@ class AsyncSsmSapClient:
             credentials: <p>The credentials of the SAP application.</p>
             database_arn: <p>The Amazon Resource Name of the SAP HANA database.</p>
             components_info: <p>This is an optional parameter for component details to which the SAP ABAP application is attached, such as Web Dispatcher.</p> <p>This is an array of ApplicationComponent objects. You may input 0 to 5 items.</p>
+
+        Raises:
+            aws_sdk_ssm_sap.errors.conflict_exception.ConflictException: <p>A conflict has occurred.</p>
+            aws_sdk_ssm_sap.errors.internal_server_exception.InternalServerException: <p>An internal error has occurred.</p>
+            aws_sdk_ssm_sap.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource is not available.</p>
+            aws_sdk_ssm_sap.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service. </p>
+            aws_sdk_ssm_sap.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1391,6 +1504,13 @@ class AsyncSsmSapClient:
 
         Args:
             application_id: <p>The ID of the application.</p>
+
+        Raises:
+            aws_sdk_ssm_sap.errors.conflict_exception.ConflictException: <p>A conflict has occurred.</p>
+            aws_sdk_ssm_sap.errors.internal_server_exception.InternalServerException: <p>An internal error has occurred.</p>
+            aws_sdk_ssm_sap.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource is not available.</p>
+            aws_sdk_ssm_sap.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service. </p>
+            aws_sdk_ssm_sap.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1429,6 +1549,14 @@ class AsyncSsmSapClient:
 
         Args:
             application_id: <p>The ID of the application.</p>
+
+        Raises:
+            aws_sdk_ssm_sap.errors.conflict_exception.ConflictException: <p>A conflict has occurred.</p>
+            aws_sdk_ssm_sap.errors.internal_server_exception.InternalServerException: <p>An internal error has occurred.</p>
+            aws_sdk_ssm_sap.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource is not available.</p>
+            aws_sdk_ssm_sap.errors.unauthorized_exception.UnauthorizedException: <p>The request is not authorized.</p>
+            aws_sdk_ssm_sap.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service. </p>
+            aws_sdk_ssm_sap.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1471,6 +1599,13 @@ class AsyncSsmSapClient:
         Args:
             application_id: <p>The ID of the application.</p>
             configuration_check_ids: <p>The list of configuration checks to perform.</p>
+
+        Raises:
+            aws_sdk_ssm_sap.errors.conflict_exception.ConflictException: <p>A conflict has occurred.</p>
+            aws_sdk_ssm_sap.errors.internal_server_exception.InternalServerException: <p>An internal error has occurred.</p>
+            aws_sdk_ssm_sap.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource is not available.</p>
+            aws_sdk_ssm_sap.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service. </p>
+            aws_sdk_ssm_sap.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1517,6 +1652,13 @@ class AsyncSsmSapClient:
             application_id: <p>The ID of the application.</p>
             stop_connected_entity: <p>Specify the <code>ConnectedEntityType</code>. Accepted type is <code>DBMS</code>.</p> <p>If this parameter is included, the connected DBMS (Database Management System) will be stopped.</p>
             include_ec2_instance_shutdown: <p>Boolean. If included and if set to <code>True</code>, the StopApplication operation will shut down the associated Amazon EC2 instance in addition to the application.</p>
+
+        Raises:
+            aws_sdk_ssm_sap.errors.conflict_exception.ConflictException: <p>A conflict has occurred.</p>
+            aws_sdk_ssm_sap.errors.internal_server_exception.InternalServerException: <p>An internal error has occurred.</p>
+            aws_sdk_ssm_sap.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource is not available.</p>
+            aws_sdk_ssm_sap.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service. </p>
+            aws_sdk_ssm_sap.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1561,6 +1703,12 @@ class AsyncSsmSapClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource.</p>
             tags: <p>The tags on a resource.</p>
+
+        Raises:
+            aws_sdk_ssm_sap.errors.conflict_exception.ConflictException: <p>A conflict has occurred.</p>
+            aws_sdk_ssm_sap.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource is not available.</p>
+            aws_sdk_ssm_sap.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service. </p>
+            aws_sdk_ssm_sap.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1602,6 +1750,12 @@ class AsyncSsmSapClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource.</p>
             tag_keys: <p>Adds/updates or removes credentials for applications registered with AWS Systems Manager for SAP.</p>
+
+        Raises:
+            aws_sdk_ssm_sap.errors.conflict_exception.ConflictException: <p>A conflict has occurred.</p>
+            aws_sdk_ssm_sap.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource is not available.</p>
+            aws_sdk_ssm_sap.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service. </p>
+            aws_sdk_ssm_sap.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1653,6 +1807,14 @@ class AsyncSsmSapClient:
             credentials_to_remove: <p>The credentials to be removed.</p>
             backint: <p>Installation of AWS Backint Agent for SAP HANA.</p>
             database_arn: <p>The Amazon Resource Name of the SAP HANA database that replaces the current SAP HANA connection with the SAP_ABAP application.</p>
+
+        Raises:
+            aws_sdk_ssm_sap.errors.conflict_exception.ConflictException: <p>A conflict has occurred.</p>
+            aws_sdk_ssm_sap.errors.internal_server_exception.InternalServerException: <p>An internal error has occurred.</p>
+            aws_sdk_ssm_sap.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource is not available.</p>
+            aws_sdk_ssm_sap.errors.unauthorized_exception.UnauthorizedException: <p>The request is not authorized.</p>
+            aws_sdk_ssm_sap.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service. </p>
+            aws_sdk_ssm_sap.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

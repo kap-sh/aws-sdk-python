@@ -205,6 +205,12 @@ class AsyncDLMClient:
             extend_deletion: <p> <b>[Default policies only]</b> Defines the snapshot or AMI retention behavior for the policy if the source volume or instance is deleted, or if the policy enters the error, disabled, or deleted state.</p> <p>By default (<b>ExtendDeletion=false</b>):</p> <ul> <li> <p>If a source resource is deleted, Amazon Data Lifecycle Manager will continue to delete previously created snapshots or AMIs, up to but not including the last one, based on the specified retention period. If you want Amazon Data Lifecycle Manager to delete all snapshots or AMIs, including the last one, specify <code>true</code>.</p> </li> <li> <p>If a policy enters the error, disabled, or deleted state, Amazon Data Lifecycle Manager stops deleting snapshots and AMIs. If you want Amazon Data Lifecycle Manager to continue deleting snapshots or AMIs, including the last one, if the policy enters one of these states, specify <code>true</code>.</p> </li> </ul> <p>If you enable extended deletion (<b>ExtendDeletion=true</b>), you override both default behaviors simultaneously.</p> <p>If you do not specify a value, the default is <code>false</code>.</p> <p>Default: false</p>
             cross_region_copy_targets: <p> <b>[Default policies only]</b> Specifies destination Regions for snapshot or AMI copies. You can specify up to 3 destination Regions. If you do not want to create cross-Region copies, omit this parameter.</p>
             exclusions: <p> <b>[Default policies only]</b> Specifies exclusion parameters for volumes or instances for which you do not want to create snapshots or AMIs. The policy will not create snapshots or AMIs for target resources that match any of the specified exclusion parameters.</p>
+
+        Raises:
+            aws_sdk_dlm.errors.internal_server_exception.InternalServerException: <p>The service failed in an unexpected way.</p>
+            aws_sdk_dlm.errors.invalid_request_exception.InvalidRequestException: <p>Bad request. The request is missing required parameters or has invalid parameters.</p>
+            aws_sdk_dlm.errors.limit_exceeded_exception.LimitExceededException: <p>The request failed because a limit was exceeded.</p>
+            aws_sdk_dlm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -263,6 +269,12 @@ class AsyncDLMClient:
 
         Args:
             policy_id: <p>The identifier of the lifecycle policy.</p>
+
+        Raises:
+            aws_sdk_dlm.errors.internal_server_exception.InternalServerException: <p>The service failed in an unexpected way.</p>
+            aws_sdk_dlm.errors.limit_exceeded_exception.LimitExceededException: <p>The request failed because a limit was exceeded.</p>
+            aws_sdk_dlm.errors.resource_not_found_exception.ResourceNotFoundException: <p>A requested resource was not found.</p>
+            aws_sdk_dlm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -323,6 +335,13 @@ class AsyncDLMClient:
             target_tags: <p>The target tag for a policy.</p> <p>Tags are strings in the format <code>key=value</code>.</p>
             tags_to_add: <p>The tags to add to objects created by the policy.</p> <p>Tags are strings in the format <code>key=value</code>.</p> <p>These user-defined tags are added in addition to the Amazon Web Services-added lifecycle tags.</p>
             default_policy_type: <p> <b>[Default policies only]</b> Specifies the type of default policy to get. Specify one of the following:</p> <ul> <li> <p> <code>VOLUME</code> - To get only the default policy for EBS snapshots</p> </li> <li> <p> <code>INSTANCE</code> - To get only the default policy for EBS-backed AMIs</p> </li> <li> <p> <code>ALL</code> - To get all default policies</p> </li> </ul>
+
+        Raises:
+            aws_sdk_dlm.errors.internal_server_exception.InternalServerException: <p>The service failed in an unexpected way.</p>
+            aws_sdk_dlm.errors.invalid_request_exception.InvalidRequestException: <p>Bad request. The request is missing required parameters or has invalid parameters.</p>
+            aws_sdk_dlm.errors.limit_exceeded_exception.LimitExceededException: <p>The request failed because a limit was exceeded.</p>
+            aws_sdk_dlm.errors.resource_not_found_exception.ResourceNotFoundException: <p>A requested resource was not found.</p>
+            aws_sdk_dlm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -372,6 +391,12 @@ class AsyncDLMClient:
 
         Args:
             policy_id: <p>The identifier of the lifecycle policy.</p>
+
+        Raises:
+            aws_sdk_dlm.errors.internal_server_exception.InternalServerException: <p>The service failed in an unexpected way.</p>
+            aws_sdk_dlm.errors.limit_exceeded_exception.LimitExceededException: <p>The request failed because a limit was exceeded.</p>
+            aws_sdk_dlm.errors.resource_not_found_exception.ResourceNotFoundException: <p>A requested resource was not found.</p>
+            aws_sdk_dlm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -412,6 +437,12 @@ class AsyncDLMClient:
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource.</p>
+
+        Raises:
+            aws_sdk_dlm.errors.internal_server_exception.InternalServerException: <p>The service failed in an unexpected way.</p>
+            aws_sdk_dlm.errors.invalid_request_exception.InvalidRequestException: <p>Bad request. The request is missing required parameters or has invalid parameters.</p>
+            aws_sdk_dlm.errors.resource_not_found_exception.ResourceNotFoundException: <p>A requested resource was not found.</p>
+            aws_sdk_dlm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -452,6 +483,12 @@ class AsyncDLMClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource.</p>
             tags: <p>One or more tags.</p>
+
+        Raises:
+            aws_sdk_dlm.errors.internal_server_exception.InternalServerException: <p>The service failed in an unexpected way.</p>
+            aws_sdk_dlm.errors.invalid_request_exception.InvalidRequestException: <p>Bad request. The request is missing required parameters or has invalid parameters.</p>
+            aws_sdk_dlm.errors.resource_not_found_exception.ResourceNotFoundException: <p>A requested resource was not found.</p>
+            aws_sdk_dlm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -493,6 +530,12 @@ class AsyncDLMClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource.</p>
             tag_keys: <p>The tag keys.</p>
+
+        Raises:
+            aws_sdk_dlm.errors.internal_server_exception.InternalServerException: <p>The service failed in an unexpected way.</p>
+            aws_sdk_dlm.errors.invalid_request_exception.InvalidRequestException: <p>Bad request. The request is missing required parameters or has invalid parameters.</p>
+            aws_sdk_dlm.errors.resource_not_found_exception.ResourceNotFoundException: <p>A requested resource was not found.</p>
+            aws_sdk_dlm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -570,6 +613,13 @@ class AsyncDLMClient:
             extend_deletion: <p> <b>[Default policies only]</b> Defines the snapshot or AMI retention behavior for the policy if the source volume or instance is deleted, or if the policy enters the error, disabled, or deleted state.</p> <p>By default (<b>ExtendDeletion=false</b>):</p> <ul> <li> <p>If a source resource is deleted, Amazon Data Lifecycle Manager will continue to delete previously created snapshots or AMIs, up to but not including the last one, based on the specified retention period. If you want Amazon Data Lifecycle Manager to delete all snapshots or AMIs, including the last one, specify <code>true</code>.</p> </li> <li> <p>If a policy enters the error, disabled, or deleted state, Amazon Data Lifecycle Manager stops deleting snapshots and AMIs. If you want Amazon Data Lifecycle Manager to continue deleting snapshots or AMIs, including the last one, if the policy enters one of these states, specify <code>true</code>.</p> </li> </ul> <p>If you enable extended deletion (<b>ExtendDeletion=true</b>), you override both default behaviors simultaneously.</p> <p>Default: false</p>
             cross_region_copy_targets: <p> <b>[Default policies only]</b> Specifies destination Regions for snapshot or AMI copies. You can specify up to 3 destination Regions. If you do not want to create cross-Region copies, omit this parameter.</p>
             exclusions: <p> <b>[Default policies only]</b> Specifies exclusion parameters for volumes or instances for which you do not want to create snapshots or AMIs. The policy will not create snapshots or AMIs for target resources that match any of the specified exclusion parameters.</p>
+
+        Raises:
+            aws_sdk_dlm.errors.internal_server_exception.InternalServerException: <p>The service failed in an unexpected way.</p>
+            aws_sdk_dlm.errors.invalid_request_exception.InvalidRequestException: <p>Bad request. The request is missing required parameters or has invalid parameters.</p>
+            aws_sdk_dlm.errors.limit_exceeded_exception.LimitExceededException: <p>The request failed because a limit was exceeded.</p>
+            aws_sdk_dlm.errors.resource_not_found_exception.ResourceNotFoundException: <p>A requested resource was not found.</p>
+            aws_sdk_dlm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

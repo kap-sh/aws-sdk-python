@@ -499,6 +499,12 @@ class AsyncIAMClient:
 
         Args:
             delegation_request_id: <p>The unique identifier of the delegation request to accept.</p>
+
+        Raises:
+            aws_sdk_iam.errors.concurrent_modification_exception.ConcurrentModificationException: <p>The request was rejected because multiple requests to change this object were submitted simultaneously. Wait a few minutes and submit your request again.</p>
+            aws_sdk_iam.errors.no_such_entity_exception.NoSuchEntityException: <p>The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.</p>
+            aws_sdk_iam.errors.service_failure_exception.ServiceFailureException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -537,6 +543,14 @@ class AsyncIAMClient:
         Args:
             open_id_connect_provider_arn: <p>The Amazon Resource Name (ARN) of the IAM OpenID Connect (OIDC) provider resource to add the client ID to. You can get a list of OIDC provider ARNs by using the <a href=\"https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListOpenIDConnectProviders.html\">ListOpenIDConnectProviders</a> operation.</p>
             client_id: <p>The client ID (also known as audience) to add to the IAM OpenID Connect provider resource.</p>
+
+        Raises:
+            aws_sdk_iam.errors.concurrent_modification_exception.ConcurrentModificationException: <p>The request was rejected because multiple requests to change this object were submitted simultaneously. Wait a few minutes and submit your request again.</p>
+            aws_sdk_iam.errors.invalid_input_exception.InvalidInputException: <p>The request was rejected because an invalid or out-of-range value was supplied for an input parameter.</p>
+            aws_sdk_iam.errors.limit_exceeded_exception.LimitExceededException: <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account limits. The error message describes the limit exceeded.</p>
+            aws_sdk_iam.errors.no_such_entity_exception.NoSuchEntityException: <p>The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.</p>
+            aws_sdk_iam.errors.service_failure_exception.ServiceFailureException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To add a client ID (audience) to an Open-ID Connect (OIDC) provider
@@ -583,6 +597,14 @@ class AsyncIAMClient:
             instance_profile_name: <p>The name of the instance profile to update.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
             role_name: <p>The name of the role to add.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
 
+        Raises:
+            aws_sdk_iam.errors.entity_already_exists_exception.EntityAlreadyExistsException: <p>The request was rejected because it attempted to create a resource that already exists.</p>
+            aws_sdk_iam.errors.limit_exceeded_exception.LimitExceededException: <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account limits. The error message describes the limit exceeded.</p>
+            aws_sdk_iam.errors.no_such_entity_exception.NoSuchEntityException: <p>The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.</p>
+            aws_sdk_iam.errors.service_failure_exception.ServiceFailureException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_iam.errors.unmodifiable_entity_exception.UnmodifiableEntityException: <p>The request was rejected because service-linked roles are protected Amazon Web Services resources. Only the service that depends on the service-linked role can modify or delete the role on your behalf. The error message includes the name of the service that depends on this service-linked role. You must request the change through that service.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To add a role to an instance profile
             The following command adds the role named S3Access to the instance profile named Webserver:
@@ -628,6 +650,12 @@ class AsyncIAMClient:
             group_name: <p>The name of the group to update.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
             user_name: <p>The name of the user to add.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
 
+        Raises:
+            aws_sdk_iam.errors.limit_exceeded_exception.LimitExceededException: <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account limits. The error message describes the limit exceeded.</p>
+            aws_sdk_iam.errors.no_such_entity_exception.NoSuchEntityException: <p>The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.</p>
+            aws_sdk_iam.errors.service_failure_exception.ServiceFailureException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To add a user to an IAM group
             The following command adds an IAM user named Bob to the IAM group named Admins:
@@ -670,6 +698,13 @@ class AsyncIAMClient:
 
         Args:
             delegation_request_id: <p>The unique identifier of the delegation request to associate.</p>
+
+        Raises:
+            aws_sdk_iam.errors.concurrent_modification_exception.ConcurrentModificationException: <p>The request was rejected because multiple requests to change this object were submitted simultaneously. Wait a few minutes and submit your request again.</p>
+            aws_sdk_iam.errors.invalid_input_exception.InvalidInputException: <p>The request was rejected because an invalid or out-of-range value was supplied for an input parameter.</p>
+            aws_sdk_iam.errors.no_such_entity_exception.NoSuchEntityException: <p>The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.</p>
+            aws_sdk_iam.errors.service_failure_exception.ServiceFailureException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -708,6 +743,14 @@ class AsyncIAMClient:
         Args:
             group_name: <p>The name (friendly name, not ARN) of the group to attach the policy to.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
             policy_arn: <p>The Amazon Resource Name (ARN) of the IAM policy you want to attach.</p> <p>For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
+
+        Raises:
+            aws_sdk_iam.errors.invalid_input_exception.InvalidInputException: <p>The request was rejected because an invalid or out-of-range value was supplied for an input parameter.</p>
+            aws_sdk_iam.errors.limit_exceeded_exception.LimitExceededException: <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account limits. The error message describes the limit exceeded.</p>
+            aws_sdk_iam.errors.no_such_entity_exception.NoSuchEntityException: <p>The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.</p>
+            aws_sdk_iam.errors.policy_not_attachable_exception.PolicyNotAttachableException: <p>The request failed because Amazon Web Services service role policies can only be attached to the service-linked role for that service.</p>
+            aws_sdk_iam.errors.service_failure_exception.ServiceFailureException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To attach a managed policy to an IAM group
@@ -754,6 +797,15 @@ class AsyncIAMClient:
             role_name: <p>The name (friendly name, not ARN) of the role to attach the policy to.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
             policy_arn: <p>The Amazon Resource Name (ARN) of the IAM policy you want to attach.</p> <p>For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
 
+        Raises:
+            aws_sdk_iam.errors.invalid_input_exception.InvalidInputException: <p>The request was rejected because an invalid or out-of-range value was supplied for an input parameter.</p>
+            aws_sdk_iam.errors.limit_exceeded_exception.LimitExceededException: <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account limits. The error message describes the limit exceeded.</p>
+            aws_sdk_iam.errors.no_such_entity_exception.NoSuchEntityException: <p>The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.</p>
+            aws_sdk_iam.errors.policy_not_attachable_exception.PolicyNotAttachableException: <p>The request failed because Amazon Web Services service role policies can only be attached to the service-linked role for that service.</p>
+            aws_sdk_iam.errors.service_failure_exception.ServiceFailureException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_iam.errors.unmodifiable_entity_exception.UnmodifiableEntityException: <p>The request was rejected because service-linked roles are protected Amazon Web Services resources. Only the service that depends on the service-linked role can modify or delete the role on your behalf. The error message includes the name of the service that depends on this service-linked role. You must request the change through that service.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To attach a managed policy to an IAM role
             The following command attaches the AWS managed policy named ReadOnlyAccess to the IAM role named ReadOnlyRole.
@@ -798,6 +850,14 @@ class AsyncIAMClient:
         Args:
             user_name: <p>The name (friendly name, not ARN) of the IAM user to attach the policy to.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
             policy_arn: <p>The Amazon Resource Name (ARN) of the IAM policy you want to attach.</p> <p>For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
+
+        Raises:
+            aws_sdk_iam.errors.invalid_input_exception.InvalidInputException: <p>The request was rejected because an invalid or out-of-range value was supplied for an input parameter.</p>
+            aws_sdk_iam.errors.limit_exceeded_exception.LimitExceededException: <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account limits. The error message describes the limit exceeded.</p>
+            aws_sdk_iam.errors.no_such_entity_exception.NoSuchEntityException: <p>The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.</p>
+            aws_sdk_iam.errors.policy_not_attachable_exception.PolicyNotAttachableException: <p>The request failed because Amazon Web Services service role policies can only be attached to the service-linked role for that service.</p>
+            aws_sdk_iam.errors.service_failure_exception.ServiceFailureException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To attach a managed policy to an IAM user
@@ -844,6 +904,15 @@ class AsyncIAMClient:
             old_password: <p>The IAM user's current password.</p>
             new_password: <p>The new password. The new password must conform to the Amazon Web Services account's password policy, if one exists.</p> <p>The <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a> that is used to validate this parameter is a string of characters. That string can include almost any printable ASCII character from the space (<code>\u0020</code>) through the end of the ASCII character range (<code>\u00FF</code>). You can also include the tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>) characters. Any of these characters are valid in a password. However, many tools, such as the Amazon Web Services Management Console, might restrict the ability to type certain characters because they have special meaning within that tool.</p>
 
+        Raises:
+            aws_sdk_iam.errors.entity_temporarily_unmodifiable_exception.EntityTemporarilyUnmodifiableException: <p>The request was rejected because it referenced an entity that is temporarily unmodifiable, such as a user name that was deleted and then recreated. The error indicates that the request is likely to succeed if you try again after waiting several minutes. The error message describes the entity.</p>
+            aws_sdk_iam.errors.invalid_user_type_exception.InvalidUserTypeException: <p>The request was rejected because the type of user for the transaction was incorrect.</p>
+            aws_sdk_iam.errors.limit_exceeded_exception.LimitExceededException: <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account limits. The error message describes the limit exceeded.</p>
+            aws_sdk_iam.errors.no_such_entity_exception.NoSuchEntityException: <p>The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.</p>
+            aws_sdk_iam.errors.password_policy_violation_exception.PasswordPolicyViolationException: <p>The request was rejected because the provided password did not meet the requirements imposed by the account password policy.</p>
+            aws_sdk_iam.errors.service_failure_exception.ServiceFailureException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To change the password for your IAM user
             The following command changes the password for the current IAM user.
@@ -889,6 +958,12 @@ class AsyncIAMClient:
         Args:
             user_name: <p>The name of the IAM user that the new key will belong to.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
 
+        Raises:
+            aws_sdk_iam.errors.limit_exceeded_exception.LimitExceededException: <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account limits. The error message describes the limit exceeded.</p>
+            aws_sdk_iam.errors.no_such_entity_exception.NoSuchEntityException: <p>The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.</p>
+            aws_sdk_iam.errors.service_failure_exception.ServiceFailureException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To create an access key for an IAM user
             The following command creates an access key (access key ID and secret access key) for the IAM user named Bob.
@@ -933,6 +1008,13 @@ class AsyncIAMClient:
 
         Args:
             account_alias: <p>The account alias to create.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of lowercase letters, digits, and dashes. You cannot start or finish with a dash, nor can you have two dashes in a row.</p>
+
+        Raises:
+            aws_sdk_iam.errors.concurrent_modification_exception.ConcurrentModificationException: <p>The request was rejected because multiple requests to change this object were submitted simultaneously. Wait a few minutes and submit your request again.</p>
+            aws_sdk_iam.errors.entity_already_exists_exception.EntityAlreadyExistsException: <p>The request was rejected because it attempted to create a resource that already exists.</p>
+            aws_sdk_iam.errors.limit_exceeded_exception.LimitExceededException: <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account limits. The error message describes the limit exceeded.</p>
+            aws_sdk_iam.errors.service_failure_exception.ServiceFailureException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To create an account alias
@@ -999,6 +1081,14 @@ class AsyncIAMClient:
             notification_channel: <p>The notification channel for updates about the delegation request.</p> <p>At this time,only SNS topic ARNs are accepted for notification. This topic ARN must have a resource policy granting <code>SNS:Publish</code> permission to the IAM service principal (<code>iam.amazonaws.com</code>). See <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies-temporary-delegation-partner-guide.html\">partner onboarding documentation</a> for more details. </p>
             session_duration: <p>The duration for which the delegated session should remain active, in seconds.</p> <p>The active time window for the session starts when the customer calls the <a href=\"https://docs.aws.amazon.com/IAM/latest/APIReference/API_SendDelegationToken.html\">SendDelegationToken</a> API.</p>
             only_send_by_owner: <p>Specifies whether the delegation token should only be sent by the owner.</p> <p>This flag prevents any party other than the owner from calling <code>SendDelegationToken</code> API for this delegation request. This behavior becomes useful when the delegation request owner needs to be present for subsequent partner interactions, but the delegation request was sent to a more privileged user for approval due to the owner lacking sufficient delegation permissions. </p>
+
+        Raises:
+            aws_sdk_iam.errors.concurrent_modification_exception.ConcurrentModificationException: <p>The request was rejected because multiple requests to change this object were submitted simultaneously. Wait a few minutes and submit your request again.</p>
+            aws_sdk_iam.errors.entity_already_exists_exception.EntityAlreadyExistsException: <p>The request was rejected because it attempted to create a resource that already exists.</p>
+            aws_sdk_iam.errors.invalid_input_exception.InvalidInputException: <p>The request was rejected because an invalid or out-of-range value was supplied for an input parameter.</p>
+            aws_sdk_iam.errors.limit_exceeded_exception.LimitExceededException: <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account limits. The error message describes the limit exceeded.</p>
+            aws_sdk_iam.errors.service_failure_exception.ServiceFailureException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1052,6 +1142,13 @@ class AsyncIAMClient:
             path: <p> The path to the group. For more information about paths, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html\">IAM identifiers</a> in the <i>IAM User Guide</i>.</p> <p>This parameter is optional. If it is not included, it defaults to a slash (/).</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes. In addition, it can contain any ASCII character from the ! (<code>\u0021</code>) through the DEL character (<code>\u007F</code>), including most punctuation characters, digits, and upper and lowercased letters.</p>
             group_name: <p>The name of the group to create. Do not include the path in this value.</p> <p>IAM user, group, role, and policy names must be unique within the account. Names are not distinguished by case. For example, you cannot create resources named both \"MyResource\" and \"myresource\".</p>
 
+        Raises:
+            aws_sdk_iam.errors.entity_already_exists_exception.EntityAlreadyExistsException: <p>The request was rejected because it attempted to create a resource that already exists.</p>
+            aws_sdk_iam.errors.limit_exceeded_exception.LimitExceededException: <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account limits. The error message describes the limit exceeded.</p>
+            aws_sdk_iam.errors.no_such_entity_exception.NoSuchEntityException: <p>The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.</p>
+            aws_sdk_iam.errors.service_failure_exception.ServiceFailureException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To create an IAM group
             The following command creates an IAM group named Admins.
@@ -1101,6 +1198,14 @@ class AsyncIAMClient:
             instance_profile_name: <p>The name of the instance profile to create.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
             path: <p> The path to the instance profile. For more information about paths, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html\">IAM Identifiers</a> in the <i>IAM User Guide</i>.</p> <p>This parameter is optional. If it is not included, it defaults to a slash (/).</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes. In addition, it can contain any ASCII character from the ! (<code>\u0021</code>) through the DEL character (<code>\u007F</code>), including most punctuation characters, digits, and upper and lowercased letters.</p>
             tags: <p>A list of tags that you want to attach to the newly created IAM instance profile. Each tag consists of a key name and an associated value. For more information about tagging, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html\">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p> <note> <p>If any one of the tags is invalid or if you exceed the allowed maximum number of tags, then the entire request fails and the resource is not created.</p> </note>
+
+        Raises:
+            aws_sdk_iam.errors.concurrent_modification_exception.ConcurrentModificationException: <p>The request was rejected because multiple requests to change this object were submitted simultaneously. Wait a few minutes and submit your request again.</p>
+            aws_sdk_iam.errors.entity_already_exists_exception.EntityAlreadyExistsException: <p>The request was rejected because it attempted to create a resource that already exists.</p>
+            aws_sdk_iam.errors.invalid_input_exception.InvalidInputException: <p>The request was rejected because an invalid or out-of-range value was supplied for an input parameter.</p>
+            aws_sdk_iam.errors.limit_exceeded_exception.LimitExceededException: <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account limits. The error message describes the limit exceeded.</p>
+            aws_sdk_iam.errors.service_failure_exception.ServiceFailureException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To create an instance profile
@@ -1155,6 +1260,14 @@ class AsyncIAMClient:
             user_name: <p>The name of the IAM user to create a password for. The user must already exist.</p> <p>This parameter is optional. If no user name is included, it defaults to the principal making the request. When you make this request with root user credentials, you must use an <a href=\"https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRoot.html\">AssumeRoot</a> session to omit the user name.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
             password: <p>The new password for the user.</p> <p>This parameter must be omitted when you make the request with an <a href=\"https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRoot.html\">AssumeRoot</a> session. It is required in all other cases.</p> <p>The <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a> that is used to validate this parameter is a string of characters. That string can include almost any printable ASCII character from the space (<code>\u0020</code>) through the end of the ASCII character range (<code>\u00FF</code>). You can also include the tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>) characters. Any of these characters are valid in a password. However, many tools, such as the Amazon Web Services Management Console, might restrict the ability to type certain characters because they have special meaning within that tool.</p>
             password_reset_required: <p>Specifies whether the user is required to set a new password on next sign-in.</p>
+
+        Raises:
+            aws_sdk_iam.errors.entity_already_exists_exception.EntityAlreadyExistsException: <p>The request was rejected because it attempted to create a resource that already exists.</p>
+            aws_sdk_iam.errors.limit_exceeded_exception.LimitExceededException: <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account limits. The error message describes the limit exceeded.</p>
+            aws_sdk_iam.errors.no_such_entity_exception.NoSuchEntityException: <p>The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.</p>
+            aws_sdk_iam.errors.password_policy_violation_exception.PasswordPolicyViolationException: <p>The request was rejected because the provided password did not meet the requirements imposed by the account password policy.</p>
+            aws_sdk_iam.errors.service_failure_exception.ServiceFailureException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To create an instance profile
@@ -1215,6 +1328,15 @@ class AsyncIAMClient:
             thumbprint_list: <p>A list of server certificate thumbprints for the OpenID Connect (OIDC) identity provider's server certificates. Typically this list includes only one entry. However, IAM lets you have up to five thumbprints for an OIDC provider. This lets you maintain multiple thumbprints if the identity provider is rotating certificates.</p> <p>This parameter is optional. If it is not included, IAM will retrieve and use the top intermediate certificate authority (CA) thumbprint of the OpenID Connect identity provider server certificate.</p> <p>The server certificate thumbprint is the hex-encoded SHA-1 hash value of the X.509 certificate used by the domain where the OpenID Connect provider makes its keys available. It is always a 40-character string.</p> <p>For example, assume that the OIDC provider is <code>server.example.com</code> and the provider stores its keys at https://keys.server.example.com/openid-connect. In that case, the thumbprint string would be the hex-encoded SHA-1 hash value of the certificate used by <code>https://keys.server.example.com.</code> </p> <p>For more information about obtaining the OIDC provider thumbprint, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/identity-providers-oidc-obtain-thumbprint.html\">Obtaining the thumbprint for an OpenID Connect provider</a> in the <i>IAM user Guide</i>.</p> <note> <p>If your OIDC provider's discovery endpoint and JWKS endpoint (<code>jwks_uri</code>) use different certificates or hosts, include the thumbprints for both endpoints in this list.</p> </note>
             tags: <p>A list of tags that you want to attach to the new IAM OpenID Connect (OIDC) provider. Each tag consists of a key name and an associated value. For more information about tagging, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html\">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p> <note> <p>If any one of the tags is invalid or if you exceed the allowed maximum number of tags, then the entire request fails and the resource is not created.</p> </note>
 
+        Raises:
+            aws_sdk_iam.errors.concurrent_modification_exception.ConcurrentModificationException: <p>The request was rejected because multiple requests to change this object were submitted simultaneously. Wait a few minutes and submit your request again.</p>
+            aws_sdk_iam.errors.entity_already_exists_exception.EntityAlreadyExistsException: <p>The request was rejected because it attempted to create a resource that already exists.</p>
+            aws_sdk_iam.errors.invalid_input_exception.InvalidInputException: <p>The request was rejected because an invalid or out-of-range value was supplied for an input parameter.</p>
+            aws_sdk_iam.errors.limit_exceeded_exception.LimitExceededException: <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account limits. The error message describes the limit exceeded.</p>
+            aws_sdk_iam.errors.open_id_idp_communication_error_exception.OpenIdIdpCommunicationErrorException: <p>The request failed because IAM cannot connect to the OpenID Connect identity provider URL.</p>
+            aws_sdk_iam.errors.service_failure_exception.ServiceFailureException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To create an instance profile
             The following example defines a new OIDC provider in IAM with a client ID of my-application-id and pointing at the server with a URL of https://server.example.com.
@@ -1274,6 +1396,15 @@ class AsyncIAMClient:
             policy_document: <p>The JSON policy document that you want to use as the content for the new policy.</p> <p>You must provide policies in JSON format in IAM. However, for CloudFormation templates formatted in YAML, you can provide the policy in JSON or YAML format. CloudFormation always converts a YAML policy to JSON format before submitting it to IAM.</p> <p>The maximum length of the policy document that you can pass in this operation, including whitespace, is listed below. To view the maximum character counts of a managed policy with no whitespaces, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html#reference_iam-quotas-entity-length\">IAM and STS character quotas</a>.</p> <p>To learn more about JSON policy grammar, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_grammar.html\">Grammar of the IAM JSON policy language</a> in the <i>IAM User Guide</i>. </p> <p>The <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p> <ul> <li> <p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p> </li> <li> <p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p> </li> <li> <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p> </li> </ul>
             description: <p>A friendly description of the policy.</p> <p>Typically used to store information about the permissions defined in the policy. For example, \"Grants access to production DynamoDB tables.\"</p> <p>The policy description is immutable. After a value is assigned, it cannot be changed.</p>
             tags: <p>A list of tags that you want to attach to the new IAM customer managed policy. Each tag consists of a key name and an associated value. For more information about tagging, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html\">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p> <note> <p>If any one of the tags is invalid or if you exceed the allowed maximum number of tags, then the entire request fails and the resource is not created.</p> </note>
+
+        Raises:
+            aws_sdk_iam.errors.concurrent_modification_exception.ConcurrentModificationException: <p>The request was rejected because multiple requests to change this object were submitted simultaneously. Wait a few minutes and submit your request again.</p>
+            aws_sdk_iam.errors.entity_already_exists_exception.EntityAlreadyExistsException: <p>The request was rejected because it attempted to create a resource that already exists.</p>
+            aws_sdk_iam.errors.invalid_input_exception.InvalidInputException: <p>The request was rejected because an invalid or out-of-range value was supplied for an input parameter.</p>
+            aws_sdk_iam.errors.limit_exceeded_exception.LimitExceededException: <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account limits. The error message describes the limit exceeded.</p>
+            aws_sdk_iam.errors.malformed_policy_document_exception.MalformedPolicyDocumentException: <p>The request was rejected because the policy document was malformed. The error message describes the specific error.</p>
+            aws_sdk_iam.errors.service_failure_exception.ServiceFailureException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1323,6 +1454,14 @@ class AsyncIAMClient:
             policy_arn: <p>The Amazon Resource Name (ARN) of the IAM policy to which you want to add a new version.</p> <p>For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
             policy_document: <p>The JSON policy document that you want to use as the content for this new version of the policy.</p> <p>You must provide policies in JSON format in IAM. However, for CloudFormation templates formatted in YAML, you can provide the policy in JSON or YAML format. CloudFormation always converts a YAML policy to JSON format before submitting it to IAM.</p> <p>The maximum length of the policy document that you can pass in this operation, including whitespace, is listed below. To view the maximum character counts of a managed policy with no whitespaces, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html#reference_iam-quotas-entity-length\">IAM and STS character quotas</a>.</p> <p>The <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p> <ul> <li> <p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p> </li> <li> <p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p> </li> <li> <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p> </li> </ul>
             set_as_default: <p>Specifies whether to set this version as the policy's default version.</p> <p>When this parameter is <code>true</code>, the new policy version becomes the operative version. That is, it becomes the version that is in effect for the IAM users, groups, and roles that the policy is attached to.</p> <p>For more information about managed policy versions, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html\">Versioning for managed policies</a> in the <i>IAM User Guide</i>.</p>
+
+        Raises:
+            aws_sdk_iam.errors.invalid_input_exception.InvalidInputException: <p>The request was rejected because an invalid or out-of-range value was supplied for an input parameter.</p>
+            aws_sdk_iam.errors.limit_exceeded_exception.LimitExceededException: <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account limits. The error message describes the limit exceeded.</p>
+            aws_sdk_iam.errors.malformed_policy_document_exception.MalformedPolicyDocumentException: <p>The request was rejected because the policy document was malformed. The error message describes the specific error.</p>
+            aws_sdk_iam.errors.no_such_entity_exception.NoSuchEntityException: <p>The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.</p>
+            aws_sdk_iam.errors.service_failure_exception.ServiceFailureException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1380,6 +1519,15 @@ class AsyncIAMClient:
             max_session_duration: <p>The maximum session duration (in seconds) that you want to set for the specified role. If you do not specify a value for this setting, the default value of one hour is applied. This setting can have a value from 1 hour to 12 hours.</p> <p>Anyone who assumes the role from the CLI or API can use the <code>DurationSeconds</code> API parameter or the <code>duration-seconds</code> CLI parameter to request a longer session. The <code>MaxSessionDuration</code> setting determines the maximum duration that can be requested using the <code>DurationSeconds</code> parameter. If users don't specify a value for the <code>DurationSeconds</code> parameter, their security credentials are valid for one hour by default. This applies when you use the <code>AssumeRole*</code> API operations or the <code>assume-role*</code> CLI operations but does not apply when you use those operations to create a console URL. For more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use.html\">Using IAM roles</a> in the <i>IAM User Guide</i>.</p>
             permissions_boundary: <p>The ARN of the managed policy that is used to set the permissions boundary for the role.</p> <p>A permissions boundary policy defines the maximum permissions that identity-based policies can grant to an entity, but does not grant permissions. Permissions boundaries do not define the maximum permissions that a resource-based policy can grant to an entity. To learn more, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html\">Permissions boundaries for IAM entities</a> in the <i>IAM User Guide</i>.</p> <p>For more information about policy types, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#access_policy-types\">Policy types </a> in the <i>IAM User Guide</i>.</p>
             tags: <p>A list of tags that you want to attach to the new role. Each tag consists of a key name and an associated value. For more information about tagging, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html\">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p> <note> <p>If any one of the tags is invalid or if you exceed the allowed maximum number of tags, then the entire request fails and the resource is not created.</p> </note>
+
+        Raises:
+            aws_sdk_iam.errors.concurrent_modification_exception.ConcurrentModificationException: <p>The request was rejected because multiple requests to change this object were submitted simultaneously. Wait a few minutes and submit your request again.</p>
+            aws_sdk_iam.errors.entity_already_exists_exception.EntityAlreadyExistsException: <p>The request was rejected because it attempted to create a resource that already exists.</p>
+            aws_sdk_iam.errors.invalid_input_exception.InvalidInputException: <p>The request was rejected because an invalid or out-of-range value was supplied for an input parameter.</p>
+            aws_sdk_iam.errors.limit_exceeded_exception.LimitExceededException: <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account limits. The error message describes the limit exceeded.</p>
+            aws_sdk_iam.errors.malformed_policy_document_exception.MalformedPolicyDocumentException: <p>The request was rejected because the policy document was malformed. The error message describes the specific error.</p>
+            aws_sdk_iam.errors.service_failure_exception.ServiceFailureException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To create an IAM role
@@ -1447,6 +1595,14 @@ class AsyncIAMClient:
             tags: <p>A list of tags that you want to attach to the new IAM SAML provider. Each tag consists of a key name and an associated value. For more information about tagging, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html\">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p> <note> <p>If any one of the tags is invalid or if you exceed the allowed maximum number of tags, then the entire request fails and the resource is not created.</p> </note>
             assertion_encryption_mode: <p>Specifies the encryption setting for the SAML provider.</p>
             add_private_key: <p>The private key generated from your external identity provider. The private key must be a .pem file that uses AES-GCM or AES-CBC encryption algorithm to decrypt SAML assertions.</p>
+
+        Raises:
+            aws_sdk_iam.errors.concurrent_modification_exception.ConcurrentModificationException: <p>The request was rejected because multiple requests to change this object were submitted simultaneously. Wait a few minutes and submit your request again.</p>
+            aws_sdk_iam.errors.entity_already_exists_exception.EntityAlreadyExistsException: <p>The request was rejected because it attempted to create a resource that already exists.</p>
+            aws_sdk_iam.errors.invalid_input_exception.InvalidInputException: <p>The request was rejected because an invalid or out-of-range value was supplied for an input parameter.</p>
+            aws_sdk_iam.errors.limit_exceeded_exception.LimitExceededException: <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account limits. The error message describes the limit exceeded.</p>
+            aws_sdk_iam.errors.service_failure_exception.ServiceFailureException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1500,6 +1656,13 @@ class AsyncIAMClient:
             aws_service_name: <p>The service principal for the Amazon Web Services service to which this role is attached. You use a string similar to a URL but without the http:// in front. For example: <code>elasticbeanstalk.amazonaws.com</code>. </p> <p>Service principals are unique and case-sensitive. To find the exact service principal for your service-linked role, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html\">Amazon Web Services services that work with IAM</a> in the <i>IAM User Guide</i>. Look for the services that have <b>Yes </b>in the <b>Service-Linked Role</b> column. Choose the <b>Yes</b> link to view the service-linked role documentation for that service.</p>
             description: <p>The description of the role.</p>
             custom_suffix: <p></p> <p>A string that you provide, which is combined with the service-provided prefix to form the complete role name. If you make multiple requests for the same service, then you must supply a different <code>CustomSuffix</code> for each request. Otherwise the request fails with a duplicate role name error. For example, you could add <code>-1</code> or <code>-debug</code> to the suffix.</p> <p>Some services do not support the <code>CustomSuffix</code> parameter. If you provide an optional suffix and the operation fails, try the operation again without the suffix.</p>
+
+        Raises:
+            aws_sdk_iam.errors.invalid_input_exception.InvalidInputException: <p>The request was rejected because an invalid or out-of-range value was supplied for an input parameter.</p>
+            aws_sdk_iam.errors.limit_exceeded_exception.LimitExceededException: <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account limits. The error message describes the limit exceeded.</p>
+            aws_sdk_iam.errors.no_such_entity_exception.NoSuchEntityException: <p>The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.</p>
+            aws_sdk_iam.errors.service_failure_exception.ServiceFailureException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1548,6 +1711,12 @@ class AsyncIAMClient:
             user_name: <p>The name of the IAM user that is to be associated with the credentials. The new service-specific credentials have the same permissions as the associated user except that they can be used only to access the specified service.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
             service_name: <p>The name of the Amazon Web Services service that is to be associated with the credentials. The service you specify here is the only service that can be accessed using these credentials.</p>
             credential_age_days: <p>The number of days until the service specific credential expires. This field is only valid for Bedrock and CloudWatch Logs API keys and must be a positive integer. When not specified, the credential will not expire.</p>
+
+        Raises:
+            aws_sdk_iam.errors.limit_exceeded_exception.LimitExceededException: <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account limits. The error message describes the limit exceeded.</p>
+            aws_sdk_iam.errors.no_such_entity_exception.NoSuchEntityException: <p>The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.</p>
+            aws_sdk_iam.errors.service_not_supported_exception.ServiceNotSupportedException: <p>The specified service does not support service-specific credentials.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1595,6 +1764,15 @@ class AsyncIAMClient:
             user_name: <p>The name of the user to create.</p> <p>IAM user, group, role, and policy names must be unique within the account. Names are not distinguished by case. For example, you cannot create resources named both \"MyResource\" and \"myresource\".</p>
             permissions_boundary: <p>The ARN of the managed policy that is used to set the permissions boundary for the user.</p> <p>A permissions boundary policy defines the maximum permissions that identity-based policies can grant to an entity, but does not grant permissions. Permissions boundaries do not define the maximum permissions that a resource-based policy can grant to an entity. To learn more, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html\">Permissions boundaries for IAM entities</a> in the <i>IAM User Guide</i>.</p> <p>For more information about policy types, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#access_policy-types\">Policy types </a> in the <i>IAM User Guide</i>.</p>
             tags: <p>A list of tags that you want to attach to the new user. Each tag consists of a key name and an associated value. For more information about tagging, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html\">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p> <note> <p>If any one of the tags is invalid or if you exceed the allowed maximum number of tags, then the entire request fails and the resource is not created.</p> </note>
+
+        Raises:
+            aws_sdk_iam.errors.concurrent_modification_exception.ConcurrentModificationException: <p>The request was rejected because multiple requests to change this object were submitted simultaneously. Wait a few minutes and submit your request again.</p>
+            aws_sdk_iam.errors.entity_already_exists_exception.EntityAlreadyExistsException: <p>The request was rejected because it attempted to create a resource that already exists.</p>
+            aws_sdk_iam.errors.invalid_input_exception.InvalidInputException: <p>The request was rejected because an invalid or out-of-range value was supplied for an input parameter.</p>
+            aws_sdk_iam.errors.limit_exceeded_exception.LimitExceededException: <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account limits. The error message describes the limit exceeded.</p>
+            aws_sdk_iam.errors.no_such_entity_exception.NoSuchEntityException: <p>The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.</p>
+            aws_sdk_iam.errors.service_failure_exception.ServiceFailureException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To create an IAM user
@@ -1649,6 +1827,14 @@ class AsyncIAMClient:
             path: <p> The path for the virtual MFA device. For more information about paths, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html\">IAM identifiers</a> in the <i>IAM User Guide</i>.</p> <p>This parameter is optional. If it is not included, it defaults to a slash (/).</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes. In addition, it can contain any ASCII character from the ! (<code>\u0021</code>) through the DEL character (<code>\u007F</code>), including most punctuation characters, digits, and upper and lowercased letters.</p>
             virtual_mfa_device_name: <p>The name of the virtual MFA device, which must be unique. Use with path to uniquely identify a virtual MFA device.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
             tags: <p>A list of tags that you want to attach to the new IAM virtual MFA device. Each tag consists of a key name and an associated value. For more information about tagging, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html\">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p> <note> <p>If any one of the tags is invalid or if you exceed the allowed maximum number of tags, then the entire request fails and the resource is not created.</p> </note>
+
+        Raises:
+            aws_sdk_iam.errors.concurrent_modification_exception.ConcurrentModificationException: <p>The request was rejected because multiple requests to change this object were submitted simultaneously. Wait a few minutes and submit your request again.</p>
+            aws_sdk_iam.errors.entity_already_exists_exception.EntityAlreadyExistsException: <p>The request was rejected because it attempted to create a resource that already exists.</p>
+            aws_sdk_iam.errors.invalid_input_exception.InvalidInputException: <p>The request was rejected because an invalid or out-of-range value was supplied for an input parameter.</p>
+            aws_sdk_iam.errors.limit_exceeded_exception.LimitExceededException: <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account limits. The error message describes the limit exceeded.</p>
+            aws_sdk_iam.errors.service_failure_exception.ServiceFailureException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1695,6 +1881,14 @@ class AsyncIAMClient:
         Args:
             user_name: <p>The name of the user whose MFA device you want to deactivate.</p> <p>This parameter is optional. If no user name is included, it defaults to the principal making the request. When you make this request with root user credentials, you must use an <a href=\"https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRoot.html\">AssumeRoot</a> session to omit the user name.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
             serial_number: <p>The serial number that uniquely identifies the MFA device. For virtual MFA devices, the serial number is the device ARN.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@:/-</p>
+
+        Raises:
+            aws_sdk_iam.errors.concurrent_modification_exception.ConcurrentModificationException: <p>The request was rejected because multiple requests to change this object were submitted simultaneously. Wait a few minutes and submit your request again.</p>
+            aws_sdk_iam.errors.entity_temporarily_unmodifiable_exception.EntityTemporarilyUnmodifiableException: <p>The request was rejected because it referenced an entity that is temporarily unmodifiable, such as a user name that was deleted and then recreated. The error indicates that the request is likely to succeed if you try again after waiting several minutes. The error message describes the entity.</p>
+            aws_sdk_iam.errors.limit_exceeded_exception.LimitExceededException: <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account limits. The error message describes the limit exceeded.</p>
+            aws_sdk_iam.errors.no_such_entity_exception.NoSuchEntityException: <p>The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.</p>
+            aws_sdk_iam.errors.service_failure_exception.ServiceFailureException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1737,6 +1931,12 @@ class AsyncIAMClient:
         Args:
             user_name: <p>The name of the user whose access key pair you want to delete.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
             access_key_id: <p>The access key ID for the access key ID and secret access key you want to delete.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters that can consist of any upper or lowercased letter or digit.</p>
+
+        Raises:
+            aws_sdk_iam.errors.limit_exceeded_exception.LimitExceededException: <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account limits. The error message describes the limit exceeded.</p>
+            aws_sdk_iam.errors.no_such_entity_exception.NoSuchEntityException: <p>The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.</p>
+            aws_sdk_iam.errors.service_failure_exception.ServiceFailureException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To delete an access key for an IAM user
@@ -1782,6 +1982,13 @@ class AsyncIAMClient:
         Args:
             account_alias: <p>The name of the account alias to delete.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of lowercase letters, digits, and dashes. You cannot start or finish with a dash, nor can you have two dashes in a row.</p>
 
+        Raises:
+            aws_sdk_iam.errors.concurrent_modification_exception.ConcurrentModificationException: <p>The request was rejected because multiple requests to change this object were submitted simultaneously. Wait a few minutes and submit your request again.</p>
+            aws_sdk_iam.errors.limit_exceeded_exception.LimitExceededException: <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account limits. The error message describes the limit exceeded.</p>
+            aws_sdk_iam.errors.no_such_entity_exception.NoSuchEntityException: <p>The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.</p>
+            aws_sdk_iam.errors.service_failure_exception.ServiceFailureException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To delete an account alias
             The following command removes the alias mycompany from the current AWS account:
@@ -1817,6 +2024,12 @@ class AsyncIAMClient:
         self, *, config_overrides: Optional[AsyncIAMClientConfig] = None
     ) -> None:
         """<p>Deletes the password policy for the Amazon Web Services account. There are no parameters.</p>
+
+        Raises:
+            aws_sdk_iam.errors.limit_exceeded_exception.LimitExceededException: <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account limits. The error message describes the limit exceeded.</p>
+            aws_sdk_iam.errors.no_such_entity_exception.NoSuchEntityException: <p>The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.</p>
+            aws_sdk_iam.errors.service_failure_exception.ServiceFailureException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To delete the current account password policy
@@ -1857,6 +2070,13 @@ class AsyncIAMClient:
 
         Args:
             group_name: <p>The name of the IAM group to delete.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+
+        Raises:
+            aws_sdk_iam.errors.delete_conflict_exception.DeleteConflictException: <p>The request was rejected because it attempted to delete a resource that has attached subordinate entities. The error message describes these entities.</p>
+            aws_sdk_iam.errors.limit_exceeded_exception.LimitExceededException: <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account limits. The error message describes the limit exceeded.</p>
+            aws_sdk_iam.errors.no_such_entity_exception.NoSuchEntityException: <p>The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.</p>
+            aws_sdk_iam.errors.service_failure_exception.ServiceFailureException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1895,6 +2115,12 @@ class AsyncIAMClient:
         Args:
             group_name: <p>The name (friendly name, not ARN) identifying the group that the policy is embedded in.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
             policy_name: <p>The name identifying the policy document to delete.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+
+        Raises:
+            aws_sdk_iam.errors.limit_exceeded_exception.LimitExceededException: <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account limits. The error message describes the limit exceeded.</p>
+            aws_sdk_iam.errors.no_such_entity_exception.NoSuchEntityException: <p>The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.</p>
+            aws_sdk_iam.errors.service_failure_exception.ServiceFailureException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To delete a policy from an IAM group
@@ -1939,6 +2165,13 @@ class AsyncIAMClient:
         Args:
             instance_profile_name: <p>The name of the instance profile to delete.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
 
+        Raises:
+            aws_sdk_iam.errors.delete_conflict_exception.DeleteConflictException: <p>The request was rejected because it attempted to delete a resource that has attached subordinate entities. The error message describes these entities.</p>
+            aws_sdk_iam.errors.limit_exceeded_exception.LimitExceededException: <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account limits. The error message describes the limit exceeded.</p>
+            aws_sdk_iam.errors.no_such_entity_exception.NoSuchEntityException: <p>The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.</p>
+            aws_sdk_iam.errors.service_failure_exception.ServiceFailureException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To delete an instance profile
             The following command deletes the instance profile named ExampleInstanceProfile
@@ -1980,6 +2213,13 @@ class AsyncIAMClient:
 
         Args:
             user_name: <p>The name of the user whose password you want to delete.</p> <p>This parameter is optional. If no user name is included, it defaults to the principal making the request. When you make this request with root user credentials, you must use an <a href=\"https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRoot.html\">AssumeRoot</a> session to omit the user name.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+
+        Raises:
+            aws_sdk_iam.errors.entity_temporarily_unmodifiable_exception.EntityTemporarilyUnmodifiableException: <p>The request was rejected because it referenced an entity that is temporarily unmodifiable, such as a user name that was deleted and then recreated. The error indicates that the request is likely to succeed if you try again after waiting several minutes. The error message describes the entity.</p>
+            aws_sdk_iam.errors.limit_exceeded_exception.LimitExceededException: <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account limits. The error message describes the limit exceeded.</p>
+            aws_sdk_iam.errors.no_such_entity_exception.NoSuchEntityException: <p>The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.</p>
+            aws_sdk_iam.errors.service_failure_exception.ServiceFailureException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To delete a password for an IAM user
@@ -2023,6 +2263,12 @@ class AsyncIAMClient:
 
         Args:
             open_id_connect_provider_arn: <p>The Amazon Resource Name (ARN) of the IAM OpenID Connect provider resource object to delete. You can get a list of OpenID Connect provider resource ARNs by using the <a href=\"https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListOpenIDConnectProviders.html\">ListOpenIDConnectProviders</a> operation.</p>
+
+        Raises:
+            aws_sdk_iam.errors.invalid_input_exception.InvalidInputException: <p>The request was rejected because an invalid or out-of-range value was supplied for an input parameter.</p>
+            aws_sdk_iam.errors.no_such_entity_exception.NoSuchEntityException: <p>The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.</p>
+            aws_sdk_iam.errors.service_failure_exception.ServiceFailureException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2059,6 +2305,14 @@ class AsyncIAMClient:
 
         Args:
             policy_arn: <p>The Amazon Resource Name (ARN) of the IAM policy you want to delete.</p> <p>For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
+
+        Raises:
+            aws_sdk_iam.errors.delete_conflict_exception.DeleteConflictException: <p>The request was rejected because it attempted to delete a resource that has attached subordinate entities. The error message describes these entities.</p>
+            aws_sdk_iam.errors.invalid_input_exception.InvalidInputException: <p>The request was rejected because an invalid or out-of-range value was supplied for an input parameter.</p>
+            aws_sdk_iam.errors.limit_exceeded_exception.LimitExceededException: <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account limits. The error message describes the limit exceeded.</p>
+            aws_sdk_iam.errors.no_such_entity_exception.NoSuchEntityException: <p>The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.</p>
+            aws_sdk_iam.errors.service_failure_exception.ServiceFailureException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2097,6 +2351,14 @@ class AsyncIAMClient:
         Args:
             policy_arn: <p>The Amazon Resource Name (ARN) of the IAM policy from which you want to delete a version.</p> <p>For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
             version_id: <p>The policy version to delete.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters that consists of the lowercase letter 'v' followed by one or two digits, and optionally followed by a period '.' and a string of letters and digits.</p> <p>For more information about managed policy versions, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html\">Versioning for managed policies</a> in the <i>IAM User Guide</i>.</p>
+
+        Raises:
+            aws_sdk_iam.errors.delete_conflict_exception.DeleteConflictException: <p>The request was rejected because it attempted to delete a resource that has attached subordinate entities. The error message describes these entities.</p>
+            aws_sdk_iam.errors.invalid_input_exception.InvalidInputException: <p>The request was rejected because an invalid or out-of-range value was supplied for an input parameter.</p>
+            aws_sdk_iam.errors.limit_exceeded_exception.LimitExceededException: <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account limits. The error message describes the limit exceeded.</p>
+            aws_sdk_iam.errors.no_such_entity_exception.NoSuchEntityException: <p>The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.</p>
+            aws_sdk_iam.errors.service_failure_exception.ServiceFailureException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2134,6 +2396,15 @@ class AsyncIAMClient:
 
         Args:
             role_name: <p>The name of the role to delete.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+
+        Raises:
+            aws_sdk_iam.errors.concurrent_modification_exception.ConcurrentModificationException: <p>The request was rejected because multiple requests to change this object were submitted simultaneously. Wait a few minutes and submit your request again.</p>
+            aws_sdk_iam.errors.delete_conflict_exception.DeleteConflictException: <p>The request was rejected because it attempted to delete a resource that has attached subordinate entities. The error message describes these entities.</p>
+            aws_sdk_iam.errors.limit_exceeded_exception.LimitExceededException: <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account limits. The error message describes the limit exceeded.</p>
+            aws_sdk_iam.errors.no_such_entity_exception.NoSuchEntityException: <p>The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.</p>
+            aws_sdk_iam.errors.service_failure_exception.ServiceFailureException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_iam.errors.unmodifiable_entity_exception.UnmodifiableEntityException: <p>The request was rejected because service-linked roles are protected Amazon Web Services resources. Only the service that depends on the service-linked role can modify or delete the role on your behalf. The error message includes the name of the service that depends on this service-linked role. You must request the change through that service.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To delete an IAM role
@@ -2176,6 +2447,12 @@ class AsyncIAMClient:
 
         Args:
             role_name: <p>The name (friendly name, not ARN) of the IAM role from which you want to remove the permissions boundary.</p>
+
+        Raises:
+            aws_sdk_iam.errors.no_such_entity_exception.NoSuchEntityException: <p>The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.</p>
+            aws_sdk_iam.errors.service_failure_exception.ServiceFailureException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_iam.errors.unmodifiable_entity_exception.UnmodifiableEntityException: <p>The request was rejected because service-linked roles are protected Amazon Web Services resources. Only the service that depends on the service-linked role can modify or delete the role on your behalf. The error message includes the name of the service that depends on this service-linked role. You must request the change through that service.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2214,6 +2491,13 @@ class AsyncIAMClient:
         Args:
             role_name: <p>The name (friendly name, not ARN) identifying the role that the policy is embedded in.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
             policy_name: <p>The name of the inline policy to delete from the specified IAM role.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+
+        Raises:
+            aws_sdk_iam.errors.limit_exceeded_exception.LimitExceededException: <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account limits. The error message describes the limit exceeded.</p>
+            aws_sdk_iam.errors.no_such_entity_exception.NoSuchEntityException: <p>The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.</p>
+            aws_sdk_iam.errors.service_failure_exception.ServiceFailureException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_iam.errors.unmodifiable_entity_exception.UnmodifiableEntityException: <p>The request was rejected because service-linked roles are protected Amazon Web Services resources. Only the service that depends on the service-linked role can modify or delete the role on your behalf. The error message includes the name of the service that depends on this service-linked role. You must request the change through that service.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To remove a policy from an IAM role
@@ -2257,6 +2541,13 @@ class AsyncIAMClient:
 
         Args:
             saml_provider_arn: <p>The Amazon Resource Name (ARN) of the SAML provider to delete.</p>
+
+        Raises:
+            aws_sdk_iam.errors.invalid_input_exception.InvalidInputException: <p>The request was rejected because an invalid or out-of-range value was supplied for an input parameter.</p>
+            aws_sdk_iam.errors.limit_exceeded_exception.LimitExceededException: <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account limits. The error message describes the limit exceeded.</p>
+            aws_sdk_iam.errors.no_such_entity_exception.NoSuchEntityException: <p>The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.</p>
+            aws_sdk_iam.errors.service_failure_exception.ServiceFailureException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2293,6 +2584,13 @@ class AsyncIAMClient:
 
         Args:
             server_certificate_name: <p>The name of the server certificate you want to delete.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+
+        Raises:
+            aws_sdk_iam.errors.delete_conflict_exception.DeleteConflictException: <p>The request was rejected because it attempted to delete a resource that has attached subordinate entities. The error message describes these entities.</p>
+            aws_sdk_iam.errors.limit_exceeded_exception.LimitExceededException: <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account limits. The error message describes the limit exceeded.</p>
+            aws_sdk_iam.errors.no_such_entity_exception.NoSuchEntityException: <p>The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.</p>
+            aws_sdk_iam.errors.service_failure_exception.ServiceFailureException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2329,6 +2627,12 @@ class AsyncIAMClient:
 
         Args:
             role_name: <p>The name of the service-linked role to be deleted.</p>
+
+        Raises:
+            aws_sdk_iam.errors.limit_exceeded_exception.LimitExceededException: <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account limits. The error message describes the limit exceeded.</p>
+            aws_sdk_iam.errors.no_such_entity_exception.NoSuchEntityException: <p>The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.</p>
+            aws_sdk_iam.errors.service_failure_exception.ServiceFailureException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2369,6 +2673,10 @@ class AsyncIAMClient:
         Args:
             user_name: <p>The name of the IAM user associated with the service-specific credential. If this value is not specified, then the operation assumes the user whose credentials are used to call the operation.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
             service_specific_credential_id: <p>The unique identifier of the service-specific credential. You can get this value by calling <a href=\"https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListServiceSpecificCredentials.html\">ListServiceSpecificCredentials</a>.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters that can consist of any upper or lowercased letter or digit.</p>
+
+        Raises:
+            aws_sdk_iam.errors.no_such_entity_exception.NoSuchEntityException: <p>The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2411,6 +2719,13 @@ class AsyncIAMClient:
         Args:
             user_name: <p>The name of the user the signing certificate belongs to.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
             certificate_id: <p>The ID of the signing certificate to delete.</p> <p>The format of this parameter, as described by its <a href=\"http://wikipedia.org/wiki/regex\">regex</a> pattern, is a string of characters that can be upper- or lower-cased letters or digits.</p>
+
+        Raises:
+            aws_sdk_iam.errors.concurrent_modification_exception.ConcurrentModificationException: <p>The request was rejected because multiple requests to change this object were submitted simultaneously. Wait a few minutes and submit your request again.</p>
+            aws_sdk_iam.errors.limit_exceeded_exception.LimitExceededException: <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account limits. The error message describes the limit exceeded.</p>
+            aws_sdk_iam.errors.no_such_entity_exception.NoSuchEntityException: <p>The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.</p>
+            aws_sdk_iam.errors.service_failure_exception.ServiceFailureException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To delete a signing certificate for an IAM user
@@ -2457,6 +2772,10 @@ class AsyncIAMClient:
         Args:
             user_name: <p>The name of the IAM user associated with the SSH public key.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
             ssh_public_key_id: <p>The unique identifier for the SSH public key.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters that can consist of any upper or lowercased letter or digit.</p>
+
+        Raises:
+            aws_sdk_iam.errors.no_such_entity_exception.NoSuchEntityException: <p>The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2494,6 +2813,14 @@ class AsyncIAMClient:
 
         Args:
             user_name: <p>The name of the user to delete.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+
+        Raises:
+            aws_sdk_iam.errors.concurrent_modification_exception.ConcurrentModificationException: <p>The request was rejected because multiple requests to change this object were submitted simultaneously. Wait a few minutes and submit your request again.</p>
+            aws_sdk_iam.errors.delete_conflict_exception.DeleteConflictException: <p>The request was rejected because it attempted to delete a resource that has attached subordinate entities. The error message describes these entities.</p>
+            aws_sdk_iam.errors.limit_exceeded_exception.LimitExceededException: <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account limits. The error message describes the limit exceeded.</p>
+            aws_sdk_iam.errors.no_such_entity_exception.NoSuchEntityException: <p>The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.</p>
+            aws_sdk_iam.errors.service_failure_exception.ServiceFailureException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To delete an IAM user
@@ -2536,6 +2863,11 @@ class AsyncIAMClient:
 
         Args:
             user_name: <p>The name (friendly name, not ARN) of the IAM user from which you want to remove the permissions boundary.</p>
+
+        Raises:
+            aws_sdk_iam.errors.no_such_entity_exception.NoSuchEntityException: <p>The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.</p>
+            aws_sdk_iam.errors.service_failure_exception.ServiceFailureException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2574,6 +2906,12 @@ class AsyncIAMClient:
         Args:
             user_name: <p>The name (friendly name, not ARN) identifying the user that the policy is embedded in.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
             policy_name: <p>The name identifying the policy document to delete.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+
+        Raises:
+            aws_sdk_iam.errors.limit_exceeded_exception.LimitExceededException: <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account limits. The error message describes the limit exceeded.</p>
+            aws_sdk_iam.errors.no_such_entity_exception.NoSuchEntityException: <p>The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.</p>
+            aws_sdk_iam.errors.service_failure_exception.ServiceFailureException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To remove a policy from an IAM user
@@ -2618,6 +2956,14 @@ class AsyncIAMClient:
         Args:
             serial_number: <p>The serial number that uniquely identifies the MFA device. For virtual MFA devices, the serial number is the same as the ARN.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@:/-</p>
 
+        Raises:
+            aws_sdk_iam.errors.concurrent_modification_exception.ConcurrentModificationException: <p>The request was rejected because multiple requests to change this object were submitted simultaneously. Wait a few minutes and submit your request again.</p>
+            aws_sdk_iam.errors.delete_conflict_exception.DeleteConflictException: <p>The request was rejected because it attempted to delete a resource that has attached subordinate entities. The error message describes these entities.</p>
+            aws_sdk_iam.errors.limit_exceeded_exception.LimitExceededException: <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account limits. The error message describes the limit exceeded.</p>
+            aws_sdk_iam.errors.no_such_entity_exception.NoSuchEntityException: <p>The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.</p>
+            aws_sdk_iam.errors.service_failure_exception.ServiceFailureException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To remove a virtual MFA device
             The following delete-virtual-mfa-device command removes the specified MFA device from the current AWS account.
@@ -2661,6 +3007,13 @@ class AsyncIAMClient:
         Args:
             group_name: <p>The name (friendly name, not ARN) of the IAM group to detach the policy from.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
             policy_arn: <p>The Amazon Resource Name (ARN) of the IAM policy you want to detach.</p> <p>For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
+
+        Raises:
+            aws_sdk_iam.errors.invalid_input_exception.InvalidInputException: <p>The request was rejected because an invalid or out-of-range value was supplied for an input parameter.</p>
+            aws_sdk_iam.errors.limit_exceeded_exception.LimitExceededException: <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account limits. The error message describes the limit exceeded.</p>
+            aws_sdk_iam.errors.no_such_entity_exception.NoSuchEntityException: <p>The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.</p>
+            aws_sdk_iam.errors.service_failure_exception.ServiceFailureException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2700,6 +3053,14 @@ class AsyncIAMClient:
         Args:
             role_name: <p>The name (friendly name, not ARN) of the IAM role to detach the policy from.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
             policy_arn: <p>The Amazon Resource Name (ARN) of the IAM policy you want to detach.</p> <p>For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
+
+        Raises:
+            aws_sdk_iam.errors.invalid_input_exception.InvalidInputException: <p>The request was rejected because an invalid or out-of-range value was supplied for an input parameter.</p>
+            aws_sdk_iam.errors.limit_exceeded_exception.LimitExceededException: <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account limits. The error message describes the limit exceeded.</p>
+            aws_sdk_iam.errors.no_such_entity_exception.NoSuchEntityException: <p>The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.</p>
+            aws_sdk_iam.errors.service_failure_exception.ServiceFailureException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_iam.errors.unmodifiable_entity_exception.UnmodifiableEntityException: <p>The request was rejected because service-linked roles are protected Amazon Web Services resources. Only the service that depends on the service-linked role can modify or delete the role on your behalf. The error message includes the name of the service that depends on this service-linked role. You must request the change through that service.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2739,6 +3100,13 @@ class AsyncIAMClient:
         Args:
             user_name: <p>The name (friendly name, not ARN) of the IAM user to detach the policy from.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
             policy_arn: <p>The Amazon Resource Name (ARN) of the IAM policy you want to detach.</p> <p>For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
+
+        Raises:
+            aws_sdk_iam.errors.invalid_input_exception.InvalidInputException: <p>The request was rejected because an invalid or out-of-range value was supplied for an input parameter.</p>
+            aws_sdk_iam.errors.limit_exceeded_exception.LimitExceededException: <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account limits. The error message describes the limit exceeded.</p>
+            aws_sdk_iam.errors.no_such_entity_exception.NoSuchEntityException: <p>The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.</p>
+            aws_sdk_iam.errors.service_failure_exception.ServiceFailureException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2770,6 +3138,13 @@ class AsyncIAMClient:
         self, *, config_overrides: Optional[AsyncIAMClientConfig] = None
     ) -> "aws_sdk_iam.types.disable_organizations_root_credentials_management_response.DisableOrganizationsRootCredentialsManagementResponse":
         """<p>Disables the management of privileged root user credentials across member accounts in your organization. When you disable this feature, the management account and the delegated administrator for IAM can no longer manage root user credentials for member accounts in your organization.</p>
+
+        Raises:
+            aws_sdk_iam.errors.account_not_management_or_delegated_administrator_exception.AccountNotManagementOrDelegatedAdministratorException: <p>The request was rejected because the account making the request is not the management account or delegated administrator account for <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_root-user.html#id_root-user-access-management\">centralized root access</a>.</p>
+            aws_sdk_iam.errors.organization_not_found_exception.OrganizationNotFoundException: <p>The request was rejected because no organization is associated with your account.</p>
+            aws_sdk_iam.errors.organization_not_in_all_features_mode_exception.OrganizationNotInAllFeaturesModeException: <p>The request was rejected because your organization does not have All features enabled. For more information, see <a href=\"https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#feature-set\">Available feature sets</a> in the <i>Organizations User Guide</i>.</p>
+            aws_sdk_iam.errors.service_access_not_enabled_exception.ServiceAccessNotEnabledException: <p>The request was rejected because trusted access is not enabled for IAM in Organizations. For details, see IAM and Organizations in the <i>Organizations User Guide</i>.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To disable the RootCredentialsManagement feature in your organization
@@ -2808,6 +3183,13 @@ class AsyncIAMClient:
     ) -> "aws_sdk_iam.types.disable_organizations_root_sessions_response.DisableOrganizationsRootSessionsResponse":
         """<p>Disables root user sessions for privileged tasks across member accounts in your organization. When you disable this feature, the management account and the delegated administrator for IAM can no longer perform privileged tasks on member accounts in your organization.</p>
 
+        Raises:
+            aws_sdk_iam.errors.account_not_management_or_delegated_administrator_exception.AccountNotManagementOrDelegatedAdministratorException: <p>The request was rejected because the account making the request is not the management account or delegated administrator account for <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_root-user.html#id_root-user-access-management\">centralized root access</a>.</p>
+            aws_sdk_iam.errors.organization_not_found_exception.OrganizationNotFoundException: <p>The request was rejected because no organization is associated with your account.</p>
+            aws_sdk_iam.errors.organization_not_in_all_features_mode_exception.OrganizationNotInAllFeaturesModeException: <p>The request was rejected because your organization does not have All features enabled. For more information, see <a href=\"https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#feature-set\">Available feature sets</a> in the <i>Organizations User Guide</i>.</p>
+            aws_sdk_iam.errors.service_access_not_enabled_exception.ServiceAccessNotEnabledException: <p>The request was rejected because trusted access is not enabled for IAM in Organizations. For details, see IAM and Organizations in the <i>Organizations User Guide</i>.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To disable the RootSessions feature in your organization
             The following command disables root user sessions for privileged tasks across member accounts in your organization.
@@ -2843,7 +3225,12 @@ class AsyncIAMClient:
     async def disable_outbound_web_identity_federation(
         self, *, config_overrides: Optional[AsyncIAMClientConfig] = None
     ) -> None:
-        """<p>Disables the outbound identity federation feature for your Amazon Web Services account. When disabled, IAM principals in the account cannot use the <code>GetWebIdentityToken</code> API to obtain JSON Web Tokens (JWTs) for authentication with external services. This operation does not affect tokens that were issued before the feature was disabled.</p>"""
+        """<p>Disables the outbound identity federation feature for your Amazon Web Services account. When disabled, IAM principals in the account cannot use the <code>GetWebIdentityToken</code> API to obtain JSON Web Tokens (JWTs) for authentication with external services. This operation does not affect tokens that were issued before the feature was disabled.</p>
+
+        Raises:
+            aws_sdk_iam.errors.feature_disabled_exception.FeatureDisabledException: <p>The request failed because outbound identity federation is already disabled for your Amazon Web Services account. You cannot disable the feature multiple times</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[None]",
@@ -2883,6 +3270,16 @@ class AsyncIAMClient:
             serial_number: <p>The serial number that uniquely identifies the MFA device. For virtual MFA devices, the serial number is the device ARN.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@:/-</p>
             authentication_code1: <p>An authentication code emitted by the device. </p> <p>The format for this parameter is a string of six digits.</p> <important> <p>Submit your request immediately after generating the authentication codes. If you generate the codes and then wait too long to submit the request, the MFA device successfully associates with the user but the MFA device becomes out of sync. This happens because time-based one-time passwords (TOTP) expire after a short period of time. If this happens, you can <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa_sync.html\">resync the device</a>.</p> </important>
             authentication_code2: <p>A subsequent authentication code emitted by the device.</p> <p>The format for this parameter is a string of six digits.</p> <important> <p>Submit your request immediately after generating the authentication codes. If you generate the codes and then wait too long to submit the request, the MFA device successfully associates with the user but the MFA device becomes out of sync. This happens because time-based one-time passwords (TOTP) expire after a short period of time. If this happens, you can <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa_sync.html\">resync the device</a>.</p> </important>
+
+        Raises:
+            aws_sdk_iam.errors.concurrent_modification_exception.ConcurrentModificationException: <p>The request was rejected because multiple requests to change this object were submitted simultaneously. Wait a few minutes and submit your request again.</p>
+            aws_sdk_iam.errors.entity_already_exists_exception.EntityAlreadyExistsException: <p>The request was rejected because it attempted to create a resource that already exists.</p>
+            aws_sdk_iam.errors.entity_temporarily_unmodifiable_exception.EntityTemporarilyUnmodifiableException: <p>The request was rejected because it referenced an entity that is temporarily unmodifiable, such as a user name that was deleted and then recreated. The error indicates that the request is likely to succeed if you try again after waiting several minutes. The error message describes the entity.</p>
+            aws_sdk_iam.errors.invalid_authentication_code_exception.InvalidAuthenticationCodeException: <p>The request was rejected because the authentication code was not recognized. The error message describes the specific error.</p>
+            aws_sdk_iam.errors.limit_exceeded_exception.LimitExceededException: <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account limits. The error message describes the limit exceeded.</p>
+            aws_sdk_iam.errors.no_such_entity_exception.NoSuchEntityException: <p>The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.</p>
+            aws_sdk_iam.errors.service_failure_exception.ServiceFailureException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2916,6 +3313,14 @@ class AsyncIAMClient:
         self, *, config_overrides: Optional[AsyncIAMClientConfig] = None
     ) -> "aws_sdk_iam.types.enable_organizations_root_credentials_management_response.EnableOrganizationsRootCredentialsManagementResponse":
         r"""<p>Enables the management of privileged root user credentials across member accounts in your organization. When you enable root credentials management for <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_root-user.html#id_root-user-access-management\">centralized root access</a>, the management account and the delegated administrator for IAM can manage root user credentials for member accounts in your organization.</p> <p>Before you enable centralized root access, you must have an account configured with the following settings:</p> <ul> <li> <p>You must manage your Amazon Web Services accounts in <a href=\"https://docs.aws.amazon.com/organizations/latest/userguide/orgs_introduction.html\">Organizations</a>.</p> </li> <li> <p>Enable trusted access for Identity and Access Management in Organizations. For details, see <a href=\"https://docs.aws.amazon.com/organizations/latest/userguide/services-that-can-integrate-iam.html\">IAM and Organizations</a> in the <i>Organizations User Guide</i>.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_iam.errors.account_not_management_or_delegated_administrator_exception.AccountNotManagementOrDelegatedAdministratorException: <p>The request was rejected because the account making the request is not the management account or delegated administrator account for <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_root-user.html#id_root-user-access-management\">centralized root access</a>.</p>
+            aws_sdk_iam.errors.caller_is_not_management_account_exception.CallerIsNotManagementAccountException: <p>The request was rejected because the account making the request is not the management account for the organization.</p>
+            aws_sdk_iam.errors.organization_not_found_exception.OrganizationNotFoundException: <p>The request was rejected because no organization is associated with your account.</p>
+            aws_sdk_iam.errors.organization_not_in_all_features_mode_exception.OrganizationNotInAllFeaturesModeException: <p>The request was rejected because your organization does not have All features enabled. For more information, see <a href=\"https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#feature-set\">Available feature sets</a> in the <i>Organizations User Guide</i>.</p>
+            aws_sdk_iam.errors.service_access_not_enabled_exception.ServiceAccessNotEnabledException: <p>The request was rejected because trusted access is not enabled for IAM in Organizations. For details, see IAM and Organizations in the <i>Organizations User Guide</i>.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To enable the RootCredentialsManagement feature in your organization
@@ -2954,6 +3359,14 @@ class AsyncIAMClient:
     ) -> "aws_sdk_iam.types.enable_organizations_root_sessions_response.EnableOrganizationsRootSessionsResponse":
         r"""<p>Allows the management account or delegated administrator to perform privileged tasks on member accounts in your organization. For more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_root-user.html#id_root-user-access-management\">Centrally manage root access for member accounts</a> in the <i>Identity and Access Management User Guide</i>.</p> <p>Before you enable this feature, you must have an account configured with the following settings:</p> <ul> <li> <p>You must manage your Amazon Web Services accounts in <a href=\"https://docs.aws.amazon.com/organizations/latest/userguide/orgs_introduction.html\">Organizations</a>.</p> </li> <li> <p>Enable trusted access for Identity and Access Management in Organizations. For details, see <a href=\"https://docs.aws.amazon.com/organizations/latest/userguide/services-that-can-integrate-ra.html\">IAM and Organizations</a> in the <i>Organizations User Guide</i>.</p> </li> </ul>
 
+        Raises:
+            aws_sdk_iam.errors.account_not_management_or_delegated_administrator_exception.AccountNotManagementOrDelegatedAdministratorException: <p>The request was rejected because the account making the request is not the management account or delegated administrator account for <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_root-user.html#id_root-user-access-management\">centralized root access</a>.</p>
+            aws_sdk_iam.errors.caller_is_not_management_account_exception.CallerIsNotManagementAccountException: <p>The request was rejected because the account making the request is not the management account for the organization.</p>
+            aws_sdk_iam.errors.organization_not_found_exception.OrganizationNotFoundException: <p>The request was rejected because no organization is associated with your account.</p>
+            aws_sdk_iam.errors.organization_not_in_all_features_mode_exception.OrganizationNotInAllFeaturesModeException: <p>The request was rejected because your organization does not have All features enabled. For more information, see <a href=\"https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#feature-set\">Available feature sets</a> in the <i>Organizations User Guide</i>.</p>
+            aws_sdk_iam.errors.service_access_not_enabled_exception.ServiceAccessNotEnabledException: <p>The request was rejected because trusted access is not enabled for IAM in Organizations. For details, see IAM and Organizations in the <i>Organizations User Guide</i>.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To enable the RootSessions feature in your organization
             The following command allows the management account or delegated administrator to perform privileged tasks on member accounts in your organization.
@@ -2989,7 +3402,12 @@ class AsyncIAMClient:
     async def enable_outbound_web_identity_federation(
         self, *, config_overrides: Optional[AsyncIAMClientConfig] = None
     ) -> "aws_sdk_iam.types.enable_outbound_web_identity_federation_response.EnableOutboundWebIdentityFederationResponse":
-        """<p>Enables the outbound identity federation feature for your Amazon Web Services account. When enabled, IAM principals in your account can use the <code>GetWebIdentityToken</code> API to obtain JSON Web Tokens (JWTs) for secure authentication with external services. This operation also generates a unique issuer URL for your Amazon Web Services account. </p>"""
+        """<p>Enables the outbound identity federation feature for your Amazon Web Services account. When enabled, IAM principals in your account can use the <code>GetWebIdentityToken</code> API to obtain JSON Web Tokens (JWTs) for secure authentication with external services. This operation also generates a unique issuer URL for your Amazon Web Services account. </p>
+
+        Raises:
+            aws_sdk_iam.errors.feature_enabled_exception.FeatureEnabledException: <p>The request failed because outbound identity federation is already enabled for your Amazon Web Services account. You cannot enable the feature multiple times. To fetch the current configuration (including the unique issuer URL), use the <code>GetOutboundWebIdentityFederationInfo</code> operation.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[None]",
@@ -3018,7 +3436,13 @@ class AsyncIAMClient:
     async def generate_credential_report(
         self, *, config_overrides: Optional[AsyncIAMClientConfig] = None
     ) -> "aws_sdk_iam.types.generate_credential_report_response.GenerateCredentialReportResponse":
-        r"""<p> Generates a credential report for the Amazon Web Services account. For more information about the credential report, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html\">Getting credential reports</a> in the <i>IAM User Guide</i>.</p>"""
+        r"""<p> Generates a credential report for the Amazon Web Services account. For more information about the credential report, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html\">Getting credential reports</a> in the <i>IAM User Guide</i>.</p>
+
+        Raises:
+            aws_sdk_iam.errors.limit_exceeded_exception.LimitExceededException: <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account limits. The error message describes the limit exceeded.</p>
+            aws_sdk_iam.errors.service_failure_exception.ServiceFailureException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[None]",
@@ -3058,6 +3482,10 @@ class AsyncIAMClient:
         Args:
             entity_path: <p>The path of the Organizations entity (root, OU, or account). You can build an entity path using the known structure of your organization. For example, assume that your account ID is <code>123456789012</code> and its parent OU ID is <code>ou-rge0-awsabcde</code>. The organization root ID is <code>r-f6g7h8i9j0example</code> and your organization ID is <code>o-a1b2c3d4e5</code>. Your entity path is <code>o-a1b2c3d4e5/r-f6g7h8i9j0example/ou-rge0-awsabcde/123456789012</code>.</p>
             organizations_policy_id: <p>The identifier of the Organizations service control policy (SCP). This parameter is optional.</p> <p>This ID is used to generate information about when an account principal that is limited by the SCP attempted to access an Amazon Web Services service.</p>
+
+        Raises:
+            aws_sdk_iam.errors.report_generation_limit_exceeded_exception.ReportGenerationLimitExceededException: <p>The request failed because the maximum number of concurrent requests for this account are already running.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To generate a service last accessed data report for an organizational unit
@@ -3109,6 +3537,11 @@ class AsyncIAMClient:
             arn: <p>The ARN of the IAM resource (user, group, role, or managed policy) used to generate information about when the resource was last used in an attempt to access an Amazon Web Services service.</p>
             granularity: <p>The level of detail that you want to generate. You can specify whether you want to generate information about the last attempt to access services or actions. If you specify service-level granularity, this operation generates only service data. If you specify action-level granularity, it generates service and action data. If you don't include this optional parameter, the operation generates service data.</p>
 
+        Raises:
+            aws_sdk_iam.errors.invalid_input_exception.InvalidInputException: <p>The request was rejected because an invalid or out-of-range value was supplied for an input parameter.</p>
+            aws_sdk_iam.errors.no_such_entity_exception.NoSuchEntityException: <p>The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To generate a service last accessed data report for a policy
             The following operation generates a report for the policy: ExamplePolicy1
@@ -3154,6 +3587,9 @@ class AsyncIAMClient:
 
         Args:
             access_key_id: <p>The identifier of an access key.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters that can consist of any upper or lowercased letter or digit.</p>
+
+        Raises:
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3196,6 +3632,10 @@ class AsyncIAMClient:
             filter: <p>A list of entity types used to filter the results. Only the entities that match the types you specify are included in the output. Use the value <code>LocalManagedPolicy</code> to include customer managed policies.</p> <p>The format for this parameter is a comma-separated (if more than one) list of strings. Each string value in the list must be one of the valid values listed below.</p>
             max_items: <p>Use this only when paginating results to indicate the maximum number of items you want in the response. If additional items exist beyond the maximum you specify, the <code>IsTruncated</code> response element is <code>true</code>.</p> <p>If you do not include this parameter, the number of items defaults to 100. Note that IAM might return fewer results, even when there are more results available. In that case, the <code>IsTruncated</code> response element returns <code>true</code>, and <code>Marker</code> contains a value to include in the subsequent call that tells the service where to continue from.</p>
             marker: <p>Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated. Set it to the value of the <code>Marker</code> element in the response that you received to indicate where the next call should start.</p>
+
+        Raises:
+            aws_sdk_iam.errors.service_failure_exception.ServiceFailureException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3234,6 +3674,11 @@ class AsyncIAMClient:
     ) -> "aws_sdk_iam.types.get_account_password_policy_response.GetAccountPasswordPolicyResponse":
         r"""<p>Retrieves the password policy for the Amazon Web Services account. This tells you the complexity requirements and mandatory rotation periods for the IAM user passwords in your account. For more information about using a password policy, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingPasswordPolicies.html\">Managing an IAM password policy</a>.</p>
 
+        Raises:
+            aws_sdk_iam.errors.no_such_entity_exception.NoSuchEntityException: <p>The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.</p>
+            aws_sdk_iam.errors.service_failure_exception.ServiceFailureException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To see the current account password policy
             The following command displays details about the password policy for the current AWS account.
@@ -3269,6 +3714,10 @@ class AsyncIAMClient:
         self, *, config_overrides: Optional[AsyncIAMClientConfig] = None
     ) -> "aws_sdk_iam.types.get_account_summary_response.GetAccountSummaryResponse":
         r"""<p>Retrieves information about IAM entity usage and IAM quotas in the Amazon Web Services account.</p> <p> For information about IAM quotas, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html\">IAM and STS quotas</a> in the <i>IAM User Guide</i>.</p>
+
+        Raises:
+            aws_sdk_iam.errors.service_failure_exception.ServiceFailureException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To get information about IAM entity quotas and usage in the current account
@@ -3311,6 +3760,10 @@ class AsyncIAMClient:
 
         Args:
             policy_input_list: <p>A list of policies for which you want the list of context keys referenced in those policies. Each document is specified as a string containing the complete, valid JSON text of an IAM policy.</p> <p>The <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p> <ul> <li> <p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p> </li> <li> <p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p> </li> <li> <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p> </li> </ul>
+
+        Raises:
+            aws_sdk_iam.errors.invalid_input_exception.InvalidInputException: <p>The request was rejected because an invalid or out-of-range value was supplied for an input parameter.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3353,6 +3806,11 @@ class AsyncIAMClient:
         Args:
             policy_source_arn: <p>The ARN of a user, group, or role whose policies contain the context keys that you want listed. If you specify a user, the list includes context keys that are found in all policies that are attached to the user. The list also includes all groups that the user is a member of. If you pick a group or a role, then it includes only those context keys that are found in policies attached to that entity. Note that all parameters are shown in unencoded form here for clarity, but must be URL encoded to be included as a part of a real HTML request.</p> <p>For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
             policy_input_list: <p>An optional list of additional policies for which you want the list of context keys that are referenced.</p> <p>The <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p> <ul> <li> <p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p> </li> <li> <p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p> </li> <li> <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p> </li> </ul>
+
+        Raises:
+            aws_sdk_iam.errors.invalid_input_exception.InvalidInputException: <p>The request was rejected because an invalid or out-of-range value was supplied for an input parameter.</p>
+            aws_sdk_iam.errors.no_such_entity_exception.NoSuchEntityException: <p>The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3386,7 +3844,15 @@ class AsyncIAMClient:
     async def get_credential_report(
         self, *, config_overrides: Optional[AsyncIAMClientConfig] = None
     ) -> "aws_sdk_iam.types.get_credential_report_response.GetCredentialReportResponse":
-        r"""<p> Retrieves a credential report for the Amazon Web Services account. For more information about the credential report, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html\">Getting credential reports</a> in the <i>IAM User Guide</i>.</p>"""
+        r"""<p> Retrieves a credential report for the Amazon Web Services account. For more information about the credential report, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html\">Getting credential reports</a> in the <i>IAM User Guide</i>.</p>
+
+        Raises:
+            aws_sdk_iam.errors.credential_report_expired_exception.CredentialReportExpiredException: <p>The request was rejected because the most recent credential report has expired. To generate a new credential report, use <a href=\"https://docs.aws.amazon.com/IAM/latest/APIReference/API_GenerateCredentialReport.html\">GenerateCredentialReport</a>. For more information about credential report expiration, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html\">Getting credential reports</a> in the <i>IAM User Guide</i>.</p>
+            aws_sdk_iam.errors.credential_report_not_present_exception.CredentialReportNotPresentException: <p>The request was rejected because the credential report does not exist. To generate a credential report, use <a href=\"https://docs.aws.amazon.com/IAM/latest/APIReference/API_GenerateCredentialReport.html\">GenerateCredentialReport</a>.</p>
+            aws_sdk_iam.errors.credential_report_not_ready_exception.CredentialReportNotReadyException: <p>The request was rejected because the credential report is still being generated.</p>
+            aws_sdk_iam.errors.service_failure_exception.ServiceFailureException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[None]",
@@ -3428,6 +3894,11 @@ class AsyncIAMClient:
         Args:
             delegation_request_id: <p>The unique identifier of the delegation request to retrieve.</p>
             delegation_permission_check: <p>Specifies whether to perform a permission check for the delegation request.</p> <p>If set to true, the <code>GetDelegationRequest</code> API call will start a permission check process. This process calculates whether the caller has sufficient permissions to cover the asks from this delegation request.</p> <p>Setting this parameter to true does not guarantee an answer in the response. See the <code>PermissionCheckStatus</code> and the <code>PermissionCheckResult</code> response attributes for further details.</p>
+
+        Raises:
+            aws_sdk_iam.errors.no_such_entity_exception.NoSuchEntityException: <p>The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.</p>
+            aws_sdk_iam.errors.service_failure_exception.ServiceFailureException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3472,6 +3943,11 @@ class AsyncIAMClient:
             group_name: <p>The name of the group.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
             marker: <p>Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated. Set it to the value of the <code>Marker</code> element in the response that you received to indicate where the next call should start.</p>
             max_items: <p>Use this only when paginating results to indicate the maximum number of items you want in the response. If additional items exist beyond the maximum you specify, the <code>IsTruncated</code> response element is <code>true</code>.</p> <p>If you do not include this parameter, the number of items defaults to 100. Note that IAM might return fewer results, even when there are more results available. In that case, the <code>IsTruncated</code> response element returns <code>true</code>, and <code>Marker</code> contains a value to include in the subsequent call that tells the service where to continue from.</p>
+
+        Raises:
+            aws_sdk_iam.errors.no_such_entity_exception.NoSuchEntityException: <p>The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.</p>
+            aws_sdk_iam.errors.service_failure_exception.ServiceFailureException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3539,6 +4015,11 @@ class AsyncIAMClient:
         Args:
             group_name: <p>The name of the group the policy is associated with.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
             policy_name: <p>The name of the policy document to get.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+
+        Raises:
+            aws_sdk_iam.errors.no_such_entity_exception.NoSuchEntityException: <p>The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.</p>
+            aws_sdk_iam.errors.service_failure_exception.ServiceFailureException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3580,6 +4061,12 @@ class AsyncIAMClient:
         Args:
             entity_arn: <p>Arn of the entity to be summarized. At this time, the only supported entity type is <code>delegation-request</code> </p>
             locale: <p>A string representing the locale to use for the summary generation. The supported locale strings are based on the <a href=\"/awsconsolehelpdocs/latest/gsg/change-language.html#supported-languages\"> Supported languages of the Amazon Web Services Management Console </a>.</p>
+
+        Raises:
+            aws_sdk_iam.errors.invalid_input_exception.InvalidInputException: <p>The request was rejected because an invalid or out-of-range value was supplied for an input parameter.</p>
+            aws_sdk_iam.errors.no_such_entity_exception.NoSuchEntityException: <p>The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.</p>
+            aws_sdk_iam.errors.service_failure_exception.ServiceFailureException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3620,6 +4107,11 @@ class AsyncIAMClient:
 
         Args:
             instance_profile_name: <p>The name of the instance profile to get information about.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+
+        Raises:
+            aws_sdk_iam.errors.no_such_entity_exception.NoSuchEntityException: <p>The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.</p>
+            aws_sdk_iam.errors.service_failure_exception.ServiceFailureException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To get information about an instance profile
@@ -3707,6 +4199,11 @@ class AsyncIAMClient:
         Args:
             user_name: <p>The name of the user whose login profile you want to retrieve.</p> <p>This parameter is optional. If no user name is included, it defaults to the principal making the request. When you make this request with root user credentials, you must use an <a href=\"https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRoot.html\">AssumeRoot</a> session to omit the user name.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
 
+        Raises:
+            aws_sdk_iam.errors.no_such_entity_exception.NoSuchEntityException: <p>The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.</p>
+            aws_sdk_iam.errors.service_failure_exception.ServiceFailureException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To get password information for an IAM user
             The following command gets information about the password for the IAM user named Anika.
@@ -3753,6 +4250,11 @@ class AsyncIAMClient:
         Args:
             serial_number: <p>Serial number that uniquely identifies the MFA device. For this API, we only accept FIDO security key <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html\">ARNs</a>.</p>
             user_name: <p>The friendly name identifying the user.</p>
+
+        Raises:
+            aws_sdk_iam.errors.no_such_entity_exception.NoSuchEntityException: <p>The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.</p>
+            aws_sdk_iam.errors.service_failure_exception.ServiceFailureException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3793,6 +4295,12 @@ class AsyncIAMClient:
 
         Args:
             open_id_connect_provider_arn: <p>The Amazon Resource Name (ARN) of the OIDC provider resource object in IAM to get information for. You can get a list of OIDC provider resource ARNs by using the <a href=\"https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListOpenIDConnectProviders.html\">ListOpenIDConnectProviders</a> operation.</p> <p>For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
+
+        Raises:
+            aws_sdk_iam.errors.invalid_input_exception.InvalidInputException: <p>The request was rejected because an invalid or out-of-range value was supplied for an input parameter.</p>
+            aws_sdk_iam.errors.no_such_entity_exception.NoSuchEntityException: <p>The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.</p>
+            aws_sdk_iam.errors.service_failure_exception.ServiceFailureException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3838,6 +4346,10 @@ class AsyncIAMClient:
             marker: <p>Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated. Set it to the value of the <code>Marker</code> element in the response that you received to indicate where the next call should start.</p>
             sort_key: <p>The key that is used to sort the results. If you choose the namespace key, the results are returned in alphabetical order. If you choose the time key, the results are sorted numerically by the date and time.</p>
 
+        Raises:
+            aws_sdk_iam.errors.no_such_entity_exception.NoSuchEntityException: <p>The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To get details from a previously generated organizational unit report
             The following operation gets details about the report with the job ID: examplea-1234-b567-cde8-90fg123abcd4
@@ -3880,7 +4392,12 @@ class AsyncIAMClient:
     async def get_outbound_web_identity_federation_info(
         self, *, config_overrides: Optional[AsyncIAMClientConfig] = None
     ) -> "aws_sdk_iam.types.get_outbound_web_identity_federation_info_response.GetOutboundWebIdentityFederationInfoResponse":
-        """<p>Retrieves the configuration information for the outbound identity federation feature in your Amazon Web Services account. The response includes the unique issuer URL for your Amazon Web Services account and the current enabled/disabled status of the feature. Use this operation to obtain the issuer URL that you need to configure trust relationships with external services.</p>"""
+        """<p>Retrieves the configuration information for the outbound identity federation feature in your Amazon Web Services account. The response includes the unique issuer URL for your Amazon Web Services account and the current enabled/disabled status of the feature. Use this operation to obtain the issuer URL that you need to configure trust relationships with external services.</p>
+
+        Raises:
+            aws_sdk_iam.errors.feature_disabled_exception.FeatureDisabledException: <p>The request failed because outbound identity federation is already disabled for your Amazon Web Services account. You cannot disable the feature multiple times</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[None]",
@@ -3916,6 +4433,12 @@ class AsyncIAMClient:
 
         Args:
             policy_arn: <p>The Amazon Resource Name (ARN) of the managed policy that you want information about.</p> <p>For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
+
+        Raises:
+            aws_sdk_iam.errors.invalid_input_exception.InvalidInputException: <p>The request was rejected because an invalid or out-of-range value was supplied for an input parameter.</p>
+            aws_sdk_iam.errors.no_such_entity_exception.NoSuchEntityException: <p>The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.</p>
+            aws_sdk_iam.errors.service_failure_exception.ServiceFailureException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3998,6 +4521,12 @@ class AsyncIAMClient:
         Args:
             policy_arn: <p>The Amazon Resource Name (ARN) of the managed policy that you want information about.</p> <p>For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
             version_id: <p>Identifies the policy version to retrieve.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters that consists of the lowercase letter 'v' followed by one or two digits, and optionally followed by a period '.' and a string of letters and digits.</p>
+
+        Raises:
+            aws_sdk_iam.errors.invalid_input_exception.InvalidInputException: <p>The request was rejected because an invalid or out-of-range value was supplied for an input parameter.</p>
+            aws_sdk_iam.errors.no_such_entity_exception.NoSuchEntityException: <p>The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.</p>
+            aws_sdk_iam.errors.service_failure_exception.ServiceFailureException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4037,6 +4566,11 @@ class AsyncIAMClient:
 
         Args:
             role_name: <p>The name of the IAM role to get information about.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+
+        Raises:
+            aws_sdk_iam.errors.no_such_entity_exception.NoSuchEntityException: <p>The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.</p>
+            aws_sdk_iam.errors.service_failure_exception.ServiceFailureException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To get information about an IAM role
@@ -4127,6 +4661,11 @@ class AsyncIAMClient:
         Args:
             role_name: <p>The name of the role associated with the policy.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
             policy_name: <p>The name of the policy document to get.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+
+        Raises:
+            aws_sdk_iam.errors.no_such_entity_exception.NoSuchEntityException: <p>The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.</p>
+            aws_sdk_iam.errors.service_failure_exception.ServiceFailureException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4166,6 +4705,12 @@ class AsyncIAMClient:
 
         Args:
             saml_provider_arn: <p>The Amazon Resource Name (ARN) of the SAML provider resource object in IAM to get information about.</p> <p>For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
+
+        Raises:
+            aws_sdk_iam.errors.invalid_input_exception.InvalidInputException: <p>The request was rejected because an invalid or out-of-range value was supplied for an input parameter.</p>
+            aws_sdk_iam.errors.no_such_entity_exception.NoSuchEntityException: <p>The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.</p>
+            aws_sdk_iam.errors.service_failure_exception.ServiceFailureException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4206,6 +4751,11 @@ class AsyncIAMClient:
 
         Args:
             server_certificate_name: <p>The name of the server certificate you want to retrieve information about.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+
+        Raises:
+            aws_sdk_iam.errors.no_such_entity_exception.NoSuchEntityException: <p>The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.</p>
+            aws_sdk_iam.errors.service_failure_exception.ServiceFailureException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4248,6 +4798,11 @@ class AsyncIAMClient:
             job_id: <p>The ID of the request generated by the <a href=\"https://docs.aws.amazon.com/IAM/latest/APIReference/API_GenerateServiceLastAccessedDetails.html\">GenerateServiceLastAccessedDetails</a> operation. The <code>JobId</code> returned by <code>GenerateServiceLastAccessedDetail</code> must be used by the same role within a session, or by the same user when used to call <code>GetServiceLastAccessedDetail</code>.</p>
             max_items: <p>Use this only when paginating results to indicate the maximum number of items you want in the response. If additional items exist beyond the maximum you specify, the <code>IsTruncated</code> response element is <code>true</code>.</p> <p>If you do not include this parameter, the number of items defaults to 100. Note that IAM might return fewer results, even when there are more results available. In that case, the <code>IsTruncated</code> response element returns <code>true</code>, and <code>Marker</code> contains a value to include in the subsequent call that tells the service where to continue from.</p>
             marker: <p>Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated. Set it to the value of the <code>Marker</code> element in the response that you received to indicate where the next call should start.</p>
+
+        Raises:
+            aws_sdk_iam.errors.invalid_input_exception.InvalidInputException: <p>The request was rejected because an invalid or out-of-range value was supplied for an input parameter.</p>
+            aws_sdk_iam.errors.no_such_entity_exception.NoSuchEntityException: <p>The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To get details from a previously-generated report
@@ -4303,6 +4858,11 @@ class AsyncIAMClient:
             max_items: <p>Use this only when paginating results to indicate the maximum number of items you want in the response. If additional items exist beyond the maximum you specify, the <code>IsTruncated</code> response element is <code>true</code>.</p> <p>If you do not include this parameter, the number of items defaults to 100. Note that IAM might return fewer results, even when there are more results available. In that case, the <code>IsTruncated</code> response element returns <code>true</code>, and <code>Marker</code> contains a value to include in the subsequent call that tells the service where to continue from.</p>
             marker: <p>Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated. Set it to the value of the <code>Marker</code> element in the response that you received to indicate where the next call should start.</p>
 
+        Raises:
+            aws_sdk_iam.errors.invalid_input_exception.InvalidInputException: <p>The request was rejected because an invalid or out-of-range value was supplied for an input parameter.</p>
+            aws_sdk_iam.errors.no_such_entity_exception.NoSuchEntityException: <p>The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To get sntity details from a previously-generated report
             The following operation returns details about the entities that attempted to access the IAM service.
@@ -4351,6 +4911,12 @@ class AsyncIAMClient:
 
         Args:
             deletion_task_id: <p>The deletion task identifier. This identifier is returned by the <a href=\"https://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteServiceLinkedRole.html\">DeleteServiceLinkedRole</a> operation in the format <code>task/aws-service-role/<service-principal-name>/<role-name>/<task-uuid></code>.</p>
+
+        Raises:
+            aws_sdk_iam.errors.invalid_input_exception.InvalidInputException: <p>The request was rejected because an invalid or out-of-range value was supplied for an input parameter.</p>
+            aws_sdk_iam.errors.no_such_entity_exception.NoSuchEntityException: <p>The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.</p>
+            aws_sdk_iam.errors.service_failure_exception.ServiceFailureException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4393,6 +4959,11 @@ class AsyncIAMClient:
             user_name: <p>The name of the IAM user associated with the SSH public key.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
             ssh_public_key_id: <p>The unique identifier for the SSH public key.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters that can consist of any upper or lowercased letter or digit.</p>
             encoding: <p>Specifies the public key encoding format to use in the response. To retrieve the public key in ssh-rsa format, use <code>SSH</code>. To retrieve the public key in PEM format, use <code>PEM</code>.</p>
+
+        Raises:
+            aws_sdk_iam.errors.no_such_entity_exception.NoSuchEntityException: <p>The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.</p>
+            aws_sdk_iam.errors.unrecognized_public_key_encoding_exception.UnrecognizedPublicKeyEncodingException: <p>The request was rejected because the public key encoding format is unsupported or unrecognized.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4435,6 +5006,11 @@ class AsyncIAMClient:
 
         Args:
             user_name: <p>The name of the user to get information about.</p> <p>This parameter is optional. If it is not included, it defaults to the user making the request. This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+
+        Raises:
+            aws_sdk_iam.errors.no_such_entity_exception.NoSuchEntityException: <p>The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.</p>
+            aws_sdk_iam.errors.service_failure_exception.ServiceFailureException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To get information about an IAM user
@@ -4528,6 +5104,11 @@ class AsyncIAMClient:
         Args:
             user_name: <p>The name of the user who the policy is associated with.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
             policy_name: <p>The name of the policy document to get.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+
+        Raises:
+            aws_sdk_iam.errors.no_such_entity_exception.NoSuchEntityException: <p>The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.</p>
+            aws_sdk_iam.errors.service_failure_exception.ServiceFailureException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4573,6 +5154,11 @@ class AsyncIAMClient:
             user_name: <p>The name of the user.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
             marker: <p>Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated. Set it to the value of the <code>Marker</code> element in the response that you received to indicate where the next call should start.</p>
             max_items: <p>Use this only when paginating results to indicate the maximum number of items you want in the response. If additional items exist beyond the maximum you specify, the <code>IsTruncated</code> response element is <code>true</code>.</p> <p>If you do not include this parameter, the number of items defaults to 100. Note that IAM might return fewer results, even when there are more results available. In that case, the <code>IsTruncated</code> response element returns <code>true</code>, and <code>Marker</code> contains a value to include in the subsequent call that tells the service where to continue from.</p>
+
+        Raises:
+            aws_sdk_iam.errors.no_such_entity_exception.NoSuchEntityException: <p>The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.</p>
+            aws_sdk_iam.errors.service_failure_exception.ServiceFailureException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To list the access key IDs for an IAM user
@@ -4650,6 +5236,10 @@ class AsyncIAMClient:
             marker: <p>Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated. Set it to the value of the <code>Marker</code> element in the response that you received to indicate where the next call should start.</p>
             max_items: <p>Use this only when paginating results to indicate the maximum number of items you want in the response. If additional items exist beyond the maximum you specify, the <code>IsTruncated</code> response element is <code>true</code>.</p> <p>If you do not include this parameter, the number of items defaults to 100. Note that IAM might return fewer results, even when there are more results available. In that case, the <code>IsTruncated</code> response element returns <code>true</code>, and <code>Marker</code> contains a value to include in the subsequent call that tells the service where to continue from.</p>
 
+        Raises:
+            aws_sdk_iam.errors.service_failure_exception.ServiceFailureException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To list account aliases
             The following command lists the aliases for the current account.
@@ -4725,6 +5315,12 @@ class AsyncIAMClient:
             path_prefix: <p>The path prefix for filtering the results. This parameter is optional. If it is not included, it defaults to a slash (/), listing all policies.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes. In addition, it can contain any ASCII character from the ! (<code>\u0021</code>) through the DEL character (<code>\u007F</code>), including most punctuation characters, digits, and upper and lowercased letters.</p>
             marker: <p>Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated. Set it to the value of the <code>Marker</code> element in the response that you received to indicate where the next call should start.</p>
             max_items: <p>Use this only when paginating results to indicate the maximum number of items you want in the response. If additional items exist beyond the maximum you specify, the <code>IsTruncated</code> response element is <code>true</code>.</p> <p>If you do not include this parameter, the number of items defaults to 100. Note that IAM might return fewer results, even when there are more results available. In that case, the <code>IsTruncated</code> response element returns <code>true</code>, and <code>Marker</code> contains a value to include in the subsequent call that tells the service where to continue from.</p>
+
+        Raises:
+            aws_sdk_iam.errors.invalid_input_exception.InvalidInputException: <p>The request was rejected because an invalid or out-of-range value was supplied for an input parameter.</p>
+            aws_sdk_iam.errors.no_such_entity_exception.NoSuchEntityException: <p>The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.</p>
+            aws_sdk_iam.errors.service_failure_exception.ServiceFailureException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4804,6 +5400,12 @@ class AsyncIAMClient:
             path_prefix: <p>The path prefix for filtering the results. This parameter is optional. If it is not included, it defaults to a slash (/), listing all policies.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes. In addition, it can contain any ASCII character from the ! (<code>\u0021</code>) through the DEL character (<code>\u007F</code>), including most punctuation characters, digits, and upper and lowercased letters.</p>
             marker: <p>Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated. Set it to the value of the <code>Marker</code> element in the response that you received to indicate where the next call should start.</p>
             max_items: <p>Use this only when paginating results to indicate the maximum number of items you want in the response. If additional items exist beyond the maximum you specify, the <code>IsTruncated</code> response element is <code>true</code>.</p> <p>If you do not include this parameter, the number of items defaults to 100. Note that IAM might return fewer results, even when there are more results available. In that case, the <code>IsTruncated</code> response element returns <code>true</code>, and <code>Marker</code> contains a value to include in the subsequent call that tells the service where to continue from.</p>
+
+        Raises:
+            aws_sdk_iam.errors.invalid_input_exception.InvalidInputException: <p>The request was rejected because an invalid or out-of-range value was supplied for an input parameter.</p>
+            aws_sdk_iam.errors.no_such_entity_exception.NoSuchEntityException: <p>The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.</p>
+            aws_sdk_iam.errors.service_failure_exception.ServiceFailureException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4883,6 +5485,12 @@ class AsyncIAMClient:
             path_prefix: <p>The path prefix for filtering the results. This parameter is optional. If it is not included, it defaults to a slash (/), listing all policies.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes. In addition, it can contain any ASCII character from the ! (<code>\u0021</code>) through the DEL character (<code>\u007F</code>), including most punctuation characters, digits, and upper and lowercased letters.</p>
             marker: <p>Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated. Set it to the value of the <code>Marker</code> element in the response that you received to indicate where the next call should start.</p>
             max_items: <p>Use this only when paginating results to indicate the maximum number of items you want in the response. If additional items exist beyond the maximum you specify, the <code>IsTruncated</code> response element is <code>true</code>.</p> <p>If you do not include this parameter, the number of items defaults to 100. Note that IAM might return fewer results, even when there are more results available. In that case, the <code>IsTruncated</code> response element returns <code>true</code>, and <code>Marker</code> contains a value to include in the subsequent call that tells the service where to continue from.</p>
+
+        Raises:
+            aws_sdk_iam.errors.invalid_input_exception.InvalidInputException: <p>The request was rejected because an invalid or out-of-range value was supplied for an input parameter.</p>
+            aws_sdk_iam.errors.no_such_entity_exception.NoSuchEntityException: <p>The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.</p>
+            aws_sdk_iam.errors.service_failure_exception.ServiceFailureException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4958,6 +5566,12 @@ class AsyncIAMClient:
             owner_id: <p>The owner ID to filter delegation requests by.</p>
             marker: <p>Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated. Set it to the value of the <code>Marker</code> element in the response that you received to indicate where the next call should start. </p>
             max_items: <p>Use this only when paginating results to indicate the maximum number of items you want in the response. If additional items exist beyond the maximum you specify, the <code>IsTruncated</code> response element is <code>true</code>. </p> <p>If you do not include this parameter, the number of items defaults to 100. Note that IAM may return fewer results, even when there are more results available. In that case, the <code>IsTruncated</code> response element returns <code>true</code>, and <code>Marker</code> contains a value to include in the subsequent call that tells the service where to continue from. </p>
+
+        Raises:
+            aws_sdk_iam.errors.invalid_input_exception.InvalidInputException: <p>The request was rejected because an invalid or out-of-range value was supplied for an input parameter.</p>
+            aws_sdk_iam.errors.no_such_entity_exception.NoSuchEntityException: <p>The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.</p>
+            aws_sdk_iam.errors.service_failure_exception.ServiceFailureException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5013,6 +5627,12 @@ class AsyncIAMClient:
             policy_usage_filter: <p>The policy usage method to use for filtering the results.</p> <p>To list only permissions policies, set <code>PolicyUsageFilter</code> to <code>PermissionsPolicy</code>. To list only the policies used to set permissions boundaries, set the value to <code>PermissionsBoundary</code>.</p> <p>This parameter is optional. If it is not included, all policies are returned. </p>
             marker: <p>Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated. Set it to the value of the <code>Marker</code> element in the response that you received to indicate where the next call should start.</p>
             max_items: <p>Use this only when paginating results to indicate the maximum number of items you want in the response. If additional items exist beyond the maximum you specify, the <code>IsTruncated</code> response element is <code>true</code>.</p> <p>If you do not include this parameter, the number of items defaults to 100. Note that IAM might return fewer results, even when there are more results available. In that case, the <code>IsTruncated</code> response element returns <code>true</code>, and <code>Marker</code> contains a value to include in the subsequent call that tells the service where to continue from.</p>
+
+        Raises:
+            aws_sdk_iam.errors.invalid_input_exception.InvalidInputException: <p>The request was rejected because an invalid or out-of-range value was supplied for an input parameter.</p>
+            aws_sdk_iam.errors.no_such_entity_exception.NoSuchEntityException: <p>The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.</p>
+            aws_sdk_iam.errors.service_failure_exception.ServiceFailureException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5065,6 +5685,11 @@ class AsyncIAMClient:
             group_name: <p>The name of the group to list policies for.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
             marker: <p>Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated. Set it to the value of the <code>Marker</code> element in the response that you received to indicate where the next call should start.</p>
             max_items: <p>Use this only when paginating results to indicate the maximum number of items you want in the response. If additional items exist beyond the maximum you specify, the <code>IsTruncated</code> response element is <code>true</code>.</p> <p>If you do not include this parameter, the number of items defaults to 100. Note that IAM might return fewer results, even when there are more results available. In that case, the <code>IsTruncated</code> response element returns <code>true</code>, and <code>Marker</code> contains a value to include in the subsequent call that tells the service where to continue from.</p>
+
+        Raises:
+            aws_sdk_iam.errors.no_such_entity_exception.NoSuchEntityException: <p>The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.</p>
+            aws_sdk_iam.errors.service_failure_exception.ServiceFailureException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To list the in-line policies for an IAM group
@@ -5142,6 +5767,10 @@ class AsyncIAMClient:
             path_prefix: <p> The path prefix for filtering the results. For example, the prefix <code>/division_abc/subdivision_xyz/</code> gets all groups whose path starts with <code>/division_abc/subdivision_xyz/</code>.</p> <p>This parameter is optional. If it is not included, it defaults to a slash (/), listing all groups. This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes. In addition, it can contain any ASCII character from the ! (<code>\u0021</code>) through the DEL character (<code>\u007F</code>), including most punctuation characters, digits, and upper and lowercased letters.</p>
             marker: <p>Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated. Set it to the value of the <code>Marker</code> element in the response that you received to indicate where the next call should start.</p>
             max_items: <p>Use this only when paginating results to indicate the maximum number of items you want in the response. If additional items exist beyond the maximum you specify, the <code>IsTruncated</code> response element is <code>true</code>.</p> <p>If you do not include this parameter, the number of items defaults to 100. Note that IAM might return fewer results, even when there are more results available. In that case, the <code>IsTruncated</code> response element returns <code>true</code>, and <code>Marker</code> contains a value to include in the subsequent call that tells the service where to continue from.</p>
+
+        Raises:
+            aws_sdk_iam.errors.service_failure_exception.ServiceFailureException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To list the IAM groups for the current account
@@ -5221,6 +5850,11 @@ class AsyncIAMClient:
             marker: <p>Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated. Set it to the value of the <code>Marker</code> element in the response that you received to indicate where the next call should start.</p>
             max_items: <p>Use this only when paginating results to indicate the maximum number of items you want in the response. If additional items exist beyond the maximum you specify, the <code>IsTruncated</code> response element is <code>true</code>.</p> <p>If you do not include this parameter, the number of items defaults to 100. Note that IAM might return fewer results, even when there are more results available. In that case, the <code>IsTruncated</code> response element returns <code>true</code>, and <code>Marker</code> contains a value to include in the subsequent call that tells the service where to continue from.</p>
 
+        Raises:
+            aws_sdk_iam.errors.no_such_entity_exception.NoSuchEntityException: <p>The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.</p>
+            aws_sdk_iam.errors.service_failure_exception.ServiceFailureException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To list the groups that an IAM user belongs to
             The following command displays the groups that the IAM user named Bob belongs to.
@@ -5299,6 +5933,10 @@ class AsyncIAMClient:
             path_prefix: <p> The path prefix for filtering the results. For example, the prefix <code>/application_abc/component_xyz/</code> gets all instance profiles whose path starts with <code>/application_abc/component_xyz/</code>.</p> <p>This parameter is optional. If it is not included, it defaults to a slash (/), listing all instance profiles. This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes. In addition, it can contain any ASCII character from the ! (<code>\u0021</code>) through the DEL character (<code>\u007F</code>), including most punctuation characters, digits, and upper and lowercased letters.</p>
             marker: <p>Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated. Set it to the value of the <code>Marker</code> element in the response that you received to indicate where the next call should start.</p>
             max_items: <p>Use this only when paginating results to indicate the maximum number of items you want in the response. If additional items exist beyond the maximum you specify, the <code>IsTruncated</code> response element is <code>true</code>.</p> <p>If you do not include this parameter, the number of items defaults to 100. Note that IAM might return fewer results, even when there are more results available. In that case, the <code>IsTruncated</code> response element returns <code>true</code>, and <code>Marker</code> contains a value to include in the subsequent call that tells the service where to continue from.</p>
+
+        Raises:
+            aws_sdk_iam.errors.service_failure_exception.ServiceFailureException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5371,6 +6009,11 @@ class AsyncIAMClient:
             role_name: <p>The name of the role to list instance profiles for.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
             marker: <p>Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated. Set it to the value of the <code>Marker</code> element in the response that you received to indicate where the next call should start.</p>
             max_items: <p>Use this only when paginating results to indicate the maximum number of items you want in the response. If additional items exist beyond the maximum you specify, the <code>IsTruncated</code> response element is <code>true</code>.</p> <p>If you do not include this parameter, the number of items defaults to 100. Note that IAM might return fewer results, even when there are more results available. In that case, the <code>IsTruncated</code> response element returns <code>true</code>, and <code>Marker</code> contains a value to include in the subsequent call that tells the service where to continue from.</p>
+
+        Raises:
+            aws_sdk_iam.errors.no_such_entity_exception.NoSuchEntityException: <p>The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.</p>
+            aws_sdk_iam.errors.service_failure_exception.ServiceFailureException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5440,6 +6083,11 @@ class AsyncIAMClient:
             instance_profile_name: <p>The name of the IAM instance profile whose tags you want to see.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
             marker: <p>Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated. Set it to the value of the <code>Marker</code> element in the response that you received to indicate where the next call should start.</p>
             max_items: <p>Use this only when paginating results to indicate the maximum number of items you want in the response. If additional items exist beyond the maximum you specify, the <code>IsTruncated</code> response element is <code>true</code>.</p> <p>If you do not include this parameter, the number of items defaults to 100. Note that IAM might return fewer results, even when there are more results available. In that case, the <code>IsTruncated</code> response element returns <code>true</code>, and <code>Marker</code> contains a value to include in the subsequent call that tells the service where to continue from.</p>
+
+        Raises:
+            aws_sdk_iam.errors.no_such_entity_exception.NoSuchEntityException: <p>The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.</p>
+            aws_sdk_iam.errors.service_failure_exception.ServiceFailureException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5511,6 +6159,11 @@ class AsyncIAMClient:
             user_name: <p>The name of the user whose MFA devices you want to list.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
             marker: <p>Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated. Set it to the value of the <code>Marker</code> element in the response that you received to indicate where the next call should start.</p>
             max_items: <p>Use this only when paginating results to indicate the maximum number of items you want in the response. If additional items exist beyond the maximum you specify, the <code>IsTruncated</code> response element is <code>true</code>.</p> <p>If you do not include this parameter, the number of items defaults to 100. Note that IAM might return fewer results, even when there are more results available. In that case, the <code>IsTruncated</code> response element returns <code>true</code>, and <code>Marker</code> contains a value to include in the subsequent call that tells the service where to continue from.</p>
+
+        Raises:
+            aws_sdk_iam.errors.no_such_entity_exception.NoSuchEntityException: <p>The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.</p>
+            aws_sdk_iam.errors.service_failure_exception.ServiceFailureException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5583,6 +6236,12 @@ class AsyncIAMClient:
             serial_number: <p>The unique identifier for the IAM virtual MFA device whose tags you want to see. For virtual MFA devices, the serial number is the same as the ARN.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
             marker: <p>Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated. Set it to the value of the <code>Marker</code> element in the response that you received to indicate where the next call should start.</p>
             max_items: <p>Use this only when paginating results to indicate the maximum number of items you want in the response. If additional items exist beyond the maximum you specify, the <code>IsTruncated</code> response element is <code>true</code>.</p> <p>If you do not include this parameter, the number of items defaults to 100. Note that IAM might return fewer results, even when there are more results available. In that case, the <code>IsTruncated</code> response element returns <code>true</code>, and <code>Marker</code> contains a value to include in the subsequent call that tells the service where to continue from.</p>
+
+        Raises:
+            aws_sdk_iam.errors.invalid_input_exception.InvalidInputException: <p>The request was rejected because an invalid or out-of-range value was supplied for an input parameter.</p>
+            aws_sdk_iam.errors.no_such_entity_exception.NoSuchEntityException: <p>The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.</p>
+            aws_sdk_iam.errors.service_failure_exception.ServiceFailureException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5641,7 +6300,12 @@ class AsyncIAMClient:
     async def list_open_id_connect_providers(
         self, *, config_overrides: Optional[AsyncIAMClientConfig] = None
     ) -> "aws_sdk_iam.types.list_open_id_connect_providers_response.ListOpenIDConnectProvidersResponse":
-        r"""<p>Lists information about the IAM OpenID Connect (OIDC) provider resource objects defined in the Amazon Web Services account.</p> <note> <p>IAM resource-listing operations return a subset of the available attributes for the resource. For example, this operation does not return tags, even though they are an attribute of the returned object. To view all of the information for an OIDC provider, see <a href=\"https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetOpenIDConnectProvider.html\">GetOpenIDConnectProvider</a>.</p> </note>"""
+        r"""<p>Lists information about the IAM OpenID Connect (OIDC) provider resource objects defined in the Amazon Web Services account.</p> <note> <p>IAM resource-listing operations return a subset of the available attributes for the resource. For example, this operation does not return tags, even though they are an attribute of the returned object. To view all of the information for an OIDC provider, see <a href=\"https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetOpenIDConnectProvider.html\">GetOpenIDConnectProvider</a>.</p> </note>
+
+        Raises:
+            aws_sdk_iam.errors.service_failure_exception.ServiceFailureException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_iam.types.list_open_id_connect_providers_request.ListOpenIDConnectProvidersRequest]",
@@ -5682,6 +6346,12 @@ class AsyncIAMClient:
             open_id_connect_provider_arn: <p>The ARN of the OpenID Connect (OIDC) identity provider whose tags you want to see.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
             marker: <p>Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated. Set it to the value of the <code>Marker</code> element in the response that you received to indicate where the next call should start.</p>
             max_items: <p>Use this only when paginating results to indicate the maximum number of items you want in the response. If additional items exist beyond the maximum you specify, the <code>IsTruncated</code> response element is <code>true</code>.</p> <p>If you do not include this parameter, the number of items defaults to 100. Note that IAM might return fewer results, even when there are more results available. In that case, the <code>IsTruncated</code> response element returns <code>true</code>, and <code>Marker</code> contains a value to include in the subsequent call that tells the service where to continue from.</p>
+
+        Raises:
+            aws_sdk_iam.errors.invalid_input_exception.InvalidInputException: <p>The request was rejected because an invalid or out-of-range value was supplied for an input parameter.</p>
+            aws_sdk_iam.errors.no_such_entity_exception.NoSuchEntityException: <p>The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.</p>
+            aws_sdk_iam.errors.service_failure_exception.ServiceFailureException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5742,6 +6412,13 @@ class AsyncIAMClient:
     ) -> "aws_sdk_iam.types.list_organizations_features_response.ListOrganizationsFeaturesResponse":
         r"""<p>Lists the centralized root access features enabled for your organization. For more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_root-user.html#id_root-user-access-management\">Centrally manage root access for member accounts</a>.</p>
 
+        Raises:
+            aws_sdk_iam.errors.account_not_management_or_delegated_administrator_exception.AccountNotManagementOrDelegatedAdministratorException: <p>The request was rejected because the account making the request is not the management account or delegated administrator account for <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_root-user.html#id_root-user-access-management\">centralized root access</a>.</p>
+            aws_sdk_iam.errors.organization_not_found_exception.OrganizationNotFoundException: <p>The request was rejected because no organization is associated with your account.</p>
+            aws_sdk_iam.errors.organization_not_in_all_features_mode_exception.OrganizationNotInAllFeaturesModeException: <p>The request was rejected because your organization does not have All features enabled. For more information, see <a href=\"https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#feature-set\">Available feature sets</a> in the <i>Organizations User Guide</i>.</p>
+            aws_sdk_iam.errors.service_access_not_enabled_exception.ServiceAccessNotEnabledException: <p>The request was rejected because trusted access is not enabled for IAM in Organizations. For details, see IAM and Organizations in the <i>Organizations User Guide</i>.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To list the centralized root access features enabled for your organization
             he following command lists the centralized root access features enabled for your organization.
@@ -5798,6 +6475,10 @@ class AsyncIAMClient:
             policy_usage_filter: <p>The policy usage method to use for filtering the results.</p> <p>To list only permissions policies, set <code>PolicyUsageFilter</code> to <code>PermissionsPolicy</code>. To list only the policies used to set permissions boundaries, set the value to <code>PermissionsBoundary</code>.</p> <p>This parameter is optional. If it is not included, all policies are returned. </p>
             marker: <p>Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated. Set it to the value of the <code>Marker</code> element in the response that you received to indicate where the next call should start.</p>
             max_items: <p>Use this only when paginating results to indicate the maximum number of items you want in the response. If additional items exist beyond the maximum you specify, the <code>IsTruncated</code> response element is <code>true</code>.</p> <p>If you do not include this parameter, the number of items defaults to 100. Note that IAM might return fewer results, even when there are more results available. In that case, the <code>IsTruncated</code> response element returns <code>true</code>, and <code>Marker</code> contains a value to include in the subsequent call that tells the service where to continue from.</p>
+
+        Raises:
+            aws_sdk_iam.errors.service_failure_exception.ServiceFailureException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5885,6 +6566,11 @@ class AsyncIAMClient:
             arn: <p>The ARN of the IAM identity (user, group, or role) whose policies you want to list.</p>
             service_namespaces: <p>The service namespace for the Amazon Web Services services whose policies you want to list.</p> <p>To learn the service namespace for a service, see <a href=\"https://docs.aws.amazon.com/service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.html\">Actions, resources, and condition keys for Amazon Web Services services</a> in the <i>IAM User Guide</i>. Choose the name of the service to view details for that service. In the first paragraph, find the service prefix. For example, <code>(service prefix: a4b)</code>. For more information about service namespaces, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces\">Amazon Web Services service namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
 
+        Raises:
+            aws_sdk_iam.errors.invalid_input_exception.InvalidInputException: <p>The request was rejected because an invalid or out-of-range value was supplied for an input parameter.</p>
+            aws_sdk_iam.errors.no_such_entity_exception.NoSuchEntityException: <p>The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To list policies that allow access to a service
             The following operation lists policies that allow ExampleUser01 to access IAM or EC2.
@@ -5935,6 +6621,12 @@ class AsyncIAMClient:
             policy_arn: <p>The ARN of the IAM customer managed policy whose tags you want to see.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
             marker: <p>Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated. Set it to the value of the <code>Marker</code> element in the response that you received to indicate where the next call should start.</p>
             max_items: <p>Use this only when paginating results to indicate the maximum number of items you want in the response. If additional items exist beyond the maximum you specify, the <code>IsTruncated</code> response element is <code>true</code>.</p> <p>If you do not include this parameter, the number of items defaults to 100. Note that IAM might return fewer results, even when there are more results available. In that case, the <code>IsTruncated</code> response element returns <code>true</code>, and <code>Marker</code> contains a value to include in the subsequent call that tells the service where to continue from.</p>
+
+        Raises:
+            aws_sdk_iam.errors.invalid_input_exception.InvalidInputException: <p>The request was rejected because an invalid or out-of-range value was supplied for an input parameter.</p>
+            aws_sdk_iam.errors.no_such_entity_exception.NoSuchEntityException: <p>The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.</p>
+            aws_sdk_iam.errors.service_failure_exception.ServiceFailureException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -6004,6 +6696,12 @@ class AsyncIAMClient:
             policy_arn: <p>The Amazon Resource Name (ARN) of the IAM policy for which you want the versions.</p> <p>For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
             marker: <p>Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated. Set it to the value of the <code>Marker</code> element in the response that you received to indicate where the next call should start.</p>
             max_items: <p>Use this only when paginating results to indicate the maximum number of items you want in the response. If additional items exist beyond the maximum you specify, the <code>IsTruncated</code> response element is <code>true</code>.</p> <p>If you do not include this parameter, the number of items defaults to 100. Note that IAM might return fewer results, even when there are more results available. In that case, the <code>IsTruncated</code> response element returns <code>true</code>, and <code>Marker</code> contains a value to include in the subsequent call that tells the service where to continue from.</p>
+
+        Raises:
+            aws_sdk_iam.errors.invalid_input_exception.InvalidInputException: <p>The request was rejected because an invalid or out-of-range value was supplied for an input parameter.</p>
+            aws_sdk_iam.errors.no_such_entity_exception.NoSuchEntityException: <p>The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.</p>
+            aws_sdk_iam.errors.service_failure_exception.ServiceFailureException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -6073,6 +6771,11 @@ class AsyncIAMClient:
             role_name: <p>The name of the role to list policies for.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
             marker: <p>Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated. Set it to the value of the <code>Marker</code> element in the response that you received to indicate where the next call should start.</p>
             max_items: <p>Use this only when paginating results to indicate the maximum number of items you want in the response. If additional items exist beyond the maximum you specify, the <code>IsTruncated</code> response element is <code>true</code>.</p> <p>If you do not include this parameter, the number of items defaults to 100. Note that IAM might return fewer results, even when there are more results available. In that case, the <code>IsTruncated</code> response element returns <code>true</code>, and <code>Marker</code> contains a value to include in the subsequent call that tells the service where to continue from.</p>
+
+        Raises:
+            aws_sdk_iam.errors.no_such_entity_exception.NoSuchEntityException: <p>The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.</p>
+            aws_sdk_iam.errors.service_failure_exception.ServiceFailureException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -6144,6 +6847,10 @@ class AsyncIAMClient:
             path_prefix: <p> The path prefix for filtering the results. For example, the prefix <code>/application_abc/component_xyz/</code> gets all roles whose path starts with <code>/application_abc/component_xyz/</code>.</p> <p>This parameter is optional. If it is not included, it defaults to a slash (/), listing all roles. This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes. In addition, it can contain any ASCII character from the ! (<code>\u0021</code>) through the DEL character (<code>\u007F</code>), including most punctuation characters, digits, and upper and lowercased letters.</p>
             marker: <p>Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated. Set it to the value of the <code>Marker</code> element in the response that you received to indicate where the next call should start.</p>
             max_items: <p>Use this only when paginating results to indicate the maximum number of items you want in the response. If additional items exist beyond the maximum you specify, the <code>IsTruncated</code> response element is <code>true</code>.</p> <p>If you do not include this parameter, the number of items defaults to 100. Note that IAM might return fewer results, even when there are more results available. In that case, the <code>IsTruncated</code> response element returns <code>true</code>, and <code>Marker</code> contains a value to include in the subsequent call that tells the service where to continue from.</p>
+
+        Raises:
+            aws_sdk_iam.errors.service_failure_exception.ServiceFailureException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -6217,6 +6924,11 @@ class AsyncIAMClient:
             marker: <p>Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated. Set it to the value of the <code>Marker</code> element in the response that you received to indicate where the next call should start.</p>
             max_items: <p>Use this only when paginating results to indicate the maximum number of items you want in the response. If additional items exist beyond the maximum you specify, the <code>IsTruncated</code> response element is <code>true</code>.</p> <p>If you do not include this parameter, the number of items defaults to 100. Note that IAM might return fewer results, even when there are more results available. In that case, the <code>IsTruncated</code> response element returns <code>true</code>, and <code>Marker</code> contains a value to include in the subsequent call that tells the service where to continue from.</p>
 
+        Raises:
+            aws_sdk_iam.errors.no_such_entity_exception.NoSuchEntityException: <p>The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.</p>
+            aws_sdk_iam.errors.service_failure_exception.ServiceFailureException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To list the tags attached to an IAM role
             The following example shows how to list the tags attached to a role.
@@ -6280,7 +6992,12 @@ class AsyncIAMClient:
     async def list_saml_providers(
         self, *, config_overrides: Optional[AsyncIAMClientConfig] = None
     ) -> "aws_sdk_iam.types.list_saml_providers_response.ListSAMLProvidersResponse":
-        r"""<p>Lists the SAML provider resource objects defined in IAM in the account. IAM resource-listing operations return a subset of the available attributes for the resource. For example, this operation does not return tags, even though they are an attribute of the returned object. To view all of the information for a SAML provider, see <a href=\"https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetSAMLProvider.html\">GetSAMLProvider</a>.</p> <important> <p> This operation requires <a href=\"https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html\">Signature Version 4</a>.</p> </important>"""
+        r"""<p>Lists the SAML provider resource objects defined in IAM in the account. IAM resource-listing operations return a subset of the available attributes for the resource. For example, this operation does not return tags, even though they are an attribute of the returned object. To view all of the information for a SAML provider, see <a href=\"https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetSAMLProvider.html\">GetSAMLProvider</a>.</p> <important> <p> This operation requires <a href=\"https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html\">Signature Version 4</a>.</p> </important>
+
+        Raises:
+            aws_sdk_iam.errors.service_failure_exception.ServiceFailureException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_iam.types.list_saml_providers_request.ListSAMLProvidersRequest]",
@@ -6321,6 +7038,12 @@ class AsyncIAMClient:
             saml_provider_arn: <p>The ARN of the Security Assertion Markup Language (SAML) identity provider whose tags you want to see.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
             marker: <p>Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated. Set it to the value of the <code>Marker</code> element in the response that you received to indicate where the next call should start.</p>
             max_items: <p>Use this only when paginating results to indicate the maximum number of items you want in the response. If additional items exist beyond the maximum you specify, the <code>IsTruncated</code> response element is <code>true</code>.</p> <p>If you do not include this parameter, the number of items defaults to 100. Note that IAM might return fewer results, even when there are more results available. In that case, the <code>IsTruncated</code> response element returns <code>true</code>, and <code>Marker</code> contains a value to include in the subsequent call that tells the service where to continue from.</p>
+
+        Raises:
+            aws_sdk_iam.errors.invalid_input_exception.InvalidInputException: <p>The request was rejected because an invalid or out-of-range value was supplied for an input parameter.</p>
+            aws_sdk_iam.errors.no_such_entity_exception.NoSuchEntityException: <p>The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.</p>
+            aws_sdk_iam.errors.service_failure_exception.ServiceFailureException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -6392,6 +7115,10 @@ class AsyncIAMClient:
             path_prefix: <p> The path prefix for filtering the results. For example: <code>/company/servercerts</code> would get all server certificates for which the path starts with <code>/company/servercerts</code>.</p> <p>This parameter is optional. If it is not included, it defaults to a slash (/), listing all server certificates. This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes. In addition, it can contain any ASCII character from the ! (<code>\u0021</code>) through the DEL character (<code>\u007F</code>), including most punctuation characters, digits, and upper and lowercased letters.</p>
             marker: <p>Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated. Set it to the value of the <code>Marker</code> element in the response that you received to indicate where the next call should start.</p>
             max_items: <p>Use this only when paginating results to indicate the maximum number of items you want in the response. If additional items exist beyond the maximum you specify, the <code>IsTruncated</code> response element is <code>true</code>.</p> <p>If you do not include this parameter, the number of items defaults to 100. Note that IAM might return fewer results, even when there are more results available. In that case, the <code>IsTruncated</code> response element returns <code>true</code>, and <code>Marker</code> contains a value to include in the subsequent call that tells the service where to continue from.</p>
+
+        Raises:
+            aws_sdk_iam.errors.service_failure_exception.ServiceFailureException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -6464,6 +7191,11 @@ class AsyncIAMClient:
             server_certificate_name: <p>The name of the IAM server certificate whose tags you want to see.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
             marker: <p>Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated. Set it to the value of the <code>Marker</code> element in the response that you received to indicate where the next call should start.</p>
             max_items: <p>Use this only when paginating results to indicate the maximum number of items you want in the response. If additional items exist beyond the maximum you specify, the <code>IsTruncated</code> response element is <code>true</code>.</p> <p>If you do not include this parameter, the number of items defaults to 100. Note that IAM might return fewer results, even when there are more results available. In that case, the <code>IsTruncated</code> response element returns <code>true</code>, and <code>Marker</code> contains a value to include in the subsequent call that tells the service where to continue from.</p>
+
+        Raises:
+            aws_sdk_iam.errors.no_such_entity_exception.NoSuchEntityException: <p>The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.</p>
+            aws_sdk_iam.errors.service_failure_exception.ServiceFailureException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -6537,6 +7269,11 @@ class AsyncIAMClient:
             all_users: <p>A flag indicating whether to list service specific credentials for all users. This parameter cannot be specified together with UserName. When true, returns all credentials associated with the specified service.</p>
             marker: <p>Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated. Set it to the value of the Marker from the response that you received to indicate where the next call should start.</p>
             max_items: <p>Use this only when paginating results to indicate the maximum number of items you want in the response. If additional items exist beyond the maximum you specify, the IsTruncated response element is true.</p>
+
+        Raises:
+            aws_sdk_iam.errors.no_such_entity_exception.NoSuchEntityException: <p>The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.</p>
+            aws_sdk_iam.errors.service_not_supported_exception.ServiceNotSupportedException: <p>The specified service does not support service-specific credentials.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -6590,6 +7327,11 @@ class AsyncIAMClient:
             user_name: <p>The name of the IAM user whose signing certificates you want to examine.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
             marker: <p>Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated. Set it to the value of the <code>Marker</code> element in the response that you received to indicate where the next call should start.</p>
             max_items: <p>Use this only when paginating results to indicate the maximum number of items you want in the response. If additional items exist beyond the maximum you specify, the <code>IsTruncated</code> response element is <code>true</code>.</p> <p>If you do not include this parameter, the number of items defaults to 100. Note that IAM might return fewer results, even when there are more results available. In that case, the <code>IsTruncated</code> response element returns <code>true</code>, and <code>Marker</code> contains a value to include in the subsequent call that tells the service where to continue from.</p>
+
+        Raises:
+            aws_sdk_iam.errors.no_such_entity_exception.NoSuchEntityException: <p>The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.</p>
+            aws_sdk_iam.errors.service_failure_exception.ServiceFailureException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To list the signing certificates for an IAM user
@@ -6668,6 +7410,10 @@ class AsyncIAMClient:
             user_name: <p>The name of the IAM user to list SSH public keys for. If none is specified, the <code>UserName</code> field is determined implicitly based on the Amazon Web Services access key used to sign the request.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
             marker: <p>Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated. Set it to the value of the <code>Marker</code> element in the response that you received to indicate where the next call should start.</p>
             max_items: <p>Use this only when paginating results to indicate the maximum number of items you want in the response. If additional items exist beyond the maximum you specify, the <code>IsTruncated</code> response element is <code>true</code>.</p> <p>If you do not include this parameter, the number of items defaults to 100. Note that IAM might return fewer results, even when there are more results available. In that case, the <code>IsTruncated</code> response element returns <code>true</code>, and <code>Marker</code> contains a value to include in the subsequent call that tells the service where to continue from.</p>
+
+        Raises:
+            aws_sdk_iam.errors.no_such_entity_exception.NoSuchEntityException: <p>The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -6740,6 +7486,11 @@ class AsyncIAMClient:
             user_name: <p>The name of the user to list policies for.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
             marker: <p>Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated. Set it to the value of the <code>Marker</code> element in the response that you received to indicate where the next call should start.</p>
             max_items: <p>Use this only when paginating results to indicate the maximum number of items you want in the response. If additional items exist beyond the maximum you specify, the <code>IsTruncated</code> response element is <code>true</code>.</p> <p>If you do not include this parameter, the number of items defaults to 100. Note that IAM might return fewer results, even when there are more results available. In that case, the <code>IsTruncated</code> response element returns <code>true</code>, and <code>Marker</code> contains a value to include in the subsequent call that tells the service where to continue from.</p>
+
+        Raises:
+            aws_sdk_iam.errors.no_such_entity_exception.NoSuchEntityException: <p>The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.</p>
+            aws_sdk_iam.errors.service_failure_exception.ServiceFailureException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -6811,6 +7562,10 @@ class AsyncIAMClient:
             path_prefix: <p> The path prefix for filtering the results. For example: <code>/division_abc/subdivision_xyz/</code>, which would get all user names whose path starts with <code>/division_abc/subdivision_xyz/</code>.</p> <p>This parameter is optional. If it is not included, it defaults to a slash (/), listing all user names. This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes. In addition, it can contain any ASCII character from the ! (<code>\u0021</code>) through the DEL character (<code>\u007F</code>), including most punctuation characters, digits, and upper and lowercased letters.</p>
             marker: <p>Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated. Set it to the value of the <code>Marker</code> element in the response that you received to indicate where the next call should start.</p>
             max_items: <p>Use this only when paginating results to indicate the maximum number of items you want in the response. If additional items exist beyond the maximum you specify, the <code>IsTruncated</code> response element is <code>true</code>.</p> <p>If you do not include this parameter, the number of items defaults to 100. Note that IAM might return fewer results, even when there are more results available. In that case, the <code>IsTruncated</code> response element returns <code>true</code>, and <code>Marker</code> contains a value to include in the subsequent call that tells the service where to continue from.</p>
+
+        Raises:
+            aws_sdk_iam.errors.service_failure_exception.ServiceFailureException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To list IAM users
@@ -6890,6 +7645,11 @@ class AsyncIAMClient:
             marker: <p>Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated. Set it to the value of the <code>Marker</code> element in the response that you received to indicate where the next call should start.</p>
             max_items: <p>Use this only when paginating results to indicate the maximum number of items you want in the response. If additional items exist beyond the maximum you specify, the <code>IsTruncated</code> response element is <code>true</code>.</p> <p>If you do not include this parameter, the number of items defaults to 100. Note that IAM might return fewer results, even when there are more results available. In that case, the <code>IsTruncated</code> response element returns <code>true</code>, and <code>Marker</code> contains a value to include in the subsequent call that tells the service where to continue from.</p>
 
+        Raises:
+            aws_sdk_iam.errors.no_such_entity_exception.NoSuchEntityException: <p>The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.</p>
+            aws_sdk_iam.errors.service_failure_exception.ServiceFailureException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To list the tags attached to an IAM user
             The following example shows how to list the tags attached to a user.
@@ -6966,6 +7726,9 @@ class AsyncIAMClient:
             assignment_status: <p> The status (<code>Unassigned</code> or <code>Assigned</code>) of the devices to list. If you do not specify an <code>AssignmentStatus</code>, the operation defaults to <code>Any</code>, which lists both assigned and unassigned virtual MFA devices.,</p>
             marker: <p>Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated. Set it to the value of the <code>Marker</code> element in the response that you received to indicate where the next call should start.</p>
             max_items: <p>Use this only when paginating results to indicate the maximum number of items you want in the response. If additional items exist beyond the maximum you specify, the <code>IsTruncated</code> response element is <code>true</code>.</p> <p>If you do not include this parameter, the number of items defaults to 100. Note that IAM might return fewer results, even when there are more results available. In that case, the <code>IsTruncated</code> response element returns <code>true</code>, and <code>Marker</code> contains a value to include in the subsequent call that tells the service where to continue from.</p>
+
+        Raises:
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To list virtual MFA devices
@@ -7045,6 +7808,13 @@ class AsyncIAMClient:
             policy_name: <p>The name of the policy document.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
             policy_document: <p>The policy document.</p> <p>You must provide policies in JSON format in IAM. However, for CloudFormation templates formatted in YAML, you can provide the policy in JSON or YAML format. CloudFormation always converts a YAML policy to JSON format before submitting it to IAM.</p> <p>The <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p> <ul> <li> <p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p> </li> <li> <p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p> </li> <li> <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p> </li> </ul>
 
+        Raises:
+            aws_sdk_iam.errors.limit_exceeded_exception.LimitExceededException: <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account limits. The error message describes the limit exceeded.</p>
+            aws_sdk_iam.errors.malformed_policy_document_exception.MalformedPolicyDocumentException: <p>The request was rejected because the policy document was malformed. The error message describes the specific error.</p>
+            aws_sdk_iam.errors.no_such_entity_exception.NoSuchEntityException: <p>The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.</p>
+            aws_sdk_iam.errors.service_failure_exception.ServiceFailureException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To add a policy to a group
             The following command adds a policy named IAMReadAccess to the IAM group named PowerUsers.
@@ -7090,6 +7860,14 @@ class AsyncIAMClient:
         Args:
             role_name: <p>The name (friendly name, not ARN) of the IAM role for which you want to set the permissions boundary.</p>
             permissions_boundary: <p>The ARN of the managed policy that is used to set the permissions boundary for the role.</p> <p>A permissions boundary policy defines the maximum permissions that identity-based policies can grant to an entity, but does not grant permissions. Permissions boundaries do not define the maximum permissions that a resource-based policy can grant to an entity. To learn more, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html\">Permissions boundaries for IAM entities</a> in the <i>IAM User Guide</i>.</p> <p>For more information about policy types, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#access_policy-types\">Policy types </a> in the <i>IAM User Guide</i>.</p>
+
+        Raises:
+            aws_sdk_iam.errors.invalid_input_exception.InvalidInputException: <p>The request was rejected because an invalid or out-of-range value was supplied for an input parameter.</p>
+            aws_sdk_iam.errors.no_such_entity_exception.NoSuchEntityException: <p>The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.</p>
+            aws_sdk_iam.errors.policy_not_attachable_exception.PolicyNotAttachableException: <p>The request failed because Amazon Web Services service role policies can only be attached to the service-linked role for that service.</p>
+            aws_sdk_iam.errors.service_failure_exception.ServiceFailureException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_iam.errors.unmodifiable_entity_exception.UnmodifiableEntityException: <p>The request was rejected because service-linked roles are protected Amazon Web Services resources. Only the service that depends on the service-linked role can modify or delete the role on your behalf. The error message includes the name of the service that depends on this service-linked role. You must request the change through that service.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -7131,6 +7909,14 @@ class AsyncIAMClient:
             role_name: <p>The name of the role to associate the policy with.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
             policy_name: <p>The name of the policy document.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
             policy_document: <p>The policy document.</p> <p>You must provide policies in JSON format in IAM. However, for CloudFormation templates formatted in YAML, you can provide the policy in JSON or YAML format. CloudFormation always converts a YAML policy to JSON format before submitting it to IAM.</p> <p>The <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p> <ul> <li> <p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p> </li> <li> <p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p> </li> <li> <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p> </li> </ul>
+
+        Raises:
+            aws_sdk_iam.errors.limit_exceeded_exception.LimitExceededException: <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account limits. The error message describes the limit exceeded.</p>
+            aws_sdk_iam.errors.malformed_policy_document_exception.MalformedPolicyDocumentException: <p>The request was rejected because the policy document was malformed. The error message describes the specific error.</p>
+            aws_sdk_iam.errors.no_such_entity_exception.NoSuchEntityException: <p>The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.</p>
+            aws_sdk_iam.errors.service_failure_exception.ServiceFailureException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_iam.errors.unmodifiable_entity_exception.UnmodifiableEntityException: <p>The request was rejected because service-linked roles are protected Amazon Web Services resources. Only the service that depends on the service-linked role can modify or delete the role on your behalf. The error message includes the name of the service that depends on this service-linked role. You must request the change through that service.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To attach a permissions policy to an IAM role
@@ -7177,6 +7963,13 @@ class AsyncIAMClient:
         Args:
             user_name: <p>The name (friendly name, not ARN) of the IAM user for which you want to set the permissions boundary.</p>
             permissions_boundary: <p>The ARN of the managed policy that is used to set the permissions boundary for the user.</p> <p>A permissions boundary policy defines the maximum permissions that identity-based policies can grant to an entity, but does not grant permissions. Permissions boundaries do not define the maximum permissions that a resource-based policy can grant to an entity. To learn more, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html\">Permissions boundaries for IAM entities</a> in the <i>IAM User Guide</i>.</p> <p>For more information about policy types, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#access_policy-types\">Policy types </a> in the <i>IAM User Guide</i>.</p>
+
+        Raises:
+            aws_sdk_iam.errors.invalid_input_exception.InvalidInputException: <p>The request was rejected because an invalid or out-of-range value was supplied for an input parameter.</p>
+            aws_sdk_iam.errors.no_such_entity_exception.NoSuchEntityException: <p>The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.</p>
+            aws_sdk_iam.errors.policy_not_attachable_exception.PolicyNotAttachableException: <p>The request failed because Amazon Web Services service role policies can only be attached to the service-linked role for that service.</p>
+            aws_sdk_iam.errors.service_failure_exception.ServiceFailureException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -7218,6 +8011,13 @@ class AsyncIAMClient:
             user_name: <p>The name of the user to associate the policy with.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
             policy_name: <p>The name of the policy document.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
             policy_document: <p>The policy document.</p> <p>You must provide policies in JSON format in IAM. However, for CloudFormation templates formatted in YAML, you can provide the policy in JSON or YAML format. CloudFormation always converts a YAML policy to JSON format before submitting it to IAM.</p> <p>The <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p> <ul> <li> <p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p> </li> <li> <p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p> </li> <li> <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p> </li> </ul>
+
+        Raises:
+            aws_sdk_iam.errors.limit_exceeded_exception.LimitExceededException: <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account limits. The error message describes the limit exceeded.</p>
+            aws_sdk_iam.errors.malformed_policy_document_exception.MalformedPolicyDocumentException: <p>The request was rejected because the policy document was malformed. The error message describes the specific error.</p>
+            aws_sdk_iam.errors.no_such_entity_exception.NoSuchEntityException: <p>The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.</p>
+            aws_sdk_iam.errors.service_failure_exception.ServiceFailureException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To attach a policy to an IAM user
@@ -7264,6 +8064,13 @@ class AsyncIAMClient:
         Args:
             delegation_request_id: <p>The unique identifier of the delegation request to reject.</p>
             notes: <p>Optional notes explaining the reason for rejecting the delegation request.</p>
+
+        Raises:
+            aws_sdk_iam.errors.concurrent_modification_exception.ConcurrentModificationException: <p>The request was rejected because multiple requests to change this object were submitted simultaneously. Wait a few minutes and submit your request again.</p>
+            aws_sdk_iam.errors.invalid_input_exception.InvalidInputException: <p>The request was rejected because an invalid or out-of-range value was supplied for an input parameter.</p>
+            aws_sdk_iam.errors.no_such_entity_exception.NoSuchEntityException: <p>The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.</p>
+            aws_sdk_iam.errors.service_failure_exception.ServiceFailureException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -7304,6 +8111,13 @@ class AsyncIAMClient:
         Args:
             open_id_connect_provider_arn: <p>The Amazon Resource Name (ARN) of the IAM OIDC provider resource to remove the client ID from. You can get a list of OIDC provider ARNs by using the <a href=\"https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListOpenIDConnectProviders.html\">ListOpenIDConnectProviders</a> operation.</p> <p>For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
             client_id: <p>The client ID (also known as audience) to remove from the IAM OIDC provider resource. For more information about client IDs, see <a href=\"https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateOpenIDConnectProvider.html\">CreateOpenIDConnectProvider</a>.</p>
+
+        Raises:
+            aws_sdk_iam.errors.concurrent_modification_exception.ConcurrentModificationException: <p>The request was rejected because multiple requests to change this object were submitted simultaneously. Wait a few minutes and submit your request again.</p>
+            aws_sdk_iam.errors.invalid_input_exception.InvalidInputException: <p>The request was rejected because an invalid or out-of-range value was supplied for an input parameter.</p>
+            aws_sdk_iam.errors.no_such_entity_exception.NoSuchEntityException: <p>The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.</p>
+            aws_sdk_iam.errors.service_failure_exception.ServiceFailureException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -7343,6 +8157,13 @@ class AsyncIAMClient:
         Args:
             instance_profile_name: <p>The name of the instance profile to update.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
             role_name: <p>The name of the role to remove.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+
+        Raises:
+            aws_sdk_iam.errors.limit_exceeded_exception.LimitExceededException: <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account limits. The error message describes the limit exceeded.</p>
+            aws_sdk_iam.errors.no_such_entity_exception.NoSuchEntityException: <p>The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.</p>
+            aws_sdk_iam.errors.service_failure_exception.ServiceFailureException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_iam.errors.unmodifiable_entity_exception.UnmodifiableEntityException: <p>The request was rejected because service-linked roles are protected Amazon Web Services resources. Only the service that depends on the service-linked role can modify or delete the role on your behalf. The error message includes the name of the service that depends on this service-linked role. You must request the change through that service.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To remove a role from an instance profile
@@ -7389,6 +8210,12 @@ class AsyncIAMClient:
             group_name: <p>The name of the group to update.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
             user_name: <p>The name of the user to remove.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
 
+        Raises:
+            aws_sdk_iam.errors.limit_exceeded_exception.LimitExceededException: <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account limits. The error message describes the limit exceeded.</p>
+            aws_sdk_iam.errors.no_such_entity_exception.NoSuchEntityException: <p>The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.</p>
+            aws_sdk_iam.errors.service_failure_exception.ServiceFailureException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To remove a user from an IAM group
             The following command removes the user named Bob from the IAM group named Admins.
@@ -7433,6 +8260,10 @@ class AsyncIAMClient:
         Args:
             user_name: <p>The name of the IAM user associated with the service-specific credential. If this value is not specified, then the operation assumes the user whose credentials are used to call the operation.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
             service_specific_credential_id: <p>The unique identifier of the service-specific credential.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters that can consist of any upper or lowercased letter or digit.</p>
+
+        Raises:
+            aws_sdk_iam.errors.no_such_entity_exception.NoSuchEntityException: <p>The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -7479,6 +8310,14 @@ class AsyncIAMClient:
             serial_number: <p>Serial number that uniquely identifies the MFA device.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
             authentication_code1: <p>An authentication code emitted by the device.</p> <p>The format for this parameter is a sequence of six digits.</p>
             authentication_code2: <p>A subsequent authentication code emitted by the device.</p> <p>The format for this parameter is a sequence of six digits.</p>
+
+        Raises:
+            aws_sdk_iam.errors.concurrent_modification_exception.ConcurrentModificationException: <p>The request was rejected because multiple requests to change this object were submitted simultaneously. Wait a few minutes and submit your request again.</p>
+            aws_sdk_iam.errors.invalid_authentication_code_exception.InvalidAuthenticationCodeException: <p>The request was rejected because the authentication code was not recognized. The error message describes the specific error.</p>
+            aws_sdk_iam.errors.limit_exceeded_exception.LimitExceededException: <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account limits. The error message describes the limit exceeded.</p>
+            aws_sdk_iam.errors.no_such_entity_exception.NoSuchEntityException: <p>The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.</p>
+            aws_sdk_iam.errors.service_failure_exception.ServiceFailureException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -7518,6 +8357,13 @@ class AsyncIAMClient:
 
         Args:
             delegation_request_id: <p>The unique identifier of the delegation request for which to send the token.</p>
+
+        Raises:
+            aws_sdk_iam.errors.concurrent_modification_exception.ConcurrentModificationException: <p>The request was rejected because multiple requests to change this object were submitted simultaneously. Wait a few minutes and submit your request again.</p>
+            aws_sdk_iam.errors.invalid_input_exception.InvalidInputException: <p>The request was rejected because an invalid or out-of-range value was supplied for an input parameter.</p>
+            aws_sdk_iam.errors.no_such_entity_exception.NoSuchEntityException: <p>The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.</p>
+            aws_sdk_iam.errors.service_failure_exception.ServiceFailureException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -7556,6 +8402,13 @@ class AsyncIAMClient:
         Args:
             policy_arn: <p>The Amazon Resource Name (ARN) of the IAM policy whose default version you want to set.</p> <p>For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
             version_id: <p>The version of the policy to set as the default (operative) version.</p> <p>For more information about managed policy versions, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html\">Versioning for managed policies</a> in the <i>IAM User Guide</i>.</p>
+
+        Raises:
+            aws_sdk_iam.errors.invalid_input_exception.InvalidInputException: <p>The request was rejected because an invalid or out-of-range value was supplied for an input parameter.</p>
+            aws_sdk_iam.errors.limit_exceeded_exception.LimitExceededException: <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account limits. The error message describes the limit exceeded.</p>
+            aws_sdk_iam.errors.no_such_entity_exception.NoSuchEntityException: <p>The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.</p>
+            aws_sdk_iam.errors.service_failure_exception.ServiceFailureException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -7593,6 +8446,10 @@ class AsyncIAMClient:
 
         Args:
             global_endpoint_token_version: <p>The version of the global endpoint token. Version 1 tokens are valid only in Amazon Web Services Regions that are available by default. These tokens do not work in manually enabled Regions, such as Asia Pacific (Hong Kong). Version 2 tokens are valid in all Regions. However, version 2 tokens are longer and might affect systems where you temporarily store tokens.</p> <p>For information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html\">Activating and deactivating STS in an Amazon Web Services Region</a> in the <i>IAM User Guide</i>.</p>
+
+        Raises:
+            aws_sdk_iam.errors.service_failure_exception.ServiceFailureException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To delete an access key for an IAM user
@@ -7669,6 +8526,11 @@ class AsyncIAMClient:
             resource_handling_option: <p>Specifies the type of simulation to run. Different API operations that support resource-based policies require different combinations of resources. By specifying the type of simulation to run, you enable the policy simulator to enforce the presence of the required resources to ensure reliable simulation results. If your simulation does not match one of the following scenarios, then you can omit this parameter. The following list shows each of the supported scenario values and the resources that you must define to run the simulation.</p> <p>Each of the Amazon EC2 scenarios requires that you specify instance, image, and security group resources. If your scenario includes an EBS volume, then you must specify that volume as a resource. If the Amazon EC2 scenario includes VPC, then you must supply the network interface resource. If it includes an IP subnet, then you must specify the subnet resource. For more information on the Amazon EC2 scenario options, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html\">Supported platforms</a> in the <i>Amazon EC2 User Guide</i>.</p> <ul> <li> <p> <b>EC2-VPC-InstanceStore</b> </p> <p>instance, image, security group, network interface</p> </li> <li> <p> <b>EC2-VPC-InstanceStore-Subnet</b> </p> <p>instance, image, security group, network interface, subnet</p> </li> <li> <p> <b>EC2-VPC-EBS</b> </p> <p>instance, image, security group, network interface, volume</p> </li> <li> <p> <b>EC2-VPC-EBS-Subnet</b> </p> <p>instance, image, security group, network interface, subnet, volume</p> </li> </ul>
             max_items: <p>Use this only when paginating results to indicate the maximum number of items you want in the response. If additional items exist beyond the maximum you specify, the <code>IsTruncated</code> response element is <code>true</code>.</p> <p>If you do not include this parameter, the number of items defaults to 100. Note that IAM might return fewer results, even when there are more results available. In that case, the <code>IsTruncated</code> response element returns <code>true</code>, and <code>Marker</code> contains a value to include in the subsequent call that tells the service where to continue from.</p>
             marker: <p>Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated. Set it to the value of the <code>Marker</code> element in the response that you received to indicate where the next call should start.</p>
+
+        Raises:
+            aws_sdk_iam.errors.invalid_input_exception.InvalidInputException: <p>The request was rejected because an invalid or out-of-range value was supplied for an input parameter.</p>
+            aws_sdk_iam.errors.policy_evaluation_exception.PolicyEvaluationException: <p>The request failed because a provided policy could not be successfully evaluated. An additional detailed message indicates the source of the failure.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -7819,6 +8681,12 @@ class AsyncIAMClient:
             resource_handling_option: <p>Specifies the type of simulation to run. Different API operations that support resource-based policies require different combinations of resources. By specifying the type of simulation to run, you enable the policy simulator to enforce the presence of the required resources to ensure reliable simulation results. If your simulation does not match one of the following scenarios, then you can omit this parameter. The following list shows each of the supported scenario values and the resources that you must define to run the simulation.</p> <p>Each of the Amazon EC2 scenarios requires that you specify instance, image, and security group resources. If your scenario includes an EBS volume, then you must specify that volume as a resource. If the Amazon EC2 scenario includes VPC, then you must supply the network interface resource. If it includes an IP subnet, then you must specify the subnet resource. For more information on the Amazon EC2 scenario options, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html\">Supported platforms</a> in the <i>Amazon EC2 User Guide</i>.</p> <ul> <li> <p> <b>EC2-VPC-InstanceStore</b> </p> <p>instance, image, security group, network interface</p> </li> <li> <p> <b>EC2-VPC-InstanceStore-Subnet</b> </p> <p>instance, image, security group, network interface, subnet</p> </li> <li> <p> <b>EC2-VPC-EBS</b> </p> <p>instance, image, security group, network interface, volume</p> </li> <li> <p> <b>EC2-VPC-EBS-Subnet</b> </p> <p>instance, image, security group, network interface, subnet, volume</p> </li> </ul>
             max_items: <p>Use this only when paginating results to indicate the maximum number of items you want in the response. If additional items exist beyond the maximum you specify, the <code>IsTruncated</code> response element is <code>true</code>.</p> <p>If you do not include this parameter, the number of items defaults to 100. Note that IAM might return fewer results, even when there are more results available. In that case, the <code>IsTruncated</code> response element returns <code>true</code>, and <code>Marker</code> contains a value to include in the subsequent call that tells the service where to continue from.</p>
             marker: <p>Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated. Set it to the value of the <code>Marker</code> element in the response that you received to indicate where the next call should start.</p>
+
+        Raises:
+            aws_sdk_iam.errors.invalid_input_exception.InvalidInputException: <p>The request was rejected because an invalid or out-of-range value was supplied for an input parameter.</p>
+            aws_sdk_iam.errors.no_such_entity_exception.NoSuchEntityException: <p>The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.</p>
+            aws_sdk_iam.errors.policy_evaluation_exception.PolicyEvaluationException: <p>The request failed because a provided policy could not be successfully evaluated. An additional detailed message indicates the source of the failure.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -7939,6 +8807,14 @@ class AsyncIAMClient:
         Args:
             instance_profile_name: <p>The name of the IAM instance profile to which you want to add tags.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
             tags: <p>The list of tags that you want to attach to the IAM instance profile. Each tag consists of a key name and an associated value.</p>
+
+        Raises:
+            aws_sdk_iam.errors.concurrent_modification_exception.ConcurrentModificationException: <p>The request was rejected because multiple requests to change this object were submitted simultaneously. Wait a few minutes and submit your request again.</p>
+            aws_sdk_iam.errors.invalid_input_exception.InvalidInputException: <p>The request was rejected because an invalid or out-of-range value was supplied for an input parameter.</p>
+            aws_sdk_iam.errors.limit_exceeded_exception.LimitExceededException: <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account limits. The error message describes the limit exceeded.</p>
+            aws_sdk_iam.errors.no_such_entity_exception.NoSuchEntityException: <p>The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.</p>
+            aws_sdk_iam.errors.service_failure_exception.ServiceFailureException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -7978,6 +8854,14 @@ class AsyncIAMClient:
         Args:
             serial_number: <p>The unique identifier for the IAM virtual MFA device to which you want to add tags. For virtual MFA devices, the serial number is the same as the ARN.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
             tags: <p>The list of tags that you want to attach to the IAM virtual MFA device. Each tag consists of a key name and an associated value.</p>
+
+        Raises:
+            aws_sdk_iam.errors.concurrent_modification_exception.ConcurrentModificationException: <p>The request was rejected because multiple requests to change this object were submitted simultaneously. Wait a few minutes and submit your request again.</p>
+            aws_sdk_iam.errors.invalid_input_exception.InvalidInputException: <p>The request was rejected because an invalid or out-of-range value was supplied for an input parameter.</p>
+            aws_sdk_iam.errors.limit_exceeded_exception.LimitExceededException: <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account limits. The error message describes the limit exceeded.</p>
+            aws_sdk_iam.errors.no_such_entity_exception.NoSuchEntityException: <p>The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.</p>
+            aws_sdk_iam.errors.service_failure_exception.ServiceFailureException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -8017,6 +8901,14 @@ class AsyncIAMClient:
         Args:
             open_id_connect_provider_arn: <p>The ARN of the OIDC identity provider in IAM to which you want to add tags.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
             tags: <p>The list of tags that you want to attach to the OIDC identity provider in IAM. Each tag consists of a key name and an associated value.</p>
+
+        Raises:
+            aws_sdk_iam.errors.concurrent_modification_exception.ConcurrentModificationException: <p>The request was rejected because multiple requests to change this object were submitted simultaneously. Wait a few minutes and submit your request again.</p>
+            aws_sdk_iam.errors.invalid_input_exception.InvalidInputException: <p>The request was rejected because an invalid or out-of-range value was supplied for an input parameter.</p>
+            aws_sdk_iam.errors.limit_exceeded_exception.LimitExceededException: <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account limits. The error message describes the limit exceeded.</p>
+            aws_sdk_iam.errors.no_such_entity_exception.NoSuchEntityException: <p>The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.</p>
+            aws_sdk_iam.errors.service_failure_exception.ServiceFailureException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -8056,6 +8948,14 @@ class AsyncIAMClient:
         Args:
             policy_arn: <p>The ARN of the IAM customer managed policy to which you want to add tags.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
             tags: <p>The list of tags that you want to attach to the IAM customer managed policy. Each tag consists of a key name and an associated value.</p>
+
+        Raises:
+            aws_sdk_iam.errors.concurrent_modification_exception.ConcurrentModificationException: <p>The request was rejected because multiple requests to change this object were submitted simultaneously. Wait a few minutes and submit your request again.</p>
+            aws_sdk_iam.errors.invalid_input_exception.InvalidInputException: <p>The request was rejected because an invalid or out-of-range value was supplied for an input parameter.</p>
+            aws_sdk_iam.errors.limit_exceeded_exception.LimitExceededException: <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account limits. The error message describes the limit exceeded.</p>
+            aws_sdk_iam.errors.no_such_entity_exception.NoSuchEntityException: <p>The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.</p>
+            aws_sdk_iam.errors.service_failure_exception.ServiceFailureException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -8095,6 +8995,14 @@ class AsyncIAMClient:
         Args:
             role_name: <p>The name of the IAM role to which you want to add tags.</p> <p>This parameter accepts (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters that consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
             tags: <p>The list of tags that you want to attach to the IAM role. Each tag consists of a key name and an associated value.</p>
+
+        Raises:
+            aws_sdk_iam.errors.concurrent_modification_exception.ConcurrentModificationException: <p>The request was rejected because multiple requests to change this object were submitted simultaneously. Wait a few minutes and submit your request again.</p>
+            aws_sdk_iam.errors.invalid_input_exception.InvalidInputException: <p>The request was rejected because an invalid or out-of-range value was supplied for an input parameter.</p>
+            aws_sdk_iam.errors.limit_exceeded_exception.LimitExceededException: <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account limits. The error message describes the limit exceeded.</p>
+            aws_sdk_iam.errors.no_such_entity_exception.NoSuchEntityException: <p>The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.</p>
+            aws_sdk_iam.errors.service_failure_exception.ServiceFailureException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To add a tag key and value to an IAM role
@@ -8140,6 +9048,14 @@ class AsyncIAMClient:
         Args:
             saml_provider_arn: <p>The ARN of the SAML identity provider in IAM to which you want to add tags.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
             tags: <p>The list of tags that you want to attach to the SAML identity provider in IAM. Each tag consists of a key name and an associated value.</p>
+
+        Raises:
+            aws_sdk_iam.errors.concurrent_modification_exception.ConcurrentModificationException: <p>The request was rejected because multiple requests to change this object were submitted simultaneously. Wait a few minutes and submit your request again.</p>
+            aws_sdk_iam.errors.invalid_input_exception.InvalidInputException: <p>The request was rejected because an invalid or out-of-range value was supplied for an input parameter.</p>
+            aws_sdk_iam.errors.limit_exceeded_exception.LimitExceededException: <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account limits. The error message describes the limit exceeded.</p>
+            aws_sdk_iam.errors.no_such_entity_exception.NoSuchEntityException: <p>The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.</p>
+            aws_sdk_iam.errors.service_failure_exception.ServiceFailureException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -8179,6 +9095,14 @@ class AsyncIAMClient:
         Args:
             server_certificate_name: <p>The name of the IAM server certificate to which you want to add tags.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
             tags: <p>The list of tags that you want to attach to the IAM server certificate. Each tag consists of a key name and an associated value.</p>
+
+        Raises:
+            aws_sdk_iam.errors.concurrent_modification_exception.ConcurrentModificationException: <p>The request was rejected because multiple requests to change this object were submitted simultaneously. Wait a few minutes and submit your request again.</p>
+            aws_sdk_iam.errors.invalid_input_exception.InvalidInputException: <p>The request was rejected because an invalid or out-of-range value was supplied for an input parameter.</p>
+            aws_sdk_iam.errors.limit_exceeded_exception.LimitExceededException: <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account limits. The error message describes the limit exceeded.</p>
+            aws_sdk_iam.errors.no_such_entity_exception.NoSuchEntityException: <p>The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.</p>
+            aws_sdk_iam.errors.service_failure_exception.ServiceFailureException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -8218,6 +9142,14 @@ class AsyncIAMClient:
         Args:
             user_name: <p>The name of the IAM user to which you want to add tags.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
             tags: <p>The list of tags that you want to attach to the IAM user. Each tag consists of a key name and an associated value.</p>
+
+        Raises:
+            aws_sdk_iam.errors.concurrent_modification_exception.ConcurrentModificationException: <p>The request was rejected because multiple requests to change this object were submitted simultaneously. Wait a few minutes and submit your request again.</p>
+            aws_sdk_iam.errors.invalid_input_exception.InvalidInputException: <p>The request was rejected because an invalid or out-of-range value was supplied for an input parameter.</p>
+            aws_sdk_iam.errors.limit_exceeded_exception.LimitExceededException: <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account limits. The error message describes the limit exceeded.</p>
+            aws_sdk_iam.errors.no_such_entity_exception.NoSuchEntityException: <p>The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.</p>
+            aws_sdk_iam.errors.service_failure_exception.ServiceFailureException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To add a tag key and value to an IAM user
@@ -8263,6 +9195,13 @@ class AsyncIAMClient:
         Args:
             instance_profile_name: <p>The name of the IAM instance profile from which you want to remove tags.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
             tag_keys: <p>A list of key names as a simple array of strings. The tags with matching keys are removed from the specified instance profile.</p>
+
+        Raises:
+            aws_sdk_iam.errors.concurrent_modification_exception.ConcurrentModificationException: <p>The request was rejected because multiple requests to change this object were submitted simultaneously. Wait a few minutes and submit your request again.</p>
+            aws_sdk_iam.errors.invalid_input_exception.InvalidInputException: <p>The request was rejected because an invalid or out-of-range value was supplied for an input parameter.</p>
+            aws_sdk_iam.errors.no_such_entity_exception.NoSuchEntityException: <p>The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.</p>
+            aws_sdk_iam.errors.service_failure_exception.ServiceFailureException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -8302,6 +9241,13 @@ class AsyncIAMClient:
         Args:
             serial_number: <p>The unique identifier for the IAM virtual MFA device from which you want to remove tags. For virtual MFA devices, the serial number is the same as the ARN.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
             tag_keys: <p>A list of key names as a simple array of strings. The tags with matching keys are removed from the specified instance profile.</p>
+
+        Raises:
+            aws_sdk_iam.errors.concurrent_modification_exception.ConcurrentModificationException: <p>The request was rejected because multiple requests to change this object were submitted simultaneously. Wait a few minutes and submit your request again.</p>
+            aws_sdk_iam.errors.invalid_input_exception.InvalidInputException: <p>The request was rejected because an invalid or out-of-range value was supplied for an input parameter.</p>
+            aws_sdk_iam.errors.no_such_entity_exception.NoSuchEntityException: <p>The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.</p>
+            aws_sdk_iam.errors.service_failure_exception.ServiceFailureException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -8341,6 +9287,13 @@ class AsyncIAMClient:
         Args:
             open_id_connect_provider_arn: <p>The ARN of the OIDC provider in IAM from which you want to remove tags.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
             tag_keys: <p>A list of key names as a simple array of strings. The tags with matching keys are removed from the specified OIDC provider.</p>
+
+        Raises:
+            aws_sdk_iam.errors.concurrent_modification_exception.ConcurrentModificationException: <p>The request was rejected because multiple requests to change this object were submitted simultaneously. Wait a few minutes and submit your request again.</p>
+            aws_sdk_iam.errors.invalid_input_exception.InvalidInputException: <p>The request was rejected because an invalid or out-of-range value was supplied for an input parameter.</p>
+            aws_sdk_iam.errors.no_such_entity_exception.NoSuchEntityException: <p>The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.</p>
+            aws_sdk_iam.errors.service_failure_exception.ServiceFailureException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -8380,6 +9333,13 @@ class AsyncIAMClient:
         Args:
             policy_arn: <p>The ARN of the IAM customer managed policy from which you want to remove tags.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
             tag_keys: <p>A list of key names as a simple array of strings. The tags with matching keys are removed from the specified policy.</p>
+
+        Raises:
+            aws_sdk_iam.errors.concurrent_modification_exception.ConcurrentModificationException: <p>The request was rejected because multiple requests to change this object were submitted simultaneously. Wait a few minutes and submit your request again.</p>
+            aws_sdk_iam.errors.invalid_input_exception.InvalidInputException: <p>The request was rejected because an invalid or out-of-range value was supplied for an input parameter.</p>
+            aws_sdk_iam.errors.no_such_entity_exception.NoSuchEntityException: <p>The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.</p>
+            aws_sdk_iam.errors.service_failure_exception.ServiceFailureException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -8419,6 +9379,12 @@ class AsyncIAMClient:
         Args:
             role_name: <p>The name of the IAM role from which you want to remove tags.</p> <p>This parameter accepts (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters that consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
             tag_keys: <p>A list of key names as a simple array of strings. The tags with matching keys are removed from the specified role.</p>
+
+        Raises:
+            aws_sdk_iam.errors.concurrent_modification_exception.ConcurrentModificationException: <p>The request was rejected because multiple requests to change this object were submitted simultaneously. Wait a few minutes and submit your request again.</p>
+            aws_sdk_iam.errors.no_such_entity_exception.NoSuchEntityException: <p>The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.</p>
+            aws_sdk_iam.errors.service_failure_exception.ServiceFailureException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To remove a tag from an IAM role
@@ -8464,6 +9430,13 @@ class AsyncIAMClient:
         Args:
             saml_provider_arn: <p>The ARN of the SAML identity provider in IAM from which you want to remove tags.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
             tag_keys: <p>A list of key names as a simple array of strings. The tags with matching keys are removed from the specified SAML identity provider.</p>
+
+        Raises:
+            aws_sdk_iam.errors.concurrent_modification_exception.ConcurrentModificationException: <p>The request was rejected because multiple requests to change this object were submitted simultaneously. Wait a few minutes and submit your request again.</p>
+            aws_sdk_iam.errors.invalid_input_exception.InvalidInputException: <p>The request was rejected because an invalid or out-of-range value was supplied for an input parameter.</p>
+            aws_sdk_iam.errors.no_such_entity_exception.NoSuchEntityException: <p>The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.</p>
+            aws_sdk_iam.errors.service_failure_exception.ServiceFailureException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -8503,6 +9476,13 @@ class AsyncIAMClient:
         Args:
             server_certificate_name: <p>The name of the IAM server certificate from which you want to remove tags.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
             tag_keys: <p>A list of key names as a simple array of strings. The tags with matching keys are removed from the specified IAM server certificate.</p>
+
+        Raises:
+            aws_sdk_iam.errors.concurrent_modification_exception.ConcurrentModificationException: <p>The request was rejected because multiple requests to change this object were submitted simultaneously. Wait a few minutes and submit your request again.</p>
+            aws_sdk_iam.errors.invalid_input_exception.InvalidInputException: <p>The request was rejected because an invalid or out-of-range value was supplied for an input parameter.</p>
+            aws_sdk_iam.errors.no_such_entity_exception.NoSuchEntityException: <p>The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.</p>
+            aws_sdk_iam.errors.service_failure_exception.ServiceFailureException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -8542,6 +9522,12 @@ class AsyncIAMClient:
         Args:
             user_name: <p>The name of the IAM user from which you want to remove tags.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
             tag_keys: <p>A list of key names as a simple array of strings. The tags with matching keys are removed from the specified user.</p>
+
+        Raises:
+            aws_sdk_iam.errors.concurrent_modification_exception.ConcurrentModificationException: <p>The request was rejected because multiple requests to change this object were submitted simultaneously. Wait a few minutes and submit your request again.</p>
+            aws_sdk_iam.errors.no_such_entity_exception.NoSuchEntityException: <p>The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.</p>
+            aws_sdk_iam.errors.service_failure_exception.ServiceFailureException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To remove a tag from an IAM user
@@ -8591,6 +9577,13 @@ class AsyncIAMClient:
             user_name: <p>The name of the user whose key you want to update.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
             access_key_id: <p>The access key ID of the secret access key you want to update.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters that can consist of any upper or lowercased letter or digit.</p>
             status: <p> The status you want to assign to the secret access key. <code>Active</code> means that the key can be used for programmatic calls to Amazon Web Services, while <code>Inactive</code> means that the key cannot be used.</p>
+
+        Raises:
+            aws_sdk_iam.errors.invalid_input_exception.InvalidInputException: <p>The request was rejected because an invalid or out-of-range value was supplied for an input parameter.</p>
+            aws_sdk_iam.errors.limit_exceeded_exception.LimitExceededException: <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account limits. The error message describes the limit exceeded.</p>
+            aws_sdk_iam.errors.no_such_entity_exception.NoSuchEntityException: <p>The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.</p>
+            aws_sdk_iam.errors.service_failure_exception.ServiceFailureException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To activate or deactivate an access key for an IAM user
@@ -8667,6 +9660,13 @@ class AsyncIAMClient:
             password_reuse_prevention: <p>Specifies the number of previous passwords that IAM users are prevented from reusing.</p> <p>If you do not specify a value for this parameter, then the operation uses the default value of <code>0</code>. The result is that IAM users are not prevented from reusing previous passwords.</p>
             hard_expiry: <p> Prevents IAM users who are accessing the account via the Amazon Web Services Management Console from setting a new console password after their password has expired. The IAM user cannot access the console until an administrator resets the password.</p> <p>If you do not specify a value for this parameter, then the operation uses the default value of <code>false</code>. The result is that IAM users can change their passwords after they expire and continue to sign in as the user.</p> <note> <p> In the Amazon Web Services Management Console, the custom password policy option <b>Allow users to change their own password</b> gives IAM users permissions to <code>iam:ChangePassword</code> for only their user and to the <code>iam:GetAccountPasswordPolicy</code> action. This option does not attach a permissions policy to each user, rather the permissions are applied at the account-level for all users by IAM. IAM users with <code>iam:ChangePassword</code> permission and active access keys can reset their own expired console password using the CLI or API.</p> </note>
 
+        Raises:
+            aws_sdk_iam.errors.limit_exceeded_exception.LimitExceededException: <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account limits. The error message describes the limit exceeded.</p>
+            aws_sdk_iam.errors.malformed_policy_document_exception.MalformedPolicyDocumentException: <p>The request was rejected because the policy document was malformed. The error message describes the specific error.</p>
+            aws_sdk_iam.errors.no_such_entity_exception.NoSuchEntityException: <p>The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.</p>
+            aws_sdk_iam.errors.service_failure_exception.ServiceFailureException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To set or change the current account password policy
             The following command sets the password policy to require a minimum length of eight characters and to require one or more numbers in the password:
@@ -8728,6 +9728,14 @@ class AsyncIAMClient:
             role_name: <p>The name of the role to update with the new policy.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
             policy_document: <p>The policy that grants an entity permission to assume the role.</p> <p>You must provide policies in JSON format in IAM. However, for CloudFormation templates formatted in YAML, you can provide the policy in JSON or YAML format. CloudFormation always converts a YAML policy to JSON format before submitting it to IAM.</p> <p>The <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p> <ul> <li> <p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p> </li> <li> <p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p> </li> <li> <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p> </li> </ul>
 
+        Raises:
+            aws_sdk_iam.errors.limit_exceeded_exception.LimitExceededException: <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account limits. The error message describes the limit exceeded.</p>
+            aws_sdk_iam.errors.malformed_policy_document_exception.MalformedPolicyDocumentException: <p>The request was rejected because the policy document was malformed. The error message describes the specific error.</p>
+            aws_sdk_iam.errors.no_such_entity_exception.NoSuchEntityException: <p>The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.</p>
+            aws_sdk_iam.errors.service_failure_exception.ServiceFailureException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_iam.errors.unmodifiable_entity_exception.UnmodifiableEntityException: <p>The request was rejected because service-linked roles are protected Amazon Web Services resources. Only the service that depends on the service-linked role can modify or delete the role on your behalf. The error message includes the name of the service that depends on this service-linked role. You must request the change through that service.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To update the trust policy for an IAM role
             The following command updates the role trust policy for the role named Test-Role:
@@ -8772,6 +9780,13 @@ class AsyncIAMClient:
         Args:
             delegation_request_id: <p>The unique identifier of the delegation request to update.</p>
             notes: <p>Additional notes or comments to add to the delegation request.</p>
+
+        Raises:
+            aws_sdk_iam.errors.concurrent_modification_exception.ConcurrentModificationException: <p>The request was rejected because multiple requests to change this object were submitted simultaneously. Wait a few minutes and submit your request again.</p>
+            aws_sdk_iam.errors.invalid_input_exception.InvalidInputException: <p>The request was rejected because an invalid or out-of-range value was supplied for an input parameter.</p>
+            aws_sdk_iam.errors.no_such_entity_exception.NoSuchEntityException: <p>The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.</p>
+            aws_sdk_iam.errors.service_failure_exception.ServiceFailureException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -8816,6 +9831,13 @@ class AsyncIAMClient:
             group_name: <p>Name of the IAM group to update. If you're changing the name of the group, this is the original name.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
             new_path: <p>New path for the IAM group. Only include this if changing the group's path.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes. In addition, it can contain any ASCII character from the ! (<code>\u0021</code>) through the DEL character (<code>\u007F</code>), including most punctuation characters, digits, and upper and lowercased letters.</p>
             new_group_name: <p>New name for the IAM group. Only include this if changing the group's name.</p> <p>IAM user, group, role, and policy names must be unique within the account. Names are not distinguished by case. For example, you cannot create resources named both \"MyResource\" and \"myresource\".</p>
+
+        Raises:
+            aws_sdk_iam.errors.entity_already_exists_exception.EntityAlreadyExistsException: <p>The request was rejected because it attempted to create a resource that already exists.</p>
+            aws_sdk_iam.errors.limit_exceeded_exception.LimitExceededException: <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account limits. The error message describes the limit exceeded.</p>
+            aws_sdk_iam.errors.no_such_entity_exception.NoSuchEntityException: <p>The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.</p>
+            aws_sdk_iam.errors.service_failure_exception.ServiceFailureException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To rename an IAM group
@@ -8869,6 +9891,14 @@ class AsyncIAMClient:
             password: <p>The new password for the specified IAM user.</p> <p>The <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p> <ul> <li> <p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p> </li> <li> <p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p> </li> <li> <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p> </li> </ul> <p>However, the format can be further restricted by the account administrator by setting a password policy on the Amazon Web Services account. For more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateAccountPasswordPolicy.html\">UpdateAccountPasswordPolicy</a>.</p>
             password_reset_required: <p>Allows this new password to be used only once by requiring the specified IAM user to set a new password on next sign-in.</p>
 
+        Raises:
+            aws_sdk_iam.errors.entity_temporarily_unmodifiable_exception.EntityTemporarilyUnmodifiableException: <p>The request was rejected because it referenced an entity that is temporarily unmodifiable, such as a user name that was deleted and then recreated. The error indicates that the request is likely to succeed if you try again after waiting several minutes. The error message describes the entity.</p>
+            aws_sdk_iam.errors.limit_exceeded_exception.LimitExceededException: <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account limits. The error message describes the limit exceeded.</p>
+            aws_sdk_iam.errors.no_such_entity_exception.NoSuchEntityException: <p>The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.</p>
+            aws_sdk_iam.errors.password_policy_violation_exception.PasswordPolicyViolationException: <p>The request was rejected because the provided password did not meet the requirements imposed by the account password policy.</p>
+            aws_sdk_iam.errors.service_failure_exception.ServiceFailureException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To change the password for an IAM user
             The following command creates or changes the password for the IAM user named Bob.
@@ -8916,6 +9946,13 @@ class AsyncIAMClient:
         Args:
             open_id_connect_provider_arn: <p>The Amazon Resource Name (ARN) of the IAM OIDC provider resource object for which you want to update the thumbprint. You can get a list of OIDC provider ARNs by using the <a href=\"https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListOpenIDConnectProviders.html\">ListOpenIDConnectProviders</a> operation.</p> <p>For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
             thumbprint_list: <p>A list of certificate thumbprints that are associated with the specified IAM OpenID Connect provider. For more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateOpenIDConnectProvider.html\">CreateOpenIDConnectProvider</a>. </p>
+
+        Raises:
+            aws_sdk_iam.errors.concurrent_modification_exception.ConcurrentModificationException: <p>The request was rejected because multiple requests to change this object were submitted simultaneously. Wait a few minutes and submit your request again.</p>
+            aws_sdk_iam.errors.invalid_input_exception.InvalidInputException: <p>The request was rejected because an invalid or out-of-range value was supplied for an input parameter.</p>
+            aws_sdk_iam.errors.no_such_entity_exception.NoSuchEntityException: <p>The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.</p>
+            aws_sdk_iam.errors.service_failure_exception.ServiceFailureException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -8961,6 +9998,12 @@ class AsyncIAMClient:
             role_name: <p>The name of the role that you want to modify.</p>
             description: <p>The new description that you want to apply to the specified role.</p>
             max_session_duration: <p>The maximum session duration (in seconds) that you want to set for the specified role. If you do not specify a value for this setting, the default value of one hour is applied. This setting can have a value from 1 hour to 12 hours.</p> <p>Anyone who assumes the role from the CLI or API can use the <code>DurationSeconds</code> API parameter or the <code>duration-seconds</code> CLI parameter to request a longer session. The <code>MaxSessionDuration</code> setting determines the maximum duration that can be requested using the <code>DurationSeconds</code> parameter. If users don't specify a value for the <code>DurationSeconds</code> parameter, their security credentials are valid for one hour by default. This applies when you use the <code>AssumeRole*</code> API operations or the <code>assume-role*</code> CLI operations but does not apply when you use those operations to create a console URL. For more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use.html\">Using IAM roles</a> in the <i>IAM User Guide</i>.</p> <note> <p>IAM role credentials provided by Amazon EC2 instances assigned to the role are not subject to the specified maximum session duration.</p> </note>
+
+        Raises:
+            aws_sdk_iam.errors.no_such_entity_exception.NoSuchEntityException: <p>The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.</p>
+            aws_sdk_iam.errors.service_failure_exception.ServiceFailureException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_iam.errors.unmodifiable_entity_exception.UnmodifiableEntityException: <p>The request was rejected because service-linked roles are protected Amazon Web Services resources. Only the service that depends on the service-linked role can modify or delete the role on your behalf. The error message includes the name of the service that depends on this service-linked role. You must request the change through that service.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -9005,6 +10048,12 @@ class AsyncIAMClient:
         Args:
             role_name: <p>The name of the role that you want to modify.</p>
             description: <p>The new description that you want to apply to the specified role.</p>
+
+        Raises:
+            aws_sdk_iam.errors.no_such_entity_exception.NoSuchEntityException: <p>The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.</p>
+            aws_sdk_iam.errors.service_failure_exception.ServiceFailureException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_iam.errors.unmodifiable_entity_exception.UnmodifiableEntityException: <p>The request was rejected because service-linked roles are protected Amazon Web Services resources. Only the service that depends on the service-linked role can modify or delete the role on your behalf. The error message includes the name of the service that depends on this service-linked role. You must request the change through that service.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -9060,6 +10109,14 @@ class AsyncIAMClient:
             assertion_encryption_mode: <p>Specifies the encryption setting for the SAML provider.</p>
             add_private_key: <p>Specifies the new private key from your external identity provider. The private key must be a .pem file that uses AES-GCM or AES-CBC encryption algorithm to decrypt SAML assertions.</p>
             remove_private_key: <p>The Key ID of the private key to remove.</p>
+
+        Raises:
+            aws_sdk_iam.errors.concurrent_modification_exception.ConcurrentModificationException: <p>The request was rejected because multiple requests to change this object were submitted simultaneously. Wait a few minutes and submit your request again.</p>
+            aws_sdk_iam.errors.invalid_input_exception.InvalidInputException: <p>The request was rejected because an invalid or out-of-range value was supplied for an input parameter.</p>
+            aws_sdk_iam.errors.limit_exceeded_exception.LimitExceededException: <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account limits. The error message describes the limit exceeded.</p>
+            aws_sdk_iam.errors.no_such_entity_exception.NoSuchEntityException: <p>The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.</p>
+            aws_sdk_iam.errors.service_failure_exception.ServiceFailureException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -9112,6 +10169,13 @@ class AsyncIAMClient:
             server_certificate_name: <p>The name of the server certificate that you want to update.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
             new_path: <p>The new path for the server certificate. Include this only if you are updating the server certificate's path.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes. In addition, it can contain any ASCII character from the ! (<code>\u0021</code>) through the DEL character (<code>\u007F</code>), including most punctuation characters, digits, and upper and lowercased letters.</p>
             new_server_certificate_name: <p>The new name for the server certificate. Include this only if you are updating the server certificate's name. The name of the certificate cannot contain any spaces.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+
+        Raises:
+            aws_sdk_iam.errors.entity_already_exists_exception.EntityAlreadyExistsException: <p>The request was rejected because it attempted to create a resource that already exists.</p>
+            aws_sdk_iam.errors.limit_exceeded_exception.LimitExceededException: <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account limits. The error message describes the limit exceeded.</p>
+            aws_sdk_iam.errors.no_such_entity_exception.NoSuchEntityException: <p>The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.</p>
+            aws_sdk_iam.errors.service_failure_exception.ServiceFailureException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -9156,6 +10220,10 @@ class AsyncIAMClient:
             user_name: <p>The name of the IAM user associated with the service-specific credential. If you do not specify this value, then the operation assumes the user whose credentials are used to call the operation.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
             service_specific_credential_id: <p>The unique identifier of the service-specific credential.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters that can consist of any upper or lowercased letter or digit.</p>
             status: <p>The status to be assigned to the service-specific credential.</p>
+
+        Raises:
+            aws_sdk_iam.errors.no_such_entity_exception.NoSuchEntityException: <p>The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -9201,6 +10269,13 @@ class AsyncIAMClient:
             user_name: <p>The name of the IAM user the signing certificate belongs to.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
             certificate_id: <p>The ID of the signing certificate you want to update.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters that can consist of any upper or lowercased letter or digit.</p>
             status: <p> The status you want to assign to the certificate. <code>Active</code> means that the certificate can be used for programmatic calls to Amazon Web Services <code>Inactive</code> means that the certificate cannot be used.</p>
+
+        Raises:
+            aws_sdk_iam.errors.invalid_input_exception.InvalidInputException: <p>The request was rejected because an invalid or out-of-range value was supplied for an input parameter.</p>
+            aws_sdk_iam.errors.limit_exceeded_exception.LimitExceededException: <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account limits. The error message describes the limit exceeded.</p>
+            aws_sdk_iam.errors.no_such_entity_exception.NoSuchEntityException: <p>The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.</p>
+            aws_sdk_iam.errors.service_failure_exception.ServiceFailureException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To change the active status of a signing certificate for an IAM user
@@ -9250,6 +10325,11 @@ class AsyncIAMClient:
             user_name: <p>The name of the IAM user associated with the SSH public key.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
             ssh_public_key_id: <p>The unique identifier for the SSH public key.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters that can consist of any upper or lowercased letter or digit.</p>
             status: <p>The status to assign to the SSH public key. <code>Active</code> means that the key can be used for authentication with an CodeCommit repository. <code>Inactive</code> means that the key cannot be used.</p>
+
+        Raises:
+            aws_sdk_iam.errors.invalid_input_exception.InvalidInputException: <p>The request was rejected because an invalid or out-of-range value was supplied for an input parameter.</p>
+            aws_sdk_iam.errors.no_such_entity_exception.NoSuchEntityException: <p>The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -9292,6 +10372,15 @@ class AsyncIAMClient:
             user_name: <p>Name of the user to update. If you're changing the name of the user, this is the original user name.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
             new_path: <p>New path for the IAM user. Include this parameter only if you're changing the user's path.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes. In addition, it can contain any ASCII character from the ! (<code>\u0021</code>) through the DEL character (<code>\u007F</code>), including most punctuation characters, digits, and upper and lowercased letters.</p>
             new_user_name: <p>New name for the user. Include this parameter only if you're changing the user's name.</p> <p>IAM user, group, role, and policy names must be unique within the account. Names are not distinguished by case. For example, you cannot create resources named both \"MyResource\" and \"myresource\".</p>
+
+        Raises:
+            aws_sdk_iam.errors.concurrent_modification_exception.ConcurrentModificationException: <p>The request was rejected because multiple requests to change this object were submitted simultaneously. Wait a few minutes and submit your request again.</p>
+            aws_sdk_iam.errors.entity_already_exists_exception.EntityAlreadyExistsException: <p>The request was rejected because it attempted to create a resource that already exists.</p>
+            aws_sdk_iam.errors.entity_temporarily_unmodifiable_exception.EntityTemporarilyUnmodifiableException: <p>The request was rejected because it referenced an entity that is temporarily unmodifiable, such as a user name that was deleted and then recreated. The error indicates that the request is likely to succeed if you try again after waiting several minutes. The error message describes the entity.</p>
+            aws_sdk_iam.errors.limit_exceeded_exception.LimitExceededException: <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account limits. The error message describes the limit exceeded.</p>
+            aws_sdk_iam.errors.no_such_entity_exception.NoSuchEntityException: <p>The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.</p>
+            aws_sdk_iam.errors.service_failure_exception.ServiceFailureException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To change an IAM user's name
@@ -9351,6 +10440,16 @@ class AsyncIAMClient:
             certificate_chain: <p>The contents of the certificate chain. This is typically a concatenation of the PEM-encoded public key certificates of the chain.</p> <p>The <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p> <ul> <li> <p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p> </li> <li> <p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p> </li> <li> <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p> </li> </ul>
             tags: <p>A list of tags that you want to attach to the new IAM server certificate resource. Each tag consists of a key name and an associated value. For more information about tagging, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html\">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p> <note> <p>If any one of the tags is invalid or if you exceed the allowed maximum number of tags, then the entire request fails and the resource is not created.</p> </note>
 
+        Raises:
+            aws_sdk_iam.errors.concurrent_modification_exception.ConcurrentModificationException: <p>The request was rejected because multiple requests to change this object were submitted simultaneously. Wait a few minutes and submit your request again.</p>
+            aws_sdk_iam.errors.entity_already_exists_exception.EntityAlreadyExistsException: <p>The request was rejected because it attempted to create a resource that already exists.</p>
+            aws_sdk_iam.errors.invalid_input_exception.InvalidInputException: <p>The request was rejected because an invalid or out-of-range value was supplied for an input parameter.</p>
+            aws_sdk_iam.errors.key_pair_mismatch_exception.KeyPairMismatchException: <p>The request was rejected because the public key certificate and the private key do not match.</p>
+            aws_sdk_iam.errors.limit_exceeded_exception.LimitExceededException: <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account limits. The error message describes the limit exceeded.</p>
+            aws_sdk_iam.errors.malformed_certificate_exception.MalformedCertificateException: <p>The request was rejected because the certificate was malformed or expired. The error message describes the specific error.</p>
+            aws_sdk_iam.errors.service_failure_exception.ServiceFailureException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To upload a server certificate to your AWS account
             The following upload-server-certificate command uploads a server certificate to your AWS account:
@@ -9407,6 +10506,17 @@ class AsyncIAMClient:
             user_name: <p>The name of the user the signing certificate is for.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
             certificate_body: <p>The contents of the signing certificate.</p> <p>The <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p> <ul> <li> <p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p> </li> <li> <p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p> </li> <li> <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p> </li> </ul>
 
+        Raises:
+            aws_sdk_iam.errors.concurrent_modification_exception.ConcurrentModificationException: <p>The request was rejected because multiple requests to change this object were submitted simultaneously. Wait a few minutes and submit your request again.</p>
+            aws_sdk_iam.errors.duplicate_certificate_exception.DuplicateCertificateException: <p>The request was rejected because the same certificate is associated with an IAM user in the account.</p>
+            aws_sdk_iam.errors.entity_already_exists_exception.EntityAlreadyExistsException: <p>The request was rejected because it attempted to create a resource that already exists.</p>
+            aws_sdk_iam.errors.invalid_certificate_exception.InvalidCertificateException: <p>The request was rejected because the certificate is invalid.</p>
+            aws_sdk_iam.errors.limit_exceeded_exception.LimitExceededException: <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account limits. The error message describes the limit exceeded.</p>
+            aws_sdk_iam.errors.malformed_certificate_exception.MalformedCertificateException: <p>The request was rejected because the certificate was malformed or expired. The error message describes the specific error.</p>
+            aws_sdk_iam.errors.no_such_entity_exception.NoSuchEntityException: <p>The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.</p>
+            aws_sdk_iam.errors.service_failure_exception.ServiceFailureException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To upload a signing certificate for an IAM user
             The following command uploads a signing certificate for the IAM user named Bob.
@@ -9454,6 +10564,14 @@ class AsyncIAMClient:
         Args:
             user_name: <p>The name of the IAM user to associate the SSH public key with.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
             ssh_public_key_body: <p>The SSH public key. The public key must be encoded in ssh-rsa format or PEM format. The minimum bit-length of the public key is 2048 bits. For example, you can generate a 2048-bit key, and the resulting PEM file is 1679 bytes long.</p> <p>The <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p> <ul> <li> <p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p> </li> <li> <p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p> </li> <li> <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p> </li> </ul>
+
+        Raises:
+            aws_sdk_iam.errors.duplicate_ssh_public_key_exception.DuplicateSSHPublicKeyException: <p>The request was rejected because the SSH public key is already associated with the specified IAM user.</p>
+            aws_sdk_iam.errors.invalid_public_key_exception.InvalidPublicKeyException: <p>The request was rejected because the public key is malformed or otherwise invalid.</p>
+            aws_sdk_iam.errors.limit_exceeded_exception.LimitExceededException: <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account limits. The error message describes the limit exceeded.</p>
+            aws_sdk_iam.errors.no_such_entity_exception.NoSuchEntityException: <p>The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.</p>
+            aws_sdk_iam.errors.unrecognized_public_key_encoding_exception.UnrecognizedPublicKeyEncodingException: <p>The request was rejected because the public key encoding format is unsupported or unrecognized.</p>
+            aws_sdk_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

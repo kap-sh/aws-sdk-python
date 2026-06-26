@@ -327,6 +327,11 @@ class DataSyncClient:
 
         Args:
             task_execution_arn: <p>The Amazon Resource Name (ARN) of the task execution to stop.</p>
+
+        Raises:
+            aws_sdk_datasync.errors.internal_exception.InternalException: <p>This exception is thrown when an error occurs in the DataSync service.</p>
+            aws_sdk_datasync.errors.invalid_request_exception.InvalidRequestException: <p>This exception is thrown when the client submits a malformed request.</p>
+            aws_sdk_datasync.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -380,6 +385,11 @@ class DataSyncClient:
             vpc_endpoint_id: <p>Specifies the ID of the <a href=\"https://docs.aws.amazon.com/datasync/latest/userguide/choose-service-endpoint.html#datasync-in-vpc\">VPC service endpoint</a> that you're using. For example, a VPC endpoint ID looks like <code>vpce-01234d5aff67890e1</code>.</p> <important> <p>The VPC service endpoint you use must include the DataSync service name (for example, <code>com.amazonaws.us-east-2.datasync</code>).</p> </important>
             subnet_arns: <p>Specifies the ARN of the subnet where your VPC service endpoint is located. You can only specify one ARN.</p>
             security_group_arns: <p>Specifies the Amazon Resource Name (ARN) of the security group that allows traffic between your agent and VPC service endpoint. You can only specify one ARN.</p>
+
+        Raises:
+            aws_sdk_datasync.errors.internal_exception.InternalException: <p>This exception is thrown when an error occurs in the DataSync service.</p>
+            aws_sdk_datasync.errors.invalid_request_exception.InvalidRequestException: <p>This exception is thrown when the client submits a malformed request.</p>
+            aws_sdk_datasync.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -459,6 +469,11 @@ class DataSyncClient:
             tags: <p>Specifies labels that help you categorize, filter, and search for your Amazon Web Services resources. We recommend creating at least a name tag for your transfer location.</p>
             cmk_secret_config: <p>Specifies configuration information for a DataSync-managed secret, which includes the authentication token that DataSync uses to access a specific AzureBlob storage location, with a customer-managed KMS key.</p> <p>When you include this parameter as part of a <code>CreateLocationAzureBlob</code> request, you provide only the KMS key ARN. DataSync uses this KMS key together with the authentication token you specify for <code>SasConfiguration</code> to create a DataSync-managed secret to store the location access credentials.</p> <p>Make sure that DataSync has permission to access the KMS key that you specify. For more information, see <a href=\"https://docs.aws.amazon.com/datasync/latest/userguide/location-credentials.html#service-secret-custom-key\"> Using a service-managed secret encrypted with a custom KMS key</a>.</p> <note> <p>You can use either <code>CmkSecretConfig</code> (with <code>SasConfiguration</code>) or <code>CustomSecretConfig</code> (without <code>SasConfiguration</code>) to provide credentials for a <code>CreateLocationAzureBlob</code> request. Do not provide both parameters for the same request.</p> </note>
             custom_secret_config: <p>Specifies configuration information for a customer-managed Secrets Manager secret where the authentication token for an AzureBlob storage location is stored in plain text, in Secrets Manager. This configuration includes the secret ARN, and the ARN for an IAM role that provides access to the secret. For more information, see <a href=\"https://docs.aws.amazon.com/datasync/latest/userguide/location-credentials.html#custom-secret-custom-key\"> Using a secret that you manage</a>.</p> <note> <p>You can use either <code>CmkSecretConfig</code> (with <code>SasConfiguration</code>) or <code>CustomSecretConfig</code> (without <code>SasConfiguration</code>) to provide credentials for a <code>CreateLocationAzureBlob</code> request. Do not provide both parameters for the same request.</p> </note>
+
+        Raises:
+            aws_sdk_datasync.errors.internal_exception.InternalException: <p>This exception is thrown when an error occurs in the DataSync service.</p>
+            aws_sdk_datasync.errors.invalid_request_exception.InvalidRequestException: <p>This exception is thrown when the client submits a malformed request.</p>
+            aws_sdk_datasync.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -535,6 +550,11 @@ class DataSyncClient:
             access_point_arn: <p>Specifies the Amazon Resource Name (ARN) of the access point that DataSync uses to mount your Amazon EFS file system.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/datasync/latest/userguide/create-efs-location.html#create-efs-location-iam\">Accessing restricted file systems</a>.</p>
             file_system_access_role_arn: <p>Specifies an Identity and Access Management (IAM) role that allows DataSync to access your Amazon EFS file system.</p> <p>For information on creating this role, see <a href=\"https://docs.aws.amazon.com/datasync/latest/userguide/create-efs-location.html#create-efs-location-iam-role\">Creating a DataSync IAM role for file system access</a>.</p>
             in_transit_encryption: <p>Specifies whether you want DataSync to use Transport Layer Security (TLS) 1.2 encryption when it transfers data to or from your Amazon EFS file system.</p> <p>If you specify an access point using <code>AccessPointArn</code> or an IAM role using <code>FileSystemAccessRoleArn</code>, you must set this parameter to <code>TLS1_2</code>.</p>
+
+        Raises:
+            aws_sdk_datasync.errors.internal_exception.InternalException: <p>This exception is thrown when an error occurs in the DataSync service.</p>
+            aws_sdk_datasync.errors.invalid_request_exception.InvalidRequestException: <p>This exception is thrown when the client submits a malformed request.</p>
+            aws_sdk_datasync.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -591,6 +611,11 @@ class DataSyncClient:
             security_group_arns: <p>Specifies the Amazon Resource Names (ARNs) of up to five security groups that provide access to your FSx for Lustre file system.</p> <p>The security groups must be able to access the file system's ports. The file system must also allow access from the security groups. For information about file system access, see the <a href=\"https://docs.aws.amazon.com/fsx/latest/LustreGuide/limit-access-security-groups.html\"> <i>Amazon FSx for Lustre User Guide</i> </a>.</p>
             subdirectory: <p>Specifies a mount path for your FSx for Lustre file system. The path can include subdirectories.</p> <p>When the location is used as a source, DataSync reads data from the mount path. When the location is used as a destination, DataSync writes data to the mount path. If you don't include this parameter, DataSync uses the file system's root directory (<code>/</code>).</p>
             tags: <p>Specifies labels that help you categorize, filter, and search for your Amazon Web Services resources. We recommend creating at least a name tag for your location.</p>
+
+        Raises:
+            aws_sdk_datasync.errors.internal_exception.InternalException: <p>This exception is thrown when an error occurs in the DataSync service.</p>
+            aws_sdk_datasync.errors.invalid_request_exception.InvalidRequestException: <p>This exception is thrown when the client submits a malformed request.</p>
+            aws_sdk_datasync.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -642,6 +667,11 @@ class DataSyncClient:
             storage_virtual_machine_arn: <p>Specifies the ARN of the storage virtual machine (SVM) in your file system where you want to copy data to or from.</p>
             subdirectory: <p>Specifies a path to the file share in the SVM where you want to transfer data to or from.</p> <p>You can specify a junction path (also known as a mount point), qtree path (for NFS file shares), or share name (for SMB file shares). For example, your mount path might be <code>/vol1</code>, <code>/vol1/tree1</code>, or <code>/share1</code>.</p> <note> <p>Don't specify a junction path in the SVM's root volume. For more information, see <a href=\"https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/managing-svms.html\">Managing FSx for ONTAP storage virtual machines</a> in the <i>Amazon FSx for NetApp ONTAP User Guide</i>.</p> </note>
             tags: <p>Specifies labels that help you categorize, filter, and search for your Amazon Web Services resources. We recommend creating at least a name tag for your location.</p>
+
+        Raises:
+            aws_sdk_datasync.errors.internal_exception.InternalException: <p>This exception is thrown when an error occurs in the DataSync service.</p>
+            aws_sdk_datasync.errors.invalid_request_exception.InvalidRequestException: <p>This exception is thrown when the client submits a malformed request.</p>
+            aws_sdk_datasync.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -695,6 +725,11 @@ class DataSyncClient:
             security_group_arns: <p>The ARNs of the security groups that are used to configure the FSx for OpenZFS file system.</p>
             subdirectory: <p>A subdirectory in the location's path that must begin with <code>/fsx</code>. DataSync uses this subdirectory to read or write data (depending on whether the file system is a source or destination location).</p>
             tags: <p>The key-value pair that represents a tag that you want to add to the resource. The value can be an empty string. This value helps you manage, filter, and search for your resources. We recommend that you create a name tag for your location.</p>
+
+        Raises:
+            aws_sdk_datasync.errors.internal_exception.InternalException: <p>This exception is thrown when an error occurs in the DataSync service.</p>
+            aws_sdk_datasync.errors.invalid_request_exception.InvalidRequestException: <p>This exception is thrown when the client submits a malformed request.</p>
+            aws_sdk_datasync.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -760,6 +795,11 @@ class DataSyncClient:
             password: <p>Specifies the password of the user with the permissions to mount and access the files, folders, and file metadata in your FSx for Windows File Server file system.</p>
             cmk_secret_config: <p>Specifies configuration information for a DataSync-managed secret, which includes the password that DataSync uses to access a specific FSx Windows storage location, with a customer-managed KMS key.</p> <p>When you include this parameter as part of a <code>CreateLocationFsxWindows</code> request, you provide only the KMS key ARN. DataSync uses this KMS key together with the <code>Password</code> you specify for to create a DataSync-managed secret to store the location access credentials.</p> <p>Make sure that DataSync has permission to access the KMS key that you specify. For more information, see <a href=\"https://docs.aws.amazon.com/datasync/latest/userguide/location-credentials.html#service-secret-custom-key\"> Using a service-managed secret encrypted with a custom KMS key</a>.</p> <note> <p>You can use either <code>CmkSecretConfig</code> (with <code>Password</code>) or <code>CustomSecretConfig</code> (without <code>Password</code>) to provide credentials for a <code>CreateLocationFsxWindows</code> request. Do not provide both parameters for the same request.</p> </note>
             custom_secret_config: <p>Specifies configuration information for a customer-managed Secrets Manager secret where the password for an FSx for Windows File Server storage location is stored in plain text, in Secrets Manager. This configuration includes the secret ARN, and the ARN for an IAM role that provides access to the secret. For more information, see <a href=\"https://docs.aws.amazon.com/datasync/latest/userguide/location-credentials.html#custom-secret-custom-key\"> Using a secret that you manage</a>.</p> <note> <p>You can use either <code>CmkSecretConfig</code> (with <code>Password</code>) or <code>CustomSecretConfig</code> (without <code>Password</code>) to provide credentials for a <code>CreateLocationFsxWindows</code> request. Do not provide both parameters for the same request.</p> </note>
+
+        Raises:
+            aws_sdk_datasync.errors.internal_exception.InternalException: <p>This exception is thrown when an error occurs in the DataSync service.</p>
+            aws_sdk_datasync.errors.invalid_request_exception.InvalidRequestException: <p>This exception is thrown when the client submits a malformed request.</p>
+            aws_sdk_datasync.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -859,6 +899,11 @@ class DataSyncClient:
             tags: <p>The key-value pair that represents the tag that you want to add to the location. The value can be an empty string. We recommend using tags to name your resources. </p>
             cmk_secret_config: <p>Specifies configuration information for a DataSync-managed secret, which includes the Kerberos keytab that DataSync uses to access a specific Hadoop Distributed File System (HDFS) storage location, with a customer-managed KMS key.</p> <p>When you include this parameter as part of a <code>CreateLocationHdfs</code> request, you provide only the KMS key ARN. DataSync uses this KMS key together with the <code>KerberosKeytab</code> you specify for to create a DataSync-managed secret to store the location access credentials.</p> <p>Make sure that DataSync has permission to access the KMS key that you specify. For more information, see <a href=\"https://docs.aws.amazon.com/datasync/latest/userguide/location-credentials.html#service-secret-custom-key\"> Using a service-managed secret encrypted with a custom KMS key</a>.</p> <note> <p>You can use either <code>CmkSecretConfig</code> (with <code>KerberosKeytab</code>) or <code>CustomSecretConfig</code> (without <code>KerberosKeytab</code>) to provide credentials for a <code>CreateLocationHdfs</code> request. Do not provide both parameters for the same request.</p> </note>
             custom_secret_config: <p>Specifies configuration information for a customer-managed Secrets Manager secret where the Kerberos keytab for the HDFS storage location is stored in binary, in Secrets Manager. This configuration includes the secret ARN, and the ARN for an IAM role that provides access to the secret. For more information, see <a href=\"https://docs.aws.amazon.com/datasync/latest/userguide/location-credentials.html#custom-secret-custom-key\"> Using a secret that you manage</a>.</p> <note> <p>You can use either <code>CmkSecretConfig</code> (with <code>KerberosKeytab</code>) or <code>CustomSecretConfig</code> (without <code>KerberosKeytab</code>) to provide credentials for a <code>CreateLocationHdfs</code> request. Do not provide both parameters for the same request.</p> </note>
+
+        Raises:
+            aws_sdk_datasync.errors.internal_exception.InternalException: <p>This exception is thrown when an error occurs in the DataSync service.</p>
+            aws_sdk_datasync.errors.invalid_request_exception.InvalidRequestException: <p>This exception is thrown when the client submits a malformed request.</p>
+            aws_sdk_datasync.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -934,6 +979,11 @@ class DataSyncClient:
             on_prem_config: <p>Specifies the Amazon Resource Name (ARN) of the DataSync agent that can connect to your NFS file server.</p> <p>You can specify more than one agent. For more information, see <a href=\"https://docs.aws.amazon.com/datasync/latest/userguide/do-i-need-datasync-agent.html#multiple-agents\">Using multiple DataSync agents</a>.</p>
             mount_options: <p>Specifies the options that DataSync can use to mount your NFS file server.</p>
             tags: <p>Specifies labels that help you categorize, filter, and search for your Amazon Web Services resources. We recommend creating at least a name tag for your location.</p>
+
+        Raises:
+            aws_sdk_datasync.errors.internal_exception.InternalException: <p>This exception is thrown when an error occurs in the DataSync service.</p>
+            aws_sdk_datasync.errors.invalid_request_exception.InvalidRequestException: <p>This exception is thrown when the client submits a malformed request.</p>
+            aws_sdk_datasync.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1017,6 +1067,11 @@ class DataSyncClient:
             server_certificate: <p>Specifies a certificate chain for DataSync to authenticate with your object storage system if the system uses a private or self-signed certificate authority (CA). You must specify a single <code>.pem</code> file with a full certificate chain (for example, <code>file:///home/user/.ssh/object_storage_certificates.pem</code>).</p> <p>The certificate chain might include:</p> <ul> <li> <p>The object storage system's certificate</p> </li> <li> <p>All intermediate certificates (if there are any)</p> </li> <li> <p>The root certificate of the signing CA</p> </li> </ul> <p>You can concatenate your certificates into a <code>.pem</code> file (which can be up to 32768 bytes before base64 encoding). The following example <code>cat</code> command creates an <code>object_storage_certificates.pem</code> file that includes three certificates:</p> <p> <code>cat object_server_certificate.pem intermediate_certificate.pem ca_root_certificate.pem > object_storage_certificates.pem</code> </p> <p>To use this parameter, configure <code>ServerProtocol</code> to <code>HTTPS</code>.</p>
             cmk_secret_config: <p>Specifies configuration information for a DataSync-managed secret, which includes the <code>SecretKey</code> that DataSync uses to access a specific object storage location, with a customer-managed KMS key.</p> <p>When you include this parameter as part of a <code>CreateLocationObjectStorage</code> request, you provide only the KMS key ARN. DataSync uses this KMS key together with the value you specify for the <code>SecretKey</code> parameter to create a DataSync-managed secret to store the location access credentials.</p> <p>Make sure that DataSync has permission to access the KMS key that you specify. For more information, see <a href=\"https://docs.aws.amazon.com/datasync/latest/userguide/location-credentials.html#service-secret-custom-key\"> Using a service-managed secret encrypted with a custom KMS key</a>.</p> <note> <p>You can use either <code>CmkSecretConfig</code> (with <code>SecretKey</code>) or <code>CustomSecretConfig</code> (without <code>SecretKey</code>) to provide credentials for a <code>CreateLocationObjectStorage</code> request. Do not provide both parameters for the same request.</p> </note>
             custom_secret_config: <p>Specifies configuration information for a customer-managed Secrets Manager secret where the secret key for a specific object storage location is stored in plain text, in Secrets Manager. This configuration includes the secret ARN, and the ARN for an IAM role that provides access to the secret. For more information, see <a href=\"https://docs.aws.amazon.com/datasync/latest/userguide/location-credentials.html#custom-secret-custom-key\"> Using a secret that you manage</a>.</p> <note> <p>You can use either <code>CmkSecretConfig</code> (with <code>SecretKey</code>) or <code>CustomSecretConfig</code> (without <code>SecretKey</code>) to provide credentials for a <code>CreateLocationObjectStorage</code> request. Do not provide both parameters for the same request.</p> </note>
+
+        Raises:
+            aws_sdk_datasync.errors.internal_exception.InternalException: <p>This exception is thrown when an error occurs in the DataSync service.</p>
+            aws_sdk_datasync.errors.invalid_request_exception.InvalidRequestException: <p>This exception is thrown when the client submits a malformed request.</p>
+            aws_sdk_datasync.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1090,6 +1145,11 @@ class DataSyncClient:
             s3_storage_class: <p>Specifies the storage class that you want your objects to use when Amazon S3 is a transfer destination.</p> <p>For buckets in Amazon Web Services Regions, the storage class defaults to <code>STANDARD</code>. For buckets on Outposts, the storage class defaults to <code>OUTPOSTS</code>.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes\">Storage class considerations with Amazon S3 transfers</a>.</p>
             agent_arns: <p>(Amazon S3 on Outposts only) Specifies the Amazon Resource Name (ARN) of the DataSync agent on your Outpost.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/datasync/latest/userguide/deploy-agents.html#outposts-agent\">Deploy your DataSync agent on Outposts</a>.</p>
             tags: <p>Specifies labels that help you categorize, filter, and search for your Amazon Web Services resources. We recommend creating at least a name tag for your transfer location.</p>
+
+        Raises:
+            aws_sdk_datasync.errors.internal_exception.InternalException: <p>This exception is thrown when an error occurs in the DataSync service.</p>
+            aws_sdk_datasync.errors.invalid_request_exception.InvalidRequestException: <p>This exception is thrown when the client submits a malformed request.</p>
+            aws_sdk_datasync.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1182,6 +1242,11 @@ class DataSyncClient:
             kerberos_principal: <p>Specifies a Kerberos principal, which is an identity in your Kerberos realm that has permission to access the files, folders, and file metadata in your SMB file server.</p> <p>A Kerberos principal might look like <code>HOST/kerberosuser@MYDOMAIN.ORG</code>.</p> <p>Principal names are case sensitive. Your DataSync task execution will fail if the principal that you specify for this parameter doesn’t exactly match the principal that you use to create the keytab file.</p>
             kerberos_keytab: <p>Specifies your Kerberos key table (keytab) file, which includes mappings between your Kerberos principal and encryption keys.</p> <p>To avoid task execution errors, make sure that the Kerberos principal that you use to create the keytab file matches exactly what you specify for <code>KerberosPrincipal</code>. </p>
             kerberos_krb5_conf: <p>Specifies a Kerberos configuration file (<code>krb5.conf</code>) that defines your Kerberos realm configuration.</p> <p>The file must be base64 encoded. If you're using the CLI, the encoding is done for you.</p>
+
+        Raises:
+            aws_sdk_datasync.errors.internal_exception.InternalException: <p>This exception is thrown when an error occurs in the DataSync service.</p>
+            aws_sdk_datasync.errors.invalid_request_exception.InvalidRequestException: <p>This exception is thrown when the client submits a malformed request.</p>
+            aws_sdk_datasync.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1273,6 +1338,11 @@ class DataSyncClient:
             manifest_config: <p>Configures a manifest, which is a list of files or objects that you want DataSync to transfer. For more information and configuration examples, see <a href=\"https://docs.aws.amazon.com/datasync/latest/userguide/transferring-with-manifest.html\">Specifying what DataSync transfers by using a manifest</a>.</p> <p>When using this parameter, your caller identity (the role that you're using DataSync with) must have the <code>iam:PassRole</code> permission. The <a href=\"https://docs.aws.amazon.com/datasync/latest/userguide/security-iam-awsmanpol.html#security-iam-awsmanpol-awsdatasyncfullaccess\">AWSDataSyncFullAccess</a> policy includes this permission.</p>
             task_report_config: <p>Specifies how you want to configure a task report, which provides detailed information about your DataSync transfer. For more information, see <a href=\"https://docs.aws.amazon.com/datasync/latest/userguide/task-reports.html\">Monitoring your DataSync transfers with task reports</a>.</p> <p>When using this parameter, your caller identity (the role that you're using DataSync with) must have the <code>iam:PassRole</code> permission. The <a href=\"https://docs.aws.amazon.com/datasync/latest/userguide/security-iam-awsmanpol.html#security-iam-awsmanpol-awsdatasyncfullaccess\">AWSDataSyncFullAccess</a> policy includes this permission.</p>
             task_mode: <p>Specifies one of the following task modes for your data transfer:</p> <ul> <li> <p> <code>ENHANCED</code> - Transfer virtually unlimited numbers of objects with higher performance than Basic mode. Enhanced mode tasks optimize the data transfer process by listing, preparing, transferring, and verifying data in parallel. Enhanced mode is currently available for transfers between Amazon S3 locations, transfers between Azure Blob and Amazon S3 without an agent, and transfers between other clouds and Amazon S3 without an agent.</p> <note> <p>To create an Enhanced mode task, the IAM role that you use to call the <code>CreateTask</code> operation must have the <code>iam:CreateServiceLinkedRole</code> permission.</p> </note> </li> <li> <p> <code>BASIC</code> (default) - Transfer files or objects between Amazon Web Services storage and all other supported DataSync locations. Basic mode tasks are subject to <a href=\"https://docs.aws.amazon.com/datasync/latest/userguide/datasync-limits.html\">quotas</a> on the number of files, objects, and directories in a dataset. Basic mode sequentially prepares, transfers, and verifies data, making it slower than Enhanced mode for most workloads.</p> </li> </ul> <p>For more information, see <a href=\"https://docs.aws.amazon.com/datasync/latest/userguide/choosing-task-mode.html#task-mode-differences\">Understanding task mode differences</a>.</p>
+
+        Raises:
+            aws_sdk_datasync.errors.internal_exception.InternalException: <p>This exception is thrown when an error occurs in the DataSync service.</p>
+            aws_sdk_datasync.errors.invalid_request_exception.InvalidRequestException: <p>This exception is thrown when the client submits a malformed request.</p>
+            aws_sdk_datasync.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1331,6 +1401,11 @@ class DataSyncClient:
 
         Args:
             agent_arn: <p>The Amazon Resource Name (ARN) of the agent to delete. Use the <code>ListAgents</code> operation to return a list of agents for your account and Amazon Web Services Region.</p>
+
+        Raises:
+            aws_sdk_datasync.errors.internal_exception.InternalException: <p>This exception is thrown when an error occurs in the DataSync service.</p>
+            aws_sdk_datasync.errors.invalid_request_exception.InvalidRequestException: <p>This exception is thrown when the client submits a malformed request.</p>
+            aws_sdk_datasync.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1368,6 +1443,11 @@ class DataSyncClient:
 
         Args:
             location_arn: <p>The Amazon Resource Name (ARN) of the location to delete.</p>
+
+        Raises:
+            aws_sdk_datasync.errors.internal_exception.InternalException: <p>This exception is thrown when an error occurs in the DataSync service.</p>
+            aws_sdk_datasync.errors.invalid_request_exception.InvalidRequestException: <p>This exception is thrown when the client submits a malformed request.</p>
+            aws_sdk_datasync.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1405,6 +1485,11 @@ class DataSyncClient:
 
         Args:
             task_arn: <p>Specifies the Amazon Resource Name (ARN) of the task that you want to delete.</p>
+
+        Raises:
+            aws_sdk_datasync.errors.internal_exception.InternalException: <p>This exception is thrown when an error occurs in the DataSync service.</p>
+            aws_sdk_datasync.errors.invalid_request_exception.InvalidRequestException: <p>This exception is thrown when the client submits a malformed request.</p>
+            aws_sdk_datasync.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1442,6 +1527,11 @@ class DataSyncClient:
 
         Args:
             agent_arn: <p>Specifies the Amazon Resource Name (ARN) of the DataSync agent that you want information about.</p>
+
+        Raises:
+            aws_sdk_datasync.errors.internal_exception.InternalException: <p>This exception is thrown when an error occurs in the DataSync service.</p>
+            aws_sdk_datasync.errors.invalid_request_exception.InvalidRequestException: <p>This exception is thrown when the client submits a malformed request.</p>
+            aws_sdk_datasync.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1479,6 +1569,11 @@ class DataSyncClient:
 
         Args:
             location_arn: <p>Specifies the Amazon Resource Name (ARN) of your Azure Blob Storage transfer location.</p>
+
+        Raises:
+            aws_sdk_datasync.errors.internal_exception.InternalException: <p>This exception is thrown when an error occurs in the DataSync service.</p>
+            aws_sdk_datasync.errors.invalid_request_exception.InvalidRequestException: <p>This exception is thrown when the client submits a malformed request.</p>
+            aws_sdk_datasync.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1516,6 +1611,11 @@ class DataSyncClient:
 
         Args:
             location_arn: <p>The Amazon Resource Name (ARN) of the Amazon EFS file system location that you want information about.</p>
+
+        Raises:
+            aws_sdk_datasync.errors.internal_exception.InternalException: <p>This exception is thrown when an error occurs in the DataSync service.</p>
+            aws_sdk_datasync.errors.invalid_request_exception.InvalidRequestException: <p>This exception is thrown when the client submits a malformed request.</p>
+            aws_sdk_datasync.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1553,6 +1653,11 @@ class DataSyncClient:
 
         Args:
             location_arn: <p>The Amazon Resource Name (ARN) of the FSx for Lustre location to describe. </p>
+
+        Raises:
+            aws_sdk_datasync.errors.internal_exception.InternalException: <p>This exception is thrown when an error occurs in the DataSync service.</p>
+            aws_sdk_datasync.errors.invalid_request_exception.InvalidRequestException: <p>This exception is thrown when the client submits a malformed request.</p>
+            aws_sdk_datasync.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1590,6 +1695,11 @@ class DataSyncClient:
 
         Args:
             location_arn: <p>Specifies the Amazon Resource Name (ARN) of the FSx for ONTAP file system location that you want information about.</p>
+
+        Raises:
+            aws_sdk_datasync.errors.internal_exception.InternalException: <p>This exception is thrown when an error occurs in the DataSync service.</p>
+            aws_sdk_datasync.errors.invalid_request_exception.InvalidRequestException: <p>This exception is thrown when the client submits a malformed request.</p>
+            aws_sdk_datasync.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1627,6 +1737,11 @@ class DataSyncClient:
 
         Args:
             location_arn: <p>The Amazon Resource Name (ARN) of the FSx for OpenZFS location to describe.</p>
+
+        Raises:
+            aws_sdk_datasync.errors.internal_exception.InternalException: <p>This exception is thrown when an error occurs in the DataSync service.</p>
+            aws_sdk_datasync.errors.invalid_request_exception.InvalidRequestException: <p>This exception is thrown when the client submits a malformed request.</p>
+            aws_sdk_datasync.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1664,6 +1779,11 @@ class DataSyncClient:
 
         Args:
             location_arn: <p>Specifies the Amazon Resource Name (ARN) of the FSx for Windows File Server location.</p>
+
+        Raises:
+            aws_sdk_datasync.errors.internal_exception.InternalException: <p>This exception is thrown when an error occurs in the DataSync service.</p>
+            aws_sdk_datasync.errors.invalid_request_exception.InvalidRequestException: <p>This exception is thrown when the client submits a malformed request.</p>
+            aws_sdk_datasync.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1701,6 +1821,11 @@ class DataSyncClient:
 
         Args:
             location_arn: <p>Specifies the Amazon Resource Name (ARN) of the HDFS location.</p>
+
+        Raises:
+            aws_sdk_datasync.errors.internal_exception.InternalException: <p>This exception is thrown when an error occurs in the DataSync service.</p>
+            aws_sdk_datasync.errors.invalid_request_exception.InvalidRequestException: <p>This exception is thrown when the client submits a malformed request.</p>
+            aws_sdk_datasync.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1738,6 +1863,11 @@ class DataSyncClient:
 
         Args:
             location_arn: <p>Specifies the Amazon Resource Name (ARN) of the NFS location that you want information about.</p>
+
+        Raises:
+            aws_sdk_datasync.errors.internal_exception.InternalException: <p>This exception is thrown when an error occurs in the DataSync service.</p>
+            aws_sdk_datasync.errors.invalid_request_exception.InvalidRequestException: <p>This exception is thrown when the client submits a malformed request.</p>
+            aws_sdk_datasync.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1775,6 +1905,11 @@ class DataSyncClient:
 
         Args:
             location_arn: <p>Specifies the Amazon Resource Name (ARN) of the object storage system location.</p>
+
+        Raises:
+            aws_sdk_datasync.errors.internal_exception.InternalException: <p>This exception is thrown when an error occurs in the DataSync service.</p>
+            aws_sdk_datasync.errors.invalid_request_exception.InvalidRequestException: <p>This exception is thrown when the client submits a malformed request.</p>
+            aws_sdk_datasync.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1812,6 +1947,11 @@ class DataSyncClient:
 
         Args:
             location_arn: <p>Specifies the Amazon Resource Name (ARN) of the Amazon S3 location.</p>
+
+        Raises:
+            aws_sdk_datasync.errors.internal_exception.InternalException: <p>This exception is thrown when an error occurs in the DataSync service.</p>
+            aws_sdk_datasync.errors.invalid_request_exception.InvalidRequestException: <p>This exception is thrown when the client submits a malformed request.</p>
+            aws_sdk_datasync.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1849,6 +1989,11 @@ class DataSyncClient:
 
         Args:
             location_arn: <p>Specifies the Amazon Resource Name (ARN) of the SMB location that you want information about.</p>
+
+        Raises:
+            aws_sdk_datasync.errors.internal_exception.InternalException: <p>This exception is thrown when an error occurs in the DataSync service.</p>
+            aws_sdk_datasync.errors.invalid_request_exception.InvalidRequestException: <p>This exception is thrown when the client submits a malformed request.</p>
+            aws_sdk_datasync.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1886,6 +2031,11 @@ class DataSyncClient:
 
         Args:
             task_arn: <p>Specifies the Amazon Resource Name (ARN) of the transfer task that you want information about.</p>
+
+        Raises:
+            aws_sdk_datasync.errors.internal_exception.InternalException: <p>This exception is thrown when an error occurs in the DataSync service.</p>
+            aws_sdk_datasync.errors.invalid_request_exception.InvalidRequestException: <p>This exception is thrown when the client submits a malformed request.</p>
+            aws_sdk_datasync.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1923,6 +2073,11 @@ class DataSyncClient:
 
         Args:
             task_execution_arn: <p>Specifies the Amazon Resource Name (ARN) of the task execution that you want information about.</p>
+
+        Raises:
+            aws_sdk_datasync.errors.internal_exception.InternalException: <p>This exception is thrown when an error occurs in the DataSync service.</p>
+            aws_sdk_datasync.errors.invalid_request_exception.InvalidRequestException: <p>This exception is thrown when the client submits a malformed request.</p>
+            aws_sdk_datasync.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1962,6 +2117,11 @@ class DataSyncClient:
         Args:
             max_results: <p>Specifies the maximum number of DataSync agents to list in a response. By default, a response shows a maximum of 100 agents.</p>
             next_token: <p>Specifies an opaque string that indicates the position to begin the next list of results in the response.</p>
+
+        Raises:
+            aws_sdk_datasync.errors.internal_exception.InternalException: <p>This exception is thrown when an error occurs in the DataSync service.</p>
+            aws_sdk_datasync.errors.invalid_request_exception.InvalidRequestException: <p>This exception is thrown when the client submits a malformed request.</p>
+            aws_sdk_datasync.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2029,6 +2189,11 @@ class DataSyncClient:
             max_results: <p>The maximum number of locations to return.</p>
             next_token: <p>An opaque string that indicates the position at which to begin the next list of locations.</p>
             filters: <p>You can use API filters to narrow down the list of resources returned by <code>ListLocations</code>. For example, to retrieve all tasks on a specific source location, you can use <code>ListLocations</code> with filter name <code>LocationType S3</code> and <code>Operator Equals</code>.</p>
+
+        Raises:
+            aws_sdk_datasync.errors.internal_exception.InternalException: <p>This exception is thrown when an error occurs in the DataSync service.</p>
+            aws_sdk_datasync.errors.invalid_request_exception.InvalidRequestException: <p>This exception is thrown when the client submits a malformed request.</p>
+            aws_sdk_datasync.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2100,6 +2265,11 @@ class DataSyncClient:
             resource_arn: <p>Specifies the Amazon Resource Name (ARN) of the resource that you want tag information on.</p>
             max_results: <p>Specifies how many results that you want in the response.</p>
             next_token: <p>Specifies an opaque string that indicates the position to begin the next list of results in the response.</p>
+
+        Raises:
+            aws_sdk_datasync.errors.internal_exception.InternalException: <p>This exception is thrown when an error occurs in the DataSync service.</p>
+            aws_sdk_datasync.errors.invalid_request_exception.InvalidRequestException: <p>This exception is thrown when the client submits a malformed request.</p>
+            aws_sdk_datasync.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2168,6 +2338,11 @@ class DataSyncClient:
             task_arn: <p>Specifies the Amazon Resource Name (ARN) of the task that you want execution information about.</p>
             max_results: <p>Specifies how many results you want in the response.</p>
             next_token: <p>Specifies an opaque string that indicates the position at which to begin the next list of results in the response.</p>
+
+        Raises:
+            aws_sdk_datasync.errors.internal_exception.InternalException: <p>This exception is thrown when an error occurs in the DataSync service.</p>
+            aws_sdk_datasync.errors.invalid_request_exception.InvalidRequestException: <p>This exception is thrown when the client submits a malformed request.</p>
+            aws_sdk_datasync.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2237,6 +2412,11 @@ class DataSyncClient:
             max_results: <p>The maximum number of tasks to return.</p>
             next_token: <p>An opaque string that indicates the position at which to begin the next list of tasks.</p>
             filters: <p>You can use API filters to narrow down the list of resources returned by <code>ListTasks</code>. For example, to retrieve all tasks on a specific source location, you can use <code>ListTasks</code> with filter name <code>LocationId</code> and <code>Operator Equals</code> with the ARN for the location.</p>
+
+        Raises:
+            aws_sdk_datasync.errors.internal_exception.InternalException: <p>This exception is thrown when an error occurs in the DataSync service.</p>
+            aws_sdk_datasync.errors.invalid_request_exception.InvalidRequestException: <p>This exception is thrown when the client submits a malformed request.</p>
+            aws_sdk_datasync.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2317,6 +2497,11 @@ class DataSyncClient:
             manifest_config: <p>Configures a manifest, which is a list of files or objects that you want DataSync to transfer. For more information and configuration examples, see <a href=\"https://docs.aws.amazon.com/datasync/latest/userguide/transferring-with-manifest.html\">Specifying what DataSync transfers by using a manifest</a>.</p> <p>When using this parameter, your caller identity (the role that you're using DataSync with) must have the <code>iam:PassRole</code> permission. The <a href=\"https://docs.aws.amazon.com/datasync/latest/userguide/security-iam-awsmanpol.html#security-iam-awsmanpol-awsdatasyncfullaccess\">AWSDataSyncFullAccess</a> policy includes this permission.</p> <p>To remove a manifest configuration, specify this parameter with an empty value.</p>
             task_report_config: <p>Specifies how you want to configure a task report, which provides detailed information about your DataSync transfer. For more information, see <a href=\"https://docs.aws.amazon.com/datasync/latest/userguide/task-reports.html\">Monitoring your DataSync transfers with task reports</a>.</p> <p>When using this parameter, your caller identity (the role that you're using DataSync with) must have the <code>iam:PassRole</code> permission. The <a href=\"https://docs.aws.amazon.com/datasync/latest/userguide/security-iam-awsmanpol.html#security-iam-awsmanpol-awsdatasyncfullaccess\">AWSDataSyncFullAccess</a> policy includes this permission.</p> <p>To remove a task report configuration, specify this parameter as empty.</p>
             tags: <p>Specifies the tags that you want to apply to the Amazon Resource Name (ARN) representing the task execution.</p> <p> <i>Tags</i> are key-value pairs that help you manage, filter, and search for your DataSync resources.</p>
+
+        Raises:
+            aws_sdk_datasync.errors.internal_exception.InternalException: <p>This exception is thrown when an error occurs in the DataSync service.</p>
+            aws_sdk_datasync.errors.invalid_request_exception.InvalidRequestException: <p>This exception is thrown when the client submits a malformed request.</p>
+            aws_sdk_datasync.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2368,6 +2553,11 @@ class DataSyncClient:
         Args:
             resource_arn: <p>Specifies the Amazon Resource Name (ARN) of the resource to apply the tag to.</p>
             tags: <p>Specifies the tags that you want to apply to the resource.</p>
+
+        Raises:
+            aws_sdk_datasync.errors.internal_exception.InternalException: <p>This exception is thrown when an error occurs in the DataSync service.</p>
+            aws_sdk_datasync.errors.invalid_request_exception.InvalidRequestException: <p>This exception is thrown when the client submits a malformed request.</p>
+            aws_sdk_datasync.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2408,6 +2598,11 @@ class DataSyncClient:
         Args:
             resource_arn: <p>Specifies the Amazon Resource Name (ARN) of the resource to remove the tags from.</p>
             keys: <p>Specifies the keys in the tags that you want to remove.</p>
+
+        Raises:
+            aws_sdk_datasync.errors.internal_exception.InternalException: <p>This exception is thrown when an error occurs in the DataSync service.</p>
+            aws_sdk_datasync.errors.invalid_request_exception.InvalidRequestException: <p>This exception is thrown when the client submits a malformed request.</p>
+            aws_sdk_datasync.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2448,6 +2643,11 @@ class DataSyncClient:
         Args:
             agent_arn: <p>The Amazon Resource Name (ARN) of the agent to update.</p>
             name: <p>The name that you want to use to configure the agent.</p>
+
+        Raises:
+            aws_sdk_datasync.errors.internal_exception.InternalException: <p>This exception is thrown when an error occurs in the DataSync service.</p>
+            aws_sdk_datasync.errors.invalid_request_exception.InvalidRequestException: <p>This exception is thrown when the client submits a malformed request.</p>
+            aws_sdk_datasync.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2519,6 +2719,11 @@ class DataSyncClient:
             agent_arns: <p>(Optional) Specifies the Amazon Resource Name (ARN) of the DataSync agent that can connect with your Azure Blob Storage container. If you are setting up an agentless cross-cloud transfer, you do not need to specify a value for this parameter.</p> <p>You can specify more than one agent. For more information, see <a href=\"https://docs.aws.amazon.com/datasync/latest/userguide/multiple-agents.html\">Using multiple agents for your transfer</a>.</p> <note> <p>You cannot add or remove agents from a storage location after you initially create it.</p> </note>
             cmk_secret_config: <p>Specifies configuration information for a DataSync-managed secret, such as an authentication token or set of credentials that DataSync uses to access a specific transfer location, and a customer-managed KMS key.</p>
             custom_secret_config: <p>Specifies configuration information for a customer-managed secret, such as an authentication token or set of credentials that DataSync uses to access a specific transfer location, and a customer-managed Identity and Access Management (IAM) role that provides access to the secret.</p>
+
+        Raises:
+            aws_sdk_datasync.errors.internal_exception.InternalException: <p>This exception is thrown when an error occurs in the DataSync service.</p>
+            aws_sdk_datasync.errors.invalid_request_exception.InvalidRequestException: <p>This exception is thrown when the client submits a malformed request.</p>
+            aws_sdk_datasync.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2590,6 +2795,11 @@ class DataSyncClient:
             access_point_arn: <p>Specifies the Amazon Resource Name (ARN) of the access point that DataSync uses to mount your Amazon EFS file system.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/datasync/latest/userguide/create-efs-location.html#create-efs-location-iam\">Accessing restricted Amazon EFS file systems</a>.</p>
             file_system_access_role_arn: <p>Specifies an Identity and Access Management (IAM) role that allows DataSync to access your Amazon EFS file system.</p> <p>For information on creating this role, see <a href=\"https://docs.aws.amazon.com/datasync/latest/userguide/create-efs-location.html#create-efs-location-iam-role\">Creating a DataSync IAM role for Amazon EFS file system access</a>.</p>
             in_transit_encryption: <p>Specifies whether you want DataSync to use Transport Layer Security (TLS) 1.2 encryption when it transfers data to or from your Amazon EFS file system.</p> <p>If you specify an access point using <code>AccessPointArn</code> or an IAM role using <code>FileSystemAccessRoleArn</code>, you must set this parameter to <code>TLS1_2</code>.</p>
+
+        Raises:
+            aws_sdk_datasync.errors.internal_exception.InternalException: <p>This exception is thrown when an error occurs in the DataSync service.</p>
+            aws_sdk_datasync.errors.invalid_request_exception.InvalidRequestException: <p>This exception is thrown when the client submits a malformed request.</p>
+            aws_sdk_datasync.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2639,6 +2849,11 @@ class DataSyncClient:
         Args:
             location_arn: <p>Specifies the Amazon Resource Name (ARN) of the FSx for Lustre transfer location that you're updating.</p>
             subdirectory: <p>Specifies a mount path for your FSx for Lustre file system. The path can include subdirectories.</p> <p>When the location is used as a source, DataSync reads data from the mount path. When the location is used as a destination, DataSync writes data to the mount path. If you don't include this parameter, DataSync uses the file system's root directory (<code>/</code>).</p>
+
+        Raises:
+            aws_sdk_datasync.errors.internal_exception.InternalException: <p>This exception is thrown when an error occurs in the DataSync service.</p>
+            aws_sdk_datasync.errors.invalid_request_exception.InvalidRequestException: <p>This exception is thrown when the client submits a malformed request.</p>
+            aws_sdk_datasync.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2686,6 +2901,11 @@ class DataSyncClient:
             location_arn: <p>Specifies the Amazon Resource Name (ARN) of the FSx for ONTAP transfer location that you're updating.</p>
             protocol: <p>Specifies the data transfer protocol that DataSync uses to access your Amazon FSx file system.</p>
             subdirectory: <p>Specifies a path to the file share in the storage virtual machine (SVM) where you want to transfer data to or from.</p> <p>You can specify a junction path (also known as a mount point), qtree path (for NFS file shares), or share name (for SMB file shares). For example, your mount path might be <code>/vol1</code>, <code>/vol1/tree1</code>, or <code>/share1</code>.</p> <note> <p>Don't specify a junction path in the SVM's root volume. For more information, see <a href=\"https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/managing-svms.html\">Managing FSx for ONTAP storage virtual machines</a> in the <i>Amazon FSx for NetApp ONTAP User Guide</i>.</p> </note>
+
+        Raises:
+            aws_sdk_datasync.errors.internal_exception.InternalException: <p>This exception is thrown when an error occurs in the DataSync service.</p>
+            aws_sdk_datasync.errors.invalid_request_exception.InvalidRequestException: <p>This exception is thrown when the client submits a malformed request.</p>
+            aws_sdk_datasync.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2732,6 +2952,11 @@ class DataSyncClient:
         Args:
             location_arn: <p>Specifies the Amazon Resource Name (ARN) of the FSx for OpenZFS transfer location that you're updating.</p>
             subdirectory: <p>Specifies a subdirectory in the location's path that must begin with <code>/fsx</code>. DataSync uses this subdirectory to read or write data (depending on whether the file system is a source or destination location).</p>
+
+        Raises:
+            aws_sdk_datasync.errors.internal_exception.InternalException: <p>This exception is thrown when an error occurs in the DataSync service.</p>
+            aws_sdk_datasync.errors.invalid_request_exception.InvalidRequestException: <p>This exception is thrown when the client submits a malformed request.</p>
+            aws_sdk_datasync.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2793,6 +3018,11 @@ class DataSyncClient:
             password: <p>Specifies the password of the user with the permissions to mount and access the files, folders, and file metadata in your FSx for Windows File Server file system.</p>
             cmk_secret_config: <p>Specifies configuration information for a DataSync-managed secret, such as a <code>Password</code> or set of credentials that DataSync uses to access a specific transfer location, and a customer-managed KMS key.</p>
             custom_secret_config: <p>Specifies configuration information for a customer-managed secret, such as a <code>Password</code> or set of credentials that DataSync uses to access a specific transfer location, and a customer-managed Identity and Access Management (IAM) role that provides access to the secret.</p>
+
+        Raises:
+            aws_sdk_datasync.errors.internal_exception.InternalException: <p>This exception is thrown when an error occurs in the DataSync service.</p>
+            aws_sdk_datasync.errors.invalid_request_exception.InvalidRequestException: <p>This exception is thrown when the client submits a malformed request.</p>
+            aws_sdk_datasync.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2896,6 +3126,11 @@ class DataSyncClient:
             agent_arns: <p>The Amazon Resource Names (ARNs) of the DataSync agents that can connect to your HDFS cluster.</p>
             cmk_secret_config: <p>Specifies configuration information for a DataSync-managed secret, such as a <code>KerberosKeytab</code> or set of credentials that DataSync uses to access a specific transfer location, and a customer-managed KMS key.</p>
             custom_secret_config: <p>Specifies configuration information for a customer-managed secret, such as a <code>KerberosKeytab</code> or set of credentials that DataSync uses to access a specific transfer location, and a customer-managed Identity and Access Management (IAM) role that provides access to the secret.</p>
+
+        Raises:
+            aws_sdk_datasync.errors.internal_exception.InternalException: <p>This exception is thrown when an error occurs in the DataSync service.</p>
+            aws_sdk_datasync.errors.invalid_request_exception.InvalidRequestException: <p>This exception is thrown when the client submits a malformed request.</p>
+            aws_sdk_datasync.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2977,6 +3212,11 @@ class DataSyncClient:
             location_arn: <p>Specifies the Amazon Resource Name (ARN) of the NFS transfer location that you want to update.</p>
             subdirectory: <p>Specifies the export path in your NFS file server that you want DataSync to mount.</p> <p>This path (or a subdirectory of the path) is where DataSync transfers data to or from. For information on configuring an export for DataSync, see <a href=\"https://docs.aws.amazon.com/datasync/latest/userguide/create-nfs-location.html#accessing-nfs\">Accessing NFS file servers</a>.</p>
             server_hostname: <p>Specifies the DNS name or IP address (IPv4 or IPv6) of the NFS file server that your DataSync agent connects to.</p>
+
+        Raises:
+            aws_sdk_datasync.errors.internal_exception.InternalException: <p>This exception is thrown when an error occurs in the DataSync service.</p>
+            aws_sdk_datasync.errors.invalid_request_exception.InvalidRequestException: <p>This exception is thrown when the client submits a malformed request.</p>
+            aws_sdk_datasync.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3062,6 +3302,11 @@ class DataSyncClient:
             server_certificate: <p>Specifies a certificate chain for DataSync to authenticate with your object storage system if the system uses a private or self-signed certificate authority (CA). You must specify a single <code>.pem</code> file with a full certificate chain (for example, <code>file:///home/user/.ssh/object_storage_certificates.pem</code>).</p> <p>The certificate chain might include:</p> <ul> <li> <p>The object storage system's certificate</p> </li> <li> <p>All intermediate certificates (if there are any)</p> </li> <li> <p>The root certificate of the signing CA</p> </li> </ul> <p>You can concatenate your certificates into a <code>.pem</code> file (which can be up to 32768 bytes before base64 encoding). The following example <code>cat</code> command creates an <code>object_storage_certificates.pem</code> file that includes three certificates:</p> <p> <code>cat object_server_certificate.pem intermediate_certificate.pem ca_root_certificate.pem > object_storage_certificates.pem</code> </p> <p>To use this parameter, configure <code>ServerProtocol</code> to <code>HTTPS</code>.</p> <p>Updating this parameter doesn't interfere with tasks that you have in progress.</p>
             cmk_secret_config: <p>Specifies configuration information for a DataSync-managed secret, such as an authentication token or set of credentials that DataSync uses to access a specific transfer location, and a customer-managed KMS key.</p>
             custom_secret_config: <p>Specifies configuration information for a customer-managed secret, such as an authentication token or set of credentials that DataSync uses to access a specific transfer location, and a customer-managed Identity and Access Management (IAM) role that provides access to the secret.</p>
+
+        Raises:
+            aws_sdk_datasync.errors.internal_exception.InternalException: <p>This exception is thrown when an error occurs in the DataSync service.</p>
+            aws_sdk_datasync.errors.invalid_request_exception.InvalidRequestException: <p>This exception is thrown when the client submits a malformed request.</p>
+            aws_sdk_datasync.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3128,6 +3373,11 @@ class DataSyncClient:
             location_arn: <p>Specifies the Amazon Resource Name (ARN) of the Amazon S3 transfer location that you're updating.</p>
             subdirectory: <p>Specifies a prefix in the S3 bucket that DataSync reads from or writes to (depending on whether the bucket is a source or destination location).</p> <note> <p>DataSync can't transfer objects with a prefix that begins with a slash (<code>/</code>) or includes <code>//</code>, <code>/./</code>, or <code>/../</code> patterns. For example:</p> <ul> <li> <p> <code>/photos</code> </p> </li> <li> <p> <code>photos//2006/January</code> </p> </li> <li> <p> <code>photos/./2006/February</code> </p> </li> <li> <p> <code>photos/../2006/March</code> </p> </li> </ul> </note>
             s3_storage_class: <p>Specifies the storage class that you want your objects to use when Amazon S3 is a transfer destination.</p> <p>For buckets in Amazon Web Services Regions, the storage class defaults to <code>STANDARD</code>. For buckets on Outposts, the storage class defaults to <code>OUTPOSTS</code>.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes\">Storage class considerations with Amazon S3 transfers</a>.</p>
+
+        Raises:
+            aws_sdk_datasync.errors.internal_exception.InternalException: <p>This exception is thrown when an error occurs in the DataSync service.</p>
+            aws_sdk_datasync.errors.invalid_request_exception.InvalidRequestException: <p>This exception is thrown when the client submits a malformed request.</p>
+            aws_sdk_datasync.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3222,6 +3472,11 @@ class DataSyncClient:
             kerberos_principal: <p>Specifies a Kerberos prinicpal, which is an identity in your Kerberos realm that has permission to access the files, folders, and file metadata in your SMB file server.</p> <p>A Kerberos principal might look like <code>HOST/kerberosuser@MYDOMAIN.ORG</code>.</p> <p>Principal names are case sensitive. Your DataSync task execution will fail if the principal that you specify for this parameter doesn’t exactly match the principal that you use to create the keytab file.</p>
             kerberos_keytab: <p>Specifies your Kerberos key table (keytab) file, which includes mappings between your Kerberos principal and encryption keys.</p> <p>To avoid task execution errors, make sure that the Kerberos principal that you use to create the keytab file matches exactly what you specify for <code>KerberosPrincipal</code>.</p>
             kerberos_krb5_conf: <p>Specifies a Kerberos configuration file (<code>krb5.conf</code>) that defines your Kerberos realm configuration.</p> <p>The file must be base64 encoded. If you're using the CLI, the encoding is done for you.</p>
+
+        Raises:
+            aws_sdk_datasync.errors.internal_exception.InternalException: <p>This exception is thrown when an error occurs in the DataSync service.</p>
+            aws_sdk_datasync.errors.invalid_request_exception.InvalidRequestException: <p>This exception is thrown when the client submits a malformed request.</p>
+            aws_sdk_datasync.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3308,6 +3563,11 @@ class DataSyncClient:
             includes: <p>Specifies include filters define the files, objects, and folders in your source location that you want DataSync to transfer. For more information and examples, see <a href=\"https://docs.aws.amazon.com/datasync/latest/userguide/filtering.html\">Specifying what DataSync transfers by using filters</a>.</p>
             manifest_config: <p>Configures a manifest, which is a list of files or objects that you want DataSync to transfer. For more information and configuration examples, see <a href=\"https://docs.aws.amazon.com/datasync/latest/userguide/transferring-with-manifest.html\">Specifying what DataSync transfers by using a manifest</a>.</p> <p>When using this parameter, your caller identity (the IAM role that you're using DataSync with) must have the <code>iam:PassRole</code> permission. The <a href=\"https://docs.aws.amazon.com/datasync/latest/userguide/security-iam-awsmanpol.html#security-iam-awsmanpol-awsdatasyncfullaccess\">AWSDataSyncFullAccess</a> policy includes this permission.</p> <p>To remove a manifest configuration, specify this parameter as empty.</p>
             task_report_config: <p>Specifies how you want to configure a task report, which provides detailed information about your DataSync transfer. For more information, see <a href=\"https://docs.aws.amazon.com/datasync/latest/userguide/task-reports.html\">Monitoring your DataSync transfers with task reports</a>.</p> <p>When using this parameter, your caller identity (the IAM role that you're using DataSync with) must have the <code>iam:PassRole</code> permission. The <a href=\"https://docs.aws.amazon.com/datasync/latest/userguide/security-iam-awsmanpol.html#security-iam-awsmanpol-awsdatasyncfullaccess\">AWSDataSyncFullAccess</a> policy includes this permission.</p> <p>To remove a task report configuration, specify this parameter as empty.</p>
+
+        Raises:
+            aws_sdk_datasync.errors.internal_exception.InternalException: <p>This exception is thrown when an error occurs in the DataSync service.</p>
+            aws_sdk_datasync.errors.invalid_request_exception.InvalidRequestException: <p>This exception is thrown when the client submits a malformed request.</p>
+            aws_sdk_datasync.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3362,6 +3622,11 @@ class DataSyncClient:
 
         Args:
             task_execution_arn: <p>Specifies the Amazon Resource Name (ARN) of the task execution that you're updating.</p>
+
+        Raises:
+            aws_sdk_datasync.errors.internal_exception.InternalException: <p>This exception is thrown when an error occurs in the DataSync service.</p>
+            aws_sdk_datasync.errors.invalid_request_exception.InvalidRequestException: <p>This exception is thrown when the client submits a malformed request.</p>
+            aws_sdk_datasync.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(

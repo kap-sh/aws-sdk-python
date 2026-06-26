@@ -45,6 +45,13 @@ class Dashboard:
             dashboard_identifier: <p>The ARN of the requested dashboard.</p>
             embedding_domains: <p>Fully qualified domains that you add to the allow list for access to the generated URL that is then embedded. You can list up to two domains or subdomains in each API call. To include all subdomains under a specific domain, use <code>*</code>. For example, <code>https://*.amazon.com</code> includes all subdomains under <code>https://aws.amazon.com</code>.</p>
 
+        Raises:
+            aws_sdk_marketplace_reporting.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_marketplace_reporting.errors.bad_request_exception.BadRequestException: <p>The request is malformed, or it contains an error such as an invalid parameter. Ensure the request has all required parameters.</p>
+            aws_sdk_marketplace_reporting.errors.internal_server_exception.InternalServerException: <p>The operation failed due to a server error.</p>
+            aws_sdk_marketplace_reporting.errors.unauthorized_exception.UnauthorizedException: <p>You do not have permission to perform this action.</p>
+            aws_sdk_marketplace_reporting.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Getting an agreements dashboard
             The following example shows how to obtain a dashboard for active agreements
@@ -99,6 +106,13 @@ class AsyncDashboard:
         Args:
             dashboard_identifier: <p>The ARN of the requested dashboard.</p>
             embedding_domains: <p>Fully qualified domains that you add to the allow list for access to the generated URL that is then embedded. You can list up to two domains or subdomains in each API call. To include all subdomains under a specific domain, use <code>*</code>. For example, <code>https://*.amazon.com</code> includes all subdomains under <code>https://aws.amazon.com</code>.</p>
+
+        Raises:
+            aws_sdk_marketplace_reporting.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_marketplace_reporting.errors.bad_request_exception.BadRequestException: <p>The request is malformed, or it contains an error such as an invalid parameter. Ensure the request has all required parameters.</p>
+            aws_sdk_marketplace_reporting.errors.internal_server_exception.InternalServerException: <p>The operation failed due to a server error.</p>
+            aws_sdk_marketplace_reporting.errors.unauthorized_exception.UnauthorizedException: <p>You do not have permission to perform this action.</p>
+            aws_sdk_marketplace_reporting.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Getting an agreements dashboard

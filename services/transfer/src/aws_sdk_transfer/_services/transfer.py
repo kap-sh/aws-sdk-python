@@ -275,6 +275,14 @@ class TransferClient:
             role: <p>The Amazon Resource Name (ARN) of the Identity and Access Management (IAM) role that controls your users' access to your Amazon S3 bucket or Amazon EFS file system. The policies attached to this role determine the level of access that you want to provide your users when transferring files into and out of your Amazon S3 bucket or Amazon EFS file system. The IAM role should also contain a trust relationship that allows the server to access your resources when servicing your users' transfer requests.</p>
             server_id: <p>A system-assigned unique identifier for a server instance. This is the specific server that you added your user to.</p>
             external_id: <p>A unique identifier that is required to identify specific groups within your directory. The users of the group that you associate have access to your Amazon S3 or Amazon EFS resources over the enabled protocols using Transfer Family. If you know the group name, you can view the SID values by running the following command using Windows PowerShell.</p> <p> <code>Get-ADGroup -Filter {samAccountName -like \"<i>YourGroupName</i>*\"} -Properties * | Select SamAccountName,ObjectSid</code> </p> <p>In that command, replace <i>YourGroupName</i> with the name of your Active Directory group.</p> <p>The regular expression used to validate this parameter is a string of characters consisting of uppercase and lowercase alphanumeric characters with no spaces. You can also include underscores or any of the following characters: =,.@:/-</p>
+
+        Raises:
+            aws_sdk_transfer.errors.internal_service_error.InternalServiceError: <p>This exception is thrown when an error occurs in the Transfer Family service.</p>
+            aws_sdk_transfer.errors.invalid_request_exception.InvalidRequestException: <p>This exception is thrown when the client submits a malformed request.</p>
+            aws_sdk_transfer.errors.resource_exists_exception.ResourceExistsException: <p>The requested resource does not exist, or exists in a region other than the one specified for the command.</p>
+            aws_sdk_transfer.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when a resource is not found by the Amazon Web ServicesTransfer Family service.</p>
+            aws_sdk_transfer.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request has failed because the Amazon Web ServicesTransfer Family service is not available.</p>
+            aws_sdk_transfer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -326,6 +334,13 @@ class TransferClient:
         Args:
             server_id: <p>A system-assigned unique identifier for a server that has this user assigned.</p>
             external_id: <p>A unique identifier that is required to identify specific groups within your directory. The users of the group that you associate have access to your Amazon S3 or Amazon EFS resources over the enabled protocols using Transfer Family. If you know the group name, you can view the SID values by running the following command using Windows PowerShell.</p> <p> <code>Get-ADGroup -Filter {samAccountName -like \"<i>YourGroupName</i>*\"} -Properties * | Select SamAccountName,ObjectSid</code> </p> <p>In that command, replace <i>YourGroupName</i> with the name of your Active Directory group.</p> <p>The regular expression used to validate this parameter is a string of characters consisting of uppercase and lowercase alphanumeric characters with no spaces. You can also include underscores or any of the following characters: =,.@:/-</p>
+
+        Raises:
+            aws_sdk_transfer.errors.internal_service_error.InternalServiceError: <p>This exception is thrown when an error occurs in the Transfer Family service.</p>
+            aws_sdk_transfer.errors.invalid_request_exception.InvalidRequestException: <p>This exception is thrown when the client submits a malformed request.</p>
+            aws_sdk_transfer.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when a resource is not found by the Amazon Web ServicesTransfer Family service.</p>
+            aws_sdk_transfer.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request has failed because the Amazon Web ServicesTransfer Family service is not available.</p>
+            aws_sdk_transfer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -364,6 +379,14 @@ class TransferClient:
         Args:
             server_id: <p>The identifier of the server that contains the host key that you are deleting.</p>
             host_key_id: <p>The identifier of the host key that you are deleting.</p>
+
+        Raises:
+            aws_sdk_transfer.errors.internal_service_error.InternalServiceError: <p>This exception is thrown when an error occurs in the Transfer Family service.</p>
+            aws_sdk_transfer.errors.invalid_request_exception.InvalidRequestException: <p>This exception is thrown when the client submits a malformed request.</p>
+            aws_sdk_transfer.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when a resource is not found by the Amazon Web ServicesTransfer Family service.</p>
+            aws_sdk_transfer.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request has failed because the Amazon Web ServicesTransfer Family service is not available.</p>
+            aws_sdk_transfer.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_transfer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -404,6 +427,14 @@ class TransferClient:
             server_id: <p>A system-assigned unique identifier for a file transfer protocol-enabled server instance that has the user assigned to it.</p>
             ssh_public_key_id: <p>A unique identifier used to reference your user's specific SSH key.</p>
             user_name: <p>A unique string that identifies a user whose public key is being deleted.</p>
+
+        Raises:
+            aws_sdk_transfer.errors.internal_service_error.InternalServiceError: <p>This exception is thrown when an error occurs in the Transfer Family service.</p>
+            aws_sdk_transfer.errors.invalid_request_exception.InvalidRequestException: <p>This exception is thrown when the client submits a malformed request.</p>
+            aws_sdk_transfer.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when a resource is not found by the Amazon Web ServicesTransfer Family service.</p>
+            aws_sdk_transfer.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request has failed because the Amazon Web ServicesTransfer Family service is not available.</p>
+            aws_sdk_transfer.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_transfer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -443,6 +474,13 @@ class TransferClient:
         Args:
             server_id: <p>A system-assigned unique identifier for a server that has this access assigned.</p>
             external_id: <p>A unique identifier that is required to identify specific groups within your directory. The users of the group that you associate have access to your Amazon S3 or Amazon EFS resources over the enabled protocols using Transfer Family. If you know the group name, you can view the SID values by running the following command using Windows PowerShell.</p> <p> <code>Get-ADGroup -Filter {samAccountName -like \"<i>YourGroupName</i>*\"} -Properties * | Select SamAccountName,ObjectSid</code> </p> <p>In that command, replace <i>YourGroupName</i> with the name of your Active Directory group.</p> <p>The regular expression used to validate this parameter is a string of characters consisting of uppercase and lowercase alphanumeric characters with no spaces. You can also include underscores or any of the following characters: =,.@:/-</p>
+
+        Raises:
+            aws_sdk_transfer.errors.internal_service_error.InternalServiceError: <p>This exception is thrown when an error occurs in the Transfer Family service.</p>
+            aws_sdk_transfer.errors.invalid_request_exception.InvalidRequestException: <p>This exception is thrown when the client submits a malformed request.</p>
+            aws_sdk_transfer.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when a resource is not found by the Amazon Web ServicesTransfer Family service.</p>
+            aws_sdk_transfer.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request has failed because the Amazon Web ServicesTransfer Family service is not available.</p>
+            aws_sdk_transfer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -483,6 +521,13 @@ class TransferClient:
         Args:
             execution_id: <p>A unique identifier for the execution of a workflow.</p>
             workflow_id: <p>A unique identifier for the workflow.</p>
+
+        Raises:
+            aws_sdk_transfer.errors.internal_service_error.InternalServiceError: <p>This exception is thrown when an error occurs in the Transfer Family service.</p>
+            aws_sdk_transfer.errors.invalid_request_exception.InvalidRequestException: <p>This exception is thrown when the client submits a malformed request.</p>
+            aws_sdk_transfer.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when a resource is not found by the Amazon Web ServicesTransfer Family service.</p>
+            aws_sdk_transfer.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request has failed because the Amazon Web ServicesTransfer Family service is not available.</p>
+            aws_sdk_transfer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -523,6 +568,13 @@ class TransferClient:
         Args:
             server_id: <p>The identifier of the server that contains the host key that you want described.</p>
             host_key_id: <p>The identifier of the host key that you want described.</p>
+
+        Raises:
+            aws_sdk_transfer.errors.internal_service_error.InternalServiceError: <p>This exception is thrown when an error occurs in the Transfer Family service.</p>
+            aws_sdk_transfer.errors.invalid_request_exception.InvalidRequestException: <p>This exception is thrown when the client submits a malformed request.</p>
+            aws_sdk_transfer.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when a resource is not found by the Amazon Web ServicesTransfer Family service.</p>
+            aws_sdk_transfer.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request has failed because the Amazon Web ServicesTransfer Family service is not available.</p>
+            aws_sdk_transfer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -561,6 +613,13 @@ class TransferClient:
 
         Args:
             security_policy_name: <p>Specify the text name of the security policy for which you want the details.</p>
+
+        Raises:
+            aws_sdk_transfer.errors.internal_service_error.InternalServiceError: <p>This exception is thrown when an error occurs in the Transfer Family service.</p>
+            aws_sdk_transfer.errors.invalid_request_exception.InvalidRequestException: <p>This exception is thrown when the client submits a malformed request.</p>
+            aws_sdk_transfer.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when a resource is not found by the Amazon Web ServicesTransfer Family service.</p>
+            aws_sdk_transfer.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request has failed because the Amazon Web ServicesTransfer Family service is not available.</p>
+            aws_sdk_transfer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -606,6 +665,15 @@ class TransferClient:
             host_key_body: <p>The private key portion of an SSH key pair.</p> <p>Transfer Family accepts RSA, ECDSA, and ED25519 keys.</p>
             description: <p>The text description that identifies this host key.</p>
             tags: <p>Key-value pairs that can be used to group and search for host keys.</p>
+
+        Raises:
+            aws_sdk_transfer.errors.internal_service_error.InternalServiceError: <p>This exception is thrown when an error occurs in the Transfer Family service.</p>
+            aws_sdk_transfer.errors.invalid_request_exception.InvalidRequestException: <p>This exception is thrown when the client submits a malformed request.</p>
+            aws_sdk_transfer.errors.resource_exists_exception.ResourceExistsException: <p>The requested resource does not exist, or exists in a region other than the one specified for the command.</p>
+            aws_sdk_transfer.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when a resource is not found by the Amazon Web ServicesTransfer Family service.</p>
+            aws_sdk_transfer.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request has failed because the Amazon Web ServicesTransfer Family service is not available.</p>
+            aws_sdk_transfer.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_transfer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -652,6 +720,15 @@ class TransferClient:
             server_id: <p>A system-assigned unique identifier for a server.</p>
             ssh_public_key_body: <p>The public key portion of an SSH key pair.</p> <p>Transfer Family accepts RSA, ECDSA, and ED25519 keys.</p>
             user_name: <p>The name of the Transfer Family user that is assigned to one or more servers.</p>
+
+        Raises:
+            aws_sdk_transfer.errors.internal_service_error.InternalServiceError: <p>This exception is thrown when an error occurs in the Transfer Family service.</p>
+            aws_sdk_transfer.errors.invalid_request_exception.InvalidRequestException: <p>This exception is thrown when the client submits a malformed request.</p>
+            aws_sdk_transfer.errors.resource_exists_exception.ResourceExistsException: <p>The requested resource does not exist, or exists in a region other than the one specified for the command.</p>
+            aws_sdk_transfer.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when a resource is not found by the Amazon Web ServicesTransfer Family service.</p>
+            aws_sdk_transfer.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request has failed because the Amazon Web ServicesTransfer Family service is not available.</p>
+            aws_sdk_transfer.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_transfer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -695,6 +772,14 @@ class TransferClient:
             max_results: <p>The maximum number of items to return.</p>
             next_token: <p>When you can get additional results from the <code>ListAccesses</code> call, a <code>NextToken</code> parameter is returned in the output. You can then pass in a subsequent command to the <code>NextToken</code> parameter to continue listing additional accesses.</p>
             server_id: <p>A system-assigned unique identifier for a server that has users assigned to it.</p>
+
+        Raises:
+            aws_sdk_transfer.errors.internal_service_error.InternalServiceError: <p>This exception is thrown when an error occurs in the Transfer Family service.</p>
+            aws_sdk_transfer.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The <code>NextToken</code> parameter that was passed is invalid.</p>
+            aws_sdk_transfer.errors.invalid_request_exception.InvalidRequestException: <p>This exception is thrown when the client submits a malformed request.</p>
+            aws_sdk_transfer.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when a resource is not found by the Amazon Web ServicesTransfer Family service.</p>
+            aws_sdk_transfer.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request has failed because the Amazon Web ServicesTransfer Family service is not available.</p>
+            aws_sdk_transfer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -763,6 +848,14 @@ class TransferClient:
             max_results: <p>The maximum number of items to return.</p>
             next_token: <p> <code>ListExecutions</code> returns the <code>NextToken</code> parameter in the output. You can then pass the <code>NextToken</code> parameter in a subsequent command to continue listing additional executions.</p> <p> This is useful for pagination, for instance. If you have 100 executions for a workflow, you might only want to list first 10. If so, call the API by specifying the <code>max-results</code>: </p> <p> <code>aws transfer list-executions --max-results 10</code> </p> <p> This returns details for the first 10 executions, as well as the pointer (<code>NextToken</code>) to the eleventh execution. You can now call the API again, supplying the <code>NextToken</code> value you received: </p> <p> <code>aws transfer list-executions --max-results 10 --next-token $somePointerReturnedFromPreviousListResult</code> </p> <p> This call returns the next 10 executions, the 11th through the 20th. You can then repeat the call until the details for all 100 executions have been returned. </p>
             workflow_id: <p>A unique identifier for the workflow.</p>
+
+        Raises:
+            aws_sdk_transfer.errors.internal_service_error.InternalServiceError: <p>This exception is thrown when an error occurs in the Transfer Family service.</p>
+            aws_sdk_transfer.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The <code>NextToken</code> parameter that was passed is invalid.</p>
+            aws_sdk_transfer.errors.invalid_request_exception.InvalidRequestException: <p>This exception is thrown when the client submits a malformed request.</p>
+            aws_sdk_transfer.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when a resource is not found by the Amazon Web ServicesTransfer Family service.</p>
+            aws_sdk_transfer.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request has failed because the Amazon Web ServicesTransfer Family service is not available.</p>
+            aws_sdk_transfer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -833,6 +926,13 @@ class TransferClient:
             transfer_id: <p>A unique identifier for a file transfer. This value should match the value supplied to the corresponding <code>StartFileTransfer</code> call.</p>
             next_token: <p>If there are more file details than returned in this call, use this value for a subsequent call to <code>ListFileTransferResults</code> to retrieve them.</p>
             max_results: <p>The maximum number of files to return in a single page. Note that currently you can specify a maximum of 10 file paths in a single <a href=\"https://docs.aws.amazon.com/transfer/latest/APIReference/API_StartFileTransfer.html\">StartFileTransfer</a> operation. Thus, the maximum number of file transfer results that can be returned in a single page is 10. </p>
+
+        Raises:
+            aws_sdk_transfer.errors.internal_service_error.InternalServiceError: <p>This exception is thrown when an error occurs in the Transfer Family service.</p>
+            aws_sdk_transfer.errors.invalid_request_exception.InvalidRequestException: <p>This exception is thrown when the client submits a malformed request.</p>
+            aws_sdk_transfer.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when a resource is not found by the Amazon Web ServicesTransfer Family service.</p>
+            aws_sdk_transfer.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request has failed because the Amazon Web ServicesTransfer Family service is not available.</p>
+            aws_sdk_transfer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -904,6 +1004,14 @@ class TransferClient:
             max_results: <p>The maximum number of items to return.</p>
             next_token: <p>When there are additional results that were not returned, a <code>NextToken</code> parameter is returned. You can use that value for a subsequent call to <code>ListHostKeys</code> to continue listing results.</p>
             server_id: <p>The identifier of the server that contains the host keys that you want to view.</p>
+
+        Raises:
+            aws_sdk_transfer.errors.internal_service_error.InternalServiceError: <p>This exception is thrown when an error occurs in the Transfer Family service.</p>
+            aws_sdk_transfer.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The <code>NextToken</code> parameter that was passed is invalid.</p>
+            aws_sdk_transfer.errors.invalid_request_exception.InvalidRequestException: <p>This exception is thrown when the client submits a malformed request.</p>
+            aws_sdk_transfer.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when a resource is not found by the Amazon Web ServicesTransfer Family service.</p>
+            aws_sdk_transfer.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request has failed because the Amazon Web ServicesTransfer Family service is not available.</p>
+            aws_sdk_transfer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -947,6 +1055,13 @@ class TransferClient:
         Args:
             max_results: <p>Specifies the number of security policies to return as a response to the <code>ListSecurityPolicies</code> query.</p>
             next_token: <p>When additional results are obtained from the <code>ListSecurityPolicies</code> command, a <code>NextToken</code> parameter is returned in the output. You can then pass the <code>NextToken</code> parameter in a subsequent command to continue listing additional security policies.</p>
+
+        Raises:
+            aws_sdk_transfer.errors.internal_service_error.InternalServiceError: <p>This exception is thrown when an error occurs in the Transfer Family service.</p>
+            aws_sdk_transfer.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The <code>NextToken</code> parameter that was passed is invalid.</p>
+            aws_sdk_transfer.errors.invalid_request_exception.InvalidRequestException: <p>This exception is thrown when the client submits a malformed request.</p>
+            aws_sdk_transfer.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request has failed because the Amazon Web ServicesTransfer Family service is not available.</p>
+            aws_sdk_transfer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1012,6 +1127,13 @@ class TransferClient:
             arn: <p>Requests the tags associated with a particular Amazon Resource Name (ARN). An ARN is an identifier for a specific Amazon Web Services resource, such as a server, user, or role.</p>
             max_results: <p>Specifies the number of tags to return as a response to the <code>ListTagsForResource</code> request.</p>
             next_token: <p>When you request additional results from the <code>ListTagsForResource</code> operation, a <code>NextToken</code> parameter is returned in the input. You can then pass in a subsequent command to the <code>NextToken</code> parameter to continue listing additional tags.</p>
+
+        Raises:
+            aws_sdk_transfer.errors.internal_service_error.InternalServiceError: <p>This exception is thrown when an error occurs in the Transfer Family service.</p>
+            aws_sdk_transfer.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The <code>NextToken</code> parameter that was passed is invalid.</p>
+            aws_sdk_transfer.errors.invalid_request_exception.InvalidRequestException: <p>This exception is thrown when the client submits a malformed request.</p>
+            aws_sdk_transfer.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request has failed because the Amazon Web ServicesTransfer Family service is not available.</p>
+            aws_sdk_transfer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1082,6 +1204,15 @@ class TransferClient:
             execution_id: <p>A unique identifier for the execution of a workflow.</p>
             token: <p>Used to distinguish between multiple callbacks for multiple Lambda steps within the same execution.</p>
             status: <p>Indicates whether the specified step succeeded or failed.</p>
+
+        Raises:
+            aws_sdk_transfer.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_transfer.errors.internal_service_error.InternalServiceError: <p>This exception is thrown when an error occurs in the Transfer Family service.</p>
+            aws_sdk_transfer.errors.invalid_request_exception.InvalidRequestException: <p>This exception is thrown when the client submits a malformed request.</p>
+            aws_sdk_transfer.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when a resource is not found by the Amazon Web ServicesTransfer Family service.</p>
+            aws_sdk_transfer.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request has failed because the Amazon Web ServicesTransfer Family service is not available.</p>
+            aws_sdk_transfer.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_transfer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1128,6 +1259,14 @@ class TransferClient:
             remote_directory_path: <p>Specifies the directory on the remote SFTP server for which you want to list its contents.</p>
             max_items: <p>An optional parameter where you can specify the maximum number of file/directory names to retrieve. The default value is 1,000.</p>
             output_directory_path: <p>Specifies the path (bucket and prefix) in Amazon S3 storage to store the results of the directory listing.</p>
+
+        Raises:
+            aws_sdk_transfer.errors.internal_service_error.InternalServiceError: <p>This exception is thrown when an error occurs in the Transfer Family service.</p>
+            aws_sdk_transfer.errors.invalid_request_exception.InvalidRequestException: <p>This exception is thrown when the client submits a malformed request.</p>
+            aws_sdk_transfer.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when a resource is not found by the Amazon Web ServicesTransfer Family service.</p>
+            aws_sdk_transfer.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request has failed because the Amazon Web ServicesTransfer Family service is not available.</p>
+            aws_sdk_transfer.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_transfer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1189,6 +1328,14 @@ class TransferClient:
             local_directory_path: <p>For an inbound transfer, the <code>LocaDirectoryPath</code> specifies the destination for one or more files that are transferred from the partner's SFTP server.</p>
             remote_directory_path: <p>For an outbound transfer, the <code>RemoteDirectoryPath</code> specifies the destination for one or more files that are transferred to the partner's SFTP server. If you don't specify a <code>RemoteDirectoryPath</code>, the destination for transferred files is the SFTP user's home directory.</p>
             custom_http_headers: <p>An array of key-value pairs that represent custom HTTP headers to include in AS2 messages. These headers are added to the AS2 message when sending files to your trading partner.</p>
+
+        Raises:
+            aws_sdk_transfer.errors.internal_service_error.InternalServiceError: <p>This exception is thrown when an error occurs in the Transfer Family service.</p>
+            aws_sdk_transfer.errors.invalid_request_exception.InvalidRequestException: <p>This exception is thrown when the client submits a malformed request.</p>
+            aws_sdk_transfer.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when a resource is not found by the Amazon Web ServicesTransfer Family service.</p>
+            aws_sdk_transfer.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request has failed because the Amazon Web ServicesTransfer Family service is not available.</p>
+            aws_sdk_transfer.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_transfer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1240,6 +1387,14 @@ class TransferClient:
         Args:
             connector_id: <p>The unique identifier for the connector.</p>
             delete_path: <p>The absolute path of the file or directory to delete. You can only specify one path per call to this operation.</p>
+
+        Raises:
+            aws_sdk_transfer.errors.internal_service_error.InternalServiceError: <p>This exception is thrown when an error occurs in the Transfer Family service.</p>
+            aws_sdk_transfer.errors.invalid_request_exception.InvalidRequestException: <p>This exception is thrown when the client submits a malformed request.</p>
+            aws_sdk_transfer.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when a resource is not found by the Amazon Web ServicesTransfer Family service.</p>
+            aws_sdk_transfer.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request has failed because the Amazon Web ServicesTransfer Family service is not available.</p>
+            aws_sdk_transfer.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_transfer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1282,6 +1437,14 @@ class TransferClient:
             connector_id: <p>The unique identifier for the connector.</p>
             source_path: <p>The absolute path of the file or directory to move or rename. You can only specify one path per call to this operation.</p>
             target_path: <p>The absolute path for the target of the move/rename operation.</p>
+
+        Raises:
+            aws_sdk_transfer.errors.internal_service_error.InternalServiceError: <p>This exception is thrown when an error occurs in the Transfer Family service.</p>
+            aws_sdk_transfer.errors.invalid_request_exception.InvalidRequestException: <p>This exception is thrown when the client submits a malformed request.</p>
+            aws_sdk_transfer.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when a resource is not found by the Amazon Web ServicesTransfer Family service.</p>
+            aws_sdk_transfer.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request has failed because the Amazon Web ServicesTransfer Family service is not available.</p>
+            aws_sdk_transfer.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_transfer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1321,6 +1484,14 @@ class TransferClient:
 
         Args:
             server_id: <p>A system-assigned unique identifier for a server that you start.</p>
+
+        Raises:
+            aws_sdk_transfer.errors.internal_service_error.InternalServiceError: <p>This exception is thrown when an error occurs in the Transfer Family service.</p>
+            aws_sdk_transfer.errors.invalid_request_exception.InvalidRequestException: <p>This exception is thrown when the client submits a malformed request.</p>
+            aws_sdk_transfer.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when a resource is not found by the Amazon Web ServicesTransfer Family service.</p>
+            aws_sdk_transfer.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request has failed because the Amazon Web ServicesTransfer Family service is not available.</p>
+            aws_sdk_transfer.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_transfer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1356,6 +1527,14 @@ class TransferClient:
 
         Args:
             server_id: <p>A system-assigned unique identifier for a server that you stopped.</p>
+
+        Raises:
+            aws_sdk_transfer.errors.internal_service_error.InternalServiceError: <p>This exception is thrown when an error occurs in the Transfer Family service.</p>
+            aws_sdk_transfer.errors.invalid_request_exception.InvalidRequestException: <p>This exception is thrown when the client submits a malformed request.</p>
+            aws_sdk_transfer.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when a resource is not found by the Amazon Web ServicesTransfer Family service.</p>
+            aws_sdk_transfer.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request has failed because the Amazon Web ServicesTransfer Family service is not available.</p>
+            aws_sdk_transfer.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_transfer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1393,6 +1572,13 @@ class TransferClient:
         Args:
             arn: <p>An Amazon Resource Name (ARN) for a specific Amazon Web Services resource, such as a server, user, or role.</p>
             tags: <p>Key-value pairs assigned to ARNs that you can use to group and search for resources by type. You can attach this metadata to resources (servers, users, workflows, and so on) for any purpose.</p>
+
+        Raises:
+            aws_sdk_transfer.errors.internal_service_error.InternalServiceError: <p>This exception is thrown when an error occurs in the Transfer Family service.</p>
+            aws_sdk_transfer.errors.invalid_request_exception.InvalidRequestException: <p>This exception is thrown when the client submits a malformed request.</p>
+            aws_sdk_transfer.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when a resource is not found by the Amazon Web ServicesTransfer Family service.</p>
+            aws_sdk_transfer.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request has failed because the Amazon Web ServicesTransfer Family service is not available.</p>
+            aws_sdk_transfer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1429,6 +1615,13 @@ class TransferClient:
 
         Args:
             connector_id: <p>The unique identifier for the connector.</p>
+
+        Raises:
+            aws_sdk_transfer.errors.internal_service_error.InternalServiceError: <p>This exception is thrown when an error occurs in the Transfer Family service.</p>
+            aws_sdk_transfer.errors.invalid_request_exception.InvalidRequestException: <p>This exception is thrown when the client submits a malformed request.</p>
+            aws_sdk_transfer.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when a resource is not found by the Amazon Web ServicesTransfer Family service.</p>
+            aws_sdk_transfer.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request has failed because the Amazon Web ServicesTransfer Family service is not available.</p>
+            aws_sdk_transfer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1476,6 +1669,13 @@ class TransferClient:
             source_ip: <p>The source IP address of the account to be tested.</p>
             user_name: <p>The name of the account to be tested.</p>
             user_password: <p>The password of the account to be tested.</p>
+
+        Raises:
+            aws_sdk_transfer.errors.internal_service_error.InternalServiceError: <p>This exception is thrown when an error occurs in the Transfer Family service.</p>
+            aws_sdk_transfer.errors.invalid_request_exception.InvalidRequestException: <p>This exception is thrown when the client submits a malformed request.</p>
+            aws_sdk_transfer.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when a resource is not found by the Amazon Web ServicesTransfer Family service.</p>
+            aws_sdk_transfer.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request has failed because the Amazon Web ServicesTransfer Family service is not available.</p>
+            aws_sdk_transfer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1522,6 +1722,13 @@ class TransferClient:
         Args:
             arn: <p>The value of the resource that will have the tag removed. An Amazon Resource Name (ARN) is an identifier for a specific Amazon Web Services resource, such as a server, user, or role.</p>
             tag_keys: <p>TagKeys are key-value pairs assigned to ARNs that can be used to group and search for resources by type. This metadata can be attached to resources for any purpose.</p>
+
+        Raises:
+            aws_sdk_transfer.errors.internal_service_error.InternalServiceError: <p>This exception is thrown when an error occurs in the Transfer Family service.</p>
+            aws_sdk_transfer.errors.invalid_request_exception.InvalidRequestException: <p>This exception is thrown when the client submits a malformed request.</p>
+            aws_sdk_transfer.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when a resource is not found by the Amazon Web ServicesTransfer Family service.</p>
+            aws_sdk_transfer.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request has failed because the Amazon Web ServicesTransfer Family service is not available.</p>
+            aws_sdk_transfer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1579,6 +1786,15 @@ class TransferClient:
             role: <p>The Amazon Resource Name (ARN) of the Identity and Access Management (IAM) role that controls your users' access to your Amazon S3 bucket or Amazon EFS file system. The policies attached to this role determine the level of access that you want to provide your users when transferring files into and out of your Amazon S3 bucket or Amazon EFS file system. The IAM role should also contain a trust relationship that allows the server to access your resources when servicing your users' transfer requests.</p>
             server_id: <p>A system-assigned unique identifier for a server instance. This is the specific server that you added your user to.</p>
             external_id: <p>A unique identifier that is required to identify specific groups within your directory. The users of the group that you associate have access to your Amazon S3 or Amazon EFS resources over the enabled protocols using Transfer Family. If you know the group name, you can view the SID values by running the following command using Windows PowerShell.</p> <p> <code>Get-ADGroup -Filter {samAccountName -like \"<i>YourGroupName</i>*\"} -Properties * | Select SamAccountName,ObjectSid</code> </p> <p>In that command, replace <i>YourGroupName</i> with the name of your Active Directory group.</p> <p>The regular expression used to validate this parameter is a string of characters consisting of uppercase and lowercase alphanumeric characters with no spaces. You can also include underscores or any of the following characters: =,.@:/-</p>
+
+        Raises:
+            aws_sdk_transfer.errors.internal_service_error.InternalServiceError: <p>This exception is thrown when an error occurs in the Transfer Family service.</p>
+            aws_sdk_transfer.errors.invalid_request_exception.InvalidRequestException: <p>This exception is thrown when the client submits a malformed request.</p>
+            aws_sdk_transfer.errors.resource_exists_exception.ResourceExistsException: <p>The requested resource does not exist, or exists in a region other than the one specified for the command.</p>
+            aws_sdk_transfer.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when a resource is not found by the Amazon Web ServicesTransfer Family service.</p>
+            aws_sdk_transfer.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request has failed because the Amazon Web ServicesTransfer Family service is not available.</p>
+            aws_sdk_transfer.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_transfer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1633,6 +1849,14 @@ class TransferClient:
             server_id: <p>The identifier of the server that contains the host key that you are updating.</p>
             host_key_id: <p>The identifier of the host key that you are updating.</p>
             description: <p>An updated description for the host key.</p>
+
+        Raises:
+            aws_sdk_transfer.errors.internal_service_error.InternalServiceError: <p>This exception is thrown when an error occurs in the Transfer Family service.</p>
+            aws_sdk_transfer.errors.invalid_request_exception.InvalidRequestException: <p>This exception is thrown when the client submits a malformed request.</p>
+            aws_sdk_transfer.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when a resource is not found by the Amazon Web ServicesTransfer Family service.</p>
+            aws_sdk_transfer.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request has failed because the Amazon Web ServicesTransfer Family service is not available.</p>
+            aws_sdk_transfer.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_transfer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(

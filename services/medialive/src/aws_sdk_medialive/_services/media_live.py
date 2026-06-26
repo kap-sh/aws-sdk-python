@@ -474,6 +474,18 @@ class MediaLiveClient:
 
         Args:
             input_device_id: The unique ID of the input device to accept. For example, hd-123456789abcdef.
+
+        Raises:
+            aws_sdk_medialive.errors.bad_gateway_exception.BadGatewayException: Placeholder documentation for BadGatewayException
+            aws_sdk_medialive.errors.bad_request_exception.BadRequestException: Placeholder documentation for BadRequestException
+            aws_sdk_medialive.errors.conflict_exception.ConflictException: Placeholder documentation for ConflictException
+            aws_sdk_medialive.errors.forbidden_exception.ForbiddenException: Placeholder documentation for ForbiddenException
+            aws_sdk_medialive.errors.gateway_timeout_exception.GatewayTimeoutException: Placeholder documentation for GatewayTimeoutException
+            aws_sdk_medialive.errors.internal_server_error_exception.InternalServerErrorException: Placeholder documentation for InternalServerErrorException
+            aws_sdk_medialive.errors.not_found_exception.NotFoundException: Placeholder documentation for NotFoundException
+            aws_sdk_medialive.errors.too_many_requests_exception.TooManyRequestsException: Placeholder documentation for TooManyRequestsException
+            aws_sdk_medialive.errors.unprocessable_entity_exception.UnprocessableEntityException: Placeholder documentation for UnprocessableEntityException
+            aws_sdk_medialive.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -525,6 +537,17 @@ class MediaLiveClient:
             input_ids: List of input IDs
             input_security_group_ids: List of input security group IDs
             multiplex_ids: List of multiplex IDs
+
+        Raises:
+            aws_sdk_medialive.errors.bad_gateway_exception.BadGatewayException: Placeholder documentation for BadGatewayException
+            aws_sdk_medialive.errors.bad_request_exception.BadRequestException: Placeholder documentation for BadRequestException
+            aws_sdk_medialive.errors.conflict_exception.ConflictException: Placeholder documentation for ConflictException
+            aws_sdk_medialive.errors.forbidden_exception.ForbiddenException: Placeholder documentation for ForbiddenException
+            aws_sdk_medialive.errors.gateway_timeout_exception.GatewayTimeoutException: Placeholder documentation for GatewayTimeoutException
+            aws_sdk_medialive.errors.internal_server_error_exception.InternalServerErrorException: Placeholder documentation for InternalServerErrorException
+            aws_sdk_medialive.errors.not_found_exception.NotFoundException: Placeholder documentation for NotFoundException
+            aws_sdk_medialive.errors.too_many_requests_exception.TooManyRequestsException: Placeholder documentation for TooManyRequestsException
+            aws_sdk_medialive.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -575,6 +598,17 @@ class MediaLiveClient:
         Args:
             channel_ids: List of channel IDs
             multiplex_ids: List of multiplex IDs
+
+        Raises:
+            aws_sdk_medialive.errors.bad_gateway_exception.BadGatewayException: Placeholder documentation for BadGatewayException
+            aws_sdk_medialive.errors.bad_request_exception.BadRequestException: Placeholder documentation for BadRequestException
+            aws_sdk_medialive.errors.conflict_exception.ConflictException: Placeholder documentation for ConflictException
+            aws_sdk_medialive.errors.forbidden_exception.ForbiddenException: Placeholder documentation for ForbiddenException
+            aws_sdk_medialive.errors.gateway_timeout_exception.GatewayTimeoutException: Placeholder documentation for GatewayTimeoutException
+            aws_sdk_medialive.errors.internal_server_error_exception.InternalServerErrorException: Placeholder documentation for InternalServerErrorException
+            aws_sdk_medialive.errors.not_found_exception.NotFoundException: Placeholder documentation for NotFoundException
+            aws_sdk_medialive.errors.too_many_requests_exception.TooManyRequestsException: Placeholder documentation for TooManyRequestsException
+            aws_sdk_medialive.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -621,6 +655,17 @@ class MediaLiveClient:
         Args:
             channel_ids: List of channel IDs
             multiplex_ids: List of multiplex IDs
+
+        Raises:
+            aws_sdk_medialive.errors.bad_gateway_exception.BadGatewayException: Placeholder documentation for BadGatewayException
+            aws_sdk_medialive.errors.bad_request_exception.BadRequestException: Placeholder documentation for BadRequestException
+            aws_sdk_medialive.errors.conflict_exception.ConflictException: Placeholder documentation for ConflictException
+            aws_sdk_medialive.errors.forbidden_exception.ForbiddenException: Placeholder documentation for ForbiddenException
+            aws_sdk_medialive.errors.gateway_timeout_exception.GatewayTimeoutException: Placeholder documentation for GatewayTimeoutException
+            aws_sdk_medialive.errors.internal_server_error_exception.InternalServerErrorException: Placeholder documentation for InternalServerErrorException
+            aws_sdk_medialive.errors.not_found_exception.NotFoundException: Placeholder documentation for NotFoundException
+            aws_sdk_medialive.errors.too_many_requests_exception.TooManyRequestsException: Placeholder documentation for TooManyRequestsException
+            aws_sdk_medialive.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -669,6 +714,17 @@ class MediaLiveClient:
             channel_id: Id of the channel whose schedule is being updated.
             creates: Schedule actions to create in the schedule.
             deletes: Schedule actions to delete from the schedule.
+
+        Raises:
+            aws_sdk_medialive.errors.bad_gateway_exception.BadGatewayException: Placeholder documentation for BadGatewayException
+            aws_sdk_medialive.errors.bad_request_exception.BadRequestException: Placeholder documentation for BadRequestException
+            aws_sdk_medialive.errors.forbidden_exception.ForbiddenException: Placeholder documentation for ForbiddenException
+            aws_sdk_medialive.errors.gateway_timeout_exception.GatewayTimeoutException: Placeholder documentation for GatewayTimeoutException
+            aws_sdk_medialive.errors.internal_server_error_exception.InternalServerErrorException: Placeholder documentation for InternalServerErrorException
+            aws_sdk_medialive.errors.not_found_exception.NotFoundException: Placeholder documentation for NotFoundException
+            aws_sdk_medialive.errors.too_many_requests_exception.TooManyRequestsException: Placeholder documentation for TooManyRequestsException
+            aws_sdk_medialive.errors.unprocessable_entity_exception.UnprocessableEntityException: Placeholder documentation for UnprocessableEntityException
+            aws_sdk_medialive.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -710,6 +766,18 @@ class MediaLiveClient:
 
         Args:
             input_device_id: The unique ID of the input device to cancel. For example, hd-123456789abcdef.
+
+        Raises:
+            aws_sdk_medialive.errors.bad_gateway_exception.BadGatewayException: Placeholder documentation for BadGatewayException
+            aws_sdk_medialive.errors.bad_request_exception.BadRequestException: Placeholder documentation for BadRequestException
+            aws_sdk_medialive.errors.conflict_exception.ConflictException: Placeholder documentation for ConflictException
+            aws_sdk_medialive.errors.forbidden_exception.ForbiddenException: Placeholder documentation for ForbiddenException
+            aws_sdk_medialive.errors.gateway_timeout_exception.GatewayTimeoutException: Placeholder documentation for GatewayTimeoutException
+            aws_sdk_medialive.errors.internal_server_error_exception.InternalServerErrorException: Placeholder documentation for InternalServerErrorException
+            aws_sdk_medialive.errors.not_found_exception.NotFoundException: Placeholder documentation for NotFoundException
+            aws_sdk_medialive.errors.too_many_requests_exception.TooManyRequestsException: Placeholder documentation for TooManyRequestsException
+            aws_sdk_medialive.errors.unprocessable_entity_exception.UnprocessableEntityException: Placeholder documentation for UnprocessableEntityException
+            aws_sdk_medialive.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -747,6 +815,17 @@ class MediaLiveClient:
 
         Args:
             id: The id of the device you want to claim.
+
+        Raises:
+            aws_sdk_medialive.errors.bad_gateway_exception.BadGatewayException: Placeholder documentation for BadGatewayException
+            aws_sdk_medialive.errors.bad_request_exception.BadRequestException: Placeholder documentation for BadRequestException
+            aws_sdk_medialive.errors.forbidden_exception.ForbiddenException: Placeholder documentation for ForbiddenException
+            aws_sdk_medialive.errors.gateway_timeout_exception.GatewayTimeoutException: Placeholder documentation for GatewayTimeoutException
+            aws_sdk_medialive.errors.internal_server_error_exception.InternalServerErrorException: Placeholder documentation for InternalServerErrorException
+            aws_sdk_medialive.errors.not_found_exception.NotFoundException: Placeholder documentation for NotFoundException
+            aws_sdk_medialive.errors.too_many_requests_exception.TooManyRequestsException: Placeholder documentation for TooManyRequestsException
+            aws_sdk_medialive.errors.unprocessable_entity_exception.UnprocessableEntityException: Placeholder documentation for UnprocessableEntityException
+            aws_sdk_medialive.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -846,6 +925,17 @@ class MediaLiveClient:
             linked_channel_settings: The linked channel settings for the channel.
             channel_security_groups: A list of IDs for all the Input Security Groups attached to the channel.
             inference_settings: Include this setting to include Elemental Inference features in this channel.
+
+        Raises:
+            aws_sdk_medialive.errors.bad_gateway_exception.BadGatewayException: Placeholder documentation for BadGatewayException
+            aws_sdk_medialive.errors.bad_request_exception.BadRequestException: Placeholder documentation for BadRequestException
+            aws_sdk_medialive.errors.conflict_exception.ConflictException: Placeholder documentation for ConflictException
+            aws_sdk_medialive.errors.forbidden_exception.ForbiddenException: Placeholder documentation for ForbiddenException
+            aws_sdk_medialive.errors.gateway_timeout_exception.GatewayTimeoutException: Placeholder documentation for GatewayTimeoutException
+            aws_sdk_medialive.errors.internal_server_error_exception.InternalServerErrorException: Placeholder documentation for InternalServerErrorException
+            aws_sdk_medialive.errors.too_many_requests_exception.TooManyRequestsException: Placeholder documentation for TooManyRequestsException
+            aws_sdk_medialive.errors.unprocessable_entity_exception.UnprocessableEntityException: Placeholder documentation for UnprocessableEntityException
+            aws_sdk_medialive.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -932,6 +1022,16 @@ class MediaLiveClient:
             nodes: An array of one ID for the Node that you want to associate with the ChannelPlacementGroup. (You can't associate more than one Node with the ChannelPlacementGroup.) The Node and the ChannelPlacementGroup must be in the same Cluster.
             request_id: An ID that you assign to a create request. This ID ensures idempotency when creating resources. the request.
             tags: A collection of key-value pairs.
+
+        Raises:
+            aws_sdk_medialive.errors.bad_gateway_exception.BadGatewayException: Placeholder documentation for BadGatewayException
+            aws_sdk_medialive.errors.bad_request_exception.BadRequestException: Placeholder documentation for BadRequestException
+            aws_sdk_medialive.errors.forbidden_exception.ForbiddenException: Placeholder documentation for ForbiddenException
+            aws_sdk_medialive.errors.gateway_timeout_exception.GatewayTimeoutException: Placeholder documentation for GatewayTimeoutException
+            aws_sdk_medialive.errors.internal_server_error_exception.InternalServerErrorException: Placeholder documentation for InternalServerErrorException
+            aws_sdk_medialive.errors.too_many_requests_exception.TooManyRequestsException: Placeholder documentation for TooManyRequestsException
+            aws_sdk_medialive.errors.unprocessable_entity_exception.UnprocessableEntityException: Placeholder documentation for UnprocessableEntityException
+            aws_sdk_medialive.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1004,6 +1104,15 @@ class MediaLiveClient:
             period: The period, in seconds, over which the specified statistic is applied.
             threshold: The threshold value to compare with the specified statistic.
             request_id: An ID that you assign to a create request. This ID ensures idempotency when creating resources.
+
+        Raises:
+            aws_sdk_medialive.errors.bad_request_exception.BadRequestException: Placeholder documentation for BadRequestException
+            aws_sdk_medialive.errors.conflict_exception.ConflictException: Placeholder documentation for ConflictException
+            aws_sdk_medialive.errors.forbidden_exception.ForbiddenException: Placeholder documentation for ForbiddenException
+            aws_sdk_medialive.errors.internal_server_error_exception.InternalServerErrorException: Placeholder documentation for InternalServerErrorException
+            aws_sdk_medialive.errors.not_found_exception.NotFoundException: Placeholder documentation for NotFoundException
+            aws_sdk_medialive.errors.too_many_requests_exception.TooManyRequestsException: Placeholder documentation for TooManyRequestsException
+            aws_sdk_medialive.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1067,6 +1176,15 @@ class MediaLiveClient:
             description: A resource's optional description.
             name: A resource's name. Names must be unique within the scope of a resource type in a specific region.
             request_id: An ID that you assign to a create request. This ID ensures idempotency when creating resources.
+
+        Raises:
+            aws_sdk_medialive.errors.bad_request_exception.BadRequestException: Placeholder documentation for BadRequestException
+            aws_sdk_medialive.errors.conflict_exception.ConflictException: Placeholder documentation for ConflictException
+            aws_sdk_medialive.errors.forbidden_exception.ForbiddenException: Placeholder documentation for ForbiddenException
+            aws_sdk_medialive.errors.internal_server_error_exception.InternalServerErrorException: Placeholder documentation for InternalServerErrorException
+            aws_sdk_medialive.errors.not_found_exception.NotFoundException: Placeholder documentation for NotFoundException
+            aws_sdk_medialive.errors.too_many_requests_exception.TooManyRequestsException: Placeholder documentation for TooManyRequestsException
+            aws_sdk_medialive.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1124,6 +1242,16 @@ class MediaLiveClient:
             network_settings: Network settings that connect the Nodes in the Cluster to one or more of the Networks that the Cluster is associated with.
             request_id: The unique ID of the request.
             tags: A collection of key-value pairs.
+
+        Raises:
+            aws_sdk_medialive.errors.bad_gateway_exception.BadGatewayException: Placeholder documentation for BadGatewayException
+            aws_sdk_medialive.errors.bad_request_exception.BadRequestException: Placeholder documentation for BadRequestException
+            aws_sdk_medialive.errors.conflict_exception.ConflictException: Placeholder documentation for ConflictException
+            aws_sdk_medialive.errors.forbidden_exception.ForbiddenException: Placeholder documentation for ForbiddenException
+            aws_sdk_medialive.errors.gateway_timeout_exception.GatewayTimeoutException: Placeholder documentation for GatewayTimeoutException
+            aws_sdk_medialive.errors.internal_server_error_exception.InternalServerErrorException: Placeholder documentation for InternalServerErrorException
+            aws_sdk_medialive.errors.too_many_requests_exception.TooManyRequestsException: Placeholder documentation for TooManyRequestsException
+            aws_sdk_medialive.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1187,6 +1315,15 @@ class MediaLiveClient:
             group_identifier: An eventbridge rule template group's identifier. Can be either be its id or current name.
             name: A resource's name. Names must be unique within the scope of a resource type in a specific region.
             request_id: An ID that you assign to a create request. This ID ensures idempotency when creating resources.
+
+        Raises:
+            aws_sdk_medialive.errors.bad_request_exception.BadRequestException: Placeholder documentation for BadRequestException
+            aws_sdk_medialive.errors.conflict_exception.ConflictException: Placeholder documentation for ConflictException
+            aws_sdk_medialive.errors.forbidden_exception.ForbiddenException: Placeholder documentation for ForbiddenException
+            aws_sdk_medialive.errors.internal_server_error_exception.InternalServerErrorException: Placeholder documentation for InternalServerErrorException
+            aws_sdk_medialive.errors.not_found_exception.NotFoundException: Placeholder documentation for NotFoundException
+            aws_sdk_medialive.errors.too_many_requests_exception.TooManyRequestsException: Placeholder documentation for TooManyRequestsException
+            aws_sdk_medialive.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1243,6 +1380,15 @@ class MediaLiveClient:
             description: A resource's optional description.
             name: A resource's name. Names must be unique within the scope of a resource type in a specific region.
             request_id: An ID that you assign to a create request. This ID ensures idempotency when creating resources.
+
+        Raises:
+            aws_sdk_medialive.errors.bad_request_exception.BadRequestException: Placeholder documentation for BadRequestException
+            aws_sdk_medialive.errors.conflict_exception.ConflictException: Placeholder documentation for ConflictException
+            aws_sdk_medialive.errors.forbidden_exception.ForbiddenException: Placeholder documentation for ForbiddenException
+            aws_sdk_medialive.errors.internal_server_error_exception.InternalServerErrorException: Placeholder documentation for InternalServerErrorException
+            aws_sdk_medialive.errors.not_found_exception.NotFoundException: Placeholder documentation for NotFoundException
+            aws_sdk_medialive.errors.too_many_requests_exception.TooManyRequestsException: Placeholder documentation for TooManyRequestsException
+            aws_sdk_medialive.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1338,6 +1484,15 @@ class MediaLiveClient:
             input_network_location: The location of this input. AWS, for an input existing in the AWS Cloud, On-Prem for an input in a customer network.
             multicast_settings: Multicast Input settings.
             smpte2110_receiver_group_settings: Include this parameter if the input is a SMPTE 2110 input, to identify the stream sources for this input.
+
+        Raises:
+            aws_sdk_medialive.errors.bad_gateway_exception.BadGatewayException: Placeholder documentation for BadGatewayException
+            aws_sdk_medialive.errors.bad_request_exception.BadRequestException: Placeholder documentation for BadRequestException
+            aws_sdk_medialive.errors.forbidden_exception.ForbiddenException: Placeholder documentation for ForbiddenException
+            aws_sdk_medialive.errors.gateway_timeout_exception.GatewayTimeoutException: Placeholder documentation for GatewayTimeoutException
+            aws_sdk_medialive.errors.internal_server_error_exception.InternalServerErrorException: Placeholder documentation for InternalServerErrorException
+            aws_sdk_medialive.errors.too_many_requests_exception.TooManyRequestsException: Placeholder documentation for TooManyRequestsException
+            aws_sdk_medialive.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1414,6 +1569,15 @@ class MediaLiveClient:
         Args:
             tags: A collection of key-value pairs.
             whitelist_rules: List of IPv4 CIDR addresses to whitelist
+
+        Raises:
+            aws_sdk_medialive.errors.bad_gateway_exception.BadGatewayException: Placeholder documentation for BadGatewayException
+            aws_sdk_medialive.errors.bad_request_exception.BadRequestException: Placeholder documentation for BadRequestException
+            aws_sdk_medialive.errors.forbidden_exception.ForbiddenException: Placeholder documentation for ForbiddenException
+            aws_sdk_medialive.errors.gateway_timeout_exception.GatewayTimeoutException: Placeholder documentation for GatewayTimeoutException
+            aws_sdk_medialive.errors.internal_server_error_exception.InternalServerErrorException: Placeholder documentation for InternalServerErrorException
+            aws_sdk_medialive.errors.too_many_requests_exception.TooManyRequestsException: Placeholder documentation for TooManyRequestsException
+            aws_sdk_medialive.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1462,6 +1626,17 @@ class MediaLiveClient:
             name: Name of multiplex.
             request_id: Unique request ID. This prevents retries from creating multiple resources.
             tags: A collection of key-value pairs.
+
+        Raises:
+            aws_sdk_medialive.errors.bad_gateway_exception.BadGatewayException: Placeholder documentation for BadGatewayException
+            aws_sdk_medialive.errors.bad_request_exception.BadRequestException: Placeholder documentation for BadRequestException
+            aws_sdk_medialive.errors.conflict_exception.ConflictException: Placeholder documentation for ConflictException
+            aws_sdk_medialive.errors.forbidden_exception.ForbiddenException: Placeholder documentation for ForbiddenException
+            aws_sdk_medialive.errors.gateway_timeout_exception.GatewayTimeoutException: Placeholder documentation for GatewayTimeoutException
+            aws_sdk_medialive.errors.internal_server_error_exception.InternalServerErrorException: Placeholder documentation for InternalServerErrorException
+            aws_sdk_medialive.errors.too_many_requests_exception.TooManyRequestsException: Placeholder documentation for TooManyRequestsException
+            aws_sdk_medialive.errors.unprocessable_entity_exception.UnprocessableEntityException: Placeholder documentation for UnprocessableEntityException
+            aws_sdk_medialive.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1510,6 +1685,17 @@ class MediaLiveClient:
             multiplex_program_settings: The settings for this multiplex program.
             program_name: Name of multiplex program.
             request_id: Unique request ID. This prevents retries from creating multiple resources.
+
+        Raises:
+            aws_sdk_medialive.errors.bad_gateway_exception.BadGatewayException: Placeholder documentation for BadGatewayException
+            aws_sdk_medialive.errors.bad_request_exception.BadRequestException: Placeholder documentation for BadRequestException
+            aws_sdk_medialive.errors.conflict_exception.ConflictException: Placeholder documentation for ConflictException
+            aws_sdk_medialive.errors.forbidden_exception.ForbiddenException: Placeholder documentation for ForbiddenException
+            aws_sdk_medialive.errors.gateway_timeout_exception.GatewayTimeoutException: Placeholder documentation for GatewayTimeoutException
+            aws_sdk_medialive.errors.internal_server_error_exception.InternalServerErrorException: Placeholder documentation for InternalServerErrorException
+            aws_sdk_medialive.errors.too_many_requests_exception.TooManyRequestsException: Placeholder documentation for TooManyRequestsException
+            aws_sdk_medialive.errors.unprocessable_entity_exception.UnprocessableEntityException: Placeholder documentation for UnprocessableEntityException
+            aws_sdk_medialive.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1562,6 +1748,16 @@ class MediaLiveClient:
             request_id: An ID that you assign to a create request. This ID ensures idempotency when creating resources.
             routes: An array of routes that MediaLive Anywhere needs to know about in order to route encoding traffic.
             tags: A collection of key-value pairs.
+
+        Raises:
+            aws_sdk_medialive.errors.bad_gateway_exception.BadGatewayException: Placeholder documentation for BadGatewayException
+            aws_sdk_medialive.errors.bad_request_exception.BadRequestException: Placeholder documentation for BadRequestException
+            aws_sdk_medialive.errors.conflict_exception.ConflictException: Placeholder documentation for ConflictException
+            aws_sdk_medialive.errors.forbidden_exception.ForbiddenException: Placeholder documentation for ForbiddenException
+            aws_sdk_medialive.errors.gateway_timeout_exception.GatewayTimeoutException: Placeholder documentation for GatewayTimeoutException
+            aws_sdk_medialive.errors.internal_server_error_exception.InternalServerErrorException: Placeholder documentation for InternalServerErrorException
+            aws_sdk_medialive.errors.too_many_requests_exception.TooManyRequestsException: Placeholder documentation for TooManyRequestsException
+            aws_sdk_medialive.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1620,6 +1816,16 @@ class MediaLiveClient:
             request_id: An ID that you assign to a create request. This ID ensures idempotency when creating resources.
             role: The initial role of the Node in the Cluster. ACTIVE means the Node is available for encoding. BACKUP means the Node is a redundant Node and might get used if an ACTIVE Node fails.
             tags: A collection of key-value pairs.
+
+        Raises:
+            aws_sdk_medialive.errors.bad_gateway_exception.BadGatewayException: Placeholder documentation for BadGatewayException
+            aws_sdk_medialive.errors.bad_request_exception.BadRequestException: Placeholder documentation for BadRequestException
+            aws_sdk_medialive.errors.forbidden_exception.ForbiddenException: Placeholder documentation for ForbiddenException
+            aws_sdk_medialive.errors.gateway_timeout_exception.GatewayTimeoutException: Placeholder documentation for GatewayTimeoutException
+            aws_sdk_medialive.errors.internal_server_error_exception.InternalServerErrorException: Placeholder documentation for InternalServerErrorException
+            aws_sdk_medialive.errors.too_many_requests_exception.TooManyRequestsException: Placeholder documentation for TooManyRequestsException
+            aws_sdk_medialive.errors.unprocessable_entity_exception.UnprocessableEntityException: Placeholder documentation for UnprocessableEntityException
+            aws_sdk_medialive.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1679,6 +1885,16 @@ class MediaLiveClient:
             node_interface_mappings: Documentation update needed
             request_id: An ID that you assign to a create request. This ID ensures idempotency when creating resources.
             role: The initial role of the Node in the Cluster. ACTIVE means the Node is available for encoding. BACKUP means the Node is a redundant Node and might get used if an ACTIVE Node fails.
+
+        Raises:
+            aws_sdk_medialive.errors.bad_gateway_exception.BadGatewayException: Placeholder documentation for BadGatewayException
+            aws_sdk_medialive.errors.bad_request_exception.BadRequestException: Placeholder documentation for BadRequestException
+            aws_sdk_medialive.errors.conflict_exception.ConflictException: Placeholder documentation for ConflictException
+            aws_sdk_medialive.errors.forbidden_exception.ForbiddenException: Placeholder documentation for ForbiddenException
+            aws_sdk_medialive.errors.gateway_timeout_exception.GatewayTimeoutException: Placeholder documentation for GatewayTimeoutException
+            aws_sdk_medialive.errors.internal_server_error_exception.InternalServerErrorException: Placeholder documentation for InternalServerErrorException
+            aws_sdk_medialive.errors.too_many_requests_exception.TooManyRequestsException: Placeholder documentation for TooManyRequestsException
+            aws_sdk_medialive.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1730,6 +1946,15 @@ class MediaLiveClient:
             input_id: Unique ID of the input.
             request_id: Unique identifier of the request to ensure the request is handled exactly once in case of retries.
             tags: A collection of key-value pairs.
+
+        Raises:
+            aws_sdk_medialive.errors.bad_gateway_exception.BadGatewayException: Placeholder documentation for BadGatewayException
+            aws_sdk_medialive.errors.bad_request_exception.BadRequestException: Placeholder documentation for BadRequestException
+            aws_sdk_medialive.errors.forbidden_exception.ForbiddenException: Placeholder documentation for ForbiddenException
+            aws_sdk_medialive.errors.gateway_timeout_exception.GatewayTimeoutException: Placeholder documentation for GatewayTimeoutException
+            aws_sdk_medialive.errors.internal_server_error_exception.InternalServerErrorException: Placeholder documentation for InternalServerErrorException
+            aws_sdk_medialive.errors.too_many_requests_exception.TooManyRequestsException: Placeholder documentation for TooManyRequestsException
+            aws_sdk_medialive.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1779,6 +2004,16 @@ class MediaLiveClient:
             request_id: An ID that you assign to a create request. This ID ensures idempotency when creating resources.
             tags: A collection of key-value pairs.
             type: Specify the type of the SDI source: SINGLE: The source is a single-link source. QUAD: The source is one part of a quad-link source.
+
+        Raises:
+            aws_sdk_medialive.errors.bad_gateway_exception.BadGatewayException: Placeholder documentation for BadGatewayException
+            aws_sdk_medialive.errors.bad_request_exception.BadRequestException: Placeholder documentation for BadRequestException
+            aws_sdk_medialive.errors.conflict_exception.ConflictException: Placeholder documentation for ConflictException
+            aws_sdk_medialive.errors.forbidden_exception.ForbiddenException: Placeholder documentation for ForbiddenException
+            aws_sdk_medialive.errors.gateway_timeout_exception.GatewayTimeoutException: Placeholder documentation for GatewayTimeoutException
+            aws_sdk_medialive.errors.internal_server_error_exception.InternalServerErrorException: Placeholder documentation for InternalServerErrorException
+            aws_sdk_medialive.errors.too_many_requests_exception.TooManyRequestsException: Placeholder documentation for TooManyRequestsException
+            aws_sdk_medialive.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1842,6 +2077,15 @@ class MediaLiveClient:
             discovery_entry_point_arn: A top-level supported AWS resource ARN to discovery a signal map from.
             name: A resource's name. Names must be unique within the scope of a resource type in a specific region.
             request_id: An ID that you assign to a create request. This ID ensures idempotency when creating resources.
+
+        Raises:
+            aws_sdk_medialive.errors.bad_request_exception.BadRequestException: Placeholder documentation for BadRequestException
+            aws_sdk_medialive.errors.conflict_exception.ConflictException: Placeholder documentation for ConflictException
+            aws_sdk_medialive.errors.forbidden_exception.ForbiddenException: Placeholder documentation for ForbiddenException
+            aws_sdk_medialive.errors.internal_server_error_exception.InternalServerErrorException: Placeholder documentation for InternalServerErrorException
+            aws_sdk_medialive.errors.not_found_exception.NotFoundException: Placeholder documentation for NotFoundException
+            aws_sdk_medialive.errors.too_many_requests_exception.TooManyRequestsException: Placeholder documentation for TooManyRequestsException
+            aws_sdk_medialive.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1891,7 +2135,15 @@ class MediaLiveClient:
         config_overrides: Optional[MediaLiveClientConfig] = None,
         tags: Optional["aws_sdk_medialive.types.tags.Tags"] = None,
     ) -> None:
-        """Create tags for a resource"""
+        """Create tags for a resource
+
+        Raises:
+            aws_sdk_medialive.errors.bad_request_exception.BadRequestException: Placeholder documentation for BadRequestException
+            aws_sdk_medialive.errors.forbidden_exception.ForbiddenException: Placeholder documentation for ForbiddenException
+            aws_sdk_medialive.errors.internal_server_error_exception.InternalServerErrorException: Placeholder documentation for InternalServerErrorException
+            aws_sdk_medialive.errors.not_found_exception.NotFoundException: Placeholder documentation for NotFoundException
+            aws_sdk_medialive.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_medialive.types.create_tags_request.CreateTagsRequest]",
@@ -1928,6 +2180,17 @@ class MediaLiveClient:
 
         Args:
             channel_id: Unique ID of the channel.
+
+        Raises:
+            aws_sdk_medialive.errors.bad_gateway_exception.BadGatewayException: Placeholder documentation for BadGatewayException
+            aws_sdk_medialive.errors.bad_request_exception.BadRequestException: Placeholder documentation for BadRequestException
+            aws_sdk_medialive.errors.conflict_exception.ConflictException: Placeholder documentation for ConflictException
+            aws_sdk_medialive.errors.forbidden_exception.ForbiddenException: Placeholder documentation for ForbiddenException
+            aws_sdk_medialive.errors.gateway_timeout_exception.GatewayTimeoutException: Placeholder documentation for GatewayTimeoutException
+            aws_sdk_medialive.errors.internal_server_error_exception.InternalServerErrorException: Placeholder documentation for InternalServerErrorException
+            aws_sdk_medialive.errors.not_found_exception.NotFoundException: Placeholder documentation for NotFoundException
+            aws_sdk_medialive.errors.too_many_requests_exception.TooManyRequestsException: Placeholder documentation for TooManyRequestsException
+            aws_sdk_medialive.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1967,6 +2230,17 @@ class MediaLiveClient:
         Args:
             channel_placement_group_id: The ID of the channel placement group.
             cluster_id: The ID of the cluster.
+
+        Raises:
+            aws_sdk_medialive.errors.bad_gateway_exception.BadGatewayException: Placeholder documentation for BadGatewayException
+            aws_sdk_medialive.errors.bad_request_exception.BadRequestException: Placeholder documentation for BadRequestException
+            aws_sdk_medialive.errors.conflict_exception.ConflictException: Placeholder documentation for ConflictException
+            aws_sdk_medialive.errors.forbidden_exception.ForbiddenException: Placeholder documentation for ForbiddenException
+            aws_sdk_medialive.errors.gateway_timeout_exception.GatewayTimeoutException: Placeholder documentation for GatewayTimeoutException
+            aws_sdk_medialive.errors.internal_server_error_exception.InternalServerErrorException: Placeholder documentation for InternalServerErrorException
+            aws_sdk_medialive.errors.not_found_exception.NotFoundException: Placeholder documentation for NotFoundException
+            aws_sdk_medialive.errors.too_many_requests_exception.TooManyRequestsException: Placeholder documentation for TooManyRequestsException
+            aws_sdk_medialive.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2005,6 +2279,15 @@ class MediaLiveClient:
 
         Args:
             identifier: A cloudwatch alarm template's identifier. Can be either be its id or current name.
+
+        Raises:
+            aws_sdk_medialive.errors.bad_request_exception.BadRequestException: Placeholder documentation for BadRequestException
+            aws_sdk_medialive.errors.conflict_exception.ConflictException: Placeholder documentation for ConflictException
+            aws_sdk_medialive.errors.forbidden_exception.ForbiddenException: Placeholder documentation for ForbiddenException
+            aws_sdk_medialive.errors.internal_server_error_exception.InternalServerErrorException: Placeholder documentation for InternalServerErrorException
+            aws_sdk_medialive.errors.not_found_exception.NotFoundException: Placeholder documentation for NotFoundException
+            aws_sdk_medialive.errors.too_many_requests_exception.TooManyRequestsException: Placeholder documentation for TooManyRequestsException
+            aws_sdk_medialive.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2040,6 +2323,15 @@ class MediaLiveClient:
 
         Args:
             identifier: A cloudwatch alarm template group's identifier. Can be either be its id or current name.
+
+        Raises:
+            aws_sdk_medialive.errors.bad_request_exception.BadRequestException: Placeholder documentation for BadRequestException
+            aws_sdk_medialive.errors.conflict_exception.ConflictException: Placeholder documentation for ConflictException
+            aws_sdk_medialive.errors.forbidden_exception.ForbiddenException: Placeholder documentation for ForbiddenException
+            aws_sdk_medialive.errors.internal_server_error_exception.InternalServerErrorException: Placeholder documentation for InternalServerErrorException
+            aws_sdk_medialive.errors.not_found_exception.NotFoundException: Placeholder documentation for NotFoundException
+            aws_sdk_medialive.errors.too_many_requests_exception.TooManyRequestsException: Placeholder documentation for TooManyRequestsException
+            aws_sdk_medialive.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2075,6 +2367,17 @@ class MediaLiveClient:
 
         Args:
             cluster_id: The ID of the cluster.
+
+        Raises:
+            aws_sdk_medialive.errors.bad_gateway_exception.BadGatewayException: Placeholder documentation for BadGatewayException
+            aws_sdk_medialive.errors.bad_request_exception.BadRequestException: Placeholder documentation for BadRequestException
+            aws_sdk_medialive.errors.conflict_exception.ConflictException: Placeholder documentation for ConflictException
+            aws_sdk_medialive.errors.forbidden_exception.ForbiddenException: Placeholder documentation for ForbiddenException
+            aws_sdk_medialive.errors.gateway_timeout_exception.GatewayTimeoutException: Placeholder documentation for GatewayTimeoutException
+            aws_sdk_medialive.errors.internal_server_error_exception.InternalServerErrorException: Placeholder documentation for InternalServerErrorException
+            aws_sdk_medialive.errors.not_found_exception.NotFoundException: Placeholder documentation for NotFoundException
+            aws_sdk_medialive.errors.too_many_requests_exception.TooManyRequestsException: Placeholder documentation for TooManyRequestsException
+            aws_sdk_medialive.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2112,6 +2415,15 @@ class MediaLiveClient:
 
         Args:
             identifier: An eventbridge rule template's identifier. Can be either be its id or current name.
+
+        Raises:
+            aws_sdk_medialive.errors.bad_request_exception.BadRequestException: Placeholder documentation for BadRequestException
+            aws_sdk_medialive.errors.conflict_exception.ConflictException: Placeholder documentation for ConflictException
+            aws_sdk_medialive.errors.forbidden_exception.ForbiddenException: Placeholder documentation for ForbiddenException
+            aws_sdk_medialive.errors.internal_server_error_exception.InternalServerErrorException: Placeholder documentation for InternalServerErrorException
+            aws_sdk_medialive.errors.not_found_exception.NotFoundException: Placeholder documentation for NotFoundException
+            aws_sdk_medialive.errors.too_many_requests_exception.TooManyRequestsException: Placeholder documentation for TooManyRequestsException
+            aws_sdk_medialive.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2147,6 +2459,15 @@ class MediaLiveClient:
 
         Args:
             identifier: An eventbridge rule template group's identifier. Can be either be its id or current name.
+
+        Raises:
+            aws_sdk_medialive.errors.bad_request_exception.BadRequestException: Placeholder documentation for BadRequestException
+            aws_sdk_medialive.errors.conflict_exception.ConflictException: Placeholder documentation for ConflictException
+            aws_sdk_medialive.errors.forbidden_exception.ForbiddenException: Placeholder documentation for ForbiddenException
+            aws_sdk_medialive.errors.internal_server_error_exception.InternalServerErrorException: Placeholder documentation for InternalServerErrorException
+            aws_sdk_medialive.errors.not_found_exception.NotFoundException: Placeholder documentation for NotFoundException
+            aws_sdk_medialive.errors.too_many_requests_exception.TooManyRequestsException: Placeholder documentation for TooManyRequestsException
+            aws_sdk_medialive.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2182,6 +2503,17 @@ class MediaLiveClient:
 
         Args:
             input_id: Unique ID of the input
+
+        Raises:
+            aws_sdk_medialive.errors.bad_gateway_exception.BadGatewayException: Placeholder documentation for BadGatewayException
+            aws_sdk_medialive.errors.bad_request_exception.BadRequestException: Placeholder documentation for BadRequestException
+            aws_sdk_medialive.errors.conflict_exception.ConflictException: Placeholder documentation for ConflictException
+            aws_sdk_medialive.errors.forbidden_exception.ForbiddenException: Placeholder documentation for ForbiddenException
+            aws_sdk_medialive.errors.gateway_timeout_exception.GatewayTimeoutException: Placeholder documentation for GatewayTimeoutException
+            aws_sdk_medialive.errors.internal_server_error_exception.InternalServerErrorException: Placeholder documentation for InternalServerErrorException
+            aws_sdk_medialive.errors.not_found_exception.NotFoundException: Placeholder documentation for NotFoundException
+            aws_sdk_medialive.errors.too_many_requests_exception.TooManyRequestsException: Placeholder documentation for TooManyRequestsException
+            aws_sdk_medialive.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2219,6 +2551,16 @@ class MediaLiveClient:
 
         Args:
             input_security_group_id: The Input Security Group to delete
+
+        Raises:
+            aws_sdk_medialive.errors.bad_gateway_exception.BadGatewayException: Placeholder documentation for BadGatewayException
+            aws_sdk_medialive.errors.bad_request_exception.BadRequestException: Placeholder documentation for BadRequestException
+            aws_sdk_medialive.errors.forbidden_exception.ForbiddenException: Placeholder documentation for ForbiddenException
+            aws_sdk_medialive.errors.gateway_timeout_exception.GatewayTimeoutException: Placeholder documentation for GatewayTimeoutException
+            aws_sdk_medialive.errors.internal_server_error_exception.InternalServerErrorException: Placeholder documentation for InternalServerErrorException
+            aws_sdk_medialive.errors.not_found_exception.NotFoundException: Placeholder documentation for NotFoundException
+            aws_sdk_medialive.errors.too_many_requests_exception.TooManyRequestsException: Placeholder documentation for TooManyRequestsException
+            aws_sdk_medialive.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2256,6 +2598,17 @@ class MediaLiveClient:
 
         Args:
             multiplex_id: The ID of the multiplex.
+
+        Raises:
+            aws_sdk_medialive.errors.bad_gateway_exception.BadGatewayException: Placeholder documentation for BadGatewayException
+            aws_sdk_medialive.errors.bad_request_exception.BadRequestException: Placeholder documentation for BadRequestException
+            aws_sdk_medialive.errors.conflict_exception.ConflictException: Placeholder documentation for ConflictException
+            aws_sdk_medialive.errors.forbidden_exception.ForbiddenException: Placeholder documentation for ForbiddenException
+            aws_sdk_medialive.errors.gateway_timeout_exception.GatewayTimeoutException: Placeholder documentation for GatewayTimeoutException
+            aws_sdk_medialive.errors.internal_server_error_exception.InternalServerErrorException: Placeholder documentation for InternalServerErrorException
+            aws_sdk_medialive.errors.not_found_exception.NotFoundException: Placeholder documentation for NotFoundException
+            aws_sdk_medialive.errors.too_many_requests_exception.TooManyRequestsException: Placeholder documentation for TooManyRequestsException
+            aws_sdk_medialive.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2295,6 +2648,17 @@ class MediaLiveClient:
         Args:
             multiplex_id: The ID of the multiplex that the program belongs to.
             program_name: The multiplex program name.
+
+        Raises:
+            aws_sdk_medialive.errors.bad_gateway_exception.BadGatewayException: Placeholder documentation for BadGatewayException
+            aws_sdk_medialive.errors.bad_request_exception.BadRequestException: Placeholder documentation for BadRequestException
+            aws_sdk_medialive.errors.conflict_exception.ConflictException: Placeholder documentation for ConflictException
+            aws_sdk_medialive.errors.forbidden_exception.ForbiddenException: Placeholder documentation for ForbiddenException
+            aws_sdk_medialive.errors.gateway_timeout_exception.GatewayTimeoutException: Placeholder documentation for GatewayTimeoutException
+            aws_sdk_medialive.errors.internal_server_error_exception.InternalServerErrorException: Placeholder documentation for InternalServerErrorException
+            aws_sdk_medialive.errors.not_found_exception.NotFoundException: Placeholder documentation for NotFoundException
+            aws_sdk_medialive.errors.too_many_requests_exception.TooManyRequestsException: Placeholder documentation for TooManyRequestsException
+            aws_sdk_medialive.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2333,6 +2697,17 @@ class MediaLiveClient:
 
         Args:
             network_id: The ID of the network.
+
+        Raises:
+            aws_sdk_medialive.errors.bad_gateway_exception.BadGatewayException: Placeholder documentation for BadGatewayException
+            aws_sdk_medialive.errors.bad_request_exception.BadRequestException: Placeholder documentation for BadRequestException
+            aws_sdk_medialive.errors.conflict_exception.ConflictException: Placeholder documentation for ConflictException
+            aws_sdk_medialive.errors.forbidden_exception.ForbiddenException: Placeholder documentation for ForbiddenException
+            aws_sdk_medialive.errors.gateway_timeout_exception.GatewayTimeoutException: Placeholder documentation for GatewayTimeoutException
+            aws_sdk_medialive.errors.internal_server_error_exception.InternalServerErrorException: Placeholder documentation for InternalServerErrorException
+            aws_sdk_medialive.errors.not_found_exception.NotFoundException: Placeholder documentation for NotFoundException
+            aws_sdk_medialive.errors.too_many_requests_exception.TooManyRequestsException: Placeholder documentation for TooManyRequestsException
+            aws_sdk_medialive.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2372,6 +2747,17 @@ class MediaLiveClient:
         Args:
             cluster_id: The ID of the cluster
             node_id: The ID of the node.
+
+        Raises:
+            aws_sdk_medialive.errors.bad_gateway_exception.BadGatewayException: Placeholder documentation for BadGatewayException
+            aws_sdk_medialive.errors.bad_request_exception.BadRequestException: Placeholder documentation for BadRequestException
+            aws_sdk_medialive.errors.conflict_exception.ConflictException: Placeholder documentation for ConflictException
+            aws_sdk_medialive.errors.forbidden_exception.ForbiddenException: Placeholder documentation for ForbiddenException
+            aws_sdk_medialive.errors.gateway_timeout_exception.GatewayTimeoutException: Placeholder documentation for GatewayTimeoutException
+            aws_sdk_medialive.errors.internal_server_error_exception.InternalServerErrorException: Placeholder documentation for InternalServerErrorException
+            aws_sdk_medialive.errors.not_found_exception.NotFoundException: Placeholder documentation for NotFoundException
+            aws_sdk_medialive.errors.too_many_requests_exception.TooManyRequestsException: Placeholder documentation for TooManyRequestsException
+            aws_sdk_medialive.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2412,6 +2798,17 @@ class MediaLiveClient:
 
         Args:
             reservation_id: Unique reservation ID, e.g. '1234567'
+
+        Raises:
+            aws_sdk_medialive.errors.bad_gateway_exception.BadGatewayException: Placeholder documentation for BadGatewayException
+            aws_sdk_medialive.errors.bad_request_exception.BadRequestException: Placeholder documentation for BadRequestException
+            aws_sdk_medialive.errors.conflict_exception.ConflictException: Placeholder documentation for ConflictException
+            aws_sdk_medialive.errors.forbidden_exception.ForbiddenException: Placeholder documentation for ForbiddenException
+            aws_sdk_medialive.errors.gateway_timeout_exception.GatewayTimeoutException: Placeholder documentation for GatewayTimeoutException
+            aws_sdk_medialive.errors.internal_server_error_exception.InternalServerErrorException: Placeholder documentation for InternalServerErrorException
+            aws_sdk_medialive.errors.not_found_exception.NotFoundException: Placeholder documentation for NotFoundException
+            aws_sdk_medialive.errors.too_many_requests_exception.TooManyRequestsException: Placeholder documentation for TooManyRequestsException
+            aws_sdk_medialive.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2449,6 +2846,16 @@ class MediaLiveClient:
 
         Args:
             channel_id: Id of the channel whose schedule is being deleted.
+
+        Raises:
+            aws_sdk_medialive.errors.bad_gateway_exception.BadGatewayException: Placeholder documentation for BadGatewayException
+            aws_sdk_medialive.errors.bad_request_exception.BadRequestException: Placeholder documentation for BadRequestException
+            aws_sdk_medialive.errors.forbidden_exception.ForbiddenException: Placeholder documentation for ForbiddenException
+            aws_sdk_medialive.errors.gateway_timeout_exception.GatewayTimeoutException: Placeholder documentation for GatewayTimeoutException
+            aws_sdk_medialive.errors.internal_server_error_exception.InternalServerErrorException: Placeholder documentation for InternalServerErrorException
+            aws_sdk_medialive.errors.not_found_exception.NotFoundException: Placeholder documentation for NotFoundException
+            aws_sdk_medialive.errors.too_many_requests_exception.TooManyRequestsException: Placeholder documentation for TooManyRequestsException
+            aws_sdk_medialive.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2486,6 +2893,17 @@ class MediaLiveClient:
 
         Args:
             sdi_source_id: The ID of the SdiSource.
+
+        Raises:
+            aws_sdk_medialive.errors.bad_gateway_exception.BadGatewayException: Placeholder documentation for BadGatewayException
+            aws_sdk_medialive.errors.bad_request_exception.BadRequestException: Placeholder documentation for BadRequestException
+            aws_sdk_medialive.errors.conflict_exception.ConflictException: Placeholder documentation for ConflictException
+            aws_sdk_medialive.errors.forbidden_exception.ForbiddenException: Placeholder documentation for ForbiddenException
+            aws_sdk_medialive.errors.gateway_timeout_exception.GatewayTimeoutException: Placeholder documentation for GatewayTimeoutException
+            aws_sdk_medialive.errors.internal_server_error_exception.InternalServerErrorException: Placeholder documentation for InternalServerErrorException
+            aws_sdk_medialive.errors.not_found_exception.NotFoundException: Placeholder documentation for NotFoundException
+            aws_sdk_medialive.errors.too_many_requests_exception.TooManyRequestsException: Placeholder documentation for TooManyRequestsException
+            aws_sdk_medialive.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2523,6 +2941,15 @@ class MediaLiveClient:
 
         Args:
             identifier: A signal map's identifier. Can be either be its id or current name.
+
+        Raises:
+            aws_sdk_medialive.errors.bad_request_exception.BadRequestException: Placeholder documentation for BadRequestException
+            aws_sdk_medialive.errors.conflict_exception.ConflictException: Placeholder documentation for ConflictException
+            aws_sdk_medialive.errors.forbidden_exception.ForbiddenException: Placeholder documentation for ForbiddenException
+            aws_sdk_medialive.errors.internal_server_error_exception.InternalServerErrorException: Placeholder documentation for InternalServerErrorException
+            aws_sdk_medialive.errors.not_found_exception.NotFoundException: Placeholder documentation for NotFoundException
+            aws_sdk_medialive.errors.too_many_requests_exception.TooManyRequestsException: Placeholder documentation for TooManyRequestsException
+            aws_sdk_medialive.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2559,6 +2986,13 @@ class MediaLiveClient:
 
         Args:
             tag_keys: An array of tag keys to delete
+
+        Raises:
+            aws_sdk_medialive.errors.bad_request_exception.BadRequestException: Placeholder documentation for BadRequestException
+            aws_sdk_medialive.errors.forbidden_exception.ForbiddenException: Placeholder documentation for ForbiddenException
+            aws_sdk_medialive.errors.internal_server_error_exception.InternalServerErrorException: Placeholder documentation for InternalServerErrorException
+            aws_sdk_medialive.errors.not_found_exception.NotFoundException: Placeholder documentation for NotFoundException
+            aws_sdk_medialive.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2588,7 +3022,17 @@ class MediaLiveClient:
     def describe_account_configuration(
         self, *, config_overrides: Optional[MediaLiveClientConfig] = None
     ) -> "aws_sdk_medialive.types.describe_account_configuration_response.DescribeAccountConfigurationResponse":
-        """Describe account configuration"""
+        """Describe account configuration
+
+        Raises:
+            aws_sdk_medialive.errors.bad_gateway_exception.BadGatewayException: Placeholder documentation for BadGatewayException
+            aws_sdk_medialive.errors.bad_request_exception.BadRequestException: Placeholder documentation for BadRequestException
+            aws_sdk_medialive.errors.forbidden_exception.ForbiddenException: Placeholder documentation for ForbiddenException
+            aws_sdk_medialive.errors.gateway_timeout_exception.GatewayTimeoutException: Placeholder documentation for GatewayTimeoutException
+            aws_sdk_medialive.errors.internal_server_error_exception.InternalServerErrorException: Placeholder documentation for InternalServerErrorException
+            aws_sdk_medialive.errors.too_many_requests_exception.TooManyRequestsException: Placeholder documentation for TooManyRequestsException
+            aws_sdk_medialive.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_medialive.types.describe_account_configuration_request.DescribeAccountConfigurationRequest]",
@@ -2624,6 +3068,16 @@ class MediaLiveClient:
 
         Args:
             channel_id: channel ID
+
+        Raises:
+            aws_sdk_medialive.errors.bad_gateway_exception.BadGatewayException: Placeholder documentation for BadGatewayException
+            aws_sdk_medialive.errors.bad_request_exception.BadRequestException: Placeholder documentation for BadRequestException
+            aws_sdk_medialive.errors.forbidden_exception.ForbiddenException: Placeholder documentation for ForbiddenException
+            aws_sdk_medialive.errors.gateway_timeout_exception.GatewayTimeoutException: Placeholder documentation for GatewayTimeoutException
+            aws_sdk_medialive.errors.internal_server_error_exception.InternalServerErrorException: Placeholder documentation for InternalServerErrorException
+            aws_sdk_medialive.errors.not_found_exception.NotFoundException: Placeholder documentation for NotFoundException
+            aws_sdk_medialive.errors.too_many_requests_exception.TooManyRequestsException: Placeholder documentation for TooManyRequestsException
+            aws_sdk_medialive.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2663,6 +3117,16 @@ class MediaLiveClient:
         Args:
             channel_placement_group_id: The ID of the channel placement group.
             cluster_id: The ID of the cluster.
+
+        Raises:
+            aws_sdk_medialive.errors.bad_gateway_exception.BadGatewayException: Placeholder documentation for BadGatewayException
+            aws_sdk_medialive.errors.bad_request_exception.BadRequestException: Placeholder documentation for BadRequestException
+            aws_sdk_medialive.errors.forbidden_exception.ForbiddenException: Placeholder documentation for ForbiddenException
+            aws_sdk_medialive.errors.gateway_timeout_exception.GatewayTimeoutException: Placeholder documentation for GatewayTimeoutException
+            aws_sdk_medialive.errors.internal_server_error_exception.InternalServerErrorException: Placeholder documentation for InternalServerErrorException
+            aws_sdk_medialive.errors.not_found_exception.NotFoundException: Placeholder documentation for NotFoundException
+            aws_sdk_medialive.errors.too_many_requests_exception.TooManyRequestsException: Placeholder documentation for TooManyRequestsException
+            aws_sdk_medialive.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2701,6 +3165,16 @@ class MediaLiveClient:
 
         Args:
             cluster_id: The ID of the cluster.
+
+        Raises:
+            aws_sdk_medialive.errors.bad_gateway_exception.BadGatewayException: Placeholder documentation for BadGatewayException
+            aws_sdk_medialive.errors.bad_request_exception.BadRequestException: Placeholder documentation for BadRequestException
+            aws_sdk_medialive.errors.forbidden_exception.ForbiddenException: Placeholder documentation for ForbiddenException
+            aws_sdk_medialive.errors.gateway_timeout_exception.GatewayTimeoutException: Placeholder documentation for GatewayTimeoutException
+            aws_sdk_medialive.errors.internal_server_error_exception.InternalServerErrorException: Placeholder documentation for InternalServerErrorException
+            aws_sdk_medialive.errors.not_found_exception.NotFoundException: Placeholder documentation for NotFoundException
+            aws_sdk_medialive.errors.too_many_requests_exception.TooManyRequestsException: Placeholder documentation for TooManyRequestsException
+            aws_sdk_medialive.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2738,6 +3212,16 @@ class MediaLiveClient:
 
         Args:
             input_id: Unique ID of the input
+
+        Raises:
+            aws_sdk_medialive.errors.bad_gateway_exception.BadGatewayException: Placeholder documentation for BadGatewayException
+            aws_sdk_medialive.errors.bad_request_exception.BadRequestException: Placeholder documentation for BadRequestException
+            aws_sdk_medialive.errors.forbidden_exception.ForbiddenException: Placeholder documentation for ForbiddenException
+            aws_sdk_medialive.errors.gateway_timeout_exception.GatewayTimeoutException: Placeholder documentation for GatewayTimeoutException
+            aws_sdk_medialive.errors.internal_server_error_exception.InternalServerErrorException: Placeholder documentation for InternalServerErrorException
+            aws_sdk_medialive.errors.not_found_exception.NotFoundException: Placeholder documentation for NotFoundException
+            aws_sdk_medialive.errors.too_many_requests_exception.TooManyRequestsException: Placeholder documentation for TooManyRequestsException
+            aws_sdk_medialive.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2775,6 +3259,16 @@ class MediaLiveClient:
 
         Args:
             input_device_id: The unique ID of this input device. For example, hd-123456789abcdef.
+
+        Raises:
+            aws_sdk_medialive.errors.bad_gateway_exception.BadGatewayException: Placeholder documentation for BadGatewayException
+            aws_sdk_medialive.errors.bad_request_exception.BadRequestException: Placeholder documentation for BadRequestException
+            aws_sdk_medialive.errors.forbidden_exception.ForbiddenException: Placeholder documentation for ForbiddenException
+            aws_sdk_medialive.errors.gateway_timeout_exception.GatewayTimeoutException: Placeholder documentation for GatewayTimeoutException
+            aws_sdk_medialive.errors.internal_server_error_exception.InternalServerErrorException: Placeholder documentation for InternalServerErrorException
+            aws_sdk_medialive.errors.not_found_exception.NotFoundException: Placeholder documentation for NotFoundException
+            aws_sdk_medialive.errors.too_many_requests_exception.TooManyRequestsException: Placeholder documentation for TooManyRequestsException
+            aws_sdk_medialive.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2815,6 +3309,16 @@ class MediaLiveClient:
         Args:
             input_device_id: The unique ID of this input device. For example, hd-123456789abcdef.
             accept: The HTTP Accept header. Indicates the requested type for the thumbnail.
+
+        Raises:
+            aws_sdk_medialive.errors.bad_gateway_exception.BadGatewayException: Placeholder documentation for BadGatewayException
+            aws_sdk_medialive.errors.bad_request_exception.BadRequestException: Placeholder documentation for BadRequestException
+            aws_sdk_medialive.errors.forbidden_exception.ForbiddenException: Placeholder documentation for ForbiddenException
+            aws_sdk_medialive.errors.gateway_timeout_exception.GatewayTimeoutException: Placeholder documentation for GatewayTimeoutException
+            aws_sdk_medialive.errors.internal_server_error_exception.InternalServerErrorException: Placeholder documentation for InternalServerErrorException
+            aws_sdk_medialive.errors.not_found_exception.NotFoundException: Placeholder documentation for NotFoundException
+            aws_sdk_medialive.errors.too_many_requests_exception.TooManyRequestsException: Placeholder documentation for TooManyRequestsException
+            aws_sdk_medialive.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2853,6 +3357,16 @@ class MediaLiveClient:
 
         Args:
             input_security_group_id: The id of the Input Security Group to describe
+
+        Raises:
+            aws_sdk_medialive.errors.bad_gateway_exception.BadGatewayException: Placeholder documentation for BadGatewayException
+            aws_sdk_medialive.errors.bad_request_exception.BadRequestException: Placeholder documentation for BadRequestException
+            aws_sdk_medialive.errors.forbidden_exception.ForbiddenException: Placeholder documentation for ForbiddenException
+            aws_sdk_medialive.errors.gateway_timeout_exception.GatewayTimeoutException: Placeholder documentation for GatewayTimeoutException
+            aws_sdk_medialive.errors.internal_server_error_exception.InternalServerErrorException: Placeholder documentation for InternalServerErrorException
+            aws_sdk_medialive.errors.not_found_exception.NotFoundException: Placeholder documentation for NotFoundException
+            aws_sdk_medialive.errors.too_many_requests_exception.TooManyRequestsException: Placeholder documentation for TooManyRequestsException
+            aws_sdk_medialive.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2892,6 +3406,16 @@ class MediaLiveClient:
 
         Args:
             multiplex_id: The ID of the multiplex.
+
+        Raises:
+            aws_sdk_medialive.errors.bad_gateway_exception.BadGatewayException: Placeholder documentation for BadGatewayException
+            aws_sdk_medialive.errors.bad_request_exception.BadRequestException: Placeholder documentation for BadRequestException
+            aws_sdk_medialive.errors.forbidden_exception.ForbiddenException: Placeholder documentation for ForbiddenException
+            aws_sdk_medialive.errors.gateway_timeout_exception.GatewayTimeoutException: Placeholder documentation for GatewayTimeoutException
+            aws_sdk_medialive.errors.internal_server_error_exception.InternalServerErrorException: Placeholder documentation for InternalServerErrorException
+            aws_sdk_medialive.errors.not_found_exception.NotFoundException: Placeholder documentation for NotFoundException
+            aws_sdk_medialive.errors.too_many_requests_exception.TooManyRequestsException: Placeholder documentation for TooManyRequestsException
+            aws_sdk_medialive.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2931,6 +3455,16 @@ class MediaLiveClient:
         Args:
             multiplex_id: The ID of the multiplex that the program belongs to.
             program_name: The name of the program.
+
+        Raises:
+            aws_sdk_medialive.errors.bad_gateway_exception.BadGatewayException: Placeholder documentation for BadGatewayException
+            aws_sdk_medialive.errors.bad_request_exception.BadRequestException: Placeholder documentation for BadRequestException
+            aws_sdk_medialive.errors.forbidden_exception.ForbiddenException: Placeholder documentation for ForbiddenException
+            aws_sdk_medialive.errors.gateway_timeout_exception.GatewayTimeoutException: Placeholder documentation for GatewayTimeoutException
+            aws_sdk_medialive.errors.internal_server_error_exception.InternalServerErrorException: Placeholder documentation for InternalServerErrorException
+            aws_sdk_medialive.errors.not_found_exception.NotFoundException: Placeholder documentation for NotFoundException
+            aws_sdk_medialive.errors.too_many_requests_exception.TooManyRequestsException: Placeholder documentation for TooManyRequestsException
+            aws_sdk_medialive.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2969,6 +3503,16 @@ class MediaLiveClient:
 
         Args:
             network_id: The ID of the network.
+
+        Raises:
+            aws_sdk_medialive.errors.bad_gateway_exception.BadGatewayException: Placeholder documentation for BadGatewayException
+            aws_sdk_medialive.errors.bad_request_exception.BadRequestException: Placeholder documentation for BadRequestException
+            aws_sdk_medialive.errors.forbidden_exception.ForbiddenException: Placeholder documentation for ForbiddenException
+            aws_sdk_medialive.errors.gateway_timeout_exception.GatewayTimeoutException: Placeholder documentation for GatewayTimeoutException
+            aws_sdk_medialive.errors.internal_server_error_exception.InternalServerErrorException: Placeholder documentation for InternalServerErrorException
+            aws_sdk_medialive.errors.not_found_exception.NotFoundException: Placeholder documentation for NotFoundException
+            aws_sdk_medialive.errors.too_many_requests_exception.TooManyRequestsException: Placeholder documentation for TooManyRequestsException
+            aws_sdk_medialive.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3008,6 +3552,16 @@ class MediaLiveClient:
         Args:
             cluster_id: The ID of the cluster
             node_id: The ID of the node.
+
+        Raises:
+            aws_sdk_medialive.errors.bad_gateway_exception.BadGatewayException: Placeholder documentation for BadGatewayException
+            aws_sdk_medialive.errors.bad_request_exception.BadRequestException: Placeholder documentation for BadRequestException
+            aws_sdk_medialive.errors.forbidden_exception.ForbiddenException: Placeholder documentation for ForbiddenException
+            aws_sdk_medialive.errors.gateway_timeout_exception.GatewayTimeoutException: Placeholder documentation for GatewayTimeoutException
+            aws_sdk_medialive.errors.internal_server_error_exception.InternalServerErrorException: Placeholder documentation for InternalServerErrorException
+            aws_sdk_medialive.errors.not_found_exception.NotFoundException: Placeholder documentation for NotFoundException
+            aws_sdk_medialive.errors.too_many_requests_exception.TooManyRequestsException: Placeholder documentation for TooManyRequestsException
+            aws_sdk_medialive.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3046,6 +3600,16 @@ class MediaLiveClient:
 
         Args:
             offering_id: Unique offering ID, e.g. '87654321'
+
+        Raises:
+            aws_sdk_medialive.errors.bad_gateway_exception.BadGatewayException: Placeholder documentation for BadGatewayException
+            aws_sdk_medialive.errors.bad_request_exception.BadRequestException: Placeholder documentation for BadRequestException
+            aws_sdk_medialive.errors.forbidden_exception.ForbiddenException: Placeholder documentation for ForbiddenException
+            aws_sdk_medialive.errors.gateway_timeout_exception.GatewayTimeoutException: Placeholder documentation for GatewayTimeoutException
+            aws_sdk_medialive.errors.internal_server_error_exception.InternalServerErrorException: Placeholder documentation for InternalServerErrorException
+            aws_sdk_medialive.errors.not_found_exception.NotFoundException: Placeholder documentation for NotFoundException
+            aws_sdk_medialive.errors.too_many_requests_exception.TooManyRequestsException: Placeholder documentation for TooManyRequestsException
+            aws_sdk_medialive.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3083,6 +3647,16 @@ class MediaLiveClient:
 
         Args:
             reservation_id: Unique reservation ID, e.g. '1234567'
+
+        Raises:
+            aws_sdk_medialive.errors.bad_gateway_exception.BadGatewayException: Placeholder documentation for BadGatewayException
+            aws_sdk_medialive.errors.bad_request_exception.BadRequestException: Placeholder documentation for BadRequestException
+            aws_sdk_medialive.errors.forbidden_exception.ForbiddenException: Placeholder documentation for ForbiddenException
+            aws_sdk_medialive.errors.gateway_timeout_exception.GatewayTimeoutException: Placeholder documentation for GatewayTimeoutException
+            aws_sdk_medialive.errors.internal_server_error_exception.InternalServerErrorException: Placeholder documentation for InternalServerErrorException
+            aws_sdk_medialive.errors.not_found_exception.NotFoundException: Placeholder documentation for NotFoundException
+            aws_sdk_medialive.errors.too_many_requests_exception.TooManyRequestsException: Placeholder documentation for TooManyRequestsException
+            aws_sdk_medialive.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3122,6 +3696,16 @@ class MediaLiveClient:
 
         Args:
             channel_id: Id of the channel whose schedule is being updated.
+
+        Raises:
+            aws_sdk_medialive.errors.bad_gateway_exception.BadGatewayException: Placeholder documentation for BadGatewayException
+            aws_sdk_medialive.errors.bad_request_exception.BadRequestException: Placeholder documentation for BadRequestException
+            aws_sdk_medialive.errors.forbidden_exception.ForbiddenException: Placeholder documentation for ForbiddenException
+            aws_sdk_medialive.errors.gateway_timeout_exception.GatewayTimeoutException: Placeholder documentation for GatewayTimeoutException
+            aws_sdk_medialive.errors.internal_server_error_exception.InternalServerErrorException: Placeholder documentation for InternalServerErrorException
+            aws_sdk_medialive.errors.not_found_exception.NotFoundException: Placeholder documentation for NotFoundException
+            aws_sdk_medialive.errors.too_many_requests_exception.TooManyRequestsException: Placeholder documentation for TooManyRequestsException
+            aws_sdk_medialive.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3188,6 +3772,16 @@ class MediaLiveClient:
 
         Args:
             sdi_source_id: Get details about an SdiSource.
+
+        Raises:
+            aws_sdk_medialive.errors.bad_gateway_exception.BadGatewayException: Placeholder documentation for BadGatewayException
+            aws_sdk_medialive.errors.bad_request_exception.BadRequestException: Placeholder documentation for BadRequestException
+            aws_sdk_medialive.errors.forbidden_exception.ForbiddenException: Placeholder documentation for ForbiddenException
+            aws_sdk_medialive.errors.gateway_timeout_exception.GatewayTimeoutException: Placeholder documentation for GatewayTimeoutException
+            aws_sdk_medialive.errors.internal_server_error_exception.InternalServerErrorException: Placeholder documentation for InternalServerErrorException
+            aws_sdk_medialive.errors.not_found_exception.NotFoundException: Placeholder documentation for NotFoundException
+            aws_sdk_medialive.errors.too_many_requests_exception.TooManyRequestsException: Placeholder documentation for TooManyRequestsException
+            aws_sdk_medialive.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3229,6 +3823,17 @@ class MediaLiveClient:
             channel_id: Unique ID of the channel
             pipeline_id: Pipeline ID (\"0\" or \"1\")
             thumbnail_type: thumbnail type
+
+        Raises:
+            aws_sdk_medialive.errors.bad_gateway_exception.BadGatewayException: Placeholder documentation for BadGatewayException
+            aws_sdk_medialive.errors.bad_request_exception.BadRequestException: Placeholder documentation for BadRequestException
+            aws_sdk_medialive.errors.conflict_exception.ConflictException: Placeholder documentation for ConflictException
+            aws_sdk_medialive.errors.forbidden_exception.ForbiddenException: Placeholder documentation for ForbiddenException
+            aws_sdk_medialive.errors.gateway_timeout_exception.GatewayTimeoutException: Placeholder documentation for GatewayTimeoutException
+            aws_sdk_medialive.errors.internal_server_error_exception.InternalServerErrorException: Placeholder documentation for InternalServerErrorException
+            aws_sdk_medialive.errors.not_found_exception.NotFoundException: Placeholder documentation for NotFoundException
+            aws_sdk_medialive.errors.too_many_requests_exception.TooManyRequestsException: Placeholder documentation for TooManyRequestsException
+            aws_sdk_medialive.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3268,6 +3873,14 @@ class MediaLiveClient:
 
         Args:
             identifier: A cloudwatch alarm template's identifier. Can be either be its id or current name.
+
+        Raises:
+            aws_sdk_medialive.errors.bad_request_exception.BadRequestException: Placeholder documentation for BadRequestException
+            aws_sdk_medialive.errors.forbidden_exception.ForbiddenException: Placeholder documentation for ForbiddenException
+            aws_sdk_medialive.errors.internal_server_error_exception.InternalServerErrorException: Placeholder documentation for InternalServerErrorException
+            aws_sdk_medialive.errors.not_found_exception.NotFoundException: Placeholder documentation for NotFoundException
+            aws_sdk_medialive.errors.too_many_requests_exception.TooManyRequestsException: Placeholder documentation for TooManyRequestsException
+            aws_sdk_medialive.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3305,6 +3918,14 @@ class MediaLiveClient:
 
         Args:
             identifier: A cloudwatch alarm template group's identifier. Can be either be its id or current name.
+
+        Raises:
+            aws_sdk_medialive.errors.bad_request_exception.BadRequestException: Placeholder documentation for BadRequestException
+            aws_sdk_medialive.errors.forbidden_exception.ForbiddenException: Placeholder documentation for ForbiddenException
+            aws_sdk_medialive.errors.internal_server_error_exception.InternalServerErrorException: Placeholder documentation for InternalServerErrorException
+            aws_sdk_medialive.errors.not_found_exception.NotFoundException: Placeholder documentation for NotFoundException
+            aws_sdk_medialive.errors.too_many_requests_exception.TooManyRequestsException: Placeholder documentation for TooManyRequestsException
+            aws_sdk_medialive.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3342,6 +3963,14 @@ class MediaLiveClient:
 
         Args:
             identifier: An eventbridge rule template's identifier. Can be either be its id or current name.
+
+        Raises:
+            aws_sdk_medialive.errors.bad_request_exception.BadRequestException: Placeholder documentation for BadRequestException
+            aws_sdk_medialive.errors.forbidden_exception.ForbiddenException: Placeholder documentation for ForbiddenException
+            aws_sdk_medialive.errors.internal_server_error_exception.InternalServerErrorException: Placeholder documentation for InternalServerErrorException
+            aws_sdk_medialive.errors.not_found_exception.NotFoundException: Placeholder documentation for NotFoundException
+            aws_sdk_medialive.errors.too_many_requests_exception.TooManyRequestsException: Placeholder documentation for TooManyRequestsException
+            aws_sdk_medialive.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3379,6 +4008,14 @@ class MediaLiveClient:
 
         Args:
             identifier: An eventbridge rule template group's identifier. Can be either be its id or current name.
+
+        Raises:
+            aws_sdk_medialive.errors.bad_request_exception.BadRequestException: Placeholder documentation for BadRequestException
+            aws_sdk_medialive.errors.forbidden_exception.ForbiddenException: Placeholder documentation for ForbiddenException
+            aws_sdk_medialive.errors.internal_server_error_exception.InternalServerErrorException: Placeholder documentation for InternalServerErrorException
+            aws_sdk_medialive.errors.not_found_exception.NotFoundException: Placeholder documentation for NotFoundException
+            aws_sdk_medialive.errors.too_many_requests_exception.TooManyRequestsException: Placeholder documentation for TooManyRequestsException
+            aws_sdk_medialive.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3416,6 +4053,14 @@ class MediaLiveClient:
 
         Args:
             identifier: A signal map's identifier. Can be either be its id or current name.
+
+        Raises:
+            aws_sdk_medialive.errors.bad_request_exception.BadRequestException: Placeholder documentation for BadRequestException
+            aws_sdk_medialive.errors.forbidden_exception.ForbiddenException: Placeholder documentation for ForbiddenException
+            aws_sdk_medialive.errors.internal_server_error_exception.InternalServerErrorException: Placeholder documentation for InternalServerErrorException
+            aws_sdk_medialive.errors.not_found_exception.NotFoundException: Placeholder documentation for NotFoundException
+            aws_sdk_medialive.errors.too_many_requests_exception.TooManyRequestsException: Placeholder documentation for TooManyRequestsException
+            aws_sdk_medialive.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3459,6 +4104,16 @@ class MediaLiveClient:
             max_results: The maximum number of items to return
             next_token: The next pagination token
             state_filter: Specifies the set of alerts to return based on their state. SET - Return only alerts with SET state. CLEARED - Return only alerts with CLEARED state. ALL - Return all alerts.
+
+        Raises:
+            aws_sdk_medialive.errors.bad_gateway_exception.BadGatewayException: Placeholder documentation for BadGatewayException
+            aws_sdk_medialive.errors.bad_request_exception.BadRequestException: Placeholder documentation for BadRequestException
+            aws_sdk_medialive.errors.forbidden_exception.ForbiddenException: Placeholder documentation for ForbiddenException
+            aws_sdk_medialive.errors.gateway_timeout_exception.GatewayTimeoutException: Placeholder documentation for GatewayTimeoutException
+            aws_sdk_medialive.errors.internal_server_error_exception.InternalServerErrorException: Placeholder documentation for InternalServerErrorException
+            aws_sdk_medialive.errors.not_found_exception.NotFoundException: Placeholder documentation for NotFoundException
+            aws_sdk_medialive.errors.too_many_requests_exception.TooManyRequestsException: Placeholder documentation for TooManyRequestsException
+            aws_sdk_medialive.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3531,6 +4186,15 @@ class MediaLiveClient:
             cluster_id: The ID of the cluster
             max_results: The maximum number of items to return.
             next_token: The token to retrieve the next page of results.
+
+        Raises:
+            aws_sdk_medialive.errors.bad_gateway_exception.BadGatewayException: Placeholder documentation for BadGatewayException
+            aws_sdk_medialive.errors.bad_request_exception.BadRequestException: Placeholder documentation for BadRequestException
+            aws_sdk_medialive.errors.forbidden_exception.ForbiddenException: Placeholder documentation for ForbiddenException
+            aws_sdk_medialive.errors.gateway_timeout_exception.GatewayTimeoutException: Placeholder documentation for GatewayTimeoutException
+            aws_sdk_medialive.errors.internal_server_error_exception.InternalServerErrorException: Placeholder documentation for InternalServerErrorException
+            aws_sdk_medialive.errors.too_many_requests_exception.TooManyRequestsException: Placeholder documentation for TooManyRequestsException
+            aws_sdk_medialive.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3592,7 +4256,17 @@ class MediaLiveClient:
         max_results: Optional["aws_sdk_medialive.types.max_results.MaxResults"] = None,
         next_token: Optional["aws_sdk_medialive.types.__string.__string"] = None,
     ) -> "aws_sdk_medialive.types.list_channels_response.ListChannelsResponse":
-        """Produces list of channels that have been created"""
+        """Produces list of channels that have been created
+
+        Raises:
+            aws_sdk_medialive.errors.bad_gateway_exception.BadGatewayException: Placeholder documentation for BadGatewayException
+            aws_sdk_medialive.errors.bad_request_exception.BadRequestException: Placeholder documentation for BadRequestException
+            aws_sdk_medialive.errors.forbidden_exception.ForbiddenException: Placeholder documentation for ForbiddenException
+            aws_sdk_medialive.errors.gateway_timeout_exception.GatewayTimeoutException: Placeholder documentation for GatewayTimeoutException
+            aws_sdk_medialive.errors.internal_server_error_exception.InternalServerErrorException: Placeholder documentation for InternalServerErrorException
+            aws_sdk_medialive.errors.too_many_requests_exception.TooManyRequestsException: Placeholder documentation for TooManyRequestsException
+            aws_sdk_medialive.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_medialive.types.list_channels_request.ListChannelsRequest]",
@@ -3660,6 +4334,14 @@ class MediaLiveClient:
             next_token: A token used to retrieve the next set of results in paginated list responses.
             scope: Represents the scope of a resource, with options for all scopes, AWS provided resources, or local resources.
             signal_map_identifier: A signal map's identifier. Can be either be its id or current name.
+
+        Raises:
+            aws_sdk_medialive.errors.bad_request_exception.BadRequestException: Placeholder documentation for BadRequestException
+            aws_sdk_medialive.errors.forbidden_exception.ForbiddenException: Placeholder documentation for ForbiddenException
+            aws_sdk_medialive.errors.internal_server_error_exception.InternalServerErrorException: Placeholder documentation for InternalServerErrorException
+            aws_sdk_medialive.errors.not_found_exception.NotFoundException: Placeholder documentation for NotFoundException
+            aws_sdk_medialive.errors.too_many_requests_exception.TooManyRequestsException: Placeholder documentation for TooManyRequestsException
+            aws_sdk_medialive.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3740,6 +4422,14 @@ class MediaLiveClient:
             next_token: A token used to retrieve the next set of results in paginated list responses.
             scope: Represents the scope of a resource, with options for all scopes, AWS provided resources, or local resources.
             signal_map_identifier: A signal map's identifier. Can be either be its id or current name.
+
+        Raises:
+            aws_sdk_medialive.errors.bad_request_exception.BadRequestException: Placeholder documentation for BadRequestException
+            aws_sdk_medialive.errors.forbidden_exception.ForbiddenException: Placeholder documentation for ForbiddenException
+            aws_sdk_medialive.errors.internal_server_error_exception.InternalServerErrorException: Placeholder documentation for InternalServerErrorException
+            aws_sdk_medialive.errors.not_found_exception.NotFoundException: Placeholder documentation for NotFoundException
+            aws_sdk_medialive.errors.too_many_requests_exception.TooManyRequestsException: Placeholder documentation for TooManyRequestsException
+            aws_sdk_medialive.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3823,6 +4513,16 @@ class MediaLiveClient:
             max_results: The maximum number of items to return
             next_token: The next pagination token
             state_filter: Specifies the set of alerts to return based on their state. SET - Return only alerts with SET state. CLEARED - Return only alerts with CLEARED state. ALL - Return all alerts.
+
+        Raises:
+            aws_sdk_medialive.errors.bad_gateway_exception.BadGatewayException: Placeholder documentation for BadGatewayException
+            aws_sdk_medialive.errors.bad_request_exception.BadRequestException: Placeholder documentation for BadRequestException
+            aws_sdk_medialive.errors.forbidden_exception.ForbiddenException: Placeholder documentation for ForbiddenException
+            aws_sdk_medialive.errors.gateway_timeout_exception.GatewayTimeoutException: Placeholder documentation for GatewayTimeoutException
+            aws_sdk_medialive.errors.internal_server_error_exception.InternalServerErrorException: Placeholder documentation for InternalServerErrorException
+            aws_sdk_medialive.errors.not_found_exception.NotFoundException: Placeholder documentation for NotFoundException
+            aws_sdk_medialive.errors.too_many_requests_exception.TooManyRequestsException: Placeholder documentation for TooManyRequestsException
+            aws_sdk_medialive.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3893,6 +4593,15 @@ class MediaLiveClient:
         Args:
             max_results: The maximum number of items to return.
             next_token: The token to retrieve the next page of results.
+
+        Raises:
+            aws_sdk_medialive.errors.bad_gateway_exception.BadGatewayException: Placeholder documentation for BadGatewayException
+            aws_sdk_medialive.errors.bad_request_exception.BadRequestException: Placeholder documentation for BadRequestException
+            aws_sdk_medialive.errors.forbidden_exception.ForbiddenException: Placeholder documentation for ForbiddenException
+            aws_sdk_medialive.errors.gateway_timeout_exception.GatewayTimeoutException: Placeholder documentation for GatewayTimeoutException
+            aws_sdk_medialive.errors.internal_server_error_exception.InternalServerErrorException: Placeholder documentation for InternalServerErrorException
+            aws_sdk_medialive.errors.too_many_requests_exception.TooManyRequestsException: Placeholder documentation for TooManyRequestsException
+            aws_sdk_medialive.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3959,6 +4668,14 @@ class MediaLiveClient:
         Args:
             next_token: A token used to retrieve the next set of results in paginated list responses.
             signal_map_identifier: A signal map's identifier. Can be either be its id or current name.
+
+        Raises:
+            aws_sdk_medialive.errors.bad_request_exception.BadRequestException: Placeholder documentation for BadRequestException
+            aws_sdk_medialive.errors.forbidden_exception.ForbiddenException: Placeholder documentation for ForbiddenException
+            aws_sdk_medialive.errors.internal_server_error_exception.InternalServerErrorException: Placeholder documentation for InternalServerErrorException
+            aws_sdk_medialive.errors.not_found_exception.NotFoundException: Placeholder documentation for NotFoundException
+            aws_sdk_medialive.errors.too_many_requests_exception.TooManyRequestsException: Placeholder documentation for TooManyRequestsException
+            aws_sdk_medialive.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4033,6 +4750,14 @@ class MediaLiveClient:
             group_identifier: An eventbridge rule template group's identifier. Can be either be its id or current name.
             next_token: A token used to retrieve the next set of results in paginated list responses.
             signal_map_identifier: A signal map's identifier. Can be either be its id or current name.
+
+        Raises:
+            aws_sdk_medialive.errors.bad_request_exception.BadRequestException: Placeholder documentation for BadRequestException
+            aws_sdk_medialive.errors.forbidden_exception.ForbiddenException: Placeholder documentation for ForbiddenException
+            aws_sdk_medialive.errors.internal_server_error_exception.InternalServerErrorException: Placeholder documentation for InternalServerErrorException
+            aws_sdk_medialive.errors.not_found_exception.NotFoundException: Placeholder documentation for NotFoundException
+            aws_sdk_medialive.errors.too_many_requests_exception.TooManyRequestsException: Placeholder documentation for TooManyRequestsException
+            aws_sdk_medialive.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4101,7 +4826,17 @@ class MediaLiveClient:
         max_results: Optional["aws_sdk_medialive.types.max_results.MaxResults"] = None,
         next_token: Optional["aws_sdk_medialive.types.__string.__string"] = None,
     ) -> "aws_sdk_medialive.types.list_input_devices_response.ListInputDevicesResponse":
-        """List input devices"""
+        """List input devices
+
+        Raises:
+            aws_sdk_medialive.errors.bad_gateway_exception.BadGatewayException: Placeholder documentation for BadGatewayException
+            aws_sdk_medialive.errors.bad_request_exception.BadRequestException: Placeholder documentation for BadRequestException
+            aws_sdk_medialive.errors.forbidden_exception.ForbiddenException: Placeholder documentation for ForbiddenException
+            aws_sdk_medialive.errors.gateway_timeout_exception.GatewayTimeoutException: Placeholder documentation for GatewayTimeoutException
+            aws_sdk_medialive.errors.internal_server_error_exception.InternalServerErrorException: Placeholder documentation for InternalServerErrorException
+            aws_sdk_medialive.errors.too_many_requests_exception.TooManyRequestsException: Placeholder documentation for TooManyRequestsException
+            aws_sdk_medialive.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_medialive.types.list_input_devices_request.ListInputDevicesRequest]",
@@ -4160,7 +4895,18 @@ class MediaLiveClient:
         max_results: Optional["aws_sdk_medialive.types.max_results.MaxResults"] = None,
         next_token: Optional["aws_sdk_medialive.types.__string.__string"] = None,
     ) -> "aws_sdk_medialive.types.list_input_device_transfers_response.ListInputDeviceTransfersResponse":
-        """List input devices that are currently being transferred. List input devices that you are transferring from your AWS account or input devices that another AWS account is transferring to you."""
+        """List input devices that are currently being transferred. List input devices that you are transferring from your AWS account or input devices that another AWS account is transferring to you.
+
+        Raises:
+            aws_sdk_medialive.errors.bad_gateway_exception.BadGatewayException: Placeholder documentation for BadGatewayException
+            aws_sdk_medialive.errors.bad_request_exception.BadRequestException: Placeholder documentation for BadRequestException
+            aws_sdk_medialive.errors.forbidden_exception.ForbiddenException: Placeholder documentation for ForbiddenException
+            aws_sdk_medialive.errors.gateway_timeout_exception.GatewayTimeoutException: Placeholder documentation for GatewayTimeoutException
+            aws_sdk_medialive.errors.internal_server_error_exception.InternalServerErrorException: Placeholder documentation for InternalServerErrorException
+            aws_sdk_medialive.errors.too_many_requests_exception.TooManyRequestsException: Placeholder documentation for TooManyRequestsException
+            aws_sdk_medialive.errors.unprocessable_entity_exception.UnprocessableEntityException: Placeholder documentation for UnprocessableEntityException
+            aws_sdk_medialive.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_medialive.types.list_input_device_transfers_request.ListInputDeviceTransfersRequest]",
@@ -4221,7 +4967,17 @@ class MediaLiveClient:
         max_results: Optional["aws_sdk_medialive.types.max_results.MaxResults"] = None,
         next_token: Optional["aws_sdk_medialive.types.__string.__string"] = None,
     ) -> "aws_sdk_medialive.types.list_inputs_response.ListInputsResponse":
-        """Produces list of inputs that have been created"""
+        """Produces list of inputs that have been created
+
+        Raises:
+            aws_sdk_medialive.errors.bad_gateway_exception.BadGatewayException: Placeholder documentation for BadGatewayException
+            aws_sdk_medialive.errors.bad_request_exception.BadRequestException: Placeholder documentation for BadRequestException
+            aws_sdk_medialive.errors.forbidden_exception.ForbiddenException: Placeholder documentation for ForbiddenException
+            aws_sdk_medialive.errors.gateway_timeout_exception.GatewayTimeoutException: Placeholder documentation for GatewayTimeoutException
+            aws_sdk_medialive.errors.internal_server_error_exception.InternalServerErrorException: Placeholder documentation for InternalServerErrorException
+            aws_sdk_medialive.errors.too_many_requests_exception.TooManyRequestsException: Placeholder documentation for TooManyRequestsException
+            aws_sdk_medialive.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_medialive.types.list_inputs_request.ListInputsRequest]",
@@ -4279,7 +5035,17 @@ class MediaLiveClient:
         max_results: Optional["aws_sdk_medialive.types.max_results.MaxResults"] = None,
         next_token: Optional["aws_sdk_medialive.types.__string.__string"] = None,
     ) -> "aws_sdk_medialive.types.list_input_security_groups_response.ListInputSecurityGroupsResponse":
-        """Produces a list of Input Security Groups for an account"""
+        """Produces a list of Input Security Groups for an account
+
+        Raises:
+            aws_sdk_medialive.errors.bad_gateway_exception.BadGatewayException: Placeholder documentation for BadGatewayException
+            aws_sdk_medialive.errors.bad_request_exception.BadRequestException: Placeholder documentation for BadRequestException
+            aws_sdk_medialive.errors.forbidden_exception.ForbiddenException: Placeholder documentation for ForbiddenException
+            aws_sdk_medialive.errors.gateway_timeout_exception.GatewayTimeoutException: Placeholder documentation for GatewayTimeoutException
+            aws_sdk_medialive.errors.internal_server_error_exception.InternalServerErrorException: Placeholder documentation for InternalServerErrorException
+            aws_sdk_medialive.errors.too_many_requests_exception.TooManyRequestsException: Placeholder documentation for TooManyRequestsException
+            aws_sdk_medialive.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_medialive.types.list_input_security_groups_request.ListInputSecurityGroupsRequest]",
@@ -4346,6 +5112,16 @@ class MediaLiveClient:
             multiplex_id: The unique ID of the multiplex
             next_token: The next pagination token
             state_filter: Specifies the set of alerts to return based on their state. SET - Return only alerts with SET state. CLEARED - Return only alerts with CLEARED state. ALL - Return all alerts.
+
+        Raises:
+            aws_sdk_medialive.errors.bad_gateway_exception.BadGatewayException: Placeholder documentation for BadGatewayException
+            aws_sdk_medialive.errors.bad_request_exception.BadRequestException: Placeholder documentation for BadRequestException
+            aws_sdk_medialive.errors.forbidden_exception.ForbiddenException: Placeholder documentation for ForbiddenException
+            aws_sdk_medialive.errors.gateway_timeout_exception.GatewayTimeoutException: Placeholder documentation for GatewayTimeoutException
+            aws_sdk_medialive.errors.internal_server_error_exception.InternalServerErrorException: Placeholder documentation for InternalServerErrorException
+            aws_sdk_medialive.errors.not_found_exception.NotFoundException: Placeholder documentation for NotFoundException
+            aws_sdk_medialive.errors.too_many_requests_exception.TooManyRequestsException: Placeholder documentation for TooManyRequestsException
+            aws_sdk_medialive.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4416,6 +5192,15 @@ class MediaLiveClient:
         Args:
             max_results: The maximum number of items to return.
             next_token: The token to retrieve the next page of results.
+
+        Raises:
+            aws_sdk_medialive.errors.bad_gateway_exception.BadGatewayException: Placeholder documentation for BadGatewayException
+            aws_sdk_medialive.errors.bad_request_exception.BadRequestException: Placeholder documentation for BadRequestException
+            aws_sdk_medialive.errors.forbidden_exception.ForbiddenException: Placeholder documentation for ForbiddenException
+            aws_sdk_medialive.errors.gateway_timeout_exception.GatewayTimeoutException: Placeholder documentation for GatewayTimeoutException
+            aws_sdk_medialive.errors.internal_server_error_exception.InternalServerErrorException: Placeholder documentation for InternalServerErrorException
+            aws_sdk_medialive.errors.too_many_requests_exception.TooManyRequestsException: Placeholder documentation for TooManyRequestsException
+            aws_sdk_medialive.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4481,6 +5266,16 @@ class MediaLiveClient:
             max_results: The maximum number of items to return.
             multiplex_id: The ID of the multiplex that the programs belong to.
             next_token: The token to retrieve the next page of results.
+
+        Raises:
+            aws_sdk_medialive.errors.bad_gateway_exception.BadGatewayException: Placeholder documentation for BadGatewayException
+            aws_sdk_medialive.errors.bad_request_exception.BadRequestException: Placeholder documentation for BadRequestException
+            aws_sdk_medialive.errors.forbidden_exception.ForbiddenException: Placeholder documentation for ForbiddenException
+            aws_sdk_medialive.errors.gateway_timeout_exception.GatewayTimeoutException: Placeholder documentation for GatewayTimeoutException
+            aws_sdk_medialive.errors.internal_server_error_exception.InternalServerErrorException: Placeholder documentation for InternalServerErrorException
+            aws_sdk_medialive.errors.not_found_exception.NotFoundException: Placeholder documentation for NotFoundException
+            aws_sdk_medialive.errors.too_many_requests_exception.TooManyRequestsException: Placeholder documentation for TooManyRequestsException
+            aws_sdk_medialive.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4547,6 +5342,15 @@ class MediaLiveClient:
         Args:
             max_results: The maximum number of items to return.
             next_token: The token to retrieve the next page of results.
+
+        Raises:
+            aws_sdk_medialive.errors.bad_gateway_exception.BadGatewayException: Placeholder documentation for BadGatewayException
+            aws_sdk_medialive.errors.bad_request_exception.BadRequestException: Placeholder documentation for BadRequestException
+            aws_sdk_medialive.errors.forbidden_exception.ForbiddenException: Placeholder documentation for ForbiddenException
+            aws_sdk_medialive.errors.gateway_timeout_exception.GatewayTimeoutException: Placeholder documentation for GatewayTimeoutException
+            aws_sdk_medialive.errors.internal_server_error_exception.InternalServerErrorException: Placeholder documentation for InternalServerErrorException
+            aws_sdk_medialive.errors.too_many_requests_exception.TooManyRequestsException: Placeholder documentation for TooManyRequestsException
+            aws_sdk_medialive.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4612,6 +5416,15 @@ class MediaLiveClient:
             cluster_id: The ID of the cluster
             max_results: The maximum number of items to return.
             next_token: The token to retrieve the next page of results.
+
+        Raises:
+            aws_sdk_medialive.errors.bad_gateway_exception.BadGatewayException: Placeholder documentation for BadGatewayException
+            aws_sdk_medialive.errors.bad_request_exception.BadRequestException: Placeholder documentation for BadRequestException
+            aws_sdk_medialive.errors.forbidden_exception.ForbiddenException: Placeholder documentation for ForbiddenException
+            aws_sdk_medialive.errors.gateway_timeout_exception.GatewayTimeoutException: Placeholder documentation for GatewayTimeoutException
+            aws_sdk_medialive.errors.internal_server_error_exception.InternalServerErrorException: Placeholder documentation for InternalServerErrorException
+            aws_sdk_medialive.errors.too_many_requests_exception.TooManyRequestsException: Placeholder documentation for TooManyRequestsException
+            aws_sdk_medialive.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4698,6 +5511,15 @@ class MediaLiveClient:
             resource_type: Filter by resource type, 'INPUT', 'OUTPUT', 'MULTIPLEX', or 'CHANNEL'
             special_feature: Filter by special feature, 'ADVANCED_AUDIO' or 'AUDIO_NORMALIZATION'
             video_quality: Filter by video quality, 'STANDARD', 'ENHANCED', or 'PREMIUM'
+
+        Raises:
+            aws_sdk_medialive.errors.bad_gateway_exception.BadGatewayException: Placeholder documentation for BadGatewayException
+            aws_sdk_medialive.errors.bad_request_exception.BadRequestException: Placeholder documentation for BadRequestException
+            aws_sdk_medialive.errors.forbidden_exception.ForbiddenException: Placeholder documentation for ForbiddenException
+            aws_sdk_medialive.errors.gateway_timeout_exception.GatewayTimeoutException: Placeholder documentation for GatewayTimeoutException
+            aws_sdk_medialive.errors.internal_server_error_exception.InternalServerErrorException: Placeholder documentation for InternalServerErrorException
+            aws_sdk_medialive.errors.too_many_requests_exception.TooManyRequestsException: Placeholder documentation for TooManyRequestsException
+            aws_sdk_medialive.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4817,6 +5639,15 @@ class MediaLiveClient:
             resource_type: Filter by resource type, 'INPUT', 'OUTPUT', 'MULTIPLEX', or 'CHANNEL'
             special_feature: Filter by special feature, 'ADVANCED_AUDIO' or 'AUDIO_NORMALIZATION'
             video_quality: Filter by video quality, 'STANDARD', 'ENHANCED', or 'PREMIUM'
+
+        Raises:
+            aws_sdk_medialive.errors.bad_gateway_exception.BadGatewayException: Placeholder documentation for BadGatewayException
+            aws_sdk_medialive.errors.bad_request_exception.BadRequestException: Placeholder documentation for BadRequestException
+            aws_sdk_medialive.errors.forbidden_exception.ForbiddenException: Placeholder documentation for ForbiddenException
+            aws_sdk_medialive.errors.gateway_timeout_exception.GatewayTimeoutException: Placeholder documentation for GatewayTimeoutException
+            aws_sdk_medialive.errors.internal_server_error_exception.InternalServerErrorException: Placeholder documentation for InternalServerErrorException
+            aws_sdk_medialive.errors.too_many_requests_exception.TooManyRequestsException: Placeholder documentation for TooManyRequestsException
+            aws_sdk_medialive.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4912,6 +5743,15 @@ class MediaLiveClient:
         Args:
             max_results: The maximum number of items to return.
             next_token: The token to retrieve the next page of results.
+
+        Raises:
+            aws_sdk_medialive.errors.bad_gateway_exception.BadGatewayException: Placeholder documentation for BadGatewayException
+            aws_sdk_medialive.errors.bad_request_exception.BadRequestException: Placeholder documentation for BadRequestException
+            aws_sdk_medialive.errors.forbidden_exception.ForbiddenException: Placeholder documentation for ForbiddenException
+            aws_sdk_medialive.errors.gateway_timeout_exception.GatewayTimeoutException: Placeholder documentation for GatewayTimeoutException
+            aws_sdk_medialive.errors.internal_server_error_exception.InternalServerErrorException: Placeholder documentation for InternalServerErrorException
+            aws_sdk_medialive.errors.too_many_requests_exception.TooManyRequestsException: Placeholder documentation for TooManyRequestsException
+            aws_sdk_medialive.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4982,6 +5822,14 @@ class MediaLiveClient:
             cloud_watch_alarm_template_group_identifier: A cloudwatch alarm template group's identifier. Can be either be its id or current name.
             event_bridge_rule_template_group_identifier: An eventbridge rule template group's identifier. Can be either be its id or current name.
             next_token: A token used to retrieve the next set of results in paginated list responses.
+
+        Raises:
+            aws_sdk_medialive.errors.bad_request_exception.BadRequestException: Placeholder documentation for BadRequestException
+            aws_sdk_medialive.errors.forbidden_exception.ForbiddenException: Placeholder documentation for ForbiddenException
+            aws_sdk_medialive.errors.internal_server_error_exception.InternalServerErrorException: Placeholder documentation for InternalServerErrorException
+            aws_sdk_medialive.errors.not_found_exception.NotFoundException: Placeholder documentation for NotFoundException
+            aws_sdk_medialive.errors.too_many_requests_exception.TooManyRequestsException: Placeholder documentation for TooManyRequestsException
+            aws_sdk_medialive.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5055,7 +5903,15 @@ class MediaLiveClient:
         *,
         config_overrides: Optional[MediaLiveClientConfig] = None,
     ) -> "aws_sdk_medialive.types.list_tags_for_resource_response.ListTagsForResourceResponse":
-        """Produces list of tags that have been created for a resource"""
+        """Produces list of tags that have been created for a resource
+
+        Raises:
+            aws_sdk_medialive.errors.bad_request_exception.BadRequestException: Placeholder documentation for BadRequestException
+            aws_sdk_medialive.errors.forbidden_exception.ForbiddenException: Placeholder documentation for ForbiddenException
+            aws_sdk_medialive.errors.internal_server_error_exception.InternalServerErrorException: Placeholder documentation for InternalServerErrorException
+            aws_sdk_medialive.errors.not_found_exception.NotFoundException: Placeholder documentation for NotFoundException
+            aws_sdk_medialive.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_medialive.types.list_tags_for_resource_request.ListTagsForResourceRequest]",
@@ -5085,7 +5941,19 @@ class MediaLiveClient:
     def list_versions(
         self, *, config_overrides: Optional[MediaLiveClientConfig] = None
     ) -> "aws_sdk_medialive.types.list_versions_response.ListVersionsResponse":
-        """Retrieves an array of all the encoder engine versions that are available in this AWS account."""
+        """Retrieves an array of all the encoder engine versions that are available in this AWS account.
+
+        Raises:
+            aws_sdk_medialive.errors.bad_gateway_exception.BadGatewayException: Placeholder documentation for BadGatewayException
+            aws_sdk_medialive.errors.bad_request_exception.BadRequestException: Placeholder documentation for BadRequestException
+            aws_sdk_medialive.errors.conflict_exception.ConflictException: Placeholder documentation for ConflictException
+            aws_sdk_medialive.errors.forbidden_exception.ForbiddenException: Placeholder documentation for ForbiddenException
+            aws_sdk_medialive.errors.gateway_timeout_exception.GatewayTimeoutException: Placeholder documentation for GatewayTimeoutException
+            aws_sdk_medialive.errors.internal_server_error_exception.InternalServerErrorException: Placeholder documentation for InternalServerErrorException
+            aws_sdk_medialive.errors.not_found_exception.NotFoundException: Placeholder documentation for NotFoundException
+            aws_sdk_medialive.errors.too_many_requests_exception.TooManyRequestsException: Placeholder documentation for TooManyRequestsException
+            aws_sdk_medialive.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_medialive.types.list_versions_request.ListVersionsRequest]",
@@ -5135,6 +6003,17 @@ class MediaLiveClient:
             request_id: Unique request ID to be specified. This is needed to prevent retries from creating multiple resources.
             start: Requested reservation start time (UTC) in ISO-8601 format. The specified time must be between the first day of the current month and one year from now. If no value is given, the default is now.
             tags: A collection of key-value pairs
+
+        Raises:
+            aws_sdk_medialive.errors.bad_gateway_exception.BadGatewayException: Placeholder documentation for BadGatewayException
+            aws_sdk_medialive.errors.bad_request_exception.BadRequestException: Placeholder documentation for BadRequestException
+            aws_sdk_medialive.errors.conflict_exception.ConflictException: Placeholder documentation for ConflictException
+            aws_sdk_medialive.errors.forbidden_exception.ForbiddenException: Placeholder documentation for ForbiddenException
+            aws_sdk_medialive.errors.gateway_timeout_exception.GatewayTimeoutException: Placeholder documentation for GatewayTimeoutException
+            aws_sdk_medialive.errors.internal_server_error_exception.InternalServerErrorException: Placeholder documentation for InternalServerErrorException
+            aws_sdk_medialive.errors.not_found_exception.NotFoundException: Placeholder documentation for NotFoundException
+            aws_sdk_medialive.errors.too_many_requests_exception.TooManyRequestsException: Placeholder documentation for TooManyRequestsException
+            aws_sdk_medialive.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5189,6 +6068,17 @@ class MediaLiveClient:
         Args:
             force: Force a reboot of an input device. If the device is streaming, it will stop streaming and begin rebooting within a few seconds of sending the command. If the device was streaming prior to the reboot, the device will resume streaming when the reboot completes.
             input_device_id: The unique ID of the input device to reboot. For example, hd-123456789abcdef.
+
+        Raises:
+            aws_sdk_medialive.errors.bad_gateway_exception.BadGatewayException: Placeholder documentation for BadGatewayException
+            aws_sdk_medialive.errors.bad_request_exception.BadRequestException: Placeholder documentation for BadRequestException
+            aws_sdk_medialive.errors.forbidden_exception.ForbiddenException: Placeholder documentation for ForbiddenException
+            aws_sdk_medialive.errors.gateway_timeout_exception.GatewayTimeoutException: Placeholder documentation for GatewayTimeoutException
+            aws_sdk_medialive.errors.internal_server_error_exception.InternalServerErrorException: Placeholder documentation for InternalServerErrorException
+            aws_sdk_medialive.errors.not_found_exception.NotFoundException: Placeholder documentation for NotFoundException
+            aws_sdk_medialive.errors.too_many_requests_exception.TooManyRequestsException: Placeholder documentation for TooManyRequestsException
+            aws_sdk_medialive.errors.unprocessable_entity_exception.UnprocessableEntityException: Placeholder documentation for UnprocessableEntityException
+            aws_sdk_medialive.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5228,6 +6118,18 @@ class MediaLiveClient:
 
         Args:
             input_device_id: The unique ID of the input device to reject. For example, hd-123456789abcdef.
+
+        Raises:
+            aws_sdk_medialive.errors.bad_gateway_exception.BadGatewayException: Placeholder documentation for BadGatewayException
+            aws_sdk_medialive.errors.bad_request_exception.BadRequestException: Placeholder documentation for BadRequestException
+            aws_sdk_medialive.errors.conflict_exception.ConflictException: Placeholder documentation for ConflictException
+            aws_sdk_medialive.errors.forbidden_exception.ForbiddenException: Placeholder documentation for ForbiddenException
+            aws_sdk_medialive.errors.gateway_timeout_exception.GatewayTimeoutException: Placeholder documentation for GatewayTimeoutException
+            aws_sdk_medialive.errors.internal_server_error_exception.InternalServerErrorException: Placeholder documentation for InternalServerErrorException
+            aws_sdk_medialive.errors.not_found_exception.NotFoundException: Placeholder documentation for NotFoundException
+            aws_sdk_medialive.errors.too_many_requests_exception.TooManyRequestsException: Placeholder documentation for TooManyRequestsException
+            aws_sdk_medialive.errors.unprocessable_entity_exception.UnprocessableEntityException: Placeholder documentation for UnprocessableEntityException
+            aws_sdk_medialive.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5269,6 +6171,17 @@ class MediaLiveClient:
         Args:
             channel_id: ID of channel
             pipeline_ids: An array of pipelines to restart in this channel. Format PIPELINE_0 or PIPELINE_1.
+
+        Raises:
+            aws_sdk_medialive.errors.bad_gateway_exception.BadGatewayException: Placeholder documentation for BadGatewayException
+            aws_sdk_medialive.errors.bad_request_exception.BadRequestException: Placeholder documentation for BadRequestException
+            aws_sdk_medialive.errors.conflict_exception.ConflictException: Placeholder documentation for ConflictException
+            aws_sdk_medialive.errors.forbidden_exception.ForbiddenException: Placeholder documentation for ForbiddenException
+            aws_sdk_medialive.errors.gateway_timeout_exception.GatewayTimeoutException: Placeholder documentation for GatewayTimeoutException
+            aws_sdk_medialive.errors.internal_server_error_exception.InternalServerErrorException: Placeholder documentation for InternalServerErrorException
+            aws_sdk_medialive.errors.not_found_exception.NotFoundException: Placeholder documentation for NotFoundException
+            aws_sdk_medialive.errors.too_many_requests_exception.TooManyRequestsException: Placeholder documentation for TooManyRequestsException
+            aws_sdk_medialive.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5308,6 +6221,17 @@ class MediaLiveClient:
 
         Args:
             channel_id: A request to start a channel
+
+        Raises:
+            aws_sdk_medialive.errors.bad_gateway_exception.BadGatewayException: Placeholder documentation for BadGatewayException
+            aws_sdk_medialive.errors.bad_request_exception.BadRequestException: Placeholder documentation for BadRequestException
+            aws_sdk_medialive.errors.conflict_exception.ConflictException: Placeholder documentation for ConflictException
+            aws_sdk_medialive.errors.forbidden_exception.ForbiddenException: Placeholder documentation for ForbiddenException
+            aws_sdk_medialive.errors.gateway_timeout_exception.GatewayTimeoutException: Placeholder documentation for GatewayTimeoutException
+            aws_sdk_medialive.errors.internal_server_error_exception.InternalServerErrorException: Placeholder documentation for InternalServerErrorException
+            aws_sdk_medialive.errors.not_found_exception.NotFoundException: Placeholder documentation for NotFoundException
+            aws_sdk_medialive.errors.too_many_requests_exception.TooManyRequestsException: Placeholder documentation for TooManyRequestsException
+            aws_sdk_medialive.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5345,6 +6269,15 @@ class MediaLiveClient:
 
         Args:
             identifier: A signal map's identifier. Can be either be its id or current name.
+
+        Raises:
+            aws_sdk_medialive.errors.bad_request_exception.BadRequestException: Placeholder documentation for BadRequestException
+            aws_sdk_medialive.errors.conflict_exception.ConflictException: Placeholder documentation for ConflictException
+            aws_sdk_medialive.errors.forbidden_exception.ForbiddenException: Placeholder documentation for ForbiddenException
+            aws_sdk_medialive.errors.internal_server_error_exception.InternalServerErrorException: Placeholder documentation for InternalServerErrorException
+            aws_sdk_medialive.errors.not_found_exception.NotFoundException: Placeholder documentation for NotFoundException
+            aws_sdk_medialive.errors.too_many_requests_exception.TooManyRequestsException: Placeholder documentation for TooManyRequestsException
+            aws_sdk_medialive.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5382,6 +6315,17 @@ class MediaLiveClient:
 
         Args:
             input_device_id: The unique ID of the input device to start. For example, hd-123456789abcdef.
+
+        Raises:
+            aws_sdk_medialive.errors.bad_gateway_exception.BadGatewayException: Placeholder documentation for BadGatewayException
+            aws_sdk_medialive.errors.bad_request_exception.BadRequestException: Placeholder documentation for BadRequestException
+            aws_sdk_medialive.errors.forbidden_exception.ForbiddenException: Placeholder documentation for ForbiddenException
+            aws_sdk_medialive.errors.gateway_timeout_exception.GatewayTimeoutException: Placeholder documentation for GatewayTimeoutException
+            aws_sdk_medialive.errors.internal_server_error_exception.InternalServerErrorException: Placeholder documentation for InternalServerErrorException
+            aws_sdk_medialive.errors.not_found_exception.NotFoundException: Placeholder documentation for NotFoundException
+            aws_sdk_medialive.errors.too_many_requests_exception.TooManyRequestsException: Placeholder documentation for TooManyRequestsException
+            aws_sdk_medialive.errors.unprocessable_entity_exception.UnprocessableEntityException: Placeholder documentation for UnprocessableEntityException
+            aws_sdk_medialive.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5419,6 +6363,17 @@ class MediaLiveClient:
 
         Args:
             input_device_id: The unique ID of the input device to start a maintenance window for. For example, hd-123456789abcdef.
+
+        Raises:
+            aws_sdk_medialive.errors.bad_gateway_exception.BadGatewayException: Placeholder documentation for BadGatewayException
+            aws_sdk_medialive.errors.bad_request_exception.BadRequestException: Placeholder documentation for BadRequestException
+            aws_sdk_medialive.errors.forbidden_exception.ForbiddenException: Placeholder documentation for ForbiddenException
+            aws_sdk_medialive.errors.gateway_timeout_exception.GatewayTimeoutException: Placeholder documentation for GatewayTimeoutException
+            aws_sdk_medialive.errors.internal_server_error_exception.InternalServerErrorException: Placeholder documentation for InternalServerErrorException
+            aws_sdk_medialive.errors.not_found_exception.NotFoundException: Placeholder documentation for NotFoundException
+            aws_sdk_medialive.errors.too_many_requests_exception.TooManyRequestsException: Placeholder documentation for TooManyRequestsException
+            aws_sdk_medialive.errors.unprocessable_entity_exception.UnprocessableEntityException: Placeholder documentation for UnprocessableEntityException
+            aws_sdk_medialive.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5457,6 +6412,15 @@ class MediaLiveClient:
 
         Args:
             identifier: A signal map's identifier. Can be either be its id or current name.
+
+        Raises:
+            aws_sdk_medialive.errors.bad_request_exception.BadRequestException: Placeholder documentation for BadRequestException
+            aws_sdk_medialive.errors.conflict_exception.ConflictException: Placeholder documentation for ConflictException
+            aws_sdk_medialive.errors.forbidden_exception.ForbiddenException: Placeholder documentation for ForbiddenException
+            aws_sdk_medialive.errors.internal_server_error_exception.InternalServerErrorException: Placeholder documentation for InternalServerErrorException
+            aws_sdk_medialive.errors.not_found_exception.NotFoundException: Placeholder documentation for NotFoundException
+            aws_sdk_medialive.errors.too_many_requests_exception.TooManyRequestsException: Placeholder documentation for TooManyRequestsException
+            aws_sdk_medialive.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5496,6 +6460,17 @@ class MediaLiveClient:
 
         Args:
             multiplex_id: The ID of the multiplex.
+
+        Raises:
+            aws_sdk_medialive.errors.bad_gateway_exception.BadGatewayException: Placeholder documentation for BadGatewayException
+            aws_sdk_medialive.errors.bad_request_exception.BadRequestException: Placeholder documentation for BadRequestException
+            aws_sdk_medialive.errors.conflict_exception.ConflictException: Placeholder documentation for ConflictException
+            aws_sdk_medialive.errors.forbidden_exception.ForbiddenException: Placeholder documentation for ForbiddenException
+            aws_sdk_medialive.errors.gateway_timeout_exception.GatewayTimeoutException: Placeholder documentation for GatewayTimeoutException
+            aws_sdk_medialive.errors.internal_server_error_exception.InternalServerErrorException: Placeholder documentation for InternalServerErrorException
+            aws_sdk_medialive.errors.not_found_exception.NotFoundException: Placeholder documentation for NotFoundException
+            aws_sdk_medialive.errors.too_many_requests_exception.TooManyRequestsException: Placeholder documentation for TooManyRequestsException
+            aws_sdk_medialive.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5555,6 +6530,15 @@ class MediaLiveClient:
             force_rediscovery: If true, will force a rediscovery of a signal map if an unchanged discoveryEntryPointArn is provided.
             identifier: A signal map's identifier. Can be either be its id or current name.
             name: A resource's name. Names must be unique within the scope of a resource type in a specific region.
+
+        Raises:
+            aws_sdk_medialive.errors.bad_request_exception.BadRequestException: Placeholder documentation for BadRequestException
+            aws_sdk_medialive.errors.conflict_exception.ConflictException: Placeholder documentation for ConflictException
+            aws_sdk_medialive.errors.forbidden_exception.ForbiddenException: Placeholder documentation for ForbiddenException
+            aws_sdk_medialive.errors.internal_server_error_exception.InternalServerErrorException: Placeholder documentation for InternalServerErrorException
+            aws_sdk_medialive.errors.not_found_exception.NotFoundException: Placeholder documentation for NotFoundException
+            aws_sdk_medialive.errors.too_many_requests_exception.TooManyRequestsException: Placeholder documentation for TooManyRequestsException
+            aws_sdk_medialive.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5608,6 +6592,17 @@ class MediaLiveClient:
 
         Args:
             channel_id: A request to stop a running channel
+
+        Raises:
+            aws_sdk_medialive.errors.bad_gateway_exception.BadGatewayException: Placeholder documentation for BadGatewayException
+            aws_sdk_medialive.errors.bad_request_exception.BadRequestException: Placeholder documentation for BadRequestException
+            aws_sdk_medialive.errors.conflict_exception.ConflictException: Placeholder documentation for ConflictException
+            aws_sdk_medialive.errors.forbidden_exception.ForbiddenException: Placeholder documentation for ForbiddenException
+            aws_sdk_medialive.errors.gateway_timeout_exception.GatewayTimeoutException: Placeholder documentation for GatewayTimeoutException
+            aws_sdk_medialive.errors.internal_server_error_exception.InternalServerErrorException: Placeholder documentation for InternalServerErrorException
+            aws_sdk_medialive.errors.not_found_exception.NotFoundException: Placeholder documentation for NotFoundException
+            aws_sdk_medialive.errors.too_many_requests_exception.TooManyRequestsException: Placeholder documentation for TooManyRequestsException
+            aws_sdk_medialive.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5645,6 +6640,17 @@ class MediaLiveClient:
 
         Args:
             input_device_id: The unique ID of the input device to stop. For example, hd-123456789abcdef.
+
+        Raises:
+            aws_sdk_medialive.errors.bad_gateway_exception.BadGatewayException: Placeholder documentation for BadGatewayException
+            aws_sdk_medialive.errors.bad_request_exception.BadRequestException: Placeholder documentation for BadRequestException
+            aws_sdk_medialive.errors.forbidden_exception.ForbiddenException: Placeholder documentation for ForbiddenException
+            aws_sdk_medialive.errors.gateway_timeout_exception.GatewayTimeoutException: Placeholder documentation for GatewayTimeoutException
+            aws_sdk_medialive.errors.internal_server_error_exception.InternalServerErrorException: Placeholder documentation for InternalServerErrorException
+            aws_sdk_medialive.errors.not_found_exception.NotFoundException: Placeholder documentation for NotFoundException
+            aws_sdk_medialive.errors.too_many_requests_exception.TooManyRequestsException: Placeholder documentation for TooManyRequestsException
+            aws_sdk_medialive.errors.unprocessable_entity_exception.UnprocessableEntityException: Placeholder documentation for UnprocessableEntityException
+            aws_sdk_medialive.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5682,6 +6688,17 @@ class MediaLiveClient:
 
         Args:
             multiplex_id: The ID of the multiplex.
+
+        Raises:
+            aws_sdk_medialive.errors.bad_gateway_exception.BadGatewayException: Placeholder documentation for BadGatewayException
+            aws_sdk_medialive.errors.bad_request_exception.BadRequestException: Placeholder documentation for BadRequestException
+            aws_sdk_medialive.errors.conflict_exception.ConflictException: Placeholder documentation for ConflictException
+            aws_sdk_medialive.errors.forbidden_exception.ForbiddenException: Placeholder documentation for ForbiddenException
+            aws_sdk_medialive.errors.gateway_timeout_exception.GatewayTimeoutException: Placeholder documentation for GatewayTimeoutException
+            aws_sdk_medialive.errors.internal_server_error_exception.InternalServerErrorException: Placeholder documentation for InternalServerErrorException
+            aws_sdk_medialive.errors.not_found_exception.NotFoundException: Placeholder documentation for NotFoundException
+            aws_sdk_medialive.errors.too_many_requests_exception.TooManyRequestsException: Placeholder documentation for TooManyRequestsException
+            aws_sdk_medialive.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5727,6 +6744,18 @@ class MediaLiveClient:
             target_customer_id: The AWS account ID (12 digits) for the recipient of the device transfer.
             target_region: The target AWS region to transfer the device.
             transfer_message: An optional message for the recipient. Maximum 280 characters.
+
+        Raises:
+            aws_sdk_medialive.errors.bad_gateway_exception.BadGatewayException: Placeholder documentation for BadGatewayException
+            aws_sdk_medialive.errors.bad_request_exception.BadRequestException: Placeholder documentation for BadRequestException
+            aws_sdk_medialive.errors.conflict_exception.ConflictException: Placeholder documentation for ConflictException
+            aws_sdk_medialive.errors.forbidden_exception.ForbiddenException: Placeholder documentation for ForbiddenException
+            aws_sdk_medialive.errors.gateway_timeout_exception.GatewayTimeoutException: Placeholder documentation for GatewayTimeoutException
+            aws_sdk_medialive.errors.internal_server_error_exception.InternalServerErrorException: Placeholder documentation for InternalServerErrorException
+            aws_sdk_medialive.errors.not_found_exception.NotFoundException: Placeholder documentation for NotFoundException
+            aws_sdk_medialive.errors.too_many_requests_exception.TooManyRequestsException: Placeholder documentation for TooManyRequestsException
+            aws_sdk_medialive.errors.unprocessable_entity_exception.UnprocessableEntityException: Placeholder documentation for UnprocessableEntityException
+            aws_sdk_medialive.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5768,7 +6797,18 @@ class MediaLiveClient:
             "aws_sdk_medialive.types.account_configuration.AccountConfiguration"
         ] = None,
     ) -> "aws_sdk_medialive.types.update_account_configuration_response.UpdateAccountConfigurationResponse":
-        """Update account configuration"""
+        """Update account configuration
+
+        Raises:
+            aws_sdk_medialive.errors.bad_gateway_exception.BadGatewayException: Placeholder documentation for BadGatewayException
+            aws_sdk_medialive.errors.bad_request_exception.BadRequestException: Placeholder documentation for BadRequestException
+            aws_sdk_medialive.errors.forbidden_exception.ForbiddenException: Placeholder documentation for ForbiddenException
+            aws_sdk_medialive.errors.gateway_timeout_exception.GatewayTimeoutException: Placeholder documentation for GatewayTimeoutException
+            aws_sdk_medialive.errors.internal_server_error_exception.InternalServerErrorException: Placeholder documentation for InternalServerErrorException
+            aws_sdk_medialive.errors.too_many_requests_exception.TooManyRequestsException: Placeholder documentation for TooManyRequestsException
+            aws_sdk_medialive.errors.unprocessable_entity_exception.UnprocessableEntityException: Placeholder documentation for UnprocessableEntityException
+            aws_sdk_medialive.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_medialive.types.update_account_configuration_request.UpdateAccountConfigurationRequest]",
@@ -5860,6 +6900,16 @@ class MediaLiveClient:
             channel_security_groups: A list of IDs for all the Input Security Groups attached to the channel.
             inference_settings: Include this setting to include Elemental Inference features in this channel.
             special_router_settings: When using MediaConnect Router as the source of a MediaLive input there's a special handoff that occurs when a router output is created. This group of settings is set on your behalf by the MediaConnect Router service using this set of settings. This setting object can only by used by that service.
+
+        Raises:
+            aws_sdk_medialive.errors.bad_gateway_exception.BadGatewayException: Placeholder documentation for BadGatewayException
+            aws_sdk_medialive.errors.bad_request_exception.BadRequestException: Placeholder documentation for BadRequestException
+            aws_sdk_medialive.errors.conflict_exception.ConflictException: Placeholder documentation for ConflictException
+            aws_sdk_medialive.errors.forbidden_exception.ForbiddenException: Placeholder documentation for ForbiddenException
+            aws_sdk_medialive.errors.gateway_timeout_exception.GatewayTimeoutException: Placeholder documentation for GatewayTimeoutException
+            aws_sdk_medialive.errors.internal_server_error_exception.InternalServerErrorException: Placeholder documentation for InternalServerErrorException
+            aws_sdk_medialive.errors.unprocessable_entity_exception.UnprocessableEntityException: Placeholder documentation for UnprocessableEntityException
+            aws_sdk_medialive.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5935,6 +6985,18 @@ class MediaLiveClient:
             channel_class: The channel class that you wish to update this channel to use.
             channel_id: Channel Id of the channel whose class should be updated.
             destinations: A list of output destinations for this channel.
+
+        Raises:
+            aws_sdk_medialive.errors.bad_gateway_exception.BadGatewayException: Placeholder documentation for BadGatewayException
+            aws_sdk_medialive.errors.bad_request_exception.BadRequestException: Placeholder documentation for BadRequestException
+            aws_sdk_medialive.errors.conflict_exception.ConflictException: Placeholder documentation for ConflictException
+            aws_sdk_medialive.errors.forbidden_exception.ForbiddenException: Placeholder documentation for ForbiddenException
+            aws_sdk_medialive.errors.gateway_timeout_exception.GatewayTimeoutException: Placeholder documentation for GatewayTimeoutException
+            aws_sdk_medialive.errors.internal_server_error_exception.InternalServerErrorException: Placeholder documentation for InternalServerErrorException
+            aws_sdk_medialive.errors.not_found_exception.NotFoundException: Placeholder documentation for NotFoundException
+            aws_sdk_medialive.errors.too_many_requests_exception.TooManyRequestsException: Placeholder documentation for TooManyRequestsException
+            aws_sdk_medialive.errors.unprocessable_entity_exception.UnprocessableEntityException: Placeholder documentation for UnprocessableEntityException
+            aws_sdk_medialive.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5983,6 +7045,17 @@ class MediaLiveClient:
             cluster_id: The ID of the cluster.
             name: Include this parameter only if you want to change the current name of the ChannelPlacementGroup. Specify a name that is unique in the Cluster. You can't change the name. Names are case-sensitive.
             nodes: Include this parameter only if you want to change the list of Nodes that are associated with the ChannelPlacementGroup.
+
+        Raises:
+            aws_sdk_medialive.errors.bad_gateway_exception.BadGatewayException: Placeholder documentation for BadGatewayException
+            aws_sdk_medialive.errors.bad_request_exception.BadRequestException: Placeholder documentation for BadRequestException
+            aws_sdk_medialive.errors.conflict_exception.ConflictException: Placeholder documentation for ConflictException
+            aws_sdk_medialive.errors.forbidden_exception.ForbiddenException: Placeholder documentation for ForbiddenException
+            aws_sdk_medialive.errors.gateway_timeout_exception.GatewayTimeoutException: Placeholder documentation for GatewayTimeoutException
+            aws_sdk_medialive.errors.internal_server_error_exception.InternalServerErrorException: Placeholder documentation for InternalServerErrorException
+            aws_sdk_medialive.errors.too_many_requests_exception.TooManyRequestsException: Placeholder documentation for TooManyRequestsException
+            aws_sdk_medialive.errors.unprocessable_entity_exception.UnprocessableEntityException: Placeholder documentation for UnprocessableEntityException
+            aws_sdk_medialive.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6067,6 +7140,15 @@ class MediaLiveClient:
             name: A resource's name. Names must be unique within the scope of a resource type in a specific region.
             period: The period, in seconds, over which the specified statistic is applied.
             threshold: The threshold value to compare with the specified statistic.
+
+        Raises:
+            aws_sdk_medialive.errors.bad_request_exception.BadRequestException: Placeholder documentation for BadRequestException
+            aws_sdk_medialive.errors.conflict_exception.ConflictException: Placeholder documentation for ConflictException
+            aws_sdk_medialive.errors.forbidden_exception.ForbiddenException: Placeholder documentation for ForbiddenException
+            aws_sdk_medialive.errors.internal_server_error_exception.InternalServerErrorException: Placeholder documentation for InternalServerErrorException
+            aws_sdk_medialive.errors.not_found_exception.NotFoundException: Placeholder documentation for NotFoundException
+            aws_sdk_medialive.errors.too_many_requests_exception.TooManyRequestsException: Placeholder documentation for TooManyRequestsException
+            aws_sdk_medialive.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6132,6 +7214,15 @@ class MediaLiveClient:
         Args:
             description: A resource's optional description.
             identifier: A cloudwatch alarm template group's identifier. Can be either be its id or current name.
+
+        Raises:
+            aws_sdk_medialive.errors.bad_request_exception.BadRequestException: Placeholder documentation for BadRequestException
+            aws_sdk_medialive.errors.conflict_exception.ConflictException: Placeholder documentation for ConflictException
+            aws_sdk_medialive.errors.forbidden_exception.ForbiddenException: Placeholder documentation for ForbiddenException
+            aws_sdk_medialive.errors.internal_server_error_exception.InternalServerErrorException: Placeholder documentation for InternalServerErrorException
+            aws_sdk_medialive.errors.not_found_exception.NotFoundException: Placeholder documentation for NotFoundException
+            aws_sdk_medialive.errors.too_many_requests_exception.TooManyRequestsException: Placeholder documentation for TooManyRequestsException
+            aws_sdk_medialive.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6177,6 +7268,16 @@ class MediaLiveClient:
             cluster_id: The ID of the cluster
             name: Include this parameter only if you want to change the current name of the Cluster. Specify a name that is unique in the AWS account. You can't change the name. Names are case-sensitive.
             network_settings: Include this property only if you want to change the current connections between the Nodes in the Cluster and the Networks the Cluster is associated with.
+
+        Raises:
+            aws_sdk_medialive.errors.bad_gateway_exception.BadGatewayException: Placeholder documentation for BadGatewayException
+            aws_sdk_medialive.errors.bad_request_exception.BadRequestException: Placeholder documentation for BadRequestException
+            aws_sdk_medialive.errors.conflict_exception.ConflictException: Placeholder documentation for ConflictException
+            aws_sdk_medialive.errors.forbidden_exception.ForbiddenException: Placeholder documentation for ForbiddenException
+            aws_sdk_medialive.errors.gateway_timeout_exception.GatewayTimeoutException: Placeholder documentation for GatewayTimeoutException
+            aws_sdk_medialive.errors.internal_server_error_exception.InternalServerErrorException: Placeholder documentation for InternalServerErrorException
+            aws_sdk_medialive.errors.too_many_requests_exception.TooManyRequestsException: Placeholder documentation for TooManyRequestsException
+            aws_sdk_medialive.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6236,6 +7337,15 @@ class MediaLiveClient:
             group_identifier: An eventbridge rule template group's identifier. Can be either be its id or current name.
             identifier: An eventbridge rule template's identifier. Can be either be its id or current name.
             name: A resource's name. Names must be unique within the scope of a resource type in a specific region.
+
+        Raises:
+            aws_sdk_medialive.errors.bad_request_exception.BadRequestException: Placeholder documentation for BadRequestException
+            aws_sdk_medialive.errors.conflict_exception.ConflictException: Placeholder documentation for ConflictException
+            aws_sdk_medialive.errors.forbidden_exception.ForbiddenException: Placeholder documentation for ForbiddenException
+            aws_sdk_medialive.errors.internal_server_error_exception.InternalServerErrorException: Placeholder documentation for InternalServerErrorException
+            aws_sdk_medialive.errors.not_found_exception.NotFoundException: Placeholder documentation for NotFoundException
+            aws_sdk_medialive.errors.too_many_requests_exception.TooManyRequestsException: Placeholder documentation for TooManyRequestsException
+            aws_sdk_medialive.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6287,6 +7397,15 @@ class MediaLiveClient:
         Args:
             description: A resource's optional description.
             identifier: An eventbridge rule template group's identifier. Can be either be its id or current name.
+
+        Raises:
+            aws_sdk_medialive.errors.bad_request_exception.BadRequestException: Placeholder documentation for BadRequestException
+            aws_sdk_medialive.errors.conflict_exception.ConflictException: Placeholder documentation for ConflictException
+            aws_sdk_medialive.errors.forbidden_exception.ForbiddenException: Placeholder documentation for ForbiddenException
+            aws_sdk_medialive.errors.internal_server_error_exception.InternalServerErrorException: Placeholder documentation for InternalServerErrorException
+            aws_sdk_medialive.errors.not_found_exception.NotFoundException: Placeholder documentation for NotFoundException
+            aws_sdk_medialive.errors.too_many_requests_exception.TooManyRequestsException: Placeholder documentation for TooManyRequestsException
+            aws_sdk_medialive.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6369,6 +7488,16 @@ class MediaLiveClient:
             multicast_settings: Multicast Input settings.
             smpte2110_receiver_group_settings: Include this parameter if the input is a SMPTE 2110 input, to identify the stream sources for this input.
             special_router_settings: When using MediaConnect Router as the source of a MediaLive input there's a special handoff that occurs when a router output is created. This group of settings is set on your behalf by the MediaConnect Router service using this set of settings. This setting object can only by used by that service.
+
+        Raises:
+            aws_sdk_medialive.errors.bad_gateway_exception.BadGatewayException: Placeholder documentation for BadGatewayException
+            aws_sdk_medialive.errors.bad_request_exception.BadRequestException: Placeholder documentation for BadRequestException
+            aws_sdk_medialive.errors.conflict_exception.ConflictException: Placeholder documentation for ConflictException
+            aws_sdk_medialive.errors.forbidden_exception.ForbiddenException: Placeholder documentation for ForbiddenException
+            aws_sdk_medialive.errors.gateway_timeout_exception.GatewayTimeoutException: Placeholder documentation for GatewayTimeoutException
+            aws_sdk_medialive.errors.internal_server_error_exception.InternalServerErrorException: Placeholder documentation for InternalServerErrorException
+            aws_sdk_medialive.errors.not_found_exception.NotFoundException: Placeholder documentation for NotFoundException
+            aws_sdk_medialive.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6446,6 +7575,17 @@ class MediaLiveClient:
             name: The name that you assigned to this input device (not the unique ID).
             uhd_device_settings: The settings that you want to apply to the UHD input device.
             availability_zone: The Availability Zone you want associated with this input device.
+
+        Raises:
+            aws_sdk_medialive.errors.bad_gateway_exception.BadGatewayException: Placeholder documentation for BadGatewayException
+            aws_sdk_medialive.errors.bad_request_exception.BadRequestException: Placeholder documentation for BadRequestException
+            aws_sdk_medialive.errors.forbidden_exception.ForbiddenException: Placeholder documentation for ForbiddenException
+            aws_sdk_medialive.errors.gateway_timeout_exception.GatewayTimeoutException: Placeholder documentation for GatewayTimeoutException
+            aws_sdk_medialive.errors.internal_server_error_exception.InternalServerErrorException: Placeholder documentation for InternalServerErrorException
+            aws_sdk_medialive.errors.not_found_exception.NotFoundException: Placeholder documentation for NotFoundException
+            aws_sdk_medialive.errors.too_many_requests_exception.TooManyRequestsException: Placeholder documentation for TooManyRequestsException
+            aws_sdk_medialive.errors.unprocessable_entity_exception.UnprocessableEntityException: Placeholder documentation for UnprocessableEntityException
+            aws_sdk_medialive.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6497,6 +7637,16 @@ class MediaLiveClient:
             input_security_group_id: The id of the Input Security Group to update.
             tags: A collection of key-value pairs.
             whitelist_rules: List of IPv4 CIDR addresses to whitelist
+
+        Raises:
+            aws_sdk_medialive.errors.bad_gateway_exception.BadGatewayException: Placeholder documentation for BadGatewayException
+            aws_sdk_medialive.errors.bad_request_exception.BadRequestException: Placeholder documentation for BadRequestException
+            aws_sdk_medialive.errors.conflict_exception.ConflictException: Placeholder documentation for ConflictException
+            aws_sdk_medialive.errors.forbidden_exception.ForbiddenException: Placeholder documentation for ForbiddenException
+            aws_sdk_medialive.errors.gateway_timeout_exception.GatewayTimeoutException: Placeholder documentation for GatewayTimeoutException
+            aws_sdk_medialive.errors.internal_server_error_exception.InternalServerErrorException: Placeholder documentation for InternalServerErrorException
+            aws_sdk_medialive.errors.not_found_exception.NotFoundException: Placeholder documentation for NotFoundException
+            aws_sdk_medialive.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6547,6 +7697,17 @@ class MediaLiveClient:
             multiplex_id: ID of the multiplex to update.
             multiplex_settings: The new settings for a multiplex.
             name: Name of the multiplex.
+
+        Raises:
+            aws_sdk_medialive.errors.bad_gateway_exception.BadGatewayException: Placeholder documentation for BadGatewayException
+            aws_sdk_medialive.errors.bad_request_exception.BadRequestException: Placeholder documentation for BadRequestException
+            aws_sdk_medialive.errors.conflict_exception.ConflictException: Placeholder documentation for ConflictException
+            aws_sdk_medialive.errors.forbidden_exception.ForbiddenException: Placeholder documentation for ForbiddenException
+            aws_sdk_medialive.errors.gateway_timeout_exception.GatewayTimeoutException: Placeholder documentation for GatewayTimeoutException
+            aws_sdk_medialive.errors.internal_server_error_exception.InternalServerErrorException: Placeholder documentation for InternalServerErrorException
+            aws_sdk_medialive.errors.not_found_exception.NotFoundException: Placeholder documentation for NotFoundException
+            aws_sdk_medialive.errors.unprocessable_entity_exception.UnprocessableEntityException: Placeholder documentation for UnprocessableEntityException
+            aws_sdk_medialive.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6596,6 +7757,17 @@ class MediaLiveClient:
             multiplex_id: The ID of the multiplex of the program to update.
             multiplex_program_settings: The new settings for a multiplex program.
             program_name: The name of the program to update.
+
+        Raises:
+            aws_sdk_medialive.errors.bad_gateway_exception.BadGatewayException: Placeholder documentation for BadGatewayException
+            aws_sdk_medialive.errors.bad_request_exception.BadRequestException: Placeholder documentation for BadRequestException
+            aws_sdk_medialive.errors.conflict_exception.ConflictException: Placeholder documentation for ConflictException
+            aws_sdk_medialive.errors.forbidden_exception.ForbiddenException: Placeholder documentation for ForbiddenException
+            aws_sdk_medialive.errors.gateway_timeout_exception.GatewayTimeoutException: Placeholder documentation for GatewayTimeoutException
+            aws_sdk_medialive.errors.internal_server_error_exception.InternalServerErrorException: Placeholder documentation for InternalServerErrorException
+            aws_sdk_medialive.errors.not_found_exception.NotFoundException: Placeholder documentation for NotFoundException
+            aws_sdk_medialive.errors.unprocessable_entity_exception.UnprocessableEntityException: Placeholder documentation for UnprocessableEntityException
+            aws_sdk_medialive.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6646,6 +7818,16 @@ class MediaLiveClient:
             name: Include this parameter only if you want to change the name of the Network. Specify a name that is unique in the AWS account. Names are case-sensitive.
             network_id: The ID of the network
             routes: Include this parameter only if you want to change or add routes in the Network. An array of Routes that MediaLive Anywhere needs to know about in order to route encoding traffic.
+
+        Raises:
+            aws_sdk_medialive.errors.bad_gateway_exception.BadGatewayException: Placeholder documentation for BadGatewayException
+            aws_sdk_medialive.errors.bad_request_exception.BadRequestException: Placeholder documentation for BadRequestException
+            aws_sdk_medialive.errors.conflict_exception.ConflictException: Placeholder documentation for ConflictException
+            aws_sdk_medialive.errors.forbidden_exception.ForbiddenException: Placeholder documentation for ForbiddenException
+            aws_sdk_medialive.errors.gateway_timeout_exception.GatewayTimeoutException: Placeholder documentation for GatewayTimeoutException
+            aws_sdk_medialive.errors.internal_server_error_exception.InternalServerErrorException: Placeholder documentation for InternalServerErrorException
+            aws_sdk_medialive.errors.too_many_requests_exception.TooManyRequestsException: Placeholder documentation for TooManyRequestsException
+            aws_sdk_medialive.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6699,6 +7881,16 @@ class MediaLiveClient:
             node_id: The ID of the node.
             role: The initial role of the Node in the Cluster. ACTIVE means the Node is available for encoding. BACKUP means the Node is a redundant Node and might get used if an ACTIVE Node fails.
             sdi_source_mappings: The mappings of a SDI capture card port to a logical SDI data stream
+
+        Raises:
+            aws_sdk_medialive.errors.bad_gateway_exception.BadGatewayException: Placeholder documentation for BadGatewayException
+            aws_sdk_medialive.errors.bad_request_exception.BadRequestException: Placeholder documentation for BadRequestException
+            aws_sdk_medialive.errors.conflict_exception.ConflictException: Placeholder documentation for ConflictException
+            aws_sdk_medialive.errors.forbidden_exception.ForbiddenException: Placeholder documentation for ForbiddenException
+            aws_sdk_medialive.errors.gateway_timeout_exception.GatewayTimeoutException: Placeholder documentation for GatewayTimeoutException
+            aws_sdk_medialive.errors.internal_server_error_exception.InternalServerErrorException: Placeholder documentation for InternalServerErrorException
+            aws_sdk_medialive.errors.too_many_requests_exception.TooManyRequestsException: Placeholder documentation for TooManyRequestsException
+            aws_sdk_medialive.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6749,6 +7941,17 @@ class MediaLiveClient:
             cluster_id: The ID of the cluster
             node_id: The ID of the node.
             state: The state to apply to the Node. Set to ACTIVE (COMMISSIONED) to indicate that the Node is deployable. MediaLive Anywhere will consider this node it needs a Node to run a Channel on, or when it needs a Node to promote from a backup node to an active node. Set to DRAINING to isolate the Node so that MediaLive Anywhere won't use it.
+
+        Raises:
+            aws_sdk_medialive.errors.bad_gateway_exception.BadGatewayException: Placeholder documentation for BadGatewayException
+            aws_sdk_medialive.errors.bad_request_exception.BadRequestException: Placeholder documentation for BadRequestException
+            aws_sdk_medialive.errors.conflict_exception.ConflictException: Placeholder documentation for ConflictException
+            aws_sdk_medialive.errors.forbidden_exception.ForbiddenException: Placeholder documentation for ForbiddenException
+            aws_sdk_medialive.errors.gateway_timeout_exception.GatewayTimeoutException: Placeholder documentation for GatewayTimeoutException
+            aws_sdk_medialive.errors.internal_server_error_exception.InternalServerErrorException: Placeholder documentation for InternalServerErrorException
+            aws_sdk_medialive.errors.too_many_requests_exception.TooManyRequestsException: Placeholder documentation for TooManyRequestsException
+            aws_sdk_medialive.errors.unprocessable_entity_exception.UnprocessableEntityException: Placeholder documentation for UnprocessableEntityException
+            aws_sdk_medialive.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6797,6 +8000,17 @@ class MediaLiveClient:
             name: Name of the reservation
             renewal_settings: Renewal settings for the reservation
             reservation_id: Unique reservation ID, e.g. '1234567'
+
+        Raises:
+            aws_sdk_medialive.errors.bad_gateway_exception.BadGatewayException: Placeholder documentation for BadGatewayException
+            aws_sdk_medialive.errors.bad_request_exception.BadRequestException: Placeholder documentation for BadRequestException
+            aws_sdk_medialive.errors.conflict_exception.ConflictException: Placeholder documentation for ConflictException
+            aws_sdk_medialive.errors.forbidden_exception.ForbiddenException: Placeholder documentation for ForbiddenException
+            aws_sdk_medialive.errors.gateway_timeout_exception.GatewayTimeoutException: Placeholder documentation for GatewayTimeoutException
+            aws_sdk_medialive.errors.internal_server_error_exception.InternalServerErrorException: Placeholder documentation for InternalServerErrorException
+            aws_sdk_medialive.errors.not_found_exception.NotFoundException: Placeholder documentation for NotFoundException
+            aws_sdk_medialive.errors.too_many_requests_exception.TooManyRequestsException: Placeholder documentation for TooManyRequestsException
+            aws_sdk_medialive.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6844,6 +8058,16 @@ class MediaLiveClient:
             name: Include this parameter only if you want to change the name of the SdiSource. Specify a name that is unique in the AWS account. We recommend you assign a name that describes the source, for example curling-cameraA. Names are case-sensitive.
             sdi_source_id: The ID of the SdiSource
             type: Include this parameter only if you want to change the mode. Specify the type of the SDI source: SINGLE: The source is a single-link source. QUAD: The source is one part of a quad-link source.
+
+        Raises:
+            aws_sdk_medialive.errors.bad_gateway_exception.BadGatewayException: Placeholder documentation for BadGatewayException
+            aws_sdk_medialive.errors.bad_request_exception.BadRequestException: Placeholder documentation for BadRequestException
+            aws_sdk_medialive.errors.conflict_exception.ConflictException: Placeholder documentation for ConflictException
+            aws_sdk_medialive.errors.forbidden_exception.ForbiddenException: Placeholder documentation for ForbiddenException
+            aws_sdk_medialive.errors.gateway_timeout_exception.GatewayTimeoutException: Placeholder documentation for GatewayTimeoutException
+            aws_sdk_medialive.errors.internal_server_error_exception.InternalServerErrorException: Placeholder documentation for InternalServerErrorException
+            aws_sdk_medialive.errors.too_many_requests_exception.TooManyRequestsException: Placeholder documentation for TooManyRequestsException
+            aws_sdk_medialive.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(

@@ -69,6 +69,13 @@ class ScheduledActionResource:
             scheduled_action_description: <p>The description of the scheduled action.</p>
             start_time: <p>The start time in UTC when the schedule is active. Before this time, the scheduled action does not trigger.</p>
             end_time: <p>The end time in UTC when the schedule is no longer active. After this time, the scheduled action does not trigger.</p>
+
+        Raises:
+            aws_sdk_redshift_serverless.errors.conflict_exception.ConflictException: <p>The submitted action has conflicts.</p>
+            aws_sdk_redshift_serverless.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_redshift_serverless.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_redshift_serverless.errors.validation_exception.ValidationException: <p>The input failed to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_redshift_serverless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -118,6 +125,12 @@ class ScheduledActionResource:
 
         Args:
             scheduled_action_name: <p>The name of the scheduled action to delete.</p>
+
+        Raises:
+            aws_sdk_redshift_serverless.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_redshift_serverless.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_redshift_serverless.errors.validation_exception.ValidationException: <p>The input failed to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_redshift_serverless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -155,6 +168,12 @@ class ScheduledActionResource:
 
         Args:
             scheduled_action_name: <p>The name of the scheduled action.</p>
+
+        Raises:
+            aws_sdk_redshift_serverless.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_redshift_serverless.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_redshift_serverless.errors.validation_exception.ValidationException: <p>The input failed to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_redshift_serverless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -200,6 +219,13 @@ class ScheduledActionResource:
             next_token: <p>If <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page.</p>
             max_results: <p>An optional parameter that specifies the maximum number of results to return. Use <code>nextToken</code> to display the next page of results.</p>
             namespace_name: <p>The name of namespace associated with the scheduled action to retrieve.</p>
+
+        Raises:
+            aws_sdk_redshift_serverless.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_redshift_serverless.errors.invalid_pagination_exception.InvalidPaginationException: <p>The provided pagination token is invalid.</p>
+            aws_sdk_redshift_serverless.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_redshift_serverless.errors.validation_exception.ValidationException: <p>The input failed to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_redshift_serverless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -261,6 +287,13 @@ class ScheduledActionResource:
             scheduled_action_description: <p>The descripion of the scheduled action to update to.</p>
             start_time: <p>The start time in UTC of the scheduled action to update to.</p>
             end_time: <p>The end time in UTC of the scheduled action to update.</p>
+
+        Raises:
+            aws_sdk_redshift_serverless.errors.conflict_exception.ConflictException: <p>The submitted action has conflicts.</p>
+            aws_sdk_redshift_serverless.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_redshift_serverless.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_redshift_serverless.errors.validation_exception.ValidationException: <p>The input failed to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_redshift_serverless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -332,6 +365,13 @@ class AsyncScheduledActionResource:
             scheduled_action_description: <p>The description of the scheduled action.</p>
             start_time: <p>The start time in UTC when the schedule is active. Before this time, the scheduled action does not trigger.</p>
             end_time: <p>The end time in UTC when the schedule is no longer active. After this time, the scheduled action does not trigger.</p>
+
+        Raises:
+            aws_sdk_redshift_serverless.errors.conflict_exception.ConflictException: <p>The submitted action has conflicts.</p>
+            aws_sdk_redshift_serverless.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_redshift_serverless.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_redshift_serverless.errors.validation_exception.ValidationException: <p>The input failed to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_redshift_serverless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -382,6 +422,12 @@ class AsyncScheduledActionResource:
 
         Args:
             scheduled_action_name: <p>The name of the scheduled action to delete.</p>
+
+        Raises:
+            aws_sdk_redshift_serverless.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_redshift_serverless.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_redshift_serverless.errors.validation_exception.ValidationException: <p>The input failed to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_redshift_serverless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -420,6 +466,12 @@ class AsyncScheduledActionResource:
 
         Args:
             scheduled_action_name: <p>The name of the scheduled action.</p>
+
+        Raises:
+            aws_sdk_redshift_serverless.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_redshift_serverless.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_redshift_serverless.errors.validation_exception.ValidationException: <p>The input failed to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_redshift_serverless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -466,6 +518,13 @@ class AsyncScheduledActionResource:
             next_token: <p>If <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page.</p>
             max_results: <p>An optional parameter that specifies the maximum number of results to return. Use <code>nextToken</code> to display the next page of results.</p>
             namespace_name: <p>The name of namespace associated with the scheduled action to retrieve.</p>
+
+        Raises:
+            aws_sdk_redshift_serverless.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_redshift_serverless.errors.invalid_pagination_exception.InvalidPaginationException: <p>The provided pagination token is invalid.</p>
+            aws_sdk_redshift_serverless.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_redshift_serverless.errors.validation_exception.ValidationException: <p>The input failed to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_redshift_serverless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -528,6 +587,13 @@ class AsyncScheduledActionResource:
             scheduled_action_description: <p>The descripion of the scheduled action to update to.</p>
             start_time: <p>The start time in UTC of the scheduled action to update to.</p>
             end_time: <p>The end time in UTC of the scheduled action to update.</p>
+
+        Raises:
+            aws_sdk_redshift_serverless.errors.conflict_exception.ConflictException: <p>The submitted action has conflicts.</p>
+            aws_sdk_redshift_serverless.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_redshift_serverless.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_redshift_serverless.errors.validation_exception.ValidationException: <p>The input failed to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_redshift_serverless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

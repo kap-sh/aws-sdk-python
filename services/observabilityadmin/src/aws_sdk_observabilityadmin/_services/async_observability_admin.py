@@ -227,6 +227,15 @@ class AsyncObservabilityAdminClient:
             rule_name: <p>A unique name for the organization-wide centralization rule being created.</p>
             rule: <p>The configuration details for the organization-wide centralization rule, including the source configuration and the destination configuration to centralize telemetry data across the organization.</p>
             tags: <p>The key-value pairs to associate with the organization telemetry rule resource for categorization and management purposes.</p>
+
+        Raises:
+            aws_sdk_observabilityadmin.errors.access_denied_exception.AccessDeniedException: <p> Indicates you don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions. For more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html\">Access management for Amazon Web Services resources</a> in the IAM user guide. </p>
+            aws_sdk_observabilityadmin.errors.conflict_exception.ConflictException: <p> The requested operation conflicts with the current state of the specified resource or with another request. </p>
+            aws_sdk_observabilityadmin.errors.internal_server_exception.InternalServerException: <p> Indicates the request has failed to process because of an unknown server error, exception, or failure. </p>
+            aws_sdk_observabilityadmin.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p> The requested operation would exceed the allowed quota for the specified resource type. </p>
+            aws_sdk_observabilityadmin.errors.too_many_requests_exception.TooManyRequestsException: <p> The request throughput limit was exceeded. </p>
+            aws_sdk_observabilityadmin.errors.validation_exception.ValidationException: <p> Indicates input validation failed. Check your request parameters and retry the request. </p>
+            aws_sdk_observabilityadmin.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -274,6 +283,15 @@ class AsyncObservabilityAdminClient:
             encryption: <p>The encryption configuration for the S3 Table integration, including the encryption algorithm and KMS key settings.</p>
             role_arn: <p>The Amazon Resource Name (ARN) of the IAM role that grants permissions for the S3 Table integration to access necessary resources.</p>
             tags: <p>The key-value pairs to associate with the S3 Table integration resource for categorization and management purposes.</p>
+
+        Raises:
+            aws_sdk_observabilityadmin.errors.access_denied_exception.AccessDeniedException: <p> Indicates you don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions. For more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html\">Access management for Amazon Web Services resources</a> in the IAM user guide. </p>
+            aws_sdk_observabilityadmin.errors.conflict_exception.ConflictException: <p> The requested operation conflicts with the current state of the specified resource or with another request. </p>
+            aws_sdk_observabilityadmin.errors.internal_server_exception.InternalServerException: <p> Indicates the request has failed to process because of an unknown server error, exception, or failure. </p>
+            aws_sdk_observabilityadmin.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p> The requested operation would exceed the allowed quota for the specified resource type. </p>
+            aws_sdk_observabilityadmin.errors.too_many_requests_exception.TooManyRequestsException: <p> The request throughput limit was exceeded. </p>
+            aws_sdk_observabilityadmin.errors.validation_exception.ValidationException: <p> Indicates input validation failed. Check your request parameters and retry the request. </p>
+            aws_sdk_observabilityadmin.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -321,6 +339,15 @@ class AsyncObservabilityAdminClient:
             rule_name: <p> A unique name for the telemetry rule being created. </p>
             rule: <p> The configuration details for the telemetry rule, including the resource type, telemetry type, destination configuration, and selection criteria for which resources the rule applies to. </p>
             tags: <p> The key-value pairs to associate with the telemetry rule resource for categorization and management purposes. </p>
+
+        Raises:
+            aws_sdk_observabilityadmin.errors.access_denied_exception.AccessDeniedException: <p> Indicates you don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions. For more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html\">Access management for Amazon Web Services resources</a> in the IAM user guide. </p>
+            aws_sdk_observabilityadmin.errors.conflict_exception.ConflictException: <p> The requested operation conflicts with the current state of the specified resource or with another request. </p>
+            aws_sdk_observabilityadmin.errors.internal_server_exception.InternalServerException: <p> Indicates the request has failed to process because of an unknown server error, exception, or failure. </p>
+            aws_sdk_observabilityadmin.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p> The requested operation would exceed the allowed quota for the specified resource type. </p>
+            aws_sdk_observabilityadmin.errors.too_many_requests_exception.TooManyRequestsException: <p> The request throughput limit was exceeded. </p>
+            aws_sdk_observabilityadmin.errors.validation_exception.ValidationException: <p> Indicates input validation failed. Check your request parameters and retry the request. </p>
+            aws_sdk_observabilityadmin.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -368,6 +395,15 @@ class AsyncObservabilityAdminClient:
             rule_name: <p> A unique name for the organization-wide telemetry rule being created. </p>
             rule: <p> The configuration details for the organization-wide telemetry rule, including the resource type, telemetry type, destination configuration, and selection criteria for which resources the rule applies to across the organization. </p>
             tags: <p> The key-value pairs to associate with the organization telemetry rule resource for categorization and management purposes. </p>
+
+        Raises:
+            aws_sdk_observabilityadmin.errors.access_denied_exception.AccessDeniedException: <p> Indicates you don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions. For more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html\">Access management for Amazon Web Services resources</a> in the IAM user guide. </p>
+            aws_sdk_observabilityadmin.errors.conflict_exception.ConflictException: <p> The requested operation conflicts with the current state of the specified resource or with another request. </p>
+            aws_sdk_observabilityadmin.errors.internal_server_exception.InternalServerException: <p> Indicates the request has failed to process because of an unknown server error, exception, or failure. </p>
+            aws_sdk_observabilityadmin.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p> The requested operation would exceed the allowed quota for the specified resource type. </p>
+            aws_sdk_observabilityadmin.errors.too_many_requests_exception.TooManyRequestsException: <p> The request throughput limit was exceeded. </p>
+            aws_sdk_observabilityadmin.errors.validation_exception.ValidationException: <p> Indicates input validation failed. Check your request parameters and retry the request. </p>
+            aws_sdk_observabilityadmin.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -409,6 +445,14 @@ class AsyncObservabilityAdminClient:
 
         Args:
             rule_identifier: <p>The identifier (name or ARN) of the organization centralization rule to delete.</p>
+
+        Raises:
+            aws_sdk_observabilityadmin.errors.access_denied_exception.AccessDeniedException: <p> Indicates you don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions. For more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html\">Access management for Amazon Web Services resources</a> in the IAM user guide. </p>
+            aws_sdk_observabilityadmin.errors.internal_server_exception.InternalServerException: <p> Indicates the request has failed to process because of an unknown server error, exception, or failure. </p>
+            aws_sdk_observabilityadmin.errors.resource_not_found_exception.ResourceNotFoundException: <p> The specified resource (such as a telemetry rule) could not be found. </p>
+            aws_sdk_observabilityadmin.errors.too_many_requests_exception.TooManyRequestsException: <p> The request throughput limit was exceeded. </p>
+            aws_sdk_observabilityadmin.errors.validation_exception.ValidationException: <p> Indicates input validation failed. Check your request parameters and retry the request. </p>
+            aws_sdk_observabilityadmin.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -445,6 +489,15 @@ class AsyncObservabilityAdminClient:
 
         Args:
             arn: <p>The Amazon Resource Name (ARN) of the S3 Table integration to delete.</p>
+
+        Raises:
+            aws_sdk_observabilityadmin.errors.access_denied_exception.AccessDeniedException: <p> Indicates you don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions. For more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html\">Access management for Amazon Web Services resources</a> in the IAM user guide. </p>
+            aws_sdk_observabilityadmin.errors.internal_server_exception.InternalServerException: <p> Indicates the request has failed to process because of an unknown server error, exception, or failure. </p>
+            aws_sdk_observabilityadmin.errors.invalid_state_exception.InvalidStateException: <p> The requested operation cannot be completed on the specified resource in the current state. </p>
+            aws_sdk_observabilityadmin.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p> The requested operation would exceed the allowed quota for the specified resource type. </p>
+            aws_sdk_observabilityadmin.errors.too_many_requests_exception.TooManyRequestsException: <p> The request throughput limit was exceeded. </p>
+            aws_sdk_observabilityadmin.errors.validation_exception.ValidationException: <p> Indicates input validation failed. Check your request parameters and retry the request. </p>
+            aws_sdk_observabilityadmin.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -481,6 +534,14 @@ class AsyncObservabilityAdminClient:
 
         Args:
             rule_identifier: <p> The identifier (name or ARN) of the telemetry rule to delete. </p>
+
+        Raises:
+            aws_sdk_observabilityadmin.errors.access_denied_exception.AccessDeniedException: <p> Indicates you don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions. For more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html\">Access management for Amazon Web Services resources</a> in the IAM user guide. </p>
+            aws_sdk_observabilityadmin.errors.internal_server_exception.InternalServerException: <p> Indicates the request has failed to process because of an unknown server error, exception, or failure. </p>
+            aws_sdk_observabilityadmin.errors.resource_not_found_exception.ResourceNotFoundException: <p> The specified resource (such as a telemetry rule) could not be found. </p>
+            aws_sdk_observabilityadmin.errors.too_many_requests_exception.TooManyRequestsException: <p> The request throughput limit was exceeded. </p>
+            aws_sdk_observabilityadmin.errors.validation_exception.ValidationException: <p> Indicates input validation failed. Check your request parameters and retry the request. </p>
+            aws_sdk_observabilityadmin.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -517,6 +578,14 @@ class AsyncObservabilityAdminClient:
 
         Args:
             rule_identifier: <p> The identifier (name or ARN) of the organization telemetry rule to delete. </p>
+
+        Raises:
+            aws_sdk_observabilityadmin.errors.access_denied_exception.AccessDeniedException: <p> Indicates you don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions. For more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html\">Access management for Amazon Web Services resources</a> in the IAM user guide. </p>
+            aws_sdk_observabilityadmin.errors.internal_server_exception.InternalServerException: <p> Indicates the request has failed to process because of an unknown server error, exception, or failure. </p>
+            aws_sdk_observabilityadmin.errors.resource_not_found_exception.ResourceNotFoundException: <p> The specified resource (such as a telemetry rule) could not be found. </p>
+            aws_sdk_observabilityadmin.errors.too_many_requests_exception.TooManyRequestsException: <p> The request throughput limit was exceeded. </p>
+            aws_sdk_observabilityadmin.errors.validation_exception.ValidationException: <p> Indicates input validation failed. Check your request parameters and retry the request. </p>
+            aws_sdk_observabilityadmin.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -553,6 +622,14 @@ class AsyncObservabilityAdminClient:
 
         Args:
             rule_identifier: <p>The identifier (name or ARN) of the organization centralization rule to retrieve.</p>
+
+        Raises:
+            aws_sdk_observabilityadmin.errors.access_denied_exception.AccessDeniedException: <p> Indicates you don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions. For more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html\">Access management for Amazon Web Services resources</a> in the IAM user guide. </p>
+            aws_sdk_observabilityadmin.errors.internal_server_exception.InternalServerException: <p> Indicates the request has failed to process because of an unknown server error, exception, or failure. </p>
+            aws_sdk_observabilityadmin.errors.resource_not_found_exception.ResourceNotFoundException: <p> The specified resource (such as a telemetry rule) could not be found. </p>
+            aws_sdk_observabilityadmin.errors.too_many_requests_exception.TooManyRequestsException: <p> The request throughput limit was exceeded. </p>
+            aws_sdk_observabilityadmin.errors.validation_exception.ValidationException: <p> Indicates input validation failed. Check your request parameters and retry the request. </p>
+            aws_sdk_observabilityadmin.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -591,6 +668,14 @@ class AsyncObservabilityAdminClient:
 
         Args:
             arn: <p>The Amazon Resource Name (ARN) of the S3 Table integration to retrieve.</p>
+
+        Raises:
+            aws_sdk_observabilityadmin.errors.access_denied_exception.AccessDeniedException: <p> Indicates you don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions. For more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html\">Access management for Amazon Web Services resources</a> in the IAM user guide. </p>
+            aws_sdk_observabilityadmin.errors.internal_server_exception.InternalServerException: <p> Indicates the request has failed to process because of an unknown server error, exception, or failure. </p>
+            aws_sdk_observabilityadmin.errors.resource_not_found_exception.ResourceNotFoundException: <p> The specified resource (such as a telemetry rule) could not be found. </p>
+            aws_sdk_observabilityadmin.errors.too_many_requests_exception.TooManyRequestsException: <p> The request throughput limit was exceeded. </p>
+            aws_sdk_observabilityadmin.errors.validation_exception.ValidationException: <p> Indicates input validation failed. Check your request parameters and retry the request. </p>
+            aws_sdk_observabilityadmin.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -622,7 +707,15 @@ class AsyncObservabilityAdminClient:
     async def get_telemetry_enrichment_status(
         self, *, config_overrides: Optional[AsyncObservabilityAdminClientConfig] = None
     ) -> "aws_sdk_observabilityadmin.types.get_telemetry_enrichment_status_output.GetTelemetryEnrichmentStatusOutput":
-        """<p> Returns the current status of the resource tags for telemetry feature, which enhances telemetry data with additional resource metadata from Resource Explorer. </p>"""
+        """<p> Returns the current status of the resource tags for telemetry feature, which enhances telemetry data with additional resource metadata from Resource Explorer. </p>
+
+        Raises:
+            aws_sdk_observabilityadmin.errors.access_denied_exception.AccessDeniedException: <p> Indicates you don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions. For more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html\">Access management for Amazon Web Services resources</a> in the IAM user guide. </p>
+            aws_sdk_observabilityadmin.errors.internal_server_exception.InternalServerException: <p> Indicates the request has failed to process because of an unknown server error, exception, or failure. </p>
+            aws_sdk_observabilityadmin.errors.resource_not_found_exception.ResourceNotFoundException: <p> The specified resource (such as a telemetry rule) could not be found. </p>
+            aws_sdk_observabilityadmin.errors.too_many_requests_exception.TooManyRequestsException: <p> The request throughput limit was exceeded. </p>
+            aws_sdk_observabilityadmin.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[None]",
@@ -651,7 +744,14 @@ class AsyncObservabilityAdminClient:
     async def get_telemetry_evaluation_status(
         self, *, config_overrides: Optional[AsyncObservabilityAdminClientConfig] = None
     ) -> "aws_sdk_observabilityadmin.types.get_telemetry_evaluation_status_output.GetTelemetryEvaluationStatusOutput":
-        """<p> Returns the current onboarding status of the telemetry config feature, including the status of the feature and reason the feature failed to start or stop. </p>"""
+        """<p> Returns the current onboarding status of the telemetry config feature, including the status of the feature and reason the feature failed to start or stop. </p>
+
+        Raises:
+            aws_sdk_observabilityadmin.errors.access_denied_exception.AccessDeniedException: <p> Indicates you don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions. For more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html\">Access management for Amazon Web Services resources</a> in the IAM user guide. </p>
+            aws_sdk_observabilityadmin.errors.internal_server_exception.InternalServerException: <p> Indicates the request has failed to process because of an unknown server error, exception, or failure. </p>
+            aws_sdk_observabilityadmin.errors.too_many_requests_exception.TooManyRequestsException: <p> The request throughput limit was exceeded. </p>
+            aws_sdk_observabilityadmin.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[None]",
@@ -680,7 +780,15 @@ class AsyncObservabilityAdminClient:
     async def get_telemetry_evaluation_status_for_organization(
         self, *, config_overrides: Optional[AsyncObservabilityAdminClientConfig] = None
     ) -> "aws_sdk_observabilityadmin.types.get_telemetry_evaluation_status_for_organization_output.GetTelemetryEvaluationStatusForOrganizationOutput":
-        """<p> This returns the onboarding status of the telemetry configuration feature for the organization. It can only be called by a Management Account of an Amazon Web Services Organization or an assigned Delegated Admin Account of Amazon CloudWatch telemetry config. </p>"""
+        """<p> This returns the onboarding status of the telemetry configuration feature for the organization. It can only be called by a Management Account of an Amazon Web Services Organization or an assigned Delegated Admin Account of Amazon CloudWatch telemetry config. </p>
+
+        Raises:
+            aws_sdk_observabilityadmin.errors.access_denied_exception.AccessDeniedException: <p> Indicates you don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions. For more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html\">Access management for Amazon Web Services resources</a> in the IAM user guide. </p>
+            aws_sdk_observabilityadmin.errors.internal_server_exception.InternalServerException: <p> Indicates the request has failed to process because of an unknown server error, exception, or failure. </p>
+            aws_sdk_observabilityadmin.errors.too_many_requests_exception.TooManyRequestsException: <p> The request throughput limit was exceeded. </p>
+            aws_sdk_observabilityadmin.errors.validation_exception.ValidationException: <p> Indicates input validation failed. Check your request parameters and retry the request. </p>
+            aws_sdk_observabilityadmin.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[None]",
@@ -716,6 +824,14 @@ class AsyncObservabilityAdminClient:
 
         Args:
             rule_identifier: <p> The identifier (name or ARN) of the telemetry rule to retrieve. </p>
+
+        Raises:
+            aws_sdk_observabilityadmin.errors.access_denied_exception.AccessDeniedException: <p> Indicates you don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions. For more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html\">Access management for Amazon Web Services resources</a> in the IAM user guide. </p>
+            aws_sdk_observabilityadmin.errors.internal_server_exception.InternalServerException: <p> Indicates the request has failed to process because of an unknown server error, exception, or failure. </p>
+            aws_sdk_observabilityadmin.errors.resource_not_found_exception.ResourceNotFoundException: <p> The specified resource (such as a telemetry rule) could not be found. </p>
+            aws_sdk_observabilityadmin.errors.too_many_requests_exception.TooManyRequestsException: <p> The request throughput limit was exceeded. </p>
+            aws_sdk_observabilityadmin.errors.validation_exception.ValidationException: <p> Indicates input validation failed. Check your request parameters and retry the request. </p>
+            aws_sdk_observabilityadmin.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -754,6 +870,14 @@ class AsyncObservabilityAdminClient:
 
         Args:
             rule_identifier: <p> The identifier (name or ARN) of the organization telemetry rule to retrieve. </p>
+
+        Raises:
+            aws_sdk_observabilityadmin.errors.access_denied_exception.AccessDeniedException: <p> Indicates you don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions. For more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html\">Access management for Amazon Web Services resources</a> in the IAM user guide. </p>
+            aws_sdk_observabilityadmin.errors.internal_server_exception.InternalServerException: <p> Indicates the request has failed to process because of an unknown server error, exception, or failure. </p>
+            aws_sdk_observabilityadmin.errors.resource_not_found_exception.ResourceNotFoundException: <p> The specified resource (such as a telemetry rule) could not be found. </p>
+            aws_sdk_observabilityadmin.errors.too_many_requests_exception.TooManyRequestsException: <p> The request throughput limit was exceeded. </p>
+            aws_sdk_observabilityadmin.errors.validation_exception.ValidationException: <p> Indicates input validation failed. Check your request parameters and retry the request. </p>
+            aws_sdk_observabilityadmin.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -802,6 +926,13 @@ class AsyncObservabilityAdminClient:
             all_regions: <p>A flag determining whether to return organization centralization rules from all regions or only the current region.</p>
             max_results: <p>The maximum number of organization centralization rules to return in a single call.</p>
             next_token: <p>The token for the next set of results. A previous call generates this token.</p>
+
+        Raises:
+            aws_sdk_observabilityadmin.errors.access_denied_exception.AccessDeniedException: <p> Indicates you don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions. For more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html\">Access management for Amazon Web Services resources</a> in the IAM user guide. </p>
+            aws_sdk_observabilityadmin.errors.internal_server_exception.InternalServerException: <p> Indicates the request has failed to process because of an unknown server error, exception, or failure. </p>
+            aws_sdk_observabilityadmin.errors.too_many_requests_exception.TooManyRequestsException: <p> The request throughput limit was exceeded. </p>
+            aws_sdk_observabilityadmin.errors.validation_exception.ValidationException: <p> Indicates input validation failed. Check your request parameters and retry the request. </p>
+            aws_sdk_observabilityadmin.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -898,6 +1029,13 @@ class AsyncObservabilityAdminClient:
             resource_tags: <p> A key-value pair to filter resources based on tags associated with the resource. For more information about tags, see <a href=\"https://docs.aws.amazon.com/whitepapers/latest/tagging-best-practices/what-are-tags.html\">What are tags?</a> </p>
             max_results: <p> A number field used to limit the number of results within the returned list. </p>
             next_token: <p> The token for the next set of items to return. A previous call generates this token. </p>
+
+        Raises:
+            aws_sdk_observabilityadmin.errors.access_denied_exception.AccessDeniedException: <p> Indicates you don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions. For more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html\">Access management for Amazon Web Services resources</a> in the IAM user guide. </p>
+            aws_sdk_observabilityadmin.errors.internal_server_exception.InternalServerException: <p> Indicates the request has failed to process because of an unknown server error, exception, or failure. </p>
+            aws_sdk_observabilityadmin.errors.too_many_requests_exception.TooManyRequestsException: <p> The request throughput limit was exceeded. </p>
+            aws_sdk_observabilityadmin.errors.validation_exception.ValidationException: <p> Indicates input validation failed. Check your request parameters and retry the request. </p>
+            aws_sdk_observabilityadmin.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1014,6 +1152,13 @@ class AsyncObservabilityAdminClient:
             resource_tags: <p> A key-value pair to filter resources in the organization based on tags associated with the resource. Fore more information about tags, see <a href=\"https://docs.aws.amazon.com/whitepapers/latest/tagging-best-practices/what-are-tags.html\">What are tags?</a> </p>
             max_results: <p> A number field used to limit the number of results within the returned list. </p>
             next_token: <p> The token for the next set of items to return. A previous call provides this token. </p>
+
+        Raises:
+            aws_sdk_observabilityadmin.errors.access_denied_exception.AccessDeniedException: <p> Indicates you don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions. For more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html\">Access management for Amazon Web Services resources</a> in the IAM user guide. </p>
+            aws_sdk_observabilityadmin.errors.internal_server_exception.InternalServerException: <p> Indicates the request has failed to process because of an unknown server error, exception, or failure. </p>
+            aws_sdk_observabilityadmin.errors.too_many_requests_exception.TooManyRequestsException: <p> The request throughput limit was exceeded. </p>
+            aws_sdk_observabilityadmin.errors.validation_exception.ValidationException: <p> Indicates input validation failed. Check your request parameters and retry the request. </p>
+            aws_sdk_observabilityadmin.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1116,6 +1261,13 @@ class AsyncObservabilityAdminClient:
         Args:
             max_results: <p>The maximum number of S3 Table integrations to return in a single call.</p>
             next_token: <p>The token for the next set of results. A previous call generates this token.</p>
+
+        Raises:
+            aws_sdk_observabilityadmin.errors.access_denied_exception.AccessDeniedException: <p> Indicates you don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions. For more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html\">Access management for Amazon Web Services resources</a> in the IAM user guide. </p>
+            aws_sdk_observabilityadmin.errors.internal_server_exception.InternalServerException: <p> Indicates the request has failed to process because of an unknown server error, exception, or failure. </p>
+            aws_sdk_observabilityadmin.errors.too_many_requests_exception.TooManyRequestsException: <p> The request throughput limit was exceeded. </p>
+            aws_sdk_observabilityadmin.errors.validation_exception.ValidationException: <p> Indicates input validation failed. Check your request parameters and retry the request. </p>
+            aws_sdk_observabilityadmin.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1182,6 +1334,14 @@ class AsyncObservabilityAdminClient:
 
         Args:
             resource_arn: <p> The Amazon Resource Name (ARN) of the telemetry rule resource whose tags you want to list. </p>
+
+        Raises:
+            aws_sdk_observabilityadmin.errors.access_denied_exception.AccessDeniedException: <p> Indicates you don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions. For more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html\">Access management for Amazon Web Services resources</a> in the IAM user guide. </p>
+            aws_sdk_observabilityadmin.errors.internal_server_exception.InternalServerException: <p> Indicates the request has failed to process because of an unknown server error, exception, or failure. </p>
+            aws_sdk_observabilityadmin.errors.resource_not_found_exception.ResourceNotFoundException: <p> The specified resource (such as a telemetry rule) could not be found. </p>
+            aws_sdk_observabilityadmin.errors.too_many_requests_exception.TooManyRequestsException: <p> The request throughput limit was exceeded. </p>
+            aws_sdk_observabilityadmin.errors.validation_exception.ValidationException: <p> Indicates input validation failed. Check your request parameters and retry the request. </p>
+            aws_sdk_observabilityadmin.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1228,6 +1388,13 @@ class AsyncObservabilityAdminClient:
             rule_name_prefix: <p> A string to filter telemetry rules whose names begin with the specified prefix. </p>
             max_results: <p> The maximum number of telemetry rules to return in a single call. </p>
             next_token: <p> The token for the next set of results. A previous call generates this token. </p>
+
+        Raises:
+            aws_sdk_observabilityadmin.errors.access_denied_exception.AccessDeniedException: <p> Indicates you don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions. For more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html\">Access management for Amazon Web Services resources</a> in the IAM user guide. </p>
+            aws_sdk_observabilityadmin.errors.internal_server_exception.InternalServerException: <p> Indicates the request has failed to process because of an unknown server error, exception, or failure. </p>
+            aws_sdk_observabilityadmin.errors.too_many_requests_exception.TooManyRequestsException: <p> The request throughput limit was exceeded. </p>
+            aws_sdk_observabilityadmin.errors.validation_exception.ValidationException: <p> Indicates input validation failed. Check your request parameters and retry the request. </p>
+            aws_sdk_observabilityadmin.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1314,6 +1481,13 @@ class AsyncObservabilityAdminClient:
             source_organization_unit_ids: <p> The list of organizational unit IDs to filter organization telemetry rules by their source organizational units. </p>
             max_results: <p> The maximum number of organization telemetry rules to return in a single call. </p>
             next_token: <p> The token for the next set of results. A previous call generates this token. </p>
+
+        Raises:
+            aws_sdk_observabilityadmin.errors.access_denied_exception.AccessDeniedException: <p> Indicates you don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions. For more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html\">Access management for Amazon Web Services resources</a> in the IAM user guide. </p>
+            aws_sdk_observabilityadmin.errors.internal_server_exception.InternalServerException: <p> Indicates the request has failed to process because of an unknown server error, exception, or failure. </p>
+            aws_sdk_observabilityadmin.errors.too_many_requests_exception.TooManyRequestsException: <p> The request throughput limit was exceeded. </p>
+            aws_sdk_observabilityadmin.errors.validation_exception.ValidationException: <p> Indicates input validation failed. Check your request parameters and retry the request. </p>
+            aws_sdk_observabilityadmin.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1389,7 +1563,15 @@ class AsyncObservabilityAdminClient:
     async def start_telemetry_enrichment(
         self, *, config_overrides: Optional[AsyncObservabilityAdminClientConfig] = None
     ) -> "aws_sdk_observabilityadmin.types.start_telemetry_enrichment_output.StartTelemetryEnrichmentOutput":
-        """<p> Enables the resource tags for telemetry feature for your account, which enhances telemetry data with additional resource metadata from Resource Explorer to provide richer context for monitoring and observability. </p>"""
+        """<p> Enables the resource tags for telemetry feature for your account, which enhances telemetry data with additional resource metadata from Resource Explorer to provide richer context for monitoring and observability. </p>
+
+        Raises:
+            aws_sdk_observabilityadmin.errors.access_denied_exception.AccessDeniedException: <p> Indicates you don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions. For more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html\">Access management for Amazon Web Services resources</a> in the IAM user guide. </p>
+            aws_sdk_observabilityadmin.errors.conflict_exception.ConflictException: <p> The requested operation conflicts with the current state of the specified resource or with another request. </p>
+            aws_sdk_observabilityadmin.errors.internal_server_exception.InternalServerException: <p> Indicates the request has failed to process because of an unknown server error, exception, or failure. </p>
+            aws_sdk_observabilityadmin.errors.too_many_requests_exception.TooManyRequestsException: <p> The request throughput limit was exceeded. </p>
+            aws_sdk_observabilityadmin.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[None]",
@@ -1429,6 +1611,13 @@ class AsyncObservabilityAdminClient:
         Args:
             regions: <p> An optional list of Amazon Web Services Regions to include in multi-region telemetry evaluation. The current region is always implicitly included and must not be specified in this list. When provided, telemetry evaluation starts in the current region and propagates to all specified regions. Mutually exclusive with <code>AllRegions</code>. If neither <code>Regions</code> nor <code>AllRegions</code> is provided, the operation applies only to the current region. </p>
             all_regions: <p> If set to <code>true</code>, telemetry evaluation starts in all Amazon Web Services Regions where Amazon CloudWatch Observability Admin is available in the current partition. The current region becomes the home region for managing multi-region evaluation. When new regions become available, evaluation automatically expands to include them. Mutually exclusive with <code>Regions</code>. </p>
+
+        Raises:
+            aws_sdk_observabilityadmin.errors.access_denied_exception.AccessDeniedException: <p> Indicates you don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions. For more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html\">Access management for Amazon Web Services resources</a> in the IAM user guide. </p>
+            aws_sdk_observabilityadmin.errors.internal_server_exception.InternalServerException: <p> Indicates the request has failed to process because of an unknown server error, exception, or failure. </p>
+            aws_sdk_observabilityadmin.errors.too_many_requests_exception.TooManyRequestsException: <p> The request throughput limit was exceeded. </p>
+            aws_sdk_observabilityadmin.errors.validation_exception.ValidationException: <p> Indicates input validation failed. Check your request parameters and retry the request. </p>
+            aws_sdk_observabilityadmin.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1472,6 +1661,13 @@ class AsyncObservabilityAdminClient:
         Args:
             regions: <p> An optional list of Amazon Web Services Regions to include in multi-region telemetry evaluation for the organization. The current region is always implicitly included and must not be specified in this list. When provided, telemetry evaluation starts in the current region and propagates to all specified regions for the organization. Mutually exclusive with <code>AllRegions</code>. If neither <code>Regions</code> nor <code>AllRegions</code> is provided, the operation applies only to the current region. </p>
             all_regions: <p> If set to <code>true</code>, telemetry evaluation for the organization starts in all Amazon Web Services Regions where Amazon CloudWatch Observability Admin is available in the current partition. The current region becomes the home region for managing multi-region evaluation for the organization. When new regions become available, evaluation automatically expands to include them. Mutually exclusive with <code>Regions</code>. </p>
+
+        Raises:
+            aws_sdk_observabilityadmin.errors.access_denied_exception.AccessDeniedException: <p> Indicates you don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions. For more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html\">Access management for Amazon Web Services resources</a> in the IAM user guide. </p>
+            aws_sdk_observabilityadmin.errors.internal_server_exception.InternalServerException: <p> Indicates the request has failed to process because of an unknown server error, exception, or failure. </p>
+            aws_sdk_observabilityadmin.errors.too_many_requests_exception.TooManyRequestsException: <p> The request throughput limit was exceeded. </p>
+            aws_sdk_observabilityadmin.errors.validation_exception.ValidationException: <p> Indicates input validation failed. Check your request parameters and retry the request. </p>
+            aws_sdk_observabilityadmin.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1504,7 +1700,15 @@ class AsyncObservabilityAdminClient:
     async def stop_telemetry_enrichment(
         self, *, config_overrides: Optional[AsyncObservabilityAdminClientConfig] = None
     ) -> "aws_sdk_observabilityadmin.types.stop_telemetry_enrichment_output.StopTelemetryEnrichmentOutput":
-        """<p> Disables the resource tags for telemetry feature for your account, stopping the enhancement of telemetry data with additional resource metadata. </p>"""
+        """<p> Disables the resource tags for telemetry feature for your account, stopping the enhancement of telemetry data with additional resource metadata. </p>
+
+        Raises:
+            aws_sdk_observabilityadmin.errors.access_denied_exception.AccessDeniedException: <p> Indicates you don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions. For more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html\">Access management for Amazon Web Services resources</a> in the IAM user guide. </p>
+            aws_sdk_observabilityadmin.errors.conflict_exception.ConflictException: <p> The requested operation conflicts with the current state of the specified resource or with another request. </p>
+            aws_sdk_observabilityadmin.errors.internal_server_exception.InternalServerException: <p> Indicates the request has failed to process because of an unknown server error, exception, or failure. </p>
+            aws_sdk_observabilityadmin.errors.too_many_requests_exception.TooManyRequestsException: <p> The request throughput limit was exceeded. </p>
+            aws_sdk_observabilityadmin.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[None]",
@@ -1533,7 +1737,15 @@ class AsyncObservabilityAdminClient:
     async def stop_telemetry_evaluation(
         self, *, config_overrides: Optional[AsyncObservabilityAdminClientConfig] = None
     ) -> None:
-        """<p> This action begins offboarding the caller Amazon Web Services account from the telemetry config feature. </p>"""
+        """<p> This action begins offboarding the caller Amazon Web Services account from the telemetry config feature. </p>
+
+        Raises:
+            aws_sdk_observabilityadmin.errors.access_denied_exception.AccessDeniedException: <p> Indicates you don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions. For more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html\">Access management for Amazon Web Services resources</a> in the IAM user guide. </p>
+            aws_sdk_observabilityadmin.errors.internal_server_exception.InternalServerException: <p> Indicates the request has failed to process because of an unknown server error, exception, or failure. </p>
+            aws_sdk_observabilityadmin.errors.too_many_requests_exception.TooManyRequestsException: <p> The request throughput limit was exceeded. </p>
+            aws_sdk_observabilityadmin.errors.validation_exception.ValidationException: <p> Indicates input validation failed. Check your request parameters and retry the request. </p>
+            aws_sdk_observabilityadmin.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[None]",
@@ -1560,7 +1772,15 @@ class AsyncObservabilityAdminClient:
     async def stop_telemetry_evaluation_for_organization(
         self, *, config_overrides: Optional[AsyncObservabilityAdminClientConfig] = None
     ) -> None:
-        """<p> This action offboards the Organization of the caller Amazon Web Services account from the telemetry config feature. </p>"""
+        """<p> This action offboards the Organization of the caller Amazon Web Services account from the telemetry config feature. </p>
+
+        Raises:
+            aws_sdk_observabilityadmin.errors.access_denied_exception.AccessDeniedException: <p> Indicates you don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions. For more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html\">Access management for Amazon Web Services resources</a> in the IAM user guide. </p>
+            aws_sdk_observabilityadmin.errors.internal_server_exception.InternalServerException: <p> Indicates the request has failed to process because of an unknown server error, exception, or failure. </p>
+            aws_sdk_observabilityadmin.errors.too_many_requests_exception.TooManyRequestsException: <p> The request throughput limit was exceeded. </p>
+            aws_sdk_observabilityadmin.errors.validation_exception.ValidationException: <p> Indicates input validation failed. Check your request parameters and retry the request. </p>
+            aws_sdk_observabilityadmin.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[None]",
@@ -1596,6 +1816,15 @@ class AsyncObservabilityAdminClient:
         Args:
             resource_arn: <p> The Amazon Resource Name (ARN) of the telemetry rule resource to tag. </p>
             tags: <p> The key-value pairs to add or update for the telemetry rule resource. </p>
+
+        Raises:
+            aws_sdk_observabilityadmin.errors.access_denied_exception.AccessDeniedException: <p> Indicates you don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions. For more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html\">Access management for Amazon Web Services resources</a> in the IAM user guide. </p>
+            aws_sdk_observabilityadmin.errors.internal_server_exception.InternalServerException: <p> Indicates the request has failed to process because of an unknown server error, exception, or failure. </p>
+            aws_sdk_observabilityadmin.errors.resource_not_found_exception.ResourceNotFoundException: <p> The specified resource (such as a telemetry rule) could not be found. </p>
+            aws_sdk_observabilityadmin.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p> The requested operation would exceed the allowed quota for the specified resource type. </p>
+            aws_sdk_observabilityadmin.errors.too_many_requests_exception.TooManyRequestsException: <p> The request throughput limit was exceeded. </p>
+            aws_sdk_observabilityadmin.errors.validation_exception.ValidationException: <p> Indicates input validation failed. Check your request parameters and retry the request. </p>
+            aws_sdk_observabilityadmin.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1635,6 +1864,13 @@ class AsyncObservabilityAdminClient:
         Args:
             records: <p>The sample records to process through the pipeline configuration for testing purposes.</p>
             configuration: <p>The pipeline configuration to test with the provided sample records.</p>
+
+        Raises:
+            aws_sdk_observabilityadmin.errors.access_denied_exception.AccessDeniedException: <p> Indicates you don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions. For more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html\">Access management for Amazon Web Services resources</a> in the IAM user guide. </p>
+            aws_sdk_observabilityadmin.errors.internal_server_exception.InternalServerException: <p> Indicates the request has failed to process because of an unknown server error, exception, or failure. </p>
+            aws_sdk_observabilityadmin.errors.too_many_requests_exception.TooManyRequestsException: <p> The request throughput limit was exceeded. </p>
+            aws_sdk_observabilityadmin.errors.validation_exception.ValidationException: <p> Indicates input validation failed. Check your request parameters and retry the request. </p>
+            aws_sdk_observabilityadmin.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1676,6 +1912,14 @@ class AsyncObservabilityAdminClient:
         Args:
             resource_arn: <p> The Amazon Resource Name (ARN) of the telemetry rule resource to remove tags from. </p>
             tag_keys: <p> The list of tag keys to remove from the telemetry rule resource. </p>
+
+        Raises:
+            aws_sdk_observabilityadmin.errors.access_denied_exception.AccessDeniedException: <p> Indicates you don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions. For more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html\">Access management for Amazon Web Services resources</a> in the IAM user guide. </p>
+            aws_sdk_observabilityadmin.errors.internal_server_exception.InternalServerException: <p> Indicates the request has failed to process because of an unknown server error, exception, or failure. </p>
+            aws_sdk_observabilityadmin.errors.resource_not_found_exception.ResourceNotFoundException: <p> The specified resource (such as a telemetry rule) could not be found. </p>
+            aws_sdk_observabilityadmin.errors.too_many_requests_exception.TooManyRequestsException: <p> The request throughput limit was exceeded. </p>
+            aws_sdk_observabilityadmin.errors.validation_exception.ValidationException: <p> Indicates input validation failed. Check your request parameters and retry the request. </p>
+            aws_sdk_observabilityadmin.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1715,6 +1959,15 @@ class AsyncObservabilityAdminClient:
         Args:
             rule_identifier: <p>The identifier (name or ARN) of the organization centralization rule to update.</p>
             rule: <p>The configuration details for the organization-wide centralization rule, including the source configuration and the destination configuration to centralize telemetry data across the organization.</p>
+
+        Raises:
+            aws_sdk_observabilityadmin.errors.access_denied_exception.AccessDeniedException: <p> Indicates you don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions. For more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html\">Access management for Amazon Web Services resources</a> in the IAM user guide. </p>
+            aws_sdk_observabilityadmin.errors.internal_server_exception.InternalServerException: <p> Indicates the request has failed to process because of an unknown server error, exception, or failure. </p>
+            aws_sdk_observabilityadmin.errors.resource_not_found_exception.ResourceNotFoundException: <p> The specified resource (such as a telemetry rule) could not be found. </p>
+            aws_sdk_observabilityadmin.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p> The requested operation would exceed the allowed quota for the specified resource type. </p>
+            aws_sdk_observabilityadmin.errors.too_many_requests_exception.TooManyRequestsException: <p> The request throughput limit was exceeded. </p>
+            aws_sdk_observabilityadmin.errors.validation_exception.ValidationException: <p> Indicates input validation failed. Check your request parameters and retry the request. </p>
+            aws_sdk_observabilityadmin.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1756,6 +2009,16 @@ class AsyncObservabilityAdminClient:
         Args:
             rule_identifier: <p> The identifier (name or ARN) of the telemetry rule to update. </p>
             rule: <p> The new configuration details for the telemetry rule. </p>
+
+        Raises:
+            aws_sdk_observabilityadmin.errors.access_denied_exception.AccessDeniedException: <p> Indicates you don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions. For more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html\">Access management for Amazon Web Services resources</a> in the IAM user guide. </p>
+            aws_sdk_observabilityadmin.errors.conflict_exception.ConflictException: <p> The requested operation conflicts with the current state of the specified resource or with another request. </p>
+            aws_sdk_observabilityadmin.errors.internal_server_exception.InternalServerException: <p> Indicates the request has failed to process because of an unknown server error, exception, or failure. </p>
+            aws_sdk_observabilityadmin.errors.resource_not_found_exception.ResourceNotFoundException: <p> The specified resource (such as a telemetry rule) could not be found. </p>
+            aws_sdk_observabilityadmin.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p> The requested operation would exceed the allowed quota for the specified resource type. </p>
+            aws_sdk_observabilityadmin.errors.too_many_requests_exception.TooManyRequestsException: <p> The request throughput limit was exceeded. </p>
+            aws_sdk_observabilityadmin.errors.validation_exception.ValidationException: <p> Indicates input validation failed. Check your request parameters and retry the request. </p>
+            aws_sdk_observabilityadmin.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1797,6 +2060,15 @@ class AsyncObservabilityAdminClient:
         Args:
             rule_identifier: <p> The identifier (name or ARN) of the organization telemetry rule to update. </p>
             rule: <p> The new configuration details for the organization telemetry rule, including resource type, telemetry type, and destination configuration. </p>
+
+        Raises:
+            aws_sdk_observabilityadmin.errors.access_denied_exception.AccessDeniedException: <p> Indicates you don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions. For more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html\">Access management for Amazon Web Services resources</a> in the IAM user guide. </p>
+            aws_sdk_observabilityadmin.errors.internal_server_exception.InternalServerException: <p> Indicates the request has failed to process because of an unknown server error, exception, or failure. </p>
+            aws_sdk_observabilityadmin.errors.resource_not_found_exception.ResourceNotFoundException: <p> The specified resource (such as a telemetry rule) could not be found. </p>
+            aws_sdk_observabilityadmin.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p> The requested operation would exceed the allowed quota for the specified resource type. </p>
+            aws_sdk_observabilityadmin.errors.too_many_requests_exception.TooManyRequestsException: <p> The request throughput limit was exceeded. </p>
+            aws_sdk_observabilityadmin.errors.validation_exception.ValidationException: <p> Indicates input validation failed. Check your request parameters and retry the request. </p>
+            aws_sdk_observabilityadmin.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1836,6 +2108,13 @@ class AsyncObservabilityAdminClient:
 
         Args:
             configuration: <p>The pipeline configuration to validate for syntax and compatibility.</p>
+
+        Raises:
+            aws_sdk_observabilityadmin.errors.access_denied_exception.AccessDeniedException: <p> Indicates you don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions. For more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html\">Access management for Amazon Web Services resources</a> in the IAM user guide. </p>
+            aws_sdk_observabilityadmin.errors.internal_server_exception.InternalServerException: <p> Indicates the request has failed to process because of an unknown server error, exception, or failure. </p>
+            aws_sdk_observabilityadmin.errors.too_many_requests_exception.TooManyRequestsException: <p> The request throughput limit was exceeded. </p>
+            aws_sdk_observabilityadmin.errors.validation_exception.ValidationException: <p> Indicates input validation failed. Check your request parameters and retry the request. </p>
+            aws_sdk_observabilityadmin.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

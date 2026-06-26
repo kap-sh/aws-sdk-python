@@ -61,6 +61,15 @@ class ProbeResource:
             probe: <p>Describes the details of an individual probe for a monitor.</p>
             client_token: <p>Unique, case-sensitive identifier to ensure the idempotency of the request. Only returned if a client token was provided in the request.</p>
             tags: <p>The list of key-value pairs created and assigned to the probe.</p>
+
+        Raises:
+            aws_sdk_networkmonitor.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_networkmonitor.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_networkmonitor.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_networkmonitor.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>This request exceeds a service quota.</p>
+            aws_sdk_networkmonitor.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling</p>
+            aws_sdk_networkmonitor.errors.validation_exception.ValidationException: <p>One of the parameters for the request is not valid.</p>
+            aws_sdk_networkmonitor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -105,6 +114,14 @@ class ProbeResource:
         Args:
             monitor_name: <p>The name of the monitor associated with the probe. Run <code>ListMonitors</code> to get a list of monitor names.</p>
             probe_id: <p>The ID of the probe to get information about. Run <code>GetMonitor</code> action to get a list of probes and probe IDs for the monitor.</p>
+
+        Raises:
+            aws_sdk_networkmonitor.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_networkmonitor.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_networkmonitor.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_networkmonitor.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling</p>
+            aws_sdk_networkmonitor.errors.validation_exception.ValidationException: <p>One of the parameters for the request is not valid.</p>
+            aws_sdk_networkmonitor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -159,6 +176,15 @@ class ProbeResource:
             destination_port: <p>The updated port for the probe destination. This is required only if the <code>protocol</code> is <code>TCP</code> and must be a number between <code>1</code> and <code>65536</code>.</p>
             protocol: <p>The updated network protocol for the destination. This can be either <code>TCP</code> or <code>ICMP</code>. If the protocol is <code>TCP</code>, then <code>port</code> is also required.</p>
             packet_size: <p>he updated packets size for network traffic between the source and destination. This must be a number between <code>56</code> and <code>8500</code>.</p>
+
+        Raises:
+            aws_sdk_networkmonitor.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_networkmonitor.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_networkmonitor.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_networkmonitor.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>This request exceeds a service quota.</p>
+            aws_sdk_networkmonitor.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling</p>
+            aws_sdk_networkmonitor.errors.validation_exception.ValidationException: <p>One of the parameters for the request is not valid.</p>
+            aws_sdk_networkmonitor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -209,6 +235,15 @@ class ProbeResource:
         Args:
             monitor_name: <p>The name of the monitor to delete. </p>
             probe_id: <p>The ID of the probe to delete. </p>
+
+        Raises:
+            aws_sdk_networkmonitor.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_networkmonitor.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_networkmonitor.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_networkmonitor.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>This request exceeds a service quota.</p>
+            aws_sdk_networkmonitor.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling</p>
+            aws_sdk_networkmonitor.errors.validation_exception.ValidationException: <p>One of the parameters for the request is not valid.</p>
+            aws_sdk_networkmonitor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -258,6 +293,15 @@ class AsyncProbeResource:
             probe: <p>Describes the details of an individual probe for a monitor.</p>
             client_token: <p>Unique, case-sensitive identifier to ensure the idempotency of the request. Only returned if a client token was provided in the request.</p>
             tags: <p>The list of key-value pairs created and assigned to the probe.</p>
+
+        Raises:
+            aws_sdk_networkmonitor.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_networkmonitor.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_networkmonitor.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_networkmonitor.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>This request exceeds a service quota.</p>
+            aws_sdk_networkmonitor.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling</p>
+            aws_sdk_networkmonitor.errors.validation_exception.ValidationException: <p>One of the parameters for the request is not valid.</p>
+            aws_sdk_networkmonitor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -303,6 +347,14 @@ class AsyncProbeResource:
         Args:
             monitor_name: <p>The name of the monitor associated with the probe. Run <code>ListMonitors</code> to get a list of monitor names.</p>
             probe_id: <p>The ID of the probe to get information about. Run <code>GetMonitor</code> action to get a list of probes and probe IDs for the monitor.</p>
+
+        Raises:
+            aws_sdk_networkmonitor.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_networkmonitor.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_networkmonitor.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_networkmonitor.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling</p>
+            aws_sdk_networkmonitor.errors.validation_exception.ValidationException: <p>One of the parameters for the request is not valid.</p>
+            aws_sdk_networkmonitor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -358,6 +410,15 @@ class AsyncProbeResource:
             destination_port: <p>The updated port for the probe destination. This is required only if the <code>protocol</code> is <code>TCP</code> and must be a number between <code>1</code> and <code>65536</code>.</p>
             protocol: <p>The updated network protocol for the destination. This can be either <code>TCP</code> or <code>ICMP</code>. If the protocol is <code>TCP</code>, then <code>port</code> is also required.</p>
             packet_size: <p>he updated packets size for network traffic between the source and destination. This must be a number between <code>56</code> and <code>8500</code>.</p>
+
+        Raises:
+            aws_sdk_networkmonitor.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_networkmonitor.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_networkmonitor.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_networkmonitor.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>This request exceeds a service quota.</p>
+            aws_sdk_networkmonitor.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling</p>
+            aws_sdk_networkmonitor.errors.validation_exception.ValidationException: <p>One of the parameters for the request is not valid.</p>
+            aws_sdk_networkmonitor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -409,6 +470,15 @@ class AsyncProbeResource:
         Args:
             monitor_name: <p>The name of the monitor to delete. </p>
             probe_id: <p>The ID of the probe to delete. </p>
+
+        Raises:
+            aws_sdk_networkmonitor.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_networkmonitor.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_networkmonitor.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_networkmonitor.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>This request exceeds a service quota.</p>
+            aws_sdk_networkmonitor.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling</p>
+            aws_sdk_networkmonitor.errors.validation_exception.ValidationException: <p>One of the parameters for the request is not valid.</p>
+            aws_sdk_networkmonitor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

@@ -916,6 +916,14 @@ class QuickSightClient:
             aws_account_id: <p>The ID of the Amazon Web Services account that you want to create a reviewed answer in.</p>
             topic_id: <p>The ID for the topic reviewed answer that you want to create. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
             answers: <p>The definition of the Answers to be created.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -957,6 +965,16 @@ class QuickSightClient:
         Args:
             aws_account_id: <p>The ID of the Amazon Web Services account that contains the knowledge base.</p>
             knowledge_base_ids: <p>A list of knowledge base identifiers to delete.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.invalid_request_exception.InvalidRequestException: <p>You don't have this feature activated for your account. To fix this issue, contact Amazon Web Services support.</p>
+            aws_sdk_quicksight.errors.limit_exceeded_exception.LimitExceededException: <p>A limit is exceeded.</p>
+            aws_sdk_quicksight.errors.precondition_not_met_exception.PreconditionNotMetException: <p>One or more preconditions aren't met.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -999,6 +1017,15 @@ class QuickSightClient:
             aws_account_id: <p>The ID of the Amazon Web Services account that you want to delete a reviewed answers in.</p>
             topic_id: <p>The ID for the topic reviewed answer that you want to delete. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
             answer_ids: <p>The Answer IDs of the Answers to be deleted.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1043,6 +1070,15 @@ class QuickSightClient:
             aws_account_id: <p>The Amazon Web Services account ID.</p>
             data_set_id: <p>The ID of the dataset used in the ingestion.</p>
             ingestion_id: <p>An ID for the ingestion.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.resource_exists_exception.ResourceExistsException: <p>The resource specified already exists. </p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1088,6 +1124,17 @@ class QuickSightClient:
             namespace: <p>The Quick Sight namespace that you want to add customizations to.</p>
             account_customization: <p>The Quick Sight customizations you're adding. You can add these to an Amazon Web Services account and a QuickSight namespace. </p> <p>For example, you can add a default theme by setting <code>AccountCustomization</code> to the midnight theme: <code>\"AccountCustomization\": { \"DefaultTheme\": \"arn:aws:quicksight::aws:theme/MIDNIGHT\" }</code>. Or, you can add a custom theme by specifying <code>\"AccountCustomization\": { \"DefaultTheme\": \"arn:aws:quicksight:us-west-2:111122223333:theme/bdb844d0-0fe9-4d9d-b520-0fe602d93639\" }</code>. </p>
             tags: <p>A list of the tags that you want to attach to this resource.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.resource_exists_exception.ResourceExistsException: <p>The resource specified already exists. </p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.resource_unavailable_exception.ResourceUnavailableException: <p>This resource is currently unavailable.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1180,6 +1227,18 @@ class QuickSightClient:
             email_address: <p>The email address of the author of the Amazon Quick Sight account to use for future communications. This field is required if <code>ENTERPPRISE_AND_Q</code> is the selected edition of the new Amazon Quick Sight account.</p>
             contact_number: <p>A 10-digit phone number for the author of the Amazon Quick Sight account to use for future communications. This field is required if <code>ENTERPPRISE_AND_Q</code> is the selected edition of the new Amazon Quick Sight account.</p>
             iam_identity_center_instance_arn: <p>The Amazon Resource Name (ARN) for the IAM Identity Center instance.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.precondition_not_met_exception.PreconditionNotMetException: <p>One or more preconditions aren't met.</p>
+            aws_sdk_quicksight.errors.resource_exists_exception.ResourceExistsException: <p>The resource specified already exists. </p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.resource_unavailable_exception.ResourceUnavailableException: <p>This resource is currently unavailable.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1272,6 +1331,15 @@ class QuickSightClient:
             permissions: <p>The permissions configuration that defines which users, groups, or namespaces can access this action connector and what operations they can perform.</p>
             vpc_connection_arn: <p>The ARN of the VPC connection to use for secure connectivity to the external service.</p>
             tags: <p>A list of tags to apply to the action connector for resource management and organization.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.resource_exists_exception.ResourceExistsException: <p>The resource specified already exists. </p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1355,6 +1423,17 @@ class QuickSightClient:
             welcome_message: <p>The welcome message that is displayed when a user starts a conversation with the agent.</p>
             agent_lifecycle: <p>The lifecycle state of the agent. Valid values are <code>PREVIEW</code> and <code>PUBLISHED</code>.</p>
             custom_prompt_input: <p>The custom prompt configuration for the agent.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.limit_exceeded_exception.LimitExceededException: <p>A limit is exceeded.</p>
+            aws_sdk_quicksight.errors.precondition_not_met_exception.PreconditionNotMetException: <p>One or more preconditions aren't met.</p>
+            aws_sdk_quicksight.errors.resource_exists_exception.ResourceExistsException: <p>The resource specified already exists. </p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1440,6 +1519,17 @@ class QuickSightClient:
             definition: <p>The definition of an analysis.</p> <p>A definition is the data model of all features in a Dashboard, Template, or Analysis.</p> <p>Either a <code>SourceEntity</code> or a <code>Definition</code> must be provided in order for the request to be valid.</p>
             validation_strategy: <p>The option to relax the validation needed to create an analysis with definition objects. This skips the validation step for specific errors.</p>
             folder_arns: <p>When you create the analysis, Amazon Quick Sight adds the analysis to these folders.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.limit_exceeded_exception.LimitExceededException: <p>A limit is exceeded.</p>
+            aws_sdk_quicksight.errors.resource_exists_exception.ResourceExistsException: <p>The resource specified already exists. </p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.unsupported_user_edition_exception.UnsupportedUserEditionException: <p>This error indicates that you are calling an operation on an Amazon Quick Suite subscription where the edition doesn't include support for that operation. Amazon Quick Suite currently has Standard Edition and Enterprise Edition. Not every operation and capability is available in every edition.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1503,6 +1593,15 @@ class QuickSightClient:
             brand_id: <p>The ID of the Quick brand.</p>
             brand_definition: <p>The definition of the brand.</p>
             tags: <p>A map of the key-value pairs that are assigned to the brand.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_quicksight.errors.internal_server_exception.InternalServerException: <p>An internal service exception.</p>
+            aws_sdk_quicksight.errors.invalid_request_exception.InvalidRequestException: <p>You don't have this feature activated for your account. To fix this issue, contact Amazon Web Services support.</p>
+            aws_sdk_quicksight.errors.limit_exceeded_exception.LimitExceededException: <p>A limit is exceeded.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1553,6 +1652,19 @@ class QuickSightClient:
             custom_permissions_name: <p>The name of the custom permissions profile that you want to create.</p>
             capabilities: <p>A set of actions to include in the custom permissions profile.</p>
             tags: <p>The tags to associate with the custom permissions profile.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.limit_exceeded_exception.LimitExceededException: <p>A limit is exceeded.</p>
+            aws_sdk_quicksight.errors.precondition_not_met_exception.PreconditionNotMetException: <p>One or more preconditions aren't met.</p>
+            aws_sdk_quicksight.errors.resource_exists_exception.ResourceExistsException: <p>The resource specified already exists. </p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.resource_unavailable_exception.ResourceUnavailableException: <p>This resource is currently unavailable.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1641,6 +1753,17 @@ class QuickSightClient:
             folder_arns: <p>When you create the dashboard, Amazon Quick Sight adds the dashboard to these folders.</p>
             link_sharing_configuration: <p>A structure that contains the permissions of a shareable link to the dashboard.</p>
             link_entities: <p>A list of analysis Amazon Resource Names (ARNs) to be linked to the dashboard.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.limit_exceeded_exception.LimitExceededException: <p>A limit is exceeded.</p>
+            aws_sdk_quicksight.errors.resource_exists_exception.ResourceExistsException: <p>The resource specified already exists. </p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.unsupported_user_edition_exception.UnsupportedUserEditionException: <p>This error indicates that you are calling an operation on an Amazon Quick Suite subscription where the edition doesn't include support for that operation. Amazon Quick Suite currently has Standard Edition and Enterprise Edition. Not every operation and capability is available in every edition.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1769,6 +1892,19 @@ class QuickSightClient:
             use_as: <p>The usage of the dataset. <code>RLS_RULES</code> must be specified for RLS permission datasets.</p>
             data_prep_configuration: <p>The data preparation configuration for the dataset. This configuration defines the source tables, transformation steps, and destination tables used to prepare the data. Required when using the new data preparation experience.</p>
             semantic_model_configuration: <p>The semantic model configuration for the dataset. This configuration defines how the prepared data is structured for an analysis, including table mappings and row-level security configurations. Required when using the new data preparation experience.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_data_set_parameter_value_exception.InvalidDataSetParameterValueException: <p>An exception thrown when an invalid parameter value is provided for dataset operations.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.limit_exceeded_exception.LimitExceededException: <p>A limit is exceeded.</p>
+            aws_sdk_quicksight.errors.resource_exists_exception.ResourceExistsException: <p>The resource specified already exists. </p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.unsupported_user_edition_exception.UnsupportedUserEditionException: <p>This error indicates that you are calling an operation on an Amazon Quick Suite subscription where the edition doesn't include support for that operation. Amazon Quick Suite currently has Standard Edition and Enterprise Edition. Not every operation and capability is available in every edition.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1876,6 +2012,18 @@ class QuickSightClient:
             ssl_properties: <p>Secure Socket Layer (SSL) properties that apply when Amazon Quick Sight connects to your underlying source.</p>
             tags: <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the data source.</p>
             folder_arns: <p>When you create the data source, Amazon Quick Sight adds the data source to these folders.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_quicksight.errors.customer_managed_key_unavailable_exception.CustomerManagedKeyUnavailableException: <p>The customer managed key that is registered to your Amazon Quick Sight account is unavailable.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.limit_exceeded_exception.LimitExceededException: <p>A limit is exceeded.</p>
+            aws_sdk_quicksight.errors.resource_exists_exception.ResourceExistsException: <p>The resource specified already exists. </p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1946,6 +2094,17 @@ class QuickSightClient:
             flow_definition: <p>The definition of the flow, specifying the steps and configurations. This is the flow definition in Quick Flow's internal format. The format is subject to change.</p> <note> <p>Always derive or depend on the flow definition from the <code>DescribeFlow</code> operation to ensure you are working with the latest format.</p> </note>
             permissions: <p>Initial permissions for the flow. If omitted, the flow is created without any permissions.</p>
             client_token: <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.limit_exceeded_exception.LimitExceededException: <p>A limit is exceeded.</p>
+            aws_sdk_quicksight.errors.resource_exists_exception.ResourceExistsException: <p>The resource specified already exists. </p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2009,6 +2168,18 @@ class QuickSightClient:
             permissions: <p>A structure that describes the principals and the resource-level permissions of a folder.</p> <p>To specify no permissions, omit <code>Permissions</code>.</p>
             tags: <p>Tags for the folder.</p>
             sharing_model: <p>An optional parameter that determines the sharing scope of the folder. The default value for this parameter is <code>ACCOUNT</code>.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.limit_exceeded_exception.LimitExceededException: <p>A limit is exceeded.</p>
+            aws_sdk_quicksight.errors.resource_exists_exception.ResourceExistsException: <p>The resource specified already exists. </p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.unsupported_user_edition_exception.UnsupportedUserEditionException: <p>This error indicates that you are calling an operation on an Amazon Quick Suite subscription where the edition doesn't include support for that operation. Amazon Quick Suite currently has Standard Edition and Enterprise Edition. Not every operation and capability is available in every edition.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2065,6 +2236,17 @@ class QuickSightClient:
             folder_id: <p>The ID of the folder.</p>
             member_id: <p>The ID of the asset that you want to add to the folder.</p>
             member_type: <p>The member type of the asset that you want to add to a folder.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.limit_exceeded_exception.LimitExceededException: <p>A limit is exceeded.</p>
+            aws_sdk_quicksight.errors.resource_exists_exception.ResourceExistsException: <p>The resource specified already exists. </p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.unsupported_user_edition_exception.UnsupportedUserEditionException: <p>This error indicates that you are calling an operation on an Amazon Quick Suite subscription where the edition doesn't include support for that operation. Amazon Quick Suite currently has Standard Edition and Enterprise Edition. Not every operation and capability is available in every edition.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2113,6 +2295,18 @@ class QuickSightClient:
             description: <p>A description for the group that you want to create.</p>
             aws_account_id: <p>The ID for the Amazon Web Services account that the group is in. Currently, you use the ID for the Amazon Web Services account that contains your Amazon Quick Sight account.</p>
             namespace: <p>The namespace that you want the group to be a part of.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.limit_exceeded_exception.LimitExceededException: <p>A limit is exceeded.</p>
+            aws_sdk_quicksight.errors.precondition_not_met_exception.PreconditionNotMetException: <p>One or more preconditions aren't met.</p>
+            aws_sdk_quicksight.errors.resource_exists_exception.ResourceExistsException: <p>The resource specified already exists. </p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.resource_unavailable_exception.ResourceUnavailableException: <p>This resource is currently unavailable.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2160,6 +2354,16 @@ class QuickSightClient:
             group_name: <p>The name of the group that you want to add the user to.</p>
             aws_account_id: <p>The ID for the Amazon Web Services account that the group is in. Currently, you use the ID for the Amazon Web Services account that contains your Amazon Quick Sight account.</p>
             namespace: <p>The namespace that you want the user to be a part of.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.precondition_not_met_exception.PreconditionNotMetException: <p>One or more preconditions aren't met.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.resource_unavailable_exception.ResourceUnavailableException: <p>This resource is currently unavailable.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2212,6 +2416,16 @@ class QuickSightClient:
             policy_arn: <p>The ARN for the IAM policy to apply to the Amazon Quick Sight users and groups specified in this assignment.</p>
             identities: <p>The Amazon Quick Sight users, groups, or both that you want to assign the policy to.</p>
             namespace: <p>The namespace that contains the assignment.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.concurrent_updating_exception.ConcurrentUpdatingException: <p>A resource is already in a state that indicates an operation is happening that must complete before a new update can be applied.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.resource_exists_exception.ResourceExistsException: <p>The resource specified already exists. </p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2264,6 +2478,16 @@ class QuickSightClient:
             ingestion_id: <p>An ID for the ingestion.</p>
             aws_account_id: <p>The Amazon Web Services account ID.</p>
             ingestion_type: <p>The type of ingestion that you want to create.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.limit_exceeded_exception.LimitExceededException: <p>A limit is exceeded.</p>
+            aws_sdk_quicksight.errors.resource_exists_exception.ResourceExistsException: <p>The resource specified already exists. </p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2311,6 +2535,19 @@ class QuickSightClient:
             namespace: <p>The name that you want to use to describe the new namespace.</p>
             identity_store: <p>Specifies the type of your user identity directory. Currently, this supports users with an identity type of <code>QUICKSIGHT</code>.</p>
             tags: <p>The tags that you want to associate with the namespace that you're creating.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.limit_exceeded_exception.LimitExceededException: <p>A limit is exceeded.</p>
+            aws_sdk_quicksight.errors.precondition_not_met_exception.PreconditionNotMetException: <p>One or more preconditions aren't met.</p>
+            aws_sdk_quicksight.errors.resource_exists_exception.ResourceExistsException: <p>The resource specified already exists. </p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.resource_unavailable_exception.ResourceUnavailableException: <p>This resource is currently unavailable.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2381,6 +2618,17 @@ class QuickSightClient:
             o_auth_scopes: <p>The OAuth scopes that are requested when the OAuthClientApplication obtains an access token from the identity provider.</p>
             data_source_type: <p>The type of data source that the OAuthClientApplication is used with. Valid values are <code>SNOWFLAKE</code>.</p>
             tags: <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the OAuthClientApplication.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.limit_exceeded_exception.LimitExceededException: <p>A limit is exceeded.</p>
+            aws_sdk_quicksight.errors.resource_exists_exception.ResourceExistsException: <p>The resource specified already exists. </p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2442,6 +2690,17 @@ class QuickSightClient:
             data_set_id: <p>The ID of the dataset.</p>
             aws_account_id: <p>The Amazon Web Services account ID.</p>
             schedule: <p>The refresh schedule.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.limit_exceeded_exception.LimitExceededException: <p>A limit is exceeded.</p>
+            aws_sdk_quicksight.errors.precondition_not_met_exception.PreconditionNotMetException: <p>One or more preconditions aren't met.</p>
+            aws_sdk_quicksight.errors.resource_exists_exception.ResourceExistsException: <p>The resource specified already exists. </p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2487,6 +2746,16 @@ class QuickSightClient:
             aws_account_id: <p>The ID for the Amazon Web Services account that you want to create a group in. The Amazon Web Services account ID that you provide must be the same Amazon Web Services account that contains your Amazon Quick Sight account.</p>
             namespace: <p>The namespace that the role belongs to.</p>
             role: <p>The role that you want to add a group to.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.precondition_not_met_exception.PreconditionNotMetException: <p>One or more preconditions aren't met.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.resource_unavailable_exception.ResourceUnavailableException: <p>This resource is currently unavailable.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2535,6 +2804,16 @@ class QuickSightClient:
             space_id: <p>The ID of the space. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
             name: <p>A display name for the space.</p>
             description: <p>A description of the space.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.limit_exceeded_exception.LimitExceededException: <p>A limit is exceeded.</p>
+            aws_sdk_quicksight.errors.resource_exists_exception.ResourceExistsException: <p>The resource specified already exists. </p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2602,6 +2881,18 @@ class QuickSightClient:
             version_description: <p>A description of the current template version being created. This API operation creates the first version of the template. Every time <code>UpdateTemplate</code> is called, a new version is created. Each version of the template maintains a description of the version in the <code>VersionDescription</code> field.</p>
             definition: <p>The definition of a template.</p> <p>A definition is the data model of all features in a Dashboard, Template, or Analysis.</p> <p>Either a <code>SourceEntity</code> or a <code>Definition</code> must be provided in order for the request to be valid.</p>
             validation_strategy: <p>TThe option to relax the validation needed to create a template with definition objects. This skips the validation step for specific errors.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.limit_exceeded_exception.LimitExceededException: <p>A limit is exceeded.</p>
+            aws_sdk_quicksight.errors.resource_exists_exception.ResourceExistsException: <p>The resource specified already exists. </p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.unsupported_user_edition_exception.UnsupportedUserEditionException: <p>This error indicates that you are calling an operation on an Amazon Quick Suite subscription where the edition doesn't include support for that operation. Amazon Quick Suite currently has Standard Edition and Enterprise Edition. Not every operation and capability is available in every edition.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2660,6 +2951,16 @@ class QuickSightClient:
             template_id: <p>An ID for the template.</p>
             alias_name: <p>The name that you want to give to the template alias that you're creating. Don't start the alias name with the <code>$</code> character. Alias names that start with <code>$</code> are reserved by Quick Sight. </p>
             template_version_number: <p>The version number of the template.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.limit_exceeded_exception.LimitExceededException: <p>A limit is exceeded.</p>
+            aws_sdk_quicksight.errors.resource_exists_exception.ResourceExistsException: <p>The resource specified already exists. </p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.unsupported_user_edition_exception.UnsupportedUserEditionException: <p>This error indicates that you are calling an operation on an Amazon Quick Suite subscription where the edition doesn't include support for that operation. Amazon Quick Suite currently has Standard Edition and Enterprise Edition. Not every operation and capability is available in every edition.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2718,6 +3019,17 @@ class QuickSightClient:
             configuration: <p>The theme configuration, which contains the theme display properties.</p>
             permissions: <p>A valid grouping of resource permissions to apply to the new theme. </p>
             tags: <p>A map of the key-value pairs for the resource tag or tags that you want to add to the resource.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.limit_exceeded_exception.LimitExceededException: <p>A limit is exceeded.</p>
+            aws_sdk_quicksight.errors.resource_exists_exception.ResourceExistsException: <p>The resource specified already exists. </p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.unsupported_user_edition_exception.UnsupportedUserEditionException: <p>This error indicates that you are calling an operation on an Amazon Quick Suite subscription where the edition doesn't include support for that operation. Amazon Quick Suite currently has Standard Edition and Enterprise Edition. Not every operation and capability is available in every edition.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2773,6 +3085,17 @@ class QuickSightClient:
             theme_id: <p>An ID for the theme alias.</p>
             alias_name: <p>The name that you want to give to the theme alias that you are creating. The alias name can't begin with a <code>$</code>. Alias names that start with <code>$</code> are reserved by Amazon Quick Sight. </p>
             theme_version_number: <p>The version number of the theme.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.limit_exceeded_exception.LimitExceededException: <p>A limit is exceeded.</p>
+            aws_sdk_quicksight.errors.resource_exists_exception.ResourceExistsException: <p>The resource specified already exists. </p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.unsupported_user_edition_exception.UnsupportedUserEditionException: <p>This error indicates that you are calling an operation on an Amazon Quick Suite subscription where the edition doesn't include support for that operation. Amazon Quick Suite currently has Standard Edition and Enterprise Edition. Not every operation and capability is available in every edition.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2827,6 +3150,17 @@ class QuickSightClient:
             tags: <p>Contains a map of the key-value pairs for the resource tag or tags that are assigned to the dataset.</p>
             folder_arns: <p>The Folder ARN of the folder that you want the topic to reside in.</p>
             custom_instructions: <p>Custom instructions for the topic.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.limit_exceeded_exception.LimitExceededException: <p>A limit is exceeded.</p>
+            aws_sdk_quicksight.errors.resource_exists_exception.ResourceExistsException: <p>The resource specified already exists. </p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2880,6 +3214,17 @@ class QuickSightClient:
             dataset_arn: <p>The Amazon Resource Name (ARN) of the dataset.</p>
             dataset_name: <p>The name of the dataset.</p>
             refresh_schedule: <p>The definition of a refresh schedule.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.limit_exceeded_exception.LimitExceededException: <p>A limit is exceeded.</p>
+            aws_sdk_quicksight.errors.resource_exists_exception.ResourceExistsException: <p>The resource specified already exists. </p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2938,6 +3283,17 @@ class QuickSightClient:
             dns_resolvers: <p>A list of IP addresses of DNS resolver endpoints for the VPC connection.</p>
             role_arn: <p>The IAM role to associate with the VPC connection.</p>
             tags: <p>A map of the key-value pairs for the resource tag or tags assigned to the VPC connection.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.limit_exceeded_exception.LimitExceededException: <p>A limit is exceeded.</p>
+            aws_sdk_quicksight.errors.resource_exists_exception.ResourceExistsException: <p>The resource specified already exists. </p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.unsupported_user_edition_exception.UnsupportedUserEditionException: <p>This error indicates that you are calling an operation on an Amazon Quick Suite subscription where the edition doesn't include support for that operation. Amazon Quick Suite currently has Standard Edition and Enterprise Edition. Not every operation and capability is available in every edition.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2986,6 +3342,18 @@ class QuickSightClient:
         Args:
             aws_account_id: <p>The ID for the Amazon Web Services account that you want to delete Quick Sight customizations from.</p>
             namespace: <p>The Quick Sight namespace that you're deleting the customizations from.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.limit_exceeded_exception.LimitExceededException: <p>A limit is exceeded.</p>
+            aws_sdk_quicksight.errors.precondition_not_met_exception.PreconditionNotMetException: <p>One or more preconditions aren't met.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.resource_unavailable_exception.ResourceUnavailableException: <p>This resource is currently unavailable.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3025,6 +3393,14 @@ class QuickSightClient:
 
         Args:
             aws_account_id: <p>The ID of the Amazon Web Services account from which you want to unapply the custom permissions profile.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3062,6 +3438,16 @@ class QuickSightClient:
 
         Args:
             aws_account_id: <p>The Amazon Web Services account ID of the account that you want to delete.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.precondition_not_met_exception.PreconditionNotMetException: <p>One or more preconditions aren't met.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.resource_unavailable_exception.ResourceUnavailableException: <p>This resource is currently unavailable.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3101,6 +3487,14 @@ class QuickSightClient:
         Args:
             aws_account_id: <p>The Amazon Web Services account ID that contains the action connector to delete.</p>
             action_connector_id: <p>The unique identifier of the action connector to delete.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3141,6 +3535,15 @@ class QuickSightClient:
         Args:
             agent_id: <p>The unique identifier for the agent to delete.</p>
             aws_account_id: <p>The ID of the Amazon Web Services account that contains the agent.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3189,6 +3592,15 @@ class QuickSightClient:
             analysis_id: <p>The ID of the analysis that you're deleting.</p>
             recovery_window_in_days: <p>A value that specifies the number of days that Amazon Quick Sight waits before it deletes the analysis. You can't use this parameter with the <code>ForceDeleteWithoutRecovery</code> option in the same API call. The default value is 30.</p>
             force_delete_without_recovery: <p>This option defaults to the value <code>NoForceDeleteWithoutRecovery</code>. To immediately delete the analysis, add the <code>ForceDeleteWithoutRecovery</code> option. You can't restore an analysis after it's deleted. </p>
+
+        Raises:
+            aws_sdk_quicksight.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.unsupported_user_edition_exception.UnsupportedUserEditionException: <p>This error indicates that you are calling an operation on an Amazon Quick Suite subscription where the edition doesn't include support for that operation. Amazon Quick Suite currently has Standard Edition and Enterprise Edition. Not every operation and capability is available in every edition.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3233,6 +3645,15 @@ class QuickSightClient:
         Args:
             aws_account_id: <p>The ID of the Amazon Web Services account that owns the brand.</p>
             brand_id: <p>The ID of the Quick brand.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_quicksight.errors.internal_server_exception.InternalServerException: <p>An internal service exception.</p>
+            aws_sdk_quicksight.errors.invalid_request_exception.InvalidRequestException: <p>You don't have this feature activated for your account. To fix this issue, contact Amazon Web Services support.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3271,6 +3692,15 @@ class QuickSightClient:
 
         Args:
             aws_account_id: <p>The ID of the Amazon Web Services account that owns the brand assignment.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_quicksight.errors.internal_server_exception.InternalServerException: <p>An internal service exception.</p>
+            aws_sdk_quicksight.errors.invalid_request_exception.InvalidRequestException: <p>You don't have this feature activated for your account. To fix this issue, contact Amazon Web Services support.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3310,6 +3740,18 @@ class QuickSightClient:
         Args:
             aws_account_id: <p>The ID of the Amazon Web Services account that contains the custom permissions profile that you want to delete.</p>
             custom_permissions_name: <p>The name of the custom permissions profile that you want to delete.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.precondition_not_met_exception.PreconditionNotMetException: <p>One or more preconditions aren't met.</p>
+            aws_sdk_quicksight.errors.resource_exists_exception.ResourceExistsException: <p>The resource specified already exists. </p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.resource_unavailable_exception.ResourceUnavailableException: <p>This resource is currently unavailable.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3354,6 +3796,15 @@ class QuickSightClient:
             aws_account_id: <p>The ID of the Amazon Web Services account that contains the dashboard that you're deleting.</p>
             dashboard_id: <p>The ID for the dashboard.</p>
             version_number: <p>The version number of the dashboard. If the version number property is provided, only the specified version of the dashboard is deleted.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.unsupported_user_edition_exception.UnsupportedUserEditionException: <p>This error indicates that you are calling an operation on an Amazon Quick Suite subscription where the edition doesn't include support for that operation. Amazon Quick Suite currently has Standard Edition and Enterprise Edition. Not every operation and capability is available in every edition.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3396,6 +3847,14 @@ class QuickSightClient:
         Args:
             aws_account_id: <p>The Amazon Web Services account ID.</p>
             data_set_id: <p>The ID for the dataset that you want to delete. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3436,6 +3895,16 @@ class QuickSightClient:
         Args:
             aws_account_id: <p>The Amazon Web Services account ID.</p>
             data_set_id: <p>The ID of the dataset.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.limit_exceeded_exception.LimitExceededException: <p>A limit is exceeded.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3478,6 +3947,14 @@ class QuickSightClient:
         Args:
             aws_account_id: <p>The Amazon Web Services account ID.</p>
             data_source_id: <p>The ID of the data source. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3518,6 +3995,14 @@ class QuickSightClient:
         Args:
             aws_account_id: <p>The ID of the Quick Sight account that you want to disconnect from a Amazon Q Business application.</p>
             namespace: <p>The Quick Sight namespace that you want to delete a linked Amazon Q Business application from. If this field is left blank, the Amazon Q Business application is deleted from the default namespace. Currently, the default namespace is the only valid value for this parameter.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3559,6 +4044,15 @@ class QuickSightClient:
         Args:
             aws_account_id: <p>The ID of the Amazon Web Services account that contains the flow that you are deleting.</p>
             flow_id: <p>The unique identifier of the flow to delete.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3599,6 +4093,17 @@ class QuickSightClient:
         Args:
             aws_account_id: <p>The ID for the Amazon Web Services account that contains the folder.</p>
             folder_id: <p>The ID of the folder.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.precondition_not_met_exception.PreconditionNotMetException: <p>One or more preconditions aren't met.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.unsupported_user_edition_exception.UnsupportedUserEditionException: <p>This error indicates that you are calling an operation on an Amazon Quick Suite subscription where the edition doesn't include support for that operation. Amazon Quick Suite currently has Standard Edition and Enterprise Edition. Not every operation and capability is available in every edition.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3643,6 +4148,15 @@ class QuickSightClient:
             folder_id: <p>The Folder ID.</p>
             member_id: <p>The ID of the asset that you want to delete.</p>
             member_type: <p>The member type of the asset that you want to delete from a folder.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.unsupported_user_edition_exception.UnsupportedUserEditionException: <p>This error indicates that you are calling an operation on an Amazon Quick Suite subscription where the edition doesn't include support for that operation. Amazon Quick Suite currently has Standard Edition and Enterprise Edition. Not every operation and capability is available in every edition.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3687,6 +4201,16 @@ class QuickSightClient:
             group_name: <p>The name of the group that you want to delete.</p>
             aws_account_id: <p>The ID for the Amazon Web Services account that the group is in. Currently, you use the ID for the Amazon Web Services account that contains your Amazon Quick Sight account.</p>
             namespace: <p>The namespace of the group that you want to delete.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.precondition_not_met_exception.PreconditionNotMetException: <p>One or more preconditions aren't met.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.resource_unavailable_exception.ResourceUnavailableException: <p>This resource is currently unavailable.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3732,6 +4256,16 @@ class QuickSightClient:
             group_name: <p>The name of the group that you want to delete the user from.</p>
             aws_account_id: <p>The ID for the Amazon Web Services account that the group is in. Currently, you use the ID for the Amazon Web Services account that contains your Amazon Quick Sight account.</p>
             namespace: <p>The namespace of the group that you want to remove a user from.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.precondition_not_met_exception.PreconditionNotMetException: <p>One or more preconditions aren't met.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.resource_unavailable_exception.ResourceUnavailableException: <p>This resource is currently unavailable.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3776,6 +4310,16 @@ class QuickSightClient:
             aws_account_id: <p>The Amazon Web Services account ID where you want to delete the IAM policy assignment.</p>
             assignment_name: <p>The name of the assignment. </p>
             namespace: <p>The namespace that contains the assignment.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.concurrent_updating_exception.ConcurrentUpdatingException: <p>A resource is already in a state that indicates an operation is happening that must complete before a new update can be applied.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.resource_exists_exception.ResourceExistsException: <p>The resource specified already exists. </p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3817,6 +4361,14 @@ class QuickSightClient:
         Args:
             aws_account_id: <p>The ID of the Amazon Web Services account that you want to delete an identity propagation configuration from.</p>
             service: <p>The name of the Amazon Web Services service that you want to delete the associated access scopes and authorized targets from.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3857,6 +4409,18 @@ class QuickSightClient:
         Args:
             aws_account_id: <p>The ID of the Amazon Web Services account that contains the knowledge base.</p>
             knowledge_base_id: <p>The unique identifier for the knowledge base.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.invalid_request_exception.InvalidRequestException: <p>You don't have this feature activated for your account. To fix this issue, contact Amazon Web Services support.</p>
+            aws_sdk_quicksight.errors.limit_exceeded_exception.LimitExceededException: <p>A limit is exceeded.</p>
+            aws_sdk_quicksight.errors.precondition_not_met_exception.PreconditionNotMetException: <p>One or more preconditions aren't met.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3897,6 +4461,16 @@ class QuickSightClient:
         Args:
             aws_account_id: <p>The ID for the Amazon Web Services account that you want to delete the Quick Sight namespace from.</p>
             namespace: <p>The namespace that you want to delete.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.precondition_not_met_exception.PreconditionNotMetException: <p>One or more preconditions aren't met.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.resource_unavailable_exception.ResourceUnavailableException: <p>This resource is currently unavailable.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3937,6 +4511,15 @@ class QuickSightClient:
         Args:
             aws_account_id: <p>The Amazon Web Services account ID.</p>
             o_auth_client_application_id: <p>The ID of the OAuthClientApplication that you want to delete.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3979,6 +4562,15 @@ class QuickSightClient:
             data_set_id: <p>The ID of the dataset.</p>
             aws_account_id: <p>The Amazon Web Services account ID.</p>
             schedule_id: <p>The ID of the refresh schedule.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.limit_exceeded_exception.LimitExceededException: <p>A limit is exceeded.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4022,6 +4614,16 @@ class QuickSightClient:
             role: <p>The role that you want to remove permissions from.</p>
             aws_account_id: <p>The ID for the Amazon Web Services account that the group is in. Currently, you use the ID for the Amazon Web Services account that contains your Amazon Quick Sight account.</p>
             namespace: <p>The namespace that includes the role.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.precondition_not_met_exception.PreconditionNotMetException: <p>One or more preconditions aren't met.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.resource_unavailable_exception.ResourceUnavailableException: <p>This resource is currently unavailable.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4067,6 +4669,16 @@ class QuickSightClient:
             role: <p>The role that you want to remove permissions from.</p>
             aws_account_id: <p>The ID for the Amazon Web Services account that you want to create a group in. The Amazon Web Services account ID that you provide must be the same Amazon Web Services account that contains your Amazon Quick Sight account.</p>
             namespace: <p>The namespace that contains the role.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.precondition_not_met_exception.PreconditionNotMetException: <p>One or more preconditions aren't met.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.resource_unavailable_exception.ResourceUnavailableException: <p>This resource is currently unavailable.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4109,6 +4721,14 @@ class QuickSightClient:
         Args:
             aws_account_id: <p>The ID of the Amazon Web Services account that contains the space.</p>
             space_id: <p>The ID of the space that you want to delete.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4153,6 +4773,16 @@ class QuickSightClient:
             aws_account_id: <p>The ID of the Amazon Web Services account that contains the template that you're deleting.</p>
             template_id: <p>An ID for the template you want to delete.</p>
             version_number: <p>Specifies the version of the template that you want to delete. If you don't provide a version number, <code>DeleteTemplate</code> deletes all versions of the template. </p>
+
+        Raises:
+            aws_sdk_quicksight.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.limit_exceeded_exception.LimitExceededException: <p>A limit is exceeded.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.unsupported_user_edition_exception.UnsupportedUserEditionException: <p>This error indicates that you are calling an operation on an Amazon Quick Suite subscription where the edition doesn't include support for that operation. Amazon Quick Suite currently has Standard Edition and Enterprise Edition. Not every operation and capability is available in every edition.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4197,6 +4827,14 @@ class QuickSightClient:
             aws_account_id: <p>The ID of the Amazon Web Services account that contains the item to delete.</p>
             template_id: <p>The ID for the template that the specified alias is for.</p>
             alias_name: <p>The name for the template alias. To delete a specific alias, you delete the version that the alias points to. You can specify the alias name, or specify the latest version of the template by providing the keyword <code>$LATEST</code> in the <code>AliasName</code> parameter. </p>
+
+        Raises:
+            aws_sdk_quicksight.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.unsupported_user_edition_exception.UnsupportedUserEditionException: <p>This error indicates that you are calling an operation on an Amazon Quick Suite subscription where the edition doesn't include support for that operation. Amazon Quick Suite currently has Standard Edition and Enterprise Edition. Not every operation and capability is available in every edition.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4242,6 +4880,16 @@ class QuickSightClient:
             aws_account_id: <p>The ID of the Amazon Web Services account that contains the theme that you're deleting.</p>
             theme_id: <p>An ID for the theme that you want to delete.</p>
             version_number: <p>The version of the theme that you want to delete. </p> <p> <b>Note:</b> If you don't provide a version number, you're using this call to <code>DeleteTheme</code> to delete all versions of the theme.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.unsupported_user_edition_exception.UnsupportedUserEditionException: <p>This error indicates that you are calling an operation on an Amazon Quick Suite subscription where the edition doesn't include support for that operation. Amazon Quick Suite currently has Standard Edition and Enterprise Edition. Not every operation and capability is available in every edition.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4288,6 +4936,15 @@ class QuickSightClient:
             aws_account_id: <p>The ID of the Amazon Web Services account that contains the theme alias to delete.</p>
             theme_id: <p>The ID for the theme that the specified alias is for.</p>
             alias_name: <p>The unique name for the theme alias to delete.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.unsupported_user_edition_exception.UnsupportedUserEditionException: <p>This error indicates that you are calling an operation on an Amazon Quick Suite subscription where the edition doesn't include support for that operation. Amazon Quick Suite currently has Standard Edition and Enterprise Edition. Not every operation and capability is available in every edition.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4329,6 +4986,15 @@ class QuickSightClient:
         Args:
             aws_account_id: <p>The ID of the Amazon Web Services account that contains the topic that you want to delete.</p>
             topic_id: <p>The ID of the topic that you want to delete. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4371,6 +5037,17 @@ class QuickSightClient:
             aws_account_id: <p>The Amazon Web Services account ID.</p>
             topic_id: <p>The ID of the topic that you want to modify. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
             dataset_id: <p>The ID of the dataset.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.limit_exceeded_exception.LimitExceededException: <p>A limit is exceeded.</p>
+            aws_sdk_quicksight.errors.resource_exists_exception.ResourceExistsException: <p>The resource specified already exists. </p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4414,6 +5091,16 @@ class QuickSightClient:
             user_name: <p>The name of the user that you want to delete.</p>
             aws_account_id: <p>The ID for the Amazon Web Services account that the user is in. Currently, you use the ID for the Amazon Web Services account that contains your Amazon Quick Sight account.</p>
             namespace: <p>The namespace. Currently, you should set this to <code>default</code>.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.precondition_not_met_exception.PreconditionNotMetException: <p>One or more preconditions aren't met.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.resource_unavailable_exception.ResourceUnavailableException: <p>This resource is currently unavailable.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4457,6 +5144,16 @@ class QuickSightClient:
             principal_id: <p>The principal ID of the user.</p>
             aws_account_id: <p>The ID for the Amazon Web Services account that the user is in. Currently, you use the ID for the Amazon Web Services account that contains your Amazon Quick Sight account.</p>
             namespace: <p>The namespace. Currently, you should set this to <code>default</code>.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.precondition_not_met_exception.PreconditionNotMetException: <p>One or more preconditions aren't met.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.resource_unavailable_exception.ResourceUnavailableException: <p>This resource is currently unavailable.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4500,6 +5197,17 @@ class QuickSightClient:
             user_name: <p>The username of the user that you want to remove custom permissions from.</p>
             aws_account_id: <p>The ID of the Amazon Web Services account that contains the custom permission configuration that you want to delete.</p>
             namespace: <p>The namespace that the user belongs to.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.precondition_not_met_exception.PreconditionNotMetException: <p>One or more preconditions aren't met.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.resource_unavailable_exception.ResourceUnavailableException: <p>This resource is currently unavailable.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4541,6 +5249,16 @@ class QuickSightClient:
         Args:
             aws_account_id: <p>The Amazon Web Services account ID of the account where you want to delete a VPC connection.</p>
             vpc_connection_id: <p>The ID of the VPC connection that you're creating. This ID is a unique identifier for each Amazon Web Services Region in an Amazon Web Services account.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.unsupported_user_edition_exception.UnsupportedUserEditionException: <p>This error indicates that you are calling an operation on an Amazon Quick Suite subscription where the edition doesn't include support for that operation. Amazon Quick Suite currently has Standard Edition and Enterprise Edition. Not every operation and capability is available in every edition.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4583,6 +5301,15 @@ class QuickSightClient:
             aws_account_id: <p>The ID for the Amazon Web Services account that you want to describe Quick Sight customizations for.</p>
             namespace: <p>The Quick Sight namespace that you want to describe Quick Sight customizations for.</p>
             resolved: <p>The <code>Resolved</code> flag works with the other parameters to determine which view of Quick Sight customizations is returned. You can add this flag to your command to use the same view that Quick Sight uses to identify which customizations to apply to the console. Omit this flag, or set it to <code>no-resolved</code>, to reveal customizations that are configured at different levels. </p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.resource_unavailable_exception.ResourceUnavailableException: <p>This resource is currently unavailable.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4624,6 +5351,14 @@ class QuickSightClient:
 
         Args:
             aws_account_id: <p>The ID of the Amazon Web Services account for which you want to describe the applied custom permissions profile.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4661,6 +5396,15 @@ class QuickSightClient:
 
         Args:
             aws_account_id: <p>The ID for the Amazon Web Services account that contains the settings that you want to list.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.resource_unavailable_exception.ResourceUnavailableException: <p>This resource is currently unavailable.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4698,6 +5442,15 @@ class QuickSightClient:
 
         Args:
             aws_account_id: <p>The Amazon Web Services account ID associated with your Quick Sight account.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.resource_unavailable_exception.ResourceUnavailableException: <p>This resource is currently unavailable.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4737,6 +5490,14 @@ class QuickSightClient:
         Args:
             aws_account_id: <p>The Amazon Web Services account ID that contains the action connector.</p>
             action_connector_id: <p>The unique identifier of the action connector to describe.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4777,6 +5538,14 @@ class QuickSightClient:
         Args:
             aws_account_id: <p>The Amazon Web Services account ID that contains the action connector.</p>
             action_connector_id: <p>The unique identifier of the action connector whose permissions you want to describe.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4817,6 +5586,15 @@ class QuickSightClient:
         Args:
             agent_id: <p>The unique identifier for the agent.</p>
             aws_account_id: <p>The ID of the Amazon Web Services account that contains the agent.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.precondition_not_met_exception.PreconditionNotMetException: <p>One or more preconditions aren't met.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4857,6 +5635,15 @@ class QuickSightClient:
         Args:
             agent_id: <p>The unique identifier for the agent.</p>
             aws_account_id: <p>The ID of the Amazon Web Services account that contains the agent.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.precondition_not_met_exception.PreconditionNotMetException: <p>One or more preconditions aren't met.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4897,6 +5684,15 @@ class QuickSightClient:
         Args:
             aws_account_id: <p>The ID of the Amazon Web Services account that contains the analysis. You must be using the Amazon Web Services account that the analysis is in.</p>
             analysis_id: <p>The ID of the analysis that you're describing. The ID is part of the URL of the analysis.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.unsupported_user_edition_exception.UnsupportedUserEditionException: <p>This error indicates that you are calling an operation on an Amazon Quick Suite subscription where the edition doesn't include support for that operation. Amazon Quick Suite currently has Standard Edition and Enterprise Edition. Not every operation and capability is available in every edition.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4937,6 +5733,17 @@ class QuickSightClient:
         Args:
             aws_account_id: <p>The ID of the Amazon Web Services account that contains the analysis. You must be using the Amazon Web Services account that the analysis is in.</p>
             analysis_id: <p>The ID of the analysis that you're describing. The ID is part of the URL of the analysis.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.resource_exists_exception.ResourceExistsException: <p>The resource specified already exists. </p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.unsupported_user_edition_exception.UnsupportedUserEditionException: <p>This error indicates that you are calling an operation on an Amazon Quick Suite subscription where the edition doesn't include support for that operation. Amazon Quick Suite currently has Standard Edition and Enterprise Edition. Not every operation and capability is available in every edition.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4977,6 +5784,14 @@ class QuickSightClient:
         Args:
             aws_account_id: <p>The ID of the Amazon Web Services account that contains the analysis whose permissions you're describing. You must be using the Amazon Web Services account that the analysis is in.</p>
             analysis_id: <p>The ID of the analysis whose permissions you're describing. The ID is part of the analysis URL.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.unsupported_user_edition_exception.UnsupportedUserEditionException: <p>This error indicates that you are calling an operation on an Amazon Quick Suite subscription where the edition doesn't include support for that operation. Amazon Quick Suite currently has Standard Edition and Enterprise Edition. Not every operation and capability is available in every edition.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5017,6 +5832,12 @@ class QuickSightClient:
         Args:
             aws_account_id: <p>The ID of the Amazon Web Services account the export job is executed in. </p>
             asset_bundle_export_job_id: <p>The ID of the job that you want described. The job ID is set when you start a new job with a <code>StartAssetBundleExportJob</code> API call.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.unsupported_user_edition_exception.UnsupportedUserEditionException: <p>This error indicates that you are calling an operation on an Amazon Quick Suite subscription where the edition doesn't include support for that operation. Amazon Quick Suite currently has Standard Edition and Enterprise Edition. Not every operation and capability is available in every edition.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5057,6 +5878,12 @@ class QuickSightClient:
         Args:
             aws_account_id: <p>The ID of the Amazon Web Services account the import job was executed in. </p>
             asset_bundle_import_job_id: <p>The ID of the job. The job ID is set when you start a new job with a <code>StartAssetBundleImportJob</code> API call.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.unsupported_user_edition_exception.UnsupportedUserEditionException: <p>This error indicates that you are calling an operation on an Amazon Quick Suite subscription where the edition doesn't include support for that operation. Amazon Quick Suite currently has Standard Edition and Enterprise Edition. Not every operation and capability is available in every edition.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5109,6 +5936,14 @@ class QuickSightClient:
             include_input_payload: <p>A Boolean value that indicates whether to include the input payload in the response. If set to <code>true</code>, the input payload will be included. If set to <code>false</code>, the input payload will be returned as <code>null</code>.</p>
             include_output_payload: <p>A Boolean value that indicates whether to include the output payload in the response. If set to <code>true</code>, the output payload will be included. If set to <code>false</code>, the output payload will be returned as <code>null</code>.</p>
             job_id: <p>The ID of the automation job to describe.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5159,6 +5994,15 @@ class QuickSightClient:
             aws_account_id: <p>The ID of the Amazon Web Services account that owns the brand.</p>
             brand_id: <p>The ID of the Quick brand.</p>
             version_id: <p>The ID of the specific version. The default value is the latest version.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_quicksight.errors.internal_server_exception.InternalServerException: <p>An internal service exception.</p>
+            aws_sdk_quicksight.errors.invalid_request_exception.InvalidRequestException: <p>You don't have this feature activated for your account. To fix this issue, contact Amazon Web Services support.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5199,6 +6043,15 @@ class QuickSightClient:
 
         Args:
             aws_account_id: <p>The ID of the Amazon Web Services account that owns the brand assignment.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_quicksight.errors.internal_server_exception.InternalServerException: <p>An internal service exception.</p>
+            aws_sdk_quicksight.errors.invalid_request_exception.InvalidRequestException: <p>You don't have this feature activated for your account. To fix this issue, contact Amazon Web Services support.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5238,6 +6091,15 @@ class QuickSightClient:
         Args:
             aws_account_id: <p>The ID of the Amazon Web Services account that owns the brand.</p>
             brand_id: <p>The ID of the Quick brand.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_quicksight.errors.internal_server_exception.InternalServerException: <p>An internal service exception.</p>
+            aws_sdk_quicksight.errors.invalid_request_exception.InvalidRequestException: <p>You don't have this feature activated for your account. To fix this issue, contact Amazon Web Services support.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5278,6 +6140,16 @@ class QuickSightClient:
         Args:
             aws_account_id: <p>The ID of the Amazon Web Services account that contains the custom permissions profile that you want described.</p>
             custom_permissions_name: <p>The name of the custom permissions profile to describe.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.precondition_not_met_exception.PreconditionNotMetException: <p>One or more preconditions aren't met.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.resource_unavailable_exception.ResourceUnavailableException: <p>This resource is currently unavailable.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5326,6 +6198,15 @@ class QuickSightClient:
             dashboard_id: <p>The ID for the dashboard.</p>
             version_number: <p>The version number for the dashboard. If a version number isn't passed, the latest published dashboard version is described. </p>
             alias_name: <p>The alias name.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.unsupported_user_edition_exception.UnsupportedUserEditionException: <p>This error indicates that you are calling an operation on an Amazon Quick Suite subscription where the edition doesn't include support for that operation. Amazon Quick Suite currently has Standard Edition and Enterprise Edition. Not every operation and capability is available in every edition.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5376,6 +6257,17 @@ class QuickSightClient:
             dashboard_id: <p>The ID for the dashboard.</p>
             version_number: <p>The version number for the dashboard. If a version number isn't passed, the latest published dashboard version is described. </p>
             alias_name: <p>The alias name.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.resource_exists_exception.ResourceExistsException: <p>The resource specified already exists. </p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.unsupported_user_edition_exception.UnsupportedUserEditionException: <p>This error indicates that you are calling an operation on an Amazon Quick Suite subscription where the edition doesn't include support for that operation. Amazon Quick Suite currently has Standard Edition and Enterprise Edition. Not every operation and capability is available in every edition.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5420,6 +6312,14 @@ class QuickSightClient:
         Args:
             aws_account_id: <p>The ID of the Amazon Web Services account that contains the dashboard that you're describing permissions for.</p>
             dashboard_id: <p>The ID for the dashboard, also added to the IAM policy.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.unsupported_user_edition_exception.UnsupportedUserEditionException: <p>This error indicates that you are calling an operation on an Amazon Quick Suite subscription where the edition doesn't include support for that operation. Amazon Quick Suite currently has Standard Edition and Enterprise Edition. Not every operation and capability is available in every edition.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5462,6 +6362,14 @@ class QuickSightClient:
             aws_account_id: <p>The ID of the Amazon Web Services account that the dashboard snapshot job is executed in.</p>
             dashboard_id: <p>The ID of the dashboard that you have started a snapshot job for.</p>
             snapshot_job_id: <p>The ID of the job to be described. The job ID is set when you start a new job with a <code>StartDashboardSnapshotJob</code> API call.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.unsupported_user_edition_exception.UnsupportedUserEditionException: <p>This error indicates that you are calling an operation on an Amazon Quick Suite subscription where the edition doesn't include support for that operation. Amazon Quick Suite currently has Standard Edition and Enterprise Edition. Not every operation and capability is available in every edition.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5505,6 +6413,16 @@ class QuickSightClient:
             aws_account_id: <p>The ID of the Amazon Web Services account that the dashboard snapshot job is executed in.</p>
             dashboard_id: <p>The ID of the dashboard that you have started a snapshot job for.</p>
             snapshot_job_id: <p>The ID of the job to be described. The job ID is set when you start a new job with a <code>StartDashboardSnapshotJob</code> API call.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.precondition_not_met_exception.PreconditionNotMetException: <p>One or more preconditions aren't met.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.unsupported_user_edition_exception.UnsupportedUserEditionException: <p>This error indicates that you are calling an operation on an Amazon Quick Suite subscription where the edition doesn't include support for that operation. Amazon Quick Suite currently has Standard Edition and Enterprise Edition. Not every operation and capability is available in every edition.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5544,6 +6462,15 @@ class QuickSightClient:
 
         Args:
             aws_account_id: <p>The ID of the Amazon Web Services account that contains the dashboard QA configuration that you want described.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5583,6 +6510,14 @@ class QuickSightClient:
         Args:
             aws_account_id: <p>The Amazon Web Services account ID.</p>
             data_set_id: <p>The ID for the dataset that you want to describe. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5623,6 +6558,14 @@ class QuickSightClient:
         Args:
             aws_account_id: <p>The Amazon Web Services account ID.</p>
             data_set_id: <p>The ID for the dataset that you want to describe. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5663,6 +6606,16 @@ class QuickSightClient:
         Args:
             aws_account_id: <p>The Amazon Web Services account ID.</p>
             data_set_id: <p>The ID of the dataset.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.limit_exceeded_exception.LimitExceededException: <p>A limit is exceeded.</p>
+            aws_sdk_quicksight.errors.precondition_not_met_exception.PreconditionNotMetException: <p>One or more preconditions aren't met.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5703,6 +6656,14 @@ class QuickSightClient:
         Args:
             aws_account_id: <p>The Amazon Web Services account ID.</p>
             data_source_id: <p>The ID of the data source. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5743,6 +6704,14 @@ class QuickSightClient:
         Args:
             aws_account_id: <p>The Amazon Web Services account ID.</p>
             data_source_id: <p>The ID of the data source. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5783,6 +6752,14 @@ class QuickSightClient:
         Args:
             aws_account_id: <p>The ID of the Quick Sight account that is linked to the Amazon Q Business application that you want described.</p>
             namespace: <p>The Quick Sight namespace that contains the linked Amazon Q Business application. If this field is left blank, the default namespace is used. Currently, the default namespace is the only valid value for this parameter.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5826,6 +6803,14 @@ class QuickSightClient:
             aws_account_id: <p>The ID of the Amazon Web Services account that contains the flow that you are describing.</p>
             flow_id: <p>The unique identifier of the flow.</p>
             publish_state: <p>The publish state of the flow version to describe. Valid values are <code>DRAFT</code>, <code>PUBLISHED</code>, or <code>PENDING_APPROVAL</code>.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5867,6 +6852,15 @@ class QuickSightClient:
         Args:
             aws_account_id: <p>The ID for the Amazon Web Services account that contains the folder.</p>
             folder_id: <p>The ID of the folder.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.unsupported_user_edition_exception.UnsupportedUserEditionException: <p>This error indicates that you are calling an operation on an Amazon Quick Suite subscription where the edition doesn't include support for that operation. Amazon Quick Suite currently has Standard Edition and Enterprise Edition. Not every operation and capability is available in every edition.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5913,6 +6907,16 @@ class QuickSightClient:
             namespace: <p>The namespace of the folder whose permissions you want described.</p>
             max_results: <p>The maximum number of results to be returned per request.</p>
             next_token: <p>A pagination token for the next set of results.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The <code>NextToken</code> value isn't valid.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.unsupported_user_edition_exception.UnsupportedUserEditionException: <p>This error indicates that you are calling an operation on an Amazon Quick Suite subscription where the edition doesn't include support for that operation. Amazon Quick Suite currently has Standard Edition and Enterprise Edition. Not every operation and capability is available in every edition.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5992,6 +6996,16 @@ class QuickSightClient:
             namespace: <p>The namespace of the folder whose permissions you want described.</p>
             max_results: <p>The maximum number of results to be returned per request.</p>
             next_token: <p>A pagination token for the next set of results.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The <code>NextToken</code> value isn't valid.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.unsupported_user_edition_exception.UnsupportedUserEditionException: <p>This error indicates that you are calling an operation on an Amazon Quick Suite subscription where the edition doesn't include support for that operation. Amazon Quick Suite currently has Standard Edition and Enterprise Edition. Not every operation and capability is available in every edition.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6067,6 +7081,16 @@ class QuickSightClient:
             group_name: <p>The name of the group that you want to describe.</p>
             aws_account_id: <p>The ID for the Amazon Web Services account that the group is in. Currently, you use the ID for the Amazon Web Services account that contains your Amazon Quick Sight account.</p>
             namespace: <p>The namespace of the group that you want described.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.precondition_not_met_exception.PreconditionNotMetException: <p>One or more preconditions aren't met.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.resource_unavailable_exception.ResourceUnavailableException: <p>This resource is currently unavailable.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6112,6 +7136,16 @@ class QuickSightClient:
             group_name: <p>The name of the group that you want to search.</p>
             aws_account_id: <p>The ID for the Amazon Web Services account that the group is in. Currently, you use the ID for the Amazon Web Services account that contains your Amazon Quick Sight account.</p>
             namespace: <p>The namespace that includes the group you are searching within.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.precondition_not_met_exception.PreconditionNotMetException: <p>One or more preconditions aren't met.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.resource_unavailable_exception.ResourceUnavailableException: <p>This resource is currently unavailable.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6156,6 +7190,15 @@ class QuickSightClient:
             aws_account_id: <p>The ID of the Amazon Web Services account that contains the assignment that you want to describe.</p>
             assignment_name: <p>The name of the assignment, also called a rule.</p>
             namespace: <p>The namespace that contains the assignment.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The <code>NextToken</code> value isn't valid.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6201,6 +7244,15 @@ class QuickSightClient:
             aws_account_id: <p>The Amazon Web Services account ID.</p>
             data_set_id: <p>The ID of the dataset used in the ingestion.</p>
             ingestion_id: <p>An ID for the ingestion.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.resource_exists_exception.ResourceExistsException: <p>The resource specified already exists. </p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6240,6 +7292,14 @@ class QuickSightClient:
 
         Args:
             aws_account_id: <p>The ID of the Amazon Web Services account that contains the IP rules.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6279,6 +7339,13 @@ class QuickSightClient:
         Args:
             aws_account_id: <p>The ID of the Amazon Web Services account that contains the customer managed key registration that you want to describe.</p>
             default_key_only: <p>Determines whether the request returns the default key only.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6320,6 +7387,17 @@ class QuickSightClient:
         Args:
             aws_account_id: <p>The ID of the Amazon Web Services account that contains the knowledge base.</p>
             knowledge_base_id: <p>The unique identifier for the knowledge base.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.invalid_request_exception.InvalidRequestException: <p>You don't have this feature activated for your account. To fix this issue, contact Amazon Web Services support.</p>
+            aws_sdk_quicksight.errors.limit_exceeded_exception.LimitExceededException: <p>A limit is exceeded.</p>
+            aws_sdk_quicksight.errors.precondition_not_met_exception.PreconditionNotMetException: <p>One or more preconditions aren't met.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6360,6 +7438,17 @@ class QuickSightClient:
         Args:
             aws_account_id: <p>The ID of the Amazon Web Services account that contains the knowledge base.</p>
             knowledge_base_id: <p>The unique identifier for the knowledge base.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.invalid_request_exception.InvalidRequestException: <p>You don't have this feature activated for your account. To fix this issue, contact Amazon Web Services support.</p>
+            aws_sdk_quicksight.errors.limit_exceeded_exception.LimitExceededException: <p>A limit is exceeded.</p>
+            aws_sdk_quicksight.errors.precondition_not_met_exception.PreconditionNotMetException: <p>One or more preconditions aren't met.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6402,6 +7491,15 @@ class QuickSightClient:
         Args:
             aws_account_id: <p>The ID for the Amazon Web Services account that contains the Quick Sight namespace that you want to describe.</p>
             namespace: <p>The namespace that you want to describe.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.resource_unavailable_exception.ResourceUnavailableException: <p>This resource is currently unavailable.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6442,6 +7540,14 @@ class QuickSightClient:
         Args:
             aws_account_id: <p>The Amazon Web Services account ID.</p>
             o_auth_client_application_id: <p>The ID of the OAuthClientApplication that you want to describe.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6480,6 +7586,15 @@ class QuickSightClient:
 
         Args:
             aws_account_id: <p>The ID of the Amazon Web Services account that contains the personalization configuration that the user wants described.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6517,6 +7632,15 @@ class QuickSightClient:
 
         Args:
             aws_account_id: <p>The ID of the Amazon Web Services account that contains the Quick Sight Q Search configuration that the user wants described.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6558,6 +7682,15 @@ class QuickSightClient:
             aws_account_id: <p>The Amazon Web Services account ID.</p>
             data_set_id: <p>The ID of the dataset.</p>
             schedule_id: <p>The ID of the refresh schedule.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.limit_exceeded_exception.LimitExceededException: <p>A limit is exceeded.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6601,6 +7734,16 @@ class QuickSightClient:
             role: <p>The name of the role whose permissions you want described.</p>
             aws_account_id: <p>The ID for the Amazon Web Services account that you want to create a group in. The Amazon Web Services account ID that you provide must be the same Amazon Web Services account that contains your Amazon Quick Sight account.</p>
             namespace: <p>The namespace that contains the role.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.precondition_not_met_exception.PreconditionNotMetException: <p>One or more preconditions aren't met.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.resource_unavailable_exception.ResourceUnavailableException: <p>This resource is currently unavailable.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6642,6 +7785,17 @@ class QuickSightClient:
         Args:
             aws_account_id: <p>The ID of the Amazon Web Services account that contains the Quick self-upgrade configuration.</p>
             namespace: <p>The Quick namespace that you want to describe the Quick self-upgrade configuration for.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameter has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.precondition_not_met_exception.PreconditionNotMetException: <p>One or more preconditions aren't met.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.resource_unavailable_exception.ResourceUnavailableException: <p>This resource is currently unavailable.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6686,6 +7840,14 @@ class QuickSightClient:
             aws_account_id: <p>The ID of the Amazon Web Services account that contains the space.</p>
             space_id: <p>The ID of the space that you want to describe.</p>
             max_contributors: <p>The maximum number of contributors to include in the response.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6728,6 +7890,14 @@ class QuickSightClient:
         Args:
             aws_account_id: <p>The ID of the Amazon Web Services account that contains the space.</p>
             space_id: <p>The ID of the space that you want to describe permissions for.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6774,6 +7944,17 @@ class QuickSightClient:
             template_id: <p>The ID for the template.</p>
             version_number: <p>(Optional) The number for the version to describe. If a <code>VersionNumber</code> parameter value isn't provided, the latest version of the template is described.</p>
             alias_name: <p>The alias of the template that you want to describe. If you name a specific alias, you describe the version that the alias points to. You can specify the latest version of the template by providing the keyword <code>$LATEST</code> in the <code>AliasName</code> parameter. The keyword <code>$PUBLISHED</code> doesn't apply to templates.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.resource_exists_exception.ResourceExistsException: <p>The resource specified already exists. </p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.unsupported_user_edition_exception.UnsupportedUserEditionException: <p>This error indicates that you are calling an operation on an Amazon Quick Suite subscription where the edition doesn't include support for that operation. Amazon Quick Suite currently has Standard Edition and Enterprise Edition. Not every operation and capability is available in every edition.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6820,6 +8001,13 @@ class QuickSightClient:
             aws_account_id: <p>The ID of the Amazon Web Services account that contains the template alias that you're describing.</p>
             template_id: <p>The ID for the template.</p>
             alias_name: <p>The name of the template alias that you want to describe. If you name a specific alias, you describe the version that the alias points to. You can specify the latest version of the template by providing the keyword <code>$LATEST</code> in the <code>AliasName</code> parameter. The keyword <code>$PUBLISHED</code> doesn't apply to templates.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.unsupported_user_edition_exception.UnsupportedUserEditionException: <p>This error indicates that you are calling an operation on an Amazon Quick Suite subscription where the edition doesn't include support for that operation. Amazon Quick Suite currently has Standard Edition and Enterprise Edition. Not every operation and capability is available in every edition.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6867,6 +8055,17 @@ class QuickSightClient:
             template_id: <p>The ID of the template that you're describing.</p>
             version_number: <p>The version number of the template.</p>
             alias_name: <p>The alias of the template that you want to describe. If you name a specific alias, you describe the version that the alias points to. You can specify the latest version of the template by providing the keyword <code>$LATEST</code> in the <code>AliasName</code> parameter. The keyword <code>$PUBLISHED</code> doesn't apply to templates.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.resource_exists_exception.ResourceExistsException: <p>The resource specified already exists. </p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.unsupported_user_edition_exception.UnsupportedUserEditionException: <p>This error indicates that you are calling an operation on an Amazon Quick Suite subscription where the edition doesn't include support for that operation. Amazon Quick Suite currently has Standard Edition and Enterprise Edition. Not every operation and capability is available in every edition.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6911,6 +8110,15 @@ class QuickSightClient:
         Args:
             aws_account_id: <p>The ID of the Amazon Web Services account that contains the template that you're describing.</p>
             template_id: <p>The ID for the template.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.unsupported_user_edition_exception.UnsupportedUserEditionException: <p>This error indicates that you are calling an operation on an Amazon Quick Suite subscription where the edition doesn't include support for that operation. Amazon Quick Suite currently has Standard Edition and Enterprise Edition. Not every operation and capability is available in every edition.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6957,6 +8165,16 @@ class QuickSightClient:
             theme_id: <p>The ID for the theme.</p>
             version_number: <p>The version number for the version to describe. If a <code>VersionNumber</code> parameter value isn't provided, the latest version of the theme is described.</p>
             alias_name: <p>The alias of the theme that you want to describe. If you name a specific alias, you describe the version that the alias points to. You can specify the latest version of the theme by providing the keyword <code>$LATEST</code> in the <code>AliasName</code> parameter. The keyword <code>$PUBLISHED</code> doesn't apply to themes.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.resource_exists_exception.ResourceExistsException: <p>The resource specified already exists. </p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.unsupported_user_edition_exception.UnsupportedUserEditionException: <p>This error indicates that you are calling an operation on an Amazon Quick Suite subscription where the edition doesn't include support for that operation. Amazon Quick Suite currently has Standard Edition and Enterprise Edition. Not every operation and capability is available in every edition.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -7003,6 +8221,15 @@ class QuickSightClient:
             aws_account_id: <p>The ID of the Amazon Web Services account that contains the theme alias that you're describing.</p>
             theme_id: <p>The ID for the theme.</p>
             alias_name: <p>The name of the theme alias that you want to describe.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.unsupported_user_edition_exception.UnsupportedUserEditionException: <p>This error indicates that you are calling an operation on an Amazon Quick Suite subscription where the edition doesn't include support for that operation. Amazon Quick Suite currently has Standard Edition and Enterprise Edition. Not every operation and capability is available in every edition.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -7044,6 +8271,15 @@ class QuickSightClient:
         Args:
             aws_account_id: <p>The ID of the Amazon Web Services account that contains the theme that you're describing.</p>
             theme_id: <p>The ID for the theme that you want to describe permissions for.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.unsupported_user_edition_exception.UnsupportedUserEditionException: <p>This error indicates that you are calling an operation on an Amazon Quick Suite subscription where the edition doesn't include support for that operation. Amazon Quick Suite currently has Standard Edition and Enterprise Edition. Not every operation and capability is available in every edition.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -7084,6 +8320,14 @@ class QuickSightClient:
         Args:
             aws_account_id: <p>The Amazon Web Services account ID.</p>
             topic_id: <p>The ID of the topic that you want to describe. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -7124,6 +8368,14 @@ class QuickSightClient:
         Args:
             aws_account_id: <p>The ID of the Amazon Web Services account that contains the topic that you want described.</p>
             topic_id: <p>The ID of the topic that you want to describe. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -7166,6 +8418,14 @@ class QuickSightClient:
             aws_account_id: <p>The ID of the Amazon Web Services account that contains the topic whose refresh you want to describe.</p>
             topic_id: <p>The ID of the topic that you want to describe. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
             refresh_id: <p>The ID of the refresh, which is performed when the topic is created or updated.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -7209,6 +8469,17 @@ class QuickSightClient:
             aws_account_id: <p>The Amazon Web Services account ID.</p>
             topic_id: <p>The ID of the topic that contains the refresh schedule that you want to describe. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
             dataset_id: <p>The ID of the dataset.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.limit_exceeded_exception.LimitExceededException: <p>A limit is exceeded.</p>
+            aws_sdk_quicksight.errors.resource_exists_exception.ResourceExistsException: <p>The resource specified already exists. </p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -7252,6 +8523,16 @@ class QuickSightClient:
             user_name: <p>The name of the user that you want to describe.</p>
             aws_account_id: <p>The ID for the Amazon Web Services account that the user is in. Currently, you use the ID for the Amazon Web Services account that contains your Amazon Quick Sight account.</p>
             namespace: <p>The namespace. Currently, you should set this to <code>default</code>.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.precondition_not_met_exception.PreconditionNotMetException: <p>One or more preconditions aren't met.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.resource_unavailable_exception.ResourceUnavailableException: <p>This resource is currently unavailable.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -7293,6 +8574,15 @@ class QuickSightClient:
         Args:
             aws_account_id: <p>The Amazon Web Services account ID of the account that contains the VPC connection that you want described.</p>
             vpc_connection_id: <p>The ID of the VPC connection that you're creating. This ID is a unique identifier for each Amazon Web Services Region in an Amazon Web Services account.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.unsupported_user_edition_exception.UnsupportedUserEditionException: <p>This error indicates that you are calling an operation on an Amazon Quick Suite subscription where the edition doesn't include support for that operation. Amazon Quick Suite currently has Standard Edition and Enterprise Edition. Not every operation and capability is available in every edition.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -7349,6 +8639,17 @@ class QuickSightClient:
             authorized_resource_arns: <p>The Amazon Resource Names (ARNs) for the Quick Sight resources that the user is authorized to access during the lifetime of the session.</p> <p>If you choose <code>Dashboard</code> embedding experience, pass the list of dashboard ARNs in the account that you want the user to be able to view.</p> <p>If you want to make changes to the theme of your embedded content, pass a list of theme ARNs that the anonymous users need access to.</p> <p>Currently, you can pass up to 25 theme ARNs in each API call.</p>
             experience_configuration: <p>The configuration of the experience that you are embedding.</p>
             allowed_domains: <p>The domains that you want to add to the allow list for access to the generated URL that is then embedded. This optional parameter overrides the static domains that are configured in the Manage Quick Sight menu in the Amazon Quick Sight console. Instead, it allows only the domains that you include in this parameter. You can list up to three domains or subdomains in each API call.</p> <p>To include all subdomains under a specific domain to the allow list, use <code>*</code>. For example, <code>https://*.sapp.amazon.com</code> includes all subdomains under <code>https://sapp.amazon.com</code>.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.session_lifetime_in_minutes_invalid_exception.SessionLifetimeInMinutesInvalidException: <p>The number of minutes specified for the lifetime of a session isn't valid. The session lifetime must be 15-600 minutes.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.unsupported_pricing_plan_exception.UnsupportedPricingPlanException: <p>This error indicates that you are calling an embedding operation in Amazon Quick Sight without the required pricing plan on your Amazon Web Services account. Before you can use embedding for anonymous users, a Quick Suite administrator needs to add capacity pricing to Quick Sight. You can do this on the <b>Manage Quick Suite</b> page. </p> <p>After capacity pricing is added, you can use the <code> <a href=\"https://docs.aws.amazon.com/quicksight/latest/APIReference/API_GetDashboardEmbedUrl.html\">GetDashboardEmbedUrl</a> </code> API operation with the <code>--identity-type ANONYMOUS</code> option.</p>
+            aws_sdk_quicksight.errors.unsupported_user_edition_exception.UnsupportedUserEditionException: <p>This error indicates that you are calling an operation on an Amazon Quick Suite subscription where the edition doesn't include support for that operation. Amazon Quick Suite currently has Standard Edition and Enterprise Edition. Not every operation and capability is available in every edition.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -7407,6 +8708,18 @@ class QuickSightClient:
             user_arn: <p>The Amazon Resource Name for the registered user.</p>
             experience_configuration: <p>The experience that you want to embed. For registered users, you can embed Quick dashboards, Amazon Quick Sight visuals, the Amazon Quick Sight Q search bar, the Amazon Quick Sight Generative Q&A experience, or the entire Amazon Quick Sight console.</p>
             allowed_domains: <p>The domains that you want to add to the allow list for access to the generated URL that is then embedded. This optional parameter overrides the static domains that are configured in the Manage Quick Sight menu in the Amazon Quick Sight console. Instead, it allows only the domains that you include in this parameter. You can list up to three domains or subdomains in each API call.</p> <p>To include all subdomains under a specific domain to the allow list, use <code>*</code>. For example, <code>https://*.sapp.amazon.com</code> includes all subdomains under <code>https://sapp.amazon.com</code>.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.quick_sight_user_not_found_exception.QuickSightUserNotFoundException: <p>The user with the provided name isn't found. This error can happen in any operation that requires finding a user based on a provided user name, such as <code>DeleteUser</code>, <code>DescribeUser</code>, and so on.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.session_lifetime_in_minutes_invalid_exception.SessionLifetimeInMinutesInvalidException: <p>The number of minutes specified for the lifetime of a session isn't valid. The session lifetime must be 15-600 minutes.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.unsupported_pricing_plan_exception.UnsupportedPricingPlanException: <p>This error indicates that you are calling an embedding operation in Amazon Quick Sight without the required pricing plan on your Amazon Web Services account. Before you can use embedding for anonymous users, a Quick Suite administrator needs to add capacity pricing to Quick Sight. You can do this on the <b>Manage Quick Suite</b> page. </p> <p>After capacity pricing is added, you can use the <code> <a href=\"https://docs.aws.amazon.com/quicksight/latest/APIReference/API_GetDashboardEmbedUrl.html\">GetDashboardEmbedUrl</a> </code> API operation with the <code>--identity-type ANONYMOUS</code> option.</p>
+            aws_sdk_quicksight.errors.unsupported_user_edition_exception.UnsupportedUserEditionException: <p>This error indicates that you are calling an operation on an Amazon Quick Suite subscription where the edition doesn't include support for that operation. Amazon Quick Suite currently has Standard Edition and Enterprise Edition. Not every operation and capability is available in every edition.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -7459,6 +8772,18 @@ class QuickSightClient:
             aws_account_id: <p>The ID of the Amazon Web Services registered user.</p>
             session_lifetime_in_minutes: <p>The validity of the session in minutes.</p>
             allowed_domains: <p>A list of domains to be allowed to generate the embed URL.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.quick_sight_user_not_found_exception.QuickSightUserNotFoundException: <p>The user with the provided name isn't found. This error can happen in any operation that requires finding a user based on a provided user name, such as <code>DeleteUser</code>, <code>DescribeUser</code>, and so on.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.session_lifetime_in_minutes_invalid_exception.SessionLifetimeInMinutesInvalidException: <p>The number of minutes specified for the lifetime of a session isn't valid. The session lifetime must be 15-600 minutes.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.unsupported_pricing_plan_exception.UnsupportedPricingPlanException: <p>This error indicates that you are calling an embedding operation in Amazon Quick Sight without the required pricing plan on your Amazon Web Services account. Before you can use embedding for anonymous users, a Quick Suite administrator needs to add capacity pricing to Quick Sight. You can do this on the <b>Manage Quick Suite</b> page. </p> <p>After capacity pricing is added, you can use the <code> <a href=\"https://docs.aws.amazon.com/quicksight/latest/APIReference/API_GetDashboardEmbedUrl.html\">GetDashboardEmbedUrl</a> </code> API operation with the <code>--identity-type ANONYMOUS</code> option.</p>
+            aws_sdk_quicksight.errors.unsupported_user_edition_exception.UnsupportedUserEditionException: <p>This error indicates that you are calling an operation on an Amazon Quick Suite subscription where the edition doesn't include support for that operation. Amazon Quick Suite currently has Standard Edition and Enterprise Edition. Not every operation and capability is available in every edition.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -7525,6 +8850,21 @@ class QuickSightClient:
             user_arn: <p>The Amazon Quick user's Amazon Resource Name (ARN), for use with <code>QUICKSIGHT</code> identity type. You can use this for any Amazon Quick users in your account (readers, authors, or admins) authenticated as one of the following:</p> <ul> <li> <p>Active Directory (AD) users or group members</p> </li> <li> <p>Invited nonfederated users</p> </li> <li> <p>IAM users and IAM role-based sessions authenticated through Federated Single Sign-On using SAML, OpenID Connect, or IAM federation.</p> </li> </ul> <p>Omit this parameter for users in the third group – IAM users and IAM role-based sessions.</p>
             namespace: <p>The Amazon Quick Sight namespace that contains the dashboard IDs in this request. If you're not using a custom namespace, set <code>Namespace = default</code>.</p>
             additional_dashboard_ids: <p>A list of one or more dashboard IDs that you want anonymous users to have tempporary access to. Currently, the <code>IdentityType</code> parameter must be set to <code>ANONYMOUS</code> because other identity types authenticate as Quick or IAM users. For example, if you set \"<code>--dashboard-id dash_id1 --dashboard-id dash_id2 dash_id3 identity-type ANONYMOUS</code>\", the session can access all three dashboards.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.domain_not_whitelisted_exception.DomainNotWhitelistedException: <p>The domain specified isn't on the allow list. All domains for embedded dashboards must be added to the approved list by an Amazon Quick Suite admin.</p>
+            aws_sdk_quicksight.errors.identity_type_not_supported_exception.IdentityTypeNotSupportedException: <p>The identity type specified isn't supported. Supported identity types include <code>IAM</code> and <code>QUICKSIGHT</code>.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.quick_sight_user_not_found_exception.QuickSightUserNotFoundException: <p>The user with the provided name isn't found. This error can happen in any operation that requires finding a user based on a provided user name, such as <code>DeleteUser</code>, <code>DescribeUser</code>, and so on.</p>
+            aws_sdk_quicksight.errors.resource_exists_exception.ResourceExistsException: <p>The resource specified already exists. </p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.session_lifetime_in_minutes_invalid_exception.SessionLifetimeInMinutesInvalidException: <p>The number of minutes specified for the lifetime of a session isn't valid. The session lifetime must be 15-600 minutes.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.unsupported_pricing_plan_exception.UnsupportedPricingPlanException: <p>This error indicates that you are calling an embedding operation in Amazon Quick Sight without the required pricing plan on your Amazon Web Services account. Before you can use embedding for anonymous users, a Quick Suite administrator needs to add capacity pricing to Quick Sight. You can do this on the <b>Manage Quick Suite</b> page. </p> <p>After capacity pricing is added, you can use the <code> <a href=\"https://docs.aws.amazon.com/quicksight/latest/APIReference/API_GetDashboardEmbedUrl.html\">GetDashboardEmbedUrl</a> </code> API operation with the <code>--identity-type ANONYMOUS</code> option.</p>
+            aws_sdk_quicksight.errors.unsupported_user_edition_exception.UnsupportedUserEditionException: <p>This error indicates that you are calling an operation on an Amazon Quick Suite subscription where the edition doesn't include support for that operation. Amazon Quick Suite currently has Standard Edition and Enterprise Edition. Not every operation and capability is available in every edition.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -7580,6 +8920,13 @@ class QuickSightClient:
         Args:
             aws_account_id: <p>The ID of the Amazon Web Services account that contains the flow that you are getting metadata for.</p>
             flow_id: <p>The unique identifier of the flow.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -7622,6 +8969,13 @@ class QuickSightClient:
         Args:
             aws_account_id: <p>The ID of the Amazon Web Services account that contains the flow that you are getting permissions for.</p>
             flow_id: <p>The unique identifier of the flow to get permissions from.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -7668,6 +9022,15 @@ class QuickSightClient:
             namespace: <p>The namespace of the user that you want to get identity context for. This parameter is required when the UserIdentifier is specified using Email or UserName.</p>
             session_expires_at: <p>The timestamp at which the session will expire.</p>
             context_region: <p>The region in which the context is to be used. Use this parameter to obtain an identity context for cross-region use.</p> <p>The specified region must meet the following conditions:</p> <ul> <li> <p>The region must be in the same Amazon Web Services partition as the region you are calling from. Cross-partition requests are not supported. For example, you cannot specify a region in the <code>aws-cn</code> partition when calling from a region in the <code>aws</code> partition.</p> </li> <li> <p>It must be a valid Amazon QuickSight supported region.</p> </li> <li> <p>The calling customer account must be enabled in the specified context region.</p> </li> <li> <p>This parameter is not supported when calling from an opt-in region.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.precondition_not_met_exception.PreconditionNotMetException: <p>One or more preconditions aren't met.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -7720,6 +9083,18 @@ class QuickSightClient:
             entry_point: <p>The URL you use to access the embedded session. The entry point URL is constrained to the following paths:</p> <ul> <li> <p> <code>/start</code> </p> </li> <li> <p> <code>/start/analyses</code> </p> </li> <li> <p> <code>/start/dashboards</code> </p> </li> <li> <p> <code>/start/favorites</code> </p> </li> <li> <p> <code>/dashboards/<i>DashboardId</i> </code> - where <code>DashboardId</code> is the actual ID key from the Amazon Quick Sight console URL of the dashboard</p> </li> <li> <p> <code>/analyses/<i>AnalysisId</i> </code> - where <code>AnalysisId</code> is the actual ID key from the Amazon Quick Sight console URL of the analysis</p> </li> </ul>
             session_lifetime_in_minutes: <p>How many minutes the session is valid. The session lifetime must be 15-600 minutes.</p>
             user_arn: <p>The Amazon Quick user's Amazon Resource Name (ARN), for use with <code>QUICKSIGHT</code> identity type. You can use this for any type of Amazon Quick users in your account (readers, authors, or admins). They need to be authenticated as one of the following:</p> <ol> <li> <p>Active Directory (AD) users or group members</p> </li> <li> <p>Invited nonfederated users</p> </li> <li> <p>IAM users and IAM role-based sessions authenticated through Federated Single Sign-On using SAML, OpenID Connect, or IAM federation</p> </li> </ol> <p>Omit this parameter for users in the third group, IAM users and IAM role-based sessions.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.quick_sight_user_not_found_exception.QuickSightUserNotFoundException: <p>The user with the provided name isn't found. This error can happen in any operation that requires finding a user based on a provided user name, such as <code>DeleteUser</code>, <code>DescribeUser</code>, and so on.</p>
+            aws_sdk_quicksight.errors.resource_exists_exception.ResourceExistsException: <p>The resource specified already exists. </p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.session_lifetime_in_minutes_invalid_exception.SessionLifetimeInMinutesInvalidException: <p>The number of minutes specified for the lifetime of a session isn't valid. The session lifetime must be 15-600 minutes.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.unsupported_user_edition_exception.UnsupportedUserEditionException: <p>This error indicates that you are calling an operation on an Amazon Quick Suite subscription where the edition doesn't include support for that operation. Amazon Quick Suite currently has Standard Edition and Enterprise Edition. Not every operation and capability is available in every edition.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -7767,6 +9142,14 @@ class QuickSightClient:
             aws_account_id: <p>The Amazon Web Services account ID for which to list action connectors.</p>
             max_results: <p>The maximum number of action connectors to return in a single response. Valid range is 1 to 100.</p>
             next_token: <p>A pagination token to retrieve the next set of results. Use the token returned from a previous call to continue listing action connectors.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The <code>NextToken</code> value isn't valid.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -7837,6 +9220,16 @@ class QuickSightClient:
             aws_account_id: <p>The ID of the Amazon Web Services account that contains the agents.</p>
             max_results: <p>The maximum number of results to return.</p>
             next_token: <p>The token for the next set of results, or null if there are no more results.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The <code>NextToken</code> value isn't valid.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.precondition_not_met_exception.PreconditionNotMetException: <p>One or more preconditions aren't met.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.unsupported_user_edition_exception.UnsupportedUserEditionException: <p>This error indicates that you are calling an operation on an Amazon Quick Suite subscription where the edition doesn't include support for that operation. Amazon Quick Suite currently has Standard Edition and Enterprise Edition. Not every operation and capability is available in every edition.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -7882,6 +9275,13 @@ class QuickSightClient:
             aws_account_id: <p>The ID of the Amazon Web Services account that contains the analyses.</p>
             next_token: <p>A pagination token that can be used in a subsequent request.</p>
             max_results: <p>The maximum number of results to return.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The <code>NextToken</code> value isn't valid.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.unsupported_user_edition_exception.UnsupportedUserEditionException: <p>This error indicates that you are calling an operation on an Amazon Quick Suite subscription where the edition doesn't include support for that operation. Amazon Quick Suite currently has Standard Edition and Enterprise Edition. Not every operation and capability is available in every edition.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -7950,6 +9350,14 @@ class QuickSightClient:
             aws_account_id: <p>The ID of the Amazon Web Services account that the export jobs were executed in. </p>
             next_token: <p>The token for the next set of results, or null if there are no more results.</p>
             max_results: <p>The maximum number of results to be returned per request.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The <code>NextToken</code> value isn't valid.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.unsupported_user_edition_exception.UnsupportedUserEditionException: <p>This error indicates that you are calling an operation on an Amazon Quick Suite subscription where the edition doesn't include support for that operation. Amazon Quick Suite currently has Standard Edition and Enterprise Edition. Not every operation and capability is available in every edition.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -8018,6 +9426,14 @@ class QuickSightClient:
             aws_account_id: <p>The ID of the Amazon Web Services account that the import jobs were executed in.</p>
             next_token: <p>The token for the next set of results, or null if there are no more results.</p>
             max_results: <p>The maximum number of results to be returned per request.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The <code>NextToken</code> value isn't valid.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.unsupported_user_edition_exception.UnsupportedUserEditionException: <p>This error indicates that you are calling an operation on an Amazon Quick Suite subscription where the edition doesn't include support for that operation. Amazon Quick Suite currently has Standard Edition and Enterprise Edition. Not every operation and capability is available in every edition.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -8086,6 +9502,13 @@ class QuickSightClient:
             aws_account_id: <p>The ID of the Amazon Web Services account that owns the brands that you want to list.</p>
             max_results: <p>The maximum number of results to be returned in a single request.</p>
             next_token: <p>The token for the next set of results, or null if there are no more results.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.internal_server_exception.InternalServerException: <p>An internal service exception.</p>
+            aws_sdk_quicksight.errors.invalid_request_exception.InvalidRequestException: <p>You don't have this feature activated for your account. To fix this issue, contact Amazon Web Services support.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -8154,6 +9577,16 @@ class QuickSightClient:
             aws_account_id: <p>The ID of the Amazon Web Services account that contains the custom permissions profiles that you want to list.</p>
             max_results: <p>The maximum number of results to return.</p>
             next_token: <p>The token for the next set of results, or null if there are no more results.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.precondition_not_met_exception.PreconditionNotMetException: <p>One or more preconditions aren't met.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.resource_unavailable_exception.ResourceUnavailableException: <p>This resource is currently unavailable.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -8222,6 +9655,13 @@ class QuickSightClient:
             aws_account_id: <p>The ID of the Amazon Web Services account that contains the dashboards that you're listing.</p>
             next_token: <p>The token for the next set of results, or null if there are no more results.</p>
             max_results: <p>The maximum number of results to be returned per request.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The <code>NextToken</code> value isn't valid.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.unsupported_user_edition_exception.UnsupportedUserEditionException: <p>This error indicates that you are calling an operation on an Amazon Quick Suite subscription where the edition doesn't include support for that operation. Amazon Quick Suite currently has Standard Edition and Enterprise Edition. Not every operation and capability is available in every edition.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -8292,6 +9732,15 @@ class QuickSightClient:
             dashboard_id: <p>The ID for the dashboard.</p>
             next_token: <p>The token for the next set of results, or null if there are no more results.</p>
             max_results: <p>The maximum number of results to be returned per request.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The <code>NextToken</code> value isn't valid.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.unsupported_user_edition_exception.UnsupportedUserEditionException: <p>This error indicates that you are calling an operation on an Amazon Quick Suite subscription where the edition doesn't include support for that operation. Amazon Quick Suite currently has Standard Edition and Enterprise Edition. Not every operation and capability is available in every edition.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -8363,6 +9812,14 @@ class QuickSightClient:
             aws_account_id: <p>The Amazon Web Services account ID.</p>
             next_token: <p>The token for the next set of results, or null if there are no more results.</p>
             max_results: <p>The maximum number of results to be returned per request.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The <code>NextToken</code> value isn't valid.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -8431,6 +9888,14 @@ class QuickSightClient:
             aws_account_id: <p>The Amazon Web Services account ID.</p>
             next_token: <p>The token for the next set of results, or null if there are no more results.</p>
             max_results: <p>The maximum number of results to be returned per request.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The <code>NextToken</code> value isn't valid.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -8501,6 +9966,13 @@ class QuickSightClient:
             aws_account_id: <p>The ID of the Amazon Web Services account that contains the flow list that you are getting.</p>
             next_token: <p>The token to request the next set of results, or null if you want to retrieve the first set.</p>
             max_results: <p>The maximum number of results to be returned per request.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -8573,6 +10045,16 @@ class QuickSightClient:
             folder_id: <p>The ID of the folder.</p>
             next_token: <p>The token for the next set of results, or null if there are no more results.</p>
             max_results: <p>The maximum number of results to be returned per request.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The <code>NextToken</code> value isn't valid.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.unsupported_user_edition_exception.UnsupportedUserEditionException: <p>This error indicates that you are calling an operation on an Amazon Quick Suite subscription where the edition doesn't include support for that operation. Amazon Quick Suite currently has Standard Edition and Enterprise Edition. Not every operation and capability is available in every edition.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -8644,6 +10126,16 @@ class QuickSightClient:
             aws_account_id: <p>The ID for the Amazon Web Services account that contains the folder.</p>
             next_token: <p>The token for the next set of results, or null if there are no more results.</p>
             max_results: <p>The maximum number of results to be returned per request.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The <code>NextToken</code> value isn't valid.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.unsupported_user_edition_exception.UnsupportedUserEditionException: <p>This error indicates that you are calling an operation on an Amazon Quick Suite subscription where the edition doesn't include support for that operation. Amazon Quick Suite currently has Standard Edition and Enterprise Edition. Not every operation and capability is available in every edition.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -8714,6 +10206,16 @@ class QuickSightClient:
             resource_arn: <p>The Amazon Resource Name (ARN) the resource whose folders you need to list.</p>
             next_token: <p>The token for the next set of results, or null if there are no more results.</p>
             max_results: <p>The maximum number of results to be returned per request.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The <code>NextToken</code> value isn't valid.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.unsupported_user_edition_exception.UnsupportedUserEditionException: <p>This error indicates that you are calling an operation on an Amazon Quick Suite subscription where the edition doesn't include support for that operation. Amazon Quick Suite currently has Standard Edition and Enterprise Edition. Not every operation and capability is available in every edition.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -8789,6 +10291,17 @@ class QuickSightClient:
             max_results: <p>The maximum number of results to return from this request.</p>
             aws_account_id: <p>The ID for the Amazon Web Services account that the group is in. Currently, you use the ID for the Amazon Web Services account that contains your Amazon Quick Sight account.</p>
             namespace: <p>The namespace of the group that you want a list of users from.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The <code>NextToken</code> value isn't valid.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.precondition_not_met_exception.PreconditionNotMetException: <p>One or more preconditions aren't met.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.resource_unavailable_exception.ResourceUnavailableException: <p>This resource is currently unavailable.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -8865,6 +10378,17 @@ class QuickSightClient:
             next_token: <p>A pagination token that can be used in a subsequent request.</p>
             max_results: <p>The maximum number of results to return.</p>
             namespace: <p>The namespace that you want a list of groups from.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The <code>NextToken</code> value isn't valid.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.precondition_not_met_exception.PreconditionNotMetException: <p>One or more preconditions aren't met.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.resource_unavailable_exception.ResourceUnavailableException: <p>This resource is currently unavailable.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -8942,6 +10466,15 @@ class QuickSightClient:
             namespace: <p>The namespace for the assignments.</p>
             next_token: <p>The token for the next set of results, or null if there are no more results.</p>
             max_results: <p>The maximum number of results to be returned per request.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The <code>NextToken</code> value isn't valid.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -9023,6 +10556,16 @@ class QuickSightClient:
             next_token: <p>The token for the next set of results, or null if there are no more results.</p>
             max_results: <p>The maximum number of results to be returned per request.</p>
             namespace: <p>The namespace of the assignment.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.concurrent_updating_exception.ConcurrentUpdatingException: <p>A resource is already in a state that indicates an operation is happening that must complete before a new update can be applied.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.resource_exists_exception.ResourceExistsException: <p>The resource specified already exists. </p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -9099,6 +10642,14 @@ class QuickSightClient:
             aws_account_id: <p>The ID of the Amazon Web Services account that contain the identity propagation configurations of.</p>
             max_results: <p>The maximum number of results to be returned.</p>
             next_token: <p>The token for the next set of results, or null if there are no more results.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -9148,6 +10699,16 @@ class QuickSightClient:
             next_token: <p>The token for the next set of results, or null if there are no more results.</p>
             aws_account_id: <p>The Amazon Web Services account ID.</p>
             max_results: <p>The maximum number of results to be returned per request.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The <code>NextToken</code> value isn't valid.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.resource_exists_exception.ResourceExistsException: <p>The resource specified already exists. </p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -9221,6 +10782,15 @@ class QuickSightClient:
             aws_account_id: <p>The ID of the Amazon Web Services account that contains the knowledge base.</p>
             max_results: <p>The maximum number of results to return.</p>
             next_token: <p>The token for the next set of results, or null if there are no more results.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.invalid_request_exception.InvalidRequestException: <p>You don't have this feature activated for your account. To fix this issue, contact Amazon Web Services support.</p>
+            aws_sdk_quicksight.errors.precondition_not_met_exception.PreconditionNotMetException: <p>One or more preconditions aren't met.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -9291,6 +10861,17 @@ class QuickSightClient:
             aws_account_id: <p>The ID for the Amazon Web Services account that contains the Quick Sight namespaces that you want to list.</p>
             next_token: <p>A unique pagination token that can be used in a subsequent request. You will receive a pagination token in the response body of a previous <code>ListNameSpaces</code> API call if there is more data that can be returned. To receive the data, make another <code>ListNamespaces</code> API call with the returned token to retrieve the next page of data. Each token is valid for 24 hours. If you try to make a <code>ListNamespaces</code> API call with an expired token, you will receive a <code>HTTP 400 InvalidNextTokenException</code> error.</p>
             max_results: <p>The maximum number of results to return.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The <code>NextToken</code> value isn't valid.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.precondition_not_met_exception.PreconditionNotMetException: <p>One or more preconditions aren't met.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.resource_unavailable_exception.ResourceUnavailableException: <p>This resource is currently unavailable.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -9359,6 +10940,15 @@ class QuickSightClient:
             aws_account_id: <p>The Amazon Web Services account ID.</p>
             next_token: <p>A pagination token that can be used in a subsequent request.</p>
             max_results: <p>The maximum number of results to return.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The <code>NextToken</code> value isn't valid.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -9425,6 +11015,15 @@ class QuickSightClient:
         Args:
             aws_account_id: <p>The Amazon Web Services account ID.</p>
             data_set_id: <p>The ID of the dataset.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.limit_exceeded_exception.LimitExceededException: <p>A limit is exceeded.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -9471,6 +11070,18 @@ class QuickSightClient:
             max_results: <p>The maximum number of results to return.</p>
             aws_account_id: <p>The ID for the Amazon Web Services account that you want to create a group in. The Amazon Web Services account ID that you provide must be the same Amazon Web Services account that contains your Amazon Quick Sight account.</p>
             namespace: <p>The namespace that includes the role.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The <code>NextToken</code> value isn't valid.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.limit_exceeded_exception.LimitExceededException: <p>A limit is exceeded.</p>
+            aws_sdk_quicksight.errors.precondition_not_met_exception.PreconditionNotMetException: <p>One or more preconditions aren't met.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.resource_unavailable_exception.ResourceUnavailableException: <p>This resource is currently unavailable.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -9549,6 +11160,18 @@ class QuickSightClient:
             namespace: <p>The Quick namespace for the self-upgrade requests.</p>
             next_token: <p>The token for the next set of results, or null if there are no more results.</p>
             max_results: <p>The maximum number of results to return.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The <code>NextToken</code> value isn't valid.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.limit_exceeded_exception.LimitExceededException: <p>A limit is exceeded.</p>
+            aws_sdk_quicksight.errors.precondition_not_met_exception.PreconditionNotMetException: <p>One or more preconditions aren't met.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.resource_unavailable_exception.ResourceUnavailableException: <p>This resource is currently unavailable.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -9593,6 +11216,14 @@ class QuickSightClient:
         Args:
             aws_account_id: <p>The ID of the Amazon Web Services account that contains the space.</p>
             space_id: <p>The ID of the space that you want to list resources for.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -9637,6 +11268,14 @@ class QuickSightClient:
             aws_account_id: <p>The ID of the Amazon Web Services account that contains the spaces.</p>
             next_token: <p>The token for the next set of results, or null if there are no more results.</p>
             max_results: <p>The maximum number of results to return.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -9678,6 +11317,14 @@ class QuickSightClient:
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource that you want a list of tags for.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -9721,6 +11368,14 @@ class QuickSightClient:
             template_id: <p>The ID for the template.</p>
             next_token: <p>The token for the next set of results, or null if there are no more results.</p>
             max_results: <p>The maximum number of results to be returned per request.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The <code>NextToken</code> value isn't valid.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.unsupported_user_edition_exception.UnsupportedUserEditionException: <p>This error indicates that you are calling an operation on an Amazon Quick Suite subscription where the edition doesn't include support for that operation. Amazon Quick Suite currently has Standard Edition and Enterprise Edition. Not every operation and capability is available in every edition.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -9792,6 +11447,15 @@ class QuickSightClient:
             aws_account_id: <p>The ID of the Amazon Web Services account that contains the templates that you're listing.</p>
             next_token: <p>The token for the next set of results, or null if there are no more results.</p>
             max_results: <p>The maximum number of results to be returned per request.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The <code>NextToken</code> value isn't valid.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.unsupported_user_edition_exception.UnsupportedUserEditionException: <p>This error indicates that you are calling an operation on an Amazon Quick Suite subscription where the edition doesn't include support for that operation. Amazon Quick Suite currently has Standard Edition and Enterprise Edition. Not every operation and capability is available in every edition.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -9862,6 +11526,15 @@ class QuickSightClient:
             template_id: <p>The ID for the template.</p>
             next_token: <p>The token for the next set of results, or null if there are no more results.</p>
             max_results: <p>The maximum number of results to be returned per request.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The <code>NextToken</code> value isn't valid.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.unsupported_user_edition_exception.UnsupportedUserEditionException: <p>This error indicates that you are calling an operation on an Amazon Quick Suite subscription where the edition doesn't include support for that operation. Amazon Quick Suite currently has Standard Edition and Enterprise Edition. Not every operation and capability is available in every edition.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -9937,6 +11610,16 @@ class QuickSightClient:
             theme_id: <p>The ID for the theme.</p>
             next_token: <p>The token for the next set of results, or null if there are no more results.</p>
             max_results: <p>The maximum number of results to be returned per request.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The <code>NextToken</code> value isn't valid.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.unsupported_user_edition_exception.UnsupportedUserEditionException: <p>This error indicates that you are calling an operation on an Amazon Quick Suite subscription where the edition doesn't include support for that operation. Amazon Quick Suite currently has Standard Edition and Enterprise Edition. Not every operation and capability is available in every edition.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -9985,6 +11668,16 @@ class QuickSightClient:
             next_token: <p>The token for the next set of results, or null if there are no more results.</p>
             max_results: <p>The maximum number of results to be returned per request.</p>
             type: <p>The type of themes that you want to list. Valid options include the following:</p> <ul> <li> <p> <code>ALL (default)</code>- Display all existing themes.</p> </li> <li> <p> <code>CUSTOM</code> - Display only the themes created by people using Amazon Quick Sight.</p> </li> <li> <p> <code>QUICKSIGHT</code> - Display only the starting themes defined by Quick Sight.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The <code>NextToken</code> value isn't valid.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.unsupported_user_edition_exception.UnsupportedUserEditionException: <p>This error indicates that you are calling an operation on an Amazon Quick Suite subscription where the edition doesn't include support for that operation. Amazon Quick Suite currently has Standard Edition and Enterprise Edition. Not every operation and capability is available in every edition.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -10059,6 +11752,16 @@ class QuickSightClient:
             theme_id: <p>The ID for the theme.</p>
             next_token: <p>The token for the next set of results, or null if there are no more results.</p>
             max_results: <p>The maximum number of results to be returned per request.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The <code>NextToken</code> value isn't valid.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.unsupported_user_edition_exception.UnsupportedUserEditionException: <p>This error indicates that you are calling an operation on an Amazon Quick Suite subscription where the edition doesn't include support for that operation. Amazon Quick Suite currently has Standard Edition and Enterprise Edition. Not every operation and capability is available in every edition.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -10128,6 +11831,17 @@ class QuickSightClient:
         Args:
             aws_account_id: <p>The ID of the Amazon Web Services account that contains the topic whose refresh schedule you want described.</p>
             topic_id: <p>The ID for the topic that you want to describe. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.limit_exceeded_exception.LimitExceededException: <p>A limit is exceeded.</p>
+            aws_sdk_quicksight.errors.resource_exists_exception.ResourceExistsException: <p>The resource specified already exists. </p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -10168,6 +11882,14 @@ class QuickSightClient:
         Args:
             aws_account_id: <p>The ID of the Amazon Web Services account that containd the reviewed answers that you want listed.</p>
             topic_id: <p>The ID for the topic that contains the reviewed answer that you want to list. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -10210,6 +11932,14 @@ class QuickSightClient:
             aws_account_id: <p>The ID of the Amazon Web Services account that contains the topics that you want to list.</p>
             next_token: <p>The token for the next set of results, or null if there are no more results.</p>
             max_results: <p>The maximum number of results to be returned per request.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The <code>NextToken</code> value isn't valid.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -10259,6 +11989,16 @@ class QuickSightClient:
             namespace: <p>The namespace. Currently, you should set this to <code>default</code>.</p>
             next_token: <p>A pagination token that can be used in a subsequent request.</p>
             max_results: <p>The maximum number of results to return from this request.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.precondition_not_met_exception.PreconditionNotMetException: <p>One or more preconditions aren't met.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.resource_unavailable_exception.ResourceUnavailableException: <p>This resource is currently unavailable.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -10335,6 +12075,17 @@ class QuickSightClient:
             next_token: <p>A pagination token that can be used in a subsequent request.</p>
             max_results: <p>The maximum number of results to return from this request.</p>
             namespace: <p>The namespace. Currently, you should set this to <code>default</code>.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The <code>NextToken</code> value isn't valid.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.precondition_not_met_exception.PreconditionNotMetException: <p>One or more preconditions aren't met.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.resource_unavailable_exception.ResourceUnavailableException: <p>This resource is currently unavailable.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -10422,6 +12173,15 @@ class QuickSightClient:
             sort_order: <p>The sort order for results. Defaults to DESC if not specified.</p>
             max_results: <p>The maximum number of results to return per page.</p>
             next_token: <p>The token for the next set of results, received from a previous call.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_request_exception.InvalidRequestException: <p>You don't have this feature activated for your account. To fix this issue, contact Amazon Web Services support.</p>
+            aws_sdk_quicksight.errors.precondition_not_met_exception.PreconditionNotMetException: <p>One or more preconditions aren't met.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -10475,6 +12235,15 @@ class QuickSightClient:
             aws_account_id: <p>The Amazon Web Services account ID of the account that contains the VPC connections that you want to list.</p>
             next_token: <p>The token for the next set of results, or null if there are no more results.</p>
             max_results: <p>The maximum number of results to be returned per request.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The <code>NextToken</code> value isn't valid.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.unsupported_user_edition_exception.UnsupportedUserEditionException: <p>This error indicates that you are calling an operation on an Amazon Quick Suite subscription where the edition doesn't include support for that operation. Amazon Quick Suite currently has Standard Edition and Enterprise Edition. Not every operation and capability is available in every edition.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -10532,6 +12301,13 @@ class QuickSightClient:
             include_quick_sight_q_index: <p>Indicates whether Q indicies are included or excluded.</p>
             include_generated_answer: <p>Indicates whether generated answers are included or excluded.</p>
             max_topics_to_consider: <p>The number of maximum topics to be considered to predict QA results.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -10580,6 +12356,17 @@ class QuickSightClient:
             aws_account_id: <p>The Amazon Web Services account ID.</p>
             data_set_id: <p>The ID of the dataset.</p>
             data_set_refresh_properties: <p>The dataset refresh properties.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.limit_exceeded_exception.LimitExceededException: <p>A limit is exceeded.</p>
+            aws_sdk_quicksight.errors.precondition_not_met_exception.PreconditionNotMetException: <p>One or more preconditions aren't met.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -10651,6 +12438,18 @@ class QuickSightClient:
             custom_federation_provider_url: <p>The URL of the custom OpenID Connect (OIDC) provider that provides identity to let a user federate into Quick Sight with an associated Identity and Access Management(IAM) role. This parameter should only be used when <code>ExternalLoginFederationProviderType</code> parameter is set to <code>CUSTOM_OIDC</code>.</p>
             external_login_id: <p>The identity ID for a user in the external login provider.</p>
             tags: <p>The tags to associate with the user.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.limit_exceeded_exception.LimitExceededException: <p>A limit is exceeded.</p>
+            aws_sdk_quicksight.errors.precondition_not_met_exception.PreconditionNotMetException: <p>One or more preconditions aren't met.</p>
+            aws_sdk_quicksight.errors.resource_exists_exception.ResourceExistsException: <p>The resource specified already exists. </p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.resource_unavailable_exception.ResourceUnavailableException: <p>This resource is currently unavailable.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -10714,6 +12513,17 @@ class QuickSightClient:
             aws_account_id: <p>The ID of the Amazon Web Services account that contains the analysis.</p>
             analysis_id: <p>The ID of the analysis that you're restoring.</p>
             restore_to_folders: <p>A boolean value that determines if the analysis will be restored to folders that it previously resided in. A <code>True</code> value restores analysis back to all folders that it previously resided in. A <code>False</code> value restores the analysis but does not restore the analysis back to all previously resided folders. Restoring a restricted analysis requires this parameter to be set to <code>True</code>.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.limit_exceeded_exception.LimitExceededException: <p>A limit is exceeded.</p>
+            aws_sdk_quicksight.errors.precondition_not_met_exception.PreconditionNotMetException: <p>One or more preconditions aren't met.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.unsupported_user_edition_exception.UnsupportedUserEditionException: <p>This error indicates that you are calling an operation on an Amazon Quick Suite subscription where the edition doesn't include support for that operation. Amazon Quick Suite currently has Standard Edition and Enterprise Edition. Not every operation and capability is available in every edition.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -10762,6 +12572,13 @@ class QuickSightClient:
             max_results: <p>The maximum number of action connectors to return in a single response. Valid range is 1 to 100.</p>
             next_token: <p>A pagination token to retrieve the next set of results. Use the token returned from a previous call to continue searching.</p>
             filters: <p>The search filters to apply. You can filter by connector name, type, or user permissions. Maximum of one filter is supported.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The <code>NextToken</code> value isn't valid.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -10839,6 +12656,15 @@ class QuickSightClient:
             filters: <p>The filters to apply when searching agents.</p>
             max_results: <p>The maximum number of results to return.</p>
             next_token: <p>The token for the next set of results, or null if there are no more results.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.precondition_not_met_exception.PreconditionNotMetException: <p>One or more preconditions aren't met.</p>
+            aws_sdk_quicksight.errors.resource_exists_exception.ResourceExistsException: <p>The resource specified already exists. </p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -10887,6 +12713,15 @@ class QuickSightClient:
             filters: <p>The structure for the search filters that you want to apply to your search. </p>
             next_token: <p>A pagination token that can be used in a subsequent request.</p>
             max_results: <p>The maximum number of results to return.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The <code>NextToken</code> value isn't valid.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.unsupported_user_edition_exception.UnsupportedUserEditionException: <p>This error indicates that you are calling an operation on an Amazon Quick Suite subscription where the edition doesn't include support for that operation. Amazon Quick Suite currently has Standard Edition and Enterprise Edition. Not every operation and capability is available in every edition.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -10960,6 +12795,15 @@ class QuickSightClient:
             filters: <p>The filters to apply to the search. Currently, you can search only by user name, for example, <code>\"Filters\": [ { \"Name\": \"QUICKSIGHT_USER\", \"Operator\": \"StringEquals\", \"Value\": \"arn:aws:quicksight:us-east-1:1:user/default/UserName1\" } ]</code> </p>
             next_token: <p>The token for the next set of results, or null if there are no more results.</p>
             max_results: <p>The maximum number of results to be returned per request.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The <code>NextToken</code> value isn't valid.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.unsupported_user_edition_exception.UnsupportedUserEditionException: <p>This error indicates that you are calling an operation on an Amazon Quick Suite subscription where the edition doesn't include support for that operation. Amazon Quick Suite currently has Standard Edition and Enterprise Edition. Not every operation and capability is available in every edition.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -11033,6 +12877,15 @@ class QuickSightClient:
             filters: <p>The filters to apply to the search.</p>
             next_token: <p>A pagination token that can be used in a subsequent request.</p>
             max_results: <p>The maximum number of results to be returned per request.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The <code>NextToken</code> value isn't valid.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -11106,6 +12959,15 @@ class QuickSightClient:
             filters: <p>The filters to apply to the search.</p>
             next_token: <p>A pagination token that can be used in a subsequent request.</p>
             max_results: <p>The maximum number of results to be returned per request.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The <code>NextToken</code> value isn't valid.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -11181,6 +13043,13 @@ class QuickSightClient:
             filters: <p>The filters applied to the search when searching for flows in the Amazon Web Services account.</p>
             next_token: <p>The token to request the next set of results, or null if you want to retrieve the first set.</p>
             max_results: <p>The maximum number of results to be returned per request.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -11256,6 +13125,17 @@ class QuickSightClient:
             filters: <p>The filters to apply to the search. Currently, you can search only by the parent folder ARN. For example, <code>\"Filters\": [ { \"Name\": \"PARENT_FOLDER_ARN\", \"Operator\": \"StringEquals\", \"Value\": \"arn:aws:quicksight:us-east-1:1:folder/folderId\" } ]</code>.</p>
             next_token: <p>The token for the next set of results, or null if there are no more results.</p>
             max_results: <p>The maximum number of results to be returned per request.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The <code>NextToken</code> value isn't valid.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.invalid_request_exception.InvalidRequestException: <p>You don't have this feature activated for your account. To fix this issue, contact Amazon Web Services support.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.unsupported_user_edition_exception.UnsupportedUserEditionException: <p>This error indicates that you are calling an operation on an Amazon Quick Suite subscription where the edition doesn't include support for that operation. Amazon Quick Suite currently has Standard Edition and Enterprise Edition. Not every operation and capability is available in every edition.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -11331,6 +13211,17 @@ class QuickSightClient:
             max_results: <p>The maximum number of results to return from this request.</p>
             namespace: <p>The namespace that you want to search.</p>
             filters: <p>The structure for the search filters that you want to apply to your search.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The <code>NextToken</code> value isn't valid.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.precondition_not_met_exception.PreconditionNotMetException: <p>One or more preconditions aren't met.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.resource_unavailable_exception.ResourceUnavailableException: <p>This resource is currently unavailable.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -11413,6 +13304,16 @@ class QuickSightClient:
             max_results: <p>The maximum number of results to return.</p>
             filters: <p>The filters to apply when searching knowledge bases.</p>
             sort_by: <p>The sort configuration for the search results.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The <code>NextToken</code> value isn't valid.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.precondition_not_met_exception.PreconditionNotMetException: <p>One or more preconditions aren't met.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -11499,6 +13400,14 @@ class QuickSightClient:
             next_token: <p>The token for the next set of results, or null if there are no more results.</p>
             max_results: <p>The maximum number of results to return.</p>
             filters: <p>The filters to apply to the search.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -11547,6 +13456,15 @@ class QuickSightClient:
             filters: <p>The filters that you want to use to search for the topic.</p>
             next_token: <p>The token for the next set of results, or null if there are no more results.</p>
             max_results: <p>The maximum number of results to be returned per request.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The <code>NextToken</code> value isn't valid.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.unsupported_user_edition_exception.UnsupportedUserEditionException: <p>This error indicates that you are calling an operation on an Amazon Quick Suite subscription where the edition doesn't include support for that operation. Amazon Quick Suite currently has Standard Edition and Enterprise Edition. Not every operation and capability is available in every edition.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -11646,6 +13564,16 @@ class QuickSightClient:
             validation_strategy: <p>An optional parameter that determines which validation strategy to use for the export job. If <code>StrictModeForAllResources</code> is set to <code>TRUE</code>, strict validation for every error is enforced. If it is set to <code>FALSE</code>, validation is skipped for specific UI errors that are shown as warnings. The default value for <code>StrictModeForAllResources</code> is <code>FALSE</code>.</p>
             include_folder_memberships: <p>A Boolean that determines if the exported asset carries over information about the folders that the asset is a member of. </p>
             include_folder_members: <p>A setting that indicates whether you want to include folder assets. You can also use this setting to recusrsively include all subfolders of an exported folder.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.limit_exceeded_exception.LimitExceededException: <p>A limit is exceeded.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.unsupported_user_edition_exception.UnsupportedUserEditionException: <p>This error indicates that you are calling an operation on an Amazon Quick Suite subscription where the edition doesn't include support for that operation. Amazon Quick Suite currently has Standard Edition and Enterprise Edition. Not every operation and capability is available in every edition.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -11726,6 +13654,16 @@ class QuickSightClient:
             override_permissions: <p>Optional permission overrides that are applied to the resource configuration before import.</p>
             override_tags: <p>Optional tag overrides that are applied to the resource configuration before import.</p>
             override_validation_strategy: <p>An optional validation strategy override for all analyses and dashboards that is applied to the resource configuration before import. </p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.limit_exceeded_exception.LimitExceededException: <p>A limit is exceeded.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.unsupported_user_edition_exception.UnsupportedUserEditionException: <p>This error indicates that you are calling an operation on an Amazon Quick Suite subscription where the edition doesn't include support for that operation. Amazon Quick Suite currently has Standard Edition and Enterprise Edition. Not every operation and capability is available in every edition.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -11783,6 +13721,15 @@ class QuickSightClient:
             automation_group_id: <p>The ID of the automation group that contains the automation to run.</p>
             automation_id: <p>The ID of the automation to run.</p>
             input_payload: <p>The input payload for the automation job, provided as a JSON string.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.limit_exceeded_exception.LimitExceededException: <p>A limit is exceeded.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -11834,6 +13781,18 @@ class QuickSightClient:
             snapshot_job_id: <p>An ID for the dashboard snapshot job. This ID is unique to the dashboard while the job is running. This ID can be used to poll the status of a job with a <code>DescribeDashboardSnapshotJob</code> while the job runs. You can reuse this ID for another job 24 hours after the current job is completed.</p>
             user_configuration: <p>A structure that contains information about the users that the dashboard snapshot is generated for. The users can be either anonymous users or registered users. Anonymous users cannot be used together with registered users.</p> <important> <p>When using identity-enhanced session credentials, set the UserConfiguration request attribute to null. Otherwise, the request will be invalid.</p> </important>
             snapshot_configuration: <p>A structure that describes the configuration of the dashboard snapshot.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.limit_exceeded_exception.LimitExceededException: <p>A limit is exceeded.</p>
+            aws_sdk_quicksight.errors.resource_exists_exception.ResourceExistsException: <p>The resource specified already exists. </p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.unsupported_pricing_plan_exception.UnsupportedPricingPlanException: <p>This error indicates that you are calling an embedding operation in Amazon Quick Sight without the required pricing plan on your Amazon Web Services account. Before you can use embedding for anonymous users, a Quick Suite administrator needs to add capacity pricing to Quick Sight. You can do this on the <b>Manage Quick Suite</b> page. </p> <p>After capacity pricing is added, you can use the <code> <a href=\"https://docs.aws.amazon.com/quicksight/latest/APIReference/API_GetDashboardEmbedUrl.html\">GetDashboardEmbedUrl</a> </code> API operation with the <code>--identity-type ANONYMOUS</code> option.</p>
+            aws_sdk_quicksight.errors.unsupported_user_edition_exception.UnsupportedUserEditionException: <p>This error indicates that you are calling an operation on an Amazon Quick Suite subscription where the edition doesn't include support for that operation. Amazon Quick Suite currently has Standard Edition and Enterprise Edition. Not every operation and capability is available in every edition.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -11880,6 +13839,16 @@ class QuickSightClient:
             aws_account_id: <p>The ID of the Amazon Web Services account that the dashboard snapshot job is executed in.</p>
             dashboard_id: <p>The ID of the dashboard that you want to start a snapshot job schedule for. </p>
             schedule_id: <p>The ID of the schedule that you want to start a snapshot job schedule for. The schedule ID can be found in the Amazon Quick Sight console in the <b>Schedules</b> pane of the dashboard that the schedule is configured for.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.limit_exceeded_exception.LimitExceededException: <p>A limit is exceeded.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.unsupported_user_edition_exception.UnsupportedUserEditionException: <p>This error indicates that you are calling an operation on an Amazon Quick Suite subscription where the edition doesn't include support for that operation. Amazon Quick Suite currently has Standard Edition and Enterprise Edition. Not every operation and capability is available in every edition.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -11921,6 +13890,15 @@ class QuickSightClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource that you want to tag.</p>
             tags: <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the resource.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.limit_exceeded_exception.LimitExceededException: <p>A limit is exceeded.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -11961,6 +13939,14 @@ class QuickSightClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource that you want to untag.</p>
             tag_keys: <p>The keys of the key-value pairs for the resource tag or tags assigned to the resource.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -12003,6 +13989,16 @@ class QuickSightClient:
             aws_account_id: <p>The ID for the Amazon Web Services account that you want to update Quick Sight customizations for.</p>
             namespace: <p>The namespace that you want to update Quick Sight customizations for.</p>
             account_customization: <p>The Quick Sight customizations you're updating. </p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.resource_unavailable_exception.ResourceUnavailableException: <p>This resource is currently unavailable.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -12045,6 +14041,14 @@ class QuickSightClient:
         Args:
             custom_permissions_name: <p>The name of the custom permissions profile that you want to apply to an account.</p>
             aws_account_id: <p>The ID of the Amazon Web Services account for which you want to apply a custom permissions profile.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -12091,6 +14095,15 @@ class QuickSightClient:
             default_namespace: <p>The default namespace for this Amazon Web Services account. Currently, the default is <code>default</code>. IAM users that register for the first time with Amazon Quick Sight provide an email address that becomes associated with the default namespace. </p>
             notification_email: <p>The email address that you want Quick Sight to send notifications to regarding your Amazon Web Services account or Quick Sight subscription.</p>
             termination_protection_enabled: <p>A boolean value that determines whether or not an Quick Sight account can be deleted. A <code>True</code> value doesn't allow the account to be deleted and results in an error message if a user tries to make a <code>DeleteAccountSubscription</code> request. A <code>False</code> value will allow the account to be deleted.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.resource_unavailable_exception.ResourceUnavailableException: <p>This resource is currently unavailable.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -12145,6 +14158,15 @@ class QuickSightClient:
             authentication_config: <p>The updated authentication configuration for connecting to the external service.</p>
             description: <p>The updated description of the action connector.</p>
             vpc_connection_arn: <p>The updated ARN of the VPC connection to use for secure connectivity.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -12199,6 +14221,17 @@ class QuickSightClient:
             action_connector_id: <p>The unique identifier of the action connector whose permissions you want to update.</p>
             grant_permissions: <p>The permissions to grant to users and groups for this action connector.</p>
             revoke_permissions: <p>The permissions to revoke from users and groups for this action connector.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.limit_exceeded_exception.LimitExceededException: <p>A limit is exceeded.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.unsupported_user_edition_exception.UnsupportedUserEditionException: <p>This error indicates that you are calling an operation on an Amazon Quick Suite subscription where the edition doesn't include support for that operation. Amazon Quick Suite currently has Standard Edition and Enterprise Edition. Not every operation and capability is available in every edition.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -12279,6 +14312,17 @@ class QuickSightClient:
             spaces_to_remove: <p>The Amazon Resource Names (ARNs) of the spaces to detach from the agent.</p>
             action_connectors_to_add: <p>The Amazon Resource Names (ARNs) of the action connectors to attach to the agent.</p>
             action_connectors_to_remove: <p>The Amazon Resource Names (ARNs) of the action connectors to detach from the agent.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.limit_exceeded_exception.LimitExceededException: <p>A limit is exceeded.</p>
+            aws_sdk_quicksight.errors.precondition_not_met_exception.PreconditionNotMetException: <p>One or more preconditions aren't met.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -12346,6 +14390,18 @@ class QuickSightClient:
             aws_account_id: <p>The ID of the Amazon Web Services account that contains the agent.</p>
             grant_permissions: <p>The resource permissions that you want to grant on the agent.</p>
             revoke_permissions: <p>The resource permissions that you want to revoke from the agent.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.limit_exceeded_exception.LimitExceededException: <p>A limit is exceeded.</p>
+            aws_sdk_quicksight.errors.precondition_not_met_exception.PreconditionNotMetException: <p>One or more preconditions aren't met.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.unsupported_user_edition_exception.UnsupportedUserEditionException: <p>This error indicates that you are calling an operation on an Amazon Quick Suite subscription where the edition doesn't include support for that operation. Amazon Quick Suite currently has Standard Edition and Enterprise Edition. Not every operation and capability is available in every edition.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -12408,6 +14464,16 @@ class QuickSightClient:
             theme_arn: <p>The Amazon Resource Name (ARN) for the theme to apply to the analysis that you're creating. To see the theme in the Amazon Quick Sight console, make sure that you have access to it.</p>
             definition: <p>The definition of an analysis.</p> <p>A definition is the data model of all features in a Dashboard, Template, or Analysis.</p>
             validation_strategy: <p>The option to relax the validation needed to update an analysis with definition objects. This skips the validation step for specific errors.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.resource_exists_exception.ResourceExistsException: <p>The resource specified already exists. </p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.unsupported_user_edition_exception.UnsupportedUserEditionException: <p>This error indicates that you are calling an operation on an Amazon Quick Suite subscription where the edition doesn't include support for that operation. Amazon Quick Suite currently has Standard Edition and Enterprise Edition. Not every operation and capability is available in every edition.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -12467,6 +14533,16 @@ class QuickSightClient:
             analysis_id: <p>The ID of the analysis whose permissions you're updating. The ID is part of the analysis URL.</p>
             grant_permissions: <p>A structure that describes the permissions to add and the principal to add them to.</p>
             revoke_permissions: <p>A structure that describes the permissions to remove and the principal to remove them from.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.limit_exceeded_exception.LimitExceededException: <p>A limit is exceeded.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.unsupported_user_edition_exception.UnsupportedUserEditionException: <p>This error indicates that you are calling an operation on an Amazon Quick Suite subscription where the edition doesn't include support for that operation. Amazon Quick Suite currently has Standard Edition and Enterprise Edition. Not every operation and capability is available in every edition.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -12511,6 +14587,16 @@ class QuickSightClient:
         Args:
             aws_account_id: <p>The ID of the Amazon Web Services account to be updated with a token exchange grant.</p>
             namespace: <p>The namespace of the Quick application.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.invalid_request_exception.InvalidRequestException: <p>You don't have this feature activated for your account. To fix this issue, contact Amazon Web Services support.</p>
+            aws_sdk_quicksight.errors.limit_exceeded_exception.LimitExceededException: <p>A limit is exceeded.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -12555,6 +14641,15 @@ class QuickSightClient:
             aws_account_id: <p>The ID of the Amazon Web Services account that owns the brand.</p>
             brand_id: <p>The ID of the Quick brand.</p>
             brand_definition: <p>The definition of the brand.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_quicksight.errors.internal_server_exception.InternalServerException: <p>An internal service exception.</p>
+            aws_sdk_quicksight.errors.invalid_request_exception.InvalidRequestException: <p>You don't have this feature activated for your account. To fix this issue, contact Amazon Web Services support.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -12597,6 +14692,15 @@ class QuickSightClient:
         Args:
             aws_account_id: <p>The ID of the Amazon Web Services account that owns the brand assignment.</p>
             brand_arn: <p>The Amazon Resource Name (ARN) of the brand.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_quicksight.errors.internal_server_exception.InternalServerException: <p>An internal service exception.</p>
+            aws_sdk_quicksight.errors.invalid_request_exception.InvalidRequestException: <p>You don't have this feature activated for your account. To fix this issue, contact Amazon Web Services support.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -12639,6 +14743,15 @@ class QuickSightClient:
             aws_account_id: <p>The ID of the Amazon Web Services account that owns the brand.</p>
             brand_id: <p>The ID of the Quick brand.</p>
             version_id: <p>The ID of the published version.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_quicksight.errors.internal_server_exception.InternalServerException: <p>An internal service exception.</p>
+            aws_sdk_quicksight.errors.invalid_request_exception.InvalidRequestException: <p>You don't have this feature activated for your account. To fix this issue, contact Amazon Web Services support.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -12684,6 +14797,17 @@ class QuickSightClient:
             aws_account_id: <p>The ID of the Amazon Web Services account that contains the custom permissions profile that you want to update.</p>
             custom_permissions_name: <p>The name of the custom permissions profile that you want to update.</p>
             capabilities: <p>A set of actions to include in the custom permissions profile.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.precondition_not_met_exception.PreconditionNotMetException: <p>One or more preconditions aren't met.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.resource_unavailable_exception.ResourceUnavailableException: <p>This resource is currently unavailable.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -12752,6 +14876,16 @@ class QuickSightClient:
             theme_arn: <p>The Amazon Resource Name (ARN) of the theme that is being used for this dashboard. If you add a value for this field, it overrides the value that was originally associated with the entity. The theme ARN must exist in the same Amazon Web Services account where you create the dashboard.</p>
             definition: <p>The definition of a dashboard.</p> <p>A definition is the data model of all features in a Dashboard, Template, or Analysis.</p>
             validation_strategy: <p>The option to relax the validation needed to update a dashboard with definition objects. This skips the validation step for specific errors.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.limit_exceeded_exception.LimitExceededException: <p>A limit is exceeded.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.unsupported_user_edition_exception.UnsupportedUserEditionException: <p>This error indicates that you are calling an operation on an Amazon Quick Suite subscription where the edition doesn't include support for that operation. Amazon Quick Suite currently has Standard Edition and Enterprise Edition. Not every operation and capability is available in every edition.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -12809,6 +14943,16 @@ class QuickSightClient:
             aws_account_id: <p>The ID of the Amazon Web Services account that contains the dashboard whose links you want to update.</p>
             dashboard_id: <p>The ID for the dashboard.</p>
             link_entities: <p> list of analysis Amazon Resource Names (ARNs) to be linked to the dashboard.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.unsupported_user_edition_exception.UnsupportedUserEditionException: <p>This error indicates that you are calling an operation on an Amazon Quick Suite subscription where the edition doesn't include support for that operation. Amazon Quick Suite currently has Standard Edition and Enterprise Edition. Not every operation and capability is available in every edition.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -12866,6 +15010,16 @@ class QuickSightClient:
             revoke_permissions: <p>The permissions that you want to revoke from this resource.</p>
             grant_link_permissions: <p>Grants link permissions to all users in a defined namespace.</p>
             revoke_link_permissions: <p>Revokes link permissions from all users in a defined namespace.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.limit_exceeded_exception.LimitExceededException: <p>A limit is exceeded.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.unsupported_user_edition_exception.UnsupportedUserEditionException: <p>This error indicates that you are calling an operation on an Amazon Quick Suite subscription where the edition doesn't include support for that operation. Amazon Quick Suite currently has Standard Edition and Enterprise Edition. Not every operation and capability is available in every edition.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -12916,6 +15070,15 @@ class QuickSightClient:
             aws_account_id: <p>The ID of the Amazon Web Services account that contains the dashboard that you're updating.</p>
             dashboard_id: <p>The ID for the dashboard.</p>
             version_number: <p>The version number of the dashboard.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.unsupported_user_edition_exception.UnsupportedUserEditionException: <p>This error indicates that you are calling an operation on an Amazon Quick Suite subscription where the edition doesn't include support for that operation. Amazon Quick Suite currently has Standard Edition and Enterprise Edition. Not every operation and capability is available in every edition.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -12957,6 +15120,15 @@ class QuickSightClient:
         Args:
             aws_account_id: <p>The ID of the Amazon Web Services account that contains the dashboard QA configuration that you want to update.</p>
             dashboards_qa_status: <p>The status of dashboards QA configuration that you want to update.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -13046,6 +15218,18 @@ class QuickSightClient:
             performance_configuration: <p>The configuration for the performance optimization of the dataset that contains a <code>UniqueKey</code> configuration.</p>
             data_prep_configuration: <p>The data preparation configuration for the dataset. This configuration defines the source tables, transformation steps, and destination tables used to prepare the data. Required when using the new data preparation experience.</p>
             semantic_model_configuration: <p>The semantic model configuration for the dataset. This configuration defines how the prepared data is structured for an analysis, including table mappings and row-level security configurations. Required when using the new data preparation experience.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_data_set_parameter_value_exception.InvalidDataSetParameterValueException: <p>An exception thrown when an invalid parameter value is provided for dataset operations.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.limit_exceeded_exception.LimitExceededException: <p>A limit is exceeded.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.unsupported_user_edition_exception.UnsupportedUserEditionException: <p>This error indicates that you are calling an operation on an Amazon Quick Suite subscription where the edition doesn't include support for that operation. Amazon Quick Suite currently has Standard Edition and Enterprise Edition. Not every operation and capability is available in every edition.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -13121,6 +15305,15 @@ class QuickSightClient:
             data_set_id: <p>The ID for the dataset whose permissions you want to update. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
             grant_permissions: <p>The resource permissions that you want to grant to the dataset.</p>
             revoke_permissions: <p>The resource permissions that you want to revoke from the dataset.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -13185,6 +15378,16 @@ class QuickSightClient:
             credentials: <p>The credentials that Amazon Quick Sight that uses to connect to your underlying source. Currently, only credentials based on user name and password are supported.</p>
             vpc_connection_properties: <p>Use this parameter only when you want Amazon Quick Sight to use a VPC connection when connecting to your underlying source.</p>
             ssl_properties: <p>Secure Socket Layer (SSL) properties that apply when Amazon Quick Sight connects to your underlying source.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_quicksight.errors.customer_managed_key_unavailable_exception.CustomerManagedKeyUnavailableException: <p>The customer managed key that is registered to your Amazon Quick Sight account is unavailable.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -13242,6 +15445,15 @@ class QuickSightClient:
             data_source_id: <p>The ID of the data source. This ID is unique per Amazon Web Services Region for each Amazon Web Services account. </p>
             grant_permissions: <p>A list of resource permissions that you want to grant on the data source.</p>
             revoke_permissions: <p>A list of resource permissions that you want to revoke on the data source.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -13288,6 +15500,15 @@ class QuickSightClient:
             aws_account_id: <p>The ID of the Quick Sight account that is connected to the Amazon Q Business application that you want to update.</p>
             namespace: <p>The Quick Sight namespace that contains the linked Amazon Q Business application. If this field is left blank, the default namespace is used. Currently, the default namespace is the only valid value for this parameter.</p>
             application_id: <p>The ID of the Amazon Q Business application that you want to update.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -13344,6 +15565,16 @@ class QuickSightClient:
             description: <p>Updated description for the flow. Omit to preserve the existing description.</p>
             flow_definition: <p>The definition of the flow, specifying the steps and configurations. This is the flow definition in Quick Flow's internal format. The format is subject to change. When provided, all existing steps are replaced. Omit to preserve the existing definition.</p> <note> <p>Always derive or depend on the flow definition from the <code>DescribeFlow</code> operation to ensure you are working with the latest format.</p> </note>
             client_token: <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.limit_exceeded_exception.LimitExceededException: <p>A limit is exceeded.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -13400,6 +15631,13 @@ class QuickSightClient:
             flow_id: <p>The unique identifier of the flow to update permissions for.</p>
             grant_permissions: <p>The permissions that you want to grant on this flow.</p>
             revoke_permissions: <p>The permissions that you want to revoke from this flow.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -13446,6 +15684,17 @@ class QuickSightClient:
             aws_account_id: <p>The ID for the Amazon Web Services account that contains the folder to update.</p>
             folder_id: <p>The ID of the folder.</p>
             name: <p>The name of the folder.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.resource_exists_exception.ResourceExistsException: <p>The resource specified already exists. </p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.unsupported_user_edition_exception.UnsupportedUserEditionException: <p>This error indicates that you are calling an operation on an Amazon Quick Suite subscription where the edition doesn't include support for that operation. Amazon Quick Suite currently has Standard Edition and Enterprise Edition. Not every operation and capability is available in every edition.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -13495,6 +15744,16 @@ class QuickSightClient:
             folder_id: <p>The ID of the folder.</p>
             grant_permissions: <p>The permissions that you want to grant on a resource. Namespace ARNs are not supported <code>Principal</code> values for folder permissions.</p>
             revoke_permissions: <p>The permissions that you want to revoke from a resource. Namespace ARNs are not supported <code>Principal</code> values for folder permissions.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.limit_exceeded_exception.LimitExceededException: <p>A limit is exceeded.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.unsupported_user_edition_exception.UnsupportedUserEditionException: <p>This error indicates that you are calling an operation on an Amazon Quick Suite subscription where the edition doesn't include support for that operation. Amazon Quick Suite currently has Standard Edition and Enterprise Edition. Not every operation and capability is available in every edition.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -13545,6 +15804,16 @@ class QuickSightClient:
             description: <p>The description for the group that you want to update.</p>
             aws_account_id: <p>The ID for the Amazon Web Services account that the group is in. Currently, you use the ID for the Amazon Web Services account that contains your Amazon Quick Sight account.</p>
             namespace: <p>The namespace of the group that you want to update.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.precondition_not_met_exception.PreconditionNotMetException: <p>One or more preconditions aren't met.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.resource_unavailable_exception.ResourceUnavailableException: <p>This resource is currently unavailable.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -13600,6 +15869,16 @@ class QuickSightClient:
             assignment_status: <p>The status of the assignment. Possible values are as follows:</p> <ul> <li> <p> <code>ENABLED</code> - Anything specified in this assignment is used when creating the data source.</p> </li> <li> <p> <code>DISABLED</code> - This assignment isn't used when creating the data source.</p> </li> <li> <p> <code>DRAFT</code> - This assignment is an unfinished draft and isn't used when creating the data source.</p> </li> </ul>
             policy_arn: <p>The ARN for the IAM policy to apply to the Amazon Quick Sight users and groups specified in this assignment.</p>
             identities: <p>The Amazon Quick Sight users, groups, or both that you want to assign the policy to.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.concurrent_updating_exception.ConcurrentUpdatingException: <p>A resource is already in a state that indicates an operation is happening that must complete before a new update can be applied.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.resource_exists_exception.ResourceExistsException: <p>The resource specified already exists. </p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -13651,6 +15930,14 @@ class QuickSightClient:
             aws_account_id: <p>The ID of the Amazon Web Services account that contains the identity propagation configuration that you want to update.</p>
             service: <p>The name of the Amazon Web Services service that contains the authorized targets that you want to add or update.</p>
             authorized_targets: <p>Specifies a list of application ARNs that represent the authorized targets for a service.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -13707,6 +15994,15 @@ class QuickSightClient:
             vpc_id_restriction_rule_map: <p>A map of VPC IDs and their corresponding rules. When you configure this parameter, traffic from all VPC endpoints that are present in the specified VPC is allowed.</p>
             vpc_endpoint_id_restriction_rule_map: <p>A map of allowed VPC endpoint IDs and their corresponding rule descriptions.</p>
             enabled: <p>A value that specifies whether IP rules are turned on.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.limit_exceeded_exception.LimitExceededException: <p>A limit is exceeded.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -13756,6 +16052,13 @@ class QuickSightClient:
         Args:
             aws_account_id: <p>The ID of the Amazon Web Services account that contains the customer managed key registration that you want to update.</p>
             key_registration: <p>A list of <code>RegisteredCustomerManagedKey</code> objects to be updated to the Quick Sight account.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -13804,6 +16107,18 @@ class QuickSightClient:
             knowledge_base_id: <p>The unique identifier for the knowledge base.</p>
             grant_permissions: <p>The resource permissions that you want to grant on the knowledge base.</p>
             revoke_permissions: <p>The resource permissions that you want to revoke from the knowledge base.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.invalid_request_exception.InvalidRequestException: <p>You don't have this feature activated for your account. To fix this issue, contact Amazon Web Services support.</p>
+            aws_sdk_quicksight.errors.limit_exceeded_exception.LimitExceededException: <p>A limit is exceeded.</p>
+            aws_sdk_quicksight.errors.precondition_not_met_exception.PreconditionNotMetException: <p>One or more preconditions aren't met.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -13877,6 +16192,16 @@ class QuickSightClient:
             o_auth_authorization_endpoint_url: <p>The authorization endpoint URL of the identity provider that is used to obtain authorization codes.</p>
             o_auth_scopes: <p>The OAuth scopes that are requested when the OAuthClientApplication obtains an access token from the identity provider.</p>
             data_source_type: <p>The type of data source that the OAuthClientApplication is used with. Valid values are <code>SNOWFLAKE</code>.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.limit_exceeded_exception.LimitExceededException: <p>A limit is exceeded.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -13938,6 +16263,15 @@ class QuickSightClient:
         Args:
             aws_account_id: <p>The Amazon Web Services account ID associated with your Amazon Quick Sight subscription.</p>
             public_sharing_enabled: <p>A Boolean value that indicates whether public sharing is turned on for an Quick account.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.unsupported_pricing_plan_exception.UnsupportedPricingPlanException: <p>This error indicates that you are calling an embedding operation in Amazon Quick Sight without the required pricing plan on your Amazon Web Services account. Before you can use embedding for anonymous users, a Quick Suite administrator needs to add capacity pricing to Quick Sight. You can do this on the <b>Manage Quick Suite</b> page. </p> <p>After capacity pricing is added, you can use the <code> <a href=\"https://docs.aws.amazon.com/quicksight/latest/APIReference/API_GetDashboardEmbedUrl.html\">GetDashboardEmbedUrl</a> </code> API operation with the <code>--identity-type ANONYMOUS</code> option.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -13979,6 +16313,16 @@ class QuickSightClient:
         Args:
             aws_account_id: <p>The ID of the Amazon Web Services account account that contains the personalization configuration that the user wants to update.</p>
             personalization_mode: <p>An option to allow Amazon Quick Sight to customize data stories with user specific metadata, specifically location and job information, in your IAM Identity Center instance.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.resource_unavailable_exception.ResourceUnavailableException: <p>This resource is currently unavailable.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -14019,6 +16363,15 @@ class QuickSightClient:
         Args:
             aws_account_id: <p>The ID of the Amazon Web Services account that contains the Quick Sight Q Search configuration that you want to update.</p>
             q_search_status: <p>The status of the Quick Sight Q Search configuration that the user wants to update.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -14061,6 +16414,16 @@ class QuickSightClient:
             data_set_id: <p>The ID of the dataset.</p>
             aws_account_id: <p>The Amazon Web Services account ID.</p>
             schedule: <p>The refresh schedule.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.limit_exceeded_exception.LimitExceededException: <p>A limit is exceeded.</p>
+            aws_sdk_quicksight.errors.precondition_not_met_exception.PreconditionNotMetException: <p>One or more preconditions aren't met.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -14106,6 +16469,16 @@ class QuickSightClient:
             role: <p>The name of role tht you want to update.</p>
             aws_account_id: <p>The ID for the Amazon Web Services account that you want to create a group in. The Amazon Web Services account ID that you provide must be the same Amazon Web Services account that contains your Amazon Quick Sight account.</p>
             namespace: <p>The namespace that contains the role that you want to update.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.precondition_not_met_exception.PreconditionNotMetException: <p>One or more preconditions aren't met.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.resource_unavailable_exception.ResourceUnavailableException: <p>This resource is currently unavailable.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -14152,6 +16525,18 @@ class QuickSightClient:
             namespace: <p>The Quick namespace for the self-upgrade request.</p>
             upgrade_request_id: <p>The ID of the self-upgrade request to update.</p>
             action: <p>The action to perform on the self-upgrade request. Valid values are <code>APPROVE</code>, <code>DENY</code>, or <code>VERIFY</code>.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The <code>NextToken</code> value isn't valid.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.limit_exceeded_exception.LimitExceededException: <p>A limit is exceeded.</p>
+            aws_sdk_quicksight.errors.precondition_not_met_exception.PreconditionNotMetException: <p>One or more preconditions aren't met.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.resource_unavailable_exception.ResourceUnavailableException: <p>This resource is currently unavailable.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -14196,6 +16581,17 @@ class QuickSightClient:
             aws_account_id: <p>The ID of the Amazon Web Services account that contains the Quick self-upgrade configuration that you want to update.</p>
             namespace: <p>The Quick namespace that you want to update the Quick self-upgrade configuration for.</p>
             self_upgrade_status: <p>The self-upgrade status that you want to set for the Quick account.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameter has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.precondition_not_met_exception.PreconditionNotMetException: <p>One or more preconditions aren't met.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.resource_unavailable_exception.ResourceUnavailableException: <p>This resource is currently unavailable.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -14243,6 +16639,15 @@ class QuickSightClient:
             space_id: <p>The ID of the space that you want to update.</p>
             name: <p>A new display name for the space.</p>
             description: <p>A new description for the space.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -14295,6 +16700,17 @@ class QuickSightClient:
             space_id: <p>The ID of the space that you want to update permissions for.</p>
             grant_permissions: <p>The permissions that you want to grant on the space.</p>
             revoke_permissions: <p>The permissions that you want to revoke from the space.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.limit_exceeded_exception.LimitExceededException: <p>A limit is exceeded.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.unsupported_user_edition_exception.UnsupportedUserEditionException: <p>This error indicates that you are calling an operation on an Amazon Quick Suite subscription where the edition doesn't include support for that operation. Amazon Quick Suite currently has Standard Edition and Enterprise Edition. Not every operation and capability is available in every edition.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -14347,6 +16763,17 @@ class QuickSightClient:
             space_id: <p>The ID of the space that you want to update resources for.</p>
             add_resources: <p>A list of resources to add to the space.</p>
             remove_resources: <p>A list of resources to remove from the space.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.limit_exceeded_exception.LimitExceededException: <p>A limit is exceeded.</p>
+            aws_sdk_quicksight.errors.resource_exists_exception.ResourceExistsException: <p>The resource specified already exists. </p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -14391,6 +16818,14 @@ class QuickSightClient:
         Args:
             aws_account_id: <p>The ID of the Amazon Web Services account that contains the SPICE configuration that you want to update.</p>
             purchase_mode: <p>Determines how SPICE capacity can be purchased. The following options are available. </p> <ul> <li> <p> <code>MANUAL</code>: SPICE capacity can only be purchased manually.</p> </li> <li> <p> <code>AUTO_PURCHASE</code>: Extra SPICE capacity is automatically purchased on your behalf as needed. SPICE capacity can also be purchased manually with this option.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -14449,6 +16884,17 @@ class QuickSightClient:
             name: <p>The name for the template.</p>
             definition: <p>The definition of a template.</p> <p>A definition is the data model of all features in a Dashboard, Template, or Analysis.</p>
             validation_strategy: <p>The option to relax the validation needed to update a template with definition objects. This skips the validation step for specific errors.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.limit_exceeded_exception.LimitExceededException: <p>A limit is exceeded.</p>
+            aws_sdk_quicksight.errors.resource_exists_exception.ResourceExistsException: <p>The resource specified already exists. </p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.unsupported_user_edition_exception.UnsupportedUserEditionException: <p>This error indicates that you are calling an operation on an Amazon Quick Suite subscription where the edition doesn't include support for that operation. Amazon Quick Suite currently has Standard Edition and Enterprise Edition. Not every operation and capability is available in every edition.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -14503,6 +16949,14 @@ class QuickSightClient:
             template_id: <p>The ID for the template.</p>
             alias_name: <p>The alias of the template that you want to update. If you name a specific alias, you update the version that the alias points to. You can specify the latest version of the template by providing the keyword <code>$LATEST</code> in the <code>AliasName</code> parameter. The keyword <code>$PUBLISHED</code> doesn't apply to templates.</p>
             template_version_number: <p>The version number of the template.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.unsupported_user_edition_exception.UnsupportedUserEditionException: <p>This error indicates that you are calling an operation on an Amazon Quick Suite subscription where the edition doesn't include support for that operation. Amazon Quick Suite currently has Standard Edition and Enterprise Edition. Not every operation and capability is available in every edition.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -14553,6 +17007,16 @@ class QuickSightClient:
             template_id: <p>The ID for the template.</p>
             grant_permissions: <p>A list of resource permissions to be granted on the template. </p>
             revoke_permissions: <p>A list of resource permissions to be revoked from the template. </p>
+
+        Raises:
+            aws_sdk_quicksight.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.limit_exceeded_exception.LimitExceededException: <p>A limit is exceeded.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.unsupported_user_edition_exception.UnsupportedUserEditionException: <p>This error indicates that you are calling an operation on an Amazon Quick Suite subscription where the edition doesn't include support for that operation. Amazon Quick Suite currently has Standard Edition and Enterprise Edition. Not every operation and capability is available in every edition.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -14609,6 +17073,17 @@ class QuickSightClient:
             base_theme_id: <p>The theme ID, defined by Amazon Quick Sight, that a custom theme inherits from. All themes initially inherit from a default Quick Sight theme.</p>
             version_description: <p>A description of the theme version that you're updating Every time that you call <code>UpdateTheme</code>, you create a new version of the theme. Each version of the theme maintains a description of the version in <code>VersionDescription</code>.</p>
             configuration: <p>The theme configuration, which contains the theme display properties.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.limit_exceeded_exception.LimitExceededException: <p>A limit is exceeded.</p>
+            aws_sdk_quicksight.errors.resource_exists_exception.ResourceExistsException: <p>The resource specified already exists. </p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.unsupported_user_edition_exception.UnsupportedUserEditionException: <p>This error indicates that you are calling an operation on an Amazon Quick Suite subscription where the edition doesn't include support for that operation. Amazon Quick Suite currently has Standard Edition and Enterprise Edition. Not every operation and capability is available in every edition.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -14662,6 +17137,16 @@ class QuickSightClient:
             theme_id: <p>The ID for the theme.</p>
             alias_name: <p>The name of the theme alias that you want to update.</p>
             theme_version_number: <p>The version number of the theme that the alias should reference.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.resource_exists_exception.ResourceExistsException: <p>The resource specified already exists. </p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.unsupported_user_edition_exception.UnsupportedUserEditionException: <p>This error indicates that you are calling an operation on an Amazon Quick Suite subscription where the edition doesn't include support for that operation. Amazon Quick Suite currently has Standard Edition and Enterprise Edition. Not every operation and capability is available in every edition.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -14712,6 +17197,16 @@ class QuickSightClient:
             theme_id: <p>The ID for the theme.</p>
             grant_permissions: <p>A list of resource permissions to be granted for the theme.</p>
             revoke_permissions: <p>A list of resource permissions to be revoked from the theme.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.limit_exceeded_exception.LimitExceededException: <p>A limit is exceeded.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.unsupported_user_edition_exception.UnsupportedUserEditionException: <p>This error indicates that you are calling an operation on an Amazon Quick Suite subscription where the edition doesn't include support for that operation. Amazon Quick Suite currently has Standard Edition and Enterprise Edition. Not every operation and capability is available in every edition.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -14762,6 +17257,17 @@ class QuickSightClient:
             topic_id: <p>The ID of the topic that you want to modify. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
             topic: <p>The definition of the topic that you want to update.</p>
             custom_instructions: <p>Custom instructions for the topic.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.limit_exceeded_exception.LimitExceededException: <p>A limit is exceeded.</p>
+            aws_sdk_quicksight.errors.resource_exists_exception.ResourceExistsException: <p>The resource specified already exists. </p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -14813,6 +17319,17 @@ class QuickSightClient:
             topic_id: <p>The ID of the topic that you want to modify. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
             grant_permissions: <p>The resource permissions that you want to grant to the topic.</p>
             revoke_permissions: <p>The resource permissions that you want to revoke from the topic.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.limit_exceeded_exception.LimitExceededException: <p>A limit is exceeded.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.unsupported_user_edition_exception.UnsupportedUserEditionException: <p>This error indicates that you are calling an operation on an Amazon Quick Suite subscription where the edition doesn't include support for that operation. Amazon Quick Suite currently has Standard Edition and Enterprise Edition. Not every operation and capability is available in every edition.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -14861,6 +17378,17 @@ class QuickSightClient:
             topic_id: <p>The ID of the topic that you want to modify. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
             dataset_id: <p>The ID of the dataset.</p>
             refresh_schedule: <p>The definition of a refresh schedule.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.limit_exceeded_exception.LimitExceededException: <p>A limit is exceeded.</p>
+            aws_sdk_quicksight.errors.resource_exists_exception.ResourceExistsException: <p>The resource specified already exists. </p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -14927,6 +17455,16 @@ class QuickSightClient:
             external_login_federation_provider_type: <p>The type of supported external login provider that provides identity to let a user federate into Quick Sight with an associated Identity and Access Management(IAM) role. The type of supported external login provider can be one of the following.</p> <ul> <li> <p> <code>COGNITO</code>: Amazon Cognito. The provider URL is cognito-identity.amazonaws.com. When choosing the <code>COGNITO</code> provider type, don’t use the \"CustomFederationProviderUrl\" parameter which is only needed when the external provider is custom.</p> </li> <li> <p> <code>CUSTOM_OIDC</code>: Custom OpenID Connect (OIDC) provider. When choosing <code>CUSTOM_OIDC</code> type, use the <code>CustomFederationProviderUrl</code> parameter to provide the custom OIDC provider URL.</p> </li> <li> <p> <code>NONE</code>: This clears all the previously saved external login information for a user. Use the <code> <a href=\"https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DescribeUser.html\">DescribeUser</a> </code> API operation to check the external login information.</p> </li> </ul>
             custom_federation_provider_url: <p>The URL of the custom OpenID Connect (OIDC) provider that provides identity to let a user federate into Quick Sight with an associated Identity and Access Management(IAM) role. This parameter should only be used when <code>ExternalLoginFederationProviderType</code> parameter is set to <code>CUSTOM_OIDC</code>.</p>
             external_login_id: <p>The identity ID for a user in the external login provider.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.precondition_not_met_exception.PreconditionNotMetException: <p>One or more preconditions aren't met.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.resource_unavailable_exception.ResourceUnavailableException: <p>This resource is currently unavailable.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -14986,6 +17524,17 @@ class QuickSightClient:
             aws_account_id: <p>The ID of the Amazon Web Services account that contains the custom permission configuration that you want to update.</p>
             namespace: <p>The namespace that the user belongs to.</p>
             custom_permissions_name: <p>The name of the custom permissions that you want to update.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.precondition_not_met_exception.PreconditionNotMetException: <p>One or more preconditions aren't met.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.resource_unavailable_exception.ResourceUnavailableException: <p>This resource is currently unavailable.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -15040,6 +17589,17 @@ class QuickSightClient:
             security_group_ids: <p>A list of security group IDs for the VPC connection.</p>
             dns_resolvers: <p>A list of IP addresses of DNS resolver endpoints for the VPC connection.</p>
             role_arn: <p>An IAM role associated with the VPC connection.</p>
+
+        Raises:
+            aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException: <p>You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.</p>
+            aws_sdk_quicksight.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more parameters has a value that isn't valid.</p>
+            aws_sdk_quicksight.errors.limit_exceeded_exception.LimitExceededException: <p>A limit is exceeded.</p>
+            aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_quicksight.errors.throttling_exception.ThrottlingException: <p>Access is throttled.</p>
+            aws_sdk_quicksight.errors.unsupported_user_edition_exception.UnsupportedUserEditionException: <p>This error indicates that you are calling an operation on an Amazon Quick Suite subscription where the edition doesn't include support for that operation. Amazon Quick Suite currently has Standard Edition and Enterprise Edition. Not every operation and capability is available in every edition.</p>
+            aws_sdk_quicksight.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(

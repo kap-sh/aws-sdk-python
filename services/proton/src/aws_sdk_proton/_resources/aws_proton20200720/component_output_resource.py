@@ -49,6 +49,14 @@ class ComponentOutputResource:
             component_name: <p>The name of the component whose outputs you want.</p>
             next_token: <p>A token that indicates the location of the next output in the array of outputs, after the list of outputs that was previously requested.</p>
             deployment_id: <p>The ID of the deployment whose outputs you want.</p>
+
+        Raises:
+            aws_sdk_proton.errors.access_denied_exception.AccessDeniedException: <p>There <i>isn't</i> sufficient access for performing this action.</p>
+            aws_sdk_proton.errors.internal_server_exception.InternalServerException: <p>The request failed to register with the service.</p>
+            aws_sdk_proton.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource <i>wasn't</i> found.</p>
+            aws_sdk_proton.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_proton.errors.validation_exception.ValidationException: <p>The input is invalid or an out-of-range value was supplied for the input parameter.</p>
+            aws_sdk_proton.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -105,6 +113,14 @@ class AsyncComponentOutputResource:
             component_name: <p>The name of the component whose outputs you want.</p>
             next_token: <p>A token that indicates the location of the next output in the array of outputs, after the list of outputs that was previously requested.</p>
             deployment_id: <p>The ID of the deployment whose outputs you want.</p>
+
+        Raises:
+            aws_sdk_proton.errors.access_denied_exception.AccessDeniedException: <p>There <i>isn't</i> sufficient access for performing this action.</p>
+            aws_sdk_proton.errors.internal_server_exception.InternalServerException: <p>The request failed to register with the service.</p>
+            aws_sdk_proton.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource <i>wasn't</i> found.</p>
+            aws_sdk_proton.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_proton.errors.validation_exception.ValidationException: <p>The input is invalid or an out-of-range value was supplied for the input parameter.</p>
+            aws_sdk_proton.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

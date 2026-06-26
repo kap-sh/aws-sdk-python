@@ -61,6 +61,9 @@ class VodSourceResource:
             source_location_name: <p>The name of the source location for this VOD source.</p>
             tags: <p>The tags to assign to the VOD source. Tags are key-value pairs that you can associate with Amazon resources to help with organization, access control, and cost tracking. For more information, see <a href=\"https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html\">Tagging AWS Elemental MediaTailor Resources</a>.</p>
             vod_source_name: <p>The name associated with the VOD source.&gt;</p>
+
+        Raises:
+            aws_sdk_mediatailor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -104,6 +107,9 @@ class VodSourceResource:
         Args:
             source_location_name: <p>The name of the source location associated with this VOD Source.</p>
             vod_source_name: <p>The name of the VOD Source.</p>
+
+        Raises:
+            aws_sdk_mediatailor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -146,6 +152,9 @@ class VodSourceResource:
             http_package_configurations: <p>A list of HTTP package configurations for the VOD source on this account.</p>
             source_location_name: <p>The name of the source location associated with this VOD Source.</p>
             vod_source_name: <p>The name of the VOD source.</p>
+
+        Raises:
+            aws_sdk_mediatailor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -187,6 +196,9 @@ class VodSourceResource:
         Args:
             source_location_name: <p>The name of the source location associated with this VOD Source.</p>
             vod_source_name: <p>The name of the VOD source.</p>
+
+        Raises:
+            aws_sdk_mediatailor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -231,6 +243,9 @@ class VodSourceResource:
             max_results: <p> The maximum number of VOD sources that you want MediaTailor to return in response to the current request. If there are more than <code>MaxResults</code> VOD sources, use the value of <code>NextToken</code> in the response to get the next page of results.</p> <p>The default value is 100. MediaTailor uses DynamoDB-based pagination, which means that a response might contain fewer than <code>MaxResults</code> items, including 0 items, even when more results are available. To retrieve all results, you must continue making requests using the <code>NextToken</code> value from each response until the response no longer includes a <code>NextToken</code> value.</p>
             next_token: <p>Pagination token returned by the list request when results exceed the maximum allowed. Use the token to fetch the next page of results.</p> <p>For the first <code>ListVodSources</code> request, omit this value. For subsequent requests, get the value of <code>NextToken</code> from the previous response and specify that value for <code>NextToken</code> in the request. Continue making requests until the response no longer includes a <code>NextToken</code> value, which indicates that all results have been retrieved.</p>
             source_location_name: <p>The name of the source location associated with this VOD Source list.</p>
+
+        Raises:
+            aws_sdk_mediatailor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -285,6 +300,9 @@ class AsyncVodSourceResource:
             source_location_name: <p>The name of the source location for this VOD source.</p>
             tags: <p>The tags to assign to the VOD source. Tags are key-value pairs that you can associate with Amazon resources to help with organization, access control, and cost tracking. For more information, see <a href=\"https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html\">Tagging AWS Elemental MediaTailor Resources</a>.</p>
             vod_source_name: <p>The name associated with the VOD source.&gt;</p>
+
+        Raises:
+            aws_sdk_mediatailor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -329,6 +347,9 @@ class AsyncVodSourceResource:
         Args:
             source_location_name: <p>The name of the source location associated with this VOD Source.</p>
             vod_source_name: <p>The name of the VOD Source.</p>
+
+        Raises:
+            aws_sdk_mediatailor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -372,6 +393,9 @@ class AsyncVodSourceResource:
             http_package_configurations: <p>A list of HTTP package configurations for the VOD source on this account.</p>
             source_location_name: <p>The name of the source location associated with this VOD Source.</p>
             vod_source_name: <p>The name of the VOD source.</p>
+
+        Raises:
+            aws_sdk_mediatailor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -414,6 +438,9 @@ class AsyncVodSourceResource:
         Args:
             source_location_name: <p>The name of the source location associated with this VOD Source.</p>
             vod_source_name: <p>The name of the VOD source.</p>
+
+        Raises:
+            aws_sdk_mediatailor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -459,6 +486,9 @@ class AsyncVodSourceResource:
             max_results: <p> The maximum number of VOD sources that you want MediaTailor to return in response to the current request. If there are more than <code>MaxResults</code> VOD sources, use the value of <code>NextToken</code> in the response to get the next page of results.</p> <p>The default value is 100. MediaTailor uses DynamoDB-based pagination, which means that a response might contain fewer than <code>MaxResults</code> items, including 0 items, even when more results are available. To retrieve all results, you must continue making requests using the <code>NextToken</code> value from each response until the response no longer includes a <code>NextToken</code> value.</p>
             next_token: <p>Pagination token returned by the list request when results exceed the maximum allowed. Use the token to fetch the next page of results.</p> <p>For the first <code>ListVodSources</code> request, omit this value. For subsequent requests, get the value of <code>NextToken</code> from the previous response and specify that value for <code>NextToken</code> in the request. Continue making requests until the response no longer includes a <code>NextToken</code> value, which indicates that all results have been retrieved.</p>
             source_location_name: <p>The name of the source location associated with this VOD Source list.</p>
+
+        Raises:
+            aws_sdk_mediatailor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

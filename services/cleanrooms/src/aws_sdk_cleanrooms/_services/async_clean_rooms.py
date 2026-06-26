@@ -185,6 +185,11 @@ class AsyncCleanRoomsClient:
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) associated with the resource you want to list tags on.</p>
+
+        Raises:
+            aws_sdk_cleanrooms.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_cleanrooms.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints.</p>
+            aws_sdk_cleanrooms.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -225,6 +230,11 @@ class AsyncCleanRoomsClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) associated with the resource you want to tag.</p>
             tags: <p>A map of objects specifying each key name and value.</p>
+
+        Raises:
+            aws_sdk_cleanrooms.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_cleanrooms.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints.</p>
+            aws_sdk_cleanrooms.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -266,6 +276,11 @@ class AsyncCleanRoomsClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) associated with the resource you want to remove the tag from.</p>
             tag_keys: <p>A list of key names of tags to be removed.</p>
+
+        Raises:
+            aws_sdk_cleanrooms.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_cleanrooms.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints.</p>
+            aws_sdk_cleanrooms.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

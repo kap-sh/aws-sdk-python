@@ -199,6 +199,13 @@ class AsyncDataPipelineClient:
             pipeline_id: <p>The ID of the pipeline.</p>
             parameter_values: <p>A list of parameter values to pass to the pipeline at activation.</p>
             start_timestamp: <p>The date and time to resume the pipeline. By default, the pipeline resumes from the last completed execution.</p>
+
+        Raises:
+            aws_sdk_data_pipeline.errors.internal_service_error.InternalServiceError: <p>An internal service error occurred.</p>
+            aws_sdk_data_pipeline.errors.invalid_request_exception.InvalidRequestException: <p>The request was not valid. Verify that your request was properly formatted, that the signature was generated with the correct credentials, and that you haven't exceeded any of the service limits for your account.</p>
+            aws_sdk_data_pipeline.errors.pipeline_deleted_exception.PipelineDeletedException: <p>The specified pipeline has been deleted.</p>
+            aws_sdk_data_pipeline.errors.pipeline_not_found_exception.PipelineNotFoundException: <p>The specified pipeline was not found. Verify that you used the correct user and account identifiers.</p>
+            aws_sdk_data_pipeline.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -243,6 +250,13 @@ class AsyncDataPipelineClient:
         Args:
             pipeline_id: <p>The ID of the pipeline.</p>
             tags: <p>The tags to add, as key/value pairs.</p>
+
+        Raises:
+            aws_sdk_data_pipeline.errors.internal_service_error.InternalServiceError: <p>An internal service error occurred.</p>
+            aws_sdk_data_pipeline.errors.invalid_request_exception.InvalidRequestException: <p>The request was not valid. Verify that your request was properly formatted, that the signature was generated with the correct credentials, and that you haven't exceeded any of the service limits for your account.</p>
+            aws_sdk_data_pipeline.errors.pipeline_deleted_exception.PipelineDeletedException: <p>The specified pipeline has been deleted.</p>
+            aws_sdk_data_pipeline.errors.pipeline_not_found_exception.PipelineNotFoundException: <p>The specified pipeline was not found. Verify that you used the correct user and account identifiers.</p>
+            aws_sdk_data_pipeline.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -288,6 +302,11 @@ class AsyncDataPipelineClient:
             unique_id: <p>A unique identifier. This identifier is not the same as the pipeline identifier assigned by AWS Data Pipeline. You are responsible for defining the format and ensuring the uniqueness of this identifier. You use this parameter to ensure idempotency during repeated calls to <code>CreatePipeline</code>. For example, if the first call to <code>CreatePipeline</code> does not succeed, you can pass in the same unique identifier and pipeline name combination on a subsequent call to <code>CreatePipeline</code>. <code>CreatePipeline</code> ensures that if a pipeline already exists with the same name and unique identifier, a new pipeline is not created. Instead, you'll receive the pipeline identifier from the previous attempt. The uniqueness of the name and unique identifier combination is scoped to the AWS account or IAM user credentials.</p>
             description: <p>The description for the pipeline.</p>
             tags: <p>A list of tags to associate with the pipeline at creation. Tags let you control access to pipelines. For more information, see <a href=\"http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html\">Controlling User Access to Pipelines</a> in the <i>AWS Data Pipeline Developer Guide</i>.</p>
+
+        Raises:
+            aws_sdk_data_pipeline.errors.internal_service_error.InternalServiceError: <p>An internal service error occurred.</p>
+            aws_sdk_data_pipeline.errors.invalid_request_exception.InvalidRequestException: <p>The request was not valid. Verify that your request was properly formatted, that the signature was generated with the correct credentials, and that you haven't exceeded any of the service limits for your account.</p>
+            aws_sdk_data_pipeline.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -335,6 +354,13 @@ class AsyncDataPipelineClient:
         Args:
             pipeline_id: <p>The ID of the pipeline.</p>
             cancel_active: <p>Indicates whether to cancel any running objects. The default is true, which sets the state of any running objects to <code>CANCELED</code>. If this value is false, the pipeline is deactivated after all running objects finish.</p>
+
+        Raises:
+            aws_sdk_data_pipeline.errors.internal_service_error.InternalServiceError: <p>An internal service error occurred.</p>
+            aws_sdk_data_pipeline.errors.invalid_request_exception.InvalidRequestException: <p>The request was not valid. Verify that your request was properly formatted, that the signature was generated with the correct credentials, and that you haven't exceeded any of the service limits for your account.</p>
+            aws_sdk_data_pipeline.errors.pipeline_deleted_exception.PipelineDeletedException: <p>The specified pipeline has been deleted.</p>
+            aws_sdk_data_pipeline.errors.pipeline_not_found_exception.PipelineNotFoundException: <p>The specified pipeline was not found. Verify that you used the correct user and account identifiers.</p>
+            aws_sdk_data_pipeline.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -375,6 +401,12 @@ class AsyncDataPipelineClient:
 
         Args:
             pipeline_id: <p>The ID of the pipeline.</p>
+
+        Raises:
+            aws_sdk_data_pipeline.errors.internal_service_error.InternalServiceError: <p>An internal service error occurred.</p>
+            aws_sdk_data_pipeline.errors.invalid_request_exception.InvalidRequestException: <p>The request was not valid. Verify that your request was properly formatted, that the signature was generated with the correct credentials, and that you haven't exceeded any of the service limits for your account.</p>
+            aws_sdk_data_pipeline.errors.pipeline_not_found_exception.PipelineNotFoundException: <p>The specified pipeline was not found. Verify that you used the correct user and account identifiers.</p>
+            aws_sdk_data_pipeline.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -419,6 +451,13 @@ class AsyncDataPipelineClient:
             object_ids: <p>The IDs of the pipeline objects that contain the definitions to be described. You can pass as many as 25 identifiers in a single call to <code>DescribeObjects</code>.</p>
             evaluate_expressions: <p>Indicates whether any expressions in the object should be evaluated when the object descriptions are returned.</p>
             marker: <p>The starting point for the results to be returned. For the first call, this value should be empty. As long as there are more results, continue to call <code>DescribeObjects</code> with the marker value from the previous call to retrieve the next set of results.</p>
+
+        Raises:
+            aws_sdk_data_pipeline.errors.internal_service_error.InternalServiceError: <p>An internal service error occurred.</p>
+            aws_sdk_data_pipeline.errors.invalid_request_exception.InvalidRequestException: <p>The request was not valid. Verify that your request was properly formatted, that the signature was generated with the correct credentials, and that you haven't exceeded any of the service limits for your account.</p>
+            aws_sdk_data_pipeline.errors.pipeline_deleted_exception.PipelineDeletedException: <p>The specified pipeline has been deleted.</p>
+            aws_sdk_data_pipeline.errors.pipeline_not_found_exception.PipelineNotFoundException: <p>The specified pipeline was not found. Verify that you used the correct user and account identifiers.</p>
+            aws_sdk_data_pipeline.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -491,6 +530,13 @@ class AsyncDataPipelineClient:
 
         Args:
             pipeline_ids: <p>The IDs of the pipelines to describe. You can pass as many as 25 identifiers in a single call. To obtain pipeline IDs, call <a>ListPipelines</a>.</p>
+
+        Raises:
+            aws_sdk_data_pipeline.errors.internal_service_error.InternalServiceError: <p>An internal service error occurred.</p>
+            aws_sdk_data_pipeline.errors.invalid_request_exception.InvalidRequestException: <p>The request was not valid. Verify that your request was properly formatted, that the signature was generated with the correct credentials, and that you haven't exceeded any of the service limits for your account.</p>
+            aws_sdk_data_pipeline.errors.pipeline_deleted_exception.PipelineDeletedException: <p>The specified pipeline has been deleted.</p>
+            aws_sdk_data_pipeline.errors.pipeline_not_found_exception.PipelineNotFoundException: <p>The specified pipeline was not found. Verify that you used the correct user and account identifiers.</p>
+            aws_sdk_data_pipeline.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -533,6 +579,14 @@ class AsyncDataPipelineClient:
             pipeline_id: <p>The ID of the pipeline.</p>
             object_id: <p>The ID of the object.</p>
             expression: <p>The expression to evaluate.</p>
+
+        Raises:
+            aws_sdk_data_pipeline.errors.internal_service_error.InternalServiceError: <p>An internal service error occurred.</p>
+            aws_sdk_data_pipeline.errors.invalid_request_exception.InvalidRequestException: <p>The request was not valid. Verify that your request was properly formatted, that the signature was generated with the correct credentials, and that you haven't exceeded any of the service limits for your account.</p>
+            aws_sdk_data_pipeline.errors.pipeline_deleted_exception.PipelineDeletedException: <p>The specified pipeline has been deleted.</p>
+            aws_sdk_data_pipeline.errors.pipeline_not_found_exception.PipelineNotFoundException: <p>The specified pipeline was not found. Verify that you used the correct user and account identifiers.</p>
+            aws_sdk_data_pipeline.errors.task_not_found_exception.TaskNotFoundException: <p>The specified task was not found. </p>
+            aws_sdk_data_pipeline.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -575,6 +629,13 @@ class AsyncDataPipelineClient:
         Args:
             pipeline_id: <p>The ID of the pipeline.</p>
             version: <p>The version of the pipeline definition to retrieve. Set this parameter to <code>latest</code> (default) to use the last definition saved to the pipeline or <code>active</code> to use the last definition that was activated.</p>
+
+        Raises:
+            aws_sdk_data_pipeline.errors.internal_service_error.InternalServiceError: <p>An internal service error occurred.</p>
+            aws_sdk_data_pipeline.errors.invalid_request_exception.InvalidRequestException: <p>The request was not valid. Verify that your request was properly formatted, that the signature was generated with the correct credentials, and that you haven't exceeded any of the service limits for your account.</p>
+            aws_sdk_data_pipeline.errors.pipeline_deleted_exception.PipelineDeletedException: <p>The specified pipeline has been deleted.</p>
+            aws_sdk_data_pipeline.errors.pipeline_not_found_exception.PipelineNotFoundException: <p>The specified pipeline was not found. Verify that you used the correct user and account identifiers.</p>
+            aws_sdk_data_pipeline.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -615,6 +676,11 @@ class AsyncDataPipelineClient:
 
         Args:
             marker: <p>The starting point for the results to be returned. For the first call, this value should be empty. As long as there are more results, continue to call <code>ListPipelines</code> with the marker value from the previous call to retrieve the next set of results.</p>
+
+        Raises:
+            aws_sdk_data_pipeline.errors.internal_service_error.InternalServiceError: <p>An internal service error occurred.</p>
+            aws_sdk_data_pipeline.errors.invalid_request_exception.InvalidRequestException: <p>The request was not valid. Verify that your request was properly formatted, that the signature was generated with the correct credentials, and that you haven't exceeded any of the service limits for your account.</p>
+            aws_sdk_data_pipeline.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -679,6 +745,12 @@ class AsyncDataPipelineClient:
             worker_group: <p>The type of task the task runner is configured to accept and process. The worker group is set as a field on objects in the pipeline when they are created. You can only specify a single value for <code>workerGroup</code> in the call to <code>PollForTask</code>. There are no wildcard values permitted in <code>workerGroup</code>; the string must be an exact, case-sensitive, match.</p>
             hostname: <p>The public DNS name of the calling task runner.</p>
             instance_identity: <p>Identity information for the EC2 instance that is hosting the task runner. You can get this value from the instance using <code>http://169.254.169.254/latest/meta-data/instance-id</code>. For more information, see <a href=\"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AESDG-chapter-instancedata.html\">Instance Metadata</a> in the <i>Amazon Elastic Compute Cloud User Guide.</i> Passing in this value proves that your task runner is running on an EC2 instance, and ensures the proper AWS Data Pipeline service charges are applied to your pipeline.</p>
+
+        Raises:
+            aws_sdk_data_pipeline.errors.internal_service_error.InternalServiceError: <p>An internal service error occurred.</p>
+            aws_sdk_data_pipeline.errors.invalid_request_exception.InvalidRequestException: <p>The request was not valid. Verify that your request was properly formatted, that the signature was generated with the correct credentials, and that you haven't exceeded any of the service limits for your account.</p>
+            aws_sdk_data_pipeline.errors.task_not_found_exception.TaskNotFoundException: <p>The specified task was not found. </p>
+            aws_sdk_data_pipeline.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -731,6 +803,13 @@ class AsyncDataPipelineClient:
             pipeline_objects: <p>The objects that define the pipeline. These objects overwrite the existing pipeline definition.</p>
             parameter_objects: <p>The parameter objects used with the pipeline.</p>
             parameter_values: <p>The parameter values used with the pipeline.</p>
+
+        Raises:
+            aws_sdk_data_pipeline.errors.internal_service_error.InternalServiceError: <p>An internal service error occurred.</p>
+            aws_sdk_data_pipeline.errors.invalid_request_exception.InvalidRequestException: <p>The request was not valid. Verify that your request was properly formatted, that the signature was generated with the correct credentials, and that you haven't exceeded any of the service limits for your account.</p>
+            aws_sdk_data_pipeline.errors.pipeline_deleted_exception.PipelineDeletedException: <p>The specified pipeline has been deleted.</p>
+            aws_sdk_data_pipeline.errors.pipeline_not_found_exception.PipelineNotFoundException: <p>The specified pipeline was not found. Verify that you used the correct user and account identifiers.</p>
+            aws_sdk_data_pipeline.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -782,6 +861,13 @@ class AsyncDataPipelineClient:
             sphere: <p>Indicates whether the query applies to components or instances. The possible values are: <code>COMPONENT</code>, <code>INSTANCE</code>, and <code>ATTEMPT</code>.</p>
             marker: <p>The starting point for the results to be returned. For the first call, this value should be empty. As long as there are more results, continue to call <code>QueryObjects</code> with the marker value from the previous call to retrieve the next set of results.</p>
             limit: <p>The maximum number of object names that <code>QueryObjects</code> will return in a single call. The default value is 100. </p>
+
+        Raises:
+            aws_sdk_data_pipeline.errors.internal_service_error.InternalServiceError: <p>An internal service error occurred.</p>
+            aws_sdk_data_pipeline.errors.invalid_request_exception.InvalidRequestException: <p>The request was not valid. Verify that your request was properly formatted, that the signature was generated with the correct credentials, and that you haven't exceeded any of the service limits for your account.</p>
+            aws_sdk_data_pipeline.errors.pipeline_deleted_exception.PipelineDeletedException: <p>The specified pipeline has been deleted.</p>
+            aws_sdk_data_pipeline.errors.pipeline_not_found_exception.PipelineNotFoundException: <p>The specified pipeline was not found. Verify that you used the correct user and account identifiers.</p>
+            aws_sdk_data_pipeline.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -856,6 +942,13 @@ class AsyncDataPipelineClient:
         Args:
             pipeline_id: <p>The ID of the pipeline.</p>
             tag_keys: <p>The keys of the tags to remove.</p>
+
+        Raises:
+            aws_sdk_data_pipeline.errors.internal_service_error.InternalServiceError: <p>An internal service error occurred.</p>
+            aws_sdk_data_pipeline.errors.invalid_request_exception.InvalidRequestException: <p>The request was not valid. Verify that your request was properly formatted, that the signature was generated with the correct credentials, and that you haven't exceeded any of the service limits for your account.</p>
+            aws_sdk_data_pipeline.errors.pipeline_deleted_exception.PipelineDeletedException: <p>The specified pipeline has been deleted.</p>
+            aws_sdk_data_pipeline.errors.pipeline_not_found_exception.PipelineNotFoundException: <p>The specified pipeline was not found. Verify that you used the correct user and account identifiers.</p>
+            aws_sdk_data_pipeline.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -897,6 +990,14 @@ class AsyncDataPipelineClient:
         Args:
             task_id: <p>The ID of the task assigned to the task runner. This value is provided in the response for <a>PollForTask</a>.</p>
             fields: <p>Key-value pairs that define the properties of the ReportTaskProgressInput object.</p>
+
+        Raises:
+            aws_sdk_data_pipeline.errors.internal_service_error.InternalServiceError: <p>An internal service error occurred.</p>
+            aws_sdk_data_pipeline.errors.invalid_request_exception.InvalidRequestException: <p>The request was not valid. Verify that your request was properly formatted, that the signature was generated with the correct credentials, and that you haven't exceeded any of the service limits for your account.</p>
+            aws_sdk_data_pipeline.errors.pipeline_deleted_exception.PipelineDeletedException: <p>The specified pipeline has been deleted.</p>
+            aws_sdk_data_pipeline.errors.pipeline_not_found_exception.PipelineNotFoundException: <p>The specified pipeline was not found. Verify that you used the correct user and account identifiers.</p>
+            aws_sdk_data_pipeline.errors.task_not_found_exception.TaskNotFoundException: <p>The specified task was not found. </p>
+            aws_sdk_data_pipeline.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -941,6 +1042,11 @@ class AsyncDataPipelineClient:
             taskrunner_id: <p>The ID of the task runner. This value should be unique across your AWS account. In the case of AWS Data Pipeline Task Runner launched on a resource managed by AWS Data Pipeline, the web service provides a unique identifier when it launches the application. If you have written a custom task runner, you should assign a unique identifier for the task runner.</p>
             worker_group: <p>The type of task the task runner is configured to accept and process. The worker group is set as a field on objects in the pipeline when they are created. You can only specify a single value for <code>workerGroup</code>. There are no wildcard values permitted in <code>workerGroup</code>; the string must be an exact, case-sensitive, match.</p>
             hostname: <p>The public DNS name of the task runner.</p>
+
+        Raises:
+            aws_sdk_data_pipeline.errors.internal_service_error.InternalServiceError: <p>An internal service error occurred.</p>
+            aws_sdk_data_pipeline.errors.invalid_request_exception.InvalidRequestException: <p>The request was not valid. Verify that your request was properly formatted, that the signature was generated with the correct credentials, and that you haven't exceeded any of the service limits for your account.</p>
+            aws_sdk_data_pipeline.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -987,6 +1093,13 @@ class AsyncDataPipelineClient:
             pipeline_id: <p>The ID of the pipeline that contains the objects.</p>
             object_ids: <p>The IDs of the objects. The corresponding objects can be either physical or components, but not a mix of both types.</p>
             status: <p>The status to be set on all the objects specified in <code>objectIds</code>. For components, use <code>PAUSE</code> or <code>RESUME</code>. For instances, use <code>TRY_CANCEL</code>, <code>RERUN</code>, or <code>MARK_FINISHED</code>.</p>
+
+        Raises:
+            aws_sdk_data_pipeline.errors.internal_service_error.InternalServiceError: <p>An internal service error occurred.</p>
+            aws_sdk_data_pipeline.errors.invalid_request_exception.InvalidRequestException: <p>The request was not valid. Verify that your request was properly formatted, that the signature was generated with the correct credentials, and that you haven't exceeded any of the service limits for your account.</p>
+            aws_sdk_data_pipeline.errors.pipeline_deleted_exception.PipelineDeletedException: <p>The specified pipeline has been deleted.</p>
+            aws_sdk_data_pipeline.errors.pipeline_not_found_exception.PipelineNotFoundException: <p>The specified pipeline was not found. Verify that you used the correct user and account identifiers.</p>
+            aws_sdk_data_pipeline.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1035,6 +1148,14 @@ class AsyncDataPipelineClient:
             error_id: <p>If an error occurred during the task, this value specifies the error code. This value is set on the physical attempt object. It is used to display error information to the user. It should not start with string \"Service_\" which is reserved by the system.</p>
             error_message: <p>If an error occurred during the task, this value specifies a text description of the error. This value is set on the physical attempt object. It is used to display error information to the user. The web service does not parse this value.</p>
             error_stack_trace: <p>If an error occurred during the task, this value specifies the stack trace associated with the error. This value is set on the physical attempt object. It is used to display error information to the user. The web service does not parse this value.</p>
+
+        Raises:
+            aws_sdk_data_pipeline.errors.internal_service_error.InternalServiceError: <p>An internal service error occurred.</p>
+            aws_sdk_data_pipeline.errors.invalid_request_exception.InvalidRequestException: <p>The request was not valid. Verify that your request was properly formatted, that the signature was generated with the correct credentials, and that you haven't exceeded any of the service limits for your account.</p>
+            aws_sdk_data_pipeline.errors.pipeline_deleted_exception.PipelineDeletedException: <p>The specified pipeline has been deleted.</p>
+            aws_sdk_data_pipeline.errors.pipeline_not_found_exception.PipelineNotFoundException: <p>The specified pipeline was not found. Verify that you used the correct user and account identifiers.</p>
+            aws_sdk_data_pipeline.errors.task_not_found_exception.TaskNotFoundException: <p>The specified task was not found. </p>
+            aws_sdk_data_pipeline.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1090,6 +1211,13 @@ class AsyncDataPipelineClient:
             pipeline_objects: <p>The objects that define the pipeline changes to validate against the pipeline.</p>
             parameter_objects: <p>The parameter objects used with the pipeline.</p>
             parameter_values: <p>The parameter values used with the pipeline.</p>
+
+        Raises:
+            aws_sdk_data_pipeline.errors.internal_service_error.InternalServiceError: <p>An internal service error occurred.</p>
+            aws_sdk_data_pipeline.errors.invalid_request_exception.InvalidRequestException: <p>The request was not valid. Verify that your request was properly formatted, that the signature was generated with the correct credentials, and that you haven't exceeded any of the service limits for your account.</p>
+            aws_sdk_data_pipeline.errors.pipeline_deleted_exception.PipelineDeletedException: <p>The specified pipeline has been deleted.</p>
+            aws_sdk_data_pipeline.errors.pipeline_not_found_exception.PipelineNotFoundException: <p>The specified pipeline was not found. Verify that you used the correct user and account identifiers.</p>
+            aws_sdk_data_pipeline.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

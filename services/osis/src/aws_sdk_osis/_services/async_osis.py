@@ -225,6 +225,16 @@ class AsyncOSISClient:
             encryption_at_rest_options: <p>Key-value pairs to configure encryption for data that is written to a persistent buffer.</p>
             tags: <p>List of tags to add to the pipeline upon creation.</p>
             pipeline_role_arn: <p>The Amazon Resource Name (ARN) of the IAM role that grants the pipeline permission to access Amazon Web Services resources.</p>
+
+        Raises:
+            aws_sdk_osis.errors.access_denied_exception.AccessDeniedException: <p>You don't have permissions to access the resource.</p>
+            aws_sdk_osis.errors.disabled_operation_exception.DisabledOperationException: <p>Exception is thrown when an operation has been disabled.</p>
+            aws_sdk_osis.errors.internal_exception.InternalException: <p>The request failed because of an unknown error, exception, or failure (the failure is internal to the service).</p>
+            aws_sdk_osis.errors.limit_exceeded_exception.LimitExceededException: <p>You attempted to create more than the allowed number of tags.</p>
+            aws_sdk_osis.errors.resource_already_exists_exception.ResourceAlreadyExistsException: <p>You attempted to create a resource that already exists.</p>
+            aws_sdk_osis.errors.resource_not_found_exception.ResourceNotFoundException: <p>You attempted to access or delete a resource that does not exist.</p>
+            aws_sdk_osis.errors.validation_exception.ValidationException: <p>An exception for missing or invalid input fields.</p>
+            aws_sdk_osis.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -280,6 +290,15 @@ class AsyncOSISClient:
         Args:
             pipeline_arn: <p>The Amazon Resource Name (ARN) of the pipeline to create the endpoint for.</p>
             vpc_options: <p>Container for the VPC configuration for the pipeline endpoint, including subnet IDs and security group IDs.</p>
+
+        Raises:
+            aws_sdk_osis.errors.access_denied_exception.AccessDeniedException: <p>You don't have permissions to access the resource.</p>
+            aws_sdk_osis.errors.disabled_operation_exception.DisabledOperationException: <p>Exception is thrown when an operation has been disabled.</p>
+            aws_sdk_osis.errors.internal_exception.InternalException: <p>The request failed because of an unknown error, exception, or failure (the failure is internal to the service).</p>
+            aws_sdk_osis.errors.limit_exceeded_exception.LimitExceededException: <p>You attempted to create more than the allowed number of tags.</p>
+            aws_sdk_osis.errors.resource_not_found_exception.ResourceNotFoundException: <p>You attempted to access or delete a resource that does not exist.</p>
+            aws_sdk_osis.errors.validation_exception.ValidationException: <p>An exception for missing or invalid input fields.</p>
+            aws_sdk_osis.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -319,6 +338,15 @@ class AsyncOSISClient:
 
         Args:
             pipeline_name: <p>The name of the pipeline to delete.</p>
+
+        Raises:
+            aws_sdk_osis.errors.access_denied_exception.AccessDeniedException: <p>You don't have permissions to access the resource.</p>
+            aws_sdk_osis.errors.conflict_exception.ConflictException: <p>The client attempted to remove a resource that is currently in use.</p>
+            aws_sdk_osis.errors.disabled_operation_exception.DisabledOperationException: <p>Exception is thrown when an operation has been disabled.</p>
+            aws_sdk_osis.errors.internal_exception.InternalException: <p>The request failed because of an unknown error, exception, or failure (the failure is internal to the service).</p>
+            aws_sdk_osis.errors.resource_not_found_exception.ResourceNotFoundException: <p>You attempted to access or delete a resource that does not exist.</p>
+            aws_sdk_osis.errors.validation_exception.ValidationException: <p>An exception for missing or invalid input fields.</p>
+            aws_sdk_osis.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -357,6 +385,13 @@ class AsyncOSISClient:
 
         Args:
             endpoint_id: <p>The unique identifier of the pipeline endpoint to delete.</p>
+
+        Raises:
+            aws_sdk_osis.errors.access_denied_exception.AccessDeniedException: <p>You don't have permissions to access the resource.</p>
+            aws_sdk_osis.errors.disabled_operation_exception.DisabledOperationException: <p>Exception is thrown when an operation has been disabled.</p>
+            aws_sdk_osis.errors.internal_exception.InternalException: <p>The request failed because of an unknown error, exception, or failure (the failure is internal to the service).</p>
+            aws_sdk_osis.errors.validation_exception.ValidationException: <p>An exception for missing or invalid input fields.</p>
+            aws_sdk_osis.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -395,6 +430,15 @@ class AsyncOSISClient:
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource from which to delete the policy.</p>
+
+        Raises:
+            aws_sdk_osis.errors.access_denied_exception.AccessDeniedException: <p>You don't have permissions to access the resource.</p>
+            aws_sdk_osis.errors.disabled_operation_exception.DisabledOperationException: <p>Exception is thrown when an operation has been disabled.</p>
+            aws_sdk_osis.errors.internal_exception.InternalException: <p>The request failed because of an unknown error, exception, or failure (the failure is internal to the service).</p>
+            aws_sdk_osis.errors.limit_exceeded_exception.LimitExceededException: <p>You attempted to create more than the allowed number of tags.</p>
+            aws_sdk_osis.errors.resource_not_found_exception.ResourceNotFoundException: <p>You attempted to access or delete a resource that does not exist.</p>
+            aws_sdk_osis.errors.validation_exception.ValidationException: <p>An exception for missing or invalid input fields.</p>
+            aws_sdk_osis.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -433,6 +477,14 @@ class AsyncOSISClient:
 
         Args:
             pipeline_name: <p>The name of the pipeline.</p>
+
+        Raises:
+            aws_sdk_osis.errors.access_denied_exception.AccessDeniedException: <p>You don't have permissions to access the resource.</p>
+            aws_sdk_osis.errors.disabled_operation_exception.DisabledOperationException: <p>Exception is thrown when an operation has been disabled.</p>
+            aws_sdk_osis.errors.internal_exception.InternalException: <p>The request failed because of an unknown error, exception, or failure (the failure is internal to the service).</p>
+            aws_sdk_osis.errors.resource_not_found_exception.ResourceNotFoundException: <p>You attempted to access or delete a resource that does not exist.</p>
+            aws_sdk_osis.errors.validation_exception.ValidationException: <p>An exception for missing or invalid input fields.</p>
+            aws_sdk_osis.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -473,6 +525,14 @@ class AsyncOSISClient:
         Args:
             blueprint_name: <p>The name of the blueprint to retrieve.</p>
             format: <p>The format format of the blueprint to retrieve.</p>
+
+        Raises:
+            aws_sdk_osis.errors.access_denied_exception.AccessDeniedException: <p>You don't have permissions to access the resource.</p>
+            aws_sdk_osis.errors.disabled_operation_exception.DisabledOperationException: <p>Exception is thrown when an operation has been disabled.</p>
+            aws_sdk_osis.errors.internal_exception.InternalException: <p>The request failed because of an unknown error, exception, or failure (the failure is internal to the service).</p>
+            aws_sdk_osis.errors.resource_not_found_exception.ResourceNotFoundException: <p>You attempted to access or delete a resource that does not exist.</p>
+            aws_sdk_osis.errors.validation_exception.ValidationException: <p>An exception for missing or invalid input fields.</p>
+            aws_sdk_osis.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -513,6 +573,14 @@ class AsyncOSISClient:
 
         Args:
             pipeline_name: <p>The name of the pipeline.</p>
+
+        Raises:
+            aws_sdk_osis.errors.access_denied_exception.AccessDeniedException: <p>You don't have permissions to access the resource.</p>
+            aws_sdk_osis.errors.disabled_operation_exception.DisabledOperationException: <p>Exception is thrown when an operation has been disabled.</p>
+            aws_sdk_osis.errors.internal_exception.InternalException: <p>The request failed because of an unknown error, exception, or failure (the failure is internal to the service).</p>
+            aws_sdk_osis.errors.resource_not_found_exception.ResourceNotFoundException: <p>You attempted to access or delete a resource that does not exist.</p>
+            aws_sdk_osis.errors.validation_exception.ValidationException: <p>An exception for missing or invalid input fields.</p>
+            aws_sdk_osis.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -551,6 +619,15 @@ class AsyncOSISClient:
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource for which to retrieve the policy.</p>
+
+        Raises:
+            aws_sdk_osis.errors.access_denied_exception.AccessDeniedException: <p>You don't have permissions to access the resource.</p>
+            aws_sdk_osis.errors.disabled_operation_exception.DisabledOperationException: <p>Exception is thrown when an operation has been disabled.</p>
+            aws_sdk_osis.errors.internal_exception.InternalException: <p>The request failed because of an unknown error, exception, or failure (the failure is internal to the service).</p>
+            aws_sdk_osis.errors.limit_exceeded_exception.LimitExceededException: <p>You attempted to create more than the allowed number of tags.</p>
+            aws_sdk_osis.errors.resource_not_found_exception.ResourceNotFoundException: <p>You attempted to access or delete a resource that does not exist.</p>
+            aws_sdk_osis.errors.validation_exception.ValidationException: <p>An exception for missing or invalid input fields.</p>
+            aws_sdk_osis.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -582,7 +659,16 @@ class AsyncOSISClient:
     async def list_pipeline_blueprints(
         self, *, config_overrides: Optional[AsyncOSISClientConfig] = None
     ) -> "aws_sdk_osis.types.list_pipeline_blueprints_response.ListPipelineBlueprintsResponse":
-        r"""<p>Retrieves a list of all available blueprints for Data Prepper. For more information, see <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/creating-pipeline.html#pipeline-blueprint\">Using blueprints to create a pipeline</a>.</p>"""
+        r"""<p>Retrieves a list of all available blueprints for Data Prepper. For more information, see <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/creating-pipeline.html#pipeline-blueprint\">Using blueprints to create a pipeline</a>.</p>
+
+        Raises:
+            aws_sdk_osis.errors.access_denied_exception.AccessDeniedException: <p>You don't have permissions to access the resource.</p>
+            aws_sdk_osis.errors.disabled_operation_exception.DisabledOperationException: <p>Exception is thrown when an operation has been disabled.</p>
+            aws_sdk_osis.errors.internal_exception.InternalException: <p>The request failed because of an unknown error, exception, or failure (the failure is internal to the service).</p>
+            aws_sdk_osis.errors.invalid_pagination_token_exception.InvalidPaginationTokenException: <p>An invalid pagination token provided in the request.</p>
+            aws_sdk_osis.errors.validation_exception.ValidationException: <p>An exception for missing or invalid input fields.</p>
+            aws_sdk_osis.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_osis.types.list_pipeline_blueprints_request.ListPipelineBlueprintsRequest]",
@@ -621,6 +707,14 @@ class AsyncOSISClient:
         Args:
             max_results: <p>The maximum number of pipeline endpoint connections to return in the response.</p>
             next_token: <p>If your initial <code>ListPipelineEndpointConnections</code> operation returns a <code>nextToken</code>, you can include the returned <code>nextToken</code> in subsequent <code>ListPipelineEndpointConnections</code> operations, which returns results in the next page.</p>
+
+        Raises:
+            aws_sdk_osis.errors.access_denied_exception.AccessDeniedException: <p>You don't have permissions to access the resource.</p>
+            aws_sdk_osis.errors.disabled_operation_exception.DisabledOperationException: <p>Exception is thrown when an operation has been disabled.</p>
+            aws_sdk_osis.errors.internal_exception.InternalException: <p>The request failed because of an unknown error, exception, or failure (the failure is internal to the service).</p>
+            aws_sdk_osis.errors.limit_exceeded_exception.LimitExceededException: <p>You attempted to create more than the allowed number of tags.</p>
+            aws_sdk_osis.errors.validation_exception.ValidationException: <p>An exception for missing or invalid input fields.</p>
+            aws_sdk_osis.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -685,6 +779,14 @@ class AsyncOSISClient:
         Args:
             max_results: <p>The maximum number of pipeline endpoints to return in the response.</p>
             next_token: <p>If your initial <code>ListPipelineEndpoints</code> operation returns a <code>NextToken</code>, you can include the returned <code>NextToken</code> in subsequent <code>ListPipelineEndpoints</code> operations, which returns results in the next page.</p>
+
+        Raises:
+            aws_sdk_osis.errors.access_denied_exception.AccessDeniedException: <p>You don't have permissions to access the resource.</p>
+            aws_sdk_osis.errors.disabled_operation_exception.DisabledOperationException: <p>Exception is thrown when an operation has been disabled.</p>
+            aws_sdk_osis.errors.internal_exception.InternalException: <p>The request failed because of an unknown error, exception, or failure (the failure is internal to the service).</p>
+            aws_sdk_osis.errors.limit_exceeded_exception.LimitExceededException: <p>You attempted to create more than the allowed number of tags.</p>
+            aws_sdk_osis.errors.validation_exception.ValidationException: <p>An exception for missing or invalid input fields.</p>
+            aws_sdk_osis.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -749,6 +851,14 @@ class AsyncOSISClient:
         Args:
             max_results: <p>An optional parameter that specifies the maximum number of results to return. You can use <code>nextToken</code> to get the next page of results.</p>
             next_token: <p>If your initial <code>ListPipelines</code> operation returns a <code>nextToken</code>, you can include the returned <code>nextToken</code> in subsequent <code>ListPipelines</code> operations, which returns results in the next page.</p>
+
+        Raises:
+            aws_sdk_osis.errors.access_denied_exception.AccessDeniedException: <p>You don't have permissions to access the resource.</p>
+            aws_sdk_osis.errors.disabled_operation_exception.DisabledOperationException: <p>Exception is thrown when an operation has been disabled.</p>
+            aws_sdk_osis.errors.internal_exception.InternalException: <p>The request failed because of an unknown error, exception, or failure (the failure is internal to the service).</p>
+            aws_sdk_osis.errors.invalid_pagination_token_exception.InvalidPaginationTokenException: <p>An invalid pagination token provided in the request.</p>
+            aws_sdk_osis.errors.validation_exception.ValidationException: <p>An exception for missing or invalid input fields.</p>
+            aws_sdk_osis.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -792,6 +902,14 @@ class AsyncOSISClient:
 
         Args:
             arn: <p>The Amazon Resource Name (ARN) of the pipeline to retrieve tags for.</p>
+
+        Raises:
+            aws_sdk_osis.errors.access_denied_exception.AccessDeniedException: <p>You don't have permissions to access the resource.</p>
+            aws_sdk_osis.errors.disabled_operation_exception.DisabledOperationException: <p>Exception is thrown when an operation has been disabled.</p>
+            aws_sdk_osis.errors.internal_exception.InternalException: <p>The request failed because of an unknown error, exception, or failure (the failure is internal to the service).</p>
+            aws_sdk_osis.errors.resource_not_found_exception.ResourceNotFoundException: <p>You attempted to access or delete a resource that does not exist.</p>
+            aws_sdk_osis.errors.validation_exception.ValidationException: <p>An exception for missing or invalid input fields.</p>
+            aws_sdk_osis.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -832,6 +950,15 @@ class AsyncOSISClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource to attach the policy to.</p>
             policy: <p>The resource-based policy document in JSON format.</p>
+
+        Raises:
+            aws_sdk_osis.errors.access_denied_exception.AccessDeniedException: <p>You don't have permissions to access the resource.</p>
+            aws_sdk_osis.errors.disabled_operation_exception.DisabledOperationException: <p>Exception is thrown when an operation has been disabled.</p>
+            aws_sdk_osis.errors.internal_exception.InternalException: <p>The request failed because of an unknown error, exception, or failure (the failure is internal to the service).</p>
+            aws_sdk_osis.errors.limit_exceeded_exception.LimitExceededException: <p>You attempted to create more than the allowed number of tags.</p>
+            aws_sdk_osis.errors.resource_not_found_exception.ResourceNotFoundException: <p>You attempted to access or delete a resource that does not exist.</p>
+            aws_sdk_osis.errors.validation_exception.ValidationException: <p>An exception for missing or invalid input fields.</p>
+            aws_sdk_osis.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -873,6 +1000,14 @@ class AsyncOSISClient:
         Args:
             pipeline_arn: <p>The Amazon Resource Name (ARN) of the pipeline from which to revoke endpoint connections.</p>
             endpoint_ids: <p>A list of endpoint IDs for which to revoke access to the pipeline.</p>
+
+        Raises:
+            aws_sdk_osis.errors.access_denied_exception.AccessDeniedException: <p>You don't have permissions to access the resource.</p>
+            aws_sdk_osis.errors.disabled_operation_exception.DisabledOperationException: <p>Exception is thrown when an operation has been disabled.</p>
+            aws_sdk_osis.errors.internal_exception.InternalException: <p>The request failed because of an unknown error, exception, or failure (the failure is internal to the service).</p>
+            aws_sdk_osis.errors.limit_exceeded_exception.LimitExceededException: <p>You attempted to create more than the allowed number of tags.</p>
+            aws_sdk_osis.errors.validation_exception.ValidationException: <p>An exception for missing or invalid input fields.</p>
+            aws_sdk_osis.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -912,6 +1047,15 @@ class AsyncOSISClient:
 
         Args:
             pipeline_name: <p>The name of the pipeline to start.</p>
+
+        Raises:
+            aws_sdk_osis.errors.access_denied_exception.AccessDeniedException: <p>You don't have permissions to access the resource.</p>
+            aws_sdk_osis.errors.conflict_exception.ConflictException: <p>The client attempted to remove a resource that is currently in use.</p>
+            aws_sdk_osis.errors.disabled_operation_exception.DisabledOperationException: <p>Exception is thrown when an operation has been disabled.</p>
+            aws_sdk_osis.errors.internal_exception.InternalException: <p>The request failed because of an unknown error, exception, or failure (the failure is internal to the service).</p>
+            aws_sdk_osis.errors.resource_not_found_exception.ResourceNotFoundException: <p>You attempted to access or delete a resource that does not exist.</p>
+            aws_sdk_osis.errors.validation_exception.ValidationException: <p>An exception for missing or invalid input fields.</p>
+            aws_sdk_osis.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -950,6 +1094,15 @@ class AsyncOSISClient:
 
         Args:
             pipeline_name: <p>The name of the pipeline to stop.</p>
+
+        Raises:
+            aws_sdk_osis.errors.access_denied_exception.AccessDeniedException: <p>You don't have permissions to access the resource.</p>
+            aws_sdk_osis.errors.conflict_exception.ConflictException: <p>The client attempted to remove a resource that is currently in use.</p>
+            aws_sdk_osis.errors.disabled_operation_exception.DisabledOperationException: <p>Exception is thrown when an operation has been disabled.</p>
+            aws_sdk_osis.errors.internal_exception.InternalException: <p>The request failed because of an unknown error, exception, or failure (the failure is internal to the service).</p>
+            aws_sdk_osis.errors.resource_not_found_exception.ResourceNotFoundException: <p>You attempted to access or delete a resource that does not exist.</p>
+            aws_sdk_osis.errors.validation_exception.ValidationException: <p>An exception for missing or invalid input fields.</p>
+            aws_sdk_osis.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -990,6 +1143,15 @@ class AsyncOSISClient:
         Args:
             arn: <p>The Amazon Resource Name (ARN) of the pipeline to tag.</p>
             tags: <p>The list of key-value tags to add to the pipeline.</p>
+
+        Raises:
+            aws_sdk_osis.errors.access_denied_exception.AccessDeniedException: <p>You don't have permissions to access the resource.</p>
+            aws_sdk_osis.errors.disabled_operation_exception.DisabledOperationException: <p>Exception is thrown when an operation has been disabled.</p>
+            aws_sdk_osis.errors.internal_exception.InternalException: <p>The request failed because of an unknown error, exception, or failure (the failure is internal to the service).</p>
+            aws_sdk_osis.errors.limit_exceeded_exception.LimitExceededException: <p>You attempted to create more than the allowed number of tags.</p>
+            aws_sdk_osis.errors.resource_not_found_exception.ResourceNotFoundException: <p>You attempted to access or delete a resource that does not exist.</p>
+            aws_sdk_osis.errors.validation_exception.ValidationException: <p>An exception for missing or invalid input fields.</p>
+            aws_sdk_osis.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1031,6 +1193,14 @@ class AsyncOSISClient:
         Args:
             arn: <p>The Amazon Resource Name (ARN) of the pipeline to remove tags from.</p>
             tag_keys: <p>The tag keys to remove.</p>
+
+        Raises:
+            aws_sdk_osis.errors.access_denied_exception.AccessDeniedException: <p>You don't have permissions to access the resource.</p>
+            aws_sdk_osis.errors.disabled_operation_exception.DisabledOperationException: <p>Exception is thrown when an operation has been disabled.</p>
+            aws_sdk_osis.errors.internal_exception.InternalException: <p>The request failed because of an unknown error, exception, or failure (the failure is internal to the service).</p>
+            aws_sdk_osis.errors.resource_not_found_exception.ResourceNotFoundException: <p>You attempted to access or delete a resource that does not exist.</p>
+            aws_sdk_osis.errors.validation_exception.ValidationException: <p>An exception for missing or invalid input fields.</p>
+            aws_sdk_osis.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1094,6 +1264,15 @@ class AsyncOSISClient:
             buffer_options: <p>Key-value pairs to configure persistent buffering for the pipeline.</p>
             encryption_at_rest_options: <p>Key-value pairs to configure encryption for data that is written to a persistent buffer.</p>
             pipeline_role_arn: <p>The Amazon Resource Name (ARN) of the IAM role that grants the pipeline permission to access Amazon Web Services resources.</p>
+
+        Raises:
+            aws_sdk_osis.errors.access_denied_exception.AccessDeniedException: <p>You don't have permissions to access the resource.</p>
+            aws_sdk_osis.errors.conflict_exception.ConflictException: <p>The client attempted to remove a resource that is currently in use.</p>
+            aws_sdk_osis.errors.disabled_operation_exception.DisabledOperationException: <p>Exception is thrown when an operation has been disabled.</p>
+            aws_sdk_osis.errors.internal_exception.InternalException: <p>The request failed because of an unknown error, exception, or failure (the failure is internal to the service).</p>
+            aws_sdk_osis.errors.resource_not_found_exception.ResourceNotFoundException: <p>You attempted to access or delete a resource that does not exist.</p>
+            aws_sdk_osis.errors.validation_exception.ValidationException: <p>An exception for missing or invalid input fields.</p>
+            aws_sdk_osis.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1146,6 +1325,13 @@ class AsyncOSISClient:
 
         Args:
             pipeline_configuration_body: <p>The pipeline configuration in YAML format. The command accepts the pipeline configuration as a string or within a .yaml file. If you provide the configuration as a string, each new line must be escaped with <code>\n</code>.</p>
+
+        Raises:
+            aws_sdk_osis.errors.access_denied_exception.AccessDeniedException: <p>You don't have permissions to access the resource.</p>
+            aws_sdk_osis.errors.disabled_operation_exception.DisabledOperationException: <p>Exception is thrown when an operation has been disabled.</p>
+            aws_sdk_osis.errors.internal_exception.InternalException: <p>The request failed because of an unknown error, exception, or failure (the failure is internal to the service).</p>
+            aws_sdk_osis.errors.validation_exception.ValidationException: <p>An exception for missing or invalid input fields.</p>
+            aws_sdk_osis.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

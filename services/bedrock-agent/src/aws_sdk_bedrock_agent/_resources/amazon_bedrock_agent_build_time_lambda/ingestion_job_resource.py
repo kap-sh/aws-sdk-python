@@ -60,6 +60,14 @@ class IngestionJobResource:
             knowledge_base_id: <p>The unique identifier of the knowledge base for the data ingestion job you want to get information on.</p>
             data_source_id: <p>The unique identifier of the data source for the data ingestion job you want to get information on.</p>
             ingestion_job_id: <p>The unique identifier of the data ingestion job you want to get information on.</p>
+
+        Raises:
+            aws_sdk_bedrock_agent.errors.access_denied_exception.AccessDeniedException: <p>The request is denied because of missing access permissions.</p>
+            aws_sdk_bedrock_agent.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_bedrock_agent.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource Amazon Resource Name (ARN) was not found. Check the Amazon Resource Name (ARN) and try your request again.</p>
+            aws_sdk_bedrock_agent.errors.throttling_exception.ThrottlingException: <p>The number of requests exceeds the limit. Resubmit your request later.</p>
+            aws_sdk_bedrock_agent.errors.validation_exception.ValidationException: <p>Input validation failed. Check your request parameters and retry the request.</p>
+            aws_sdk_bedrock_agent.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -115,6 +123,14 @@ class IngestionJobResource:
             sort_by: <p>Contains details about how to sort the data.</p>
             max_results: <p>The maximum number of results to return in the response. If the total number of results is greater than this value, use the token returned in the response in the <code>nextToken</code> field when making another request to return the next batch of results.</p>
             next_token: <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, enter the token returned in the <code>nextToken</code> field in the response in this field to return the next batch of results.</p>
+
+        Raises:
+            aws_sdk_bedrock_agent.errors.access_denied_exception.AccessDeniedException: <p>The request is denied because of missing access permissions.</p>
+            aws_sdk_bedrock_agent.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_bedrock_agent.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource Amazon Resource Name (ARN) was not found. Check the Amazon Resource Name (ARN) and try your request again.</p>
+            aws_sdk_bedrock_agent.errors.throttling_exception.ThrottlingException: <p>The number of requests exceeds the limit. Resubmit your request later.</p>
+            aws_sdk_bedrock_agent.errors.validation_exception.ValidationException: <p>Input validation failed. Check your request parameters and retry the request.</p>
+            aws_sdk_bedrock_agent.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -171,6 +187,16 @@ class IngestionJobResource:
             data_source_id: <p>The unique identifier of the data source you want to ingest into your knowledge base.</p>
             client_token: <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request, Amazon Bedrock ignores the request, but does not return an error. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html\">Ensuring idempotency</a>.</p>
             description: <p>A description of the data ingestion job.</p>
+
+        Raises:
+            aws_sdk_bedrock_agent.errors.access_denied_exception.AccessDeniedException: <p>The request is denied because of missing access permissions.</p>
+            aws_sdk_bedrock_agent.errors.conflict_exception.ConflictException: <p>There was a conflict performing an operation.</p>
+            aws_sdk_bedrock_agent.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_bedrock_agent.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource Amazon Resource Name (ARN) was not found. Check the Amazon Resource Name (ARN) and try your request again.</p>
+            aws_sdk_bedrock_agent.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The number of requests exceeds the service quota. Resubmit your request later.</p>
+            aws_sdk_bedrock_agent.errors.throttling_exception.ThrottlingException: <p>The number of requests exceeds the limit. Resubmit your request later.</p>
+            aws_sdk_bedrock_agent.errors.validation_exception.ValidationException: <p>Input validation failed. Check your request parameters and retry the request.</p>
+            aws_sdk_bedrock_agent.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -217,6 +243,15 @@ class IngestionJobResource:
             knowledge_base_id: <p>The unique identifier of the knowledge base for the data ingestion job you want to stop.</p>
             data_source_id: <p>The unique identifier of the data source for the data ingestion job you want to stop.</p>
             ingestion_job_id: <p>The unique identifier of the data ingestion job you want to stop.</p>
+
+        Raises:
+            aws_sdk_bedrock_agent.errors.access_denied_exception.AccessDeniedException: <p>The request is denied because of missing access permissions.</p>
+            aws_sdk_bedrock_agent.errors.conflict_exception.ConflictException: <p>There was a conflict performing an operation.</p>
+            aws_sdk_bedrock_agent.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_bedrock_agent.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource Amazon Resource Name (ARN) was not found. Check the Amazon Resource Name (ARN) and try your request again.</p>
+            aws_sdk_bedrock_agent.errors.throttling_exception.ThrottlingException: <p>The number of requests exceeds the limit. Resubmit your request later.</p>
+            aws_sdk_bedrock_agent.errors.validation_exception.ValidationException: <p>Input validation failed. Check your request parameters and retry the request.</p>
+            aws_sdk_bedrock_agent.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -267,6 +302,14 @@ class AsyncIngestionJobResource:
             knowledge_base_id: <p>The unique identifier of the knowledge base for the data ingestion job you want to get information on.</p>
             data_source_id: <p>The unique identifier of the data source for the data ingestion job you want to get information on.</p>
             ingestion_job_id: <p>The unique identifier of the data ingestion job you want to get information on.</p>
+
+        Raises:
+            aws_sdk_bedrock_agent.errors.access_denied_exception.AccessDeniedException: <p>The request is denied because of missing access permissions.</p>
+            aws_sdk_bedrock_agent.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_bedrock_agent.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource Amazon Resource Name (ARN) was not found. Check the Amazon Resource Name (ARN) and try your request again.</p>
+            aws_sdk_bedrock_agent.errors.throttling_exception.ThrottlingException: <p>The number of requests exceeds the limit. Resubmit your request later.</p>
+            aws_sdk_bedrock_agent.errors.validation_exception.ValidationException: <p>Input validation failed. Check your request parameters and retry the request.</p>
+            aws_sdk_bedrock_agent.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -323,6 +366,14 @@ class AsyncIngestionJobResource:
             sort_by: <p>Contains details about how to sort the data.</p>
             max_results: <p>The maximum number of results to return in the response. If the total number of results is greater than this value, use the token returned in the response in the <code>nextToken</code> field when making another request to return the next batch of results.</p>
             next_token: <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, enter the token returned in the <code>nextToken</code> field in the response in this field to return the next batch of results.</p>
+
+        Raises:
+            aws_sdk_bedrock_agent.errors.access_denied_exception.AccessDeniedException: <p>The request is denied because of missing access permissions.</p>
+            aws_sdk_bedrock_agent.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_bedrock_agent.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource Amazon Resource Name (ARN) was not found. Check the Amazon Resource Name (ARN) and try your request again.</p>
+            aws_sdk_bedrock_agent.errors.throttling_exception.ThrottlingException: <p>The number of requests exceeds the limit. Resubmit your request later.</p>
+            aws_sdk_bedrock_agent.errors.validation_exception.ValidationException: <p>Input validation failed. Check your request parameters and retry the request.</p>
+            aws_sdk_bedrock_agent.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -380,6 +431,16 @@ class AsyncIngestionJobResource:
             data_source_id: <p>The unique identifier of the data source you want to ingest into your knowledge base.</p>
             client_token: <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request, Amazon Bedrock ignores the request, but does not return an error. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html\">Ensuring idempotency</a>.</p>
             description: <p>A description of the data ingestion job.</p>
+
+        Raises:
+            aws_sdk_bedrock_agent.errors.access_denied_exception.AccessDeniedException: <p>The request is denied because of missing access permissions.</p>
+            aws_sdk_bedrock_agent.errors.conflict_exception.ConflictException: <p>There was a conflict performing an operation.</p>
+            aws_sdk_bedrock_agent.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_bedrock_agent.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource Amazon Resource Name (ARN) was not found. Check the Amazon Resource Name (ARN) and try your request again.</p>
+            aws_sdk_bedrock_agent.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The number of requests exceeds the service quota. Resubmit your request later.</p>
+            aws_sdk_bedrock_agent.errors.throttling_exception.ThrottlingException: <p>The number of requests exceeds the limit. Resubmit your request later.</p>
+            aws_sdk_bedrock_agent.errors.validation_exception.ValidationException: <p>Input validation failed. Check your request parameters and retry the request.</p>
+            aws_sdk_bedrock_agent.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -427,6 +488,15 @@ class AsyncIngestionJobResource:
             knowledge_base_id: <p>The unique identifier of the knowledge base for the data ingestion job you want to stop.</p>
             data_source_id: <p>The unique identifier of the data source for the data ingestion job you want to stop.</p>
             ingestion_job_id: <p>The unique identifier of the data ingestion job you want to stop.</p>
+
+        Raises:
+            aws_sdk_bedrock_agent.errors.access_denied_exception.AccessDeniedException: <p>The request is denied because of missing access permissions.</p>
+            aws_sdk_bedrock_agent.errors.conflict_exception.ConflictException: <p>There was a conflict performing an operation.</p>
+            aws_sdk_bedrock_agent.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_bedrock_agent.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource Amazon Resource Name (ARN) was not found. Check the Amazon Resource Name (ARN) and try your request again.</p>
+            aws_sdk_bedrock_agent.errors.throttling_exception.ThrottlingException: <p>The number of requests exceeds the limit. Resubmit your request later.</p>
+            aws_sdk_bedrock_agent.errors.validation_exception.ValidationException: <p>Input validation failed. Check your request parameters and retry the request.</p>
+            aws_sdk_bedrock_agent.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

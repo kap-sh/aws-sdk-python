@@ -193,7 +193,15 @@ class CloudSearchClient:
         *,
         config_overrides: Optional[CloudSearchClientConfig] = None,
     ) -> "aws_sdk_cloudsearch.types.build_suggesters_response.BuildSuggestersResponse":
-        r"""<p>Indexes the search suggestions. For more information, see <a href=\"http://docs.aws.amazon.com/cloudsearch/latest/developerguide/getting-suggestions.html#configuring-suggesters\">Configuring Suggesters</a> in the <i>Amazon CloudSearch Developer Guide</i>.</p>"""
+        r"""<p>Indexes the search suggestions. For more information, see <a href=\"http://docs.aws.amazon.com/cloudsearch/latest/developerguide/getting-suggestions.html#configuring-suggesters\">Configuring Suggesters</a> in the <i>Amazon CloudSearch Developer Guide</i>.</p>
+
+        Raises:
+            aws_sdk_cloudsearch.errors.base_exception.BaseException: <p>An error occurred while processing the request.</p>
+            aws_sdk_cloudsearch.errors.internal_exception.InternalException: <p>An internal error occurred while processing the request. If this problem persists, report an issue from the <a href=\"http://status.aws.amazon.com/\" target=\"_blank\">Service Health Dashboard</a>.</p>
+            aws_sdk_cloudsearch.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request was rejected because it attempted to reference a resource that does not exist.</p>
+            aws_sdk_cloudsearch.errors.validation_exception.ValidationException: <p>The request was rejected because it has invalid parameters.</p>
+            aws_sdk_cloudsearch.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_cloudsearch.types.build_suggesters_request.BuildSuggestersRequest]",
@@ -230,6 +238,14 @@ class CloudSearchClient:
 
         Args:
             domain_name: <p>A name for the domain you are creating. Allowed characters are a-z (lower-case letters), 0-9, and hyphen (-). Domain names must start with a letter or number and be at least 3 and no more than 28 characters long.</p>
+
+        Raises:
+            aws_sdk_cloudsearch.errors.base_exception.BaseException: <p>An error occurred while processing the request.</p>
+            aws_sdk_cloudsearch.errors.internal_exception.InternalException: <p>An internal error occurred while processing the request. If this problem persists, report an issue from the <a href=\"http://status.aws.amazon.com/\" target=\"_blank\">Service Health Dashboard</a>.</p>
+            aws_sdk_cloudsearch.errors.limit_exceeded_exception.LimitExceededException: <p>The request was rejected because a resource limit has already been met.</p>
+            aws_sdk_cloudsearch.errors.resource_already_exists_exception.ResourceAlreadyExistsException: <p>The request was rejected because it attempted to create a resource that already exists.</p>
+            aws_sdk_cloudsearch.errors.validation_exception.ValidationException: <p>The request was rejected because it has invalid parameters.</p>
+            aws_sdk_cloudsearch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -264,7 +280,17 @@ class CloudSearchClient:
         *,
         config_overrides: Optional[CloudSearchClientConfig] = None,
     ) -> "aws_sdk_cloudsearch.types.define_analysis_scheme_response.DefineAnalysisSchemeResponse":
-        r"""<p>Configures an analysis scheme that can be applied to a <code>text</code> or <code>text-array</code> field to define language-specific text processing options. For more information, see <a href=\"http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-analysis-schemes.html\" target=\"_blank\">Configuring Analysis Schemes</a> in the <i>Amazon CloudSearch Developer Guide</i>.</p>"""
+        r"""<p>Configures an analysis scheme that can be applied to a <code>text</code> or <code>text-array</code> field to define language-specific text processing options. For more information, see <a href=\"http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-analysis-schemes.html\" target=\"_blank\">Configuring Analysis Schemes</a> in the <i>Amazon CloudSearch Developer Guide</i>.</p>
+
+        Raises:
+            aws_sdk_cloudsearch.errors.base_exception.BaseException: <p>An error occurred while processing the request.</p>
+            aws_sdk_cloudsearch.errors.internal_exception.InternalException: <p>An internal error occurred while processing the request. If this problem persists, report an issue from the <a href=\"http://status.aws.amazon.com/\" target=\"_blank\">Service Health Dashboard</a>.</p>
+            aws_sdk_cloudsearch.errors.invalid_type_exception.InvalidTypeException: <p>The request was rejected because it specified an invalid type definition.</p>
+            aws_sdk_cloudsearch.errors.limit_exceeded_exception.LimitExceededException: <p>The request was rejected because a resource limit has already been met.</p>
+            aws_sdk_cloudsearch.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request was rejected because it attempted to reference a resource that does not exist.</p>
+            aws_sdk_cloudsearch.errors.validation_exception.ValidationException: <p>The request was rejected because it has invalid parameters.</p>
+            aws_sdk_cloudsearch.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_cloudsearch.types.define_analysis_scheme_request.DefineAnalysisSchemeRequest]",
@@ -301,7 +327,17 @@ class CloudSearchClient:
     ) -> (
         "aws_sdk_cloudsearch.types.define_expression_response.DefineExpressionResponse"
     ):
-        r"""<p>Configures an <code><a>Expression</a></code> for the search domain. Used to create new expressions and modify existing ones. If the expression exists, the new configuration replaces the old one. For more information, see <a href=\"http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-expressions.html\" target=\"_blank\">Configuring Expressions</a> in the <i>Amazon CloudSearch Developer Guide</i>.</p>"""
+        r"""<p>Configures an <code><a>Expression</a></code> for the search domain. Used to create new expressions and modify existing ones. If the expression exists, the new configuration replaces the old one. For more information, see <a href=\"http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-expressions.html\" target=\"_blank\">Configuring Expressions</a> in the <i>Amazon CloudSearch Developer Guide</i>.</p>
+
+        Raises:
+            aws_sdk_cloudsearch.errors.base_exception.BaseException: <p>An error occurred while processing the request.</p>
+            aws_sdk_cloudsearch.errors.internal_exception.InternalException: <p>An internal error occurred while processing the request. If this problem persists, report an issue from the <a href=\"http://status.aws.amazon.com/\" target=\"_blank\">Service Health Dashboard</a>.</p>
+            aws_sdk_cloudsearch.errors.invalid_type_exception.InvalidTypeException: <p>The request was rejected because it specified an invalid type definition.</p>
+            aws_sdk_cloudsearch.errors.limit_exceeded_exception.LimitExceededException: <p>The request was rejected because a resource limit has already been met.</p>
+            aws_sdk_cloudsearch.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request was rejected because it attempted to reference a resource that does not exist.</p>
+            aws_sdk_cloudsearch.errors.validation_exception.ValidationException: <p>The request was rejected because it has invalid parameters.</p>
+            aws_sdk_cloudsearch.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_cloudsearch.types.define_expression_request.DefineExpressionRequest]",
@@ -342,6 +378,15 @@ class CloudSearchClient:
 
         Args:
             index_field: <p>The index field and field options you want to configure. </p>
+
+        Raises:
+            aws_sdk_cloudsearch.errors.base_exception.BaseException: <p>An error occurred while processing the request.</p>
+            aws_sdk_cloudsearch.errors.internal_exception.InternalException: <p>An internal error occurred while processing the request. If this problem persists, report an issue from the <a href=\"http://status.aws.amazon.com/\" target=\"_blank\">Service Health Dashboard</a>.</p>
+            aws_sdk_cloudsearch.errors.invalid_type_exception.InvalidTypeException: <p>The request was rejected because it specified an invalid type definition.</p>
+            aws_sdk_cloudsearch.errors.limit_exceeded_exception.LimitExceededException: <p>The request was rejected because a resource limit has already been met.</p>
+            aws_sdk_cloudsearch.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request was rejected because it attempted to reference a resource that does not exist.</p>
+            aws_sdk_cloudsearch.errors.validation_exception.ValidationException: <p>The request was rejected because it has invalid parameters.</p>
+            aws_sdk_cloudsearch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -377,7 +422,17 @@ class CloudSearchClient:
         *,
         config_overrides: Optional[CloudSearchClientConfig] = None,
     ) -> "aws_sdk_cloudsearch.types.define_suggester_response.DefineSuggesterResponse":
-        r"""<p>Configures a suggester for a domain. A suggester enables you to display possible matches before users finish typing their queries. When you configure a suggester, you must specify the name of the text field you want to search for possible matches and a unique name for the suggester. For more information, see <a href=\"http://docs.aws.amazon.com/cloudsearch/latest/developerguide/getting-suggestions.html\" target=\"_blank\">Getting Search Suggestions</a> in the <i>Amazon CloudSearch Developer Guide</i>.</p>"""
+        r"""<p>Configures a suggester for a domain. A suggester enables you to display possible matches before users finish typing their queries. When you configure a suggester, you must specify the name of the text field you want to search for possible matches and a unique name for the suggester. For more information, see <a href=\"http://docs.aws.amazon.com/cloudsearch/latest/developerguide/getting-suggestions.html\" target=\"_blank\">Getting Search Suggestions</a> in the <i>Amazon CloudSearch Developer Guide</i>.</p>
+
+        Raises:
+            aws_sdk_cloudsearch.errors.base_exception.BaseException: <p>An error occurred while processing the request.</p>
+            aws_sdk_cloudsearch.errors.internal_exception.InternalException: <p>An internal error occurred while processing the request. If this problem persists, report an issue from the <a href=\"http://status.aws.amazon.com/\" target=\"_blank\">Service Health Dashboard</a>.</p>
+            aws_sdk_cloudsearch.errors.invalid_type_exception.InvalidTypeException: <p>The request was rejected because it specified an invalid type definition.</p>
+            aws_sdk_cloudsearch.errors.limit_exceeded_exception.LimitExceededException: <p>The request was rejected because a resource limit has already been met.</p>
+            aws_sdk_cloudsearch.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request was rejected because it attempted to reference a resource that does not exist.</p>
+            aws_sdk_cloudsearch.errors.validation_exception.ValidationException: <p>The request was rejected because it has invalid parameters.</p>
+            aws_sdk_cloudsearch.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_cloudsearch.types.define_suggester_request.DefineSuggesterRequest]",
@@ -416,6 +471,14 @@ class CloudSearchClient:
 
         Args:
             analysis_scheme_name: <p>The name of the analysis scheme you want to delete.</p>
+
+        Raises:
+            aws_sdk_cloudsearch.errors.base_exception.BaseException: <p>An error occurred while processing the request.</p>
+            aws_sdk_cloudsearch.errors.internal_exception.InternalException: <p>An internal error occurred while processing the request. If this problem persists, report an issue from the <a href=\"http://status.aws.amazon.com/\" target=\"_blank\">Service Health Dashboard</a>.</p>
+            aws_sdk_cloudsearch.errors.invalid_type_exception.InvalidTypeException: <p>The request was rejected because it specified an invalid type definition.</p>
+            aws_sdk_cloudsearch.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request was rejected because it attempted to reference a resource that does not exist.</p>
+            aws_sdk_cloudsearch.errors.validation_exception.ValidationException: <p>The request was rejected because it has invalid parameters.</p>
+            aws_sdk_cloudsearch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -454,6 +517,11 @@ class CloudSearchClient:
 
         Args:
             domain_name: <p>The name of the domain you want to permanently delete.</p>
+
+        Raises:
+            aws_sdk_cloudsearch.errors.base_exception.BaseException: <p>An error occurred while processing the request.</p>
+            aws_sdk_cloudsearch.errors.internal_exception.InternalException: <p>An internal error occurred while processing the request. If this problem persists, report an issue from the <a href=\"http://status.aws.amazon.com/\" target=\"_blank\">Service Health Dashboard</a>.</p>
+            aws_sdk_cloudsearch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -494,6 +562,14 @@ class CloudSearchClient:
 
         Args:
             expression_name: <p>The name of the <code><a>Expression</a></code> to delete.</p>
+
+        Raises:
+            aws_sdk_cloudsearch.errors.base_exception.BaseException: <p>An error occurred while processing the request.</p>
+            aws_sdk_cloudsearch.errors.internal_exception.InternalException: <p>An internal error occurred while processing the request. If this problem persists, report an issue from the <a href=\"http://status.aws.amazon.com/\" target=\"_blank\">Service Health Dashboard</a>.</p>
+            aws_sdk_cloudsearch.errors.invalid_type_exception.InvalidTypeException: <p>The request was rejected because it specified an invalid type definition.</p>
+            aws_sdk_cloudsearch.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request was rejected because it attempted to reference a resource that does not exist.</p>
+            aws_sdk_cloudsearch.errors.validation_exception.ValidationException: <p>The request was rejected because it has invalid parameters.</p>
+            aws_sdk_cloudsearch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -535,6 +611,14 @@ class CloudSearchClient:
 
         Args:
             index_field_name: <p>The name of the index field your want to remove from the domain's indexing options.</p>
+
+        Raises:
+            aws_sdk_cloudsearch.errors.base_exception.BaseException: <p>An error occurred while processing the request.</p>
+            aws_sdk_cloudsearch.errors.internal_exception.InternalException: <p>An internal error occurred while processing the request. If this problem persists, report an issue from the <a href=\"http://status.aws.amazon.com/\" target=\"_blank\">Service Health Dashboard</a>.</p>
+            aws_sdk_cloudsearch.errors.invalid_type_exception.InvalidTypeException: <p>The request was rejected because it specified an invalid type definition.</p>
+            aws_sdk_cloudsearch.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request was rejected because it attempted to reference a resource that does not exist.</p>
+            aws_sdk_cloudsearch.errors.validation_exception.ValidationException: <p>The request was rejected because it has invalid parameters.</p>
+            aws_sdk_cloudsearch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -574,6 +658,14 @@ class CloudSearchClient:
 
         Args:
             suggester_name: <p>Specifies the name of the suggester you want to delete.</p>
+
+        Raises:
+            aws_sdk_cloudsearch.errors.base_exception.BaseException: <p>An error occurred while processing the request.</p>
+            aws_sdk_cloudsearch.errors.internal_exception.InternalException: <p>An internal error occurred while processing the request. If this problem persists, report an issue from the <a href=\"http://status.aws.amazon.com/\" target=\"_blank\">Service Health Dashboard</a>.</p>
+            aws_sdk_cloudsearch.errors.invalid_type_exception.InvalidTypeException: <p>The request was rejected because it specified an invalid type definition.</p>
+            aws_sdk_cloudsearch.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request was rejected because it attempted to reference a resource that does not exist.</p>
+            aws_sdk_cloudsearch.errors.validation_exception.ValidationException: <p>The request was rejected because it has invalid parameters.</p>
+            aws_sdk_cloudsearch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -618,6 +710,12 @@ class CloudSearchClient:
             domain_name: <p>The name of the domain you want to describe.</p>
             analysis_scheme_names: <p>The analysis schemes you want to describe.</p>
             deployed: <p>Whether to display the deployed configuration (<code>true</code>) or include any pending changes (<code>false</code>). Defaults to <code>false</code>.</p>
+
+        Raises:
+            aws_sdk_cloudsearch.errors.base_exception.BaseException: <p>An error occurred while processing the request.</p>
+            aws_sdk_cloudsearch.errors.internal_exception.InternalException: <p>An internal error occurred while processing the request. If this problem persists, report an issue from the <a href=\"http://status.aws.amazon.com/\" target=\"_blank\">Service Health Dashboard</a>.</p>
+            aws_sdk_cloudsearch.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request was rejected because it attempted to reference a resource that does not exist.</p>
+            aws_sdk_cloudsearch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -661,6 +759,15 @@ class CloudSearchClient:
         Args:
             domain_name: <p>The name of the domain you want to describe.</p>
             deployed: <p>Whether to display the deployed configuration (<code>true</code>) or include any pending changes (<code>false</code>). Defaults to <code>false</code>.</p>
+
+        Raises:
+            aws_sdk_cloudsearch.errors.base_exception.BaseException: <p>An error occurred while processing the request.</p>
+            aws_sdk_cloudsearch.errors.disabled_operation_exception.DisabledOperationException: <p>The request was rejected because it attempted an operation which is not enabled.</p>
+            aws_sdk_cloudsearch.errors.internal_exception.InternalException: <p>An internal error occurred while processing the request. If this problem persists, report an issue from the <a href=\"http://status.aws.amazon.com/\" target=\"_blank\">Service Health Dashboard</a>.</p>
+            aws_sdk_cloudsearch.errors.invalid_type_exception.InvalidTypeException: <p>The request was rejected because it specified an invalid type definition.</p>
+            aws_sdk_cloudsearch.errors.limit_exceeded_exception.LimitExceededException: <p>The request was rejected because a resource limit has already been met.</p>
+            aws_sdk_cloudsearch.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request was rejected because it attempted to reference a resource that does not exist.</p>
+            aws_sdk_cloudsearch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -702,6 +809,14 @@ class CloudSearchClient:
         Args:
             domain_name: <p>A string that represents the name of a domain.</p>
             deployed: <p>Whether to retrieve the latest configuration (which might be in a Processing state) or the current, active configuration. Defaults to <code>false</code>.</p>
+
+        Raises:
+            aws_sdk_cloudsearch.errors.base_exception.BaseException: <p>An error occurred while processing the request.</p>
+            aws_sdk_cloudsearch.errors.disabled_operation_exception.DisabledOperationException: <p>The request was rejected because it attempted an operation which is not enabled.</p>
+            aws_sdk_cloudsearch.errors.internal_exception.InternalException: <p>An internal error occurred while processing the request. If this problem persists, report an issue from the <a href=\"http://status.aws.amazon.com/\" target=\"_blank\">Service Health Dashboard</a>.</p>
+            aws_sdk_cloudsearch.errors.limit_exceeded_exception.LimitExceededException: <p>The request was rejected because a resource limit has already been met.</p>
+            aws_sdk_cloudsearch.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request was rejected because it attempted to reference a resource that does not exist.</p>
+            aws_sdk_cloudsearch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -743,6 +858,11 @@ class CloudSearchClient:
 
         Args:
             domain_names: <p>The names of the domains you want to include in the response.</p>
+
+        Raises:
+            aws_sdk_cloudsearch.errors.base_exception.BaseException: <p>An error occurred while processing the request.</p>
+            aws_sdk_cloudsearch.errors.internal_exception.InternalException: <p>An internal error occurred while processing the request. If this problem persists, report an issue from the <a href=\"http://status.aws.amazon.com/\" target=\"_blank\">Service Health Dashboard</a>.</p>
+            aws_sdk_cloudsearch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -787,6 +907,12 @@ class CloudSearchClient:
             domain_name: <p>The name of the domain you want to describe.</p>
             expression_names: <p>Limits the <code><a>DescribeExpressions</a></code> response to the specified expressions. If not specified, all expressions are shown.</p>
             deployed: <p>Whether to display the deployed configuration (<code>true</code>) or include any pending changes (<code>false</code>). Defaults to <code>false</code>.</p>
+
+        Raises:
+            aws_sdk_cloudsearch.errors.base_exception.BaseException: <p>An error occurred while processing the request.</p>
+            aws_sdk_cloudsearch.errors.internal_exception.InternalException: <p>An internal error occurred while processing the request. If this problem persists, report an issue from the <a href=\"http://status.aws.amazon.com/\" target=\"_blank\">Service Health Dashboard</a>.</p>
+            aws_sdk_cloudsearch.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request was rejected because it attempted to reference a resource that does not exist.</p>
+            aws_sdk_cloudsearch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -834,6 +960,12 @@ class CloudSearchClient:
             domain_name: <p>The name of the domain you want to describe.</p>
             field_names: <p>A list of the index fields you want to describe. If not specified, information is returned for all configured index fields.</p>
             deployed: <p>Whether to display the deployed configuration (<code>true</code>) or include any pending changes (<code>false</code>). Defaults to <code>false</code>.</p>
+
+        Raises:
+            aws_sdk_cloudsearch.errors.base_exception.BaseException: <p>An error occurred while processing the request.</p>
+            aws_sdk_cloudsearch.errors.internal_exception.InternalException: <p>An internal error occurred while processing the request. If this problem persists, report an issue from the <a href=\"http://status.aws.amazon.com/\" target=\"_blank\">Service Health Dashboard</a>.</p>
+            aws_sdk_cloudsearch.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request was rejected because it attempted to reference a resource that does not exist.</p>
+            aws_sdk_cloudsearch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -871,7 +1003,14 @@ class CloudSearchClient:
         *,
         config_overrides: Optional[CloudSearchClientConfig] = None,
     ) -> "aws_sdk_cloudsearch.types.describe_scaling_parameters_response.DescribeScalingParametersResponse":
-        r"""<p>Gets the scaling parameters configured for a domain. A domain's scaling parameters specify the desired search instance type and replication count. For more information, see <a href=\"http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-scaling-options.html\" target=\"_blank\">Configuring Scaling Options</a> in the <i>Amazon CloudSearch Developer Guide</i>.</p>"""
+        r"""<p>Gets the scaling parameters configured for a domain. A domain's scaling parameters specify the desired search instance type and replication count. For more information, see <a href=\"http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-scaling-options.html\" target=\"_blank\">Configuring Scaling Options</a> in the <i>Amazon CloudSearch Developer Guide</i>.</p>
+
+        Raises:
+            aws_sdk_cloudsearch.errors.base_exception.BaseException: <p>An error occurred while processing the request.</p>
+            aws_sdk_cloudsearch.errors.internal_exception.InternalException: <p>An internal error occurred while processing the request. If this problem persists, report an issue from the <a href=\"http://status.aws.amazon.com/\" target=\"_blank\">Service Health Dashboard</a>.</p>
+            aws_sdk_cloudsearch.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request was rejected because it attempted to reference a resource that does not exist.</p>
+            aws_sdk_cloudsearch.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_cloudsearch.types.describe_scaling_parameters_request.DescribeScalingParametersRequest]",
@@ -910,6 +1049,12 @@ class CloudSearchClient:
         Args:
             domain_name: <p>The name of the domain you want to describe.</p>
             deployed: <p>Whether to display the deployed configuration (<code>true</code>) or include any pending changes (<code>false</code>). Defaults to <code>false</code>.</p>
+
+        Raises:
+            aws_sdk_cloudsearch.errors.base_exception.BaseException: <p>An error occurred while processing the request.</p>
+            aws_sdk_cloudsearch.errors.internal_exception.InternalException: <p>An internal error occurred while processing the request. If this problem persists, report an issue from the <a href=\"http://status.aws.amazon.com/\" target=\"_blank\">Service Health Dashboard</a>.</p>
+            aws_sdk_cloudsearch.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request was rejected because it attempted to reference a resource that does not exist.</p>
+            aws_sdk_cloudsearch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -955,6 +1100,12 @@ class CloudSearchClient:
             domain_name: <p>The name of the domain you want to describe.</p>
             suggester_names: <p>The suggesters you want to describe.</p>
             deployed: <p>Whether to display the deployed configuration (<code>true</code>) or include any pending changes (<code>false</code>). Defaults to <code>false</code>.</p>
+
+        Raises:
+            aws_sdk_cloudsearch.errors.base_exception.BaseException: <p>An error occurred while processing the request.</p>
+            aws_sdk_cloudsearch.errors.internal_exception.InternalException: <p>An internal error occurred while processing the request. If this problem persists, report an issue from the <a href=\"http://status.aws.amazon.com/\" target=\"_blank\">Service Health Dashboard</a>.</p>
+            aws_sdk_cloudsearch.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request was rejected because it attempted to reference a resource that does not exist.</p>
+            aws_sdk_cloudsearch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -992,7 +1143,15 @@ class CloudSearchClient:
         *,
         config_overrides: Optional[CloudSearchClientConfig] = None,
     ) -> "aws_sdk_cloudsearch.types.index_documents_response.IndexDocumentsResponse":
-        """<p>Tells the search domain to start indexing its documents using the latest indexing options. This operation must be invoked to activate options whose <a>OptionStatus</a> is <code>RequiresIndexDocuments</code>.</p>"""
+        """<p>Tells the search domain to start indexing its documents using the latest indexing options. This operation must be invoked to activate options whose <a>OptionStatus</a> is <code>RequiresIndexDocuments</code>.</p>
+
+        Raises:
+            aws_sdk_cloudsearch.errors.base_exception.BaseException: <p>An error occurred while processing the request.</p>
+            aws_sdk_cloudsearch.errors.internal_exception.InternalException: <p>An internal error occurred while processing the request. If this problem persists, report an issue from the <a href=\"http://status.aws.amazon.com/\" target=\"_blank\">Service Health Dashboard</a>.</p>
+            aws_sdk_cloudsearch.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request was rejected because it attempted to reference a resource that does not exist.</p>
+            aws_sdk_cloudsearch.errors.validation_exception.ValidationException: <p>The request was rejected because it has invalid parameters.</p>
+            aws_sdk_cloudsearch.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_cloudsearch.types.index_documents_request.IndexDocumentsRequest]",
@@ -1022,7 +1181,12 @@ class CloudSearchClient:
     def list_domain_names(
         self, *, config_overrides: Optional[CloudSearchClientConfig] = None
     ) -> "aws_sdk_cloudsearch.types.list_domain_names_response.ListDomainNamesResponse":
-        """<p>Lists all search domains owned by an account.</p>"""
+        """<p>Lists all search domains owned by an account.</p>
+
+        Raises:
+            aws_sdk_cloudsearch.errors.base_exception.BaseException: <p>An error occurred while processing the request.</p>
+            aws_sdk_cloudsearch.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[None]",
@@ -1058,6 +1222,16 @@ class CloudSearchClient:
 
         Args:
             multi_az: <p>You expand an existing search domain to a second Availability Zone by setting the Multi-AZ option to true. Similarly, you can turn off the Multi-AZ option to downgrade the domain to a single Availability Zone by setting the Multi-AZ option to <code>false</code>. </p>
+
+        Raises:
+            aws_sdk_cloudsearch.errors.base_exception.BaseException: <p>An error occurred while processing the request.</p>
+            aws_sdk_cloudsearch.errors.disabled_operation_exception.DisabledOperationException: <p>The request was rejected because it attempted an operation which is not enabled.</p>
+            aws_sdk_cloudsearch.errors.internal_exception.InternalException: <p>An internal error occurred while processing the request. If this problem persists, report an issue from the <a href=\"http://status.aws.amazon.com/\" target=\"_blank\">Service Health Dashboard</a>.</p>
+            aws_sdk_cloudsearch.errors.invalid_type_exception.InvalidTypeException: <p>The request was rejected because it specified an invalid type definition.</p>
+            aws_sdk_cloudsearch.errors.limit_exceeded_exception.LimitExceededException: <p>The request was rejected because a resource limit has already been met.</p>
+            aws_sdk_cloudsearch.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request was rejected because it attempted to reference a resource that does not exist.</p>
+            aws_sdk_cloudsearch.errors.validation_exception.ValidationException: <p>The request was rejected because it has invalid parameters.</p>
+            aws_sdk_cloudsearch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1098,6 +1272,16 @@ class CloudSearchClient:
         Args:
             domain_name: <p>A string that represents the name of a domain.</p>
             domain_endpoint_options: <p>Whether to require that all requests to the domain arrive over HTTPS. We recommend Policy-Min-TLS-1-2-2019-07 for TLSSecurityPolicy. For compatibility with older clients, the default is Policy-Min-TLS-1-0-2019-07. </p>
+
+        Raises:
+            aws_sdk_cloudsearch.errors.base_exception.BaseException: <p>An error occurred while processing the request.</p>
+            aws_sdk_cloudsearch.errors.disabled_operation_exception.DisabledOperationException: <p>The request was rejected because it attempted an operation which is not enabled.</p>
+            aws_sdk_cloudsearch.errors.internal_exception.InternalException: <p>An internal error occurred while processing the request. If this problem persists, report an issue from the <a href=\"http://status.aws.amazon.com/\" target=\"_blank\">Service Health Dashboard</a>.</p>
+            aws_sdk_cloudsearch.errors.invalid_type_exception.InvalidTypeException: <p>The request was rejected because it specified an invalid type definition.</p>
+            aws_sdk_cloudsearch.errors.limit_exceeded_exception.LimitExceededException: <p>The request was rejected because a resource limit has already been met.</p>
+            aws_sdk_cloudsearch.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request was rejected because it attempted to reference a resource that does not exist.</p>
+            aws_sdk_cloudsearch.errors.validation_exception.ValidationException: <p>The request was rejected because it has invalid parameters.</p>
+            aws_sdk_cloudsearch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1133,7 +1317,17 @@ class CloudSearchClient:
         *,
         config_overrides: Optional[CloudSearchClientConfig] = None,
     ) -> "aws_sdk_cloudsearch.types.update_scaling_parameters_response.UpdateScalingParametersResponse":
-        r"""<p>Configures scaling parameters for a domain. A domain's scaling parameters specify the desired search instance type and replication count. Amazon CloudSearch will still automatically scale your domain based on the volume of data and traffic, but not below the desired instance type and replication count. If the Multi-AZ option is enabled, these values control the resources used per Availability Zone. For more information, see <a href=\"http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-scaling-options.html\" target=\"_blank\">Configuring Scaling Options</a> in the <i>Amazon CloudSearch Developer Guide</i>. </p>"""
+        r"""<p>Configures scaling parameters for a domain. A domain's scaling parameters specify the desired search instance type and replication count. Amazon CloudSearch will still automatically scale your domain based on the volume of data and traffic, but not below the desired instance type and replication count. If the Multi-AZ option is enabled, these values control the resources used per Availability Zone. For more information, see <a href=\"http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-scaling-options.html\" target=\"_blank\">Configuring Scaling Options</a> in the <i>Amazon CloudSearch Developer Guide</i>. </p>
+
+        Raises:
+            aws_sdk_cloudsearch.errors.base_exception.BaseException: <p>An error occurred while processing the request.</p>
+            aws_sdk_cloudsearch.errors.internal_exception.InternalException: <p>An internal error occurred while processing the request. If this problem persists, report an issue from the <a href=\"http://status.aws.amazon.com/\" target=\"_blank\">Service Health Dashboard</a>.</p>
+            aws_sdk_cloudsearch.errors.invalid_type_exception.InvalidTypeException: <p>The request was rejected because it specified an invalid type definition.</p>
+            aws_sdk_cloudsearch.errors.limit_exceeded_exception.LimitExceededException: <p>The request was rejected because a resource limit has already been met.</p>
+            aws_sdk_cloudsearch.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request was rejected because it attempted to reference a resource that does not exist.</p>
+            aws_sdk_cloudsearch.errors.validation_exception.ValidationException: <p>The request was rejected because it has invalid parameters.</p>
+            aws_sdk_cloudsearch.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_cloudsearch.types.update_scaling_parameters_request.UpdateScalingParametersRequest]",
@@ -1172,6 +1366,15 @@ class CloudSearchClient:
 
         Args:
             access_policies: <p>The access rules you want to configure. These rules replace any existing rules. </p>
+
+        Raises:
+            aws_sdk_cloudsearch.errors.base_exception.BaseException: <p>An error occurred while processing the request.</p>
+            aws_sdk_cloudsearch.errors.internal_exception.InternalException: <p>An internal error occurred while processing the request. If this problem persists, report an issue from the <a href=\"http://status.aws.amazon.com/\" target=\"_blank\">Service Health Dashboard</a>.</p>
+            aws_sdk_cloudsearch.errors.invalid_type_exception.InvalidTypeException: <p>The request was rejected because it specified an invalid type definition.</p>
+            aws_sdk_cloudsearch.errors.limit_exceeded_exception.LimitExceededException: <p>The request was rejected because a resource limit has already been met.</p>
+            aws_sdk_cloudsearch.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request was rejected because it attempted to reference a resource that does not exist.</p>
+            aws_sdk_cloudsearch.errors.validation_exception.ValidationException: <p>The request was rejected because it has invalid parameters.</p>
+            aws_sdk_cloudsearch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(

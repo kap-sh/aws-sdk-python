@@ -49,6 +49,12 @@ class Plugin:
         Args:
             max_results: <p>The maximum number of plugins that can be returned.</p>
             next_token: <p>The pagination token.</p>
+
+        Raises:
+            aws_sdk_migrationhuborchestrator.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_migrationhuborchestrator.errors.internal_server_exception.InternalServerException: <p>An internal error has occurred.</p>
+            aws_sdk_migrationhuborchestrator.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_migrationhuborchestrator.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -100,6 +106,12 @@ class AsyncPlugin:
         Args:
             max_results: <p>The maximum number of plugins that can be returned.</p>
             next_token: <p>The pagination token.</p>
+
+        Raises:
+            aws_sdk_migrationhuborchestrator.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_migrationhuborchestrator.errors.internal_server_exception.InternalServerException: <p>An internal error has occurred.</p>
+            aws_sdk_migrationhuborchestrator.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_migrationhuborchestrator.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

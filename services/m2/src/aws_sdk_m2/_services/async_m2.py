@@ -153,7 +153,14 @@ class Asyncm2Client:
     async def get_signed_bluinsights_url(
         self, *, config_overrides: Optional[Asyncm2ClientConfig] = None
     ) -> "aws_sdk_m2.types.get_signed_bluinsights_url_response.GetSignedBluinsightsUrlResponse":
-        """<p>Gets a single sign-on URL that can be used to connect to AWS Blu Insights.</p>"""
+        """<p>Gets a single sign-on URL that can be used to connect to AWS Blu Insights.</p>
+
+        Raises:
+            aws_sdk_m2.errors.access_denied_exception.AccessDeniedException: <p>The account or role doesn't have the right permissions to make the request.</p>
+            aws_sdk_m2.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred during the processing of the request.</p>
+            aws_sdk_m2.errors.throttling_exception.ThrottlingException: <p>The number of requests made exceeds the limit.</p>
+            aws_sdk_m2.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[None]",
@@ -193,6 +200,13 @@ class Asyncm2Client:
             engine_type: <p>The type of target platform.</p>
             next_token: <p>A pagination token returned from a previous call to this operation. This specifies the next item to return. To return to the beginning of the list, exclude this parameter.</p>
             max_results: <p>The maximum number of objects to return.</p>
+
+        Raises:
+            aws_sdk_m2.errors.access_denied_exception.AccessDeniedException: <p>The account or role doesn't have the right permissions to make the request.</p>
+            aws_sdk_m2.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred during the processing of the request.</p>
+            aws_sdk_m2.errors.throttling_exception.ThrottlingException: <p>The number of requests made exceeds the limit.</p>
+            aws_sdk_m2.errors.validation_exception.ValidationException: <p>One or more parameters provided in the request is not valid.</p>
+            aws_sdk_m2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -261,6 +275,14 @@ class Asyncm2Client:
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource.</p>
+
+        Raises:
+            aws_sdk_m2.errors.access_denied_exception.AccessDeniedException: <p>The account or role doesn't have the right permissions to make the request.</p>
+            aws_sdk_m2.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred during the processing of the request.</p>
+            aws_sdk_m2.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_m2.errors.throttling_exception.ThrottlingException: <p>The number of requests made exceeds the limit.</p>
+            aws_sdk_m2.errors.validation_exception.ValidationException: <p>One or more parameters provided in the request is not valid.</p>
+            aws_sdk_m2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -301,6 +323,15 @@ class Asyncm2Client:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource.</p>
             tags: <p>The tags to add to the resource.</p>
+
+        Raises:
+            aws_sdk_m2.errors.access_denied_exception.AccessDeniedException: <p>The account or role doesn't have the right permissions to make the request.</p>
+            aws_sdk_m2.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred during the processing of the request.</p>
+            aws_sdk_m2.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_m2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>One or more quotas for Amazon Web Services Mainframe Modernization exceeds the limit.</p>
+            aws_sdk_m2.errors.throttling_exception.ThrottlingException: <p>The number of requests made exceeds the limit.</p>
+            aws_sdk_m2.errors.validation_exception.ValidationException: <p>One or more parameters provided in the request is not valid.</p>
+            aws_sdk_m2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -342,6 +373,14 @@ class Asyncm2Client:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource.</p>
             tag_keys: <p>The keys of the tags to remove.</p>
+
+        Raises:
+            aws_sdk_m2.errors.access_denied_exception.AccessDeniedException: <p>The account or role doesn't have the right permissions to make the request.</p>
+            aws_sdk_m2.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred during the processing of the request.</p>
+            aws_sdk_m2.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_m2.errors.throttling_exception.ThrottlingException: <p>The number of requests made exceeds the limit.</p>
+            aws_sdk_m2.errors.validation_exception.ValidationException: <p>One or more parameters provided in the request is not valid.</p>
+            aws_sdk_m2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

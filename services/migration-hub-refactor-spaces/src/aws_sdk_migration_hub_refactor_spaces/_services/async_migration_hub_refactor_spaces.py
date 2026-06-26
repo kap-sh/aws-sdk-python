@@ -236,6 +236,16 @@ class AsyncMigrationHubRefactorSpacesClient:
             api_gateway_proxy: <p>A wrapper object holding the API Gateway endpoint type and stage name for the proxy. </p>
             tags: <p>The tags to assign to the application. A tag is a label that you assign to an Amazon Web Services resource. Each tag consists of a key-value pair.</p>
             client_token: <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+
+        Raises:
+            aws_sdk_migration_hub_refactor_spaces.errors.access_denied_exception.AccessDeniedException: <p>The user does not have sufficient access to perform this action. </p>
+            aws_sdk_migration_hub_refactor_spaces.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_migration_hub_refactor_spaces.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing the request.</p>
+            aws_sdk_migration_hub_refactor_spaces.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource that does not exist. </p>
+            aws_sdk_migration_hub_refactor_spaces.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request would cause a service quota to be exceeded. </p>
+            aws_sdk_migration_hub_refactor_spaces.errors.throttling_exception.ThrottlingException: <p>Request was denied because the request was throttled. </p>
+            aws_sdk_migration_hub_refactor_spaces.errors.validation_exception.ValidationException: <p>The input does not satisfy the constraints specified by an Amazon Web Service. </p>
+            aws_sdk_migration_hub_refactor_spaces.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -297,6 +307,16 @@ class AsyncMigrationHubRefactorSpacesClient:
             network_fabric_type: <p>The network fabric type of the environment.</p>
             tags: <p>The tags to assign to the environment. A tag is a label that you assign to an Amazon Web Services resource. Each tag consists of a key-value pair.</p>
             client_token: <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+
+        Raises:
+            aws_sdk_migration_hub_refactor_spaces.errors.access_denied_exception.AccessDeniedException: <p>The user does not have sufficient access to perform this action. </p>
+            aws_sdk_migration_hub_refactor_spaces.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_migration_hub_refactor_spaces.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing the request.</p>
+            aws_sdk_migration_hub_refactor_spaces.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource that does not exist. </p>
+            aws_sdk_migration_hub_refactor_spaces.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request would cause a service quota to be exceeded. </p>
+            aws_sdk_migration_hub_refactor_spaces.errors.throttling_exception.ThrottlingException: <p>Request was denied because the request was throttled. </p>
+            aws_sdk_migration_hub_refactor_spaces.errors.validation_exception.ValidationException: <p>The input does not satisfy the constraints specified by an Amazon Web Service. </p>
+            aws_sdk_migration_hub_refactor_spaces.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -364,6 +384,16 @@ class AsyncMigrationHubRefactorSpacesClient:
             uri_path_route: <p>The configuration for the URI path route type. </p>
             tags: <p>The tags to assign to the route. A tag is a label that you assign to an Amazon Web Services resource. Each tag consists of a key-value pair.. </p>
             client_token: <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+
+        Raises:
+            aws_sdk_migration_hub_refactor_spaces.errors.access_denied_exception.AccessDeniedException: <p>The user does not have sufficient access to perform this action. </p>
+            aws_sdk_migration_hub_refactor_spaces.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_migration_hub_refactor_spaces.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing the request.</p>
+            aws_sdk_migration_hub_refactor_spaces.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource that does not exist. </p>
+            aws_sdk_migration_hub_refactor_spaces.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request would cause a service quota to be exceeded. </p>
+            aws_sdk_migration_hub_refactor_spaces.errors.throttling_exception.ThrottlingException: <p>Request was denied because the request was throttled. </p>
+            aws_sdk_migration_hub_refactor_spaces.errors.validation_exception.ValidationException: <p>The input does not satisfy the constraints specified by an Amazon Web Service. </p>
+            aws_sdk_migration_hub_refactor_spaces.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -443,6 +473,16 @@ class AsyncMigrationHubRefactorSpacesClient:
             lambda_endpoint: <p>The configuration for the Lambda endpoint type.</p>
             tags: <p>The tags to assign to the service. A tag is a label that you assign to an Amazon Web Services resource. Each tag consists of a key-value pair.. </p>
             client_token: <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+
+        Raises:
+            aws_sdk_migration_hub_refactor_spaces.errors.access_denied_exception.AccessDeniedException: <p>The user does not have sufficient access to perform this action. </p>
+            aws_sdk_migration_hub_refactor_spaces.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_migration_hub_refactor_spaces.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing the request.</p>
+            aws_sdk_migration_hub_refactor_spaces.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource that does not exist. </p>
+            aws_sdk_migration_hub_refactor_spaces.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request would cause a service quota to be exceeded. </p>
+            aws_sdk_migration_hub_refactor_spaces.errors.throttling_exception.ThrottlingException: <p>Request was denied because the request was throttled. </p>
+            aws_sdk_migration_hub_refactor_spaces.errors.validation_exception.ValidationException: <p>The input does not satisfy the constraints specified by an Amazon Web Service. </p>
+            aws_sdk_migration_hub_refactor_spaces.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -498,6 +538,15 @@ class AsyncMigrationHubRefactorSpacesClient:
         Args:
             environment_identifier: <p>The ID of the environment. </p>
             application_identifier: <p>The ID of the application.</p>
+
+        Raises:
+            aws_sdk_migration_hub_refactor_spaces.errors.access_denied_exception.AccessDeniedException: <p>The user does not have sufficient access to perform this action. </p>
+            aws_sdk_migration_hub_refactor_spaces.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_migration_hub_refactor_spaces.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing the request.</p>
+            aws_sdk_migration_hub_refactor_spaces.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource that does not exist. </p>
+            aws_sdk_migration_hub_refactor_spaces.errors.throttling_exception.ThrottlingException: <p>Request was denied because the request was throttled. </p>
+            aws_sdk_migration_hub_refactor_spaces.errors.validation_exception.ValidationException: <p>The input does not satisfy the constraints specified by an Amazon Web Service. </p>
+            aws_sdk_migration_hub_refactor_spaces.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -537,6 +586,15 @@ class AsyncMigrationHubRefactorSpacesClient:
 
         Args:
             environment_identifier: <p>The ID of the environment. </p>
+
+        Raises:
+            aws_sdk_migration_hub_refactor_spaces.errors.access_denied_exception.AccessDeniedException: <p>The user does not have sufficient access to perform this action. </p>
+            aws_sdk_migration_hub_refactor_spaces.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_migration_hub_refactor_spaces.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing the request.</p>
+            aws_sdk_migration_hub_refactor_spaces.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource that does not exist. </p>
+            aws_sdk_migration_hub_refactor_spaces.errors.throttling_exception.ThrottlingException: <p>Request was denied because the request was throttled. </p>
+            aws_sdk_migration_hub_refactor_spaces.errors.validation_exception.ValidationException: <p>The input does not satisfy the constraints specified by an Amazon Web Service. </p>
+            aws_sdk_migration_hub_refactor_spaces.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -575,6 +633,14 @@ class AsyncMigrationHubRefactorSpacesClient:
 
         Args:
             identifier: <p>Amazon Resource Name (ARN) of the resource associated with the policy. </p>
+
+        Raises:
+            aws_sdk_migration_hub_refactor_spaces.errors.access_denied_exception.AccessDeniedException: <p>The user does not have sufficient access to perform this action. </p>
+            aws_sdk_migration_hub_refactor_spaces.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing the request.</p>
+            aws_sdk_migration_hub_refactor_spaces.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource that does not exist. </p>
+            aws_sdk_migration_hub_refactor_spaces.errors.throttling_exception.ThrottlingException: <p>Request was denied because the request was throttled. </p>
+            aws_sdk_migration_hub_refactor_spaces.errors.validation_exception.ValidationException: <p>The input does not satisfy the constraints specified by an Amazon Web Service. </p>
+            aws_sdk_migration_hub_refactor_spaces.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -617,6 +683,15 @@ class AsyncMigrationHubRefactorSpacesClient:
             environment_identifier: <p>The ID of the environment to delete the route from.</p>
             application_identifier: <p>The ID of the application to delete the route from.</p>
             route_identifier: <p>The ID of the route to delete.</p>
+
+        Raises:
+            aws_sdk_migration_hub_refactor_spaces.errors.access_denied_exception.AccessDeniedException: <p>The user does not have sufficient access to perform this action. </p>
+            aws_sdk_migration_hub_refactor_spaces.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_migration_hub_refactor_spaces.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing the request.</p>
+            aws_sdk_migration_hub_refactor_spaces.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource that does not exist. </p>
+            aws_sdk_migration_hub_refactor_spaces.errors.throttling_exception.ThrottlingException: <p>Request was denied because the request was throttled. </p>
+            aws_sdk_migration_hub_refactor_spaces.errors.validation_exception.ValidationException: <p>The input does not satisfy the constraints specified by an Amazon Web Service. </p>
+            aws_sdk_migration_hub_refactor_spaces.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -661,6 +736,15 @@ class AsyncMigrationHubRefactorSpacesClient:
             environment_identifier: <p>The ID of the environment that the service is in.</p>
             application_identifier: <p>Deletes a Refactor Spaces service.</p> <note> <p>The <code>RefactorSpacesSecurityGroup</code> security group must be removed from all Amazon Web Services resources in the virtual private cloud (VPC) prior to deleting a service with a URL endpoint in a VPC.</p> </note>
             service_identifier: <p>The ID of the service to delete.</p>
+
+        Raises:
+            aws_sdk_migration_hub_refactor_spaces.errors.access_denied_exception.AccessDeniedException: <p>The user does not have sufficient access to perform this action. </p>
+            aws_sdk_migration_hub_refactor_spaces.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_migration_hub_refactor_spaces.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing the request.</p>
+            aws_sdk_migration_hub_refactor_spaces.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource that does not exist. </p>
+            aws_sdk_migration_hub_refactor_spaces.errors.throttling_exception.ThrottlingException: <p>Request was denied because the request was throttled. </p>
+            aws_sdk_migration_hub_refactor_spaces.errors.validation_exception.ValidationException: <p>The input does not satisfy the constraints specified by an Amazon Web Service. </p>
+            aws_sdk_migration_hub_refactor_spaces.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -703,6 +787,14 @@ class AsyncMigrationHubRefactorSpacesClient:
         Args:
             environment_identifier: <p>The ID of the environment. </p>
             application_identifier: <p>The ID of the application.</p>
+
+        Raises:
+            aws_sdk_migration_hub_refactor_spaces.errors.access_denied_exception.AccessDeniedException: <p>The user does not have sufficient access to perform this action. </p>
+            aws_sdk_migration_hub_refactor_spaces.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing the request.</p>
+            aws_sdk_migration_hub_refactor_spaces.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource that does not exist. </p>
+            aws_sdk_migration_hub_refactor_spaces.errors.throttling_exception.ThrottlingException: <p>Request was denied because the request was throttled. </p>
+            aws_sdk_migration_hub_refactor_spaces.errors.validation_exception.ValidationException: <p>The input does not satisfy the constraints specified by an Amazon Web Service. </p>
+            aws_sdk_migration_hub_refactor_spaces.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -742,6 +834,14 @@ class AsyncMigrationHubRefactorSpacesClient:
 
         Args:
             environment_identifier: <p>The ID of the environment.</p>
+
+        Raises:
+            aws_sdk_migration_hub_refactor_spaces.errors.access_denied_exception.AccessDeniedException: <p>The user does not have sufficient access to perform this action. </p>
+            aws_sdk_migration_hub_refactor_spaces.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing the request.</p>
+            aws_sdk_migration_hub_refactor_spaces.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource that does not exist. </p>
+            aws_sdk_migration_hub_refactor_spaces.errors.throttling_exception.ThrottlingException: <p>Request was denied because the request was throttled. </p>
+            aws_sdk_migration_hub_refactor_spaces.errors.validation_exception.ValidationException: <p>The input does not satisfy the constraints specified by an Amazon Web Service. </p>
+            aws_sdk_migration_hub_refactor_spaces.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -780,6 +880,14 @@ class AsyncMigrationHubRefactorSpacesClient:
 
         Args:
             identifier: <p>The Amazon Resource Name (ARN) of the resource associated with the policy. </p>
+
+        Raises:
+            aws_sdk_migration_hub_refactor_spaces.errors.access_denied_exception.AccessDeniedException: <p>The user does not have sufficient access to perform this action. </p>
+            aws_sdk_migration_hub_refactor_spaces.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing the request.</p>
+            aws_sdk_migration_hub_refactor_spaces.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource that does not exist. </p>
+            aws_sdk_migration_hub_refactor_spaces.errors.throttling_exception.ThrottlingException: <p>Request was denied because the request was throttled. </p>
+            aws_sdk_migration_hub_refactor_spaces.errors.validation_exception.ValidationException: <p>The input does not satisfy the constraints specified by an Amazon Web Service. </p>
+            aws_sdk_migration_hub_refactor_spaces.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -822,6 +930,14 @@ class AsyncMigrationHubRefactorSpacesClient:
             environment_identifier: <p>The ID of the environment.</p>
             application_identifier: <p>The ID of the application. </p>
             route_identifier: <p>The ID of the route.</p>
+
+        Raises:
+            aws_sdk_migration_hub_refactor_spaces.errors.access_denied_exception.AccessDeniedException: <p>The user does not have sufficient access to perform this action. </p>
+            aws_sdk_migration_hub_refactor_spaces.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing the request.</p>
+            aws_sdk_migration_hub_refactor_spaces.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource that does not exist. </p>
+            aws_sdk_migration_hub_refactor_spaces.errors.throttling_exception.ThrottlingException: <p>Request was denied because the request was throttled. </p>
+            aws_sdk_migration_hub_refactor_spaces.errors.validation_exception.ValidationException: <p>The input does not satisfy the constraints specified by an Amazon Web Service. </p>
+            aws_sdk_migration_hub_refactor_spaces.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -866,6 +982,14 @@ class AsyncMigrationHubRefactorSpacesClient:
             environment_identifier: <p>The ID of the environment.</p>
             application_identifier: <p>The ID of the application.</p>
             service_identifier: <p>The ID of the service.</p>
+
+        Raises:
+            aws_sdk_migration_hub_refactor_spaces.errors.access_denied_exception.AccessDeniedException: <p>The user does not have sufficient access to perform this action. </p>
+            aws_sdk_migration_hub_refactor_spaces.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing the request.</p>
+            aws_sdk_migration_hub_refactor_spaces.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource that does not exist. </p>
+            aws_sdk_migration_hub_refactor_spaces.errors.throttling_exception.ThrottlingException: <p>Request was denied because the request was throttled. </p>
+            aws_sdk_migration_hub_refactor_spaces.errors.validation_exception.ValidationException: <p>The input does not satisfy the constraints specified by an Amazon Web Service. </p>
+            aws_sdk_migration_hub_refactor_spaces.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -914,6 +1038,16 @@ class AsyncMigrationHubRefactorSpacesClient:
             environment_identifier: <p>The ID of the environment. </p>
             next_token: <p>The token for the next page of results.</p>
             max_results: <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+
+        Raises:
+            aws_sdk_migration_hub_refactor_spaces.errors.access_denied_exception.AccessDeniedException: <p>The user does not have sufficient access to perform this action. </p>
+            aws_sdk_migration_hub_refactor_spaces.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_migration_hub_refactor_spaces.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing the request.</p>
+            aws_sdk_migration_hub_refactor_spaces.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource that does not exist. </p>
+            aws_sdk_migration_hub_refactor_spaces.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request would cause a service quota to be exceeded. </p>
+            aws_sdk_migration_hub_refactor_spaces.errors.throttling_exception.ThrottlingException: <p>Request was denied because the request was throttled. </p>
+            aws_sdk_migration_hub_refactor_spaces.errors.validation_exception.ValidationException: <p>The input does not satisfy the constraints specified by an Amazon Web Service. </p>
+            aws_sdk_migration_hub_refactor_spaces.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -989,6 +1123,14 @@ class AsyncMigrationHubRefactorSpacesClient:
         Args:
             next_token: <p>The token for the next page of results.</p>
             max_results: <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+
+        Raises:
+            aws_sdk_migration_hub_refactor_spaces.errors.access_denied_exception.AccessDeniedException: <p>The user does not have sufficient access to perform this action. </p>
+            aws_sdk_migration_hub_refactor_spaces.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing the request.</p>
+            aws_sdk_migration_hub_refactor_spaces.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource that does not exist. </p>
+            aws_sdk_migration_hub_refactor_spaces.errors.throttling_exception.ThrottlingException: <p>Request was denied because the request was throttled. </p>
+            aws_sdk_migration_hub_refactor_spaces.errors.validation_exception.ValidationException: <p>The input does not satisfy the constraints specified by an Amazon Web Service. </p>
+            aws_sdk_migration_hub_refactor_spaces.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1063,6 +1205,14 @@ class AsyncMigrationHubRefactorSpacesClient:
             environment_identifier: <p>The ID of the environment. </p>
             next_token: <p>The token for the next page of results.</p>
             max_results: <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+
+        Raises:
+            aws_sdk_migration_hub_refactor_spaces.errors.access_denied_exception.AccessDeniedException: <p>The user does not have sufficient access to perform this action. </p>
+            aws_sdk_migration_hub_refactor_spaces.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing the request.</p>
+            aws_sdk_migration_hub_refactor_spaces.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource that does not exist. </p>
+            aws_sdk_migration_hub_refactor_spaces.errors.throttling_exception.ThrottlingException: <p>Request was denied because the request was throttled. </p>
+            aws_sdk_migration_hub_refactor_spaces.errors.validation_exception.ValidationException: <p>The input does not satisfy the constraints specified by an Amazon Web Service. </p>
+            aws_sdk_migration_hub_refactor_spaces.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1142,6 +1292,16 @@ class AsyncMigrationHubRefactorSpacesClient:
             application_identifier: <p>The ID of the application. </p>
             next_token: <p>The token for the next page of results.</p>
             max_results: <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+
+        Raises:
+            aws_sdk_migration_hub_refactor_spaces.errors.access_denied_exception.AccessDeniedException: <p>The user does not have sufficient access to perform this action. </p>
+            aws_sdk_migration_hub_refactor_spaces.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_migration_hub_refactor_spaces.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing the request.</p>
+            aws_sdk_migration_hub_refactor_spaces.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource that does not exist. </p>
+            aws_sdk_migration_hub_refactor_spaces.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request would cause a service quota to be exceeded. </p>
+            aws_sdk_migration_hub_refactor_spaces.errors.throttling_exception.ThrottlingException: <p>Request was denied because the request was throttled. </p>
+            aws_sdk_migration_hub_refactor_spaces.errors.validation_exception.ValidationException: <p>The input does not satisfy the constraints specified by an Amazon Web Service. </p>
+            aws_sdk_migration_hub_refactor_spaces.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1224,6 +1384,16 @@ class AsyncMigrationHubRefactorSpacesClient:
             application_identifier: <p>The ID of the application. </p>
             next_token: <p>The token for the next page of results.</p>
             max_results: <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+
+        Raises:
+            aws_sdk_migration_hub_refactor_spaces.errors.access_denied_exception.AccessDeniedException: <p>The user does not have sufficient access to perform this action. </p>
+            aws_sdk_migration_hub_refactor_spaces.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_migration_hub_refactor_spaces.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing the request.</p>
+            aws_sdk_migration_hub_refactor_spaces.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource that does not exist. </p>
+            aws_sdk_migration_hub_refactor_spaces.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request would cause a service quota to be exceeded. </p>
+            aws_sdk_migration_hub_refactor_spaces.errors.throttling_exception.ThrottlingException: <p>Request was denied because the request was throttled. </p>
+            aws_sdk_migration_hub_refactor_spaces.errors.validation_exception.ValidationException: <p>The input does not satisfy the constraints specified by an Amazon Web Service. </p>
+            aws_sdk_migration_hub_refactor_spaces.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1296,6 +1466,12 @@ class AsyncMigrationHubRefactorSpacesClient:
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource. </p>
+
+        Raises:
+            aws_sdk_migration_hub_refactor_spaces.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing the request.</p>
+            aws_sdk_migration_hub_refactor_spaces.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource that does not exist. </p>
+            aws_sdk_migration_hub_refactor_spaces.errors.validation_exception.ValidationException: <p>The input does not satisfy the constraints specified by an Amazon Web Service. </p>
+            aws_sdk_migration_hub_refactor_spaces.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1336,6 +1512,15 @@ class AsyncMigrationHubRefactorSpacesClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource to which the policy is being attached. </p>
             policy: <p>A JSON-formatted string for an Amazon Web Services resource-based policy. </p>
+
+        Raises:
+            aws_sdk_migration_hub_refactor_spaces.errors.access_denied_exception.AccessDeniedException: <p>The user does not have sufficient access to perform this action. </p>
+            aws_sdk_migration_hub_refactor_spaces.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing the request.</p>
+            aws_sdk_migration_hub_refactor_spaces.errors.invalid_resource_policy_exception.InvalidResourcePolicyException: <p>The resource policy is not valid.</p>
+            aws_sdk_migration_hub_refactor_spaces.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource that does not exist. </p>
+            aws_sdk_migration_hub_refactor_spaces.errors.throttling_exception.ThrottlingException: <p>Request was denied because the request was throttled. </p>
+            aws_sdk_migration_hub_refactor_spaces.errors.validation_exception.ValidationException: <p>The input does not satisfy the constraints specified by an Amazon Web Service. </p>
+            aws_sdk_migration_hub_refactor_spaces.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1377,6 +1562,12 @@ class AsyncMigrationHubRefactorSpacesClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource.</p>
             tags: <p>The new or modified tags for the resource.</p>
+
+        Raises:
+            aws_sdk_migration_hub_refactor_spaces.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing the request.</p>
+            aws_sdk_migration_hub_refactor_spaces.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource that does not exist. </p>
+            aws_sdk_migration_hub_refactor_spaces.errors.validation_exception.ValidationException: <p>The input does not satisfy the constraints specified by an Amazon Web Service. </p>
+            aws_sdk_migration_hub_refactor_spaces.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1418,6 +1609,12 @@ class AsyncMigrationHubRefactorSpacesClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource. </p>
             tag_keys: <p>The list of keys of the tags to be removed from the resource. </p>
+
+        Raises:
+            aws_sdk_migration_hub_refactor_spaces.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing the request.</p>
+            aws_sdk_migration_hub_refactor_spaces.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource that does not exist. </p>
+            aws_sdk_migration_hub_refactor_spaces.errors.validation_exception.ValidationException: <p>The input does not satisfy the constraints specified by an Amazon Web Service. </p>
+            aws_sdk_migration_hub_refactor_spaces.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1463,6 +1660,14 @@ class AsyncMigrationHubRefactorSpacesClient:
             application_identifier: <p> The ID of the application within which the route is being updated. </p>
             route_identifier: <p> The unique identifier of the route to update. </p>
             activation_state: <p> If set to <code>ACTIVE</code>, traffic is forwarded to this route’s service after the route is updated. </p>
+
+        Raises:
+            aws_sdk_migration_hub_refactor_spaces.errors.access_denied_exception.AccessDeniedException: <p>The user does not have sufficient access to perform this action. </p>
+            aws_sdk_migration_hub_refactor_spaces.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing the request.</p>
+            aws_sdk_migration_hub_refactor_spaces.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource that does not exist. </p>
+            aws_sdk_migration_hub_refactor_spaces.errors.throttling_exception.ThrottlingException: <p>Request was denied because the request was throttled. </p>
+            aws_sdk_migration_hub_refactor_spaces.errors.validation_exception.ValidationException: <p>The input does not satisfy the constraints specified by an Amazon Web Service. </p>
+            aws_sdk_migration_hub_refactor_spaces.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

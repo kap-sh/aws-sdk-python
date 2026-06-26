@@ -89,7 +89,17 @@ class DataAutomationProjectResource:
         ] = None,
         tags: Optional["aws_sdk_bedrock_data_automation.types.tag_list.TagList"] = None,
     ) -> "aws_sdk_bedrock_data_automation.types.create_data_automation_project_response.CreateDataAutomationProjectResponse":
-        """Creates an Amazon Bedrock Data Automation Project"""
+        """Creates an Amazon Bedrock Data Automation Project
+
+        Raises:
+            aws_sdk_bedrock_data_automation.errors.access_denied_exception.AccessDeniedException: This exception is thrown when a request is denied per access permissions
+            aws_sdk_bedrock_data_automation.errors.conflict_exception.ConflictException: This exception is thrown when there is a conflict performing an operation
+            aws_sdk_bedrock_data_automation.errors.internal_server_exception.InternalServerException: This exception is thrown if there was an unexpected error during processing of request
+            aws_sdk_bedrock_data_automation.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: This exception is thrown when a request is made beyond the service quota
+            aws_sdk_bedrock_data_automation.errors.throttling_exception.ThrottlingException: This exception is thrown when the number of requests exceeds the limit
+            aws_sdk_bedrock_data_automation.errors.validation_exception.ValidationException: This exception is thrown when the request's input validation fails
+            aws_sdk_bedrock_data_automation.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_bedrock_data_automation.types.create_data_automation_project_request.CreateDataAutomationProjectRequest]",
@@ -151,6 +161,14 @@ class DataAutomationProjectResource:
         Args:
             project_arn: ARN generated at the server side when a DataAutomationProject is created
             project_stage: Optional field to delete a specific DataAutomationProject stage
+
+        Raises:
+            aws_sdk_bedrock_data_automation.errors.access_denied_exception.AccessDeniedException: This exception is thrown when a request is denied per access permissions
+            aws_sdk_bedrock_data_automation.errors.internal_server_exception.InternalServerException: This exception is thrown if there was an unexpected error during processing of request
+            aws_sdk_bedrock_data_automation.errors.resource_not_found_exception.ResourceNotFoundException: This exception is thrown when a resource referenced by the operation does not exist
+            aws_sdk_bedrock_data_automation.errors.throttling_exception.ThrottlingException: This exception is thrown when the number of requests exceeds the limit
+            aws_sdk_bedrock_data_automation.errors.validation_exception.ValidationException: This exception is thrown when the request's input validation fails
+            aws_sdk_bedrock_data_automation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -209,6 +227,16 @@ class DataAutomationProjectResource:
 
         Args:
             project_arn: ARN generated at the server side when a DataAutomationProject is created
+
+        Raises:
+            aws_sdk_bedrock_data_automation.errors.access_denied_exception.AccessDeniedException: This exception is thrown when a request is denied per access permissions
+            aws_sdk_bedrock_data_automation.errors.conflict_exception.ConflictException: This exception is thrown when there is a conflict performing an operation
+            aws_sdk_bedrock_data_automation.errors.internal_server_exception.InternalServerException: This exception is thrown if there was an unexpected error during processing of request
+            aws_sdk_bedrock_data_automation.errors.resource_not_found_exception.ResourceNotFoundException: This exception is thrown when a resource referenced by the operation does not exist
+            aws_sdk_bedrock_data_automation.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: This exception is thrown when a request is made beyond the service quota
+            aws_sdk_bedrock_data_automation.errors.throttling_exception.ThrottlingException: This exception is thrown when the number of requests exceeds the limit
+            aws_sdk_bedrock_data_automation.errors.validation_exception.ValidationException: This exception is thrown when the request's input validation fails
+            aws_sdk_bedrock_data_automation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -261,6 +289,14 @@ class DataAutomationProjectResource:
 
         Args:
             project_arn: ARN generated at the server side when a DataAutomationProject is created
+
+        Raises:
+            aws_sdk_bedrock_data_automation.errors.access_denied_exception.AccessDeniedException: This exception is thrown when a request is denied per access permissions
+            aws_sdk_bedrock_data_automation.errors.internal_server_exception.InternalServerException: This exception is thrown if there was an unexpected error during processing of request
+            aws_sdk_bedrock_data_automation.errors.resource_not_found_exception.ResourceNotFoundException: This exception is thrown when a resource referenced by the operation does not exist
+            aws_sdk_bedrock_data_automation.errors.throttling_exception.ThrottlingException: This exception is thrown when the number of requests exceeds the limit
+            aws_sdk_bedrock_data_automation.errors.validation_exception.ValidationException: This exception is thrown when the request's input validation fails
+            aws_sdk_bedrock_data_automation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -311,7 +347,16 @@ class DataAutomationProjectResource:
             "aws_sdk_bedrock_data_automation.types.data_automation_library_filter.DataAutomationLibraryFilter"
         ] = None,
     ) -> "aws_sdk_bedrock_data_automation.types.list_data_automation_projects_response.ListDataAutomationProjectsResponse":
-        """Lists all existing Amazon Bedrock Data Automation Projects"""
+        """Lists all existing Amazon Bedrock Data Automation Projects
+
+        Raises:
+            aws_sdk_bedrock_data_automation.errors.access_denied_exception.AccessDeniedException: This exception is thrown when a request is denied per access permissions
+            aws_sdk_bedrock_data_automation.errors.internal_server_exception.InternalServerException: This exception is thrown if there was an unexpected error during processing of request
+            aws_sdk_bedrock_data_automation.errors.resource_not_found_exception.ResourceNotFoundException: This exception is thrown when a resource referenced by the operation does not exist
+            aws_sdk_bedrock_data_automation.errors.throttling_exception.ThrottlingException: This exception is thrown when the number of requests exceeds the limit
+            aws_sdk_bedrock_data_automation.errors.validation_exception.ValidationException: This exception is thrown when the request's input validation fails
+            aws_sdk_bedrock_data_automation.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_bedrock_data_automation.types.list_data_automation_projects_request.ListDataAutomationProjectsRequest]",
@@ -386,7 +431,17 @@ class AsyncDataAutomationProjectResource:
         ] = None,
         tags: Optional["aws_sdk_bedrock_data_automation.types.tag_list.TagList"] = None,
     ) -> "aws_sdk_bedrock_data_automation.types.create_data_automation_project_response.CreateDataAutomationProjectResponse":
-        """Creates an Amazon Bedrock Data Automation Project"""
+        """Creates an Amazon Bedrock Data Automation Project
+
+        Raises:
+            aws_sdk_bedrock_data_automation.errors.access_denied_exception.AccessDeniedException: This exception is thrown when a request is denied per access permissions
+            aws_sdk_bedrock_data_automation.errors.conflict_exception.ConflictException: This exception is thrown when there is a conflict performing an operation
+            aws_sdk_bedrock_data_automation.errors.internal_server_exception.InternalServerException: This exception is thrown if there was an unexpected error during processing of request
+            aws_sdk_bedrock_data_automation.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: This exception is thrown when a request is made beyond the service quota
+            aws_sdk_bedrock_data_automation.errors.throttling_exception.ThrottlingException: This exception is thrown when the number of requests exceeds the limit
+            aws_sdk_bedrock_data_automation.errors.validation_exception.ValidationException: This exception is thrown when the request's input validation fails
+            aws_sdk_bedrock_data_automation.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_bedrock_data_automation.types.create_data_automation_project_request.CreateDataAutomationProjectRequest]",
@@ -449,6 +504,14 @@ class AsyncDataAutomationProjectResource:
         Args:
             project_arn: ARN generated at the server side when a DataAutomationProject is created
             project_stage: Optional field to delete a specific DataAutomationProject stage
+
+        Raises:
+            aws_sdk_bedrock_data_automation.errors.access_denied_exception.AccessDeniedException: This exception is thrown when a request is denied per access permissions
+            aws_sdk_bedrock_data_automation.errors.internal_server_exception.InternalServerException: This exception is thrown if there was an unexpected error during processing of request
+            aws_sdk_bedrock_data_automation.errors.resource_not_found_exception.ResourceNotFoundException: This exception is thrown when a resource referenced by the operation does not exist
+            aws_sdk_bedrock_data_automation.errors.throttling_exception.ThrottlingException: This exception is thrown when the number of requests exceeds the limit
+            aws_sdk_bedrock_data_automation.errors.validation_exception.ValidationException: This exception is thrown when the request's input validation fails
+            aws_sdk_bedrock_data_automation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -508,6 +571,16 @@ class AsyncDataAutomationProjectResource:
 
         Args:
             project_arn: ARN generated at the server side when a DataAutomationProject is created
+
+        Raises:
+            aws_sdk_bedrock_data_automation.errors.access_denied_exception.AccessDeniedException: This exception is thrown when a request is denied per access permissions
+            aws_sdk_bedrock_data_automation.errors.conflict_exception.ConflictException: This exception is thrown when there is a conflict performing an operation
+            aws_sdk_bedrock_data_automation.errors.internal_server_exception.InternalServerException: This exception is thrown if there was an unexpected error during processing of request
+            aws_sdk_bedrock_data_automation.errors.resource_not_found_exception.ResourceNotFoundException: This exception is thrown when a resource referenced by the operation does not exist
+            aws_sdk_bedrock_data_automation.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: This exception is thrown when a request is made beyond the service quota
+            aws_sdk_bedrock_data_automation.errors.throttling_exception.ThrottlingException: This exception is thrown when the number of requests exceeds the limit
+            aws_sdk_bedrock_data_automation.errors.validation_exception.ValidationException: This exception is thrown when the request's input validation fails
+            aws_sdk_bedrock_data_automation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -561,6 +634,14 @@ class AsyncDataAutomationProjectResource:
 
         Args:
             project_arn: ARN generated at the server side when a DataAutomationProject is created
+
+        Raises:
+            aws_sdk_bedrock_data_automation.errors.access_denied_exception.AccessDeniedException: This exception is thrown when a request is denied per access permissions
+            aws_sdk_bedrock_data_automation.errors.internal_server_exception.InternalServerException: This exception is thrown if there was an unexpected error during processing of request
+            aws_sdk_bedrock_data_automation.errors.resource_not_found_exception.ResourceNotFoundException: This exception is thrown when a resource referenced by the operation does not exist
+            aws_sdk_bedrock_data_automation.errors.throttling_exception.ThrottlingException: This exception is thrown when the number of requests exceeds the limit
+            aws_sdk_bedrock_data_automation.errors.validation_exception.ValidationException: This exception is thrown when the request's input validation fails
+            aws_sdk_bedrock_data_automation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -612,7 +693,16 @@ class AsyncDataAutomationProjectResource:
             "aws_sdk_bedrock_data_automation.types.data_automation_library_filter.DataAutomationLibraryFilter"
         ] = None,
     ) -> "aws_sdk_bedrock_data_automation.types.list_data_automation_projects_response.ListDataAutomationProjectsResponse":
-        """Lists all existing Amazon Bedrock Data Automation Projects"""
+        """Lists all existing Amazon Bedrock Data Automation Projects
+
+        Raises:
+            aws_sdk_bedrock_data_automation.errors.access_denied_exception.AccessDeniedException: This exception is thrown when a request is denied per access permissions
+            aws_sdk_bedrock_data_automation.errors.internal_server_exception.InternalServerException: This exception is thrown if there was an unexpected error during processing of request
+            aws_sdk_bedrock_data_automation.errors.resource_not_found_exception.ResourceNotFoundException: This exception is thrown when a resource referenced by the operation does not exist
+            aws_sdk_bedrock_data_automation.errors.throttling_exception.ThrottlingException: This exception is thrown when the number of requests exceeds the limit
+            aws_sdk_bedrock_data_automation.errors.validation_exception.ValidationException: This exception is thrown when the request's input validation fails
+            aws_sdk_bedrock_data_automation.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_bedrock_data_automation.types.list_data_automation_projects_request.ListDataAutomationProjectsRequest]",

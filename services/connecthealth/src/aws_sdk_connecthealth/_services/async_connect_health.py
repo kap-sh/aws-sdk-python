@@ -184,6 +184,13 @@ class AsyncConnectHealthClient:
         Args:
             domain_id: <p>The unique identifier of the parent Domain.</p>
             subscription_id: <p>The unique identifier of the Subscription.</p>
+
+        Raises:
+            aws_sdk_connecthealth.errors.access_denied_exception.AccessDeniedException: <p>This error is thrown when the client does not supply proper credentials to the API.</p>
+            aws_sdk_connecthealth.errors.internal_server_exception.InternalServerException: <p>This error is thrown when a transient error causes our API to fail.</p>
+            aws_sdk_connecthealth.errors.resource_not_found_exception.ResourceNotFoundException: <p>This error is thrown when the requested resource is not found.</p>
+            aws_sdk_connecthealth.errors.validation_exception.ValidationException: <p>This error is thrown when the client supplies invalid input to the API.</p>
+            aws_sdk_connecthealth.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -233,6 +240,10 @@ class AsyncConnectHealthClient:
             kms_key_arn: <p>The ARN of the KMS key to use for encrypting data in this Domain.</p>
             web_app_setup_configuration: <p>Configuration for the Domain web application. Optional, but if provided all fields are required.</p>
             tags: <p>Tags to associate with the Domain.</p>
+
+        Raises:
+            aws_sdk_connecthealth.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request exceeds a service quota.</p>
+            aws_sdk_connecthealth.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -277,6 +288,14 @@ class AsyncConnectHealthClient:
 
         Args:
             domain_id: <p>The unique identifier of the parent Domain.</p>
+
+        Raises:
+            aws_sdk_connecthealth.errors.access_denied_exception.AccessDeniedException: <p>This error is thrown when the client does not supply proper credentials to the API.</p>
+            aws_sdk_connecthealth.errors.internal_server_exception.InternalServerException: <p>This error is thrown when a transient error causes our API to fail.</p>
+            aws_sdk_connecthealth.errors.resource_not_found_exception.ResourceNotFoundException: <p>This error is thrown when the requested resource is not found.</p>
+            aws_sdk_connecthealth.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request exceeds a service quota.</p>
+            aws_sdk_connecthealth.errors.validation_exception.ValidationException: <p>This error is thrown when the client supplies invalid input to the API.</p>
+            aws_sdk_connecthealth.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -317,6 +336,13 @@ class AsyncConnectHealthClient:
         Args:
             domain_id: <p>The unique identifier of the parent Domain.</p>
             subscription_id: <p>The unique identifier of the Subscription.</p>
+
+        Raises:
+            aws_sdk_connecthealth.errors.access_denied_exception.AccessDeniedException: <p>This error is thrown when the client does not supply proper credentials to the API.</p>
+            aws_sdk_connecthealth.errors.internal_server_exception.InternalServerException: <p>This error is thrown when a transient error causes our API to fail.</p>
+            aws_sdk_connecthealth.errors.resource_not_found_exception.ResourceNotFoundException: <p>This error is thrown when the requested resource is not found.</p>
+            aws_sdk_connecthealth.errors.validation_exception.ValidationException: <p>This error is thrown when the client supplies invalid input to the API.</p>
+            aws_sdk_connecthealth.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -356,6 +382,10 @@ class AsyncConnectHealthClient:
 
         Args:
             domain_id: <p>The id of the Domain to delete</p>
+
+        Raises:
+            aws_sdk_connecthealth.errors.resource_not_found_exception.ResourceNotFoundException: <p>This error is thrown when the requested resource is not found.</p>
+            aws_sdk_connecthealth.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -394,6 +424,10 @@ class AsyncConnectHealthClient:
 
         Args:
             domain_id: <p>The id of the Domain to get</p>
+
+        Raises:
+            aws_sdk_connecthealth.errors.resource_not_found_exception.ResourceNotFoundException: <p>This error is thrown when the requested resource is not found.</p>
+            aws_sdk_connecthealth.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -436,6 +470,14 @@ class AsyncConnectHealthClient:
             session_id: <p>The Session identifier</p>
             domain_id: <p>The Domain identifier</p>
             subscription_id: <p>The Subscription identifier</p>
+
+        Raises:
+            aws_sdk_connecthealth.errors.access_denied_exception.AccessDeniedException: <p>This error is thrown when the client does not supply proper credentials to the API.</p>
+            aws_sdk_connecthealth.errors.internal_server_exception.InternalServerException: <p>This error is thrown when a transient error causes our API to fail.</p>
+            aws_sdk_connecthealth.errors.resource_not_found_exception.ResourceNotFoundException: <p>This error is thrown when the requested resource is not found.</p>
+            aws_sdk_connecthealth.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request exceeds a service quota.</p>
+            aws_sdk_connecthealth.errors.throttling_exception.ThrottlingException: <p>This error is thrown when the client exceeds the allowed request rate.</p>
+            aws_sdk_connecthealth.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -478,6 +520,14 @@ class AsyncConnectHealthClient:
         Args:
             domain_id: <p/>
             job_id: <p/>
+
+        Raises:
+            aws_sdk_connecthealth.errors.access_denied_exception.AccessDeniedException: <p>This error is thrown when the client does not supply proper credentials to the API.</p>
+            aws_sdk_connecthealth.errors.internal_server_exception.InternalServerException: <p>This error is thrown when a transient error causes our API to fail.</p>
+            aws_sdk_connecthealth.errors.resource_not_found_exception.ResourceNotFoundException: <p>This error is thrown when the requested resource is not found.</p>
+            aws_sdk_connecthealth.errors.throttling_exception.ThrottlingException: <p>This error is thrown when the client exceeds the allowed request rate.</p>
+            aws_sdk_connecthealth.errors.validation_exception.ValidationException: <p>This error is thrown when the client supplies invalid input to the API.</p>
+            aws_sdk_connecthealth.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -519,6 +569,13 @@ class AsyncConnectHealthClient:
         Args:
             domain_id: <p>The unique identifier of the parent Domain.</p>
             subscription_id: <p>The unique identifier of the Subscription.</p>
+
+        Raises:
+            aws_sdk_connecthealth.errors.access_denied_exception.AccessDeniedException: <p>This error is thrown when the client does not supply proper credentials to the API.</p>
+            aws_sdk_connecthealth.errors.internal_server_exception.InternalServerException: <p>This error is thrown when a transient error causes our API to fail.</p>
+            aws_sdk_connecthealth.errors.resource_not_found_exception.ResourceNotFoundException: <p>This error is thrown when the requested resource is not found.</p>
+            aws_sdk_connecthealth.errors.validation_exception.ValidationException: <p>This error is thrown when the client supplies invalid input to the API.</p>
+            aws_sdk_connecthealth.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -564,6 +621,9 @@ class AsyncConnectHealthClient:
             status: <p>Filter by Domain status.</p>
             max_results: <p>Maximum number of results to return.</p>
             next_token: <p>Token for pagination.</p>
+
+        Raises:
+            aws_sdk_connecthealth.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -638,6 +698,13 @@ class AsyncConnectHealthClient:
             domain_id: <p>The unique identifier of the parent Domain.</p>
             max_results: <p>Maximum number of results to return.</p>
             next_token: <p>Token for pagination.</p>
+
+        Raises:
+            aws_sdk_connecthealth.errors.access_denied_exception.AccessDeniedException: <p>This error is thrown when the client does not supply proper credentials to the API.</p>
+            aws_sdk_connecthealth.errors.internal_server_exception.InternalServerException: <p>This error is thrown when a transient error causes our API to fail.</p>
+            aws_sdk_connecthealth.errors.resource_not_found_exception.ResourceNotFoundException: <p>This error is thrown when the requested resource is not found.</p>
+            aws_sdk_connecthealth.errors.validation_exception.ValidationException: <p>This error is thrown when the client supplies invalid input to the API.</p>
+            aws_sdk_connecthealth.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -703,6 +770,9 @@ class AsyncConnectHealthClient:
 
         Args:
             resource_arn: <p>The ARN of the resource to list tags for</p>
+
+        Raises:
+            aws_sdk_connecthealth.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -756,6 +826,15 @@ class AsyncConnectHealthClient:
             media_sample_rate_hertz: <p>The sample rate of the input audio</p>
             media_encoding: <p>The encoding for the input audio</p>
             input_stream: <p/>
+
+        Raises:
+            aws_sdk_connecthealth.errors.access_denied_exception.AccessDeniedException: <p>This error is thrown when the client does not supply proper credentials to the API.</p>
+            aws_sdk_connecthealth.errors.internal_server_exception.InternalServerException: <p>This error is thrown when a transient error causes our API to fail.</p>
+            aws_sdk_connecthealth.errors.resource_not_found_exception.ResourceNotFoundException: <p>This error is thrown when the requested resource is not found.</p>
+            aws_sdk_connecthealth.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request exceeds a service quota.</p>
+            aws_sdk_connecthealth.errors.throttling_exception.ThrottlingException: <p>This error is thrown when the client exceeds the allowed request rate.</p>
+            aws_sdk_connecthealth.errors.validation_exception.ValidationException: <p>This error is thrown when the client supplies invalid input to the API.</p>
+            aws_sdk_connecthealth.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -817,6 +896,15 @@ class AsyncConnectHealthClient:
             input_data_config: <p/>
             output_data_config: <p/>
             client_token: <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+
+        Raises:
+            aws_sdk_connecthealth.errors.access_denied_exception.AccessDeniedException: <p>This error is thrown when the client does not supply proper credentials to the API.</p>
+            aws_sdk_connecthealth.errors.conflict_exception.ConflictException: <p>This error is thrown when a resource update is no longer valid due to assumptions about initial state changing.</p>
+            aws_sdk_connecthealth.errors.internal_server_exception.InternalServerException: <p>This error is thrown when a transient error causes our API to fail.</p>
+            aws_sdk_connecthealth.errors.resource_not_found_exception.ResourceNotFoundException: <p>This error is thrown when the requested resource is not found.</p>
+            aws_sdk_connecthealth.errors.throttling_exception.ThrottlingException: <p>This error is thrown when the client exceeds the allowed request rate.</p>
+            aws_sdk_connecthealth.errors.validation_exception.ValidationException: <p>This error is thrown when the client supplies invalid input to the API.</p>
+            aws_sdk_connecthealth.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -865,6 +953,9 @@ class AsyncConnectHealthClient:
         Args:
             resource_arn: <p>The ARN of the resource to tag</p>
             tags: <p>The tags to add to the resource</p>
+
+        Raises:
+            aws_sdk_connecthealth.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -904,6 +995,9 @@ class AsyncConnectHealthClient:
         Args:
             resource_arn: <p>The ARN of the resource to untag</p>
             tag_keys: <p>The tag keys to remove from the resource</p>
+
+        Raises:
+            aws_sdk_connecthealth.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

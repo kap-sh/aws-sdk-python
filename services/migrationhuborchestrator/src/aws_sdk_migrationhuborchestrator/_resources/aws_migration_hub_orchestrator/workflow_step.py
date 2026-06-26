@@ -95,6 +95,13 @@ class WorkflowStep:
             outputs: <p>The key value pairs added for the expected output.</p>
             previous: <p>The previous step.</p>
             next: <p>The next step.</p>
+
+        Raises:
+            aws_sdk_migrationhuborchestrator.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_migrationhuborchestrator.errors.internal_server_exception.InternalServerException: <p>An internal error has occurred.</p>
+            aws_sdk_migrationhuborchestrator.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_migrationhuborchestrator.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_migrationhuborchestrator.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -153,6 +160,13 @@ class WorkflowStep:
             workflow_id: <p>The ID of the migration workflow.</p>
             step_group_id: <p>The ID of the step group.</p>
             id: <p>The ID of the step.</p>
+
+        Raises:
+            aws_sdk_migrationhuborchestrator.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_migrationhuborchestrator.errors.internal_server_exception.InternalServerException: <p>An internal error has occurred.</p>
+            aws_sdk_migrationhuborchestrator.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource is not available.</p>
+            aws_sdk_migrationhuborchestrator.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_migrationhuborchestrator.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -232,6 +246,13 @@ class WorkflowStep:
             previous: <p>The previous step.</p>
             next: <p>The next step.</p>
             status: <p>The status of the step.</p>
+
+        Raises:
+            aws_sdk_migrationhuborchestrator.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_migrationhuborchestrator.errors.internal_server_exception.InternalServerException: <p>An internal error has occurred.</p>
+            aws_sdk_migrationhuborchestrator.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_migrationhuborchestrator.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_migrationhuborchestrator.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -295,6 +316,14 @@ class WorkflowStep:
             id: <p>The ID of the step you want to delete.</p>
             step_group_id: <p>The ID of the step group that contains the step you want to delete.</p>
             workflow_id: <p>The ID of the migration workflow.</p>
+
+        Raises:
+            aws_sdk_migrationhuborchestrator.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_migrationhuborchestrator.errors.internal_server_exception.InternalServerException: <p>An internal error has occurred.</p>
+            aws_sdk_migrationhuborchestrator.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource is not available.</p>
+            aws_sdk_migrationhuborchestrator.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_migrationhuborchestrator.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_migrationhuborchestrator.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -344,6 +373,13 @@ class WorkflowStep:
             max_results: <p>The maximum number of results that can be returned.</p>
             workflow_id: <p>The ID of the migration workflow.</p>
             step_group_id: <p>The ID of the step group.</p>
+
+        Raises:
+            aws_sdk_migrationhuborchestrator.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_migrationhuborchestrator.errors.internal_server_exception.InternalServerException: <p>An internal error has occurred.</p>
+            aws_sdk_migrationhuborchestrator.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_migrationhuborchestrator.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_migrationhuborchestrator.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -390,6 +426,13 @@ class WorkflowStep:
             workflow_id: <p>The ID of the migration workflow.</p>
             step_group_id: <p>The ID of the step group.</p>
             id: <p>The ID of the step.</p>
+
+        Raises:
+            aws_sdk_migrationhuborchestrator.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_migrationhuborchestrator.errors.internal_server_exception.InternalServerException: <p>An internal error has occurred.</p>
+            aws_sdk_migrationhuborchestrator.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource is not available.</p>
+            aws_sdk_migrationhuborchestrator.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_migrationhuborchestrator.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -464,6 +507,13 @@ class AsyncWorkflowStep:
             outputs: <p>The key value pairs added for the expected output.</p>
             previous: <p>The previous step.</p>
             next: <p>The next step.</p>
+
+        Raises:
+            aws_sdk_migrationhuborchestrator.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_migrationhuborchestrator.errors.internal_server_exception.InternalServerException: <p>An internal error has occurred.</p>
+            aws_sdk_migrationhuborchestrator.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_migrationhuborchestrator.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_migrationhuborchestrator.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -523,6 +573,13 @@ class AsyncWorkflowStep:
             workflow_id: <p>The ID of the migration workflow.</p>
             step_group_id: <p>The ID of the step group.</p>
             id: <p>The ID of the step.</p>
+
+        Raises:
+            aws_sdk_migrationhuborchestrator.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_migrationhuborchestrator.errors.internal_server_exception.InternalServerException: <p>An internal error has occurred.</p>
+            aws_sdk_migrationhuborchestrator.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource is not available.</p>
+            aws_sdk_migrationhuborchestrator.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_migrationhuborchestrator.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -603,6 +660,13 @@ class AsyncWorkflowStep:
             previous: <p>The previous step.</p>
             next: <p>The next step.</p>
             status: <p>The status of the step.</p>
+
+        Raises:
+            aws_sdk_migrationhuborchestrator.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_migrationhuborchestrator.errors.internal_server_exception.InternalServerException: <p>An internal error has occurred.</p>
+            aws_sdk_migrationhuborchestrator.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_migrationhuborchestrator.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_migrationhuborchestrator.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -667,6 +731,14 @@ class AsyncWorkflowStep:
             id: <p>The ID of the step you want to delete.</p>
             step_group_id: <p>The ID of the step group that contains the step you want to delete.</p>
             workflow_id: <p>The ID of the migration workflow.</p>
+
+        Raises:
+            aws_sdk_migrationhuborchestrator.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_migrationhuborchestrator.errors.internal_server_exception.InternalServerException: <p>An internal error has occurred.</p>
+            aws_sdk_migrationhuborchestrator.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource is not available.</p>
+            aws_sdk_migrationhuborchestrator.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_migrationhuborchestrator.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_migrationhuborchestrator.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -717,6 +789,13 @@ class AsyncWorkflowStep:
             max_results: <p>The maximum number of results that can be returned.</p>
             workflow_id: <p>The ID of the migration workflow.</p>
             step_group_id: <p>The ID of the step group.</p>
+
+        Raises:
+            aws_sdk_migrationhuborchestrator.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_migrationhuborchestrator.errors.internal_server_exception.InternalServerException: <p>An internal error has occurred.</p>
+            aws_sdk_migrationhuborchestrator.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_migrationhuborchestrator.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_migrationhuborchestrator.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -764,6 +843,13 @@ class AsyncWorkflowStep:
             workflow_id: <p>The ID of the migration workflow.</p>
             step_group_id: <p>The ID of the step group.</p>
             id: <p>The ID of the step.</p>
+
+        Raises:
+            aws_sdk_migrationhuborchestrator.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_migrationhuborchestrator.errors.internal_server_exception.InternalServerException: <p>An internal error has occurred.</p>
+            aws_sdk_migrationhuborchestrator.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource is not available.</p>
+            aws_sdk_migrationhuborchestrator.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_migrationhuborchestrator.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

@@ -47,6 +47,12 @@ class Workload:
         Args:
             workload_name: <p>The name of the workload.</p>
 
+        Raises:
+            aws_sdk_launch_wizard.errors.internal_server_exception.InternalServerException: <p>An internal error has occurred. Retry your request, but if the problem persists, contact us with details by posting a question on <a href=\"https://repost.aws/\">re:Post</a>.</p>
+            aws_sdk_launch_wizard.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified workload or deployment resource can't be found.</p>
+            aws_sdk_launch_wizard.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_launch_wizard.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Get details about a specific workload.
 
@@ -92,6 +98,11 @@ class Workload:
         Args:
             max_results: <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output.</p>
             next_token: <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
+
+        Raises:
+            aws_sdk_launch_wizard.errors.internal_server_exception.InternalServerException: <p>An internal error has occurred. Retry your request, but if the problem persists, contact us with details by posting a question on <a href=\"https://repost.aws/\">re:Post</a>.</p>
+            aws_sdk_launch_wizard.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_launch_wizard.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             List all available workloads supported by AWS Launch Wizard.
@@ -143,6 +154,12 @@ class AsyncWorkload:
         Args:
             workload_name: <p>The name of the workload.</p>
 
+        Raises:
+            aws_sdk_launch_wizard.errors.internal_server_exception.InternalServerException: <p>An internal error has occurred. Retry your request, but if the problem persists, contact us with details by posting a question on <a href=\"https://repost.aws/\">re:Post</a>.</p>
+            aws_sdk_launch_wizard.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified workload or deployment resource can't be found.</p>
+            aws_sdk_launch_wizard.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_launch_wizard.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Get details about a specific workload.
 
@@ -189,6 +206,11 @@ class AsyncWorkload:
         Args:
             max_results: <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output.</p>
             next_token: <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
+
+        Raises:
+            aws_sdk_launch_wizard.errors.internal_server_exception.InternalServerException: <p>An internal error has occurred. Retry your request, but if the problem persists, contact us with details by posting a question on <a href=\"https://repost.aws/\">re:Post</a>.</p>
+            aws_sdk_launch_wizard.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_launch_wizard.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             List all available workloads supported by AWS Launch Wizard.

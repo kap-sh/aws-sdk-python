@@ -338,6 +338,21 @@ class AsyncCodeCommitClient:
         Args:
             approval_rule_template_name: <p>The name for the approval rule template. </p>
             repository_name: <p>The name of the repository that you want to associate with the template.</p>
+
+        Raises:
+            aws_sdk_codecommit.errors.approval_rule_template_does_not_exist_exception.ApprovalRuleTemplateDoesNotExistException: <p>The specified approval rule template does not exist. Verify that the name is correct and that you are signed in to the Amazon Web Services Region where the template was created, and then try again.</p>
+            aws_sdk_codecommit.errors.approval_rule_template_name_required_exception.ApprovalRuleTemplateNameRequiredException: <p>An approval rule template name is required, but was not specified.</p>
+            aws_sdk_codecommit.errors.encryption_integrity_checks_failed_exception.EncryptionIntegrityChecksFailedException: <p>An encryption integrity check failed.</p>
+            aws_sdk_codecommit.errors.encryption_key_access_denied_exception.EncryptionKeyAccessDeniedException: <p>An encryption key could not be accessed.</p>
+            aws_sdk_codecommit.errors.encryption_key_disabled_exception.EncryptionKeyDisabledException: <p>The encryption key is disabled.</p>
+            aws_sdk_codecommit.errors.encryption_key_not_found_exception.EncryptionKeyNotFoundException: <p>No encryption key was found.</p>
+            aws_sdk_codecommit.errors.encryption_key_unavailable_exception.EncryptionKeyUnavailableException: <p>The encryption key is not available.</p>
+            aws_sdk_codecommit.errors.invalid_approval_rule_template_name_exception.InvalidApprovalRuleTemplateNameException: <p>The name of the approval rule template is not valid. Template names must be between 1 and 100 valid characters in length. For more information about limits in CodeCommit, see <a href=\"https://docs.aws.amazon.com/codecommit/latest/userguide/limits.html\">Quotas</a> in the <i>CodeCommit User Guide</i>.</p>
+            aws_sdk_codecommit.errors.invalid_repository_name_exception.InvalidRepositoryNameException: <p>A specified repository name is not valid.</p> <note> <p>This exception occurs only when a specified repository name is not valid. Other exceptions occur when a required repository parameter is missing, or when a specified repository does not exist.</p> </note>
+            aws_sdk_codecommit.errors.maximum_rule_templates_associated_with_repository_exception.MaximumRuleTemplatesAssociatedWithRepositoryException: <p>The maximum number of approval rule templates for a repository has been exceeded. You cannot associate more than 25 approval rule templates with a repository.</p>
+            aws_sdk_codecommit.errors.repository_does_not_exist_exception.RepositoryDoesNotExistException: <p>The specified repository does not exist.</p>
+            aws_sdk_codecommit.errors.repository_name_required_exception.RepositoryNameRequiredException: <p>A repository name is required, but was not specified.</p>
+            aws_sdk_codecommit.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -377,6 +392,19 @@ class AsyncCodeCommitClient:
         Args:
             approval_rule_template_name: <p>The name of the template you want to associate with one or more repositories.</p>
             repository_names: <p>The names of the repositories you want to associate with the template.</p> <note> <p>The length constraint limit is for each string in the array. The array itself can be empty.</p> </note>
+
+        Raises:
+            aws_sdk_codecommit.errors.approval_rule_template_does_not_exist_exception.ApprovalRuleTemplateDoesNotExistException: <p>The specified approval rule template does not exist. Verify that the name is correct and that you are signed in to the Amazon Web Services Region where the template was created, and then try again.</p>
+            aws_sdk_codecommit.errors.approval_rule_template_name_required_exception.ApprovalRuleTemplateNameRequiredException: <p>An approval rule template name is required, but was not specified.</p>
+            aws_sdk_codecommit.errors.encryption_integrity_checks_failed_exception.EncryptionIntegrityChecksFailedException: <p>An encryption integrity check failed.</p>
+            aws_sdk_codecommit.errors.encryption_key_access_denied_exception.EncryptionKeyAccessDeniedException: <p>An encryption key could not be accessed.</p>
+            aws_sdk_codecommit.errors.encryption_key_disabled_exception.EncryptionKeyDisabledException: <p>The encryption key is disabled.</p>
+            aws_sdk_codecommit.errors.encryption_key_not_found_exception.EncryptionKeyNotFoundException: <p>No encryption key was found.</p>
+            aws_sdk_codecommit.errors.encryption_key_unavailable_exception.EncryptionKeyUnavailableException: <p>The encryption key is not available.</p>
+            aws_sdk_codecommit.errors.invalid_approval_rule_template_name_exception.InvalidApprovalRuleTemplateNameException: <p>The name of the approval rule template is not valid. Template names must be between 1 and 100 valid characters in length. For more information about limits in CodeCommit, see <a href=\"https://docs.aws.amazon.com/codecommit/latest/userguide/limits.html\">Quotas</a> in the <i>CodeCommit User Guide</i>.</p>
+            aws_sdk_codecommit.errors.maximum_repository_names_exceeded_exception.MaximumRepositoryNamesExceededException: <p>The maximum number of allowed repository names was exceeded. Currently, this number is 100.</p>
+            aws_sdk_codecommit.errors.repository_names_required_exception.RepositoryNamesRequiredException: <p>At least one repository name object is required, but was not specified.</p>
+            aws_sdk_codecommit.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -442,6 +470,30 @@ class AsyncCodeCommitClient:
             conflict_detail_level: <p>The level of conflict detail to use. If unspecified, the default FILE_LEVEL is used, which returns a not-mergeable result if the same file has differences in both branches. If LINE_LEVEL is specified, a conflict is considered not mergeable if the same file in both branches has differences on the same line.</p>
             conflict_resolution_strategy: <p>Specifies which branch to use when resolving conflicts, or whether to attempt automatically merging two versions of a file. The default is NONE, which requires any conflicts to be resolved manually before the merge operation is successful.</p>
             next_token: <p>An enumeration token that, when provided in a request, returns the next batch of the results.</p>
+
+        Raises:
+            aws_sdk_codecommit.errors.commit_does_not_exist_exception.CommitDoesNotExistException: <p>The specified commit does not exist or no commit was specified, and the specified repository has no default branch.</p>
+            aws_sdk_codecommit.errors.commit_required_exception.CommitRequiredException: <p>A commit was not specified.</p>
+            aws_sdk_codecommit.errors.encryption_integrity_checks_failed_exception.EncryptionIntegrityChecksFailedException: <p>An encryption integrity check failed.</p>
+            aws_sdk_codecommit.errors.encryption_key_access_denied_exception.EncryptionKeyAccessDeniedException: <p>An encryption key could not be accessed.</p>
+            aws_sdk_codecommit.errors.encryption_key_disabled_exception.EncryptionKeyDisabledException: <p>The encryption key is disabled.</p>
+            aws_sdk_codecommit.errors.encryption_key_not_found_exception.EncryptionKeyNotFoundException: <p>No encryption key was found.</p>
+            aws_sdk_codecommit.errors.encryption_key_unavailable_exception.EncryptionKeyUnavailableException: <p>The encryption key is not available.</p>
+            aws_sdk_codecommit.errors.invalid_commit_exception.InvalidCommitException: <p>The specified commit is not valid.</p>
+            aws_sdk_codecommit.errors.invalid_conflict_detail_level_exception.InvalidConflictDetailLevelException: <p>The specified conflict detail level is not valid.</p>
+            aws_sdk_codecommit.errors.invalid_conflict_resolution_strategy_exception.InvalidConflictResolutionStrategyException: <p>The specified conflict resolution strategy is not valid.</p>
+            aws_sdk_codecommit.errors.invalid_continuation_token_exception.InvalidContinuationTokenException: <p>The specified continuation token is not valid.</p>
+            aws_sdk_codecommit.errors.invalid_max_conflict_files_exception.InvalidMaxConflictFilesException: <p>The specified value for the number of conflict files to return is not valid.</p>
+            aws_sdk_codecommit.errors.invalid_max_merge_hunks_exception.InvalidMaxMergeHunksException: <p>The specified value for the number of merge hunks to return is not valid.</p>
+            aws_sdk_codecommit.errors.invalid_merge_option_exception.InvalidMergeOptionException: <p>The specified merge option is not valid for this operation. Not all merge strategies are supported for all operations.</p>
+            aws_sdk_codecommit.errors.invalid_repository_name_exception.InvalidRepositoryNameException: <p>A specified repository name is not valid.</p> <note> <p>This exception occurs only when a specified repository name is not valid. Other exceptions occur when a required repository parameter is missing, or when a specified repository does not exist.</p> </note>
+            aws_sdk_codecommit.errors.maximum_file_content_to_load_exceeded_exception.MaximumFileContentToLoadExceededException: <p>The number of files to load exceeds the allowed limit.</p>
+            aws_sdk_codecommit.errors.maximum_items_to_compare_exceeded_exception.MaximumItemsToCompareExceededException: <p>The number of items to compare between the source or destination branches and the merge base has exceeded the maximum allowed.</p>
+            aws_sdk_codecommit.errors.merge_option_required_exception.MergeOptionRequiredException: <p>A merge option or stategy is required, and none was provided.</p>
+            aws_sdk_codecommit.errors.repository_does_not_exist_exception.RepositoryDoesNotExistException: <p>The specified repository does not exist.</p>
+            aws_sdk_codecommit.errors.repository_name_required_exception.RepositoryNameRequiredException: <p>A repository name is required, but was not specified.</p>
+            aws_sdk_codecommit.errors.tips_divergence_exceeded_exception.TipsDivergenceExceededException: <p>The divergence between the tips of the provided commit specifiers is too great to determine whether there might be any merge conflicts. Locally compare the specifiers using <code>git diff</code> or a diff tool.</p>
+            aws_sdk_codecommit.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -497,6 +549,19 @@ class AsyncCodeCommitClient:
         Args:
             approval_rule_template_name: <p>The name of the template that you want to disassociate from one or more repositories.</p>
             repository_names: <p>The repository names that you want to disassociate from the approval rule template.</p> <note> <p>The length constraint limit is for each string in the array. The array itself can be empty.</p> </note>
+
+        Raises:
+            aws_sdk_codecommit.errors.approval_rule_template_does_not_exist_exception.ApprovalRuleTemplateDoesNotExistException: <p>The specified approval rule template does not exist. Verify that the name is correct and that you are signed in to the Amazon Web Services Region where the template was created, and then try again.</p>
+            aws_sdk_codecommit.errors.approval_rule_template_name_required_exception.ApprovalRuleTemplateNameRequiredException: <p>An approval rule template name is required, but was not specified.</p>
+            aws_sdk_codecommit.errors.encryption_integrity_checks_failed_exception.EncryptionIntegrityChecksFailedException: <p>An encryption integrity check failed.</p>
+            aws_sdk_codecommit.errors.encryption_key_access_denied_exception.EncryptionKeyAccessDeniedException: <p>An encryption key could not be accessed.</p>
+            aws_sdk_codecommit.errors.encryption_key_disabled_exception.EncryptionKeyDisabledException: <p>The encryption key is disabled.</p>
+            aws_sdk_codecommit.errors.encryption_key_not_found_exception.EncryptionKeyNotFoundException: <p>No encryption key was found.</p>
+            aws_sdk_codecommit.errors.encryption_key_unavailable_exception.EncryptionKeyUnavailableException: <p>The encryption key is not available.</p>
+            aws_sdk_codecommit.errors.invalid_approval_rule_template_name_exception.InvalidApprovalRuleTemplateNameException: <p>The name of the approval rule template is not valid. Template names must be between 1 and 100 valid characters in length. For more information about limits in CodeCommit, see <a href=\"https://docs.aws.amazon.com/codecommit/latest/userguide/limits.html\">Quotas</a> in the <i>CodeCommit User Guide</i>.</p>
+            aws_sdk_codecommit.errors.maximum_repository_names_exceeded_exception.MaximumRepositoryNamesExceededException: <p>The maximum number of allowed repository names was exceeded. Currently, this number is 100.</p>
+            aws_sdk_codecommit.errors.repository_names_required_exception.RepositoryNamesRequiredException: <p>At least one repository name object is required, but was not specified.</p>
+            aws_sdk_codecommit.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -538,6 +603,19 @@ class AsyncCodeCommitClient:
         Args:
             commit_ids: <p>The full commit IDs of the commits to get information about.</p> <note> <p>You must supply the full SHA IDs of each commit. You cannot use shortened SHA IDs.</p> </note>
             repository_name: <p>The name of the repository that contains the commits.</p>
+
+        Raises:
+            aws_sdk_codecommit.errors.commit_ids_limit_exceeded_exception.CommitIdsLimitExceededException: <p>The maximum number of allowed commit IDs in a batch request is 100. Verify that your batch requests contains no more than 100 commit IDs, and then try again.</p>
+            aws_sdk_codecommit.errors.commit_ids_list_required_exception.CommitIdsListRequiredException: <p>A list of commit IDs is required, but was either not specified or the list was empty.</p>
+            aws_sdk_codecommit.errors.encryption_integrity_checks_failed_exception.EncryptionIntegrityChecksFailedException: <p>An encryption integrity check failed.</p>
+            aws_sdk_codecommit.errors.encryption_key_access_denied_exception.EncryptionKeyAccessDeniedException: <p>An encryption key could not be accessed.</p>
+            aws_sdk_codecommit.errors.encryption_key_disabled_exception.EncryptionKeyDisabledException: <p>The encryption key is disabled.</p>
+            aws_sdk_codecommit.errors.encryption_key_not_found_exception.EncryptionKeyNotFoundException: <p>No encryption key was found.</p>
+            aws_sdk_codecommit.errors.encryption_key_unavailable_exception.EncryptionKeyUnavailableException: <p>The encryption key is not available.</p>
+            aws_sdk_codecommit.errors.invalid_repository_name_exception.InvalidRepositoryNameException: <p>A specified repository name is not valid.</p> <note> <p>This exception occurs only when a specified repository name is not valid. Other exceptions occur when a required repository parameter is missing, or when a specified repository does not exist.</p> </note>
+            aws_sdk_codecommit.errors.repository_does_not_exist_exception.RepositoryDoesNotExistException: <p>The specified repository does not exist.</p>
+            aws_sdk_codecommit.errors.repository_name_required_exception.RepositoryNameRequiredException: <p>A repository name is required, but was not specified.</p>
+            aws_sdk_codecommit.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -577,6 +655,17 @@ class AsyncCodeCommitClient:
 
         Args:
             repository_names: <p>The names of the repositories to get information about.</p> <note> <p>The length constraint limit is for each string in the array. The array itself can be empty.</p> </note>
+
+        Raises:
+            aws_sdk_codecommit.errors.encryption_integrity_checks_failed_exception.EncryptionIntegrityChecksFailedException: <p>An encryption integrity check failed.</p>
+            aws_sdk_codecommit.errors.encryption_key_access_denied_exception.EncryptionKeyAccessDeniedException: <p>An encryption key could not be accessed.</p>
+            aws_sdk_codecommit.errors.encryption_key_disabled_exception.EncryptionKeyDisabledException: <p>The encryption key is disabled.</p>
+            aws_sdk_codecommit.errors.encryption_key_not_found_exception.EncryptionKeyNotFoundException: <p>No encryption key was found.</p>
+            aws_sdk_codecommit.errors.encryption_key_unavailable_exception.EncryptionKeyUnavailableException: <p>The encryption key is not available.</p>
+            aws_sdk_codecommit.errors.invalid_repository_name_exception.InvalidRepositoryNameException: <p>A specified repository name is not valid.</p> <note> <p>This exception occurs only when a specified repository name is not valid. Other exceptions occur when a required repository parameter is missing, or when a specified repository does not exist.</p> </note>
+            aws_sdk_codecommit.errors.maximum_repository_names_exceeded_exception.MaximumRepositoryNamesExceededException: <p>The maximum number of allowed repository names was exceeded. Currently, this number is 100.</p>
+            aws_sdk_codecommit.errors.repository_names_required_exception.RepositoryNamesRequiredException: <p>At least one repository name object is required, but was not specified.</p>
+            aws_sdk_codecommit.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -621,6 +710,16 @@ class AsyncCodeCommitClient:
             approval_rule_template_name: <p>The name of the approval rule template. Provide descriptive names, because this name is applied to the approval rules created automatically in associated repositories.</p>
             approval_rule_template_content: <p>The content of the approval rule that is created on pull requests in associated repositories. If you specify one or more destination references (branches), approval rules are created in an associated repository only if their destination references (branches) match those specified in the template.</p> <note> <p>When you create the content of the approval rule template, you can specify approvers in an approval pool in one of two ways:</p> <ul> <li> <p> <b>CodeCommitApprovers</b>: This option only requires an Amazon Web Services account and a resource. It can be used for both IAM users and federated access users whose name matches the provided resource name. This is a very powerful option that offers a great deal of flexibility. For example, if you specify the Amazon Web Services account <i>123456789012</i> and <i>Mary_Major</i>, all of the following are counted as approvals coming from that user:</p> <ul> <li> <p>An IAM user in the account (arn:aws:iam::<i>123456789012</i>:user/<i>Mary_Major</i>)</p> </li> <li> <p>A federated user identified in IAM as Mary_Major (arn:aws:sts::<i>123456789012</i>:federated-user/<i>Mary_Major</i>)</p> </li> </ul> <p>This option does not recognize an active session of someone assuming the role of CodeCommitReview with a role session name of <i>Mary_Major</i> (arn:aws:sts::<i>123456789012</i>:assumed-role/CodeCommitReview/<i>Mary_Major</i>) unless you include a wildcard (*Mary_Major).</p> </li> <li> <p> <b>Fully qualified ARN</b>: This option allows you to specify the fully qualified Amazon Resource Name (ARN) of the IAM user or role. </p> </li> </ul> <p>For more information about IAM ARNs, wildcards, and formats, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html\">IAM Identifiers</a> in the <i>IAM User Guide</i>.</p> </note>
             approval_rule_template_description: <p>The description of the approval rule template. Consider providing a description that explains what this template does and when it might be appropriate to associate it with repositories.</p>
+
+        Raises:
+            aws_sdk_codecommit.errors.approval_rule_template_content_required_exception.ApprovalRuleTemplateContentRequiredException: <p>The content for the approval rule template is empty. You must provide some content for an approval rule template. The content cannot be null.</p>
+            aws_sdk_codecommit.errors.approval_rule_template_name_already_exists_exception.ApprovalRuleTemplateNameAlreadyExistsException: <p>You cannot create an approval rule template with that name because a template with that name already exists in this Amazon Web Services Region for your Amazon Web Services account. Approval rule template names must be unique.</p>
+            aws_sdk_codecommit.errors.approval_rule_template_name_required_exception.ApprovalRuleTemplateNameRequiredException: <p>An approval rule template name is required, but was not specified.</p>
+            aws_sdk_codecommit.errors.invalid_approval_rule_template_content_exception.InvalidApprovalRuleTemplateContentException: <p>The content of the approval rule template is not valid.</p>
+            aws_sdk_codecommit.errors.invalid_approval_rule_template_description_exception.InvalidApprovalRuleTemplateDescriptionException: <p>The description for the approval rule template is not valid because it exceeds the maximum characters allowed for a description. For more information about limits in CodeCommit, see <a href=\"https://docs.aws.amazon.com/codecommit/latest/userguide/limits.html\">Quotas</a> in the <i>CodeCommit User Guide</i>.</p>
+            aws_sdk_codecommit.errors.invalid_approval_rule_template_name_exception.InvalidApprovalRuleTemplateNameException: <p>The name of the approval rule template is not valid. Template names must be between 1 and 100 valid characters in length. For more information about limits in CodeCommit, see <a href=\"https://docs.aws.amazon.com/codecommit/latest/userguide/limits.html\">Quotas</a> in the <i>CodeCommit User Guide</i>.</p>
+            aws_sdk_codecommit.errors.number_of_rule_templates_exceeded_exception.NumberOfRuleTemplatesExceededException: <p>The maximum number of approval rule templates has been exceeded for this Amazon Web Services Region. </p>
+            aws_sdk_codecommit.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -668,6 +767,23 @@ class AsyncCodeCommitClient:
             repository_name: <p>The name of the repository in which you want to create the new branch.</p>
             branch_name: <p>The name of the new branch to create.</p>
             commit_id: <p>The ID of the commit to point the new branch to.</p>
+
+        Raises:
+            aws_sdk_codecommit.errors.branch_name_exists_exception.BranchNameExistsException: <p>Cannot create the branch with the specified name because the commit conflicts with an existing branch with the same name. Branch names must be unique.</p>
+            aws_sdk_codecommit.errors.branch_name_required_exception.BranchNameRequiredException: <p>A branch name is required, but was not specified.</p>
+            aws_sdk_codecommit.errors.commit_does_not_exist_exception.CommitDoesNotExistException: <p>The specified commit does not exist or no commit was specified, and the specified repository has no default branch.</p>
+            aws_sdk_codecommit.errors.commit_id_required_exception.CommitIdRequiredException: <p>A commit ID was not specified.</p>
+            aws_sdk_codecommit.errors.encryption_integrity_checks_failed_exception.EncryptionIntegrityChecksFailedException: <p>An encryption integrity check failed.</p>
+            aws_sdk_codecommit.errors.encryption_key_access_denied_exception.EncryptionKeyAccessDeniedException: <p>An encryption key could not be accessed.</p>
+            aws_sdk_codecommit.errors.encryption_key_disabled_exception.EncryptionKeyDisabledException: <p>The encryption key is disabled.</p>
+            aws_sdk_codecommit.errors.encryption_key_not_found_exception.EncryptionKeyNotFoundException: <p>No encryption key was found.</p>
+            aws_sdk_codecommit.errors.encryption_key_unavailable_exception.EncryptionKeyUnavailableException: <p>The encryption key is not available.</p>
+            aws_sdk_codecommit.errors.invalid_branch_name_exception.InvalidBranchNameException: <p>The specified reference name is not valid.</p>
+            aws_sdk_codecommit.errors.invalid_commit_id_exception.InvalidCommitIdException: <p>The specified commit ID is not valid.</p>
+            aws_sdk_codecommit.errors.invalid_repository_name_exception.InvalidRepositoryNameException: <p>A specified repository name is not valid.</p> <note> <p>This exception occurs only when a specified repository name is not valid. Other exceptions occur when a required repository parameter is missing, or when a specified repository does not exist.</p> </note>
+            aws_sdk_codecommit.errors.repository_does_not_exist_exception.RepositoryDoesNotExistException: <p>The specified repository does not exist.</p>
+            aws_sdk_codecommit.errors.repository_name_required_exception.RepositoryNameRequiredException: <p>A repository name is required, but was not specified.</p>
+            aws_sdk_codecommit.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -734,6 +850,47 @@ class AsyncCodeCommitClient:
             put_files: <p>The files to add or update in this commit.</p>
             delete_files: <p>The files to delete in this commit. These files still exist in earlier commits.</p>
             set_file_modes: <p>The file modes to update for files in this commit.</p>
+
+        Raises:
+            aws_sdk_codecommit.errors.branch_does_not_exist_exception.BranchDoesNotExistException: <p>The specified branch does not exist.</p>
+            aws_sdk_codecommit.errors.branch_name_is_tag_name_exception.BranchNameIsTagNameException: <p>The specified branch name is not valid because it is a tag name. Enter the name of a branch in the repository. For a list of valid branch names, use <a>ListBranches</a>.</p>
+            aws_sdk_codecommit.errors.branch_name_required_exception.BranchNameRequiredException: <p>A branch name is required, but was not specified.</p>
+            aws_sdk_codecommit.errors.commit_message_length_exceeded_exception.CommitMessageLengthExceededException: <p>The commit message is too long. Provide a shorter string. </p>
+            aws_sdk_codecommit.errors.directory_name_conflicts_with_file_name_exception.DirectoryNameConflictsWithFileNameException: <p>A file cannot be added to the repository because the specified path name has the same name as a file that already exists in this repository. Either provide a different name for the file, or specify a different path for the file.</p>
+            aws_sdk_codecommit.errors.encryption_integrity_checks_failed_exception.EncryptionIntegrityChecksFailedException: <p>An encryption integrity check failed.</p>
+            aws_sdk_codecommit.errors.encryption_key_access_denied_exception.EncryptionKeyAccessDeniedException: <p>An encryption key could not be accessed.</p>
+            aws_sdk_codecommit.errors.encryption_key_disabled_exception.EncryptionKeyDisabledException: <p>The encryption key is disabled.</p>
+            aws_sdk_codecommit.errors.encryption_key_not_found_exception.EncryptionKeyNotFoundException: <p>No encryption key was found.</p>
+            aws_sdk_codecommit.errors.encryption_key_unavailable_exception.EncryptionKeyUnavailableException: <p>The encryption key is not available.</p>
+            aws_sdk_codecommit.errors.file_content_and_source_file_specified_exception.FileContentAndSourceFileSpecifiedException: <p>The commit cannot be created because both a source file and file content have been specified for the same file. You cannot provide both. Either specify a source file or provide the file content directly.</p>
+            aws_sdk_codecommit.errors.file_content_size_limit_exceeded_exception.FileContentSizeLimitExceededException: <p>The file cannot be added because it is too large. The maximum file size is 6 MB, and the combined file content change size is 7 MB. Consider making these changes using a Git client.</p>
+            aws_sdk_codecommit.errors.file_does_not_exist_exception.FileDoesNotExistException: <p>The specified file does not exist. Verify that you have used the correct file name, full path, and extension.</p>
+            aws_sdk_codecommit.errors.file_entry_required_exception.FileEntryRequiredException: <p>The commit cannot be created because no files have been specified as added, updated, or changed (PutFile or DeleteFile) for the commit.</p>
+            aws_sdk_codecommit.errors.file_mode_required_exception.FileModeRequiredException: <p>The commit cannot be created because no file mode has been specified. A file mode is required to update mode permissions for a file.</p>
+            aws_sdk_codecommit.errors.file_name_conflicts_with_directory_name_exception.FileNameConflictsWithDirectoryNameException: <p>A file cannot be added to the repository because the specified file name has the same name as a directory in this repository. Either provide another name for the file, or add the file in a directory that does not match the file name.</p>
+            aws_sdk_codecommit.errors.file_path_conflicts_with_submodule_path_exception.FilePathConflictsWithSubmodulePathException: <p>The commit cannot be created because a specified file path points to a submodule. Verify that the destination files have valid file paths that do not point to a submodule.</p>
+            aws_sdk_codecommit.errors.folder_content_size_limit_exceeded_exception.FolderContentSizeLimitExceededException: <p>The commit cannot be created because at least one of the overall changes in the commit results in a folder whose contents exceed the limit of 6 MB. Either reduce the number and size of your changes, or split the changes across multiple folders.</p>
+            aws_sdk_codecommit.errors.invalid_branch_name_exception.InvalidBranchNameException: <p>The specified reference name is not valid.</p>
+            aws_sdk_codecommit.errors.invalid_deletion_parameter_exception.InvalidDeletionParameterException: <p>The specified deletion parameter is not valid.</p>
+            aws_sdk_codecommit.errors.invalid_email_exception.InvalidEmailException: <p>The specified email address either contains one or more characters that are not allowed, or it exceeds the maximum number of characters allowed for an email address.</p>
+            aws_sdk_codecommit.errors.invalid_file_mode_exception.InvalidFileModeException: <p>The specified file mode permission is not valid. For a list of valid file mode permissions, see <a>PutFile</a>. </p>
+            aws_sdk_codecommit.errors.invalid_parent_commit_id_exception.InvalidParentCommitIdException: <p>The parent commit ID is not valid. The commit ID cannot be empty, and must match the head commit ID for the branch of the repository where you want to add or update a file.</p>
+            aws_sdk_codecommit.errors.invalid_path_exception.InvalidPathException: <p>The specified path is not valid.</p>
+            aws_sdk_codecommit.errors.invalid_repository_name_exception.InvalidRepositoryNameException: <p>A specified repository name is not valid.</p> <note> <p>This exception occurs only when a specified repository name is not valid. Other exceptions occur when a required repository parameter is missing, or when a specified repository does not exist.</p> </note>
+            aws_sdk_codecommit.errors.maximum_file_entries_exceeded_exception.MaximumFileEntriesExceededException: <p>The number of specified files to change as part of this commit exceeds the maximum number of files that can be changed in a single commit. Consider using a Git client for these changes.</p>
+            aws_sdk_codecommit.errors.name_length_exceeded_exception.NameLengthExceededException: <p>The user name is not valid because it has exceeded the character limit for author names. </p>
+            aws_sdk_codecommit.errors.no_change_exception.NoChangeException: <p>The commit cannot be created because no changes will be made to the repository as a result of this commit. A commit must contain at least one change.</p>
+            aws_sdk_codecommit.errors.parent_commit_does_not_exist_exception.ParentCommitDoesNotExistException: <p>The parent commit ID is not valid because it does not exist. The specified parent commit ID does not exist in the specified branch of the repository.</p>
+            aws_sdk_codecommit.errors.parent_commit_id_outdated_exception.ParentCommitIdOutdatedException: <p>The file could not be added because the provided parent commit ID is not the current tip of the specified branch. To view the full commit ID of the current head of the branch, use <a>GetBranch</a>.</p>
+            aws_sdk_codecommit.errors.parent_commit_id_required_exception.ParentCommitIdRequiredException: <p>A parent commit ID is required. To view the full commit ID of a branch in a repository, use <a>GetBranch</a> or a Git command (for example, git pull or git log).</p>
+            aws_sdk_codecommit.errors.path_required_exception.PathRequiredException: <p>The folderPath for a location cannot be null.</p>
+            aws_sdk_codecommit.errors.put_file_entry_conflict_exception.PutFileEntryConflictException: <p>The commit cannot be created because one or more files specified in the commit reference both a file and a folder.</p>
+            aws_sdk_codecommit.errors.repository_does_not_exist_exception.RepositoryDoesNotExistException: <p>The specified repository does not exist.</p>
+            aws_sdk_codecommit.errors.repository_name_required_exception.RepositoryNameRequiredException: <p>A repository name is required, but was not specified.</p>
+            aws_sdk_codecommit.errors.restricted_source_file_exception.RestrictedSourceFileException: <p>The commit cannot be created because one of the changes specifies copying or moving a .gitkeep file.</p>
+            aws_sdk_codecommit.errors.same_path_request_exception.SamePathRequestException: <p>The commit cannot be created because one or more changes in this commit duplicate actions in the same file path. For example, you cannot make the same delete request to the same file in the same file path twice, or make a delete request and a move request to the same file as part of the same commit.</p>
+            aws_sdk_codecommit.errors.source_file_or_content_required_exception.SourceFileOrContentRequiredException: <p>The commit cannot be created because no source files or file content have been specified for the commit.</p>
+            aws_sdk_codecommit.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -799,6 +956,34 @@ class AsyncCodeCommitClient:
             description: <p>A description of the pull request.</p>
             targets: <p>The targets for the pull request, including the source of the code to be reviewed (the source branch) and the destination where the creator of the pull request intends the code to be merged after the pull request is closed (the destination branch).</p>
             client_request_token: <p>A unique, client-generated idempotency token that, when provided in a request, ensures the request cannot be repeated with a changed parameter. If a request is received with the same parameters and a token is included, the request returns information about the initial request that used that token.</p> <note> <p>The Amazon Web ServicesSDKs prepopulate client request tokens. If you are using an Amazon Web ServicesSDK, an idempotency token is created for you.</p> </note>
+
+        Raises:
+            aws_sdk_codecommit.errors.client_request_token_required_exception.ClientRequestTokenRequiredException: <p>A client request token is required. A client request token is an unique, client-generated idempotency token that, when provided in a request, ensures the request cannot be repeated with a changed parameter. If a request is received with the same parameters and a token is included, the request returns information about the initial request that used that token.</p>
+            aws_sdk_codecommit.errors.encryption_integrity_checks_failed_exception.EncryptionIntegrityChecksFailedException: <p>An encryption integrity check failed.</p>
+            aws_sdk_codecommit.errors.encryption_key_access_denied_exception.EncryptionKeyAccessDeniedException: <p>An encryption key could not be accessed.</p>
+            aws_sdk_codecommit.errors.encryption_key_disabled_exception.EncryptionKeyDisabledException: <p>The encryption key is disabled.</p>
+            aws_sdk_codecommit.errors.encryption_key_not_found_exception.EncryptionKeyNotFoundException: <p>No encryption key was found.</p>
+            aws_sdk_codecommit.errors.encryption_key_unavailable_exception.EncryptionKeyUnavailableException: <p>The encryption key is not available.</p>
+            aws_sdk_codecommit.errors.idempotency_parameter_mismatch_exception.IdempotencyParameterMismatchException: <p>The client request token is not valid. Either the token is not in a valid format, or the token has been used in a previous request and cannot be reused.</p>
+            aws_sdk_codecommit.errors.invalid_client_request_token_exception.InvalidClientRequestTokenException: <p>The client request token is not valid.</p>
+            aws_sdk_codecommit.errors.invalid_description_exception.InvalidDescriptionException: <p>The pull request description is not valid. Descriptions cannot be more than 1,000 characters.</p>
+            aws_sdk_codecommit.errors.invalid_reference_name_exception.InvalidReferenceNameException: <p>The specified reference name format is not valid. Reference names must conform to the Git references format (for example, refs/heads/main). For more information, see <a href=\"https://git-scm.com/book/en/v2/Git-Internals-Git-References\">Git Internals - Git References</a> or consult your Git documentation.</p>
+            aws_sdk_codecommit.errors.invalid_repository_name_exception.InvalidRepositoryNameException: <p>A specified repository name is not valid.</p> <note> <p>This exception occurs only when a specified repository name is not valid. Other exceptions occur when a required repository parameter is missing, or when a specified repository does not exist.</p> </note>
+            aws_sdk_codecommit.errors.invalid_target_exception.InvalidTargetException: <p>The target for the pull request is not valid. A target must contain the full values for the repository name, source branch, and destination branch for the pull request.</p>
+            aws_sdk_codecommit.errors.invalid_targets_exception.InvalidTargetsException: <p>The targets for the pull request is not valid or not in a valid format. Targets are a list of target objects. Each target object must contain the full values for the repository name, source branch, and destination branch for a pull request.</p>
+            aws_sdk_codecommit.errors.invalid_title_exception.InvalidTitleException: <p>The title of the pull request is not valid. Pull request titles cannot exceed 100 characters in length.</p>
+            aws_sdk_codecommit.errors.maximum_open_pull_requests_exceeded_exception.MaximumOpenPullRequestsExceededException: <p>You cannot create the pull request because the repository has too many open pull requests. The maximum number of open pull requests for a repository is 1,000. Close one or more open pull requests, and then try again.</p>
+            aws_sdk_codecommit.errors.multiple_repositories_in_pull_request_exception.MultipleRepositoriesInPullRequestException: <p>You cannot include more than one repository in a pull request. Make sure you have specified only one repository name in your request, and then try again.</p>
+            aws_sdk_codecommit.errors.reference_does_not_exist_exception.ReferenceDoesNotExistException: <p>The specified reference does not exist. You must provide a full commit ID.</p>
+            aws_sdk_codecommit.errors.reference_name_required_exception.ReferenceNameRequiredException: <p>A reference name is required, but none was provided.</p>
+            aws_sdk_codecommit.errors.reference_type_not_supported_exception.ReferenceTypeNotSupportedException: <p>The specified reference is not a supported type. </p>
+            aws_sdk_codecommit.errors.repository_does_not_exist_exception.RepositoryDoesNotExistException: <p>The specified repository does not exist.</p>
+            aws_sdk_codecommit.errors.repository_name_required_exception.RepositoryNameRequiredException: <p>A repository name is required, but was not specified.</p>
+            aws_sdk_codecommit.errors.source_and_destination_are_same_exception.SourceAndDestinationAreSameException: <p>The source branch and destination branch for the pull request are the same. You must specify different branches for the source and destination.</p>
+            aws_sdk_codecommit.errors.target_required_exception.TargetRequiredException: <p>A pull request target is required. It cannot be empty or null. A pull request target must contain the full values for the repository name, source branch, and destination branch for the pull request.</p>
+            aws_sdk_codecommit.errors.targets_required_exception.TargetsRequiredException: <p>An array of target objects is required. It cannot be empty or null.</p>
+            aws_sdk_codecommit.errors.title_required_exception.TitleRequiredException: <p>A pull request title is required. It cannot be empty or null.</p>
+            aws_sdk_codecommit.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -846,6 +1031,24 @@ class AsyncCodeCommitClient:
             pull_request_id: <p>The system-generated ID of the pull request for which you want to create the approval rule.</p>
             approval_rule_name: <p>The name for the approval rule.</p>
             approval_rule_content: <p>The content of the approval rule, including the number of approvals needed and the structure of an approval pool defined for approvals, if any. For more information about approval pools, see the CodeCommit User Guide.</p> <note> <p>When you create the content of the approval rule, you can specify approvers in an approval pool in one of two ways:</p> <ul> <li> <p> <b>CodeCommitApprovers</b>: This option only requires an Amazon Web Services account and a resource. It can be used for both IAM users and federated access users whose name matches the provided resource name. This is a very powerful option that offers a great deal of flexibility. For example, if you specify the Amazon Web Services account <i>123456789012</i> and <i>Mary_Major</i>, all of the following would be counted as approvals coming from that user:</p> <ul> <li> <p>An IAM user in the account (arn:aws:iam::<i>123456789012</i>:user/<i>Mary_Major</i>)</p> </li> <li> <p>A federated user identified in IAM as Mary_Major (arn:aws:sts::<i>123456789012</i>:federated-user/<i>Mary_Major</i>)</p> </li> </ul> <p>This option does not recognize an active session of someone assuming the role of CodeCommitReview with a role session name of <i>Mary_Major</i> (arn:aws:sts::<i>123456789012</i>:assumed-role/CodeCommitReview/<i>Mary_Major</i>) unless you include a wildcard (*Mary_Major).</p> </li> <li> <p> <b>Fully qualified ARN</b>: This option allows you to specify the fully qualified Amazon Resource Name (ARN) of the IAM user or role. </p> </li> </ul> <p>For more information about IAM ARNs, wildcards, and formats, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html\">IAM Identifiers</a> in the <i>IAM User Guide</i>.</p> </note>
+
+        Raises:
+            aws_sdk_codecommit.errors.approval_rule_content_required_exception.ApprovalRuleContentRequiredException: <p>The content for the approval rule is empty. You must provide some content for an approval rule. The content cannot be null.</p>
+            aws_sdk_codecommit.errors.approval_rule_name_already_exists_exception.ApprovalRuleNameAlreadyExistsException: <p>An approval rule with that name already exists. Approval rule names must be unique within the scope of a pull request.</p>
+            aws_sdk_codecommit.errors.approval_rule_name_required_exception.ApprovalRuleNameRequiredException: <p>An approval rule name is required, but was not specified.</p>
+            aws_sdk_codecommit.errors.encryption_integrity_checks_failed_exception.EncryptionIntegrityChecksFailedException: <p>An encryption integrity check failed.</p>
+            aws_sdk_codecommit.errors.encryption_key_access_denied_exception.EncryptionKeyAccessDeniedException: <p>An encryption key could not be accessed.</p>
+            aws_sdk_codecommit.errors.encryption_key_disabled_exception.EncryptionKeyDisabledException: <p>The encryption key is disabled.</p>
+            aws_sdk_codecommit.errors.encryption_key_not_found_exception.EncryptionKeyNotFoundException: <p>No encryption key was found.</p>
+            aws_sdk_codecommit.errors.encryption_key_unavailable_exception.EncryptionKeyUnavailableException: <p>The encryption key is not available.</p>
+            aws_sdk_codecommit.errors.invalid_approval_rule_content_exception.InvalidApprovalRuleContentException: <p>The content for the approval rule is not valid.</p>
+            aws_sdk_codecommit.errors.invalid_approval_rule_name_exception.InvalidApprovalRuleNameException: <p>The name for the approval rule is not valid.</p>
+            aws_sdk_codecommit.errors.invalid_pull_request_id_exception.InvalidPullRequestIdException: <p>The pull request ID is not valid. Make sure that you have provided the full ID and that the pull request is in the specified repository, and then try again.</p>
+            aws_sdk_codecommit.errors.number_of_rules_exceeded_exception.NumberOfRulesExceededException: <p>The approval rule cannot be added. The pull request has the maximum number of approval rules associated with it.</p>
+            aws_sdk_codecommit.errors.pull_request_already_closed_exception.PullRequestAlreadyClosedException: <p>The pull request status cannot be updated because it is already closed.</p>
+            aws_sdk_codecommit.errors.pull_request_does_not_exist_exception.PullRequestDoesNotExistException: <p>The pull request ID could not be found. Make sure that you have specified the correct repository name and pull request ID, and then try again.</p>
+            aws_sdk_codecommit.errors.pull_request_id_required_exception.PullRequestIdRequiredException: <p>A pull request ID is required, but none was provided.</p>
+            aws_sdk_codecommit.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -894,6 +1097,26 @@ class AsyncCodeCommitClient:
             repository_description: <p>A comment or description about the new repository.</p> <note> <p>The description field for a repository accepts all HTML characters and all valid Unicode characters. Applications that do not HTML-encode the description and display it in a webpage can expose users to potentially malicious code. Make sure that you HTML-encode the description field in any application that uses this API to display the repository description on a webpage.</p> </note>
             tags: <p>One or more tag key-value pairs to use when tagging this repository.</p>
             kms_key_id: <p>The ID of the encryption key. You can view the ID of an encryption key in the KMS console, or use the KMS APIs to programmatically retrieve a key ID. For more information about acceptable values for kmsKeyID, see <a href=\"https://docs.aws.amazon.com/kms/latest/APIReference/API_Decrypt.html#KMS-Decrypt-request-KeyId\">KeyId</a> in the Decrypt API description in the <i>Key Management Service API Reference</i>.</p> <p>If no key is specified, the default <code>aws/codecommit</code> Amazon Web Services managed key is used.</p>
+
+        Raises:
+            aws_sdk_codecommit.errors.encryption_integrity_checks_failed_exception.EncryptionIntegrityChecksFailedException: <p>An encryption integrity check failed.</p>
+            aws_sdk_codecommit.errors.encryption_key_access_denied_exception.EncryptionKeyAccessDeniedException: <p>An encryption key could not be accessed.</p>
+            aws_sdk_codecommit.errors.encryption_key_disabled_exception.EncryptionKeyDisabledException: <p>The encryption key is disabled.</p>
+            aws_sdk_codecommit.errors.encryption_key_invalid_id_exception.EncryptionKeyInvalidIdException: <p>The Key Management Service encryption key is not valid.</p>
+            aws_sdk_codecommit.errors.encryption_key_invalid_usage_exception.EncryptionKeyInvalidUsageException: <p>A KMS encryption key was used to try and encrypt or decrypt a repository, but either the repository or the key was not in a valid state to support the operation.</p>
+            aws_sdk_codecommit.errors.encryption_key_not_found_exception.EncryptionKeyNotFoundException: <p>No encryption key was found.</p>
+            aws_sdk_codecommit.errors.encryption_key_unavailable_exception.EncryptionKeyUnavailableException: <p>The encryption key is not available.</p>
+            aws_sdk_codecommit.errors.invalid_repository_description_exception.InvalidRepositoryDescriptionException: <p>The specified repository description is not valid.</p>
+            aws_sdk_codecommit.errors.invalid_repository_name_exception.InvalidRepositoryNameException: <p>A specified repository name is not valid.</p> <note> <p>This exception occurs only when a specified repository name is not valid. Other exceptions occur when a required repository parameter is missing, or when a specified repository does not exist.</p> </note>
+            aws_sdk_codecommit.errors.invalid_system_tag_usage_exception.InvalidSystemTagUsageException: <p>The specified tag is not valid. Key names cannot be prefixed with aws:.</p>
+            aws_sdk_codecommit.errors.invalid_tags_map_exception.InvalidTagsMapException: <p>The map of tags is not valid.</p>
+            aws_sdk_codecommit.errors.operation_not_allowed_exception.OperationNotAllowedException: <p>The requested action is not allowed.</p>
+            aws_sdk_codecommit.errors.repository_limit_exceeded_exception.RepositoryLimitExceededException: <p>A repository resource limit was exceeded.</p>
+            aws_sdk_codecommit.errors.repository_name_exists_exception.RepositoryNameExistsException: <p>The specified repository name already exists.</p>
+            aws_sdk_codecommit.errors.repository_name_required_exception.RepositoryNameRequiredException: <p>A repository name is required, but was not specified.</p>
+            aws_sdk_codecommit.errors.tag_policy_exception.TagPolicyException: <p>The tag policy is not valid.</p>
+            aws_sdk_codecommit.errors.too_many_tags_exception.TooManyTagsException: <p>The maximum number of tags for an CodeCommit resource has been exceeded.</p>
+            aws_sdk_codecommit.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -966,6 +1189,45 @@ class AsyncCodeCommitClient:
             commit_message: <p>The commit message for the unreferenced commit.</p>
             keep_empty_folders: <p>If the commit contains deletions, whether to keep a folder or folder structure if the changes leave the folders empty. If this is specified as true, a .gitkeep file is created for empty folders. The default is false.</p>
             conflict_resolution: <p>If AUTOMERGE is the conflict resolution strategy, a list of inputs to use when resolving conflicts during a merge.</p>
+
+        Raises:
+            aws_sdk_codecommit.errors.commit_does_not_exist_exception.CommitDoesNotExistException: <p>The specified commit does not exist or no commit was specified, and the specified repository has no default branch.</p>
+            aws_sdk_codecommit.errors.commit_message_length_exceeded_exception.CommitMessageLengthExceededException: <p>The commit message is too long. Provide a shorter string. </p>
+            aws_sdk_codecommit.errors.commit_required_exception.CommitRequiredException: <p>A commit was not specified.</p>
+            aws_sdk_codecommit.errors.concurrent_reference_update_exception.ConcurrentReferenceUpdateException: <p>The merge cannot be completed because the target branch has been modified. Another user might have modified the target branch while the merge was in progress. Wait a few minutes, and then try again.</p>
+            aws_sdk_codecommit.errors.encryption_integrity_checks_failed_exception.EncryptionIntegrityChecksFailedException: <p>An encryption integrity check failed.</p>
+            aws_sdk_codecommit.errors.encryption_key_access_denied_exception.EncryptionKeyAccessDeniedException: <p>An encryption key could not be accessed.</p>
+            aws_sdk_codecommit.errors.encryption_key_disabled_exception.EncryptionKeyDisabledException: <p>The encryption key is disabled.</p>
+            aws_sdk_codecommit.errors.encryption_key_not_found_exception.EncryptionKeyNotFoundException: <p>No encryption key was found.</p>
+            aws_sdk_codecommit.errors.encryption_key_unavailable_exception.EncryptionKeyUnavailableException: <p>The encryption key is not available.</p>
+            aws_sdk_codecommit.errors.file_content_size_limit_exceeded_exception.FileContentSizeLimitExceededException: <p>The file cannot be added because it is too large. The maximum file size is 6 MB, and the combined file content change size is 7 MB. Consider making these changes using a Git client.</p>
+            aws_sdk_codecommit.errors.file_mode_required_exception.FileModeRequiredException: <p>The commit cannot be created because no file mode has been specified. A file mode is required to update mode permissions for a file.</p>
+            aws_sdk_codecommit.errors.folder_content_size_limit_exceeded_exception.FolderContentSizeLimitExceededException: <p>The commit cannot be created because at least one of the overall changes in the commit results in a folder whose contents exceed the limit of 6 MB. Either reduce the number and size of your changes, or split the changes across multiple folders.</p>
+            aws_sdk_codecommit.errors.invalid_commit_exception.InvalidCommitException: <p>The specified commit is not valid.</p>
+            aws_sdk_codecommit.errors.invalid_conflict_detail_level_exception.InvalidConflictDetailLevelException: <p>The specified conflict detail level is not valid.</p>
+            aws_sdk_codecommit.errors.invalid_conflict_resolution_exception.InvalidConflictResolutionException: <p>The specified conflict resolution list is not valid.</p>
+            aws_sdk_codecommit.errors.invalid_conflict_resolution_strategy_exception.InvalidConflictResolutionStrategyException: <p>The specified conflict resolution strategy is not valid.</p>
+            aws_sdk_codecommit.errors.invalid_email_exception.InvalidEmailException: <p>The specified email address either contains one or more characters that are not allowed, or it exceeds the maximum number of characters allowed for an email address.</p>
+            aws_sdk_codecommit.errors.invalid_file_mode_exception.InvalidFileModeException: <p>The specified file mode permission is not valid. For a list of valid file mode permissions, see <a>PutFile</a>. </p>
+            aws_sdk_codecommit.errors.invalid_merge_option_exception.InvalidMergeOptionException: <p>The specified merge option is not valid for this operation. Not all merge strategies are supported for all operations.</p>
+            aws_sdk_codecommit.errors.invalid_path_exception.InvalidPathException: <p>The specified path is not valid.</p>
+            aws_sdk_codecommit.errors.invalid_replacement_content_exception.InvalidReplacementContentException: <p>Automerge was specified for resolving the conflict, but the replacement type is not valid or content is missing. </p>
+            aws_sdk_codecommit.errors.invalid_replacement_type_exception.InvalidReplacementTypeException: <p>Automerge was specified for resolving the conflict, but the specified replacement type is not valid.</p>
+            aws_sdk_codecommit.errors.invalid_repository_name_exception.InvalidRepositoryNameException: <p>A specified repository name is not valid.</p> <note> <p>This exception occurs only when a specified repository name is not valid. Other exceptions occur when a required repository parameter is missing, or when a specified repository does not exist.</p> </note>
+            aws_sdk_codecommit.errors.manual_merge_required_exception.ManualMergeRequiredException: <p>The pull request cannot be merged automatically into the destination branch. You must manually merge the branches and resolve any conflicts.</p>
+            aws_sdk_codecommit.errors.maximum_conflict_resolution_entries_exceeded_exception.MaximumConflictResolutionEntriesExceededException: <p>The number of allowed conflict resolution entries was exceeded.</p>
+            aws_sdk_codecommit.errors.maximum_file_content_to_load_exceeded_exception.MaximumFileContentToLoadExceededException: <p>The number of files to load exceeds the allowed limit.</p>
+            aws_sdk_codecommit.errors.maximum_items_to_compare_exceeded_exception.MaximumItemsToCompareExceededException: <p>The number of items to compare between the source or destination branches and the merge base has exceeded the maximum allowed.</p>
+            aws_sdk_codecommit.errors.merge_option_required_exception.MergeOptionRequiredException: <p>A merge option or stategy is required, and none was provided.</p>
+            aws_sdk_codecommit.errors.multiple_conflict_resolution_entries_exception.MultipleConflictResolutionEntriesException: <p>More than one conflict resolution entries exists for the conflict. A conflict can have only one conflict resolution entry.</p>
+            aws_sdk_codecommit.errors.name_length_exceeded_exception.NameLengthExceededException: <p>The user name is not valid because it has exceeded the character limit for author names. </p>
+            aws_sdk_codecommit.errors.path_required_exception.PathRequiredException: <p>The folderPath for a location cannot be null.</p>
+            aws_sdk_codecommit.errors.replacement_content_required_exception.ReplacementContentRequiredException: <p>USE_NEW_CONTENT was specified, but no replacement content has been provided.</p>
+            aws_sdk_codecommit.errors.replacement_type_required_exception.ReplacementTypeRequiredException: <p>A replacement type is required.</p>
+            aws_sdk_codecommit.errors.repository_does_not_exist_exception.RepositoryDoesNotExistException: <p>The specified repository does not exist.</p>
+            aws_sdk_codecommit.errors.repository_name_required_exception.RepositoryNameRequiredException: <p>A repository name is required, but was not specified.</p>
+            aws_sdk_codecommit.errors.tips_divergence_exceeded_exception.TipsDivergenceExceededException: <p>The divergence between the tips of the provided commit specifiers is too great to determine whether there might be any merge conflicts. Locally compare the specifiers using <code>git diff</code> or a diff tool.</p>
+            aws_sdk_codecommit.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1021,6 +1283,12 @@ class AsyncCodeCommitClient:
 
         Args:
             approval_rule_template_name: <p>The name of the approval rule template to delete.</p>
+
+        Raises:
+            aws_sdk_codecommit.errors.approval_rule_template_in_use_exception.ApprovalRuleTemplateInUseException: <p>The approval rule template is associated with one or more repositories. You cannot delete a template that is associated with a repository. Remove all associations, and then try again.</p>
+            aws_sdk_codecommit.errors.approval_rule_template_name_required_exception.ApprovalRuleTemplateNameRequiredException: <p>An approval rule template name is required, but was not specified.</p>
+            aws_sdk_codecommit.errors.invalid_approval_rule_template_name_exception.InvalidApprovalRuleTemplateNameException: <p>The name of the approval rule template is not valid. Template names must be between 1 and 100 valid characters in length. For more information about limits in CodeCommit, see <a href=\"https://docs.aws.amazon.com/codecommit/latest/userguide/limits.html\">Quotas</a> in the <i>CodeCommit User Guide</i>.</p>
+            aws_sdk_codecommit.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1061,6 +1329,20 @@ class AsyncCodeCommitClient:
         Args:
             repository_name: <p>The name of the repository that contains the branch to be deleted.</p>
             branch_name: <p>The name of the branch to delete.</p>
+
+        Raises:
+            aws_sdk_codecommit.errors.branch_name_required_exception.BranchNameRequiredException: <p>A branch name is required, but was not specified.</p>
+            aws_sdk_codecommit.errors.default_branch_cannot_be_deleted_exception.DefaultBranchCannotBeDeletedException: <p>The specified branch is the default branch for the repository, and cannot be deleted. To delete this branch, you must first set another branch as the default branch.</p>
+            aws_sdk_codecommit.errors.encryption_integrity_checks_failed_exception.EncryptionIntegrityChecksFailedException: <p>An encryption integrity check failed.</p>
+            aws_sdk_codecommit.errors.encryption_key_access_denied_exception.EncryptionKeyAccessDeniedException: <p>An encryption key could not be accessed.</p>
+            aws_sdk_codecommit.errors.encryption_key_disabled_exception.EncryptionKeyDisabledException: <p>The encryption key is disabled.</p>
+            aws_sdk_codecommit.errors.encryption_key_not_found_exception.EncryptionKeyNotFoundException: <p>No encryption key was found.</p>
+            aws_sdk_codecommit.errors.encryption_key_unavailable_exception.EncryptionKeyUnavailableException: <p>The encryption key is not available.</p>
+            aws_sdk_codecommit.errors.invalid_branch_name_exception.InvalidBranchNameException: <p>The specified reference name is not valid.</p>
+            aws_sdk_codecommit.errors.invalid_repository_name_exception.InvalidRepositoryNameException: <p>A specified repository name is not valid.</p> <note> <p>This exception occurs only when a specified repository name is not valid. Other exceptions occur when a required repository parameter is missing, or when a specified repository does not exist.</p> </note>
+            aws_sdk_codecommit.errors.repository_does_not_exist_exception.RepositoryDoesNotExistException: <p>The specified repository does not exist.</p>
+            aws_sdk_codecommit.errors.repository_name_required_exception.RepositoryNameRequiredException: <p>A repository name is required, but was not specified.</p>
+            aws_sdk_codecommit.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1100,6 +1382,13 @@ class AsyncCodeCommitClient:
 
         Args:
             comment_id: <p>The unique, system-generated ID of the comment. To get this ID, use <a>GetCommentsForComparedCommit</a> or <a>GetCommentsForPullRequest</a>.</p>
+
+        Raises:
+            aws_sdk_codecommit.errors.comment_deleted_exception.CommentDeletedException: <p>This comment has already been deleted. You cannot edit or delete a deleted comment.</p>
+            aws_sdk_codecommit.errors.comment_does_not_exist_exception.CommentDoesNotExistException: <p>No comment exists with the provided ID. Verify that you have used the correct ID, and then try again.</p>
+            aws_sdk_codecommit.errors.comment_id_required_exception.CommentIdRequiredException: <p>The comment ID is missing or null. A comment ID is required.</p>
+            aws_sdk_codecommit.errors.invalid_comment_id_exception.InvalidCommentIdException: <p>The comment ID is not in a valid format. Make sure that you have provided the full comment ID.</p>
+            aws_sdk_codecommit.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1154,6 +1443,31 @@ class AsyncCodeCommitClient:
             commit_message: <p>The commit message you want to include as part of deleting the file. Commit messages are limited to 256 KB. If no message is specified, a default message is used.</p>
             name: <p>The name of the author of the commit that deletes the file. If no name is specified, the user's ARN is used as the author name and committer name.</p>
             email: <p>The email address for the commit that deletes the file. If no email address is specified, the email address is left blank.</p>
+
+        Raises:
+            aws_sdk_codecommit.errors.branch_does_not_exist_exception.BranchDoesNotExistException: <p>The specified branch does not exist.</p>
+            aws_sdk_codecommit.errors.branch_name_is_tag_name_exception.BranchNameIsTagNameException: <p>The specified branch name is not valid because it is a tag name. Enter the name of a branch in the repository. For a list of valid branch names, use <a>ListBranches</a>.</p>
+            aws_sdk_codecommit.errors.branch_name_required_exception.BranchNameRequiredException: <p>A branch name is required, but was not specified.</p>
+            aws_sdk_codecommit.errors.commit_message_length_exceeded_exception.CommitMessageLengthExceededException: <p>The commit message is too long. Provide a shorter string. </p>
+            aws_sdk_codecommit.errors.encryption_integrity_checks_failed_exception.EncryptionIntegrityChecksFailedException: <p>An encryption integrity check failed.</p>
+            aws_sdk_codecommit.errors.encryption_key_access_denied_exception.EncryptionKeyAccessDeniedException: <p>An encryption key could not be accessed.</p>
+            aws_sdk_codecommit.errors.encryption_key_disabled_exception.EncryptionKeyDisabledException: <p>The encryption key is disabled.</p>
+            aws_sdk_codecommit.errors.encryption_key_not_found_exception.EncryptionKeyNotFoundException: <p>No encryption key was found.</p>
+            aws_sdk_codecommit.errors.encryption_key_unavailable_exception.EncryptionKeyUnavailableException: <p>The encryption key is not available.</p>
+            aws_sdk_codecommit.errors.file_does_not_exist_exception.FileDoesNotExistException: <p>The specified file does not exist. Verify that you have used the correct file name, full path, and extension.</p>
+            aws_sdk_codecommit.errors.invalid_branch_name_exception.InvalidBranchNameException: <p>The specified reference name is not valid.</p>
+            aws_sdk_codecommit.errors.invalid_email_exception.InvalidEmailException: <p>The specified email address either contains one or more characters that are not allowed, or it exceeds the maximum number of characters allowed for an email address.</p>
+            aws_sdk_codecommit.errors.invalid_parent_commit_id_exception.InvalidParentCommitIdException: <p>The parent commit ID is not valid. The commit ID cannot be empty, and must match the head commit ID for the branch of the repository where you want to add or update a file.</p>
+            aws_sdk_codecommit.errors.invalid_path_exception.InvalidPathException: <p>The specified path is not valid.</p>
+            aws_sdk_codecommit.errors.invalid_repository_name_exception.InvalidRepositoryNameException: <p>A specified repository name is not valid.</p> <note> <p>This exception occurs only when a specified repository name is not valid. Other exceptions occur when a required repository parameter is missing, or when a specified repository does not exist.</p> </note>
+            aws_sdk_codecommit.errors.name_length_exceeded_exception.NameLengthExceededException: <p>The user name is not valid because it has exceeded the character limit for author names. </p>
+            aws_sdk_codecommit.errors.parent_commit_does_not_exist_exception.ParentCommitDoesNotExistException: <p>The parent commit ID is not valid because it does not exist. The specified parent commit ID does not exist in the specified branch of the repository.</p>
+            aws_sdk_codecommit.errors.parent_commit_id_outdated_exception.ParentCommitIdOutdatedException: <p>The file could not be added because the provided parent commit ID is not the current tip of the specified branch. To view the full commit ID of the current head of the branch, use <a>GetBranch</a>.</p>
+            aws_sdk_codecommit.errors.parent_commit_id_required_exception.ParentCommitIdRequiredException: <p>A parent commit ID is required. To view the full commit ID of a branch in a repository, use <a>GetBranch</a> or a Git command (for example, git pull or git log).</p>
+            aws_sdk_codecommit.errors.path_required_exception.PathRequiredException: <p>The folderPath for a location cannot be null.</p>
+            aws_sdk_codecommit.errors.repository_does_not_exist_exception.RepositoryDoesNotExistException: <p>The specified repository does not exist.</p>
+            aws_sdk_codecommit.errors.repository_name_required_exception.RepositoryNameRequiredException: <p>A repository name is required, but was not specified.</p>
+            aws_sdk_codecommit.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1205,6 +1519,21 @@ class AsyncCodeCommitClient:
         Args:
             pull_request_id: <p>The system-generated ID of the pull request that contains the approval rule you want to delete.</p>
             approval_rule_name: <p>The name of the approval rule you want to delete.</p>
+
+        Raises:
+            aws_sdk_codecommit.errors.approval_rule_name_required_exception.ApprovalRuleNameRequiredException: <p>An approval rule name is required, but was not specified.</p>
+            aws_sdk_codecommit.errors.cannot_delete_approval_rule_from_template_exception.CannotDeleteApprovalRuleFromTemplateException: <p>The approval rule cannot be deleted from the pull request because it was created by an approval rule template and applied to the pull request automatically.</p>
+            aws_sdk_codecommit.errors.encryption_integrity_checks_failed_exception.EncryptionIntegrityChecksFailedException: <p>An encryption integrity check failed.</p>
+            aws_sdk_codecommit.errors.encryption_key_access_denied_exception.EncryptionKeyAccessDeniedException: <p>An encryption key could not be accessed.</p>
+            aws_sdk_codecommit.errors.encryption_key_disabled_exception.EncryptionKeyDisabledException: <p>The encryption key is disabled.</p>
+            aws_sdk_codecommit.errors.encryption_key_not_found_exception.EncryptionKeyNotFoundException: <p>No encryption key was found.</p>
+            aws_sdk_codecommit.errors.encryption_key_unavailable_exception.EncryptionKeyUnavailableException: <p>The encryption key is not available.</p>
+            aws_sdk_codecommit.errors.invalid_approval_rule_name_exception.InvalidApprovalRuleNameException: <p>The name for the approval rule is not valid.</p>
+            aws_sdk_codecommit.errors.invalid_pull_request_id_exception.InvalidPullRequestIdException: <p>The pull request ID is not valid. Make sure that you have provided the full ID and that the pull request is in the specified repository, and then try again.</p>
+            aws_sdk_codecommit.errors.pull_request_already_closed_exception.PullRequestAlreadyClosedException: <p>The pull request status cannot be updated because it is already closed.</p>
+            aws_sdk_codecommit.errors.pull_request_does_not_exist_exception.PullRequestDoesNotExistException: <p>The pull request ID could not be found. Make sure that you have specified the correct repository name and pull request ID, and then try again.</p>
+            aws_sdk_codecommit.errors.pull_request_id_required_exception.PullRequestIdRequiredException: <p>A pull request ID is required, but none was provided.</p>
+            aws_sdk_codecommit.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1244,6 +1573,16 @@ class AsyncCodeCommitClient:
 
         Args:
             repository_name: <p>The name of the repository to delete.</p>
+
+        Raises:
+            aws_sdk_codecommit.errors.encryption_integrity_checks_failed_exception.EncryptionIntegrityChecksFailedException: <p>An encryption integrity check failed.</p>
+            aws_sdk_codecommit.errors.encryption_key_access_denied_exception.EncryptionKeyAccessDeniedException: <p>An encryption key could not be accessed.</p>
+            aws_sdk_codecommit.errors.encryption_key_disabled_exception.EncryptionKeyDisabledException: <p>The encryption key is disabled.</p>
+            aws_sdk_codecommit.errors.encryption_key_not_found_exception.EncryptionKeyNotFoundException: <p>No encryption key was found.</p>
+            aws_sdk_codecommit.errors.encryption_key_unavailable_exception.EncryptionKeyUnavailableException: <p>The encryption key is not available.</p>
+            aws_sdk_codecommit.errors.invalid_repository_name_exception.InvalidRepositoryNameException: <p>A specified repository name is not valid.</p> <note> <p>This exception occurs only when a specified repository name is not valid. Other exceptions occur when a required repository parameter is missing, or when a specified repository does not exist.</p> </note>
+            aws_sdk_codecommit.errors.repository_name_required_exception.RepositoryNameRequiredException: <p>A repository name is required, but was not specified.</p>
+            aws_sdk_codecommit.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1304,6 +1643,32 @@ class AsyncCodeCommitClient:
             conflict_detail_level: <p>The level of conflict detail to use. If unspecified, the default FILE_LEVEL is used, which returns a not-mergeable result if the same file has differences in both branches. If LINE_LEVEL is specified, a conflict is considered not mergeable if the same file in both branches has differences on the same line.</p>
             conflict_resolution_strategy: <p>Specifies which branch to use when resolving conflicts, or whether to attempt automatically merging two versions of a file. The default is NONE, which requires any conflicts to be resolved manually before the merge operation is successful.</p>
             next_token: <p>An enumeration token that, when provided in a request, returns the next batch of the results.</p>
+
+        Raises:
+            aws_sdk_codecommit.errors.commit_does_not_exist_exception.CommitDoesNotExistException: <p>The specified commit does not exist or no commit was specified, and the specified repository has no default branch.</p>
+            aws_sdk_codecommit.errors.commit_required_exception.CommitRequiredException: <p>A commit was not specified.</p>
+            aws_sdk_codecommit.errors.encryption_integrity_checks_failed_exception.EncryptionIntegrityChecksFailedException: <p>An encryption integrity check failed.</p>
+            aws_sdk_codecommit.errors.encryption_key_access_denied_exception.EncryptionKeyAccessDeniedException: <p>An encryption key could not be accessed.</p>
+            aws_sdk_codecommit.errors.encryption_key_disabled_exception.EncryptionKeyDisabledException: <p>The encryption key is disabled.</p>
+            aws_sdk_codecommit.errors.encryption_key_not_found_exception.EncryptionKeyNotFoundException: <p>No encryption key was found.</p>
+            aws_sdk_codecommit.errors.encryption_key_unavailable_exception.EncryptionKeyUnavailableException: <p>The encryption key is not available.</p>
+            aws_sdk_codecommit.errors.file_does_not_exist_exception.FileDoesNotExistException: <p>The specified file does not exist. Verify that you have used the correct file name, full path, and extension.</p>
+            aws_sdk_codecommit.errors.invalid_commit_exception.InvalidCommitException: <p>The specified commit is not valid.</p>
+            aws_sdk_codecommit.errors.invalid_conflict_detail_level_exception.InvalidConflictDetailLevelException: <p>The specified conflict detail level is not valid.</p>
+            aws_sdk_codecommit.errors.invalid_conflict_resolution_strategy_exception.InvalidConflictResolutionStrategyException: <p>The specified conflict resolution strategy is not valid.</p>
+            aws_sdk_codecommit.errors.invalid_continuation_token_exception.InvalidContinuationTokenException: <p>The specified continuation token is not valid.</p>
+            aws_sdk_codecommit.errors.invalid_max_merge_hunks_exception.InvalidMaxMergeHunksException: <p>The specified value for the number of merge hunks to return is not valid.</p>
+            aws_sdk_codecommit.errors.invalid_merge_option_exception.InvalidMergeOptionException: <p>The specified merge option is not valid for this operation. Not all merge strategies are supported for all operations.</p>
+            aws_sdk_codecommit.errors.invalid_path_exception.InvalidPathException: <p>The specified path is not valid.</p>
+            aws_sdk_codecommit.errors.invalid_repository_name_exception.InvalidRepositoryNameException: <p>A specified repository name is not valid.</p> <note> <p>This exception occurs only when a specified repository name is not valid. Other exceptions occur when a required repository parameter is missing, or when a specified repository does not exist.</p> </note>
+            aws_sdk_codecommit.errors.maximum_file_content_to_load_exceeded_exception.MaximumFileContentToLoadExceededException: <p>The number of files to load exceeds the allowed limit.</p>
+            aws_sdk_codecommit.errors.maximum_items_to_compare_exceeded_exception.MaximumItemsToCompareExceededException: <p>The number of items to compare between the source or destination branches and the merge base has exceeded the maximum allowed.</p>
+            aws_sdk_codecommit.errors.merge_option_required_exception.MergeOptionRequiredException: <p>A merge option or stategy is required, and none was provided.</p>
+            aws_sdk_codecommit.errors.path_required_exception.PathRequiredException: <p>The folderPath for a location cannot be null.</p>
+            aws_sdk_codecommit.errors.repository_does_not_exist_exception.RepositoryDoesNotExistException: <p>The specified repository does not exist.</p>
+            aws_sdk_codecommit.errors.repository_name_required_exception.RepositoryNameRequiredException: <p>A repository name is required, but was not specified.</p>
+            aws_sdk_codecommit.errors.tips_divergence_exceeded_exception.TipsDivergenceExceededException: <p>The divergence between the tips of the provided commit specifiers is too great to determine whether there might be any merge conflicts. Locally compare the specifiers using <code>git diff</code> or a diff tool.</p>
+            aws_sdk_codecommit.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1364,6 +1729,22 @@ class AsyncCodeCommitClient:
             actor_arn: <p>The Amazon Resource Name (ARN) of the user whose actions resulted in the event. Examples include updating the pull request with more commits or changing the status of a pull request.</p>
             next_token: <p>An enumeration token that, when provided in a request, returns the next batch of the results.</p>
             max_results: <p>A non-zero, non-negative integer used to limit the number of returned results. The default is 100 events, which is also the maximum number of events that can be returned in a result.</p>
+
+        Raises:
+            aws_sdk_codecommit.errors.actor_does_not_exist_exception.ActorDoesNotExistException: <p>The specified Amazon Resource Name (ARN) does not exist in the Amazon Web Services account.</p>
+            aws_sdk_codecommit.errors.encryption_integrity_checks_failed_exception.EncryptionIntegrityChecksFailedException: <p>An encryption integrity check failed.</p>
+            aws_sdk_codecommit.errors.encryption_key_access_denied_exception.EncryptionKeyAccessDeniedException: <p>An encryption key could not be accessed.</p>
+            aws_sdk_codecommit.errors.encryption_key_disabled_exception.EncryptionKeyDisabledException: <p>The encryption key is disabled.</p>
+            aws_sdk_codecommit.errors.encryption_key_not_found_exception.EncryptionKeyNotFoundException: <p>No encryption key was found.</p>
+            aws_sdk_codecommit.errors.encryption_key_unavailable_exception.EncryptionKeyUnavailableException: <p>The encryption key is not available.</p>
+            aws_sdk_codecommit.errors.invalid_actor_arn_exception.InvalidActorArnException: <p>The Amazon Resource Name (ARN) is not valid. Make sure that you have provided the full ARN for the user who initiated the change for the pull request, and then try again.</p>
+            aws_sdk_codecommit.errors.invalid_continuation_token_exception.InvalidContinuationTokenException: <p>The specified continuation token is not valid.</p>
+            aws_sdk_codecommit.errors.invalid_max_results_exception.InvalidMaxResultsException: <p>The specified number of maximum results is not valid.</p>
+            aws_sdk_codecommit.errors.invalid_pull_request_event_type_exception.InvalidPullRequestEventTypeException: <p>The pull request event type is not valid. </p>
+            aws_sdk_codecommit.errors.invalid_pull_request_id_exception.InvalidPullRequestIdException: <p>The pull request ID is not valid. Make sure that you have provided the full ID and that the pull request is in the specified repository, and then try again.</p>
+            aws_sdk_codecommit.errors.pull_request_does_not_exist_exception.PullRequestDoesNotExistException: <p>The pull request ID could not be found. Make sure that you have specified the correct repository name and pull request ID, and then try again.</p>
+            aws_sdk_codecommit.errors.pull_request_id_required_exception.PullRequestIdRequiredException: <p>A pull request ID is required, but none was provided.</p>
+            aws_sdk_codecommit.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1412,6 +1793,20 @@ class AsyncCodeCommitClient:
         Args:
             approval_rule_template_name: <p>The name of the approval rule template to disassociate from a specified repository.</p>
             repository_name: <p>The name of the repository you want to disassociate from the template.</p>
+
+        Raises:
+            aws_sdk_codecommit.errors.approval_rule_template_does_not_exist_exception.ApprovalRuleTemplateDoesNotExistException: <p>The specified approval rule template does not exist. Verify that the name is correct and that you are signed in to the Amazon Web Services Region where the template was created, and then try again.</p>
+            aws_sdk_codecommit.errors.approval_rule_template_name_required_exception.ApprovalRuleTemplateNameRequiredException: <p>An approval rule template name is required, but was not specified.</p>
+            aws_sdk_codecommit.errors.encryption_integrity_checks_failed_exception.EncryptionIntegrityChecksFailedException: <p>An encryption integrity check failed.</p>
+            aws_sdk_codecommit.errors.encryption_key_access_denied_exception.EncryptionKeyAccessDeniedException: <p>An encryption key could not be accessed.</p>
+            aws_sdk_codecommit.errors.encryption_key_disabled_exception.EncryptionKeyDisabledException: <p>The encryption key is disabled.</p>
+            aws_sdk_codecommit.errors.encryption_key_not_found_exception.EncryptionKeyNotFoundException: <p>No encryption key was found.</p>
+            aws_sdk_codecommit.errors.encryption_key_unavailable_exception.EncryptionKeyUnavailableException: <p>The encryption key is not available.</p>
+            aws_sdk_codecommit.errors.invalid_approval_rule_template_name_exception.InvalidApprovalRuleTemplateNameException: <p>The name of the approval rule template is not valid. Template names must be between 1 and 100 valid characters in length. For more information about limits in CodeCommit, see <a href=\"https://docs.aws.amazon.com/codecommit/latest/userguide/limits.html\">Quotas</a> in the <i>CodeCommit User Guide</i>.</p>
+            aws_sdk_codecommit.errors.invalid_repository_name_exception.InvalidRepositoryNameException: <p>A specified repository name is not valid.</p> <note> <p>This exception occurs only when a specified repository name is not valid. Other exceptions occur when a required repository parameter is missing, or when a specified repository does not exist.</p> </note>
+            aws_sdk_codecommit.errors.repository_does_not_exist_exception.RepositoryDoesNotExistException: <p>The specified repository does not exist.</p>
+            aws_sdk_codecommit.errors.repository_name_required_exception.RepositoryNameRequiredException: <p>A repository name is required, but was not specified.</p>
+            aws_sdk_codecommit.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1451,6 +1846,20 @@ class AsyncCodeCommitClient:
         Args:
             pull_request_id: <p>The system-generated ID of the pull request you want to evaluate.</p>
             revision_id: <p>The system-generated ID for the pull request revision. To retrieve the most recent revision ID for a pull request, use <a>GetPullRequest</a>.</p>
+
+        Raises:
+            aws_sdk_codecommit.errors.encryption_integrity_checks_failed_exception.EncryptionIntegrityChecksFailedException: <p>An encryption integrity check failed.</p>
+            aws_sdk_codecommit.errors.encryption_key_access_denied_exception.EncryptionKeyAccessDeniedException: <p>An encryption key could not be accessed.</p>
+            aws_sdk_codecommit.errors.encryption_key_disabled_exception.EncryptionKeyDisabledException: <p>The encryption key is disabled.</p>
+            aws_sdk_codecommit.errors.encryption_key_not_found_exception.EncryptionKeyNotFoundException: <p>No encryption key was found.</p>
+            aws_sdk_codecommit.errors.encryption_key_unavailable_exception.EncryptionKeyUnavailableException: <p>The encryption key is not available.</p>
+            aws_sdk_codecommit.errors.invalid_pull_request_id_exception.InvalidPullRequestIdException: <p>The pull request ID is not valid. Make sure that you have provided the full ID and that the pull request is in the specified repository, and then try again.</p>
+            aws_sdk_codecommit.errors.invalid_revision_id_exception.InvalidRevisionIdException: <p>The revision ID is not valid. Use GetPullRequest to determine the value.</p>
+            aws_sdk_codecommit.errors.pull_request_does_not_exist_exception.PullRequestDoesNotExistException: <p>The pull request ID could not be found. Make sure that you have specified the correct repository name and pull request ID, and then try again.</p>
+            aws_sdk_codecommit.errors.pull_request_id_required_exception.PullRequestIdRequiredException: <p>A pull request ID is required, but none was provided.</p>
+            aws_sdk_codecommit.errors.revision_id_required_exception.RevisionIdRequiredException: <p>A revision ID is required, but was not provided.</p>
+            aws_sdk_codecommit.errors.revision_not_current_exception.RevisionNotCurrentException: <p>The revision ID provided in the request does not match the current revision ID. Use GetPullRequest to retrieve the current revision ID.</p>
+            aws_sdk_codecommit.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1490,6 +1899,12 @@ class AsyncCodeCommitClient:
 
         Args:
             approval_rule_template_name: <p>The name of the approval rule template for which you want to get information.</p>
+
+        Raises:
+            aws_sdk_codecommit.errors.approval_rule_template_does_not_exist_exception.ApprovalRuleTemplateDoesNotExistException: <p>The specified approval rule template does not exist. Verify that the name is correct and that you are signed in to the Amazon Web Services Region where the template was created, and then try again.</p>
+            aws_sdk_codecommit.errors.approval_rule_template_name_required_exception.ApprovalRuleTemplateNameRequiredException: <p>An approval rule template name is required, but was not specified.</p>
+            aws_sdk_codecommit.errors.invalid_approval_rule_template_name_exception.InvalidApprovalRuleTemplateNameException: <p>The name of the approval rule template is not valid. Template names must be between 1 and 100 valid characters in length. For more information about limits in CodeCommit, see <a href=\"https://docs.aws.amazon.com/codecommit/latest/userguide/limits.html\">Quotas</a> in the <i>CodeCommit User Guide</i>.</p>
+            aws_sdk_codecommit.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1530,6 +1945,21 @@ class AsyncCodeCommitClient:
         Args:
             repository_name: <p>The name of the repository that contains the blob.</p>
             blob_id: <p>The ID of the blob, which is its SHA-1 pointer.</p>
+
+        Raises:
+            aws_sdk_codecommit.errors.blob_id_does_not_exist_exception.BlobIdDoesNotExistException: <p>The specified blob does not exist.</p>
+            aws_sdk_codecommit.errors.blob_id_required_exception.BlobIdRequiredException: <p>A blob ID is required, but was not specified.</p>
+            aws_sdk_codecommit.errors.encryption_integrity_checks_failed_exception.EncryptionIntegrityChecksFailedException: <p>An encryption integrity check failed.</p>
+            aws_sdk_codecommit.errors.encryption_key_access_denied_exception.EncryptionKeyAccessDeniedException: <p>An encryption key could not be accessed.</p>
+            aws_sdk_codecommit.errors.encryption_key_disabled_exception.EncryptionKeyDisabledException: <p>The encryption key is disabled.</p>
+            aws_sdk_codecommit.errors.encryption_key_not_found_exception.EncryptionKeyNotFoundException: <p>No encryption key was found.</p>
+            aws_sdk_codecommit.errors.encryption_key_unavailable_exception.EncryptionKeyUnavailableException: <p>The encryption key is not available.</p>
+            aws_sdk_codecommit.errors.file_too_large_exception.FileTooLargeException: <p>The specified file exceeds the file size limit for CodeCommit. For more information about limits in CodeCommit, see <a href=\"https://docs.aws.amazon.com/codecommit/latest/userguide/limits.html\">Quotas</a> in the <i>CodeCommit User Guide</i>.</p>
+            aws_sdk_codecommit.errors.invalid_blob_id_exception.InvalidBlobIdException: <p>The specified blob is not valid.</p>
+            aws_sdk_codecommit.errors.invalid_repository_name_exception.InvalidRepositoryNameException: <p>A specified repository name is not valid.</p> <note> <p>This exception occurs only when a specified repository name is not valid. Other exceptions occur when a required repository parameter is missing, or when a specified repository does not exist.</p> </note>
+            aws_sdk_codecommit.errors.repository_does_not_exist_exception.RepositoryDoesNotExistException: <p>The specified repository does not exist.</p>
+            aws_sdk_codecommit.errors.repository_name_required_exception.RepositoryNameRequiredException: <p>A repository name is required, but was not specified.</p>
+            aws_sdk_codecommit.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1573,6 +2003,20 @@ class AsyncCodeCommitClient:
         Args:
             repository_name: <p>The name of the repository that contains the branch for which you want to retrieve information.</p>
             branch_name: <p>The name of the branch for which you want to retrieve information.</p>
+
+        Raises:
+            aws_sdk_codecommit.errors.branch_does_not_exist_exception.BranchDoesNotExistException: <p>The specified branch does not exist.</p>
+            aws_sdk_codecommit.errors.branch_name_required_exception.BranchNameRequiredException: <p>A branch name is required, but was not specified.</p>
+            aws_sdk_codecommit.errors.encryption_integrity_checks_failed_exception.EncryptionIntegrityChecksFailedException: <p>An encryption integrity check failed.</p>
+            aws_sdk_codecommit.errors.encryption_key_access_denied_exception.EncryptionKeyAccessDeniedException: <p>An encryption key could not be accessed.</p>
+            aws_sdk_codecommit.errors.encryption_key_disabled_exception.EncryptionKeyDisabledException: <p>The encryption key is disabled.</p>
+            aws_sdk_codecommit.errors.encryption_key_not_found_exception.EncryptionKeyNotFoundException: <p>No encryption key was found.</p>
+            aws_sdk_codecommit.errors.encryption_key_unavailable_exception.EncryptionKeyUnavailableException: <p>The encryption key is not available.</p>
+            aws_sdk_codecommit.errors.invalid_branch_name_exception.InvalidBranchNameException: <p>The specified reference name is not valid.</p>
+            aws_sdk_codecommit.errors.invalid_repository_name_exception.InvalidRepositoryNameException: <p>A specified repository name is not valid.</p> <note> <p>This exception occurs only when a specified repository name is not valid. Other exceptions occur when a required repository parameter is missing, or when a specified repository does not exist.</p> </note>
+            aws_sdk_codecommit.errors.repository_does_not_exist_exception.RepositoryDoesNotExistException: <p>The specified repository does not exist.</p>
+            aws_sdk_codecommit.errors.repository_name_required_exception.RepositoryNameRequiredException: <p>A repository name is required, but was not specified.</p>
+            aws_sdk_codecommit.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1614,6 +2058,18 @@ class AsyncCodeCommitClient:
 
         Args:
             comment_id: <p>The unique, system-generated ID of the comment. To get this ID, use <a>GetCommentsForComparedCommit</a> or <a>GetCommentsForPullRequest</a>.</p>
+
+        Raises:
+            aws_sdk_codecommit.errors.comment_deleted_exception.CommentDeletedException: <p>This comment has already been deleted. You cannot edit or delete a deleted comment.</p>
+            aws_sdk_codecommit.errors.comment_does_not_exist_exception.CommentDoesNotExistException: <p>No comment exists with the provided ID. Verify that you have used the correct ID, and then try again.</p>
+            aws_sdk_codecommit.errors.comment_id_required_exception.CommentIdRequiredException: <p>The comment ID is missing or null. A comment ID is required.</p>
+            aws_sdk_codecommit.errors.encryption_integrity_checks_failed_exception.EncryptionIntegrityChecksFailedException: <p>An encryption integrity check failed.</p>
+            aws_sdk_codecommit.errors.encryption_key_access_denied_exception.EncryptionKeyAccessDeniedException: <p>An encryption key could not be accessed.</p>
+            aws_sdk_codecommit.errors.encryption_key_disabled_exception.EncryptionKeyDisabledException: <p>The encryption key is disabled.</p>
+            aws_sdk_codecommit.errors.encryption_key_not_found_exception.EncryptionKeyNotFoundException: <p>No encryption key was found.</p>
+            aws_sdk_codecommit.errors.encryption_key_unavailable_exception.EncryptionKeyUnavailableException: <p>The encryption key is not available.</p>
+            aws_sdk_codecommit.errors.invalid_comment_id_exception.InvalidCommentIdException: <p>The comment ID is not in a valid format. Make sure that you have provided the full comment ID.</p>
+            aws_sdk_codecommit.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1658,6 +2114,16 @@ class AsyncCodeCommitClient:
             reaction_user_arn: <p>Optional. The Amazon Resource Name (ARN) of the user or identity for which you want to get reaction information.</p>
             next_token: <p>An enumeration token that, when provided in a request, returns the next batch of the results. </p>
             max_results: <p>A non-zero, non-negative integer used to limit the number of returned results. The default is the same as the allowed maximum, 1,000.</p>
+
+        Raises:
+            aws_sdk_codecommit.errors.comment_deleted_exception.CommentDeletedException: <p>This comment has already been deleted. You cannot edit or delete a deleted comment.</p>
+            aws_sdk_codecommit.errors.comment_does_not_exist_exception.CommentDoesNotExistException: <p>No comment exists with the provided ID. Verify that you have used the correct ID, and then try again.</p>
+            aws_sdk_codecommit.errors.comment_id_required_exception.CommentIdRequiredException: <p>The comment ID is missing or null. A comment ID is required.</p>
+            aws_sdk_codecommit.errors.invalid_comment_id_exception.InvalidCommentIdException: <p>The comment ID is not in a valid format. Make sure that you have provided the full comment ID.</p>
+            aws_sdk_codecommit.errors.invalid_continuation_token_exception.InvalidContinuationTokenException: <p>The specified continuation token is not valid.</p>
+            aws_sdk_codecommit.errors.invalid_max_results_exception.InvalidMaxResultsException: <p>The specified number of maximum results is not valid.</p>
+            aws_sdk_codecommit.errors.invalid_reaction_user_arn_exception.InvalidReactionUserArnException: <p>The Amazon Resource Name (ARN) of the user or identity is not valid.</p>
+            aws_sdk_codecommit.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1712,6 +2178,22 @@ class AsyncCodeCommitClient:
             after_commit_id: <p>To establish the directionality of the comparison, the full commit ID of the after commit.</p>
             next_token: <p>An enumeration token that when provided in a request, returns the next batch of the results. </p>
             max_results: <p>A non-zero, non-negative integer used to limit the number of returned results. The default is 100 comments, but you can configure up to 500.</p>
+
+        Raises:
+            aws_sdk_codecommit.errors.commit_does_not_exist_exception.CommitDoesNotExistException: <p>The specified commit does not exist or no commit was specified, and the specified repository has no default branch.</p>
+            aws_sdk_codecommit.errors.commit_id_required_exception.CommitIdRequiredException: <p>A commit ID was not specified.</p>
+            aws_sdk_codecommit.errors.encryption_integrity_checks_failed_exception.EncryptionIntegrityChecksFailedException: <p>An encryption integrity check failed.</p>
+            aws_sdk_codecommit.errors.encryption_key_access_denied_exception.EncryptionKeyAccessDeniedException: <p>An encryption key could not be accessed.</p>
+            aws_sdk_codecommit.errors.encryption_key_disabled_exception.EncryptionKeyDisabledException: <p>The encryption key is disabled.</p>
+            aws_sdk_codecommit.errors.encryption_key_not_found_exception.EncryptionKeyNotFoundException: <p>No encryption key was found.</p>
+            aws_sdk_codecommit.errors.encryption_key_unavailable_exception.EncryptionKeyUnavailableException: <p>The encryption key is not available.</p>
+            aws_sdk_codecommit.errors.invalid_commit_id_exception.InvalidCommitIdException: <p>The specified commit ID is not valid.</p>
+            aws_sdk_codecommit.errors.invalid_continuation_token_exception.InvalidContinuationTokenException: <p>The specified continuation token is not valid.</p>
+            aws_sdk_codecommit.errors.invalid_max_results_exception.InvalidMaxResultsException: <p>The specified number of maximum results is not valid.</p>
+            aws_sdk_codecommit.errors.invalid_repository_name_exception.InvalidRepositoryNameException: <p>A specified repository name is not valid.</p> <note> <p>This exception occurs only when a specified repository name is not valid. Other exceptions occur when a required repository parameter is missing, or when a specified repository does not exist.</p> </note>
+            aws_sdk_codecommit.errors.repository_does_not_exist_exception.RepositoryDoesNotExistException: <p>The specified repository does not exist.</p>
+            aws_sdk_codecommit.errors.repository_name_required_exception.RepositoryNameRequiredException: <p>A repository name is required, but was not specified.</p>
+            aws_sdk_codecommit.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1771,6 +2253,26 @@ class AsyncCodeCommitClient:
             after_commit_id: <p>The full commit ID of the commit in the source branch that was the tip of the branch at the time the comment was made. Requirement is conditional: <code>afterCommitId</code> must be specified when <code>repositoryName</code> is included.</p>
             next_token: <p>An enumeration token that, when provided in a request, returns the next batch of the results.</p>
             max_results: <p>A non-zero, non-negative integer used to limit the number of returned results. The default is 100 comments. You can return up to 500 comments with a single request.</p>
+
+        Raises:
+            aws_sdk_codecommit.errors.commit_does_not_exist_exception.CommitDoesNotExistException: <p>The specified commit does not exist or no commit was specified, and the specified repository has no default branch.</p>
+            aws_sdk_codecommit.errors.commit_id_required_exception.CommitIdRequiredException: <p>A commit ID was not specified.</p>
+            aws_sdk_codecommit.errors.encryption_integrity_checks_failed_exception.EncryptionIntegrityChecksFailedException: <p>An encryption integrity check failed.</p>
+            aws_sdk_codecommit.errors.encryption_key_access_denied_exception.EncryptionKeyAccessDeniedException: <p>An encryption key could not be accessed.</p>
+            aws_sdk_codecommit.errors.encryption_key_disabled_exception.EncryptionKeyDisabledException: <p>The encryption key is disabled.</p>
+            aws_sdk_codecommit.errors.encryption_key_not_found_exception.EncryptionKeyNotFoundException: <p>No encryption key was found.</p>
+            aws_sdk_codecommit.errors.encryption_key_unavailable_exception.EncryptionKeyUnavailableException: <p>The encryption key is not available.</p>
+            aws_sdk_codecommit.errors.invalid_commit_id_exception.InvalidCommitIdException: <p>The specified commit ID is not valid.</p>
+            aws_sdk_codecommit.errors.invalid_continuation_token_exception.InvalidContinuationTokenException: <p>The specified continuation token is not valid.</p>
+            aws_sdk_codecommit.errors.invalid_max_results_exception.InvalidMaxResultsException: <p>The specified number of maximum results is not valid.</p>
+            aws_sdk_codecommit.errors.invalid_pull_request_id_exception.InvalidPullRequestIdException: <p>The pull request ID is not valid. Make sure that you have provided the full ID and that the pull request is in the specified repository, and then try again.</p>
+            aws_sdk_codecommit.errors.invalid_repository_name_exception.InvalidRepositoryNameException: <p>A specified repository name is not valid.</p> <note> <p>This exception occurs only when a specified repository name is not valid. Other exceptions occur when a required repository parameter is missing, or when a specified repository does not exist.</p> </note>
+            aws_sdk_codecommit.errors.pull_request_does_not_exist_exception.PullRequestDoesNotExistException: <p>The pull request ID could not be found. Make sure that you have specified the correct repository name and pull request ID, and then try again.</p>
+            aws_sdk_codecommit.errors.pull_request_id_required_exception.PullRequestIdRequiredException: <p>A pull request ID is required, but none was provided.</p>
+            aws_sdk_codecommit.errors.repository_does_not_exist_exception.RepositoryDoesNotExistException: <p>The specified repository does not exist.</p>
+            aws_sdk_codecommit.errors.repository_name_required_exception.RepositoryNameRequiredException: <p>A repository name is required, but was not specified.</p>
+            aws_sdk_codecommit.errors.repository_not_associated_with_pull_request_exception.RepositoryNotAssociatedWithPullRequestException: <p>The repository does not contain any pull requests with that pull request ID. Use GetPullRequest to verify the correct repository name for the pull request ID.</p>
+            aws_sdk_codecommit.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1821,6 +2323,20 @@ class AsyncCodeCommitClient:
         Args:
             repository_name: <p>The name of the repository to which the commit was made.</p>
             commit_id: <p>The commit ID. Commit IDs are the full SHA ID of the commit.</p>
+
+        Raises:
+            aws_sdk_codecommit.errors.commit_id_does_not_exist_exception.CommitIdDoesNotExistException: <p>The specified commit ID does not exist.</p>
+            aws_sdk_codecommit.errors.commit_id_required_exception.CommitIdRequiredException: <p>A commit ID was not specified.</p>
+            aws_sdk_codecommit.errors.encryption_integrity_checks_failed_exception.EncryptionIntegrityChecksFailedException: <p>An encryption integrity check failed.</p>
+            aws_sdk_codecommit.errors.encryption_key_access_denied_exception.EncryptionKeyAccessDeniedException: <p>An encryption key could not be accessed.</p>
+            aws_sdk_codecommit.errors.encryption_key_disabled_exception.EncryptionKeyDisabledException: <p>The encryption key is disabled.</p>
+            aws_sdk_codecommit.errors.encryption_key_not_found_exception.EncryptionKeyNotFoundException: <p>No encryption key was found.</p>
+            aws_sdk_codecommit.errors.encryption_key_unavailable_exception.EncryptionKeyUnavailableException: <p>The encryption key is not available.</p>
+            aws_sdk_codecommit.errors.invalid_commit_id_exception.InvalidCommitIdException: <p>The specified commit ID is not valid.</p>
+            aws_sdk_codecommit.errors.invalid_repository_name_exception.InvalidRepositoryNameException: <p>A specified repository name is not valid.</p> <note> <p>This exception occurs only when a specified repository name is not valid. Other exceptions occur when a required repository parameter is missing, or when a specified repository does not exist.</p> </note>
+            aws_sdk_codecommit.errors.repository_does_not_exist_exception.RepositoryDoesNotExistException: <p>The specified repository does not exist.</p>
+            aws_sdk_codecommit.errors.repository_name_required_exception.RepositoryNameRequiredException: <p>A repository name is required, but was not specified.</p>
+            aws_sdk_codecommit.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1874,6 +2390,25 @@ class AsyncCodeCommitClient:
             after_path: <p>The file path in which to check differences. Limits the results to this path. Can also be used to specify the changed name of a directory or folder, if it has changed. If not specified, differences are shown for all paths.</p>
             max_results: <p>A non-zero, non-negative integer used to limit the number of returned results.</p>
             next_token: <p>An enumeration token that, when provided in a request, returns the next batch of the results.</p>
+
+        Raises:
+            aws_sdk_codecommit.errors.commit_does_not_exist_exception.CommitDoesNotExistException: <p>The specified commit does not exist or no commit was specified, and the specified repository has no default branch.</p>
+            aws_sdk_codecommit.errors.commit_required_exception.CommitRequiredException: <p>A commit was not specified.</p>
+            aws_sdk_codecommit.errors.encryption_integrity_checks_failed_exception.EncryptionIntegrityChecksFailedException: <p>An encryption integrity check failed.</p>
+            aws_sdk_codecommit.errors.encryption_key_access_denied_exception.EncryptionKeyAccessDeniedException: <p>An encryption key could not be accessed.</p>
+            aws_sdk_codecommit.errors.encryption_key_disabled_exception.EncryptionKeyDisabledException: <p>The encryption key is disabled.</p>
+            aws_sdk_codecommit.errors.encryption_key_not_found_exception.EncryptionKeyNotFoundException: <p>No encryption key was found.</p>
+            aws_sdk_codecommit.errors.encryption_key_unavailable_exception.EncryptionKeyUnavailableException: <p>The encryption key is not available.</p>
+            aws_sdk_codecommit.errors.invalid_commit_exception.InvalidCommitException: <p>The specified commit is not valid.</p>
+            aws_sdk_codecommit.errors.invalid_commit_id_exception.InvalidCommitIdException: <p>The specified commit ID is not valid.</p>
+            aws_sdk_codecommit.errors.invalid_continuation_token_exception.InvalidContinuationTokenException: <p>The specified continuation token is not valid.</p>
+            aws_sdk_codecommit.errors.invalid_max_results_exception.InvalidMaxResultsException: <p>The specified number of maximum results is not valid.</p>
+            aws_sdk_codecommit.errors.invalid_path_exception.InvalidPathException: <p>The specified path is not valid.</p>
+            aws_sdk_codecommit.errors.invalid_repository_name_exception.InvalidRepositoryNameException: <p>A specified repository name is not valid.</p> <note> <p>This exception occurs only when a specified repository name is not valid. Other exceptions occur when a required repository parameter is missing, or when a specified repository does not exist.</p> </note>
+            aws_sdk_codecommit.errors.path_does_not_exist_exception.PathDoesNotExistException: <p>The specified path does not exist.</p>
+            aws_sdk_codecommit.errors.repository_does_not_exist_exception.RepositoryDoesNotExistException: <p>The specified repository does not exist.</p>
+            aws_sdk_codecommit.errors.repository_name_required_exception.RepositoryNameRequiredException: <p>A repository name is required, but was not specified.</p>
+            aws_sdk_codecommit.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1929,6 +2464,23 @@ class AsyncCodeCommitClient:
             repository_name: <p>The name of the repository that contains the file.</p>
             commit_specifier: <p>The fully quaified reference that identifies the commit that contains the file. For example, you can specify a full commit ID, a tag, a branch name, or a reference such as refs/heads/main. If none is provided, the head commit is used.</p>
             file_path: <p>The fully qualified path to the file, including the full name and extension of the file. For example, /examples/file.md is the fully qualified path to a file named file.md in a folder named examples.</p>
+
+        Raises:
+            aws_sdk_codecommit.errors.commit_does_not_exist_exception.CommitDoesNotExistException: <p>The specified commit does not exist or no commit was specified, and the specified repository has no default branch.</p>
+            aws_sdk_codecommit.errors.encryption_integrity_checks_failed_exception.EncryptionIntegrityChecksFailedException: <p>An encryption integrity check failed.</p>
+            aws_sdk_codecommit.errors.encryption_key_access_denied_exception.EncryptionKeyAccessDeniedException: <p>An encryption key could not be accessed.</p>
+            aws_sdk_codecommit.errors.encryption_key_disabled_exception.EncryptionKeyDisabledException: <p>The encryption key is disabled.</p>
+            aws_sdk_codecommit.errors.encryption_key_not_found_exception.EncryptionKeyNotFoundException: <p>No encryption key was found.</p>
+            aws_sdk_codecommit.errors.encryption_key_unavailable_exception.EncryptionKeyUnavailableException: <p>The encryption key is not available.</p>
+            aws_sdk_codecommit.errors.file_does_not_exist_exception.FileDoesNotExistException: <p>The specified file does not exist. Verify that you have used the correct file name, full path, and extension.</p>
+            aws_sdk_codecommit.errors.file_too_large_exception.FileTooLargeException: <p>The specified file exceeds the file size limit for CodeCommit. For more information about limits in CodeCommit, see <a href=\"https://docs.aws.amazon.com/codecommit/latest/userguide/limits.html\">Quotas</a> in the <i>CodeCommit User Guide</i>.</p>
+            aws_sdk_codecommit.errors.invalid_commit_exception.InvalidCommitException: <p>The specified commit is not valid.</p>
+            aws_sdk_codecommit.errors.invalid_path_exception.InvalidPathException: <p>The specified path is not valid.</p>
+            aws_sdk_codecommit.errors.invalid_repository_name_exception.InvalidRepositoryNameException: <p>A specified repository name is not valid.</p> <note> <p>This exception occurs only when a specified repository name is not valid. Other exceptions occur when a required repository parameter is missing, or when a specified repository does not exist.</p> </note>
+            aws_sdk_codecommit.errors.path_required_exception.PathRequiredException: <p>The folderPath for a location cannot be null.</p>
+            aws_sdk_codecommit.errors.repository_does_not_exist_exception.RepositoryDoesNotExistException: <p>The specified repository does not exist.</p>
+            aws_sdk_codecommit.errors.repository_name_required_exception.RepositoryNameRequiredException: <p>A repository name is required, but was not specified.</p>
+            aws_sdk_codecommit.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1976,6 +2528,22 @@ class AsyncCodeCommitClient:
             repository_name: <p>The name of the repository.</p>
             commit_specifier: <p>A fully qualified reference used to identify a commit that contains the version of the folder's content to return. A fully qualified reference can be a commit ID, branch name, tag, or reference such as HEAD. If no specifier is provided, the folder content is returned as it exists in the HEAD commit.</p>
             folder_path: <p>The fully qualified path to the folder whose contents are returned, including the folder name. For example, /examples is a fully-qualified path to a folder named examples that was created off of the root directory (/) of a repository. </p>
+
+        Raises:
+            aws_sdk_codecommit.errors.commit_does_not_exist_exception.CommitDoesNotExistException: <p>The specified commit does not exist or no commit was specified, and the specified repository has no default branch.</p>
+            aws_sdk_codecommit.errors.encryption_integrity_checks_failed_exception.EncryptionIntegrityChecksFailedException: <p>An encryption integrity check failed.</p>
+            aws_sdk_codecommit.errors.encryption_key_access_denied_exception.EncryptionKeyAccessDeniedException: <p>An encryption key could not be accessed.</p>
+            aws_sdk_codecommit.errors.encryption_key_disabled_exception.EncryptionKeyDisabledException: <p>The encryption key is disabled.</p>
+            aws_sdk_codecommit.errors.encryption_key_not_found_exception.EncryptionKeyNotFoundException: <p>No encryption key was found.</p>
+            aws_sdk_codecommit.errors.encryption_key_unavailable_exception.EncryptionKeyUnavailableException: <p>The encryption key is not available.</p>
+            aws_sdk_codecommit.errors.folder_does_not_exist_exception.FolderDoesNotExistException: <p>The specified folder does not exist. Either the folder name is not correct, or you did not enter the full path to the folder.</p>
+            aws_sdk_codecommit.errors.invalid_commit_exception.InvalidCommitException: <p>The specified commit is not valid.</p>
+            aws_sdk_codecommit.errors.invalid_path_exception.InvalidPathException: <p>The specified path is not valid.</p>
+            aws_sdk_codecommit.errors.invalid_repository_name_exception.InvalidRepositoryNameException: <p>A specified repository name is not valid.</p> <note> <p>This exception occurs only when a specified repository name is not valid. Other exceptions occur when a required repository parameter is missing, or when a specified repository does not exist.</p> </note>
+            aws_sdk_codecommit.errors.path_required_exception.PathRequiredException: <p>The folderPath for a location cannot be null.</p>
+            aws_sdk_codecommit.errors.repository_does_not_exist_exception.RepositoryDoesNotExistException: <p>The specified repository does not exist.</p>
+            aws_sdk_codecommit.errors.repository_name_required_exception.RepositoryNameRequiredException: <p>A repository name is required, but was not specified.</p>
+            aws_sdk_codecommit.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2029,6 +2597,22 @@ class AsyncCodeCommitClient:
             destination_commit_specifier: <p>The branch, tag, HEAD, or other fully qualified reference used to identify a commit (for example, a branch name or a full commit ID).</p>
             conflict_detail_level: <p>The level of conflict detail to use. If unspecified, the default FILE_LEVEL is used, which returns a not-mergeable result if the same file has differences in both branches. If LINE_LEVEL is specified, a conflict is considered not mergeable if the same file in both branches has differences on the same line.</p>
             conflict_resolution_strategy: <p>Specifies which branch to use when resolving conflicts, or whether to attempt automatically merging two versions of a file. The default is NONE, which requires any conflicts to be resolved manually before the merge operation is successful.</p>
+
+        Raises:
+            aws_sdk_codecommit.errors.commit_does_not_exist_exception.CommitDoesNotExistException: <p>The specified commit does not exist or no commit was specified, and the specified repository has no default branch.</p>
+            aws_sdk_codecommit.errors.commit_required_exception.CommitRequiredException: <p>A commit was not specified.</p>
+            aws_sdk_codecommit.errors.encryption_integrity_checks_failed_exception.EncryptionIntegrityChecksFailedException: <p>An encryption integrity check failed.</p>
+            aws_sdk_codecommit.errors.encryption_key_access_denied_exception.EncryptionKeyAccessDeniedException: <p>An encryption key could not be accessed.</p>
+            aws_sdk_codecommit.errors.encryption_key_disabled_exception.EncryptionKeyDisabledException: <p>The encryption key is disabled.</p>
+            aws_sdk_codecommit.errors.encryption_key_not_found_exception.EncryptionKeyNotFoundException: <p>No encryption key was found.</p>
+            aws_sdk_codecommit.errors.encryption_key_unavailable_exception.EncryptionKeyUnavailableException: <p>The encryption key is not available.</p>
+            aws_sdk_codecommit.errors.invalid_commit_exception.InvalidCommitException: <p>The specified commit is not valid.</p>
+            aws_sdk_codecommit.errors.invalid_conflict_detail_level_exception.InvalidConflictDetailLevelException: <p>The specified conflict detail level is not valid.</p>
+            aws_sdk_codecommit.errors.invalid_conflict_resolution_strategy_exception.InvalidConflictResolutionStrategyException: <p>The specified conflict resolution strategy is not valid.</p>
+            aws_sdk_codecommit.errors.invalid_repository_name_exception.InvalidRepositoryNameException: <p>A specified repository name is not valid.</p> <note> <p>This exception occurs only when a specified repository name is not valid. Other exceptions occur when a required repository parameter is missing, or when a specified repository does not exist.</p> </note>
+            aws_sdk_codecommit.errors.repository_does_not_exist_exception.RepositoryDoesNotExistException: <p>The specified repository does not exist.</p>
+            aws_sdk_codecommit.errors.repository_name_required_exception.RepositoryNameRequiredException: <p>A repository name is required, but was not specified.</p>
+            aws_sdk_codecommit.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2093,6 +2677,31 @@ class AsyncCodeCommitClient:
             max_conflict_files: <p>The maximum number of files to include in the output.</p>
             conflict_resolution_strategy: <p>Specifies which branch to use when resolving conflicts, or whether to attempt automatically merging two versions of a file. The default is NONE, which requires any conflicts to be resolved manually before the merge operation is successful.</p>
             next_token: <p>An enumeration token that, when provided in a request, returns the next batch of the results.</p>
+
+        Raises:
+            aws_sdk_codecommit.errors.commit_does_not_exist_exception.CommitDoesNotExistException: <p>The specified commit does not exist or no commit was specified, and the specified repository has no default branch.</p>
+            aws_sdk_codecommit.errors.commit_required_exception.CommitRequiredException: <p>A commit was not specified.</p>
+            aws_sdk_codecommit.errors.encryption_integrity_checks_failed_exception.EncryptionIntegrityChecksFailedException: <p>An encryption integrity check failed.</p>
+            aws_sdk_codecommit.errors.encryption_key_access_denied_exception.EncryptionKeyAccessDeniedException: <p>An encryption key could not be accessed.</p>
+            aws_sdk_codecommit.errors.encryption_key_disabled_exception.EncryptionKeyDisabledException: <p>The encryption key is disabled.</p>
+            aws_sdk_codecommit.errors.encryption_key_not_found_exception.EncryptionKeyNotFoundException: <p>No encryption key was found.</p>
+            aws_sdk_codecommit.errors.encryption_key_unavailable_exception.EncryptionKeyUnavailableException: <p>The encryption key is not available.</p>
+            aws_sdk_codecommit.errors.invalid_commit_exception.InvalidCommitException: <p>The specified commit is not valid.</p>
+            aws_sdk_codecommit.errors.invalid_conflict_detail_level_exception.InvalidConflictDetailLevelException: <p>The specified conflict detail level is not valid.</p>
+            aws_sdk_codecommit.errors.invalid_conflict_resolution_strategy_exception.InvalidConflictResolutionStrategyException: <p>The specified conflict resolution strategy is not valid.</p>
+            aws_sdk_codecommit.errors.invalid_continuation_token_exception.InvalidContinuationTokenException: <p>The specified continuation token is not valid.</p>
+            aws_sdk_codecommit.errors.invalid_destination_commit_specifier_exception.InvalidDestinationCommitSpecifierException: <p>The destination commit specifier is not valid. You must provide a valid branch name, tag, or full commit ID. </p>
+            aws_sdk_codecommit.errors.invalid_max_conflict_files_exception.InvalidMaxConflictFilesException: <p>The specified value for the number of conflict files to return is not valid.</p>
+            aws_sdk_codecommit.errors.invalid_merge_option_exception.InvalidMergeOptionException: <p>The specified merge option is not valid for this operation. Not all merge strategies are supported for all operations.</p>
+            aws_sdk_codecommit.errors.invalid_repository_name_exception.InvalidRepositoryNameException: <p>A specified repository name is not valid.</p> <note> <p>This exception occurs only when a specified repository name is not valid. Other exceptions occur when a required repository parameter is missing, or when a specified repository does not exist.</p> </note>
+            aws_sdk_codecommit.errors.invalid_source_commit_specifier_exception.InvalidSourceCommitSpecifierException: <p>The source commit specifier is not valid. You must provide a valid branch name, tag, or full commit ID.</p>
+            aws_sdk_codecommit.errors.maximum_file_content_to_load_exceeded_exception.MaximumFileContentToLoadExceededException: <p>The number of files to load exceeds the allowed limit.</p>
+            aws_sdk_codecommit.errors.maximum_items_to_compare_exceeded_exception.MaximumItemsToCompareExceededException: <p>The number of items to compare between the source or destination branches and the merge base has exceeded the maximum allowed.</p>
+            aws_sdk_codecommit.errors.merge_option_required_exception.MergeOptionRequiredException: <p>A merge option or stategy is required, and none was provided.</p>
+            aws_sdk_codecommit.errors.repository_does_not_exist_exception.RepositoryDoesNotExistException: <p>The specified repository does not exist.</p>
+            aws_sdk_codecommit.errors.repository_name_required_exception.RepositoryNameRequiredException: <p>A repository name is required, but was not specified.</p>
+            aws_sdk_codecommit.errors.tips_divergence_exceeded_exception.TipsDivergenceExceededException: <p>The divergence between the tips of the provided commit specifiers is too great to determine whether there might be any merge conflicts. Locally compare the specifiers using <code>git diff</code> or a diff tool.</p>
+            aws_sdk_codecommit.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2154,6 +2763,25 @@ class AsyncCodeCommitClient:
             destination_commit_specifier: <p>The branch, tag, HEAD, or other fully qualified reference used to identify a commit (for example, a branch name or a full commit ID).</p>
             conflict_detail_level: <p>The level of conflict detail to use. If unspecified, the default FILE_LEVEL is used, which returns a not-mergeable result if the same file has differences in both branches. If LINE_LEVEL is specified, a conflict is considered not mergeable if the same file in both branches has differences on the same line.</p>
             conflict_resolution_strategy: <p>Specifies which branch to use when resolving conflicts, or whether to attempt automatically merging two versions of a file. The default is NONE, which requires any conflicts to be resolved manually before the merge operation is successful.</p>
+
+        Raises:
+            aws_sdk_codecommit.errors.commit_does_not_exist_exception.CommitDoesNotExistException: <p>The specified commit does not exist or no commit was specified, and the specified repository has no default branch.</p>
+            aws_sdk_codecommit.errors.commit_required_exception.CommitRequiredException: <p>A commit was not specified.</p>
+            aws_sdk_codecommit.errors.encryption_integrity_checks_failed_exception.EncryptionIntegrityChecksFailedException: <p>An encryption integrity check failed.</p>
+            aws_sdk_codecommit.errors.encryption_key_access_denied_exception.EncryptionKeyAccessDeniedException: <p>An encryption key could not be accessed.</p>
+            aws_sdk_codecommit.errors.encryption_key_disabled_exception.EncryptionKeyDisabledException: <p>The encryption key is disabled.</p>
+            aws_sdk_codecommit.errors.encryption_key_not_found_exception.EncryptionKeyNotFoundException: <p>No encryption key was found.</p>
+            aws_sdk_codecommit.errors.encryption_key_unavailable_exception.EncryptionKeyUnavailableException: <p>The encryption key is not available.</p>
+            aws_sdk_codecommit.errors.invalid_commit_exception.InvalidCommitException: <p>The specified commit is not valid.</p>
+            aws_sdk_codecommit.errors.invalid_conflict_detail_level_exception.InvalidConflictDetailLevelException: <p>The specified conflict detail level is not valid.</p>
+            aws_sdk_codecommit.errors.invalid_conflict_resolution_strategy_exception.InvalidConflictResolutionStrategyException: <p>The specified conflict resolution strategy is not valid.</p>
+            aws_sdk_codecommit.errors.invalid_repository_name_exception.InvalidRepositoryNameException: <p>A specified repository name is not valid.</p> <note> <p>This exception occurs only when a specified repository name is not valid. Other exceptions occur when a required repository parameter is missing, or when a specified repository does not exist.</p> </note>
+            aws_sdk_codecommit.errors.maximum_file_content_to_load_exceeded_exception.MaximumFileContentToLoadExceededException: <p>The number of files to load exceeds the allowed limit.</p>
+            aws_sdk_codecommit.errors.maximum_items_to_compare_exceeded_exception.MaximumItemsToCompareExceededException: <p>The number of items to compare between the source or destination branches and the merge base has exceeded the maximum allowed.</p>
+            aws_sdk_codecommit.errors.repository_does_not_exist_exception.RepositoryDoesNotExistException: <p>The specified repository does not exist.</p>
+            aws_sdk_codecommit.errors.repository_name_required_exception.RepositoryNameRequiredException: <p>A repository name is required, but was not specified.</p>
+            aws_sdk_codecommit.errors.tips_divergence_exceeded_exception.TipsDivergenceExceededException: <p>The divergence between the tips of the provided commit specifiers is too great to determine whether there might be any merge conflicts. Locally compare the specifiers using <code>git diff</code> or a diff tool.</p>
+            aws_sdk_codecommit.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2198,6 +2826,17 @@ class AsyncCodeCommitClient:
 
         Args:
             pull_request_id: <p>The system-generated ID of the pull request. To get this ID, use <a>ListPullRequests</a>.</p>
+
+        Raises:
+            aws_sdk_codecommit.errors.encryption_integrity_checks_failed_exception.EncryptionIntegrityChecksFailedException: <p>An encryption integrity check failed.</p>
+            aws_sdk_codecommit.errors.encryption_key_access_denied_exception.EncryptionKeyAccessDeniedException: <p>An encryption key could not be accessed.</p>
+            aws_sdk_codecommit.errors.encryption_key_disabled_exception.EncryptionKeyDisabledException: <p>The encryption key is disabled.</p>
+            aws_sdk_codecommit.errors.encryption_key_not_found_exception.EncryptionKeyNotFoundException: <p>No encryption key was found.</p>
+            aws_sdk_codecommit.errors.encryption_key_unavailable_exception.EncryptionKeyUnavailableException: <p>The encryption key is not available.</p>
+            aws_sdk_codecommit.errors.invalid_pull_request_id_exception.InvalidPullRequestIdException: <p>The pull request ID is not valid. Make sure that you have provided the full ID and that the pull request is in the specified repository, and then try again.</p>
+            aws_sdk_codecommit.errors.pull_request_does_not_exist_exception.PullRequestDoesNotExistException: <p>The pull request ID could not be found. Make sure that you have specified the correct repository name and pull request ID, and then try again.</p>
+            aws_sdk_codecommit.errors.pull_request_id_required_exception.PullRequestIdRequiredException: <p>A pull request ID is required, but none was provided.</p>
+            aws_sdk_codecommit.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2238,6 +2877,19 @@ class AsyncCodeCommitClient:
         Args:
             pull_request_id: <p>The system-generated ID for the pull request.</p>
             revision_id: <p>The system-generated ID for the pull request revision.</p>
+
+        Raises:
+            aws_sdk_codecommit.errors.encryption_integrity_checks_failed_exception.EncryptionIntegrityChecksFailedException: <p>An encryption integrity check failed.</p>
+            aws_sdk_codecommit.errors.encryption_key_access_denied_exception.EncryptionKeyAccessDeniedException: <p>An encryption key could not be accessed.</p>
+            aws_sdk_codecommit.errors.encryption_key_disabled_exception.EncryptionKeyDisabledException: <p>The encryption key is disabled.</p>
+            aws_sdk_codecommit.errors.encryption_key_not_found_exception.EncryptionKeyNotFoundException: <p>No encryption key was found.</p>
+            aws_sdk_codecommit.errors.encryption_key_unavailable_exception.EncryptionKeyUnavailableException: <p>The encryption key is not available.</p>
+            aws_sdk_codecommit.errors.invalid_pull_request_id_exception.InvalidPullRequestIdException: <p>The pull request ID is not valid. Make sure that you have provided the full ID and that the pull request is in the specified repository, and then try again.</p>
+            aws_sdk_codecommit.errors.invalid_revision_id_exception.InvalidRevisionIdException: <p>The revision ID is not valid. Use GetPullRequest to determine the value.</p>
+            aws_sdk_codecommit.errors.pull_request_does_not_exist_exception.PullRequestDoesNotExistException: <p>The pull request ID could not be found. Make sure that you have specified the correct repository name and pull request ID, and then try again.</p>
+            aws_sdk_codecommit.errors.pull_request_id_required_exception.PullRequestIdRequiredException: <p>A pull request ID is required, but none was provided.</p>
+            aws_sdk_codecommit.errors.revision_id_required_exception.RevisionIdRequiredException: <p>A revision ID is required, but was not provided.</p>
+            aws_sdk_codecommit.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2279,6 +2931,19 @@ class AsyncCodeCommitClient:
         Args:
             pull_request_id: <p>The ID of the pull request for which you want to get information about whether approval rules have been set aside (overridden).</p>
             revision_id: <p>The system-generated ID of the revision for the pull request. To retrieve the most recent revision ID, use <a>GetPullRequest</a>.</p>
+
+        Raises:
+            aws_sdk_codecommit.errors.encryption_integrity_checks_failed_exception.EncryptionIntegrityChecksFailedException: <p>An encryption integrity check failed.</p>
+            aws_sdk_codecommit.errors.encryption_key_access_denied_exception.EncryptionKeyAccessDeniedException: <p>An encryption key could not be accessed.</p>
+            aws_sdk_codecommit.errors.encryption_key_disabled_exception.EncryptionKeyDisabledException: <p>The encryption key is disabled.</p>
+            aws_sdk_codecommit.errors.encryption_key_not_found_exception.EncryptionKeyNotFoundException: <p>No encryption key was found.</p>
+            aws_sdk_codecommit.errors.encryption_key_unavailable_exception.EncryptionKeyUnavailableException: <p>The encryption key is not available.</p>
+            aws_sdk_codecommit.errors.invalid_pull_request_id_exception.InvalidPullRequestIdException: <p>The pull request ID is not valid. Make sure that you have provided the full ID and that the pull request is in the specified repository, and then try again.</p>
+            aws_sdk_codecommit.errors.invalid_revision_id_exception.InvalidRevisionIdException: <p>The revision ID is not valid. Use GetPullRequest to determine the value.</p>
+            aws_sdk_codecommit.errors.pull_request_does_not_exist_exception.PullRequestDoesNotExistException: <p>The pull request ID could not be found. Make sure that you have specified the correct repository name and pull request ID, and then try again.</p>
+            aws_sdk_codecommit.errors.pull_request_id_required_exception.PullRequestIdRequiredException: <p>A pull request ID is required, but none was provided.</p>
+            aws_sdk_codecommit.errors.revision_id_required_exception.RevisionIdRequiredException: <p>A revision ID is required, but was not provided.</p>
+            aws_sdk_codecommit.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2318,6 +2983,17 @@ class AsyncCodeCommitClient:
 
         Args:
             repository_name: <p>The name of the repository to get information about.</p>
+
+        Raises:
+            aws_sdk_codecommit.errors.encryption_integrity_checks_failed_exception.EncryptionIntegrityChecksFailedException: <p>An encryption integrity check failed.</p>
+            aws_sdk_codecommit.errors.encryption_key_access_denied_exception.EncryptionKeyAccessDeniedException: <p>An encryption key could not be accessed.</p>
+            aws_sdk_codecommit.errors.encryption_key_disabled_exception.EncryptionKeyDisabledException: <p>The encryption key is disabled.</p>
+            aws_sdk_codecommit.errors.encryption_key_not_found_exception.EncryptionKeyNotFoundException: <p>No encryption key was found.</p>
+            aws_sdk_codecommit.errors.encryption_key_unavailable_exception.EncryptionKeyUnavailableException: <p>The encryption key is not available.</p>
+            aws_sdk_codecommit.errors.invalid_repository_name_exception.InvalidRepositoryNameException: <p>A specified repository name is not valid.</p> <note> <p>This exception occurs only when a specified repository name is not valid. Other exceptions occur when a required repository parameter is missing, or when a specified repository does not exist.</p> </note>
+            aws_sdk_codecommit.errors.repository_does_not_exist_exception.RepositoryDoesNotExistException: <p>The specified repository does not exist.</p>
+            aws_sdk_codecommit.errors.repository_name_required_exception.RepositoryNameRequiredException: <p>A repository name is required, but was not specified.</p>
+            aws_sdk_codecommit.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2356,6 +3032,17 @@ class AsyncCodeCommitClient:
 
         Args:
             repository_name: <p>The name of the repository for which the trigger is configured.</p>
+
+        Raises:
+            aws_sdk_codecommit.errors.encryption_integrity_checks_failed_exception.EncryptionIntegrityChecksFailedException: <p>An encryption integrity check failed.</p>
+            aws_sdk_codecommit.errors.encryption_key_access_denied_exception.EncryptionKeyAccessDeniedException: <p>An encryption key could not be accessed.</p>
+            aws_sdk_codecommit.errors.encryption_key_disabled_exception.EncryptionKeyDisabledException: <p>The encryption key is disabled.</p>
+            aws_sdk_codecommit.errors.encryption_key_not_found_exception.EncryptionKeyNotFoundException: <p>No encryption key was found.</p>
+            aws_sdk_codecommit.errors.encryption_key_unavailable_exception.EncryptionKeyUnavailableException: <p>The encryption key is not available.</p>
+            aws_sdk_codecommit.errors.invalid_repository_name_exception.InvalidRepositoryNameException: <p>A specified repository name is not valid.</p> <note> <p>This exception occurs only when a specified repository name is not valid. Other exceptions occur when a required repository parameter is missing, or when a specified repository does not exist.</p> </note>
+            aws_sdk_codecommit.errors.repository_does_not_exist_exception.RepositoryDoesNotExistException: <p>The specified repository does not exist.</p>
+            aws_sdk_codecommit.errors.repository_name_required_exception.RepositoryNameRequiredException: <p>A repository name is required, but was not specified.</p>
+            aws_sdk_codecommit.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2396,6 +3083,11 @@ class AsyncCodeCommitClient:
         Args:
             next_token: <p>An enumeration token that, when provided in a request, returns the next batch of the results.</p>
             max_results: <p>A non-zero, non-negative integer used to limit the number of returned results.</p>
+
+        Raises:
+            aws_sdk_codecommit.errors.invalid_continuation_token_exception.InvalidContinuationTokenException: <p>The specified continuation token is not valid.</p>
+            aws_sdk_codecommit.errors.invalid_max_results_exception.InvalidMaxResultsException: <p>The specified number of maximum results is not valid.</p>
+            aws_sdk_codecommit.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2441,6 +3133,19 @@ class AsyncCodeCommitClient:
             repository_name: <p>The name of the repository for which you want to list all associated approval rule templates.</p>
             next_token: <p>An enumeration token that, when provided in a request, returns the next batch of the results.</p>
             max_results: <p>A non-zero, non-negative integer used to limit the number of returned results.</p>
+
+        Raises:
+            aws_sdk_codecommit.errors.encryption_integrity_checks_failed_exception.EncryptionIntegrityChecksFailedException: <p>An encryption integrity check failed.</p>
+            aws_sdk_codecommit.errors.encryption_key_access_denied_exception.EncryptionKeyAccessDeniedException: <p>An encryption key could not be accessed.</p>
+            aws_sdk_codecommit.errors.encryption_key_disabled_exception.EncryptionKeyDisabledException: <p>The encryption key is disabled.</p>
+            aws_sdk_codecommit.errors.encryption_key_not_found_exception.EncryptionKeyNotFoundException: <p>No encryption key was found.</p>
+            aws_sdk_codecommit.errors.encryption_key_unavailable_exception.EncryptionKeyUnavailableException: <p>The encryption key is not available.</p>
+            aws_sdk_codecommit.errors.invalid_continuation_token_exception.InvalidContinuationTokenException: <p>The specified continuation token is not valid.</p>
+            aws_sdk_codecommit.errors.invalid_max_results_exception.InvalidMaxResultsException: <p>The specified number of maximum results is not valid.</p>
+            aws_sdk_codecommit.errors.invalid_repository_name_exception.InvalidRepositoryNameException: <p>A specified repository name is not valid.</p> <note> <p>This exception occurs only when a specified repository name is not valid. Other exceptions occur when a required repository parameter is missing, or when a specified repository does not exist.</p> </note>
+            aws_sdk_codecommit.errors.repository_does_not_exist_exception.RepositoryDoesNotExistException: <p>The specified repository does not exist.</p>
+            aws_sdk_codecommit.errors.repository_name_required_exception.RepositoryNameRequiredException: <p>A repository name is required, but was not specified.</p>
+            aws_sdk_codecommit.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2485,6 +3190,18 @@ class AsyncCodeCommitClient:
         Args:
             repository_name: <p>The name of the repository that contains the branches.</p>
             next_token: <p>An enumeration token that allows the operation to batch the results.</p>
+
+        Raises:
+            aws_sdk_codecommit.errors.encryption_integrity_checks_failed_exception.EncryptionIntegrityChecksFailedException: <p>An encryption integrity check failed.</p>
+            aws_sdk_codecommit.errors.encryption_key_access_denied_exception.EncryptionKeyAccessDeniedException: <p>An encryption key could not be accessed.</p>
+            aws_sdk_codecommit.errors.encryption_key_disabled_exception.EncryptionKeyDisabledException: <p>The encryption key is disabled.</p>
+            aws_sdk_codecommit.errors.encryption_key_not_found_exception.EncryptionKeyNotFoundException: <p>No encryption key was found.</p>
+            aws_sdk_codecommit.errors.encryption_key_unavailable_exception.EncryptionKeyUnavailableException: <p>The encryption key is not available.</p>
+            aws_sdk_codecommit.errors.invalid_continuation_token_exception.InvalidContinuationTokenException: <p>The specified continuation token is not valid.</p>
+            aws_sdk_codecommit.errors.invalid_repository_name_exception.InvalidRepositoryNameException: <p>A specified repository name is not valid.</p> <note> <p>This exception occurs only when a specified repository name is not valid. Other exceptions occur when a required repository parameter is missing, or when a specified repository does not exist.</p> </note>
+            aws_sdk_codecommit.errors.repository_does_not_exist_exception.RepositoryDoesNotExistException: <p>The specified repository does not exist.</p>
+            aws_sdk_codecommit.errors.repository_name_required_exception.RepositoryNameRequiredException: <p>A repository name is required, but was not specified.</p>
+            aws_sdk_codecommit.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2556,6 +3273,23 @@ class AsyncCodeCommitClient:
             file_path: <p>The full path of the file whose history you want to retrieve, including the name of the file.</p>
             max_results: <p>A non-zero, non-negative integer used to limit the number of returned results.</p>
             next_token: <p>An enumeration token that allows the operation to batch the results.</p>
+
+        Raises:
+            aws_sdk_codecommit.errors.commit_does_not_exist_exception.CommitDoesNotExistException: <p>The specified commit does not exist or no commit was specified, and the specified repository has no default branch.</p>
+            aws_sdk_codecommit.errors.commit_required_exception.CommitRequiredException: <p>A commit was not specified.</p>
+            aws_sdk_codecommit.errors.encryption_integrity_checks_failed_exception.EncryptionIntegrityChecksFailedException: <p>An encryption integrity check failed.</p>
+            aws_sdk_codecommit.errors.encryption_key_access_denied_exception.EncryptionKeyAccessDeniedException: <p>An encryption key could not be accessed.</p>
+            aws_sdk_codecommit.errors.encryption_key_disabled_exception.EncryptionKeyDisabledException: <p>The encryption key is disabled.</p>
+            aws_sdk_codecommit.errors.encryption_key_not_found_exception.EncryptionKeyNotFoundException: <p>No encryption key was found.</p>
+            aws_sdk_codecommit.errors.encryption_key_unavailable_exception.EncryptionKeyUnavailableException: <p>The encryption key is not available.</p>
+            aws_sdk_codecommit.errors.invalid_commit_exception.InvalidCommitException: <p>The specified commit is not valid.</p>
+            aws_sdk_codecommit.errors.invalid_continuation_token_exception.InvalidContinuationTokenException: <p>The specified continuation token is not valid.</p>
+            aws_sdk_codecommit.errors.invalid_max_results_exception.InvalidMaxResultsException: <p>The specified number of maximum results is not valid.</p>
+            aws_sdk_codecommit.errors.invalid_repository_name_exception.InvalidRepositoryNameException: <p>A specified repository name is not valid.</p> <note> <p>This exception occurs only when a specified repository name is not valid. Other exceptions occur when a required repository parameter is missing, or when a specified repository does not exist.</p> </note>
+            aws_sdk_codecommit.errors.repository_does_not_exist_exception.RepositoryDoesNotExistException: <p>The specified repository does not exist.</p>
+            aws_sdk_codecommit.errors.repository_name_required_exception.RepositoryNameRequiredException: <p>A repository name is required, but was not specified.</p>
+            aws_sdk_codecommit.errors.tips_divergence_exceeded_exception.TipsDivergenceExceededException: <p>The divergence between the tips of the provided commit specifiers is too great to determine whether there might be any merge conflicts. Locally compare the specifiers using <code>git diff</code> or a diff tool.</p>
+            aws_sdk_codecommit.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2611,6 +3345,22 @@ class AsyncCodeCommitClient:
             pull_request_status: <p>Optional. The status of the pull request. If used, this refines the results to the pull requests that match the specified status.</p>
             next_token: <p>An enumeration token that, when provided in a request, returns the next batch of the results.</p>
             max_results: <p>A non-zero, non-negative integer used to limit the number of returned results.</p>
+
+        Raises:
+            aws_sdk_codecommit.errors.author_does_not_exist_exception.AuthorDoesNotExistException: <p>The specified Amazon Resource Name (ARN) does not exist in the Amazon Web Services account.</p>
+            aws_sdk_codecommit.errors.encryption_integrity_checks_failed_exception.EncryptionIntegrityChecksFailedException: <p>An encryption integrity check failed.</p>
+            aws_sdk_codecommit.errors.encryption_key_access_denied_exception.EncryptionKeyAccessDeniedException: <p>An encryption key could not be accessed.</p>
+            aws_sdk_codecommit.errors.encryption_key_disabled_exception.EncryptionKeyDisabledException: <p>The encryption key is disabled.</p>
+            aws_sdk_codecommit.errors.encryption_key_not_found_exception.EncryptionKeyNotFoundException: <p>No encryption key was found.</p>
+            aws_sdk_codecommit.errors.encryption_key_unavailable_exception.EncryptionKeyUnavailableException: <p>The encryption key is not available.</p>
+            aws_sdk_codecommit.errors.invalid_author_arn_exception.InvalidAuthorArnException: <p>The Amazon Resource Name (ARN) is not valid. Make sure that you have provided the full ARN for the author of the pull request, and then try again.</p>
+            aws_sdk_codecommit.errors.invalid_continuation_token_exception.InvalidContinuationTokenException: <p>The specified continuation token is not valid.</p>
+            aws_sdk_codecommit.errors.invalid_max_results_exception.InvalidMaxResultsException: <p>The specified number of maximum results is not valid.</p>
+            aws_sdk_codecommit.errors.invalid_pull_request_status_exception.InvalidPullRequestStatusException: <p>The pull request status is not valid. The only valid values are <code>OPEN</code> and <code>CLOSED</code>.</p>
+            aws_sdk_codecommit.errors.invalid_repository_name_exception.InvalidRepositoryNameException: <p>A specified repository name is not valid.</p> <note> <p>This exception occurs only when a specified repository name is not valid. Other exceptions occur when a required repository parameter is missing, or when a specified repository does not exist.</p> </note>
+            aws_sdk_codecommit.errors.repository_does_not_exist_exception.RepositoryDoesNotExistException: <p>The specified repository does not exist.</p>
+            aws_sdk_codecommit.errors.repository_name_required_exception.RepositoryNameRequiredException: <p>A repository name is required, but was not specified.</p>
+            aws_sdk_codecommit.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2661,6 +3411,12 @@ class AsyncCodeCommitClient:
             next_token: <p>An enumeration token that allows the operation to batch the results of the operation. Batch sizes are 1,000 for list repository operations. When the client sends the token back to CodeCommit, another page of 1,000 records is retrieved.</p>
             sort_by: <p>The criteria used to sort the results of a list repositories operation.</p>
             order: <p>The order in which to sort the results of a list repositories operation.</p>
+
+        Raises:
+            aws_sdk_codecommit.errors.invalid_continuation_token_exception.InvalidContinuationTokenException: <p>The specified continuation token is not valid.</p>
+            aws_sdk_codecommit.errors.invalid_order_exception.InvalidOrderException: <p>The specified sort order is not valid.</p>
+            aws_sdk_codecommit.errors.invalid_sort_by_exception.InvalidSortByException: <p>The specified sort by value is not valid.</p>
+            aws_sdk_codecommit.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2731,6 +3487,19 @@ class AsyncCodeCommitClient:
             approval_rule_template_name: <p>The name of the approval rule template for which you want to list repositories that are associated with that template.</p>
             next_token: <p>An enumeration token that, when provided in a request, returns the next batch of the results.</p>
             max_results: <p>A non-zero, non-negative integer used to limit the number of returned results.</p>
+
+        Raises:
+            aws_sdk_codecommit.errors.approval_rule_template_does_not_exist_exception.ApprovalRuleTemplateDoesNotExistException: <p>The specified approval rule template does not exist. Verify that the name is correct and that you are signed in to the Amazon Web Services Region where the template was created, and then try again.</p>
+            aws_sdk_codecommit.errors.approval_rule_template_name_required_exception.ApprovalRuleTemplateNameRequiredException: <p>An approval rule template name is required, but was not specified.</p>
+            aws_sdk_codecommit.errors.encryption_integrity_checks_failed_exception.EncryptionIntegrityChecksFailedException: <p>An encryption integrity check failed.</p>
+            aws_sdk_codecommit.errors.encryption_key_access_denied_exception.EncryptionKeyAccessDeniedException: <p>An encryption key could not be accessed.</p>
+            aws_sdk_codecommit.errors.encryption_key_disabled_exception.EncryptionKeyDisabledException: <p>The encryption key is disabled.</p>
+            aws_sdk_codecommit.errors.encryption_key_not_found_exception.EncryptionKeyNotFoundException: <p>No encryption key was found.</p>
+            aws_sdk_codecommit.errors.encryption_key_unavailable_exception.EncryptionKeyUnavailableException: <p>The encryption key is not available.</p>
+            aws_sdk_codecommit.errors.invalid_approval_rule_template_name_exception.InvalidApprovalRuleTemplateNameException: <p>The name of the approval rule template is not valid. Template names must be between 1 and 100 valid characters in length. For more information about limits in CodeCommit, see <a href=\"https://docs.aws.amazon.com/codecommit/latest/userguide/limits.html\">Quotas</a> in the <i>CodeCommit User Guide</i>.</p>
+            aws_sdk_codecommit.errors.invalid_continuation_token_exception.InvalidContinuationTokenException: <p>The specified continuation token is not valid.</p>
+            aws_sdk_codecommit.errors.invalid_max_results_exception.InvalidMaxResultsException: <p>The specified number of maximum results is not valid.</p>
+            aws_sdk_codecommit.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2775,6 +3544,13 @@ class AsyncCodeCommitClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource for which you want to get information about tags, if any.</p>
             next_token: <p>An enumeration token that, when provided in a request, returns the next batch of the results.</p>
+
+        Raises:
+            aws_sdk_codecommit.errors.invalid_repository_name_exception.InvalidRepositoryNameException: <p>A specified repository name is not valid.</p> <note> <p>This exception occurs only when a specified repository name is not valid. Other exceptions occur when a required repository parameter is missing, or when a specified repository does not exist.</p> </note>
+            aws_sdk_codecommit.errors.invalid_resource_arn_exception.InvalidResourceArnException: <p>The value for the resource ARN is not valid. For more information about resources in CodeCommit, see <a href=\"https://docs.aws.amazon.com/codecommit/latest/userguide/auth-and-access-control-iam-access-control-identity-based.html#arn-formats\">CodeCommit Resources and Operations</a> in the CodeCommit User Guide.</p>
+            aws_sdk_codecommit.errors.repository_does_not_exist_exception.RepositoryDoesNotExistException: <p>The specified repository does not exist.</p>
+            aws_sdk_codecommit.errors.resource_arn_required_exception.ResourceArnRequiredException: <p>A valid Amazon Resource Name (ARN) for an CodeCommit resource is required. For a list of valid resources in CodeCommit, see <a href=\"https://docs.aws.amazon.com/codecommit/latest/userguide/auth-and-access-control-iam-access-control-identity-based.html#arn-formats\">CodeCommit Resources and Operations</a> in the CodeCommit User Guide.</p>
+            aws_sdk_codecommit.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2823,6 +3599,28 @@ class AsyncCodeCommitClient:
             source_commit_specifier: <p>The branch, tag, HEAD, or other fully qualified reference used to identify a commit (for example, a branch name or a full commit ID).</p>
             destination_commit_specifier: <p>The branch, tag, HEAD, or other fully qualified reference used to identify a commit (for example, a branch name or a full commit ID).</p>
             target_branch: <p>The branch where the merge is applied.</p>
+
+        Raises:
+            aws_sdk_codecommit.errors.branch_does_not_exist_exception.BranchDoesNotExistException: <p>The specified branch does not exist.</p>
+            aws_sdk_codecommit.errors.branch_name_is_tag_name_exception.BranchNameIsTagNameException: <p>The specified branch name is not valid because it is a tag name. Enter the name of a branch in the repository. For a list of valid branch names, use <a>ListBranches</a>.</p>
+            aws_sdk_codecommit.errors.branch_name_required_exception.BranchNameRequiredException: <p>A branch name is required, but was not specified.</p>
+            aws_sdk_codecommit.errors.commit_does_not_exist_exception.CommitDoesNotExistException: <p>The specified commit does not exist or no commit was specified, and the specified repository has no default branch.</p>
+            aws_sdk_codecommit.errors.commit_required_exception.CommitRequiredException: <p>A commit was not specified.</p>
+            aws_sdk_codecommit.errors.concurrent_reference_update_exception.ConcurrentReferenceUpdateException: <p>The merge cannot be completed because the target branch has been modified. Another user might have modified the target branch while the merge was in progress. Wait a few minutes, and then try again.</p>
+            aws_sdk_codecommit.errors.encryption_integrity_checks_failed_exception.EncryptionIntegrityChecksFailedException: <p>An encryption integrity check failed.</p>
+            aws_sdk_codecommit.errors.encryption_key_access_denied_exception.EncryptionKeyAccessDeniedException: <p>An encryption key could not be accessed.</p>
+            aws_sdk_codecommit.errors.encryption_key_disabled_exception.EncryptionKeyDisabledException: <p>The encryption key is disabled.</p>
+            aws_sdk_codecommit.errors.encryption_key_not_found_exception.EncryptionKeyNotFoundException: <p>No encryption key was found.</p>
+            aws_sdk_codecommit.errors.encryption_key_unavailable_exception.EncryptionKeyUnavailableException: <p>The encryption key is not available.</p>
+            aws_sdk_codecommit.errors.invalid_branch_name_exception.InvalidBranchNameException: <p>The specified reference name is not valid.</p>
+            aws_sdk_codecommit.errors.invalid_commit_exception.InvalidCommitException: <p>The specified commit is not valid.</p>
+            aws_sdk_codecommit.errors.invalid_repository_name_exception.InvalidRepositoryNameException: <p>A specified repository name is not valid.</p> <note> <p>This exception occurs only when a specified repository name is not valid. Other exceptions occur when a required repository parameter is missing, or when a specified repository does not exist.</p> </note>
+            aws_sdk_codecommit.errors.invalid_target_branch_exception.InvalidTargetBranchException: <p>The specified target branch is not valid.</p>
+            aws_sdk_codecommit.errors.manual_merge_required_exception.ManualMergeRequiredException: <p>The pull request cannot be merged automatically into the destination branch. You must manually merge the branches and resolve any conflicts.</p>
+            aws_sdk_codecommit.errors.repository_does_not_exist_exception.RepositoryDoesNotExistException: <p>The specified repository does not exist.</p>
+            aws_sdk_codecommit.errors.repository_name_required_exception.RepositoryNameRequiredException: <p>A repository name is required, but was not specified.</p>
+            aws_sdk_codecommit.errors.tips_divergence_exceeded_exception.TipsDivergenceExceededException: <p>The divergence between the tips of the provided commit specifiers is too great to determine whether there might be any merge conflicts. Locally compare the specifiers using <code>git diff</code> or a diff tool.</p>
+            aws_sdk_codecommit.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2895,6 +3693,48 @@ class AsyncCodeCommitClient:
             commit_message: <p>The commit message for the merge.</p>
             keep_empty_folders: <p>If the commit contains deletions, whether to keep a folder or folder structure if the changes leave the folders empty. If this is specified as true, a .gitkeep file is created for empty folders. The default is false.</p>
             conflict_resolution: <p>If AUTOMERGE is the conflict resolution strategy, a list of inputs to use when resolving conflicts during a merge.</p>
+
+        Raises:
+            aws_sdk_codecommit.errors.branch_does_not_exist_exception.BranchDoesNotExistException: <p>The specified branch does not exist.</p>
+            aws_sdk_codecommit.errors.branch_name_is_tag_name_exception.BranchNameIsTagNameException: <p>The specified branch name is not valid because it is a tag name. Enter the name of a branch in the repository. For a list of valid branch names, use <a>ListBranches</a>.</p>
+            aws_sdk_codecommit.errors.branch_name_required_exception.BranchNameRequiredException: <p>A branch name is required, but was not specified.</p>
+            aws_sdk_codecommit.errors.commit_does_not_exist_exception.CommitDoesNotExistException: <p>The specified commit does not exist or no commit was specified, and the specified repository has no default branch.</p>
+            aws_sdk_codecommit.errors.commit_message_length_exceeded_exception.CommitMessageLengthExceededException: <p>The commit message is too long. Provide a shorter string. </p>
+            aws_sdk_codecommit.errors.commit_required_exception.CommitRequiredException: <p>A commit was not specified.</p>
+            aws_sdk_codecommit.errors.concurrent_reference_update_exception.ConcurrentReferenceUpdateException: <p>The merge cannot be completed because the target branch has been modified. Another user might have modified the target branch while the merge was in progress. Wait a few minutes, and then try again.</p>
+            aws_sdk_codecommit.errors.encryption_integrity_checks_failed_exception.EncryptionIntegrityChecksFailedException: <p>An encryption integrity check failed.</p>
+            aws_sdk_codecommit.errors.encryption_key_access_denied_exception.EncryptionKeyAccessDeniedException: <p>An encryption key could not be accessed.</p>
+            aws_sdk_codecommit.errors.encryption_key_disabled_exception.EncryptionKeyDisabledException: <p>The encryption key is disabled.</p>
+            aws_sdk_codecommit.errors.encryption_key_not_found_exception.EncryptionKeyNotFoundException: <p>No encryption key was found.</p>
+            aws_sdk_codecommit.errors.encryption_key_unavailable_exception.EncryptionKeyUnavailableException: <p>The encryption key is not available.</p>
+            aws_sdk_codecommit.errors.file_content_size_limit_exceeded_exception.FileContentSizeLimitExceededException: <p>The file cannot be added because it is too large. The maximum file size is 6 MB, and the combined file content change size is 7 MB. Consider making these changes using a Git client.</p>
+            aws_sdk_codecommit.errors.file_mode_required_exception.FileModeRequiredException: <p>The commit cannot be created because no file mode has been specified. A file mode is required to update mode permissions for a file.</p>
+            aws_sdk_codecommit.errors.folder_content_size_limit_exceeded_exception.FolderContentSizeLimitExceededException: <p>The commit cannot be created because at least one of the overall changes in the commit results in a folder whose contents exceed the limit of 6 MB. Either reduce the number and size of your changes, or split the changes across multiple folders.</p>
+            aws_sdk_codecommit.errors.invalid_branch_name_exception.InvalidBranchNameException: <p>The specified reference name is not valid.</p>
+            aws_sdk_codecommit.errors.invalid_commit_exception.InvalidCommitException: <p>The specified commit is not valid.</p>
+            aws_sdk_codecommit.errors.invalid_conflict_detail_level_exception.InvalidConflictDetailLevelException: <p>The specified conflict detail level is not valid.</p>
+            aws_sdk_codecommit.errors.invalid_conflict_resolution_exception.InvalidConflictResolutionException: <p>The specified conflict resolution list is not valid.</p>
+            aws_sdk_codecommit.errors.invalid_conflict_resolution_strategy_exception.InvalidConflictResolutionStrategyException: <p>The specified conflict resolution strategy is not valid.</p>
+            aws_sdk_codecommit.errors.invalid_email_exception.InvalidEmailException: <p>The specified email address either contains one or more characters that are not allowed, or it exceeds the maximum number of characters allowed for an email address.</p>
+            aws_sdk_codecommit.errors.invalid_file_mode_exception.InvalidFileModeException: <p>The specified file mode permission is not valid. For a list of valid file mode permissions, see <a>PutFile</a>. </p>
+            aws_sdk_codecommit.errors.invalid_path_exception.InvalidPathException: <p>The specified path is not valid.</p>
+            aws_sdk_codecommit.errors.invalid_replacement_content_exception.InvalidReplacementContentException: <p>Automerge was specified for resolving the conflict, but the replacement type is not valid or content is missing. </p>
+            aws_sdk_codecommit.errors.invalid_replacement_type_exception.InvalidReplacementTypeException: <p>Automerge was specified for resolving the conflict, but the specified replacement type is not valid.</p>
+            aws_sdk_codecommit.errors.invalid_repository_name_exception.InvalidRepositoryNameException: <p>A specified repository name is not valid.</p> <note> <p>This exception occurs only when a specified repository name is not valid. Other exceptions occur when a required repository parameter is missing, or when a specified repository does not exist.</p> </note>
+            aws_sdk_codecommit.errors.invalid_target_branch_exception.InvalidTargetBranchException: <p>The specified target branch is not valid.</p>
+            aws_sdk_codecommit.errors.manual_merge_required_exception.ManualMergeRequiredException: <p>The pull request cannot be merged automatically into the destination branch. You must manually merge the branches and resolve any conflicts.</p>
+            aws_sdk_codecommit.errors.maximum_conflict_resolution_entries_exceeded_exception.MaximumConflictResolutionEntriesExceededException: <p>The number of allowed conflict resolution entries was exceeded.</p>
+            aws_sdk_codecommit.errors.maximum_file_content_to_load_exceeded_exception.MaximumFileContentToLoadExceededException: <p>The number of files to load exceeds the allowed limit.</p>
+            aws_sdk_codecommit.errors.maximum_items_to_compare_exceeded_exception.MaximumItemsToCompareExceededException: <p>The number of items to compare between the source or destination branches and the merge base has exceeded the maximum allowed.</p>
+            aws_sdk_codecommit.errors.multiple_conflict_resolution_entries_exception.MultipleConflictResolutionEntriesException: <p>More than one conflict resolution entries exists for the conflict. A conflict can have only one conflict resolution entry.</p>
+            aws_sdk_codecommit.errors.name_length_exceeded_exception.NameLengthExceededException: <p>The user name is not valid because it has exceeded the character limit for author names. </p>
+            aws_sdk_codecommit.errors.path_required_exception.PathRequiredException: <p>The folderPath for a location cannot be null.</p>
+            aws_sdk_codecommit.errors.replacement_content_required_exception.ReplacementContentRequiredException: <p>USE_NEW_CONTENT was specified, but no replacement content has been provided.</p>
+            aws_sdk_codecommit.errors.replacement_type_required_exception.ReplacementTypeRequiredException: <p>A replacement type is required.</p>
+            aws_sdk_codecommit.errors.repository_does_not_exist_exception.RepositoryDoesNotExistException: <p>The specified repository does not exist.</p>
+            aws_sdk_codecommit.errors.repository_name_required_exception.RepositoryNameRequiredException: <p>A repository name is required, but was not specified.</p>
+            aws_sdk_codecommit.errors.tips_divergence_exceeded_exception.TipsDivergenceExceededException: <p>The divergence between the tips of the provided commit specifiers is too great to determine whether there might be any merge conflicts. Locally compare the specifiers using <code>git diff</code> or a diff tool.</p>
+            aws_sdk_codecommit.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2981,6 +3821,48 @@ class AsyncCodeCommitClient:
             commit_message: <p>The commit message to include in the commit information for the merge.</p>
             keep_empty_folders: <p>If the commit contains deletions, whether to keep a folder or folder structure if the changes leave the folders empty. If true, a .gitkeep file is created for empty folders. The default is false.</p>
             conflict_resolution: <p>If AUTOMERGE is the conflict resolution strategy, a list of inputs to use when resolving conflicts during a merge.</p>
+
+        Raises:
+            aws_sdk_codecommit.errors.branch_does_not_exist_exception.BranchDoesNotExistException: <p>The specified branch does not exist.</p>
+            aws_sdk_codecommit.errors.branch_name_is_tag_name_exception.BranchNameIsTagNameException: <p>The specified branch name is not valid because it is a tag name. Enter the name of a branch in the repository. For a list of valid branch names, use <a>ListBranches</a>.</p>
+            aws_sdk_codecommit.errors.branch_name_required_exception.BranchNameRequiredException: <p>A branch name is required, but was not specified.</p>
+            aws_sdk_codecommit.errors.commit_does_not_exist_exception.CommitDoesNotExistException: <p>The specified commit does not exist or no commit was specified, and the specified repository has no default branch.</p>
+            aws_sdk_codecommit.errors.commit_message_length_exceeded_exception.CommitMessageLengthExceededException: <p>The commit message is too long. Provide a shorter string. </p>
+            aws_sdk_codecommit.errors.commit_required_exception.CommitRequiredException: <p>A commit was not specified.</p>
+            aws_sdk_codecommit.errors.concurrent_reference_update_exception.ConcurrentReferenceUpdateException: <p>The merge cannot be completed because the target branch has been modified. Another user might have modified the target branch while the merge was in progress. Wait a few minutes, and then try again.</p>
+            aws_sdk_codecommit.errors.encryption_integrity_checks_failed_exception.EncryptionIntegrityChecksFailedException: <p>An encryption integrity check failed.</p>
+            aws_sdk_codecommit.errors.encryption_key_access_denied_exception.EncryptionKeyAccessDeniedException: <p>An encryption key could not be accessed.</p>
+            aws_sdk_codecommit.errors.encryption_key_disabled_exception.EncryptionKeyDisabledException: <p>The encryption key is disabled.</p>
+            aws_sdk_codecommit.errors.encryption_key_not_found_exception.EncryptionKeyNotFoundException: <p>No encryption key was found.</p>
+            aws_sdk_codecommit.errors.encryption_key_unavailable_exception.EncryptionKeyUnavailableException: <p>The encryption key is not available.</p>
+            aws_sdk_codecommit.errors.file_content_size_limit_exceeded_exception.FileContentSizeLimitExceededException: <p>The file cannot be added because it is too large. The maximum file size is 6 MB, and the combined file content change size is 7 MB. Consider making these changes using a Git client.</p>
+            aws_sdk_codecommit.errors.file_mode_required_exception.FileModeRequiredException: <p>The commit cannot be created because no file mode has been specified. A file mode is required to update mode permissions for a file.</p>
+            aws_sdk_codecommit.errors.folder_content_size_limit_exceeded_exception.FolderContentSizeLimitExceededException: <p>The commit cannot be created because at least one of the overall changes in the commit results in a folder whose contents exceed the limit of 6 MB. Either reduce the number and size of your changes, or split the changes across multiple folders.</p>
+            aws_sdk_codecommit.errors.invalid_branch_name_exception.InvalidBranchNameException: <p>The specified reference name is not valid.</p>
+            aws_sdk_codecommit.errors.invalid_commit_exception.InvalidCommitException: <p>The specified commit is not valid.</p>
+            aws_sdk_codecommit.errors.invalid_conflict_detail_level_exception.InvalidConflictDetailLevelException: <p>The specified conflict detail level is not valid.</p>
+            aws_sdk_codecommit.errors.invalid_conflict_resolution_exception.InvalidConflictResolutionException: <p>The specified conflict resolution list is not valid.</p>
+            aws_sdk_codecommit.errors.invalid_conflict_resolution_strategy_exception.InvalidConflictResolutionStrategyException: <p>The specified conflict resolution strategy is not valid.</p>
+            aws_sdk_codecommit.errors.invalid_email_exception.InvalidEmailException: <p>The specified email address either contains one or more characters that are not allowed, or it exceeds the maximum number of characters allowed for an email address.</p>
+            aws_sdk_codecommit.errors.invalid_file_mode_exception.InvalidFileModeException: <p>The specified file mode permission is not valid. For a list of valid file mode permissions, see <a>PutFile</a>. </p>
+            aws_sdk_codecommit.errors.invalid_path_exception.InvalidPathException: <p>The specified path is not valid.</p>
+            aws_sdk_codecommit.errors.invalid_replacement_content_exception.InvalidReplacementContentException: <p>Automerge was specified for resolving the conflict, but the replacement type is not valid or content is missing. </p>
+            aws_sdk_codecommit.errors.invalid_replacement_type_exception.InvalidReplacementTypeException: <p>Automerge was specified for resolving the conflict, but the specified replacement type is not valid.</p>
+            aws_sdk_codecommit.errors.invalid_repository_name_exception.InvalidRepositoryNameException: <p>A specified repository name is not valid.</p> <note> <p>This exception occurs only when a specified repository name is not valid. Other exceptions occur when a required repository parameter is missing, or when a specified repository does not exist.</p> </note>
+            aws_sdk_codecommit.errors.invalid_target_branch_exception.InvalidTargetBranchException: <p>The specified target branch is not valid.</p>
+            aws_sdk_codecommit.errors.manual_merge_required_exception.ManualMergeRequiredException: <p>The pull request cannot be merged automatically into the destination branch. You must manually merge the branches and resolve any conflicts.</p>
+            aws_sdk_codecommit.errors.maximum_conflict_resolution_entries_exceeded_exception.MaximumConflictResolutionEntriesExceededException: <p>The number of allowed conflict resolution entries was exceeded.</p>
+            aws_sdk_codecommit.errors.maximum_file_content_to_load_exceeded_exception.MaximumFileContentToLoadExceededException: <p>The number of files to load exceeds the allowed limit.</p>
+            aws_sdk_codecommit.errors.maximum_items_to_compare_exceeded_exception.MaximumItemsToCompareExceededException: <p>The number of items to compare between the source or destination branches and the merge base has exceeded the maximum allowed.</p>
+            aws_sdk_codecommit.errors.multiple_conflict_resolution_entries_exception.MultipleConflictResolutionEntriesException: <p>More than one conflict resolution entries exists for the conflict. A conflict can have only one conflict resolution entry.</p>
+            aws_sdk_codecommit.errors.name_length_exceeded_exception.NameLengthExceededException: <p>The user name is not valid because it has exceeded the character limit for author names. </p>
+            aws_sdk_codecommit.errors.path_required_exception.PathRequiredException: <p>The folderPath for a location cannot be null.</p>
+            aws_sdk_codecommit.errors.replacement_content_required_exception.ReplacementContentRequiredException: <p>USE_NEW_CONTENT was specified, but no replacement content has been provided.</p>
+            aws_sdk_codecommit.errors.replacement_type_required_exception.ReplacementTypeRequiredException: <p>A replacement type is required.</p>
+            aws_sdk_codecommit.errors.repository_does_not_exist_exception.RepositoryDoesNotExistException: <p>The specified repository does not exist.</p>
+            aws_sdk_codecommit.errors.repository_name_required_exception.RepositoryNameRequiredException: <p>A repository name is required, but was not specified.</p>
+            aws_sdk_codecommit.errors.tips_divergence_exceeded_exception.TipsDivergenceExceededException: <p>The divergence between the tips of the provided commit specifiers is too great to determine whether there might be any merge conflicts. Locally compare the specifiers using <code>git diff</code> or a diff tool.</p>
+            aws_sdk_codecommit.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3043,6 +3925,28 @@ class AsyncCodeCommitClient:
             pull_request_id: <p>The system-generated ID of the pull request. To get this ID, use <a>ListPullRequests</a>.</p>
             repository_name: <p>The name of the repository where the pull request was created.</p>
             source_commit_id: <p>The full commit ID of the original or updated commit in the pull request source branch. Pass this value if you want an exception thrown if the current commit ID of the tip of the source branch does not match this commit ID.</p>
+
+        Raises:
+            aws_sdk_codecommit.errors.concurrent_reference_update_exception.ConcurrentReferenceUpdateException: <p>The merge cannot be completed because the target branch has been modified. Another user might have modified the target branch while the merge was in progress. Wait a few minutes, and then try again.</p>
+            aws_sdk_codecommit.errors.encryption_integrity_checks_failed_exception.EncryptionIntegrityChecksFailedException: <p>An encryption integrity check failed.</p>
+            aws_sdk_codecommit.errors.encryption_key_access_denied_exception.EncryptionKeyAccessDeniedException: <p>An encryption key could not be accessed.</p>
+            aws_sdk_codecommit.errors.encryption_key_disabled_exception.EncryptionKeyDisabledException: <p>The encryption key is disabled.</p>
+            aws_sdk_codecommit.errors.encryption_key_not_found_exception.EncryptionKeyNotFoundException: <p>No encryption key was found.</p>
+            aws_sdk_codecommit.errors.encryption_key_unavailable_exception.EncryptionKeyUnavailableException: <p>The encryption key is not available.</p>
+            aws_sdk_codecommit.errors.invalid_commit_id_exception.InvalidCommitIdException: <p>The specified commit ID is not valid.</p>
+            aws_sdk_codecommit.errors.invalid_pull_request_id_exception.InvalidPullRequestIdException: <p>The pull request ID is not valid. Make sure that you have provided the full ID and that the pull request is in the specified repository, and then try again.</p>
+            aws_sdk_codecommit.errors.invalid_repository_name_exception.InvalidRepositoryNameException: <p>A specified repository name is not valid.</p> <note> <p>This exception occurs only when a specified repository name is not valid. Other exceptions occur when a required repository parameter is missing, or when a specified repository does not exist.</p> </note>
+            aws_sdk_codecommit.errors.manual_merge_required_exception.ManualMergeRequiredException: <p>The pull request cannot be merged automatically into the destination branch. You must manually merge the branches and resolve any conflicts.</p>
+            aws_sdk_codecommit.errors.pull_request_already_closed_exception.PullRequestAlreadyClosedException: <p>The pull request status cannot be updated because it is already closed.</p>
+            aws_sdk_codecommit.errors.pull_request_approval_rules_not_satisfied_exception.PullRequestApprovalRulesNotSatisfiedException: <p>The pull request cannot be merged because one or more approval rules applied to the pull request have conditions that have not been met.</p>
+            aws_sdk_codecommit.errors.pull_request_does_not_exist_exception.PullRequestDoesNotExistException: <p>The pull request ID could not be found. Make sure that you have specified the correct repository name and pull request ID, and then try again.</p>
+            aws_sdk_codecommit.errors.pull_request_id_required_exception.PullRequestIdRequiredException: <p>A pull request ID is required, but none was provided.</p>
+            aws_sdk_codecommit.errors.reference_does_not_exist_exception.ReferenceDoesNotExistException: <p>The specified reference does not exist. You must provide a full commit ID.</p>
+            aws_sdk_codecommit.errors.repository_does_not_exist_exception.RepositoryDoesNotExistException: <p>The specified repository does not exist.</p>
+            aws_sdk_codecommit.errors.repository_name_required_exception.RepositoryNameRequiredException: <p>A repository name is required, but was not specified.</p>
+            aws_sdk_codecommit.errors.repository_not_associated_with_pull_request_exception.RepositoryNotAssociatedWithPullRequestException: <p>The repository does not contain any pull requests with that pull request ID. Use GetPullRequest to verify the correct repository name for the pull request ID.</p>
+            aws_sdk_codecommit.errors.tip_of_source_reference_is_different_exception.TipOfSourceReferenceIsDifferentException: <p>The tip of the source branch in the destination repository does not match the tip of the source branch specified in your request. The pull request might have been updated. Make sure that you have the latest changes.</p>
+            aws_sdk_codecommit.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3112,6 +4016,47 @@ class AsyncCodeCommitClient:
             email: <p>The email address of the person merging the branches. This information is used in the commit information for the merge.</p>
             keep_empty_folders: <p>If the commit contains deletions, whether to keep a folder or folder structure if the changes leave the folders empty. If true, a .gitkeep file is created for empty folders. The default is false.</p>
             conflict_resolution: <p>If AUTOMERGE is the conflict resolution strategy, a list of inputs to use when resolving conflicts during a merge.</p>
+
+        Raises:
+            aws_sdk_codecommit.errors.commit_message_length_exceeded_exception.CommitMessageLengthExceededException: <p>The commit message is too long. Provide a shorter string. </p>
+            aws_sdk_codecommit.errors.concurrent_reference_update_exception.ConcurrentReferenceUpdateException: <p>The merge cannot be completed because the target branch has been modified. Another user might have modified the target branch while the merge was in progress. Wait a few minutes, and then try again.</p>
+            aws_sdk_codecommit.errors.encryption_integrity_checks_failed_exception.EncryptionIntegrityChecksFailedException: <p>An encryption integrity check failed.</p>
+            aws_sdk_codecommit.errors.encryption_key_access_denied_exception.EncryptionKeyAccessDeniedException: <p>An encryption key could not be accessed.</p>
+            aws_sdk_codecommit.errors.encryption_key_disabled_exception.EncryptionKeyDisabledException: <p>The encryption key is disabled.</p>
+            aws_sdk_codecommit.errors.encryption_key_not_found_exception.EncryptionKeyNotFoundException: <p>No encryption key was found.</p>
+            aws_sdk_codecommit.errors.encryption_key_unavailable_exception.EncryptionKeyUnavailableException: <p>The encryption key is not available.</p>
+            aws_sdk_codecommit.errors.file_content_size_limit_exceeded_exception.FileContentSizeLimitExceededException: <p>The file cannot be added because it is too large. The maximum file size is 6 MB, and the combined file content change size is 7 MB. Consider making these changes using a Git client.</p>
+            aws_sdk_codecommit.errors.folder_content_size_limit_exceeded_exception.FolderContentSizeLimitExceededException: <p>The commit cannot be created because at least one of the overall changes in the commit results in a folder whose contents exceed the limit of 6 MB. Either reduce the number and size of your changes, or split the changes across multiple folders.</p>
+            aws_sdk_codecommit.errors.invalid_commit_id_exception.InvalidCommitIdException: <p>The specified commit ID is not valid.</p>
+            aws_sdk_codecommit.errors.invalid_conflict_detail_level_exception.InvalidConflictDetailLevelException: <p>The specified conflict detail level is not valid.</p>
+            aws_sdk_codecommit.errors.invalid_conflict_resolution_exception.InvalidConflictResolutionException: <p>The specified conflict resolution list is not valid.</p>
+            aws_sdk_codecommit.errors.invalid_conflict_resolution_strategy_exception.InvalidConflictResolutionStrategyException: <p>The specified conflict resolution strategy is not valid.</p>
+            aws_sdk_codecommit.errors.invalid_email_exception.InvalidEmailException: <p>The specified email address either contains one or more characters that are not allowed, or it exceeds the maximum number of characters allowed for an email address.</p>
+            aws_sdk_codecommit.errors.invalid_file_mode_exception.InvalidFileModeException: <p>The specified file mode permission is not valid. For a list of valid file mode permissions, see <a>PutFile</a>. </p>
+            aws_sdk_codecommit.errors.invalid_path_exception.InvalidPathException: <p>The specified path is not valid.</p>
+            aws_sdk_codecommit.errors.invalid_pull_request_id_exception.InvalidPullRequestIdException: <p>The pull request ID is not valid. Make sure that you have provided the full ID and that the pull request is in the specified repository, and then try again.</p>
+            aws_sdk_codecommit.errors.invalid_replacement_content_exception.InvalidReplacementContentException: <p>Automerge was specified for resolving the conflict, but the replacement type is not valid or content is missing. </p>
+            aws_sdk_codecommit.errors.invalid_replacement_type_exception.InvalidReplacementTypeException: <p>Automerge was specified for resolving the conflict, but the specified replacement type is not valid.</p>
+            aws_sdk_codecommit.errors.invalid_repository_name_exception.InvalidRepositoryNameException: <p>A specified repository name is not valid.</p> <note> <p>This exception occurs only when a specified repository name is not valid. Other exceptions occur when a required repository parameter is missing, or when a specified repository does not exist.</p> </note>
+            aws_sdk_codecommit.errors.manual_merge_required_exception.ManualMergeRequiredException: <p>The pull request cannot be merged automatically into the destination branch. You must manually merge the branches and resolve any conflicts.</p>
+            aws_sdk_codecommit.errors.maximum_conflict_resolution_entries_exceeded_exception.MaximumConflictResolutionEntriesExceededException: <p>The number of allowed conflict resolution entries was exceeded.</p>
+            aws_sdk_codecommit.errors.maximum_file_content_to_load_exceeded_exception.MaximumFileContentToLoadExceededException: <p>The number of files to load exceeds the allowed limit.</p>
+            aws_sdk_codecommit.errors.maximum_items_to_compare_exceeded_exception.MaximumItemsToCompareExceededException: <p>The number of items to compare between the source or destination branches and the merge base has exceeded the maximum allowed.</p>
+            aws_sdk_codecommit.errors.multiple_conflict_resolution_entries_exception.MultipleConflictResolutionEntriesException: <p>More than one conflict resolution entries exists for the conflict. A conflict can have only one conflict resolution entry.</p>
+            aws_sdk_codecommit.errors.name_length_exceeded_exception.NameLengthExceededException: <p>The user name is not valid because it has exceeded the character limit for author names. </p>
+            aws_sdk_codecommit.errors.path_required_exception.PathRequiredException: <p>The folderPath for a location cannot be null.</p>
+            aws_sdk_codecommit.errors.pull_request_already_closed_exception.PullRequestAlreadyClosedException: <p>The pull request status cannot be updated because it is already closed.</p>
+            aws_sdk_codecommit.errors.pull_request_approval_rules_not_satisfied_exception.PullRequestApprovalRulesNotSatisfiedException: <p>The pull request cannot be merged because one or more approval rules applied to the pull request have conditions that have not been met.</p>
+            aws_sdk_codecommit.errors.pull_request_does_not_exist_exception.PullRequestDoesNotExistException: <p>The pull request ID could not be found. Make sure that you have specified the correct repository name and pull request ID, and then try again.</p>
+            aws_sdk_codecommit.errors.pull_request_id_required_exception.PullRequestIdRequiredException: <p>A pull request ID is required, but none was provided.</p>
+            aws_sdk_codecommit.errors.replacement_content_required_exception.ReplacementContentRequiredException: <p>USE_NEW_CONTENT was specified, but no replacement content has been provided.</p>
+            aws_sdk_codecommit.errors.replacement_type_required_exception.ReplacementTypeRequiredException: <p>A replacement type is required.</p>
+            aws_sdk_codecommit.errors.repository_does_not_exist_exception.RepositoryDoesNotExistException: <p>The specified repository does not exist.</p>
+            aws_sdk_codecommit.errors.repository_name_required_exception.RepositoryNameRequiredException: <p>A repository name is required, but was not specified.</p>
+            aws_sdk_codecommit.errors.repository_not_associated_with_pull_request_exception.RepositoryNotAssociatedWithPullRequestException: <p>The repository does not contain any pull requests with that pull request ID. Use GetPullRequest to verify the correct repository name for the pull request ID.</p>
+            aws_sdk_codecommit.errors.tip_of_source_reference_is_different_exception.TipOfSourceReferenceIsDifferentException: <p>The tip of the source branch in the destination repository does not match the tip of the source branch specified in your request. The pull request might have been updated. Make sure that you have the latest changes.</p>
+            aws_sdk_codecommit.errors.tips_divergence_exceeded_exception.TipsDivergenceExceededException: <p>The divergence between the tips of the provided commit specifiers is too great to determine whether there might be any merge conflicts. Locally compare the specifiers using <code>git diff</code> or a diff tool.</p>
+            aws_sdk_codecommit.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3195,6 +4140,47 @@ class AsyncCodeCommitClient:
             email: <p>The email address of the person merging the branches. This information is used in the commit information for the merge.</p>
             keep_empty_folders: <p>If the commit contains deletions, whether to keep a folder or folder structure if the changes leave the folders empty. If true, a .gitkeep file is created for empty folders. The default is false.</p>
             conflict_resolution: <p>If AUTOMERGE is the conflict resolution strategy, a list of inputs to use when resolving conflicts during a merge.</p>
+
+        Raises:
+            aws_sdk_codecommit.errors.commit_message_length_exceeded_exception.CommitMessageLengthExceededException: <p>The commit message is too long. Provide a shorter string. </p>
+            aws_sdk_codecommit.errors.concurrent_reference_update_exception.ConcurrentReferenceUpdateException: <p>The merge cannot be completed because the target branch has been modified. Another user might have modified the target branch while the merge was in progress. Wait a few minutes, and then try again.</p>
+            aws_sdk_codecommit.errors.encryption_integrity_checks_failed_exception.EncryptionIntegrityChecksFailedException: <p>An encryption integrity check failed.</p>
+            aws_sdk_codecommit.errors.encryption_key_access_denied_exception.EncryptionKeyAccessDeniedException: <p>An encryption key could not be accessed.</p>
+            aws_sdk_codecommit.errors.encryption_key_disabled_exception.EncryptionKeyDisabledException: <p>The encryption key is disabled.</p>
+            aws_sdk_codecommit.errors.encryption_key_not_found_exception.EncryptionKeyNotFoundException: <p>No encryption key was found.</p>
+            aws_sdk_codecommit.errors.encryption_key_unavailable_exception.EncryptionKeyUnavailableException: <p>The encryption key is not available.</p>
+            aws_sdk_codecommit.errors.file_content_size_limit_exceeded_exception.FileContentSizeLimitExceededException: <p>The file cannot be added because it is too large. The maximum file size is 6 MB, and the combined file content change size is 7 MB. Consider making these changes using a Git client.</p>
+            aws_sdk_codecommit.errors.folder_content_size_limit_exceeded_exception.FolderContentSizeLimitExceededException: <p>The commit cannot be created because at least one of the overall changes in the commit results in a folder whose contents exceed the limit of 6 MB. Either reduce the number and size of your changes, or split the changes across multiple folders.</p>
+            aws_sdk_codecommit.errors.invalid_commit_id_exception.InvalidCommitIdException: <p>The specified commit ID is not valid.</p>
+            aws_sdk_codecommit.errors.invalid_conflict_detail_level_exception.InvalidConflictDetailLevelException: <p>The specified conflict detail level is not valid.</p>
+            aws_sdk_codecommit.errors.invalid_conflict_resolution_exception.InvalidConflictResolutionException: <p>The specified conflict resolution list is not valid.</p>
+            aws_sdk_codecommit.errors.invalid_conflict_resolution_strategy_exception.InvalidConflictResolutionStrategyException: <p>The specified conflict resolution strategy is not valid.</p>
+            aws_sdk_codecommit.errors.invalid_email_exception.InvalidEmailException: <p>The specified email address either contains one or more characters that are not allowed, or it exceeds the maximum number of characters allowed for an email address.</p>
+            aws_sdk_codecommit.errors.invalid_file_mode_exception.InvalidFileModeException: <p>The specified file mode permission is not valid. For a list of valid file mode permissions, see <a>PutFile</a>. </p>
+            aws_sdk_codecommit.errors.invalid_path_exception.InvalidPathException: <p>The specified path is not valid.</p>
+            aws_sdk_codecommit.errors.invalid_pull_request_id_exception.InvalidPullRequestIdException: <p>The pull request ID is not valid. Make sure that you have provided the full ID and that the pull request is in the specified repository, and then try again.</p>
+            aws_sdk_codecommit.errors.invalid_replacement_content_exception.InvalidReplacementContentException: <p>Automerge was specified for resolving the conflict, but the replacement type is not valid or content is missing. </p>
+            aws_sdk_codecommit.errors.invalid_replacement_type_exception.InvalidReplacementTypeException: <p>Automerge was specified for resolving the conflict, but the specified replacement type is not valid.</p>
+            aws_sdk_codecommit.errors.invalid_repository_name_exception.InvalidRepositoryNameException: <p>A specified repository name is not valid.</p> <note> <p>This exception occurs only when a specified repository name is not valid. Other exceptions occur when a required repository parameter is missing, or when a specified repository does not exist.</p> </note>
+            aws_sdk_codecommit.errors.manual_merge_required_exception.ManualMergeRequiredException: <p>The pull request cannot be merged automatically into the destination branch. You must manually merge the branches and resolve any conflicts.</p>
+            aws_sdk_codecommit.errors.maximum_conflict_resolution_entries_exceeded_exception.MaximumConflictResolutionEntriesExceededException: <p>The number of allowed conflict resolution entries was exceeded.</p>
+            aws_sdk_codecommit.errors.maximum_file_content_to_load_exceeded_exception.MaximumFileContentToLoadExceededException: <p>The number of files to load exceeds the allowed limit.</p>
+            aws_sdk_codecommit.errors.maximum_items_to_compare_exceeded_exception.MaximumItemsToCompareExceededException: <p>The number of items to compare between the source or destination branches and the merge base has exceeded the maximum allowed.</p>
+            aws_sdk_codecommit.errors.multiple_conflict_resolution_entries_exception.MultipleConflictResolutionEntriesException: <p>More than one conflict resolution entries exists for the conflict. A conflict can have only one conflict resolution entry.</p>
+            aws_sdk_codecommit.errors.name_length_exceeded_exception.NameLengthExceededException: <p>The user name is not valid because it has exceeded the character limit for author names. </p>
+            aws_sdk_codecommit.errors.path_required_exception.PathRequiredException: <p>The folderPath for a location cannot be null.</p>
+            aws_sdk_codecommit.errors.pull_request_already_closed_exception.PullRequestAlreadyClosedException: <p>The pull request status cannot be updated because it is already closed.</p>
+            aws_sdk_codecommit.errors.pull_request_approval_rules_not_satisfied_exception.PullRequestApprovalRulesNotSatisfiedException: <p>The pull request cannot be merged because one or more approval rules applied to the pull request have conditions that have not been met.</p>
+            aws_sdk_codecommit.errors.pull_request_does_not_exist_exception.PullRequestDoesNotExistException: <p>The pull request ID could not be found. Make sure that you have specified the correct repository name and pull request ID, and then try again.</p>
+            aws_sdk_codecommit.errors.pull_request_id_required_exception.PullRequestIdRequiredException: <p>A pull request ID is required, but none was provided.</p>
+            aws_sdk_codecommit.errors.replacement_content_required_exception.ReplacementContentRequiredException: <p>USE_NEW_CONTENT was specified, but no replacement content has been provided.</p>
+            aws_sdk_codecommit.errors.replacement_type_required_exception.ReplacementTypeRequiredException: <p>A replacement type is required.</p>
+            aws_sdk_codecommit.errors.repository_does_not_exist_exception.RepositoryDoesNotExistException: <p>The specified repository does not exist.</p>
+            aws_sdk_codecommit.errors.repository_name_required_exception.RepositoryNameRequiredException: <p>A repository name is required, but was not specified.</p>
+            aws_sdk_codecommit.errors.repository_not_associated_with_pull_request_exception.RepositoryNotAssociatedWithPullRequestException: <p>The repository does not contain any pull requests with that pull request ID. Use GetPullRequest to verify the correct repository name for the pull request ID.</p>
+            aws_sdk_codecommit.errors.tip_of_source_reference_is_different_exception.TipOfSourceReferenceIsDifferentException: <p>The tip of the source branch in the destination repository does not match the tip of the source branch specified in your request. The pull request might have been updated. Make sure that you have the latest changes.</p>
+            aws_sdk_codecommit.errors.tips_divergence_exceeded_exception.TipsDivergenceExceededException: <p>The divergence between the tips of the provided commit specifiers is too great to determine whether there might be any merge conflicts. Locally compare the specifiers using <code>git diff</code> or a diff tool.</p>
+            aws_sdk_codecommit.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3254,6 +4240,24 @@ class AsyncCodeCommitClient:
             pull_request_id: <p>The system-generated ID of the pull request for which you want to override all approval rule requirements. To get this information, use <a>GetPullRequest</a>.</p>
             revision_id: <p>The system-generated ID of the most recent revision of the pull request. You cannot override approval rules for anything but the most recent revision of a pull request. To get the revision ID, use GetPullRequest.</p>
             override_status: <p>Whether you want to set aside approval rule requirements for the pull request (OVERRIDE) or revoke a previous override and apply approval rule requirements (REVOKE). REVOKE status is not stored.</p>
+
+        Raises:
+            aws_sdk_codecommit.errors.encryption_integrity_checks_failed_exception.EncryptionIntegrityChecksFailedException: <p>An encryption integrity check failed.</p>
+            aws_sdk_codecommit.errors.encryption_key_access_denied_exception.EncryptionKeyAccessDeniedException: <p>An encryption key could not be accessed.</p>
+            aws_sdk_codecommit.errors.encryption_key_disabled_exception.EncryptionKeyDisabledException: <p>The encryption key is disabled.</p>
+            aws_sdk_codecommit.errors.encryption_key_not_found_exception.EncryptionKeyNotFoundException: <p>No encryption key was found.</p>
+            aws_sdk_codecommit.errors.encryption_key_unavailable_exception.EncryptionKeyUnavailableException: <p>The encryption key is not available.</p>
+            aws_sdk_codecommit.errors.invalid_override_status_exception.InvalidOverrideStatusException: <p>The override status is not valid. Valid statuses are OVERRIDE and REVOKE.</p>
+            aws_sdk_codecommit.errors.invalid_pull_request_id_exception.InvalidPullRequestIdException: <p>The pull request ID is not valid. Make sure that you have provided the full ID and that the pull request is in the specified repository, and then try again.</p>
+            aws_sdk_codecommit.errors.invalid_revision_id_exception.InvalidRevisionIdException: <p>The revision ID is not valid. Use GetPullRequest to determine the value.</p>
+            aws_sdk_codecommit.errors.override_already_set_exception.OverrideAlreadySetException: <p>The pull request has already had its approval rules set to override.</p>
+            aws_sdk_codecommit.errors.override_status_required_exception.OverrideStatusRequiredException: <p>An override status is required, but no value was provided. Valid values include OVERRIDE and REVOKE.</p>
+            aws_sdk_codecommit.errors.pull_request_already_closed_exception.PullRequestAlreadyClosedException: <p>The pull request status cannot be updated because it is already closed.</p>
+            aws_sdk_codecommit.errors.pull_request_does_not_exist_exception.PullRequestDoesNotExistException: <p>The pull request ID could not be found. Make sure that you have specified the correct repository name and pull request ID, and then try again.</p>
+            aws_sdk_codecommit.errors.pull_request_id_required_exception.PullRequestIdRequiredException: <p>A pull request ID is required, but none was provided.</p>
+            aws_sdk_codecommit.errors.revision_id_required_exception.RevisionIdRequiredException: <p>A revision ID is required, but was not provided.</p>
+            aws_sdk_codecommit.errors.revision_not_current_exception.RevisionNotCurrentException: <p>The revision ID provided in the request does not match the current revision ID. Use GetPullRequest to retrieve the current revision ID.</p>
+            aws_sdk_codecommit.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3306,6 +4310,32 @@ class AsyncCodeCommitClient:
             location: <p>The location of the comparison where you want to comment.</p>
             content: <p>The content of the comment you want to make.</p>
             client_request_token: <p>A unique, client-generated idempotency token that, when provided in a request, ensures the request cannot be repeated with a changed parameter. If a request is received with the same parameters and a token is included, the request returns information about the initial request that used that token.</p>
+
+        Raises:
+            aws_sdk_codecommit.errors.before_commit_id_and_after_commit_id_are_same_exception.BeforeCommitIdAndAfterCommitIdAreSameException: <p>The before commit ID and the after commit ID are the same, which is not valid. The before commit ID and the after commit ID must be different commit IDs.</p>
+            aws_sdk_codecommit.errors.client_request_token_required_exception.ClientRequestTokenRequiredException: <p>A client request token is required. A client request token is an unique, client-generated idempotency token that, when provided in a request, ensures the request cannot be repeated with a changed parameter. If a request is received with the same parameters and a token is included, the request returns information about the initial request that used that token.</p>
+            aws_sdk_codecommit.errors.comment_content_required_exception.CommentContentRequiredException: <p>The comment is empty. You must provide some content for a comment. The content cannot be null.</p>
+            aws_sdk_codecommit.errors.comment_content_size_limit_exceeded_exception.CommentContentSizeLimitExceededException: <p>The comment is too large. Comments are limited to 10,240 characters.</p>
+            aws_sdk_codecommit.errors.commit_does_not_exist_exception.CommitDoesNotExistException: <p>The specified commit does not exist or no commit was specified, and the specified repository has no default branch.</p>
+            aws_sdk_codecommit.errors.commit_id_required_exception.CommitIdRequiredException: <p>A commit ID was not specified.</p>
+            aws_sdk_codecommit.errors.encryption_integrity_checks_failed_exception.EncryptionIntegrityChecksFailedException: <p>An encryption integrity check failed.</p>
+            aws_sdk_codecommit.errors.encryption_key_access_denied_exception.EncryptionKeyAccessDeniedException: <p>An encryption key could not be accessed.</p>
+            aws_sdk_codecommit.errors.encryption_key_disabled_exception.EncryptionKeyDisabledException: <p>The encryption key is disabled.</p>
+            aws_sdk_codecommit.errors.encryption_key_not_found_exception.EncryptionKeyNotFoundException: <p>No encryption key was found.</p>
+            aws_sdk_codecommit.errors.encryption_key_unavailable_exception.EncryptionKeyUnavailableException: <p>The encryption key is not available.</p>
+            aws_sdk_codecommit.errors.idempotency_parameter_mismatch_exception.IdempotencyParameterMismatchException: <p>The client request token is not valid. Either the token is not in a valid format, or the token has been used in a previous request and cannot be reused.</p>
+            aws_sdk_codecommit.errors.invalid_client_request_token_exception.InvalidClientRequestTokenException: <p>The client request token is not valid.</p>
+            aws_sdk_codecommit.errors.invalid_commit_id_exception.InvalidCommitIdException: <p>The specified commit ID is not valid.</p>
+            aws_sdk_codecommit.errors.invalid_file_location_exception.InvalidFileLocationException: <p>The location of the file is not valid. Make sure that you include the file name and extension.</p>
+            aws_sdk_codecommit.errors.invalid_file_position_exception.InvalidFilePositionException: <p>The position is not valid. Make sure that the line number exists in the version of the file you want to comment on.</p>
+            aws_sdk_codecommit.errors.invalid_path_exception.InvalidPathException: <p>The specified path is not valid.</p>
+            aws_sdk_codecommit.errors.invalid_relative_file_version_enum_exception.InvalidRelativeFileVersionEnumException: <p>Either the enum is not in a valid format, or the specified file version enum is not valid in respect to the current file version.</p>
+            aws_sdk_codecommit.errors.invalid_repository_name_exception.InvalidRepositoryNameException: <p>A specified repository name is not valid.</p> <note> <p>This exception occurs only when a specified repository name is not valid. Other exceptions occur when a required repository parameter is missing, or when a specified repository does not exist.</p> </note>
+            aws_sdk_codecommit.errors.path_does_not_exist_exception.PathDoesNotExistException: <p>The specified path does not exist.</p>
+            aws_sdk_codecommit.errors.path_required_exception.PathRequiredException: <p>The folderPath for a location cannot be null.</p>
+            aws_sdk_codecommit.errors.repository_does_not_exist_exception.RepositoryDoesNotExistException: <p>The specified repository does not exist.</p>
+            aws_sdk_codecommit.errors.repository_name_required_exception.RepositoryNameRequiredException: <p>A repository name is required, but was not specified.</p>
+            aws_sdk_codecommit.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3366,6 +4396,36 @@ class AsyncCodeCommitClient:
             location: <p>The location of the change where you want to post your comment. If no location is provided, the comment is posted as a general comment on the pull request difference between the before commit ID and the after commit ID.</p>
             content: <p>The content of your comment on the change.</p>
             client_request_token: <p>A unique, client-generated idempotency token that, when provided in a request, ensures the request cannot be repeated with a changed parameter. If a request is received with the same parameters and a token is included, the request returns information about the initial request that used that token.</p>
+
+        Raises:
+            aws_sdk_codecommit.errors.before_commit_id_and_after_commit_id_are_same_exception.BeforeCommitIdAndAfterCommitIdAreSameException: <p>The before commit ID and the after commit ID are the same, which is not valid. The before commit ID and the after commit ID must be different commit IDs.</p>
+            aws_sdk_codecommit.errors.client_request_token_required_exception.ClientRequestTokenRequiredException: <p>A client request token is required. A client request token is an unique, client-generated idempotency token that, when provided in a request, ensures the request cannot be repeated with a changed parameter. If a request is received with the same parameters and a token is included, the request returns information about the initial request that used that token.</p>
+            aws_sdk_codecommit.errors.comment_content_required_exception.CommentContentRequiredException: <p>The comment is empty. You must provide some content for a comment. The content cannot be null.</p>
+            aws_sdk_codecommit.errors.comment_content_size_limit_exceeded_exception.CommentContentSizeLimitExceededException: <p>The comment is too large. Comments are limited to 10,240 characters.</p>
+            aws_sdk_codecommit.errors.commit_does_not_exist_exception.CommitDoesNotExistException: <p>The specified commit does not exist or no commit was specified, and the specified repository has no default branch.</p>
+            aws_sdk_codecommit.errors.commit_id_required_exception.CommitIdRequiredException: <p>A commit ID was not specified.</p>
+            aws_sdk_codecommit.errors.encryption_integrity_checks_failed_exception.EncryptionIntegrityChecksFailedException: <p>An encryption integrity check failed.</p>
+            aws_sdk_codecommit.errors.encryption_key_access_denied_exception.EncryptionKeyAccessDeniedException: <p>An encryption key could not be accessed.</p>
+            aws_sdk_codecommit.errors.encryption_key_disabled_exception.EncryptionKeyDisabledException: <p>The encryption key is disabled.</p>
+            aws_sdk_codecommit.errors.encryption_key_not_found_exception.EncryptionKeyNotFoundException: <p>No encryption key was found.</p>
+            aws_sdk_codecommit.errors.encryption_key_unavailable_exception.EncryptionKeyUnavailableException: <p>The encryption key is not available.</p>
+            aws_sdk_codecommit.errors.idempotency_parameter_mismatch_exception.IdempotencyParameterMismatchException: <p>The client request token is not valid. Either the token is not in a valid format, or the token has been used in a previous request and cannot be reused.</p>
+            aws_sdk_codecommit.errors.invalid_client_request_token_exception.InvalidClientRequestTokenException: <p>The client request token is not valid.</p>
+            aws_sdk_codecommit.errors.invalid_commit_id_exception.InvalidCommitIdException: <p>The specified commit ID is not valid.</p>
+            aws_sdk_codecommit.errors.invalid_file_location_exception.InvalidFileLocationException: <p>The location of the file is not valid. Make sure that you include the file name and extension.</p>
+            aws_sdk_codecommit.errors.invalid_file_position_exception.InvalidFilePositionException: <p>The position is not valid. Make sure that the line number exists in the version of the file you want to comment on.</p>
+            aws_sdk_codecommit.errors.invalid_path_exception.InvalidPathException: <p>The specified path is not valid.</p>
+            aws_sdk_codecommit.errors.invalid_pull_request_id_exception.InvalidPullRequestIdException: <p>The pull request ID is not valid. Make sure that you have provided the full ID and that the pull request is in the specified repository, and then try again.</p>
+            aws_sdk_codecommit.errors.invalid_relative_file_version_enum_exception.InvalidRelativeFileVersionEnumException: <p>Either the enum is not in a valid format, or the specified file version enum is not valid in respect to the current file version.</p>
+            aws_sdk_codecommit.errors.invalid_repository_name_exception.InvalidRepositoryNameException: <p>A specified repository name is not valid.</p> <note> <p>This exception occurs only when a specified repository name is not valid. Other exceptions occur when a required repository parameter is missing, or when a specified repository does not exist.</p> </note>
+            aws_sdk_codecommit.errors.path_does_not_exist_exception.PathDoesNotExistException: <p>The specified path does not exist.</p>
+            aws_sdk_codecommit.errors.path_required_exception.PathRequiredException: <p>The folderPath for a location cannot be null.</p>
+            aws_sdk_codecommit.errors.pull_request_does_not_exist_exception.PullRequestDoesNotExistException: <p>The pull request ID could not be found. Make sure that you have specified the correct repository name and pull request ID, and then try again.</p>
+            aws_sdk_codecommit.errors.pull_request_id_required_exception.PullRequestIdRequiredException: <p>A pull request ID is required, but none was provided.</p>
+            aws_sdk_codecommit.errors.repository_does_not_exist_exception.RepositoryDoesNotExistException: <p>The specified repository does not exist.</p>
+            aws_sdk_codecommit.errors.repository_name_required_exception.RepositoryNameRequiredException: <p>A repository name is required, but was not specified.</p>
+            aws_sdk_codecommit.errors.repository_not_associated_with_pull_request_exception.RepositoryNotAssociatedWithPullRequestException: <p>The repository does not contain any pull requests with that pull request ID. Use GetPullRequest to verify the correct repository name for the pull request ID.</p>
+            aws_sdk_codecommit.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3418,6 +4478,17 @@ class AsyncCodeCommitClient:
             in_reply_to: <p>The system-generated ID of the comment to which you want to reply. To get this ID, use <a>GetCommentsForComparedCommit</a> or <a>GetCommentsForPullRequest</a>.</p>
             client_request_token: <p>A unique, client-generated idempotency token that, when provided in a request, ensures the request cannot be repeated with a changed parameter. If a request is received with the same parameters and a token is included, the request returns information about the initial request that used that token.</p>
             content: <p>The contents of your reply to a comment.</p>
+
+        Raises:
+            aws_sdk_codecommit.errors.client_request_token_required_exception.ClientRequestTokenRequiredException: <p>A client request token is required. A client request token is an unique, client-generated idempotency token that, when provided in a request, ensures the request cannot be repeated with a changed parameter. If a request is received with the same parameters and a token is included, the request returns information about the initial request that used that token.</p>
+            aws_sdk_codecommit.errors.comment_content_required_exception.CommentContentRequiredException: <p>The comment is empty. You must provide some content for a comment. The content cannot be null.</p>
+            aws_sdk_codecommit.errors.comment_content_size_limit_exceeded_exception.CommentContentSizeLimitExceededException: <p>The comment is too large. Comments are limited to 10,240 characters.</p>
+            aws_sdk_codecommit.errors.comment_does_not_exist_exception.CommentDoesNotExistException: <p>No comment exists with the provided ID. Verify that you have used the correct ID, and then try again.</p>
+            aws_sdk_codecommit.errors.comment_id_required_exception.CommentIdRequiredException: <p>The comment ID is missing or null. A comment ID is required.</p>
+            aws_sdk_codecommit.errors.idempotency_parameter_mismatch_exception.IdempotencyParameterMismatchException: <p>The client request token is not valid. Either the token is not in a valid format, or the token has been used in a previous request and cannot be reused.</p>
+            aws_sdk_codecommit.errors.invalid_client_request_token_exception.InvalidClientRequestTokenException: <p>The client request token is not valid.</p>
+            aws_sdk_codecommit.errors.invalid_comment_id_exception.InvalidCommentIdException: <p>The comment ID is not in a valid format. Make sure that you have provided the full comment ID.</p>
+            aws_sdk_codecommit.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3461,6 +4532,16 @@ class AsyncCodeCommitClient:
         Args:
             comment_id: <p>The ID of the comment to which you want to add or update a reaction.</p>
             reaction_value: <p>The emoji reaction you want to add or update. To remove a reaction, provide a value of blank or null. You can also provide the value of none. For information about emoji reaction values supported in CodeCommit, see the <a href=\"https://docs.aws.amazon.com/codecommit/latest/userguide/how-to-commit-comment.html#emoji-reaction-table\">CodeCommit User Guide</a>.</p>
+
+        Raises:
+            aws_sdk_codecommit.errors.comment_deleted_exception.CommentDeletedException: <p>This comment has already been deleted. You cannot edit or delete a deleted comment.</p>
+            aws_sdk_codecommit.errors.comment_does_not_exist_exception.CommentDoesNotExistException: <p>No comment exists with the provided ID. Verify that you have used the correct ID, and then try again.</p>
+            aws_sdk_codecommit.errors.comment_id_required_exception.CommentIdRequiredException: <p>The comment ID is missing or null. A comment ID is required.</p>
+            aws_sdk_codecommit.errors.invalid_comment_id_exception.InvalidCommentIdException: <p>The comment ID is not in a valid format. Make sure that you have provided the full comment ID.</p>
+            aws_sdk_codecommit.errors.invalid_reaction_value_exception.InvalidReactionValueException: <p>The value of the reaction is not valid. For more information, see the <a href=\"https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html\">CodeCommit User Guide</a>.</p>
+            aws_sdk_codecommit.errors.reaction_limit_exceeded_exception.ReactionLimitExceededException: <p>The number of reactions has been exceeded. Reactions are limited to one reaction per user for each individual comment ID.</p>
+            aws_sdk_codecommit.errors.reaction_value_required_exception.ReactionValueRequiredException: <p>A reaction value is required. </p>
+            aws_sdk_codecommit.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3518,6 +4599,39 @@ class AsyncCodeCommitClient:
             commit_message: <p>A message about why this file was added or updated. Although it is optional, a message makes the commit history for your repository more useful.</p>
             name: <p>The name of the person adding or updating the file. Although it is optional, a name makes the commit history for your repository more useful.</p>
             email: <p>An email address for the person adding or updating the file.</p>
+
+        Raises:
+            aws_sdk_codecommit.errors.branch_does_not_exist_exception.BranchDoesNotExistException: <p>The specified branch does not exist.</p>
+            aws_sdk_codecommit.errors.branch_name_is_tag_name_exception.BranchNameIsTagNameException: <p>The specified branch name is not valid because it is a tag name. Enter the name of a branch in the repository. For a list of valid branch names, use <a>ListBranches</a>.</p>
+            aws_sdk_codecommit.errors.branch_name_required_exception.BranchNameRequiredException: <p>A branch name is required, but was not specified.</p>
+            aws_sdk_codecommit.errors.commit_message_length_exceeded_exception.CommitMessageLengthExceededException: <p>The commit message is too long. Provide a shorter string. </p>
+            aws_sdk_codecommit.errors.directory_name_conflicts_with_file_name_exception.DirectoryNameConflictsWithFileNameException: <p>A file cannot be added to the repository because the specified path name has the same name as a file that already exists in this repository. Either provide a different name for the file, or specify a different path for the file.</p>
+            aws_sdk_codecommit.errors.encryption_integrity_checks_failed_exception.EncryptionIntegrityChecksFailedException: <p>An encryption integrity check failed.</p>
+            aws_sdk_codecommit.errors.encryption_key_access_denied_exception.EncryptionKeyAccessDeniedException: <p>An encryption key could not be accessed.</p>
+            aws_sdk_codecommit.errors.encryption_key_disabled_exception.EncryptionKeyDisabledException: <p>The encryption key is disabled.</p>
+            aws_sdk_codecommit.errors.encryption_key_not_found_exception.EncryptionKeyNotFoundException: <p>No encryption key was found.</p>
+            aws_sdk_codecommit.errors.encryption_key_unavailable_exception.EncryptionKeyUnavailableException: <p>The encryption key is not available.</p>
+            aws_sdk_codecommit.errors.file_content_required_exception.FileContentRequiredException: <p>The file cannot be added because it is empty. Empty files cannot be added to the repository with this API.</p>
+            aws_sdk_codecommit.errors.file_content_size_limit_exceeded_exception.FileContentSizeLimitExceededException: <p>The file cannot be added because it is too large. The maximum file size is 6 MB, and the combined file content change size is 7 MB. Consider making these changes using a Git client.</p>
+            aws_sdk_codecommit.errors.file_name_conflicts_with_directory_name_exception.FileNameConflictsWithDirectoryNameException: <p>A file cannot be added to the repository because the specified file name has the same name as a directory in this repository. Either provide another name for the file, or add the file in a directory that does not match the file name.</p>
+            aws_sdk_codecommit.errors.file_path_conflicts_with_submodule_path_exception.FilePathConflictsWithSubmodulePathException: <p>The commit cannot be created because a specified file path points to a submodule. Verify that the destination files have valid file paths that do not point to a submodule.</p>
+            aws_sdk_codecommit.errors.folder_content_size_limit_exceeded_exception.FolderContentSizeLimitExceededException: <p>The commit cannot be created because at least one of the overall changes in the commit results in a folder whose contents exceed the limit of 6 MB. Either reduce the number and size of your changes, or split the changes across multiple folders.</p>
+            aws_sdk_codecommit.errors.invalid_branch_name_exception.InvalidBranchNameException: <p>The specified reference name is not valid.</p>
+            aws_sdk_codecommit.errors.invalid_deletion_parameter_exception.InvalidDeletionParameterException: <p>The specified deletion parameter is not valid.</p>
+            aws_sdk_codecommit.errors.invalid_email_exception.InvalidEmailException: <p>The specified email address either contains one or more characters that are not allowed, or it exceeds the maximum number of characters allowed for an email address.</p>
+            aws_sdk_codecommit.errors.invalid_file_mode_exception.InvalidFileModeException: <p>The specified file mode permission is not valid. For a list of valid file mode permissions, see <a>PutFile</a>. </p>
+            aws_sdk_codecommit.errors.invalid_parent_commit_id_exception.InvalidParentCommitIdException: <p>The parent commit ID is not valid. The commit ID cannot be empty, and must match the head commit ID for the branch of the repository where you want to add or update a file.</p>
+            aws_sdk_codecommit.errors.invalid_path_exception.InvalidPathException: <p>The specified path is not valid.</p>
+            aws_sdk_codecommit.errors.invalid_repository_name_exception.InvalidRepositoryNameException: <p>A specified repository name is not valid.</p> <note> <p>This exception occurs only when a specified repository name is not valid. Other exceptions occur when a required repository parameter is missing, or when a specified repository does not exist.</p> </note>
+            aws_sdk_codecommit.errors.name_length_exceeded_exception.NameLengthExceededException: <p>The user name is not valid because it has exceeded the character limit for author names. </p>
+            aws_sdk_codecommit.errors.parent_commit_does_not_exist_exception.ParentCommitDoesNotExistException: <p>The parent commit ID is not valid because it does not exist. The specified parent commit ID does not exist in the specified branch of the repository.</p>
+            aws_sdk_codecommit.errors.parent_commit_id_outdated_exception.ParentCommitIdOutdatedException: <p>The file could not be added because the provided parent commit ID is not the current tip of the specified branch. To view the full commit ID of the current head of the branch, use <a>GetBranch</a>.</p>
+            aws_sdk_codecommit.errors.parent_commit_id_required_exception.ParentCommitIdRequiredException: <p>A parent commit ID is required. To view the full commit ID of a branch in a repository, use <a>GetBranch</a> or a Git command (for example, git pull or git log).</p>
+            aws_sdk_codecommit.errors.path_required_exception.PathRequiredException: <p>The folderPath for a location cannot be null.</p>
+            aws_sdk_codecommit.errors.repository_does_not_exist_exception.RepositoryDoesNotExistException: <p>The specified repository does not exist.</p>
+            aws_sdk_codecommit.errors.repository_name_required_exception.RepositoryNameRequiredException: <p>A repository name is required, but was not specified.</p>
+            aws_sdk_codecommit.errors.same_file_content_exception.SameFileContentException: <p>The file was not added or updated because the content of the file is exactly the same as the content of that file in the repository and branch that you specified.</p>
+            aws_sdk_codecommit.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3571,6 +4685,30 @@ class AsyncCodeCommitClient:
         Args:
             repository_name: <p>The name of the repository where you want to create or update the trigger.</p>
             triggers: <p>The JSON block of configuration information for each trigger.</p>
+
+        Raises:
+            aws_sdk_codecommit.errors.encryption_integrity_checks_failed_exception.EncryptionIntegrityChecksFailedException: <p>An encryption integrity check failed.</p>
+            aws_sdk_codecommit.errors.encryption_key_access_denied_exception.EncryptionKeyAccessDeniedException: <p>An encryption key could not be accessed.</p>
+            aws_sdk_codecommit.errors.encryption_key_disabled_exception.EncryptionKeyDisabledException: <p>The encryption key is disabled.</p>
+            aws_sdk_codecommit.errors.encryption_key_not_found_exception.EncryptionKeyNotFoundException: <p>No encryption key was found.</p>
+            aws_sdk_codecommit.errors.encryption_key_unavailable_exception.EncryptionKeyUnavailableException: <p>The encryption key is not available.</p>
+            aws_sdk_codecommit.errors.invalid_repository_name_exception.InvalidRepositoryNameException: <p>A specified repository name is not valid.</p> <note> <p>This exception occurs only when a specified repository name is not valid. Other exceptions occur when a required repository parameter is missing, or when a specified repository does not exist.</p> </note>
+            aws_sdk_codecommit.errors.invalid_repository_trigger_branch_name_exception.InvalidRepositoryTriggerBranchNameException: <p>One or more branch names specified for the trigger is not valid.</p>
+            aws_sdk_codecommit.errors.invalid_repository_trigger_custom_data_exception.InvalidRepositoryTriggerCustomDataException: <p>The custom data provided for the trigger is not valid.</p>
+            aws_sdk_codecommit.errors.invalid_repository_trigger_destination_arn_exception.InvalidRepositoryTriggerDestinationArnException: <p>The Amazon Resource Name (ARN) for the trigger is not valid for the specified destination. The most common reason for this error is that the ARN does not meet the requirements for the service type.</p>
+            aws_sdk_codecommit.errors.invalid_repository_trigger_events_exception.InvalidRepositoryTriggerEventsException: <p>One or more events specified for the trigger is not valid. Check to make sure that all events specified match the requirements for allowed events.</p>
+            aws_sdk_codecommit.errors.invalid_repository_trigger_name_exception.InvalidRepositoryTriggerNameException: <p>The name of the trigger is not valid.</p>
+            aws_sdk_codecommit.errors.invalid_repository_trigger_region_exception.InvalidRepositoryTriggerRegionException: <p>The Amazon Web Services Region for the trigger target does not match the Amazon Web Services Region for the repository. Triggers must be created in the same Amazon Web Services Region as the target for the trigger.</p>
+            aws_sdk_codecommit.errors.maximum_branches_exceeded_exception.MaximumBranchesExceededException: <p>The number of branches for the trigger was exceeded.</p>
+            aws_sdk_codecommit.errors.maximum_repository_triggers_exceeded_exception.MaximumRepositoryTriggersExceededException: <p>The number of triggers allowed for the repository was exceeded.</p>
+            aws_sdk_codecommit.errors.repository_does_not_exist_exception.RepositoryDoesNotExistException: <p>The specified repository does not exist.</p>
+            aws_sdk_codecommit.errors.repository_name_required_exception.RepositoryNameRequiredException: <p>A repository name is required, but was not specified.</p>
+            aws_sdk_codecommit.errors.repository_trigger_branch_name_list_required_exception.RepositoryTriggerBranchNameListRequiredException: <p>At least one branch name is required, but was not specified in the trigger configuration.</p>
+            aws_sdk_codecommit.errors.repository_trigger_destination_arn_required_exception.RepositoryTriggerDestinationArnRequiredException: <p>A destination ARN for the target service for the trigger is required, but was not specified.</p>
+            aws_sdk_codecommit.errors.repository_trigger_events_list_required_exception.RepositoryTriggerEventsListRequiredException: <p>At least one event for the trigger is required, but was not specified.</p>
+            aws_sdk_codecommit.errors.repository_trigger_name_required_exception.RepositoryTriggerNameRequiredException: <p>A name for the trigger is required, but was not specified.</p>
+            aws_sdk_codecommit.errors.repository_triggers_list_required_exception.RepositoryTriggersListRequiredException: <p>The list of triggers for the repository is required, but was not specified.</p>
+            aws_sdk_codecommit.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3612,6 +4750,18 @@ class AsyncCodeCommitClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource to which you want to add or update tags.</p>
             tags: <p>The key-value pair to use when tagging this repository.</p>
+
+        Raises:
+            aws_sdk_codecommit.errors.invalid_repository_name_exception.InvalidRepositoryNameException: <p>A specified repository name is not valid.</p> <note> <p>This exception occurs only when a specified repository name is not valid. Other exceptions occur when a required repository parameter is missing, or when a specified repository does not exist.</p> </note>
+            aws_sdk_codecommit.errors.invalid_resource_arn_exception.InvalidResourceArnException: <p>The value for the resource ARN is not valid. For more information about resources in CodeCommit, see <a href=\"https://docs.aws.amazon.com/codecommit/latest/userguide/auth-and-access-control-iam-access-control-identity-based.html#arn-formats\">CodeCommit Resources and Operations</a> in the CodeCommit User Guide.</p>
+            aws_sdk_codecommit.errors.invalid_system_tag_usage_exception.InvalidSystemTagUsageException: <p>The specified tag is not valid. Key names cannot be prefixed with aws:.</p>
+            aws_sdk_codecommit.errors.invalid_tags_map_exception.InvalidTagsMapException: <p>The map of tags is not valid.</p>
+            aws_sdk_codecommit.errors.repository_does_not_exist_exception.RepositoryDoesNotExistException: <p>The specified repository does not exist.</p>
+            aws_sdk_codecommit.errors.resource_arn_required_exception.ResourceArnRequiredException: <p>A valid Amazon Resource Name (ARN) for an CodeCommit resource is required. For a list of valid resources in CodeCommit, see <a href=\"https://docs.aws.amazon.com/codecommit/latest/userguide/auth-and-access-control-iam-access-control-identity-based.html#arn-formats\">CodeCommit Resources and Operations</a> in the CodeCommit User Guide.</p>
+            aws_sdk_codecommit.errors.tag_policy_exception.TagPolicyException: <p>The tag policy is not valid.</p>
+            aws_sdk_codecommit.errors.tags_map_required_exception.TagsMapRequiredException: <p>A map of tags is required.</p>
+            aws_sdk_codecommit.errors.too_many_tags_exception.TooManyTagsException: <p>The maximum number of tags for an CodeCommit resource has been exceeded.</p>
+            aws_sdk_codecommit.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3651,6 +4801,30 @@ class AsyncCodeCommitClient:
         Args:
             repository_name: <p>The name of the repository in which to test the triggers.</p>
             triggers: <p>The list of triggers to test.</p>
+
+        Raises:
+            aws_sdk_codecommit.errors.encryption_integrity_checks_failed_exception.EncryptionIntegrityChecksFailedException: <p>An encryption integrity check failed.</p>
+            aws_sdk_codecommit.errors.encryption_key_access_denied_exception.EncryptionKeyAccessDeniedException: <p>An encryption key could not be accessed.</p>
+            aws_sdk_codecommit.errors.encryption_key_disabled_exception.EncryptionKeyDisabledException: <p>The encryption key is disabled.</p>
+            aws_sdk_codecommit.errors.encryption_key_not_found_exception.EncryptionKeyNotFoundException: <p>No encryption key was found.</p>
+            aws_sdk_codecommit.errors.encryption_key_unavailable_exception.EncryptionKeyUnavailableException: <p>The encryption key is not available.</p>
+            aws_sdk_codecommit.errors.invalid_repository_name_exception.InvalidRepositoryNameException: <p>A specified repository name is not valid.</p> <note> <p>This exception occurs only when a specified repository name is not valid. Other exceptions occur when a required repository parameter is missing, or when a specified repository does not exist.</p> </note>
+            aws_sdk_codecommit.errors.invalid_repository_trigger_branch_name_exception.InvalidRepositoryTriggerBranchNameException: <p>One or more branch names specified for the trigger is not valid.</p>
+            aws_sdk_codecommit.errors.invalid_repository_trigger_custom_data_exception.InvalidRepositoryTriggerCustomDataException: <p>The custom data provided for the trigger is not valid.</p>
+            aws_sdk_codecommit.errors.invalid_repository_trigger_destination_arn_exception.InvalidRepositoryTriggerDestinationArnException: <p>The Amazon Resource Name (ARN) for the trigger is not valid for the specified destination. The most common reason for this error is that the ARN does not meet the requirements for the service type.</p>
+            aws_sdk_codecommit.errors.invalid_repository_trigger_events_exception.InvalidRepositoryTriggerEventsException: <p>One or more events specified for the trigger is not valid. Check to make sure that all events specified match the requirements for allowed events.</p>
+            aws_sdk_codecommit.errors.invalid_repository_trigger_name_exception.InvalidRepositoryTriggerNameException: <p>The name of the trigger is not valid.</p>
+            aws_sdk_codecommit.errors.invalid_repository_trigger_region_exception.InvalidRepositoryTriggerRegionException: <p>The Amazon Web Services Region for the trigger target does not match the Amazon Web Services Region for the repository. Triggers must be created in the same Amazon Web Services Region as the target for the trigger.</p>
+            aws_sdk_codecommit.errors.maximum_branches_exceeded_exception.MaximumBranchesExceededException: <p>The number of branches for the trigger was exceeded.</p>
+            aws_sdk_codecommit.errors.maximum_repository_triggers_exceeded_exception.MaximumRepositoryTriggersExceededException: <p>The number of triggers allowed for the repository was exceeded.</p>
+            aws_sdk_codecommit.errors.repository_does_not_exist_exception.RepositoryDoesNotExistException: <p>The specified repository does not exist.</p>
+            aws_sdk_codecommit.errors.repository_name_required_exception.RepositoryNameRequiredException: <p>A repository name is required, but was not specified.</p>
+            aws_sdk_codecommit.errors.repository_trigger_branch_name_list_required_exception.RepositoryTriggerBranchNameListRequiredException: <p>At least one branch name is required, but was not specified in the trigger configuration.</p>
+            aws_sdk_codecommit.errors.repository_trigger_destination_arn_required_exception.RepositoryTriggerDestinationArnRequiredException: <p>A destination ARN for the target service for the trigger is required, but was not specified.</p>
+            aws_sdk_codecommit.errors.repository_trigger_events_list_required_exception.RepositoryTriggerEventsListRequiredException: <p>At least one event for the trigger is required, but was not specified.</p>
+            aws_sdk_codecommit.errors.repository_trigger_name_required_exception.RepositoryTriggerNameRequiredException: <p>A name for the trigger is required, but was not specified.</p>
+            aws_sdk_codecommit.errors.repository_triggers_list_required_exception.RepositoryTriggersListRequiredException: <p>The list of triggers for the repository is required, but was not specified.</p>
+            aws_sdk_codecommit.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3692,6 +4866,18 @@ class AsyncCodeCommitClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource to which you want to remove tags.</p>
             tag_keys: <p>The tag key for each tag that you want to remove from the resource.</p>
+
+        Raises:
+            aws_sdk_codecommit.errors.invalid_repository_name_exception.InvalidRepositoryNameException: <p>A specified repository name is not valid.</p> <note> <p>This exception occurs only when a specified repository name is not valid. Other exceptions occur when a required repository parameter is missing, or when a specified repository does not exist.</p> </note>
+            aws_sdk_codecommit.errors.invalid_resource_arn_exception.InvalidResourceArnException: <p>The value for the resource ARN is not valid. For more information about resources in CodeCommit, see <a href=\"https://docs.aws.amazon.com/codecommit/latest/userguide/auth-and-access-control-iam-access-control-identity-based.html#arn-formats\">CodeCommit Resources and Operations</a> in the CodeCommit User Guide.</p>
+            aws_sdk_codecommit.errors.invalid_system_tag_usage_exception.InvalidSystemTagUsageException: <p>The specified tag is not valid. Key names cannot be prefixed with aws:.</p>
+            aws_sdk_codecommit.errors.invalid_tag_keys_list_exception.InvalidTagKeysListException: <p>The list of tags is not valid.</p>
+            aws_sdk_codecommit.errors.repository_does_not_exist_exception.RepositoryDoesNotExistException: <p>The specified repository does not exist.</p>
+            aws_sdk_codecommit.errors.resource_arn_required_exception.ResourceArnRequiredException: <p>A valid Amazon Resource Name (ARN) for an CodeCommit resource is required. For a list of valid resources in CodeCommit, see <a href=\"https://docs.aws.amazon.com/codecommit/latest/userguide/auth-and-access-control-iam-access-control-identity-based.html#arn-formats\">CodeCommit Resources and Operations</a> in the CodeCommit User Guide.</p>
+            aws_sdk_codecommit.errors.tag_keys_list_required_exception.TagKeysListRequiredException: <p>A list of tag keys is required. The list cannot be empty or null.</p>
+            aws_sdk_codecommit.errors.tag_policy_exception.TagPolicyException: <p>The tag policy is not valid.</p>
+            aws_sdk_codecommit.errors.too_many_tags_exception.TooManyTagsException: <p>The maximum number of tags for an CodeCommit resource has been exceeded.</p>
+            aws_sdk_codecommit.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3735,6 +4921,15 @@ class AsyncCodeCommitClient:
             approval_rule_template_name: <p>The name of the approval rule template where you want to update the content of the rule. </p>
             new_rule_content: <p>The content that replaces the existing content of the rule. Content statements must be complete. You cannot provide only the changes.</p>
             existing_rule_content_sha256: <p>The SHA-256 hash signature for the content of the approval rule. You can retrieve this information by using <a>GetPullRequest</a>.</p>
+
+        Raises:
+            aws_sdk_codecommit.errors.approval_rule_template_content_required_exception.ApprovalRuleTemplateContentRequiredException: <p>The content for the approval rule template is empty. You must provide some content for an approval rule template. The content cannot be null.</p>
+            aws_sdk_codecommit.errors.approval_rule_template_does_not_exist_exception.ApprovalRuleTemplateDoesNotExistException: <p>The specified approval rule template does not exist. Verify that the name is correct and that you are signed in to the Amazon Web Services Region where the template was created, and then try again.</p>
+            aws_sdk_codecommit.errors.approval_rule_template_name_required_exception.ApprovalRuleTemplateNameRequiredException: <p>An approval rule template name is required, but was not specified.</p>
+            aws_sdk_codecommit.errors.invalid_approval_rule_template_content_exception.InvalidApprovalRuleTemplateContentException: <p>The content of the approval rule template is not valid.</p>
+            aws_sdk_codecommit.errors.invalid_approval_rule_template_name_exception.InvalidApprovalRuleTemplateNameException: <p>The name of the approval rule template is not valid. Template names must be between 1 and 100 valid characters in length. For more information about limits in CodeCommit, see <a href=\"https://docs.aws.amazon.com/codecommit/latest/userguide/limits.html\">Quotas</a> in the <i>CodeCommit User Guide</i>.</p>
+            aws_sdk_codecommit.errors.invalid_rule_content_sha256_exception.InvalidRuleContentSha256Exception: <p>The SHA-256 hash signature for the rule content is not valid.</p>
+            aws_sdk_codecommit.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3778,6 +4973,13 @@ class AsyncCodeCommitClient:
         Args:
             approval_rule_template_name: <p>The name of the template for which you want to update the description.</p>
             approval_rule_template_description: <p>The updated description of the approval rule template.</p>
+
+        Raises:
+            aws_sdk_codecommit.errors.approval_rule_template_does_not_exist_exception.ApprovalRuleTemplateDoesNotExistException: <p>The specified approval rule template does not exist. Verify that the name is correct and that you are signed in to the Amazon Web Services Region where the template was created, and then try again.</p>
+            aws_sdk_codecommit.errors.approval_rule_template_name_required_exception.ApprovalRuleTemplateNameRequiredException: <p>An approval rule template name is required, but was not specified.</p>
+            aws_sdk_codecommit.errors.invalid_approval_rule_template_description_exception.InvalidApprovalRuleTemplateDescriptionException: <p>The description for the approval rule template is not valid because it exceeds the maximum characters allowed for a description. For more information about limits in CodeCommit, see <a href=\"https://docs.aws.amazon.com/codecommit/latest/userguide/limits.html\">Quotas</a> in the <i>CodeCommit User Guide</i>.</p>
+            aws_sdk_codecommit.errors.invalid_approval_rule_template_name_exception.InvalidApprovalRuleTemplateNameException: <p>The name of the approval rule template is not valid. Template names must be between 1 and 100 valid characters in length. For more information about limits in CodeCommit, see <a href=\"https://docs.aws.amazon.com/codecommit/latest/userguide/limits.html\">Quotas</a> in the <i>CodeCommit User Guide</i>.</p>
+            aws_sdk_codecommit.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3821,6 +5023,13 @@ class AsyncCodeCommitClient:
         Args:
             old_approval_rule_template_name: <p>The current name of the approval rule template.</p>
             new_approval_rule_template_name: <p>The new name you want to apply to the approval rule template.</p>
+
+        Raises:
+            aws_sdk_codecommit.errors.approval_rule_template_does_not_exist_exception.ApprovalRuleTemplateDoesNotExistException: <p>The specified approval rule template does not exist. Verify that the name is correct and that you are signed in to the Amazon Web Services Region where the template was created, and then try again.</p>
+            aws_sdk_codecommit.errors.approval_rule_template_name_already_exists_exception.ApprovalRuleTemplateNameAlreadyExistsException: <p>You cannot create an approval rule template with that name because a template with that name already exists in this Amazon Web Services Region for your Amazon Web Services account. Approval rule template names must be unique.</p>
+            aws_sdk_codecommit.errors.approval_rule_template_name_required_exception.ApprovalRuleTemplateNameRequiredException: <p>An approval rule template name is required, but was not specified.</p>
+            aws_sdk_codecommit.errors.invalid_approval_rule_template_name_exception.InvalidApprovalRuleTemplateNameException: <p>The name of the approval rule template is not valid. Template names must be between 1 and 100 valid characters in length. For more information about limits in CodeCommit, see <a href=\"https://docs.aws.amazon.com/codecommit/latest/userguide/limits.html\">Quotas</a> in the <i>CodeCommit User Guide</i>.</p>
+            aws_sdk_codecommit.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3862,6 +5071,16 @@ class AsyncCodeCommitClient:
         Args:
             comment_id: <p>The system-generated ID of the comment you want to update. To get this ID, use <a>GetCommentsForComparedCommit</a> or <a>GetCommentsForPullRequest</a>.</p>
             content: <p>The updated content to replace the existing content of the comment.</p>
+
+        Raises:
+            aws_sdk_codecommit.errors.comment_content_required_exception.CommentContentRequiredException: <p>The comment is empty. You must provide some content for a comment. The content cannot be null.</p>
+            aws_sdk_codecommit.errors.comment_content_size_limit_exceeded_exception.CommentContentSizeLimitExceededException: <p>The comment is too large. Comments are limited to 10,240 characters.</p>
+            aws_sdk_codecommit.errors.comment_deleted_exception.CommentDeletedException: <p>This comment has already been deleted. You cannot edit or delete a deleted comment.</p>
+            aws_sdk_codecommit.errors.comment_does_not_exist_exception.CommentDoesNotExistException: <p>No comment exists with the provided ID. Verify that you have used the correct ID, and then try again.</p>
+            aws_sdk_codecommit.errors.comment_id_required_exception.CommentIdRequiredException: <p>The comment ID is missing or null. A comment ID is required.</p>
+            aws_sdk_codecommit.errors.comment_not_created_by_caller_exception.CommentNotCreatedByCallerException: <p>You cannot modify or delete this comment. Only comment authors can modify or delete their comments.</p>
+            aws_sdk_codecommit.errors.invalid_comment_id_exception.InvalidCommentIdException: <p>The comment ID is not in a valid format. Make sure that you have provided the full comment ID.</p>
+            aws_sdk_codecommit.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3903,6 +5122,20 @@ class AsyncCodeCommitClient:
         Args:
             repository_name: <p>The name of the repository for which you want to set or change the default branch.</p>
             default_branch_name: <p>The name of the branch to set as the default branch.</p>
+
+        Raises:
+            aws_sdk_codecommit.errors.branch_does_not_exist_exception.BranchDoesNotExistException: <p>The specified branch does not exist.</p>
+            aws_sdk_codecommit.errors.branch_name_required_exception.BranchNameRequiredException: <p>A branch name is required, but was not specified.</p>
+            aws_sdk_codecommit.errors.encryption_integrity_checks_failed_exception.EncryptionIntegrityChecksFailedException: <p>An encryption integrity check failed.</p>
+            aws_sdk_codecommit.errors.encryption_key_access_denied_exception.EncryptionKeyAccessDeniedException: <p>An encryption key could not be accessed.</p>
+            aws_sdk_codecommit.errors.encryption_key_disabled_exception.EncryptionKeyDisabledException: <p>The encryption key is disabled.</p>
+            aws_sdk_codecommit.errors.encryption_key_not_found_exception.EncryptionKeyNotFoundException: <p>No encryption key was found.</p>
+            aws_sdk_codecommit.errors.encryption_key_unavailable_exception.EncryptionKeyUnavailableException: <p>The encryption key is not available.</p>
+            aws_sdk_codecommit.errors.invalid_branch_name_exception.InvalidBranchNameException: <p>The specified reference name is not valid.</p>
+            aws_sdk_codecommit.errors.invalid_repository_name_exception.InvalidRepositoryNameException: <p>A specified repository name is not valid.</p> <note> <p>This exception occurs only when a specified repository name is not valid. Other exceptions occur when a required repository parameter is missing, or when a specified repository does not exist.</p> </note>
+            aws_sdk_codecommit.errors.repository_does_not_exist_exception.RepositoryDoesNotExistException: <p>The specified repository does not exist.</p>
+            aws_sdk_codecommit.errors.repository_name_required_exception.RepositoryNameRequiredException: <p>A repository name is required, but was not specified.</p>
+            aws_sdk_codecommit.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3948,6 +5181,25 @@ class AsyncCodeCommitClient:
             approval_rule_name: <p>The name of the approval rule you want to update.</p>
             existing_rule_content_sha256: <p>The SHA-256 hash signature for the content of the approval rule. You can retrieve this information by using <a>GetPullRequest</a>.</p>
             new_rule_content: <p>The updated content for the approval rule.</p> <note> <p>When you update the content of the approval rule, you can specify approvers in an approval pool in one of two ways:</p> <ul> <li> <p> <b>CodeCommitApprovers</b>: This option only requires an Amazon Web Services account and a resource. It can be used for both IAM users and federated access users whose name matches the provided resource name. This is a very powerful option that offers a great deal of flexibility. For example, if you specify the Amazon Web Services account <i>123456789012</i> and <i>Mary_Major</i>, all of the following are counted as approvals coming from that user:</p> <ul> <li> <p>An IAM user in the account (arn:aws:iam::<i>123456789012</i>:user/<i>Mary_Major</i>)</p> </li> <li> <p>A federated user identified in IAM as Mary_Major (arn:aws:sts::<i>123456789012</i>:federated-user/<i>Mary_Major</i>)</p> </li> </ul> <p>This option does not recognize an active session of someone assuming the role of CodeCommitReview with a role session name of <i>Mary_Major</i> (arn:aws:sts::<i>123456789012</i>:assumed-role/CodeCommitReview/<i>Mary_Major</i>) unless you include a wildcard (*Mary_Major).</p> </li> <li> <p> <b>Fully qualified ARN</b>: This option allows you to specify the fully qualified Amazon Resource Name (ARN) of the IAM user or role. </p> </li> </ul> <p>For more information about IAM ARNs, wildcards, and formats, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html\">IAM Identifiers</a> in the <i>IAM User Guide</i>.</p> </note>
+
+        Raises:
+            aws_sdk_codecommit.errors.approval_rule_content_required_exception.ApprovalRuleContentRequiredException: <p>The content for the approval rule is empty. You must provide some content for an approval rule. The content cannot be null.</p>
+            aws_sdk_codecommit.errors.approval_rule_does_not_exist_exception.ApprovalRuleDoesNotExistException: <p>The specified approval rule does not exist.</p>
+            aws_sdk_codecommit.errors.approval_rule_name_required_exception.ApprovalRuleNameRequiredException: <p>An approval rule name is required, but was not specified.</p>
+            aws_sdk_codecommit.errors.cannot_modify_approval_rule_from_template_exception.CannotModifyApprovalRuleFromTemplateException: <p>The approval rule cannot be modified for the pull request because it was created by an approval rule template and applied to the pull request automatically.</p>
+            aws_sdk_codecommit.errors.encryption_integrity_checks_failed_exception.EncryptionIntegrityChecksFailedException: <p>An encryption integrity check failed.</p>
+            aws_sdk_codecommit.errors.encryption_key_access_denied_exception.EncryptionKeyAccessDeniedException: <p>An encryption key could not be accessed.</p>
+            aws_sdk_codecommit.errors.encryption_key_disabled_exception.EncryptionKeyDisabledException: <p>The encryption key is disabled.</p>
+            aws_sdk_codecommit.errors.encryption_key_not_found_exception.EncryptionKeyNotFoundException: <p>No encryption key was found.</p>
+            aws_sdk_codecommit.errors.encryption_key_unavailable_exception.EncryptionKeyUnavailableException: <p>The encryption key is not available.</p>
+            aws_sdk_codecommit.errors.invalid_approval_rule_content_exception.InvalidApprovalRuleContentException: <p>The content for the approval rule is not valid.</p>
+            aws_sdk_codecommit.errors.invalid_approval_rule_name_exception.InvalidApprovalRuleNameException: <p>The name for the approval rule is not valid.</p>
+            aws_sdk_codecommit.errors.invalid_pull_request_id_exception.InvalidPullRequestIdException: <p>The pull request ID is not valid. Make sure that you have provided the full ID and that the pull request is in the specified repository, and then try again.</p>
+            aws_sdk_codecommit.errors.invalid_rule_content_sha256_exception.InvalidRuleContentSha256Exception: <p>The SHA-256 hash signature for the rule content is not valid.</p>
+            aws_sdk_codecommit.errors.pull_request_already_closed_exception.PullRequestAlreadyClosedException: <p>The pull request status cannot be updated because it is already closed.</p>
+            aws_sdk_codecommit.errors.pull_request_does_not_exist_exception.PullRequestDoesNotExistException: <p>The pull request ID could not be found. Make sure that you have specified the correct repository name and pull request ID, and then try again.</p>
+            aws_sdk_codecommit.errors.pull_request_id_required_exception.PullRequestIdRequiredException: <p>A pull request ID is required, but none was provided.</p>
+            aws_sdk_codecommit.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3994,6 +5246,25 @@ class AsyncCodeCommitClient:
             pull_request_id: <p>The system-generated ID of the pull request.</p>
             revision_id: <p>The system-generated ID of the revision.</p>
             approval_state: <p>The approval state to associate with the user on the pull request.</p>
+
+        Raises:
+            aws_sdk_codecommit.errors.approval_state_required_exception.ApprovalStateRequiredException: <p>An approval state is required, but was not specified.</p>
+            aws_sdk_codecommit.errors.encryption_integrity_checks_failed_exception.EncryptionIntegrityChecksFailedException: <p>An encryption integrity check failed.</p>
+            aws_sdk_codecommit.errors.encryption_key_access_denied_exception.EncryptionKeyAccessDeniedException: <p>An encryption key could not be accessed.</p>
+            aws_sdk_codecommit.errors.encryption_key_disabled_exception.EncryptionKeyDisabledException: <p>The encryption key is disabled.</p>
+            aws_sdk_codecommit.errors.encryption_key_not_found_exception.EncryptionKeyNotFoundException: <p>No encryption key was found.</p>
+            aws_sdk_codecommit.errors.encryption_key_unavailable_exception.EncryptionKeyUnavailableException: <p>The encryption key is not available.</p>
+            aws_sdk_codecommit.errors.invalid_approval_state_exception.InvalidApprovalStateException: <p>The state for the approval is not valid. Valid values include APPROVE and REVOKE. </p>
+            aws_sdk_codecommit.errors.invalid_pull_request_id_exception.InvalidPullRequestIdException: <p>The pull request ID is not valid. Make sure that you have provided the full ID and that the pull request is in the specified repository, and then try again.</p>
+            aws_sdk_codecommit.errors.invalid_revision_id_exception.InvalidRevisionIdException: <p>The revision ID is not valid. Use GetPullRequest to determine the value.</p>
+            aws_sdk_codecommit.errors.maximum_number_of_approvals_exceeded_exception.MaximumNumberOfApprovalsExceededException: <p>The number of approvals required for the approval rule exceeds the maximum number allowed.</p>
+            aws_sdk_codecommit.errors.pull_request_already_closed_exception.PullRequestAlreadyClosedException: <p>The pull request status cannot be updated because it is already closed.</p>
+            aws_sdk_codecommit.errors.pull_request_cannot_be_approved_by_author_exception.PullRequestCannotBeApprovedByAuthorException: <p>The approval cannot be applied because the user approving the pull request matches the user who created the pull request. You cannot approve a pull request that you created.</p>
+            aws_sdk_codecommit.errors.pull_request_does_not_exist_exception.PullRequestDoesNotExistException: <p>The pull request ID could not be found. Make sure that you have specified the correct repository name and pull request ID, and then try again.</p>
+            aws_sdk_codecommit.errors.pull_request_id_required_exception.PullRequestIdRequiredException: <p>A pull request ID is required, but none was provided.</p>
+            aws_sdk_codecommit.errors.revision_id_required_exception.RevisionIdRequiredException: <p>A revision ID is required, but was not provided.</p>
+            aws_sdk_codecommit.errors.revision_not_current_exception.RevisionNotCurrentException: <p>The revision ID provided in the request does not match the current revision ID. Use GetPullRequest to retrieve the current revision ID.</p>
+            aws_sdk_codecommit.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4034,6 +5305,14 @@ class AsyncCodeCommitClient:
         Args:
             pull_request_id: <p>The system-generated ID of the pull request. To get this ID, use <a>ListPullRequests</a>.</p>
             description: <p>The updated content of the description for the pull request. This content replaces the existing description.</p>
+
+        Raises:
+            aws_sdk_codecommit.errors.invalid_description_exception.InvalidDescriptionException: <p>The pull request description is not valid. Descriptions cannot be more than 1,000 characters.</p>
+            aws_sdk_codecommit.errors.invalid_pull_request_id_exception.InvalidPullRequestIdException: <p>The pull request ID is not valid. Make sure that you have provided the full ID and that the pull request is in the specified repository, and then try again.</p>
+            aws_sdk_codecommit.errors.pull_request_already_closed_exception.PullRequestAlreadyClosedException: <p>The pull request status cannot be updated because it is already closed.</p>
+            aws_sdk_codecommit.errors.pull_request_does_not_exist_exception.PullRequestDoesNotExistException: <p>The pull request ID could not be found. Make sure that you have specified the correct repository name and pull request ID, and then try again.</p>
+            aws_sdk_codecommit.errors.pull_request_id_required_exception.PullRequestIdRequiredException: <p>A pull request ID is required, but none was provided.</p>
+            aws_sdk_codecommit.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4075,6 +5354,20 @@ class AsyncCodeCommitClient:
         Args:
             pull_request_id: <p>The system-generated ID of the pull request. To get this ID, use <a>ListPullRequests</a>.</p>
             pull_request_status: <p>The status of the pull request. The only valid operations are to update the status from <code>OPEN</code> to <code>OPEN</code>, <code>OPEN</code> to <code>CLOSED</code> or from <code>CLOSED</code> to <code>CLOSED</code>.</p>
+
+        Raises:
+            aws_sdk_codecommit.errors.encryption_integrity_checks_failed_exception.EncryptionIntegrityChecksFailedException: <p>An encryption integrity check failed.</p>
+            aws_sdk_codecommit.errors.encryption_key_access_denied_exception.EncryptionKeyAccessDeniedException: <p>An encryption key could not be accessed.</p>
+            aws_sdk_codecommit.errors.encryption_key_disabled_exception.EncryptionKeyDisabledException: <p>The encryption key is disabled.</p>
+            aws_sdk_codecommit.errors.encryption_key_not_found_exception.EncryptionKeyNotFoundException: <p>No encryption key was found.</p>
+            aws_sdk_codecommit.errors.encryption_key_unavailable_exception.EncryptionKeyUnavailableException: <p>The encryption key is not available.</p>
+            aws_sdk_codecommit.errors.invalid_pull_request_id_exception.InvalidPullRequestIdException: <p>The pull request ID is not valid. Make sure that you have provided the full ID and that the pull request is in the specified repository, and then try again.</p>
+            aws_sdk_codecommit.errors.invalid_pull_request_status_exception.InvalidPullRequestStatusException: <p>The pull request status is not valid. The only valid values are <code>OPEN</code> and <code>CLOSED</code>.</p>
+            aws_sdk_codecommit.errors.invalid_pull_request_status_update_exception.InvalidPullRequestStatusUpdateException: <p>The pull request status update is not valid. The only valid update is from <code>OPEN</code> to <code>CLOSED</code>.</p>
+            aws_sdk_codecommit.errors.pull_request_does_not_exist_exception.PullRequestDoesNotExistException: <p>The pull request ID could not be found. Make sure that you have specified the correct repository name and pull request ID, and then try again.</p>
+            aws_sdk_codecommit.errors.pull_request_id_required_exception.PullRequestIdRequiredException: <p>A pull request ID is required, but none was provided.</p>
+            aws_sdk_codecommit.errors.pull_request_status_required_exception.PullRequestStatusRequiredException: <p>A pull request status is required, but none was provided.</p>
+            aws_sdk_codecommit.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4116,6 +5409,15 @@ class AsyncCodeCommitClient:
         Args:
             pull_request_id: <p>The system-generated ID of the pull request. To get this ID, use <a>ListPullRequests</a>.</p>
             title: <p>The updated title of the pull request. This replaces the existing title.</p>
+
+        Raises:
+            aws_sdk_codecommit.errors.invalid_pull_request_id_exception.InvalidPullRequestIdException: <p>The pull request ID is not valid. Make sure that you have provided the full ID and that the pull request is in the specified repository, and then try again.</p>
+            aws_sdk_codecommit.errors.invalid_title_exception.InvalidTitleException: <p>The title of the pull request is not valid. Pull request titles cannot exceed 100 characters in length.</p>
+            aws_sdk_codecommit.errors.pull_request_already_closed_exception.PullRequestAlreadyClosedException: <p>The pull request status cannot be updated because it is already closed.</p>
+            aws_sdk_codecommit.errors.pull_request_does_not_exist_exception.PullRequestDoesNotExistException: <p>The pull request ID could not be found. Make sure that you have specified the correct repository name and pull request ID, and then try again.</p>
+            aws_sdk_codecommit.errors.pull_request_id_required_exception.PullRequestIdRequiredException: <p>A pull request ID is required, but none was provided.</p>
+            aws_sdk_codecommit.errors.title_required_exception.TitleRequiredException: <p>A pull request title is required. It cannot be empty or null.</p>
+            aws_sdk_codecommit.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4159,6 +5461,18 @@ class AsyncCodeCommitClient:
         Args:
             repository_name: <p>The name of the repository to set or change the comment or description for.</p>
             repository_description: <p>The new comment or description for the specified repository. Repository descriptions are limited to 1,000 characters.</p>
+
+        Raises:
+            aws_sdk_codecommit.errors.encryption_integrity_checks_failed_exception.EncryptionIntegrityChecksFailedException: <p>An encryption integrity check failed.</p>
+            aws_sdk_codecommit.errors.encryption_key_access_denied_exception.EncryptionKeyAccessDeniedException: <p>An encryption key could not be accessed.</p>
+            aws_sdk_codecommit.errors.encryption_key_disabled_exception.EncryptionKeyDisabledException: <p>The encryption key is disabled.</p>
+            aws_sdk_codecommit.errors.encryption_key_not_found_exception.EncryptionKeyNotFoundException: <p>No encryption key was found.</p>
+            aws_sdk_codecommit.errors.encryption_key_unavailable_exception.EncryptionKeyUnavailableException: <p>The encryption key is not available.</p>
+            aws_sdk_codecommit.errors.invalid_repository_description_exception.InvalidRepositoryDescriptionException: <p>The specified repository description is not valid.</p>
+            aws_sdk_codecommit.errors.invalid_repository_name_exception.InvalidRepositoryNameException: <p>A specified repository name is not valid.</p> <note> <p>This exception occurs only when a specified repository name is not valid. Other exceptions occur when a required repository parameter is missing, or when a specified repository does not exist.</p> </note>
+            aws_sdk_codecommit.errors.repository_does_not_exist_exception.RepositoryDoesNotExistException: <p>The specified repository does not exist.</p>
+            aws_sdk_codecommit.errors.repository_name_required_exception.RepositoryNameRequiredException: <p>A repository name is required, but was not specified.</p>
+            aws_sdk_codecommit.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4199,6 +5513,20 @@ class AsyncCodeCommitClient:
         Args:
             repository_name: <p>The name of the repository for which you want to update the KMS encryption key used to encrypt and decrypt the repository.</p>
             kms_key_id: <p>The ID of the encryption key. You can view the ID of an encryption key in the KMS console, or use the KMS APIs to programmatically retrieve a key ID. For more information about acceptable values for keyID, see <a href=\"https://docs.aws.amazon.com/kms/latest/APIReference/API_Decrypt.html#KMS-Decrypt-request-KeyId\">KeyId</a> in the Decrypt API description in the <i>Key Management Service API Reference</i>.</p>
+
+        Raises:
+            aws_sdk_codecommit.errors.encryption_integrity_checks_failed_exception.EncryptionIntegrityChecksFailedException: <p>An encryption integrity check failed.</p>
+            aws_sdk_codecommit.errors.encryption_key_access_denied_exception.EncryptionKeyAccessDeniedException: <p>An encryption key could not be accessed.</p>
+            aws_sdk_codecommit.errors.encryption_key_disabled_exception.EncryptionKeyDisabledException: <p>The encryption key is disabled.</p>
+            aws_sdk_codecommit.errors.encryption_key_invalid_id_exception.EncryptionKeyInvalidIdException: <p>The Key Management Service encryption key is not valid.</p>
+            aws_sdk_codecommit.errors.encryption_key_invalid_usage_exception.EncryptionKeyInvalidUsageException: <p>A KMS encryption key was used to try and encrypt or decrypt a repository, but either the repository or the key was not in a valid state to support the operation.</p>
+            aws_sdk_codecommit.errors.encryption_key_not_found_exception.EncryptionKeyNotFoundException: <p>No encryption key was found.</p>
+            aws_sdk_codecommit.errors.encryption_key_required_exception.EncryptionKeyRequiredException: <p>A KMS encryption key ID is required but was not specified.</p>
+            aws_sdk_codecommit.errors.encryption_key_unavailable_exception.EncryptionKeyUnavailableException: <p>The encryption key is not available.</p>
+            aws_sdk_codecommit.errors.invalid_repository_name_exception.InvalidRepositoryNameException: <p>A specified repository name is not valid.</p> <note> <p>This exception occurs only when a specified repository name is not valid. Other exceptions occur when a required repository parameter is missing, or when a specified repository does not exist.</p> </note>
+            aws_sdk_codecommit.errors.repository_does_not_exist_exception.RepositoryDoesNotExistException: <p>The specified repository does not exist.</p>
+            aws_sdk_codecommit.errors.repository_name_required_exception.RepositoryNameRequiredException: <p>A repository name is required, but was not specified.</p>
+            aws_sdk_codecommit.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4240,6 +5568,13 @@ class AsyncCodeCommitClient:
         Args:
             old_name: <p>The current name of the repository.</p>
             new_name: <p>The new name for the repository.</p>
+
+        Raises:
+            aws_sdk_codecommit.errors.invalid_repository_name_exception.InvalidRepositoryNameException: <p>A specified repository name is not valid.</p> <note> <p>This exception occurs only when a specified repository name is not valid. Other exceptions occur when a required repository parameter is missing, or when a specified repository does not exist.</p> </note>
+            aws_sdk_codecommit.errors.repository_does_not_exist_exception.RepositoryDoesNotExistException: <p>The specified repository does not exist.</p>
+            aws_sdk_codecommit.errors.repository_name_exists_exception.RepositoryNameExistsException: <p>The specified repository name already exists.</p>
+            aws_sdk_codecommit.errors.repository_name_required_exception.RepositoryNameRequiredException: <p>A repository name is required, but was not specified.</p>
+            aws_sdk_codecommit.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

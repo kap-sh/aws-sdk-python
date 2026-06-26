@@ -96,6 +96,16 @@ class RouterInputResource:
             maintenance_configuration: <p>The maintenance configuration settings for the router input, including preferred maintenance windows and schedules.</p>
             tags: <p>Key-value pairs that can be used to tag and organize this router input.</p>
             client_token: <p>A unique identifier for the request to ensure idempotency.</p>
+
+        Raises:
+            aws_sdk_mediaconnect.errors.bad_request_exception.BadRequestException: <p>This exception is thrown if the request contains a semantic error. The precise meaning depends on the API, and is documented in the error message. </p>
+            aws_sdk_mediaconnect.errors.conflict_exception.ConflictException: <p>The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request. </p>
+            aws_sdk_mediaconnect.errors.forbidden_exception.ForbiddenException: <p>You do not have sufficient access to perform this action. </p>
+            aws_sdk_mediaconnect.errors.internal_server_error_exception.InternalServerErrorException: <p>The server encountered an internal error and is unable to complete the request. </p>
+            aws_sdk_mediaconnect.errors.router_input_service_quota_exceeded_exception.RouterInputServiceQuotaExceededException: <p>The request to create a new router input would exceed the service quotas for the account. </p>
+            aws_sdk_mediaconnect.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable or busy. </p>
+            aws_sdk_mediaconnect.errors.too_many_requests_exception.TooManyRequestsException: <p>The request was denied due to request throttling. </p>
+            aws_sdk_mediaconnect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -149,6 +159,16 @@ class RouterInputResource:
 
         Args:
             arn: <p>The Amazon Resource Name (ARN) of the router input to retrieve information about.</p>
+
+        Raises:
+            aws_sdk_mediaconnect.errors.bad_request_exception.BadRequestException: <p>This exception is thrown if the request contains a semantic error. The precise meaning depends on the API, and is documented in the error message. </p>
+            aws_sdk_mediaconnect.errors.conflict_exception.ConflictException: <p>The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request. </p>
+            aws_sdk_mediaconnect.errors.forbidden_exception.ForbiddenException: <p>You do not have sufficient access to perform this action. </p>
+            aws_sdk_mediaconnect.errors.internal_server_error_exception.InternalServerErrorException: <p>The server encountered an internal error and is unable to complete the request. </p>
+            aws_sdk_mediaconnect.errors.not_found_exception.NotFoundException: <p>One or more of the resources in the request does not exist in the system. </p>
+            aws_sdk_mediaconnect.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable or busy. </p>
+            aws_sdk_mediaconnect.errors.too_many_requests_exception.TooManyRequestsException: <p>The request was denied due to request throttling. </p>
+            aws_sdk_mediaconnect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -210,6 +230,16 @@ class RouterInputResource:
             tier: <p>The updated tier level for the router input.</p>
             transit_encryption: <p>The updated transit encryption settings for the router input.</p>
             maintenance_configuration: <p>The updated maintenance configuration settings for the router input, including any changes to preferred maintenance windows and schedules.</p>
+
+        Raises:
+            aws_sdk_mediaconnect.errors.bad_request_exception.BadRequestException: <p>This exception is thrown if the request contains a semantic error. The precise meaning depends on the API, and is documented in the error message. </p>
+            aws_sdk_mediaconnect.errors.conflict_exception.ConflictException: <p>The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request. </p>
+            aws_sdk_mediaconnect.errors.forbidden_exception.ForbiddenException: <p>You do not have sufficient access to perform this action. </p>
+            aws_sdk_mediaconnect.errors.internal_server_error_exception.InternalServerErrorException: <p>The server encountered an internal error and is unable to complete the request. </p>
+            aws_sdk_mediaconnect.errors.not_found_exception.NotFoundException: <p>One or more of the resources in the request does not exist in the system. </p>
+            aws_sdk_mediaconnect.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable or busy. </p>
+            aws_sdk_mediaconnect.errors.too_many_requests_exception.TooManyRequestsException: <p>The request was denied due to request throttling. </p>
+            aws_sdk_mediaconnect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -261,6 +291,16 @@ class RouterInputResource:
 
         Args:
             arn: <p>The Amazon Resource Name (ARN) of the router input that you want to delete.</p>
+
+        Raises:
+            aws_sdk_mediaconnect.errors.bad_request_exception.BadRequestException: <p>This exception is thrown if the request contains a semantic error. The precise meaning depends on the API, and is documented in the error message. </p>
+            aws_sdk_mediaconnect.errors.conflict_exception.ConflictException: <p>The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request. </p>
+            aws_sdk_mediaconnect.errors.forbidden_exception.ForbiddenException: <p>You do not have sufficient access to perform this action. </p>
+            aws_sdk_mediaconnect.errors.internal_server_error_exception.InternalServerErrorException: <p>The server encountered an internal error and is unable to complete the request. </p>
+            aws_sdk_mediaconnect.errors.not_found_exception.NotFoundException: <p>One or more of the resources in the request does not exist in the system. </p>
+            aws_sdk_mediaconnect.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable or busy. </p>
+            aws_sdk_mediaconnect.errors.too_many_requests_exception.TooManyRequestsException: <p>The request was denied due to request throttling. </p>
+            aws_sdk_mediaconnect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -304,6 +344,14 @@ class RouterInputResource:
             max_results: <p>The maximum number of router inputs to return in the response.</p>
             next_token: <p>A token used to retrieve the next page of results.</p>
             filters: <p>The filters to apply when retrieving the list of router inputs.</p>
+
+        Raises:
+            aws_sdk_mediaconnect.errors.bad_request_exception.BadRequestException: <p>This exception is thrown if the request contains a semantic error. The precise meaning depends on the API, and is documented in the error message. </p>
+            aws_sdk_mediaconnect.errors.conflict_exception.ConflictException: <p>The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request. </p>
+            aws_sdk_mediaconnect.errors.internal_server_error_exception.InternalServerErrorException: <p>The server encountered an internal error and is unable to complete the request. </p>
+            aws_sdk_mediaconnect.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable or busy. </p>
+            aws_sdk_mediaconnect.errors.too_many_requests_exception.TooManyRequestsException: <p>The request was denied due to request throttling. </p>
+            aws_sdk_mediaconnect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -346,6 +394,15 @@ class RouterInputResource:
 
         Args:
             arn: <p>The Amazon Resource Name (ARN) of the router input to retrieve metadata for.</p>
+
+        Raises:
+            aws_sdk_mediaconnect.errors.bad_request_exception.BadRequestException: <p>This exception is thrown if the request contains a semantic error. The precise meaning depends on the API, and is documented in the error message. </p>
+            aws_sdk_mediaconnect.errors.forbidden_exception.ForbiddenException: <p>You do not have sufficient access to perform this action. </p>
+            aws_sdk_mediaconnect.errors.internal_server_error_exception.InternalServerErrorException: <p>The server encountered an internal error and is unable to complete the request. </p>
+            aws_sdk_mediaconnect.errors.not_found_exception.NotFoundException: <p>One or more of the resources in the request does not exist in the system. </p>
+            aws_sdk_mediaconnect.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable or busy. </p>
+            aws_sdk_mediaconnect.errors.too_many_requests_exception.TooManyRequestsException: <p>The request was denied due to request throttling. </p>
+            aws_sdk_mediaconnect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -383,6 +440,15 @@ class RouterInputResource:
 
         Args:
             arn: <p>The Amazon Resource Name (ARN) of the router input that you want to see a thumbnail of.</p>
+
+        Raises:
+            aws_sdk_mediaconnect.errors.bad_request_exception.BadRequestException: <p>This exception is thrown if the request contains a semantic error. The precise meaning depends on the API, and is documented in the error message. </p>
+            aws_sdk_mediaconnect.errors.forbidden_exception.ForbiddenException: <p>You do not have sufficient access to perform this action. </p>
+            aws_sdk_mediaconnect.errors.internal_server_error_exception.InternalServerErrorException: <p>The server encountered an internal error and is unable to complete the request. </p>
+            aws_sdk_mediaconnect.errors.not_found_exception.NotFoundException: <p>One or more of the resources in the request does not exist in the system. </p>
+            aws_sdk_mediaconnect.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable or busy. </p>
+            aws_sdk_mediaconnect.errors.too_many_requests_exception.TooManyRequestsException: <p>The request was denied due to request throttling. </p>
+            aws_sdk_mediaconnect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -420,6 +486,16 @@ class RouterInputResource:
 
         Args:
             arn: <p>The Amazon Resource Name (ARN) of the router input that you want to restart.</p>
+
+        Raises:
+            aws_sdk_mediaconnect.errors.bad_request_exception.BadRequestException: <p>This exception is thrown if the request contains a semantic error. The precise meaning depends on the API, and is documented in the error message. </p>
+            aws_sdk_mediaconnect.errors.conflict_exception.ConflictException: <p>The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request. </p>
+            aws_sdk_mediaconnect.errors.forbidden_exception.ForbiddenException: <p>You do not have sufficient access to perform this action. </p>
+            aws_sdk_mediaconnect.errors.internal_server_error_exception.InternalServerErrorException: <p>The server encountered an internal error and is unable to complete the request. </p>
+            aws_sdk_mediaconnect.errors.not_found_exception.NotFoundException: <p>One or more of the resources in the request does not exist in the system. </p>
+            aws_sdk_mediaconnect.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable or busy. </p>
+            aws_sdk_mediaconnect.errors.too_many_requests_exception.TooManyRequestsException: <p>The request was denied due to request throttling. </p>
+            aws_sdk_mediaconnect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -457,6 +533,16 @@ class RouterInputResource:
 
         Args:
             arn: <p>The Amazon Resource Name (ARN) of the router input that you want to start.</p>
+
+        Raises:
+            aws_sdk_mediaconnect.errors.bad_request_exception.BadRequestException: <p>This exception is thrown if the request contains a semantic error. The precise meaning depends on the API, and is documented in the error message. </p>
+            aws_sdk_mediaconnect.errors.conflict_exception.ConflictException: <p>The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request. </p>
+            aws_sdk_mediaconnect.errors.forbidden_exception.ForbiddenException: <p>You do not have sufficient access to perform this action. </p>
+            aws_sdk_mediaconnect.errors.internal_server_error_exception.InternalServerErrorException: <p>The server encountered an internal error and is unable to complete the request. </p>
+            aws_sdk_mediaconnect.errors.not_found_exception.NotFoundException: <p>One or more of the resources in the request does not exist in the system. </p>
+            aws_sdk_mediaconnect.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable or busy. </p>
+            aws_sdk_mediaconnect.errors.too_many_requests_exception.TooManyRequestsException: <p>The request was denied due to request throttling. </p>
+            aws_sdk_mediaconnect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -496,6 +582,16 @@ class RouterInputResource:
 
         Args:
             arn: <p>The Amazon Resource Name (ARN) of the router input that you want to stop.</p>
+
+        Raises:
+            aws_sdk_mediaconnect.errors.bad_request_exception.BadRequestException: <p>This exception is thrown if the request contains a semantic error. The precise meaning depends on the API, and is documented in the error message. </p>
+            aws_sdk_mediaconnect.errors.conflict_exception.ConflictException: <p>The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request. </p>
+            aws_sdk_mediaconnect.errors.forbidden_exception.ForbiddenException: <p>You do not have sufficient access to perform this action. </p>
+            aws_sdk_mediaconnect.errors.internal_server_error_exception.InternalServerErrorException: <p>The server encountered an internal error and is unable to complete the request. </p>
+            aws_sdk_mediaconnect.errors.not_found_exception.NotFoundException: <p>One or more of the resources in the request does not exist in the system. </p>
+            aws_sdk_mediaconnect.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable or busy. </p>
+            aws_sdk_mediaconnect.errors.too_many_requests_exception.TooManyRequestsException: <p>The request was denied due to request throttling. </p>
+            aws_sdk_mediaconnect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -533,6 +629,14 @@ class RouterInputResource:
 
         Args:
             arns: <p>The Amazon Resource Names (ARNs) of the router inputs you want to retrieve information about.</p>
+
+        Raises:
+            aws_sdk_mediaconnect.errors.bad_request_exception.BadRequestException: <p>This exception is thrown if the request contains a semantic error. The precise meaning depends on the API, and is documented in the error message. </p>
+            aws_sdk_mediaconnect.errors.conflict_exception.ConflictException: <p>The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request. </p>
+            aws_sdk_mediaconnect.errors.internal_server_error_exception.InternalServerErrorException: <p>The server encountered an internal error and is unable to complete the request. </p>
+            aws_sdk_mediaconnect.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable or busy. </p>
+            aws_sdk_mediaconnect.errors.too_many_requests_exception.TooManyRequestsException: <p>The request was denied due to request throttling. </p>
+            aws_sdk_mediaconnect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -601,6 +705,16 @@ class AsyncRouterInputResource:
             maintenance_configuration: <p>The maintenance configuration settings for the router input, including preferred maintenance windows and schedules.</p>
             tags: <p>Key-value pairs that can be used to tag and organize this router input.</p>
             client_token: <p>A unique identifier for the request to ensure idempotency.</p>
+
+        Raises:
+            aws_sdk_mediaconnect.errors.bad_request_exception.BadRequestException: <p>This exception is thrown if the request contains a semantic error. The precise meaning depends on the API, and is documented in the error message. </p>
+            aws_sdk_mediaconnect.errors.conflict_exception.ConflictException: <p>The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request. </p>
+            aws_sdk_mediaconnect.errors.forbidden_exception.ForbiddenException: <p>You do not have sufficient access to perform this action. </p>
+            aws_sdk_mediaconnect.errors.internal_server_error_exception.InternalServerErrorException: <p>The server encountered an internal error and is unable to complete the request. </p>
+            aws_sdk_mediaconnect.errors.router_input_service_quota_exceeded_exception.RouterInputServiceQuotaExceededException: <p>The request to create a new router input would exceed the service quotas for the account. </p>
+            aws_sdk_mediaconnect.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable or busy. </p>
+            aws_sdk_mediaconnect.errors.too_many_requests_exception.TooManyRequestsException: <p>The request was denied due to request throttling. </p>
+            aws_sdk_mediaconnect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -655,6 +769,16 @@ class AsyncRouterInputResource:
 
         Args:
             arn: <p>The Amazon Resource Name (ARN) of the router input to retrieve information about.</p>
+
+        Raises:
+            aws_sdk_mediaconnect.errors.bad_request_exception.BadRequestException: <p>This exception is thrown if the request contains a semantic error. The precise meaning depends on the API, and is documented in the error message. </p>
+            aws_sdk_mediaconnect.errors.conflict_exception.ConflictException: <p>The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request. </p>
+            aws_sdk_mediaconnect.errors.forbidden_exception.ForbiddenException: <p>You do not have sufficient access to perform this action. </p>
+            aws_sdk_mediaconnect.errors.internal_server_error_exception.InternalServerErrorException: <p>The server encountered an internal error and is unable to complete the request. </p>
+            aws_sdk_mediaconnect.errors.not_found_exception.NotFoundException: <p>One or more of the resources in the request does not exist in the system. </p>
+            aws_sdk_mediaconnect.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable or busy. </p>
+            aws_sdk_mediaconnect.errors.too_many_requests_exception.TooManyRequestsException: <p>The request was denied due to request throttling. </p>
+            aws_sdk_mediaconnect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -717,6 +841,16 @@ class AsyncRouterInputResource:
             tier: <p>The updated tier level for the router input.</p>
             transit_encryption: <p>The updated transit encryption settings for the router input.</p>
             maintenance_configuration: <p>The updated maintenance configuration settings for the router input, including any changes to preferred maintenance windows and schedules.</p>
+
+        Raises:
+            aws_sdk_mediaconnect.errors.bad_request_exception.BadRequestException: <p>This exception is thrown if the request contains a semantic error. The precise meaning depends on the API, and is documented in the error message. </p>
+            aws_sdk_mediaconnect.errors.conflict_exception.ConflictException: <p>The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request. </p>
+            aws_sdk_mediaconnect.errors.forbidden_exception.ForbiddenException: <p>You do not have sufficient access to perform this action. </p>
+            aws_sdk_mediaconnect.errors.internal_server_error_exception.InternalServerErrorException: <p>The server encountered an internal error and is unable to complete the request. </p>
+            aws_sdk_mediaconnect.errors.not_found_exception.NotFoundException: <p>One or more of the resources in the request does not exist in the system. </p>
+            aws_sdk_mediaconnect.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable or busy. </p>
+            aws_sdk_mediaconnect.errors.too_many_requests_exception.TooManyRequestsException: <p>The request was denied due to request throttling. </p>
+            aws_sdk_mediaconnect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -769,6 +903,16 @@ class AsyncRouterInputResource:
 
         Args:
             arn: <p>The Amazon Resource Name (ARN) of the router input that you want to delete.</p>
+
+        Raises:
+            aws_sdk_mediaconnect.errors.bad_request_exception.BadRequestException: <p>This exception is thrown if the request contains a semantic error. The precise meaning depends on the API, and is documented in the error message. </p>
+            aws_sdk_mediaconnect.errors.conflict_exception.ConflictException: <p>The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request. </p>
+            aws_sdk_mediaconnect.errors.forbidden_exception.ForbiddenException: <p>You do not have sufficient access to perform this action. </p>
+            aws_sdk_mediaconnect.errors.internal_server_error_exception.InternalServerErrorException: <p>The server encountered an internal error and is unable to complete the request. </p>
+            aws_sdk_mediaconnect.errors.not_found_exception.NotFoundException: <p>One or more of the resources in the request does not exist in the system. </p>
+            aws_sdk_mediaconnect.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable or busy. </p>
+            aws_sdk_mediaconnect.errors.too_many_requests_exception.TooManyRequestsException: <p>The request was denied due to request throttling. </p>
+            aws_sdk_mediaconnect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -813,6 +957,14 @@ class AsyncRouterInputResource:
             max_results: <p>The maximum number of router inputs to return in the response.</p>
             next_token: <p>A token used to retrieve the next page of results.</p>
             filters: <p>The filters to apply when retrieving the list of router inputs.</p>
+
+        Raises:
+            aws_sdk_mediaconnect.errors.bad_request_exception.BadRequestException: <p>This exception is thrown if the request contains a semantic error. The precise meaning depends on the API, and is documented in the error message. </p>
+            aws_sdk_mediaconnect.errors.conflict_exception.ConflictException: <p>The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request. </p>
+            aws_sdk_mediaconnect.errors.internal_server_error_exception.InternalServerErrorException: <p>The server encountered an internal error and is unable to complete the request. </p>
+            aws_sdk_mediaconnect.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable or busy. </p>
+            aws_sdk_mediaconnect.errors.too_many_requests_exception.TooManyRequestsException: <p>The request was denied due to request throttling. </p>
+            aws_sdk_mediaconnect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -856,6 +1008,15 @@ class AsyncRouterInputResource:
 
         Args:
             arn: <p>The Amazon Resource Name (ARN) of the router input to retrieve metadata for.</p>
+
+        Raises:
+            aws_sdk_mediaconnect.errors.bad_request_exception.BadRequestException: <p>This exception is thrown if the request contains a semantic error. The precise meaning depends on the API, and is documented in the error message. </p>
+            aws_sdk_mediaconnect.errors.forbidden_exception.ForbiddenException: <p>You do not have sufficient access to perform this action. </p>
+            aws_sdk_mediaconnect.errors.internal_server_error_exception.InternalServerErrorException: <p>The server encountered an internal error and is unable to complete the request. </p>
+            aws_sdk_mediaconnect.errors.not_found_exception.NotFoundException: <p>One or more of the resources in the request does not exist in the system. </p>
+            aws_sdk_mediaconnect.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable or busy. </p>
+            aws_sdk_mediaconnect.errors.too_many_requests_exception.TooManyRequestsException: <p>The request was denied due to request throttling. </p>
+            aws_sdk_mediaconnect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -894,6 +1055,15 @@ class AsyncRouterInputResource:
 
         Args:
             arn: <p>The Amazon Resource Name (ARN) of the router input that you want to see a thumbnail of.</p>
+
+        Raises:
+            aws_sdk_mediaconnect.errors.bad_request_exception.BadRequestException: <p>This exception is thrown if the request contains a semantic error. The precise meaning depends on the API, and is documented in the error message. </p>
+            aws_sdk_mediaconnect.errors.forbidden_exception.ForbiddenException: <p>You do not have sufficient access to perform this action. </p>
+            aws_sdk_mediaconnect.errors.internal_server_error_exception.InternalServerErrorException: <p>The server encountered an internal error and is unable to complete the request. </p>
+            aws_sdk_mediaconnect.errors.not_found_exception.NotFoundException: <p>One or more of the resources in the request does not exist in the system. </p>
+            aws_sdk_mediaconnect.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable or busy. </p>
+            aws_sdk_mediaconnect.errors.too_many_requests_exception.TooManyRequestsException: <p>The request was denied due to request throttling. </p>
+            aws_sdk_mediaconnect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -932,6 +1102,16 @@ class AsyncRouterInputResource:
 
         Args:
             arn: <p>The Amazon Resource Name (ARN) of the router input that you want to restart.</p>
+
+        Raises:
+            aws_sdk_mediaconnect.errors.bad_request_exception.BadRequestException: <p>This exception is thrown if the request contains a semantic error. The precise meaning depends on the API, and is documented in the error message. </p>
+            aws_sdk_mediaconnect.errors.conflict_exception.ConflictException: <p>The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request. </p>
+            aws_sdk_mediaconnect.errors.forbidden_exception.ForbiddenException: <p>You do not have sufficient access to perform this action. </p>
+            aws_sdk_mediaconnect.errors.internal_server_error_exception.InternalServerErrorException: <p>The server encountered an internal error and is unable to complete the request. </p>
+            aws_sdk_mediaconnect.errors.not_found_exception.NotFoundException: <p>One or more of the resources in the request does not exist in the system. </p>
+            aws_sdk_mediaconnect.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable or busy. </p>
+            aws_sdk_mediaconnect.errors.too_many_requests_exception.TooManyRequestsException: <p>The request was denied due to request throttling. </p>
+            aws_sdk_mediaconnect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -970,6 +1150,16 @@ class AsyncRouterInputResource:
 
         Args:
             arn: <p>The Amazon Resource Name (ARN) of the router input that you want to start.</p>
+
+        Raises:
+            aws_sdk_mediaconnect.errors.bad_request_exception.BadRequestException: <p>This exception is thrown if the request contains a semantic error. The precise meaning depends on the API, and is documented in the error message. </p>
+            aws_sdk_mediaconnect.errors.conflict_exception.ConflictException: <p>The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request. </p>
+            aws_sdk_mediaconnect.errors.forbidden_exception.ForbiddenException: <p>You do not have sufficient access to perform this action. </p>
+            aws_sdk_mediaconnect.errors.internal_server_error_exception.InternalServerErrorException: <p>The server encountered an internal error and is unable to complete the request. </p>
+            aws_sdk_mediaconnect.errors.not_found_exception.NotFoundException: <p>One or more of the resources in the request does not exist in the system. </p>
+            aws_sdk_mediaconnect.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable or busy. </p>
+            aws_sdk_mediaconnect.errors.too_many_requests_exception.TooManyRequestsException: <p>The request was denied due to request throttling. </p>
+            aws_sdk_mediaconnect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1010,6 +1200,16 @@ class AsyncRouterInputResource:
 
         Args:
             arn: <p>The Amazon Resource Name (ARN) of the router input that you want to stop.</p>
+
+        Raises:
+            aws_sdk_mediaconnect.errors.bad_request_exception.BadRequestException: <p>This exception is thrown if the request contains a semantic error. The precise meaning depends on the API, and is documented in the error message. </p>
+            aws_sdk_mediaconnect.errors.conflict_exception.ConflictException: <p>The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request. </p>
+            aws_sdk_mediaconnect.errors.forbidden_exception.ForbiddenException: <p>You do not have sufficient access to perform this action. </p>
+            aws_sdk_mediaconnect.errors.internal_server_error_exception.InternalServerErrorException: <p>The server encountered an internal error and is unable to complete the request. </p>
+            aws_sdk_mediaconnect.errors.not_found_exception.NotFoundException: <p>One or more of the resources in the request does not exist in the system. </p>
+            aws_sdk_mediaconnect.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable or busy. </p>
+            aws_sdk_mediaconnect.errors.too_many_requests_exception.TooManyRequestsException: <p>The request was denied due to request throttling. </p>
+            aws_sdk_mediaconnect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1048,6 +1248,14 @@ class AsyncRouterInputResource:
 
         Args:
             arns: <p>The Amazon Resource Names (ARNs) of the router inputs you want to retrieve information about.</p>
+
+        Raises:
+            aws_sdk_mediaconnect.errors.bad_request_exception.BadRequestException: <p>This exception is thrown if the request contains a semantic error. The precise meaning depends on the API, and is documented in the error message. </p>
+            aws_sdk_mediaconnect.errors.conflict_exception.ConflictException: <p>The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request. </p>
+            aws_sdk_mediaconnect.errors.internal_server_error_exception.InternalServerErrorException: <p>The server encountered an internal error and is unable to complete the request. </p>
+            aws_sdk_mediaconnect.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable or busy. </p>
+            aws_sdk_mediaconnect.errors.too_many_requests_exception.TooManyRequestsException: <p>The request was denied due to request throttling. </p>
+            aws_sdk_mediaconnect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

@@ -71,6 +71,12 @@ class TrafficPolicyResource:
             max_message_size_bytes: <p>The maximum message size in bytes of email which is allowed in by this traffic policy—anything larger will be blocked.</p>
             tags: <p>The tags used to organize, track, or control access for the resource. For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.</p>
 
+        Raises:
+            aws_sdk_mailmanager.errors.conflict_exception.ConflictException: <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
+            aws_sdk_mailmanager.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Occurs when an operation exceeds a predefined service quota or limit.</p>
+            aws_sdk_mailmanager.errors.validation_exception.ValidationException: <p>The request validation has failed. For details, see the accompanying error message.</p>
+            aws_sdk_mailmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Create TrafficPolicy
 
@@ -122,6 +128,11 @@ class TrafficPolicyResource:
 
         Args:
             traffic_policy_id: <p>The identifier of the traffic policy resource.</p>
+
+        Raises:
+            aws_sdk_mailmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p>Occurs when a requested resource is not found.</p>
+            aws_sdk_mailmanager.errors.validation_exception.ValidationException: <p>The request validation has failed. For details, see the accompanying error message.</p>
+            aws_sdk_mailmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Get TrafficPolicy
@@ -181,6 +192,12 @@ class TrafficPolicyResource:
             default_action: <p>Default action instructs the traﬃc policy to either Allow or Deny (block) messages that fall outside of (or not addressed by) the conditions of your policy statements</p>
             max_message_size_bytes: <p>The maximum message size in bytes of email which is allowed in by this traffic policy—anything larger will be blocked.</p>
 
+        Raises:
+            aws_sdk_mailmanager.errors.conflict_exception.ConflictException: <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
+            aws_sdk_mailmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p>Occurs when a requested resource is not found.</p>
+            aws_sdk_mailmanager.errors.validation_exception.ValidationException: <p>The request validation has failed. For details, see the accompanying error message.</p>
+            aws_sdk_mailmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Update TrafficPolicy with new Name
 
@@ -237,6 +254,12 @@ class TrafficPolicyResource:
         Args:
             traffic_policy_id: <p>The identifier of the traffic policy that you want to delete.</p>
 
+        Raises:
+            aws_sdk_mailmanager.errors.conflict_exception.ConflictException: <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
+            aws_sdk_mailmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p>Occurs when a requested resource is not found.</p>
+            aws_sdk_mailmanager.errors.validation_exception.ValidationException: <p>The request validation has failed. For details, see the accompanying error message.</p>
+            aws_sdk_mailmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Delete TrafficPolicy
 
@@ -282,6 +305,10 @@ class TrafficPolicyResource:
         Args:
             page_size: <p>The maximum number of traffic policy resources that are returned per call. You can use NextToken to obtain further traffic policies.</p>
             next_token: <p>If you received a pagination token from a previous call to this API, you can provide it here to continue paginating through the next page of results.</p>
+
+        Raises:
+            aws_sdk_mailmanager.errors.validation_exception.ValidationException: <p>The request validation has failed. For details, see the accompanying error message.</p>
+            aws_sdk_mailmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             List TrafficPolicies
@@ -353,6 +380,12 @@ class AsyncTrafficPolicyResource:
             max_message_size_bytes: <p>The maximum message size in bytes of email which is allowed in by this traffic policy—anything larger will be blocked.</p>
             tags: <p>The tags used to organize, track, or control access for the resource. For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.</p>
 
+        Raises:
+            aws_sdk_mailmanager.errors.conflict_exception.ConflictException: <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
+            aws_sdk_mailmanager.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Occurs when an operation exceeds a predefined service quota or limit.</p>
+            aws_sdk_mailmanager.errors.validation_exception.ValidationException: <p>The request validation has failed. For details, see the accompanying error message.</p>
+            aws_sdk_mailmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Create TrafficPolicy
 
@@ -405,6 +438,11 @@ class AsyncTrafficPolicyResource:
 
         Args:
             traffic_policy_id: <p>The identifier of the traffic policy resource.</p>
+
+        Raises:
+            aws_sdk_mailmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p>Occurs when a requested resource is not found.</p>
+            aws_sdk_mailmanager.errors.validation_exception.ValidationException: <p>The request validation has failed. For details, see the accompanying error message.</p>
+            aws_sdk_mailmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Get TrafficPolicy
@@ -465,6 +503,12 @@ class AsyncTrafficPolicyResource:
             default_action: <p>Default action instructs the traﬃc policy to either Allow or Deny (block) messages that fall outside of (or not addressed by) the conditions of your policy statements</p>
             max_message_size_bytes: <p>The maximum message size in bytes of email which is allowed in by this traffic policy—anything larger will be blocked.</p>
 
+        Raises:
+            aws_sdk_mailmanager.errors.conflict_exception.ConflictException: <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
+            aws_sdk_mailmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p>Occurs when a requested resource is not found.</p>
+            aws_sdk_mailmanager.errors.validation_exception.ValidationException: <p>The request validation has failed. For details, see the accompanying error message.</p>
+            aws_sdk_mailmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Update TrafficPolicy with new Name
 
@@ -522,6 +566,12 @@ class AsyncTrafficPolicyResource:
         Args:
             traffic_policy_id: <p>The identifier of the traffic policy that you want to delete.</p>
 
+        Raises:
+            aws_sdk_mailmanager.errors.conflict_exception.ConflictException: <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
+            aws_sdk_mailmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p>Occurs when a requested resource is not found.</p>
+            aws_sdk_mailmanager.errors.validation_exception.ValidationException: <p>The request validation has failed. For details, see the accompanying error message.</p>
+            aws_sdk_mailmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Delete TrafficPolicy
 
@@ -568,6 +618,10 @@ class AsyncTrafficPolicyResource:
         Args:
             page_size: <p>The maximum number of traffic policy resources that are returned per call. You can use NextToken to obtain further traffic policies.</p>
             next_token: <p>If you received a pagination token from a previous call to this API, you can provide it here to continue paginating through the next page of results.</p>
+
+        Raises:
+            aws_sdk_mailmanager.errors.validation_exception.ValidationException: <p>The request validation has failed. For details, see the accompanying error message.</p>
+            aws_sdk_mailmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             List TrafficPolicies

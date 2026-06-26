@@ -202,7 +202,19 @@ class AsyncServiceQuotasClient:
     async def associate_service_quota_template(
         self, *, config_overrides: Optional[AsyncServiceQuotasClientConfig] = None
     ) -> "aws_sdk_service_quotas.types.associate_service_quota_template_response.AssociateServiceQuotaTemplateResponse":
-        """<p>Associates your quota request template with your organization. When a new Amazon Web Services account is created in your organization, the quota increase requests in the template are automatically applied to the account. You can add a quota increase request for any adjustable quota to your template.</p>"""
+        """<p>Associates your quota request template with your organization. When a new Amazon Web Services account is created in your organization, the quota increase requests in the template are automatically applied to the account. You can add a quota increase request for any adjustable quota to your template.</p>
+
+        Raises:
+            aws_sdk_service_quotas.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permission to perform this action.</p>
+            aws_sdk_service_quotas.errors.aws_service_access_not_enabled_exception.AWSServiceAccessNotEnabledException: <p>The action you attempted is not allowed unless Service Access with Service Quotas is enabled in your organization.</p>
+            aws_sdk_service_quotas.errors.dependency_access_denied_exception.DependencyAccessDeniedException: <p>You can't perform this action because a dependency does not have access.</p>
+            aws_sdk_service_quotas.errors.no_available_organization_exception.NoAvailableOrganizationException: <p>The Amazon Web Services account making this call is not a member of an organization.</p>
+            aws_sdk_service_quotas.errors.organization_not_in_all_features_mode_exception.OrganizationNotInAllFeaturesModeException: <p>The organization that your Amazon Web Services account belongs to is not in All Features mode.</p>
+            aws_sdk_service_quotas.errors.service_exception.ServiceException: <p>Something went wrong.</p>
+            aws_sdk_service_quotas.errors.templates_not_available_in_region_exception.TemplatesNotAvailableInRegionException: <p>The Service Quotas template is not available in this Amazon Web Services Region.</p>
+            aws_sdk_service_quotas.errors.too_many_requests_exception.TooManyRequestsException: <p>Due to throttling, the request was denied. Slow down the rate of request calls, or request an increase for this quota.</p>
+            aws_sdk_service_quotas.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_service_quotas.types.associate_service_quota_template_request.AssociateServiceQuotaTemplateRequest]",
@@ -239,6 +251,17 @@ class AsyncServiceQuotasClient:
 
         Args:
             request_id: <p>The ID of the pending quota increase request for which you want to open a Support case. </p>
+
+        Raises:
+            aws_sdk_service_quotas.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permission to perform this action.</p>
+            aws_sdk_service_quotas.errors.dependency_access_denied_exception.DependencyAccessDeniedException: <p>You can't perform this action because a dependency does not have access.</p>
+            aws_sdk_service_quotas.errors.illegal_argument_exception.IllegalArgumentException: <p>Invalid input was provided.</p>
+            aws_sdk_service_quotas.errors.invalid_resource_state_exception.InvalidResourceStateException: <p>The resource is in an invalid state.</p>
+            aws_sdk_service_quotas.errors.no_such_resource_exception.NoSuchResourceException: <p>The specified resource does not exist.</p>
+            aws_sdk_service_quotas.errors.resource_already_exists_exception.ResourceAlreadyExistsException: <p>The specified resource already exists.</p>
+            aws_sdk_service_quotas.errors.service_exception.ServiceException: <p>Something went wrong.</p>
+            aws_sdk_service_quotas.errors.too_many_requests_exception.TooManyRequestsException: <p>Due to throttling, the request was denied. Slow down the rate of request calls, or request an increase for this quota.</p>
+            aws_sdk_service_quotas.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -281,6 +304,18 @@ class AsyncServiceQuotasClient:
             service_code: <p>Specifies the service identifier. To find the service code value for an Amazon Web Services service, use the <a>ListServices</a> operation.</p>
             quota_code: <p>Specifies the quota identifier. To find the quota code for a specific quota, use the <a>ListServiceQuotas</a> operation, and look for the <code>QuotaCode</code> response in the output for the quota you want.</p>
             aws_region: <p>Specifies the Amazon Web Services Region for which the request was made.</p>
+
+        Raises:
+            aws_sdk_service_quotas.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permission to perform this action.</p>
+            aws_sdk_service_quotas.errors.aws_service_access_not_enabled_exception.AWSServiceAccessNotEnabledException: <p>The action you attempted is not allowed unless Service Access with Service Quotas is enabled in your organization.</p>
+            aws_sdk_service_quotas.errors.dependency_access_denied_exception.DependencyAccessDeniedException: <p>You can't perform this action because a dependency does not have access.</p>
+            aws_sdk_service_quotas.errors.illegal_argument_exception.IllegalArgumentException: <p>Invalid input was provided.</p>
+            aws_sdk_service_quotas.errors.no_available_organization_exception.NoAvailableOrganizationException: <p>The Amazon Web Services account making this call is not a member of an organization.</p>
+            aws_sdk_service_quotas.errors.no_such_resource_exception.NoSuchResourceException: <p>The specified resource does not exist.</p>
+            aws_sdk_service_quotas.errors.service_exception.ServiceException: <p>Something went wrong.</p>
+            aws_sdk_service_quotas.errors.templates_not_available_in_region_exception.TemplatesNotAvailableInRegionException: <p>The Service Quotas template is not available in this Amazon Web Services Region.</p>
+            aws_sdk_service_quotas.errors.too_many_requests_exception.TooManyRequestsException: <p>Due to throttling, the request was denied. Slow down the rate of request calls, or request an increase for this quota.</p>
+            aws_sdk_service_quotas.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -314,7 +349,19 @@ class AsyncServiceQuotasClient:
     async def disassociate_service_quota_template(
         self, *, config_overrides: Optional[AsyncServiceQuotasClientConfig] = None
     ) -> "aws_sdk_service_quotas.types.disassociate_service_quota_template_response.DisassociateServiceQuotaTemplateResponse":
-        """<p>Disables your quota request template. After a template is disabled, the quota increase requests in the template are not applied to new Amazon Web Services accounts in your organization. Disabling a quota request template does not apply its quota increase requests.</p>"""
+        """<p>Disables your quota request template. After a template is disabled, the quota increase requests in the template are not applied to new Amazon Web Services accounts in your organization. Disabling a quota request template does not apply its quota increase requests.</p>
+
+        Raises:
+            aws_sdk_service_quotas.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permission to perform this action.</p>
+            aws_sdk_service_quotas.errors.aws_service_access_not_enabled_exception.AWSServiceAccessNotEnabledException: <p>The action you attempted is not allowed unless Service Access with Service Quotas is enabled in your organization.</p>
+            aws_sdk_service_quotas.errors.dependency_access_denied_exception.DependencyAccessDeniedException: <p>You can't perform this action because a dependency does not have access.</p>
+            aws_sdk_service_quotas.errors.no_available_organization_exception.NoAvailableOrganizationException: <p>The Amazon Web Services account making this call is not a member of an organization.</p>
+            aws_sdk_service_quotas.errors.service_exception.ServiceException: <p>Something went wrong.</p>
+            aws_sdk_service_quotas.errors.service_quota_template_not_in_use_exception.ServiceQuotaTemplateNotInUseException: <p>The quota request template is not associated with your organization.</p>
+            aws_sdk_service_quotas.errors.templates_not_available_in_region_exception.TemplatesNotAvailableInRegionException: <p>The Service Quotas template is not available in this Amazon Web Services Region.</p>
+            aws_sdk_service_quotas.errors.too_many_requests_exception.TooManyRequestsException: <p>Due to throttling, the request was denied. Slow down the rate of request calls, or request an increase for this quota.</p>
+            aws_sdk_service_quotas.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_service_quotas.types.disassociate_service_quota_template_request.DisassociateServiceQuotaTemplateRequest]",
@@ -344,7 +391,19 @@ class AsyncServiceQuotasClient:
     async def get_association_for_service_quota_template(
         self, *, config_overrides: Optional[AsyncServiceQuotasClientConfig] = None
     ) -> "aws_sdk_service_quotas.types.get_association_for_service_quota_template_response.GetAssociationForServiceQuotaTemplateResponse":
-        """<p>Retrieves the status of the association for the quota request template.</p>"""
+        """<p>Retrieves the status of the association for the quota request template.</p>
+
+        Raises:
+            aws_sdk_service_quotas.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permission to perform this action.</p>
+            aws_sdk_service_quotas.errors.aws_service_access_not_enabled_exception.AWSServiceAccessNotEnabledException: <p>The action you attempted is not allowed unless Service Access with Service Quotas is enabled in your organization.</p>
+            aws_sdk_service_quotas.errors.dependency_access_denied_exception.DependencyAccessDeniedException: <p>You can't perform this action because a dependency does not have access.</p>
+            aws_sdk_service_quotas.errors.no_available_organization_exception.NoAvailableOrganizationException: <p>The Amazon Web Services account making this call is not a member of an organization.</p>
+            aws_sdk_service_quotas.errors.service_exception.ServiceException: <p>Something went wrong.</p>
+            aws_sdk_service_quotas.errors.service_quota_template_not_in_use_exception.ServiceQuotaTemplateNotInUseException: <p>The quota request template is not associated with your organization.</p>
+            aws_sdk_service_quotas.errors.templates_not_available_in_region_exception.TemplatesNotAvailableInRegionException: <p>The Service Quotas template is not available in this Amazon Web Services Region.</p>
+            aws_sdk_service_quotas.errors.too_many_requests_exception.TooManyRequestsException: <p>Due to throttling, the request was denied. Slow down the rate of request calls, or request an increase for this quota.</p>
+            aws_sdk_service_quotas.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_service_quotas.types.get_association_for_service_quota_template_request.GetAssociationForServiceQuotaTemplateRequest]",
@@ -374,7 +433,16 @@ class AsyncServiceQuotasClient:
     async def get_auto_management_configuration(
         self, *, config_overrides: Optional[AsyncServiceQuotasClientConfig] = None
     ) -> "aws_sdk_service_quotas.types.get_auto_management_configuration_response.GetAutoManagementConfigurationResponse":
-        r"""<p>Retrieves information about your <a href=\"https://docs.aws.amazon.com/servicequotas/latest/userguide/automatic-management.html\">Service Quotas Automatic Management</a> configuration. Automatic Management monitors your Service Quotas utilization and notifies you before you run out of your allocated quotas.</p>"""
+        r"""<p>Retrieves information about your <a href=\"https://docs.aws.amazon.com/servicequotas/latest/userguide/automatic-management.html\">Service Quotas Automatic Management</a> configuration. Automatic Management monitors your Service Quotas utilization and notifies you before you run out of your allocated quotas.</p>
+
+        Raises:
+            aws_sdk_service_quotas.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permission to perform this action.</p>
+            aws_sdk_service_quotas.errors.illegal_argument_exception.IllegalArgumentException: <p>Invalid input was provided.</p>
+            aws_sdk_service_quotas.errors.no_such_resource_exception.NoSuchResourceException: <p>The specified resource does not exist.</p>
+            aws_sdk_service_quotas.errors.service_exception.ServiceException: <p>Something went wrong.</p>
+            aws_sdk_service_quotas.errors.too_many_requests_exception.TooManyRequestsException: <p>Due to throttling, the request was denied. Slow down the rate of request calls, or request an increase for this quota.</p>
+            aws_sdk_service_quotas.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_service_quotas.types.get_auto_management_configuration_request.GetAutoManagementConfigurationRequest]",
@@ -413,6 +481,14 @@ class AsyncServiceQuotasClient:
         Args:
             service_code: <p>Specifies the service identifier. To find the service code value for an Amazon Web Services service, use the <a>ListServices</a> operation.</p>
             quota_code: <p>Specifies the quota identifier. To find the quota code for a specific quota, use the <a>ListServiceQuotas</a> operation, and look for the <code>QuotaCode</code> response in the output for the quota you want.</p>
+
+        Raises:
+            aws_sdk_service_quotas.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permission to perform this action.</p>
+            aws_sdk_service_quotas.errors.illegal_argument_exception.IllegalArgumentException: <p>Invalid input was provided.</p>
+            aws_sdk_service_quotas.errors.no_such_resource_exception.NoSuchResourceException: <p>The specified resource does not exist.</p>
+            aws_sdk_service_quotas.errors.service_exception.ServiceException: <p>Something went wrong.</p>
+            aws_sdk_service_quotas.errors.too_many_requests_exception.TooManyRequestsException: <p>Due to throttling, the request was denied. Slow down the rate of request calls, or request an increase for this quota.</p>
+            aws_sdk_service_quotas.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -460,6 +536,14 @@ class AsyncServiceQuotasClient:
             report_id: <p>The unique identifier for the quota utilization report. This identifier is returned by the <code>StartQuotaUtilizationReport</code> operation.</p>
             next_token: <p>A token that indicates the next page of results to retrieve. This token is returned in the response when there are more results available. Omit this parameter for the first request.</p>
             max_results: <p>The maximum number of results to return per page. The default value is 1,000 and the maximum allowed value is 1,000.</p>
+
+        Raises:
+            aws_sdk_service_quotas.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permission to perform this action.</p>
+            aws_sdk_service_quotas.errors.illegal_argument_exception.IllegalArgumentException: <p>Invalid input was provided.</p>
+            aws_sdk_service_quotas.errors.no_such_resource_exception.NoSuchResourceException: <p>The specified resource does not exist.</p>
+            aws_sdk_service_quotas.errors.service_exception.ServiceException: <p>Something went wrong.</p>
+            aws_sdk_service_quotas.errors.too_many_requests_exception.TooManyRequestsException: <p>Due to throttling, the request was denied. Slow down the rate of request calls, or request an increase for this quota.</p>
+            aws_sdk_service_quotas.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -502,6 +586,14 @@ class AsyncServiceQuotasClient:
 
         Args:
             request_id: <p>Specifies the ID of the quota increase request.</p>
+
+        Raises:
+            aws_sdk_service_quotas.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permission to perform this action.</p>
+            aws_sdk_service_quotas.errors.illegal_argument_exception.IllegalArgumentException: <p>Invalid input was provided.</p>
+            aws_sdk_service_quotas.errors.no_such_resource_exception.NoSuchResourceException: <p>The specified resource does not exist.</p>
+            aws_sdk_service_quotas.errors.service_exception.ServiceException: <p>Something went wrong.</p>
+            aws_sdk_service_quotas.errors.too_many_requests_exception.TooManyRequestsException: <p>Due to throttling, the request was denied. Slow down the rate of request calls, or request an increase for this quota.</p>
+            aws_sdk_service_quotas.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -546,6 +638,14 @@ class AsyncServiceQuotasClient:
             service_code: <p>Specifies the service identifier. To find the service code value for an Amazon Web Services service, use the <a>ListServices</a> operation.</p>
             quota_code: <p>Specifies the quota identifier. To find the quota code for a specific quota, use the <a>ListServiceQuotas</a> operation, and look for the <code>QuotaCode</code> response in the output for the quota you want.</p>
             context_id: <p>Specifies the resource with an Amazon Resource Name (ARN).</p>
+
+        Raises:
+            aws_sdk_service_quotas.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permission to perform this action.</p>
+            aws_sdk_service_quotas.errors.illegal_argument_exception.IllegalArgumentException: <p>Invalid input was provided.</p>
+            aws_sdk_service_quotas.errors.no_such_resource_exception.NoSuchResourceException: <p>The specified resource does not exist.</p>
+            aws_sdk_service_quotas.errors.service_exception.ServiceException: <p>Something went wrong.</p>
+            aws_sdk_service_quotas.errors.too_many_requests_exception.TooManyRequestsException: <p>Due to throttling, the request was denied. Slow down the rate of request calls, or request an increase for this quota.</p>
+            aws_sdk_service_quotas.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -591,6 +691,18 @@ class AsyncServiceQuotasClient:
             service_code: <p>Specifies the service identifier. To find the service code value for an Amazon Web Services service, use the <a>ListServices</a> operation.</p>
             quota_code: <p>Specifies the quota identifier. To find the quota code for a specific quota, use the <a>ListServiceQuotas</a> operation, and look for the <code>QuotaCode</code> response in the output for the quota you want.</p>
             aws_region: <p>Specifies the Amazon Web Services Region for which you made the request.</p>
+
+        Raises:
+            aws_sdk_service_quotas.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permission to perform this action.</p>
+            aws_sdk_service_quotas.errors.aws_service_access_not_enabled_exception.AWSServiceAccessNotEnabledException: <p>The action you attempted is not allowed unless Service Access with Service Quotas is enabled in your organization.</p>
+            aws_sdk_service_quotas.errors.dependency_access_denied_exception.DependencyAccessDeniedException: <p>You can't perform this action because a dependency does not have access.</p>
+            aws_sdk_service_quotas.errors.illegal_argument_exception.IllegalArgumentException: <p>Invalid input was provided.</p>
+            aws_sdk_service_quotas.errors.no_available_organization_exception.NoAvailableOrganizationException: <p>The Amazon Web Services account making this call is not a member of an organization.</p>
+            aws_sdk_service_quotas.errors.no_such_resource_exception.NoSuchResourceException: <p>The specified resource does not exist.</p>
+            aws_sdk_service_quotas.errors.service_exception.ServiceException: <p>Something went wrong.</p>
+            aws_sdk_service_quotas.errors.templates_not_available_in_region_exception.TemplatesNotAvailableInRegionException: <p>The Service Quotas template is not available in this Amazon Web Services Region.</p>
+            aws_sdk_service_quotas.errors.too_many_requests_exception.TooManyRequestsException: <p>Due to throttling, the request was denied. Slow down the rate of request calls, or request an increase for this quota.</p>
+            aws_sdk_service_quotas.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -639,6 +751,15 @@ class AsyncServiceQuotasClient:
             service_code: <p>Specifies the service identifier. To find the service code value for an Amazon Web Services service, use the <a>ListServices</a> operation.</p>
             next_token: <p>Specifies a value for receiving additional results after you receive a <code>NextToken</code> response in a previous request. A <code>NextToken</code> response indicates that more output is available. Set this parameter to the value of the previous call's <code>NextToken</code> response to indicate where the output should continue from.</p>
             max_results: <p>Specifies the maximum number of results that you want included on each page of the response. If you do not include this parameter, it defaults to a value appropriate to the operation. If additional items exist beyond those included in the current response, the <code>NextToken</code> response element is present and has a value (is not null). Include that value as the <code>NextToken</code> request parameter in the next call to the operation to get the next part of the results.</p> <note> <p>An API operation can return fewer results than the maximum even when there are more results available. You should check <code>NextToken</code> after every operation to ensure that you receive all of the results.</p> </note>
+
+        Raises:
+            aws_sdk_service_quotas.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permission to perform this action.</p>
+            aws_sdk_service_quotas.errors.illegal_argument_exception.IllegalArgumentException: <p>Invalid input was provided.</p>
+            aws_sdk_service_quotas.errors.invalid_pagination_token_exception.InvalidPaginationTokenException: <p>Invalid input was provided.</p>
+            aws_sdk_service_quotas.errors.no_such_resource_exception.NoSuchResourceException: <p>The specified resource does not exist.</p>
+            aws_sdk_service_quotas.errors.service_exception.ServiceException: <p>Something went wrong.</p>
+            aws_sdk_service_quotas.errors.too_many_requests_exception.TooManyRequestsException: <p>Due to throttling, the request was denied. Slow down the rate of request calls, or request an increase for this quota.</p>
+            aws_sdk_service_quotas.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -726,6 +847,15 @@ class AsyncServiceQuotasClient:
             next_token: <p>Specifies a value for receiving additional results after you receive a <code>NextToken</code> response in a previous request. A <code>NextToken</code> response indicates that more output is available. Set this parameter to the value of the previous call's <code>NextToken</code> response to indicate where the output should continue from.</p>
             max_results: <p>Specifies the maximum number of results that you want included on each page of the response. If you do not include this parameter, it defaults to a value appropriate to the operation. If additional items exist beyond those included in the current response, the <code>NextToken</code> response element is present and has a value (is not null). Include that value as the <code>NextToken</code> request parameter in the next call to the operation to get the next part of the results.</p> <note> <p>An API operation can return fewer results than the maximum even when there are more results available. You should check <code>NextToken</code> after every operation to ensure that you receive all of the results.</p> </note>
             quota_requested_at_level: <p>Filters the response to return quota requests for the <code>ACCOUNT</code>, <code>RESOURCE</code>, or <code>ALL</code> levels. <code>ACCOUNT</code> is the default.</p>
+
+        Raises:
+            aws_sdk_service_quotas.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permission to perform this action.</p>
+            aws_sdk_service_quotas.errors.illegal_argument_exception.IllegalArgumentException: <p>Invalid input was provided.</p>
+            aws_sdk_service_quotas.errors.invalid_pagination_token_exception.InvalidPaginationTokenException: <p>Invalid input was provided.</p>
+            aws_sdk_service_quotas.errors.no_such_resource_exception.NoSuchResourceException: <p>The specified resource does not exist.</p>
+            aws_sdk_service_quotas.errors.service_exception.ServiceException: <p>Something went wrong.</p>
+            aws_sdk_service_quotas.errors.too_many_requests_exception.TooManyRequestsException: <p>Due to throttling, the request was denied. Slow down the rate of request calls, or request an increase for this quota.</p>
+            aws_sdk_service_quotas.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -828,6 +958,15 @@ class AsyncServiceQuotasClient:
             next_token: <p>Specifies a value for receiving additional results after you receive a <code>NextToken</code> response in a previous request. A <code>NextToken</code> response indicates that more output is available. Set this parameter to the value of the previous call's <code>NextToken</code> response to indicate where the output should continue from.</p>
             max_results: <p>Specifies the maximum number of results that you want included on each page of the response. If you do not include this parameter, it defaults to a value appropriate to the operation. If additional items exist beyond those included in the current response, the <code>NextToken</code> response element is present and has a value (is not null). Include that value as the <code>NextToken</code> request parameter in the next call to the operation to get the next part of the results.</p> <note> <p>An API operation can return fewer results than the maximum even when there are more results available. You should check <code>NextToken</code> after every operation to ensure that you receive all of the results.</p> </note>
             quota_requested_at_level: <p>Filters the response to return quota requests for the <code>ACCOUNT</code>, <code>RESOURCE</code>, or <code>ALL</code> levels. <code>ACCOUNT</code> is the default.</p>
+
+        Raises:
+            aws_sdk_service_quotas.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permission to perform this action.</p>
+            aws_sdk_service_quotas.errors.illegal_argument_exception.IllegalArgumentException: <p>Invalid input was provided.</p>
+            aws_sdk_service_quotas.errors.invalid_pagination_token_exception.InvalidPaginationTokenException: <p>Invalid input was provided.</p>
+            aws_sdk_service_quotas.errors.no_such_resource_exception.NoSuchResourceException: <p>The specified resource does not exist.</p>
+            aws_sdk_service_quotas.errors.service_exception.ServiceException: <p>Something went wrong.</p>
+            aws_sdk_service_quotas.errors.too_many_requests_exception.TooManyRequestsException: <p>Due to throttling, the request was denied. Slow down the rate of request calls, or request an increase for this quota.</p>
+            aws_sdk_service_quotas.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -926,6 +1065,17 @@ class AsyncServiceQuotasClient:
             aws_region: <p>Specifies the Amazon Web Services Region for which you made the request.</p>
             next_token: <p>Specifies a value for receiving additional results after you receive a <code>NextToken</code> response in a previous request. A <code>NextToken</code> response indicates that more output is available. Set this parameter to the value of the previous call's <code>NextToken</code> response to indicate where the output should continue from.</p>
             max_results: <p>Specifies the maximum number of results that you want included on each page of the response. If you do not include this parameter, it defaults to a value appropriate to the operation. If additional items exist beyond those included in the current response, the <code>NextToken</code> response element is present and has a value (is not null). Include that value as the <code>NextToken</code> request parameter in the next call to the operation to get the next part of the results.</p> <note> <p>An API operation can return fewer results than the maximum even when there are more results available. You should check <code>NextToken</code> after every operation to ensure that you receive all of the results.</p> </note>
+
+        Raises:
+            aws_sdk_service_quotas.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permission to perform this action.</p>
+            aws_sdk_service_quotas.errors.aws_service_access_not_enabled_exception.AWSServiceAccessNotEnabledException: <p>The action you attempted is not allowed unless Service Access with Service Quotas is enabled in your organization.</p>
+            aws_sdk_service_quotas.errors.dependency_access_denied_exception.DependencyAccessDeniedException: <p>You can't perform this action because a dependency does not have access.</p>
+            aws_sdk_service_quotas.errors.illegal_argument_exception.IllegalArgumentException: <p>Invalid input was provided.</p>
+            aws_sdk_service_quotas.errors.no_available_organization_exception.NoAvailableOrganizationException: <p>The Amazon Web Services account making this call is not a member of an organization.</p>
+            aws_sdk_service_quotas.errors.service_exception.ServiceException: <p>Something went wrong.</p>
+            aws_sdk_service_quotas.errors.templates_not_available_in_region_exception.TemplatesNotAvailableInRegionException: <p>The Service Quotas template is not available in this Amazon Web Services Region.</p>
+            aws_sdk_service_quotas.errors.too_many_requests_exception.TooManyRequestsException: <p>Due to throttling, the request was denied. Slow down the rate of request calls, or request an increase for this quota.</p>
+            aws_sdk_service_quotas.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1022,6 +1172,15 @@ class AsyncServiceQuotasClient:
             max_results: <p>Specifies the maximum number of results that you want included on each page of the response. If you do not include this parameter, it defaults to a value appropriate to the operation. If additional items exist beyond those included in the current response, the <code>NextToken</code> response element is present and has a value (is not null). Include that value as the <code>NextToken</code> request parameter in the next call to the operation to get the next part of the results.</p> <note> <p>An API operation can return fewer results than the maximum even when there are more results available. You should check <code>NextToken</code> after every operation to ensure that you receive all of the results.</p> </note>
             quota_code: <p>Specifies the quota identifier. To find the quota code for a specific quota, use the <a>ListServiceQuotas</a> operation, and look for the <code>QuotaCode</code> response in the output for the quota you want.</p>
             quota_applied_at_level: <p>Filters the response to return applied quota values for the <code>ACCOUNT</code>, <code>RESOURCE</code>, or <code>ALL</code> levels. <code>ACCOUNT</code> is the default.</p>
+
+        Raises:
+            aws_sdk_service_quotas.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permission to perform this action.</p>
+            aws_sdk_service_quotas.errors.illegal_argument_exception.IllegalArgumentException: <p>Invalid input was provided.</p>
+            aws_sdk_service_quotas.errors.invalid_pagination_token_exception.InvalidPaginationTokenException: <p>Invalid input was provided.</p>
+            aws_sdk_service_quotas.errors.no_such_resource_exception.NoSuchResourceException: <p>The specified resource does not exist.</p>
+            aws_sdk_service_quotas.errors.service_exception.ServiceException: <p>Something went wrong.</p>
+            aws_sdk_service_quotas.errors.too_many_requests_exception.TooManyRequestsException: <p>Due to throttling, the request was denied. Slow down the rate of request calls, or request an increase for this quota.</p>
+            aws_sdk_service_quotas.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1109,6 +1268,14 @@ class AsyncServiceQuotasClient:
         Args:
             next_token: <p>Specifies a value for receiving additional results after you receive a <code>NextToken</code> response in a previous request. A <code>NextToken</code> response indicates that more output is available. Set this parameter to the value of the previous call's <code>NextToken</code> response to indicate where the output should continue from.</p>
             max_results: <p>Specifies the maximum number of results that you want included on each page of the response. If you do not include this parameter, it defaults to a value appropriate to the operation. If additional items exist beyond those included in the current response, the <code>NextToken</code> response element is present and has a value (is not null). Include that value as the <code>NextToken</code> request parameter in the next call to the operation to get the next part of the results.</p> <note> <p>An API operation can return fewer results than the maximum even when there are more results available. You should check <code>NextToken</code> after every operation to ensure that you receive all of the results.</p> </note>
+
+        Raises:
+            aws_sdk_service_quotas.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permission to perform this action.</p>
+            aws_sdk_service_quotas.errors.illegal_argument_exception.IllegalArgumentException: <p>Invalid input was provided.</p>
+            aws_sdk_service_quotas.errors.invalid_pagination_token_exception.InvalidPaginationTokenException: <p>Invalid input was provided.</p>
+            aws_sdk_service_quotas.errors.service_exception.ServiceException: <p>Something went wrong.</p>
+            aws_sdk_service_quotas.errors.too_many_requests_exception.TooManyRequestsException: <p>Due to throttling, the request was denied. Slow down the rate of request calls, or request an increase for this quota.</p>
+            aws_sdk_service_quotas.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1175,6 +1342,14 @@ class AsyncServiceQuotasClient:
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) for the applied quota for which you want to list tags. You can get this information by using the Service Quotas console, or by listing the quotas using the <a href=\"https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-service-quotas.html\">list-service-quotas</a> CLI command or the <a href=\"https://docs.aws.amazon.com/servicequotas/2019-06-24/apireference/API_ListServiceQuotas.html\">ListServiceQuotas</a> Amazon Web Services API operation.</p>
+
+        Raises:
+            aws_sdk_service_quotas.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permission to perform this action.</p>
+            aws_sdk_service_quotas.errors.illegal_argument_exception.IllegalArgumentException: <p>Invalid input was provided.</p>
+            aws_sdk_service_quotas.errors.no_such_resource_exception.NoSuchResourceException: <p>The specified resource does not exist.</p>
+            aws_sdk_service_quotas.errors.service_exception.ServiceException: <p>Something went wrong.</p>
+            aws_sdk_service_quotas.errors.too_many_requests_exception.TooManyRequestsException: <p>Due to throttling, the request was denied. Slow down the rate of request calls, or request an increase for this quota.</p>
+            aws_sdk_service_quotas.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1219,6 +1394,19 @@ class AsyncServiceQuotasClient:
             service_code: <p>Specifies the service identifier. To find the service code value for an Amazon Web Services service, use the <a>ListServices</a> operation.</p>
             aws_region: <p>Specifies the Amazon Web Services Region to which the template applies.</p>
             desired_value: <p>Specifies the new, increased value for the quota.</p>
+
+        Raises:
+            aws_sdk_service_quotas.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permission to perform this action.</p>
+            aws_sdk_service_quotas.errors.aws_service_access_not_enabled_exception.AWSServiceAccessNotEnabledException: <p>The action you attempted is not allowed unless Service Access with Service Quotas is enabled in your organization.</p>
+            aws_sdk_service_quotas.errors.dependency_access_denied_exception.DependencyAccessDeniedException: <p>You can't perform this action because a dependency does not have access.</p>
+            aws_sdk_service_quotas.errors.illegal_argument_exception.IllegalArgumentException: <p>Invalid input was provided.</p>
+            aws_sdk_service_quotas.errors.no_available_organization_exception.NoAvailableOrganizationException: <p>The Amazon Web Services account making this call is not a member of an organization.</p>
+            aws_sdk_service_quotas.errors.no_such_resource_exception.NoSuchResourceException: <p>The specified resource does not exist.</p>
+            aws_sdk_service_quotas.errors.quota_exceeded_exception.QuotaExceededException: <p>You have exceeded your service quota. To perform the requested action, remove some of the relevant resources, or use Service Quotas to request a service quota increase.</p>
+            aws_sdk_service_quotas.errors.service_exception.ServiceException: <p>Something went wrong.</p>
+            aws_sdk_service_quotas.errors.templates_not_available_in_region_exception.TemplatesNotAvailableInRegionException: <p>The Service Quotas template is not available in this Amazon Web Services Region.</p>
+            aws_sdk_service_quotas.errors.too_many_requests_exception.TooManyRequestsException: <p>Due to throttling, the request was denied. Slow down the rate of request calls, or request an increase for this quota.</p>
+            aws_sdk_service_quotas.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1272,6 +1460,18 @@ class AsyncServiceQuotasClient:
             desired_value: <p>Specifies the new, increased value for the quota.</p>
             context_id: <p>Specifies the resource with an Amazon Resource Name (ARN).</p>
             support_case_allowed: <p>Specifies if an Amazon Web Services Support case can be opened for the quota increase request. This parameter is optional. </p> <p>By default, this flag is set to <code>True</code> and Amazon Web Services may create a support case for some quota increase requests. You can set this flag to <code>False</code> if you do not want a support case created when you request a quota increase. If you set the flag to <code>False</code>, Amazon Web Services does not open a support case and updates the request status to <code>Not approved</code>. </p>
+
+        Raises:
+            aws_sdk_service_quotas.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permission to perform this action.</p>
+            aws_sdk_service_quotas.errors.dependency_access_denied_exception.DependencyAccessDeniedException: <p>You can't perform this action because a dependency does not have access.</p>
+            aws_sdk_service_quotas.errors.illegal_argument_exception.IllegalArgumentException: <p>Invalid input was provided.</p>
+            aws_sdk_service_quotas.errors.invalid_resource_state_exception.InvalidResourceStateException: <p>The resource is in an invalid state.</p>
+            aws_sdk_service_quotas.errors.no_such_resource_exception.NoSuchResourceException: <p>The specified resource does not exist.</p>
+            aws_sdk_service_quotas.errors.quota_exceeded_exception.QuotaExceededException: <p>You have exceeded your service quota. To perform the requested action, remove some of the relevant resources, or use Service Quotas to request a service quota increase.</p>
+            aws_sdk_service_quotas.errors.resource_already_exists_exception.ResourceAlreadyExistsException: <p>The specified resource already exists.</p>
+            aws_sdk_service_quotas.errors.service_exception.ServiceException: <p>Something went wrong.</p>
+            aws_sdk_service_quotas.errors.too_many_requests_exception.TooManyRequestsException: <p>Due to throttling, the request was denied. Slow down the rate of request calls, or request an increase for this quota.</p>
+            aws_sdk_service_quotas.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1326,6 +1526,14 @@ class AsyncServiceQuotasClient:
             opt_in_type: <p>Sets the opt-in type for Automatic Management. There are two modes: Notify only and Notify and Auto-Adjust. Currently, only NotifyOnly is available.</p>
             notification_arn: <p>The <a href=\"https://docs.aws.amazon.com/notifications/latest/userguide/resource-level-permissions.html#rlp-table\">User Notifications</a> Amazon Resource Name (ARN) for Automatic Management notifications.</p>
             exclusion_list: <p>List of Amazon Web Services services excluded from Automatic Management. You won't be notified of Service Quotas utilization for Amazon Web Services services added to the Automatic Management exclusion list. </p>
+
+        Raises:
+            aws_sdk_service_quotas.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permission to perform this action.</p>
+            aws_sdk_service_quotas.errors.illegal_argument_exception.IllegalArgumentException: <p>Invalid input was provided.</p>
+            aws_sdk_service_quotas.errors.no_such_resource_exception.NoSuchResourceException: <p>The specified resource does not exist.</p>
+            aws_sdk_service_quotas.errors.service_exception.ServiceException: <p>Something went wrong.</p>
+            aws_sdk_service_quotas.errors.too_many_requests_exception.TooManyRequestsException: <p>Due to throttling, the request was denied. Slow down the rate of request calls, or request an increase for this quota.</p>
+            aws_sdk_service_quotas.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1362,7 +1570,17 @@ class AsyncServiceQuotasClient:
     async def start_quota_utilization_report(
         self, *, config_overrides: Optional[AsyncServiceQuotasClientConfig] = None
     ) -> "aws_sdk_service_quotas.types.start_quota_utilization_report_response.StartQuotaUtilizationReportResponse":
-        """<p>Initiates the generation of a quota utilization report for your Amazon Web Services account. This asynchronous operation analyzes your quota usage across all Amazon Web Services services and returns a unique report identifier that you can use to retrieve the results.</p> <p>The report generation process may take several seconds to complete, depending on the number of quotas in your account. Use the <code>GetQuotaUtilizationReport</code> operation to check the status and retrieve the results when the report is ready.</p>"""
+        """<p>Initiates the generation of a quota utilization report for your Amazon Web Services account. This asynchronous operation analyzes your quota usage across all Amazon Web Services services and returns a unique report identifier that you can use to retrieve the results.</p> <p>The report generation process may take several seconds to complete, depending on the number of quotas in your account. Use the <code>GetQuotaUtilizationReport</code> operation to check the status and retrieve the results when the report is ready.</p>
+
+        Raises:
+            aws_sdk_service_quotas.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permission to perform this action.</p>
+            aws_sdk_service_quotas.errors.illegal_argument_exception.IllegalArgumentException: <p>Invalid input was provided.</p>
+            aws_sdk_service_quotas.errors.invalid_pagination_token_exception.InvalidPaginationTokenException: <p>Invalid input was provided.</p>
+            aws_sdk_service_quotas.errors.no_such_resource_exception.NoSuchResourceException: <p>The specified resource does not exist.</p>
+            aws_sdk_service_quotas.errors.service_exception.ServiceException: <p>Something went wrong.</p>
+            aws_sdk_service_quotas.errors.too_many_requests_exception.TooManyRequestsException: <p>Due to throttling, the request was denied. Slow down the rate of request calls, or request an increase for this quota.</p>
+            aws_sdk_service_quotas.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_service_quotas.types.start_quota_utilization_report_request.StartQuotaUtilizationReportRequest]",
@@ -1392,7 +1610,16 @@ class AsyncServiceQuotasClient:
     async def stop_auto_management(
         self, *, config_overrides: Optional[AsyncServiceQuotasClientConfig] = None
     ) -> "aws_sdk_service_quotas.types.stop_auto_management_response.StopAutoManagementResponse":
-        r"""<p>Stops <a href=\"https://docs.aws.amazon.com/servicequotas/latest/userguide/automatic-management.html\">Service Quotas Automatic Management</a> for an Amazon Web Services account and removes all associated configurations. Automatic Management monitors your Service Quotas utilization and notifies you before you run out of your allocated quotas.</p>"""
+        r"""<p>Stops <a href=\"https://docs.aws.amazon.com/servicequotas/latest/userguide/automatic-management.html\">Service Quotas Automatic Management</a> for an Amazon Web Services account and removes all associated configurations. Automatic Management monitors your Service Quotas utilization and notifies you before you run out of your allocated quotas.</p>
+
+        Raises:
+            aws_sdk_service_quotas.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permission to perform this action.</p>
+            aws_sdk_service_quotas.errors.illegal_argument_exception.IllegalArgumentException: <p>Invalid input was provided.</p>
+            aws_sdk_service_quotas.errors.no_such_resource_exception.NoSuchResourceException: <p>The specified resource does not exist.</p>
+            aws_sdk_service_quotas.errors.service_exception.ServiceException: <p>Something went wrong.</p>
+            aws_sdk_service_quotas.errors.too_many_requests_exception.TooManyRequestsException: <p>Due to throttling, the request was denied. Slow down the rate of request calls, or request an increase for this quota.</p>
+            aws_sdk_service_quotas.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_service_quotas.types.stop_auto_management_request.StopAutoManagementRequest]",
@@ -1431,6 +1658,16 @@ class AsyncServiceQuotasClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) for the applied quota. You can get this information by using the Service Quotas console, or by listing the quotas using the <a href=\"https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-service-quotas.html\">list-service-quotas</a> CLI command or the <a href=\"https://docs.aws.amazon.com/servicequotas/2019-06-24/apireference/API_ListServiceQuotas.html\">ListServiceQuotas</a> Amazon Web Services API operation.</p>
             tags: <p>The tags that you want to add to the resource.</p>
+
+        Raises:
+            aws_sdk_service_quotas.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permission to perform this action.</p>
+            aws_sdk_service_quotas.errors.illegal_argument_exception.IllegalArgumentException: <p>Invalid input was provided.</p>
+            aws_sdk_service_quotas.errors.no_such_resource_exception.NoSuchResourceException: <p>The specified resource does not exist.</p>
+            aws_sdk_service_quotas.errors.service_exception.ServiceException: <p>Something went wrong.</p>
+            aws_sdk_service_quotas.errors.tag_policy_violation_exception.TagPolicyViolationException: <p>The specified tag is a reserved word and cannot be used.</p>
+            aws_sdk_service_quotas.errors.too_many_requests_exception.TooManyRequestsException: <p>Due to throttling, the request was denied. Slow down the rate of request calls, or request an increase for this quota.</p>
+            aws_sdk_service_quotas.errors.too_many_tags_exception.TooManyTagsException: <p>You've exceeded the number of tags allowed for a resource. For more information, see <a href=\"https://docs.aws.amazon.com/servicequotas/latest/userguide/sq-tagging.html#sq-tagging-restrictions\">Tag restrictions</a> in the <i>Service Quotas User Guide</i>.</p>
+            aws_sdk_service_quotas.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1472,6 +1709,14 @@ class AsyncServiceQuotasClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) for the applied quota that you want to untag. You can get this information by using the Service Quotas console, or by listing the quotas using the <a href=\"https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-service-quotas.html\">list-service-quotas</a> CLI command or the <a href=\"https://docs.aws.amazon.com/servicequotas/2019-06-24/apireference/API_ListServiceQuotas.html\">ListServiceQuotas</a> Amazon Web Services API operation.</p>
             tag_keys: <p>The keys of the tags that you want to remove from the resource.</p>
+
+        Raises:
+            aws_sdk_service_quotas.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permission to perform this action.</p>
+            aws_sdk_service_quotas.errors.illegal_argument_exception.IllegalArgumentException: <p>Invalid input was provided.</p>
+            aws_sdk_service_quotas.errors.no_such_resource_exception.NoSuchResourceException: <p>The specified resource does not exist.</p>
+            aws_sdk_service_quotas.errors.service_exception.ServiceException: <p>Something went wrong.</p>
+            aws_sdk_service_quotas.errors.too_many_requests_exception.TooManyRequestsException: <p>Due to throttling, the request was denied. Slow down the rate of request calls, or request an increase for this quota.</p>
+            aws_sdk_service_quotas.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1521,6 +1766,14 @@ class AsyncServiceQuotasClient:
             opt_in_type: <p>Information on the opt-in type for your Automatic Management configuration. There are two modes: Notify only and Notify and Auto-Adjust. Currently, only NotifyOnly is available.</p>
             notification_arn: <p>The <a href=\"https://docs.aws.amazon.com/notifications/latest/userguide/resource-level-permissions.html#rlp-table\">User Notifications</a> Amazon Resource Name (ARN) for Automatic Management notifications you want to update.</p>
             exclusion_list: <p>List of Amazon Web Services services you want to exclude from Automatic Management. You won't be notified of Service Quotas utilization for Amazon Web Services services added to the Automatic Management exclusion list. </p>
+
+        Raises:
+            aws_sdk_service_quotas.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permission to perform this action.</p>
+            aws_sdk_service_quotas.errors.illegal_argument_exception.IllegalArgumentException: <p>Invalid input was provided.</p>
+            aws_sdk_service_quotas.errors.no_such_resource_exception.NoSuchResourceException: <p>The specified resource does not exist.</p>
+            aws_sdk_service_quotas.errors.service_exception.ServiceException: <p>Something went wrong.</p>
+            aws_sdk_service_quotas.errors.too_many_requests_exception.TooManyRequestsException: <p>Due to throttling, the request was denied. Slow down the rate of request calls, or request an increase for this quota.</p>
+            aws_sdk_service_quotas.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

@@ -57,6 +57,14 @@ class Permission:
             user_id: <p>(Optional) Limits the results to only the user that matches this ID.</p>
             group_id: <p>(Optional) Limits the results to only the group that matches this ID.</p>
             workspace_id: <p>The ID of the workspace to list permissions for. This parameter is required.</p>
+
+        Raises:
+            aws_sdk_grafana.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action. </p>
+            aws_sdk_grafana.errors.internal_server_exception.InternalServerException: <p>Unexpected error while processing the request. Retry the request.</p>
+            aws_sdk_grafana.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource that does not exist.</p>
+            aws_sdk_grafana.errors.throttling_exception.ThrottlingException: <p>The request was denied because of request throttling. Retry the request.</p>
+            aws_sdk_grafana.errors.validation_exception.ValidationException: <p>The value of a parameter in the request caused an error.</p>
+            aws_sdk_grafana.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -106,6 +114,14 @@ class Permission:
         Args:
             update_instruction_batch: <p>An array of structures that contain the permission updates to make.</p>
             workspace_id: <p>The ID of the workspace to update.</p>
+
+        Raises:
+            aws_sdk_grafana.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action. </p>
+            aws_sdk_grafana.errors.internal_server_exception.InternalServerException: <p>Unexpected error while processing the request. Retry the request.</p>
+            aws_sdk_grafana.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource that does not exist.</p>
+            aws_sdk_grafana.errors.throttling_exception.ThrottlingException: <p>The request was denied because of request throttling. Retry the request.</p>
+            aws_sdk_grafana.errors.validation_exception.ValidationException: <p>The value of a parameter in the request caused an error.</p>
+            aws_sdk_grafana.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -161,6 +177,14 @@ class AsyncPermission:
             user_id: <p>(Optional) Limits the results to only the user that matches this ID.</p>
             group_id: <p>(Optional) Limits the results to only the group that matches this ID.</p>
             workspace_id: <p>The ID of the workspace to list permissions for. This parameter is required.</p>
+
+        Raises:
+            aws_sdk_grafana.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action. </p>
+            aws_sdk_grafana.errors.internal_server_exception.InternalServerException: <p>Unexpected error while processing the request. Retry the request.</p>
+            aws_sdk_grafana.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource that does not exist.</p>
+            aws_sdk_grafana.errors.throttling_exception.ThrottlingException: <p>The request was denied because of request throttling. Retry the request.</p>
+            aws_sdk_grafana.errors.validation_exception.ValidationException: <p>The value of a parameter in the request caused an error.</p>
+            aws_sdk_grafana.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -211,6 +235,14 @@ class AsyncPermission:
         Args:
             update_instruction_batch: <p>An array of structures that contain the permission updates to make.</p>
             workspace_id: <p>The ID of the workspace to update.</p>
+
+        Raises:
+            aws_sdk_grafana.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action. </p>
+            aws_sdk_grafana.errors.internal_server_exception.InternalServerException: <p>Unexpected error while processing the request. Retry the request.</p>
+            aws_sdk_grafana.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource that does not exist.</p>
+            aws_sdk_grafana.errors.throttling_exception.ThrottlingException: <p>The request was denied because of request throttling. Retry the request.</p>
+            aws_sdk_grafana.errors.validation_exception.ValidationException: <p>The value of a parameter in the request caused an error.</p>
+            aws_sdk_grafana.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

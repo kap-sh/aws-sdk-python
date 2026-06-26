@@ -562,6 +562,13 @@ class AsyncRDSClient:
             role_arn: <p>The Amazon Resource Name (ARN) of the IAM role to associate with the Aurora DB cluster, for example <code>arn:aws:iam::123456789012:role/AuroraAccessRole</code>.</p>
             feature_name: <p>The name of the feature for the DB cluster that the IAM role is to be associated with. For information about supported feature names, see <a>DBEngineVersion</a>.</p>
 
+        Raises:
+            aws_sdk_rds.errors.db_cluster_not_found_fault.DBClusterNotFoundFault: <p> <code>DBClusterIdentifier</code> doesn't refer to an existing DB cluster.</p>
+            aws_sdk_rds.errors.db_cluster_role_already_exists_fault.DBClusterRoleAlreadyExistsFault: <p>The specified IAM role Amazon Resource Name (ARN) is already associated with the specified DB cluster.</p>
+            aws_sdk_rds.errors.db_cluster_role_quota_exceeded_fault.DBClusterRoleQuotaExceededFault: <p>You have exceeded the maximum number of IAM roles that can be associated with the specified DB cluster.</p>
+            aws_sdk_rds.errors.invalid_db_cluster_state_fault.InvalidDBClusterStateFault: <p>The requested operation can't be performed while the cluster is in this state.</p>
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To associate an AWS Identity and Access Management (IAM) role with a DB cluster
             The following example associates a role with a DB cluster.
@@ -611,6 +618,13 @@ class AsyncRDSClient:
             role_arn: <p>The Amazon Resource Name (ARN) of the IAM role to associate with the DB instance, for example <code>arn:aws:iam::123456789012:role/AccessRole</code>.</p>
             feature_name: <p>The name of the feature for the DB instance that the IAM role is to be associated with. For information about supported feature names, see <a>DBEngineVersion</a>.</p>
 
+        Raises:
+            aws_sdk_rds.errors.db_instance_not_found_fault.DBInstanceNotFoundFault: <p> <code>DBInstanceIdentifier</code> doesn't refer to an existing DB instance.</p>
+            aws_sdk_rds.errors.db_instance_role_already_exists_fault.DBInstanceRoleAlreadyExistsFault: <p>The specified <code>RoleArn</code> or <code>FeatureName</code> value is already associated with the DB instance.</p>
+            aws_sdk_rds.errors.db_instance_role_quota_exceeded_fault.DBInstanceRoleQuotaExceededFault: <p>You can't associate any more Amazon Web Services Identity and Access Management (IAM) roles with the DB instance because the quota has been reached.</p>
+            aws_sdk_rds.errors.invalid_db_instance_state_fault.InvalidDBInstanceStateFault: <p>The DB instance isn't in a valid state.</p>
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To associate an AWS Identity and Access Management (IAM) role with a DB instance
             The following example adds the role to a DB instance named test-instance.
@@ -656,6 +670,11 @@ class AsyncRDSClient:
         Args:
             subscription_name: <p>The name of the RDS event notification subscription you want to add a source identifier to.</p>
             source_identifier: <p>The identifier of the event source to be added.</p> <p>Constraints:</p> <ul> <li> <p>If the source type is a DB instance, a <code>DBInstanceIdentifier</code> value must be supplied.</p> </li> <li> <p>If the source type is a DB cluster, a <code>DBClusterIdentifier</code> value must be supplied.</p> </li> <li> <p>If the source type is a DB parameter group, a <code>DBParameterGroupName</code> value must be supplied.</p> </li> <li> <p>If the source type is a DB security group, a <code>DBSecurityGroupName</code> value must be supplied.</p> </li> <li> <p>If the source type is a DB snapshot, a <code>DBSnapshotIdentifier</code> value must be supplied.</p> </li> <li> <p>If the source type is a DB cluster snapshot, a <code>DBClusterSnapshotIdentifier</code> value must be supplied.</p> </li> <li> <p>If the source type is an RDS Proxy, a <code>DBProxyName</code> value must be supplied.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_rds.errors.source_not_found_fault.SourceNotFoundFault: <p>The requested source could not be found.</p>
+            aws_sdk_rds.errors.subscription_not_found_fault.SubscriptionNotFoundFault: <p>The subscription name does not exist.</p>
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To add a source identifier to a subscription
@@ -704,6 +723,23 @@ class AsyncRDSClient:
             resource_name: <p>The Amazon RDS resource that the tags are added to. This value is an Amazon Resource Name (ARN). For information about creating an ARN, see <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing\"> Constructing an RDS Amazon Resource Name (ARN)</a>.</p>
             tags: <p>The tags to be assigned to the Amazon RDS resource.</p>
 
+        Raises:
+            aws_sdk_rds.errors.blue_green_deployment_not_found_fault.BlueGreenDeploymentNotFoundFault: <p> <code>BlueGreenDeploymentIdentifier</code> doesn't refer to an existing blue/green deployment.</p>
+            aws_sdk_rds.errors.db_cluster_not_found_fault.DBClusterNotFoundFault: <p> <code>DBClusterIdentifier</code> doesn't refer to an existing DB cluster.</p>
+            aws_sdk_rds.errors.db_instance_not_found_fault.DBInstanceNotFoundFault: <p> <code>DBInstanceIdentifier</code> doesn't refer to an existing DB instance.</p>
+            aws_sdk_rds.errors.db_proxy_endpoint_not_found_fault.DBProxyEndpointNotFoundFault: <p>The DB proxy endpoint doesn't exist.</p>
+            aws_sdk_rds.errors.db_proxy_not_found_fault.DBProxyNotFoundFault: <p>The specified proxy name doesn't correspond to a proxy owned by your Amazon Web Services account in the specified Amazon Web Services Region.</p>
+            aws_sdk_rds.errors.db_proxy_target_group_not_found_fault.DBProxyTargetGroupNotFoundFault: <p>The specified target group isn't available for a proxy owned by your Amazon Web Services account in the specified Amazon Web Services Region.</p>
+            aws_sdk_rds.errors.db_shard_group_not_found_fault.DBShardGroupNotFoundFault: <p>The specified DB shard group name wasn't found.</p>
+            aws_sdk_rds.errors.db_snapshot_not_found_fault.DBSnapshotNotFoundFault: <p> <code>DBSnapshotIdentifier</code> doesn't refer to an existing DB snapshot.</p>
+            aws_sdk_rds.errors.db_snapshot_tenant_database_not_found_fault.DBSnapshotTenantDatabaseNotFoundFault: <p>The specified snapshot tenant database wasn't found.</p>
+            aws_sdk_rds.errors.integration_not_found_fault.IntegrationNotFoundFault: <p>The specified integration could not be found.</p>
+            aws_sdk_rds.errors.invalid_db_cluster_endpoint_state_fault.InvalidDBClusterEndpointStateFault: <p>The requested operation can't be performed on the endpoint while the endpoint is in this state.</p>
+            aws_sdk_rds.errors.invalid_db_cluster_state_fault.InvalidDBClusterStateFault: <p>The requested operation can't be performed while the cluster is in this state.</p>
+            aws_sdk_rds.errors.invalid_db_instance_state_fault.InvalidDBInstanceStateFault: <p>The DB instance isn't in a valid state.</p>
+            aws_sdk_rds.errors.tenant_database_not_found_fault.TenantDatabaseNotFoundFault: <p>The specified tenant database wasn't found in the DB instance.</p>
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To add tags to a resource
             This example adds a tag to an option group.
@@ -750,6 +786,12 @@ class AsyncRDSClient:
             resource_identifier: <p>The RDS Amazon Resource Name (ARN) of the resource that the pending maintenance action applies to. For information about creating an ARN, see <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing\"> Constructing an RDS Amazon Resource Name (ARN)</a>.</p>
             apply_action: <p>The pending maintenance action to apply to this resource.</p> <p>Valid Values:</p> <ul> <li> <p> <code>ca-certificate-rotation</code> </p> </li> <li> <p> <code>db-upgrade</code> </p> </li> <li> <p> <code>hardware-maintenance</code> </p> </li> <li> <p> <code>os-upgrade</code> </p> </li> <li> <p> <code>system-update</code> </p> </li> </ul> <p>For more information about these actions, see <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html#maintenance-actions-aurora\">Maintenance actions for Amazon Aurora</a> or <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Maintenance.html#maintenance-actions-rds\">Maintenance actions for Amazon RDS</a>.</p>
             opt_in_type: <p>A value that specifies the type of opt-in request, or undoes an opt-in request. An opt-in request of type <code>immediate</code> can't be undone.</p> <p>Valid Values:</p> <ul> <li> <p> <code>immediate</code> - Apply the maintenance action immediately.</p> </li> <li> <p> <code>next-maintenance</code> - Apply the maintenance action during the next maintenance window for the resource.</p> </li> <li> <p> <code>undo-opt-in</code> - Cancel any existing <code>next-maintenance</code> opt-in requests.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_rds.errors.invalid_db_cluster_state_fault.InvalidDBClusterStateFault: <p>The requested operation can't be performed while the cluster is in this state.</p>
+            aws_sdk_rds.errors.invalid_db_instance_state_fault.InvalidDBInstanceStateFault: <p>The DB instance isn't in a valid state.</p>
+            aws_sdk_rds.errors.resource_not_found_fault.ResourceNotFoundFault: <p>The specified resource ID was not found.</p>
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To apply pending maintenance actions
@@ -804,6 +846,13 @@ class AsyncRDSClient:
             ec2_security_group_name: <p>Name of the EC2 security group to authorize. For VPC DB security groups, <code>EC2SecurityGroupId</code> must be provided. Otherwise, <code>EC2SecurityGroupOwnerId</code> and either <code>EC2SecurityGroupName</code> or <code>EC2SecurityGroupId</code> must be provided.</p>
             ec2_security_group_id: <p>Id of the EC2 security group to authorize. For VPC DB security groups, <code>EC2SecurityGroupId</code> must be provided. Otherwise, <code>EC2SecurityGroupOwnerId</code> and either <code>EC2SecurityGroupName</code> or <code>EC2SecurityGroupId</code> must be provided.</p>
             ec2_security_group_owner_id: <p>Amazon Web Services account number of the owner of the EC2 security group specified in the <code>EC2SecurityGroupName</code> parameter. The Amazon Web Services access key ID isn't an acceptable value. For VPC DB security groups, <code>EC2SecurityGroupId</code> must be provided. Otherwise, <code>EC2SecurityGroupOwnerId</code> and either <code>EC2SecurityGroupName</code> or <code>EC2SecurityGroupId</code> must be provided.</p>
+
+        Raises:
+            aws_sdk_rds.errors.authorization_already_exists_fault.AuthorizationAlreadyExistsFault: <p>The specified CIDR IP range or Amazon EC2 security group is already authorized for the specified DB security group.</p>
+            aws_sdk_rds.errors.authorization_quota_exceeded_fault.AuthorizationQuotaExceededFault: <p>The DB security group authorization quota has been reached.</p>
+            aws_sdk_rds.errors.db_security_group_not_found_fault.DBSecurityGroupNotFoundFault: <p> <code>DBSecurityGroupName</code> doesn't refer to an existing DB security group.</p>
+            aws_sdk_rds.errors.invalid_db_security_group_state_fault.InvalidDBSecurityGroupStateFault: <p>The state of the DB security group doesn't allow deletion.</p>
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To authorize DB security group integress
@@ -864,6 +913,11 @@ class AsyncRDSClient:
             backtrack_to: <p>The timestamp of the time to backtrack the DB cluster to, specified in ISO 8601 format. For more information about ISO 8601, see the <a href=\"http://en.wikipedia.org/wiki/ISO_8601\">ISO8601 Wikipedia page.</a> </p> <note> <p>If the specified time isn't a consistent time for the DB cluster, Aurora automatically chooses the nearest possible consistent time for the DB cluster.</p> </note> <p>Constraints:</p> <ul> <li> <p>Must contain a valid ISO 8601 timestamp.</p> </li> <li> <p>Can't contain a timestamp set in the future.</p> </li> </ul> <p>Example: <code>2017-07-08T18:00Z</code> </p>
             force: <p>Specifies whether to force the DB cluster to backtrack when binary logging is enabled. Otherwise, an error occurs when binary logging is enabled.</p>
             use_earliest_time_on_point_in_time_unavailable: <p>Specifies whether to backtrack the DB cluster to the earliest possible backtrack time when <i>BacktrackTo</i> is set to a timestamp earlier than the earliest backtrack time. When this parameter is disabled and <i>BacktrackTo</i> is set to a timestamp earlier than the earliest backtrack time, an error occurs.</p>
+
+        Raises:
+            aws_sdk_rds.errors.db_cluster_not_found_fault.DBClusterNotFoundFault: <p> <code>DBClusterIdentifier</code> doesn't refer to an existing DB cluster.</p>
+            aws_sdk_rds.errors.invalid_db_cluster_state_fault.InvalidDBClusterStateFault: <p>The requested operation can't be performed while the cluster is in this state.</p>
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -909,6 +963,11 @@ class AsyncRDSClient:
 
         Args:
             export_task_identifier: <p>The identifier of the snapshot or cluster export task to cancel.</p>
+
+        Raises:
+            aws_sdk_rds.errors.export_task_not_found_fault.ExportTaskNotFoundFault: <p>The export task doesn't exist.</p>
+            aws_sdk_rds.errors.invalid_export_task_state_fault.InvalidExportTaskStateFault: <p>You can't cancel an export task that has completed.</p>
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To cancel a snapshot export to Amazon S3
@@ -956,6 +1015,12 @@ class AsyncRDSClient:
             source_db_cluster_parameter_group_identifier: <p>The identifier or Amazon Resource Name (ARN) for the source DB cluster parameter group. For information about creating an ARN, see <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing\"> Constructing an ARN for Amazon RDS</a> in the <i>Amazon Aurora User Guide</i>.</p> <p>Constraints:</p> <ul> <li> <p>Must specify a valid DB cluster parameter group.</p> </li> </ul>
             target_db_cluster_parameter_group_identifier: <p>The identifier for the copied DB cluster parameter group.</p> <p>Constraints:</p> <ul> <li> <p>Can't be null, empty, or blank</p> </li> <li> <p>Must contain from 1 to 255 letters, numbers, or hyphens</p> </li> <li> <p>First character must be a letter</p> </li> <li> <p>Can't end with a hyphen or contain two consecutive hyphens</p> </li> </ul> <p>Example: <code>my-cluster-param-group1</code> </p>
             target_db_cluster_parameter_group_description: <p>A description for the copied DB cluster parameter group.</p>
+
+        Raises:
+            aws_sdk_rds.errors.db_parameter_group_already_exists_fault.DBParameterGroupAlreadyExistsFault: <p>A DB parameter group with the same name exists.</p>
+            aws_sdk_rds.errors.db_parameter_group_not_found_fault.DBParameterGroupNotFoundFault: <p> <code>DBParameterGroupName</code> doesn't refer to an existing DB parameter group.</p>
+            aws_sdk_rds.errors.db_parameter_group_quota_exceeded_fault.DBParameterGroupQuotaExceededFault: <p>The request would result in the user exceeding the allowed number of DB parameter groups.</p>
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To copy a DB cluster parameter group
@@ -1026,6 +1091,15 @@ class AsyncRDSClient:
             pre_signed_url: <p>When you are copying a DB cluster snapshot from one Amazon Web Services GovCloud (US) Region to another, the URL that contains a Signature Version 4 signed request for the <code>CopyDBClusterSnapshot</code> API operation in the Amazon Web Services Region that contains the source DB cluster snapshot to copy. Use the <code>PreSignedUrl</code> parameter when copying an encrypted DB cluster snapshot from another Amazon Web Services Region. Don't specify <code>PreSignedUrl</code> when copying an encrypted DB cluster snapshot in the same Amazon Web Services Region.</p> <p>This setting applies only to Amazon Web Services GovCloud (US) Regions. It's ignored in other Amazon Web Services Regions.</p> <p>The presigned URL must be a valid request for the <code>CopyDBClusterSnapshot</code> API operation that can run in the source Amazon Web Services Region that contains the encrypted DB cluster snapshot to copy. The presigned URL request must contain the following parameter values:</p> <ul> <li> <p> <code>KmsKeyId</code> - The KMS key identifier for the KMS key to use to encrypt the copy of the DB cluster snapshot in the destination Amazon Web Services Region. This is the same identifier for both the <code>CopyDBClusterSnapshot</code> operation that is called in the destination Amazon Web Services Region, and the operation contained in the presigned URL.</p> </li> <li> <p> <code>DestinationRegion</code> - The name of the Amazon Web Services Region that the DB cluster snapshot is to be created in.</p> </li> <li> <p> <code>SourceDBClusterSnapshotIdentifier</code> - The DB cluster snapshot identifier for the encrypted DB cluster snapshot to be copied. This identifier must be in the Amazon Resource Name (ARN) format for the source Amazon Web Services Region. For example, if you are copying an encrypted DB cluster snapshot from the us-west-2 Amazon Web Services Region, then your <code>SourceDBClusterSnapshotIdentifier</code> looks like the following example: <code>arn:aws:rds:us-west-2:123456789012:cluster-snapshot:aurora-cluster1-snapshot-20161115</code>.</p> </li> </ul> <p>To learn how to generate a Signature Version 4 signed request, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-query-string-auth.html\"> Authenticating Requests: Using Query Parameters (Amazon Web Services Signature Version 4)</a> and <a href=\"https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html\"> Signature Version 4 Signing Process</a>.</p> <note> <p>If you are using an Amazon Web Services SDK tool or the CLI, you can specify <code>SourceRegion</code> (or <code>--source-region</code> for the CLI) instead of specifying <code>PreSignedUrl</code> manually. Specifying <code>SourceRegion</code> autogenerates a presigned URL that is a valid request for the operation that can run in the source Amazon Web Services Region.</p> </note>
             copy_tags: <p>Specifies whether to copy all tags from the source DB cluster snapshot to the target DB cluster snapshot. By default, tags are not copied.</p>
 
+        Raises:
+            aws_sdk_rds.errors.db_cluster_snapshot_already_exists_fault.DBClusterSnapshotAlreadyExistsFault: <p>The user already has a DB cluster snapshot with the given identifier.</p>
+            aws_sdk_rds.errors.db_cluster_snapshot_not_found_fault.DBClusterSnapshotNotFoundFault: <p> <code>DBClusterSnapshotIdentifier</code> doesn't refer to an existing DB cluster snapshot.</p>
+            aws_sdk_rds.errors.invalid_db_cluster_snapshot_state_fault.InvalidDBClusterSnapshotStateFault: <p>The supplied value isn't a valid DB cluster snapshot state.</p>
+            aws_sdk_rds.errors.invalid_db_cluster_state_fault.InvalidDBClusterStateFault: <p>The requested operation can't be performed while the cluster is in this state.</p>
+            aws_sdk_rds.errors.kms_key_not_accessible_fault.KMSKeyNotAccessibleFault: <p>An error occurred accessing an Amazon Web Services KMS key.</p>
+            aws_sdk_rds.errors.snapshot_quota_exceeded_fault.SnapshotQuotaExceededFault: <p>The request would result in the user exceeding the allowed number of DB snapshots.</p>
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To copy a DB cluster snapshot
             The following example creates a copy of a DB cluster snapshot, including its tags.
@@ -1087,6 +1161,12 @@ class AsyncRDSClient:
             source_db_parameter_group_identifier: <p>The identifier or ARN for the source DB parameter group. For information about creating an ARN, see <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing\"> Constructing an ARN for Amazon RDS</a> in the <i>Amazon RDS User Guide</i>.</p> <p>Constraints:</p> <ul> <li> <p>Must specify a valid DB parameter group.</p> </li> </ul>
             target_db_parameter_group_identifier: <p>The identifier for the copied DB parameter group.</p> <p>Constraints:</p> <ul> <li> <p>Can't be null, empty, or blank</p> </li> <li> <p>Must contain from 1 to 255 letters, numbers, or hyphens</p> </li> <li> <p>First character must be a letter</p> </li> <li> <p>Can't end with a hyphen or contain two consecutive hyphens</p> </li> </ul> <p>Example: <code>my-db-parameter-group</code> </p>
             target_db_parameter_group_description: <p>A description for the copied DB parameter group.</p>
+
+        Raises:
+            aws_sdk_rds.errors.db_parameter_group_already_exists_fault.DBParameterGroupAlreadyExistsFault: <p>A DB parameter group with the same name exists.</p>
+            aws_sdk_rds.errors.db_parameter_group_not_found_fault.DBParameterGroupNotFoundFault: <p> <code>DBParameterGroupName</code> doesn't refer to an existing DB parameter group.</p>
+            aws_sdk_rds.errors.db_parameter_group_quota_exceeded_fault.DBParameterGroupQuotaExceededFault: <p>The request would result in the user exceeding the allowed number of DB parameter groups.</p>
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To copy a DB parameter group
@@ -1169,6 +1249,15 @@ class AsyncRDSClient:
             copy_option_group: <p>Specifies whether to copy the DB option group associated with the source DB snapshot to the target Amazon Web Services account and associate with the target DB snapshot. The associated option group can be copied only with cross-account snapshot copy calls.</p>
             snapshot_availability_zone: <p>Specifies the name of the Availability Zone where RDS stores the DB snapshot. This value is valid only for snapshots that RDS stores on a Dedicated Local Zone.</p>
 
+        Raises:
+            aws_sdk_rds.errors.custom_availability_zone_not_found_fault.CustomAvailabilityZoneNotFoundFault: <p> <code>CustomAvailabilityZoneId</code> doesn't refer to an existing custom Availability Zone identifier.</p>
+            aws_sdk_rds.errors.db_snapshot_already_exists_fault.DBSnapshotAlreadyExistsFault: <p> <code>DBSnapshotIdentifier</code> is already used by an existing snapshot.</p>
+            aws_sdk_rds.errors.db_snapshot_not_found_fault.DBSnapshotNotFoundFault: <p> <code>DBSnapshotIdentifier</code> doesn't refer to an existing DB snapshot.</p>
+            aws_sdk_rds.errors.invalid_db_snapshot_state_fault.InvalidDBSnapshotStateFault: <p>The state of the DB snapshot doesn't allow deletion.</p>
+            aws_sdk_rds.errors.kms_key_not_accessible_fault.KMSKeyNotAccessibleFault: <p>An error occurred accessing an Amazon Web Services KMS key.</p>
+            aws_sdk_rds.errors.snapshot_quota_exceeded_fault.SnapshotQuotaExceededFault: <p>The request would result in the user exceeding the allowed number of DB snapshots.</p>
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To copy a DB snapshot
             The following example creates a copy of a DB snapshot.
@@ -1236,6 +1325,12 @@ class AsyncRDSClient:
             source_option_group_identifier: <p>The identifier for the source option group.</p> <p>Constraints:</p> <ul> <li> <p>Must specify a valid option group.</p> </li> </ul>
             target_option_group_identifier: <p>The identifier for the copied option group.</p> <p>Constraints:</p> <ul> <li> <p>Can't be null, empty, or blank</p> </li> <li> <p>Must contain from 1 to 255 letters, numbers, or hyphens</p> </li> <li> <p>First character must be a letter</p> </li> <li> <p>Can't end with a hyphen or contain two consecutive hyphens</p> </li> </ul> <p>Example: <code>my-option-group</code> </p>
             target_option_group_description: <p>The description for the copied option group.</p>
+
+        Raises:
+            aws_sdk_rds.errors.option_group_already_exists_fault.OptionGroupAlreadyExistsFault: <p>The option group you are trying to create already exists.</p>
+            aws_sdk_rds.errors.option_group_not_found_fault.OptionGroupNotFoundFault: <p>The specified option group could not be found.</p>
+            aws_sdk_rds.errors.option_group_quota_exceeded_fault.OptionGroupQuotaExceededFault: <p>The quota of 20 option groups was exceeded for this Amazon Web Services account.</p>
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To copy an option group
@@ -1324,6 +1419,21 @@ class AsyncRDSClient:
             target_storage_type: <p>The storage type to associate with the green DB instance.</p> <p>Valid Values: <code>gp2 | gp3 | io1 | io2</code> </p> <p>This setting doesn't apply to Amazon Aurora blue/green deployments.</p>
             target_allocated_storage: <p>The amount of storage in gibibytes (GiB) to allocate for the green DB instance. You can choose to increase or decrease the allocated storage on the green DB instance.</p> <p>This setting doesn't apply to Amazon Aurora blue/green deployments.</p>
             target_storage_throughput: <p>The storage throughput value for the green DB instance.</p> <p>This setting applies only to the <code>gp3</code> storage type.</p> <p>This setting doesn't apply to Amazon Aurora blue/green deployments.</p>
+
+        Raises:
+            aws_sdk_rds.errors.blue_green_deployment_already_exists_fault.BlueGreenDeploymentAlreadyExistsFault: <p>A blue/green deployment with the specified name already exists.</p>
+            aws_sdk_rds.errors.db_cluster_not_found_fault.DBClusterNotFoundFault: <p> <code>DBClusterIdentifier</code> doesn't refer to an existing DB cluster.</p>
+            aws_sdk_rds.errors.db_cluster_parameter_group_not_found_fault.DBClusterParameterGroupNotFoundFault: <p> <code>DBClusterParameterGroupName</code> doesn't refer to an existing DB cluster parameter group.</p>
+            aws_sdk_rds.errors.db_cluster_quota_exceeded_fault.DBClusterQuotaExceededFault: <p>The user attempted to create a new DB cluster and the user has already reached the maximum allowed DB cluster quota.</p>
+            aws_sdk_rds.errors.db_instance_not_found_fault.DBInstanceNotFoundFault: <p> <code>DBInstanceIdentifier</code> doesn't refer to an existing DB instance.</p>
+            aws_sdk_rds.errors.db_parameter_group_not_found_fault.DBParameterGroupNotFoundFault: <p> <code>DBParameterGroupName</code> doesn't refer to an existing DB parameter group.</p>
+            aws_sdk_rds.errors.instance_quota_exceeded_fault.InstanceQuotaExceededFault: <p>The request would result in the user exceeding the allowed number of DB instances.</p>
+            aws_sdk_rds.errors.invalid_db_cluster_state_fault.InvalidDBClusterStateFault: <p>The requested operation can't be performed while the cluster is in this state.</p>
+            aws_sdk_rds.errors.invalid_db_instance_state_fault.InvalidDBInstanceStateFault: <p>The DB instance isn't in a valid state.</p>
+            aws_sdk_rds.errors.source_cluster_not_supported_fault.SourceClusterNotSupportedFault: <p>The source DB cluster isn't supported for a blue/green deployment.</p>
+            aws_sdk_rds.errors.source_database_not_supported_fault.SourceDatabaseNotSupportedFault: <p>The source DB instance isn't supported for a blue/green deployment.</p>
+            aws_sdk_rds.errors.storage_quota_exceeded_fault.StorageQuotaExceededFault: <p>The request would result in the user exceeding the allowed amount of storage available across all DB instances.</p>
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To create a blue/green deployment for an RDS for MySQL DB instance
@@ -1430,6 +1540,16 @@ class AsyncRDSClient:
             use_aws_provided_latest_image: <p>Specifies whether to use the latest service-provided Amazon Machine Image (AMI) for the CEV. If you specify <code>UseAwsProvidedLatestImage</code>, you can't also specify <code>ImageId</code>.</p>
             description: <p>An optional description of your CEV.</p>
             manifest: <p>The CEV manifest, which is a JSON document that describes the installation .zip files stored in Amazon S3. Specify the name/value pairs in a file or a quoted string. RDS Custom applies the patches in the order in which they are listed.</p> <p>The following JSON fields are valid:</p> <dl> <dt>MediaImportTemplateVersion</dt> <dd> <p>Version of the CEV manifest. The date is in the format <code>YYYY-MM-DD</code>.</p> </dd> <dt>databaseInstallationFileNames</dt> <dd> <p>Ordered list of installation files for the CEV.</p> </dd> <dt>opatchFileNames</dt> <dd> <p>Ordered list of OPatch installers used for the Oracle DB engine.</p> </dd> <dt>psuRuPatchFileNames</dt> <dd> <p>The PSU and RU patches for this CEV.</p> </dd> <dt>OtherPatchFileNames</dt> <dd> <p>The patches that are not in the list of PSU and RU patches. Amazon RDS applies these patches after applying the PSU and RU patches.</p> </dd> </dl> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-cev.html#custom-cev.preparing.manifest\"> Creating the CEV manifest</a> in the <i>Amazon RDS User Guide</i>.</p>
+
+        Raises:
+            aws_sdk_rds.errors.create_custom_db_engine_version_fault.CreateCustomDBEngineVersionFault: <p>An error occurred while trying to create the CEV.</p>
+            aws_sdk_rds.errors.custom_db_engine_version_already_exists_fault.CustomDBEngineVersionAlreadyExistsFault: <p>A CEV with the specified name already exists.</p>
+            aws_sdk_rds.errors.custom_db_engine_version_not_found_fault.CustomDBEngineVersionNotFoundFault: <p>The specified CEV was not found.</p>
+            aws_sdk_rds.errors.custom_db_engine_version_quota_exceeded_fault.CustomDBEngineVersionQuotaExceededFault: <p>You have exceeded your CEV quota.</p>
+            aws_sdk_rds.errors.ec2_image_properties_not_supported_fault.Ec2ImagePropertiesNotSupportedFault: <p>The AMI configuration prerequisite has not been met.</p>
+            aws_sdk_rds.errors.invalid_custom_db_engine_version_state_fault.InvalidCustomDBEngineVersionStateFault: <p>You can't delete the CEV.</p>
+            aws_sdk_rds.errors.kms_key_not_accessible_fault.KMSKeyNotAccessibleFault: <p>An error occurred accessing an Amazon Web Services KMS key.</p>
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1683,6 +1803,33 @@ class AsyncRDSClient:
             master_user_authentication_type: <p>Specifies the authentication type for the master user. With IAM master user authentication, you can configure the master DB user with IAM database authentication when you create a DB cluster.</p> <p>You can specify one of the following values:</p> <ul> <li> <p> <code>password</code> - Use standard database authentication with a password.</p> </li> <li> <p> <code>iam-db-auth</code> - Use IAM database authentication for the master user.</p> </li> </ul> <p>Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters</p> <p>This option is only valid for RDS for PostgreSQL and Aurora PostgreSQL engines.</p>
             with_express_configuration: <p>Specifies to create an Aurora DB Cluster with express configuration in seconds. Express configuration provides a cluster with a writer instance and feature specific values set to all other input parameters of this API. </p> <p>Valid for Cluster Type: Aurora DB clusters</p>
 
+        Raises:
+            aws_sdk_rds.errors.db_cluster_already_exists_fault.DBClusterAlreadyExistsFault: <p>The user already has a DB cluster with the given identifier.</p>
+            aws_sdk_rds.errors.db_cluster_not_found_fault.DBClusterNotFoundFault: <p> <code>DBClusterIdentifier</code> doesn't refer to an existing DB cluster.</p>
+            aws_sdk_rds.errors.db_cluster_parameter_group_not_found_fault.DBClusterParameterGroupNotFoundFault: <p> <code>DBClusterParameterGroupName</code> doesn't refer to an existing DB cluster parameter group.</p>
+            aws_sdk_rds.errors.db_cluster_quota_exceeded_fault.DBClusterQuotaExceededFault: <p>The user attempted to create a new DB cluster and the user has already reached the maximum allowed DB cluster quota.</p>
+            aws_sdk_rds.errors.db_instance_not_found_fault.DBInstanceNotFoundFault: <p> <code>DBInstanceIdentifier</code> doesn't refer to an existing DB instance.</p>
+            aws_sdk_rds.errors.db_subnet_group_does_not_cover_enough_a_zs.DBSubnetGroupDoesNotCoverEnoughAZs: <p>Subnets in the DB subnet group should cover at least two Availability Zones unless there is only one Availability Zone.</p>
+            aws_sdk_rds.errors.db_subnet_group_not_found_fault.DBSubnetGroupNotFoundFault: <p> <code>DBSubnetGroupName</code> doesn't refer to an existing DB subnet group.</p>
+            aws_sdk_rds.errors.domain_not_found_fault.DomainNotFoundFault: <p> <code>Domain</code> doesn't refer to an existing Active Directory domain.</p>
+            aws_sdk_rds.errors.global_cluster_not_found_fault.GlobalClusterNotFoundFault: <p>The <code>GlobalClusterIdentifier</code> doesn't refer to an existing global database cluster.</p>
+            aws_sdk_rds.errors.insufficient_db_instance_capacity_fault.InsufficientDBInstanceCapacityFault: <p>The specified DB instance class isn't available in the specified Availability Zone.</p>
+            aws_sdk_rds.errors.insufficient_storage_cluster_capacity_fault.InsufficientStorageClusterCapacityFault: <p>There is insufficient storage available for the current action. You might be able to resolve this error by updating your subnet group to use different Availability Zones that have more storage available.</p>
+            aws_sdk_rds.errors.invalid_db_cluster_state_fault.InvalidDBClusterStateFault: <p>The requested operation can't be performed while the cluster is in this state.</p>
+            aws_sdk_rds.errors.invalid_db_instance_state_fault.InvalidDBInstanceStateFault: <p>The DB instance isn't in a valid state.</p>
+            aws_sdk_rds.errors.invalid_db_subnet_group_fault.InvalidDBSubnetGroupFault: <p>The DBSubnetGroup doesn't belong to the same VPC as that of an existing cross-region read replica of the same source instance.</p>
+            aws_sdk_rds.errors.invalid_db_subnet_group_state_fault.InvalidDBSubnetGroupStateFault: <p>The DB subnet group cannot be deleted because it's in use.</p>
+            aws_sdk_rds.errors.invalid_global_cluster_state_fault.InvalidGlobalClusterStateFault: <p>The global cluster is in an invalid state and can't perform the requested operation.</p>
+            aws_sdk_rds.errors.invalid_subnet.InvalidSubnet: <p>The requested subnet is invalid, or multiple subnets were requested that are not all in a common VPC.</p>
+            aws_sdk_rds.errors.invalid_vpc_network_state_fault.InvalidVPCNetworkStateFault: <p>The DB subnet group doesn't cover all Availability Zones after it's created because of users' change.</p>
+            aws_sdk_rds.errors.kms_key_not_accessible_fault.KMSKeyNotAccessibleFault: <p>An error occurred accessing an Amazon Web Services KMS key.</p>
+            aws_sdk_rds.errors.network_type_not_supported.NetworkTypeNotSupported: <p>The network type is invalid for the DB instance. Valid nework type values are <code>IPV4</code> and <code>DUAL</code>.</p>
+            aws_sdk_rds.errors.option_group_not_found_fault.OptionGroupNotFoundFault: <p>The specified option group could not be found.</p>
+            aws_sdk_rds.errors.storage_quota_exceeded_fault.StorageQuotaExceededFault: <p>The request would result in the user exceeding the allowed amount of storage available across all DB instances.</p>
+            aws_sdk_rds.errors.storage_type_not_supported_fault.StorageTypeNotSupportedFault: <p>The specified <code>StorageType</code> can't be associated with the DB instance.</p>
+            aws_sdk_rds.errors.vpc_encryption_control_violation_exception.VpcEncryptionControlViolationException: <p>The operation violates VPC encryption control settings. Make sure that your DB instance type supports the Nitro encryption-in-transit capability, or modify your VPC's encryption controls to not enforce encryption-in-transit.</p>
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To create a MySQL 5.7-compatible DB cluster
             The following example creates a MySQL 5.7-compatible Aurora DB cluster.
@@ -1868,6 +2015,15 @@ class AsyncRDSClient:
             excluded_members: <p>List of DB instance identifiers that aren't part of the custom endpoint group. All other eligible instances are reachable through the custom endpoint. This parameter is relevant only if the list of static members is empty.</p>
             tags: <p>The tags to be assigned to the Amazon RDS resource.</p>
 
+        Raises:
+            aws_sdk_rds.errors.db_cluster_endpoint_already_exists_fault.DBClusterEndpointAlreadyExistsFault: <p>The specified custom endpoint can't be created because it already exists.</p>
+            aws_sdk_rds.errors.db_cluster_endpoint_quota_exceeded_fault.DBClusterEndpointQuotaExceededFault: <p>The cluster already has the maximum number of custom endpoints.</p>
+            aws_sdk_rds.errors.db_cluster_not_found_fault.DBClusterNotFoundFault: <p> <code>DBClusterIdentifier</code> doesn't refer to an existing DB cluster.</p>
+            aws_sdk_rds.errors.db_instance_not_found_fault.DBInstanceNotFoundFault: <p> <code>DBInstanceIdentifier</code> doesn't refer to an existing DB instance.</p>
+            aws_sdk_rds.errors.invalid_db_cluster_state_fault.InvalidDBClusterStateFault: <p>The requested operation can't be performed while the cluster is in this state.</p>
+            aws_sdk_rds.errors.invalid_db_instance_state_fault.InvalidDBInstanceStateFault: <p>The DB instance isn't in a valid state.</p>
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To create a custom DB cluster endpoint
             The following example creates a custom DB cluster endpoint and associate it with the specified Aurora DB cluster.
@@ -1926,6 +2082,11 @@ class AsyncRDSClient:
             description: <p>The description for the DB cluster parameter group.</p>
             tags: <p>Tags to assign to the DB cluster parameter group.</p>
 
+        Raises:
+            aws_sdk_rds.errors.db_parameter_group_already_exists_fault.DBParameterGroupAlreadyExistsFault: <p>A DB parameter group with the same name exists.</p>
+            aws_sdk_rds.errors.db_parameter_group_quota_exceeded_fault.DBParameterGroupQuotaExceededFault: <p>The request would result in the user exceeding the allowed number of DB parameter groups.</p>
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To create a DB cluster parameter group
             The following example creates a DB cluster parameter group.
@@ -1977,6 +2138,14 @@ class AsyncRDSClient:
             db_cluster_snapshot_identifier: <p>The identifier of the DB cluster snapshot. This parameter is stored as a lowercase string.</p> <p>Constraints:</p> <ul> <li> <p>Must contain from 1 to 63 letters, numbers, or hyphens.</p> </li> <li> <p>First character must be a letter.</p> </li> <li> <p>Can't end with a hyphen or contain two consecutive hyphens.</p> </li> </ul> <p>Example: <code>my-cluster1-snapshot1</code> </p>
             db_cluster_identifier: <p>The identifier of the DB cluster to create a snapshot for. This parameter isn't case-sensitive.</p> <p>Constraints:</p> <ul> <li> <p>Must match the identifier of an existing DBCluster.</p> </li> </ul> <p>Example: <code>my-cluster1</code> </p>
             tags: <p>The tags to be assigned to the DB cluster snapshot.</p>
+
+        Raises:
+            aws_sdk_rds.errors.db_cluster_not_found_fault.DBClusterNotFoundFault: <p> <code>DBClusterIdentifier</code> doesn't refer to an existing DB cluster.</p>
+            aws_sdk_rds.errors.db_cluster_snapshot_already_exists_fault.DBClusterSnapshotAlreadyExistsFault: <p>The user already has a DB cluster snapshot with the given identifier.</p>
+            aws_sdk_rds.errors.invalid_db_cluster_snapshot_state_fault.InvalidDBClusterSnapshotStateFault: <p>The supplied value isn't a valid DB cluster snapshot state.</p>
+            aws_sdk_rds.errors.invalid_db_cluster_state_fault.InvalidDBClusterStateFault: <p>The requested operation can't be performed while the cluster is in this state.</p>
+            aws_sdk_rds.errors.snapshot_quota_exceeded_fault.SnapshotQuotaExceededFault: <p>The request would result in the user exceeding the allowed number of DB snapshots.</p>
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To create a DB cluster snapshot
@@ -2218,6 +2387,32 @@ class AsyncRDSClient:
             additional_storage_volumes: <p>A list of additional storage volumes to create for the DB instance. You can create up to three additional storage volumes using the names <code>rdsdbdata2</code>, <code>rdsdbdata3</code>, and <code>rdsdbdata4</code>. Additional storage volumes are supported for RDS for Oracle and RDS for SQL Server DB instances only.</p>
             tag_specifications: <p>Tags to assign to resources associated with the DB instance.</p> <p>Valid Values: </p> <ul> <li> <p> <code>auto-backup</code> - The DB instance's automated backup.</p> </li> </ul>
             master_user_authentication_type: <p>Specifies the authentication type for the master user. With IAM master user authentication, you can configure the master DB user with IAM database authentication when you create a DB instance.</p> <p>You can specify one of the following values:</p> <ul> <li> <p> <code>password</code> - Use standard database authentication with a password.</p> </li> <li> <p> <code>iam-db-auth</code> - Use IAM database authentication for the master user.</p> </li> </ul> <p>This option is only valid for RDS for PostgreSQL and Aurora PostgreSQL engines.</p>
+
+        Raises:
+            aws_sdk_rds.errors.authorization_not_found_fault.AuthorizationNotFoundFault: <p>The specified CIDR IP range or Amazon EC2 security group might not be authorized for the specified DB security group.</p> <p>Or, RDS might not be authorized to perform necessary actions using IAM on your behalf.</p>
+            aws_sdk_rds.errors.backup_policy_not_found_fault.BackupPolicyNotFoundFault: <p/>
+            aws_sdk_rds.errors.certificate_not_found_fault.CertificateNotFoundFault: <p> <code>CertificateIdentifier</code> doesn't refer to an existing certificate.</p>
+            aws_sdk_rds.errors.db_cluster_not_found_fault.DBClusterNotFoundFault: <p> <code>DBClusterIdentifier</code> doesn't refer to an existing DB cluster.</p>
+            aws_sdk_rds.errors.db_instance_already_exists_fault.DBInstanceAlreadyExistsFault: <p>The user already has a DB instance with the given identifier.</p>
+            aws_sdk_rds.errors.db_parameter_group_not_found_fault.DBParameterGroupNotFoundFault: <p> <code>DBParameterGroupName</code> doesn't refer to an existing DB parameter group.</p>
+            aws_sdk_rds.errors.db_security_group_not_found_fault.DBSecurityGroupNotFoundFault: <p> <code>DBSecurityGroupName</code> doesn't refer to an existing DB security group.</p>
+            aws_sdk_rds.errors.db_subnet_group_does_not_cover_enough_a_zs.DBSubnetGroupDoesNotCoverEnoughAZs: <p>Subnets in the DB subnet group should cover at least two Availability Zones unless there is only one Availability Zone.</p>
+            aws_sdk_rds.errors.db_subnet_group_not_found_fault.DBSubnetGroupNotFoundFault: <p> <code>DBSubnetGroupName</code> doesn't refer to an existing DB subnet group.</p>
+            aws_sdk_rds.errors.domain_not_found_fault.DomainNotFoundFault: <p> <code>Domain</code> doesn't refer to an existing Active Directory domain.</p>
+            aws_sdk_rds.errors.instance_quota_exceeded_fault.InstanceQuotaExceededFault: <p>The request would result in the user exceeding the allowed number of DB instances.</p>
+            aws_sdk_rds.errors.insufficient_db_instance_capacity_fault.InsufficientDBInstanceCapacityFault: <p>The specified DB instance class isn't available in the specified Availability Zone.</p>
+            aws_sdk_rds.errors.invalid_db_cluster_state_fault.InvalidDBClusterStateFault: <p>The requested operation can't be performed while the cluster is in this state.</p>
+            aws_sdk_rds.errors.invalid_subnet.InvalidSubnet: <p>The requested subnet is invalid, or multiple subnets were requested that are not all in a common VPC.</p>
+            aws_sdk_rds.errors.invalid_vpc_network_state_fault.InvalidVPCNetworkStateFault: <p>The DB subnet group doesn't cover all Availability Zones after it's created because of users' change.</p>
+            aws_sdk_rds.errors.kms_key_not_accessible_fault.KMSKeyNotAccessibleFault: <p>An error occurred accessing an Amazon Web Services KMS key.</p>
+            aws_sdk_rds.errors.network_type_not_supported.NetworkTypeNotSupported: <p>The network type is invalid for the DB instance. Valid nework type values are <code>IPV4</code> and <code>DUAL</code>.</p>
+            aws_sdk_rds.errors.option_group_not_found_fault.OptionGroupNotFoundFault: <p>The specified option group could not be found.</p>
+            aws_sdk_rds.errors.provisioned_iops_not_available_in_az_fault.ProvisionedIopsNotAvailableInAZFault: <p>Provisioned IOPS not available in the specified Availability Zone.</p>
+            aws_sdk_rds.errors.storage_quota_exceeded_fault.StorageQuotaExceededFault: <p>The request would result in the user exceeding the allowed amount of storage available across all DB instances.</p>
+            aws_sdk_rds.errors.storage_type_not_supported_fault.StorageTypeNotSupportedFault: <p>The specified <code>StorageType</code> can't be associated with the DB instance.</p>
+            aws_sdk_rds.errors.tenant_database_quota_exceeded_fault.TenantDatabaseQuotaExceededFault: <p>You attempted to create more tenant databases than are permitted in your Amazon Web Services account.</p>
+            aws_sdk_rds.errors.vpc_encryption_control_violation_exception.VpcEncryptionControlViolationException: <p>The operation violates VPC encryption control settings. Make sure that your DB instance type supports the Nitro encryption-in-transit capability, or modify your VPC's encryption controls to not enforce encryption-in-transit.</p>
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To create a DB instance
@@ -2542,6 +2737,34 @@ class AsyncRDSClient:
             additional_storage_volumes: <p>A list of additional storage volumes to create for the DB instance. You can create up to three additional storage volumes using the names <code>rdsdbdata2</code>, <code>rdsdbdata3</code>, and <code>rdsdbdata4</code>. Additional storage volumes are supported for RDS for Oracle and RDS for SQL Server DB instances only.</p>
             tag_specifications: <p>Tags to assign to resources associated with the DB instance.</p> <p>Valid Values: </p> <ul> <li> <p> <code>auto-backup</code> - The DB instance's automated backup.</p> </li> </ul>
 
+        Raises:
+            aws_sdk_rds.errors.certificate_not_found_fault.CertificateNotFoundFault: <p> <code>CertificateIdentifier</code> doesn't refer to an existing certificate.</p>
+            aws_sdk_rds.errors.db_cluster_not_found_fault.DBClusterNotFoundFault: <p> <code>DBClusterIdentifier</code> doesn't refer to an existing DB cluster.</p>
+            aws_sdk_rds.errors.db_instance_already_exists_fault.DBInstanceAlreadyExistsFault: <p>The user already has a DB instance with the given identifier.</p>
+            aws_sdk_rds.errors.db_instance_not_found_fault.DBInstanceNotFoundFault: <p> <code>DBInstanceIdentifier</code> doesn't refer to an existing DB instance.</p>
+            aws_sdk_rds.errors.db_parameter_group_not_found_fault.DBParameterGroupNotFoundFault: <p> <code>DBParameterGroupName</code> doesn't refer to an existing DB parameter group.</p>
+            aws_sdk_rds.errors.db_security_group_not_found_fault.DBSecurityGroupNotFoundFault: <p> <code>DBSecurityGroupName</code> doesn't refer to an existing DB security group.</p>
+            aws_sdk_rds.errors.db_subnet_group_does_not_cover_enough_a_zs.DBSubnetGroupDoesNotCoverEnoughAZs: <p>Subnets in the DB subnet group should cover at least two Availability Zones unless there is only one Availability Zone.</p>
+            aws_sdk_rds.errors.db_subnet_group_not_allowed_fault.DBSubnetGroupNotAllowedFault: <p>The DBSubnetGroup shouldn't be specified while creating read replicas that lie in the same region as the source instance.</p>
+            aws_sdk_rds.errors.db_subnet_group_not_found_fault.DBSubnetGroupNotFoundFault: <p> <code>DBSubnetGroupName</code> doesn't refer to an existing DB subnet group.</p>
+            aws_sdk_rds.errors.domain_not_found_fault.DomainNotFoundFault: <p> <code>Domain</code> doesn't refer to an existing Active Directory domain.</p>
+            aws_sdk_rds.errors.instance_quota_exceeded_fault.InstanceQuotaExceededFault: <p>The request would result in the user exceeding the allowed number of DB instances.</p>
+            aws_sdk_rds.errors.insufficient_db_instance_capacity_fault.InsufficientDBInstanceCapacityFault: <p>The specified DB instance class isn't available in the specified Availability Zone.</p>
+            aws_sdk_rds.errors.invalid_db_cluster_state_fault.InvalidDBClusterStateFault: <p>The requested operation can't be performed while the cluster is in this state.</p>
+            aws_sdk_rds.errors.invalid_db_instance_state_fault.InvalidDBInstanceStateFault: <p>The DB instance isn't in a valid state.</p>
+            aws_sdk_rds.errors.invalid_db_subnet_group_fault.InvalidDBSubnetGroupFault: <p>The DBSubnetGroup doesn't belong to the same VPC as that of an existing cross-region read replica of the same source instance.</p>
+            aws_sdk_rds.errors.invalid_subnet.InvalidSubnet: <p>The requested subnet is invalid, or multiple subnets were requested that are not all in a common VPC.</p>
+            aws_sdk_rds.errors.invalid_vpc_network_state_fault.InvalidVPCNetworkStateFault: <p>The DB subnet group doesn't cover all Availability Zones after it's created because of users' change.</p>
+            aws_sdk_rds.errors.kms_key_not_accessible_fault.KMSKeyNotAccessibleFault: <p>An error occurred accessing an Amazon Web Services KMS key.</p>
+            aws_sdk_rds.errors.network_type_not_supported.NetworkTypeNotSupported: <p>The network type is invalid for the DB instance. Valid nework type values are <code>IPV4</code> and <code>DUAL</code>.</p>
+            aws_sdk_rds.errors.option_group_not_found_fault.OptionGroupNotFoundFault: <p>The specified option group could not be found.</p>
+            aws_sdk_rds.errors.provisioned_iops_not_available_in_az_fault.ProvisionedIopsNotAvailableInAZFault: <p>Provisioned IOPS not available in the specified Availability Zone.</p>
+            aws_sdk_rds.errors.storage_quota_exceeded_fault.StorageQuotaExceededFault: <p>The request would result in the user exceeding the allowed amount of storage available across all DB instances.</p>
+            aws_sdk_rds.errors.storage_type_not_supported_fault.StorageTypeNotSupportedFault: <p>The specified <code>StorageType</code> can't be associated with the DB instance.</p>
+            aws_sdk_rds.errors.tenant_database_quota_exceeded_fault.TenantDatabaseQuotaExceededFault: <p>You attempted to create more tenant databases than are permitted in your Amazon Web Services account.</p>
+            aws_sdk_rds.errors.vpc_encryption_control_violation_exception.VpcEncryptionControlViolationException: <p>The operation violates VPC encryption control settings. Make sure that your DB instance type supports the Nitro encryption-in-transit capability, or modify your VPC's encryption controls to not enforce encryption-in-transit.</p>
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To create a DB instance read replica
             This example creates a read replica of an existing DB instance named test-instance. The read replica is named test-instance-repl.
@@ -2692,6 +2915,11 @@ class AsyncRDSClient:
             description: <p>The description for the DB parameter group.</p>
             tags: <p>Tags to assign to the DB parameter group.</p>
 
+        Raises:
+            aws_sdk_rds.errors.db_parameter_group_already_exists_fault.DBParameterGroupAlreadyExistsFault: <p>A DB parameter group with the same name exists.</p>
+            aws_sdk_rds.errors.db_parameter_group_quota_exceeded_fault.DBParameterGroupQuotaExceededFault: <p>The request would result in the user exceeding the allowed number of DB parameter groups.</p>
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To create a DB parameter group
             The following example creates a DB parameter group.
@@ -2775,6 +3003,12 @@ class AsyncRDSClient:
             tags: <p>An optional set of key-value pairs to associate arbitrary data of your choosing with the proxy.</p>
             endpoint_network_type: <p>The network type of the DB proxy endpoint. The network type determines the IP version that the proxy endpoint supports.</p> <p>Valid values:</p> <ul> <li> <p> <code>IPV4</code> - The proxy endpoint supports IPv4 only.</p> </li> <li> <p> <code>IPV6</code> - The proxy endpoint supports IPv6 only.</p> </li> <li> <p> <code>DUAL</code> - The proxy endpoint supports both IPv4 and IPv6.</p> </li> </ul> <p>Default: <code>IPV4</code> </p> <p>Constraints:</p> <ul> <li> <p>If you specify <code>IPV6</code> or <code>DUAL</code>, the VPC and all subnets must have an IPv6 CIDR block.</p> </li> <li> <p>If you specify <code>IPV6</code> or <code>DUAL</code>, the VPC tenancy cannot be <code>dedicated</code>.</p> </li> </ul>
             target_connection_network_type: <p>The network type that the proxy uses to connect to the target database. The network type determines the IP version that the proxy uses for connections to the database.</p> <p>Valid values:</p> <ul> <li> <p> <code>IPV4</code> - The proxy connects to the database using IPv4 only.</p> </li> <li> <p> <code>IPV6</code> - The proxy connects to the database using IPv6 only.</p> </li> </ul> <p>Default: <code>IPV4</code> </p> <p>Constraints:</p> <ul> <li> <p>If you specify <code>IPV6</code>, the database must support dual-stack mode. RDS doesn't support IPv6-only databases.</p> </li> <li> <p>All targets registered with the proxy must be compatible with the specified network type.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_rds.errors.db_proxy_already_exists_fault.DBProxyAlreadyExistsFault: <p>The specified proxy name must be unique for all proxies owned by your Amazon Web Services account in the specified Amazon Web Services Region.</p>
+            aws_sdk_rds.errors.db_proxy_quota_exceeded_fault.DBProxyQuotaExceededFault: <p>Your Amazon Web Services account already has the maximum number of proxies in the specified Amazon Web Services Region.</p>
+            aws_sdk_rds.errors.invalid_subnet.InvalidSubnet: <p>The requested subnet is invalid, or multiple subnets were requested that are not all in a common VPC.</p>
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2851,6 +3085,14 @@ class AsyncRDSClient:
             vpc_security_group_ids: <p>The VPC security group IDs for the DB proxy endpoint that you create. You can specify a different set of security group IDs than for the original DB proxy. The default is the default security group for the VPC.</p>
             target_role: <p>The role of the DB proxy endpoint. The role determines whether the endpoint can be used for read/write or only read operations. The default is <code>READ_WRITE</code>. The only role that proxies for RDS for Microsoft SQL Server support is <code>READ_WRITE</code>.</p>
             endpoint_network_type: <p>The network type of the DB proxy endpoint. The network type determines the IP version that the proxy endpoint supports.</p> <p>Valid values:</p> <ul> <li> <p> <code>IPV4</code> - The proxy endpoint supports IPv4 only.</p> </li> <li> <p> <code>IPV6</code> - The proxy endpoint supports IPv6 only.</p> </li> <li> <p> <code>DUAL</code> - The proxy endpoint supports both IPv4 and IPv6.</p> </li> </ul> <p>Default: <code>IPV4</code> </p> <p>Constraints:</p> <ul> <li> <p>If you specify <code>IPV6</code> or <code>DUAL</code>, the VPC and all subnets must have an IPv6 CIDR block.</p> </li> <li> <p>If you specify <code>IPV6</code> or <code>DUAL</code>, the VPC tenancy cannot be <code>dedicated</code>.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_rds.errors.db_proxy_endpoint_already_exists_fault.DBProxyEndpointAlreadyExistsFault: <p>The specified DB proxy endpoint name must be unique for all DB proxy endpoints owned by your Amazon Web Services account in the specified Amazon Web Services Region.</p>
+            aws_sdk_rds.errors.db_proxy_endpoint_quota_exceeded_fault.DBProxyEndpointQuotaExceededFault: <p>The DB proxy already has the maximum number of endpoints.</p>
+            aws_sdk_rds.errors.db_proxy_not_found_fault.DBProxyNotFoundFault: <p>The specified proxy name doesn't correspond to a proxy owned by your Amazon Web Services account in the specified Amazon Web Services Region.</p>
+            aws_sdk_rds.errors.invalid_db_proxy_state_fault.InvalidDBProxyStateFault: <p>The requested operation can't be performed while the proxy is in this state.</p>
+            aws_sdk_rds.errors.invalid_subnet.InvalidSubnet: <p>The requested subnet is invalid, or multiple subnets were requested that are not all in a common VPC.</p>
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2905,6 +3147,12 @@ class AsyncRDSClient:
             db_security_group_name: <p>The name for the DB security group. This value is stored as a lowercase string.</p> <p>Constraints:</p> <ul> <li> <p>Must be 1 to 255 letters, numbers, or hyphens.</p> </li> <li> <p>First character must be a letter</p> </li> <li> <p>Can't end with a hyphen or contain two consecutive hyphens</p> </li> <li> <p>Must not be \"Default\"</p> </li> </ul> <p>Example: <code>mysecuritygroup</code> </p>
             db_security_group_description: <p>The description for the DB security group.</p>
             tags: <p>Tags to assign to the DB security group.</p>
+
+        Raises:
+            aws_sdk_rds.errors.db_security_group_already_exists_fault.DBSecurityGroupAlreadyExistsFault: <p>A DB security group with the name specified in <code>DBSecurityGroupName</code> already exists.</p>
+            aws_sdk_rds.errors.db_security_group_not_supported_fault.DBSecurityGroupNotSupportedFault: <p>A DB security group isn't allowed for this action.</p>
+            aws_sdk_rds.errors.db_security_group_quota_exceeded_fault.DBSecurityGroupQuotaExceededFault: <p>The request would result in the user exceeding the allowed number of DB security groups.</p>
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To create a DB security group.
@@ -2967,6 +3215,16 @@ class AsyncRDSClient:
             max_acu: <p>The maximum capacity of the DB shard group in Aurora capacity units (ACUs).</p>
             min_acu: <p>The minimum capacity of the DB shard group in Aurora capacity units (ACUs).</p>
             publicly_accessible: <p>Specifies whether the DB shard group is publicly accessible.</p> <p>When the DB shard group is publicly accessible, its Domain Name System (DNS) endpoint resolves to the private IP address from within the DB shard group's virtual private cloud (VPC). It resolves to the public IP address from outside of the DB shard group's VPC. Access to the DB shard group is ultimately controlled by the security group it uses. That public access is not permitted if the security group assigned to the DB shard group doesn't permit it.</p> <p>When the DB shard group isn't publicly accessible, it is an internal DB shard group with a DNS name that resolves to a private IP address.</p> <p>Default: The default behavior varies depending on whether <code>DBSubnetGroupName</code> is specified.</p> <p>If <code>DBSubnetGroupName</code> isn't specified, and <code>PubliclyAccessible</code> isn't specified, the following applies:</p> <ul> <li> <p>If the default VPC in the target Region doesn’t have an internet gateway attached to it, the DB shard group is private.</p> </li> <li> <p>If the default VPC in the target Region has an internet gateway attached to it, the DB shard group is public.</p> </li> </ul> <p>If <code>DBSubnetGroupName</code> is specified, and <code>PubliclyAccessible</code> isn't specified, the following applies:</p> <ul> <li> <p>If the subnets are part of a VPC that doesn’t have an internet gateway attached to it, the DB shard group is private.</p> </li> <li> <p>If the subnets are part of a VPC that has an internet gateway attached to it, the DB shard group is public.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_rds.errors.db_cluster_not_found_fault.DBClusterNotFoundFault: <p> <code>DBClusterIdentifier</code> doesn't refer to an existing DB cluster.</p>
+            aws_sdk_rds.errors.db_shard_group_already_exists_fault.DBShardGroupAlreadyExistsFault: <p>The specified DB shard group name must be unique in your Amazon Web Services account in the specified Amazon Web Services Region.</p>
+            aws_sdk_rds.errors.invalid_db_cluster_state_fault.InvalidDBClusterStateFault: <p>The requested operation can't be performed while the cluster is in this state.</p>
+            aws_sdk_rds.errors.invalid_vpc_network_state_fault.InvalidVPCNetworkStateFault: <p>The DB subnet group doesn't cover all Availability Zones after it's created because of users' change.</p>
+            aws_sdk_rds.errors.max_db_shard_group_limit_reached.MaxDBShardGroupLimitReached: <p>The maximum number of DB shard groups for your Amazon Web Services account in the specified Amazon Web Services Region has been reached.</p>
+            aws_sdk_rds.errors.network_type_not_supported.NetworkTypeNotSupported: <p>The network type is invalid for the DB instance. Valid nework type values are <code>IPV4</code> and <code>DUAL</code>.</p>
+            aws_sdk_rds.errors.unsupported_db_engine_version_fault.UnsupportedDBEngineVersionFault: <p>The specified DB engine version isn't supported for Aurora Limitless Database.</p>
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3016,6 +3274,13 @@ class AsyncRDSClient:
         Args:
             db_snapshot_identifier: <p>The identifier for the DB snapshot.</p> <p>Constraints:</p> <ul> <li> <p>Can't be null, empty, or blank</p> </li> <li> <p>Must contain from 1 to 255 letters, numbers, or hyphens</p> </li> <li> <p>First character must be a letter</p> </li> <li> <p>Can't end with a hyphen or contain two consecutive hyphens</p> </li> </ul> <p>Example: <code>my-snapshot-id</code> </p>
             db_instance_identifier: <p>The identifier of the DB instance that you want to create the snapshot of.</p> <p>Constraints:</p> <ul> <li> <p>Must match the identifier of an existing DBInstance.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_rds.errors.db_instance_not_found_fault.DBInstanceNotFoundFault: <p> <code>DBInstanceIdentifier</code> doesn't refer to an existing DB instance.</p>
+            aws_sdk_rds.errors.db_snapshot_already_exists_fault.DBSnapshotAlreadyExistsFault: <p> <code>DBSnapshotIdentifier</code> is already used by an existing snapshot.</p>
+            aws_sdk_rds.errors.invalid_db_instance_state_fault.InvalidDBInstanceStateFault: <p>The DB instance isn't in a valid state.</p>
+            aws_sdk_rds.errors.snapshot_quota_exceeded_fault.SnapshotQuotaExceededFault: <p>The request would result in the user exceeding the allowed number of DB snapshots.</p>
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To create a DB snapshot
@@ -3069,6 +3334,14 @@ class AsyncRDSClient:
             db_subnet_group_description: <p>The description for the DB subnet group.</p>
             subnet_ids: <p>The EC2 Subnet IDs for the DB subnet group.</p>
             tags: <p>Tags to assign to the DB subnet group.</p>
+
+        Raises:
+            aws_sdk_rds.errors.db_subnet_group_already_exists_fault.DBSubnetGroupAlreadyExistsFault: <p> <code>DBSubnetGroupName</code> is already used by an existing DB subnet group.</p>
+            aws_sdk_rds.errors.db_subnet_group_does_not_cover_enough_a_zs.DBSubnetGroupDoesNotCoverEnoughAZs: <p>Subnets in the DB subnet group should cover at least two Availability Zones unless there is only one Availability Zone.</p>
+            aws_sdk_rds.errors.db_subnet_group_quota_exceeded_fault.DBSubnetGroupQuotaExceededFault: <p>The request would result in the user exceeding the allowed number of DB subnet groups.</p>
+            aws_sdk_rds.errors.db_subnet_quota_exceeded_fault.DBSubnetQuotaExceededFault: <p>The request would result in the user exceeding the allowed number of subnets in a DB subnet groups.</p>
+            aws_sdk_rds.errors.invalid_subnet.InvalidSubnet: <p>The requested subnet is invalid, or multiple subnets were requested that are not all in a common VPC.</p>
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To create a DB subnet group
@@ -3130,6 +3403,16 @@ class AsyncRDSClient:
             event_categories: <p>A list of event categories for a particular source type (<code>SourceType</code>) that you want to subscribe to. You can see a list of the categories for a given source type in the \"Amazon RDS event categories and event messages\" section of the <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.Messages.html\"> <i>Amazon RDS User Guide</i> </a> or the <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_Events.Messages.html\"> <i>Amazon Aurora User Guide</i> </a>. You can also see this list by using the <code>DescribeEventCategories</code> operation.</p>
             source_ids: <p>The list of identifiers of the event sources for which events are returned. If not specified, then all sources are included in the response. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens. It can't end with a hyphen or contain two consecutive hyphens.</p> <p>Constraints:</p> <ul> <li> <p>If <code>SourceIds</code> are supplied, <code>SourceType</code> must also be provided.</p> </li> <li> <p>If the source type is a DB instance, a <code>DBInstanceIdentifier</code> value must be supplied.</p> </li> <li> <p>If the source type is a DB cluster, a <code>DBClusterIdentifier</code> value must be supplied.</p> </li> <li> <p>If the source type is a DB parameter group, a <code>DBParameterGroupName</code> value must be supplied.</p> </li> <li> <p>If the source type is a DB security group, a <code>DBSecurityGroupName</code> value must be supplied.</p> </li> <li> <p>If the source type is a DB snapshot, a <code>DBSnapshotIdentifier</code> value must be supplied.</p> </li> <li> <p>If the source type is a DB cluster snapshot, a <code>DBClusterSnapshotIdentifier</code> value must be supplied.</p> </li> <li> <p>If the source type is an RDS Proxy, a <code>DBProxyName</code> value must be supplied.</p> </li> </ul>
             enabled: <p>Specifies whether to activate the subscription. If the event notification subscription isn't activated, the subscription is created but not active.</p>
+
+        Raises:
+            aws_sdk_rds.errors.event_subscription_quota_exceeded_fault.EventSubscriptionQuotaExceededFault: <p>You have reached the maximum number of event subscriptions.</p>
+            aws_sdk_rds.errors.sns_invalid_topic_fault.SNSInvalidTopicFault: <p>SNS has responded that there is a problem with the SNS topic specified.</p>
+            aws_sdk_rds.errors.sns_no_authorization_fault.SNSNoAuthorizationFault: <p>You do not have permission to publish to the SNS topic ARN.</p>
+            aws_sdk_rds.errors.sns_topic_arn_not_found_fault.SNSTopicArnNotFoundFault: <p>The SNS topic ARN does not exist.</p>
+            aws_sdk_rds.errors.source_not_found_fault.SourceNotFoundFault: <p>The requested source could not be found.</p>
+            aws_sdk_rds.errors.subscription_already_exist_fault.SubscriptionAlreadyExistFault: <p>The supplied subscription name already exists.</p>
+            aws_sdk_rds.errors.subscription_category_not_found_fault.SubscriptionCategoryNotFoundFault: <p>The supplied category does not exist.</p>
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To create an event subscription
@@ -3208,6 +3491,15 @@ class AsyncRDSClient:
             storage_encrypted: <p>Specifies whether to enable storage encryption for the new global database cluster.</p> <p>Constraints:</p> <ul> <li> <p>Can't be specified if <code>SourceDBClusterIdentifier</code> is specified. In this case, Amazon Aurora uses the setting from the source DB cluster.</p> </li> </ul>
             tags: <p>Tags to assign to the global cluster.</p>
 
+        Raises:
+            aws_sdk_rds.errors.db_cluster_not_found_fault.DBClusterNotFoundFault: <p> <code>DBClusterIdentifier</code> doesn't refer to an existing DB cluster.</p>
+            aws_sdk_rds.errors.global_cluster_already_exists_fault.GlobalClusterAlreadyExistsFault: <p>The <code>GlobalClusterIdentifier</code> already exists. Specify a new global database identifier (unique name) to create a new global database cluster or to rename an existing one.</p>
+            aws_sdk_rds.errors.global_cluster_quota_exceeded_fault.GlobalClusterQuotaExceededFault: <p>The number of global database clusters for this account is already at the maximum allowed.</p>
+            aws_sdk_rds.errors.invalid_db_cluster_state_fault.InvalidDBClusterStateFault: <p>The requested operation can't be performed while the cluster is in this state.</p>
+            aws_sdk_rds.errors.invalid_db_shard_group_state_fault.InvalidDBShardGroupStateFault: <p>The DB shard group must be in the available state.</p>
+            aws_sdk_rds.errors.resource_not_found_fault.ResourceNotFoundFault: <p>The specified resource ID was not found.</p>
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To create a global DB cluster
             The following example creates a new Aurora MySQL-compatible global DB cluster.
@@ -3285,6 +3577,15 @@ class AsyncRDSClient:
             data_filter: <p>Data filtering options for the integration. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/zero-etl.filtering.html\">Data filtering for Aurora zero-ETL integrations with Amazon Redshift</a> or <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/zero-etl.filtering.html\">Data filtering for Amazon RDS zero-ETL integrations with Amazon Redshift</a>. </p>
             description: <p>A description of the integration.</p>
 
+        Raises:
+            aws_sdk_rds.errors.db_cluster_not_found_fault.DBClusterNotFoundFault: <p> <code>DBClusterIdentifier</code> doesn't refer to an existing DB cluster.</p>
+            aws_sdk_rds.errors.db_instance_not_found_fault.DBInstanceNotFoundFault: <p> <code>DBInstanceIdentifier</code> doesn't refer to an existing DB instance.</p>
+            aws_sdk_rds.errors.integration_already_exists_fault.IntegrationAlreadyExistsFault: <p>The integration you are trying to create already exists.</p>
+            aws_sdk_rds.errors.integration_conflict_operation_fault.IntegrationConflictOperationFault: <p>A conflicting conditional operation is currently in progress against this resource. Typically occurs when there are multiple requests being made to the same resource at the same time, and these requests conflict with each other.</p>
+            aws_sdk_rds.errors.integration_quota_exceeded_fault.IntegrationQuotaExceededFault: <p>You can't crate any more zero-ETL integrations because the quota has been reached.</p>
+            aws_sdk_rds.errors.kms_key_not_accessible_fault.KMSKeyNotAccessibleFault: <p>An error occurred accessing an Amazon Web Services KMS key.</p>
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To create a zero-ETL integration
             The following example creates a zero-ETL integration with Amazon Redshift.
@@ -3346,6 +3647,11 @@ class AsyncRDSClient:
             major_engine_version: <p>Specifies the major version of the engine that this option group should be associated with.</p>
             option_group_description: <p>The description of the option group.</p>
             tags: <p>Tags to assign to the option group.</p>
+
+        Raises:
+            aws_sdk_rds.errors.option_group_already_exists_fault.OptionGroupAlreadyExistsFault: <p>The option group you are trying to create already exists.</p>
+            aws_sdk_rds.errors.option_group_quota_exceeded_fault.OptionGroupQuotaExceededFault: <p>The quota of 20 option groups was exceeded for this Amazon Web Services account.</p>
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To Create an Amazon RDS option group
@@ -3416,6 +3722,14 @@ class AsyncRDSClient:
             nchar_character_set_name: <p>The <code>NCHAR</code> value for the tenant database.</p>
             manage_master_user_password: <p>Specifies whether to manage the master user password with Amazon Web Services Secrets Manager.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-secrets-manager.html\">Password management with Amazon Web Services Secrets Manager</a> in the <i>Amazon RDS User Guide.</i> </p> <p>Constraints:</p> <ul> <li> <p>Can't manage the master user password with Amazon Web Services Secrets Manager if <code>MasterUserPassword</code> is specified.</p> </li> </ul>
             master_user_secret_kms_key_id: <p>The Amazon Web Services KMS key identifier to encrypt a secret that is automatically generated and managed in Amazon Web Services Secrets Manager.</p> <p>This setting is valid only if the master user password is managed by RDS in Amazon Web Services Secrets Manager for the DB instance.</p> <p>The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. To use a KMS key in a different Amazon Web Services account, specify the key ARN or alias ARN.</p> <p>If you don't specify <code>MasterUserSecretKmsKeyId</code>, then the <code>aws/secretsmanager</code> KMS key is used to encrypt the secret. If the secret is in a different Amazon Web Services account, then you can't use the <code>aws/secretsmanager</code> KMS key to encrypt the secret, and you must use a customer managed KMS key.</p> <p>There is a default KMS key for your Amazon Web Services account. Your Amazon Web Services account has a different default KMS key for each Amazon Web Services Region.</p>
+
+        Raises:
+            aws_sdk_rds.errors.db_instance_not_found_fault.DBInstanceNotFoundFault: <p> <code>DBInstanceIdentifier</code> doesn't refer to an existing DB instance.</p>
+            aws_sdk_rds.errors.invalid_db_instance_state_fault.InvalidDBInstanceStateFault: <p>The DB instance isn't in a valid state.</p>
+            aws_sdk_rds.errors.kms_key_not_accessible_fault.KMSKeyNotAccessibleFault: <p>An error occurred accessing an Amazon Web Services KMS key.</p>
+            aws_sdk_rds.errors.tenant_database_already_exists_fault.TenantDatabaseAlreadyExistsFault: <p>You attempted to either create a tenant database that already exists or modify a tenant database to use the name of an existing tenant database.</p>
+            aws_sdk_rds.errors.tenant_database_quota_exceeded_fault.TenantDatabaseQuotaExceededFault: <p>You attempted to create more tenant databases than are permitted in your Amazon Web Services account.</p>
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3473,6 +3787,11 @@ class AsyncRDSClient:
             blue_green_deployment_identifier: <p>The unique identifier of the blue/green deployment to delete. This parameter isn't case-sensitive.</p> <p>Constraints: </p> <ul> <li> <p>Must match an existing blue/green deployment identifier.</p> </li> </ul>
             delete_target: <p>Specifies whether to delete the resources in the green environment. You can't specify this option if the blue/green deployment <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_BlueGreenDeployment.html\">status</a> is <code>SWITCHOVER_COMPLETED</code>.</p>
 
+        Raises:
+            aws_sdk_rds.errors.blue_green_deployment_not_found_fault.BlueGreenDeploymentNotFoundFault: <p> <code>BlueGreenDeploymentIdentifier</code> doesn't refer to an existing blue/green deployment.</p>
+            aws_sdk_rds.errors.invalid_blue_green_deployment_state_fault.InvalidBlueGreenDeploymentStateFault: <p>The blue/green deployment can't be switched over or deleted because there is an invalid configuration in the green environment.</p>
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To delete resources in green environment for an RDS for MySQL DB instance
             The following example deletes the resources in a green environment for an RDS for MySQL DB instance.
@@ -3524,6 +3843,11 @@ class AsyncRDSClient:
         Args:
             engine: <p>The database engine.</p> <p>RDS Custom for Oracle supports the following values:</p> <ul> <li> <p> <code>custom-oracle-ee</code> </p> </li> <li> <p> <code>custom-oracle-ee-cdb</code> </p> </li> <li> <p> <code>custom-oracle-se2</code> </p> </li> <li> <p> <code>custom-oracle-se2-cdb</code> </p> </li> </ul> <p>RDS Custom for SQL Server supports the following values:</p> <ul> <li> <p> <code>custom-sqlserver-ee</code> </p> </li> <li> <p> <code>custom-sqlserver-se</code> </p> </li> <li> <p> <code>ccustom-sqlserver-web</code> </p> </li> <li> <p> <code>custom-sqlserver-dev</code> </p> </li> </ul> <p>RDS for SQL Server supports only <code>sqlserver-dev-ee</code>.</p>
             engine_version: <p>The custom engine version (CEV) for your DB instance. This option is required for RDS Custom, but optional for Amazon RDS. The combination of <code>Engine</code> and <code>EngineVersion</code> is unique per customer per Amazon Web Services Region.</p>
+
+        Raises:
+            aws_sdk_rds.errors.custom_db_engine_version_not_found_fault.CustomDBEngineVersionNotFoundFault: <p>The specified CEV was not found.</p>
+            aws_sdk_rds.errors.invalid_custom_db_engine_version_state_fault.InvalidCustomDBEngineVersionStateFault: <p>You can't delete the CEV.</p>
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3574,6 +3898,17 @@ class AsyncRDSClient:
             final_db_snapshot_identifier: <p>The DB cluster snapshot identifier of the new DB cluster snapshot created when <code>SkipFinalSnapshot</code> is disabled.</p> <note> <p>If you specify this parameter and also skip the creation of a final DB cluster snapshot with the <code>SkipFinalShapshot</code> parameter, the request results in an error.</p> </note> <p>Constraints:</p> <ul> <li> <p>Must be 1 to 255 letters, numbers, or hyphens.</p> </li> <li> <p>First character must be a letter</p> </li> <li> <p>Can't end with a hyphen or contain two consecutive hyphens</p> </li> </ul>
             delete_automated_backups: <p>Specifies whether to remove automated backups immediately after the DB cluster is deleted. This parameter isn't case-sensitive. The default is to remove automated backups immediately after the DB cluster is deleted, unless the Amazon Web Services Backup policy specifies a point-in-time restore rule.</p>
 
+        Raises:
+            aws_sdk_rds.errors.db_cluster_automated_backup_quota_exceeded_fault.DBClusterAutomatedBackupQuotaExceededFault: <p>The quota for retained automated backups was exceeded. This prevents you from retaining any additional automated backups. The retained automated backups quota is the same as your DB cluster quota.</p>
+            aws_sdk_rds.errors.db_cluster_not_found_fault.DBClusterNotFoundFault: <p> <code>DBClusterIdentifier</code> doesn't refer to an existing DB cluster.</p>
+            aws_sdk_rds.errors.db_cluster_snapshot_already_exists_fault.DBClusterSnapshotAlreadyExistsFault: <p>The user already has a DB cluster snapshot with the given identifier.</p>
+            aws_sdk_rds.errors.invalid_db_cluster_snapshot_state_fault.InvalidDBClusterSnapshotStateFault: <p>The supplied value isn't a valid DB cluster snapshot state.</p>
+            aws_sdk_rds.errors.invalid_db_cluster_state_fault.InvalidDBClusterStateFault: <p>The requested operation can't be performed while the cluster is in this state.</p>
+            aws_sdk_rds.errors.invalid_global_cluster_state_fault.InvalidGlobalClusterStateFault: <p>The global cluster is in an invalid state and can't perform the requested operation.</p>
+            aws_sdk_rds.errors.kms_key_not_accessible_fault.KMSKeyNotAccessibleFault: <p>An error occurred accessing an Amazon Web Services KMS key.</p>
+            aws_sdk_rds.errors.snapshot_quota_exceeded_fault.SnapshotQuotaExceededFault: <p>The request would result in the user exceeding the allowed number of DB snapshots.</p>
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To delete a DB cluster
             The following example deletes the DB cluster named mycluster and takes a final snapshot named mycluster-final-snapshot. The status of the DB cluster is available while the snapshot is being taken.
@@ -3623,6 +3958,11 @@ class AsyncRDSClient:
 
         Args:
             db_cluster_resource_id: <p>The identifier for the source DB cluster, which can't be changed and which is unique to an Amazon Web Services Region.</p>
+
+        Raises:
+            aws_sdk_rds.errors.db_cluster_automated_backup_not_found_fault.DBClusterAutomatedBackupNotFoundFault: <p>No automated backup for this DB cluster was found.</p>
+            aws_sdk_rds.errors.invalid_db_cluster_automated_backup_state_fault.InvalidDBClusterAutomatedBackupStateFault: <p>The automated backup is in an invalid state. For example, this automated backup is associated with an active cluster.</p>
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3661,6 +4001,12 @@ class AsyncRDSClient:
 
         Args:
             db_cluster_endpoint_identifier: <p>The identifier associated with the custom endpoint. This parameter is stored as a lowercase string.</p>
+
+        Raises:
+            aws_sdk_rds.errors.db_cluster_endpoint_not_found_fault.DBClusterEndpointNotFoundFault: <p>The specified custom endpoint doesn't exist.</p>
+            aws_sdk_rds.errors.invalid_db_cluster_endpoint_state_fault.InvalidDBClusterEndpointStateFault: <p>The requested operation can't be performed on the endpoint while the endpoint is in this state.</p>
+            aws_sdk_rds.errors.invalid_db_cluster_state_fault.InvalidDBClusterStateFault: <p>The requested operation can't be performed while the cluster is in this state.</p>
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To delete a custom DB cluster endpoint
@@ -3706,6 +4052,11 @@ class AsyncRDSClient:
         Args:
             db_cluster_parameter_group_name: <p>The name of the DB cluster parameter group.</p> <p>Constraints:</p> <ul> <li> <p>Must be the name of an existing DB cluster parameter group.</p> </li> <li> <p>You can't delete a default DB cluster parameter group.</p> </li> <li> <p>Can't be associated with any DB clusters.</p> </li> </ul>
 
+        Raises:
+            aws_sdk_rds.errors.db_parameter_group_not_found_fault.DBParameterGroupNotFoundFault: <p> <code>DBParameterGroupName</code> doesn't refer to an existing DB parameter group.</p>
+            aws_sdk_rds.errors.invalid_db_parameter_group_state_fault.InvalidDBParameterGroupStateFault: <p>The DB parameter group is in use or is in an invalid state. If you are attempting to delete the parameter group, you can't delete it when the parameter group is in this state.</p>
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To delete a DB cluster parameter group
             The following example deletes the specified DB cluster parameter group.
@@ -3747,6 +4098,11 @@ class AsyncRDSClient:
 
         Args:
             db_cluster_snapshot_identifier: <p>The identifier of the DB cluster snapshot to delete.</p> <p>Constraints: Must be the name of an existing DB cluster snapshot in the <code>available</code> state.</p>
+
+        Raises:
+            aws_sdk_rds.errors.db_cluster_snapshot_not_found_fault.DBClusterSnapshotNotFoundFault: <p> <code>DBClusterSnapshotIdentifier</code> doesn't refer to an existing DB cluster snapshot.</p>
+            aws_sdk_rds.errors.invalid_db_cluster_snapshot_state_fault.InvalidDBClusterSnapshotStateFault: <p>The supplied value isn't a valid DB cluster snapshot state.</p>
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To delete a DB cluster snapshot
@@ -3800,6 +4156,16 @@ class AsyncRDSClient:
             skip_final_snapshot: <p>Specifies whether to skip the creation of a final DB snapshot before deleting the instance. If you enable this parameter, RDS doesn't create a DB snapshot. If you don't enable this parameter, RDS creates a DB snapshot before the DB instance is deleted. By default, skip isn't enabled, and the DB snapshot is created.</p> <note> <p>If you don't enable this parameter, you must specify the <code>FinalDBSnapshotIdentifier</code> parameter.</p> </note> <p>When a DB instance is in a failure state and has a status of <code>failed</code>, <code>incompatible-restore</code>, or <code>incompatible-network</code>, RDS can delete the instance only if you enable this parameter.</p> <p>If you delete a read replica or an RDS Custom instance, you must enable this setting.</p> <p>This setting is required for RDS Custom.</p>
             final_db_snapshot_identifier: <p>The <code>DBSnapshotIdentifier</code> of the new <code>DBSnapshot</code> created when the <code>SkipFinalSnapshot</code> parameter is disabled.</p> <note> <p>If you enable this parameter and also enable SkipFinalShapshot, the command results in an error.</p> </note> <p>This setting doesn't apply to RDS Custom.</p> <p>Constraints:</p> <ul> <li> <p>Must be 1 to 255 letters or numbers.</p> </li> <li> <p>First character must be a letter.</p> </li> <li> <p>Can't end with a hyphen or contain two consecutive hyphens.</p> </li> <li> <p>Can't be specified when deleting a read replica.</p> </li> </ul>
             delete_automated_backups: <p>Specifies whether to remove automated backups immediately after the DB instance is deleted. This parameter isn't case-sensitive. The default is to remove automated backups immediately after the DB instance is deleted.</p>
+
+        Raises:
+            aws_sdk_rds.errors.db_instance_automated_backup_quota_exceeded_fault.DBInstanceAutomatedBackupQuotaExceededFault: <p>The quota for retained automated backups was exceeded. This prevents you from retaining any additional automated backups. The retained automated backups quota is the same as your DB instance quota.</p>
+            aws_sdk_rds.errors.db_instance_not_found_fault.DBInstanceNotFoundFault: <p> <code>DBInstanceIdentifier</code> doesn't refer to an existing DB instance.</p>
+            aws_sdk_rds.errors.db_snapshot_already_exists_fault.DBSnapshotAlreadyExistsFault: <p> <code>DBSnapshotIdentifier</code> is already used by an existing snapshot.</p>
+            aws_sdk_rds.errors.invalid_db_cluster_state_fault.InvalidDBClusterStateFault: <p>The requested operation can't be performed while the cluster is in this state.</p>
+            aws_sdk_rds.errors.invalid_db_instance_state_fault.InvalidDBInstanceStateFault: <p>The DB instance isn't in a valid state.</p>
+            aws_sdk_rds.errors.kms_key_not_accessible_fault.KMSKeyNotAccessibleFault: <p>An error occurred accessing an Amazon Web Services KMS key.</p>
+            aws_sdk_rds.errors.snapshot_quota_exceeded_fault.SnapshotQuotaExceededFault: <p>The request would result in the user exceeding the allowed number of DB snapshots.</p>
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To delete a DB instance
@@ -3855,6 +4221,11 @@ class AsyncRDSClient:
             dbi_resource_id: <p>The identifier for the source DB instance, which can't be changed and which is unique to an Amazon Web Services Region.</p>
             db_instance_automated_backups_arn: <p>The Amazon Resource Name (ARN) of the automated backups to delete, for example, <code>arn:aws:rds:us-east-1:123456789012:auto-backup:ab-L2IJCEXJP7XQ7HOJ4SIEXAMPLE</code>.</p> <p>This setting doesn't apply to RDS Custom.</p>
 
+        Raises:
+            aws_sdk_rds.errors.db_instance_automated_backup_not_found_fault.DBInstanceAutomatedBackupNotFoundFault: <p>No automated backup for this DB instance was found.</p>
+            aws_sdk_rds.errors.invalid_db_instance_automated_backup_state_fault.InvalidDBInstanceAutomatedBackupStateFault: <p>The automated backup is in an invalid state. For example, this automated backup is associated with an active instance.</p>
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To delete a replicated automated backup from a Region
             The following example deletes the automated backup with the specified Amazon Resource Name (ARN).
@@ -3904,6 +4275,11 @@ class AsyncRDSClient:
         Args:
             db_parameter_group_name: <p>The name of the DB parameter group.</p> <p>Constraints:</p> <ul> <li> <p>Must be the name of an existing DB parameter group</p> </li> <li> <p>You can't delete a default DB parameter group</p> </li> <li> <p>Can't be associated with any DB instances</p> </li> </ul>
 
+        Raises:
+            aws_sdk_rds.errors.db_parameter_group_not_found_fault.DBParameterGroupNotFoundFault: <p> <code>DBParameterGroupName</code> doesn't refer to an existing DB parameter group.</p>
+            aws_sdk_rds.errors.invalid_db_parameter_group_state_fault.InvalidDBParameterGroupStateFault: <p>The DB parameter group is in use or is in an invalid state. If you are attempting to delete the parameter group, you can't delete it when the parameter group is in this state.</p>
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To delete a DB parameter group
             The following example deletes a DB parameter group.
@@ -3945,6 +4321,11 @@ class AsyncRDSClient:
 
         Args:
             db_proxy_name: <p>The name of the DB proxy to delete.</p>
+
+        Raises:
+            aws_sdk_rds.errors.db_proxy_not_found_fault.DBProxyNotFoundFault: <p>The specified proxy name doesn't correspond to a proxy owned by your Amazon Web Services account in the specified Amazon Web Services Region.</p>
+            aws_sdk_rds.errors.invalid_db_proxy_state_fault.InvalidDBProxyStateFault: <p>The requested operation can't be performed while the proxy is in this state.</p>
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3983,6 +4364,11 @@ class AsyncRDSClient:
 
         Args:
             db_proxy_endpoint_name: <p>The name of the DB proxy endpoint to delete.</p>
+
+        Raises:
+            aws_sdk_rds.errors.db_proxy_endpoint_not_found_fault.DBProxyEndpointNotFoundFault: <p>The DB proxy endpoint doesn't exist.</p>
+            aws_sdk_rds.errors.invalid_db_proxy_endpoint_state_fault.InvalidDBProxyEndpointStateFault: <p>You can't perform this operation while the DB proxy endpoint is in a particular state.</p>
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4021,6 +4407,11 @@ class AsyncRDSClient:
 
         Args:
             db_security_group_name: <p>The name of the DB security group to delete.</p> <note> <p>You can't delete the default DB security group.</p> </note> <p>Constraints:</p> <ul> <li> <p>Must be 1 to 255 letters, numbers, or hyphens.</p> </li> <li> <p>First character must be a letter</p> </li> <li> <p>Can't end with a hyphen or contain two consecutive hyphens</p> </li> <li> <p>Must not be \"Default\"</p> </li> </ul>
+
+        Raises:
+            aws_sdk_rds.errors.db_security_group_not_found_fault.DBSecurityGroupNotFoundFault: <p> <code>DBSecurityGroupName</code> doesn't refer to an existing DB security group.</p>
+            aws_sdk_rds.errors.invalid_db_security_group_state_fault.InvalidDBSecurityGroupStateFault: <p>The state of the DB security group doesn't allow deletion.</p>
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To delete a DB security group
@@ -4063,6 +4454,12 @@ class AsyncRDSClient:
 
         Args:
             db_shard_group_identifier: <p>The name of the DB shard group to delete.</p>
+
+        Raises:
+            aws_sdk_rds.errors.db_shard_group_not_found_fault.DBShardGroupNotFoundFault: <p>The specified DB shard group name wasn't found.</p>
+            aws_sdk_rds.errors.invalid_db_cluster_state_fault.InvalidDBClusterStateFault: <p>The requested operation can't be performed while the cluster is in this state.</p>
+            aws_sdk_rds.errors.invalid_db_shard_group_state_fault.InvalidDBShardGroupStateFault: <p>The DB shard group must be in the available state.</p>
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4099,6 +4496,11 @@ class AsyncRDSClient:
 
         Args:
             db_snapshot_identifier: <p>The DB snapshot identifier.</p> <p>Constraints: Must be the name of an existing DB snapshot in the <code>available</code> state.</p>
+
+        Raises:
+            aws_sdk_rds.errors.db_snapshot_not_found_fault.DBSnapshotNotFoundFault: <p> <code>DBSnapshotIdentifier</code> doesn't refer to an existing DB snapshot.</p>
+            aws_sdk_rds.errors.invalid_db_snapshot_state_fault.InvalidDBSnapshotStateFault: <p>The state of the DB snapshot doesn't allow deletion.</p>
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To delete a DB snapshot
@@ -4144,6 +4546,12 @@ class AsyncRDSClient:
         Args:
             db_subnet_group_name: <p>The name of the database subnet group to delete.</p> <note> <p>You can't delete the default subnet group.</p> </note> <p>Constraints: Must match the name of an existing DBSubnetGroup. Must not be default.</p> <p>Example: <code>mydbsubnetgroup</code> </p>
 
+        Raises:
+            aws_sdk_rds.errors.db_subnet_group_not_found_fault.DBSubnetGroupNotFoundFault: <p> <code>DBSubnetGroupName</code> doesn't refer to an existing DB subnet group.</p>
+            aws_sdk_rds.errors.invalid_db_subnet_group_state_fault.InvalidDBSubnetGroupStateFault: <p>The DB subnet group cannot be deleted because it's in use.</p>
+            aws_sdk_rds.errors.invalid_db_subnet_state_fault.InvalidDBSubnetStateFault: <p>The DB subnet isn't in the <i>available</i> state.</p>
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To delete a DB subnet group
             The following example deletes the DB subnet group called mysubnetgroup.
@@ -4185,6 +4593,11 @@ class AsyncRDSClient:
 
         Args:
             subscription_name: <p>The name of the RDS event notification subscription you want to delete.</p>
+
+        Raises:
+            aws_sdk_rds.errors.invalid_event_subscription_state_fault.InvalidEventSubscriptionStateFault: <p>This error can occur if someone else is modifying a subscription. You should retry the action.</p>
+            aws_sdk_rds.errors.subscription_not_found_fault.SubscriptionNotFoundFault: <p>The subscription name does not exist.</p>
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To delete an event subscription
@@ -4230,6 +4643,11 @@ class AsyncRDSClient:
         Args:
             global_cluster_identifier: <p>The cluster identifier of the global database cluster being deleted.</p>
 
+        Raises:
+            aws_sdk_rds.errors.global_cluster_not_found_fault.GlobalClusterNotFoundFault: <p>The <code>GlobalClusterIdentifier</code> doesn't refer to an existing global database cluster.</p>
+            aws_sdk_rds.errors.invalid_global_cluster_state_fault.InvalidGlobalClusterStateFault: <p>The global cluster is in an invalid state and can't perform the requested operation.</p>
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To delete a global DB cluster
             The following example deletes an Aurora MySQL-compatible global DB cluster.
@@ -4274,6 +4692,12 @@ class AsyncRDSClient:
         Args:
             integration_identifier: <p>The unique identifier of the integration.</p>
 
+        Raises:
+            aws_sdk_rds.errors.integration_conflict_operation_fault.IntegrationConflictOperationFault: <p>A conflicting conditional operation is currently in progress against this resource. Typically occurs when there are multiple requests being made to the same resource at the same time, and these requests conflict with each other.</p>
+            aws_sdk_rds.errors.integration_not_found_fault.IntegrationNotFoundFault: <p>The specified integration could not be found.</p>
+            aws_sdk_rds.errors.invalid_integration_state_fault.InvalidIntegrationStateFault: <p>The integration is in an invalid state and can't perform the requested operation.</p>
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To delete a zero-ETL integration
             The following example deletes a zero-ETL integration with Amazon Redshift.
@@ -4315,6 +4739,11 @@ class AsyncRDSClient:
 
         Args:
             option_group_name: <p>The name of the option group to be deleted.</p> <note> <p>You can't delete default option groups.</p> </note>
+
+        Raises:
+            aws_sdk_rds.errors.invalid_option_group_state_fault.InvalidOptionGroupStateFault: <p>The option group isn't in the <i>available</i> state.</p>
+            aws_sdk_rds.errors.option_group_not_found_fault.OptionGroupNotFoundFault: <p>The specified option group could not be found.</p>
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To delete an option group
@@ -4365,6 +4794,13 @@ class AsyncRDSClient:
             tenant_db_name: <p>The user-supplied name of the tenant database that you want to remove from your DB instance. Amazon RDS deletes the tenant database with this name. This parameter isn’t case-sensitive.</p>
             skip_final_snapshot: <p>Specifies whether to skip the creation of a final DB snapshot before removing the tenant database from your DB instance. If you enable this parameter, RDS doesn't create a DB snapshot. If you don't enable this parameter, RDS creates a DB snapshot before it deletes the tenant database. By default, RDS doesn't skip the final snapshot. If you don't enable this parameter, you must specify the <code>FinalDBSnapshotIdentifier</code> parameter.</p>
             final_db_snapshot_identifier: <p>The <code>DBSnapshotIdentifier</code> of the new <code>DBSnapshot</code> created when the <code>SkipFinalSnapshot</code> parameter is disabled.</p> <note> <p>If you enable this parameter and also enable <code>SkipFinalShapshot</code>, the command results in an error.</p> </note>
+
+        Raises:
+            aws_sdk_rds.errors.db_instance_not_found_fault.DBInstanceNotFoundFault: <p> <code>DBInstanceIdentifier</code> doesn't refer to an existing DB instance.</p>
+            aws_sdk_rds.errors.db_snapshot_already_exists_fault.DBSnapshotAlreadyExistsFault: <p> <code>DBSnapshotIdentifier</code> is already used by an existing snapshot.</p>
+            aws_sdk_rds.errors.invalid_db_instance_state_fault.InvalidDBInstanceStateFault: <p>The DB instance isn't in a valid state.</p>
+            aws_sdk_rds.errors.tenant_database_not_found_fault.TenantDatabaseNotFoundFault: <p>The specified tenant database wasn't found in the DB instance.</p>
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4420,6 +4856,13 @@ class AsyncRDSClient:
             target_group_name: <p>The identifier of the <code>DBProxyTargetGroup</code>.</p>
             db_instance_identifiers: <p>One or more DB instance identifiers.</p>
             db_cluster_identifiers: <p>One or more DB cluster identifiers.</p>
+
+        Raises:
+            aws_sdk_rds.errors.db_proxy_not_found_fault.DBProxyNotFoundFault: <p>The specified proxy name doesn't correspond to a proxy owned by your Amazon Web Services account in the specified Amazon Web Services Region.</p>
+            aws_sdk_rds.errors.db_proxy_target_group_not_found_fault.DBProxyTargetGroupNotFoundFault: <p>The specified target group isn't available for a proxy owned by your Amazon Web Services account in the specified Amazon Web Services Region.</p>
+            aws_sdk_rds.errors.db_proxy_target_not_found_fault.DBProxyTargetNotFoundFault: <p>The specified RDS DB instance or Aurora DB cluster isn't available for a proxy owned by your Amazon Web Services account in the specified Amazon Web Services Region.</p>
+            aws_sdk_rds.errors.invalid_db_proxy_state_fault.InvalidDBProxyStateFault: <p>The requested operation can't be performed while the proxy is in this state.</p>
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4458,6 +4901,9 @@ class AsyncRDSClient:
         self, *, config_overrides: Optional[AsyncRDSClientConfig] = None
     ) -> "aws_sdk_rds.types.account_attributes_message.AccountAttributesMessage":
         """<p>Lists all of the attributes for a customer account. The attributes include Amazon RDS quotas for the account, such as the number of DB instances allowed. The description for a quota includes the quota name, current usage toward that quota, and the quota's maximum value.</p> <p>This command doesn't take any parameters.</p>
+
+        Raises:
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To describe account attributes
@@ -4509,6 +4955,10 @@ class AsyncRDSClient:
             filters: <p>A filter that specifies one or more blue/green deployments to describe.</p> <p>Valid Values:</p> <ul> <li> <p> <code>blue-green-deployment-identifier</code> - Accepts system-generated identifiers for blue/green deployments. The results list only includes information about the blue/green deployments with the specified identifiers.</p> </li> <li> <p> <code>blue-green-deployment-name</code> - Accepts user-supplied names for blue/green deployments. The results list only includes information about the blue/green deployments with the specified names.</p> </li> <li> <p> <code>source</code> - Accepts source databases for a blue/green deployment. The results list only includes information about the blue/green deployments with the specified source databases.</p> </li> <li> <p> <code>target</code> - Accepts target databases for a blue/green deployment. The results list only includes information about the blue/green deployments with the specified target databases.</p> </li> </ul>
             marker: <p>An optional pagination token provided by a previous <code>DescribeBlueGreenDeployments</code> request. If you specify this parameter, the response only includes records beyond the marker, up to the value specified by <code>MaxRecords</code>.</p>
             max_records: <p>The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code> value, a pagination token called a marker is included in the response so you can retrieve the remaining results.</p> <p>Default: 100</p> <p>Constraints:</p> <ul> <li> <p>Must be a minimum of 20.</p> </li> <li> <p>Can't exceed 100.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_rds.errors.blue_green_deployment_not_found_fault.BlueGreenDeploymentNotFoundFault: <p> <code>BlueGreenDeploymentIdentifier</code> doesn't refer to an existing blue/green deployment.</p>
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To describe a blue/green deployment of an RDS DB instance after creation completes
@@ -4606,6 +5056,10 @@ class AsyncRDSClient:
             max_records: <p>The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code> value, a pagination token called a marker is included in the response so you can retrieve the remaining results.</p> <p>Default: 100</p> <p>Constraints: Minimum 20, maximum 100.</p>
             marker: <p>An optional pagination token provided by a previous <code>DescribeCertificates</code> request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>.</p>
 
+        Raises:
+            aws_sdk_rds.errors.certificate_not_found_fault.CertificateNotFoundFault: <p> <code>CertificateIdentifier</code> doesn't refer to an existing certificate.</p>
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To describe certificates
             The following example retrieves the details of the certificate associated with the user's default region.
@@ -4693,6 +5147,10 @@ class AsyncRDSClient:
             filters: <p>A filter that specifies which resources to return based on status.</p> <p>Supported filters are the following:</p> <ul> <li> <p> <code>status</code> </p> <ul> <li> <p> <code>retained</code> - Automated backups for deleted clusters and after backup replication is stopped.</p> </li> </ul> </li> <li> <p> <code>db-cluster-id</code> - Accepts DB cluster identifiers and Amazon Resource Names (ARNs). The results list includes only information about the DB cluster automated backups identified by these ARNs.</p> </li> <li> <p> <code>db-cluster-resource-id</code> - Accepts DB resource identifiers and Amazon Resource Names (ARNs). The results list includes only information about the DB cluster resources identified by these ARNs.</p> </li> </ul> <p>Returns all resources by default. The status for each resource is specified in the response.</p>
             max_records: <p>The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code> value, a pagination token called a marker is included in the response so that you can retrieve the remaining results.</p>
             marker: <p>The pagination token provided in the previous request. If this parameter is specified the response includes only records beyond the marker, up to <code>MaxRecords</code>.</p>
+
+        Raises:
+            aws_sdk_rds.errors.db_cluster_automated_backup_not_found_fault.DBClusterAutomatedBackupNotFoundFault: <p>No automated backup for this DB cluster was found.</p>
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4779,6 +5237,11 @@ class AsyncRDSClient:
             filters: <p>A filter that specifies one or more DB clusters to describe. Supported filters include the following:</p> <ul> <li> <p> <code>db-cluster-backtrack-id</code> - Accepts backtrack identifiers. The results list includes information about only the backtracks identified by these identifiers.</p> </li> <li> <p> <code>db-cluster-backtrack-status</code> - Accepts any of the following backtrack status values:</p> <ul> <li> <p> <code>applying</code> </p> </li> <li> <p> <code>completed</code> </p> </li> <li> <p> <code>failed</code> </p> </li> <li> <p> <code>pending</code> </p> </li> </ul> <p>The results list includes information about only the backtracks identified by these values.</p> </li> </ul>
             max_records: <p>The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code> value, a pagination token called a marker is included in the response so you can retrieve the remaining results.</p> <p>Default: 100</p> <p>Constraints: Minimum 20, maximum 100.</p>
             marker: <p>An optional pagination token provided by a previous <code>DescribeDBClusterBacktracks</code> request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>.</p>
+
+        Raises:
+            aws_sdk_rds.errors.db_cluster_backtrack_not_found_fault.DBClusterBacktrackNotFoundFault: <p> <code>BacktrackIdentifier</code> doesn't refer to an existing backtrack.</p>
+            aws_sdk_rds.errors.db_cluster_not_found_fault.DBClusterNotFoundFault: <p> <code>DBClusterIdentifier</code> doesn't refer to an existing DB cluster.</p>
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To describe backtracks for a DB cluster
@@ -4872,6 +5335,10 @@ class AsyncRDSClient:
             filters: <p>A set of name-value pairs that define which endpoints to include in the output. The filters are specified as name-value pairs, in the format <code>Name=<i>endpoint_type</i>,Values=<i>endpoint_type1</i>,<i>endpoint_type2</i>,...</code>. <code>Name</code> can be one of: <code>db-cluster-endpoint-type</code>, <code>db-cluster-endpoint-custom-type</code>, <code>db-cluster-endpoint-id</code>, <code>db-cluster-endpoint-status</code>. <code>Values</code> for the <code> db-cluster-endpoint-type</code> filter can be one or more of: <code>reader</code>, <code>writer</code>, <code>custom</code>. <code>Values</code> for the <code>db-cluster-endpoint-custom-type</code> filter can be one or more of: <code>reader</code>, <code>any</code>. <code>Values</code> for the <code>db-cluster-endpoint-status</code> filter can be one or more of: <code>available</code>, <code>creating</code>, <code>deleting</code>, <code>inactive</code>, <code>modifying</code>.</p>
             max_records: <p>The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code> value, a pagination token called a marker is included in the response so you can retrieve the remaining results.</p> <p>Default: 100</p> <p>Constraints: Minimum 20, maximum 100.</p>
             marker: <p>An optional pagination token provided by a previous <code>DescribeDBClusterEndpoints</code> request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>.</p>
+
+        Raises:
+            aws_sdk_rds.errors.db_cluster_not_found_fault.DBClusterNotFoundFault: <p> <code>DBClusterIdentifier</code> doesn't refer to an existing DB cluster.</p>
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To describe DB cluster endpoints
@@ -4971,6 +5438,10 @@ class AsyncRDSClient:
             max_records: <p>The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code> value, a pagination token called a marker is included in the response so you can retrieve the remaining results.</p> <p>Default: 100</p> <p>Constraints: Minimum 20, maximum 100.</p>
             marker: <p>An optional pagination token provided by a previous <code>DescribeDBClusterParameterGroups</code> request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>.</p>
 
+        Raises:
+            aws_sdk_rds.errors.db_parameter_group_not_found_fault.DBParameterGroupNotFoundFault: <p> <code>DBParameterGroupName</code> doesn't refer to an existing DB parameter group.</p>
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To describe DB cluster parameter groups
             The following example retrieves details for your DB cluster parameter groups.
@@ -5060,6 +5531,10 @@ class AsyncRDSClient:
             filters: <p>A filter that specifies one or more DB cluster parameters to describe.</p> <p>The only supported filter is <code>parameter-name</code>. The results list only includes information about the DB cluster parameters with these names.</p>
             max_records: <p>The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code> value, a pagination token called a marker is included in the response so you can retrieve the remaining results.</p> <p>Default: 100</p> <p>Constraints: Minimum 20, maximum 100.</p>
             marker: <p>An optional pagination token provided by a previous <code>DescribeDBClusterParameters</code> request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>.</p>
+
+        Raises:
+            aws_sdk_rds.errors.db_parameter_group_not_found_fault.DBParameterGroupNotFoundFault: <p> <code>DBParameterGroupName</code> doesn't refer to an existing DB parameter group.</p>
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To describe the parameters in a DB cluster parameter group
@@ -5152,6 +5627,10 @@ class AsyncRDSClient:
             marker: <p>An optional pagination token provided by a previous <code>DescribeDBClusters</code> request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>.</p>
             include_shared: <p>Specifies whether the output includes information about clusters shared from other Amazon Web Services accounts.</p>
 
+        Raises:
+            aws_sdk_rds.errors.db_cluster_not_found_fault.DBClusterNotFoundFault: <p> <code>DBClusterIdentifier</code> doesn't refer to an existing DB cluster.</p>
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To describe a DB cluster
             The following example retrieves the details of the specified DB cluster.
@@ -5238,6 +5717,10 @@ class AsyncRDSClient:
         Args:
             db_cluster_snapshot_identifier: <p>The identifier for the DB cluster snapshot to describe the attributes for.</p>
 
+        Raises:
+            aws_sdk_rds.errors.db_cluster_snapshot_not_found_fault.DBClusterSnapshotNotFoundFault: <p> <code>DBClusterSnapshotIdentifier</code> doesn't refer to an existing DB cluster snapshot.</p>
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To describe the attribute names and values for a DB cluster snapshot
             The following example retrieves details of the attribute names and values for the specified DB cluster snapshot.
@@ -5301,6 +5784,10 @@ class AsyncRDSClient:
             include_shared: <p>Specifies whether to include shared manual DB cluster snapshots from other Amazon Web Services accounts that this Amazon Web Services account has been given permission to copy or restore. By default, these snapshots are not included.</p> <p>You can give an Amazon Web Services account permission to restore a manual DB cluster snapshot from another Amazon Web Services account by the <code>ModifyDBClusterSnapshotAttribute</code> API action.</p>
             include_public: <p>Specifies whether to include manual DB cluster snapshots that are public and can be copied or restored by any Amazon Web Services account. By default, the public snapshots are not included.</p> <p>You can share a manual DB cluster snapshot as public by using the <a>ModifyDBClusterSnapshotAttribute</a> API action.</p>
             db_cluster_resource_id: <p>A specific DB cluster resource ID to describe.</p>
+
+        Raises:
+            aws_sdk_rds.errors.db_cluster_snapshot_not_found_fault.DBClusterSnapshotNotFoundFault: <p> <code>DBClusterSnapshotIdentifier</code> doesn't refer to an existing DB cluster snapshot.</p>
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To describe a DB cluster snapshot for a DB cluster
@@ -5428,6 +5915,9 @@ class AsyncRDSClient:
             list_supported_timezones: <p>Specifies whether to list the supported time zones for each engine version.</p> <p>If this parameter is enabled and the requested engine supports the <code>TimeZone</code> parameter for <code>CreateDBInstance</code>, the response includes a list of supported time zones for each engine version.</p> <p>For RDS Custom, the default is not to list supported time zones. If you enable this parameter, RDS Custom returns no results.</p>
             include_all: <p>Specifies whether to also list the engine versions that aren't available. The default is to list only available engine versions.</p>
 
+        Raises:
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To describe the DB engine versions for the MySQL DB engine
             The following example displays details about each of the DB engine versions for the specified DB engine.
@@ -5550,6 +6040,10 @@ class AsyncRDSClient:
             marker: <p>The pagination token provided in the previous request. If this parameter is specified the response includes only records beyond the marker, up to <code>MaxRecords</code>.</p>
             db_instance_automated_backups_arn: <p>The Amazon Resource Name (ARN) of the replicated automated backups, for example, <code>arn:aws:rds:us-east-1:123456789012:auto-backup:ab-L2IJCEXJP7XQ7HOJ4SIEXAMPLE</code>.</p> <p>This setting doesn't apply to RDS Custom.</p>
 
+        Raises:
+            aws_sdk_rds.errors.db_instance_automated_backup_not_found_fault.DBInstanceAutomatedBackupNotFoundFault: <p>No automated backup for this DB instance was found.</p>
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To describe the automated backups for a DB instance
             The following example displays details about the automated backups for the specified DB instance. The details include replicated automated backups in other AWS Regions.
@@ -5648,6 +6142,10 @@ class AsyncRDSClient:
             max_records: <p>The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code> value, a pagination token called a marker is included in the response so that you can retrieve the remaining results.</p> <p>Default: 100</p> <p>Constraints: Minimum 20, maximum 100.</p>
             marker: <p>An optional pagination token provided by a previous <code>DescribeDBInstances</code> request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>.</p>
 
+        Raises:
+            aws_sdk_rds.errors.db_instance_not_found_fault.DBInstanceNotFoundFault: <p> <code>DBInstanceIdentifier</code> doesn't refer to an existing DB instance.</p>
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To describe a DB instance
             The following example retrieves details about the specified DB instance.
@@ -5739,6 +6237,11 @@ class AsyncRDSClient:
             filters: <p>This parameter isn't currently supported.</p>
             max_records: <p>The maximum number of records to include in the response. If more records exist than the specified MaxRecords value, a pagination token called a marker is included in the response so you can retrieve the remaining results.</p>
             marker: <p>The pagination token provided in the previous request. If this parameter is specified the response includes only records beyond the marker, up to MaxRecords.</p>
+
+        Raises:
+            aws_sdk_rds.errors.db_instance_not_found_fault.DBInstanceNotFoundFault: <p> <code>DBInstanceIdentifier</code> doesn't refer to an existing DB instance.</p>
+            aws_sdk_rds.errors.db_instance_not_ready_fault.DBInstanceNotReadyFault: <p>An attempt to download or examine log files didn't succeed because an Aurora Serverless v2 instance was paused.</p>
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To describe the log files for a DB instance
@@ -5836,6 +6339,9 @@ class AsyncRDSClient:
             major_engine_version: <p>A specific database major engine version to return details for.</p> <p>Example: <code>8.4</code> </p>
             marker: <p>An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>.</p>
             max_records: <p>The maximum number of records to include in the response. If more than the <code>MaxRecords</code> value is available, a pagination token called a marker is included in the response so you can retrieve the remaining results.</p> <p>Default: 100</p>
+
+        Raises:
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5918,6 +6424,10 @@ class AsyncRDSClient:
             filters: <p>This parameter isn't currently supported.</p>
             max_records: <p>The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code> value, a pagination token called a marker is included in the response so that you can retrieve the remaining results.</p> <p>Default: 100</p> <p>Constraints: Minimum 20, maximum 100.</p>
             marker: <p>An optional pagination token provided by a previous <code>DescribeDBParameterGroups</code> request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>.</p>
+
+        Raises:
+            aws_sdk_rds.errors.db_parameter_group_not_found_fault.DBParameterGroupNotFoundFault: <p> <code>DBParameterGroupName</code> doesn't refer to an existing DB parameter group.</p>
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To describe your DB parameter groups
@@ -6007,6 +6517,10 @@ class AsyncRDSClient:
             max_records: <p>The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code> value, a pagination token called a marker is included in the response so that you can retrieve the remaining results.</p> <p>Default: 100</p> <p>Constraints: Minimum 20, maximum 100.</p>
             marker: <p>An optional pagination token provided by a previous <code>DescribeDBParameters</code> request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>.</p>
 
+        Raises:
+            aws_sdk_rds.errors.db_parameter_group_not_found_fault.DBParameterGroupNotFoundFault: <p> <code>DBParameterGroupName</code> doesn't refer to an existing DB parameter group.</p>
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To describe the parameters in a DB parameter group
             The following example retrieves the details of the specified DB parameter group.
@@ -6093,6 +6607,10 @@ class AsyncRDSClient:
             filters: <p>This parameter is not currently supported.</p>
             marker: <p>An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>.</p>
             max_records: <p>The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code> value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.</p> <p>Default: 100</p> <p>Constraints: Minimum 20, maximum 100.</p>
+
+        Raises:
+            aws_sdk_rds.errors.db_proxy_not_found_fault.DBProxyNotFoundFault: <p>The specified proxy name doesn't correspond to a proxy owned by your Amazon Web Services account in the specified Amazon Web Services Region.</p>
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -6173,6 +6691,11 @@ class AsyncRDSClient:
             filters: <p>This parameter is not currently supported.</p>
             marker: <p>An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>.</p>
             max_records: <p>The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code> value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.</p> <p>Default: 100</p> <p>Constraints: Minimum 20, maximum 100.</p>
+
+        Raises:
+            aws_sdk_rds.errors.db_proxy_endpoint_not_found_fault.DBProxyEndpointNotFoundFault: <p>The DB proxy endpoint doesn't exist.</p>
+            aws_sdk_rds.errors.db_proxy_not_found_fault.DBProxyNotFoundFault: <p>The specified proxy name doesn't correspond to a proxy owned by your Amazon Web Services account in the specified Amazon Web Services Region.</p>
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -6259,6 +6782,12 @@ class AsyncRDSClient:
             filters: <p>This parameter is not currently supported.</p>
             marker: <p>An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>.</p>
             max_records: <p>The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code> value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.</p> <p>Default: 100</p> <p>Constraints: Minimum 20, maximum 100.</p>
+
+        Raises:
+            aws_sdk_rds.errors.db_proxy_not_found_fault.DBProxyNotFoundFault: <p>The specified proxy name doesn't correspond to a proxy owned by your Amazon Web Services account in the specified Amazon Web Services Region.</p>
+            aws_sdk_rds.errors.db_proxy_target_group_not_found_fault.DBProxyTargetGroupNotFoundFault: <p>The specified target group isn't available for a proxy owned by your Amazon Web Services account in the specified Amazon Web Services Region.</p>
+            aws_sdk_rds.errors.invalid_db_proxy_state_fault.InvalidDBProxyStateFault: <p>The requested operation can't be performed while the proxy is in this state.</p>
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -6344,6 +6873,13 @@ class AsyncRDSClient:
             filters: <p>This parameter is not currently supported.</p>
             marker: <p>An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>.</p>
             max_records: <p>The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code> value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.</p> <p>Default: 100</p> <p>Constraints: Minimum 20, maximum 100.</p>
+
+        Raises:
+            aws_sdk_rds.errors.db_proxy_not_found_fault.DBProxyNotFoundFault: <p>The specified proxy name doesn't correspond to a proxy owned by your Amazon Web Services account in the specified Amazon Web Services Region.</p>
+            aws_sdk_rds.errors.db_proxy_target_group_not_found_fault.DBProxyTargetGroupNotFoundFault: <p>The specified target group isn't available for a proxy owned by your Amazon Web Services account in the specified Amazon Web Services Region.</p>
+            aws_sdk_rds.errors.db_proxy_target_not_found_fault.DBProxyTargetNotFoundFault: <p>The specified RDS DB instance or Aurora DB cluster isn't available for a proxy owned by your Amazon Web Services account in the specified Amazon Web Services Region.</p>
+            aws_sdk_rds.errors.invalid_db_proxy_state_fault.InvalidDBProxyStateFault: <p>The requested operation can't be performed while the proxy is in this state.</p>
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -6431,6 +6967,9 @@ class AsyncRDSClient:
             filters: <p>A filter that specifies one or more recommendations to describe.</p> <p>Supported Filters:</p> <ul> <li> <p> <code>recommendation-id</code> - Accepts a list of recommendation identifiers. The results list only includes the recommendations whose identifier is one of the specified filter values.</p> </li> <li> <p> <code>status</code> - Accepts a list of recommendation statuses.</p> <p>Valid values:</p> <ul> <li> <p> <code>active</code> - The recommendations which are ready for you to apply.</p> </li> <li> <p> <code>pending</code> - The applied or scheduled recommendations which are in progress.</p> </li> <li> <p> <code>resolved</code> - The recommendations which are completed.</p> </li> <li> <p> <code>dismissed</code> - The recommendations that you dismissed.</p> </li> </ul> <p>The results list only includes the recommendations whose status is one of the specified filter values.</p> </li> <li> <p> <code>severity</code> - Accepts a list of recommendation severities. The results list only includes the recommendations whose severity is one of the specified filter values.</p> <p>Valid values:</p> <ul> <li> <p> <code>high</code> </p> </li> <li> <p> <code>medium</code> </p> </li> <li> <p> <code>low</code> </p> </li> <li> <p> <code>informational</code> </p> </li> </ul> </li> <li> <p> <code>type-id</code> - Accepts a list of recommendation type identifiers. The results list only includes the recommendations whose type is one of the specified filter values.</p> </li> <li> <p> <code>dbi-resource-id</code> - Accepts a list of database resource identifiers. The results list only includes the recommendations that generated for the specified databases.</p> </li> <li> <p> <code>cluster-resource-id</code> - Accepts a list of cluster resource identifiers. The results list only includes the recommendations that generated for the specified clusters.</p> </li> <li> <p> <code>pg-arn</code> - Accepts a list of parameter group ARNs. The results list only includes the recommendations that generated for the specified parameter groups.</p> </li> <li> <p> <code>cluster-pg-arn</code> - Accepts a list of cluster parameter group ARNs. The results list only includes the recommendations that generated for the specified cluster parameter groups.</p> </li> </ul>
             max_records: <p>The maximum number of recommendations to include in the response. If more records exist than the specified <code>MaxRecords</code> value, a pagination token called a marker is included in the response so that you can retrieve the remaining results.</p>
             marker: <p>An optional pagination token provided by a previous <code>DescribeDBRecommendations</code> request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>. </p>
+
+        Raises:
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -6520,6 +7059,10 @@ class AsyncRDSClient:
             max_records: <p>The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code> value, a pagination token called a marker is included in the response so that you can retrieve the remaining results.</p> <p>Default: 100</p> <p>Constraints: Minimum 20, maximum 100.</p>
             marker: <p>An optional pagination token provided by a previous <code>DescribeDBSecurityGroups</code> request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>.</p>
 
+        Raises:
+            aws_sdk_rds.errors.db_security_group_not_found_fault.DBSecurityGroupNotFoundFault: <p> <code>DBSecurityGroupName</code> doesn't refer to an existing DB security group.</p>
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To list DB security group settings
             This example lists settings for the specified security group.
@@ -6605,6 +7148,11 @@ class AsyncRDSClient:
             filters: <p>A filter that specifies one or more DB shard groups to describe.</p>
             marker: <p>An optional pagination token provided by a previous <code>DescribeDBShardGroups</code> request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>.</p>
             max_records: <p>The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code> value, a pagination token called a marker is included in the response so you can retrieve the remaining results.</p> <p>Default: 100</p> <p>Constraints: Minimum 20, maximum 100</p>
+
+        Raises:
+            aws_sdk_rds.errors.db_cluster_not_found_fault.DBClusterNotFoundFault: <p> <code>DBClusterIdentifier</code> doesn't refer to an existing DB cluster.</p>
+            aws_sdk_rds.errors.db_shard_group_not_found_fault.DBShardGroupNotFoundFault: <p>The specified DB shard group name wasn't found.</p>
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -6650,6 +7198,10 @@ class AsyncRDSClient:
 
         Args:
             db_snapshot_identifier: <p>The identifier for the DB snapshot to describe the attributes for.</p>
+
+        Raises:
+            aws_sdk_rds.errors.db_snapshot_not_found_fault.DBSnapshotNotFoundFault: <p> <code>DBSnapshotIdentifier</code> doesn't refer to an existing DB snapshot.</p>
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To describe the attribute names and values for a DB snapshot
@@ -6712,6 +7264,10 @@ class AsyncRDSClient:
             include_shared: <p>Specifies whether to include shared manual DB cluster snapshots from other Amazon Web Services accounts that this Amazon Web Services account has been given permission to copy or restore. By default, these snapshots are not included.</p> <p>You can give an Amazon Web Services account permission to restore a manual DB snapshot from another Amazon Web Services account by using the <code>ModifyDBSnapshotAttribute</code> API action.</p> <p>This setting doesn't apply to RDS Custom.</p>
             include_public: <p>Specifies whether to include manual DB cluster snapshots that are public and can be copied or restored by any Amazon Web Services account. By default, the public snapshots are not included.</p> <p>You can share a manual DB snapshot as public by using the <a>ModifyDBSnapshotAttribute</a> API.</p> <p>This setting doesn't apply to RDS Custom.</p>
             dbi_resource_id: <p>A specific DB resource ID to describe.</p>
+
+        Raises:
+            aws_sdk_rds.errors.db_snapshot_not_found_fault.DBSnapshotNotFoundFault: <p> <code>DBSnapshotIdentifier</code> doesn't refer to an existing DB snapshot.</p>
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To describe a DB snapshot for a DB instance
@@ -6824,6 +7380,10 @@ class AsyncRDSClient:
             max_records: <p>The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code> value, a pagination token called a marker is included in the response so that you can retrieve the remaining results.</p>
             marker: <p>An optional pagination token provided by a previous <code>DescribeDBSnapshotTenantDatabases</code> request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>.</p>
             dbi_resource_id: <p>A specific DB resource identifier to describe.</p>
+
+        Raises:
+            aws_sdk_rds.errors.db_snapshot_not_found_fault.DBSnapshotNotFoundFault: <p> <code>DBSnapshotIdentifier</code> doesn't refer to an existing DB snapshot.</p>
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -6917,6 +7477,10 @@ class AsyncRDSClient:
             max_records: <p>The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code> value, a pagination token called a marker is included in the response so that you can retrieve the remaining results.</p> <p>Default: 100</p> <p>Constraints: Minimum 20, maximum 100.</p>
             marker: <p>An optional pagination token provided by a previous DescribeDBSubnetGroups request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>.</p>
 
+        Raises:
+            aws_sdk_rds.errors.db_subnet_group_not_found_fault.DBSubnetGroupNotFoundFault: <p> <code>DBSubnetGroupName</code> doesn't refer to an existing DB subnet group.</p>
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To describe a DB subnet group
             The following example retrieves the details of the specified DB subnet group.
@@ -7003,6 +7567,9 @@ class AsyncRDSClient:
             max_records: <p>The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code> value, a pagination token called a marker is included in the response so you can retrieve the remaining results.</p> <p>Default: 100</p> <p>Constraints: Minimum 20, maximum 100.</p>
             marker: <p>An optional pagination token provided by a previous <code>DescribeEngineDefaultClusterParameters</code> request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>.</p>
 
+        Raises:
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To describe the default engine and system parameter information for the Aurora database engine
             The following example retrieves the details of the default engine and system parameter information for Aurora DB clusters with MySQL 5.7 compatibility.
@@ -7088,6 +7655,9 @@ class AsyncRDSClient:
             max_records: <p>The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code> value, a pagination token called a marker is included in the response so you can retrieve the remaining results.</p> <p>Default: 100</p> <p>Constraints: Minimum 20, maximum 100.</p>
             marker: <p>An optional pagination token provided by a previous <code>DescribeEngineDefaultParameters</code> request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>.</p>
 
+        Raises:
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To describe the default engine and system parameter information for the database engine
             The following example retrieves details for the default engine and system parameter information for MySQL 5.7 DB instances.
@@ -7167,6 +7737,9 @@ class AsyncRDSClient:
             source_type: <p>The type of source that is generating the events. For RDS Proxy events, specify <code>db-proxy</code>.</p> <p>Valid Values: <code>db-instance</code> | <code>db-cluster</code> | <code>db-parameter-group</code> | <code>db-security-group</code> | <code>db-snapshot</code> | <code>db-cluster-snapshot</code> | <code>db-proxy</code> </p>
             filters: <p>This parameter isn't currently supported.</p>
 
+        Raises:
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To describe event categories
             The following example retrieves details about the event categories for all available event sources.
@@ -7233,6 +7806,9 @@ class AsyncRDSClient:
             filters: <p>This parameter isn't currently supported.</p>
             max_records: <p>The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code> value, a pagination token called a marker is included in the response so that you can retrieve the remaining results.</p> <p>Default: 100</p> <p>Constraints: Minimum 20, maximum 100.</p>
             marker: <p>An optional pagination token provided by a previous DescribeEvents request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>.</p>
+
+        Raises:
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To describe events
@@ -7340,6 +7916,10 @@ class AsyncRDSClient:
             max_records: <p>The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code> value, a pagination token called a marker is included in the response so that you can retrieve the remaining results.</p> <p>Default: 100</p> <p>Constraints: Minimum 20, maximum 100.</p>
             marker: <p>An optional pagination token provided by a previous DescribeOrderableDBInstanceOptions request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code> .</p>
 
+        Raises:
+            aws_sdk_rds.errors.subscription_not_found_fault.SubscriptionNotFoundFault: <p>The subscription name does not exist.</p>
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To describe event subscriptions
             This example describes all of the Amazon RDS event subscriptions for the current AWS account.
@@ -7429,6 +8009,10 @@ class AsyncRDSClient:
             marker: <p>An optional pagination token provided by a previous <code>DescribeExportTasks</code> request. If you specify this parameter, the response includes only records beyond the marker, up to the value specified by the <code>MaxRecords</code> parameter.</p>
             max_records: <p>The maximum number of records to include in the response. If more records exist than the specified value, a pagination token called a marker is included in the response. You can use the marker in a later <code>DescribeExportTasks</code> request to retrieve the remaining results.</p> <p>Default: 100</p> <p>Constraints: Minimum 20, maximum 100.</p>
             source_type: <p>The type of source for the export.</p>
+
+        Raises:
+            aws_sdk_rds.errors.export_task_not_found_fault.ExportTaskNotFoundFault: <p>The export task doesn't exist.</p>
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To describe snapshot export tasks
@@ -7526,6 +8110,10 @@ class AsyncRDSClient:
             max_records: <p>The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code> value, a pagination token called a marker is included in the response so that you can retrieve the remaining results.</p> <p>Default: 100</p> <p>Constraints: Minimum 20, maximum 100.</p>
             marker: <p>An optional pagination token provided by a previous <code>DescribeGlobalClusters</code> request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>.</p>
 
+        Raises:
+            aws_sdk_rds.errors.global_cluster_not_found_fault.GlobalClusterNotFoundFault: <p>The <code>GlobalClusterIdentifier</code> doesn't refer to an existing global database cluster.</p>
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To describe global DB clusters
             The following example lists Aurora global DB clusters in the current AWS Region.
@@ -7618,6 +8206,10 @@ class AsyncRDSClient:
             max_records: <p>The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code> value, a pagination token called a marker is included in the response so that you can retrieve the remaining results.</p> <p>Default: 100</p> <p>Constraints: Minimum 20, maximum 100.</p>
             marker: <p>An optional pagination token provided by a previous <code>DescribeIntegrations</code> request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>.</p>
 
+        Raises:
+            aws_sdk_rds.errors.integration_not_found_fault.IntegrationNotFoundFault: <p>The specified integration could not be found.</p>
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To describe a zero-ETL integration
             The following example retrieves information about a zero-ETL integration with Amazon Redshift.
@@ -7707,6 +8299,9 @@ class AsyncRDSClient:
             filters: <p>This parameter isn't currently supported.</p>
             max_records: <p>The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code> value, a pagination token called a marker is included in the response so that you can retrieve the remaining results.</p> <p>Default: 100</p> <p>Constraints: Minimum 20, maximum 100.</p>
             marker: <p>An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>.</p>
+
+        Raises:
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To describe all available options
@@ -7800,6 +8395,10 @@ class AsyncRDSClient:
             max_records: <p>The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code> value, a pagination token called a marker is included in the response so that you can retrieve the remaining results.</p> <p>Default: 100</p> <p>Constraints: Minimum 20, maximum 100.</p>
             engine_name: <p>A filter to only include option groups associated with this database engine.</p> <p>Valid Values:</p> <ul> <li> <p> <code>db2-ae</code> </p> </li> <li> <p> <code>db2-se</code> </p> </li> <li> <p> <code>mariadb</code> </p> </li> <li> <p> <code>mysql</code> </p> </li> <li> <p> <code>oracle-ee</code> </p> </li> <li> <p> <code>oracle-ee-cdb</code> </p> </li> <li> <p> <code>oracle-se2</code> </p> </li> <li> <p> <code>oracle-se2-cdb</code> </p> </li> <li> <p> <code>postgres</code> </p> </li> <li> <p> <code>sqlserver-ee</code> </p> </li> <li> <p> <code>sqlserver-se</code> </p> </li> <li> <p> <code>sqlserver-ex</code> </p> </li> <li> <p> <code>sqlserver-web</code> </p> </li> </ul>
             major_engine_version: <p>Filters the list of option groups to only include groups associated with a specific database engine version. If specified, then EngineName must also be specified.</p>
+
+        Raises:
+            aws_sdk_rds.errors.option_group_not_found_fault.OptionGroupNotFoundFault: <p>The specified option group could not be found.</p>
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To describe the available option groups
@@ -7902,6 +8501,9 @@ class AsyncRDSClient:
             filters: <p>This parameter isn't currently supported.</p>
             max_records: <p>The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code> value, a pagination token called a marker is included in the response so that you can retrieve the remaining results.</p> <p>Default: 100</p> <p>Constraints: Minimum 20, maximum 1000.</p>
             marker: <p>An optional pagination token provided by a previous DescribeOrderableDBInstanceOptions request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>.</p>
+
+        Raises:
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To describe orderable DB instance options
@@ -8008,6 +8610,10 @@ class AsyncRDSClient:
             marker: <p>An optional pagination token provided by a previous <code>DescribePendingMaintenanceActions</code> request. If this parameter is specified, the response includes only records beyond the marker, up to a number of records specified by <code>MaxRecords</code>.</p>
             max_records: <p>The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code> value, a pagination token called a marker is included in the response so that you can retrieve the remaining results.</p> <p>Default: 100</p> <p>Constraints: Minimum 20, maximum 100.</p>
 
+        Raises:
+            aws_sdk_rds.errors.resource_not_found_fault.ResourceNotFoundFault: <p>The specified resource ID was not found.</p>
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To list resources with at least one pending maintenance action
             The following example lists the pending maintenace action for a DB instance.
@@ -8109,6 +8715,10 @@ class AsyncRDSClient:
             filters: <p>This parameter isn't currently supported.</p>
             max_records: <p>The maximum number of records to include in the response. If more than the <code>MaxRecords</code> value is available, a pagination token called a marker is included in the response so you can retrieve the remaining results.</p> <p>Default: 100</p> <p>Constraints: Minimum 20, maximum 100.</p>
             marker: <p>An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>.</p>
+
+        Raises:
+            aws_sdk_rds.errors.reserved_db_instance_not_found_fault.ReservedDBInstanceNotFoundFault: <p>The specified reserved DB Instance not found.</p>
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To describe reserved DB instances
@@ -8240,6 +8850,10 @@ class AsyncRDSClient:
             max_records: <p>The maximum number of records to include in the response. If more than the <code>MaxRecords</code> value is available, a pagination token called a marker is included in the response so you can retrieve the remaining results.</p> <p>Default: 100</p> <p>Constraints: Minimum 20, maximum 100.</p>
             marker: <p>An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>.</p>
 
+        Raises:
+            aws_sdk_rds.errors.reserved_db_instances_offering_not_found_fault.ReservedDBInstancesOfferingNotFoundFault: <p>Specified offering does not exist.</p>
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To describe reserved DB instance offerings
             The following example retrieves details about reserved DB instance options for RDS for Oracle.
@@ -8362,6 +8976,9 @@ class AsyncRDSClient:
             max_records: <p>The maximum number of records to include in the response. If more than the <code>MaxRecords</code> value is available, a pagination token called a marker is included in the response so you can retrieve the remaining results.</p> <p>Default: 20</p> <p>Constraints: Minimum 1, maximum 200.</p>
             marker: <p>An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>.</p>
 
+        Raises:
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To describe the serverless platform versions for the Aurora MySQL DB engine
             The following example displays details about each of the serverless platform versions for the specified DB engine.
@@ -8466,6 +9083,9 @@ class AsyncRDSClient:
             marker: <p>An optional pagination token provided by a previous <code>DescribeSourceRegions</code> request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>.</p>
             filters: <p>This parameter isn't currently supported.</p>
 
+        Raises:
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To describe source Regions
             The following example retrieves details about all source AWS Regions where the current AWS Region can create a read replica, copy a DB snapshot from, or replicate automated backups from. It also shows that automated backups can be replicated only from US West (Oregon) to the destination AWS Region, US East (N. Virginia).
@@ -8553,6 +9173,10 @@ class AsyncRDSClient:
             filters: <p>A filter that specifies one or more database tenants to describe.</p> <p>Supported filters:</p> <ul> <li> <p> <code>tenant-db-name</code> - Tenant database names. The results list only includes information about the tenant databases that match these tenant DB names.</p> </li> <li> <p> <code>tenant-database-resource-id</code> - Tenant database resource identifiers.</p> </li> <li> <p> <code>dbi-resource-id</code> - DB instance resource identifiers. The results list only includes information about the tenants contained within the DB instances identified by these resource identifiers.</p> </li> </ul>
             marker: <p>An optional pagination token provided by a previous <code>DescribeTenantDatabases</code> request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>.</p>
             max_records: <p>The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code> value, a pagination token called a marker is included in the response so that you can retrieve the remaining results.</p>
+
+        Raises:
+            aws_sdk_rds.errors.db_instance_not_found_fault.DBInstanceNotFoundFault: <p> <code>DBInstanceIdentifier</code> doesn't refer to an existing DB instance.</p>
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -8630,6 +9254,11 @@ class AsyncRDSClient:
         Args:
             db_instance_identifier: <p>The customer identifier or the ARN of your DB instance.</p>
 
+        Raises:
+            aws_sdk_rds.errors.db_instance_not_found_fault.DBInstanceNotFoundFault: <p> <code>DBInstanceIdentifier</code> doesn't refer to an existing DB instance.</p>
+            aws_sdk_rds.errors.invalid_db_instance_state_fault.InvalidDBInstanceStateFault: <p>The DB instance isn't in a valid state.</p>
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To describe valid modifications for a DB instance
             The following example retrieves details about the valid modifications for the specified DB instance.
@@ -8673,6 +9302,11 @@ class AsyncRDSClient:
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the DB cluster.</p>
+
+        Raises:
+            aws_sdk_rds.errors.invalid_resource_state_fault.InvalidResourceStateFault: <p>The operation can't be performed because another operation is in progress.</p>
+            aws_sdk_rds.errors.resource_not_found_fault.ResourceNotFoundFault: <p>The specified resource ID was not found.</p>
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -8717,6 +9351,12 @@ class AsyncRDSClient:
             log_file_name: <p>The name of the log file to be downloaded.</p>
             marker: <p>The pagination token provided in the previous request or \"0\". If the Marker parameter is specified the response includes only records beyond the marker until the end of the file or up to NumberOfLines.</p>
             number_of_lines: <p>The number of lines to download. If the number of lines specified results in a file over 1 MB in size, the file is truncated at 1 MB in size.</p> <p>If the NumberOfLines parameter is specified, then the block of lines returned can be from the beginning or the end of the log file, depending on the value of the Marker parameter.</p> <ul> <li> <p>If neither Marker or NumberOfLines are specified, the entire log file is returned up to a maximum of 10000 lines, starting with the most recent log entries first.</p> </li> <li> <p>If NumberOfLines is specified and Marker isn't specified, then the most recent lines from the end of the log file are returned.</p> </li> <li> <p>If Marker is specified as \"0\", then the specified number of lines from the beginning of the log file are returned.</p> </li> <li> <p>You can download the log file in blocks of lines by specifying the size of the block using the NumberOfLines parameter, and by specifying a value of \"0\" for the Marker parameter in your first request. Include the Marker value returned in the response as the Marker value for the next request, continuing until the AdditionalDataPending response element returns false.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_rds.errors.db_instance_not_found_fault.DBInstanceNotFoundFault: <p> <code>DBInstanceIdentifier</code> doesn't refer to an existing DB instance.</p>
+            aws_sdk_rds.errors.db_instance_not_ready_fault.DBInstanceNotReadyFault: <p>An attempt to download or examine log files didn't succeed because an Aurora Serverless v2 instance was paused.</p>
+            aws_sdk_rds.errors.db_log_file_not_found_fault.DBLogFileNotFoundFault: <p> <code>LogFileName</code> doesn't refer to an existing DB log file.</p>
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To download a DB log file
@@ -8766,6 +9406,11 @@ class AsyncRDSClient:
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the DB cluster.</p>
+
+        Raises:
+            aws_sdk_rds.errors.invalid_resource_state_fault.InvalidResourceStateFault: <p>The operation can't be performed because another operation is in progress.</p>
+            aws_sdk_rds.errors.resource_not_found_fault.ResourceNotFoundFault: <p>The specified resource ID was not found.</p>
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -8808,6 +9453,12 @@ class AsyncRDSClient:
         Args:
             db_cluster_identifier: <p>The identifier of the DB cluster to force a failover for. This parameter isn't case-sensitive.</p> <p>Constraints:</p> <ul> <li> <p>Must match the identifier of an existing DB cluster.</p> </li> </ul>
             target_db_instance_identifier: <p>The name of the DB instance to promote to the primary DB instance.</p> <p>Specify the DB instance identifier for an Aurora Replica or a Multi-AZ readable standby in the DB cluster, for example <code>mydbcluster-replica1</code>.</p> <p>This setting isn't supported for RDS for MySQL Multi-AZ DB clusters.</p>
+
+        Raises:
+            aws_sdk_rds.errors.db_cluster_not_found_fault.DBClusterNotFoundFault: <p> <code>DBClusterIdentifier</code> doesn't refer to an existing DB cluster.</p>
+            aws_sdk_rds.errors.invalid_db_cluster_state_fault.InvalidDBClusterStateFault: <p>The requested operation can't be performed while the cluster is in this state.</p>
+            aws_sdk_rds.errors.invalid_db_instance_state_fault.InvalidDBInstanceStateFault: <p>The DB instance isn't in a valid state.</p>
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To perform a failover for a DB cluster
@@ -8864,6 +9515,13 @@ class AsyncRDSClient:
             target_db_cluster_identifier: <p>The identifier of the secondary Aurora DB cluster that you want to promote to the primary for the global database cluster. Use the Amazon Resource Name (ARN) for the identifier so that Aurora can locate the cluster in its Amazon Web Services Region.</p>
             allow_data_loss: <p>Specifies whether to allow data loss for this global database cluster operation. Allowing data loss triggers a global failover operation.</p> <p>If you don't specify <code>AllowDataLoss</code>, the global database cluster operation defaults to a switchover.</p> <p>Constraints:</p> <ul> <li> <p>Can't be specified together with the <code>Switchover</code> parameter.</p> </li> </ul>
             switchover: <p>Specifies whether to switch over this global database cluster.</p> <p>Constraints:</p> <ul> <li> <p>Can't be specified together with the <code>AllowDataLoss</code> parameter.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_rds.errors.db_cluster_not_found_fault.DBClusterNotFoundFault: <p> <code>DBClusterIdentifier</code> doesn't refer to an existing DB cluster.</p>
+            aws_sdk_rds.errors.global_cluster_not_found_fault.GlobalClusterNotFoundFault: <p>The <code>GlobalClusterIdentifier</code> doesn't refer to an existing global database cluster.</p>
+            aws_sdk_rds.errors.invalid_db_cluster_state_fault.InvalidDBClusterStateFault: <p>The requested operation can't be performed while the cluster is in this state.</p>
+            aws_sdk_rds.errors.invalid_global_cluster_state_fault.InvalidGlobalClusterStateFault: <p>The global cluster is in an invalid state and can't perform the requested operation.</p>
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -8909,6 +9567,20 @@ class AsyncRDSClient:
         Args:
             resource_name: <p>The Amazon RDS resource with tags to be listed. This value is an Amazon Resource Name (ARN). For information about creating an ARN, see <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing\"> Constructing an ARN for Amazon RDS</a> in the <i>Amazon RDS User Guide</i>.</p>
             filters: <p>This parameter isn't currently supported.</p>
+
+        Raises:
+            aws_sdk_rds.errors.blue_green_deployment_not_found_fault.BlueGreenDeploymentNotFoundFault: <p> <code>BlueGreenDeploymentIdentifier</code> doesn't refer to an existing blue/green deployment.</p>
+            aws_sdk_rds.errors.db_cluster_not_found_fault.DBClusterNotFoundFault: <p> <code>DBClusterIdentifier</code> doesn't refer to an existing DB cluster.</p>
+            aws_sdk_rds.errors.db_instance_not_found_fault.DBInstanceNotFoundFault: <p> <code>DBInstanceIdentifier</code> doesn't refer to an existing DB instance.</p>
+            aws_sdk_rds.errors.db_proxy_endpoint_not_found_fault.DBProxyEndpointNotFoundFault: <p>The DB proxy endpoint doesn't exist.</p>
+            aws_sdk_rds.errors.db_proxy_not_found_fault.DBProxyNotFoundFault: <p>The specified proxy name doesn't correspond to a proxy owned by your Amazon Web Services account in the specified Amazon Web Services Region.</p>
+            aws_sdk_rds.errors.db_proxy_target_group_not_found_fault.DBProxyTargetGroupNotFoundFault: <p>The specified target group isn't available for a proxy owned by your Amazon Web Services account in the specified Amazon Web Services Region.</p>
+            aws_sdk_rds.errors.db_shard_group_not_found_fault.DBShardGroupNotFoundFault: <p>The specified DB shard group name wasn't found.</p>
+            aws_sdk_rds.errors.db_snapshot_not_found_fault.DBSnapshotNotFoundFault: <p> <code>DBSnapshotIdentifier</code> doesn't refer to an existing DB snapshot.</p>
+            aws_sdk_rds.errors.db_snapshot_tenant_database_not_found_fault.DBSnapshotTenantDatabaseNotFoundFault: <p>The specified snapshot tenant database wasn't found.</p>
+            aws_sdk_rds.errors.integration_not_found_fault.IntegrationNotFoundFault: <p>The specified integration could not be found.</p>
+            aws_sdk_rds.errors.tenant_database_not_found_fault.TenantDatabaseNotFoundFault: <p>The specified tenant database wasn't found in the DB instance.</p>
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To list tags on an Amazon RDS resource
@@ -8961,6 +9633,12 @@ class AsyncRDSClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the RDS for Oracle or Microsoft SQL Server DB instance. For example, <code>arn:aws:rds:us-east-1:12345667890:db:my-orcl-db</code>.</p>
             audit_policy_state: <p>The audit policy state. When a policy is unlocked, it is read/write. When it is locked, it is read-only. You can edit your audit policy only when the activity stream is unlocked or stopped.</p>
+
+        Raises:
+            aws_sdk_rds.errors.db_instance_not_found_fault.DBInstanceNotFoundFault: <p> <code>DBInstanceIdentifier</code> doesn't refer to an existing DB instance.</p>
+            aws_sdk_rds.errors.invalid_db_instance_state_fault.InvalidDBInstanceStateFault: <p>The DB instance isn't in a valid state.</p>
+            aws_sdk_rds.errors.resource_not_found_fault.ResourceNotFoundFault: <p>The specified resource ID was not found.</p>
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -9006,6 +9684,10 @@ class AsyncRDSClient:
         Args:
             certificate_identifier: <p>The new default certificate identifier to override the current one with.</p> <p>To determine the valid values, use the <code>describe-certificates</code> CLI command or the <code>DescribeCertificates</code> API operation.</p>
             remove_customer_override: <p>Specifies whether to remove the override for the default certificate. If the override is removed, the default certificate is the system default.</p>
+
+        Raises:
+            aws_sdk_rds.errors.certificate_not_found_fault.CertificateNotFoundFault: <p> <code>CertificateIdentifier</code> doesn't refer to an existing certificate.</p>
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To temporarily override the system-default SSL/TLS certificate for new DB instances
@@ -9061,6 +9743,12 @@ class AsyncRDSClient:
             capacity: <p>The DB cluster capacity.</p> <p>When you change the capacity of a paused Aurora Serverless v1 DB cluster, it automatically resumes.</p> <p>Constraints:</p> <ul> <li> <p>For Aurora MySQL, valid capacity values are <code>1</code>, <code>2</code>, <code>4</code>, <code>8</code>, <code>16</code>, <code>32</code>, <code>64</code>, <code>128</code>, and <code>256</code>.</p> </li> <li> <p>For Aurora PostgreSQL, valid capacity values are <code>2</code>, <code>4</code>, <code>8</code>, <code>16</code>, <code>32</code>, <code>64</code>, <code>192</code>, and <code>384</code>.</p> </li> </ul>
             seconds_before_timeout: <p>The amount of time, in seconds, that Aurora Serverless v1 tries to find a scaling point to perform seamless scaling before enforcing the timeout action. The default is 300.</p> <p>Specify a value between 10 and 600 seconds.</p>
             timeout_action: <p>The action to take when the timeout is reached, either <code>ForceApplyCapacityChange</code> or <code>RollbackCapacityChange</code>.</p> <p> <code>ForceApplyCapacityChange</code>, the default, sets the capacity to the specified value as soon as possible.</p> <p> <code>RollbackCapacityChange</code> ignores the capacity change if a scaling point isn't found in the timeout period.</p>
+
+        Raises:
+            aws_sdk_rds.errors.db_cluster_not_found_fault.DBClusterNotFoundFault: <p> <code>DBClusterIdentifier</code> doesn't refer to an existing DB cluster.</p>
+            aws_sdk_rds.errors.invalid_db_cluster_capacity_fault.InvalidDBClusterCapacityFault: <p> <code>Capacity</code> isn't a valid Aurora Serverless DB cluster capacity. Valid capacity values are <code>2</code>, <code>4</code>, <code>8</code>, <code>16</code>, <code>32</code>, <code>64</code>, <code>128</code>, and <code>256</code>.</p>
+            aws_sdk_rds.errors.invalid_db_cluster_state_fault.InvalidDBClusterStateFault: <p>The requested operation can't be performed while the cluster is in this state.</p>
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To scale the capacity of an Aurora Serverless DB cluster
@@ -9119,6 +9807,11 @@ class AsyncRDSClient:
             engine_version: <p>The custom engine version (CEV) that you want to modify. This option is required for RDS Custom for Oracle, but optional for Amazon RDS. The combination of <code>Engine</code> and <code>EngineVersion</code> is unique per customer per Amazon Web Services Region.</p>
             description: <p>An optional description of your CEV.</p>
             status: <p>The availability status to be assigned to the CEV. Valid values are as follows:</p> <dl> <dt>available</dt> <dd> <p>You can use this CEV to create a new RDS Custom DB instance.</p> </dd> <dt>inactive</dt> <dd> <p>You can create a new RDS Custom instance by restoring a DB snapshot with this CEV. You can't patch or create new instances with this CEV.</p> </dd> </dl> <p>You can change any status to any status. A typical reason to change status is to prevent the accidental use of a CEV, or to make a deprecated CEV eligible for use again. For example, you might change the status of your CEV from <code>available</code> to <code>inactive</code>, and from <code>inactive</code> back to <code>available</code>. To change the availability status of the CEV, it must not currently be in use by an RDS Custom instance, snapshot, or automated backup.</p>
+
+        Raises:
+            aws_sdk_rds.errors.custom_db_engine_version_not_found_fault.CustomDBEngineVersionNotFoundFault: <p>The specified CEV was not found.</p>
+            aws_sdk_rds.errors.invalid_custom_db_engine_version_state_fault.InvalidCustomDBEngineVersionStateFault: <p>You can't delete the CEV.</p>
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -9314,6 +10007,30 @@ class AsyncRDSClient:
             ca_certificate_identifier: <p>The CA certificate identifier to use for the DB cluster's server certificate.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.html\">Using SSL/TLS to encrypt a connection to a DB instance</a> in the <i>Amazon RDS User Guide</i>.</p> <p>Valid for Cluster Type: Multi-AZ DB clusters</p>
             master_user_authentication_type: <p>Specifies the authentication type for the master user. With IAM master user authentication, you can change the master DB user to use IAM database authentication.</p> <p>You can specify one of the following values:</p> <ul> <li> <p> <code>password</code> - Use standard database authentication with a password.</p> </li> <li> <p> <code>iam-db-auth</code> - Use IAM database authentication for the master user.</p> </li> </ul> <p>Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters</p> <p>This option is only valid for RDS for PostgreSQL and Aurora PostgreSQL engines.</p>
 
+        Raises:
+            aws_sdk_rds.errors.db_cluster_already_exists_fault.DBClusterAlreadyExistsFault: <p>The user already has a DB cluster with the given identifier.</p>
+            aws_sdk_rds.errors.db_cluster_not_found_fault.DBClusterNotFoundFault: <p> <code>DBClusterIdentifier</code> doesn't refer to an existing DB cluster.</p>
+            aws_sdk_rds.errors.db_cluster_parameter_group_not_found_fault.DBClusterParameterGroupNotFoundFault: <p> <code>DBClusterParameterGroupName</code> doesn't refer to an existing DB cluster parameter group.</p>
+            aws_sdk_rds.errors.db_instance_already_exists_fault.DBInstanceAlreadyExistsFault: <p>The user already has a DB instance with the given identifier.</p>
+            aws_sdk_rds.errors.db_parameter_group_not_found_fault.DBParameterGroupNotFoundFault: <p> <code>DBParameterGroupName</code> doesn't refer to an existing DB parameter group.</p>
+            aws_sdk_rds.errors.db_subnet_group_not_found_fault.DBSubnetGroupNotFoundFault: <p> <code>DBSubnetGroupName</code> doesn't refer to an existing DB subnet group.</p>
+            aws_sdk_rds.errors.domain_not_found_fault.DomainNotFoundFault: <p> <code>Domain</code> doesn't refer to an existing Active Directory domain.</p>
+            aws_sdk_rds.errors.invalid_db_cluster_state_fault.InvalidDBClusterStateFault: <p>The requested operation can't be performed while the cluster is in this state.</p>
+            aws_sdk_rds.errors.invalid_db_instance_state_fault.InvalidDBInstanceStateFault: <p>The DB instance isn't in a valid state.</p>
+            aws_sdk_rds.errors.invalid_db_security_group_state_fault.InvalidDBSecurityGroupStateFault: <p>The state of the DB security group doesn't allow deletion.</p>
+            aws_sdk_rds.errors.invalid_db_subnet_group_state_fault.InvalidDBSubnetGroupStateFault: <p>The DB subnet group cannot be deleted because it's in use.</p>
+            aws_sdk_rds.errors.invalid_global_cluster_state_fault.InvalidGlobalClusterStateFault: <p>The global cluster is in an invalid state and can't perform the requested operation.</p>
+            aws_sdk_rds.errors.invalid_subnet.InvalidSubnet: <p>The requested subnet is invalid, or multiple subnets were requested that are not all in a common VPC.</p>
+            aws_sdk_rds.errors.invalid_vpc_network_state_fault.InvalidVPCNetworkStateFault: <p>The DB subnet group doesn't cover all Availability Zones after it's created because of users' change.</p>
+            aws_sdk_rds.errors.kms_key_not_accessible_fault.KMSKeyNotAccessibleFault: <p>An error occurred accessing an Amazon Web Services KMS key.</p>
+            aws_sdk_rds.errors.network_type_not_supported.NetworkTypeNotSupported: <p>The network type is invalid for the DB instance. Valid nework type values are <code>IPV4</code> and <code>DUAL</code>.</p>
+            aws_sdk_rds.errors.option_group_not_found_fault.OptionGroupNotFoundFault: <p>The specified option group could not be found.</p>
+            aws_sdk_rds.errors.storage_quota_exceeded_fault.StorageQuotaExceededFault: <p>The request would result in the user exceeding the allowed amount of storage available across all DB instances.</p>
+            aws_sdk_rds.errors.storage_type_not_available_fault.StorageTypeNotAvailableFault: <p>The <code>aurora-iopt1</code> storage type isn't available, because you modified the DB cluster to use this storage type less than one month ago.</p>
+            aws_sdk_rds.errors.storage_type_not_supported_fault.StorageTypeNotSupportedFault: <p>The specified <code>StorageType</code> can't be associated with the DB instance.</p>
+            aws_sdk_rds.errors.vpc_encryption_control_violation_exception.VpcEncryptionControlViolationException: <p>The operation violates VPC encryption control settings. Make sure that your DB instance type supports the Nitro encryption-in-transit capability, or modify your VPC's encryption controls to not enforce encryption-in-transit.</p>
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To modify a DB cluster
             The following example changes the master user password for the DB cluster named cluster-2 and sets the backup retention period to 14 days. The ApplyImmediately parameter causes the changes to be made immediately, instead of waiting until the next maintenance window.
@@ -9466,6 +10183,14 @@ class AsyncRDSClient:
             static_members: <p>List of DB instance identifiers that are part of the custom endpoint group.</p>
             excluded_members: <p>List of DB instance identifiers that aren't part of the custom endpoint group. All other eligible instances are reachable through the custom endpoint. Only relevant if the list of static members is empty.</p>
 
+        Raises:
+            aws_sdk_rds.errors.db_cluster_endpoint_not_found_fault.DBClusterEndpointNotFoundFault: <p>The specified custom endpoint doesn't exist.</p>
+            aws_sdk_rds.errors.db_instance_not_found_fault.DBInstanceNotFoundFault: <p> <code>DBInstanceIdentifier</code> doesn't refer to an existing DB instance.</p>
+            aws_sdk_rds.errors.invalid_db_cluster_endpoint_state_fault.InvalidDBClusterEndpointStateFault: <p>The requested operation can't be performed on the endpoint while the endpoint is in this state.</p>
+            aws_sdk_rds.errors.invalid_db_cluster_state_fault.InvalidDBClusterStateFault: <p>The requested operation can't be performed while the cluster is in this state.</p>
+            aws_sdk_rds.errors.invalid_db_instance_state_fault.InvalidDBInstanceStateFault: <p>The DB instance isn't in a valid state.</p>
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To modify a custom DB cluster endpoint
             The following example modifies the specified custom DB cluster endpoint.
@@ -9517,6 +10242,11 @@ class AsyncRDSClient:
         Args:
             db_cluster_parameter_group_name: <p>The name of the DB cluster parameter group to modify.</p>
             parameters: <p>A list of parameters in the DB cluster parameter group to modify.</p> <p>Valid Values (for the application method): <code>immediate | pending-reboot</code> </p> <note> <p>You can use the <code>immediate</code> value with dynamic parameters only. You can use the <code>pending-reboot</code> value for both dynamic and static parameters.</p> <p>When the application method is <code>immediate</code>, changes to dynamic parameters are applied immediately to the DB clusters associated with the parameter group. When the application method is <code>pending-reboot</code>, changes to dynamic and static parameters are applied after a reboot without failover to the DB clusters associated with the parameter group.</p> </note>
+
+        Raises:
+            aws_sdk_rds.errors.db_parameter_group_not_found_fault.DBParameterGroupNotFoundFault: <p> <code>DBParameterGroupName</code> doesn't refer to an existing DB parameter group.</p>
+            aws_sdk_rds.errors.invalid_db_parameter_group_state_fault.InvalidDBParameterGroupStateFault: <p>The DB parameter group is in use or is in an invalid state. If you are attempting to delete the parameter group, you can't delete it when the parameter group is in this state.</p>
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To modify parameters in a DB cluster parameter group
@@ -9572,6 +10302,12 @@ class AsyncRDSClient:
             attribute_name: <p>The name of the DB cluster snapshot attribute to modify.</p> <p>To manage authorization for other Amazon Web Services accounts to copy or restore a manual DB cluster snapshot, set this value to <code>restore</code>.</p> <note> <p>To view the list of attributes available to modify, use the <a>DescribeDBClusterSnapshotAttributes</a> API operation.</p> </note>
             values_to_add: <p>A list of DB cluster snapshot attributes to add to the attribute specified by <code>AttributeName</code>.</p> <p>To authorize other Amazon Web Services accounts to copy or restore a manual DB cluster snapshot, set this list to include one or more Amazon Web Services account IDs, or <code>all</code> to make the manual DB cluster snapshot restorable by any Amazon Web Services account. Do not add the <code>all</code> value for any manual DB cluster snapshots that contain private information that you don't want available to all Amazon Web Services accounts.</p>
             values_to_remove: <p>A list of DB cluster snapshot attributes to remove from the attribute specified by <code>AttributeName</code>.</p> <p>To remove authorization for other Amazon Web Services accounts to copy or restore a manual DB cluster snapshot, set this list to include one or more Amazon Web Services account identifiers, or <code>all</code> to remove authorization for any Amazon Web Services account to copy or restore the DB cluster snapshot. If you specify <code>all</code>, an Amazon Web Services account whose account ID is explicitly added to the <code>restore</code> attribute can still copy or restore a manual DB cluster snapshot.</p>
+
+        Raises:
+            aws_sdk_rds.errors.db_cluster_snapshot_not_found_fault.DBClusterSnapshotNotFoundFault: <p> <code>DBClusterSnapshotIdentifier</code> doesn't refer to an existing DB cluster snapshot.</p>
+            aws_sdk_rds.errors.invalid_db_cluster_snapshot_state_fault.InvalidDBClusterSnapshotStateFault: <p>The supplied value isn't a valid DB cluster snapshot state.</p>
+            aws_sdk_rds.errors.shared_snapshot_quota_exceeded_fault.SharedSnapshotQuotaExceededFault: <p>You have exceeded the maximum number of accounts that you can share a manual DB snapshot with.</p>
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To modify a DB cluster snapshot attribute
@@ -9826,6 +10562,31 @@ class AsyncRDSClient:
             tag_specifications: <p>Tags to assign to resources associated with the DB instance.</p> <p>Valid Values: </p> <ul> <li> <p> <code>auto-backup</code> - The DB instance's automated backup.</p> </li> </ul>
             master_user_authentication_type: <p>Specifies the authentication type for the master user. With IAM master user authentication, you can change the master DB user to use IAM database authentication.</p> <p>You can specify one of the following values:</p> <ul> <li> <p> <code>password</code> - Use standard database authentication with a password.</p> </li> <li> <p> <code>iam-db-auth</code> - Use IAM database authentication for the master user.</p> </li> </ul> <p>This option is only valid for RDS for PostgreSQL and Aurora PostgreSQL engines.</p>
 
+        Raises:
+            aws_sdk_rds.errors.authorization_not_found_fault.AuthorizationNotFoundFault: <p>The specified CIDR IP range or Amazon EC2 security group might not be authorized for the specified DB security group.</p> <p>Or, RDS might not be authorized to perform necessary actions using IAM on your behalf.</p>
+            aws_sdk_rds.errors.backup_policy_not_found_fault.BackupPolicyNotFoundFault: <p/>
+            aws_sdk_rds.errors.certificate_not_found_fault.CertificateNotFoundFault: <p> <code>CertificateIdentifier</code> doesn't refer to an existing certificate.</p>
+            aws_sdk_rds.errors.db_instance_already_exists_fault.DBInstanceAlreadyExistsFault: <p>The user already has a DB instance with the given identifier.</p>
+            aws_sdk_rds.errors.db_instance_not_found_fault.DBInstanceNotFoundFault: <p> <code>DBInstanceIdentifier</code> doesn't refer to an existing DB instance.</p>
+            aws_sdk_rds.errors.db_parameter_group_not_found_fault.DBParameterGroupNotFoundFault: <p> <code>DBParameterGroupName</code> doesn't refer to an existing DB parameter group.</p>
+            aws_sdk_rds.errors.db_security_group_not_found_fault.DBSecurityGroupNotFoundFault: <p> <code>DBSecurityGroupName</code> doesn't refer to an existing DB security group.</p>
+            aws_sdk_rds.errors.db_upgrade_dependency_failure_fault.DBUpgradeDependencyFailureFault: <p>The DB upgrade failed because a resource the DB depends on can't be modified.</p>
+            aws_sdk_rds.errors.domain_not_found_fault.DomainNotFoundFault: <p> <code>Domain</code> doesn't refer to an existing Active Directory domain.</p>
+            aws_sdk_rds.errors.insufficient_db_instance_capacity_fault.InsufficientDBInstanceCapacityFault: <p>The specified DB instance class isn't available in the specified Availability Zone.</p>
+            aws_sdk_rds.errors.invalid_db_cluster_state_fault.InvalidDBClusterStateFault: <p>The requested operation can't be performed while the cluster is in this state.</p>
+            aws_sdk_rds.errors.invalid_db_instance_state_fault.InvalidDBInstanceStateFault: <p>The DB instance isn't in a valid state.</p>
+            aws_sdk_rds.errors.invalid_db_security_group_state_fault.InvalidDBSecurityGroupStateFault: <p>The state of the DB security group doesn't allow deletion.</p>
+            aws_sdk_rds.errors.invalid_vpc_network_state_fault.InvalidVPCNetworkStateFault: <p>The DB subnet group doesn't cover all Availability Zones after it's created because of users' change.</p>
+            aws_sdk_rds.errors.kms_key_not_accessible_fault.KMSKeyNotAccessibleFault: <p>An error occurred accessing an Amazon Web Services KMS key.</p>
+            aws_sdk_rds.errors.network_type_not_supported.NetworkTypeNotSupported: <p>The network type is invalid for the DB instance. Valid nework type values are <code>IPV4</code> and <code>DUAL</code>.</p>
+            aws_sdk_rds.errors.option_group_not_found_fault.OptionGroupNotFoundFault: <p>The specified option group could not be found.</p>
+            aws_sdk_rds.errors.provisioned_iops_not_available_in_az_fault.ProvisionedIopsNotAvailableInAZFault: <p>Provisioned IOPS not available in the specified Availability Zone.</p>
+            aws_sdk_rds.errors.storage_quota_exceeded_fault.StorageQuotaExceededFault: <p>The request would result in the user exceeding the allowed amount of storage available across all DB instances.</p>
+            aws_sdk_rds.errors.storage_type_not_supported_fault.StorageTypeNotSupportedFault: <p>The specified <code>StorageType</code> can't be associated with the DB instance.</p>
+            aws_sdk_rds.errors.tenant_database_quota_exceeded_fault.TenantDatabaseQuotaExceededFault: <p>You attempted to create more tenant databases than are permitted in your Amazon Web Services account.</p>
+            aws_sdk_rds.errors.vpc_encryption_control_violation_exception.VpcEncryptionControlViolationException: <p>The operation violates VPC encryption control settings. Make sure that your DB instance type supports the Nitro encryption-in-transit capability, or modify your VPC's encryption controls to not enforce encryption-in-transit.</p>
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To modify a DB instance
             The following example associates an option group and a parameter group with a compatible Microsoft SQL Server DB instance. The ApplyImmediately parameter causes the option and parameter groups to be associated immediately, instead of waiting until the next maintenance window.
@@ -10008,6 +10769,11 @@ class AsyncRDSClient:
             db_parameter_group_name: <p>The name of the DB parameter group.</p> <p>Constraints:</p> <ul> <li> <p>If supplied, must match the name of an existing <code>DBParameterGroup</code>.</p> </li> </ul>
             parameters: <p>An array of parameter names, values, and the application methods for the parameter update. At least one parameter name, value, and application method must be supplied; later arguments are optional. A maximum of 20 parameters can be modified in a single request.</p> <p>Valid Values (for the application method): <code>immediate | pending-reboot</code> </p> <p>You can use the <code>immediate</code> value with dynamic parameters only. You can use the <code>pending-reboot</code> value for both dynamic and static parameters.</p> <p>When the application method is <code>immediate</code>, changes to dynamic parameters are applied immediately to the DB instances associated with the parameter group.</p> <p>When the application method is <code>pending-reboot</code>, changes to dynamic and static parameters are applied after a reboot without failover to the DB instances associated with the parameter group.</p> <note> <p>You can't use <code>pending-reboot</code> with dynamic parameters on RDS for SQL Server DB instances. Use <code>immediate</code>.</p> </note> <p>For more information on modifying DB parameters, see <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithParamGroups.html\">Working with DB parameter groups</a> in the <i>Amazon RDS User Guide</i>.</p>
 
+        Raises:
+            aws_sdk_rds.errors.db_parameter_group_not_found_fault.DBParameterGroupNotFoundFault: <p> <code>DBParameterGroupName</code> doesn't refer to an existing DB parameter group.</p>
+            aws_sdk_rds.errors.invalid_db_parameter_group_state_fault.InvalidDBParameterGroupStateFault: <p>The DB parameter group is in use or is in an invalid state. If you are attempting to delete the parameter group, you can't delete it when the parameter group is in this state.</p>
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To modify a DB parameter group
             The following example changes the value of the clr enabled parameter in a DB parameter group. The value of the ApplyMethod parameter causes the DB parameter group to be modified immediately, instead of waiting until the next maintenance window.
@@ -10080,6 +10846,12 @@ class AsyncRDSClient:
             debug_logging: <p>Specifies whether the proxy logs detailed connection and query information. When you enable <code>DebugLogging</code>, the proxy captures connection details and connection pool behavior from your queries. Debug logging increases CloudWatch costs and can impact proxy performance. Enable this option only when you need to troubleshoot connection or performance issues.</p>
             role_arn: <p>The Amazon Resource Name (ARN) of the IAM role that the proxy uses to access secrets in Amazon Web Services Secrets Manager.</p>
             security_groups: <p>The new list of security groups for the <code>DBProxy</code>.</p>
+
+        Raises:
+            aws_sdk_rds.errors.db_proxy_already_exists_fault.DBProxyAlreadyExistsFault: <p>The specified proxy name must be unique for all proxies owned by your Amazon Web Services account in the specified Amazon Web Services Region.</p>
+            aws_sdk_rds.errors.db_proxy_not_found_fault.DBProxyNotFoundFault: <p>The specified proxy name doesn't correspond to a proxy owned by your Amazon Web Services account in the specified Amazon Web Services Region.</p>
+            aws_sdk_rds.errors.invalid_db_proxy_state_fault.InvalidDBProxyStateFault: <p>The requested operation can't be performed while the proxy is in this state.</p>
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -10142,6 +10914,13 @@ class AsyncRDSClient:
             db_proxy_endpoint_name: <p>The name of the DB proxy sociated with the DB proxy endpoint that you want to modify.</p>
             new_db_proxy_endpoint_name: <p>The new identifier for the <code>DBProxyEndpoint</code>. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it can't end with a hyphen or contain two consecutive hyphens.</p>
             vpc_security_group_ids: <p>The VPC security group IDs for the DB proxy endpoint. When the DB proxy endpoint uses a different VPC than the original proxy, you also specify a different set of security group IDs than for the original proxy.</p>
+
+        Raises:
+            aws_sdk_rds.errors.db_proxy_endpoint_already_exists_fault.DBProxyEndpointAlreadyExistsFault: <p>The specified DB proxy endpoint name must be unique for all DB proxy endpoints owned by your Amazon Web Services account in the specified Amazon Web Services Region.</p>
+            aws_sdk_rds.errors.db_proxy_endpoint_not_found_fault.DBProxyEndpointNotFoundFault: <p>The DB proxy endpoint doesn't exist.</p>
+            aws_sdk_rds.errors.invalid_db_proxy_endpoint_state_fault.InvalidDBProxyEndpointStateFault: <p>You can't perform this operation while the DB proxy endpoint is in a particular state.</p>
+            aws_sdk_rds.errors.invalid_db_proxy_state_fault.InvalidDBProxyStateFault: <p>The requested operation can't be performed while the proxy is in this state.</p>
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -10192,6 +10971,12 @@ class AsyncRDSClient:
             db_proxy_name: <p>The name of the proxy.</p>
             connection_pool_config: <p>The settings that determine the size and behavior of the connection pool for the target group.</p>
             new_name: <p>The new name for the modified <code>DBProxyTarget</code>. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it can't end with a hyphen or contain two consecutive hyphens.</p> <p>You can't rename the <code>default</code> target group.</p>
+
+        Raises:
+            aws_sdk_rds.errors.db_proxy_not_found_fault.DBProxyNotFoundFault: <p>The specified proxy name doesn't correspond to a proxy owned by your Amazon Web Services account in the specified Amazon Web Services Region.</p>
+            aws_sdk_rds.errors.db_proxy_target_group_not_found_fault.DBProxyTargetGroupNotFoundFault: <p>The specified target group isn't available for a proxy owned by your Amazon Web Services account in the specified Amazon Web Services Region.</p>
+            aws_sdk_rds.errors.invalid_db_proxy_state_fault.InvalidDBProxyStateFault: <p>The requested operation can't be performed while the proxy is in this state.</p>
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -10243,6 +11028,9 @@ class AsyncRDSClient:
             locale: <p>The language of the modified recommendation.</p>
             status: <p>The recommendation status to update.</p> <p>Valid values:</p> <ul> <li> <p>active</p> </li> <li> <p>dismissed</p> </li> </ul>
             recommended_action_updates: <p>The list of recommended action status to update. You can update multiple recommended actions at one time.</p>
+
+        Raises:
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -10295,6 +11083,12 @@ class AsyncRDSClient:
             max_acu: <p>The maximum capacity of the DB shard group in Aurora capacity units (ACUs).</p>
             min_acu: <p>The minimum capacity of the DB shard group in Aurora capacity units (ACUs).</p>
             compute_redundancy: <p>Specifies whether to create standby DB shard groups for the DB shard group. Valid values are the following:</p> <ul> <li> <p>0 - Creates a DB shard group without a standby DB shard group. This is the default value.</p> </li> <li> <p>1 - Creates a DB shard group with a standby DB shard group in a different Availability Zone (AZ).</p> </li> <li> <p>2 - Creates a DB shard group with two standby DB shard groups in two different AZs.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_rds.errors.db_shard_group_already_exists_fault.DBShardGroupAlreadyExistsFault: <p>The specified DB shard group name must be unique in your Amazon Web Services account in the specified Amazon Web Services Region.</p>
+            aws_sdk_rds.errors.db_shard_group_not_found_fault.DBShardGroupNotFoundFault: <p>The specified DB shard group name wasn't found.</p>
+            aws_sdk_rds.errors.invalid_db_cluster_state_fault.InvalidDBClusterStateFault: <p>The requested operation can't be performed while the cluster is in this state.</p>
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -10341,6 +11135,12 @@ class AsyncRDSClient:
             db_snapshot_identifier: <p>The identifier of the DB snapshot to modify.</p>
             engine_version: <p>The engine version to upgrade the DB snapshot to.</p> <p>The following are the database engines and engine versions that are available when you upgrade a DB snapshot.</p> <p> <b>MariaDB</b> </p> <p>For the list of engine versions that are available for upgrading a DB snapshot, see <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/mariadb-upgrade-snapshot.html\"> Upgrading a MariaDB DB snapshot engine version</a> in the <i>Amazon RDS User Guide.</i> </p> <p> <b>MySQL</b> </p> <p>For the list of engine versions that are available for upgrading a DB snapshot, see <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/mysql-upgrade-snapshot.html\"> Upgrading a MySQL DB snapshot engine version</a> in the <i>Amazon RDS User Guide.</i> </p> <p> <b>Oracle</b> </p> <ul> <li> <p> <code>21.0.0.0.ru-2025-04.rur-2025-04.r1</code> (supported for 21.0.0.0.ru-2022-01.rur-2022-01.r1, 21.0.0.0.ru-2022-04.rur-2022-04.r1, 21.0.0.0.ru-2022-07.rur-2022-07.r1, 21.0.0.0.ru-2022-10.rur-2022-10.r1, 21.0.0.0.ru-2023-01.rur-2023-01.r1 and 21.0.0.0.ru-2023-01.rur-2023-01.r2 DB snapshots)</p> </li> <li> <p> <code>19.0.0.0.ru-2025-04.rur-2025-04.r1</code> (supported for 19.0.0.0.ru-2019-07.rur-2019-07.r1, 19.0.0.0.ru-2019-10.rur-2019-10.r1 and 0.0.0.ru-2020-01.rur-2020-01.r1 DB snapshots)</p> </li> <li> <p> <code>19.0.0.0.ru-2022-01.rur-2022-01.r1</code> (supported for 12.2.0.1 DB snapshots)</p> </li> <li> <p> <code>19.0.0.0.ru-2022-07.rur-2022-07.r1</code> (supported for 12.1.0.2 DB snapshots)</p> </li> <li> <p> <code>12.1.0.2.v8</code> (supported for 12.1.0.1 DB snapshots)</p> </li> <li> <p> <code>11.2.0.4.v12</code> (supported for 11.2.0.2 DB snapshots)</p> </li> <li> <p> <code>11.2.0.4.v11</code> (supported for 11.2.0.3 DB snapshots)</p> </li> </ul> <p> <b>PostgreSQL</b> </p> <p>For the list of engine versions that are available for upgrading a DB snapshot, see <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBSnapshot.PostgreSQL.html\"> Upgrading a PostgreSQL DB snapshot engine version</a> in the <i>Amazon RDS User Guide.</i> </p>
             option_group_name: <p>The option group to identify with the upgraded DB snapshot.</p> <p>You can specify this parameter when you upgrade an Oracle DB snapshot. The same option group considerations apply when upgrading a DB snapshot as when upgrading a DB instance. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Oracle.html#USER_UpgradeDBInstance.Oracle.OGPG.OG\">Option group considerations</a> in the <i>Amazon RDS User Guide.</i> </p>
+
+        Raises:
+            aws_sdk_rds.errors.db_snapshot_not_found_fault.DBSnapshotNotFoundFault: <p> <code>DBSnapshotIdentifier</code> doesn't refer to an existing DB snapshot.</p>
+            aws_sdk_rds.errors.invalid_db_snapshot_state_fault.InvalidDBSnapshotStateFault: <p>The state of the DB snapshot doesn't allow deletion.</p>
+            aws_sdk_rds.errors.kms_key_not_accessible_fault.KMSKeyNotAccessibleFault: <p>An error occurred accessing an Amazon Web Services KMS key.</p>
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To modify a DB snapshot
@@ -10400,6 +11200,12 @@ class AsyncRDSClient:
             values_to_add: <p>A list of DB snapshot attributes to add to the attribute specified by <code>AttributeName</code>.</p> <p>To authorize other Amazon Web Services accounts to copy or restore a manual snapshot, set this list to include one or more Amazon Web Services account IDs, or <code>all</code> to make the manual DB snapshot restorable by any Amazon Web Services account. Do not add the <code>all</code> value for any manual DB snapshots that contain private information that you don't want available to all Amazon Web Services accounts.</p>
             values_to_remove: <p>A list of DB snapshot attributes to remove from the attribute specified by <code>AttributeName</code>.</p> <p>To remove authorization for other Amazon Web Services accounts to copy or restore a manual snapshot, set this list to include one or more Amazon Web Services account identifiers, or <code>all</code> to remove authorization for any Amazon Web Services account to copy or restore the DB snapshot. If you specify <code>all</code>, an Amazon Web Services account whose account ID is explicitly added to the <code>restore</code> attribute can still copy or restore the manual DB snapshot.</p>
 
+        Raises:
+            aws_sdk_rds.errors.db_snapshot_not_found_fault.DBSnapshotNotFoundFault: <p> <code>DBSnapshotIdentifier</code> doesn't refer to an existing DB snapshot.</p>
+            aws_sdk_rds.errors.invalid_db_snapshot_state_fault.InvalidDBSnapshotStateFault: <p>The state of the DB snapshot doesn't allow deletion.</p>
+            aws_sdk_rds.errors.shared_snapshot_quota_exceeded_fault.SharedSnapshotQuotaExceededFault: <p>You have exceeded the maximum number of accounts that you can share a manual DB snapshot with.</p>
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To allow two AWS accounts to restore a DB snapshot
             The following example grants permission to two AWS accounts, with the identifiers 111122223333 and 444455556666, to restore the DB snapshot named mydbsnapshot.
@@ -10457,6 +11263,15 @@ class AsyncRDSClient:
             db_subnet_group_description: <p>The description for the DB subnet group.</p>
             subnet_ids: <p>The EC2 subnet IDs for the DB subnet group.</p>
 
+        Raises:
+            aws_sdk_rds.errors.db_subnet_group_does_not_cover_enough_a_zs.DBSubnetGroupDoesNotCoverEnoughAZs: <p>Subnets in the DB subnet group should cover at least two Availability Zones unless there is only one Availability Zone.</p>
+            aws_sdk_rds.errors.db_subnet_group_not_found_fault.DBSubnetGroupNotFoundFault: <p> <code>DBSubnetGroupName</code> doesn't refer to an existing DB subnet group.</p>
+            aws_sdk_rds.errors.db_subnet_quota_exceeded_fault.DBSubnetQuotaExceededFault: <p>The request would result in the user exceeding the allowed number of subnets in a DB subnet groups.</p>
+            aws_sdk_rds.errors.invalid_db_subnet_group_state_fault.InvalidDBSubnetGroupStateFault: <p>The DB subnet group cannot be deleted because it's in use.</p>
+            aws_sdk_rds.errors.invalid_subnet.InvalidSubnet: <p>The requested subnet is invalid, or multiple subnets were requested that are not all in a common VPC.</p>
+            aws_sdk_rds.errors.subnet_already_in_use.SubnetAlreadyInUse: <p>The DB subnet is already in use in the Availability Zone.</p>
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To modify a DB subnet group
             The following example adds a subnet with the ID subnet-08e41f9e230222222 to the DB subnet group named mysubnetgroup. To keep the existing subnets in the subnet group, include their IDs as values in the --subnet-ids option. Make sure to have subnets with at least two different Availability Zones in the DB subnet group.
@@ -10513,6 +11328,15 @@ class AsyncRDSClient:
             source_type: <p>The type of source that is generating the events. For example, if you want to be notified of events generated by a DB instance, you would set this parameter to db-instance. For RDS Proxy events, specify <code>db-proxy</code>. If this value isn't specified, all events are returned.</p> <p>Valid Values:<code> db-instance | db-cluster | db-parameter-group | db-security-group | db-snapshot | db-cluster-snapshot | db-proxy | zero-etl | custom-engine-version | blue-green-deployment </code> </p>
             event_categories: <p>A list of event categories for a source type (<code>SourceType</code>) that you want to subscribe to. You can see a list of the categories for a given source type in <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.html\">Events</a> in the <i>Amazon RDS User Guide</i> or by using the <code>DescribeEventCategories</code> operation.</p>
             enabled: <p>Specifies whether to activate the subscription.</p>
+
+        Raises:
+            aws_sdk_rds.errors.event_subscription_quota_exceeded_fault.EventSubscriptionQuotaExceededFault: <p>You have reached the maximum number of event subscriptions.</p>
+            aws_sdk_rds.errors.sns_invalid_topic_fault.SNSInvalidTopicFault: <p>SNS has responded that there is a problem with the SNS topic specified.</p>
+            aws_sdk_rds.errors.sns_no_authorization_fault.SNSNoAuthorizationFault: <p>You do not have permission to publish to the SNS topic ARN.</p>
+            aws_sdk_rds.errors.sns_topic_arn_not_found_fault.SNSTopicArnNotFoundFault: <p>The SNS topic ARN does not exist.</p>
+            aws_sdk_rds.errors.subscription_category_not_found_fault.SubscriptionCategoryNotFoundFault: <p>The supplied category does not exist.</p>
+            aws_sdk_rds.errors.subscription_not_found_fault.SubscriptionNotFoundFault: <p>The subscription name does not exist.</p>
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To modify an event subscription
@@ -10580,6 +11404,14 @@ class AsyncRDSClient:
             engine_version: <p>The version number of the database engine to which you want to upgrade. </p> <p>To list all of the available engine versions for <code>aurora-mysql</code> (for MySQL-based Aurora global databases), use the following command:</p> <p> <code>aws rds describe-db-engine-versions --engine aurora-mysql --query '*[]|[?SupportsGlobalDatabases == `true`].[EngineVersion]'</code> </p> <p>To list all of the available engine versions for <code>aurora-postgresql</code> (for PostgreSQL-based Aurora global databases), use the following command:</p> <p> <code>aws rds describe-db-engine-versions --engine aurora-postgresql --query '*[]|[?SupportsGlobalDatabases == `true`].[EngineVersion]'</code> </p>
             allow_major_version_upgrade: <p>Specifies whether to allow major version upgrades.</p> <p>Constraints: Must be enabled if you specify a value for the <code>EngineVersion</code> parameter that's a different major version than the global cluster's current version.</p> <p>If you upgrade the major version of a global database, the cluster and DB instance parameter groups are set to the default parameter groups for the new version. Apply any custom parameter groups after completing the upgrade.</p>
 
+        Raises:
+            aws_sdk_rds.errors.global_cluster_already_exists_fault.GlobalClusterAlreadyExistsFault: <p>The <code>GlobalClusterIdentifier</code> already exists. Specify a new global database identifier (unique name) to create a new global database cluster or to rename an existing one.</p>
+            aws_sdk_rds.errors.global_cluster_not_found_fault.GlobalClusterNotFoundFault: <p>The <code>GlobalClusterIdentifier</code> doesn't refer to an existing global database cluster.</p>
+            aws_sdk_rds.errors.invalid_db_cluster_state_fault.InvalidDBClusterStateFault: <p>The requested operation can't be performed while the cluster is in this state.</p>
+            aws_sdk_rds.errors.invalid_db_instance_state_fault.InvalidDBInstanceStateFault: <p>The DB instance isn't in a valid state.</p>
+            aws_sdk_rds.errors.invalid_global_cluster_state_fault.InvalidGlobalClusterStateFault: <p>The global cluster is in an invalid state and can't perform the requested operation.</p>
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To modify a global database cluster
             The following example enables deletion protection for an Aurora MySQL-based global database cluster.
@@ -10642,6 +11474,12 @@ class AsyncRDSClient:
             data_filter: <p>A new data filter for the integration. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_Zero_ETL_Filtering.html\">Data filtering for Aurora zero-ETL integrations with Amazon Redshift</a> or <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/zero-etl.filtering.html\">Data filtering for Amazon RDS zero-ETL integrations with Amazon Redshift</a>.</p>
             description: <p>A new description for the integration.</p>
 
+        Raises:
+            aws_sdk_rds.errors.integration_conflict_operation_fault.IntegrationConflictOperationFault: <p>A conflicting conditional operation is currently in progress against this resource. Typically occurs when there are multiple requests being made to the same resource at the same time, and these requests conflict with each other.</p>
+            aws_sdk_rds.errors.integration_not_found_fault.IntegrationNotFoundFault: <p>The specified integration could not be found.</p>
+            aws_sdk_rds.errors.invalid_integration_state_fault.InvalidIntegrationStateFault: <p>The integration is in an invalid state and can't perform the requested operation.</p>
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To modify a zero-ETL integration
             The following example modifies the name of an existing zero-ETL integration.
@@ -10699,6 +11537,11 @@ class AsyncRDSClient:
             options_to_include: <p>Options in this list are added to the option group or, if already present, the specified configuration is used to update the existing configuration.</p>
             options_to_remove: <p>Options in this list are removed from the option group.</p>
             apply_immediately: <p>Specifies whether to apply the change immediately or during the next maintenance window for each instance associated with the option group.</p>
+
+        Raises:
+            aws_sdk_rds.errors.invalid_option_group_state_fault.InvalidOptionGroupStateFault: <p>The option group isn't in the <i>available</i> state.</p>
+            aws_sdk_rds.errors.option_group_not_found_fault.OptionGroupNotFoundFault: <p>The specified option group could not be found.</p>
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To modify an option group
@@ -10769,6 +11612,14 @@ class AsyncRDSClient:
             manage_master_user_password: <p>Specifies whether to manage the master user password with Amazon Web Services Secrets Manager.</p> <p>If the tenant database doesn't manage the master user password with Amazon Web Services Secrets Manager, you can turn on this management. In this case, you can't specify <code>MasterUserPassword</code>.</p> <p>If the tenant database already manages the master user password with Amazon Web Services Secrets Manager, and you specify that the master user password is not managed with Amazon Web Services Secrets Manager, then you must specify <code>MasterUserPassword</code>. In this case, Amazon RDS deletes the secret and uses the new password for the master user specified by <code>MasterUserPassword</code>.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-secrets-manager.html\">Password management with Amazon Web Services Secrets Manager</a> in the <i>Amazon RDS User Guide.</i> </p> <p>Constraints:</p> <ul> <li> <p>Can't manage the master user password with Amazon Web Services Secrets Manager if <code>MasterUserPassword</code> is specified.</p> </li> </ul>
             rotate_master_user_password: <p>Specifies whether to rotate the secret managed by Amazon Web Services Secrets Manager for the master user password.</p> <p>This setting is valid only if the master user password is managed by RDS in Amazon Web Services Secrets Manager for the DB instance. The secret value contains the updated password.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-secrets-manager.html\">Password management with Amazon Web Services Secrets Manager</a> in the <i>Amazon RDS User Guide.</i> </p> <p>Constraints:</p> <ul> <li> <p>You must apply the change immediately when rotating the master user password.</p> </li> </ul>
             master_user_secret_kms_key_id: <p>The Amazon Web Services KMS key identifier to encrypt a secret that is automatically generated and managed in Amazon Web Services Secrets Manager.</p> <p>This setting is valid only if both of the following conditions are met:</p> <ul> <li> <p>The tenant database doesn't manage the master user password in Amazon Web Services Secrets Manager.</p> <p>If the tenant database already manages the master user password in Amazon Web Services Secrets Manager, you can't change the KMS key used to encrypt the secret.</p> </li> <li> <p>You're turning on <code>ManageMasterUserPassword</code> to manage the master user password in Amazon Web Services Secrets Manager.</p> <p>If you're turning on <code>ManageMasterUserPassword</code> and don't specify <code>MasterUserSecretKmsKeyId</code>, then the <code>aws/secretsmanager</code> KMS key is used to encrypt the secret. If the secret is in a different Amazon Web Services account, then you can't use the <code>aws/secretsmanager</code> KMS key to encrypt the secret, and you must use a self-managed KMS key.</p> </li> </ul> <p>The Amazon Web Services KMS key identifier is any of the following:</p> <ul> <li> <p>Key ARN</p> </li> <li> <p>Key ID</p> </li> <li> <p>Alias ARN</p> </li> <li> <p>Alias name for the KMS key</p> </li> </ul> <p>To use a KMS key in a different Amazon Web Services account, specify the key ARN or alias ARN.</p> <p>A default KMS key exists for your Amazon Web Services account. Your Amazon Web Services account has a different default KMS key for each Amazon Web Services Region.</p>
+
+        Raises:
+            aws_sdk_rds.errors.db_instance_not_found_fault.DBInstanceNotFoundFault: <p> <code>DBInstanceIdentifier</code> doesn't refer to an existing DB instance.</p>
+            aws_sdk_rds.errors.invalid_db_instance_state_fault.InvalidDBInstanceStateFault: <p>The DB instance isn't in a valid state.</p>
+            aws_sdk_rds.errors.kms_key_not_accessible_fault.KMSKeyNotAccessibleFault: <p>An error occurred accessing an Amazon Web Services KMS key.</p>
+            aws_sdk_rds.errors.tenant_database_already_exists_fault.TenantDatabaseAlreadyExistsFault: <p>You attempted to either create a tenant database that already exists or modify a tenant database to use the name of an existing tenant database.</p>
+            aws_sdk_rds.errors.tenant_database_not_found_fault.TenantDatabaseNotFoundFault: <p>The specified tenant database wasn't found in the DB instance.</p>
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -10829,6 +11680,11 @@ class AsyncRDSClient:
             preferred_backup_window: <p>The daily time range during which automated backups are created if automated backups are enabled, using the <code>BackupRetentionPeriod</code> parameter.</p> <p>The default is a 30-minute window selected at random from an 8-hour block of time for each Amazon Web Services Region. To see the time blocks available, see <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AdjustingTheMaintenanceWindow.html\"> Adjusting the Preferred Maintenance Window</a> in the <i>Amazon RDS User Guide.</i> </p> <p>Constraints:</p> <ul> <li> <p>Must be in the format <code>hh24:mi-hh24:mi</code>.</p> </li> <li> <p>Must be in Universal Coordinated Time (UTC).</p> </li> <li> <p>Must not conflict with the preferred maintenance window.</p> </li> <li> <p>Must be at least 30 minutes.</p> </li> </ul>
             tag_specifications: <p>Tags to assign to resources associated with the DB instance.</p> <p>Valid Values: </p> <ul> <li> <p> <code>auto-backup</code> - The DB instance's automated backup.</p> </li> </ul>
 
+        Raises:
+            aws_sdk_rds.errors.db_instance_not_found_fault.DBInstanceNotFoundFault: <p> <code>DBInstanceIdentifier</code> doesn't refer to an existing DB instance.</p>
+            aws_sdk_rds.errors.invalid_db_instance_state_fault.InvalidDBInstanceStateFault: <p>The DB instance isn't in a valid state.</p>
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To promote a read replica
             The following example promotes the specified read replica to become a standalone DB instance.
@@ -10878,6 +11734,11 @@ class AsyncRDSClient:
 
         Args:
             db_cluster_identifier: <p>The identifier of the DB cluster read replica to promote. This parameter isn't case-sensitive.</p> <p>Constraints:</p> <ul> <li> <p>Must match the identifier of an existing DB cluster read replica.</p> </li> </ul> <p>Example: <code>my-cluster-replica1</code> </p>
+
+        Raises:
+            aws_sdk_rds.errors.db_cluster_not_found_fault.DBClusterNotFoundFault: <p> <code>DBClusterIdentifier</code> doesn't refer to an existing DB cluster.</p>
+            aws_sdk_rds.errors.invalid_db_cluster_state_fault.InvalidDBClusterStateFault: <p>The requested operation can't be performed while the cluster is in this state.</p>
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -10923,6 +11784,12 @@ class AsyncRDSClient:
             reserved_db_instances_offering_id: <p>The ID of the Reserved DB instance offering to purchase.</p> <p>Example: 438012d3-4052-4cc7-b2e3-8d3372e0e706</p>
             reserved_db_instance_id: <p>Customer-specified identifier to track this reservation.</p> <p>Example: myreservationID</p>
             db_instance_count: <p>The number of instances to reserve.</p> <p>Default: <code>1</code> </p>
+
+        Raises:
+            aws_sdk_rds.errors.reserved_db_instance_already_exists_fault.ReservedDBInstanceAlreadyExistsFault: <p>User already has a reservation with the given identifier.</p>
+            aws_sdk_rds.errors.reserved_db_instance_quota_exceeded_fault.ReservedDBInstanceQuotaExceededFault: <p>Request would exceed the user's DB Instance quota.</p>
+            aws_sdk_rds.errors.reserved_db_instances_offering_not_found_fault.ReservedDBInstancesOfferingNotFoundFault: <p>Specified offering does not exist.</p>
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To purchase a reserved DB instance
@@ -10973,6 +11840,12 @@ class AsyncRDSClient:
 
         Args:
             db_cluster_identifier: <p>The DB cluster identifier. This parameter is stored as a lowercase string.</p> <p>Constraints:</p> <ul> <li> <p>Must match the identifier of an existing DBCluster.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_rds.errors.db_cluster_not_found_fault.DBClusterNotFoundFault: <p> <code>DBClusterIdentifier</code> doesn't refer to an existing DB cluster.</p>
+            aws_sdk_rds.errors.invalid_db_cluster_state_fault.InvalidDBClusterStateFault: <p>The requested operation can't be performed while the cluster is in this state.</p>
+            aws_sdk_rds.errors.invalid_db_instance_state_fault.InvalidDBInstanceStateFault: <p>The DB instance isn't in a valid state.</p>
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -11015,6 +11888,12 @@ class AsyncRDSClient:
         Args:
             db_instance_identifier: <p>The DB instance identifier. This parameter is stored as a lowercase string.</p> <p>Constraints:</p> <ul> <li> <p>Must match the identifier of an existing DBInstance.</p> </li> </ul>
             force_failover: <p>Specifies whether the reboot is conducted through a Multi-AZ failover.</p> <p>Constraint: You can't enable force failover if the instance isn't configured for Multi-AZ.</p>
+
+        Raises:
+            aws_sdk_rds.errors.db_instance_not_found_fault.DBInstanceNotFoundFault: <p> <code>DBInstanceIdentifier</code> doesn't refer to an existing DB instance.</p>
+            aws_sdk_rds.errors.invalid_db_instance_state_fault.InvalidDBInstanceStateFault: <p>The DB instance isn't in a valid state.</p>
+            aws_sdk_rds.errors.kms_key_not_accessible_fault.KMSKeyNotAccessibleFault: <p>An error occurred accessing an Amazon Web Services KMS key.</p>
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To reboot a DB instance
@@ -11061,6 +11940,11 @@ class AsyncRDSClient:
 
         Args:
             db_shard_group_identifier: <p>The name of the DB shard group to reboot.</p>
+
+        Raises:
+            aws_sdk_rds.errors.db_shard_group_not_found_fault.DBShardGroupNotFoundFault: <p>The specified DB shard group name wasn't found.</p>
+            aws_sdk_rds.errors.invalid_db_shard_group_state_fault.InvalidDBShardGroupStateFault: <p>The DB shard group must be in the available state.</p>
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -11109,6 +11993,18 @@ class AsyncRDSClient:
             target_group_name: <p>The identifier of the <code>DBProxyTargetGroup</code>.</p>
             db_instance_identifiers: <p>One or more DB instance identifiers.</p>
             db_cluster_identifiers: <p>One or more DB cluster identifiers.</p>
+
+        Raises:
+            aws_sdk_rds.errors.db_cluster_not_found_fault.DBClusterNotFoundFault: <p> <code>DBClusterIdentifier</code> doesn't refer to an existing DB cluster.</p>
+            aws_sdk_rds.errors.db_instance_not_found_fault.DBInstanceNotFoundFault: <p> <code>DBInstanceIdentifier</code> doesn't refer to an existing DB instance.</p>
+            aws_sdk_rds.errors.db_proxy_not_found_fault.DBProxyNotFoundFault: <p>The specified proxy name doesn't correspond to a proxy owned by your Amazon Web Services account in the specified Amazon Web Services Region.</p>
+            aws_sdk_rds.errors.db_proxy_target_already_registered_fault.DBProxyTargetAlreadyRegisteredFault: <p>The proxy is already associated with the specified RDS DB instance or Aurora DB cluster.</p>
+            aws_sdk_rds.errors.db_proxy_target_group_not_found_fault.DBProxyTargetGroupNotFoundFault: <p>The specified target group isn't available for a proxy owned by your Amazon Web Services account in the specified Amazon Web Services Region.</p>
+            aws_sdk_rds.errors.insufficient_available_i_ps_in_subnet_fault.InsufficientAvailableIPsInSubnetFault: <p>The requested operation can't be performed because there aren't enough available IP addresses in the proxy's subnets. Add more CIDR blocks to the VPC or remove IP address that aren't required from the subnets.</p>
+            aws_sdk_rds.errors.invalid_db_cluster_state_fault.InvalidDBClusterStateFault: <p>The requested operation can't be performed while the cluster is in this state.</p>
+            aws_sdk_rds.errors.invalid_db_instance_state_fault.InvalidDBInstanceStateFault: <p>The DB instance isn't in a valid state.</p>
+            aws_sdk_rds.errors.invalid_db_proxy_state_fault.InvalidDBProxyStateFault: <p>The requested operation can't be performed while the proxy is in this state.</p>
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -11155,6 +12051,13 @@ class AsyncRDSClient:
         Args:
             global_cluster_identifier: <p>The cluster identifier to detach from the Aurora global database cluster.</p>
             db_cluster_identifier: <p>The Amazon Resource Name (ARN) identifying the cluster that was detached from the Aurora global database cluster.</p>
+
+        Raises:
+            aws_sdk_rds.errors.db_cluster_not_found_fault.DBClusterNotFoundFault: <p> <code>DBClusterIdentifier</code> doesn't refer to an existing DB cluster.</p>
+            aws_sdk_rds.errors.global_cluster_not_found_fault.GlobalClusterNotFoundFault: <p>The <code>GlobalClusterIdentifier</code> doesn't refer to an existing global database cluster.</p>
+            aws_sdk_rds.errors.invalid_db_cluster_state_fault.InvalidDBClusterStateFault: <p>The requested operation can't be performed while the cluster is in this state.</p>
+            aws_sdk_rds.errors.invalid_global_cluster_state_fault.InvalidGlobalClusterStateFault: <p>The global cluster is in an invalid state and can't perform the requested operation.</p>
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To detach an Aurora secondary cluster from an Aurora global database cluster
@@ -11205,6 +12108,12 @@ class AsyncRDSClient:
             role_arn: <p>The Amazon Resource Name (ARN) of the IAM role to disassociate from the Aurora DB cluster, for example <code>arn:aws:iam::123456789012:role/AuroraAccessRole</code>.</p>
             feature_name: <p>The name of the feature for the DB cluster that the IAM role is to be disassociated from. For information about supported feature names, see <a>DBEngineVersion</a>.</p>
 
+        Raises:
+            aws_sdk_rds.errors.db_cluster_not_found_fault.DBClusterNotFoundFault: <p> <code>DBClusterIdentifier</code> doesn't refer to an existing DB cluster.</p>
+            aws_sdk_rds.errors.db_cluster_role_not_found_fault.DBClusterRoleNotFoundFault: <p>The specified IAM role Amazon Resource Name (ARN) isn't associated with the specified DB cluster.</p>
+            aws_sdk_rds.errors.invalid_db_cluster_state_fault.InvalidDBClusterStateFault: <p>The requested operation can't be performed while the cluster is in this state.</p>
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To disassociate an Identity and Access Management (IAM) role from a DB cluster
             The following example removes a role from a DB cluster.
@@ -11253,6 +12162,12 @@ class AsyncRDSClient:
             db_instance_identifier: <p>The name of the DB instance to disassociate the IAM role from.</p>
             role_arn: <p>The Amazon Resource Name (ARN) of the IAM role to disassociate from the DB instance, for example, <code>arn:aws:iam::123456789012:role/AccessRole</code>.</p>
             feature_name: <p>The name of the feature for the DB instance that the IAM role is to be disassociated from. For information about supported feature names, see <code>DBEngineVersion</code>.</p>
+
+        Raises:
+            aws_sdk_rds.errors.db_instance_not_found_fault.DBInstanceNotFoundFault: <p> <code>DBInstanceIdentifier</code> doesn't refer to an existing DB instance.</p>
+            aws_sdk_rds.errors.db_instance_role_not_found_fault.DBInstanceRoleNotFoundFault: <p>The specified <code>RoleArn</code> value doesn't match the specified feature for the DB instance.</p>
+            aws_sdk_rds.errors.invalid_db_instance_state_fault.InvalidDBInstanceStateFault: <p>The DB instance isn't in a valid state.</p>
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -11293,6 +12208,11 @@ class AsyncRDSClient:
         Args:
             subscription_name: <p>The name of the RDS event notification subscription you want to remove a source identifier from.</p>
             source_identifier: <p>The source identifier to be removed from the subscription, such as the <b>DB instance identifier</b> for a DB instance or the name of a security group.</p>
+
+        Raises:
+            aws_sdk_rds.errors.source_not_found_fault.SourceNotFoundFault: <p>The requested source could not be found.</p>
+            aws_sdk_rds.errors.subscription_not_found_fault.SubscriptionNotFoundFault: <p>The subscription name does not exist.</p>
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To remove a source identifier from a subscription
@@ -11341,6 +12261,23 @@ class AsyncRDSClient:
             resource_name: <p>The Amazon RDS resource that the tags are removed from. This value is an Amazon Resource Name (ARN). For information about creating an ARN, see <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing\"> Constructing an ARN for Amazon RDS</a> in the <i>Amazon RDS User Guide.</i> </p>
             tag_keys: <p>The tag key (name) of the tag to be removed.</p>
 
+        Raises:
+            aws_sdk_rds.errors.blue_green_deployment_not_found_fault.BlueGreenDeploymentNotFoundFault: <p> <code>BlueGreenDeploymentIdentifier</code> doesn't refer to an existing blue/green deployment.</p>
+            aws_sdk_rds.errors.db_cluster_not_found_fault.DBClusterNotFoundFault: <p> <code>DBClusterIdentifier</code> doesn't refer to an existing DB cluster.</p>
+            aws_sdk_rds.errors.db_instance_not_found_fault.DBInstanceNotFoundFault: <p> <code>DBInstanceIdentifier</code> doesn't refer to an existing DB instance.</p>
+            aws_sdk_rds.errors.db_proxy_endpoint_not_found_fault.DBProxyEndpointNotFoundFault: <p>The DB proxy endpoint doesn't exist.</p>
+            aws_sdk_rds.errors.db_proxy_not_found_fault.DBProxyNotFoundFault: <p>The specified proxy name doesn't correspond to a proxy owned by your Amazon Web Services account in the specified Amazon Web Services Region.</p>
+            aws_sdk_rds.errors.db_proxy_target_group_not_found_fault.DBProxyTargetGroupNotFoundFault: <p>The specified target group isn't available for a proxy owned by your Amazon Web Services account in the specified Amazon Web Services Region.</p>
+            aws_sdk_rds.errors.db_shard_group_not_found_fault.DBShardGroupNotFoundFault: <p>The specified DB shard group name wasn't found.</p>
+            aws_sdk_rds.errors.db_snapshot_not_found_fault.DBSnapshotNotFoundFault: <p> <code>DBSnapshotIdentifier</code> doesn't refer to an existing DB snapshot.</p>
+            aws_sdk_rds.errors.db_snapshot_tenant_database_not_found_fault.DBSnapshotTenantDatabaseNotFoundFault: <p>The specified snapshot tenant database wasn't found.</p>
+            aws_sdk_rds.errors.integration_not_found_fault.IntegrationNotFoundFault: <p>The specified integration could not be found.</p>
+            aws_sdk_rds.errors.invalid_db_cluster_endpoint_state_fault.InvalidDBClusterEndpointStateFault: <p>The requested operation can't be performed on the endpoint while the endpoint is in this state.</p>
+            aws_sdk_rds.errors.invalid_db_cluster_state_fault.InvalidDBClusterStateFault: <p>The requested operation can't be performed while the cluster is in this state.</p>
+            aws_sdk_rds.errors.invalid_db_instance_state_fault.InvalidDBInstanceStateFault: <p>The DB instance isn't in a valid state.</p>
+            aws_sdk_rds.errors.tenant_database_not_found_fault.TenantDatabaseNotFoundFault: <p>The specified tenant database wasn't found in the DB instance.</p>
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To remove tags from a resource
             The following example removes tags from a resource.
@@ -11387,6 +12324,11 @@ class AsyncRDSClient:
             db_cluster_parameter_group_name: <p>The name of the DB cluster parameter group to reset.</p>
             reset_all_parameters: <p>Specifies whether to reset all parameters in the DB cluster parameter group to their default values. You can't use this parameter if there is a list of parameter names specified for the <code>Parameters</code> parameter.</p>
             parameters: <p>A list of parameter names in the DB cluster parameter group to reset to the default values. You can't use this parameter if the <code>ResetAllParameters</code> parameter is enabled.</p>
+
+        Raises:
+            aws_sdk_rds.errors.db_parameter_group_not_found_fault.DBParameterGroupNotFoundFault: <p> <code>DBParameterGroupName</code> doesn't refer to an existing DB parameter group.</p>
+            aws_sdk_rds.errors.invalid_db_parameter_group_state_fault.InvalidDBParameterGroupStateFault: <p>The DB parameter group is in use or is in an invalid state. If you are attempting to delete the parameter group, you can't delete it when the parameter group is in this state.</p>
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To reset all parameters to their default values
@@ -11441,6 +12383,11 @@ class AsyncRDSClient:
             db_parameter_group_name: <p>The name of the DB parameter group.</p> <p>Constraints:</p> <ul> <li> <p>Must match the name of an existing <code>DBParameterGroup</code>.</p> </li> </ul>
             reset_all_parameters: <p>Specifies whether to reset all parameters in the DB parameter group to default values. By default, all parameters in the DB parameter group are reset to default values.</p>
             parameters: <p>To reset the entire DB parameter group, specify the <code>DBParameterGroup</code> name and <code>ResetAllParameters</code> parameters. To reset specific parameters, provide a list of the following: <code>ParameterName</code> and <code>ApplyMethod</code>. A maximum of 20 parameters can be modified in a single request.</p> <p> <b>MySQL</b> </p> <p>Valid Values (for Apply method): <code>immediate</code> | <code>pending-reboot</code> </p> <p>You can use the immediate value with dynamic parameters only. You can use the <code>pending-reboot</code> value for both dynamic and static parameters, and changes are applied when DB instance reboots.</p> <p> <b>MariaDB</b> </p> <p>Valid Values (for Apply method): <code>immediate</code> | <code>pending-reboot</code> </p> <p>You can use the immediate value with dynamic parameters only. You can use the <code>pending-reboot</code> value for both dynamic and static parameters, and changes are applied when DB instance reboots.</p> <p> <b>Oracle</b> </p> <p>Valid Values (for Apply method): <code>pending-reboot</code> </p>
+
+        Raises:
+            aws_sdk_rds.errors.db_parameter_group_not_found_fault.DBParameterGroupNotFoundFault: <p> <code>DBParameterGroupName</code> doesn't refer to an existing DB parameter group.</p>
+            aws_sdk_rds.errors.invalid_db_parameter_group_state_fault.InvalidDBParameterGroupStateFault: <p>The DB parameter group is in use or is in an invalid state. If you are attempting to delete the parameter group, you can't delete it when the parameter group is in this state.</p>
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To reset all parameters to their default values
@@ -11593,6 +12540,25 @@ class AsyncRDSClient:
             master_user_secret_kms_key_id: <p>The Amazon Web Services KMS key identifier to encrypt a secret that is automatically generated and managed in Amazon Web Services Secrets Manager.</p> <p>This setting is valid only if the master user password is managed by RDS in Amazon Web Services Secrets Manager for the DB cluster.</p> <p>The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. To use a KMS key in a different Amazon Web Services account, specify the key ARN or alias ARN.</p> <p>If you don't specify <code>MasterUserSecretKmsKeyId</code>, then the <code>aws/secretsmanager</code> KMS key is used to encrypt the secret. If the secret is in a different Amazon Web Services account, then you can't use the <code>aws/secretsmanager</code> KMS key to encrypt the secret, and you must use a customer managed KMS key.</p> <p>There is a default KMS key for your Amazon Web Services account. Your Amazon Web Services account has a different default KMS key for each Amazon Web Services Region.</p>
             engine_lifecycle_support: <p>The life cycle type for this DB cluster.</p> <note> <p>By default, this value is set to <code>open-source-rds-extended-support</code>, which enrolls your DB cluster into Amazon RDS Extended Support. At the end of standard support, you can avoid charges for Extended Support by setting the value to <code>open-source-rds-extended-support-disabled</code>. In this case, RDS automatically upgrades your restored DB cluster to a higher engine version, if the major engine version is past its end of standard support date.</p> </note> <p>You can use this setting to enroll your DB cluster into Amazon RDS Extended Support. With RDS Extended Support, you can run the selected major engine version on your DB cluster past the end of standard support for that engine version. For more information, see the following sections:</p> <ul> <li> <p>Amazon Aurora - <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/extended-support.html\">Amazon RDS Extended Support with Amazon Aurora</a> in the <i>Amazon Aurora User Guide</i> </p> </li> <li> <p>Amazon RDS - <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html\">Amazon RDS Extended Support with Amazon RDS</a> in the <i>Amazon RDS User Guide</i> </p> </li> </ul> <p>Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters</p> <p>Valid Values: <code>open-source-rds-extended-support | open-source-rds-extended-support-disabled</code> </p> <p>Default: <code>open-source-rds-extended-support</code> </p>
             tag_specifications: <p>Tags to assign to resources associated with the DB cluster.</p> <p>Valid Values: </p> <ul> <li> <p> <code>cluster-auto-backup</code> - The DB cluster's automated backup.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_rds.errors.db_cluster_already_exists_fault.DBClusterAlreadyExistsFault: <p>The user already has a DB cluster with the given identifier.</p>
+            aws_sdk_rds.errors.db_cluster_not_found_fault.DBClusterNotFoundFault: <p> <code>DBClusterIdentifier</code> doesn't refer to an existing DB cluster.</p>
+            aws_sdk_rds.errors.db_cluster_parameter_group_not_found_fault.DBClusterParameterGroupNotFoundFault: <p> <code>DBClusterParameterGroupName</code> doesn't refer to an existing DB cluster parameter group.</p>
+            aws_sdk_rds.errors.db_cluster_quota_exceeded_fault.DBClusterQuotaExceededFault: <p>The user attempted to create a new DB cluster and the user has already reached the maximum allowed DB cluster quota.</p>
+            aws_sdk_rds.errors.db_subnet_group_not_found_fault.DBSubnetGroupNotFoundFault: <p> <code>DBSubnetGroupName</code> doesn't refer to an existing DB subnet group.</p>
+            aws_sdk_rds.errors.domain_not_found_fault.DomainNotFoundFault: <p> <code>Domain</code> doesn't refer to an existing Active Directory domain.</p>
+            aws_sdk_rds.errors.insufficient_storage_cluster_capacity_fault.InsufficientStorageClusterCapacityFault: <p>There is insufficient storage available for the current action. You might be able to resolve this error by updating your subnet group to use different Availability Zones that have more storage available.</p>
+            aws_sdk_rds.errors.invalid_db_cluster_state_fault.InvalidDBClusterStateFault: <p>The requested operation can't be performed while the cluster is in this state.</p>
+            aws_sdk_rds.errors.invalid_db_subnet_group_state_fault.InvalidDBSubnetGroupStateFault: <p>The DB subnet group cannot be deleted because it's in use.</p>
+            aws_sdk_rds.errors.invalid_s3_bucket_fault.InvalidS3BucketFault: <p>The specified Amazon S3 bucket name can't be found or Amazon RDS isn't authorized to access the specified Amazon S3 bucket. Verify the <b>SourceS3BucketName</b> and <b>S3IngestionRoleArn</b> values and try again.</p>
+            aws_sdk_rds.errors.invalid_subnet.InvalidSubnet: <p>The requested subnet is invalid, or multiple subnets were requested that are not all in a common VPC.</p>
+            aws_sdk_rds.errors.invalid_vpc_network_state_fault.InvalidVPCNetworkStateFault: <p>The DB subnet group doesn't cover all Availability Zones after it's created because of users' change.</p>
+            aws_sdk_rds.errors.kms_key_not_accessible_fault.KMSKeyNotAccessibleFault: <p>An error occurred accessing an Amazon Web Services KMS key.</p>
+            aws_sdk_rds.errors.network_type_not_supported.NetworkTypeNotSupported: <p>The network type is invalid for the DB instance. Valid nework type values are <code>IPV4</code> and <code>DUAL</code>.</p>
+            aws_sdk_rds.errors.storage_quota_exceeded_fault.StorageQuotaExceededFault: <p>The request would result in the user exceeding the allowed amount of storage available across all DB instances.</p>
+            aws_sdk_rds.errors.storage_type_not_supported_fault.StorageTypeNotSupportedFault: <p>The specified <code>StorageType</code> can't be associated with the DB instance.</p>
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To restore an Amazon Aurora DB cluster from Amazon S3
@@ -11826,6 +12792,32 @@ class AsyncRDSClient:
             tag_specifications: <p>Tags to assign to resources associated with the DB cluster.</p> <p>Valid Values: </p> <ul> <li> <p> <code>cluster-auto-backup</code> - The DB cluster's automated backup.</p> </li> </ul>
             enable_vpc_networking: <p>Specifies whether to enable VPC networking for the restored DB cluster. Set this parameter to <code>false</code> to create a cluster without the VPC network interface (ENI).</p> <p>This parameter must be used together with <code>EnableInternetAccessGateway</code>. When both parameters are specified, IAM database authentication is required. You must also specify <code>EnableIAMDatabaseAuthentication</code>.</p> <p>Valid for Cluster Type: Aurora PostgreSQL clusters</p>
             enable_internet_access_gateway: <p>Specifies that the restored DB cluster should use internet-based connectivity through an internet access gateway. This allows clients to connect to the cluster over the internet without requiring a VPC.</p> <p>This parameter must be used together with <code>EnableVPCNetworking</code> set to <code>false</code>. When both parameters are specified, IAM database authentication is required. You must also specify <code>EnableIAMDatabaseAuthentication</code>.</p> <p>Valid for Cluster Type: Aurora PostgreSQL clusters</p>
+
+        Raises:
+            aws_sdk_rds.errors.db_cluster_already_exists_fault.DBClusterAlreadyExistsFault: <p>The user already has a DB cluster with the given identifier.</p>
+            aws_sdk_rds.errors.db_cluster_parameter_group_not_found_fault.DBClusterParameterGroupNotFoundFault: <p> <code>DBClusterParameterGroupName</code> doesn't refer to an existing DB cluster parameter group.</p>
+            aws_sdk_rds.errors.db_cluster_quota_exceeded_fault.DBClusterQuotaExceededFault: <p>The user attempted to create a new DB cluster and the user has already reached the maximum allowed DB cluster quota.</p>
+            aws_sdk_rds.errors.db_cluster_snapshot_not_found_fault.DBClusterSnapshotNotFoundFault: <p> <code>DBClusterSnapshotIdentifier</code> doesn't refer to an existing DB cluster snapshot.</p>
+            aws_sdk_rds.errors.db_snapshot_not_found_fault.DBSnapshotNotFoundFault: <p> <code>DBSnapshotIdentifier</code> doesn't refer to an existing DB snapshot.</p>
+            aws_sdk_rds.errors.db_subnet_group_does_not_cover_enough_a_zs.DBSubnetGroupDoesNotCoverEnoughAZs: <p>Subnets in the DB subnet group should cover at least two Availability Zones unless there is only one Availability Zone.</p>
+            aws_sdk_rds.errors.db_subnet_group_not_found_fault.DBSubnetGroupNotFoundFault: <p> <code>DBSubnetGroupName</code> doesn't refer to an existing DB subnet group.</p>
+            aws_sdk_rds.errors.domain_not_found_fault.DomainNotFoundFault: <p> <code>Domain</code> doesn't refer to an existing Active Directory domain.</p>
+            aws_sdk_rds.errors.insufficient_db_cluster_capacity_fault.InsufficientDBClusterCapacityFault: <p>The DB cluster doesn't have enough capacity for the current operation.</p>
+            aws_sdk_rds.errors.insufficient_db_instance_capacity_fault.InsufficientDBInstanceCapacityFault: <p>The specified DB instance class isn't available in the specified Availability Zone.</p>
+            aws_sdk_rds.errors.insufficient_storage_cluster_capacity_fault.InsufficientStorageClusterCapacityFault: <p>There is insufficient storage available for the current action. You might be able to resolve this error by updating your subnet group to use different Availability Zones that have more storage available.</p>
+            aws_sdk_rds.errors.invalid_db_cluster_snapshot_state_fault.InvalidDBClusterSnapshotStateFault: <p>The supplied value isn't a valid DB cluster snapshot state.</p>
+            aws_sdk_rds.errors.invalid_db_instance_state_fault.InvalidDBInstanceStateFault: <p>The DB instance isn't in a valid state.</p>
+            aws_sdk_rds.errors.invalid_db_snapshot_state_fault.InvalidDBSnapshotStateFault: <p>The state of the DB snapshot doesn't allow deletion.</p>
+            aws_sdk_rds.errors.invalid_restore_fault.InvalidRestoreFault: <p>Cannot restore from VPC backup to non-VPC DB instance.</p>
+            aws_sdk_rds.errors.invalid_subnet.InvalidSubnet: <p>The requested subnet is invalid, or multiple subnets were requested that are not all in a common VPC.</p>
+            aws_sdk_rds.errors.invalid_vpc_network_state_fault.InvalidVPCNetworkStateFault: <p>The DB subnet group doesn't cover all Availability Zones after it's created because of users' change.</p>
+            aws_sdk_rds.errors.kms_key_not_accessible_fault.KMSKeyNotAccessibleFault: <p>An error occurred accessing an Amazon Web Services KMS key.</p>
+            aws_sdk_rds.errors.network_type_not_supported.NetworkTypeNotSupported: <p>The network type is invalid for the DB instance. Valid nework type values are <code>IPV4</code> and <code>DUAL</code>.</p>
+            aws_sdk_rds.errors.option_group_not_found_fault.OptionGroupNotFoundFault: <p>The specified option group could not be found.</p>
+            aws_sdk_rds.errors.storage_quota_exceeded_fault.StorageQuotaExceededFault: <p>The request would result in the user exceeding the allowed amount of storage available across all DB instances.</p>
+            aws_sdk_rds.errors.storage_type_not_supported_fault.StorageTypeNotSupportedFault: <p>The specified <code>StorageType</code> can't be associated with the DB instance.</p>
+            aws_sdk_rds.errors.vpc_encryption_control_violation_exception.VpcEncryptionControlViolationException: <p>The operation violates VPC encryption control settings. Make sure that your DB instance type supports the Nitro encryption-in-transit capability, or modify your VPC's encryption controls to not enforce encryption-in-transit.</p>
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To restore a DB cluster from a snapshot
@@ -12078,6 +13070,32 @@ class AsyncRDSClient:
             tag_specifications: <p>Tags to assign to resources associated with the DB cluster.</p> <p>Valid Values: </p> <ul> <li> <p> <code>cluster-auto-backup</code> - The DB cluster's automated backup.</p> </li> </ul>
             enable_vpc_networking: <p>Specifies whether to enable VPC networking for the restored DB cluster. Set this parameter to <code>false</code> to create a cluster without the VPC network interface (ENI).</p> <p>This parameter must be used together with <code>EnableInternetAccessGateway</code>. When both parameters are specified, IAM database authentication is required. You must also specify <code>EnableIAMDatabaseAuthentication</code>.</p> <p>Valid for Cluster Type: Aurora PostgreSQL clusters</p>
             enable_internet_access_gateway: <p>Specifies that the restored DB cluster should use internet-based connectivity through an internet access gateway. This allows clients to connect to the cluster over the internet without requiring a VPC.</p> <p>This parameter must be used together with <code>EnableVPCNetworking</code> set to <code>false</code>. When both parameters are specified, IAM database authentication is required. You must also specify <code>EnableIAMDatabaseAuthentication</code>.</p> <p>Valid for Cluster Type: Aurora PostgreSQL clusters</p>
+
+        Raises:
+            aws_sdk_rds.errors.db_cluster_already_exists_fault.DBClusterAlreadyExistsFault: <p>The user already has a DB cluster with the given identifier.</p>
+            aws_sdk_rds.errors.db_cluster_automated_backup_not_found_fault.DBClusterAutomatedBackupNotFoundFault: <p>No automated backup for this DB cluster was found.</p>
+            aws_sdk_rds.errors.db_cluster_not_found_fault.DBClusterNotFoundFault: <p> <code>DBClusterIdentifier</code> doesn't refer to an existing DB cluster.</p>
+            aws_sdk_rds.errors.db_cluster_parameter_group_not_found_fault.DBClusterParameterGroupNotFoundFault: <p> <code>DBClusterParameterGroupName</code> doesn't refer to an existing DB cluster parameter group.</p>
+            aws_sdk_rds.errors.db_cluster_quota_exceeded_fault.DBClusterQuotaExceededFault: <p>The user attempted to create a new DB cluster and the user has already reached the maximum allowed DB cluster quota.</p>
+            aws_sdk_rds.errors.db_cluster_snapshot_not_found_fault.DBClusterSnapshotNotFoundFault: <p> <code>DBClusterSnapshotIdentifier</code> doesn't refer to an existing DB cluster snapshot.</p>
+            aws_sdk_rds.errors.db_subnet_group_not_found_fault.DBSubnetGroupNotFoundFault: <p> <code>DBSubnetGroupName</code> doesn't refer to an existing DB subnet group.</p>
+            aws_sdk_rds.errors.domain_not_found_fault.DomainNotFoundFault: <p> <code>Domain</code> doesn't refer to an existing Active Directory domain.</p>
+            aws_sdk_rds.errors.insufficient_db_cluster_capacity_fault.InsufficientDBClusterCapacityFault: <p>The DB cluster doesn't have enough capacity for the current operation.</p>
+            aws_sdk_rds.errors.insufficient_db_instance_capacity_fault.InsufficientDBInstanceCapacityFault: <p>The specified DB instance class isn't available in the specified Availability Zone.</p>
+            aws_sdk_rds.errors.insufficient_storage_cluster_capacity_fault.InsufficientStorageClusterCapacityFault: <p>There is insufficient storage available for the current action. You might be able to resolve this error by updating your subnet group to use different Availability Zones that have more storage available.</p>
+            aws_sdk_rds.errors.invalid_db_cluster_snapshot_state_fault.InvalidDBClusterSnapshotStateFault: <p>The supplied value isn't a valid DB cluster snapshot state.</p>
+            aws_sdk_rds.errors.invalid_db_cluster_state_fault.InvalidDBClusterStateFault: <p>The requested operation can't be performed while the cluster is in this state.</p>
+            aws_sdk_rds.errors.invalid_db_snapshot_state_fault.InvalidDBSnapshotStateFault: <p>The state of the DB snapshot doesn't allow deletion.</p>
+            aws_sdk_rds.errors.invalid_restore_fault.InvalidRestoreFault: <p>Cannot restore from VPC backup to non-VPC DB instance.</p>
+            aws_sdk_rds.errors.invalid_subnet.InvalidSubnet: <p>The requested subnet is invalid, or multiple subnets were requested that are not all in a common VPC.</p>
+            aws_sdk_rds.errors.invalid_vpc_network_state_fault.InvalidVPCNetworkStateFault: <p>The DB subnet group doesn't cover all Availability Zones after it's created because of users' change.</p>
+            aws_sdk_rds.errors.kms_key_not_accessible_fault.KMSKeyNotAccessibleFault: <p>An error occurred accessing an Amazon Web Services KMS key.</p>
+            aws_sdk_rds.errors.network_type_not_supported.NetworkTypeNotSupported: <p>The network type is invalid for the DB instance. Valid nework type values are <code>IPV4</code> and <code>DUAL</code>.</p>
+            aws_sdk_rds.errors.option_group_not_found_fault.OptionGroupNotFoundFault: <p>The specified option group could not be found.</p>
+            aws_sdk_rds.errors.storage_quota_exceeded_fault.StorageQuotaExceededFault: <p>The request would result in the user exceeding the allowed amount of storage available across all DB instances.</p>
+            aws_sdk_rds.errors.storage_type_not_supported_fault.StorageTypeNotSupportedFault: <p>The specified <code>StorageType</code> can't be associated with the DB instance.</p>
+            aws_sdk_rds.errors.vpc_encryption_control_violation_exception.VpcEncryptionControlViolationException: <p>The operation violates VPC encryption control settings. Make sure that your DB instance type supports the Nitro encryption-in-transit capability, or modify your VPC's encryption controls to not enforce encryption-in-transit.</p>
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To restore a DB cluster to a specified time
@@ -12345,6 +13363,34 @@ class AsyncRDSClient:
             tag_specifications: <p>Tags to assign to resources associated with the DB instance.</p> <p>Valid Values: </p> <ul> <li> <p> <code>auto-backup</code> - The DB instance's automated backup.</p> </li> </ul>
             manage_master_user_password: <p>Specifies whether to manage the master user password with Amazon Web Services Secrets Manager in the restored DB instance.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-secrets-manager.html\">Password management with Amazon Web Services Secrets Manager</a> in the <i>Amazon RDS User Guide</i>.</p> <p>Constraints:</p> <ul> <li> <p>Applies to RDS for Oracle only.</p> </li> </ul>
             master_user_secret_kms_key_id: <p>The Amazon Web Services KMS key identifier to encrypt a secret that is automatically generated and managed in Amazon Web Services Secrets Manager.</p> <p>This setting is valid only if the master user password is managed by RDS in Amazon Web Services Secrets Manager for the DB instance.</p> <p>The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. To use a KMS key in a different Amazon Web Services account, specify the key ARN or alias ARN.</p> <p>If you don't specify <code>MasterUserSecretKmsKeyId</code>, then the <code>aws/secretsmanager</code> KMS key is used to encrypt the secret. If the secret is in a different Amazon Web Services account, then you can't use the <code>aws/secretsmanager</code> KMS key to encrypt the secret, and you must use a customer managed KMS key.</p> <p>There is a default KMS key for your Amazon Web Services account. Your Amazon Web Services account has a different default KMS key for each Amazon Web Services Region.</p>
+
+        Raises:
+            aws_sdk_rds.errors.authorization_not_found_fault.AuthorizationNotFoundFault: <p>The specified CIDR IP range or Amazon EC2 security group might not be authorized for the specified DB security group.</p> <p>Or, RDS might not be authorized to perform necessary actions using IAM on your behalf.</p>
+            aws_sdk_rds.errors.backup_policy_not_found_fault.BackupPolicyNotFoundFault: <p/>
+            aws_sdk_rds.errors.certificate_not_found_fault.CertificateNotFoundFault: <p> <code>CertificateIdentifier</code> doesn't refer to an existing certificate.</p>
+            aws_sdk_rds.errors.db_cluster_snapshot_not_found_fault.DBClusterSnapshotNotFoundFault: <p> <code>DBClusterSnapshotIdentifier</code> doesn't refer to an existing DB cluster snapshot.</p>
+            aws_sdk_rds.errors.db_instance_already_exists_fault.DBInstanceAlreadyExistsFault: <p>The user already has a DB instance with the given identifier.</p>
+            aws_sdk_rds.errors.db_parameter_group_not_found_fault.DBParameterGroupNotFoundFault: <p> <code>DBParameterGroupName</code> doesn't refer to an existing DB parameter group.</p>
+            aws_sdk_rds.errors.db_security_group_not_found_fault.DBSecurityGroupNotFoundFault: <p> <code>DBSecurityGroupName</code> doesn't refer to an existing DB security group.</p>
+            aws_sdk_rds.errors.db_snapshot_not_found_fault.DBSnapshotNotFoundFault: <p> <code>DBSnapshotIdentifier</code> doesn't refer to an existing DB snapshot.</p>
+            aws_sdk_rds.errors.db_subnet_group_does_not_cover_enough_a_zs.DBSubnetGroupDoesNotCoverEnoughAZs: <p>Subnets in the DB subnet group should cover at least two Availability Zones unless there is only one Availability Zone.</p>
+            aws_sdk_rds.errors.db_subnet_group_not_found_fault.DBSubnetGroupNotFoundFault: <p> <code>DBSubnetGroupName</code> doesn't refer to an existing DB subnet group.</p>
+            aws_sdk_rds.errors.domain_not_found_fault.DomainNotFoundFault: <p> <code>Domain</code> doesn't refer to an existing Active Directory domain.</p>
+            aws_sdk_rds.errors.instance_quota_exceeded_fault.InstanceQuotaExceededFault: <p>The request would result in the user exceeding the allowed number of DB instances.</p>
+            aws_sdk_rds.errors.insufficient_db_instance_capacity_fault.InsufficientDBInstanceCapacityFault: <p>The specified DB instance class isn't available in the specified Availability Zone.</p>
+            aws_sdk_rds.errors.invalid_db_snapshot_state_fault.InvalidDBSnapshotStateFault: <p>The state of the DB snapshot doesn't allow deletion.</p>
+            aws_sdk_rds.errors.invalid_restore_fault.InvalidRestoreFault: <p>Cannot restore from VPC backup to non-VPC DB instance.</p>
+            aws_sdk_rds.errors.invalid_subnet.InvalidSubnet: <p>The requested subnet is invalid, or multiple subnets were requested that are not all in a common VPC.</p>
+            aws_sdk_rds.errors.invalid_vpc_network_state_fault.InvalidVPCNetworkStateFault: <p>The DB subnet group doesn't cover all Availability Zones after it's created because of users' change.</p>
+            aws_sdk_rds.errors.kms_key_not_accessible_fault.KMSKeyNotAccessibleFault: <p>An error occurred accessing an Amazon Web Services KMS key.</p>
+            aws_sdk_rds.errors.network_type_not_supported.NetworkTypeNotSupported: <p>The network type is invalid for the DB instance. Valid nework type values are <code>IPV4</code> and <code>DUAL</code>.</p>
+            aws_sdk_rds.errors.option_group_not_found_fault.OptionGroupNotFoundFault: <p>The specified option group could not be found.</p>
+            aws_sdk_rds.errors.provisioned_iops_not_available_in_az_fault.ProvisionedIopsNotAvailableInAZFault: <p>Provisioned IOPS not available in the specified Availability Zone.</p>
+            aws_sdk_rds.errors.storage_quota_exceeded_fault.StorageQuotaExceededFault: <p>The request would result in the user exceeding the allowed amount of storage available across all DB instances.</p>
+            aws_sdk_rds.errors.storage_type_not_supported_fault.StorageTypeNotSupportedFault: <p>The specified <code>StorageType</code> can't be associated with the DB instance.</p>
+            aws_sdk_rds.errors.tenant_database_quota_exceeded_fault.TenantDatabaseQuotaExceededFault: <p>You attempted to create more tenant databases than are permitted in your Amazon Web Services account.</p>
+            aws_sdk_rds.errors.vpc_encryption_control_violation_exception.VpcEncryptionControlViolationException: <p>The operation violates VPC encryption control settings. Make sure that your DB instance type supports the Nitro encryption-in-transit capability, or modify your VPC's encryption controls to not enforce encryption-in-transit.</p>
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To restore a DB instance from a DB snapshot
@@ -12645,6 +13691,29 @@ class AsyncRDSClient:
             engine_lifecycle_support: <p>The life cycle type for this DB instance.</p> <note> <p>By default, this value is set to <code>open-source-rds-extended-support</code>, which enrolls your DB instance into Amazon RDS Extended Support. At the end of standard support, you can avoid charges for Extended Support by setting the value to <code>open-source-rds-extended-support-disabled</code>. In this case, RDS automatically upgrades your restored DB instance to a higher engine version, if the major engine version is past its end of standard support date.</p> </note> <p>You can use this setting to enroll your DB instance into Amazon RDS Extended Support. With RDS Extended Support, you can run the selected major engine version on your DB instance past the end of standard support for that engine version. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html\">Amazon RDS Extended Support Amazon RDS</a> in the <i>Amazon RDS User Guide</i>.</p> <p>This setting applies only to RDS for MySQL and RDS for PostgreSQL. For Amazon Aurora DB instances, the life cycle type is managed by the DB cluster.</p> <p>Valid Values: <code>open-source-rds-extended-support | open-source-rds-extended-support-disabled</code> </p> <p>Default: <code>open-source-rds-extended-support</code> </p>
             additional_storage_volumes: <p>A list of additional storage volumes to modify or delete for the DB instance. You can modify or delete up to three additional storage volumes using the names <code>rdsdbdata2</code>, <code>rdsdbdata3</code>, and <code>rdsdbdata4</code>. Additional storage volumes are supported for RDS for Oracle and RDS for SQL Server DB instances only.</p>
             tag_specifications: <p>Tags to assign to resources associated with the DB instance.</p> <p>Valid Values: </p> <ul> <li> <p> <code>auto-backup</code> - The DB instance's automated backup.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_rds.errors.authorization_not_found_fault.AuthorizationNotFoundFault: <p>The specified CIDR IP range or Amazon EC2 security group might not be authorized for the specified DB security group.</p> <p>Or, RDS might not be authorized to perform necessary actions using IAM on your behalf.</p>
+            aws_sdk_rds.errors.backup_policy_not_found_fault.BackupPolicyNotFoundFault: <p/>
+            aws_sdk_rds.errors.certificate_not_found_fault.CertificateNotFoundFault: <p> <code>CertificateIdentifier</code> doesn't refer to an existing certificate.</p>
+            aws_sdk_rds.errors.db_instance_already_exists_fault.DBInstanceAlreadyExistsFault: <p>The user already has a DB instance with the given identifier.</p>
+            aws_sdk_rds.errors.db_parameter_group_not_found_fault.DBParameterGroupNotFoundFault: <p> <code>DBParameterGroupName</code> doesn't refer to an existing DB parameter group.</p>
+            aws_sdk_rds.errors.db_security_group_not_found_fault.DBSecurityGroupNotFoundFault: <p> <code>DBSecurityGroupName</code> doesn't refer to an existing DB security group.</p>
+            aws_sdk_rds.errors.db_subnet_group_does_not_cover_enough_a_zs.DBSubnetGroupDoesNotCoverEnoughAZs: <p>Subnets in the DB subnet group should cover at least two Availability Zones unless there is only one Availability Zone.</p>
+            aws_sdk_rds.errors.db_subnet_group_not_found_fault.DBSubnetGroupNotFoundFault: <p> <code>DBSubnetGroupName</code> doesn't refer to an existing DB subnet group.</p>
+            aws_sdk_rds.errors.instance_quota_exceeded_fault.InstanceQuotaExceededFault: <p>The request would result in the user exceeding the allowed number of DB instances.</p>
+            aws_sdk_rds.errors.insufficient_db_instance_capacity_fault.InsufficientDBInstanceCapacityFault: <p>The specified DB instance class isn't available in the specified Availability Zone.</p>
+            aws_sdk_rds.errors.invalid_s3_bucket_fault.InvalidS3BucketFault: <p>The specified Amazon S3 bucket name can't be found or Amazon RDS isn't authorized to access the specified Amazon S3 bucket. Verify the <b>SourceS3BucketName</b> and <b>S3IngestionRoleArn</b> values and try again.</p>
+            aws_sdk_rds.errors.invalid_subnet.InvalidSubnet: <p>The requested subnet is invalid, or multiple subnets were requested that are not all in a common VPC.</p>
+            aws_sdk_rds.errors.invalid_vpc_network_state_fault.InvalidVPCNetworkStateFault: <p>The DB subnet group doesn't cover all Availability Zones after it's created because of users' change.</p>
+            aws_sdk_rds.errors.kms_key_not_accessible_fault.KMSKeyNotAccessibleFault: <p>An error occurred accessing an Amazon Web Services KMS key.</p>
+            aws_sdk_rds.errors.network_type_not_supported.NetworkTypeNotSupported: <p>The network type is invalid for the DB instance. Valid nework type values are <code>IPV4</code> and <code>DUAL</code>.</p>
+            aws_sdk_rds.errors.option_group_not_found_fault.OptionGroupNotFoundFault: <p>The specified option group could not be found.</p>
+            aws_sdk_rds.errors.provisioned_iops_not_available_in_az_fault.ProvisionedIopsNotAvailableInAZFault: <p>Provisioned IOPS not available in the specified Availability Zone.</p>
+            aws_sdk_rds.errors.storage_quota_exceeded_fault.StorageQuotaExceededFault: <p>The request would result in the user exceeding the allowed amount of storage available across all DB instances.</p>
+            aws_sdk_rds.errors.storage_type_not_supported_fault.StorageTypeNotSupportedFault: <p>The specified <code>StorageType</code> can't be associated with the DB instance.</p>
+            aws_sdk_rds.errors.vpc_encryption_control_violation_exception.VpcEncryptionControlViolationException: <p>The operation violates VPC encryption control settings. Make sure that your DB instance type supports the Nitro encryption-in-transit capability, or modify your VPC's encryption controls to not enforce encryption-in-transit.</p>
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -12935,6 +14004,35 @@ class AsyncRDSClient:
             manage_master_user_password: <p>Specifies whether to manage the master user password with Amazon Web Services Secrets Manager in the restored DB instance.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-secrets-manager.html\">Password management with Amazon Web Services Secrets Manager</a> in the <i>Amazon RDS User Guide</i>.</p> <p>Constraints:</p> <ul> <li> <p>Applies to RDS for Oracle only.</p> </li> </ul>
             master_user_secret_kms_key_id: <p>The Amazon Web Services KMS key identifier to encrypt a secret that is automatically generated and managed in Amazon Web Services Secrets Manager.</p> <p>This setting is valid only if the master user password is managed by RDS in Amazon Web Services Secrets Manager for the DB instance.</p> <p>The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. To use a KMS key in a different Amazon Web Services account, specify the key ARN or alias ARN.</p> <p>If you don't specify <code>MasterUserSecretKmsKeyId</code>, then the <code>aws/secretsmanager</code> KMS key is used to encrypt the secret. If the secret is in a different Amazon Web Services account, then you can't use the <code>aws/secretsmanager</code> KMS key to encrypt the secret, and you must use a customer managed KMS key.</p> <p>There is a default KMS key for your Amazon Web Services account. Your Amazon Web Services account has a different default KMS key for each Amazon Web Services Region.</p>
 
+        Raises:
+            aws_sdk_rds.errors.authorization_not_found_fault.AuthorizationNotFoundFault: <p>The specified CIDR IP range or Amazon EC2 security group might not be authorized for the specified DB security group.</p> <p>Or, RDS might not be authorized to perform necessary actions using IAM on your behalf.</p>
+            aws_sdk_rds.errors.backup_policy_not_found_fault.BackupPolicyNotFoundFault: <p/>
+            aws_sdk_rds.errors.certificate_not_found_fault.CertificateNotFoundFault: <p> <code>CertificateIdentifier</code> doesn't refer to an existing certificate.</p>
+            aws_sdk_rds.errors.db_instance_already_exists_fault.DBInstanceAlreadyExistsFault: <p>The user already has a DB instance with the given identifier.</p>
+            aws_sdk_rds.errors.db_instance_automated_backup_not_found_fault.DBInstanceAutomatedBackupNotFoundFault: <p>No automated backup for this DB instance was found.</p>
+            aws_sdk_rds.errors.db_instance_not_found_fault.DBInstanceNotFoundFault: <p> <code>DBInstanceIdentifier</code> doesn't refer to an existing DB instance.</p>
+            aws_sdk_rds.errors.db_parameter_group_not_found_fault.DBParameterGroupNotFoundFault: <p> <code>DBParameterGroupName</code> doesn't refer to an existing DB parameter group.</p>
+            aws_sdk_rds.errors.db_security_group_not_found_fault.DBSecurityGroupNotFoundFault: <p> <code>DBSecurityGroupName</code> doesn't refer to an existing DB security group.</p>
+            aws_sdk_rds.errors.db_subnet_group_does_not_cover_enough_a_zs.DBSubnetGroupDoesNotCoverEnoughAZs: <p>Subnets in the DB subnet group should cover at least two Availability Zones unless there is only one Availability Zone.</p>
+            aws_sdk_rds.errors.db_subnet_group_not_found_fault.DBSubnetGroupNotFoundFault: <p> <code>DBSubnetGroupName</code> doesn't refer to an existing DB subnet group.</p>
+            aws_sdk_rds.errors.domain_not_found_fault.DomainNotFoundFault: <p> <code>Domain</code> doesn't refer to an existing Active Directory domain.</p>
+            aws_sdk_rds.errors.instance_quota_exceeded_fault.InstanceQuotaExceededFault: <p>The request would result in the user exceeding the allowed number of DB instances.</p>
+            aws_sdk_rds.errors.insufficient_db_instance_capacity_fault.InsufficientDBInstanceCapacityFault: <p>The specified DB instance class isn't available in the specified Availability Zone.</p>
+            aws_sdk_rds.errors.invalid_db_instance_state_fault.InvalidDBInstanceStateFault: <p>The DB instance isn't in a valid state.</p>
+            aws_sdk_rds.errors.invalid_restore_fault.InvalidRestoreFault: <p>Cannot restore from VPC backup to non-VPC DB instance.</p>
+            aws_sdk_rds.errors.invalid_subnet.InvalidSubnet: <p>The requested subnet is invalid, or multiple subnets were requested that are not all in a common VPC.</p>
+            aws_sdk_rds.errors.invalid_vpc_network_state_fault.InvalidVPCNetworkStateFault: <p>The DB subnet group doesn't cover all Availability Zones after it's created because of users' change.</p>
+            aws_sdk_rds.errors.kms_key_not_accessible_fault.KMSKeyNotAccessibleFault: <p>An error occurred accessing an Amazon Web Services KMS key.</p>
+            aws_sdk_rds.errors.network_type_not_supported.NetworkTypeNotSupported: <p>The network type is invalid for the DB instance. Valid nework type values are <code>IPV4</code> and <code>DUAL</code>.</p>
+            aws_sdk_rds.errors.option_group_not_found_fault.OptionGroupNotFoundFault: <p>The specified option group could not be found.</p>
+            aws_sdk_rds.errors.point_in_time_restore_not_enabled_fault.PointInTimeRestoreNotEnabledFault: <p> <code>SourceDBInstanceIdentifier</code> refers to a DB instance with <code>BackupRetentionPeriod</code> equal to 0.</p>
+            aws_sdk_rds.errors.provisioned_iops_not_available_in_az_fault.ProvisionedIopsNotAvailableInAZFault: <p>Provisioned IOPS not available in the specified Availability Zone.</p>
+            aws_sdk_rds.errors.storage_quota_exceeded_fault.StorageQuotaExceededFault: <p>The request would result in the user exceeding the allowed amount of storage available across all DB instances.</p>
+            aws_sdk_rds.errors.storage_type_not_supported_fault.StorageTypeNotSupportedFault: <p>The specified <code>StorageType</code> can't be associated with the DB instance.</p>
+            aws_sdk_rds.errors.tenant_database_quota_exceeded_fault.TenantDatabaseQuotaExceededFault: <p>You attempted to create more tenant databases than are permitted in your Amazon Web Services account.</p>
+            aws_sdk_rds.errors.vpc_encryption_control_violation_exception.VpcEncryptionControlViolationException: <p>The operation violates VPC encryption control settings. Make sure that your DB instance type supports the Nitro encryption-in-transit capability, or modify your VPC's encryption controls to not enforce encryption-in-transit.</p>
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To restore a DB instance to a point in time
             The following example restores test-instance to a new DB instance named restored-test-instance, as of the specified time.
@@ -13093,6 +14191,12 @@ class AsyncRDSClient:
             ec2_security_group_id: <p>The id of the EC2 security group to revoke access from. For VPC DB security groups, <code>EC2SecurityGroupId</code> must be provided. Otherwise, EC2SecurityGroupOwnerId and either <code>EC2SecurityGroupName</code> or <code>EC2SecurityGroupId</code> must be provided.</p>
             ec2_security_group_owner_id: <p>The Amazon Web Services account number of the owner of the EC2 security group specified in the <code>EC2SecurityGroupName</code> parameter. The Amazon Web Services access key ID isn't an acceptable value. For VPC DB security groups, <code>EC2SecurityGroupId</code> must be provided. Otherwise, EC2SecurityGroupOwnerId and either <code>EC2SecurityGroupName</code> or <code>EC2SecurityGroupId</code> must be provided.</p>
 
+        Raises:
+            aws_sdk_rds.errors.authorization_not_found_fault.AuthorizationNotFoundFault: <p>The specified CIDR IP range or Amazon EC2 security group might not be authorized for the specified DB security group.</p> <p>Or, RDS might not be authorized to perform necessary actions using IAM on your behalf.</p>
+            aws_sdk_rds.errors.db_security_group_not_found_fault.DBSecurityGroupNotFoundFault: <p> <code>DBSecurityGroupName</code> doesn't refer to an existing DB security group.</p>
+            aws_sdk_rds.errors.invalid_db_security_group_state_fault.InvalidDBSecurityGroupStateFault: <p>The state of the DB security group doesn't allow deletion.</p>
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To revoke ingress for a DB security group
             This example revokes ingress for the specified CIDR block associated with the specified DB security group.
@@ -13157,6 +14261,15 @@ class AsyncRDSClient:
             apply_immediately: <p>Specifies whether or not the database activity stream is to start as soon as possible, regardless of the maintenance window for the database.</p>
             engine_native_audit_fields_included: <p>Specifies whether the database activity stream includes engine-native audit fields. This option applies to an Oracle or Microsoft SQL Server DB instance. By default, no engine-native audit fields are included.</p>
 
+        Raises:
+            aws_sdk_rds.errors.db_cluster_not_found_fault.DBClusterNotFoundFault: <p> <code>DBClusterIdentifier</code> doesn't refer to an existing DB cluster.</p>
+            aws_sdk_rds.errors.db_instance_not_found_fault.DBInstanceNotFoundFault: <p> <code>DBInstanceIdentifier</code> doesn't refer to an existing DB instance.</p>
+            aws_sdk_rds.errors.invalid_db_cluster_state_fault.InvalidDBClusterStateFault: <p>The requested operation can't be performed while the cluster is in this state.</p>
+            aws_sdk_rds.errors.invalid_db_instance_state_fault.InvalidDBInstanceStateFault: <p>The DB instance isn't in a valid state.</p>
+            aws_sdk_rds.errors.kms_key_not_accessible_fault.KMSKeyNotAccessibleFault: <p>An error occurred accessing an Amazon Web Services KMS key.</p>
+            aws_sdk_rds.errors.resource_not_found_fault.ResourceNotFoundFault: <p>The specified resource ID was not found.</p>
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To start a database activity stream
             The following example starts an asynchronous activity stream to monitor an Aurora cluster named my-pg-cluster.
@@ -13209,6 +14322,15 @@ class AsyncRDSClient:
         Args:
             db_cluster_identifier: <p>The DB cluster identifier of the Amazon Aurora DB cluster to be started. This parameter is stored as a lowercase string.</p>
 
+        Raises:
+            aws_sdk_rds.errors.db_cluster_not_found_fault.DBClusterNotFoundFault: <p> <code>DBClusterIdentifier</code> doesn't refer to an existing DB cluster.</p>
+            aws_sdk_rds.errors.invalid_db_cluster_state_fault.InvalidDBClusterStateFault: <p>The requested operation can't be performed while the cluster is in this state.</p>
+            aws_sdk_rds.errors.invalid_db_instance_state_fault.InvalidDBInstanceStateFault: <p>The DB instance isn't in a valid state.</p>
+            aws_sdk_rds.errors.invalid_db_shard_group_state_fault.InvalidDBShardGroupStateFault: <p>The DB shard group must be in the available state.</p>
+            aws_sdk_rds.errors.kms_key_not_accessible_fault.KMSKeyNotAccessibleFault: <p>An error occurred accessing an Amazon Web Services KMS key.</p>
+            aws_sdk_rds.errors.vpc_encryption_control_violation_exception.VpcEncryptionControlViolationException: <p>The operation violates VPC encryption control settings. Make sure that your DB instance type supports the Nitro encryption-in-transit capability, or modify your VPC's encryption controls to not enforce encryption-in-transit.</p>
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To start a DB cluster
             The following example starts a DB cluster and its DB instances.
@@ -13252,6 +14374,21 @@ class AsyncRDSClient:
 
         Args:
             db_instance_identifier: <p>The user-supplied instance identifier.</p>
+
+        Raises:
+            aws_sdk_rds.errors.authorization_not_found_fault.AuthorizationNotFoundFault: <p>The specified CIDR IP range or Amazon EC2 security group might not be authorized for the specified DB security group.</p> <p>Or, RDS might not be authorized to perform necessary actions using IAM on your behalf.</p>
+            aws_sdk_rds.errors.db_cluster_not_found_fault.DBClusterNotFoundFault: <p> <code>DBClusterIdentifier</code> doesn't refer to an existing DB cluster.</p>
+            aws_sdk_rds.errors.db_instance_not_found_fault.DBInstanceNotFoundFault: <p> <code>DBInstanceIdentifier</code> doesn't refer to an existing DB instance.</p>
+            aws_sdk_rds.errors.db_subnet_group_does_not_cover_enough_a_zs.DBSubnetGroupDoesNotCoverEnoughAZs: <p>Subnets in the DB subnet group should cover at least two Availability Zones unless there is only one Availability Zone.</p>
+            aws_sdk_rds.errors.db_subnet_group_not_found_fault.DBSubnetGroupNotFoundFault: <p> <code>DBSubnetGroupName</code> doesn't refer to an existing DB subnet group.</p>
+            aws_sdk_rds.errors.insufficient_db_instance_capacity_fault.InsufficientDBInstanceCapacityFault: <p>The specified DB instance class isn't available in the specified Availability Zone.</p>
+            aws_sdk_rds.errors.invalid_db_cluster_state_fault.InvalidDBClusterStateFault: <p>The requested operation can't be performed while the cluster is in this state.</p>
+            aws_sdk_rds.errors.invalid_db_instance_state_fault.InvalidDBInstanceStateFault: <p>The DB instance isn't in a valid state.</p>
+            aws_sdk_rds.errors.invalid_subnet.InvalidSubnet: <p>The requested subnet is invalid, or multiple subnets were requested that are not all in a common VPC.</p>
+            aws_sdk_rds.errors.invalid_vpc_network_state_fault.InvalidVPCNetworkStateFault: <p>The DB subnet group doesn't cover all Availability Zones after it's created because of users' change.</p>
+            aws_sdk_rds.errors.kms_key_not_accessible_fault.KMSKeyNotAccessibleFault: <p>An error occurred accessing an Amazon Web Services KMS key.</p>
+            aws_sdk_rds.errors.vpc_encryption_control_violation_exception.VpcEncryptionControlViolationException: <p>The operation violates VPC encryption control settings. Make sure that your DB instance type supports the Nitro encryption-in-transit capability, or modify your VPC's encryption controls to not enforce encryption-in-transit.</p>
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To start a DB instance
@@ -13308,6 +14445,15 @@ class AsyncRDSClient:
             kms_key_id: <p>The Amazon Web Services KMS key identifier for encryption of the replicated automated backups. The KMS key ID is the Amazon Resource Name (ARN) for the KMS encryption key in the destination Amazon Web Services Region, for example, <code>arn:aws:kms:us-east-1:123456789012:key/AKIAIOSFODNN7EXAMPLE</code>.</p>
             pre_signed_url: <p>In an Amazon Web Services GovCloud (US) Region, an URL that contains a Signature Version 4 signed request for the <code>StartDBInstanceAutomatedBackupsReplication</code> operation to call in the Amazon Web Services Region of the source DB instance. The presigned URL must be a valid request for the <code>StartDBInstanceAutomatedBackupsReplication</code> API operation that can run in the Amazon Web Services Region that contains the source DB instance.</p> <p>This setting applies only to Amazon Web Services GovCloud (US) Regions. It's ignored in other Amazon Web Services Regions.</p> <p>To learn how to generate a Signature Version 4 signed request, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-query-string-auth.html\"> Authenticating Requests: Using Query Parameters (Amazon Web Services Signature Version 4)</a> and <a href=\"https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html\"> Signature Version 4 Signing Process</a>.</p> <note> <p>If you are using an Amazon Web Services SDK tool or the CLI, you can specify <code>SourceRegion</code> (or <code>--source-region</code> for the CLI) instead of specifying <code>PreSignedUrl</code> manually. Specifying <code>SourceRegion</code> autogenerates a presigned URL that is a valid request for the operation that can run in the source Amazon Web Services Region.</p> </note>
             tags: <p>A list of tags to associate with the replicated automated backups.</p>
+
+        Raises:
+            aws_sdk_rds.errors.db_instance_automated_backup_quota_exceeded_fault.DBInstanceAutomatedBackupQuotaExceededFault: <p>The quota for retained automated backups was exceeded. This prevents you from retaining any additional automated backups. The retained automated backups quota is the same as your DB instance quota.</p>
+            aws_sdk_rds.errors.db_instance_not_found_fault.DBInstanceNotFoundFault: <p> <code>DBInstanceIdentifier</code> doesn't refer to an existing DB instance.</p>
+            aws_sdk_rds.errors.invalid_db_instance_automated_backup_state_fault.InvalidDBInstanceAutomatedBackupStateFault: <p>The automated backup is in an invalid state. For example, this automated backup is associated with an active instance.</p>
+            aws_sdk_rds.errors.invalid_db_instance_state_fault.InvalidDBInstanceStateFault: <p>The DB instance isn't in a valid state.</p>
+            aws_sdk_rds.errors.kms_key_not_accessible_fault.KMSKeyNotAccessibleFault: <p>An error occurred accessing an Amazon Web Services KMS key.</p>
+            aws_sdk_rds.errors.storage_type_not_supported_fault.StorageTypeNotSupportedFault: <p>The specified <code>StorageType</code> can't be associated with the DB instance.</p>
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To enable cross-Region automated backups
@@ -13373,6 +14519,19 @@ class AsyncRDSClient:
             s3_prefix: <p>The Amazon S3 bucket prefix to use as the file name and path of the exported data.</p>
             export_only: <p>The data to be exported from the snapshot or cluster. If this parameter isn't provided, all of the data is exported.</p> <p>Valid Values:</p> <ul> <li> <p> <code>database</code> - Export all the data from a specified database.</p> </li> <li> <p> <code>database.table</code> <i>table-name</i> - Export a table of the snapshot or cluster. This format is valid only for RDS for MySQL, RDS for MariaDB, and Aurora MySQL.</p> </li> <li> <p> <code>database.schema</code> <i>schema-name</i> - Export a database schema of the snapshot or cluster. This format is valid only for RDS for PostgreSQL and Aurora PostgreSQL.</p> </li> <li> <p> <code>database.schema.table</code> <i>table-name</i> - Export a table of the database schema. This format is valid only for RDS for PostgreSQL and Aurora PostgreSQL.</p> </li> </ul>
 
+        Raises:
+            aws_sdk_rds.errors.db_cluster_not_found_fault.DBClusterNotFoundFault: <p> <code>DBClusterIdentifier</code> doesn't refer to an existing DB cluster.</p>
+            aws_sdk_rds.errors.db_cluster_snapshot_not_found_fault.DBClusterSnapshotNotFoundFault: <p> <code>DBClusterSnapshotIdentifier</code> doesn't refer to an existing DB cluster snapshot.</p>
+            aws_sdk_rds.errors.db_snapshot_not_found_fault.DBSnapshotNotFoundFault: <p> <code>DBSnapshotIdentifier</code> doesn't refer to an existing DB snapshot.</p>
+            aws_sdk_rds.errors.export_task_already_exists_fault.ExportTaskAlreadyExistsFault: <p>You can't start an export task that's already running.</p>
+            aws_sdk_rds.errors.iam_role_missing_permissions_fault.IamRoleMissingPermissionsFault: <p>The IAM role requires additional permissions to export to an Amazon S3 bucket.</p>
+            aws_sdk_rds.errors.iam_role_not_found_fault.IamRoleNotFoundFault: <p>The IAM role is missing for exporting to an Amazon S3 bucket.</p>
+            aws_sdk_rds.errors.invalid_export_only_fault.InvalidExportOnlyFault: <p>The export is invalid for exporting to an Amazon S3 bucket.</p>
+            aws_sdk_rds.errors.invalid_export_source_state_fault.InvalidExportSourceStateFault: <p>The state of the export snapshot is invalid for exporting to an Amazon S3 bucket.</p>
+            aws_sdk_rds.errors.invalid_s3_bucket_fault.InvalidS3BucketFault: <p>The specified Amazon S3 bucket name can't be found or Amazon RDS isn't authorized to access the specified Amazon S3 bucket. Verify the <b>SourceS3BucketName</b> and <b>S3IngestionRoleArn</b> values and try again.</p>
+            aws_sdk_rds.errors.kms_key_not_accessible_fault.KMSKeyNotAccessibleFault: <p>An error occurred accessing an Amazon Web Services KMS key.</p>
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To export a snapshot to Amazon S3
             The following example exports a DB snapshot named db5-snapshot-test to the Amazon S3 bucket named mybucket.
@@ -13427,6 +14586,14 @@ class AsyncRDSClient:
             resource_arn: <p>The Amazon Resource Name (ARN) of the DB cluster for the database activity stream. For example, <code>arn:aws:rds:us-east-1:12345667890:cluster:das-cluster</code>.</p>
             apply_immediately: <p>Specifies whether or not the database activity stream is to stop as soon as possible, regardless of the maintenance window for the database.</p>
 
+        Raises:
+            aws_sdk_rds.errors.db_cluster_not_found_fault.DBClusterNotFoundFault: <p> <code>DBClusterIdentifier</code> doesn't refer to an existing DB cluster.</p>
+            aws_sdk_rds.errors.db_instance_not_found_fault.DBInstanceNotFoundFault: <p> <code>DBInstanceIdentifier</code> doesn't refer to an existing DB instance.</p>
+            aws_sdk_rds.errors.invalid_db_cluster_state_fault.InvalidDBClusterStateFault: <p>The requested operation can't be performed while the cluster is in this state.</p>
+            aws_sdk_rds.errors.invalid_db_instance_state_fault.InvalidDBInstanceStateFault: <p>The DB instance isn't in a valid state.</p>
+            aws_sdk_rds.errors.resource_not_found_fault.ResourceNotFoundFault: <p>The specified resource ID was not found.</p>
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To stop a database activity stream
             The following example stops an activity stream in an Aurora cluster named my-pg-cluster.
@@ -13472,6 +14639,13 @@ class AsyncRDSClient:
 
         Args:
             db_cluster_identifier: <p>The DB cluster identifier of the Amazon Aurora DB cluster to be stopped. This parameter is stored as a lowercase string.</p>
+
+        Raises:
+            aws_sdk_rds.errors.db_cluster_not_found_fault.DBClusterNotFoundFault: <p> <code>DBClusterIdentifier</code> doesn't refer to an existing DB cluster.</p>
+            aws_sdk_rds.errors.invalid_db_cluster_state_fault.InvalidDBClusterStateFault: <p>The requested operation can't be performed while the cluster is in this state.</p>
+            aws_sdk_rds.errors.invalid_db_instance_state_fault.InvalidDBInstanceStateFault: <p>The DB instance isn't in a valid state.</p>
+            aws_sdk_rds.errors.invalid_db_shard_group_state_fault.InvalidDBShardGroupStateFault: <p>The DB shard group must be in the available state.</p>
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To stop a DB cluster
@@ -13519,6 +14693,14 @@ class AsyncRDSClient:
             db_instance_identifier: <p>The user-supplied instance identifier.</p>
             db_snapshot_identifier: <p>The user-supplied instance identifier of the DB Snapshot created immediately before the DB instance is stopped.</p>
 
+        Raises:
+            aws_sdk_rds.errors.db_instance_not_found_fault.DBInstanceNotFoundFault: <p> <code>DBInstanceIdentifier</code> doesn't refer to an existing DB instance.</p>
+            aws_sdk_rds.errors.db_snapshot_already_exists_fault.DBSnapshotAlreadyExistsFault: <p> <code>DBSnapshotIdentifier</code> is already used by an existing snapshot.</p>
+            aws_sdk_rds.errors.invalid_db_cluster_state_fault.InvalidDBClusterStateFault: <p>The requested operation can't be performed while the cluster is in this state.</p>
+            aws_sdk_rds.errors.invalid_db_instance_state_fault.InvalidDBInstanceStateFault: <p>The DB instance isn't in a valid state.</p>
+            aws_sdk_rds.errors.snapshot_quota_exceeded_fault.SnapshotQuotaExceededFault: <p>The request would result in the user exceeding the allowed number of DB snapshots.</p>
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To stop a DB instance
             The following example stops the specified DB instance.
@@ -13564,6 +14746,11 @@ class AsyncRDSClient:
 
         Args:
             source_db_instance_arn: <p>The Amazon Resource Name (ARN) of the source DB instance for which to stop replicating automate backups, for example, <code>arn:aws:rds:us-west-2:123456789012:db:mydatabase</code>.</p>
+
+        Raises:
+            aws_sdk_rds.errors.db_instance_not_found_fault.DBInstanceNotFoundFault: <p> <code>DBInstanceIdentifier</code> doesn't refer to an existing DB instance.</p>
+            aws_sdk_rds.errors.invalid_db_instance_state_fault.InvalidDBInstanceStateFault: <p>The DB instance isn't in a valid state.</p>
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To stop replicating automated backups
@@ -13612,6 +14799,11 @@ class AsyncRDSClient:
         Args:
             blue_green_deployment_identifier: <p>The resource ID of the blue/green deployment.</p> <p>Constraints:</p> <ul> <li> <p>Must match an existing blue/green deployment resource ID.</p> </li> </ul>
             switchover_timeout: <p>The amount of time, in seconds, for the switchover to complete.</p> <p>Default: 300</p> <p>If the switchover takes longer than the specified duration, then any changes are rolled back, and no changes are made to the environments.</p>
+
+        Raises:
+            aws_sdk_rds.errors.blue_green_deployment_not_found_fault.BlueGreenDeploymentNotFoundFault: <p> <code>BlueGreenDeploymentIdentifier</code> doesn't refer to an existing blue/green deployment.</p>
+            aws_sdk_rds.errors.invalid_blue_green_deployment_state_fault.InvalidBlueGreenDeploymentStateFault: <p>The blue/green deployment can't be switched over or deleted because there is an invalid configuration in the green environment.</p>
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To switch a blue/green deployment for an RDS DB instance
@@ -13664,6 +14856,13 @@ class AsyncRDSClient:
         Args:
             global_cluster_identifier: <p>The identifier of the global database cluster to switch over. This parameter isn't case-sensitive.</p> <p>Constraints:</p> <ul> <li> <p>Must match the identifier of an existing global database cluster (Aurora global database).</p> </li> </ul>
             target_db_cluster_identifier: <p>The identifier of the secondary Aurora DB cluster to promote to the new primary for the global database cluster. Use the Amazon Resource Name (ARN) for the identifier so that Aurora can locate the cluster in its Amazon Web Services Region.</p>
+
+        Raises:
+            aws_sdk_rds.errors.db_cluster_not_found_fault.DBClusterNotFoundFault: <p> <code>DBClusterIdentifier</code> doesn't refer to an existing DB cluster.</p>
+            aws_sdk_rds.errors.global_cluster_not_found_fault.GlobalClusterNotFoundFault: <p>The <code>GlobalClusterIdentifier</code> doesn't refer to an existing global database cluster.</p>
+            aws_sdk_rds.errors.invalid_db_cluster_state_fault.InvalidDBClusterStateFault: <p>The requested operation can't be performed while the cluster is in this state.</p>
+            aws_sdk_rds.errors.invalid_global_cluster_state_fault.InvalidGlobalClusterStateFault: <p>The global cluster is in an invalid state and can't perform the requested operation.</p>
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -13703,6 +14902,11 @@ class AsyncRDSClient:
 
         Args:
             db_instance_identifier: <p>The DB instance identifier of the current standby database. This value is stored as a lowercase string.</p> <p>Constraints:</p> <ul> <li> <p>Must match the identiﬁer of an existing Oracle read replica DB instance.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_rds.errors.db_instance_not_found_fault.DBInstanceNotFoundFault: <p> <code>DBInstanceIdentifier</code> doesn't refer to an existing DB instance.</p>
+            aws_sdk_rds.errors.invalid_db_instance_state_fault.InvalidDBInstanceStateFault: <p>The DB instance isn't in a valid state.</p>
+            aws_sdk_rds.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

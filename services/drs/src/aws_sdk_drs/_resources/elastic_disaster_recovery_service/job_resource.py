@@ -44,6 +44,14 @@ class JobResource:
 
         Args:
             job_id: <p>The ID of the Job to be deleted.</p>
+
+        Raises:
+            aws_sdk_drs.errors.conflict_exception.ConflictException: <p>The request could not be completed due to a conflict with the current state of the target resource.</p>
+            aws_sdk_drs.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_drs.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource for this operation was not found.</p>
+            aws_sdk_drs.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_drs.errors.uninitialized_account_exception.UninitializedAccountException: <p>The account performing the request has not been initialized.</p>
+            aws_sdk_drs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -91,6 +99,13 @@ class JobResource:
             filters: <p>A set of filters by which to return Jobs.</p>
             max_results: <p>Maximum number of Jobs to retrieve.</p>
             next_token: <p>The token of the next Job to retrieve.</p>
+
+        Raises:
+            aws_sdk_drs.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_drs.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_drs.errors.uninitialized_account_exception.UninitializedAccountException: <p>The account performing the request has not been initialized.</p>
+            aws_sdk_drs.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by the AWS service.</p>
+            aws_sdk_drs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -143,6 +158,13 @@ class JobResource:
             job_id: <p>The ID of the Job for which Job log items will be retrieved.</p>
             max_results: <p>Maximum number of Job log items to retrieve.</p>
             next_token: <p>The token of the next Job log items to retrieve.</p>
+
+        Raises:
+            aws_sdk_drs.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_drs.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_drs.errors.uninitialized_account_exception.UninitializedAccountException: <p>The account performing the request has not been initialized.</p>
+            aws_sdk_drs.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by the AWS service.</p>
+            aws_sdk_drs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -189,6 +211,14 @@ class AsyncJobResource:
 
         Args:
             job_id: <p>The ID of the Job to be deleted.</p>
+
+        Raises:
+            aws_sdk_drs.errors.conflict_exception.ConflictException: <p>The request could not be completed due to a conflict with the current state of the target resource.</p>
+            aws_sdk_drs.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_drs.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource for this operation was not found.</p>
+            aws_sdk_drs.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_drs.errors.uninitialized_account_exception.UninitializedAccountException: <p>The account performing the request has not been initialized.</p>
+            aws_sdk_drs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -237,6 +267,13 @@ class AsyncJobResource:
             filters: <p>A set of filters by which to return Jobs.</p>
             max_results: <p>Maximum number of Jobs to retrieve.</p>
             next_token: <p>The token of the next Job to retrieve.</p>
+
+        Raises:
+            aws_sdk_drs.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_drs.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_drs.errors.uninitialized_account_exception.UninitializedAccountException: <p>The account performing the request has not been initialized.</p>
+            aws_sdk_drs.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by the AWS service.</p>
+            aws_sdk_drs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -290,6 +327,13 @@ class AsyncJobResource:
             job_id: <p>The ID of the Job for which Job log items will be retrieved.</p>
             max_results: <p>Maximum number of Job log items to retrieve.</p>
             next_token: <p>The token of the next Job log items to retrieve.</p>
+
+        Raises:
+            aws_sdk_drs.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_drs.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_drs.errors.uninitialized_account_exception.UninitializedAccountException: <p>The account performing the request has not been initialized.</p>
+            aws_sdk_drs.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by the AWS service.</p>
+            aws_sdk_drs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

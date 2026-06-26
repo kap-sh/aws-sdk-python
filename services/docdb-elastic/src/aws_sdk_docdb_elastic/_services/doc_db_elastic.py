@@ -192,6 +192,15 @@ class DocDBElasticClient:
             apply_action: <p>The pending maintenance action to apply to the resource.</p> <p>Valid actions are:</p> <ul> <li> <p> <code>ENGINE_UPDATE<i/> </code> </p> </li> <li> <p> <code>ENGINE_UPGRADE</code> </p> </li> <li> <p> <code>SECURITY_UPDATE</code> </p> </li> <li> <p> <code>OS_UPDATE</code> </p> </li> <li> <p> <code>MASTER_USER_PASSWORD_UPDATE</code> </p> </li> </ul>
             opt_in_type: <p>A value that specifies the type of opt-in request, or undoes an opt-in request. An opt-in request of type <code>IMMEDIATE</code> can't be undone.</p>
             apply_on: <p>A specific date to apply the pending maintenance action. Required if opt-in-type is <code>APPLY_ON</code>. Format: <code>yyyy/MM/dd HH:mm-yyyy/MM/dd HH:mm</code> </p>
+
+        Raises:
+            aws_sdk_docdb_elastic.errors.access_denied_exception.AccessDeniedException: <p>An exception that occurs when there are not sufficient permissions to perform an action.</p>
+            aws_sdk_docdb_elastic.errors.conflict_exception.ConflictException: <p>There was an access conflict.</p>
+            aws_sdk_docdb_elastic.errors.internal_server_exception.InternalServerException: <p>There was an internal server error.</p>
+            aws_sdk_docdb_elastic.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be located.</p>
+            aws_sdk_docdb_elastic.errors.throttling_exception.ThrottlingException: <p>ThrottlingException will be thrown when request was denied due to request throttling.</p>
+            aws_sdk_docdb_elastic.errors.validation_exception.ValidationException: <p>A structure defining a validation exception.</p>
+            aws_sdk_docdb_elastic.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -241,6 +250,16 @@ class DocDBElasticClient:
             kms_key_id: <p>The Amazon Web Services KMS key ID for an encrypted elastic cluster snapshot. The Amazon Web Services KMS key ID is the Amazon Resource Name (ARN), Amazon Web Services KMS key identifier, or the Amazon Web Services KMS key alias for the Amazon Web Services KMS encryption key.</p> <p>If you copy an encrypted elastic cluster snapshot from your Amazon Web Services account, you can specify a value for <code>KmsKeyId</code> to encrypt the copy with a new Amazon Web ServicesS KMS encryption key. If you don't specify a value for <code>KmsKeyId</code>, then the copy of the elastic cluster snapshot is encrypted with the same <code>AWS</code> KMS key as the source elastic cluster snapshot.</p> <p>To copy an encrypted elastic cluster snapshot to another Amazon Web Services region, set <code>KmsKeyId</code> to the Amazon Web Services KMS key ID that you want to use to encrypt the copy of the elastic cluster snapshot in the destination region. Amazon Web Services KMS encryption keys are specific to the Amazon Web Services region that they are created in, and you can't use encryption keys from one Amazon Web Services region in another Amazon Web Services region.</p> <p>If you copy an unencrypted elastic cluster snapshot and specify a value for the <code>KmsKeyId</code> parameter, an error is returned.</p>
             copy_tags: <p>Set to <code>true</code> to copy all tags from the source cluster snapshot to the target elastic cluster snapshot. The default is <code>false</code>.</p>
             tags: <p>The tags to be assigned to the elastic cluster snapshot.</p>
+
+        Raises:
+            aws_sdk_docdb_elastic.errors.access_denied_exception.AccessDeniedException: <p>An exception that occurs when there are not sufficient permissions to perform an action.</p>
+            aws_sdk_docdb_elastic.errors.conflict_exception.ConflictException: <p>There was an access conflict.</p>
+            aws_sdk_docdb_elastic.errors.internal_server_exception.InternalServerException: <p>There was an internal server error.</p>
+            aws_sdk_docdb_elastic.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be located.</p>
+            aws_sdk_docdb_elastic.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The service quota for the action was exceeded.</p>
+            aws_sdk_docdb_elastic.errors.throttling_exception.ThrottlingException: <p>ThrottlingException will be thrown when request was denied due to request throttling.</p>
+            aws_sdk_docdb_elastic.errors.validation_exception.ValidationException: <p>A structure defining a validation exception.</p>
+            aws_sdk_docdb_elastic.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Basic Copy Cluster Snapshot Example
@@ -323,6 +342,15 @@ class DocDBElasticClient:
             backup_retention_period: <p>The number of days for which automatic snapshots are retained.</p>
             preferred_backup_window: <p>The daily time range during which automated backups are created if automated backups are enabled, as determined by the <code>backupRetentionPeriod</code>.</p>
             shard_instance_count: <p>The number of replica instances applying to all shards in the elastic cluster. A <code>shardInstanceCount</code> value of 1 means there is one writer instance, and any additional instances are replicas that can be used for reads and to improve availability.</p>
+
+        Raises:
+            aws_sdk_docdb_elastic.errors.access_denied_exception.AccessDeniedException: <p>An exception that occurs when there are not sufficient permissions to perform an action.</p>
+            aws_sdk_docdb_elastic.errors.conflict_exception.ConflictException: <p>There was an access conflict.</p>
+            aws_sdk_docdb_elastic.errors.internal_server_exception.InternalServerException: <p>There was an internal server error.</p>
+            aws_sdk_docdb_elastic.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The service quota for the action was exceeded.</p>
+            aws_sdk_docdb_elastic.errors.throttling_exception.ThrottlingException: <p>ThrottlingException will be thrown when request was denied due to request throttling.</p>
+            aws_sdk_docdb_elastic.errors.validation_exception.ValidationException: <p>A structure defining a validation exception.</p>
+            aws_sdk_docdb_elastic.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -387,6 +415,16 @@ class DocDBElasticClient:
             cluster_arn: <p>The ARN identifier of the elastic cluster of which you want to create a snapshot.</p>
             snapshot_name: <p>The name of the new elastic cluster snapshot.</p>
             tags: <p>The tags to be assigned to the new elastic cluster snapshot.</p>
+
+        Raises:
+            aws_sdk_docdb_elastic.errors.access_denied_exception.AccessDeniedException: <p>An exception that occurs when there are not sufficient permissions to perform an action.</p>
+            aws_sdk_docdb_elastic.errors.conflict_exception.ConflictException: <p>There was an access conflict.</p>
+            aws_sdk_docdb_elastic.errors.internal_server_exception.InternalServerException: <p>There was an internal server error.</p>
+            aws_sdk_docdb_elastic.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be located.</p>
+            aws_sdk_docdb_elastic.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The service quota for the action was exceeded.</p>
+            aws_sdk_docdb_elastic.errors.throttling_exception.ThrottlingException: <p>ThrottlingException will be thrown when request was denied due to request throttling.</p>
+            aws_sdk_docdb_elastic.errors.validation_exception.ValidationException: <p>A structure defining a validation exception.</p>
+            aws_sdk_docdb_elastic.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -427,6 +465,15 @@ class DocDBElasticClient:
 
         Args:
             cluster_arn: <p>The ARN identifier of the elastic cluster that is to be deleted.</p>
+
+        Raises:
+            aws_sdk_docdb_elastic.errors.access_denied_exception.AccessDeniedException: <p>An exception that occurs when there are not sufficient permissions to perform an action.</p>
+            aws_sdk_docdb_elastic.errors.conflict_exception.ConflictException: <p>There was an access conflict.</p>
+            aws_sdk_docdb_elastic.errors.internal_server_exception.InternalServerException: <p>There was an internal server error.</p>
+            aws_sdk_docdb_elastic.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be located.</p>
+            aws_sdk_docdb_elastic.errors.throttling_exception.ThrottlingException: <p>ThrottlingException will be thrown when request was denied due to request throttling.</p>
+            aws_sdk_docdb_elastic.errors.validation_exception.ValidationException: <p>A structure defining a validation exception.</p>
+            aws_sdk_docdb_elastic.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -464,6 +511,15 @@ class DocDBElasticClient:
 
         Args:
             snapshot_arn: <p>The ARN identifier of the elastic cluster snapshot that is to be deleted.</p>
+
+        Raises:
+            aws_sdk_docdb_elastic.errors.access_denied_exception.AccessDeniedException: <p>An exception that occurs when there are not sufficient permissions to perform an action.</p>
+            aws_sdk_docdb_elastic.errors.conflict_exception.ConflictException: <p>There was an access conflict.</p>
+            aws_sdk_docdb_elastic.errors.internal_server_exception.InternalServerException: <p>There was an internal server error.</p>
+            aws_sdk_docdb_elastic.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be located.</p>
+            aws_sdk_docdb_elastic.errors.throttling_exception.ThrottlingException: <p>ThrottlingException will be thrown when request was denied due to request throttling.</p>
+            aws_sdk_docdb_elastic.errors.validation_exception.ValidationException: <p>A structure defining a validation exception.</p>
+            aws_sdk_docdb_elastic.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -501,6 +557,14 @@ class DocDBElasticClient:
 
         Args:
             cluster_arn: <p>The ARN identifier of the elastic cluster.</p>
+
+        Raises:
+            aws_sdk_docdb_elastic.errors.access_denied_exception.AccessDeniedException: <p>An exception that occurs when there are not sufficient permissions to perform an action.</p>
+            aws_sdk_docdb_elastic.errors.internal_server_exception.InternalServerException: <p>There was an internal server error.</p>
+            aws_sdk_docdb_elastic.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be located.</p>
+            aws_sdk_docdb_elastic.errors.throttling_exception.ThrottlingException: <p>ThrottlingException will be thrown when request was denied due to request throttling.</p>
+            aws_sdk_docdb_elastic.errors.validation_exception.ValidationException: <p>A structure defining a validation exception.</p>
+            aws_sdk_docdb_elastic.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -538,6 +602,14 @@ class DocDBElasticClient:
 
         Args:
             snapshot_arn: <p>The ARN identifier of the elastic cluster snapshot.</p>
+
+        Raises:
+            aws_sdk_docdb_elastic.errors.access_denied_exception.AccessDeniedException: <p>An exception that occurs when there are not sufficient permissions to perform an action.</p>
+            aws_sdk_docdb_elastic.errors.internal_server_exception.InternalServerException: <p>There was an internal server error.</p>
+            aws_sdk_docdb_elastic.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be located.</p>
+            aws_sdk_docdb_elastic.errors.throttling_exception.ThrottlingException: <p>ThrottlingException will be thrown when request was denied due to request throttling.</p>
+            aws_sdk_docdb_elastic.errors.validation_exception.ValidationException: <p>A structure defining a validation exception.</p>
+            aws_sdk_docdb_elastic.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -575,6 +647,15 @@ class DocDBElasticClient:
 
         Args:
             resource_arn: <p>Retrieves pending maintenance actions for a specific Amazon Resource Name (ARN).</p>
+
+        Raises:
+            aws_sdk_docdb_elastic.errors.access_denied_exception.AccessDeniedException: <p>An exception that occurs when there are not sufficient permissions to perform an action.</p>
+            aws_sdk_docdb_elastic.errors.conflict_exception.ConflictException: <p>There was an access conflict.</p>
+            aws_sdk_docdb_elastic.errors.internal_server_exception.InternalServerException: <p>There was an internal server error.</p>
+            aws_sdk_docdb_elastic.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be located.</p>
+            aws_sdk_docdb_elastic.errors.throttling_exception.ThrottlingException: <p>ThrottlingException will be thrown when request was denied due to request throttling.</p>
+            aws_sdk_docdb_elastic.errors.validation_exception.ValidationException: <p>A structure defining a validation exception.</p>
+            aws_sdk_docdb_elastic.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -616,6 +697,13 @@ class DocDBElasticClient:
         Args:
             next_token: <p>A pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond this token, up to the value specified by <code>max-results</code>.</p> <p>If there is no more data in the responce, the <code>nextToken</code> will not be returned.</p>
             max_results: <p>The maximum number of elastic cluster snapshot results to receive in the response.</p>
+
+        Raises:
+            aws_sdk_docdb_elastic.errors.access_denied_exception.AccessDeniedException: <p>An exception that occurs when there are not sufficient permissions to perform an action.</p>
+            aws_sdk_docdb_elastic.errors.internal_server_exception.InternalServerException: <p>There was an internal server error.</p>
+            aws_sdk_docdb_elastic.errors.throttling_exception.ThrottlingException: <p>ThrottlingException will be thrown when request was denied due to request throttling.</p>
+            aws_sdk_docdb_elastic.errors.validation_exception.ValidationException: <p>A structure defining a validation exception.</p>
+            aws_sdk_docdb_elastic.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -687,6 +775,13 @@ class DocDBElasticClient:
             next_token: <p>A pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond this token, up to the value specified by <code>max-results</code>.</p> <p>If there is no more data in the responce, the <code>nextToken</code> will not be returned.</p>
             max_results: <p>The maximum number of elastic cluster snapshot results to receive in the response.</p>
             snapshot_type: <p>The type of cluster snapshots to be returned. You can specify one of the following values:</p> <ul> <li> <p> <code>automated</code> - Return all cluster snapshots that Amazon DocumentDB has automatically created for your Amazon Web Services account.</p> </li> <li> <p> <code>manual</code> - Return all cluster snapshots that you have manually created for your Amazon Web Services account.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_docdb_elastic.errors.access_denied_exception.AccessDeniedException: <p>An exception that occurs when there are not sufficient permissions to perform an action.</p>
+            aws_sdk_docdb_elastic.errors.internal_server_exception.InternalServerException: <p>There was an internal server error.</p>
+            aws_sdk_docdb_elastic.errors.throttling_exception.ThrottlingException: <p>ThrottlingException will be thrown when request was denied due to request throttling.</p>
+            aws_sdk_docdb_elastic.errors.validation_exception.ValidationException: <p>A structure defining a validation exception.</p>
+            aws_sdk_docdb_elastic.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -762,6 +857,13 @@ class DocDBElasticClient:
         Args:
             next_token: <p>An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>maxResults</code>.</p>
             max_results: <p>The maximum number of results to include in the response. If more records exist than the specified <code>maxResults</code> value, a pagination token (marker) is included in the response so that the remaining results can be retrieved.</p>
+
+        Raises:
+            aws_sdk_docdb_elastic.errors.access_denied_exception.AccessDeniedException: <p>An exception that occurs when there are not sufficient permissions to perform an action.</p>
+            aws_sdk_docdb_elastic.errors.internal_server_exception.InternalServerException: <p>There was an internal server error.</p>
+            aws_sdk_docdb_elastic.errors.throttling_exception.ThrottlingException: <p>ThrottlingException will be thrown when request was denied due to request throttling.</p>
+            aws_sdk_docdb_elastic.errors.validation_exception.ValidationException: <p>A structure defining a validation exception.</p>
+            aws_sdk_docdb_elastic.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -825,6 +927,13 @@ class DocDBElasticClient:
 
         Args:
             resource_arn: <p>The ARN identifier of the elastic cluster resource.</p>
+
+        Raises:
+            aws_sdk_docdb_elastic.errors.internal_server_exception.InternalServerException: <p>There was an internal server error.</p>
+            aws_sdk_docdb_elastic.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be located.</p>
+            aws_sdk_docdb_elastic.errors.throttling_exception.ThrottlingException: <p>ThrottlingException will be thrown when request was denied due to request throttling.</p>
+            aws_sdk_docdb_elastic.errors.validation_exception.ValidationException: <p>A structure defining a validation exception.</p>
+            aws_sdk_docdb_elastic.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -880,6 +989,16 @@ class DocDBElasticClient:
             tags: <p>A list of the tag names to be assigned to the restored elastic cluster, in the form of an array of key-value pairs in which the key is the tag name and the value is the key value.</p>
             shard_capacity: <p>The capacity of each shard in the new restored elastic cluster.</p>
             shard_instance_count: <p>The number of replica instances applying to all shards in the elastic cluster. A <code>shardInstanceCount</code> value of 1 means there is one writer instance, and any additional instances are replicas that can be used for reads and to improve availability.</p>
+
+        Raises:
+            aws_sdk_docdb_elastic.errors.access_denied_exception.AccessDeniedException: <p>An exception that occurs when there are not sufficient permissions to perform an action.</p>
+            aws_sdk_docdb_elastic.errors.conflict_exception.ConflictException: <p>There was an access conflict.</p>
+            aws_sdk_docdb_elastic.errors.internal_server_exception.InternalServerException: <p>There was an internal server error.</p>
+            aws_sdk_docdb_elastic.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be located.</p>
+            aws_sdk_docdb_elastic.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The service quota for the action was exceeded.</p>
+            aws_sdk_docdb_elastic.errors.throttling_exception.ThrottlingException: <p>ThrottlingException will be thrown when request was denied due to request throttling.</p>
+            aws_sdk_docdb_elastic.errors.validation_exception.ValidationException: <p>A structure defining a validation exception.</p>
+            aws_sdk_docdb_elastic.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -931,6 +1050,14 @@ class DocDBElasticClient:
         Args:
             cluster_arn: <p>The ARN identifier of the elastic cluster.</p>
 
+        Raises:
+            aws_sdk_docdb_elastic.errors.access_denied_exception.AccessDeniedException: <p>An exception that occurs when there are not sufficient permissions to perform an action.</p>
+            aws_sdk_docdb_elastic.errors.internal_server_exception.InternalServerException: <p>There was an internal server error.</p>
+            aws_sdk_docdb_elastic.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be located.</p>
+            aws_sdk_docdb_elastic.errors.throttling_exception.ThrottlingException: <p>ThrottlingException will be thrown when request was denied due to request throttling.</p>
+            aws_sdk_docdb_elastic.errors.validation_exception.ValidationException: <p>A structure defining a validation exception.</p>
+            aws_sdk_docdb_elastic.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Basic Start Cluster Example
             update applied
@@ -973,6 +1100,14 @@ class DocDBElasticClient:
 
         Args:
             cluster_arn: <p>The ARN identifier of the elastic cluster.</p>
+
+        Raises:
+            aws_sdk_docdb_elastic.errors.access_denied_exception.AccessDeniedException: <p>An exception that occurs when there are not sufficient permissions to perform an action.</p>
+            aws_sdk_docdb_elastic.errors.internal_server_exception.InternalServerException: <p>There was an internal server error.</p>
+            aws_sdk_docdb_elastic.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be located.</p>
+            aws_sdk_docdb_elastic.errors.throttling_exception.ThrottlingException: <p>ThrottlingException will be thrown when request was denied due to request throttling.</p>
+            aws_sdk_docdb_elastic.errors.validation_exception.ValidationException: <p>A structure defining a validation exception.</p>
+            aws_sdk_docdb_elastic.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Basic Stop Cluster Example
@@ -1018,6 +1153,13 @@ class DocDBElasticClient:
         Args:
             resource_arn: <p>The ARN identifier of the elastic cluster resource.</p>
             tags: <p>The tags that are assigned to the elastic cluster resource.</p>
+
+        Raises:
+            aws_sdk_docdb_elastic.errors.internal_server_exception.InternalServerException: <p>There was an internal server error.</p>
+            aws_sdk_docdb_elastic.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be located.</p>
+            aws_sdk_docdb_elastic.errors.throttling_exception.ThrottlingException: <p>ThrottlingException will be thrown when request was denied due to request throttling.</p>
+            aws_sdk_docdb_elastic.errors.validation_exception.ValidationException: <p>A structure defining a validation exception.</p>
+            aws_sdk_docdb_elastic.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1058,6 +1200,13 @@ class DocDBElasticClient:
         Args:
             resource_arn: <p>The ARN identifier of the elastic cluster resource.</p>
             tag_keys: <p>The tag keys to be removed from the elastic cluster resource.</p>
+
+        Raises:
+            aws_sdk_docdb_elastic.errors.internal_server_exception.InternalServerException: <p>There was an internal server error.</p>
+            aws_sdk_docdb_elastic.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be located.</p>
+            aws_sdk_docdb_elastic.errors.throttling_exception.ThrottlingException: <p>ThrottlingException will be thrown when request was denied due to request throttling.</p>
+            aws_sdk_docdb_elastic.errors.validation_exception.ValidationException: <p>A structure defining a validation exception.</p>
+            aws_sdk_docdb_elastic.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1124,6 +1273,15 @@ class DocDBElasticClient:
             backup_retention_period: <p>The number of days for which automatic snapshots are retained.</p>
             preferred_backup_window: <p>The daily time range during which automated backups are created if automated backups are enabled, as determined by the <code>backupRetentionPeriod</code>.</p>
             shard_instance_count: <p>The number of replica instances applying to all shards in the elastic cluster. A <code>shardInstanceCount</code> value of 1 means there is one writer instance, and any additional instances are replicas that can be used for reads and to improve availability.</p>
+
+        Raises:
+            aws_sdk_docdb_elastic.errors.access_denied_exception.AccessDeniedException: <p>An exception that occurs when there are not sufficient permissions to perform an action.</p>
+            aws_sdk_docdb_elastic.errors.conflict_exception.ConflictException: <p>There was an access conflict.</p>
+            aws_sdk_docdb_elastic.errors.internal_server_exception.InternalServerException: <p>There was an internal server error.</p>
+            aws_sdk_docdb_elastic.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be located.</p>
+            aws_sdk_docdb_elastic.errors.throttling_exception.ThrottlingException: <p>ThrottlingException will be thrown when request was denied due to request throttling.</p>
+            aws_sdk_docdb_elastic.errors.validation_exception.ValidationException: <p>A structure defining a validation exception.</p>
+            aws_sdk_docdb_elastic.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(

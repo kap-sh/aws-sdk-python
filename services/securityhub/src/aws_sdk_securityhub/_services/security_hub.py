@@ -450,6 +450,14 @@ class SecurityHubClient:
             administrator_id: <p>The account ID of the Security Hub CSPM administrator account that sent the invitation.</p>
             invitation_id: <p>The identifier of the invitation sent from the Security Hub CSPM administrator account.</p>
 
+        Raises:
+            aws_sdk_securityhub.errors.internal_exception.InternalException: <p>Internal server error.</p>
+            aws_sdk_securityhub.errors.invalid_access_exception.InvalidAccessException: <p>The account doesn't have permission to perform this action.</p>
+            aws_sdk_securityhub.errors.invalid_input_exception.InvalidInputException: <p>The request was rejected because you supplied an invalid or out-of-range value for an input parameter.</p>
+            aws_sdk_securityhub.errors.limit_exceeded_exception.LimitExceededException: <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account or throttling limits. The error code describes the limit exceeded.</p>
+            aws_sdk_securityhub.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request was rejected because we can't find the specified resource.</p>
+            aws_sdk_securityhub.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To accept an invitation be a member account
             The following example demonstrates how an account can accept an invitation from the Security Hub administrator account to be a member account. This operation is applicable only to member accounts that are not added through AWS Organizations.
@@ -497,6 +505,14 @@ class SecurityHubClient:
         Args:
             master_id: <p>The account ID of the Security Hub CSPM administrator account that sent the invitation.</p>
             invitation_id: <p>The identifier of the invitation sent from the Security Hub CSPM administrator account.</p>
+
+        Raises:
+            aws_sdk_securityhub.errors.internal_exception.InternalException: <p>Internal server error.</p>
+            aws_sdk_securityhub.errors.invalid_access_exception.InvalidAccessException: <p>The account doesn't have permission to perform this action.</p>
+            aws_sdk_securityhub.errors.invalid_input_exception.InvalidInputException: <p>The request was rejected because you supplied an invalid or out-of-range value for an input parameter.</p>
+            aws_sdk_securityhub.errors.limit_exceeded_exception.LimitExceededException: <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account or throttling limits. The error code describes the limit exceeded.</p>
+            aws_sdk_securityhub.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request was rejected because we can't find the specified resource.</p>
+            aws_sdk_securityhub.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -535,6 +551,14 @@ class SecurityHubClient:
 
         Args:
             automation_rules_arns: <p> A list of Amazon Resource Names (ARNs) for the rules that are to be deleted. </p>
+
+        Raises:
+            aws_sdk_securityhub.errors.internal_exception.InternalException: <p>Internal server error.</p>
+            aws_sdk_securityhub.errors.invalid_access_exception.InvalidAccessException: <p>The account doesn't have permission to perform this action.</p>
+            aws_sdk_securityhub.errors.invalid_input_exception.InvalidInputException: <p>The request was rejected because you supplied an invalid or out-of-range value for an input parameter.</p>
+            aws_sdk_securityhub.errors.limit_exceeded_exception.LimitExceededException: <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account or throttling limits. The error code describes the limit exceeded.</p>
+            aws_sdk_securityhub.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request was rejected because we can't find the specified resource.</p>
+            aws_sdk_securityhub.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To delete one or more automation rules
@@ -579,6 +603,14 @@ class SecurityHubClient:
         Args:
             standards_subscription_arns: <p>The ARNs of the standards subscriptions to disable.</p>
 
+        Raises:
+            aws_sdk_securityhub.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action specified in the request.</p>
+            aws_sdk_securityhub.errors.internal_exception.InternalException: <p>Internal server error.</p>
+            aws_sdk_securityhub.errors.invalid_access_exception.InvalidAccessException: <p>The account doesn't have permission to perform this action.</p>
+            aws_sdk_securityhub.errors.invalid_input_exception.InvalidInputException: <p>The request was rejected because you supplied an invalid or out-of-range value for an input parameter.</p>
+            aws_sdk_securityhub.errors.limit_exceeded_exception.LimitExceededException: <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account or throttling limits. The error code describes the limit exceeded.</p>
+            aws_sdk_securityhub.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To disable one or more security standards
             The following example disables a security standard in Security Hub.
@@ -621,6 +653,14 @@ class SecurityHubClient:
 
         Args:
             standards_subscription_requests: <p>The list of standards checks to enable.</p>
+
+        Raises:
+            aws_sdk_securityhub.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action specified in the request.</p>
+            aws_sdk_securityhub.errors.internal_exception.InternalException: <p>Internal server error.</p>
+            aws_sdk_securityhub.errors.invalid_access_exception.InvalidAccessException: <p>The account doesn't have permission to perform this action.</p>
+            aws_sdk_securityhub.errors.invalid_input_exception.InvalidInputException: <p>The request was rejected because you supplied an invalid or out-of-range value for an input parameter.</p>
+            aws_sdk_securityhub.errors.limit_exceeded_exception.LimitExceededException: <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account or throttling limits. The error code describes the limit exceeded.</p>
+            aws_sdk_securityhub.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To enable security standards
@@ -665,6 +705,15 @@ class SecurityHubClient:
         Args:
             automation_rules_arns: <p> A list of rule ARNs to get details for. </p>
 
+        Raises:
+            aws_sdk_securityhub.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action specified in the request.</p>
+            aws_sdk_securityhub.errors.internal_exception.InternalException: <p>Internal server error.</p>
+            aws_sdk_securityhub.errors.invalid_access_exception.InvalidAccessException: <p>The account doesn't have permission to perform this action.</p>
+            aws_sdk_securityhub.errors.invalid_input_exception.InvalidInputException: <p>The request was rejected because you supplied an invalid or out-of-range value for an input parameter.</p>
+            aws_sdk_securityhub.errors.limit_exceeded_exception.LimitExceededException: <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account or throttling limits. The error code describes the limit exceeded.</p>
+            aws_sdk_securityhub.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request was rejected because we can't find the specified resource.</p>
+            aws_sdk_securityhub.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To update one ore more automation rules
             The following example updates the specified automation rules.
@@ -707,6 +756,15 @@ class SecurityHubClient:
 
         Args:
             configuration_policy_association_identifiers: <p> Specifies one or more target account IDs, organizational unit (OU) IDs, or the root ID to retrieve associations for. </p>
+
+        Raises:
+            aws_sdk_securityhub.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action specified in the request.</p>
+            aws_sdk_securityhub.errors.internal_exception.InternalException: <p>Internal server error.</p>
+            aws_sdk_securityhub.errors.invalid_access_exception.InvalidAccessException: <p>The account doesn't have permission to perform this action.</p>
+            aws_sdk_securityhub.errors.invalid_input_exception.InvalidInputException: <p>The request was rejected because you supplied an invalid or out-of-range value for an input parameter.</p>
+            aws_sdk_securityhub.errors.limit_exceeded_exception.LimitExceededException: <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account or throttling limits. The error code describes the limit exceeded.</p>
+            aws_sdk_securityhub.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request was rejected because we can't find the specified resource.</p>
+            aws_sdk_securityhub.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To get configuration associations for a batch of targets
@@ -753,6 +811,13 @@ class SecurityHubClient:
         Args:
             security_control_ids: <p> A list of security controls (identified with <code>SecurityControlId</code>, <code>SecurityControlArn</code>, or a mix of both parameters). The security control ID or Amazon Resource Name (ARN) is the same across standards. </p>
 
+        Raises:
+            aws_sdk_securityhub.errors.internal_exception.InternalException: <p>Internal server error.</p>
+            aws_sdk_securityhub.errors.invalid_access_exception.InvalidAccessException: <p>The account doesn't have permission to perform this action.</p>
+            aws_sdk_securityhub.errors.invalid_input_exception.InvalidInputException: <p>The request was rejected because you supplied an invalid or out-of-range value for an input parameter.</p>
+            aws_sdk_securityhub.errors.limit_exceeded_exception.LimitExceededException: <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account or throttling limits. The error code describes the limit exceeded.</p>
+            aws_sdk_securityhub.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To get security control details
             The following example gets details for the specified controls in the current AWS account and AWS Region.
@@ -795,6 +860,13 @@ class SecurityHubClient:
 
         Args:
             standards_control_association_ids: <p> An array with one or more objects that includes a security control (identified with <code>SecurityControlId</code>, <code>SecurityControlArn</code>, or a mix of both parameters) and the Amazon Resource Name (ARN) of a standard. This field is used to query the enablement status of a control in a specified standard. The security control ID or ARN is the same across standards. </p>
+
+        Raises:
+            aws_sdk_securityhub.errors.internal_exception.InternalException: <p>Internal server error.</p>
+            aws_sdk_securityhub.errors.invalid_access_exception.InvalidAccessException: <p>The account doesn't have permission to perform this action.</p>
+            aws_sdk_securityhub.errors.invalid_input_exception.InvalidInputException: <p>The request was rejected because you supplied an invalid or out-of-range value for an input parameter.</p>
+            aws_sdk_securityhub.errors.limit_exceeded_exception.LimitExceededException: <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account or throttling limits. The error code describes the limit exceeded.</p>
+            aws_sdk_securityhub.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -832,6 +904,13 @@ class SecurityHubClient:
 
         Args:
             findings: <p>A list of findings to import. To successfully import a finding, it must follow the <a href=\"https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format.html\">Amazon Web Services Security Finding Format</a>. Maximum of 100 findings per request.</p>
+
+        Raises:
+            aws_sdk_securityhub.errors.internal_exception.InternalException: <p>Internal server error.</p>
+            aws_sdk_securityhub.errors.invalid_access_exception.InvalidAccessException: <p>The account doesn't have permission to perform this action.</p>
+            aws_sdk_securityhub.errors.invalid_input_exception.InvalidInputException: <p>The request was rejected because you supplied an invalid or out-of-range value for an input parameter.</p>
+            aws_sdk_securityhub.errors.limit_exceeded_exception.LimitExceededException: <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account or throttling limits. The error code describes the limit exceeded.</p>
+            aws_sdk_securityhub.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To import security findings from a third party provider to Security Hub
@@ -875,6 +954,14 @@ class SecurityHubClient:
 
         Args:
             update_automation_rules_request_items: <p> An array of ARNs for the rules that are to be updated. Optionally, you can also include <code>RuleStatus</code> and <code>RuleOrder</code>. </p>
+
+        Raises:
+            aws_sdk_securityhub.errors.internal_exception.InternalException: <p>Internal server error.</p>
+            aws_sdk_securityhub.errors.invalid_access_exception.InvalidAccessException: <p>The account doesn't have permission to perform this action.</p>
+            aws_sdk_securityhub.errors.invalid_input_exception.InvalidInputException: <p>The request was rejected because you supplied an invalid or out-of-range value for an input parameter.</p>
+            aws_sdk_securityhub.errors.limit_exceeded_exception.LimitExceededException: <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account or throttling limits. The error code describes the limit exceeded.</p>
+            aws_sdk_securityhub.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request was rejected because we can't find the specified resource.</p>
+            aws_sdk_securityhub.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To update one ore more automation rules
@@ -950,6 +1037,13 @@ class SecurityHubClient:
             workflow: <p>Used to update the workflow status of a finding.</p> <p>The workflow status indicates the progress of the investigation into the finding. </p>
             related_findings: <p>A list of findings that are related to the updated findings.</p>
 
+        Raises:
+            aws_sdk_securityhub.errors.internal_exception.InternalException: <p>Internal server error.</p>
+            aws_sdk_securityhub.errors.invalid_access_exception.InvalidAccessException: <p>The account doesn't have permission to perform this action.</p>
+            aws_sdk_securityhub.errors.invalid_input_exception.InvalidInputException: <p>The request was rejected because you supplied an invalid or out-of-range value for an input parameter.</p>
+            aws_sdk_securityhub.errors.limit_exceeded_exception.LimitExceededException: <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account or throttling limits. The error code describes the limit exceeded.</p>
+            aws_sdk_securityhub.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To update Security Hub findings
             The following example updates Security Hub findings. The finding identifier parameter specifies which findings to update. Only specific finding fields can be updated with this operation.
@@ -1024,6 +1118,14 @@ class SecurityHubClient:
             comment: <p>The updated value for a user provided comment about the finding. Minimum character length 1. Maximum character length 512.</p>
             severity_id: <p>The updated value for the normalized severity identifier. The severity ID is an integer with the allowed enum values [0, 1, 2, 3, 4, 5, 6, 99]. When customer provides the updated severity ID, the string sibling severity will automatically be updated in the finding.</p>
             status_id: <p>The updated value for the normalized status identifier. The status ID is an integer with the allowed enum values [0, 1, 2, 3, 4, 5, 99]. When customer provides the updated status ID, the string sibling status will automatically be updated in the finding.</p>
+
+        Raises:
+            aws_sdk_securityhub.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action specified in the request.</p>
+            aws_sdk_securityhub.errors.conflict_exception.ConflictException: <p>The request causes conflict with the current state of the service resource.</p>
+            aws_sdk_securityhub.errors.internal_server_exception.InternalServerException: <p> The request has failed due to an internal failure of the service. </p>
+            aws_sdk_securityhub.errors.throttling_exception.ThrottlingException: <p> The limit on the number of requests per second was exceeded. </p>
+            aws_sdk_securityhub.errors.validation_exception.ValidationException: <p>The request has failed validation because it's missing required fields or has invalid inputs.</p>
+            aws_sdk_securityhub.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1070,6 +1172,14 @@ class SecurityHubClient:
 
         Args:
             standards_control_association_updates: <p> Updates the enablement status of a security control in a specified standard. </p> <p> Calls to this operation return a <code>RESOURCE_NOT_FOUND_EXCEPTION</code> error when the standard subscription for the control has <code>StandardsControlsUpdatable</code> value <code>NOT_READY_FOR_UPDATES</code>. </p>
+
+        Raises:
+            aws_sdk_securityhub.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action specified in the request.</p>
+            aws_sdk_securityhub.errors.internal_exception.InternalException: <p>Internal server error.</p>
+            aws_sdk_securityhub.errors.invalid_access_exception.InvalidAccessException: <p>The account doesn't have permission to perform this action.</p>
+            aws_sdk_securityhub.errors.invalid_input_exception.InvalidInputException: <p>The request was rejected because you supplied an invalid or out-of-range value for an input parameter.</p>
+            aws_sdk_securityhub.errors.limit_exceeded_exception.LimitExceededException: <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account or throttling limits. The error code describes the limit exceeded.</p>
+            aws_sdk_securityhub.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To update enablement status of a batch of controls
@@ -1119,6 +1229,14 @@ class SecurityHubClient:
             name: <p>The name of the custom action target. Can contain up to 20 characters.</p>
             description: <p>The description for the custom action target.</p>
             id: <p>The ID for the custom action target. Can contain up to 20 alphanumeric characters.</p>
+
+        Raises:
+            aws_sdk_securityhub.errors.internal_exception.InternalException: <p>Internal server error.</p>
+            aws_sdk_securityhub.errors.invalid_access_exception.InvalidAccessException: <p>The account doesn't have permission to perform this action.</p>
+            aws_sdk_securityhub.errors.invalid_input_exception.InvalidInputException: <p>The request was rejected because you supplied an invalid or out-of-range value for an input parameter.</p>
+            aws_sdk_securityhub.errors.limit_exceeded_exception.LimitExceededException: <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account or throttling limits. The error code describes the limit exceeded.</p>
+            aws_sdk_securityhub.errors.resource_conflict_exception.ResourceConflictException: <p>The resource specified in the request conflicts with an existing resource.</p>
+            aws_sdk_securityhub.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To create a custom action target
@@ -1174,6 +1292,16 @@ class SecurityHubClient:
             linked_regions: <p>The list of Regions that are linked to the aggregation Region.</p>
             tags: <p>A list of key-value pairs to be applied to the AggregatorV2.</p>
             client_token: <p>A unique identifier used to ensure idempotency.</p>
+
+        Raises:
+            aws_sdk_securityhub.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action specified in the request.</p>
+            aws_sdk_securityhub.errors.conflict_exception.ConflictException: <p>The request causes conflict with the current state of the service resource.</p>
+            aws_sdk_securityhub.errors.internal_server_exception.InternalServerException: <p> The request has failed due to an internal failure of the service. </p>
+            aws_sdk_securityhub.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request was rejected because we can't find the specified resource.</p>
+            aws_sdk_securityhub.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request was rejected because it would exceed the service quota limit.</p>
+            aws_sdk_securityhub.errors.throttling_exception.ThrottlingException: <p> The limit on the number of requests per second was exceeded. </p>
+            aws_sdk_securityhub.errors.validation_exception.ValidationException: <p>The request has failed validation because it's missing required fields or has invalid inputs.</p>
+            aws_sdk_securityhub.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1233,6 +1361,14 @@ class SecurityHubClient:
             is_terminal: <p>Specifies whether a rule is the last to be applied with respect to a finding that matches the rule criteria. This is useful when a finding matches the criteria for multiple rules, and each rule has different actions. If a rule is terminal, Security Hub CSPM applies the rule action to a finding that matches the rule criteria and doesn't evaluate other rules for the finding. By default, a rule isn't terminal. </p>
             criteria: <p> A set of ASFF finding field attributes and corresponding expected values that Security Hub CSPM uses to filter findings. If a rule is enabled and a finding matches the conditions specified in this parameter, Security Hub CSPM applies the rule action to the finding. </p>
             actions: <p> One or more actions to update finding fields if a finding matches the conditions specified in <code>Criteria</code>. </p>
+
+        Raises:
+            aws_sdk_securityhub.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action specified in the request.</p>
+            aws_sdk_securityhub.errors.internal_exception.InternalException: <p>Internal server error.</p>
+            aws_sdk_securityhub.errors.invalid_access_exception.InvalidAccessException: <p>The account doesn't have permission to perform this action.</p>
+            aws_sdk_securityhub.errors.invalid_input_exception.InvalidInputException: <p>The request was rejected because you supplied an invalid or out-of-range value for an input parameter.</p>
+            aws_sdk_securityhub.errors.limit_exceeded_exception.LimitExceededException: <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account or throttling limits. The error code describes the limit exceeded.</p>
+            aws_sdk_securityhub.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To create an automation rule
@@ -1304,6 +1440,15 @@ class SecurityHubClient:
             actions: <p>A list of actions to be performed when the rule criteria is met.</p>
             tags: <p>A list of key-value pairs associated with the V2 automation rule.</p>
             client_token: <p>A unique identifier used to ensure idempotency.</p>
+
+        Raises:
+            aws_sdk_securityhub.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action specified in the request.</p>
+            aws_sdk_securityhub.errors.conflict_exception.ConflictException: <p>The request causes conflict with the current state of the service resource.</p>
+            aws_sdk_securityhub.errors.internal_server_exception.InternalServerException: <p> The request has failed due to an internal failure of the service. </p>
+            aws_sdk_securityhub.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request was rejected because it would exceed the service quota limit.</p>
+            aws_sdk_securityhub.errors.throttling_exception.ThrottlingException: <p> The limit on the number of requests per second was exceeded. </p>
+            aws_sdk_securityhub.errors.validation_exception.ValidationException: <p>The request has failed validation because it's missing required fields or has invalid inputs.</p>
+            aws_sdk_securityhub.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1359,6 +1504,15 @@ class SecurityHubClient:
             description: <p> The description of the configuration policy. </p>
             configuration_policy: <p> An object that defines how Security Hub CSPM is configured. It includes whether Security Hub CSPM is enabled or disabled, a list of enabled security standards, a list of enabled or disabled security controls, and a list of custom parameter values for specified controls. If you provide a list of security controls that are enabled in the configuration policy, Security Hub CSPM disables all other controls (including newly released controls). If you provide a list of security controls that are disabled in the configuration policy, Security Hub CSPM enables all other controls (including newly released controls). </p>
             tags: <p> User-defined tags associated with a configuration policy. For more information, see <a href=\"https://docs.aws.amazon.com/securityhub/latest/userguide/tagging-resources.html\">Tagging Security Hub CSPM resources</a> in the <i>Security Hub CSPM user guide</i>. </p>
+
+        Raises:
+            aws_sdk_securityhub.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action specified in the request.</p>
+            aws_sdk_securityhub.errors.internal_exception.InternalException: <p>Internal server error.</p>
+            aws_sdk_securityhub.errors.invalid_access_exception.InvalidAccessException: <p>The account doesn't have permission to perform this action.</p>
+            aws_sdk_securityhub.errors.invalid_input_exception.InvalidInputException: <p>The request was rejected because you supplied an invalid or out-of-range value for an input parameter.</p>
+            aws_sdk_securityhub.errors.limit_exceeded_exception.LimitExceededException: <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account or throttling limits. The error code describes the limit exceeded.</p>
+            aws_sdk_securityhub.errors.resource_conflict_exception.ResourceConflictException: <p>The resource specified in the request conflicts with an existing resource.</p>
+            aws_sdk_securityhub.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To create a configuration policy
@@ -1423,6 +1577,16 @@ class SecurityHubClient:
             kms_key_arn: <p>The Amazon Resource Name (ARN) of KMS key used to encrypt secrets for the connectorV2.</p>
             tags: <p>The tags to add to the connectorV2 when you create.</p>
             client_token: <p>A unique identifier used to ensure idempotency.</p>
+
+        Raises:
+            aws_sdk_securityhub.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action specified in the request.</p>
+            aws_sdk_securityhub.errors.conflict_exception.ConflictException: <p>The request causes conflict with the current state of the service resource.</p>
+            aws_sdk_securityhub.errors.internal_server_exception.InternalServerException: <p> The request has failed due to an internal failure of the service. </p>
+            aws_sdk_securityhub.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request was rejected because we can't find the specified resource.</p>
+            aws_sdk_securityhub.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request was rejected because it would exceed the service quota limit.</p>
+            aws_sdk_securityhub.errors.throttling_exception.ThrottlingException: <p> The limit on the number of requests per second was exceeded. </p>
+            aws_sdk_securityhub.errors.validation_exception.ValidationException: <p>The request has failed validation because it's missing required fields or has invalid inputs.</p>
+            aws_sdk_securityhub.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1471,6 +1635,14 @@ class SecurityHubClient:
         Args:
             region_linking_mode: <p>Indicates whether to aggregate findings from all of the available Regions in the current partition. Also determines whether to automatically aggregate findings from new Regions as Security Hub CSPM supports them and you opt into them.</p> <p>The selected option also determines how to use the Regions provided in the Regions list.</p> <p>The options are as follows:</p> <ul> <li> <p> <code>ALL_REGIONS</code> - Aggregates findings from all of the Regions where Security Hub CSPM is enabled. When you choose this option, Security Hub CSPM also automatically aggregates findings from new Regions as Security Hub CSPM supports them and you opt into them. </p> </li> <li> <p> <code>ALL_REGIONS_EXCEPT_SPECIFIED</code> - Aggregates findings from all of the Regions where Security Hub CSPM is enabled, except for the Regions listed in the <code>Regions</code> parameter. When you choose this option, Security Hub CSPM also automatically aggregates findings from new Regions as Security Hub CSPM supports them and you opt into them. </p> </li> <li> <p> <code>SPECIFIED_REGIONS</code> - Aggregates findings only from the Regions listed in the <code>Regions</code> parameter. Security Hub CSPM does not automatically aggregate findings from new Regions. </p> </li> <li> <p> <code>NO_REGIONS</code> - Aggregates no data because no Regions are selected as linked Regions. </p> </li> </ul>
             regions: <p>If <code>RegionLinkingMode</code> is <code>ALL_REGIONS_EXCEPT_SPECIFIED</code>, then this is a space-separated list of Regions that don't replicate and send findings to the home Region.</p> <p>If <code>RegionLinkingMode</code> is <code>SPECIFIED_REGIONS</code>, then this is a space-separated list of Regions that do replicate and send findings to the home Region. </p> <p>An <code>InvalidInputException</code> error results if you populate this field while <code>RegionLinkingMode</code> is <code>NO_REGIONS</code>.</p>
+
+        Raises:
+            aws_sdk_securityhub.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action specified in the request.</p>
+            aws_sdk_securityhub.errors.internal_exception.InternalException: <p>Internal server error.</p>
+            aws_sdk_securityhub.errors.invalid_access_exception.InvalidAccessException: <p>The account doesn't have permission to perform this action.</p>
+            aws_sdk_securityhub.errors.invalid_input_exception.InvalidInputException: <p>The request was rejected because you supplied an invalid or out-of-range value for an input parameter.</p>
+            aws_sdk_securityhub.errors.limit_exceeded_exception.LimitExceededException: <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account or throttling limits. The error code describes the limit exceeded.</p>
+            aws_sdk_securityhub.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To enable cross-Region aggregation
@@ -1521,6 +1693,14 @@ class SecurityHubClient:
             filters: <p>One or more attributes used to filter the findings included in the insight. The insight only includes findings that match the criteria defined in the filters.</p>
             group_by_attribute: <p>The attribute used to group the findings for the insight. The grouping attribute identifies the type of item that the insight applies to. For example, if an insight is grouped by resource identifier, then the insight produces a list of resource identifiers.</p>
 
+        Raises:
+            aws_sdk_securityhub.errors.internal_exception.InternalException: <p>Internal server error.</p>
+            aws_sdk_securityhub.errors.invalid_access_exception.InvalidAccessException: <p>The account doesn't have permission to perform this action.</p>
+            aws_sdk_securityhub.errors.invalid_input_exception.InvalidInputException: <p>The request was rejected because you supplied an invalid or out-of-range value for an input parameter.</p>
+            aws_sdk_securityhub.errors.limit_exceeded_exception.LimitExceededException: <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account or throttling limits. The error code describes the limit exceeded.</p>
+            aws_sdk_securityhub.errors.resource_conflict_exception.ResourceConflictException: <p>The resource specified in the request conflicts with an existing resource.</p>
+            aws_sdk_securityhub.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To create a custom insight
             The following example creates a custom insight in Security Hub. An insight is a collection of findings that relate to a security issue.
@@ -1565,6 +1745,15 @@ class SecurityHubClient:
 
         Args:
             account_details: <p>The list of accounts to associate with the Security Hub CSPM administrator account. For each account, the list includes the account ID and optionally the email address.</p>
+
+        Raises:
+            aws_sdk_securityhub.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action specified in the request.</p>
+            aws_sdk_securityhub.errors.internal_exception.InternalException: <p>Internal server error.</p>
+            aws_sdk_securityhub.errors.invalid_access_exception.InvalidAccessException: <p>The account doesn't have permission to perform this action.</p>
+            aws_sdk_securityhub.errors.invalid_input_exception.InvalidInputException: <p>The request was rejected because you supplied an invalid or out-of-range value for an input parameter.</p>
+            aws_sdk_securityhub.errors.limit_exceeded_exception.LimitExceededException: <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account or throttling limits. The error code describes the limit exceeded.</p>
+            aws_sdk_securityhub.errors.resource_conflict_exception.ResourceConflictException: <p>The resource specified in the request conflicts with an existing resource.</p>
+            aws_sdk_securityhub.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To add a member account
@@ -1618,6 +1807,15 @@ class SecurityHubClient:
             finding_metadata_uid: <p>The the unique ID for the finding.</p>
             client_token: <p>The client idempotency token.</p>
             mode: <p>The mode for ticket creation. When set to DRYRUN, the ticket is created using a Security Hub owned template test finding to verify the integration is working correctly.</p>
+
+        Raises:
+            aws_sdk_securityhub.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action specified in the request.</p>
+            aws_sdk_securityhub.errors.conflict_exception.ConflictException: <p>The request causes conflict with the current state of the service resource.</p>
+            aws_sdk_securityhub.errors.internal_server_exception.InternalServerException: <p> The request has failed due to an internal failure of the service. </p>
+            aws_sdk_securityhub.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request was rejected because we can't find the specified resource.</p>
+            aws_sdk_securityhub.errors.throttling_exception.ThrottlingException: <p> The limit on the number of requests per second was exceeded. </p>
+            aws_sdk_securityhub.errors.validation_exception.ValidationException: <p>The request has failed validation because it's missing required fields or has invalid inputs.</p>
+            aws_sdk_securityhub.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1660,6 +1858,13 @@ class SecurityHubClient:
 
         Args:
             account_ids: <p>The list of prospective member account IDs for which to decline an invitation.</p>
+
+        Raises:
+            aws_sdk_securityhub.errors.internal_exception.InternalException: <p>Internal server error.</p>
+            aws_sdk_securityhub.errors.invalid_access_exception.InvalidAccessException: <p>The account doesn't have permission to perform this action.</p>
+            aws_sdk_securityhub.errors.invalid_input_exception.InvalidInputException: <p>The request was rejected because you supplied an invalid or out-of-range value for an input parameter.</p>
+            aws_sdk_securityhub.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request was rejected because we can't find the specified resource.</p>
+            aws_sdk_securityhub.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To decline invitation to become a member account
@@ -1704,6 +1909,13 @@ class SecurityHubClient:
         Args:
             action_target_arn: <p>The Amazon Resource Name (ARN) of the custom action target to delete.</p>
 
+        Raises:
+            aws_sdk_securityhub.errors.internal_exception.InternalException: <p>Internal server error.</p>
+            aws_sdk_securityhub.errors.invalid_access_exception.InvalidAccessException: <p>The account doesn't have permission to perform this action.</p>
+            aws_sdk_securityhub.errors.invalid_input_exception.InvalidInputException: <p>The request was rejected because you supplied an invalid or out-of-range value for an input parameter.</p>
+            aws_sdk_securityhub.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request was rejected because we can't find the specified resource.</p>
+            aws_sdk_securityhub.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To delete a custom action target
             The following example deletes a custom action target that triggers target actions in Amazon CloudWatch Events. Deleting a custom action target doesn't affect findings or insights that were already sent to CloudWatch Events based on the custom action.
@@ -1746,6 +1958,15 @@ class SecurityHubClient:
 
         Args:
             aggregator_v2_arn: <p>The ARN of the Aggregator V2.</p>
+
+        Raises:
+            aws_sdk_securityhub.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action specified in the request.</p>
+            aws_sdk_securityhub.errors.conflict_exception.ConflictException: <p>The request causes conflict with the current state of the service resource.</p>
+            aws_sdk_securityhub.errors.internal_server_exception.InternalServerException: <p> The request has failed due to an internal failure of the service. </p>
+            aws_sdk_securityhub.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request was rejected because we can't find the specified resource.</p>
+            aws_sdk_securityhub.errors.throttling_exception.ThrottlingException: <p> The limit on the number of requests per second was exceeded. </p>
+            aws_sdk_securityhub.errors.validation_exception.ValidationException: <p>The request has failed validation because it's missing required fields or has invalid inputs.</p>
+            aws_sdk_securityhub.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1783,6 +2004,15 @@ class SecurityHubClient:
 
         Args:
             identifier: <p>The ARN of the V2 automation rule.</p>
+
+        Raises:
+            aws_sdk_securityhub.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action specified in the request.</p>
+            aws_sdk_securityhub.errors.conflict_exception.ConflictException: <p>The request causes conflict with the current state of the service resource.</p>
+            aws_sdk_securityhub.errors.internal_server_exception.InternalServerException: <p> The request has failed due to an internal failure of the service. </p>
+            aws_sdk_securityhub.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request was rejected because we can't find the specified resource.</p>
+            aws_sdk_securityhub.errors.throttling_exception.ThrottlingException: <p> The limit on the number of requests per second was exceeded. </p>
+            aws_sdk_securityhub.errors.validation_exception.ValidationException: <p>The request has failed validation because it's missing required fields or has invalid inputs.</p>
+            aws_sdk_securityhub.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1820,6 +2050,16 @@ class SecurityHubClient:
 
         Args:
             identifier: <p> The Amazon Resource Name (ARN) or universally unique identifier (UUID) of the configuration policy. </p>
+
+        Raises:
+            aws_sdk_securityhub.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action specified in the request.</p>
+            aws_sdk_securityhub.errors.internal_exception.InternalException: <p>Internal server error.</p>
+            aws_sdk_securityhub.errors.invalid_access_exception.InvalidAccessException: <p>The account doesn't have permission to perform this action.</p>
+            aws_sdk_securityhub.errors.invalid_input_exception.InvalidInputException: <p>The request was rejected because you supplied an invalid or out-of-range value for an input parameter.</p>
+            aws_sdk_securityhub.errors.limit_exceeded_exception.LimitExceededException: <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account or throttling limits. The error code describes the limit exceeded.</p>
+            aws_sdk_securityhub.errors.resource_conflict_exception.ResourceConflictException: <p>The resource specified in the request conflicts with an existing resource.</p>
+            aws_sdk_securityhub.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request was rejected because we can't find the specified resource.</p>
+            aws_sdk_securityhub.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To delete a configuration policy
@@ -1863,6 +2103,15 @@ class SecurityHubClient:
 
         Args:
             connector_id: <p>The UUID of the connectorV2 to identify connectorV2 resource.</p>
+
+        Raises:
+            aws_sdk_securityhub.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action specified in the request.</p>
+            aws_sdk_securityhub.errors.conflict_exception.ConflictException: <p>The request causes conflict with the current state of the service resource.</p>
+            aws_sdk_securityhub.errors.internal_server_exception.InternalServerException: <p> The request has failed due to an internal failure of the service. </p>
+            aws_sdk_securityhub.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request was rejected because we can't find the specified resource.</p>
+            aws_sdk_securityhub.errors.throttling_exception.ThrottlingException: <p> The limit on the number of requests per second was exceeded. </p>
+            aws_sdk_securityhub.errors.validation_exception.ValidationException: <p>The request has failed validation because it's missing required fields or has invalid inputs.</p>
+            aws_sdk_securityhub.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1900,6 +2149,15 @@ class SecurityHubClient:
 
         Args:
             finding_aggregator_arn: <p>The ARN of the finding aggregator to delete. To obtain the ARN, use <code>ListFindingAggregators</code>.</p>
+
+        Raises:
+            aws_sdk_securityhub.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action specified in the request.</p>
+            aws_sdk_securityhub.errors.internal_exception.InternalException: <p>Internal server error.</p>
+            aws_sdk_securityhub.errors.invalid_access_exception.InvalidAccessException: <p>The account doesn't have permission to perform this action.</p>
+            aws_sdk_securityhub.errors.invalid_input_exception.InvalidInputException: <p>The request was rejected because you supplied an invalid or out-of-range value for an input parameter.</p>
+            aws_sdk_securityhub.errors.limit_exceeded_exception.LimitExceededException: <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account or throttling limits. The error code describes the limit exceeded.</p>
+            aws_sdk_securityhub.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request was rejected because we can't find the specified resource.</p>
+            aws_sdk_securityhub.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To delete a finding aggregator
@@ -1944,6 +2202,14 @@ class SecurityHubClient:
         Args:
             insight_arn: <p>The ARN of the insight to delete.</p>
 
+        Raises:
+            aws_sdk_securityhub.errors.internal_exception.InternalException: <p>Internal server error.</p>
+            aws_sdk_securityhub.errors.invalid_access_exception.InvalidAccessException: <p>The account doesn't have permission to perform this action.</p>
+            aws_sdk_securityhub.errors.invalid_input_exception.InvalidInputException: <p>The request was rejected because you supplied an invalid or out-of-range value for an input parameter.</p>
+            aws_sdk_securityhub.errors.limit_exceeded_exception.LimitExceededException: <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account or throttling limits. The error code describes the limit exceeded.</p>
+            aws_sdk_securityhub.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request was rejected because we can't find the specified resource.</p>
+            aws_sdk_securityhub.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To delete a custom insight
             The following example deletes a custom insight in Security Hub.
@@ -1987,6 +2253,14 @@ class SecurityHubClient:
         Args:
             account_ids: <p>The list of member account IDs that received the invitations you want to delete.</p>
 
+        Raises:
+            aws_sdk_securityhub.errors.internal_exception.InternalException: <p>Internal server error.</p>
+            aws_sdk_securityhub.errors.invalid_access_exception.InvalidAccessException: <p>The account doesn't have permission to perform this action.</p>
+            aws_sdk_securityhub.errors.invalid_input_exception.InvalidInputException: <p>The request was rejected because you supplied an invalid or out-of-range value for an input parameter.</p>
+            aws_sdk_securityhub.errors.limit_exceeded_exception.LimitExceededException: <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account or throttling limits. The error code describes the limit exceeded.</p>
+            aws_sdk_securityhub.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request was rejected because we can't find the specified resource.</p>
+            aws_sdk_securityhub.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To delete a custom insight
             The following example deletes an invitation sent by the Security Hub administrator account to a prospective member account. This operation is used only for invitations sent to accounts that aren't part of an organization. Organization accounts don't receive invitations.
@@ -2029,6 +2303,14 @@ class SecurityHubClient:
 
         Args:
             account_ids: <p>The list of account IDs for the member accounts to delete.</p>
+
+        Raises:
+            aws_sdk_securityhub.errors.internal_exception.InternalException: <p>Internal server error.</p>
+            aws_sdk_securityhub.errors.invalid_access_exception.InvalidAccessException: <p>The account doesn't have permission to perform this action.</p>
+            aws_sdk_securityhub.errors.invalid_input_exception.InvalidInputException: <p>The request was rejected because you supplied an invalid or out-of-range value for an input parameter.</p>
+            aws_sdk_securityhub.errors.limit_exceeded_exception.LimitExceededException: <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account or throttling limits. The error code describes the limit exceeded.</p>
+            aws_sdk_securityhub.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request was rejected because we can't find the specified resource.</p>
+            aws_sdk_securityhub.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To delete a member account
@@ -2080,6 +2362,13 @@ class SecurityHubClient:
             action_target_arns: <p>A list of custom action target ARNs for the custom action targets to retrieve.</p>
             next_token: <p>The token that is required for pagination. On your first call to the <code>DescribeActionTargets</code> operation, set the value of this parameter to <code>NULL</code>.</p> <p>For subsequent calls to the operation, to continue listing data, set the value of this parameter to the value returned from the previous response.</p>
             max_results: <p>The maximum number of results to return.</p>
+
+        Raises:
+            aws_sdk_securityhub.errors.internal_exception.InternalException: <p>Internal server error.</p>
+            aws_sdk_securityhub.errors.invalid_access_exception.InvalidAccessException: <p>The account doesn't have permission to perform this action.</p>
+            aws_sdk_securityhub.errors.invalid_input_exception.InvalidInputException: <p>The request was rejected because you supplied an invalid or out-of-range value for an input parameter.</p>
+            aws_sdk_securityhub.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request was rejected because we can't find the specified resource.</p>
+            aws_sdk_securityhub.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To return custom action targets
@@ -2158,6 +2447,14 @@ class SecurityHubClient:
         Args:
             hub_arn: <p>The ARN of the Hub resource to retrieve.</p>
 
+        Raises:
+            aws_sdk_securityhub.errors.internal_exception.InternalException: <p>Internal server error.</p>
+            aws_sdk_securityhub.errors.invalid_access_exception.InvalidAccessException: <p>The account doesn't have permission to perform this action.</p>
+            aws_sdk_securityhub.errors.invalid_input_exception.InvalidInputException: <p>The request was rejected because you supplied an invalid or out-of-range value for an input parameter.</p>
+            aws_sdk_securityhub.errors.limit_exceeded_exception.LimitExceededException: <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account or throttling limits. The error code describes the limit exceeded.</p>
+            aws_sdk_securityhub.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request was rejected because we can't find the specified resource.</p>
+            aws_sdk_securityhub.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To return details about Hub resource
             The following example returns details about the Hub resource in the calling account. The Hub resource represents the implementation of  the AWS Security Hub service in the calling account.
@@ -2195,6 +2492,13 @@ class SecurityHubClient:
         self, *, config_overrides: Optional[SecurityHubClientConfig] = None
     ) -> "aws_sdk_securityhub.types.describe_organization_configuration_response.DescribeOrganizationConfigurationResponse":
         """<p>Returns information about the way your organization is configured in Security Hub CSPM. Only the Security Hub CSPM administrator account can invoke this operation.</p>
+
+        Raises:
+            aws_sdk_securityhub.errors.internal_exception.InternalException: <p>Internal server error.</p>
+            aws_sdk_securityhub.errors.invalid_access_exception.InvalidAccessException: <p>The account doesn't have permission to perform this action.</p>
+            aws_sdk_securityhub.errors.invalid_input_exception.InvalidInputException: <p>The request was rejected because you supplied an invalid or out-of-range value for an input parameter.</p>
+            aws_sdk_securityhub.errors.limit_exceeded_exception.LimitExceededException: <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account or throttling limits. The error code describes the limit exceeded.</p>
+            aws_sdk_securityhub.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To get information about organization configuration
@@ -2247,6 +2551,13 @@ class SecurityHubClient:
             next_token: <p>The token that is required for pagination. On your first call to the <code>DescribeProducts</code> operation, set the value of this parameter to <code>NULL</code>.</p> <p>For subsequent calls to the operation, to continue listing data, set the value of this parameter to the value returned from the previous response.</p>
             max_results: <p>The maximum number of results to return.</p>
             product_arn: <p>The ARN of the integration to return.</p>
+
+        Raises:
+            aws_sdk_securityhub.errors.internal_exception.InternalException: <p>Internal server error.</p>
+            aws_sdk_securityhub.errors.invalid_access_exception.InvalidAccessException: <p>The account doesn't have permission to perform this action.</p>
+            aws_sdk_securityhub.errors.invalid_input_exception.InvalidInputException: <p>The request was rejected because you supplied an invalid or out-of-range value for an input parameter.</p>
+            aws_sdk_securityhub.errors.limit_exceeded_exception.LimitExceededException: <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account or throttling limits. The error code describes the limit exceeded.</p>
+            aws_sdk_securityhub.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To get information about Security Hub integrations
@@ -2326,6 +2637,14 @@ class SecurityHubClient:
         Args:
             next_token: <p>The token required for pagination. On your first call, set the value of this parameter to <code>NULL</code>. For subsequent calls, to continue listing data, set the value of this parameter to the value returned in the previous response.</p>
             max_results: <p>The maximum number of results to return.</p>
+
+        Raises:
+            aws_sdk_securityhub.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action specified in the request.</p>
+            aws_sdk_securityhub.errors.conflict_exception.ConflictException: <p>The request causes conflict with the current state of the service resource.</p>
+            aws_sdk_securityhub.errors.internal_server_exception.InternalServerException: <p> The request has failed due to an internal failure of the service. </p>
+            aws_sdk_securityhub.errors.throttling_exception.ThrottlingException: <p> The limit on the number of requests per second was exceeded. </p>
+            aws_sdk_securityhub.errors.validation_exception.ValidationException: <p>The request has failed validation because it's missing required fields or has invalid inputs.</p>
+            aws_sdk_securityhub.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2382,7 +2701,15 @@ class SecurityHubClient:
     def describe_security_hub_v2(
         self, *, config_overrides: Optional[SecurityHubClientConfig] = None
     ) -> "aws_sdk_securityhub.types.describe_security_hub_v2_response.DescribeSecurityHubV2Response":
-        """<p>Returns details about the service resource in your account.</p>"""
+        """<p>Returns details about the service resource in your account.</p>
+
+        Raises:
+            aws_sdk_securityhub.errors.internal_server_exception.InternalServerException: <p> The request has failed due to an internal failure of the service. </p>
+            aws_sdk_securityhub.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request was rejected because we can't find the specified resource.</p>
+            aws_sdk_securityhub.errors.throttling_exception.ThrottlingException: <p> The limit on the number of requests per second was exceeded. </p>
+            aws_sdk_securityhub.errors.validation_exception.ValidationException: <p>The request has failed validation because it's missing required fields or has invalid inputs.</p>
+            aws_sdk_securityhub.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_securityhub.types.describe_security_hub_v2_request.DescribeSecurityHubV2Request]",
@@ -2422,6 +2749,12 @@ class SecurityHubClient:
         Args:
             next_token: <p>The token that is required for pagination. On your first call to the <code>DescribeStandards</code> operation, set the value of this parameter to <code>NULL</code>.</p> <p>For subsequent calls to the operation, to continue listing data, set the value of this parameter to the value returned from the previous response.</p>
             max_results: <p>The maximum number of standards to return.</p>
+
+        Raises:
+            aws_sdk_securityhub.errors.internal_exception.InternalException: <p>Internal server error.</p>
+            aws_sdk_securityhub.errors.invalid_access_exception.InvalidAccessException: <p>The account doesn't have permission to perform this action.</p>
+            aws_sdk_securityhub.errors.invalid_input_exception.InvalidInputException: <p>The request was rejected because you supplied an invalid or out-of-range value for an input parameter.</p>
+            aws_sdk_securityhub.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To get available Security Hub standards
@@ -2497,6 +2830,13 @@ class SecurityHubClient:
             standards_subscription_arn: <p>The ARN of a resource that represents your subscription to a supported standard. To get the subscription ARNs of the standards you have enabled, use the <code>GetEnabledStandards</code> operation.</p>
             next_token: <p>The token that is required for pagination. On your first call to the <code>DescribeStandardsControls</code> operation, set the value of this parameter to <code>NULL</code>.</p> <p>For subsequent calls to the operation, to continue listing data, set the value of this parameter to the value returned from the previous response.</p>
             max_results: <p>The maximum number of security standard controls to return.</p>
+
+        Raises:
+            aws_sdk_securityhub.errors.internal_exception.InternalException: <p>Internal server error.</p>
+            aws_sdk_securityhub.errors.invalid_access_exception.InvalidAccessException: <p>The account doesn't have permission to perform this action.</p>
+            aws_sdk_securityhub.errors.invalid_input_exception.InvalidInputException: <p>The request was rejected because you supplied an invalid or out-of-range value for an input parameter.</p>
+            aws_sdk_securityhub.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request was rejected because we can't find the specified resource.</p>
+            aws_sdk_securityhub.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2564,6 +2904,14 @@ class SecurityHubClient:
         Args:
             product_subscription_arn: <p>The ARN of the integrated product to disable the integration for.</p>
 
+        Raises:
+            aws_sdk_securityhub.errors.internal_exception.InternalException: <p>Internal server error.</p>
+            aws_sdk_securityhub.errors.invalid_access_exception.InvalidAccessException: <p>The account doesn't have permission to perform this action.</p>
+            aws_sdk_securityhub.errors.invalid_input_exception.InvalidInputException: <p>The request was rejected because you supplied an invalid or out-of-range value for an input parameter.</p>
+            aws_sdk_securityhub.errors.limit_exceeded_exception.LimitExceededException: <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account or throttling limits. The error code describes the limit exceeded.</p>
+            aws_sdk_securityhub.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request was rejected because we can't find the specified resource.</p>
+            aws_sdk_securityhub.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To end a Security Hub integration
             The following example ends an integration between Security Hub and the specified product that sends findings to Security Hub. After the integration ends, the product no longer sends findings to Security  Hub.
@@ -2611,6 +2959,14 @@ class SecurityHubClient:
             admin_account_id: <p>The Amazon Web Services account identifier of the Security Hub CSPM administrator account.</p>
             feature: <p>The feature for which the delegated admin account is disabled. Defaults to Security Hub CSPM if not specified.</p>
 
+        Raises:
+            aws_sdk_securityhub.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action specified in the request.</p>
+            aws_sdk_securityhub.errors.internal_exception.InternalException: <p>Internal server error.</p>
+            aws_sdk_securityhub.errors.invalid_access_exception.InvalidAccessException: <p>The account doesn't have permission to perform this action.</p>
+            aws_sdk_securityhub.errors.invalid_input_exception.InvalidInputException: <p>The request was rejected because you supplied an invalid or out-of-range value for an input parameter.</p>
+            aws_sdk_securityhub.errors.limit_exceeded_exception.LimitExceededException: <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account or throttling limits. The error code describes the limit exceeded.</p>
+            aws_sdk_securityhub.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To remove a Security Hub administrator account
             The following example removes the Security Hub administrator account in the Region from which the operation was executed. This operation doesn't remove the delegated administrator account in AWS Organizations.
@@ -2650,6 +3006,14 @@ class SecurityHubClient:
     ) -> "aws_sdk_securityhub.types.disable_security_hub_response.DisableSecurityHubResponse":
         """<p>Disables Security Hub CSPM in your account only in the current Amazon Web Services Region. To disable Security Hub CSPM in all Regions, you must submit one request per Region where you have enabled Security Hub CSPM.</p> <p>You can't disable Security Hub CSPM in an account that is currently the Security Hub CSPM administrator.</p> <p>When you disable Security Hub CSPM, your existing findings and insights and any Security Hub CSPM configuration settings are deleted after 90 days and cannot be recovered. Any standards that were enabled are disabled, and your administrator and member account associations are removed.</p> <p>If you want to save your existing findings, you must export them before you disable Security Hub CSPM.</p>
 
+        Raises:
+            aws_sdk_securityhub.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action specified in the request.</p>
+            aws_sdk_securityhub.errors.internal_exception.InternalException: <p>Internal server error.</p>
+            aws_sdk_securityhub.errors.invalid_access_exception.InvalidAccessException: <p>The account doesn't have permission to perform this action.</p>
+            aws_sdk_securityhub.errors.limit_exceeded_exception.LimitExceededException: <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account or throttling limits. The error code describes the limit exceeded.</p>
+            aws_sdk_securityhub.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request was rejected because we can't find the specified resource.</p>
+            aws_sdk_securityhub.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To deactivate Security Hub
             The following example deactivates Security Hub for the current account and Region.
@@ -2684,7 +3048,15 @@ class SecurityHubClient:
     def disable_security_hub_v2(
         self, *, config_overrides: Optional[SecurityHubClientConfig] = None
     ) -> "aws_sdk_securityhub.types.disable_security_hub_v2_response.DisableSecurityHubV2Response":
-        """<p>Disable the service for the current Amazon Web Services Region or specified Amazon Web Services Region.</p>"""
+        """<p>Disable the service for the current Amazon Web Services Region or specified Amazon Web Services Region.</p>
+
+        Raises:
+            aws_sdk_securityhub.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action specified in the request.</p>
+            aws_sdk_securityhub.errors.internal_server_exception.InternalServerException: <p> The request has failed due to an internal failure of the service. </p>
+            aws_sdk_securityhub.errors.throttling_exception.ThrottlingException: <p> The limit on the number of requests per second was exceeded. </p>
+            aws_sdk_securityhub.errors.validation_exception.ValidationException: <p>The request has failed validation because it's missing required fields or has invalid inputs.</p>
+            aws_sdk_securityhub.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_securityhub.types.disable_security_hub_v2_request.DisableSecurityHubV2Request]",
@@ -2714,6 +3086,14 @@ class SecurityHubClient:
         self, *, config_overrides: Optional[SecurityHubClientConfig] = None
     ) -> "aws_sdk_securityhub.types.disassociate_from_administrator_account_response.DisassociateFromAdministratorAccountResponse":
         """<p>Disassociates the current Security Hub CSPM member account from the associated administrator account.</p> <p>This operation is only used by accounts that are not part of an organization. For organization accounts, only the administrator account can disassociate a member account.</p>
+
+        Raises:
+            aws_sdk_securityhub.errors.internal_exception.InternalException: <p>Internal server error.</p>
+            aws_sdk_securityhub.errors.invalid_access_exception.InvalidAccessException: <p>The account doesn't have permission to perform this action.</p>
+            aws_sdk_securityhub.errors.invalid_input_exception.InvalidInputException: <p>The request was rejected because you supplied an invalid or out-of-range value for an input parameter.</p>
+            aws_sdk_securityhub.errors.limit_exceeded_exception.LimitExceededException: <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account or throttling limits. The error code describes the limit exceeded.</p>
+            aws_sdk_securityhub.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request was rejected because we can't find the specified resource.</p>
+            aws_sdk_securityhub.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To disassociate requesting account from administrator account
@@ -2749,7 +3129,16 @@ class SecurityHubClient:
     def disassociate_from_master_account(
         self, *, config_overrides: Optional[SecurityHubClientConfig] = None
     ) -> "aws_sdk_securityhub.types.disassociate_from_master_account_response.DisassociateFromMasterAccountResponse":
-        """<p>This method is deprecated. Instead, use <code>DisassociateFromAdministratorAccount</code>.</p> <p>The Security Hub CSPM console continues to use <code>DisassociateFromMasterAccount</code>. It will eventually change to use <code>DisassociateFromAdministratorAccount</code>. Any IAM policies that specifically control access to this function must continue to use <code>DisassociateFromMasterAccount</code>. You should also add <code>DisassociateFromAdministratorAccount</code> to your policies to ensure that the correct permissions are in place after the console begins to use <code>DisassociateFromAdministratorAccount</code>.</p> <p>Disassociates the current Security Hub CSPM member account from the associated administrator account.</p> <p>This operation is only used by accounts that are not part of an organization. For organization accounts, only the administrator account can disassociate a member account.</p>"""
+        """<p>This method is deprecated. Instead, use <code>DisassociateFromAdministratorAccount</code>.</p> <p>The Security Hub CSPM console continues to use <code>DisassociateFromMasterAccount</code>. It will eventually change to use <code>DisassociateFromAdministratorAccount</code>. Any IAM policies that specifically control access to this function must continue to use <code>DisassociateFromMasterAccount</code>. You should also add <code>DisassociateFromAdministratorAccount</code> to your policies to ensure that the correct permissions are in place after the console begins to use <code>DisassociateFromAdministratorAccount</code>.</p> <p>Disassociates the current Security Hub CSPM member account from the associated administrator account.</p> <p>This operation is only used by accounts that are not part of an organization. For organization accounts, only the administrator account can disassociate a member account.</p>
+
+        Raises:
+            aws_sdk_securityhub.errors.internal_exception.InternalException: <p>Internal server error.</p>
+            aws_sdk_securityhub.errors.invalid_access_exception.InvalidAccessException: <p>The account doesn't have permission to perform this action.</p>
+            aws_sdk_securityhub.errors.invalid_input_exception.InvalidInputException: <p>The request was rejected because you supplied an invalid or out-of-range value for an input parameter.</p>
+            aws_sdk_securityhub.errors.limit_exceeded_exception.LimitExceededException: <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account or throttling limits. The error code describes the limit exceeded.</p>
+            aws_sdk_securityhub.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request was rejected because we can't find the specified resource.</p>
+            aws_sdk_securityhub.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_securityhub.types.disassociate_from_master_account_request.DisassociateFromMasterAccountRequest]",
@@ -2785,6 +3174,15 @@ class SecurityHubClient:
 
         Args:
             account_ids: <p>The account IDs of the member accounts to disassociate from the administrator account.</p>
+
+        Raises:
+            aws_sdk_securityhub.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action specified in the request.</p>
+            aws_sdk_securityhub.errors.internal_exception.InternalException: <p>Internal server error.</p>
+            aws_sdk_securityhub.errors.invalid_access_exception.InvalidAccessException: <p>The account doesn't have permission to perform this action.</p>
+            aws_sdk_securityhub.errors.invalid_input_exception.InvalidInputException: <p>The request was rejected because you supplied an invalid or out-of-range value for an input parameter.</p>
+            aws_sdk_securityhub.errors.limit_exceeded_exception.LimitExceededException: <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account or throttling limits. The error code describes the limit exceeded.</p>
+            aws_sdk_securityhub.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request was rejected because we can't find the specified resource.</p>
+            aws_sdk_securityhub.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To disassociate member accounts from administrator account
@@ -2828,6 +3226,14 @@ class SecurityHubClient:
 
         Args:
             product_arn: <p>The ARN of the product to enable the integration for.</p>
+
+        Raises:
+            aws_sdk_securityhub.errors.internal_exception.InternalException: <p>Internal server error.</p>
+            aws_sdk_securityhub.errors.invalid_access_exception.InvalidAccessException: <p>The account doesn't have permission to perform this action.</p>
+            aws_sdk_securityhub.errors.invalid_input_exception.InvalidInputException: <p>The request was rejected because you supplied an invalid or out-of-range value for an input parameter.</p>
+            aws_sdk_securityhub.errors.limit_exceeded_exception.LimitExceededException: <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account or throttling limits. The error code describes the limit exceeded.</p>
+            aws_sdk_securityhub.errors.resource_conflict_exception.ResourceConflictException: <p>The resource specified in the request conflicts with an existing resource.</p>
+            aws_sdk_securityhub.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To activate an integration
@@ -2875,6 +3281,14 @@ class SecurityHubClient:
         Args:
             admin_account_id: <p>The Amazon Web Services account identifier of the account to designate as the Security Hub CSPM administrator account.</p>
             feature: <p>The feature for which the delegated admin account is enabled. Defaults to Security Hub CSPM if not specified.</p>
+
+        Raises:
+            aws_sdk_securityhub.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action specified in the request.</p>
+            aws_sdk_securityhub.errors.internal_exception.InternalException: <p>Internal server error.</p>
+            aws_sdk_securityhub.errors.invalid_access_exception.InvalidAccessException: <p>The account doesn't have permission to perform this action.</p>
+            aws_sdk_securityhub.errors.invalid_input_exception.InvalidInputException: <p>The request was rejected because you supplied an invalid or out-of-range value for an input parameter.</p>
+            aws_sdk_securityhub.errors.limit_exceeded_exception.LimitExceededException: <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account or throttling limits. The error code describes the limit exceeded.</p>
+            aws_sdk_securityhub.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To designate a Security Hub administrator
@@ -2929,6 +3343,14 @@ class SecurityHubClient:
             enable_default_standards: <p>Whether to enable the security standards that Security Hub CSPM has designated as automatically enabled. If you don't provide a value for <code>EnableDefaultStandards</code>, it is set to <code>true</code>. To not enable the automatically enabled standards, set <code>EnableDefaultStandards</code> to <code>false</code>.</p>
             control_finding_generator: <p>This field, used when enabling Security Hub CSPM, specifies whether the calling account has consolidated control findings turned on. If the value for this field is set to <code>SECURITY_CONTROL</code>, Security Hub CSPM generates a single finding for a control check even when the check applies to multiple enabled standards.</p> <p>If the value for this field is set to <code>STANDARD_CONTROL</code>, Security Hub CSPM generates separate findings for a control check when the check applies to multiple enabled standards.</p> <p>The value for this field in a member account matches the value in the administrator account. For accounts that aren't part of an organization, the default value of this field is <code>SECURITY_CONTROL</code> if you enabled Security Hub CSPM on or after February 23, 2023.</p>
 
+        Raises:
+            aws_sdk_securityhub.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action specified in the request.</p>
+            aws_sdk_securityhub.errors.internal_exception.InternalException: <p>Internal server error.</p>
+            aws_sdk_securityhub.errors.invalid_access_exception.InvalidAccessException: <p>The account doesn't have permission to perform this action.</p>
+            aws_sdk_securityhub.errors.limit_exceeded_exception.LimitExceededException: <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account or throttling limits. The error code describes the limit exceeded.</p>
+            aws_sdk_securityhub.errors.resource_conflict_exception.ResourceConflictException: <p>The resource specified in the request conflicts with an existing resource.</p>
+            aws_sdk_securityhub.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To activate Security Hub
             The following example activates the Security Hub service in the requesting AWS account. The service is activated in the current AWS Region or the Region that you specify in the request. Some standards are automatically turned on in your account unless you opt out. To determine which standards are automatically turned on, see the Security Hub documentation.
@@ -2976,6 +3398,13 @@ class SecurityHubClient:
 
         Args:
             tags: <p>The tags to add to the hub V2 resource when you enable Security Hub.</p>
+
+        Raises:
+            aws_sdk_securityhub.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action specified in the request.</p>
+            aws_sdk_securityhub.errors.internal_server_exception.InternalServerException: <p> The request has failed due to an internal failure of the service. </p>
+            aws_sdk_securityhub.errors.throttling_exception.ThrottlingException: <p> The limit on the number of requests per second was exceeded. </p>
+            aws_sdk_securityhub.errors.validation_exception.ValidationException: <p>The request has failed validation because it's missing required fields or has invalid inputs.</p>
+            aws_sdk_securityhub.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3014,6 +3443,15 @@ class SecurityHubClient:
 
         Args:
             metadata_uid: <p>The unique identifier (ID) of Security Hub OCSF findings found under the <code>metadata.uid</code> field of the finding.</p>
+
+        Raises:
+            aws_sdk_securityhub.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action specified in the request.</p>
+            aws_sdk_securityhub.errors.internal_server_exception.InternalServerException: <p> The request has failed due to an internal failure of the service. </p>
+            aws_sdk_securityhub.errors.invalid_input_exception.InvalidInputException: <p>The request was rejected because you supplied an invalid or out-of-range value for an input parameter.</p>
+            aws_sdk_securityhub.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request was rejected because we can't find the specified resource.</p>
+            aws_sdk_securityhub.errors.throttling_exception.ThrottlingException: <p> The limit on the number of requests per second was exceeded. </p>
+            aws_sdk_securityhub.errors.validation_exception.ValidationException: <p>The request has failed validation because it's missing required fields or has invalid inputs.</p>
+            aws_sdk_securityhub.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3044,7 +3482,16 @@ class SecurityHubClient:
     def get_administrator_account(
         self, *, config_overrides: Optional[SecurityHubClientConfig] = None
     ) -> "aws_sdk_securityhub.types.get_administrator_account_response.GetAdministratorAccountResponse":
-        """<p>Provides the details for the Security Hub CSPM administrator account for the current member account.</p> <p>Can be used by both member accounts that are managed using Organizations and accounts that were invited manually.</p>"""
+        """<p>Provides the details for the Security Hub CSPM administrator account for the current member account.</p> <p>Can be used by both member accounts that are managed using Organizations and accounts that were invited manually.</p>
+
+        Raises:
+            aws_sdk_securityhub.errors.internal_exception.InternalException: <p>Internal server error.</p>
+            aws_sdk_securityhub.errors.invalid_access_exception.InvalidAccessException: <p>The account doesn't have permission to perform this action.</p>
+            aws_sdk_securityhub.errors.invalid_input_exception.InvalidInputException: <p>The request was rejected because you supplied an invalid or out-of-range value for an input parameter.</p>
+            aws_sdk_securityhub.errors.limit_exceeded_exception.LimitExceededException: <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account or throttling limits. The error code describes the limit exceeded.</p>
+            aws_sdk_securityhub.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request was rejected because we can't find the specified resource.</p>
+            aws_sdk_securityhub.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_securityhub.types.get_administrator_account_request.GetAdministratorAccountRequest]",
@@ -3080,6 +3527,15 @@ class SecurityHubClient:
 
         Args:
             aggregator_v2_arn: <p>The ARN of the Aggregator V2.</p>
+
+        Raises:
+            aws_sdk_securityhub.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action specified in the request.</p>
+            aws_sdk_securityhub.errors.conflict_exception.ConflictException: <p>The request causes conflict with the current state of the service resource.</p>
+            aws_sdk_securityhub.errors.internal_server_exception.InternalServerException: <p> The request has failed due to an internal failure of the service. </p>
+            aws_sdk_securityhub.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request was rejected because we can't find the specified resource.</p>
+            aws_sdk_securityhub.errors.throttling_exception.ThrottlingException: <p> The limit on the number of requests per second was exceeded. </p>
+            aws_sdk_securityhub.errors.validation_exception.ValidationException: <p>The request has failed validation because it's missing required fields or has invalid inputs.</p>
+            aws_sdk_securityhub.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3117,6 +3573,15 @@ class SecurityHubClient:
 
         Args:
             identifier: <p>The ARN of the V2 automation rule.</p>
+
+        Raises:
+            aws_sdk_securityhub.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action specified in the request.</p>
+            aws_sdk_securityhub.errors.conflict_exception.ConflictException: <p>The request causes conflict with the current state of the service resource.</p>
+            aws_sdk_securityhub.errors.internal_server_exception.InternalServerException: <p> The request has failed due to an internal failure of the service. </p>
+            aws_sdk_securityhub.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request was rejected because we can't find the specified resource.</p>
+            aws_sdk_securityhub.errors.throttling_exception.ThrottlingException: <p> The limit on the number of requests per second was exceeded. </p>
+            aws_sdk_securityhub.errors.validation_exception.ValidationException: <p>The request has failed validation because it's missing required fields or has invalid inputs.</p>
+            aws_sdk_securityhub.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3154,6 +3619,15 @@ class SecurityHubClient:
 
         Args:
             identifier: <p> The Amazon Resource Name (ARN) or universally unique identifier (UUID) of the configuration policy. </p>
+
+        Raises:
+            aws_sdk_securityhub.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action specified in the request.</p>
+            aws_sdk_securityhub.errors.internal_exception.InternalException: <p>Internal server error.</p>
+            aws_sdk_securityhub.errors.invalid_access_exception.InvalidAccessException: <p>The account doesn't have permission to perform this action.</p>
+            aws_sdk_securityhub.errors.invalid_input_exception.InvalidInputException: <p>The request was rejected because you supplied an invalid or out-of-range value for an input parameter.</p>
+            aws_sdk_securityhub.errors.limit_exceeded_exception.LimitExceededException: <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account or throttling limits. The error code describes the limit exceeded.</p>
+            aws_sdk_securityhub.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request was rejected because we can't find the specified resource.</p>
+            aws_sdk_securityhub.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To get details about a configuration policy
@@ -3198,6 +3672,15 @@ class SecurityHubClient:
         Args:
             target: <p> The target account ID, organizational unit ID, or the root ID to retrieve the association for. </p>
 
+        Raises:
+            aws_sdk_securityhub.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action specified in the request.</p>
+            aws_sdk_securityhub.errors.internal_exception.InternalException: <p>Internal server error.</p>
+            aws_sdk_securityhub.errors.invalid_access_exception.InvalidAccessException: <p>The account doesn't have permission to perform this action.</p>
+            aws_sdk_securityhub.errors.invalid_input_exception.InvalidInputException: <p>The request was rejected because you supplied an invalid or out-of-range value for an input parameter.</p>
+            aws_sdk_securityhub.errors.limit_exceeded_exception.LimitExceededException: <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account or throttling limits. The error code describes the limit exceeded.</p>
+            aws_sdk_securityhub.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request was rejected because we can't find the specified resource.</p>
+            aws_sdk_securityhub.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To get details about a configuration association
             This operation provides details about configuration associations for a specific target account, organizational unit, or the root.
@@ -3240,6 +3723,15 @@ class SecurityHubClient:
 
         Args:
             connector_id: <p>The UUID of the connectorV2 to identify connectorV2 resource.</p>
+
+        Raises:
+            aws_sdk_securityhub.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action specified in the request.</p>
+            aws_sdk_securityhub.errors.conflict_exception.ConflictException: <p>The request causes conflict with the current state of the service resource.</p>
+            aws_sdk_securityhub.errors.internal_server_exception.InternalServerException: <p> The request has failed due to an internal failure of the service. </p>
+            aws_sdk_securityhub.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request was rejected because we can't find the specified resource.</p>
+            aws_sdk_securityhub.errors.throttling_exception.ThrottlingException: <p> The limit on the number of requests per second was exceeded. </p>
+            aws_sdk_securityhub.errors.validation_exception.ValidationException: <p>The request has failed validation because it's missing required fields or has invalid inputs.</p>
+            aws_sdk_securityhub.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3285,6 +3777,13 @@ class SecurityHubClient:
             standards_subscription_arns: <p>The list of the standards subscription ARNs for the standards to retrieve.</p>
             next_token: <p>The token that is required for pagination. On your first call to the <code>GetEnabledStandards</code> operation, set the value of this parameter to <code>NULL</code>.</p> <p>For subsequent calls to the operation, to continue listing data, set the value of this parameter to the value returned from the previous response.</p>
             max_results: <p>The maximum number of results to return in the response.</p>
+
+        Raises:
+            aws_sdk_securityhub.errors.internal_exception.InternalException: <p>Internal server error.</p>
+            aws_sdk_securityhub.errors.invalid_access_exception.InvalidAccessException: <p>The account doesn't have permission to perform this action.</p>
+            aws_sdk_securityhub.errors.invalid_input_exception.InvalidInputException: <p>The request was rejected because you supplied an invalid or out-of-range value for an input parameter.</p>
+            aws_sdk_securityhub.errors.limit_exceeded_exception.LimitExceededException: <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account or throttling limits. The error code describes the limit exceeded.</p>
+            aws_sdk_securityhub.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To return a list of enabled standards
@@ -3361,6 +3860,15 @@ class SecurityHubClient:
         Args:
             finding_aggregator_arn: <p>The ARN of the finding aggregator to return details for. To obtain the ARN, use <code>ListFindingAggregators</code>.</p>
 
+        Raises:
+            aws_sdk_securityhub.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action specified in the request.</p>
+            aws_sdk_securityhub.errors.internal_exception.InternalException: <p>Internal server error.</p>
+            aws_sdk_securityhub.errors.invalid_access_exception.InvalidAccessException: <p>The account doesn't have permission to perform this action.</p>
+            aws_sdk_securityhub.errors.invalid_input_exception.InvalidInputException: <p>The request was rejected because you supplied an invalid or out-of-range value for an input parameter.</p>
+            aws_sdk_securityhub.errors.limit_exceeded_exception.LimitExceededException: <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account or throttling limits. The error code describes the limit exceeded.</p>
+            aws_sdk_securityhub.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request was rejected because we can't find the specified resource.</p>
+            aws_sdk_securityhub.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To get cross-Region aggregation details
             The following example returns cross-Region aggregation details for the requesting account.
@@ -3412,6 +3920,13 @@ class SecurityHubClient:
             end_time: <p> An ISO 8601-formatted timestamp that indicates the end time of the requested finding history.</p> <p>If you provide values for both <code>StartTime</code> and <code>EndTime</code>, Security Hub CSPM returns finding history for the specified time period. If you provide a value for <code>StartTime</code> but not for <code>EndTime</code>, Security Hub CSPM returns finding history from the <code>StartTime</code> to the time at which the API is called. If you provide a value for <code>EndTime</code> but not for <code>StartTime</code>, Security Hub CSPM returns finding history from the <a href=\"https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_AwsSecurityFindingFilters.html#securityhub-Type-AwsSecurityFindingFilters-CreatedAt\">CreatedAt</a> timestamp of the finding to the <code>EndTime</code>. If you provide neither <code>StartTime</code> nor <code>EndTime</code>, Security Hub CSPM returns finding history from the <code>CreatedAt</code> timestamp of the finding to the time at which the API is called. In all of these scenarios, the response is limited to 100 results.</p> <p>For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see <a href=\"https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps\">Timestamps</a>.</p>
             next_token: <p> A token for pagination purposes. Provide <code>NULL</code> as the initial value. In subsequent requests, provide the token included in the response to get up to an additional 100 results of finding history. If you don’t provide <code>NextToken</code>, Security Hub CSPM returns up to 100 results of finding history for each request. </p>
             max_results: <p> The maximum number of results to be returned. If you don’t provide it, Security Hub CSPM returns up to 100 results of finding history. </p>
+
+        Raises:
+            aws_sdk_securityhub.errors.internal_exception.InternalException: <p>Internal server error.</p>
+            aws_sdk_securityhub.errors.invalid_access_exception.InvalidAccessException: <p>The account doesn't have permission to perform this action.</p>
+            aws_sdk_securityhub.errors.invalid_input_exception.InvalidInputException: <p>The request was rejected because you supplied an invalid or out-of-range value for an input parameter.</p>
+            aws_sdk_securityhub.errors.limit_exceeded_exception.LimitExceededException: <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account or throttling limits. The error code describes the limit exceeded.</p>
+            aws_sdk_securityhub.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3498,6 +4013,13 @@ class SecurityHubClient:
             sort_criteria: <p>The finding attributes used to sort the list of returned findings.</p>
             next_token: <p>The token that is required for pagination. On your first call to the <code>GetFindings</code> operation, set the value of this parameter to <code>NULL</code>.</p> <p>For subsequent calls to the operation, to continue listing data, set the value of this parameter to the value returned from the previous response.</p>
             max_results: <p>The maximum number of findings to return.</p>
+
+        Raises:
+            aws_sdk_securityhub.errors.internal_exception.InternalException: <p>Internal server error.</p>
+            aws_sdk_securityhub.errors.invalid_access_exception.InvalidAccessException: <p>The account doesn't have permission to perform this action.</p>
+            aws_sdk_securityhub.errors.invalid_input_exception.InvalidInputException: <p>The request was rejected because you supplied an invalid or out-of-range value for an input parameter.</p>
+            aws_sdk_securityhub.errors.limit_exceeded_exception.LimitExceededException: <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account or throttling limits. The error code describes the limit exceeded.</p>
+            aws_sdk_securityhub.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To get a list of findings
@@ -3589,6 +4111,16 @@ class SecurityHubClient:
             scopes: <p>Limits the results to findings from specific organizational units or from the delegated administrator's organization. Only the delegated administrator account can use this parameter. Other accounts receive an <code>AccessDeniedException</code>.</p> <p>This parameter is optional. If you omit it, the delegated administrator sees statistics from all accounts across the entire organization. Other accounts see only statistics for their own findings.</p> <p>You can specify up to 10 entries in <code>Scopes.AwsOrganizations</code>. If multiple entries are specified, the entries are combined using OR logic.</p>
             sort_order: <p>Orders the aggregation count in descending or ascending order. Descending order is the default.</p>
             max_statistic_results: <p>The maximum number of results to be returned.</p>
+
+        Raises:
+            aws_sdk_securityhub.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action specified in the request.</p>
+            aws_sdk_securityhub.errors.conflict_exception.ConflictException: <p>The request causes conflict with the current state of the service resource.</p>
+            aws_sdk_securityhub.errors.internal_server_exception.InternalServerException: <p> The request has failed due to an internal failure of the service. </p>
+            aws_sdk_securityhub.errors.organizational_unit_not_found_exception.OrganizationalUnitNotFoundException: <p>The request failed because one or more organizational units specified in the request don't exist within the caller's organization.</p>
+            aws_sdk_securityhub.errors.organization_not_found_exception.OrganizationNotFoundException: <p>The request failed because one or more organizations specified in the request don't exist or don't belong to the caller's organization.</p>
+            aws_sdk_securityhub.errors.throttling_exception.ThrottlingException: <p> The limit on the number of requests per second was exceeded. </p>
+            aws_sdk_securityhub.errors.validation_exception.ValidationException: <p>The request has failed validation because it's missing required fields or has invalid inputs.</p>
+            aws_sdk_securityhub.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3644,6 +4176,13 @@ class SecurityHubClient:
             end_time: <p>The ending timestamp for the time period to analyze findings trends, in ISO 8601 format.</p>
             next_token: <p>The token to use for paginating results. This value is returned in the response if more results are available.</p>
             max_results: <p>The maximum number of trend data points to return in a single response.</p>
+
+        Raises:
+            aws_sdk_securityhub.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action specified in the request.</p>
+            aws_sdk_securityhub.errors.internal_server_exception.InternalServerException: <p> The request has failed due to an internal failure of the service. </p>
+            aws_sdk_securityhub.errors.throttling_exception.ThrottlingException: <p> The limit on the number of requests per second was exceeded. </p>
+            aws_sdk_securityhub.errors.validation_exception.ValidationException: <p>The request has failed validation because it's missing required fields or has invalid inputs.</p>
+            aws_sdk_securityhub.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3737,6 +4276,16 @@ class SecurityHubClient:
             sort_criteria: <p>The finding attributes used to sort the list of returned findings.</p>
             next_token: <p> The token required for pagination. On your first call, set the value of this parameter to <code>NULL</code>. For subsequent calls, to continue listing data, set the value of this parameter to the value returned in the previous response.</p>
             max_results: <p>The maximum number of results to return.</p>
+
+        Raises:
+            aws_sdk_securityhub.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action specified in the request.</p>
+            aws_sdk_securityhub.errors.conflict_exception.ConflictException: <p>The request causes conflict with the current state of the service resource.</p>
+            aws_sdk_securityhub.errors.internal_server_exception.InternalServerException: <p> The request has failed due to an internal failure of the service. </p>
+            aws_sdk_securityhub.errors.organizational_unit_not_found_exception.OrganizationalUnitNotFoundException: <p>The request failed because one or more organizational units specified in the request don't exist within the caller's organization.</p>
+            aws_sdk_securityhub.errors.organization_not_found_exception.OrganizationNotFoundException: <p>The request failed because one or more organizations specified in the request don't exist or don't belong to the caller's organization.</p>
+            aws_sdk_securityhub.errors.throttling_exception.ThrottlingException: <p> The limit on the number of requests per second was exceeded. </p>
+            aws_sdk_securityhub.errors.validation_exception.ValidationException: <p>The request has failed validation because it's missing required fields or has invalid inputs.</p>
+            aws_sdk_securityhub.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3819,6 +4368,14 @@ class SecurityHubClient:
         Args:
             insight_arn: <p>The ARN of the insight for which to return results.</p>
 
+        Raises:
+            aws_sdk_securityhub.errors.internal_exception.InternalException: <p>Internal server error.</p>
+            aws_sdk_securityhub.errors.invalid_access_exception.InvalidAccessException: <p>The account doesn't have permission to perform this action.</p>
+            aws_sdk_securityhub.errors.invalid_input_exception.InvalidInputException: <p>The request was rejected because you supplied an invalid or out-of-range value for an input parameter.</p>
+            aws_sdk_securityhub.errors.limit_exceeded_exception.LimitExceededException: <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account or throttling limits. The error code describes the limit exceeded.</p>
+            aws_sdk_securityhub.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request was rejected because we can't find the specified resource.</p>
+            aws_sdk_securityhub.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To get the results of a Security Hub insight
             The following example returns the results of the Security Hub insight specified by the insight ARN.
@@ -3867,6 +4424,14 @@ class SecurityHubClient:
             insight_arns: <p>The ARNs of the insights to describe. If you don't provide any insight ARNs, then <code>GetInsights</code> returns all of your custom insights. It does not return any managed insights.</p>
             next_token: <p>The token that is required for pagination. On your first call to the <code>GetInsights</code> operation, set the value of this parameter to <code>NULL</code>.</p> <p>For subsequent calls to the operation, to continue listing data, set the value of this parameter to the value returned from the previous response.</p>
             max_results: <p>The maximum number of items to return in the response.</p>
+
+        Raises:
+            aws_sdk_securityhub.errors.internal_exception.InternalException: <p>Internal server error.</p>
+            aws_sdk_securityhub.errors.invalid_access_exception.InvalidAccessException: <p>The account doesn't have permission to perform this action.</p>
+            aws_sdk_securityhub.errors.invalid_input_exception.InvalidInputException: <p>The request was rejected because you supplied an invalid or out-of-range value for an input parameter.</p>
+            aws_sdk_securityhub.errors.limit_exceeded_exception.LimitExceededException: <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account or throttling limits. The error code describes the limit exceeded.</p>
+            aws_sdk_securityhub.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request was rejected because we can't find the specified resource.</p>
+            aws_sdk_securityhub.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To get details of a Security Hub insight
@@ -3935,6 +4500,13 @@ class SecurityHubClient:
     ) -> "aws_sdk_securityhub.types.get_invitations_count_response.GetInvitationsCountResponse":
         r"""<note> <p>We recommend using Organizations instead of Security Hub CSPM invitations to manage your member accounts. For information, see <a href=\"https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-accounts-orgs.html\">Managing Security Hub CSPM administrator and member accounts with Organizations</a> in the <i>Security Hub CSPM User Guide</i>.</p> </note> <p>Returns the count of all Security Hub CSPM membership invitations that were sent to the calling member account, not including the currently accepted invitation. </p>
 
+        Raises:
+            aws_sdk_securityhub.errors.internal_exception.InternalException: <p>Internal server error.</p>
+            aws_sdk_securityhub.errors.invalid_access_exception.InvalidAccessException: <p>The account doesn't have permission to perform this action.</p>
+            aws_sdk_securityhub.errors.invalid_input_exception.InvalidInputException: <p>The request was rejected because you supplied an invalid or out-of-range value for an input parameter.</p>
+            aws_sdk_securityhub.errors.limit_exceeded_exception.LimitExceededException: <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account or throttling limits. The error code describes the limit exceeded.</p>
+            aws_sdk_securityhub.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To get a count of membership invitations
             The following example returns a count of invitations that the Security Hub administrator sent to the current member account, not including the currently accepted invitation.
@@ -3973,7 +4545,16 @@ class SecurityHubClient:
     ) -> (
         "aws_sdk_securityhub.types.get_master_account_response.GetMasterAccountResponse"
     ):
-        """<p>This method is deprecated. Instead, use <code>GetAdministratorAccount</code>.</p> <p>The Security Hub CSPM console continues to use <code>GetMasterAccount</code>. It will eventually change to use <code>GetAdministratorAccount</code>. Any IAM policies that specifically control access to this function must continue to use <code>GetMasterAccount</code>. You should also add <code>GetAdministratorAccount</code> to your policies to ensure that the correct permissions are in place after the console begins to use <code>GetAdministratorAccount</code>.</p> <p>Provides the details for the Security Hub CSPM administrator account for the current member account.</p> <p>Can be used by both member accounts that are managed using Organizations and accounts that were invited manually.</p>"""
+        """<p>This method is deprecated. Instead, use <code>GetAdministratorAccount</code>.</p> <p>The Security Hub CSPM console continues to use <code>GetMasterAccount</code>. It will eventually change to use <code>GetAdministratorAccount</code>. Any IAM policies that specifically control access to this function must continue to use <code>GetMasterAccount</code>. You should also add <code>GetAdministratorAccount</code> to your policies to ensure that the correct permissions are in place after the console begins to use <code>GetAdministratorAccount</code>.</p> <p>Provides the details for the Security Hub CSPM administrator account for the current member account.</p> <p>Can be used by both member accounts that are managed using Organizations and accounts that were invited manually.</p>
+
+        Raises:
+            aws_sdk_securityhub.errors.internal_exception.InternalException: <p>Internal server error.</p>
+            aws_sdk_securityhub.errors.invalid_access_exception.InvalidAccessException: <p>The account doesn't have permission to perform this action.</p>
+            aws_sdk_securityhub.errors.invalid_input_exception.InvalidInputException: <p>The request was rejected because you supplied an invalid or out-of-range value for an input parameter.</p>
+            aws_sdk_securityhub.errors.limit_exceeded_exception.LimitExceededException: <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account or throttling limits. The error code describes the limit exceeded.</p>
+            aws_sdk_securityhub.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request was rejected because we can't find the specified resource.</p>
+            aws_sdk_securityhub.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_securityhub.types.get_master_account_request.GetMasterAccountRequest]",
@@ -4009,6 +4590,14 @@ class SecurityHubClient:
 
         Args:
             account_ids: <p>The list of account IDs for the Security Hub CSPM member accounts to return the details for. </p>
+
+        Raises:
+            aws_sdk_securityhub.errors.internal_exception.InternalException: <p>Internal server error.</p>
+            aws_sdk_securityhub.errors.invalid_access_exception.InvalidAccessException: <p>The account doesn't have permission to perform this action.</p>
+            aws_sdk_securityhub.errors.invalid_input_exception.InvalidInputException: <p>The request was rejected because you supplied an invalid or out-of-range value for an input parameter.</p>
+            aws_sdk_securityhub.errors.limit_exceeded_exception.LimitExceededException: <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account or throttling limits. The error code describes the limit exceeded.</p>
+            aws_sdk_securityhub.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request was rejected because we can't find the specified resource.</p>
+            aws_sdk_securityhub.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4052,6 +4641,15 @@ class SecurityHubClient:
             metadata_uid: <p>The unique identifier (ID) of Security Hub OCSF findings found under the <code>metadata.uid</code> field of the finding.</p>
             next_token: <p>The token used to paginate the <code>RecommendationSteps</code> list returned. On your first call to <code>GetRecommendedPolicyV2</code>, omit this parameter or set it to <code>NULL</code>. For subsequent calls, use the <code>NextToken</code> value returned in the previous response to retrieve the next page of results.</p>
             max_results: <p>The maximum number of recommendation steps to return.</p>
+
+        Raises:
+            aws_sdk_securityhub.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action specified in the request.</p>
+            aws_sdk_securityhub.errors.internal_server_exception.InternalServerException: <p> The request has failed due to an internal failure of the service. </p>
+            aws_sdk_securityhub.errors.invalid_input_exception.InvalidInputException: <p>The request was rejected because you supplied an invalid or out-of-range value for an input parameter.</p>
+            aws_sdk_securityhub.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request was rejected because we can't find the specified resource.</p>
+            aws_sdk_securityhub.errors.throttling_exception.ThrottlingException: <p> The limit on the number of requests per second was exceeded. </p>
+            aws_sdk_securityhub.errors.validation_exception.ValidationException: <p>The request has failed validation because it's missing required fields or has invalid inputs.</p>
+            aws_sdk_securityhub.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4128,6 +4726,17 @@ class SecurityHubClient:
             scopes: <p>Limits the results to resources from specific organizational units or from the delegated administrator's organization. Only the delegated administrator account can use this parameter. Other accounts receive an <code>AccessDeniedException</code>.</p> <p>This parameter is optional. If you omit it, the delegated administrator sees statistics from all accounts across the entire organization. Other accounts see only statistics for their own resources.</p> <p>You can specify up to 10 entries in <code>Scopes.AwsOrganizations</code>. If multiple entries are specified, the entries are combined using OR logic.</p>
             sort_order: <p>Sorts aggregated statistics.</p>
             max_statistic_results: <p>The maximum number of results to be returned.</p>
+
+        Raises:
+            aws_sdk_securityhub.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action specified in the request.</p>
+            aws_sdk_securityhub.errors.conflict_exception.ConflictException: <p>The request causes conflict with the current state of the service resource.</p>
+            aws_sdk_securityhub.errors.internal_server_exception.InternalServerException: <p> The request has failed due to an internal failure of the service. </p>
+            aws_sdk_securityhub.errors.organizational_unit_not_found_exception.OrganizationalUnitNotFoundException: <p>The request failed because one or more organizational units specified in the request don't exist within the caller's organization.</p>
+            aws_sdk_securityhub.errors.organization_not_found_exception.OrganizationNotFoundException: <p>The request failed because one or more organizations specified in the request don't exist or don't belong to the caller's organization.</p>
+            aws_sdk_securityhub.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request was rejected because we can't find the specified resource.</p>
+            aws_sdk_securityhub.errors.throttling_exception.ThrottlingException: <p> The limit on the number of requests per second was exceeded. </p>
+            aws_sdk_securityhub.errors.validation_exception.ValidationException: <p>The request has failed validation because it's missing required fields or has invalid inputs.</p>
+            aws_sdk_securityhub.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4183,6 +4792,13 @@ class SecurityHubClient:
             end_time: <p>The ending timestamp for the time period to analyze resources trends, in ISO 8601 format.</p>
             next_token: <p>The token to use for paginating results. This value is returned in the response if more results are available.</p>
             max_results: <p>The maximum number of trend data points to return in a single response.</p>
+
+        Raises:
+            aws_sdk_securityhub.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action specified in the request.</p>
+            aws_sdk_securityhub.errors.internal_server_exception.InternalServerException: <p> The request has failed due to an internal failure of the service. </p>
+            aws_sdk_securityhub.errors.throttling_exception.ThrottlingException: <p> The limit on the number of requests per second was exceeded. </p>
+            aws_sdk_securityhub.errors.validation_exception.ValidationException: <p>The request has failed validation because it's missing required fields or has invalid inputs.</p>
+            aws_sdk_securityhub.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4274,6 +4890,17 @@ class SecurityHubClient:
             sort_criteria: <p>The resource attributes used to sort the list of returned resources.</p>
             next_token: <p>The token required for pagination. On your first call, set the value of this parameter to <code>NULL</code>. For subsequent calls, to continue listing data, set the value of this parameter to the value returned in the previous response.</p>
             max_results: <p>The maximum number of results to return.</p>
+
+        Raises:
+            aws_sdk_securityhub.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action specified in the request.</p>
+            aws_sdk_securityhub.errors.conflict_exception.ConflictException: <p>The request causes conflict with the current state of the service resource.</p>
+            aws_sdk_securityhub.errors.internal_server_exception.InternalServerException: <p> The request has failed due to an internal failure of the service. </p>
+            aws_sdk_securityhub.errors.organizational_unit_not_found_exception.OrganizationalUnitNotFoundException: <p>The request failed because one or more organizational units specified in the request don't exist within the caller's organization.</p>
+            aws_sdk_securityhub.errors.organization_not_found_exception.OrganizationNotFoundException: <p>The request failed because one or more organizations specified in the request don't exist or don't belong to the caller's organization.</p>
+            aws_sdk_securityhub.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request was rejected because we can't find the specified resource.</p>
+            aws_sdk_securityhub.errors.throttling_exception.ThrottlingException: <p> The limit on the number of requests per second was exceeded. </p>
+            aws_sdk_securityhub.errors.validation_exception.ValidationException: <p>The request has failed validation because it's missing required fields or has invalid inputs.</p>
+            aws_sdk_securityhub.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4356,6 +4983,14 @@ class SecurityHubClient:
         Args:
             security_control_id: <p> The ID of the security control to retrieve the definition for. This field doesn’t accept an Amazon Resource Name (ARN). </p>
 
+        Raises:
+            aws_sdk_securityhub.errors.internal_exception.InternalException: <p>Internal server error.</p>
+            aws_sdk_securityhub.errors.invalid_access_exception.InvalidAccessException: <p>The account doesn't have permission to perform this action.</p>
+            aws_sdk_securityhub.errors.invalid_input_exception.InvalidInputException: <p>The request was rejected because you supplied an invalid or out-of-range value for an input parameter.</p>
+            aws_sdk_securityhub.errors.limit_exceeded_exception.LimitExceededException: <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account or throttling limits. The error code describes the limit exceeded.</p>
+            aws_sdk_securityhub.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request was rejected because we can't find the specified resource.</p>
+            aws_sdk_securityhub.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To get the definition of a security control.
             The following example retrieves definition details for the specified security control.
@@ -4398,6 +5033,14 @@ class SecurityHubClient:
 
         Args:
             account_ids: <p>The list of account IDs of the Amazon Web Services accounts to invite to Security Hub CSPM as members. </p>
+
+        Raises:
+            aws_sdk_securityhub.errors.internal_exception.InternalException: <p>Internal server error.</p>
+            aws_sdk_securityhub.errors.invalid_access_exception.InvalidAccessException: <p>The account doesn't have permission to perform this action.</p>
+            aws_sdk_securityhub.errors.invalid_input_exception.InvalidInputException: <p>The request was rejected because you supplied an invalid or out-of-range value for an input parameter.</p>
+            aws_sdk_securityhub.errors.limit_exceeded_exception.LimitExceededException: <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account or throttling limits. The error code describes the limit exceeded.</p>
+            aws_sdk_securityhub.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request was rejected because we can't find the specified resource.</p>
+            aws_sdk_securityhub.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To invite accounts to become members
@@ -4445,6 +5088,15 @@ class SecurityHubClient:
         Args:
             next_token: <p>The token required for pagination. On your first call, set the value of this parameter to <code>NULL</code>. For subsequent calls, to continue listing data, set the value of this parameter to the value returned in the previous response.</p>
             max_results: <p>The maximum number of results to return.</p>
+
+        Raises:
+            aws_sdk_securityhub.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action specified in the request.</p>
+            aws_sdk_securityhub.errors.conflict_exception.ConflictException: <p>The request causes conflict with the current state of the service resource.</p>
+            aws_sdk_securityhub.errors.internal_server_exception.InternalServerException: <p> The request has failed due to an internal failure of the service. </p>
+            aws_sdk_securityhub.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request was rejected because we can't find the specified resource.</p>
+            aws_sdk_securityhub.errors.throttling_exception.ThrottlingException: <p> The limit on the number of requests per second was exceeded. </p>
+            aws_sdk_securityhub.errors.validation_exception.ValidationException: <p>The request has failed validation because it's missing required fields or has invalid inputs.</p>
+            aws_sdk_securityhub.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4513,6 +5165,14 @@ class SecurityHubClient:
             next_token: <p> A token to specify where to start paginating the response. This is the <code>NextToken</code> from a previously truncated response. On your first call to the <code>ListAutomationRules</code> API, set the value of this parameter to <code>NULL</code>. </p>
             max_results: <p> The maximum number of rules to return in the response. This currently ranges from 1 to 100. </p>
 
+        Raises:
+            aws_sdk_securityhub.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action specified in the request.</p>
+            aws_sdk_securityhub.errors.internal_exception.InternalException: <p>Internal server error.</p>
+            aws_sdk_securityhub.errors.invalid_access_exception.InvalidAccessException: <p>The account doesn't have permission to perform this action.</p>
+            aws_sdk_securityhub.errors.invalid_input_exception.InvalidInputException: <p>The request was rejected because you supplied an invalid or out-of-range value for an input parameter.</p>
+            aws_sdk_securityhub.errors.limit_exceeded_exception.LimitExceededException: <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account or throttling limits. The error code describes the limit exceeded.</p>
+            aws_sdk_securityhub.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To list automation rules
             The following example lists automation rules and rule metadata in the calling account.
@@ -4562,6 +5222,14 @@ class SecurityHubClient:
         Args:
             next_token: <p>The token required for pagination. On your first call, set the value of this parameter to <code>NULL</code>. For subsequent calls, to continue listing data, set the value of this parameter to the value returned in the previous response.</p>
             max_results: <p>The maximum number of results to return.</p>
+
+        Raises:
+            aws_sdk_securityhub.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action specified in the request.</p>
+            aws_sdk_securityhub.errors.conflict_exception.ConflictException: <p>The request causes conflict with the current state of the service resource.</p>
+            aws_sdk_securityhub.errors.internal_server_exception.InternalServerException: <p> The request has failed due to an internal failure of the service. </p>
+            aws_sdk_securityhub.errors.throttling_exception.ThrottlingException: <p> The limit on the number of requests per second was exceeded. </p>
+            aws_sdk_securityhub.errors.validation_exception.ValidationException: <p>The request has failed validation because it's missing required fields or has invalid inputs.</p>
+            aws_sdk_securityhub.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4606,6 +5274,14 @@ class SecurityHubClient:
         Args:
             next_token: <p> The NextToken value that's returned from a previous paginated <code>ListConfigurationPolicies</code> request where <code>MaxResults</code> was used but the results exceeded the value of that parameter. Pagination continues from the <code>MaxResults</code> was used but the results exceeded the value of that parameter. Pagination continues from the end of the previous response that returned the <code>NextToken</code> value. This value is <code>null</code> when there are no more results to return. </p>
             max_results: <p> The maximum number of results that's returned by <code>ListConfigurationPolicies</code> in each page of the response. When this parameter is used, <code>ListConfigurationPolicies</code> returns the specified number of results in a single page and a <code>NextToken</code> response element. You can see the remaining results of the initial request by sending another <code>ListConfigurationPolicies</code> request with the returned <code>NextToken</code> value. A valid range for <code>MaxResults</code> is between 1 and 100. </p>
+
+        Raises:
+            aws_sdk_securityhub.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action specified in the request.</p>
+            aws_sdk_securityhub.errors.internal_exception.InternalException: <p>Internal server error.</p>
+            aws_sdk_securityhub.errors.invalid_access_exception.InvalidAccessException: <p>The account doesn't have permission to perform this action.</p>
+            aws_sdk_securityhub.errors.invalid_input_exception.InvalidInputException: <p>The request was rejected because you supplied an invalid or out-of-range value for an input parameter.</p>
+            aws_sdk_securityhub.errors.limit_exceeded_exception.LimitExceededException: <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account or throttling limits. The error code describes the limit exceeded.</p>
+            aws_sdk_securityhub.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To view a list of configuration policies
@@ -4683,6 +5359,14 @@ class SecurityHubClient:
             next_token: <p> The <code>NextToken</code> value that's returned from a previous paginated <code>ListConfigurationPolicyAssociations</code> request where <code>MaxResults</code> was used but the results exceeded the value of that parameter. Pagination continues from the end of the previous response that returned the <code>NextToken</code> value. This value is <code>null</code> when there are no more results to return. </p>
             max_results: <p> The maximum number of results that's returned by <code>ListConfigurationPolicies</code> in each page of the response. When this parameter is used, <code>ListConfigurationPolicyAssociations</code> returns the specified number of results in a single page and a <code>NextToken</code> response element. You can see the remaining results of the initial request by sending another <code>ListConfigurationPolicyAssociations</code> request with the returned <code>NextToken</code> value. A valid range for <code>MaxResults</code> is between 1 and 100. </p>
             filters: <p> Options for filtering the <code>ListConfigurationPolicyAssociations</code> response. You can filter by the Amazon Resource Name (ARN) or universally unique identifier (UUID) of a configuration, <code>AssociationType</code>, or <code>AssociationStatus</code>. </p>
+
+        Raises:
+            aws_sdk_securityhub.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action specified in the request.</p>
+            aws_sdk_securityhub.errors.internal_exception.InternalException: <p>Internal server error.</p>
+            aws_sdk_securityhub.errors.invalid_access_exception.InvalidAccessException: <p>The account doesn't have permission to perform this action.</p>
+            aws_sdk_securityhub.errors.invalid_input_exception.InvalidInputException: <p>The request was rejected because you supplied an invalid or out-of-range value for an input parameter.</p>
+            aws_sdk_securityhub.errors.limit_exceeded_exception.LimitExceededException: <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account or throttling limits. The error code describes the limit exceeded.</p>
+            aws_sdk_securityhub.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To list configuration associations
@@ -4774,6 +5458,15 @@ class SecurityHubClient:
             max_results: <p>The maximum number of results to be returned.</p>
             provider_name: <p>The name of the third-party provider.</p>
             connector_status: <p>The status for the connectorV2.</p>
+
+        Raises:
+            aws_sdk_securityhub.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action specified in the request.</p>
+            aws_sdk_securityhub.errors.conflict_exception.ConflictException: <p>The request causes conflict with the current state of the service resource.</p>
+            aws_sdk_securityhub.errors.internal_server_exception.InternalServerException: <p> The request has failed due to an internal failure of the service. </p>
+            aws_sdk_securityhub.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request was rejected because we can't find the specified resource.</p>
+            aws_sdk_securityhub.errors.throttling_exception.ThrottlingException: <p> The limit on the number of requests per second was exceeded. </p>
+            aws_sdk_securityhub.errors.validation_exception.ValidationException: <p>The request has failed validation because it's missing required fields or has invalid inputs.</p>
+            aws_sdk_securityhub.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4822,6 +5515,12 @@ class SecurityHubClient:
         Args:
             next_token: <p>The token that is required for pagination. On your first call to the <code>ListEnabledProductsForImport</code> operation, set the value of this parameter to <code>NULL</code>.</p> <p>For subsequent calls to the operation, to continue listing data, set the value of this parameter to the value returned from the previous response.</p>
             max_results: <p>The maximum number of items to return in the response.</p>
+
+        Raises:
+            aws_sdk_securityhub.errors.internal_exception.InternalException: <p>Internal server error.</p>
+            aws_sdk_securityhub.errors.invalid_access_exception.InvalidAccessException: <p>The account doesn't have permission to perform this action.</p>
+            aws_sdk_securityhub.errors.limit_exceeded_exception.LimitExceededException: <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account or throttling limits. The error code describes the limit exceeded.</p>
+            aws_sdk_securityhub.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To list ARNs for enabled integrations
@@ -4896,6 +5595,14 @@ class SecurityHubClient:
             next_token: <p>The token returned with the previous set of results. Identifies the next set of results to return.</p>
             max_results: <p>The maximum number of results to return. This operation currently only returns a single result.</p>
 
+        Raises:
+            aws_sdk_securityhub.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action specified in the request.</p>
+            aws_sdk_securityhub.errors.internal_exception.InternalException: <p>Internal server error.</p>
+            aws_sdk_securityhub.errors.invalid_access_exception.InvalidAccessException: <p>The account doesn't have permission to perform this action.</p>
+            aws_sdk_securityhub.errors.invalid_input_exception.InvalidInputException: <p>The request was rejected because you supplied an invalid or out-of-range value for an input parameter.</p>
+            aws_sdk_securityhub.errors.limit_exceeded_exception.LimitExceededException: <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account or throttling limits. The error code describes the limit exceeded.</p>
+            aws_sdk_securityhub.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To update the enablement status of a standard control
             The following example disables the specified control in the specified security standard.
@@ -4968,6 +5675,13 @@ class SecurityHubClient:
         Args:
             max_results: <p>The maximum number of items to return in the response. </p>
             next_token: <p>The token that is required for pagination. On your first call to the <code>ListInvitations</code> operation, set the value of this parameter to <code>NULL</code>.</p> <p>For subsequent calls to the operation, to continue listing data, set the value of this parameter to the value returned from the previous response.</p>
+
+        Raises:
+            aws_sdk_securityhub.errors.internal_exception.InternalException: <p>Internal server error.</p>
+            aws_sdk_securityhub.errors.invalid_access_exception.InvalidAccessException: <p>The account doesn't have permission to perform this action.</p>
+            aws_sdk_securityhub.errors.invalid_input_exception.InvalidInputException: <p>The request was rejected because you supplied an invalid or out-of-range value for an input parameter.</p>
+            aws_sdk_securityhub.errors.limit_exceeded_exception.LimitExceededException: <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account or throttling limits. The error code describes the limit exceeded.</p>
+            aws_sdk_securityhub.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5037,6 +5751,13 @@ class SecurityHubClient:
             only_associated: <p>Specifies which member accounts to include in the response based on their relationship status with the administrator account. The default value is <code>TRUE</code>.</p> <p>If <code>OnlyAssociated</code> is set to <code>TRUE</code>, the response includes member accounts whose relationship status with the administrator account is set to <code>ENABLED</code>.</p> <p>If <code>OnlyAssociated</code> is set to <code>FALSE</code>, the response includes all existing member accounts. </p>
             max_results: <p>The maximum number of items to return in the response. </p>
             next_token: <p>The token that is required for pagination. On your first call to the <code>ListMembers</code> operation, set the value of this parameter to <code>NULL</code>.</p> <p>For subsequent calls to the operation, to continue listing data, set the value of this parameter to the value returned from the previous response.</p>
+
+        Raises:
+            aws_sdk_securityhub.errors.internal_exception.InternalException: <p>Internal server error.</p>
+            aws_sdk_securityhub.errors.invalid_access_exception.InvalidAccessException: <p>The account doesn't have permission to perform this action.</p>
+            aws_sdk_securityhub.errors.invalid_input_exception.InvalidInputException: <p>The request was rejected because you supplied an invalid or out-of-range value for an input parameter.</p>
+            aws_sdk_securityhub.errors.limit_exceeded_exception.LimitExceededException: <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account or throttling limits. The error code describes the limit exceeded.</p>
+            aws_sdk_securityhub.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5112,6 +5833,13 @@ class SecurityHubClient:
             max_results: <p>The maximum number of items to return in the response.</p>
             next_token: <p>The token that is required for pagination. On your first call to the <code>ListOrganizationAdminAccounts</code> operation, set the value of this parameter to <code>NULL</code>. For subsequent calls to the operation, to continue listing data, set the value of this parameter to the value returned from the previous response. </p>
             feature: <p>The feature where the delegated administrator account is listed. Defaults to Security Hub CSPM if not specified.</p>
+
+        Raises:
+            aws_sdk_securityhub.errors.internal_exception.InternalException: <p>Internal server error.</p>
+            aws_sdk_securityhub.errors.invalid_access_exception.InvalidAccessException: <p>The account doesn't have permission to perform this action.</p>
+            aws_sdk_securityhub.errors.invalid_input_exception.InvalidInputException: <p>The request was rejected because you supplied an invalid or out-of-range value for an input parameter.</p>
+            aws_sdk_securityhub.errors.limit_exceeded_exception.LimitExceededException: <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account or throttling limits. The error code describes the limit exceeded.</p>
+            aws_sdk_securityhub.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To list administrator acccounts for an organization
@@ -5196,6 +5924,13 @@ class SecurityHubClient:
             next_token: <p> Optional pagination parameter. </p>
             max_results: <p> An optional parameter that limits the total results of the API response to the specified number. If this parameter isn't provided in the request, the results include the first 25 security controls that apply to the specified standard. The results also include a <code>NextToken</code> parameter that you can use in a subsequent API call to get the next 25 controls. This repeats until all controls for the standard are returned. </p>
 
+        Raises:
+            aws_sdk_securityhub.errors.internal_exception.InternalException: <p>Internal server error.</p>
+            aws_sdk_securityhub.errors.invalid_access_exception.InvalidAccessException: <p>The account doesn't have permission to perform this action.</p>
+            aws_sdk_securityhub.errors.invalid_input_exception.InvalidInputException: <p>The request was rejected because you supplied an invalid or out-of-range value for an input parameter.</p>
+            aws_sdk_securityhub.errors.limit_exceeded_exception.LimitExceededException: <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account or throttling limits. The error code describes the limit exceeded.</p>
+            aws_sdk_securityhub.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To list security controls that apply to a standard
             The following example lists security controls that apply to a specified Security Hub standard.
@@ -5276,6 +6011,13 @@ class SecurityHubClient:
             security_control_id: <p> The identifier of the control (identified with <code>SecurityControlId</code>, <code>SecurityControlArn</code>, or a mix of both parameters) that you want to determine the enablement status of in each enabled standard. </p>
             next_token: <p> Optional pagination parameter. </p>
             max_results: <p> An optional parameter that limits the total results of the API response to the specified number. If this parameter isn't provided in the request, the results include the first 25 standard and control associations. The results also include a <code>NextToken</code> parameter that you can use in a subsequent API call to get the next 25 associations. This repeats until all associations for the specified control are returned. The number of results is limited by the number of supported Security Hub CSPM standards that you've enabled in the calling account. </p>
+
+        Raises:
+            aws_sdk_securityhub.errors.internal_exception.InternalException: <p>Internal server error.</p>
+            aws_sdk_securityhub.errors.invalid_access_exception.InvalidAccessException: <p>The account doesn't have permission to perform this action.</p>
+            aws_sdk_securityhub.errors.invalid_input_exception.InvalidInputException: <p>The request was rejected because you supplied an invalid or out-of-range value for an input parameter.</p>
+            aws_sdk_securityhub.errors.limit_exceeded_exception.LimitExceededException: <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account or throttling limits. The error code describes the limit exceeded.</p>
+            aws_sdk_securityhub.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5345,6 +6087,12 @@ class SecurityHubClient:
         Args:
             resource_arn: <p>The ARN of the resource to retrieve tags for.</p>
 
+        Raises:
+            aws_sdk_securityhub.errors.internal_exception.InternalException: <p>Internal server error.</p>
+            aws_sdk_securityhub.errors.invalid_input_exception.InvalidInputException: <p>The request was rejected because you supplied an invalid or out-of-range value for an input parameter.</p>
+            aws_sdk_securityhub.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request was rejected because we can't find the specified resource.</p>
+            aws_sdk_securityhub.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To get a list of tags for a resource
             The following example returns a list of tags associated with the specified resource.
@@ -5389,6 +6137,15 @@ class SecurityHubClient:
         Args:
             auth_code: <p>The authCode retrieved from authUrl to complete the OAuth 2.0 authorization code flow.</p>
             auth_state: <p>The authState retrieved from authUrl to complete the OAuth 2.0 authorization code flow.</p>
+
+        Raises:
+            aws_sdk_securityhub.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action specified in the request.</p>
+            aws_sdk_securityhub.errors.conflict_exception.ConflictException: <p>The request causes conflict with the current state of the service resource.</p>
+            aws_sdk_securityhub.errors.internal_server_exception.InternalServerException: <p> The request has failed due to an internal failure of the service. </p>
+            aws_sdk_securityhub.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request was rejected because we can't find the specified resource.</p>
+            aws_sdk_securityhub.errors.throttling_exception.ThrottlingException: <p> The limit on the number of requests per second was exceeded. </p>
+            aws_sdk_securityhub.errors.validation_exception.ValidationException: <p>The request has failed validation because it's missing required fields or has invalid inputs.</p>
+            aws_sdk_securityhub.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5429,6 +6186,15 @@ class SecurityHubClient:
         Args:
             configuration_policy_identifier: <p> The Amazon Resource Name (ARN) of a configuration policy, the universally unique identifier (UUID) of a configuration policy, or a value of <code>SELF_MANAGED_SECURITY_HUB</code> for a self-managed configuration. </p>
             target: <p> The identifier of the target account, organizational unit, or the root to associate with the specified configuration. </p>
+
+        Raises:
+            aws_sdk_securityhub.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action specified in the request.</p>
+            aws_sdk_securityhub.errors.internal_exception.InternalException: <p>Internal server error.</p>
+            aws_sdk_securityhub.errors.invalid_access_exception.InvalidAccessException: <p>The account doesn't have permission to perform this action.</p>
+            aws_sdk_securityhub.errors.invalid_input_exception.InvalidInputException: <p>The request was rejected because you supplied an invalid or out-of-range value for an input parameter.</p>
+            aws_sdk_securityhub.errors.limit_exceeded_exception.LimitExceededException: <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account or throttling limits. The error code describes the limit exceeded.</p>
+            aws_sdk_securityhub.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request was rejected because we can't find the specified resource.</p>
+            aws_sdk_securityhub.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To associate a configuration with a target
@@ -5475,6 +6241,15 @@ class SecurityHubClient:
         Args:
             target: <p> The identifier of the target account, organizational unit, or the root to disassociate from the specified configuration. </p>
             configuration_policy_identifier: <p> The Amazon Resource Name (ARN) of a configuration policy, the universally unique identifier (UUID) of a configuration policy, or a value of <code>SELF_MANAGED_SECURITY_HUB</code> for a self-managed configuration. </p>
+
+        Raises:
+            aws_sdk_securityhub.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action specified in the request.</p>
+            aws_sdk_securityhub.errors.internal_exception.InternalException: <p>Internal server error.</p>
+            aws_sdk_securityhub.errors.invalid_access_exception.InvalidAccessException: <p>The account doesn't have permission to perform this action.</p>
+            aws_sdk_securityhub.errors.invalid_input_exception.InvalidInputException: <p>The request was rejected because you supplied an invalid or out-of-range value for an input parameter.</p>
+            aws_sdk_securityhub.errors.limit_exceeded_exception.LimitExceededException: <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account or throttling limits. The error code describes the limit exceeded.</p>
+            aws_sdk_securityhub.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request was rejected because we can't find the specified resource.</p>
+            aws_sdk_securityhub.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To disassociate a configuration from a target
@@ -5523,6 +6298,12 @@ class SecurityHubClient:
             resource_arn: <p>The ARN of the resource to apply the tags to.</p>
             tags: <p>The tags to add to the resource. You can add up to 50 tags at a time. The tag keys can be no longer than 128 characters. The tag values can be no longer than 256 characters.</p>
 
+        Raises:
+            aws_sdk_securityhub.errors.internal_exception.InternalException: <p>Internal server error.</p>
+            aws_sdk_securityhub.errors.invalid_input_exception.InvalidInputException: <p>The request was rejected because you supplied an invalid or out-of-range value for an input parameter.</p>
+            aws_sdk_securityhub.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request was rejected because we can't find the specified resource.</p>
+            aws_sdk_securityhub.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To tag a resource
             The following example adds the 'Department' and 'Area' tags to the specified resource.
@@ -5568,6 +6349,12 @@ class SecurityHubClient:
         Args:
             resource_arn: <p>The ARN of the resource to remove the tags from.</p>
             tag_keys: <p>The tag keys associated with the tags to remove from the resource. You can remove up to 50 tags at a time.</p>
+
+        Raises:
+            aws_sdk_securityhub.errors.internal_exception.InternalException: <p>Internal server error.</p>
+            aws_sdk_securityhub.errors.invalid_input_exception.InvalidInputException: <p>The request was rejected because you supplied an invalid or out-of-range value for an input parameter.</p>
+            aws_sdk_securityhub.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request was rejected because we can't find the specified resource.</p>
+            aws_sdk_securityhub.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To remove tags from a resource
@@ -5621,6 +6408,13 @@ class SecurityHubClient:
             name: <p>The updated name of the custom action target.</p>
             description: <p>The updated description for the custom action target.</p>
 
+        Raises:
+            aws_sdk_securityhub.errors.internal_exception.InternalException: <p>Internal server error.</p>
+            aws_sdk_securityhub.errors.invalid_access_exception.InvalidAccessException: <p>The account doesn't have permission to perform this action.</p>
+            aws_sdk_securityhub.errors.invalid_input_exception.InvalidInputException: <p>The request was rejected because you supplied an invalid or out-of-range value for an input parameter.</p>
+            aws_sdk_securityhub.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request was rejected because we can't find the specified resource.</p>
+            aws_sdk_securityhub.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To update the name and description of a custom action target
             The following example updates the name and description of a custom action target in Security Hub. You can create custom actions to automatically respond to Security Hub findings using Amazon EventBridge.
@@ -5673,6 +6467,15 @@ class SecurityHubClient:
             aggregator_v2_arn: <p>The ARN of the Aggregator V2.</p>
             region_linking_mode: <p>Determines how Amazon Web Services Regions should be linked to the Aggregator V2.</p>
             linked_regions: <p>A list of Amazon Web Services Regions linked to the aggegation Region.</p>
+
+        Raises:
+            aws_sdk_securityhub.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action specified in the request.</p>
+            aws_sdk_securityhub.errors.conflict_exception.ConflictException: <p>The request causes conflict with the current state of the service resource.</p>
+            aws_sdk_securityhub.errors.internal_server_exception.InternalServerException: <p> The request has failed due to an internal failure of the service. </p>
+            aws_sdk_securityhub.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request was rejected because we can't find the specified resource.</p>
+            aws_sdk_securityhub.errors.throttling_exception.ThrottlingException: <p> The limit on the number of requests per second was exceeded. </p>
+            aws_sdk_securityhub.errors.validation_exception.ValidationException: <p>The request has failed validation because it's missing required fields or has invalid inputs.</p>
+            aws_sdk_securityhub.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5735,6 +6538,15 @@ class SecurityHubClient:
             rule_name: <p>The name of the automation rule.</p>
             criteria: <p>The filtering type and configuration of the automation rule.</p>
             actions: <p>A list of actions to be performed when the rule criteria is met.</p>
+
+        Raises:
+            aws_sdk_securityhub.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action specified in the request.</p>
+            aws_sdk_securityhub.errors.conflict_exception.ConflictException: <p>The request causes conflict with the current state of the service resource.</p>
+            aws_sdk_securityhub.errors.internal_server_exception.InternalServerException: <p> The request has failed due to an internal failure of the service. </p>
+            aws_sdk_securityhub.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request was rejected because we can't find the specified resource.</p>
+            aws_sdk_securityhub.errors.throttling_exception.ThrottlingException: <p> The limit on the number of requests per second was exceeded. </p>
+            aws_sdk_securityhub.errors.validation_exception.ValidationException: <p>The request has failed validation because it's missing required fields or has invalid inputs.</p>
+            aws_sdk_securityhub.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5801,6 +6613,16 @@ class SecurityHubClient:
             updated_reason: <p> The reason for updating the configuration policy. </p>
             configuration_policy: <p> An object that defines how Security Hub CSPM is configured. It includes whether Security Hub CSPM is enabled or disabled, a list of enabled security standards, a list of enabled or disabled security controls, and a list of custom parameter values for specified controls. If you provide a list of security controls that are enabled in the configuration policy, Security Hub CSPM disables all other controls (including newly released controls). If you provide a list of security controls that are disabled in the configuration policy, Security Hub CSPM enables all other controls (including newly released controls). </p> <p>When updating a configuration policy, provide a complete list of standards that you want to enable and a complete list of controls that you want to enable or disable. The updated configuration replaces the current configuration.</p>
 
+        Raises:
+            aws_sdk_securityhub.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action specified in the request.</p>
+            aws_sdk_securityhub.errors.internal_exception.InternalException: <p>Internal server error.</p>
+            aws_sdk_securityhub.errors.invalid_access_exception.InvalidAccessException: <p>The account doesn't have permission to perform this action.</p>
+            aws_sdk_securityhub.errors.invalid_input_exception.InvalidInputException: <p>The request was rejected because you supplied an invalid or out-of-range value for an input parameter.</p>
+            aws_sdk_securityhub.errors.limit_exceeded_exception.LimitExceededException: <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account or throttling limits. The error code describes the limit exceeded.</p>
+            aws_sdk_securityhub.errors.resource_conflict_exception.ResourceConflictException: <p>The resource specified in the request conflicts with an existing resource.</p>
+            aws_sdk_securityhub.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request was rejected because we can't find the specified resource.</p>
+            aws_sdk_securityhub.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To update a configuration policy
             This operation updates the specified configuration policy.
@@ -5859,6 +6681,15 @@ class SecurityHubClient:
             connector_id: <p>The UUID of the connectorV2 to identify connectorV2 resource.</p>
             description: <p>The description of the connectorV2.</p>
             provider: <p>The third-party provider’s service configuration.</p>
+
+        Raises:
+            aws_sdk_securityhub.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action specified in the request.</p>
+            aws_sdk_securityhub.errors.conflict_exception.ConflictException: <p>The request causes conflict with the current state of the service resource.</p>
+            aws_sdk_securityhub.errors.internal_server_exception.InternalServerException: <p> The request has failed due to an internal failure of the service. </p>
+            aws_sdk_securityhub.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request was rejected because we can't find the specified resource.</p>
+            aws_sdk_securityhub.errors.throttling_exception.ThrottlingException: <p> The limit on the number of requests per second was exceeded. </p>
+            aws_sdk_securityhub.errors.validation_exception.ValidationException: <p>The request has failed validation because it's missing required fields or has invalid inputs.</p>
+            aws_sdk_securityhub.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5904,6 +6735,15 @@ class SecurityHubClient:
             finding_aggregator_arn: <p>The ARN of the finding aggregator. To obtain the ARN, use <code>ListFindingAggregators</code>.</p>
             region_linking_mode: <p>Indicates whether to aggregate findings from all of the available Regions in the current partition. Also determines whether to automatically aggregate findings from new Regions as Security Hub CSPM supports them and you opt into them.</p> <p>The selected option also determines how to use the Regions provided in the Regions list.</p> <p>The options are as follows:</p> <ul> <li> <p> <code>ALL_REGIONS</code> - Aggregates findings from all of the Regions where Security Hub CSPM is enabled. When you choose this option, Security Hub CSPM also automatically aggregates findings from new Regions as Security Hub CSPM supports them and you opt into them. </p> </li> <li> <p> <code>ALL_REGIONS_EXCEPT_SPECIFIED</code> - Aggregates findings from all of the Regions where Security Hub CSPM is enabled, except for the Regions listed in the <code>Regions</code> parameter. When you choose this option, Security Hub CSPM also automatically aggregates findings from new Regions as Security Hub CSPM supports them and you opt into them. </p> </li> <li> <p> <code>SPECIFIED_REGIONS</code> - Aggregates findings only from the Regions listed in the <code>Regions</code> parameter. Security Hub CSPM does not automatically aggregate findings from new Regions. </p> </li> <li> <p> <code>NO_REGIONS</code> - Aggregates no data because no Regions are selected as linked Regions. </p> </li> </ul>
             regions: <p>If <code>RegionLinkingMode</code> is <code>ALL_REGIONS_EXCEPT_SPECIFIED</code>, then this is a space-separated list of Regions that don't replicate and send findings to the home Region.</p> <p>If <code>RegionLinkingMode</code> is <code>SPECIFIED_REGIONS</code>, then this is a space-separated list of Regions that do replicate and send findings to the home Region.</p> <p>An <code>InvalidInputException</code> error results if you populate this field while <code>RegionLinkingMode</code> is <code>NO_REGIONS</code>.</p>
+
+        Raises:
+            aws_sdk_securityhub.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action specified in the request.</p>
+            aws_sdk_securityhub.errors.internal_exception.InternalException: <p>Internal server error.</p>
+            aws_sdk_securityhub.errors.invalid_access_exception.InvalidAccessException: <p>The account doesn't have permission to perform this action.</p>
+            aws_sdk_securityhub.errors.invalid_input_exception.InvalidInputException: <p>The request was rejected because you supplied an invalid or out-of-range value for an input parameter.</p>
+            aws_sdk_securityhub.errors.limit_exceeded_exception.LimitExceededException: <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account or throttling limits. The error code describes the limit exceeded.</p>
+            aws_sdk_securityhub.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request was rejected because we can't find the specified resource.</p>
+            aws_sdk_securityhub.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To update cross-Region aggregation settings
@@ -5956,6 +6796,14 @@ class SecurityHubClient:
             filters: <p>A collection of attributes that specify which findings you want to update.</p>
             note: <p>The updated note for the finding.</p>
             record_state: <p>The updated record state for the finding.</p>
+
+        Raises:
+            aws_sdk_securityhub.errors.internal_exception.InternalException: <p>Internal server error.</p>
+            aws_sdk_securityhub.errors.invalid_access_exception.InvalidAccessException: <p>The account doesn't have permission to perform this action.</p>
+            aws_sdk_securityhub.errors.invalid_input_exception.InvalidInputException: <p>The request was rejected because you supplied an invalid or out-of-range value for an input parameter.</p>
+            aws_sdk_securityhub.errors.limit_exceeded_exception.LimitExceededException: <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account or throttling limits. The error code describes the limit exceeded.</p>
+            aws_sdk_securityhub.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request was rejected because we can't find the specified resource.</p>
+            aws_sdk_securityhub.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6009,6 +6857,14 @@ class SecurityHubClient:
             name: <p>The updated name for the insight.</p>
             filters: <p>The updated filters that define this insight.</p>
             group_by_attribute: <p>The updated <code>GroupBy</code> attribute that defines this insight.</p>
+
+        Raises:
+            aws_sdk_securityhub.errors.internal_exception.InternalException: <p>Internal server error.</p>
+            aws_sdk_securityhub.errors.invalid_access_exception.InvalidAccessException: <p>The account doesn't have permission to perform this action.</p>
+            aws_sdk_securityhub.errors.invalid_input_exception.InvalidInputException: <p>The request was rejected because you supplied an invalid or out-of-range value for an input parameter.</p>
+            aws_sdk_securityhub.errors.limit_exceeded_exception.LimitExceededException: <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account or throttling limits. The error code describes the limit exceeded.</p>
+            aws_sdk_securityhub.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request was rejected because we can't find the specified resource.</p>
+            aws_sdk_securityhub.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To update an insight
@@ -6066,6 +6922,16 @@ class SecurityHubClient:
             auto_enable: <p>Whether to automatically enable Security Hub CSPM in new member accounts when they join the organization.</p> <p>If set to <code>true</code>, then Security Hub CSPM is automatically enabled in new accounts. If set to <code>false</code>, then Security Hub CSPM isn't enabled in new accounts automatically. The default value is <code>false</code>.</p> <p>If the <code>ConfigurationType</code> of your organization is set to <code>CENTRAL</code>, then this field is set to <code>false</code> and can't be changed in the home Region and linked Regions. However, in that case, the delegated administrator can create a configuration policy in which Security Hub CSPM is enabled and associate the policy with new organization accounts.</p>
             auto_enable_standards: <p>Whether to automatically enable Security Hub CSPM <a href=\"https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-standards-enable-disable.html\">default standards</a> in new member accounts when they join the organization.</p> <p>The default value of this parameter is equal to <code>DEFAULT</code>.</p> <p>If equal to <code>DEFAULT</code>, then Security Hub CSPM default standards are automatically enabled for new member accounts. If equal to <code>NONE</code>, then default standards are not automatically enabled for new member accounts.</p> <p>If the <code>ConfigurationType</code> of your organization is set to <code>CENTRAL</code>, then this field is set to <code>NONE</code> and can't be changed in the home Region and linked Regions. However, in that case, the delegated administrator can create a configuration policy in which specific security standards are enabled and associate the policy with new organization accounts.</p>
 
+        Raises:
+            aws_sdk_securityhub.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action specified in the request.</p>
+            aws_sdk_securityhub.errors.internal_exception.InternalException: <p>Internal server error.</p>
+            aws_sdk_securityhub.errors.invalid_access_exception.InvalidAccessException: <p>The account doesn't have permission to perform this action.</p>
+            aws_sdk_securityhub.errors.invalid_input_exception.InvalidInputException: <p>The request was rejected because you supplied an invalid or out-of-range value for an input parameter.</p>
+            aws_sdk_securityhub.errors.limit_exceeded_exception.LimitExceededException: <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account or throttling limits. The error code describes the limit exceeded.</p>
+            aws_sdk_securityhub.errors.resource_conflict_exception.ResourceConflictException: <p>The resource specified in the request conflicts with an existing resource.</p>
+            aws_sdk_securityhub.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request was rejected because we can't find the specified resource.</p>
+            aws_sdk_securityhub.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To update organization configuration
             This operation updates the way your organization is configured in Security Hub. Only a Security Hub administrator account can invoke this operation.
@@ -6119,6 +6985,16 @@ class SecurityHubClient:
             parameters: <p> An object that specifies which security control parameters to update. </p>
             last_update_reason: <p> The most recent reason for updating the properties of the security control. This field accepts alphanumeric characters in addition to white spaces, dashes, and underscores. </p>
 
+        Raises:
+            aws_sdk_securityhub.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action specified in the request.</p>
+            aws_sdk_securityhub.errors.internal_exception.InternalException: <p>Internal server error.</p>
+            aws_sdk_securityhub.errors.invalid_access_exception.InvalidAccessException: <p>The account doesn't have permission to perform this action.</p>
+            aws_sdk_securityhub.errors.invalid_input_exception.InvalidInputException: <p>The request was rejected because you supplied an invalid or out-of-range value for an input parameter.</p>
+            aws_sdk_securityhub.errors.limit_exceeded_exception.LimitExceededException: <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account or throttling limits. The error code describes the limit exceeded.</p>
+            aws_sdk_securityhub.errors.resource_in_use_exception.ResourceInUseException: <p> The request was rejected because it conflicts with the resource's availability. For example, you tried to update a security control that's currently in the <code>UPDATING</code> state. </p>
+            aws_sdk_securityhub.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request was rejected because we can't find the specified resource.</p>
+            aws_sdk_securityhub.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To update security control properties
             The following example updates the specified security control. Specifically, this example updates control parameters.
@@ -6170,6 +7046,15 @@ class SecurityHubClient:
         Args:
             auto_enable_controls: <p>Whether to automatically enable new controls when they are added to standards that are enabled.</p> <p>By default, this is set to <code>true</code>, and new controls are enabled automatically. To not automatically enable new controls, set this to <code>false</code>. </p> <p>When you automatically enable new controls, you can interact with the controls in the console and programmatically immediately after release. However, automatically enabled controls have a temporary default status of <code>DISABLED</code>. It can take up to several days for Security Hub CSPM to process the control release and designate the control as <code>ENABLED</code> in your account. During the processing period, you can manually enable or disable a control, and Security Hub CSPM will maintain that designation regardless of whether you have <code>AutoEnableControls</code> set to <code>true</code>.</p>
             control_finding_generator: <p>Updates whether the calling account has consolidated control findings turned on. If the value for this field is set to <code>SECURITY_CONTROL</code>, Security Hub CSPM generates a single finding for a control check even when the check applies to multiple enabled standards.</p> <p>If the value for this field is set to <code>STANDARD_CONTROL</code>, Security Hub CSPM generates separate findings for a control check when the check applies to multiple enabled standards.</p> <p>For accounts that are part of an organization, this value can only be updated in the administrator account.</p>
+
+        Raises:
+            aws_sdk_securityhub.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action specified in the request.</p>
+            aws_sdk_securityhub.errors.internal_exception.InternalException: <p>Internal server error.</p>
+            aws_sdk_securityhub.errors.invalid_access_exception.InvalidAccessException: <p>The account doesn't have permission to perform this action.</p>
+            aws_sdk_securityhub.errors.invalid_input_exception.InvalidInputException: <p>The request was rejected because you supplied an invalid or out-of-range value for an input parameter.</p>
+            aws_sdk_securityhub.errors.limit_exceeded_exception.LimitExceededException: <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account or throttling limits. The error code describes the limit exceeded.</p>
+            aws_sdk_securityhub.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request was rejected because we can't find the specified resource.</p>
+            aws_sdk_securityhub.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To update Security Hub settings
@@ -6224,6 +7109,14 @@ class SecurityHubClient:
             standards_control_arn: <p>The ARN of the security standard control to enable or disable.</p>
             control_status: <p>The updated status of the security standard control.</p>
             disabled_reason: <p>A description of the reason why you are disabling a security standard control. If you are disabling a control, then this is required.</p>
+
+        Raises:
+            aws_sdk_securityhub.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action specified in the request.</p>
+            aws_sdk_securityhub.errors.internal_exception.InternalException: <p>Internal server error.</p>
+            aws_sdk_securityhub.errors.invalid_access_exception.InvalidAccessException: <p>The account doesn't have permission to perform this action.</p>
+            aws_sdk_securityhub.errors.invalid_input_exception.InvalidInputException: <p>The request was rejected because you supplied an invalid or out-of-range value for an input parameter.</p>
+            aws_sdk_securityhub.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request was rejected because we can't find the specified resource.</p>
+            aws_sdk_securityhub.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To update the enablement status of a standard control

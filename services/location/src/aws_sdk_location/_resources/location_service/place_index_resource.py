@@ -85,6 +85,15 @@ class PlaceIndexResource:
             description: <p>The optional description for the place index resource.</p>
             data_source_configuration: <p>Specifies the data storage option requesting Places.</p>
             tags: <p>Applies one or more tags to the place index resource. A tag is a key-value pair that helps you manage, identify, search, and filter your resources.</p> <p>Format: <code>\"key\" : \"value\"</code> </p> <p>Restrictions:</p> <ul> <li> <p>Maximum 50 tags per resource.</p> </li> <li> <p>Each tag key must be unique and must have exactly one associated value.</p> </li> <li> <p>Maximum key length: 128 Unicode characters in UTF-8.</p> </li> <li> <p>Maximum value length: 256 Unicode characters in UTF-8.</p> </li> <li> <p>Can use alphanumeric characters (A–Z, a–z, 0–9), and the following characters: + - = . _ : / @</p> </li> <li> <p>Cannot use \"aws:\" as a prefix for a key.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_location.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because of insufficient access or permissions. Check with an administrator to verify your permissions.</p>
+            aws_sdk_location.errors.conflict_exception.ConflictException: <p>The request was unsuccessful because of a conflict.</p>
+            aws_sdk_location.errors.internal_server_exception.InternalServerException: <p>The request has failed to process because of an unknown server error, exception, or failure.</p>
+            aws_sdk_location.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The operation was denied because the request would exceed the maximum <a href=\"https://docs.aws.amazon.com/location/previous/developerguide/location-quotas.html\">quota</a> set for Amazon Location Service.</p>
+            aws_sdk_location.errors.throttling_exception.ThrottlingException: <p>The request was denied because of request throttling.</p>
+            aws_sdk_location.errors.validation_exception.ValidationException: <p>The input failed to meet the constraints specified by the AWS service. </p>
+            aws_sdk_location.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -131,6 +140,14 @@ class PlaceIndexResource:
 
         Args:
             index_name: <p>The name of the place index resource.</p>
+
+        Raises:
+            aws_sdk_location.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because of insufficient access or permissions. Check with an administrator to verify your permissions.</p>
+            aws_sdk_location.errors.internal_server_exception.InternalServerException: <p>The request has failed to process because of an unknown server error, exception, or failure.</p>
+            aws_sdk_location.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource that you've entered was not found in your AWS account.</p>
+            aws_sdk_location.errors.throttling_exception.ThrottlingException: <p>The request was denied because of request throttling.</p>
+            aws_sdk_location.errors.validation_exception.ValidationException: <p>The input failed to meet the constraints specified by the AWS service. </p>
+            aws_sdk_location.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -180,6 +197,14 @@ class PlaceIndexResource:
             pricing_plan: <p>No longer used. If included, the only allowed value is <code>RequestBasedUsage</code>.</p>
             description: <p>Updates the description for the place index resource.</p>
             data_source_configuration: <p>Updates the data storage option for the place index resource.</p>
+
+        Raises:
+            aws_sdk_location.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because of insufficient access or permissions. Check with an administrator to verify your permissions.</p>
+            aws_sdk_location.errors.internal_server_exception.InternalServerException: <p>The request has failed to process because of an unknown server error, exception, or failure.</p>
+            aws_sdk_location.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource that you've entered was not found in your AWS account.</p>
+            aws_sdk_location.errors.throttling_exception.ThrottlingException: <p>The request was denied because of request throttling.</p>
+            aws_sdk_location.errors.validation_exception.ValidationException: <p>The input failed to meet the constraints specified by the AWS service. </p>
+            aws_sdk_location.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -223,6 +248,14 @@ class PlaceIndexResource:
 
         Args:
             index_name: <p>The name of the place index resource to be deleted.</p>
+
+        Raises:
+            aws_sdk_location.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because of insufficient access or permissions. Check with an administrator to verify your permissions.</p>
+            aws_sdk_location.errors.internal_server_exception.InternalServerException: <p>The request has failed to process because of an unknown server error, exception, or failure.</p>
+            aws_sdk_location.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource that you've entered was not found in your AWS account.</p>
+            aws_sdk_location.errors.throttling_exception.ThrottlingException: <p>The request was denied because of request throttling.</p>
+            aws_sdk_location.errors.validation_exception.ValidationException: <p>The input failed to meet the constraints specified by the AWS service. </p>
+            aws_sdk_location.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -262,6 +295,13 @@ class PlaceIndexResource:
         Args:
             max_results: <p>An optional limit for the maximum number of results returned in a single call.</p> <p>Default value: <code>100</code> </p>
             next_token: <p>The pagination token specifying which page of results to return in the response. If no token is provided, the default page is the first page.</p> <p>Default value: <code>null</code> </p>
+
+        Raises:
+            aws_sdk_location.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because of insufficient access or permissions. Check with an administrator to verify your permissions.</p>
+            aws_sdk_location.errors.internal_server_exception.InternalServerException: <p>The request has failed to process because of an unknown server error, exception, or failure.</p>
+            aws_sdk_location.errors.throttling_exception.ThrottlingException: <p>The request was denied because of request throttling.</p>
+            aws_sdk_location.errors.validation_exception.ValidationException: <p>The input failed to meet the constraints specified by the AWS service. </p>
+            aws_sdk_location.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -308,6 +348,14 @@ class PlaceIndexResource:
             place_id: <p>The identifier of the place to find.</p>
             language: <p>The preferred language used to return results. The value must be a valid <a href=\"https://tools.ietf.org/search/bcp47\">BCP 47</a> language tag, for example, <code>en</code> for English.</p> <p>This setting affects the languages used in the results, but not the results themselves. If no language is specified, or not supported for a particular result, the partner automatically chooses a language for the result.</p> <p>For an example, we'll use the Greek language. You search for a location around Athens, Greece, with the <code>language</code> parameter set to <code>en</code>. The <code>city</code> in the results will most likely be returned as <code>Athens</code>.</p> <p>If you set the <code>language</code> parameter to <code>el</code>, for Greek, then the <code>city</code> in the results will more likely be returned as <code>Αθήνα</code>.</p> <p>If the data provider does not have a value for Greek, the result will be in a language that the provider does support.</p>
             key: <p>The optional <a href=\"https://docs.aws.amazon.com/location/previous/developerguide/using-apikeys.html\">API key</a> to authorize the request.</p>
+
+        Raises:
+            aws_sdk_location.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because of insufficient access or permissions. Check with an administrator to verify your permissions.</p>
+            aws_sdk_location.errors.internal_server_exception.InternalServerException: <p>The request has failed to process because of an unknown server error, exception, or failure.</p>
+            aws_sdk_location.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource that you've entered was not found in your AWS account.</p>
+            aws_sdk_location.errors.throttling_exception.ThrottlingException: <p>The request was denied because of request throttling.</p>
+            aws_sdk_location.errors.validation_exception.ValidationException: <p>The input failed to meet the constraints specified by the AWS service. </p>
+            aws_sdk_location.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -360,6 +408,14 @@ class PlaceIndexResource:
             max_results: <p>An optional parameter. The maximum number of results returned per request.</p> <p>Default value: <code>50</code> </p>
             language: <p>The preferred language used to return results. The value must be a valid <a href=\"https://tools.ietf.org/search/bcp47\">BCP 47</a> language tag, for example, <code>en</code> for English.</p> <p>This setting affects the languages used in the results, but not the results themselves. If no language is specified, or not supported for a particular result, the partner automatically chooses a language for the result.</p> <p>For an example, we'll use the Greek language. You search for a location around Athens, Greece, with the <code>language</code> parameter set to <code>en</code>. The <code>city</code> in the results will most likely be returned as <code>Athens</code>.</p> <p>If you set the <code>language</code> parameter to <code>el</code>, for Greek, then the <code>city</code> in the results will more likely be returned as <code>Αθήνα</code>.</p> <p>If the data provider does not have a value for Greek, the result will be in a language that the provider does support.</p>
             key: <p>The optional <a href=\"https://docs.aws.amazon.com/location/previous/developerguide/using-apikeys.html\">API key</a> to authorize the request.</p>
+
+        Raises:
+            aws_sdk_location.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because of insufficient access or permissions. Check with an administrator to verify your permissions.</p>
+            aws_sdk_location.errors.internal_server_exception.InternalServerException: <p>The request has failed to process because of an unknown server error, exception, or failure.</p>
+            aws_sdk_location.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource that you've entered was not found in your AWS account.</p>
+            aws_sdk_location.errors.throttling_exception.ThrottlingException: <p>The request was denied because of request throttling.</p>
+            aws_sdk_location.errors.validation_exception.ValidationException: <p>The input failed to meet the constraints specified by the AWS service. </p>
+            aws_sdk_location.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -426,6 +482,14 @@ class PlaceIndexResource:
             language: <p>The preferred language used to return results. The value must be a valid <a href=\"https://tools.ietf.org/search/bcp47\">BCP 47</a> language tag, for example, <code>en</code> for English.</p> <p>This setting affects the languages used in the results. If no language is specified, or not supported for a particular result, the partner automatically chooses a language for the result.</p> <p>For an example, we'll use the Greek language. You search for <code>Athens, Gr</code> to get suggestions with the <code>language</code> parameter set to <code>en</code>. The results found will most likely be returned as <code>Athens, Greece</code>.</p> <p>If you set the <code>language</code> parameter to <code>el</code>, for Greek, then the result found will more likely be returned as <code>Αθήνα, Ελλάδα</code>.</p> <p>If the data provider does not have a value for Greek, the result will be in a language that the provider does support.</p>
             filter_categories: <p>A list of one or more Amazon Location categories to filter the returned places. If you include more than one category, the results will include results that match <i>any</i> of the categories listed.</p> <p>For more information about using categories, including a list of Amazon Location categories, see <a href=\"https://docs.aws.amazon.com/location/previous/developerguide/category-filtering.html\">Categories and filtering</a>, in the <i>Amazon Location Service developer guide</i>.</p>
             key: <p>The optional <a href=\"https://docs.aws.amazon.com/location/previous/developerguide/using-apikeys.html\">API key</a> to authorize the request.</p>
+
+        Raises:
+            aws_sdk_location.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because of insufficient access or permissions. Check with an administrator to verify your permissions.</p>
+            aws_sdk_location.errors.internal_server_exception.InternalServerException: <p>The request has failed to process because of an unknown server error, exception, or failure.</p>
+            aws_sdk_location.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource that you've entered was not found in your AWS account.</p>
+            aws_sdk_location.errors.throttling_exception.ThrottlingException: <p>The request was denied because of request throttling.</p>
+            aws_sdk_location.errors.validation_exception.ValidationException: <p>The input failed to meet the constraints specified by the AWS service. </p>
+            aws_sdk_location.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -502,6 +566,14 @@ class PlaceIndexResource:
             language: <p>The preferred language used to return results. The value must be a valid <a href=\"https://tools.ietf.org/search/bcp47\">BCP 47</a> language tag, for example, <code>en</code> for English.</p> <p>This setting affects the languages used in the results, but not the results themselves. If no language is specified, or not supported for a particular result, the partner automatically chooses a language for the result.</p> <p>For an example, we'll use the Greek language. You search for <code>Athens, Greece</code>, with the <code>language</code> parameter set to <code>en</code>. The result found will most likely be returned as <code>Athens</code>.</p> <p>If you set the <code>language</code> parameter to <code>el</code>, for Greek, then the result found will more likely be returned as <code>Αθήνα</code>.</p> <p>If the data provider does not have a value for Greek, the result will be in a language that the provider does support.</p>
             filter_categories: <p>A list of one or more Amazon Location categories to filter the returned places. If you include more than one category, the results will include results that match <i>any</i> of the categories listed.</p> <p>For more information about using categories, including a list of Amazon Location categories, see <a href=\"https://docs.aws.amazon.com/location/previous/developerguide/category-filtering.html\">Categories and filtering</a>, in the <i>Amazon Location Service developer guide</i>.</p>
             key: <p>The optional <a href=\"https://docs.aws.amazon.com/location/previous/developerguide/using-apikeys.html\">API key</a> to authorize the request.</p>
+
+        Raises:
+            aws_sdk_location.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because of insufficient access or permissions. Check with an administrator to verify your permissions.</p>
+            aws_sdk_location.errors.internal_server_exception.InternalServerException: <p>The request has failed to process because of an unknown server error, exception, or failure.</p>
+            aws_sdk_location.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource that you've entered was not found in your AWS account.</p>
+            aws_sdk_location.errors.throttling_exception.ThrottlingException: <p>The request was denied because of request throttling.</p>
+            aws_sdk_location.errors.validation_exception.ValidationException: <p>The input failed to meet the constraints specified by the AWS service. </p>
+            aws_sdk_location.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -575,6 +647,15 @@ class AsyncPlaceIndexResource:
             description: <p>The optional description for the place index resource.</p>
             data_source_configuration: <p>Specifies the data storage option requesting Places.</p>
             tags: <p>Applies one or more tags to the place index resource. A tag is a key-value pair that helps you manage, identify, search, and filter your resources.</p> <p>Format: <code>\"key\" : \"value\"</code> </p> <p>Restrictions:</p> <ul> <li> <p>Maximum 50 tags per resource.</p> </li> <li> <p>Each tag key must be unique and must have exactly one associated value.</p> </li> <li> <p>Maximum key length: 128 Unicode characters in UTF-8.</p> </li> <li> <p>Maximum value length: 256 Unicode characters in UTF-8.</p> </li> <li> <p>Can use alphanumeric characters (A–Z, a–z, 0–9), and the following characters: + - = . _ : / @</p> </li> <li> <p>Cannot use \"aws:\" as a prefix for a key.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_location.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because of insufficient access or permissions. Check with an administrator to verify your permissions.</p>
+            aws_sdk_location.errors.conflict_exception.ConflictException: <p>The request was unsuccessful because of a conflict.</p>
+            aws_sdk_location.errors.internal_server_exception.InternalServerException: <p>The request has failed to process because of an unknown server error, exception, or failure.</p>
+            aws_sdk_location.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The operation was denied because the request would exceed the maximum <a href=\"https://docs.aws.amazon.com/location/previous/developerguide/location-quotas.html\">quota</a> set for Amazon Location Service.</p>
+            aws_sdk_location.errors.throttling_exception.ThrottlingException: <p>The request was denied because of request throttling.</p>
+            aws_sdk_location.errors.validation_exception.ValidationException: <p>The input failed to meet the constraints specified by the AWS service. </p>
+            aws_sdk_location.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -622,6 +703,14 @@ class AsyncPlaceIndexResource:
 
         Args:
             index_name: <p>The name of the place index resource.</p>
+
+        Raises:
+            aws_sdk_location.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because of insufficient access or permissions. Check with an administrator to verify your permissions.</p>
+            aws_sdk_location.errors.internal_server_exception.InternalServerException: <p>The request has failed to process because of an unknown server error, exception, or failure.</p>
+            aws_sdk_location.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource that you've entered was not found in your AWS account.</p>
+            aws_sdk_location.errors.throttling_exception.ThrottlingException: <p>The request was denied because of request throttling.</p>
+            aws_sdk_location.errors.validation_exception.ValidationException: <p>The input failed to meet the constraints specified by the AWS service. </p>
+            aws_sdk_location.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -672,6 +761,14 @@ class AsyncPlaceIndexResource:
             pricing_plan: <p>No longer used. If included, the only allowed value is <code>RequestBasedUsage</code>.</p>
             description: <p>Updates the description for the place index resource.</p>
             data_source_configuration: <p>Updates the data storage option for the place index resource.</p>
+
+        Raises:
+            aws_sdk_location.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because of insufficient access or permissions. Check with an administrator to verify your permissions.</p>
+            aws_sdk_location.errors.internal_server_exception.InternalServerException: <p>The request has failed to process because of an unknown server error, exception, or failure.</p>
+            aws_sdk_location.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource that you've entered was not found in your AWS account.</p>
+            aws_sdk_location.errors.throttling_exception.ThrottlingException: <p>The request was denied because of request throttling.</p>
+            aws_sdk_location.errors.validation_exception.ValidationException: <p>The input failed to meet the constraints specified by the AWS service. </p>
+            aws_sdk_location.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -716,6 +813,14 @@ class AsyncPlaceIndexResource:
 
         Args:
             index_name: <p>The name of the place index resource to be deleted.</p>
+
+        Raises:
+            aws_sdk_location.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because of insufficient access or permissions. Check with an administrator to verify your permissions.</p>
+            aws_sdk_location.errors.internal_server_exception.InternalServerException: <p>The request has failed to process because of an unknown server error, exception, or failure.</p>
+            aws_sdk_location.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource that you've entered was not found in your AWS account.</p>
+            aws_sdk_location.errors.throttling_exception.ThrottlingException: <p>The request was denied because of request throttling.</p>
+            aws_sdk_location.errors.validation_exception.ValidationException: <p>The input failed to meet the constraints specified by the AWS service. </p>
+            aws_sdk_location.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -756,6 +861,13 @@ class AsyncPlaceIndexResource:
         Args:
             max_results: <p>An optional limit for the maximum number of results returned in a single call.</p> <p>Default value: <code>100</code> </p>
             next_token: <p>The pagination token specifying which page of results to return in the response. If no token is provided, the default page is the first page.</p> <p>Default value: <code>null</code> </p>
+
+        Raises:
+            aws_sdk_location.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because of insufficient access or permissions. Check with an administrator to verify your permissions.</p>
+            aws_sdk_location.errors.internal_server_exception.InternalServerException: <p>The request has failed to process because of an unknown server error, exception, or failure.</p>
+            aws_sdk_location.errors.throttling_exception.ThrottlingException: <p>The request was denied because of request throttling.</p>
+            aws_sdk_location.errors.validation_exception.ValidationException: <p>The input failed to meet the constraints specified by the AWS service. </p>
+            aws_sdk_location.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -803,6 +915,14 @@ class AsyncPlaceIndexResource:
             place_id: <p>The identifier of the place to find.</p>
             language: <p>The preferred language used to return results. The value must be a valid <a href=\"https://tools.ietf.org/search/bcp47\">BCP 47</a> language tag, for example, <code>en</code> for English.</p> <p>This setting affects the languages used in the results, but not the results themselves. If no language is specified, or not supported for a particular result, the partner automatically chooses a language for the result.</p> <p>For an example, we'll use the Greek language. You search for a location around Athens, Greece, with the <code>language</code> parameter set to <code>en</code>. The <code>city</code> in the results will most likely be returned as <code>Athens</code>.</p> <p>If you set the <code>language</code> parameter to <code>el</code>, for Greek, then the <code>city</code> in the results will more likely be returned as <code>Αθήνα</code>.</p> <p>If the data provider does not have a value for Greek, the result will be in a language that the provider does support.</p>
             key: <p>The optional <a href=\"https://docs.aws.amazon.com/location/previous/developerguide/using-apikeys.html\">API key</a> to authorize the request.</p>
+
+        Raises:
+            aws_sdk_location.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because of insufficient access or permissions. Check with an administrator to verify your permissions.</p>
+            aws_sdk_location.errors.internal_server_exception.InternalServerException: <p>The request has failed to process because of an unknown server error, exception, or failure.</p>
+            aws_sdk_location.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource that you've entered was not found in your AWS account.</p>
+            aws_sdk_location.errors.throttling_exception.ThrottlingException: <p>The request was denied because of request throttling.</p>
+            aws_sdk_location.errors.validation_exception.ValidationException: <p>The input failed to meet the constraints specified by the AWS service. </p>
+            aws_sdk_location.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -856,6 +976,14 @@ class AsyncPlaceIndexResource:
             max_results: <p>An optional parameter. The maximum number of results returned per request.</p> <p>Default value: <code>50</code> </p>
             language: <p>The preferred language used to return results. The value must be a valid <a href=\"https://tools.ietf.org/search/bcp47\">BCP 47</a> language tag, for example, <code>en</code> for English.</p> <p>This setting affects the languages used in the results, but not the results themselves. If no language is specified, or not supported for a particular result, the partner automatically chooses a language for the result.</p> <p>For an example, we'll use the Greek language. You search for a location around Athens, Greece, with the <code>language</code> parameter set to <code>en</code>. The <code>city</code> in the results will most likely be returned as <code>Athens</code>.</p> <p>If you set the <code>language</code> parameter to <code>el</code>, for Greek, then the <code>city</code> in the results will more likely be returned as <code>Αθήνα</code>.</p> <p>If the data provider does not have a value for Greek, the result will be in a language that the provider does support.</p>
             key: <p>The optional <a href=\"https://docs.aws.amazon.com/location/previous/developerguide/using-apikeys.html\">API key</a> to authorize the request.</p>
+
+        Raises:
+            aws_sdk_location.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because of insufficient access or permissions. Check with an administrator to verify your permissions.</p>
+            aws_sdk_location.errors.internal_server_exception.InternalServerException: <p>The request has failed to process because of an unknown server error, exception, or failure.</p>
+            aws_sdk_location.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource that you've entered was not found in your AWS account.</p>
+            aws_sdk_location.errors.throttling_exception.ThrottlingException: <p>The request was denied because of request throttling.</p>
+            aws_sdk_location.errors.validation_exception.ValidationException: <p>The input failed to meet the constraints specified by the AWS service. </p>
+            aws_sdk_location.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -923,6 +1051,14 @@ class AsyncPlaceIndexResource:
             language: <p>The preferred language used to return results. The value must be a valid <a href=\"https://tools.ietf.org/search/bcp47\">BCP 47</a> language tag, for example, <code>en</code> for English.</p> <p>This setting affects the languages used in the results. If no language is specified, or not supported for a particular result, the partner automatically chooses a language for the result.</p> <p>For an example, we'll use the Greek language. You search for <code>Athens, Gr</code> to get suggestions with the <code>language</code> parameter set to <code>en</code>. The results found will most likely be returned as <code>Athens, Greece</code>.</p> <p>If you set the <code>language</code> parameter to <code>el</code>, for Greek, then the result found will more likely be returned as <code>Αθήνα, Ελλάδα</code>.</p> <p>If the data provider does not have a value for Greek, the result will be in a language that the provider does support.</p>
             filter_categories: <p>A list of one or more Amazon Location categories to filter the returned places. If you include more than one category, the results will include results that match <i>any</i> of the categories listed.</p> <p>For more information about using categories, including a list of Amazon Location categories, see <a href=\"https://docs.aws.amazon.com/location/previous/developerguide/category-filtering.html\">Categories and filtering</a>, in the <i>Amazon Location Service developer guide</i>.</p>
             key: <p>The optional <a href=\"https://docs.aws.amazon.com/location/previous/developerguide/using-apikeys.html\">API key</a> to authorize the request.</p>
+
+        Raises:
+            aws_sdk_location.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because of insufficient access or permissions. Check with an administrator to verify your permissions.</p>
+            aws_sdk_location.errors.internal_server_exception.InternalServerException: <p>The request has failed to process because of an unknown server error, exception, or failure.</p>
+            aws_sdk_location.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource that you've entered was not found in your AWS account.</p>
+            aws_sdk_location.errors.throttling_exception.ThrottlingException: <p>The request was denied because of request throttling.</p>
+            aws_sdk_location.errors.validation_exception.ValidationException: <p>The input failed to meet the constraints specified by the AWS service. </p>
+            aws_sdk_location.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1000,6 +1136,14 @@ class AsyncPlaceIndexResource:
             language: <p>The preferred language used to return results. The value must be a valid <a href=\"https://tools.ietf.org/search/bcp47\">BCP 47</a> language tag, for example, <code>en</code> for English.</p> <p>This setting affects the languages used in the results, but not the results themselves. If no language is specified, or not supported for a particular result, the partner automatically chooses a language for the result.</p> <p>For an example, we'll use the Greek language. You search for <code>Athens, Greece</code>, with the <code>language</code> parameter set to <code>en</code>. The result found will most likely be returned as <code>Athens</code>.</p> <p>If you set the <code>language</code> parameter to <code>el</code>, for Greek, then the result found will more likely be returned as <code>Αθήνα</code>.</p> <p>If the data provider does not have a value for Greek, the result will be in a language that the provider does support.</p>
             filter_categories: <p>A list of one or more Amazon Location categories to filter the returned places. If you include more than one category, the results will include results that match <i>any</i> of the categories listed.</p> <p>For more information about using categories, including a list of Amazon Location categories, see <a href=\"https://docs.aws.amazon.com/location/previous/developerguide/category-filtering.html\">Categories and filtering</a>, in the <i>Amazon Location Service developer guide</i>.</p>
             key: <p>The optional <a href=\"https://docs.aws.amazon.com/location/previous/developerguide/using-apikeys.html\">API key</a> to authorize the request.</p>
+
+        Raises:
+            aws_sdk_location.errors.access_denied_exception.AccessDeniedException: <p>The request was denied because of insufficient access or permissions. Check with an administrator to verify your permissions.</p>
+            aws_sdk_location.errors.internal_server_exception.InternalServerException: <p>The request has failed to process because of an unknown server error, exception, or failure.</p>
+            aws_sdk_location.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource that you've entered was not found in your AWS account.</p>
+            aws_sdk_location.errors.throttling_exception.ThrottlingException: <p>The request was denied because of request throttling.</p>
+            aws_sdk_location.errors.validation_exception.ValidationException: <p>The input failed to meet the constraints specified by the AWS service. </p>
+            aws_sdk_location.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

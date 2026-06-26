@@ -218,6 +218,14 @@ class ServerlessApplicationRepositoryClient:
             spdx_license_id: <p>A valid identifier from <a href=\"https://spdx.org/licenses/\">https://spdx.org/licenses/</a>.</p>
             template_body: <p>The local raw packaged AWS SAM template file of your application. The file has the format file://&lt;path>/&lt;filename>.</p><p>You can specify only one of templateBody and templateUrl; otherwise an error results.</p>
             template_url: <p>A link to the S3 object containing the packaged AWS SAM template of your application.</p><p>You can specify only one of templateBody and templateUrl; otherwise an error results.</p>
+
+        Raises:
+            aws_sdk_serverlessapplicationrepository.errors.bad_request_exception.BadRequestException: <p>One of the parameters in the request is invalid.</p>
+            aws_sdk_serverlessapplicationrepository.errors.conflict_exception.ConflictException: <p>The resource already exists.</p>
+            aws_sdk_serverlessapplicationrepository.errors.forbidden_exception.ForbiddenException: <p>The client is not authenticated.</p>
+            aws_sdk_serverlessapplicationrepository.errors.internal_server_error_exception.InternalServerErrorException: <p>The AWS Serverless Application Repository service encountered an internal error.</p>
+            aws_sdk_serverlessapplicationrepository.errors.too_many_requests_exception.TooManyRequestsException: <p>The client is sending more than the allowed number of requests per unit of time.</p>
+            aws_sdk_serverlessapplicationrepository.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -299,6 +307,14 @@ class ServerlessApplicationRepositoryClient:
             source_code_url: <p>A link to a public repository for the source code of your application, for example the URL of a specific GitHub commit.</p>
             template_body: <p>The raw packaged AWS SAM template of your application.</p>
             template_url: <p>A link to the packaged AWS SAM template of your application.</p>
+
+        Raises:
+            aws_sdk_serverlessapplicationrepository.errors.bad_request_exception.BadRequestException: <p>One of the parameters in the request is invalid.</p>
+            aws_sdk_serverlessapplicationrepository.errors.conflict_exception.ConflictException: <p>The resource already exists.</p>
+            aws_sdk_serverlessapplicationrepository.errors.forbidden_exception.ForbiddenException: <p>The client is not authenticated.</p>
+            aws_sdk_serverlessapplicationrepository.errors.internal_server_error_exception.InternalServerErrorException: <p>The AWS Serverless Application Repository service encountered an internal error.</p>
+            aws_sdk_serverlessapplicationrepository.errors.too_many_requests_exception.TooManyRequestsException: <p>The client is sending more than the allowed number of requests per unit of time.</p>
+            aws_sdk_serverlessapplicationrepository.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -391,6 +407,13 @@ class ServerlessApplicationRepositoryClient:
             stack_name: <p>This property corresponds to the parameter of the same name for the <i>AWS CloudFormation <a href=\"https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/CreateChangeSet\">CreateChangeSet</a> </i> API.</p>
             tags: <p>This property corresponds to the parameter of the same name for the <i>AWS CloudFormation <a href=\"https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/CreateChangeSet\">CreateChangeSet</a> </i> API.</p>
             template_id: <p>The UUID returned by CreateCloudFormationTemplate.</p><p>Pattern: [0-9a-fA-F]{8}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{12}</p>
+
+        Raises:
+            aws_sdk_serverlessapplicationrepository.errors.bad_request_exception.BadRequestException: <p>One of the parameters in the request is invalid.</p>
+            aws_sdk_serverlessapplicationrepository.errors.forbidden_exception.ForbiddenException: <p>The client is not authenticated.</p>
+            aws_sdk_serverlessapplicationrepository.errors.internal_server_error_exception.InternalServerErrorException: <p>The AWS Serverless Application Repository service encountered an internal error.</p>
+            aws_sdk_serverlessapplicationrepository.errors.too_many_requests_exception.TooManyRequestsException: <p>The client is sending more than the allowed number of requests per unit of time.</p>
+            aws_sdk_serverlessapplicationrepository.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -455,6 +478,14 @@ class ServerlessApplicationRepositoryClient:
         Args:
             application_id: <p>The Amazon Resource Name (ARN) of the application.</p>
             semantic_version: <p>The semantic version of the application:</p><p> <a href=\"https://semver.org/\">https://semver.org/</a> </p>
+
+        Raises:
+            aws_sdk_serverlessapplicationrepository.errors.bad_request_exception.BadRequestException: <p>One of the parameters in the request is invalid.</p>
+            aws_sdk_serverlessapplicationrepository.errors.forbidden_exception.ForbiddenException: <p>The client is not authenticated.</p>
+            aws_sdk_serverlessapplicationrepository.errors.internal_server_error_exception.InternalServerErrorException: <p>The AWS Serverless Application Repository service encountered an internal error.</p>
+            aws_sdk_serverlessapplicationrepository.errors.not_found_exception.NotFoundException: <p>The resource (for example, an access policy statement) specified in the request doesn't exist.</p>
+            aws_sdk_serverlessapplicationrepository.errors.too_many_requests_exception.TooManyRequestsException: <p>The client is sending more than the allowed number of requests per unit of time.</p>
+            aws_sdk_serverlessapplicationrepository.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -494,6 +525,15 @@ class ServerlessApplicationRepositoryClient:
 
         Args:
             application_id: <p>The Amazon Resource Name (ARN) of the application.</p>
+
+        Raises:
+            aws_sdk_serverlessapplicationrepository.errors.bad_request_exception.BadRequestException: <p>One of the parameters in the request is invalid.</p>
+            aws_sdk_serverlessapplicationrepository.errors.conflict_exception.ConflictException: <p>The resource already exists.</p>
+            aws_sdk_serverlessapplicationrepository.errors.forbidden_exception.ForbiddenException: <p>The client is not authenticated.</p>
+            aws_sdk_serverlessapplicationrepository.errors.internal_server_error_exception.InternalServerErrorException: <p>The AWS Serverless Application Repository service encountered an internal error.</p>
+            aws_sdk_serverlessapplicationrepository.errors.not_found_exception.NotFoundException: <p>The resource (for example, an access policy statement) specified in the request doesn't exist.</p>
+            aws_sdk_serverlessapplicationrepository.errors.too_many_requests_exception.TooManyRequestsException: <p>The client is sending more than the allowed number of requests per unit of time.</p>
+            aws_sdk_serverlessapplicationrepository.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -533,6 +573,14 @@ class ServerlessApplicationRepositoryClient:
         Args:
             application_id: <p>The Amazon Resource Name (ARN) of the application.</p>
             semantic_version: <p>The semantic version of the application to get.</p>
+
+        Raises:
+            aws_sdk_serverlessapplicationrepository.errors.bad_request_exception.BadRequestException: <p>One of the parameters in the request is invalid.</p>
+            aws_sdk_serverlessapplicationrepository.errors.forbidden_exception.ForbiddenException: <p>The client is not authenticated.</p>
+            aws_sdk_serverlessapplicationrepository.errors.internal_server_error_exception.InternalServerErrorException: <p>The AWS Serverless Application Repository service encountered an internal error.</p>
+            aws_sdk_serverlessapplicationrepository.errors.not_found_exception.NotFoundException: <p>The resource (for example, an access policy statement) specified in the request doesn't exist.</p>
+            aws_sdk_serverlessapplicationrepository.errors.too_many_requests_exception.TooManyRequestsException: <p>The client is sending more than the allowed number of requests per unit of time.</p>
+            aws_sdk_serverlessapplicationrepository.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -572,6 +620,14 @@ class ServerlessApplicationRepositoryClient:
 
         Args:
             application_id: <p>The Amazon Resource Name (ARN) of the application.</p>
+
+        Raises:
+            aws_sdk_serverlessapplicationrepository.errors.bad_request_exception.BadRequestException: <p>One of the parameters in the request is invalid.</p>
+            aws_sdk_serverlessapplicationrepository.errors.forbidden_exception.ForbiddenException: <p>The client is not authenticated.</p>
+            aws_sdk_serverlessapplicationrepository.errors.internal_server_error_exception.InternalServerErrorException: <p>The AWS Serverless Application Repository service encountered an internal error.</p>
+            aws_sdk_serverlessapplicationrepository.errors.not_found_exception.NotFoundException: <p>The resource (for example, an access policy statement) specified in the request doesn't exist.</p>
+            aws_sdk_serverlessapplicationrepository.errors.too_many_requests_exception.TooManyRequestsException: <p>The client is sending more than the allowed number of requests per unit of time.</p>
+            aws_sdk_serverlessapplicationrepository.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -611,6 +667,14 @@ class ServerlessApplicationRepositoryClient:
         Args:
             application_id: <p>The Amazon Resource Name (ARN) of the application.</p>
             template_id: <p>The UUID returned by CreateCloudFormationTemplate.</p><p>Pattern: [0-9a-fA-F]{8}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{12}</p>
+
+        Raises:
+            aws_sdk_serverlessapplicationrepository.errors.bad_request_exception.BadRequestException: <p>One of the parameters in the request is invalid.</p>
+            aws_sdk_serverlessapplicationrepository.errors.forbidden_exception.ForbiddenException: <p>The client is not authenticated.</p>
+            aws_sdk_serverlessapplicationrepository.errors.internal_server_error_exception.InternalServerErrorException: <p>The AWS Serverless Application Repository service encountered an internal error.</p>
+            aws_sdk_serverlessapplicationrepository.errors.not_found_exception.NotFoundException: <p>The resource (for example, an access policy statement) specified in the request doesn't exist.</p>
+            aws_sdk_serverlessapplicationrepository.errors.too_many_requests_exception.TooManyRequestsException: <p>The client is sending more than the allowed number of requests per unit of time.</p>
+            aws_sdk_serverlessapplicationrepository.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -661,6 +725,14 @@ class ServerlessApplicationRepositoryClient:
             max_items: <p>The total number of items to return.</p>
             next_token: <p>A token to specify where to start paginating.</p>
             semantic_version: <p>The semantic version of the application to get.</p>
+
+        Raises:
+            aws_sdk_serverlessapplicationrepository.errors.bad_request_exception.BadRequestException: <p>One of the parameters in the request is invalid.</p>
+            aws_sdk_serverlessapplicationrepository.errors.forbidden_exception.ForbiddenException: <p>The client is not authenticated.</p>
+            aws_sdk_serverlessapplicationrepository.errors.internal_server_error_exception.InternalServerErrorException: <p>The AWS Serverless Application Repository service encountered an internal error.</p>
+            aws_sdk_serverlessapplicationrepository.errors.not_found_exception.NotFoundException: <p>The resource (for example, an access policy statement) specified in the request doesn't exist.</p>
+            aws_sdk_serverlessapplicationrepository.errors.too_many_requests_exception.TooManyRequestsException: <p>The client is sending more than the allowed number of requests per unit of time.</p>
+            aws_sdk_serverlessapplicationrepository.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -710,6 +782,13 @@ class ServerlessApplicationRepositoryClient:
         Args:
             max_items: <p>The total number of items to return.</p>
             next_token: <p>A token to specify where to start paginating.</p>
+
+        Raises:
+            aws_sdk_serverlessapplicationrepository.errors.bad_request_exception.BadRequestException: <p>One of the parameters in the request is invalid.</p>
+            aws_sdk_serverlessapplicationrepository.errors.forbidden_exception.ForbiddenException: <p>The client is not authenticated.</p>
+            aws_sdk_serverlessapplicationrepository.errors.internal_server_error_exception.InternalServerErrorException: <p>The AWS Serverless Application Repository service encountered an internal error.</p>
+            aws_sdk_serverlessapplicationrepository.errors.not_found_exception.NotFoundException: <p>The resource (for example, an access policy statement) specified in the request doesn't exist.</p>
+            aws_sdk_serverlessapplicationrepository.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -758,6 +837,14 @@ class ServerlessApplicationRepositoryClient:
             application_id: <p>The Amazon Resource Name (ARN) of the application.</p>
             max_items: <p>The total number of items to return.</p>
             next_token: <p>A token to specify where to start paginating.</p>
+
+        Raises:
+            aws_sdk_serverlessapplicationrepository.errors.bad_request_exception.BadRequestException: <p>One of the parameters in the request is invalid.</p>
+            aws_sdk_serverlessapplicationrepository.errors.forbidden_exception.ForbiddenException: <p>The client is not authenticated.</p>
+            aws_sdk_serverlessapplicationrepository.errors.internal_server_error_exception.InternalServerErrorException: <p>The AWS Serverless Application Repository service encountered an internal error.</p>
+            aws_sdk_serverlessapplicationrepository.errors.not_found_exception.NotFoundException: <p>The resource (for example, an access policy statement) specified in the request doesn't exist.</p>
+            aws_sdk_serverlessapplicationrepository.errors.too_many_requests_exception.TooManyRequestsException: <p>The client is sending more than the allowed number of requests per unit of time.</p>
+            aws_sdk_serverlessapplicationrepository.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -801,6 +888,14 @@ class ServerlessApplicationRepositoryClient:
         Args:
             application_id: <p>The Amazon Resource Name (ARN) of the application.</p>
             statements: <p>An array of policy statements applied to the application.</p>
+
+        Raises:
+            aws_sdk_serverlessapplicationrepository.errors.bad_request_exception.BadRequestException: <p>One of the parameters in the request is invalid.</p>
+            aws_sdk_serverlessapplicationrepository.errors.forbidden_exception.ForbiddenException: <p>The client is not authenticated.</p>
+            aws_sdk_serverlessapplicationrepository.errors.internal_server_error_exception.InternalServerErrorException: <p>The AWS Serverless Application Repository service encountered an internal error.</p>
+            aws_sdk_serverlessapplicationrepository.errors.not_found_exception.NotFoundException: <p>The resource (for example, an access policy statement) specified in the request doesn't exist.</p>
+            aws_sdk_serverlessapplicationrepository.errors.too_many_requests_exception.TooManyRequestsException: <p>The client is sending more than the allowed number of requests per unit of time.</p>
+            aws_sdk_serverlessapplicationrepository.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -841,6 +936,14 @@ class ServerlessApplicationRepositoryClient:
         Args:
             application_id: <p>The Amazon Resource Name (ARN) of the application.</p>
             organization_id: <p>The AWS Organization ID to unshare the application from.</p>
+
+        Raises:
+            aws_sdk_serverlessapplicationrepository.errors.bad_request_exception.BadRequestException: <p>One of the parameters in the request is invalid.</p>
+            aws_sdk_serverlessapplicationrepository.errors.forbidden_exception.ForbiddenException: <p>The client is not authenticated.</p>
+            aws_sdk_serverlessapplicationrepository.errors.internal_server_error_exception.InternalServerErrorException: <p>The AWS Serverless Application Repository service encountered an internal error.</p>
+            aws_sdk_serverlessapplicationrepository.errors.not_found_exception.NotFoundException: <p>The resource (for example, an access policy statement) specified in the request doesn't exist.</p>
+            aws_sdk_serverlessapplicationrepository.errors.too_many_requests_exception.TooManyRequestsException: <p>The client is sending more than the allowed number of requests per unit of time.</p>
+            aws_sdk_serverlessapplicationrepository.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -901,6 +1004,15 @@ class ServerlessApplicationRepositoryClient:
             labels: <p>Labels to improve discovery of apps in search results.</p><p>Minimum length=1. Maximum length=127. Maximum number of labels: 10</p><p>Pattern: \"^[a-zA-Z0-9+\\-_:\\/@]+$\";</p>
             readme_body: <p>A text readme file in Markdown language that contains a more detailed description of the application and how it works.</p><p>Maximum size 5 MB</p>
             readme_url: <p>A link to the readme file in Markdown language that contains a more detailed description of the application and how it works.</p><p>Maximum size 5 MB</p>
+
+        Raises:
+            aws_sdk_serverlessapplicationrepository.errors.bad_request_exception.BadRequestException: <p>One of the parameters in the request is invalid.</p>
+            aws_sdk_serverlessapplicationrepository.errors.conflict_exception.ConflictException: <p>The resource already exists.</p>
+            aws_sdk_serverlessapplicationrepository.errors.forbidden_exception.ForbiddenException: <p>The client is not authenticated.</p>
+            aws_sdk_serverlessapplicationrepository.errors.internal_server_error_exception.InternalServerErrorException: <p>The AWS Serverless Application Repository service encountered an internal error.</p>
+            aws_sdk_serverlessapplicationrepository.errors.not_found_exception.NotFoundException: <p>The resource (for example, an access policy statement) specified in the request doesn't exist.</p>
+            aws_sdk_serverlessapplicationrepository.errors.too_many_requests_exception.TooManyRequestsException: <p>The client is sending more than the allowed number of requests per unit of time.</p>
+            aws_sdk_serverlessapplicationrepository.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(

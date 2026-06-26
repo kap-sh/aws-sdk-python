@@ -182,6 +182,14 @@ class AsyncSupportAppClient:
             notify_on_resolve_case: <p>Whether you want to get notified when a support case is resolved.</p>
             notify_on_case_severity: <p>The case severity for a support case that you want to receive notifications.</p> <p>If you specify <code>high</code> or <code>all</code>, you must specify <code>true</code> for at least one of the following parameters:</p> <ul> <li> <p> <code>notifyOnAddCorrespondenceToCase</code> </p> </li> <li> <p> <code>notifyOnCreateOrReopenCase</code> </p> </li> <li> <p> <code>notifyOnResolveCase</code> </p> </li> </ul> <p>If you specify <code>none</code>, the following parameters must be null or <code>false</code>:</p> <ul> <li> <p> <code>notifyOnAddCorrespondenceToCase</code> </p> </li> <li> <p> <code>notifyOnCreateOrReopenCase</code> </p> </li> <li> <p> <code>notifyOnResolveCase</code> </p> </li> </ul> <note> <p>If you don't specify these parameters in your request, they default to <code>false</code>.</p> </note>
             channel_role_arn: <p>The Amazon Resource Name (ARN) of an IAM role that you want to use to perform operations on Amazon Web Services. For more information, see <a href=\"https://docs.aws.amazon.com/awssupport/latest/user/support-app-permissions.html\">Managing access to the Amazon Web Services Support App</a> in the <i>Amazon Web Services Support User Guide</i>.</p>
+
+        Raises:
+            aws_sdk_support_app.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permission to perform this action.</p>
+            aws_sdk_support_app.errors.conflict_exception.ConflictException: <p>Your request has a conflict. For example, you might receive this error if you try the following:</p> <ul> <li> <p>Add, update, or delete a Slack channel configuration before you add a Slack workspace to your Amazon Web Services account.</p> </li> <li> <p>Add a Slack channel configuration that already exists in your Amazon Web Services account.</p> </li> <li> <p>Delete a Slack channel configuration for a live chat channel.</p> </li> <li> <p>Delete a Slack workspace from your Amazon Web Services account that has an active live chat channel.</p> </li> <li> <p>Call the <code>RegisterSlackWorkspaceForOrganization</code> API from an Amazon Web Services account that doesn't belong to an organization.</p> </li> <li> <p>Call the <code>RegisterSlackWorkspaceForOrganization</code> API from a member account, but the management account hasn't registered that workspace yet for the organization.</p> </li> </ul>
+            aws_sdk_support_app.errors.internal_server_exception.InternalServerException: <p>We can’t process your request right now because of a server issue. Try again later.</p>
+            aws_sdk_support_app.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Your Service Quotas request exceeds the quota for the service. For example, your Service Quotas request to Amazon Web Services Support App might exceed the maximum number of workspaces or channels per account, or the maximum number of accounts per Slack channel.</p>
+            aws_sdk_support_app.errors.validation_exception.ValidationException: <p>Your request input doesn't meet the constraints that the Amazon Web Services Support App specifies.</p>
+            aws_sdk_support_app.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -228,7 +236,14 @@ class AsyncSupportAppClient:
     ) -> (
         "aws_sdk_support_app.types.delete_account_alias_result.DeleteAccountAliasResult"
     ):
-        """<p>Deletes an alias for an Amazon Web Services account ID. The alias appears in the Amazon Web Services Support App page of the Amazon Web Services Support Center. The alias also appears in Slack messages from the Amazon Web Services Support App.</p>"""
+        """<p>Deletes an alias for an Amazon Web Services account ID. The alias appears in the Amazon Web Services Support App page of the Amazon Web Services Support Center. The alias also appears in Slack messages from the Amazon Web Services Support App.</p>
+
+        Raises:
+            aws_sdk_support_app.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permission to perform this action.</p>
+            aws_sdk_support_app.errors.internal_server_exception.InternalServerException: <p>We can’t process your request right now because of a server issue. Try again later.</p>
+            aws_sdk_support_app.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource is missing or doesn't exist, such as an account alias, Slack channel configuration, or Slack workspace configuration.</p>
+            aws_sdk_support_app.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_support_app.types.delete_account_alias_request.DeleteAccountAliasRequest]",
@@ -267,6 +282,14 @@ class AsyncSupportAppClient:
         Args:
             team_id: <p>The team ID in Slack. This ID uniquely identifies a Slack workspace, such as <code>T012ABCDEFG</code>.</p>
             channel_id: <p>The channel ID in Slack. This ID identifies a channel within a Slack workspace.</p>
+
+        Raises:
+            aws_sdk_support_app.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permission to perform this action.</p>
+            aws_sdk_support_app.errors.conflict_exception.ConflictException: <p>Your request has a conflict. For example, you might receive this error if you try the following:</p> <ul> <li> <p>Add, update, or delete a Slack channel configuration before you add a Slack workspace to your Amazon Web Services account.</p> </li> <li> <p>Add a Slack channel configuration that already exists in your Amazon Web Services account.</p> </li> <li> <p>Delete a Slack channel configuration for a live chat channel.</p> </li> <li> <p>Delete a Slack workspace from your Amazon Web Services account that has an active live chat channel.</p> </li> <li> <p>Call the <code>RegisterSlackWorkspaceForOrganization</code> API from an Amazon Web Services account that doesn't belong to an organization.</p> </li> <li> <p>Call the <code>RegisterSlackWorkspaceForOrganization</code> API from a member account, but the management account hasn't registered that workspace yet for the organization.</p> </li> </ul>
+            aws_sdk_support_app.errors.internal_server_exception.InternalServerException: <p>We can’t process your request right now because of a server issue. Try again later.</p>
+            aws_sdk_support_app.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource is missing or doesn't exist, such as an account alias, Slack channel configuration, or Slack workspace configuration.</p>
+            aws_sdk_support_app.errors.validation_exception.ValidationException: <p>Your request input doesn't meet the constraints that the Amazon Web Services Support App specifies.</p>
+            aws_sdk_support_app.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -306,6 +329,14 @@ class AsyncSupportAppClient:
 
         Args:
             team_id: <p>The team ID in Slack. This ID uniquely identifies a Slack workspace, such as <code>T012ABCDEFG</code>.</p>
+
+        Raises:
+            aws_sdk_support_app.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permission to perform this action.</p>
+            aws_sdk_support_app.errors.conflict_exception.ConflictException: <p>Your request has a conflict. For example, you might receive this error if you try the following:</p> <ul> <li> <p>Add, update, or delete a Slack channel configuration before you add a Slack workspace to your Amazon Web Services account.</p> </li> <li> <p>Add a Slack channel configuration that already exists in your Amazon Web Services account.</p> </li> <li> <p>Delete a Slack channel configuration for a live chat channel.</p> </li> <li> <p>Delete a Slack workspace from your Amazon Web Services account that has an active live chat channel.</p> </li> <li> <p>Call the <code>RegisterSlackWorkspaceForOrganization</code> API from an Amazon Web Services account that doesn't belong to an organization.</p> </li> <li> <p>Call the <code>RegisterSlackWorkspaceForOrganization</code> API from a member account, but the management account hasn't registered that workspace yet for the organization.</p> </li> </ul>
+            aws_sdk_support_app.errors.internal_server_exception.InternalServerException: <p>We can’t process your request right now because of a server issue. Try again later.</p>
+            aws_sdk_support_app.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource is missing or doesn't exist, such as an account alias, Slack channel configuration, or Slack workspace configuration.</p>
+            aws_sdk_support_app.errors.validation_exception.ValidationException: <p>Your request input doesn't meet the constraints that the Amazon Web Services Support App specifies.</p>
+            aws_sdk_support_app.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -337,7 +368,12 @@ class AsyncSupportAppClient:
     async def get_account_alias(
         self, *, config_overrides: Optional[AsyncSupportAppClientConfig] = None
     ) -> "aws_sdk_support_app.types.get_account_alias_result.GetAccountAliasResult":
-        """<p>Retrieves the alias from an Amazon Web Services account ID. The alias appears in the Amazon Web Services Support App page of the Amazon Web Services Support Center. The alias also appears in Slack messages from the Amazon Web Services Support App.</p>"""
+        """<p>Retrieves the alias from an Amazon Web Services account ID. The alias appears in the Amazon Web Services Support App page of the Amazon Web Services Support Center. The alias also appears in Slack messages from the Amazon Web Services Support App.</p>
+
+        Raises:
+            aws_sdk_support_app.errors.internal_server_exception.InternalServerException: <p>We can’t process your request right now because of a server issue. Try again later.</p>
+            aws_sdk_support_app.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_support_app.types.get_account_alias_request.GetAccountAliasRequest]",
@@ -376,6 +412,11 @@ class AsyncSupportAppClient:
 
         Args:
             next_token: <p>If the results of a search are large, the API only returns a portion of the results and includes a <code>nextToken</code> pagination token in the response. To retrieve the next batch of results, reissue the search request and include the returned token. When the API returns the last set of results, the response doesn't include a pagination token value.</p>
+
+        Raises:
+            aws_sdk_support_app.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permission to perform this action.</p>
+            aws_sdk_support_app.errors.internal_server_exception.InternalServerException: <p>We can’t process your request right now because of a server issue. Try again later.</p>
+            aws_sdk_support_app.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -417,6 +458,11 @@ class AsyncSupportAppClient:
 
         Args:
             next_token: <p>If the results of a search are large, the API only returns a portion of the results and includes a <code>nextToken</code> pagination token in the response. To retrieve the next batch of results, reissue the search request and include the returned token. When the API returns the last set of results, the response doesn't include a pagination token value.</p>
+
+        Raises:
+            aws_sdk_support_app.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permission to perform this action.</p>
+            aws_sdk_support_app.errors.internal_server_exception.InternalServerException: <p>We can’t process your request right now because of a server issue. Try again later.</p>
+            aws_sdk_support_app.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -456,6 +502,12 @@ class AsyncSupportAppClient:
 
         Args:
             account_alias: <p>An alias or short name for an Amazon Web Services account.</p>
+
+        Raises:
+            aws_sdk_support_app.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permission to perform this action.</p>
+            aws_sdk_support_app.errors.internal_server_exception.InternalServerException: <p>We can’t process your request right now because of a server issue. Try again later.</p>
+            aws_sdk_support_app.errors.validation_exception.ValidationException: <p>Your request input doesn't meet the constraints that the Amazon Web Services Support App specifies.</p>
+            aws_sdk_support_app.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -494,6 +546,14 @@ class AsyncSupportAppClient:
 
         Args:
             team_id: <p>The team ID in Slack. This ID uniquely identifies a Slack workspace, such as <code>T012ABCDEFG</code>. Specify the Slack workspace that you want to use for your organization.</p>
+
+        Raises:
+            aws_sdk_support_app.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permission to perform this action.</p>
+            aws_sdk_support_app.errors.conflict_exception.ConflictException: <p>Your request has a conflict. For example, you might receive this error if you try the following:</p> <ul> <li> <p>Add, update, or delete a Slack channel configuration before you add a Slack workspace to your Amazon Web Services account.</p> </li> <li> <p>Add a Slack channel configuration that already exists in your Amazon Web Services account.</p> </li> <li> <p>Delete a Slack channel configuration for a live chat channel.</p> </li> <li> <p>Delete a Slack workspace from your Amazon Web Services account that has an active live chat channel.</p> </li> <li> <p>Call the <code>RegisterSlackWorkspaceForOrganization</code> API from an Amazon Web Services account that doesn't belong to an organization.</p> </li> <li> <p>Call the <code>RegisterSlackWorkspaceForOrganization</code> API from a member account, but the management account hasn't registered that workspace yet for the organization.</p> </li> </ul>
+            aws_sdk_support_app.errors.internal_server_exception.InternalServerException: <p>We can’t process your request right now because of a server issue. Try again later.</p>
+            aws_sdk_support_app.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource is missing or doesn't exist, such as an account alias, Slack channel configuration, or Slack workspace configuration.</p>
+            aws_sdk_support_app.errors.validation_exception.ValidationException: <p>Your request input doesn't meet the constraints that the Amazon Web Services Support App specifies.</p>
+            aws_sdk_support_app.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -556,6 +616,14 @@ class AsyncSupportAppClient:
             notify_on_resolve_case: <p>Whether you want to get notified when a support case is resolved.</p>
             notify_on_case_severity: <p>The case severity for a support case that you want to receive notifications.</p> <p>If you specify <code>high</code> or <code>all</code>, at least one of the following parameters must be <code>true</code>:</p> <ul> <li> <p> <code>notifyOnAddCorrespondenceToCase</code> </p> </li> <li> <p> <code>notifyOnCreateOrReopenCase</code> </p> </li> <li> <p> <code>notifyOnResolveCase</code> </p> </li> </ul> <p>If you specify <code>none</code>, any of the following parameters that you specify in your request must be <code>false</code>:</p> <ul> <li> <p> <code>notifyOnAddCorrespondenceToCase</code> </p> </li> <li> <p> <code>notifyOnCreateOrReopenCase</code> </p> </li> <li> <p> <code>notifyOnResolveCase</code> </p> </li> </ul> <note> <p>If you don't specify these parameters in your request, the Amazon Web Services Support App uses the current values by default.</p> </note>
             channel_role_arn: <p>The Amazon Resource Name (ARN) of an IAM role that you want to use to perform operations on Amazon Web Services. For more information, see <a href=\"https://docs.aws.amazon.com/awssupport/latest/user/support-app-permissions.html\">Managing access to the Amazon Web Services Support App</a> in the <i>Amazon Web Services Support User Guide</i>.</p>
+
+        Raises:
+            aws_sdk_support_app.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permission to perform this action.</p>
+            aws_sdk_support_app.errors.conflict_exception.ConflictException: <p>Your request has a conflict. For example, you might receive this error if you try the following:</p> <ul> <li> <p>Add, update, or delete a Slack channel configuration before you add a Slack workspace to your Amazon Web Services account.</p> </li> <li> <p>Add a Slack channel configuration that already exists in your Amazon Web Services account.</p> </li> <li> <p>Delete a Slack channel configuration for a live chat channel.</p> </li> <li> <p>Delete a Slack workspace from your Amazon Web Services account that has an active live chat channel.</p> </li> <li> <p>Call the <code>RegisterSlackWorkspaceForOrganization</code> API from an Amazon Web Services account that doesn't belong to an organization.</p> </li> <li> <p>Call the <code>RegisterSlackWorkspaceForOrganization</code> API from a member account, but the management account hasn't registered that workspace yet for the organization.</p> </li> </ul>
+            aws_sdk_support_app.errors.internal_server_exception.InternalServerException: <p>We can’t process your request right now because of a server issue. Try again later.</p>
+            aws_sdk_support_app.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource is missing or doesn't exist, such as an account alias, Slack channel configuration, or Slack workspace configuration.</p>
+            aws_sdk_support_app.errors.validation_exception.ValidationException: <p>Your request input doesn't meet the constraints that the Amazon Web Services Support App specifies.</p>
+            aws_sdk_support_app.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

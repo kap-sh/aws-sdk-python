@@ -216,6 +216,14 @@ class AppflowClient:
         Args:
             flow_name: <p>The name of a flow with active runs that you want to cancel.</p>
             execution_ids: <p>The ID of each active run to cancel. These runs must belong to the flow you specify in your request.</p> <p>If you omit this parameter, your request ends all active runs that belong to the flow.</p>
+
+        Raises:
+            aws_sdk_appflow.errors.access_denied_exception.AccessDeniedException: <p>AppFlow/Requester has invalid or missing permissions.</p>
+            aws_sdk_appflow.errors.internal_server_exception.InternalServerException: <p> An internal service error occurred during the processing of your request. Try again later. </p>
+            aws_sdk_appflow.errors.resource_not_found_exception.ResourceNotFoundException: <p> The resource specified in the request (such as the source or destination connector profile) is not found. </p>
+            aws_sdk_appflow.errors.throttling_exception.ThrottlingException: <p>API calls have exceeded the maximum allowed API request rate per account and per Region. </p>
+            aws_sdk_appflow.errors.validation_exception.ValidationException: <p> The request has invalid or missing parameters. </p>
+            aws_sdk_appflow.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -269,6 +277,14 @@ class AppflowClient:
             connection_mode: <p> Indicates the connection mode and specifies whether it is public or private. Private flows use Amazon Web Services PrivateLink to route data over Amazon Web Services infrastructure without exposing it to the public internet. </p>
             connector_profile_config: <p> Defines the connector-specific configuration and credentials. </p>
             client_token: <p>The <code>clientToken</code> parameter is an idempotency token. It ensures that your <code>CreateConnectorProfile</code> request completes only once. You choose the value to pass. For example, if you don't receive a response from your request, you can safely retry the request with the same <code>clientToken</code> parameter value.</p> <p>If you omit a <code>clientToken</code> value, the Amazon Web Services SDK that you are using inserts a value for you. This way, the SDK can safely retry requests multiple times after a network error. You must provide your own value for other use cases.</p> <p>If you specify input parameters that differ from your first request, an error occurs. If you use a different value for <code>clientToken</code>, Amazon AppFlow considers it a new call to <code>CreateConnectorProfile</code>. The token is active for 8 hours.</p>
+
+        Raises:
+            aws_sdk_appflow.errors.conflict_exception.ConflictException: <p> There was a conflict when processing the request (for example, a flow with the given name already exists within the account. Check for conflicting resource names and try again. </p>
+            aws_sdk_appflow.errors.connector_authentication_exception.ConnectorAuthenticationException: <p> An error occurred when authenticating with the connector endpoint. </p>
+            aws_sdk_appflow.errors.internal_server_exception.InternalServerException: <p> An internal service error occurred during the processing of your request. Try again later. </p>
+            aws_sdk_appflow.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p> The request would cause a service quota (such as the number of flows) to be exceeded. </p>
+            aws_sdk_appflow.errors.validation_exception.ValidationException: <p> The request has invalid or missing parameters. </p>
+            aws_sdk_appflow.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -337,6 +353,17 @@ class AppflowClient:
             tags: <p> The tags used to organize, track, or control access for your flow. </p>
             metadata_catalog_config: <p>Specifies the configuration that Amazon AppFlow uses when it catalogs the data that's transferred by the associated flow. When Amazon AppFlow catalogs the data from a flow, it stores metadata in a data catalog.</p>
             client_token: <p>The <code>clientToken</code> parameter is an idempotency token. It ensures that your <code>CreateFlow</code> request completes only once. You choose the value to pass. For example, if you don't receive a response from your request, you can safely retry the request with the same <code>clientToken</code> parameter value.</p> <p>If you omit a <code>clientToken</code> value, the Amazon Web Services SDK that you are using inserts a value for you. This way, the SDK can safely retry requests multiple times after a network error. You must provide your own value for other use cases.</p> <p>If you specify input parameters that differ from your first request, an error occurs. If you use a different value for <code>clientToken</code>, Amazon AppFlow considers it a new call to <code>CreateFlow</code>. The token is active for 8 hours.</p>
+
+        Raises:
+            aws_sdk_appflow.errors.access_denied_exception.AccessDeniedException: <p>AppFlow/Requester has invalid or missing permissions.</p>
+            aws_sdk_appflow.errors.conflict_exception.ConflictException: <p> There was a conflict when processing the request (for example, a flow with the given name already exists within the account. Check for conflicting resource names and try again. </p>
+            aws_sdk_appflow.errors.connector_authentication_exception.ConnectorAuthenticationException: <p> An error occurred when authenticating with the connector endpoint. </p>
+            aws_sdk_appflow.errors.connector_server_exception.ConnectorServerException: <p> An error occurred when retrieving data from the connector endpoint. </p>
+            aws_sdk_appflow.errors.internal_server_exception.InternalServerException: <p> An internal service error occurred during the processing of your request. Try again later. </p>
+            aws_sdk_appflow.errors.resource_not_found_exception.ResourceNotFoundException: <p> The resource specified in the request (such as the source or destination connector profile) is not found. </p>
+            aws_sdk_appflow.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p> The request would cause a service quota (such as the number of flows) to be exceeded. </p>
+            aws_sdk_appflow.errors.validation_exception.ValidationException: <p> The request has invalid or missing parameters. </p>
+            aws_sdk_appflow.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -390,6 +417,12 @@ class AppflowClient:
         Args:
             connector_profile_name: <p> The name of the connector profile. The name is unique for each <code>ConnectorProfile</code> in your account. </p>
             force_delete: <p> Indicates whether Amazon AppFlow should delete the profile, even if it is currently in use in one or more flows. </p>
+
+        Raises:
+            aws_sdk_appflow.errors.conflict_exception.ConflictException: <p> There was a conflict when processing the request (for example, a flow with the given name already exists within the account. Check for conflicting resource names and try again. </p>
+            aws_sdk_appflow.errors.internal_server_exception.InternalServerException: <p> An internal service error occurred during the processing of your request. Try again later. </p>
+            aws_sdk_appflow.errors.resource_not_found_exception.ResourceNotFoundException: <p> The resource specified in the request (such as the source or destination connector profile) is not found. </p>
+            aws_sdk_appflow.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -431,6 +464,12 @@ class AppflowClient:
         Args:
             flow_name: <p> The specified name of the flow. Spaces are not allowed. Use underscores (_) or hyphens (-) only. </p>
             force_delete: <p> Indicates whether Amazon AppFlow should delete the flow, even if it is currently in use. </p>
+
+        Raises:
+            aws_sdk_appflow.errors.conflict_exception.ConflictException: <p> There was a conflict when processing the request (for example, a flow with the given name already exists within the account. Check for conflicting resource names and try again. </p>
+            aws_sdk_appflow.errors.internal_server_exception.InternalServerException: <p> An internal service error occurred during the processing of your request. Try again later. </p>
+            aws_sdk_appflow.errors.resource_not_found_exception.ResourceNotFoundException: <p> The resource specified in the request (such as the source or destination connector profile) is not found. </p>
+            aws_sdk_appflow.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -474,6 +513,12 @@ class AppflowClient:
         Args:
             connector_type: <p>The connector type, such as CUSTOMCONNECTOR, Saleforce, Marketo. Please choose CUSTOMCONNECTOR for Lambda based custom connectors.</p>
             connector_label: <p>The label of the connector. The label is unique for each <code>ConnectorRegistration</code> in your Amazon Web Services account. Only needed if calling for CUSTOMCONNECTOR connector type/.</p>
+
+        Raises:
+            aws_sdk_appflow.errors.internal_server_exception.InternalServerException: <p> An internal service error occurred during the processing of your request. Try again later. </p>
+            aws_sdk_appflow.errors.resource_not_found_exception.ResourceNotFoundException: <p> The resource specified in the request (such as the source or destination connector profile) is not found. </p>
+            aws_sdk_appflow.errors.validation_exception.ValidationException: <p> The request has invalid or missing parameters. </p>
+            aws_sdk_appflow.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -523,6 +568,14 @@ class AppflowClient:
             connector_type: <p> The type of connector application, such as Salesforce, Amplitude, and so on. </p>
             connector_profile_name: <p> The name of the connector profile. The name is unique for each <code>ConnectorProfile</code> in the Amazon Web Services account. </p>
             api_version: <p>The version of the API that's used by the connector.</p>
+
+        Raises:
+            aws_sdk_appflow.errors.connector_authentication_exception.ConnectorAuthenticationException: <p> An error occurred when authenticating with the connector endpoint. </p>
+            aws_sdk_appflow.errors.connector_server_exception.ConnectorServerException: <p> An error occurred when retrieving data from the connector endpoint. </p>
+            aws_sdk_appflow.errors.internal_server_exception.InternalServerException: <p> An internal service error occurred during the processing of your request. Try again later. </p>
+            aws_sdk_appflow.errors.resource_not_found_exception.ResourceNotFoundException: <p> The resource specified in the request (such as the source or destination connector profile) is not found. </p>
+            aws_sdk_appflow.errors.validation_exception.ValidationException: <p> The request has invalid or missing parameters. </p>
+            aws_sdk_appflow.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -580,6 +633,11 @@ class AppflowClient:
             connector_label: <p>The name of the connector. The name is unique for each <code>ConnectorRegistration</code> in your Amazon Web Services account. Only needed if calling for CUSTOMCONNECTOR connector type/.</p>
             max_results: <p> Specifies the maximum number of items that should be returned in the result set. The default for <code>maxResults</code> is 20 (for all paginated API operations). </p>
             next_token: <p> The pagination token for the next page of data. </p>
+
+        Raises:
+            aws_sdk_appflow.errors.internal_server_exception.InternalServerException: <p> An internal service error occurred during the processing of your request. Try again later. </p>
+            aws_sdk_appflow.errors.validation_exception.ValidationException: <p> The request has invalid or missing parameters. </p>
+            aws_sdk_appflow.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -634,6 +692,11 @@ class AppflowClient:
             connector_types: <p> The type of connector, such as Salesforce, Amplitude, and so on. </p>
             max_results: <p>The maximum number of items that should be returned in the result set. The default is 20.</p>
             next_token: <p> The pagination token for the next page of data. </p>
+
+        Raises:
+            aws_sdk_appflow.errors.internal_server_exception.InternalServerException: <p> An internal service error occurred during the processing of your request. Try again later. </p>
+            aws_sdk_appflow.errors.validation_exception.ValidationException: <p> The request has invalid or missing parameters. </p>
+            aws_sdk_appflow.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -676,6 +739,11 @@ class AppflowClient:
 
         Args:
             flow_name: <p> The specified name of the flow. Spaces are not allowed. Use underscores (_) or hyphens (-) only. </p>
+
+        Raises:
+            aws_sdk_appflow.errors.internal_server_exception.InternalServerException: <p> An internal service error occurred during the processing of your request. Try again later. </p>
+            aws_sdk_appflow.errors.resource_not_found_exception.ResourceNotFoundException: <p> The resource specified in the request (such as the source or destination connector profile) is not found. </p>
+            aws_sdk_appflow.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -717,6 +785,12 @@ class AppflowClient:
             flow_name: <p> The specified name of the flow. Spaces are not allowed. Use underscores (_) or hyphens (-) only. </p>
             max_results: <p> Specifies the maximum number of items that should be returned in the result set. The default for <code>maxResults</code> is 20 (for all paginated API operations). </p>
             next_token: <p> The pagination token for the next page of data. </p>
+
+        Raises:
+            aws_sdk_appflow.errors.internal_server_exception.InternalServerException: <p> An internal service error occurred during the processing of your request. Try again later. </p>
+            aws_sdk_appflow.errors.resource_not_found_exception.ResourceNotFoundException: <p> The resource specified in the request (such as the source or destination connector profile) is not found. </p>
+            aws_sdk_appflow.errors.validation_exception.ValidationException: <p> The request has invalid or missing parameters. </p>
+            aws_sdk_appflow.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -776,6 +850,14 @@ class AppflowClient:
             api_version: <p>The version of the API that's used by the connector.</p>
             max_results: <p>The maximum number of items that the operation returns in the response.</p>
             next_token: <p>A token that was provided by your prior <code>ListConnectorEntities</code> operation if the response was too big for the page size. You specify this token to get the next page of results in paginated response.</p>
+
+        Raises:
+            aws_sdk_appflow.errors.connector_authentication_exception.ConnectorAuthenticationException: <p> An error occurred when authenticating with the connector endpoint. </p>
+            aws_sdk_appflow.errors.connector_server_exception.ConnectorServerException: <p> An error occurred when retrieving data from the connector endpoint. </p>
+            aws_sdk_appflow.errors.internal_server_exception.InternalServerException: <p> An internal service error occurred during the processing of your request. Try again later. </p>
+            aws_sdk_appflow.errors.resource_not_found_exception.ResourceNotFoundException: <p> The resource specified in the request (such as the source or destination connector profile) is not found. </p>
+            aws_sdk_appflow.errors.validation_exception.ValidationException: <p> The request has invalid or missing parameters. </p>
+            aws_sdk_appflow.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -826,6 +908,11 @@ class AppflowClient:
         Args:
             max_results: <p>Specifies the maximum number of items that should be returned in the result set. The default for <code>maxResults</code> is 20 (for all paginated API operations).</p>
             next_token: <p>The pagination token for the next page of data.</p>
+
+        Raises:
+            aws_sdk_appflow.errors.internal_server_exception.InternalServerException: <p> An internal service error occurred during the processing of your request. Try again later. </p>
+            aws_sdk_appflow.errors.validation_exception.ValidationException: <p> The request has invalid or missing parameters. </p>
+            aws_sdk_appflow.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -868,6 +955,11 @@ class AppflowClient:
         Args:
             max_results: <p> Specifies the maximum number of items that should be returned in the result set. </p>
             next_token: <p> The pagination token for next page of data. </p>
+
+        Raises:
+            aws_sdk_appflow.errors.internal_server_exception.InternalServerException: <p> An internal service error occurred during the processing of your request. Try again later. </p>
+            aws_sdk_appflow.errors.validation_exception.ValidationException: <p> The request has invalid or missing parameters. </p>
+            aws_sdk_appflow.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -908,6 +1000,12 @@ class AppflowClient:
 
         Args:
             resource_arn: <p> The Amazon Resource Name (ARN) of the specified flow. </p>
+
+        Raises:
+            aws_sdk_appflow.errors.internal_server_exception.InternalServerException: <p> An internal service error occurred during the processing of your request. Try again later. </p>
+            aws_sdk_appflow.errors.resource_not_found_exception.ResourceNotFoundException: <p> The resource specified in the request (such as the source or destination connector profile) is not found. </p>
+            aws_sdk_appflow.errors.validation_exception.ValidationException: <p> The request has invalid or missing parameters. </p>
+            aws_sdk_appflow.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -959,6 +1057,18 @@ class AppflowClient:
             connector_provisioning_type: <p>The provisioning type of the connector. Currently the only supported value is LAMBDA. </p>
             connector_provisioning_config: <p>The provisioning type of the connector. Currently the only supported value is LAMBDA.</p>
             client_token: <p>The <code>clientToken</code> parameter is an idempotency token. It ensures that your <code>RegisterConnector</code> request completes only once. You choose the value to pass. For example, if you don't receive a response from your request, you can safely retry the request with the same <code>clientToken</code> parameter value.</p> <p>If you omit a <code>clientToken</code> value, the Amazon Web Services SDK that you are using inserts a value for you. This way, the SDK can safely retry requests multiple times after a network error. You must provide your own value for other use cases.</p> <p>If you specify input parameters that differ from your first request, an error occurs. If you use a different value for <code>clientToken</code>, Amazon AppFlow considers it a new call to <code>RegisterConnector</code>. The token is active for 8 hours.</p>
+
+        Raises:
+            aws_sdk_appflow.errors.access_denied_exception.AccessDeniedException: <p>AppFlow/Requester has invalid or missing permissions.</p>
+            aws_sdk_appflow.errors.conflict_exception.ConflictException: <p> There was a conflict when processing the request (for example, a flow with the given name already exists within the account. Check for conflicting resource names and try again. </p>
+            aws_sdk_appflow.errors.connector_authentication_exception.ConnectorAuthenticationException: <p> An error occurred when authenticating with the connector endpoint. </p>
+            aws_sdk_appflow.errors.connector_server_exception.ConnectorServerException: <p> An error occurred when retrieving data from the connector endpoint. </p>
+            aws_sdk_appflow.errors.internal_server_exception.InternalServerException: <p> An internal service error occurred during the processing of your request. Try again later. </p>
+            aws_sdk_appflow.errors.resource_not_found_exception.ResourceNotFoundException: <p> The resource specified in the request (such as the source or destination connector profile) is not found. </p>
+            aws_sdk_appflow.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p> The request would cause a service quota (such as the number of flows) to be exceeded. </p>
+            aws_sdk_appflow.errors.throttling_exception.ThrottlingException: <p>API calls have exceeded the maximum allowed API request rate per account and per Region. </p>
+            aws_sdk_appflow.errors.validation_exception.ValidationException: <p> The request has invalid or missing parameters. </p>
+            aws_sdk_appflow.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1021,6 +1131,13 @@ class AppflowClient:
             connector_entity_name: <p>Use this parameter if you want to reset cached metadata about the details for an individual entity.</p> <p>If you don't include this parameter in your request, Amazon AppFlow only resets cached metadata about entity names, not entity details.</p>
             entities_path: <p>Use this parameter only if you’re resetting the cached metadata about a nested entity. Only some connectors support nested entities. A nested entity is one that has another entity as a parent. To use this parameter, specify the name of the parent entity.</p> <p>To look up the parent-child relationship of entities, you can send a ListConnectorEntities request that omits the entitiesPath parameter. Amazon AppFlow will return a list of top-level entities. For each one, it indicates whether the entity has nested entities. Then, in a subsequent ListConnectorEntities request, you can specify a parent entity name for the entitiesPath parameter. Amazon AppFlow will return a list of the child entities for that parent.</p>
             api_version: <p>The API version that you specified in the connector profile that you’re resetting cached metadata for. You must use this parameter only if the connector supports multiple API versions or if the connector type is CustomConnector.</p> <p>To look up how many versions a connector supports, use the DescribeConnectors action. In the response, find the value that Amazon AppFlow returns for the connectorVersion parameter.</p> <p>To look up the connector type, use the DescribeConnectorProfiles action. In the response, find the value that Amazon AppFlow returns for the connectorType parameter.</p> <p>To look up the API version that you specified in a connector profile, use the DescribeConnectorProfiles action.</p>
+
+        Raises:
+            aws_sdk_appflow.errors.conflict_exception.ConflictException: <p> There was a conflict when processing the request (for example, a flow with the given name already exists within the account. Check for conflicting resource names and try again. </p>
+            aws_sdk_appflow.errors.internal_server_exception.InternalServerException: <p> An internal service error occurred during the processing of your request. Try again later. </p>
+            aws_sdk_appflow.errors.resource_not_found_exception.ResourceNotFoundException: <p> The resource specified in the request (such as the source or destination connector profile) is not found. </p>
+            aws_sdk_appflow.errors.validation_exception.ValidationException: <p> The request has invalid or missing parameters. </p>
+            aws_sdk_appflow.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1069,6 +1186,13 @@ class AppflowClient:
         Args:
             flow_name: <p> The specified name of the flow. Spaces are not allowed. Use underscores (_) or hyphens (-) only. </p>
             client_token: <p>The <code>clientToken</code> parameter is an idempotency token. It ensures that your <code>StartFlow</code> request completes only once. You choose the value to pass. For example, if you don't receive a response from your request, you can safely retry the request with the same <code>clientToken</code> parameter value.</p> <p>If you omit a <code>clientToken</code> value, the Amazon Web Services SDK that you are using inserts a value for you. This way, the SDK can safely retry requests multiple times after a network error. You must provide your own value for other use cases.</p> <p>If you specify input parameters that differ from your first request, an error occurs for flows that run on a schedule or based on an event. However, the error doesn't occur for flows that run on demand. You set the conditions that initiate your flow for the <code>triggerConfig</code> parameter.</p> <p>If you use a different value for <code>clientToken</code>, Amazon AppFlow considers it a new call to <code>StartFlow</code>. The token is active for 8 hours.</p>
+
+        Raises:
+            aws_sdk_appflow.errors.conflict_exception.ConflictException: <p> There was a conflict when processing the request (for example, a flow with the given name already exists within the account. Check for conflicting resource names and try again. </p>
+            aws_sdk_appflow.errors.internal_server_exception.InternalServerException: <p> An internal service error occurred during the processing of your request. Try again later. </p>
+            aws_sdk_appflow.errors.resource_not_found_exception.ResourceNotFoundException: <p> The resource specified in the request (such as the source or destination connector profile) is not found. </p>
+            aws_sdk_appflow.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p> The request would cause a service quota (such as the number of flows) to be exceeded. </p>
+            aws_sdk_appflow.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1108,6 +1232,13 @@ class AppflowClient:
 
         Args:
             flow_name: <p> The specified name of the flow. Spaces are not allowed. Use underscores (_) or hyphens (-) only. </p>
+
+        Raises:
+            aws_sdk_appflow.errors.conflict_exception.ConflictException: <p> There was a conflict when processing the request (for example, a flow with the given name already exists within the account. Check for conflicting resource names and try again. </p>
+            aws_sdk_appflow.errors.internal_server_exception.InternalServerException: <p> An internal service error occurred during the processing of your request. Try again later. </p>
+            aws_sdk_appflow.errors.resource_not_found_exception.ResourceNotFoundException: <p> The resource specified in the request (such as the source or destination connector profile) is not found. </p>
+            aws_sdk_appflow.errors.unsupported_operation_exception.UnsupportedOperationException: <p> The requested operation is not supported for the current flow. </p>
+            aws_sdk_appflow.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1147,6 +1278,12 @@ class AppflowClient:
         Args:
             resource_arn: <p> The Amazon Resource Name (ARN) of the flow that you want to tag. </p>
             tags: <p> The tags used to organize, track, or control access for your flow. </p>
+
+        Raises:
+            aws_sdk_appflow.errors.internal_server_exception.InternalServerException: <p> An internal service error occurred during the processing of your request. Try again later. </p>
+            aws_sdk_appflow.errors.resource_not_found_exception.ResourceNotFoundException: <p> The resource specified in the request (such as the source or destination connector profile) is not found. </p>
+            aws_sdk_appflow.errors.validation_exception.ValidationException: <p> The request has invalid or missing parameters. </p>
+            aws_sdk_appflow.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1187,6 +1324,12 @@ class AppflowClient:
         Args:
             connector_label: <p>The label of the connector. The label is unique for each <code>ConnectorRegistration</code> in your Amazon Web Services account.</p>
             force_delete: <p>Indicates whether Amazon AppFlow should unregister the connector, even if it is currently in use in one or more connector profiles. The default value is false.</p>
+
+        Raises:
+            aws_sdk_appflow.errors.conflict_exception.ConflictException: <p> There was a conflict when processing the request (for example, a flow with the given name already exists within the account. Check for conflicting resource names and try again. </p>
+            aws_sdk_appflow.errors.internal_server_exception.InternalServerException: <p> An internal service error occurred during the processing of your request. Try again later. </p>
+            aws_sdk_appflow.errors.resource_not_found_exception.ResourceNotFoundException: <p> The resource specified in the request (such as the source or destination connector profile) is not found. </p>
+            aws_sdk_appflow.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1228,6 +1371,12 @@ class AppflowClient:
         Args:
             resource_arn: <p> The Amazon Resource Name (ARN) of the flow that you want to untag. </p>
             tag_keys: <p> The tag keys associated with the tag that you want to remove from your flow. </p>
+
+        Raises:
+            aws_sdk_appflow.errors.internal_server_exception.InternalServerException: <p> An internal service error occurred during the processing of your request. Try again later. </p>
+            aws_sdk_appflow.errors.resource_not_found_exception.ResourceNotFoundException: <p> The resource specified in the request (such as the source or destination connector profile) is not found. </p>
+            aws_sdk_appflow.errors.validation_exception.ValidationException: <p> The request has invalid or missing parameters. </p>
+            aws_sdk_appflow.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1272,6 +1421,14 @@ class AppflowClient:
             connection_mode: <p> Indicates the connection mode and if it is public or private. </p>
             connector_profile_config: <p> Defines the connector-specific profile configuration and credentials. </p>
             client_token: <p>The <code>clientToken</code> parameter is an idempotency token. It ensures that your <code>UpdateConnectorProfile</code> request completes only once. You choose the value to pass. For example, if you don't receive a response from your request, you can safely retry the request with the same <code>clientToken</code> parameter value.</p> <p>If you omit a <code>clientToken</code> value, the Amazon Web Services SDK that you are using inserts a value for you. This way, the SDK can safely retry requests multiple times after a network error. You must provide your own value for other use cases.</p> <p>If you specify input parameters that differ from your first request, an error occurs. If you use a different value for <code>clientToken</code>, Amazon AppFlow considers it a new call to <code>UpdateConnectorProfile</code>. The token is active for 8 hours.</p>
+
+        Raises:
+            aws_sdk_appflow.errors.conflict_exception.ConflictException: <p> There was a conflict when processing the request (for example, a flow with the given name already exists within the account. Check for conflicting resource names and try again. </p>
+            aws_sdk_appflow.errors.connector_authentication_exception.ConnectorAuthenticationException: <p> An error occurred when authenticating with the connector endpoint. </p>
+            aws_sdk_appflow.errors.internal_server_exception.InternalServerException: <p> An internal service error occurred during the processing of your request. Try again later. </p>
+            aws_sdk_appflow.errors.resource_not_found_exception.ResourceNotFoundException: <p> The resource specified in the request (such as the source or destination connector profile) is not found. </p>
+            aws_sdk_appflow.errors.validation_exception.ValidationException: <p> The request has invalid or missing parameters. </p>
+            aws_sdk_appflow.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1320,6 +1477,18 @@ class AppflowClient:
             connector_label: <p>The name of the connector. The name is unique for each connector registration in your AWS account.</p>
             description: <p>A description about the update that you're applying to the connector.</p>
             client_token: <p>The <code>clientToken</code> parameter is an idempotency token. It ensures that your <code>UpdateConnectorRegistration</code> request completes only once. You choose the value to pass. For example, if you don't receive a response from your request, you can safely retry the request with the same <code>clientToken</code> parameter value.</p> <p>If you omit a <code>clientToken</code> value, the Amazon Web Services SDK that you are using inserts a value for you. This way, the SDK can safely retry requests multiple times after a network error. You must provide your own value for other use cases.</p> <p>If you specify input parameters that differ from your first request, an error occurs. If you use a different value for <code>clientToken</code>, Amazon AppFlow considers it a new call to <code>UpdateConnectorRegistration</code>. The token is active for 8 hours.</p>
+
+        Raises:
+            aws_sdk_appflow.errors.access_denied_exception.AccessDeniedException: <p>AppFlow/Requester has invalid or missing permissions.</p>
+            aws_sdk_appflow.errors.conflict_exception.ConflictException: <p> There was a conflict when processing the request (for example, a flow with the given name already exists within the account. Check for conflicting resource names and try again. </p>
+            aws_sdk_appflow.errors.connector_authentication_exception.ConnectorAuthenticationException: <p> An error occurred when authenticating with the connector endpoint. </p>
+            aws_sdk_appflow.errors.connector_server_exception.ConnectorServerException: <p> An error occurred when retrieving data from the connector endpoint. </p>
+            aws_sdk_appflow.errors.internal_server_exception.InternalServerException: <p> An internal service error occurred during the processing of your request. Try again later. </p>
+            aws_sdk_appflow.errors.resource_not_found_exception.ResourceNotFoundException: <p> The resource specified in the request (such as the source or destination connector profile) is not found. </p>
+            aws_sdk_appflow.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p> The request would cause a service quota (such as the number of flows) to be exceeded. </p>
+            aws_sdk_appflow.errors.throttling_exception.ThrottlingException: <p>API calls have exceeded the maximum allowed API request rate per account and per Region. </p>
+            aws_sdk_appflow.errors.validation_exception.ValidationException: <p> The request has invalid or missing parameters. </p>
+            aws_sdk_appflow.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1380,6 +1549,17 @@ class AppflowClient:
             tasks: <p> A list of tasks that Amazon AppFlow performs while transferring the data in the flow run. </p>
             metadata_catalog_config: <p>Specifies the configuration that Amazon AppFlow uses when it catalogs the data that's transferred by the associated flow. When Amazon AppFlow catalogs the data from a flow, it stores metadata in a data catalog.</p>
             client_token: <p>The <code>clientToken</code> parameter is an idempotency token. It ensures that your <code>UpdateFlow</code> request completes only once. You choose the value to pass. For example, if you don't receive a response from your request, you can safely retry the request with the same <code>clientToken</code> parameter value.</p> <p>If you omit a <code>clientToken</code> value, the Amazon Web Services SDK that you are using inserts a value for you. This way, the SDK can safely retry requests multiple times after a network error. You must provide your own value for other use cases.</p> <p>If you specify input parameters that differ from your first request, an error occurs. If you use a different value for <code>clientToken</code>, Amazon AppFlow considers it a new call to <code>UpdateFlow</code>. The token is active for 8 hours.</p>
+
+        Raises:
+            aws_sdk_appflow.errors.access_denied_exception.AccessDeniedException: <p>AppFlow/Requester has invalid or missing permissions.</p>
+            aws_sdk_appflow.errors.conflict_exception.ConflictException: <p> There was a conflict when processing the request (for example, a flow with the given name already exists within the account. Check for conflicting resource names and try again. </p>
+            aws_sdk_appflow.errors.connector_authentication_exception.ConnectorAuthenticationException: <p> An error occurred when authenticating with the connector endpoint. </p>
+            aws_sdk_appflow.errors.connector_server_exception.ConnectorServerException: <p> An error occurred when retrieving data from the connector endpoint. </p>
+            aws_sdk_appflow.errors.internal_server_exception.InternalServerException: <p> An internal service error occurred during the processing of your request. Try again later. </p>
+            aws_sdk_appflow.errors.resource_not_found_exception.ResourceNotFoundException: <p> The resource specified in the request (such as the source or destination connector profile) is not found. </p>
+            aws_sdk_appflow.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p> The request would cause a service quota (such as the number of flows) to be exceeded. </p>
+            aws_sdk_appflow.errors.validation_exception.ValidationException: <p> The request has invalid or missing parameters. </p>
+            aws_sdk_appflow.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(

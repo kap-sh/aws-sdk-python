@@ -180,6 +180,15 @@ class AsyncWorkspacesInstancesClient:
             workspace_instance_id: <p>WorkSpace Instance to attach volume to.</p>
             volume_id: <p>Volume to be attached.</p>
             device: <p>Device path for volume attachment.</p>
+
+        Raises:
+            aws_sdk_workspaces_instances.errors.access_denied_exception.AccessDeniedException: <p>Indicates insufficient permissions to perform the requested action.</p>
+            aws_sdk_workspaces_instances.errors.conflict_exception.ConflictException: <p>Signals a conflict with the current state of the resource.</p>
+            aws_sdk_workspaces_instances.errors.internal_server_exception.InternalServerException: <p>Indicates an unexpected server-side error occurred.</p>
+            aws_sdk_workspaces_instances.errors.resource_not_found_exception.ResourceNotFoundException: <p>Indicates the requested resource could not be found.</p>
+            aws_sdk_workspaces_instances.errors.throttling_exception.ThrottlingException: <p>Indicates the request rate has exceeded limits.</p>
+            aws_sdk_workspaces_instances.errors.validation_exception.ValidationException: <p>Indicates invalid input parameters in the request.</p>
+            aws_sdk_workspaces_instances.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -256,6 +265,15 @@ class AsyncWorkspacesInstancesClient:
             tag_specifications: <p>Metadata tags for the volume.</p>
             throughput: <p>Volume throughput performance.</p>
             volume_type: <p>Type of EBS volume.</p>
+
+        Raises:
+            aws_sdk_workspaces_instances.errors.access_denied_exception.AccessDeniedException: <p>Indicates insufficient permissions to perform the requested action.</p>
+            aws_sdk_workspaces_instances.errors.conflict_exception.ConflictException: <p>Signals a conflict with the current state of the resource.</p>
+            aws_sdk_workspaces_instances.errors.internal_server_exception.InternalServerException: <p>Indicates an unexpected server-side error occurred.</p>
+            aws_sdk_workspaces_instances.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Indicates that a service quota has been exceeded.</p>
+            aws_sdk_workspaces_instances.errors.throttling_exception.ThrottlingException: <p>Indicates the request rate has exceeded limits.</p>
+            aws_sdk_workspaces_instances.errors.validation_exception.ValidationException: <p>Indicates invalid input parameters in the request.</p>
+            aws_sdk_workspaces_instances.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -322,6 +340,15 @@ class AsyncWorkspacesInstancesClient:
             tags: <p>Optional metadata tags for categorizing and managing WorkSpaces Instances.</p>
             managed_instance: <p>Comprehensive configuration settings for the WorkSpaces Instance, including network, compute, and storage parameters.</p>
             billing_configuration: <p>Optional billing configuration for the WorkSpace Instance. Allows customers to specify their preferred billing mode when creating a new instance. Defaults to hourly billing if not specified.</p>
+
+        Raises:
+            aws_sdk_workspaces_instances.errors.access_denied_exception.AccessDeniedException: <p>Indicates insufficient permissions to perform the requested action.</p>
+            aws_sdk_workspaces_instances.errors.conflict_exception.ConflictException: <p>Signals a conflict with the current state of the resource.</p>
+            aws_sdk_workspaces_instances.errors.internal_server_exception.InternalServerException: <p>Indicates an unexpected server-side error occurred.</p>
+            aws_sdk_workspaces_instances.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Indicates that a service quota has been exceeded.</p>
+            aws_sdk_workspaces_instances.errors.throttling_exception.ThrottlingException: <p>Indicates the request rate has exceeded limits.</p>
+            aws_sdk_workspaces_instances.errors.validation_exception.ValidationException: <p>Indicates invalid input parameters in the request.</p>
+            aws_sdk_workspaces_instances.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -368,6 +395,15 @@ class AsyncWorkspacesInstancesClient:
 
         Args:
             volume_id: <p>Identifier of the volume to delete.</p>
+
+        Raises:
+            aws_sdk_workspaces_instances.errors.access_denied_exception.AccessDeniedException: <p>Indicates insufficient permissions to perform the requested action.</p>
+            aws_sdk_workspaces_instances.errors.conflict_exception.ConflictException: <p>Signals a conflict with the current state of the resource.</p>
+            aws_sdk_workspaces_instances.errors.internal_server_exception.InternalServerException: <p>Indicates an unexpected server-side error occurred.</p>
+            aws_sdk_workspaces_instances.errors.resource_not_found_exception.ResourceNotFoundException: <p>Indicates the requested resource could not be found.</p>
+            aws_sdk_workspaces_instances.errors.throttling_exception.ThrottlingException: <p>Indicates the request rate has exceeded limits.</p>
+            aws_sdk_workspaces_instances.errors.validation_exception.ValidationException: <p>Indicates invalid input parameters in the request.</p>
+            aws_sdk_workspaces_instances.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -406,6 +442,15 @@ class AsyncWorkspacesInstancesClient:
 
         Args:
             workspace_instance_id: <p>Unique identifier of the WorkSpaces Instance targeted for deletion.</p>
+
+        Raises:
+            aws_sdk_workspaces_instances.errors.access_denied_exception.AccessDeniedException: <p>Indicates insufficient permissions to perform the requested action.</p>
+            aws_sdk_workspaces_instances.errors.conflict_exception.ConflictException: <p>Signals a conflict with the current state of the resource.</p>
+            aws_sdk_workspaces_instances.errors.internal_server_exception.InternalServerException: <p>Indicates an unexpected server-side error occurred.</p>
+            aws_sdk_workspaces_instances.errors.resource_not_found_exception.ResourceNotFoundException: <p>Indicates the requested resource could not be found.</p>
+            aws_sdk_workspaces_instances.errors.throttling_exception.ThrottlingException: <p>Indicates the request rate has exceeded limits.</p>
+            aws_sdk_workspaces_instances.errors.validation_exception.ValidationException: <p>Indicates invalid input parameters in the request.</p>
+            aws_sdk_workspaces_instances.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -454,6 +499,15 @@ class AsyncWorkspacesInstancesClient:
             volume_id: <p>Volume to be detached.</p>
             device: <p>Device path of volume to detach.</p>
             disassociate_mode: <p>Mode for volume detachment.</p>
+
+        Raises:
+            aws_sdk_workspaces_instances.errors.access_denied_exception.AccessDeniedException: <p>Indicates insufficient permissions to perform the requested action.</p>
+            aws_sdk_workspaces_instances.errors.conflict_exception.ConflictException: <p>Signals a conflict with the current state of the resource.</p>
+            aws_sdk_workspaces_instances.errors.internal_server_exception.InternalServerException: <p>Indicates an unexpected server-side error occurred.</p>
+            aws_sdk_workspaces_instances.errors.resource_not_found_exception.ResourceNotFoundException: <p>Indicates the requested resource could not be found.</p>
+            aws_sdk_workspaces_instances.errors.throttling_exception.ThrottlingException: <p>Indicates the request rate has exceeded limits.</p>
+            aws_sdk_workspaces_instances.errors.validation_exception.ValidationException: <p>Indicates invalid input parameters in the request.</p>
+            aws_sdk_workspaces_instances.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -497,6 +551,14 @@ class AsyncWorkspacesInstancesClient:
 
         Args:
             workspace_instance_id: <p>Unique identifier of the WorkSpace Instance to retrieve.</p>
+
+        Raises:
+            aws_sdk_workspaces_instances.errors.access_denied_exception.AccessDeniedException: <p>Indicates insufficient permissions to perform the requested action.</p>
+            aws_sdk_workspaces_instances.errors.internal_server_exception.InternalServerException: <p>Indicates an unexpected server-side error occurred.</p>
+            aws_sdk_workspaces_instances.errors.resource_not_found_exception.ResourceNotFoundException: <p>Indicates the requested resource could not be found.</p>
+            aws_sdk_workspaces_instances.errors.throttling_exception.ThrottlingException: <p>Indicates the request rate has exceeded limits.</p>
+            aws_sdk_workspaces_instances.errors.validation_exception.ValidationException: <p>Indicates invalid input parameters in the request.</p>
+            aws_sdk_workspaces_instances.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -545,6 +607,13 @@ class AsyncWorkspacesInstancesClient:
             max_results: <p>Maximum number of instance types to return in a single API call. Enables pagination of instance type results.</p>
             next_token: <p>Pagination token for retrieving subsequent pages of instance type results.</p>
             instance_configuration_filter: <p>Optional filter to narrow instance type results based on configuration requirements. Only returns instance types that support the specified combination of tenancy, platform type, and billing mode.</p>
+
+        Raises:
+            aws_sdk_workspaces_instances.errors.access_denied_exception.AccessDeniedException: <p>Indicates insufficient permissions to perform the requested action.</p>
+            aws_sdk_workspaces_instances.errors.internal_server_exception.InternalServerException: <p>Indicates an unexpected server-side error occurred.</p>
+            aws_sdk_workspaces_instances.errors.throttling_exception.ThrottlingException: <p>Indicates the request rate has exceeded limits.</p>
+            aws_sdk_workspaces_instances.errors.validation_exception.ValidationException: <p>Indicates invalid input parameters in the request.</p>
+            aws_sdk_workspaces_instances.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -623,6 +692,13 @@ class AsyncWorkspacesInstancesClient:
         Args:
             max_results: <p>Maximum number of regions to return in a single API call. Enables pagination of region results.</p>
             next_token: <p>Pagination token for retrieving subsequent pages of region results.</p>
+
+        Raises:
+            aws_sdk_workspaces_instances.errors.access_denied_exception.AccessDeniedException: <p>Indicates insufficient permissions to perform the requested action.</p>
+            aws_sdk_workspaces_instances.errors.internal_server_exception.InternalServerException: <p>Indicates an unexpected server-side error occurred.</p>
+            aws_sdk_workspaces_instances.errors.throttling_exception.ThrottlingException: <p>Indicates the request rate has exceeded limits.</p>
+            aws_sdk_workspaces_instances.errors.validation_exception.ValidationException: <p>Indicates invalid input parameters in the request.</p>
+            aws_sdk_workspaces_instances.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -689,6 +765,14 @@ class AsyncWorkspacesInstancesClient:
 
         Args:
             workspace_instance_id: <p>Unique identifier of the WorkSpace Instance.</p>
+
+        Raises:
+            aws_sdk_workspaces_instances.errors.access_denied_exception.AccessDeniedException: <p>Indicates insufficient permissions to perform the requested action.</p>
+            aws_sdk_workspaces_instances.errors.internal_server_exception.InternalServerException: <p>Indicates an unexpected server-side error occurred.</p>
+            aws_sdk_workspaces_instances.errors.resource_not_found_exception.ResourceNotFoundException: <p>Indicates the requested resource could not be found.</p>
+            aws_sdk_workspaces_instances.errors.throttling_exception.ThrottlingException: <p>Indicates the request rate has exceeded limits.</p>
+            aws_sdk_workspaces_instances.errors.validation_exception.ValidationException: <p>Indicates invalid input parameters in the request.</p>
+            aws_sdk_workspaces_instances.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -737,6 +821,13 @@ class AsyncWorkspacesInstancesClient:
             provision_states: <p>Filter WorkSpaces Instances by their current provisioning states.</p>
             max_results: <p>Maximum number of WorkSpaces Instances to return in a single response.</p>
             next_token: <p>Pagination token for retrieving subsequent pages of WorkSpaces Instances.</p>
+
+        Raises:
+            aws_sdk_workspaces_instances.errors.access_denied_exception.AccessDeniedException: <p>Indicates insufficient permissions to perform the requested action.</p>
+            aws_sdk_workspaces_instances.errors.internal_server_exception.InternalServerException: <p>Indicates an unexpected server-side error occurred.</p>
+            aws_sdk_workspaces_instances.errors.throttling_exception.ThrottlingException: <p>Indicates the request rate has exceeded limits.</p>
+            aws_sdk_workspaces_instances.errors.validation_exception.ValidationException: <p>Indicates invalid input parameters in the request.</p>
+            aws_sdk_workspaces_instances.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -811,6 +902,14 @@ class AsyncWorkspacesInstancesClient:
         Args:
             workspace_instance_id: <p>Unique identifier of the WorkSpace Instance to tag.</p>
             tags: <p>Tags to be added to the WorkSpace Instance.</p>
+
+        Raises:
+            aws_sdk_workspaces_instances.errors.access_denied_exception.AccessDeniedException: <p>Indicates insufficient permissions to perform the requested action.</p>
+            aws_sdk_workspaces_instances.errors.internal_server_exception.InternalServerException: <p>Indicates an unexpected server-side error occurred.</p>
+            aws_sdk_workspaces_instances.errors.resource_not_found_exception.ResourceNotFoundException: <p>Indicates the requested resource could not be found.</p>
+            aws_sdk_workspaces_instances.errors.throttling_exception.ThrottlingException: <p>Indicates the request rate has exceeded limits.</p>
+            aws_sdk_workspaces_instances.errors.validation_exception.ValidationException: <p>Indicates invalid input parameters in the request.</p>
+            aws_sdk_workspaces_instances.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -852,6 +951,14 @@ class AsyncWorkspacesInstancesClient:
         Args:
             workspace_instance_id: <p>Unique identifier of the WorkSpace Instance to untag.</p>
             tag_keys: <p>Keys of tags to be removed.</p>
+
+        Raises:
+            aws_sdk_workspaces_instances.errors.access_denied_exception.AccessDeniedException: <p>Indicates insufficient permissions to perform the requested action.</p>
+            aws_sdk_workspaces_instances.errors.internal_server_exception.InternalServerException: <p>Indicates an unexpected server-side error occurred.</p>
+            aws_sdk_workspaces_instances.errors.resource_not_found_exception.ResourceNotFoundException: <p>Indicates the requested resource could not be found.</p>
+            aws_sdk_workspaces_instances.errors.throttling_exception.ThrottlingException: <p>Indicates the request rate has exceeded limits.</p>
+            aws_sdk_workspaces_instances.errors.validation_exception.ValidationException: <p>Indicates invalid input parameters in the request.</p>
+            aws_sdk_workspaces_instances.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

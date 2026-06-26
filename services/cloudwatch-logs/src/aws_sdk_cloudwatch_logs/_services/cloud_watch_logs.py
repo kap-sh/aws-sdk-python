@@ -503,6 +503,13 @@ class CloudWatchLogsClient:
             log_group_name: <p>The name of the log group.</p> <p>In your <code>AssociateKmsKey</code> operation, you must specify either the <code>resourceIdentifier</code> parameter or the <code>logGroup</code> parameter, but you can't specify both.</p>
             kms_key_id: <p>The Amazon Resource Name (ARN) of the KMS key to use when encrypting log data. This must be a symmetric KMS key. For more information, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kms\">Amazon Resource Names</a> and <a href=\"https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html\">Using Symmetric and Asymmetric Keys</a>.</p>
             resource_identifier: <p>Specifies the target for this operation. You must specify one of the following:</p> <ul> <li> <p>Specify the following ARN to have future <a href=\"https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_GetQueryResults.html\">GetQueryResults</a> operations in this account encrypt the results with the specified KMS key. Replace <i>REGION</i> and <i>ACCOUNT_ID</i> with your Region and account ID.</p> <p> <code>arn:aws:logs:<i>REGION</i>:<i>ACCOUNT_ID</i>:query-result:*</code> </p> </li> <li> <p>Specify the ARN of a log group to have CloudWatch Logs use the KMS key to encrypt log events that are ingested and stored by that log group. The log group ARN must be in the following format. Replace <i>REGION</i> and <i>ACCOUNT_ID</i> with your Region and account ID.</p> <p> <code>arn:aws:logs:<i>REGION</i>:<i>ACCOUNT_ID</i>:log-group:<i>LOG_GROUP_NAME</i> </code> </p> </li> </ul> <p>In your <code>AssociateKmsKey</code> operation, you must specify either the <code>resourceIdentifier</code> parameter or the <code>logGroup</code> parameter, but you can't specify both.</p>
+
+        Raises:
+            aws_sdk_cloudwatch_logs.errors.invalid_parameter_exception.InvalidParameterException: <p>A parameter is specified incorrectly.</p>
+            aws_sdk_cloudwatch_logs.errors.operation_aborted_exception.OperationAbortedException: <p>Multiple concurrent requests to update the same resource were in conflict.</p>
+            aws_sdk_cloudwatch_logs.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_cloudwatch_logs.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service cannot complete the request.</p>
+            aws_sdk_cloudwatch_logs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -544,6 +551,14 @@ class CloudWatchLogsClient:
         Args:
             integration_arn: <p>The Amazon Resource Name (ARN) of the S3 Table Integration to associate the data source with.</p>
             data_source: <p>The data source to associate with the S3 Table Integration. Contains the name and type of the data source.</p>
+
+        Raises:
+            aws_sdk_cloudwatch_logs.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permissions to perform this action.</p>
+            aws_sdk_cloudwatch_logs.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred while processing the request. This exception is returned when the service encounters an unexpected condition that prevents it from fulfilling the request.</p>
+            aws_sdk_cloudwatch_logs.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_cloudwatch_logs.errors.throttling_exception.ThrottlingException: <p>The request was throttled because of quota limits.</p>
+            aws_sdk_cloudwatch_logs.errors.validation_exception.ValidationException: <p>One of the parameters for the request is not valid.</p>
+            aws_sdk_cloudwatch_logs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -582,6 +597,13 @@ class CloudWatchLogsClient:
 
         Args:
             task_id: <p>The ID of the export task.</p>
+
+        Raises:
+            aws_sdk_cloudwatch_logs.errors.invalid_operation_exception.InvalidOperationException: <p>The operation is not valid on the specified resource.</p>
+            aws_sdk_cloudwatch_logs.errors.invalid_parameter_exception.InvalidParameterException: <p>A parameter is specified incorrectly.</p>
+            aws_sdk_cloudwatch_logs.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_cloudwatch_logs.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service cannot complete the request.</p>
+            aws_sdk_cloudwatch_logs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -617,6 +639,14 @@ class CloudWatchLogsClient:
 
         Args:
             import_id: <p>The ID of the import task to cancel.</p>
+
+        Raises:
+            aws_sdk_cloudwatch_logs.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permissions to perform this action.</p>
+            aws_sdk_cloudwatch_logs.errors.invalid_operation_exception.InvalidOperationException: <p>The operation is not valid on the specified resource.</p>
+            aws_sdk_cloudwatch_logs.errors.invalid_parameter_exception.InvalidParameterException: <p>A parameter is specified incorrectly.</p>
+            aws_sdk_cloudwatch_logs.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_cloudwatch_logs.errors.throttling_exception.ThrottlingException: <p>The request was throttled because of quota limits.</p>
+            aws_sdk_cloudwatch_logs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -672,6 +702,16 @@ class CloudWatchLogsClient:
             field_delimiter: <p>The field delimiter to use between record fields when the final output format of a delivery is in <code>Plain</code>, <code>W3C</code>, or <code>Raw</code> format.</p>
             s3_delivery_configuration: <p>This structure contains parameters that are valid only when the delivery's delivery destination is an S3 bucket.</p>
             tags: <p>An optional list of key-value pairs to associate with the resource.</p> <p>For more information about tagging, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html\">Tagging Amazon Web Services resources</a> </p>
+
+        Raises:
+            aws_sdk_cloudwatch_logs.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permissions to perform this action.</p>
+            aws_sdk_cloudwatch_logs.errors.conflict_exception.ConflictException: <p>This operation attempted to create a resource that already exists.</p>
+            aws_sdk_cloudwatch_logs.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_cloudwatch_logs.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>This request exceeds a service quota.</p>
+            aws_sdk_cloudwatch_logs.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service cannot complete the request.</p>
+            aws_sdk_cloudwatch_logs.errors.throttling_exception.ThrottlingException: <p>The request was throttled because of quota limits.</p>
+            aws_sdk_cloudwatch_logs.errors.validation_exception.ValidationException: <p>One of the parameters for the request is not valid.</p>
+            aws_sdk_cloudwatch_logs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -736,6 +776,15 @@ class CloudWatchLogsClient:
             to: <p>The end time of the range for the request, expressed as the number of milliseconds after <code>Jan 1, 1970 00:00:00 UTC</code>. Events with a timestamp later than this time are not exported.</p> <p>You must specify a time that is not earlier than when this log group was created.</p>
             destination: <p>The name of S3 bucket for the exported log data. The bucket must be in the same Amazon Web Services Region.</p>
             destination_prefix: <p>The prefix used as the start of the key for every object exported. If you don't specify a value, the default is <code>exportedlogs</code>.</p> <p>The length of this parameter must comply with the S3 object key name length limits. The object key name is a sequence of Unicode characters with UTF-8 encoding, and can be up to 1,024 bytes.</p>
+
+        Raises:
+            aws_sdk_cloudwatch_logs.errors.invalid_parameter_exception.InvalidParameterException: <p>A parameter is specified incorrectly.</p>
+            aws_sdk_cloudwatch_logs.errors.limit_exceeded_exception.LimitExceededException: <p>You have reached the maximum number of resources that can be created.</p>
+            aws_sdk_cloudwatch_logs.errors.operation_aborted_exception.OperationAbortedException: <p>Multiple concurrent requests to update the same resource were in conflict.</p>
+            aws_sdk_cloudwatch_logs.errors.resource_already_exists_exception.ResourceAlreadyExistsException: <p>The specified resource already exists.</p>
+            aws_sdk_cloudwatch_logs.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_cloudwatch_logs.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service cannot complete the request.</p>
+            aws_sdk_cloudwatch_logs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -788,6 +837,16 @@ class CloudWatchLogsClient:
             import_source_arn: <p>The ARN of the source to import from.</p>
             import_role_arn: <p>The ARN of the IAM role that grants CloudWatch Logs permission to import from the CloudTrail Lake Event Data Store.</p>
             import_filter: <p>Optional filters to constrain the import by CloudTrail event time. Times are specified in Unix timestamp milliseconds. The range of data being imported must be within the specified source's retention period.</p>
+
+        Raises:
+            aws_sdk_cloudwatch_logs.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permissions to perform this action.</p>
+            aws_sdk_cloudwatch_logs.errors.conflict_exception.ConflictException: <p>This operation attempted to create a resource that already exists.</p>
+            aws_sdk_cloudwatch_logs.errors.invalid_operation_exception.InvalidOperationException: <p>The operation is not valid on the specified resource.</p>
+            aws_sdk_cloudwatch_logs.errors.invalid_parameter_exception.InvalidParameterException: <p>A parameter is specified incorrectly.</p>
+            aws_sdk_cloudwatch_logs.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_cloudwatch_logs.errors.throttling_exception.ThrottlingException: <p>The request was throttled because of quota limits.</p>
+            aws_sdk_cloudwatch_logs.errors.validation_exception.ValidationException: <p>One of the parameters for the request is not valid.</p>
+            aws_sdk_cloudwatch_logs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -850,6 +909,14 @@ class CloudWatchLogsClient:
             kms_key_id: <p>Optionally assigns a KMS key to secure this anomaly detector and its findings. If a key is assigned, the anomalies found and the model used by this detector are encrypted at rest with the key. If a key is assigned to an anomaly detector, a user must have permissions for both this key and for the anomaly detector to retrieve information about the anomalies that it finds.</p> <p> Make sure the value provided is a valid KMS key ARN. For more information about using a KMS key and to see the required IAM policy, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/LogsAnomalyDetection-KMS.html\">Use a KMS key with an anomaly detector</a>.</p>
             anomaly_visibility_time: <p>The number of days to have visibility on an anomaly. After this time period has elapsed for an anomaly, it will be automatically baselined and the anomaly detector will treat new occurrences of a similar anomaly as normal. Therefore, if you do not correct the cause of an anomaly during the time period specified in <code>anomalyVisibilityTime</code>, it will be considered normal going forward and will not be detected as an anomaly.</p>
             tags: <p>An optional list of key-value pairs to associate with the resource.</p> <p>For more information about tagging, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html\">Tagging Amazon Web Services resources</a> </p>
+
+        Raises:
+            aws_sdk_cloudwatch_logs.errors.invalid_parameter_exception.InvalidParameterException: <p>A parameter is specified incorrectly.</p>
+            aws_sdk_cloudwatch_logs.errors.limit_exceeded_exception.LimitExceededException: <p>You have reached the maximum number of resources that can be created.</p>
+            aws_sdk_cloudwatch_logs.errors.operation_aborted_exception.OperationAbortedException: <p>Multiple concurrent requests to update the same resource were in conflict.</p>
+            aws_sdk_cloudwatch_logs.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_cloudwatch_logs.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service cannot complete the request.</p>
+            aws_sdk_cloudwatch_logs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -913,6 +980,14 @@ class CloudWatchLogsClient:
             tags: <p>The key-value pairs to use for the tags.</p> <p>You can grant users access to certain log groups while preventing them from accessing other log groups. To do so, tag your groups and use IAM policies that refer to those tags. To assign tags when you create a log group, you must have either the <code>logs:TagResource</code> or <code>logs:TagLogGroup</code> permission. For more information about tagging, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html\">Tagging Amazon Web Services resources</a>. For more information about using tags to control access, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html\">Controlling access to Amazon Web Services resources using tags</a>.</p>
             log_group_class: <p>Use this parameter to specify the log group class for this log group. There are three classes:</p> <ul> <li> <p>The <code>Standard</code> log class supports all CloudWatch Logs features.</p> </li> <li> <p>The <code>Infrequent Access</code> log class supports a subset of CloudWatch Logs features and incurs lower costs.</p> </li> <li> <p>Use the <code>Delivery</code> log class only for delivering Lambda logs to store in Amazon S3 or Amazon Data Firehose. Log events in log groups in the Delivery class are kept in CloudWatch Logs for only one day. This log class doesn't offer rich CloudWatch Logs capabilities such as CloudWatch Logs Insights queries.</p> </li> </ul> <p>If you omit this parameter, the default of <code>STANDARD</code> is used.</p> <important> <p>The value of <code>logGroupClass</code> can't be changed after a log group is created.</p> </important> <p>For details about the features supported by each class, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch_Logs_Log_Classes.html\">Log classes</a> </p>
             deletion_protection_enabled: <p>Use this parameter to enable deletion protection for the new log group. When enabled on a log group, deletion protection blocks all deletion operations until it is explicitly disabled. By default log groups are created without deletion protection enabled.</p>
+
+        Raises:
+            aws_sdk_cloudwatch_logs.errors.invalid_parameter_exception.InvalidParameterException: <p>A parameter is specified incorrectly.</p>
+            aws_sdk_cloudwatch_logs.errors.limit_exceeded_exception.LimitExceededException: <p>You have reached the maximum number of resources that can be created.</p>
+            aws_sdk_cloudwatch_logs.errors.operation_aborted_exception.OperationAbortedException: <p>Multiple concurrent requests to update the same resource were in conflict.</p>
+            aws_sdk_cloudwatch_logs.errors.resource_already_exists_exception.ResourceAlreadyExistsException: <p>The specified resource already exists.</p>
+            aws_sdk_cloudwatch_logs.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service cannot complete the request.</p>
+            aws_sdk_cloudwatch_logs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -958,6 +1033,13 @@ class CloudWatchLogsClient:
         Args:
             log_group_name: <p>The name of the log group.</p>
             log_stream_name: <p>The name of the log stream.</p>
+
+        Raises:
+            aws_sdk_cloudwatch_logs.errors.invalid_parameter_exception.InvalidParameterException: <p>A parameter is specified incorrectly.</p>
+            aws_sdk_cloudwatch_logs.errors.resource_already_exists_exception.ResourceAlreadyExistsException: <p>The specified resource already exists.</p>
+            aws_sdk_cloudwatch_logs.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_cloudwatch_logs.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service cannot complete the request.</p>
+            aws_sdk_cloudwatch_logs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1006,6 +1088,15 @@ class CloudWatchLogsClient:
             table_body: <p>The CSV content of the lookup table. The first row must be a header row with column names. The content must use UTF-8 encoding and not exceed 10 MB.</p>
             kms_key_id: <p>The ARN of the KMS key to use to encrypt the lookup table data. If you don't specify a key, the data is encrypted with an Amazon Web Services-owned key.</p>
             tags: <p>A list of key-value pairs to associate with the lookup table. You can associate as many as 50 tags with a lookup table. Tags can help you organize and categorize your resources.</p>
+
+        Raises:
+            aws_sdk_cloudwatch_logs.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permissions to perform this action.</p>
+            aws_sdk_cloudwatch_logs.errors.invalid_parameter_exception.InvalidParameterException: <p>A parameter is specified incorrectly.</p>
+            aws_sdk_cloudwatch_logs.errors.limit_exceeded_exception.LimitExceededException: <p>You have reached the maximum number of resources that can be created.</p>
+            aws_sdk_cloudwatch_logs.errors.resource_already_exists_exception.ResourceAlreadyExistsException: <p>The specified resource already exists.</p>
+            aws_sdk_cloudwatch_logs.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service cannot complete the request.</p>
+            aws_sdk_cloudwatch_logs.errors.validation_exception.ValidationException: <p>One of the parameters for the request is not valid.</p>
+            aws_sdk_cloudwatch_logs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1092,6 +1183,16 @@ class CloudWatchLogsClient:
             execution_role_arn: <p>The ARN of the IAM role that grants permissions to execute the query and deliver results to the specified destination. The role must have permissions to read from the specified log groups and write to the destination.</p>
             state: <p>The initial state of the scheduled query. Valid values are <code>ENABLED</code> and <code>DISABLED</code>. Default is <code>ENABLED</code>.</p>
             tags: <p>Key-value pairs to associate with the scheduled query for resource management and cost allocation.</p>
+
+        Raises:
+            aws_sdk_cloudwatch_logs.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permissions to perform this action.</p>
+            aws_sdk_cloudwatch_logs.errors.conflict_exception.ConflictException: <p>This operation attempted to create a resource that already exists.</p>
+            aws_sdk_cloudwatch_logs.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred while processing the request. This exception is returned when the service encounters an unexpected condition that prevents it from fulfilling the request.</p>
+            aws_sdk_cloudwatch_logs.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_cloudwatch_logs.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>This request exceeds a service quota.</p>
+            aws_sdk_cloudwatch_logs.errors.throttling_exception.ThrottlingException: <p>The request was throttled because of quota limits.</p>
+            aws_sdk_cloudwatch_logs.errors.validation_exception.ValidationException: <p>One of the parameters for the request is not valid.</p>
+            aws_sdk_cloudwatch_logs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1153,6 +1254,13 @@ class CloudWatchLogsClient:
         Args:
             policy_name: <p>The name of the policy to delete.</p>
             policy_type: <p>The type of policy to delete.</p>
+
+        Raises:
+            aws_sdk_cloudwatch_logs.errors.invalid_parameter_exception.InvalidParameterException: <p>A parameter is specified incorrectly.</p>
+            aws_sdk_cloudwatch_logs.errors.operation_aborted_exception.OperationAbortedException: <p>Multiple concurrent requests to update the same resource were in conflict.</p>
+            aws_sdk_cloudwatch_logs.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_cloudwatch_logs.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service cannot complete the request.</p>
+            aws_sdk_cloudwatch_logs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1189,6 +1297,13 @@ class CloudWatchLogsClient:
 
         Args:
             log_group_identifier: <p>The name or ARN of the log group that you want to delete the data protection policy for.</p>
+
+        Raises:
+            aws_sdk_cloudwatch_logs.errors.invalid_parameter_exception.InvalidParameterException: <p>A parameter is specified incorrectly.</p>
+            aws_sdk_cloudwatch_logs.errors.operation_aborted_exception.OperationAbortedException: <p>Multiple concurrent requests to update the same resource were in conflict.</p>
+            aws_sdk_cloudwatch_logs.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_cloudwatch_logs.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service cannot complete the request.</p>
+            aws_sdk_cloudwatch_logs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1224,6 +1339,15 @@ class CloudWatchLogsClient:
 
         Args:
             id: <p>The unique ID of the delivery to delete. You can find the ID of a delivery with the <a href=\"https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeDeliveries.html\">DescribeDeliveries</a> operation.</p>
+
+        Raises:
+            aws_sdk_cloudwatch_logs.errors.conflict_exception.ConflictException: <p>This operation attempted to create a resource that already exists.</p>
+            aws_sdk_cloudwatch_logs.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_cloudwatch_logs.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>This request exceeds a service quota.</p>
+            aws_sdk_cloudwatch_logs.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service cannot complete the request.</p>
+            aws_sdk_cloudwatch_logs.errors.throttling_exception.ThrottlingException: <p>The request was throttled because of quota limits.</p>
+            aws_sdk_cloudwatch_logs.errors.validation_exception.ValidationException: <p>One of the parameters for the request is not valid.</p>
+            aws_sdk_cloudwatch_logs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1259,6 +1383,15 @@ class CloudWatchLogsClient:
 
         Args:
             name: <p>The name of the delivery destination that you want to delete. You can find a list of delivery destination names by using the <a href=\"https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeDeliveryDestinations.html\">DescribeDeliveryDestinations</a> operation.</p>
+
+        Raises:
+            aws_sdk_cloudwatch_logs.errors.conflict_exception.ConflictException: <p>This operation attempted to create a resource that already exists.</p>
+            aws_sdk_cloudwatch_logs.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_cloudwatch_logs.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>This request exceeds a service quota.</p>
+            aws_sdk_cloudwatch_logs.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service cannot complete the request.</p>
+            aws_sdk_cloudwatch_logs.errors.throttling_exception.ThrottlingException: <p>The request was throttled because of quota limits.</p>
+            aws_sdk_cloudwatch_logs.errors.validation_exception.ValidationException: <p>One of the parameters for the request is not valid.</p>
+            aws_sdk_cloudwatch_logs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1294,6 +1427,13 @@ class CloudWatchLogsClient:
 
         Args:
             delivery_destination_name: <p>The name of the delivery destination that you want to delete the policy for.</p>
+
+        Raises:
+            aws_sdk_cloudwatch_logs.errors.conflict_exception.ConflictException: <p>This operation attempted to create a resource that already exists.</p>
+            aws_sdk_cloudwatch_logs.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_cloudwatch_logs.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service cannot complete the request.</p>
+            aws_sdk_cloudwatch_logs.errors.validation_exception.ValidationException: <p>One of the parameters for the request is not valid.</p>
+            aws_sdk_cloudwatch_logs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1329,6 +1469,15 @@ class CloudWatchLogsClient:
 
         Args:
             name: <p>The name of the delivery source that you want to delete.</p>
+
+        Raises:
+            aws_sdk_cloudwatch_logs.errors.conflict_exception.ConflictException: <p>This operation attempted to create a resource that already exists.</p>
+            aws_sdk_cloudwatch_logs.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_cloudwatch_logs.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>This request exceeds a service quota.</p>
+            aws_sdk_cloudwatch_logs.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service cannot complete the request.</p>
+            aws_sdk_cloudwatch_logs.errors.throttling_exception.ThrottlingException: <p>The request was throttled because of quota limits.</p>
+            aws_sdk_cloudwatch_logs.errors.validation_exception.ValidationException: <p>One of the parameters for the request is not valid.</p>
+            aws_sdk_cloudwatch_logs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1364,6 +1513,13 @@ class CloudWatchLogsClient:
 
         Args:
             destination_name: <p>The name of the destination.</p>
+
+        Raises:
+            aws_sdk_cloudwatch_logs.errors.invalid_parameter_exception.InvalidParameterException: <p>A parameter is specified incorrectly.</p>
+            aws_sdk_cloudwatch_logs.errors.operation_aborted_exception.OperationAbortedException: <p>Multiple concurrent requests to update the same resource were in conflict.</p>
+            aws_sdk_cloudwatch_logs.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_cloudwatch_logs.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service cannot complete the request.</p>
+            aws_sdk_cloudwatch_logs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1399,6 +1555,14 @@ class CloudWatchLogsClient:
 
         Args:
             log_group_identifier: <p>The log group to delete the index policy for. You can specify either the name or the ARN of the log group.</p>
+
+        Raises:
+            aws_sdk_cloudwatch_logs.errors.invalid_parameter_exception.InvalidParameterException: <p>A parameter is specified incorrectly.</p>
+            aws_sdk_cloudwatch_logs.errors.limit_exceeded_exception.LimitExceededException: <p>You have reached the maximum number of resources that can be created.</p>
+            aws_sdk_cloudwatch_logs.errors.operation_aborted_exception.OperationAbortedException: <p>Multiple concurrent requests to update the same resource were in conflict.</p>
+            aws_sdk_cloudwatch_logs.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_cloudwatch_logs.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service cannot complete the request.</p>
+            aws_sdk_cloudwatch_logs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1438,6 +1602,13 @@ class CloudWatchLogsClient:
         Args:
             integration_name: <p>The name of the integration to delete. To find the name of your integration, use <a href=\"https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_ListIntegrations.html\">ListIntegrations</a>.</p>
             force: <p>Specify <code>true</code> to force the deletion of the integration even if vended logs dashboards currently exist.</p> <p>The default is <code>false</code>.</p>
+
+        Raises:
+            aws_sdk_cloudwatch_logs.errors.invalid_parameter_exception.InvalidParameterException: <p>A parameter is specified incorrectly.</p>
+            aws_sdk_cloudwatch_logs.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_cloudwatch_logs.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service cannot complete the request.</p>
+            aws_sdk_cloudwatch_logs.errors.validation_exception.ValidationException: <p>One of the parameters for the request is not valid.</p>
+            aws_sdk_cloudwatch_logs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1477,6 +1648,13 @@ class CloudWatchLogsClient:
 
         Args:
             anomaly_detector_arn: <p>The ARN of the anomaly detector to delete. You can find the ARNs of log anomaly detectors in your account by using the <a href=\"https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_ListLogAnomalyDetectors.html\">ListLogAnomalyDetectors</a> operation.</p>
+
+        Raises:
+            aws_sdk_cloudwatch_logs.errors.invalid_parameter_exception.InvalidParameterException: <p>A parameter is specified incorrectly.</p>
+            aws_sdk_cloudwatch_logs.errors.operation_aborted_exception.OperationAbortedException: <p>Multiple concurrent requests to update the same resource were in conflict.</p>
+            aws_sdk_cloudwatch_logs.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_cloudwatch_logs.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service cannot complete the request.</p>
+            aws_sdk_cloudwatch_logs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1512,6 +1690,14 @@ class CloudWatchLogsClient:
 
         Args:
             log_group_name: <p>The name of the log group.</p>
+
+        Raises:
+            aws_sdk_cloudwatch_logs.errors.invalid_parameter_exception.InvalidParameterException: <p>A parameter is specified incorrectly.</p>
+            aws_sdk_cloudwatch_logs.errors.operation_aborted_exception.OperationAbortedException: <p>Multiple concurrent requests to update the same resource were in conflict.</p>
+            aws_sdk_cloudwatch_logs.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_cloudwatch_logs.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service cannot complete the request.</p>
+            aws_sdk_cloudwatch_logs.errors.validation_exception.ValidationException: <p>One of the parameters for the request is not valid.</p>
+            aws_sdk_cloudwatch_logs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1549,6 +1735,14 @@ class CloudWatchLogsClient:
         Args:
             log_group_name: <p>The name of the log group.</p>
             log_stream_name: <p>The name of the log stream.</p>
+
+        Raises:
+            aws_sdk_cloudwatch_logs.errors.invalid_parameter_exception.InvalidParameterException: <p>A parameter is specified incorrectly.</p>
+            aws_sdk_cloudwatch_logs.errors.operation_aborted_exception.OperationAbortedException: <p>Multiple concurrent requests to update the same resource were in conflict.</p>
+            aws_sdk_cloudwatch_logs.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_cloudwatch_logs.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service cannot complete the request.</p>
+            aws_sdk_cloudwatch_logs.errors.validation_exception.ValidationException: <p>One of the parameters for the request is not valid.</p>
+            aws_sdk_cloudwatch_logs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1585,6 +1779,13 @@ class CloudWatchLogsClient:
 
         Args:
             lookup_table_arn: <p>The ARN of the lookup table to delete.</p>
+
+        Raises:
+            aws_sdk_cloudwatch_logs.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permissions to perform this action.</p>
+            aws_sdk_cloudwatch_logs.errors.invalid_parameter_exception.InvalidParameterException: <p>A parameter is specified incorrectly.</p>
+            aws_sdk_cloudwatch_logs.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_cloudwatch_logs.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service cannot complete the request.</p>
+            aws_sdk_cloudwatch_logs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1622,6 +1823,13 @@ class CloudWatchLogsClient:
         Args:
             log_group_name: <p>The name of the log group.</p>
             filter_name: <p>The name of the metric filter.</p>
+
+        Raises:
+            aws_sdk_cloudwatch_logs.errors.invalid_parameter_exception.InvalidParameterException: <p>A parameter is specified incorrectly.</p>
+            aws_sdk_cloudwatch_logs.errors.operation_aborted_exception.OperationAbortedException: <p>Multiple concurrent requests to update the same resource were in conflict.</p>
+            aws_sdk_cloudwatch_logs.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_cloudwatch_logs.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service cannot complete the request.</p>
+            aws_sdk_cloudwatch_logs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1658,6 +1866,12 @@ class CloudWatchLogsClient:
 
         Args:
             query_definition_id: <p>The ID of the query definition that you want to delete. You can use <a href=\"https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeQueryDefinitions.html\">DescribeQueryDefinitions</a> to retrieve the IDs of your saved query definitions.</p>
+
+        Raises:
+            aws_sdk_cloudwatch_logs.errors.invalid_parameter_exception.InvalidParameterException: <p>A parameter is specified incorrectly.</p>
+            aws_sdk_cloudwatch_logs.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_cloudwatch_logs.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service cannot complete the request.</p>
+            aws_sdk_cloudwatch_logs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1703,6 +1917,13 @@ class CloudWatchLogsClient:
             policy_name: <p>The name of the policy to be revoked. This parameter is required.</p>
             resource_arn: <p>The ARN of the CloudWatch Logs resource for which the resource policy needs to be deleted</p>
             expected_revision_id: <p>The expected revision ID of the resource policy. Required when deleting a resource-scoped policy to prevent concurrent modifications.</p>
+
+        Raises:
+            aws_sdk_cloudwatch_logs.errors.invalid_parameter_exception.InvalidParameterException: <p>A parameter is specified incorrectly.</p>
+            aws_sdk_cloudwatch_logs.errors.operation_aborted_exception.OperationAbortedException: <p>Multiple concurrent requests to update the same resource were in conflict.</p>
+            aws_sdk_cloudwatch_logs.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_cloudwatch_logs.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service cannot complete the request.</p>
+            aws_sdk_cloudwatch_logs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1743,6 +1964,13 @@ class CloudWatchLogsClient:
 
         Args:
             log_group_name: <p>The name of the log group.</p>
+
+        Raises:
+            aws_sdk_cloudwatch_logs.errors.invalid_parameter_exception.InvalidParameterException: <p>A parameter is specified incorrectly.</p>
+            aws_sdk_cloudwatch_logs.errors.operation_aborted_exception.OperationAbortedException: <p>Multiple concurrent requests to update the same resource were in conflict.</p>
+            aws_sdk_cloudwatch_logs.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_cloudwatch_logs.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service cannot complete the request.</p>
+            aws_sdk_cloudwatch_logs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1778,6 +2006,14 @@ class CloudWatchLogsClient:
 
         Args:
             identifier: <p>The ARN or name of the scheduled query to delete.</p>
+
+        Raises:
+            aws_sdk_cloudwatch_logs.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permissions to perform this action.</p>
+            aws_sdk_cloudwatch_logs.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred while processing the request. This exception is returned when the service encounters an unexpected condition that prevents it from fulfilling the request.</p>
+            aws_sdk_cloudwatch_logs.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_cloudwatch_logs.errors.throttling_exception.ThrottlingException: <p>The request was throttled because of quota limits.</p>
+            aws_sdk_cloudwatch_logs.errors.validation_exception.ValidationException: <p>One of the parameters for the request is not valid.</p>
+            aws_sdk_cloudwatch_logs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1817,6 +2053,13 @@ class CloudWatchLogsClient:
         Args:
             log_group_name: <p>The name of the log group.</p>
             filter_name: <p>The name of the subscription filter.</p>
+
+        Raises:
+            aws_sdk_cloudwatch_logs.errors.invalid_parameter_exception.InvalidParameterException: <p>A parameter is specified incorrectly.</p>
+            aws_sdk_cloudwatch_logs.errors.operation_aborted_exception.OperationAbortedException: <p>Multiple concurrent requests to update the same resource were in conflict.</p>
+            aws_sdk_cloudwatch_logs.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_cloudwatch_logs.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service cannot complete the request.</p>
+            aws_sdk_cloudwatch_logs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1853,6 +2096,14 @@ class CloudWatchLogsClient:
 
         Args:
             log_group_identifier: <p>Specify either the name or ARN of the log group to delete the transformer for. If the log group is in a source account and you are using a monitoring account, you must use the log group ARN.</p>
+
+        Raises:
+            aws_sdk_cloudwatch_logs.errors.invalid_operation_exception.InvalidOperationException: <p>The operation is not valid on the specified resource.</p>
+            aws_sdk_cloudwatch_logs.errors.invalid_parameter_exception.InvalidParameterException: <p>A parameter is specified incorrectly.</p>
+            aws_sdk_cloudwatch_logs.errors.operation_aborted_exception.OperationAbortedException: <p>Multiple concurrent requests to update the same resource were in conflict.</p>
+            aws_sdk_cloudwatch_logs.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_cloudwatch_logs.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service cannot complete the request.</p>
+            aws_sdk_cloudwatch_logs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1900,6 +2151,13 @@ class CloudWatchLogsClient:
             policy_name: <p>Use this parameter to limit the returned policies to only the policy with the name that you specify.</p>
             account_identifiers: <p>If you are using an account that is set up as a monitoring account for CloudWatch unified cross-account observability, you can use this to specify the account ID of a source account. If you do, the operation returns the account policy for the specified account. Currently, you can specify only one account ID in this parameter.</p> <p>If you omit this parameter, only the policy in the current account is returned.</p>
             next_token: <p>The token for the next set of items to return. (You received this token from a previous call.)</p>
+
+        Raises:
+            aws_sdk_cloudwatch_logs.errors.invalid_parameter_exception.InvalidParameterException: <p>A parameter is specified incorrectly.</p>
+            aws_sdk_cloudwatch_logs.errors.operation_aborted_exception.OperationAbortedException: <p>Multiple concurrent requests to update the same resource were in conflict.</p>
+            aws_sdk_cloudwatch_logs.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_cloudwatch_logs.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service cannot complete the request.</p>
+            aws_sdk_cloudwatch_logs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1960,6 +2218,13 @@ class CloudWatchLogsClient:
             resource_types: <p>Use this parameter to filter the response to include only the configuration templates that apply to the resource types that you specify here.</p>
             delivery_destination_types: <p>Use this parameter to filter the response to include only the configuration templates that apply to the delivery destination types that you specify here.</p>
             limit: <p>Use this parameter to limit the number of configuration templates that are returned in the response.</p>
+
+        Raises:
+            aws_sdk_cloudwatch_logs.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_cloudwatch_logs.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service cannot complete the request.</p>
+            aws_sdk_cloudwatch_logs.errors.throttling_exception.ThrottlingException: <p>The request was throttled because of quota limits.</p>
+            aws_sdk_cloudwatch_logs.errors.validation_exception.ValidationException: <p>One of the parameters for the request is not valid.</p>
+            aws_sdk_cloudwatch_logs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2050,6 +2315,13 @@ class CloudWatchLogsClient:
 
         Args:
             limit: <p>Optionally specify the maximum number of deliveries to return in the response.</p>
+
+        Raises:
+            aws_sdk_cloudwatch_logs.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>This request exceeds a service quota.</p>
+            aws_sdk_cloudwatch_logs.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service cannot complete the request.</p>
+            aws_sdk_cloudwatch_logs.errors.throttling_exception.ThrottlingException: <p>The request was throttled because of quota limits.</p>
+            aws_sdk_cloudwatch_logs.errors.validation_exception.ValidationException: <p>One of the parameters for the request is not valid.</p>
+            aws_sdk_cloudwatch_logs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2120,6 +2392,13 @@ class CloudWatchLogsClient:
 
         Args:
             limit: <p>Optionally specify the maximum number of delivery destinations to return in the response.</p>
+
+        Raises:
+            aws_sdk_cloudwatch_logs.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>This request exceeds a service quota.</p>
+            aws_sdk_cloudwatch_logs.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service cannot complete the request.</p>
+            aws_sdk_cloudwatch_logs.errors.throttling_exception.ThrottlingException: <p>The request was throttled because of quota limits.</p>
+            aws_sdk_cloudwatch_logs.errors.validation_exception.ValidationException: <p>One of the parameters for the request is not valid.</p>
+            aws_sdk_cloudwatch_logs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2190,6 +2469,13 @@ class CloudWatchLogsClient:
 
         Args:
             limit: <p>Optionally specify the maximum number of delivery sources to return in the response.</p>
+
+        Raises:
+            aws_sdk_cloudwatch_logs.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>This request exceeds a service quota.</p>
+            aws_sdk_cloudwatch_logs.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service cannot complete the request.</p>
+            aws_sdk_cloudwatch_logs.errors.throttling_exception.ThrottlingException: <p>The request was throttled because of quota limits.</p>
+            aws_sdk_cloudwatch_logs.errors.validation_exception.ValidationException: <p>One of the parameters for the request is not valid.</p>
+            aws_sdk_cloudwatch_logs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2265,6 +2551,11 @@ class CloudWatchLogsClient:
             destination_name_prefix: <p>The prefix to match. If you don't specify a value, no prefix filter is applied.</p>
             next_token: <p>The token for the next set of items to return. (You received this token from a previous call.)</p>
             limit: <p>The maximum number of items returned. If you don't specify a value, the default maximum value of 50 items is used.</p>
+
+        Raises:
+            aws_sdk_cloudwatch_logs.errors.invalid_parameter_exception.InvalidParameterException: <p>A parameter is specified incorrectly.</p>
+            aws_sdk_cloudwatch_logs.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service cannot complete the request.</p>
+            aws_sdk_cloudwatch_logs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2350,6 +2641,11 @@ class CloudWatchLogsClient:
             status_code: <p>The status code of the export task. Specifying a status code filters the results to zero or more export tasks.</p>
             next_token: <p>The token for the next set of items to return. (You received this token from a previous call.)</p>
             limit: <p>The maximum number of items returned. If you don't specify a value, the default is up to 50 items.</p>
+
+        Raises:
+            aws_sdk_cloudwatch_logs.errors.invalid_parameter_exception.InvalidParameterException: <p>A parameter is specified incorrectly.</p>
+            aws_sdk_cloudwatch_logs.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service cannot complete the request.</p>
+            aws_sdk_cloudwatch_logs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2397,6 +2693,14 @@ class CloudWatchLogsClient:
 
         Args:
             log_group_identifiers: <p>An array containing the names or ARNs of the log groups that you want to retrieve field indexes for.</p>
+
+        Raises:
+            aws_sdk_cloudwatch_logs.errors.invalid_parameter_exception.InvalidParameterException: <p>A parameter is specified incorrectly.</p>
+            aws_sdk_cloudwatch_logs.errors.limit_exceeded_exception.LimitExceededException: <p>You have reached the maximum number of resources that can be created.</p>
+            aws_sdk_cloudwatch_logs.errors.operation_aborted_exception.OperationAbortedException: <p>Multiple concurrent requests to update the same resource were in conflict.</p>
+            aws_sdk_cloudwatch_logs.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_cloudwatch_logs.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service cannot complete the request.</p>
+            aws_sdk_cloudwatch_logs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2448,6 +2752,14 @@ class CloudWatchLogsClient:
             batch_import_status: <p>Optional filter to list import batches by their status. Accepts multiple status values: IN_PROGRESS, CANCELLED, COMPLETED and FAILED.</p>
             limit: <p>The maximum number of import batches to return in the response. Default: 10</p>
             next_token: <p>The pagination token for the next set of results.</p>
+
+        Raises:
+            aws_sdk_cloudwatch_logs.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permissions to perform this action.</p>
+            aws_sdk_cloudwatch_logs.errors.invalid_operation_exception.InvalidOperationException: <p>The operation is not valid on the specified resource.</p>
+            aws_sdk_cloudwatch_logs.errors.invalid_parameter_exception.InvalidParameterException: <p>A parameter is specified incorrectly.</p>
+            aws_sdk_cloudwatch_logs.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_cloudwatch_logs.errors.throttling_exception.ThrottlingException: <p>The request was throttled because of quota limits.</p>
+            aws_sdk_cloudwatch_logs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2505,6 +2817,14 @@ class CloudWatchLogsClient:
             import_source_arn: <p>Optional filter to list imports from a specific source</p>
             limit: <p>The maximum number of import tasks to return in the response. Default: 50</p>
             next_token: <p>The pagination token for the next set of results.</p>
+
+        Raises:
+            aws_sdk_cloudwatch_logs.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permissions to perform this action.</p>
+            aws_sdk_cloudwatch_logs.errors.invalid_operation_exception.InvalidOperationException: <p>The operation is not valid on the specified resource.</p>
+            aws_sdk_cloudwatch_logs.errors.invalid_parameter_exception.InvalidParameterException: <p>A parameter is specified incorrectly.</p>
+            aws_sdk_cloudwatch_logs.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_cloudwatch_logs.errors.throttling_exception.ThrottlingException: <p>The request was throttled because of quota limits.</p>
+            aws_sdk_cloudwatch_logs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2554,6 +2874,14 @@ class CloudWatchLogsClient:
 
         Args:
             log_group_identifiers: <p>An array containing the name or ARN of the log group that you want to retrieve field index policies for.</p>
+
+        Raises:
+            aws_sdk_cloudwatch_logs.errors.invalid_parameter_exception.InvalidParameterException: <p>A parameter is specified incorrectly.</p>
+            aws_sdk_cloudwatch_logs.errors.limit_exceeded_exception.LimitExceededException: <p>You have reached the maximum number of resources that can be created.</p>
+            aws_sdk_cloudwatch_logs.errors.operation_aborted_exception.OperationAbortedException: <p>Multiple concurrent requests to update the same resource were in conflict.</p>
+            aws_sdk_cloudwatch_logs.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_cloudwatch_logs.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service cannot complete the request.</p>
+            aws_sdk_cloudwatch_logs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2623,6 +2951,11 @@ class CloudWatchLogsClient:
             include_linked_accounts: <p>If you are using a monitoring account, set this to <code>true</code> to have the operation return log groups in the accounts listed in <code>accountIdentifiers</code>.</p> <p>If this parameter is set to <code>true</code> and <code>accountIdentifiers</code> contains a null value, the operation returns all log groups in the monitoring account and all log groups in all source accounts that are linked to the monitoring account. </p> <p>The default for this parameter is <code>false</code>.</p>
             log_group_class: <p>Use this parameter to limit the results to only those log groups in the specified log group class. If you omit this parameter, log groups of all classes can be returned.</p> <p>Specifies the log group class for this log group. There are three classes:</p> <ul> <li> <p>The <code>Standard</code> log class supports all CloudWatch Logs features.</p> </li> <li> <p>The <code>Infrequent Access</code> log class supports a subset of CloudWatch Logs features and incurs lower costs.</p> </li> <li> <p>Use the <code>Delivery</code> log class only for delivering Lambda logs to store in Amazon S3 or Amazon Data Firehose. Log events in log groups in the Delivery class are kept in CloudWatch Logs for only one day. This log class doesn't offer rich CloudWatch Logs capabilities such as CloudWatch Logs Insights queries.</p> </li> </ul> <p>For details about the features supported by each class, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch_Logs_Log_Classes.html\">Log classes</a> </p>
             log_group_identifiers: <p>Use this array to filter the list of log groups returned. If you specify this parameter, the only other filter that you can choose to specify is <code>includeLinkedAccounts</code>.</p> <p>If you are using this operation in a monitoring account, you can specify the ARNs of log groups in source accounts and in the monitoring account itself. If you are using this operation in an account that is not a cross-account monitoring account, you can specify only log group names in the same account as the operation.</p>
+
+        Raises:
+            aws_sdk_cloudwatch_logs.errors.invalid_parameter_exception.InvalidParameterException: <p>A parameter is specified incorrectly.</p>
+            aws_sdk_cloudwatch_logs.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service cannot complete the request.</p>
+            aws_sdk_cloudwatch_logs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2748,6 +3081,12 @@ class CloudWatchLogsClient:
             descending: <p>If the value is true, results are returned in descending order. If the value is to false, results are returned in ascending order. The default value is false.</p>
             next_token: <p>The token for the next set of items to return. (You received this token from a previous call.)</p>
             limit: <p>The maximum number of items returned. If you don't specify a value, the default is up to 50 items.</p>
+
+        Raises:
+            aws_sdk_cloudwatch_logs.errors.invalid_parameter_exception.InvalidParameterException: <p>A parameter is specified incorrectly.</p>
+            aws_sdk_cloudwatch_logs.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_cloudwatch_logs.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service cannot complete the request.</p>
+            aws_sdk_cloudwatch_logs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2851,6 +3190,13 @@ class CloudWatchLogsClient:
             lookup_table_name_prefix: <p>A prefix to filter lookup tables by name. Only tables whose names start with this prefix are returned. If you don't specify a prefix, all tables in the account and Region are returned.</p>
             max_results: <p>The maximum number of lookup tables to return in the response. The default value is 50 and the maximum value is 100.</p>
             next_token: <p>The token for the next set of items to return. (You received this token from a previous call.)</p>
+
+        Raises:
+            aws_sdk_cloudwatch_logs.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permissions to perform this action.</p>
+            aws_sdk_cloudwatch_logs.errors.invalid_parameter_exception.InvalidParameterException: <p>A parameter is specified incorrectly.</p>
+            aws_sdk_cloudwatch_logs.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_cloudwatch_logs.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service cannot complete the request.</p>
+            aws_sdk_cloudwatch_logs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2915,6 +3261,12 @@ class CloudWatchLogsClient:
             limit: <p>The maximum number of items returned. If you don't specify a value, the default is up to 50 items.</p>
             metric_name: <p>Filters results to include only those with the specified metric name. If you include this parameter in your request, you must also include the <code>metricNamespace</code> parameter.</p>
             metric_namespace: <p>Filters results to include only those in the specified namespace. If you include this parameter in your request, you must also include the <code>metricName</code> parameter.</p>
+
+        Raises:
+            aws_sdk_cloudwatch_logs.errors.invalid_parameter_exception.InvalidParameterException: <p>A parameter is specified incorrectly.</p>
+            aws_sdk_cloudwatch_logs.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_cloudwatch_logs.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service cannot complete the request.</p>
+            aws_sdk_cloudwatch_logs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3021,6 +3373,12 @@ class CloudWatchLogsClient:
             status: <p>Limits the returned queries to only those that have the specified status. Valid values are <code>Cancelled</code>, <code>Complete</code>, <code>Failed</code>, <code>Running</code>, and <code>Scheduled</code>.</p>
             max_results: <p>Limits the number of returned queries to the specified number.</p>
             query_language: <p>Limits the returned queries to only the queries that use the specified query language.</p>
+
+        Raises:
+            aws_sdk_cloudwatch_logs.errors.invalid_parameter_exception.InvalidParameterException: <p>A parameter is specified incorrectly.</p>
+            aws_sdk_cloudwatch_logs.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_cloudwatch_logs.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service cannot complete the request.</p>
+            aws_sdk_cloudwatch_logs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3080,6 +3438,11 @@ class CloudWatchLogsClient:
             query_language: <p>The query language used for this query. For more information about the query languages that CloudWatch Logs supports, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_AnalyzeLogData_Languages.html\">Supported query languages</a>.</p>
             query_definition_name_prefix: <p>Use this parameter to filter your results to only the query definitions that have names that start with the prefix you specify.</p>
             max_results: <p>Limits the number of returned query definitions to the specified number.</p>
+
+        Raises:
+            aws_sdk_cloudwatch_logs.errors.invalid_parameter_exception.InvalidParameterException: <p>A parameter is specified incorrectly.</p>
+            aws_sdk_cloudwatch_logs.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service cannot complete the request.</p>
+            aws_sdk_cloudwatch_logs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3135,6 +3498,11 @@ class CloudWatchLogsClient:
             limit: <p>The maximum number of resource policies to be displayed with one call of this API.</p>
             resource_arn: <p>The ARN of the CloudWatch Logs resource for which to query the resource policy.</p>
             policy_scope: <p>Specifies the scope of the resource policy. Valid values are <code>ACCOUNT</code> or <code>RESOURCE</code>. When not specified, defaults to <code>ACCOUNT</code>.</p>
+
+        Raises:
+            aws_sdk_cloudwatch_logs.errors.invalid_parameter_exception.InvalidParameterException: <p>A parameter is specified incorrectly.</p>
+            aws_sdk_cloudwatch_logs.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service cannot complete the request.</p>
+            aws_sdk_cloudwatch_logs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3191,6 +3559,12 @@ class CloudWatchLogsClient:
             filter_name_prefix: <p>The prefix to match. If you don't specify a value, no prefix filter is applied.</p>
             next_token: <p>The token for the next set of items to return. (You received this token from a previous call.)</p>
             limit: <p>The maximum number of items returned. If you don't specify a value, the default is up to 50 items.</p>
+
+        Raises:
+            aws_sdk_cloudwatch_logs.errors.invalid_parameter_exception.InvalidParameterException: <p>A parameter is specified incorrectly.</p>
+            aws_sdk_cloudwatch_logs.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_cloudwatch_logs.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service cannot complete the request.</p>
+            aws_sdk_cloudwatch_logs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3273,6 +3647,13 @@ class CloudWatchLogsClient:
         Args:
             log_group_name: <p>The name of the log group.</p> <p>In your <code>DisassociateKmsKey</code> operation, you must specify either the <code>resourceIdentifier</code> parameter or the <code>logGroup</code> parameter, but you can't specify both.</p>
             resource_identifier: <p>Specifies the target for this operation. You must specify one of the following:</p> <ul> <li> <p>Specify the ARN of a log group to stop having CloudWatch Logs use the KMS key to encrypt log events that are ingested and stored by that log group. After you run this operation, CloudWatch Logs encrypts ingested log events with the default CloudWatch Logs method. The log group ARN must be in the following format. Replace <i>REGION</i> and <i>ACCOUNT_ID</i> with your Region and account ID.</p> <p> <code>arn:aws:logs:<i>REGION</i>:<i>ACCOUNT_ID</i>:log-group:<i>LOG_GROUP_NAME</i> </code> </p> </li> <li> <p>Specify the following ARN to stop using this key to encrypt the results of future <a href=\"https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_StartQuery.html\">StartQuery</a> operations in this account. Replace <i>REGION</i> and <i>ACCOUNT_ID</i> with your Region and account ID.</p> <p> <code>arn:aws:logs:<i>REGION</i>:<i>ACCOUNT_ID</i>:query-result:*</code> </p> </li> </ul> <p>In your <code>DisssociateKmsKey</code> operation, you must specify either the <code>resourceIdentifier</code> parameter or the <code>logGroup</code> parameter, but you can't specify both.</p>
+
+        Raises:
+            aws_sdk_cloudwatch_logs.errors.invalid_parameter_exception.InvalidParameterException: <p>A parameter is specified incorrectly.</p>
+            aws_sdk_cloudwatch_logs.errors.operation_aborted_exception.OperationAbortedException: <p>Multiple concurrent requests to update the same resource were in conflict.</p>
+            aws_sdk_cloudwatch_logs.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_cloudwatch_logs.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service cannot complete the request.</p>
+            aws_sdk_cloudwatch_logs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3311,6 +3692,14 @@ class CloudWatchLogsClient:
 
         Args:
             identifier: <p>The unique identifier of the association to remove between the data source and S3 Table Integration.</p>
+
+        Raises:
+            aws_sdk_cloudwatch_logs.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permissions to perform this action.</p>
+            aws_sdk_cloudwatch_logs.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred while processing the request. This exception is returned when the service encounters an unexpected condition that prevents it from fulfilling the request.</p>
+            aws_sdk_cloudwatch_logs.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_cloudwatch_logs.errors.throttling_exception.ThrottlingException: <p>The request was throttled because of quota limits.</p>
+            aws_sdk_cloudwatch_logs.errors.validation_exception.ValidationException: <p>One of the parameters for the request is not valid.</p>
+            aws_sdk_cloudwatch_logs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3386,6 +3775,12 @@ class CloudWatchLogsClient:
             limit: <p>The maximum number of events to return. The default is 10,000 events.</p>
             interleaved: <p>If the value is true, the operation attempts to provide responses that contain events from multiple log streams within the log group, interleaved in a single response. If the value is false, all the matched log events in the first log stream are searched first, then those in the next log stream, and so on.</p> <p> <b>Important</b> As of June 17, 2019, this parameter is ignored and the value is assumed to be true. The response from this operation always interleaves events from multiple log streams within a log group.</p>
             unmask: <p>Specify <code>true</code> to display the log event fields with all sensitive data unmasked and visible. The default is <code>false</code>.</p> <p>To use this operation with this parameter, you must be signed into an account with the <code>logs:Unmask</code> permission.</p>
+
+        Raises:
+            aws_sdk_cloudwatch_logs.errors.invalid_parameter_exception.InvalidParameterException: <p>A parameter is specified incorrectly.</p>
+            aws_sdk_cloudwatch_logs.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_cloudwatch_logs.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service cannot complete the request.</p>
+            aws_sdk_cloudwatch_logs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3444,6 +3839,13 @@ class CloudWatchLogsClient:
 
         Args:
             log_group_identifier: <p>The name or ARN of the log group that contains the data protection policy that you want to see.</p>
+
+        Raises:
+            aws_sdk_cloudwatch_logs.errors.invalid_parameter_exception.InvalidParameterException: <p>A parameter is specified incorrectly.</p>
+            aws_sdk_cloudwatch_logs.errors.operation_aborted_exception.OperationAbortedException: <p>Multiple concurrent requests to update the same resource were in conflict.</p>
+            aws_sdk_cloudwatch_logs.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_cloudwatch_logs.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service cannot complete the request.</p>
+            aws_sdk_cloudwatch_logs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3481,6 +3883,14 @@ class CloudWatchLogsClient:
 
         Args:
             id: <p>The ID of the delivery that you want to retrieve.</p>
+
+        Raises:
+            aws_sdk_cloudwatch_logs.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_cloudwatch_logs.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>This request exceeds a service quota.</p>
+            aws_sdk_cloudwatch_logs.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service cannot complete the request.</p>
+            aws_sdk_cloudwatch_logs.errors.throttling_exception.ThrottlingException: <p>The request was throttled because of quota limits.</p>
+            aws_sdk_cloudwatch_logs.errors.validation_exception.ValidationException: <p>One of the parameters for the request is not valid.</p>
+            aws_sdk_cloudwatch_logs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3518,6 +3928,14 @@ class CloudWatchLogsClient:
 
         Args:
             name: <p>The name of the delivery destination that you want to retrieve.</p>
+
+        Raises:
+            aws_sdk_cloudwatch_logs.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_cloudwatch_logs.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>This request exceeds a service quota.</p>
+            aws_sdk_cloudwatch_logs.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service cannot complete the request.</p>
+            aws_sdk_cloudwatch_logs.errors.throttling_exception.ThrottlingException: <p>The request was throttled because of quota limits.</p>
+            aws_sdk_cloudwatch_logs.errors.validation_exception.ValidationException: <p>One of the parameters for the request is not valid.</p>
+            aws_sdk_cloudwatch_logs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3555,6 +3973,12 @@ class CloudWatchLogsClient:
 
         Args:
             delivery_destination_name: <p>The name of the delivery destination that you want to retrieve the policy of.</p>
+
+        Raises:
+            aws_sdk_cloudwatch_logs.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_cloudwatch_logs.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service cannot complete the request.</p>
+            aws_sdk_cloudwatch_logs.errors.validation_exception.ValidationException: <p>One of the parameters for the request is not valid.</p>
+            aws_sdk_cloudwatch_logs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3592,6 +4016,14 @@ class CloudWatchLogsClient:
 
         Args:
             name: <p>The name of the delivery source that you want to retrieve.</p>
+
+        Raises:
+            aws_sdk_cloudwatch_logs.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_cloudwatch_logs.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>This request exceeds a service quota.</p>
+            aws_sdk_cloudwatch_logs.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service cannot complete the request.</p>
+            aws_sdk_cloudwatch_logs.errors.throttling_exception.ThrottlingException: <p>The request was throttled because of quota limits.</p>
+            aws_sdk_cloudwatch_logs.errors.validation_exception.ValidationException: <p>One of the parameters for the request is not valid.</p>
+            aws_sdk_cloudwatch_logs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3631,6 +4063,12 @@ class CloudWatchLogsClient:
 
         Args:
             integration_name: <p>The name of the integration that you want to find information about. To find the name of your integration, use <a href=\"https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_ListIntegrations.html\">ListIntegrations</a> </p>
+
+        Raises:
+            aws_sdk_cloudwatch_logs.errors.invalid_parameter_exception.InvalidParameterException: <p>A parameter is specified incorrectly.</p>
+            aws_sdk_cloudwatch_logs.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_cloudwatch_logs.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service cannot complete the request.</p>
+            aws_sdk_cloudwatch_logs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3668,6 +4106,13 @@ class CloudWatchLogsClient:
 
         Args:
             anomaly_detector_arn: <p>The ARN of the anomaly detector to retrieve information about. You can find the ARNs of log anomaly detectors in your account by using the <a href=\"https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_ListLogAnomalyDetectors.html\">ListLogAnomalyDetectors</a> operation.</p>
+
+        Raises:
+            aws_sdk_cloudwatch_logs.errors.invalid_parameter_exception.InvalidParameterException: <p>A parameter is specified incorrectly.</p>
+            aws_sdk_cloudwatch_logs.errors.operation_aborted_exception.OperationAbortedException: <p>Multiple concurrent requests to update the same resource were in conflict.</p>
+            aws_sdk_cloudwatch_logs.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_cloudwatch_logs.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service cannot complete the request.</p>
+            aws_sdk_cloudwatch_logs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3733,6 +4178,12 @@ class CloudWatchLogsClient:
             limit: <p>The maximum number of log events returned. If you don't specify a limit, the default is as many log events as can fit in a response size of 1 MB (up to 10,000 log events).</p>
             start_from_head: <p>If the value is true, the earliest log events are returned first. If the value is false, the latest log events are returned first. The default value is false.</p> <p>If you are using a previous <code>nextForwardToken</code> value as the <code>nextToken</code> in this operation, you must specify <code>true</code> for <code>startFromHead</code>.</p>
             unmask: <p>Specify <code>true</code> to display the log event fields with all sensitive data unmasked and visible. The default is <code>false</code>.</p> <p>To use this operation with this parameter, you must be signed into an account with the <code>logs:Unmask</code> permission.</p>
+
+        Raises:
+            aws_sdk_cloudwatch_logs.errors.invalid_parameter_exception.InvalidParameterException: <p>A parameter is specified incorrectly.</p>
+            aws_sdk_cloudwatch_logs.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_cloudwatch_logs.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service cannot complete the request.</p>
+            aws_sdk_cloudwatch_logs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3835,6 +4286,13 @@ class CloudWatchLogsClient:
         Args:
             data_source_name: <p>The name of the data source to retrieve log fields for.</p>
             data_source_type: <p>The type of the data source to retrieve log fields for.</p>
+
+        Raises:
+            aws_sdk_cloudwatch_logs.errors.invalid_parameter_exception.InvalidParameterException: <p>A parameter is specified incorrectly.</p>
+            aws_sdk_cloudwatch_logs.errors.operation_aborted_exception.OperationAbortedException: <p>Multiple concurrent requests to update the same resource were in conflict.</p>
+            aws_sdk_cloudwatch_logs.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_cloudwatch_logs.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service cannot complete the request.</p>
+            aws_sdk_cloudwatch_logs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3881,6 +4339,13 @@ class CloudWatchLogsClient:
             log_group_name: <p>The name of the log group to search.</p> <note> <p> You must include either <code>logGroupIdentifier</code> or <code>logGroupName</code>, but not both. </p> </note>
             time: <p>The time to set as the center of the query. If you specify <code>time</code>, the 8 minutes before and 8 minutes after this time are searched. If you omit <code>time</code>, the most recent 15 minutes up to the current time are searched.</p> <p>The <code>time</code> value is specified as epoch time, which is the number of seconds since <code>January 1, 1970, 00:00:00 UTC</code>.</p>
             log_group_identifier: <p>Specify either the name or ARN of the log group to view. If the log group is in a source account and you are using a monitoring account, you must specify the ARN.</p> <note> <p> You must include either <code>logGroupIdentifier</code> or <code>logGroupName</code>, but not both. </p> </note>
+
+        Raises:
+            aws_sdk_cloudwatch_logs.errors.invalid_parameter_exception.InvalidParameterException: <p>A parameter is specified incorrectly.</p>
+            aws_sdk_cloudwatch_logs.errors.limit_exceeded_exception.LimitExceededException: <p>You have reached the maximum number of resources that can be created.</p>
+            aws_sdk_cloudwatch_logs.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_cloudwatch_logs.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service cannot complete the request.</p>
+            aws_sdk_cloudwatch_logs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3925,6 +4390,14 @@ class CloudWatchLogsClient:
         Args:
             unmask: <p>A boolean flag that indicates whether to unmask sensitive log data. When set to true, any masked or redacted data in the log object will be displayed in its original form. Default is false.</p>
             log_object_pointer: <p>A pointer to the specific log object to retrieve. This is a required parameter that uniquely identifies the log object within CloudWatch Logs. The pointer is typically obtained from a previous query or filter operation.</p>
+
+        Raises:
+            aws_sdk_cloudwatch_logs.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permissions to perform this action.</p>
+            aws_sdk_cloudwatch_logs.errors.invalid_operation_exception.InvalidOperationException: <p>The operation is not valid on the specified resource.</p>
+            aws_sdk_cloudwatch_logs.errors.invalid_parameter_exception.InvalidParameterException: <p>A parameter is specified incorrectly.</p>
+            aws_sdk_cloudwatch_logs.errors.limit_exceeded_exception.LimitExceededException: <p>You have reached the maximum number of resources that can be created.</p>
+            aws_sdk_cloudwatch_logs.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_cloudwatch_logs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3966,6 +4439,13 @@ class CloudWatchLogsClient:
         Args:
             log_record_pointer: <p>The pointer corresponding to the log event record you want to retrieve. You get this from the response of a <code>GetQueryResults</code> operation. In that response, the value of the <code>@ptr</code> field for a log event is the value to use as <code>logRecordPointer</code> to retrieve that complete log event record.</p>
             unmask: <p>Specify <code>true</code> to display the log event fields with all sensitive data unmasked and visible. The default is <code>false</code>.</p> <p>To use this operation with this parameter, you must be signed into an account with the <code>logs:Unmask</code> permission.</p>
+
+        Raises:
+            aws_sdk_cloudwatch_logs.errors.invalid_parameter_exception.InvalidParameterException: <p>A parameter is specified incorrectly.</p>
+            aws_sdk_cloudwatch_logs.errors.limit_exceeded_exception.LimitExceededException: <p>You have reached the maximum number of resources that can be created.</p>
+            aws_sdk_cloudwatch_logs.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_cloudwatch_logs.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service cannot complete the request.</p>
+            aws_sdk_cloudwatch_logs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4007,6 +4487,13 @@ class CloudWatchLogsClient:
 
         Args:
             lookup_table_arn: <p>The ARN of the lookup table to retrieve.</p>
+
+        Raises:
+            aws_sdk_cloudwatch_logs.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permissions to perform this action.</p>
+            aws_sdk_cloudwatch_logs.errors.invalid_parameter_exception.InvalidParameterException: <p>A parameter is specified incorrectly.</p>
+            aws_sdk_cloudwatch_logs.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_cloudwatch_logs.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service cannot complete the request.</p>
+            aws_sdk_cloudwatch_logs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4052,6 +4539,12 @@ class CloudWatchLogsClient:
             query_id: <p>The ID number of the query.</p>
             next_token: <p>The token for the next set of items to return. The token expires after 1 hour.</p>
             max_items: <p>The maximum number of log events to return in the response. The maximum is 10,000 log events per request. You can retrieve up to 100,000 log event results from a query by paginating with the <code>nextToken</code>.</p>
+
+        Raises:
+            aws_sdk_cloudwatch_logs.errors.invalid_parameter_exception.InvalidParameterException: <p>A parameter is specified incorrectly.</p>
+            aws_sdk_cloudwatch_logs.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_cloudwatch_logs.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service cannot complete the request.</p>
+            aws_sdk_cloudwatch_logs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4093,6 +4586,14 @@ class CloudWatchLogsClient:
 
         Args:
             identifier: <p>The ARN or name of the scheduled query to retrieve.</p>
+
+        Raises:
+            aws_sdk_cloudwatch_logs.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permissions to perform this action.</p>
+            aws_sdk_cloudwatch_logs.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred while processing the request. This exception is returned when the service encounters an unexpected condition that prevents it from fulfilling the request.</p>
+            aws_sdk_cloudwatch_logs.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_cloudwatch_logs.errors.throttling_exception.ThrottlingException: <p>The request was throttled because of quota limits.</p>
+            aws_sdk_cloudwatch_logs.errors.validation_exception.ValidationException: <p>One of the parameters for the request is not valid.</p>
+            aws_sdk_cloudwatch_logs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4145,6 +4646,14 @@ class CloudWatchLogsClient:
             end_time: <p>The end time for the history query in Unix epoch format.</p>
             execution_statuses: <p>An array of execution statuses to filter the history results. Only executions with the specified statuses are returned.</p>
             max_results: <p>The maximum number of history records to return. Valid range is 1 to 1000.</p>
+
+        Raises:
+            aws_sdk_cloudwatch_logs.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permissions to perform this action.</p>
+            aws_sdk_cloudwatch_logs.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred while processing the request. This exception is returned when the service encounters an unexpected condition that prevents it from fulfilling the request.</p>
+            aws_sdk_cloudwatch_logs.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_cloudwatch_logs.errors.throttling_exception.ThrottlingException: <p>The request was throttled because of quota limits.</p>
+            aws_sdk_cloudwatch_logs.errors.validation_exception.ValidationException: <p>One of the parameters for the request is not valid.</p>
+            aws_sdk_cloudwatch_logs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4227,6 +4736,13 @@ class CloudWatchLogsClient:
 
         Args:
             log_group_identifier: <p>Specify either the name or ARN of the log group to return transformer information for. If the log group is in a source account and you are using a monitoring account, you must use the log group ARN.</p>
+
+        Raises:
+            aws_sdk_cloudwatch_logs.errors.invalid_operation_exception.InvalidOperationException: <p>The operation is not valid on the specified resource.</p>
+            aws_sdk_cloudwatch_logs.errors.invalid_parameter_exception.InvalidParameterException: <p>A parameter is specified incorrectly.</p>
+            aws_sdk_cloudwatch_logs.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_cloudwatch_logs.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service cannot complete the request.</p>
+            aws_sdk_cloudwatch_logs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4291,6 +4807,12 @@ class CloudWatchLogsClient:
             data_sources: <p>Filters the results by data source characteristics to include only log groups associated with the specified data sources.</p>
             group_by: <p>Specifies how to group the log groups in the summary.</p>
             limit: <p>The maximum number of aggregated summaries to return. If you omit this parameter, the default is up to 50 aggregated summaries.</p>
+
+        Raises:
+            aws_sdk_cloudwatch_logs.errors.invalid_parameter_exception.InvalidParameterException: <p>A parameter is specified incorrectly.</p>
+            aws_sdk_cloudwatch_logs.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service cannot complete the request.</p>
+            aws_sdk_cloudwatch_logs.errors.validation_exception.ValidationException: <p>One of the parameters for the request is not valid.</p>
+            aws_sdk_cloudwatch_logs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4402,6 +4924,13 @@ class CloudWatchLogsClient:
             anomaly_detector_arn: <p>Use this to optionally limit the results to only the anomalies found by a certain anomaly detector.</p>
             suppression_state: <p>You can specify this parameter if you want to the operation to return only anomalies that are currently either suppressed or unsuppressed.</p>
             limit: <p>The maximum number of items to return. If you don't specify a value, the default maximum value of 50 items is used.</p>
+
+        Raises:
+            aws_sdk_cloudwatch_logs.errors.invalid_parameter_exception.InvalidParameterException: <p>A parameter is specified incorrectly.</p>
+            aws_sdk_cloudwatch_logs.errors.operation_aborted_exception.OperationAbortedException: <p>Multiple concurrent requests to update the same resource were in conflict.</p>
+            aws_sdk_cloudwatch_logs.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_cloudwatch_logs.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service cannot complete the request.</p>
+            aws_sdk_cloudwatch_logs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4489,6 +5018,11 @@ class CloudWatchLogsClient:
             integration_name_prefix: <p>To limit the results to integrations that start with a certain name prefix, specify that name prefix here.</p>
             integration_type: <p>To limit the results to integrations of a certain type, specify that type here.</p>
             integration_status: <p>To limit the results to integrations with a certain status, specify that status here.</p>
+
+        Raises:
+            aws_sdk_cloudwatch_logs.errors.invalid_parameter_exception.InvalidParameterException: <p>A parameter is specified incorrectly.</p>
+            aws_sdk_cloudwatch_logs.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service cannot complete the request.</p>
+            aws_sdk_cloudwatch_logs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4540,6 +5074,13 @@ class CloudWatchLogsClient:
         Args:
             filter_log_group_arn: <p>Use this to optionally filter the results to only include anomaly detectors that are associated with the specified log group.</p>
             limit: <p>The maximum number of items to return. If you don't specify a value, the default maximum value of 50 items is used.</p>
+
+        Raises:
+            aws_sdk_cloudwatch_logs.errors.invalid_parameter_exception.InvalidParameterException: <p>A parameter is specified incorrectly.</p>
+            aws_sdk_cloudwatch_logs.errors.operation_aborted_exception.OperationAbortedException: <p>Multiple concurrent requests to update the same resource were in conflict.</p>
+            aws_sdk_cloudwatch_logs.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_cloudwatch_logs.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service cannot complete the request.</p>
+            aws_sdk_cloudwatch_logs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4642,6 +5183,11 @@ class CloudWatchLogsClient:
             data_sources: <p>An array of data source filters to filter log groups by their associated data sources. You can filter by data source name, type, or both. Multiple filters within the same dimension are combined with OR logic, while filters across different dimensions are combined with AND logic.</p>
             field_index_names: <p>An array of field index names to filter log groups that have specific field indexes. Only log groups containing all specified field indexes are returned. You can specify 1 to 20 field index names, each with 1 to 512 characters.</p>
             log_group_tags: <p>An array of tag filters to return only log groups that have specific tags. Multiple filters are combined with AND logic.</p>
+
+        Raises:
+            aws_sdk_cloudwatch_logs.errors.invalid_parameter_exception.InvalidParameterException: <p>A parameter is specified incorrectly.</p>
+            aws_sdk_cloudwatch_logs.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service cannot complete the request.</p>
+            aws_sdk_cloudwatch_logs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4703,6 +5249,13 @@ class CloudWatchLogsClient:
         Args:
             query_id: <p>The ID of the query to use. This query ID is from the response to your <a href=\"https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_StartQuery.html\">StartQuery</a> operation.</p>
             max_results: <p>Limits the number of returned log groups to the specified number.</p>
+
+        Raises:
+            aws_sdk_cloudwatch_logs.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permissions to perform this action.</p>
+            aws_sdk_cloudwatch_logs.errors.invalid_parameter_exception.InvalidParameterException: <p>A parameter is specified incorrectly.</p>
+            aws_sdk_cloudwatch_logs.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_cloudwatch_logs.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service cannot complete the request.</p>
+            aws_sdk_cloudwatch_logs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4780,6 +5333,13 @@ class CloudWatchLogsClient:
         Args:
             max_results: <p>The maximum number of scheduled queries to return. Valid range is 1 to 1000.</p>
             state: <p>Filter scheduled queries by state. Valid values are <code>ENABLED</code> and <code>DISABLED</code>. If not specified, all scheduled queries are returned.</p>
+
+        Raises:
+            aws_sdk_cloudwatch_logs.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permissions to perform this action.</p>
+            aws_sdk_cloudwatch_logs.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred while processing the request. This exception is returned when the service encounters an unexpected condition that prevents it from fulfilling the request.</p>
+            aws_sdk_cloudwatch_logs.errors.throttling_exception.ThrottlingException: <p>The request was throttled because of quota limits.</p>
+            aws_sdk_cloudwatch_logs.errors.validation_exception.ValidationException: <p>One of the parameters for the request is not valid.</p>
+            aws_sdk_cloudwatch_logs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4858,6 +5418,14 @@ class CloudWatchLogsClient:
         Args:
             integration_arn: <p>The Amazon Resource Name (ARN) of the S3 Table Integration to list associations for.</p>
             max_results: <p>The maximum number of associations to return in a single call. Valid range is 1 to 100.</p>
+
+        Raises:
+            aws_sdk_cloudwatch_logs.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permissions to perform this action.</p>
+            aws_sdk_cloudwatch_logs.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred while processing the request. This exception is returned when the service encounters an unexpected condition that prevents it from fulfilling the request.</p>
+            aws_sdk_cloudwatch_logs.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_cloudwatch_logs.errors.throttling_exception.ThrottlingException: <p>The request was throttled because of quota limits.</p>
+            aws_sdk_cloudwatch_logs.errors.validation_exception.ValidationException: <p>One of the parameters for the request is not valid.</p>
+            aws_sdk_cloudwatch_logs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4926,6 +5494,12 @@ class CloudWatchLogsClient:
 
         Args:
             resource_arn: <p>The ARN of the resource that you want to view tags for.</p> <p>The ARN format of a log group is <code>arn:aws:logs:<i>Region</i>:<i>account-id</i>:log-group:<i>log-group-name</i> </code> </p> <p>The ARN format of a destination is <code>arn:aws:logs:<i>Region</i>:<i>account-id</i>:destination:<i>destination-name</i> </code> </p> <p>For more information about ARN format, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/iam-access-control-overview-cwl.html\">CloudWatch Logs resources and operations</a>.</p>
+
+        Raises:
+            aws_sdk_cloudwatch_logs.errors.invalid_parameter_exception.InvalidParameterException: <p>A parameter is specified incorrectly.</p>
+            aws_sdk_cloudwatch_logs.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_cloudwatch_logs.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service cannot complete the request.</p>
+            aws_sdk_cloudwatch_logs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4963,6 +5537,11 @@ class CloudWatchLogsClient:
 
         Args:
             log_group_name: <p>The name of the log group.</p>
+
+        Raises:
+            aws_sdk_cloudwatch_logs.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_cloudwatch_logs.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service cannot complete the request.</p>
+            aws_sdk_cloudwatch_logs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5010,6 +5589,13 @@ class CloudWatchLogsClient:
             policy_type: <p>The type of policy that you're creating or updating.</p>
             scope: <p>Currently the only valid value for this parameter is <code>ALL</code>, which specifies that the data protection policy applies to all log groups in the account. If you omit this parameter, the default of <code>ALL</code> is used.</p>
             selection_criteria: <p>Use this parameter to apply the new policy to a subset of log groups in the account or a data source name and type combination. </p> <p>Specifying <code>selectionCriteria</code> is valid only when you specify <code>SUBSCRIPTION_FILTER_POLICY</code>, <code>FIELD_INDEX_POLICY</code> or <code>TRANSFORMER_POLICY</code>for <code>policyType</code>.</p> <ul> <li> <p>If <code>policyType</code> is <code>SUBSCRIPTION_FILTER_POLICY</code>, the only supported <code>selectionCriteria</code> filter is <code>LogGroupName NOT IN []</code> </p> </li> <li> <p>If <code>policyType</code> is <code>TRANSFORMER_POLICY</code>, the only supported <code>selectionCriteria</code> filter is <code>LogGroupNamePrefix</code> </p> </li> <li> <p>If <code>policyType</code> is <code>FIELD_INDEX_POLICY</code>, the supported <code>selectionCriteria</code> filters are:</p> <ul> <li> <p> <code>LogGroupNamePrefix</code> </p> </li> <li> <p> <code>DataSourceName</code> AND <code>DataSourceType</code> </p> </li> </ul> <p>When you specify <code>selectionCriteria</code> for a field index policy you can use either <code>LogGroupNamePrefix</code> by itself or <code>DataSourceName</code> and <code>DataSourceType</code> together.</p> </li> </ul> <p>The <code>selectionCriteria</code> string can be up to 25KB in length. The length is determined by using its UTF-8 bytes.</p> <p>Using the <code>selectionCriteria</code> parameter with <code>SUBSCRIPTION_FILTER_POLICY</code> is useful to help prevent infinite loops. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Subscriptions-recursion-prevention.html\">Log recursion prevention</a>.</p>
+
+        Raises:
+            aws_sdk_cloudwatch_logs.errors.invalid_parameter_exception.InvalidParameterException: <p>A parameter is specified incorrectly.</p>
+            aws_sdk_cloudwatch_logs.errors.limit_exceeded_exception.LimitExceededException: <p>You have reached the maximum number of resources that can be created.</p>
+            aws_sdk_cloudwatch_logs.errors.operation_aborted_exception.OperationAbortedException: <p>Multiple concurrent requests to update the same resource were in conflict.</p>
+            aws_sdk_cloudwatch_logs.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service cannot complete the request.</p>
+            aws_sdk_cloudwatch_logs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5055,6 +5641,15 @@ class CloudWatchLogsClient:
         Args:
             log_group_identifier: <p>The name or ARN of the log group.</p> <p>Type: String</p> <p>Length Constraints: Minimum length of 1. Maximum length of 512.</p> <p>Pattern: <code>[\.\-_/#A-Za-z0-9]+</code> </p> <p>Required: Yes</p>
             bearer_token_authentication_enabled: <p>Whether to enable bearer token authentication.</p> <p>Type: Boolean</p> <p>Required: Yes</p>
+
+        Raises:
+            aws_sdk_cloudwatch_logs.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permissions to perform this action.</p>
+            aws_sdk_cloudwatch_logs.errors.invalid_operation_exception.InvalidOperationException: <p>The operation is not valid on the specified resource.</p>
+            aws_sdk_cloudwatch_logs.errors.invalid_parameter_exception.InvalidParameterException: <p>A parameter is specified incorrectly.</p>
+            aws_sdk_cloudwatch_logs.errors.operation_aborted_exception.OperationAbortedException: <p>Multiple concurrent requests to update the same resource were in conflict.</p>
+            aws_sdk_cloudwatch_logs.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_cloudwatch_logs.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service cannot complete the request.</p>
+            aws_sdk_cloudwatch_logs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5095,6 +5690,14 @@ class CloudWatchLogsClient:
         Args:
             log_group_identifier: <p>Specify either the log group name or log group ARN.</p>
             policy_document: <p>Specify the data protection policy, in JSON.</p> <p>This policy must include two JSON blocks:</p> <ul> <li> <p>The first block must include both a <code>DataIdentifer</code> array and an <code>Operation</code> property with an <code>Audit</code> action. The <code>DataIdentifer</code> array lists the types of sensitive data that you want to mask. For more information about the available options, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/mask-sensitive-log-data-types.html\">Types of data that you can mask</a>.</p> <p>The <code>Operation</code> property with an <code>Audit</code> action is required to find the sensitive data terms. This <code>Audit</code> action must contain a <code>FindingsDestination</code> object. You can optionally use that <code>FindingsDestination</code> object to list one or more destinations to send audit findings to. If you specify destinations such as log groups, Firehose streams, and S3 buckets, they must already exist.</p> </li> <li> <p>The second block must include both a <code>DataIdentifer</code> array and an <code>Operation</code> property with an <code>Deidentify</code> action. The <code>DataIdentifer</code> array must exactly match the <code>DataIdentifer</code> array in the first block of the policy.</p> <p>The <code>Operation</code> property with the <code>Deidentify</code> action is what actually masks the data, and it must contain the <code> \"MaskConfig\": {}</code> object. The <code> \"MaskConfig\": {}</code> object must be empty.</p> </li> </ul> <p>For an example data protection policy, see the <b>Examples</b> section on this page.</p> <important> <p>The contents of the two <code>DataIdentifer</code> arrays must match exactly.</p> </important> <p>In addition to the two JSON blocks, the <code>policyDocument</code> can also include <code>Name</code>, <code>Description</code>, and <code>Version</code> fields. The <code>Name</code> is used as a dimension when CloudWatch Logs reports audit findings metrics to CloudWatch.</p> <p>The JSON specified in <code>policyDocument</code> can be up to 30,720 characters.</p>
+
+        Raises:
+            aws_sdk_cloudwatch_logs.errors.invalid_parameter_exception.InvalidParameterException: <p>A parameter is specified incorrectly.</p>
+            aws_sdk_cloudwatch_logs.errors.limit_exceeded_exception.LimitExceededException: <p>You have reached the maximum number of resources that can be created.</p>
+            aws_sdk_cloudwatch_logs.errors.operation_aborted_exception.OperationAbortedException: <p>Multiple concurrent requests to update the same resource were in conflict.</p>
+            aws_sdk_cloudwatch_logs.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_cloudwatch_logs.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service cannot complete the request.</p>
+            aws_sdk_cloudwatch_logs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5147,6 +5750,15 @@ class CloudWatchLogsClient:
             delivery_destination_configuration: <p>A structure that contains the ARN of the Amazon Web Services resource that will receive the logs.</p> <note> <p> <code>deliveryDestinationConfiguration</code> is required for CloudWatch Logs, Amazon S3, Firehose log delivery destinations and not required for X-Ray trace delivery destinations. <code>deliveryDestinationType</code> is needed for X-Ray trace delivery destinations but not required for other logs delivery destinations.</p> </note>
             delivery_destination_type: <p>The type of delivery destination. This parameter specifies the target service where log data will be delivered. Valid values include:</p> <ul> <li> <p> <code>S3</code> - Amazon S3 for long-term storage and analytics</p> </li> <li> <p> <code>CWL</code> - CloudWatch Logs for centralized log management</p> </li> <li> <p> <code>FH</code> - Amazon Kinesis Data Firehose for real-time data streaming</p> </li> <li> <p> <code>XRAY</code> - Amazon Web Services X-Ray for distributed tracing and application monitoring</p> </li> </ul> <p>The delivery destination type determines the format and configuration options available for log delivery.</p>
             tags: <p>An optional list of key-value pairs to associate with the resource.</p> <p>For more information about tagging, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html\">Tagging Amazon Web Services resources</a> </p>
+
+        Raises:
+            aws_sdk_cloudwatch_logs.errors.conflict_exception.ConflictException: <p>This operation attempted to create a resource that already exists.</p>
+            aws_sdk_cloudwatch_logs.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_cloudwatch_logs.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>This request exceeds a service quota.</p>
+            aws_sdk_cloudwatch_logs.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service cannot complete the request.</p>
+            aws_sdk_cloudwatch_logs.errors.throttling_exception.ThrottlingException: <p>The request was throttled because of quota limits.</p>
+            aws_sdk_cloudwatch_logs.errors.validation_exception.ValidationException: <p>One of the parameters for the request is not valid.</p>
+            aws_sdk_cloudwatch_logs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5196,6 +5808,13 @@ class CloudWatchLogsClient:
         Args:
             delivery_destination_name: <p>The name of the delivery destination to assign this policy to.</p>
             delivery_destination_policy: <p>The contents of the policy.</p>
+
+        Raises:
+            aws_sdk_cloudwatch_logs.errors.conflict_exception.ConflictException: <p>This operation attempted to create a resource that already exists.</p>
+            aws_sdk_cloudwatch_logs.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_cloudwatch_logs.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service cannot complete the request.</p>
+            aws_sdk_cloudwatch_logs.errors.validation_exception.ValidationException: <p>One of the parameters for the request is not valid.</p>
+            aws_sdk_cloudwatch_logs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5244,6 +5863,15 @@ class CloudWatchLogsClient:
             log_type: <p>Defines the type of log that the source is sending.</p> <ul> <li> <p>For Amazon Bedrock Agents, the valid values are <code>APPLICATION_LOGS</code> and <code>EVENT_LOGS</code>.</p> </li> <li> <p>For Amazon Bedrock Knowledge Bases, the valid value is <code>APPLICATION_LOGS</code>.</p> </li> <li> <p>For Amazon Bedrock AgentCore Runtime, the valid values are <code>APPLICATION_LOGS</code>, <code>USAGE_LOGS</code> and <code>TRACES</code>.</p> </li> <li> <p>For Amazon Bedrock AgentCore Tools, the valid values are <code>APPLICATION_LOGS</code>, <code>USAGE_LOGS</code> and <code>TRACES</code>.</p> </li> <li> <p>For Amazon Bedrock AgentCore Identity, the valid values are <code>APPLICATION_LOGS</code> and <code>TRACES</code>.</p> </li> <li> <p>For Amazon Bedrock AgentCore Memory, the valid values are <code>APPLICATION_LOGS</code> and <code>TRACES</code>.</p> </li> <li> <p>For Amazon Bedrock AgentCore Gateway, the valid values are <code>APPLICATION_LOGS</code> and <code>TRACES</code>.</p> </li> <li> <p>For CloudFront, the valid value is <code>ACCESS_LOGS</code>.</p> </li> <li> <p>For DevOps Agent, the valid value is <code>APPLICATION_LOGS</code>.</p> </li> <li> <p>For Amazon CodeWhisperer, the valid value is <code>EVENT_LOGS</code>.</p> </li> <li> <p>For Elemental MediaPackage, the valid values are <code>EGRESS_ACCESS_LOGS</code> and <code>INGRESS_ACCESS_LOGS</code>.</p> </li> <li> <p>For Elemental MediaTailor, the valid values are <code>AD_DECISION_SERVER_LOGS</code>, <code>MANIFEST_SERVICE_LOGS</code>, and <code>TRANSCODE_LOGS</code>.</p> </li> <li> <p>For Amazon EKS Auto Mode, the valid values are <code>AUTO_MODE_BLOCK_STORAGE_LOGS</code>, <code>AUTO_MODE_COMPUTE_LOGS</code>, <code>AUTO_MODE_IPAM_LOGS</code>, and <code>AUTO_MODE_LOAD_BALANCING_LOGS</code>.</p> </li> <li> <p>For Entity Resolution, the valid value is <code>WORKFLOW_LOGS</code>.</p> </li> <li> <p>For IAM Identity Center, the valid value is <code>ERROR_LOGS</code>.</p> </li> <li> <p>For Network Firewall Proxy, the valid values are <code>ALERT_LOGS</code>, <code>ALLOW_LOGS</code>, and <code>DENY_LOGS</code>.</p> </li> <li> <p>For Network Load Balancer, the valid value is <code>NLB_ACCESS_LOGS</code>.</p> </li> <li> <p>For PCS, the valid values are <code>PCS_SCHEDULER_LOGS</code>, <code>PCS_JOBCOMP_LOGS</code>, and <code>PCS_SCHEDULER_AUDIT_LOGS</code>.</p> </li> <li> <p>For Quick, the valid values are <code>CHAT_LOGS</code> and <code>FEEDBACK_LOGS</code>.</p> </li> <li> <p>For Amazon Web Services RTB Fabric, the valid values is <code>APPLICATION_LOGS</code>.</p> </li> <li> <p>For Amazon Q, the valid values are <code>EVENT_LOGS</code> and <code>SYNC_JOB_LOGS</code>.</p> </li> <li> <p>For Amazon Web Services Security Hub CSPM, the valid value is <code>SECURITY_FINDING_LOGS</code>.</p> </li> <li> <p>For Amazon Web Services Security Hub, the valid value is <code>SECURITY_FINDING_LOGS</code>.</p> </li> <li> <p>For Amazon SES mail manager, the valid values are <code>APPLICATION_LOGS</code> and <code>TRAFFIC_POLICY_DEBUG_LOGS</code>.</p> </li> <li> <p>For Amazon WorkMail, the valid values are <code>ACCESS_CONTROL_LOGS</code>, <code>AUTHENTICATION_LOGS</code>, <code>WORKMAIL_AVAILABILITY_PROVIDER_LOGS</code>, <code>WORKMAIL_MAILBOX_ACCESS_LOGS</code>, and <code>WORKMAIL_PERSONAL_ACCESS_TOKEN_LOGS</code>.</p> </li> <li> <p>For Amazon VPC Route Server, the valid value is <code>EVENT_LOGS</code>.</p> </li> </ul>
             tags: <p>An optional list of key-value pairs to associate with the resource.</p> <p>For more information about tagging, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html\">Tagging Amazon Web Services resources</a> </p>
             delivery_source_configuration: <p>A map of key-value pairs to configure the delivery source. Both keys and values must be between 1 and 255 characters in length. For example, <code>{\"samplingRate\": \"50\"}</code>.</p>
+
+        Raises:
+            aws_sdk_cloudwatch_logs.errors.conflict_exception.ConflictException: <p>This operation attempted to create a resource that already exists.</p>
+            aws_sdk_cloudwatch_logs.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_cloudwatch_logs.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>This request exceeds a service quota.</p>
+            aws_sdk_cloudwatch_logs.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service cannot complete the request.</p>
+            aws_sdk_cloudwatch_logs.errors.throttling_exception.ThrottlingException: <p>The request was throttled because of quota limits.</p>
+            aws_sdk_cloudwatch_logs.errors.validation_exception.ValidationException: <p>One of the parameters for the request is not valid.</p>
+            aws_sdk_cloudwatch_logs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5295,6 +5923,12 @@ class CloudWatchLogsClient:
             target_arn: <p>The ARN of an Amazon Kinesis stream to which to deliver matching log events.</p>
             role_arn: <p>The ARN of an IAM role that grants CloudWatch Logs permissions to call the Amazon Kinesis <code>PutRecord</code> operation on the destination stream.</p>
             tags: <p>An optional list of key-value pairs to associate with the resource.</p> <p>For more information about tagging, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html\">Tagging Amazon Web Services resources</a> </p>
+
+        Raises:
+            aws_sdk_cloudwatch_logs.errors.invalid_parameter_exception.InvalidParameterException: <p>A parameter is specified incorrectly.</p>
+            aws_sdk_cloudwatch_logs.errors.operation_aborted_exception.OperationAbortedException: <p>Multiple concurrent requests to update the same resource were in conflict.</p>
+            aws_sdk_cloudwatch_logs.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service cannot complete the request.</p>
+            aws_sdk_cloudwatch_logs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5342,6 +5976,12 @@ class CloudWatchLogsClient:
             destination_name: <p>A name for an existing destination.</p>
             access_policy: <p>An IAM policy document that authorizes cross-account users to deliver their log events to the associated destination. This can be up to 5120 bytes.</p>
             force_update: <p>Specify true if you are updating an existing destination policy to grant permission to an organization ID instead of granting permission to individual Amazon Web Services accounts. Before you update a destination policy this way, you must first update the subscription filters in the accounts that send logs to this destination. If you do not, the subscription filters might stop working. By specifying <code>true</code> for <code>forceUpdate</code>, you are affirming that you have already updated the subscription filters. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Cross-Account-Log_Subscription-Update.html\"> Updating an existing cross-account subscription</a> </p> <p>If you omit this parameter, the default of <code>false</code> is used.</p>
+
+        Raises:
+            aws_sdk_cloudwatch_logs.errors.invalid_parameter_exception.InvalidParameterException: <p>A parameter is specified incorrectly.</p>
+            aws_sdk_cloudwatch_logs.errors.operation_aborted_exception.OperationAbortedException: <p>Multiple concurrent requests to update the same resource were in conflict.</p>
+            aws_sdk_cloudwatch_logs.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service cannot complete the request.</p>
+            aws_sdk_cloudwatch_logs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5384,6 +6024,14 @@ class CloudWatchLogsClient:
         Args:
             log_group_identifier: <p>Specify either the log group name or log group ARN to apply this field index policy to. If you specify an ARN, use the format arn:aws:logs:<i>region</i>:<i>account-id</i>:log-group:<i>log_group_name</i> Don't include an * at the end.</p>
             policy_document: <p>The index policy document, in JSON format. The following is an example of an index policy document that creates indexes with different types.</p> <p> <code>\"policyDocument\": \"{\"Fields\": [ \"TransactionId\" ], \"FieldsV2\": {\"RequestId\": {\"type\": \"FIELD_INDEX\"}, \"APIName\": {\"type\": \"FACET\"}, \"StatusCode\": {\"type\": \"FACET\"}}}\"</code> </p> <p>You can use <code>FieldsV2</code> to specify the type for each field. Supported types are <code>FIELD_INDEX</code> and <code>FACET</code>. Field names within <code>Fields</code> and <code>FieldsV2</code> must be mutually exclusive.</p> <p>The policy document must include at least one field index. For more information about the fields that can be included and other restrictions, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatchLogs-Field-Indexing-Syntax.html\">Field index syntax and quotas</a>.</p>
+
+        Raises:
+            aws_sdk_cloudwatch_logs.errors.invalid_parameter_exception.InvalidParameterException: <p>A parameter is specified incorrectly.</p>
+            aws_sdk_cloudwatch_logs.errors.limit_exceeded_exception.LimitExceededException: <p>You have reached the maximum number of resources that can be created.</p>
+            aws_sdk_cloudwatch_logs.errors.operation_aborted_exception.OperationAbortedException: <p>Multiple concurrent requests to update the same resource were in conflict.</p>
+            aws_sdk_cloudwatch_logs.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_cloudwatch_logs.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service cannot complete the request.</p>
+            aws_sdk_cloudwatch_logs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5428,6 +6076,13 @@ class CloudWatchLogsClient:
             integration_name: <p>A name for the integration.</p>
             resource_config: <p>A structure that contains configuration information for the integration that you are creating.</p>
             integration_type: <p>The type of integration. Currently, the only supported type is <code>OPENSEARCH</code>.</p>
+
+        Raises:
+            aws_sdk_cloudwatch_logs.errors.invalid_parameter_exception.InvalidParameterException: <p>A parameter is specified incorrectly.</p>
+            aws_sdk_cloudwatch_logs.errors.limit_exceeded_exception.LimitExceededException: <p>You have reached the maximum number of resources that can be created.</p>
+            aws_sdk_cloudwatch_logs.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service cannot complete the request.</p>
+            aws_sdk_cloudwatch_logs.errors.validation_exception.ValidationException: <p>One of the parameters for the request is not valid.</p>
+            aws_sdk_cloudwatch_logs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5477,6 +6132,15 @@ class CloudWatchLogsClient:
             log_events: <p>The log events.</p>
             sequence_token: <p>The sequence token obtained from the response of the previous <code>PutLogEvents</code> call.</p> <important> <p>The <code>sequenceToken</code> parameter is now ignored in <code>PutLogEvents</code> actions. <code>PutLogEvents</code> actions are now accepted and never return <code>InvalidSequenceTokenException</code> or <code>DataAlreadyAcceptedException</code> even if the sequence token is not valid.</p> </important>
             entity: <p>The entity associated with the log events.</p>
+
+        Raises:
+            aws_sdk_cloudwatch_logs.errors.data_already_accepted_exception.DataAlreadyAcceptedException: <p>The event was already logged.</p> <important> <p> <code>PutLogEvents</code> actions are now always accepted and never return <code>DataAlreadyAcceptedException</code> regardless of whether a given batch of log events has already been accepted. </p> </important>
+            aws_sdk_cloudwatch_logs.errors.invalid_parameter_exception.InvalidParameterException: <p>A parameter is specified incorrectly.</p>
+            aws_sdk_cloudwatch_logs.errors.invalid_sequence_token_exception.InvalidSequenceTokenException: <p>The sequence token is not valid. You can get the correct sequence token in the <code>expectedSequenceToken</code> field in the <code>InvalidSequenceTokenException</code> message. </p> <important> <p> <code>PutLogEvents</code> actions are now always accepted and never return <code>InvalidSequenceTokenException</code> regardless of receiving an invalid sequence token. </p> </important>
+            aws_sdk_cloudwatch_logs.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_cloudwatch_logs.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service cannot complete the request.</p>
+            aws_sdk_cloudwatch_logs.errors.unrecognized_client_exception.UnrecognizedClientException: <p>The most likely cause is an Amazon Web Services access key ID or secret key that's not valid.</p>
+            aws_sdk_cloudwatch_logs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5522,6 +6186,15 @@ class CloudWatchLogsClient:
         Args:
             log_group_identifier: <p>The name or ARN of the log group.</p> <p>Type: String</p> <p>Length Constraints: Minimum length of 1. Maximum length of 512.</p> <p>Pattern: <code>[\.\-_/#A-Za-z0-9]+</code> </p> <p>Required: Yes</p>
             deletion_protection_enabled: <p>Whether to enable deletion protection.</p> <p>Type: Boolean</p> <p>Required: Yes</p>
+
+        Raises:
+            aws_sdk_cloudwatch_logs.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permissions to perform this action.</p>
+            aws_sdk_cloudwatch_logs.errors.invalid_operation_exception.InvalidOperationException: <p>The operation is not valid on the specified resource.</p>
+            aws_sdk_cloudwatch_logs.errors.invalid_parameter_exception.InvalidParameterException: <p>A parameter is specified incorrectly.</p>
+            aws_sdk_cloudwatch_logs.errors.operation_aborted_exception.OperationAbortedException: <p>Multiple concurrent requests to update the same resource were in conflict.</p>
+            aws_sdk_cloudwatch_logs.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_cloudwatch_logs.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service cannot complete the request.</p>
+            aws_sdk_cloudwatch_logs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5576,6 +6249,15 @@ class CloudWatchLogsClient:
             apply_on_transformed_logs: <p>This parameter is valid only for log groups that have an active log transformer. For more information about log transformers, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutTransformer.html\">PutTransformer</a>.</p> <p>If the log group uses either a log-group level or account-level transformer, and you specify <code>true</code>, the metric filter will be applied on the transformed version of the log events instead of the original ingested log events.</p>
             field_selection_criteria: <p>A filter expression that specifies which log events should be processed by this metric filter based on system fields such as source account and source region. Uses selection criteria syntax with operators like <code>=</code>, <code>!=</code>, <code>AND</code>, <code>OR</code>, <code>IN</code>, <code>NOT IN</code>. Example: <code>@aws.region = \"us-east-1\"</code> or <code>@aws.account IN [\"123456789012\", \"987654321098\"]</code>. Maximum length: 2000 characters.</p>
             emit_system_field_dimensions: <p>A list of system fields to emit as additional dimensions in the generated metrics. Valid values are <code>@aws.account</code> and <code>@aws.region</code>. These dimensions help identify the source of centralized log data and count toward the total dimension limit for metric filters.</p>
+
+        Raises:
+            aws_sdk_cloudwatch_logs.errors.invalid_operation_exception.InvalidOperationException: <p>The operation is not valid on the specified resource.</p>
+            aws_sdk_cloudwatch_logs.errors.invalid_parameter_exception.InvalidParameterException: <p>A parameter is specified incorrectly.</p>
+            aws_sdk_cloudwatch_logs.errors.limit_exceeded_exception.LimitExceededException: <p>You have reached the maximum number of resources that can be created.</p>
+            aws_sdk_cloudwatch_logs.errors.operation_aborted_exception.OperationAbortedException: <p>Multiple concurrent requests to update the same resource were in conflict.</p>
+            aws_sdk_cloudwatch_logs.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_cloudwatch_logs.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service cannot complete the request.</p>
+            aws_sdk_cloudwatch_logs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5642,6 +6324,13 @@ class CloudWatchLogsClient:
             query_string: <p>The query string to use for this definition. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html\">CloudWatch Logs Insights Query Syntax</a>.</p>
             client_token: <p>Used as an idempotency token, to avoid returning an exception if the service receives the same request twice because of a network error.</p>
             parameters: <p>Use this parameter to include specific query parameters as part of your query definition. Query parameters are supported only for Logs Insights QL queries. Query parameters allow you to use placeholder variables in your query string that are substituted with values at execution time. Use the <code>{{parameterName}}</code> syntax in your query string to reference a parameter.</p>
+
+        Raises:
+            aws_sdk_cloudwatch_logs.errors.invalid_parameter_exception.InvalidParameterException: <p>A parameter is specified incorrectly.</p>
+            aws_sdk_cloudwatch_logs.errors.limit_exceeded_exception.LimitExceededException: <p>You have reached the maximum number of resources that can be created.</p>
+            aws_sdk_cloudwatch_logs.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_cloudwatch_logs.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service cannot complete the request.</p>
+            aws_sdk_cloudwatch_logs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5702,6 +6391,14 @@ class CloudWatchLogsClient:
             policy_document: <p>Details of the new policy, including the identity of the principal that is enabled to put logs to this account. This is formatted as a JSON string. This parameter is required.</p> <p>The following example creates a resource policy enabling the Route 53 service to put DNS query logs in to the specified log group. Replace <code>\"logArn\"</code> with the ARN of your CloudWatch Logs resource, such as a log group or log stream.</p> <p>CloudWatch Logs also supports <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-sourcearn\">aws:SourceArn</a> and <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-sourceaccount\">aws:SourceAccount</a> condition context keys.</p> <p>In the example resource policy, you would replace the value of <code>SourceArn</code> with the resource making the call from Route 53 to CloudWatch Logs. You would also replace the value of <code>SourceAccount</code> with the Amazon Web Services account ID making that call.</p> <p></p> <p> <code>{ \"Version\": \"2012-10-17\", \"Statement\": [ { \"Sid\": \"Route53LogsToCloudWatchLogs\", \"Effect\": \"Allow\", \"Principal\": { \"Service\": [ \"route53.amazonaws.com\" ] }, \"Action\": \"logs:PutLogEvents\", \"Resource\": \"logArn\", \"Condition\": { \"ArnLike\": { \"aws:SourceArn\": \"myRoute53ResourceArn\" }, \"StringEquals\": { \"aws:SourceAccount\": \"myAwsAccountId\" } } } ] }</code> </p>
             resource_arn: <p>The ARN of the CloudWatch Logs resource to which the resource policy needs to be added or attached. Currently only supports LogGroup ARN.</p>
             expected_revision_id: <p>The expected revision ID of the resource policy. Required when <code>resourceArn</code> is provided to prevent concurrent modifications. Use <code>null</code> when creating a resource policy for the first time.</p>
+
+        Raises:
+            aws_sdk_cloudwatch_logs.errors.invalid_parameter_exception.InvalidParameterException: <p>A parameter is specified incorrectly.</p>
+            aws_sdk_cloudwatch_logs.errors.limit_exceeded_exception.LimitExceededException: <p>You have reached the maximum number of resources that can be created.</p>
+            aws_sdk_cloudwatch_logs.errors.operation_aborted_exception.OperationAbortedException: <p>Multiple concurrent requests to update the same resource were in conflict.</p>
+            aws_sdk_cloudwatch_logs.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_cloudwatch_logs.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service cannot complete the request.</p>
+            aws_sdk_cloudwatch_logs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5747,6 +6444,13 @@ class CloudWatchLogsClient:
 
         Args:
             log_group_name: <p>The name of the log group.</p>
+
+        Raises:
+            aws_sdk_cloudwatch_logs.errors.invalid_parameter_exception.InvalidParameterException: <p>A parameter is specified incorrectly.</p>
+            aws_sdk_cloudwatch_logs.errors.operation_aborted_exception.OperationAbortedException: <p>Multiple concurrent requests to update the same resource were in conflict.</p>
+            aws_sdk_cloudwatch_logs.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_cloudwatch_logs.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service cannot complete the request.</p>
+            aws_sdk_cloudwatch_logs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5807,6 +6511,15 @@ class CloudWatchLogsClient:
             apply_on_transformed_logs: <p>This parameter is valid only for log groups that have an active log transformer. For more information about log transformers, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutTransformer.html\">PutTransformer</a>.</p> <p>If the log group uses either a log-group level or account-level transformer, and you specify <code>true</code>, the subscription filter will be applied on the transformed version of the log events instead of the original ingested log events.</p>
             field_selection_criteria: <p>A filter expression that specifies which log events should be processed by this subscription filter based on system fields such as source account and source region. Uses selection criteria syntax with operators like <code>=</code>, <code>!=</code>, <code>AND</code>, <code>OR</code>, <code>IN</code>, <code>NOT IN</code>. Example: <code>@aws.region NOT IN [\"cn-north-1\"]</code> or <code>@aws.account = \"123456789012\" AND @aws.region = \"us-east-1\"</code>. Maximum length: 2000 characters.</p>
             emit_system_fields: <p>A list of system fields to include in the log events sent to the subscription destination. Valid values are <code>@aws.account</code> and <code>@aws.region</code>. These fields provide source information for centralized log data in the forwarded payload.</p>
+
+        Raises:
+            aws_sdk_cloudwatch_logs.errors.invalid_operation_exception.InvalidOperationException: <p>The operation is not valid on the specified resource.</p>
+            aws_sdk_cloudwatch_logs.errors.invalid_parameter_exception.InvalidParameterException: <p>A parameter is specified incorrectly.</p>
+            aws_sdk_cloudwatch_logs.errors.limit_exceeded_exception.LimitExceededException: <p>You have reached the maximum number of resources that can be created.</p>
+            aws_sdk_cloudwatch_logs.errors.operation_aborted_exception.OperationAbortedException: <p>Multiple concurrent requests to update the same resource were in conflict.</p>
+            aws_sdk_cloudwatch_logs.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_cloudwatch_logs.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service cannot complete the request.</p>
+            aws_sdk_cloudwatch_logs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5857,6 +6570,15 @@ class CloudWatchLogsClient:
         Args:
             log_group_identifier: <p>Specify either the name or ARN of the log group to create the transformer for. </p>
             transformer_config: <p>This structure contains the configuration of this log transformer. A log transformer is an array of processors, where each processor applies one type of transformation to the log events that are ingested.</p>
+
+        Raises:
+            aws_sdk_cloudwatch_logs.errors.invalid_operation_exception.InvalidOperationException: <p>The operation is not valid on the specified resource.</p>
+            aws_sdk_cloudwatch_logs.errors.invalid_parameter_exception.InvalidParameterException: <p>A parameter is specified incorrectly.</p>
+            aws_sdk_cloudwatch_logs.errors.limit_exceeded_exception.LimitExceededException: <p>You have reached the maximum number of resources that can be created.</p>
+            aws_sdk_cloudwatch_logs.errors.operation_aborted_exception.OperationAbortedException: <p>Multiple concurrent requests to update the same resource were in conflict.</p>
+            aws_sdk_cloudwatch_logs.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_cloudwatch_logs.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service cannot complete the request.</p>
+            aws_sdk_cloudwatch_logs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5905,6 +6627,14 @@ class CloudWatchLogsClient:
             log_stream_names: <p>If you specify this parameter, then only log events in the log streams that you specify here are included in the Live Tail session.</p> <p>If you specify this field, you can't also specify the <code>logStreamNamePrefixes</code> field.</p> <note> <p>You can specify this parameter only if you specify only one log group in <code>logGroupIdentifiers</code>.</p> </note>
             log_stream_name_prefixes: <p>If you specify this parameter, then only log events in the log streams that have names that start with the prefixes that you specify here are included in the Live Tail session.</p> <p>If you specify this field, you can't also specify the <code>logStreamNames</code> field.</p> <note> <p>You can specify this parameter only if you specify only one log group in <code>logGroupIdentifiers</code>.</p> </note>
             log_event_filter_pattern: <p>An optional pattern to use to filter the results to include only log events that match the pattern. For example, a filter pattern of <code>error 404</code> causes only log events that include both <code>error</code> and <code>404</code> to be included in the Live Tail stream.</p> <p>Regular expression filter patterns are supported.</p> <p>For more information about filter pattern syntax, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html\">Filter and Pattern Syntax</a>.</p>
+
+        Raises:
+            aws_sdk_cloudwatch_logs.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permissions to perform this action.</p>
+            aws_sdk_cloudwatch_logs.errors.invalid_operation_exception.InvalidOperationException: <p>The operation is not valid on the specified resource.</p>
+            aws_sdk_cloudwatch_logs.errors.invalid_parameter_exception.InvalidParameterException: <p>A parameter is specified incorrectly.</p>
+            aws_sdk_cloudwatch_logs.errors.limit_exceeded_exception.LimitExceededException: <p>You have reached the maximum number of resources that can be created.</p>
+            aws_sdk_cloudwatch_logs.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_cloudwatch_logs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5972,6 +6702,14 @@ class CloudWatchLogsClient:
             end_time: <p>The end of the time range to query. The range is inclusive, so the specified end time is included in the query. Specified as epoch time, the number of seconds since <code>January 1, 1970, 00:00:00 UTC</code>.</p>
             query_string: <p>The query string to use. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html\">CloudWatch Logs Insights Query Syntax</a>.</p>
             limit: <p>The maximum number of log events to return in the query. If the query string uses the <code>fields</code> command, only the specified fields and their values are returned. The default is 10,000.</p> <p>The maximum value is 100,000.</p>
+
+        Raises:
+            aws_sdk_cloudwatch_logs.errors.invalid_parameter_exception.InvalidParameterException: <p>A parameter is specified incorrectly.</p>
+            aws_sdk_cloudwatch_logs.errors.limit_exceeded_exception.LimitExceededException: <p>You have reached the maximum number of resources that can be created.</p>
+            aws_sdk_cloudwatch_logs.errors.malformed_query_exception.MalformedQueryException: <p>The query string is not valid. Details about this error are displayed in a <code>QueryCompileError</code> object. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_QueryCompileError.html\">QueryCompileError</a>.</p> <p>For more information about valid query syntax, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html\">CloudWatch Logs Insights Query Syntax</a>.</p>
+            aws_sdk_cloudwatch_logs.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_cloudwatch_logs.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service cannot complete the request.</p>
+            aws_sdk_cloudwatch_logs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6021,6 +6759,12 @@ class CloudWatchLogsClient:
 
         Args:
             query_id: <p>The ID number of the query to stop. To find this ID number, use <code>DescribeQueries</code>.</p>
+
+        Raises:
+            aws_sdk_cloudwatch_logs.errors.invalid_parameter_exception.InvalidParameterException: <p>A parameter is specified incorrectly.</p>
+            aws_sdk_cloudwatch_logs.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_cloudwatch_logs.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service cannot complete the request.</p>
+            aws_sdk_cloudwatch_logs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6060,6 +6804,11 @@ class CloudWatchLogsClient:
         Args:
             log_group_name: <p>The name of the log group.</p>
             tags: <p>The key-value pairs to use for the tags.</p>
+
+        Raises:
+            aws_sdk_cloudwatch_logs.errors.invalid_parameter_exception.InvalidParameterException: <p>A parameter is specified incorrectly.</p>
+            aws_sdk_cloudwatch_logs.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_cloudwatch_logs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6098,6 +6847,13 @@ class CloudWatchLogsClient:
         Args:
             resource_arn: <p>The ARN of the resource that you're adding tags to.</p> <p>The ARN format of a log group is <code>arn:aws:logs:<i>Region</i>:<i>account-id</i>:log-group:<i>log-group-name</i> </code> </p> <p>The ARN format of a destination is <code>arn:aws:logs:<i>Region</i>:<i>account-id</i>:destination:<i>destination-name</i> </code> </p> <p>For more information about ARN format, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/iam-access-control-overview-cwl.html\">CloudWatch Logs resources and operations</a>.</p>
             tags: <p>The list of key-value pairs to associate with the resource.</p>
+
+        Raises:
+            aws_sdk_cloudwatch_logs.errors.invalid_parameter_exception.InvalidParameterException: <p>A parameter is specified incorrectly.</p>
+            aws_sdk_cloudwatch_logs.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_cloudwatch_logs.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service cannot complete the request.</p>
+            aws_sdk_cloudwatch_logs.errors.too_many_tags_exception.TooManyTagsException: <p>A resource can have no more than 50 tags.</p>
+            aws_sdk_cloudwatch_logs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6135,6 +6891,11 @@ class CloudWatchLogsClient:
 
         Args:
             log_event_messages: <p>The log event messages to test.</p>
+
+        Raises:
+            aws_sdk_cloudwatch_logs.errors.invalid_parameter_exception.InvalidParameterException: <p>A parameter is specified incorrectly.</p>
+            aws_sdk_cloudwatch_logs.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service cannot complete the request.</p>
+            aws_sdk_cloudwatch_logs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6175,6 +6936,12 @@ class CloudWatchLogsClient:
         Args:
             transformer_config: <p>This structure contains the configuration of this log transformer that you want to test. A log transformer is an array of processors, where each processor applies one type of transformation to the log events that are ingested.</p>
             log_event_messages: <p>An array of the raw log events that you want to use to test this transformer.</p>
+
+        Raises:
+            aws_sdk_cloudwatch_logs.errors.invalid_operation_exception.InvalidOperationException: <p>The operation is not valid on the specified resource.</p>
+            aws_sdk_cloudwatch_logs.errors.invalid_parameter_exception.InvalidParameterException: <p>A parameter is specified incorrectly.</p>
+            aws_sdk_cloudwatch_logs.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service cannot complete the request.</p>
+            aws_sdk_cloudwatch_logs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6215,6 +6982,10 @@ class CloudWatchLogsClient:
         Args:
             log_group_name: <p>The name of the log group.</p>
             tags: <p>The tag keys. The corresponding tags are removed from the log group.</p>
+
+        Raises:
+            aws_sdk_cloudwatch_logs.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_cloudwatch_logs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6253,6 +7024,12 @@ class CloudWatchLogsClient:
         Args:
             resource_arn: <p>The ARN of the CloudWatch Logs resource that you're removing tags from.</p> <p>The ARN format of a log group is <code>arn:aws:logs:<i>Region</i>:<i>account-id</i>:log-group:<i>log-group-name</i> </code> </p> <p>The ARN format of a destination is <code>arn:aws:logs:<i>Region</i>:<i>account-id</i>:destination:<i>destination-name</i> </code> </p> <p>For more information about ARN format, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/iam-access-control-overview-cwl.html\">CloudWatch Logs resources and operations</a>.</p>
             tag_keys: <p>The list of tag keys to remove from the resource.</p>
+
+        Raises:
+            aws_sdk_cloudwatch_logs.errors.invalid_parameter_exception.InvalidParameterException: <p>A parameter is specified incorrectly.</p>
+            aws_sdk_cloudwatch_logs.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_cloudwatch_logs.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service cannot complete the request.</p>
+            aws_sdk_cloudwatch_logs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6307,6 +7084,13 @@ class CloudWatchLogsClient:
             suppression_type: <p>Use this to specify whether the suppression to be temporary or infinite. If you specify <code>LIMITED</code>, you must also specify a <code>suppressionPeriod</code>. If you specify <code>INFINITE</code>, any value for <code>suppressionPeriod</code> is ignored. </p>
             suppression_period: <p>If you are temporarily suppressing an anomaly or pattern, use this structure to specify how long the suppression is to last.</p>
             baseline: <p>Set this to <code>true</code> to prevent CloudWatch Logs from displaying this behavior as an anomaly in the future. The behavior is then treated as baseline behavior. However, if similar but more severe occurrences of this behavior occur in the future, those will still be reported as anomalies. </p> <p>The default is <code>false</code> </p>
+
+        Raises:
+            aws_sdk_cloudwatch_logs.errors.invalid_parameter_exception.InvalidParameterException: <p>A parameter is specified incorrectly.</p>
+            aws_sdk_cloudwatch_logs.errors.operation_aborted_exception.OperationAbortedException: <p>Multiple concurrent requests to update the same resource were in conflict.</p>
+            aws_sdk_cloudwatch_logs.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_cloudwatch_logs.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service cannot complete the request.</p>
+            aws_sdk_cloudwatch_logs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6364,6 +7148,15 @@ class CloudWatchLogsClient:
             record_fields: <p>The list of record fields to be delivered to the destination, in order. If the delivery's log source has mandatory fields, they must be included in this list.</p>
             field_delimiter: <p>The field delimiter to use between record fields when the final output format of a delivery is in <code>Plain</code>, <code>W3C</code>, or <code>Raw</code> format.</p>
             s3_delivery_configuration: <p>This structure contains parameters that are valid only when the delivery's delivery destination is an S3 bucket.</p>
+
+        Raises:
+            aws_sdk_cloudwatch_logs.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permissions to perform this action.</p>
+            aws_sdk_cloudwatch_logs.errors.conflict_exception.ConflictException: <p>This operation attempted to create a resource that already exists.</p>
+            aws_sdk_cloudwatch_logs.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_cloudwatch_logs.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service cannot complete the request.</p>
+            aws_sdk_cloudwatch_logs.errors.throttling_exception.ThrottlingException: <p>The request was throttled because of quota limits.</p>
+            aws_sdk_cloudwatch_logs.errors.validation_exception.ValidationException: <p>One of the parameters for the request is not valid.</p>
+            aws_sdk_cloudwatch_logs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6420,6 +7213,13 @@ class CloudWatchLogsClient:
             evaluation_frequency: <p>Specifies how often the anomaly detector runs and look for anomalies. Set this value according to the frequency that the log group receives new logs. For example, if the log group receives new log events every 10 minutes, then setting <code>evaluationFrequency</code> to <code>FIFTEEN_MIN</code> might be appropriate.</p>
             anomaly_visibility_time: <p>The number of days to use as the life cycle of anomalies. After this time, anomalies are automatically baselined and the anomaly detector model will treat new occurrences of similar event as normal. Therefore, if you do not correct the cause of an anomaly during this time, it will be considered normal going forward and will not be detected.</p>
             enabled: <p>Use this parameter to pause or restart the anomaly detector. </p>
+
+        Raises:
+            aws_sdk_cloudwatch_logs.errors.invalid_parameter_exception.InvalidParameterException: <p>A parameter is specified incorrectly.</p>
+            aws_sdk_cloudwatch_logs.errors.operation_aborted_exception.OperationAbortedException: <p>Multiple concurrent requests to update the same resource were in conflict.</p>
+            aws_sdk_cloudwatch_logs.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_cloudwatch_logs.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service cannot complete the request.</p>
+            aws_sdk_cloudwatch_logs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6472,6 +7272,14 @@ class CloudWatchLogsClient:
             description: <p>An updated description of the lookup table.</p>
             table_body: <p>The new CSV content to replace the existing data. The first row must be a header row with column names. The content must use UTF-8 encoding and not exceed 10 MB.</p>
             kms_key_id: <p>The ARN of the KMS key to use to encrypt the lookup table data. You can use this parameter to add, update, or remove the KMS key. To remove the KMS key and use an Amazon Web Services-owned key instead, specify an empty string.</p>
+
+        Raises:
+            aws_sdk_cloudwatch_logs.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permissions to perform this action.</p>
+            aws_sdk_cloudwatch_logs.errors.invalid_parameter_exception.InvalidParameterException: <p>A parameter is specified incorrectly.</p>
+            aws_sdk_cloudwatch_logs.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_cloudwatch_logs.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service cannot complete the request.</p>
+            aws_sdk_cloudwatch_logs.errors.validation_exception.ValidationException: <p>One of the parameters for the request is not valid.</p>
+            aws_sdk_cloudwatch_logs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6554,6 +7362,14 @@ class CloudWatchLogsClient:
             schedule_end_time: <p>The updated end time for the scheduled query in Unix epoch format.</p>
             execution_role_arn: <p>The updated ARN of the IAM role that grants permissions to execute the query and deliver results.</p>
             state: <p>The updated state of the scheduled query.</p>
+
+        Raises:
+            aws_sdk_cloudwatch_logs.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permissions to perform this action.</p>
+            aws_sdk_cloudwatch_logs.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred while processing the request. This exception is returned when the service encounters an unexpected condition that prevents it from fulfilling the request.</p>
+            aws_sdk_cloudwatch_logs.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_cloudwatch_logs.errors.throttling_exception.ThrottlingException: <p>The request was throttled because of quota limits.</p>
+            aws_sdk_cloudwatch_logs.errors.validation_exception.ValidationException: <p>One of the parameters for the request is not valid.</p>
+            aws_sdk_cloudwatch_logs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(

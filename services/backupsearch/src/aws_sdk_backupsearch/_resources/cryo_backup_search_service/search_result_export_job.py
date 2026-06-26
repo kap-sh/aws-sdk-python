@@ -57,6 +57,16 @@ class SearchResultExportJob:
             client_token: <p>Include this parameter to allow multiple identical calls for idempotency.</p> <p>A client token is valid for 8 hours after the first request that uses it is completed. After this time, any request with the same token is treated as a new request.</p>
             tags: <p>Optional tags to include. A tag is a key-value pair you can use to manage, filter, and search for your resources. Allowed characters include UTF-8 letters, numbers, spaces, and the following characters: + - = . _ : /. </p>
             role_arn: <p>This parameter specifies the role ARN used to start the search results export jobs.</p>
+
+        Raises:
+            aws_sdk_backupsearch.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_backupsearch.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_backupsearch.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_backupsearch.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by a service.</p>
+            aws_sdk_backupsearch.errors.conflict_exception.ConflictException: <p>This exception occurs when a conflict with a previous successful operation is detected. This generally occurs when the previous operation did not have time to propagate to the host serving the current request.</p> <p>A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+            aws_sdk_backupsearch.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource was not found for this request.</p> <p>Confirm the resource information, such as the ARN or type is correct and exists, then retry the request.</p>
+            aws_sdk_backupsearch.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request denied due to exceeding the quota limits permitted.</p>
+            aws_sdk_backupsearch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -101,6 +111,14 @@ class SearchResultExportJob:
 
         Args:
             export_job_identifier: <p>This is the unique string that identifies a specific export job.</p> <p>Required for this operation.</p>
+
+        Raises:
+            aws_sdk_backupsearch.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_backupsearch.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_backupsearch.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_backupsearch.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by a service.</p>
+            aws_sdk_backupsearch.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource was not found for this request.</p> <p>Confirm the resource information, such as the ARN or type is correct and exists, then retry the request.</p>
+            aws_sdk_backupsearch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -148,6 +166,15 @@ class SearchResultExportJob:
             search_job_identifier: <p>The unique string that specifies the search job.</p>
             next_token: <p>The next item following a partial list of returned backups included in a search job.</p> <p>For example, if a request is made to return <code>MaxResults</code> number of backups, <code>NextToken</code> allows you to return more items in your list starting at the location pointed to by the next token.</p>
             max_results: <p>The maximum number of resource list items to be returned.</p>
+
+        Raises:
+            aws_sdk_backupsearch.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_backupsearch.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_backupsearch.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_backupsearch.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by a service.</p>
+            aws_sdk_backupsearch.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource was not found for this request.</p> <p>Confirm the resource information, such as the ARN or type is correct and exists, then retry the request.</p>
+            aws_sdk_backupsearch.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request denied due to exceeding the quota limits permitted.</p>
+            aws_sdk_backupsearch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -205,6 +232,16 @@ class AsyncSearchResultExportJob:
             client_token: <p>Include this parameter to allow multiple identical calls for idempotency.</p> <p>A client token is valid for 8 hours after the first request that uses it is completed. After this time, any request with the same token is treated as a new request.</p>
             tags: <p>Optional tags to include. A tag is a key-value pair you can use to manage, filter, and search for your resources. Allowed characters include UTF-8 letters, numbers, spaces, and the following characters: + - = . _ : /. </p>
             role_arn: <p>This parameter specifies the role ARN used to start the search results export jobs.</p>
+
+        Raises:
+            aws_sdk_backupsearch.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_backupsearch.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_backupsearch.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_backupsearch.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by a service.</p>
+            aws_sdk_backupsearch.errors.conflict_exception.ConflictException: <p>This exception occurs when a conflict with a previous successful operation is detected. This generally occurs when the previous operation did not have time to propagate to the host serving the current request.</p> <p>A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+            aws_sdk_backupsearch.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource was not found for this request.</p> <p>Confirm the resource information, such as the ARN or type is correct and exists, then retry the request.</p>
+            aws_sdk_backupsearch.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request denied due to exceeding the quota limits permitted.</p>
+            aws_sdk_backupsearch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -250,6 +287,14 @@ class AsyncSearchResultExportJob:
 
         Args:
             export_job_identifier: <p>This is the unique string that identifies a specific export job.</p> <p>Required for this operation.</p>
+
+        Raises:
+            aws_sdk_backupsearch.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_backupsearch.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_backupsearch.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_backupsearch.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by a service.</p>
+            aws_sdk_backupsearch.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource was not found for this request.</p> <p>Confirm the resource information, such as the ARN or type is correct and exists, then retry the request.</p>
+            aws_sdk_backupsearch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -298,6 +343,15 @@ class AsyncSearchResultExportJob:
             search_job_identifier: <p>The unique string that specifies the search job.</p>
             next_token: <p>The next item following a partial list of returned backups included in a search job.</p> <p>For example, if a request is made to return <code>MaxResults</code> number of backups, <code>NextToken</code> allows you to return more items in your list starting at the location pointed to by the next token.</p>
             max_results: <p>The maximum number of resource list items to be returned.</p>
+
+        Raises:
+            aws_sdk_backupsearch.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_backupsearch.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_backupsearch.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_backupsearch.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by a service.</p>
+            aws_sdk_backupsearch.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource was not found for this request.</p> <p>Confirm the resource information, such as the ARN or type is correct and exists, then retry the request.</p>
+            aws_sdk_backupsearch.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request denied due to exceeding the quota limits permitted.</p>
+            aws_sdk_backupsearch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

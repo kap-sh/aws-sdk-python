@@ -520,6 +520,16 @@ class AsyncCognitoIdentityProviderClient:
         Args:
             user_pool_id: <p>The ID of the user pool where you want to add custom attributes.</p>
             custom_attributes: <p>An array of custom attribute names and other properties. Sets the following characteristics:</p> <dl> <dt>AttributeDataType</dt> <dd> <p>The expected data type. Can be a string, a number, a date and time, or a boolean.</p> </dd> <dt>Mutable</dt> <dd> <p>If true, you can grant app clients write access to the attribute value. If false, the attribute value can only be set up on sign-up or administrator creation of users.</p> </dd> <dt>Name</dt> <dd> <p>The attribute name. For an attribute like <code>custom:myAttribute</code>, enter <code>myAttribute</code> for this field.</p> </dd> <dt>Required</dt> <dd> <p>When true, users who sign up or are created must set a value for the attribute.</p> </dd> <dt>NumberAttributeConstraints</dt> <dd> <p>The minimum and maximum length of accepted values for a <code>Number</code>-type attribute.</p> </dd> <dt>StringAttributeConstraints</dt> <dd> <p>The minimum and maximum length of accepted values for a <code>String</code>-type attribute.</p> </dd> <dt>DeveloperOnlyAttribute</dt> <dd> <p>This legacy option creates an attribute with a <code>dev:</code> prefix. You can only set the value of a developer-only attribute with administrative IAM credentials.</p> </dd> </dl>
+
+        Raises:
+            aws_sdk_cognito_identity_provider.errors.internal_error_exception.InternalErrorException: <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_parameter_exception.InvalidParameterException: <p>This exception is thrown when the Amazon Cognito service encounters an invalid parameter.</p>
+            aws_sdk_cognito_identity_provider.errors.not_authorized_exception.NotAuthorizedException: <p>This exception is thrown when a user isn't authorized.</p>
+            aws_sdk_cognito_identity_provider.errors.operation_not_enabled_exception.OperationNotEnabledException: <p>This exception is thrown when an operation is not available in the current region or for the current user pool configuration. This can occur when attempting to perform operations that are not supported in secondary replica regions.</p>
+            aws_sdk_cognito_identity_provider.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when the Amazon Cognito service can't find the requested resource.</p>
+            aws_sdk_cognito_identity_provider.errors.too_many_requests_exception.TooManyRequestsException: <p>This exception is thrown when the user has made too many requests for a given operation.</p>
+            aws_sdk_cognito_identity_provider.errors.user_import_in_progress_exception.UserImportInProgressException: <p>This exception is thrown when you're trying to modify a user pool while a user import job is in progress for that pool.</p>
+            aws_sdk_cognito_identity_provider.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -565,6 +575,15 @@ class AsyncCognitoIdentityProviderClient:
             user_pool_id: <p>The ID of the user pool that contains the app client.</p>
             client_id: <p>The ID of the app client for which you want to create a new secret.</p>
             client_secret: <p>The client secret value you want to use. If you don't provide this parameter, Amazon Cognito generates a secure secret for you.</p>
+
+        Raises:
+            aws_sdk_cognito_identity_provider.errors.access_denied_exception.AccessDeniedException: <p>This exception is thrown when you don't have sufficient permissions to perform the requested operation.</p>
+            aws_sdk_cognito_identity_provider.errors.internal_server_exception.InternalServerException: <p>This exception is thrown when Amazon Cognito encounters an internal server error.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_parameter_exception.InvalidParameterException: <p>This exception is thrown when the Amazon Cognito service encounters an invalid parameter.</p>
+            aws_sdk_cognito_identity_provider.errors.limit_exceeded_exception.LimitExceededException: <p>This exception is thrown when a user exceeds the limit for a requested Amazon Web Services resource.</p>
+            aws_sdk_cognito_identity_provider.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when the Amazon Cognito service can't find the requested resource.</p>
+            aws_sdk_cognito_identity_provider.errors.too_many_requests_exception.TooManyRequestsException: <p>This exception is thrown when the user has made too many requests for a given operation.</p>
+            aws_sdk_cognito_identity_provider.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -610,6 +629,16 @@ class AsyncCognitoIdentityProviderClient:
             user_pool_id: <p>The ID of the user pool that contains the group that you want to add the user to.</p>
             username: <p>The name of the user that you want to query or modify. The value of this parameter is typically your user's username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in your user pool, this value must be the <code>sub</code> of a local user or the username of a user from a third-party IdP.</p>
             group_name: <p>The name of the group that you want to add your user to.</p>
+
+        Raises:
+            aws_sdk_cognito_identity_provider.errors.internal_error_exception.InternalErrorException: <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_parameter_exception.InvalidParameterException: <p>This exception is thrown when the Amazon Cognito service encounters an invalid parameter.</p>
+            aws_sdk_cognito_identity_provider.errors.not_authorized_exception.NotAuthorizedException: <p>This exception is thrown when a user isn't authorized.</p>
+            aws_sdk_cognito_identity_provider.errors.operation_not_enabled_exception.OperationNotEnabledException: <p>This exception is thrown when an operation is not available in the current region or for the current user pool configuration. This can occur when attempting to perform operations that are not supported in secondary replica regions.</p>
+            aws_sdk_cognito_identity_provider.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when the Amazon Cognito service can't find the requested resource.</p>
+            aws_sdk_cognito_identity_provider.errors.too_many_requests_exception.TooManyRequestsException: <p>This exception is thrown when the user has made too many requests for a given operation.</p>
+            aws_sdk_cognito_identity_provider.errors.user_not_found_exception.UserNotFoundException: <p>This exception is thrown when a user isn't found.</p>
+            aws_sdk_cognito_identity_provider.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -654,6 +683,21 @@ class AsyncCognitoIdentityProviderClient:
             user_pool_id: <p>The ID of the user pool where you want to confirm a user's sign-up request.</p>
             username: <p>The name of the user that you want to query or modify. The value of this parameter is typically your user's username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in your user pool, this value must be the <code>sub</code> of a local user or the username of a user from a third-party IdP.</p>
             client_metadata: <p>A map of custom key-value pairs that you can provide as input for any custom workflows that this action triggers. You create custom workflows by assigning Lambda functions to user pool triggers.</p> <p>When Amazon Cognito invokes any of these functions, it passes a JSON payload, which the function receives as input. This payload contains a <code>clientMetadata</code> attribute that provides the data that you assigned to the ClientMetadata parameter in your request. In your function code, you can process the <code>clientMetadata</code> value to enhance your workflow for your specific needs.</p> <p>To review the Lambda trigger types that Amazon Cognito invokes at runtime with API requests, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-working-with-lambda-triggers.html#lambda-triggers-by-event\"> Connecting API actions to Lambda triggers</a> in the <i>Amazon Cognito Developer Guide</i>.</p> <note> <p>When you use the <code>ClientMetadata</code> parameter, note that Amazon Cognito won't do the following:</p> <ul> <li> <p>Store the <code>ClientMetadata</code> value. This data is available only to Lambda triggers that are assigned to a user pool to support custom workflows. If your user pool configuration doesn't include triggers, the <code>ClientMetadata</code> parameter serves no purpose.</p> </li> <li> <p>Validate the <code>ClientMetadata</code> value.</p> </li> <li> <p>Encrypt the <code>ClientMetadata</code> value. Don't send sensitive information in this parameter.</p> </li> </ul> </note>
+
+        Raises:
+            aws_sdk_cognito_identity_provider.errors.internal_error_exception.InternalErrorException: <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_lambda_response_exception.InvalidLambdaResponseException: <p>This exception is thrown when Amazon Cognito encounters an invalid Lambda response.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_parameter_exception.InvalidParameterException: <p>This exception is thrown when the Amazon Cognito service encounters an invalid parameter.</p>
+            aws_sdk_cognito_identity_provider.errors.limit_exceeded_exception.LimitExceededException: <p>This exception is thrown when a user exceeds the limit for a requested Amazon Web Services resource.</p>
+            aws_sdk_cognito_identity_provider.errors.not_authorized_exception.NotAuthorizedException: <p>This exception is thrown when a user isn't authorized.</p>
+            aws_sdk_cognito_identity_provider.errors.operation_not_enabled_exception.OperationNotEnabledException: <p>This exception is thrown when an operation is not available in the current region or for the current user pool configuration. This can occur when attempting to perform operations that are not supported in secondary replica regions.</p>
+            aws_sdk_cognito_identity_provider.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when the Amazon Cognito service can't find the requested resource.</p>
+            aws_sdk_cognito_identity_provider.errors.too_many_failed_attempts_exception.TooManyFailedAttemptsException: <p>This exception is thrown when the user has made too many failed attempts for a given action, such as sign-in.</p>
+            aws_sdk_cognito_identity_provider.errors.too_many_requests_exception.TooManyRequestsException: <p>This exception is thrown when the user has made too many requests for a given operation.</p>
+            aws_sdk_cognito_identity_provider.errors.unexpected_lambda_exception.UnexpectedLambdaException: <p>This exception is thrown when Amazon Cognito encounters an unexpected exception with Lambda.</p>
+            aws_sdk_cognito_identity_provider.errors.user_lambda_validation_exception.UserLambdaValidationException: <p>This exception is thrown when the Amazon Cognito service encounters a user validation exception with the Lambda service.</p>
+            aws_sdk_cognito_identity_provider.errors.user_not_found_exception.UserNotFoundException: <p>This exception is thrown when a user isn't found.</p>
+            aws_sdk_cognito_identity_provider.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -726,6 +770,26 @@ class AsyncCognitoIdentityProviderClient:
             desired_delivery_mediums: <p>Specify <code>EMAIL</code> if email will be used to send the welcome message. Specify <code>SMS</code> if the phone number will be used. The default value is <code>SMS</code>. You can specify more than one value.</p>
             client_metadata: <p>A map of custom key-value pairs that you can provide as input for any custom workflows that this action triggers. You create custom workflows by assigning Lambda functions to user pool triggers.</p> <p>When Amazon Cognito invokes any of these functions, it passes a JSON payload, which the function receives as input. This payload contains a <code>clientMetadata</code> attribute that provides the data that you assigned to the ClientMetadata parameter in your request. In your function code, you can process the <code>clientMetadata</code> value to enhance your workflow for your specific needs.</p> <p>To review the Lambda trigger types that Amazon Cognito invokes at runtime with API requests, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-working-with-lambda-triggers.html#lambda-triggers-by-event\"> Connecting API actions to Lambda triggers</a> in the <i>Amazon Cognito Developer Guide</i>.</p> <note> <p>When you use the <code>ClientMetadata</code> parameter, note that Amazon Cognito won't do the following:</p> <ul> <li> <p>Store the <code>ClientMetadata</code> value. This data is available only to Lambda triggers that are assigned to a user pool to support custom workflows. If your user pool configuration doesn't include triggers, the <code>ClientMetadata</code> parameter serves no purpose.</p> </li> <li> <p>Validate the <code>ClientMetadata</code> value.</p> </li> <li> <p>Encrypt the <code>ClientMetadata</code> value. Don't send sensitive information in this parameter.</p> </li> </ul> </note>
 
+        Raises:
+            aws_sdk_cognito_identity_provider.errors.code_delivery_failure_exception.CodeDeliveryFailureException: <p>This exception is thrown when a verification code fails to deliver successfully.</p>
+            aws_sdk_cognito_identity_provider.errors.internal_error_exception.InternalErrorException: <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_lambda_response_exception.InvalidLambdaResponseException: <p>This exception is thrown when Amazon Cognito encounters an invalid Lambda response.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_parameter_exception.InvalidParameterException: <p>This exception is thrown when the Amazon Cognito service encounters an invalid parameter.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_password_exception.InvalidPasswordException: <p>This exception is thrown when Amazon Cognito encounters an invalid password.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_sms_role_access_policy_exception.InvalidSmsRoleAccessPolicyException: <p>This exception is returned when the role provided for SMS configuration doesn't have permission to publish using Amazon SNS.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_sms_role_trust_relationship_exception.InvalidSmsRoleTrustRelationshipException: <p>This exception is thrown when the trust relationship is not valid for the role provided for SMS configuration. This can happen if you don't trust <code>cognito-idp.amazonaws.com</code> or the external ID provided in the role does not match what is provided in the SMS configuration for the user pool.</p>
+            aws_sdk_cognito_identity_provider.errors.not_authorized_exception.NotAuthorizedException: <p>This exception is thrown when a user isn't authorized.</p>
+            aws_sdk_cognito_identity_provider.errors.operation_not_enabled_exception.OperationNotEnabledException: <p>This exception is thrown when an operation is not available in the current region or for the current user pool configuration. This can occur when attempting to perform operations that are not supported in secondary replica regions.</p>
+            aws_sdk_cognito_identity_provider.errors.precondition_not_met_exception.PreconditionNotMetException: <p>This exception is thrown when a precondition is not met.</p>
+            aws_sdk_cognito_identity_provider.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when the Amazon Cognito service can't find the requested resource.</p>
+            aws_sdk_cognito_identity_provider.errors.too_many_requests_exception.TooManyRequestsException: <p>This exception is thrown when the user has made too many requests for a given operation.</p>
+            aws_sdk_cognito_identity_provider.errors.unexpected_lambda_exception.UnexpectedLambdaException: <p>This exception is thrown when Amazon Cognito encounters an unexpected exception with Lambda.</p>
+            aws_sdk_cognito_identity_provider.errors.unsupported_user_state_exception.UnsupportedUserStateException: <p>The request failed because the user is in an unsupported state.</p>
+            aws_sdk_cognito_identity_provider.errors.user_lambda_validation_exception.UserLambdaValidationException: <p>This exception is thrown when the Amazon Cognito service encounters a user validation exception with the Lambda service.</p>
+            aws_sdk_cognito_identity_provider.errors.username_exists_exception.UsernameExistsException: <p>This exception is thrown when Amazon Cognito encounters a user name that already exists in the user pool.</p>
+            aws_sdk_cognito_identity_provider.errors.user_not_found_exception.UserNotFoundException: <p>This exception is thrown when a user isn't found.</p>
+            aws_sdk_cognito_identity_provider.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             An AdminCreateUser request for for a test user named John.
             This request submits a value for all possible parameters for AdminCreateUser.
@@ -786,6 +850,16 @@ class AsyncCognitoIdentityProviderClient:
         Args:
             user_pool_id: <p>The ID of the user pool where you want to delete the user.</p>
             username: <p>The name of the user that you want to query or modify. The value of this parameter is typically your user's username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in your user pool, this value must be the <code>sub</code> of a local user or the username of a user from a third-party IdP.</p>
+
+        Raises:
+            aws_sdk_cognito_identity_provider.errors.internal_error_exception.InternalErrorException: <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_parameter_exception.InvalidParameterException: <p>This exception is thrown when the Amazon Cognito service encounters an invalid parameter.</p>
+            aws_sdk_cognito_identity_provider.errors.not_authorized_exception.NotAuthorizedException: <p>This exception is thrown when a user isn't authorized.</p>
+            aws_sdk_cognito_identity_provider.errors.operation_not_enabled_exception.OperationNotEnabledException: <p>This exception is thrown when an operation is not available in the current region or for the current user pool configuration. This can occur when attempting to perform operations that are not supported in secondary replica regions.</p>
+            aws_sdk_cognito_identity_provider.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when the Amazon Cognito service can't find the requested resource.</p>
+            aws_sdk_cognito_identity_provider.errors.too_many_requests_exception.TooManyRequestsException: <p>This exception is thrown when the user has made too many requests for a given operation.</p>
+            aws_sdk_cognito_identity_provider.errors.user_not_found_exception.UserNotFoundException: <p>This exception is thrown when a user isn't found.</p>
+            aws_sdk_cognito_identity_provider.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -827,6 +901,16 @@ class AsyncCognitoIdentityProviderClient:
             user_pool_id: <p>The ID of the user pool where you want to delete user attributes.</p>
             username: <p>The name of the user that you want to query or modify. The value of this parameter is typically your user's username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in your user pool, this value must be the <code>sub</code> of a local user or the username of a user from a third-party IdP.</p>
             user_attribute_names: <p>An array of strings representing the user attribute names you want to delete.</p> <p>For custom attributes, you must prepend the <code>custom:</code> prefix to the attribute name.</p>
+
+        Raises:
+            aws_sdk_cognito_identity_provider.errors.internal_error_exception.InternalErrorException: <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_parameter_exception.InvalidParameterException: <p>This exception is thrown when the Amazon Cognito service encounters an invalid parameter.</p>
+            aws_sdk_cognito_identity_provider.errors.not_authorized_exception.NotAuthorizedException: <p>This exception is thrown when a user isn't authorized.</p>
+            aws_sdk_cognito_identity_provider.errors.operation_not_enabled_exception.OperationNotEnabledException: <p>This exception is thrown when an operation is not available in the current region or for the current user pool configuration. This can occur when attempting to perform operations that are not supported in secondary replica regions.</p>
+            aws_sdk_cognito_identity_provider.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when the Amazon Cognito service can't find the requested resource.</p>
+            aws_sdk_cognito_identity_provider.errors.too_many_requests_exception.TooManyRequestsException: <p>This exception is thrown when the user has made too many requests for a given operation.</p>
+            aws_sdk_cognito_identity_provider.errors.user_not_found_exception.UserNotFoundException: <p>This exception is thrown when a user isn't found.</p>
+            aws_sdk_cognito_identity_provider.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -869,6 +953,17 @@ class AsyncCognitoIdentityProviderClient:
         Args:
             user_pool_id: <p>The ID of the user pool where you want to delete the user's linked identities.</p>
             user: <p>The user profile that you want to delete a linked identity from.</p>
+
+        Raises:
+            aws_sdk_cognito_identity_provider.errors.alias_exists_exception.AliasExistsException: <p>This exception is thrown when a user tries to confirm the account with an email address or phone number that has already been supplied as an alias for a different user profile. This exception indicates that an account with this email address or phone already exists in a user pool that you've configured to use email address or phone number as a sign-in alias.</p>
+            aws_sdk_cognito_identity_provider.errors.internal_error_exception.InternalErrorException: <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_parameter_exception.InvalidParameterException: <p>This exception is thrown when the Amazon Cognito service encounters an invalid parameter.</p>
+            aws_sdk_cognito_identity_provider.errors.not_authorized_exception.NotAuthorizedException: <p>This exception is thrown when a user isn't authorized.</p>
+            aws_sdk_cognito_identity_provider.errors.operation_not_enabled_exception.OperationNotEnabledException: <p>This exception is thrown when an operation is not available in the current region or for the current user pool configuration. This can occur when attempting to perform operations that are not supported in secondary replica regions.</p>
+            aws_sdk_cognito_identity_provider.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when the Amazon Cognito service can't find the requested resource.</p>
+            aws_sdk_cognito_identity_provider.errors.too_many_requests_exception.TooManyRequestsException: <p>This exception is thrown when the user has made too many requests for a given operation.</p>
+            aws_sdk_cognito_identity_provider.errors.user_not_found_exception.UserNotFoundException: <p>This exception is thrown when a user isn't found.</p>
+            aws_sdk_cognito_identity_provider.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -910,6 +1005,16 @@ class AsyncCognitoIdentityProviderClient:
         Args:
             user_pool_id: <p>The ID of the user pool where you want to disable the user.</p>
             username: <p>The name of the user that you want to query or modify. The value of this parameter is typically your user's username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in your user pool, this value must be the <code>sub</code> of a local user or the username of a user from a third-party IdP.</p>
+
+        Raises:
+            aws_sdk_cognito_identity_provider.errors.internal_error_exception.InternalErrorException: <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_parameter_exception.InvalidParameterException: <p>This exception is thrown when the Amazon Cognito service encounters an invalid parameter.</p>
+            aws_sdk_cognito_identity_provider.errors.not_authorized_exception.NotAuthorizedException: <p>This exception is thrown when a user isn't authorized.</p>
+            aws_sdk_cognito_identity_provider.errors.operation_not_enabled_exception.OperationNotEnabledException: <p>This exception is thrown when an operation is not available in the current region or for the current user pool configuration. This can occur when attempting to perform operations that are not supported in secondary replica regions.</p>
+            aws_sdk_cognito_identity_provider.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when the Amazon Cognito service can't find the requested resource.</p>
+            aws_sdk_cognito_identity_provider.errors.too_many_requests_exception.TooManyRequestsException: <p>This exception is thrown when the user has made too many requests for a given operation.</p>
+            aws_sdk_cognito_identity_provider.errors.user_not_found_exception.UserNotFoundException: <p>This exception is thrown when a user isn't found.</p>
+            aws_sdk_cognito_identity_provider.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -951,6 +1056,16 @@ class AsyncCognitoIdentityProviderClient:
         Args:
             user_pool_id: <p>The ID of the user pool where you want to activate sign-in for the user.</p>
             username: <p>The name of the user that you want to query or modify. The value of this parameter is typically your user's username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in your user pool, this value must be the <code>sub</code> of a local user or the username of a user from a third-party IdP.</p>
+
+        Raises:
+            aws_sdk_cognito_identity_provider.errors.internal_error_exception.InternalErrorException: <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_parameter_exception.InvalidParameterException: <p>This exception is thrown when the Amazon Cognito service encounters an invalid parameter.</p>
+            aws_sdk_cognito_identity_provider.errors.not_authorized_exception.NotAuthorizedException: <p>This exception is thrown when a user isn't authorized.</p>
+            aws_sdk_cognito_identity_provider.errors.operation_not_enabled_exception.OperationNotEnabledException: <p>This exception is thrown when an operation is not available in the current region or for the current user pool configuration. This can occur when attempting to perform operations that are not supported in secondary replica regions.</p>
+            aws_sdk_cognito_identity_provider.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when the Amazon Cognito service can't find the requested resource.</p>
+            aws_sdk_cognito_identity_provider.errors.too_many_requests_exception.TooManyRequestsException: <p>This exception is thrown when the user has made too many requests for a given operation.</p>
+            aws_sdk_cognito_identity_provider.errors.user_not_found_exception.UserNotFoundException: <p>This exception is thrown when a user isn't found.</p>
+            aws_sdk_cognito_identity_provider.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -994,6 +1109,17 @@ class AsyncCognitoIdentityProviderClient:
             user_pool_id: <p>The ID of the user pool where the device owner is a user.</p>
             username: <p>The name of the user that you want to query or modify. The value of this parameter is typically your user's username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in your user pool, this value must be the <code>sub</code> of a local user or the username of a user from a third-party IdP.</p>
             device_key: <p>The key ID of the device that you want to delete.</p>
+
+        Raises:
+            aws_sdk_cognito_identity_provider.errors.internal_error_exception.InternalErrorException: <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_parameter_exception.InvalidParameterException: <p>This exception is thrown when the Amazon Cognito service encounters an invalid parameter.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_user_pool_configuration_exception.InvalidUserPoolConfigurationException: <p>This exception is thrown when the user pool configuration is not valid.</p>
+            aws_sdk_cognito_identity_provider.errors.not_authorized_exception.NotAuthorizedException: <p>This exception is thrown when a user isn't authorized.</p>
+            aws_sdk_cognito_identity_provider.errors.operation_not_enabled_exception.OperationNotEnabledException: <p>This exception is thrown when an operation is not available in the current region or for the current user pool configuration. This can occur when attempting to perform operations that are not supported in secondary replica regions.</p>
+            aws_sdk_cognito_identity_provider.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when the Amazon Cognito service can't find the requested resource.</p>
+            aws_sdk_cognito_identity_provider.errors.too_many_requests_exception.TooManyRequestsException: <p>This exception is thrown when the user has made too many requests for a given operation.</p>
+            aws_sdk_cognito_identity_provider.errors.user_not_found_exception.UserNotFoundException: <p>This exception is thrown when a user isn't found.</p>
+            aws_sdk_cognito_identity_provider.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1036,6 +1162,16 @@ class AsyncCognitoIdentityProviderClient:
             device_key: <p>The key of the device that you want to delete.</p>
             user_pool_id: <p>The ID of the user pool where the device owner is a user.</p>
             username: <p>The name of the user that you want to query or modify. The value of this parameter is typically your user's username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in your user pool, this value must be the <code>sub</code> of a local user or the username of a user from a third-party IdP.</p>
+
+        Raises:
+            aws_sdk_cognito_identity_provider.errors.internal_error_exception.InternalErrorException: <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_parameter_exception.InvalidParameterException: <p>This exception is thrown when the Amazon Cognito service encounters an invalid parameter.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_user_pool_configuration_exception.InvalidUserPoolConfigurationException: <p>This exception is thrown when the user pool configuration is not valid.</p>
+            aws_sdk_cognito_identity_provider.errors.not_authorized_exception.NotAuthorizedException: <p>This exception is thrown when a user isn't authorized.</p>
+            aws_sdk_cognito_identity_provider.errors.operation_not_enabled_exception.OperationNotEnabledException: <p>This exception is thrown when an operation is not available in the current region or for the current user pool configuration. This can occur when attempting to perform operations that are not supported in secondary replica regions.</p>
+            aws_sdk_cognito_identity_provider.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when the Amazon Cognito service can't find the requested resource.</p>
+            aws_sdk_cognito_identity_provider.errors.too_many_requests_exception.TooManyRequestsException: <p>This exception is thrown when the user has made too many requests for a given operation.</p>
+            aws_sdk_cognito_identity_provider.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1078,6 +1214,16 @@ class AsyncCognitoIdentityProviderClient:
         Args:
             user_pool_id: <p>The ID of the user pool where you want to get information about the user.</p>
             username: <p>The name of the user that you want to query or modify. The value of this parameter is typically your user's username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in your user pool, this value must be the <code>sub</code> of a local user or the username of a user from a third-party IdP.</p>
+
+        Raises:
+            aws_sdk_cognito_identity_provider.errors.internal_error_exception.InternalErrorException: <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_parameter_exception.InvalidParameterException: <p>This exception is thrown when the Amazon Cognito service encounters an invalid parameter.</p>
+            aws_sdk_cognito_identity_provider.errors.not_authorized_exception.NotAuthorizedException: <p>This exception is thrown when a user isn't authorized.</p>
+            aws_sdk_cognito_identity_provider.errors.operation_not_enabled_exception.OperationNotEnabledException: <p>This exception is thrown when an operation is not available in the current region or for the current user pool configuration. This can occur when attempting to perform operations that are not supported in secondary replica regions.</p>
+            aws_sdk_cognito_identity_provider.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when the Amazon Cognito service can't find the requested resource.</p>
+            aws_sdk_cognito_identity_provider.errors.too_many_requests_exception.TooManyRequestsException: <p>This exception is thrown when the user has made too many requests for a given operation.</p>
+            aws_sdk_cognito_identity_provider.errors.user_not_found_exception.UserNotFoundException: <p>This exception is thrown when a user isn't found.</p>
+            aws_sdk_cognito_identity_provider.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1141,6 +1287,27 @@ class AsyncCognitoIdentityProviderClient:
             analytics_metadata: <p>Information that supports analytics outcomes with Amazon Pinpoint, including the user's endpoint ID. The endpoint ID is a destination for Amazon Pinpoint push notifications, for example a device identifier, email address, or phone number.</p>
             context_data: <p>Contextual data about your user session like the device fingerprint, IP address, or location. Amazon Cognito threat protection evaluates the risk of an authentication event based on the context that your app generates and passes to Amazon Cognito when it makes API requests.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-viewing-threat-protection-app.html\">Collecting data for threat protection in applications</a>.</p>
             session: <p>The optional session ID from a <code>ConfirmSignUp</code> API request. You can sign in a user directly from the sign-up process with an <code>AuthFlow</code> of <code>USER_AUTH</code> and <code>AuthParameters</code> of <code>EMAIL_OTP</code> or <code>SMS_OTP</code>, depending on how your user pool sent the confirmation-code message.</p>
+
+        Raises:
+            aws_sdk_cognito_identity_provider.errors.internal_error_exception.InternalErrorException: <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_email_role_access_policy_exception.InvalidEmailRoleAccessPolicyException: <p>This exception is thrown when Amazon Cognito isn't allowed to use your email identity. HTTP status code: 400.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_lambda_response_exception.InvalidLambdaResponseException: <p>This exception is thrown when Amazon Cognito encounters an invalid Lambda response.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_parameter_exception.InvalidParameterException: <p>This exception is thrown when the Amazon Cognito service encounters an invalid parameter.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_sms_role_access_policy_exception.InvalidSmsRoleAccessPolicyException: <p>This exception is returned when the role provided for SMS configuration doesn't have permission to publish using Amazon SNS.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_sms_role_trust_relationship_exception.InvalidSmsRoleTrustRelationshipException: <p>This exception is thrown when the trust relationship is not valid for the role provided for SMS configuration. This can happen if you don't trust <code>cognito-idp.amazonaws.com</code> or the external ID provided in the role does not match what is provided in the SMS configuration for the user pool.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_user_pool_configuration_exception.InvalidUserPoolConfigurationException: <p>This exception is thrown when the user pool configuration is not valid.</p>
+            aws_sdk_cognito_identity_provider.errors.mfa_method_not_found_exception.MFAMethodNotFoundException: <p>This exception is thrown when Amazon Cognito can't find a multi-factor authentication (MFA) method.</p>
+            aws_sdk_cognito_identity_provider.errors.not_authorized_exception.NotAuthorizedException: <p>This exception is thrown when a user isn't authorized.</p>
+            aws_sdk_cognito_identity_provider.errors.operation_not_enabled_exception.OperationNotEnabledException: <p>This exception is thrown when an operation is not available in the current region or for the current user pool configuration. This can occur when attempting to perform operations that are not supported in secondary replica regions.</p>
+            aws_sdk_cognito_identity_provider.errors.password_reset_required_exception.PasswordResetRequiredException: <p>This exception is thrown when a password reset is required.</p>
+            aws_sdk_cognito_identity_provider.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when the Amazon Cognito service can't find the requested resource.</p>
+            aws_sdk_cognito_identity_provider.errors.too_many_requests_exception.TooManyRequestsException: <p>This exception is thrown when the user has made too many requests for a given operation.</p>
+            aws_sdk_cognito_identity_provider.errors.unexpected_lambda_exception.UnexpectedLambdaException: <p>This exception is thrown when Amazon Cognito encounters an unexpected exception with Lambda.</p>
+            aws_sdk_cognito_identity_provider.errors.unsupported_operation_exception.UnsupportedOperationException: <p>Exception that is thrown when you attempt to perform an operation that isn't enabled for the user pool client.</p>
+            aws_sdk_cognito_identity_provider.errors.user_lambda_validation_exception.UserLambdaValidationException: <p>This exception is thrown when the Amazon Cognito service encounters a user validation exception with the Lambda service.</p>
+            aws_sdk_cognito_identity_provider.errors.user_not_confirmed_exception.UserNotConfirmedException: <p>This exception is thrown when a user isn't confirmed successfully.</p>
+            aws_sdk_cognito_identity_provider.errors.user_not_found_exception.UserNotFoundException: <p>This exception is thrown when a user isn't found.</p>
+            aws_sdk_cognito_identity_provider.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1195,6 +1362,18 @@ class AsyncCognitoIdentityProviderClient:
             user_pool_id: <p>The ID of the user pool where you want to link a federated identity.</p>
             destination_user: <p>The existing user in the user pool that you want to assign to the external IdP user account. This user can be a local (Username + Password) Amazon Cognito user pools user or a federated user (for example, a SAML or Facebook user). If the user doesn't exist, Amazon Cognito generates an exception. Amazon Cognito returns this user when the new user (with the linked IdP attribute) signs in.</p> <p>For a native username + password user, the <code>ProviderAttributeValue</code> for the <code>DestinationUser</code> should be the username in the user pool. For a federated user, it should be the provider-specific <code>user_id</code>.</p> <p>The <code>ProviderAttributeName</code> of the <code>DestinationUser</code> is ignored.</p> <p>The <code>ProviderName</code> should be set to <code>Cognito</code> for users in Cognito user pools.</p> <important> <p>All attributes in the DestinationUser profile must be mutable. If you have assigned the user any immutable custom attributes, the operation won't succeed.</p> </important>
             source_user: <p>An external IdP account for a user who doesn't exist yet in the user pool. This user must be a federated user (for example, a SAML or Facebook user), not another native user.</p> <p>If the <code>SourceUser</code> is using a federated social IdP, such as Facebook, Google, or Login with Amazon, you must set the <code>ProviderAttributeName</code> to <code>Cognito_Subject</code>. For social IdPs, the <code>ProviderName</code> will be <code>Facebook</code>, <code>Google</code>, or <code>LoginWithAmazon</code>, and Amazon Cognito will automatically parse the Facebook, Google, and Login with Amazon tokens for <code>id</code>, <code>sub</code>, and <code>user_id</code>, respectively. The <code>ProviderAttributeValue</code> for the user must be the same value as the <code>id</code>, <code>sub</code>, or <code>user_id</code> value found in the social IdP token.</p> <p>For OIDC, the <code>ProviderAttributeName</code> can be any mapped value from a claim in the ID token, or that your app retrieves from the <code>userInfo</code> endpoint. For SAML, the <code>ProviderAttributeName</code> can be any mapped value from a claim in the SAML assertion.</p> <p>The following additional considerations apply to <code>SourceUser</code> for OIDC and SAML providers.</p> <ul> <li> <p>You must map the claim to a user pool attribute in your IdP configuration, and set the user pool attribute name as the value of <code>ProviderAttributeName</code> in your <code>AdminLinkProviderForUser</code> request. For example, <code>email</code>.</p> </li> <li> <p>When you set <code>ProviderAttributeName</code> to <code>Cognito_Subject</code>, Amazon Cognito will automatically parse the default unique identifier found in the subject from the IdP token.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_cognito_identity_provider.errors.alias_exists_exception.AliasExistsException: <p>This exception is thrown when a user tries to confirm the account with an email address or phone number that has already been supplied as an alias for a different user profile. This exception indicates that an account with this email address or phone already exists in a user pool that you've configured to use email address or phone number as a sign-in alias.</p>
+            aws_sdk_cognito_identity_provider.errors.internal_error_exception.InternalErrorException: <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_parameter_exception.InvalidParameterException: <p>This exception is thrown when the Amazon Cognito service encounters an invalid parameter.</p>
+            aws_sdk_cognito_identity_provider.errors.limit_exceeded_exception.LimitExceededException: <p>This exception is thrown when a user exceeds the limit for a requested Amazon Web Services resource.</p>
+            aws_sdk_cognito_identity_provider.errors.not_authorized_exception.NotAuthorizedException: <p>This exception is thrown when a user isn't authorized.</p>
+            aws_sdk_cognito_identity_provider.errors.operation_not_enabled_exception.OperationNotEnabledException: <p>This exception is thrown when an operation is not available in the current region or for the current user pool configuration. This can occur when attempting to perform operations that are not supported in secondary replica regions.</p>
+            aws_sdk_cognito_identity_provider.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when the Amazon Cognito service can't find the requested resource.</p>
+            aws_sdk_cognito_identity_provider.errors.too_many_requests_exception.TooManyRequestsException: <p>This exception is thrown when the user has made too many requests for a given operation.</p>
+            aws_sdk_cognito_identity_provider.errors.user_not_found_exception.UserNotFoundException: <p>This exception is thrown when a user isn't found.</p>
+            aws_sdk_cognito_identity_provider.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1245,6 +1424,16 @@ class AsyncCognitoIdentityProviderClient:
             username: <p>The name of the user that you want to query or modify. The value of this parameter is typically your user's username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in your user pool, this value must be the <code>sub</code> of a local user or the username of a user from a third-party IdP.</p>
             limit: <p>The maximum number of devices that you want Amazon Cognito to return in the response.</p>
             pagination_token: <p>This API operation returns a limited number of results. The pagination token is an identifier that you can present in an additional API request with the same parameters. When you include the pagination token, Amazon Cognito returns the next set of items after the current list. Subsequent requests return a new pagination token. By use of this token, you can paginate through the full list of items.</p>
+
+        Raises:
+            aws_sdk_cognito_identity_provider.errors.internal_error_exception.InternalErrorException: <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_parameter_exception.InvalidParameterException: <p>This exception is thrown when the Amazon Cognito service encounters an invalid parameter.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_user_pool_configuration_exception.InvalidUserPoolConfigurationException: <p>This exception is thrown when the user pool configuration is not valid.</p>
+            aws_sdk_cognito_identity_provider.errors.not_authorized_exception.NotAuthorizedException: <p>This exception is thrown when a user isn't authorized.</p>
+            aws_sdk_cognito_identity_provider.errors.operation_not_enabled_exception.OperationNotEnabledException: <p>This exception is thrown when an operation is not available in the current region or for the current user pool configuration. This can occur when attempting to perform operations that are not supported in secondary replica regions.</p>
+            aws_sdk_cognito_identity_provider.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when the Amazon Cognito service can't find the requested resource.</p>
+            aws_sdk_cognito_identity_provider.errors.too_many_requests_exception.TooManyRequestsException: <p>This exception is thrown when the user has made too many requests for a given operation.</p>
+            aws_sdk_cognito_identity_provider.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1298,6 +1487,16 @@ class AsyncCognitoIdentityProviderClient:
             user_pool_id: <p>The ID of the user pool where you want to view a user's groups.</p>
             limit: <p>The maximum number of groups that you want Amazon Cognito to return in the response.</p>
             next_token: <p>This API operation returns a limited number of results. The pagination token is an identifier that you can present in an additional API request with the same parameters. When you include the pagination token, Amazon Cognito returns the next set of items after the current list. Subsequent requests return a new pagination token. By use of this token, you can paginate through the full list of items.</p>
+
+        Raises:
+            aws_sdk_cognito_identity_provider.errors.internal_error_exception.InternalErrorException: <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_parameter_exception.InvalidParameterException: <p>This exception is thrown when the Amazon Cognito service encounters an invalid parameter.</p>
+            aws_sdk_cognito_identity_provider.errors.not_authorized_exception.NotAuthorizedException: <p>This exception is thrown when a user isn't authorized.</p>
+            aws_sdk_cognito_identity_provider.errors.operation_not_enabled_exception.OperationNotEnabledException: <p>This exception is thrown when an operation is not available in the current region or for the current user pool configuration. This can occur when attempting to perform operations that are not supported in secondary replica regions.</p>
+            aws_sdk_cognito_identity_provider.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when the Amazon Cognito service can't find the requested resource.</p>
+            aws_sdk_cognito_identity_provider.errors.too_many_requests_exception.TooManyRequestsException: <p>This exception is thrown when the user has made too many requests for a given operation.</p>
+            aws_sdk_cognito_identity_provider.errors.user_not_found_exception.UserNotFoundException: <p>This exception is thrown when a user isn't found.</p>
+            aws_sdk_cognito_identity_provider.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1380,6 +1579,17 @@ class AsyncCognitoIdentityProviderClient:
             username: <p>The name of the user that you want to query or modify. The value of this parameter is typically your user's username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in your user pool, this value must be the <code>sub</code> of a local user or the username of a user from a third-party IdP.</p>
             max_results: <p>The maximum number of authentication events to return. Returns 60 events if you set <code>MaxResults</code> to 0, or if you don't include a <code>MaxResults</code> parameter.</p>
             next_token: <p>This API operation returns a limited number of results. The pagination token is an identifier that you can present in an additional API request with the same parameters. When you include the pagination token, Amazon Cognito returns the next set of items after the current list. Subsequent requests return a new pagination token. By use of this token, you can paginate through the full list of items.</p>
+
+        Raises:
+            aws_sdk_cognito_identity_provider.errors.internal_error_exception.InternalErrorException: <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_parameter_exception.InvalidParameterException: <p>This exception is thrown when the Amazon Cognito service encounters an invalid parameter.</p>
+            aws_sdk_cognito_identity_provider.errors.not_authorized_exception.NotAuthorizedException: <p>This exception is thrown when a user isn't authorized.</p>
+            aws_sdk_cognito_identity_provider.errors.operation_not_enabled_exception.OperationNotEnabledException: <p>This exception is thrown when an operation is not available in the current region or for the current user pool configuration. This can occur when attempting to perform operations that are not supported in secondary replica regions.</p>
+            aws_sdk_cognito_identity_provider.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when the Amazon Cognito service can't find the requested resource.</p>
+            aws_sdk_cognito_identity_provider.errors.too_many_requests_exception.TooManyRequestsException: <p>This exception is thrown when the user has made too many requests for a given operation.</p>
+            aws_sdk_cognito_identity_provider.errors.user_not_found_exception.UserNotFoundException: <p>This exception is thrown when a user isn't found.</p>
+            aws_sdk_cognito_identity_provider.errors.user_pool_add_on_not_enabled_exception.UserPoolAddOnNotEnabledException: <p>This exception is thrown when user pool add-ons aren't enabled.</p>
+            aws_sdk_cognito_identity_provider.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1456,6 +1666,16 @@ class AsyncCognitoIdentityProviderClient:
             user_pool_id: <p>The ID of the user pool that contains the group and the user that you want to remove.</p>
             username: <p>The name of the user that you want to query or modify. The value of this parameter is typically your user's username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in your user pool, this value must be the <code>sub</code> of a local user or the username of a user from a third-party IdP.</p>
             group_name: <p>The name of the group that you want to remove the user from, for example <code>MyTestGroup</code>.</p>
+
+        Raises:
+            aws_sdk_cognito_identity_provider.errors.internal_error_exception.InternalErrorException: <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_parameter_exception.InvalidParameterException: <p>This exception is thrown when the Amazon Cognito service encounters an invalid parameter.</p>
+            aws_sdk_cognito_identity_provider.errors.not_authorized_exception.NotAuthorizedException: <p>This exception is thrown when a user isn't authorized.</p>
+            aws_sdk_cognito_identity_provider.errors.operation_not_enabled_exception.OperationNotEnabledException: <p>This exception is thrown when an operation is not available in the current region or for the current user pool configuration. This can occur when attempting to perform operations that are not supported in secondary replica regions.</p>
+            aws_sdk_cognito_identity_provider.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when the Amazon Cognito service can't find the requested resource.</p>
+            aws_sdk_cognito_identity_provider.errors.too_many_requests_exception.TooManyRequestsException: <p>This exception is thrown when the user has made too many requests for a given operation.</p>
+            aws_sdk_cognito_identity_provider.errors.user_not_found_exception.UserNotFoundException: <p>This exception is thrown when a user isn't found.</p>
+            aws_sdk_cognito_identity_provider.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1500,6 +1720,23 @@ class AsyncCognitoIdentityProviderClient:
             user_pool_id: <p>The ID of the user pool where you want to reset the user's password.</p>
             username: <p>The name of the user that you want to query or modify. The value of this parameter is typically your user's username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in your user pool, this value must be the <code>sub</code> of a local user or the username of a user from a third-party IdP.</p>
             client_metadata: <p>A map of custom key-value pairs that you can provide as input for any custom workflows that this action triggers. You create custom workflows by assigning Lambda functions to user pool triggers.</p> <p>When Amazon Cognito invokes any of these functions, it passes a JSON payload, which the function receives as input. This payload contains a <code>clientMetadata</code> attribute that provides the data that you assigned to the ClientMetadata parameter in your request. In your function code, you can process the <code>clientMetadata</code> value to enhance your workflow for your specific needs.</p> <p>To review the Lambda trigger types that Amazon Cognito invokes at runtime with API requests, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-working-with-lambda-triggers.html#lambda-triggers-by-event\"> Connecting API actions to Lambda triggers</a> in the <i>Amazon Cognito Developer Guide</i>.</p> <note> <p>When you use the <code>ClientMetadata</code> parameter, note that Amazon Cognito won't do the following:</p> <ul> <li> <p>Store the <code>ClientMetadata</code> value. This data is available only to Lambda triggers that are assigned to a user pool to support custom workflows. If your user pool configuration doesn't include triggers, the <code>ClientMetadata</code> parameter serves no purpose.</p> </li> <li> <p>Validate the <code>ClientMetadata</code> value.</p> </li> <li> <p>Encrypt the <code>ClientMetadata</code> value. Don't send sensitive information in this parameter.</p> </li> </ul> </note>
+
+        Raises:
+            aws_sdk_cognito_identity_provider.errors.internal_error_exception.InternalErrorException: <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_email_role_access_policy_exception.InvalidEmailRoleAccessPolicyException: <p>This exception is thrown when Amazon Cognito isn't allowed to use your email identity. HTTP status code: 400.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_lambda_response_exception.InvalidLambdaResponseException: <p>This exception is thrown when Amazon Cognito encounters an invalid Lambda response.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_parameter_exception.InvalidParameterException: <p>This exception is thrown when the Amazon Cognito service encounters an invalid parameter.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_sms_role_access_policy_exception.InvalidSmsRoleAccessPolicyException: <p>This exception is returned when the role provided for SMS configuration doesn't have permission to publish using Amazon SNS.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_sms_role_trust_relationship_exception.InvalidSmsRoleTrustRelationshipException: <p>This exception is thrown when the trust relationship is not valid for the role provided for SMS configuration. This can happen if you don't trust <code>cognito-idp.amazonaws.com</code> or the external ID provided in the role does not match what is provided in the SMS configuration for the user pool.</p>
+            aws_sdk_cognito_identity_provider.errors.limit_exceeded_exception.LimitExceededException: <p>This exception is thrown when a user exceeds the limit for a requested Amazon Web Services resource.</p>
+            aws_sdk_cognito_identity_provider.errors.not_authorized_exception.NotAuthorizedException: <p>This exception is thrown when a user isn't authorized.</p>
+            aws_sdk_cognito_identity_provider.errors.operation_not_enabled_exception.OperationNotEnabledException: <p>This exception is thrown when an operation is not available in the current region or for the current user pool configuration. This can occur when attempting to perform operations that are not supported in secondary replica regions.</p>
+            aws_sdk_cognito_identity_provider.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when the Amazon Cognito service can't find the requested resource.</p>
+            aws_sdk_cognito_identity_provider.errors.too_many_requests_exception.TooManyRequestsException: <p>This exception is thrown when the user has made too many requests for a given operation.</p>
+            aws_sdk_cognito_identity_provider.errors.unexpected_lambda_exception.UnexpectedLambdaException: <p>This exception is thrown when Amazon Cognito encounters an unexpected exception with Lambda.</p>
+            aws_sdk_cognito_identity_provider.errors.user_lambda_validation_exception.UserLambdaValidationException: <p>This exception is thrown when the Amazon Cognito service encounters a user validation exception with the Lambda service.</p>
+            aws_sdk_cognito_identity_provider.errors.user_not_found_exception.UserNotFoundException: <p>This exception is thrown when a user isn't found.</p>
+            aws_sdk_cognito_identity_provider.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1565,6 +1802,32 @@ class AsyncCognitoIdentityProviderClient:
             analytics_metadata: <p>Information that supports analytics outcomes with Amazon Pinpoint, including the user's endpoint ID. The endpoint ID is a destination for Amazon Pinpoint push notifications, for example a device identifier, email address, or phone number.</p>
             context_data: <p>Contextual data about your user session like the device fingerprint, IP address, or location. Amazon Cognito threat protection evaluates the risk of an authentication event based on the context that your app generates and passes to Amazon Cognito when it makes API requests.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-viewing-threat-protection-app.html\">Collecting data for threat protection in applications</a>.</p>
             client_metadata: <p>A map of custom key-value pairs that you can provide as input for any custom workflows that this action triggers. You create custom workflows by assigning Lambda functions to user pool triggers.</p> <p>When Amazon Cognito invokes any of these functions, it passes a JSON payload, which the function receives as input. This payload contains a <code>clientMetadata</code> attribute that provides the data that you assigned to the ClientMetadata parameter in your request. In your function code, you can process the <code>clientMetadata</code> value to enhance your workflow for your specific needs.</p> <p>To review the Lambda trigger types that Amazon Cognito invokes at runtime with API requests, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-working-with-lambda-triggers.html#lambda-triggers-by-event\"> Connecting API actions to Lambda triggers</a> in the <i>Amazon Cognito Developer Guide</i>.</p> <note> <p>When you use the <code>ClientMetadata</code> parameter, note that Amazon Cognito won't do the following:</p> <ul> <li> <p>Store the <code>ClientMetadata</code> value. This data is available only to Lambda triggers that are assigned to a user pool to support custom workflows. If your user pool configuration doesn't include triggers, the <code>ClientMetadata</code> parameter serves no purpose.</p> </li> <li> <p>Validate the <code>ClientMetadata</code> value.</p> </li> <li> <p>Encrypt the <code>ClientMetadata</code> value. Don't send sensitive information in this parameter.</p> </li> </ul> </note>
+
+        Raises:
+            aws_sdk_cognito_identity_provider.errors.alias_exists_exception.AliasExistsException: <p>This exception is thrown when a user tries to confirm the account with an email address or phone number that has already been supplied as an alias for a different user profile. This exception indicates that an account with this email address or phone already exists in a user pool that you've configured to use email address or phone number as a sign-in alias.</p>
+            aws_sdk_cognito_identity_provider.errors.code_mismatch_exception.CodeMismatchException: <p>This exception is thrown if the provided code doesn't match what the server was expecting.</p>
+            aws_sdk_cognito_identity_provider.errors.expired_code_exception.ExpiredCodeException: <p>This exception is thrown if a code has expired.</p>
+            aws_sdk_cognito_identity_provider.errors.internal_error_exception.InternalErrorException: <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_email_role_access_policy_exception.InvalidEmailRoleAccessPolicyException: <p>This exception is thrown when Amazon Cognito isn't allowed to use your email identity. HTTP status code: 400.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_lambda_response_exception.InvalidLambdaResponseException: <p>This exception is thrown when Amazon Cognito encounters an invalid Lambda response.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_parameter_exception.InvalidParameterException: <p>This exception is thrown when the Amazon Cognito service encounters an invalid parameter.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_password_exception.InvalidPasswordException: <p>This exception is thrown when Amazon Cognito encounters an invalid password.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_sms_role_access_policy_exception.InvalidSmsRoleAccessPolicyException: <p>This exception is returned when the role provided for SMS configuration doesn't have permission to publish using Amazon SNS.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_sms_role_trust_relationship_exception.InvalidSmsRoleTrustRelationshipException: <p>This exception is thrown when the trust relationship is not valid for the role provided for SMS configuration. This can happen if you don't trust <code>cognito-idp.amazonaws.com</code> or the external ID provided in the role does not match what is provided in the SMS configuration for the user pool.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_user_pool_configuration_exception.InvalidUserPoolConfigurationException: <p>This exception is thrown when the user pool configuration is not valid.</p>
+            aws_sdk_cognito_identity_provider.errors.mfa_method_not_found_exception.MFAMethodNotFoundException: <p>This exception is thrown when Amazon Cognito can't find a multi-factor authentication (MFA) method.</p>
+            aws_sdk_cognito_identity_provider.errors.not_authorized_exception.NotAuthorizedException: <p>This exception is thrown when a user isn't authorized.</p>
+            aws_sdk_cognito_identity_provider.errors.operation_not_enabled_exception.OperationNotEnabledException: <p>This exception is thrown when an operation is not available in the current region or for the current user pool configuration. This can occur when attempting to perform operations that are not supported in secondary replica regions.</p>
+            aws_sdk_cognito_identity_provider.errors.password_history_policy_violation_exception.PasswordHistoryPolicyViolationException: <p>The message returned when a user's new password matches a previous password and doesn't comply with the password-history policy.</p>
+            aws_sdk_cognito_identity_provider.errors.password_reset_required_exception.PasswordResetRequiredException: <p>This exception is thrown when a password reset is required.</p>
+            aws_sdk_cognito_identity_provider.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when the Amazon Cognito service can't find the requested resource.</p>
+            aws_sdk_cognito_identity_provider.errors.software_token_mfa_not_found_exception.SoftwareTokenMFANotFoundException: <p>This exception is thrown when the software token time-based one-time password (TOTP) multi-factor authentication (MFA) isn't activated for the user pool.</p>
+            aws_sdk_cognito_identity_provider.errors.too_many_requests_exception.TooManyRequestsException: <p>This exception is thrown when the user has made too many requests for a given operation.</p>
+            aws_sdk_cognito_identity_provider.errors.unexpected_lambda_exception.UnexpectedLambdaException: <p>This exception is thrown when Amazon Cognito encounters an unexpected exception with Lambda.</p>
+            aws_sdk_cognito_identity_provider.errors.user_lambda_validation_exception.UserLambdaValidationException: <p>This exception is thrown when the Amazon Cognito service encounters a user validation exception with the Lambda service.</p>
+            aws_sdk_cognito_identity_provider.errors.user_not_confirmed_exception.UserNotConfirmedException: <p>This exception is thrown when a user isn't confirmed successfully.</p>
+            aws_sdk_cognito_identity_provider.errors.user_not_found_exception.UserNotFoundException: <p>This exception is thrown when a user isn't found.</p>
+            aws_sdk_cognito_identity_provider.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1633,6 +1896,17 @@ class AsyncCognitoIdentityProviderClient:
             web_authn_mfa_settings: <p>User preferences for passkey MFA. Activates or deactivates passkey MFA for the user. When activated, passkey authentication requires user verification, and passkey sign-in is available when MFA is required. To activate this setting, the <code>FactorConfiguration</code> of your user pool <code>WebAuthnConfiguration</code> must be <code>MULTI_FACTOR_WITH_USER_VERIFICATION</code>. To activate this setting, your user pool must be in the <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/feature-plans-features-essentials.html\"> Essentials tier</a> or higher.</p>
             username: <p>The name of the user that you want to query or modify. The value of this parameter is typically your user's username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in your user pool, this value must be the <code>sub</code> of a local user or the username of a user from a third-party IdP.</p>
             user_pool_id: <p>The ID of the user pool where you want to set a user's MFA preferences.</p>
+
+        Raises:
+            aws_sdk_cognito_identity_provider.errors.internal_error_exception.InternalErrorException: <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_parameter_exception.InvalidParameterException: <p>This exception is thrown when the Amazon Cognito service encounters an invalid parameter.</p>
+            aws_sdk_cognito_identity_provider.errors.not_authorized_exception.NotAuthorizedException: <p>This exception is thrown when a user isn't authorized.</p>
+            aws_sdk_cognito_identity_provider.errors.operation_not_enabled_exception.OperationNotEnabledException: <p>This exception is thrown when an operation is not available in the current region or for the current user pool configuration. This can occur when attempting to perform operations that are not supported in secondary replica regions.</p>
+            aws_sdk_cognito_identity_provider.errors.password_reset_required_exception.PasswordResetRequiredException: <p>This exception is thrown when a password reset is required.</p>
+            aws_sdk_cognito_identity_provider.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when the Amazon Cognito service can't find the requested resource.</p>
+            aws_sdk_cognito_identity_provider.errors.user_not_confirmed_exception.UserNotConfirmedException: <p>This exception is thrown when a user isn't confirmed successfully.</p>
+            aws_sdk_cognito_identity_provider.errors.user_not_found_exception.UserNotFoundException: <p>This exception is thrown when a user isn't found.</p>
+            aws_sdk_cognito_identity_provider.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1688,6 +1962,18 @@ class AsyncCognitoIdentityProviderClient:
             username: <p>The name of the user that you want to query or modify. The value of this parameter is typically your user's username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in your user pool, this value must be the <code>sub</code> of a local user or the username of a user from a third-party IdP.</p>
             password: <p>The new temporary or permanent password that you want to set for the user. You can't remove the password for a user who already has a password so that they can only sign in with passwordless methods. In this scenario, you must create a new user without a password.</p>
             permanent: <p>Set to <code>true</code> to set a password that the user can immediately sign in with. Set to <code>false</code> to set a temporary password that the user must change on their next sign-in.</p>
+
+        Raises:
+            aws_sdk_cognito_identity_provider.errors.internal_error_exception.InternalErrorException: <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_parameter_exception.InvalidParameterException: <p>This exception is thrown when the Amazon Cognito service encounters an invalid parameter.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_password_exception.InvalidPasswordException: <p>This exception is thrown when Amazon Cognito encounters an invalid password.</p>
+            aws_sdk_cognito_identity_provider.errors.not_authorized_exception.NotAuthorizedException: <p>This exception is thrown when a user isn't authorized.</p>
+            aws_sdk_cognito_identity_provider.errors.operation_not_enabled_exception.OperationNotEnabledException: <p>This exception is thrown when an operation is not available in the current region or for the current user pool configuration. This can occur when attempting to perform operations that are not supported in secondary replica regions.</p>
+            aws_sdk_cognito_identity_provider.errors.password_history_policy_violation_exception.PasswordHistoryPolicyViolationException: <p>The message returned when a user's new password matches a previous password and doesn't comply with the password-history policy.</p>
+            aws_sdk_cognito_identity_provider.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when the Amazon Cognito service can't find the requested resource.</p>
+            aws_sdk_cognito_identity_provider.errors.too_many_requests_exception.TooManyRequestsException: <p>This exception is thrown when the user has made too many requests for a given operation.</p>
+            aws_sdk_cognito_identity_provider.errors.user_not_found_exception.UserNotFoundException: <p>This exception is thrown when a user isn't found.</p>
+            aws_sdk_cognito_identity_provider.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1734,6 +2020,15 @@ class AsyncCognitoIdentityProviderClient:
             user_pool_id: <p>The ID of the user pool that contains the user whose options you're setting.</p>
             username: <p>The name of the user that you want to query or modify. The value of this parameter is typically your user's username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in your user pool, this value must be the <code>sub</code> of a local user or the username of a user from a third-party IdP.</p>
             mfa_options: <p>You can use this parameter only to set an SMS configuration that uses SMS for delivery.</p>
+
+        Raises:
+            aws_sdk_cognito_identity_provider.errors.internal_error_exception.InternalErrorException: <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_parameter_exception.InvalidParameterException: <p>This exception is thrown when the Amazon Cognito service encounters an invalid parameter.</p>
+            aws_sdk_cognito_identity_provider.errors.not_authorized_exception.NotAuthorizedException: <p>This exception is thrown when a user isn't authorized.</p>
+            aws_sdk_cognito_identity_provider.errors.operation_not_enabled_exception.OperationNotEnabledException: <p>This exception is thrown when an operation is not available in the current region or for the current user pool configuration. This can occur when attempting to perform operations that are not supported in secondary replica regions.</p>
+            aws_sdk_cognito_identity_provider.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when the Amazon Cognito service can't find the requested resource.</p>
+            aws_sdk_cognito_identity_provider.errors.user_not_found_exception.UserNotFoundException: <p>This exception is thrown when a user isn't found.</p>
+            aws_sdk_cognito_identity_provider.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1780,6 +2075,17 @@ class AsyncCognitoIdentityProviderClient:
             username: <p>The name of the user that you want to query or modify. The value of this parameter is typically your user's username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in your user pool, this value must be the <code>sub</code> of a local user or the username of a user from a third-party IdP.</p>
             event_id: <p>The ID of the threat protection authentication event that you want to update.</p>
             feedback_value: <p>Your feedback to the authentication event. When you provide a <code>FeedbackValue</code> value of <code>valid</code>, you tell Amazon Cognito that you trust a user session where Amazon Cognito has evaluated some level of risk. When you provide a <code>FeedbackValue</code> value of <code>invalid</code>, you tell Amazon Cognito that you don't trust a user session, or you don't believe that Amazon Cognito evaluated a high-enough risk level.</p>
+
+        Raises:
+            aws_sdk_cognito_identity_provider.errors.internal_error_exception.InternalErrorException: <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_parameter_exception.InvalidParameterException: <p>This exception is thrown when the Amazon Cognito service encounters an invalid parameter.</p>
+            aws_sdk_cognito_identity_provider.errors.not_authorized_exception.NotAuthorizedException: <p>This exception is thrown when a user isn't authorized.</p>
+            aws_sdk_cognito_identity_provider.errors.operation_not_enabled_exception.OperationNotEnabledException: <p>This exception is thrown when an operation is not available in the current region or for the current user pool configuration. This can occur when attempting to perform operations that are not supported in secondary replica regions.</p>
+            aws_sdk_cognito_identity_provider.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when the Amazon Cognito service can't find the requested resource.</p>
+            aws_sdk_cognito_identity_provider.errors.too_many_requests_exception.TooManyRequestsException: <p>This exception is thrown when the user has made too many requests for a given operation.</p>
+            aws_sdk_cognito_identity_provider.errors.user_not_found_exception.UserNotFoundException: <p>This exception is thrown when a user isn't found.</p>
+            aws_sdk_cognito_identity_provider.errors.user_pool_add_on_not_enabled_exception.UserPoolAddOnNotEnabledException: <p>This exception is thrown when user pool add-ons aren't enabled.</p>
+            aws_sdk_cognito_identity_provider.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1829,6 +2135,17 @@ class AsyncCognitoIdentityProviderClient:
             username: <p>The name of the user that you want to query or modify. The value of this parameter is typically your user's username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in your user pool, this value must be the <code>sub</code> of a local user or the username of a user from a third-party IdP.</p>
             device_key: <p>The unique identifier, or device key, of the device that you want to update the status for.</p>
             device_remembered_status: <p>To enable device authentication with the specified device, set to <code>remembered</code>.To disable, set to <code>not_remembered</code>.</p>
+
+        Raises:
+            aws_sdk_cognito_identity_provider.errors.internal_error_exception.InternalErrorException: <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_parameter_exception.InvalidParameterException: <p>This exception is thrown when the Amazon Cognito service encounters an invalid parameter.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_user_pool_configuration_exception.InvalidUserPoolConfigurationException: <p>This exception is thrown when the user pool configuration is not valid.</p>
+            aws_sdk_cognito_identity_provider.errors.not_authorized_exception.NotAuthorizedException: <p>This exception is thrown when a user isn't authorized.</p>
+            aws_sdk_cognito_identity_provider.errors.operation_not_enabled_exception.OperationNotEnabledException: <p>This exception is thrown when an operation is not available in the current region or for the current user pool configuration. This can occur when attempting to perform operations that are not supported in secondary replica regions.</p>
+            aws_sdk_cognito_identity_provider.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when the Amazon Cognito service can't find the requested resource.</p>
+            aws_sdk_cognito_identity_provider.errors.too_many_requests_exception.TooManyRequestsException: <p>This exception is thrown when the user has made too many requests for a given operation.</p>
+            aws_sdk_cognito_identity_provider.errors.user_not_found_exception.UserNotFoundException: <p>This exception is thrown when a user isn't found.</p>
+            aws_sdk_cognito_identity_provider.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1879,6 +2196,23 @@ class AsyncCognitoIdentityProviderClient:
             username: <p>The name of the user that you want to query or modify. The value of this parameter is typically your user's username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in your user pool, this value must be the <code>sub</code> of a local user or the username of a user from a third-party IdP.</p>
             user_attributes: <p>An array of name-value pairs representing user attributes.</p> <p>For custom attributes, you must prepend the <code>custom:</code> prefix to the attribute name.</p> <p>If your user pool requires verification before Amazon Cognito updates an attribute value that you specify in this request, Amazon Cognito doesn’t immediately update the value of that attribute. After your user receives and responds to a verification message to verify the new value, Amazon Cognito updates the attribute value. Your user can sign in and receive messages with the original attribute value until they verify the new value.</p> <p>To skip the verification message and update the value of an attribute that requires verification in the same API request, include the <code>email_verified</code> or <code>phone_number_verified</code> attribute, with a value of <code>true</code>. If you set the <code>email_verified</code> or <code>phone_number_verified</code> value for an <code>email</code> or <code>phone_number</code> attribute that requires verification to <code>true</code>, Amazon Cognito doesn’t send a verification message to your user.</p>
             client_metadata: <p>A map of custom key-value pairs that you can provide as input for any custom workflows that this action triggers. You create custom workflows by assigning Lambda functions to user pool triggers.</p> <p>When Amazon Cognito invokes any of these functions, it passes a JSON payload, which the function receives as input. This payload contains a <code>clientMetadata</code> attribute that provides the data that you assigned to the ClientMetadata parameter in your request. In your function code, you can process the <code>clientMetadata</code> value to enhance your workflow for your specific needs.</p> <p>To review the Lambda trigger types that Amazon Cognito invokes at runtime with API requests, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-working-with-lambda-triggers.html#lambda-triggers-by-event\"> Connecting API actions to Lambda triggers</a> in the <i>Amazon Cognito Developer Guide</i>.</p> <note> <p>When you use the <code>ClientMetadata</code> parameter, note that Amazon Cognito won't do the following:</p> <ul> <li> <p>Store the <code>ClientMetadata</code> value. This data is available only to Lambda triggers that are assigned to a user pool to support custom workflows. If your user pool configuration doesn't include triggers, the <code>ClientMetadata</code> parameter serves no purpose.</p> </li> <li> <p>Validate the <code>ClientMetadata</code> value.</p> </li> <li> <p>Encrypt the <code>ClientMetadata</code> value. Don't send sensitive information in this parameter.</p> </li> </ul> </note>
+
+        Raises:
+            aws_sdk_cognito_identity_provider.errors.alias_exists_exception.AliasExistsException: <p>This exception is thrown when a user tries to confirm the account with an email address or phone number that has already been supplied as an alias for a different user profile. This exception indicates that an account with this email address or phone already exists in a user pool that you've configured to use email address or phone number as a sign-in alias.</p>
+            aws_sdk_cognito_identity_provider.errors.internal_error_exception.InternalErrorException: <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_email_role_access_policy_exception.InvalidEmailRoleAccessPolicyException: <p>This exception is thrown when Amazon Cognito isn't allowed to use your email identity. HTTP status code: 400.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_lambda_response_exception.InvalidLambdaResponseException: <p>This exception is thrown when Amazon Cognito encounters an invalid Lambda response.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_parameter_exception.InvalidParameterException: <p>This exception is thrown when the Amazon Cognito service encounters an invalid parameter.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_sms_role_access_policy_exception.InvalidSmsRoleAccessPolicyException: <p>This exception is returned when the role provided for SMS configuration doesn't have permission to publish using Amazon SNS.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_sms_role_trust_relationship_exception.InvalidSmsRoleTrustRelationshipException: <p>This exception is thrown when the trust relationship is not valid for the role provided for SMS configuration. This can happen if you don't trust <code>cognito-idp.amazonaws.com</code> or the external ID provided in the role does not match what is provided in the SMS configuration for the user pool.</p>
+            aws_sdk_cognito_identity_provider.errors.not_authorized_exception.NotAuthorizedException: <p>This exception is thrown when a user isn't authorized.</p>
+            aws_sdk_cognito_identity_provider.errors.operation_not_enabled_exception.OperationNotEnabledException: <p>This exception is thrown when an operation is not available in the current region or for the current user pool configuration. This can occur when attempting to perform operations that are not supported in secondary replica regions.</p>
+            aws_sdk_cognito_identity_provider.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when the Amazon Cognito service can't find the requested resource.</p>
+            aws_sdk_cognito_identity_provider.errors.too_many_requests_exception.TooManyRequestsException: <p>This exception is thrown when the user has made too many requests for a given operation.</p>
+            aws_sdk_cognito_identity_provider.errors.unexpected_lambda_exception.UnexpectedLambdaException: <p>This exception is thrown when Amazon Cognito encounters an unexpected exception with Lambda.</p>
+            aws_sdk_cognito_identity_provider.errors.user_lambda_validation_exception.UserLambdaValidationException: <p>This exception is thrown when the Amazon Cognito service encounters a user validation exception with the Lambda service.</p>
+            aws_sdk_cognito_identity_provider.errors.user_not_found_exception.UserNotFoundException: <p>This exception is thrown when a user isn't found.</p>
+            aws_sdk_cognito_identity_provider.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1923,6 +2257,16 @@ class AsyncCognitoIdentityProviderClient:
         Args:
             user_pool_id: <p>The ID of the user pool where you want to sign out a user.</p>
             username: <p>The name of the user that you want to query or modify. The value of this parameter is typically your user's username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in your user pool, this value must be the <code>sub</code> of a local user or the username of a user from a third-party IdP.</p>
+
+        Raises:
+            aws_sdk_cognito_identity_provider.errors.internal_error_exception.InternalErrorException: <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_parameter_exception.InvalidParameterException: <p>This exception is thrown when the Amazon Cognito service encounters an invalid parameter.</p>
+            aws_sdk_cognito_identity_provider.errors.not_authorized_exception.NotAuthorizedException: <p>This exception is thrown when a user isn't authorized.</p>
+            aws_sdk_cognito_identity_provider.errors.operation_not_enabled_exception.OperationNotEnabledException: <p>This exception is thrown when an operation is not available in the current region or for the current user pool configuration. This can occur when attempting to perform operations that are not supported in secondary replica regions.</p>
+            aws_sdk_cognito_identity_provider.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when the Amazon Cognito service can't find the requested resource.</p>
+            aws_sdk_cognito_identity_provider.errors.too_many_requests_exception.TooManyRequestsException: <p>This exception is thrown when the user has made too many requests for a given operation.</p>
+            aws_sdk_cognito_identity_provider.errors.user_not_found_exception.UserNotFoundException: <p>This exception is thrown when a user isn't found.</p>
+            aws_sdk_cognito_identity_provider.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1968,6 +2312,17 @@ class AsyncCognitoIdentityProviderClient:
         Args:
             access_token: <p>A valid access token that Amazon Cognito issued to the currently signed-in user. Must include a scope claim for <code>aws.cognito.signin.user.admin</code>.</p> <p>You can provide either an access token or a session ID in the request.</p>
             session: <p>The session identifier that maintains the state of authentication requests and challenge responses. In <code>AssociateSoftwareToken</code>, this is the session ID from a successful sign-in. You can provide either an access token or a session ID in the request.</p>
+
+        Raises:
+            aws_sdk_cognito_identity_provider.errors.concurrent_modification_exception.ConcurrentModificationException: <p>This exception is thrown if two or more modifications are happening concurrently.</p>
+            aws_sdk_cognito_identity_provider.errors.forbidden_exception.ForbiddenException: <p>This exception is thrown when WAF doesn't allow your request based on a web ACL that's associated with your user pool.</p>
+            aws_sdk_cognito_identity_provider.errors.internal_error_exception.InternalErrorException: <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_parameter_exception.InvalidParameterException: <p>This exception is thrown when the Amazon Cognito service encounters an invalid parameter.</p>
+            aws_sdk_cognito_identity_provider.errors.not_authorized_exception.NotAuthorizedException: <p>This exception is thrown when a user isn't authorized.</p>
+            aws_sdk_cognito_identity_provider.errors.operation_not_enabled_exception.OperationNotEnabledException: <p>This exception is thrown when an operation is not available in the current region or for the current user pool configuration. This can occur when attempting to perform operations that are not supported in secondary replica regions.</p>
+            aws_sdk_cognito_identity_provider.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when the Amazon Cognito service can't find the requested resource.</p>
+            aws_sdk_cognito_identity_provider.errors.software_token_mfa_not_found_exception.SoftwareTokenMFANotFoundException: <p>This exception is thrown when the software token time-based one-time password (TOTP) multi-factor authentication (MFA) isn't activated for the user pool.</p>
+            aws_sdk_cognito_identity_provider.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2015,6 +2370,22 @@ class AsyncCognitoIdentityProviderClient:
             previous_password: <p>The user's previous password. Required if the user has a password. If the user has no password and only signs in with passwordless authentication options, you can omit this parameter.</p>
             proposed_password: <p>A new password that you prompted the user to enter in your application.</p>
             access_token: <p>A valid access token that Amazon Cognito issued to the user whose password you want to change.</p>
+
+        Raises:
+            aws_sdk_cognito_identity_provider.errors.forbidden_exception.ForbiddenException: <p>This exception is thrown when WAF doesn't allow your request based on a web ACL that's associated with your user pool.</p>
+            aws_sdk_cognito_identity_provider.errors.internal_error_exception.InternalErrorException: <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_parameter_exception.InvalidParameterException: <p>This exception is thrown when the Amazon Cognito service encounters an invalid parameter.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_password_exception.InvalidPasswordException: <p>This exception is thrown when Amazon Cognito encounters an invalid password.</p>
+            aws_sdk_cognito_identity_provider.errors.limit_exceeded_exception.LimitExceededException: <p>This exception is thrown when a user exceeds the limit for a requested Amazon Web Services resource.</p>
+            aws_sdk_cognito_identity_provider.errors.not_authorized_exception.NotAuthorizedException: <p>This exception is thrown when a user isn't authorized.</p>
+            aws_sdk_cognito_identity_provider.errors.operation_not_enabled_exception.OperationNotEnabledException: <p>This exception is thrown when an operation is not available in the current region or for the current user pool configuration. This can occur when attempting to perform operations that are not supported in secondary replica regions.</p>
+            aws_sdk_cognito_identity_provider.errors.password_history_policy_violation_exception.PasswordHistoryPolicyViolationException: <p>The message returned when a user's new password matches a previous password and doesn't comply with the password-history policy.</p>
+            aws_sdk_cognito_identity_provider.errors.password_reset_required_exception.PasswordResetRequiredException: <p>This exception is thrown when a password reset is required.</p>
+            aws_sdk_cognito_identity_provider.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when the Amazon Cognito service can't find the requested resource.</p>
+            aws_sdk_cognito_identity_provider.errors.too_many_requests_exception.TooManyRequestsException: <p>This exception is thrown when the user has made too many requests for a given operation.</p>
+            aws_sdk_cognito_identity_provider.errors.user_not_confirmed_exception.UserNotConfirmedException: <p>This exception is thrown when a user isn't confirmed successfully.</p>
+            aws_sdk_cognito_identity_provider.errors.user_not_found_exception.UserNotFoundException: <p>This exception is thrown when a user isn't found.</p>
+            aws_sdk_cognito_identity_provider.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2058,6 +2429,23 @@ class AsyncCognitoIdentityProviderClient:
         Args:
             access_token: <p>A valid access token that Amazon Cognito issued to the currently signed-in user. Must include a scope claim for <code>aws.cognito.signin.user.admin</code>.</p>
             credential: <p>A <a href=\"https://www.w3.org/TR/WebAuthn-3/#dictdef-registrationresponsejson\">RegistrationResponseJSON</a> public-key credential response from the user's passkey provider.</p>
+
+        Raises:
+            aws_sdk_cognito_identity_provider.errors.forbidden_exception.ForbiddenException: <p>This exception is thrown when WAF doesn't allow your request based on a web ACL that's associated with your user pool.</p>
+            aws_sdk_cognito_identity_provider.errors.internal_error_exception.InternalErrorException: <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_parameter_exception.InvalidParameterException: <p>This exception is thrown when the Amazon Cognito service encounters an invalid parameter.</p>
+            aws_sdk_cognito_identity_provider.errors.limit_exceeded_exception.LimitExceededException: <p>This exception is thrown when a user exceeds the limit for a requested Amazon Web Services resource.</p>
+            aws_sdk_cognito_identity_provider.errors.not_authorized_exception.NotAuthorizedException: <p>This exception is thrown when a user isn't authorized.</p>
+            aws_sdk_cognito_identity_provider.errors.operation_not_enabled_exception.OperationNotEnabledException: <p>This exception is thrown when an operation is not available in the current region or for the current user pool configuration. This can occur when attempting to perform operations that are not supported in secondary replica regions.</p>
+            aws_sdk_cognito_identity_provider.errors.password_reset_required_exception.PasswordResetRequiredException: <p>This exception is thrown when a password reset is required.</p>
+            aws_sdk_cognito_identity_provider.errors.too_many_requests_exception.TooManyRequestsException: <p>This exception is thrown when the user has made too many requests for a given operation.</p>
+            aws_sdk_cognito_identity_provider.errors.web_authn_challenge_not_found_exception.WebAuthnChallengeNotFoundException: <p>This exception is thrown when the challenge from <code>StartWebAuthn</code> registration has expired.</p>
+            aws_sdk_cognito_identity_provider.errors.web_authn_client_mismatch_exception.WebAuthnClientMismatchException: <p>This exception is thrown when the access token is for a different client than the one in the original <code>StartWebAuthnRegistration</code> request.</p>
+            aws_sdk_cognito_identity_provider.errors.web_authn_credential_not_supported_exception.WebAuthnCredentialNotSupportedException: <p>This exception is thrown when a user presents passkey credentials from an unsupported device or provider.</p>
+            aws_sdk_cognito_identity_provider.errors.web_authn_not_enabled_exception.WebAuthnNotEnabledException: <p>This exception is thrown when the passkey feature isn't enabled for the user pool.</p>
+            aws_sdk_cognito_identity_provider.errors.web_authn_origin_not_allowed_exception.WebAuthnOriginNotAllowedException: <p>This exception is thrown when the passkey credential's registration origin does not align with the user pool relying party id.</p>
+            aws_sdk_cognito_identity_provider.errors.web_authn_relying_party_mismatch_exception.WebAuthnRelyingPartyMismatchException: <p>This exception is thrown when the given passkey credential is associated with a different relying party ID than the user pool relying party ID.</p>
+            aws_sdk_cognito_identity_provider.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2107,6 +2495,24 @@ class AsyncCognitoIdentityProviderClient:
             device_key: <p>The unique identifier, or device key, of the device that you want to update the status for.</p>
             device_secret_verifier_config: <p>The configuration of the device secret verifier.</p>
             device_name: <p>A friendly name for the device, for example <code>MyMobilePhone</code>.</p>
+
+        Raises:
+            aws_sdk_cognito_identity_provider.errors.device_key_exists_exception.DeviceKeyExistsException: <p>This exception is thrown when a user attempts to confirm a device with a device key that already exists.</p>
+            aws_sdk_cognito_identity_provider.errors.forbidden_exception.ForbiddenException: <p>This exception is thrown when WAF doesn't allow your request based on a web ACL that's associated with your user pool.</p>
+            aws_sdk_cognito_identity_provider.errors.internal_error_exception.InternalErrorException: <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_lambda_response_exception.InvalidLambdaResponseException: <p>This exception is thrown when Amazon Cognito encounters an invalid Lambda response.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_parameter_exception.InvalidParameterException: <p>This exception is thrown when the Amazon Cognito service encounters an invalid parameter.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_password_exception.InvalidPasswordException: <p>This exception is thrown when Amazon Cognito encounters an invalid password.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_user_pool_configuration_exception.InvalidUserPoolConfigurationException: <p>This exception is thrown when the user pool configuration is not valid.</p>
+            aws_sdk_cognito_identity_provider.errors.not_authorized_exception.NotAuthorizedException: <p>This exception is thrown when a user isn't authorized.</p>
+            aws_sdk_cognito_identity_provider.errors.operation_not_enabled_exception.OperationNotEnabledException: <p>This exception is thrown when an operation is not available in the current region or for the current user pool configuration. This can occur when attempting to perform operations that are not supported in secondary replica regions.</p>
+            aws_sdk_cognito_identity_provider.errors.password_reset_required_exception.PasswordResetRequiredException: <p>This exception is thrown when a password reset is required.</p>
+            aws_sdk_cognito_identity_provider.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when the Amazon Cognito service can't find the requested resource.</p>
+            aws_sdk_cognito_identity_provider.errors.too_many_requests_exception.TooManyRequestsException: <p>This exception is thrown when the user has made too many requests for a given operation.</p>
+            aws_sdk_cognito_identity_provider.errors.username_exists_exception.UsernameExistsException: <p>This exception is thrown when Amazon Cognito encounters a user name that already exists in the user pool.</p>
+            aws_sdk_cognito_identity_provider.errors.user_not_confirmed_exception.UserNotConfirmedException: <p>This exception is thrown when a user isn't confirmed successfully.</p>
+            aws_sdk_cognito_identity_provider.errors.user_not_found_exception.UserNotFoundException: <p>This exception is thrown when a user isn't found.</p>
+            aws_sdk_cognito_identity_provider.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2172,6 +2578,27 @@ class AsyncCognitoIdentityProviderClient:
             analytics_metadata: <p>Information that supports analytics outcomes with Amazon Pinpoint, including the user's endpoint ID. The endpoint ID is a destination for Amazon Pinpoint push notifications, for example a device identifier, email address, or phone number.</p>
             user_context_data: <p>Contextual data about your user session like the device fingerprint, IP address, or location. Amazon Cognito threat protection evaluates the risk of an authentication event based on the context that your app generates and passes to Amazon Cognito when it makes API requests.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-viewing-threat-protection-app.html\">Collecting data for threat protection in applications</a>.</p>
             client_metadata: <p>A map of custom key-value pairs that you can provide as input for any custom workflows that this action triggers. You create custom workflows by assigning Lambda functions to user pool triggers.</p> <p>When Amazon Cognito invokes any of these functions, it passes a JSON payload, which the function receives as input. This payload contains a <code>clientMetadata</code> attribute that provides the data that you assigned to the ClientMetadata parameter in your request. In your function code, you can process the <code>clientMetadata</code> value to enhance your workflow for your specific needs.</p> <p>To review the Lambda trigger types that Amazon Cognito invokes at runtime with API requests, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-working-with-lambda-triggers.html#lambda-triggers-by-event\"> Connecting API actions to Lambda triggers</a> in the <i>Amazon Cognito Developer Guide</i>.</p> <note> <p>When you use the <code>ClientMetadata</code> parameter, note that Amazon Cognito won't do the following:</p> <ul> <li> <p>Store the <code>ClientMetadata</code> value. This data is available only to Lambda triggers that are assigned to a user pool to support custom workflows. If your user pool configuration doesn't include triggers, the <code>ClientMetadata</code> parameter serves no purpose.</p> </li> <li> <p>Validate the <code>ClientMetadata</code> value.</p> </li> <li> <p>Encrypt the <code>ClientMetadata</code> value. Don't send sensitive information in this parameter.</p> </li> </ul> </note>
+
+        Raises:
+            aws_sdk_cognito_identity_provider.errors.code_mismatch_exception.CodeMismatchException: <p>This exception is thrown if the provided code doesn't match what the server was expecting.</p>
+            aws_sdk_cognito_identity_provider.errors.expired_code_exception.ExpiredCodeException: <p>This exception is thrown if a code has expired.</p>
+            aws_sdk_cognito_identity_provider.errors.forbidden_exception.ForbiddenException: <p>This exception is thrown when WAF doesn't allow your request based on a web ACL that's associated with your user pool.</p>
+            aws_sdk_cognito_identity_provider.errors.internal_error_exception.InternalErrorException: <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_lambda_response_exception.InvalidLambdaResponseException: <p>This exception is thrown when Amazon Cognito encounters an invalid Lambda response.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_parameter_exception.InvalidParameterException: <p>This exception is thrown when the Amazon Cognito service encounters an invalid parameter.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_password_exception.InvalidPasswordException: <p>This exception is thrown when Amazon Cognito encounters an invalid password.</p>
+            aws_sdk_cognito_identity_provider.errors.limit_exceeded_exception.LimitExceededException: <p>This exception is thrown when a user exceeds the limit for a requested Amazon Web Services resource.</p>
+            aws_sdk_cognito_identity_provider.errors.not_authorized_exception.NotAuthorizedException: <p>This exception is thrown when a user isn't authorized.</p>
+            aws_sdk_cognito_identity_provider.errors.operation_not_enabled_exception.OperationNotEnabledException: <p>This exception is thrown when an operation is not available in the current region or for the current user pool configuration. This can occur when attempting to perform operations that are not supported in secondary replica regions.</p>
+            aws_sdk_cognito_identity_provider.errors.password_history_policy_violation_exception.PasswordHistoryPolicyViolationException: <p>The message returned when a user's new password matches a previous password and doesn't comply with the password-history policy.</p>
+            aws_sdk_cognito_identity_provider.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when the Amazon Cognito service can't find the requested resource.</p>
+            aws_sdk_cognito_identity_provider.errors.too_many_failed_attempts_exception.TooManyFailedAttemptsException: <p>This exception is thrown when the user has made too many failed attempts for a given action, such as sign-in.</p>
+            aws_sdk_cognito_identity_provider.errors.too_many_requests_exception.TooManyRequestsException: <p>This exception is thrown when the user has made too many requests for a given operation.</p>
+            aws_sdk_cognito_identity_provider.errors.unexpected_lambda_exception.UnexpectedLambdaException: <p>This exception is thrown when Amazon Cognito encounters an unexpected exception with Lambda.</p>
+            aws_sdk_cognito_identity_provider.errors.user_lambda_validation_exception.UserLambdaValidationException: <p>This exception is thrown when the Amazon Cognito service encounters a user validation exception with the Lambda service.</p>
+            aws_sdk_cognito_identity_provider.errors.user_not_confirmed_exception.UserNotConfirmedException: <p>This exception is thrown when a user isn't confirmed successfully.</p>
+            aws_sdk_cognito_identity_provider.errors.user_not_found_exception.UserNotFoundException: <p>This exception is thrown when a user isn't found.</p>
+            aws_sdk_cognito_identity_provider.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2249,6 +2676,25 @@ class AsyncCognitoIdentityProviderClient:
             user_context_data: <p>Contextual data about your user session like the device fingerprint, IP address, or location. Amazon Cognito threat protection evaluates the risk of an authentication event based on the context that your app generates and passes to Amazon Cognito when it makes API requests.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-viewing-threat-protection-app.html\">Collecting data for threat protection in applications</a>.</p>
             client_metadata: <p>A map of custom key-value pairs that you can provide as input for any custom workflows that this action triggers. You create custom workflows by assigning Lambda functions to user pool triggers.</p> <p>When Amazon Cognito invokes any of these functions, it passes a JSON payload, which the function receives as input. This payload contains a <code>clientMetadata</code> attribute that provides the data that you assigned to the ClientMetadata parameter in your request. In your function code, you can process the <code>clientMetadata</code> value to enhance your workflow for your specific needs.</p> <p>To review the Lambda trigger types that Amazon Cognito invokes at runtime with API requests, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-working-with-lambda-triggers.html#lambda-triggers-by-event\"> Connecting API actions to Lambda triggers</a> in the <i>Amazon Cognito Developer Guide</i>.</p> <note> <p>When you use the <code>ClientMetadata</code> parameter, note that Amazon Cognito won't do the following:</p> <ul> <li> <p>Store the <code>ClientMetadata</code> value. This data is available only to Lambda triggers that are assigned to a user pool to support custom workflows. If your user pool configuration doesn't include triggers, the <code>ClientMetadata</code> parameter serves no purpose.</p> </li> <li> <p>Validate the <code>ClientMetadata</code> value.</p> </li> <li> <p>Encrypt the <code>ClientMetadata</code> value. Don't send sensitive information in this parameter.</p> </li> </ul> </note>
             session: <p>The optional session ID from a <code>SignUp</code> API request. You can sign in a user directly from the sign-up process with the <code>USER_AUTH</code> authentication flow.</p>
+
+        Raises:
+            aws_sdk_cognito_identity_provider.errors.alias_exists_exception.AliasExistsException: <p>This exception is thrown when a user tries to confirm the account with an email address or phone number that has already been supplied as an alias for a different user profile. This exception indicates that an account with this email address or phone already exists in a user pool that you've configured to use email address or phone number as a sign-in alias.</p>
+            aws_sdk_cognito_identity_provider.errors.code_mismatch_exception.CodeMismatchException: <p>This exception is thrown if the provided code doesn't match what the server was expecting.</p>
+            aws_sdk_cognito_identity_provider.errors.expired_code_exception.ExpiredCodeException: <p>This exception is thrown if a code has expired.</p>
+            aws_sdk_cognito_identity_provider.errors.forbidden_exception.ForbiddenException: <p>This exception is thrown when WAF doesn't allow your request based on a web ACL that's associated with your user pool.</p>
+            aws_sdk_cognito_identity_provider.errors.internal_error_exception.InternalErrorException: <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_lambda_response_exception.InvalidLambdaResponseException: <p>This exception is thrown when Amazon Cognito encounters an invalid Lambda response.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_parameter_exception.InvalidParameterException: <p>This exception is thrown when the Amazon Cognito service encounters an invalid parameter.</p>
+            aws_sdk_cognito_identity_provider.errors.limit_exceeded_exception.LimitExceededException: <p>This exception is thrown when a user exceeds the limit for a requested Amazon Web Services resource.</p>
+            aws_sdk_cognito_identity_provider.errors.not_authorized_exception.NotAuthorizedException: <p>This exception is thrown when a user isn't authorized.</p>
+            aws_sdk_cognito_identity_provider.errors.operation_not_enabled_exception.OperationNotEnabledException: <p>This exception is thrown when an operation is not available in the current region or for the current user pool configuration. This can occur when attempting to perform operations that are not supported in secondary replica regions.</p>
+            aws_sdk_cognito_identity_provider.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when the Amazon Cognito service can't find the requested resource.</p>
+            aws_sdk_cognito_identity_provider.errors.too_many_failed_attempts_exception.TooManyFailedAttemptsException: <p>This exception is thrown when the user has made too many failed attempts for a given action, such as sign-in.</p>
+            aws_sdk_cognito_identity_provider.errors.too_many_requests_exception.TooManyRequestsException: <p>This exception is thrown when the user has made too many requests for a given operation.</p>
+            aws_sdk_cognito_identity_provider.errors.unexpected_lambda_exception.UnexpectedLambdaException: <p>This exception is thrown when Amazon Cognito encounters an unexpected exception with Lambda.</p>
+            aws_sdk_cognito_identity_provider.errors.user_lambda_validation_exception.UserLambdaValidationException: <p>This exception is thrown when the Amazon Cognito service encounters a user validation exception with the Lambda service.</p>
+            aws_sdk_cognito_identity_provider.errors.user_not_found_exception.UserNotFoundException: <p>This exception is thrown when a user isn't found.</p>
+            aws_sdk_cognito_identity_provider.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2315,6 +2761,17 @@ class AsyncCognitoIdentityProviderClient:
             description: <p>A description of the group that you're creating.</p>
             role_arn: <p>The Amazon Resource Name (ARN) for the IAM role that you want to associate with the group. A group role primarily declares a preferred role for the credentials that you get from an identity pool. Amazon Cognito ID tokens have a <code>cognito:preferred_role</code> claim that presents the highest-precedence group that a user belongs to. Both ID and access tokens also contain a <code>cognito:groups</code> claim that list all the groups that a user is a member of.</p>
             precedence: <p>A non-negative integer value that specifies the precedence of this group relative to the other groups that a user can belong to in the user pool. Zero is the highest precedence value. Groups with lower <code>Precedence</code> values take precedence over groups with higher or null <code>Precedence</code> values. If a user belongs to two or more groups, it is the group with the lowest precedence value whose role ARN is given in the user's tokens for the <code>cognito:roles</code> and <code>cognito:preferred_role</code> claims.</p> <p>Two groups can have the same <code>Precedence</code> value. If this happens, neither group takes precedence over the other. If two groups with the same <code>Precedence</code> have the same role ARN, that role is used in the <code>cognito:preferred_role</code> claim in tokens for users in each group. If the two groups have different role ARNs, the <code>cognito:preferred_role</code> claim isn't set in users' tokens.</p> <p>The default <code>Precedence</code> value is null. The maximum <code>Precedence</code> value is <code>2^31-1</code>.</p>
+
+        Raises:
+            aws_sdk_cognito_identity_provider.errors.group_exists_exception.GroupExistsException: <p>This exception is thrown when Amazon Cognito encounters a group that already exists in the user pool.</p>
+            aws_sdk_cognito_identity_provider.errors.internal_error_exception.InternalErrorException: <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_parameter_exception.InvalidParameterException: <p>This exception is thrown when the Amazon Cognito service encounters an invalid parameter.</p>
+            aws_sdk_cognito_identity_provider.errors.limit_exceeded_exception.LimitExceededException: <p>This exception is thrown when a user exceeds the limit for a requested Amazon Web Services resource.</p>
+            aws_sdk_cognito_identity_provider.errors.not_authorized_exception.NotAuthorizedException: <p>This exception is thrown when a user isn't authorized.</p>
+            aws_sdk_cognito_identity_provider.errors.operation_not_enabled_exception.OperationNotEnabledException: <p>This exception is thrown when an operation is not available in the current region or for the current user pool configuration. This can occur when attempting to perform operations that are not supported in secondary replica regions.</p>
+            aws_sdk_cognito_identity_provider.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when the Amazon Cognito service can't find the requested resource.</p>
+            aws_sdk_cognito_identity_provider.errors.too_many_requests_exception.TooManyRequestsException: <p>This exception is thrown when the user has made too many requests for a given operation.</p>
+            aws_sdk_cognito_identity_provider.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2374,6 +2831,16 @@ class AsyncCognitoIdentityProviderClient:
             provider_details: <p>The scopes, URLs, and identifiers for your external identity provider. The following examples describe the provider detail keys for each IdP type. These values and their schema are subject to change. Social IdP <code>authorize_scopes</code> values must match the values listed here.</p> <dl> <dt>OpenID Connect (OIDC)</dt> <dd> <p>Amazon Cognito accepts the following elements when it can't discover endpoint URLs from <code>oidc_issuer</code>: <code>attributes_url</code>, <code>authorize_url</code>, <code>jwks_uri</code>, <code>token_url</code>.</p> <p>Create or update request: <code>\"ProviderDetails\": { \"attributes_request_method\": \"GET\", \"attributes_url\": \"https://auth.example.com/userInfo\", \"authorize_scopes\": \"openid profile email\", \"authorize_url\": \"https://auth.example.com/authorize\", \"client_id\": \"1example23456789\", \"client_secret\": \"provider-app-client-secret\", \"jwks_uri\": \"https://auth.example.com/.well-known/jwks.json\", \"oidc_issuer\": \"https://auth.example.com\", \"token_url\": \"https://example.com/token\" }</code> </p> <p>Describe response: <code>\"ProviderDetails\": { \"attributes_request_method\": \"GET\", \"attributes_url\": \"https://auth.example.com/userInfo\", \"attributes_url_add_attributes\": \"false\", \"authorize_scopes\": \"openid profile email\", \"authorize_url\": \"https://auth.example.com/authorize\", \"client_id\": \"1example23456789\", \"client_secret\": \"provider-app-client-secret\", \"jwks_uri\": \"https://auth.example.com/.well-known/jwks.json\", \"oidc_issuer\": \"https://auth.example.com\", \"token_url\": \"https://example.com/token\" }</code> </p> </dd> <dt>SAML</dt> <dd> <p>Create or update request with Metadata URL: <code>\"ProviderDetails\": { \"IDPInit\": \"true\", \"IDPSignout\": \"true\", \"EncryptedResponses\" : \"true\", \"MetadataURL\": \"https://auth.example.com/sso/saml/metadata\", \"RequestSigningAlgorithm\": \"rsa-sha256\" }</code> </p> <p>Create or update request with Metadata file: <code>\"ProviderDetails\": { \"IDPInit\": \"true\", \"IDPSignout\": \"true\", \"EncryptedResponses\" : \"true\", \"MetadataFile\": \"[metadata XML]\", \"RequestSigningAlgorithm\": \"rsa-sha256\" }</code> </p> <p>The value of <code>MetadataFile</code> must be the plaintext metadata document with all quote (\") characters escaped by backslashes.</p> <p>Describe response: <code>\"ProviderDetails\": { \"IDPInit\": \"true\", \"IDPSignout\": \"true\", \"EncryptedResponses\" : \"true\", \"ActiveEncryptionCertificate\": \"[certificate]\", \"MetadataURL\": \"https://auth.example.com/sso/saml/metadata\", \"RequestSigningAlgorithm\": \"rsa-sha256\", \"SLORedirectBindingURI\": \"https://auth.example.com/slo/saml\", \"SSORedirectBindingURI\": \"https://auth.example.com/sso/saml\" }</code> </p> </dd> <dt>LoginWithAmazon</dt> <dd> <p>Create or update request: <code>\"ProviderDetails\": { \"authorize_scopes\": \"profile postal_code\", \"client_id\": \"amzn1.application-oa2-client.1example23456789\", \"client_secret\": \"provider-app-client-secret\"</code> </p> <p>Describe response: <code>\"ProviderDetails\": { \"attributes_url\": \"https://api.amazon.com/user/profile\", \"attributes_url_add_attributes\": \"false\", \"authorize_scopes\": \"profile postal_code\", \"authorize_url\": \"https://www.amazon.com/ap/oa\", \"client_id\": \"amzn1.application-oa2-client.1example23456789\", \"client_secret\": \"provider-app-client-secret\", \"token_request_method\": \"POST\", \"token_url\": \"https://api.amazon.com/auth/o2/token\" }</code> </p> </dd> <dt>Google</dt> <dd> <p>Create or update request: <code>\"ProviderDetails\": { \"authorize_scopes\": \"email profile openid\", \"client_id\": \"1example23456789.apps.googleusercontent.com\", \"client_secret\": \"provider-app-client-secret\" }</code> </p> <p>Describe response: <code>\"ProviderDetails\": { \"attributes_url\": \"https://people.googleapis.com/v1/people/me?personFields=\", \"attributes_url_add_attributes\": \"true\", \"authorize_scopes\": \"email profile openid\", \"authorize_url\": \"https://accounts.google.com/o/oauth2/v2/auth\", \"client_id\": \"1example23456789.apps.googleusercontent.com\", \"client_secret\": \"provider-app-client-secret\", \"oidc_issuer\": \"https://accounts.google.com\", \"token_request_method\": \"POST\", \"token_url\": \"https://www.googleapis.com/oauth2/v4/token\" }</code> </p> </dd> <dt>SignInWithApple</dt> <dd> <p>Create or update request: <code>\"ProviderDetails\": { \"authorize_scopes\": \"email name\", \"client_id\": \"com.example.cognito\", \"private_key\": \"1EXAMPLE\", \"key_id\": \"2EXAMPLE\", \"team_id\": \"3EXAMPLE\" }</code> </p> <p>Describe response: <code>\"ProviderDetails\": { \"attributes_url_add_attributes\": \"false\", \"authorize_scopes\": \"email name\", \"authorize_url\": \"https://appleid.apple.com/auth/authorize\", \"client_id\": \"com.example.cognito\", \"key_id\": \"1EXAMPLE\", \"oidc_issuer\": \"https://appleid.apple.com\", \"team_id\": \"2EXAMPLE\", \"token_request_method\": \"POST\", \"token_url\": \"https://appleid.apple.com/auth/token\" }</code> </p> </dd> <dt>Facebook</dt> <dd> <p>Create or update request: <code>\"ProviderDetails\": { \"api_version\": \"v17.0\", \"authorize_scopes\": \"public_profile, email\", \"client_id\": \"1example23456789\", \"client_secret\": \"provider-app-client-secret\" }</code> </p> <p>Describe response: <code>\"ProviderDetails\": { \"api_version\": \"v17.0\", \"attributes_url\": \"https://graph.facebook.com/v17.0/me?fields=\", \"attributes_url_add_attributes\": \"true\", \"authorize_scopes\": \"public_profile, email\", \"authorize_url\": \"https://www.facebook.com/v17.0/dialog/oauth\", \"client_id\": \"1example23456789\", \"client_secret\": \"provider-app-client-secret\", \"token_request_method\": \"GET\", \"token_url\": \"https://graph.facebook.com/v17.0/oauth/access_token\" }</code> </p> </dd> </dl>
             attribute_mapping: <p>A mapping of IdP attributes to standard and custom user pool attributes. Specify a user pool attribute as the key of the key-value pair, and the IdP attribute claim name as the value.</p>
             idp_identifiers: <p>An array of IdP identifiers, for example <code>\"IdPIdentifiers\": [ \"MyIdP\", \"MyIdP2\" ]</code>. Identifiers are friendly names that you can pass in the <code>idp_identifier</code> query parameter of requests to the <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/authorization-endpoint.html\">Authorize endpoint</a> to silently redirect to sign-in with the associated IdP. Identifiers in a domain format also enable the use of <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managing-saml-idp-naming.html\">email-address matching with SAML providers</a>. </p>
+
+        Raises:
+            aws_sdk_cognito_identity_provider.errors.duplicate_provider_exception.DuplicateProviderException: <p>This exception is thrown when the provider is already supported by the user pool.</p>
+            aws_sdk_cognito_identity_provider.errors.internal_error_exception.InternalErrorException: <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_parameter_exception.InvalidParameterException: <p>This exception is thrown when the Amazon Cognito service encounters an invalid parameter.</p>
+            aws_sdk_cognito_identity_provider.errors.limit_exceeded_exception.LimitExceededException: <p>This exception is thrown when a user exceeds the limit for a requested Amazon Web Services resource.</p>
+            aws_sdk_cognito_identity_provider.errors.not_authorized_exception.NotAuthorizedException: <p>This exception is thrown when a user isn't authorized.</p>
+            aws_sdk_cognito_identity_provider.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when the Amazon Cognito service can't find the requested resource.</p>
+            aws_sdk_cognito_identity_provider.errors.too_many_requests_exception.TooManyRequestsException: <p>This exception is thrown when the user has made too many requests for a given operation.</p>
+            aws_sdk_cognito_identity_provider.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2433,6 +2900,18 @@ class AsyncCognitoIdentityProviderClient:
             use_cognito_provided_values: <p>When true, applies the default branding style options. These default options are managed by Amazon Cognito. You can modify them later in the branding editor.</p> <p>When you specify <code>true</code> for this option, you must also omit values for <code>Settings</code> and <code>Assets</code> in the request.</p>
             settings: <p>A JSON file, encoded as a <code>Document</code> type, with the the settings that you want to apply to your style.</p> <p>The following components are not currently implemented and reserved for future use:</p> <ul> <li> <p> <code>signUp</code> </p> </li> <li> <p> <code>instructions</code> </p> </li> <li> <p> <code>sessionTimerDisplay</code> </p> </li> <li> <p> <code>languageSelector</code> (for localization, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managed-login.html#managed-login-localization\">Managed login localization)</a> </p> </li> </ul>
             assets: <p>An array of image files that you want to apply to functions like backgrounds, logos, and icons. Each object must also indicate whether it is for dark mode, light mode, or browser-adaptive mode.</p>
+
+        Raises:
+            aws_sdk_cognito_identity_provider.errors.concurrent_modification_exception.ConcurrentModificationException: <p>This exception is thrown if two or more modifications are happening concurrently.</p>
+            aws_sdk_cognito_identity_provider.errors.internal_error_exception.InternalErrorException: <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_parameter_exception.InvalidParameterException: <p>This exception is thrown when the Amazon Cognito service encounters an invalid parameter.</p>
+            aws_sdk_cognito_identity_provider.errors.limit_exceeded_exception.LimitExceededException: <p>This exception is thrown when a user exceeds the limit for a requested Amazon Web Services resource.</p>
+            aws_sdk_cognito_identity_provider.errors.managed_login_branding_exists_exception.ManagedLoginBrandingExistsException: <p>This exception is thrown when you attempt to apply a managed login branding style to an app client that already has an assigned style.</p>
+            aws_sdk_cognito_identity_provider.errors.not_authorized_exception.NotAuthorizedException: <p>This exception is thrown when a user isn't authorized.</p>
+            aws_sdk_cognito_identity_provider.errors.operation_not_enabled_exception.OperationNotEnabledException: <p>This exception is thrown when an operation is not available in the current region or for the current user pool configuration. This can occur when attempting to perform operations that are not supported in secondary replica regions.</p>
+            aws_sdk_cognito_identity_provider.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when the Amazon Cognito service can't find the requested resource.</p>
+            aws_sdk_cognito_identity_provider.errors.too_many_requests_exception.TooManyRequestsException: <p>This exception is thrown when the user has made too many requests for a given operation.</p>
+            aws_sdk_cognito_identity_provider.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2486,6 +2965,16 @@ class AsyncCognitoIdentityProviderClient:
             identifier: <p>A unique resource server identifier for the resource server. The identifier can be an API friendly name like <code>solar-system-data</code>. You can also set an API URL like <code>https://solar-system-data-api.example.com</code> as your identifier.</p> <p>Amazon Cognito represents scopes in the access token in the format <code>$resource-server-identifier/$scope</code>. Longer scope-identifier strings increase the size of your access tokens.</p>
             name: <p>A friendly name for the resource server.</p>
             scopes: <p>A list of custom scopes. Each scope is a key-value map with the keys <code>ScopeName</code> and <code>ScopeDescription</code>. The name of a custom scope is a combination of <code>ScopeName</code> and the resource server <code>Name</code> in this request, for example <code>MyResourceServerName/MyScopeName</code>.</p>
+
+        Raises:
+            aws_sdk_cognito_identity_provider.errors.internal_error_exception.InternalErrorException: <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_parameter_exception.InvalidParameterException: <p>This exception is thrown when the Amazon Cognito service encounters an invalid parameter.</p>
+            aws_sdk_cognito_identity_provider.errors.limit_exceeded_exception.LimitExceededException: <p>This exception is thrown when a user exceeds the limit for a requested Amazon Web Services resource.</p>
+            aws_sdk_cognito_identity_provider.errors.not_authorized_exception.NotAuthorizedException: <p>This exception is thrown when a user isn't authorized.</p>
+            aws_sdk_cognito_identity_provider.errors.operation_not_enabled_exception.OperationNotEnabledException: <p>This exception is thrown when an operation is not available in the current region or for the current user pool configuration. This can occur when attempting to perform operations that are not supported in secondary replica regions.</p>
+            aws_sdk_cognito_identity_provider.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when the Amazon Cognito service can't find the requested resource.</p>
+            aws_sdk_cognito_identity_provider.errors.too_many_requests_exception.TooManyRequestsException: <p>This exception is thrown when the user has made too many requests for a given operation.</p>
+            aws_sdk_cognito_identity_provider.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2540,6 +3029,18 @@ class AsyncCognitoIdentityProviderClient:
             terms_source: <p>This parameter is reserved for future use and currently accepts only one value.</p>
             enforcement: <p>This parameter is reserved for future use and currently accepts only one value.</p>
             links: <p>A map of URLs to languages. For each localized language that will view the requested <code>TermsName</code>, assign a URL. A selection of <code>cognito:default</code> displays for all languages that don't have a language-specific URL.</p> <p>For example, <code>\"cognito:default\": \"https://terms.example.com\", \"cognito:spanish\": \"https://terms.example.com/es\"</code>.</p>
+
+        Raises:
+            aws_sdk_cognito_identity_provider.errors.concurrent_modification_exception.ConcurrentModificationException: <p>This exception is thrown if two or more modifications are happening concurrently.</p>
+            aws_sdk_cognito_identity_provider.errors.internal_error_exception.InternalErrorException: <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_parameter_exception.InvalidParameterException: <p>This exception is thrown when the Amazon Cognito service encounters an invalid parameter.</p>
+            aws_sdk_cognito_identity_provider.errors.limit_exceeded_exception.LimitExceededException: <p>This exception is thrown when a user exceeds the limit for a requested Amazon Web Services resource.</p>
+            aws_sdk_cognito_identity_provider.errors.not_authorized_exception.NotAuthorizedException: <p>This exception is thrown when a user isn't authorized.</p>
+            aws_sdk_cognito_identity_provider.errors.operation_not_enabled_exception.OperationNotEnabledException: <p>This exception is thrown when an operation is not available in the current region or for the current user pool configuration. This can occur when attempting to perform operations that are not supported in secondary replica regions.</p>
+            aws_sdk_cognito_identity_provider.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when the Amazon Cognito service can't find the requested resource.</p>
+            aws_sdk_cognito_identity_provider.errors.terms_exists_exception.TermsExistsException: <p>Terms document names must be unique to the app client. This exception is thrown when you attempt to create terms documents with a duplicate <code>TermsName</code>.</p>
+            aws_sdk_cognito_identity_provider.errors.too_many_requests_exception.TooManyRequestsException: <p>This exception is thrown when the user has made too many requests for a given operation.</p>
+            aws_sdk_cognito_identity_provider.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2588,6 +3089,17 @@ class AsyncCognitoIdentityProviderClient:
             job_name: <p>A friendly name for the user import job.</p>
             user_pool_id: <p>The ID of the user pool that you want to import users into.</p>
             cloud_watch_logs_role_arn: <p>You must specify an IAM role that has permission to log import-job results to Amazon CloudWatch Logs. This parameter is the ARN of that role.</p>
+
+        Raises:
+            aws_sdk_cognito_identity_provider.errors.internal_error_exception.InternalErrorException: <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_parameter_exception.InvalidParameterException: <p>This exception is thrown when the Amazon Cognito service encounters an invalid parameter.</p>
+            aws_sdk_cognito_identity_provider.errors.limit_exceeded_exception.LimitExceededException: <p>This exception is thrown when a user exceeds the limit for a requested Amazon Web Services resource.</p>
+            aws_sdk_cognito_identity_provider.errors.not_authorized_exception.NotAuthorizedException: <p>This exception is thrown when a user isn't authorized.</p>
+            aws_sdk_cognito_identity_provider.errors.operation_not_enabled_exception.OperationNotEnabledException: <p>This exception is thrown when an operation is not available in the current region or for the current user pool configuration. This can occur when attempting to perform operations that are not supported in secondary replica regions.</p>
+            aws_sdk_cognito_identity_provider.errors.precondition_not_met_exception.PreconditionNotMetException: <p>This exception is thrown when a precondition is not met.</p>
+            aws_sdk_cognito_identity_provider.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when the Amazon Cognito service can't find the requested resource.</p>
+            aws_sdk_cognito_identity_provider.errors.too_many_requests_exception.TooManyRequestsException: <p>This exception is thrown when the user has made too many requests for a given operation.</p>
+            aws_sdk_cognito_identity_provider.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2728,6 +3240,20 @@ class AsyncCognitoIdentityProviderClient:
             user_pool_tier: <p>The user pool <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-sign-in-feature-plans.html\">feature plan</a>, or tier. This parameter determines the eligibility of the user pool for features like managed login, access-token customization, and threat protection. Defaults to <code>ESSENTIALS</code>.</p>
             key_configuration: <p>The key configuration for the user pool. Specifies the key type and KMS key ARN for encryption.</p>
             issuer_configuration: <p>The issuer configuration for the user pool. Specifies the issuer type for token generation.</p>
+
+        Raises:
+            aws_sdk_cognito_identity_provider.errors.feature_unavailable_in_tier_exception.FeatureUnavailableInTierException: <p>This exception is thrown when a feature you attempted to configure isn't available in your current feature plan.</p>
+            aws_sdk_cognito_identity_provider.errors.internal_error_exception.InternalErrorException: <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_email_role_access_policy_exception.InvalidEmailRoleAccessPolicyException: <p>This exception is thrown when Amazon Cognito isn't allowed to use your email identity. HTTP status code: 400.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_parameter_exception.InvalidParameterException: <p>This exception is thrown when the Amazon Cognito service encounters an invalid parameter.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_sms_role_access_policy_exception.InvalidSmsRoleAccessPolicyException: <p>This exception is returned when the role provided for SMS configuration doesn't have permission to publish using Amazon SNS.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_sms_role_trust_relationship_exception.InvalidSmsRoleTrustRelationshipException: <p>This exception is thrown when the trust relationship is not valid for the role provided for SMS configuration. This can happen if you don't trust <code>cognito-idp.amazonaws.com</code> or the external ID provided in the role does not match what is provided in the SMS configuration for the user pool.</p>
+            aws_sdk_cognito_identity_provider.errors.limit_exceeded_exception.LimitExceededException: <p>This exception is thrown when a user exceeds the limit for a requested Amazon Web Services resource.</p>
+            aws_sdk_cognito_identity_provider.errors.not_authorized_exception.NotAuthorizedException: <p>This exception is thrown when a user isn't authorized.</p>
+            aws_sdk_cognito_identity_provider.errors.tier_change_not_allowed_exception.TierChangeNotAllowedException: <p>This exception is thrown when you've attempted to change your feature plan but the operation isn't permitted.</p>
+            aws_sdk_cognito_identity_provider.errors.too_many_requests_exception.TooManyRequestsException: <p>This exception is thrown when the user has made too many requests for a given operation.</p>
+            aws_sdk_cognito_identity_provider.errors.user_pool_tagging_exception.UserPoolTaggingException: <p>This exception is thrown when a user pool tag can't be set or updated.</p>
+            aws_sdk_cognito_identity_provider.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Example user pool with email and username sign-in
@@ -2913,6 +3439,19 @@ class AsyncCognitoIdentityProviderClient:
             auth_session_validity: <p>Amazon Cognito creates a session token for each API request in an authentication flow. <code>AuthSessionValidity</code> is the duration, in minutes, of that session token. Your user pool native user must respond to each authentication challenge before the session expires.</p>
             refresh_token_rotation: <p>The configuration of your app client for refresh token rotation. When enabled, your app client issues new ID, access, and refresh tokens when users renew their sessions with refresh tokens. When disabled, token refresh issues only ID and access tokens.</p>
 
+        Raises:
+            aws_sdk_cognito_identity_provider.errors.feature_unavailable_in_tier_exception.FeatureUnavailableInTierException: <p>This exception is thrown when a feature you attempted to configure isn't available in your current feature plan.</p>
+            aws_sdk_cognito_identity_provider.errors.internal_error_exception.InternalErrorException: <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_o_auth_flow_exception.InvalidOAuthFlowException: <p>This exception is thrown when the specified OAuth flow is not valid.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_parameter_exception.InvalidParameterException: <p>This exception is thrown when the Amazon Cognito service encounters an invalid parameter.</p>
+            aws_sdk_cognito_identity_provider.errors.limit_exceeded_exception.LimitExceededException: <p>This exception is thrown when a user exceeds the limit for a requested Amazon Web Services resource.</p>
+            aws_sdk_cognito_identity_provider.errors.not_authorized_exception.NotAuthorizedException: <p>This exception is thrown when a user isn't authorized.</p>
+            aws_sdk_cognito_identity_provider.errors.operation_not_enabled_exception.OperationNotEnabledException: <p>This exception is thrown when an operation is not available in the current region or for the current user pool configuration. This can occur when attempting to perform operations that are not supported in secondary replica regions.</p>
+            aws_sdk_cognito_identity_provider.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when the Amazon Cognito service can't find the requested resource.</p>
+            aws_sdk_cognito_identity_provider.errors.scope_does_not_exist_exception.ScopeDoesNotExistException: <p>This exception is thrown when the specified scope doesn't exist.</p>
+            aws_sdk_cognito_identity_provider.errors.too_many_requests_exception.TooManyRequestsException: <p>This exception is thrown when the user has made too many requests for a given operation.</p>
+            aws_sdk_cognito_identity_provider.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Example user pool app client with email and username sign-in
             The following example creates an app client with all configurable properties set to an example value. The resulting user pool client connects to an analytics client, allows sign-in with username and password, and has two external identity providers associated with it.
@@ -3019,6 +3558,17 @@ class AsyncCognitoIdentityProviderClient:
             managed_login_version: <p>The version of managed login branding that you want to apply to your domain. A value of <code>1</code> indicates hosted UI (classic) and a version of <code>2</code> indicates managed login.</p> <p>Managed login requires that your user pool be configured for any <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-sign-in-feature-plans.html\">feature plan</a> other than <code>Lite</code>.</p>
             custom_domain_config: <p>The configuration for a custom domain. Configures your domain with an Certificate Manager certificate in the <code>us-east-1</code> Region.</p> <p>Provide this parameter only if you want to use a <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-add-custom-domain.html\">custom domain</a> for your user pool. Otherwise, you can omit this parameter and use a <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-assign-domain-prefix.html\">prefix domain</a> instead.</p> <p>When you create a custom domain, the passkey RP ID defaults to the custom domain. If you had a prefix domain active, this will cause passkey integration for your prefix domain to stop working due to a mismatch in RP ID. To keep the prefix domain passkey integration working, you can explicitly set RP ID to the prefix domain.</p>
             routing: <p>The configuration of routing for requests to the domain for replicas of a replicated user pool. The routing configuration is currently only supported for custom domains.</p>
+
+        Raises:
+            aws_sdk_cognito_identity_provider.errors.concurrent_modification_exception.ConcurrentModificationException: <p>This exception is thrown if two or more modifications are happening concurrently.</p>
+            aws_sdk_cognito_identity_provider.errors.feature_unavailable_in_tier_exception.FeatureUnavailableInTierException: <p>This exception is thrown when a feature you attempted to configure isn't available in your current feature plan.</p>
+            aws_sdk_cognito_identity_provider.errors.internal_error_exception.InternalErrorException: <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_parameter_exception.InvalidParameterException: <p>This exception is thrown when the Amazon Cognito service encounters an invalid parameter.</p>
+            aws_sdk_cognito_identity_provider.errors.limit_exceeded_exception.LimitExceededException: <p>This exception is thrown when a user exceeds the limit for a requested Amazon Web Services resource.</p>
+            aws_sdk_cognito_identity_provider.errors.not_authorized_exception.NotAuthorizedException: <p>This exception is thrown when a user isn't authorized.</p>
+            aws_sdk_cognito_identity_provider.errors.operation_not_enabled_exception.OperationNotEnabledException: <p>This exception is thrown when an operation is not available in the current region or for the current user pool configuration. This can occur when attempting to perform operations that are not supported in secondary replica regions.</p>
+            aws_sdk_cognito_identity_provider.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when the Amazon Cognito service can't find the requested resource.</p>
+            aws_sdk_cognito_identity_provider.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3071,6 +3621,18 @@ class AsyncCognitoIdentityProviderClient:
             region_name: <p>The Amazon Web Services Region where you want to create the replica user pool.</p>
             user_pool_tags: <p>A map of tags to assign to the replica user pool. Each tag consists of a key and an optional value, both of which you define. You can maintain tags independently on replica user pools.</p>
 
+        Raises:
+            aws_sdk_cognito_identity_provider.errors.feature_unavailable_in_tier_exception.FeatureUnavailableInTierException: <p>This exception is thrown when a feature you attempted to configure isn't available in your current feature plan.</p>
+            aws_sdk_cognito_identity_provider.errors.internal_error_exception.InternalErrorException: <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_parameter_exception.InvalidParameterException: <p>This exception is thrown when the Amazon Cognito service encounters an invalid parameter.</p>
+            aws_sdk_cognito_identity_provider.errors.limit_exceeded_exception.LimitExceededException: <p>This exception is thrown when a user exceeds the limit for a requested Amazon Web Services resource.</p>
+            aws_sdk_cognito_identity_provider.errors.not_authorized_exception.NotAuthorizedException: <p>This exception is thrown when a user isn't authorized.</p>
+            aws_sdk_cognito_identity_provider.errors.operation_not_enabled_exception.OperationNotEnabledException: <p>This exception is thrown when an operation is not available in the current region or for the current user pool configuration. This can occur when attempting to perform operations that are not supported in secondary replica regions.</p>
+            aws_sdk_cognito_identity_provider.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when the Amazon Cognito service can't find the requested resource.</p>
+            aws_sdk_cognito_identity_provider.errors.too_many_requests_exception.TooManyRequestsException: <p>This exception is thrown when the user has made too many requests for a given operation.</p>
+            aws_sdk_cognito_identity_provider.errors.user_pool_tagging_exception.UserPoolTaggingException: <p>This exception is thrown when a user pool tag can't be set or updated.</p>
+            aws_sdk_cognito_identity_provider.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Example create a replica of a user pool in a new Region
             The following example creates a replica of a user pool in the ap-south-1 Region.
@@ -3119,6 +3681,15 @@ class AsyncCognitoIdentityProviderClient:
         Args:
             group_name: <p>The name of the group that you want to delete.</p>
             user_pool_id: <p>The ID of the user pool where you want to delete the group.</p>
+
+        Raises:
+            aws_sdk_cognito_identity_provider.errors.internal_error_exception.InternalErrorException: <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_parameter_exception.InvalidParameterException: <p>This exception is thrown when the Amazon Cognito service encounters an invalid parameter.</p>
+            aws_sdk_cognito_identity_provider.errors.not_authorized_exception.NotAuthorizedException: <p>This exception is thrown when a user isn't authorized.</p>
+            aws_sdk_cognito_identity_provider.errors.operation_not_enabled_exception.OperationNotEnabledException: <p>This exception is thrown when an operation is not available in the current region or for the current user pool configuration. This can occur when attempting to perform operations that are not supported in secondary replica regions.</p>
+            aws_sdk_cognito_identity_provider.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when the Amazon Cognito service can't find the requested resource.</p>
+            aws_sdk_cognito_identity_provider.errors.too_many_requests_exception.TooManyRequestsException: <p>This exception is thrown when the user has made too many requests for a given operation.</p>
+            aws_sdk_cognito_identity_provider.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3158,6 +3729,16 @@ class AsyncCognitoIdentityProviderClient:
         Args:
             user_pool_id: <p>The ID of the user pool where you want to delete the identity provider.</p>
             provider_name: <p>The name of the IdP that you want to delete.</p>
+
+        Raises:
+            aws_sdk_cognito_identity_provider.errors.concurrent_modification_exception.ConcurrentModificationException: <p>This exception is thrown if two or more modifications are happening concurrently.</p>
+            aws_sdk_cognito_identity_provider.errors.internal_error_exception.InternalErrorException: <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_parameter_exception.InvalidParameterException: <p>This exception is thrown when the Amazon Cognito service encounters an invalid parameter.</p>
+            aws_sdk_cognito_identity_provider.errors.not_authorized_exception.NotAuthorizedException: <p>This exception is thrown when a user isn't authorized.</p>
+            aws_sdk_cognito_identity_provider.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when the Amazon Cognito service can't find the requested resource.</p>
+            aws_sdk_cognito_identity_provider.errors.too_many_requests_exception.TooManyRequestsException: <p>This exception is thrown when the user has made too many requests for a given operation.</p>
+            aws_sdk_cognito_identity_provider.errors.unsupported_identity_provider_exception.UnsupportedIdentityProviderException: <p>This exception is thrown when the specified identifier isn't supported.</p>
+            aws_sdk_cognito_identity_provider.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3197,6 +3778,16 @@ class AsyncCognitoIdentityProviderClient:
         Args:
             managed_login_branding_id: <p>The ID of the managed login branding style that you want to delete.</p>
             user_pool_id: <p>The ID of the user pool that contains the managed login branding style that you want to delete.</p>
+
+        Raises:
+            aws_sdk_cognito_identity_provider.errors.concurrent_modification_exception.ConcurrentModificationException: <p>This exception is thrown if two or more modifications are happening concurrently.</p>
+            aws_sdk_cognito_identity_provider.errors.internal_error_exception.InternalErrorException: <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_parameter_exception.InvalidParameterException: <p>This exception is thrown when the Amazon Cognito service encounters an invalid parameter.</p>
+            aws_sdk_cognito_identity_provider.errors.not_authorized_exception.NotAuthorizedException: <p>This exception is thrown when a user isn't authorized.</p>
+            aws_sdk_cognito_identity_provider.errors.operation_not_enabled_exception.OperationNotEnabledException: <p>This exception is thrown when an operation is not available in the current region or for the current user pool configuration. This can occur when attempting to perform operations that are not supported in secondary replica regions.</p>
+            aws_sdk_cognito_identity_provider.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when the Amazon Cognito service can't find the requested resource.</p>
+            aws_sdk_cognito_identity_provider.errors.too_many_requests_exception.TooManyRequestsException: <p>This exception is thrown when the user has made too many requests for a given operation.</p>
+            aws_sdk_cognito_identity_provider.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3236,6 +3827,15 @@ class AsyncCognitoIdentityProviderClient:
         Args:
             user_pool_id: <p>The ID of the user pool where you want to delete the resource server.</p>
             identifier: <p>The identifier of the resource server that you want to delete.</p>
+
+        Raises:
+            aws_sdk_cognito_identity_provider.errors.internal_error_exception.InternalErrorException: <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_parameter_exception.InvalidParameterException: <p>This exception is thrown when the Amazon Cognito service encounters an invalid parameter.</p>
+            aws_sdk_cognito_identity_provider.errors.not_authorized_exception.NotAuthorizedException: <p>This exception is thrown when a user isn't authorized.</p>
+            aws_sdk_cognito_identity_provider.errors.operation_not_enabled_exception.OperationNotEnabledException: <p>This exception is thrown when an operation is not available in the current region or for the current user pool configuration. This can occur when attempting to perform operations that are not supported in secondary replica regions.</p>
+            aws_sdk_cognito_identity_provider.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when the Amazon Cognito service can't find the requested resource.</p>
+            aws_sdk_cognito_identity_provider.errors.too_many_requests_exception.TooManyRequestsException: <p>This exception is thrown when the user has made too many requests for a given operation.</p>
+            aws_sdk_cognito_identity_provider.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3275,6 +3875,16 @@ class AsyncCognitoIdentityProviderClient:
         Args:
             terms_id: <p>The ID of the terms documents that you want to delete.</p>
             user_pool_id: <p>The ID of the user pool that contains the terms documents that you want to delete.</p>
+
+        Raises:
+            aws_sdk_cognito_identity_provider.errors.concurrent_modification_exception.ConcurrentModificationException: <p>This exception is thrown if two or more modifications are happening concurrently.</p>
+            aws_sdk_cognito_identity_provider.errors.internal_error_exception.InternalErrorException: <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_parameter_exception.InvalidParameterException: <p>This exception is thrown when the Amazon Cognito service encounters an invalid parameter.</p>
+            aws_sdk_cognito_identity_provider.errors.not_authorized_exception.NotAuthorizedException: <p>This exception is thrown when a user isn't authorized.</p>
+            aws_sdk_cognito_identity_provider.errors.operation_not_enabled_exception.OperationNotEnabledException: <p>This exception is thrown when an operation is not available in the current region or for the current user pool configuration. This can occur when attempting to perform operations that are not supported in secondary replica regions.</p>
+            aws_sdk_cognito_identity_provider.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when the Amazon Cognito service can't find the requested resource.</p>
+            aws_sdk_cognito_identity_provider.errors.too_many_requests_exception.TooManyRequestsException: <p>This exception is thrown when the user has made too many requests for a given operation.</p>
+            aws_sdk_cognito_identity_provider.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3312,6 +3922,19 @@ class AsyncCognitoIdentityProviderClient:
 
         Args:
             access_token: <p>A valid access token that Amazon Cognito issued to the currently signed-in user. Must include a scope claim for <code>aws.cognito.signin.user.admin</code>.</p>
+
+        Raises:
+            aws_sdk_cognito_identity_provider.errors.forbidden_exception.ForbiddenException: <p>This exception is thrown when WAF doesn't allow your request based on a web ACL that's associated with your user pool.</p>
+            aws_sdk_cognito_identity_provider.errors.internal_error_exception.InternalErrorException: <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_parameter_exception.InvalidParameterException: <p>This exception is thrown when the Amazon Cognito service encounters an invalid parameter.</p>
+            aws_sdk_cognito_identity_provider.errors.not_authorized_exception.NotAuthorizedException: <p>This exception is thrown when a user isn't authorized.</p>
+            aws_sdk_cognito_identity_provider.errors.operation_not_enabled_exception.OperationNotEnabledException: <p>This exception is thrown when an operation is not available in the current region or for the current user pool configuration. This can occur when attempting to perform operations that are not supported in secondary replica regions.</p>
+            aws_sdk_cognito_identity_provider.errors.password_reset_required_exception.PasswordResetRequiredException: <p>This exception is thrown when a password reset is required.</p>
+            aws_sdk_cognito_identity_provider.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when the Amazon Cognito service can't find the requested resource.</p>
+            aws_sdk_cognito_identity_provider.errors.too_many_requests_exception.TooManyRequestsException: <p>This exception is thrown when the user has made too many requests for a given operation.</p>
+            aws_sdk_cognito_identity_provider.errors.user_not_confirmed_exception.UserNotConfirmedException: <p>This exception is thrown when a user isn't confirmed successfully.</p>
+            aws_sdk_cognito_identity_provider.errors.user_not_found_exception.UserNotFoundException: <p>This exception is thrown when a user isn't found.</p>
+            aws_sdk_cognito_identity_provider.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3350,6 +3973,19 @@ class AsyncCognitoIdentityProviderClient:
         Args:
             user_attribute_names: <p>An array of strings representing the user attribute names you want to delete.</p> <p>For custom attributes, you must prepend the <code>custom:</code> prefix to the attribute name, for example <code>custom:department</code>.</p>
             access_token: <p>A valid access token that Amazon Cognito issued to the currently signed-in user. Must include a scope claim for <code>aws.cognito.signin.user.admin</code>.</p>
+
+        Raises:
+            aws_sdk_cognito_identity_provider.errors.forbidden_exception.ForbiddenException: <p>This exception is thrown when WAF doesn't allow your request based on a web ACL that's associated with your user pool.</p>
+            aws_sdk_cognito_identity_provider.errors.internal_error_exception.InternalErrorException: <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_parameter_exception.InvalidParameterException: <p>This exception is thrown when the Amazon Cognito service encounters an invalid parameter.</p>
+            aws_sdk_cognito_identity_provider.errors.not_authorized_exception.NotAuthorizedException: <p>This exception is thrown when a user isn't authorized.</p>
+            aws_sdk_cognito_identity_provider.errors.operation_not_enabled_exception.OperationNotEnabledException: <p>This exception is thrown when an operation is not available in the current region or for the current user pool configuration. This can occur when attempting to perform operations that are not supported in secondary replica regions.</p>
+            aws_sdk_cognito_identity_provider.errors.password_reset_required_exception.PasswordResetRequiredException: <p>This exception is thrown when a password reset is required.</p>
+            aws_sdk_cognito_identity_provider.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when the Amazon Cognito service can't find the requested resource.</p>
+            aws_sdk_cognito_identity_provider.errors.too_many_requests_exception.TooManyRequestsException: <p>This exception is thrown when the user has made too many requests for a given operation.</p>
+            aws_sdk_cognito_identity_provider.errors.user_not_confirmed_exception.UserNotConfirmedException: <p>This exception is thrown when a user isn't confirmed successfully.</p>
+            aws_sdk_cognito_identity_provider.errors.user_not_found_exception.UserNotFoundException: <p>This exception is thrown when a user isn't found.</p>
+            aws_sdk_cognito_identity_provider.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3389,6 +4025,16 @@ class AsyncCognitoIdentityProviderClient:
 
         Args:
             user_pool_id: <p>The ID of the user pool that you want to delete.</p>
+
+        Raises:
+            aws_sdk_cognito_identity_provider.errors.internal_error_exception.InternalErrorException: <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_parameter_exception.InvalidParameterException: <p>This exception is thrown when the Amazon Cognito service encounters an invalid parameter.</p>
+            aws_sdk_cognito_identity_provider.errors.not_authorized_exception.NotAuthorizedException: <p>This exception is thrown when a user isn't authorized.</p>
+            aws_sdk_cognito_identity_provider.errors.operation_not_enabled_exception.OperationNotEnabledException: <p>This exception is thrown when an operation is not available in the current region or for the current user pool configuration. This can occur when attempting to perform operations that are not supported in secondary replica regions.</p>
+            aws_sdk_cognito_identity_provider.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when the Amazon Cognito service can't find the requested resource.</p>
+            aws_sdk_cognito_identity_provider.errors.too_many_requests_exception.TooManyRequestsException: <p>This exception is thrown when the user has made too many requests for a given operation.</p>
+            aws_sdk_cognito_identity_provider.errors.user_import_in_progress_exception.UserImportInProgressException: <p>This exception is thrown when you're trying to modify a user pool while a user import job is in progress for that pool.</p>
+            aws_sdk_cognito_identity_provider.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3427,6 +4073,16 @@ class AsyncCognitoIdentityProviderClient:
         Args:
             user_pool_id: <p>The ID of the user pool where you want to delete the client.</p>
             client_id: <p>The ID of the user pool app client that you want to delete.</p>
+
+        Raises:
+            aws_sdk_cognito_identity_provider.errors.concurrent_modification_exception.ConcurrentModificationException: <p>This exception is thrown if two or more modifications are happening concurrently.</p>
+            aws_sdk_cognito_identity_provider.errors.internal_error_exception.InternalErrorException: <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_parameter_exception.InvalidParameterException: <p>This exception is thrown when the Amazon Cognito service encounters an invalid parameter.</p>
+            aws_sdk_cognito_identity_provider.errors.not_authorized_exception.NotAuthorizedException: <p>This exception is thrown when a user isn't authorized.</p>
+            aws_sdk_cognito_identity_provider.errors.operation_not_enabled_exception.OperationNotEnabledException: <p>This exception is thrown when an operation is not available in the current region or for the current user pool configuration. This can occur when attempting to perform operations that are not supported in secondary replica regions.</p>
+            aws_sdk_cognito_identity_provider.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when the Amazon Cognito service can't find the requested resource.</p>
+            aws_sdk_cognito_identity_provider.errors.too_many_requests_exception.TooManyRequestsException: <p>This exception is thrown when the user has made too many requests for a given operation.</p>
+            aws_sdk_cognito_identity_provider.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3468,6 +4124,14 @@ class AsyncCognitoIdentityProviderClient:
             user_pool_id: <p>The ID of the user pool that contains the app client.</p>
             client_id: <p>The ID of the app client from which you want to delete the secret.</p>
             client_secret_id: <p>The unique identifier of the client secret you want to delete.</p>
+
+        Raises:
+            aws_sdk_cognito_identity_provider.errors.internal_server_exception.InternalServerException: <p>This exception is thrown when Amazon Cognito encounters an internal server error.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_parameter_exception.InvalidParameterException: <p>This exception is thrown when the Amazon Cognito service encounters an invalid parameter.</p>
+            aws_sdk_cognito_identity_provider.errors.limit_exceeded_exception.LimitExceededException: <p>This exception is thrown when a user exceeds the limit for a requested Amazon Web Services resource.</p>
+            aws_sdk_cognito_identity_provider.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when the Amazon Cognito service can't find the requested resource.</p>
+            aws_sdk_cognito_identity_provider.errors.too_many_requests_exception.TooManyRequestsException: <p>This exception is thrown when the user has made too many requests for a given operation.</p>
+            aws_sdk_cognito_identity_provider.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3510,6 +4174,15 @@ class AsyncCognitoIdentityProviderClient:
         Args:
             domain: <p>The domain that you want to delete. For custom domains, this is the fully-qualified domain name like <code>auth.example.com</code>. For Amazon Cognito prefix domains, this is the prefix alone, like <code>myprefix</code>.</p>
             user_pool_id: <p>The ID of the user pool where you want to delete the domain.</p>
+
+        Raises:
+            aws_sdk_cognito_identity_provider.errors.concurrent_modification_exception.ConcurrentModificationException: <p>This exception is thrown if two or more modifications are happening concurrently.</p>
+            aws_sdk_cognito_identity_provider.errors.internal_error_exception.InternalErrorException: <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_parameter_exception.InvalidParameterException: <p>This exception is thrown when the Amazon Cognito service encounters an invalid parameter.</p>
+            aws_sdk_cognito_identity_provider.errors.not_authorized_exception.NotAuthorizedException: <p>This exception is thrown when a user isn't authorized.</p>
+            aws_sdk_cognito_identity_provider.errors.operation_not_enabled_exception.OperationNotEnabledException: <p>This exception is thrown when an operation is not available in the current region or for the current user pool configuration. This can occur when attempting to perform operations that are not supported in secondary replica regions.</p>
+            aws_sdk_cognito_identity_provider.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when the Amazon Cognito service can't find the requested resource.</p>
+            aws_sdk_cognito_identity_provider.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3551,6 +4224,15 @@ class AsyncCognitoIdentityProviderClient:
         Args:
             user_pool_id: <p>The ID of the user pool that contains the replica to delete.</p>
             region_name: <p>The Amazon Web Services Region of the replica to delete.</p>
+
+        Raises:
+            aws_sdk_cognito_identity_provider.errors.internal_error_exception.InternalErrorException: <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_parameter_exception.InvalidParameterException: <p>This exception is thrown when the Amazon Cognito service encounters an invalid parameter.</p>
+            aws_sdk_cognito_identity_provider.errors.not_authorized_exception.NotAuthorizedException: <p>This exception is thrown when a user isn't authorized.</p>
+            aws_sdk_cognito_identity_provider.errors.operation_not_enabled_exception.OperationNotEnabledException: <p>This exception is thrown when an operation is not available in the current region or for the current user pool configuration. This can occur when attempting to perform operations that are not supported in secondary replica regions.</p>
+            aws_sdk_cognito_identity_provider.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when the Amazon Cognito service can't find the requested resource.</p>
+            aws_sdk_cognito_identity_provider.errors.too_many_requests_exception.TooManyRequestsException: <p>This exception is thrown when the user has made too many requests for a given operation.</p>
+            aws_sdk_cognito_identity_provider.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Example delete a user pool replica
@@ -3598,6 +4280,18 @@ class AsyncCognitoIdentityProviderClient:
         Args:
             access_token: <p>A valid access token that Amazon Cognito issued to the currently signed-in user. Must include a scope claim for <code>aws.cognito.signin.user.admin</code>.</p>
             credential_id: <p>The unique identifier of the passkey that you want to delete.</p>
+
+        Raises:
+            aws_sdk_cognito_identity_provider.errors.forbidden_exception.ForbiddenException: <p>This exception is thrown when WAF doesn't allow your request based on a web ACL that's associated with your user pool.</p>
+            aws_sdk_cognito_identity_provider.errors.internal_error_exception.InternalErrorException: <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_parameter_exception.InvalidParameterException: <p>This exception is thrown when the Amazon Cognito service encounters an invalid parameter.</p>
+            aws_sdk_cognito_identity_provider.errors.limit_exceeded_exception.LimitExceededException: <p>This exception is thrown when a user exceeds the limit for a requested Amazon Web Services resource.</p>
+            aws_sdk_cognito_identity_provider.errors.not_authorized_exception.NotAuthorizedException: <p>This exception is thrown when a user isn't authorized.</p>
+            aws_sdk_cognito_identity_provider.errors.operation_not_enabled_exception.OperationNotEnabledException: <p>This exception is thrown when an operation is not available in the current region or for the current user pool configuration. This can occur when attempting to perform operations that are not supported in secondary replica regions.</p>
+            aws_sdk_cognito_identity_provider.errors.password_reset_required_exception.PasswordResetRequiredException: <p>This exception is thrown when a password reset is required.</p>
+            aws_sdk_cognito_identity_provider.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when the Amazon Cognito service can't find the requested resource.</p>
+            aws_sdk_cognito_identity_provider.errors.too_many_requests_exception.TooManyRequestsException: <p>This exception is thrown when the user has made too many requests for a given operation.</p>
+            aws_sdk_cognito_identity_provider.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3639,6 +4333,14 @@ class AsyncCognitoIdentityProviderClient:
         Args:
             user_pool_id: <p>The ID of the user pool that has the IdP that you want to describe..</p>
             provider_name: <p>The name of the IdP that you want to describe.</p>
+
+        Raises:
+            aws_sdk_cognito_identity_provider.errors.internal_error_exception.InternalErrorException: <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_parameter_exception.InvalidParameterException: <p>This exception is thrown when the Amazon Cognito service encounters an invalid parameter.</p>
+            aws_sdk_cognito_identity_provider.errors.not_authorized_exception.NotAuthorizedException: <p>This exception is thrown when a user isn't authorized.</p>
+            aws_sdk_cognito_identity_provider.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when the Amazon Cognito service can't find the requested resource.</p>
+            aws_sdk_cognito_identity_provider.errors.too_many_requests_exception.TooManyRequestsException: <p>This exception is thrown when the user has made too many requests for a given operation.</p>
+            aws_sdk_cognito_identity_provider.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3684,6 +4386,15 @@ class AsyncCognitoIdentityProviderClient:
             user_pool_id: <p>The ID of the user pool that contains the managed login branding style that you want to get information about.</p>
             managed_login_branding_id: <p>The ID of the managed login branding style that you want to get more information about.</p>
             return_merged_resources: <p>When <code>true</code>, returns values for branding options that are unchanged from Amazon Cognito defaults. When <code>false</code> or when you omit this parameter, returns only values that you customized in your branding style.</p>
+
+        Raises:
+            aws_sdk_cognito_identity_provider.errors.internal_error_exception.InternalErrorException: <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_parameter_exception.InvalidParameterException: <p>This exception is thrown when the Amazon Cognito service encounters an invalid parameter.</p>
+            aws_sdk_cognito_identity_provider.errors.not_authorized_exception.NotAuthorizedException: <p>This exception is thrown when a user isn't authorized.</p>
+            aws_sdk_cognito_identity_provider.errors.operation_not_enabled_exception.OperationNotEnabledException: <p>This exception is thrown when an operation is not available in the current region or for the current user pool configuration. This can occur when attempting to perform operations that are not supported in secondary replica regions.</p>
+            aws_sdk_cognito_identity_provider.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when the Amazon Cognito service can't find the requested resource.</p>
+            aws_sdk_cognito_identity_provider.errors.too_many_requests_exception.TooManyRequestsException: <p>This exception is thrown when the user has made too many requests for a given operation.</p>
+            aws_sdk_cognito_identity_provider.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3731,6 +4442,15 @@ class AsyncCognitoIdentityProviderClient:
             user_pool_id: <p>The ID of the user pool that contains the app client where you want more information about the managed login branding style.</p>
             client_id: <p>The app client that's assigned to the branding style that you want more information about.</p>
             return_merged_resources: <p>When <code>true</code>, returns values for branding options that are unchanged from Amazon Cognito defaults. When <code>false</code> or when you omit this parameter, returns only values that you customized in your branding style.</p>
+
+        Raises:
+            aws_sdk_cognito_identity_provider.errors.internal_error_exception.InternalErrorException: <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_parameter_exception.InvalidParameterException: <p>This exception is thrown when the Amazon Cognito service encounters an invalid parameter.</p>
+            aws_sdk_cognito_identity_provider.errors.not_authorized_exception.NotAuthorizedException: <p>This exception is thrown when a user isn't authorized.</p>
+            aws_sdk_cognito_identity_provider.errors.operation_not_enabled_exception.OperationNotEnabledException: <p>This exception is thrown when an operation is not available in the current region or for the current user pool configuration. This can occur when attempting to perform operations that are not supported in secondary replica regions.</p>
+            aws_sdk_cognito_identity_provider.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when the Amazon Cognito service can't find the requested resource.</p>
+            aws_sdk_cognito_identity_provider.errors.too_many_requests_exception.TooManyRequestsException: <p>This exception is thrown when the user has made too many requests for a given operation.</p>
+            aws_sdk_cognito_identity_provider.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3774,6 +4494,15 @@ class AsyncCognitoIdentityProviderClient:
         Args:
             user_pool_id: <p>The ID of the user pool that hosts the resource server.</p>
             identifier: <p>A unique resource server identifier for the resource server. The identifier can be an API friendly name like <code>solar-system-data</code>. You can also set an API URL like <code>https://solar-system-data-api.example.com</code> as your identifier.</p> <p>Amazon Cognito represents scopes in the access token in the format <code>$resource-server-identifier/$scope</code>. Longer scope-identifier strings increase the size of your access tokens.</p>
+
+        Raises:
+            aws_sdk_cognito_identity_provider.errors.internal_error_exception.InternalErrorException: <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_parameter_exception.InvalidParameterException: <p>This exception is thrown when the Amazon Cognito service encounters an invalid parameter.</p>
+            aws_sdk_cognito_identity_provider.errors.not_authorized_exception.NotAuthorizedException: <p>This exception is thrown when a user isn't authorized.</p>
+            aws_sdk_cognito_identity_provider.errors.operation_not_enabled_exception.OperationNotEnabledException: <p>This exception is thrown when an operation is not available in the current region or for the current user pool configuration. This can occur when attempting to perform operations that are not supported in secondary replica regions.</p>
+            aws_sdk_cognito_identity_provider.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when the Amazon Cognito service can't find the requested resource.</p>
+            aws_sdk_cognito_identity_provider.errors.too_many_requests_exception.TooManyRequestsException: <p>This exception is thrown when the user has made too many requests for a given operation.</p>
+            aws_sdk_cognito_identity_provider.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3817,6 +4546,16 @@ class AsyncCognitoIdentityProviderClient:
         Args:
             user_pool_id: <p>The ID of the user pool with the risk configuration that you want to inspect. You can apply default risk configuration at the user pool level and further customize it from user pool defaults at the app-client level. Specify <code>ClientId</code> to inspect client-level configuration, or <code>UserPoolId</code> to inspect pool-level configuration.</p>
             client_id: <p>The ID of the app client with the risk configuration that you want to inspect. You can apply default risk configuration at the user pool level and further customize it from user pool defaults at the app-client level. Specify <code>ClientId</code> to inspect client-level configuration, or <code>UserPoolId</code> to inspect pool-level configuration.</p>
+
+        Raises:
+            aws_sdk_cognito_identity_provider.errors.internal_error_exception.InternalErrorException: <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_parameter_exception.InvalidParameterException: <p>This exception is thrown when the Amazon Cognito service encounters an invalid parameter.</p>
+            aws_sdk_cognito_identity_provider.errors.not_authorized_exception.NotAuthorizedException: <p>This exception is thrown when a user isn't authorized.</p>
+            aws_sdk_cognito_identity_provider.errors.operation_not_enabled_exception.OperationNotEnabledException: <p>This exception is thrown when an operation is not available in the current region or for the current user pool configuration. This can occur when attempting to perform operations that are not supported in secondary replica regions.</p>
+            aws_sdk_cognito_identity_provider.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when the Amazon Cognito service can't find the requested resource.</p>
+            aws_sdk_cognito_identity_provider.errors.too_many_requests_exception.TooManyRequestsException: <p>This exception is thrown when the user has made too many requests for a given operation.</p>
+            aws_sdk_cognito_identity_provider.errors.user_pool_add_on_not_enabled_exception.UserPoolAddOnNotEnabledException: <p>This exception is thrown when user pool add-ons aren't enabled.</p>
+            aws_sdk_cognito_identity_provider.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3859,6 +4598,15 @@ class AsyncCognitoIdentityProviderClient:
         Args:
             terms_id: <p>The ID of the terms documents that you want to describe.</p>
             user_pool_id: <p>The ID of the user pool that contains the terms documents that you want to describe.</p>
+
+        Raises:
+            aws_sdk_cognito_identity_provider.errors.internal_error_exception.InternalErrorException: <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_parameter_exception.InvalidParameterException: <p>This exception is thrown when the Amazon Cognito service encounters an invalid parameter.</p>
+            aws_sdk_cognito_identity_provider.errors.not_authorized_exception.NotAuthorizedException: <p>This exception is thrown when a user isn't authorized.</p>
+            aws_sdk_cognito_identity_provider.errors.operation_not_enabled_exception.OperationNotEnabledException: <p>This exception is thrown when an operation is not available in the current region or for the current user pool configuration. This can occur when attempting to perform operations that are not supported in secondary replica regions.</p>
+            aws_sdk_cognito_identity_provider.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when the Amazon Cognito service can't find the requested resource.</p>
+            aws_sdk_cognito_identity_provider.errors.too_many_requests_exception.TooManyRequestsException: <p>This exception is thrown when the user has made too many requests for a given operation.</p>
+            aws_sdk_cognito_identity_provider.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3900,6 +4648,15 @@ class AsyncCognitoIdentityProviderClient:
         Args:
             user_pool_id: <p>The ID of the user pool that's associated with the import job.</p>
             job_id: <p>The Id of the user import job that you want to describe.</p>
+
+        Raises:
+            aws_sdk_cognito_identity_provider.errors.internal_error_exception.InternalErrorException: <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_parameter_exception.InvalidParameterException: <p>This exception is thrown when the Amazon Cognito service encounters an invalid parameter.</p>
+            aws_sdk_cognito_identity_provider.errors.not_authorized_exception.NotAuthorizedException: <p>This exception is thrown when a user isn't authorized.</p>
+            aws_sdk_cognito_identity_provider.errors.operation_not_enabled_exception.OperationNotEnabledException: <p>This exception is thrown when an operation is not available in the current region or for the current user pool configuration. This can occur when attempting to perform operations that are not supported in secondary replica regions.</p>
+            aws_sdk_cognito_identity_provider.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when the Amazon Cognito service can't find the requested resource.</p>
+            aws_sdk_cognito_identity_provider.errors.too_many_requests_exception.TooManyRequestsException: <p>This exception is thrown when the user has made too many requests for a given operation.</p>
+            aws_sdk_cognito_identity_provider.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3939,6 +4696,16 @@ class AsyncCognitoIdentityProviderClient:
 
         Args:
             user_pool_id: <p>The ID of the user pool you want to describe.</p>
+
+        Raises:
+            aws_sdk_cognito_identity_provider.errors.internal_error_exception.InternalErrorException: <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_parameter_exception.InvalidParameterException: <p>This exception is thrown when the Amazon Cognito service encounters an invalid parameter.</p>
+            aws_sdk_cognito_identity_provider.errors.not_authorized_exception.NotAuthorizedException: <p>This exception is thrown when a user isn't authorized.</p>
+            aws_sdk_cognito_identity_provider.errors.operation_not_enabled_exception.OperationNotEnabledException: <p>This exception is thrown when an operation is not available in the current region or for the current user pool configuration. This can occur when attempting to perform operations that are not supported in secondary replica regions.</p>
+            aws_sdk_cognito_identity_provider.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when the Amazon Cognito service can't find the requested resource.</p>
+            aws_sdk_cognito_identity_provider.errors.too_many_requests_exception.TooManyRequestsException: <p>This exception is thrown when the user has made too many requests for a given operation.</p>
+            aws_sdk_cognito_identity_provider.errors.user_pool_tagging_exception.UserPoolTaggingException: <p>This exception is thrown when a user pool tag can't be set or updated.</p>
+            aws_sdk_cognito_identity_provider.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3979,6 +4746,15 @@ class AsyncCognitoIdentityProviderClient:
         Args:
             user_pool_id: <p>The ID of the user pool that contains the app client you want to describe.</p>
             client_id: <p>The ID of the app client that you want to describe.</p>
+
+        Raises:
+            aws_sdk_cognito_identity_provider.errors.internal_error_exception.InternalErrorException: <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_parameter_exception.InvalidParameterException: <p>This exception is thrown when the Amazon Cognito service encounters an invalid parameter.</p>
+            aws_sdk_cognito_identity_provider.errors.not_authorized_exception.NotAuthorizedException: <p>This exception is thrown when a user isn't authorized.</p>
+            aws_sdk_cognito_identity_provider.errors.operation_not_enabled_exception.OperationNotEnabledException: <p>This exception is thrown when an operation is not available in the current region or for the current user pool configuration. This can occur when attempting to perform operations that are not supported in secondary replica regions.</p>
+            aws_sdk_cognito_identity_provider.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when the Amazon Cognito service can't find the requested resource.</p>
+            aws_sdk_cognito_identity_provider.errors.too_many_requests_exception.TooManyRequestsException: <p>This exception is thrown when the user has made too many requests for a given operation.</p>
+            aws_sdk_cognito_identity_provider.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4018,6 +4794,14 @@ class AsyncCognitoIdentityProviderClient:
 
         Args:
             domain: <p>The domain that you want to describe. For custom domains, this is the fully-qualified domain name, such as <code>auth.example.com</code>. For Amazon Cognito prefix domains, this is the prefix alone, such as <code>auth</code>.</p>
+
+        Raises:
+            aws_sdk_cognito_identity_provider.errors.internal_error_exception.InternalErrorException: <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_parameter_exception.InvalidParameterException: <p>This exception is thrown when the Amazon Cognito service encounters an invalid parameter.</p>
+            aws_sdk_cognito_identity_provider.errors.not_authorized_exception.NotAuthorizedException: <p>This exception is thrown when a user isn't authorized.</p>
+            aws_sdk_cognito_identity_provider.errors.operation_not_enabled_exception.OperationNotEnabledException: <p>This exception is thrown when an operation is not available in the current region or for the current user pool configuration. This can occur when attempting to perform operations that are not supported in secondary replica regions.</p>
+            aws_sdk_cognito_identity_provider.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when the Amazon Cognito service can't find the requested resource.</p>
+            aws_sdk_cognito_identity_provider.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4060,6 +4844,20 @@ class AsyncCognitoIdentityProviderClient:
         Args:
             access_token: <p>A valid access token that Amazon Cognito issued to the currently signed-in user. Must include a scope claim for <code>aws.cognito.signin.user.admin</code>.</p>
             device_key: <p>The unique identifier, or device key, of the device that the user wants to forget.</p>
+
+        Raises:
+            aws_sdk_cognito_identity_provider.errors.forbidden_exception.ForbiddenException: <p>This exception is thrown when WAF doesn't allow your request based on a web ACL that's associated with your user pool.</p>
+            aws_sdk_cognito_identity_provider.errors.internal_error_exception.InternalErrorException: <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_parameter_exception.InvalidParameterException: <p>This exception is thrown when the Amazon Cognito service encounters an invalid parameter.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_user_pool_configuration_exception.InvalidUserPoolConfigurationException: <p>This exception is thrown when the user pool configuration is not valid.</p>
+            aws_sdk_cognito_identity_provider.errors.not_authorized_exception.NotAuthorizedException: <p>This exception is thrown when a user isn't authorized.</p>
+            aws_sdk_cognito_identity_provider.errors.operation_not_enabled_exception.OperationNotEnabledException: <p>This exception is thrown when an operation is not available in the current region or for the current user pool configuration. This can occur when attempting to perform operations that are not supported in secondary replica regions.</p>
+            aws_sdk_cognito_identity_provider.errors.password_reset_required_exception.PasswordResetRequiredException: <p>This exception is thrown when a password reset is required.</p>
+            aws_sdk_cognito_identity_provider.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when the Amazon Cognito service can't find the requested resource.</p>
+            aws_sdk_cognito_identity_provider.errors.too_many_requests_exception.TooManyRequestsException: <p>This exception is thrown when the user has made too many requests for a given operation.</p>
+            aws_sdk_cognito_identity_provider.errors.user_not_confirmed_exception.UserNotConfirmedException: <p>This exception is thrown when a user isn't confirmed successfully.</p>
+            aws_sdk_cognito_identity_provider.errors.user_not_found_exception.UserNotFoundException: <p>This exception is thrown when a user isn't found.</p>
+            aws_sdk_cognito_identity_provider.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4116,6 +4914,25 @@ class AsyncCognitoIdentityProviderClient:
             username: <p>The name of the user that you want to query or modify. The value of this parameter is typically your user's username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in your user pool, this value must be the <code>sub</code> of a local user or the username of a user from a third-party IdP.</p>
             analytics_metadata: <p>Information that supports analytics outcomes with Amazon Pinpoint, including the user's endpoint ID. The endpoint ID is a destination for Amazon Pinpoint push notifications, for example a device identifier, email address, or phone number.</p>
             client_metadata: <p>A map of custom key-value pairs that you can provide as input for any custom workflows that this action triggers. You create custom workflows by assigning Lambda functions to user pool triggers.</p> <p>When Amazon Cognito invokes any of these functions, it passes a JSON payload, which the function receives as input. This payload contains a <code>clientMetadata</code> attribute that provides the data that you assigned to the ClientMetadata parameter in your request. In your function code, you can process the <code>clientMetadata</code> value to enhance your workflow for your specific needs.</p> <p>To review the Lambda trigger types that Amazon Cognito invokes at runtime with API requests, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-working-with-lambda-triggers.html#lambda-triggers-by-event\"> Connecting API actions to Lambda triggers</a> in the <i>Amazon Cognito Developer Guide</i>.</p> <note> <p>When you use the <code>ClientMetadata</code> parameter, note that Amazon Cognito won't do the following:</p> <ul> <li> <p>Store the <code>ClientMetadata</code> value. This data is available only to Lambda triggers that are assigned to a user pool to support custom workflows. If your user pool configuration doesn't include triggers, the <code>ClientMetadata</code> parameter serves no purpose.</p> </li> <li> <p>Validate the <code>ClientMetadata</code> value.</p> </li> <li> <p>Encrypt the <code>ClientMetadata</code> value. Don't send sensitive information in this parameter.</p> </li> </ul> </note>
+
+        Raises:
+            aws_sdk_cognito_identity_provider.errors.code_delivery_failure_exception.CodeDeliveryFailureException: <p>This exception is thrown when a verification code fails to deliver successfully.</p>
+            aws_sdk_cognito_identity_provider.errors.forbidden_exception.ForbiddenException: <p>This exception is thrown when WAF doesn't allow your request based on a web ACL that's associated with your user pool.</p>
+            aws_sdk_cognito_identity_provider.errors.internal_error_exception.InternalErrorException: <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_email_role_access_policy_exception.InvalidEmailRoleAccessPolicyException: <p>This exception is thrown when Amazon Cognito isn't allowed to use your email identity. HTTP status code: 400.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_lambda_response_exception.InvalidLambdaResponseException: <p>This exception is thrown when Amazon Cognito encounters an invalid Lambda response.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_parameter_exception.InvalidParameterException: <p>This exception is thrown when the Amazon Cognito service encounters an invalid parameter.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_sms_role_access_policy_exception.InvalidSmsRoleAccessPolicyException: <p>This exception is returned when the role provided for SMS configuration doesn't have permission to publish using Amazon SNS.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_sms_role_trust_relationship_exception.InvalidSmsRoleTrustRelationshipException: <p>This exception is thrown when the trust relationship is not valid for the role provided for SMS configuration. This can happen if you don't trust <code>cognito-idp.amazonaws.com</code> or the external ID provided in the role does not match what is provided in the SMS configuration for the user pool.</p>
+            aws_sdk_cognito_identity_provider.errors.limit_exceeded_exception.LimitExceededException: <p>This exception is thrown when a user exceeds the limit for a requested Amazon Web Services resource.</p>
+            aws_sdk_cognito_identity_provider.errors.not_authorized_exception.NotAuthorizedException: <p>This exception is thrown when a user isn't authorized.</p>
+            aws_sdk_cognito_identity_provider.errors.operation_not_enabled_exception.OperationNotEnabledException: <p>This exception is thrown when an operation is not available in the current region or for the current user pool configuration. This can occur when attempting to perform operations that are not supported in secondary replica regions.</p>
+            aws_sdk_cognito_identity_provider.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when the Amazon Cognito service can't find the requested resource.</p>
+            aws_sdk_cognito_identity_provider.errors.too_many_requests_exception.TooManyRequestsException: <p>This exception is thrown when the user has made too many requests for a given operation.</p>
+            aws_sdk_cognito_identity_provider.errors.unexpected_lambda_exception.UnexpectedLambdaException: <p>This exception is thrown when Amazon Cognito encounters an unexpected exception with Lambda.</p>
+            aws_sdk_cognito_identity_provider.errors.user_lambda_validation_exception.UserLambdaValidationException: <p>This exception is thrown when the Amazon Cognito service encounters a user validation exception with the Lambda service.</p>
+            aws_sdk_cognito_identity_provider.errors.user_not_found_exception.UserNotFoundException: <p>This exception is thrown when a user isn't found.</p>
+            aws_sdk_cognito_identity_provider.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4163,6 +4980,15 @@ class AsyncCognitoIdentityProviderClient:
 
         Args:
             user_pool_id: <p>The ID of the user pool that you want to import users into.</p>
+
+        Raises:
+            aws_sdk_cognito_identity_provider.errors.internal_error_exception.InternalErrorException: <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_parameter_exception.InvalidParameterException: <p>This exception is thrown when the Amazon Cognito service encounters an invalid parameter.</p>
+            aws_sdk_cognito_identity_provider.errors.not_authorized_exception.NotAuthorizedException: <p>This exception is thrown when a user isn't authorized.</p>
+            aws_sdk_cognito_identity_provider.errors.operation_not_enabled_exception.OperationNotEnabledException: <p>This exception is thrown when an operation is not available in the current region or for the current user pool configuration. This can occur when attempting to perform operations that are not supported in secondary replica regions.</p>
+            aws_sdk_cognito_identity_provider.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when the Amazon Cognito service can't find the requested resource.</p>
+            aws_sdk_cognito_identity_provider.errors.too_many_requests_exception.TooManyRequestsException: <p>This exception is thrown when the user has made too many requests for a given operation.</p>
+            aws_sdk_cognito_identity_provider.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4207,6 +5033,20 @@ class AsyncCognitoIdentityProviderClient:
         Args:
             device_key: <p>The key of the device that you want to get information about.</p>
             access_token: <p>A valid access token that Amazon Cognito issued to the currently signed-in user. Must include a scope claim for <code>aws.cognito.signin.user.admin</code>.</p>
+
+        Raises:
+            aws_sdk_cognito_identity_provider.errors.forbidden_exception.ForbiddenException: <p>This exception is thrown when WAF doesn't allow your request based on a web ACL that's associated with your user pool.</p>
+            aws_sdk_cognito_identity_provider.errors.internal_error_exception.InternalErrorException: <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_parameter_exception.InvalidParameterException: <p>This exception is thrown when the Amazon Cognito service encounters an invalid parameter.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_user_pool_configuration_exception.InvalidUserPoolConfigurationException: <p>This exception is thrown when the user pool configuration is not valid.</p>
+            aws_sdk_cognito_identity_provider.errors.not_authorized_exception.NotAuthorizedException: <p>This exception is thrown when a user isn't authorized.</p>
+            aws_sdk_cognito_identity_provider.errors.operation_not_enabled_exception.OperationNotEnabledException: <p>This exception is thrown when an operation is not available in the current region or for the current user pool configuration. This can occur when attempting to perform operations that are not supported in secondary replica regions.</p>
+            aws_sdk_cognito_identity_provider.errors.password_reset_required_exception.PasswordResetRequiredException: <p>This exception is thrown when a password reset is required.</p>
+            aws_sdk_cognito_identity_provider.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when the Amazon Cognito service can't find the requested resource.</p>
+            aws_sdk_cognito_identity_provider.errors.too_many_requests_exception.TooManyRequestsException: <p>This exception is thrown when the user has made too many requests for a given operation.</p>
+            aws_sdk_cognito_identity_provider.errors.user_not_confirmed_exception.UserNotConfirmedException: <p>This exception is thrown when a user isn't confirmed successfully.</p>
+            aws_sdk_cognito_identity_provider.errors.user_not_found_exception.UserNotFoundException: <p>This exception is thrown when a user isn't found.</p>
+            aws_sdk_cognito_identity_provider.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4249,6 +5089,15 @@ class AsyncCognitoIdentityProviderClient:
         Args:
             group_name: <p>The name of the group that you want to get information about.</p>
             user_pool_id: <p>The ID of the user pool that contains the group that you want to query.</p>
+
+        Raises:
+            aws_sdk_cognito_identity_provider.errors.internal_error_exception.InternalErrorException: <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_parameter_exception.InvalidParameterException: <p>This exception is thrown when the Amazon Cognito service encounters an invalid parameter.</p>
+            aws_sdk_cognito_identity_provider.errors.not_authorized_exception.NotAuthorizedException: <p>This exception is thrown when a user isn't authorized.</p>
+            aws_sdk_cognito_identity_provider.errors.operation_not_enabled_exception.OperationNotEnabledException: <p>This exception is thrown when an operation is not available in the current region or for the current user pool configuration. This can occur when attempting to perform operations that are not supported in secondary replica regions.</p>
+            aws_sdk_cognito_identity_provider.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when the Amazon Cognito service can't find the requested resource.</p>
+            aws_sdk_cognito_identity_provider.errors.too_many_requests_exception.TooManyRequestsException: <p>This exception is thrown when the user has made too many requests for a given operation.</p>
+            aws_sdk_cognito_identity_provider.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4290,6 +5139,14 @@ class AsyncCognitoIdentityProviderClient:
         Args:
             user_pool_id: <p>The ID of the user pool where you want to get information about the IdP.</p>
             idp_identifier: <p>The identifier that you assigned to your user pool. The identifier is an alternative name for an IdP that is distinct from the IdP name. For example, an IdP with a name of <code>MyIdP</code> might have an identifier of the email domain <code>example.com</code>.</p>
+
+        Raises:
+            aws_sdk_cognito_identity_provider.errors.internal_error_exception.InternalErrorException: <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_parameter_exception.InvalidParameterException: <p>This exception is thrown when the Amazon Cognito service encounters an invalid parameter.</p>
+            aws_sdk_cognito_identity_provider.errors.not_authorized_exception.NotAuthorizedException: <p>This exception is thrown when a user isn't authorized.</p>
+            aws_sdk_cognito_identity_provider.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when the Amazon Cognito service can't find the requested resource.</p>
+            aws_sdk_cognito_identity_provider.errors.too_many_requests_exception.TooManyRequestsException: <p>This exception is thrown when the user has made too many requests for a given operation.</p>
+            aws_sdk_cognito_identity_provider.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4329,6 +5186,14 @@ class AsyncCognitoIdentityProviderClient:
 
         Args:
             user_pool_id: <p>The ID of the user pool that has the logging configuration that you want to view.</p>
+
+        Raises:
+            aws_sdk_cognito_identity_provider.errors.internal_error_exception.InternalErrorException: <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_parameter_exception.InvalidParameterException: <p>This exception is thrown when the Amazon Cognito service encounters an invalid parameter.</p>
+            aws_sdk_cognito_identity_provider.errors.not_authorized_exception.NotAuthorizedException: <p>This exception is thrown when a user isn't authorized.</p>
+            aws_sdk_cognito_identity_provider.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when the Amazon Cognito service can't find the requested resource.</p>
+            aws_sdk_cognito_identity_provider.errors.too_many_requests_exception.TooManyRequestsException: <p>This exception is thrown when the user has made too many requests for a given operation.</p>
+            aws_sdk_cognito_identity_provider.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4367,6 +5232,13 @@ class AsyncCognitoIdentityProviderClient:
 
         Args:
             user_pool_id: <p>The ID of the user pool where you want to view the signing certificate.</p>
+
+        Raises:
+            aws_sdk_cognito_identity_provider.errors.internal_error_exception.InternalErrorException: <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_parameter_exception.InvalidParameterException: <p>This exception is thrown when the Amazon Cognito service encounters an invalid parameter.</p>
+            aws_sdk_cognito_identity_provider.errors.operation_not_enabled_exception.OperationNotEnabledException: <p>This exception is thrown when an operation is not available in the current region or for the current user pool configuration. This can occur when attempting to perform operations that are not supported in secondary replica regions.</p>
+            aws_sdk_cognito_identity_provider.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when the Amazon Cognito service can't find the requested resource.</p>
+            aws_sdk_cognito_identity_provider.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4419,6 +5291,21 @@ class AsyncCognitoIdentityProviderClient:
             client_secret: <p>The client secret of the requested app client, if the client has a secret.</p>
             device_key: <p>When you enable device remembering, Amazon Cognito issues a device key that you can use for device authentication that bypasses multi-factor authentication (MFA). To implement <code>GetTokensFromRefreshToken</code> in a user pool with device remembering, you must capture the device key from the initial authentication request. If your application doesn't provide the key of a registered device, Amazon Cognito issues a new one. You must provide the confirmed device key in this request if device remembering is enabled in your user pool.</p> <p>For more information about device remembering, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-device-tracking.html\">Working with devices</a>.</p>
             client_metadata: <p>A map of custom key-value pairs that you can provide as input for any custom workflows that this action triggers. You create custom workflows by assigning Lambda functions to user pool triggers.</p> <p>When Amazon Cognito invokes any of these functions, it passes a JSON payload, which the function receives as input. This payload contains a <code>clientMetadata</code> attribute that provides the data that you assigned to the ClientMetadata parameter in your request. In your function code, you can process the <code>clientMetadata</code> value to enhance your workflow for your specific needs.</p> <p>To review the Lambda trigger types that Amazon Cognito invokes at runtime with API requests, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-working-with-lambda-triggers.html#lambda-triggers-by-event\"> Connecting API actions to Lambda triggers</a> in the <i>Amazon Cognito Developer Guide</i>.</p> <note> <p>When you use the <code>ClientMetadata</code> parameter, note that Amazon Cognito won't do the following:</p> <ul> <li> <p>Store the <code>ClientMetadata</code> value. This data is available only to Lambda triggers that are assigned to a user pool to support custom workflows. If your user pool configuration doesn't include triggers, the <code>ClientMetadata</code> parameter serves no purpose.</p> </li> <li> <p>Validate the <code>ClientMetadata</code> value.</p> </li> <li> <p>Encrypt the <code>ClientMetadata</code> value. Don't send sensitive information in this parameter.</p> </li> </ul> </note>
+
+        Raises:
+            aws_sdk_cognito_identity_provider.errors.forbidden_exception.ForbiddenException: <p>This exception is thrown when WAF doesn't allow your request based on a web ACL that's associated with your user pool.</p>
+            aws_sdk_cognito_identity_provider.errors.internal_error_exception.InternalErrorException: <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_lambda_response_exception.InvalidLambdaResponseException: <p>This exception is thrown when Amazon Cognito encounters an invalid Lambda response.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_parameter_exception.InvalidParameterException: <p>This exception is thrown when the Amazon Cognito service encounters an invalid parameter.</p>
+            aws_sdk_cognito_identity_provider.errors.not_authorized_exception.NotAuthorizedException: <p>This exception is thrown when a user isn't authorized.</p>
+            aws_sdk_cognito_identity_provider.errors.operation_not_enabled_exception.OperationNotEnabledException: <p>This exception is thrown when an operation is not available in the current region or for the current user pool configuration. This can occur when attempting to perform operations that are not supported in secondary replica regions.</p>
+            aws_sdk_cognito_identity_provider.errors.refresh_token_reuse_exception.RefreshTokenReuseException: <p>This exception is throw when your application requests token refresh with a refresh token that has been invalidated by refresh-token rotation.</p>
+            aws_sdk_cognito_identity_provider.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when the Amazon Cognito service can't find the requested resource.</p>
+            aws_sdk_cognito_identity_provider.errors.too_many_requests_exception.TooManyRequestsException: <p>This exception is thrown when the user has made too many requests for a given operation.</p>
+            aws_sdk_cognito_identity_provider.errors.unexpected_lambda_exception.UnexpectedLambdaException: <p>This exception is thrown when Amazon Cognito encounters an unexpected exception with Lambda.</p>
+            aws_sdk_cognito_identity_provider.errors.user_lambda_validation_exception.UserLambdaValidationException: <p>This exception is thrown when the Amazon Cognito service encounters a user validation exception with the Lambda service.</p>
+            aws_sdk_cognito_identity_provider.errors.user_not_found_exception.UserNotFoundException: <p>This exception is thrown when a user isn't found.</p>
+            aws_sdk_cognito_identity_provider.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4468,6 +5355,15 @@ class AsyncCognitoIdentityProviderClient:
         Args:
             user_pool_id: <p>The ID of the user pool that you want to query for branding settings.</p>
             client_id: <p>The ID of the app client that you want to query for branding settings.</p>
+
+        Raises:
+            aws_sdk_cognito_identity_provider.errors.internal_error_exception.InternalErrorException: <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_parameter_exception.InvalidParameterException: <p>This exception is thrown when the Amazon Cognito service encounters an invalid parameter.</p>
+            aws_sdk_cognito_identity_provider.errors.not_authorized_exception.NotAuthorizedException: <p>This exception is thrown when a user isn't authorized.</p>
+            aws_sdk_cognito_identity_provider.errors.operation_not_enabled_exception.OperationNotEnabledException: <p>This exception is thrown when an operation is not available in the current region or for the current user pool configuration. This can occur when attempting to perform operations that are not supported in secondary replica regions.</p>
+            aws_sdk_cognito_identity_provider.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when the Amazon Cognito service can't find the requested resource.</p>
+            aws_sdk_cognito_identity_provider.errors.too_many_requests_exception.TooManyRequestsException: <p>This exception is thrown when the user has made too many requests for a given operation.</p>
+            aws_sdk_cognito_identity_provider.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4508,6 +5404,19 @@ class AsyncCognitoIdentityProviderClient:
 
         Args:
             access_token: <p>A valid access token that Amazon Cognito issued to the currently signed-in user. Must include a scope claim for <code>aws.cognito.signin.user.admin</code>.</p>
+
+        Raises:
+            aws_sdk_cognito_identity_provider.errors.forbidden_exception.ForbiddenException: <p>This exception is thrown when WAF doesn't allow your request based on a web ACL that's associated with your user pool.</p>
+            aws_sdk_cognito_identity_provider.errors.internal_error_exception.InternalErrorException: <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_parameter_exception.InvalidParameterException: <p>This exception is thrown when the Amazon Cognito service encounters an invalid parameter.</p>
+            aws_sdk_cognito_identity_provider.errors.not_authorized_exception.NotAuthorizedException: <p>This exception is thrown when a user isn't authorized.</p>
+            aws_sdk_cognito_identity_provider.errors.operation_not_enabled_exception.OperationNotEnabledException: <p>This exception is thrown when an operation is not available in the current region or for the current user pool configuration. This can occur when attempting to perform operations that are not supported in secondary replica regions.</p>
+            aws_sdk_cognito_identity_provider.errors.password_reset_required_exception.PasswordResetRequiredException: <p>This exception is thrown when a password reset is required.</p>
+            aws_sdk_cognito_identity_provider.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when the Amazon Cognito service can't find the requested resource.</p>
+            aws_sdk_cognito_identity_provider.errors.too_many_requests_exception.TooManyRequestsException: <p>This exception is thrown when the user has made too many requests for a given operation.</p>
+            aws_sdk_cognito_identity_provider.errors.user_not_confirmed_exception.UserNotConfirmedException: <p>This exception is thrown when a user isn't confirmed successfully.</p>
+            aws_sdk_cognito_identity_provider.errors.user_not_found_exception.UserNotFoundException: <p>This exception is thrown when a user isn't found.</p>
+            aws_sdk_cognito_identity_provider.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4552,6 +5461,27 @@ class AsyncCognitoIdentityProviderClient:
             access_token: <p>A valid access token that Amazon Cognito issued to the currently signed-in user. Must include a scope claim for <code>aws.cognito.signin.user.admin</code>.</p>
             attribute_name: <p>The name of the attribute that the user wants to verify, for example <code>email</code>.</p>
             client_metadata: <p>A map of custom key-value pairs that you can provide as input for any custom workflows that this action triggers. You create custom workflows by assigning Lambda functions to user pool triggers.</p> <p>When Amazon Cognito invokes any of these functions, it passes a JSON payload, which the function receives as input. This payload contains a <code>clientMetadata</code> attribute that provides the data that you assigned to the ClientMetadata parameter in your request. In your function code, you can process the <code>clientMetadata</code> value to enhance your workflow for your specific needs.</p> <p>To review the Lambda trigger types that Amazon Cognito invokes at runtime with API requests, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-working-with-lambda-triggers.html#lambda-triggers-by-event\"> Connecting API actions to Lambda triggers</a> in the <i>Amazon Cognito Developer Guide</i>.</p> <note> <p>When you use the <code>ClientMetadata</code> parameter, note that Amazon Cognito won't do the following:</p> <ul> <li> <p>Store the <code>ClientMetadata</code> value. This data is available only to Lambda triggers that are assigned to a user pool to support custom workflows. If your user pool configuration doesn't include triggers, the <code>ClientMetadata</code> parameter serves no purpose.</p> </li> <li> <p>Validate the <code>ClientMetadata</code> value.</p> </li> <li> <p>Encrypt the <code>ClientMetadata</code> value. Don't send sensitive information in this parameter.</p> </li> </ul> </note>
+
+        Raises:
+            aws_sdk_cognito_identity_provider.errors.code_delivery_failure_exception.CodeDeliveryFailureException: <p>This exception is thrown when a verification code fails to deliver successfully.</p>
+            aws_sdk_cognito_identity_provider.errors.forbidden_exception.ForbiddenException: <p>This exception is thrown when WAF doesn't allow your request based on a web ACL that's associated with your user pool.</p>
+            aws_sdk_cognito_identity_provider.errors.internal_error_exception.InternalErrorException: <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_email_role_access_policy_exception.InvalidEmailRoleAccessPolicyException: <p>This exception is thrown when Amazon Cognito isn't allowed to use your email identity. HTTP status code: 400.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_lambda_response_exception.InvalidLambdaResponseException: <p>This exception is thrown when Amazon Cognito encounters an invalid Lambda response.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_parameter_exception.InvalidParameterException: <p>This exception is thrown when the Amazon Cognito service encounters an invalid parameter.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_sms_role_access_policy_exception.InvalidSmsRoleAccessPolicyException: <p>This exception is returned when the role provided for SMS configuration doesn't have permission to publish using Amazon SNS.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_sms_role_trust_relationship_exception.InvalidSmsRoleTrustRelationshipException: <p>This exception is thrown when the trust relationship is not valid for the role provided for SMS configuration. This can happen if you don't trust <code>cognito-idp.amazonaws.com</code> or the external ID provided in the role does not match what is provided in the SMS configuration for the user pool.</p>
+            aws_sdk_cognito_identity_provider.errors.limit_exceeded_exception.LimitExceededException: <p>This exception is thrown when a user exceeds the limit for a requested Amazon Web Services resource.</p>
+            aws_sdk_cognito_identity_provider.errors.not_authorized_exception.NotAuthorizedException: <p>This exception is thrown when a user isn't authorized.</p>
+            aws_sdk_cognito_identity_provider.errors.operation_not_enabled_exception.OperationNotEnabledException: <p>This exception is thrown when an operation is not available in the current region or for the current user pool configuration. This can occur when attempting to perform operations that are not supported in secondary replica regions.</p>
+            aws_sdk_cognito_identity_provider.errors.password_reset_required_exception.PasswordResetRequiredException: <p>This exception is thrown when a password reset is required.</p>
+            aws_sdk_cognito_identity_provider.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when the Amazon Cognito service can't find the requested resource.</p>
+            aws_sdk_cognito_identity_provider.errors.too_many_requests_exception.TooManyRequestsException: <p>This exception is thrown when the user has made too many requests for a given operation.</p>
+            aws_sdk_cognito_identity_provider.errors.unexpected_lambda_exception.UnexpectedLambdaException: <p>This exception is thrown when Amazon Cognito encounters an unexpected exception with Lambda.</p>
+            aws_sdk_cognito_identity_provider.errors.user_lambda_validation_exception.UserLambdaValidationException: <p>This exception is thrown when the Amazon Cognito service encounters a user validation exception with the Lambda service.</p>
+            aws_sdk_cognito_identity_provider.errors.user_not_confirmed_exception.UserNotConfirmedException: <p>This exception is thrown when a user isn't confirmed successfully.</p>
+            aws_sdk_cognito_identity_provider.errors.user_not_found_exception.UserNotFoundException: <p>This exception is thrown when a user isn't found.</p>
+            aws_sdk_cognito_identity_provider.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4593,6 +5523,19 @@ class AsyncCognitoIdentityProviderClient:
 
         Args:
             access_token: <p>A valid access token that Amazon Cognito issued to the currently signed-in user. Must include a scope claim for <code>aws.cognito.signin.user.admin</code>.</p>
+
+        Raises:
+            aws_sdk_cognito_identity_provider.errors.forbidden_exception.ForbiddenException: <p>This exception is thrown when WAF doesn't allow your request based on a web ACL that's associated with your user pool.</p>
+            aws_sdk_cognito_identity_provider.errors.internal_error_exception.InternalErrorException: <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_parameter_exception.InvalidParameterException: <p>This exception is thrown when the Amazon Cognito service encounters an invalid parameter.</p>
+            aws_sdk_cognito_identity_provider.errors.not_authorized_exception.NotAuthorizedException: <p>This exception is thrown when a user isn't authorized.</p>
+            aws_sdk_cognito_identity_provider.errors.operation_not_enabled_exception.OperationNotEnabledException: <p>This exception is thrown when an operation is not available in the current region or for the current user pool configuration. This can occur when attempting to perform operations that are not supported in secondary replica regions.</p>
+            aws_sdk_cognito_identity_provider.errors.password_reset_required_exception.PasswordResetRequiredException: <p>This exception is thrown when a password reset is required.</p>
+            aws_sdk_cognito_identity_provider.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when the Amazon Cognito service can't find the requested resource.</p>
+            aws_sdk_cognito_identity_provider.errors.too_many_requests_exception.TooManyRequestsException: <p>This exception is thrown when the user has made too many requests for a given operation.</p>
+            aws_sdk_cognito_identity_provider.errors.user_not_confirmed_exception.UserNotConfirmedException: <p>This exception is thrown when a user isn't confirmed successfully.</p>
+            aws_sdk_cognito_identity_provider.errors.user_not_found_exception.UserNotFoundException: <p>This exception is thrown when a user isn't found.</p>
+            aws_sdk_cognito_identity_provider.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4631,6 +5574,14 @@ class AsyncCognitoIdentityProviderClient:
 
         Args:
             user_pool_id: <p>The ID of the user pool where you want to query WebAuthn and MFA configuration.</p>
+
+        Raises:
+            aws_sdk_cognito_identity_provider.errors.internal_error_exception.InternalErrorException: <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_parameter_exception.InvalidParameterException: <p>This exception is thrown when the Amazon Cognito service encounters an invalid parameter.</p>
+            aws_sdk_cognito_identity_provider.errors.not_authorized_exception.NotAuthorizedException: <p>This exception is thrown when a user isn't authorized.</p>
+            aws_sdk_cognito_identity_provider.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when the Amazon Cognito service can't find the requested resource.</p>
+            aws_sdk_cognito_identity_provider.errors.too_many_requests_exception.TooManyRequestsException: <p>This exception is thrown when the user has made too many requests for a given operation.</p>
+            aws_sdk_cognito_identity_provider.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4669,6 +5620,18 @@ class AsyncCognitoIdentityProviderClient:
 
         Args:
             access_token: <p>A valid access token that Amazon Cognito issued to the currently signed-in user. Must include a scope claim for <code>aws.cognito.signin.user.admin</code>.</p>
+
+        Raises:
+            aws_sdk_cognito_identity_provider.errors.forbidden_exception.ForbiddenException: <p>This exception is thrown when WAF doesn't allow your request based on a web ACL that's associated with your user pool.</p>
+            aws_sdk_cognito_identity_provider.errors.internal_error_exception.InternalErrorException: <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_parameter_exception.InvalidParameterException: <p>This exception is thrown when the Amazon Cognito service encounters an invalid parameter.</p>
+            aws_sdk_cognito_identity_provider.errors.not_authorized_exception.NotAuthorizedException: <p>This exception is thrown when a user isn't authorized.</p>
+            aws_sdk_cognito_identity_provider.errors.operation_not_enabled_exception.OperationNotEnabledException: <p>This exception is thrown when an operation is not available in the current region or for the current user pool configuration. This can occur when attempting to perform operations that are not supported in secondary replica regions.</p>
+            aws_sdk_cognito_identity_provider.errors.password_reset_required_exception.PasswordResetRequiredException: <p>This exception is thrown when a password reset is required.</p>
+            aws_sdk_cognito_identity_provider.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when the Amazon Cognito service can't find the requested resource.</p>
+            aws_sdk_cognito_identity_provider.errors.too_many_requests_exception.TooManyRequestsException: <p>This exception is thrown when the user has made too many requests for a given operation.</p>
+            aws_sdk_cognito_identity_provider.errors.user_not_confirmed_exception.UserNotConfirmedException: <p>This exception is thrown when a user isn't confirmed successfully.</p>
+            aws_sdk_cognito_identity_provider.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4729,6 +5692,27 @@ class AsyncCognitoIdentityProviderClient:
             analytics_metadata: <p>Information that supports analytics outcomes with Amazon Pinpoint, including the user's endpoint ID. The endpoint ID is a destination for Amazon Pinpoint push notifications, for example a device identifier, email address, or phone number.</p>
             user_context_data: <p>Contextual data about your user session like the device fingerprint, IP address, or location. Amazon Cognito threat protection evaluates the risk of an authentication event based on the context that your app generates and passes to Amazon Cognito when it makes API requests.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-viewing-threat-protection-app.html\">Collecting data for threat protection in applications</a>.</p>
             session: <p>The optional session ID from a <code>ConfirmSignUp</code> API request. You can sign in a user directly from the sign-up process with the <code>USER_AUTH</code> authentication flow. When you pass the session ID to <code>InitiateAuth</code>, Amazon Cognito assumes the SMS or email message one-time verification password from <code>ConfirmSignUp</code> as the primary authentication factor. You're not required to submit this code a second time. This option is only valid for users who have confirmed their sign-up and are signing in for the first time within the authentication flow session duration of the session ID.</p>
+
+        Raises:
+            aws_sdk_cognito_identity_provider.errors.forbidden_exception.ForbiddenException: <p>This exception is thrown when WAF doesn't allow your request based on a web ACL that's associated with your user pool.</p>
+            aws_sdk_cognito_identity_provider.errors.internal_error_exception.InternalErrorException: <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_email_role_access_policy_exception.InvalidEmailRoleAccessPolicyException: <p>This exception is thrown when Amazon Cognito isn't allowed to use your email identity. HTTP status code: 400.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_lambda_response_exception.InvalidLambdaResponseException: <p>This exception is thrown when Amazon Cognito encounters an invalid Lambda response.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_parameter_exception.InvalidParameterException: <p>This exception is thrown when the Amazon Cognito service encounters an invalid parameter.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_sms_role_access_policy_exception.InvalidSmsRoleAccessPolicyException: <p>This exception is returned when the role provided for SMS configuration doesn't have permission to publish using Amazon SNS.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_sms_role_trust_relationship_exception.InvalidSmsRoleTrustRelationshipException: <p>This exception is thrown when the trust relationship is not valid for the role provided for SMS configuration. This can happen if you don't trust <code>cognito-idp.amazonaws.com</code> or the external ID provided in the role does not match what is provided in the SMS configuration for the user pool.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_user_pool_configuration_exception.InvalidUserPoolConfigurationException: <p>This exception is thrown when the user pool configuration is not valid.</p>
+            aws_sdk_cognito_identity_provider.errors.not_authorized_exception.NotAuthorizedException: <p>This exception is thrown when a user isn't authorized.</p>
+            aws_sdk_cognito_identity_provider.errors.operation_not_enabled_exception.OperationNotEnabledException: <p>This exception is thrown when an operation is not available in the current region or for the current user pool configuration. This can occur when attempting to perform operations that are not supported in secondary replica regions.</p>
+            aws_sdk_cognito_identity_provider.errors.password_reset_required_exception.PasswordResetRequiredException: <p>This exception is thrown when a password reset is required.</p>
+            aws_sdk_cognito_identity_provider.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when the Amazon Cognito service can't find the requested resource.</p>
+            aws_sdk_cognito_identity_provider.errors.too_many_requests_exception.TooManyRequestsException: <p>This exception is thrown when the user has made too many requests for a given operation.</p>
+            aws_sdk_cognito_identity_provider.errors.unexpected_lambda_exception.UnexpectedLambdaException: <p>This exception is thrown when Amazon Cognito encounters an unexpected exception with Lambda.</p>
+            aws_sdk_cognito_identity_provider.errors.unsupported_operation_exception.UnsupportedOperationException: <p>Exception that is thrown when you attempt to perform an operation that isn't enabled for the user pool client.</p>
+            aws_sdk_cognito_identity_provider.errors.user_lambda_validation_exception.UserLambdaValidationException: <p>This exception is thrown when the Amazon Cognito service encounters a user validation exception with the Lambda service.</p>
+            aws_sdk_cognito_identity_provider.errors.user_not_confirmed_exception.UserNotConfirmedException: <p>This exception is thrown when a user isn't confirmed successfully.</p>
+            aws_sdk_cognito_identity_provider.errors.user_not_found_exception.UserNotFoundException: <p>This exception is thrown when a user isn't found.</p>
+            aws_sdk_cognito_identity_provider.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Example username and password sign-in for a user who has TOTP MFA
@@ -4792,6 +5776,20 @@ class AsyncCognitoIdentityProviderClient:
             access_token: <p>A valid access token that Amazon Cognito issued to the currently signed-in user. Must include a scope claim for <code>aws.cognito.signin.user.admin</code>.</p>
             limit: <p>The maximum number of devices that you want Amazon Cognito to return in the response.</p>
             pagination_token: <p>This API operation returns a limited number of results. The pagination token is an identifier that you can present in an additional API request with the same parameters. When you include the pagination token, Amazon Cognito returns the next set of items after the current list. Subsequent requests return a new pagination token. By use of this token, you can paginate through the full list of items.</p>
+
+        Raises:
+            aws_sdk_cognito_identity_provider.errors.forbidden_exception.ForbiddenException: <p>This exception is thrown when WAF doesn't allow your request based on a web ACL that's associated with your user pool.</p>
+            aws_sdk_cognito_identity_provider.errors.internal_error_exception.InternalErrorException: <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_parameter_exception.InvalidParameterException: <p>This exception is thrown when the Amazon Cognito service encounters an invalid parameter.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_user_pool_configuration_exception.InvalidUserPoolConfigurationException: <p>This exception is thrown when the user pool configuration is not valid.</p>
+            aws_sdk_cognito_identity_provider.errors.not_authorized_exception.NotAuthorizedException: <p>This exception is thrown when a user isn't authorized.</p>
+            aws_sdk_cognito_identity_provider.errors.operation_not_enabled_exception.OperationNotEnabledException: <p>This exception is thrown when an operation is not available in the current region or for the current user pool configuration. This can occur when attempting to perform operations that are not supported in secondary replica regions.</p>
+            aws_sdk_cognito_identity_provider.errors.password_reset_required_exception.PasswordResetRequiredException: <p>This exception is thrown when a password reset is required.</p>
+            aws_sdk_cognito_identity_provider.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when the Amazon Cognito service can't find the requested resource.</p>
+            aws_sdk_cognito_identity_provider.errors.too_many_requests_exception.TooManyRequestsException: <p>This exception is thrown when the user has made too many requests for a given operation.</p>
+            aws_sdk_cognito_identity_provider.errors.user_not_confirmed_exception.UserNotConfirmedException: <p>This exception is thrown when a user isn't confirmed successfully.</p>
+            aws_sdk_cognito_identity_provider.errors.user_not_found_exception.UserNotFoundException: <p>This exception is thrown when a user isn't found.</p>
+            aws_sdk_cognito_identity_provider.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4842,6 +5840,15 @@ class AsyncCognitoIdentityProviderClient:
             user_pool_id: <p>The ID of the user pool where you want to list user groups.</p>
             limit: <p>The maximum number of groups that you want Amazon Cognito to return in the response.</p>
             next_token: <p>This API operation returns a limited number of results. The pagination token is an identifier that you can present in an additional API request with the same parameters. When you include the pagination token, Amazon Cognito returns the next set of items after the current list. Subsequent requests return a new pagination token. By use of this token, you can paginate through the full list of items.</p>
+
+        Raises:
+            aws_sdk_cognito_identity_provider.errors.internal_error_exception.InternalErrorException: <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_parameter_exception.InvalidParameterException: <p>This exception is thrown when the Amazon Cognito service encounters an invalid parameter.</p>
+            aws_sdk_cognito_identity_provider.errors.not_authorized_exception.NotAuthorizedException: <p>This exception is thrown when a user isn't authorized.</p>
+            aws_sdk_cognito_identity_provider.errors.operation_not_enabled_exception.OperationNotEnabledException: <p>This exception is thrown when an operation is not available in the current region or for the current user pool configuration. This can occur when attempting to perform operations that are not supported in secondary replica regions.</p>
+            aws_sdk_cognito_identity_provider.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when the Amazon Cognito service can't find the requested resource.</p>
+            aws_sdk_cognito_identity_provider.errors.too_many_requests_exception.TooManyRequestsException: <p>This exception is thrown when the user has made too many requests for a given operation.</p>
+            aws_sdk_cognito_identity_provider.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4919,6 +5926,14 @@ class AsyncCognitoIdentityProviderClient:
             user_pool_id: <p>The ID of the user pool where you want to list IdPs.</p>
             max_results: <p>The maximum number of IdPs that you want Amazon Cognito to return in the response.</p>
             next_token: <p>This API operation returns a limited number of results. The pagination token is an identifier that you can present in an additional API request with the same parameters. When you include the pagination token, Amazon Cognito returns the next set of items after the current list. Subsequent requests return a new pagination token. By use of this token, you can paginate through the full list of items.</p>
+
+        Raises:
+            aws_sdk_cognito_identity_provider.errors.internal_error_exception.InternalErrorException: <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_parameter_exception.InvalidParameterException: <p>This exception is thrown when the Amazon Cognito service encounters an invalid parameter.</p>
+            aws_sdk_cognito_identity_provider.errors.not_authorized_exception.NotAuthorizedException: <p>This exception is thrown when a user isn't authorized.</p>
+            aws_sdk_cognito_identity_provider.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when the Amazon Cognito service can't find the requested resource.</p>
+            aws_sdk_cognito_identity_provider.errors.too_many_requests_exception.TooManyRequestsException: <p>This exception is thrown when the user has made too many requests for a given operation.</p>
+            aws_sdk_cognito_identity_provider.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4996,6 +6011,15 @@ class AsyncCognitoIdentityProviderClient:
             user_pool_id: <p>The ID of the user pool where you want to list resource servers.</p>
             max_results: <p>The maximum number of resource servers that you want Amazon Cognito to return in the response.</p>
             next_token: <p>This API operation returns a limited number of results. The pagination token is an identifier that you can present in an additional API request with the same parameters. When you include the pagination token, Amazon Cognito returns the next set of items after the current list. Subsequent requests return a new pagination token. By use of this token, you can paginate through the full list of items.</p>
+
+        Raises:
+            aws_sdk_cognito_identity_provider.errors.internal_error_exception.InternalErrorException: <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_parameter_exception.InvalidParameterException: <p>This exception is thrown when the Amazon Cognito service encounters an invalid parameter.</p>
+            aws_sdk_cognito_identity_provider.errors.not_authorized_exception.NotAuthorizedException: <p>This exception is thrown when a user isn't authorized.</p>
+            aws_sdk_cognito_identity_provider.errors.operation_not_enabled_exception.OperationNotEnabledException: <p>This exception is thrown when an operation is not available in the current region or for the current user pool configuration. This can occur when attempting to perform operations that are not supported in secondary replica regions.</p>
+            aws_sdk_cognito_identity_provider.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when the Amazon Cognito service can't find the requested resource.</p>
+            aws_sdk_cognito_identity_provider.errors.too_many_requests_exception.TooManyRequestsException: <p>This exception is thrown when the user has made too many requests for a given operation.</p>
+            aws_sdk_cognito_identity_provider.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5065,6 +6089,15 @@ class AsyncCognitoIdentityProviderClient:
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the user pool that the tags are assigned to.</p>
+
+        Raises:
+            aws_sdk_cognito_identity_provider.errors.internal_error_exception.InternalErrorException: <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_parameter_exception.InvalidParameterException: <p>This exception is thrown when the Amazon Cognito service encounters an invalid parameter.</p>
+            aws_sdk_cognito_identity_provider.errors.not_authorized_exception.NotAuthorizedException: <p>This exception is thrown when a user isn't authorized.</p>
+            aws_sdk_cognito_identity_provider.errors.operation_not_enabled_exception.OperationNotEnabledException: <p>This exception is thrown when an operation is not available in the current region or for the current user pool configuration. This can occur when attempting to perform operations that are not supported in secondary replica regions.</p>
+            aws_sdk_cognito_identity_provider.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when the Amazon Cognito service can't find the requested resource.</p>
+            aws_sdk_cognito_identity_provider.errors.too_many_requests_exception.TooManyRequestsException: <p>This exception is thrown when the user has made too many requests for a given operation.</p>
+            aws_sdk_cognito_identity_provider.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5113,6 +6146,15 @@ class AsyncCognitoIdentityProviderClient:
             user_pool_id: <p>The ID of the user pool where you want to list terms documents.</p>
             max_results: <p>The maximum number of terms documents that you want Amazon Cognito to return in the response.</p>
             next_token: <p>This API operation returns a limited number of results. The pagination token is an identifier that you can present in an additional API request with the same parameters. When you include the pagination token, Amazon Cognito returns the next set of items after the current list. Subsequent requests return a new pagination token. By use of this token, you can paginate through the full list of items.</p>
+
+        Raises:
+            aws_sdk_cognito_identity_provider.errors.internal_error_exception.InternalErrorException: <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_parameter_exception.InvalidParameterException: <p>This exception is thrown when the Amazon Cognito service encounters an invalid parameter.</p>
+            aws_sdk_cognito_identity_provider.errors.not_authorized_exception.NotAuthorizedException: <p>This exception is thrown when a user isn't authorized.</p>
+            aws_sdk_cognito_identity_provider.errors.operation_not_enabled_exception.OperationNotEnabledException: <p>This exception is thrown when an operation is not available in the current region or for the current user pool configuration. This can occur when attempting to perform operations that are not supported in secondary replica regions.</p>
+            aws_sdk_cognito_identity_provider.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when the Amazon Cognito service can't find the requested resource.</p>
+            aws_sdk_cognito_identity_provider.errors.too_many_requests_exception.TooManyRequestsException: <p>This exception is thrown when the user has made too many requests for a given operation.</p>
+            aws_sdk_cognito_identity_provider.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5161,6 +6203,15 @@ class AsyncCognitoIdentityProviderClient:
             user_pool_id: <p>The ID of the user pool where you want to list import jobs.</p>
             max_results: <p>The maximum number of import jobs that you want Amazon Cognito to return in the response.</p>
             pagination_token: <p>This API operation returns a limited number of results. The pagination token is an identifier that you can present in an additional API request with the same parameters. When you include the pagination token, Amazon Cognito returns the next set of items after the current list. Subsequent requests return a new pagination token. By use of this token, you can paginate through the full list of items.</p>
+
+        Raises:
+            aws_sdk_cognito_identity_provider.errors.internal_error_exception.InternalErrorException: <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_parameter_exception.InvalidParameterException: <p>This exception is thrown when the Amazon Cognito service encounters an invalid parameter.</p>
+            aws_sdk_cognito_identity_provider.errors.not_authorized_exception.NotAuthorizedException: <p>This exception is thrown when a user isn't authorized.</p>
+            aws_sdk_cognito_identity_provider.errors.operation_not_enabled_exception.OperationNotEnabledException: <p>This exception is thrown when an operation is not available in the current region or for the current user pool configuration. This can occur when attempting to perform operations that are not supported in secondary replica regions.</p>
+            aws_sdk_cognito_identity_provider.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when the Amazon Cognito service can't find the requested resource.</p>
+            aws_sdk_cognito_identity_provider.errors.too_many_requests_exception.TooManyRequestsException: <p>This exception is thrown when the user has made too many requests for a given operation.</p>
+            aws_sdk_cognito_identity_provider.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5210,6 +6261,15 @@ class AsyncCognitoIdentityProviderClient:
             user_pool_id: <p>The ID of the user pool where you want to list user pool clients.</p>
             max_results: <p>The maximum number of app clients that you want Amazon Cognito to return in the response.</p>
             next_token: <p>This API operation returns a limited number of results. The pagination token is an identifier that you can present in an additional API request with the same parameters. When you include the pagination token, Amazon Cognito returns the next set of items after the current list. Subsequent requests return a new pagination token. By use of this token, you can paginate through the full list of items.</p>
+
+        Raises:
+            aws_sdk_cognito_identity_provider.errors.internal_error_exception.InternalErrorException: <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_parameter_exception.InvalidParameterException: <p>This exception is thrown when the Amazon Cognito service encounters an invalid parameter.</p>
+            aws_sdk_cognito_identity_provider.errors.not_authorized_exception.NotAuthorizedException: <p>This exception is thrown when a user isn't authorized.</p>
+            aws_sdk_cognito_identity_provider.errors.operation_not_enabled_exception.OperationNotEnabledException: <p>This exception is thrown when an operation is not available in the current region or for the current user pool configuration. This can occur when attempting to perform operations that are not supported in secondary replica regions.</p>
+            aws_sdk_cognito_identity_provider.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when the Amazon Cognito service can't find the requested resource.</p>
+            aws_sdk_cognito_identity_provider.errors.too_many_requests_exception.TooManyRequestsException: <p>This exception is thrown when the user has made too many requests for a given operation.</p>
+            aws_sdk_cognito_identity_provider.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5285,6 +6345,14 @@ class AsyncCognitoIdentityProviderClient:
             user_pool_id: <p>The ID of the user pool that contains the app client.</p>
             client_id: <p>The ID of the app client whose secrets you want to list.</p>
             next_token: <p>This API operation returns a limited number of results. The pagination token is an identifier that you can present in an additional API request with the same parameters. When you include the pagination token, Amazon Cognito returns the next set of items after the current list. Subsequent requests return a new pagination token. By use of this token, you can paginate through the full list of items.</p>
+
+        Raises:
+            aws_sdk_cognito_identity_provider.errors.internal_server_exception.InternalServerException: <p>This exception is thrown when Amazon Cognito encounters an internal server error.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_parameter_exception.InvalidParameterException: <p>This exception is thrown when the Amazon Cognito service encounters an invalid parameter.</p>
+            aws_sdk_cognito_identity_provider.errors.limit_exceeded_exception.LimitExceededException: <p>This exception is thrown when a user exceeds the limit for a requested Amazon Web Services resource.</p>
+            aws_sdk_cognito_identity_provider.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when the Amazon Cognito service can't find the requested resource.</p>
+            aws_sdk_cognito_identity_provider.errors.too_many_requests_exception.TooManyRequestsException: <p>This exception is thrown when the user has made too many requests for a given operation.</p>
+            aws_sdk_cognito_identity_provider.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5330,6 +6398,15 @@ class AsyncCognitoIdentityProviderClient:
         Args:
             user_pool_id: <p>The ID of the user pool for which to list replicas.</p>
             next_token: <p>A pagination token for retrieving the next page of results. If this parameter is omitted, the operation returns the first page of results.</p>
+
+        Raises:
+            aws_sdk_cognito_identity_provider.errors.internal_error_exception.InternalErrorException: <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_parameter_exception.InvalidParameterException: <p>This exception is thrown when the Amazon Cognito service encounters an invalid parameter.</p>
+            aws_sdk_cognito_identity_provider.errors.not_authorized_exception.NotAuthorizedException: <p>This exception is thrown when a user isn't authorized.</p>
+            aws_sdk_cognito_identity_provider.errors.operation_not_enabled_exception.OperationNotEnabledException: <p>This exception is thrown when an operation is not available in the current region or for the current user pool configuration. This can occur when attempting to perform operations that are not supported in secondary replica regions.</p>
+            aws_sdk_cognito_identity_provider.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when the Amazon Cognito service can't find the requested resource.</p>
+            aws_sdk_cognito_identity_provider.errors.too_many_requests_exception.TooManyRequestsException: <p>This exception is thrown when the user has made too many requests for a given operation.</p>
+            aws_sdk_cognito_identity_provider.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Example list the replicas of a user pool
@@ -5380,6 +6457,13 @@ class AsyncCognitoIdentityProviderClient:
         Args:
             next_token: <p>This API operation returns a limited number of results. The pagination token is an identifier that you can present in an additional API request with the same parameters. When you include the pagination token, Amazon Cognito returns the next set of items after the current list. Subsequent requests return a new pagination token. By use of this token, you can paginate through the full list of items.</p>
             max_results: <p>The maximum number of user pools that you want Amazon Cognito to return in the response.</p>
+
+        Raises:
+            aws_sdk_cognito_identity_provider.errors.internal_error_exception.InternalErrorException: <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_parameter_exception.InvalidParameterException: <p>This exception is thrown when the Amazon Cognito service encounters an invalid parameter.</p>
+            aws_sdk_cognito_identity_provider.errors.not_authorized_exception.NotAuthorizedException: <p>This exception is thrown when a user isn't authorized.</p>
+            aws_sdk_cognito_identity_provider.errors.too_many_requests_exception.TooManyRequestsException: <p>This exception is thrown when the user has made too many requests for a given operation.</p>
+            aws_sdk_cognito_identity_provider.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5461,6 +6545,15 @@ class AsyncCognitoIdentityProviderClient:
             limit: <p>The maximum number of users that you want Amazon Cognito to return in the response. In some SDK contexts, this operation might return fewer items than you specify in the <code>Limit</code> parameter without having reached the end of the full list. If the response contains a <code>PaginationToken</code>, then there are more results.</p>
             pagination_token: <p>This API operation returns a limited number of results. The pagination token is an identifier that you can present in an additional API request with the same parameters. When you include the pagination token, Amazon Cognito returns the next set of items after the current list. Subsequent requests return a new pagination token. By use of this token, you can paginate through the full list of items.</p>
             filter: <p>A filter string of the form <code>\"AttributeName Filter-Type \"AttributeValue\"</code>. Quotation marks within the filter string must be escaped using the backslash (<code>\</code>) character. For example, <code>\"family_name = \\"Reddy\\"\"</code>.</p> <ul> <li> <p> <i>AttributeName</i>: The name of the attribute to search for. You can only search for one attribute at a time.</p> </li> <li> <p> <i>Filter-Type</i>: For an exact match, use <code>=</code>, for example, \"<code>given_name = \\"Jon\\"</code>\". For a prefix (\"starts with\") match, use <code>^=</code>, for example, \"<code>given_name ^= \\"Jon\\"</code>\". </p> </li> <li> <p> <i>AttributeValue</i>: The attribute value that must be matched for each user.</p> </li> </ul> <p>If the filter string is empty, <code>ListUsers</code> returns all users in the user pool.</p> <p>You can only search for the following standard attributes:</p> <ul> <li> <p> <code>username</code> (case-sensitive)</p> </li> <li> <p> <code>email</code> </p> </li> <li> <p> <code>phone_number</code> </p> </li> <li> <p> <code>name</code> </p> </li> <li> <p> <code>given_name</code> </p> </li> <li> <p> <code>family_name</code> </p> </li> <li> <p> <code>preferred_username</code> </p> </li> <li> <p> <code>cognito:user_status</code> (called <b>Status</b> in the Console) (case-insensitive)</p> </li> <li> <p> <code>status (called <b>Enabled</b> in the Console) (case-sensitive)</code> </p> </li> <li> <p> <code>sub</code> </p> </li> </ul> <p>Custom attributes aren't searchable.</p> <note> <p>You can also list users with a client-side filter. The server-side filter matches no more than one attribute. For an advanced search, use a client-side filter with the <code>--query</code> parameter of the <code>list-users</code> action in the CLI. When you use a client-side filter, ListUsers returns a paginated list of zero or more users. You can receive multiple pages in a row with zero results. Repeat the query with each pagination token that is returned until you receive a null pagination token value, and then review the combined result. </p> <p>For more information about server-side and client-side filtering, see <a href=\"https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-filter.html\">FilteringCLI output</a> in the <a href=\"https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-filter.html\">Command Line Interface User Guide</a>. </p> </note> <p>For more information, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/how-to-manage-user-accounts.html#cognito-user-pools-searching-for-users-using-listusers-api\">Searching for Users Using the ListUsers API</a> and <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/how-to-manage-user-accounts.html#cognito-user-pools-searching-for-users-listusers-api-examples\">Examples of Using the ListUsers API</a> in the <i>Amazon Cognito Developer Guide</i>.</p>
+
+        Raises:
+            aws_sdk_cognito_identity_provider.errors.internal_error_exception.InternalErrorException: <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_parameter_exception.InvalidParameterException: <p>This exception is thrown when the Amazon Cognito service encounters an invalid parameter.</p>
+            aws_sdk_cognito_identity_provider.errors.not_authorized_exception.NotAuthorizedException: <p>This exception is thrown when a user isn't authorized.</p>
+            aws_sdk_cognito_identity_provider.errors.operation_not_enabled_exception.OperationNotEnabledException: <p>This exception is thrown when an operation is not available in the current region or for the current user pool configuration. This can occur when attempting to perform operations that are not supported in secondary replica regions.</p>
+            aws_sdk_cognito_identity_provider.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when the Amazon Cognito service can't find the requested resource.</p>
+            aws_sdk_cognito_identity_provider.errors.too_many_requests_exception.TooManyRequestsException: <p>This exception is thrown when the user has made too many requests for a given operation.</p>
+            aws_sdk_cognito_identity_provider.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             A ListUsers request for the next 3 users whose email address starts with "testuser."
@@ -5558,6 +6651,15 @@ class AsyncCognitoIdentityProviderClient:
             group_name: <p>The name of the group that you want to query for user membership.</p>
             limit: <p>The maximum number of groups that you want Amazon Cognito to return in the response. In some SDK contexts, this operation might return fewer items than you specify in the <code>Limit</code> parameter without having reached the end of the full list. If the response contains a <code>PaginationToken</code>, then there are more results.</p>
             next_token: <p>This API operation returns a limited number of results. The pagination token is an identifier that you can present in an additional API request with the same parameters. When you include the pagination token, Amazon Cognito returns the next set of items after the current list. Subsequent requests return a new pagination token. By use of this token, you can paginate through the full list of items.</p>
+
+        Raises:
+            aws_sdk_cognito_identity_provider.errors.internal_error_exception.InternalErrorException: <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_parameter_exception.InvalidParameterException: <p>This exception is thrown when the Amazon Cognito service encounters an invalid parameter.</p>
+            aws_sdk_cognito_identity_provider.errors.not_authorized_exception.NotAuthorizedException: <p>This exception is thrown when a user isn't authorized.</p>
+            aws_sdk_cognito_identity_provider.errors.operation_not_enabled_exception.OperationNotEnabledException: <p>This exception is thrown when an operation is not available in the current region or for the current user pool configuration. This can occur when attempting to perform operations that are not supported in secondary replica regions.</p>
+            aws_sdk_cognito_identity_provider.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when the Amazon Cognito service can't find the requested resource.</p>
+            aws_sdk_cognito_identity_provider.errors.too_many_requests_exception.TooManyRequestsException: <p>This exception is thrown when the user has made too many requests for a given operation.</p>
+            aws_sdk_cognito_identity_provider.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5638,6 +6740,17 @@ class AsyncCognitoIdentityProviderClient:
             access_token: <p>A valid access token that Amazon Cognito issued to the currently signed-in user. Must include a scope claim for <code>aws.cognito.signin.user.admin</code>.</p>
             next_token: <p>This API operation returns a limited number of results. The pagination token is an identifier that you can present in an additional API request with the same parameters. When you include the pagination token, Amazon Cognito returns the next set of items after the current list. Subsequent requests return a new pagination token. By use of this token, you can paginate through the full list of items.</p>
             max_results: <p>The maximum number of the user's passkey credentials that you want to return.</p>
+
+        Raises:
+            aws_sdk_cognito_identity_provider.errors.forbidden_exception.ForbiddenException: <p>This exception is thrown when WAF doesn't allow your request based on a web ACL that's associated with your user pool.</p>
+            aws_sdk_cognito_identity_provider.errors.internal_error_exception.InternalErrorException: <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_parameter_exception.InvalidParameterException: <p>This exception is thrown when the Amazon Cognito service encounters an invalid parameter.</p>
+            aws_sdk_cognito_identity_provider.errors.limit_exceeded_exception.LimitExceededException: <p>This exception is thrown when a user exceeds the limit for a requested Amazon Web Services resource.</p>
+            aws_sdk_cognito_identity_provider.errors.not_authorized_exception.NotAuthorizedException: <p>This exception is thrown when a user isn't authorized.</p>
+            aws_sdk_cognito_identity_provider.errors.operation_not_enabled_exception.OperationNotEnabledException: <p>This exception is thrown when an operation is not available in the current region or for the current user pool configuration. This can occur when attempting to perform operations that are not supported in secondary replica regions.</p>
+            aws_sdk_cognito_identity_provider.errors.password_reset_required_exception.PasswordResetRequiredException: <p>This exception is thrown when a password reset is required.</p>
+            aws_sdk_cognito_identity_provider.errors.too_many_requests_exception.TooManyRequestsException: <p>This exception is thrown when the user has made too many requests for a given operation.</p>
+            aws_sdk_cognito_identity_provider.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5698,6 +6811,25 @@ class AsyncCognitoIdentityProviderClient:
             username: <p>The name of the user that you want to query or modify. The value of this parameter is typically your user's username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in your user pool, this value must be the <code>sub</code> of a local user or the username of a user from a third-party IdP.</p>
             analytics_metadata: <p>Information that supports analytics outcomes with Amazon Pinpoint, including the user's endpoint ID. The endpoint ID is a destination for Amazon Pinpoint push notifications, for example a device identifier, email address, or phone number.</p>
             client_metadata: <p>A map of custom key-value pairs that you can provide as input for any custom workflows that this action triggers. You create custom workflows by assigning Lambda functions to user pool triggers.</p> <p>When Amazon Cognito invokes any of these functions, it passes a JSON payload, which the function receives as input. This payload contains a <code>clientMetadata</code> attribute that provides the data that you assigned to the ClientMetadata parameter in your request. In your function code, you can process the <code>clientMetadata</code> value to enhance your workflow for your specific needs.</p> <p>To review the Lambda trigger types that Amazon Cognito invokes at runtime with API requests, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-working-with-lambda-triggers.html#lambda-triggers-by-event\"> Connecting API actions to Lambda triggers</a> in the <i>Amazon Cognito Developer Guide</i>.</p> <note> <p>When you use the <code>ClientMetadata</code> parameter, note that Amazon Cognito won't do the following:</p> <ul> <li> <p>Store the <code>ClientMetadata</code> value. This data is available only to Lambda triggers that are assigned to a user pool to support custom workflows. If your user pool configuration doesn't include triggers, the <code>ClientMetadata</code> parameter serves no purpose.</p> </li> <li> <p>Validate the <code>ClientMetadata</code> value.</p> </li> <li> <p>Encrypt the <code>ClientMetadata</code> value. Don't send sensitive information in this parameter.</p> </li> </ul> </note>
+
+        Raises:
+            aws_sdk_cognito_identity_provider.errors.code_delivery_failure_exception.CodeDeliveryFailureException: <p>This exception is thrown when a verification code fails to deliver successfully.</p>
+            aws_sdk_cognito_identity_provider.errors.forbidden_exception.ForbiddenException: <p>This exception is thrown when WAF doesn't allow your request based on a web ACL that's associated with your user pool.</p>
+            aws_sdk_cognito_identity_provider.errors.internal_error_exception.InternalErrorException: <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_email_role_access_policy_exception.InvalidEmailRoleAccessPolicyException: <p>This exception is thrown when Amazon Cognito isn't allowed to use your email identity. HTTP status code: 400.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_lambda_response_exception.InvalidLambdaResponseException: <p>This exception is thrown when Amazon Cognito encounters an invalid Lambda response.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_parameter_exception.InvalidParameterException: <p>This exception is thrown when the Amazon Cognito service encounters an invalid parameter.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_sms_role_access_policy_exception.InvalidSmsRoleAccessPolicyException: <p>This exception is returned when the role provided for SMS configuration doesn't have permission to publish using Amazon SNS.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_sms_role_trust_relationship_exception.InvalidSmsRoleTrustRelationshipException: <p>This exception is thrown when the trust relationship is not valid for the role provided for SMS configuration. This can happen if you don't trust <code>cognito-idp.amazonaws.com</code> or the external ID provided in the role does not match what is provided in the SMS configuration for the user pool.</p>
+            aws_sdk_cognito_identity_provider.errors.limit_exceeded_exception.LimitExceededException: <p>This exception is thrown when a user exceeds the limit for a requested Amazon Web Services resource.</p>
+            aws_sdk_cognito_identity_provider.errors.not_authorized_exception.NotAuthorizedException: <p>This exception is thrown when a user isn't authorized.</p>
+            aws_sdk_cognito_identity_provider.errors.operation_not_enabled_exception.OperationNotEnabledException: <p>This exception is thrown when an operation is not available in the current region or for the current user pool configuration. This can occur when attempting to perform operations that are not supported in secondary replica regions.</p>
+            aws_sdk_cognito_identity_provider.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when the Amazon Cognito service can't find the requested resource.</p>
+            aws_sdk_cognito_identity_provider.errors.too_many_requests_exception.TooManyRequestsException: <p>This exception is thrown when the user has made too many requests for a given operation.</p>
+            aws_sdk_cognito_identity_provider.errors.unexpected_lambda_exception.UnexpectedLambdaException: <p>This exception is thrown when Amazon Cognito encounters an unexpected exception with Lambda.</p>
+            aws_sdk_cognito_identity_provider.errors.user_lambda_validation_exception.UserLambdaValidationException: <p>This exception is thrown when the Amazon Cognito service encounters a user validation exception with the Lambda service.</p>
+            aws_sdk_cognito_identity_provider.errors.user_not_found_exception.UserNotFoundException: <p>This exception is thrown when a user isn't found.</p>
+            aws_sdk_cognito_identity_provider.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5767,6 +6899,33 @@ class AsyncCognitoIdentityProviderClient:
             analytics_metadata: <p>Information that supports analytics outcomes with Amazon Pinpoint, including the user's endpoint ID. The endpoint ID is a destination for Amazon Pinpoint push notifications, for example a device identifier, email address, or phone number.</p>
             user_context_data: <p>Contextual data about your user session like the device fingerprint, IP address, or location. Amazon Cognito threat protection evaluates the risk of an authentication event based on the context that your app generates and passes to Amazon Cognito when it makes API requests.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-viewing-threat-protection-app.html\">Collecting data for threat protection in applications</a>.</p>
             client_metadata: <p>A map of custom key-value pairs that you can provide as input for any custom workflows that this action triggers. You create custom workflows by assigning Lambda functions to user pool triggers.</p> <p>When Amazon Cognito invokes any of these functions, it passes a JSON payload, which the function receives as input. This payload contains a <code>clientMetadata</code> attribute that provides the data that you assigned to the ClientMetadata parameter in your request. In your function code, you can process the <code>clientMetadata</code> value to enhance your workflow for your specific needs.</p> <p>To review the Lambda trigger types that Amazon Cognito invokes at runtime with API requests, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-working-with-lambda-triggers.html#lambda-triggers-by-event\"> Connecting API actions to Lambda triggers</a> in the <i>Amazon Cognito Developer Guide</i>.</p> <note> <p>When you use the <code>ClientMetadata</code> parameter, note that Amazon Cognito won't do the following:</p> <ul> <li> <p>Store the <code>ClientMetadata</code> value. This data is available only to Lambda triggers that are assigned to a user pool to support custom workflows. If your user pool configuration doesn't include triggers, the <code>ClientMetadata</code> parameter serves no purpose.</p> </li> <li> <p>Validate the <code>ClientMetadata</code> value.</p> </li> <li> <p>Encrypt the <code>ClientMetadata</code> value. Don't send sensitive information in this parameter.</p> </li> </ul> </note>
+
+        Raises:
+            aws_sdk_cognito_identity_provider.errors.alias_exists_exception.AliasExistsException: <p>This exception is thrown when a user tries to confirm the account with an email address or phone number that has already been supplied as an alias for a different user profile. This exception indicates that an account with this email address or phone already exists in a user pool that you've configured to use email address or phone number as a sign-in alias.</p>
+            aws_sdk_cognito_identity_provider.errors.code_mismatch_exception.CodeMismatchException: <p>This exception is thrown if the provided code doesn't match what the server was expecting.</p>
+            aws_sdk_cognito_identity_provider.errors.expired_code_exception.ExpiredCodeException: <p>This exception is thrown if a code has expired.</p>
+            aws_sdk_cognito_identity_provider.errors.forbidden_exception.ForbiddenException: <p>This exception is thrown when WAF doesn't allow your request based on a web ACL that's associated with your user pool.</p>
+            aws_sdk_cognito_identity_provider.errors.internal_error_exception.InternalErrorException: <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_email_role_access_policy_exception.InvalidEmailRoleAccessPolicyException: <p>This exception is thrown when Amazon Cognito isn't allowed to use your email identity. HTTP status code: 400.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_lambda_response_exception.InvalidLambdaResponseException: <p>This exception is thrown when Amazon Cognito encounters an invalid Lambda response.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_parameter_exception.InvalidParameterException: <p>This exception is thrown when the Amazon Cognito service encounters an invalid parameter.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_password_exception.InvalidPasswordException: <p>This exception is thrown when Amazon Cognito encounters an invalid password.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_sms_role_access_policy_exception.InvalidSmsRoleAccessPolicyException: <p>This exception is returned when the role provided for SMS configuration doesn't have permission to publish using Amazon SNS.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_sms_role_trust_relationship_exception.InvalidSmsRoleTrustRelationshipException: <p>This exception is thrown when the trust relationship is not valid for the role provided for SMS configuration. This can happen if you don't trust <code>cognito-idp.amazonaws.com</code> or the external ID provided in the role does not match what is provided in the SMS configuration for the user pool.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_user_pool_configuration_exception.InvalidUserPoolConfigurationException: <p>This exception is thrown when the user pool configuration is not valid.</p>
+            aws_sdk_cognito_identity_provider.errors.mfa_method_not_found_exception.MFAMethodNotFoundException: <p>This exception is thrown when Amazon Cognito can't find a multi-factor authentication (MFA) method.</p>
+            aws_sdk_cognito_identity_provider.errors.not_authorized_exception.NotAuthorizedException: <p>This exception is thrown when a user isn't authorized.</p>
+            aws_sdk_cognito_identity_provider.errors.operation_not_enabled_exception.OperationNotEnabledException: <p>This exception is thrown when an operation is not available in the current region or for the current user pool configuration. This can occur when attempting to perform operations that are not supported in secondary replica regions.</p>
+            aws_sdk_cognito_identity_provider.errors.password_history_policy_violation_exception.PasswordHistoryPolicyViolationException: <p>The message returned when a user's new password matches a previous password and doesn't comply with the password-history policy.</p>
+            aws_sdk_cognito_identity_provider.errors.password_reset_required_exception.PasswordResetRequiredException: <p>This exception is thrown when a password reset is required.</p>
+            aws_sdk_cognito_identity_provider.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when the Amazon Cognito service can't find the requested resource.</p>
+            aws_sdk_cognito_identity_provider.errors.software_token_mfa_not_found_exception.SoftwareTokenMFANotFoundException: <p>This exception is thrown when the software token time-based one-time password (TOTP) multi-factor authentication (MFA) isn't activated for the user pool.</p>
+            aws_sdk_cognito_identity_provider.errors.too_many_requests_exception.TooManyRequestsException: <p>This exception is thrown when the user has made too many requests for a given operation.</p>
+            aws_sdk_cognito_identity_provider.errors.unexpected_lambda_exception.UnexpectedLambdaException: <p>This exception is thrown when Amazon Cognito encounters an unexpected exception with Lambda.</p>
+            aws_sdk_cognito_identity_provider.errors.user_lambda_validation_exception.UserLambdaValidationException: <p>This exception is thrown when the Amazon Cognito service encounters a user validation exception with the Lambda service.</p>
+            aws_sdk_cognito_identity_provider.errors.user_not_confirmed_exception.UserNotConfirmedException: <p>This exception is thrown when a user isn't confirmed successfully.</p>
+            aws_sdk_cognito_identity_provider.errors.user_not_found_exception.UserNotFoundException: <p>This exception is thrown when a user isn't found.</p>
+            aws_sdk_cognito_identity_provider.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5822,6 +6981,17 @@ class AsyncCognitoIdentityProviderClient:
             token: <p>The refresh token that you want to revoke.</p>
             client_id: <p>The ID of the app client where the token that you want to revoke was issued.</p>
             client_secret: <p>The client secret of the requested app client, if the client has a secret.</p>
+
+        Raises:
+            aws_sdk_cognito_identity_provider.errors.forbidden_exception.ForbiddenException: <p>This exception is thrown when WAF doesn't allow your request based on a web ACL that's associated with your user pool.</p>
+            aws_sdk_cognito_identity_provider.errors.internal_error_exception.InternalErrorException: <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_parameter_exception.InvalidParameterException: <p>This exception is thrown when the Amazon Cognito service encounters an invalid parameter.</p>
+            aws_sdk_cognito_identity_provider.errors.operation_not_enabled_exception.OperationNotEnabledException: <p>This exception is thrown when an operation is not available in the current region or for the current user pool configuration. This can occur when attempting to perform operations that are not supported in secondary replica regions.</p>
+            aws_sdk_cognito_identity_provider.errors.too_many_requests_exception.TooManyRequestsException: <p>This exception is thrown when the user has made too many requests for a given operation.</p>
+            aws_sdk_cognito_identity_provider.errors.unauthorized_exception.UnauthorizedException: <p>Exception that is thrown when the request isn't authorized. This can happen due to an invalid access token in the request.</p>
+            aws_sdk_cognito_identity_provider.errors.unsupported_operation_exception.UnsupportedOperationException: <p>Exception that is thrown when you attempt to perform an operation that isn't enabled for the user pool client.</p>
+            aws_sdk_cognito_identity_provider.errors.unsupported_token_type_exception.UnsupportedTokenTypeException: <p>Exception that is thrown when an unsupported token is passed to an operation.</p>
+            aws_sdk_cognito_identity_provider.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5865,6 +7035,15 @@ class AsyncCognitoIdentityProviderClient:
         Args:
             user_pool_id: <p>The ID of the user pool where you want to configure logging.</p>
             log_configurations: <p>A collection of the logging configurations for a user pool.</p>
+
+        Raises:
+            aws_sdk_cognito_identity_provider.errors.feature_unavailable_in_tier_exception.FeatureUnavailableInTierException: <p>This exception is thrown when a feature you attempted to configure isn't available in your current feature plan.</p>
+            aws_sdk_cognito_identity_provider.errors.internal_error_exception.InternalErrorException: <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_parameter_exception.InvalidParameterException: <p>This exception is thrown when the Amazon Cognito service encounters an invalid parameter.</p>
+            aws_sdk_cognito_identity_provider.errors.not_authorized_exception.NotAuthorizedException: <p>This exception is thrown when a user isn't authorized.</p>
+            aws_sdk_cognito_identity_provider.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when the Amazon Cognito service can't find the requested resource.</p>
+            aws_sdk_cognito_identity_provider.errors.too_many_requests_exception.TooManyRequestsException: <p>This exception is thrown when the user has made too many requests for a given operation.</p>
+            aws_sdk_cognito_identity_provider.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5920,6 +7099,18 @@ class AsyncCognitoIdentityProviderClient:
             compromised_credentials_risk_configuration: <p>The configuration of automated reactions to detected compromised credentials. Includes settings for blocking future sign-in requests and for the types of password-submission events you want to monitor.</p>
             account_takeover_risk_configuration: <p>The settings for automated responses and notification templates for adaptive authentication with threat protection.</p>
             risk_exception_configuration: <p>A set of IP-address overrides to threat protection. You can set up IP-address always-block and always-allow lists.</p>
+
+        Raises:
+            aws_sdk_cognito_identity_provider.errors.code_delivery_failure_exception.CodeDeliveryFailureException: <p>This exception is thrown when a verification code fails to deliver successfully.</p>
+            aws_sdk_cognito_identity_provider.errors.internal_error_exception.InternalErrorException: <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_email_role_access_policy_exception.InvalidEmailRoleAccessPolicyException: <p>This exception is thrown when Amazon Cognito isn't allowed to use your email identity. HTTP status code: 400.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_parameter_exception.InvalidParameterException: <p>This exception is thrown when the Amazon Cognito service encounters an invalid parameter.</p>
+            aws_sdk_cognito_identity_provider.errors.not_authorized_exception.NotAuthorizedException: <p>This exception is thrown when a user isn't authorized.</p>
+            aws_sdk_cognito_identity_provider.errors.operation_not_enabled_exception.OperationNotEnabledException: <p>This exception is thrown when an operation is not available in the current region or for the current user pool configuration. This can occur when attempting to perform operations that are not supported in secondary replica regions.</p>
+            aws_sdk_cognito_identity_provider.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when the Amazon Cognito service can't find the requested resource.</p>
+            aws_sdk_cognito_identity_provider.errors.too_many_requests_exception.TooManyRequestsException: <p>This exception is thrown when the user has made too many requests for a given operation.</p>
+            aws_sdk_cognito_identity_provider.errors.user_pool_add_on_not_enabled_exception.UserPoolAddOnNotEnabledException: <p>This exception is thrown when user pool add-ons aren't enabled.</p>
+            aws_sdk_cognito_identity_provider.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5982,6 +7173,15 @@ class AsyncCognitoIdentityProviderClient:
             client_id: <p>The ID of the app client that you want to customize. To apply a default style to all app clients not configured with client-level branding, set this parameter value to <code>ALL</code>.</p>
             css: <p>A plaintext CSS file that contains the custom fields that you want to apply to your user pool or app client. To download a template, go to the Amazon Cognito console. Navigate to your user pool <i>App clients</i> tab, select <i>Login pages</i>, edit <i>Hosted UI (classic) style</i>, and select the link to <code>CSS template.css</code>.</p>
             image_file: <p>The image that you want to set as your login in the classic hosted UI, as a Base64-formatted binary object.</p>
+
+        Raises:
+            aws_sdk_cognito_identity_provider.errors.internal_error_exception.InternalErrorException: <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_parameter_exception.InvalidParameterException: <p>This exception is thrown when the Amazon Cognito service encounters an invalid parameter.</p>
+            aws_sdk_cognito_identity_provider.errors.not_authorized_exception.NotAuthorizedException: <p>This exception is thrown when a user isn't authorized.</p>
+            aws_sdk_cognito_identity_provider.errors.operation_not_enabled_exception.OperationNotEnabledException: <p>This exception is thrown when an operation is not available in the current region or for the current user pool configuration. This can occur when attempting to perform operations that are not supported in secondary replica regions.</p>
+            aws_sdk_cognito_identity_provider.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when the Amazon Cognito service can't find the requested resource.</p>
+            aws_sdk_cognito_identity_provider.errors.too_many_requests_exception.TooManyRequestsException: <p>This exception is thrown when the user has made too many requests for a given operation.</p>
+            aws_sdk_cognito_identity_provider.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -6042,6 +7242,18 @@ class AsyncCognitoIdentityProviderClient:
             email_mfa_settings: <p>User preferences for email message MFA. Activates or deactivates email MFA and sets it as the preferred MFA method when multiple methods are available. To activate this setting, your user pool must be in the <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/feature-plans-features-essentials.html\"> Essentials tier</a> or higher.</p>
             web_authn_mfa_settings: <p>User preferences for passkey MFA. Activates or deactivates passkey MFA for the user. When activated, passkey authentication requires user verification, and passkey sign-in is available when MFA is required. To activate this setting, the <code>FactorConfiguration</code> of your user pool <code>WebAuthnConfiguration</code> must be <code>MULTI_FACTOR_WITH_USER_VERIFICATION</code>. To activate this setting, your user pool must be in the <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/feature-plans-features-essentials.html\"> Essentials tier</a> or higher.</p>
             access_token: <p>A valid access token that Amazon Cognito issued to the currently signed-in user. Must include a scope claim for <code>aws.cognito.signin.user.admin</code>.</p>
+
+        Raises:
+            aws_sdk_cognito_identity_provider.errors.forbidden_exception.ForbiddenException: <p>This exception is thrown when WAF doesn't allow your request based on a web ACL that's associated with your user pool.</p>
+            aws_sdk_cognito_identity_provider.errors.internal_error_exception.InternalErrorException: <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_parameter_exception.InvalidParameterException: <p>This exception is thrown when the Amazon Cognito service encounters an invalid parameter.</p>
+            aws_sdk_cognito_identity_provider.errors.not_authorized_exception.NotAuthorizedException: <p>This exception is thrown when a user isn't authorized.</p>
+            aws_sdk_cognito_identity_provider.errors.operation_not_enabled_exception.OperationNotEnabledException: <p>This exception is thrown when an operation is not available in the current region or for the current user pool configuration. This can occur when attempting to perform operations that are not supported in secondary replica regions.</p>
+            aws_sdk_cognito_identity_provider.errors.password_reset_required_exception.PasswordResetRequiredException: <p>This exception is thrown when a password reset is required.</p>
+            aws_sdk_cognito_identity_provider.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when the Amazon Cognito service can't find the requested resource.</p>
+            aws_sdk_cognito_identity_provider.errors.user_not_confirmed_exception.UserNotConfirmedException: <p>This exception is thrown when a user isn't confirmed successfully.</p>
+            aws_sdk_cognito_identity_provider.errors.user_not_found_exception.UserNotFoundException: <p>This exception is thrown when a user isn't found.</p>
+            aws_sdk_cognito_identity_provider.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -6108,6 +7320,19 @@ class AsyncCognitoIdentityProviderClient:
             email_mfa_configuration: <p>Sets configuration for user pool email message MFA and sign-in with one-time passwords (OTPs). Includes the subject and body of the email message template for sign-in and MFA messages. To activate this setting, your user pool must be in the <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/feature-plans-features-essentials.html\"> Essentials tier</a> or higher.</p>
             mfa_configuration: <p>Sets multi-factor authentication (MFA) to be on, off, or optional. When <code>ON</code>, all users must set up MFA before they can sign in. When <code>OPTIONAL</code>, your application must make a client-side determination of whether a user wants to register an MFA device. For user pools with adaptive authentication with threat protection, choose <code>OPTIONAL</code>.</p> <p>When <code>MfaConfiguration</code> is <code>OPTIONAL</code>, managed login doesn't automatically prompt users to set up MFA. Amazon Cognito generates MFA prompts in API responses and in managed login for users who have chosen and configured a preferred MFA factor.</p>
             web_authn_configuration: <p>The configuration of your user pool for passkey, or WebAuthn, authentication and registration. Includes relying-party configuration, user-verification requirements, and whether passkeys can satisfy MFA requirements.</p>
+
+        Raises:
+            aws_sdk_cognito_identity_provider.errors.concurrent_modification_exception.ConcurrentModificationException: <p>This exception is thrown if two or more modifications are happening concurrently.</p>
+            aws_sdk_cognito_identity_provider.errors.feature_unavailable_in_tier_exception.FeatureUnavailableInTierException: <p>This exception is thrown when a feature you attempted to configure isn't available in your current feature plan.</p>
+            aws_sdk_cognito_identity_provider.errors.internal_error_exception.InternalErrorException: <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_parameter_exception.InvalidParameterException: <p>This exception is thrown when the Amazon Cognito service encounters an invalid parameter.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_sms_role_access_policy_exception.InvalidSmsRoleAccessPolicyException: <p>This exception is returned when the role provided for SMS configuration doesn't have permission to publish using Amazon SNS.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_sms_role_trust_relationship_exception.InvalidSmsRoleTrustRelationshipException: <p>This exception is thrown when the trust relationship is not valid for the role provided for SMS configuration. This can happen if you don't trust <code>cognito-idp.amazonaws.com</code> or the external ID provided in the role does not match what is provided in the SMS configuration for the user pool.</p>
+            aws_sdk_cognito_identity_provider.errors.not_authorized_exception.NotAuthorizedException: <p>This exception is thrown when a user isn't authorized.</p>
+            aws_sdk_cognito_identity_provider.errors.operation_not_enabled_exception.OperationNotEnabledException: <p>This exception is thrown when an operation is not available in the current region or for the current user pool configuration. This can occur when attempting to perform operations that are not supported in secondary replica regions.</p>
+            aws_sdk_cognito_identity_provider.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when the Amazon Cognito service can't find the requested resource.</p>
+            aws_sdk_cognito_identity_provider.errors.too_many_requests_exception.TooManyRequestsException: <p>This exception is thrown when the user has made too many requests for a given operation.</p>
+            aws_sdk_cognito_identity_provider.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -6160,6 +7385,18 @@ class AsyncCognitoIdentityProviderClient:
         Args:
             access_token: <p>A valid access token that Amazon Cognito issued to the currently signed-in user. Must include a scope claim for <code>aws.cognito.signin.user.admin</code>.</p>
             mfa_options: <p>You can use this parameter only to set an SMS configuration that uses SMS for delivery.</p>
+
+        Raises:
+            aws_sdk_cognito_identity_provider.errors.forbidden_exception.ForbiddenException: <p>This exception is thrown when WAF doesn't allow your request based on a web ACL that's associated with your user pool.</p>
+            aws_sdk_cognito_identity_provider.errors.internal_error_exception.InternalErrorException: <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_parameter_exception.InvalidParameterException: <p>This exception is thrown when the Amazon Cognito service encounters an invalid parameter.</p>
+            aws_sdk_cognito_identity_provider.errors.not_authorized_exception.NotAuthorizedException: <p>This exception is thrown when a user isn't authorized.</p>
+            aws_sdk_cognito_identity_provider.errors.operation_not_enabled_exception.OperationNotEnabledException: <p>This exception is thrown when an operation is not available in the current region or for the current user pool configuration. This can occur when attempting to perform operations that are not supported in secondary replica regions.</p>
+            aws_sdk_cognito_identity_provider.errors.password_reset_required_exception.PasswordResetRequiredException: <p>This exception is thrown when a password reset is required.</p>
+            aws_sdk_cognito_identity_provider.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when the Amazon Cognito service can't find the requested resource.</p>
+            aws_sdk_cognito_identity_provider.errors.user_not_confirmed_exception.UserNotConfirmedException: <p>This exception is thrown when a user isn't confirmed successfully.</p>
+            aws_sdk_cognito_identity_provider.errors.user_not_found_exception.UserNotFoundException: <p>This exception is thrown when a user isn't found.</p>
+            aws_sdk_cognito_identity_provider.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -6229,6 +7466,26 @@ class AsyncCognitoIdentityProviderClient:
             analytics_metadata: <p>Information that supports analytics outcomes with Amazon Pinpoint, including the user's endpoint ID. The endpoint ID is a destination for Amazon Pinpoint push notifications, for example a device identifier, email address, or phone number.</p>
             user_context_data: <p>Contextual data about your user session like the device fingerprint, IP address, or location. Amazon Cognito threat protection evaluates the risk of an authentication event based on the context that your app generates and passes to Amazon Cognito when it makes API requests.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-viewing-threat-protection-app.html\">Collecting data for threat protection in applications</a>.</p>
             client_metadata: <p>A map of custom key-value pairs that you can provide as input for any custom workflows that this action triggers. You create custom workflows by assigning Lambda functions to user pool triggers.</p> <p>When Amazon Cognito invokes any of these functions, it passes a JSON payload, which the function receives as input. This payload contains a <code>clientMetadata</code> attribute that provides the data that you assigned to the ClientMetadata parameter in your request. In your function code, you can process the <code>clientMetadata</code> value to enhance your workflow for your specific needs.</p> <p>To review the Lambda trigger types that Amazon Cognito invokes at runtime with API requests, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-working-with-lambda-triggers.html#lambda-triggers-by-event\"> Connecting API actions to Lambda triggers</a> in the <i>Amazon Cognito Developer Guide</i>.</p> <note> <p>When you use the <code>ClientMetadata</code> parameter, note that Amazon Cognito won't do the following:</p> <ul> <li> <p>Store the <code>ClientMetadata</code> value. This data is available only to Lambda triggers that are assigned to a user pool to support custom workflows. If your user pool configuration doesn't include triggers, the <code>ClientMetadata</code> parameter serves no purpose.</p> </li> <li> <p>Validate the <code>ClientMetadata</code> value.</p> </li> <li> <p>Encrypt the <code>ClientMetadata</code> value. Don't send sensitive information in this parameter.</p> </li> </ul> </note>
+
+        Raises:
+            aws_sdk_cognito_identity_provider.errors.code_delivery_failure_exception.CodeDeliveryFailureException: <p>This exception is thrown when a verification code fails to deliver successfully.</p>
+            aws_sdk_cognito_identity_provider.errors.forbidden_exception.ForbiddenException: <p>This exception is thrown when WAF doesn't allow your request based on a web ACL that's associated with your user pool.</p>
+            aws_sdk_cognito_identity_provider.errors.internal_error_exception.InternalErrorException: <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_email_role_access_policy_exception.InvalidEmailRoleAccessPolicyException: <p>This exception is thrown when Amazon Cognito isn't allowed to use your email identity. HTTP status code: 400.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_lambda_response_exception.InvalidLambdaResponseException: <p>This exception is thrown when Amazon Cognito encounters an invalid Lambda response.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_parameter_exception.InvalidParameterException: <p>This exception is thrown when the Amazon Cognito service encounters an invalid parameter.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_password_exception.InvalidPasswordException: <p>This exception is thrown when Amazon Cognito encounters an invalid password.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_sms_role_access_policy_exception.InvalidSmsRoleAccessPolicyException: <p>This exception is returned when the role provided for SMS configuration doesn't have permission to publish using Amazon SNS.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_sms_role_trust_relationship_exception.InvalidSmsRoleTrustRelationshipException: <p>This exception is thrown when the trust relationship is not valid for the role provided for SMS configuration. This can happen if you don't trust <code>cognito-idp.amazonaws.com</code> or the external ID provided in the role does not match what is provided in the SMS configuration for the user pool.</p>
+            aws_sdk_cognito_identity_provider.errors.limit_exceeded_exception.LimitExceededException: <p>This exception is thrown when a user exceeds the limit for a requested Amazon Web Services resource.</p>
+            aws_sdk_cognito_identity_provider.errors.not_authorized_exception.NotAuthorizedException: <p>This exception is thrown when a user isn't authorized.</p>
+            aws_sdk_cognito_identity_provider.errors.operation_not_enabled_exception.OperationNotEnabledException: <p>This exception is thrown when an operation is not available in the current region or for the current user pool configuration. This can occur when attempting to perform operations that are not supported in secondary replica regions.</p>
+            aws_sdk_cognito_identity_provider.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when the Amazon Cognito service can't find the requested resource.</p>
+            aws_sdk_cognito_identity_provider.errors.too_many_requests_exception.TooManyRequestsException: <p>This exception is thrown when the user has made too many requests for a given operation.</p>
+            aws_sdk_cognito_identity_provider.errors.unexpected_lambda_exception.UnexpectedLambdaException: <p>This exception is thrown when Amazon Cognito encounters an unexpected exception with Lambda.</p>
+            aws_sdk_cognito_identity_provider.errors.user_lambda_validation_exception.UserLambdaValidationException: <p>This exception is thrown when the Amazon Cognito service encounters a user validation exception with the Lambda service.</p>
+            aws_sdk_cognito_identity_provider.errors.username_exists_exception.UsernameExistsException: <p>This exception is thrown when Amazon Cognito encounters a user name that already exists in the user pool.</p>
+            aws_sdk_cognito_identity_provider.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -6284,6 +7541,16 @@ class AsyncCognitoIdentityProviderClient:
         Args:
             user_pool_id: <p>The ID of the user pool that you want to start importing users into.</p>
             job_id: <p>The ID of a user import job that you previously created.</p>
+
+        Raises:
+            aws_sdk_cognito_identity_provider.errors.internal_error_exception.InternalErrorException: <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_parameter_exception.InvalidParameterException: <p>This exception is thrown when the Amazon Cognito service encounters an invalid parameter.</p>
+            aws_sdk_cognito_identity_provider.errors.not_authorized_exception.NotAuthorizedException: <p>This exception is thrown when a user isn't authorized.</p>
+            aws_sdk_cognito_identity_provider.errors.operation_not_enabled_exception.OperationNotEnabledException: <p>This exception is thrown when an operation is not available in the current region or for the current user pool configuration. This can occur when attempting to perform operations that are not supported in secondary replica regions.</p>
+            aws_sdk_cognito_identity_provider.errors.precondition_not_met_exception.PreconditionNotMetException: <p>This exception is thrown when a precondition is not met.</p>
+            aws_sdk_cognito_identity_provider.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when the Amazon Cognito service can't find the requested resource.</p>
+            aws_sdk_cognito_identity_provider.errors.too_many_requests_exception.TooManyRequestsException: <p>This exception is thrown when the user has made too many requests for a given operation.</p>
+            aws_sdk_cognito_identity_provider.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -6323,6 +7590,19 @@ class AsyncCognitoIdentityProviderClient:
 
         Args:
             access_token: <p>A valid access token that Amazon Cognito issued to the currently signed-in user. Must include a scope claim for <code>aws.cognito.signin.user.admin</code>.</p>
+
+        Raises:
+            aws_sdk_cognito_identity_provider.errors.forbidden_exception.ForbiddenException: <p>This exception is thrown when WAF doesn't allow your request based on a web ACL that's associated with your user pool.</p>
+            aws_sdk_cognito_identity_provider.errors.internal_error_exception.InternalErrorException: <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_parameter_exception.InvalidParameterException: <p>This exception is thrown when the Amazon Cognito service encounters an invalid parameter.</p>
+            aws_sdk_cognito_identity_provider.errors.limit_exceeded_exception.LimitExceededException: <p>This exception is thrown when a user exceeds the limit for a requested Amazon Web Services resource.</p>
+            aws_sdk_cognito_identity_provider.errors.not_authorized_exception.NotAuthorizedException: <p>This exception is thrown when a user isn't authorized.</p>
+            aws_sdk_cognito_identity_provider.errors.operation_not_enabled_exception.OperationNotEnabledException: <p>This exception is thrown when an operation is not available in the current region or for the current user pool configuration. This can occur when attempting to perform operations that are not supported in secondary replica regions.</p>
+            aws_sdk_cognito_identity_provider.errors.password_reset_required_exception.PasswordResetRequiredException: <p>This exception is thrown when a password reset is required.</p>
+            aws_sdk_cognito_identity_provider.errors.too_many_requests_exception.TooManyRequestsException: <p>This exception is thrown when the user has made too many requests for a given operation.</p>
+            aws_sdk_cognito_identity_provider.errors.web_authn_configuration_missing_exception.WebAuthnConfigurationMissingException: <p>This exception is thrown when a user pool doesn't have a configured relying party id or a user pool domain.</p>
+            aws_sdk_cognito_identity_provider.errors.web_authn_not_enabled_exception.WebAuthnNotEnabledException: <p>This exception is thrown when the passkey feature isn't enabled for the user pool.</p>
+            aws_sdk_cognito_identity_provider.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -6363,6 +7643,16 @@ class AsyncCognitoIdentityProviderClient:
         Args:
             user_pool_id: <p>The ID of the user pool that you want to stop.</p>
             job_id: <p>The ID of a running user import job.</p>
+
+        Raises:
+            aws_sdk_cognito_identity_provider.errors.internal_error_exception.InternalErrorException: <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_parameter_exception.InvalidParameterException: <p>This exception is thrown when the Amazon Cognito service encounters an invalid parameter.</p>
+            aws_sdk_cognito_identity_provider.errors.not_authorized_exception.NotAuthorizedException: <p>This exception is thrown when a user isn't authorized.</p>
+            aws_sdk_cognito_identity_provider.errors.operation_not_enabled_exception.OperationNotEnabledException: <p>This exception is thrown when an operation is not available in the current region or for the current user pool configuration. This can occur when attempting to perform operations that are not supported in secondary replica regions.</p>
+            aws_sdk_cognito_identity_provider.errors.precondition_not_met_exception.PreconditionNotMetException: <p>This exception is thrown when a precondition is not met.</p>
+            aws_sdk_cognito_identity_provider.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when the Amazon Cognito service can't find the requested resource.</p>
+            aws_sdk_cognito_identity_provider.errors.too_many_requests_exception.TooManyRequestsException: <p>This exception is thrown when the user has made too many requests for a given operation.</p>
+            aws_sdk_cognito_identity_provider.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -6404,6 +7694,15 @@ class AsyncCognitoIdentityProviderClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the user pool to assign the tags to.</p>
             tags: <p>An array of tag keys and values that you want to assign to the user pool.</p>
+
+        Raises:
+            aws_sdk_cognito_identity_provider.errors.internal_error_exception.InternalErrorException: <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_parameter_exception.InvalidParameterException: <p>This exception is thrown when the Amazon Cognito service encounters an invalid parameter.</p>
+            aws_sdk_cognito_identity_provider.errors.not_authorized_exception.NotAuthorizedException: <p>This exception is thrown when a user isn't authorized.</p>
+            aws_sdk_cognito_identity_provider.errors.operation_not_enabled_exception.OperationNotEnabledException: <p>This exception is thrown when an operation is not available in the current region or for the current user pool configuration. This can occur when attempting to perform operations that are not supported in secondary replica regions.</p>
+            aws_sdk_cognito_identity_provider.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when the Amazon Cognito service can't find the requested resource.</p>
+            aws_sdk_cognito_identity_provider.errors.too_many_requests_exception.TooManyRequestsException: <p>This exception is thrown when the user has made too many requests for a given operation.</p>
+            aws_sdk_cognito_identity_provider.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -6445,6 +7744,15 @@ class AsyncCognitoIdentityProviderClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the user pool that the tags are assigned to.</p>
             tag_keys: <p>An array of tag keys that you want to remove from the user pool.</p>
+
+        Raises:
+            aws_sdk_cognito_identity_provider.errors.internal_error_exception.InternalErrorException: <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_parameter_exception.InvalidParameterException: <p>This exception is thrown when the Amazon Cognito service encounters an invalid parameter.</p>
+            aws_sdk_cognito_identity_provider.errors.not_authorized_exception.NotAuthorizedException: <p>This exception is thrown when a user isn't authorized.</p>
+            aws_sdk_cognito_identity_provider.errors.operation_not_enabled_exception.OperationNotEnabledException: <p>This exception is thrown when an operation is not available in the current region or for the current user pool configuration. This can occur when attempting to perform operations that are not supported in secondary replica regions.</p>
+            aws_sdk_cognito_identity_provider.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when the Amazon Cognito service can't find the requested resource.</p>
+            aws_sdk_cognito_identity_provider.errors.too_many_requests_exception.TooManyRequestsException: <p>This exception is thrown when the user has made too many requests for a given operation.</p>
+            aws_sdk_cognito_identity_provider.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -6492,6 +7800,17 @@ class AsyncCognitoIdentityProviderClient:
             event_id: <p>The ID of the authentication event that you want to submit feedback for.</p>
             feedback_token: <p>The feedback token, an encrypted object generated by Amazon Cognito and passed to your user in the notification email message from the event.</p>
             feedback_value: <p>Your feedback to the authentication event. When you provide a <code>FeedbackValue</code> value of <code>valid</code>, you tell Amazon Cognito that you trust a user session where Amazon Cognito has evaluated some level of risk. When you provide a <code>FeedbackValue</code> value of <code>invalid</code>, you tell Amazon Cognito that you don't trust a user session, or you don't believe that Amazon Cognito evaluated a high-enough risk level.</p>
+
+        Raises:
+            aws_sdk_cognito_identity_provider.errors.internal_error_exception.InternalErrorException: <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_parameter_exception.InvalidParameterException: <p>This exception is thrown when the Amazon Cognito service encounters an invalid parameter.</p>
+            aws_sdk_cognito_identity_provider.errors.not_authorized_exception.NotAuthorizedException: <p>This exception is thrown when a user isn't authorized.</p>
+            aws_sdk_cognito_identity_provider.errors.operation_not_enabled_exception.OperationNotEnabledException: <p>This exception is thrown when an operation is not available in the current region or for the current user pool configuration. This can occur when attempting to perform operations that are not supported in secondary replica regions.</p>
+            aws_sdk_cognito_identity_provider.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when the Amazon Cognito service can't find the requested resource.</p>
+            aws_sdk_cognito_identity_provider.errors.too_many_requests_exception.TooManyRequestsException: <p>This exception is thrown when the user has made too many requests for a given operation.</p>
+            aws_sdk_cognito_identity_provider.errors.user_not_found_exception.UserNotFoundException: <p>This exception is thrown when a user isn't found.</p>
+            aws_sdk_cognito_identity_provider.errors.user_pool_add_on_not_enabled_exception.UserPoolAddOnNotEnabledException: <p>This exception is thrown when user pool add-ons aren't enabled.</p>
+            aws_sdk_cognito_identity_provider.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -6540,6 +7859,20 @@ class AsyncCognitoIdentityProviderClient:
             access_token: <p>A valid access token that Amazon Cognito issued to the currently signed-in user. Must include a scope claim for <code>aws.cognito.signin.user.admin</code>.</p>
             device_key: <p>The device key of the device you want to update, for example <code>us-west-2_a1b2c3d4-5678-90ab-cdef-EXAMPLE11111</code>.</p>
             device_remembered_status: <p>To enable device authentication with the specified device, set to <code>remembered</code>.To disable, set to <code>not_remembered</code>.</p>
+
+        Raises:
+            aws_sdk_cognito_identity_provider.errors.forbidden_exception.ForbiddenException: <p>This exception is thrown when WAF doesn't allow your request based on a web ACL that's associated with your user pool.</p>
+            aws_sdk_cognito_identity_provider.errors.internal_error_exception.InternalErrorException: <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_parameter_exception.InvalidParameterException: <p>This exception is thrown when the Amazon Cognito service encounters an invalid parameter.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_user_pool_configuration_exception.InvalidUserPoolConfigurationException: <p>This exception is thrown when the user pool configuration is not valid.</p>
+            aws_sdk_cognito_identity_provider.errors.not_authorized_exception.NotAuthorizedException: <p>This exception is thrown when a user isn't authorized.</p>
+            aws_sdk_cognito_identity_provider.errors.operation_not_enabled_exception.OperationNotEnabledException: <p>This exception is thrown when an operation is not available in the current region or for the current user pool configuration. This can occur when attempting to perform operations that are not supported in secondary replica regions.</p>
+            aws_sdk_cognito_identity_provider.errors.password_reset_required_exception.PasswordResetRequiredException: <p>This exception is thrown when a password reset is required.</p>
+            aws_sdk_cognito_identity_provider.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when the Amazon Cognito service can't find the requested resource.</p>
+            aws_sdk_cognito_identity_provider.errors.too_many_requests_exception.TooManyRequestsException: <p>This exception is thrown when the user has made too many requests for a given operation.</p>
+            aws_sdk_cognito_identity_provider.errors.user_not_confirmed_exception.UserNotConfirmedException: <p>This exception is thrown when a user isn't confirmed successfully.</p>
+            aws_sdk_cognito_identity_provider.errors.user_not_found_exception.UserNotFoundException: <p>This exception is thrown when a user isn't found.</p>
+            aws_sdk_cognito_identity_provider.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -6595,6 +7928,15 @@ class AsyncCognitoIdentityProviderClient:
             description: <p>A new description of the existing group.</p>
             role_arn: <p>The Amazon Resource Name (ARN) of an IAM role that you want to associate with the group. The role assignment contributes to the <code>cognito:roles</code> and <code>cognito:preferred_role</code> claims in group members' tokens.</p>
             precedence: <p>A non-negative integer value that specifies the precedence of this group relative to the other groups that a user can belong to in the user pool. Zero is the highest precedence value. Groups with lower <code>Precedence</code> values take precedence over groups with higher or null <code>Precedence</code> values. If a user belongs to two or more groups, it is the group with the lowest precedence value whose role ARN is given in the user's tokens for the <code>cognito:roles</code> and <code>cognito:preferred_role</code> claims.</p> <p>Two groups can have the same <code>Precedence</code> value. If this happens, neither group takes precedence over the other. If two groups with the same <code>Precedence</code> have the same role ARN, that role is used in the <code>cognito:preferred_role</code> claim in tokens for users in each group. If the two groups have different role ARNs, the <code>cognito:preferred_role</code> claim isn't set in users' tokens.</p> <p>The default <code>Precedence</code> value is null. The maximum <code>Precedence</code> value is <code>2^31-1</code>.</p>
+
+        Raises:
+            aws_sdk_cognito_identity_provider.errors.internal_error_exception.InternalErrorException: <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_parameter_exception.InvalidParameterException: <p>This exception is thrown when the Amazon Cognito service encounters an invalid parameter.</p>
+            aws_sdk_cognito_identity_provider.errors.not_authorized_exception.NotAuthorizedException: <p>This exception is thrown when a user isn't authorized.</p>
+            aws_sdk_cognito_identity_provider.errors.operation_not_enabled_exception.OperationNotEnabledException: <p>This exception is thrown when an operation is not available in the current region or for the current user pool configuration. This can occur when attempting to perform operations that are not supported in secondary replica regions.</p>
+            aws_sdk_cognito_identity_provider.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when the Amazon Cognito service can't find the requested resource.</p>
+            aws_sdk_cognito_identity_provider.errors.too_many_requests_exception.TooManyRequestsException: <p>This exception is thrown when the user has made too many requests for a given operation.</p>
+            aws_sdk_cognito_identity_provider.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -6654,6 +7996,16 @@ class AsyncCognitoIdentityProviderClient:
             provider_details: <p>The scopes, URLs, and identifiers for your external identity provider. The following examples describe the provider detail keys for each IdP type. These values and their schema are subject to change. Social IdP <code>authorize_scopes</code> values must match the values listed here.</p> <dl> <dt>OpenID Connect (OIDC)</dt> <dd> <p>Amazon Cognito accepts the following elements when it can't discover endpoint URLs from <code>oidc_issuer</code>: <code>attributes_url</code>, <code>authorize_url</code>, <code>jwks_uri</code>, <code>token_url</code>.</p> <p>Create or update request: <code>\"ProviderDetails\": { \"attributes_request_method\": \"GET\", \"attributes_url\": \"https://auth.example.com/userInfo\", \"authorize_scopes\": \"openid profile email\", \"authorize_url\": \"https://auth.example.com/authorize\", \"client_id\": \"1example23456789\", \"client_secret\": \"provider-app-client-secret\", \"jwks_uri\": \"https://auth.example.com/.well-known/jwks.json\", \"oidc_issuer\": \"https://auth.example.com\", \"token_url\": \"https://example.com/token\" }</code> </p> <p>Describe response: <code>\"ProviderDetails\": { \"attributes_request_method\": \"GET\", \"attributes_url\": \"https://auth.example.com/userInfo\", \"attributes_url_add_attributes\": \"false\", \"authorize_scopes\": \"openid profile email\", \"authorize_url\": \"https://auth.example.com/authorize\", \"client_id\": \"1example23456789\", \"client_secret\": \"provider-app-client-secret\", \"jwks_uri\": \"https://auth.example.com/.well-known/jwks.json\", \"oidc_issuer\": \"https://auth.example.com\", \"token_url\": \"https://example.com/token\" }</code> </p> </dd> <dt>SAML</dt> <dd> <p>Create or update request with Metadata URL: <code>\"ProviderDetails\": { \"IDPInit\": \"true\", \"IDPSignout\": \"true\", \"EncryptedResponses\" : \"true\", \"MetadataURL\": \"https://auth.example.com/sso/saml/metadata\", \"RequestSigningAlgorithm\": \"rsa-sha256\" }</code> </p> <p>Create or update request with Metadata file: <code>\"ProviderDetails\": { \"IDPInit\": \"true\", \"IDPSignout\": \"true\", \"EncryptedResponses\" : \"true\", \"MetadataFile\": \"[metadata XML]\", \"RequestSigningAlgorithm\": \"rsa-sha256\" }</code> </p> <p>The value of <code>MetadataFile</code> must be the plaintext metadata document with all quote (\") characters escaped by backslashes.</p> <p>Describe response: <code>\"ProviderDetails\": { \"IDPInit\": \"true\", \"IDPSignout\": \"true\", \"EncryptedResponses\" : \"true\", \"ActiveEncryptionCertificate\": \"[certificate]\", \"MetadataURL\": \"https://auth.example.com/sso/saml/metadata\", \"RequestSigningAlgorithm\": \"rsa-sha256\", \"SLORedirectBindingURI\": \"https://auth.example.com/slo/saml\", \"SSORedirectBindingURI\": \"https://auth.example.com/sso/saml\" }</code> </p> </dd> <dt>LoginWithAmazon</dt> <dd> <p>Create or update request: <code>\"ProviderDetails\": { \"authorize_scopes\": \"profile postal_code\", \"client_id\": \"amzn1.application-oa2-client.1example23456789\", \"client_secret\": \"provider-app-client-secret\"</code> </p> <p>Describe response: <code>\"ProviderDetails\": { \"attributes_url\": \"https://api.amazon.com/user/profile\", \"attributes_url_add_attributes\": \"false\", \"authorize_scopes\": \"profile postal_code\", \"authorize_url\": \"https://www.amazon.com/ap/oa\", \"client_id\": \"amzn1.application-oa2-client.1example23456789\", \"client_secret\": \"provider-app-client-secret\", \"token_request_method\": \"POST\", \"token_url\": \"https://api.amazon.com/auth/o2/token\" }</code> </p> </dd> <dt>Google</dt> <dd> <p>Create or update request: <code>\"ProviderDetails\": { \"authorize_scopes\": \"email profile openid\", \"client_id\": \"1example23456789.apps.googleusercontent.com\", \"client_secret\": \"provider-app-client-secret\" }</code> </p> <p>Describe response: <code>\"ProviderDetails\": { \"attributes_url\": \"https://people.googleapis.com/v1/people/me?personFields=\", \"attributes_url_add_attributes\": \"true\", \"authorize_scopes\": \"email profile openid\", \"authorize_url\": \"https://accounts.google.com/o/oauth2/v2/auth\", \"client_id\": \"1example23456789.apps.googleusercontent.com\", \"client_secret\": \"provider-app-client-secret\", \"oidc_issuer\": \"https://accounts.google.com\", \"token_request_method\": \"POST\", \"token_url\": \"https://www.googleapis.com/oauth2/v4/token\" }</code> </p> </dd> <dt>SignInWithApple</dt> <dd> <p>Create or update request: <code>\"ProviderDetails\": { \"authorize_scopes\": \"email name\", \"client_id\": \"com.example.cognito\", \"private_key\": \"1EXAMPLE\", \"key_id\": \"2EXAMPLE\", \"team_id\": \"3EXAMPLE\" }</code> </p> <p>Describe response: <code>\"ProviderDetails\": { \"attributes_url_add_attributes\": \"false\", \"authorize_scopes\": \"email name\", \"authorize_url\": \"https://appleid.apple.com/auth/authorize\", \"client_id\": \"com.example.cognito\", \"key_id\": \"1EXAMPLE\", \"oidc_issuer\": \"https://appleid.apple.com\", \"team_id\": \"2EXAMPLE\", \"token_request_method\": \"POST\", \"token_url\": \"https://appleid.apple.com/auth/token\" }</code> </p> </dd> <dt>Facebook</dt> <dd> <p>Create or update request: <code>\"ProviderDetails\": { \"api_version\": \"v17.0\", \"authorize_scopes\": \"public_profile, email\", \"client_id\": \"1example23456789\", \"client_secret\": \"provider-app-client-secret\" }</code> </p> <p>Describe response: <code>\"ProviderDetails\": { \"api_version\": \"v17.0\", \"attributes_url\": \"https://graph.facebook.com/v17.0/me?fields=\", \"attributes_url_add_attributes\": \"true\", \"authorize_scopes\": \"public_profile, email\", \"authorize_url\": \"https://www.facebook.com/v17.0/dialog/oauth\", \"client_id\": \"1example23456789\", \"client_secret\": \"provider-app-client-secret\", \"token_request_method\": \"GET\", \"token_url\": \"https://graph.facebook.com/v17.0/oauth/access_token\" }</code> </p> </dd> </dl>
             attribute_mapping: <p>A mapping of IdP attributes to standard and custom user pool attributes. Specify a user pool attribute as the key of the key-value pair, and the IdP attribute claim name as the value.</p>
             idp_identifiers: <p>An array of IdP identifiers, for example <code>\"IdPIdentifiers\": [ \"MyIdP\", \"MyIdP2\" ]</code>. Identifiers are friendly names that you can pass in the <code>idp_identifier</code> query parameter of requests to the <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/authorization-endpoint.html\">Authorize endpoint</a> to silently redirect to sign-in with the associated IdP. Identifiers in a domain format also enable the use of <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managing-saml-idp-naming.html\">email-address matching with SAML providers</a>. </p>
+
+        Raises:
+            aws_sdk_cognito_identity_provider.errors.concurrent_modification_exception.ConcurrentModificationException: <p>This exception is thrown if two or more modifications are happening concurrently.</p>
+            aws_sdk_cognito_identity_provider.errors.internal_error_exception.InternalErrorException: <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_parameter_exception.InvalidParameterException: <p>This exception is thrown when the Amazon Cognito service encounters an invalid parameter.</p>
+            aws_sdk_cognito_identity_provider.errors.not_authorized_exception.NotAuthorizedException: <p>This exception is thrown when a user isn't authorized.</p>
+            aws_sdk_cognito_identity_provider.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when the Amazon Cognito service can't find the requested resource.</p>
+            aws_sdk_cognito_identity_provider.errors.too_many_requests_exception.TooManyRequestsException: <p>This exception is thrown when the user has made too many requests for a given operation.</p>
+            aws_sdk_cognito_identity_provider.errors.unsupported_identity_provider_exception.UnsupportedIdentityProviderException: <p>This exception is thrown when the specified identifier isn't supported.</p>
+            aws_sdk_cognito_identity_provider.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -6717,6 +8069,16 @@ class AsyncCognitoIdentityProviderClient:
             use_cognito_provided_values: <p>When <code>true</code>, applies the default branding style options. This option reverts to default style options that are managed by Amazon Cognito. You can modify them later in the branding editor.</p> <p>When you specify <code>true</code> for this option, you must also omit values for <code>Settings</code> and <code>Assets</code> in the request.</p>
             settings: <p>A JSON file, encoded as a <code>Document</code> type, with the the settings that you want to apply to your style.</p> <p>The following components are not currently implemented and reserved for future use:</p> <ul> <li> <p> <code>signUp</code> </p> </li> <li> <p> <code>instructions</code> </p> </li> <li> <p> <code>sessionTimerDisplay</code> </p> </li> <li> <p> <code>languageSelector</code> (for localization, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managed-login.html#managed-login-localization\">Managed login localization)</a> </p> </li> </ul>
             assets: <p>An array of image files that you want to apply to roles like backgrounds, logos, and icons. Each object must also indicate whether it is for dark mode, light mode, or browser-adaptive mode.</p>
+
+        Raises:
+            aws_sdk_cognito_identity_provider.errors.concurrent_modification_exception.ConcurrentModificationException: <p>This exception is thrown if two or more modifications are happening concurrently.</p>
+            aws_sdk_cognito_identity_provider.errors.internal_error_exception.InternalErrorException: <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_parameter_exception.InvalidParameterException: <p>This exception is thrown when the Amazon Cognito service encounters an invalid parameter.</p>
+            aws_sdk_cognito_identity_provider.errors.not_authorized_exception.NotAuthorizedException: <p>This exception is thrown when a user isn't authorized.</p>
+            aws_sdk_cognito_identity_provider.errors.operation_not_enabled_exception.OperationNotEnabledException: <p>This exception is thrown when an operation is not available in the current region or for the current user pool configuration. This can occur when attempting to perform operations that are not supported in secondary replica regions.</p>
+            aws_sdk_cognito_identity_provider.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when the Amazon Cognito service can't find the requested resource.</p>
+            aws_sdk_cognito_identity_provider.errors.too_many_requests_exception.TooManyRequestsException: <p>This exception is thrown when the user has made too many requests for a given operation.</p>
+            aws_sdk_cognito_identity_provider.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -6772,6 +8134,15 @@ class AsyncCognitoIdentityProviderClient:
             identifier: <p>A unique resource server identifier for the resource server. The identifier can be an API friendly name like <code>solar-system-data</code>. You can also set an API URL like <code>https://solar-system-data-api.example.com</code> as your identifier.</p> <p>Amazon Cognito represents scopes in the access token in the format <code>$resource-server-identifier/$scope</code>. Longer scope-identifier strings increase the size of your access tokens.</p>
             name: <p>The updated name of the resource server.</p>
             scopes: <p>An array of updated custom scope names and descriptions that you want to associate with your resource server.</p>
+
+        Raises:
+            aws_sdk_cognito_identity_provider.errors.internal_error_exception.InternalErrorException: <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_parameter_exception.InvalidParameterException: <p>This exception is thrown when the Amazon Cognito service encounters an invalid parameter.</p>
+            aws_sdk_cognito_identity_provider.errors.not_authorized_exception.NotAuthorizedException: <p>This exception is thrown when a user isn't authorized.</p>
+            aws_sdk_cognito_identity_provider.errors.operation_not_enabled_exception.OperationNotEnabledException: <p>This exception is thrown when an operation is not available in the current region or for the current user pool configuration. This can occur when attempting to perform operations that are not supported in secondary replica regions.</p>
+            aws_sdk_cognito_identity_provider.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when the Amazon Cognito service can't find the requested resource.</p>
+            aws_sdk_cognito_identity_provider.errors.too_many_requests_exception.TooManyRequestsException: <p>This exception is thrown when the user has made too many requests for a given operation.</p>
+            aws_sdk_cognito_identity_provider.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -6832,6 +8203,17 @@ class AsyncCognitoIdentityProviderClient:
             terms_source: <p>This parameter is reserved for future use and currently accepts only one value.</p>
             enforcement: <p>This parameter is reserved for future use and currently accepts only one value.</p>
             links: <p>A map of URLs to languages. For each localized language that will view the requested <code>TermsName</code>, assign a URL. A selection of <code>cognito:default</code> displays for all languages that don't have a language-specific URL.</p> <p>For example, <code>\"cognito:default\": \"https://terms.example.com\", \"cognito:spanish\": \"https://terms.example.com/es\"</code>.</p>
+
+        Raises:
+            aws_sdk_cognito_identity_provider.errors.concurrent_modification_exception.ConcurrentModificationException: <p>This exception is thrown if two or more modifications are happening concurrently.</p>
+            aws_sdk_cognito_identity_provider.errors.internal_error_exception.InternalErrorException: <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_parameter_exception.InvalidParameterException: <p>This exception is thrown when the Amazon Cognito service encounters an invalid parameter.</p>
+            aws_sdk_cognito_identity_provider.errors.not_authorized_exception.NotAuthorizedException: <p>This exception is thrown when a user isn't authorized.</p>
+            aws_sdk_cognito_identity_provider.errors.operation_not_enabled_exception.OperationNotEnabledException: <p>This exception is thrown when an operation is not available in the current region or for the current user pool configuration. This can occur when attempting to perform operations that are not supported in secondary replica regions.</p>
+            aws_sdk_cognito_identity_provider.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when the Amazon Cognito service can't find the requested resource.</p>
+            aws_sdk_cognito_identity_provider.errors.terms_exists_exception.TermsExistsException: <p>Terms document names must be unique to the app client. This exception is thrown when you attempt to create terms documents with a duplicate <code>TermsName</code>.</p>
+            aws_sdk_cognito_identity_provider.errors.too_many_requests_exception.TooManyRequestsException: <p>This exception is thrown when the user has made too many requests for a given operation.</p>
+            aws_sdk_cognito_identity_provider.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -6885,6 +8267,29 @@ class AsyncCognitoIdentityProviderClient:
             user_attributes: <p>An array of name-value pairs representing user attributes.</p> <p>For custom attributes, you must add a <code>custom:</code> prefix to the attribute name.</p> <p>If you have set an attribute to require verification before Amazon Cognito updates its value, this request doesn’t immediately update the value of that attribute. After your user receives and responds to a verification message to verify the new value, Amazon Cognito updates the attribute value. Your user can sign in and receive messages with the original attribute value until they verify the new value.</p>
             access_token: <p>A valid access token that Amazon Cognito issued to the currently signed-in user. Must include a scope claim for <code>aws.cognito.signin.user.admin</code>.</p>
             client_metadata: <p>A map of custom key-value pairs that you can provide as input for any custom workflows that this action triggers. You create custom workflows by assigning Lambda functions to user pool triggers.</p> <p>When Amazon Cognito invokes any of these functions, it passes a JSON payload, which the function receives as input. This payload contains a <code>clientMetadata</code> attribute that provides the data that you assigned to the ClientMetadata parameter in your request. In your function code, you can process the <code>clientMetadata</code> value to enhance your workflow for your specific needs.</p> <p>To review the Lambda trigger types that Amazon Cognito invokes at runtime with API requests, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-working-with-lambda-triggers.html#lambda-triggers-by-event\"> Connecting API actions to Lambda triggers</a> in the <i>Amazon Cognito Developer Guide</i>.</p> <note> <p>When you use the <code>ClientMetadata</code> parameter, note that Amazon Cognito won't do the following:</p> <ul> <li> <p>Store the <code>ClientMetadata</code> value. This data is available only to Lambda triggers that are assigned to a user pool to support custom workflows. If your user pool configuration doesn't include triggers, the <code>ClientMetadata</code> parameter serves no purpose.</p> </li> <li> <p>Validate the <code>ClientMetadata</code> value.</p> </li> <li> <p>Encrypt the <code>ClientMetadata</code> value. Don't send sensitive information in this parameter.</p> </li> </ul> </note>
+
+        Raises:
+            aws_sdk_cognito_identity_provider.errors.alias_exists_exception.AliasExistsException: <p>This exception is thrown when a user tries to confirm the account with an email address or phone number that has already been supplied as an alias for a different user profile. This exception indicates that an account with this email address or phone already exists in a user pool that you've configured to use email address or phone number as a sign-in alias.</p>
+            aws_sdk_cognito_identity_provider.errors.code_delivery_failure_exception.CodeDeliveryFailureException: <p>This exception is thrown when a verification code fails to deliver successfully.</p>
+            aws_sdk_cognito_identity_provider.errors.code_mismatch_exception.CodeMismatchException: <p>This exception is thrown if the provided code doesn't match what the server was expecting.</p>
+            aws_sdk_cognito_identity_provider.errors.expired_code_exception.ExpiredCodeException: <p>This exception is thrown if a code has expired.</p>
+            aws_sdk_cognito_identity_provider.errors.forbidden_exception.ForbiddenException: <p>This exception is thrown when WAF doesn't allow your request based on a web ACL that's associated with your user pool.</p>
+            aws_sdk_cognito_identity_provider.errors.internal_error_exception.InternalErrorException: <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_email_role_access_policy_exception.InvalidEmailRoleAccessPolicyException: <p>This exception is thrown when Amazon Cognito isn't allowed to use your email identity. HTTP status code: 400.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_lambda_response_exception.InvalidLambdaResponseException: <p>This exception is thrown when Amazon Cognito encounters an invalid Lambda response.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_parameter_exception.InvalidParameterException: <p>This exception is thrown when the Amazon Cognito service encounters an invalid parameter.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_sms_role_access_policy_exception.InvalidSmsRoleAccessPolicyException: <p>This exception is returned when the role provided for SMS configuration doesn't have permission to publish using Amazon SNS.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_sms_role_trust_relationship_exception.InvalidSmsRoleTrustRelationshipException: <p>This exception is thrown when the trust relationship is not valid for the role provided for SMS configuration. This can happen if you don't trust <code>cognito-idp.amazonaws.com</code> or the external ID provided in the role does not match what is provided in the SMS configuration for the user pool.</p>
+            aws_sdk_cognito_identity_provider.errors.not_authorized_exception.NotAuthorizedException: <p>This exception is thrown when a user isn't authorized.</p>
+            aws_sdk_cognito_identity_provider.errors.operation_not_enabled_exception.OperationNotEnabledException: <p>This exception is thrown when an operation is not available in the current region or for the current user pool configuration. This can occur when attempting to perform operations that are not supported in secondary replica regions.</p>
+            aws_sdk_cognito_identity_provider.errors.password_reset_required_exception.PasswordResetRequiredException: <p>This exception is thrown when a password reset is required.</p>
+            aws_sdk_cognito_identity_provider.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when the Amazon Cognito service can't find the requested resource.</p>
+            aws_sdk_cognito_identity_provider.errors.too_many_requests_exception.TooManyRequestsException: <p>This exception is thrown when the user has made too many requests for a given operation.</p>
+            aws_sdk_cognito_identity_provider.errors.unexpected_lambda_exception.UnexpectedLambdaException: <p>This exception is thrown when Amazon Cognito encounters an unexpected exception with Lambda.</p>
+            aws_sdk_cognito_identity_provider.errors.user_lambda_validation_exception.UserLambdaValidationException: <p>This exception is thrown when the Amazon Cognito service encounters a user validation exception with the Lambda service.</p>
+            aws_sdk_cognito_identity_provider.errors.user_not_confirmed_exception.UserNotConfirmedException: <p>This exception is thrown when a user isn't confirmed successfully.</p>
+            aws_sdk_cognito_identity_provider.errors.user_not_found_exception.UserNotFoundException: <p>This exception is thrown when a user isn't found.</p>
+            aws_sdk_cognito_identity_provider.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -7014,6 +8419,23 @@ class AsyncCognitoIdentityProviderClient:
             user_pool_tier: <p>The user pool <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-sign-in-feature-plans.html\">feature plan</a>, or tier. This parameter determines the eligibility of the user pool for features like managed login, access-token customization, and threat protection. Defaults to <code>ESSENTIALS</code>.</p>
             key_configuration: <p>The key configuration for the user pool. In secondary regions, this parameter must match the existing configuration and cannot be modified.</p>
             issuer_configuration: <p>The issuer configuration for the user pool. In secondary regions, this parameter must match the existing configuration and cannot be modified.</p>
+
+        Raises:
+            aws_sdk_cognito_identity_provider.errors.concurrent_modification_exception.ConcurrentModificationException: <p>This exception is thrown if two or more modifications are happening concurrently.</p>
+            aws_sdk_cognito_identity_provider.errors.feature_unavailable_in_tier_exception.FeatureUnavailableInTierException: <p>This exception is thrown when a feature you attempted to configure isn't available in your current feature plan.</p>
+            aws_sdk_cognito_identity_provider.errors.internal_error_exception.InternalErrorException: <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_email_role_access_policy_exception.InvalidEmailRoleAccessPolicyException: <p>This exception is thrown when Amazon Cognito isn't allowed to use your email identity. HTTP status code: 400.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_parameter_exception.InvalidParameterException: <p>This exception is thrown when the Amazon Cognito service encounters an invalid parameter.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_sms_role_access_policy_exception.InvalidSmsRoleAccessPolicyException: <p>This exception is returned when the role provided for SMS configuration doesn't have permission to publish using Amazon SNS.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_sms_role_trust_relationship_exception.InvalidSmsRoleTrustRelationshipException: <p>This exception is thrown when the trust relationship is not valid for the role provided for SMS configuration. This can happen if you don't trust <code>cognito-idp.amazonaws.com</code> or the external ID provided in the role does not match what is provided in the SMS configuration for the user pool.</p>
+            aws_sdk_cognito_identity_provider.errors.not_authorized_exception.NotAuthorizedException: <p>This exception is thrown when a user isn't authorized.</p>
+            aws_sdk_cognito_identity_provider.errors.operation_not_enabled_exception.OperationNotEnabledException: <p>This exception is thrown when an operation is not available in the current region or for the current user pool configuration. This can occur when attempting to perform operations that are not supported in secondary replica regions.</p>
+            aws_sdk_cognito_identity_provider.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when the Amazon Cognito service can't find the requested resource.</p>
+            aws_sdk_cognito_identity_provider.errors.tier_change_not_allowed_exception.TierChangeNotAllowedException: <p>This exception is thrown when you've attempted to change your feature plan but the operation isn't permitted.</p>
+            aws_sdk_cognito_identity_provider.errors.too_many_requests_exception.TooManyRequestsException: <p>This exception is thrown when the user has made too many requests for a given operation.</p>
+            aws_sdk_cognito_identity_provider.errors.user_import_in_progress_exception.UserImportInProgressException: <p>This exception is thrown when you're trying to modify a user pool while a user import job is in progress for that pool.</p>
+            aws_sdk_cognito_identity_provider.errors.user_pool_tagging_exception.UserPoolTaggingException: <p>This exception is thrown when a user pool tag can't be set or updated.</p>
+            aws_sdk_cognito_identity_provider.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -7182,6 +8604,19 @@ class AsyncCognitoIdentityProviderClient:
             enable_propagate_additional_user_context_data: <p>When <code>true</code>, your application can include additional <code>UserContextData</code> in authentication requests. This data includes the IP address, and contributes to analysis by threat protection features. For more information about propagation of user context data, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-adaptive-authentication.html#user-pool-settings-adaptive-authentication-device-fingerprint\">Adding session data to API requests</a>. If you don’t include this parameter, you can't send the source IP address to Amazon Cognito threat protection features. You can only activate <code>EnablePropagateAdditionalUserContextData</code> in an app client that has a client secret.</p>
             auth_session_validity: <p>Amazon Cognito creates a session token for each API request in an authentication flow. <code>AuthSessionValidity</code> is the duration, in minutes, of that session token. Your user pool native user must respond to each authentication challenge before the session expires.</p>
             refresh_token_rotation: <p>The configuration of your app client for refresh token rotation. When enabled, your app client issues new ID, access, and refresh tokens when users renew their sessions with refresh tokens. When disabled, token refresh issues only ID and access tokens.</p>
+
+        Raises:
+            aws_sdk_cognito_identity_provider.errors.concurrent_modification_exception.ConcurrentModificationException: <p>This exception is thrown if two or more modifications are happening concurrently.</p>
+            aws_sdk_cognito_identity_provider.errors.feature_unavailable_in_tier_exception.FeatureUnavailableInTierException: <p>This exception is thrown when a feature you attempted to configure isn't available in your current feature plan.</p>
+            aws_sdk_cognito_identity_provider.errors.internal_error_exception.InternalErrorException: <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_o_auth_flow_exception.InvalidOAuthFlowException: <p>This exception is thrown when the specified OAuth flow is not valid.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_parameter_exception.InvalidParameterException: <p>This exception is thrown when the Amazon Cognito service encounters an invalid parameter.</p>
+            aws_sdk_cognito_identity_provider.errors.not_authorized_exception.NotAuthorizedException: <p>This exception is thrown when a user isn't authorized.</p>
+            aws_sdk_cognito_identity_provider.errors.operation_not_enabled_exception.OperationNotEnabledException: <p>This exception is thrown when an operation is not available in the current region or for the current user pool configuration. This can occur when attempting to perform operations that are not supported in secondary replica regions.</p>
+            aws_sdk_cognito_identity_provider.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when the Amazon Cognito service can't find the requested resource.</p>
+            aws_sdk_cognito_identity_provider.errors.scope_does_not_exist_exception.ScopeDoesNotExistException: <p>This exception is thrown when the specified scope doesn't exist.</p>
+            aws_sdk_cognito_identity_provider.errors.too_many_requests_exception.TooManyRequestsException: <p>This exception is thrown when the user has made too many requests for a given operation.</p>
+            aws_sdk_cognito_identity_provider.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -7281,6 +8716,17 @@ class AsyncCognitoIdentityProviderClient:
             managed_login_version: <p>A version number that indicates the state of managed login for your domain. Version <code>1</code> is hosted UI (classic). Version <code>2</code> is the newer managed login with the branding editor. For more information, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managed-login.html\">Managed login</a>.</p>
             custom_domain_config: <p>The configuration for a custom domain that hosts managed login for your application. In an <code>UpdateUserPoolDomain</code> request, this parameter specifies an SSL certificate for the managed login hosted webserver. The certificate must be an ACM ARN in <code>us-east-1</code>.</p> <p>When you create a custom domain, the passkey RP ID defaults to the custom domain. If you had a prefix domain active, this will cause passkey integration for your prefix domain to stop working due to a mismatch in RP ID. To keep the prefix domain passkey integration working, you can explicitly set RP ID to the prefix domain.</p>
             routing: <p>The routing configuration for the user pool domain. Specifies failover settings for multi-region deployments.</p>
+
+        Raises:
+            aws_sdk_cognito_identity_provider.errors.concurrent_modification_exception.ConcurrentModificationException: <p>This exception is thrown if two or more modifications are happening concurrently.</p>
+            aws_sdk_cognito_identity_provider.errors.feature_unavailable_in_tier_exception.FeatureUnavailableInTierException: <p>This exception is thrown when a feature you attempted to configure isn't available in your current feature plan.</p>
+            aws_sdk_cognito_identity_provider.errors.internal_error_exception.InternalErrorException: <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_parameter_exception.InvalidParameterException: <p>This exception is thrown when the Amazon Cognito service encounters an invalid parameter.</p>
+            aws_sdk_cognito_identity_provider.errors.not_authorized_exception.NotAuthorizedException: <p>This exception is thrown when a user isn't authorized.</p>
+            aws_sdk_cognito_identity_provider.errors.operation_not_enabled_exception.OperationNotEnabledException: <p>This exception is thrown when an operation is not available in the current region or for the current user pool configuration. This can occur when attempting to perform operations that are not supported in secondary replica regions.</p>
+            aws_sdk_cognito_identity_provider.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when the Amazon Cognito service can't find the requested resource.</p>
+            aws_sdk_cognito_identity_provider.errors.too_many_requests_exception.TooManyRequestsException: <p>This exception is thrown when the user has made too many requests for a given operation.</p>
+            aws_sdk_cognito_identity_provider.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -7330,6 +8776,15 @@ class AsyncCognitoIdentityProviderClient:
             user_pool_id: <p>The ID of the user pool that contains the replica to update.</p>
             region_name: <p>The Amazon Web Services Region of the replica to update.</p>
             status: <p>The status to set for the replica. Valid values are ACTIVE and INACTIVE.</p>
+
+        Raises:
+            aws_sdk_cognito_identity_provider.errors.internal_error_exception.InternalErrorException: <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_parameter_exception.InvalidParameterException: <p>This exception is thrown when the Amazon Cognito service encounters an invalid parameter.</p>
+            aws_sdk_cognito_identity_provider.errors.not_authorized_exception.NotAuthorizedException: <p>This exception is thrown when a user isn't authorized.</p>
+            aws_sdk_cognito_identity_provider.errors.operation_not_enabled_exception.OperationNotEnabledException: <p>This exception is thrown when an operation is not available in the current region or for the current user pool configuration. This can occur when attempting to perform operations that are not supported in secondary replica regions.</p>
+            aws_sdk_cognito_identity_provider.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when the Amazon Cognito service can't find the requested resource.</p>
+            aws_sdk_cognito_identity_provider.errors.too_many_requests_exception.TooManyRequestsException: <p>This exception is thrown when the user has made too many requests for a given operation.</p>
+            aws_sdk_cognito_identity_provider.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Example update a user pool replica
@@ -7388,6 +8843,23 @@ class AsyncCognitoIdentityProviderClient:
             session: <p>The session ID from an <code>AssociateSoftwareToken</code> request.</p>
             user_code: <p>A TOTP that the user generated in their configured authenticator app.</p>
             friendly_device_name: <p>A friendly name for the device that's running the TOTP authenticator.</p>
+
+        Raises:
+            aws_sdk_cognito_identity_provider.errors.code_mismatch_exception.CodeMismatchException: <p>This exception is thrown if the provided code doesn't match what the server was expecting.</p>
+            aws_sdk_cognito_identity_provider.errors.enable_software_token_mfa_exception.EnableSoftwareTokenMFAException: <p>This exception is thrown when there is a code mismatch and the service fails to configure the software token TOTP multi-factor authentication (MFA).</p>
+            aws_sdk_cognito_identity_provider.errors.forbidden_exception.ForbiddenException: <p>This exception is thrown when WAF doesn't allow your request based on a web ACL that's associated with your user pool.</p>
+            aws_sdk_cognito_identity_provider.errors.internal_error_exception.InternalErrorException: <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_parameter_exception.InvalidParameterException: <p>This exception is thrown when the Amazon Cognito service encounters an invalid parameter.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_user_pool_configuration_exception.InvalidUserPoolConfigurationException: <p>This exception is thrown when the user pool configuration is not valid.</p>
+            aws_sdk_cognito_identity_provider.errors.not_authorized_exception.NotAuthorizedException: <p>This exception is thrown when a user isn't authorized.</p>
+            aws_sdk_cognito_identity_provider.errors.operation_not_enabled_exception.OperationNotEnabledException: <p>This exception is thrown when an operation is not available in the current region or for the current user pool configuration. This can occur when attempting to perform operations that are not supported in secondary replica regions.</p>
+            aws_sdk_cognito_identity_provider.errors.password_reset_required_exception.PasswordResetRequiredException: <p>This exception is thrown when a password reset is required.</p>
+            aws_sdk_cognito_identity_provider.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when the Amazon Cognito service can't find the requested resource.</p>
+            aws_sdk_cognito_identity_provider.errors.software_token_mfa_not_found_exception.SoftwareTokenMFANotFoundException: <p>This exception is thrown when the software token time-based one-time password (TOTP) multi-factor authentication (MFA) isn't activated for the user pool.</p>
+            aws_sdk_cognito_identity_provider.errors.too_many_requests_exception.TooManyRequestsException: <p>This exception is thrown when the user has made too many requests for a given operation.</p>
+            aws_sdk_cognito_identity_provider.errors.user_not_confirmed_exception.UserNotConfirmedException: <p>This exception is thrown when a user isn't confirmed successfully.</p>
+            aws_sdk_cognito_identity_provider.errors.user_not_found_exception.UserNotFoundException: <p>This exception is thrown when a user isn't found.</p>
+            aws_sdk_cognito_identity_provider.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -7436,6 +8908,23 @@ class AsyncCognitoIdentityProviderClient:
             access_token: <p>A valid access token that Amazon Cognito issued to the currently signed-in user. Must include a scope claim for <code>aws.cognito.signin.user.admin</code>.</p>
             attribute_name: <p>The name of the attribute that you want to verify.</p>
             code: <p>The verification code that your user pool sent to the added or changed attribute, for example the user's email address.</p>
+
+        Raises:
+            aws_sdk_cognito_identity_provider.errors.alias_exists_exception.AliasExistsException: <p>This exception is thrown when a user tries to confirm the account with an email address or phone number that has already been supplied as an alias for a different user profile. This exception indicates that an account with this email address or phone already exists in a user pool that you've configured to use email address or phone number as a sign-in alias.</p>
+            aws_sdk_cognito_identity_provider.errors.code_mismatch_exception.CodeMismatchException: <p>This exception is thrown if the provided code doesn't match what the server was expecting.</p>
+            aws_sdk_cognito_identity_provider.errors.expired_code_exception.ExpiredCodeException: <p>This exception is thrown if a code has expired.</p>
+            aws_sdk_cognito_identity_provider.errors.forbidden_exception.ForbiddenException: <p>This exception is thrown when WAF doesn't allow your request based on a web ACL that's associated with your user pool.</p>
+            aws_sdk_cognito_identity_provider.errors.internal_error_exception.InternalErrorException: <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+            aws_sdk_cognito_identity_provider.errors.invalid_parameter_exception.InvalidParameterException: <p>This exception is thrown when the Amazon Cognito service encounters an invalid parameter.</p>
+            aws_sdk_cognito_identity_provider.errors.limit_exceeded_exception.LimitExceededException: <p>This exception is thrown when a user exceeds the limit for a requested Amazon Web Services resource.</p>
+            aws_sdk_cognito_identity_provider.errors.not_authorized_exception.NotAuthorizedException: <p>This exception is thrown when a user isn't authorized.</p>
+            aws_sdk_cognito_identity_provider.errors.operation_not_enabled_exception.OperationNotEnabledException: <p>This exception is thrown when an operation is not available in the current region or for the current user pool configuration. This can occur when attempting to perform operations that are not supported in secondary replica regions.</p>
+            aws_sdk_cognito_identity_provider.errors.password_reset_required_exception.PasswordResetRequiredException: <p>This exception is thrown when a password reset is required.</p>
+            aws_sdk_cognito_identity_provider.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when the Amazon Cognito service can't find the requested resource.</p>
+            aws_sdk_cognito_identity_provider.errors.too_many_requests_exception.TooManyRequestsException: <p>This exception is thrown when the user has made too many requests for a given operation.</p>
+            aws_sdk_cognito_identity_provider.errors.user_not_confirmed_exception.UserNotConfirmedException: <p>This exception is thrown when a user isn't confirmed successfully.</p>
+            aws_sdk_cognito_identity_provider.errors.user_not_found_exception.UserNotFoundException: <p>This exception is thrown when a user isn't found.</p>
+            aws_sdk_cognito_identity_provider.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

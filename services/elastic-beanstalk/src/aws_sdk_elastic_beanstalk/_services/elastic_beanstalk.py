@@ -272,6 +272,10 @@ class ElasticBeanstalkClient:
             environment_id: <p>This specifies the ID of the environment with the in-progress update that you want to cancel.</p>
             environment_name: <p>This specifies the name of the environment with the in-progress update that you want to cancel.</p>
 
+        Raises:
+            aws_sdk_elastic_beanstalk.errors.insufficient_privileges_exception.InsufficientPrivilegesException: <p>The specified account does not have sufficient privileges for one or more AWS services.</p>
+            aws_sdk_elastic_beanstalk.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To abort a deployment
             The following code aborts a running application version deployment for an environment named my-env:
@@ -323,6 +327,11 @@ class ElasticBeanstalkClient:
             environment_name: <p>The name of the target environment.</p>
             environment_id: <p>The environment ID of the target environment.</p>
             action_id: <p>The action ID of the scheduled managed action to execute.</p>
+
+        Raises:
+            aws_sdk_elastic_beanstalk.errors.elastic_beanstalk_service_exception.ElasticBeanstalkServiceException: <p>A generic service exception has occurred.</p>
+            aws_sdk_elastic_beanstalk.errors.managed_action_invalid_state_exception.ManagedActionInvalidStateException: <p>Cannot modify the managed action in its current state.</p>
+            aws_sdk_elastic_beanstalk.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -366,6 +375,10 @@ class ElasticBeanstalkClient:
         Args:
             environment_name: <p>The name of the environment to which to set the operations role.</p>
             operations_role: <p>The Amazon Resource Name (ARN) of an existing IAM role to be used as the environment's operations role.</p>
+
+        Raises:
+            aws_sdk_elastic_beanstalk.errors.insufficient_privileges_exception.InsufficientPrivilegesException: <p>The specified account does not have sufficient privileges for one or more AWS services.</p>
+            aws_sdk_elastic_beanstalk.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -402,6 +415,9 @@ class ElasticBeanstalkClient:
 
         Args:
             cname_prefix: <p>The prefix used when this CNAME is reserved.</p>
+
+        Raises:
+            aws_sdk_elastic_beanstalk.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To check the availability of a CNAME
@@ -455,6 +471,11 @@ class ElasticBeanstalkClient:
             application_name: <p>The name of the application to which the specified source bundles belong.</p>
             group_name: <p>The name of the group to which the target environments belong. Specify a group name only if the environment name defined in each target environment's manifest ends with a + (plus) character. See <a href=\"https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environment-cfg-manifest.html\">Environment Manifest (env.yaml)</a> for details.</p>
             version_labels: <p>A list of version labels, specifying one or more application source bundles that belong to the target application. Each source bundle must include an environment manifest that specifies the name of the environment and the name of the solution stack to use, and optionally can specify environment links to create.</p>
+
+        Raises:
+            aws_sdk_elastic_beanstalk.errors.insufficient_privileges_exception.InsufficientPrivilegesException: <p>The specified account does not have sufficient privileges for one or more AWS services.</p>
+            aws_sdk_elastic_beanstalk.errors.too_many_environments_exception.TooManyEnvironmentsException: <p>The specified account has reached its limit of environments.</p>
+            aws_sdk_elastic_beanstalk.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -507,6 +528,10 @@ class ElasticBeanstalkClient:
             description: <p>Your description of the application.</p>
             resource_lifecycle_config: <p>Specifies an application resource lifecycle configuration to prevent your application from accumulating too many versions.</p>
             tags: <p>Specifies the tags applied to the application.</p> <p>Elastic Beanstalk applies these tags only to the application. Environments that you create in the application don't inherit the tags.</p>
+
+        Raises:
+            aws_sdk_elastic_beanstalk.errors.too_many_applications_exception.TooManyApplicationsException: <p>The specified account has reached its limit of applications.</p>
+            aws_sdk_elastic_beanstalk.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To create a new application
@@ -584,6 +609,14 @@ class ElasticBeanstalkClient:
             auto_create_application: <p>Set to <code>true</code> to create an application with the specified name if it doesn't already exist.</p>
             process: <p>Pre-processes and validates the environment manifest (<code>env.yaml</code>) and configuration files (<code>*.config</code> files in the <code>.ebextensions</code> folder) in the source bundle. Validating configuration files can identify issues prior to deploying the application version to an environment.</p> <p>You must turn processing on for application versions that you create using AWS CodeBuild or AWS CodeCommit. For application versions built from a source bundle in Amazon S3, processing is optional.</p> <note> <p>The <code>Process</code> option validates Elastic Beanstalk configuration files. It doesn't validate your application's configuration files, like proxy server or Docker configuration.</p> </note>
             tags: <p>Specifies the tags applied to the application version.</p> <p>Elastic Beanstalk applies these tags only to the application version. Environments that use the application version don't inherit the tags.</p>
+
+        Raises:
+            aws_sdk_elastic_beanstalk.errors.code_build_not_in_service_region_exception.CodeBuildNotInServiceRegionException: <p>AWS CodeBuild is not available in the specified region.</p>
+            aws_sdk_elastic_beanstalk.errors.insufficient_privileges_exception.InsufficientPrivilegesException: <p>The specified account does not have sufficient privileges for one or more AWS services.</p>
+            aws_sdk_elastic_beanstalk.errors.s3_location_not_in_service_region_exception.S3LocationNotInServiceRegionException: <p>The specified S3 bucket does not belong to the S3 region in which the service is running. The following regions are supported:</p> <ul> <li> <p>IAD/us-east-1</p> </li> <li> <p>PDX/us-west-2</p> </li> <li> <p>DUB/eu-west-1</p> </li> </ul>
+            aws_sdk_elastic_beanstalk.errors.too_many_applications_exception.TooManyApplicationsException: <p>The specified account has reached its limit of applications.</p>
+            aws_sdk_elastic_beanstalk.errors.too_many_application_versions_exception.TooManyApplicationVersionsException: <p>The specified account has reached its limit of application versions.</p>
+            aws_sdk_elastic_beanstalk.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To create a new application
@@ -670,6 +703,12 @@ class ElasticBeanstalkClient:
             description: <p>An optional description for this configuration.</p>
             option_settings: <p>Option values for the Elastic Beanstalk configuration, such as the instance type. If specified, these values override the values obtained from the solution stack or the source configuration template. For a complete list of Elastic Beanstalk configuration options, see <a href=\"https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options.html\">Option Values</a> in the <i>AWS Elastic Beanstalk Developer Guide</i>.</p>
             tags: <p>Specifies the tags applied to the configuration template.</p>
+
+        Raises:
+            aws_sdk_elastic_beanstalk.errors.insufficient_privileges_exception.InsufficientPrivilegesException: <p>The specified account does not have sufficient privileges for one or more AWS services.</p>
+            aws_sdk_elastic_beanstalk.errors.too_many_buckets_exception.TooManyBucketsException: <p>The specified account has reached its limit of Amazon S3 buckets.</p>
+            aws_sdk_elastic_beanstalk.errors.too_many_configuration_templates_exception.TooManyConfigurationTemplatesException: <p>The specified account has reached its limit of configuration templates.</p>
+            aws_sdk_elastic_beanstalk.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To create a configuration template
@@ -781,6 +820,11 @@ class ElasticBeanstalkClient:
             options_to_remove: <p>A list of custom user-defined configuration options to remove from the configuration set for this new environment.</p>
             operations_role: <p>The Amazon Resource Name (ARN) of an existing IAM role to be used as the environment's operations role. If specified, Elastic Beanstalk uses the operations role for permissions to downstream services during this call and during subsequent calls acting on this environment. To specify an operations role, you must have the <code>iam:PassRole</code> permission for the role. For more information, see <a href=\"https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/iam-operationsrole.html\">Operations roles</a> in the <i>AWS Elastic Beanstalk Developer Guide</i>.</p>
 
+        Raises:
+            aws_sdk_elastic_beanstalk.errors.insufficient_privileges_exception.InsufficientPrivilegesException: <p>The specified account does not have sufficient privileges for one or more AWS services.</p>
+            aws_sdk_elastic_beanstalk.errors.too_many_environments_exception.TooManyEnvironmentsException: <p>The specified account has reached its limit of environments.</p>
+            aws_sdk_elastic_beanstalk.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To create a new environment for an application
             The following operation creates a new environment for version v1 of a java application named my-app:
@@ -863,6 +907,12 @@ class ElasticBeanstalkClient:
             environment_name: <p>The name of the builder environment.</p>
             option_settings: <p>The configuration option settings to apply to the builder environment.</p>
             tags: <p>Specifies the tags applied to the new platform version.</p> <p>Elastic Beanstalk applies these tags only to the platform version. Environments that you create using the platform version don't inherit the tags.</p>
+
+        Raises:
+            aws_sdk_elastic_beanstalk.errors.elastic_beanstalk_service_exception.ElasticBeanstalkServiceException: <p>A generic service exception has occurred.</p>
+            aws_sdk_elastic_beanstalk.errors.insufficient_privileges_exception.InsufficientPrivilegesException: <p>The specified account does not have sufficient privileges for one or more AWS services.</p>
+            aws_sdk_elastic_beanstalk.errors.too_many_platforms_exception.TooManyPlatformsException: <p>You have exceeded the maximum number of allowed platforms associated with the account.</p>
+            aws_sdk_elastic_beanstalk.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -902,6 +952,12 @@ class ElasticBeanstalkClient:
         self, *, config_overrides: Optional[ElasticBeanstalkClientConfig] = None
     ) -> "aws_sdk_elastic_beanstalk.types.create_storage_location_result_message.CreateStorageLocationResultMessage":
         """<p>Creates a bucket in Amazon S3 to store application versions, logs, and other files used by Elastic Beanstalk environments. The Elastic Beanstalk console and EB CLI call this API the first time you create an environment in a region. If the storage location already exists, <code>CreateStorageLocation</code> still returns the bucket name but does not create a new bucket.</p>
+
+        Raises:
+            aws_sdk_elastic_beanstalk.errors.insufficient_privileges_exception.InsufficientPrivilegesException: <p>The specified account does not have sufficient privileges for one or more AWS services.</p>
+            aws_sdk_elastic_beanstalk.errors.s3_subscription_required_exception.S3SubscriptionRequiredException: <p>The specified account does not have a subscription to Amazon S3.</p>
+            aws_sdk_elastic_beanstalk.errors.too_many_buckets_exception.TooManyBucketsException: <p>The specified account has reached its limit of Amazon S3 buckets.</p>
+            aws_sdk_elastic_beanstalk.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To create a new environment for an application
@@ -947,6 +1003,10 @@ class ElasticBeanstalkClient:
         Args:
             application_name: <p>The name of the application to delete.</p>
             terminate_env_by_force: <p>When set to true, running environments will be terminated before deleting the application.</p>
+
+        Raises:
+            aws_sdk_elastic_beanstalk.errors.operation_in_progress_exception.OperationInProgressException: <p>Unable to perform the specified operation because another operation that effects an element in this activity is already in progress.</p>
+            aws_sdk_elastic_beanstalk.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To delete an application
@@ -997,6 +1057,13 @@ class ElasticBeanstalkClient:
             version_label: <p>The label of the version to delete.</p>
             delete_source_bundle: <p>Set to <code>true</code> to delete the source bundle from your storage bucket. Otherwise, the application version is deleted only from Elastic Beanstalk and the source bundle remains in Amazon S3.</p>
 
+        Raises:
+            aws_sdk_elastic_beanstalk.errors.insufficient_privileges_exception.InsufficientPrivilegesException: <p>The specified account does not have sufficient privileges for one or more AWS services.</p>
+            aws_sdk_elastic_beanstalk.errors.operation_in_progress_exception.OperationInProgressException: <p>Unable to perform the specified operation because another operation that effects an element in this activity is already in progress.</p>
+            aws_sdk_elastic_beanstalk.errors.s3_location_not_in_service_region_exception.S3LocationNotInServiceRegionException: <p>The specified S3 bucket does not belong to the S3 region in which the service is running. The following regions are supported:</p> <ul> <li> <p>IAD/us-east-1</p> </li> <li> <p>PDX/us-west-2</p> </li> <li> <p>DUB/eu-west-1</p> </li> </ul>
+            aws_sdk_elastic_beanstalk.errors.source_bundle_deletion_exception.SourceBundleDeletionException: <p>Unable to delete the Amazon S3 source bundle associated with the application version. The application version was deleted successfully.</p>
+            aws_sdk_elastic_beanstalk.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To delete an application version
             The following operation deletes an application version named 22a0-stage-150819_182129 for an application named my-app:
@@ -1043,6 +1110,10 @@ class ElasticBeanstalkClient:
             application_name: <p>The name of the application to delete the configuration template from.</p>
             template_name: <p>The name of the configuration template to delete.</p>
 
+        Raises:
+            aws_sdk_elastic_beanstalk.errors.operation_in_progress_exception.OperationInProgressException: <p>Unable to perform the specified operation because another operation that effects an element in this activity is already in progress.</p>
+            aws_sdk_elastic_beanstalk.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To delete a configuration template
             The following operation deletes a configuration template named my-template for an application named my-app:
@@ -1087,6 +1158,9 @@ class ElasticBeanstalkClient:
             application_name: <p>The name of the application the environment is associated with.</p>
             environment_name: <p>The name of the environment to delete the draft configuration from.</p>
 
+        Raises:
+            aws_sdk_elastic_beanstalk.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To delete a draft configuration
             The following operation deletes a draft configuration for an environment named my-env:
@@ -1130,6 +1204,13 @@ class ElasticBeanstalkClient:
 
         Args:
             platform_arn: <p>The ARN of the version of the custom platform.</p>
+
+        Raises:
+            aws_sdk_elastic_beanstalk.errors.elastic_beanstalk_service_exception.ElasticBeanstalkServiceException: <p>A generic service exception has occurred.</p>
+            aws_sdk_elastic_beanstalk.errors.insufficient_privileges_exception.InsufficientPrivilegesException: <p>The specified account does not have sufficient privileges for one or more AWS services.</p>
+            aws_sdk_elastic_beanstalk.errors.operation_in_progress_exception.OperationInProgressException: <p>Unable to perform the specified operation because another operation that effects an element in this activity is already in progress.</p>
+            aws_sdk_elastic_beanstalk.errors.platform_version_still_referenced_exception.PlatformVersionStillReferencedException: <p>You cannot delete the platform version because there are still environments running on it.</p>
+            aws_sdk_elastic_beanstalk.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1161,7 +1242,12 @@ class ElasticBeanstalkClient:
     def describe_account_attributes(
         self, *, config_overrides: Optional[ElasticBeanstalkClientConfig] = None
     ) -> "aws_sdk_elastic_beanstalk.types.describe_account_attributes_result.DescribeAccountAttributesResult":
-        """<p>Returns attributes related to AWS Elastic Beanstalk that are associated with the calling AWS account.</p> <p>The result currently has one set of attributes—resource quotas.</p>"""
+        """<p>Returns attributes related to AWS Elastic Beanstalk that are associated with the calling AWS account.</p> <p>The result currently has one set of attributes—resource quotas.</p>
+
+        Raises:
+            aws_sdk_elastic_beanstalk.errors.insufficient_privileges_exception.InsufficientPrivilegesException: <p>The specified account does not have sufficient privileges for one or more AWS services.</p>
+            aws_sdk_elastic_beanstalk.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[None]",
@@ -1198,6 +1284,9 @@ class ElasticBeanstalkClient:
 
         Args:
             application_names: <p>If specified, AWS Elastic Beanstalk restricts the returned descriptions to only include those with the specified names.</p>
+
+        Raises:
+            aws_sdk_elastic_beanstalk.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To view a list of applications
@@ -1254,6 +1343,9 @@ class ElasticBeanstalkClient:
             version_labels: <p>Specify a version label to show a specific application version.</p>
             max_records: <p>For a paginated request. Specify a maximum number of application versions to include in each response.</p> <p>If no <code>MaxRecords</code> is specified, all available application versions are retrieved in a single response.</p>
             next_token: <p>For a paginated request. Specify a token from a previous response page to retrieve the next response page. All other parameter values must be identical to the ones specified in the initial request.</p> <p>If no <code>NextToken</code> is specified, the first page is retrieved.</p>
+
+        Raises:
+            aws_sdk_elastic_beanstalk.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To view information about an application version
@@ -1327,6 +1419,10 @@ class ElasticBeanstalkClient:
             platform_arn: <p>The ARN of the custom platform.</p>
             options: <p>If specified, restricts the descriptions to only the specified options.</p>
 
+        Raises:
+            aws_sdk_elastic_beanstalk.errors.too_many_buckets_exception.TooManyBucketsException: <p>The specified account has reached its limit of Amazon S3 buckets.</p>
+            aws_sdk_elastic_beanstalk.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To view configuration options for an environment
             The following operation retrieves descriptions of all available configuration options for an environment named my-env:
@@ -1389,6 +1485,10 @@ class ElasticBeanstalkClient:
             template_name: <p>The name of the configuration template to describe.</p> <p> Conditional: You must specify either this parameter or an EnvironmentName, but not both. If you specify both, AWS Elastic Beanstalk returns an <code>InvalidParameterCombination</code> error. If you do not specify either, AWS Elastic Beanstalk returns a <code>MissingRequiredParameter</code> error. </p>
             environment_name: <p>The name of the environment to describe.</p> <p> Condition: You must specify either this or a TemplateName, but not both. If you specify both, AWS Elastic Beanstalk returns an <code>InvalidParameterCombination</code> error. If you do not specify either, AWS Elastic Beanstalk returns <code>MissingRequiredParameter</code> error. </p>
 
+        Raises:
+            aws_sdk_elastic_beanstalk.errors.too_many_buckets_exception.TooManyBucketsException: <p>The specified account has reached its limit of Amazon S3 buckets.</p>
+            aws_sdk_elastic_beanstalk.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To view configurations settings for an environment
             The following operation retrieves configuration settings for an environment named my-env:
@@ -1445,6 +1545,11 @@ class ElasticBeanstalkClient:
             environment_name: <p>Specify the environment by name.</p> <p>You must specify either this or an EnvironmentName, or both.</p>
             environment_id: <p>Specify the environment by ID.</p> <p>You must specify either this or an EnvironmentName, or both.</p>
             attribute_names: <p>Specify the response elements to return. To retrieve all attributes, set to <code>All</code>. If no attribute names are specified, returns the name of the environment.</p>
+
+        Raises:
+            aws_sdk_elastic_beanstalk.errors.elastic_beanstalk_service_exception.ElasticBeanstalkServiceException: <p>A generic service exception has occurred.</p>
+            aws_sdk_elastic_beanstalk.errors.invalid_request_exception.InvalidRequestException: <p>One or more input parameters is not valid. Please correct the input parameters and try the operation again.</p>
+            aws_sdk_elastic_beanstalk.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To view environment health
@@ -1505,6 +1610,10 @@ class ElasticBeanstalkClient:
             environment_name: <p>The name of the target environment.</p>
             next_token: <p>The pagination token returned by a previous request.</p>
             max_items: <p>The maximum number of items to return for a single request.</p>
+
+        Raises:
+            aws_sdk_elastic_beanstalk.errors.elastic_beanstalk_service_exception.ElasticBeanstalkServiceException: <p>A generic service exception has occurred.</p>
+            aws_sdk_elastic_beanstalk.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1590,6 +1699,10 @@ class ElasticBeanstalkClient:
             environment_name: <p>The name of the target environment.</p>
             environment_id: <p>The environment ID of the target environment.</p>
             status: <p>To show only actions with a particular status, specify a status.</p>
+
+        Raises:
+            aws_sdk_elastic_beanstalk.errors.elastic_beanstalk_service_exception.ElasticBeanstalkServiceException: <p>A generic service exception has occurred.</p>
+            aws_sdk_elastic_beanstalk.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1638,6 +1751,10 @@ class ElasticBeanstalkClient:
         Args:
             environment_id: <p>The ID of the environment to retrieve AWS resource usage data.</p> <p> Condition: You must specify either this or an EnvironmentName, or both. If you do not specify either, AWS Elastic Beanstalk returns <code>MissingRequiredParameter</code> error. </p>
             environment_name: <p>The name of the environment to retrieve AWS resource usage data.</p> <p> Condition: You must specify either this or an EnvironmentId, or both. If you do not specify either, AWS Elastic Beanstalk returns <code>MissingRequiredParameter</code> error. </p>
+
+        Raises:
+            aws_sdk_elastic_beanstalk.errors.insufficient_privileges_exception.InsufficientPrivilegesException: <p>The specified account does not have sufficient privileges for one or more AWS services.</p>
+            aws_sdk_elastic_beanstalk.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To view information about the AWS resources in your environment
@@ -1712,6 +1829,9 @@ class ElasticBeanstalkClient:
             included_deleted_back_to: <p> If specified when <code>IncludeDeleted</code> is set to <code>true</code>, then environments deleted after this date are displayed. </p>
             max_records: <p>For a paginated request. Specify a maximum number of environments to include in each response.</p> <p>If no <code>MaxRecords</code> is specified, all available environments are retrieved in a single response.</p>
             next_token: <p>For a paginated request. Specify a token from a previous response page to retrieve the next response page. All other parameter values must be identical to the ones specified in the initial request.</p> <p>If no <code>NextToken</code> is specified, the first page is retrieved.</p>
+
+        Raises:
+            aws_sdk_elastic_beanstalk.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To view information about an environment
@@ -1814,6 +1934,9 @@ class ElasticBeanstalkClient:
             end_time: <p> If specified, AWS Elastic Beanstalk restricts the returned descriptions to those that occur up to, but not including, the <code>EndTime</code>. </p>
             max_records: <p>Specifies the maximum number of events that can be returned, beginning with the most recent event.</p>
             next_token: <p>Pagination token. If specified, the events return the next batch of results.</p>
+
+        Raises:
+            aws_sdk_elastic_beanstalk.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To view events for an environment
@@ -1958,6 +2081,11 @@ class ElasticBeanstalkClient:
             attribute_names: <p>Specifies the response elements you wish to receive. To retrieve all attributes, set to <code>All</code>. If no attribute names are specified, returns a list of instances.</p>
             next_token: <p>Specify the pagination token returned by a previous call.</p>
 
+        Raises:
+            aws_sdk_elastic_beanstalk.errors.elastic_beanstalk_service_exception.ElasticBeanstalkServiceException: <p>A generic service exception has occurred.</p>
+            aws_sdk_elastic_beanstalk.errors.invalid_request_exception.InvalidRequestException: <p>One or more input parameters is not valid. Please correct the input parameters and try the operation again.</p>
+            aws_sdk_elastic_beanstalk.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To view environment health
             The following operation retrieves health information for instances in an environment named my-env:
@@ -2009,6 +2137,11 @@ class ElasticBeanstalkClient:
 
         Args:
             platform_arn: <p>The ARN of the platform version.</p>
+
+        Raises:
+            aws_sdk_elastic_beanstalk.errors.elastic_beanstalk_service_exception.ElasticBeanstalkServiceException: <p>A generic service exception has occurred.</p>
+            aws_sdk_elastic_beanstalk.errors.insufficient_privileges_exception.InsufficientPrivilegesException: <p>The specified account does not have sufficient privileges for one or more AWS services.</p>
+            aws_sdk_elastic_beanstalk.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2047,6 +2180,10 @@ class ElasticBeanstalkClient:
 
         Args:
             environment_name: <p>The name of the environment from which to disassociate the operations role.</p>
+
+        Raises:
+            aws_sdk_elastic_beanstalk.errors.insufficient_privileges_exception.InsufficientPrivilegesException: <p>The specified account does not have sufficient privileges for one or more AWS services.</p>
+            aws_sdk_elastic_beanstalk.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2076,6 +2213,9 @@ class ElasticBeanstalkClient:
         self, *, config_overrides: Optional[ElasticBeanstalkClientConfig] = None
     ) -> "aws_sdk_elastic_beanstalk.types.list_available_solution_stacks_result_message.ListAvailableSolutionStacksResultMessage":
         """<p>Returns a list of the available solution stack names, with the public version first and then in reverse chronological order.</p>
+
+        Raises:
+            aws_sdk_elastic_beanstalk.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To view solution stacks
@@ -2125,6 +2265,9 @@ class ElasticBeanstalkClient:
             filters: <p>Criteria for restricting the resulting list of platform branches. The filter is evaluated as a logical conjunction (AND) of the separate <code>SearchFilter</code> terms.</p> <p>The following list shows valid attribute values for each of the <code>SearchFilter</code> terms. Most operators take a single value. The <code>in</code> and <code>not_in</code> operators can take multiple values.</p> <ul> <li> <p> <code>Attribute = BranchName</code>:</p> <ul> <li> <p> <code>Operator</code>: <code>=</code> | <code>!=</code> | <code>begins_with</code> | <code>ends_with</code> | <code>contains</code> | <code>in</code> | <code>not_in</code> </p> </li> </ul> </li> <li> <p> <code>Attribute = LifecycleState</code>:</p> <ul> <li> <p> <code>Operator</code>: <code>=</code> | <code>!=</code> | <code>in</code> | <code>not_in</code> </p> </li> <li> <p> <code>Values</code>: <code>beta</code> | <code>supported</code> | <code>deprecated</code> | <code>retired</code> </p> </li> </ul> </li> <li> <p> <code>Attribute = PlatformName</code>:</p> <ul> <li> <p> <code>Operator</code>: <code>=</code> | <code>!=</code> | <code>begins_with</code> | <code>ends_with</code> | <code>contains</code> | <code>in</code> | <code>not_in</code> </p> </li> </ul> </li> <li> <p> <code>Attribute = TierType</code>:</p> <ul> <li> <p> <code>Operator</code>: <code>=</code> | <code>!=</code> </p> </li> <li> <p> <code>Values</code>: <code>WebServer/Standard</code> | <code>Worker/SQS/HTTP</code> </p> </li> </ul> </li> </ul> <p>Array size: limited to 10 <code>SearchFilter</code> objects.</p> <p>Within each <code>SearchFilter</code> item, the <code>Values</code> array is limited to 10 items.</p>
             max_records: <p>The maximum number of platform branch values returned in one call.</p>
             next_token: <p>For a paginated request. Specify a token from a previous response page to retrieve the next response page. All other parameter values must be identical to the ones specified in the initial request.</p> <p>If no <code>NextToken</code> is specified, the first page is retrieved.</p>
+
+        Raises:
+            aws_sdk_elastic_beanstalk.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2175,6 +2318,11 @@ class ElasticBeanstalkClient:
             filters: <p>Criteria for restricting the resulting list of platform versions. The filter is interpreted as a logical conjunction (AND) of the separate <code>PlatformFilter</code> terms.</p>
             max_records: <p>The maximum number of platform version values returned in one call.</p>
             next_token: <p>For a paginated request. Specify a token from a previous response page to retrieve the next response page. All other parameter values must be identical to the ones specified in the initial request.</p> <p>If no <code>NextToken</code> is specified, the first page is retrieved.</p>
+
+        Raises:
+            aws_sdk_elastic_beanstalk.errors.elastic_beanstalk_service_exception.ElasticBeanstalkServiceException: <p>A generic service exception has occurred.</p>
+            aws_sdk_elastic_beanstalk.errors.insufficient_privileges_exception.InsufficientPrivilegesException: <p>The specified account does not have sufficient privileges for one or more AWS services.</p>
+            aws_sdk_elastic_beanstalk.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2244,6 +2392,12 @@ class ElasticBeanstalkClient:
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resouce for which a tag list is requested.</p> <p>Must be the ARN of an Elastic Beanstalk resource.</p>
+
+        Raises:
+            aws_sdk_elastic_beanstalk.errors.insufficient_privileges_exception.InsufficientPrivilegesException: <p>The specified account does not have sufficient privileges for one or more AWS services.</p>
+            aws_sdk_elastic_beanstalk.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource doesn't exist for the specified Amazon Resource Name (ARN).</p>
+            aws_sdk_elastic_beanstalk.errors.resource_type_not_supported_exception.ResourceTypeNotSupportedException: <p>The type of the specified Amazon Resource Name (ARN) isn't supported for this operation.</p>
+            aws_sdk_elastic_beanstalk.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2287,6 +2441,10 @@ class ElasticBeanstalkClient:
         Args:
             environment_id: <p>The ID of the environment to rebuild.</p> <p> Condition: You must specify either this or an EnvironmentName, or both. If you do not specify either, AWS Elastic Beanstalk returns <code>MissingRequiredParameter</code> error. </p>
             environment_name: <p>The name of the environment to rebuild.</p> <p> Condition: You must specify either this or an EnvironmentId, or both. If you do not specify either, AWS Elastic Beanstalk returns <code>MissingRequiredParameter</code> error. </p>
+
+        Raises:
+            aws_sdk_elastic_beanstalk.errors.insufficient_privileges_exception.InsufficientPrivilegesException: <p>The specified account does not have sufficient privileges for one or more AWS services.</p>
+            aws_sdk_elastic_beanstalk.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To rebuild an environment
@@ -2340,6 +2498,9 @@ class ElasticBeanstalkClient:
             environment_name: <p>The name of the environment of the requested data.</p> <p>If no such environment is found, <code>RequestEnvironmentInfo</code> returns an <code>InvalidParameterValue</code> error. </p> <p>Condition: You must specify either this or an EnvironmentId, or both. If you do not specify either, AWS Elastic Beanstalk returns <code>MissingRequiredParameter</code> error. </p>
             info_type: <p>The type of information to request.</p>
 
+        Raises:
+            aws_sdk_elastic_beanstalk.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To request tailed logs
             The following operation requests logs from an environment named my-env:
@@ -2390,6 +2551,9 @@ class ElasticBeanstalkClient:
         Args:
             environment_id: <p>The ID of the environment to restart the server for.</p> <p> Condition: You must specify either this or an EnvironmentName, or both. If you do not specify either, AWS Elastic Beanstalk returns <code>MissingRequiredParameter</code> error. </p>
             environment_name: <p>The name of the environment to restart the server for.</p> <p> Condition: You must specify either this or an EnvironmentId, or both. If you do not specify either, AWS Elastic Beanstalk returns <code>MissingRequiredParameter</code> error. </p>
+
+        Raises:
+            aws_sdk_elastic_beanstalk.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To restart application servers
@@ -2442,6 +2606,9 @@ class ElasticBeanstalkClient:
             environment_id: <p>The ID of the data's environment.</p> <p>If no such environment is found, returns an <code>InvalidParameterValue</code> error.</p> <p>Condition: You must specify either this or an EnvironmentName, or both. If you do not specify either, AWS Elastic Beanstalk returns <code>MissingRequiredParameter</code> error.</p>
             environment_name: <p>The name of the data's environment.</p> <p> If no such environment is found, returns an <code>InvalidParameterValue</code> error. </p> <p> Condition: You must specify either this or an EnvironmentId, or both. If you do not specify either, AWS Elastic Beanstalk returns <code>MissingRequiredParameter</code> error. </p>
             info_type: <p>The type of information to retrieve.</p>
+
+        Raises:
+            aws_sdk_elastic_beanstalk.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To retrieve tailed logs
@@ -2503,6 +2670,9 @@ class ElasticBeanstalkClient:
             source_environment_name: <p>The name of the source environment.</p> <p> Condition: You must specify at least the <code>SourceEnvironmentID</code> or the <code>SourceEnvironmentName</code>. You may also specify both. If you specify the <code>SourceEnvironmentName</code>, you must specify the <code>DestinationEnvironmentName</code>. </p>
             destination_environment_id: <p>The ID of the destination environment.</p> <p> Condition: You must specify at least the <code>DestinationEnvironmentID</code> or the <code>DestinationEnvironmentName</code>. You may also specify both. You must specify the <code>SourceEnvironmentId</code> with the <code>DestinationEnvironmentId</code>. </p>
             destination_environment_name: <p>The name of the destination environment.</p> <p> Condition: You must specify at least the <code>DestinationEnvironmentID</code> or the <code>DestinationEnvironmentName</code>. You may also specify both. You must specify the <code>SourceEnvironmentName</code> with the <code>DestinationEnvironmentName</code>. </p>
+
+        Raises:
+            aws_sdk_elastic_beanstalk.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To swap environment CNAMES
@@ -2568,6 +2738,10 @@ class ElasticBeanstalkClient:
             terminate_resources: <p>Indicates whether the associated AWS resources should shut down when the environment is terminated:</p> <ul> <li> <p> <code>true</code>: The specified environment as well as the associated AWS resources, such as Auto Scaling group and LoadBalancer, are terminated.</p> </li> <li> <p> <code>false</code>: AWS Elastic Beanstalk resource management is removed from the environment, but the AWS resources continue to operate.</p> </li> </ul> <p> For more information, see the <a href=\"https://docs.aws.amazon.com/elasticbeanstalk/latest/ug/\"> AWS Elastic Beanstalk User Guide. </a> </p> <p> Default: <code>true</code> </p> <p> Valid Values: <code>true</code> | <code>false</code> </p>
             force_terminate: <p>Terminates the target environment even if another environment in the same group is dependent on it.</p>
 
+        Raises:
+            aws_sdk_elastic_beanstalk.errors.insufficient_privileges_exception.InsufficientPrivilegesException: <p>The specified account does not have sufficient privileges for one or more AWS services.</p>
+            aws_sdk_elastic_beanstalk.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To terminate an environment
             The following operation terminates an Elastic Beanstalk environment named my-env:
@@ -2622,6 +2796,9 @@ class ElasticBeanstalkClient:
             application_name: <p>The name of the application to update. If no such application is found, <code>UpdateApplication</code> returns an <code>InvalidParameterValue</code> error. </p>
             description: <p>A new description for the application.</p> <p>Default: If not specified, AWS Elastic Beanstalk does not update the description.</p>
 
+        Raises:
+            aws_sdk_elastic_beanstalk.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To change an application's description
             The following operation updates the description of an application named my-app:
@@ -2668,6 +2845,10 @@ class ElasticBeanstalkClient:
         Args:
             application_name: <p>The name of the application.</p>
             resource_lifecycle_config: <p>The lifecycle configuration.</p>
+
+        Raises:
+            aws_sdk_elastic_beanstalk.errors.insufficient_privileges_exception.InsufficientPrivilegesException: <p>The specified account does not have sufficient privileges for one or more AWS services.</p>
+            aws_sdk_elastic_beanstalk.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2712,6 +2893,9 @@ class ElasticBeanstalkClient:
             application_name: <p>The name of the application associated with this version.</p> <p> If no application is found with this name, <code>UpdateApplication</code> returns an <code>InvalidParameterValue</code> error.</p>
             version_label: <p>The name of the version to update.</p> <p>If no application version is found with this label, <code>UpdateApplication</code> returns an <code>InvalidParameterValue</code> error. </p>
             description: <p>A new description for this version.</p>
+
+        Raises:
+            aws_sdk_elastic_beanstalk.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To change an application version's description
@@ -2772,6 +2956,11 @@ class ElasticBeanstalkClient:
             description: <p>A new description for the configuration.</p>
             option_settings: <p>A list of configuration option settings to update with the new specified option value.</p>
             options_to_remove: <p>A list of configuration options to remove from the configuration set.</p> <p> Constraint: You can remove only <code>UserDefined</code> configuration options. </p>
+
+        Raises:
+            aws_sdk_elastic_beanstalk.errors.insufficient_privileges_exception.InsufficientPrivilegesException: <p>The specified account does not have sufficient privileges for one or more AWS services.</p>
+            aws_sdk_elastic_beanstalk.errors.too_many_buckets_exception.TooManyBucketsException: <p>The specified account has reached its limit of Amazon S3 buckets.</p>
+            aws_sdk_elastic_beanstalk.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To update a configuration template
@@ -2871,6 +3060,11 @@ class ElasticBeanstalkClient:
             option_settings: <p>If specified, AWS Elastic Beanstalk updates the configuration set associated with the running environment and sets the specified configuration options to the requested value.</p>
             options_to_remove: <p>A list of custom user-defined configuration options to remove from the configuration set for this environment.</p>
 
+        Raises:
+            aws_sdk_elastic_beanstalk.errors.insufficient_privileges_exception.InsufficientPrivilegesException: <p>The specified account does not have sufficient privileges for one or more AWS services.</p>
+            aws_sdk_elastic_beanstalk.errors.too_many_buckets_exception.TooManyBucketsException: <p>The specified account has reached its limit of Amazon S3 buckets.</p>
+            aws_sdk_elastic_beanstalk.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To configure option settings
             The following operation configures several options in the aws:elb:loadbalancer namespace:
@@ -2948,6 +3142,14 @@ class ElasticBeanstalkClient:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resouce to be updated.</p> <p>Must be the ARN of an Elastic Beanstalk resource.</p>
             tags_to_add: <p>A list of tags to add or update. If a key of an existing tag is added, the tag's value is updated.</p> <p>Specify at least one of these parameters: <code>TagsToAdd</code>, <code>TagsToRemove</code>.</p>
             tags_to_remove: <p>A list of tag keys to remove. If a tag key doesn't exist, it is silently ignored.</p> <p>Specify at least one of these parameters: <code>TagsToAdd</code>, <code>TagsToRemove</code>.</p>
+
+        Raises:
+            aws_sdk_elastic_beanstalk.errors.insufficient_privileges_exception.InsufficientPrivilegesException: <p>The specified account does not have sufficient privileges for one or more AWS services.</p>
+            aws_sdk_elastic_beanstalk.errors.operation_in_progress_exception.OperationInProgressException: <p>Unable to perform the specified operation because another operation that effects an element in this activity is already in progress.</p>
+            aws_sdk_elastic_beanstalk.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource doesn't exist for the specified Amazon Resource Name (ARN).</p>
+            aws_sdk_elastic_beanstalk.errors.resource_type_not_supported_exception.ResourceTypeNotSupportedException: <p>The type of the specified Amazon Resource Name (ARN) isn't supported for this operation.</p>
+            aws_sdk_elastic_beanstalk.errors.too_many_tags_exception.TooManyTagsException: <p>The number of tags in the resource would exceed the number of tags that each resource can have.</p> <p>To calculate this, the operation considers both the number of tags the resource already has and the tags this operation would add if it succeeded.</p>
+            aws_sdk_elastic_beanstalk.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2997,6 +3199,11 @@ class ElasticBeanstalkClient:
             template_name: <p>The name of the configuration template to validate the settings against.</p> <p>Condition: You cannot specify both this and an environment name.</p>
             environment_name: <p>The name of the environment to validate the settings against.</p> <p>Condition: You cannot specify both this and a configuration template name.</p>
             option_settings: <p>A list of the options and desired values to evaluate.</p>
+
+        Raises:
+            aws_sdk_elastic_beanstalk.errors.insufficient_privileges_exception.InsufficientPrivilegesException: <p>The specified account does not have sufficient privileges for one or more AWS services.</p>
+            aws_sdk_elastic_beanstalk.errors.too_many_buckets_exception.TooManyBucketsException: <p>The specified account has reached its limit of Amazon S3 buckets.</p>
+            aws_sdk_elastic_beanstalk.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To validate configuration settings

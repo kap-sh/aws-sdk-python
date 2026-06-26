@@ -168,6 +168,14 @@ class AsyncidentitystoreClient:
         Args:
             identity_store_id: <p>The globally unique identifier for the identity store.</p>
             alternate_identifier: <p>A unique identifier for a user or group that is not the primary identifier. This value can be an identifier from an external identity provider (IdP) that is associated with the user, the group, or a unique attribute. For the unique attribute, the only valid path is <code> displayName</code>.</p>
+
+        Raises:
+            aws_sdk_identitystore.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_identitystore.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure with an internal server.</p>
+            aws_sdk_identitystore.errors.throttling_exception.ThrottlingException: <p>Indicates that the principal has crossed the throttling limits of the API operations.</p>
+            aws_sdk_identitystore.errors.resource_not_found_exception.ResourceNotFoundException: <p>Indicates that a requested resource is not found.</p>
+            aws_sdk_identitystore.errors.validation_exception.ValidationException: <p>The request failed because it contains a syntax error.</p>
+            aws_sdk_identitystore.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -211,6 +219,14 @@ class AsyncidentitystoreClient:
             identity_store_id: <p>The globally unique identifier for the identity store.</p>
             group_id: <p>The identifier for a group in the identity store.</p>
             member_id: <p>An object that contains the identifier of a group member. Setting the <code>UserID</code> field to the specific identifier for a user indicates that the user is a member of the group.</p>
+
+        Raises:
+            aws_sdk_identitystore.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_identitystore.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure with an internal server.</p>
+            aws_sdk_identitystore.errors.throttling_exception.ThrottlingException: <p>Indicates that the principal has crossed the throttling limits of the API operations.</p>
+            aws_sdk_identitystore.errors.resource_not_found_exception.ResourceNotFoundException: <p>Indicates that a requested resource is not found.</p>
+            aws_sdk_identitystore.errors.validation_exception.ValidationException: <p>The request failed because it contains a syntax error.</p>
+            aws_sdk_identitystore.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -253,6 +269,14 @@ class AsyncidentitystoreClient:
         Args:
             identity_store_id: <p>The globally unique identifier for the identity store.</p>
             alternate_identifier: <p>A unique identifier for a user or group that is not the primary identifier. This value can be an identifier from an external identity provider (IdP) that is associated with the user, the group, or a unique attribute. For the unique attribute, the only valid paths are <code> userName</code> and <code>emails.value</code>.</p>
+
+        Raises:
+            aws_sdk_identitystore.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_identitystore.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure with an internal server.</p>
+            aws_sdk_identitystore.errors.throttling_exception.ThrottlingException: <p>Indicates that the principal has crossed the throttling limits of the API operations.</p>
+            aws_sdk_identitystore.errors.resource_not_found_exception.ResourceNotFoundException: <p>Indicates that a requested resource is not found.</p>
+            aws_sdk_identitystore.errors.validation_exception.ValidationException: <p>The request failed because it contains a syntax error.</p>
+            aws_sdk_identitystore.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -296,6 +320,14 @@ class AsyncidentitystoreClient:
             identity_store_id: <p>The globally unique identifier for the identity store.</p>
             member_id: <p>An object containing the identifier of a group member.</p>
             group_ids: <p>A list of identifiers for groups in the identity store.</p>
+
+        Raises:
+            aws_sdk_identitystore.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_identitystore.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure with an internal server.</p>
+            aws_sdk_identitystore.errors.throttling_exception.ThrottlingException: <p>Indicates that the principal has crossed the throttling limits of the API operations.</p>
+            aws_sdk_identitystore.errors.resource_not_found_exception.ResourceNotFoundException: <p>Indicates that a requested resource is not found.</p>
+            aws_sdk_identitystore.errors.validation_exception.ValidationException: <p>The request failed because it contains a syntax error.</p>
+            aws_sdk_identitystore.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -344,6 +376,14 @@ class AsyncidentitystoreClient:
             member_id: <p>An object that contains the identifier of a group member. Setting the <code>UserID</code> field to the specific identifier for a user indicates that the user is a member of the group.</p>
             max_results: <p>The maximum number of results to be returned per request. This parameter is used in the <code> ListUsers</code> and <code>ListGroups</code> requests to specify how many results to return in one page. The length limit is 50 characters.</p>
             next_token: <p>The pagination token used for the <code>ListUsers</code>, <code>ListGroups</code>, and <code> ListGroupMemberships</code> API operations. This value is generated by the identity store service. It is returned in the API response if the total results are more than the size of one page. This token is also returned when it is used in the API request to search for the next page.</p>
+
+        Raises:
+            aws_sdk_identitystore.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_identitystore.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure with an internal server.</p>
+            aws_sdk_identitystore.errors.throttling_exception.ThrottlingException: <p>Indicates that the principal has crossed the throttling limits of the API operations.</p>
+            aws_sdk_identitystore.errors.resource_not_found_exception.ResourceNotFoundException: <p>Indicates that a requested resource is not found.</p>
+            aws_sdk_identitystore.errors.validation_exception.ValidationException: <p>The request failed because it contains a syntax error.</p>
+            aws_sdk_identitystore.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

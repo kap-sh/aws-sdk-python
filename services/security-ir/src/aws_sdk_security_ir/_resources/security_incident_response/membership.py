@@ -73,6 +73,18 @@ class Membership:
             tags: <p>Optional element for customer configured tags.</p>
             cover_entire_organization: <p>The <code>coverEntireOrganization</code> parameter is a boolean flag that determines whether the membership should be applied to the entire Amazon Web Services Organization. When set to true, the membership will be created for all accounts within the organization. When set to false, the membership will only be created for specified accounts. </p> <p>This parameter is optional. If not specified, the default value is false.</p> <ul> <li> <p>If set to <i>true</i>: The membership will automatically include all existing and future accounts in the Amazon Web Services Organization. </p> </li> <li> <p>If set to <i>false</i>: The membership will only apply to explicitly specified accounts. </p> </li> </ul>
 
+        Raises:
+            aws_sdk_security_ir.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_security_ir.errors.conflict_exception.ConflictException: <p/>
+            aws_sdk_security_ir.errors.internal_server_exception.InternalServerException: <p/>
+            aws_sdk_security_ir.errors.invalid_token_exception.InvalidTokenException: <p/>
+            aws_sdk_security_ir.errors.resource_not_found_exception.ResourceNotFoundException: <p/>
+            aws_sdk_security_ir.errors.security_incident_response_not_active_exception.SecurityIncidentResponseNotActiveException: <p/>
+            aws_sdk_security_ir.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p/>
+            aws_sdk_security_ir.errors.throttling_exception.ThrottlingException: <p/>
+            aws_sdk_security_ir.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_security_ir.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Invoke CreateMembership
 
@@ -123,6 +135,18 @@ class Membership:
 
         Args:
             membership_id: <p>Required element for GetMembership to identify the membership ID to query.</p>
+
+        Raises:
+            aws_sdk_security_ir.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_security_ir.errors.conflict_exception.ConflictException: <p/>
+            aws_sdk_security_ir.errors.internal_server_exception.InternalServerException: <p/>
+            aws_sdk_security_ir.errors.invalid_token_exception.InvalidTokenException: <p/>
+            aws_sdk_security_ir.errors.resource_not_found_exception.ResourceNotFoundException: <p/>
+            aws_sdk_security_ir.errors.security_incident_response_not_active_exception.SecurityIncidentResponseNotActiveException: <p/>
+            aws_sdk_security_ir.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p/>
+            aws_sdk_security_ir.errors.throttling_exception.ThrottlingException: <p/>
+            aws_sdk_security_ir.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_security_ir.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Invoke GetMembership
@@ -186,6 +210,18 @@ class Membership:
             membership_accounts_configurations_update: <p>The <code>membershipAccountsConfigurationsUpdate</code> field in the <code>UpdateMembershipRequest</code> structure allows you to update the configuration settings for accounts within a membership. </p> <p>This field is optional and contains a structure of type <code>MembershipAccountsConfigurationsUpdate </code> that specifies the updated account configurations for the membership. </p>
             undo_membership_cancellation: <p>The <code>undoMembershipCancellation</code> parameter is a boolean flag that indicates whether to reverse a previously requested membership cancellation. When set to true, this will revoke the cancellation request and maintain the membership status. </p> <p>This parameter is optional and can be used in scenarios where you need to restore a membership that was marked for cancellation but hasn't been fully terminated yet. </p> <ul> <li> <p>If set to <code>true</code>, the cancellation request will be revoked </p> </li> <li> <p>If set to <code>false</code> the service will throw a ValidationException. </p> </li> </ul>
 
+        Raises:
+            aws_sdk_security_ir.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_security_ir.errors.conflict_exception.ConflictException: <p/>
+            aws_sdk_security_ir.errors.internal_server_exception.InternalServerException: <p/>
+            aws_sdk_security_ir.errors.invalid_token_exception.InvalidTokenException: <p/>
+            aws_sdk_security_ir.errors.resource_not_found_exception.ResourceNotFoundException: <p/>
+            aws_sdk_security_ir.errors.security_incident_response_not_active_exception.SecurityIncidentResponseNotActiveException: <p/>
+            aws_sdk_security_ir.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p/>
+            aws_sdk_security_ir.errors.throttling_exception.ThrottlingException: <p/>
+            aws_sdk_security_ir.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_security_ir.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Invoke UpdateMembership
 
@@ -242,6 +278,18 @@ class Membership:
             next_token: <p>An optional string that, if supplied, must be copied from the output of a previous call to ListMemberships. When provided in this manner, the API fetches the next page of results. </p>
             max_results: <p>Request element for ListMemberships to limit the number of responses.</p>
 
+        Raises:
+            aws_sdk_security_ir.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_security_ir.errors.conflict_exception.ConflictException: <p/>
+            aws_sdk_security_ir.errors.internal_server_exception.InternalServerException: <p/>
+            aws_sdk_security_ir.errors.invalid_token_exception.InvalidTokenException: <p/>
+            aws_sdk_security_ir.errors.resource_not_found_exception.ResourceNotFoundException: <p/>
+            aws_sdk_security_ir.errors.security_incident_response_not_active_exception.SecurityIncidentResponseNotActiveException: <p/>
+            aws_sdk_security_ir.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p/>
+            aws_sdk_security_ir.errors.throttling_exception.ThrottlingException: <p/>
+            aws_sdk_security_ir.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_security_ir.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Invoke ListMemberships
 
@@ -289,6 +337,18 @@ class Membership:
             membership_id: <p>Required element used in combination with BatchGetMemberAccountDetails to identify the membership ID to query. </p>
             account_ids: <p>Optional element to query the membership relationship status to a provided list of account IDs.</p> <note> <p> AWS account ID's may appear less than 12 characters and need to be zero-prepended. An example would be <code>123123123</code> which is nine digits, and with zero-prepend would be <code>000123123123</code>. Not zero-prepending to 12 digits could result in errors. </p> </note>
 
+        Raises:
+            aws_sdk_security_ir.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_security_ir.errors.conflict_exception.ConflictException: <p/>
+            aws_sdk_security_ir.errors.internal_server_exception.InternalServerException: <p/>
+            aws_sdk_security_ir.errors.invalid_token_exception.InvalidTokenException: <p/>
+            aws_sdk_security_ir.errors.resource_not_found_exception.ResourceNotFoundException: <p/>
+            aws_sdk_security_ir.errors.security_incident_response_not_active_exception.SecurityIncidentResponseNotActiveException: <p/>
+            aws_sdk_security_ir.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p/>
+            aws_sdk_security_ir.errors.throttling_exception.ThrottlingException: <p/>
+            aws_sdk_security_ir.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_security_ir.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Invoke BatchGetMemberAccountDetails
 
@@ -333,6 +393,18 @@ class Membership:
 
         Args:
             membership_id: <p>Required element used in combination with CancelMembershipRequest to identify the membership ID to cancel. </p>
+
+        Raises:
+            aws_sdk_security_ir.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_security_ir.errors.conflict_exception.ConflictException: <p/>
+            aws_sdk_security_ir.errors.internal_server_exception.InternalServerException: <p/>
+            aws_sdk_security_ir.errors.invalid_token_exception.InvalidTokenException: <p/>
+            aws_sdk_security_ir.errors.resource_not_found_exception.ResourceNotFoundException: <p/>
+            aws_sdk_security_ir.errors.security_incident_response_not_active_exception.SecurityIncidentResponseNotActiveException: <p/>
+            aws_sdk_security_ir.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p/>
+            aws_sdk_security_ir.errors.throttling_exception.ThrottlingException: <p/>
+            aws_sdk_security_ir.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_security_ir.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Invoke CancelMembership
@@ -395,6 +467,18 @@ class AsyncMembership:
             tags: <p>Optional element for customer configured tags.</p>
             cover_entire_organization: <p>The <code>coverEntireOrganization</code> parameter is a boolean flag that determines whether the membership should be applied to the entire Amazon Web Services Organization. When set to true, the membership will be created for all accounts within the organization. When set to false, the membership will only be created for specified accounts. </p> <p>This parameter is optional. If not specified, the default value is false.</p> <ul> <li> <p>If set to <i>true</i>: The membership will automatically include all existing and future accounts in the Amazon Web Services Organization. </p> </li> <li> <p>If set to <i>false</i>: The membership will only apply to explicitly specified accounts. </p> </li> </ul>
 
+        Raises:
+            aws_sdk_security_ir.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_security_ir.errors.conflict_exception.ConflictException: <p/>
+            aws_sdk_security_ir.errors.internal_server_exception.InternalServerException: <p/>
+            aws_sdk_security_ir.errors.invalid_token_exception.InvalidTokenException: <p/>
+            aws_sdk_security_ir.errors.resource_not_found_exception.ResourceNotFoundException: <p/>
+            aws_sdk_security_ir.errors.security_incident_response_not_active_exception.SecurityIncidentResponseNotActiveException: <p/>
+            aws_sdk_security_ir.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p/>
+            aws_sdk_security_ir.errors.throttling_exception.ThrottlingException: <p/>
+            aws_sdk_security_ir.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_security_ir.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Invoke CreateMembership
 
@@ -446,6 +530,18 @@ class AsyncMembership:
 
         Args:
             membership_id: <p>Required element for GetMembership to identify the membership ID to query.</p>
+
+        Raises:
+            aws_sdk_security_ir.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_security_ir.errors.conflict_exception.ConflictException: <p/>
+            aws_sdk_security_ir.errors.internal_server_exception.InternalServerException: <p/>
+            aws_sdk_security_ir.errors.invalid_token_exception.InvalidTokenException: <p/>
+            aws_sdk_security_ir.errors.resource_not_found_exception.ResourceNotFoundException: <p/>
+            aws_sdk_security_ir.errors.security_incident_response_not_active_exception.SecurityIncidentResponseNotActiveException: <p/>
+            aws_sdk_security_ir.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p/>
+            aws_sdk_security_ir.errors.throttling_exception.ThrottlingException: <p/>
+            aws_sdk_security_ir.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_security_ir.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Invoke GetMembership
@@ -510,6 +606,18 @@ class AsyncMembership:
             membership_accounts_configurations_update: <p>The <code>membershipAccountsConfigurationsUpdate</code> field in the <code>UpdateMembershipRequest</code> structure allows you to update the configuration settings for accounts within a membership. </p> <p>This field is optional and contains a structure of type <code>MembershipAccountsConfigurationsUpdate </code> that specifies the updated account configurations for the membership. </p>
             undo_membership_cancellation: <p>The <code>undoMembershipCancellation</code> parameter is a boolean flag that indicates whether to reverse a previously requested membership cancellation. When set to true, this will revoke the cancellation request and maintain the membership status. </p> <p>This parameter is optional and can be used in scenarios where you need to restore a membership that was marked for cancellation but hasn't been fully terminated yet. </p> <ul> <li> <p>If set to <code>true</code>, the cancellation request will be revoked </p> </li> <li> <p>If set to <code>false</code> the service will throw a ValidationException. </p> </li> </ul>
 
+        Raises:
+            aws_sdk_security_ir.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_security_ir.errors.conflict_exception.ConflictException: <p/>
+            aws_sdk_security_ir.errors.internal_server_exception.InternalServerException: <p/>
+            aws_sdk_security_ir.errors.invalid_token_exception.InvalidTokenException: <p/>
+            aws_sdk_security_ir.errors.resource_not_found_exception.ResourceNotFoundException: <p/>
+            aws_sdk_security_ir.errors.security_incident_response_not_active_exception.SecurityIncidentResponseNotActiveException: <p/>
+            aws_sdk_security_ir.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p/>
+            aws_sdk_security_ir.errors.throttling_exception.ThrottlingException: <p/>
+            aws_sdk_security_ir.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_security_ir.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Invoke UpdateMembership
 
@@ -567,6 +675,18 @@ class AsyncMembership:
             next_token: <p>An optional string that, if supplied, must be copied from the output of a previous call to ListMemberships. When provided in this manner, the API fetches the next page of results. </p>
             max_results: <p>Request element for ListMemberships to limit the number of responses.</p>
 
+        Raises:
+            aws_sdk_security_ir.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_security_ir.errors.conflict_exception.ConflictException: <p/>
+            aws_sdk_security_ir.errors.internal_server_exception.InternalServerException: <p/>
+            aws_sdk_security_ir.errors.invalid_token_exception.InvalidTokenException: <p/>
+            aws_sdk_security_ir.errors.resource_not_found_exception.ResourceNotFoundException: <p/>
+            aws_sdk_security_ir.errors.security_incident_response_not_active_exception.SecurityIncidentResponseNotActiveException: <p/>
+            aws_sdk_security_ir.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p/>
+            aws_sdk_security_ir.errors.throttling_exception.ThrottlingException: <p/>
+            aws_sdk_security_ir.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_security_ir.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Invoke ListMemberships
 
@@ -615,6 +735,18 @@ class AsyncMembership:
             membership_id: <p>Required element used in combination with BatchGetMemberAccountDetails to identify the membership ID to query. </p>
             account_ids: <p>Optional element to query the membership relationship status to a provided list of account IDs.</p> <note> <p> AWS account ID's may appear less than 12 characters and need to be zero-prepended. An example would be <code>123123123</code> which is nine digits, and with zero-prepend would be <code>000123123123</code>. Not zero-prepending to 12 digits could result in errors. </p> </note>
 
+        Raises:
+            aws_sdk_security_ir.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_security_ir.errors.conflict_exception.ConflictException: <p/>
+            aws_sdk_security_ir.errors.internal_server_exception.InternalServerException: <p/>
+            aws_sdk_security_ir.errors.invalid_token_exception.InvalidTokenException: <p/>
+            aws_sdk_security_ir.errors.resource_not_found_exception.ResourceNotFoundException: <p/>
+            aws_sdk_security_ir.errors.security_incident_response_not_active_exception.SecurityIncidentResponseNotActiveException: <p/>
+            aws_sdk_security_ir.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p/>
+            aws_sdk_security_ir.errors.throttling_exception.ThrottlingException: <p/>
+            aws_sdk_security_ir.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_security_ir.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Invoke BatchGetMemberAccountDetails
 
@@ -660,6 +792,18 @@ class AsyncMembership:
 
         Args:
             membership_id: <p>Required element used in combination with CancelMembershipRequest to identify the membership ID to cancel. </p>
+
+        Raises:
+            aws_sdk_security_ir.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_security_ir.errors.conflict_exception.ConflictException: <p/>
+            aws_sdk_security_ir.errors.internal_server_exception.InternalServerException: <p/>
+            aws_sdk_security_ir.errors.invalid_token_exception.InvalidTokenException: <p/>
+            aws_sdk_security_ir.errors.resource_not_found_exception.ResourceNotFoundException: <p/>
+            aws_sdk_security_ir.errors.security_incident_response_not_active_exception.SecurityIncidentResponseNotActiveException: <p/>
+            aws_sdk_security_ir.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p/>
+            aws_sdk_security_ir.errors.throttling_exception.ThrottlingException: <p/>
+            aws_sdk_security_ir.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_security_ir.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Invoke CancelMembership

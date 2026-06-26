@@ -189,6 +189,14 @@ class AsyncBCMDashboardsClient:
             widgets: <p>An array of widget configurations that define the visualizations to be displayed in the dashboard. Each dashboard can contain up to 20 widgets.</p>
             resource_tags: <p>The tags to apply to the dashboard resource for organization and management.</p>
 
+        Raises:
+            aws_sdk_bcm_dashboards.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action. Verify your IAM permissions and any resource policies.</p>
+            aws_sdk_bcm_dashboards.errors.internal_server_exception.InternalServerException: <p>An internal error occurred while processing the request. Retry your request. If the problem persists, contact Amazon Web Services Support.</p>
+            aws_sdk_bcm_dashboards.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request would exceed a service quota. Review the service quotas for Amazon Web Services Billing and Cost Management Dashboards and retry your request.</p>
+            aws_sdk_bcm_dashboards.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. Reduce the frequency of requests and use exponential backoff.</p>
+            aws_sdk_bcm_dashboards.errors.validation_exception.ValidationException: <p>The input parameters do not satisfy the requirements. Check the error message for specific validation details.</p>
+            aws_sdk_bcm_dashboards.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Creating a dashboard
 
@@ -244,6 +252,15 @@ class AsyncBCMDashboardsClient:
             scheduled_report: <p>The configuration for the scheduled report, including the dashboard to report on, the schedule, and the execution role that the service will use to generate the dashboard snapshot.</p>
             resource_tags: <p>The tags to apply to the scheduled report resource for organization and management.</p>
             client_token: <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+
+        Raises:
+            aws_sdk_bcm_dashboards.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action. Verify your IAM permissions and any resource policies.</p>
+            aws_sdk_bcm_dashboards.errors.conflict_exception.ConflictException: <p>The request could not be completed due to a conflict with the current state of the resource. For example, attempting to create a resource that already exists or is being created.</p>
+            aws_sdk_bcm_dashboards.errors.internal_server_exception.InternalServerException: <p>An internal error occurred while processing the request. Retry your request. If the problem persists, contact Amazon Web Services Support.</p>
+            aws_sdk_bcm_dashboards.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request would exceed a service quota. Review the service quotas for Amazon Web Services Billing and Cost Management Dashboards and retry your request.</p>
+            aws_sdk_bcm_dashboards.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. Reduce the frequency of requests and use exponential backoff.</p>
+            aws_sdk_bcm_dashboards.errors.validation_exception.ValidationException: <p>The input parameters do not satisfy the requirements. Check the error message for specific validation details.</p>
+            aws_sdk_bcm_dashboards.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -289,6 +306,13 @@ class AsyncBCMDashboardsClient:
         Args:
             arn: <p>The ARN of the dashboard to be deleted.</p>
 
+        Raises:
+            aws_sdk_bcm_dashboards.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action. Verify your IAM permissions and any resource policies.</p>
+            aws_sdk_bcm_dashboards.errors.internal_server_exception.InternalServerException: <p>An internal error occurred while processing the request. Retry your request. If the problem persists, contact Amazon Web Services Support.</p>
+            aws_sdk_bcm_dashboards.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. Reduce the frequency of requests and use exponential backoff.</p>
+            aws_sdk_bcm_dashboards.errors.validation_exception.ValidationException: <p>The input parameters do not satisfy the requirements. Check the error message for specific validation details.</p>
+            aws_sdk_bcm_dashboards.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Deleting a dashboard
 
@@ -331,6 +355,14 @@ class AsyncBCMDashboardsClient:
 
         Args:
             arn: <p>The ARN of the scheduled report to delete.</p>
+
+        Raises:
+            aws_sdk_bcm_dashboards.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action. Verify your IAM permissions and any resource policies.</p>
+            aws_sdk_bcm_dashboards.errors.internal_server_exception.InternalServerException: <p>An internal error occurred while processing the request. Retry your request. If the problem persists, contact Amazon Web Services Support.</p>
+            aws_sdk_bcm_dashboards.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource (dashboard, policy, or widget) was not found. Verify the ARN and try again.</p>
+            aws_sdk_bcm_dashboards.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. Reduce the frequency of requests and use exponential backoff.</p>
+            aws_sdk_bcm_dashboards.errors.validation_exception.ValidationException: <p>The input parameters do not satisfy the requirements. Check the error message for specific validation details.</p>
+            aws_sdk_bcm_dashboards.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -375,6 +407,15 @@ class AsyncBCMDashboardsClient:
             arn: <p>The ARN of the scheduled report to execute.</p>
             client_token: <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
             dry_run: <p>When set to <code>true</code>, validates the scheduled report configuration without triggering an actual execution.</p>
+
+        Raises:
+            aws_sdk_bcm_dashboards.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action. Verify your IAM permissions and any resource policies.</p>
+            aws_sdk_bcm_dashboards.errors.conflict_exception.ConflictException: <p>The request could not be completed due to a conflict with the current state of the resource. For example, attempting to create a resource that already exists or is being created.</p>
+            aws_sdk_bcm_dashboards.errors.internal_server_exception.InternalServerException: <p>An internal error occurred while processing the request. Retry your request. If the problem persists, contact Amazon Web Services Support.</p>
+            aws_sdk_bcm_dashboards.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource (dashboard, policy, or widget) was not found. Verify the ARN and try again.</p>
+            aws_sdk_bcm_dashboards.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. Reduce the frequency of requests and use exponential backoff.</p>
+            aws_sdk_bcm_dashboards.errors.validation_exception.ValidationException: <p>The input parameters do not satisfy the requirements. Check the error message for specific validation details.</p>
+            aws_sdk_bcm_dashboards.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -417,6 +458,14 @@ class AsyncBCMDashboardsClient:
 
         Args:
             arn: <p>The ARN of the dashboard to retrieve. This is required to uniquely identify the dashboard.</p>
+
+        Raises:
+            aws_sdk_bcm_dashboards.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action. Verify your IAM permissions and any resource policies.</p>
+            aws_sdk_bcm_dashboards.errors.internal_server_exception.InternalServerException: <p>An internal error occurred while processing the request. Retry your request. If the problem persists, contact Amazon Web Services Support.</p>
+            aws_sdk_bcm_dashboards.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource (dashboard, policy, or widget) was not found. Verify the ARN and try again.</p>
+            aws_sdk_bcm_dashboards.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. Reduce the frequency of requests and use exponential backoff.</p>
+            aws_sdk_bcm_dashboards.errors.validation_exception.ValidationException: <p>The input parameters do not satisfy the requirements. Check the error message for specific validation details.</p>
+            aws_sdk_bcm_dashboards.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Getting information about a dashboard
@@ -461,6 +510,14 @@ class AsyncBCMDashboardsClient:
         Args:
             resource_arn: <p>The ARN of the dashboard whose resource-based policy you want to retrieve.</p>
 
+        Raises:
+            aws_sdk_bcm_dashboards.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action. Verify your IAM permissions and any resource policies.</p>
+            aws_sdk_bcm_dashboards.errors.internal_server_exception.InternalServerException: <p>An internal error occurred while processing the request. Retry your request. If the problem persists, contact Amazon Web Services Support.</p>
+            aws_sdk_bcm_dashboards.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource (dashboard, policy, or widget) was not found. Verify the ARN and try again.</p>
+            aws_sdk_bcm_dashboards.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. Reduce the frequency of requests and use exponential backoff.</p>
+            aws_sdk_bcm_dashboards.errors.validation_exception.ValidationException: <p>The input parameters do not satisfy the requirements. Check the error message for specific validation details.</p>
+            aws_sdk_bcm_dashboards.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Getting resource policy for a resource
 
@@ -503,6 +560,14 @@ class AsyncBCMDashboardsClient:
 
         Args:
             arn: <p>The ARN of the scheduled report to retrieve.</p>
+
+        Raises:
+            aws_sdk_bcm_dashboards.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action. Verify your IAM permissions and any resource policies.</p>
+            aws_sdk_bcm_dashboards.errors.internal_server_exception.InternalServerException: <p>An internal error occurred while processing the request. Retry your request. If the problem persists, contact Amazon Web Services Support.</p>
+            aws_sdk_bcm_dashboards.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource (dashboard, policy, or widget) was not found. Verify the ARN and try again.</p>
+            aws_sdk_bcm_dashboards.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. Reduce the frequency of requests and use exponential backoff.</p>
+            aws_sdk_bcm_dashboards.errors.validation_exception.ValidationException: <p>The input parameters do not satisfy the requirements. Check the error message for specific validation details.</p>
+            aws_sdk_bcm_dashboards.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -547,6 +612,13 @@ class AsyncBCMDashboardsClient:
         Args:
             max_results: <p>The maximum number of results to return in a single call. The default value is 20.</p>
             next_token: <p>The token for the next page of results. Use the value returned in the previous response.</p>
+
+        Raises:
+            aws_sdk_bcm_dashboards.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action. Verify your IAM permissions and any resource policies.</p>
+            aws_sdk_bcm_dashboards.errors.internal_server_exception.InternalServerException: <p>An internal error occurred while processing the request. Retry your request. If the problem persists, contact Amazon Web Services Support.</p>
+            aws_sdk_bcm_dashboards.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. Reduce the frequency of requests and use exponential backoff.</p>
+            aws_sdk_bcm_dashboards.errors.validation_exception.ValidationException: <p>The input parameters do not satisfy the requirements. Check the error message for specific validation details.</p>
+            aws_sdk_bcm_dashboards.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Listing dashboards for a user
@@ -624,6 +696,13 @@ class AsyncBCMDashboardsClient:
         Args:
             next_token: <p>The token for the next page of results. Use the value returned in the previous response.</p>
             max_results: <p>The maximum number of results to return in a single call. Valid range is 1 to 100. The default value is 50.</p>
+
+        Raises:
+            aws_sdk_bcm_dashboards.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action. Verify your IAM permissions and any resource policies.</p>
+            aws_sdk_bcm_dashboards.errors.internal_server_exception.InternalServerException: <p>An internal error occurred while processing the request. Retry your request. If the problem persists, contact Amazon Web Services Support.</p>
+            aws_sdk_bcm_dashboards.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. Reduce the frequency of requests and use exponential backoff.</p>
+            aws_sdk_bcm_dashboards.errors.validation_exception.ValidationException: <p>The input parameters do not satisfy the requirements. Check the error message for specific validation details.</p>
+            aws_sdk_bcm_dashboards.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -691,6 +770,13 @@ class AsyncBCMDashboardsClient:
         Args:
             resource_arn: <p>The unique identifier for the resource.</p>
 
+        Raises:
+            aws_sdk_bcm_dashboards.errors.internal_server_exception.InternalServerException: <p>An internal error occurred while processing the request. Retry your request. If the problem persists, contact Amazon Web Services Support.</p>
+            aws_sdk_bcm_dashboards.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource (dashboard, policy, or widget) was not found. Verify the ARN and try again.</p>
+            aws_sdk_bcm_dashboards.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. Reduce the frequency of requests and use exponential backoff.</p>
+            aws_sdk_bcm_dashboards.errors.validation_exception.ValidationException: <p>The input parameters do not satisfy the requirements. Check the error message for specific validation details.</p>
+            aws_sdk_bcm_dashboards.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Listing tags for a resource
 
@@ -735,6 +821,13 @@ class AsyncBCMDashboardsClient:
         Args:
             resource_arn: <p>The unique identifier for the resource.</p>
             resource_tags: <p>The tags to add to the dashboard resource.</p>
+
+        Raises:
+            aws_sdk_bcm_dashboards.errors.internal_server_exception.InternalServerException: <p>An internal error occurred while processing the request. Retry your request. If the problem persists, contact Amazon Web Services Support.</p>
+            aws_sdk_bcm_dashboards.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource (dashboard, policy, or widget) was not found. Verify the ARN and try again.</p>
+            aws_sdk_bcm_dashboards.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. Reduce the frequency of requests and use exponential backoff.</p>
+            aws_sdk_bcm_dashboards.errors.validation_exception.ValidationException: <p>The input parameters do not satisfy the requirements. Check the error message for specific validation details.</p>
+            aws_sdk_bcm_dashboards.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Adding tag(s) to a resource
@@ -781,6 +874,13 @@ class AsyncBCMDashboardsClient:
         Args:
             resource_arn: <p>The unique identifier for the resource.</p>
             resource_tag_keys: <p>The keys of the tags to remove from the dashboard resource.</p>
+
+        Raises:
+            aws_sdk_bcm_dashboards.errors.internal_server_exception.InternalServerException: <p>An internal error occurred while processing the request. Retry your request. If the problem persists, contact Amazon Web Services Support.</p>
+            aws_sdk_bcm_dashboards.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource (dashboard, policy, or widget) was not found. Verify the ARN and try again.</p>
+            aws_sdk_bcm_dashboards.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. Reduce the frequency of requests and use exponential backoff.</p>
+            aws_sdk_bcm_dashboards.errors.validation_exception.ValidationException: <p>The input parameters do not satisfy the requirements. Check the error message for specific validation details.</p>
+            aws_sdk_bcm_dashboards.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Removing tag(s) from a resource
@@ -835,6 +935,14 @@ class AsyncBCMDashboardsClient:
             name: <p>The new name for the dashboard.</p>
             description: <p>The new description for the dashboard.</p>
             widgets: <p>The updated array of widget configurations for the dashboard. Replaces all existing widgets.</p>
+
+        Raises:
+            aws_sdk_bcm_dashboards.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action. Verify your IAM permissions and any resource policies.</p>
+            aws_sdk_bcm_dashboards.errors.internal_server_exception.InternalServerException: <p>An internal error occurred while processing the request. Retry your request. If the problem persists, contact Amazon Web Services Support.</p>
+            aws_sdk_bcm_dashboards.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource (dashboard, policy, or widget) was not found. Verify the ARN and try again.</p>
+            aws_sdk_bcm_dashboards.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. Reduce the frequency of requests and use exponential backoff.</p>
+            aws_sdk_bcm_dashboards.errors.validation_exception.ValidationException: <p>The input parameters do not satisfy the requirements. Check the error message for specific validation details.</p>
+            aws_sdk_bcm_dashboards.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Updating a dashboard
@@ -915,6 +1023,15 @@ class AsyncBCMDashboardsClient:
             widget_date_range_override: <p>The date range override to apply to widgets in the scheduled report.</p>
             clear_widget_ids: Set to true to clear existing widgetIds.
             clear_widget_date_range_override: Set to true to clear existing widgetDateRangeOverride.
+
+        Raises:
+            aws_sdk_bcm_dashboards.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action. Verify your IAM permissions and any resource policies.</p>
+            aws_sdk_bcm_dashboards.errors.conflict_exception.ConflictException: <p>The request could not be completed due to a conflict with the current state of the resource. For example, attempting to create a resource that already exists or is being created.</p>
+            aws_sdk_bcm_dashboards.errors.internal_server_exception.InternalServerException: <p>An internal error occurred while processing the request. Retry your request. If the problem persists, contact Amazon Web Services Support.</p>
+            aws_sdk_bcm_dashboards.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource (dashboard, policy, or widget) was not found. Verify the ARN and try again.</p>
+            aws_sdk_bcm_dashboards.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. Reduce the frequency of requests and use exponential backoff.</p>
+            aws_sdk_bcm_dashboards.errors.validation_exception.ValidationException: <p>The input parameters do not satisfy the requirements. Check the error message for specific validation details.</p>
+            aws_sdk_bcm_dashboards.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

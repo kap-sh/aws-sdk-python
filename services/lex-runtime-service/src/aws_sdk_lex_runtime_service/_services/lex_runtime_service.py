@@ -165,6 +165,14 @@ class LexRuntimeServiceClient:
             bot_name: <p>The name of the bot that contains the session data.</p>
             bot_alias: <p>The alias in use for the bot that contains the session data.</p>
             user_id: <p>The identifier of the user associated with the session data.</p>
+
+        Raises:
+            aws_sdk_lex_runtime_service.errors.bad_request_exception.BadRequestException: <p> Request validation failed, there is no usable message in the context, or the bot build failed, is still in progress, or contains unbuilt changes. </p>
+            aws_sdk_lex_runtime_service.errors.conflict_exception.ConflictException: <p> Two clients are using the same AWS account, Amazon Lex bot, and user ID. </p>
+            aws_sdk_lex_runtime_service.errors.internal_failure_exception.InternalFailureException: <p>Internal service error. Retry the call.</p>
+            aws_sdk_lex_runtime_service.errors.limit_exceeded_exception.LimitExceededException: <p>Exceeded a limit.</p>
+            aws_sdk_lex_runtime_service.errors.not_found_exception.NotFoundException: <p>The resource (such as the Amazon Lex bot or an alias) that is referred to is not found.</p>
+            aws_sdk_lex_runtime_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -212,6 +220,13 @@ class LexRuntimeServiceClient:
             bot_alias: <p>The alias in use for the bot that contains the session data.</p>
             user_id: <p>The ID of the client application user. Amazon Lex uses this to identify a user's conversation with your bot. </p>
             checkpoint_label_filter: <p>A string used to filter the intents returned in the <code>recentIntentSummaryView</code> structure. </p> <p>When you specify a filter, only intents with their <code>checkpointLabel</code> field set to that string are returned.</p>
+
+        Raises:
+            aws_sdk_lex_runtime_service.errors.bad_request_exception.BadRequestException: <p> Request validation failed, there is no usable message in the context, or the bot build failed, is still in progress, or contains unbuilt changes. </p>
+            aws_sdk_lex_runtime_service.errors.internal_failure_exception.InternalFailureException: <p>Internal service error. Retry the call.</p>
+            aws_sdk_lex_runtime_service.errors.limit_exceeded_exception.LimitExceededException: <p>Exceeded a limit.</p>
+            aws_sdk_lex_runtime_service.errors.not_found_exception.NotFoundException: <p>The resource (such as the Amazon Lex bot or an alias) that is referred to is not found.</p>
+            aws_sdk_lex_runtime_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -276,6 +291,20 @@ class LexRuntimeServiceClient:
             accept: <p> You pass this value as the <code>Accept</code> HTTP header. </p> <p> The message Amazon Lex returns in the response can be either text or speech based on the <code>Accept</code> HTTP header value in the request. </p> <ul> <li> <p> If the value is <code>text/plain; charset=utf-8</code>, Amazon Lex returns text in the response. </p> </li> <li> <p> If the value begins with <code>audio/</code>, Amazon Lex returns speech in the response. Amazon Lex uses Amazon Polly to generate the speech (using the configuration you specified in the <code>Accept</code> header). For example, if you specify <code>audio/mpeg</code> as the value, Amazon Lex returns speech in the MPEG format.</p> </li> <li> <p>If the value is <code>audio/pcm</code>, the speech returned is <code>audio/pcm</code> in 16-bit, little endian format. </p> </li> <li> <p>The following are the accepted values:</p> <ul> <li> <p>audio/mpeg</p> </li> <li> <p>audio/ogg</p> </li> <li> <p>audio/pcm</p> </li> <li> <p>text/plain; charset=utf-8</p> </li> <li> <p>audio/* (defaults to mpeg)</p> </li> </ul> </li> </ul>
             input_stream: <p> User input in PCM or Opus audio format or text format as described in the <code>Content-Type</code> HTTP header. </p> <p>You can stream audio data to Amazon Lex or you can create a local buffer that captures all of the audio data before sending. In general, you get better performance if you stream audio data rather than buffering the data locally.</p>
             active_contexts: <p>A list of contexts active for the request. A context can be activated when a previous intent is fulfilled, or by including the context in the request,</p> <p>If you don't specify a list of contexts, Amazon Lex will use the current list of contexts for the session. If you specify an empty list, all contexts for the session are cleared.</p>
+
+        Raises:
+            aws_sdk_lex_runtime_service.errors.bad_gateway_exception.BadGatewayException: <p>Either the Amazon Lex bot is still building, or one of the dependent services (Amazon Polly, AWS Lambda) failed with an internal service error.</p>
+            aws_sdk_lex_runtime_service.errors.bad_request_exception.BadRequestException: <p> Request validation failed, there is no usable message in the context, or the bot build failed, is still in progress, or contains unbuilt changes. </p>
+            aws_sdk_lex_runtime_service.errors.conflict_exception.ConflictException: <p> Two clients are using the same AWS account, Amazon Lex bot, and user ID. </p>
+            aws_sdk_lex_runtime_service.errors.dependency_failed_exception.DependencyFailedException: <p> One of the dependencies, such as AWS Lambda or Amazon Polly, threw an exception. For example, </p> <ul> <li> <p>If Amazon Lex does not have sufficient permissions to call a Lambda function.</p> </li> <li> <p>If a Lambda function takes longer than 30 seconds to execute.</p> </li> <li> <p>If a fulfillment Lambda function returns a <code>Delegate</code> dialog action without removing any slot values.</p> </li> </ul>
+            aws_sdk_lex_runtime_service.errors.internal_failure_exception.InternalFailureException: <p>Internal service error. Retry the call.</p>
+            aws_sdk_lex_runtime_service.errors.limit_exceeded_exception.LimitExceededException: <p>Exceeded a limit.</p>
+            aws_sdk_lex_runtime_service.errors.loop_detected_exception.LoopDetectedException: <p>This exception is not used.</p>
+            aws_sdk_lex_runtime_service.errors.not_acceptable_exception.NotAcceptableException: <p>The accept header in the request does not have a valid value.</p>
+            aws_sdk_lex_runtime_service.errors.not_found_exception.NotFoundException: <p>The resource (such as the Amazon Lex bot or an alias) that is referred to is not found.</p>
+            aws_sdk_lex_runtime_service.errors.request_timeout_exception.RequestTimeoutException: <p>The input speech is too long.</p>
+            aws_sdk_lex_runtime_service.errors.unsupported_media_type_exception.UnsupportedMediaTypeException: <p>The Content-Type header (<code>PostContent</code> API) has an invalid value. </p>
+            aws_sdk_lex_runtime_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -343,6 +372,17 @@ class LexRuntimeServiceClient:
             request_attributes: <p>Request-specific information passed between Amazon Lex and a client application.</p> <p>The namespace <code>x-amz-lex:</code> is reserved for special attributes. Don't create any request attributes with the prefix <code>x-amz-lex:</code>.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/lex/latest/dg/context-mgmt.html#context-mgmt-request-attribs\">Setting Request Attributes</a>.</p>
             input_text: <p>The text that the user entered (Amazon Lex interprets this text).</p>
             active_contexts: <p>A list of contexts active for the request. A context can be activated when a previous intent is fulfilled, or by including the context in the request,</p> <p>If you don't specify a list of contexts, Amazon Lex will use the current list of contexts for the session. If you specify an empty list, all contexts for the session are cleared.</p>
+
+        Raises:
+            aws_sdk_lex_runtime_service.errors.bad_gateway_exception.BadGatewayException: <p>Either the Amazon Lex bot is still building, or one of the dependent services (Amazon Polly, AWS Lambda) failed with an internal service error.</p>
+            aws_sdk_lex_runtime_service.errors.bad_request_exception.BadRequestException: <p> Request validation failed, there is no usable message in the context, or the bot build failed, is still in progress, or contains unbuilt changes. </p>
+            aws_sdk_lex_runtime_service.errors.conflict_exception.ConflictException: <p> Two clients are using the same AWS account, Amazon Lex bot, and user ID. </p>
+            aws_sdk_lex_runtime_service.errors.dependency_failed_exception.DependencyFailedException: <p> One of the dependencies, such as AWS Lambda or Amazon Polly, threw an exception. For example, </p> <ul> <li> <p>If Amazon Lex does not have sufficient permissions to call a Lambda function.</p> </li> <li> <p>If a Lambda function takes longer than 30 seconds to execute.</p> </li> <li> <p>If a fulfillment Lambda function returns a <code>Delegate</code> dialog action without removing any slot values.</p> </li> </ul>
+            aws_sdk_lex_runtime_service.errors.internal_failure_exception.InternalFailureException: <p>Internal service error. Retry the call.</p>
+            aws_sdk_lex_runtime_service.errors.limit_exceeded_exception.LimitExceededException: <p>Exceeded a limit.</p>
+            aws_sdk_lex_runtime_service.errors.loop_detected_exception.LoopDetectedException: <p>This exception is not used.</p>
+            aws_sdk_lex_runtime_service.errors.not_found_exception.NotFoundException: <p>The resource (such as the Amazon Lex bot or an alias) that is referred to is not found.</p>
+            aws_sdk_lex_runtime_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -412,6 +452,17 @@ class LexRuntimeServiceClient:
             recent_intent_summary_view: <p>A summary of the recent intents for the bot. You can use the intent summary view to set a checkpoint label on an intent and modify attributes of intents. You can also use it to remove or add intent summary objects to the list.</p> <p>An intent that you modify or add to the list must make sense for the bot. For example, the intent name must be valid for the bot. You must provide valid values for:</p> <ul> <li> <p> <code>intentName</code> </p> </li> <li> <p>slot names</p> </li> <li> <p> <code>slotToElict</code> </p> </li> </ul> <p>If you send the <code>recentIntentSummaryView</code> parameter in a <code>PutSession</code> request, the contents of the new summary view replaces the old summary view. For example, if a <code>GetSession</code> request returns three intents in the summary view and you call <code>PutSession</code> with one intent in the summary view, the next call to <code>GetSession</code> will only return one intent.</p>
             accept: <p>The message that Amazon Lex returns in the response can be either text or speech based depending on the value of this field.</p> <ul> <li> <p>If the value is <code>text/plain; charset=utf-8</code>, Amazon Lex returns text in the response.</p> </li> <li> <p>If the value begins with <code>audio/</code>, Amazon Lex returns speech in the response. Amazon Lex uses Amazon Polly to generate the speech in the configuration that you specify. For example, if you specify <code>audio/mpeg</code> as the value, Amazon Lex returns speech in the MPEG format.</p> </li> <li> <p>If the value is <code>audio/pcm</code>, the speech is returned as <code>audio/pcm</code> in 16-bit, little endian format.</p> </li> <li> <p>The following are the accepted values:</p> <ul> <li> <p> <code>audio/mpeg</code> </p> </li> <li> <p> <code>audio/ogg</code> </p> </li> <li> <p> <code>audio/pcm</code> </p> </li> <li> <p> <code>audio/*</code> (defaults to mpeg)</p> </li> <li> <p> <code>text/plain; charset=utf-8</code> </p> </li> </ul> </li> </ul>
             active_contexts: <p>A list of contexts active for the request. A context can be activated when a previous intent is fulfilled, or by including the context in the request,</p> <p>If you don't specify a list of contexts, Amazon Lex will use the current list of contexts for the session. If you specify an empty list, all contexts for the session are cleared.</p>
+
+        Raises:
+            aws_sdk_lex_runtime_service.errors.bad_gateway_exception.BadGatewayException: <p>Either the Amazon Lex bot is still building, or one of the dependent services (Amazon Polly, AWS Lambda) failed with an internal service error.</p>
+            aws_sdk_lex_runtime_service.errors.bad_request_exception.BadRequestException: <p> Request validation failed, there is no usable message in the context, or the bot build failed, is still in progress, or contains unbuilt changes. </p>
+            aws_sdk_lex_runtime_service.errors.conflict_exception.ConflictException: <p> Two clients are using the same AWS account, Amazon Lex bot, and user ID. </p>
+            aws_sdk_lex_runtime_service.errors.dependency_failed_exception.DependencyFailedException: <p> One of the dependencies, such as AWS Lambda or Amazon Polly, threw an exception. For example, </p> <ul> <li> <p>If Amazon Lex does not have sufficient permissions to call a Lambda function.</p> </li> <li> <p>If a Lambda function takes longer than 30 seconds to execute.</p> </li> <li> <p>If a fulfillment Lambda function returns a <code>Delegate</code> dialog action without removing any slot values.</p> </li> </ul>
+            aws_sdk_lex_runtime_service.errors.internal_failure_exception.InternalFailureException: <p>Internal service error. Retry the call.</p>
+            aws_sdk_lex_runtime_service.errors.limit_exceeded_exception.LimitExceededException: <p>Exceeded a limit.</p>
+            aws_sdk_lex_runtime_service.errors.not_acceptable_exception.NotAcceptableException: <p>The accept header in the request does not have a valid value.</p>
+            aws_sdk_lex_runtime_service.errors.not_found_exception.NotFoundException: <p>The resource (such as the Amazon Lex bot or an alias) that is referred to is not found.</p>
+            aws_sdk_lex_runtime_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(

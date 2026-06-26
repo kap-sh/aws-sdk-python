@@ -153,6 +153,15 @@ class AsyncKinesisVideoSignalingClient:
             client_id: <p>Unique identifier for the viewer. Must be unique within the signaling channel.</p>
             service: <p>Specifies the desired service. Currently, <code>TURN</code> is the only valid value.</p>
             username: <p>An optional user ID to be associated with the credentials.</p>
+
+        Raises:
+            aws_sdk_kinesis_video_signaling.errors.client_limit_exceeded_exception.ClientLimitExceededException: <p>Your request was throttled because you have exceeded the limit of allowed client calls. Try making the call later.</p>
+            aws_sdk_kinesis_video_signaling.errors.invalid_argument_exception.InvalidArgumentException: <p>The value for this input parameter is invalid.</p>
+            aws_sdk_kinesis_video_signaling.errors.invalid_client_exception.InvalidClientException: <p>The specified client is invalid.</p>
+            aws_sdk_kinesis_video_signaling.errors.not_authorized_exception.NotAuthorizedException: <p>The caller is not authorized to perform this operation.</p>
+            aws_sdk_kinesis_video_signaling.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource is not found.</p>
+            aws_sdk_kinesis_video_signaling.errors.session_expired_exception.SessionExpiredException: <p>If the client session is expired. Once the client is connected, the session is valid for 45 minutes. Client should reconnect to the channel to continue sending/receiving messages.</p>
+            aws_sdk_kinesis_video_signaling.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -201,6 +210,13 @@ class AsyncKinesisVideoSignalingClient:
             channel_arn: <p>The ARN of the signaling channel by which Alexa and the master peer communicate.</p>
             sender_client_id: <p>The unique identifier for the sender client.</p>
             message_payload: <p>The base64-encoded SDP offer content.</p>
+
+        Raises:
+            aws_sdk_kinesis_video_signaling.errors.client_limit_exceeded_exception.ClientLimitExceededException: <p>Your request was throttled because you have exceeded the limit of allowed client calls. Try making the call later.</p>
+            aws_sdk_kinesis_video_signaling.errors.invalid_argument_exception.InvalidArgumentException: <p>The value for this input parameter is invalid.</p>
+            aws_sdk_kinesis_video_signaling.errors.not_authorized_exception.NotAuthorizedException: <p>The caller is not authorized to perform this operation.</p>
+            aws_sdk_kinesis_video_signaling.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource is not found.</p>
+            aws_sdk_kinesis_video_signaling.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

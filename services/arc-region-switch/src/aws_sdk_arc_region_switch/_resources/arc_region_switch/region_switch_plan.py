@@ -96,6 +96,9 @@ class RegionSwitchPlan:
             recovery_approach: <p>The recovery approach for a Region switch plan, which can be active/active (activeActive) or active/passive (activePassive).</p>
             primary_region: <p>The primary Amazon Web Services Region for the application. This is the Region where the application normally runs before any Region switch occurs.</p>
             tags: <p>The tags to apply to the Region switch plan.</p>
+
+        Raises:
+            aws_sdk_arc_region_switch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -151,6 +154,10 @@ class RegionSwitchPlan:
 
         Args:
             arn: <p>The Amazon Resource Name (ARN) of the plan.</p>
+
+        Raises:
+            aws_sdk_arc_region_switch.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p> <p>HTTP Status Code: 404</p>
+            aws_sdk_arc_region_switch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -208,6 +215,10 @@ class RegionSwitchPlan:
             associated_alarms: <p>The updated CloudWatch alarms associated with the plan.</p>
             triggers: <p>The updated conditions that can automatically trigger the execution of the plan.</p>
             report_configuration: <p>The updated report configuration for the plan.</p>
+
+        Raises:
+            aws_sdk_arc_region_switch.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p> <p>HTTP Status Code: 404</p>
+            aws_sdk_arc_region_switch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -257,6 +268,11 @@ class RegionSwitchPlan:
 
         Args:
             arn: <p>The Amazon Resource Name (ARN) of the plan.</p>
+
+        Raises:
+            aws_sdk_arc_region_switch.errors.illegal_state_exception.IllegalStateException: <p>The operation failed because the current state of the resource doesn't allow the operation to proceed.</p> <p>HTTP Status Code: 400</p>
+            aws_sdk_arc_region_switch.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p> <p>HTTP Status Code: 404</p>
+            aws_sdk_arc_region_switch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -300,6 +316,9 @@ class RegionSwitchPlan:
         Args:
             max_results: <p>The number of objects that you want to return with this call.</p>
             next_token: <p>Specifies that you want to receive the next page of results. Valid only if you received a <code>nextToken</code> response in the previous request. If you did, it indicates that more output is available. Set this parameter to the value provided by the previous call's <code>nextToken</code> response to request the next page of results.</p>
+
+        Raises:
+            aws_sdk_arc_region_switch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -340,6 +359,11 @@ class RegionSwitchPlan:
 
         Args:
             arn: <p>The Amazon Resource Name (ARN) of the resource.</p>
+
+        Raises:
+            aws_sdk_arc_region_switch.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure.</p> <p>HTTP Status Code: 500</p>
+            aws_sdk_arc_region_switch.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p> <p>HTTP Status Code: 404</p>
+            aws_sdk_arc_region_switch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -379,6 +403,11 @@ class RegionSwitchPlan:
         Args:
             arn: <p>The Amazon Resource Name (ARN) for a tag that you add to a resource.</p>
             tags: <p>Tags that you add to a resource. You can add a maximum of 50 tags in Region switch.</p>
+
+        Raises:
+            aws_sdk_arc_region_switch.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure.</p> <p>HTTP Status Code: 500</p>
+            aws_sdk_arc_region_switch.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p> <p>HTTP Status Code: 404</p>
+            aws_sdk_arc_region_switch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -421,6 +450,11 @@ class RegionSwitchPlan:
         Args:
             arn: <p>The Amazon Resource Name (ARN) for a tag you remove a resource from.</p>
             resource_tag_keys: <p>Tag keys that you remove from a resource.</p>
+
+        Raises:
+            aws_sdk_arc_region_switch.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure.</p> <p>HTTP Status Code: 500</p>
+            aws_sdk_arc_region_switch.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p> <p>HTTP Status Code: 404</p>
+            aws_sdk_arc_region_switch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -493,6 +527,9 @@ class AsyncRegionSwitchPlan:
             recovery_approach: <p>The recovery approach for a Region switch plan, which can be active/active (activeActive) or active/passive (activePassive).</p>
             primary_region: <p>The primary Amazon Web Services Region for the application. This is the Region where the application normally runs before any Region switch occurs.</p>
             tags: <p>The tags to apply to the Region switch plan.</p>
+
+        Raises:
+            aws_sdk_arc_region_switch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -549,6 +586,10 @@ class AsyncRegionSwitchPlan:
 
         Args:
             arn: <p>The Amazon Resource Name (ARN) of the plan.</p>
+
+        Raises:
+            aws_sdk_arc_region_switch.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p> <p>HTTP Status Code: 404</p>
+            aws_sdk_arc_region_switch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -607,6 +648,10 @@ class AsyncRegionSwitchPlan:
             associated_alarms: <p>The updated CloudWatch alarms associated with the plan.</p>
             triggers: <p>The updated conditions that can automatically trigger the execution of the plan.</p>
             report_configuration: <p>The updated report configuration for the plan.</p>
+
+        Raises:
+            aws_sdk_arc_region_switch.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p> <p>HTTP Status Code: 404</p>
+            aws_sdk_arc_region_switch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -657,6 +702,11 @@ class AsyncRegionSwitchPlan:
 
         Args:
             arn: <p>The Amazon Resource Name (ARN) of the plan.</p>
+
+        Raises:
+            aws_sdk_arc_region_switch.errors.illegal_state_exception.IllegalStateException: <p>The operation failed because the current state of the resource doesn't allow the operation to proceed.</p> <p>HTTP Status Code: 400</p>
+            aws_sdk_arc_region_switch.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p> <p>HTTP Status Code: 404</p>
+            aws_sdk_arc_region_switch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -701,6 +751,9 @@ class AsyncRegionSwitchPlan:
         Args:
             max_results: <p>The number of objects that you want to return with this call.</p>
             next_token: <p>Specifies that you want to receive the next page of results. Valid only if you received a <code>nextToken</code> response in the previous request. If you did, it indicates that more output is available. Set this parameter to the value provided by the previous call's <code>nextToken</code> response to request the next page of results.</p>
+
+        Raises:
+            aws_sdk_arc_region_switch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -742,6 +795,11 @@ class AsyncRegionSwitchPlan:
 
         Args:
             arn: <p>The Amazon Resource Name (ARN) of the resource.</p>
+
+        Raises:
+            aws_sdk_arc_region_switch.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure.</p> <p>HTTP Status Code: 500</p>
+            aws_sdk_arc_region_switch.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p> <p>HTTP Status Code: 404</p>
+            aws_sdk_arc_region_switch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -782,6 +840,11 @@ class AsyncRegionSwitchPlan:
         Args:
             arn: <p>The Amazon Resource Name (ARN) for a tag that you add to a resource.</p>
             tags: <p>Tags that you add to a resource. You can add a maximum of 50 tags in Region switch.</p>
+
+        Raises:
+            aws_sdk_arc_region_switch.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure.</p> <p>HTTP Status Code: 500</p>
+            aws_sdk_arc_region_switch.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p> <p>HTTP Status Code: 404</p>
+            aws_sdk_arc_region_switch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -825,6 +888,11 @@ class AsyncRegionSwitchPlan:
         Args:
             arn: <p>The Amazon Resource Name (ARN) for a tag you remove a resource from.</p>
             resource_tag_keys: <p>Tag keys that you remove from a resource.</p>
+
+        Raises:
+            aws_sdk_arc_region_switch.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure.</p> <p>HTTP Status Code: 500</p>
+            aws_sdk_arc_region_switch.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p> <p>HTTP Status Code: 404</p>
+            aws_sdk_arc_region_switch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

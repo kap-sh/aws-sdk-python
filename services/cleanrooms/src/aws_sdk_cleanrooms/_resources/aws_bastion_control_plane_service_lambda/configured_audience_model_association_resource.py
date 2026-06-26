@@ -69,6 +69,16 @@ class ConfiguredAudienceModelAssociationResource:
             manage_resource_policies: <p>When <code>TRUE</code>, indicates that the resource policy for the configured audience model resource being associated is configured for Clean Rooms to manage permissions related to the given collaboration. When <code>FALSE</code>, indicates that the configured audience model resource owner will manage permissions related to the given collaboration.</p> <p>Setting this to <code>TRUE</code> requires you to have permissions to create, update, and delete the resource policy for the <code>cleanrooms-ml</code> resource when you call the <a>DeleteConfiguredAudienceModelAssociation</a> resource. In addition, if you are the collaboration creator and specify <code>TRUE</code>, you must have the same permissions when you call the <a>DeleteMember</a> and <a>DeleteCollaboration</a> APIs.</p>
             tags: <p>An optional label that you can assign to a resource when you create it. Each tag consists of a key and an optional value, both of which you define. When you use tagging, you can also use tag-based access control in IAM policies to control access to this resource.</p>
             description: <p>A description of the configured audience model association.</p>
+
+        Raises:
+            aws_sdk_cleanrooms.errors.access_denied_exception.AccessDeniedException: <p>Caller does not have sufficient access to perform this action.</p>
+            aws_sdk_cleanrooms.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_cleanrooms.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_cleanrooms.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_cleanrooms.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Request denied because service quota has been exceeded.</p>
+            aws_sdk_cleanrooms.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_cleanrooms.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints.</p>
+            aws_sdk_cleanrooms.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -117,6 +127,14 @@ class ConfiguredAudienceModelAssociationResource:
         Args:
             configured_audience_model_association_identifier: <p>A unique identifier for the configured audience model association that you want to retrieve.</p>
             membership_identifier: <p>A unique identifier for the membership that contains the configured audience model association that you want to retrieve.</p>
+
+        Raises:
+            aws_sdk_cleanrooms.errors.access_denied_exception.AccessDeniedException: <p>Caller does not have sufficient access to perform this action.</p>
+            aws_sdk_cleanrooms.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_cleanrooms.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_cleanrooms.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_cleanrooms.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints.</p>
+            aws_sdk_cleanrooms.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -167,6 +185,14 @@ class ConfiguredAudienceModelAssociationResource:
             membership_identifier: <p>A unique identifier of the membership that contains the configured audience model association that you want to update.</p>
             description: <p>A new description for the configured audience model association.</p>
             name: <p>A new name for the configured audience model association.</p>
+
+        Raises:
+            aws_sdk_cleanrooms.errors.access_denied_exception.AccessDeniedException: <p>Caller does not have sufficient access to perform this action.</p>
+            aws_sdk_cleanrooms.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_cleanrooms.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_cleanrooms.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_cleanrooms.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints.</p>
+            aws_sdk_cleanrooms.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -213,6 +239,14 @@ class ConfiguredAudienceModelAssociationResource:
         Args:
             configured_audience_model_association_identifier: <p>A unique identifier of the configured audience model association that you want to delete.</p>
             membership_identifier: <p>A unique identifier of the membership that contains the audience model association that you want to delete.</p>
+
+        Raises:
+            aws_sdk_cleanrooms.errors.access_denied_exception.AccessDeniedException: <p>Caller does not have sufficient access to perform this action.</p>
+            aws_sdk_cleanrooms.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_cleanrooms.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_cleanrooms.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_cleanrooms.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints.</p>
+            aws_sdk_cleanrooms.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -259,6 +293,14 @@ class ConfiguredAudienceModelAssociationResource:
             membership_identifier: <p>A unique identifier for a membership that contains the configured audience model associations that you want to retrieve.</p>
             next_token: <p>The pagination token that's used to fetch the next set of results.</p>
             max_results: <p>The maximum number of results that are returned for an API request call. The service chooses a default number if you don't set one. The service might return a `nextToken` even if the `maxResults` value has not been met.</p>
+
+        Raises:
+            aws_sdk_cleanrooms.errors.access_denied_exception.AccessDeniedException: <p>Caller does not have sufficient access to perform this action.</p>
+            aws_sdk_cleanrooms.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_cleanrooms.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_cleanrooms.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_cleanrooms.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints.</p>
+            aws_sdk_cleanrooms.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -317,6 +359,16 @@ class AsyncConfiguredAudienceModelAssociationResource:
             manage_resource_policies: <p>When <code>TRUE</code>, indicates that the resource policy for the configured audience model resource being associated is configured for Clean Rooms to manage permissions related to the given collaboration. When <code>FALSE</code>, indicates that the configured audience model resource owner will manage permissions related to the given collaboration.</p> <p>Setting this to <code>TRUE</code> requires you to have permissions to create, update, and delete the resource policy for the <code>cleanrooms-ml</code> resource when you call the <a>DeleteConfiguredAudienceModelAssociation</a> resource. In addition, if you are the collaboration creator and specify <code>TRUE</code>, you must have the same permissions when you call the <a>DeleteMember</a> and <a>DeleteCollaboration</a> APIs.</p>
             tags: <p>An optional label that you can assign to a resource when you create it. Each tag consists of a key and an optional value, both of which you define. When you use tagging, you can also use tag-based access control in IAM policies to control access to this resource.</p>
             description: <p>A description of the configured audience model association.</p>
+
+        Raises:
+            aws_sdk_cleanrooms.errors.access_denied_exception.AccessDeniedException: <p>Caller does not have sufficient access to perform this action.</p>
+            aws_sdk_cleanrooms.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_cleanrooms.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_cleanrooms.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_cleanrooms.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Request denied because service quota has been exceeded.</p>
+            aws_sdk_cleanrooms.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_cleanrooms.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints.</p>
+            aws_sdk_cleanrooms.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -366,6 +418,14 @@ class AsyncConfiguredAudienceModelAssociationResource:
         Args:
             configured_audience_model_association_identifier: <p>A unique identifier for the configured audience model association that you want to retrieve.</p>
             membership_identifier: <p>A unique identifier for the membership that contains the configured audience model association that you want to retrieve.</p>
+
+        Raises:
+            aws_sdk_cleanrooms.errors.access_denied_exception.AccessDeniedException: <p>Caller does not have sufficient access to perform this action.</p>
+            aws_sdk_cleanrooms.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_cleanrooms.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_cleanrooms.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_cleanrooms.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints.</p>
+            aws_sdk_cleanrooms.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -417,6 +477,14 @@ class AsyncConfiguredAudienceModelAssociationResource:
             membership_identifier: <p>A unique identifier of the membership that contains the configured audience model association that you want to update.</p>
             description: <p>A new description for the configured audience model association.</p>
             name: <p>A new name for the configured audience model association.</p>
+
+        Raises:
+            aws_sdk_cleanrooms.errors.access_denied_exception.AccessDeniedException: <p>Caller does not have sufficient access to perform this action.</p>
+            aws_sdk_cleanrooms.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_cleanrooms.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_cleanrooms.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_cleanrooms.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints.</p>
+            aws_sdk_cleanrooms.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -464,6 +532,14 @@ class AsyncConfiguredAudienceModelAssociationResource:
         Args:
             configured_audience_model_association_identifier: <p>A unique identifier of the configured audience model association that you want to delete.</p>
             membership_identifier: <p>A unique identifier of the membership that contains the audience model association that you want to delete.</p>
+
+        Raises:
+            aws_sdk_cleanrooms.errors.access_denied_exception.AccessDeniedException: <p>Caller does not have sufficient access to perform this action.</p>
+            aws_sdk_cleanrooms.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_cleanrooms.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_cleanrooms.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_cleanrooms.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints.</p>
+            aws_sdk_cleanrooms.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -511,6 +587,14 @@ class AsyncConfiguredAudienceModelAssociationResource:
             membership_identifier: <p>A unique identifier for a membership that contains the configured audience model associations that you want to retrieve.</p>
             next_token: <p>The pagination token that's used to fetch the next set of results.</p>
             max_results: <p>The maximum number of results that are returned for an API request call. The service chooses a default number if you don't set one. The service might return a `nextToken` even if the `maxResults` value has not been met.</p>
+
+        Raises:
+            aws_sdk_cleanrooms.errors.access_denied_exception.AccessDeniedException: <p>Caller does not have sufficient access to perform this action.</p>
+            aws_sdk_cleanrooms.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_cleanrooms.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_cleanrooms.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_cleanrooms.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints.</p>
+            aws_sdk_cleanrooms.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

@@ -65,6 +65,9 @@ class ApplicationResource:
             role_arn: <p>The Amazon Resource Name (ARN) of the IAM role to associate with the application.</p>
             default_kms_key_id: <p>The identifier of the default AWS KMS key to use for encrypting data in the application.</p>
             tags: <p>The tags to associate with the application.</p>
+
+        Raises:
+            aws_sdk_securityagent.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -109,6 +112,9 @@ class ApplicationResource:
 
         Args:
             application_id: <p>The unique identifier of the application to retrieve.</p>
+
+        Raises:
+            aws_sdk_securityagent.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -152,6 +158,9 @@ class ApplicationResource:
             application_id: <p>The unique identifier of the application to update.</p>
             role_arn: <p>The updated Amazon Resource Name (ARN) of the IAM role for the application.</p>
             default_kms_key_id: <p>The updated identifier of the default AWS KMS key for the application.</p>
+
+        Raises:
+            aws_sdk_securityagent.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -193,6 +202,9 @@ class ApplicationResource:
 
         Args:
             application_id: <p>The unique identifier of the application to delete.</p>
+
+        Raises:
+            aws_sdk_securityagent.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -232,6 +244,9 @@ class ApplicationResource:
         Args:
             next_token: <p>A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request. For subsequent calls, use the nextToken value returned from the previous request.</p>
             max_results: <p>The maximum number of results to return in a single call.</p>
+
+        Raises:
+            aws_sdk_securityagent.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -287,6 +302,9 @@ class AsyncApplicationResource:
             role_arn: <p>The Amazon Resource Name (ARN) of the IAM role to associate with the application.</p>
             default_kms_key_id: <p>The identifier of the default AWS KMS key to use for encrypting data in the application.</p>
             tags: <p>The tags to associate with the application.</p>
+
+        Raises:
+            aws_sdk_securityagent.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -332,6 +350,9 @@ class AsyncApplicationResource:
 
         Args:
             application_id: <p>The unique identifier of the application to retrieve.</p>
+
+        Raises:
+            aws_sdk_securityagent.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -376,6 +397,9 @@ class AsyncApplicationResource:
             application_id: <p>The unique identifier of the application to update.</p>
             role_arn: <p>The updated Amazon Resource Name (ARN) of the IAM role for the application.</p>
             default_kms_key_id: <p>The updated identifier of the default AWS KMS key for the application.</p>
+
+        Raises:
+            aws_sdk_securityagent.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -418,6 +442,9 @@ class AsyncApplicationResource:
 
         Args:
             application_id: <p>The unique identifier of the application to delete.</p>
+
+        Raises:
+            aws_sdk_securityagent.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -458,6 +485,9 @@ class AsyncApplicationResource:
         Args:
             next_token: <p>A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request. For subsequent calls, use the nextToken value returned from the previous request.</p>
             max_results: <p>The maximum number of results to return in a single call.</p>
+
+        Raises:
+            aws_sdk_securityagent.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

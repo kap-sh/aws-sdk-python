@@ -170,6 +170,16 @@ class AsyncInterconnectClient:
             tags: <p>The tags to associate with the resulting <a>Connection</a>.</p>
             client_token: <p>Idempotency token used for the request.</p>
 
+        Raises:
+            aws_sdk_interconnect.errors.access_denied_exception.AccessDeniedException: <p>The calling principal is not allowed to access the specified resource, or the resource does not exist.</p>
+            aws_sdk_interconnect.errors.interconnect_client_exception.InterconnectClientException: <p>The request was denied due to incorrect client supplied parameters.</p>
+            aws_sdk_interconnect.errors.interconnect_server_exception.InterconnectServerException: <p>The request resulted in an exception internal to the service.</p>
+            aws_sdk_interconnect.errors.interconnect_validation_exception.InterconnectValidationException: <p>The input fails to satisfy the constraints specified.</p>
+            aws_sdk_interconnect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request specifies a resource that does not exist on the server.</p>
+            aws_sdk_interconnect.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The requested operation would result in the calling principal exceeding their allotted quota.</p>
+            aws_sdk_interconnect.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_interconnect.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Accept Connection Proposal
 
@@ -220,6 +230,16 @@ class AsyncInterconnectClient:
         Args:
             activation_key: <p>An Activation Key that was generated on a supported partner's portal. This key captures the desired parameters from the initial creation request.</p>
 
+        Raises:
+            aws_sdk_interconnect.errors.access_denied_exception.AccessDeniedException: <p>The calling principal is not allowed to access the specified resource, or the resource does not exist.</p>
+            aws_sdk_interconnect.errors.interconnect_client_exception.InterconnectClientException: <p>The request was denied due to incorrect client supplied parameters.</p>
+            aws_sdk_interconnect.errors.interconnect_server_exception.InterconnectServerException: <p>The request resulted in an exception internal to the service.</p>
+            aws_sdk_interconnect.errors.interconnect_validation_exception.InterconnectValidationException: <p>The input fails to satisfy the constraints specified.</p>
+            aws_sdk_interconnect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request specifies a resource that does not exist on the server.</p>
+            aws_sdk_interconnect.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The requested operation would result in the calling principal exceeding their allotted quota.</p>
+            aws_sdk_interconnect.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_interconnect.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Describe Connection Proposal
 
@@ -268,6 +288,16 @@ class AsyncInterconnectClient:
             environment_id: <p>The identifier of the <a>Environment</a> for which to list valid Attach Points.</p>
             max_results: <p>The max number of list results in a single paginated response.</p>
             next_token: <p>A pagination token from a previous paginated response indicating you wish to get the next page.</p>
+
+        Raises:
+            aws_sdk_interconnect.errors.access_denied_exception.AccessDeniedException: <p>The calling principal is not allowed to access the specified resource, or the resource does not exist.</p>
+            aws_sdk_interconnect.errors.interconnect_client_exception.InterconnectClientException: <p>The request was denied due to incorrect client supplied parameters.</p>
+            aws_sdk_interconnect.errors.interconnect_server_exception.InterconnectServerException: <p>The request resulted in an exception internal to the service.</p>
+            aws_sdk_interconnect.errors.interconnect_validation_exception.InterconnectValidationException: <p>The input fails to satisfy the constraints specified.</p>
+            aws_sdk_interconnect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request specifies a resource that does not exist on the server.</p>
+            aws_sdk_interconnect.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The requested operation would result in the calling principal exceeding their allotted quota.</p>
+            aws_sdk_interconnect.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_interconnect.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             List Attach Points
@@ -341,6 +371,16 @@ class AsyncInterconnectClient:
         Args:
             arn: <p>The resource ARN for which to list tags. </p>
 
+        Raises:
+            aws_sdk_interconnect.errors.access_denied_exception.AccessDeniedException: <p>The calling principal is not allowed to access the specified resource, or the resource does not exist.</p>
+            aws_sdk_interconnect.errors.interconnect_client_exception.InterconnectClientException: <p>The request was denied due to incorrect client supplied parameters.</p>
+            aws_sdk_interconnect.errors.interconnect_server_exception.InterconnectServerException: <p>The request resulted in an exception internal to the service.</p>
+            aws_sdk_interconnect.errors.interconnect_validation_exception.InterconnectValidationException: <p>The input fails to satisfy the constraints specified.</p>
+            aws_sdk_interconnect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request specifies a resource that does not exist on the server.</p>
+            aws_sdk_interconnect.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The requested operation would result in the calling principal exceeding their allotted quota.</p>
+            aws_sdk_interconnect.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_interconnect.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             List Tags
 
@@ -385,6 +425,16 @@ class AsyncInterconnectClient:
         Args:
             arn: <p>The ARN of the resource that should receive the new tags.</p>
             tags: <p>A map of tags to apply to the specified resource.</p>
+
+        Raises:
+            aws_sdk_interconnect.errors.access_denied_exception.AccessDeniedException: <p>The calling principal is not allowed to access the specified resource, or the resource does not exist.</p>
+            aws_sdk_interconnect.errors.interconnect_client_exception.InterconnectClientException: <p>The request was denied due to incorrect client supplied parameters.</p>
+            aws_sdk_interconnect.errors.interconnect_server_exception.InterconnectServerException: <p>The request resulted in an exception internal to the service.</p>
+            aws_sdk_interconnect.errors.interconnect_validation_exception.InterconnectValidationException: <p>The input fails to satisfy the constraints specified.</p>
+            aws_sdk_interconnect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request specifies a resource that does not exist on the server.</p>
+            aws_sdk_interconnect.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The requested operation would result in the calling principal exceeding their allotted quota.</p>
+            aws_sdk_interconnect.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_interconnect.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Apply Tags
@@ -431,6 +481,16 @@ class AsyncInterconnectClient:
         Args:
             arn: <p>The ARN of the resource from which the specified tags should be removed.</p>
             tag_keys: <p>The list of tag keys that should be removed from the resource.</p>
+
+        Raises:
+            aws_sdk_interconnect.errors.access_denied_exception.AccessDeniedException: <p>The calling principal is not allowed to access the specified resource, or the resource does not exist.</p>
+            aws_sdk_interconnect.errors.interconnect_client_exception.InterconnectClientException: <p>The request was denied due to incorrect client supplied parameters.</p>
+            aws_sdk_interconnect.errors.interconnect_server_exception.InterconnectServerException: <p>The request resulted in an exception internal to the service.</p>
+            aws_sdk_interconnect.errors.interconnect_validation_exception.InterconnectValidationException: <p>The input fails to satisfy the constraints specified.</p>
+            aws_sdk_interconnect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request specifies a resource that does not exist on the server.</p>
+            aws_sdk_interconnect.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The requested operation would result in the calling principal exceeding their allotted quota.</p>
+            aws_sdk_interconnect.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_interconnect.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Remove Tags

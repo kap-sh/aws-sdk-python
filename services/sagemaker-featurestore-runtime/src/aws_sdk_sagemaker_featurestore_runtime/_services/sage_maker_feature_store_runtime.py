@@ -152,6 +152,13 @@ class SageMakerFeatureStoreRuntimeClient:
         Args:
             identifiers: <p>A list containing the name or Amazon Resource Name (ARN) of the <code>FeatureGroup</code>, the list of names of <code>Feature</code>s to be retrieved, and the corresponding <code>RecordIdentifier</code> values as strings.</p>
             expiration_time_response: <p>Parameter to request <code>ExpiresAt</code> in response. If <code>Enabled</code>, <code>BatchGetRecord</code> will return the value of <code>ExpiresAt</code>, if it is not null. If <code>Disabled</code> and null, <code>BatchGetRecord</code> will return null.</p>
+
+        Raises:
+            aws_sdk_sagemaker_featurestore_runtime.errors.access_forbidden.AccessForbidden: <p>You do not have permission to perform an action.</p>
+            aws_sdk_sagemaker_featurestore_runtime.errors.internal_failure.InternalFailure: <p>An internal failure occurred. Try your request again. If the problem persists, contact Amazon Web Services customer support.</p>
+            aws_sdk_sagemaker_featurestore_runtime.errors.service_unavailable.ServiceUnavailable: <p>The service is currently unavailable.</p>
+            aws_sdk_sagemaker_featurestore_runtime.errors.validation_error.ValidationError: <p>There was an error validating your request.</p>
+            aws_sdk_sagemaker_featurestore_runtime.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -203,6 +210,13 @@ class SageMakerFeatureStoreRuntimeClient:
             event_time: <p>Timestamp indicating when the deletion event occurred. <code>EventTime</code> can be used to query data at a certain point in time.</p>
             target_stores: <p>A list of stores from which you're deleting the record. By default, Feature Store deletes the record from all of the stores that you're using for the <code>FeatureGroup</code>.</p>
             deletion_mode: <p>The name of the deletion mode for deleting the record. By default, the deletion mode is set to <code>SoftDelete</code>.</p>
+
+        Raises:
+            aws_sdk_sagemaker_featurestore_runtime.errors.access_forbidden.AccessForbidden: <p>You do not have permission to perform an action.</p>
+            aws_sdk_sagemaker_featurestore_runtime.errors.internal_failure.InternalFailure: <p>An internal failure occurred. Try your request again. If the problem persists, contact Amazon Web Services customer support.</p>
+            aws_sdk_sagemaker_featurestore_runtime.errors.service_unavailable.ServiceUnavailable: <p>The service is currently unavailable.</p>
+            aws_sdk_sagemaker_featurestore_runtime.errors.validation_error.ValidationError: <p>There was an error validating your request.</p>
+            aws_sdk_sagemaker_featurestore_runtime.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -254,6 +268,14 @@ class SageMakerFeatureStoreRuntimeClient:
             record_identifier_value_as_string: <p>The value that corresponds to <code>RecordIdentifier</code> type and uniquely identifies the record in the <code>FeatureGroup</code>. </p>
             feature_names: <p>List of names of Features to be retrieved. If not specified, the latest value for all the Features are returned.</p>
             expiration_time_response: <p>Parameter to request <code>ExpiresAt</code> in response. If <code>Enabled</code>, <code>GetRecord</code> will return the value of <code>ExpiresAt</code>, if it is not null. If <code>Disabled</code> and null, <code>GetRecord</code> will return null.</p>
+
+        Raises:
+            aws_sdk_sagemaker_featurestore_runtime.errors.access_forbidden.AccessForbidden: <p>You do not have permission to perform an action.</p>
+            aws_sdk_sagemaker_featurestore_runtime.errors.internal_failure.InternalFailure: <p>An internal failure occurred. Try your request again. If the problem persists, contact Amazon Web Services customer support.</p>
+            aws_sdk_sagemaker_featurestore_runtime.errors.resource_not_found.ResourceNotFound: <p>A resource that is required to perform an action was not found.</p>
+            aws_sdk_sagemaker_featurestore_runtime.errors.service_unavailable.ServiceUnavailable: <p>The service is currently unavailable.</p>
+            aws_sdk_sagemaker_featurestore_runtime.errors.validation_error.ValidationError: <p>There was an error validating your request.</p>
+            aws_sdk_sagemaker_featurestore_runtime.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -306,6 +328,13 @@ class SageMakerFeatureStoreRuntimeClient:
             record: <p>List of FeatureValues to be inserted. This will be a full over-write. If you only want to update few of the feature values, do the following:</p> <ul> <li> <p>Use <code>GetRecord</code> to retrieve the latest record.</p> </li> <li> <p>Update the record returned from <code>GetRecord</code>. </p> </li> <li> <p>Use <code>PutRecord</code> to update feature values.</p> </li> </ul>
             target_stores: <p>A list of stores to which you're adding the record. By default, Feature Store adds the record to all of the stores that you're using for the <code>FeatureGroup</code>.</p>
             ttl_duration: <p>Time to live duration, where the record is hard deleted after the expiration time is reached; <code>ExpiresAt</code> = <code>EventTime</code> + <code>TtlDuration</code>. For information on HardDelete, see the <a href=\"https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_feature_store_DeleteRecord.html\">DeleteRecord</a> API in the Amazon SageMaker API Reference guide.</p>
+
+        Raises:
+            aws_sdk_sagemaker_featurestore_runtime.errors.access_forbidden.AccessForbidden: <p>You do not have permission to perform an action.</p>
+            aws_sdk_sagemaker_featurestore_runtime.errors.internal_failure.InternalFailure: <p>An internal failure occurred. Try your request again. If the problem persists, contact Amazon Web Services customer support.</p>
+            aws_sdk_sagemaker_featurestore_runtime.errors.service_unavailable.ServiceUnavailable: <p>The service is currently unavailable.</p>
+            aws_sdk_sagemaker_featurestore_runtime.errors.validation_error.ValidationError: <p>There was an error validating your request.</p>
+            aws_sdk_sagemaker_featurestore_runtime.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(

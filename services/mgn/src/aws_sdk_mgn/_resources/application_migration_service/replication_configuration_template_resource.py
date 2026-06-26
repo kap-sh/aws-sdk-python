@@ -85,6 +85,12 @@ class ReplicationConfigurationTemplateResource:
             tags: <p>Request to configure tags during Replication Settings template creation.</p>
             internet_protocol: <p>Request to configure the internet protocol to IPv4 or IPv6.</p>
             store_snapshot_on_local_zone: <p>Request to store snapshot on local zone during Replication Settings template creation.</p>
+
+        Raises:
+            aws_sdk_mgn.errors.access_denied_exception.AccessDeniedException: <p>Operating denied due to a file permission or access check error.</p>
+            aws_sdk_mgn.errors.uninitialized_account_exception.UninitializedAccountException: <p>Uninitialized account exception.</p>
+            aws_sdk_mgn.errors.validation_exception.ValidationException: <p>Validate exception.</p>
+            aws_sdk_mgn.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -190,6 +196,13 @@ class ReplicationConfigurationTemplateResource:
             use_fips_endpoint: <p>Update replication configuration template use Fips Endpoint request.</p>
             internet_protocol: <p>Update replication configuration template internet protocol request.</p>
             store_snapshot_on_local_zone: <p>Update replication configuration template store snapshot on local zone request.</p>
+
+        Raises:
+            aws_sdk_mgn.errors.access_denied_exception.AccessDeniedException: <p>Operating denied due to a file permission or access check error.</p>
+            aws_sdk_mgn.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found exception.</p>
+            aws_sdk_mgn.errors.uninitialized_account_exception.UninitializedAccountException: <p>Uninitialized account exception.</p>
+            aws_sdk_mgn.errors.validation_exception.ValidationException: <p>Validate exception.</p>
+            aws_sdk_mgn.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -269,6 +282,12 @@ class ReplicationConfigurationTemplateResource:
 
         Args:
             replication_configuration_template_id: <p>Request to delete Replication Configuration Template from service by Replication Configuration Template ID.</p>
+
+        Raises:
+            aws_sdk_mgn.errors.conflict_exception.ConflictException: <p>The request could not be completed due to a conflict with the current state of the target resource.</p>
+            aws_sdk_mgn.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found exception.</p>
+            aws_sdk_mgn.errors.uninitialized_account_exception.UninitializedAccountException: <p>Uninitialized account exception.</p>
+            aws_sdk_mgn.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -318,6 +337,12 @@ class ReplicationConfigurationTemplateResource:
             replication_configuration_template_i_ds: <p>Request to describe Replication Configuration template by template IDs.</p>
             max_results: <p>Request to describe Replication Configuration template by max results.</p>
             next_token: <p>Request to describe Replication Configuration template by next token.</p>
+
+        Raises:
+            aws_sdk_mgn.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found exception.</p>
+            aws_sdk_mgn.errors.uninitialized_account_exception.UninitializedAccountException: <p>Uninitialized account exception.</p>
+            aws_sdk_mgn.errors.validation_exception.ValidationException: <p>Validate exception.</p>
+            aws_sdk_mgn.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -399,6 +424,12 @@ class AsyncReplicationConfigurationTemplateResource:
             tags: <p>Request to configure tags during Replication Settings template creation.</p>
             internet_protocol: <p>Request to configure the internet protocol to IPv4 or IPv6.</p>
             store_snapshot_on_local_zone: <p>Request to store snapshot on local zone during Replication Settings template creation.</p>
+
+        Raises:
+            aws_sdk_mgn.errors.access_denied_exception.AccessDeniedException: <p>Operating denied due to a file permission or access check error.</p>
+            aws_sdk_mgn.errors.uninitialized_account_exception.UninitializedAccountException: <p>Uninitialized account exception.</p>
+            aws_sdk_mgn.errors.validation_exception.ValidationException: <p>Validate exception.</p>
+            aws_sdk_mgn.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -505,6 +536,13 @@ class AsyncReplicationConfigurationTemplateResource:
             use_fips_endpoint: <p>Update replication configuration template use Fips Endpoint request.</p>
             internet_protocol: <p>Update replication configuration template internet protocol request.</p>
             store_snapshot_on_local_zone: <p>Update replication configuration template store snapshot on local zone request.</p>
+
+        Raises:
+            aws_sdk_mgn.errors.access_denied_exception.AccessDeniedException: <p>Operating denied due to a file permission or access check error.</p>
+            aws_sdk_mgn.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found exception.</p>
+            aws_sdk_mgn.errors.uninitialized_account_exception.UninitializedAccountException: <p>Uninitialized account exception.</p>
+            aws_sdk_mgn.errors.validation_exception.ValidationException: <p>Validate exception.</p>
+            aws_sdk_mgn.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -585,6 +623,12 @@ class AsyncReplicationConfigurationTemplateResource:
 
         Args:
             replication_configuration_template_id: <p>Request to delete Replication Configuration Template from service by Replication Configuration Template ID.</p>
+
+        Raises:
+            aws_sdk_mgn.errors.conflict_exception.ConflictException: <p>The request could not be completed due to a conflict with the current state of the target resource.</p>
+            aws_sdk_mgn.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found exception.</p>
+            aws_sdk_mgn.errors.uninitialized_account_exception.UninitializedAccountException: <p>Uninitialized account exception.</p>
+            aws_sdk_mgn.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -635,6 +679,12 @@ class AsyncReplicationConfigurationTemplateResource:
             replication_configuration_template_i_ds: <p>Request to describe Replication Configuration template by template IDs.</p>
             max_results: <p>Request to describe Replication Configuration template by max results.</p>
             next_token: <p>Request to describe Replication Configuration template by next token.</p>
+
+        Raises:
+            aws_sdk_mgn.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found exception.</p>
+            aws_sdk_mgn.errors.uninitialized_account_exception.UninitializedAccountException: <p>Uninitialized account exception.</p>
+            aws_sdk_mgn.errors.validation_exception.ValidationException: <p>Validate exception.</p>
+            aws_sdk_mgn.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

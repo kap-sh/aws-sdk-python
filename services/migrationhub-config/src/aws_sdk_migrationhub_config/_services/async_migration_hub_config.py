@@ -150,6 +150,15 @@ class AsyncMigrationHubConfigClient:
             home_region: <p>The name of the home region of the calling account.</p>
             target: <p>The account for which this command sets up a home region control. The <code>Target</code> is always of type <code>ACCOUNT</code>.</p>
             dry_run: <p>Optional Boolean flag to indicate whether any effect should take place. It tests whether the caller has permission to make the call.</p>
+
+        Raises:
+            aws_sdk_migrationhub_config.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_migrationhub_config.errors.dry_run_operation.DryRunOperation: <p>Exception raised to indicate that authorization of an action was successful, when the <code>DryRun</code> flag is set to true.</p>
+            aws_sdk_migrationhub_config.errors.internal_server_error.InternalServerError: <p>Exception raised when an internal, configuration, or dependency error is encountered.</p>
+            aws_sdk_migrationhub_config.errors.invalid_input_exception.InvalidInputException: <p>Exception raised when the provided input violates a policy constraint or is entered in the wrong format or data type.</p>
+            aws_sdk_migrationhub_config.errors.service_unavailable_exception.ServiceUnavailableException: <p>Exception raised when a request fails due to temporary unavailability of the service.</p>
+            aws_sdk_migrationhub_config.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_migrationhub_config.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -191,6 +200,14 @@ class AsyncMigrationHubConfigClient:
 
         Args:
             control_id: <p>A unique identifier that's generated for each home region control. It's always a string that begins with \"hrc-\" followed by 12 lowercase letters and numbers.</p>
+
+        Raises:
+            aws_sdk_migrationhub_config.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_migrationhub_config.errors.internal_server_error.InternalServerError: <p>Exception raised when an internal, configuration, or dependency error is encountered.</p>
+            aws_sdk_migrationhub_config.errors.invalid_input_exception.InvalidInputException: <p>Exception raised when the provided input violates a policy constraint or is entered in the wrong format or data type.</p>
+            aws_sdk_migrationhub_config.errors.service_unavailable_exception.ServiceUnavailableException: <p>Exception raised when a request fails due to temporary unavailability of the service.</p>
+            aws_sdk_migrationhub_config.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_migrationhub_config.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -243,6 +260,14 @@ class AsyncMigrationHubConfigClient:
             target: <p>The target parameter specifies the identifier to which the home region is applied, which is always of type <code>ACCOUNT</code>. It applies the home region to the current <code>ACCOUNT</code>.</p>
             max_results: <p>The maximum number of filtering results to display per page. </p>
             next_token: <p>If a <code>NextToken</code> was returned by a previous call, more results are available. To retrieve the next page of results, make the call again using the returned token in <code>NextToken</code>.</p>
+
+        Raises:
+            aws_sdk_migrationhub_config.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_migrationhub_config.errors.internal_server_error.InternalServerError: <p>Exception raised when an internal, configuration, or dependency error is encountered.</p>
+            aws_sdk_migrationhub_config.errors.invalid_input_exception.InvalidInputException: <p>Exception raised when the provided input violates a policy constraint or is entered in the wrong format or data type.</p>
+            aws_sdk_migrationhub_config.errors.service_unavailable_exception.ServiceUnavailableException: <p>Exception raised when a request fails due to temporary unavailability of the service.</p>
+            aws_sdk_migrationhub_config.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_migrationhub_config.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -283,7 +308,16 @@ class AsyncMigrationHubConfigClient:
     async def get_home_region(
         self, *, config_overrides: Optional[AsyncMigrationHubConfigClientConfig] = None
     ) -> "aws_sdk_migrationhub_config.types.get_home_region_result.GetHomeRegionResult":
-        """<p>Returns the calling account’s home region, if configured. This API is used by other AWS services to determine the regional endpoint for calling AWS Application Discovery Service and Migration Hub. You must call <code>GetHomeRegion</code> at least once before you call any other AWS Application Discovery Service and AWS Migration Hub APIs, to obtain the account's Migration Hub home region.</p>"""
+        """<p>Returns the calling account’s home region, if configured. This API is used by other AWS services to determine the regional endpoint for calling AWS Application Discovery Service and Migration Hub. You must call <code>GetHomeRegion</code> at least once before you call any other AWS Application Discovery Service and AWS Migration Hub APIs, to obtain the account's Migration Hub home region.</p>
+
+        Raises:
+            aws_sdk_migrationhub_config.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_migrationhub_config.errors.internal_server_error.InternalServerError: <p>Exception raised when an internal, configuration, or dependency error is encountered.</p>
+            aws_sdk_migrationhub_config.errors.invalid_input_exception.InvalidInputException: <p>Exception raised when the provided input violates a policy constraint or is entered in the wrong format or data type.</p>
+            aws_sdk_migrationhub_config.errors.service_unavailable_exception.ServiceUnavailableException: <p>Exception raised when a request fails due to temporary unavailability of the service.</p>
+            aws_sdk_migrationhub_config.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_migrationhub_config.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_migrationhub_config.types.get_home_region_request.GetHomeRegionRequest]",

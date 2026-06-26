@@ -101,6 +101,15 @@ class Environment:
             network_type: <p>The network type required for the runtime environment.</p>
             client_token: <p>Unique, case-sensitive identifier you provide to ensure the idempotency of the request to create an environment. The service generates the clientToken when the API call is triggered. The token expires after one hour, so if you retry the API within this timeframe with the same clientToken, you will get the same response. The service also handles deleting the clientToken after it expires. </p>
             kms_key_id: <p>The identifier of a customer managed key.</p>
+
+        Raises:
+            aws_sdk_m2.errors.access_denied_exception.AccessDeniedException: <p>The account or role doesn't have the right permissions to make the request.</p>
+            aws_sdk_m2.errors.conflict_exception.ConflictException: <p>The parameters provided in the request conflict with existing resources.</p>
+            aws_sdk_m2.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred during the processing of the request.</p>
+            aws_sdk_m2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>One or more quotas for Amazon Web Services Mainframe Modernization exceeds the limit.</p>
+            aws_sdk_m2.errors.throttling_exception.ThrottlingException: <p>The number of requests made exceeds the limit.</p>
+            aws_sdk_m2.errors.validation_exception.ValidationException: <p>One or more parameters provided in the request is not valid.</p>
+            aws_sdk_m2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -164,6 +173,14 @@ class Environment:
 
         Args:
             environment_id: <p>The unique identifier of the runtime environment.</p>
+
+        Raises:
+            aws_sdk_m2.errors.access_denied_exception.AccessDeniedException: <p>The account or role doesn't have the right permissions to make the request.</p>
+            aws_sdk_m2.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred during the processing of the request.</p>
+            aws_sdk_m2.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_m2.errors.throttling_exception.ThrottlingException: <p>The number of requests made exceeds the limit.</p>
+            aws_sdk_m2.errors.validation_exception.ValidationException: <p>One or more parameters provided in the request is not valid.</p>
+            aws_sdk_m2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -219,6 +236,16 @@ class Environment:
             preferred_maintenance_window: <p>Configures the maintenance window that you want for the runtime environment. The maintenance window must have the format <code>ddd:hh24:mi-ddd:hh24:mi</code> and must be less than 24 hours. The following two examples are valid maintenance windows: <code>sun:23:45-mon:00:15</code> or <code>sat:01:00-sat:03:00</code>. </p> <p>If you do not provide a value, a random system-generated value will be assigned.</p>
             apply_during_maintenance_window: <p>Indicates whether to update the runtime environment during the maintenance window. The default is false. Currently, Amazon Web Services Mainframe Modernization accepts the <code>engineVersion</code> parameter only if <code>applyDuringMaintenanceWindow</code> is true. If any parameter other than <code>engineVersion</code> is provided in <code>UpdateEnvironmentRequest</code>, it will fail if <code>applyDuringMaintenanceWindow</code> is set to true.</p>
             force_update: <p>Forces the updates on the environment. This option is needed if the applications in the environment are not stopped or if there are ongoing application-related activities in the environment.</p> <p>If you use this option, be aware that it could lead to data corruption in the applications, and that you might need to perform repair and recovery procedures for the applications.</p> <p>This option is not needed if the attribute being updated is <code>preferredMaintenanceWindow</code>.</p>
+
+        Raises:
+            aws_sdk_m2.errors.access_denied_exception.AccessDeniedException: <p>The account or role doesn't have the right permissions to make the request.</p>
+            aws_sdk_m2.errors.conflict_exception.ConflictException: <p>The parameters provided in the request conflict with existing resources.</p>
+            aws_sdk_m2.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred during the processing of the request.</p>
+            aws_sdk_m2.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_m2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>One or more quotas for Amazon Web Services Mainframe Modernization exceeds the limit.</p>
+            aws_sdk_m2.errors.throttling_exception.ThrottlingException: <p>The number of requests made exceeds the limit.</p>
+            aws_sdk_m2.errors.validation_exception.ValidationException: <p>One or more parameters provided in the request is not valid.</p>
+            aws_sdk_m2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -268,6 +295,14 @@ class Environment:
 
         Args:
             environment_id: <p>The unique identifier of the runtime environment you want to delete.</p>
+
+        Raises:
+            aws_sdk_m2.errors.access_denied_exception.AccessDeniedException: <p>The account or role doesn't have the right permissions to make the request.</p>
+            aws_sdk_m2.errors.conflict_exception.ConflictException: <p>The parameters provided in the request conflict with existing resources.</p>
+            aws_sdk_m2.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred during the processing of the request.</p>
+            aws_sdk_m2.errors.throttling_exception.ThrottlingException: <p>The number of requests made exceeds the limit.</p>
+            aws_sdk_m2.errors.validation_exception.ValidationException: <p>One or more parameters provided in the request is not valid.</p>
+            aws_sdk_m2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -311,6 +346,13 @@ class Environment:
             max_results: <p>The maximum number of runtime environments to return.</p>
             names: <p>The names of the runtime environments. Must be unique within the account.</p>
             engine_type: <p>The engine type for the runtime environment.</p>
+
+        Raises:
+            aws_sdk_m2.errors.access_denied_exception.AccessDeniedException: <p>The account or role doesn't have the right permissions to make the request.</p>
+            aws_sdk_m2.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred during the processing of the request.</p>
+            aws_sdk_m2.errors.throttling_exception.ThrottlingException: <p>The number of requests made exceeds the limit.</p>
+            aws_sdk_m2.errors.validation_exception.ValidationException: <p>One or more parameters provided in the request is not valid.</p>
+            aws_sdk_m2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -400,6 +442,15 @@ class AsyncEnvironment:
             network_type: <p>The network type required for the runtime environment.</p>
             client_token: <p>Unique, case-sensitive identifier you provide to ensure the idempotency of the request to create an environment. The service generates the clientToken when the API call is triggered. The token expires after one hour, so if you retry the API within this timeframe with the same clientToken, you will get the same response. The service also handles deleting the clientToken after it expires. </p>
             kms_key_id: <p>The identifier of a customer managed key.</p>
+
+        Raises:
+            aws_sdk_m2.errors.access_denied_exception.AccessDeniedException: <p>The account or role doesn't have the right permissions to make the request.</p>
+            aws_sdk_m2.errors.conflict_exception.ConflictException: <p>The parameters provided in the request conflict with existing resources.</p>
+            aws_sdk_m2.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred during the processing of the request.</p>
+            aws_sdk_m2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>One or more quotas for Amazon Web Services Mainframe Modernization exceeds the limit.</p>
+            aws_sdk_m2.errors.throttling_exception.ThrottlingException: <p>The number of requests made exceeds the limit.</p>
+            aws_sdk_m2.errors.validation_exception.ValidationException: <p>One or more parameters provided in the request is not valid.</p>
+            aws_sdk_m2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -464,6 +515,14 @@ class AsyncEnvironment:
 
         Args:
             environment_id: <p>The unique identifier of the runtime environment.</p>
+
+        Raises:
+            aws_sdk_m2.errors.access_denied_exception.AccessDeniedException: <p>The account or role doesn't have the right permissions to make the request.</p>
+            aws_sdk_m2.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred during the processing of the request.</p>
+            aws_sdk_m2.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_m2.errors.throttling_exception.ThrottlingException: <p>The number of requests made exceeds the limit.</p>
+            aws_sdk_m2.errors.validation_exception.ValidationException: <p>One or more parameters provided in the request is not valid.</p>
+            aws_sdk_m2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -520,6 +579,16 @@ class AsyncEnvironment:
             preferred_maintenance_window: <p>Configures the maintenance window that you want for the runtime environment. The maintenance window must have the format <code>ddd:hh24:mi-ddd:hh24:mi</code> and must be less than 24 hours. The following two examples are valid maintenance windows: <code>sun:23:45-mon:00:15</code> or <code>sat:01:00-sat:03:00</code>. </p> <p>If you do not provide a value, a random system-generated value will be assigned.</p>
             apply_during_maintenance_window: <p>Indicates whether to update the runtime environment during the maintenance window. The default is false. Currently, Amazon Web Services Mainframe Modernization accepts the <code>engineVersion</code> parameter only if <code>applyDuringMaintenanceWindow</code> is true. If any parameter other than <code>engineVersion</code> is provided in <code>UpdateEnvironmentRequest</code>, it will fail if <code>applyDuringMaintenanceWindow</code> is set to true.</p>
             force_update: <p>Forces the updates on the environment. This option is needed if the applications in the environment are not stopped or if there are ongoing application-related activities in the environment.</p> <p>If you use this option, be aware that it could lead to data corruption in the applications, and that you might need to perform repair and recovery procedures for the applications.</p> <p>This option is not needed if the attribute being updated is <code>preferredMaintenanceWindow</code>.</p>
+
+        Raises:
+            aws_sdk_m2.errors.access_denied_exception.AccessDeniedException: <p>The account or role doesn't have the right permissions to make the request.</p>
+            aws_sdk_m2.errors.conflict_exception.ConflictException: <p>The parameters provided in the request conflict with existing resources.</p>
+            aws_sdk_m2.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred during the processing of the request.</p>
+            aws_sdk_m2.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_m2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>One or more quotas for Amazon Web Services Mainframe Modernization exceeds the limit.</p>
+            aws_sdk_m2.errors.throttling_exception.ThrottlingException: <p>The number of requests made exceeds the limit.</p>
+            aws_sdk_m2.errors.validation_exception.ValidationException: <p>One or more parameters provided in the request is not valid.</p>
+            aws_sdk_m2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -570,6 +639,14 @@ class AsyncEnvironment:
 
         Args:
             environment_id: <p>The unique identifier of the runtime environment you want to delete.</p>
+
+        Raises:
+            aws_sdk_m2.errors.access_denied_exception.AccessDeniedException: <p>The account or role doesn't have the right permissions to make the request.</p>
+            aws_sdk_m2.errors.conflict_exception.ConflictException: <p>The parameters provided in the request conflict with existing resources.</p>
+            aws_sdk_m2.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred during the processing of the request.</p>
+            aws_sdk_m2.errors.throttling_exception.ThrottlingException: <p>The number of requests made exceeds the limit.</p>
+            aws_sdk_m2.errors.validation_exception.ValidationException: <p>One or more parameters provided in the request is not valid.</p>
+            aws_sdk_m2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -614,6 +691,13 @@ class AsyncEnvironment:
             max_results: <p>The maximum number of runtime environments to return.</p>
             names: <p>The names of the runtime environments. Must be unique within the account.</p>
             engine_type: <p>The engine type for the runtime environment.</p>
+
+        Raises:
+            aws_sdk_m2.errors.access_denied_exception.AccessDeniedException: <p>The account or role doesn't have the right permissions to make the request.</p>
+            aws_sdk_m2.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred during the processing of the request.</p>
+            aws_sdk_m2.errors.throttling_exception.ThrottlingException: <p>The number of requests made exceeds the limit.</p>
+            aws_sdk_m2.errors.validation_exception.ValidationException: <p>One or more parameters provided in the request is not valid.</p>
+            aws_sdk_m2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

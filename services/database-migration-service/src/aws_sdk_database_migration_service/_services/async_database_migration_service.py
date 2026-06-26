@@ -436,6 +436,11 @@ class AsyncDatabaseMigrationServiceClient:
             resource_arn: <p>Identifies the DMS resource to which tags should be added. The value for this parameter is an Amazon Resource Name (ARN).</p> <p>For DMS, you can tag a replication instance, an endpoint, or a replication task.</p>
             tags: <p>One or more tags to be assigned to the resource.</p>
 
+        Raises:
+            aws_sdk_database_migration_service.errors.invalid_resource_state_fault.InvalidResourceStateFault: <p>The resource is in a state that prevents it from being used for database migration.</p>
+            aws_sdk_database_migration_service.errors.resource_not_found_fault.ResourceNotFoundFault: <p>The resource could not be found.</p>
+            aws_sdk_database_migration_service.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Add tags to resource
             Adds metadata tags to an AWS DMS resource, including replication instance, endpoint, security group, and migration task. These tags can also be used with cost allocation reporting to track cost associated with AWS DMS resources, or used in a Condition statement in an IAM policy for AWS DMS.
@@ -484,6 +489,10 @@ class AsyncDatabaseMigrationServiceClient:
             replication_instance_arn: <p>The Amazon Resource Name (ARN) of the DMS resource that the pending maintenance action applies to.</p>
             apply_action: <p>The pending maintenance action to apply to this resource.</p> <p>Valid values: <code>os-upgrade</code>, <code>system-update</code>, <code>db-upgrade</code>, <code>os-patch</code> </p>
             opt_in_type: <p>A value that specifies the type of opt-in request, or undoes an opt-in request. You can't undo an opt-in request of type <code>immediate</code>.</p> <p>Valid values:</p> <ul> <li> <p> <code>immediate</code> - Apply the maintenance action immediately.</p> </li> <li> <p> <code>next-maintenance</code> - Apply the maintenance action during the next maintenance window for the resource.</p> </li> <li> <p> <code>undo-opt-in</code> - Cancel any existing <code>next-maintenance</code> opt-in requests.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_database_migration_service.errors.resource_not_found_fault.ResourceNotFoundFault: <p>The resource could not be found.</p>
+            aws_sdk_database_migration_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -526,6 +535,12 @@ class AsyncDatabaseMigrationServiceClient:
 
         Args:
             data: <p>Provides information about source databases to analyze. After this analysis, Fleet Advisor recommends target engines for each source database.</p>
+
+        Raises:
+            aws_sdk_database_migration_service.errors.access_denied_fault.AccessDeniedFault: <p>DMS was denied access to the endpoint. Check that the role is correctly configured.</p>
+            aws_sdk_database_migration_service.errors.invalid_resource_state_fault.InvalidResourceStateFault: <p>The resource is in a state that prevents it from being used for database migration.</p>
+            aws_sdk_database_migration_service.errors.resource_not_found_fault.ResourceNotFoundFault: <p>The resource could not be found.</p>
+            aws_sdk_database_migration_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -567,6 +582,12 @@ class AsyncDatabaseMigrationServiceClient:
         Args:
             migration_project_identifier: <p>The migration project name or Amazon Resource Name (ARN).</p>
             request_identifier: <p>The identifier for the metadata model conversion operation to cancel. This operation was initiated by StartMetadataModelConversion.</p>
+
+        Raises:
+            aws_sdk_database_migration_service.errors.access_denied_fault.AccessDeniedFault: <p>DMS was denied access to the endpoint. Check that the role is correctly configured.</p>
+            aws_sdk_database_migration_service.errors.invalid_resource_state_fault.InvalidResourceStateFault: <p>The resource is in a state that prevents it from being used for database migration.</p>
+            aws_sdk_database_migration_service.errors.resource_not_found_fault.ResourceNotFoundFault: <p>The resource could not be found.</p>
+            aws_sdk_database_migration_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -608,6 +629,12 @@ class AsyncDatabaseMigrationServiceClient:
         Args:
             migration_project_identifier: <p>The migration project name or Amazon Resource Name (ARN).</p>
             request_identifier: <p>The identifier for the metadata model creation operation to cancel. This operation was initiated by <code>StartMetadataModelCreation</code>.</p>
+
+        Raises:
+            aws_sdk_database_migration_service.errors.access_denied_fault.AccessDeniedFault: <p>DMS was denied access to the endpoint. Check that the role is correctly configured.</p>
+            aws_sdk_database_migration_service.errors.invalid_resource_state_fault.InvalidResourceStateFault: <p>The resource is in a state that prevents it from being used for database migration.</p>
+            aws_sdk_database_migration_service.errors.resource_not_found_fault.ResourceNotFoundFault: <p>The resource could not be found.</p>
+            aws_sdk_database_migration_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -647,6 +674,12 @@ class AsyncDatabaseMigrationServiceClient:
 
         Args:
             replication_task_assessment_run_arn: <p>Amazon Resource Name (ARN) of the premigration assessment run to be canceled.</p>
+
+        Raises:
+            aws_sdk_database_migration_service.errors.access_denied_fault.AccessDeniedFault: <p>DMS was denied access to the endpoint. Check that the role is correctly configured.</p>
+            aws_sdk_database_migration_service.errors.invalid_resource_state_fault.InvalidResourceStateFault: <p>The resource is in a state that prevents it from being used for database migration.</p>
+            aws_sdk_database_migration_service.errors.resource_not_found_fault.ResourceNotFoundFault: <p>The resource could not be found.</p>
+            aws_sdk_database_migration_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -719,6 +752,14 @@ class AsyncDatabaseMigrationServiceClient:
             number_of_jobs: <p>The number of parallel jobs that trigger parallel threads to unload the tables from the source, and then load them to the target.</p>
             tags: <p>One or more tags to be assigned to the data migration.</p>
             selection_rules: <p>An optional JSON string specifying what tables, views, and schemas to include or exclude from the migration.</p>
+
+        Raises:
+            aws_sdk_database_migration_service.errors.failed_dependency_fault.FailedDependencyFault: <p>A dependency threw an exception.</p>
+            aws_sdk_database_migration_service.errors.invalid_operation_fault.InvalidOperationFault: <p>The action or operation requested isn't valid.</p>
+            aws_sdk_database_migration_service.errors.resource_already_exists_fault.ResourceAlreadyExistsFault: <p>The resource you are attempting to create already exists.</p>
+            aws_sdk_database_migration_service.errors.resource_not_found_fault.ResourceNotFoundFault: <p>The resource could not be found.</p>
+            aws_sdk_database_migration_service.errors.resource_quota_exceeded_fault.ResourceQuotaExceededFault: <p>The quota for this resource quota has been exceeded.</p>
+            aws_sdk_database_migration_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -791,6 +832,13 @@ class AsyncDatabaseMigrationServiceClient:
             virtual: <p>Indicates whether the data provider is virtual.</p>
             settings: <p>The settings in JSON format for a data provider.</p>
             tags: <p>One or more tags to be assigned to the data provider.</p>
+
+        Raises:
+            aws_sdk_database_migration_service.errors.access_denied_fault.AccessDeniedFault: <p>DMS was denied access to the endpoint. Check that the role is correctly configured.</p>
+            aws_sdk_database_migration_service.errors.failed_dependency_fault.FailedDependencyFault: <p>A dependency threw an exception.</p>
+            aws_sdk_database_migration_service.errors.resource_already_exists_fault.ResourceAlreadyExistsFault: <p>The resource you are attempting to create already exists.</p>
+            aws_sdk_database_migration_service.errors.resource_quota_exceeded_fault.ResourceQuotaExceededFault: <p>The quota for this resource quota has been exceeded.</p>
+            aws_sdk_database_migration_service.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Create Data Provider
@@ -975,6 +1023,16 @@ class AsyncDatabaseMigrationServiceClient:
             gcp_my_sql_settings: <p>Settings in JSON format for the source GCP MySQL endpoint.</p>
             timestream_settings: <p>Settings in JSON format for the target Amazon Timestream endpoint.</p>
 
+        Raises:
+            aws_sdk_database_migration_service.errors.access_denied_fault.AccessDeniedFault: <p>DMS was denied access to the endpoint. Check that the role is correctly configured.</p>
+            aws_sdk_database_migration_service.errors.invalid_resource_state_fault.InvalidResourceStateFault: <p>The resource is in a state that prevents it from being used for database migration.</p>
+            aws_sdk_database_migration_service.errors.kms_key_not_accessible_fault.KMSKeyNotAccessibleFault: <p>DMS cannot access the KMS key.</p>
+            aws_sdk_database_migration_service.errors.resource_already_exists_fault.ResourceAlreadyExistsFault: <p>The resource you are attempting to create already exists.</p>
+            aws_sdk_database_migration_service.errors.resource_not_found_fault.ResourceNotFoundFault: <p>The resource could not be found.</p>
+            aws_sdk_database_migration_service.errors.resource_quota_exceeded_fault.ResourceQuotaExceededFault: <p>The quota for this resource quota has been exceeded.</p>
+            aws_sdk_database_migration_service.errors.s3_access_denied_fault.S3AccessDeniedFault: <p>Insufficient privileges are preventing access to an Amazon S3 object.</p>
+            aws_sdk_database_migration_service.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Create endpoint
             Creates an endpoint using the provided settings.
@@ -1106,6 +1164,19 @@ class AsyncDatabaseMigrationServiceClient:
             source_ids: <p>A list of identifiers for which DMS provides notification events.</p> <p>If you don't specify a value, notifications are provided for all sources.</p> <p>If you specify multiple values, they must be of the same type. For example, if you specify a database instance ID, then all of the other values must be database instance IDs.</p>
             enabled: <p> A Boolean value; set to <code>true</code> to activate the subscription, or set to <code>false</code> to create the subscription but not activate it. </p>
             tags: <p>One or more tags to be assigned to the event subscription.</p>
+
+        Raises:
+            aws_sdk_database_migration_service.errors.kms_access_denied_fault.KMSAccessDeniedFault: <p>The ciphertext references a key that doesn't exist or that the DMS account doesn't have access to.</p>
+            aws_sdk_database_migration_service.errors.kms_disabled_fault.KMSDisabledFault: <p>The specified KMS key isn't enabled.</p>
+            aws_sdk_database_migration_service.errors.kms_invalid_state_fault.KMSInvalidStateFault: <p>The state of the specified KMS resource isn't valid for this request.</p>
+            aws_sdk_database_migration_service.errors.kms_not_found_fault.KMSNotFoundFault: <p>The specified KMS entity or resource can't be found.</p>
+            aws_sdk_database_migration_service.errors.kms_throttling_fault.KMSThrottlingFault: <p>This request triggered KMS request throttling.</p>
+            aws_sdk_database_migration_service.errors.resource_already_exists_fault.ResourceAlreadyExistsFault: <p>The resource you are attempting to create already exists.</p>
+            aws_sdk_database_migration_service.errors.resource_not_found_fault.ResourceNotFoundFault: <p>The resource could not be found.</p>
+            aws_sdk_database_migration_service.errors.resource_quota_exceeded_fault.ResourceQuotaExceededFault: <p>The quota for this resource quota has been exceeded.</p>
+            aws_sdk_database_migration_service.errors.sns_invalid_topic_fault.SNSInvalidTopicFault: <p>The SNS topic is invalid.</p>
+            aws_sdk_database_migration_service.errors.sns_no_authorization_fault.SNSNoAuthorizationFault: <p>You are not authorized for the SNS subscription.</p>
+            aws_sdk_database_migration_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1163,6 +1234,14 @@ class AsyncDatabaseMigrationServiceClient:
             description: <p>A summary description of your Fleet Advisor collector.</p>
             service_access_role_arn: <p>The IAM role that grants permissions to access the specified Amazon S3 bucket.</p>
             s3_bucket_name: <p>The Amazon S3 bucket that the Fleet Advisor collector uses to store inventory metadata.</p>
+
+        Raises:
+            aws_sdk_database_migration_service.errors.access_denied_fault.AccessDeniedFault: <p>DMS was denied access to the endpoint. Check that the role is correctly configured.</p>
+            aws_sdk_database_migration_service.errors.invalid_resource_state_fault.InvalidResourceStateFault: <p>The resource is in a state that prevents it from being used for database migration.</p>
+            aws_sdk_database_migration_service.errors.resource_quota_exceeded_fault.ResourceQuotaExceededFault: <p>The quota for this resource quota has been exceeded.</p>
+            aws_sdk_database_migration_service.errors.s3_access_denied_fault.S3AccessDeniedFault: <p>Insufficient privileges are preventing access to an Amazon S3 object.</p>
+            aws_sdk_database_migration_service.errors.s3_resource_not_found_fault.S3ResourceNotFoundFault: <p>A specified Amazon S3 bucket, bucket folder, or other object can't be found.</p>
+            aws_sdk_database_migration_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1239,6 +1318,18 @@ class AsyncDatabaseMigrationServiceClient:
             description: <p>A user-friendly description of the instance profile.</p>
             subnet_group_identifier: <p>A subnet group to associate with the instance profile.</p>
             vpc_security_groups: <p>Specifies the VPC security group names to be used with the instance profile. The VPC security group must work with the VPC containing the instance profile.</p>
+
+        Raises:
+            aws_sdk_database_migration_service.errors.access_denied_fault.AccessDeniedFault: <p>DMS was denied access to the endpoint. Check that the role is correctly configured.</p>
+            aws_sdk_database_migration_service.errors.failed_dependency_fault.FailedDependencyFault: <p>A dependency threw an exception.</p>
+            aws_sdk_database_migration_service.errors.invalid_resource_state_fault.InvalidResourceStateFault: <p>The resource is in a state that prevents it from being used for database migration.</p>
+            aws_sdk_database_migration_service.errors.kms_key_not_accessible_fault.KMSKeyNotAccessibleFault: <p>DMS cannot access the KMS key.</p>
+            aws_sdk_database_migration_service.errors.resource_already_exists_fault.ResourceAlreadyExistsFault: <p>The resource you are attempting to create already exists.</p>
+            aws_sdk_database_migration_service.errors.resource_not_found_fault.ResourceNotFoundFault: <p>The resource could not be found.</p>
+            aws_sdk_database_migration_service.errors.resource_quota_exceeded_fault.ResourceQuotaExceededFault: <p>The quota for this resource quota has been exceeded.</p>
+            aws_sdk_database_migration_service.errors.s3_access_denied_fault.S3AccessDeniedFault: <p>Insufficient privileges are preventing access to an Amazon S3 object.</p>
+            aws_sdk_database_migration_service.errors.s3_resource_not_found_fault.S3ResourceNotFoundFault: <p>A specified Amazon S3 bucket, bucket folder, or other object can't be found.</p>
+            aws_sdk_database_migration_service.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Create Instance Profile
@@ -1325,6 +1416,16 @@ class AsyncDatabaseMigrationServiceClient:
             tags: <p>One or more tags to be assigned to the migration project.</p>
             schema_conversion_application_attributes: <p>The schema conversion application attributes, including the Amazon S3 bucket name and Amazon S3 role ARN.</p>
 
+        Raises:
+            aws_sdk_database_migration_service.errors.access_denied_fault.AccessDeniedFault: <p>DMS was denied access to the endpoint. Check that the role is correctly configured.</p>
+            aws_sdk_database_migration_service.errors.failed_dependency_fault.FailedDependencyFault: <p>A dependency threw an exception.</p>
+            aws_sdk_database_migration_service.errors.resource_already_exists_fault.ResourceAlreadyExistsFault: <p>The resource you are attempting to create already exists.</p>
+            aws_sdk_database_migration_service.errors.resource_not_found_fault.ResourceNotFoundFault: <p>The resource could not be found.</p>
+            aws_sdk_database_migration_service.errors.resource_quota_exceeded_fault.ResourceQuotaExceededFault: <p>The quota for this resource quota has been exceeded.</p>
+            aws_sdk_database_migration_service.errors.s3_access_denied_fault.S3AccessDeniedFault: <p>Insufficient privileges are preventing access to an Amazon S3 object.</p>
+            aws_sdk_database_migration_service.errors.s3_resource_not_found_fault.S3ResourceNotFoundFault: <p>A specified Amazon S3 bucket, bucket folder, or other object can't be found.</p>
+            aws_sdk_database_migration_service.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Create Migration Project
             Creates the migration project with the specified parameters.
@@ -1408,6 +1509,17 @@ class AsyncDatabaseMigrationServiceClient:
             supplemental_settings: <p>Optional JSON settings for specifying supplemental data. For more information, see <a href=\"https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.TaskData.html\"> Specifying supplemental data for task settings</a>.</p>
             resource_identifier: <p>Optional unique value or name that you set for a given resource that can be used to construct an Amazon Resource Name (ARN) for that resource. For more information, see <a href=\"https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#CHAP_Security.FineGrainedAccess\"> Fine-grained access control using resource names and tags</a>.</p>
             tags: <p>One or more optional tags associated with resources used by the DMS Serverless replication. For more information, see <a href=\"https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tagging.html\"> Tagging resources in Database Migration Service</a>.</p>
+
+        Raises:
+            aws_sdk_database_migration_service.errors.access_denied_fault.AccessDeniedFault: <p>DMS was denied access to the endpoint. Check that the role is correctly configured.</p>
+            aws_sdk_database_migration_service.errors.invalid_resource_state_fault.InvalidResourceStateFault: <p>The resource is in a state that prevents it from being used for database migration.</p>
+            aws_sdk_database_migration_service.errors.invalid_subnet.InvalidSubnet: <p>The subnet provided isn't valid.</p>
+            aws_sdk_database_migration_service.errors.kms_key_not_accessible_fault.KMSKeyNotAccessibleFault: <p>DMS cannot access the KMS key.</p>
+            aws_sdk_database_migration_service.errors.replication_subnet_group_does_not_cover_enough_a_zs.ReplicationSubnetGroupDoesNotCoverEnoughAZs: <p>The replication subnet group does not cover enough Availability Zones (AZs). Edit the replication subnet group and add more AZs.</p>
+            aws_sdk_database_migration_service.errors.resource_already_exists_fault.ResourceAlreadyExistsFault: <p>The resource you are attempting to create already exists.</p>
+            aws_sdk_database_migration_service.errors.resource_not_found_fault.ResourceNotFoundFault: <p>The resource could not be found.</p>
+            aws_sdk_database_migration_service.errors.resource_quota_exceeded_fault.ResourceQuotaExceededFault: <p>The quota for this resource quota has been exceeded.</p>
+            aws_sdk_database_migration_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1522,6 +1634,19 @@ class AsyncDatabaseMigrationServiceClient:
             network_type: <p>The type of IP address protocol used by a replication instance, such as IPv4 only or Dual-stack that supports both IPv4 and IPv6 addressing. IPv6 only is not yet supported.</p>
             kerberos_authentication_settings: <p>Specifies the settings required for kerberos authentication when creating the replication instance.</p>
 
+        Raises:
+            aws_sdk_database_migration_service.errors.access_denied_fault.AccessDeniedFault: <p>DMS was denied access to the endpoint. Check that the role is correctly configured.</p>
+            aws_sdk_database_migration_service.errors.insufficient_resource_capacity_fault.InsufficientResourceCapacityFault: <p>There are not enough resources allocated to the database migration.</p>
+            aws_sdk_database_migration_service.errors.invalid_resource_state_fault.InvalidResourceStateFault: <p>The resource is in a state that prevents it from being used for database migration.</p>
+            aws_sdk_database_migration_service.errors.invalid_subnet.InvalidSubnet: <p>The subnet provided isn't valid.</p>
+            aws_sdk_database_migration_service.errors.kms_key_not_accessible_fault.KMSKeyNotAccessibleFault: <p>DMS cannot access the KMS key.</p>
+            aws_sdk_database_migration_service.errors.replication_subnet_group_does_not_cover_enough_a_zs.ReplicationSubnetGroupDoesNotCoverEnoughAZs: <p>The replication subnet group does not cover enough Availability Zones (AZs). Edit the replication subnet group and add more AZs.</p>
+            aws_sdk_database_migration_service.errors.resource_already_exists_fault.ResourceAlreadyExistsFault: <p>The resource you are attempting to create already exists.</p>
+            aws_sdk_database_migration_service.errors.resource_not_found_fault.ResourceNotFoundFault: <p>The resource could not be found.</p>
+            aws_sdk_database_migration_service.errors.resource_quota_exceeded_fault.ResourceQuotaExceededFault: <p>The quota for this resource quota has been exceeded.</p>
+            aws_sdk_database_migration_service.errors.storage_quota_exceeded_fault.StorageQuotaExceededFault: <p>The storage quota has been exceeded.</p>
+            aws_sdk_database_migration_service.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Create replication instance
             Creates the replication instance using the specified parameters.
@@ -1608,6 +1733,15 @@ class AsyncDatabaseMigrationServiceClient:
             replication_subnet_group_description: <p>The description for the subnet group. </p> <p>Constraints: This parameter Must not contain non-printable control characters.</p>
             subnet_ids: <p>Two or more subnet IDs to be assigned to the subnet group.</p>
             tags: <p>One or more tags to be assigned to the subnet group.</p>
+
+        Raises:
+            aws_sdk_database_migration_service.errors.access_denied_fault.AccessDeniedFault: <p>DMS was denied access to the endpoint. Check that the role is correctly configured.</p>
+            aws_sdk_database_migration_service.errors.invalid_subnet.InvalidSubnet: <p>The subnet provided isn't valid.</p>
+            aws_sdk_database_migration_service.errors.replication_subnet_group_does_not_cover_enough_a_zs.ReplicationSubnetGroupDoesNotCoverEnoughAZs: <p>The replication subnet group does not cover enough Availability Zones (AZs). Edit the replication subnet group and add more AZs.</p>
+            aws_sdk_database_migration_service.errors.resource_already_exists_fault.ResourceAlreadyExistsFault: <p>The resource you are attempting to create already exists.</p>
+            aws_sdk_database_migration_service.errors.resource_not_found_fault.ResourceNotFoundFault: <p>The resource could not be found.</p>
+            aws_sdk_database_migration_service.errors.resource_quota_exceeded_fault.ResourceQuotaExceededFault: <p>The quota for this resource quota has been exceeded.</p>
+            aws_sdk_database_migration_service.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Create replication subnet group
@@ -1699,6 +1833,15 @@ class AsyncDatabaseMigrationServiceClient:
             task_data: <p>Supplemental information that the task requires to migrate the data for certain source and target endpoints. For more information, see <a href=\"https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.TaskData.html\">Specifying Supplemental Data for Task Settings</a> in the <i>Database Migration Service User Guide.</i> </p>
             resource_identifier: <p>A friendly name for the resource identifier at the end of the <code>EndpointArn</code> response parameter that is returned in the created <code>Endpoint</code> object. The value for this parameter can have up to 31 characters. It can contain only ASCII letters, digits, and hyphen ('-'). Also, it can't end with a hyphen or contain two consecutive hyphens, and can only begin with a letter, such as <code>Example-App-ARN1</code>. For example, this value might result in the <code>EndpointArn</code> value <code>arn:aws:dms:eu-west-1:012345678901:rep:Example-App-ARN1</code>. If you don't specify a <code>ResourceIdentifier</code> value, DMS generates a default identifier value for the end of <code>EndpointArn</code>.</p>
 
+        Raises:
+            aws_sdk_database_migration_service.errors.access_denied_fault.AccessDeniedFault: <p>DMS was denied access to the endpoint. Check that the role is correctly configured.</p>
+            aws_sdk_database_migration_service.errors.invalid_resource_state_fault.InvalidResourceStateFault: <p>The resource is in a state that prevents it from being used for database migration.</p>
+            aws_sdk_database_migration_service.errors.kms_key_not_accessible_fault.KMSKeyNotAccessibleFault: <p>DMS cannot access the KMS key.</p>
+            aws_sdk_database_migration_service.errors.resource_already_exists_fault.ResourceAlreadyExistsFault: <p>The resource you are attempting to create already exists.</p>
+            aws_sdk_database_migration_service.errors.resource_not_found_fault.ResourceNotFoundFault: <p>The resource could not be found.</p>
+            aws_sdk_database_migration_service.errors.resource_quota_exceeded_fault.ResourceQuotaExceededFault: <p>The quota for this resource quota has been exceeded.</p>
+            aws_sdk_database_migration_service.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Create replication task
             Creates a replication task using the specified parameters.
@@ -1762,6 +1905,11 @@ class AsyncDatabaseMigrationServiceClient:
         Args:
             certificate_arn: <p>The Amazon Resource Name (ARN) of the certificate.</p>
 
+        Raises:
+            aws_sdk_database_migration_service.errors.invalid_resource_state_fault.InvalidResourceStateFault: <p>The resource is in a state that prevents it from being used for database migration.</p>
+            aws_sdk_database_migration_service.errors.resource_not_found_fault.ResourceNotFoundFault: <p>The resource could not be found.</p>
+            aws_sdk_database_migration_service.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Delete Certificate
             Deletes the specified certificate.
@@ -1808,6 +1956,12 @@ class AsyncDatabaseMigrationServiceClient:
             endpoint_arn: <p>The Amazon Resource Name (ARN) string that uniquely identifies the endpoint.</p>
             replication_instance_arn: <p>The Amazon Resource Name (ARN) of the replication instance.</p>
 
+        Raises:
+            aws_sdk_database_migration_service.errors.access_denied_fault.AccessDeniedFault: <p>DMS was denied access to the endpoint. Check that the role is correctly configured.</p>
+            aws_sdk_database_migration_service.errors.invalid_resource_state_fault.InvalidResourceStateFault: <p>The resource is in a state that prevents it from being used for database migration.</p>
+            aws_sdk_database_migration_service.errors.resource_not_found_fault.ResourceNotFoundFault: <p>The resource could not be found.</p>
+            aws_sdk_database_migration_service.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Delete Connection
             Deletes the connection between the replication instance and the endpoint.
@@ -1852,6 +2006,12 @@ class AsyncDatabaseMigrationServiceClient:
 
         Args:
             data_migration_identifier: <p>The identifier (name or ARN) of the data migration to delete.</p>
+
+        Raises:
+            aws_sdk_database_migration_service.errors.failed_dependency_fault.FailedDependencyFault: <p>A dependency threw an exception.</p>
+            aws_sdk_database_migration_service.errors.invalid_resource_state_fault.InvalidResourceStateFault: <p>The resource is in a state that prevents it from being used for database migration.</p>
+            aws_sdk_database_migration_service.errors.resource_not_found_fault.ResourceNotFoundFault: <p>The resource could not be found.</p>
+            aws_sdk_database_migration_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1890,6 +2050,13 @@ class AsyncDatabaseMigrationServiceClient:
 
         Args:
             data_provider_identifier: <p>The identifier of the data provider to delete.</p>
+
+        Raises:
+            aws_sdk_database_migration_service.errors.access_denied_fault.AccessDeniedFault: <p>DMS was denied access to the endpoint. Check that the role is correctly configured.</p>
+            aws_sdk_database_migration_service.errors.failed_dependency_fault.FailedDependencyFault: <p>A dependency threw an exception.</p>
+            aws_sdk_database_migration_service.errors.invalid_resource_state_fault.InvalidResourceStateFault: <p>The resource is in a state that prevents it from being used for database migration.</p>
+            aws_sdk_database_migration_service.errors.resource_not_found_fault.ResourceNotFoundFault: <p>The resource could not be found.</p>
+            aws_sdk_database_migration_service.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Delete Data Provider
@@ -1935,6 +2102,11 @@ class AsyncDatabaseMigrationServiceClient:
         Args:
             endpoint_arn: <p>The Amazon Resource Name (ARN) string that uniquely identifies the endpoint.</p>
 
+        Raises:
+            aws_sdk_database_migration_service.errors.invalid_resource_state_fault.InvalidResourceStateFault: <p>The resource is in a state that prevents it from being used for database migration.</p>
+            aws_sdk_database_migration_service.errors.resource_not_found_fault.ResourceNotFoundFault: <p>The resource could not be found.</p>
+            aws_sdk_database_migration_service.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Delete Endpoint
             Deletes the specified endpoint. All tasks associated with the endpoint must be deleted before you can delete the endpoint.
@@ -1979,6 +2151,12 @@ class AsyncDatabaseMigrationServiceClient:
 
         Args:
             subscription_name: <p>The name of the DMS event notification subscription to be deleted.</p>
+
+        Raises:
+            aws_sdk_database_migration_service.errors.access_denied_fault.AccessDeniedFault: <p>DMS was denied access to the endpoint. Check that the role is correctly configured.</p>
+            aws_sdk_database_migration_service.errors.invalid_resource_state_fault.InvalidResourceStateFault: <p>The resource is in a state that prevents it from being used for database migration.</p>
+            aws_sdk_database_migration_service.errors.resource_not_found_fault.ResourceNotFoundFault: <p>The resource could not be found.</p>
+            aws_sdk_database_migration_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2017,6 +2195,12 @@ class AsyncDatabaseMigrationServiceClient:
 
         Args:
             collector_referenced_id: <p>The reference ID of the Fleet Advisor collector to delete.</p>
+
+        Raises:
+            aws_sdk_database_migration_service.errors.access_denied_fault.AccessDeniedFault: <p>DMS was denied access to the endpoint. Check that the role is correctly configured.</p>
+            aws_sdk_database_migration_service.errors.collector_not_found_fault.CollectorNotFoundFault: <p>The specified collector doesn't exist.</p>
+            aws_sdk_database_migration_service.errors.invalid_resource_state_fault.InvalidResourceStateFault: <p>The resource is in a state that prevents it from being used for database migration.</p>
+            aws_sdk_database_migration_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2053,6 +2237,12 @@ class AsyncDatabaseMigrationServiceClient:
 
         Args:
             database_ids: <p>The IDs of the Fleet Advisor collector databases to delete.</p>
+
+        Raises:
+            aws_sdk_database_migration_service.errors.access_denied_fault.AccessDeniedFault: <p>DMS was denied access to the endpoint. Check that the role is correctly configured.</p>
+            aws_sdk_database_migration_service.errors.invalid_operation_fault.InvalidOperationFault: <p>The action or operation requested isn't valid.</p>
+            aws_sdk_database_migration_service.errors.resource_not_found_fault.ResourceNotFoundFault: <p>The resource could not be found.</p>
+            aws_sdk_database_migration_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2091,6 +2281,13 @@ class AsyncDatabaseMigrationServiceClient:
 
         Args:
             instance_profile_identifier: <p>The identifier of the instance profile to delete.</p>
+
+        Raises:
+            aws_sdk_database_migration_service.errors.access_denied_fault.AccessDeniedFault: <p>DMS was denied access to the endpoint. Check that the role is correctly configured.</p>
+            aws_sdk_database_migration_service.errors.failed_dependency_fault.FailedDependencyFault: <p>A dependency threw an exception.</p>
+            aws_sdk_database_migration_service.errors.invalid_resource_state_fault.InvalidResourceStateFault: <p>The resource is in a state that prevents it from being used for database migration.</p>
+            aws_sdk_database_migration_service.errors.resource_not_found_fault.ResourceNotFoundFault: <p>The resource could not be found.</p>
+            aws_sdk_database_migration_service.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Delete Instance Profile
@@ -2136,6 +2333,13 @@ class AsyncDatabaseMigrationServiceClient:
         Args:
             migration_project_identifier: <p>The name or Amazon Resource Name (ARN) of the migration project to delete.</p>
 
+        Raises:
+            aws_sdk_database_migration_service.errors.access_denied_fault.AccessDeniedFault: <p>DMS was denied access to the endpoint. Check that the role is correctly configured.</p>
+            aws_sdk_database_migration_service.errors.failed_dependency_fault.FailedDependencyFault: <p>A dependency threw an exception.</p>
+            aws_sdk_database_migration_service.errors.invalid_resource_state_fault.InvalidResourceStateFault: <p>The resource is in a state that prevents it from being used for database migration.</p>
+            aws_sdk_database_migration_service.errors.resource_not_found_fault.ResourceNotFoundFault: <p>The resource could not be found.</p>
+            aws_sdk_database_migration_service.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Delete Migration Project
             Deletes the specified migration project.
@@ -2179,6 +2383,12 @@ class AsyncDatabaseMigrationServiceClient:
 
         Args:
             replication_config_arn: <p>The replication config to delete.</p>
+
+        Raises:
+            aws_sdk_database_migration_service.errors.access_denied_fault.AccessDeniedFault: <p>DMS was denied access to the endpoint. Check that the role is correctly configured.</p>
+            aws_sdk_database_migration_service.errors.invalid_resource_state_fault.InvalidResourceStateFault: <p>The resource is in a state that prevents it from being used for database migration.</p>
+            aws_sdk_database_migration_service.errors.resource_not_found_fault.ResourceNotFoundFault: <p>The resource could not be found.</p>
+            aws_sdk_database_migration_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2217,6 +2427,11 @@ class AsyncDatabaseMigrationServiceClient:
 
         Args:
             replication_instance_arn: <p>The Amazon Resource Name (ARN) of the replication instance to be deleted.</p>
+
+        Raises:
+            aws_sdk_database_migration_service.errors.invalid_resource_state_fault.InvalidResourceStateFault: <p>The resource is in a state that prevents it from being used for database migration.</p>
+            aws_sdk_database_migration_service.errors.resource_not_found_fault.ResourceNotFoundFault: <p>The resource could not be found.</p>
+            aws_sdk_database_migration_service.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Delete Replication Instance
@@ -2264,6 +2479,12 @@ class AsyncDatabaseMigrationServiceClient:
         Args:
             replication_subnet_group_identifier: <p>The subnet group name of the replication instance.</p>
 
+        Raises:
+            aws_sdk_database_migration_service.errors.access_denied_fault.AccessDeniedFault: <p>DMS was denied access to the endpoint. Check that the role is correctly configured.</p>
+            aws_sdk_database_migration_service.errors.invalid_resource_state_fault.InvalidResourceStateFault: <p>The resource is in a state that prevents it from being used for database migration.</p>
+            aws_sdk_database_migration_service.errors.resource_not_found_fault.ResourceNotFoundFault: <p>The resource could not be found.</p>
+            aws_sdk_database_migration_service.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Delete Replication Subnet Group
             Deletes a replication subnet group.
@@ -2310,6 +2531,11 @@ class AsyncDatabaseMigrationServiceClient:
         Args:
             replication_task_arn: <p>The Amazon Resource Name (ARN) of the replication task to be deleted.</p>
 
+        Raises:
+            aws_sdk_database_migration_service.errors.invalid_resource_state_fault.InvalidResourceStateFault: <p>The resource is in a state that prevents it from being used for database migration.</p>
+            aws_sdk_database_migration_service.errors.resource_not_found_fault.ResourceNotFoundFault: <p>The resource could not be found.</p>
+            aws_sdk_database_migration_service.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Delete Replication Task
             Deletes the specified replication task.
@@ -2353,6 +2579,12 @@ class AsyncDatabaseMigrationServiceClient:
 
         Args:
             replication_task_assessment_run_arn: <p>Amazon Resource Name (ARN) of the premigration assessment run to be deleted.</p>
+
+        Raises:
+            aws_sdk_database_migration_service.errors.access_denied_fault.AccessDeniedFault: <p>DMS was denied access to the endpoint. Check that the role is correctly configured.</p>
+            aws_sdk_database_migration_service.errors.invalid_resource_state_fault.InvalidResourceStateFault: <p>The resource is in a state that prevents it from being used for database migration.</p>
+            aws_sdk_database_migration_service.errors.resource_not_found_fault.ResourceNotFoundFault: <p>The resource could not be found.</p>
+            aws_sdk_database_migration_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2389,6 +2621,9 @@ class AsyncDatabaseMigrationServiceClient:
         config_overrides: Optional[AsyncDatabaseMigrationServiceClientConfig] = None,
     ) -> "aws_sdk_database_migration_service.types.describe_account_attributes_response.DescribeAccountAttributesResponse":
         """<p>Lists all of the DMS attributes for a customer account. These attributes include DMS quotas for the account and a unique account identifier in a particular DMS region. DMS quotas include a list of resource quotas supported by the account, such as the number of replication instances allowed. The description for each resource quota, includes the quota name, current usage toward that quota, and the quota's maximum value. DMS uses the unique account identifier to name each artifact used by DMS in the given region.</p> <p>This command does not take any parameters.</p>
+
+        Raises:
+            aws_sdk_database_migration_service.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Describe acount attributes
@@ -2462,6 +2697,12 @@ class AsyncDatabaseMigrationServiceClient:
             migration_type: <p>Name of the migration type that each provided individual assessment must support.</p>
             max_records: <p>Maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code> value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.</p>
             marker: <p>Optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>.</p>
+
+        Raises:
+            aws_sdk_database_migration_service.errors.access_denied_fault.AccessDeniedFault: <p>DMS was denied access to the endpoint. Check that the role is correctly configured.</p>
+            aws_sdk_database_migration_service.errors.invalid_resource_state_fault.InvalidResourceStateFault: <p>The resource is in a state that prevents it from being used for database migration.</p>
+            aws_sdk_database_migration_service.errors.resource_not_found_fault.ResourceNotFoundFault: <p>The resource could not be found.</p>
+            aws_sdk_database_migration_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2526,6 +2767,10 @@ class AsyncDatabaseMigrationServiceClient:
             max_records: <p> The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code> value, a pagination token called a marker is included in the response so that the remaining results can be retrieved. </p> <p>Default: 10</p>
             marker: <p> An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>. </p>
 
+        Raises:
+            aws_sdk_database_migration_service.errors.resource_not_found_fault.ResourceNotFoundFault: <p>The resource could not be found.</p>
+            aws_sdk_database_migration_service.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Describe certificates
             Provides a description of the certificate.
@@ -2585,6 +2830,10 @@ class AsyncDatabaseMigrationServiceClient:
             max_records: <p> The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code> value, a pagination token called a marker is included in the response so that the remaining results can be retrieved. </p> <p>Default: 100</p> <p>Constraints: Minimum 20, maximum 100.</p>
             marker: <p> An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>. </p>
 
+        Raises:
+            aws_sdk_database_migration_service.errors.resource_not_found_fault.ResourceNotFoundFault: <p>The resource could not be found.</p>
+            aws_sdk_database_migration_service.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Describe connections
             Describes the status of the connections that have been made between the replication instance and an endpoint. Connections are created when you test an endpoint.
@@ -2633,6 +2882,10 @@ class AsyncDatabaseMigrationServiceClient:
 
         Args:
             migration_project_identifier: <p>The name or Amazon Resource Name (ARN) for the schema conversion project to describe.</p>
+
+        Raises:
+            aws_sdk_database_migration_service.errors.resource_not_found_fault.ResourceNotFoundFault: <p>The resource could not be found.</p>
+            aws_sdk_database_migration_service.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Describe Conversion Configuration
@@ -2695,6 +2948,12 @@ class AsyncDatabaseMigrationServiceClient:
             marker: <p>An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>. </p>
             without_settings: <p>An option to set to avoid returning information about settings. Use this to reduce overhead when setting information is too large. To use this option, choose <code>true</code>; otherwise, choose <code>false</code> (the default).</p>
             without_statistics: <p>An option to set to avoid returning information about statistics. Use this to reduce overhead when statistics information is too large. To use this option, choose <code>true</code>; otherwise, choose <code>false</code> (the default).</p>
+
+        Raises:
+            aws_sdk_database_migration_service.errors.failed_dependency_fault.FailedDependencyFault: <p>A dependency threw an exception.</p>
+            aws_sdk_database_migration_service.errors.invalid_resource_state_fault.InvalidResourceStateFault: <p>The resource is in a state that prevents it from being used for database migration.</p>
+            aws_sdk_database_migration_service.errors.resource_not_found_fault.ResourceNotFoundFault: <p>The resource could not be found.</p>
+            aws_sdk_database_migration_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2790,6 +3049,12 @@ class AsyncDatabaseMigrationServiceClient:
             max_records: <p>The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code> value, DMS includes a pagination token in the response so that you can retrieve the remaining results.</p>
             marker: <p>Specifies the unique pagination token that makes it possible to display the next page of results. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>.</p> <p>If <code>Marker</code> is returned by a previous response, there are more results available. The value of <code>Marker</code> is a unique pagination token for each page. To retrieve the next page, make the call again using the returned token and keeping all other arguments unchanged.</p>
 
+        Raises:
+            aws_sdk_database_migration_service.errors.access_denied_fault.AccessDeniedFault: <p>DMS was denied access to the endpoint. Check that the role is correctly configured.</p>
+            aws_sdk_database_migration_service.errors.failed_dependency_fault.FailedDependencyFault: <p>A dependency threw an exception.</p>
+            aws_sdk_database_migration_service.errors.resource_not_found_fault.ResourceNotFoundFault: <p>The resource could not be found.</p>
+            aws_sdk_database_migration_service.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Describe Data Providers
 
@@ -2848,6 +3113,10 @@ class AsyncDatabaseMigrationServiceClient:
             max_records: <p> The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code> value, a pagination token called a marker is included in the response so that the remaining results can be retrieved. </p> <p>Default: 100</p> <p>Constraints: Minimum 20, maximum 100.</p>
             marker: <p> An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>. </p>
 
+        Raises:
+            aws_sdk_database_migration_service.errors.resource_not_found_fault.ResourceNotFoundFault: <p>The resource could not be found.</p>
+            aws_sdk_database_migration_service.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Describe endpoints
             Returns information about the endpoints for your account in the current region.
@@ -2904,6 +3173,9 @@ class AsyncDatabaseMigrationServiceClient:
             engine_name: <p>The database engine used for your source or target endpoint.</p>
             max_records: <p>The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code> value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.</p>
             marker: <p>An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>.</p>
+
+        Raises:
+            aws_sdk_database_migration_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2956,6 +3228,9 @@ class AsyncDatabaseMigrationServiceClient:
             filters: <p>Filters applied to the endpoint types.</p> <p>Valid filter names: engine-name | endpoint-type</p>
             max_records: <p> The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code> value, a pagination token called a marker is included in the response so that the remaining results can be retrieved. </p> <p>Default: 100</p> <p>Constraints: Minimum 20, maximum 100.</p>
             marker: <p> An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>. </p>
+
+        Raises:
+            aws_sdk_database_migration_service.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Describe endpoint types
@@ -3011,6 +3286,9 @@ class AsyncDatabaseMigrationServiceClient:
         Args:
             max_records: <p>The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code> value, a pagination token called a marker is included in the response so that the remaining results can be retrieved. </p>
             marker: <p>An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>. </p>
+
+        Raises:
+            aws_sdk_database_migration_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3058,6 +3336,9 @@ class AsyncDatabaseMigrationServiceClient:
         Args:
             source_type: <p> The type of DMS resource that generates events. </p> <p>Valid values: replication-instance | replication-task</p>
             filters: <p>Filters applied to the event categories.</p>
+
+        Raises:
+            aws_sdk_database_migration_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3133,6 +3414,9 @@ class AsyncDatabaseMigrationServiceClient:
             filters: <p>Filters applied to events. The only valid filter is <code>replication-instance-id</code>.</p>
             max_records: <p> The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code> value, a pagination token called a marker is included in the response so that the remaining results can be retrieved. </p> <p>Default: 100</p> <p>Constraints: Minimum 20, maximum 100.</p>
             marker: <p> An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>. </p>
+
+        Raises:
+            aws_sdk_database_migration_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3202,6 +3486,10 @@ class AsyncDatabaseMigrationServiceClient:
             filters: <p>Filters applied to event subscriptions.</p> <p>Valid filter names: <code>event-subscription-arn</code> | <code>event-subscription-id</code> </p>
             max_records: <p> The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code> value, a pagination token called a marker is included in the response so that the remaining results can be retrieved. </p> <p>Default: 100</p> <p>Constraints: Minimum 20, maximum 100.</p>
             marker: <p> An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>. </p>
+
+        Raises:
+            aws_sdk_database_migration_service.errors.resource_not_found_fault.ResourceNotFoundFault: <p>The resource could not be found.</p>
+            aws_sdk_database_migration_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3259,6 +3547,9 @@ class AsyncDatabaseMigrationServiceClient:
             filters: <p>Filters applied to the extension pack associations described in the form of key-value pairs.</p>
             marker: <p>Specifies the unique pagination token that makes it possible to display the next page of results. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>.</p> <p>If <code>Marker</code> is returned by a previous response, there are more results available. The value of <code>Marker</code> is a unique pagination token for each page. To retrieve the next page, make the call again using the returned token and keeping all other arguments unchanged.</p>
             max_records: <p>The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code> value, DMS includes a pagination token in the response so that you can retrieve the remaining results.</p>
+
+        Raises:
+            aws_sdk_database_migration_service.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Describe Extension Pack Associations
@@ -3319,6 +3610,10 @@ class AsyncDatabaseMigrationServiceClient:
             filters: <p> If you specify any of the following filters, the output includes information for only those collectors that meet the filter criteria:</p> <ul> <li> <p> <code>collector-referenced-id</code> – The ID of the collector agent, for example <code>d4610ac5-e323-4ad9-bc50-eaf7249dfe9d</code>.</p> </li> <li> <p> <code>collector-name</code> – The name of the collector agent.</p> </li> </ul> <p>An example is: <code>describe-fleet-advisor-collectors --filter Name=\"collector-referenced-id\",Values=\"d4610ac5-e323-4ad9-bc50-eaf7249dfe9d\"</code> </p>
             max_records: <p>Sets the maximum number of records returned in the response.</p>
             next_token: <p>If <code>NextToken</code> is returned by a previous response, there are more results available. The value of <code>NextToken</code> is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. </p>
+
+        Raises:
+            aws_sdk_database_migration_service.errors.invalid_resource_state_fault.InvalidResourceStateFault: <p>The resource is in a state that prevents it from being used for database migration.</p>
+            aws_sdk_database_migration_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3372,6 +3667,10 @@ class AsyncDatabaseMigrationServiceClient:
             filters: <p> If you specify any of the following filters, the output includes information for only those databases that meet the filter criteria: </p> <ul> <li> <p> <code>database-id</code> – The ID of the database.</p> </li> <li> <p> <code>database-name</code> – The name of the database.</p> </li> <li> <p> <code>database-engine</code> – The name of the database engine.</p> </li> <li> <p> <code>server-ip-address</code> – The IP address of the database server.</p> </li> <li> <p> <code>database-ip-address</code> – The IP address of the database.</p> </li> <li> <p> <code>collector-name</code> – The name of the associated Fleet Advisor collector.</p> </li> </ul> <p>An example is: <code>describe-fleet-advisor-databases --filter Name=\"database-id\",Values=\"45\"</code> </p>
             max_records: <p>Sets the maximum number of records returned in the response.</p>
             next_token: <p>If <code>NextToken</code> is returned by a previous response, there are more results available. The value of <code>NextToken</code> is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. </p>
+
+        Raises:
+            aws_sdk_database_migration_service.errors.invalid_resource_state_fault.InvalidResourceStateFault: <p>The resource is in a state that prevents it from being used for database migration.</p>
+            aws_sdk_database_migration_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3421,6 +3720,10 @@ class AsyncDatabaseMigrationServiceClient:
         Args:
             max_records: <p>Sets the maximum number of records returned in the response.</p>
             next_token: <p>If <code>NextToken</code> is returned by a previous response, there are more results available. The value of <code>NextToken</code> is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. </p>
+
+        Raises:
+            aws_sdk_database_migration_service.errors.invalid_resource_state_fault.InvalidResourceStateFault: <p>The resource is in a state that prevents it from being used for database migration.</p>
+            aws_sdk_database_migration_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3472,6 +3775,10 @@ class AsyncDatabaseMigrationServiceClient:
             filters: <p> If you specify any of the following filters, the output includes information for only those schema objects that meet the filter criteria:</p> <ul> <li> <p> <code>schema-id</code> – The ID of the schema, for example <code>d4610ac5-e323-4ad9-bc50-eaf7249dfe9d</code>.</p> </li> </ul> <p>Example: <code>describe-fleet-advisor-schema-object-summary --filter Name=\"schema-id\",Values=\"50\"</code> </p>
             max_records: <important> <p> End of support notice: On May 20, 2026, Amazon Web Services will end support for Amazon Web Services DMS Fleet Advisor;. After May 20, 2026, you will no longer be able to access the Amazon Web Services DMS Fleet Advisor; console or Amazon Web Services DMS Fleet Advisor; resources. For more information, see <a href=\"https://docs.aws.amazon.com/dms/latest/userguide/dms_fleet.advisor-end-of-support.html\">Amazon Web Services DMS Fleet Advisor end of support</a>. </p> </important> <p>Sets the maximum number of records returned in the response.</p>
             next_token: <p>If <code>NextToken</code> is returned by a previous response, there are more results available. The value of <code>NextToken</code> is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. </p>
+
+        Raises:
+            aws_sdk_database_migration_service.errors.invalid_resource_state_fault.InvalidResourceStateFault: <p>The resource is in a state that prevents it from being used for database migration.</p>
+            aws_sdk_database_migration_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3525,6 +3832,10 @@ class AsyncDatabaseMigrationServiceClient:
             filters: <p> If you specify any of the following filters, the output includes information for only those schemas that meet the filter criteria:</p> <ul> <li> <p> <code>complexity</code> – The schema's complexity, for example <code>Simple</code>.</p> </li> <li> <p> <code>database-id</code> – The ID of the schema's database.</p> </li> <li> <p> <code>database-ip-address</code> – The IP address of the schema's database.</p> </li> <li> <p> <code>database-name</code> – The name of the schema's database.</p> </li> <li> <p> <code>database-engine</code> – The name of the schema database's engine.</p> </li> <li> <p> <code>original-schema-name</code> – The name of the schema's database's main schema.</p> </li> <li> <p> <code>schema-id</code> – The ID of the schema, for example <code>15</code>.</p> </li> <li> <p> <code>schema-name</code> – The name of the schema.</p> </li> <li> <p> <code>server-ip-address</code> – The IP address of the schema database's server.</p> </li> </ul> <p>An example is: <code>describe-fleet-advisor-schemas --filter Name=\"schema-id\",Values=\"50\"</code> </p>
             max_records: <p>Sets the maximum number of records returned in the response.</p>
             next_token: <p>If <code>NextToken</code> is returned by a previous response, there are more results available. The value of <code>NextToken</code> is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. </p>
+
+        Raises:
+            aws_sdk_database_migration_service.errors.invalid_resource_state_fault.InvalidResourceStateFault: <p>The resource is in a state that prevents it from being used for database migration.</p>
+            aws_sdk_database_migration_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3579,6 +3890,12 @@ class AsyncDatabaseMigrationServiceClient:
             max_records: <p>The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code> value, DMS includes a pagination token in the response so that you can retrieve the remaining results.</p>
             marker: <p>Specifies the unique pagination token that makes it possible to display the next page of results. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>.</p> <p>If <code>Marker</code> is returned by a previous response, there are more results available. The value of <code>Marker</code> is a unique pagination token for each page. To retrieve the next page, make the call again using the returned token and keeping all other arguments unchanged.</p>
 
+        Raises:
+            aws_sdk_database_migration_service.errors.access_denied_fault.AccessDeniedFault: <p>DMS was denied access to the endpoint. Check that the role is correctly configured.</p>
+            aws_sdk_database_migration_service.errors.failed_dependency_fault.FailedDependencyFault: <p>A dependency threw an exception.</p>
+            aws_sdk_database_migration_service.errors.resource_not_found_fault.ResourceNotFoundFault: <p>The resource could not be found.</p>
+            aws_sdk_database_migration_service.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Describe Instance Profiles
             Returns a paginated list of instance profiles for your account in the current region.
@@ -3631,6 +3948,11 @@ class AsyncDatabaseMigrationServiceClient:
             selection_rules: <p>The JSON string that specifies which metadata model to retrieve. Only one selection rule with \"rule-action\": \"explicit\" can be provided. For more information, see <a href=\"https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Selections.html\">Selection Rules</a> in the DMS User Guide.</p>
             migration_project_identifier: <p>The migration project name or Amazon Resource Name (ARN).</p>
             origin: <p>Specifies whether to retrieve metadata from the source or target tree. Valid values: SOURCE | TARGET</p>
+
+        Raises:
+            aws_sdk_database_migration_service.errors.access_denied_fault.AccessDeniedFault: <p>DMS was denied access to the endpoint. Check that the role is correctly configured.</p>
+            aws_sdk_database_migration_service.errors.resource_not_found_fault.ResourceNotFoundFault: <p>The resource could not be found.</p>
+            aws_sdk_database_migration_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3683,6 +4005,10 @@ class AsyncDatabaseMigrationServiceClient:
             filters: <p>Filters applied to the metadata model assessments described in the form of key-value pairs.</p>
             marker: <p>Specifies the unique pagination token that makes it possible to display the next page of results. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>.</p> <p>If <code>Marker</code> is returned by a previous response, there are more results available. The value of <code>Marker</code> is a unique pagination token for each page. To retrieve the next page, make the call again using the returned token and keeping all other arguments unchanged.</p>
             max_records: <p>The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code> value, DMS includes a pagination token in the response so that you can retrieve the remaining results.</p>
+
+        Raises:
+            aws_sdk_database_migration_service.errors.resource_not_found_fault.ResourceNotFoundFault: <p>The resource could not be found.</p>
+            aws_sdk_database_migration_service.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Describe Metadata Model Assessments
@@ -3745,6 +4071,11 @@ class AsyncDatabaseMigrationServiceClient:
             origin: <p>Specifies whether to retrieve metadata from the source or target tree. Valid values: SOURCE | TARGET</p>
             marker: <p>Specifies the unique pagination token that indicates where the next page should start. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by MaxRecords.</p>
             max_records: <p>The maximum number of metadata model children to include in the response. If more items exist than the specified MaxRecords value, a marker is included in the response so that the remaining results can be retrieved.</p>
+
+        Raises:
+            aws_sdk_database_migration_service.errors.access_denied_fault.AccessDeniedFault: <p>DMS was denied access to the endpoint. Check that the role is correctly configured.</p>
+            aws_sdk_database_migration_service.errors.resource_not_found_fault.ResourceNotFoundFault: <p>The resource could not be found.</p>
+            aws_sdk_database_migration_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3833,6 +4164,10 @@ class AsyncDatabaseMigrationServiceClient:
             marker: <p>Specifies the unique pagination token that makes it possible to display the next page of results. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>.</p> <p>If <code>Marker</code> is returned by a previous response, there are more results available. The value of <code>Marker</code> is a unique pagination token for each page. To retrieve the next page, make the call again using the returned token and keeping all other arguments unchanged.</p>
             max_records: <p>The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code> value, DMS includes a pagination token in the response so that you can retrieve the remaining results.</p>
 
+        Raises:
+            aws_sdk_database_migration_service.errors.resource_not_found_fault.ResourceNotFoundFault: <p>The resource could not be found.</p>
+            aws_sdk_database_migration_service.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Describe Metadata Model Conversions
             Returns a paginated list of metadata model conversions for a migration project.
@@ -3894,6 +4229,11 @@ class AsyncDatabaseMigrationServiceClient:
             marker: <p>Specifies the unique pagination token that makes it possible to display the next page of metadata model creation requests. If Marker is returned by a previous response, there are more metadata model creation requests available.</p>
             max_records: <p>The maximum number of metadata model creation requests to include in the response. If more requests exist than the specified MaxRecords value, a pagination token is provided in the response so that you can retrieve the remaining results.</p>
             migration_project_identifier: <p>The migration project name or Amazon Resource Name (ARN).</p>
+
+        Raises:
+            aws_sdk_database_migration_service.errors.access_denied_fault.AccessDeniedFault: <p>DMS was denied access to the endpoint. Check that the role is correctly configured.</p>
+            aws_sdk_database_migration_service.errors.resource_not_found_fault.ResourceNotFoundFault: <p>The resource could not be found.</p>
+            aws_sdk_database_migration_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3982,6 +4322,10 @@ class AsyncDatabaseMigrationServiceClient:
             marker: <p>Specifies the unique pagination token that makes it possible to display the next page of results. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>.</p> <p>If <code>Marker</code> is returned by a previous response, there are more results available. The value of <code>Marker</code> is a unique pagination token for each page. To retrieve the next page, make the call again using the returned token and keeping all other arguments unchanged.</p>
             max_records: <p>The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code> value, DMS includes a pagination token in the response so that you can retrieve the remaining results.</p>
 
+        Raises:
+            aws_sdk_database_migration_service.errors.resource_not_found_fault.ResourceNotFoundFault: <p>The resource could not be found.</p>
+            aws_sdk_database_migration_service.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Describe Metadata Model Exports As Script
             Returns a paginated list of metadata model exports.
@@ -4043,6 +4387,10 @@ class AsyncDatabaseMigrationServiceClient:
             filters: <p>Filters applied to the metadata model exports described in the form of key-value pairs.</p>
             marker: <p>Specifies the unique pagination token that makes it possible to display the next page of results. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>.</p> <p>If <code>Marker</code> is returned by a previous response, there are more results available. The value of <code>Marker</code> is a unique pagination token for each page. To retrieve the next page, make the call again using the returned token and keeping all other arguments unchanged.</p>
             max_records: <p>The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code> value, DMS includes a pagination token in the response so that you can retrieve the remaining results.</p>
+
+        Raises:
+            aws_sdk_database_migration_service.errors.resource_not_found_fault.ResourceNotFoundFault: <p>The resource could not be found.</p>
+            aws_sdk_database_migration_service.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Describe Metadata Model Exports To Target
@@ -4106,6 +4454,10 @@ class AsyncDatabaseMigrationServiceClient:
             marker: <p>Specifies the unique pagination token that makes it possible to display the next page of results. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>.</p> <p>If <code>Marker</code> is returned by a previous response, there are more results available. The value of <code>Marker</code> is a unique pagination token for each page. To retrieve the next page, make the call again using the returned token and keeping all other arguments unchanged.</p>
             max_records: <p>A paginated list of metadata model imports.</p>
 
+        Raises:
+            aws_sdk_database_migration_service.errors.resource_not_found_fault.ResourceNotFoundFault: <p>The resource could not be found.</p>
+            aws_sdk_database_migration_service.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Describe Metadata Model Imports
             Returns a paginated list of metadata model imports.
@@ -4166,6 +4518,12 @@ class AsyncDatabaseMigrationServiceClient:
             max_records: <p>The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code> value, DMS includes a pagination token in the response so that you can retrieve the remaining results.</p>
             marker: <p>Specifies the unique pagination token that makes it possible to display the next page of results. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>.</p> <p>If <code>Marker</code> is returned by a previous response, there are more results available. The value of <code>Marker</code> is a unique pagination token for each page. To retrieve the next page, make the call again using the returned token and keeping all other arguments unchanged.</p>
 
+        Raises:
+            aws_sdk_database_migration_service.errors.access_denied_fault.AccessDeniedFault: <p>DMS was denied access to the endpoint. Check that the role is correctly configured.</p>
+            aws_sdk_database_migration_service.errors.failed_dependency_fault.FailedDependencyFault: <p>A dependency threw an exception.</p>
+            aws_sdk_database_migration_service.errors.resource_not_found_fault.ResourceNotFoundFault: <p>The resource could not be found.</p>
+            aws_sdk_database_migration_service.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Describe Migration Projects
             Returns a paginated list of migration projects for your account in the current region.
@@ -4220,6 +4578,9 @@ class AsyncDatabaseMigrationServiceClient:
         Args:
             max_records: <p> The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code> value, a pagination token called a marker is included in the response so that the remaining results can be retrieved. </p> <p>Default: 100</p> <p>Constraints: Minimum 20, maximum 100.</p>
             marker: <p> An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>. </p>
+
+        Raises:
+            aws_sdk_database_migration_service.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Describe orderable replication instances
@@ -4281,6 +4642,10 @@ class AsyncDatabaseMigrationServiceClient:
             filters: <p></p>
             marker: <p> An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>. </p>
             max_records: <p> The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code> value, a pagination token called a marker is included in the response so that the remaining results can be retrieved. </p> <p>Default: 100</p> <p>Constraints: Minimum 20, maximum 100.</p>
+
+        Raises:
+            aws_sdk_database_migration_service.errors.resource_not_found_fault.ResourceNotFoundFault: <p>The resource could not be found.</p>
+            aws_sdk_database_migration_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4336,6 +4701,11 @@ class AsyncDatabaseMigrationServiceClient:
             filters: <p>Filters applied to the limitations described in the form of key-value pairs.</p> <p>Valid filter names: <code>database-id</code> | <code>engine-name</code> </p>
             max_records: <p>The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code> value, Fleet Advisor includes a pagination token in the response so that you can retrieve the remaining results.</p>
             next_token: <p>Specifies the unique pagination token that makes it possible to display the next page of results. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>.</p> <p>If <code>NextToken</code> is returned by a previous response, there are more results available. The value of <code>NextToken</code> is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged.</p>
+
+        Raises:
+            aws_sdk_database_migration_service.errors.access_denied_fault.AccessDeniedFault: <p>DMS was denied access to the endpoint. Check that the role is correctly configured.</p>
+            aws_sdk_database_migration_service.errors.invalid_resource_state_fault.InvalidResourceStateFault: <p>The resource is in a state that prevents it from being used for database migration.</p>
+            aws_sdk_database_migration_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4389,6 +4759,11 @@ class AsyncDatabaseMigrationServiceClient:
             filters: <p>Filters applied to the target engine recommendations described in the form of key-value pairs.</p> <p>Valid filter names: <code>database-id</code> | <code>engine-name</code> </p>
             max_records: <p>The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code> value, Fleet Advisor includes a pagination token in the response so that you can retrieve the remaining results.</p>
             next_token: <p>Specifies the unique pagination token that makes it possible to display the next page of results. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>.</p> <p>If <code>NextToken</code> is returned by a previous response, there are more results available. The value of <code>NextToken</code> is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged.</p>
+
+        Raises:
+            aws_sdk_database_migration_service.errors.access_denied_fault.AccessDeniedFault: <p>DMS was denied access to the endpoint. Check that the role is correctly configured.</p>
+            aws_sdk_database_migration_service.errors.invalid_resource_state_fault.InvalidResourceStateFault: <p>The resource is in a state that prevents it from being used for database migration.</p>
+            aws_sdk_database_migration_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4432,6 +4807,11 @@ class AsyncDatabaseMigrationServiceClient:
 
         Args:
             endpoint_arn: <p>The Amazon Resource Name (ARN) string that uniquely identifies the endpoint.</p>
+
+        Raises:
+            aws_sdk_database_migration_service.errors.invalid_resource_state_fault.InvalidResourceStateFault: <p>The resource is in a state that prevents it from being used for database migration.</p>
+            aws_sdk_database_migration_service.errors.resource_not_found_fault.ResourceNotFoundFault: <p>The resource could not be found.</p>
+            aws_sdk_database_migration_service.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Describe refresh schema status
@@ -4486,6 +4866,10 @@ class AsyncDatabaseMigrationServiceClient:
             filters: <p>Filters applied to the replication configs.</p>
             max_records: <p>The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code> value, a pagination token called a marker is included in the response so that the remaining results can be retrieved. </p>
             marker: <p>An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>. </p>
+
+        Raises:
+            aws_sdk_database_migration_service.errors.resource_not_found_fault.ResourceNotFoundFault: <p>The resource could not be found.</p>
+            aws_sdk_database_migration_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4539,6 +4923,10 @@ class AsyncDatabaseMigrationServiceClient:
             filters: <p>Filters applied to replication instances.</p> <p>Valid filter names: replication-instance-arn | replication-instance-id | replication-instance-class | engine-version</p>
             max_records: <p> The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code> value, a pagination token called a marker is included in the response so that the remaining results can be retrieved. </p> <p>Default: 100</p> <p>Constraints: Minimum 20, maximum 100.</p>
             marker: <p> An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>. </p>
+
+        Raises:
+            aws_sdk_database_migration_service.errors.resource_not_found_fault.ResourceNotFoundFault: <p>The resource could not be found.</p>
+            aws_sdk_database_migration_service.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Describe replication instances
@@ -4596,6 +4984,11 @@ class AsyncDatabaseMigrationServiceClient:
             replication_instance_arn: <p>The Amazon Resource Name (ARN) of the replication instance.</p>
             max_records: <p> The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code> value, a pagination token called a marker is included in the response so that the remaining results can be retrieved. </p> <p>Default: 100</p> <p>Constraints: Minimum 20, maximum 100.</p>
             marker: <p> An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>.</p>
+
+        Raises:
+            aws_sdk_database_migration_service.errors.invalid_resource_state_fault.InvalidResourceStateFault: <p>The resource is in a state that prevents it from being used for database migration.</p>
+            aws_sdk_database_migration_service.errors.resource_not_found_fault.ResourceNotFoundFault: <p>The resource could not be found.</p>
+            aws_sdk_database_migration_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4648,6 +5041,10 @@ class AsyncDatabaseMigrationServiceClient:
             filters: <p>Filters applied to the replications.</p> <p> Valid filter names: <code>replication-config-arn</code> | <code>replication-config-id</code> </p>
             max_records: <p>The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code> value, a pagination token called a marker is included in the response so that the remaining results can be retrieved. </p>
             marker: <p>An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>. </p>
+
+        Raises:
+            aws_sdk_database_migration_service.errors.resource_not_found_fault.ResourceNotFoundFault: <p>The resource could not be found.</p>
+            aws_sdk_database_migration_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4701,6 +5098,10 @@ class AsyncDatabaseMigrationServiceClient:
             filters: <p>Filters applied to replication subnet groups.</p> <p>Valid filter names: replication-subnet-group-id</p>
             max_records: <p> The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code> value, a pagination token called a marker is included in the response so that the remaining results can be retrieved. </p> <p>Default: 100</p> <p>Constraints: Minimum 20, maximum 100.</p>
             marker: <p> An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>. </p>
+
+        Raises:
+            aws_sdk_database_migration_service.errors.resource_not_found_fault.ResourceNotFoundFault: <p>The resource could not be found.</p>
+            aws_sdk_database_migration_service.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Describe replication subnet groups
@@ -4762,6 +5163,11 @@ class AsyncDatabaseMigrationServiceClient:
             max_records: <p>The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code> value, a pagination token called a marker is included in the response so that the remaining results can be retrieved. </p>
             marker: <p>An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>. </p>
             filters: <p>Filters applied to the replication table statistics.</p>
+
+        Raises:
+            aws_sdk_database_migration_service.errors.invalid_resource_state_fault.InvalidResourceStateFault: <p>The resource is in a state that prevents it from being used for database migration.</p>
+            aws_sdk_database_migration_service.errors.resource_not_found_fault.ResourceNotFoundFault: <p>The resource could not be found.</p>
+            aws_sdk_database_migration_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4816,6 +5222,10 @@ class AsyncDatabaseMigrationServiceClient:
             replication_task_arn: <p>The Amazon Resource Name (ARN) string that uniquely identifies the task. When this input parameter is specified, the API returns only one result and ignore the values of the <code>MaxRecords</code> and <code>Marker</code> parameters. </p>
             max_records: <p> The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code> value, a pagination token called a marker is included in the response so that the remaining results can be retrieved. </p> <p>Default: 100</p> <p>Constraints: Minimum 20, maximum 100.</p>
             marker: <p> An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>. </p>
+
+        Raises:
+            aws_sdk_database_migration_service.errors.resource_not_found_fault.ResourceNotFoundFault: <p>The resource could not be found.</p>
+            aws_sdk_database_migration_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4869,6 +5279,10 @@ class AsyncDatabaseMigrationServiceClient:
             filters: <p>Filters applied to the premigration assessment runs described in the form of key-value pairs.</p> <p>Valid filter names: <code>replication-task-assessment-run-arn</code>, <code>replication-task-arn</code>, <code>replication-instance-arn</code>, <code>status</code> </p>
             max_records: <p>The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code> value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.</p>
             marker: <p>An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>.</p>
+
+        Raises:
+            aws_sdk_database_migration_service.errors.resource_not_found_fault.ResourceNotFoundFault: <p>The resource could not be found.</p>
+            aws_sdk_database_migration_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4922,6 +5336,10 @@ class AsyncDatabaseMigrationServiceClient:
             filters: <p>Filters applied to the individual assessments described in the form of key-value pairs.</p> <p>Valid filter names: <code>replication-task-assessment-run-arn</code>, <code>replication-task-arn</code>, <code>status</code> </p>
             max_records: <p>The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code> value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.</p>
             marker: <p>An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>.</p>
+
+        Raises:
+            aws_sdk_database_migration_service.errors.resource_not_found_fault.ResourceNotFoundFault: <p>The resource could not be found.</p>
+            aws_sdk_database_migration_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4979,6 +5397,10 @@ class AsyncDatabaseMigrationServiceClient:
             max_records: <p> The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code> value, a pagination token called a marker is included in the response so that the remaining results can be retrieved. </p> <p>Default: 100</p> <p>Constraints: Minimum 20, maximum 100.</p>
             marker: <p> An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>. </p>
             without_settings: <p>An option to set to avoid returning information about settings. Use this to reduce overhead when setting information is too large. To use this option, choose <code>true</code>; otherwise, choose <code>false</code> (the default).</p>
+
+        Raises:
+            aws_sdk_database_migration_service.errors.resource_not_found_fault.ResourceNotFoundFault: <p>The resource could not be found.</p>
+            aws_sdk_database_migration_service.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Describe replication tasks
@@ -5038,6 +5460,11 @@ class AsyncDatabaseMigrationServiceClient:
             endpoint_arn: <p>The Amazon Resource Name (ARN) string that uniquely identifies the endpoint.</p>
             max_records: <p> The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code> value, a pagination token called a marker is included in the response so that the remaining results can be retrieved. </p> <p>Default: 100</p> <p>Constraints: Minimum 20, maximum 100.</p>
             marker: <p> An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>. </p>
+
+        Raises:
+            aws_sdk_database_migration_service.errors.invalid_resource_state_fault.InvalidResourceStateFault: <p>The resource is in a state that prevents it from being used for database migration.</p>
+            aws_sdk_database_migration_service.errors.resource_not_found_fault.ResourceNotFoundFault: <p>The resource could not be found.</p>
+            aws_sdk_database_migration_service.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Describe schemas
@@ -5099,6 +5526,12 @@ class AsyncDatabaseMigrationServiceClient:
             marker: <p> An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>. </p>
             filters: <p>Filters applied to table statistics.</p> <p>Valid filter names: schema-name | table-name | table-state</p> <p>A combination of filters creates an AND condition where each record matches all specified filters.</p>
 
+        Raises:
+            aws_sdk_database_migration_service.errors.access_denied_fault.AccessDeniedFault: <p>DMS was denied access to the endpoint. Check that the role is correctly configured.</p>
+            aws_sdk_database_migration_service.errors.invalid_resource_state_fault.InvalidResourceStateFault: <p>The resource is in a state that prevents it from being used for database migration.</p>
+            aws_sdk_database_migration_service.errors.resource_not_found_fault.ResourceNotFoundFault: <p>The resource could not be found.</p>
+            aws_sdk_database_migration_service.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Describe table statistics
             Returns table statistics on the database migration task, including table name, rows inserted, rows updated, and rows deleted.
@@ -5159,6 +5592,10 @@ class AsyncDatabaseMigrationServiceClient:
             file_name: <p>The name of the assessment file to create in your Amazon S3 bucket.</p>
             assessment_report_types: <p>The file format of the assessment file.</p>
 
+        Raises:
+            aws_sdk_database_migration_service.errors.resource_not_found_fault.ResourceNotFoundFault: <p>The resource could not be found.</p>
+            aws_sdk_database_migration_service.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Export Metadata Model Assessment
             Saves a copy of a database migration assessment report to your S3 bucket. DMS can save your assessment report as a comma-separated value (CSV) or a PDF file.
@@ -5209,6 +5646,12 @@ class AsyncDatabaseMigrationServiceClient:
         Args:
             migration_project_identifier: <p>The migration project name or Amazon Resource Name (ARN).</p>
             selection_rules: <p>The JSON string representing the source selection rules for conversion. Selection rules must contain only supported metadata model types. For more information, see Selection Rules in the DMS User Guide.</p>
+
+        Raises:
+            aws_sdk_database_migration_service.errors.access_denied_fault.AccessDeniedFault: <p>DMS was denied access to the endpoint. Check that the role is correctly configured.</p>
+            aws_sdk_database_migration_service.errors.invalid_resource_state_fault.InvalidResourceStateFault: <p>The resource is in a state that prevents it from being used for database migration.</p>
+            aws_sdk_database_migration_service.errors.resource_not_found_fault.ResourceNotFoundFault: <p>The resource could not be found.</p>
+            aws_sdk_database_migration_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5264,6 +5707,13 @@ class AsyncDatabaseMigrationServiceClient:
             certificate_wallet: <p>The location of an imported Oracle Wallet certificate for use with SSL. Provide the name of a <code>.sso</code> file using the <code>fileb://</code> prefix. You can't provide the certificate inline.</p> <p>Example: <code>filebase64(\"${path.root}/rds-ca-2019-root.sso\")</code> </p>
             tags: <p>The tags associated with the certificate.</p>
             kms_key_id: <p>An KMS key identifier that is used to encrypt the certificate.</p> <p>If you don't specify a value for the <code>KmsKeyId</code> parameter, then DMS uses your default encryption key.</p> <p>KMS creates the default encryption key for your Amazon Web Services account. Your Amazon Web Services account has a different default encryption key for each Amazon Web Services Region.</p>
+
+        Raises:
+            aws_sdk_database_migration_service.errors.invalid_certificate_fault.InvalidCertificateFault: <p>The certificate was not valid.</p>
+            aws_sdk_database_migration_service.errors.kms_key_not_accessible_fault.KMSKeyNotAccessibleFault: <p>DMS cannot access the KMS key.</p>
+            aws_sdk_database_migration_service.errors.resource_already_exists_fault.ResourceAlreadyExistsFault: <p>The resource you are attempting to create already exists.</p>
+            aws_sdk_database_migration_service.errors.resource_quota_exceeded_fault.ResourceQuotaExceededFault: <p>The quota for this resource quota has been exceeded.</p>
+            aws_sdk_database_migration_service.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Import certificate
@@ -5323,6 +5773,11 @@ class AsyncDatabaseMigrationServiceClient:
             resource_arn: <p>The Amazon Resource Name (ARN) string that uniquely identifies the DMS resource to list tags for. This returns a list of keys (names of tags) created for the resource and their associated tag values.</p>
             resource_arn_list: <p>List of ARNs that identify multiple DMS resources that you want to list tags for. This returns a list of keys (tag names) and their associated tag values. It also returns each tag's associated <code>ResourceArn</code> value, which is the ARN of the resource for which each listed tag is created. </p>
 
+        Raises:
+            aws_sdk_database_migration_service.errors.invalid_resource_state_fault.InvalidResourceStateFault: <p>The resource is in a state that prevents it from being used for database migration.</p>
+            aws_sdk_database_migration_service.errors.resource_not_found_fault.ResourceNotFoundFault: <p>The resource could not be found.</p>
+            aws_sdk_database_migration_service.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             List tags for resource
             Lists all tags for an AWS DMS resource.
@@ -5371,6 +5826,11 @@ class AsyncDatabaseMigrationServiceClient:
         Args:
             migration_project_identifier: <p>The migration project name or Amazon Resource Name (ARN).</p>
             conversion_configuration: <p>The new conversion configuration.</p>
+
+        Raises:
+            aws_sdk_database_migration_service.errors.invalid_resource_state_fault.InvalidResourceStateFault: <p>The resource is in a state that prevents it from being used for database migration.</p>
+            aws_sdk_database_migration_service.errors.resource_not_found_fault.ResourceNotFoundFault: <p>The resource could not be found.</p>
+            aws_sdk_database_migration_service.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Modify Conversion Configuration
@@ -5448,6 +5908,12 @@ class AsyncDatabaseMigrationServiceClient:
             target_data_settings: <p>The new information about the target data provider for the data migration.</p>
             number_of_jobs: <p>The number of parallel jobs that trigger parallel threads to unload the tables from the source, and then load them to the target.</p>
             selection_rules: <p>A JSON-formatted string that defines what objects to include and exclude from the migration.</p>
+
+        Raises:
+            aws_sdk_database_migration_service.errors.failed_dependency_fault.FailedDependencyFault: <p>A dependency threw an exception.</p>
+            aws_sdk_database_migration_service.errors.invalid_resource_state_fault.InvalidResourceStateFault: <p>The resource is in a state that prevents it from being used for database migration.</p>
+            aws_sdk_database_migration_service.errors.resource_not_found_fault.ResourceNotFoundFault: <p>The resource could not be found.</p>
+            aws_sdk_database_migration_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5526,6 +5992,13 @@ class AsyncDatabaseMigrationServiceClient:
             virtual: <p>Indicates whether the data provider is virtual.</p>
             exact_settings: <p>If this attribute is Y, the current call to <code>ModifyDataProvider</code> replaces all existing data provider settings with the exact settings that you specify in this call. If this attribute is N, the current call to <code>ModifyDataProvider</code> does two things: </p> <ul> <li> <p>It replaces any data provider settings that already exist with new values, for settings with the same names.</p> </li> <li> <p>It creates new data provider settings that you specify in the call, for settings with different names. </p> </li> </ul>
             settings: <p>The settings in JSON format for a data provider.</p>
+
+        Raises:
+            aws_sdk_database_migration_service.errors.access_denied_fault.AccessDeniedFault: <p>DMS was denied access to the endpoint. Check that the role is correctly configured.</p>
+            aws_sdk_database_migration_service.errors.failed_dependency_fault.FailedDependencyFault: <p>A dependency threw an exception.</p>
+            aws_sdk_database_migration_service.errors.invalid_resource_state_fault.InvalidResourceStateFault: <p>The resource is in a state that prevents it from being used for database migration.</p>
+            aws_sdk_database_migration_service.errors.resource_not_found_fault.ResourceNotFoundFault: <p>The resource could not be found.</p>
+            aws_sdk_database_migration_service.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Modify Data Provider
@@ -5714,6 +6187,14 @@ class AsyncDatabaseMigrationServiceClient:
             gcp_my_sql_settings: <p>Settings in JSON format for the source GCP MySQL endpoint.</p>
             timestream_settings: <p>Settings in JSON format for the target Amazon Timestream endpoint.</p>
 
+        Raises:
+            aws_sdk_database_migration_service.errors.access_denied_fault.AccessDeniedFault: <p>DMS was denied access to the endpoint. Check that the role is correctly configured.</p>
+            aws_sdk_database_migration_service.errors.invalid_resource_state_fault.InvalidResourceStateFault: <p>The resource is in a state that prevents it from being used for database migration.</p>
+            aws_sdk_database_migration_service.errors.kms_key_not_accessible_fault.KMSKeyNotAccessibleFault: <p>DMS cannot access the KMS key.</p>
+            aws_sdk_database_migration_service.errors.resource_already_exists_fault.ResourceAlreadyExistsFault: <p>The resource you are attempting to create already exists.</p>
+            aws_sdk_database_migration_service.errors.resource_not_found_fault.ResourceNotFoundFault: <p>The resource could not be found.</p>
+            aws_sdk_database_migration_service.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Modify endpoint
             Modifies the specified endpoint.
@@ -5839,6 +6320,19 @@ class AsyncDatabaseMigrationServiceClient:
             source_type: <p> The type of DMS resource that generates the events you want to subscribe to. </p> <p>Valid values: replication-instance | replication-task</p>
             event_categories: <p> A list of event categories for a source type that you want to subscribe to. Use the <code>DescribeEventCategories</code> action to see a list of event categories. </p>
             enabled: <p> A Boolean value; set to <b>true</b> to activate the subscription. </p>
+
+        Raises:
+            aws_sdk_database_migration_service.errors.access_denied_fault.AccessDeniedFault: <p>DMS was denied access to the endpoint. Check that the role is correctly configured.</p>
+            aws_sdk_database_migration_service.errors.kms_access_denied_fault.KMSAccessDeniedFault: <p>The ciphertext references a key that doesn't exist or that the DMS account doesn't have access to.</p>
+            aws_sdk_database_migration_service.errors.kms_disabled_fault.KMSDisabledFault: <p>The specified KMS key isn't enabled.</p>
+            aws_sdk_database_migration_service.errors.kms_invalid_state_fault.KMSInvalidStateFault: <p>The state of the specified KMS resource isn't valid for this request.</p>
+            aws_sdk_database_migration_service.errors.kms_not_found_fault.KMSNotFoundFault: <p>The specified KMS entity or resource can't be found.</p>
+            aws_sdk_database_migration_service.errors.kms_throttling_fault.KMSThrottlingFault: <p>This request triggered KMS request throttling.</p>
+            aws_sdk_database_migration_service.errors.resource_not_found_fault.ResourceNotFoundFault: <p>The resource could not be found.</p>
+            aws_sdk_database_migration_service.errors.resource_quota_exceeded_fault.ResourceQuotaExceededFault: <p>The quota for this resource quota has been exceeded.</p>
+            aws_sdk_database_migration_service.errors.sns_invalid_topic_fault.SNSInvalidTopicFault: <p>The SNS topic is invalid.</p>
+            aws_sdk_database_migration_service.errors.sns_no_authorization_fault.SNSNoAuthorizationFault: <p>You are not authorized for the SNS subscription.</p>
+            aws_sdk_database_migration_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5917,6 +6411,16 @@ class AsyncDatabaseMigrationServiceClient:
             description: <p>A user-friendly description for the instance profile.</p>
             subnet_group_identifier: <p>A subnet group to associate with the instance profile.</p>
             vpc_security_groups: <p>Specifies the VPC security groups to be used with the instance profile. The VPC security group must work with the VPC containing the instance profile.</p>
+
+        Raises:
+            aws_sdk_database_migration_service.errors.access_denied_fault.AccessDeniedFault: <p>DMS was denied access to the endpoint. Check that the role is correctly configured.</p>
+            aws_sdk_database_migration_service.errors.failed_dependency_fault.FailedDependencyFault: <p>A dependency threw an exception.</p>
+            aws_sdk_database_migration_service.errors.invalid_resource_state_fault.InvalidResourceStateFault: <p>The resource is in a state that prevents it from being used for database migration.</p>
+            aws_sdk_database_migration_service.errors.kms_key_not_accessible_fault.KMSKeyNotAccessibleFault: <p>DMS cannot access the KMS key.</p>
+            aws_sdk_database_migration_service.errors.resource_not_found_fault.ResourceNotFoundFault: <p>The resource could not be found.</p>
+            aws_sdk_database_migration_service.errors.s3_access_denied_fault.S3AccessDeniedFault: <p>Insufficient privileges are preventing access to an Amazon S3 object.</p>
+            aws_sdk_database_migration_service.errors.s3_resource_not_found_fault.S3ResourceNotFoundFault: <p>A specified Amazon S3 bucket, bucket folder, or other object can't be found.</p>
+            aws_sdk_database_migration_service.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Modify Instance Profile
@@ -6005,6 +6509,15 @@ class AsyncDatabaseMigrationServiceClient:
             transformation_rules: <p>The settings in JSON format for migration rules. Migration rules make it possible for you to change the object names according to the rules that you specify. For example, you can change an object name to lowercase or uppercase, add or remove a prefix or suffix, or rename objects.</p>
             description: <p>A user-friendly description of the migration project.</p>
             schema_conversion_application_attributes: <p>The schema conversion application attributes, including the Amazon S3 bucket name and Amazon S3 role ARN.</p>
+
+        Raises:
+            aws_sdk_database_migration_service.errors.access_denied_fault.AccessDeniedFault: <p>DMS was denied access to the endpoint. Check that the role is correctly configured.</p>
+            aws_sdk_database_migration_service.errors.failed_dependency_fault.FailedDependencyFault: <p>A dependency threw an exception.</p>
+            aws_sdk_database_migration_service.errors.invalid_resource_state_fault.InvalidResourceStateFault: <p>The resource is in a state that prevents it from being used for database migration.</p>
+            aws_sdk_database_migration_service.errors.resource_not_found_fault.ResourceNotFoundFault: <p>The resource could not be found.</p>
+            aws_sdk_database_migration_service.errors.s3_access_denied_fault.S3AccessDeniedFault: <p>Insufficient privileges are preventing access to an Amazon S3 object.</p>
+            aws_sdk_database_migration_service.errors.s3_resource_not_found_fault.S3ResourceNotFoundFault: <p>A specified Amazon S3 bucket, bucket folder, or other object can't be found.</p>
+            aws_sdk_database_migration_service.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Modify Migration Project
@@ -6101,6 +6614,15 @@ class AsyncDatabaseMigrationServiceClient:
             compute_config: <p>Configuration parameters for provisioning an DMS Serverless replication.</p>
             source_endpoint_arn: <p>The Amazon Resource Name (ARN) of the source endpoint for this DMS serverless replication configuration.</p>
             target_endpoint_arn: <p>The Amazon Resource Name (ARN) of the target endpoint for this DMS serverless replication configuration.</p>
+
+        Raises:
+            aws_sdk_database_migration_service.errors.access_denied_fault.AccessDeniedFault: <p>DMS was denied access to the endpoint. Check that the role is correctly configured.</p>
+            aws_sdk_database_migration_service.errors.invalid_resource_state_fault.InvalidResourceStateFault: <p>The resource is in a state that prevents it from being used for database migration.</p>
+            aws_sdk_database_migration_service.errors.invalid_subnet.InvalidSubnet: <p>The subnet provided isn't valid.</p>
+            aws_sdk_database_migration_service.errors.kms_key_not_accessible_fault.KMSKeyNotAccessibleFault: <p>DMS cannot access the KMS key.</p>
+            aws_sdk_database_migration_service.errors.replication_subnet_group_does_not_cover_enough_a_zs.ReplicationSubnetGroupDoesNotCoverEnoughAZs: <p>The replication subnet group does not cover enough Availability Zones (AZs). Edit the replication subnet group and add more AZs.</p>
+            aws_sdk_database_migration_service.errors.resource_not_found_fault.ResourceNotFoundFault: <p>The resource could not be found.</p>
+            aws_sdk_database_migration_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -6204,6 +6726,16 @@ class AsyncDatabaseMigrationServiceClient:
             network_type: <p>The type of IP address protocol used by a replication instance, such as IPv4 only or Dual-stack that supports both IPv4 and IPv6 addressing. IPv6 only is not yet supported.</p>
             kerberos_authentication_settings: <p>Specifies the settings required for kerberos authentication when modifying a replication instance.</p>
 
+        Raises:
+            aws_sdk_database_migration_service.errors.access_denied_fault.AccessDeniedFault: <p>DMS was denied access to the endpoint. Check that the role is correctly configured.</p>
+            aws_sdk_database_migration_service.errors.insufficient_resource_capacity_fault.InsufficientResourceCapacityFault: <p>There are not enough resources allocated to the database migration.</p>
+            aws_sdk_database_migration_service.errors.invalid_resource_state_fault.InvalidResourceStateFault: <p>The resource is in a state that prevents it from being used for database migration.</p>
+            aws_sdk_database_migration_service.errors.resource_already_exists_fault.ResourceAlreadyExistsFault: <p>The resource you are attempting to create already exists.</p>
+            aws_sdk_database_migration_service.errors.resource_not_found_fault.ResourceNotFoundFault: <p>The resource could not be found.</p>
+            aws_sdk_database_migration_service.errors.storage_quota_exceeded_fault.StorageQuotaExceededFault: <p>The storage quota has been exceeded.</p>
+            aws_sdk_database_migration_service.errors.upgrade_dependency_failure_fault.UpgradeDependencyFailureFault: <p>An upgrade dependency is preventing the database migration.</p>
+            aws_sdk_database_migration_service.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Modify replication instance
             Modifies the replication instance to apply new settings. You can change one or more parameters by specifying these parameters and the new values in the request. Some settings are applied during the maintenance window.
@@ -6279,6 +6811,15 @@ class AsyncDatabaseMigrationServiceClient:
             replication_subnet_group_identifier: <p>The name of the replication instance subnet group.</p>
             replication_subnet_group_description: <p>A description for the replication instance subnet group.</p>
             subnet_ids: <p>A list of subnet IDs.</p>
+
+        Raises:
+            aws_sdk_database_migration_service.errors.access_denied_fault.AccessDeniedFault: <p>DMS was denied access to the endpoint. Check that the role is correctly configured.</p>
+            aws_sdk_database_migration_service.errors.invalid_subnet.InvalidSubnet: <p>The subnet provided isn't valid.</p>
+            aws_sdk_database_migration_service.errors.replication_subnet_group_does_not_cover_enough_a_zs.ReplicationSubnetGroupDoesNotCoverEnoughAZs: <p>The replication subnet group does not cover enough Availability Zones (AZs). Edit the replication subnet group and add more AZs.</p>
+            aws_sdk_database_migration_service.errors.resource_not_found_fault.ResourceNotFoundFault: <p>The resource could not be found.</p>
+            aws_sdk_database_migration_service.errors.resource_quota_exceeded_fault.ResourceQuotaExceededFault: <p>The quota for this resource quota has been exceeded.</p>
+            aws_sdk_database_migration_service.errors.subnet_already_in_use.SubnetAlreadyInUse: <p>The specified subnet is already in use.</p>
+            aws_sdk_database_migration_service.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Modify replication subnet group
@@ -6362,6 +6903,13 @@ class AsyncDatabaseMigrationServiceClient:
             cdc_start_position: <p>Indicates when you want a change data capture (CDC) operation to start. Use either CdcStartPosition or CdcStartTime to specify when you want a CDC operation to start. Specifying both values results in an error.</p> <p> The value can be in date, checkpoint, or LSN/SCN format.</p> <p>Date Example: --cdc-start-position “2018-03-08T12:12:12”</p> <p>Checkpoint Example: --cdc-start-position \"checkpoint:V1#27#mysql-bin-changelog.157832:1975:-1:2002:677883278264080:mysql-bin-changelog.157832:1876#0#0#*#0#93\"</p> <p>LSN Example: --cdc-start-position “mysql-bin-changelog.000024:373”</p> <note> <p>When you use this task setting with a source PostgreSQL database, a logical replication slot should already be created and associated with the source endpoint. You can verify this by setting the <code>slotName</code> extra connection attribute to the name of this logical replication slot. For more information, see <a href=\"https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.PostgreSQL.html#CHAP_Source.PostgreSQL.ConnectionAttrib\">Extra Connection Attributes When Using PostgreSQL as a Source for DMS</a>.</p> </note>
             cdc_stop_position: <p>Indicates when you want a change data capture (CDC) operation to stop. The value can be either server time or commit time.</p> <p>Server time example: --cdc-stop-position “server_time:2018-02-09T12:12:12”</p> <p>Commit time example: --cdc-stop-position “commit_time:2018-02-09T12:12:12“</p>
             task_data: <p>Supplemental information that the task requires to migrate the data for certain source and target endpoints. For more information, see <a href=\"https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.TaskData.html\">Specifying Supplemental Data for Task Settings</a> in the <i>Database Migration Service User Guide.</i> </p>
+
+        Raises:
+            aws_sdk_database_migration_service.errors.invalid_resource_state_fault.InvalidResourceStateFault: <p>The resource is in a state that prevents it from being used for database migration.</p>
+            aws_sdk_database_migration_service.errors.kms_key_not_accessible_fault.KMSKeyNotAccessibleFault: <p>DMS cannot access the KMS key.</p>
+            aws_sdk_database_migration_service.errors.resource_already_exists_fault.ResourceAlreadyExistsFault: <p>The resource you are attempting to create already exists.</p>
+            aws_sdk_database_migration_service.errors.resource_not_found_fault.ResourceNotFoundFault: <p>The resource could not be found.</p>
+            aws_sdk_database_migration_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -6418,6 +6966,14 @@ class AsyncDatabaseMigrationServiceClient:
         Args:
             replication_task_arn: <p>The Amazon Resource Name (ARN) of the task that you want to move.</p>
             target_replication_instance_arn: <p>The ARN of the replication instance where you want to move the task to.</p>
+
+        Raises:
+            aws_sdk_database_migration_service.errors.access_denied_fault.AccessDeniedFault: <p>DMS was denied access to the endpoint. Check that the role is correctly configured.</p>
+            aws_sdk_database_migration_service.errors.invalid_resource_state_fault.InvalidResourceStateFault: <p>The resource is in a state that prevents it from being used for database migration.</p>
+            aws_sdk_database_migration_service.errors.kms_key_not_accessible_fault.KMSKeyNotAccessibleFault: <p>DMS cannot access the KMS key.</p>
+            aws_sdk_database_migration_service.errors.resource_not_found_fault.ResourceNotFoundFault: <p>The resource could not be found.</p>
+            aws_sdk_database_migration_service.errors.resource_quota_exceeded_fault.ResourceQuotaExceededFault: <p>The quota for this resource quota has been exceeded.</p>
+            aws_sdk_database_migration_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -6465,6 +7021,11 @@ class AsyncDatabaseMigrationServiceClient:
             replication_instance_arn: <p>The Amazon Resource Name (ARN) of the replication instance.</p>
             force_failover: <p>If this parameter is <code>true</code>, the reboot is conducted through a Multi-AZ failover. If the instance isn't configured for Multi-AZ, then you can't specify <code>true</code>. ( <code>--force-planned-failover</code> and <code>--force-failover</code> can't both be set to <code>true</code>.)</p>
             force_planned_failover: <p>If this parameter is <code>true</code>, the reboot is conducted through a planned Multi-AZ failover where resources are released and cleaned up prior to conducting the failover. If the instance isn''t configured for Multi-AZ, then you can't specify <code>true</code>. ( <code>--force-planned-failover</code> and <code>--force-failover</code> can't both be set to <code>true</code>.)</p>
+
+        Raises:
+            aws_sdk_database_migration_service.errors.invalid_resource_state_fault.InvalidResourceStateFault: <p>The resource is in a state that prevents it from being used for database migration.</p>
+            aws_sdk_database_migration_service.errors.resource_not_found_fault.ResourceNotFoundFault: <p>The resource could not be found.</p>
+            aws_sdk_database_migration_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -6509,6 +7070,13 @@ class AsyncDatabaseMigrationServiceClient:
         Args:
             endpoint_arn: <p>The Amazon Resource Name (ARN) string that uniquely identifies the endpoint.</p>
             replication_instance_arn: <p>The Amazon Resource Name (ARN) of the replication instance.</p>
+
+        Raises:
+            aws_sdk_database_migration_service.errors.invalid_resource_state_fault.InvalidResourceStateFault: <p>The resource is in a state that prevents it from being used for database migration.</p>
+            aws_sdk_database_migration_service.errors.kms_key_not_accessible_fault.KMSKeyNotAccessibleFault: <p>DMS cannot access the KMS key.</p>
+            aws_sdk_database_migration_service.errors.resource_not_found_fault.ResourceNotFoundFault: <p>The resource could not be found.</p>
+            aws_sdk_database_migration_service.errors.resource_quota_exceeded_fault.ResourceQuotaExceededFault: <p>The quota for this resource quota has been exceeded.</p>
+            aws_sdk_database_migration_service.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Refresh schema
@@ -6560,6 +7128,11 @@ class AsyncDatabaseMigrationServiceClient:
             replication_config_arn: <p>The Amazon Resource Name of the replication config for which to reload tables.</p>
             tables_to_reload: <p>The list of tables to reload.</p>
             reload_option: <p>Options for reload. Specify <code>data-reload</code> to reload the data and re-validate it if validation is enabled. Specify <code>validate-only</code> to re-validate the table. This option applies only when validation is enabled for the replication. </p>
+
+        Raises:
+            aws_sdk_database_migration_service.errors.invalid_resource_state_fault.InvalidResourceStateFault: <p>The resource is in a state that prevents it from being used for database migration.</p>
+            aws_sdk_database_migration_service.errors.resource_not_found_fault.ResourceNotFoundFault: <p>The resource could not be found.</p>
+            aws_sdk_database_migration_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -6607,6 +7180,11 @@ class AsyncDatabaseMigrationServiceClient:
             replication_task_arn: <p>The Amazon Resource Name (ARN) of the replication task. </p>
             tables_to_reload: <p>The name and schema of the table to be reloaded. </p>
             reload_option: <p>Options for reload. Specify <code>data-reload</code> to reload the data and re-validate it if validation is enabled. Specify <code>validate-only</code> to re-validate the table. This option applies only when validation is enabled for the task. </p> <p>Valid values: data-reload, validate-only</p> <p>Default value is data-reload.</p>
+
+        Raises:
+            aws_sdk_database_migration_service.errors.invalid_resource_state_fault.InvalidResourceStateFault: <p>The resource is in a state that prevents it from being used for database migration.</p>
+            aws_sdk_database_migration_service.errors.resource_not_found_fault.ResourceNotFoundFault: <p>The resource could not be found.</p>
+            aws_sdk_database_migration_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -6651,6 +7229,11 @@ class AsyncDatabaseMigrationServiceClient:
             resource_arn: <p>An DMS resource from which you want to remove tag(s). The value for this parameter is an Amazon Resource Name (ARN).</p>
             tag_keys: <p>The tag key (name) of the tag to be removed.</p>
 
+        Raises:
+            aws_sdk_database_migration_service.errors.invalid_resource_state_fault.InvalidResourceStateFault: <p>The resource is in a state that prevents it from being used for database migration.</p>
+            aws_sdk_database_migration_service.errors.resource_not_found_fault.ResourceNotFoundFault: <p>The resource could not be found.</p>
+            aws_sdk_database_migration_service.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Remove tags from resource
             Removes metadata tags from an AWS DMS resource.
@@ -6690,7 +7273,13 @@ class AsyncDatabaseMigrationServiceClient:
         *,
         config_overrides: Optional[AsyncDatabaseMigrationServiceClientConfig] = None,
     ) -> "aws_sdk_database_migration_service.types.run_fleet_advisor_lsa_analysis_response.RunFleetAdvisorLsaAnalysisResponse":
-        r"""<important> <p> End of support notice: On May 20, 2026, Amazon Web Services will end support for Amazon Web Services DMS Fleet Advisor;. After May 20, 2026, you will no longer be able to access the Amazon Web Services DMS Fleet Advisor; console or Amazon Web Services DMS Fleet Advisor; resources. For more information, see <a href=\"https://docs.aws.amazon.com/dms/latest/userguide/dms_fleet.advisor-end-of-support.html\">Amazon Web Services DMS Fleet Advisor end of support</a>. </p> </important> <p>Runs large-scale assessment (LSA) analysis on every Fleet Advisor collector in your account.</p>"""
+        r"""<important> <p> End of support notice: On May 20, 2026, Amazon Web Services will end support for Amazon Web Services DMS Fleet Advisor;. After May 20, 2026, you will no longer be able to access the Amazon Web Services DMS Fleet Advisor; console or Amazon Web Services DMS Fleet Advisor; resources. For more information, see <a href=\"https://docs.aws.amazon.com/dms/latest/userguide/dms_fleet.advisor-end-of-support.html\">Amazon Web Services DMS Fleet Advisor end of support</a>. </p> </important> <p>Runs large-scale assessment (LSA) analysis on every Fleet Advisor collector in your account.</p>
+
+        Raises:
+            aws_sdk_database_migration_service.errors.invalid_resource_state_fault.InvalidResourceStateFault: <p>The resource is in a state that prevents it from being used for database migration.</p>
+            aws_sdk_database_migration_service.errors.resource_not_found_fault.ResourceNotFoundFault: <p>The resource could not be found.</p>
+            aws_sdk_database_migration_service.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[None]",
@@ -6728,6 +7317,14 @@ class AsyncDatabaseMigrationServiceClient:
         Args:
             data_migration_identifier: <p>The identifier (name or ARN) of the data migration to start.</p>
             start_type: <p>Specifies the start type for the data migration. Valid values include <code>start-replication</code>, <code>reload-target</code>, and <code>resume-processing</code>.</p>
+
+        Raises:
+            aws_sdk_database_migration_service.errors.failed_dependency_fault.FailedDependencyFault: <p>A dependency threw an exception.</p>
+            aws_sdk_database_migration_service.errors.invalid_operation_fault.InvalidOperationFault: <p>The action or operation requested isn't valid.</p>
+            aws_sdk_database_migration_service.errors.invalid_resource_state_fault.InvalidResourceStateFault: <p>The resource is in a state that prevents it from being used for database migration.</p>
+            aws_sdk_database_migration_service.errors.resource_not_found_fault.ResourceNotFoundFault: <p>The resource could not be found.</p>
+            aws_sdk_database_migration_service.errors.resource_quota_exceeded_fault.ResourceQuotaExceededFault: <p>The quota for this resource quota has been exceeded.</p>
+            aws_sdk_database_migration_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -6767,6 +7364,17 @@ class AsyncDatabaseMigrationServiceClient:
 
         Args:
             migration_project_identifier: <p>The migration project name or Amazon Resource Name (ARN).</p>
+
+        Raises:
+            aws_sdk_database_migration_service.errors.access_denied_fault.AccessDeniedFault: <p>DMS was denied access to the endpoint. Check that the role is correctly configured.</p>
+            aws_sdk_database_migration_service.errors.invalid_resource_state_fault.InvalidResourceStateFault: <p>The resource is in a state that prevents it from being used for database migration.</p>
+            aws_sdk_database_migration_service.errors.kms_key_not_accessible_fault.KMSKeyNotAccessibleFault: <p>DMS cannot access the KMS key.</p>
+            aws_sdk_database_migration_service.errors.resource_already_exists_fault.ResourceAlreadyExistsFault: <p>The resource you are attempting to create already exists.</p>
+            aws_sdk_database_migration_service.errors.resource_not_found_fault.ResourceNotFoundFault: <p>The resource could not be found.</p>
+            aws_sdk_database_migration_service.errors.resource_quota_exceeded_fault.ResourceQuotaExceededFault: <p>The quota for this resource quota has been exceeded.</p>
+            aws_sdk_database_migration_service.errors.s3_access_denied_fault.S3AccessDeniedFault: <p>Insufficient privileges are preventing access to an Amazon S3 object.</p>
+            aws_sdk_database_migration_service.errors.s3_resource_not_found_fault.S3ResourceNotFoundFault: <p>A specified Amazon S3 bucket, bucket folder, or other object can't be found.</p>
+            aws_sdk_database_migration_service.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Start Extension Pack Association
@@ -6813,6 +7421,17 @@ class AsyncDatabaseMigrationServiceClient:
         Args:
             migration_project_identifier: <p>The migration project name or Amazon Resource Name (ARN).</p>
             selection_rules: <p>A value that specifies the database objects to assess.</p>
+
+        Raises:
+            aws_sdk_database_migration_service.errors.access_denied_fault.AccessDeniedFault: <p>DMS was denied access to the endpoint. Check that the role is correctly configured.</p>
+            aws_sdk_database_migration_service.errors.invalid_resource_state_fault.InvalidResourceStateFault: <p>The resource is in a state that prevents it from being used for database migration.</p>
+            aws_sdk_database_migration_service.errors.kms_key_not_accessible_fault.KMSKeyNotAccessibleFault: <p>DMS cannot access the KMS key.</p>
+            aws_sdk_database_migration_service.errors.resource_already_exists_fault.ResourceAlreadyExistsFault: <p>The resource you are attempting to create already exists.</p>
+            aws_sdk_database_migration_service.errors.resource_not_found_fault.ResourceNotFoundFault: <p>The resource could not be found.</p>
+            aws_sdk_database_migration_service.errors.resource_quota_exceeded_fault.ResourceQuotaExceededFault: <p>The quota for this resource quota has been exceeded.</p>
+            aws_sdk_database_migration_service.errors.s3_access_denied_fault.S3AccessDeniedFault: <p>Insufficient privileges are preventing access to an Amazon S3 object.</p>
+            aws_sdk_database_migration_service.errors.s3_resource_not_found_fault.S3ResourceNotFoundFault: <p>A specified Amazon S3 bucket, bucket folder, or other object can't be found.</p>
+            aws_sdk_database_migration_service.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Start Metadata Model Assessment
@@ -6861,6 +7480,17 @@ class AsyncDatabaseMigrationServiceClient:
         Args:
             migration_project_identifier: <p>The migration project name or Amazon Resource Name (ARN).</p>
             selection_rules: <p>A value that specifies the database objects to convert.</p>
+
+        Raises:
+            aws_sdk_database_migration_service.errors.access_denied_fault.AccessDeniedFault: <p>DMS was denied access to the endpoint. Check that the role is correctly configured.</p>
+            aws_sdk_database_migration_service.errors.invalid_resource_state_fault.InvalidResourceStateFault: <p>The resource is in a state that prevents it from being used for database migration.</p>
+            aws_sdk_database_migration_service.errors.kms_key_not_accessible_fault.KMSKeyNotAccessibleFault: <p>DMS cannot access the KMS key.</p>
+            aws_sdk_database_migration_service.errors.resource_already_exists_fault.ResourceAlreadyExistsFault: <p>The resource you are attempting to create already exists.</p>
+            aws_sdk_database_migration_service.errors.resource_not_found_fault.ResourceNotFoundFault: <p>The resource could not be found.</p>
+            aws_sdk_database_migration_service.errors.resource_quota_exceeded_fault.ResourceQuotaExceededFault: <p>The quota for this resource quota has been exceeded.</p>
+            aws_sdk_database_migration_service.errors.s3_access_denied_fault.S3AccessDeniedFault: <p>Insufficient privileges are preventing access to an Amazon S3 object.</p>
+            aws_sdk_database_migration_service.errors.s3_resource_not_found_fault.S3ResourceNotFoundFault: <p>A specified Amazon S3 bucket, bucket folder, or other object can't be found.</p>
+            aws_sdk_database_migration_service.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Start Metadata Model Conversion
@@ -6912,6 +7542,13 @@ class AsyncDatabaseMigrationServiceClient:
             selection_rules: <p>The JSON string that specifies the location where the metadata model will be created. Selection rules must specify a single schema. For more information, see Selection Rules in the DMS User Guide.</p>
             metadata_model_name: <p>The name of the metadata model.</p>
             properties: <p>The properties of metadata model in JSON format. This object is a Union. Only one member of this object can be specified or returned.</p>
+
+        Raises:
+            aws_sdk_database_migration_service.errors.access_denied_fault.AccessDeniedFault: <p>DMS was denied access to the endpoint. Check that the role is correctly configured.</p>
+            aws_sdk_database_migration_service.errors.resource_already_exists_fault.ResourceAlreadyExistsFault: <p>The resource you are attempting to create already exists.</p>
+            aws_sdk_database_migration_service.errors.resource_not_found_fault.ResourceNotFoundFault: <p>The resource could not be found.</p>
+            aws_sdk_database_migration_service.errors.resource_quota_exceeded_fault.ResourceQuotaExceededFault: <p>The quota for this resource quota has been exceeded.</p>
+            aws_sdk_database_migration_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -6961,6 +7598,17 @@ class AsyncDatabaseMigrationServiceClient:
             selection_rules: <p>A value that specifies the database objects to export.</p>
             origin: <p>Whether to export the metadata model from the source or the target.</p>
             file_name: <p>The name of the model file to create in the Amazon S3 bucket.</p>
+
+        Raises:
+            aws_sdk_database_migration_service.errors.access_denied_fault.AccessDeniedFault: <p>DMS was denied access to the endpoint. Check that the role is correctly configured.</p>
+            aws_sdk_database_migration_service.errors.invalid_resource_state_fault.InvalidResourceStateFault: <p>The resource is in a state that prevents it from being used for database migration.</p>
+            aws_sdk_database_migration_service.errors.kms_key_not_accessible_fault.KMSKeyNotAccessibleFault: <p>DMS cannot access the KMS key.</p>
+            aws_sdk_database_migration_service.errors.resource_already_exists_fault.ResourceAlreadyExistsFault: <p>The resource you are attempting to create already exists.</p>
+            aws_sdk_database_migration_service.errors.resource_not_found_fault.ResourceNotFoundFault: <p>The resource could not be found.</p>
+            aws_sdk_database_migration_service.errors.resource_quota_exceeded_fault.ResourceQuotaExceededFault: <p>The quota for this resource quota has been exceeded.</p>
+            aws_sdk_database_migration_service.errors.s3_access_denied_fault.S3AccessDeniedFault: <p>Insufficient privileges are preventing access to an Amazon S3 object.</p>
+            aws_sdk_database_migration_service.errors.s3_resource_not_found_fault.S3ResourceNotFoundFault: <p>A specified Amazon S3 bucket, bucket folder, or other object can't be found.</p>
+            aws_sdk_database_migration_service.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Start Metadata Model Export As Script
@@ -7015,6 +7663,17 @@ class AsyncDatabaseMigrationServiceClient:
             migration_project_identifier: <p>The migration project name or Amazon Resource Name (ARN).</p>
             selection_rules: <p>A value that specifies the database objects to export.</p>
             overwrite_extension_pack: <p>Whether to overwrite the migration project extension pack. An extension pack is an add-on module that emulates functions present in a source database that are required when converting objects to the target database.</p>
+
+        Raises:
+            aws_sdk_database_migration_service.errors.access_denied_fault.AccessDeniedFault: <p>DMS was denied access to the endpoint. Check that the role is correctly configured.</p>
+            aws_sdk_database_migration_service.errors.invalid_resource_state_fault.InvalidResourceStateFault: <p>The resource is in a state that prevents it from being used for database migration.</p>
+            aws_sdk_database_migration_service.errors.kms_key_not_accessible_fault.KMSKeyNotAccessibleFault: <p>DMS cannot access the KMS key.</p>
+            aws_sdk_database_migration_service.errors.resource_already_exists_fault.ResourceAlreadyExistsFault: <p>The resource you are attempting to create already exists.</p>
+            aws_sdk_database_migration_service.errors.resource_not_found_fault.ResourceNotFoundFault: <p>The resource could not be found.</p>
+            aws_sdk_database_migration_service.errors.resource_quota_exceeded_fault.ResourceQuotaExceededFault: <p>The quota for this resource quota has been exceeded.</p>
+            aws_sdk_database_migration_service.errors.s3_access_denied_fault.S3AccessDeniedFault: <p>Insufficient privileges are preventing access to an Amazon S3 object.</p>
+            aws_sdk_database_migration_service.errors.s3_resource_not_found_fault.S3ResourceNotFoundFault: <p>A specified Amazon S3 bucket, bucket folder, or other object can't be found.</p>
+            aws_sdk_database_migration_service.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Start Metadata Model Export To Target
@@ -7071,6 +7730,17 @@ class AsyncDatabaseMigrationServiceClient:
             origin: <p>Whether to load metadata to the source or target database.</p>
             refresh: <p>If <code>true</code>, DMS loads metadata for the specified objects from the source database.</p>
 
+        Raises:
+            aws_sdk_database_migration_service.errors.access_denied_fault.AccessDeniedFault: <p>DMS was denied access to the endpoint. Check that the role is correctly configured.</p>
+            aws_sdk_database_migration_service.errors.invalid_resource_state_fault.InvalidResourceStateFault: <p>The resource is in a state that prevents it from being used for database migration.</p>
+            aws_sdk_database_migration_service.errors.kms_key_not_accessible_fault.KMSKeyNotAccessibleFault: <p>DMS cannot access the KMS key.</p>
+            aws_sdk_database_migration_service.errors.resource_already_exists_fault.ResourceAlreadyExistsFault: <p>The resource you are attempting to create already exists.</p>
+            aws_sdk_database_migration_service.errors.resource_not_found_fault.ResourceNotFoundFault: <p>The resource could not be found.</p>
+            aws_sdk_database_migration_service.errors.resource_quota_exceeded_fault.ResourceQuotaExceededFault: <p>The quota for this resource quota has been exceeded.</p>
+            aws_sdk_database_migration_service.errors.s3_access_denied_fault.S3AccessDeniedFault: <p>Insufficient privileges are preventing access to an Amazon S3 object.</p>
+            aws_sdk_database_migration_service.errors.s3_resource_not_found_fault.S3ResourceNotFoundFault: <p>A specified Amazon S3 bucket, bucket folder, or other object can't be found.</p>
+            aws_sdk_database_migration_service.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Start Metadata Model Import
             Loads the metadata for all the dependent database objects of the parent object.
@@ -7120,6 +7790,12 @@ class AsyncDatabaseMigrationServiceClient:
         Args:
             database_id: <p>The identifier of the source database to analyze and provide recommendations for.</p>
             settings: <p>The settings in JSON format that Fleet Advisor uses to determine target engine recommendations. These parameters include target instance sizing and availability and durability settings. For target instance sizing, Fleet Advisor supports the following two options: total capacity and resource utilization. For availability and durability, Fleet Advisor supports the following two options: production (Multi-AZ deployments) and Dev/Test (Single-AZ deployments).</p>
+
+        Raises:
+            aws_sdk_database_migration_service.errors.access_denied_fault.AccessDeniedFault: <p>DMS was denied access to the endpoint. Check that the role is correctly configured.</p>
+            aws_sdk_database_migration_service.errors.invalid_resource_state_fault.InvalidResourceStateFault: <p>The resource is in a state that prevents it from being used for database migration.</p>
+            aws_sdk_database_migration_service.errors.resource_not_found_fault.ResourceNotFoundFault: <p>The resource could not be found.</p>
+            aws_sdk_database_migration_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -7175,6 +7851,12 @@ class AsyncDatabaseMigrationServiceClient:
             cdc_start_time: <p>Indicates the start time for a change data capture (CDC) operation. Use either <code>CdcStartTime</code> or <code>CdcStartPosition</code> to specify when you want a CDC operation to start. Specifying both values results in an error.</p>
             cdc_start_position: <p>Indicates when you want a change data capture (CDC) operation to start. Use either <code>CdcStartPosition</code> or <code>CdcStartTime</code> to specify when you want a CDC operation to start. Specifying both values results in an error.</p> <p>The value can be in date, checkpoint, or LSN/SCN format.</p>
             cdc_stop_position: <p>Indicates when you want a change data capture (CDC) operation to stop. The value can be either server time or commit time.</p>
+
+        Raises:
+            aws_sdk_database_migration_service.errors.access_denied_fault.AccessDeniedFault: <p>DMS was denied access to the endpoint. Check that the role is correctly configured.</p>
+            aws_sdk_database_migration_service.errors.invalid_resource_state_fault.InvalidResourceStateFault: <p>The resource is in a state that prevents it from being used for database migration.</p>
+            aws_sdk_database_migration_service.errors.resource_not_found_fault.ResourceNotFoundFault: <p>The resource could not be found.</p>
+            aws_sdk_database_migration_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -7239,6 +7921,12 @@ class AsyncDatabaseMigrationServiceClient:
             cdc_start_position: <p>Indicates when you want a change data capture (CDC) operation to start. Use either CdcStartPosition or CdcStartTime to specify when you want a CDC operation to start. Specifying both values results in an error.</p> <p> The value can be in date, checkpoint, or LSN/SCN format.</p> <p>Date Example: --cdc-start-position “2018-03-08T12:12:12”</p> <p>Checkpoint Example: --cdc-start-position \"checkpoint:V1#27#mysql-bin-changelog.157832:1975:-1:2002:677883278264080:mysql-bin-changelog.157832:1876#0#0#*#0#93\"</p> <p>LSN Example: --cdc-start-position “mysql-bin-changelog.000024:373”</p> <note> <p>When you use this task setting with a source PostgreSQL database, a logical replication slot should already be created and associated with the source endpoint. You can verify this by setting the <code>slotName</code> extra connection attribute to the name of this logical replication slot. For more information, see <a href=\"https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.PostgreSQL.html#CHAP_Source.PostgreSQL.ConnectionAttrib\">Extra Connection Attributes When Using PostgreSQL as a Source for DMS</a>.</p> </note>
             cdc_stop_position: <p>Indicates when you want a change data capture (CDC) operation to stop. The value can be either server time or commit time.</p> <p>Server time example: --cdc-stop-position “server_time:2018-02-09T12:12:12”</p> <p>Commit time example: --cdc-stop-position “commit_time:2018-02-09T12:12:12“</p>
 
+        Raises:
+            aws_sdk_database_migration_service.errors.access_denied_fault.AccessDeniedFault: <p>DMS was denied access to the endpoint. Check that the role is correctly configured.</p>
+            aws_sdk_database_migration_service.errors.invalid_resource_state_fault.InvalidResourceStateFault: <p>The resource is in a state that prevents it from being used for database migration.</p>
+            aws_sdk_database_migration_service.errors.resource_not_found_fault.ResourceNotFoundFault: <p>The resource could not be found.</p>
+            aws_sdk_database_migration_service.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Start replication task
             Starts the replication task.
@@ -7289,6 +7977,11 @@ class AsyncDatabaseMigrationServiceClient:
 
         Args:
             replication_task_arn: <p> The Amazon Resource Name (ARN) of the replication task. </p>
+
+        Raises:
+            aws_sdk_database_migration_service.errors.invalid_resource_state_fault.InvalidResourceStateFault: <p>The resource is in a state that prevents it from being used for database migration.</p>
+            aws_sdk_database_migration_service.errors.resource_not_found_fault.ResourceNotFoundFault: <p>The resource could not be found.</p>
+            aws_sdk_database_migration_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -7357,6 +8050,21 @@ class AsyncDatabaseMigrationServiceClient:
             include_only: <p>Space-separated list of names for specific individual assessments that you want to include. These names come from the default list of individual assessments that DMS supports for the associated migration task. This task is specified by <code>ReplicationTaskArn</code>.</p> <note> <p>You can't set a value for <code>IncludeOnly</code> if you also set a value for <code>Exclude</code> in the API operation. </p> <p>To identify the names of the default individual assessments that DMS supports for the associated migration task, run the <code>DescribeApplicableIndividualAssessments</code> operation using its own <code>ReplicationTaskArn</code> request parameter.</p> </note>
             exclude: <p>Space-separated list of names for specific individual assessments that you want to exclude. These names come from the default list of individual assessments that DMS supports for the associated migration task. This task is specified by <code>ReplicationTaskArn</code>.</p> <note> <p>You can't set a value for <code>Exclude</code> if you also set a value for <code>IncludeOnly</code> in the API operation.</p> <p>To identify the names of the default individual assessments that DMS supports for the associated migration task, run the <code>DescribeApplicableIndividualAssessments</code> operation using its own <code>ReplicationTaskArn</code> request parameter.</p> </note>
             tags: <p>One or more tags to be assigned to the premigration assessment run that you want to start.</p>
+
+        Raises:
+            aws_sdk_database_migration_service.errors.access_denied_fault.AccessDeniedFault: <p>DMS was denied access to the endpoint. Check that the role is correctly configured.</p>
+            aws_sdk_database_migration_service.errors.invalid_resource_state_fault.InvalidResourceStateFault: <p>The resource is in a state that prevents it from being used for database migration.</p>
+            aws_sdk_database_migration_service.errors.kms_access_denied_fault.KMSAccessDeniedFault: <p>The ciphertext references a key that doesn't exist or that the DMS account doesn't have access to.</p>
+            aws_sdk_database_migration_service.errors.kms_disabled_fault.KMSDisabledFault: <p>The specified KMS key isn't enabled.</p>
+            aws_sdk_database_migration_service.errors.kms_fault.KMSFault: <p>An Key Management Service (KMS) error is preventing access to KMS.</p>
+            aws_sdk_database_migration_service.errors.kms_invalid_state_fault.KMSInvalidStateFault: <p>The state of the specified KMS resource isn't valid for this request.</p>
+            aws_sdk_database_migration_service.errors.kms_key_not_accessible_fault.KMSKeyNotAccessibleFault: <p>DMS cannot access the KMS key.</p>
+            aws_sdk_database_migration_service.errors.kms_not_found_fault.KMSNotFoundFault: <p>The specified KMS entity or resource can't be found.</p>
+            aws_sdk_database_migration_service.errors.resource_already_exists_fault.ResourceAlreadyExistsFault: <p>The resource you are attempting to create already exists.</p>
+            aws_sdk_database_migration_service.errors.resource_not_found_fault.ResourceNotFoundFault: <p>The resource could not be found.</p>
+            aws_sdk_database_migration_service.errors.s3_access_denied_fault.S3AccessDeniedFault: <p>Insufficient privileges are preventing access to an Amazon S3 object.</p>
+            aws_sdk_database_migration_service.errors.s3_resource_not_found_fault.S3ResourceNotFoundFault: <p>A specified Amazon S3 bucket, bucket folder, or other object can't be found.</p>
+            aws_sdk_database_migration_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -7410,6 +8118,12 @@ class AsyncDatabaseMigrationServiceClient:
 
         Args:
             data_migration_identifier: <p>The identifier (name or ARN) of the data migration to stop.</p>
+
+        Raises:
+            aws_sdk_database_migration_service.errors.failed_dependency_fault.FailedDependencyFault: <p>A dependency threw an exception.</p>
+            aws_sdk_database_migration_service.errors.invalid_resource_state_fault.InvalidResourceStateFault: <p>The resource is in a state that prevents it from being used for database migration.</p>
+            aws_sdk_database_migration_service.errors.resource_not_found_fault.ResourceNotFoundFault: <p>The resource could not be found.</p>
+            aws_sdk_database_migration_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -7448,6 +8162,12 @@ class AsyncDatabaseMigrationServiceClient:
 
         Args:
             replication_config_arn: <p>The Amazon Resource Name of the replication to stop.</p>
+
+        Raises:
+            aws_sdk_database_migration_service.errors.access_denied_fault.AccessDeniedFault: <p>DMS was denied access to the endpoint. Check that the role is correctly configured.</p>
+            aws_sdk_database_migration_service.errors.invalid_resource_state_fault.InvalidResourceStateFault: <p>The resource is in a state that prevents it from being used for database migration.</p>
+            aws_sdk_database_migration_service.errors.resource_not_found_fault.ResourceNotFoundFault: <p>The resource could not be found.</p>
+            aws_sdk_database_migration_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -7486,6 +8206,11 @@ class AsyncDatabaseMigrationServiceClient:
 
         Args:
             replication_task_arn: <p>The Amazon Resource Name(ARN) of the replication task to be stopped.</p>
+
+        Raises:
+            aws_sdk_database_migration_service.errors.invalid_resource_state_fault.InvalidResourceStateFault: <p>The resource is in a state that prevents it from being used for database migration.</p>
+            aws_sdk_database_migration_service.errors.resource_not_found_fault.ResourceNotFoundFault: <p>The resource could not be found.</p>
+            aws_sdk_database_migration_service.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Stop replication task
@@ -7533,6 +8258,14 @@ class AsyncDatabaseMigrationServiceClient:
             replication_instance_arn: <p>The Amazon Resource Name (ARN) of the replication instance.</p>
             endpoint_arn: <p>The Amazon Resource Name (ARN) string that uniquely identifies the endpoint.</p>
 
+        Raises:
+            aws_sdk_database_migration_service.errors.access_denied_fault.AccessDeniedFault: <p>DMS was denied access to the endpoint. Check that the role is correctly configured.</p>
+            aws_sdk_database_migration_service.errors.invalid_resource_state_fault.InvalidResourceStateFault: <p>The resource is in a state that prevents it from being used for database migration.</p>
+            aws_sdk_database_migration_service.errors.kms_key_not_accessible_fault.KMSKeyNotAccessibleFault: <p>DMS cannot access the KMS key.</p>
+            aws_sdk_database_migration_service.errors.resource_not_found_fault.ResourceNotFoundFault: <p>The resource could not be found.</p>
+            aws_sdk_database_migration_service.errors.resource_quota_exceeded_fault.ResourceQuotaExceededFault: <p>The quota for this resource quota has been exceeded.</p>
+            aws_sdk_database_migration_service.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Test conection
             Tests the connection between the replication instance and the endpoint.
@@ -7579,6 +8312,11 @@ class AsyncDatabaseMigrationServiceClient:
 
         Args:
             force_move: <p>When set to true, this operation migrates DMS subscriptions for Amazon SNS notifications no matter what your replication instance version is. If not set or set to false, this operation runs only when all your replication instances are from DMS version 3.4.5 or higher. </p>
+
+        Raises:
+            aws_sdk_database_migration_service.errors.access_denied_fault.AccessDeniedFault: <p>DMS was denied access to the endpoint. Check that the role is correctly configured.</p>
+            aws_sdk_database_migration_service.errors.invalid_resource_state_fault.InvalidResourceStateFault: <p>The resource is in a state that prevents it from being used for database migration.</p>
+            aws_sdk_database_migration_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

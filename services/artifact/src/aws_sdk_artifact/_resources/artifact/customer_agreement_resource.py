@@ -47,6 +47,13 @@ class CustomerAgreementResource:
             max_results: <p>Maximum number of resources to return in the paginated response.</p>
             next_token: <p>Pagination token to request the next page of resources.</p>
 
+        Raises:
+            aws_sdk_artifact.errors.access_denied_exception.AccessDeniedException: <p>User does not have sufficient access to perform this action.</p>
+            aws_sdk_artifact.errors.internal_server_exception.InternalServerException: <p>An unknown server exception has occurred.</p>
+            aws_sdk_artifact.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_artifact.errors.validation_exception.ValidationException: <p>Request fails to satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_artifact.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Invoke ListCustomerAgreements operation
             The ListCustomerAgreements operation returns a collection of customer-agreement resources in the ACTIVE state for the calling credential.
@@ -103,6 +110,13 @@ class AsyncCustomerAgreementResource:
         Args:
             max_results: <p>Maximum number of resources to return in the paginated response.</p>
             next_token: <p>Pagination token to request the next page of resources.</p>
+
+        Raises:
+            aws_sdk_artifact.errors.access_denied_exception.AccessDeniedException: <p>User does not have sufficient access to perform this action.</p>
+            aws_sdk_artifact.errors.internal_server_exception.InternalServerException: <p>An unknown server exception has occurred.</p>
+            aws_sdk_artifact.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_artifact.errors.validation_exception.ValidationException: <p>Request fails to satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_artifact.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Invoke ListCustomerAgreements operation

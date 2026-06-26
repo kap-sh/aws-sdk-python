@@ -227,6 +227,16 @@ class AsyncWorkSpacesThinClientClient:
             client_token: <p>Specifies a unique, case-sensitive identifier that you provide to ensure the idempotency of the request. This lets you safely retry the request without accidentally performing the same operation a second time. Passing the same value to a later call to an operation requires that you also pass the same value for all other parameters. We recommend that you use a <a href=\"https://wikipedia.org/wiki/Universally_unique_identifier\">UUID type of value</a>.</p> <p>If you don't provide this value, then Amazon Web Services generates a random one for you.</p> <p>If you retry the operation with the same <code>ClientToken</code>, but with different parameters, the retry fails with an <code>IdempotentParameterMismatch</code> error.</p>
             tags: <p>A map of the key-value pairs of the tag or tags to assign to the resource.</p>
             device_creation_tags: <p>A map of the key-value pairs of the tag or tags to assign to the newly created devices for this environment.</p>
+
+        Raises:
+            aws_sdk_workspaces_thin_client.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_workspaces_thin_client.errors.conflict_exception.ConflictException: <p>The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request.</p>
+            aws_sdk_workspaces_thin_client.errors.internal_server_exception.InternalServerException: <p>The server encountered an internal error and is unable to complete the request.</p>
+            aws_sdk_workspaces_thin_client.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request was not found.</p>
+            aws_sdk_workspaces_thin_client.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Your request exceeds a service quota.</p>
+            aws_sdk_workspaces_thin_client.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_workspaces_thin_client.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints.</p>
+            aws_sdk_workspaces_thin_client.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -289,6 +299,15 @@ class AsyncWorkSpacesThinClientClient:
         Args:
             id: <p>The ID of the device to delete.</p>
             client_token: <p>Specifies a unique, case-sensitive identifier that you provide to ensure the idempotency of the request. This lets you safely retry the request without accidentally performing the same operation a second time. Passing the same value to a later call to an operation requires that you also pass the same value for all other parameters. We recommend that you use a <a href=\"https://wikipedia.org/wiki/Universally_unique_identifier\">UUID type of value</a>.</p> <p>If you don't provide this value, then Amazon Web Services generates a random one for you.</p> <p>If you retry the operation with the same <code>ClientToken</code>, but with different parameters, the retry fails with an <code>IdempotentParameterMismatch</code> error.</p>
+
+        Raises:
+            aws_sdk_workspaces_thin_client.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_workspaces_thin_client.errors.conflict_exception.ConflictException: <p>The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request.</p>
+            aws_sdk_workspaces_thin_client.errors.internal_server_exception.InternalServerException: <p>The server encountered an internal error and is unable to complete the request.</p>
+            aws_sdk_workspaces_thin_client.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request was not found.</p>
+            aws_sdk_workspaces_thin_client.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_workspaces_thin_client.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints.</p>
+            aws_sdk_workspaces_thin_client.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -333,6 +352,15 @@ class AsyncWorkSpacesThinClientClient:
         Args:
             id: <p>The ID of the environment to delete.</p>
             client_token: <p>Specifies a unique, case-sensitive identifier that you provide to ensure the idempotency of the request. This lets you safely retry the request without accidentally performing the same operation a second time. Passing the same value to a later call to an operation requires that you also pass the same value for all other parameters. We recommend that you use a <a href=\"https://wikipedia.org/wiki/Universally_unique_identifier\">UUID type of value</a>.</p> <p>If you don't provide this value, then Amazon Web Services generates a random one for you.</p> <p>If you retry the operation with the same <code>ClientToken</code>, but with different parameters, the retry fails with an <code>IdempotentParameterMismatch</code> error.</p>
+
+        Raises:
+            aws_sdk_workspaces_thin_client.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_workspaces_thin_client.errors.conflict_exception.ConflictException: <p>The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request.</p>
+            aws_sdk_workspaces_thin_client.errors.internal_server_exception.InternalServerException: <p>The server encountered an internal error and is unable to complete the request.</p>
+            aws_sdk_workspaces_thin_client.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request was not found.</p>
+            aws_sdk_workspaces_thin_client.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_workspaces_thin_client.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints.</p>
+            aws_sdk_workspaces_thin_client.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -381,6 +409,15 @@ class AsyncWorkSpacesThinClientClient:
             id: <p>The ID of the device to deregister.</p>
             target_device_status: <p>The desired new status for the device.</p>
             client_token: <p>Specifies a unique, case-sensitive identifier that you provide to ensure the idempotency of the request. This lets you safely retry the request without accidentally performing the same operation a second time. Passing the same value to a later call to an operation requires that you also pass the same value for all other parameters. We recommend that you use a <a href=\"https://wikipedia.org/wiki/Universally_unique_identifier\">UUID type of value</a>.</p> <p>If you don't provide this value, then Amazon Web Services generates a random one for you.</p> <p>If you retry the operation with the same <code>ClientToken</code>, but with different parameters, the retry fails with an <code>IdempotentParameterMismatch</code> error.</p>
+
+        Raises:
+            aws_sdk_workspaces_thin_client.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_workspaces_thin_client.errors.conflict_exception.ConflictException: <p>The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request.</p>
+            aws_sdk_workspaces_thin_client.errors.internal_server_exception.InternalServerException: <p>The server encountered an internal error and is unable to complete the request.</p>
+            aws_sdk_workspaces_thin_client.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request was not found.</p>
+            aws_sdk_workspaces_thin_client.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_workspaces_thin_client.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints.</p>
+            aws_sdk_workspaces_thin_client.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -423,6 +460,14 @@ class AsyncWorkSpacesThinClientClient:
 
         Args:
             id: <p>The ID of the device for which to return information.</p>
+
+        Raises:
+            aws_sdk_workspaces_thin_client.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_workspaces_thin_client.errors.internal_server_exception.InternalServerException: <p>The server encountered an internal error and is unable to complete the request.</p>
+            aws_sdk_workspaces_thin_client.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request was not found.</p>
+            aws_sdk_workspaces_thin_client.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_workspaces_thin_client.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints.</p>
+            aws_sdk_workspaces_thin_client.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -461,6 +506,14 @@ class AsyncWorkSpacesThinClientClient:
 
         Args:
             id: <p>The ID of the environment for which to return information.</p>
+
+        Raises:
+            aws_sdk_workspaces_thin_client.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_workspaces_thin_client.errors.internal_server_exception.InternalServerException: <p>The server encountered an internal error and is unable to complete the request.</p>
+            aws_sdk_workspaces_thin_client.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request was not found.</p>
+            aws_sdk_workspaces_thin_client.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_workspaces_thin_client.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints.</p>
+            aws_sdk_workspaces_thin_client.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -499,6 +552,14 @@ class AsyncWorkSpacesThinClientClient:
 
         Args:
             id: <p>The ID of the software set for which to return information.</p>
+
+        Raises:
+            aws_sdk_workspaces_thin_client.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_workspaces_thin_client.errors.internal_server_exception.InternalServerException: <p>The server encountered an internal error and is unable to complete the request.</p>
+            aws_sdk_workspaces_thin_client.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request was not found.</p>
+            aws_sdk_workspaces_thin_client.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_workspaces_thin_client.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints.</p>
+            aws_sdk_workspaces_thin_client.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -545,6 +606,13 @@ class AsyncWorkSpacesThinClientClient:
         Args:
             next_token: <p>If <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an <i>HTTP 400 InvalidToken error</i>.</p>
             max_results: <p>The maximum number of results that are returned per call. You can use <code>nextToken</code> to obtain further pages of results.</p> <p>This is only an upper limit. The actual number of results returned per call might be fewer than the specified maximum.</p>
+
+        Raises:
+            aws_sdk_workspaces_thin_client.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_workspaces_thin_client.errors.internal_server_exception.InternalServerException: <p>The server encountered an internal error and is unable to complete the request.</p>
+            aws_sdk_workspaces_thin_client.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_workspaces_thin_client.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints.</p>
+            aws_sdk_workspaces_thin_client.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -617,6 +685,13 @@ class AsyncWorkSpacesThinClientClient:
         Args:
             next_token: <p>If <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an <i>HTTP 400 InvalidToken error</i>.</p>
             max_results: <p>The maximum number of results that are returned per call. You can use <code>nextToken</code> to obtain further pages of results.</p> <p>This is only an upper limit. The actual number of results returned per call might be fewer than the specified maximum.</p>
+
+        Raises:
+            aws_sdk_workspaces_thin_client.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_workspaces_thin_client.errors.internal_server_exception.InternalServerException: <p>The server encountered an internal error and is unable to complete the request.</p>
+            aws_sdk_workspaces_thin_client.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_workspaces_thin_client.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints.</p>
+            aws_sdk_workspaces_thin_client.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -689,6 +764,13 @@ class AsyncWorkSpacesThinClientClient:
         Args:
             next_token: <p>If <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an <i>HTTP 400 InvalidToken error</i>.</p>
             max_results: <p>The maximum number of results that are returned per call. You can use <code>nextToken</code> to obtain further pages of results.</p> <p>This is only an upper limit. The actual number of results returned per call might be fewer than the specified maximum.</p>
+
+        Raises:
+            aws_sdk_workspaces_thin_client.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_workspaces_thin_client.errors.internal_server_exception.InternalServerException: <p>The server encountered an internal error and is unable to complete the request.</p>
+            aws_sdk_workspaces_thin_client.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_workspaces_thin_client.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints.</p>
+            aws_sdk_workspaces_thin_client.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -755,6 +837,14 @@ class AsyncWorkSpacesThinClientClient:
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource for which you want to retrieve tags.</p>
+
+        Raises:
+            aws_sdk_workspaces_thin_client.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_workspaces_thin_client.errors.internal_server_exception.InternalServerException: <p>The server encountered an internal error and is unable to complete the request.</p>
+            aws_sdk_workspaces_thin_client.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request was not found.</p>
+            aws_sdk_workspaces_thin_client.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_workspaces_thin_client.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints.</p>
+            aws_sdk_workspaces_thin_client.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -797,6 +887,15 @@ class AsyncWorkSpacesThinClientClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource that you want to tag.</p>
             tags: <p>A map of the key-value pairs of the tag or tags to assign to the resource.</p>
+
+        Raises:
+            aws_sdk_workspaces_thin_client.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_workspaces_thin_client.errors.conflict_exception.ConflictException: <p>The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request.</p>
+            aws_sdk_workspaces_thin_client.errors.internal_server_exception.InternalServerException: <p>The server encountered an internal error and is unable to complete the request.</p>
+            aws_sdk_workspaces_thin_client.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request was not found.</p>
+            aws_sdk_workspaces_thin_client.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_workspaces_thin_client.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints.</p>
+            aws_sdk_workspaces_thin_client.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -838,6 +937,15 @@ class AsyncWorkSpacesThinClientClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource that you want to untag.</p>
             tag_keys: <p>The keys of the key-value pairs for the tag or tags you want to remove from the specified resource.</p>
+
+        Raises:
+            aws_sdk_workspaces_thin_client.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_workspaces_thin_client.errors.conflict_exception.ConflictException: <p>The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request.</p>
+            aws_sdk_workspaces_thin_client.errors.internal_server_exception.InternalServerException: <p>The server encountered an internal error and is unable to complete the request.</p>
+            aws_sdk_workspaces_thin_client.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request was not found.</p>
+            aws_sdk_workspaces_thin_client.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_workspaces_thin_client.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints.</p>
+            aws_sdk_workspaces_thin_client.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -889,6 +997,14 @@ class AsyncWorkSpacesThinClientClient:
             name: <p>The name of the device to update.</p>
             desired_software_set_id: <p>The ID of the software set to apply.</p>
             software_set_update_schedule: <p>An option to define if software updates should be applied within a maintenance window.</p>
+
+        Raises:
+            aws_sdk_workspaces_thin_client.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_workspaces_thin_client.errors.internal_server_exception.InternalServerException: <p>The server encountered an internal error and is unable to complete the request.</p>
+            aws_sdk_workspaces_thin_client.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request was not found.</p>
+            aws_sdk_workspaces_thin_client.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_workspaces_thin_client.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints.</p>
+            aws_sdk_workspaces_thin_client.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -963,6 +1079,15 @@ class AsyncWorkSpacesThinClientClient:
             software_set_update_mode: <p>An option to define which software updates to apply.</p>
             desired_software_set_id: <p>The ID of the software set to apply.</p>
             device_creation_tags: <p>A map of the key-value pairs of the tag or tags to assign to the newly created devices for this environment.</p>
+
+        Raises:
+            aws_sdk_workspaces_thin_client.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_workspaces_thin_client.errors.conflict_exception.ConflictException: <p>The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request.</p>
+            aws_sdk_workspaces_thin_client.errors.internal_server_exception.InternalServerException: <p>The server encountered an internal error and is unable to complete the request.</p>
+            aws_sdk_workspaces_thin_client.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request was not found.</p>
+            aws_sdk_workspaces_thin_client.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_workspaces_thin_client.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints.</p>
+            aws_sdk_workspaces_thin_client.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1019,6 +1144,14 @@ class AsyncWorkSpacesThinClientClient:
         Args:
             id: <p>The ID of the software set to update.</p>
             validation_status: <p>An option to define if the software set has been validated.</p>
+
+        Raises:
+            aws_sdk_workspaces_thin_client.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_workspaces_thin_client.errors.internal_server_exception.InternalServerException: <p>The server encountered an internal error and is unable to complete the request.</p>
+            aws_sdk_workspaces_thin_client.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request was not found.</p>
+            aws_sdk_workspaces_thin_client.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_workspaces_thin_client.errors.validation_exception.ValidationException: <p>The input fails to satisfy the specified constraints.</p>
+            aws_sdk_workspaces_thin_client.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

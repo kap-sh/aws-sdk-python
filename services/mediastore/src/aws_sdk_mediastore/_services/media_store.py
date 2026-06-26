@@ -186,6 +186,12 @@ class MediaStoreClient:
         Args:
             container_name: <p>The name for the container. The name must be from 1 to 255 characters. Container names must be unique to your AWS account within a specific region. As an example, you could create a container named <code>movies</code> in every region, as long as you don’t have an existing container with that name.</p>
             tags: <p>An array of key:value pairs that you define. These values can be anything that you want. Typically, the tag key represents a category (such as \"environment\") and the tag value represents a specific value within that category (such as \"test,\" \"development,\" or \"production\"). You can add up to 50 tags to each container. For more information about tagging, including naming and usage conventions, see <a href=\"https://docs.aws.amazon.com/mediastore/latest/ug/tagging.html\">Tagging Resources in MediaStore</a>.</p>
+
+        Raises:
+            aws_sdk_mediastore.errors.container_in_use_exception.ContainerInUseException: <p>The container that you specified in the request already exists or is being updated.</p>
+            aws_sdk_mediastore.errors.internal_server_error.InternalServerError: <p>The service is temporarily unavailable.</p>
+            aws_sdk_mediastore.errors.limit_exceeded_exception.LimitExceededException: <p>A service limit has been exceeded.</p>
+            aws_sdk_mediastore.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -225,6 +231,12 @@ class MediaStoreClient:
 
         Args:
             container_name: <p>The name of the container to delete. </p>
+
+        Raises:
+            aws_sdk_mediastore.errors.container_in_use_exception.ContainerInUseException: <p>The container that you specified in the request already exists or is being updated.</p>
+            aws_sdk_mediastore.errors.container_not_found_exception.ContainerNotFoundException: <p>The container that you specified in the request does not exist.</p>
+            aws_sdk_mediastore.errors.internal_server_error.InternalServerError: <p>The service is temporarily unavailable.</p>
+            aws_sdk_mediastore.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -262,6 +274,13 @@ class MediaStoreClient:
 
         Args:
             container_name: <p>The name of the container that holds the policy.</p>
+
+        Raises:
+            aws_sdk_mediastore.errors.container_in_use_exception.ContainerInUseException: <p>The container that you specified in the request already exists or is being updated.</p>
+            aws_sdk_mediastore.errors.container_not_found_exception.ContainerNotFoundException: <p>The container that you specified in the request does not exist.</p>
+            aws_sdk_mediastore.errors.internal_server_error.InternalServerError: <p>The service is temporarily unavailable.</p>
+            aws_sdk_mediastore.errors.policy_not_found_exception.PolicyNotFoundException: <p>The policy that you specified in the request does not exist.</p>
+            aws_sdk_mediastore.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -299,6 +318,13 @@ class MediaStoreClient:
 
         Args:
             container_name: <p>The name of the container to remove the policy from.</p>
+
+        Raises:
+            aws_sdk_mediastore.errors.container_in_use_exception.ContainerInUseException: <p>The container that you specified in the request already exists or is being updated.</p>
+            aws_sdk_mediastore.errors.container_not_found_exception.ContainerNotFoundException: <p>The container that you specified in the request does not exist.</p>
+            aws_sdk_mediastore.errors.cors_policy_not_found_exception.CorsPolicyNotFoundException: <p>The CORS policy that you specified in the request does not exist.</p>
+            aws_sdk_mediastore.errors.internal_server_error.InternalServerError: <p>The service is temporarily unavailable.</p>
+            aws_sdk_mediastore.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -336,6 +362,13 @@ class MediaStoreClient:
 
         Args:
             container_name: <p>The name of the container that holds the object lifecycle policy.</p>
+
+        Raises:
+            aws_sdk_mediastore.errors.container_in_use_exception.ContainerInUseException: <p>The container that you specified in the request already exists or is being updated.</p>
+            aws_sdk_mediastore.errors.container_not_found_exception.ContainerNotFoundException: <p>The container that you specified in the request does not exist.</p>
+            aws_sdk_mediastore.errors.internal_server_error.InternalServerError: <p>The service is temporarily unavailable.</p>
+            aws_sdk_mediastore.errors.policy_not_found_exception.PolicyNotFoundException: <p>The policy that you specified in the request does not exist.</p>
+            aws_sdk_mediastore.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -375,6 +408,13 @@ class MediaStoreClient:
 
         Args:
             container_name: <p>The name of the container that is associated with the metric policy that you want to delete.</p>
+
+        Raises:
+            aws_sdk_mediastore.errors.container_in_use_exception.ContainerInUseException: <p>The container that you specified in the request already exists or is being updated.</p>
+            aws_sdk_mediastore.errors.container_not_found_exception.ContainerNotFoundException: <p>The container that you specified in the request does not exist.</p>
+            aws_sdk_mediastore.errors.internal_server_error.InternalServerError: <p>The service is temporarily unavailable.</p>
+            aws_sdk_mediastore.errors.policy_not_found_exception.PolicyNotFoundException: <p>The policy that you specified in the request does not exist.</p>
+            aws_sdk_mediastore.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -414,6 +454,11 @@ class MediaStoreClient:
 
         Args:
             container_name: <p>The name of the container to query.</p>
+
+        Raises:
+            aws_sdk_mediastore.errors.container_not_found_exception.ContainerNotFoundException: <p>The container that you specified in the request does not exist.</p>
+            aws_sdk_mediastore.errors.internal_server_error.InternalServerError: <p>The service is temporarily unavailable.</p>
+            aws_sdk_mediastore.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -454,6 +499,13 @@ class MediaStoreClient:
 
         Args:
             container_name: <p>The name of the container. </p>
+
+        Raises:
+            aws_sdk_mediastore.errors.container_in_use_exception.ContainerInUseException: <p>The container that you specified in the request already exists or is being updated.</p>
+            aws_sdk_mediastore.errors.container_not_found_exception.ContainerNotFoundException: <p>The container that you specified in the request does not exist.</p>
+            aws_sdk_mediastore.errors.internal_server_error.InternalServerError: <p>The service is temporarily unavailable.</p>
+            aws_sdk_mediastore.errors.policy_not_found_exception.PolicyNotFoundException: <p>The policy that you specified in the request does not exist.</p>
+            aws_sdk_mediastore.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -491,6 +543,13 @@ class MediaStoreClient:
 
         Args:
             container_name: <p>The name of the container that the policy is assigned to.</p>
+
+        Raises:
+            aws_sdk_mediastore.errors.container_in_use_exception.ContainerInUseException: <p>The container that you specified in the request already exists or is being updated.</p>
+            aws_sdk_mediastore.errors.container_not_found_exception.ContainerNotFoundException: <p>The container that you specified in the request does not exist.</p>
+            aws_sdk_mediastore.errors.cors_policy_not_found_exception.CorsPolicyNotFoundException: <p>The CORS policy that you specified in the request does not exist.</p>
+            aws_sdk_mediastore.errors.internal_server_error.InternalServerError: <p>The service is temporarily unavailable.</p>
+            aws_sdk_mediastore.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -530,6 +589,13 @@ class MediaStoreClient:
 
         Args:
             container_name: <p>The name of the container that the object lifecycle policy is assigned to.</p>
+
+        Raises:
+            aws_sdk_mediastore.errors.container_in_use_exception.ContainerInUseException: <p>The container that you specified in the request already exists or is being updated.</p>
+            aws_sdk_mediastore.errors.container_not_found_exception.ContainerNotFoundException: <p>The container that you specified in the request does not exist.</p>
+            aws_sdk_mediastore.errors.internal_server_error.InternalServerError: <p>The service is temporarily unavailable.</p>
+            aws_sdk_mediastore.errors.policy_not_found_exception.PolicyNotFoundException: <p>The policy that you specified in the request does not exist.</p>
+            aws_sdk_mediastore.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -567,6 +633,13 @@ class MediaStoreClient:
 
         Args:
             container_name: <p>The name of the container that is associated with the metric policy.</p>
+
+        Raises:
+            aws_sdk_mediastore.errors.container_in_use_exception.ContainerInUseException: <p>The container that you specified in the request already exists or is being updated.</p>
+            aws_sdk_mediastore.errors.container_not_found_exception.ContainerNotFoundException: <p>The container that you specified in the request does not exist.</p>
+            aws_sdk_mediastore.errors.internal_server_error.InternalServerError: <p>The service is temporarily unavailable.</p>
+            aws_sdk_mediastore.errors.policy_not_found_exception.PolicyNotFoundException: <p>The policy that you specified in the request does not exist.</p>
+            aws_sdk_mediastore.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -610,6 +683,10 @@ class MediaStoreClient:
         Args:
             next_token: <p>Only if you used <code>MaxResults</code> in the first command, enter the token (which was included in the previous response) to obtain the next set of containers. This token is included in a response only if there actually are more containers to list.</p>
             max_results: <p>Enter the maximum number of containers in the response. Use from 1 to 255 characters. </p>
+
+        Raises:
+            aws_sdk_mediastore.errors.internal_server_error.InternalServerError: <p>The service is temporarily unavailable.</p>
+            aws_sdk_mediastore.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -650,6 +727,12 @@ class MediaStoreClient:
 
         Args:
             resource: <p>The Amazon Resource Name (ARN) for the container.</p>
+
+        Raises:
+            aws_sdk_mediastore.errors.container_in_use_exception.ContainerInUseException: <p>The container that you specified in the request already exists or is being updated.</p>
+            aws_sdk_mediastore.errors.container_not_found_exception.ContainerNotFoundException: <p>The container that you specified in the request does not exist.</p>
+            aws_sdk_mediastore.errors.internal_server_error.InternalServerError: <p>The service is temporarily unavailable.</p>
+            aws_sdk_mediastore.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -691,6 +774,12 @@ class MediaStoreClient:
         Args:
             container_name: <p>The name of the container.</p>
             policy: <p>The contents of the policy, which includes the following: </p> <ul> <li> <p>One <code>Version</code> tag</p> </li> <li> <p>One <code>Statement</code> tag that contains the standard tags for the policy.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_mediastore.errors.container_in_use_exception.ContainerInUseException: <p>The container that you specified in the request already exists or is being updated.</p>
+            aws_sdk_mediastore.errors.container_not_found_exception.ContainerNotFoundException: <p>The container that you specified in the request does not exist.</p>
+            aws_sdk_mediastore.errors.internal_server_error.InternalServerError: <p>The service is temporarily unavailable.</p>
+            aws_sdk_mediastore.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -731,6 +820,12 @@ class MediaStoreClient:
         Args:
             container_name: <p>The name of the container that you want to assign the CORS policy to.</p>
             cors_policy: <p>The CORS policy to apply to the container. </p>
+
+        Raises:
+            aws_sdk_mediastore.errors.container_in_use_exception.ContainerInUseException: <p>The container that you specified in the request already exists or is being updated.</p>
+            aws_sdk_mediastore.errors.container_not_found_exception.ContainerNotFoundException: <p>The container that you specified in the request does not exist.</p>
+            aws_sdk_mediastore.errors.internal_server_error.InternalServerError: <p>The service is temporarily unavailable.</p>
+            aws_sdk_mediastore.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -773,6 +868,12 @@ class MediaStoreClient:
         Args:
             container_name: <p>The name of the container that you want to assign the object lifecycle policy to.</p>
             lifecycle_policy: <p>The object lifecycle policy to apply to the container.</p>
+
+        Raises:
+            aws_sdk_mediastore.errors.container_in_use_exception.ContainerInUseException: <p>The container that you specified in the request already exists or is being updated.</p>
+            aws_sdk_mediastore.errors.container_not_found_exception.ContainerNotFoundException: <p>The container that you specified in the request does not exist.</p>
+            aws_sdk_mediastore.errors.internal_server_error.InternalServerError: <p>The service is temporarily unavailable.</p>
+            aws_sdk_mediastore.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -813,6 +914,12 @@ class MediaStoreClient:
         Args:
             container_name: <p>The name of the container that you want to add the metric policy to.</p>
             metric_policy: <p>The metric policy that you want to associate with the container. In the policy, you must indicate whether you want MediaStore to send container-level metrics. You can also include up to five rules to define groups of objects that you want MediaStore to send object-level metrics for. If you include rules in the policy, construct each rule with both of the following:</p> <ul> <li> <p>An object group that defines which objects to include in the group. The definition can be a path or a file name, but it can't have more than 900 characters. Valid characters are: a-z, A-Z, 0-9, _ (underscore), = (equal), : (colon), . (period), - (hyphen), ~ (tilde), / (forward slash), and * (asterisk). Wildcards (*) are acceptable.</p> </li> <li> <p>An object group name that allows you to refer to the object group. The name can't have more than 30 characters. Valid characters are: a-z, A-Z, 0-9, and _ (underscore).</p> </li> </ul>
+
+        Raises:
+            aws_sdk_mediastore.errors.container_in_use_exception.ContainerInUseException: <p>The container that you specified in the request already exists or is being updated.</p>
+            aws_sdk_mediastore.errors.container_not_found_exception.ContainerNotFoundException: <p>The container that you specified in the request does not exist.</p>
+            aws_sdk_mediastore.errors.internal_server_error.InternalServerError: <p>The service is temporarily unavailable.</p>
+            aws_sdk_mediastore.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -853,6 +960,12 @@ class MediaStoreClient:
 
         Args:
             container_name: <p>The name of the container that you want to start access logging on.</p>
+
+        Raises:
+            aws_sdk_mediastore.errors.container_in_use_exception.ContainerInUseException: <p>The container that you specified in the request already exists or is being updated.</p>
+            aws_sdk_mediastore.errors.container_not_found_exception.ContainerNotFoundException: <p>The container that you specified in the request does not exist.</p>
+            aws_sdk_mediastore.errors.internal_server_error.InternalServerError: <p>The service is temporarily unavailable.</p>
+            aws_sdk_mediastore.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -890,6 +1003,12 @@ class MediaStoreClient:
 
         Args:
             container_name: <p>The name of the container that you want to stop access logging on.</p>
+
+        Raises:
+            aws_sdk_mediastore.errors.container_in_use_exception.ContainerInUseException: <p>The container that you specified in the request already exists or is being updated.</p>
+            aws_sdk_mediastore.errors.container_not_found_exception.ContainerNotFoundException: <p>The container that you specified in the request does not exist.</p>
+            aws_sdk_mediastore.errors.internal_server_error.InternalServerError: <p>The service is temporarily unavailable.</p>
+            aws_sdk_mediastore.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -929,6 +1048,12 @@ class MediaStoreClient:
         Args:
             resource: <p>The Amazon Resource Name (ARN) for the container. </p>
             tags: <p>An array of key:value pairs that you want to add to the container. You need to specify only the tags that you want to add or update. For example, suppose a container already has two tags (customer:CompanyA and priority:High). You want to change the priority tag and also add a third tag (type:Contract). For TagResource, you specify the following tags: priority:Medium, type:Contract. The result is that your container has three tags: customer:CompanyA, priority:Medium, and type:Contract.</p>
+
+        Raises:
+            aws_sdk_mediastore.errors.container_in_use_exception.ContainerInUseException: <p>The container that you specified in the request already exists or is being updated.</p>
+            aws_sdk_mediastore.errors.container_not_found_exception.ContainerNotFoundException: <p>The container that you specified in the request does not exist.</p>
+            aws_sdk_mediastore.errors.internal_server_error.InternalServerError: <p>The service is temporarily unavailable.</p>
+            aws_sdk_mediastore.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -969,6 +1094,12 @@ class MediaStoreClient:
         Args:
             resource: <p>The Amazon Resource Name (ARN) for the container.</p>
             tag_keys: <p>A comma-separated list of keys for tags that you want to remove from the container. For example, if your container has two tags (customer:CompanyA and priority:High) and you want to remove one of the tags (priority:High), you specify the key for the tag that you want to remove (priority).</p>
+
+        Raises:
+            aws_sdk_mediastore.errors.container_in_use_exception.ContainerInUseException: <p>The container that you specified in the request already exists or is being updated.</p>
+            aws_sdk_mediastore.errors.container_not_found_exception.ContainerNotFoundException: <p>The container that you specified in the request does not exist.</p>
+            aws_sdk_mediastore.errors.internal_server_error.InternalServerError: <p>The service is temporarily unavailable.</p>
+            aws_sdk_mediastore.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(

@@ -252,6 +252,11 @@ class SWFClient:
             type_filter: <p>If specified, indicates the type of the workflow executions to be counted.</p> <note> <p> <code>closeStatusFilter</code>, <code>executionFilter</code>, <code>typeFilter</code> and <code>tagFilter</code> are mutually exclusive. You can specify at most one of these in a request.</p> </note>
             tag_filter: <p>If specified, only executions that have a tag that matches the filter are counted.</p> <note> <p> <code>closeStatusFilter</code>, <code>executionFilter</code>, <code>typeFilter</code> and <code>tagFilter</code> are mutually exclusive. You can specify at most one of these in a request.</p> </note>
             close_status_filter: <p>If specified, only workflow executions that match this close status are counted. This filter has an affect only if <code>executionStatus</code> is specified as <code>CLOSED</code>.</p> <note> <p> <code>closeStatusFilter</code>, <code>executionFilter</code>, <code>typeFilter</code> and <code>tagFilter</code> are mutually exclusive. You can specify at most one of these in a request.</p> </note>
+
+        Raises:
+            aws_sdk_swf.errors.operation_not_permitted_fault.OperationNotPermittedFault: <p>Returned when the caller doesn't have sufficient permissions to invoke the action.</p>
+            aws_sdk_swf.errors.unknown_resource_fault.UnknownResourceFault: <p>Returned when the named resource cannot be found with in the scope of this operation (region or domain). This could happen if the named resource was never created or is no longer available for this operation.</p>
+            aws_sdk_swf.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -313,6 +318,11 @@ class SWFClient:
             type_filter: <p>Specifies the type of the workflow executions to be counted.</p> <note> <p> <code>executionFilter</code>, <code>typeFilter</code> and <code>tagFilter</code> are mutually exclusive. You can specify at most one of these in a request.</p> </note>
             tag_filter: <p>If specified, only executions that have a tag that matches the filter are counted.</p> <note> <p> <code>executionFilter</code>, <code>typeFilter</code> and <code>tagFilter</code> are mutually exclusive. You can specify at most one of these in a request.</p> </note>
             execution_filter: <p>If specified, only workflow executions matching the <code>WorkflowId</code> in the filter are counted.</p> <note> <p> <code>executionFilter</code>, <code>typeFilter</code> and <code>tagFilter</code> are mutually exclusive. You can specify at most one of these in a request.</p> </note>
+
+        Raises:
+            aws_sdk_swf.errors.operation_not_permitted_fault.OperationNotPermittedFault: <p>Returned when the caller doesn't have sufficient permissions to invoke the action.</p>
+            aws_sdk_swf.errors.unknown_resource_fault.UnknownResourceFault: <p>Returned when the named resource cannot be found with in the scope of this operation (region or domain). This could happen if the named resource was never created or is no longer available for this operation.</p>
+            aws_sdk_swf.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -359,6 +369,11 @@ class SWFClient:
         Args:
             domain: <p>The name of the domain that contains the task list.</p>
             task_list: <p>The name of the task list.</p>
+
+        Raises:
+            aws_sdk_swf.errors.operation_not_permitted_fault.OperationNotPermittedFault: <p>Returned when the caller doesn't have sufficient permissions to invoke the action.</p>
+            aws_sdk_swf.errors.unknown_resource_fault.UnknownResourceFault: <p>Returned when the named resource cannot be found with in the scope of this operation (region or domain). This could happen if the named resource was never created or is no longer available for this operation.</p>
+            aws_sdk_swf.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -397,6 +412,11 @@ class SWFClient:
         Args:
             domain: <p>The name of the domain that contains the task list.</p>
             task_list: <p>The name of the task list.</p>
+
+        Raises:
+            aws_sdk_swf.errors.operation_not_permitted_fault.OperationNotPermittedFault: <p>Returned when the caller doesn't have sufficient permissions to invoke the action.</p>
+            aws_sdk_swf.errors.unknown_resource_fault.UnknownResourceFault: <p>Returned when the named resource cannot be found with in the scope of this operation (region or domain). This could happen if the named resource was never created or is no longer available for this operation.</p>
+            aws_sdk_swf.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -435,6 +455,12 @@ class SWFClient:
         Args:
             domain: <p>The name of the domain in which the activity type is registered.</p>
             activity_type: <p>The activity type to delete.</p>
+
+        Raises:
+            aws_sdk_swf.errors.operation_not_permitted_fault.OperationNotPermittedFault: <p>Returned when the caller doesn't have sufficient permissions to invoke the action.</p>
+            aws_sdk_swf.errors.type_not_deprecated_fault.TypeNotDeprecatedFault: <p>Returned when the resource type has not been deprecated.</p>
+            aws_sdk_swf.errors.unknown_resource_fault.UnknownResourceFault: <p>Returned when the named resource cannot be found with in the scope of this operation (region or domain). This could happen if the named resource was never created or is no longer available for this operation.</p>
+            aws_sdk_swf.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -473,6 +499,12 @@ class SWFClient:
         Args:
             domain: <p>The name of the domain in which the workflow type is registered.</p>
             workflow_type: <p>The workflow type to delete.</p>
+
+        Raises:
+            aws_sdk_swf.errors.operation_not_permitted_fault.OperationNotPermittedFault: <p>Returned when the caller doesn't have sufficient permissions to invoke the action.</p>
+            aws_sdk_swf.errors.type_not_deprecated_fault.TypeNotDeprecatedFault: <p>Returned when the resource type has not been deprecated.</p>
+            aws_sdk_swf.errors.unknown_resource_fault.UnknownResourceFault: <p>Returned when the named resource cannot be found with in the scope of this operation (region or domain). This could happen if the named resource was never created or is no longer available for this operation.</p>
+            aws_sdk_swf.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -511,6 +543,12 @@ class SWFClient:
         Args:
             domain: <p>The name of the domain in which the activity type is registered.</p>
             activity_type: <p>The activity type to deprecate.</p>
+
+        Raises:
+            aws_sdk_swf.errors.operation_not_permitted_fault.OperationNotPermittedFault: <p>Returned when the caller doesn't have sufficient permissions to invoke the action.</p>
+            aws_sdk_swf.errors.type_deprecated_fault.TypeDeprecatedFault: <p>Returned when the specified activity or workflow type was already deprecated.</p>
+            aws_sdk_swf.errors.unknown_resource_fault.UnknownResourceFault: <p>Returned when the named resource cannot be found with in the scope of this operation (region or domain). This could happen if the named resource was never created or is no longer available for this operation.</p>
+            aws_sdk_swf.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -547,6 +585,12 @@ class SWFClient:
 
         Args:
             name: <p>The name of the domain to deprecate.</p>
+
+        Raises:
+            aws_sdk_swf.errors.domain_deprecated_fault.DomainDeprecatedFault: <p>Returned when the specified domain has been deprecated.</p>
+            aws_sdk_swf.errors.operation_not_permitted_fault.OperationNotPermittedFault: <p>Returned when the caller doesn't have sufficient permissions to invoke the action.</p>
+            aws_sdk_swf.errors.unknown_resource_fault.UnknownResourceFault: <p>Returned when the named resource cannot be found with in the scope of this operation (region or domain). This could happen if the named resource was never created or is no longer available for this operation.</p>
+            aws_sdk_swf.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -584,6 +628,12 @@ class SWFClient:
         Args:
             domain: <p>The name of the domain in which the workflow type is registered.</p>
             workflow_type: <p>The workflow type to deprecate.</p>
+
+        Raises:
+            aws_sdk_swf.errors.operation_not_permitted_fault.OperationNotPermittedFault: <p>Returned when the caller doesn't have sufficient permissions to invoke the action.</p>
+            aws_sdk_swf.errors.type_deprecated_fault.TypeDeprecatedFault: <p>Returned when the specified activity or workflow type was already deprecated.</p>
+            aws_sdk_swf.errors.unknown_resource_fault.UnknownResourceFault: <p>Returned when the named resource cannot be found with in the scope of this operation (region or domain). This could happen if the named resource was never created or is no longer available for this operation.</p>
+            aws_sdk_swf.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -622,6 +672,11 @@ class SWFClient:
         Args:
             domain: <p>The name of the domain in which the activity type is registered.</p>
             activity_type: <p>The activity type to get information about. Activity types are identified by the <code>name</code> and <code>version</code> that were supplied when the activity was registered.</p>
+
+        Raises:
+            aws_sdk_swf.errors.operation_not_permitted_fault.OperationNotPermittedFault: <p>Returned when the caller doesn't have sufficient permissions to invoke the action.</p>
+            aws_sdk_swf.errors.unknown_resource_fault.UnknownResourceFault: <p>Returned when the named resource cannot be found with in the scope of this operation (region or domain). This could happen if the named resource was never created or is no longer available for this operation.</p>
+            aws_sdk_swf.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -660,6 +715,11 @@ class SWFClient:
 
         Args:
             name: <p>The name of the domain to describe.</p>
+
+        Raises:
+            aws_sdk_swf.errors.operation_not_permitted_fault.OperationNotPermittedFault: <p>Returned when the caller doesn't have sufficient permissions to invoke the action.</p>
+            aws_sdk_swf.errors.unknown_resource_fault.UnknownResourceFault: <p>Returned when the named resource cannot be found with in the scope of this operation (region or domain). This could happen if the named resource was never created or is no longer available for this operation.</p>
+            aws_sdk_swf.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -697,6 +757,11 @@ class SWFClient:
         Args:
             domain: <p>The name of the domain containing the workflow execution.</p>
             execution: <p>The workflow execution to describe.</p>
+
+        Raises:
+            aws_sdk_swf.errors.operation_not_permitted_fault.OperationNotPermittedFault: <p>Returned when the caller doesn't have sufficient permissions to invoke the action.</p>
+            aws_sdk_swf.errors.unknown_resource_fault.UnknownResourceFault: <p>Returned when the named resource cannot be found with in the scope of this operation (region or domain). This could happen if the named resource was never created or is no longer available for this operation.</p>
+            aws_sdk_swf.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -737,6 +802,11 @@ class SWFClient:
         Args:
             domain: <p>The name of the domain in which this workflow type is registered.</p>
             workflow_type: <p>The workflow type to describe.</p>
+
+        Raises:
+            aws_sdk_swf.errors.operation_not_permitted_fault.OperationNotPermittedFault: <p>Returned when the caller doesn't have sufficient permissions to invoke the action.</p>
+            aws_sdk_swf.errors.unknown_resource_fault.UnknownResourceFault: <p>Returned when the named resource cannot be found with in the scope of this operation (region or domain). This could happen if the named resource was never created or is no longer available for this operation.</p>
+            aws_sdk_swf.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -783,6 +853,11 @@ class SWFClient:
             next_page_token: <p>If <code>NextPageToken</code> is returned there are more results available. The value of <code>NextPageToken</code> is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return a <code>400</code> error: \"<code>Specified token has exceeded its maximum lifetime</code>\". </p> <p>The configured <code>maximumPageSize</code> determines how many results can be returned in a single call. </p>
             maximum_page_size: <p>The maximum number of results that are returned per call. Use <code>nextPageToken</code> to obtain further pages of results. </p>
             reverse_order: <p>When set to <code>true</code>, returns the events in reverse order. By default the results are returned in ascending order of the <code>eventTimeStamp</code> of the events.</p>
+
+        Raises:
+            aws_sdk_swf.errors.operation_not_permitted_fault.OperationNotPermittedFault: <p>Returned when the caller doesn't have sufficient permissions to invoke the action.</p>
+            aws_sdk_swf.errors.unknown_resource_fault.UnknownResourceFault: <p>Returned when the named resource cannot be found with in the scope of this operation (region or domain). This could happen if the named resource was never created or is no longer available for this operation.</p>
+            aws_sdk_swf.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -862,6 +937,11 @@ class SWFClient:
             next_page_token: <p>If <code>NextPageToken</code> is returned there are more results available. The value of <code>NextPageToken</code> is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return a <code>400</code> error: \"<code>Specified token has exceeded its maximum lifetime</code>\". </p> <p>The configured <code>maximumPageSize</code> determines how many results can be returned in a single call. </p>
             maximum_page_size: <p>The maximum number of results that are returned per call. Use <code>nextPageToken</code> to obtain further pages of results. </p>
             reverse_order: <p>When set to <code>true</code>, returns the results in reverse order. By default, the results are returned in ascending alphabetical order by <code>name</code> of the activity types.</p>
+
+        Raises:
+            aws_sdk_swf.errors.operation_not_permitted_fault.OperationNotPermittedFault: <p>Returned when the caller doesn't have sufficient permissions to invoke the action.</p>
+            aws_sdk_swf.errors.unknown_resource_fault.UnknownResourceFault: <p>Returned when the named resource cannot be found with in the scope of this operation (region or domain). This could happen if the named resource was never created or is no longer available for this operation.</p>
+            aws_sdk_swf.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -965,6 +1045,11 @@ class SWFClient:
             next_page_token: <p>If <code>NextPageToken</code> is returned there are more results available. The value of <code>NextPageToken</code> is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return a <code>400</code> error: \"<code>Specified token has exceeded its maximum lifetime</code>\". </p> <p>The configured <code>maximumPageSize</code> determines how many results can be returned in a single call. </p>
             maximum_page_size: <p>The maximum number of results that are returned per call. Use <code>nextPageToken</code> to obtain further pages of results. </p>
             reverse_order: <p>When set to <code>true</code>, returns the results in reverse order. By default the results are returned in descending order of the start or the close time of the executions.</p>
+
+        Raises:
+            aws_sdk_swf.errors.operation_not_permitted_fault.OperationNotPermittedFault: <p>Returned when the caller doesn't have sufficient permissions to invoke the action.</p>
+            aws_sdk_swf.errors.unknown_resource_fault.UnknownResourceFault: <p>Returned when the named resource cannot be found with in the scope of this operation (region or domain). This could happen if the named resource was never created or is no longer available for this operation.</p>
+            aws_sdk_swf.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1073,6 +1158,10 @@ class SWFClient:
             registration_status: <p>Specifies the registration status of the domains to list.</p>
             maximum_page_size: <p>The maximum number of results that are returned per call. Use <code>nextPageToken</code> to obtain further pages of results. </p>
             reverse_order: <p>When set to <code>true</code>, returns the results in reverse order. By default, the results are returned in ascending alphabetical order by <code>name</code> of the domains.</p>
+
+        Raises:
+            aws_sdk_swf.errors.operation_not_permitted_fault.OperationNotPermittedFault: <p>Returned when the caller doesn't have sufficient permissions to invoke the action.</p>
+            aws_sdk_swf.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1157,6 +1246,11 @@ class SWFClient:
             maximum_page_size: <p>The maximum number of results that are returned per call. Use <code>nextPageToken</code> to obtain further pages of results. </p>
             reverse_order: <p>When set to <code>true</code>, returns the results in reverse order. By default the results are returned in descending order of the start time of the executions.</p>
             execution_filter: <p>If specified, only workflow executions matching the workflow ID specified in the filter are returned.</p> <note> <p> <code>executionFilter</code>, <code>typeFilter</code> and <code>tagFilter</code> are mutually exclusive. You can specify at most one of these in a request.</p> </note>
+
+        Raises:
+            aws_sdk_swf.errors.operation_not_permitted_fault.OperationNotPermittedFault: <p>Returned when the caller doesn't have sufficient permissions to invoke the action.</p>
+            aws_sdk_swf.errors.unknown_resource_fault.UnknownResourceFault: <p>Returned when the named resource cannot be found with in the scope of this operation (region or domain). This could happen if the named resource was never created or is no longer available for this operation.</p>
+            aws_sdk_swf.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1244,6 +1338,12 @@ class SWFClient:
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) for the Amazon SWF domain.</p>
+
+        Raises:
+            aws_sdk_swf.errors.limit_exceeded_fault.LimitExceededFault: <p>Returned by any operation if a system imposed limitation has been reached. To address this fault you should either clean up unused resources or increase the limit by contacting AWS.</p>
+            aws_sdk_swf.errors.operation_not_permitted_fault.OperationNotPermittedFault: <p>Returned when the caller doesn't have sufficient permissions to invoke the action.</p>
+            aws_sdk_swf.errors.unknown_resource_fault.UnknownResourceFault: <p>Returned when the named resource cannot be found with in the scope of this operation (region or domain). This could happen if the named resource was never created or is no longer available for this operation.</p>
+            aws_sdk_swf.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1291,6 +1391,11 @@ class SWFClient:
             next_page_token: <p>If <code>NextPageToken</code> is returned there are more results available. The value of <code>NextPageToken</code> is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return a <code>400</code> error: \"<code>Specified token has exceeded its maximum lifetime</code>\". </p> <p>The configured <code>maximumPageSize</code> determines how many results can be returned in a single call. </p>
             maximum_page_size: <p>The maximum number of results that are returned per call. Use <code>nextPageToken</code> to obtain further pages of results. </p>
             reverse_order: <p>When set to <code>true</code>, returns the results in reverse order. By default the results are returned in ascending alphabetical order of the <code>name</code> of the workflow types.</p>
+
+        Raises:
+            aws_sdk_swf.errors.operation_not_permitted_fault.OperationNotPermittedFault: <p>Returned when the caller doesn't have sufficient permissions to invoke the action.</p>
+            aws_sdk_swf.errors.unknown_resource_fault.UnknownResourceFault: <p>Returned when the named resource cannot be found with in the scope of this operation (region or domain). This could happen if the named resource was never created or is no longer available for this operation.</p>
+            aws_sdk_swf.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1370,6 +1475,12 @@ class SWFClient:
             domain: <p>The name of the domain that contains the task lists being polled.</p>
             task_list: <p>Specifies the task list to poll for activity tasks.</p> <p>The specified string must not start or end with whitespace. It must not contain a <code>:</code> (colon), <code>/</code> (slash), <code>|</code> (vertical bar), or any control characters (<code>\u0000-\u001f</code> | <code>\u007f-\u009f</code>). Also, it must <i>not</i> be the literal string <code>arn</code>.</p>
             identity: <p>Identity of the worker making the request, recorded in the <code>ActivityTaskStarted</code> event in the workflow history. This enables diagnostic tracing when problems arise. The form of this identity is user defined.</p>
+
+        Raises:
+            aws_sdk_swf.errors.limit_exceeded_fault.LimitExceededFault: <p>Returned by any operation if a system imposed limitation has been reached. To address this fault you should either clean up unused resources or increase the limit by contacting AWS.</p>
+            aws_sdk_swf.errors.operation_not_permitted_fault.OperationNotPermittedFault: <p>Returned when the caller doesn't have sufficient permissions to invoke the action.</p>
+            aws_sdk_swf.errors.unknown_resource_fault.UnknownResourceFault: <p>Returned when the named resource cannot be found with in the scope of this operation (region or domain). This could happen if the named resource was never created or is no longer available for this operation.</p>
+            aws_sdk_swf.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1422,6 +1533,12 @@ class SWFClient:
             maximum_page_size: <p>The maximum number of results that are returned per call. Use <code>nextPageToken</code> to obtain further pages of results. </p> <p>This is an upper limit only; the actual number of results returned per call may be fewer than the specified maximum.</p>
             reverse_order: <p>When set to <code>true</code>, returns the events in reverse order. By default the results are returned in ascending order of the <code>eventTimestamp</code> of the events.</p>
             start_at_previous_started_event: <p>When set to <code>true</code>, returns the events with <code>eventTimestamp</code> greater than or equal to <code>eventTimestamp</code> of the most recent <code>DecisionTaskStarted</code> event. By default, this parameter is set to <code>false</code>.</p>
+
+        Raises:
+            aws_sdk_swf.errors.limit_exceeded_fault.LimitExceededFault: <p>Returned by any operation if a system imposed limitation has been reached. To address this fault you should either clean up unused resources or increase the limit by contacting AWS.</p>
+            aws_sdk_swf.errors.operation_not_permitted_fault.OperationNotPermittedFault: <p>Returned when the caller doesn't have sufficient permissions to invoke the action.</p>
+            aws_sdk_swf.errors.unknown_resource_fault.UnknownResourceFault: <p>Returned when the named resource cannot be found with in the scope of this operation (region or domain). This could happen if the named resource was never created or is no longer available for this operation.</p>
+            aws_sdk_swf.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1503,6 +1620,11 @@ class SWFClient:
         Args:
             task_token: <p>The <code>taskToken</code> of the <a>ActivityTask</a>.</p> <important> <p> <code>taskToken</code> is generated by the service and should be treated as an opaque value. If the task is passed to another process, its <code>taskToken</code> must also be passed. This enables it to provide its progress and respond with results. </p> </important>
             details: <p>If specified, contains details about the progress of the task.</p>
+
+        Raises:
+            aws_sdk_swf.errors.operation_not_permitted_fault.OperationNotPermittedFault: <p>Returned when the caller doesn't have sufficient permissions to invoke the action.</p>
+            aws_sdk_swf.errors.unknown_resource_fault.UnknownResourceFault: <p>Returned when the named resource cannot be found with in the scope of this operation (region or domain). This could happen if the named resource was never created or is no longer available for this operation.</p>
+            aws_sdk_swf.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1570,6 +1692,13 @@ class SWFClient:
             default_task_priority: <p>The default task priority to assign to the activity type. If not assigned, then <code>0</code> is used. Valid values are integers that range from Java's <code>Integer.MIN_VALUE</code> (-2147483648) to <code>Integer.MAX_VALUE</code> (2147483647). Higher numbers indicate higher priority.</p> <p>For more information about setting task priority, see <a href=\"https://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html\">Setting Task Priority</a> in the <i>in the <i>Amazon SWF Developer Guide</i>.</i>.</p>
             default_task_schedule_to_start_timeout: <p>If set, specifies the default maximum duration that a task of this activity type can wait before being assigned to a worker. This default can be overridden when scheduling an activity task using the <code>ScheduleActivityTask</code> <a>Decision</a>.</p> <p>The duration is specified in seconds, an integer greater than or equal to <code>0</code>. You can use <code>NONE</code> to specify unlimited duration.</p>
             default_task_schedule_to_close_timeout: <p>If set, specifies the default maximum duration for a task of this activity type. This default can be overridden when scheduling an activity task using the <code>ScheduleActivityTask</code> <a>Decision</a>.</p> <p>The duration is specified in seconds, an integer greater than or equal to <code>0</code>. You can use <code>NONE</code> to specify unlimited duration.</p>
+
+        Raises:
+            aws_sdk_swf.errors.limit_exceeded_fault.LimitExceededFault: <p>Returned by any operation if a system imposed limitation has been reached. To address this fault you should either clean up unused resources or increase the limit by contacting AWS.</p>
+            aws_sdk_swf.errors.operation_not_permitted_fault.OperationNotPermittedFault: <p>Returned when the caller doesn't have sufficient permissions to invoke the action.</p>
+            aws_sdk_swf.errors.type_already_exists_fault.TypeAlreadyExistsFault: <p>Returned if the type already exists in the specified domain. You may get this fault if you are registering a type that is either already registered or deprecated, or if you undeprecate a type that is currently registered.</p>
+            aws_sdk_swf.errors.unknown_resource_fault.UnknownResourceFault: <p>Returned when the named resource cannot be found with in the scope of this operation (region or domain). This could happen if the named resource was never created or is no longer available for this operation.</p>
+            aws_sdk_swf.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1633,6 +1762,13 @@ class SWFClient:
             description: <p>A text description of the domain.</p>
             workflow_execution_retention_period_in_days: <p>The duration (in days) that records and histories of workflow executions on the domain should be kept by the service. After the retention period, the workflow execution isn't available in the results of visibility calls.</p> <p>If you pass the value <code>NONE</code> or <code>0</code> (zero), then the workflow execution history isn't retained. As soon as the workflow execution completes, the execution record and its history are deleted.</p> <p>The maximum workflow execution retention period is 90 days. For more information about Amazon SWF service limits, see: <a href=\"https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dg-limits.html\">Amazon SWF Service Limits</a> in the <i>Amazon SWF Developer Guide</i>.</p>
             tags: <p>Tags to be added when registering a domain.</p> <p>Tags may only contain unicode letters, digits, whitespace, or these symbols: <code>_ . : / = + - @</code>.</p>
+
+        Raises:
+            aws_sdk_swf.errors.domain_already_exists_fault.DomainAlreadyExistsFault: <p>Returned if the domain already exists. You may get this fault if you are registering a domain that is either already registered or deprecated, or if you undeprecate a domain that is currently registered.</p>
+            aws_sdk_swf.errors.limit_exceeded_fault.LimitExceededFault: <p>Returned by any operation if a system imposed limitation has been reached. To address this fault you should either clean up unused resources or increase the limit by contacting AWS.</p>
+            aws_sdk_swf.errors.operation_not_permitted_fault.OperationNotPermittedFault: <p>Returned when the caller doesn't have sufficient permissions to invoke the action.</p>
+            aws_sdk_swf.errors.too_many_tags_fault.TooManyTagsFault: <p>You've exceeded the number of tags allowed for a domain.</p>
+            aws_sdk_swf.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1701,6 +1837,13 @@ class SWFClient:
             default_task_priority: <p>The default task priority to assign to the workflow type. If not assigned, then <code>0</code> is used. Valid values are integers that range from Java's <code>Integer.MIN_VALUE</code> (-2147483648) to <code>Integer.MAX_VALUE</code> (2147483647). Higher numbers indicate higher priority.</p> <p>For more information about setting task priority, see <a href=\"https://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html\">Setting Task Priority</a> in the <i>Amazon SWF Developer Guide</i>.</p>
             default_child_policy: <p>If set, specifies the default policy to use for the child workflow executions when a workflow execution of this type is terminated, by calling the <a>TerminateWorkflowExecution</a> action explicitly or due to an expired timeout. This default can be overridden when starting a workflow execution using the <a>StartWorkflowExecution</a> action or the <code>StartChildWorkflowExecution</code> <a>Decision</a>.</p> <p>The supported child policies are:</p> <ul> <li> <p> <code>TERMINATE</code> – The child executions are terminated.</p> </li> <li> <p> <code>REQUEST_CANCEL</code> – A request to cancel is attempted for each child execution by recording a <code>WorkflowExecutionCancelRequested</code> event in its history. It is up to the decider to take appropriate actions when it receives an execution history with this event.</p> </li> <li> <p> <code>ABANDON</code> – No action is taken. The child executions continue to run.</p> </li> </ul>
             default_lambda_role: <p>The default IAM role attached to this workflow type.</p> <note> <p>Executions of this workflow type need IAM roles to invoke Lambda functions. If you don't specify an IAM role when you start this workflow type, the default Lambda role is attached to the execution. For more information, see <a href=\"https://docs.aws.amazon.com/amazonswf/latest/developerguide/lambda-task.html\">https://docs.aws.amazon.com/amazonswf/latest/developerguide/lambda-task.html</a> in the <i>Amazon SWF Developer Guide</i>.</p> </note>
+
+        Raises:
+            aws_sdk_swf.errors.limit_exceeded_fault.LimitExceededFault: <p>Returned by any operation if a system imposed limitation has been reached. To address this fault you should either clean up unused resources or increase the limit by contacting AWS.</p>
+            aws_sdk_swf.errors.operation_not_permitted_fault.OperationNotPermittedFault: <p>Returned when the caller doesn't have sufficient permissions to invoke the action.</p>
+            aws_sdk_swf.errors.type_already_exists_fault.TypeAlreadyExistsFault: <p>Returned if the type already exists in the specified domain. You may get this fault if you are registering a type that is either already registered or deprecated, or if you undeprecate a type that is currently registered.</p>
+            aws_sdk_swf.errors.unknown_resource_fault.UnknownResourceFault: <p>Returned when the named resource cannot be found with in the scope of this operation (region or domain). This could happen if the named resource was never created or is no longer available for this operation.</p>
+            aws_sdk_swf.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1762,6 +1905,11 @@ class SWFClient:
             domain: <p>The name of the domain containing the workflow execution to cancel.</p>
             workflow_id: <p>The workflowId of the workflow execution to cancel.</p>
             run_id: <p>The runId of the workflow execution to cancel.</p>
+
+        Raises:
+            aws_sdk_swf.errors.operation_not_permitted_fault.OperationNotPermittedFault: <p>Returned when the caller doesn't have sufficient permissions to invoke the action.</p>
+            aws_sdk_swf.errors.unknown_resource_fault.UnknownResourceFault: <p>Returned when the named resource cannot be found with in the scope of this operation (region or domain). This could happen if the named resource was never created or is no longer available for this operation.</p>
+            aws_sdk_swf.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1802,6 +1950,11 @@ class SWFClient:
         Args:
             task_token: <p>The <code>taskToken</code> of the <a>ActivityTask</a>.</p> <important> <p> <code>taskToken</code> is generated by the service and should be treated as an opaque value. If the task is passed to another process, its <code>taskToken</code> must also be passed. This enables it to provide its progress and respond with results.</p> </important>
             details: <p> Information about the cancellation.</p>
+
+        Raises:
+            aws_sdk_swf.errors.operation_not_permitted_fault.OperationNotPermittedFault: <p>Returned when the caller doesn't have sufficient permissions to invoke the action.</p>
+            aws_sdk_swf.errors.unknown_resource_fault.UnknownResourceFault: <p>Returned when the named resource cannot be found with in the scope of this operation (region or domain). This could happen if the named resource was never created or is no longer available for this operation.</p>
+            aws_sdk_swf.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1841,6 +1994,11 @@ class SWFClient:
         Args:
             task_token: <p>The <code>taskToken</code> of the <a>ActivityTask</a>.</p> <important> <p> <code>taskToken</code> is generated by the service and should be treated as an opaque value. If the task is passed to another process, its <code>taskToken</code> must also be passed. This enables it to provide its progress and respond with results.</p> </important>
             result: <p>The result of the activity task. It is a free form string that is implementation specific.</p>
+
+        Raises:
+            aws_sdk_swf.errors.operation_not_permitted_fault.OperationNotPermittedFault: <p>Returned when the caller doesn't have sufficient permissions to invoke the action.</p>
+            aws_sdk_swf.errors.unknown_resource_fault.UnknownResourceFault: <p>Returned when the named resource cannot be found with in the scope of this operation (region or domain). This could happen if the named resource was never created or is no longer available for this operation.</p>
+            aws_sdk_swf.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1882,6 +2040,11 @@ class SWFClient:
             task_token: <p>The <code>taskToken</code> of the <a>ActivityTask</a>.</p> <important> <p> <code>taskToken</code> is generated by the service and should be treated as an opaque value. If the task is passed to another process, its <code>taskToken</code> must also be passed. This enables it to provide its progress and respond with results.</p> </important>
             reason: <p>Description of the error that may assist in diagnostics.</p>
             details: <p> Detailed information about the failure.</p>
+
+        Raises:
+            aws_sdk_swf.errors.operation_not_permitted_fault.OperationNotPermittedFault: <p>Returned when the caller doesn't have sufficient permissions to invoke the action.</p>
+            aws_sdk_swf.errors.unknown_resource_fault.UnknownResourceFault: <p>Returned when the named resource cannot be found with in the scope of this operation (region or domain). This could happen if the named resource was never created or is no longer available for this operation.</p>
+            aws_sdk_swf.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1931,6 +2094,11 @@ class SWFClient:
             execution_context: <p>User defined context to add to workflow execution.</p>
             task_list: <p>The task list to use for the future decision tasks of this workflow execution. This list overrides the original task list you specified while starting the workflow execution. </p>
             task_list_schedule_to_start_timeout: <p>Specifies a timeout (in seconds) for the task list override. When this parameter is missing, the task list override is permanent. This parameter makes it possible to temporarily override the task list. If a decision task scheduled on the override task list is not started within the timeout, the decision task will time out. Amazon SWF will revert the override and schedule a new decision task to the original task list.</p> <p>If a decision task scheduled on the override task list is started within the timeout, but not completed within the start-to-close timeout, Amazon SWF will also revert the override and schedule a new decision task to the original task list.</p>
+
+        Raises:
+            aws_sdk_swf.errors.operation_not_permitted_fault.OperationNotPermittedFault: <p>Returned when the caller doesn't have sufficient permissions to invoke the action.</p>
+            aws_sdk_swf.errors.unknown_resource_fault.UnknownResourceFault: <p>Returned when the named resource cannot be found with in the scope of this operation (region or domain). This could happen if the named resource was never created or is no longer available for this operation.</p>
+            aws_sdk_swf.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1986,6 +2154,11 @@ class SWFClient:
             run_id: <p>The runId of the workflow execution to signal.</p>
             signal_name: <p>The name of the signal. This name must be meaningful to the target workflow.</p>
             input: <p>Data to attach to the <code>WorkflowExecutionSignaled</code> event in the target workflow execution's history.</p>
+
+        Raises:
+            aws_sdk_swf.errors.operation_not_permitted_fault.OperationNotPermittedFault: <p>Returned when the caller doesn't have sufficient permissions to invoke the action.</p>
+            aws_sdk_swf.errors.unknown_resource_fault.UnknownResourceFault: <p>Returned when the named resource cannot be found with in the scope of this operation (region or domain). This could happen if the named resource was never created or is no longer available for this operation.</p>
+            aws_sdk_swf.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2051,6 +2224,15 @@ class SWFClient:
             task_start_to_close_timeout: <p>Specifies the maximum duration of decision tasks for this workflow execution. This parameter overrides the <code>defaultTaskStartToCloseTimout</code> specified when registering the workflow type using <a>RegisterWorkflowType</a>.</p> <p>The duration is specified in seconds, an integer greater than or equal to <code>0</code>. You can use <code>NONE</code> to specify unlimited duration.</p> <note> <p>A task start-to-close timeout for this workflow execution must be specified either as a default for the workflow type or through this parameter. If neither this parameter is set nor a default task start-to-close timeout was specified at registration time then a fault is returned.</p> </note>
             child_policy: <p>If set, specifies the policy to use for the child workflow executions of this workflow execution if it is terminated, by calling the <a>TerminateWorkflowExecution</a> action explicitly or due to an expired timeout. This policy overrides the default child policy specified when registering the workflow type using <a>RegisterWorkflowType</a>.</p> <p>The supported child policies are:</p> <ul> <li> <p> <code>TERMINATE</code> – The child executions are terminated.</p> </li> <li> <p> <code>REQUEST_CANCEL</code> – A request to cancel is attempted for each child execution by recording a <code>WorkflowExecutionCancelRequested</code> event in its history. It is up to the decider to take appropriate actions when it receives an execution history with this event.</p> </li> <li> <p> <code>ABANDON</code> – No action is taken. The child executions continue to run.</p> </li> </ul> <note> <p>A child policy for this workflow execution must be specified either as a default for the workflow type or through this parameter. If neither this parameter is set nor a default child policy was specified at registration time then a fault is returned.</p> </note>
             lambda_role: <p>The IAM role to attach to this workflow execution.</p> <note> <p>Executions of this workflow type need IAM roles to invoke Lambda functions. If you don't attach an IAM role, any attempt to schedule a Lambda task fails. This results in a <code>ScheduleLambdaFunctionFailed</code> history event. For more information, see <a href=\"https://docs.aws.amazon.com/amazonswf/latest/developerguide/lambda-task.html\">https://docs.aws.amazon.com/amazonswf/latest/developerguide/lambda-task.html</a> in the <i>Amazon SWF Developer Guide</i>.</p> </note>
+
+        Raises:
+            aws_sdk_swf.errors.default_undefined_fault.DefaultUndefinedFault: <p>The <code>StartWorkflowExecution</code> API action was called without the required parameters set.</p> <p>Some workflow execution parameters, such as the decision <code>taskList</code>, must be set to start the execution. However, these parameters might have been set as defaults when the workflow type was registered. In this case, you can omit these parameters from the <code>StartWorkflowExecution</code> call and Amazon SWF uses the values defined in the workflow type.</p> <note> <p>If these parameters aren't set and no default parameters were defined in the workflow type, this error is displayed.</p> </note>
+            aws_sdk_swf.errors.limit_exceeded_fault.LimitExceededFault: <p>Returned by any operation if a system imposed limitation has been reached. To address this fault you should either clean up unused resources or increase the limit by contacting AWS.</p>
+            aws_sdk_swf.errors.operation_not_permitted_fault.OperationNotPermittedFault: <p>Returned when the caller doesn't have sufficient permissions to invoke the action.</p>
+            aws_sdk_swf.errors.type_deprecated_fault.TypeDeprecatedFault: <p>Returned when the specified activity or workflow type was already deprecated.</p>
+            aws_sdk_swf.errors.unknown_resource_fault.UnknownResourceFault: <p>Returned when the named resource cannot be found with in the scope of this operation (region or domain). This could happen if the named resource was never created or is no longer available for this operation.</p>
+            aws_sdk_swf.errors.workflow_execution_already_started_fault.WorkflowExecutionAlreadyStartedFault: <p>Returned by <a>StartWorkflowExecution</a> when an open execution with the same workflowId is already running in the specified domain.</p>
+            aws_sdk_swf.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2108,6 +2290,13 @@ class SWFClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) for the Amazon SWF domain.</p>
             tags: <p>The list of tags to add to a domain. </p> <p>Tags may only contain unicode letters, digits, whitespace, or these symbols: <code>_ . : / = + - @</code>.</p>
+
+        Raises:
+            aws_sdk_swf.errors.limit_exceeded_fault.LimitExceededFault: <p>Returned by any operation if a system imposed limitation has been reached. To address this fault you should either clean up unused resources or increase the limit by contacting AWS.</p>
+            aws_sdk_swf.errors.operation_not_permitted_fault.OperationNotPermittedFault: <p>Returned when the caller doesn't have sufficient permissions to invoke the action.</p>
+            aws_sdk_swf.errors.too_many_tags_fault.TooManyTagsFault: <p>You've exceeded the number of tags allowed for a domain.</p>
+            aws_sdk_swf.errors.unknown_resource_fault.UnknownResourceFault: <p>Returned when the named resource cannot be found with in the scope of this operation (region or domain). This could happen if the named resource was never created or is no longer available for this operation.</p>
+            aws_sdk_swf.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2156,6 +2345,11 @@ class SWFClient:
             reason: <p> A descriptive reason for terminating the workflow execution.</p>
             details: <p> Details for terminating the workflow execution.</p>
             child_policy: <p>If set, specifies the policy to use for the child workflow executions of the workflow execution being terminated. This policy overrides the child policy specified for the workflow execution at registration time or when starting the execution.</p> <p>The supported child policies are:</p> <ul> <li> <p> <code>TERMINATE</code> – The child executions are terminated.</p> </li> <li> <p> <code>REQUEST_CANCEL</code> – A request to cancel is attempted for each child execution by recording a <code>WorkflowExecutionCancelRequested</code> event in its history. It is up to the decider to take appropriate actions when it receives an execution history with this event.</p> </li> <li> <p> <code>ABANDON</code> – No action is taken. The child executions continue to run.</p> </li> </ul> <note> <p>A child policy for this workflow execution must be specified either as a default for the workflow type or through this parameter. If neither this parameter is set nor a default child policy was specified at registration time then a fault is returned.</p> </note>
+
+        Raises:
+            aws_sdk_swf.errors.operation_not_permitted_fault.OperationNotPermittedFault: <p>Returned when the caller doesn't have sufficient permissions to invoke the action.</p>
+            aws_sdk_swf.errors.unknown_resource_fault.UnknownResourceFault: <p>Returned when the named resource cannot be found with in the scope of this operation (region or domain). This could happen if the named resource was never created or is no longer available for this operation.</p>
+            aws_sdk_swf.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2202,6 +2396,12 @@ class SWFClient:
         Args:
             domain: <p>The name of the domain of the deprecated activity type.</p>
             activity_type: <p>The activity type to undeprecate.</p>
+
+        Raises:
+            aws_sdk_swf.errors.operation_not_permitted_fault.OperationNotPermittedFault: <p>Returned when the caller doesn't have sufficient permissions to invoke the action.</p>
+            aws_sdk_swf.errors.type_already_exists_fault.TypeAlreadyExistsFault: <p>Returned if the type already exists in the specified domain. You may get this fault if you are registering a type that is either already registered or deprecated, or if you undeprecate a type that is currently registered.</p>
+            aws_sdk_swf.errors.unknown_resource_fault.UnknownResourceFault: <p>Returned when the named resource cannot be found with in the scope of this operation (region or domain). This could happen if the named resource was never created or is no longer available for this operation.</p>
+            aws_sdk_swf.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2238,6 +2438,12 @@ class SWFClient:
 
         Args:
             name: <p>The name of the domain of the deprecated workflow type.</p>
+
+        Raises:
+            aws_sdk_swf.errors.domain_already_exists_fault.DomainAlreadyExistsFault: <p>Returned if the domain already exists. You may get this fault if you are registering a domain that is either already registered or deprecated, or if you undeprecate a domain that is currently registered.</p>
+            aws_sdk_swf.errors.operation_not_permitted_fault.OperationNotPermittedFault: <p>Returned when the caller doesn't have sufficient permissions to invoke the action.</p>
+            aws_sdk_swf.errors.unknown_resource_fault.UnknownResourceFault: <p>Returned when the named resource cannot be found with in the scope of this operation (region or domain). This could happen if the named resource was never created or is no longer available for this operation.</p>
+            aws_sdk_swf.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2275,6 +2481,12 @@ class SWFClient:
         Args:
             domain: <p>The name of the domain of the deprecated workflow type.</p>
             workflow_type: <p>The name of the domain of the deprecated workflow type.</p>
+
+        Raises:
+            aws_sdk_swf.errors.operation_not_permitted_fault.OperationNotPermittedFault: <p>Returned when the caller doesn't have sufficient permissions to invoke the action.</p>
+            aws_sdk_swf.errors.type_already_exists_fault.TypeAlreadyExistsFault: <p>Returned if the type already exists in the specified domain. You may get this fault if you are registering a type that is either already registered or deprecated, or if you undeprecate a type that is currently registered.</p>
+            aws_sdk_swf.errors.unknown_resource_fault.UnknownResourceFault: <p>Returned when the named resource cannot be found with in the scope of this operation (region or domain). This could happen if the named resource was never created or is no longer available for this operation.</p>
+            aws_sdk_swf.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2313,6 +2525,12 @@ class SWFClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) for the Amazon SWF domain.</p>
             tag_keys: <p>The list of tags to remove from the Amazon SWF domain.</p>
+
+        Raises:
+            aws_sdk_swf.errors.limit_exceeded_fault.LimitExceededFault: <p>Returned by any operation if a system imposed limitation has been reached. To address this fault you should either clean up unused resources or increase the limit by contacting AWS.</p>
+            aws_sdk_swf.errors.operation_not_permitted_fault.OperationNotPermittedFault: <p>Returned when the caller doesn't have sufficient permissions to invoke the action.</p>
+            aws_sdk_swf.errors.unknown_resource_fault.UnknownResourceFault: <p>Returned when the named resource cannot be found with in the scope of this operation (region or domain). This could happen if the named resource was never created or is no longer available for this operation.</p>
+            aws_sdk_swf.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(

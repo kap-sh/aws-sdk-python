@@ -345,6 +345,11 @@ class AsyncGreengrassClient:
         Args:
             group_id: The ID of the Greengrass group.
             role_arn: The ARN of the role you wish to associate with this group. The existence of the role is not validated.
+
+        Raises:
+            aws_sdk_greengrass.errors.bad_request_exception.BadRequestException: General error information.
+            aws_sdk_greengrass.errors.internal_server_error_exception.InternalServerErrorException: General error information.
+            aws_sdk_greengrass.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -384,6 +389,11 @@ class AsyncGreengrassClient:
 
         Args:
             role_arn: The ARN of the service role you wish to associate with your account.
+
+        Raises:
+            aws_sdk_greengrass.errors.bad_request_exception.BadRequestException: General error information.
+            aws_sdk_greengrass.errors.internal_server_error_exception.InternalServerErrorException: General error information.
+            aws_sdk_greengrass.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -432,6 +442,10 @@ class AsyncGreengrassClient:
             initial_version: Information about the initial version of the connector definition.
             name: The name of the connector definition.
             tags: Tag(s) to add to the new resource.
+
+        Raises:
+            aws_sdk_greengrass.errors.bad_request_exception.BadRequestException: General error information.
+            aws_sdk_greengrass.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -485,6 +499,10 @@ class AsyncGreengrassClient:
             amzn_client_token: A client token used to correlate requests and responses.
             connector_definition_id: The ID of the connector definition.
             connectors: A list of references to connectors in this version, with their corresponding configuration settings.
+
+        Raises:
+            aws_sdk_greengrass.errors.bad_request_exception.BadRequestException: General error information.
+            aws_sdk_greengrass.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -537,6 +555,10 @@ class AsyncGreengrassClient:
             initial_version: Information about the initial version of the core definition.
             name: The name of the core definition.
             tags: Tag(s) to add to the new resource.
+
+        Raises:
+            aws_sdk_greengrass.errors.bad_request_exception.BadRequestException: General error information.
+            aws_sdk_greengrass.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -588,6 +610,10 @@ class AsyncGreengrassClient:
             amzn_client_token: A client token used to correlate requests and responses.
             core_definition_id: The ID of the core definition.
             cores: A list of cores in the core definition version.
+
+        Raises:
+            aws_sdk_greengrass.errors.bad_request_exception.BadRequestException: General error information.
+            aws_sdk_greengrass.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -640,6 +666,10 @@ class AsyncGreengrassClient:
             deployment_type: The type of deployment. When used for ''CreateDeployment'', only ''NewDeployment'' and ''Redeployment'' are valid.
             group_id: The ID of the Greengrass group.
             group_version_id: The ID of the group version to be deployed.
+
+        Raises:
+            aws_sdk_greengrass.errors.bad_request_exception.BadRequestException: General error information.
+            aws_sdk_greengrass.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -695,6 +725,10 @@ class AsyncGreengrassClient:
             initial_version: Information about the initial version of the device definition.
             name: The name of the device definition.
             tags: Tag(s) to add to the new resource.
+
+        Raises:
+            aws_sdk_greengrass.errors.bad_request_exception.BadRequestException: General error information.
+            aws_sdk_greengrass.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -748,6 +782,10 @@ class AsyncGreengrassClient:
             amzn_client_token: A client token used to correlate requests and responses.
             device_definition_id: The ID of the device definition.
             devices: A list of devices in the definition version.
+
+        Raises:
+            aws_sdk_greengrass.errors.bad_request_exception.BadRequestException: General error information.
+            aws_sdk_greengrass.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -800,6 +838,10 @@ class AsyncGreengrassClient:
             initial_version: Information about the initial version of the function definition.
             name: The name of the function definition.
             tags: Tag(s) to add to the new resource.
+
+        Raises:
+            aws_sdk_greengrass.errors.bad_request_exception.BadRequestException: General error information.
+            aws_sdk_greengrass.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -857,6 +899,10 @@ class AsyncGreengrassClient:
             default_config: The default configuration that applies to all Lambda functions in this function definition version. Individual Lambda functions can override these settings.
             function_definition_id: The ID of the Lambda function definition.
             functions: A list of Lambda functions in this function definition version.
+
+        Raises:
+            aws_sdk_greengrass.errors.bad_request_exception.BadRequestException: General error information.
+            aws_sdk_greengrass.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -911,6 +957,10 @@ class AsyncGreengrassClient:
             initial_version: Information about the initial version of the group.
             name: The name of the group.
             tags: Tag(s) to add to the new resource.
+
+        Raises:
+            aws_sdk_greengrass.errors.bad_request_exception.BadRequestException: General error information.
+            aws_sdk_greengrass.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -959,6 +1009,11 @@ class AsyncGreengrassClient:
         Args:
             amzn_client_token: A client token used to correlate requests and responses.
             group_id: The ID of the Greengrass group.
+
+        Raises:
+            aws_sdk_greengrass.errors.bad_request_exception.BadRequestException: General error information.
+            aws_sdk_greengrass.errors.internal_server_error_exception.InternalServerErrorException: General error information.
+            aws_sdk_greengrass.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1031,6 +1086,10 @@ class AsyncGreengrassClient:
             logger_definition_version_arn: The ARN of the logger definition version for this group.
             resource_definition_version_arn: The ARN of the resource definition version for this group.
             subscription_definition_version_arn: The ARN of the subscription definition version for this group.
+
+        Raises:
+            aws_sdk_greengrass.errors.bad_request_exception.BadRequestException: General error information.
+            aws_sdk_greengrass.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1099,6 +1158,10 @@ class AsyncGreengrassClient:
             initial_version: Information about the initial version of the logger definition.
             name: The name of the logger definition.
             tags: Tag(s) to add to the new resource.
+
+        Raises:
+            aws_sdk_greengrass.errors.bad_request_exception.BadRequestException: General error information.
+            aws_sdk_greengrass.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1152,6 +1215,10 @@ class AsyncGreengrassClient:
             amzn_client_token: A client token used to correlate requests and responses.
             logger_definition_id: The ID of the logger definition.
             loggers: A list of loggers.
+
+        Raises:
+            aws_sdk_greengrass.errors.bad_request_exception.BadRequestException: General error information.
+            aws_sdk_greengrass.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1204,6 +1271,10 @@ class AsyncGreengrassClient:
             initial_version: Information about the initial version of the resource definition.
             name: The name of the resource definition.
             tags: Tag(s) to add to the new resource.
+
+        Raises:
+            aws_sdk_greengrass.errors.bad_request_exception.BadRequestException: General error information.
+            aws_sdk_greengrass.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1257,6 +1328,10 @@ class AsyncGreengrassClient:
             amzn_client_token: A client token used to correlate requests and responses.
             resource_definition_id: The ID of the resource definition.
             resources: A list of resources.
+
+        Raises:
+            aws_sdk_greengrass.errors.bad_request_exception.BadRequestException: General error information.
+            aws_sdk_greengrass.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1309,6 +1384,11 @@ class AsyncGreengrassClient:
 
         Args:
             amzn_client_token: A client token used to correlate requests and responses.
+
+        Raises:
+            aws_sdk_greengrass.errors.bad_request_exception.BadRequestException: General error information.
+            aws_sdk_greengrass.errors.internal_server_error_exception.InternalServerErrorException: General error information.
+            aws_sdk_greengrass.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1365,6 +1445,10 @@ class AsyncGreengrassClient:
             initial_version: Information about the initial version of the subscription definition.
             name: The name of the subscription definition.
             tags: Tag(s) to add to the new resource.
+
+        Raises:
+            aws_sdk_greengrass.errors.bad_request_exception.BadRequestException: General error information.
+            aws_sdk_greengrass.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1418,6 +1502,10 @@ class AsyncGreengrassClient:
             amzn_client_token: A client token used to correlate requests and responses.
             subscription_definition_id: The ID of the subscription definition.
             subscriptions: A list of subscriptions.
+
+        Raises:
+            aws_sdk_greengrass.errors.bad_request_exception.BadRequestException: General error information.
+            aws_sdk_greengrass.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1460,6 +1548,10 @@ class AsyncGreengrassClient:
 
         Args:
             connector_definition_id: The ID of the connector definition.
+
+        Raises:
+            aws_sdk_greengrass.errors.bad_request_exception.BadRequestException: General error information.
+            aws_sdk_greengrass.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1498,6 +1590,10 @@ class AsyncGreengrassClient:
 
         Args:
             core_definition_id: The ID of the core definition.
+
+        Raises:
+            aws_sdk_greengrass.errors.bad_request_exception.BadRequestException: General error information.
+            aws_sdk_greengrass.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1536,6 +1632,10 @@ class AsyncGreengrassClient:
 
         Args:
             device_definition_id: The ID of the device definition.
+
+        Raises:
+            aws_sdk_greengrass.errors.bad_request_exception.BadRequestException: General error information.
+            aws_sdk_greengrass.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1574,6 +1674,10 @@ class AsyncGreengrassClient:
 
         Args:
             function_definition_id: The ID of the Lambda function definition.
+
+        Raises:
+            aws_sdk_greengrass.errors.bad_request_exception.BadRequestException: General error information.
+            aws_sdk_greengrass.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1612,6 +1716,10 @@ class AsyncGreengrassClient:
 
         Args:
             group_id: The ID of the Greengrass group.
+
+        Raises:
+            aws_sdk_greengrass.errors.bad_request_exception.BadRequestException: General error information.
+            aws_sdk_greengrass.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1650,6 +1758,10 @@ class AsyncGreengrassClient:
 
         Args:
             logger_definition_id: The ID of the logger definition.
+
+        Raises:
+            aws_sdk_greengrass.errors.bad_request_exception.BadRequestException: General error information.
+            aws_sdk_greengrass.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1688,6 +1800,10 @@ class AsyncGreengrassClient:
 
         Args:
             resource_definition_id: The ID of the resource definition.
+
+        Raises:
+            aws_sdk_greengrass.errors.bad_request_exception.BadRequestException: General error information.
+            aws_sdk_greengrass.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1726,6 +1842,10 @@ class AsyncGreengrassClient:
 
         Args:
             subscription_definition_id: The ID of the subscription definition.
+
+        Raises:
+            aws_sdk_greengrass.errors.bad_request_exception.BadRequestException: General error information.
+            aws_sdk_greengrass.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1764,6 +1884,11 @@ class AsyncGreengrassClient:
 
         Args:
             group_id: The ID of the Greengrass group.
+
+        Raises:
+            aws_sdk_greengrass.errors.bad_request_exception.BadRequestException: General error information.
+            aws_sdk_greengrass.errors.internal_server_error_exception.InternalServerErrorException: General error information.
+            aws_sdk_greengrass.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1795,7 +1920,12 @@ class AsyncGreengrassClient:
     async def disassociate_service_role_from_account(
         self, *, config_overrides: Optional[AsyncGreengrassClientConfig] = None
     ) -> "aws_sdk_greengrass.types.disassociate_service_role_from_account_response.DisassociateServiceRoleFromAccountResponse":
-        """Disassociates the service role from your account. Without a service role, deployments will not work."""
+        """Disassociates the service role from your account. Without a service role, deployments will not work.
+
+        Raises:
+            aws_sdk_greengrass.errors.internal_server_error_exception.InternalServerErrorException: General error information.
+            aws_sdk_greengrass.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_greengrass.types.disassociate_service_role_from_account_request.DisassociateServiceRoleFromAccountRequest]",
@@ -1832,6 +1962,11 @@ class AsyncGreengrassClient:
 
         Args:
             group_id: The ID of the Greengrass group.
+
+        Raises:
+            aws_sdk_greengrass.errors.bad_request_exception.BadRequestException: General error information.
+            aws_sdk_greengrass.errors.internal_server_error_exception.InternalServerErrorException: General error information.
+            aws_sdk_greengrass.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1870,6 +2005,10 @@ class AsyncGreengrassClient:
 
         Args:
             bulk_deployment_id: The ID of the bulk deployment.
+
+        Raises:
+            aws_sdk_greengrass.errors.bad_request_exception.BadRequestException: General error information.
+            aws_sdk_greengrass.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1908,6 +2047,11 @@ class AsyncGreengrassClient:
 
         Args:
             thing_name: The thing name.
+
+        Raises:
+            aws_sdk_greengrass.errors.bad_request_exception.BadRequestException: General error information.
+            aws_sdk_greengrass.errors.internal_server_error_exception.InternalServerErrorException: General error information.
+            aws_sdk_greengrass.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1946,6 +2090,10 @@ class AsyncGreengrassClient:
 
         Args:
             connector_definition_id: The ID of the connector definition.
+
+        Raises:
+            aws_sdk_greengrass.errors.bad_request_exception.BadRequestException: General error information.
+            aws_sdk_greengrass.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1988,6 +2136,10 @@ class AsyncGreengrassClient:
             connector_definition_id: The ID of the connector definition.
             connector_definition_version_id: The ID of the connector definition version. This value maps to the ''Version'' property of the corresponding ''VersionInformation'' object, which is returned by ''ListConnectorDefinitionVersions'' requests. If the version is the last one that was associated with a connector definition, the value also maps to the ''LatestVersion'' property of the corresponding ''DefinitionInformation'' object.
             next_token: The token for the next set of results, or ''null'' if there are no additional results.
+
+        Raises:
+            aws_sdk_greengrass.errors.bad_request_exception.BadRequestException: General error information.
+            aws_sdk_greengrass.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2029,6 +2181,10 @@ class AsyncGreengrassClient:
 
         Args:
             core_definition_id: The ID of the core definition.
+
+        Raises:
+            aws_sdk_greengrass.errors.bad_request_exception.BadRequestException: General error information.
+            aws_sdk_greengrass.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2069,6 +2225,10 @@ class AsyncGreengrassClient:
         Args:
             core_definition_id: The ID of the core definition.
             core_definition_version_id: The ID of the core definition version. This value maps to the ''Version'' property of the corresponding ''VersionInformation'' object, which is returned by ''ListCoreDefinitionVersions'' requests. If the version is the last one that was associated with a core definition, the value also maps to the ''LatestVersion'' property of the corresponding ''DefinitionInformation'' object.
+
+        Raises:
+            aws_sdk_greengrass.errors.bad_request_exception.BadRequestException: General error information.
+            aws_sdk_greengrass.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2110,6 +2270,10 @@ class AsyncGreengrassClient:
         Args:
             deployment_id: The ID of the deployment.
             group_id: The ID of the Greengrass group.
+
+        Raises:
+            aws_sdk_greengrass.errors.bad_request_exception.BadRequestException: General error information.
+            aws_sdk_greengrass.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2149,6 +2313,10 @@ class AsyncGreengrassClient:
 
         Args:
             device_definition_id: The ID of the device definition.
+
+        Raises:
+            aws_sdk_greengrass.errors.bad_request_exception.BadRequestException: General error information.
+            aws_sdk_greengrass.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2191,6 +2359,10 @@ class AsyncGreengrassClient:
             device_definition_id: The ID of the device definition.
             device_definition_version_id: The ID of the device definition version. This value maps to the ''Version'' property of the corresponding ''VersionInformation'' object, which is returned by ''ListDeviceDefinitionVersions'' requests. If the version is the last one that was associated with a device definition, the value also maps to the ''LatestVersion'' property of the corresponding ''DefinitionInformation'' object.
             next_token: The token for the next set of results, or ''null'' if there are no additional results.
+
+        Raises:
+            aws_sdk_greengrass.errors.bad_request_exception.BadRequestException: General error information.
+            aws_sdk_greengrass.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2232,6 +2404,10 @@ class AsyncGreengrassClient:
 
         Args:
             function_definition_id: The ID of the Lambda function definition.
+
+        Raises:
+            aws_sdk_greengrass.errors.bad_request_exception.BadRequestException: General error information.
+            aws_sdk_greengrass.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2274,6 +2450,10 @@ class AsyncGreengrassClient:
             function_definition_id: The ID of the Lambda function definition.
             function_definition_version_id: The ID of the function definition version. This value maps to the ''Version'' property of the corresponding ''VersionInformation'' object, which is returned by ''ListFunctionDefinitionVersions'' requests. If the version is the last one that was associated with a function definition, the value also maps to the ''LatestVersion'' property of the corresponding ''DefinitionInformation'' object.
             next_token: The token for the next set of results, or ''null'' if there are no additional results.
+
+        Raises:
+            aws_sdk_greengrass.errors.bad_request_exception.BadRequestException: General error information.
+            aws_sdk_greengrass.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2315,6 +2495,10 @@ class AsyncGreengrassClient:
 
         Args:
             group_id: The ID of the Greengrass group.
+
+        Raises:
+            aws_sdk_greengrass.errors.bad_request_exception.BadRequestException: General error information.
+            aws_sdk_greengrass.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2355,6 +2539,11 @@ class AsyncGreengrassClient:
         Args:
             certificate_authority_id: The ID of the certificate authority.
             group_id: The ID of the Greengrass group.
+
+        Raises:
+            aws_sdk_greengrass.errors.bad_request_exception.BadRequestException: General error information.
+            aws_sdk_greengrass.errors.internal_server_error_exception.InternalServerErrorException: General error information.
+            aws_sdk_greengrass.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2394,6 +2583,11 @@ class AsyncGreengrassClient:
 
         Args:
             group_id: The ID of the Greengrass group.
+
+        Raises:
+            aws_sdk_greengrass.errors.bad_request_exception.BadRequestException: General error information.
+            aws_sdk_greengrass.errors.internal_server_error_exception.InternalServerErrorException: General error information.
+            aws_sdk_greengrass.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2434,6 +2628,10 @@ class AsyncGreengrassClient:
         Args:
             group_id: The ID of the Greengrass group.
             group_version_id: The ID of the group version. This value maps to the ''Version'' property of the corresponding ''VersionInformation'' object, which is returned by ''ListGroupVersions'' requests. If the version is the last one that was associated with a group, the value also maps to the ''LatestVersion'' property of the corresponding ''GroupInformation'' object.
+
+        Raises:
+            aws_sdk_greengrass.errors.bad_request_exception.BadRequestException: General error information.
+            aws_sdk_greengrass.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2473,6 +2671,10 @@ class AsyncGreengrassClient:
 
         Args:
             logger_definition_id: The ID of the logger definition.
+
+        Raises:
+            aws_sdk_greengrass.errors.bad_request_exception.BadRequestException: General error information.
+            aws_sdk_greengrass.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2515,6 +2717,10 @@ class AsyncGreengrassClient:
             logger_definition_id: The ID of the logger definition.
             logger_definition_version_id: The ID of the logger definition version. This value maps to the ''Version'' property of the corresponding ''VersionInformation'' object, which is returned by ''ListLoggerDefinitionVersions'' requests. If the version is the last one that was associated with a logger definition, the value also maps to the ''LatestVersion'' property of the corresponding ''DefinitionInformation'' object.
             next_token: The token for the next set of results, or ''null'' if there are no additional results.
+
+        Raises:
+            aws_sdk_greengrass.errors.bad_request_exception.BadRequestException: General error information.
+            aws_sdk_greengrass.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2556,6 +2762,10 @@ class AsyncGreengrassClient:
 
         Args:
             resource_definition_id: The ID of the resource definition.
+
+        Raises:
+            aws_sdk_greengrass.errors.bad_request_exception.BadRequestException: General error information.
+            aws_sdk_greengrass.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2596,6 +2806,10 @@ class AsyncGreengrassClient:
         Args:
             resource_definition_id: The ID of the resource definition.
             resource_definition_version_id: The ID of the resource definition version. This value maps to the ''Version'' property of the corresponding ''VersionInformation'' object, which is returned by ''ListResourceDefinitionVersions'' requests. If the version is the last one that was associated with a resource definition, the value also maps to the ''LatestVersion'' property of the corresponding ''DefinitionInformation'' object.
+
+        Raises:
+            aws_sdk_greengrass.errors.bad_request_exception.BadRequestException: General error information.
+            aws_sdk_greengrass.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2628,7 +2842,12 @@ class AsyncGreengrassClient:
     async def get_service_role_for_account(
         self, *, config_overrides: Optional[AsyncGreengrassClientConfig] = None
     ) -> "aws_sdk_greengrass.types.get_service_role_for_account_response.GetServiceRoleForAccountResponse":
-        """Retrieves the service role that is attached to your account."""
+        """Retrieves the service role that is attached to your account.
+
+        Raises:
+            aws_sdk_greengrass.errors.internal_server_error_exception.InternalServerErrorException: General error information.
+            aws_sdk_greengrass.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_greengrass.types.get_service_role_for_account_request.GetServiceRoleForAccountRequest]",
@@ -2665,6 +2884,10 @@ class AsyncGreengrassClient:
 
         Args:
             subscription_definition_id: The ID of the subscription definition.
+
+        Raises:
+            aws_sdk_greengrass.errors.bad_request_exception.BadRequestException: General error information.
+            aws_sdk_greengrass.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2707,6 +2930,10 @@ class AsyncGreengrassClient:
             next_token: The token for the next set of results, or ''null'' if there are no additional results.
             subscription_definition_id: The ID of the subscription definition.
             subscription_definition_version_id: The ID of the subscription definition version. This value maps to the ''Version'' property of the corresponding ''VersionInformation'' object, which is returned by ''ListSubscriptionDefinitionVersions'' requests. If the version is the last one that was associated with a subscription definition, the value also maps to the ''LatestVersion'' property of the corresponding ''DefinitionInformation'' object.
+
+        Raises:
+            aws_sdk_greengrass.errors.bad_request_exception.BadRequestException: General error information.
+            aws_sdk_greengrass.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2750,6 +2977,11 @@ class AsyncGreengrassClient:
 
         Args:
             thing_name: The thing name.
+
+        Raises:
+            aws_sdk_greengrass.errors.bad_request_exception.BadRequestException: General error information.
+            aws_sdk_greengrass.errors.internal_server_error_exception.InternalServerErrorException: General error information.
+            aws_sdk_greengrass.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2792,6 +3024,10 @@ class AsyncGreengrassClient:
             bulk_deployment_id: The ID of the bulk deployment.
             max_results: The maximum number of results to be returned per request.
             next_token: The token for the next set of results, or ''null'' if there are no additional results.
+
+        Raises:
+            aws_sdk_greengrass.errors.bad_request_exception.BadRequestException: General error information.
+            aws_sdk_greengrass.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2836,6 +3072,10 @@ class AsyncGreengrassClient:
         Args:
             max_results: The maximum number of results to be returned per request.
             next_token: The token for the next set of results, or ''null'' if there are no additional results.
+
+        Raises:
+            aws_sdk_greengrass.errors.bad_request_exception.BadRequestException: General error information.
+            aws_sdk_greengrass.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2879,6 +3119,9 @@ class AsyncGreengrassClient:
         Args:
             max_results: The maximum number of results to be returned per request.
             next_token: The token for the next set of results, or ''null'' if there are no additional results.
+
+        Raises:
+            aws_sdk_greengrass.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2924,6 +3167,10 @@ class AsyncGreengrassClient:
             connector_definition_id: The ID of the connector definition.
             max_results: The maximum number of results to be returned per request.
             next_token: The token for the next set of results, or ''null'' if there are no additional results.
+
+        Raises:
+            aws_sdk_greengrass.errors.bad_request_exception.BadRequestException: General error information.
+            aws_sdk_greengrass.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2968,6 +3215,9 @@ class AsyncGreengrassClient:
         Args:
             max_results: The maximum number of results to be returned per request.
             next_token: The token for the next set of results, or ''null'' if there are no additional results.
+
+        Raises:
+            aws_sdk_greengrass.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3013,6 +3263,10 @@ class AsyncGreengrassClient:
             core_definition_id: The ID of the core definition.
             max_results: The maximum number of results to be returned per request.
             next_token: The token for the next set of results, or ''null'' if there are no additional results.
+
+        Raises:
+            aws_sdk_greengrass.errors.bad_request_exception.BadRequestException: General error information.
+            aws_sdk_greengrass.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3059,6 +3313,10 @@ class AsyncGreengrassClient:
             group_id: The ID of the Greengrass group.
             max_results: The maximum number of results to be returned per request.
             next_token: The token for the next set of results, or ''null'' if there are no additional results.
+
+        Raises:
+            aws_sdk_greengrass.errors.bad_request_exception.BadRequestException: General error information.
+            aws_sdk_greengrass.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3103,6 +3361,9 @@ class AsyncGreengrassClient:
         Args:
             max_results: The maximum number of results to be returned per request.
             next_token: The token for the next set of results, or ''null'' if there are no additional results.
+
+        Raises:
+            aws_sdk_greengrass.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3148,6 +3409,10 @@ class AsyncGreengrassClient:
             device_definition_id: The ID of the device definition.
             max_results: The maximum number of results to be returned per request.
             next_token: The token for the next set of results, or ''null'' if there are no additional results.
+
+        Raises:
+            aws_sdk_greengrass.errors.bad_request_exception.BadRequestException: General error information.
+            aws_sdk_greengrass.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3192,6 +3457,9 @@ class AsyncGreengrassClient:
         Args:
             max_results: The maximum number of results to be returned per request.
             next_token: The token for the next set of results, or ''null'' if there are no additional results.
+
+        Raises:
+            aws_sdk_greengrass.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3237,6 +3505,10 @@ class AsyncGreengrassClient:
             function_definition_id: The ID of the Lambda function definition.
             max_results: The maximum number of results to be returned per request.
             next_token: The token for the next set of results, or ''null'' if there are no additional results.
+
+        Raises:
+            aws_sdk_greengrass.errors.bad_request_exception.BadRequestException: General error information.
+            aws_sdk_greengrass.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3279,6 +3551,11 @@ class AsyncGreengrassClient:
 
         Args:
             group_id: The ID of the Greengrass group.
+
+        Raises:
+            aws_sdk_greengrass.errors.bad_request_exception.BadRequestException: General error information.
+            aws_sdk_greengrass.errors.internal_server_error_exception.InternalServerErrorException: General error information.
+            aws_sdk_greengrass.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3319,6 +3596,9 @@ class AsyncGreengrassClient:
         Args:
             max_results: The maximum number of results to be returned per request.
             next_token: The token for the next set of results, or ''null'' if there are no additional results.
+
+        Raises:
+            aws_sdk_greengrass.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3364,6 +3644,10 @@ class AsyncGreengrassClient:
             group_id: The ID of the Greengrass group.
             max_results: The maximum number of results to be returned per request.
             next_token: The token for the next set of results, or ''null'' if there are no additional results.
+
+        Raises:
+            aws_sdk_greengrass.errors.bad_request_exception.BadRequestException: General error information.
+            aws_sdk_greengrass.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3408,6 +3692,9 @@ class AsyncGreengrassClient:
         Args:
             max_results: The maximum number of results to be returned per request.
             next_token: The token for the next set of results, or ''null'' if there are no additional results.
+
+        Raises:
+            aws_sdk_greengrass.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3453,6 +3740,10 @@ class AsyncGreengrassClient:
             logger_definition_id: The ID of the logger definition.
             max_results: The maximum number of results to be returned per request.
             next_token: The token for the next set of results, or ''null'' if there are no additional results.
+
+        Raises:
+            aws_sdk_greengrass.errors.bad_request_exception.BadRequestException: General error information.
+            aws_sdk_greengrass.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3497,6 +3788,9 @@ class AsyncGreengrassClient:
         Args:
             max_results: The maximum number of results to be returned per request.
             next_token: The token for the next set of results, or ''null'' if there are no additional results.
+
+        Raises:
+            aws_sdk_greengrass.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3542,6 +3836,10 @@ class AsyncGreengrassClient:
             max_results: The maximum number of results to be returned per request.
             next_token: The token for the next set of results, or ''null'' if there are no additional results.
             resource_definition_id: The ID of the resource definition.
+
+        Raises:
+            aws_sdk_greengrass.errors.bad_request_exception.BadRequestException: General error information.
+            aws_sdk_greengrass.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3586,6 +3884,9 @@ class AsyncGreengrassClient:
         Args:
             max_results: The maximum number of results to be returned per request.
             next_token: The token for the next set of results, or ''null'' if there are no additional results.
+
+        Raises:
+            aws_sdk_greengrass.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3631,6 +3932,10 @@ class AsyncGreengrassClient:
             max_results: The maximum number of results to be returned per request.
             next_token: The token for the next set of results, or ''null'' if there are no additional results.
             subscription_definition_id: The ID of the subscription definition.
+
+        Raises:
+            aws_sdk_greengrass.errors.bad_request_exception.BadRequestException: General error information.
+            aws_sdk_greengrass.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3673,6 +3978,10 @@ class AsyncGreengrassClient:
 
         Args:
             resource_arn: The Amazon Resource Name (ARN) of the resource.
+
+        Raises:
+            aws_sdk_greengrass.errors.bad_request_exception.BadRequestException: General error information.
+            aws_sdk_greengrass.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3717,6 +4026,10 @@ class AsyncGreengrassClient:
             amzn_client_token: A client token used to correlate requests and responses.
             force: If true, performs a best-effort only core reset.
             group_id: The ID of the Greengrass group.
+
+        Raises:
+            aws_sdk_greengrass.errors.bad_request_exception.BadRequestException: General error information.
+            aws_sdk_greengrass.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3767,6 +4080,10 @@ class AsyncGreengrassClient:
             execution_role_arn: The ARN of the execution role to associate with the bulk deployment operation. This IAM role must allow the ''greengrass:CreateDeployment'' action for all group versions that are listed in the input file. This IAM role must have access to the S3 bucket containing the input file.
             input_file_uri: The URI of the input file contained in the S3 bucket. The execution role must have ''getObject'' permissions on this bucket to access the input file. The input file is a JSON-serialized, line delimited file with UTF-8 encoding that provides a list of group and version IDs and the deployment type. This file must be less than 100 MB. Currently, AWS IoT Greengrass supports only ''NewDeployment'' deployment types.
             tags: Tag(s) to add to the new resource.
+
+        Raises:
+            aws_sdk_greengrass.errors.bad_request_exception.BadRequestException: General error information.
+            aws_sdk_greengrass.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3810,6 +4127,10 @@ class AsyncGreengrassClient:
 
         Args:
             bulk_deployment_id: The ID of the bulk deployment.
+
+        Raises:
+            aws_sdk_greengrass.errors.bad_request_exception.BadRequestException: General error information.
+            aws_sdk_greengrass.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3849,6 +4170,10 @@ class AsyncGreengrassClient:
 
         Args:
             resource_arn: The Amazon Resource Name (ARN) of the resource.
+
+        Raises:
+            aws_sdk_greengrass.errors.bad_request_exception.BadRequestException: General error information.
+            aws_sdk_greengrass.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3889,6 +4214,10 @@ class AsyncGreengrassClient:
         Args:
             resource_arn: The Amazon Resource Name (ARN) of the resource.
             tag_keys: An array of tag keys to delete
+
+        Raises:
+            aws_sdk_greengrass.errors.bad_request_exception.BadRequestException: General error information.
+            aws_sdk_greengrass.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3930,6 +4259,11 @@ class AsyncGreengrassClient:
         Args:
             connectivity_info: A list of connectivity info.
             thing_name: The thing name.
+
+        Raises:
+            aws_sdk_greengrass.errors.bad_request_exception.BadRequestException: General error information.
+            aws_sdk_greengrass.errors.internal_server_error_exception.InternalServerErrorException: General error information.
+            aws_sdk_greengrass.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3972,6 +4306,10 @@ class AsyncGreengrassClient:
         Args:
             connector_definition_id: The ID of the connector definition.
             name: The name of the definition.
+
+        Raises:
+            aws_sdk_greengrass.errors.bad_request_exception.BadRequestException: General error information.
+            aws_sdk_greengrass.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4014,6 +4352,10 @@ class AsyncGreengrassClient:
         Args:
             core_definition_id: The ID of the core definition.
             name: The name of the definition.
+
+        Raises:
+            aws_sdk_greengrass.errors.bad_request_exception.BadRequestException: General error information.
+            aws_sdk_greengrass.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4056,6 +4398,10 @@ class AsyncGreengrassClient:
         Args:
             device_definition_id: The ID of the device definition.
             name: The name of the definition.
+
+        Raises:
+            aws_sdk_greengrass.errors.bad_request_exception.BadRequestException: General error information.
+            aws_sdk_greengrass.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4098,6 +4444,10 @@ class AsyncGreengrassClient:
         Args:
             function_definition_id: The ID of the Lambda function definition.
             name: The name of the definition.
+
+        Raises:
+            aws_sdk_greengrass.errors.bad_request_exception.BadRequestException: General error information.
+            aws_sdk_greengrass.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4140,6 +4490,10 @@ class AsyncGreengrassClient:
         Args:
             group_id: The ID of the Greengrass group.
             name: The name of the definition.
+
+        Raises:
+            aws_sdk_greengrass.errors.bad_request_exception.BadRequestException: General error information.
+            aws_sdk_greengrass.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4184,6 +4538,11 @@ class AsyncGreengrassClient:
         Args:
             certificate_expiry_in_milliseconds: The amount of time remaining before the certificate expires, in milliseconds.
             group_id: The ID of the Greengrass group.
+
+        Raises:
+            aws_sdk_greengrass.errors.bad_request_exception.BadRequestException: General error information.
+            aws_sdk_greengrass.errors.internal_server_error_exception.InternalServerErrorException: General error information.
+            aws_sdk_greengrass.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4228,6 +4587,10 @@ class AsyncGreengrassClient:
         Args:
             logger_definition_id: The ID of the logger definition.
             name: The name of the definition.
+
+        Raises:
+            aws_sdk_greengrass.errors.bad_request_exception.BadRequestException: General error information.
+            aws_sdk_greengrass.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4270,6 +4633,10 @@ class AsyncGreengrassClient:
         Args:
             name: The name of the definition.
             resource_definition_id: The ID of the resource definition.
+
+        Raises:
+            aws_sdk_greengrass.errors.bad_request_exception.BadRequestException: General error information.
+            aws_sdk_greengrass.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4312,6 +4679,10 @@ class AsyncGreengrassClient:
         Args:
             name: The name of the definition.
             subscription_definition_id: The ID of the subscription definition.
+
+        Raises:
+            aws_sdk_greengrass.errors.bad_request_exception.BadRequestException: General error information.
+            aws_sdk_greengrass.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4356,6 +4727,11 @@ class AsyncGreengrassClient:
         Args:
             telemetry_configuration: Configuration for telemetry service.
             thing_name: The thing name.
+
+        Raises:
+            aws_sdk_greengrass.errors.bad_request_exception.BadRequestException: General error information.
+            aws_sdk_greengrass.errors.internal_server_error_exception.InternalServerErrorException: General error information.
+            aws_sdk_greengrass.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

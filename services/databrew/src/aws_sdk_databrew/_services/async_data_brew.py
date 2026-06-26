@@ -276,6 +276,12 @@ class AsyncDataBrewClient:
         Args:
             name: <p>The name of the recipe whose versions are to be deleted.</p>
             recipe_versions: <p>An array of version identifiers, for the recipe versions to be deleted. You can specify numeric versions (<code>X.Y</code>) or <code>LATEST_WORKING</code>. <code>LATEST_PUBLISHED</code> is not supported.</p>
+
+        Raises:
+            aws_sdk_databrew.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_databrew.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_databrew.errors.validation_exception.ValidationException: <p>The input parameters for this request failed validation.</p>
+            aws_sdk_databrew.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -327,6 +333,13 @@ class AsyncDataBrewClient:
             format: <p>The file format of a dataset that is created from an Amazon S3 file or folder.</p>
             path_options: <p>A set of options that defines how DataBrew interprets an Amazon S3 path of the dataset.</p>
             tags: <p>Metadata tags to apply to this dataset.</p>
+
+        Raises:
+            aws_sdk_databrew.errors.access_denied_exception.AccessDeniedException: <p>Access to the specified resource was denied.</p>
+            aws_sdk_databrew.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_databrew.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>A service quota is exceeded.</p>
+            aws_sdk_databrew.errors.validation_exception.ValidationException: <p>The input parameters for this request failed validation.</p>
+            aws_sdk_databrew.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -411,6 +424,14 @@ class AsyncDataBrewClient:
             tags: <p>Metadata tags to apply to this job.</p>
             timeout: <p>The job's timeout in minutes. A job that attempts to run longer than this timeout period ends with a status of <code>TIMEOUT</code>.</p>
             job_sample: <p>Sample configuration for profile jobs only. Determines the number of rows on which the profile job will be executed. If a JobSample value is not provided, the default value will be used. The default value is CUSTOM_ROWS for the mode parameter and 20000 for the size parameter.</p>
+
+        Raises:
+            aws_sdk_databrew.errors.access_denied_exception.AccessDeniedException: <p>Access to the specified resource was denied.</p>
+            aws_sdk_databrew.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_databrew.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_databrew.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>A service quota is exceeded.</p>
+            aws_sdk_databrew.errors.validation_exception.ValidationException: <p>The input parameters for this request failed validation.</p>
+            aws_sdk_databrew.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -481,6 +502,13 @@ class AsyncDataBrewClient:
             recipe_name: <p>The name of an existing recipe to associate with the project.</p>
             role_arn: <p>The Amazon Resource Name (ARN) of the Identity and Access Management (IAM) role to be assumed for this request.</p>
             tags: <p>Metadata tags to apply to this project.</p>
+
+        Raises:
+            aws_sdk_databrew.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_databrew.errors.internal_server_exception.InternalServerException: <p>An internal service failure occurred.</p>
+            aws_sdk_databrew.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>A service quota is exceeded.</p>
+            aws_sdk_databrew.errors.validation_exception.ValidationException: <p>The input parameters for this request failed validation.</p>
+            aws_sdk_databrew.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -534,6 +562,12 @@ class AsyncDataBrewClient:
             name: <p>A unique name for the recipe. Valid characters are alphanumeric (A-Z, a-z, 0-9), hyphen (-), period (.), and space.</p>
             steps: <p>An array containing the steps to be performed by the recipe. Each recipe step consists of one recipe action and (optionally) an array of condition expressions.</p>
             tags: <p>Metadata tags to apply to this recipe.</p>
+
+        Raises:
+            aws_sdk_databrew.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_databrew.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>A service quota is exceeded.</p>
+            aws_sdk_databrew.errors.validation_exception.ValidationException: <p>The input parameters for this request failed validation.</p>
+            aws_sdk_databrew.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -622,6 +656,14 @@ class AsyncDataBrewClient:
             role_arn: <p>The Amazon Resource Name (ARN) of the Identity and Access Management (IAM) role to be assumed when DataBrew runs the job.</p>
             tags: <p>Metadata tags to apply to this job.</p>
             timeout: <p>The job's timeout in minutes. A job that attempts to run longer than this timeout period ends with a status of <code>TIMEOUT</code>.</p>
+
+        Raises:
+            aws_sdk_databrew.errors.access_denied_exception.AccessDeniedException: <p>Access to the specified resource was denied.</p>
+            aws_sdk_databrew.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_databrew.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_databrew.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>A service quota is exceeded.</p>
+            aws_sdk_databrew.errors.validation_exception.ValidationException: <p>The input parameters for this request failed validation.</p>
+            aws_sdk_databrew.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -697,6 +739,12 @@ class AsyncDataBrewClient:
             target_arn: <p>The Amazon Resource Name (ARN) of a resource (dataset) that the ruleset is associated with.</p>
             rules: <p>A list of rules that are defined with the ruleset. A rule includes one or more checks to be validated on a DataBrew dataset.</p>
             tags: <p>Metadata tags to apply to the ruleset.</p>
+
+        Raises:
+            aws_sdk_databrew.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_databrew.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>A service quota is exceeded.</p>
+            aws_sdk_databrew.errors.validation_exception.ValidationException: <p>The input parameters for this request failed validation.</p>
+            aws_sdk_databrew.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -747,6 +795,12 @@ class AsyncDataBrewClient:
             cron_expression: <p>The date or dates and time or times when the jobs are to be run. For more information, see <a href=\"https://docs.aws.amazon.com/databrew/latest/dg/jobs.cron.html\">Cron expressions</a> in the <i>Glue DataBrew Developer Guide</i>.</p>
             tags: <p>Metadata tags to apply to this schedule.</p>
             name: <p>A unique name for the schedule. Valid characters are alphanumeric (A-Z, a-z, 0-9), hyphen (-), period (.), and space.</p>
+
+        Raises:
+            aws_sdk_databrew.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_databrew.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>A service quota is exceeded.</p>
+            aws_sdk_databrew.errors.validation_exception.ValidationException: <p>The input parameters for this request failed validation.</p>
+            aws_sdk_databrew.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -790,6 +844,12 @@ class AsyncDataBrewClient:
 
         Args:
             name: <p>The name of the dataset to be deleted.</p>
+
+        Raises:
+            aws_sdk_databrew.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_databrew.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_databrew.errors.validation_exception.ValidationException: <p>The input parameters for this request failed validation.</p>
+            aws_sdk_databrew.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -828,6 +888,12 @@ class AsyncDataBrewClient:
 
         Args:
             name: <p>The name of the job to be deleted.</p>
+
+        Raises:
+            aws_sdk_databrew.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_databrew.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_databrew.errors.validation_exception.ValidationException: <p>The input parameters for this request failed validation.</p>
+            aws_sdk_databrew.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -866,6 +932,12 @@ class AsyncDataBrewClient:
 
         Args:
             name: <p>The name of the project to be deleted.</p>
+
+        Raises:
+            aws_sdk_databrew.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_databrew.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_databrew.errors.validation_exception.ValidationException: <p>The input parameters for this request failed validation.</p>
+            aws_sdk_databrew.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -906,6 +978,12 @@ class AsyncDataBrewClient:
         Args:
             name: <p>The name of the recipe.</p>
             recipe_version: <p>The version of the recipe to be deleted. You can specify a numeric versions (<code>X.Y</code>) or <code>LATEST_WORKING</code>. <code>LATEST_PUBLISHED</code> is not supported.</p>
+
+        Raises:
+            aws_sdk_databrew.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_databrew.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_databrew.errors.validation_exception.ValidationException: <p>The input parameters for this request failed validation.</p>
+            aws_sdk_databrew.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -945,6 +1023,12 @@ class AsyncDataBrewClient:
 
         Args:
             name: <p>The name of the ruleset to be deleted.</p>
+
+        Raises:
+            aws_sdk_databrew.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_databrew.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_databrew.errors.validation_exception.ValidationException: <p>The input parameters for this request failed validation.</p>
+            aws_sdk_databrew.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -983,6 +1067,11 @@ class AsyncDataBrewClient:
 
         Args:
             name: <p>The name of the schedule to be deleted.</p>
+
+        Raises:
+            aws_sdk_databrew.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_databrew.errors.validation_exception.ValidationException: <p>The input parameters for this request failed validation.</p>
+            aws_sdk_databrew.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1021,6 +1110,11 @@ class AsyncDataBrewClient:
 
         Args:
             name: <p>The name of the dataset to be described.</p>
+
+        Raises:
+            aws_sdk_databrew.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_databrew.errors.validation_exception.ValidationException: <p>The input parameters for this request failed validation.</p>
+            aws_sdk_databrew.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1059,6 +1153,11 @@ class AsyncDataBrewClient:
 
         Args:
             name: <p>The name of the job to be described.</p>
+
+        Raises:
+            aws_sdk_databrew.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_databrew.errors.validation_exception.ValidationException: <p>The input parameters for this request failed validation.</p>
+            aws_sdk_databrew.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1099,6 +1198,11 @@ class AsyncDataBrewClient:
         Args:
             name: <p>The name of the job being processed during this run.</p>
             run_id: <p>The unique identifier of the job run.</p>
+
+        Raises:
+            aws_sdk_databrew.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_databrew.errors.validation_exception.ValidationException: <p>The input parameters for this request failed validation.</p>
+            aws_sdk_databrew.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1138,6 +1242,11 @@ class AsyncDataBrewClient:
 
         Args:
             name: <p>The name of the project to be described.</p>
+
+        Raises:
+            aws_sdk_databrew.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_databrew.errors.validation_exception.ValidationException: <p>The input parameters for this request failed validation.</p>
+            aws_sdk_databrew.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1180,6 +1289,11 @@ class AsyncDataBrewClient:
         Args:
             name: <p>The name of the recipe to be described.</p>
             recipe_version: <p>The recipe version identifier. If this parameter isn't specified, then the latest published version is returned.</p>
+
+        Raises:
+            aws_sdk_databrew.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_databrew.errors.validation_exception.ValidationException: <p>The input parameters for this request failed validation.</p>
+            aws_sdk_databrew.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1220,6 +1334,11 @@ class AsyncDataBrewClient:
 
         Args:
             name: <p>The name of the ruleset to be described.</p>
+
+        Raises:
+            aws_sdk_databrew.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_databrew.errors.validation_exception.ValidationException: <p>The input parameters for this request failed validation.</p>
+            aws_sdk_databrew.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1258,6 +1377,11 @@ class AsyncDataBrewClient:
 
         Args:
             name: <p>The name of the schedule to be described.</p>
+
+        Raises:
+            aws_sdk_databrew.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_databrew.errors.validation_exception.ValidationException: <p>The input parameters for this request failed validation.</p>
+            aws_sdk_databrew.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1300,6 +1424,10 @@ class AsyncDataBrewClient:
         Args:
             max_results: <p>The maximum number of results to return in this request. </p>
             next_token: <p>The token returned by a previous call to retrieve the next set of results.</p>
+
+        Raises:
+            aws_sdk_databrew.errors.validation_exception.ValidationException: <p>The input parameters for this request failed validation.</p>
+            aws_sdk_databrew.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1370,6 +1498,11 @@ class AsyncDataBrewClient:
             name: <p>The name of the job.</p>
             max_results: <p>The maximum number of results to return in this request. </p>
             next_token: <p>The token returned by a previous call to retrieve the next set of results.</p>
+
+        Raises:
+            aws_sdk_databrew.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_databrew.errors.validation_exception.ValidationException: <p>The input parameters for this request failed validation.</p>
+            aws_sdk_databrew.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1449,6 +1582,10 @@ class AsyncDataBrewClient:
             max_results: <p>The maximum number of results to return in this request. </p>
             next_token: <p>A token generated by DataBrew that specifies where to continue pagination if a previous request was truncated. To get the next set of pages, pass in the NextToken value from the response object of the previous page call. </p>
             project_name: <p>The name of a project. Using this parameter indicates to return only those jobs that are associated with the specified project.</p>
+
+        Raises:
+            aws_sdk_databrew.errors.validation_exception.ValidationException: <p>The input parameters for this request failed validation.</p>
+            aws_sdk_databrew.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1529,6 +1666,10 @@ class AsyncDataBrewClient:
         Args:
             next_token: <p>The token returned by a previous call to retrieve the next set of results.</p>
             max_results: <p>The maximum number of results to return in this request. </p>
+
+        Raises:
+            aws_sdk_databrew.errors.validation_exception.ValidationException: <p>The input parameters for this request failed validation.</p>
+            aws_sdk_databrew.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1601,6 +1742,10 @@ class AsyncDataBrewClient:
             max_results: <p>The maximum number of results to return in this request. </p>
             next_token: <p>The token returned by a previous call to retrieve the next set of results.</p>
             recipe_version: <p>Return only those recipes with a version identifier of <code>LATEST_WORKING</code> or <code>LATEST_PUBLISHED</code>. If <code>RecipeVersion</code> is omitted, <code>ListRecipes</code> returns all of the <code>LATEST_PUBLISHED</code> recipe versions.</p> <p>Valid values: <code>LATEST_WORKING</code> | <code>LATEST_PUBLISHED</code> </p>
+
+        Raises:
+            aws_sdk_databrew.errors.validation_exception.ValidationException: <p>The input parameters for this request failed validation.</p>
+            aws_sdk_databrew.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1677,6 +1822,10 @@ class AsyncDataBrewClient:
             max_results: <p>The maximum number of results to return in this request. </p>
             next_token: <p>The token returned by a previous call to retrieve the next set of results.</p>
             name: <p>The name of the recipe for which to return version information.</p>
+
+        Raises:
+            aws_sdk_databrew.errors.validation_exception.ValidationException: <p>The input parameters for this request failed validation.</p>
+            aws_sdk_databrew.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1750,6 +1899,11 @@ class AsyncDataBrewClient:
             target_arn: <p>The Amazon Resource Name (ARN) of a resource (dataset). Using this parameter indicates to return only those rulesets that are associated with the specified resource.</p>
             max_results: <p>The maximum number of results to return in this request.</p>
             next_token: <p>A token generated by DataBrew that specifies where to continue pagination if a previous request was truncated. To get the next set of pages, pass in the NextToken value from the response object of the previous page call.</p>
+
+        Raises:
+            aws_sdk_databrew.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_databrew.errors.validation_exception.ValidationException: <p>The input parameters for this request failed validation.</p>
+            aws_sdk_databrew.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1824,6 +1978,10 @@ class AsyncDataBrewClient:
             job_name: <p>The name of the job that these schedules apply to.</p>
             max_results: <p>The maximum number of results to return in this request. </p>
             next_token: <p>The token returned by a previous call to retrieve the next set of results.</p>
+
+        Raises:
+            aws_sdk_databrew.errors.validation_exception.ValidationException: <p>The input parameters for this request failed validation.</p>
+            aws_sdk_databrew.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1892,6 +2050,12 @@ class AsyncDataBrewClient:
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) string that uniquely identifies the DataBrew resource. </p>
+
+        Raises:
+            aws_sdk_databrew.errors.internal_server_exception.InternalServerException: <p>An internal service failure occurred.</p>
+            aws_sdk_databrew.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_databrew.errors.validation_exception.ValidationException: <p>The input parameters for this request failed validation.</p>
+            aws_sdk_databrew.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1934,6 +2098,12 @@ class AsyncDataBrewClient:
         Args:
             description: <p>A description of the recipe to be published, for this version of the recipe.</p>
             name: <p>The name of the recipe to be published.</p>
+
+        Raises:
+            aws_sdk_databrew.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_databrew.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>A service quota is exceeded.</p>
+            aws_sdk_databrew.errors.validation_exception.ValidationException: <p>The input parameters for this request failed validation.</p>
+            aws_sdk_databrew.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1984,6 +2154,12 @@ class AsyncDataBrewClient:
             name: <p>The name of the project to apply the action to.</p>
             step_index: <p>The index from which to preview a step. This index is used to preview the result of steps that have already been applied, so that the resulting view frame is from earlier in the view frame stack.</p>
             client_session_id: <p>A unique identifier for an interactive session that's currently open and ready for work. The action will be performed on this session.</p>
+
+        Raises:
+            aws_sdk_databrew.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_databrew.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_databrew.errors.validation_exception.ValidationException: <p>The input parameters for this request failed validation.</p>
+            aws_sdk_databrew.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2032,6 +2208,13 @@ class AsyncDataBrewClient:
 
         Args:
             name: <p>The name of the job to be run.</p>
+
+        Raises:
+            aws_sdk_databrew.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_databrew.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_databrew.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>A service quota is exceeded.</p>
+            aws_sdk_databrew.errors.validation_exception.ValidationException: <p>The input parameters for this request failed validation.</p>
+            aws_sdk_databrew.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2074,6 +2257,13 @@ class AsyncDataBrewClient:
         Args:
             name: <p>The name of the project to act upon.</p>
             assume_control: <p>A value that, if true, enables you to take control of a session, even if a different client is currently accessing the project.</p>
+
+        Raises:
+            aws_sdk_databrew.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_databrew.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_databrew.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>A service quota is exceeded.</p>
+            aws_sdk_databrew.errors.validation_exception.ValidationException: <p>The input parameters for this request failed validation.</p>
+            aws_sdk_databrew.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2116,6 +2306,11 @@ class AsyncDataBrewClient:
         Args:
             name: <p>The name of the job to be stopped.</p>
             run_id: <p>The ID of the job run to be stopped.</p>
+
+        Raises:
+            aws_sdk_databrew.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_databrew.errors.validation_exception.ValidationException: <p>The input parameters for this request failed validation.</p>
+            aws_sdk_databrew.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2157,6 +2352,12 @@ class AsyncDataBrewClient:
         Args:
             resource_arn: <p>The DataBrew resource to which tags should be added. The value for this parameter is an Amazon Resource Name (ARN). For DataBrew, you can tag a dataset, a job, a project, or a recipe.</p>
             tags: <p>One or more tags to be assigned to the resource.</p>
+
+        Raises:
+            aws_sdk_databrew.errors.internal_server_exception.InternalServerException: <p>An internal service failure occurred.</p>
+            aws_sdk_databrew.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_databrew.errors.validation_exception.ValidationException: <p>The input parameters for this request failed validation.</p>
+            aws_sdk_databrew.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2198,6 +2399,12 @@ class AsyncDataBrewClient:
         Args:
             resource_arn: <p>A DataBrew resource from which you want to remove a tag or tags. The value for this parameter is an Amazon Resource Name (ARN). </p>
             tag_keys: <p>The tag keys (names) of one or more tags to be removed.</p>
+
+        Raises:
+            aws_sdk_databrew.errors.internal_server_exception.InternalServerException: <p>An internal service failure occurred.</p>
+            aws_sdk_databrew.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_databrew.errors.validation_exception.ValidationException: <p>The input parameters for this request failed validation.</p>
+            aws_sdk_databrew.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2247,6 +2454,12 @@ class AsyncDataBrewClient:
             name: <p>The name of the dataset to be updated.</p>
             format: <p>The file format of a dataset that is created from an Amazon S3 file or folder.</p>
             path_options: <p>A set of options that defines how DataBrew interprets an Amazon S3 path of the dataset.</p>
+
+        Raises:
+            aws_sdk_databrew.errors.access_denied_exception.AccessDeniedException: <p>Access to the specified resource was denied.</p>
+            aws_sdk_databrew.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_databrew.errors.validation_exception.ValidationException: <p>The input parameters for this request failed validation.</p>
+            aws_sdk_databrew.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2325,6 +2538,12 @@ class AsyncDataBrewClient:
             role_arn: <p>The Amazon Resource Name (ARN) of the Identity and Access Management (IAM) role to be assumed when DataBrew runs the job.</p>
             timeout: <p>The job's timeout in minutes. A job that attempts to run longer than this timeout period ends with a status of <code>TIMEOUT</code>.</p>
             job_sample: <p>Sample configuration for Profile Jobs only. Determines the number of rows on which the Profile job will be executed. If a JobSample value is not provided for profile jobs, the default value will be used. The default value is CUSTOM_ROWS for the mode parameter and 20000 for the size parameter.</p>
+
+        Raises:
+            aws_sdk_databrew.errors.access_denied_exception.AccessDeniedException: <p>Access to the specified resource was denied.</p>
+            aws_sdk_databrew.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_databrew.errors.validation_exception.ValidationException: <p>The input parameters for this request failed validation.</p>
+            aws_sdk_databrew.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2386,6 +2605,11 @@ class AsyncDataBrewClient:
         Args:
             role_arn: <p>The Amazon Resource Name (ARN) of the IAM role to be assumed for this request.</p>
             name: <p>The name of the project to be updated.</p>
+
+        Raises:
+            aws_sdk_databrew.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_databrew.errors.validation_exception.ValidationException: <p>The input parameters for this request failed validation.</p>
+            aws_sdk_databrew.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2435,6 +2659,11 @@ class AsyncDataBrewClient:
             description: <p>A description of the recipe.</p>
             name: <p>The name of the recipe to be updated.</p>
             steps: <p>One or more steps to be performed by the recipe. Each step consists of an action, and the conditions under which the action should succeed.</p>
+
+        Raises:
+            aws_sdk_databrew.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_databrew.errors.validation_exception.ValidationException: <p>The input parameters for this request failed validation.</p>
+            aws_sdk_databrew.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2509,6 +2738,12 @@ class AsyncDataBrewClient:
             database_outputs: <p>Represents a list of JDBC database output objects which defines the output destination for a DataBrew recipe job to write into.</p>
             role_arn: <p>The Amazon Resource Name (ARN) of the Identity and Access Management (IAM) role to be assumed when DataBrew runs the job.</p>
             timeout: <p>The job's timeout in minutes. A job that attempts to run longer than this timeout period ends with a status of <code>TIMEOUT</code>.</p>
+
+        Raises:
+            aws_sdk_databrew.errors.access_denied_exception.AccessDeniedException: <p>Access to the specified resource was denied.</p>
+            aws_sdk_databrew.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_databrew.errors.validation_exception.ValidationException: <p>The input parameters for this request failed validation.</p>
+            aws_sdk_databrew.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2572,6 +2807,11 @@ class AsyncDataBrewClient:
             name: <p>The name of the ruleset to be updated.</p>
             description: <p>The description of the ruleset.</p>
             rules: <p>A list of rules that are defined with the ruleset. A rule includes one or more checks to be validated on a DataBrew dataset.</p>
+
+        Raises:
+            aws_sdk_databrew.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_databrew.errors.validation_exception.ValidationException: <p>The input parameters for this request failed validation.</p>
+            aws_sdk_databrew.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2617,6 +2857,12 @@ class AsyncDataBrewClient:
             job_names: <p>The name or names of one or more jobs to be run for this schedule.</p>
             cron_expression: <p>The date or dates and time or times when the jobs are to be run. For more information, see <a href=\"https://docs.aws.amazon.com/databrew/latest/dg/jobs.cron.html\">Cron expressions</a> in the <i>Glue DataBrew Developer Guide</i>.</p>
             name: <p>The name of the schedule to update.</p>
+
+        Raises:
+            aws_sdk_databrew.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_databrew.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>A service quota is exceeded.</p>
+            aws_sdk_databrew.errors.validation_exception.ValidationException: <p>The input parameters for this request failed validation.</p>
+            aws_sdk_databrew.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

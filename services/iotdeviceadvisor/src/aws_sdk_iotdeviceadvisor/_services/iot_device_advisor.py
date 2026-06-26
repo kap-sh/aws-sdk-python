@@ -177,6 +177,11 @@ class IotDeviceAdvisorClient:
             suite_definition_configuration: <p>Creates a Device Advisor test suite with suite definition configuration.</p>
             tags: <p>The tags to be attached to the suite definition.</p>
             client_token: <p>The client token for the test suite definition creation. This token is used for tracking test suite definition creation using retries and obtaining its status. This parameter is optional.</p>
+
+        Raises:
+            aws_sdk_iotdeviceadvisor.errors.internal_server_exception.InternalServerException: <p>Sends an Internal Failure exception.</p>
+            aws_sdk_iotdeviceadvisor.errors.validation_exception.ValidationException: <p>Sends a validation exception.</p>
+            aws_sdk_iotdeviceadvisor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -218,6 +223,11 @@ class IotDeviceAdvisorClient:
 
         Args:
             suite_definition_id: <p>Suite definition ID of the test suite to be deleted.</p>
+
+        Raises:
+            aws_sdk_iotdeviceadvisor.errors.internal_server_exception.InternalServerException: <p>Sends an Internal Failure exception.</p>
+            aws_sdk_iotdeviceadvisor.errors.validation_exception.ValidationException: <p>Sends a validation exception.</p>
+            aws_sdk_iotdeviceadvisor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -269,6 +279,12 @@ class IotDeviceAdvisorClient:
             certificate_arn: <p>The certificate ARN of the device. This is an optional parameter.</p>
             device_role_arn: <p>The device role ARN of the device. This is an optional parameter.</p>
             authentication_method: <p>The authentication method used during the device connection.</p>
+
+        Raises:
+            aws_sdk_iotdeviceadvisor.errors.internal_server_exception.InternalServerException: <p>Sends an Internal Failure exception.</p>
+            aws_sdk_iotdeviceadvisor.errors.resource_not_found_exception.ResourceNotFoundException: <p>Sends a Resource Not Found exception.</p>
+            aws_sdk_iotdeviceadvisor.errors.validation_exception.ValidationException: <p>Sends a validation exception.</p>
+            aws_sdk_iotdeviceadvisor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -317,6 +333,12 @@ class IotDeviceAdvisorClient:
         Args:
             suite_definition_id: <p>Suite definition ID of the test suite to get.</p>
             suite_definition_version: <p>Suite definition version of the test suite to get.</p>
+
+        Raises:
+            aws_sdk_iotdeviceadvisor.errors.internal_server_exception.InternalServerException: <p>Sends an Internal Failure exception.</p>
+            aws_sdk_iotdeviceadvisor.errors.resource_not_found_exception.ResourceNotFoundException: <p>Sends a Resource Not Found exception.</p>
+            aws_sdk_iotdeviceadvisor.errors.validation_exception.ValidationException: <p>Sends a validation exception.</p>
+            aws_sdk_iotdeviceadvisor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -358,6 +380,12 @@ class IotDeviceAdvisorClient:
         Args:
             suite_definition_id: <p>Suite definition ID for the test suite run.</p>
             suite_run_id: <p>Suite run ID for the test suite run.</p>
+
+        Raises:
+            aws_sdk_iotdeviceadvisor.errors.internal_server_exception.InternalServerException: <p>Sends an Internal Failure exception.</p>
+            aws_sdk_iotdeviceadvisor.errors.resource_not_found_exception.ResourceNotFoundException: <p>Sends a Resource Not Found exception.</p>
+            aws_sdk_iotdeviceadvisor.errors.validation_exception.ValidationException: <p>Sends a validation exception.</p>
+            aws_sdk_iotdeviceadvisor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -398,6 +426,12 @@ class IotDeviceAdvisorClient:
         Args:
             suite_definition_id: <p>Suite definition ID of the test suite.</p>
             suite_run_id: <p>Suite run ID of the test suite run.</p>
+
+        Raises:
+            aws_sdk_iotdeviceadvisor.errors.internal_server_exception.InternalServerException: <p>Sends an Internal Failure exception.</p>
+            aws_sdk_iotdeviceadvisor.errors.resource_not_found_exception.ResourceNotFoundException: <p>Sends a Resource Not Found exception.</p>
+            aws_sdk_iotdeviceadvisor.errors.validation_exception.ValidationException: <p>Sends a validation exception.</p>
+            aws_sdk_iotdeviceadvisor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -440,6 +474,11 @@ class IotDeviceAdvisorClient:
         Args:
             max_results: <p>The maximum number of results to return at once.</p>
             next_token: <p>A token used to get the next set of results.</p>
+
+        Raises:
+            aws_sdk_iotdeviceadvisor.errors.internal_server_exception.InternalServerException: <p>Sends an Internal Failure exception.</p>
+            aws_sdk_iotdeviceadvisor.errors.validation_exception.ValidationException: <p>Sends a validation exception.</p>
+            aws_sdk_iotdeviceadvisor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -494,6 +533,11 @@ class IotDeviceAdvisorClient:
             suite_definition_version: <p>Must be passed along with <code>suiteDefinitionId</code>. Lists the test suite runs of the specified test suite based on suite definition version.</p>
             max_results: <p>The maximum number of results to return at once.</p>
             next_token: <p>A token to retrieve the next set of results.</p>
+
+        Raises:
+            aws_sdk_iotdeviceadvisor.errors.internal_server_exception.InternalServerException: <p>Sends an Internal Failure exception.</p>
+            aws_sdk_iotdeviceadvisor.errors.validation_exception.ValidationException: <p>Sends a validation exception.</p>
+            aws_sdk_iotdeviceadvisor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -538,6 +582,12 @@ class IotDeviceAdvisorClient:
 
         Args:
             resource_arn: <p>The resource ARN of the IoT Device Advisor resource. This can be SuiteDefinition ARN or SuiteRun ARN.</p>
+
+        Raises:
+            aws_sdk_iotdeviceadvisor.errors.internal_server_exception.InternalServerException: <p>Sends an Internal Failure exception.</p>
+            aws_sdk_iotdeviceadvisor.errors.resource_not_found_exception.ResourceNotFoundException: <p>Sends a Resource Not Found exception.</p>
+            aws_sdk_iotdeviceadvisor.errors.validation_exception.ValidationException: <p>Sends a validation exception.</p>
+            aws_sdk_iotdeviceadvisor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -585,6 +635,12 @@ class IotDeviceAdvisorClient:
             suite_definition_version: <p>Suite definition version of the test suite.</p>
             suite_run_configuration: <p>Suite run configuration.</p>
             tags: <p>The tags to be attached to the suite run.</p>
+
+        Raises:
+            aws_sdk_iotdeviceadvisor.errors.conflict_exception.ConflictException: <p>Sends a Conflict Exception.</p>
+            aws_sdk_iotdeviceadvisor.errors.internal_server_exception.InternalServerException: <p>Sends an Internal Failure exception.</p>
+            aws_sdk_iotdeviceadvisor.errors.validation_exception.ValidationException: <p>Sends a validation exception.</p>
+            aws_sdk_iotdeviceadvisor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -629,6 +685,12 @@ class IotDeviceAdvisorClient:
         Args:
             suite_definition_id: <p>Suite definition ID of the test suite run to be stopped.</p>
             suite_run_id: <p>Suite run ID of the test suite run to be stopped.</p>
+
+        Raises:
+            aws_sdk_iotdeviceadvisor.errors.internal_server_exception.InternalServerException: <p>Sends an Internal Failure exception.</p>
+            aws_sdk_iotdeviceadvisor.errors.resource_not_found_exception.ResourceNotFoundException: <p>Sends a Resource Not Found exception.</p>
+            aws_sdk_iotdeviceadvisor.errors.validation_exception.ValidationException: <p>Sends a validation exception.</p>
+            aws_sdk_iotdeviceadvisor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -669,6 +731,12 @@ class IotDeviceAdvisorClient:
         Args:
             resource_arn: <p>The resource ARN of an IoT Device Advisor resource. This can be SuiteDefinition ARN or SuiteRun ARN.</p>
             tags: <p>The tags to be attached to the IoT Device Advisor resource.</p>
+
+        Raises:
+            aws_sdk_iotdeviceadvisor.errors.internal_server_exception.InternalServerException: <p>Sends an Internal Failure exception.</p>
+            aws_sdk_iotdeviceadvisor.errors.resource_not_found_exception.ResourceNotFoundException: <p>Sends a Resource Not Found exception.</p>
+            aws_sdk_iotdeviceadvisor.errors.validation_exception.ValidationException: <p>Sends a validation exception.</p>
+            aws_sdk_iotdeviceadvisor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -709,6 +777,12 @@ class IotDeviceAdvisorClient:
         Args:
             resource_arn: <p>The resource ARN of an IoT Device Advisor resource. This can be SuiteDefinition ARN or SuiteRun ARN.</p>
             tag_keys: <p>List of tag keys to remove from the IoT Device Advisor resource.</p>
+
+        Raises:
+            aws_sdk_iotdeviceadvisor.errors.internal_server_exception.InternalServerException: <p>Sends an Internal Failure exception.</p>
+            aws_sdk_iotdeviceadvisor.errors.resource_not_found_exception.ResourceNotFoundException: <p>Sends a Resource Not Found exception.</p>
+            aws_sdk_iotdeviceadvisor.errors.validation_exception.ValidationException: <p>Sends a validation exception.</p>
+            aws_sdk_iotdeviceadvisor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -749,6 +823,11 @@ class IotDeviceAdvisorClient:
         Args:
             suite_definition_id: <p>Suite definition ID of the test suite to be updated.</p>
             suite_definition_configuration: <p>Updates a Device Advisor test suite with suite definition configuration.</p>
+
+        Raises:
+            aws_sdk_iotdeviceadvisor.errors.internal_server_exception.InternalServerException: <p>Sends an Internal Failure exception.</p>
+            aws_sdk_iotdeviceadvisor.errors.validation_exception.ValidationException: <p>Sends a validation exception.</p>
+            aws_sdk_iotdeviceadvisor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(

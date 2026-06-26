@@ -348,6 +348,11 @@ class AthenaClient:
 
         Args:
             named_query_ids: <p>An array of query IDs.</p>
+
+        Raises:
+            aws_sdk_athena.errors.internal_server_exception.InternalServerException: <p>Indicates a platform issue, which may be due to a transient condition or outage.</p>
+            aws_sdk_athena.errors.invalid_request_exception.InvalidRequestException: <p>Indicates that something is wrong with the input to the request. For example, a required parameter may be missing or out of range.</p>
+            aws_sdk_athena.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -387,6 +392,11 @@ class AthenaClient:
         Args:
             prepared_statement_names: <p>A list of prepared statement names to return.</p>
             work_group: <p>The name of the workgroup to which the prepared statements belong.</p>
+
+        Raises:
+            aws_sdk_athena.errors.internal_server_exception.InternalServerException: <p>Indicates a platform issue, which may be due to a transient condition or outage.</p>
+            aws_sdk_athena.errors.invalid_request_exception.InvalidRequestException: <p>Indicates that something is wrong with the input to the request. For example, a required parameter may be missing or out of range.</p>
+            aws_sdk_athena.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -425,6 +435,11 @@ class AthenaClient:
 
         Args:
             query_execution_ids: <p>An array of query execution IDs.</p>
+
+        Raises:
+            aws_sdk_athena.errors.internal_server_exception.InternalServerException: <p>Indicates a platform issue, which may be due to a transient condition or outage.</p>
+            aws_sdk_athena.errors.invalid_request_exception.InvalidRequestException: <p>Indicates that something is wrong with the input to the request. For example, a required parameter may be missing or out of range.</p>
+            aws_sdk_athena.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -462,6 +477,11 @@ class AthenaClient:
 
         Args:
             name: <p>The name of the capacity reservation to cancel.</p>
+
+        Raises:
+            aws_sdk_athena.errors.internal_server_exception.InternalServerException: <p>Indicates a platform issue, which may be due to a transient condition or outage.</p>
+            aws_sdk_athena.errors.invalid_request_exception.InvalidRequestException: <p>Indicates that something is wrong with the input to the request. For example, a required parameter may be missing or out of range.</p>
+            aws_sdk_athena.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -503,6 +523,11 @@ class AthenaClient:
             target_dpus: <p>The number of requested data processing units.</p>
             name: <p>The name of the capacity reservation to create.</p>
             tags: <p>The tags for the capacity reservation.</p>
+
+        Raises:
+            aws_sdk_athena.errors.internal_server_exception.InternalServerException: <p>Indicates a platform issue, which may be due to a transient condition or outage.</p>
+            aws_sdk_athena.errors.invalid_request_exception.InvalidRequestException: <p>Indicates that something is wrong with the input to the request. For example, a required parameter may be missing or out of range.</p>
+            aws_sdk_athena.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -555,6 +580,11 @@ class AthenaClient:
             description: <p>A description of the data catalog to be created.</p>
             parameters: <p>Specifies the Lambda function or functions to use for creating the data catalog. This is a mapping whose values depend on the catalog type. </p> <ul> <li> <p>For the <code>HIVE</code> data catalog type, use the following syntax. The <code>metadata-function</code> parameter is required. <code>The sdk-version</code> parameter is optional and defaults to the currently supported version.</p> <p> <code>metadata-function=<i>lambda_arn</i>, sdk-version=<i>version_number</i> </code> </p> </li> <li> <p>For the <code>LAMBDA</code> data catalog type, use one of the following sets of required parameters, but not both.</p> <ul> <li> <p>If you have one Lambda function that processes metadata and another for reading the actual data, use the following syntax. Both parameters are required.</p> <p> <code>metadata-function=<i>lambda_arn</i>, record-function=<i>lambda_arn</i> </code> </p> </li> <li> <p> If you have a composite Lambda function that processes both metadata and data, use the following syntax to specify your Lambda function.</p> <p> <code>function=<i>lambda_arn</i> </code> </p> </li> </ul> </li> <li> <p>The <code>GLUE</code> type takes a catalog ID parameter and is required. The <code> <i>catalog_id</i> </code> is the account ID of the Amazon Web Services account to which the Glue Data Catalog belongs.</p> <p> <code>catalog-id=<i>catalog_id</i> </code> </p> <ul> <li> <p>The <code>GLUE</code> data catalog type also applies to the default <code>AwsDataCatalog</code> that already exists in your account, of which you can have only one and cannot modify.</p> </li> </ul> </li> <li> <p>The <code>FEDERATED</code> data catalog type uses one of the following parameters, but not both. Use <code>connection-arn</code> for an existing Glue connection. Use <code>connection-type</code> and <code>connection-properties</code> to specify the configuration setting for a new connection.</p> <ul> <li> <p> <code>connection-arn:<i><glue_connection_arn_to_reuse></i> </code> </p> </li> <li> <p> <code>lambda-role-arn</code> (optional): The execution role to use for the Lambda function. If not provided, one is created.</p> </li> <li> <p> <code>connection-type:MYSQL|REDSHIFT|...., connection-properties:\"<i><json_string></i>\"</code> </p> <p>For <i> <code><json_string></code> </i>, use escaped JSON text, as in the following example.</p> <p> <code>\"{\\"spill_bucket\\":\\"my_spill\\",\\"spill_prefix\\":\\"athena-spill\\",\\"host\\":\\"abc12345.snowflakecomputing.com\\",\\"port\\":\\"1234\\",\\"warehouse\\":\\"DEV_WH\\",\\"database\\":\\"TEST\\",\\"schema\\":\\"PUBLIC\\",\\"SecretArn\\":\\"arn:aws:secretsmanager:ap-south-1:111122223333:secret:snowflake-XHb67j\\"}\"</code> </p> </li> </ul> </li> </ul>
             tags: <p>A list of comma separated tags to add to the data catalog that is created. All the resources that are created by the <code>CreateDataCatalog</code> API operation with <code>FEDERATED</code> type will have the tag <code>federated_athena_datacatalog=\"true\"</code>. This includes the CFN Stack, Glue Connection, Athena DataCatalog, and all the resources created as part of the CFN Stack (Lambda Function, IAM policies/roles).</p>
+
+        Raises:
+            aws_sdk_athena.errors.internal_server_exception.InternalServerException: <p>Indicates a platform issue, which may be due to a transient condition or outage.</p>
+            aws_sdk_athena.errors.invalid_request_exception.InvalidRequestException: <p>Indicates that something is wrong with the input to the request. For example, a required parameter may be missing or out of range.</p>
+            aws_sdk_athena.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -615,6 +645,11 @@ class AthenaClient:
             query_string: <p>The contents of the query with all query statements.</p>
             client_request_token: <p>A unique case-sensitive string used to ensure the request to create the query is idempotent (executes only once). If another <code>CreateNamedQuery</code> request is received, the same response is returned and another query is not created. If a parameter has changed, for example, the <code>QueryString</code>, an error is returned.</p> <important> <p>This token is listed as not required because Amazon Web Services SDKs (for example the Amazon Web Services SDK for Java) auto-generate the token for users. If you are not using the Amazon Web Services SDK or the Amazon Web Services CLI, you must provide this token or the action will fail.</p> </important>
             work_group: <p>The name of the workgroup in which the named query is being created.</p>
+
+        Raises:
+            aws_sdk_athena.errors.internal_server_exception.InternalServerException: <p>Indicates a platform issue, which may be due to a transient condition or outage.</p>
+            aws_sdk_athena.errors.invalid_request_exception.InvalidRequestException: <p>Indicates that something is wrong with the input to the request. For example, a required parameter may be missing or out of range.</p>
+            aws_sdk_athena.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -666,6 +701,12 @@ class AthenaClient:
             work_group: <p>The name of the Spark enabled workgroup in which the notebook will be created.</p>
             name: <p>The name of the <code>ipynb</code> file to be created in the Spark workgroup, without the <code>.ipynb</code> extension.</p>
             client_request_token: <p>A unique case-sensitive string used to ensure the request to create the notebook is idempotent (executes only once).</p> <important> <p>This token is listed as not required because Amazon Web Services SDKs (for example the Amazon Web Services SDK for Java) auto-generate the token for you. If you are not using the Amazon Web Services SDK or the Amazon Web Services CLI, you must provide this token or the action will fail.</p> </important>
+
+        Raises:
+            aws_sdk_athena.errors.internal_server_exception.InternalServerException: <p>Indicates a platform issue, which may be due to a transient condition or outage.</p>
+            aws_sdk_athena.errors.invalid_request_exception.InvalidRequestException: <p>Indicates that something is wrong with the input to the request. For example, a required parameter may be missing or out of range.</p>
+            aws_sdk_athena.errors.too_many_requests_exception.TooManyRequestsException: <p>Indicates that the request was throttled.</p>
+            aws_sdk_athena.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -714,6 +755,11 @@ class AthenaClient:
             work_group: <p>The name of the workgroup to which the prepared statement belongs.</p>
             query_statement: <p>The query string for the prepared statement.</p>
             description: <p>The description of the prepared statement.</p>
+
+        Raises:
+            aws_sdk_athena.errors.internal_server_exception.InternalServerException: <p>Indicates a platform issue, which may be due to a transient condition or outage.</p>
+            aws_sdk_athena.errors.invalid_request_exception.InvalidRequestException: <p>Indicates that something is wrong with the input to the request. For example, a required parameter may be missing or out of range.</p>
+            aws_sdk_athena.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -755,6 +801,12 @@ class AthenaClient:
 
         Args:
             session_id: <p>The session ID.</p>
+
+        Raises:
+            aws_sdk_athena.errors.internal_server_exception.InternalServerException: <p>Indicates a platform issue, which may be due to a transient condition or outage.</p>
+            aws_sdk_athena.errors.invalid_request_exception.InvalidRequestException: <p>Indicates that something is wrong with the input to the request. For example, a required parameter may be missing or out of range.</p>
+            aws_sdk_athena.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource, such as a workgroup, was not found.</p>
+            aws_sdk_athena.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -802,6 +854,11 @@ class AthenaClient:
             configuration: <p>Contains configuration information for creating an Athena SQL workgroup or Spark enabled Athena workgroup. Athena SQL workgroup configuration includes the location in Amazon S3 where query and calculation results are stored, the encryption configuration, if any, used for encrypting query results, whether the Amazon CloudWatch Metrics are enabled for the workgroup, the limit for the amount of bytes scanned (cutoff) per query, if it is specified, and whether workgroup's settings (specified with <code>EnforceWorkGroupConfiguration</code>) in the <code>WorkGroupConfiguration</code> override client-side settings. See <a>WorkGroupConfiguration$EnforceWorkGroupConfiguration</a>.</p>
             description: <p>The workgroup description.</p>
             tags: <p>A list of comma separated tags to add to the workgroup that is created.</p>
+
+        Raises:
+            aws_sdk_athena.errors.internal_server_exception.InternalServerException: <p>Indicates a platform issue, which may be due to a transient condition or outage.</p>
+            aws_sdk_athena.errors.invalid_request_exception.InvalidRequestException: <p>Indicates that something is wrong with the input to the request. For example, a required parameter may be missing or out of range.</p>
+            aws_sdk_athena.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -845,6 +902,11 @@ class AthenaClient:
 
         Args:
             name: <p>The name of the capacity reservation to delete.</p>
+
+        Raises:
+            aws_sdk_athena.errors.internal_server_exception.InternalServerException: <p>Indicates a platform issue, which may be due to a transient condition or outage.</p>
+            aws_sdk_athena.errors.invalid_request_exception.InvalidRequestException: <p>Indicates that something is wrong with the input to the request. For example, a required parameter may be missing or out of range.</p>
+            aws_sdk_athena.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -884,6 +946,11 @@ class AthenaClient:
         Args:
             name: <p>The name of the data catalog to delete.</p>
             delete_catalog_only: <p>Deletes the Athena Data Catalog. You can only use this with the <code>FEDERATED</code> catalogs. You usually perform this before registering the connector with Glue Data Catalog. After deletion, you will have to manage the Glue Connection and Lambda function. </p>
+
+        Raises:
+            aws_sdk_athena.errors.internal_server_exception.InternalServerException: <p>Indicates a platform issue, which may be due to a transient condition or outage.</p>
+            aws_sdk_athena.errors.invalid_request_exception.InvalidRequestException: <p>Indicates that something is wrong with the input to the request. For example, a required parameter may be missing or out of range.</p>
+            aws_sdk_athena.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -923,6 +990,11 @@ class AthenaClient:
 
         Args:
             named_query_id: <p>The unique ID of the query to delete.</p>
+
+        Raises:
+            aws_sdk_athena.errors.internal_server_exception.InternalServerException: <p>Indicates a platform issue, which may be due to a transient condition or outage.</p>
+            aws_sdk_athena.errors.invalid_request_exception.InvalidRequestException: <p>Indicates that something is wrong with the input to the request. For example, a required parameter may be missing or out of range.</p>
+            aws_sdk_athena.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -960,6 +1032,12 @@ class AthenaClient:
 
         Args:
             notebook_id: <p>The ID of the notebook to delete.</p>
+
+        Raises:
+            aws_sdk_athena.errors.internal_server_exception.InternalServerException: <p>Indicates a platform issue, which may be due to a transient condition or outage.</p>
+            aws_sdk_athena.errors.invalid_request_exception.InvalidRequestException: <p>Indicates that something is wrong with the input to the request. For example, a required parameter may be missing or out of range.</p>
+            aws_sdk_athena.errors.too_many_requests_exception.TooManyRequestsException: <p>Indicates that the request was throttled.</p>
+            aws_sdk_athena.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -999,6 +1077,12 @@ class AthenaClient:
         Args:
             statement_name: <p>The name of the prepared statement to delete.</p>
             work_group: <p>The workgroup to which the statement to be deleted belongs.</p>
+
+        Raises:
+            aws_sdk_athena.errors.internal_server_exception.InternalServerException: <p>Indicates a platform issue, which may be due to a transient condition or outage.</p>
+            aws_sdk_athena.errors.invalid_request_exception.InvalidRequestException: <p>Indicates that something is wrong with the input to the request. For example, a required parameter may be missing or out of range.</p>
+            aws_sdk_athena.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource, such as a workgroup, was not found.</p>
+            aws_sdk_athena.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1041,6 +1125,11 @@ class AthenaClient:
         Args:
             work_group: <p>The unique name of the workgroup to delete.</p>
             recursive_delete_option: <p>The option to delete the workgroup and its contents even if the workgroup contains any named queries, query executions, or notebooks.</p>
+
+        Raises:
+            aws_sdk_athena.errors.internal_server_exception.InternalServerException: <p>Indicates a platform issue, which may be due to a transient condition or outage.</p>
+            aws_sdk_athena.errors.invalid_request_exception.InvalidRequestException: <p>Indicates that something is wrong with the input to the request. For example, a required parameter may be missing or out of range.</p>
+            aws_sdk_athena.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1080,6 +1169,12 @@ class AthenaClient:
 
         Args:
             notebook_id: <p>The ID of the notebook to export.</p>
+
+        Raises:
+            aws_sdk_athena.errors.internal_server_exception.InternalServerException: <p>Indicates a platform issue, which may be due to a transient condition or outage.</p>
+            aws_sdk_athena.errors.invalid_request_exception.InvalidRequestException: <p>Indicates that something is wrong with the input to the request. For example, a required parameter may be missing or out of range.</p>
+            aws_sdk_athena.errors.too_many_requests_exception.TooManyRequestsException: <p>Indicates that the request was throttled.</p>
+            aws_sdk_athena.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1117,6 +1212,12 @@ class AthenaClient:
 
         Args:
             calculation_execution_id: <p>The calculation execution UUID.</p>
+
+        Raises:
+            aws_sdk_athena.errors.internal_server_exception.InternalServerException: <p>Indicates a platform issue, which may be due to a transient condition or outage.</p>
+            aws_sdk_athena.errors.invalid_request_exception.InvalidRequestException: <p>Indicates that something is wrong with the input to the request. For example, a required parameter may be missing or out of range.</p>
+            aws_sdk_athena.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource, such as a workgroup, was not found.</p>
+            aws_sdk_athena.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1154,6 +1255,12 @@ class AthenaClient:
 
         Args:
             calculation_execution_id: <p>The calculation execution UUID.</p>
+
+        Raises:
+            aws_sdk_athena.errors.internal_server_exception.InternalServerException: <p>Indicates a platform issue, which may be due to a transient condition or outage.</p>
+            aws_sdk_athena.errors.invalid_request_exception.InvalidRequestException: <p>Indicates that something is wrong with the input to the request. For example, a required parameter may be missing or out of range.</p>
+            aws_sdk_athena.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource, such as a workgroup, was not found.</p>
+            aws_sdk_athena.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1191,6 +1298,12 @@ class AthenaClient:
 
         Args:
             calculation_execution_id: <p>The calculation execution UUID.</p>
+
+        Raises:
+            aws_sdk_athena.errors.internal_server_exception.InternalServerException: <p>Indicates a platform issue, which may be due to a transient condition or outage.</p>
+            aws_sdk_athena.errors.invalid_request_exception.InvalidRequestException: <p>Indicates that something is wrong with the input to the request. For example, a required parameter may be missing or out of range.</p>
+            aws_sdk_athena.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource, such as a workgroup, was not found.</p>
+            aws_sdk_athena.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1228,6 +1341,11 @@ class AthenaClient:
 
         Args:
             capacity_reservation_name: <p>The name of the capacity reservation to retrieve the capacity assignment configuration for.</p>
+
+        Raises:
+            aws_sdk_athena.errors.internal_server_exception.InternalServerException: <p>Indicates a platform issue, which may be due to a transient condition or outage.</p>
+            aws_sdk_athena.errors.invalid_request_exception.InvalidRequestException: <p>Indicates that something is wrong with the input to the request. For example, a required parameter may be missing or out of range.</p>
+            aws_sdk_athena.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1265,6 +1383,11 @@ class AthenaClient:
 
         Args:
             name: <p>The name of the capacity reservation.</p>
+
+        Raises:
+            aws_sdk_athena.errors.internal_server_exception.InternalServerException: <p>Indicates a platform issue, which may be due to a transient condition or outage.</p>
+            aws_sdk_athena.errors.invalid_request_exception.InvalidRequestException: <p>Indicates that something is wrong with the input to the request. For example, a required parameter may be missing or out of range.</p>
+            aws_sdk_athena.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1308,6 +1431,12 @@ class AthenaClient:
             catalog_name: <p>The name of the data catalog that contains the database to return.</p>
             database_name: <p>The name of the database to return.</p>
             work_group: <p>The name of the workgroup for which the metadata is being fetched. Required if requesting an IAM Identity Center enabled Glue Data Catalog.</p>
+
+        Raises:
+            aws_sdk_athena.errors.internal_server_exception.InternalServerException: <p>Indicates a platform issue, which may be due to a transient condition or outage.</p>
+            aws_sdk_athena.errors.invalid_request_exception.InvalidRequestException: <p>Indicates that something is wrong with the input to the request. For example, a required parameter may be missing or out of range.</p>
+            aws_sdk_athena.errors.metadata_exception.MetadataException: <p>An exception that Athena received when it called a custom metastore. Occurs if the error is not caused by user input (<code>InvalidRequestException</code>) or from the Athena platform (<code>InternalServerException</code>). For example, if a user-created Lambda function is missing permissions, the Lambda <code>4XX</code> exception is returned in a <code>MetadataException</code>.</p>
+            aws_sdk_athena.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1352,6 +1481,11 @@ class AthenaClient:
         Args:
             name: <p>The name of the data catalog to return.</p>
             work_group: <p>The name of the workgroup. Required if making an IAM Identity Center request.</p>
+
+        Raises:
+            aws_sdk_athena.errors.internal_server_exception.InternalServerException: <p>Indicates a platform issue, which may be due to a transient condition or outage.</p>
+            aws_sdk_athena.errors.invalid_request_exception.InvalidRequestException: <p>Indicates that something is wrong with the input to the request. For example, a required parameter may be missing or out of range.</p>
+            aws_sdk_athena.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1391,6 +1525,11 @@ class AthenaClient:
 
         Args:
             named_query_id: <p>The unique ID of the query. Use <a>ListNamedQueries</a> to get query IDs.</p>
+
+        Raises:
+            aws_sdk_athena.errors.internal_server_exception.InternalServerException: <p>Indicates a platform issue, which may be due to a transient condition or outage.</p>
+            aws_sdk_athena.errors.invalid_request_exception.InvalidRequestException: <p>Indicates that something is wrong with the input to the request. For example, a required parameter may be missing or out of range.</p>
+            aws_sdk_athena.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1428,6 +1567,12 @@ class AthenaClient:
 
         Args:
             notebook_id: <p>The ID of the notebook whose metadata is to be retrieved.</p>
+
+        Raises:
+            aws_sdk_athena.errors.internal_server_exception.InternalServerException: <p>Indicates a platform issue, which may be due to a transient condition or outage.</p>
+            aws_sdk_athena.errors.invalid_request_exception.InvalidRequestException: <p>Indicates that something is wrong with the input to the request. For example, a required parameter may be missing or out of range.</p>
+            aws_sdk_athena.errors.too_many_requests_exception.TooManyRequestsException: <p>Indicates that the request was throttled.</p>
+            aws_sdk_athena.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1469,6 +1614,12 @@ class AthenaClient:
         Args:
             statement_name: <p>The name of the prepared statement to retrieve.</p>
             work_group: <p>The workgroup to which the statement to be retrieved belongs.</p>
+
+        Raises:
+            aws_sdk_athena.errors.internal_server_exception.InternalServerException: <p>Indicates a platform issue, which may be due to a transient condition or outage.</p>
+            aws_sdk_athena.errors.invalid_request_exception.InvalidRequestException: <p>Indicates that something is wrong with the input to the request. For example, a required parameter may be missing or out of range.</p>
+            aws_sdk_athena.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource, such as a workgroup, was not found.</p>
+            aws_sdk_athena.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1507,6 +1658,11 @@ class AthenaClient:
 
         Args:
             query_execution_id: <p>The unique ID of the query execution.</p>
+
+        Raises:
+            aws_sdk_athena.errors.internal_server_exception.InternalServerException: <p>Indicates a platform issue, which may be due to a transient condition or outage.</p>
+            aws_sdk_athena.errors.invalid_request_exception.InvalidRequestException: <p>Indicates that something is wrong with the input to the request. For example, a required parameter may be missing or out of range.</p>
+            aws_sdk_athena.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1554,6 +1710,12 @@ class AthenaClient:
             next_token: <p>A token generated by the Athena service that specifies where to continue pagination if a previous request was truncated. To obtain the next set of pages, pass in the <code>NextToken</code> from the response object of the previous page call.</p>
             max_results: <p>The maximum number of results (rows) to return in this request.</p>
             query_result_type: <p> When you set this to <code>DATA_ROWS</code> or empty, <code>GetQueryResults</code> returns the query results in rows. If set to <code>DATA_MANIFEST</code>, it returns the manifest file in rows. Only the query types <code>CREATE TABLE AS SELECT</code>, <code>UNLOAD</code>, and <code>INSERT</code> can generate a manifest file. If you use <code>DATA_MANIFEST</code> for other query types, the query will fail. </p>
+
+        Raises:
+            aws_sdk_athena.errors.internal_server_exception.InternalServerException: <p>Indicates a platform issue, which may be due to a transient condition or outage.</p>
+            aws_sdk_athena.errors.invalid_request_exception.InvalidRequestException: <p>Indicates that something is wrong with the input to the request. For example, a required parameter may be missing or out of range.</p>
+            aws_sdk_athena.errors.too_many_requests_exception.TooManyRequestsException: <p>Indicates that the request was throttled.</p>
+            aws_sdk_athena.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1597,6 +1759,11 @@ class AthenaClient:
 
         Args:
             query_execution_id: <p>The unique ID of the query execution.</p>
+
+        Raises:
+            aws_sdk_athena.errors.internal_server_exception.InternalServerException: <p>Indicates a platform issue, which may be due to a transient condition or outage.</p>
+            aws_sdk_athena.errors.invalid_request_exception.InvalidRequestException: <p>Indicates that something is wrong with the input to the request. For example, a required parameter may be missing or out of range.</p>
+            aws_sdk_athena.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1634,6 +1801,12 @@ class AthenaClient:
 
         Args:
             resource_arn: <p>The The Amazon Resource Name (ARN) for a session.</p>
+
+        Raises:
+            aws_sdk_athena.errors.internal_server_exception.InternalServerException: <p>Indicates a platform issue, which may be due to a transient condition or outage.</p>
+            aws_sdk_athena.errors.invalid_request_exception.InvalidRequestException: <p>Indicates that something is wrong with the input to the request. For example, a required parameter may be missing or out of range.</p>
+            aws_sdk_athena.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource, such as a workgroup, was not found.</p>
+            aws_sdk_athena.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1671,6 +1844,12 @@ class AthenaClient:
 
         Args:
             session_id: <p>The session ID.</p>
+
+        Raises:
+            aws_sdk_athena.errors.internal_server_exception.InternalServerException: <p>Indicates a platform issue, which may be due to a transient condition or outage.</p>
+            aws_sdk_athena.errors.invalid_request_exception.InvalidRequestException: <p>Indicates that something is wrong with the input to the request. For example, a required parameter may be missing or out of range.</p>
+            aws_sdk_athena.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource, such as a workgroup, was not found.</p>
+            aws_sdk_athena.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1710,6 +1889,12 @@ class AthenaClient:
 
         Args:
             session_id: <p>The session ID.</p>
+
+        Raises:
+            aws_sdk_athena.errors.internal_server_exception.InternalServerException: <p>Indicates a platform issue, which may be due to a transient condition or outage.</p>
+            aws_sdk_athena.errors.invalid_request_exception.InvalidRequestException: <p>Indicates that something is wrong with the input to the request. For example, a required parameter may be missing or out of range.</p>
+            aws_sdk_athena.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource, such as a workgroup, was not found.</p>
+            aws_sdk_athena.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1747,6 +1932,12 @@ class AthenaClient:
 
         Args:
             session_id: <p>The session ID.</p>
+
+        Raises:
+            aws_sdk_athena.errors.internal_server_exception.InternalServerException: <p>Indicates a platform issue, which may be due to a transient condition or outage.</p>
+            aws_sdk_athena.errors.invalid_request_exception.InvalidRequestException: <p>Indicates that something is wrong with the input to the request. For example, a required parameter may be missing or out of range.</p>
+            aws_sdk_athena.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource, such as a workgroup, was not found.</p>
+            aws_sdk_athena.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1792,6 +1983,12 @@ class AthenaClient:
             database_name: <p>The name of the database that contains the table metadata to return.</p>
             table_name: <p>The name of the table for which metadata is returned.</p>
             work_group: <p>The name of the workgroup for which the metadata is being fetched. Required if requesting an IAM Identity Center enabled Glue Data Catalog.</p>
+
+        Raises:
+            aws_sdk_athena.errors.internal_server_exception.InternalServerException: <p>Indicates a platform issue, which may be due to a transient condition or outage.</p>
+            aws_sdk_athena.errors.invalid_request_exception.InvalidRequestException: <p>Indicates that something is wrong with the input to the request. For example, a required parameter may be missing or out of range.</p>
+            aws_sdk_athena.errors.metadata_exception.MetadataException: <p>An exception that Athena received when it called a custom metastore. Occurs if the error is not caused by user input (<code>InvalidRequestException</code>) or from the Athena platform (<code>InternalServerException</code>). For example, if a user-created Lambda function is missing permissions, the Lambda <code>4XX</code> exception is returned in a <code>MetadataException</code>.</p>
+            aws_sdk_athena.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1833,6 +2030,11 @@ class AthenaClient:
 
         Args:
             work_group: <p>The name of the workgroup.</p>
+
+        Raises:
+            aws_sdk_athena.errors.internal_server_exception.InternalServerException: <p>Indicates a platform issue, which may be due to a transient condition or outage.</p>
+            aws_sdk_athena.errors.invalid_request_exception.InvalidRequestException: <p>Indicates that something is wrong with the input to the request. For example, a required parameter may be missing or out of range.</p>
+            aws_sdk_athena.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1882,6 +2084,12 @@ class AthenaClient:
             type: <p>The notebook content type. Currently, the only valid type is <code>IPYNB</code>.</p>
             notebook_s3_location_uri: <p>A URI that specifies the Amazon S3 location of a notebook file in <code>ipynb</code> format.</p>
             client_request_token: <p>A unique case-sensitive string used to ensure the request to import the notebook is idempotent (executes only once).</p> <important> <p>This token is listed as not required because Amazon Web Services SDKs (for example the Amazon Web Services SDK for Java) auto-generate the token for you. If you are not using the Amazon Web Services SDK or the Amazon Web Services CLI, you must provide this token or the action will fail.</p> </important>
+
+        Raises:
+            aws_sdk_athena.errors.internal_server_exception.InternalServerException: <p>Indicates a platform issue, which may be due to a transient condition or outage.</p>
+            aws_sdk_athena.errors.invalid_request_exception.InvalidRequestException: <p>Indicates that something is wrong with the input to the request. For example, a required parameter may be missing or out of range.</p>
+            aws_sdk_athena.errors.too_many_requests_exception.TooManyRequestsException: <p>Indicates that the request was throttled.</p>
+            aws_sdk_athena.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1931,6 +2139,12 @@ class AthenaClient:
         Args:
             max_results: <p>Specifies the maximum number of results to return.</p>
             next_token: <p>A token generated by the Athena service that specifies where to continue pagination if a previous request was truncated.</p>
+
+        Raises:
+            aws_sdk_athena.errors.internal_server_exception.InternalServerException: <p>Indicates a platform issue, which may be due to a transient condition or outage.</p>
+            aws_sdk_athena.errors.invalid_request_exception.InvalidRequestException: <p>Indicates that something is wrong with the input to the request. For example, a required parameter may be missing or out of range.</p>
+            aws_sdk_athena.errors.too_many_requests_exception.TooManyRequestsException: <p>Indicates that the request was throttled.</p>
+            aws_sdk_athena.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1983,6 +2197,12 @@ class AthenaClient:
             state_filter: <p>A filter for a specific calculation execution state. A description of each state follows.</p> <p> <code>CREATING</code> - The calculation is in the process of being created.</p> <p> <code>CREATED</code> - The calculation has been created and is ready to run.</p> <p> <code>QUEUED</code> - The calculation has been queued for processing.</p> <p> <code>RUNNING</code> - The calculation is running.</p> <p> <code>CANCELING</code> - A request to cancel the calculation has been received and the system is working to stop it.</p> <p> <code>CANCELED</code> - The calculation is no longer running as the result of a cancel request.</p> <p> <code>COMPLETED</code> - The calculation has completed without error.</p> <p> <code>FAILED</code> - The calculation failed and is no longer running.</p>
             max_results: <p>The maximum number of calculation executions to return.</p>
             next_token: <p>A token generated by the Athena service that specifies where to continue pagination if a previous request was truncated. To obtain the next set of pages, pass in the <code>NextToken</code> from the response object of the previous page call.</p>
+
+        Raises:
+            aws_sdk_athena.errors.internal_server_exception.InternalServerException: <p>Indicates a platform issue, which may be due to a transient condition or outage.</p>
+            aws_sdk_athena.errors.invalid_request_exception.InvalidRequestException: <p>Indicates that something is wrong with the input to the request. For example, a required parameter may be missing or out of range.</p>
+            aws_sdk_athena.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource, such as a workgroup, was not found.</p>
+            aws_sdk_athena.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2030,6 +2250,11 @@ class AthenaClient:
         Args:
             next_token: <p>A token generated by the Athena service that specifies where to continue pagination if a previous request was truncated.</p>
             max_results: <p>Specifies the maximum number of results to return.</p>
+
+        Raises:
+            aws_sdk_athena.errors.internal_server_exception.InternalServerException: <p>Indicates a platform issue, which may be due to a transient condition or outage.</p>
+            aws_sdk_athena.errors.invalid_request_exception.InvalidRequestException: <p>Indicates that something is wrong with the input to the request. For example, a required parameter may be missing or out of range.</p>
+            aws_sdk_athena.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2080,6 +2305,12 @@ class AthenaClient:
             next_token: <p>A token generated by the Athena service that specifies where to continue pagination if a previous request was truncated. To obtain the next set of pages, pass in the <code>NextToken</code> from the response object of the previous page call.</p>
             max_results: <p>Specifies the maximum number of results to return.</p>
             work_group: <p>The name of the workgroup for which the metadata is being fetched. Required if requesting an IAM Identity Center enabled Glue Data Catalog.</p>
+
+        Raises:
+            aws_sdk_athena.errors.internal_server_exception.InternalServerException: <p>Indicates a platform issue, which may be due to a transient condition or outage.</p>
+            aws_sdk_athena.errors.invalid_request_exception.InvalidRequestException: <p>Indicates that something is wrong with the input to the request. For example, a required parameter may be missing or out of range.</p>
+            aws_sdk_athena.errors.metadata_exception.MetadataException: <p>An exception that Athena received when it called a custom metastore. Occurs if the error is not caused by user input (<code>InvalidRequestException</code>) or from the Athena platform (<code>InternalServerException</code>). For example, if a user-created Lambda function is missing permissions, the Lambda <code>4XX</code> exception is returned in a <code>MetadataException</code>.</p>
+            aws_sdk_athena.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2160,6 +2391,11 @@ class AthenaClient:
             next_token: <p>A token generated by the Athena service that specifies where to continue pagination if a previous request was truncated. To obtain the next set of pages, pass in the NextToken from the response object of the previous page call.</p>
             max_results: <p>Specifies the maximum number of data catalogs to return.</p>
             work_group: <p>The name of the workgroup. Required if making an IAM Identity Center request.</p>
+
+        Raises:
+            aws_sdk_athena.errors.internal_server_exception.InternalServerException: <p>Indicates a platform issue, which may be due to a transient condition or outage.</p>
+            aws_sdk_athena.errors.invalid_request_exception.InvalidRequestException: <p>Indicates that something is wrong with the input to the request. For example, a required parameter may be missing or out of range.</p>
+            aws_sdk_athena.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2233,6 +2469,11 @@ class AthenaClient:
         Args:
             next_token: <p>A token generated by the Athena service that specifies where to continue pagination if a previous request was truncated. To obtain the next set of pages, pass in the <code>NextToken</code> from the response object of the previous page call.</p>
             max_results: <p>The maximum number of engine versions to return in this request.</p>
+
+        Raises:
+            aws_sdk_athena.errors.internal_server_exception.InternalServerException: <p>Indicates a platform issue, which may be due to a transient condition or outage.</p>
+            aws_sdk_athena.errors.invalid_request_exception.InvalidRequestException: <p>Indicates that something is wrong with the input to the request. For example, a required parameter may be missing or out of range.</p>
+            aws_sdk_athena.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2285,6 +2526,12 @@ class AthenaClient:
             executor_state_filter: <p>A filter for a specific executor state. A description of each state follows.</p> <p> <code>CREATING</code> - The executor is being started, including acquiring resources.</p> <p> <code>CREATED</code> - The executor has been started.</p> <p> <code>REGISTERED</code> - The executor has been registered.</p> <p> <code>TERMINATING</code> - The executor is in the process of shutting down.</p> <p> <code>TERMINATED</code> - The executor is no longer running.</p> <p> <code>FAILED</code> - Due to a failure, the executor is no longer running.</p>
             max_results: <p>The maximum number of executors to return.</p>
             next_token: <p>A token generated by the Athena service that specifies where to continue pagination if a previous request was truncated. To obtain the next set of pages, pass in the <code>NextToken</code> from the response object of the previous page call.</p>
+
+        Raises:
+            aws_sdk_athena.errors.internal_server_exception.InternalServerException: <p>Indicates a platform issue, which may be due to a transient condition or outage.</p>
+            aws_sdk_athena.errors.invalid_request_exception.InvalidRequestException: <p>Indicates that something is wrong with the input to the request. For example, a required parameter may be missing or out of range.</p>
+            aws_sdk_athena.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource, such as a workgroup, was not found.</p>
+            aws_sdk_athena.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2336,6 +2583,11 @@ class AthenaClient:
             next_token: <p>A token generated by the Athena service that specifies where to continue pagination if a previous request was truncated. To obtain the next set of pages, pass in the <code>NextToken</code> from the response object of the previous page call.</p>
             max_results: <p>The maximum number of queries to return in this request.</p>
             work_group: <p>The name of the workgroup from which the named queries are being returned. If a workgroup is not specified, the saved queries for the primary workgroup are returned.</p>
+
+        Raises:
+            aws_sdk_athena.errors.internal_server_exception.InternalServerException: <p>Indicates a platform issue, which may be due to a transient condition or outage.</p>
+            aws_sdk_athena.errors.invalid_request_exception.InvalidRequestException: <p>Indicates that something is wrong with the input to the request. For example, a required parameter may be missing or out of range.</p>
+            aws_sdk_athena.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2390,6 +2642,12 @@ class AthenaClient:
             next_token: <p>A token generated by the Athena service that specifies where to continue pagination if a previous request was truncated.</p>
             max_results: <p>Specifies the maximum number of results to return.</p>
             work_group: <p>The name of the Spark enabled workgroup to retrieve notebook metadata for.</p>
+
+        Raises:
+            aws_sdk_athena.errors.internal_server_exception.InternalServerException: <p>Indicates a platform issue, which may be due to a transient condition or outage.</p>
+            aws_sdk_athena.errors.invalid_request_exception.InvalidRequestException: <p>Indicates that something is wrong with the input to the request. For example, a required parameter may be missing or out of range.</p>
+            aws_sdk_athena.errors.too_many_requests_exception.TooManyRequestsException: <p>Indicates that the request was throttled.</p>
+            aws_sdk_athena.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2439,6 +2697,12 @@ class AthenaClient:
             notebook_id: <p>The ID of the notebook to list sessions for.</p>
             max_results: <p>The maximum number of notebook sessions to return.</p>
             next_token: <p>A token generated by the Athena service that specifies where to continue pagination if a previous request was truncated. To obtain the next set of pages, pass in the <code>NextToken</code> from the response object of the previous page call.</p>
+
+        Raises:
+            aws_sdk_athena.errors.internal_server_exception.InternalServerException: <p>Indicates a platform issue, which may be due to a transient condition or outage.</p>
+            aws_sdk_athena.errors.invalid_request_exception.InvalidRequestException: <p>Indicates that something is wrong with the input to the request. For example, a required parameter may be missing or out of range.</p>
+            aws_sdk_athena.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource, such as a workgroup, was not found.</p>
+            aws_sdk_athena.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2486,6 +2750,11 @@ class AthenaClient:
             work_group: <p>The workgroup to list the prepared statements for.</p>
             next_token: <p>A token generated by the Athena service that specifies where to continue pagination if a previous request was truncated. To obtain the next set of pages, pass in the <code>NextToken</code> from the response object of the previous page call.</p>
             max_results: <p>The maximum number of results to return in this request.</p>
+
+        Raises:
+            aws_sdk_athena.errors.internal_server_exception.InternalServerException: <p>Indicates a platform issue, which may be due to a transient condition or outage.</p>
+            aws_sdk_athena.errors.invalid_request_exception.InvalidRequestException: <p>Indicates that something is wrong with the input to the request. For example, a required parameter may be missing or out of range.</p>
+            aws_sdk_athena.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2535,6 +2804,11 @@ class AthenaClient:
             next_token: <p>A token generated by the Athena service that specifies where to continue pagination if a previous request was truncated. To obtain the next set of pages, pass in the <code>NextToken</code> from the response object of the previous page call.</p>
             max_results: <p>The maximum number of query executions to return in this request.</p>
             work_group: <p>The name of the workgroup from which queries are being returned. If a workgroup is not specified, a list of available query execution IDs for the queries in the primary workgroup is returned.</p>
+
+        Raises:
+            aws_sdk_athena.errors.internal_server_exception.InternalServerException: <p>Indicates a platform issue, which may be due to a transient condition or outage.</p>
+            aws_sdk_athena.errors.invalid_request_exception.InvalidRequestException: <p>Indicates that something is wrong with the input to the request. For example, a required parameter may be missing or out of range.</p>
+            aws_sdk_athena.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2589,6 +2863,12 @@ class AthenaClient:
             state_filter: <p>A filter for a specific session state. A description of each state follows.</p> <p> <code>CREATING</code> - The session is being started, including acquiring resources.</p> <p> <code>CREATED</code> - The session has been started.</p> <p> <code>IDLE</code> - The session is able to accept a calculation.</p> <p> <code>BUSY</code> - The session is processing another task and is unable to accept a calculation.</p> <p> <code>TERMINATING</code> - The session is in the process of shutting down.</p> <p> <code>TERMINATED</code> - The session and its resources are no longer running.</p> <p> <code>DEGRADED</code> - The session has no healthy coordinators.</p> <p> <code>FAILED</code> - Due to a failure, the session and its resources are no longer running.</p>
             max_results: <p>The maximum number of sessions to return.</p>
             next_token: <p>A token generated by the Athena service that specifies where to continue pagination if a previous request was truncated. To obtain the next set of pages, pass in the <code>NextToken</code> from the response object of the previous page call.</p>
+
+        Raises:
+            aws_sdk_athena.errors.internal_server_exception.InternalServerException: <p>Indicates a platform issue, which may be due to a transient condition or outage.</p>
+            aws_sdk_athena.errors.invalid_request_exception.InvalidRequestException: <p>Indicates that something is wrong with the input to the request. For example, a required parameter may be missing or out of range.</p>
+            aws_sdk_athena.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource, such as a workgroup, was not found.</p>
+            aws_sdk_athena.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2648,6 +2928,12 @@ class AthenaClient:
             next_token: <p>A token generated by the Athena service that specifies where to continue pagination if a previous request was truncated. To obtain the next set of pages, pass in the NextToken from the response object of the previous page call.</p>
             max_results: <p>Specifies the maximum number of results to return.</p>
             work_group: <p>The name of the workgroup for which the metadata is being fetched. Required if requesting an IAM Identity Center enabled Glue Data Catalog.</p>
+
+        Raises:
+            aws_sdk_athena.errors.internal_server_exception.InternalServerException: <p>Indicates a platform issue, which may be due to a transient condition or outage.</p>
+            aws_sdk_athena.errors.invalid_request_exception.InvalidRequestException: <p>Indicates that something is wrong with the input to the request. For example, a required parameter may be missing or out of range.</p>
+            aws_sdk_athena.errors.metadata_exception.MetadataException: <p>An exception that Athena received when it called a custom metastore. Occurs if the error is not caused by user input (<code>InvalidRequestException</code>) or from the Athena platform (<code>InternalServerException</code>). For example, if a user-created Lambda function is missing permissions, the Lambda <code>4XX</code> exception is returned in a <code>MetadataException</code>.</p>
+            aws_sdk_athena.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2735,6 +3021,12 @@ class AthenaClient:
             resource_arn: <p>Lists the tags for the resource with the specified ARN.</p>
             next_token: <p>The token for the next set of results, or null if there are no additional results for this request, where the request lists the tags for the resource with the specified ARN.</p>
             max_results: <p>The maximum number of results to be returned per request that lists the tags for the resource.</p>
+
+        Raises:
+            aws_sdk_athena.errors.internal_server_exception.InternalServerException: <p>Indicates a platform issue, which may be due to a transient condition or outage.</p>
+            aws_sdk_athena.errors.invalid_request_exception.InvalidRequestException: <p>Indicates that something is wrong with the input to the request. For example, a required parameter may be missing or out of range.</p>
+            aws_sdk_athena.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource, such as a workgroup, was not found.</p>
+            aws_sdk_athena.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2805,6 +3097,11 @@ class AthenaClient:
         Args:
             next_token: <p>A token generated by the Athena service that specifies where to continue pagination if a previous request was truncated. To obtain the next set of pages, pass in the <code>NextToken</code> from the response object of the previous page call.</p>
             max_results: <p>The maximum number of workgroups to return in this request.</p>
+
+        Raises:
+            aws_sdk_athena.errors.internal_server_exception.InternalServerException: <p>Indicates a platform issue, which may be due to a transient condition or outage.</p>
+            aws_sdk_athena.errors.invalid_request_exception.InvalidRequestException: <p>Indicates that something is wrong with the input to the request. For example, a required parameter may be missing or out of range.</p>
+            aws_sdk_athena.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2847,6 +3144,11 @@ class AthenaClient:
         Args:
             capacity_reservation_name: <p>The name of the capacity reservation to put a capacity assignment configuration for.</p>
             capacity_assignments: <p>The list of assignments for the capacity assignment configuration.</p>
+
+        Raises:
+            aws_sdk_athena.errors.internal_server_exception.InternalServerException: <p>Indicates a platform issue, which may be due to a transient condition or outage.</p>
+            aws_sdk_athena.errors.invalid_request_exception.InvalidRequestException: <p>Indicates that something is wrong with the input to the request. For example, a required parameter may be missing or out of range.</p>
+            aws_sdk_athena.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2899,6 +3201,12 @@ class AthenaClient:
             calculation_configuration: <p>Contains configuration information for the calculation.</p>
             code_block: <p>A string that contains the code of the calculation. Use this parameter instead of <a>CalculationConfiguration$CodeBlock</a>, which is deprecated.</p>
             client_request_token: <p>A unique case-sensitive string used to ensure the request to create the calculation is idempotent (executes only once). If another <code>StartCalculationExecutionRequest</code> is received, the same response is returned and another calculation is not created. If a parameter has changed, an error is returned.</p> <important> <p>This token is listed as not required because Amazon Web Services SDKs (for example the Amazon Web Services SDK for Java) auto-generate the token for users. If you are not using the Amazon Web Services SDK or the Amazon Web Services CLI, you must provide this token or the action will fail.</p> </important>
+
+        Raises:
+            aws_sdk_athena.errors.internal_server_exception.InternalServerException: <p>Indicates a platform issue, which may be due to a transient condition or outage.</p>
+            aws_sdk_athena.errors.invalid_request_exception.InvalidRequestException: <p>Indicates that something is wrong with the input to the request. For example, a required parameter may be missing or out of range.</p>
+            aws_sdk_athena.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource, such as a workgroup, was not found.</p>
+            aws_sdk_athena.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2972,6 +3280,12 @@ class AthenaClient:
             execution_parameters: <p>A list of values for the parameters in a query. The values are applied sequentially to the parameters in the query in the order in which the parameters occur.</p>
             result_reuse_configuration: <p>Specifies the query result reuse behavior for the query.</p>
             engine_configuration: <p>The engine configuration for the workgroup, which includes the minimum/maximum number of Data Processing Units (DPU) that queries should use when running in provisioned capacity. If not specified, Athena uses default values (Default value for min is 4 and for max is Minimum of 124 and allocated DPUs).</p> <p>To specify minimum and maximum DPU values for Capacity Reservations queries, the workgroup containing <code>EngineConfiguration</code> should have the following values: The name of the <code>Classifications</code> should be <code>athena-query-engine-properties</code>, with the only allowed properties as <code>max-dpu-count</code> and <code>min-dpu-count</code>.</p>
+
+        Raises:
+            aws_sdk_athena.errors.internal_server_exception.InternalServerException: <p>Indicates a platform issue, which may be due to a transient condition or outage.</p>
+            aws_sdk_athena.errors.invalid_request_exception.InvalidRequestException: <p>Indicates that something is wrong with the input to the request. For example, a required parameter may be missing or out of range.</p>
+            aws_sdk_athena.errors.too_many_requests_exception.TooManyRequestsException: <p>Indicates that the request was throttled.</p>
+            aws_sdk_athena.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3053,6 +3367,14 @@ class AthenaClient:
             client_request_token: <p>A unique case-sensitive string used to ensure the request to create the session is idempotent (executes only once). If another <code>StartSessionRequest</code> is received, the same response is returned and another session is not created. If a parameter has changed, an error is returned.</p> <important> <p>This token is listed as not required because Amazon Web Services SDKs (for example the Amazon Web Services SDK for Java) auto-generate the token for users. If you are not using the Amazon Web Services SDK or the Amazon Web Services CLI, you must provide this token or the action will fail.</p> </important>
             tags: <p>A list of comma separated tags to add to the session that is created.</p>
             copy_work_group_tags: <p>Copies the tags from the Workgroup to the Session when.</p>
+
+        Raises:
+            aws_sdk_athena.errors.internal_server_exception.InternalServerException: <p>Indicates a platform issue, which may be due to a transient condition or outage.</p>
+            aws_sdk_athena.errors.invalid_request_exception.InvalidRequestException: <p>Indicates that something is wrong with the input to the request. For example, a required parameter may be missing or out of range.</p>
+            aws_sdk_athena.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource, such as a workgroup, was not found.</p>
+            aws_sdk_athena.errors.session_already_exists_exception.SessionAlreadyExistsException: <p>The specified session already exists.</p>
+            aws_sdk_athena.errors.too_many_requests_exception.TooManyRequestsException: <p>Indicates that the request was throttled.</p>
+            aws_sdk_athena.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3107,6 +3429,12 @@ class AthenaClient:
 
         Args:
             calculation_execution_id: <p>The calculation execution UUID.</p>
+
+        Raises:
+            aws_sdk_athena.errors.internal_server_exception.InternalServerException: <p>Indicates a platform issue, which may be due to a transient condition or outage.</p>
+            aws_sdk_athena.errors.invalid_request_exception.InvalidRequestException: <p>Indicates that something is wrong with the input to the request. For example, a required parameter may be missing or out of range.</p>
+            aws_sdk_athena.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource, such as a workgroup, was not found.</p>
+            aws_sdk_athena.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3144,6 +3472,11 @@ class AthenaClient:
 
         Args:
             query_execution_id: <p>The unique ID of the query execution to stop.</p>
+
+        Raises:
+            aws_sdk_athena.errors.internal_server_exception.InternalServerException: <p>Indicates a platform issue, which may be due to a transient condition or outage.</p>
+            aws_sdk_athena.errors.invalid_request_exception.InvalidRequestException: <p>Indicates that something is wrong with the input to the request. For example, a required parameter may be missing or out of range.</p>
+            aws_sdk_athena.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3183,6 +3516,12 @@ class AthenaClient:
         Args:
             resource_arn: <p>Specifies the ARN of the Athena resource to which tags are to be added.</p>
             tags: <p>A collection of one or more tags, separated by commas, to be added to an Athena resource.</p>
+
+        Raises:
+            aws_sdk_athena.errors.internal_server_exception.InternalServerException: <p>Indicates a platform issue, which may be due to a transient condition or outage.</p>
+            aws_sdk_athena.errors.invalid_request_exception.InvalidRequestException: <p>Indicates that something is wrong with the input to the request. For example, a required parameter may be missing or out of range.</p>
+            aws_sdk_athena.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource, such as a workgroup, was not found.</p>
+            aws_sdk_athena.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3221,6 +3560,12 @@ class AthenaClient:
 
         Args:
             session_id: <p>The session ID.</p>
+
+        Raises:
+            aws_sdk_athena.errors.internal_server_exception.InternalServerException: <p>Indicates a platform issue, which may be due to a transient condition or outage.</p>
+            aws_sdk_athena.errors.invalid_request_exception.InvalidRequestException: <p>Indicates that something is wrong with the input to the request. For example, a required parameter may be missing or out of range.</p>
+            aws_sdk_athena.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource, such as a workgroup, was not found.</p>
+            aws_sdk_athena.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3260,6 +3605,12 @@ class AthenaClient:
         Args:
             resource_arn: <p>Specifies the ARN of the resource from which tags are to be removed.</p>
             tag_keys: <p>A comma-separated list of one or more tag keys whose tags are to be removed from the specified resource.</p>
+
+        Raises:
+            aws_sdk_athena.errors.internal_server_exception.InternalServerException: <p>Indicates a platform issue, which may be due to a transient condition or outage.</p>
+            aws_sdk_athena.errors.invalid_request_exception.InvalidRequestException: <p>Indicates that something is wrong with the input to the request. For example, a required parameter may be missing or out of range.</p>
+            aws_sdk_athena.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource, such as a workgroup, was not found.</p>
+            aws_sdk_athena.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3300,6 +3651,11 @@ class AthenaClient:
         Args:
             target_dpus: <p>The new number of requested data processing units.</p>
             name: <p>The name of the capacity reservation.</p>
+
+        Raises:
+            aws_sdk_athena.errors.internal_server_exception.InternalServerException: <p>Indicates a platform issue, which may be due to a transient condition or outage.</p>
+            aws_sdk_athena.errors.invalid_request_exception.InvalidRequestException: <p>Indicates that something is wrong with the input to the request. For example, a required parameter may be missing or out of range.</p>
+            aws_sdk_athena.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3348,6 +3704,11 @@ class AthenaClient:
             type: <p>Specifies the type of data catalog to update. Specify <code>LAMBDA</code> for a federated catalog, <code>HIVE</code> for an external hive metastore, or <code>GLUE</code> for an Glue Data Catalog.</p>
             description: <p>New or modified text that describes the data catalog.</p>
             parameters: <p>Specifies the Lambda function or functions to use for updating the data catalog. This is a mapping whose values depend on the catalog type. </p> <ul> <li> <p>For the <code>HIVE</code> data catalog type, use the following syntax. The <code>metadata-function</code> parameter is required. <code>The sdk-version</code> parameter is optional and defaults to the currently supported version.</p> <p> <code>metadata-function=<i>lambda_arn</i>, sdk-version=<i>version_number</i> </code> </p> </li> <li> <p>For the <code>LAMBDA</code> data catalog type, use one of the following sets of required parameters, but not both.</p> <ul> <li> <p>If you have one Lambda function that processes metadata and another for reading the actual data, use the following syntax. Both parameters are required.</p> <p> <code>metadata-function=<i>lambda_arn</i>, record-function=<i>lambda_arn</i> </code> </p> </li> <li> <p> If you have a composite Lambda function that processes both metadata and data, use the following syntax to specify your Lambda function.</p> <p> <code>function=<i>lambda_arn</i> </code> </p> </li> </ul> </li> </ul>
+
+        Raises:
+            aws_sdk_athena.errors.internal_server_exception.InternalServerException: <p>Indicates a platform issue, which may be due to a transient condition or outage.</p>
+            aws_sdk_athena.errors.invalid_request_exception.InvalidRequestException: <p>Indicates that something is wrong with the input to the request. For example, a required parameter may be missing or out of range.</p>
+            aws_sdk_athena.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3398,6 +3759,11 @@ class AthenaClient:
             name: <p>The name of the query.</p>
             description: <p>The query description.</p>
             query_string: <p>The contents of the query with all query statements.</p>
+
+        Raises:
+            aws_sdk_athena.errors.internal_server_exception.InternalServerException: <p>Indicates a platform issue, which may be due to a transient condition or outage.</p>
+            aws_sdk_athena.errors.invalid_request_exception.InvalidRequestException: <p>Indicates that something is wrong with the input to the request. For example, a required parameter may be missing or out of range.</p>
+            aws_sdk_athena.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3449,6 +3815,12 @@ class AthenaClient:
             type: <p>The notebook content type. Currently, the only valid type is <code>IPYNB</code>.</p>
             session_id: <p>The active notebook session ID. Required if the notebook has an active session.</p>
             client_request_token: <p>A unique case-sensitive string used to ensure the request to create the notebook is idempotent (executes only once).</p> <important> <p>This token is listed as not required because Amazon Web Services SDKs (for example the Amazon Web Services SDK for Java) auto-generate the token for you. If you are not using the Amazon Web Services SDK or the Amazon Web Services CLI, you must provide this token or the action will fail.</p> </important>
+
+        Raises:
+            aws_sdk_athena.errors.internal_server_exception.InternalServerException: <p>Indicates a platform issue, which may be due to a transient condition or outage.</p>
+            aws_sdk_athena.errors.invalid_request_exception.InvalidRequestException: <p>Indicates that something is wrong with the input to the request. For example, a required parameter may be missing or out of range.</p>
+            aws_sdk_athena.errors.too_many_requests_exception.TooManyRequestsException: <p>Indicates that the request was throttled.</p>
+            aws_sdk_athena.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3498,6 +3870,12 @@ class AthenaClient:
             notebook_id: <p>The ID of the notebook to update the metadata for.</p>
             client_request_token: <p>A unique case-sensitive string used to ensure the request to create the notebook is idempotent (executes only once).</p> <important> <p>This token is listed as not required because Amazon Web Services SDKs (for example the Amazon Web Services SDK for Java) auto-generate the token for you. If you are not using the Amazon Web Services SDK or the Amazon Web Services CLI, you must provide this token or the action will fail.</p> </important>
             name: <p>The name to update the notebook to.</p>
+
+        Raises:
+            aws_sdk_athena.errors.internal_server_exception.InternalServerException: <p>Indicates a platform issue, which may be due to a transient condition or outage.</p>
+            aws_sdk_athena.errors.invalid_request_exception.InvalidRequestException: <p>Indicates that something is wrong with the input to the request. For example, a required parameter may be missing or out of range.</p>
+            aws_sdk_athena.errors.too_many_requests_exception.TooManyRequestsException: <p>Indicates that the request was throttled.</p>
+            aws_sdk_athena.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3546,6 +3924,12 @@ class AthenaClient:
             work_group: <p>The workgroup for the prepared statement.</p>
             query_statement: <p>The query string for the prepared statement.</p>
             description: <p>The description of the prepared statement.</p>
+
+        Raises:
+            aws_sdk_athena.errors.internal_server_exception.InternalServerException: <p>Indicates a platform issue, which may be due to a transient condition or outage.</p>
+            aws_sdk_athena.errors.invalid_request_exception.InvalidRequestException: <p>Indicates that something is wrong with the input to the request. For example, a required parameter may be missing or out of range.</p>
+            aws_sdk_athena.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource, such as a workgroup, was not found.</p>
+            aws_sdk_athena.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3597,6 +3981,11 @@ class AthenaClient:
             description: <p>The workgroup description.</p>
             configuration_updates: <p>Contains configuration updates for an Athena SQL workgroup.</p>
             state: <p>The workgroup state that will be updated for the given workgroup.</p>
+
+        Raises:
+            aws_sdk_athena.errors.internal_server_exception.InternalServerException: <p>Indicates a platform issue, which may be due to a transient condition or outage.</p>
+            aws_sdk_athena.errors.invalid_request_exception.InvalidRequestException: <p>Indicates that something is wrong with the input to the request. For example, a required parameter may be missing or out of range.</p>
+            aws_sdk_athena.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(

@@ -362,6 +362,16 @@ class Macie2Client:
             administrator_account_id: <p>The Amazon Web Services account ID for the account that sent the invitation.</p>
             invitation_id: <p>The unique identifier for the invitation to accept.</p>
             master_account: <p>(Deprecated) The Amazon Web Services account ID for the account that sent the invitation. This property has been replaced by the administratorAccountId property and is retained only for backward compatibility.</p>
+
+        Raises:
+            aws_sdk_macie2.errors.access_denied_exception.AccessDeniedException: <p>Provides information about an error that occurred due to insufficient access to a specified resource.</p>
+            aws_sdk_macie2.errors.conflict_exception.ConflictException: <p>Provides information about an error that occurred due to a versioning conflict for a specified resource.</p>
+            aws_sdk_macie2.errors.internal_server_exception.InternalServerException: <p>Provides information about an error that occurred due to an unknown internal server error, exception, or failure.</p>
+            aws_sdk_macie2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Provides information about an error that occurred because a specified resource wasn't found.</p>
+            aws_sdk_macie2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Provides information about an error that occurred due to one or more service quotas for an account.</p>
+            aws_sdk_macie2.errors.throttling_exception.ThrottlingException: <p>Provides information about an error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_macie2.errors.validation_exception.ValidationException: <p>Provides information about an error that occurred due to a syntax error in a request.</p>
+            aws_sdk_macie2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -403,6 +413,16 @@ class Macie2Client:
 
         Args:
             ids: <p>An array of custom data identifier IDs, one for each custom data identifier to retrieve information about.</p>
+
+        Raises:
+            aws_sdk_macie2.errors.access_denied_exception.AccessDeniedException: <p>Provides information about an error that occurred due to insufficient access to a specified resource.</p>
+            aws_sdk_macie2.errors.conflict_exception.ConflictException: <p>Provides information about an error that occurred due to a versioning conflict for a specified resource.</p>
+            aws_sdk_macie2.errors.internal_server_exception.InternalServerException: <p>Provides information about an error that occurred due to an unknown internal server error, exception, or failure.</p>
+            aws_sdk_macie2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Provides information about an error that occurred because a specified resource wasn't found.</p>
+            aws_sdk_macie2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Provides information about an error that occurred due to one or more service quotas for an account.</p>
+            aws_sdk_macie2.errors.throttling_exception.ThrottlingException: <p>Provides information about an error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_macie2.errors.validation_exception.ValidationException: <p>Provides information about an error that occurred due to a syntax error in a request.</p>
+            aws_sdk_macie2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -443,6 +463,14 @@ class Macie2Client:
 
         Args:
             accounts: <p>An array of objects, one for each account to change the status of automated sensitive data discovery for. Each object specifies the Amazon Web Services account ID for an account and a new status for that account.</p>
+
+        Raises:
+            aws_sdk_macie2.errors.access_denied_exception.AccessDeniedException: <p>Provides information about an error that occurred due to insufficient access to a specified resource.</p>
+            aws_sdk_macie2.errors.conflict_exception.ConflictException: <p>Provides information about an error that occurred due to a versioning conflict for a specified resource.</p>
+            aws_sdk_macie2.errors.internal_server_exception.InternalServerException: <p>Provides information about an error that occurred due to an unknown internal server error, exception, or failure.</p>
+            aws_sdk_macie2.errors.throttling_exception.ThrottlingException: <p>Provides information about an error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_macie2.errors.validation_exception.ValidationException: <p>Provides information about an error that occurred due to a syntax error in a request.</p>
+            aws_sdk_macie2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -491,6 +519,16 @@ class Macie2Client:
             description: <p>A custom description of the allow list. The description can contain as many as 512 characters.</p>
             name: <p>A custom name for the allow list. The name can contain as many as 128 characters.</p>
             tags: <p>A map of key-value pairs that specifies the tags to associate with the allow list.</p> <p>An allow list can have a maximum of 50 tags. Each tag consists of a tag key and an associated tag value. The maximum length of a tag key is 128 characters. The maximum length of a tag value is 256 characters.</p>
+
+        Raises:
+            aws_sdk_macie2.errors.access_denied_exception.AccessDeniedException: <p>Provides information about an error that occurred due to insufficient access to a specified resource.</p>
+            aws_sdk_macie2.errors.conflict_exception.ConflictException: <p>Provides information about an error that occurred due to a versioning conflict for a specified resource.</p>
+            aws_sdk_macie2.errors.internal_server_exception.InternalServerException: <p>Provides information about an error that occurred due to an unknown internal server error, exception, or failure.</p>
+            aws_sdk_macie2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Provides information about an error that occurred because a specified resource wasn't found.</p>
+            aws_sdk_macie2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Provides information about an error that occurred due to one or more service quotas for an account.</p>
+            aws_sdk_macie2.errors.throttling_exception.ThrottlingException: <p>Provides information about an error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_macie2.errors.validation_exception.ValidationException: <p>Provides information about an error that occurred due to a syntax error in a request.</p>
+            aws_sdk_macie2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -570,6 +608,16 @@ class Macie2Client:
             sampling_percentage: <p>The sampling depth, as a percentage, for the job to apply when processing objects. This value determines the percentage of eligible objects that the job analyzes. If this value is less than 100, Amazon Macie selects the objects to analyze at random, up to the specified percentage, and analyzes all the data in those objects.</p>
             schedule_frequency: <p>The recurrence pattern for running the job. To run the job only once, don't specify a value for this property and set the value for the jobType property to ONE_TIME.</p>
             tags: <p>A map of key-value pairs that specifies the tags to associate with the job.</p> <p>A job can have a maximum of 50 tags. Each tag consists of a tag key and an associated tag value. The maximum length of a tag key is 128 characters. The maximum length of a tag value is 256 characters.</p>
+
+        Raises:
+            aws_sdk_macie2.errors.access_denied_exception.AccessDeniedException: <p>Provides information about an error that occurred due to insufficient access to a specified resource.</p>
+            aws_sdk_macie2.errors.conflict_exception.ConflictException: <p>Provides information about an error that occurred due to a versioning conflict for a specified resource.</p>
+            aws_sdk_macie2.errors.internal_server_exception.InternalServerException: <p>Provides information about an error that occurred due to an unknown internal server error, exception, or failure.</p>
+            aws_sdk_macie2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Provides information about an error that occurred because a specified resource wasn't found.</p>
+            aws_sdk_macie2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Provides information about an error that occurred due to one or more service quotas for an account.</p>
+            aws_sdk_macie2.errors.throttling_exception.ThrottlingException: <p>Provides information about an error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_macie2.errors.validation_exception.ValidationException: <p>Provides information about an error that occurred due to a syntax error in a request.</p>
+            aws_sdk_macie2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -654,6 +702,16 @@ class Macie2Client:
             regex: <p>The regular expression (<i>regex</i>) that defines the pattern to match. The expression can contain as many as 512 characters.</p>
             severity_levels: <p>The severity to assign to findings that the custom data identifier produces, based on the number of occurrences of text that match the custom data identifier's detection criteria. You can specify as many as three SeverityLevel objects in this array, one for each severity: LOW, MEDIUM, or HIGH. If you specify more than one, the occurrences thresholds must be in ascending order by severity, moving from LOW to HIGH. For example, 1 for LOW, 50 for MEDIUM, and 100 for HIGH. If an S3 object contains fewer occurrences than the lowest specified threshold, Amazon Macie doesn't create a finding.</p> <p>If you don't specify any values for this array, Macie creates findings for S3 objects that contain at least one occurrence of text that matches the detection criteria, and Macie assigns the MEDIUM severity to those findings.</p>
             tags: <p>A map of key-value pairs that specifies the tags to associate with the custom data identifier.</p> <p>A custom data identifier can have a maximum of 50 tags. Each tag consists of a tag key and an associated tag value. The maximum length of a tag key is 128 characters. The maximum length of a tag value is 256 characters.</p>
+
+        Raises:
+            aws_sdk_macie2.errors.access_denied_exception.AccessDeniedException: <p>Provides information about an error that occurred due to insufficient access to a specified resource.</p>
+            aws_sdk_macie2.errors.conflict_exception.ConflictException: <p>Provides information about an error that occurred due to a versioning conflict for a specified resource.</p>
+            aws_sdk_macie2.errors.internal_server_exception.InternalServerException: <p>Provides information about an error that occurred due to an unknown internal server error, exception, or failure.</p>
+            aws_sdk_macie2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Provides information about an error that occurred because a specified resource wasn't found.</p>
+            aws_sdk_macie2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Provides information about an error that occurred due to one or more service quotas for an account.</p>
+            aws_sdk_macie2.errors.throttling_exception.ThrottlingException: <p>Provides information about an error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_macie2.errors.validation_exception.ValidationException: <p>Provides information about an error that occurred due to a syntax error in a request.</p>
+            aws_sdk_macie2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -718,6 +776,16 @@ class Macie2Client:
             name: <p>A custom name for the filter. The name must contain at least 3 characters and can contain as many as 64 characters.</p> <p>We strongly recommend that you avoid including any sensitive data in the name of a filter. Other users of your account might be able to see this name, depending on the actions that they're allowed to perform in Amazon Macie.</p>
             position: <p>The position of the filter in the list of saved filters on the Amazon Macie console. This value also determines the order in which the filter is applied to findings, relative to other filters that are also applied to the findings.</p>
             tags: <p>A map of key-value pairs that specifies the tags to associate with the filter.</p> <p>A findings filter can have a maximum of 50 tags. Each tag consists of a tag key and an associated tag value. The maximum length of a tag key is 128 characters. The maximum length of a tag value is 256 characters.</p>
+
+        Raises:
+            aws_sdk_macie2.errors.access_denied_exception.AccessDeniedException: <p>Provides information about an error that occurred due to insufficient access to a specified resource.</p>
+            aws_sdk_macie2.errors.conflict_exception.ConflictException: <p>Provides information about an error that occurred due to a versioning conflict for a specified resource.</p>
+            aws_sdk_macie2.errors.internal_server_exception.InternalServerException: <p>Provides information about an error that occurred due to an unknown internal server error, exception, or failure.</p>
+            aws_sdk_macie2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Provides information about an error that occurred because a specified resource wasn't found.</p>
+            aws_sdk_macie2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Provides information about an error that occurred due to one or more service quotas for an account.</p>
+            aws_sdk_macie2.errors.throttling_exception.ThrottlingException: <p>Provides information about an error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_macie2.errors.validation_exception.ValidationException: <p>Provides information about an error that occurred due to a syntax error in a request.</p>
+            aws_sdk_macie2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -771,6 +839,16 @@ class Macie2Client:
             account_ids: <p>An array that lists Amazon Web Services account IDs, one for each account to send the invitation to.</p>
             disable_email_notification: <p>Specifies whether to send the invitation as an email message. If this value is false, Amazon Macie sends the invitation (as an email message) to the email address that you specified for the recipient's account when you associated the account with your account. The default value is false.</p>
             message: <p>Custom text to include in the email message that contains the invitation. The text can contain as many as 80 alphanumeric characters.</p>
+
+        Raises:
+            aws_sdk_macie2.errors.access_denied_exception.AccessDeniedException: <p>Provides information about an error that occurred due to insufficient access to a specified resource.</p>
+            aws_sdk_macie2.errors.conflict_exception.ConflictException: <p>Provides information about an error that occurred due to a versioning conflict for a specified resource.</p>
+            aws_sdk_macie2.errors.internal_server_exception.InternalServerException: <p>Provides information about an error that occurred due to an unknown internal server error, exception, or failure.</p>
+            aws_sdk_macie2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Provides information about an error that occurred because a specified resource wasn't found.</p>
+            aws_sdk_macie2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Provides information about an error that occurred due to one or more service quotas for an account.</p>
+            aws_sdk_macie2.errors.throttling_exception.ThrottlingException: <p>Provides information about an error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_macie2.errors.validation_exception.ValidationException: <p>Provides information about an error that occurred due to a syntax error in a request.</p>
+            aws_sdk_macie2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -814,6 +892,16 @@ class Macie2Client:
         Args:
             account: <p>The details of the account to associate with the administrator account.</p>
             tags: <p>A map of key-value pairs that specifies the tags to associate with the account in Amazon Macie.</p> <p>An account can have a maximum of 50 tags. Each tag consists of a tag key and an associated tag value. The maximum length of a tag key is 128 characters. The maximum length of a tag value is 256 characters.</p>
+
+        Raises:
+            aws_sdk_macie2.errors.access_denied_exception.AccessDeniedException: <p>Provides information about an error that occurred due to insufficient access to a specified resource.</p>
+            aws_sdk_macie2.errors.conflict_exception.ConflictException: <p>Provides information about an error that occurred due to a versioning conflict for a specified resource.</p>
+            aws_sdk_macie2.errors.internal_server_exception.InternalServerException: <p>Provides information about an error that occurred due to an unknown internal server error, exception, or failure.</p>
+            aws_sdk_macie2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Provides information about an error that occurred because a specified resource wasn't found.</p>
+            aws_sdk_macie2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Provides information about an error that occurred due to one or more service quotas for an account.</p>
+            aws_sdk_macie2.errors.throttling_exception.ThrottlingException: <p>Provides information about an error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_macie2.errors.validation_exception.ValidationException: <p>Provides information about an error that occurred due to a syntax error in a request.</p>
+            aws_sdk_macie2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -855,6 +943,16 @@ class Macie2Client:
 
         Args:
             finding_types: <p>An array of finding types, one for each type of sample finding to create. To create a sample of every type of finding that Amazon Macie supports, don't include this array in your request.</p>
+
+        Raises:
+            aws_sdk_macie2.errors.access_denied_exception.AccessDeniedException: <p>Provides information about an error that occurred due to insufficient access to a specified resource.</p>
+            aws_sdk_macie2.errors.conflict_exception.ConflictException: <p>Provides information about an error that occurred due to a versioning conflict for a specified resource.</p>
+            aws_sdk_macie2.errors.internal_server_exception.InternalServerException: <p>Provides information about an error that occurred due to an unknown internal server error, exception, or failure.</p>
+            aws_sdk_macie2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Provides information about an error that occurred because a specified resource wasn't found.</p>
+            aws_sdk_macie2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Provides information about an error that occurred due to one or more service quotas for an account.</p>
+            aws_sdk_macie2.errors.throttling_exception.ThrottlingException: <p>Provides information about an error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_macie2.errors.validation_exception.ValidationException: <p>Provides information about an error that occurred due to a syntax error in a request.</p>
+            aws_sdk_macie2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -893,6 +991,16 @@ class Macie2Client:
 
         Args:
             account_ids: <p>An array that lists Amazon Web Services account IDs, one for each account that sent an invitation to decline.</p>
+
+        Raises:
+            aws_sdk_macie2.errors.access_denied_exception.AccessDeniedException: <p>Provides information about an error that occurred due to insufficient access to a specified resource.</p>
+            aws_sdk_macie2.errors.conflict_exception.ConflictException: <p>Provides information about an error that occurred due to a versioning conflict for a specified resource.</p>
+            aws_sdk_macie2.errors.internal_server_exception.InternalServerException: <p>Provides information about an error that occurred due to an unknown internal server error, exception, or failure.</p>
+            aws_sdk_macie2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Provides information about an error that occurred because a specified resource wasn't found.</p>
+            aws_sdk_macie2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Provides information about an error that occurred due to one or more service quotas for an account.</p>
+            aws_sdk_macie2.errors.throttling_exception.ThrottlingException: <p>Provides information about an error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_macie2.errors.validation_exception.ValidationException: <p>Provides information about an error that occurred due to a syntax error in a request.</p>
+            aws_sdk_macie2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -932,6 +1040,14 @@ class Macie2Client:
         Args:
             id: <p>The unique identifier for the Amazon Macie resource that the request applies to.</p>
             ignore_job_checks: <p>Specifies whether to force deletion of the allow list, even if active classification jobs are configured to use the list.</p> <p>When you try to delete an allow list, Amazon Macie checks for classification jobs that use the list and have a status other than COMPLETE or CANCELLED. By default, Macie rejects your request if any jobs meet these criteria. To skip these checks and delete the list, set this value to true. To delete the list only if no active jobs are configured to use it, set this value to false.</p>
+
+        Raises:
+            aws_sdk_macie2.errors.access_denied_exception.AccessDeniedException: <p>Provides information about an error that occurred due to insufficient access to a specified resource.</p>
+            aws_sdk_macie2.errors.internal_server_exception.InternalServerException: <p>Provides information about an error that occurred due to an unknown internal server error, exception, or failure.</p>
+            aws_sdk_macie2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Provides information about an error that occurred because a specified resource wasn't found.</p>
+            aws_sdk_macie2.errors.throttling_exception.ThrottlingException: <p>Provides information about an error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_macie2.errors.validation_exception.ValidationException: <p>Provides information about an error that occurred due to a syntax error in a request.</p>
+            aws_sdk_macie2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -971,6 +1087,16 @@ class Macie2Client:
 
         Args:
             id: <p>The unique identifier for the Amazon Macie resource that the request applies to.</p>
+
+        Raises:
+            aws_sdk_macie2.errors.access_denied_exception.AccessDeniedException: <p>Provides information about an error that occurred due to insufficient access to a specified resource.</p>
+            aws_sdk_macie2.errors.conflict_exception.ConflictException: <p>Provides information about an error that occurred due to a versioning conflict for a specified resource.</p>
+            aws_sdk_macie2.errors.internal_server_exception.InternalServerException: <p>Provides information about an error that occurred due to an unknown internal server error, exception, or failure.</p>
+            aws_sdk_macie2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Provides information about an error that occurred because a specified resource wasn't found.</p>
+            aws_sdk_macie2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Provides information about an error that occurred due to one or more service quotas for an account.</p>
+            aws_sdk_macie2.errors.throttling_exception.ThrottlingException: <p>Provides information about an error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_macie2.errors.validation_exception.ValidationException: <p>Provides information about an error that occurred due to a syntax error in a request.</p>
+            aws_sdk_macie2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1008,6 +1134,16 @@ class Macie2Client:
 
         Args:
             id: <p>The unique identifier for the Amazon Macie resource that the request applies to.</p>
+
+        Raises:
+            aws_sdk_macie2.errors.access_denied_exception.AccessDeniedException: <p>Provides information about an error that occurred due to insufficient access to a specified resource.</p>
+            aws_sdk_macie2.errors.conflict_exception.ConflictException: <p>Provides information about an error that occurred due to a versioning conflict for a specified resource.</p>
+            aws_sdk_macie2.errors.internal_server_exception.InternalServerException: <p>Provides information about an error that occurred due to an unknown internal server error, exception, or failure.</p>
+            aws_sdk_macie2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Provides information about an error that occurred because a specified resource wasn't found.</p>
+            aws_sdk_macie2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Provides information about an error that occurred due to one or more service quotas for an account.</p>
+            aws_sdk_macie2.errors.throttling_exception.ThrottlingException: <p>Provides information about an error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_macie2.errors.validation_exception.ValidationException: <p>Provides information about an error that occurred due to a syntax error in a request.</p>
+            aws_sdk_macie2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1045,6 +1181,16 @@ class Macie2Client:
 
         Args:
             account_ids: <p>An array that lists Amazon Web Services account IDs, one for each account that sent an invitation to delete.</p>
+
+        Raises:
+            aws_sdk_macie2.errors.access_denied_exception.AccessDeniedException: <p>Provides information about an error that occurred due to insufficient access to a specified resource.</p>
+            aws_sdk_macie2.errors.conflict_exception.ConflictException: <p>Provides information about an error that occurred due to a versioning conflict for a specified resource.</p>
+            aws_sdk_macie2.errors.internal_server_exception.InternalServerException: <p>Provides information about an error that occurred due to an unknown internal server error, exception, or failure.</p>
+            aws_sdk_macie2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Provides information about an error that occurred because a specified resource wasn't found.</p>
+            aws_sdk_macie2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Provides information about an error that occurred due to one or more service quotas for an account.</p>
+            aws_sdk_macie2.errors.throttling_exception.ThrottlingException: <p>Provides information about an error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_macie2.errors.validation_exception.ValidationException: <p>Provides information about an error that occurred due to a syntax error in a request.</p>
+            aws_sdk_macie2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1082,6 +1228,16 @@ class Macie2Client:
 
         Args:
             id: <p>The unique identifier for the Amazon Macie resource that the request applies to.</p>
+
+        Raises:
+            aws_sdk_macie2.errors.access_denied_exception.AccessDeniedException: <p>Provides information about an error that occurred due to insufficient access to a specified resource.</p>
+            aws_sdk_macie2.errors.conflict_exception.ConflictException: <p>Provides information about an error that occurred due to a versioning conflict for a specified resource.</p>
+            aws_sdk_macie2.errors.internal_server_exception.InternalServerException: <p>Provides information about an error that occurred due to an unknown internal server error, exception, or failure.</p>
+            aws_sdk_macie2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Provides information about an error that occurred because a specified resource wasn't found.</p>
+            aws_sdk_macie2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Provides information about an error that occurred due to one or more service quotas for an account.</p>
+            aws_sdk_macie2.errors.throttling_exception.ThrottlingException: <p>Provides information about an error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_macie2.errors.validation_exception.ValidationException: <p>Provides information about an error that occurred due to a syntax error in a request.</p>
+            aws_sdk_macie2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1129,6 +1285,16 @@ class Macie2Client:
             max_results: <p>The maximum number of items to include in each page of the response. The default value is 50.</p>
             next_token: <p>The nextToken string that specifies which page of results to return in a paginated response.</p>
             sort_criteria: <p>The criteria to use to sort the query results.</p>
+
+        Raises:
+            aws_sdk_macie2.errors.access_denied_exception.AccessDeniedException: <p>Provides information about an error that occurred due to insufficient access to a specified resource.</p>
+            aws_sdk_macie2.errors.conflict_exception.ConflictException: <p>Provides information about an error that occurred due to a versioning conflict for a specified resource.</p>
+            aws_sdk_macie2.errors.internal_server_exception.InternalServerException: <p>Provides information about an error that occurred due to an unknown internal server error, exception, or failure.</p>
+            aws_sdk_macie2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Provides information about an error that occurred because a specified resource wasn't found.</p>
+            aws_sdk_macie2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Provides information about an error that occurred due to one or more service quotas for an account.</p>
+            aws_sdk_macie2.errors.throttling_exception.ThrottlingException: <p>Provides information about an error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_macie2.errors.validation_exception.ValidationException: <p>Provides information about an error that occurred due to a syntax error in a request.</p>
+            aws_sdk_macie2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1202,6 +1368,16 @@ class Macie2Client:
 
         Args:
             job_id: <p>The unique identifier for the classification job.</p>
+
+        Raises:
+            aws_sdk_macie2.errors.access_denied_exception.AccessDeniedException: <p>Provides information about an error that occurred due to insufficient access to a specified resource.</p>
+            aws_sdk_macie2.errors.conflict_exception.ConflictException: <p>Provides information about an error that occurred due to a versioning conflict for a specified resource.</p>
+            aws_sdk_macie2.errors.internal_server_exception.InternalServerException: <p>Provides information about an error that occurred due to an unknown internal server error, exception, or failure.</p>
+            aws_sdk_macie2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Provides information about an error that occurred because a specified resource wasn't found.</p>
+            aws_sdk_macie2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Provides information about an error that occurred due to one or more service quotas for an account.</p>
+            aws_sdk_macie2.errors.throttling_exception.ThrottlingException: <p>Provides information about an error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_macie2.errors.validation_exception.ValidationException: <p>Provides information about an error that occurred due to a syntax error in a request.</p>
+            aws_sdk_macie2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1232,7 +1408,18 @@ class Macie2Client:
     def describe_organization_configuration(
         self, *, config_overrides: Optional[Macie2ClientConfig] = None
     ) -> "aws_sdk_macie2.types.describe_organization_configuration_response.DescribeOrganizationConfigurationResponse":
-        """<p>Retrieves the Amazon Macie configuration settings for an organization in Organizations.</p>"""
+        """<p>Retrieves the Amazon Macie configuration settings for an organization in Organizations.</p>
+
+        Raises:
+            aws_sdk_macie2.errors.access_denied_exception.AccessDeniedException: <p>Provides information about an error that occurred due to insufficient access to a specified resource.</p>
+            aws_sdk_macie2.errors.conflict_exception.ConflictException: <p>Provides information about an error that occurred due to a versioning conflict for a specified resource.</p>
+            aws_sdk_macie2.errors.internal_server_exception.InternalServerException: <p>Provides information about an error that occurred due to an unknown internal server error, exception, or failure.</p>
+            aws_sdk_macie2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Provides information about an error that occurred because a specified resource wasn't found.</p>
+            aws_sdk_macie2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Provides information about an error that occurred due to one or more service quotas for an account.</p>
+            aws_sdk_macie2.errors.throttling_exception.ThrottlingException: <p>Provides information about an error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_macie2.errors.validation_exception.ValidationException: <p>Provides information about an error that occurred due to a syntax error in a request.</p>
+            aws_sdk_macie2.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_macie2.types.describe_organization_configuration_request.DescribeOrganizationConfigurationRequest]",
@@ -1261,7 +1448,18 @@ class Macie2Client:
     def disable_macie(
         self, *, config_overrides: Optional[Macie2ClientConfig] = None
     ) -> "aws_sdk_macie2.types.disable_macie_response.DisableMacieResponse":
-        """<p>Disables Amazon Macie and deletes all settings and resources for a Macie account.</p>"""
+        """<p>Disables Amazon Macie and deletes all settings and resources for a Macie account.</p>
+
+        Raises:
+            aws_sdk_macie2.errors.access_denied_exception.AccessDeniedException: <p>Provides information about an error that occurred due to insufficient access to a specified resource.</p>
+            aws_sdk_macie2.errors.conflict_exception.ConflictException: <p>Provides information about an error that occurred due to a versioning conflict for a specified resource.</p>
+            aws_sdk_macie2.errors.internal_server_exception.InternalServerException: <p>Provides information about an error that occurred due to an unknown internal server error, exception, or failure.</p>
+            aws_sdk_macie2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Provides information about an error that occurred because a specified resource wasn't found.</p>
+            aws_sdk_macie2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Provides information about an error that occurred due to one or more service quotas for an account.</p>
+            aws_sdk_macie2.errors.throttling_exception.ThrottlingException: <p>Provides information about an error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_macie2.errors.validation_exception.ValidationException: <p>Provides information about an error that occurred due to a syntax error in a request.</p>
+            aws_sdk_macie2.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_macie2.types.disable_macie_request.DisableMacieRequest]",
@@ -1297,6 +1495,16 @@ class Macie2Client:
 
         Args:
             admin_account_id: <p>The Amazon Web Services account ID of the delegated Amazon Macie administrator account.</p>
+
+        Raises:
+            aws_sdk_macie2.errors.access_denied_exception.AccessDeniedException: <p>Provides information about an error that occurred due to insufficient access to a specified resource.</p>
+            aws_sdk_macie2.errors.conflict_exception.ConflictException: <p>Provides information about an error that occurred due to a versioning conflict for a specified resource.</p>
+            aws_sdk_macie2.errors.internal_server_exception.InternalServerException: <p>Provides information about an error that occurred due to an unknown internal server error, exception, or failure.</p>
+            aws_sdk_macie2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Provides information about an error that occurred because a specified resource wasn't found.</p>
+            aws_sdk_macie2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Provides information about an error that occurred due to one or more service quotas for an account.</p>
+            aws_sdk_macie2.errors.throttling_exception.ThrottlingException: <p>Provides information about an error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_macie2.errors.validation_exception.ValidationException: <p>Provides information about an error that occurred due to a syntax error in a request.</p>
+            aws_sdk_macie2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1327,7 +1535,18 @@ class Macie2Client:
     def disassociate_from_administrator_account(
         self, *, config_overrides: Optional[Macie2ClientConfig] = None
     ) -> "aws_sdk_macie2.types.disassociate_from_administrator_account_response.DisassociateFromAdministratorAccountResponse":
-        """<p>Disassociates a member account from its Amazon Macie administrator account.</p>"""
+        """<p>Disassociates a member account from its Amazon Macie administrator account.</p>
+
+        Raises:
+            aws_sdk_macie2.errors.access_denied_exception.AccessDeniedException: <p>Provides information about an error that occurred due to insufficient access to a specified resource.</p>
+            aws_sdk_macie2.errors.conflict_exception.ConflictException: <p>Provides information about an error that occurred due to a versioning conflict for a specified resource.</p>
+            aws_sdk_macie2.errors.internal_server_exception.InternalServerException: <p>Provides information about an error that occurred due to an unknown internal server error, exception, or failure.</p>
+            aws_sdk_macie2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Provides information about an error that occurred because a specified resource wasn't found.</p>
+            aws_sdk_macie2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Provides information about an error that occurred due to one or more service quotas for an account.</p>
+            aws_sdk_macie2.errors.throttling_exception.ThrottlingException: <p>Provides information about an error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_macie2.errors.validation_exception.ValidationException: <p>Provides information about an error that occurred due to a syntax error in a request.</p>
+            aws_sdk_macie2.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_macie2.types.disassociate_from_administrator_account_request.DisassociateFromAdministratorAccountRequest]",
@@ -1356,7 +1575,18 @@ class Macie2Client:
     def disassociate_from_master_account(
         self, *, config_overrides: Optional[Macie2ClientConfig] = None
     ) -> "aws_sdk_macie2.types.disassociate_from_master_account_response.DisassociateFromMasterAccountResponse":
-        r"""<p>(Deprecated) Disassociates a member account from its Amazon Macie administrator account. This operation has been replaced by the <link linkend=\"DisassociateFromAdministratorAccount\">DisassociateFromAdministratorAccount</link> operation.</p>"""
+        r"""<p>(Deprecated) Disassociates a member account from its Amazon Macie administrator account. This operation has been replaced by the <link linkend=\"DisassociateFromAdministratorAccount\">DisassociateFromAdministratorAccount</link> operation.</p>
+
+        Raises:
+            aws_sdk_macie2.errors.access_denied_exception.AccessDeniedException: <p>Provides information about an error that occurred due to insufficient access to a specified resource.</p>
+            aws_sdk_macie2.errors.conflict_exception.ConflictException: <p>Provides information about an error that occurred due to a versioning conflict for a specified resource.</p>
+            aws_sdk_macie2.errors.internal_server_exception.InternalServerException: <p>Provides information about an error that occurred due to an unknown internal server error, exception, or failure.</p>
+            aws_sdk_macie2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Provides information about an error that occurred because a specified resource wasn't found.</p>
+            aws_sdk_macie2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Provides information about an error that occurred due to one or more service quotas for an account.</p>
+            aws_sdk_macie2.errors.throttling_exception.ThrottlingException: <p>Provides information about an error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_macie2.errors.validation_exception.ValidationException: <p>Provides information about an error that occurred due to a syntax error in a request.</p>
+            aws_sdk_macie2.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_macie2.types.disassociate_from_master_account_request.DisassociateFromMasterAccountRequest]",
@@ -1392,6 +1622,16 @@ class Macie2Client:
 
         Args:
             id: <p>The unique identifier for the Amazon Macie resource that the request applies to.</p>
+
+        Raises:
+            aws_sdk_macie2.errors.access_denied_exception.AccessDeniedException: <p>Provides information about an error that occurred due to insufficient access to a specified resource.</p>
+            aws_sdk_macie2.errors.conflict_exception.ConflictException: <p>Provides information about an error that occurred due to a versioning conflict for a specified resource.</p>
+            aws_sdk_macie2.errors.internal_server_exception.InternalServerException: <p>Provides information about an error that occurred due to an unknown internal server error, exception, or failure.</p>
+            aws_sdk_macie2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Provides information about an error that occurred because a specified resource wasn't found.</p>
+            aws_sdk_macie2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Provides information about an error that occurred due to one or more service quotas for an account.</p>
+            aws_sdk_macie2.errors.throttling_exception.ThrottlingException: <p>Provides information about an error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_macie2.errors.validation_exception.ValidationException: <p>Provides information about an error that occurred due to a syntax error in a request.</p>
+            aws_sdk_macie2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1435,6 +1675,16 @@ class Macie2Client:
             client_token: <p>A unique, case-sensitive token that you provide to ensure the idempotency of the request.</p>
             finding_publishing_frequency: <p>Specifies how often to publish updates to policy findings for the account. This includes publishing updates to Security Hub and Amazon EventBridge (formerly Amazon CloudWatch Events).</p>
             status: <p>Specifies the new status for the account. To enable Amazon Macie and start all Macie activities for the account, set this value to ENABLED.</p>
+
+        Raises:
+            aws_sdk_macie2.errors.access_denied_exception.AccessDeniedException: <p>Provides information about an error that occurred due to insufficient access to a specified resource.</p>
+            aws_sdk_macie2.errors.conflict_exception.ConflictException: <p>Provides information about an error that occurred due to a versioning conflict for a specified resource.</p>
+            aws_sdk_macie2.errors.internal_server_exception.InternalServerException: <p>Provides information about an error that occurred due to an unknown internal server error, exception, or failure.</p>
+            aws_sdk_macie2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Provides information about an error that occurred because a specified resource wasn't found.</p>
+            aws_sdk_macie2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Provides information about an error that occurred due to one or more service quotas for an account.</p>
+            aws_sdk_macie2.errors.throttling_exception.ThrottlingException: <p>Provides information about an error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_macie2.errors.validation_exception.ValidationException: <p>Provides information about an error that occurred due to a syntax error in a request.</p>
+            aws_sdk_macie2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1479,6 +1729,16 @@ class Macie2Client:
         Args:
             admin_account_id: <p>The Amazon Web Services account ID for the account to designate as the delegated Amazon Macie administrator account for the organization.</p>
             client_token: <p>A unique, case-sensitive token that you provide to ensure the idempotency of the request.</p>
+
+        Raises:
+            aws_sdk_macie2.errors.access_denied_exception.AccessDeniedException: <p>Provides information about an error that occurred due to insufficient access to a specified resource.</p>
+            aws_sdk_macie2.errors.conflict_exception.ConflictException: <p>Provides information about an error that occurred due to a versioning conflict for a specified resource.</p>
+            aws_sdk_macie2.errors.internal_server_exception.InternalServerException: <p>Provides information about an error that occurred due to an unknown internal server error, exception, or failure.</p>
+            aws_sdk_macie2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Provides information about an error that occurred because a specified resource wasn't found.</p>
+            aws_sdk_macie2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Provides information about an error that occurred due to one or more service quotas for an account.</p>
+            aws_sdk_macie2.errors.throttling_exception.ThrottlingException: <p>Provides information about an error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_macie2.errors.validation_exception.ValidationException: <p>Provides information about an error that occurred due to a syntax error in a request.</p>
+            aws_sdk_macie2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1511,7 +1771,18 @@ class Macie2Client:
     def get_administrator_account(
         self, *, config_overrides: Optional[Macie2ClientConfig] = None
     ) -> "aws_sdk_macie2.types.get_administrator_account_response.GetAdministratorAccountResponse":
-        """<p>Retrieves information about the Amazon Macie administrator account for an account.</p>"""
+        """<p>Retrieves information about the Amazon Macie administrator account for an account.</p>
+
+        Raises:
+            aws_sdk_macie2.errors.access_denied_exception.AccessDeniedException: <p>Provides information about an error that occurred due to insufficient access to a specified resource.</p>
+            aws_sdk_macie2.errors.conflict_exception.ConflictException: <p>Provides information about an error that occurred due to a versioning conflict for a specified resource.</p>
+            aws_sdk_macie2.errors.internal_server_exception.InternalServerException: <p>Provides information about an error that occurred due to an unknown internal server error, exception, or failure.</p>
+            aws_sdk_macie2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Provides information about an error that occurred because a specified resource wasn't found.</p>
+            aws_sdk_macie2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Provides information about an error that occurred due to one or more service quotas for an account.</p>
+            aws_sdk_macie2.errors.throttling_exception.ThrottlingException: <p>Provides information about an error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_macie2.errors.validation_exception.ValidationException: <p>Provides information about an error that occurred due to a syntax error in a request.</p>
+            aws_sdk_macie2.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_macie2.types.get_administrator_account_request.GetAdministratorAccountRequest]",
@@ -1547,6 +1818,14 @@ class Macie2Client:
 
         Args:
             id: <p>The unique identifier for the Amazon Macie resource that the request applies to.</p>
+
+        Raises:
+            aws_sdk_macie2.errors.access_denied_exception.AccessDeniedException: <p>Provides information about an error that occurred due to insufficient access to a specified resource.</p>
+            aws_sdk_macie2.errors.internal_server_exception.InternalServerException: <p>Provides information about an error that occurred due to an unknown internal server error, exception, or failure.</p>
+            aws_sdk_macie2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Provides information about an error that occurred because a specified resource wasn't found.</p>
+            aws_sdk_macie2.errors.throttling_exception.ThrottlingException: <p>Provides information about an error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_macie2.errors.validation_exception.ValidationException: <p>Provides information about an error that occurred due to a syntax error in a request.</p>
+            aws_sdk_macie2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1577,7 +1856,15 @@ class Macie2Client:
     def get_automated_discovery_configuration(
         self, *, config_overrides: Optional[Macie2ClientConfig] = None
     ) -> "aws_sdk_macie2.types.get_automated_discovery_configuration_response.GetAutomatedDiscoveryConfigurationResponse":
-        """<p>Retrieves the configuration settings and status of automated sensitive data discovery for an organization or standalone account.</p>"""
+        """<p>Retrieves the configuration settings and status of automated sensitive data discovery for an organization or standalone account.</p>
+
+        Raises:
+            aws_sdk_macie2.errors.access_denied_exception.AccessDeniedException: <p>Provides information about an error that occurred due to insufficient access to a specified resource.</p>
+            aws_sdk_macie2.errors.internal_server_exception.InternalServerException: <p>Provides information about an error that occurred due to an unknown internal server error, exception, or failure.</p>
+            aws_sdk_macie2.errors.throttling_exception.ThrottlingException: <p>Provides information about an error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_macie2.errors.validation_exception.ValidationException: <p>Provides information about an error that occurred due to a syntax error in a request.</p>
+            aws_sdk_macie2.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_macie2.types.get_automated_discovery_configuration_request.GetAutomatedDiscoveryConfigurationRequest]",
@@ -1613,6 +1900,16 @@ class Macie2Client:
 
         Args:
             account_id: <p>The unique identifier for the Amazon Web Services account.</p>
+
+        Raises:
+            aws_sdk_macie2.errors.access_denied_exception.AccessDeniedException: <p>Provides information about an error that occurred due to insufficient access to a specified resource.</p>
+            aws_sdk_macie2.errors.conflict_exception.ConflictException: <p>Provides information about an error that occurred due to a versioning conflict for a specified resource.</p>
+            aws_sdk_macie2.errors.internal_server_exception.InternalServerException: <p>Provides information about an error that occurred due to an unknown internal server error, exception, or failure.</p>
+            aws_sdk_macie2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Provides information about an error that occurred because a specified resource wasn't found.</p>
+            aws_sdk_macie2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Provides information about an error that occurred due to one or more service quotas for an account.</p>
+            aws_sdk_macie2.errors.throttling_exception.ThrottlingException: <p>Provides information about an error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_macie2.errors.validation_exception.ValidationException: <p>Provides information about an error that occurred due to a syntax error in a request.</p>
+            aws_sdk_macie2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1644,7 +1941,18 @@ class Macie2Client:
     def get_classification_export_configuration(
         self, *, config_overrides: Optional[Macie2ClientConfig] = None
     ) -> "aws_sdk_macie2.types.get_classification_export_configuration_response.GetClassificationExportConfigurationResponse":
-        """<p>Retrieves the configuration settings for storing data classification results.</p>"""
+        """<p>Retrieves the configuration settings for storing data classification results.</p>
+
+        Raises:
+            aws_sdk_macie2.errors.access_denied_exception.AccessDeniedException: <p>Provides information about an error that occurred due to insufficient access to a specified resource.</p>
+            aws_sdk_macie2.errors.conflict_exception.ConflictException: <p>Provides information about an error that occurred due to a versioning conflict for a specified resource.</p>
+            aws_sdk_macie2.errors.internal_server_exception.InternalServerException: <p>Provides information about an error that occurred due to an unknown internal server error, exception, or failure.</p>
+            aws_sdk_macie2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Provides information about an error that occurred because a specified resource wasn't found.</p>
+            aws_sdk_macie2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Provides information about an error that occurred due to one or more service quotas for an account.</p>
+            aws_sdk_macie2.errors.throttling_exception.ThrottlingException: <p>Provides information about an error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_macie2.errors.validation_exception.ValidationException: <p>Provides information about an error that occurred due to a syntax error in a request.</p>
+            aws_sdk_macie2.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_macie2.types.get_classification_export_configuration_request.GetClassificationExportConfigurationRequest]",
@@ -1680,6 +1988,14 @@ class Macie2Client:
 
         Args:
             id: <p>The unique identifier for the Amazon Macie resource that the request applies to.</p>
+
+        Raises:
+            aws_sdk_macie2.errors.access_denied_exception.AccessDeniedException: <p>Provides information about an error that occurred due to insufficient access to a specified resource.</p>
+            aws_sdk_macie2.errors.internal_server_exception.InternalServerException: <p>Provides information about an error that occurred due to an unknown internal server error, exception, or failure.</p>
+            aws_sdk_macie2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Provides information about an error that occurred because a specified resource wasn't found.</p>
+            aws_sdk_macie2.errors.throttling_exception.ThrottlingException: <p>Provides information about an error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_macie2.errors.validation_exception.ValidationException: <p>Provides information about an error that occurred due to a syntax error in a request.</p>
+            aws_sdk_macie2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1717,6 +2033,16 @@ class Macie2Client:
 
         Args:
             id: <p>The unique identifier for the Amazon Macie resource that the request applies to.</p>
+
+        Raises:
+            aws_sdk_macie2.errors.access_denied_exception.AccessDeniedException: <p>Provides information about an error that occurred due to insufficient access to a specified resource.</p>
+            aws_sdk_macie2.errors.conflict_exception.ConflictException: <p>Provides information about an error that occurred due to a versioning conflict for a specified resource.</p>
+            aws_sdk_macie2.errors.internal_server_exception.InternalServerException: <p>Provides information about an error that occurred due to an unknown internal server error, exception, or failure.</p>
+            aws_sdk_macie2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Provides information about an error that occurred because a specified resource wasn't found.</p>
+            aws_sdk_macie2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Provides information about an error that occurred due to one or more service quotas for an account.</p>
+            aws_sdk_macie2.errors.throttling_exception.ThrottlingException: <p>Provides information about an error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_macie2.errors.validation_exception.ValidationException: <p>Provides information about an error that occurred due to a syntax error in a request.</p>
+            aws_sdk_macie2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1758,6 +2084,16 @@ class Macie2Client:
         Args:
             finding_ids: <p>An array of strings that lists the unique identifiers for the findings to retrieve. You can specify as many as 50 unique identifiers in this array.</p>
             sort_criteria: <p>The criteria for sorting the results of the request.</p>
+
+        Raises:
+            aws_sdk_macie2.errors.access_denied_exception.AccessDeniedException: <p>Provides information about an error that occurred due to insufficient access to a specified resource.</p>
+            aws_sdk_macie2.errors.conflict_exception.ConflictException: <p>Provides information about an error that occurred due to a versioning conflict for a specified resource.</p>
+            aws_sdk_macie2.errors.internal_server_exception.InternalServerException: <p>Provides information about an error that occurred due to an unknown internal server error, exception, or failure.</p>
+            aws_sdk_macie2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Provides information about an error that occurred because a specified resource wasn't found.</p>
+            aws_sdk_macie2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Provides information about an error that occurred due to one or more service quotas for an account.</p>
+            aws_sdk_macie2.errors.throttling_exception.ThrottlingException: <p>Provides information about an error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_macie2.errors.validation_exception.ValidationException: <p>Provides information about an error that occurred due to a syntax error in a request.</p>
+            aws_sdk_macie2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1797,6 +2133,16 @@ class Macie2Client:
 
         Args:
             id: <p>The unique identifier for the Amazon Macie resource that the request applies to.</p>
+
+        Raises:
+            aws_sdk_macie2.errors.access_denied_exception.AccessDeniedException: <p>Provides information about an error that occurred due to insufficient access to a specified resource.</p>
+            aws_sdk_macie2.errors.conflict_exception.ConflictException: <p>Provides information about an error that occurred due to a versioning conflict for a specified resource.</p>
+            aws_sdk_macie2.errors.internal_server_exception.InternalServerException: <p>Provides information about an error that occurred due to an unknown internal server error, exception, or failure.</p>
+            aws_sdk_macie2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Provides information about an error that occurred because a specified resource wasn't found.</p>
+            aws_sdk_macie2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Provides information about an error that occurred due to one or more service quotas for an account.</p>
+            aws_sdk_macie2.errors.throttling_exception.ThrottlingException: <p>Provides information about an error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_macie2.errors.validation_exception.ValidationException: <p>Provides information about an error that occurred due to a syntax error in a request.</p>
+            aws_sdk_macie2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1827,7 +2173,18 @@ class Macie2Client:
     def get_findings_publication_configuration(
         self, *, config_overrides: Optional[Macie2ClientConfig] = None
     ) -> "aws_sdk_macie2.types.get_findings_publication_configuration_response.GetFindingsPublicationConfigurationResponse":
-        """<p>Retrieves the configuration settings for publishing findings to Security Hub.</p>"""
+        """<p>Retrieves the configuration settings for publishing findings to Security Hub.</p>
+
+        Raises:
+            aws_sdk_macie2.errors.access_denied_exception.AccessDeniedException: <p>Provides information about an error that occurred due to insufficient access to a specified resource.</p>
+            aws_sdk_macie2.errors.conflict_exception.ConflictException: <p>Provides information about an error that occurred due to a versioning conflict for a specified resource.</p>
+            aws_sdk_macie2.errors.internal_server_exception.InternalServerException: <p>Provides information about an error that occurred due to an unknown internal server error, exception, or failure.</p>
+            aws_sdk_macie2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Provides information about an error that occurred because a specified resource wasn't found.</p>
+            aws_sdk_macie2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Provides information about an error that occurred due to one or more service quotas for an account.</p>
+            aws_sdk_macie2.errors.throttling_exception.ThrottlingException: <p>Provides information about an error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_macie2.errors.validation_exception.ValidationException: <p>Provides information about an error that occurred due to a syntax error in a request.</p>
+            aws_sdk_macie2.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_macie2.types.get_findings_publication_configuration_request.GetFindingsPublicationConfigurationRequest]",
@@ -1873,6 +2230,16 @@ class Macie2Client:
             group_by: <p>The finding property to use to group the query results. Valid values are:</p> <ul><li><p>classificationDetails.jobId - The unique identifier for the classification job that produced the finding.</p></li> <li><p>resourcesAffected.s3Bucket.name - The name of the S3 bucket that the finding applies to.</p></li> <li><p>severity.description - The severity level of the finding, such as High or Medium.</p></li> <li><p>type - The type of finding, such as Policy:IAMUser/S3BucketPublic and SensitiveData:S3Object/Personal.</p></li></ul>
             size: <p>The maximum number of items to include in each page of the response.</p>
             sort_criteria: <p>The criteria to use to sort the query results.</p>
+
+        Raises:
+            aws_sdk_macie2.errors.access_denied_exception.AccessDeniedException: <p>Provides information about an error that occurred due to insufficient access to a specified resource.</p>
+            aws_sdk_macie2.errors.conflict_exception.ConflictException: <p>Provides information about an error that occurred due to a versioning conflict for a specified resource.</p>
+            aws_sdk_macie2.errors.internal_server_exception.InternalServerException: <p>Provides information about an error that occurred due to an unknown internal server error, exception, or failure.</p>
+            aws_sdk_macie2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Provides information about an error that occurred because a specified resource wasn't found.</p>
+            aws_sdk_macie2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Provides information about an error that occurred due to one or more service quotas for an account.</p>
+            aws_sdk_macie2.errors.throttling_exception.ThrottlingException: <p>Provides information about an error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_macie2.errors.validation_exception.ValidationException: <p>Provides information about an error that occurred due to a syntax error in a request.</p>
+            aws_sdk_macie2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1909,7 +2276,18 @@ class Macie2Client:
     def get_invitations_count(
         self, *, config_overrides: Optional[Macie2ClientConfig] = None
     ) -> "aws_sdk_macie2.types.get_invitations_count_response.GetInvitationsCountResponse":
-        """<p>Retrieves the count of Amazon Macie membership invitations that were received by an account.</p>"""
+        """<p>Retrieves the count of Amazon Macie membership invitations that were received by an account.</p>
+
+        Raises:
+            aws_sdk_macie2.errors.access_denied_exception.AccessDeniedException: <p>Provides information about an error that occurred due to insufficient access to a specified resource.</p>
+            aws_sdk_macie2.errors.conflict_exception.ConflictException: <p>Provides information about an error that occurred due to a versioning conflict for a specified resource.</p>
+            aws_sdk_macie2.errors.internal_server_exception.InternalServerException: <p>Provides information about an error that occurred due to an unknown internal server error, exception, or failure.</p>
+            aws_sdk_macie2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Provides information about an error that occurred because a specified resource wasn't found.</p>
+            aws_sdk_macie2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Provides information about an error that occurred due to one or more service quotas for an account.</p>
+            aws_sdk_macie2.errors.throttling_exception.ThrottlingException: <p>Provides information about an error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_macie2.errors.validation_exception.ValidationException: <p>Provides information about an error that occurred due to a syntax error in a request.</p>
+            aws_sdk_macie2.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_macie2.types.get_invitations_count_request.GetInvitationsCountRequest]",
@@ -1938,7 +2316,18 @@ class Macie2Client:
     def get_macie_session(
         self, *, config_overrides: Optional[Macie2ClientConfig] = None
     ) -> "aws_sdk_macie2.types.get_macie_session_response.GetMacieSessionResponse":
-        """<p>Retrieves the status and configuration settings for an Amazon Macie account.</p>"""
+        """<p>Retrieves the status and configuration settings for an Amazon Macie account.</p>
+
+        Raises:
+            aws_sdk_macie2.errors.access_denied_exception.AccessDeniedException: <p>Provides information about an error that occurred due to insufficient access to a specified resource.</p>
+            aws_sdk_macie2.errors.conflict_exception.ConflictException: <p>Provides information about an error that occurred due to a versioning conflict for a specified resource.</p>
+            aws_sdk_macie2.errors.internal_server_exception.InternalServerException: <p>Provides information about an error that occurred due to an unknown internal server error, exception, or failure.</p>
+            aws_sdk_macie2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Provides information about an error that occurred because a specified resource wasn't found.</p>
+            aws_sdk_macie2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Provides information about an error that occurred due to one or more service quotas for an account.</p>
+            aws_sdk_macie2.errors.throttling_exception.ThrottlingException: <p>Provides information about an error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_macie2.errors.validation_exception.ValidationException: <p>Provides information about an error that occurred due to a syntax error in a request.</p>
+            aws_sdk_macie2.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_macie2.types.get_macie_session_request.GetMacieSessionRequest]",
@@ -1967,7 +2356,18 @@ class Macie2Client:
     def get_master_account(
         self, *, config_overrides: Optional[Macie2ClientConfig] = None
     ) -> "aws_sdk_macie2.types.get_master_account_response.GetMasterAccountResponse":
-        r"""<p>(Deprecated) Retrieves information about the Amazon Macie administrator account for an account. This operation has been replaced by the <link linkend=\"GetAdministratorAccount\">GetAdministratorAccount</link> operation.</p>"""
+        r"""<p>(Deprecated) Retrieves information about the Amazon Macie administrator account for an account. This operation has been replaced by the <link linkend=\"GetAdministratorAccount\">GetAdministratorAccount</link> operation.</p>
+
+        Raises:
+            aws_sdk_macie2.errors.access_denied_exception.AccessDeniedException: <p>Provides information about an error that occurred due to insufficient access to a specified resource.</p>
+            aws_sdk_macie2.errors.conflict_exception.ConflictException: <p>Provides information about an error that occurred due to a versioning conflict for a specified resource.</p>
+            aws_sdk_macie2.errors.internal_server_exception.InternalServerException: <p>Provides information about an error that occurred due to an unknown internal server error, exception, or failure.</p>
+            aws_sdk_macie2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Provides information about an error that occurred because a specified resource wasn't found.</p>
+            aws_sdk_macie2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Provides information about an error that occurred due to one or more service quotas for an account.</p>
+            aws_sdk_macie2.errors.throttling_exception.ThrottlingException: <p>Provides information about an error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_macie2.errors.validation_exception.ValidationException: <p>Provides information about an error that occurred due to a syntax error in a request.</p>
+            aws_sdk_macie2.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_macie2.types.get_master_account_request.GetMasterAccountRequest]",
@@ -2003,6 +2403,16 @@ class Macie2Client:
 
         Args:
             id: <p>The unique identifier for the Amazon Macie resource that the request applies to.</p>
+
+        Raises:
+            aws_sdk_macie2.errors.access_denied_exception.AccessDeniedException: <p>Provides information about an error that occurred due to insufficient access to a specified resource.</p>
+            aws_sdk_macie2.errors.conflict_exception.ConflictException: <p>Provides information about an error that occurred due to a versioning conflict for a specified resource.</p>
+            aws_sdk_macie2.errors.internal_server_exception.InternalServerException: <p>Provides information about an error that occurred due to an unknown internal server error, exception, or failure.</p>
+            aws_sdk_macie2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Provides information about an error that occurred because a specified resource wasn't found.</p>
+            aws_sdk_macie2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Provides information about an error that occurred due to one or more service quotas for an account.</p>
+            aws_sdk_macie2.errors.throttling_exception.ThrottlingException: <p>Provides information about an error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_macie2.errors.validation_exception.ValidationException: <p>Provides information about an error that occurred due to a syntax error in a request.</p>
+            aws_sdk_macie2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2042,6 +2452,15 @@ class Macie2Client:
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the S3 bucket that the request applies to.</p>
+
+        Raises:
+            aws_sdk_macie2.errors.access_denied_exception.AccessDeniedException: <p>Provides information about an error that occurred due to insufficient access to a specified resource.</p>
+            aws_sdk_macie2.errors.internal_server_exception.InternalServerException: <p>Provides information about an error that occurred due to an unknown internal server error, exception, or failure.</p>
+            aws_sdk_macie2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Provides information about an error that occurred because a specified resource wasn't found.</p>
+            aws_sdk_macie2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Provides information about an error that occurred due to one or more service quotas for an account.</p>
+            aws_sdk_macie2.errors.throttling_exception.ThrottlingException: <p>Provides information about an error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_macie2.errors.validation_exception.ValidationException: <p>Provides information about an error that occurred due to a syntax error in a request.</p>
+            aws_sdk_macie2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2072,7 +2491,15 @@ class Macie2Client:
     def get_reveal_configuration(
         self, *, config_overrides: Optional[Macie2ClientConfig] = None
     ) -> "aws_sdk_macie2.types.get_reveal_configuration_response.GetRevealConfigurationResponse":
-        """<p>Retrieves the status and configuration settings for retrieving occurrences of sensitive data reported by findings.</p>"""
+        """<p>Retrieves the status and configuration settings for retrieving occurrences of sensitive data reported by findings.</p>
+
+        Raises:
+            aws_sdk_macie2.errors.access_denied_exception.AccessDeniedException: <p>Provides information about an error that occurred due to insufficient access to a specified resource.</p>
+            aws_sdk_macie2.errors.internal_server_exception.InternalServerException: <p>Provides information about an error that occurred due to an unknown internal server error, exception, or failure.</p>
+            aws_sdk_macie2.errors.throttling_exception.ThrottlingException: <p>Provides information about an error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_macie2.errors.validation_exception.ValidationException: <p>Provides information about an error that occurred due to a syntax error in a request.</p>
+            aws_sdk_macie2.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_macie2.types.get_reveal_configuration_request.GetRevealConfigurationRequest]",
@@ -2108,6 +2535,15 @@ class Macie2Client:
 
         Args:
             finding_id: <p>The unique identifier for the finding.</p>
+
+        Raises:
+            aws_sdk_macie2.errors.access_denied_exception.AccessDeniedException: <p>Provides information about an error that occurred due to insufficient access to a specified resource.</p>
+            aws_sdk_macie2.errors.internal_server_exception.InternalServerException: <p>Provides information about an error that occurred due to an unknown internal server error, exception, or failure.</p>
+            aws_sdk_macie2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Provides information about an error that occurred because a specified resource wasn't found.</p>
+            aws_sdk_macie2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Provides information about an error that occurred due to one or more service quotas for an account.</p>
+            aws_sdk_macie2.errors.throttling_exception.ThrottlingException: <p>Provides information about an error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_macie2.errors.unprocessable_entity_exception.UnprocessableEntityException: <p>Provides information about an error that occurred due to an unprocessable entity.</p>
+            aws_sdk_macie2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2145,6 +2581,13 @@ class Macie2Client:
 
         Args:
             finding_id: <p>The unique identifier for the finding.</p>
+
+        Raises:
+            aws_sdk_macie2.errors.access_denied_exception.AccessDeniedException: <p>Provides information about an error that occurred due to insufficient access to a specified resource.</p>
+            aws_sdk_macie2.errors.internal_server_exception.InternalServerException: <p>Provides information about an error that occurred due to an unknown internal server error, exception, or failure.</p>
+            aws_sdk_macie2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Provides information about an error that occurred because a specified resource wasn't found.</p>
+            aws_sdk_macie2.errors.throttling_exception.ThrottlingException: <p>Provides information about an error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_macie2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2182,6 +2625,14 @@ class Macie2Client:
 
         Args:
             id: <p>The unique identifier for the Amazon Macie resource that the request applies to.</p>
+
+        Raises:
+            aws_sdk_macie2.errors.access_denied_exception.AccessDeniedException: <p>Provides information about an error that occurred due to insufficient access to a specified resource.</p>
+            aws_sdk_macie2.errors.internal_server_exception.InternalServerException: <p>Provides information about an error that occurred due to an unknown internal server error, exception, or failure.</p>
+            aws_sdk_macie2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Provides information about an error that occurred because a specified resource wasn't found.</p>
+            aws_sdk_macie2.errors.throttling_exception.ThrottlingException: <p>Provides information about an error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_macie2.errors.validation_exception.ValidationException: <p>Provides information about an error that occurred due to a syntax error in a request.</p>
+            aws_sdk_macie2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2233,6 +2684,16 @@ class Macie2Client:
             next_token: <p>The nextToken string that specifies which page of results to return in a paginated response.</p>
             sort_by: <p>The criteria to use to sort the query results.</p>
             time_range: <p>The inclusive time period to query usage data for. Valid values are: MONTH_TO_DATE, for the current calendar month to date; and, PAST_30_DAYS, for the preceding 30 days. If you don't specify a value, Amazon Macie provides usage data for the preceding 30 days.</p>
+
+        Raises:
+            aws_sdk_macie2.errors.access_denied_exception.AccessDeniedException: <p>Provides information about an error that occurred due to insufficient access to a specified resource.</p>
+            aws_sdk_macie2.errors.conflict_exception.ConflictException: <p>Provides information about an error that occurred due to a versioning conflict for a specified resource.</p>
+            aws_sdk_macie2.errors.internal_server_exception.InternalServerException: <p>Provides information about an error that occurred due to an unknown internal server error, exception, or failure.</p>
+            aws_sdk_macie2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Provides information about an error that occurred because a specified resource wasn't found.</p>
+            aws_sdk_macie2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Provides information about an error that occurred due to one or more service quotas for an account.</p>
+            aws_sdk_macie2.errors.throttling_exception.ThrottlingException: <p>Provides information about an error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_macie2.errors.validation_exception.ValidationException: <p>Provides information about an error that occurred due to a syntax error in a request.</p>
+            aws_sdk_macie2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2310,6 +2771,16 @@ class Macie2Client:
 
         Args:
             time_range: <p>The inclusive time period to retrieve the data for. Valid values are: MONTH_TO_DATE, for the current calendar month to date; and, PAST_30_DAYS, for the preceding 30 days. If you don't specify a value for this parameter, Amazon Macie provides aggregated usage data for the preceding 30 days.</p>
+
+        Raises:
+            aws_sdk_macie2.errors.access_denied_exception.AccessDeniedException: <p>Provides information about an error that occurred due to insufficient access to a specified resource.</p>
+            aws_sdk_macie2.errors.conflict_exception.ConflictException: <p>Provides information about an error that occurred due to a versioning conflict for a specified resource.</p>
+            aws_sdk_macie2.errors.internal_server_exception.InternalServerException: <p>Provides information about an error that occurred due to an unknown internal server error, exception, or failure.</p>
+            aws_sdk_macie2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Provides information about an error that occurred because a specified resource wasn't found.</p>
+            aws_sdk_macie2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Provides information about an error that occurred due to one or more service quotas for an account.</p>
+            aws_sdk_macie2.errors.throttling_exception.ThrottlingException: <p>Provides information about an error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_macie2.errors.validation_exception.ValidationException: <p>Provides information about an error that occurred due to a syntax error in a request.</p>
+            aws_sdk_macie2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2350,6 +2821,13 @@ class Macie2Client:
         Args:
             max_results: <p>The maximum number of items to include in each page of a paginated response.</p>
             next_token: <p>The nextToken string that specifies which page of results to return in a paginated response.</p>
+
+        Raises:
+            aws_sdk_macie2.errors.access_denied_exception.AccessDeniedException: <p>Provides information about an error that occurred due to insufficient access to a specified resource.</p>
+            aws_sdk_macie2.errors.internal_server_exception.InternalServerException: <p>Provides information about an error that occurred due to an unknown internal server error, exception, or failure.</p>
+            aws_sdk_macie2.errors.throttling_exception.ThrottlingException: <p>Provides information about an error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_macie2.errors.validation_exception.ValidationException: <p>Provides information about an error that occurred due to a syntax error in a request.</p>
+            aws_sdk_macie2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2417,6 +2895,14 @@ class Macie2Client:
             account_ids: <p>The Amazon Web Services account ID for each account, for as many as 50 accounts. To retrieve the status for multiple accounts, append the accountIds parameter and argument for each account, separated by an ampersand (&amp;). To retrieve the status for all the accounts in an organization, omit this parameter.</p>
             max_results: <p>The maximum number of items to include in each page of a paginated response.</p>
             next_token: <p>The nextToken string that specifies which page of results to return in a paginated response.</p>
+
+        Raises:
+            aws_sdk_macie2.errors.access_denied_exception.AccessDeniedException: <p>Provides information about an error that occurred due to insufficient access to a specified resource.</p>
+            aws_sdk_macie2.errors.internal_server_exception.InternalServerException: <p>Provides information about an error that occurred due to an unknown internal server error, exception, or failure.</p>
+            aws_sdk_macie2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Provides information about an error that occurred because a specified resource wasn't found.</p>
+            aws_sdk_macie2.errors.throttling_exception.ThrottlingException: <p>Provides information about an error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_macie2.errors.validation_exception.ValidationException: <p>Provides information about an error that occurred due to a syntax error in a request.</p>
+            aws_sdk_macie2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2494,6 +2980,16 @@ class Macie2Client:
             max_results: <p>The maximum number of items to include in each page of the response.</p>
             next_token: <p>The nextToken string that specifies which page of results to return in a paginated response.</p>
             sort_criteria: <p>The criteria to use to sort the results.</p>
+
+        Raises:
+            aws_sdk_macie2.errors.access_denied_exception.AccessDeniedException: <p>Provides information about an error that occurred due to insufficient access to a specified resource.</p>
+            aws_sdk_macie2.errors.conflict_exception.ConflictException: <p>Provides information about an error that occurred due to a versioning conflict for a specified resource.</p>
+            aws_sdk_macie2.errors.internal_server_exception.InternalServerException: <p>Provides information about an error that occurred due to an unknown internal server error, exception, or failure.</p>
+            aws_sdk_macie2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Provides information about an error that occurred because a specified resource wasn't found.</p>
+            aws_sdk_macie2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Provides information about an error that occurred due to one or more service quotas for an account.</p>
+            aws_sdk_macie2.errors.throttling_exception.ThrottlingException: <p>Provides information about an error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_macie2.errors.validation_exception.ValidationException: <p>Provides information about an error that occurred due to a syntax error in a request.</p>
+            aws_sdk_macie2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2569,6 +3065,13 @@ class Macie2Client:
         Args:
             name: <p>The name of the classification scope to retrieve the unique identifier for.</p>
             next_token: <p>The nextToken string that specifies which page of results to return in a paginated response.</p>
+
+        Raises:
+            aws_sdk_macie2.errors.access_denied_exception.AccessDeniedException: <p>Provides information about an error that occurred due to insufficient access to a specified resource.</p>
+            aws_sdk_macie2.errors.internal_server_exception.InternalServerException: <p>Provides information about an error that occurred due to an unknown internal server error, exception, or failure.</p>
+            aws_sdk_macie2.errors.throttling_exception.ThrottlingException: <p>Provides information about an error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_macie2.errors.validation_exception.ValidationException: <p>Provides information about an error that occurred due to a syntax error in a request.</p>
+            aws_sdk_macie2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2632,6 +3135,16 @@ class Macie2Client:
         Args:
             max_results: <p>The maximum number of items to include in each page of the response.</p>
             next_token: <p>The nextToken string that specifies which page of results to return in a paginated response.</p>
+
+        Raises:
+            aws_sdk_macie2.errors.access_denied_exception.AccessDeniedException: <p>Provides information about an error that occurred due to insufficient access to a specified resource.</p>
+            aws_sdk_macie2.errors.conflict_exception.ConflictException: <p>Provides information about an error that occurred due to a versioning conflict for a specified resource.</p>
+            aws_sdk_macie2.errors.internal_server_exception.InternalServerException: <p>Provides information about an error that occurred due to an unknown internal server error, exception, or failure.</p>
+            aws_sdk_macie2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Provides information about an error that occurred because a specified resource wasn't found.</p>
+            aws_sdk_macie2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Provides information about an error that occurred due to one or more service quotas for an account.</p>
+            aws_sdk_macie2.errors.throttling_exception.ThrottlingException: <p>Provides information about an error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_macie2.errors.validation_exception.ValidationException: <p>Provides information about an error that occurred due to a syntax error in a request.</p>
+            aws_sdk_macie2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2703,6 +3216,16 @@ class Macie2Client:
             max_results: <p>The maximum number of items to include in each page of the response.</p>
             next_token: <p>The nextToken string that specifies which page of results to return in a paginated response.</p>
             sort_criteria: <p>The criteria to use to sort the results.</p>
+
+        Raises:
+            aws_sdk_macie2.errors.access_denied_exception.AccessDeniedException: <p>Provides information about an error that occurred due to insufficient access to a specified resource.</p>
+            aws_sdk_macie2.errors.conflict_exception.ConflictException: <p>Provides information about an error that occurred due to a versioning conflict for a specified resource.</p>
+            aws_sdk_macie2.errors.internal_server_exception.InternalServerException: <p>Provides information about an error that occurred due to an unknown internal server error, exception, or failure.</p>
+            aws_sdk_macie2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Provides information about an error that occurred because a specified resource wasn't found.</p>
+            aws_sdk_macie2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Provides information about an error that occurred due to one or more service quotas for an account.</p>
+            aws_sdk_macie2.errors.throttling_exception.ThrottlingException: <p>Provides information about an error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_macie2.errors.validation_exception.ValidationException: <p>Provides information about an error that occurred due to a syntax error in a request.</p>
+            aws_sdk_macie2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2778,6 +3301,16 @@ class Macie2Client:
         Args:
             max_results: <p>The maximum number of items to include in each page of a paginated response.</p>
             next_token: <p>The nextToken string that specifies which page of results to return in a paginated response.</p>
+
+        Raises:
+            aws_sdk_macie2.errors.access_denied_exception.AccessDeniedException: <p>Provides information about an error that occurred due to insufficient access to a specified resource.</p>
+            aws_sdk_macie2.errors.conflict_exception.ConflictException: <p>Provides information about an error that occurred due to a versioning conflict for a specified resource.</p>
+            aws_sdk_macie2.errors.internal_server_exception.InternalServerException: <p>Provides information about an error that occurred due to an unknown internal server error, exception, or failure.</p>
+            aws_sdk_macie2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Provides information about an error that occurred because a specified resource wasn't found.</p>
+            aws_sdk_macie2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Provides information about an error that occurred due to one or more service quotas for an account.</p>
+            aws_sdk_macie2.errors.throttling_exception.ThrottlingException: <p>Provides information about an error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_macie2.errors.validation_exception.ValidationException: <p>Provides information about an error that occurred due to a syntax error in a request.</p>
+            aws_sdk_macie2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2841,6 +3374,16 @@ class Macie2Client:
         Args:
             max_results: <p>The maximum number of items to include in each page of a paginated response.</p>
             next_token: <p>The nextToken string that specifies which page of results to return in a paginated response.</p>
+
+        Raises:
+            aws_sdk_macie2.errors.access_denied_exception.AccessDeniedException: <p>Provides information about an error that occurred due to insufficient access to a specified resource.</p>
+            aws_sdk_macie2.errors.conflict_exception.ConflictException: <p>Provides information about an error that occurred due to a versioning conflict for a specified resource.</p>
+            aws_sdk_macie2.errors.internal_server_exception.InternalServerException: <p>Provides information about an error that occurred due to an unknown internal server error, exception, or failure.</p>
+            aws_sdk_macie2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Provides information about an error that occurred because a specified resource wasn't found.</p>
+            aws_sdk_macie2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Provides information about an error that occurred due to one or more service quotas for an account.</p>
+            aws_sdk_macie2.errors.throttling_exception.ThrottlingException: <p>Provides information about an error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_macie2.errors.validation_exception.ValidationException: <p>Provides information about an error that occurred due to a syntax error in a request.</p>
+            aws_sdk_macie2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2902,6 +3445,9 @@ class Macie2Client:
 
         Args:
             next_token: <p>The nextToken string that specifies which page of results to return in a paginated response.</p>
+
+        Raises:
+            aws_sdk_macie2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2963,6 +3509,16 @@ class Macie2Client:
             max_results: <p>The maximum number of items to include in each page of a paginated response.</p>
             next_token: <p>The nextToken string that specifies which page of results to return in a paginated response.</p>
             only_associated: <p>Specifies which accounts to include in the response, based on the status of an account's relationship with the administrator account. By default, the response includes only current member accounts. To include all accounts, set this value to false.</p>
+
+        Raises:
+            aws_sdk_macie2.errors.access_denied_exception.AccessDeniedException: <p>Provides information about an error that occurred due to insufficient access to a specified resource.</p>
+            aws_sdk_macie2.errors.conflict_exception.ConflictException: <p>Provides information about an error that occurred due to a versioning conflict for a specified resource.</p>
+            aws_sdk_macie2.errors.internal_server_exception.InternalServerException: <p>Provides information about an error that occurred due to an unknown internal server error, exception, or failure.</p>
+            aws_sdk_macie2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Provides information about an error that occurred because a specified resource wasn't found.</p>
+            aws_sdk_macie2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Provides information about an error that occurred due to one or more service quotas for an account.</p>
+            aws_sdk_macie2.errors.throttling_exception.ThrottlingException: <p>Provides information about an error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_macie2.errors.validation_exception.ValidationException: <p>Provides information about an error that occurred due to a syntax error in a request.</p>
+            aws_sdk_macie2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3030,6 +3586,16 @@ class Macie2Client:
         Args:
             max_results: <p>The maximum number of items to include in each page of a paginated response.</p>
             next_token: <p>The nextToken string that specifies which page of results to return in a paginated response.</p>
+
+        Raises:
+            aws_sdk_macie2.errors.access_denied_exception.AccessDeniedException: <p>Provides information about an error that occurred due to insufficient access to a specified resource.</p>
+            aws_sdk_macie2.errors.conflict_exception.ConflictException: <p>Provides information about an error that occurred due to a versioning conflict for a specified resource.</p>
+            aws_sdk_macie2.errors.internal_server_exception.InternalServerException: <p>Provides information about an error that occurred due to an unknown internal server error, exception, or failure.</p>
+            aws_sdk_macie2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Provides information about an error that occurred because a specified resource wasn't found.</p>
+            aws_sdk_macie2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Provides information about an error that occurred due to one or more service quotas for an account.</p>
+            aws_sdk_macie2.errors.throttling_exception.ThrottlingException: <p>Provides information about an error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_macie2.errors.validation_exception.ValidationException: <p>Provides information about an error that occurred due to a syntax error in a request.</p>
+            aws_sdk_macie2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3093,6 +3659,14 @@ class Macie2Client:
         Args:
             next_token: <p>The nextToken string that specifies which page of results to return in a paginated response.</p>
             resource_arn: <p>The Amazon Resource Name (ARN) of the S3 bucket that the request applies to.</p>
+
+        Raises:
+            aws_sdk_macie2.errors.access_denied_exception.AccessDeniedException: <p>Provides information about an error that occurred due to insufficient access to a specified resource.</p>
+            aws_sdk_macie2.errors.internal_server_exception.InternalServerException: <p>Provides information about an error that occurred due to an unknown internal server error, exception, or failure.</p>
+            aws_sdk_macie2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Provides information about an error that occurred because a specified resource wasn't found.</p>
+            aws_sdk_macie2.errors.throttling_exception.ThrottlingException: <p>Provides information about an error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_macie2.errors.validation_exception.ValidationException: <p>Provides information about an error that occurred due to a syntax error in a request.</p>
+            aws_sdk_macie2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3157,6 +3731,15 @@ class Macie2Client:
             max_results: <p>The maximum number of items to include in each page of a paginated response.</p>
             next_token: <p>The nextToken string that specifies which page of results to return in a paginated response.</p>
             resource_arn: <p>The Amazon Resource Name (ARN) of the S3 bucket that the request applies to.</p>
+
+        Raises:
+            aws_sdk_macie2.errors.access_denied_exception.AccessDeniedException: <p>Provides information about an error that occurred due to insufficient access to a specified resource.</p>
+            aws_sdk_macie2.errors.internal_server_exception.InternalServerException: <p>Provides information about an error that occurred due to an unknown internal server error, exception, or failure.</p>
+            aws_sdk_macie2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Provides information about an error that occurred because a specified resource wasn't found.</p>
+            aws_sdk_macie2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Provides information about an error that occurred due to one or more service quotas for an account.</p>
+            aws_sdk_macie2.errors.throttling_exception.ThrottlingException: <p>Provides information about an error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_macie2.errors.validation_exception.ValidationException: <p>Provides information about an error that occurred due to a syntax error in a request.</p>
+            aws_sdk_macie2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3223,6 +3806,14 @@ class Macie2Client:
         Args:
             max_results: <p>The maximum number of items to include in each page of a paginated response.</p>
             next_token: <p>The nextToken string that specifies which page of results to return in a paginated response.</p>
+
+        Raises:
+            aws_sdk_macie2.errors.access_denied_exception.AccessDeniedException: <p>Provides information about an error that occurred due to insufficient access to a specified resource.</p>
+            aws_sdk_macie2.errors.internal_server_exception.InternalServerException: <p>Provides information about an error that occurred due to an unknown internal server error, exception, or failure.</p>
+            aws_sdk_macie2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Provides information about an error that occurred due to one or more service quotas for an account.</p>
+            aws_sdk_macie2.errors.throttling_exception.ThrottlingException: <p>Provides information about an error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_macie2.errors.validation_exception.ValidationException: <p>Provides information about an error that occurred due to a syntax error in a request.</p>
+            aws_sdk_macie2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3284,6 +3875,9 @@ class Macie2Client:
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource.</p>
+
+        Raises:
+            aws_sdk_macie2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3321,6 +3915,16 @@ class Macie2Client:
 
         Args:
             configuration: <p>The location to store data classification results in, and the encryption settings to use when storing results in that location.</p>
+
+        Raises:
+            aws_sdk_macie2.errors.access_denied_exception.AccessDeniedException: <p>Provides information about an error that occurred due to insufficient access to a specified resource.</p>
+            aws_sdk_macie2.errors.conflict_exception.ConflictException: <p>Provides information about an error that occurred due to a versioning conflict for a specified resource.</p>
+            aws_sdk_macie2.errors.internal_server_exception.InternalServerException: <p>Provides information about an error that occurred due to an unknown internal server error, exception, or failure.</p>
+            aws_sdk_macie2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Provides information about an error that occurred because a specified resource wasn't found.</p>
+            aws_sdk_macie2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Provides information about an error that occurred due to one or more service quotas for an account.</p>
+            aws_sdk_macie2.errors.throttling_exception.ThrottlingException: <p>Provides information about an error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_macie2.errors.validation_exception.ValidationException: <p>Provides information about an error that occurred due to a syntax error in a request.</p>
+            aws_sdk_macie2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3362,6 +3966,16 @@ class Macie2Client:
         Args:
             client_token: <p>A unique, case-sensitive token that you provide to ensure the idempotency of the request.</p>
             security_hub_configuration: <p>The configuration settings that determine which findings to publish to Security Hub.</p>
+
+        Raises:
+            aws_sdk_macie2.errors.access_denied_exception.AccessDeniedException: <p>Provides information about an error that occurred due to insufficient access to a specified resource.</p>
+            aws_sdk_macie2.errors.conflict_exception.ConflictException: <p>Provides information about an error that occurred due to a versioning conflict for a specified resource.</p>
+            aws_sdk_macie2.errors.internal_server_exception.InternalServerException: <p>Provides information about an error that occurred due to an unknown internal server error, exception, or failure.</p>
+            aws_sdk_macie2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Provides information about an error that occurred because a specified resource wasn't found.</p>
+            aws_sdk_macie2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Provides information about an error that occurred due to one or more service quotas for an account.</p>
+            aws_sdk_macie2.errors.throttling_exception.ThrottlingException: <p>Provides information about an error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_macie2.errors.validation_exception.ValidationException: <p>Provides information about an error that occurred due to a syntax error in a request.</p>
+            aws_sdk_macie2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3412,6 +4026,16 @@ class Macie2Client:
             max_results: <p>The maximum number of items to include in each page of the response. The default value is 50.</p>
             next_token: <p>The nextToken string that specifies which page of results to return in a paginated response.</p>
             sort_criteria: <p>The criteria to use to sort the results.</p>
+
+        Raises:
+            aws_sdk_macie2.errors.access_denied_exception.AccessDeniedException: <p>Provides information about an error that occurred due to insufficient access to a specified resource.</p>
+            aws_sdk_macie2.errors.conflict_exception.ConflictException: <p>Provides information about an error that occurred due to a versioning conflict for a specified resource.</p>
+            aws_sdk_macie2.errors.internal_server_exception.InternalServerException: <p>Provides information about an error that occurred due to an unknown internal server error, exception, or failure.</p>
+            aws_sdk_macie2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Provides information about an error that occurred because a specified resource wasn't found.</p>
+            aws_sdk_macie2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Provides information about an error that occurred due to one or more service quotas for an account.</p>
+            aws_sdk_macie2.errors.throttling_exception.ThrottlingException: <p>Provides information about an error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_macie2.errors.validation_exception.ValidationException: <p>Provides information about an error that occurred due to a syntax error in a request.</p>
+            aws_sdk_macie2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3487,6 +4111,9 @@ class Macie2Client:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource.</p>
             tags: <p>A map of key-value pairs that specifies the tags to associate with the resource.</p> <p>A resource can have a maximum of 50 tags. Each tag consists of a tag key and an associated tag value. The maximum length of a tag key is 128 characters. The maximum length of a tag value is 256 characters.</p>
+
+        Raises:
+            aws_sdk_macie2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3539,6 +4166,16 @@ class Macie2Client:
             maximum_match_distance: <p>The maximum number of characters that can exist between the end of at least one complete character sequence specified by the keywords array and the end of the text that matches the regex pattern. If a complete keyword precedes all the text that matches the pattern and the keyword is within the specified distance, Amazon Macie includes the result. The distance can be 1-300 characters. The default value is 50.</p>
             regex: <p>The regular expression (<i>regex</i>) that defines the pattern to match. The expression can contain as many as 512 characters.</p>
             sample_text: <p>The sample text to inspect by using the custom data identifier. The text can contain as many as 1,000 characters.</p>
+
+        Raises:
+            aws_sdk_macie2.errors.access_denied_exception.AccessDeniedException: <p>Provides information about an error that occurred due to insufficient access to a specified resource.</p>
+            aws_sdk_macie2.errors.conflict_exception.ConflictException: <p>Provides information about an error that occurred due to a versioning conflict for a specified resource.</p>
+            aws_sdk_macie2.errors.internal_server_exception.InternalServerException: <p>Provides information about an error that occurred due to an unknown internal server error, exception, or failure.</p>
+            aws_sdk_macie2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Provides information about an error that occurred because a specified resource wasn't found.</p>
+            aws_sdk_macie2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Provides information about an error that occurred due to one or more service quotas for an account.</p>
+            aws_sdk_macie2.errors.throttling_exception.ThrottlingException: <p>Provides information about an error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_macie2.errors.validation_exception.ValidationException: <p>Provides information about an error that occurred due to a syntax error in a request.</p>
+            aws_sdk_macie2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3585,6 +4222,9 @@ class Macie2Client:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource.</p>
             tag_keys: <p>One or more tags (keys) to remove from the resource. In an HTTP request to remove multiple tags, append the tagKeys parameter and argument for each tag to remove, separated by an ampersand (&amp;).</p>
+
+        Raises:
+            aws_sdk_macie2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3631,6 +4271,14 @@ class Macie2Client:
             description: <p>A custom description of the allow list. The description can contain as many as 512 characters.</p>
             id: <p>The unique identifier for the Amazon Macie resource that the request applies to.</p>
             name: <p>A custom name for the allow list. The name can contain as many as 128 characters.</p>
+
+        Raises:
+            aws_sdk_macie2.errors.access_denied_exception.AccessDeniedException: <p>Provides information about an error that occurred due to insufficient access to a specified resource.</p>
+            aws_sdk_macie2.errors.internal_server_exception.InternalServerException: <p>Provides information about an error that occurred due to an unknown internal server error, exception, or failure.</p>
+            aws_sdk_macie2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Provides information about an error that occurred because a specified resource wasn't found.</p>
+            aws_sdk_macie2.errors.throttling_exception.ThrottlingException: <p>Provides information about an error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_macie2.errors.validation_exception.ValidationException: <p>Provides information about an error that occurred due to a syntax error in a request.</p>
+            aws_sdk_macie2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3676,6 +4324,13 @@ class Macie2Client:
         Args:
             auto_enable_organization_members: <p>Specifies whether to automatically enable automated sensitive data discovery for accounts in the organization. Valid values are: ALL (default), enable it for all existing accounts and new member accounts; NEW, enable it only for new member accounts; and, NONE, don't enable it for any accounts.</p> <p>If you specify NEW or NONE, automated sensitive data discovery continues to be enabled for any existing accounts that it's currently enabled for. To enable or disable it for individual member accounts, specify NEW or NONE, and then enable or disable it for each account by using the BatchUpdateAutomatedDiscoveryAccounts operation.</p>
             status: <p>The new status of automated sensitive data discovery for the organization or account. Valid values are: ENABLED, start or resume all automated sensitive data discovery activities; and, DISABLED, stop performing all automated sensitive data discovery activities.</p> <p>If you specify DISABLED for an administrator account, you also disable automated sensitive data discovery for all member accounts in the organization.</p>
+
+        Raises:
+            aws_sdk_macie2.errors.access_denied_exception.AccessDeniedException: <p>Provides information about an error that occurred due to insufficient access to a specified resource.</p>
+            aws_sdk_macie2.errors.internal_server_exception.InternalServerException: <p>Provides information about an error that occurred due to an unknown internal server error, exception, or failure.</p>
+            aws_sdk_macie2.errors.throttling_exception.ThrottlingException: <p>Provides information about an error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_macie2.errors.validation_exception.ValidationException: <p>Provides information about an error that occurred due to a syntax error in a request.</p>
+            aws_sdk_macie2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3719,6 +4374,16 @@ class Macie2Client:
         Args:
             job_id: <p>The unique identifier for the classification job.</p>
             job_status: <p>The new status for the job. Valid values are:</p> <ul><li><p>CANCELLED - Stops the job permanently and cancels it. This value is valid only if the job's current status is IDLE, PAUSED, RUNNING, or USER_PAUSED.</p> <p>If you specify this value and the job's current status is RUNNING, Amazon Macie immediately begins to stop all processing tasks for the job. You can't resume or restart a job after you cancel it.</p></li> <li><p>RUNNING - Resumes the job. This value is valid only if the job's current status is USER_PAUSED.</p> <p>If you paused the job while it was actively running and you specify this value less than 30 days after you paused the job, Macie immediately resumes processing from the point where you paused the job. Otherwise, Macie resumes the job according to the schedule and other settings for the job.</p></li> <li><p>USER_PAUSED - Pauses the job temporarily. This value is valid only if the job's current status is IDLE, PAUSED, or RUNNING. If you specify this value and the job's current status is RUNNING, Macie immediately begins to pause all processing tasks for the job.</p> <p>If you pause a one-time job and you don't resume it within 30 days, the job expires and Macie cancels the job. If you pause a recurring job when its status is RUNNING and you don't resume it within 30 days, the job run expires and Macie cancels the run. To check the expiration date, refer to the UserPausedDetails.jobExpiresAt property.</p></li></ul>
+
+        Raises:
+            aws_sdk_macie2.errors.access_denied_exception.AccessDeniedException: <p>Provides information about an error that occurred due to insufficient access to a specified resource.</p>
+            aws_sdk_macie2.errors.conflict_exception.ConflictException: <p>Provides information about an error that occurred due to a versioning conflict for a specified resource.</p>
+            aws_sdk_macie2.errors.internal_server_exception.InternalServerException: <p>Provides information about an error that occurred due to an unknown internal server error, exception, or failure.</p>
+            aws_sdk_macie2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Provides information about an error that occurred because a specified resource wasn't found.</p>
+            aws_sdk_macie2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Provides information about an error that occurred due to one or more service quotas for an account.</p>
+            aws_sdk_macie2.errors.throttling_exception.ThrottlingException: <p>Provides information about an error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_macie2.errors.validation_exception.ValidationException: <p>Provides information about an error that occurred due to a syntax error in a request.</p>
+            aws_sdk_macie2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3761,6 +4426,14 @@ class Macie2Client:
         Args:
             id: <p>The unique identifier for the Amazon Macie resource that the request applies to.</p>
             s3: <p>The S3 buckets to add or remove from the exclusion list defined by the classification scope.</p>
+
+        Raises:
+            aws_sdk_macie2.errors.access_denied_exception.AccessDeniedException: <p>Provides information about an error that occurred due to insufficient access to a specified resource.</p>
+            aws_sdk_macie2.errors.internal_server_exception.InternalServerException: <p>Provides information about an error that occurred due to an unknown internal server error, exception, or failure.</p>
+            aws_sdk_macie2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Provides information about an error that occurred because a specified resource wasn't found.</p>
+            aws_sdk_macie2.errors.throttling_exception.ThrottlingException: <p>Provides information about an error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_macie2.errors.validation_exception.ValidationException: <p>Provides information about an error that occurred due to a syntax error in a request.</p>
+            aws_sdk_macie2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3816,6 +4489,16 @@ class Macie2Client:
             id: <p>The unique identifier for the Amazon Macie resource that the request applies to.</p>
             name: <p>A custom name for the filter. The name must contain at least 3 characters and can contain as many as 64 characters.</p> <p>We strongly recommend that you avoid including any sensitive data in the name of a filter. Other users of your account might be able to see this name, depending on the actions that they're allowed to perform in Amazon Macie.</p>
             position: <p>The position of the filter in the list of saved filters on the Amazon Macie console. This value also determines the order in which the filter is applied to findings, relative to other filters that are also applied to the findings.</p>
+
+        Raises:
+            aws_sdk_macie2.errors.access_denied_exception.AccessDeniedException: <p>Provides information about an error that occurred due to insufficient access to a specified resource.</p>
+            aws_sdk_macie2.errors.conflict_exception.ConflictException: <p>Provides information about an error that occurred due to a versioning conflict for a specified resource.</p>
+            aws_sdk_macie2.errors.internal_server_exception.InternalServerException: <p>Provides information about an error that occurred due to an unknown internal server error, exception, or failure.</p>
+            aws_sdk_macie2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Provides information about an error that occurred because a specified resource wasn't found.</p>
+            aws_sdk_macie2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Provides information about an error that occurred due to one or more service quotas for an account.</p>
+            aws_sdk_macie2.errors.throttling_exception.ThrottlingException: <p>Provides information about an error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_macie2.errors.validation_exception.ValidationException: <p>Provides information about an error that occurred due to a syntax error in a request.</p>
+            aws_sdk_macie2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3871,6 +4554,16 @@ class Macie2Client:
         Args:
             finding_publishing_frequency: <p>Specifies how often to publish updates to policy findings for the account. This includes publishing updates to Security Hub and Amazon EventBridge (formerly Amazon CloudWatch Events).</p>
             status: <p>Specifies a new status for the account. Valid values are: ENABLED, resume all Amazon Macie activities for the account; and, PAUSED, suspend all Macie activities for the account.</p>
+
+        Raises:
+            aws_sdk_macie2.errors.access_denied_exception.AccessDeniedException: <p>Provides information about an error that occurred due to insufficient access to a specified resource.</p>
+            aws_sdk_macie2.errors.conflict_exception.ConflictException: <p>Provides information about an error that occurred due to a versioning conflict for a specified resource.</p>
+            aws_sdk_macie2.errors.internal_server_exception.InternalServerException: <p>Provides information about an error that occurred due to an unknown internal server error, exception, or failure.</p>
+            aws_sdk_macie2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Provides information about an error that occurred because a specified resource wasn't found.</p>
+            aws_sdk_macie2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Provides information about an error that occurred due to one or more service quotas for an account.</p>
+            aws_sdk_macie2.errors.throttling_exception.ThrottlingException: <p>Provides information about an error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_macie2.errors.validation_exception.ValidationException: <p>Provides information about an error that occurred due to a syntax error in a request.</p>
+            aws_sdk_macie2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3913,6 +4606,16 @@ class Macie2Client:
         Args:
             id: <p>The unique identifier for the Amazon Macie resource that the request applies to.</p>
             status: <p>Specifies the new status for the account. Valid values are: ENABLED, resume all Amazon Macie activities for the account; and, PAUSED, suspend all Macie activities for the account.</p>
+
+        Raises:
+            aws_sdk_macie2.errors.access_denied_exception.AccessDeniedException: <p>Provides information about an error that occurred due to insufficient access to a specified resource.</p>
+            aws_sdk_macie2.errors.conflict_exception.ConflictException: <p>Provides information about an error that occurred due to a versioning conflict for a specified resource.</p>
+            aws_sdk_macie2.errors.internal_server_exception.InternalServerException: <p>Provides information about an error that occurred due to an unknown internal server error, exception, or failure.</p>
+            aws_sdk_macie2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Provides information about an error that occurred because a specified resource wasn't found.</p>
+            aws_sdk_macie2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Provides information about an error that occurred due to one or more service quotas for an account.</p>
+            aws_sdk_macie2.errors.throttling_exception.ThrottlingException: <p>Provides information about an error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_macie2.errors.validation_exception.ValidationException: <p>Provides information about an error that occurred due to a syntax error in a request.</p>
+            aws_sdk_macie2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3951,6 +4654,16 @@ class Macie2Client:
 
         Args:
             auto_enable: <p>Specifies whether to enable Amazon Macie automatically for accounts that are added to the organization in Organizations.</p>
+
+        Raises:
+            aws_sdk_macie2.errors.access_denied_exception.AccessDeniedException: <p>Provides information about an error that occurred due to insufficient access to a specified resource.</p>
+            aws_sdk_macie2.errors.conflict_exception.ConflictException: <p>Provides information about an error that occurred due to a versioning conflict for a specified resource.</p>
+            aws_sdk_macie2.errors.internal_server_exception.InternalServerException: <p>Provides information about an error that occurred due to an unknown internal server error, exception, or failure.</p>
+            aws_sdk_macie2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Provides information about an error that occurred because a specified resource wasn't found.</p>
+            aws_sdk_macie2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Provides information about an error that occurred due to one or more service quotas for an account.</p>
+            aws_sdk_macie2.errors.throttling_exception.ThrottlingException: <p>Provides information about an error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_macie2.errors.validation_exception.ValidationException: <p>Provides information about an error that occurred due to a syntax error in a request.</p>
+            aws_sdk_macie2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3992,6 +4705,15 @@ class Macie2Client:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the S3 bucket that the request applies to.</p>
             sensitivity_score_override: <p>The new sensitivity score for the bucket. Valid values are: 100, assign the maximum score and apply the <i>Sensitive</i> label to the bucket; and, null (empty), assign a score that Amazon Macie calculates automatically after you submit the request.</p>
+
+        Raises:
+            aws_sdk_macie2.errors.access_denied_exception.AccessDeniedException: <p>Provides information about an error that occurred due to insufficient access to a specified resource.</p>
+            aws_sdk_macie2.errors.internal_server_exception.InternalServerException: <p>Provides information about an error that occurred due to an unknown internal server error, exception, or failure.</p>
+            aws_sdk_macie2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Provides information about an error that occurred because a specified resource wasn't found.</p>
+            aws_sdk_macie2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Provides information about an error that occurred due to one or more service quotas for an account.</p>
+            aws_sdk_macie2.errors.throttling_exception.ThrottlingException: <p>Provides information about an error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_macie2.errors.validation_exception.ValidationException: <p>Provides information about an error that occurred due to a syntax error in a request.</p>
+            aws_sdk_macie2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4035,6 +4757,15 @@ class Macie2Client:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the S3 bucket that the request applies to.</p>
             suppress_data_identifiers: <p>An array of objects, one for each custom data identifier or managed data identifier that detected a type of sensitive data to exclude from the bucket's score. To include all sensitive data types in the score, don't specify any values for this array.</p>
+
+        Raises:
+            aws_sdk_macie2.errors.access_denied_exception.AccessDeniedException: <p>Provides information about an error that occurred due to insufficient access to a specified resource.</p>
+            aws_sdk_macie2.errors.internal_server_exception.InternalServerException: <p>Provides information about an error that occurred due to an unknown internal server error, exception, or failure.</p>
+            aws_sdk_macie2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Provides information about an error that occurred because a specified resource wasn't found.</p>
+            aws_sdk_macie2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Provides information about an error that occurred due to one or more service quotas for an account.</p>
+            aws_sdk_macie2.errors.throttling_exception.ThrottlingException: <p>Provides information about an error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_macie2.errors.validation_exception.ValidationException: <p>Provides information about an error that occurred due to a syntax error in a request.</p>
+            aws_sdk_macie2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4078,6 +4809,13 @@ class Macie2Client:
         Args:
             configuration: <p>The KMS key to use to encrypt the sensitive data, and the status of the configuration for the Amazon Macie account.</p>
             retrieval_configuration: <p>The access method and settings to use when retrieving the sensitive data.</p>
+
+        Raises:
+            aws_sdk_macie2.errors.access_denied_exception.AccessDeniedException: <p>Provides information about an error that occurred due to insufficient access to a specified resource.</p>
+            aws_sdk_macie2.errors.internal_server_exception.InternalServerException: <p>Provides information about an error that occurred due to an unknown internal server error, exception, or failure.</p>
+            aws_sdk_macie2.errors.throttling_exception.ThrottlingException: <p>Provides information about an error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_macie2.errors.validation_exception.ValidationException: <p>Provides information about an error that occurred due to a syntax error in a request.</p>
+            aws_sdk_macie2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4127,6 +4865,14 @@ class Macie2Client:
             excludes: <p>The managed data identifiers to explicitly exclude (not use) when performing automated sensitive data discovery.</p> <p>To exclude an allow list or custom data identifier that's currently included by the template, update the values for the SensitivityInspectionTemplateIncludes.allowListIds and SensitivityInspectionTemplateIncludes.customDataIdentifierIds properties, respectively.</p>
             id: <p>The unique identifier for the Amazon Macie resource that the request applies to.</p>
             includes: <p>The allow lists, custom data identifiers, and managed data identifiers to explicitly include (use) when performing automated sensitive data discovery.</p>
+
+        Raises:
+            aws_sdk_macie2.errors.access_denied_exception.AccessDeniedException: <p>Provides information about an error that occurred due to insufficient access to a specified resource.</p>
+            aws_sdk_macie2.errors.internal_server_exception.InternalServerException: <p>Provides information about an error that occurred due to an unknown internal server error, exception, or failure.</p>
+            aws_sdk_macie2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Provides information about an error that occurred because a specified resource wasn't found.</p>
+            aws_sdk_macie2.errors.throttling_exception.ThrottlingException: <p>Provides information about an error that occurred because too many requests were sent during a certain amount of time.</p>
+            aws_sdk_macie2.errors.validation_exception.ValidationException: <p>Provides information about an error that occurred due to a syntax error in a request.</p>
+            aws_sdk_macie2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(

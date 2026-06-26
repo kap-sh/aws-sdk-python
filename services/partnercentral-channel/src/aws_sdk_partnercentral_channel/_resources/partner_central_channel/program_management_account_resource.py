@@ -72,6 +72,16 @@ class ProgramManagementAccountResource:
             client_token: <p>A unique, case-sensitive identifier to ensure idempotency of the request.</p>
             tags: <p>Key-value pairs to associate with the program management account.</p>
 
+        Raises:
+            aws_sdk_partnercentral_channel.errors.access_denied_exception.AccessDeniedException: <p>The request was denied due to insufficient permissions.</p>
+            aws_sdk_partnercentral_channel.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred while processing the request.</p>
+            aws_sdk_partnercentral_channel.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_partnercentral_channel.errors.throttling_exception.ThrottlingException: <p>The request was throttled due to too many requests being sent in a short period.</p>
+            aws_sdk_partnercentral_channel.errors.validation_exception.ValidationException: <p>The request failed validation due to invalid input parameters.</p>
+            aws_sdk_partnercentral_channel.errors.conflict_exception.ConflictException: <p>The request could not be completed due to a conflict with the current state of the resource.</p>
+            aws_sdk_partnercentral_channel.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request would exceed a service quota limit.</p>
+            aws_sdk_partnercentral_channel.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Example for CreateProgramManagementAccount
 
@@ -131,6 +141,15 @@ class ProgramManagementAccountResource:
             revision: <p>The current revision number of the program management account.</p>
             display_name: <p>The new display name for the program management account.</p>
 
+        Raises:
+            aws_sdk_partnercentral_channel.errors.access_denied_exception.AccessDeniedException: <p>The request was denied due to insufficient permissions.</p>
+            aws_sdk_partnercentral_channel.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred while processing the request.</p>
+            aws_sdk_partnercentral_channel.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_partnercentral_channel.errors.throttling_exception.ThrottlingException: <p>The request was throttled due to too many requests being sent in a short period.</p>
+            aws_sdk_partnercentral_channel.errors.validation_exception.ValidationException: <p>The request failed validation due to invalid input parameters.</p>
+            aws_sdk_partnercentral_channel.errors.conflict_exception.ConflictException: <p>The request could not be completed due to a conflict with the current state of the resource.</p>
+            aws_sdk_partnercentral_channel.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Example for UpdateProgramManagementAccount
 
@@ -183,6 +202,15 @@ class ProgramManagementAccountResource:
             catalog: <p>The catalog identifier for the program management account.</p>
             identifier: <p>The unique identifier of the program management account to delete.</p>
             client_token: <p>A unique, case-sensitive identifier to ensure idempotency of the request.</p>
+
+        Raises:
+            aws_sdk_partnercentral_channel.errors.access_denied_exception.AccessDeniedException: <p>The request was denied due to insufficient permissions.</p>
+            aws_sdk_partnercentral_channel.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred while processing the request.</p>
+            aws_sdk_partnercentral_channel.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_partnercentral_channel.errors.throttling_exception.ThrottlingException: <p>The request was throttled due to too many requests being sent in a short period.</p>
+            aws_sdk_partnercentral_channel.errors.validation_exception.ValidationException: <p>The request failed validation due to invalid input parameters.</p>
+            aws_sdk_partnercentral_channel.errors.conflict_exception.ConflictException: <p>The request could not be completed due to a conflict with the current state of the resource.</p>
+            aws_sdk_partnercentral_channel.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Example for DeleteProgramManagementAccount
@@ -254,6 +282,14 @@ class ProgramManagementAccountResource:
             statuses: <p>Filter by program management account statuses.</p>
             sort: <p>Sorting options for the results.</p>
             next_token: <p>Token for retrieving the next page of results.</p>
+
+        Raises:
+            aws_sdk_partnercentral_channel.errors.access_denied_exception.AccessDeniedException: <p>The request was denied due to insufficient permissions.</p>
+            aws_sdk_partnercentral_channel.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred while processing the request.</p>
+            aws_sdk_partnercentral_channel.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_partnercentral_channel.errors.throttling_exception.ThrottlingException: <p>The request was throttled due to too many requests being sent in a short period.</p>
+            aws_sdk_partnercentral_channel.errors.validation_exception.ValidationException: <p>The request failed validation due to invalid input parameters.</p>
+            aws_sdk_partnercentral_channel.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Example for ListProgramManagementAccounts
@@ -328,6 +364,16 @@ class AsyncProgramManagementAccountResource:
             client_token: <p>A unique, case-sensitive identifier to ensure idempotency of the request.</p>
             tags: <p>Key-value pairs to associate with the program management account.</p>
 
+        Raises:
+            aws_sdk_partnercentral_channel.errors.access_denied_exception.AccessDeniedException: <p>The request was denied due to insufficient permissions.</p>
+            aws_sdk_partnercentral_channel.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred while processing the request.</p>
+            aws_sdk_partnercentral_channel.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_partnercentral_channel.errors.throttling_exception.ThrottlingException: <p>The request was throttled due to too many requests being sent in a short period.</p>
+            aws_sdk_partnercentral_channel.errors.validation_exception.ValidationException: <p>The request failed validation due to invalid input parameters.</p>
+            aws_sdk_partnercentral_channel.errors.conflict_exception.ConflictException: <p>The request could not be completed due to a conflict with the current state of the resource.</p>
+            aws_sdk_partnercentral_channel.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request would exceed a service quota limit.</p>
+            aws_sdk_partnercentral_channel.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Example for CreateProgramManagementAccount
 
@@ -388,6 +434,15 @@ class AsyncProgramManagementAccountResource:
             revision: <p>The current revision number of the program management account.</p>
             display_name: <p>The new display name for the program management account.</p>
 
+        Raises:
+            aws_sdk_partnercentral_channel.errors.access_denied_exception.AccessDeniedException: <p>The request was denied due to insufficient permissions.</p>
+            aws_sdk_partnercentral_channel.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred while processing the request.</p>
+            aws_sdk_partnercentral_channel.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_partnercentral_channel.errors.throttling_exception.ThrottlingException: <p>The request was throttled due to too many requests being sent in a short period.</p>
+            aws_sdk_partnercentral_channel.errors.validation_exception.ValidationException: <p>The request failed validation due to invalid input parameters.</p>
+            aws_sdk_partnercentral_channel.errors.conflict_exception.ConflictException: <p>The request could not be completed due to a conflict with the current state of the resource.</p>
+            aws_sdk_partnercentral_channel.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Example for UpdateProgramManagementAccount
 
@@ -441,6 +496,15 @@ class AsyncProgramManagementAccountResource:
             catalog: <p>The catalog identifier for the program management account.</p>
             identifier: <p>The unique identifier of the program management account to delete.</p>
             client_token: <p>A unique, case-sensitive identifier to ensure idempotency of the request.</p>
+
+        Raises:
+            aws_sdk_partnercentral_channel.errors.access_denied_exception.AccessDeniedException: <p>The request was denied due to insufficient permissions.</p>
+            aws_sdk_partnercentral_channel.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred while processing the request.</p>
+            aws_sdk_partnercentral_channel.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_partnercentral_channel.errors.throttling_exception.ThrottlingException: <p>The request was throttled due to too many requests being sent in a short period.</p>
+            aws_sdk_partnercentral_channel.errors.validation_exception.ValidationException: <p>The request failed validation due to invalid input parameters.</p>
+            aws_sdk_partnercentral_channel.errors.conflict_exception.ConflictException: <p>The request could not be completed due to a conflict with the current state of the resource.</p>
+            aws_sdk_partnercentral_channel.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Example for DeleteProgramManagementAccount
@@ -513,6 +577,14 @@ class AsyncProgramManagementAccountResource:
             statuses: <p>Filter by program management account statuses.</p>
             sort: <p>Sorting options for the results.</p>
             next_token: <p>Token for retrieving the next page of results.</p>
+
+        Raises:
+            aws_sdk_partnercentral_channel.errors.access_denied_exception.AccessDeniedException: <p>The request was denied due to insufficient permissions.</p>
+            aws_sdk_partnercentral_channel.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred while processing the request.</p>
+            aws_sdk_partnercentral_channel.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_partnercentral_channel.errors.throttling_exception.ThrottlingException: <p>The request was throttled due to too many requests being sent in a short period.</p>
+            aws_sdk_partnercentral_channel.errors.validation_exception.ValidationException: <p>The request failed validation due to invalid input parameters.</p>
+            aws_sdk_partnercentral_channel.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Example for ListProgramManagementAccounts

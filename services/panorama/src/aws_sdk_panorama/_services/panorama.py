@@ -265,6 +265,13 @@ class PanoramaClient:
             runtime_role_arn: <p>The ARN of a runtime role for the application instance.</p>
             default_runtime_context_device: <p>A device's ID.</p>
             tags: <p>Tags for the application instance.</p>
+
+        Raises:
+            aws_sdk_panorama.errors.access_denied_exception.AccessDeniedException: <p>The requestor does not have permission to access the target action or resource.</p>
+            aws_sdk_panorama.errors.internal_server_exception.InternalServerException: <p>An internal error occurred.</p>
+            aws_sdk_panorama.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request would cause a limit to be exceeded.</p>
+            aws_sdk_panorama.errors.validation_exception.ValidationException: <p>The request contains an invalid parameter value.</p>
+            aws_sdk_panorama.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -323,6 +330,14 @@ class PanoramaClient:
             device_ids: <p>ID of target device.</p>
             device_job_config: <p>Configuration settings for a software update job.</p>
             job_type: <p>The type of job to run.</p>
+
+        Raises:
+            aws_sdk_panorama.errors.access_denied_exception.AccessDeniedException: <p>The requestor does not have permission to access the target action or resource.</p>
+            aws_sdk_panorama.errors.conflict_exception.ConflictException: <p>The target resource is in use.</p>
+            aws_sdk_panorama.errors.internal_server_exception.InternalServerException: <p>An internal error occurred.</p>
+            aws_sdk_panorama.errors.resource_not_found_exception.ResourceNotFoundException: <p>The target resource was not found.</p>
+            aws_sdk_panorama.errors.validation_exception.ValidationException: <p>The request contains an invalid parameter value.</p>
+            aws_sdk_panorama.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -377,6 +392,13 @@ class PanoramaClient:
             node_description: <p>A description for the node.</p>
             template_parameters: <p>Template parameters for the node.</p>
             job_tags: <p>Tags for the job.</p>
+
+        Raises:
+            aws_sdk_panorama.errors.access_denied_exception.AccessDeniedException: <p>The requestor does not have permission to access the target action or resource.</p>
+            aws_sdk_panorama.errors.conflict_exception.ConflictException: <p>The target resource is in use.</p>
+            aws_sdk_panorama.errors.internal_server_exception.InternalServerException: <p>An internal error occurred.</p>
+            aws_sdk_panorama.errors.validation_exception.ValidationException: <p>The request contains an invalid parameter value.</p>
+            aws_sdk_panorama.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -424,6 +446,13 @@ class PanoramaClient:
         Args:
             package_name: <p>A name for the package.</p>
             tags: <p>Tags for the package.</p>
+
+        Raises:
+            aws_sdk_panorama.errors.access_denied_exception.AccessDeniedException: <p>The requestor does not have permission to access the target action or resource.</p>
+            aws_sdk_panorama.errors.conflict_exception.ConflictException: <p>The target resource is in use.</p>
+            aws_sdk_panorama.errors.internal_server_exception.InternalServerException: <p>An internal error occurred.</p>
+            aws_sdk_panorama.errors.validation_exception.ValidationException: <p>The request contains an invalid parameter value.</p>
+            aws_sdk_panorama.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -471,6 +500,13 @@ class PanoramaClient:
             output_config: <p>An output config for the package import job.</p>
             client_token: <p>A client token for the package import job.</p>
             job_tags: <p>Tags for the package import job.</p>
+
+        Raises:
+            aws_sdk_panorama.errors.access_denied_exception.AccessDeniedException: <p>The requestor does not have permission to access the target action or resource.</p>
+            aws_sdk_panorama.errors.conflict_exception.ConflictException: <p>The target resource is in use.</p>
+            aws_sdk_panorama.errors.internal_server_exception.InternalServerException: <p>An internal error occurred.</p>
+            aws_sdk_panorama.errors.validation_exception.ValidationException: <p>The request contains an invalid parameter value.</p>
+            aws_sdk_panorama.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -513,6 +549,14 @@ class PanoramaClient:
 
         Args:
             device_id: <p>The device's ID.</p>
+
+        Raises:
+            aws_sdk_panorama.errors.access_denied_exception.AccessDeniedException: <p>The requestor does not have permission to access the target action or resource.</p>
+            aws_sdk_panorama.errors.conflict_exception.ConflictException: <p>The target resource is in use.</p>
+            aws_sdk_panorama.errors.internal_server_exception.InternalServerException: <p>An internal error occurred.</p>
+            aws_sdk_panorama.errors.resource_not_found_exception.ResourceNotFoundException: <p>The target resource was not found.</p>
+            aws_sdk_panorama.errors.validation_exception.ValidationException: <p>The request contains an invalid parameter value.</p>
+            aws_sdk_panorama.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -552,6 +596,14 @@ class PanoramaClient:
         Args:
             package_id: <p>The package's ID.</p>
             force_delete: <p>Delete the package even if it has artifacts stored in its access point. Deletes the package's artifacts from Amazon S3.</p>
+
+        Raises:
+            aws_sdk_panorama.errors.access_denied_exception.AccessDeniedException: <p>The requestor does not have permission to access the target action or resource.</p>
+            aws_sdk_panorama.errors.conflict_exception.ConflictException: <p>The target resource is in use.</p>
+            aws_sdk_panorama.errors.internal_server_exception.InternalServerException: <p>An internal error occurred.</p>
+            aws_sdk_panorama.errors.resource_not_found_exception.ResourceNotFoundException: <p>The target resource was not found.</p>
+            aws_sdk_panorama.errors.validation_exception.ValidationException: <p>The request contains an invalid parameter value.</p>
+            aws_sdk_panorama.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -603,6 +655,14 @@ class PanoramaClient:
             package_version: <p>A package version.</p>
             patch_version: <p>A patch version.</p>
             updated_latest_patch_version: <p>If the version was marked latest, the new version to maker as latest.</p>
+
+        Raises:
+            aws_sdk_panorama.errors.access_denied_exception.AccessDeniedException: <p>The requestor does not have permission to access the target action or resource.</p>
+            aws_sdk_panorama.errors.conflict_exception.ConflictException: <p>The target resource is in use.</p>
+            aws_sdk_panorama.errors.internal_server_exception.InternalServerException: <p>An internal error occurred.</p>
+            aws_sdk_panorama.errors.resource_not_found_exception.ResourceNotFoundException: <p>The target resource was not found.</p>
+            aws_sdk_panorama.errors.validation_exception.ValidationException: <p>The request contains an invalid parameter value.</p>
+            aws_sdk_panorama.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -646,6 +706,14 @@ class PanoramaClient:
 
         Args:
             application_instance_id: <p>The application instance's ID.</p>
+
+        Raises:
+            aws_sdk_panorama.errors.access_denied_exception.AccessDeniedException: <p>The requestor does not have permission to access the target action or resource.</p>
+            aws_sdk_panorama.errors.conflict_exception.ConflictException: <p>The target resource is in use.</p>
+            aws_sdk_panorama.errors.internal_server_exception.InternalServerException: <p>An internal error occurred.</p>
+            aws_sdk_panorama.errors.resource_not_found_exception.ResourceNotFoundException: <p>The target resource was not found.</p>
+            aws_sdk_panorama.errors.validation_exception.ValidationException: <p>The request contains an invalid parameter value.</p>
+            aws_sdk_panorama.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -683,6 +751,14 @@ class PanoramaClient:
 
         Args:
             application_instance_id: <p>The application instance's ID.</p>
+
+        Raises:
+            aws_sdk_panorama.errors.access_denied_exception.AccessDeniedException: <p>The requestor does not have permission to access the target action or resource.</p>
+            aws_sdk_panorama.errors.conflict_exception.ConflictException: <p>The target resource is in use.</p>
+            aws_sdk_panorama.errors.internal_server_exception.InternalServerException: <p>An internal error occurred.</p>
+            aws_sdk_panorama.errors.resource_not_found_exception.ResourceNotFoundException: <p>The target resource was not found.</p>
+            aws_sdk_panorama.errors.validation_exception.ValidationException: <p>The request contains an invalid parameter value.</p>
+            aws_sdk_panorama.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -720,6 +796,13 @@ class PanoramaClient:
 
         Args:
             device_id: <p>The device's ID.</p>
+
+        Raises:
+            aws_sdk_panorama.errors.access_denied_exception.AccessDeniedException: <p>The requestor does not have permission to access the target action or resource.</p>
+            aws_sdk_panorama.errors.internal_server_exception.InternalServerException: <p>An internal error occurred.</p>
+            aws_sdk_panorama.errors.resource_not_found_exception.ResourceNotFoundException: <p>The target resource was not found.</p>
+            aws_sdk_panorama.errors.validation_exception.ValidationException: <p>The request contains an invalid parameter value.</p>
+            aws_sdk_panorama.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -759,6 +842,14 @@ class PanoramaClient:
 
         Args:
             job_id: <p>The job's ID.</p>
+
+        Raises:
+            aws_sdk_panorama.errors.access_denied_exception.AccessDeniedException: <p>The requestor does not have permission to access the target action or resource.</p>
+            aws_sdk_panorama.errors.conflict_exception.ConflictException: <p>The target resource is in use.</p>
+            aws_sdk_panorama.errors.internal_server_exception.InternalServerException: <p>An internal error occurred.</p>
+            aws_sdk_panorama.errors.resource_not_found_exception.ResourceNotFoundException: <p>The target resource was not found.</p>
+            aws_sdk_panorama.errors.validation_exception.ValidationException: <p>The request contains an invalid parameter value.</p>
+            aws_sdk_panorama.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -800,6 +891,14 @@ class PanoramaClient:
         Args:
             node_id: <p>The node's ID.</p>
             owner_account: <p>The account ID of the node's owner.</p>
+
+        Raises:
+            aws_sdk_panorama.errors.access_denied_exception.AccessDeniedException: <p>The requestor does not have permission to access the target action or resource.</p>
+            aws_sdk_panorama.errors.conflict_exception.ConflictException: <p>The target resource is in use.</p>
+            aws_sdk_panorama.errors.internal_server_exception.InternalServerException: <p>An internal error occurred.</p>
+            aws_sdk_panorama.errors.resource_not_found_exception.ResourceNotFoundException: <p>The target resource was not found.</p>
+            aws_sdk_panorama.errors.validation_exception.ValidationException: <p>The request contains an invalid parameter value.</p>
+            aws_sdk_panorama.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -839,6 +938,13 @@ class PanoramaClient:
 
         Args:
             job_id: <p>The job's ID.</p>
+
+        Raises:
+            aws_sdk_panorama.errors.access_denied_exception.AccessDeniedException: <p>The requestor does not have permission to access the target action or resource.</p>
+            aws_sdk_panorama.errors.conflict_exception.ConflictException: <p>The target resource is in use.</p>
+            aws_sdk_panorama.errors.internal_server_exception.InternalServerException: <p>An internal error occurred.</p>
+            aws_sdk_panorama.errors.validation_exception.ValidationException: <p>The request contains an invalid parameter value.</p>
+            aws_sdk_panorama.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -876,6 +982,14 @@ class PanoramaClient:
 
         Args:
             package_id: <p>The package's ID.</p>
+
+        Raises:
+            aws_sdk_panorama.errors.access_denied_exception.AccessDeniedException: <p>The requestor does not have permission to access the target action or resource.</p>
+            aws_sdk_panorama.errors.conflict_exception.ConflictException: <p>The target resource is in use.</p>
+            aws_sdk_panorama.errors.internal_server_exception.InternalServerException: <p>An internal error occurred.</p>
+            aws_sdk_panorama.errors.resource_not_found_exception.ResourceNotFoundException: <p>The target resource was not found.</p>
+            aws_sdk_panorama.errors.validation_exception.ValidationException: <p>The request contains an invalid parameter value.</p>
+            aws_sdk_panorama.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -913,6 +1027,13 @@ class PanoramaClient:
 
         Args:
             job_id: <p>The job's ID.</p>
+
+        Raises:
+            aws_sdk_panorama.errors.access_denied_exception.AccessDeniedException: <p>The requestor does not have permission to access the target action or resource.</p>
+            aws_sdk_panorama.errors.conflict_exception.ConflictException: <p>The target resource is in use.</p>
+            aws_sdk_panorama.errors.internal_server_exception.InternalServerException: <p>An internal error occurred.</p>
+            aws_sdk_panorama.errors.validation_exception.ValidationException: <p>The request contains an invalid parameter value.</p>
+            aws_sdk_panorama.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -960,6 +1081,14 @@ class PanoramaClient:
             package_id: <p>The version's ID.</p>
             package_version: <p>The version's version.</p>
             patch_version: <p>The version's patch version.</p>
+
+        Raises:
+            aws_sdk_panorama.errors.access_denied_exception.AccessDeniedException: <p>The requestor does not have permission to access the target action or resource.</p>
+            aws_sdk_panorama.errors.conflict_exception.ConflictException: <p>The target resource is in use.</p>
+            aws_sdk_panorama.errors.internal_server_exception.InternalServerException: <p>An internal error occurred.</p>
+            aws_sdk_panorama.errors.resource_not_found_exception.ResourceNotFoundException: <p>The target resource was not found.</p>
+            aws_sdk_panorama.errors.validation_exception.ValidationException: <p>The request contains an invalid parameter value.</p>
+            aws_sdk_panorama.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1006,6 +1135,11 @@ class PanoramaClient:
             application_instance_id: <p>The application instance's ID.</p>
             max_results: <p>The maximum number of application instance dependencies to return in one page of results.</p>
             next_token: <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
+
+        Raises:
+            aws_sdk_panorama.errors.access_denied_exception.AccessDeniedException: <p>The requestor does not have permission to access the target action or resource.</p>
+            aws_sdk_panorama.errors.internal_server_exception.InternalServerException: <p>An internal error occurred.</p>
+            aws_sdk_panorama.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1051,6 +1185,11 @@ class PanoramaClient:
             application_instance_id: <p>The node instances' application instance ID.</p>
             max_results: <p>The maximum number of node instances to return in one page of results.</p>
             next_token: <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
+
+        Raises:
+            aws_sdk_panorama.errors.access_denied_exception.AccessDeniedException: <p>The requestor does not have permission to access the target action or resource.</p>
+            aws_sdk_panorama.errors.internal_server_exception.InternalServerException: <p>An internal error occurred.</p>
+            aws_sdk_panorama.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1100,6 +1239,11 @@ class PanoramaClient:
             status_filter: <p>Only include instances with a specific status.</p>
             max_results: <p>The maximum number of application instances to return in one page of results.</p>
             next_token: <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
+
+        Raises:
+            aws_sdk_panorama.errors.access_denied_exception.AccessDeniedException: <p>The requestor does not have permission to access the target action or resource.</p>
+            aws_sdk_panorama.errors.internal_server_exception.InternalServerException: <p>An internal error occurred.</p>
+            aws_sdk_panorama.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1158,6 +1302,13 @@ class PanoramaClient:
             sort_order: <p>The sorting order for the returned list. SortOrder is DESCENDING by default based on CREATED_TIME. Otherwise, SortOrder is ASCENDING.</p>
             name_filter: <p>Filter based on device's name. Prefixes supported.</p>
             device_aggregated_status_filter: <p>Filter based on a device's status.</p>
+
+        Raises:
+            aws_sdk_panorama.errors.access_denied_exception.AccessDeniedException: <p>The requestor does not have permission to access the target action or resource.</p>
+            aws_sdk_panorama.errors.conflict_exception.ConflictException: <p>The target resource is in use.</p>
+            aws_sdk_panorama.errors.internal_server_exception.InternalServerException: <p>An internal error occurred.</p>
+            aws_sdk_panorama.errors.validation_exception.ValidationException: <p>The request contains an invalid parameter value.</p>
+            aws_sdk_panorama.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1210,6 +1361,14 @@ class PanoramaClient:
             device_id: <p>Filter results by the job's target device ID.</p>
             next_token: <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
             max_results: <p>The maximum number of device jobs to return in one page of results.</p>
+
+        Raises:
+            aws_sdk_panorama.errors.access_denied_exception.AccessDeniedException: <p>The requestor does not have permission to access the target action or resource.</p>
+            aws_sdk_panorama.errors.conflict_exception.ConflictException: <p>The target resource is in use.</p>
+            aws_sdk_panorama.errors.internal_server_exception.InternalServerException: <p>An internal error occurred.</p>
+            aws_sdk_panorama.errors.resource_not_found_exception.ResourceNotFoundException: <p>The target resource was not found.</p>
+            aws_sdk_panorama.errors.validation_exception.ValidationException: <p>The request contains an invalid parameter value.</p>
+            aws_sdk_panorama.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1254,6 +1413,13 @@ class PanoramaClient:
         Args:
             next_token: <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
             max_results: <p>The maximum number of node from template jobs to return in one page of results.</p>
+
+        Raises:
+            aws_sdk_panorama.errors.access_denied_exception.AccessDeniedException: <p>The requestor does not have permission to access the target action or resource.</p>
+            aws_sdk_panorama.errors.conflict_exception.ConflictException: <p>The target resource is in use.</p>
+            aws_sdk_panorama.errors.internal_server_exception.InternalServerException: <p>An internal error occurred.</p>
+            aws_sdk_panorama.errors.validation_exception.ValidationException: <p>The request contains an invalid parameter value.</p>
+            aws_sdk_panorama.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1314,6 +1480,12 @@ class PanoramaClient:
             patch_version: <p>Search for nodes by patch version.</p>
             next_token: <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
             max_results: <p>The maximum number of nodes to return in one page of results.</p>
+
+        Raises:
+            aws_sdk_panorama.errors.conflict_exception.ConflictException: <p>The target resource is in use.</p>
+            aws_sdk_panorama.errors.internal_server_exception.InternalServerException: <p>An internal error occurred.</p>
+            aws_sdk_panorama.errors.validation_exception.ValidationException: <p>The request contains an invalid parameter value.</p>
+            aws_sdk_panorama.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1366,6 +1538,13 @@ class PanoramaClient:
         Args:
             next_token: <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
             max_results: <p>The maximum number of package import jobs to return in one page of results.</p>
+
+        Raises:
+            aws_sdk_panorama.errors.access_denied_exception.AccessDeniedException: <p>The requestor does not have permission to access the target action or resource.</p>
+            aws_sdk_panorama.errors.conflict_exception.ConflictException: <p>The target resource is in use.</p>
+            aws_sdk_panorama.errors.internal_server_exception.InternalServerException: <p>An internal error occurred.</p>
+            aws_sdk_panorama.errors.validation_exception.ValidationException: <p>The request contains an invalid parameter value.</p>
+            aws_sdk_panorama.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1408,6 +1587,14 @@ class PanoramaClient:
         Args:
             max_results: <p>The maximum number of packages to return in one page of results.</p>
             next_token: <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
+
+        Raises:
+            aws_sdk_panorama.errors.access_denied_exception.AccessDeniedException: <p>The requestor does not have permission to access the target action or resource.</p>
+            aws_sdk_panorama.errors.conflict_exception.ConflictException: <p>The target resource is in use.</p>
+            aws_sdk_panorama.errors.internal_server_exception.InternalServerException: <p>An internal error occurred.</p>
+            aws_sdk_panorama.errors.resource_not_found_exception.ResourceNotFoundException: <p>The target resource was not found.</p>
+            aws_sdk_panorama.errors.validation_exception.ValidationException: <p>The request contains an invalid parameter value.</p>
+            aws_sdk_panorama.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1448,6 +1635,12 @@ class PanoramaClient:
 
         Args:
             resource_arn: <p>The resource's ARN.</p>
+
+        Raises:
+            aws_sdk_panorama.errors.internal_server_exception.InternalServerException: <p>An internal error occurred.</p>
+            aws_sdk_panorama.errors.resource_not_found_exception.ResourceNotFoundException: <p>The target resource was not found.</p>
+            aws_sdk_panorama.errors.validation_exception.ValidationException: <p>The request contains an invalid parameter value.</p>
+            aws_sdk_panorama.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1493,6 +1686,14 @@ class PanoramaClient:
             description: <p>A description for the device.</p>
             tags: <p>Tags for the device.</p>
             networking_configuration: <p>A networking configuration for the device.</p>
+
+        Raises:
+            aws_sdk_panorama.errors.access_denied_exception.AccessDeniedException: <p>The requestor does not have permission to access the target action or resource.</p>
+            aws_sdk_panorama.errors.conflict_exception.ConflictException: <p>The target resource is in use.</p>
+            aws_sdk_panorama.errors.internal_server_exception.InternalServerException: <p>An internal error occurred.</p>
+            aws_sdk_panorama.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request would cause a limit to be exceeded.</p>
+            aws_sdk_panorama.errors.validation_exception.ValidationException: <p>The request contains an invalid parameter value.</p>
+            aws_sdk_panorama.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1548,6 +1749,13 @@ class PanoramaClient:
             package_version: <p>A package version.</p>
             patch_version: <p>A patch version.</p>
             mark_latest: <p>Whether to mark the new version as the latest version.</p>
+
+        Raises:
+            aws_sdk_panorama.errors.access_denied_exception.AccessDeniedException: <p>The requestor does not have permission to access the target action or resource.</p>
+            aws_sdk_panorama.errors.conflict_exception.ConflictException: <p>The target resource is in use.</p>
+            aws_sdk_panorama.errors.internal_server_exception.InternalServerException: <p>An internal error occurred.</p>
+            aws_sdk_panorama.errors.validation_exception.ValidationException: <p>The request contains an invalid parameter value.</p>
+            aws_sdk_panorama.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1591,6 +1799,14 @@ class PanoramaClient:
 
         Args:
             application_instance_id: <p>An application instance ID.</p>
+
+        Raises:
+            aws_sdk_panorama.errors.access_denied_exception.AccessDeniedException: <p>The requestor does not have permission to access the target action or resource.</p>
+            aws_sdk_panorama.errors.conflict_exception.ConflictException: <p>The target resource is in use.</p>
+            aws_sdk_panorama.errors.internal_server_exception.InternalServerException: <p>An internal error occurred.</p>
+            aws_sdk_panorama.errors.resource_not_found_exception.ResourceNotFoundException: <p>The target resource was not found.</p>
+            aws_sdk_panorama.errors.validation_exception.ValidationException: <p>The request contains an invalid parameter value.</p>
+            aws_sdk_panorama.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1630,6 +1846,13 @@ class PanoramaClient:
         Args:
             application_instance_id: <p>An application instance ID.</p>
             node_signals: <p>A list of signals.</p>
+
+        Raises:
+            aws_sdk_panorama.errors.access_denied_exception.AccessDeniedException: <p>The requestor does not have permission to access the target action or resource.</p>
+            aws_sdk_panorama.errors.internal_server_exception.InternalServerException: <p>An internal error occurred.</p>
+            aws_sdk_panorama.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request would cause a limit to be exceeded.</p>
+            aws_sdk_panorama.errors.validation_exception.ValidationException: <p>The request contains an invalid parameter value.</p>
+            aws_sdk_panorama.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1670,6 +1893,12 @@ class PanoramaClient:
         Args:
             resource_arn: <p>The resource's ARN.</p>
             tags: <p>Tags for the resource.</p>
+
+        Raises:
+            aws_sdk_panorama.errors.internal_server_exception.InternalServerException: <p>An internal error occurred.</p>
+            aws_sdk_panorama.errors.resource_not_found_exception.ResourceNotFoundException: <p>The target resource was not found.</p>
+            aws_sdk_panorama.errors.validation_exception.ValidationException: <p>The request contains an invalid parameter value.</p>
+            aws_sdk_panorama.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1710,6 +1939,12 @@ class PanoramaClient:
         Args:
             resource_arn: <p>The resource's ARN.</p>
             tag_keys: <p>Tag keys to remove.</p>
+
+        Raises:
+            aws_sdk_panorama.errors.internal_server_exception.InternalServerException: <p>An internal error occurred.</p>
+            aws_sdk_panorama.errors.resource_not_found_exception.ResourceNotFoundException: <p>The target resource was not found.</p>
+            aws_sdk_panorama.errors.validation_exception.ValidationException: <p>The request contains an invalid parameter value.</p>
+            aws_sdk_panorama.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1750,6 +1985,14 @@ class PanoramaClient:
         Args:
             device_id: <p>The device's ID.</p>
             description: <p>A description for the device.</p>
+
+        Raises:
+            aws_sdk_panorama.errors.access_denied_exception.AccessDeniedException: <p>The requestor does not have permission to access the target action or resource.</p>
+            aws_sdk_panorama.errors.conflict_exception.ConflictException: <p>The target resource is in use.</p>
+            aws_sdk_panorama.errors.internal_server_exception.InternalServerException: <p>An internal error occurred.</p>
+            aws_sdk_panorama.errors.resource_not_found_exception.ResourceNotFoundException: <p>The target resource was not found.</p>
+            aws_sdk_panorama.errors.validation_exception.ValidationException: <p>The request contains an invalid parameter value.</p>
+            aws_sdk_panorama.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(

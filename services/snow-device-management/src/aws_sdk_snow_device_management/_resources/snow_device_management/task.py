@@ -68,6 +68,15 @@ class Task:
             description: <p>A description of the task and its targets.</p>
             tags: <p>Optional metadata that you assign to a resource. You can use tags to categorize a resource in different ways, such as by purpose, owner, or environment. </p>
             client_token: <p>A token ensuring that the action is called only once with the specified details.</p>
+
+        Raises:
+            aws_sdk_snow_device_management.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action.</p>
+            aws_sdk_snow_device_management.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing the request.</p>
+            aws_sdk_snow_device_management.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource that doesn't exist.</p>
+            aws_sdk_snow_device_management.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request would cause a service quota to be exceeded.</p>
+            aws_sdk_snow_device_management.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_snow_device_management.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_snow_device_management.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -112,6 +121,14 @@ class Task:
 
         Args:
             task_id: <p>The ID of the task to be described.</p>
+
+        Raises:
+            aws_sdk_snow_device_management.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action.</p>
+            aws_sdk_snow_device_management.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing the request.</p>
+            aws_sdk_snow_device_management.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource that doesn't exist.</p>
+            aws_sdk_snow_device_management.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_snow_device_management.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_snow_device_management.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -159,6 +176,13 @@ class Task:
             state: <p>A structure used to filter the list of tasks.</p>
             max_results: <p>The maximum number of tasks per page.</p>
             next_token: <p>A pagination token to continue to the next page of tasks.</p>
+
+        Raises:
+            aws_sdk_snow_device_management.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action.</p>
+            aws_sdk_snow_device_management.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing the request.</p>
+            aws_sdk_snow_device_management.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_snow_device_management.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_snow_device_management.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -201,6 +225,14 @@ class Task:
 
         Args:
             task_id: <p>The ID of the task that you are attempting to cancel. You can retrieve a task ID by using the <code>ListTasks</code> operation.</p>
+
+        Raises:
+            aws_sdk_snow_device_management.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action.</p>
+            aws_sdk_snow_device_management.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing the request.</p>
+            aws_sdk_snow_device_management.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource that doesn't exist.</p>
+            aws_sdk_snow_device_management.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_snow_device_management.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_snow_device_management.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -255,6 +287,15 @@ class AsyncTask:
             description: <p>A description of the task and its targets.</p>
             tags: <p>Optional metadata that you assign to a resource. You can use tags to categorize a resource in different ways, such as by purpose, owner, or environment. </p>
             client_token: <p>A token ensuring that the action is called only once with the specified details.</p>
+
+        Raises:
+            aws_sdk_snow_device_management.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action.</p>
+            aws_sdk_snow_device_management.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing the request.</p>
+            aws_sdk_snow_device_management.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource that doesn't exist.</p>
+            aws_sdk_snow_device_management.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request would cause a service quota to be exceeded.</p>
+            aws_sdk_snow_device_management.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_snow_device_management.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_snow_device_management.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -300,6 +341,14 @@ class AsyncTask:
 
         Args:
             task_id: <p>The ID of the task to be described.</p>
+
+        Raises:
+            aws_sdk_snow_device_management.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action.</p>
+            aws_sdk_snow_device_management.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing the request.</p>
+            aws_sdk_snow_device_management.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource that doesn't exist.</p>
+            aws_sdk_snow_device_management.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_snow_device_management.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_snow_device_management.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -348,6 +397,13 @@ class AsyncTask:
             state: <p>A structure used to filter the list of tasks.</p>
             max_results: <p>The maximum number of tasks per page.</p>
             next_token: <p>A pagination token to continue to the next page of tasks.</p>
+
+        Raises:
+            aws_sdk_snow_device_management.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action.</p>
+            aws_sdk_snow_device_management.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing the request.</p>
+            aws_sdk_snow_device_management.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_snow_device_management.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_snow_device_management.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -391,6 +447,14 @@ class AsyncTask:
 
         Args:
             task_id: <p>The ID of the task that you are attempting to cancel. You can retrieve a task ID by using the <code>ListTasks</code> operation.</p>
+
+        Raises:
+            aws_sdk_snow_device_management.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action.</p>
+            aws_sdk_snow_device_management.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing the request.</p>
+            aws_sdk_snow_device_management.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource that doesn't exist.</p>
+            aws_sdk_snow_device_management.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_snow_device_management.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_snow_device_management.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

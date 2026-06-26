@@ -156,6 +156,13 @@ class AsyncApplicationCostProfilerClient:
 
         Args:
             report_id: <p>Required. ID of the report to delete.</p>
+
+        Raises:
+            aws_sdk_applicationcostprofiler.errors.access_denied_exception.AccessDeniedException: <p>You do not have permission to perform this action.</p>
+            aws_sdk_applicationcostprofiler.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_applicationcostprofiler.errors.throttling_exception.ThrottlingException: <p>The calls to AWS Application Cost Profiler API are throttled. The request was denied.</p>
+            aws_sdk_applicationcostprofiler.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints for the API.</p>
+            aws_sdk_applicationcostprofiler.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -194,6 +201,13 @@ class AsyncApplicationCostProfilerClient:
 
         Args:
             report_id: <p>ID of the report to retrieve.</p>
+
+        Raises:
+            aws_sdk_applicationcostprofiler.errors.access_denied_exception.AccessDeniedException: <p>You do not have permission to perform this action.</p>
+            aws_sdk_applicationcostprofiler.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_applicationcostprofiler.errors.throttling_exception.ThrottlingException: <p>The calls to AWS Application Cost Profiler API are throttled. The request was denied.</p>
+            aws_sdk_applicationcostprofiler.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints for the API.</p>
+            aws_sdk_applicationcostprofiler.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -232,6 +246,13 @@ class AsyncApplicationCostProfilerClient:
 
         Args:
             source_s3_location: <p>Amazon S3 location to import application usage data from.</p>
+
+        Raises:
+            aws_sdk_applicationcostprofiler.errors.access_denied_exception.AccessDeniedException: <p>You do not have permission to perform this action.</p>
+            aws_sdk_applicationcostprofiler.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_applicationcostprofiler.errors.throttling_exception.ThrottlingException: <p>The calls to AWS Application Cost Profiler API are throttled. The request was denied.</p>
+            aws_sdk_applicationcostprofiler.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints for the API.</p>
+            aws_sdk_applicationcostprofiler.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -276,6 +297,13 @@ class AsyncApplicationCostProfilerClient:
         Args:
             next_token: <p>The token value from a previous call to access the next page of results.</p>
             max_results: <p>The maximum number of results to return.</p>
+
+        Raises:
+            aws_sdk_applicationcostprofiler.errors.access_denied_exception.AccessDeniedException: <p>You do not have permission to perform this action.</p>
+            aws_sdk_applicationcostprofiler.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_applicationcostprofiler.errors.throttling_exception.ThrottlingException: <p>The calls to AWS Application Cost Profiler API are throttled. The request was denied.</p>
+            aws_sdk_applicationcostprofiler.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints for the API.</p>
+            aws_sdk_applicationcostprofiler.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -350,6 +378,14 @@ class AsyncApplicationCostProfilerClient:
             report_frequency: <p>Required. The cadence to generate the report.</p>
             format: <p>Required. The format to use for the generated report.</p>
             destination_s3_location: <p>Required. Amazon Simple Storage Service (Amazon S3) location where Application Cost Profiler uploads the report.</p>
+
+        Raises:
+            aws_sdk_applicationcostprofiler.errors.access_denied_exception.AccessDeniedException: <p>You do not have permission to perform this action.</p>
+            aws_sdk_applicationcostprofiler.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_applicationcostprofiler.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Your request exceeds one or more of the service quotas.</p>
+            aws_sdk_applicationcostprofiler.errors.throttling_exception.ThrottlingException: <p>The calls to AWS Application Cost Profiler API are throttled. The request was denied.</p>
+            aws_sdk_applicationcostprofiler.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints for the API.</p>
+            aws_sdk_applicationcostprofiler.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -400,6 +436,13 @@ class AsyncApplicationCostProfilerClient:
             report_frequency: <p>Required. The cadence to generate the report.</p>
             format: <p>Required. The format to use for the generated report.</p>
             destination_s3_location: <p>Required. Amazon Simple Storage Service (Amazon S3) location where Application Cost Profiler uploads the report.</p>
+
+        Raises:
+            aws_sdk_applicationcostprofiler.errors.access_denied_exception.AccessDeniedException: <p>You do not have permission to perform this action.</p>
+            aws_sdk_applicationcostprofiler.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_applicationcostprofiler.errors.throttling_exception.ThrottlingException: <p>The calls to AWS Application Cost Profiler API are throttled. The request was denied.</p>
+            aws_sdk_applicationcostprofiler.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints for the API.</p>
+            aws_sdk_applicationcostprofiler.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

@@ -407,6 +407,12 @@ class OpenSearchClient:
 
         Args:
             connection_id: <p>The ID of the inbound connection to accept.</p>
+
+        Raises:
+            aws_sdk_opensearch.errors.disabled_operation_exception.DisabledOperationException: <p>An error occured because the client wanted to access an unsupported operation.</p>
+            aws_sdk_opensearch.errors.limit_exceeded_exception.LimitExceededException: <p>An exception for trying to create more than the allowed number of resources or sub-resources.</p>
+            aws_sdk_opensearch.errors.resource_not_found_exception.ResourceNotFoundException: <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+            aws_sdk_opensearch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -452,6 +458,16 @@ class OpenSearchClient:
             name: <p>A name for the data source.</p>
             data_source_type: <p>The type of data source.</p>
             description: <p>A description of the data source.</p>
+
+        Raises:
+            aws_sdk_opensearch.errors.base_exception.BaseException: <p>An error occurred while processing the request.</p>
+            aws_sdk_opensearch.errors.dependency_failure_exception.DependencyFailureException: <p>An exception for when a failure in one of the dependencies results in the service being unable to fetch details about the resource.</p>
+            aws_sdk_opensearch.errors.disabled_operation_exception.DisabledOperationException: <p>An error occured because the client wanted to access an unsupported operation.</p>
+            aws_sdk_opensearch.errors.internal_exception.InternalException: <p>Request processing failed because of an unknown error, exception, or internal failure.</p>
+            aws_sdk_opensearch.errors.limit_exceeded_exception.LimitExceededException: <p>An exception for trying to create more than the allowed number of resources or sub-resources.</p>
+            aws_sdk_opensearch.errors.resource_not_found_exception.ResourceNotFoundException: <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+            aws_sdk_opensearch.errors.validation_exception.ValidationException: <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+            aws_sdk_opensearch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -508,6 +524,15 @@ class OpenSearchClient:
             description: <p> An optional text field for providing additional context and details about the data source. </p>
             open_search_arns: <p> An optional list of Amazon Resource Names (ARNs) for the OpenSearch collections that are associated with the direct query data source. This field is required for CloudWatchLogs and SecurityLake datasource types. </p>
             data_source_access_policy: <p> An optional IAM access policy document that defines the permissions for accessing the data source. The policy document must be in valid JSON format and follow IAM policy syntax.</p>
+
+        Raises:
+            aws_sdk_opensearch.errors.base_exception.BaseException: <p>An error occurred while processing the request.</p>
+            aws_sdk_opensearch.errors.disabled_operation_exception.DisabledOperationException: <p>An error occured because the client wanted to access an unsupported operation.</p>
+            aws_sdk_opensearch.errors.internal_exception.InternalException: <p>Request processing failed because of an unknown error, exception, or internal failure.</p>
+            aws_sdk_opensearch.errors.limit_exceeded_exception.LimitExceededException: <p>An exception for trying to create more than the allowed number of resources or sub-resources.</p>
+            aws_sdk_opensearch.errors.resource_not_found_exception.ResourceNotFoundException: <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+            aws_sdk_opensearch.errors.validation_exception.ValidationException: <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+            aws_sdk_opensearch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -556,6 +581,13 @@ class OpenSearchClient:
         Args:
             arn: <p>Amazon Resource Name (ARN) for the OpenSearch Service domain, data source, or application to which you want to attach resource tags.</p>
             tag_list: <p>List of resource tags.</p>
+
+        Raises:
+            aws_sdk_opensearch.errors.base_exception.BaseException: <p>An error occurred while processing the request.</p>
+            aws_sdk_opensearch.errors.internal_exception.InternalException: <p>Request processing failed because of an unknown error, exception, or internal failure.</p>
+            aws_sdk_opensearch.errors.limit_exceeded_exception.LimitExceededException: <p>An exception for trying to create more than the allowed number of resources or sub-resources.</p>
+            aws_sdk_opensearch.errors.validation_exception.ValidationException: <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+            aws_sdk_opensearch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -602,6 +634,15 @@ class OpenSearchClient:
             domain_name: <p>Name of the domain to associate the package with.</p>
             prerequisite_package_id_list: <p>A list of package IDs that must be associated with the domain before the package specified in the request can be associated.</p>
             association_configuration: <p>The configuration for associating a package with an Amazon OpenSearch Service domain.</p>
+
+        Raises:
+            aws_sdk_opensearch.errors.access_denied_exception.AccessDeniedException: <p>An error occurred because you don't have permissions to access the resource.</p>
+            aws_sdk_opensearch.errors.base_exception.BaseException: <p>An error occurred while processing the request.</p>
+            aws_sdk_opensearch.errors.conflict_exception.ConflictException: <p>An error occurred because the client attempts to remove a resource that is currently in use.</p>
+            aws_sdk_opensearch.errors.internal_exception.InternalException: <p>Request processing failed because of an unknown error, exception, or internal failure.</p>
+            aws_sdk_opensearch.errors.resource_not_found_exception.ResourceNotFoundException: <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+            aws_sdk_opensearch.errors.validation_exception.ValidationException: <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+            aws_sdk_opensearch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -647,6 +688,15 @@ class OpenSearchClient:
 
         Args:
             package_list: <p>A list of packages and their prerequisites to be associated with a domain.</p>
+
+        Raises:
+            aws_sdk_opensearch.errors.base_exception.BaseException: <p>An error occurred while processing the request.</p>
+            aws_sdk_opensearch.errors.conflict_exception.ConflictException: <p>An error occurred because the client attempts to remove a resource that is currently in use.</p>
+            aws_sdk_opensearch.errors.disabled_operation_exception.DisabledOperationException: <p>An error occured because the client wanted to access an unsupported operation.</p>
+            aws_sdk_opensearch.errors.internal_exception.InternalException: <p>Request processing failed because of an unknown error, exception, or internal failure.</p>
+            aws_sdk_opensearch.errors.resource_not_found_exception.ResourceNotFoundException: <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+            aws_sdk_opensearch.errors.validation_exception.ValidationException: <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+            aws_sdk_opensearch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -695,6 +745,15 @@ class OpenSearchClient:
             account: <p>The Amazon Web Services account ID to grant access to.</p>
             service: <p>The Amazon Web Services service SP to grant access to.</p>
             service_options: <p>The options for the service, including the supported Regions for the endpoint access.</p>
+
+        Raises:
+            aws_sdk_opensearch.errors.base_exception.BaseException: <p>An error occurred while processing the request.</p>
+            aws_sdk_opensearch.errors.disabled_operation_exception.DisabledOperationException: <p>An error occured because the client wanted to access an unsupported operation.</p>
+            aws_sdk_opensearch.errors.internal_exception.InternalException: <p>Request processing failed because of an unknown error, exception, or internal failure.</p>
+            aws_sdk_opensearch.errors.limit_exceeded_exception.LimitExceededException: <p>An exception for trying to create more than the allowed number of resources or sub-resources.</p>
+            aws_sdk_opensearch.errors.resource_not_found_exception.ResourceNotFoundException: <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+            aws_sdk_opensearch.errors.validation_exception.ValidationException: <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+            aws_sdk_opensearch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -739,6 +798,14 @@ class OpenSearchClient:
 
         Args:
             dry_run: <p>When set to <code>True</code>, returns the list of change IDs and properties that will be cancelled without actually cancelling the change.</p>
+
+        Raises:
+            aws_sdk_opensearch.errors.base_exception.BaseException: <p>An error occurred while processing the request.</p>
+            aws_sdk_opensearch.errors.disabled_operation_exception.DisabledOperationException: <p>An error occured because the client wanted to access an unsupported operation.</p>
+            aws_sdk_opensearch.errors.internal_exception.InternalException: <p>Request processing failed because of an unknown error, exception, or internal failure.</p>
+            aws_sdk_opensearch.errors.resource_not_found_exception.ResourceNotFoundException: <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+            aws_sdk_opensearch.errors.validation_exception.ValidationException: <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+            aws_sdk_opensearch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -778,6 +845,13 @@ class OpenSearchClient:
 
         Args:
             domain_name: <p>Name of the OpenSearch Service domain that you want to cancel the service software update on.</p>
+
+        Raises:
+            aws_sdk_opensearch.errors.base_exception.BaseException: <p>An error occurred while processing the request.</p>
+            aws_sdk_opensearch.errors.internal_exception.InternalException: <p>Request processing failed because of an unknown error, exception, or internal failure.</p>
+            aws_sdk_opensearch.errors.resource_not_found_exception.ResourceNotFoundException: <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+            aws_sdk_opensearch.errors.validation_exception.ValidationException: <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+            aws_sdk_opensearch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -834,6 +908,15 @@ class OpenSearchClient:
             iam_identity_center_options: <p>Configuration settings for integrating Amazon Web Services IAM Identity Center with the OpenSearch application.</p>
             app_configs: <p>Configuration settings for the OpenSearch application, including administrative options.</p>
             kms_key_arn: <p>The Amazon Resource Name (ARN) of the KMS key used to encrypt the application's data at rest. If provided, the application uses your customer-managed key for encryption. If omitted, the application uses an AWS-managed key. The KMS key must be in the same region as the application.</p>
+
+        Raises:
+            aws_sdk_opensearch.errors.access_denied_exception.AccessDeniedException: <p>An error occurred because you don't have permissions to access the resource.</p>
+            aws_sdk_opensearch.errors.base_exception.BaseException: <p>An error occurred while processing the request.</p>
+            aws_sdk_opensearch.errors.conflict_exception.ConflictException: <p>An error occurred because the client attempts to remove a resource that is currently in use.</p>
+            aws_sdk_opensearch.errors.disabled_operation_exception.DisabledOperationException: <p>An error occured because the client wanted to access an unsupported operation.</p>
+            aws_sdk_opensearch.errors.internal_exception.InternalException: <p>Request processing failed because of an unknown error, exception, or internal failure.</p>
+            aws_sdk_opensearch.errors.validation_exception.ValidationException: <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+            aws_sdk_opensearch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -965,6 +1048,16 @@ class OpenSearchClient:
             aiml_options: <p>Options for all machine learning features for the specified domain.</p>
             deployment_strategy_options: <p>Specifies the deployment strategy options for the domain.</p>
             automated_snapshot_pause_options: <p>Specifies the automated snapshot pause options for the domain.</p> <important> <p>Suspending snapshots reduces data protection. You cannot restore your domain to points in time when snapshots are suspended. Use this feature only for short-term operational needs such as migrations or maintenance windows.</p> </important> <p>Maximum suspension duration: 3 days.</p>
+
+        Raises:
+            aws_sdk_opensearch.errors.base_exception.BaseException: <p>An error occurred while processing the request.</p>
+            aws_sdk_opensearch.errors.disabled_operation_exception.DisabledOperationException: <p>An error occured because the client wanted to access an unsupported operation.</p>
+            aws_sdk_opensearch.errors.internal_exception.InternalException: <p>Request processing failed because of an unknown error, exception, or internal failure.</p>
+            aws_sdk_opensearch.errors.invalid_type_exception.InvalidTypeException: <p>An exception for trying to create or access a sub-resource that's either invalid or not supported.</p>
+            aws_sdk_opensearch.errors.limit_exceeded_exception.LimitExceededException: <p>An exception for trying to create more than the allowed number of resources or sub-resources.</p>
+            aws_sdk_opensearch.errors.resource_already_exists_exception.ResourceAlreadyExistsException: <p>An exception for creating a resource that already exists.</p>
+            aws_sdk_opensearch.errors.validation_exception.ValidationException: <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+            aws_sdk_opensearch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1051,6 +1144,17 @@ class OpenSearchClient:
         Args:
             index_name: <p>The name of the index to create. Must be between 1 and 255 characters and follow OpenSearch naming conventions.</p>
             index_schema: <p>The JSON schema defining index mappings, settings, and semantic enrichment configuration. The schema specifies which text fields should be automatically enriched for semantic search capabilities and includes OpenSearch index configuration parameters.</p>
+
+        Raises:
+            aws_sdk_opensearch.errors.access_denied_exception.AccessDeniedException: <p>An error occurred because you don't have permissions to access the resource.</p>
+            aws_sdk_opensearch.errors.dependency_failure_exception.DependencyFailureException: <p>An exception for when a failure in one of the dependencies results in the service being unable to fetch details about the resource.</p>
+            aws_sdk_opensearch.errors.disabled_operation_exception.DisabledOperationException: <p>An error occured because the client wanted to access an unsupported operation.</p>
+            aws_sdk_opensearch.errors.internal_exception.InternalException: <p>Request processing failed because of an unknown error, exception, or internal failure.</p>
+            aws_sdk_opensearch.errors.resource_already_exists_exception.ResourceAlreadyExistsException: <p>An exception for creating a resource that already exists.</p>
+            aws_sdk_opensearch.errors.resource_not_found_exception.ResourceNotFoundException: <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+            aws_sdk_opensearch.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. Reduce the frequency of your requests and try again.</p>
+            aws_sdk_opensearch.errors.validation_exception.ValidationException: <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+            aws_sdk_opensearch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1102,6 +1206,13 @@ class OpenSearchClient:
             connection_alias: <p>Name of the connection.</p>
             connection_mode: <p>The connection mode.</p>
             connection_properties: <p>The <code>ConnectionProperties</code> for the outbound connection.</p>
+
+        Raises:
+            aws_sdk_opensearch.errors.disabled_operation_exception.DisabledOperationException: <p>An error occured because the client wanted to access an unsupported operation.</p>
+            aws_sdk_opensearch.errors.internal_exception.InternalException: <p>Request processing failed because of an unknown error, exception, or internal failure.</p>
+            aws_sdk_opensearch.errors.limit_exceeded_exception.LimitExceededException: <p>An exception for trying to create more than the allowed number of resources or sub-resources.</p>
+            aws_sdk_opensearch.errors.resource_already_exists_exception.ResourceAlreadyExistsException: <p>An exception for creating a resource that already exists.</p>
+            aws_sdk_opensearch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1169,6 +1280,16 @@ class OpenSearchClient:
             engine_version: <p>The version of the Amazon OpenSearch Service engine for which is compatible with the package. This can only be specified for package type <code>ZIP-PLUGIN</code> </p>
             package_vending_options: <p> The vending options for the package being created. They determine if the package can be vended to other users.</p>
             package_encryption_options: <p>The encryption parameters for the package being created.</p>
+
+        Raises:
+            aws_sdk_opensearch.errors.access_denied_exception.AccessDeniedException: <p>An error occurred because you don't have permissions to access the resource.</p>
+            aws_sdk_opensearch.errors.base_exception.BaseException: <p>An error occurred while processing the request.</p>
+            aws_sdk_opensearch.errors.internal_exception.InternalException: <p>Request processing failed because of an unknown error, exception, or internal failure.</p>
+            aws_sdk_opensearch.errors.invalid_type_exception.InvalidTypeException: <p>An exception for trying to create or access a sub-resource that's either invalid or not supported.</p>
+            aws_sdk_opensearch.errors.limit_exceeded_exception.LimitExceededException: <p>An exception for trying to create more than the allowed number of resources or sub-resources.</p>
+            aws_sdk_opensearch.errors.resource_already_exists_exception.ResourceAlreadyExistsException: <p>An exception for creating a resource that already exists.</p>
+            aws_sdk_opensearch.errors.validation_exception.ValidationException: <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+            aws_sdk_opensearch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1224,6 +1345,15 @@ class OpenSearchClient:
             domain_arn: <p>The Amazon Resource Name (ARN) of the domain to create the endpoint for.</p>
             vpc_options: <p>Options to specify the subnets and security groups for the endpoint.</p>
             client_token: <p>Unique, case-sensitive identifier to ensure idempotency of the request.</p>
+
+        Raises:
+            aws_sdk_opensearch.errors.base_exception.BaseException: <p>An error occurred while processing the request.</p>
+            aws_sdk_opensearch.errors.conflict_exception.ConflictException: <p>An error occurred because the client attempts to remove a resource that is currently in use.</p>
+            aws_sdk_opensearch.errors.disabled_operation_exception.DisabledOperationException: <p>An error occured because the client wanted to access an unsupported operation.</p>
+            aws_sdk_opensearch.errors.internal_exception.InternalException: <p>Request processing failed because of an unknown error, exception, or internal failure.</p>
+            aws_sdk_opensearch.errors.limit_exceeded_exception.LimitExceededException: <p>An exception for trying to create more than the allowed number of resources or sub-resources.</p>
+            aws_sdk_opensearch.errors.validation_exception.ValidationException: <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+            aws_sdk_opensearch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1266,6 +1396,16 @@ class OpenSearchClient:
 
         Args:
             id: <p>The unique identifier of the OpenSearch application to delete.</p>
+
+        Raises:
+            aws_sdk_opensearch.errors.access_denied_exception.AccessDeniedException: <p>An error occurred because you don't have permissions to access the resource.</p>
+            aws_sdk_opensearch.errors.base_exception.BaseException: <p>An error occurred while processing the request.</p>
+            aws_sdk_opensearch.errors.conflict_exception.ConflictException: <p>An error occurred because the client attempts to remove a resource that is currently in use.</p>
+            aws_sdk_opensearch.errors.disabled_operation_exception.DisabledOperationException: <p>An error occured because the client wanted to access an unsupported operation.</p>
+            aws_sdk_opensearch.errors.internal_exception.InternalException: <p>Request processing failed because of an unknown error, exception, or internal failure.</p>
+            aws_sdk_opensearch.errors.resource_not_found_exception.ResourceNotFoundException: <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+            aws_sdk_opensearch.errors.validation_exception.ValidationException: <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+            aws_sdk_opensearch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1307,6 +1447,15 @@ class OpenSearchClient:
         Args:
             domain_name: <p>The name of the domain.</p>
             name: <p>The name of the data source to delete.</p>
+
+        Raises:
+            aws_sdk_opensearch.errors.base_exception.BaseException: <p>An error occurred while processing the request.</p>
+            aws_sdk_opensearch.errors.dependency_failure_exception.DependencyFailureException: <p>An exception for when a failure in one of the dependencies results in the service being unable to fetch details about the resource.</p>
+            aws_sdk_opensearch.errors.disabled_operation_exception.DisabledOperationException: <p>An error occured because the client wanted to access an unsupported operation.</p>
+            aws_sdk_opensearch.errors.internal_exception.InternalException: <p>Request processing failed because of an unknown error, exception, or internal failure.</p>
+            aws_sdk_opensearch.errors.resource_not_found_exception.ResourceNotFoundException: <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+            aws_sdk_opensearch.errors.validation_exception.ValidationException: <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+            aws_sdk_opensearch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1345,6 +1494,14 @@ class OpenSearchClient:
 
         Args:
             data_source_name: <p> A unique, user-defined label to identify the data source within your OpenSearch Service environment. </p>
+
+        Raises:
+            aws_sdk_opensearch.errors.base_exception.BaseException: <p>An error occurred while processing the request.</p>
+            aws_sdk_opensearch.errors.disabled_operation_exception.DisabledOperationException: <p>An error occured because the client wanted to access an unsupported operation.</p>
+            aws_sdk_opensearch.errors.internal_exception.InternalException: <p>Request processing failed because of an unknown error, exception, or internal failure.</p>
+            aws_sdk_opensearch.errors.resource_not_found_exception.ResourceNotFoundException: <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+            aws_sdk_opensearch.errors.validation_exception.ValidationException: <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+            aws_sdk_opensearch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1380,6 +1537,13 @@ class OpenSearchClient:
 
         Args:
             domain_name: <p>The name of the domain you want to permanently delete.</p>
+
+        Raises:
+            aws_sdk_opensearch.errors.base_exception.BaseException: <p>An error occurred while processing the request.</p>
+            aws_sdk_opensearch.errors.internal_exception.InternalException: <p>Request processing failed because of an unknown error, exception, or internal failure.</p>
+            aws_sdk_opensearch.errors.resource_not_found_exception.ResourceNotFoundException: <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+            aws_sdk_opensearch.errors.validation_exception.ValidationException: <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+            aws_sdk_opensearch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1417,6 +1581,11 @@ class OpenSearchClient:
 
         Args:
             connection_id: <p>The ID of the inbound connection to permanently delete.</p>
+
+        Raises:
+            aws_sdk_opensearch.errors.disabled_operation_exception.DisabledOperationException: <p>An error occured because the client wanted to access an unsupported operation.</p>
+            aws_sdk_opensearch.errors.resource_not_found_exception.ResourceNotFoundException: <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+            aws_sdk_opensearch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1455,6 +1624,16 @@ class OpenSearchClient:
 
         Args:
             index_name: <p>The name of the index to delete.</p>
+
+        Raises:
+            aws_sdk_opensearch.errors.access_denied_exception.AccessDeniedException: <p>An error occurred because you don't have permissions to access the resource.</p>
+            aws_sdk_opensearch.errors.dependency_failure_exception.DependencyFailureException: <p>An exception for when a failure in one of the dependencies results in the service being unable to fetch details about the resource.</p>
+            aws_sdk_opensearch.errors.disabled_operation_exception.DisabledOperationException: <p>An error occured because the client wanted to access an unsupported operation.</p>
+            aws_sdk_opensearch.errors.internal_exception.InternalException: <p>Request processing failed because of an unknown error, exception, or internal failure.</p>
+            aws_sdk_opensearch.errors.resource_not_found_exception.ResourceNotFoundException: <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+            aws_sdk_opensearch.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. Reduce the frequency of your requests and try again.</p>
+            aws_sdk_opensearch.errors.validation_exception.ValidationException: <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+            aws_sdk_opensearch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1493,6 +1672,11 @@ class OpenSearchClient:
 
         Args:
             connection_id: <p>The ID of the outbound connection you want to permanently delete.</p>
+
+        Raises:
+            aws_sdk_opensearch.errors.disabled_operation_exception.DisabledOperationException: <p>An error occured because the client wanted to access an unsupported operation.</p>
+            aws_sdk_opensearch.errors.resource_not_found_exception.ResourceNotFoundException: <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+            aws_sdk_opensearch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1530,6 +1714,15 @@ class OpenSearchClient:
 
         Args:
             package_id: <p>The internal ID of the package you want to delete. Use <code>DescribePackages</code> to find this value.</p>
+
+        Raises:
+            aws_sdk_opensearch.errors.access_denied_exception.AccessDeniedException: <p>An error occurred because you don't have permissions to access the resource.</p>
+            aws_sdk_opensearch.errors.base_exception.BaseException: <p>An error occurred while processing the request.</p>
+            aws_sdk_opensearch.errors.conflict_exception.ConflictException: <p>An error occurred because the client attempts to remove a resource that is currently in use.</p>
+            aws_sdk_opensearch.errors.internal_exception.InternalException: <p>Request processing failed because of an unknown error, exception, or internal failure.</p>
+            aws_sdk_opensearch.errors.resource_not_found_exception.ResourceNotFoundException: <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+            aws_sdk_opensearch.errors.validation_exception.ValidationException: <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+            aws_sdk_opensearch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1567,6 +1760,13 @@ class OpenSearchClient:
 
         Args:
             vpc_endpoint_id: <p>The unique identifier of the endpoint.</p>
+
+        Raises:
+            aws_sdk_opensearch.errors.base_exception.BaseException: <p>An error occurred while processing the request.</p>
+            aws_sdk_opensearch.errors.disabled_operation_exception.DisabledOperationException: <p>An error occured because the client wanted to access an unsupported operation.</p>
+            aws_sdk_opensearch.errors.internal_exception.InternalException: <p>Request processing failed because of an unknown error, exception, or internal failure.</p>
+            aws_sdk_opensearch.errors.resource_not_found_exception.ResourceNotFoundException: <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+            aws_sdk_opensearch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1606,6 +1806,15 @@ class OpenSearchClient:
         Args:
             application_id: <p>The unique identifier of the OpenSearch UI application to deregister the capability from.</p>
             capability_name: <p>The name of the capability to deregister.</p>
+
+        Raises:
+            aws_sdk_opensearch.errors.access_denied_exception.AccessDeniedException: <p>An error occurred because you don't have permissions to access the resource.</p>
+            aws_sdk_opensearch.errors.conflict_exception.ConflictException: <p>An error occurred because the client attempts to remove a resource that is currently in use.</p>
+            aws_sdk_opensearch.errors.disabled_operation_exception.DisabledOperationException: <p>An error occured because the client wanted to access an unsupported operation.</p>
+            aws_sdk_opensearch.errors.internal_exception.InternalException: <p>Request processing failed because of an unknown error, exception, or internal failure.</p>
+            aws_sdk_opensearch.errors.resource_not_found_exception.ResourceNotFoundException: <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+            aws_sdk_opensearch.errors.validation_exception.ValidationException: <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+            aws_sdk_opensearch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1644,6 +1853,13 @@ class OpenSearchClient:
 
         Args:
             domain_name: <p>The name of the domain that you want information about.</p>
+
+        Raises:
+            aws_sdk_opensearch.errors.base_exception.BaseException: <p>An error occurred while processing the request.</p>
+            aws_sdk_opensearch.errors.internal_exception.InternalException: <p>Request processing failed because of an unknown error, exception, or internal failure.</p>
+            aws_sdk_opensearch.errors.resource_not_found_exception.ResourceNotFoundException: <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+            aws_sdk_opensearch.errors.validation_exception.ValidationException: <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+            aws_sdk_opensearch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1685,6 +1901,13 @@ class OpenSearchClient:
             domain_name: <p>Name of the domain that you want Auto-Tune details about.</p>
             max_results: <p>An optional parameter that specifies the maximum number of results to return. You can use <code>nextToken</code> to get the next page of results.</p>
             next_token: <p>If your initial <code>DescribeDomainAutoTunes</code> operation returns a <code>nextToken</code>, you can include the returned <code>nextToken</code> in subsequent <code>DescribeDomainAutoTunes</code> operations, which returns results in the next page.</p>
+
+        Raises:
+            aws_sdk_opensearch.errors.base_exception.BaseException: <p>An error occurred while processing the request.</p>
+            aws_sdk_opensearch.errors.internal_exception.InternalException: <p>Request processing failed because of an unknown error, exception, or internal failure.</p>
+            aws_sdk_opensearch.errors.resource_not_found_exception.ResourceNotFoundException: <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+            aws_sdk_opensearch.errors.validation_exception.ValidationException: <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+            aws_sdk_opensearch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1728,6 +1951,13 @@ class OpenSearchClient:
         Args:
             domain_name: <p>The name of the domain to get progress information for.</p>
             change_id: <p>The specific change ID for which you want to get progress information. If omitted, the request returns information about the most recent configuration change.</p>
+
+        Raises:
+            aws_sdk_opensearch.errors.base_exception.BaseException: <p>An error occurred while processing the request.</p>
+            aws_sdk_opensearch.errors.internal_exception.InternalException: <p>Request processing failed because of an unknown error, exception, or internal failure.</p>
+            aws_sdk_opensearch.errors.resource_not_found_exception.ResourceNotFoundException: <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+            aws_sdk_opensearch.errors.validation_exception.ValidationException: <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+            aws_sdk_opensearch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1767,6 +1997,13 @@ class OpenSearchClient:
 
         Args:
             domain_name: <p>Name of the OpenSearch Service domain configuration that you want to describe.</p>
+
+        Raises:
+            aws_sdk_opensearch.errors.base_exception.BaseException: <p>An error occurred while processing the request.</p>
+            aws_sdk_opensearch.errors.internal_exception.InternalException: <p>Request processing failed because of an unknown error, exception, or internal failure.</p>
+            aws_sdk_opensearch.errors.resource_not_found_exception.ResourceNotFoundException: <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+            aws_sdk_opensearch.errors.validation_exception.ValidationException: <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+            aws_sdk_opensearch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1804,6 +2041,14 @@ class OpenSearchClient:
 
         Args:
             domain_name: <p>The name of the domain.</p>
+
+        Raises:
+            aws_sdk_opensearch.errors.base_exception.BaseException: <p>An error occurred while processing the request.</p>
+            aws_sdk_opensearch.errors.disabled_operation_exception.DisabledOperationException: <p>An error occured because the client wanted to access an unsupported operation.</p>
+            aws_sdk_opensearch.errors.internal_exception.InternalException: <p>Request processing failed because of an unknown error, exception, or internal failure.</p>
+            aws_sdk_opensearch.errors.resource_not_found_exception.ResourceNotFoundException: <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+            aws_sdk_opensearch.errors.validation_exception.ValidationException: <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+            aws_sdk_opensearch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1841,6 +2086,15 @@ class OpenSearchClient:
 
         Args:
             domain_name: <p>The name of the domain.</p>
+
+        Raises:
+            aws_sdk_opensearch.errors.base_exception.BaseException: <p>An error occurred while processing the request.</p>
+            aws_sdk_opensearch.errors.dependency_failure_exception.DependencyFailureException: <p>An exception for when a failure in one of the dependencies results in the service being unable to fetch details about the resource.</p>
+            aws_sdk_opensearch.errors.disabled_operation_exception.DisabledOperationException: <p>An error occured because the client wanted to access an unsupported operation.</p>
+            aws_sdk_opensearch.errors.internal_exception.InternalException: <p>Request processing failed because of an unknown error, exception, or internal failure.</p>
+            aws_sdk_opensearch.errors.resource_not_found_exception.ResourceNotFoundException: <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+            aws_sdk_opensearch.errors.validation_exception.ValidationException: <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+            aws_sdk_opensearch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1878,6 +2132,12 @@ class OpenSearchClient:
 
         Args:
             domain_names: <p>Array of OpenSearch Service domain names that you want information about. You must specify at least one domain name.</p>
+
+        Raises:
+            aws_sdk_opensearch.errors.base_exception.BaseException: <p>An error occurred while processing the request.</p>
+            aws_sdk_opensearch.errors.internal_exception.InternalException: <p>Request processing failed because of an unknown error, exception, or internal failure.</p>
+            aws_sdk_opensearch.errors.validation_exception.ValidationException: <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+            aws_sdk_opensearch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1921,6 +2181,14 @@ class OpenSearchClient:
             domain_name: <p>The name of the domain.</p>
             dry_run_id: <p>The unique identifier of the dry run.</p>
             load_dry_run_config: <p>Whether to include the configuration of the dry run in the response. The configuration specifies the updates that you're planning to make on the domain.</p>
+
+        Raises:
+            aws_sdk_opensearch.errors.base_exception.BaseException: <p>An error occurred while processing the request.</p>
+            aws_sdk_opensearch.errors.disabled_operation_exception.DisabledOperationException: <p>An error occured because the client wanted to access an unsupported operation.</p>
+            aws_sdk_opensearch.errors.internal_exception.InternalException: <p>Request processing failed because of an unknown error, exception, or internal failure.</p>
+            aws_sdk_opensearch.errors.resource_not_found_exception.ResourceNotFoundException: <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+            aws_sdk_opensearch.errors.validation_exception.ValidationException: <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+            aws_sdk_opensearch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1966,6 +2234,11 @@ class OpenSearchClient:
             filters: <p> A list of filters used to match properties for inbound cross-cluster connections.</p>
             max_results: <p>An optional parameter that specifies the maximum number of results to return. You can use <code>nextToken</code> to get the next page of results.</p>
             next_token: <p>If your initial <code>DescribeInboundConnections</code> operation returns a <code>nextToken</code>, you can include the returned <code>nextToken</code> in subsequent <code>DescribeInboundConnections</code> operations, which returns results in the next page.</p>
+
+        Raises:
+            aws_sdk_opensearch.errors.disabled_operation_exception.DisabledOperationException: <p>An error occured because the client wanted to access an unsupported operation.</p>
+            aws_sdk_opensearch.errors.invalid_pagination_token_exception.InvalidPaginationTokenException: <p>Request processing failed because you provided an invalid pagination token.</p>
+            aws_sdk_opensearch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2012,6 +2285,15 @@ class OpenSearchClient:
             entity: <p>The entity for which to retrieve insight details. Specifies the type and value of the entity, such as a domain name or Amazon Web Services account ID.</p>
             insight_id: <p>The unique identifier of the insight to describe.</p>
             show_html_content: <p>Specifies whether to show response with HTML content in response or not.</p>
+
+        Raises:
+            aws_sdk_opensearch.errors.base_exception.BaseException: <p>An error occurred while processing the request.</p>
+            aws_sdk_opensearch.errors.disabled_operation_exception.DisabledOperationException: <p>An error occured because the client wanted to access an unsupported operation.</p>
+            aws_sdk_opensearch.errors.internal_exception.InternalException: <p>Request processing failed because of an unknown error, exception, or internal failure.</p>
+            aws_sdk_opensearch.errors.limit_exceeded_exception.LimitExceededException: <p>An exception for trying to create more than the allowed number of resources or sub-resources.</p>
+            aws_sdk_opensearch.errors.resource_not_found_exception.ResourceNotFoundException: <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+            aws_sdk_opensearch.errors.validation_exception.ValidationException: <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+            aws_sdk_opensearch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2056,6 +2338,15 @@ class OpenSearchClient:
             domain_name: <p>The name of the domain. Only specify if you need the limits for an existing domain.</p>
             instance_type: <p>The OpenSearch Service instance type for which you need limit information.</p>
             engine_version: <p>Version of OpenSearch or Elasticsearch, in the format Elasticsearch_X.Y or OpenSearch_X.Y. Defaults to the latest version of OpenSearch.</p>
+
+        Raises:
+            aws_sdk_opensearch.errors.base_exception.BaseException: <p>An error occurred while processing the request.</p>
+            aws_sdk_opensearch.errors.internal_exception.InternalException: <p>Request processing failed because of an unknown error, exception, or internal failure.</p>
+            aws_sdk_opensearch.errors.invalid_type_exception.InvalidTypeException: <p>An exception for trying to create or access a sub-resource that's either invalid or not supported.</p>
+            aws_sdk_opensearch.errors.limit_exceeded_exception.LimitExceededException: <p>An exception for trying to create more than the allowed number of resources or sub-resources.</p>
+            aws_sdk_opensearch.errors.resource_not_found_exception.ResourceNotFoundException: <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+            aws_sdk_opensearch.errors.validation_exception.ValidationException: <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+            aws_sdk_opensearch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2100,6 +2391,11 @@ class OpenSearchClient:
             filters: <p>List of filter names and values that you can use for requests.</p>
             max_results: <p>An optional parameter that specifies the maximum number of results to return. You can use <code>nextToken</code> to get the next page of results.</p>
             next_token: <p>If your initial <code>DescribeOutboundConnections</code> operation returns a <code>nextToken</code>, you can include the returned <code>nextToken</code> in subsequent <code>DescribeOutboundConnections</code> operations, which returns results in the next page.</p>
+
+        Raises:
+            aws_sdk_opensearch.errors.disabled_operation_exception.DisabledOperationException: <p>An error occured because the client wanted to access an unsupported operation.</p>
+            aws_sdk_opensearch.errors.invalid_pagination_token_exception.InvalidPaginationTokenException: <p>Request processing failed because you provided an invalid pagination token.</p>
+            aws_sdk_opensearch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2148,6 +2444,14 @@ class OpenSearchClient:
             filters: <p>Only returns packages that match the <code>DescribePackagesFilterList</code> values.</p>
             max_results: <p>An optional parameter that specifies the maximum number of results to return. You can use <code>nextToken</code> to get the next page of results.</p>
             next_token: <p>If your initial <code>DescribePackageFilters</code> operation returns a <code>nextToken</code>, you can include the returned <code>nextToken</code> in subsequent <code>DescribePackageFilters</code> operations, which returns results in the next page.</p>
+
+        Raises:
+            aws_sdk_opensearch.errors.access_denied_exception.AccessDeniedException: <p>An error occurred because you don't have permissions to access the resource.</p>
+            aws_sdk_opensearch.errors.base_exception.BaseException: <p>An error occurred while processing the request.</p>
+            aws_sdk_opensearch.errors.internal_exception.InternalException: <p>Request processing failed because of an unknown error, exception, or internal failure.</p>
+            aws_sdk_opensearch.errors.resource_not_found_exception.ResourceNotFoundException: <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+            aws_sdk_opensearch.errors.validation_exception.ValidationException: <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+            aws_sdk_opensearch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2196,6 +2500,13 @@ class OpenSearchClient:
             reserved_instance_offering_id: <p>The Reserved Instance identifier filter value. Use this parameter to show only the available instance types that match the specified reservation identifier.</p>
             max_results: <p>An optional parameter that specifies the maximum number of results to return. You can use <code>nextToken</code> to get the next page of results.</p>
             next_token: <p>If your initial <code>DescribeReservedInstanceOfferings</code> operation returns a <code>nextToken</code>, you can include the returned <code>nextToken</code> in subsequent <code>DescribeReservedInstanceOfferings</code> operations, which returns results in the next page.</p>
+
+        Raises:
+            aws_sdk_opensearch.errors.disabled_operation_exception.DisabledOperationException: <p>An error occured because the client wanted to access an unsupported operation.</p>
+            aws_sdk_opensearch.errors.internal_exception.InternalException: <p>Request processing failed because of an unknown error, exception, or internal failure.</p>
+            aws_sdk_opensearch.errors.resource_not_found_exception.ResourceNotFoundException: <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+            aws_sdk_opensearch.errors.validation_exception.ValidationException: <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+            aws_sdk_opensearch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2242,6 +2553,13 @@ class OpenSearchClient:
             reserved_instance_id: <p>The reserved instance identifier filter value. Use this parameter to show only the reservation that matches the specified reserved OpenSearch instance ID.</p>
             max_results: <p>An optional parameter that specifies the maximum number of results to return. You can use <code>nextToken</code> to get the next page of results.</p>
             next_token: <p>If your initial <code>DescribeReservedInstances</code> operation returns a <code>nextToken</code>, you can include the returned <code>nextToken</code> in subsequent <code>DescribeReservedInstances</code> operations, which returns results in the next page.</p>
+
+        Raises:
+            aws_sdk_opensearch.errors.disabled_operation_exception.DisabledOperationException: <p>An error occured because the client wanted to access an unsupported operation.</p>
+            aws_sdk_opensearch.errors.internal_exception.InternalException: <p>Request processing failed because of an unknown error, exception, or internal failure.</p>
+            aws_sdk_opensearch.errors.resource_not_found_exception.ResourceNotFoundException: <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+            aws_sdk_opensearch.errors.validation_exception.ValidationException: <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+            aws_sdk_opensearch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2284,6 +2602,13 @@ class OpenSearchClient:
 
         Args:
             vpc_endpoint_ids: <p>The unique identifiers of the endpoints to get information about.</p>
+
+        Raises:
+            aws_sdk_opensearch.errors.base_exception.BaseException: <p>An error occurred while processing the request.</p>
+            aws_sdk_opensearch.errors.disabled_operation_exception.DisabledOperationException: <p>An error occured because the client wanted to access an unsupported operation.</p>
+            aws_sdk_opensearch.errors.internal_exception.InternalException: <p>Request processing failed because of an unknown error, exception, or internal failure.</p>
+            aws_sdk_opensearch.errors.validation_exception.ValidationException: <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+            aws_sdk_opensearch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2325,6 +2650,15 @@ class OpenSearchClient:
         Args:
             package_id: <p>Internal ID of the package to dissociate from the domain. Use <code>ListPackagesForDomain</code> to find this value.</p>
             domain_name: <p>Name of the domain to dissociate the package from.</p>
+
+        Raises:
+            aws_sdk_opensearch.errors.access_denied_exception.AccessDeniedException: <p>An error occurred because you don't have permissions to access the resource.</p>
+            aws_sdk_opensearch.errors.base_exception.BaseException: <p>An error occurred while processing the request.</p>
+            aws_sdk_opensearch.errors.conflict_exception.ConflictException: <p>An error occurred because the client attempts to remove a resource that is currently in use.</p>
+            aws_sdk_opensearch.errors.internal_exception.InternalException: <p>Request processing failed because of an unknown error, exception, or internal failure.</p>
+            aws_sdk_opensearch.errors.resource_not_found_exception.ResourceNotFoundException: <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+            aws_sdk_opensearch.errors.validation_exception.ValidationException: <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+            aws_sdk_opensearch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2364,6 +2698,15 @@ class OpenSearchClient:
 
         Args:
             package_list: <p>A list of package IDs to be dissociated from a domain.</p>
+
+        Raises:
+            aws_sdk_opensearch.errors.base_exception.BaseException: <p>An error occurred while processing the request.</p>
+            aws_sdk_opensearch.errors.conflict_exception.ConflictException: <p>An error occurred because the client attempts to remove a resource that is currently in use.</p>
+            aws_sdk_opensearch.errors.disabled_operation_exception.DisabledOperationException: <p>An error occured because the client wanted to access an unsupported operation.</p>
+            aws_sdk_opensearch.errors.internal_exception.InternalException: <p>Request processing failed because of an unknown error, exception, or internal failure.</p>
+            aws_sdk_opensearch.errors.resource_not_found_exception.ResourceNotFoundException: <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+            aws_sdk_opensearch.errors.validation_exception.ValidationException: <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+            aws_sdk_opensearch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2402,6 +2745,15 @@ class OpenSearchClient:
 
         Args:
             id: <p>The unique identifier of the OpenSearch application to retrieve.</p>
+
+        Raises:
+            aws_sdk_opensearch.errors.access_denied_exception.AccessDeniedException: <p>An error occurred because you don't have permissions to access the resource.</p>
+            aws_sdk_opensearch.errors.base_exception.BaseException: <p>An error occurred while processing the request.</p>
+            aws_sdk_opensearch.errors.disabled_operation_exception.DisabledOperationException: <p>An error occured because the client wanted to access an unsupported operation.</p>
+            aws_sdk_opensearch.errors.internal_exception.InternalException: <p>Request processing failed because of an unknown error, exception, or internal failure.</p>
+            aws_sdk_opensearch.errors.resource_not_found_exception.ResourceNotFoundException: <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+            aws_sdk_opensearch.errors.validation_exception.ValidationException: <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+            aws_sdk_opensearch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2441,6 +2793,14 @@ class OpenSearchClient:
         Args:
             application_id: <p>The unique identifier of the OpenSearch UI application.</p>
             capability_name: <p>The name of the capability to retrieve information about.</p>
+
+        Raises:
+            aws_sdk_opensearch.errors.access_denied_exception.AccessDeniedException: <p>An error occurred because you don't have permissions to access the resource.</p>
+            aws_sdk_opensearch.errors.disabled_operation_exception.DisabledOperationException: <p>An error occured because the client wanted to access an unsupported operation.</p>
+            aws_sdk_opensearch.errors.internal_exception.InternalException: <p>Request processing failed because of an unknown error, exception, or internal failure.</p>
+            aws_sdk_opensearch.errors.resource_not_found_exception.ResourceNotFoundException: <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+            aws_sdk_opensearch.errors.validation_exception.ValidationException: <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+            aws_sdk_opensearch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2479,6 +2839,14 @@ class OpenSearchClient:
 
         Args:
             domain_name: <p>The name of an existing domain. Provide this parameter to limit the results to a single domain.</p>
+
+        Raises:
+            aws_sdk_opensearch.errors.base_exception.BaseException: <p>An error occurred while processing the request.</p>
+            aws_sdk_opensearch.errors.disabled_operation_exception.DisabledOperationException: <p>An error occured because the client wanted to access an unsupported operation.</p>
+            aws_sdk_opensearch.errors.internal_exception.InternalException: <p>Request processing failed because of an unknown error, exception, or internal failure.</p>
+            aws_sdk_opensearch.errors.resource_not_found_exception.ResourceNotFoundException: <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+            aws_sdk_opensearch.errors.validation_exception.ValidationException: <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+            aws_sdk_opensearch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2519,6 +2887,15 @@ class OpenSearchClient:
         Args:
             domain_name: <p>The name of the domain.</p>
             name: <p>The name of the data source to get information about.</p>
+
+        Raises:
+            aws_sdk_opensearch.errors.base_exception.BaseException: <p>An error occurred while processing the request.</p>
+            aws_sdk_opensearch.errors.dependency_failure_exception.DependencyFailureException: <p>An exception for when a failure in one of the dependencies results in the service being unable to fetch details about the resource.</p>
+            aws_sdk_opensearch.errors.disabled_operation_exception.DisabledOperationException: <p>An error occured because the client wanted to access an unsupported operation.</p>
+            aws_sdk_opensearch.errors.internal_exception.InternalException: <p>Request processing failed because of an unknown error, exception, or internal failure.</p>
+            aws_sdk_opensearch.errors.resource_not_found_exception.ResourceNotFoundException: <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+            aws_sdk_opensearch.errors.validation_exception.ValidationException: <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+            aws_sdk_opensearch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2550,7 +2927,15 @@ class OpenSearchClient:
     def get_default_application_setting(
         self, *, config_overrides: Optional[OpenSearchClientConfig] = None
     ) -> "aws_sdk_opensearch.types.get_default_application_setting_response.GetDefaultApplicationSettingResponse":
-        """<p>Gets the ARN of the current default application.</p> <p> If the default application isn't set, the operation returns a resource not found error.</p>"""
+        """<p>Gets the ARN of the current default application.</p> <p> If the default application isn't set, the operation returns a resource not found error.</p>
+
+        Raises:
+            aws_sdk_opensearch.errors.access_denied_exception.AccessDeniedException: <p>An error occurred because you don't have permissions to access the resource.</p>
+            aws_sdk_opensearch.errors.internal_exception.InternalException: <p>Request processing failed because of an unknown error, exception, or internal failure.</p>
+            aws_sdk_opensearch.errors.resource_not_found_exception.ResourceNotFoundException: <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+            aws_sdk_opensearch.errors.validation_exception.ValidationException: <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+            aws_sdk_opensearch.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_opensearch.types.get_default_application_setting_request.GetDefaultApplicationSettingRequest]",
@@ -2586,6 +2971,14 @@ class OpenSearchClient:
 
         Args:
             data_source_name: <p> A unique, user-defined label that identifies the data source within your OpenSearch Service environment. </p>
+
+        Raises:
+            aws_sdk_opensearch.errors.base_exception.BaseException: <p>An error occurred while processing the request.</p>
+            aws_sdk_opensearch.errors.disabled_operation_exception.DisabledOperationException: <p>An error occured because the client wanted to access an unsupported operation.</p>
+            aws_sdk_opensearch.errors.internal_exception.InternalException: <p>Request processing failed because of an unknown error, exception, or internal failure.</p>
+            aws_sdk_opensearch.errors.resource_not_found_exception.ResourceNotFoundException: <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+            aws_sdk_opensearch.errors.validation_exception.ValidationException: <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+            aws_sdk_opensearch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2625,6 +3018,14 @@ class OpenSearchClient:
         Args:
             domain_name: <p>The name of the domain.</p>
             maintenance_id: <p>The request ID of the maintenance action.</p>
+
+        Raises:
+            aws_sdk_opensearch.errors.base_exception.BaseException: <p>An error occurred while processing the request.</p>
+            aws_sdk_opensearch.errors.disabled_operation_exception.DisabledOperationException: <p>An error occured because the client wanted to access an unsupported operation.</p>
+            aws_sdk_opensearch.errors.internal_exception.InternalException: <p>Request processing failed because of an unknown error, exception, or internal failure.</p>
+            aws_sdk_opensearch.errors.resource_not_found_exception.ResourceNotFoundException: <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+            aws_sdk_opensearch.errors.validation_exception.ValidationException: <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+            aws_sdk_opensearch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2664,6 +3065,16 @@ class OpenSearchClient:
 
         Args:
             index_name: <p>The name of the index to retrieve information about.</p>
+
+        Raises:
+            aws_sdk_opensearch.errors.access_denied_exception.AccessDeniedException: <p>An error occurred because you don't have permissions to access the resource.</p>
+            aws_sdk_opensearch.errors.dependency_failure_exception.DependencyFailureException: <p>An exception for when a failure in one of the dependencies results in the service being unable to fetch details about the resource.</p>
+            aws_sdk_opensearch.errors.disabled_operation_exception.DisabledOperationException: <p>An error occured because the client wanted to access an unsupported operation.</p>
+            aws_sdk_opensearch.errors.internal_exception.InternalException: <p>Request processing failed because of an unknown error, exception, or internal failure.</p>
+            aws_sdk_opensearch.errors.resource_not_found_exception.ResourceNotFoundException: <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+            aws_sdk_opensearch.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. Reduce the frequency of your requests and try again.</p>
+            aws_sdk_opensearch.errors.validation_exception.ValidationException: <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+            aws_sdk_opensearch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2706,6 +3117,14 @@ class OpenSearchClient:
             package_id: <p>The unique identifier of the package.</p>
             max_results: <p>An optional parameter that specifies the maximum number of results to return. You can use <code>nextToken</code> to get the next page of results.</p>
             next_token: <p>If your initial <code>GetPackageVersionHistory</code> operation returns a <code>nextToken</code>, you can include the returned <code>nextToken</code> in subsequent <code>GetPackageVersionHistory</code> operations, which returns results in the next page. </p>
+
+        Raises:
+            aws_sdk_opensearch.errors.access_denied_exception.AccessDeniedException: <p>An error occurred because you don't have permissions to access the resource.</p>
+            aws_sdk_opensearch.errors.base_exception.BaseException: <p>An error occurred while processing the request.</p>
+            aws_sdk_opensearch.errors.internal_exception.InternalException: <p>Request processing failed because of an unknown error, exception, or internal failure.</p>
+            aws_sdk_opensearch.errors.resource_not_found_exception.ResourceNotFoundException: <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+            aws_sdk_opensearch.errors.validation_exception.ValidationException: <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+            aws_sdk_opensearch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2751,6 +3170,14 @@ class OpenSearchClient:
             domain_name: <p>The name of an existing domain.</p>
             max_results: <p>An optional parameter that specifies the maximum number of results to return. You can use <code>nextToken</code> to get the next page of results.</p>
             next_token: <p>If your initial <code>GetUpgradeHistory</code> operation returns a <code>nextToken</code>, you can include the returned <code>nextToken</code> in subsequent <code>GetUpgradeHistory</code> operations, which returns results in the next page.</p>
+
+        Raises:
+            aws_sdk_opensearch.errors.base_exception.BaseException: <p>An error occurred while processing the request.</p>
+            aws_sdk_opensearch.errors.disabled_operation_exception.DisabledOperationException: <p>An error occured because the client wanted to access an unsupported operation.</p>
+            aws_sdk_opensearch.errors.internal_exception.InternalException: <p>Request processing failed because of an unknown error, exception, or internal failure.</p>
+            aws_sdk_opensearch.errors.resource_not_found_exception.ResourceNotFoundException: <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+            aws_sdk_opensearch.errors.validation_exception.ValidationException: <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+            aws_sdk_opensearch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2794,6 +3221,14 @@ class OpenSearchClient:
 
         Args:
             domain_name: <p>The domain of the domain to get upgrade status information for.</p>
+
+        Raises:
+            aws_sdk_opensearch.errors.base_exception.BaseException: <p>An error occurred while processing the request.</p>
+            aws_sdk_opensearch.errors.disabled_operation_exception.DisabledOperationException: <p>An error occured because the client wanted to access an unsupported operation.</p>
+            aws_sdk_opensearch.errors.internal_exception.InternalException: <p>Request processing failed because of an unknown error, exception, or internal failure.</p>
+            aws_sdk_opensearch.errors.resource_not_found_exception.ResourceNotFoundException: <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+            aws_sdk_opensearch.errors.validation_exception.ValidationException: <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+            aws_sdk_opensearch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2835,6 +3270,15 @@ class OpenSearchClient:
 
         Args:
             statuses: <p>Filters the list of OpenSearch applications by status. Possible values: <code>CREATING</code>, <code>UPDATING</code>, <code>DELETING</code>, <code>FAILED</code>, <code>ACTIVE</code>, and <code>DELETED</code>.</p>
+
+        Raises:
+            aws_sdk_opensearch.errors.access_denied_exception.AccessDeniedException: <p>An error occurred because you don't have permissions to access the resource.</p>
+            aws_sdk_opensearch.errors.base_exception.BaseException: <p>An error occurred while processing the request.</p>
+            aws_sdk_opensearch.errors.disabled_operation_exception.DisabledOperationException: <p>An error occured because the client wanted to access an unsupported operation.</p>
+            aws_sdk_opensearch.errors.internal_exception.InternalException: <p>Request processing failed because of an unknown error, exception, or internal failure.</p>
+            aws_sdk_opensearch.errors.resource_not_found_exception.ResourceNotFoundException: <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+            aws_sdk_opensearch.errors.validation_exception.ValidationException: <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+            aws_sdk_opensearch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2902,6 +3346,15 @@ class OpenSearchClient:
 
         Args:
             domain_name: <p>The name of the domain.</p>
+
+        Raises:
+            aws_sdk_opensearch.errors.base_exception.BaseException: <p>An error occurred while processing the request.</p>
+            aws_sdk_opensearch.errors.dependency_failure_exception.DependencyFailureException: <p>An exception for when a failure in one of the dependencies results in the service being unable to fetch details about the resource.</p>
+            aws_sdk_opensearch.errors.disabled_operation_exception.DisabledOperationException: <p>An error occured because the client wanted to access an unsupported operation.</p>
+            aws_sdk_opensearch.errors.internal_exception.InternalException: <p>Request processing failed because of an unknown error, exception, or internal failure.</p>
+            aws_sdk_opensearch.errors.resource_not_found_exception.ResourceNotFoundException: <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+            aws_sdk_opensearch.errors.validation_exception.ValidationException: <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+            aws_sdk_opensearch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2935,7 +3388,16 @@ class OpenSearchClient:
         config_overrides: Optional[OpenSearchClientConfig] = None,
         next_token: Optional["aws_sdk_opensearch.types.next_token.NextToken"] = None,
     ) -> "aws_sdk_opensearch.types.list_direct_query_data_sources_response.ListDirectQueryDataSourcesResponse":
-        """<p> Lists an inventory of all the direct query data sources that you have configured within Amazon OpenSearch Service. </p>"""
+        """<p> Lists an inventory of all the direct query data sources that you have configured within Amazon OpenSearch Service. </p>
+
+        Raises:
+            aws_sdk_opensearch.errors.base_exception.BaseException: <p>An error occurred while processing the request.</p>
+            aws_sdk_opensearch.errors.disabled_operation_exception.DisabledOperationException: <p>An error occured because the client wanted to access an unsupported operation.</p>
+            aws_sdk_opensearch.errors.internal_exception.InternalException: <p>Request processing failed because of an unknown error, exception, or internal failure.</p>
+            aws_sdk_opensearch.errors.resource_not_found_exception.ResourceNotFoundException: <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+            aws_sdk_opensearch.errors.validation_exception.ValidationException: <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+            aws_sdk_opensearch.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_opensearch.types.list_direct_query_data_sources_request.ListDirectQueryDataSourcesRequest]",
@@ -2985,6 +3447,14 @@ class OpenSearchClient:
             status: <p>The status of the action.</p>
             max_results: <p>An optional parameter that specifies the maximum number of results to return. You can use <code>nextToken</code> to get the next page of results.</p>
             next_token: <p>If your initial <code>ListDomainMaintenances</code> operation returns a <code>nextToken</code>, include the returned <code>nextToken</code> in subsequent <code>ListDomainMaintenances</code> operations, which returns results in the next page.</p>
+
+        Raises:
+            aws_sdk_opensearch.errors.base_exception.BaseException: <p>An error occurred while processing the request.</p>
+            aws_sdk_opensearch.errors.disabled_operation_exception.DisabledOperationException: <p>An error occured because the client wanted to access an unsupported operation.</p>
+            aws_sdk_opensearch.errors.internal_exception.InternalException: <p>Request processing failed because of an unknown error, exception, or internal failure.</p>
+            aws_sdk_opensearch.errors.resource_not_found_exception.ResourceNotFoundException: <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+            aws_sdk_opensearch.errors.validation_exception.ValidationException: <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+            aws_sdk_opensearch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3030,6 +3500,11 @@ class OpenSearchClient:
 
         Args:
             engine_type: <p>Filters the output by domain engine type.</p>
+
+        Raises:
+            aws_sdk_opensearch.errors.base_exception.BaseException: <p>An error occurred while processing the request.</p>
+            aws_sdk_opensearch.errors.validation_exception.ValidationException: <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+            aws_sdk_opensearch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3072,6 +3547,14 @@ class OpenSearchClient:
             package_id: <p>The unique identifier of the package for which to list associated domains.</p>
             max_results: <p>An optional parameter that specifies the maximum number of results to return. You can use <code>nextToken</code> to get the next page of results.</p>
             next_token: <p>If your initial <code>ListDomainsForPackage</code> operation returns a <code>nextToken</code>, you can include the returned <code>nextToken</code> in subsequent <code>ListDomainsForPackage</code> operations, which returns results in the next page.</p>
+
+        Raises:
+            aws_sdk_opensearch.errors.access_denied_exception.AccessDeniedException: <p>An error occurred because you don't have permissions to access the resource.</p>
+            aws_sdk_opensearch.errors.base_exception.BaseException: <p>An error occurred while processing the request.</p>
+            aws_sdk_opensearch.errors.internal_exception.InternalException: <p>Request processing failed because of an unknown error, exception, or internal failure.</p>
+            aws_sdk_opensearch.errors.resource_not_found_exception.ResourceNotFoundException: <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+            aws_sdk_opensearch.errors.validation_exception.ValidationException: <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+            aws_sdk_opensearch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3127,6 +3610,15 @@ class OpenSearchClient:
             sort_order: <p>The sort order for the results. Possible values are <code>ASC</code> (ascending) and <code>DESC</code> (descending).</p>
             max_results: <p>An optional parameter that specifies the maximum number of results to return. You can use <code>NextToken</code> to get the next page of results. Valid values are 1 to 500.</p>
             next_token: <p>If your initial <code>ListInsights</code> operation returns a <code>NextToken</code>, include the returned <code>NextToken</code> in subsequent <code>ListInsights</code> operations to retrieve the next page of results.</p>
+
+        Raises:
+            aws_sdk_opensearch.errors.base_exception.BaseException: <p>An error occurred while processing the request.</p>
+            aws_sdk_opensearch.errors.disabled_operation_exception.DisabledOperationException: <p>An error occured because the client wanted to access an unsupported operation.</p>
+            aws_sdk_opensearch.errors.internal_exception.InternalException: <p>Request processing failed because of an unknown error, exception, or internal failure.</p>
+            aws_sdk_opensearch.errors.limit_exceeded_exception.LimitExceededException: <p>An exception for trying to create more than the allowed number of resources or sub-resources.</p>
+            aws_sdk_opensearch.errors.resource_not_found_exception.ResourceNotFoundException: <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+            aws_sdk_opensearch.errors.validation_exception.ValidationException: <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+            aws_sdk_opensearch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3184,6 +3676,13 @@ class OpenSearchClient:
             next_token: <p>If your initial <code>ListInstanceTypeDetails</code> operation returns a <code>nextToken</code>, you can include the returned <code>nextToken</code> in subsequent <code>ListInstanceTypeDetails</code> operations, which returns results in the next page.</p>
             retrieve_a_zs: <p>An optional parameter that specifies the Availability Zones for the domain.</p>
             instance_type: <p>An optional parameter that lists information for a given instance type.</p>
+
+        Raises:
+            aws_sdk_opensearch.errors.base_exception.BaseException: <p>An error occurred while processing the request.</p>
+            aws_sdk_opensearch.errors.internal_exception.InternalException: <p>Request processing failed because of an unknown error, exception, or internal failure.</p>
+            aws_sdk_opensearch.errors.resource_not_found_exception.ResourceNotFoundException: <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+            aws_sdk_opensearch.errors.validation_exception.ValidationException: <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+            aws_sdk_opensearch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3235,6 +3734,14 @@ class OpenSearchClient:
             domain_name: <p>The name of the domain for which you want to list associated packages.</p>
             max_results: <p>An optional parameter that specifies the maximum number of results to return. You can use <code>nextToken</code> to get the next page of results.</p>
             next_token: <p>If your initial <code>ListPackagesForDomain</code> operation returns a <code>nextToken</code>, you can include the returned <code>nextToken</code> in subsequent <code>ListPackagesForDomain</code> operations, which returns results in the next page.</p>
+
+        Raises:
+            aws_sdk_opensearch.errors.access_denied_exception.AccessDeniedException: <p>An error occurred because you don't have permissions to access the resource.</p>
+            aws_sdk_opensearch.errors.base_exception.BaseException: <p>An error occurred while processing the request.</p>
+            aws_sdk_opensearch.errors.internal_exception.InternalException: <p>Request processing failed because of an unknown error, exception, or internal failure.</p>
+            aws_sdk_opensearch.errors.resource_not_found_exception.ResourceNotFoundException: <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+            aws_sdk_opensearch.errors.validation_exception.ValidationException: <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+            aws_sdk_opensearch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3280,6 +3787,14 @@ class OpenSearchClient:
             domain_name: <p>The name of the domain.</p>
             max_results: <p>An optional parameter that specifies the maximum number of results to return. You can use <code>nextToken</code> to get the next page of results.</p>
             next_token: <p>If your initial <code>ListScheduledActions</code> operation returns a <code>nextToken</code>, you can include the returned <code>nextToken</code> in subsequent <code>ListScheduledActions</code> operations, which returns results in the next page.</p>
+
+        Raises:
+            aws_sdk_opensearch.errors.base_exception.BaseException: <p>An error occurred while processing the request.</p>
+            aws_sdk_opensearch.errors.internal_exception.InternalException: <p>Request processing failed because of an unknown error, exception, or internal failure.</p>
+            aws_sdk_opensearch.errors.invalid_pagination_token_exception.InvalidPaginationTokenException: <p>Request processing failed because you provided an invalid pagination token.</p>
+            aws_sdk_opensearch.errors.resource_not_found_exception.ResourceNotFoundException: <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+            aws_sdk_opensearch.errors.validation_exception.ValidationException: <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+            aws_sdk_opensearch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3321,6 +3836,13 @@ class OpenSearchClient:
 
         Args:
             arn: <p>Amazon Resource Name (ARN) for the domain, data source, or application to view tags for.</p>
+
+        Raises:
+            aws_sdk_opensearch.errors.base_exception.BaseException: <p>An error occurred while processing the request.</p>
+            aws_sdk_opensearch.errors.internal_exception.InternalException: <p>Request processing failed because of an unknown error, exception, or internal failure.</p>
+            aws_sdk_opensearch.errors.resource_not_found_exception.ResourceNotFoundException: <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+            aws_sdk_opensearch.errors.validation_exception.ValidationException: <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+            aws_sdk_opensearch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3360,6 +3882,13 @@ class OpenSearchClient:
         Args:
             max_results: <p>An optional parameter that specifies the maximum number of results to return. You can use <code>nextToken</code> to get the next page of results.</p>
             next_token: <p>If your initial <code>ListVersions</code> operation returns a <code>nextToken</code>, you can include the returned <code>nextToken</code> in subsequent <code>ListVersions</code> operations, which returns results in the next page.</p>
+
+        Raises:
+            aws_sdk_opensearch.errors.base_exception.BaseException: <p>An error occurred while processing the request.</p>
+            aws_sdk_opensearch.errors.internal_exception.InternalException: <p>Request processing failed because of an unknown error, exception, or internal failure.</p>
+            aws_sdk_opensearch.errors.resource_not_found_exception.ResourceNotFoundException: <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+            aws_sdk_opensearch.errors.validation_exception.ValidationException: <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+            aws_sdk_opensearch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3402,6 +3931,13 @@ class OpenSearchClient:
         Args:
             domain_name: <p>The name of the OpenSearch Service domain to retrieve access information for.</p>
             next_token: <p>If your initial <code>ListVpcEndpointAccess</code> operation returns a <code>nextToken</code>, you can include the returned <code>nextToken</code> in subsequent <code>ListVpcEndpointAccess</code> operations, which returns results in the next page.</p>
+
+        Raises:
+            aws_sdk_opensearch.errors.base_exception.BaseException: <p>An error occurred while processing the request.</p>
+            aws_sdk_opensearch.errors.disabled_operation_exception.DisabledOperationException: <p>An error occured because the client wanted to access an unsupported operation.</p>
+            aws_sdk_opensearch.errors.internal_exception.InternalException: <p>Request processing failed because of an unknown error, exception, or internal failure.</p>
+            aws_sdk_opensearch.errors.resource_not_found_exception.ResourceNotFoundException: <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+            aws_sdk_opensearch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3443,6 +3979,12 @@ class OpenSearchClient:
 
         Args:
             next_token: <p>If your initial <code>ListVpcEndpoints</code> operation returns a <code>nextToken</code>, you can include the returned <code>nextToken</code> in subsequent <code>ListVpcEndpoints</code> operations, which returns results in the next page.</p>
+
+        Raises:
+            aws_sdk_opensearch.errors.base_exception.BaseException: <p>An error occurred while processing the request.</p>
+            aws_sdk_opensearch.errors.disabled_operation_exception.DisabledOperationException: <p>An error occured because the client wanted to access an unsupported operation.</p>
+            aws_sdk_opensearch.errors.internal_exception.InternalException: <p>Request processing failed because of an unknown error, exception, or internal failure.</p>
+            aws_sdk_opensearch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3483,6 +4025,13 @@ class OpenSearchClient:
         Args:
             domain_name: <p>The name of the domain to list associated VPC endpoints for.</p>
             next_token: <p>If your initial <code>ListEndpointsForDomain</code> operation returns a <code>nextToken</code>, you can include the returned <code>nextToken</code> in subsequent <code>ListEndpointsForDomain</code> operations, which returns results in the next page.</p>
+
+        Raises:
+            aws_sdk_opensearch.errors.base_exception.BaseException: <p>An error occurred while processing the request.</p>
+            aws_sdk_opensearch.errors.disabled_operation_exception.DisabledOperationException: <p>An error occured because the client wanted to access an unsupported operation.</p>
+            aws_sdk_opensearch.errors.internal_exception.InternalException: <p>Request processing failed because of an unknown error, exception, or internal failure.</p>
+            aws_sdk_opensearch.errors.resource_not_found_exception.ResourceNotFoundException: <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+            aws_sdk_opensearch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3528,6 +4077,15 @@ class OpenSearchClient:
             reserved_instance_offering_id: <p>The ID of the Reserved Instance offering to purchase.</p>
             reservation_name: <p>A customer-specified identifier to track this reservation.</p>
             instance_count: <p>The number of OpenSearch instances to reserve.</p>
+
+        Raises:
+            aws_sdk_opensearch.errors.disabled_operation_exception.DisabledOperationException: <p>An error occured because the client wanted to access an unsupported operation.</p>
+            aws_sdk_opensearch.errors.internal_exception.InternalException: <p>Request processing failed because of an unknown error, exception, or internal failure.</p>
+            aws_sdk_opensearch.errors.limit_exceeded_exception.LimitExceededException: <p>An exception for trying to create more than the allowed number of resources or sub-resources.</p>
+            aws_sdk_opensearch.errors.resource_already_exists_exception.ResourceAlreadyExistsException: <p>An exception for creating a resource that already exists.</p>
+            aws_sdk_opensearch.errors.resource_not_found_exception.ResourceNotFoundException: <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+            aws_sdk_opensearch.errors.validation_exception.ValidationException: <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+            aws_sdk_opensearch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3569,6 +4127,13 @@ class OpenSearchClient:
 
         Args:
             set_as_default: <p>Set to true to set the specified ARN as the default application. Set to false to clear the default application.</p>
+
+        Raises:
+            aws_sdk_opensearch.errors.access_denied_exception.AccessDeniedException: <p>An error occurred because you don't have permissions to access the resource.</p>
+            aws_sdk_opensearch.errors.internal_exception.InternalException: <p>Request processing failed because of an unknown error, exception, or internal failure.</p>
+            aws_sdk_opensearch.errors.resource_not_found_exception.ResourceNotFoundException: <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+            aws_sdk_opensearch.errors.validation_exception.ValidationException: <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+            aws_sdk_opensearch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3611,6 +4176,16 @@ class OpenSearchClient:
             application_id: <p>The unique identifier of the OpenSearch UI application to register the capability for.</p>
             capability_name: <p>The name of the capability to register. Must be between 3 and 30 characters and contain only alphanumeric characters and hyphens. This identifies the type of capability being enabled for the application. For registering AI Assistant capability, use <code>ai-capability</code> </p>
             capability_config: <p>The configuration settings for the capability being registered. This includes capability-specific settings such as AI configuration.</p>
+
+        Raises:
+            aws_sdk_opensearch.errors.access_denied_exception.AccessDeniedException: <p>An error occurred because you don't have permissions to access the resource.</p>
+            aws_sdk_opensearch.errors.conflict_exception.ConflictException: <p>An error occurred because the client attempts to remove a resource that is currently in use.</p>
+            aws_sdk_opensearch.errors.disabled_operation_exception.DisabledOperationException: <p>An error occured because the client wanted to access an unsupported operation.</p>
+            aws_sdk_opensearch.errors.internal_exception.InternalException: <p>Request processing failed because of an unknown error, exception, or internal failure.</p>
+            aws_sdk_opensearch.errors.resource_not_found_exception.ResourceNotFoundException: <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+            aws_sdk_opensearch.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>An exception for when a request would cause a service quota to be exceeded.</p>
+            aws_sdk_opensearch.errors.validation_exception.ValidationException: <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+            aws_sdk_opensearch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3650,6 +4225,11 @@ class OpenSearchClient:
 
         Args:
             connection_id: <p>The unique identifier of the inbound connection to reject.</p>
+
+        Raises:
+            aws_sdk_opensearch.errors.disabled_operation_exception.DisabledOperationException: <p>An error occured because the client wanted to access an unsupported operation.</p>
+            aws_sdk_opensearch.errors.resource_not_found_exception.ResourceNotFoundException: <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+            aws_sdk_opensearch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3689,6 +4269,12 @@ class OpenSearchClient:
         Args:
             arn: <p>The Amazon Resource Name (ARN) of the domain, data source, or application from which you want to delete the specified tags.</p>
             tag_keys: <p>The list of tag keys to remove from the domain, data source, or application.</p>
+
+        Raises:
+            aws_sdk_opensearch.errors.base_exception.BaseException: <p>An error occurred while processing the request.</p>
+            aws_sdk_opensearch.errors.internal_exception.InternalException: <p>Request processing failed because of an unknown error, exception, or internal failure.</p>
+            aws_sdk_opensearch.errors.validation_exception.ValidationException: <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+            aws_sdk_opensearch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3735,6 +4321,14 @@ class OpenSearchClient:
             account: <p>The account ID to revoke access from.</p>
             service: <p>The service SP to revoke access from.</p>
             service_options: <p>The options for the service, including the supported Regions for the endpoint access.</p>
+
+        Raises:
+            aws_sdk_opensearch.errors.base_exception.BaseException: <p>An error occurred while processing the request.</p>
+            aws_sdk_opensearch.errors.disabled_operation_exception.DisabledOperationException: <p>An error occured because the client wanted to access an unsupported operation.</p>
+            aws_sdk_opensearch.errors.internal_exception.InternalException: <p>Request processing failed because of an unknown error, exception, or internal failure.</p>
+            aws_sdk_opensearch.errors.resource_not_found_exception.ResourceNotFoundException: <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+            aws_sdk_opensearch.errors.validation_exception.ValidationException: <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+            aws_sdk_opensearch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3778,6 +4372,14 @@ class OpenSearchClient:
 
         Args:
             domain_name: <p>The name of the domain to roll back the service software update on.</p>
+
+        Raises:
+            aws_sdk_opensearch.errors.base_exception.BaseException: <p>An error occurred while processing the request.</p>
+            aws_sdk_opensearch.errors.disabled_operation_exception.DisabledOperationException: <p>An error occured because the client wanted to access an unsupported operation.</p>
+            aws_sdk_opensearch.errors.internal_exception.InternalException: <p>Request processing failed because of an unknown error, exception, or internal failure.</p>
+            aws_sdk_opensearch.errors.resource_not_found_exception.ResourceNotFoundException: <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+            aws_sdk_opensearch.errors.validation_exception.ValidationException: <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+            aws_sdk_opensearch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3819,6 +4421,14 @@ class OpenSearchClient:
             domain_name: <p>The name of the domain.</p>
             action: <p>The name of the action.</p>
             node_id: <p>The ID of the data node.</p>
+
+        Raises:
+            aws_sdk_opensearch.errors.base_exception.BaseException: <p>An error occurred while processing the request.</p>
+            aws_sdk_opensearch.errors.disabled_operation_exception.DisabledOperationException: <p>An error occured because the client wanted to access an unsupported operation.</p>
+            aws_sdk_opensearch.errors.internal_exception.InternalException: <p>Request processing failed because of an unknown error, exception, or internal failure.</p>
+            aws_sdk_opensearch.errors.resource_not_found_exception.ResourceNotFoundException: <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+            aws_sdk_opensearch.errors.validation_exception.ValidationException: <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+            aws_sdk_opensearch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3863,6 +4473,13 @@ class OpenSearchClient:
             domain_name: <p>The name of the domain that you want to update to the latest service software.</p>
             schedule_at: <p>When to start the service software update.</p> <ul> <li> <p> <code>NOW</code> - Immediately schedules the update to happen in the current hour if there's capacity available.</p> </li> <li> <p> <code>TIMESTAMP</code> - Lets you specify a custom date and time to apply the update. If you specify this value, you must also provide a value for <code>DesiredStartTime</code>.</p> </li> <li> <p> <code>OFF_PEAK_WINDOW</code> - Marks the update to be picked up during an upcoming off-peak window. There's no guarantee that the update will happen during the next immediate window. Depending on capacity, it might happen in subsequent days.</p> </li> </ul> <p>Default: <code>NOW</code> if you don't specify a value for <code>DesiredStartTime</code>, and <code>TIMESTAMP</code> if you do.</p>
             desired_start_time: <p>The Epoch timestamp when you want the service software update to start. You only need to specify this parameter if you set <code>ScheduleAt</code> to <code>TIMESTAMP</code>.</p>
+
+        Raises:
+            aws_sdk_opensearch.errors.base_exception.BaseException: <p>An error occurred while processing the request.</p>
+            aws_sdk_opensearch.errors.internal_exception.InternalException: <p>Request processing failed because of an unknown error, exception, or internal failure.</p>
+            aws_sdk_opensearch.errors.resource_not_found_exception.ResourceNotFoundException: <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+            aws_sdk_opensearch.errors.validation_exception.ValidationException: <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+            aws_sdk_opensearch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3912,6 +4529,16 @@ class OpenSearchClient:
             id: <p>The unique identifier for the OpenSearch application to be updated.</p>
             data_sources: <p>The data sources to associate with the OpenSearch application.</p>
             app_configs: <p>The configuration settings to modify for the OpenSearch application.</p>
+
+        Raises:
+            aws_sdk_opensearch.errors.access_denied_exception.AccessDeniedException: <p>An error occurred because you don't have permissions to access the resource.</p>
+            aws_sdk_opensearch.errors.base_exception.BaseException: <p>An error occurred while processing the request.</p>
+            aws_sdk_opensearch.errors.conflict_exception.ConflictException: <p>An error occurred because the client attempts to remove a resource that is currently in use.</p>
+            aws_sdk_opensearch.errors.disabled_operation_exception.DisabledOperationException: <p>An error occured because the client wanted to access an unsupported operation.</p>
+            aws_sdk_opensearch.errors.internal_exception.InternalException: <p>Request processing failed because of an unknown error, exception, or internal failure.</p>
+            aws_sdk_opensearch.errors.resource_not_found_exception.ResourceNotFoundException: <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+            aws_sdk_opensearch.errors.validation_exception.ValidationException: <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+            aws_sdk_opensearch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3967,6 +4594,15 @@ class OpenSearchClient:
             data_source_type: <p>The type of data source.</p>
             description: <p>A new description of the data source.</p>
             status: <p>The status of the data source update.</p>
+
+        Raises:
+            aws_sdk_opensearch.errors.base_exception.BaseException: <p>An error occurred while processing the request.</p>
+            aws_sdk_opensearch.errors.dependency_failure_exception.DependencyFailureException: <p>An exception for when a failure in one of the dependencies results in the service being unable to fetch details about the resource.</p>
+            aws_sdk_opensearch.errors.disabled_operation_exception.DisabledOperationException: <p>An error occured because the client wanted to access an unsupported operation.</p>
+            aws_sdk_opensearch.errors.internal_exception.InternalException: <p>Request processing failed because of an unknown error, exception, or internal failure.</p>
+            aws_sdk_opensearch.errors.resource_not_found_exception.ResourceNotFoundException: <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+            aws_sdk_opensearch.errors.validation_exception.ValidationException: <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+            aws_sdk_opensearch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4024,6 +4660,15 @@ class OpenSearchClient:
             description: <p> An optional text field for providing additional context and details about the data source. </p>
             open_search_arns: <p> An optional list of Amazon Resource Names (ARNs) for the OpenSearch collections that are associated with the direct query data source. This field is required for CloudWatchLogs and SecurityLake datasource types. </p>
             data_source_access_policy: <p> An optional IAM access policy document that defines the updated permissions for accessing the direct query data source. The policy document must be in valid JSON format and follow IAM policy syntax. If not specified, the existing access policy if present remains unchanged. </p>
+
+        Raises:
+            aws_sdk_opensearch.errors.base_exception.BaseException: <p>An error occurred while processing the request.</p>
+            aws_sdk_opensearch.errors.disabled_operation_exception.DisabledOperationException: <p>An error occured because the client wanted to access an unsupported operation.</p>
+            aws_sdk_opensearch.errors.internal_exception.InternalException: <p>Request processing failed because of an unknown error, exception, or internal failure.</p>
+            aws_sdk_opensearch.errors.limit_exceeded_exception.LimitExceededException: <p>An exception for trying to create more than the allowed number of resources or sub-resources.</p>
+            aws_sdk_opensearch.errors.resource_not_found_exception.ResourceNotFoundException: <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+            aws_sdk_opensearch.errors.validation_exception.ValidationException: <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+            aws_sdk_opensearch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4149,6 +4794,15 @@ class OpenSearchClient:
             aiml_options: <p>Options for all machine learning features for the specified domain.</p>
             deployment_strategy_options: <p>Specifies the deployment strategy options for the domain.</p>
             automated_snapshot_pause_options: <p>Specifies the automated snapshot pause options for the domain.</p> <important> <p>Suspending snapshots reduces data protection. You cannot restore your domain to points in time when snapshots are suspended. Use this feature only for short-term operational needs such as migrations or maintenance windows.</p> </important> <p>Maximum suspension duration: 3 days.</p>
+
+        Raises:
+            aws_sdk_opensearch.errors.base_exception.BaseException: <p>An error occurred while processing the request.</p>
+            aws_sdk_opensearch.errors.internal_exception.InternalException: <p>Request processing failed because of an unknown error, exception, or internal failure.</p>
+            aws_sdk_opensearch.errors.invalid_type_exception.InvalidTypeException: <p>An exception for trying to create or access a sub-resource that's either invalid or not supported.</p>
+            aws_sdk_opensearch.errors.limit_exceeded_exception.LimitExceededException: <p>An exception for trying to create more than the allowed number of resources or sub-resources.</p>
+            aws_sdk_opensearch.errors.resource_not_found_exception.ResourceNotFoundException: <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+            aws_sdk_opensearch.errors.validation_exception.ValidationException: <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+            aws_sdk_opensearch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4235,6 +4889,16 @@ class OpenSearchClient:
         Args:
             index_name: <p>The name of the index to update.</p>
             index_schema: <p>The updated JSON schema for the index including any changes to mappings, settings, and semantic enrichment configuration.</p>
+
+        Raises:
+            aws_sdk_opensearch.errors.access_denied_exception.AccessDeniedException: <p>An error occurred because you don't have permissions to access the resource.</p>
+            aws_sdk_opensearch.errors.dependency_failure_exception.DependencyFailureException: <p>An exception for when a failure in one of the dependencies results in the service being unable to fetch details about the resource.</p>
+            aws_sdk_opensearch.errors.disabled_operation_exception.DisabledOperationException: <p>An error occured because the client wanted to access an unsupported operation.</p>
+            aws_sdk_opensearch.errors.internal_exception.InternalException: <p>Request processing failed because of an unknown error, exception, or internal failure.</p>
+            aws_sdk_opensearch.errors.resource_not_found_exception.ResourceNotFoundException: <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+            aws_sdk_opensearch.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. Reduce the frequency of your requests and try again.</p>
+            aws_sdk_opensearch.errors.validation_exception.ValidationException: <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+            aws_sdk_opensearch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4292,6 +4956,15 @@ class OpenSearchClient:
             commit_message: <p>Commit message for the updated file, which is shown as part of <code>GetPackageVersionHistoryResponse</code>.</p>
             package_configuration: <p>The updated configuration details for a package.</p>
             package_encryption_options: <p>Encryption options for a package.</p>
+
+        Raises:
+            aws_sdk_opensearch.errors.access_denied_exception.AccessDeniedException: <p>An error occurred because you don't have permissions to access the resource.</p>
+            aws_sdk_opensearch.errors.base_exception.BaseException: <p>An error occurred while processing the request.</p>
+            aws_sdk_opensearch.errors.internal_exception.InternalException: <p>Request processing failed because of an unknown error, exception, or internal failure.</p>
+            aws_sdk_opensearch.errors.limit_exceeded_exception.LimitExceededException: <p>An exception for trying to create more than the allowed number of resources or sub-resources.</p>
+            aws_sdk_opensearch.errors.resource_not_found_exception.ResourceNotFoundException: <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+            aws_sdk_opensearch.errors.validation_exception.ValidationException: <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+            aws_sdk_opensearch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4342,6 +5015,14 @@ class OpenSearchClient:
             package_id: <p>ID of the package whose scope is being updated.</p>
             operation: <p> The operation to perform on the package scope (e.g., add/remove/override users).</p>
             package_user_list: <p> List of users to be added or removed from the package scope.</p>
+
+        Raises:
+            aws_sdk_opensearch.errors.base_exception.BaseException: <p>An error occurred while processing the request.</p>
+            aws_sdk_opensearch.errors.disabled_operation_exception.DisabledOperationException: <p>An error occured because the client wanted to access an unsupported operation.</p>
+            aws_sdk_opensearch.errors.internal_exception.InternalException: <p>Request processing failed because of an unknown error, exception, or internal failure.</p>
+            aws_sdk_opensearch.errors.resource_not_found_exception.ResourceNotFoundException: <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+            aws_sdk_opensearch.errors.validation_exception.ValidationException: <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+            aws_sdk_opensearch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4389,6 +5070,16 @@ class OpenSearchClient:
             action_type: <p>The type of action to reschedule. Can be one of <code>SERVICE_SOFTWARE_UPDATE</code>, <code>JVM_HEAP_SIZE_TUNING</code>, or <code>JVM_YOUNG_GEN_TUNING</code>. To retrieve this value, send a <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_ListScheduledActions.html\">ListScheduledActions</a> request.</p>
             schedule_at: <p>When to schedule the action.</p> <ul> <li> <p> <code>NOW</code> - Immediately schedules the update to happen in the current hour if there's capacity available.</p> </li> <li> <p> <code>TIMESTAMP</code> - Lets you specify a custom date and time to apply the update. If you specify this value, you must also provide a value for <code>DesiredStartTime</code>.</p> </li> <li> <p> <code>OFF_PEAK_WINDOW</code> - Marks the action to be picked up during an upcoming off-peak window. There's no guarantee that the change will be implemented during the next immediate window. Depending on capacity, it might happen in subsequent days.</p> </li> </ul>
             desired_start_time: <p>The time to implement the change, in Coordinated Universal Time (UTC). Only specify this parameter if you set <code>ScheduleAt</code> to <code>TIMESTAMP</code>.</p>
+
+        Raises:
+            aws_sdk_opensearch.errors.base_exception.BaseException: <p>An error occurred while processing the request.</p>
+            aws_sdk_opensearch.errors.conflict_exception.ConflictException: <p>An error occurred because the client attempts to remove a resource that is currently in use.</p>
+            aws_sdk_opensearch.errors.internal_exception.InternalException: <p>Request processing failed because of an unknown error, exception, or internal failure.</p>
+            aws_sdk_opensearch.errors.limit_exceeded_exception.LimitExceededException: <p>An exception for trying to create more than the allowed number of resources or sub-resources.</p>
+            aws_sdk_opensearch.errors.resource_not_found_exception.ResourceNotFoundException: <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+            aws_sdk_opensearch.errors.slot_not_available_exception.SlotNotAvailableException: <p>An exception for attempting to schedule a domain action during an unavailable time slot.</p>
+            aws_sdk_opensearch.errors.validation_exception.ValidationException: <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+            aws_sdk_opensearch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4433,6 +5124,15 @@ class OpenSearchClient:
         Args:
             vpc_endpoint_id: <p>The unique identifier of the endpoint.</p>
             vpc_options: <p>The security groups and/or subnets to add, remove, or modify.</p>
+
+        Raises:
+            aws_sdk_opensearch.errors.base_exception.BaseException: <p>An error occurred while processing the request.</p>
+            aws_sdk_opensearch.errors.conflict_exception.ConflictException: <p>An error occurred because the client attempts to remove a resource that is currently in use.</p>
+            aws_sdk_opensearch.errors.disabled_operation_exception.DisabledOperationException: <p>An error occured because the client wanted to access an unsupported operation.</p>
+            aws_sdk_opensearch.errors.internal_exception.InternalException: <p>Request processing failed because of an unknown error, exception, or internal failure.</p>
+            aws_sdk_opensearch.errors.resource_not_found_exception.ResourceNotFoundException: <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+            aws_sdk_opensearch.errors.validation_exception.ValidationException: <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+            aws_sdk_opensearch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4479,6 +5179,15 @@ class OpenSearchClient:
             target_version: <p>OpenSearch or Elasticsearch version to which you want to upgrade, in the format Opensearch_X.Y or Elasticsearch_X.Y.</p>
             perform_check_only: <p>When true, indicates that an upgrade eligibility check needs to be performed. Does not actually perform the upgrade.</p>
             advanced_options: <p>Only supports the <code>override_main_response_version</code> parameter and not other advanced options. You can only include this option when upgrading to an OpenSearch version. Specifies whether the domain reports its version as 7.10 so that it continues to work with Elasticsearch OSS clients and plugins.</p>
+
+        Raises:
+            aws_sdk_opensearch.errors.base_exception.BaseException: <p>An error occurred while processing the request.</p>
+            aws_sdk_opensearch.errors.disabled_operation_exception.DisabledOperationException: <p>An error occured because the client wanted to access an unsupported operation.</p>
+            aws_sdk_opensearch.errors.internal_exception.InternalException: <p>Request processing failed because of an unknown error, exception, or internal failure.</p>
+            aws_sdk_opensearch.errors.resource_already_exists_exception.ResourceAlreadyExistsException: <p>An exception for creating a resource that already exists.</p>
+            aws_sdk_opensearch.errors.resource_not_found_exception.ResourceNotFoundException: <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+            aws_sdk_opensearch.errors.validation_exception.ValidationException: <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+            aws_sdk_opensearch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(

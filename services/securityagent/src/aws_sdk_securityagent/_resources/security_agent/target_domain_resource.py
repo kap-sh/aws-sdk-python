@@ -59,6 +59,9 @@ class TargetDomainResource:
             target_domain_name: <p>The domain name to register as a target domain.</p>
             verification_method: <p>The method to use for verifying domain ownership. Valid values are DNS_TXT, HTTP_ROUTE, and PRIVATE_VPC.</p>
             tags: <p>The tags to associate with the target domain.</p>
+
+        Raises:
+            aws_sdk_securityagent.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -101,6 +104,9 @@ class TargetDomainResource:
         Args:
             target_domain_id: <p>The unique identifier of the target domain to update.</p>
             verification_method: <p>The updated verification method for the target domain.</p>
+
+        Raises:
+            aws_sdk_securityagent.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -139,6 +145,9 @@ class TargetDomainResource:
 
         Args:
             target_domain_id: <p>The unique identifier of the target domain to delete.</p>
+
+        Raises:
+            aws_sdk_securityagent.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -182,6 +191,9 @@ class TargetDomainResource:
         Args:
             next_token: <p>A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request. For subsequent calls, use the nextToken value returned from the previous request.</p>
             max_results: <p>The maximum number of results to return in a single call.</p>
+
+        Raises:
+            aws_sdk_securityagent.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -222,6 +234,9 @@ class TargetDomainResource:
 
         Args:
             target_domain_ids: <p>The list of target domain identifiers to retrieve.</p>
+
+        Raises:
+            aws_sdk_securityagent.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -268,6 +283,9 @@ class AsyncTargetDomainResource:
             target_domain_name: <p>The domain name to register as a target domain.</p>
             verification_method: <p>The method to use for verifying domain ownership. Valid values are DNS_TXT, HTTP_ROUTE, and PRIVATE_VPC.</p>
             tags: <p>The tags to associate with the target domain.</p>
+
+        Raises:
+            aws_sdk_securityagent.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -311,6 +329,9 @@ class AsyncTargetDomainResource:
         Args:
             target_domain_id: <p>The unique identifier of the target domain to update.</p>
             verification_method: <p>The updated verification method for the target domain.</p>
+
+        Raises:
+            aws_sdk_securityagent.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -350,6 +371,9 @@ class AsyncTargetDomainResource:
 
         Args:
             target_domain_id: <p>The unique identifier of the target domain to delete.</p>
+
+        Raises:
+            aws_sdk_securityagent.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -394,6 +418,9 @@ class AsyncTargetDomainResource:
         Args:
             next_token: <p>A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request. For subsequent calls, use the nextToken value returned from the previous request.</p>
             max_results: <p>The maximum number of results to return in a single call.</p>
+
+        Raises:
+            aws_sdk_securityagent.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -435,6 +462,9 @@ class AsyncTargetDomainResource:
 
         Args:
             target_domain_ids: <p>The list of target domain identifiers to retrieve.</p>
+
+        Raises:
+            aws_sdk_securityagent.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

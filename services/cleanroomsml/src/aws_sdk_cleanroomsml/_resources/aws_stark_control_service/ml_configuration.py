@@ -46,6 +46,12 @@ class MLConfiguration:
         Args:
             membership_identifier: <p>The membership ID of the member that is being configured.</p>
             default_output_location: <p>The default Amazon S3 location where ML output is stored for the specified member.</p>
+
+        Raises:
+            aws_sdk_cleanroomsml.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_cleanroomsml.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_cleanroomsml.errors.validation_exception.ValidationException: <p>The request parameters for this request are incorrect.</p>
+            aws_sdk_cleanroomsml.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -82,6 +88,13 @@ class MLConfiguration:
 
         Args:
             membership_identifier: <p>The membership ID of the member that owns the ML configuration you want to return information about.</p>
+
+        Raises:
+            aws_sdk_cleanroomsml.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_cleanroomsml.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource you are requesting does not exist.</p>
+            aws_sdk_cleanroomsml.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_cleanroomsml.errors.validation_exception.ValidationException: <p>The request parameters for this request are incorrect.</p>
+            aws_sdk_cleanroomsml.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -119,6 +132,13 @@ class MLConfiguration:
 
         Args:
             membership_identifier: <p>The membership ID of the of the member that is deleting the ML modeling configuration.</p>
+
+        Raises:
+            aws_sdk_cleanroomsml.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_cleanroomsml.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource you are requesting does not exist.</p>
+            aws_sdk_cleanroomsml.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_cleanroomsml.errors.validation_exception.ValidationException: <p>The request parameters for this request are incorrect.</p>
+            aws_sdk_cleanroomsml.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -161,6 +181,12 @@ class AsyncMLConfiguration:
         Args:
             membership_identifier: <p>The membership ID of the member that is being configured.</p>
             default_output_location: <p>The default Amazon S3 location where ML output is stored for the specified member.</p>
+
+        Raises:
+            aws_sdk_cleanroomsml.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_cleanroomsml.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_cleanroomsml.errors.validation_exception.ValidationException: <p>The request parameters for this request are incorrect.</p>
+            aws_sdk_cleanroomsml.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -198,6 +224,13 @@ class AsyncMLConfiguration:
 
         Args:
             membership_identifier: <p>The membership ID of the member that owns the ML configuration you want to return information about.</p>
+
+        Raises:
+            aws_sdk_cleanroomsml.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_cleanroomsml.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource you are requesting does not exist.</p>
+            aws_sdk_cleanroomsml.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_cleanroomsml.errors.validation_exception.ValidationException: <p>The request parameters for this request are incorrect.</p>
+            aws_sdk_cleanroomsml.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -236,6 +269,13 @@ class AsyncMLConfiguration:
 
         Args:
             membership_identifier: <p>The membership ID of the of the member that is deleting the ML modeling configuration.</p>
+
+        Raises:
+            aws_sdk_cleanroomsml.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_cleanroomsml.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource you are requesting does not exist.</p>
+            aws_sdk_cleanroomsml.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_cleanroomsml.errors.validation_exception.ValidationException: <p>The request parameters for this request are incorrect.</p>
+            aws_sdk_cleanroomsml.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

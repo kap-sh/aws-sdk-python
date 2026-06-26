@@ -143,6 +143,13 @@ class AsyncBCMRecommendedActionsClient:
             filter: <p>The criteria that you want all returned recommended actions to match.</p>
             max_results: <p>The maximum number of results to return in the response.</p>
             next_token: <p>The pagination token that indicates the next set of results that you want to retrieve.</p>
+
+        Raises:
+            aws_sdk_bcm_recommended_actions.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_bcm_recommended_actions.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred during the processing of your request.</p>
+            aws_sdk_bcm_recommended_actions.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_bcm_recommended_actions.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_bcm_recommended_actions.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

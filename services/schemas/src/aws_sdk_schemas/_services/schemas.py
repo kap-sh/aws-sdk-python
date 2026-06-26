@@ -214,6 +214,15 @@ class schemasClient:
             source_arn: <p>The ARN of the event bus.</p>
             cross_account: <p>Support discovery of schemas in events sent to the bus from another account. (default: true).</p>
             tags: <p>Tags associated with the resource.</p>
+
+        Raises:
+            aws_sdk_schemas.errors.bad_request_exception.BadRequestException
+            aws_sdk_schemas.errors.conflict_exception.ConflictException
+            aws_sdk_schemas.errors.forbidden_exception.ForbiddenException
+            aws_sdk_schemas.errors.internal_server_error_exception.InternalServerErrorException
+            aws_sdk_schemas.errors.service_unavailable_exception.ServiceUnavailableException
+            aws_sdk_schemas.errors.unauthorized_exception.UnauthorizedException
+            aws_sdk_schemas.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -263,6 +272,15 @@ class schemasClient:
             description: <p>A description of the registry to be created.</p>
             registry_name: <p>The name of the registry.</p>
             tags: <p>Tags to associate with the registry.</p>
+
+        Raises:
+            aws_sdk_schemas.errors.bad_request_exception.BadRequestException
+            aws_sdk_schemas.errors.conflict_exception.ConflictException
+            aws_sdk_schemas.errors.forbidden_exception.ForbiddenException
+            aws_sdk_schemas.errors.internal_server_error_exception.InternalServerErrorException
+            aws_sdk_schemas.errors.service_unavailable_exception.ServiceUnavailableException
+            aws_sdk_schemas.errors.unauthorized_exception.UnauthorizedException
+            aws_sdk_schemas.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -316,6 +334,13 @@ class schemasClient:
             schema_name: <p>The name of the schema.</p>
             tags: <p>Tags associated with the schema.</p>
             type: <p>The type of schema.</p>
+
+        Raises:
+            aws_sdk_schemas.errors.bad_request_exception.BadRequestException
+            aws_sdk_schemas.errors.forbidden_exception.ForbiddenException
+            aws_sdk_schemas.errors.internal_server_error_exception.InternalServerErrorException
+            aws_sdk_schemas.errors.service_unavailable_exception.ServiceUnavailableException
+            aws_sdk_schemas.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -360,6 +385,15 @@ class schemasClient:
 
         Args:
             discoverer_id: <p>The ID of the discoverer.</p>
+
+        Raises:
+            aws_sdk_schemas.errors.bad_request_exception.BadRequestException
+            aws_sdk_schemas.errors.forbidden_exception.ForbiddenException
+            aws_sdk_schemas.errors.internal_server_error_exception.InternalServerErrorException
+            aws_sdk_schemas.errors.not_found_exception.NotFoundException
+            aws_sdk_schemas.errors.service_unavailable_exception.ServiceUnavailableException
+            aws_sdk_schemas.errors.unauthorized_exception.UnauthorizedException
+            aws_sdk_schemas.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -395,6 +429,15 @@ class schemasClient:
 
         Args:
             registry_name: <p>The name of the registry.</p>
+
+        Raises:
+            aws_sdk_schemas.errors.bad_request_exception.BadRequestException
+            aws_sdk_schemas.errors.forbidden_exception.ForbiddenException
+            aws_sdk_schemas.errors.internal_server_error_exception.InternalServerErrorException
+            aws_sdk_schemas.errors.not_found_exception.NotFoundException
+            aws_sdk_schemas.errors.service_unavailable_exception.ServiceUnavailableException
+            aws_sdk_schemas.errors.unauthorized_exception.UnauthorizedException
+            aws_sdk_schemas.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -430,6 +473,15 @@ class schemasClient:
 
         Args:
             registry_name: <p>The name of the registry.</p>
+
+        Raises:
+            aws_sdk_schemas.errors.bad_request_exception.BadRequestException
+            aws_sdk_schemas.errors.forbidden_exception.ForbiddenException
+            aws_sdk_schemas.errors.internal_server_error_exception.InternalServerErrorException
+            aws_sdk_schemas.errors.not_found_exception.NotFoundException
+            aws_sdk_schemas.errors.service_unavailable_exception.ServiceUnavailableException
+            aws_sdk_schemas.errors.unauthorized_exception.UnauthorizedException
+            aws_sdk_schemas.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -468,6 +520,15 @@ class schemasClient:
         Args:
             registry_name: <p>The name of the registry.</p>
             schema_name: <p>The name of the schema.</p>
+
+        Raises:
+            aws_sdk_schemas.errors.bad_request_exception.BadRequestException
+            aws_sdk_schemas.errors.forbidden_exception.ForbiddenException
+            aws_sdk_schemas.errors.internal_server_error_exception.InternalServerErrorException
+            aws_sdk_schemas.errors.not_found_exception.NotFoundException
+            aws_sdk_schemas.errors.service_unavailable_exception.ServiceUnavailableException
+            aws_sdk_schemas.errors.unauthorized_exception.UnauthorizedException
+            aws_sdk_schemas.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -508,6 +569,15 @@ class schemasClient:
             registry_name: <p>The name of the registry.</p>
             schema_name: <p>The name of the schema.</p>
             schema_version: The version number of the schema
+
+        Raises:
+            aws_sdk_schemas.errors.bad_request_exception.BadRequestException
+            aws_sdk_schemas.errors.forbidden_exception.ForbiddenException
+            aws_sdk_schemas.errors.internal_server_error_exception.InternalServerErrorException
+            aws_sdk_schemas.errors.not_found_exception.NotFoundException
+            aws_sdk_schemas.errors.service_unavailable_exception.ServiceUnavailableException
+            aws_sdk_schemas.errors.unauthorized_exception.UnauthorizedException
+            aws_sdk_schemas.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -551,6 +621,15 @@ class schemasClient:
             registry_name: <p>The name of the registry.</p>
             schema_name: <p>The name of the schema.</p>
             schema_version: <p>Specifying this limits the results to only this schema version.</p>
+
+        Raises:
+            aws_sdk_schemas.errors.bad_request_exception.BadRequestException
+            aws_sdk_schemas.errors.forbidden_exception.ForbiddenException
+            aws_sdk_schemas.errors.internal_server_error_exception.InternalServerErrorException
+            aws_sdk_schemas.errors.not_found_exception.NotFoundException
+            aws_sdk_schemas.errors.too_many_requests_exception.TooManyRequestsException
+            aws_sdk_schemas.errors.unauthorized_exception.UnauthorizedException
+            aws_sdk_schemas.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -594,6 +673,15 @@ class schemasClient:
 
         Args:
             discoverer_id: <p>The ID of the discoverer.</p>
+
+        Raises:
+            aws_sdk_schemas.errors.bad_request_exception.BadRequestException
+            aws_sdk_schemas.errors.forbidden_exception.ForbiddenException
+            aws_sdk_schemas.errors.internal_server_error_exception.InternalServerErrorException
+            aws_sdk_schemas.errors.not_found_exception.NotFoundException
+            aws_sdk_schemas.errors.service_unavailable_exception.ServiceUnavailableException
+            aws_sdk_schemas.errors.unauthorized_exception.UnauthorizedException
+            aws_sdk_schemas.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -631,6 +719,15 @@ class schemasClient:
 
         Args:
             registry_name: <p>The name of the registry.</p>
+
+        Raises:
+            aws_sdk_schemas.errors.bad_request_exception.BadRequestException
+            aws_sdk_schemas.errors.forbidden_exception.ForbiddenException
+            aws_sdk_schemas.errors.internal_server_error_exception.InternalServerErrorException
+            aws_sdk_schemas.errors.not_found_exception.NotFoundException
+            aws_sdk_schemas.errors.service_unavailable_exception.ServiceUnavailableException
+            aws_sdk_schemas.errors.unauthorized_exception.UnauthorizedException
+            aws_sdk_schemas.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -672,6 +769,15 @@ class schemasClient:
             registry_name: <p>The name of the registry.</p>
             schema_name: <p>The name of the schema.</p>
             schema_version: <p>Specifying this limits the results to only this schema version.</p>
+
+        Raises:
+            aws_sdk_schemas.errors.bad_request_exception.BadRequestException
+            aws_sdk_schemas.errors.forbidden_exception.ForbiddenException
+            aws_sdk_schemas.errors.internal_server_error_exception.InternalServerErrorException
+            aws_sdk_schemas.errors.not_found_exception.NotFoundException
+            aws_sdk_schemas.errors.service_unavailable_exception.ServiceUnavailableException
+            aws_sdk_schemas.errors.unauthorized_exception.UnauthorizedException
+            aws_sdk_schemas.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -717,6 +823,16 @@ class schemasClient:
             registry_name: <p>The name of the registry.</p>
             schema_name: <p>The name of the schema.</p>
             schema_version: <p>Specifying this limits the results to only this schema version.</p>
+
+        Raises:
+            aws_sdk_schemas.errors.bad_request_exception.BadRequestException
+            aws_sdk_schemas.errors.forbidden_exception.ForbiddenException
+            aws_sdk_schemas.errors.internal_server_error_exception.InternalServerErrorException
+            aws_sdk_schemas.errors.not_found_exception.NotFoundException
+            aws_sdk_schemas.errors.service_unavailable_exception.ServiceUnavailableException
+            aws_sdk_schemas.errors.too_many_requests_exception.TooManyRequestsException
+            aws_sdk_schemas.errors.unauthorized_exception.UnauthorizedException
+            aws_sdk_schemas.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -764,6 +880,15 @@ class schemasClient:
             registry_name: <p>The name of the registry.</p>
             schema_name: <p>The name of the schema.</p>
             schema_version: <p>Specifying this limits the results to only this schema version.</p>
+
+        Raises:
+            aws_sdk_schemas.errors.bad_request_exception.BadRequestException
+            aws_sdk_schemas.errors.forbidden_exception.ForbiddenException
+            aws_sdk_schemas.errors.internal_server_error_exception.InternalServerErrorException
+            aws_sdk_schemas.errors.not_found_exception.NotFoundException
+            aws_sdk_schemas.errors.too_many_requests_exception.TooManyRequestsException
+            aws_sdk_schemas.errors.unauthorized_exception.UnauthorizedException
+            aws_sdk_schemas.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -807,6 +932,14 @@ class schemasClient:
         Args:
             events: <p>An array of strings where each string is a JSON event. These are the events that were used to generate the schema. The array includes a single type of event and has a maximum size of 10 events.</p>
             type: <p>The type of event.</p>
+
+        Raises:
+            aws_sdk_schemas.errors.bad_request_exception.BadRequestException
+            aws_sdk_schemas.errors.forbidden_exception.ForbiddenException
+            aws_sdk_schemas.errors.internal_server_error_exception.InternalServerErrorException
+            aws_sdk_schemas.errors.service_unavailable_exception.ServiceUnavailableException
+            aws_sdk_schemas.errors.unauthorized_exception.UnauthorizedException
+            aws_sdk_schemas.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -845,6 +978,15 @@ class schemasClient:
 
         Args:
             registry_name: <p>The name of the registry.</p>
+
+        Raises:
+            aws_sdk_schemas.errors.bad_request_exception.BadRequestException
+            aws_sdk_schemas.errors.forbidden_exception.ForbiddenException
+            aws_sdk_schemas.errors.internal_server_error_exception.InternalServerErrorException
+            aws_sdk_schemas.errors.not_found_exception.NotFoundException
+            aws_sdk_schemas.errors.service_unavailable_exception.ServiceUnavailableException
+            aws_sdk_schemas.errors.unauthorized_exception.UnauthorizedException
+            aws_sdk_schemas.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -890,6 +1032,14 @@ class schemasClient:
             discoverer_id_prefix: <p>Specifying this limits the results to only those discoverer IDs that start with the specified prefix.</p>
             next_token: <p>The token that specifies the next page of results to return. To request the first page, leave NextToken empty. The token will expire in 24 hours, and cannot be shared with other accounts.</p>
             source_arn_prefix: <p>Specifying this limits the results to only those ARNs that start with the specified prefix.</p>
+
+        Raises:
+            aws_sdk_schemas.errors.bad_request_exception.BadRequestException
+            aws_sdk_schemas.errors.forbidden_exception.ForbiddenException
+            aws_sdk_schemas.errors.internal_server_error_exception.InternalServerErrorException
+            aws_sdk_schemas.errors.service_unavailable_exception.ServiceUnavailableException
+            aws_sdk_schemas.errors.unauthorized_exception.UnauthorizedException
+            aws_sdk_schemas.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -968,6 +1118,14 @@ class schemasClient:
             next_token: <p>The token that specifies the next page of results to return. To request the first page, leave NextToken empty. The token will expire in 24 hours, and cannot be shared with other accounts.</p>
             registry_name_prefix: <p>Specifying this limits the results to only those registry names that start with the specified prefix.</p>
             scope: <p>Can be set to Local or AWS to limit responses to your custom registries, or the ones provided by AWS.</p>
+
+        Raises:
+            aws_sdk_schemas.errors.bad_request_exception.BadRequestException
+            aws_sdk_schemas.errors.forbidden_exception.ForbiddenException
+            aws_sdk_schemas.errors.internal_server_error_exception.InternalServerErrorException
+            aws_sdk_schemas.errors.service_unavailable_exception.ServiceUnavailableException
+            aws_sdk_schemas.errors.unauthorized_exception.UnauthorizedException
+            aws_sdk_schemas.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1044,6 +1202,14 @@ class schemasClient:
             next_token: <p>The token that specifies the next page of results to return. To request the first page, leave NextToken empty. The token will expire in 24 hours, and cannot be shared with other accounts.</p>
             registry_name: <p>The name of the registry.</p>
             schema_name_prefix: <p>Specifying this limits the results to only those schema names that start with the specified prefix.</p>
+
+        Raises:
+            aws_sdk_schemas.errors.bad_request_exception.BadRequestException
+            aws_sdk_schemas.errors.forbidden_exception.ForbiddenException
+            aws_sdk_schemas.errors.internal_server_error_exception.InternalServerErrorException
+            aws_sdk_schemas.errors.service_unavailable_exception.ServiceUnavailableException
+            aws_sdk_schemas.errors.unauthorized_exception.UnauthorizedException
+            aws_sdk_schemas.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1119,6 +1285,15 @@ class schemasClient:
             next_token: <p>The token that specifies the next page of results to return. To request the first page, leave NextToken empty. The token will expire in 24 hours, and cannot be shared with other accounts.</p>
             registry_name: <p>The name of the registry.</p>
             schema_name: <p>The name of the schema.</p>
+
+        Raises:
+            aws_sdk_schemas.errors.bad_request_exception.BadRequestException
+            aws_sdk_schemas.errors.forbidden_exception.ForbiddenException
+            aws_sdk_schemas.errors.internal_server_error_exception.InternalServerErrorException
+            aws_sdk_schemas.errors.not_found_exception.NotFoundException
+            aws_sdk_schemas.errors.service_unavailable_exception.ServiceUnavailableException
+            aws_sdk_schemas.errors.unauthorized_exception.UnauthorizedException
+            aws_sdk_schemas.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1186,6 +1361,13 @@ class schemasClient:
 
         Args:
             resource_arn: <p>The ARN of the resource.</p>
+
+        Raises:
+            aws_sdk_schemas.errors.bad_request_exception.BadRequestException
+            aws_sdk_schemas.errors.forbidden_exception.ForbiddenException
+            aws_sdk_schemas.errors.internal_server_error_exception.InternalServerErrorException
+            aws_sdk_schemas.errors.not_found_exception.NotFoundException
+            aws_sdk_schemas.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1229,6 +1411,16 @@ class schemasClient:
             registry_name: <p>The name of the registry.</p>
             schema_name: <p>The name of the schema.</p>
             schema_version: <p>Specifying this limits the results to only this schema version.</p>
+
+        Raises:
+            aws_sdk_schemas.errors.bad_request_exception.BadRequestException
+            aws_sdk_schemas.errors.forbidden_exception.ForbiddenException
+            aws_sdk_schemas.errors.gone_exception.GoneException
+            aws_sdk_schemas.errors.internal_server_error_exception.InternalServerErrorException
+            aws_sdk_schemas.errors.not_found_exception.NotFoundException
+            aws_sdk_schemas.errors.too_many_requests_exception.TooManyRequestsException
+            aws_sdk_schemas.errors.unauthorized_exception.UnauthorizedException
+            aws_sdk_schemas.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1274,6 +1466,16 @@ class schemasClient:
             policy: <p>The resource-based policy.</p>
             registry_name: <p>The name of the registry.</p>
             revision_id: <p>The revision ID of the policy.</p>
+
+        Raises:
+            aws_sdk_schemas.errors.bad_request_exception.BadRequestException
+            aws_sdk_schemas.errors.forbidden_exception.ForbiddenException
+            aws_sdk_schemas.errors.internal_server_error_exception.InternalServerErrorException
+            aws_sdk_schemas.errors.not_found_exception.NotFoundException
+            aws_sdk_schemas.errors.precondition_failed_exception.PreconditionFailedException
+            aws_sdk_schemas.errors.service_unavailable_exception.ServiceUnavailableException
+            aws_sdk_schemas.errors.unauthorized_exception.UnauthorizedException
+            aws_sdk_schemas.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1320,6 +1522,14 @@ class schemasClient:
             keywords: <p>Specifying this limits the results to only schemas that include the provided keywords.</p>
             next_token: <p>The token that specifies the next page of results to return. To request the first page, leave NextToken empty. The token will expire in 24 hours, and cannot be shared with other accounts.</p>
             registry_name: <p>The name of the registry.</p>
+
+        Raises:
+            aws_sdk_schemas.errors.bad_request_exception.BadRequestException
+            aws_sdk_schemas.errors.forbidden_exception.ForbiddenException
+            aws_sdk_schemas.errors.internal_server_error_exception.InternalServerErrorException
+            aws_sdk_schemas.errors.service_unavailable_exception.ServiceUnavailableException
+            aws_sdk_schemas.errors.unauthorized_exception.UnauthorizedException
+            aws_sdk_schemas.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1387,6 +1597,15 @@ class schemasClient:
 
         Args:
             discoverer_id: <p>The ID of the discoverer.</p>
+
+        Raises:
+            aws_sdk_schemas.errors.bad_request_exception.BadRequestException
+            aws_sdk_schemas.errors.forbidden_exception.ForbiddenException
+            aws_sdk_schemas.errors.internal_server_error_exception.InternalServerErrorException
+            aws_sdk_schemas.errors.not_found_exception.NotFoundException
+            aws_sdk_schemas.errors.service_unavailable_exception.ServiceUnavailableException
+            aws_sdk_schemas.errors.unauthorized_exception.UnauthorizedException
+            aws_sdk_schemas.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1424,6 +1643,15 @@ class schemasClient:
 
         Args:
             discoverer_id: <p>The ID of the discoverer.</p>
+
+        Raises:
+            aws_sdk_schemas.errors.bad_request_exception.BadRequestException
+            aws_sdk_schemas.errors.forbidden_exception.ForbiddenException
+            aws_sdk_schemas.errors.internal_server_error_exception.InternalServerErrorException
+            aws_sdk_schemas.errors.not_found_exception.NotFoundException
+            aws_sdk_schemas.errors.service_unavailable_exception.ServiceUnavailableException
+            aws_sdk_schemas.errors.unauthorized_exception.UnauthorizedException
+            aws_sdk_schemas.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1463,6 +1691,13 @@ class schemasClient:
         Args:
             resource_arn: <p>The ARN of the resource.</p>
             tags: <p>Tags associated with the resource.</p>
+
+        Raises:
+            aws_sdk_schemas.errors.bad_request_exception.BadRequestException
+            aws_sdk_schemas.errors.forbidden_exception.ForbiddenException
+            aws_sdk_schemas.errors.internal_server_error_exception.InternalServerErrorException
+            aws_sdk_schemas.errors.not_found_exception.NotFoundException
+            aws_sdk_schemas.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1501,6 +1736,13 @@ class schemasClient:
         Args:
             resource_arn: <p>The ARN of the resource.</p>
             tag_keys: <p>Keys of key-value pairs.</p>
+
+        Raises:
+            aws_sdk_schemas.errors.bad_request_exception.BadRequestException
+            aws_sdk_schemas.errors.forbidden_exception.ForbiddenException
+            aws_sdk_schemas.errors.internal_server_error_exception.InternalServerErrorException
+            aws_sdk_schemas.errors.not_found_exception.NotFoundException
+            aws_sdk_schemas.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1543,6 +1785,15 @@ class schemasClient:
             description: <p>The description of the discoverer to update.</p>
             discoverer_id: <p>The ID of the discoverer.</p>
             cross_account: <p>Support discovery of schemas in events sent to the bus from another account. (default: true)</p>
+
+        Raises:
+            aws_sdk_schemas.errors.bad_request_exception.BadRequestException
+            aws_sdk_schemas.errors.forbidden_exception.ForbiddenException
+            aws_sdk_schemas.errors.internal_server_error_exception.InternalServerErrorException
+            aws_sdk_schemas.errors.not_found_exception.NotFoundException
+            aws_sdk_schemas.errors.service_unavailable_exception.ServiceUnavailableException
+            aws_sdk_schemas.errors.unauthorized_exception.UnauthorizedException
+            aws_sdk_schemas.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1588,6 +1839,15 @@ class schemasClient:
         Args:
             description: <p>The description of the registry to update.</p>
             registry_name: <p>The name of the registry.</p>
+
+        Raises:
+            aws_sdk_schemas.errors.bad_request_exception.BadRequestException
+            aws_sdk_schemas.errors.forbidden_exception.ForbiddenException
+            aws_sdk_schemas.errors.internal_server_error_exception.InternalServerErrorException
+            aws_sdk_schemas.errors.not_found_exception.NotFoundException
+            aws_sdk_schemas.errors.service_unavailable_exception.ServiceUnavailableException
+            aws_sdk_schemas.errors.unauthorized_exception.UnauthorizedException
+            aws_sdk_schemas.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1643,6 +1903,14 @@ class schemasClient:
             registry_name: <p>The name of the registry.</p>
             schema_name: <p>The name of the schema.</p>
             type: <p>The schema type for the events schema.</p>
+
+        Raises:
+            aws_sdk_schemas.errors.bad_request_exception.BadRequestException
+            aws_sdk_schemas.errors.forbidden_exception.ForbiddenException
+            aws_sdk_schemas.errors.internal_server_error_exception.InternalServerErrorException
+            aws_sdk_schemas.errors.not_found_exception.NotFoundException
+            aws_sdk_schemas.errors.service_unavailable_exception.ServiceUnavailableException
+            aws_sdk_schemas.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(

@@ -126,6 +126,9 @@ class PlaybackConfigurationResource:
             ad_conditioning_configuration: <p>The setting that indicates what conditioning MediaTailor will perform on ads that the ad decision server (ADS) returns, and what priority MediaTailor uses when inserting ads. </p>
             ad_decision_server_configuration: <p>The configuration for customizing HTTP requests to the ad decision server (ADS). This includes settings for request method, headers, body content, and compression options.</p>
             function_mapping: <p>A map of lifecycle hook event names to function identifiers. The function mapping specifies which function MediaTailor executes at each lifecycle hook during ad insertion. Valid keys are <code>PRE_SESSION_INITIALIZATION</code> and <code>PRE_ADS_REQUEST</code>. For more information, see <a href=\"https://docs.aws.amazon.com/mediatailor/latest/ug/monetization-functions-hooks.html\">Functions lifecycle hooks</a> in the <i>MediaTailor User Guide</i>.</p>
+
+        Raises:
+            aws_sdk_mediatailor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -201,6 +204,9 @@ class PlaybackConfigurationResource:
 
         Args:
             name: <p>The identifier for the playback configuration.</p>
+
+        Raises:
+            aws_sdk_mediatailor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -238,6 +244,9 @@ class PlaybackConfigurationResource:
 
         Args:
             name: <p>The name of the playback configuration.</p>
+
+        Raises:
+            aws_sdk_mediatailor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -279,6 +288,9 @@ class PlaybackConfigurationResource:
         Args:
             max_results: <p>The maximum number of playback configurations that you want MediaTailor to return in response to the current request. If there are more than <code>MaxResults</code> playback configurations, use the value of <code>NextToken</code> in the response to get the next page of results.</p> <p>The default value is 100. MediaTailor uses DynamoDB-based pagination, which means that a response might contain fewer than <code>MaxResults</code> items, including 0 items, even when more results are available. To retrieve all results, you must continue making requests using the <code>NextToken</code> value from each response until the response no longer includes a <code>NextToken</code> value.</p>
             next_token: <p>Pagination token returned by the list request when results exceed the maximum allowed. Use the token to fetch the next page of results.</p> <p>For the first <code>ListPlaybackConfigurations</code> request, omit this value. For subsequent requests, get the value of <code>NextToken</code> from the previous response and specify that value for <code>NextToken</code> in the request. Continue making requests until the response no longer includes a <code>NextToken</code> value, which indicates that all results have been retrieved.</p>
+
+        Raises:
+            aws_sdk_mediatailor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -388,6 +400,9 @@ class AsyncPlaybackConfigurationResource:
             ad_conditioning_configuration: <p>The setting that indicates what conditioning MediaTailor will perform on ads that the ad decision server (ADS) returns, and what priority MediaTailor uses when inserting ads. </p>
             ad_decision_server_configuration: <p>The configuration for customizing HTTP requests to the ad decision server (ADS). This includes settings for request method, headers, body content, and compression options.</p>
             function_mapping: <p>A map of lifecycle hook event names to function identifiers. The function mapping specifies which function MediaTailor executes at each lifecycle hook during ad insertion. Valid keys are <code>PRE_SESSION_INITIALIZATION</code> and <code>PRE_ADS_REQUEST</code>. For more information, see <a href=\"https://docs.aws.amazon.com/mediatailor/latest/ug/monetization-functions-hooks.html\">Functions lifecycle hooks</a> in the <i>MediaTailor User Guide</i>.</p>
+
+        Raises:
+            aws_sdk_mediatailor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -464,6 +479,9 @@ class AsyncPlaybackConfigurationResource:
 
         Args:
             name: <p>The identifier for the playback configuration.</p>
+
+        Raises:
+            aws_sdk_mediatailor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -502,6 +520,9 @@ class AsyncPlaybackConfigurationResource:
 
         Args:
             name: <p>The name of the playback configuration.</p>
+
+        Raises:
+            aws_sdk_mediatailor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -544,6 +565,9 @@ class AsyncPlaybackConfigurationResource:
         Args:
             max_results: <p>The maximum number of playback configurations that you want MediaTailor to return in response to the current request. If there are more than <code>MaxResults</code> playback configurations, use the value of <code>NextToken</code> in the response to get the next page of results.</p> <p>The default value is 100. MediaTailor uses DynamoDB-based pagination, which means that a response might contain fewer than <code>MaxResults</code> items, including 0 items, even when more results are available. To retrieve all results, you must continue making requests using the <code>NextToken</code> value from each response until the response no longer includes a <code>NextToken</code> value.</p>
             next_token: <p>Pagination token returned by the list request when results exceed the maximum allowed. Use the token to fetch the next page of results.</p> <p>For the first <code>ListPlaybackConfigurations</code> request, omit this value. For subsequent requests, get the value of <code>NextToken</code> from the previous response and specify that value for <code>NextToken</code> in the request. Continue making requests until the response no longer includes a <code>NextToken</code> value, which indicates that all results have been retrieved.</p>
+
+        Raises:
+            aws_sdk_mediatailor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

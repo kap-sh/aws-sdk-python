@@ -178,6 +178,15 @@ class EBSClient:
             checksum: <p>An aggregated Base-64 SHA256 checksum based on the checksums of each written block.</p> <p>To generate the aggregated checksum using the linear aggregation method, arrange the checksums for each written block in ascending order of their block index, concatenate them to form a single string, and then generate the checksum on the entire string using the SHA256 algorithm.</p>
             checksum_algorithm: <p>The algorithm used to generate the checksum. Currently, the only supported algorithm is <code>SHA256</code>.</p>
             checksum_aggregation_method: <p>The aggregation method used to generate the checksum. Currently, the only supported aggregation method is <code>LINEAR</code>.</p>
+
+        Raises:
+            aws_sdk_ebs.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_ebs.errors.internal_server_exception.InternalServerException: <p>An internal error has occurred. For more information see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/error-retries.html\">Error retries</a>.</p>
+            aws_sdk_ebs.errors.request_throttled_exception.RequestThrottledException: <p>The number of API requests has exceeded the maximum allowed API request throttling limit for the snapshot. For more information see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/error-retries.html\">Error retries</a>.</p>
+            aws_sdk_ebs.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_ebs.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Your current service quotas do not allow you to perform this action.</p>
+            aws_sdk_ebs.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints of the EBS direct APIs.</p>
+            aws_sdk_ebs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -227,6 +236,15 @@ class EBSClient:
             snapshot_id: <p>The ID of the snapshot containing the block from which to get data.</p> <important> <p>If the specified snapshot is encrypted, you must have permission to use the KMS key that was used to encrypt the snapshot. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebsapis-using-encryption.html\"> Using encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p> </important>
             block_index: <p>The block index of the block in which to read the data. A block index is a logical index in units of <code>512</code> KiB blocks. To identify the block index, divide the logical offset of the data in the logical volume by the block size (logical offset of data/<code>524288</code>). The logical offset of the data must be <code>512</code> KiB aligned.</p>
             block_token: <p>The block token of the block from which to get data. You can obtain the <code>BlockToken</code> by running the <code>ListChangedBlocks</code> or <code>ListSnapshotBlocks</code> operations.</p>
+
+        Raises:
+            aws_sdk_ebs.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_ebs.errors.internal_server_exception.InternalServerException: <p>An internal error has occurred. For more information see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/error-retries.html\">Error retries</a>.</p>
+            aws_sdk_ebs.errors.request_throttled_exception.RequestThrottledException: <p>The number of API requests has exceeded the maximum allowed API request throttling limit for the snapshot. For more information see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/error-retries.html\">Error retries</a>.</p>
+            aws_sdk_ebs.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_ebs.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Your current service quotas do not allow you to perform this action.</p>
+            aws_sdk_ebs.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints of the EBS direct APIs.</p>
+            aws_sdk_ebs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -276,6 +294,15 @@ class EBSClient:
             next_token: <p>The token to request the next page of results.</p> <p>If you specify <b>NextToken</b>, then <b>StartingBlockIndex</b> is ignored.</p>
             max_results: <p>The maximum number of blocks to be returned by the request.</p> <p>Even if additional blocks can be retrieved from the snapshot, the request can return less blocks than <b>MaxResults</b> or an empty array of blocks.</p> <p>To retrieve the next set of blocks from the snapshot, make another request with the returned <b>NextToken</b> value. The value of <b>NextToken</b> is <code>null</code> when there are no more blocks to return.</p>
             starting_block_index: <p>The block index from which the comparison should start.</p> <p>The list in the response will start from this block index or the next valid block index in the snapshots.</p> <p>If you specify <b>NextToken</b>, then <b>StartingBlockIndex</b> is ignored.</p>
+
+        Raises:
+            aws_sdk_ebs.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_ebs.errors.internal_server_exception.InternalServerException: <p>An internal error has occurred. For more information see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/error-retries.html\">Error retries</a>.</p>
+            aws_sdk_ebs.errors.request_throttled_exception.RequestThrottledException: <p>The number of API requests has exceeded the maximum allowed API request throttling limit for the snapshot. For more information see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/error-retries.html\">Error retries</a>.</p>
+            aws_sdk_ebs.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_ebs.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Your current service quotas do not allow you to perform this action.</p>
+            aws_sdk_ebs.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints of the EBS direct APIs.</p>
+            aws_sdk_ebs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -329,6 +356,15 @@ class EBSClient:
             next_token: <p>The token to request the next page of results.</p> <p>If you specify <b>NextToken</b>, then <b>StartingBlockIndex</b> is ignored.</p>
             max_results: <p>The maximum number of blocks to be returned by the request.</p> <p>Even if additional blocks can be retrieved from the snapshot, the request can return less blocks than <b>MaxResults</b> or an empty array of blocks.</p> <p>To retrieve the next set of blocks from the snapshot, make another request with the returned <b>NextToken</b> value. The value of <b>NextToken</b> is <code>null</code> when there are no more blocks to return.</p>
             starting_block_index: <p>The block index from which the list should start. The list in the response will start from this block index or the next valid block index in the snapshot.</p> <p>If you specify <b>NextToken</b>, then <b>StartingBlockIndex</b> is ignored.</p>
+
+        Raises:
+            aws_sdk_ebs.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_ebs.errors.internal_server_exception.InternalServerException: <p>An internal error has occurred. For more information see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/error-retries.html\">Error retries</a>.</p>
+            aws_sdk_ebs.errors.request_throttled_exception.RequestThrottledException: <p>The number of API requests has exceeded the maximum allowed API request throttling limit for the snapshot. For more information see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/error-retries.html\">Error retries</a>.</p>
+            aws_sdk_ebs.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_ebs.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Your current service quotas do not allow you to perform this action.</p>
+            aws_sdk_ebs.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints of the EBS direct APIs.</p>
+            aws_sdk_ebs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -384,6 +420,15 @@ class EBSClient:
             progress: <p>The progress of the write process, as a percentage.</p>
             checksum: <p>A Base64-encoded SHA256 checksum of the data. Only SHA256 checksums are supported.</p>
             checksum_algorithm: <p>The algorithm used to generate the checksum. Currently, the only supported algorithm is <code>SHA256</code>.</p>
+
+        Raises:
+            aws_sdk_ebs.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_ebs.errors.internal_server_exception.InternalServerException: <p>An internal error has occurred. For more information see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/error-retries.html\">Error retries</a>.</p>
+            aws_sdk_ebs.errors.request_throttled_exception.RequestThrottledException: <p>The number of API requests has exceeded the maximum allowed API request throttling limit for the snapshot. For more information see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/error-retries.html\">Error retries</a>.</p>
+            aws_sdk_ebs.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_ebs.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Your current service quotas do not allow you to perform this action.</p>
+            aws_sdk_ebs.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints of the EBS direct APIs.</p>
+            aws_sdk_ebs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -444,6 +489,17 @@ class EBSClient:
             encrypted: <p>Indicates whether to encrypt the snapshot.</p> <p>You can't specify <b>Encrypted</b> and <b> ParentSnapshotId</b> in the same request. If you specify both parameters, the request fails with <code>ValidationException</code>.</p> <p>The encryption status of the snapshot depends on the values that you specify for <b>Encrypted</b>, <b>KmsKeyArn</b>, and <b>ParentSnapshotId</b>, and whether your Amazon Web Services account is enabled for <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#encryption-by-default\"> encryption by default</a>. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebsapis-using-encryption.html\"> Using encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p> <important> <p>To create an encrypted snapshot, you must have permission to use the KMS key. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebsapi-permissions.html#ebsapi-kms-permissions\"> Permissions to use Key Management Service keys</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p> </important>
             kms_key_arn: <p>The Amazon Resource Name (ARN) of the Key Management Service (KMS) key to be used to encrypt the snapshot.</p> <p>The encryption status of the snapshot depends on the values that you specify for <b>Encrypted</b>, <b>KmsKeyArn</b>, and <b>ParentSnapshotId</b>, and whether your Amazon Web Services account is enabled for <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#encryption-by-default\"> encryption by default</a>. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebsapis-using-encryption.html\"> Using encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p> <important> <p>To create an encrypted snapshot, you must have permission to use the KMS key. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebsapi-permissions.html#ebsapi-kms-permissions\"> Permissions to use Key Management Service keys</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p> </important>
             timeout: <p>The amount of time (in minutes) after which the snapshot is automatically cancelled if:</p> <ul> <li> <p>No blocks are written to the snapshot.</p> </li> <li> <p>The snapshot is not completed after writing the last block of data.</p> </li> </ul> <p>If no value is specified, the timeout defaults to <code>60</code> minutes.</p>
+
+        Raises:
+            aws_sdk_ebs.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_ebs.errors.concurrent_limit_exceeded_exception.ConcurrentLimitExceededException: <p>You have reached the limit for concurrent API requests. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-accessing-snapshot.html#ebsapi-performance\">Optimizing performance of the EBS direct APIs</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+            aws_sdk_ebs.errors.conflict_exception.ConflictException: <p>The request uses the same client token as a previous, but non-identical request.</p>
+            aws_sdk_ebs.errors.internal_server_exception.InternalServerException: <p>An internal error has occurred. For more information see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/error-retries.html\">Error retries</a>.</p>
+            aws_sdk_ebs.errors.request_throttled_exception.RequestThrottledException: <p>The number of API requests has exceeded the maximum allowed API request throttling limit for the snapshot. For more information see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/error-retries.html\">Error retries</a>.</p>
+            aws_sdk_ebs.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_ebs.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Your current service quotas do not allow you to perform this action.</p>
+            aws_sdk_ebs.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints of the EBS direct APIs.</p>
+            aws_sdk_ebs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(

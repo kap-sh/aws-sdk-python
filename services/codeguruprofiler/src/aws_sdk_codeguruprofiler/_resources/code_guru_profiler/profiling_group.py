@@ -113,6 +113,14 @@ class ProfilingGroup:
             client_token: <p> Amazon CodeGuru Profiler uses this universally unique identifier (UUID) to prevent the accidental creation of duplicate profiling groups if there are failures and retries. </p>
             agent_orchestration_config: <p> Specifies whether profiling is enabled or disabled for the created profiling group. </p>
             tags: <p> A list of tags to add to the created profiling group. </p>
+
+        Raises:
+            aws_sdk_codeguruprofiler.errors.conflict_exception.ConflictException: <p>The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request. </p>
+            aws_sdk_codeguruprofiler.errors.internal_server_exception.InternalServerException: <p>The server encountered an internal error and is unable to complete the request.</p>
+            aws_sdk_codeguruprofiler.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You have exceeded your service quota. To perform the requested action, remove some of the relevant resources, or use <a href=\"https://docs.aws.amazon.com/servicequotas/latest/userguide/intro.html\">Service Quotas</a> to request a service quota increase. </p>
+            aws_sdk_codeguruprofiler.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_codeguruprofiler.errors.validation_exception.ValidationException: <p>The parameter is not valid.</p>
+            aws_sdk_codeguruprofiler.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -157,6 +165,13 @@ class ProfilingGroup:
 
         Args:
             profiling_group_name: <p> The name of the profiling group to get information about. </p>
+
+        Raises:
+            aws_sdk_codeguruprofiler.errors.internal_server_exception.InternalServerException: <p>The server encountered an internal error and is unable to complete the request.</p>
+            aws_sdk_codeguruprofiler.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request does not exist.</p>
+            aws_sdk_codeguruprofiler.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_codeguruprofiler.errors.validation_exception.ValidationException: <p>The parameter is not valid.</p>
+            aws_sdk_codeguruprofiler.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -196,6 +211,14 @@ class ProfilingGroup:
         Args:
             profiling_group_name: <p>The name of the profiling group to update.</p>
             agent_orchestration_config: <p> Specifies whether profiling is enabled or disabled for a profiling group. </p>
+
+        Raises:
+            aws_sdk_codeguruprofiler.errors.conflict_exception.ConflictException: <p>The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request. </p>
+            aws_sdk_codeguruprofiler.errors.internal_server_exception.InternalServerException: <p>The server encountered an internal error and is unable to complete the request.</p>
+            aws_sdk_codeguruprofiler.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request does not exist.</p>
+            aws_sdk_codeguruprofiler.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_codeguruprofiler.errors.validation_exception.ValidationException: <p>The parameter is not valid.</p>
+            aws_sdk_codeguruprofiler.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -234,6 +257,14 @@ class ProfilingGroup:
 
         Args:
             profiling_group_name: <p>The name of the profiling group to delete.</p>
+
+        Raises:
+            aws_sdk_codeguruprofiler.errors.conflict_exception.ConflictException: <p>The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request. </p>
+            aws_sdk_codeguruprofiler.errors.internal_server_exception.InternalServerException: <p>The server encountered an internal error and is unable to complete the request.</p>
+            aws_sdk_codeguruprofiler.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request does not exist.</p>
+            aws_sdk_codeguruprofiler.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_codeguruprofiler.errors.validation_exception.ValidationException: <p>The parameter is not valid.</p>
+            aws_sdk_codeguruprofiler.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -279,6 +310,11 @@ class ProfilingGroup:
             next_token: <p>The <code>nextToken</code> value returned from a previous paginated <code>ListProfilingGroups</code> request where <code>maxResults</code> was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the <code>nextToken</code> value. </p> <note> <p>This token should be treated as an opaque identifier that is only used to retrieve the next items in a list and not for other programmatic purposes.</p> </note>
             max_results: <p>The maximum number of profiling groups results returned by <code>ListProfilingGroups</code> in paginated output. When this parameter is used, <code>ListProfilingGroups</code> only returns <code>maxResults</code> results in a single page along with a <code>nextToken</code> response element. The remaining results of the initial request can be seen by sending another <code>ListProfilingGroups</code> request with the returned <code>nextToken</code> value. </p>
             include_description: <p>A <code>Boolean</code> value indicating whether to include a description. If <code>true</code>, then a list of <a href=\"https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_ProfilingGroupDescription.html\"> <code>ProfilingGroupDescription</code> </a> objects that contain detailed information about profiling groups is returned. If <code>false</code>, then a list of profiling group names is returned.</p>
+
+        Raises:
+            aws_sdk_codeguruprofiler.errors.internal_server_exception.InternalServerException: <p>The server encountered an internal error and is unable to complete the request.</p>
+            aws_sdk_codeguruprofiler.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_codeguruprofiler.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -323,6 +359,15 @@ class ProfilingGroup:
         Args:
             profiling_group_name: <p>The name of the profiling group that we are setting up notifications for.</p>
             channels: <p>One or 2 channels to report to when anomalies are detected.</p>
+
+        Raises:
+            aws_sdk_codeguruprofiler.errors.conflict_exception.ConflictException: <p>The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request. </p>
+            aws_sdk_codeguruprofiler.errors.internal_server_exception.InternalServerException: <p>The server encountered an internal error and is unable to complete the request.</p>
+            aws_sdk_codeguruprofiler.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request does not exist.</p>
+            aws_sdk_codeguruprofiler.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You have exceeded your service quota. To perform the requested action, remove some of the relevant resources, or use <a href=\"https://docs.aws.amazon.com/servicequotas/latest/userguide/intro.html\">Service Quotas</a> to request a service quota increase. </p>
+            aws_sdk_codeguruprofiler.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_codeguruprofiler.errors.validation_exception.ValidationException: <p>The parameter is not valid.</p>
+            aws_sdk_codeguruprofiler.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -377,6 +422,13 @@ class ProfilingGroup:
             period: <p> The duration of the frame metrics used to return the time series values. Specify using the ISO 8601 format. The maximum period duration is one day (<code>PT24H</code> or <code>P1D</code>). </p>
             target_resolution: <p>The requested resolution of time steps for the returned time series of values. If the requested target resolution is not available due to data not being retained we provide a best effort result by falling back to the most granular available resolution after the target resolution. There are 3 valid values. </p> <ul> <li> <p> <code>P1D</code> — 1 day </p> </li> <li> <p> <code>PT1H</code> — 1 hour </p> </li> <li> <p> <code>PT5M</code> — 5 minutes </p> </li> </ul>
             frame_metrics: <p> The details of the metrics that are used to request a time series of values. The metric includes the name of the frame, the aggregation type to calculate the metric value for the frame, and the thread states to use to get the count for the metric value of the frame.</p>
+
+        Raises:
+            aws_sdk_codeguruprofiler.errors.internal_server_exception.InternalServerException: <p>The server encountered an internal error and is unable to complete the request.</p>
+            aws_sdk_codeguruprofiler.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request does not exist.</p>
+            aws_sdk_codeguruprofiler.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_codeguruprofiler.errors.validation_exception.ValidationException: <p>The parameter is not valid.</p>
+            aws_sdk_codeguruprofiler.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -432,6 +484,13 @@ class ProfilingGroup:
             profiling_group_name: <p> The name of the profiling group for which the configured agent is collecting profiling data. </p>
             fleet_instance_id: <p> A universally unique identifier (UUID) for a profiling instance. For example, if the profiling instance is an Amazon EC2 instance, it is the instance ID. If it is an AWS Fargate container, it is the container's task ID. </p>
             metadata: <p> Metadata captured about the compute platform the agent is running on. It includes information about sampling and reporting. The valid fields are:</p> <ul> <li> <p> <code>COMPUTE_PLATFORM</code> - The compute platform on which the agent is running </p> </li> <li> <p> <code>AGENT_ID</code> - The ID for an agent instance. </p> </li> <li> <p> <code>AWS_REQUEST_ID</code> - The AWS request ID of a Lambda invocation. </p> </li> <li> <p> <code>EXECUTION_ENVIRONMENT</code> - The execution environment a Lambda function is running on. </p> </li> <li> <p> <code>LAMBDA_FUNCTION_ARN</code> - The Amazon Resource Name (ARN) that is used to invoke a Lambda function. </p> </li> <li> <p> <code>LAMBDA_MEMORY_LIMIT_IN_MB</code> - The memory allocated to a Lambda function. </p> </li> <li> <p> <code>LAMBDA_REMAINING_TIME_IN_MILLISECONDS</code> - The time in milliseconds before execution of a Lambda function times out. </p> </li> <li> <p> <code>LAMBDA_TIME_GAP_BETWEEN_INVOKES_IN_MILLISECONDS</code> - The time in milliseconds between two invocations of a Lambda function. </p> </li> <li> <p> <code>LAMBDA_PREVIOUS_EXECUTION_TIME_IN_MILLISECONDS</code> - The time in milliseconds for the previous Lambda invocation. </p> </li> </ul>
+
+        Raises:
+            aws_sdk_codeguruprofiler.errors.internal_server_exception.InternalServerException: <p>The server encountered an internal error and is unable to complete the request.</p>
+            aws_sdk_codeguruprofiler.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request does not exist.</p>
+            aws_sdk_codeguruprofiler.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_codeguruprofiler.errors.validation_exception.ValidationException: <p>The parameter is not valid.</p>
+            aws_sdk_codeguruprofiler.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -473,6 +532,13 @@ class ProfilingGroup:
 
         Args:
             profiling_group_name: <p>The name of the profiling group we want to get the notification configuration for.</p>
+
+        Raises:
+            aws_sdk_codeguruprofiler.errors.internal_server_exception.InternalServerException: <p>The server encountered an internal error and is unable to complete the request.</p>
+            aws_sdk_codeguruprofiler.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request does not exist.</p>
+            aws_sdk_codeguruprofiler.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_codeguruprofiler.errors.validation_exception.ValidationException: <p>The parameter is not valid.</p>
+            aws_sdk_codeguruprofiler.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -510,6 +576,12 @@ class ProfilingGroup:
 
         Args:
             profiling_group_name: <p>The name of the profiling group.</p>
+
+        Raises:
+            aws_sdk_codeguruprofiler.errors.internal_server_exception.InternalServerException: <p>The server encountered an internal error and is unable to complete the request.</p>
+            aws_sdk_codeguruprofiler.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request does not exist.</p>
+            aws_sdk_codeguruprofiler.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_codeguruprofiler.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -559,6 +631,13 @@ class ProfilingGroup:
             end_time: <p> The end time of the requested profile. Specify using the ISO 8601 format. For example, 2020-06-01T13:15:02.001Z represents 1 millisecond past June 1, 2020 1:15:02 PM UTC. </p> <p> If you specify <code>endTime</code>, then you must also specify <code>period</code> or <code>startTime</code>, but not both. </p>
             max_depth: <p> The maximum depth of the stacks in the code that is represented in the aggregated profile. For example, if CodeGuru Profiler finds a method <code>A</code>, which calls method <code>B</code>, which calls method <code>C</code>, which calls method <code>D</code>, then the depth is 4. If the <code>maxDepth</code> is set to 2, then the aggregated profile contains representations of methods <code>A</code> and <code>B</code>. </p>
             accept: <p> The format of the returned profiling data. The format maps to the <code>Accept</code> and <code>Content-Type</code> headers of the HTTP request. You can specify one of the following: or the default . </p> <ul> <li> <p> <code>application/json</code> — standard JSON format </p> </li> <li> <p> <code>application/x-amzn-ion</code> — the Amazon Ion data format. For more information, see <a href=\"http://amzn.github.io/ion-docs/\">Amazon Ion</a>. </p> </li> </ul>
+
+        Raises:
+            aws_sdk_codeguruprofiler.errors.internal_server_exception.InternalServerException: <p>The server encountered an internal error and is unable to complete the request.</p>
+            aws_sdk_codeguruprofiler.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request does not exist.</p>
+            aws_sdk_codeguruprofiler.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_codeguruprofiler.errors.validation_exception.ValidationException: <p>The parameter is not valid.</p>
+            aws_sdk_codeguruprofiler.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -612,6 +691,13 @@ class ProfilingGroup:
             start_time: <p> The end time of the profile to get analysis data about. You must specify <code>startTime</code> and <code>endTime</code>. This is specified using the ISO 8601 format. For example, 2020-06-01T13:15:02.001Z represents 1 millisecond past June 1, 2020 1:15:02 PM UTC. </p>
             end_time: <p> The start time of the profile to get analysis data about. You must specify <code>startTime</code> and <code>endTime</code>. This is specified using the ISO 8601 format. For example, 2020-06-01T13:15:02.001Z represents 1 millisecond past June 1, 2020 1:15:02 PM UTC. </p>
             locale: <p> The language used to provide analysis. Specify using a string that is one of the following <code>BCP 47</code> language codes. </p> <ul> <li> <p> <code>de-DE</code> - German, Germany </p> </li> <li> <p> <code>en-GB</code> - English, United Kingdom </p> </li> <li> <p> <code>en-US</code> - English, United States </p> </li> <li> <p> <code>es-ES</code> - Spanish, Spain </p> </li> <li> <p> <code>fr-FR</code> - French, France </p> </li> <li> <p> <code>it-IT</code> - Italian, Italy </p> </li> <li> <p> <code>ja-JP</code> - Japanese, Japan </p> </li> <li> <p> <code>ko-KR</code> - Korean, Republic of Korea </p> </li> <li> <p> <code>pt-BR</code> - Portugese, Brazil </p> </li> <li> <p> <code>zh-CN</code> - Chinese, China </p> </li> <li> <p> <code>zh-TW</code> - Chinese, Taiwan </p> </li> </ul>
+
+        Raises:
+            aws_sdk_codeguruprofiler.errors.internal_server_exception.InternalServerException: <p>The server encountered an internal error and is unable to complete the request.</p>
+            aws_sdk_codeguruprofiler.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request does not exist.</p>
+            aws_sdk_codeguruprofiler.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_codeguruprofiler.errors.validation_exception.ValidationException: <p>The parameter is not valid.</p>
+            aws_sdk_codeguruprofiler.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -667,6 +753,13 @@ class ProfilingGroup:
             next_token: <p>The <code>nextToken</code> value returned from a previous paginated <code>ListFindingsReportsRequest</code> request where <code>maxResults</code> was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the <code>nextToken</code> value. </p> <note> <p>This token should be treated as an opaque identifier that is only used to retrieve the next items in a list and not for other programmatic purposes.</p> </note>
             max_results: <p>The maximum number of report results returned by <code>ListFindingsReports</code> in paginated output. When this parameter is used, <code>ListFindingsReports</code> only returns <code>maxResults</code> results in a single page along with a <code>nextToken</code> response element. The remaining results of the initial request can be seen by sending another <code>ListFindingsReports</code> request with the returned <code>nextToken</code> value.</p>
             daily_reports_only: <p>A <code>Boolean</code> value indicating whether to only return reports from daily profiles. If set to <code>True</code>, only analysis data from daily profiles is returned. If set to <code>False</code>, analysis data is returned from smaller time windows (for example, one hour).</p>
+
+        Raises:
+            aws_sdk_codeguruprofiler.errors.internal_server_exception.InternalServerException: <p>The server encountered an internal error and is unable to complete the request.</p>
+            aws_sdk_codeguruprofiler.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request does not exist.</p>
+            aws_sdk_codeguruprofiler.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_codeguruprofiler.errors.validation_exception.ValidationException: <p>The parameter is not valid.</p>
+            aws_sdk_codeguruprofiler.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -728,6 +821,13 @@ class ProfilingGroup:
             order_by: <p>The order (ascending or descending by start time of the profile) to use when listing profiles. Defaults to <code>TIMESTAMP_DESCENDING</code>. </p>
             max_results: <p>The maximum number of profile time results returned by <code>ListProfileTimes</code> in paginated output. When this parameter is used, <code>ListProfileTimes</code> only returns <code>maxResults</code> results in a single page with a <code>nextToken</code> response element. The remaining results of the initial request can be seen by sending another <code>ListProfileTimes</code> request with the returned <code>nextToken</code> value. </p>
             next_token: <p>The <code>nextToken</code> value returned from a previous paginated <code>ListProfileTimes</code> request where <code>maxResults</code> was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the <code>nextToken</code> value. </p> <note> <p>This token should be treated as an opaque identifier that is only used to retrieve the next items in a list and not for other programmatic purposes.</p> </note>
+
+        Raises:
+            aws_sdk_codeguruprofiler.errors.internal_server_exception.InternalServerException: <p>The server encountered an internal error and is unable to complete the request.</p>
+            aws_sdk_codeguruprofiler.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request does not exist.</p>
+            aws_sdk_codeguruprofiler.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_codeguruprofiler.errors.validation_exception.ValidationException: <p>The parameter is not valid.</p>
+            aws_sdk_codeguruprofiler.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -782,6 +882,13 @@ class ProfilingGroup:
             agent_profile: <p> The submitted profiling data. </p>
             profile_token: <p> Amazon CodeGuru Profiler uses this universally unique identifier (UUID) to prevent the accidental submission of duplicate profiling data if there are failures and retries. </p>
             content_type: <p> The format of the submitted profiling data. The format maps to the <code>Accept</code> and <code>Content-Type</code> headers of the HTTP request. You can specify one of the following: or the default . </p> <ul> <li> <p> <code>application/json</code> — standard JSON format </p> </li> <li> <p> <code>application/x-amzn-ion</code> — the Amazon Ion data format. For more information, see <a href=\"http://amzn.github.io/ion-docs/\">Amazon Ion</a>. </p> </li> </ul>
+
+        Raises:
+            aws_sdk_codeguruprofiler.errors.internal_server_exception.InternalServerException: <p>The server encountered an internal error and is unable to complete the request.</p>
+            aws_sdk_codeguruprofiler.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request does not exist.</p>
+            aws_sdk_codeguruprofiler.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_codeguruprofiler.errors.validation_exception.ValidationException: <p>The parameter is not valid.</p>
+            aws_sdk_codeguruprofiler.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -831,6 +938,14 @@ class ProfilingGroup:
             action_group: <p> Specifies an action group that contains permissions to add to a profiling group resource. One action group is supported, <code>agentPermissions</code>, which grants permission to perform actions required by the profiling agent, <code>ConfigureAgent</code> and <code>PostAgentProfile</code> permissions. </p>
             principals: <p> A list ARNs for the roles and users you want to grant access to the profiling group. Wildcards are not are supported in the ARNs. </p>
             revision_id: <p> A universally unique identifier (UUID) for the revision of the policy you are adding to the profiling group. Do not specify this when you add permissions to a profiling group for the first time. If a policy already exists on the profiling group, you must specify the <code>revisionId</code>. </p>
+
+        Raises:
+            aws_sdk_codeguruprofiler.errors.conflict_exception.ConflictException: <p>The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request. </p>
+            aws_sdk_codeguruprofiler.errors.internal_server_exception.InternalServerException: <p>The server encountered an internal error and is unable to complete the request.</p>
+            aws_sdk_codeguruprofiler.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request does not exist.</p>
+            aws_sdk_codeguruprofiler.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_codeguruprofiler.errors.validation_exception.ValidationException: <p>The parameter is not valid.</p>
+            aws_sdk_codeguruprofiler.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -874,6 +989,13 @@ class ProfilingGroup:
         Args:
             profiling_group_name: <p>The name of the profiling group we want to change notification configuration for.</p>
             channel_id: <p>The id of the channel that we want to stop receiving notifications.</p>
+
+        Raises:
+            aws_sdk_codeguruprofiler.errors.internal_server_exception.InternalServerException: <p>The server encountered an internal error and is unable to complete the request.</p>
+            aws_sdk_codeguruprofiler.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request does not exist.</p>
+            aws_sdk_codeguruprofiler.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_codeguruprofiler.errors.validation_exception.ValidationException: <p>The parameter is not valid.</p>
+            aws_sdk_codeguruprofiler.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -916,6 +1038,14 @@ class ProfilingGroup:
             profiling_group_name: <p>The name of the profiling group.</p>
             action_group: <p> Specifies an action group that contains the permissions to remove from a profiling group's resource-based policy. One action group is supported, <code>agentPermissions</code>, which grants <code>ConfigureAgent</code> and <code>PostAgentProfile</code> permissions. </p>
             revision_id: <p> A universally unique identifier (UUID) for the revision of the resource-based policy from which you want to remove permissions. </p>
+
+        Raises:
+            aws_sdk_codeguruprofiler.errors.conflict_exception.ConflictException: <p>The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request. </p>
+            aws_sdk_codeguruprofiler.errors.internal_server_exception.InternalServerException: <p>The server encountered an internal error and is unable to complete the request.</p>
+            aws_sdk_codeguruprofiler.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request does not exist.</p>
+            aws_sdk_codeguruprofiler.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_codeguruprofiler.errors.validation_exception.ValidationException: <p>The parameter is not valid.</p>
+            aws_sdk_codeguruprofiler.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -963,6 +1093,13 @@ class ProfilingGroup:
             anomaly_instance_id: <p>The universally unique identifier (UUID) of the <a href=\"https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_AnomalyInstance.html\"> <code>AnomalyInstance</code> </a> object that is included in the analysis data.</p>
             type: <p> The feedback tpye. Thee are two valid values, <code>Positive</code> and <code>Negative</code>. </p>
             comment: <p>Optional feedback about this anomaly.</p>
+
+        Raises:
+            aws_sdk_codeguruprofiler.errors.internal_server_exception.InternalServerException: <p>The server encountered an internal error and is unable to complete the request.</p>
+            aws_sdk_codeguruprofiler.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request does not exist.</p>
+            aws_sdk_codeguruprofiler.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_codeguruprofiler.errors.validation_exception.ValidationException: <p>The parameter is not valid.</p>
+            aws_sdk_codeguruprofiler.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1021,6 +1158,14 @@ class AsyncProfilingGroup:
             client_token: <p> Amazon CodeGuru Profiler uses this universally unique identifier (UUID) to prevent the accidental creation of duplicate profiling groups if there are failures and retries. </p>
             agent_orchestration_config: <p> Specifies whether profiling is enabled or disabled for the created profiling group. </p>
             tags: <p> A list of tags to add to the created profiling group. </p>
+
+        Raises:
+            aws_sdk_codeguruprofiler.errors.conflict_exception.ConflictException: <p>The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request. </p>
+            aws_sdk_codeguruprofiler.errors.internal_server_exception.InternalServerException: <p>The server encountered an internal error and is unable to complete the request.</p>
+            aws_sdk_codeguruprofiler.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You have exceeded your service quota. To perform the requested action, remove some of the relevant resources, or use <a href=\"https://docs.aws.amazon.com/servicequotas/latest/userguide/intro.html\">Service Quotas</a> to request a service quota increase. </p>
+            aws_sdk_codeguruprofiler.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_codeguruprofiler.errors.validation_exception.ValidationException: <p>The parameter is not valid.</p>
+            aws_sdk_codeguruprofiler.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1066,6 +1211,13 @@ class AsyncProfilingGroup:
 
         Args:
             profiling_group_name: <p> The name of the profiling group to get information about. </p>
+
+        Raises:
+            aws_sdk_codeguruprofiler.errors.internal_server_exception.InternalServerException: <p>The server encountered an internal error and is unable to complete the request.</p>
+            aws_sdk_codeguruprofiler.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request does not exist.</p>
+            aws_sdk_codeguruprofiler.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_codeguruprofiler.errors.validation_exception.ValidationException: <p>The parameter is not valid.</p>
+            aws_sdk_codeguruprofiler.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1106,6 +1258,14 @@ class AsyncProfilingGroup:
         Args:
             profiling_group_name: <p>The name of the profiling group to update.</p>
             agent_orchestration_config: <p> Specifies whether profiling is enabled or disabled for a profiling group. </p>
+
+        Raises:
+            aws_sdk_codeguruprofiler.errors.conflict_exception.ConflictException: <p>The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request. </p>
+            aws_sdk_codeguruprofiler.errors.internal_server_exception.InternalServerException: <p>The server encountered an internal error and is unable to complete the request.</p>
+            aws_sdk_codeguruprofiler.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request does not exist.</p>
+            aws_sdk_codeguruprofiler.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_codeguruprofiler.errors.validation_exception.ValidationException: <p>The parameter is not valid.</p>
+            aws_sdk_codeguruprofiler.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1145,6 +1305,14 @@ class AsyncProfilingGroup:
 
         Args:
             profiling_group_name: <p>The name of the profiling group to delete.</p>
+
+        Raises:
+            aws_sdk_codeguruprofiler.errors.conflict_exception.ConflictException: <p>The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request. </p>
+            aws_sdk_codeguruprofiler.errors.internal_server_exception.InternalServerException: <p>The server encountered an internal error and is unable to complete the request.</p>
+            aws_sdk_codeguruprofiler.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request does not exist.</p>
+            aws_sdk_codeguruprofiler.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_codeguruprofiler.errors.validation_exception.ValidationException: <p>The parameter is not valid.</p>
+            aws_sdk_codeguruprofiler.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1191,6 +1359,11 @@ class AsyncProfilingGroup:
             next_token: <p>The <code>nextToken</code> value returned from a previous paginated <code>ListProfilingGroups</code> request where <code>maxResults</code> was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the <code>nextToken</code> value. </p> <note> <p>This token should be treated as an opaque identifier that is only used to retrieve the next items in a list and not for other programmatic purposes.</p> </note>
             max_results: <p>The maximum number of profiling groups results returned by <code>ListProfilingGroups</code> in paginated output. When this parameter is used, <code>ListProfilingGroups</code> only returns <code>maxResults</code> results in a single page along with a <code>nextToken</code> response element. The remaining results of the initial request can be seen by sending another <code>ListProfilingGroups</code> request with the returned <code>nextToken</code> value. </p>
             include_description: <p>A <code>Boolean</code> value indicating whether to include a description. If <code>true</code>, then a list of <a href=\"https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_ProfilingGroupDescription.html\"> <code>ProfilingGroupDescription</code> </a> objects that contain detailed information about profiling groups is returned. If <code>false</code>, then a list of profiling group names is returned.</p>
+
+        Raises:
+            aws_sdk_codeguruprofiler.errors.internal_server_exception.InternalServerException: <p>The server encountered an internal error and is unable to complete the request.</p>
+            aws_sdk_codeguruprofiler.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_codeguruprofiler.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1236,6 +1409,15 @@ class AsyncProfilingGroup:
         Args:
             profiling_group_name: <p>The name of the profiling group that we are setting up notifications for.</p>
             channels: <p>One or 2 channels to report to when anomalies are detected.</p>
+
+        Raises:
+            aws_sdk_codeguruprofiler.errors.conflict_exception.ConflictException: <p>The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request. </p>
+            aws_sdk_codeguruprofiler.errors.internal_server_exception.InternalServerException: <p>The server encountered an internal error and is unable to complete the request.</p>
+            aws_sdk_codeguruprofiler.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request does not exist.</p>
+            aws_sdk_codeguruprofiler.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You have exceeded your service quota. To perform the requested action, remove some of the relevant resources, or use <a href=\"https://docs.aws.amazon.com/servicequotas/latest/userguide/intro.html\">Service Quotas</a> to request a service quota increase. </p>
+            aws_sdk_codeguruprofiler.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_codeguruprofiler.errors.validation_exception.ValidationException: <p>The parameter is not valid.</p>
+            aws_sdk_codeguruprofiler.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1291,6 +1473,13 @@ class AsyncProfilingGroup:
             period: <p> The duration of the frame metrics used to return the time series values. Specify using the ISO 8601 format. The maximum period duration is one day (<code>PT24H</code> or <code>P1D</code>). </p>
             target_resolution: <p>The requested resolution of time steps for the returned time series of values. If the requested target resolution is not available due to data not being retained we provide a best effort result by falling back to the most granular available resolution after the target resolution. There are 3 valid values. </p> <ul> <li> <p> <code>P1D</code> — 1 day </p> </li> <li> <p> <code>PT1H</code> — 1 hour </p> </li> <li> <p> <code>PT5M</code> — 5 minutes </p> </li> </ul>
             frame_metrics: <p> The details of the metrics that are used to request a time series of values. The metric includes the name of the frame, the aggregation type to calculate the metric value for the frame, and the thread states to use to get the count for the metric value of the frame.</p>
+
+        Raises:
+            aws_sdk_codeguruprofiler.errors.internal_server_exception.InternalServerException: <p>The server encountered an internal error and is unable to complete the request.</p>
+            aws_sdk_codeguruprofiler.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request does not exist.</p>
+            aws_sdk_codeguruprofiler.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_codeguruprofiler.errors.validation_exception.ValidationException: <p>The parameter is not valid.</p>
+            aws_sdk_codeguruprofiler.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1347,6 +1536,13 @@ class AsyncProfilingGroup:
             profiling_group_name: <p> The name of the profiling group for which the configured agent is collecting profiling data. </p>
             fleet_instance_id: <p> A universally unique identifier (UUID) for a profiling instance. For example, if the profiling instance is an Amazon EC2 instance, it is the instance ID. If it is an AWS Fargate container, it is the container's task ID. </p>
             metadata: <p> Metadata captured about the compute platform the agent is running on. It includes information about sampling and reporting. The valid fields are:</p> <ul> <li> <p> <code>COMPUTE_PLATFORM</code> - The compute platform on which the agent is running </p> </li> <li> <p> <code>AGENT_ID</code> - The ID for an agent instance. </p> </li> <li> <p> <code>AWS_REQUEST_ID</code> - The AWS request ID of a Lambda invocation. </p> </li> <li> <p> <code>EXECUTION_ENVIRONMENT</code> - The execution environment a Lambda function is running on. </p> </li> <li> <p> <code>LAMBDA_FUNCTION_ARN</code> - The Amazon Resource Name (ARN) that is used to invoke a Lambda function. </p> </li> <li> <p> <code>LAMBDA_MEMORY_LIMIT_IN_MB</code> - The memory allocated to a Lambda function. </p> </li> <li> <p> <code>LAMBDA_REMAINING_TIME_IN_MILLISECONDS</code> - The time in milliseconds before execution of a Lambda function times out. </p> </li> <li> <p> <code>LAMBDA_TIME_GAP_BETWEEN_INVOKES_IN_MILLISECONDS</code> - The time in milliseconds between two invocations of a Lambda function. </p> </li> <li> <p> <code>LAMBDA_PREVIOUS_EXECUTION_TIME_IN_MILLISECONDS</code> - The time in milliseconds for the previous Lambda invocation. </p> </li> </ul>
+
+        Raises:
+            aws_sdk_codeguruprofiler.errors.internal_server_exception.InternalServerException: <p>The server encountered an internal error and is unable to complete the request.</p>
+            aws_sdk_codeguruprofiler.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request does not exist.</p>
+            aws_sdk_codeguruprofiler.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_codeguruprofiler.errors.validation_exception.ValidationException: <p>The parameter is not valid.</p>
+            aws_sdk_codeguruprofiler.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1389,6 +1585,13 @@ class AsyncProfilingGroup:
 
         Args:
             profiling_group_name: <p>The name of the profiling group we want to get the notification configuration for.</p>
+
+        Raises:
+            aws_sdk_codeguruprofiler.errors.internal_server_exception.InternalServerException: <p>The server encountered an internal error and is unable to complete the request.</p>
+            aws_sdk_codeguruprofiler.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request does not exist.</p>
+            aws_sdk_codeguruprofiler.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_codeguruprofiler.errors.validation_exception.ValidationException: <p>The parameter is not valid.</p>
+            aws_sdk_codeguruprofiler.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1427,6 +1630,12 @@ class AsyncProfilingGroup:
 
         Args:
             profiling_group_name: <p>The name of the profiling group.</p>
+
+        Raises:
+            aws_sdk_codeguruprofiler.errors.internal_server_exception.InternalServerException: <p>The server encountered an internal error and is unable to complete the request.</p>
+            aws_sdk_codeguruprofiler.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request does not exist.</p>
+            aws_sdk_codeguruprofiler.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_codeguruprofiler.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1477,6 +1686,13 @@ class AsyncProfilingGroup:
             end_time: <p> The end time of the requested profile. Specify using the ISO 8601 format. For example, 2020-06-01T13:15:02.001Z represents 1 millisecond past June 1, 2020 1:15:02 PM UTC. </p> <p> If you specify <code>endTime</code>, then you must also specify <code>period</code> or <code>startTime</code>, but not both. </p>
             max_depth: <p> The maximum depth of the stacks in the code that is represented in the aggregated profile. For example, if CodeGuru Profiler finds a method <code>A</code>, which calls method <code>B</code>, which calls method <code>C</code>, which calls method <code>D</code>, then the depth is 4. If the <code>maxDepth</code> is set to 2, then the aggregated profile contains representations of methods <code>A</code> and <code>B</code>. </p>
             accept: <p> The format of the returned profiling data. The format maps to the <code>Accept</code> and <code>Content-Type</code> headers of the HTTP request. You can specify one of the following: or the default . </p> <ul> <li> <p> <code>application/json</code> — standard JSON format </p> </li> <li> <p> <code>application/x-amzn-ion</code> — the Amazon Ion data format. For more information, see <a href=\"http://amzn.github.io/ion-docs/\">Amazon Ion</a>. </p> </li> </ul>
+
+        Raises:
+            aws_sdk_codeguruprofiler.errors.internal_server_exception.InternalServerException: <p>The server encountered an internal error and is unable to complete the request.</p>
+            aws_sdk_codeguruprofiler.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request does not exist.</p>
+            aws_sdk_codeguruprofiler.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_codeguruprofiler.errors.validation_exception.ValidationException: <p>The parameter is not valid.</p>
+            aws_sdk_codeguruprofiler.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1531,6 +1747,13 @@ class AsyncProfilingGroup:
             start_time: <p> The end time of the profile to get analysis data about. You must specify <code>startTime</code> and <code>endTime</code>. This is specified using the ISO 8601 format. For example, 2020-06-01T13:15:02.001Z represents 1 millisecond past June 1, 2020 1:15:02 PM UTC. </p>
             end_time: <p> The start time of the profile to get analysis data about. You must specify <code>startTime</code> and <code>endTime</code>. This is specified using the ISO 8601 format. For example, 2020-06-01T13:15:02.001Z represents 1 millisecond past June 1, 2020 1:15:02 PM UTC. </p>
             locale: <p> The language used to provide analysis. Specify using a string that is one of the following <code>BCP 47</code> language codes. </p> <ul> <li> <p> <code>de-DE</code> - German, Germany </p> </li> <li> <p> <code>en-GB</code> - English, United Kingdom </p> </li> <li> <p> <code>en-US</code> - English, United States </p> </li> <li> <p> <code>es-ES</code> - Spanish, Spain </p> </li> <li> <p> <code>fr-FR</code> - French, France </p> </li> <li> <p> <code>it-IT</code> - Italian, Italy </p> </li> <li> <p> <code>ja-JP</code> - Japanese, Japan </p> </li> <li> <p> <code>ko-KR</code> - Korean, Republic of Korea </p> </li> <li> <p> <code>pt-BR</code> - Portugese, Brazil </p> </li> <li> <p> <code>zh-CN</code> - Chinese, China </p> </li> <li> <p> <code>zh-TW</code> - Chinese, Taiwan </p> </li> </ul>
+
+        Raises:
+            aws_sdk_codeguruprofiler.errors.internal_server_exception.InternalServerException: <p>The server encountered an internal error and is unable to complete the request.</p>
+            aws_sdk_codeguruprofiler.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request does not exist.</p>
+            aws_sdk_codeguruprofiler.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_codeguruprofiler.errors.validation_exception.ValidationException: <p>The parameter is not valid.</p>
+            aws_sdk_codeguruprofiler.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1587,6 +1810,13 @@ class AsyncProfilingGroup:
             next_token: <p>The <code>nextToken</code> value returned from a previous paginated <code>ListFindingsReportsRequest</code> request where <code>maxResults</code> was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the <code>nextToken</code> value. </p> <note> <p>This token should be treated as an opaque identifier that is only used to retrieve the next items in a list and not for other programmatic purposes.</p> </note>
             max_results: <p>The maximum number of report results returned by <code>ListFindingsReports</code> in paginated output. When this parameter is used, <code>ListFindingsReports</code> only returns <code>maxResults</code> results in a single page along with a <code>nextToken</code> response element. The remaining results of the initial request can be seen by sending another <code>ListFindingsReports</code> request with the returned <code>nextToken</code> value.</p>
             daily_reports_only: <p>A <code>Boolean</code> value indicating whether to only return reports from daily profiles. If set to <code>True</code>, only analysis data from daily profiles is returned. If set to <code>False</code>, analysis data is returned from smaller time windows (for example, one hour).</p>
+
+        Raises:
+            aws_sdk_codeguruprofiler.errors.internal_server_exception.InternalServerException: <p>The server encountered an internal error and is unable to complete the request.</p>
+            aws_sdk_codeguruprofiler.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request does not exist.</p>
+            aws_sdk_codeguruprofiler.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_codeguruprofiler.errors.validation_exception.ValidationException: <p>The parameter is not valid.</p>
+            aws_sdk_codeguruprofiler.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1649,6 +1879,13 @@ class AsyncProfilingGroup:
             order_by: <p>The order (ascending or descending by start time of the profile) to use when listing profiles. Defaults to <code>TIMESTAMP_DESCENDING</code>. </p>
             max_results: <p>The maximum number of profile time results returned by <code>ListProfileTimes</code> in paginated output. When this parameter is used, <code>ListProfileTimes</code> only returns <code>maxResults</code> results in a single page with a <code>nextToken</code> response element. The remaining results of the initial request can be seen by sending another <code>ListProfileTimes</code> request with the returned <code>nextToken</code> value. </p>
             next_token: <p>The <code>nextToken</code> value returned from a previous paginated <code>ListProfileTimes</code> request where <code>maxResults</code> was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the <code>nextToken</code> value. </p> <note> <p>This token should be treated as an opaque identifier that is only used to retrieve the next items in a list and not for other programmatic purposes.</p> </note>
+
+        Raises:
+            aws_sdk_codeguruprofiler.errors.internal_server_exception.InternalServerException: <p>The server encountered an internal error and is unable to complete the request.</p>
+            aws_sdk_codeguruprofiler.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request does not exist.</p>
+            aws_sdk_codeguruprofiler.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_codeguruprofiler.errors.validation_exception.ValidationException: <p>The parameter is not valid.</p>
+            aws_sdk_codeguruprofiler.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1704,6 +1941,13 @@ class AsyncProfilingGroup:
             agent_profile: <p> The submitted profiling data. </p>
             profile_token: <p> Amazon CodeGuru Profiler uses this universally unique identifier (UUID) to prevent the accidental submission of duplicate profiling data if there are failures and retries. </p>
             content_type: <p> The format of the submitted profiling data. The format maps to the <code>Accept</code> and <code>Content-Type</code> headers of the HTTP request. You can specify one of the following: or the default . </p> <ul> <li> <p> <code>application/json</code> — standard JSON format </p> </li> <li> <p> <code>application/x-amzn-ion</code> — the Amazon Ion data format. For more information, see <a href=\"http://amzn.github.io/ion-docs/\">Amazon Ion</a>. </p> </li> </ul>
+
+        Raises:
+            aws_sdk_codeguruprofiler.errors.internal_server_exception.InternalServerException: <p>The server encountered an internal error and is unable to complete the request.</p>
+            aws_sdk_codeguruprofiler.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request does not exist.</p>
+            aws_sdk_codeguruprofiler.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_codeguruprofiler.errors.validation_exception.ValidationException: <p>The parameter is not valid.</p>
+            aws_sdk_codeguruprofiler.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1754,6 +1998,14 @@ class AsyncProfilingGroup:
             action_group: <p> Specifies an action group that contains permissions to add to a profiling group resource. One action group is supported, <code>agentPermissions</code>, which grants permission to perform actions required by the profiling agent, <code>ConfigureAgent</code> and <code>PostAgentProfile</code> permissions. </p>
             principals: <p> A list ARNs for the roles and users you want to grant access to the profiling group. Wildcards are not are supported in the ARNs. </p>
             revision_id: <p> A universally unique identifier (UUID) for the revision of the policy you are adding to the profiling group. Do not specify this when you add permissions to a profiling group for the first time. If a policy already exists on the profiling group, you must specify the <code>revisionId</code>. </p>
+
+        Raises:
+            aws_sdk_codeguruprofiler.errors.conflict_exception.ConflictException: <p>The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request. </p>
+            aws_sdk_codeguruprofiler.errors.internal_server_exception.InternalServerException: <p>The server encountered an internal error and is unable to complete the request.</p>
+            aws_sdk_codeguruprofiler.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request does not exist.</p>
+            aws_sdk_codeguruprofiler.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_codeguruprofiler.errors.validation_exception.ValidationException: <p>The parameter is not valid.</p>
+            aws_sdk_codeguruprofiler.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1798,6 +2050,13 @@ class AsyncProfilingGroup:
         Args:
             profiling_group_name: <p>The name of the profiling group we want to change notification configuration for.</p>
             channel_id: <p>The id of the channel that we want to stop receiving notifications.</p>
+
+        Raises:
+            aws_sdk_codeguruprofiler.errors.internal_server_exception.InternalServerException: <p>The server encountered an internal error and is unable to complete the request.</p>
+            aws_sdk_codeguruprofiler.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request does not exist.</p>
+            aws_sdk_codeguruprofiler.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_codeguruprofiler.errors.validation_exception.ValidationException: <p>The parameter is not valid.</p>
+            aws_sdk_codeguruprofiler.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1841,6 +2100,14 @@ class AsyncProfilingGroup:
             profiling_group_name: <p>The name of the profiling group.</p>
             action_group: <p> Specifies an action group that contains the permissions to remove from a profiling group's resource-based policy. One action group is supported, <code>agentPermissions</code>, which grants <code>ConfigureAgent</code> and <code>PostAgentProfile</code> permissions. </p>
             revision_id: <p> A universally unique identifier (UUID) for the revision of the resource-based policy from which you want to remove permissions. </p>
+
+        Raises:
+            aws_sdk_codeguruprofiler.errors.conflict_exception.ConflictException: <p>The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request. </p>
+            aws_sdk_codeguruprofiler.errors.internal_server_exception.InternalServerException: <p>The server encountered an internal error and is unable to complete the request.</p>
+            aws_sdk_codeguruprofiler.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request does not exist.</p>
+            aws_sdk_codeguruprofiler.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_codeguruprofiler.errors.validation_exception.ValidationException: <p>The parameter is not valid.</p>
+            aws_sdk_codeguruprofiler.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1889,6 +2156,13 @@ class AsyncProfilingGroup:
             anomaly_instance_id: <p>The universally unique identifier (UUID) of the <a href=\"https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_AnomalyInstance.html\"> <code>AnomalyInstance</code> </a> object that is included in the analysis data.</p>
             type: <p> The feedback tpye. Thee are two valid values, <code>Positive</code> and <code>Negative</code>. </p>
             comment: <p>Optional feedback about this anomaly.</p>
+
+        Raises:
+            aws_sdk_codeguruprofiler.errors.internal_server_exception.InternalServerException: <p>The server encountered an internal error and is unable to complete the request.</p>
+            aws_sdk_codeguruprofiler.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request does not exist.</p>
+            aws_sdk_codeguruprofiler.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_codeguruprofiler.errors.validation_exception.ValidationException: <p>The parameter is not valid.</p>
+            aws_sdk_codeguruprofiler.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

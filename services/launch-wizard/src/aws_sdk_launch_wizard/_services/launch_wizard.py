@@ -149,6 +149,12 @@ class LaunchWizardClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource.</p>
 
+        Raises:
+            aws_sdk_launch_wizard.errors.internal_server_exception.InternalServerException: <p>An internal error has occurred. Retry your request, but if the problem persists, contact us with details by posting a question on <a href=\"https://repost.aws/\">re:Post</a>.</p>
+            aws_sdk_launch_wizard.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified workload or deployment resource can't be found.</p>
+            aws_sdk_launch_wizard.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_launch_wizard.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Listing tags on a Launch Wizard deployment resource.
 
@@ -192,6 +198,12 @@ class LaunchWizardClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource.</p>
             tags: <p>One or more tags to attach to the resource.</p>
+
+        Raises:
+            aws_sdk_launch_wizard.errors.internal_server_exception.InternalServerException: <p>An internal error has occurred. Retry your request, but if the problem persists, contact us with details by posting a question on <a href=\"https://repost.aws/\">re:Post</a>.</p>
+            aws_sdk_launch_wizard.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified workload or deployment resource can't be found.</p>
+            aws_sdk_launch_wizard.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_launch_wizard.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Adding tags to a Launch Wizard deployment resource.
@@ -237,6 +249,12 @@ class LaunchWizardClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource.</p>
             tag_keys: <p>Keys identifying the tags to remove.</p>
+
+        Raises:
+            aws_sdk_launch_wizard.errors.internal_server_exception.InternalServerException: <p>An internal error has occurred. Retry your request, but if the problem persists, contact us with details by posting a question on <a href=\"https://repost.aws/\">re:Post</a>.</p>
+            aws_sdk_launch_wizard.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified workload or deployment resource can't be found.</p>
+            aws_sdk_launch_wizard.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_launch_wizard.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Removing tags on a Launch Wizard deployment resource.

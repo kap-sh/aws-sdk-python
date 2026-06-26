@@ -99,6 +99,15 @@ class MemoryResource:
             memory_id: <p>The unique ID of the memory resource where records will be created.</p>
             records: <p>A list of memory record creation inputs to be processed in the batch operation.</p>
             client_token: <p>A unique, case-sensitive identifier to ensure idempotent processing of the batch request.</p>
+
+        Raises:
+            aws_sdk_bedrock_agentcore.errors.access_denied_exception.AccessDeniedException: <p>The exception that occurs when you do not have sufficient permissions to perform an action. Verify that your IAM policy includes the necessary permissions for the operation you are trying to perform.</p>
+            aws_sdk_bedrock_agentcore.errors.resource_not_found_exception.ResourceNotFoundException: <p>The exception that occurs when the specified resource does not exist. This can happen when using an invalid identifier or when trying to access a resource that has been deleted.</p>
+            aws_sdk_bedrock_agentcore.errors.service_exception.ServiceException: <p>The service encountered an internal error. Try your request again later.</p>
+            aws_sdk_bedrock_agentcore.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The exception that occurs when the request would cause a service quota to be exceeded. Review your service quotas and either reduce your request rate or request a quota increase.</p>
+            aws_sdk_bedrock_agentcore.errors.throttled_exception.ThrottledException: <p>The request was denied due to request throttling. Reduce the frequency of requests and try again.</p>
+            aws_sdk_bedrock_agentcore.errors.validation_exception.ValidationException: <p>The exception that occurs when the input fails to satisfy the constraints specified by the service. Check the error message for details about which input parameter is invalid and correct your request.</p>
+            aws_sdk_bedrock_agentcore.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -141,6 +150,15 @@ class MemoryResource:
         Args:
             memory_id: <p>The unique ID of the memory resource where records will be deleted.</p>
             records: <p>A list of memory record deletion inputs to be processed in the batch operation.</p>
+
+        Raises:
+            aws_sdk_bedrock_agentcore.errors.access_denied_exception.AccessDeniedException: <p>The exception that occurs when you do not have sufficient permissions to perform an action. Verify that your IAM policy includes the necessary permissions for the operation you are trying to perform.</p>
+            aws_sdk_bedrock_agentcore.errors.resource_not_found_exception.ResourceNotFoundException: <p>The exception that occurs when the specified resource does not exist. This can happen when using an invalid identifier or when trying to access a resource that has been deleted.</p>
+            aws_sdk_bedrock_agentcore.errors.service_exception.ServiceException: <p>The service encountered an internal error. Try your request again later.</p>
+            aws_sdk_bedrock_agentcore.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The exception that occurs when the request would cause a service quota to be exceeded. Review your service quotas and either reduce your request rate or request a quota increase.</p>
+            aws_sdk_bedrock_agentcore.errors.throttled_exception.ThrottledException: <p>The request was denied due to request throttling. Reduce the frequency of requests and try again.</p>
+            aws_sdk_bedrock_agentcore.errors.validation_exception.ValidationException: <p>The exception that occurs when the input fails to satisfy the constraints specified by the service. Check the error message for details about which input parameter is invalid and correct your request.</p>
+            aws_sdk_bedrock_agentcore.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -181,6 +199,15 @@ class MemoryResource:
         Args:
             memory_id: <p>The unique ID of the memory resource where records will be updated.</p>
             records: <p>A list of memory record update inputs to be processed in the batch operation.</p>
+
+        Raises:
+            aws_sdk_bedrock_agentcore.errors.access_denied_exception.AccessDeniedException: <p>The exception that occurs when you do not have sufficient permissions to perform an action. Verify that your IAM policy includes the necessary permissions for the operation you are trying to perform.</p>
+            aws_sdk_bedrock_agentcore.errors.resource_not_found_exception.ResourceNotFoundException: <p>The exception that occurs when the specified resource does not exist. This can happen when using an invalid identifier or when trying to access a resource that has been deleted.</p>
+            aws_sdk_bedrock_agentcore.errors.service_exception.ServiceException: <p>The service encountered an internal error. Try your request again later.</p>
+            aws_sdk_bedrock_agentcore.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The exception that occurs when the request would cause a service quota to be exceeded. Review your service quotas and either reduce your request rate or request a quota increase.</p>
+            aws_sdk_bedrock_agentcore.errors.throttled_exception.ThrottledException: <p>The request was denied due to request throttling. Reduce the frequency of requests and try again.</p>
+            aws_sdk_bedrock_agentcore.errors.validation_exception.ValidationException: <p>The exception that occurs when the input fails to satisfy the constraints specified by the service. Check the error message for details about which input parameter is invalid and correct your request.</p>
+            aws_sdk_bedrock_agentcore.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -237,6 +264,17 @@ class MemoryResource:
             branch: <p>The branch information for this event. Branches allow for organizing events into different conversation threads or paths.</p>
             client_token: <p>A unique, case-sensitive identifier to ensure that the operation completes no more than one time. If this token matches a previous request, AgentCore ignores the request, but does not return an error.</p>
             metadata: <p>The key-value metadata to attach to the event.</p>
+
+        Raises:
+            aws_sdk_bedrock_agentcore.errors.access_denied_exception.AccessDeniedException: <p>The exception that occurs when you do not have sufficient permissions to perform an action. Verify that your IAM policy includes the necessary permissions for the operation you are trying to perform.</p>
+            aws_sdk_bedrock_agentcore.errors.invalid_input_exception.InvalidInputException: <p>The input fails to satisfy the constraints specified by AgentCore. Check your input values and try again.</p>
+            aws_sdk_bedrock_agentcore.errors.resource_not_found_exception.ResourceNotFoundException: <p>The exception that occurs when the specified resource does not exist. This can happen when using an invalid identifier or when trying to access a resource that has been deleted.</p>
+            aws_sdk_bedrock_agentcore.errors.retryable_conflict_exception.RetryableConflictException: <p>The exception that occurs when there is a retryable conflict performing an operation. This is a temporary condition that may resolve itself with retries. We recommend implementing exponential backoff retry logic in your application.</p>
+            aws_sdk_bedrock_agentcore.errors.service_exception.ServiceException: <p>The service encountered an internal error. Try your request again later.</p>
+            aws_sdk_bedrock_agentcore.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The exception that occurs when the request would cause a service quota to be exceeded. Review your service quotas and either reduce your request rate or request a quota increase.</p>
+            aws_sdk_bedrock_agentcore.errors.throttled_exception.ThrottledException: <p>The request was denied due to request throttling. Reduce the frequency of requests and try again.</p>
+            aws_sdk_bedrock_agentcore.errors.validation_exception.ValidationException: <p>The exception that occurs when the input fails to satisfy the constraints specified by the service. Check the error message for details about which input parameter is invalid and correct your request.</p>
+            aws_sdk_bedrock_agentcore.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -291,6 +329,16 @@ class MemoryResource:
             session_id: <p>The identifier of the session containing the event to delete.</p>
             event_id: <p>The identifier of the event to delete.</p>
             actor_id: <p>The identifier of the actor associated with the event to delete.</p>
+
+        Raises:
+            aws_sdk_bedrock_agentcore.errors.access_denied_exception.AccessDeniedException: <p>The exception that occurs when you do not have sufficient permissions to perform an action. Verify that your IAM policy includes the necessary permissions for the operation you are trying to perform.</p>
+            aws_sdk_bedrock_agentcore.errors.invalid_input_exception.InvalidInputException: <p>The input fails to satisfy the constraints specified by AgentCore. Check your input values and try again.</p>
+            aws_sdk_bedrock_agentcore.errors.resource_not_found_exception.ResourceNotFoundException: <p>The exception that occurs when the specified resource does not exist. This can happen when using an invalid identifier or when trying to access a resource that has been deleted.</p>
+            aws_sdk_bedrock_agentcore.errors.service_exception.ServiceException: <p>The service encountered an internal error. Try your request again later.</p>
+            aws_sdk_bedrock_agentcore.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The exception that occurs when the request would cause a service quota to be exceeded. Review your service quotas and either reduce your request rate or request a quota increase.</p>
+            aws_sdk_bedrock_agentcore.errors.throttled_exception.ThrottledException: <p>The request was denied due to request throttling. Reduce the frequency of requests and try again.</p>
+            aws_sdk_bedrock_agentcore.errors.validation_exception.ValidationException: <p>The exception that occurs when the input fails to satisfy the constraints specified by the service. Check the error message for details about which input parameter is invalid and correct your request.</p>
+            aws_sdk_bedrock_agentcore.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -333,6 +381,16 @@ class MemoryResource:
         Args:
             memory_id: <p>The identifier of the AgentCore Memory resource from which to delete the memory record.</p>
             memory_record_id: <p>The identifier of the memory record to delete.</p>
+
+        Raises:
+            aws_sdk_bedrock_agentcore.errors.access_denied_exception.AccessDeniedException: <p>The exception that occurs when you do not have sufficient permissions to perform an action. Verify that your IAM policy includes the necessary permissions for the operation you are trying to perform.</p>
+            aws_sdk_bedrock_agentcore.errors.invalid_input_exception.InvalidInputException: <p>The input fails to satisfy the constraints specified by AgentCore. Check your input values and try again.</p>
+            aws_sdk_bedrock_agentcore.errors.resource_not_found_exception.ResourceNotFoundException: <p>The exception that occurs when the specified resource does not exist. This can happen when using an invalid identifier or when trying to access a resource that has been deleted.</p>
+            aws_sdk_bedrock_agentcore.errors.service_exception.ServiceException: <p>The service encountered an internal error. Try your request again later.</p>
+            aws_sdk_bedrock_agentcore.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The exception that occurs when the request would cause a service quota to be exceeded. Review your service quotas and either reduce your request rate or request a quota increase.</p>
+            aws_sdk_bedrock_agentcore.errors.throttled_exception.ThrottledException: <p>The request was denied due to request throttling. Reduce the frequency of requests and try again.</p>
+            aws_sdk_bedrock_agentcore.errors.validation_exception.ValidationException: <p>The exception that occurs when the input fails to satisfy the constraints specified by the service. Check the error message for details about which input parameter is invalid and correct your request.</p>
+            aws_sdk_bedrock_agentcore.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -377,6 +435,16 @@ class MemoryResource:
             session_id: <p>The identifier of the session containing the event.</p>
             actor_id: <p>The identifier of the actor associated with the event.</p>
             event_id: <p>The identifier of the event to retrieve.</p>
+
+        Raises:
+            aws_sdk_bedrock_agentcore.errors.access_denied_exception.AccessDeniedException: <p>The exception that occurs when you do not have sufficient permissions to perform an action. Verify that your IAM policy includes the necessary permissions for the operation you are trying to perform.</p>
+            aws_sdk_bedrock_agentcore.errors.invalid_input_exception.InvalidInputException: <p>The input fails to satisfy the constraints specified by AgentCore. Check your input values and try again.</p>
+            aws_sdk_bedrock_agentcore.errors.resource_not_found_exception.ResourceNotFoundException: <p>The exception that occurs when the specified resource does not exist. This can happen when using an invalid identifier or when trying to access a resource that has been deleted.</p>
+            aws_sdk_bedrock_agentcore.errors.service_exception.ServiceException: <p>The service encountered an internal error. Try your request again later.</p>
+            aws_sdk_bedrock_agentcore.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The exception that occurs when the request would cause a service quota to be exceeded. Review your service quotas and either reduce your request rate or request a quota increase.</p>
+            aws_sdk_bedrock_agentcore.errors.throttled_exception.ThrottledException: <p>The request was denied due to request throttling. Reduce the frequency of requests and try again.</p>
+            aws_sdk_bedrock_agentcore.errors.validation_exception.ValidationException: <p>The exception that occurs when the input fails to satisfy the constraints specified by the service. Check the error message for details about which input parameter is invalid and correct your request.</p>
+            aws_sdk_bedrock_agentcore.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -421,6 +489,16 @@ class MemoryResource:
         Args:
             memory_id: <p>The identifier of the AgentCore Memory resource containing the memory record.</p>
             memory_record_id: <p>The identifier of the memory record to retrieve.</p>
+
+        Raises:
+            aws_sdk_bedrock_agentcore.errors.access_denied_exception.AccessDeniedException: <p>The exception that occurs when you do not have sufficient permissions to perform an action. Verify that your IAM policy includes the necessary permissions for the operation you are trying to perform.</p>
+            aws_sdk_bedrock_agentcore.errors.invalid_input_exception.InvalidInputException: <p>The input fails to satisfy the constraints specified by AgentCore. Check your input values and try again.</p>
+            aws_sdk_bedrock_agentcore.errors.resource_not_found_exception.ResourceNotFoundException: <p>The exception that occurs when the specified resource does not exist. This can happen when using an invalid identifier or when trying to access a resource that has been deleted.</p>
+            aws_sdk_bedrock_agentcore.errors.service_exception.ServiceException: <p>The service encountered an internal error. Try your request again later.</p>
+            aws_sdk_bedrock_agentcore.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The exception that occurs when the request would cause a service quota to be exceeded. Review your service quotas and either reduce your request rate or request a quota increase.</p>
+            aws_sdk_bedrock_agentcore.errors.throttled_exception.ThrottledException: <p>The request was denied due to request throttling. Reduce the frequency of requests and try again.</p>
+            aws_sdk_bedrock_agentcore.errors.validation_exception.ValidationException: <p>The exception that occurs when the input fails to satisfy the constraints specified by the service. Check the error message for details about which input parameter is invalid and correct your request.</p>
+            aws_sdk_bedrock_agentcore.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -467,6 +545,16 @@ class MemoryResource:
             memory_id: <p>The identifier of the AgentCore Memory resource for which to list actors.</p>
             max_results: <p>The maximum number of results to return in a single call. The default value is 20.</p>
             next_token: <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
+
+        Raises:
+            aws_sdk_bedrock_agentcore.errors.access_denied_exception.AccessDeniedException: <p>The exception that occurs when you do not have sufficient permissions to perform an action. Verify that your IAM policy includes the necessary permissions for the operation you are trying to perform.</p>
+            aws_sdk_bedrock_agentcore.errors.invalid_input_exception.InvalidInputException: <p>The input fails to satisfy the constraints specified by AgentCore. Check your input values and try again.</p>
+            aws_sdk_bedrock_agentcore.errors.resource_not_found_exception.ResourceNotFoundException: <p>The exception that occurs when the specified resource does not exist. This can happen when using an invalid identifier or when trying to access a resource that has been deleted.</p>
+            aws_sdk_bedrock_agentcore.errors.service_exception.ServiceException: <p>The service encountered an internal error. Try your request again later.</p>
+            aws_sdk_bedrock_agentcore.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The exception that occurs when the request would cause a service quota to be exceeded. Review your service quotas and either reduce your request rate or request a quota increase.</p>
+            aws_sdk_bedrock_agentcore.errors.throttled_exception.ThrottledException: <p>The request was denied due to request throttling. Reduce the frequency of requests and try again.</p>
+            aws_sdk_bedrock_agentcore.errors.validation_exception.ValidationException: <p>The exception that occurs when the input fails to satisfy the constraints specified by the service. Check the error message for details about which input parameter is invalid and correct your request.</p>
+            aws_sdk_bedrock_agentcore.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -526,6 +614,16 @@ class MemoryResource:
             filter: <p>Filter criteria to apply when listing events.</p>
             max_results: <p>The maximum number of results to return in a single call. The default value is 20.</p>
             next_token: <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
+
+        Raises:
+            aws_sdk_bedrock_agentcore.errors.access_denied_exception.AccessDeniedException: <p>The exception that occurs when you do not have sufficient permissions to perform an action. Verify that your IAM policy includes the necessary permissions for the operation you are trying to perform.</p>
+            aws_sdk_bedrock_agentcore.errors.invalid_input_exception.InvalidInputException: <p>The input fails to satisfy the constraints specified by AgentCore. Check your input values and try again.</p>
+            aws_sdk_bedrock_agentcore.errors.resource_not_found_exception.ResourceNotFoundException: <p>The exception that occurs when the specified resource does not exist. This can happen when using an invalid identifier or when trying to access a resource that has been deleted.</p>
+            aws_sdk_bedrock_agentcore.errors.service_exception.ServiceException: <p>The service encountered an internal error. Try your request again later.</p>
+            aws_sdk_bedrock_agentcore.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The exception that occurs when the request would cause a service quota to be exceeded. Review your service quotas and either reduce your request rate or request a quota increase.</p>
+            aws_sdk_bedrock_agentcore.errors.throttled_exception.ThrottledException: <p>The request was denied due to request throttling. Reduce the frequency of requests and try again.</p>
+            aws_sdk_bedrock_agentcore.errors.validation_exception.ValidationException: <p>The exception that occurs when the input fails to satisfy the constraints specified by the service. Check the error message for details about which input parameter is invalid and correct your request.</p>
+            aws_sdk_bedrock_agentcore.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -583,6 +681,15 @@ class MemoryResource:
             max_results: <p>The maximum number of results to return in a single call. The default value is 20.</p>
             filter: <p>Filter criteria to apply when listing extraction jobs.</p>
             next_token: <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
+
+        Raises:
+            aws_sdk_bedrock_agentcore.errors.access_denied_exception.AccessDeniedException: <p>The exception that occurs when you do not have sufficient permissions to perform an action. Verify that your IAM policy includes the necessary permissions for the operation you are trying to perform.</p>
+            aws_sdk_bedrock_agentcore.errors.resource_not_found_exception.ResourceNotFoundException: <p>The exception that occurs when the specified resource does not exist. This can happen when using an invalid identifier or when trying to access a resource that has been deleted.</p>
+            aws_sdk_bedrock_agentcore.errors.service_exception.ServiceException: <p>The service encountered an internal error. Try your request again later.</p>
+            aws_sdk_bedrock_agentcore.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The exception that occurs when the request would cause a service quota to be exceeded. Review your service quotas and either reduce your request rate or request a quota increase.</p>
+            aws_sdk_bedrock_agentcore.errors.throttled_exception.ThrottledException: <p>The request was denied due to request throttling. Reduce the frequency of requests and try again.</p>
+            aws_sdk_bedrock_agentcore.errors.validation_exception.ValidationException: <p>The exception that occurs when the input fails to satisfy the constraints specified by the service. Check the error message for details about which input parameter is invalid and correct your request.</p>
+            aws_sdk_bedrock_agentcore.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -650,6 +757,16 @@ class MemoryResource:
             max_results: <p>The maximum number of results to return in a single call. The default value is 20.</p>
             next_token: <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
             metadata_filters: <p>A list of metadata filter expressions to scope the returned memory records.</p>
+
+        Raises:
+            aws_sdk_bedrock_agentcore.errors.access_denied_exception.AccessDeniedException: <p>The exception that occurs when you do not have sufficient permissions to perform an action. Verify that your IAM policy includes the necessary permissions for the operation you are trying to perform.</p>
+            aws_sdk_bedrock_agentcore.errors.invalid_input_exception.InvalidInputException: <p>The input fails to satisfy the constraints specified by AgentCore. Check your input values and try again.</p>
+            aws_sdk_bedrock_agentcore.errors.resource_not_found_exception.ResourceNotFoundException: <p>The exception that occurs when the specified resource does not exist. This can happen when using an invalid identifier or when trying to access a resource that has been deleted.</p>
+            aws_sdk_bedrock_agentcore.errors.service_exception.ServiceException: <p>The service encountered an internal error. Try your request again later.</p>
+            aws_sdk_bedrock_agentcore.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The exception that occurs when the request would cause a service quota to be exceeded. Review your service quotas and either reduce your request rate or request a quota increase.</p>
+            aws_sdk_bedrock_agentcore.errors.throttled_exception.ThrottledException: <p>The request was denied due to request throttling. Reduce the frequency of requests and try again.</p>
+            aws_sdk_bedrock_agentcore.errors.validation_exception.ValidationException: <p>The exception that occurs when the input fails to satisfy the constraints specified by the service. Check the error message for details about which input parameter is invalid and correct your request.</p>
+            aws_sdk_bedrock_agentcore.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -713,6 +830,16 @@ class MemoryResource:
             max_results: <p>The maximum number of results to return in a single call. The default value is 20.</p>
             next_token: <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
             filter: <p>Filter criteria to apply when listing sessions.</p>
+
+        Raises:
+            aws_sdk_bedrock_agentcore.errors.access_denied_exception.AccessDeniedException: <p>The exception that occurs when you do not have sufficient permissions to perform an action. Verify that your IAM policy includes the necessary permissions for the operation you are trying to perform.</p>
+            aws_sdk_bedrock_agentcore.errors.invalid_input_exception.InvalidInputException: <p>The input fails to satisfy the constraints specified by AgentCore. Check your input values and try again.</p>
+            aws_sdk_bedrock_agentcore.errors.resource_not_found_exception.ResourceNotFoundException: <p>The exception that occurs when the specified resource does not exist. This can happen when using an invalid identifier or when trying to access a resource that has been deleted.</p>
+            aws_sdk_bedrock_agentcore.errors.service_exception.ServiceException: <p>The service encountered an internal error. Try your request again later.</p>
+            aws_sdk_bedrock_agentcore.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The exception that occurs when the request would cause a service quota to be exceeded. Review your service quotas and either reduce your request rate or request a quota increase.</p>
+            aws_sdk_bedrock_agentcore.errors.throttled_exception.ThrottledException: <p>The request was denied due to request throttling. Reduce the frequency of requests and try again.</p>
+            aws_sdk_bedrock_agentcore.errors.validation_exception.ValidationException: <p>The exception that occurs when the input fails to satisfy the constraints specified by the service. Check the error message for details about which input parameter is invalid and correct your request.</p>
+            aws_sdk_bedrock_agentcore.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -775,6 +902,16 @@ class MemoryResource:
             search_criteria: <p>The search criteria to use for finding relevant memory records. This includes the search query, memory strategy ID, and other search parameters.</p>
             next_token: <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
             max_results: <p>The maximum number of results to return in a single call. The default value is 20.</p>
+
+        Raises:
+            aws_sdk_bedrock_agentcore.errors.access_denied_exception.AccessDeniedException: <p>The exception that occurs when you do not have sufficient permissions to perform an action. Verify that your IAM policy includes the necessary permissions for the operation you are trying to perform.</p>
+            aws_sdk_bedrock_agentcore.errors.invalid_input_exception.InvalidInputException: <p>The input fails to satisfy the constraints specified by AgentCore. Check your input values and try again.</p>
+            aws_sdk_bedrock_agentcore.errors.resource_not_found_exception.ResourceNotFoundException: <p>The exception that occurs when the specified resource does not exist. This can happen when using an invalid identifier or when trying to access a resource that has been deleted.</p>
+            aws_sdk_bedrock_agentcore.errors.service_exception.ServiceException: <p>The service encountered an internal error. Try your request again later.</p>
+            aws_sdk_bedrock_agentcore.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The exception that occurs when the request would cause a service quota to be exceeded. Review your service quotas and either reduce your request rate or request a quota increase.</p>
+            aws_sdk_bedrock_agentcore.errors.throttled_exception.ThrottledException: <p>The request was denied due to request throttling. Reduce the frequency of requests and try again.</p>
+            aws_sdk_bedrock_agentcore.errors.validation_exception.ValidationException: <p>The exception that occurs when the input fails to satisfy the constraints specified by the service. Check the error message for details about which input parameter is invalid and correct your request.</p>
+            aws_sdk_bedrock_agentcore.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -825,6 +962,15 @@ class MemoryResource:
             memory_id: <p>The unique identifier of the memory for which to start extraction jobs.</p>
             extraction_job: <p>Extraction job to start in this operation.</p>
             client_token: <p>A unique, case-sensitive identifier to ensure idempotent processing of the request.</p>
+
+        Raises:
+            aws_sdk_bedrock_agentcore.errors.access_denied_exception.AccessDeniedException: <p>The exception that occurs when you do not have sufficient permissions to perform an action. Verify that your IAM policy includes the necessary permissions for the operation you are trying to perform.</p>
+            aws_sdk_bedrock_agentcore.errors.resource_not_found_exception.ResourceNotFoundException: <p>The exception that occurs when the specified resource does not exist. This can happen when using an invalid identifier or when trying to access a resource that has been deleted.</p>
+            aws_sdk_bedrock_agentcore.errors.service_exception.ServiceException: <p>The service encountered an internal error. Try your request again later.</p>
+            aws_sdk_bedrock_agentcore.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The exception that occurs when the request would cause a service quota to be exceeded. Review your service quotas and either reduce your request rate or request a quota increase.</p>
+            aws_sdk_bedrock_agentcore.errors.throttled_exception.ThrottledException: <p>The request was denied due to request throttling. Reduce the frequency of requests and try again.</p>
+            aws_sdk_bedrock_agentcore.errors.validation_exception.ValidationException: <p>The exception that occurs when the input fails to satisfy the constraints specified by the service. Check the error message for details about which input parameter is invalid and correct your request.</p>
+            aws_sdk_bedrock_agentcore.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -874,6 +1020,15 @@ class AsyncMemoryResource:
             memory_id: <p>The unique ID of the memory resource where records will be created.</p>
             records: <p>A list of memory record creation inputs to be processed in the batch operation.</p>
             client_token: <p>A unique, case-sensitive identifier to ensure idempotent processing of the batch request.</p>
+
+        Raises:
+            aws_sdk_bedrock_agentcore.errors.access_denied_exception.AccessDeniedException: <p>The exception that occurs when you do not have sufficient permissions to perform an action. Verify that your IAM policy includes the necessary permissions for the operation you are trying to perform.</p>
+            aws_sdk_bedrock_agentcore.errors.resource_not_found_exception.ResourceNotFoundException: <p>The exception that occurs when the specified resource does not exist. This can happen when using an invalid identifier or when trying to access a resource that has been deleted.</p>
+            aws_sdk_bedrock_agentcore.errors.service_exception.ServiceException: <p>The service encountered an internal error. Try your request again later.</p>
+            aws_sdk_bedrock_agentcore.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The exception that occurs when the request would cause a service quota to be exceeded. Review your service quotas and either reduce your request rate or request a quota increase.</p>
+            aws_sdk_bedrock_agentcore.errors.throttled_exception.ThrottledException: <p>The request was denied due to request throttling. Reduce the frequency of requests and try again.</p>
+            aws_sdk_bedrock_agentcore.errors.validation_exception.ValidationException: <p>The exception that occurs when the input fails to satisfy the constraints specified by the service. Check the error message for details about which input parameter is invalid and correct your request.</p>
+            aws_sdk_bedrock_agentcore.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -917,6 +1072,15 @@ class AsyncMemoryResource:
         Args:
             memory_id: <p>The unique ID of the memory resource where records will be deleted.</p>
             records: <p>A list of memory record deletion inputs to be processed in the batch operation.</p>
+
+        Raises:
+            aws_sdk_bedrock_agentcore.errors.access_denied_exception.AccessDeniedException: <p>The exception that occurs when you do not have sufficient permissions to perform an action. Verify that your IAM policy includes the necessary permissions for the operation you are trying to perform.</p>
+            aws_sdk_bedrock_agentcore.errors.resource_not_found_exception.ResourceNotFoundException: <p>The exception that occurs when the specified resource does not exist. This can happen when using an invalid identifier or when trying to access a resource that has been deleted.</p>
+            aws_sdk_bedrock_agentcore.errors.service_exception.ServiceException: <p>The service encountered an internal error. Try your request again later.</p>
+            aws_sdk_bedrock_agentcore.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The exception that occurs when the request would cause a service quota to be exceeded. Review your service quotas and either reduce your request rate or request a quota increase.</p>
+            aws_sdk_bedrock_agentcore.errors.throttled_exception.ThrottledException: <p>The request was denied due to request throttling. Reduce the frequency of requests and try again.</p>
+            aws_sdk_bedrock_agentcore.errors.validation_exception.ValidationException: <p>The exception that occurs when the input fails to satisfy the constraints specified by the service. Check the error message for details about which input parameter is invalid and correct your request.</p>
+            aws_sdk_bedrock_agentcore.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -958,6 +1122,15 @@ class AsyncMemoryResource:
         Args:
             memory_id: <p>The unique ID of the memory resource where records will be updated.</p>
             records: <p>A list of memory record update inputs to be processed in the batch operation.</p>
+
+        Raises:
+            aws_sdk_bedrock_agentcore.errors.access_denied_exception.AccessDeniedException: <p>The exception that occurs when you do not have sufficient permissions to perform an action. Verify that your IAM policy includes the necessary permissions for the operation you are trying to perform.</p>
+            aws_sdk_bedrock_agentcore.errors.resource_not_found_exception.ResourceNotFoundException: <p>The exception that occurs when the specified resource does not exist. This can happen when using an invalid identifier or when trying to access a resource that has been deleted.</p>
+            aws_sdk_bedrock_agentcore.errors.service_exception.ServiceException: <p>The service encountered an internal error. Try your request again later.</p>
+            aws_sdk_bedrock_agentcore.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The exception that occurs when the request would cause a service quota to be exceeded. Review your service quotas and either reduce your request rate or request a quota increase.</p>
+            aws_sdk_bedrock_agentcore.errors.throttled_exception.ThrottledException: <p>The request was denied due to request throttling. Reduce the frequency of requests and try again.</p>
+            aws_sdk_bedrock_agentcore.errors.validation_exception.ValidationException: <p>The exception that occurs when the input fails to satisfy the constraints specified by the service. Check the error message for details about which input parameter is invalid and correct your request.</p>
+            aws_sdk_bedrock_agentcore.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1015,6 +1188,17 @@ class AsyncMemoryResource:
             branch: <p>The branch information for this event. Branches allow for organizing events into different conversation threads or paths.</p>
             client_token: <p>A unique, case-sensitive identifier to ensure that the operation completes no more than one time. If this token matches a previous request, AgentCore ignores the request, but does not return an error.</p>
             metadata: <p>The key-value metadata to attach to the event.</p>
+
+        Raises:
+            aws_sdk_bedrock_agentcore.errors.access_denied_exception.AccessDeniedException: <p>The exception that occurs when you do not have sufficient permissions to perform an action. Verify that your IAM policy includes the necessary permissions for the operation you are trying to perform.</p>
+            aws_sdk_bedrock_agentcore.errors.invalid_input_exception.InvalidInputException: <p>The input fails to satisfy the constraints specified by AgentCore. Check your input values and try again.</p>
+            aws_sdk_bedrock_agentcore.errors.resource_not_found_exception.ResourceNotFoundException: <p>The exception that occurs when the specified resource does not exist. This can happen when using an invalid identifier or when trying to access a resource that has been deleted.</p>
+            aws_sdk_bedrock_agentcore.errors.retryable_conflict_exception.RetryableConflictException: <p>The exception that occurs when there is a retryable conflict performing an operation. This is a temporary condition that may resolve itself with retries. We recommend implementing exponential backoff retry logic in your application.</p>
+            aws_sdk_bedrock_agentcore.errors.service_exception.ServiceException: <p>The service encountered an internal error. Try your request again later.</p>
+            aws_sdk_bedrock_agentcore.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The exception that occurs when the request would cause a service quota to be exceeded. Review your service quotas and either reduce your request rate or request a quota increase.</p>
+            aws_sdk_bedrock_agentcore.errors.throttled_exception.ThrottledException: <p>The request was denied due to request throttling. Reduce the frequency of requests and try again.</p>
+            aws_sdk_bedrock_agentcore.errors.validation_exception.ValidationException: <p>The exception that occurs when the input fails to satisfy the constraints specified by the service. Check the error message for details about which input parameter is invalid and correct your request.</p>
+            aws_sdk_bedrock_agentcore.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1070,6 +1254,16 @@ class AsyncMemoryResource:
             session_id: <p>The identifier of the session containing the event to delete.</p>
             event_id: <p>The identifier of the event to delete.</p>
             actor_id: <p>The identifier of the actor associated with the event to delete.</p>
+
+        Raises:
+            aws_sdk_bedrock_agentcore.errors.access_denied_exception.AccessDeniedException: <p>The exception that occurs when you do not have sufficient permissions to perform an action. Verify that your IAM policy includes the necessary permissions for the operation you are trying to perform.</p>
+            aws_sdk_bedrock_agentcore.errors.invalid_input_exception.InvalidInputException: <p>The input fails to satisfy the constraints specified by AgentCore. Check your input values and try again.</p>
+            aws_sdk_bedrock_agentcore.errors.resource_not_found_exception.ResourceNotFoundException: <p>The exception that occurs when the specified resource does not exist. This can happen when using an invalid identifier or when trying to access a resource that has been deleted.</p>
+            aws_sdk_bedrock_agentcore.errors.service_exception.ServiceException: <p>The service encountered an internal error. Try your request again later.</p>
+            aws_sdk_bedrock_agentcore.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The exception that occurs when the request would cause a service quota to be exceeded. Review your service quotas and either reduce your request rate or request a quota increase.</p>
+            aws_sdk_bedrock_agentcore.errors.throttled_exception.ThrottledException: <p>The request was denied due to request throttling. Reduce the frequency of requests and try again.</p>
+            aws_sdk_bedrock_agentcore.errors.validation_exception.ValidationException: <p>The exception that occurs when the input fails to satisfy the constraints specified by the service. Check the error message for details about which input parameter is invalid and correct your request.</p>
+            aws_sdk_bedrock_agentcore.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1113,6 +1307,16 @@ class AsyncMemoryResource:
         Args:
             memory_id: <p>The identifier of the AgentCore Memory resource from which to delete the memory record.</p>
             memory_record_id: <p>The identifier of the memory record to delete.</p>
+
+        Raises:
+            aws_sdk_bedrock_agentcore.errors.access_denied_exception.AccessDeniedException: <p>The exception that occurs when you do not have sufficient permissions to perform an action. Verify that your IAM policy includes the necessary permissions for the operation you are trying to perform.</p>
+            aws_sdk_bedrock_agentcore.errors.invalid_input_exception.InvalidInputException: <p>The input fails to satisfy the constraints specified by AgentCore. Check your input values and try again.</p>
+            aws_sdk_bedrock_agentcore.errors.resource_not_found_exception.ResourceNotFoundException: <p>The exception that occurs when the specified resource does not exist. This can happen when using an invalid identifier or when trying to access a resource that has been deleted.</p>
+            aws_sdk_bedrock_agentcore.errors.service_exception.ServiceException: <p>The service encountered an internal error. Try your request again later.</p>
+            aws_sdk_bedrock_agentcore.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The exception that occurs when the request would cause a service quota to be exceeded. Review your service quotas and either reduce your request rate or request a quota increase.</p>
+            aws_sdk_bedrock_agentcore.errors.throttled_exception.ThrottledException: <p>The request was denied due to request throttling. Reduce the frequency of requests and try again.</p>
+            aws_sdk_bedrock_agentcore.errors.validation_exception.ValidationException: <p>The exception that occurs when the input fails to satisfy the constraints specified by the service. Check the error message for details about which input parameter is invalid and correct your request.</p>
+            aws_sdk_bedrock_agentcore.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1158,6 +1362,16 @@ class AsyncMemoryResource:
             session_id: <p>The identifier of the session containing the event.</p>
             actor_id: <p>The identifier of the actor associated with the event.</p>
             event_id: <p>The identifier of the event to retrieve.</p>
+
+        Raises:
+            aws_sdk_bedrock_agentcore.errors.access_denied_exception.AccessDeniedException: <p>The exception that occurs when you do not have sufficient permissions to perform an action. Verify that your IAM policy includes the necessary permissions for the operation you are trying to perform.</p>
+            aws_sdk_bedrock_agentcore.errors.invalid_input_exception.InvalidInputException: <p>The input fails to satisfy the constraints specified by AgentCore. Check your input values and try again.</p>
+            aws_sdk_bedrock_agentcore.errors.resource_not_found_exception.ResourceNotFoundException: <p>The exception that occurs when the specified resource does not exist. This can happen when using an invalid identifier or when trying to access a resource that has been deleted.</p>
+            aws_sdk_bedrock_agentcore.errors.service_exception.ServiceException: <p>The service encountered an internal error. Try your request again later.</p>
+            aws_sdk_bedrock_agentcore.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The exception that occurs when the request would cause a service quota to be exceeded. Review your service quotas and either reduce your request rate or request a quota increase.</p>
+            aws_sdk_bedrock_agentcore.errors.throttled_exception.ThrottledException: <p>The request was denied due to request throttling. Reduce the frequency of requests and try again.</p>
+            aws_sdk_bedrock_agentcore.errors.validation_exception.ValidationException: <p>The exception that occurs when the input fails to satisfy the constraints specified by the service. Check the error message for details about which input parameter is invalid and correct your request.</p>
+            aws_sdk_bedrock_agentcore.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1203,6 +1417,16 @@ class AsyncMemoryResource:
         Args:
             memory_id: <p>The identifier of the AgentCore Memory resource containing the memory record.</p>
             memory_record_id: <p>The identifier of the memory record to retrieve.</p>
+
+        Raises:
+            aws_sdk_bedrock_agentcore.errors.access_denied_exception.AccessDeniedException: <p>The exception that occurs when you do not have sufficient permissions to perform an action. Verify that your IAM policy includes the necessary permissions for the operation you are trying to perform.</p>
+            aws_sdk_bedrock_agentcore.errors.invalid_input_exception.InvalidInputException: <p>The input fails to satisfy the constraints specified by AgentCore. Check your input values and try again.</p>
+            aws_sdk_bedrock_agentcore.errors.resource_not_found_exception.ResourceNotFoundException: <p>The exception that occurs when the specified resource does not exist. This can happen when using an invalid identifier or when trying to access a resource that has been deleted.</p>
+            aws_sdk_bedrock_agentcore.errors.service_exception.ServiceException: <p>The service encountered an internal error. Try your request again later.</p>
+            aws_sdk_bedrock_agentcore.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The exception that occurs when the request would cause a service quota to be exceeded. Review your service quotas and either reduce your request rate or request a quota increase.</p>
+            aws_sdk_bedrock_agentcore.errors.throttled_exception.ThrottledException: <p>The request was denied due to request throttling. Reduce the frequency of requests and try again.</p>
+            aws_sdk_bedrock_agentcore.errors.validation_exception.ValidationException: <p>The exception that occurs when the input fails to satisfy the constraints specified by the service. Check the error message for details about which input parameter is invalid and correct your request.</p>
+            aws_sdk_bedrock_agentcore.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1250,6 +1474,16 @@ class AsyncMemoryResource:
             memory_id: <p>The identifier of the AgentCore Memory resource for which to list actors.</p>
             max_results: <p>The maximum number of results to return in a single call. The default value is 20.</p>
             next_token: <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
+
+        Raises:
+            aws_sdk_bedrock_agentcore.errors.access_denied_exception.AccessDeniedException: <p>The exception that occurs when you do not have sufficient permissions to perform an action. Verify that your IAM policy includes the necessary permissions for the operation you are trying to perform.</p>
+            aws_sdk_bedrock_agentcore.errors.invalid_input_exception.InvalidInputException: <p>The input fails to satisfy the constraints specified by AgentCore. Check your input values and try again.</p>
+            aws_sdk_bedrock_agentcore.errors.resource_not_found_exception.ResourceNotFoundException: <p>The exception that occurs when the specified resource does not exist. This can happen when using an invalid identifier or when trying to access a resource that has been deleted.</p>
+            aws_sdk_bedrock_agentcore.errors.service_exception.ServiceException: <p>The service encountered an internal error. Try your request again later.</p>
+            aws_sdk_bedrock_agentcore.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The exception that occurs when the request would cause a service quota to be exceeded. Review your service quotas and either reduce your request rate or request a quota increase.</p>
+            aws_sdk_bedrock_agentcore.errors.throttled_exception.ThrottledException: <p>The request was denied due to request throttling. Reduce the frequency of requests and try again.</p>
+            aws_sdk_bedrock_agentcore.errors.validation_exception.ValidationException: <p>The exception that occurs when the input fails to satisfy the constraints specified by the service. Check the error message for details about which input parameter is invalid and correct your request.</p>
+            aws_sdk_bedrock_agentcore.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1310,6 +1544,16 @@ class AsyncMemoryResource:
             filter: <p>Filter criteria to apply when listing events.</p>
             max_results: <p>The maximum number of results to return in a single call. The default value is 20.</p>
             next_token: <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
+
+        Raises:
+            aws_sdk_bedrock_agentcore.errors.access_denied_exception.AccessDeniedException: <p>The exception that occurs when you do not have sufficient permissions to perform an action. Verify that your IAM policy includes the necessary permissions for the operation you are trying to perform.</p>
+            aws_sdk_bedrock_agentcore.errors.invalid_input_exception.InvalidInputException: <p>The input fails to satisfy the constraints specified by AgentCore. Check your input values and try again.</p>
+            aws_sdk_bedrock_agentcore.errors.resource_not_found_exception.ResourceNotFoundException: <p>The exception that occurs when the specified resource does not exist. This can happen when using an invalid identifier or when trying to access a resource that has been deleted.</p>
+            aws_sdk_bedrock_agentcore.errors.service_exception.ServiceException: <p>The service encountered an internal error. Try your request again later.</p>
+            aws_sdk_bedrock_agentcore.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The exception that occurs when the request would cause a service quota to be exceeded. Review your service quotas and either reduce your request rate or request a quota increase.</p>
+            aws_sdk_bedrock_agentcore.errors.throttled_exception.ThrottledException: <p>The request was denied due to request throttling. Reduce the frequency of requests and try again.</p>
+            aws_sdk_bedrock_agentcore.errors.validation_exception.ValidationException: <p>The exception that occurs when the input fails to satisfy the constraints specified by the service. Check the error message for details about which input parameter is invalid and correct your request.</p>
+            aws_sdk_bedrock_agentcore.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1368,6 +1612,15 @@ class AsyncMemoryResource:
             max_results: <p>The maximum number of results to return in a single call. The default value is 20.</p>
             filter: <p>Filter criteria to apply when listing extraction jobs.</p>
             next_token: <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
+
+        Raises:
+            aws_sdk_bedrock_agentcore.errors.access_denied_exception.AccessDeniedException: <p>The exception that occurs when you do not have sufficient permissions to perform an action. Verify that your IAM policy includes the necessary permissions for the operation you are trying to perform.</p>
+            aws_sdk_bedrock_agentcore.errors.resource_not_found_exception.ResourceNotFoundException: <p>The exception that occurs when the specified resource does not exist. This can happen when using an invalid identifier or when trying to access a resource that has been deleted.</p>
+            aws_sdk_bedrock_agentcore.errors.service_exception.ServiceException: <p>The service encountered an internal error. Try your request again later.</p>
+            aws_sdk_bedrock_agentcore.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The exception that occurs when the request would cause a service quota to be exceeded. Review your service quotas and either reduce your request rate or request a quota increase.</p>
+            aws_sdk_bedrock_agentcore.errors.throttled_exception.ThrottledException: <p>The request was denied due to request throttling. Reduce the frequency of requests and try again.</p>
+            aws_sdk_bedrock_agentcore.errors.validation_exception.ValidationException: <p>The exception that occurs when the input fails to satisfy the constraints specified by the service. Check the error message for details about which input parameter is invalid and correct your request.</p>
+            aws_sdk_bedrock_agentcore.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1436,6 +1689,16 @@ class AsyncMemoryResource:
             max_results: <p>The maximum number of results to return in a single call. The default value is 20.</p>
             next_token: <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
             metadata_filters: <p>A list of metadata filter expressions to scope the returned memory records.</p>
+
+        Raises:
+            aws_sdk_bedrock_agentcore.errors.access_denied_exception.AccessDeniedException: <p>The exception that occurs when you do not have sufficient permissions to perform an action. Verify that your IAM policy includes the necessary permissions for the operation you are trying to perform.</p>
+            aws_sdk_bedrock_agentcore.errors.invalid_input_exception.InvalidInputException: <p>The input fails to satisfy the constraints specified by AgentCore. Check your input values and try again.</p>
+            aws_sdk_bedrock_agentcore.errors.resource_not_found_exception.ResourceNotFoundException: <p>The exception that occurs when the specified resource does not exist. This can happen when using an invalid identifier or when trying to access a resource that has been deleted.</p>
+            aws_sdk_bedrock_agentcore.errors.service_exception.ServiceException: <p>The service encountered an internal error. Try your request again later.</p>
+            aws_sdk_bedrock_agentcore.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The exception that occurs when the request would cause a service quota to be exceeded. Review your service quotas and either reduce your request rate or request a quota increase.</p>
+            aws_sdk_bedrock_agentcore.errors.throttled_exception.ThrottledException: <p>The request was denied due to request throttling. Reduce the frequency of requests and try again.</p>
+            aws_sdk_bedrock_agentcore.errors.validation_exception.ValidationException: <p>The exception that occurs when the input fails to satisfy the constraints specified by the service. Check the error message for details about which input parameter is invalid and correct your request.</p>
+            aws_sdk_bedrock_agentcore.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1500,6 +1763,16 @@ class AsyncMemoryResource:
             max_results: <p>The maximum number of results to return in a single call. The default value is 20.</p>
             next_token: <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
             filter: <p>Filter criteria to apply when listing sessions.</p>
+
+        Raises:
+            aws_sdk_bedrock_agentcore.errors.access_denied_exception.AccessDeniedException: <p>The exception that occurs when you do not have sufficient permissions to perform an action. Verify that your IAM policy includes the necessary permissions for the operation you are trying to perform.</p>
+            aws_sdk_bedrock_agentcore.errors.invalid_input_exception.InvalidInputException: <p>The input fails to satisfy the constraints specified by AgentCore. Check your input values and try again.</p>
+            aws_sdk_bedrock_agentcore.errors.resource_not_found_exception.ResourceNotFoundException: <p>The exception that occurs when the specified resource does not exist. This can happen when using an invalid identifier or when trying to access a resource that has been deleted.</p>
+            aws_sdk_bedrock_agentcore.errors.service_exception.ServiceException: <p>The service encountered an internal error. Try your request again later.</p>
+            aws_sdk_bedrock_agentcore.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The exception that occurs when the request would cause a service quota to be exceeded. Review your service quotas and either reduce your request rate or request a quota increase.</p>
+            aws_sdk_bedrock_agentcore.errors.throttled_exception.ThrottledException: <p>The request was denied due to request throttling. Reduce the frequency of requests and try again.</p>
+            aws_sdk_bedrock_agentcore.errors.validation_exception.ValidationException: <p>The exception that occurs when the input fails to satisfy the constraints specified by the service. Check the error message for details about which input parameter is invalid and correct your request.</p>
+            aws_sdk_bedrock_agentcore.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1563,6 +1836,16 @@ class AsyncMemoryResource:
             search_criteria: <p>The search criteria to use for finding relevant memory records. This includes the search query, memory strategy ID, and other search parameters.</p>
             next_token: <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
             max_results: <p>The maximum number of results to return in a single call. The default value is 20.</p>
+
+        Raises:
+            aws_sdk_bedrock_agentcore.errors.access_denied_exception.AccessDeniedException: <p>The exception that occurs when you do not have sufficient permissions to perform an action. Verify that your IAM policy includes the necessary permissions for the operation you are trying to perform.</p>
+            aws_sdk_bedrock_agentcore.errors.invalid_input_exception.InvalidInputException: <p>The input fails to satisfy the constraints specified by AgentCore. Check your input values and try again.</p>
+            aws_sdk_bedrock_agentcore.errors.resource_not_found_exception.ResourceNotFoundException: <p>The exception that occurs when the specified resource does not exist. This can happen when using an invalid identifier or when trying to access a resource that has been deleted.</p>
+            aws_sdk_bedrock_agentcore.errors.service_exception.ServiceException: <p>The service encountered an internal error. Try your request again later.</p>
+            aws_sdk_bedrock_agentcore.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The exception that occurs when the request would cause a service quota to be exceeded. Review your service quotas and either reduce your request rate or request a quota increase.</p>
+            aws_sdk_bedrock_agentcore.errors.throttled_exception.ThrottledException: <p>The request was denied due to request throttling. Reduce the frequency of requests and try again.</p>
+            aws_sdk_bedrock_agentcore.errors.validation_exception.ValidationException: <p>The exception that occurs when the input fails to satisfy the constraints specified by the service. Check the error message for details about which input parameter is invalid and correct your request.</p>
+            aws_sdk_bedrock_agentcore.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1614,6 +1897,15 @@ class AsyncMemoryResource:
             memory_id: <p>The unique identifier of the memory for which to start extraction jobs.</p>
             extraction_job: <p>Extraction job to start in this operation.</p>
             client_token: <p>A unique, case-sensitive identifier to ensure idempotent processing of the request.</p>
+
+        Raises:
+            aws_sdk_bedrock_agentcore.errors.access_denied_exception.AccessDeniedException: <p>The exception that occurs when you do not have sufficient permissions to perform an action. Verify that your IAM policy includes the necessary permissions for the operation you are trying to perform.</p>
+            aws_sdk_bedrock_agentcore.errors.resource_not_found_exception.ResourceNotFoundException: <p>The exception that occurs when the specified resource does not exist. This can happen when using an invalid identifier or when trying to access a resource that has been deleted.</p>
+            aws_sdk_bedrock_agentcore.errors.service_exception.ServiceException: <p>The service encountered an internal error. Try your request again later.</p>
+            aws_sdk_bedrock_agentcore.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The exception that occurs when the request would cause a service quota to be exceeded. Review your service quotas and either reduce your request rate or request a quota increase.</p>
+            aws_sdk_bedrock_agentcore.errors.throttled_exception.ThrottledException: <p>The request was denied due to request throttling. Reduce the frequency of requests and try again.</p>
+            aws_sdk_bedrock_agentcore.errors.validation_exception.ValidationException: <p>The exception that occurs when the input fails to satisfy the constraints specified by the service. Check the error message for details about which input parameter is invalid and correct your request.</p>
+            aws_sdk_bedrock_agentcore.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

@@ -60,6 +60,11 @@ class TrustAnchor:
             enabled: <p>Specifies whether the trust anchor is enabled.</p>
             tags: <p>The tags to attach to the trust anchor.</p>
             notification_settings: <p>A list of notification settings to be associated to the trust anchor.</p>
+
+        Raises:
+            aws_sdk_rolesanywhere.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_rolesanywhere.errors.validation_exception.ValidationException: <p>Validation exception error.</p>
+            aws_sdk_rolesanywhere.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -104,6 +109,12 @@ class TrustAnchor:
 
         Args:
             trust_anchor_id: <p>The unique identifier of the trust anchor.</p>
+
+        Raises:
+            aws_sdk_rolesanywhere.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_rolesanywhere.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_rolesanywhere.errors.validation_exception.ValidationException: <p>Validation exception error.</p>
+            aws_sdk_rolesanywhere.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -145,6 +156,12 @@ class TrustAnchor:
             trust_anchor_id: <p>The unique identifier of the trust anchor.</p>
             name: <p>The name of the trust anchor.</p>
             source: <p>The trust anchor type and its related certificate data.</p>
+
+        Raises:
+            aws_sdk_rolesanywhere.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_rolesanywhere.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_rolesanywhere.errors.validation_exception.ValidationException: <p>Validation exception error.</p>
+            aws_sdk_rolesanywhere.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -186,6 +203,11 @@ class TrustAnchor:
 
         Args:
             trust_anchor_id: <p>The unique identifier of the trust anchor.</p>
+
+        Raises:
+            aws_sdk_rolesanywhere.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_rolesanywhere.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_rolesanywhere.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -225,6 +247,11 @@ class TrustAnchor:
         Args:
             next_token: <p>A token that indicates where the output should continue from, if a previous request did not show all results. To get the next results, make the request again with this value.</p>
             page_size: <p>The number of resources in the paginated list. </p>
+
+        Raises:
+            aws_sdk_rolesanywhere.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_rolesanywhere.errors.validation_exception.ValidationException: <p>Validation exception error.</p>
+            aws_sdk_rolesanywhere.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -265,6 +292,11 @@ class TrustAnchor:
 
         Args:
             trust_anchor_id: <p>The unique identifier of the trust anchor.</p>
+
+        Raises:
+            aws_sdk_rolesanywhere.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_rolesanywhere.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_rolesanywhere.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -302,6 +334,11 @@ class TrustAnchor:
 
         Args:
             trust_anchor_id: <p>The unique identifier of the trust anchor.</p>
+
+        Raises:
+            aws_sdk_rolesanywhere.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_rolesanywhere.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_rolesanywhere.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -354,6 +391,11 @@ class AsyncTrustAnchor:
             enabled: <p>Specifies whether the trust anchor is enabled.</p>
             tags: <p>The tags to attach to the trust anchor.</p>
             notification_settings: <p>A list of notification settings to be associated to the trust anchor.</p>
+
+        Raises:
+            aws_sdk_rolesanywhere.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_rolesanywhere.errors.validation_exception.ValidationException: <p>Validation exception error.</p>
+            aws_sdk_rolesanywhere.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -399,6 +441,12 @@ class AsyncTrustAnchor:
 
         Args:
             trust_anchor_id: <p>The unique identifier of the trust anchor.</p>
+
+        Raises:
+            aws_sdk_rolesanywhere.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_rolesanywhere.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_rolesanywhere.errors.validation_exception.ValidationException: <p>Validation exception error.</p>
+            aws_sdk_rolesanywhere.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -441,6 +489,12 @@ class AsyncTrustAnchor:
             trust_anchor_id: <p>The unique identifier of the trust anchor.</p>
             name: <p>The name of the trust anchor.</p>
             source: <p>The trust anchor type and its related certificate data.</p>
+
+        Raises:
+            aws_sdk_rolesanywhere.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_rolesanywhere.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_rolesanywhere.errors.validation_exception.ValidationException: <p>Validation exception error.</p>
+            aws_sdk_rolesanywhere.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -483,6 +537,11 @@ class AsyncTrustAnchor:
 
         Args:
             trust_anchor_id: <p>The unique identifier of the trust anchor.</p>
+
+        Raises:
+            aws_sdk_rolesanywhere.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_rolesanywhere.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_rolesanywhere.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -523,6 +582,11 @@ class AsyncTrustAnchor:
         Args:
             next_token: <p>A token that indicates where the output should continue from, if a previous request did not show all results. To get the next results, make the request again with this value.</p>
             page_size: <p>The number of resources in the paginated list. </p>
+
+        Raises:
+            aws_sdk_rolesanywhere.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_rolesanywhere.errors.validation_exception.ValidationException: <p>Validation exception error.</p>
+            aws_sdk_rolesanywhere.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -564,6 +628,11 @@ class AsyncTrustAnchor:
 
         Args:
             trust_anchor_id: <p>The unique identifier of the trust anchor.</p>
+
+        Raises:
+            aws_sdk_rolesanywhere.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_rolesanywhere.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_rolesanywhere.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -602,6 +671,11 @@ class AsyncTrustAnchor:
 
         Args:
             trust_anchor_id: <p>The unique identifier of the trust anchor.</p>
+
+        Raises:
+            aws_sdk_rolesanywhere.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_rolesanywhere.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_rolesanywhere.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

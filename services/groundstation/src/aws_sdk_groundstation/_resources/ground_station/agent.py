@@ -54,6 +54,12 @@ class Agent:
             discovery_data: <p>Data for associating an agent with the capabilities it is managing.</p>
             agent_details: <p>Detailed information about the agent being registered.</p>
             tags: <p>Tags assigned to an <code>Agent</code>.</p>
+
+        Raises:
+            aws_sdk_groundstation.errors.dependency_exception.DependencyException: <p>Dependency encountered an error.</p>
+            aws_sdk_groundstation.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters are not valid.</p>
+            aws_sdk_groundstation.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource was not found.</p>
+            aws_sdk_groundstation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -94,6 +100,12 @@ class Agent:
 
         Args:
             agent_id: <p>UUID of agent to get configuration information for.</p>
+
+        Raises:
+            aws_sdk_groundstation.errors.dependency_exception.DependencyException: <p>Dependency encountered an error.</p>
+            aws_sdk_groundstation.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters are not valid.</p>
+            aws_sdk_groundstation.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource was not found.</p>
+            aws_sdk_groundstation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -137,6 +149,12 @@ class Agent:
             task_id: <p>GUID of agent task.</p>
             aggregate_status: <p>Aggregate status for agent.</p>
             component_statuses: <p>List of component statuses for agent.</p>
+
+        Raises:
+            aws_sdk_groundstation.errors.dependency_exception.DependencyException: <p>Dependency encountered an error.</p>
+            aws_sdk_groundstation.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters are not valid.</p>
+            aws_sdk_groundstation.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource was not found.</p>
+            aws_sdk_groundstation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -186,6 +204,12 @@ class AsyncAgent:
             discovery_data: <p>Data for associating an agent with the capabilities it is managing.</p>
             agent_details: <p>Detailed information about the agent being registered.</p>
             tags: <p>Tags assigned to an <code>Agent</code>.</p>
+
+        Raises:
+            aws_sdk_groundstation.errors.dependency_exception.DependencyException: <p>Dependency encountered an error.</p>
+            aws_sdk_groundstation.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters are not valid.</p>
+            aws_sdk_groundstation.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource was not found.</p>
+            aws_sdk_groundstation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -227,6 +251,12 @@ class AsyncAgent:
 
         Args:
             agent_id: <p>UUID of agent to get configuration information for.</p>
+
+        Raises:
+            aws_sdk_groundstation.errors.dependency_exception.DependencyException: <p>Dependency encountered an error.</p>
+            aws_sdk_groundstation.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters are not valid.</p>
+            aws_sdk_groundstation.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource was not found.</p>
+            aws_sdk_groundstation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -271,6 +301,12 @@ class AsyncAgent:
             task_id: <p>GUID of agent task.</p>
             aggregate_status: <p>Aggregate status for agent.</p>
             component_statuses: <p>List of component statuses for agent.</p>
+
+        Raises:
+            aws_sdk_groundstation.errors.dependency_exception.DependencyException: <p>Dependency encountered an error.</p>
+            aws_sdk_groundstation.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters are not valid.</p>
+            aws_sdk_groundstation.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource was not found.</p>
+            aws_sdk_groundstation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

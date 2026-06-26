@@ -199,6 +199,16 @@ class LicenseManagerUserSubscriptionsClient:
             identity_provider: <p>The identity provider for the user.</p>
             domain: <p>The domain name of the Active Directory that contains information for the user to associate.</p>
             tags: <p>The tags that apply for the user association.</p>
+
+        Raises:
+            aws_sdk_license_manager_user_subscriptions.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action.</p>
+            aws_sdk_license_manager_user_subscriptions.errors.conflict_exception.ConflictException: <p>The request couldn't be completed because it conflicted with the current state of the resource.</p>
+            aws_sdk_license_manager_user_subscriptions.errors.internal_server_exception.InternalServerException: <p>An exception occurred with the service.</p>
+            aws_sdk_license_manager_user_subscriptions.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource couldn't be found.</p>
+            aws_sdk_license_manager_user_subscriptions.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request failed because a service quota is exceeded.</p>
+            aws_sdk_license_manager_user_subscriptions.errors.throttling_exception.ThrottlingException: <p>The request was denied because of request throttling. Retry the request.</p>
+            aws_sdk_license_manager_user_subscriptions.errors.validation_exception.ValidationException: <p>A parameter is not valid.</p>
+            aws_sdk_license_manager_user_subscriptions.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -248,6 +258,16 @@ class LicenseManagerUserSubscriptionsClient:
             identity_provider_arn: <p>The Amazon Resource Name (ARN) that identifies the <code>IdentityProvider</code> resource that contains details about a registered identity provider. In the case of Active Directory, that can be a self-managed Active Directory or an Amazon Web Services Managed Active Directory that contains user identity details.</p>
             license_server_settings: <p>The <code>LicenseServerSettings</code> resource to create for the endpoint. The settings include the type of license server and the Secrets Manager secret that enables administrators to add or remove users associated with the license server.</p>
             tags: <p>The tags that apply for the license server endpoint.</p>
+
+        Raises:
+            aws_sdk_license_manager_user_subscriptions.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action.</p>
+            aws_sdk_license_manager_user_subscriptions.errors.conflict_exception.ConflictException: <p>The request couldn't be completed because it conflicted with the current state of the resource.</p>
+            aws_sdk_license_manager_user_subscriptions.errors.internal_server_exception.InternalServerException: <p>An exception occurred with the service.</p>
+            aws_sdk_license_manager_user_subscriptions.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource couldn't be found.</p>
+            aws_sdk_license_manager_user_subscriptions.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request failed because a service quota is exceeded.</p>
+            aws_sdk_license_manager_user_subscriptions.errors.throttling_exception.ThrottlingException: <p>The request was denied because of request throttling. Retry the request.</p>
+            aws_sdk_license_manager_user_subscriptions.errors.validation_exception.ValidationException: <p>A parameter is not valid.</p>
+            aws_sdk_license_manager_user_subscriptions.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -290,6 +310,16 @@ class LicenseManagerUserSubscriptionsClient:
         Args:
             license_server_endpoint_arn: <p>The Amazon Resource Name (ARN) that identifies the <code>LicenseServerEndpoint</code> resource to delete.</p>
             server_type: <p>The type of License Server that the delete request refers to.</p>
+
+        Raises:
+            aws_sdk_license_manager_user_subscriptions.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action.</p>
+            aws_sdk_license_manager_user_subscriptions.errors.conflict_exception.ConflictException: <p>The request couldn't be completed because it conflicted with the current state of the resource.</p>
+            aws_sdk_license_manager_user_subscriptions.errors.internal_server_exception.InternalServerException: <p>An exception occurred with the service.</p>
+            aws_sdk_license_manager_user_subscriptions.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource couldn't be found.</p>
+            aws_sdk_license_manager_user_subscriptions.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request failed because a service quota is exceeded.</p>
+            aws_sdk_license_manager_user_subscriptions.errors.throttling_exception.ThrottlingException: <p>The request was denied because of request throttling. Retry the request.</p>
+            aws_sdk_license_manager_user_subscriptions.errors.validation_exception.ValidationException: <p>A parameter is not valid.</p>
+            aws_sdk_license_manager_user_subscriptions.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -336,6 +366,16 @@ class LicenseManagerUserSubscriptionsClient:
             identity_provider: <p>An object that specifies details for the Active Directory identity provider.</p>
             product: <p>The name of the user-based subscription product.</p> <p>Valid values: <code>VISUAL_STUDIO_ENTERPRISE</code> | <code>VISUAL_STUDIO_PROFESSIONAL</code> | <code>OFFICE_PROFESSIONAL_PLUS</code> | <code>REMOTE_DESKTOP_SERVICES</code> </p>
             identity_provider_arn: <p>The Amazon Resource Name (ARN) that identifies the identity provider to deregister.</p>
+
+        Raises:
+            aws_sdk_license_manager_user_subscriptions.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action.</p>
+            aws_sdk_license_manager_user_subscriptions.errors.conflict_exception.ConflictException: <p>The request couldn't be completed because it conflicted with the current state of the resource.</p>
+            aws_sdk_license_manager_user_subscriptions.errors.internal_server_exception.InternalServerException: <p>An exception occurred with the service.</p>
+            aws_sdk_license_manager_user_subscriptions.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource couldn't be found.</p>
+            aws_sdk_license_manager_user_subscriptions.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request failed because a service quota is exceeded.</p>
+            aws_sdk_license_manager_user_subscriptions.errors.throttling_exception.ThrottlingException: <p>The request was denied because of request throttling. Retry the request.</p>
+            aws_sdk_license_manager_user_subscriptions.errors.validation_exception.ValidationException: <p>A parameter is not valid.</p>
+            aws_sdk_license_manager_user_subscriptions.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -390,6 +430,16 @@ class LicenseManagerUserSubscriptionsClient:
             identity_provider: <p>An object that specifies details for the Active Directory identity provider.</p>
             instance_user_arn: <p>The Amazon Resource Name (ARN) of the user to disassociate from the EC2 instance.</p>
             domain: <p>The domain name of the Active Directory that contains information for the user to disassociate.</p>
+
+        Raises:
+            aws_sdk_license_manager_user_subscriptions.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action.</p>
+            aws_sdk_license_manager_user_subscriptions.errors.conflict_exception.ConflictException: <p>The request couldn't be completed because it conflicted with the current state of the resource.</p>
+            aws_sdk_license_manager_user_subscriptions.errors.internal_server_exception.InternalServerException: <p>An exception occurred with the service.</p>
+            aws_sdk_license_manager_user_subscriptions.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource couldn't be found.</p>
+            aws_sdk_license_manager_user_subscriptions.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request failed because a service quota is exceeded.</p>
+            aws_sdk_license_manager_user_subscriptions.errors.throttling_exception.ThrottlingException: <p>The request was denied because of request throttling. Retry the request.</p>
+            aws_sdk_license_manager_user_subscriptions.errors.validation_exception.ValidationException: <p>A parameter is not valid.</p>
+            aws_sdk_license_manager_user_subscriptions.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -444,6 +494,16 @@ class LicenseManagerUserSubscriptionsClient:
             max_results: <p>The maximum number of results to return from a single request.</p>
             filters: <p>You can use the following filters to streamline results:</p> <ul> <li> <p>Product</p> </li> <li> <p>DirectoryId</p> </li> </ul>
             next_token: <p>A token to specify where to start paginating. This is the nextToken from a previously truncated response.</p>
+
+        Raises:
+            aws_sdk_license_manager_user_subscriptions.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action.</p>
+            aws_sdk_license_manager_user_subscriptions.errors.conflict_exception.ConflictException: <p>The request couldn't be completed because it conflicted with the current state of the resource.</p>
+            aws_sdk_license_manager_user_subscriptions.errors.internal_server_exception.InternalServerException: <p>An exception occurred with the service.</p>
+            aws_sdk_license_manager_user_subscriptions.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource couldn't be found.</p>
+            aws_sdk_license_manager_user_subscriptions.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request failed because a service quota is exceeded.</p>
+            aws_sdk_license_manager_user_subscriptions.errors.throttling_exception.ThrottlingException: <p>The request was denied because of request throttling. Retry the request.</p>
+            aws_sdk_license_manager_user_subscriptions.errors.validation_exception.ValidationException: <p>A parameter is not valid.</p>
+            aws_sdk_license_manager_user_subscriptions.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -521,6 +581,16 @@ class LicenseManagerUserSubscriptionsClient:
             max_results: <p>The maximum number of results to return from a single request.</p>
             next_token: <p>A token to specify where to start paginating. This is the nextToken from a previously truncated response.</p>
             filters: <p>You can use the following filters to streamline results:</p> <ul> <li> <p>Status</p> </li> <li> <p>InstanceId</p> </li> </ul>
+
+        Raises:
+            aws_sdk_license_manager_user_subscriptions.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action.</p>
+            aws_sdk_license_manager_user_subscriptions.errors.conflict_exception.ConflictException: <p>The request couldn't be completed because it conflicted with the current state of the resource.</p>
+            aws_sdk_license_manager_user_subscriptions.errors.internal_server_exception.InternalServerException: <p>An exception occurred with the service.</p>
+            aws_sdk_license_manager_user_subscriptions.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource couldn't be found.</p>
+            aws_sdk_license_manager_user_subscriptions.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request failed because a service quota is exceeded.</p>
+            aws_sdk_license_manager_user_subscriptions.errors.throttling_exception.ThrottlingException: <p>The request was denied because of request throttling. Retry the request.</p>
+            aws_sdk_license_manager_user_subscriptions.errors.validation_exception.ValidationException: <p>A parameter is not valid.</p>
+            aws_sdk_license_manager_user_subscriptions.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -598,6 +668,15 @@ class LicenseManagerUserSubscriptionsClient:
             max_results: <p>The maximum number of results to return from a single request.</p>
             filters: <p>You can use the following filters to streamline results:</p> <ul> <li> <p>IdentityProviderArn</p> </li> </ul>
             next_token: <p>A token to specify where to start paginating. This is the nextToken from a previously truncated response.</p>
+
+        Raises:
+            aws_sdk_license_manager_user_subscriptions.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action.</p>
+            aws_sdk_license_manager_user_subscriptions.errors.conflict_exception.ConflictException: <p>The request couldn't be completed because it conflicted with the current state of the resource.</p>
+            aws_sdk_license_manager_user_subscriptions.errors.internal_server_exception.InternalServerException: <p>An exception occurred with the service.</p>
+            aws_sdk_license_manager_user_subscriptions.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request failed because a service quota is exceeded.</p>
+            aws_sdk_license_manager_user_subscriptions.errors.throttling_exception.ThrottlingException: <p>The request was denied because of request throttling. Retry the request.</p>
+            aws_sdk_license_manager_user_subscriptions.errors.validation_exception.ValidationException: <p>A parameter is not valid.</p>
+            aws_sdk_license_manager_user_subscriptions.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -679,6 +758,16 @@ class LicenseManagerUserSubscriptionsClient:
             max_results: <p>The maximum number of results to return from a single request.</p>
             filters: <p>You can use the following filters to streamline results:</p> <ul> <li> <p>Status</p> </li> <li> <p>Username</p> </li> <li> <p>Domain</p> </li> </ul>
             next_token: <p>A token to specify where to start paginating. This is the nextToken from a previously truncated response.</p>
+
+        Raises:
+            aws_sdk_license_manager_user_subscriptions.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action.</p>
+            aws_sdk_license_manager_user_subscriptions.errors.conflict_exception.ConflictException: <p>The request couldn't be completed because it conflicted with the current state of the resource.</p>
+            aws_sdk_license_manager_user_subscriptions.errors.internal_server_exception.InternalServerException: <p>An exception occurred with the service.</p>
+            aws_sdk_license_manager_user_subscriptions.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource couldn't be found.</p>
+            aws_sdk_license_manager_user_subscriptions.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request failed because a service quota is exceeded.</p>
+            aws_sdk_license_manager_user_subscriptions.errors.throttling_exception.ThrottlingException: <p>The request was denied because of request throttling. Retry the request.</p>
+            aws_sdk_license_manager_user_subscriptions.errors.validation_exception.ValidationException: <p>A parameter is not valid.</p>
+            aws_sdk_license_manager_user_subscriptions.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -755,6 +844,12 @@ class LicenseManagerUserSubscriptionsClient:
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource whose tags you want to retrieve.</p>
+
+        Raises:
+            aws_sdk_license_manager_user_subscriptions.errors.internal_server_exception.InternalServerException: <p>An exception occurred with the service.</p>
+            aws_sdk_license_manager_user_subscriptions.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource couldn't be found.</p>
+            aws_sdk_license_manager_user_subscriptions.errors.validation_exception.ValidationException: <p>A parameter is not valid.</p>
+            aws_sdk_license_manager_user_subscriptions.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -804,6 +899,16 @@ class LicenseManagerUserSubscriptionsClient:
             max_results: <p>The maximum number of results to return from a single request.</p>
             filters: <p>You can use the following filters to streamline results:</p> <ul> <li> <p>Status</p> </li> <li> <p>Username</p> </li> <li> <p>Domain</p> </li> </ul>
             next_token: <p>A token to specify where to start paginating. This is the nextToken from a previously truncated response.</p>
+
+        Raises:
+            aws_sdk_license_manager_user_subscriptions.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action.</p>
+            aws_sdk_license_manager_user_subscriptions.errors.conflict_exception.ConflictException: <p>The request couldn't be completed because it conflicted with the current state of the resource.</p>
+            aws_sdk_license_manager_user_subscriptions.errors.internal_server_exception.InternalServerException: <p>An exception occurred with the service.</p>
+            aws_sdk_license_manager_user_subscriptions.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource couldn't be found.</p>
+            aws_sdk_license_manager_user_subscriptions.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request failed because a service quota is exceeded.</p>
+            aws_sdk_license_manager_user_subscriptions.errors.throttling_exception.ThrottlingException: <p>The request was denied because of request throttling. Retry the request.</p>
+            aws_sdk_license_manager_user_subscriptions.errors.validation_exception.ValidationException: <p>A parameter is not valid.</p>
+            aws_sdk_license_manager_user_subscriptions.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -889,6 +994,16 @@ class LicenseManagerUserSubscriptionsClient:
             product: <p>The name of the user-based subscription product.</p> <p>Valid values: <code>VISUAL_STUDIO_ENTERPRISE</code> | <code>VISUAL_STUDIO_PROFESSIONAL</code> | <code>OFFICE_PROFESSIONAL_PLUS</code> | <code>REMOTE_DESKTOP_SERVICES</code> </p>
             settings: <p>The registered identity provider’s product related configuration settings such as the subnets to provision VPC endpoints.</p>
             tags: <p>The tags that apply to the identity provider's registration.</p>
+
+        Raises:
+            aws_sdk_license_manager_user_subscriptions.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action.</p>
+            aws_sdk_license_manager_user_subscriptions.errors.conflict_exception.ConflictException: <p>The request couldn't be completed because it conflicted with the current state of the resource.</p>
+            aws_sdk_license_manager_user_subscriptions.errors.internal_server_exception.InternalServerException: <p>An exception occurred with the service.</p>
+            aws_sdk_license_manager_user_subscriptions.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource couldn't be found.</p>
+            aws_sdk_license_manager_user_subscriptions.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request failed because a service quota is exceeded.</p>
+            aws_sdk_license_manager_user_subscriptions.errors.throttling_exception.ThrottlingException: <p>The request was denied because of request throttling. Retry the request.</p>
+            aws_sdk_license_manager_user_subscriptions.errors.validation_exception.ValidationException: <p>A parameter is not valid.</p>
+            aws_sdk_license_manager_user_subscriptions.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -941,6 +1056,16 @@ class LicenseManagerUserSubscriptionsClient:
             product: <p>The name of the user-based subscription product.</p> <p>Valid values: <code>VISUAL_STUDIO_ENTERPRISE</code> | <code>VISUAL_STUDIO_PROFESSIONAL</code> | <code>OFFICE_PROFESSIONAL_PLUS</code> | <code>REMOTE_DESKTOP_SERVICES</code> </p>
             domain: <p>The domain name of the Active Directory that contains the user for whom to start the product subscription.</p>
             tags: <p>The tags that apply to the product subscription.</p>
+
+        Raises:
+            aws_sdk_license_manager_user_subscriptions.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action.</p>
+            aws_sdk_license_manager_user_subscriptions.errors.conflict_exception.ConflictException: <p>The request couldn't be completed because it conflicted with the current state of the resource.</p>
+            aws_sdk_license_manager_user_subscriptions.errors.internal_server_exception.InternalServerException: <p>An exception occurred with the service.</p>
+            aws_sdk_license_manager_user_subscriptions.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource couldn't be found.</p>
+            aws_sdk_license_manager_user_subscriptions.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request failed because a service quota is exceeded.</p>
+            aws_sdk_license_manager_user_subscriptions.errors.throttling_exception.ThrottlingException: <p>The request was denied because of request throttling. Retry the request.</p>
+            aws_sdk_license_manager_user_subscriptions.errors.validation_exception.ValidationException: <p>A parameter is not valid.</p>
+            aws_sdk_license_manager_user_subscriptions.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -996,6 +1121,16 @@ class LicenseManagerUserSubscriptionsClient:
             product: <p>The name of the user-based subscription product.</p> <p>Valid values: <code>VISUAL_STUDIO_ENTERPRISE</code> | <code>VISUAL_STUDIO_PROFESSIONAL</code> | <code>OFFICE_PROFESSIONAL_PLUS</code> | <code>REMOTE_DESKTOP_SERVICES</code> </p>
             product_user_arn: <p>The Amazon Resource Name (ARN) of the product user.</p>
             domain: <p>The domain name of the Active Directory that contains the user for whom to stop the product subscription.</p>
+
+        Raises:
+            aws_sdk_license_manager_user_subscriptions.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action.</p>
+            aws_sdk_license_manager_user_subscriptions.errors.conflict_exception.ConflictException: <p>The request couldn't be completed because it conflicted with the current state of the resource.</p>
+            aws_sdk_license_manager_user_subscriptions.errors.internal_server_exception.InternalServerException: <p>An exception occurred with the service.</p>
+            aws_sdk_license_manager_user_subscriptions.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource couldn't be found.</p>
+            aws_sdk_license_manager_user_subscriptions.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request failed because a service quota is exceeded.</p>
+            aws_sdk_license_manager_user_subscriptions.errors.throttling_exception.ThrottlingException: <p>The request was denied because of request throttling. Retry the request.</p>
+            aws_sdk_license_manager_user_subscriptions.errors.validation_exception.ValidationException: <p>A parameter is not valid.</p>
+            aws_sdk_license_manager_user_subscriptions.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1044,6 +1179,12 @@ class LicenseManagerUserSubscriptionsClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource that you want to tag.</p>
             tags: <p>The tags to apply to the specified resource.</p>
+
+        Raises:
+            aws_sdk_license_manager_user_subscriptions.errors.internal_server_exception.InternalServerException: <p>An exception occurred with the service.</p>
+            aws_sdk_license_manager_user_subscriptions.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource couldn't be found.</p>
+            aws_sdk_license_manager_user_subscriptions.errors.validation_exception.ValidationException: <p>A parameter is not valid.</p>
+            aws_sdk_license_manager_user_subscriptions.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1084,6 +1225,11 @@ class LicenseManagerUserSubscriptionsClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource that you want to remove tags from.</p>
             tag_keys: <p>The tag keys to remove from the resource.</p>
+
+        Raises:
+            aws_sdk_license_manager_user_subscriptions.errors.internal_server_exception.InternalServerException: <p>An exception occurred with the service.</p>
+            aws_sdk_license_manager_user_subscriptions.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource couldn't be found.</p>
+            aws_sdk_license_manager_user_subscriptions.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1131,6 +1277,13 @@ class LicenseManagerUserSubscriptionsClient:
             product: <p>The name of the user-based subscription product.</p> <p>Valid values: <code>VISUAL_STUDIO_ENTERPRISE</code> | <code>VISUAL_STUDIO_PROFESSIONAL</code> | <code>OFFICE_PROFESSIONAL_PLUS</code> | <code>REMOTE_DESKTOP_SERVICES</code> </p>
             identity_provider_arn: <p>The Amazon Resource Name (ARN) of the identity provider to update.</p>
             update_settings: <p>Updates the registered identity provider’s product related configuration settings. You can update any combination of settings in a single operation such as the:</p> <ul> <li> <p>Subnets which you want to add to provision VPC endpoints.</p> </li> <li> <p>Subnets which you want to remove the VPC endpoints from.</p> </li> <li> <p>Security group ID which permits traffic to the VPC endpoints.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_license_manager_user_subscriptions.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action.</p>
+            aws_sdk_license_manager_user_subscriptions.errors.internal_server_exception.InternalServerException: <p>An exception occurred with the service.</p>
+            aws_sdk_license_manager_user_subscriptions.errors.throttling_exception.ThrottlingException: <p>The request was denied because of request throttling. Retry the request.</p>
+            aws_sdk_license_manager_user_subscriptions.errors.validation_exception.ValidationException: <p>A parameter is not valid.</p>
+            aws_sdk_license_manager_user_subscriptions.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(

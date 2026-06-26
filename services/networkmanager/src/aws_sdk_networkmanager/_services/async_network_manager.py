@@ -411,6 +411,15 @@ class AsyncNetworkManagerClient:
 
         Args:
             attachment_id: <p>The ID of the attachment. </p>
+
+        Raises:
+            aws_sdk_networkmanager.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_networkmanager.errors.conflict_exception.ConflictException: <p>There was a conflict processing the request. Updating or deleting the resource can cause an inconsistent state.</p>
+            aws_sdk_networkmanager.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal error.</p>
+            aws_sdk_networkmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_networkmanager.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_networkmanager.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints.</p>
+            aws_sdk_networkmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -455,6 +464,16 @@ class AsyncNetworkManagerClient:
             connect_peer_id: <p>The ID of the Connect peer.</p>
             device_id: <p>The ID of the device.</p>
             link_id: <p>The ID of the link.</p>
+
+        Raises:
+            aws_sdk_networkmanager.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_networkmanager.errors.conflict_exception.ConflictException: <p>There was a conflict processing the request. Updating or deleting the resource can cause an inconsistent state.</p>
+            aws_sdk_networkmanager.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal error.</p>
+            aws_sdk_networkmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_networkmanager.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>A service limit was exceeded.</p>
+            aws_sdk_networkmanager.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_networkmanager.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints.</p>
+            aws_sdk_networkmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -503,6 +522,16 @@ class AsyncNetworkManagerClient:
             global_network_id: <p>The ID of the global network.</p>
             device_id: <p>The ID of the device.</p>
             link_id: <p>The ID of the link.</p>
+
+        Raises:
+            aws_sdk_networkmanager.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_networkmanager.errors.conflict_exception.ConflictException: <p>There was a conflict processing the request. Updating or deleting the resource can cause an inconsistent state.</p>
+            aws_sdk_networkmanager.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal error.</p>
+            aws_sdk_networkmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_networkmanager.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>A service limit was exceeded.</p>
+            aws_sdk_networkmanager.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_networkmanager.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints.</p>
+            aws_sdk_networkmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -549,6 +578,16 @@ class AsyncNetworkManagerClient:
             global_network_id: <p>The ID of the global network.</p>
             device_id: <p>The ID of the device.</p>
             link_id: <p>The ID of the link.</p>
+
+        Raises:
+            aws_sdk_networkmanager.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_networkmanager.errors.conflict_exception.ConflictException: <p>There was a conflict processing the request. Updating or deleting the resource can cause an inconsistent state.</p>
+            aws_sdk_networkmanager.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal error.</p>
+            aws_sdk_networkmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_networkmanager.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>A service limit was exceeded.</p>
+            aws_sdk_networkmanager.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_networkmanager.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints.</p>
+            aws_sdk_networkmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -595,6 +634,16 @@ class AsyncNetworkManagerClient:
             transit_gateway_connect_peer_arn: <p>The Amazon Resource Name (ARN) of the Connect peer.</p>
             device_id: <p>The ID of the device.</p>
             link_id: <p>The ID of the link.</p>
+
+        Raises:
+            aws_sdk_networkmanager.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_networkmanager.errors.conflict_exception.ConflictException: <p>There was a conflict processing the request. Updating or deleting the resource can cause an inconsistent state.</p>
+            aws_sdk_networkmanager.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal error.</p>
+            aws_sdk_networkmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_networkmanager.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>A service limit was exceeded.</p>
+            aws_sdk_networkmanager.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_networkmanager.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints.</p>
+            aws_sdk_networkmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -653,6 +702,15 @@ class AsyncNetworkManagerClient:
             options: <p>Options for creating an attachment.</p>
             tags: <p>The list of key-value tags associated with the request.</p>
             client_token: <p>The client token associated with the request.</p>
+
+        Raises:
+            aws_sdk_networkmanager.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_networkmanager.errors.conflict_exception.ConflictException: <p>There was a conflict processing the request. Updating or deleting the resource can cause an inconsistent state.</p>
+            aws_sdk_networkmanager.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal error.</p>
+            aws_sdk_networkmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_networkmanager.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_networkmanager.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints.</p>
+            aws_sdk_networkmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -716,6 +774,15 @@ class AsyncNetworkManagerClient:
             connected_link_id: <p>The ID of the link for the second device.</p>
             description: <p>A description of the connection.</p> <p>Length Constraints: Maximum length of 256 characters.</p>
             tags: <p>The tags to apply to the resource during creation.</p>
+
+        Raises:
+            aws_sdk_networkmanager.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_networkmanager.errors.conflict_exception.ConflictException: <p>There was a conflict processing the request. Updating or deleting the resource can cause an inconsistent state.</p>
+            aws_sdk_networkmanager.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal error.</p>
+            aws_sdk_networkmanager.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>A service limit was exceeded.</p>
+            aws_sdk_networkmanager.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_networkmanager.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints.</p>
+            aws_sdk_networkmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -788,6 +855,15 @@ class AsyncNetworkManagerClient:
             tags: <p>The tags associated with the peer request.</p>
             client_token: <p>The client token associated with the request.</p>
             subnet_arn: <p>The subnet ARN for the Connect peer. This only applies only when the protocol is NO_ENCAP.</p>
+
+        Raises:
+            aws_sdk_networkmanager.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_networkmanager.errors.conflict_exception.ConflictException: <p>There was a conflict processing the request. Updating or deleting the resource can cause an inconsistent state.</p>
+            aws_sdk_networkmanager.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal error.</p>
+            aws_sdk_networkmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_networkmanager.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_networkmanager.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints.</p>
+            aws_sdk_networkmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -853,6 +929,16 @@ class AsyncNetworkManagerClient:
             tags: <p>Key-value tags associated with a core network request.</p>
             policy_document: <p>The policy document for creating a core network.</p>
             client_token: <p>The client token associated with a core network request.</p>
+
+        Raises:
+            aws_sdk_networkmanager.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_networkmanager.errors.conflict_exception.ConflictException: <p>There was a conflict processing the request. Updating or deleting the resource can cause an inconsistent state.</p>
+            aws_sdk_networkmanager.errors.core_network_policy_exception.CoreNetworkPolicyException: <p>Describes a core network policy exception.</p>
+            aws_sdk_networkmanager.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal error.</p>
+            aws_sdk_networkmanager.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>A service limit was exceeded.</p>
+            aws_sdk_networkmanager.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_networkmanager.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints.</p>
+            aws_sdk_networkmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -907,6 +993,16 @@ class AsyncNetworkManagerClient:
             prefix_list_arn: <p>The ARN of the prefix list to associate with the core network.</p>
             prefix_list_alias: <p>An optional alias for the prefix list association.</p>
             client_token: <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+
+        Raises:
+            aws_sdk_networkmanager.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_networkmanager.errors.conflict_exception.ConflictException: <p>There was a conflict processing the request. Updating or deleting the resource can cause an inconsistent state.</p>
+            aws_sdk_networkmanager.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal error.</p>
+            aws_sdk_networkmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_networkmanager.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>A service limit was exceeded.</p>
+            aws_sdk_networkmanager.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_networkmanager.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints.</p>
+            aws_sdk_networkmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -979,6 +1075,16 @@ class AsyncNetworkManagerClient:
             location: <p>The location of the device.</p>
             site_id: <p>The ID of the site.</p>
             tags: <p>The tags to apply to the resource during creation.</p>
+
+        Raises:
+            aws_sdk_networkmanager.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_networkmanager.errors.conflict_exception.ConflictException: <p>There was a conflict processing the request. Updating or deleting the resource can cause an inconsistent state.</p>
+            aws_sdk_networkmanager.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal error.</p>
+            aws_sdk_networkmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_networkmanager.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>A service limit was exceeded.</p>
+            aws_sdk_networkmanager.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_networkmanager.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints.</p>
+            aws_sdk_networkmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1049,6 +1155,15 @@ class AsyncNetworkManagerClient:
             edge_locations: <p>One or more core network edge locations that the Direct Connect gateway attachment is associated with. </p>
             tags: <p>The key value tags to apply to the Direct Connect gateway attachment during creation.</p>
             client_token: <p>client token</p>
+
+        Raises:
+            aws_sdk_networkmanager.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_networkmanager.errors.conflict_exception.ConflictException: <p>There was a conflict processing the request. Updating or deleting the resource can cause an inconsistent state.</p>
+            aws_sdk_networkmanager.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal error.</p>
+            aws_sdk_networkmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_networkmanager.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_networkmanager.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints.</p>
+            aws_sdk_networkmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1099,6 +1214,15 @@ class AsyncNetworkManagerClient:
         Args:
             description: <p>A description of the global network.</p> <p>Constraints: Maximum length of 256 characters.</p>
             tags: <p>The tags to apply to the resource during creation.</p>
+
+        Raises:
+            aws_sdk_networkmanager.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_networkmanager.errors.conflict_exception.ConflictException: <p>There was a conflict processing the request. Updating or deleting the resource can cause an inconsistent state.</p>
+            aws_sdk_networkmanager.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal error.</p>
+            aws_sdk_networkmanager.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>A service limit was exceeded.</p>
+            aws_sdk_networkmanager.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_networkmanager.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints.</p>
+            aws_sdk_networkmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1158,6 +1282,16 @@ class AsyncNetworkManagerClient:
             provider: <p>The provider of the link.</p> <p>Constraints: Maximum length of 128 characters. Cannot include the following characters: | \ ^</p>
             site_id: <p>The ID of the site.</p>
             tags: <p>The tags to apply to the resource during creation.</p>
+
+        Raises:
+            aws_sdk_networkmanager.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_networkmanager.errors.conflict_exception.ConflictException: <p>There was a conflict processing the request. Updating or deleting the resource can cause an inconsistent state.</p>
+            aws_sdk_networkmanager.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal error.</p>
+            aws_sdk_networkmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_networkmanager.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>A service limit was exceeded.</p>
+            aws_sdk_networkmanager.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_networkmanager.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints.</p>
+            aws_sdk_networkmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1214,6 +1348,16 @@ class AsyncNetworkManagerClient:
             description: <p>A description of your site.</p> <p>Constraints: Maximum length of 256 characters.</p>
             location: <p>The site location. This information is used for visualization in the Network Manager console. If you specify the address, the latitude and longitude are automatically calculated.</p> <ul> <li> <p> <code>Address</code>: The physical address of the site.</p> </li> <li> <p> <code>Latitude</code>: The latitude of the site. </p> </li> <li> <p> <code>Longitude</code>: The longitude of the site.</p> </li> </ul>
             tags: <p>The tags to apply to the resource during creation.</p>
+
+        Raises:
+            aws_sdk_networkmanager.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_networkmanager.errors.conflict_exception.ConflictException: <p>There was a conflict processing the request. Updating or deleting the resource can cause an inconsistent state.</p>
+            aws_sdk_networkmanager.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal error.</p>
+            aws_sdk_networkmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_networkmanager.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>A service limit was exceeded.</p>
+            aws_sdk_networkmanager.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_networkmanager.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints.</p>
+            aws_sdk_networkmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1270,6 +1414,15 @@ class AsyncNetworkManagerClient:
             routing_policy_label: <p>The routing policy label to apply to the Site-to-Site VPN attachment for traffic routing decisions.</p>
             tags: <p>The tags associated with the request.</p>
             client_token: <p>The client token associated with the request.</p>
+
+        Raises:
+            aws_sdk_networkmanager.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_networkmanager.errors.conflict_exception.ConflictException: <p>There was a conflict processing the request. Updating or deleting the resource can cause an inconsistent state.</p>
+            aws_sdk_networkmanager.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal error.</p>
+            aws_sdk_networkmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_networkmanager.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_networkmanager.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints.</p>
+            aws_sdk_networkmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1323,6 +1476,15 @@ class AsyncNetworkManagerClient:
             transit_gateway_arn: <p>The ARN of the transit gateway for the peering request.</p>
             tags: <p>The list of key-value tags associated with the request.</p>
             client_token: <p>The client token associated with the request.</p>
+
+        Raises:
+            aws_sdk_networkmanager.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_networkmanager.errors.conflict_exception.ConflictException: <p>There was a conflict processing the request. Updating or deleting the resource can cause an inconsistent state.</p>
+            aws_sdk_networkmanager.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal error.</p>
+            aws_sdk_networkmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_networkmanager.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_networkmanager.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints.</p>
+            aws_sdk_networkmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1378,6 +1540,15 @@ class AsyncNetworkManagerClient:
             routing_policy_label: <p>The routing policy label to apply to the Transit Gateway route table attachment for traffic routing decisions.</p>
             tags: <p>The list of key-value tags associated with the request.</p>
             client_token: <p>The client token associated with the request.</p>
+
+        Raises:
+            aws_sdk_networkmanager.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_networkmanager.errors.conflict_exception.ConflictException: <p>There was a conflict processing the request. Updating or deleting the resource can cause an inconsistent state.</p>
+            aws_sdk_networkmanager.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal error.</p>
+            aws_sdk_networkmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_networkmanager.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_networkmanager.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints.</p>
+            aws_sdk_networkmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1439,6 +1610,15 @@ class AsyncNetworkManagerClient:
             routing_policy_label: <p>The routing policy label to apply to the VPC attachment for traffic routing decisions.</p>
             tags: <p>The key-value tags associated with the request.</p>
             client_token: <p>The client token associated with the request.</p>
+
+        Raises:
+            aws_sdk_networkmanager.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_networkmanager.errors.conflict_exception.ConflictException: <p>There was a conflict processing the request. Updating or deleting the resource can cause an inconsistent state.</p>
+            aws_sdk_networkmanager.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal error.</p>
+            aws_sdk_networkmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_networkmanager.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_networkmanager.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints.</p>
+            aws_sdk_networkmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1487,6 +1667,15 @@ class AsyncNetworkManagerClient:
 
         Args:
             attachment_id: <p>The ID of the attachment to delete.</p>
+
+        Raises:
+            aws_sdk_networkmanager.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_networkmanager.errors.conflict_exception.ConflictException: <p>There was a conflict processing the request. Updating or deleting the resource can cause an inconsistent state.</p>
+            aws_sdk_networkmanager.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal error.</p>
+            aws_sdk_networkmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_networkmanager.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_networkmanager.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints.</p>
+            aws_sdk_networkmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1527,6 +1716,15 @@ class AsyncNetworkManagerClient:
         Args:
             global_network_id: <p>The ID of the global network.</p>
             connection_id: <p>The ID of the connection.</p>
+
+        Raises:
+            aws_sdk_networkmanager.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_networkmanager.errors.conflict_exception.ConflictException: <p>There was a conflict processing the request. Updating or deleting the resource can cause an inconsistent state.</p>
+            aws_sdk_networkmanager.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal error.</p>
+            aws_sdk_networkmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_networkmanager.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_networkmanager.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints.</p>
+            aws_sdk_networkmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1566,6 +1764,15 @@ class AsyncNetworkManagerClient:
 
         Args:
             connect_peer_id: <p>The ID of the deleted Connect peer.</p>
+
+        Raises:
+            aws_sdk_networkmanager.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_networkmanager.errors.conflict_exception.ConflictException: <p>There was a conflict processing the request. Updating or deleting the resource can cause an inconsistent state.</p>
+            aws_sdk_networkmanager.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal error.</p>
+            aws_sdk_networkmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_networkmanager.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_networkmanager.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints.</p>
+            aws_sdk_networkmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1604,6 +1811,15 @@ class AsyncNetworkManagerClient:
 
         Args:
             core_network_id: <p>The network ID of the deleted core network.</p>
+
+        Raises:
+            aws_sdk_networkmanager.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_networkmanager.errors.conflict_exception.ConflictException: <p>There was a conflict processing the request. Updating or deleting the resource can cause an inconsistent state.</p>
+            aws_sdk_networkmanager.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal error.</p>
+            aws_sdk_networkmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_networkmanager.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_networkmanager.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints.</p>
+            aws_sdk_networkmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1644,6 +1860,15 @@ class AsyncNetworkManagerClient:
         Args:
             core_network_id: <p>The ID of a core network for the deleted policy.</p>
             policy_version_id: <p>The version ID of the deleted policy.</p>
+
+        Raises:
+            aws_sdk_networkmanager.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_networkmanager.errors.conflict_exception.ConflictException: <p>There was a conflict processing the request. Updating or deleting the resource can cause an inconsistent state.</p>
+            aws_sdk_networkmanager.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal error.</p>
+            aws_sdk_networkmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_networkmanager.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_networkmanager.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints.</p>
+            aws_sdk_networkmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1685,6 +1910,16 @@ class AsyncNetworkManagerClient:
         Args:
             core_network_id: <p>The ID of the core network from which to delete the prefix list association.</p>
             prefix_list_arn: <p>The ARN of the prefix list to disassociate from the core network.</p>
+
+        Raises:
+            aws_sdk_networkmanager.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_networkmanager.errors.conflict_exception.ConflictException: <p>There was a conflict processing the request. Updating or deleting the resource can cause an inconsistent state.</p>
+            aws_sdk_networkmanager.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal error.</p>
+            aws_sdk_networkmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_networkmanager.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>A service limit was exceeded.</p>
+            aws_sdk_networkmanager.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_networkmanager.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints.</p>
+            aws_sdk_networkmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1726,6 +1961,15 @@ class AsyncNetworkManagerClient:
         Args:
             global_network_id: <p>The ID of the global network.</p>
             device_id: <p>The ID of the device.</p>
+
+        Raises:
+            aws_sdk_networkmanager.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_networkmanager.errors.conflict_exception.ConflictException: <p>There was a conflict processing the request. Updating or deleting the resource can cause an inconsistent state.</p>
+            aws_sdk_networkmanager.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal error.</p>
+            aws_sdk_networkmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_networkmanager.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_networkmanager.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints.</p>
+            aws_sdk_networkmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1765,6 +2009,15 @@ class AsyncNetworkManagerClient:
 
         Args:
             global_network_id: <p>The ID of the global network.</p>
+
+        Raises:
+            aws_sdk_networkmanager.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_networkmanager.errors.conflict_exception.ConflictException: <p>There was a conflict processing the request. Updating or deleting the resource can cause an inconsistent state.</p>
+            aws_sdk_networkmanager.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal error.</p>
+            aws_sdk_networkmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_networkmanager.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_networkmanager.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints.</p>
+            aws_sdk_networkmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1805,6 +2058,15 @@ class AsyncNetworkManagerClient:
         Args:
             global_network_id: <p>The ID of the global network.</p>
             link_id: <p>The ID of the link.</p>
+
+        Raises:
+            aws_sdk_networkmanager.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_networkmanager.errors.conflict_exception.ConflictException: <p>There was a conflict processing the request. Updating or deleting the resource can cause an inconsistent state.</p>
+            aws_sdk_networkmanager.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal error.</p>
+            aws_sdk_networkmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_networkmanager.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_networkmanager.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints.</p>
+            aws_sdk_networkmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1844,6 +2106,15 @@ class AsyncNetworkManagerClient:
 
         Args:
             peering_id: <p>The ID of the peering connection to delete.</p>
+
+        Raises:
+            aws_sdk_networkmanager.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_networkmanager.errors.conflict_exception.ConflictException: <p>There was a conflict processing the request. Updating or deleting the resource can cause an inconsistent state.</p>
+            aws_sdk_networkmanager.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal error.</p>
+            aws_sdk_networkmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_networkmanager.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_networkmanager.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints.</p>
+            aws_sdk_networkmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1882,6 +2153,14 @@ class AsyncNetworkManagerClient:
 
         Args:
             resource_arn: <p>The ARN of the policy to delete.</p>
+
+        Raises:
+            aws_sdk_networkmanager.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_networkmanager.errors.conflict_exception.ConflictException: <p>There was a conflict processing the request. Updating or deleting the resource can cause an inconsistent state.</p>
+            aws_sdk_networkmanager.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal error.</p>
+            aws_sdk_networkmanager.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_networkmanager.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints.</p>
+            aws_sdk_networkmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1922,6 +2201,15 @@ class AsyncNetworkManagerClient:
         Args:
             global_network_id: <p>The ID of the global network.</p>
             site_id: <p>The ID of the site.</p>
+
+        Raises:
+            aws_sdk_networkmanager.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_networkmanager.errors.conflict_exception.ConflictException: <p>There was a conflict processing the request. Updating or deleting the resource can cause an inconsistent state.</p>
+            aws_sdk_networkmanager.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal error.</p>
+            aws_sdk_networkmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_networkmanager.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_networkmanager.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints.</p>
+            aws_sdk_networkmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1963,6 +2251,15 @@ class AsyncNetworkManagerClient:
         Args:
             global_network_id: <p>The ID of the global network.</p>
             transit_gateway_arn: <p>The Amazon Resource Name (ARN) of the transit gateway.</p>
+
+        Raises:
+            aws_sdk_networkmanager.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_networkmanager.errors.conflict_exception.ConflictException: <p>There was a conflict processing the request. Updating or deleting the resource can cause an inconsistent state.</p>
+            aws_sdk_networkmanager.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal error.</p>
+            aws_sdk_networkmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_networkmanager.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_networkmanager.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints.</p>
+            aws_sdk_networkmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2012,6 +2309,14 @@ class AsyncNetworkManagerClient:
             global_network_ids: <p>The IDs of one or more global networks. The maximum is 10.</p>
             max_results: <p>The maximum number of results to return.</p>
             next_token: <p>The token for the next page of results.</p>
+
+        Raises:
+            aws_sdk_networkmanager.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_networkmanager.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal error.</p>
+            aws_sdk_networkmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_networkmanager.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_networkmanager.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints.</p>
+            aws_sdk_networkmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2086,6 +2391,15 @@ class AsyncNetworkManagerClient:
         Args:
             global_network_id: <p>The ID of the global network.</p>
             connect_peer_id: <p>The ID of the Connect peer to disassociate from a device.</p>
+
+        Raises:
+            aws_sdk_networkmanager.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_networkmanager.errors.conflict_exception.ConflictException: <p>There was a conflict processing the request. Updating or deleting the resource can cause an inconsistent state.</p>
+            aws_sdk_networkmanager.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal error.</p>
+            aws_sdk_networkmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_networkmanager.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_networkmanager.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints.</p>
+            aws_sdk_networkmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2127,6 +2441,15 @@ class AsyncNetworkManagerClient:
         Args:
             global_network_id: <p>The ID of the global network.</p>
             customer_gateway_arn: <p>The Amazon Resource Name (ARN) of the customer gateway.</p>
+
+        Raises:
+            aws_sdk_networkmanager.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_networkmanager.errors.conflict_exception.ConflictException: <p>There was a conflict processing the request. Updating or deleting the resource can cause an inconsistent state.</p>
+            aws_sdk_networkmanager.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal error.</p>
+            aws_sdk_networkmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_networkmanager.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_networkmanager.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints.</p>
+            aws_sdk_networkmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2170,6 +2493,15 @@ class AsyncNetworkManagerClient:
             global_network_id: <p>The ID of the global network.</p>
             device_id: <p>The ID of the device.</p>
             link_id: <p>The ID of the link.</p>
+
+        Raises:
+            aws_sdk_networkmanager.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_networkmanager.errors.conflict_exception.ConflictException: <p>There was a conflict processing the request. Updating or deleting the resource can cause an inconsistent state.</p>
+            aws_sdk_networkmanager.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal error.</p>
+            aws_sdk_networkmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_networkmanager.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_networkmanager.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints.</p>
+            aws_sdk_networkmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2212,6 +2544,15 @@ class AsyncNetworkManagerClient:
         Args:
             global_network_id: <p>The ID of the global network.</p>
             transit_gateway_connect_peer_arn: <p>The Amazon Resource Name (ARN) of the transit gateway Connect peer.</p>
+
+        Raises:
+            aws_sdk_networkmanager.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_networkmanager.errors.conflict_exception.ConflictException: <p>There was a conflict processing the request. Updating or deleting the resource can cause an inconsistent state.</p>
+            aws_sdk_networkmanager.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal error.</p>
+            aws_sdk_networkmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_networkmanager.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_networkmanager.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints.</p>
+            aws_sdk_networkmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2253,6 +2594,15 @@ class AsyncNetworkManagerClient:
         Args:
             core_network_id: <p>The ID of a core network.</p>
             policy_version_id: <p>The ID of the policy version.</p>
+
+        Raises:
+            aws_sdk_networkmanager.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_networkmanager.errors.conflict_exception.ConflictException: <p>There was a conflict processing the request. Updating or deleting the resource can cause an inconsistent state.</p>
+            aws_sdk_networkmanager.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal error.</p>
+            aws_sdk_networkmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_networkmanager.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_networkmanager.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints.</p>
+            aws_sdk_networkmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2292,6 +2642,14 @@ class AsyncNetworkManagerClient:
 
         Args:
             attachment_id: <p>The ID of the attachment.</p>
+
+        Raises:
+            aws_sdk_networkmanager.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_networkmanager.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal error.</p>
+            aws_sdk_networkmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_networkmanager.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_networkmanager.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints.</p>
+            aws_sdk_networkmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2344,6 +2702,14 @@ class AsyncNetworkManagerClient:
             device_id: <p>The ID of the device.</p>
             max_results: <p>The maximum number of results to return.</p>
             next_token: <p>The token for the next page of results.</p>
+
+        Raises:
+            aws_sdk_networkmanager.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_networkmanager.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal error.</p>
+            aws_sdk_networkmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_networkmanager.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_networkmanager.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints.</p>
+            aws_sdk_networkmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2425,6 +2791,14 @@ class AsyncNetworkManagerClient:
 
         Args:
             connect_peer_id: <p>The ID of the Connect peer.</p>
+
+        Raises:
+            aws_sdk_networkmanager.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_networkmanager.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal error.</p>
+            aws_sdk_networkmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_networkmanager.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_networkmanager.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints.</p>
+            aws_sdk_networkmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2475,6 +2849,15 @@ class AsyncNetworkManagerClient:
             connect_peer_ids: <p>The IDs of the Connect peers.</p>
             max_results: <p>The maximum number of results to return.</p>
             next_token: <p>The token for the next page of results.</p>
+
+        Raises:
+            aws_sdk_networkmanager.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_networkmanager.errors.conflict_exception.ConflictException: <p>There was a conflict processing the request. Updating or deleting the resource can cause an inconsistent state.</p>
+            aws_sdk_networkmanager.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal error.</p>
+            aws_sdk_networkmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_networkmanager.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_networkmanager.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints.</p>
+            aws_sdk_networkmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2552,6 +2935,14 @@ class AsyncNetworkManagerClient:
 
         Args:
             core_network_id: <p>The ID of a core network.</p>
+
+        Raises:
+            aws_sdk_networkmanager.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_networkmanager.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal error.</p>
+            aws_sdk_networkmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_networkmanager.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_networkmanager.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints.</p>
+            aws_sdk_networkmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2600,6 +2991,14 @@ class AsyncNetworkManagerClient:
             policy_version_id: <p>The ID of the policy version.</p>
             max_results: <p>The maximum number of results to return.</p>
             next_token: <p>The token for the next page of results.</p>
+
+        Raises:
+            aws_sdk_networkmanager.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_networkmanager.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal error.</p>
+            aws_sdk_networkmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_networkmanager.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_networkmanager.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints.</p>
+            aws_sdk_networkmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2682,6 +3081,14 @@ class AsyncNetworkManagerClient:
             policy_version_id: <p>The ID of the policy version.</p>
             max_results: <p>The maximum number of results to return.</p>
             next_token: <p>The token for the next page of results.</p>
+
+        Raises:
+            aws_sdk_networkmanager.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_networkmanager.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal error.</p>
+            aws_sdk_networkmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_networkmanager.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_networkmanager.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints.</p>
+            aws_sdk_networkmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2762,6 +3169,14 @@ class AsyncNetworkManagerClient:
             core_network_id: <p>The ID of a core network.</p>
             policy_version_id: <p>The ID of a core network policy version.</p>
             alias: <p>The alias of a core network policy </p>
+
+        Raises:
+            aws_sdk_networkmanager.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_networkmanager.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal error.</p>
+            aws_sdk_networkmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_networkmanager.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_networkmanager.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints.</p>
+            aws_sdk_networkmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2816,6 +3231,15 @@ class AsyncNetworkManagerClient:
             customer_gateway_arns: <p>One or more customer gateway Amazon Resource Names (ARNs). The maximum is 10.</p>
             max_results: <p>The maximum number of results to return.</p>
             next_token: <p>The token for the next page of results.</p>
+
+        Raises:
+            aws_sdk_networkmanager.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_networkmanager.errors.conflict_exception.ConflictException: <p>There was a conflict processing the request. Updating or deleting the resource can cause an inconsistent state.</p>
+            aws_sdk_networkmanager.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal error.</p>
+            aws_sdk_networkmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_networkmanager.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_networkmanager.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints.</p>
+            aws_sdk_networkmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2905,6 +3329,14 @@ class AsyncNetworkManagerClient:
             site_id: <p>The ID of the site.</p>
             max_results: <p>The maximum number of results to return.</p>
             next_token: <p>The token for the next page of results.</p>
+
+        Raises:
+            aws_sdk_networkmanager.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_networkmanager.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal error.</p>
+            aws_sdk_networkmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_networkmanager.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_networkmanager.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints.</p>
+            aws_sdk_networkmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2984,6 +3416,14 @@ class AsyncNetworkManagerClient:
 
         Args:
             attachment_id: <p>The ID of the Direct Connect gateway attachment that you want to see details about.</p>
+
+        Raises:
+            aws_sdk_networkmanager.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_networkmanager.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal error.</p>
+            aws_sdk_networkmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_networkmanager.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_networkmanager.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints.</p>
+            aws_sdk_networkmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3034,6 +3474,14 @@ class AsyncNetworkManagerClient:
             link_id: <p>The ID of the link.</p>
             max_results: <p>The maximum number of results to return.</p>
             next_token: <p>The token for the next page of results.</p>
+
+        Raises:
+            aws_sdk_networkmanager.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_networkmanager.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal error.</p>
+            aws_sdk_networkmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_networkmanager.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_networkmanager.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints.</p>
+            aws_sdk_networkmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3133,6 +3581,14 @@ class AsyncNetworkManagerClient:
             provider: <p>The link provider.</p>
             max_results: <p>The maximum number of results to return.</p>
             next_token: <p>The token for the next page of results.</p>
+
+        Raises:
+            aws_sdk_networkmanager.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_networkmanager.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal error.</p>
+            aws_sdk_networkmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_networkmanager.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_networkmanager.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints.</p>
+            aws_sdk_networkmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3236,6 +3692,13 @@ class AsyncNetworkManagerClient:
             resource_type: <p>The resource type.</p> <p>The following are the supported resource types for Direct Connect:</p> <ul> <li> <p> <code>dxcon</code> </p> </li> <li> <p> <code>dx-gateway</code> </p> </li> <li> <p> <code>dx-vif</code> </p> </li> </ul> <p>The following are the supported resource types for Network Manager:</p> <ul> <li> <p> <code>attachment</code> </p> </li> <li> <p> <code>connect-peer</code> </p> </li> <li> <p> <code>connection</code> </p> </li> <li> <p> <code>core-network</code> </p> </li> <li> <p> <code>device</code> </p> </li> <li> <p> <code>link</code> </p> </li> <li> <p> <code>peering</code> </p> </li> <li> <p> <code>site</code> </p> </li> </ul> <p>The following are the supported resource types for Amazon VPC:</p> <ul> <li> <p> <code>customer-gateway</code> </p> </li> <li> <p> <code>transit-gateway</code> </p> </li> <li> <p> <code>transit-gateway-attachment</code> </p> </li> <li> <p> <code>transit-gateway-connect-peer</code> </p> </li> <li> <p> <code>transit-gateway-route-table</code> </p> </li> <li> <p> <code>vpn-connection</code> </p> </li> </ul>
             max_results: <p>The maximum number of results to return.</p>
             next_token: <p>The token for the next page of results.</p>
+
+        Raises:
+            aws_sdk_networkmanager.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_networkmanager.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal error.</p>
+            aws_sdk_networkmanager.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_networkmanager.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints.</p>
+            aws_sdk_networkmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3343,6 +3806,14 @@ class AsyncNetworkManagerClient:
             resource_arn: <p>The ARN of the gateway.</p>
             max_results: <p>The maximum number of results to return.</p>
             next_token: <p>The token for the next page of results.</p>
+
+        Raises:
+            aws_sdk_networkmanager.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_networkmanager.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal error.</p>
+            aws_sdk_networkmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_networkmanager.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_networkmanager.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints.</p>
+            aws_sdk_networkmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3480,6 +3951,14 @@ class AsyncNetworkManagerClient:
             resource_arn: <p>The ARN of the resource.</p>
             max_results: <p>The maximum number of results to return.</p>
             next_token: <p>The token for the next page of results.</p>
+
+        Raises:
+            aws_sdk_networkmanager.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_networkmanager.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal error.</p>
+            aws_sdk_networkmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_networkmanager.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_networkmanager.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints.</p>
+            aws_sdk_networkmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3619,6 +4098,14 @@ class AsyncNetworkManagerClient:
             states: <p>The route states.</p>
             types: <p>The route types.</p>
             destination_filters: <p>Filter by route table destination. Possible Values: TRANSIT_GATEWAY_ATTACHMENT_ID, RESOURCE_ID, or RESOURCE_TYPE.</p>
+
+        Raises:
+            aws_sdk_networkmanager.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_networkmanager.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal error.</p>
+            aws_sdk_networkmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_networkmanager.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_networkmanager.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints.</p>
+            aws_sdk_networkmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3706,6 +4193,14 @@ class AsyncNetworkManagerClient:
             resource_arn: <p>The ARN of the resource.</p>
             max_results: <p>The maximum number of results to return.</p>
             next_token: <p>The token for the next page of results.</p>
+
+        Raises:
+            aws_sdk_networkmanager.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_networkmanager.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal error.</p>
+            aws_sdk_networkmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_networkmanager.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_networkmanager.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints.</p>
+            aws_sdk_networkmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3813,6 +4308,13 @@ class AsyncNetworkManagerClient:
 
         Args:
             resource_arn: <p>The ARN of the resource.</p>
+
+        Raises:
+            aws_sdk_networkmanager.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_networkmanager.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal error.</p>
+            aws_sdk_networkmanager.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_networkmanager.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints.</p>
+            aws_sdk_networkmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3853,6 +4355,14 @@ class AsyncNetworkManagerClient:
         Args:
             global_network_id: <p>The ID of the global network.</p>
             route_analysis_id: <p>The ID of the route analysis.</p>
+
+        Raises:
+            aws_sdk_networkmanager.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_networkmanager.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal error.</p>
+            aws_sdk_networkmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_networkmanager.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_networkmanager.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints.</p>
+            aws_sdk_networkmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3904,6 +4414,14 @@ class AsyncNetworkManagerClient:
             site_ids: <p>One or more site IDs. The maximum is 10.</p>
             max_results: <p>The maximum number of results to return.</p>
             next_token: <p>The token for the next page of results.</p>
+
+        Raises:
+            aws_sdk_networkmanager.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_networkmanager.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal error.</p>
+            aws_sdk_networkmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_networkmanager.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_networkmanager.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints.</p>
+            aws_sdk_networkmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3979,6 +4497,14 @@ class AsyncNetworkManagerClient:
 
         Args:
             attachment_id: <p>The ID of the attachment.</p>
+
+        Raises:
+            aws_sdk_networkmanager.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_networkmanager.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal error.</p>
+            aws_sdk_networkmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_networkmanager.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_networkmanager.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints.</p>
+            aws_sdk_networkmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4029,6 +4555,15 @@ class AsyncNetworkManagerClient:
             transit_gateway_connect_peer_arns: <p>One or more transit gateway Connect peer Amazon Resource Names (ARNs).</p>
             max_results: <p>The maximum number of results to return.</p>
             next_token: <p>The token for the next page of results.</p>
+
+        Raises:
+            aws_sdk_networkmanager.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_networkmanager.errors.conflict_exception.ConflictException: <p>There was a conflict processing the request. Updating or deleting the resource can cause an inconsistent state.</p>
+            aws_sdk_networkmanager.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal error.</p>
+            aws_sdk_networkmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_networkmanager.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_networkmanager.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints.</p>
+            aws_sdk_networkmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4108,6 +4643,14 @@ class AsyncNetworkManagerClient:
 
         Args:
             peering_id: <p>The ID of the peering request.</p>
+
+        Raises:
+            aws_sdk_networkmanager.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_networkmanager.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal error.</p>
+            aws_sdk_networkmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_networkmanager.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_networkmanager.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints.</p>
+            aws_sdk_networkmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4158,6 +4701,14 @@ class AsyncNetworkManagerClient:
             transit_gateway_arns: <p>The Amazon Resource Names (ARNs) of one or more transit gateways. The maximum is 10.</p>
             max_results: <p>The maximum number of results to return.</p>
             next_token: <p>The token for the next page of results.</p>
+
+        Raises:
+            aws_sdk_networkmanager.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_networkmanager.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal error.</p>
+            aws_sdk_networkmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_networkmanager.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_networkmanager.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints.</p>
+            aws_sdk_networkmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4233,6 +4784,14 @@ class AsyncNetworkManagerClient:
 
         Args:
             attachment_id: <p>The ID of the transit gateway route table attachment.</p>
+
+        Raises:
+            aws_sdk_networkmanager.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_networkmanager.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal error.</p>
+            aws_sdk_networkmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_networkmanager.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_networkmanager.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints.</p>
+            aws_sdk_networkmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4271,6 +4830,14 @@ class AsyncNetworkManagerClient:
 
         Args:
             attachment_id: <p>The ID of the attachment.</p>
+
+        Raises:
+            aws_sdk_networkmanager.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_networkmanager.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal error.</p>
+            aws_sdk_networkmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_networkmanager.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_networkmanager.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints.</p>
+            aws_sdk_networkmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4321,6 +4888,14 @@ class AsyncNetworkManagerClient:
             attachment_id: <p>The ID of a specific attachment to filter the routing policy associations.</p>
             max_results: <p>The maximum number of results to return in a single page.</p>
             next_token: <p>The token for the next page of results.</p>
+
+        Raises:
+            aws_sdk_networkmanager.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_networkmanager.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal error.</p>
+            aws_sdk_networkmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_networkmanager.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_networkmanager.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints.</p>
+            aws_sdk_networkmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4422,6 +4997,13 @@ class AsyncNetworkManagerClient:
             state: <p>The state of the attachment.</p>
             max_results: <p>The maximum number of results to return.</p>
             next_token: <p>The token for the next page of results.</p>
+
+        Raises:
+            aws_sdk_networkmanager.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_networkmanager.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal error.</p>
+            aws_sdk_networkmanager.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_networkmanager.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints.</p>
+            aws_sdk_networkmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4526,6 +5108,13 @@ class AsyncNetworkManagerClient:
             connect_attachment_id: <p>The ID of the attachment.</p>
             max_results: <p>The maximum number of results to return.</p>
             next_token: <p>The token for the next page of results.</p>
+
+        Raises:
+            aws_sdk_networkmanager.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_networkmanager.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal error.</p>
+            aws_sdk_networkmanager.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_networkmanager.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints.</p>
+            aws_sdk_networkmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4612,6 +5201,14 @@ class AsyncNetworkManagerClient:
             core_network_id: <p>The ID of a core network.</p>
             max_results: <p>The maximum number of results to return.</p>
             next_token: <p>The token for the next page of results.</p>
+
+        Raises:
+            aws_sdk_networkmanager.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_networkmanager.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal error.</p>
+            aws_sdk_networkmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_networkmanager.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_networkmanager.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints.</p>
+            aws_sdk_networkmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4693,6 +5290,14 @@ class AsyncNetworkManagerClient:
             prefix_list_arn: <p>The ARN of a specific prefix list to filter the associations.</p>
             max_results: <p>The maximum number of results to return in a single page.</p>
             next_token: <p>The token for the next page of results.</p>
+
+        Raises:
+            aws_sdk_networkmanager.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_networkmanager.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal error.</p>
+            aws_sdk_networkmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_networkmanager.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_networkmanager.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints.</p>
+            aws_sdk_networkmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4800,6 +5405,14 @@ class AsyncNetworkManagerClient:
             community_matches: <p>BGP community values to match when filtering routing information.</p>
             max_results: <p>The maximum number of routing information entries to return in a single page.</p>
             next_token: <p>The token for the next page of results.</p>
+
+        Raises:
+            aws_sdk_networkmanager.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_networkmanager.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal error.</p>
+            aws_sdk_networkmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_networkmanager.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_networkmanager.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints.</p>
+            aws_sdk_networkmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4911,6 +5524,13 @@ class AsyncNetworkManagerClient:
         Args:
             max_results: <p>The maximum number of results to return.</p>
             next_token: <p>The token for the next page of results.</p>
+
+        Raises:
+            aws_sdk_networkmanager.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_networkmanager.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal error.</p>
+            aws_sdk_networkmanager.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_networkmanager.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints.</p>
+            aws_sdk_networkmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4983,6 +5603,9 @@ class AsyncNetworkManagerClient:
         Args:
             max_results: <p>The maximum number of results to return.</p>
             next_token: <p>The token for the next page of results.</p>
+
+        Raises:
+            aws_sdk_networkmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5046,6 +5669,13 @@ class AsyncNetworkManagerClient:
             state: <p>Returns a list of the peering request states.</p>
             max_results: <p>The maximum number of results to return.</p>
             next_token: <p>The token for the next page of results.</p>
+
+        Raises:
+            aws_sdk_networkmanager.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_networkmanager.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal error.</p>
+            aws_sdk_networkmanager.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_networkmanager.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints.</p>
+            aws_sdk_networkmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5136,6 +5766,14 @@ class AsyncNetworkManagerClient:
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource.</p>
+
+        Raises:
+            aws_sdk_networkmanager.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_networkmanager.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal error.</p>
+            aws_sdk_networkmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_networkmanager.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_networkmanager.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints.</p>
+            aws_sdk_networkmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5182,6 +5820,16 @@ class AsyncNetworkManagerClient:
             attachment_id: <p>The ID of the attachment to apply the routing policy label to.</p>
             routing_policy_label: <p>The routing policy label to apply to the attachment.</p>
             client_token: <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+
+        Raises:
+            aws_sdk_networkmanager.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_networkmanager.errors.conflict_exception.ConflictException: <p>There was a conflict processing the request. Updating or deleting the resource can cause an inconsistent state.</p>
+            aws_sdk_networkmanager.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal error.</p>
+            aws_sdk_networkmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_networkmanager.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>A service limit was exceeded.</p>
+            aws_sdk_networkmanager.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_networkmanager.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints.</p>
+            aws_sdk_networkmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5238,6 +5886,16 @@ class AsyncNetworkManagerClient:
             description: <p>a core network policy description.</p>
             latest_version_id: <p>The ID of a core network policy. </p>
             client_token: <p>The client token associated with the request.</p>
+
+        Raises:
+            aws_sdk_networkmanager.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_networkmanager.errors.conflict_exception.ConflictException: <p>There was a conflict processing the request. Updating or deleting the resource can cause an inconsistent state.</p>
+            aws_sdk_networkmanager.errors.core_network_policy_exception.CoreNetworkPolicyException: <p>Describes a core network policy exception.</p>
+            aws_sdk_networkmanager.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal error.</p>
+            aws_sdk_networkmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_networkmanager.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_networkmanager.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints.</p>
+            aws_sdk_networkmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5285,6 +5943,15 @@ class AsyncNetworkManagerClient:
         Args:
             policy_document: <p>The JSON resource policy document.</p>
             resource_arn: <p>The ARN of the resource policy. </p>
+
+        Raises:
+            aws_sdk_networkmanager.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_networkmanager.errors.conflict_exception.ConflictException: <p>There was a conflict processing the request. Updating or deleting the resource can cause an inconsistent state.</p>
+            aws_sdk_networkmanager.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal error.</p>
+            aws_sdk_networkmanager.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>A service limit was exceeded.</p>
+            aws_sdk_networkmanager.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_networkmanager.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints.</p>
+            aws_sdk_networkmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5326,6 +5993,15 @@ class AsyncNetworkManagerClient:
         Args:
             global_network_id: <p>The ID of the global network.</p>
             transit_gateway_arn: <p>The Amazon Resource Name (ARN) of the transit gateway.</p>
+
+        Raises:
+            aws_sdk_networkmanager.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_networkmanager.errors.conflict_exception.ConflictException: <p>There was a conflict processing the request. Updating or deleting the resource can cause an inconsistent state.</p>
+            aws_sdk_networkmanager.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal error.</p>
+            aws_sdk_networkmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_networkmanager.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_networkmanager.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints.</p>
+            aws_sdk_networkmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5365,6 +6041,15 @@ class AsyncNetworkManagerClient:
 
         Args:
             attachment_id: <p>The ID of the attachment.</p>
+
+        Raises:
+            aws_sdk_networkmanager.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_networkmanager.errors.conflict_exception.ConflictException: <p>There was a conflict processing the request. Updating or deleting the resource can cause an inconsistent state.</p>
+            aws_sdk_networkmanager.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal error.</p>
+            aws_sdk_networkmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_networkmanager.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_networkmanager.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints.</p>
+            aws_sdk_networkmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5405,6 +6090,16 @@ class AsyncNetworkManagerClient:
         Args:
             core_network_id: <p>The ID of the core network containing the attachment.</p>
             attachment_id: <p>The ID of the attachment to remove the routing policy label from.</p>
+
+        Raises:
+            aws_sdk_networkmanager.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_networkmanager.errors.conflict_exception.ConflictException: <p>There was a conflict processing the request. Updating or deleting the resource can cause an inconsistent state.</p>
+            aws_sdk_networkmanager.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal error.</p>
+            aws_sdk_networkmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_networkmanager.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>A service limit was exceeded.</p>
+            aws_sdk_networkmanager.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_networkmanager.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints.</p>
+            aws_sdk_networkmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5446,6 +6141,15 @@ class AsyncNetworkManagerClient:
         Args:
             core_network_id: <p>The ID of a core network.</p>
             policy_version_id: <p>The ID of the policy version to restore.</p>
+
+        Raises:
+            aws_sdk_networkmanager.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_networkmanager.errors.conflict_exception.ConflictException: <p>There was a conflict processing the request. Updating or deleting the resource can cause an inconsistent state.</p>
+            aws_sdk_networkmanager.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal error.</p>
+            aws_sdk_networkmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_networkmanager.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_networkmanager.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints.</p>
+            aws_sdk_networkmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5485,6 +6189,15 @@ class AsyncNetworkManagerClient:
 
         Args:
             action: <p>The action to take for the update request. This can be either <code>ENABLE</code> or <code>DISABLE</code>.</p>
+
+        Raises:
+            aws_sdk_networkmanager.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_networkmanager.errors.conflict_exception.ConflictException: <p>There was a conflict processing the request. Updating or deleting the resource can cause an inconsistent state.</p>
+            aws_sdk_networkmanager.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal error.</p>
+            aws_sdk_networkmanager.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>A service limit was exceeded.</p>
+            aws_sdk_networkmanager.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_networkmanager.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints.</p>
+            aws_sdk_networkmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5535,6 +6248,15 @@ class AsyncNetworkManagerClient:
             destination: <p>The destination.</p>
             include_return_path: <p>Indicates whether to analyze the return path. The default is <code>false</code>.</p>
             use_middleboxes: <p>Indicates whether to include the location of middlebox appliances in the route analysis. The default is <code>false</code>.</p>
+
+        Raises:
+            aws_sdk_networkmanager.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_networkmanager.errors.conflict_exception.ConflictException: <p>There was a conflict processing the request. Updating or deleting the resource can cause an inconsistent state.</p>
+            aws_sdk_networkmanager.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal error.</p>
+            aws_sdk_networkmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_networkmanager.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_networkmanager.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints.</p>
+            aws_sdk_networkmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5581,6 +6303,16 @@ class AsyncNetworkManagerClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource.</p>
             tags: <p>The tags to apply to the specified resource.</p>
+
+        Raises:
+            aws_sdk_networkmanager.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_networkmanager.errors.conflict_exception.ConflictException: <p>There was a conflict processing the request. Updating or deleting the resource can cause an inconsistent state.</p>
+            aws_sdk_networkmanager.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal error.</p>
+            aws_sdk_networkmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_networkmanager.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>A service limit was exceeded.</p>
+            aws_sdk_networkmanager.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_networkmanager.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints.</p>
+            aws_sdk_networkmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5622,6 +6354,15 @@ class AsyncNetworkManagerClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource.</p>
             tag_keys: <p>The tag keys to remove from the specified resource.</p>
+
+        Raises:
+            aws_sdk_networkmanager.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_networkmanager.errors.conflict_exception.ConflictException: <p>There was a conflict processing the request. Updating or deleting the resource can cause an inconsistent state.</p>
+            aws_sdk_networkmanager.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal error.</p>
+            aws_sdk_networkmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_networkmanager.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_networkmanager.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints.</p>
+            aws_sdk_networkmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5673,6 +6414,15 @@ class AsyncNetworkManagerClient:
             link_id: <p>The ID of the link for the first device in the connection.</p>
             connected_link_id: <p>The ID of the link for the second device in the connection.</p>
             description: <p>A description of the connection.</p> <p>Length Constraints: Maximum length of 256 characters.</p>
+
+        Raises:
+            aws_sdk_networkmanager.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_networkmanager.errors.conflict_exception.ConflictException: <p>There was a conflict processing the request. Updating or deleting the resource can cause an inconsistent state.</p>
+            aws_sdk_networkmanager.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal error.</p>
+            aws_sdk_networkmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_networkmanager.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_networkmanager.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints.</p>
+            aws_sdk_networkmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5722,6 +6472,15 @@ class AsyncNetworkManagerClient:
         Args:
             core_network_id: <p>The ID of a core network.</p>
             description: <p>The description of the update.</p>
+
+        Raises:
+            aws_sdk_networkmanager.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_networkmanager.errors.conflict_exception.ConflictException: <p>There was a conflict processing the request. Updating or deleting the resource can cause an inconsistent state.</p>
+            aws_sdk_networkmanager.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal error.</p>
+            aws_sdk_networkmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_networkmanager.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_networkmanager.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints.</p>
+            aws_sdk_networkmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5791,6 +6550,15 @@ class AsyncNetworkManagerClient:
             model: <p>The model of the device.</p> <p>Constraints: Maximum length of 128 characters.</p>
             serial_number: <p>The serial number of the device.</p> <p>Constraints: Maximum length of 128 characters.</p>
             site_id: <p>The ID of the site.</p>
+
+        Raises:
+            aws_sdk_networkmanager.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_networkmanager.errors.conflict_exception.ConflictException: <p>There was a conflict processing the request. Updating or deleting the resource can cause an inconsistent state.</p>
+            aws_sdk_networkmanager.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal error.</p>
+            aws_sdk_networkmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_networkmanager.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_networkmanager.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints.</p>
+            aws_sdk_networkmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5850,6 +6618,15 @@ class AsyncNetworkManagerClient:
         Args:
             attachment_id: <p>The ID of the Direct Connect gateway attachment for the updated edge locations. </p>
             edge_locations: <p>One or more edge locations to update for the Direct Connect gateway attachment. The updated array of edge locations overwrites the previous array of locations. <code>EdgeLocations</code> is only used for Direct Connect gateway attachments.</p>
+
+        Raises:
+            aws_sdk_networkmanager.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_networkmanager.errors.conflict_exception.ConflictException: <p>There was a conflict processing the request. Updating or deleting the resource can cause an inconsistent state.</p>
+            aws_sdk_networkmanager.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal error.</p>
+            aws_sdk_networkmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_networkmanager.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_networkmanager.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints.</p>
+            aws_sdk_networkmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5894,6 +6671,15 @@ class AsyncNetworkManagerClient:
         Args:
             global_network_id: <p>The ID of your global network.</p>
             description: <p>A description of the global network.</p> <p>Constraints: Maximum length of 256 characters.</p>
+
+        Raises:
+            aws_sdk_networkmanager.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_networkmanager.errors.conflict_exception.ConflictException: <p>There was a conflict processing the request. Updating or deleting the resource can cause an inconsistent state.</p>
+            aws_sdk_networkmanager.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal error.</p>
+            aws_sdk_networkmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_networkmanager.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_networkmanager.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints.</p>
+            aws_sdk_networkmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5950,6 +6736,16 @@ class AsyncNetworkManagerClient:
             type: <p>The type of the link.</p> <p>Constraints: Maximum length of 128 characters.</p>
             bandwidth: <p>The upload and download speed in Mbps. </p>
             provider: <p>The provider of the link.</p> <p>Constraints: Maximum length of 128 characters.</p>
+
+        Raises:
+            aws_sdk_networkmanager.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_networkmanager.errors.conflict_exception.ConflictException: <p>There was a conflict processing the request. Updating or deleting the resource can cause an inconsistent state.</p>
+            aws_sdk_networkmanager.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal error.</p>
+            aws_sdk_networkmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_networkmanager.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>A service limit was exceeded.</p>
+            aws_sdk_networkmanager.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_networkmanager.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints.</p>
+            aws_sdk_networkmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -6001,6 +6797,15 @@ class AsyncNetworkManagerClient:
             global_network_id: <p>The ID of the global network.</p>
             resource_arn: <p>The ARN of the resource.</p>
             metadata: <p>The resource metadata.</p>
+
+        Raises:
+            aws_sdk_networkmanager.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_networkmanager.errors.conflict_exception.ConflictException: <p>There was a conflict processing the request. Updating or deleting the resource can cause an inconsistent state.</p>
+            aws_sdk_networkmanager.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal error.</p>
+            aws_sdk_networkmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_networkmanager.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_networkmanager.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints.</p>
+            aws_sdk_networkmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -6049,6 +6854,15 @@ class AsyncNetworkManagerClient:
             site_id: <p>The ID of your site.</p>
             description: <p>A description of your site.</p> <p>Constraints: Maximum length of 256 characters.</p>
             location: <p>The site location:</p> <ul> <li> <p> <code>Address</code>: The physical address of the site.</p> </li> <li> <p> <code>Latitude</code>: The latitude of the site. </p> </li> <li> <p> <code>Longitude</code>: The longitude of the site.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_networkmanager.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_networkmanager.errors.conflict_exception.ConflictException: <p>There was a conflict processing the request. Updating or deleting the resource can cause an inconsistent state.</p>
+            aws_sdk_networkmanager.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal error.</p>
+            aws_sdk_networkmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_networkmanager.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_networkmanager.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints.</p>
+            aws_sdk_networkmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -6102,6 +6916,15 @@ class AsyncNetworkManagerClient:
             add_subnet_arns: <p>Adds a subnet ARN to the VPC attachment.</p>
             remove_subnet_arns: <p>Removes a subnet ARN from the attachment.</p>
             options: <p>Additional options for updating the VPC attachment. </p>
+
+        Raises:
+            aws_sdk_networkmanager.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_networkmanager.errors.conflict_exception.ConflictException: <p>There was a conflict processing the request. Updating or deleting the resource can cause an inconsistent state.</p>
+            aws_sdk_networkmanager.errors.internal_server_exception.InternalServerException: <p>The request has failed due to an internal error.</p>
+            aws_sdk_networkmanager.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_networkmanager.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_networkmanager.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints.</p>
+            aws_sdk_networkmanager.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

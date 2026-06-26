@@ -139,6 +139,11 @@ class NetworkMigrationDefinitionResource:
             tags: <p>Tags to assign to the network migration definition.</p>
             scope_tags: <p>Scope tags for the network migration definition to control access and organization.</p>
 
+        Raises:
+            aws_sdk_mgn.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request could not be completed because its exceeded the service quota.</p>
+            aws_sdk_mgn.errors.validation_exception.ValidationException: <p>Validate exception.</p>
+            aws_sdk_mgn.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Sample CreateNetworkMigrationDefinition call
 
@@ -219,6 +224,12 @@ class NetworkMigrationDefinitionResource:
             target_deployment: <p>The updated target deployment configuration.</p>
             scope_tags: <p>The updated scope tags for the network migration definition.</p>
 
+        Raises:
+            aws_sdk_mgn.errors.access_denied_exception.AccessDeniedException: <p>Operating denied due to a file permission or access check error.</p>
+            aws_sdk_mgn.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found exception.</p>
+            aws_sdk_mgn.errors.validation_exception.ValidationException: <p>Validate exception.</p>
+            aws_sdk_mgn.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Sample UpdateNetworkMigrationDefinition call
 
@@ -275,6 +286,12 @@ class NetworkMigrationDefinitionResource:
         Args:
             network_migration_definition_id: <p>The unique identifier of the network migration definition to delete.</p>
 
+        Raises:
+            aws_sdk_mgn.errors.access_denied_exception.AccessDeniedException: <p>Operating denied due to a file permission or access check error.</p>
+            aws_sdk_mgn.errors.conflict_exception.ConflictException: <p>The request could not be completed due to a conflict with the current state of the target resource.</p>
+            aws_sdk_mgn.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found exception.</p>
+            aws_sdk_mgn.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Sample DeleteNetworkMigrationDefinition call
 
@@ -327,6 +344,10 @@ class NetworkMigrationDefinitionResource:
             next_token: <p>The token for the next page of results.</p>
             max_results: <p>The maximum number of results to return in a single call.</p>
 
+        Raises:
+            aws_sdk_mgn.errors.access_denied_exception.AccessDeniedException: <p>Operating denied due to a file permission or access check error.</p>
+            aws_sdk_mgn.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Sample ListNetworkMigrationDefinitions call
 
@@ -373,6 +394,11 @@ class NetworkMigrationDefinitionResource:
 
         Args:
             network_migration_definition_id: <p>The unique identifier of the network migration definition to retrieve.</p>
+
+        Raises:
+            aws_sdk_mgn.errors.access_denied_exception.AccessDeniedException: <p>Operating denied due to a file permission or access check error.</p>
+            aws_sdk_mgn.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found exception.</p>
+            aws_sdk_mgn.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Sample GetNetworkMigrationDefinition call
@@ -421,6 +447,12 @@ class NetworkMigrationDefinitionResource:
             network_migration_execution_id: <p>The unique identifier of the network migration execution.</p>
             segment_id: <p>The unique identifier of the mapper segment.</p>
             construct_id: <p>The unique identifier of the construct within the segment.</p>
+
+        Raises:
+            aws_sdk_mgn.errors.access_denied_exception.AccessDeniedException: <p>Operating denied due to a file permission or access check error.</p>
+            aws_sdk_mgn.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found exception.</p>
+            aws_sdk_mgn.errors.validation_exception.ValidationException: <p>Validate exception.</p>
+            aws_sdk_mgn.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Sample GetNetworkMigrationMapperSegmentConstruct call
@@ -480,6 +512,13 @@ class NetworkMigrationDefinitionResource:
             filters: <p>Filters to apply when listing analysis jobs.</p>
             max_results: <p>The maximum number of results to return in a single call.</p>
             next_token: <p>The token for the next page of results.</p>
+
+        Raises:
+            aws_sdk_mgn.errors.access_denied_exception.AccessDeniedException: <p>Operating denied due to a file permission or access check error.</p>
+            aws_sdk_mgn.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found exception.</p>
+            aws_sdk_mgn.errors.throttling_exception.ThrottlingException: <p>Reached throttling quota exception.</p>
+            aws_sdk_mgn.errors.validation_exception.ValidationException: <p>Validate exception.</p>
+            aws_sdk_mgn.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Sample ListNetworkMigrationAnalyses call
@@ -544,6 +583,13 @@ class NetworkMigrationDefinitionResource:
             max_results: <p>The maximum number of results to return in a single call.</p>
             next_token: <p>The token for the next page of results.</p>
 
+        Raises:
+            aws_sdk_mgn.errors.access_denied_exception.AccessDeniedException: <p>Operating denied due to a file permission or access check error.</p>
+            aws_sdk_mgn.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found exception.</p>
+            aws_sdk_mgn.errors.throttling_exception.ThrottlingException: <p>Reached throttling quota exception.</p>
+            aws_sdk_mgn.errors.validation_exception.ValidationException: <p>Validate exception.</p>
+            aws_sdk_mgn.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Sample ListNetworkMigrationAnalysisResults call
 
@@ -606,6 +652,13 @@ class NetworkMigrationDefinitionResource:
             filters: <p>Filters to apply when listing code generation jobs.</p>
             max_results: <p>The maximum number of results to return in a single call.</p>
             next_token: <p>The token for the next page of results.</p>
+
+        Raises:
+            aws_sdk_mgn.errors.access_denied_exception.AccessDeniedException: <p>Operating denied due to a file permission or access check error.</p>
+            aws_sdk_mgn.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found exception.</p>
+            aws_sdk_mgn.errors.throttling_exception.ThrottlingException: <p>Reached throttling quota exception.</p>
+            aws_sdk_mgn.errors.validation_exception.ValidationException: <p>Validate exception.</p>
+            aws_sdk_mgn.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Sample ListNetworkMigrationCodeGenerations call
@@ -670,6 +723,13 @@ class NetworkMigrationDefinitionResource:
             max_results: <p>The maximum number of results to return in a single call.</p>
             next_token: <p>The token for the next page of results.</p>
 
+        Raises:
+            aws_sdk_mgn.errors.access_denied_exception.AccessDeniedException: <p>Operating denied due to a file permission or access check error.</p>
+            aws_sdk_mgn.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found exception.</p>
+            aws_sdk_mgn.errors.throttling_exception.ThrottlingException: <p>Reached throttling quota exception.</p>
+            aws_sdk_mgn.errors.validation_exception.ValidationException: <p>Validate exception.</p>
+            aws_sdk_mgn.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Sample ListNetworkMigrationCodeGenerationSegments call
 
@@ -728,6 +788,13 @@ class NetworkMigrationDefinitionResource:
             network_migration_definition_id: <p>The unique identifier of the network migration definition.</p>
             max_results: <p>The maximum number of results to return in a single call.</p>
             next_token: <p>The token for the next page of results.</p>
+
+        Raises:
+            aws_sdk_mgn.errors.access_denied_exception.AccessDeniedException: <p>Operating denied due to a file permission or access check error.</p>
+            aws_sdk_mgn.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found exception.</p>
+            aws_sdk_mgn.errors.throttling_exception.ThrottlingException: <p>Reached throttling quota exception.</p>
+            aws_sdk_mgn.errors.validation_exception.ValidationException: <p>Validate exception.</p>
+            aws_sdk_mgn.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Sample ListNetworkMigrationDeployedStacks call
@@ -790,6 +857,13 @@ class NetworkMigrationDefinitionResource:
             max_results: <p>The maximum number of results to return in a single call.</p>
             next_token: <p>The token for the next page of results.</p>
 
+        Raises:
+            aws_sdk_mgn.errors.access_denied_exception.AccessDeniedException: <p>Operating denied due to a file permission or access check error.</p>
+            aws_sdk_mgn.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found exception.</p>
+            aws_sdk_mgn.errors.throttling_exception.ThrottlingException: <p>Reached throttling quota exception.</p>
+            aws_sdk_mgn.errors.validation_exception.ValidationException: <p>Validate exception.</p>
+            aws_sdk_mgn.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Sample ListNetworkMigrationDeployments call
 
@@ -850,6 +924,11 @@ class NetworkMigrationDefinitionResource:
             filters: <p>Filters to apply when listing executions, such as status or execution ID.</p>
             next_token: <p>The token for the next page of results.</p>
             max_results: <p>The maximum number of results to return in a single call.</p>
+
+        Raises:
+            aws_sdk_mgn.errors.access_denied_exception.AccessDeniedException: <p>Operating denied due to a file permission or access check error.</p>
+            aws_sdk_mgn.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found exception.</p>
+            aws_sdk_mgn.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Sample ListNetworkMigrationExecutions call
@@ -914,6 +993,13 @@ class NetworkMigrationDefinitionResource:
             filters: <p>Filters to apply when listing constructs, such as construct type or ID.</p>
             max_results: <p>The maximum number of results to return in a single call.</p>
             next_token: <p>The token for the next page of results.</p>
+
+        Raises:
+            aws_sdk_mgn.errors.access_denied_exception.AccessDeniedException: <p>Operating denied due to a file permission or access check error.</p>
+            aws_sdk_mgn.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found exception.</p>
+            aws_sdk_mgn.errors.throttling_exception.ThrottlingException: <p>Reached throttling quota exception.</p>
+            aws_sdk_mgn.errors.validation_exception.ValidationException: <p>Validate exception.</p>
+            aws_sdk_mgn.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Sample ListNetworkMigrationMapperSegmentConstructs call with properties enabled
@@ -982,6 +1068,13 @@ class NetworkMigrationDefinitionResource:
             max_results: <p>The maximum number of results to return in a single call.</p>
             next_token: <p>The token for the next page of results.</p>
 
+        Raises:
+            aws_sdk_mgn.errors.access_denied_exception.AccessDeniedException: <p>Operating denied due to a file permission or access check error.</p>
+            aws_sdk_mgn.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found exception.</p>
+            aws_sdk_mgn.errors.throttling_exception.ThrottlingException: <p>Reached throttling quota exception.</p>
+            aws_sdk_mgn.errors.validation_exception.ValidationException: <p>Validate exception.</p>
+            aws_sdk_mgn.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Sample ListNetworkMigrationMapperSegments call
 
@@ -1044,6 +1137,13 @@ class NetworkMigrationDefinitionResource:
             filters: <p>Filters to apply when listing mapping jobs.</p>
             max_results: <p>The maximum number of results to return in a single call.</p>
             next_token: <p>The token for the next page of results.</p>
+
+        Raises:
+            aws_sdk_mgn.errors.access_denied_exception.AccessDeniedException: <p>Operating denied due to a file permission or access check error.</p>
+            aws_sdk_mgn.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found exception.</p>
+            aws_sdk_mgn.errors.throttling_exception.ThrottlingException: <p>Reached throttling quota exception.</p>
+            aws_sdk_mgn.errors.validation_exception.ValidationException: <p>Validate exception.</p>
+            aws_sdk_mgn.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Sample ListNetworkMigrationMappings call
@@ -1108,6 +1208,13 @@ class NetworkMigrationDefinitionResource:
             max_results: <p>The maximum number of results to return in a single call.</p>
             next_token: <p>The token for the next page of results.</p>
 
+        Raises:
+            aws_sdk_mgn.errors.access_denied_exception.AccessDeniedException: <p>Operating denied due to a file permission or access check error.</p>
+            aws_sdk_mgn.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found exception.</p>
+            aws_sdk_mgn.errors.throttling_exception.ThrottlingException: <p>Reached throttling quota exception.</p>
+            aws_sdk_mgn.errors.validation_exception.ValidationException: <p>Validate exception.</p>
+            aws_sdk_mgn.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Sample ListNetworkMigrationMappingUpdates call
 
@@ -1159,6 +1266,15 @@ class NetworkMigrationDefinitionResource:
             network_migration_execution_id: <p>The unique identifier of the network migration execution to analyze.</p>
             network_migration_definition_id: <p>The unique identifier of the network migration definition.</p>
 
+        Raises:
+            aws_sdk_mgn.errors.access_denied_exception.AccessDeniedException: <p>Operating denied due to a file permission or access check error.</p>
+            aws_sdk_mgn.errors.conflict_exception.ConflictException: <p>The request could not be completed due to a conflict with the current state of the target resource.</p>
+            aws_sdk_mgn.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found exception.</p>
+            aws_sdk_mgn.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request could not be completed because its exceeded the service quota.</p>
+            aws_sdk_mgn.errors.throttling_exception.ThrottlingException: <p>Reached throttling quota exception.</p>
+            aws_sdk_mgn.errors.validation_exception.ValidationException: <p>Validate exception.</p>
+            aws_sdk_mgn.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Sample StartNetworkMigrationAnalysis call
 
@@ -1207,6 +1323,15 @@ class NetworkMigrationDefinitionResource:
             network_migration_execution_id: <p>The unique identifier of the network migration execution.</p>
             network_migration_definition_id: <p>The unique identifier of the network migration definition.</p>
             code_generation_output_format_types: <p>The output format types for code generation, such as CloudFormation or Terraform.</p>
+
+        Raises:
+            aws_sdk_mgn.errors.access_denied_exception.AccessDeniedException: <p>Operating denied due to a file permission or access check error.</p>
+            aws_sdk_mgn.errors.conflict_exception.ConflictException: <p>The request could not be completed due to a conflict with the current state of the target resource.</p>
+            aws_sdk_mgn.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found exception.</p>
+            aws_sdk_mgn.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request could not be completed because its exceeded the service quota.</p>
+            aws_sdk_mgn.errors.throttling_exception.ThrottlingException: <p>Reached throttling quota exception.</p>
+            aws_sdk_mgn.errors.validation_exception.ValidationException: <p>Validate exception.</p>
+            aws_sdk_mgn.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Sample StartNetworkMigrationCodeGeneration call
@@ -1257,6 +1382,15 @@ class NetworkMigrationDefinitionResource:
             network_migration_execution_id: <p>The unique identifier of the network migration execution.</p>
             network_migration_definition_id: <p>The unique identifier of the network migration definition.</p>
 
+        Raises:
+            aws_sdk_mgn.errors.access_denied_exception.AccessDeniedException: <p>Operating denied due to a file permission or access check error.</p>
+            aws_sdk_mgn.errors.conflict_exception.ConflictException: <p>The request could not be completed due to a conflict with the current state of the target resource.</p>
+            aws_sdk_mgn.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found exception.</p>
+            aws_sdk_mgn.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request could not be completed because its exceeded the service quota.</p>
+            aws_sdk_mgn.errors.throttling_exception.ThrottlingException: <p>Reached throttling quota exception.</p>
+            aws_sdk_mgn.errors.validation_exception.ValidationException: <p>Validate exception.</p>
+            aws_sdk_mgn.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Sample StartNetworkMigrationDeployment call
 
@@ -1305,6 +1439,15 @@ class NetworkMigrationDefinitionResource:
             network_migration_execution_id: <p>The unique identifier of the network migration execution.</p>
             network_migration_definition_id: <p>The unique identifier of the network migration definition.</p>
             security_group_mapping_strategy: <p>The security group mapping strategy to use.</p>
+
+        Raises:
+            aws_sdk_mgn.errors.access_denied_exception.AccessDeniedException: <p>Operating denied due to a file permission or access check error.</p>
+            aws_sdk_mgn.errors.conflict_exception.ConflictException: <p>The request could not be completed due to a conflict with the current state of the target resource.</p>
+            aws_sdk_mgn.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found exception.</p>
+            aws_sdk_mgn.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request could not be completed because its exceeded the service quota.</p>
+            aws_sdk_mgn.errors.throttling_exception.ThrottlingException: <p>Reached throttling quota exception.</p>
+            aws_sdk_mgn.errors.validation_exception.ValidationException: <p>Validate exception.</p>
+            aws_sdk_mgn.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Sample StartNetworkMigrationMapping call
@@ -1361,6 +1504,15 @@ class NetworkMigrationDefinitionResource:
             constructs: <p>A list of construct updates to apply.</p>
             segments: <p>A list of segment updates to apply.</p>
 
+        Raises:
+            aws_sdk_mgn.errors.access_denied_exception.AccessDeniedException: <p>Operating denied due to a file permission or access check error.</p>
+            aws_sdk_mgn.errors.conflict_exception.ConflictException: <p>The request could not be completed due to a conflict with the current state of the target resource.</p>
+            aws_sdk_mgn.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found exception.</p>
+            aws_sdk_mgn.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request could not be completed because its exceeded the service quota.</p>
+            aws_sdk_mgn.errors.throttling_exception.ThrottlingException: <p>Reached throttling quota exception.</p>
+            aws_sdk_mgn.errors.validation_exception.ValidationException: <p>Validate exception.</p>
+            aws_sdk_mgn.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Sample StartNetworkMigrationMappingUpdate call
 
@@ -1413,6 +1565,12 @@ class NetworkMigrationDefinitionResource:
             network_migration_execution_id: <p>The unique identifier of the network migration execution.</p>
             segment_id: <p>The unique identifier of the segment to update.</p>
             scope_tags: <p>The updated scope tags for the segment.</p>
+
+        Raises:
+            aws_sdk_mgn.errors.access_denied_exception.AccessDeniedException: <p>Operating denied due to a file permission or access check error.</p>
+            aws_sdk_mgn.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found exception.</p>
+            aws_sdk_mgn.errors.validation_exception.ValidationException: <p>Validate exception.</p>
+            aws_sdk_mgn.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Sample UpdateNetworkMigrationMapperSegment call
@@ -1484,6 +1642,11 @@ class AsyncNetworkMigrationDefinitionResource:
             target_deployment: <p>The target deployment configuration for the migrated network.</p>
             tags: <p>Tags to assign to the network migration definition.</p>
             scope_tags: <p>Scope tags for the network migration definition to control access and organization.</p>
+
+        Raises:
+            aws_sdk_mgn.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request could not be completed because its exceeded the service quota.</p>
+            aws_sdk_mgn.errors.validation_exception.ValidationException: <p>Validate exception.</p>
+            aws_sdk_mgn.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Sample CreateNetworkMigrationDefinition call
@@ -1566,6 +1729,12 @@ class AsyncNetworkMigrationDefinitionResource:
             target_deployment: <p>The updated target deployment configuration.</p>
             scope_tags: <p>The updated scope tags for the network migration definition.</p>
 
+        Raises:
+            aws_sdk_mgn.errors.access_denied_exception.AccessDeniedException: <p>Operating denied due to a file permission or access check error.</p>
+            aws_sdk_mgn.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found exception.</p>
+            aws_sdk_mgn.errors.validation_exception.ValidationException: <p>Validate exception.</p>
+            aws_sdk_mgn.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Sample UpdateNetworkMigrationDefinition call
 
@@ -1623,6 +1792,12 @@ class AsyncNetworkMigrationDefinitionResource:
         Args:
             network_migration_definition_id: <p>The unique identifier of the network migration definition to delete.</p>
 
+        Raises:
+            aws_sdk_mgn.errors.access_denied_exception.AccessDeniedException: <p>Operating denied due to a file permission or access check error.</p>
+            aws_sdk_mgn.errors.conflict_exception.ConflictException: <p>The request could not be completed due to a conflict with the current state of the target resource.</p>
+            aws_sdk_mgn.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found exception.</p>
+            aws_sdk_mgn.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Sample DeleteNetworkMigrationDefinition call
 
@@ -1676,6 +1851,10 @@ class AsyncNetworkMigrationDefinitionResource:
             next_token: <p>The token for the next page of results.</p>
             max_results: <p>The maximum number of results to return in a single call.</p>
 
+        Raises:
+            aws_sdk_mgn.errors.access_denied_exception.AccessDeniedException: <p>Operating denied due to a file permission or access check error.</p>
+            aws_sdk_mgn.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Sample ListNetworkMigrationDefinitions call
 
@@ -1723,6 +1902,11 @@ class AsyncNetworkMigrationDefinitionResource:
 
         Args:
             network_migration_definition_id: <p>The unique identifier of the network migration definition to retrieve.</p>
+
+        Raises:
+            aws_sdk_mgn.errors.access_denied_exception.AccessDeniedException: <p>Operating denied due to a file permission or access check error.</p>
+            aws_sdk_mgn.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found exception.</p>
+            aws_sdk_mgn.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Sample GetNetworkMigrationDefinition call
@@ -1772,6 +1956,12 @@ class AsyncNetworkMigrationDefinitionResource:
             network_migration_execution_id: <p>The unique identifier of the network migration execution.</p>
             segment_id: <p>The unique identifier of the mapper segment.</p>
             construct_id: <p>The unique identifier of the construct within the segment.</p>
+
+        Raises:
+            aws_sdk_mgn.errors.access_denied_exception.AccessDeniedException: <p>Operating denied due to a file permission or access check error.</p>
+            aws_sdk_mgn.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found exception.</p>
+            aws_sdk_mgn.errors.validation_exception.ValidationException: <p>Validate exception.</p>
+            aws_sdk_mgn.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Sample GetNetworkMigrationMapperSegmentConstruct call
@@ -1832,6 +2022,13 @@ class AsyncNetworkMigrationDefinitionResource:
             filters: <p>Filters to apply when listing analysis jobs.</p>
             max_results: <p>The maximum number of results to return in a single call.</p>
             next_token: <p>The token for the next page of results.</p>
+
+        Raises:
+            aws_sdk_mgn.errors.access_denied_exception.AccessDeniedException: <p>Operating denied due to a file permission or access check error.</p>
+            aws_sdk_mgn.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found exception.</p>
+            aws_sdk_mgn.errors.throttling_exception.ThrottlingException: <p>Reached throttling quota exception.</p>
+            aws_sdk_mgn.errors.validation_exception.ValidationException: <p>Validate exception.</p>
+            aws_sdk_mgn.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Sample ListNetworkMigrationAnalyses call
@@ -1897,6 +2094,13 @@ class AsyncNetworkMigrationDefinitionResource:
             max_results: <p>The maximum number of results to return in a single call.</p>
             next_token: <p>The token for the next page of results.</p>
 
+        Raises:
+            aws_sdk_mgn.errors.access_denied_exception.AccessDeniedException: <p>Operating denied due to a file permission or access check error.</p>
+            aws_sdk_mgn.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found exception.</p>
+            aws_sdk_mgn.errors.throttling_exception.ThrottlingException: <p>Reached throttling quota exception.</p>
+            aws_sdk_mgn.errors.validation_exception.ValidationException: <p>Validate exception.</p>
+            aws_sdk_mgn.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Sample ListNetworkMigrationAnalysisResults call
 
@@ -1960,6 +2164,13 @@ class AsyncNetworkMigrationDefinitionResource:
             filters: <p>Filters to apply when listing code generation jobs.</p>
             max_results: <p>The maximum number of results to return in a single call.</p>
             next_token: <p>The token for the next page of results.</p>
+
+        Raises:
+            aws_sdk_mgn.errors.access_denied_exception.AccessDeniedException: <p>Operating denied due to a file permission or access check error.</p>
+            aws_sdk_mgn.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found exception.</p>
+            aws_sdk_mgn.errors.throttling_exception.ThrottlingException: <p>Reached throttling quota exception.</p>
+            aws_sdk_mgn.errors.validation_exception.ValidationException: <p>Validate exception.</p>
+            aws_sdk_mgn.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Sample ListNetworkMigrationCodeGenerations call
@@ -2025,6 +2236,13 @@ class AsyncNetworkMigrationDefinitionResource:
             max_results: <p>The maximum number of results to return in a single call.</p>
             next_token: <p>The token for the next page of results.</p>
 
+        Raises:
+            aws_sdk_mgn.errors.access_denied_exception.AccessDeniedException: <p>Operating denied due to a file permission or access check error.</p>
+            aws_sdk_mgn.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found exception.</p>
+            aws_sdk_mgn.errors.throttling_exception.ThrottlingException: <p>Reached throttling quota exception.</p>
+            aws_sdk_mgn.errors.validation_exception.ValidationException: <p>Validate exception.</p>
+            aws_sdk_mgn.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Sample ListNetworkMigrationCodeGenerationSegments call
 
@@ -2084,6 +2302,13 @@ class AsyncNetworkMigrationDefinitionResource:
             network_migration_definition_id: <p>The unique identifier of the network migration definition.</p>
             max_results: <p>The maximum number of results to return in a single call.</p>
             next_token: <p>The token for the next page of results.</p>
+
+        Raises:
+            aws_sdk_mgn.errors.access_denied_exception.AccessDeniedException: <p>Operating denied due to a file permission or access check error.</p>
+            aws_sdk_mgn.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found exception.</p>
+            aws_sdk_mgn.errors.throttling_exception.ThrottlingException: <p>Reached throttling quota exception.</p>
+            aws_sdk_mgn.errors.validation_exception.ValidationException: <p>Validate exception.</p>
+            aws_sdk_mgn.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Sample ListNetworkMigrationDeployedStacks call
@@ -2147,6 +2372,13 @@ class AsyncNetworkMigrationDefinitionResource:
             max_results: <p>The maximum number of results to return in a single call.</p>
             next_token: <p>The token for the next page of results.</p>
 
+        Raises:
+            aws_sdk_mgn.errors.access_denied_exception.AccessDeniedException: <p>Operating denied due to a file permission or access check error.</p>
+            aws_sdk_mgn.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found exception.</p>
+            aws_sdk_mgn.errors.throttling_exception.ThrottlingException: <p>Reached throttling quota exception.</p>
+            aws_sdk_mgn.errors.validation_exception.ValidationException: <p>Validate exception.</p>
+            aws_sdk_mgn.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Sample ListNetworkMigrationDeployments call
 
@@ -2208,6 +2440,11 @@ class AsyncNetworkMigrationDefinitionResource:
             filters: <p>Filters to apply when listing executions, such as status or execution ID.</p>
             next_token: <p>The token for the next page of results.</p>
             max_results: <p>The maximum number of results to return in a single call.</p>
+
+        Raises:
+            aws_sdk_mgn.errors.access_denied_exception.AccessDeniedException: <p>Operating denied due to a file permission or access check error.</p>
+            aws_sdk_mgn.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found exception.</p>
+            aws_sdk_mgn.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Sample ListNetworkMigrationExecutions call
@@ -2273,6 +2510,13 @@ class AsyncNetworkMigrationDefinitionResource:
             filters: <p>Filters to apply when listing constructs, such as construct type or ID.</p>
             max_results: <p>The maximum number of results to return in a single call.</p>
             next_token: <p>The token for the next page of results.</p>
+
+        Raises:
+            aws_sdk_mgn.errors.access_denied_exception.AccessDeniedException: <p>Operating denied due to a file permission or access check error.</p>
+            aws_sdk_mgn.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found exception.</p>
+            aws_sdk_mgn.errors.throttling_exception.ThrottlingException: <p>Reached throttling quota exception.</p>
+            aws_sdk_mgn.errors.validation_exception.ValidationException: <p>Validate exception.</p>
+            aws_sdk_mgn.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Sample ListNetworkMigrationMapperSegmentConstructs call with properties enabled
@@ -2342,6 +2586,13 @@ class AsyncNetworkMigrationDefinitionResource:
             max_results: <p>The maximum number of results to return in a single call.</p>
             next_token: <p>The token for the next page of results.</p>
 
+        Raises:
+            aws_sdk_mgn.errors.access_denied_exception.AccessDeniedException: <p>Operating denied due to a file permission or access check error.</p>
+            aws_sdk_mgn.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found exception.</p>
+            aws_sdk_mgn.errors.throttling_exception.ThrottlingException: <p>Reached throttling quota exception.</p>
+            aws_sdk_mgn.errors.validation_exception.ValidationException: <p>Validate exception.</p>
+            aws_sdk_mgn.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Sample ListNetworkMigrationMapperSegments call
 
@@ -2405,6 +2656,13 @@ class AsyncNetworkMigrationDefinitionResource:
             filters: <p>Filters to apply when listing mapping jobs.</p>
             max_results: <p>The maximum number of results to return in a single call.</p>
             next_token: <p>The token for the next page of results.</p>
+
+        Raises:
+            aws_sdk_mgn.errors.access_denied_exception.AccessDeniedException: <p>Operating denied due to a file permission or access check error.</p>
+            aws_sdk_mgn.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found exception.</p>
+            aws_sdk_mgn.errors.throttling_exception.ThrottlingException: <p>Reached throttling quota exception.</p>
+            aws_sdk_mgn.errors.validation_exception.ValidationException: <p>Validate exception.</p>
+            aws_sdk_mgn.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Sample ListNetworkMigrationMappings call
@@ -2470,6 +2728,13 @@ class AsyncNetworkMigrationDefinitionResource:
             max_results: <p>The maximum number of results to return in a single call.</p>
             next_token: <p>The token for the next page of results.</p>
 
+        Raises:
+            aws_sdk_mgn.errors.access_denied_exception.AccessDeniedException: <p>Operating denied due to a file permission or access check error.</p>
+            aws_sdk_mgn.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found exception.</p>
+            aws_sdk_mgn.errors.throttling_exception.ThrottlingException: <p>Reached throttling quota exception.</p>
+            aws_sdk_mgn.errors.validation_exception.ValidationException: <p>Validate exception.</p>
+            aws_sdk_mgn.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Sample ListNetworkMigrationMappingUpdates call
 
@@ -2522,6 +2787,15 @@ class AsyncNetworkMigrationDefinitionResource:
             network_migration_execution_id: <p>The unique identifier of the network migration execution to analyze.</p>
             network_migration_definition_id: <p>The unique identifier of the network migration definition.</p>
 
+        Raises:
+            aws_sdk_mgn.errors.access_denied_exception.AccessDeniedException: <p>Operating denied due to a file permission or access check error.</p>
+            aws_sdk_mgn.errors.conflict_exception.ConflictException: <p>The request could not be completed due to a conflict with the current state of the target resource.</p>
+            aws_sdk_mgn.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found exception.</p>
+            aws_sdk_mgn.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request could not be completed because its exceeded the service quota.</p>
+            aws_sdk_mgn.errors.throttling_exception.ThrottlingException: <p>Reached throttling quota exception.</p>
+            aws_sdk_mgn.errors.validation_exception.ValidationException: <p>Validate exception.</p>
+            aws_sdk_mgn.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Sample StartNetworkMigrationAnalysis call
 
@@ -2571,6 +2845,15 @@ class AsyncNetworkMigrationDefinitionResource:
             network_migration_execution_id: <p>The unique identifier of the network migration execution.</p>
             network_migration_definition_id: <p>The unique identifier of the network migration definition.</p>
             code_generation_output_format_types: <p>The output format types for code generation, such as CloudFormation or Terraform.</p>
+
+        Raises:
+            aws_sdk_mgn.errors.access_denied_exception.AccessDeniedException: <p>Operating denied due to a file permission or access check error.</p>
+            aws_sdk_mgn.errors.conflict_exception.ConflictException: <p>The request could not be completed due to a conflict with the current state of the target resource.</p>
+            aws_sdk_mgn.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found exception.</p>
+            aws_sdk_mgn.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request could not be completed because its exceeded the service quota.</p>
+            aws_sdk_mgn.errors.throttling_exception.ThrottlingException: <p>Reached throttling quota exception.</p>
+            aws_sdk_mgn.errors.validation_exception.ValidationException: <p>Validate exception.</p>
+            aws_sdk_mgn.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Sample StartNetworkMigrationCodeGeneration call
@@ -2622,6 +2905,15 @@ class AsyncNetworkMigrationDefinitionResource:
             network_migration_execution_id: <p>The unique identifier of the network migration execution.</p>
             network_migration_definition_id: <p>The unique identifier of the network migration definition.</p>
 
+        Raises:
+            aws_sdk_mgn.errors.access_denied_exception.AccessDeniedException: <p>Operating denied due to a file permission or access check error.</p>
+            aws_sdk_mgn.errors.conflict_exception.ConflictException: <p>The request could not be completed due to a conflict with the current state of the target resource.</p>
+            aws_sdk_mgn.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found exception.</p>
+            aws_sdk_mgn.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request could not be completed because its exceeded the service quota.</p>
+            aws_sdk_mgn.errors.throttling_exception.ThrottlingException: <p>Reached throttling quota exception.</p>
+            aws_sdk_mgn.errors.validation_exception.ValidationException: <p>Validate exception.</p>
+            aws_sdk_mgn.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Sample StartNetworkMigrationDeployment call
 
@@ -2671,6 +2963,15 @@ class AsyncNetworkMigrationDefinitionResource:
             network_migration_execution_id: <p>The unique identifier of the network migration execution.</p>
             network_migration_definition_id: <p>The unique identifier of the network migration definition.</p>
             security_group_mapping_strategy: <p>The security group mapping strategy to use.</p>
+
+        Raises:
+            aws_sdk_mgn.errors.access_denied_exception.AccessDeniedException: <p>Operating denied due to a file permission or access check error.</p>
+            aws_sdk_mgn.errors.conflict_exception.ConflictException: <p>The request could not be completed due to a conflict with the current state of the target resource.</p>
+            aws_sdk_mgn.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found exception.</p>
+            aws_sdk_mgn.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request could not be completed because its exceeded the service quota.</p>
+            aws_sdk_mgn.errors.throttling_exception.ThrottlingException: <p>Reached throttling quota exception.</p>
+            aws_sdk_mgn.errors.validation_exception.ValidationException: <p>Validate exception.</p>
+            aws_sdk_mgn.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Sample StartNetworkMigrationMapping call
@@ -2728,6 +3029,15 @@ class AsyncNetworkMigrationDefinitionResource:
             constructs: <p>A list of construct updates to apply.</p>
             segments: <p>A list of segment updates to apply.</p>
 
+        Raises:
+            aws_sdk_mgn.errors.access_denied_exception.AccessDeniedException: <p>Operating denied due to a file permission or access check error.</p>
+            aws_sdk_mgn.errors.conflict_exception.ConflictException: <p>The request could not be completed due to a conflict with the current state of the target resource.</p>
+            aws_sdk_mgn.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found exception.</p>
+            aws_sdk_mgn.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request could not be completed because its exceeded the service quota.</p>
+            aws_sdk_mgn.errors.throttling_exception.ThrottlingException: <p>Reached throttling quota exception.</p>
+            aws_sdk_mgn.errors.validation_exception.ValidationException: <p>Validate exception.</p>
+            aws_sdk_mgn.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Sample StartNetworkMigrationMappingUpdate call
 
@@ -2781,6 +3091,12 @@ class AsyncNetworkMigrationDefinitionResource:
             network_migration_execution_id: <p>The unique identifier of the network migration execution.</p>
             segment_id: <p>The unique identifier of the segment to update.</p>
             scope_tags: <p>The updated scope tags for the segment.</p>
+
+        Raises:
+            aws_sdk_mgn.errors.access_denied_exception.AccessDeniedException: <p>Operating denied due to a file permission or access check error.</p>
+            aws_sdk_mgn.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found exception.</p>
+            aws_sdk_mgn.errors.validation_exception.ValidationException: <p>Validate exception.</p>
+            aws_sdk_mgn.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Sample UpdateNetworkMigrationMapperSegment call

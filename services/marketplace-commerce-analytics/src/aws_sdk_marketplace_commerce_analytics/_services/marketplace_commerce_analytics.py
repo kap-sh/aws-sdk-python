@@ -162,6 +162,10 @@ class MarketplaceCommerceAnalyticsClient:
             destination_s3_prefix: (Optional) The desired S3 prefix for the published data set, similar to a directory path in standard file systems. For example, if given the bucket name \"mybucket\" and the prefix \"myprefix/mydatasets\", the output file \"outputfile\" would be published to \"s3://mybucket/myprefix/mydatasets/outputfile\". If the prefix directory structure does not exist, it will be created. If no prefix is provided, the data set will be published to the S3 bucket root.
             sns_topic_arn: Amazon Resource Name (ARN) for the SNS Topic that will be notified when the data set has been published or if an error has occurred.
             customer_defined_values: (Optional) Key-value pairs which will be returned, unmodified, in the Amazon SNS notification message and the data set metadata file. These key-value pairs can be used to correlated responses with tracking information from other systems.
+
+        Raises:
+            aws_sdk_marketplace_commerce_analytics.errors.marketplace_commerce_analytics_exception.MarketplaceCommerceAnalyticsException: This exception is thrown when an internal service error occurs.
+            aws_sdk_marketplace_commerce_analytics.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -223,6 +227,10 @@ class MarketplaceCommerceAnalyticsClient:
             destination_s3_prefix: <i>This target has been deprecated.</i> (Optional) The desired S3 prefix for the published data set, similar to a directory path in standard file systems. For example, if given the bucket name \"mybucket\" and the prefix \"myprefix/mydatasets\", the output file \"outputfile\" would be published to \"s3://mybucket/myprefix/mydatasets/outputfile\". If the prefix directory structure does not exist, it will be created. If no prefix is provided, the data set will be published to the S3 bucket root.
             sns_topic_arn: <i>This target has been deprecated.</i> Amazon Resource Name (ARN) for the SNS Topic that will be notified when the data set has been published or if an error has occurred.
             customer_defined_values: <i>This target has been deprecated.</i> (Optional) Key-value pairs which will be returned, unmodified, in the Amazon SNS notification message and the data set metadata file.
+
+        Raises:
+            aws_sdk_marketplace_commerce_analytics.errors.marketplace_commerce_analytics_exception.MarketplaceCommerceAnalyticsException: This exception is thrown when an internal service error occurs.
+            aws_sdk_marketplace_commerce_analytics.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(

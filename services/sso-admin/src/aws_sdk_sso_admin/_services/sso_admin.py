@@ -345,6 +345,15 @@ class SSOAdminClient:
         Args:
             instance_arn: <p>The Amazon Resource Name (ARN) of the IAM Identity Center instance to replicate to the target Region.</p>
             region_name: <p>The name of the Amazon Web Services Region to add to the IAM Identity Center instance. The Region name must be 1-32 characters long and follow the pattern of Amazon Web Services Region names (for example, us-east-1).</p>
+
+        Raises:
+            aws_sdk_sso_admin.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_sso_admin.errors.conflict_exception.ConflictException: <p>Occurs when a conflict with a previous successful write is detected. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+            aws_sdk_sso_admin.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure with an internal server.</p>
+            aws_sdk_sso_admin.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Indicates that the principal has crossed the permitted number of resources that can be created.</p>
+            aws_sdk_sso_admin.errors.throttling_exception.ThrottlingException: <p>Indicates that the principal has crossed the throttling limits of the API operations.</p>
+            aws_sdk_sso_admin.errors.validation_exception.ValidationException: <p>The request failed because it contains a syntax error.</p>
+            aws_sdk_sso_admin.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -387,6 +396,16 @@ class SSOAdminClient:
             instance_arn: <p>The ARN of the IAM Identity Center instance under which the operation will be executed. </p>
             permission_set_arn: <p>The ARN of the <code>PermissionSet</code>.</p>
             customer_managed_policy_reference: <p>Specifies the name and path of a customer managed policy. You must have an IAM policy that matches the name and path in each Amazon Web Services account where you want to deploy your permission set.</p>
+
+        Raises:
+            aws_sdk_sso_admin.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_sso_admin.errors.conflict_exception.ConflictException: <p>Occurs when a conflict with a previous successful write is detected. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+            aws_sdk_sso_admin.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure with an internal server.</p>
+            aws_sdk_sso_admin.errors.resource_not_found_exception.ResourceNotFoundException: <p>Indicates that a requested resource is not found.</p>
+            aws_sdk_sso_admin.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Indicates that the principal has crossed the permitted number of resources that can be created.</p>
+            aws_sdk_sso_admin.errors.throttling_exception.ThrottlingException: <p>Indicates that the principal has crossed the throttling limits of the API operations.</p>
+            aws_sdk_sso_admin.errors.validation_exception.ValidationException: <p>The request failed because it contains a syntax error.</p>
+            aws_sdk_sso_admin.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -430,6 +449,16 @@ class SSOAdminClient:
             instance_arn: <p>The ARN of the IAM Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href=\"/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
             permission_set_arn: <p>The ARN of the <a>PermissionSet</a> that the managed policy should be attached to.</p>
             managed_policy_arn: <p>The Amazon Web Services managed policy ARN to be attached to a permission set.</p>
+
+        Raises:
+            aws_sdk_sso_admin.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_sso_admin.errors.conflict_exception.ConflictException: <p>Occurs when a conflict with a previous successful write is detected. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+            aws_sdk_sso_admin.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure with an internal server.</p>
+            aws_sdk_sso_admin.errors.resource_not_found_exception.ResourceNotFoundException: <p>Indicates that a requested resource is not found.</p>
+            aws_sdk_sso_admin.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Indicates that the principal has crossed the permitted number of resources that can be created.</p>
+            aws_sdk_sso_admin.errors.throttling_exception.ThrottlingException: <p>Indicates that the principal has crossed the throttling limits of the API operations.</p>
+            aws_sdk_sso_admin.errors.validation_exception.ValidationException: <p>The request failed because it contains a syntax error.</p>
+            aws_sdk_sso_admin.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -479,6 +508,16 @@ class SSOAdminClient:
             permission_set_arn: <p>The ARN of the permission set that the admin wants to grant the principal access to.</p>
             principal_type: <p>The entity type for which the assignment will be created.</p>
             principal_id: <p>An identifier for an object in IAM Identity Center, such as a user or group. PrincipalIds are GUIDs (For example, f81d4fae-7dec-11d0-a765-00a0c91e6bf6). For more information about PrincipalIds in IAM Identity Center, see the <a href=\"/singlesignon/latest/IdentityStoreAPIReference/welcome.html\">IAM Identity Center Identity Store API Reference</a>.</p>
+
+        Raises:
+            aws_sdk_sso_admin.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_sso_admin.errors.conflict_exception.ConflictException: <p>Occurs when a conflict with a previous successful write is detected. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+            aws_sdk_sso_admin.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure with an internal server.</p>
+            aws_sdk_sso_admin.errors.resource_not_found_exception.ResourceNotFoundException: <p>Indicates that a requested resource is not found.</p>
+            aws_sdk_sso_admin.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Indicates that the principal has crossed the permitted number of resources that can be created.</p>
+            aws_sdk_sso_admin.errors.throttling_exception.ThrottlingException: <p>Indicates that the principal has crossed the throttling limits of the API operations.</p>
+            aws_sdk_sso_admin.errors.validation_exception.ValidationException: <p>The request failed because it contains a syntax error.</p>
+            aws_sdk_sso_admin.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -543,6 +582,16 @@ class SSOAdminClient:
             tags: <p>Specifies tags to be attached to the application.</p>
             status: <p>Specifies whether the application is enabled or disabled.</p>
             client_token: <p>Specifies a unique, case-sensitive ID that you provide to ensure the idempotency of the request. This lets you safely retry the request without accidentally performing the same operation a second time. Passing the same value to a later call to an operation requires that you also pass the same value for all other parameters. We recommend that you use a <a href=\"https://wikipedia.org/wiki/Universally_unique_identifier\">UUID type of value</a>.</p> <p>If you don't provide this value, then Amazon Web Services generates a random one for you.</p> <p>If you retry the operation with the same <code>ClientToken</code>, but with different parameters, the retry fails with an <code>IdempotentParameterMismatch</code> error.</p>
+
+        Raises:
+            aws_sdk_sso_admin.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_sso_admin.errors.conflict_exception.ConflictException: <p>Occurs when a conflict with a previous successful write is detected. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+            aws_sdk_sso_admin.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure with an internal server.</p>
+            aws_sdk_sso_admin.errors.resource_not_found_exception.ResourceNotFoundException: <p>Indicates that a requested resource is not found.</p>
+            aws_sdk_sso_admin.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Indicates that the principal has crossed the permitted number of resources that can be created.</p>
+            aws_sdk_sso_admin.errors.throttling_exception.ThrottlingException: <p>Indicates that the principal has crossed the throttling limits of the API operations.</p>
+            aws_sdk_sso_admin.errors.validation_exception.ValidationException: <p>The request failed because it contains a syntax error.</p>
+            aws_sdk_sso_admin.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -596,6 +645,16 @@ class SSOAdminClient:
             application_arn: <p>The ARN of the application for which the assignment is created.</p>
             principal_id: <p>An identifier for an object in IAM Identity Center, such as a user or group. PrincipalIds are GUIDs (For example, f81d4fae-7dec-11d0-a765-00a0c91e6bf6). For more information about PrincipalIds in IAM Identity Center, see the <a href=\"https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/welcome.html\">IAM Identity Center Identity Store API Reference</a>.</p>
             principal_type: <p>The entity type for which the assignment will be created.</p>
+
+        Raises:
+            aws_sdk_sso_admin.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_sso_admin.errors.conflict_exception.ConflictException: <p>Occurs when a conflict with a previous successful write is detected. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+            aws_sdk_sso_admin.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure with an internal server.</p>
+            aws_sdk_sso_admin.errors.resource_not_found_exception.ResourceNotFoundException: <p>Indicates that a requested resource is not found.</p>
+            aws_sdk_sso_admin.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Indicates that the principal has crossed the permitted number of resources that can be created.</p>
+            aws_sdk_sso_admin.errors.throttling_exception.ThrottlingException: <p>Indicates that the principal has crossed the throttling limits of the API operations.</p>
+            aws_sdk_sso_admin.errors.validation_exception.ValidationException: <p>The request failed because it contains a syntax error.</p>
+            aws_sdk_sso_admin.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -641,6 +700,15 @@ class SSOAdminClient:
             name: <p>The name of the instance of IAM Identity Center.</p>
             client_token: <p>Specifies a unique, case-sensitive ID that you provide to ensure the idempotency of the request. This lets you safely retry the request without accidentally performing the same operation a second time. Passing the same value to a later call to an operation requires that you also pass the same value for all other parameters. We recommend that you use a <a href=\"https://wikipedia.org/wiki/Universally_unique_identifier\">UUID type of value</a>.</p> <p>If you don't provide this value, then Amazon Web Services generates a random one for you.</p> <p>If you retry the operation with the same <code>ClientToken</code>, but with different parameters, the retry fails with an <code>IdempotentParameterMismatch</code> error.</p>
             tags: <p>Specifies tags to be attached to the instance of IAM Identity Center.</p>
+
+        Raises:
+            aws_sdk_sso_admin.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_sso_admin.errors.conflict_exception.ConflictException: <p>Occurs when a conflict with a previous successful write is detected. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+            aws_sdk_sso_admin.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure with an internal server.</p>
+            aws_sdk_sso_admin.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Indicates that the principal has crossed the permitted number of resources that can be created.</p>
+            aws_sdk_sso_admin.errors.throttling_exception.ThrottlingException: <p>Indicates that the principal has crossed the throttling limits of the API operations.</p>
+            aws_sdk_sso_admin.errors.validation_exception.ValidationException: <p>The request failed because it contains a syntax error.</p>
+            aws_sdk_sso_admin.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -685,6 +753,15 @@ class SSOAdminClient:
         Args:
             instance_arn: <p>The ARN of the IAM Identity Center instance under which the operation will be executed.</p>
             instance_access_control_attribute_configuration: <p>Specifies the IAM Identity Center identity store attributes to add to your ABAC configuration. When using an external identity provider as an identity source, you can pass attributes through the SAML assertion. Doing so provides an alternative to configuring attributes from the IAM Identity Center identity store. If a SAML assertion passes any of these attributes, IAM Identity Center will replace the attribute value with the value from the IAM Identity Center identity store.</p>
+
+        Raises:
+            aws_sdk_sso_admin.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_sso_admin.errors.conflict_exception.ConflictException: <p>Occurs when a conflict with a previous successful write is detected. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+            aws_sdk_sso_admin.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure with an internal server.</p>
+            aws_sdk_sso_admin.errors.resource_not_found_exception.ResourceNotFoundException: <p>Indicates that a requested resource is not found.</p>
+            aws_sdk_sso_admin.errors.throttling_exception.ThrottlingException: <p>Indicates that the principal has crossed the throttling limits of the API operations.</p>
+            aws_sdk_sso_admin.errors.validation_exception.ValidationException: <p>The request failed because it contains a syntax error.</p>
+            aws_sdk_sso_admin.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -737,6 +814,16 @@ class SSOAdminClient:
             session_duration: <p>The length of time that the application user sessions are valid in the ISO-8601 standard.</p>
             relay_state: <p>Used to redirect users within the application during the federation authentication process.</p>
             tags: <p>The tags to attach to the new <a>PermissionSet</a>.</p>
+
+        Raises:
+            aws_sdk_sso_admin.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_sso_admin.errors.conflict_exception.ConflictException: <p>Occurs when a conflict with a previous successful write is detected. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+            aws_sdk_sso_admin.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure with an internal server.</p>
+            aws_sdk_sso_admin.errors.resource_not_found_exception.ResourceNotFoundException: <p>Indicates that a requested resource is not found.</p>
+            aws_sdk_sso_admin.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Indicates that the principal has crossed the permitted number of resources that can be created.</p>
+            aws_sdk_sso_admin.errors.throttling_exception.ThrottlingException: <p>Indicates that the principal has crossed the throttling limits of the API operations.</p>
+            aws_sdk_sso_admin.errors.validation_exception.ValidationException: <p>The request failed because it contains a syntax error.</p>
+            aws_sdk_sso_admin.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -795,6 +882,15 @@ class SSOAdminClient:
             trusted_token_issuer_configuration: <p>Specifies settings that apply to the new trusted token issuer configuration. The settings that are available depend on what <code>TrustedTokenIssuerType</code> you specify.</p>
             client_token: <p>Specifies a unique, case-sensitive ID that you provide to ensure the idempotency of the request. This lets you safely retry the request without accidentally performing the same operation a second time. Passing the same value to a later call to an operation requires that you also pass the same value for all other parameters. We recommend that you use a <a href=\"https://wikipedia.org/wiki/Universally_unique_identifier\">UUID type of value.</a>.</p> <p>If you don't provide this value, then Amazon Web Services generates a random one for you.</p> <p>If you retry the operation with the same <code>ClientToken</code>, but with different parameters, the retry fails with an <code>IdempotentParameterMismatch</code> error.</p>
             tags: <p>Specifies tags to be attached to the new trusted token issuer configuration.</p>
+
+        Raises:
+            aws_sdk_sso_admin.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_sso_admin.errors.conflict_exception.ConflictException: <p>Occurs when a conflict with a previous successful write is detected. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+            aws_sdk_sso_admin.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure with an internal server.</p>
+            aws_sdk_sso_admin.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Indicates that the principal has crossed the permitted number of resources that can be created.</p>
+            aws_sdk_sso_admin.errors.throttling_exception.ThrottlingException: <p>Indicates that the principal has crossed the throttling limits of the API operations.</p>
+            aws_sdk_sso_admin.errors.validation_exception.ValidationException: <p>The request failed because it contains a syntax error.</p>
+            aws_sdk_sso_admin.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -851,6 +947,15 @@ class SSOAdminClient:
             permission_set_arn: <p>The ARN of the permission set that will be used to remove access.</p>
             principal_type: <p>The entity type for which the assignment will be deleted.</p>
             principal_id: <p>An identifier for an object in IAM Identity Center, such as a user or group. PrincipalIds are GUIDs (For example, f81d4fae-7dec-11d0-a765-00a0c91e6bf6). For more information about PrincipalIds in IAM Identity Center, see the <a href=\"/singlesignon/latest/IdentityStoreAPIReference/welcome.html\">IAM Identity Center Identity Store API Reference</a>.</p>
+
+        Raises:
+            aws_sdk_sso_admin.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_sso_admin.errors.conflict_exception.ConflictException: <p>Occurs when a conflict with a previous successful write is detected. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+            aws_sdk_sso_admin.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure with an internal server.</p>
+            aws_sdk_sso_admin.errors.resource_not_found_exception.ResourceNotFoundException: <p>Indicates that a requested resource is not found.</p>
+            aws_sdk_sso_admin.errors.throttling_exception.ThrottlingException: <p>Indicates that the principal has crossed the throttling limits of the API operations.</p>
+            aws_sdk_sso_admin.errors.validation_exception.ValidationException: <p>The request failed because it contains a syntax error.</p>
+            aws_sdk_sso_admin.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -895,6 +1000,15 @@ class SSOAdminClient:
 
         Args:
             application_arn: <p>Specifies the ARN of the application. For more information about ARNs, see <a href=\"/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>. </p>
+
+        Raises:
+            aws_sdk_sso_admin.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_sso_admin.errors.conflict_exception.ConflictException: <p>Occurs when a conflict with a previous successful write is detected. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+            aws_sdk_sso_admin.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure with an internal server.</p>
+            aws_sdk_sso_admin.errors.resource_not_found_exception.ResourceNotFoundException: <p>Indicates that a requested resource is not found.</p>
+            aws_sdk_sso_admin.errors.throttling_exception.ThrottlingException: <p>Indicates that the principal has crossed the throttling limits of the API operations.</p>
+            aws_sdk_sso_admin.errors.validation_exception.ValidationException: <p>The request failed because it contains a syntax error.</p>
+            aws_sdk_sso_admin.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -936,6 +1050,15 @@ class SSOAdminClient:
             application_arn: <p>Specifies the ARN of the application.</p>
             principal_id: <p>An identifier for an object in IAM Identity Center, such as a user or group. PrincipalIds are GUIDs (For example, f81d4fae-7dec-11d0-a765-00a0c91e6bf6). For more information about PrincipalIds in IAM Identity Center, see the <a href=\"https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/welcome.html\">IAM Identity Center Identity Store API Reference</a>.</p>
             principal_type: <p>The entity type for which the assignment will be deleted.</p>
+
+        Raises:
+            aws_sdk_sso_admin.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_sso_admin.errors.conflict_exception.ConflictException: <p>Occurs when a conflict with a previous successful write is detected. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+            aws_sdk_sso_admin.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure with an internal server.</p>
+            aws_sdk_sso_admin.errors.resource_not_found_exception.ResourceNotFoundException: <p>Indicates that a requested resource is not found.</p>
+            aws_sdk_sso_admin.errors.throttling_exception.ThrottlingException: <p>Indicates that the principal has crossed the throttling limits of the API operations.</p>
+            aws_sdk_sso_admin.errors.validation_exception.ValidationException: <p>The request failed because it contains a syntax error.</p>
+            aws_sdk_sso_admin.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -977,6 +1100,15 @@ class SSOAdminClient:
         Args:
             instance_arn: <p>The ARN of the IAM Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href=\"/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
             permission_set_arn: <p>The ARN of the permission set that will be used to remove access.</p>
+
+        Raises:
+            aws_sdk_sso_admin.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_sso_admin.errors.conflict_exception.ConflictException: <p>Occurs when a conflict with a previous successful write is detected. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+            aws_sdk_sso_admin.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure with an internal server.</p>
+            aws_sdk_sso_admin.errors.resource_not_found_exception.ResourceNotFoundException: <p>Indicates that a requested resource is not found.</p>
+            aws_sdk_sso_admin.errors.throttling_exception.ThrottlingException: <p>Indicates that the principal has crossed the throttling limits of the API operations.</p>
+            aws_sdk_sso_admin.errors.validation_exception.ValidationException: <p>The request failed because it contains a syntax error.</p>
+            aws_sdk_sso_admin.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1015,6 +1147,14 @@ class SSOAdminClient:
 
         Args:
             instance_arn: <p>The ARN of the instance of IAM Identity Center under which the operation will run.</p>
+
+        Raises:
+            aws_sdk_sso_admin.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_sso_admin.errors.conflict_exception.ConflictException: <p>Occurs when a conflict with a previous successful write is detected. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+            aws_sdk_sso_admin.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure with an internal server.</p>
+            aws_sdk_sso_admin.errors.throttling_exception.ThrottlingException: <p>Indicates that the principal has crossed the throttling limits of the API operations.</p>
+            aws_sdk_sso_admin.errors.validation_exception.ValidationException: <p>The request failed because it contains a syntax error.</p>
+            aws_sdk_sso_admin.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1052,6 +1192,15 @@ class SSOAdminClient:
 
         Args:
             instance_arn: <p>The ARN of the IAM Identity Center instance under which the operation will be executed.</p>
+
+        Raises:
+            aws_sdk_sso_admin.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_sso_admin.errors.conflict_exception.ConflictException: <p>Occurs when a conflict with a previous successful write is detected. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+            aws_sdk_sso_admin.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure with an internal server.</p>
+            aws_sdk_sso_admin.errors.resource_not_found_exception.ResourceNotFoundException: <p>Indicates that a requested resource is not found.</p>
+            aws_sdk_sso_admin.errors.throttling_exception.ThrottlingException: <p>Indicates that the principal has crossed the throttling limits of the API operations.</p>
+            aws_sdk_sso_admin.errors.validation_exception.ValidationException: <p>The request failed because it contains a syntax error.</p>
+            aws_sdk_sso_admin.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1091,6 +1240,15 @@ class SSOAdminClient:
         Args:
             instance_arn: <p>The ARN of the IAM Identity Center instance under which the operation will be executed. </p>
             permission_set_arn: <p>The ARN of the <code>PermissionSet</code>.</p>
+
+        Raises:
+            aws_sdk_sso_admin.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_sso_admin.errors.conflict_exception.ConflictException: <p>Occurs when a conflict with a previous successful write is detected. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+            aws_sdk_sso_admin.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure with an internal server.</p>
+            aws_sdk_sso_admin.errors.resource_not_found_exception.ResourceNotFoundException: <p>Indicates that a requested resource is not found.</p>
+            aws_sdk_sso_admin.errors.throttling_exception.ThrottlingException: <p>Indicates that the principal has crossed the throttling limits of the API operations.</p>
+            aws_sdk_sso_admin.errors.validation_exception.ValidationException: <p>The request failed because it contains a syntax error.</p>
+            aws_sdk_sso_admin.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1131,6 +1289,15 @@ class SSOAdminClient:
         Args:
             instance_arn: <p>The ARN of the IAM Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href=\"/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
             permission_set_arn: <p>The ARN of the permission set that should be deleted.</p>
+
+        Raises:
+            aws_sdk_sso_admin.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_sso_admin.errors.conflict_exception.ConflictException: <p>Occurs when a conflict with a previous successful write is detected. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+            aws_sdk_sso_admin.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure with an internal server.</p>
+            aws_sdk_sso_admin.errors.resource_not_found_exception.ResourceNotFoundException: <p>Indicates that a requested resource is not found.</p>
+            aws_sdk_sso_admin.errors.throttling_exception.ThrottlingException: <p>Indicates that the principal has crossed the throttling limits of the API operations.</p>
+            aws_sdk_sso_admin.errors.validation_exception.ValidationException: <p>The request failed because it contains a syntax error.</p>
+            aws_sdk_sso_admin.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1169,6 +1336,15 @@ class SSOAdminClient:
 
         Args:
             trusted_token_issuer_arn: <p>Specifies the ARN of the trusted token issuer configuration to delete.</p>
+
+        Raises:
+            aws_sdk_sso_admin.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_sso_admin.errors.conflict_exception.ConflictException: <p>Occurs when a conflict with a previous successful write is detected. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+            aws_sdk_sso_admin.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure with an internal server.</p>
+            aws_sdk_sso_admin.errors.resource_not_found_exception.ResourceNotFoundException: <p>Indicates that a requested resource is not found.</p>
+            aws_sdk_sso_admin.errors.throttling_exception.ThrottlingException: <p>Indicates that the principal has crossed the throttling limits of the API operations.</p>
+            aws_sdk_sso_admin.errors.validation_exception.ValidationException: <p>The request failed because it contains a syntax error.</p>
+            aws_sdk_sso_admin.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1208,6 +1384,14 @@ class SSOAdminClient:
         Args:
             instance_arn: <p>The ARN of the IAM Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href=\"/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
             account_assignment_creation_request_id: <p>The identifier that is used to track the request operation progress.</p>
+
+        Raises:
+            aws_sdk_sso_admin.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_sso_admin.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure with an internal server.</p>
+            aws_sdk_sso_admin.errors.resource_not_found_exception.ResourceNotFoundException: <p>Indicates that a requested resource is not found.</p>
+            aws_sdk_sso_admin.errors.throttling_exception.ThrottlingException: <p>Indicates that the principal has crossed the throttling limits of the API operations.</p>
+            aws_sdk_sso_admin.errors.validation_exception.ValidationException: <p>The request failed because it contains a syntax error.</p>
+            aws_sdk_sso_admin.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1250,6 +1434,14 @@ class SSOAdminClient:
         Args:
             instance_arn: <p>The ARN of the IAM Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href=\"/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
             account_assignment_deletion_request_id: <p>The identifier that is used to track the request operation progress.</p>
+
+        Raises:
+            aws_sdk_sso_admin.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_sso_admin.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure with an internal server.</p>
+            aws_sdk_sso_admin.errors.resource_not_found_exception.ResourceNotFoundException: <p>Indicates that a requested resource is not found.</p>
+            aws_sdk_sso_admin.errors.throttling_exception.ThrottlingException: <p>Indicates that the principal has crossed the throttling limits of the API operations.</p>
+            aws_sdk_sso_admin.errors.validation_exception.ValidationException: <p>The request failed because it contains a syntax error.</p>
+            aws_sdk_sso_admin.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1290,6 +1482,14 @@ class SSOAdminClient:
 
         Args:
             application_arn: <p>Specifies the ARN of the application. For more information about ARNs, see <a href=\"/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
+
+        Raises:
+            aws_sdk_sso_admin.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_sso_admin.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure with an internal server.</p>
+            aws_sdk_sso_admin.errors.resource_not_found_exception.ResourceNotFoundException: <p>Indicates that a requested resource is not found.</p>
+            aws_sdk_sso_admin.errors.throttling_exception.ThrottlingException: <p>Indicates that the principal has crossed the throttling limits of the API operations.</p>
+            aws_sdk_sso_admin.errors.validation_exception.ValidationException: <p>The request failed because it contains a syntax error.</p>
+            aws_sdk_sso_admin.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1331,6 +1531,14 @@ class SSOAdminClient:
             application_arn: <p>Specifies the ARN of the application. For more information about ARNs, see <a href=\"/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
             principal_id: <p>An identifier for an object in IAM Identity Center, such as a user or group. PrincipalIds are GUIDs (For example, f81d4fae-7dec-11d0-a765-00a0c91e6bf6). For more information about PrincipalIds in IAM Identity Center, see the <a href=\"https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/welcome.html\">IAM Identity Center Identity Store API Reference</a>.</p>
             principal_type: <p>The entity type for which the assignment will be created.</p>
+
+        Raises:
+            aws_sdk_sso_admin.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_sso_admin.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure with an internal server.</p>
+            aws_sdk_sso_admin.errors.resource_not_found_exception.ResourceNotFoundException: <p>Indicates that a requested resource is not found.</p>
+            aws_sdk_sso_admin.errors.throttling_exception.ThrottlingException: <p>Indicates that the principal has crossed the throttling limits of the API operations.</p>
+            aws_sdk_sso_admin.errors.validation_exception.ValidationException: <p>The request failed because it contains a syntax error.</p>
+            aws_sdk_sso_admin.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1370,6 +1578,14 @@ class SSOAdminClient:
 
         Args:
             application_provider_arn: <p>Specifies the ARN of the application provider for which you want details.</p>
+
+        Raises:
+            aws_sdk_sso_admin.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_sso_admin.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure with an internal server.</p>
+            aws_sdk_sso_admin.errors.resource_not_found_exception.ResourceNotFoundException: <p>Indicates that a requested resource is not found.</p>
+            aws_sdk_sso_admin.errors.throttling_exception.ThrottlingException: <p>Indicates that the principal has crossed the throttling limits of the API operations.</p>
+            aws_sdk_sso_admin.errors.validation_exception.ValidationException: <p>The request failed because it contains a syntax error.</p>
+            aws_sdk_sso_admin.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1407,6 +1623,13 @@ class SSOAdminClient:
 
         Args:
             instance_arn: <p>The ARN of the instance of IAM Identity Center under which the operation will run.</p>
+
+        Raises:
+            aws_sdk_sso_admin.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_sso_admin.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure with an internal server.</p>
+            aws_sdk_sso_admin.errors.throttling_exception.ThrottlingException: <p>Indicates that the principal has crossed the throttling limits of the API operations.</p>
+            aws_sdk_sso_admin.errors.validation_exception.ValidationException: <p>The request failed because it contains a syntax error.</p>
+            aws_sdk_sso_admin.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1444,6 +1667,14 @@ class SSOAdminClient:
 
         Args:
             instance_arn: <p>The ARN of the IAM Identity Center instance under which the operation will be executed.</p>
+
+        Raises:
+            aws_sdk_sso_admin.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_sso_admin.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure with an internal server.</p>
+            aws_sdk_sso_admin.errors.resource_not_found_exception.ResourceNotFoundException: <p>Indicates that a requested resource is not found.</p>
+            aws_sdk_sso_admin.errors.throttling_exception.ThrottlingException: <p>Indicates that the principal has crossed the throttling limits of the API operations.</p>
+            aws_sdk_sso_admin.errors.validation_exception.ValidationException: <p>The request failed because it contains a syntax error.</p>
+            aws_sdk_sso_admin.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1483,6 +1714,14 @@ class SSOAdminClient:
         Args:
             instance_arn: <p>The ARN of the IAM Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href=\"/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
             permission_set_arn: <p>The ARN of the permission set. </p>
+
+        Raises:
+            aws_sdk_sso_admin.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_sso_admin.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure with an internal server.</p>
+            aws_sdk_sso_admin.errors.resource_not_found_exception.ResourceNotFoundException: <p>Indicates that a requested resource is not found.</p>
+            aws_sdk_sso_admin.errors.throttling_exception.ThrottlingException: <p>Indicates that the principal has crossed the throttling limits of the API operations.</p>
+            aws_sdk_sso_admin.errors.validation_exception.ValidationException: <p>The request failed because it contains a syntax error.</p>
+            aws_sdk_sso_admin.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1523,6 +1762,14 @@ class SSOAdminClient:
         Args:
             instance_arn: <p>The ARN of the IAM Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href=\"/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
             provision_permission_set_request_id: <p>The identifier that is provided by the <a>ProvisionPermissionSet</a> call to retrieve the current status of the provisioning workflow.</p>
+
+        Raises:
+            aws_sdk_sso_admin.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_sso_admin.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure with an internal server.</p>
+            aws_sdk_sso_admin.errors.resource_not_found_exception.ResourceNotFoundException: <p>Indicates that a requested resource is not found.</p>
+            aws_sdk_sso_admin.errors.throttling_exception.ThrottlingException: <p>Indicates that the principal has crossed the throttling limits of the API operations.</p>
+            aws_sdk_sso_admin.errors.validation_exception.ValidationException: <p>The request failed because it contains a syntax error.</p>
+            aws_sdk_sso_admin.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1565,6 +1812,14 @@ class SSOAdminClient:
         Args:
             instance_arn: <p>The Amazon Resource Name (ARN) of the IAM Identity Center instance.</p>
             region_name: <p>The name of the Amazon Web Services Region to retrieve information about. The Region name must be 1-32 characters long and follow the pattern of Amazon Web Services Region names (for example, us-east-1).</p>
+
+        Raises:
+            aws_sdk_sso_admin.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_sso_admin.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure with an internal server.</p>
+            aws_sdk_sso_admin.errors.resource_not_found_exception.ResourceNotFoundException: <p>Indicates that a requested resource is not found.</p>
+            aws_sdk_sso_admin.errors.throttling_exception.ThrottlingException: <p>Indicates that the principal has crossed the throttling limits of the API operations.</p>
+            aws_sdk_sso_admin.errors.validation_exception.ValidationException: <p>The request failed because it contains a syntax error.</p>
+            aws_sdk_sso_admin.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1603,6 +1858,14 @@ class SSOAdminClient:
 
         Args:
             trusted_token_issuer_arn: <p>Specifies the ARN of the trusted token issuer configuration that you want details about.</p>
+
+        Raises:
+            aws_sdk_sso_admin.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_sso_admin.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure with an internal server.</p>
+            aws_sdk_sso_admin.errors.resource_not_found_exception.ResourceNotFoundException: <p>Indicates that a requested resource is not found.</p>
+            aws_sdk_sso_admin.errors.throttling_exception.ThrottlingException: <p>Indicates that the principal has crossed the throttling limits of the API operations.</p>
+            aws_sdk_sso_admin.errors.validation_exception.ValidationException: <p>The request failed because it contains a syntax error.</p>
+            aws_sdk_sso_admin.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1644,6 +1907,15 @@ class SSOAdminClient:
             instance_arn: <p>The ARN of the IAM Identity Center instance under which the operation will be executed. </p>
             permission_set_arn: <p>The ARN of the <code>PermissionSet</code>.</p>
             customer_managed_policy_reference: <p>Specifies the name and path of a customer managed policy. You must have an IAM policy that matches the name and path in each Amazon Web Services account where you want to deploy your permission set.</p>
+
+        Raises:
+            aws_sdk_sso_admin.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_sso_admin.errors.conflict_exception.ConflictException: <p>Occurs when a conflict with a previous successful write is detected. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+            aws_sdk_sso_admin.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure with an internal server.</p>
+            aws_sdk_sso_admin.errors.resource_not_found_exception.ResourceNotFoundException: <p>Indicates that a requested resource is not found.</p>
+            aws_sdk_sso_admin.errors.throttling_exception.ThrottlingException: <p>Indicates that the principal has crossed the throttling limits of the API operations.</p>
+            aws_sdk_sso_admin.errors.validation_exception.ValidationException: <p>The request failed because it contains a syntax error.</p>
+            aws_sdk_sso_admin.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1687,6 +1959,15 @@ class SSOAdminClient:
             instance_arn: <p>The ARN of the IAM Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href=\"/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
             permission_set_arn: <p>The ARN of the <a>PermissionSet</a> from which the policy should be detached.</p>
             managed_policy_arn: <p>The Amazon Web Services managed policy ARN to be detached from a permission set.</p>
+
+        Raises:
+            aws_sdk_sso_admin.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_sso_admin.errors.conflict_exception.ConflictException: <p>Occurs when a conflict with a previous successful write is detected. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+            aws_sdk_sso_admin.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure with an internal server.</p>
+            aws_sdk_sso_admin.errors.resource_not_found_exception.ResourceNotFoundException: <p>Indicates that a requested resource is not found.</p>
+            aws_sdk_sso_admin.errors.throttling_exception.ThrottlingException: <p>Indicates that the principal has crossed the throttling limits of the API operations.</p>
+            aws_sdk_sso_admin.errors.validation_exception.ValidationException: <p>The request failed because it contains a syntax error.</p>
+            aws_sdk_sso_admin.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1726,6 +2007,14 @@ class SSOAdminClient:
 
         Args:
             application_arn: <p>Specifies the ARN of the application. For more information about ARNs, see <a href=\"/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
+
+        Raises:
+            aws_sdk_sso_admin.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_sso_admin.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure with an internal server.</p>
+            aws_sdk_sso_admin.errors.resource_not_found_exception.ResourceNotFoundException: <p>Indicates that a requested resource is not found.</p>
+            aws_sdk_sso_admin.errors.throttling_exception.ThrottlingException: <p>Indicates that the principal has crossed the throttling limits of the API operations.</p>
+            aws_sdk_sso_admin.errors.validation_exception.ValidationException: <p>The request failed because it contains a syntax error.</p>
+            aws_sdk_sso_admin.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1763,6 +2052,14 @@ class SSOAdminClient:
 
         Args:
             application_arn: <p>The Amazon Resource Name (ARN) of the application for which to retrieve the session configuration.</p>
+
+        Raises:
+            aws_sdk_sso_admin.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_sso_admin.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure with an internal server.</p>
+            aws_sdk_sso_admin.errors.resource_not_found_exception.ResourceNotFoundException: <p>Indicates that a requested resource is not found.</p>
+            aws_sdk_sso_admin.errors.throttling_exception.ThrottlingException: <p>Indicates that the principal has crossed the throttling limits of the API operations.</p>
+            aws_sdk_sso_admin.errors.validation_exception.ValidationException: <p>The request failed because it contains a syntax error.</p>
+            aws_sdk_sso_admin.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1802,6 +2099,14 @@ class SSOAdminClient:
         Args:
             instance_arn: <p>The ARN of the IAM Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href=\"/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
             permission_set_arn: <p>The ARN of the permission set.</p>
+
+        Raises:
+            aws_sdk_sso_admin.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_sso_admin.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure with an internal server.</p>
+            aws_sdk_sso_admin.errors.resource_not_found_exception.ResourceNotFoundException: <p>Indicates that a requested resource is not found.</p>
+            aws_sdk_sso_admin.errors.throttling_exception.ThrottlingException: <p>Indicates that the principal has crossed the throttling limits of the API operations.</p>
+            aws_sdk_sso_admin.errors.validation_exception.ValidationException: <p>The request failed because it contains a syntax error.</p>
+            aws_sdk_sso_admin.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1842,6 +2147,14 @@ class SSOAdminClient:
         Args:
             instance_arn: <p>The ARN of the IAM Identity Center instance under which the operation will be executed. </p>
             permission_set_arn: <p>The ARN of the <code>PermissionSet</code>.</p>
+
+        Raises:
+            aws_sdk_sso_admin.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_sso_admin.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure with an internal server.</p>
+            aws_sdk_sso_admin.errors.resource_not_found_exception.ResourceNotFoundException: <p>Indicates that a requested resource is not found.</p>
+            aws_sdk_sso_admin.errors.throttling_exception.ThrottlingException: <p>Indicates that the principal has crossed the throttling limits of the API operations.</p>
+            aws_sdk_sso_admin.errors.validation_exception.ValidationException: <p>The request failed because it contains a syntax error.</p>
+            aws_sdk_sso_admin.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1888,6 +2201,14 @@ class SSOAdminClient:
             max_results: <p>The maximum number of results to display for the assignment.</p>
             next_token: <p>The pagination token for the list API. Initially the value is null. Use the output of previous API calls to make subsequent calls.</p>
             filter: <p>Filters results based on the passed attribute value.</p>
+
+        Raises:
+            aws_sdk_sso_admin.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_sso_admin.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure with an internal server.</p>
+            aws_sdk_sso_admin.errors.resource_not_found_exception.ResourceNotFoundException: <p>Indicates that a requested resource is not found.</p>
+            aws_sdk_sso_admin.errors.throttling_exception.ThrottlingException: <p>Indicates that the principal has crossed the throttling limits of the API operations.</p>
+            aws_sdk_sso_admin.errors.validation_exception.ValidationException: <p>The request failed because it contains a syntax error.</p>
+            aws_sdk_sso_admin.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1966,6 +2287,14 @@ class SSOAdminClient:
             max_results: <p>The maximum number of results to display for the assignment.</p>
             next_token: <p>The pagination token for the list API. Initially the value is null. Use the output of previous API calls to make subsequent calls.</p>
             filter: <p>Filters results based on the passed attribute value.</p>
+
+        Raises:
+            aws_sdk_sso_admin.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_sso_admin.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure with an internal server.</p>
+            aws_sdk_sso_admin.errors.resource_not_found_exception.ResourceNotFoundException: <p>Indicates that a requested resource is not found.</p>
+            aws_sdk_sso_admin.errors.throttling_exception.ThrottlingException: <p>Indicates that the principal has crossed the throttling limits of the API operations.</p>
+            aws_sdk_sso_admin.errors.validation_exception.ValidationException: <p>The request failed because it contains a syntax error.</p>
+            aws_sdk_sso_admin.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2044,6 +2373,14 @@ class SSOAdminClient:
             permission_set_arn: <p>The ARN of the permission set from which to list assignments.</p>
             max_results: <p>The maximum number of results to display for the assignment.</p>
             next_token: <p>The pagination token for the list API. Initially the value is null. Use the output of previous API calls to make subsequent calls.</p>
+
+        Raises:
+            aws_sdk_sso_admin.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_sso_admin.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure with an internal server.</p>
+            aws_sdk_sso_admin.errors.resource_not_found_exception.ResourceNotFoundException: <p>Indicates that a requested resource is not found.</p>
+            aws_sdk_sso_admin.errors.throttling_exception.ThrottlingException: <p>Indicates that the principal has crossed the throttling limits of the API operations.</p>
+            aws_sdk_sso_admin.errors.validation_exception.ValidationException: <p>The request failed because it contains a syntax error.</p>
+            aws_sdk_sso_admin.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2126,6 +2463,14 @@ class SSOAdminClient:
             filter: <p>Specifies an Amazon Web Services account ID number. Results are filtered to only those that match this ID number.</p>
             next_token: <p>Specifies that you want to receive the next page of results. Valid only if you received a <code>NextToken</code> response in the previous request. If you did, it indicates that more output is available. Set this parameter to the value provided by the previous call's <code>NextToken</code> response to request the next page of results.</p>
             max_results: <p>Specifies the total number of results that you want included in each response. If additional items exist beyond the number you specify, the <code>NextToken</code> response element is returned with a value (not null). Include the specified value as the <code>NextToken</code> request parameter in the next call to the operation to get the next set of results. Note that the service might return fewer results than the maximum even when there are more results available. You should check <code>NextToken</code> after every operation to ensure that you receive all of the results.</p>
+
+        Raises:
+            aws_sdk_sso_admin.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_sso_admin.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure with an internal server.</p>
+            aws_sdk_sso_admin.errors.resource_not_found_exception.ResourceNotFoundException: <p>Indicates that a requested resource is not found.</p>
+            aws_sdk_sso_admin.errors.throttling_exception.ThrottlingException: <p>Indicates that the principal has crossed the throttling limits of the API operations.</p>
+            aws_sdk_sso_admin.errors.validation_exception.ValidationException: <p>The request failed because it contains a syntax error.</p>
+            aws_sdk_sso_admin.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2212,6 +2557,14 @@ class SSOAdminClient:
             provisioning_status: <p>The permission set provisioning status for an Amazon Web Services account.</p>
             max_results: <p>The maximum number of results to display for the <a>PermissionSet</a>.</p>
             next_token: <p>The pagination token for the list API. Initially the value is null. Use the output of previous API calls to make subsequent calls.</p>
+
+        Raises:
+            aws_sdk_sso_admin.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_sso_admin.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure with an internal server.</p>
+            aws_sdk_sso_admin.errors.resource_not_found_exception.ResourceNotFoundException: <p>Indicates that a requested resource is not found.</p>
+            aws_sdk_sso_admin.errors.throttling_exception.ThrottlingException: <p>Indicates that the principal has crossed the throttling limits of the API operations.</p>
+            aws_sdk_sso_admin.errors.validation_exception.ValidationException: <p>The request failed because it contains a syntax error.</p>
+            aws_sdk_sso_admin.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2289,6 +2642,14 @@ class SSOAdminClient:
             application_arn: <p>Specifies the ARN of the application.</p>
             max_results: <p>Specifies the total number of results that you want included in each response. If additional items exist beyond the number you specify, the <code>NextToken</code> response element is returned with a value (not null). Include the specified value as the <code>NextToken</code> request parameter in the next call to the operation to get the next set of results. Note that the service might return fewer results than the maximum even when there are more results available. You should check <code>NextToken</code> after every operation to ensure that you receive all of the results.</p>
             next_token: <p>Specifies that you want to receive the next page of results. Valid only if you received a <code>NextToken</code> response in the previous request. If you did, it indicates that more output is available. Set this parameter to the value provided by the previous call's <code>NextToken</code> response to request the next page of results.</p>
+
+        Raises:
+            aws_sdk_sso_admin.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_sso_admin.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure with an internal server.</p>
+            aws_sdk_sso_admin.errors.resource_not_found_exception.ResourceNotFoundException: <p>Indicates that a requested resource is not found.</p>
+            aws_sdk_sso_admin.errors.throttling_exception.ThrottlingException: <p>Indicates that the principal has crossed the throttling limits of the API operations.</p>
+            aws_sdk_sso_admin.errors.validation_exception.ValidationException: <p>The request failed because it contains a syntax error.</p>
+            aws_sdk_sso_admin.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2367,6 +2728,14 @@ class SSOAdminClient:
             filter: <p>Filters the output to include only assignments associated with the application that has the specified ARN.</p>
             next_token: <p>Specifies that you want to receive the next page of results. Valid only if you received a <code>NextToken</code> response in the previous request. If you did, it indicates that more output is available. Set this parameter to the value provided by the previous call's <code>NextToken</code> response to request the next page of results.</p>
             max_results: <p>Specifies the total number of results that you want included in each response. If additional items exist beyond the number you specify, the <code>NextToken</code> response element is returned with a value (not null). Include the specified value as the <code>NextToken</code> request parameter in the next call to the operation to get the next set of results. Note that the service might return fewer results than the maximum even when there are more results available. You should check <code>NextToken</code> after every operation to ensure that you receive all of the results.</p>
+
+        Raises:
+            aws_sdk_sso_admin.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_sso_admin.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure with an internal server.</p>
+            aws_sdk_sso_admin.errors.resource_not_found_exception.ResourceNotFoundException: <p>Indicates that a requested resource is not found.</p>
+            aws_sdk_sso_admin.errors.throttling_exception.ThrottlingException: <p>Indicates that the principal has crossed the throttling limits of the API operations.</p>
+            aws_sdk_sso_admin.errors.validation_exception.ValidationException: <p>The request failed because it contains a syntax error.</p>
+            aws_sdk_sso_admin.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2445,6 +2814,13 @@ class SSOAdminClient:
         Args:
             max_results: <p>Specifies the total number of results that you want included in each response. If additional items exist beyond the number you specify, the <code>NextToken</code> response element is returned with a value (not null). Include the specified value as the <code>NextToken</code> request parameter in the next call to the operation to get the next set of results. Note that the service might return fewer results than the maximum even when there are more results available. You should check <code>NextToken</code> after every operation to ensure that you receive all of the results.</p>
             next_token: <p>Specifies that you want to receive the next page of results. Valid only if you received a <code>NextToken</code> response in the previous request. If you did, it indicates that more output is available. Set this parameter to the value provided by the previous call's <code>NextToken</code> response to request the next page of results.</p>
+
+        Raises:
+            aws_sdk_sso_admin.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_sso_admin.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure with an internal server.</p>
+            aws_sdk_sso_admin.errors.throttling_exception.ThrottlingException: <p>Indicates that the principal has crossed the throttling limits of the API operations.</p>
+            aws_sdk_sso_admin.errors.validation_exception.ValidationException: <p>The request failed because it contains a syntax error.</p>
+            aws_sdk_sso_admin.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2514,6 +2890,13 @@ class SSOAdminClient:
             max_results: <p>Specifies the total number of results that you want included in each response. If additional items exist beyond the number you specify, the <code>NextToken</code> response element is returned with a value (not null). Include the specified value as the <code>NextToken</code> request parameter in the next call to the operation to get the next set of results. Note that the service might return fewer results than the maximum even when there are more results available. You should check <code>NextToken</code> after every operation to ensure that you receive all of the results.</p>
             next_token: <p>Specifies that you want to receive the next page of results. Valid only if you received a <code>NextToken</code> response in the previous request. If you did, it indicates that more output is available. Set this parameter to the value provided by the previous call's <code>NextToken</code> response to request the next page of results.</p>
             filter: <p>Filters response results. </p>
+
+        Raises:
+            aws_sdk_sso_admin.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_sso_admin.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure with an internal server.</p>
+            aws_sdk_sso_admin.errors.throttling_exception.ThrottlingException: <p>Indicates that the principal has crossed the throttling limits of the API operations.</p>
+            aws_sdk_sso_admin.errors.validation_exception.ValidationException: <p>The request failed because it contains a syntax error.</p>
+            aws_sdk_sso_admin.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2590,6 +2973,14 @@ class SSOAdminClient:
             permission_set_arn: <p>The ARN of the <code>PermissionSet</code>. </p>
             max_results: <p>The maximum number of results to display for the list call.</p>
             next_token: <p>The pagination token for the list API. Initially the value is null. Use the output of previous API calls to make subsequent calls.</p>
+
+        Raises:
+            aws_sdk_sso_admin.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_sso_admin.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure with an internal server.</p>
+            aws_sdk_sso_admin.errors.resource_not_found_exception.ResourceNotFoundException: <p>Indicates that a requested resource is not found.</p>
+            aws_sdk_sso_admin.errors.throttling_exception.ThrottlingException: <p>Indicates that the principal has crossed the throttling limits of the API operations.</p>
+            aws_sdk_sso_admin.errors.validation_exception.ValidationException: <p>The request failed because it contains a syntax error.</p>
+            aws_sdk_sso_admin.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2659,6 +3050,13 @@ class SSOAdminClient:
         Args:
             max_results: <p>The maximum number of results to display for the instance.</p>
             next_token: <p>The pagination token for the list API. Initially the value is null. Use the output of previous API calls to make subsequent calls.</p>
+
+        Raises:
+            aws_sdk_sso_admin.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_sso_admin.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure with an internal server.</p>
+            aws_sdk_sso_admin.errors.throttling_exception.ThrottlingException: <p>Indicates that the principal has crossed the throttling limits of the API operations.</p>
+            aws_sdk_sso_admin.errors.validation_exception.ValidationException: <p>The request failed because it contains a syntax error.</p>
+            aws_sdk_sso_admin.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2726,6 +3124,14 @@ class SSOAdminClient:
             permission_set_arn: <p>The ARN of the <a>PermissionSet</a> whose managed policies will be listed.</p>
             max_results: <p>The maximum number of results to display for the <a>PermissionSet</a>.</p>
             next_token: <p>The pagination token for the list API. Initially the value is null. Use the output of previous API calls to make subsequent calls.</p>
+
+        Raises:
+            aws_sdk_sso_admin.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_sso_admin.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure with an internal server.</p>
+            aws_sdk_sso_admin.errors.resource_not_found_exception.ResourceNotFoundException: <p>Indicates that a requested resource is not found.</p>
+            aws_sdk_sso_admin.errors.throttling_exception.ThrottlingException: <p>Indicates that the principal has crossed the throttling limits of the API operations.</p>
+            aws_sdk_sso_admin.errors.validation_exception.ValidationException: <p>The request failed because it contains a syntax error.</p>
+            aws_sdk_sso_admin.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2801,6 +3207,14 @@ class SSOAdminClient:
             max_results: <p>The maximum number of results to display for the assignment.</p>
             next_token: <p>The pagination token for the list API. Initially the value is null. Use the output of previous API calls to make subsequent calls.</p>
             filter: <p>Filters results based on the passed attribute value.</p>
+
+        Raises:
+            aws_sdk_sso_admin.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_sso_admin.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure with an internal server.</p>
+            aws_sdk_sso_admin.errors.resource_not_found_exception.ResourceNotFoundException: <p>Indicates that a requested resource is not found.</p>
+            aws_sdk_sso_admin.errors.throttling_exception.ThrottlingException: <p>Indicates that the principal has crossed the throttling limits of the API operations.</p>
+            aws_sdk_sso_admin.errors.validation_exception.ValidationException: <p>The request failed because it contains a syntax error.</p>
+            aws_sdk_sso_admin.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2875,6 +3289,14 @@ class SSOAdminClient:
             instance_arn: <p>The ARN of the IAM Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href=\"/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
             next_token: <p>The pagination token for the list API. Initially the value is null. Use the output of previous API calls to make subsequent calls.</p>
             max_results: <p>The maximum number of results to display for the assignment.</p>
+
+        Raises:
+            aws_sdk_sso_admin.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_sso_admin.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure with an internal server.</p>
+            aws_sdk_sso_admin.errors.resource_not_found_exception.ResourceNotFoundException: <p>Indicates that a requested resource is not found.</p>
+            aws_sdk_sso_admin.errors.throttling_exception.ThrottlingException: <p>Indicates that the principal has crossed the throttling limits of the API operations.</p>
+            aws_sdk_sso_admin.errors.validation_exception.ValidationException: <p>The request failed because it contains a syntax error.</p>
+            aws_sdk_sso_admin.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2949,6 +3371,14 @@ class SSOAdminClient:
             provisioning_status: <p>The status object for the permission set provisioning operation.</p>
             max_results: <p>The maximum number of results to display for the assignment.</p>
             next_token: <p>The pagination token for the list API. Initially the value is null. Use the output of previous API calls to make subsequent calls.</p>
+
+        Raises:
+            aws_sdk_sso_admin.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_sso_admin.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure with an internal server.</p>
+            aws_sdk_sso_admin.errors.resource_not_found_exception.ResourceNotFoundException: <p>Indicates that a requested resource is not found.</p>
+            aws_sdk_sso_admin.errors.throttling_exception.ThrottlingException: <p>Indicates that the principal has crossed the throttling limits of the API operations.</p>
+            aws_sdk_sso_admin.errors.validation_exception.ValidationException: <p>The request failed because it contains a syntax error.</p>
+            aws_sdk_sso_admin.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3026,6 +3456,13 @@ class SSOAdminClient:
             instance_arn: <p>The Amazon Resource Name (ARN) of the IAM Identity Center instance.</p>
             max_results: <p>The maximum number of results to return in a single call. Default is 100.</p>
             next_token: <p>The pagination token for the list API. Initially the value is null. Use the output of previous API calls to make subsequent calls.</p>
+
+        Raises:
+            aws_sdk_sso_admin.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_sso_admin.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure with an internal server.</p>
+            aws_sdk_sso_admin.errors.throttling_exception.ThrottlingException: <p>Indicates that the principal has crossed the throttling limits of the API operations.</p>
+            aws_sdk_sso_admin.errors.validation_exception.ValidationException: <p>The request failed because it contains a syntax error.</p>
+            aws_sdk_sso_admin.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3096,6 +3533,14 @@ class SSOAdminClient:
             instance_arn: <p>The ARN of the IAM Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href=\"/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
             resource_arn: <p>The ARN of the resource with the tags to be listed.</p>
             next_token: <p>The pagination token for the list API. Initially the value is null. Use the output of previous API calls to make subsequent calls.</p>
+
+        Raises:
+            aws_sdk_sso_admin.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_sso_admin.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure with an internal server.</p>
+            aws_sdk_sso_admin.errors.resource_not_found_exception.ResourceNotFoundException: <p>Indicates that a requested resource is not found.</p>
+            aws_sdk_sso_admin.errors.throttling_exception.ThrottlingException: <p>Indicates that the principal has crossed the throttling limits of the API operations.</p>
+            aws_sdk_sso_admin.errors.validation_exception.ValidationException: <p>The request failed because it contains a syntax error.</p>
+            aws_sdk_sso_admin.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3166,6 +3611,13 @@ class SSOAdminClient:
             instance_arn: <p>Specifies the ARN of the instance of IAM Identity Center with the trusted token issuer configurations that you want to list.</p>
             max_results: <p>Specifies the total number of results that you want included in each response. If additional items exist beyond the number you specify, the <code>NextToken</code> response element is returned with a value (not null). Include the specified value as the <code>NextToken</code> request parameter in the next call to the operation to get the next set of results. Note that the service might return fewer results than the maximum even when there are more results available. You should check <code>NextToken</code> after every operation to ensure that you receive all of the results.</p>
             next_token: <p>Specifies that you want to receive the next page of results. Valid only if you received a <code>NextToken</code> response in the previous request. If you did, it indicates that more output is available. Set this parameter to the value provided by the previous call's <code>NextToken</code> response to request the next page of results.</p>
+
+        Raises:
+            aws_sdk_sso_admin.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_sso_admin.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure with an internal server.</p>
+            aws_sdk_sso_admin.errors.throttling_exception.ThrottlingException: <p>Indicates that the principal has crossed the throttling limits of the API operations.</p>
+            aws_sdk_sso_admin.errors.validation_exception.ValidationException: <p>The request failed because it contains a syntax error.</p>
+            aws_sdk_sso_admin.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3236,6 +3688,15 @@ class SSOAdminClient:
             permission_set_arn: <p>The ARN of the permission set.</p>
             target_id: <p>TargetID is an Amazon Web Services account identifier, (For example, 123456789012).</p>
             target_type: <p>The entity type for which the assignment will be created.</p>
+
+        Raises:
+            aws_sdk_sso_admin.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_sso_admin.errors.conflict_exception.ConflictException: <p>Occurs when a conflict with a previous successful write is detected. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+            aws_sdk_sso_admin.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure with an internal server.</p>
+            aws_sdk_sso_admin.errors.resource_not_found_exception.ResourceNotFoundException: <p>Indicates that a requested resource is not found.</p>
+            aws_sdk_sso_admin.errors.throttling_exception.ThrottlingException: <p>Indicates that the principal has crossed the throttling limits of the API operations.</p>
+            aws_sdk_sso_admin.errors.validation_exception.ValidationException: <p>The request failed because it contains a syntax error.</p>
+            aws_sdk_sso_admin.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3279,6 +3740,15 @@ class SSOAdminClient:
         Args:
             application_arn: <p>Specifies the ARN of the application. For more information about ARNs, see <a href=\"/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
             assignment_required: <p>If <code>AssignmentsRequired</code> is <code>true</code> (default value), users don’t have access to the application unless an assignment is created using the <a href=\"https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_CreateApplicationAssignment.html\">CreateApplicationAssignment API</a>. If <code>false</code>, all users have access to the application. </p>
+
+        Raises:
+            aws_sdk_sso_admin.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_sso_admin.errors.conflict_exception.ConflictException: <p>Occurs when a conflict with a previous successful write is detected. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+            aws_sdk_sso_admin.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure with an internal server.</p>
+            aws_sdk_sso_admin.errors.resource_not_found_exception.ResourceNotFoundException: <p>Indicates that a requested resource is not found.</p>
+            aws_sdk_sso_admin.errors.throttling_exception.ThrottlingException: <p>Indicates that the principal has crossed the throttling limits of the API operations.</p>
+            aws_sdk_sso_admin.errors.validation_exception.ValidationException: <p>The request failed because it contains a syntax error.</p>
+            aws_sdk_sso_admin.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3321,6 +3791,15 @@ class SSOAdminClient:
         Args:
             application_arn: <p>The Amazon Resource Name (ARN) of the application for which to update the session configuration.</p>
             user_background_session_application_status: <p>The status of user background sessions for the application.</p>
+
+        Raises:
+            aws_sdk_sso_admin.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_sso_admin.errors.conflict_exception.ConflictException: <p>Occurs when a conflict with a previous successful write is detected. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+            aws_sdk_sso_admin.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure with an internal server.</p>
+            aws_sdk_sso_admin.errors.resource_not_found_exception.ResourceNotFoundException: <p>Indicates that a requested resource is not found.</p>
+            aws_sdk_sso_admin.errors.throttling_exception.ThrottlingException: <p>Indicates that the principal has crossed the throttling limits of the API operations.</p>
+            aws_sdk_sso_admin.errors.validation_exception.ValidationException: <p>The request failed because it contains a syntax error.</p>
+            aws_sdk_sso_admin.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3366,6 +3845,16 @@ class SSOAdminClient:
             instance_arn: <p>The ARN of the IAM Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href=\"/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
             permission_set_arn: <p>The ARN of the permission set.</p>
             inline_policy: <p>The inline policy to attach to a <a>PermissionSet</a>.</p>
+
+        Raises:
+            aws_sdk_sso_admin.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_sso_admin.errors.conflict_exception.ConflictException: <p>Occurs when a conflict with a previous successful write is detected. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+            aws_sdk_sso_admin.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure with an internal server.</p>
+            aws_sdk_sso_admin.errors.resource_not_found_exception.ResourceNotFoundException: <p>Indicates that a requested resource is not found.</p>
+            aws_sdk_sso_admin.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Indicates that the principal has crossed the permitted number of resources that can be created.</p>
+            aws_sdk_sso_admin.errors.throttling_exception.ThrottlingException: <p>Indicates that the principal has crossed the throttling limits of the API operations.</p>
+            aws_sdk_sso_admin.errors.validation_exception.ValidationException: <p>The request failed because it contains a syntax error.</p>
+            aws_sdk_sso_admin.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3409,6 +3898,15 @@ class SSOAdminClient:
             instance_arn: <p>The ARN of the IAM Identity Center instance under which the operation will be executed. </p>
             permission_set_arn: <p>The ARN of the <code>PermissionSet</code>.</p>
             permissions_boundary: <p>The permissions boundary that you want to attach to a <code>PermissionSet</code>.</p>
+
+        Raises:
+            aws_sdk_sso_admin.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_sso_admin.errors.conflict_exception.ConflictException: <p>Occurs when a conflict with a previous successful write is detected. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+            aws_sdk_sso_admin.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure with an internal server.</p>
+            aws_sdk_sso_admin.errors.resource_not_found_exception.ResourceNotFoundException: <p>Indicates that a requested resource is not found.</p>
+            aws_sdk_sso_admin.errors.throttling_exception.ThrottlingException: <p>Indicates that the principal has crossed the throttling limits of the API operations.</p>
+            aws_sdk_sso_admin.errors.validation_exception.ValidationException: <p>The request failed because it contains a syntax error.</p>
+            aws_sdk_sso_admin.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3450,6 +3948,15 @@ class SSOAdminClient:
         Args:
             instance_arn: <p>The Amazon Resource Name (ARN) of the IAM Identity Center instance.</p>
             region_name: <p>The name of the Amazon Web Services Region to remove from the IAM Identity Center instance. The Region name must be 1-32 characters long and follow the pattern of Amazon Web Services Region names (for example, us-east-1). The primary Region cannot be removed.</p>
+
+        Raises:
+            aws_sdk_sso_admin.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_sso_admin.errors.conflict_exception.ConflictException: <p>Occurs when a conflict with a previous successful write is detected. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+            aws_sdk_sso_admin.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure with an internal server.</p>
+            aws_sdk_sso_admin.errors.resource_not_found_exception.ResourceNotFoundException: <p>Indicates that a requested resource is not found.</p>
+            aws_sdk_sso_admin.errors.throttling_exception.ThrottlingException: <p>Indicates that the principal has crossed the throttling limits of the API operations.</p>
+            aws_sdk_sso_admin.errors.validation_exception.ValidationException: <p>The request failed because it contains a syntax error.</p>
+            aws_sdk_sso_admin.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3494,6 +4001,16 @@ class SSOAdminClient:
             instance_arn: <p>The ARN of the IAM Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href=\"/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
             resource_arn: <p>The ARN of the resource with the tags to be listed.</p>
             tags: <p>A set of key-value pairs that are used to manage the resource.</p>
+
+        Raises:
+            aws_sdk_sso_admin.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_sso_admin.errors.conflict_exception.ConflictException: <p>Occurs when a conflict with a previous successful write is detected. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+            aws_sdk_sso_admin.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure with an internal server.</p>
+            aws_sdk_sso_admin.errors.resource_not_found_exception.ResourceNotFoundException: <p>Indicates that a requested resource is not found.</p>
+            aws_sdk_sso_admin.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Indicates that the principal has crossed the permitted number of resources that can be created.</p>
+            aws_sdk_sso_admin.errors.throttling_exception.ThrottlingException: <p>Indicates that the principal has crossed the throttling limits of the API operations.</p>
+            aws_sdk_sso_admin.errors.validation_exception.ValidationException: <p>The request failed because it contains a syntax error.</p>
+            aws_sdk_sso_admin.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3540,6 +4057,15 @@ class SSOAdminClient:
             instance_arn: <p>The ARN of the IAM Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href=\"/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
             resource_arn: <p>The ARN of the resource with the tags to be listed.</p>
             tag_keys: <p>The keys of tags that are attached to the resource.</p>
+
+        Raises:
+            aws_sdk_sso_admin.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_sso_admin.errors.conflict_exception.ConflictException: <p>Occurs when a conflict with a previous successful write is detected. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+            aws_sdk_sso_admin.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure with an internal server.</p>
+            aws_sdk_sso_admin.errors.resource_not_found_exception.ResourceNotFoundException: <p>Indicates that a requested resource is not found.</p>
+            aws_sdk_sso_admin.errors.throttling_exception.ThrottlingException: <p>Indicates that the principal has crossed the throttling limits of the API operations.</p>
+            aws_sdk_sso_admin.errors.validation_exception.ValidationException: <p>The request failed because it contains a syntax error.</p>
+            aws_sdk_sso_admin.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3596,6 +4122,15 @@ class SSOAdminClient:
             description: <p>The description of the .</p>
             status: <p>Specifies whether the application is enabled or disabled.</p>
             portal_options: <p>A structure that describes the options for the portal associated with an application.</p>
+
+        Raises:
+            aws_sdk_sso_admin.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_sso_admin.errors.conflict_exception.ConflictException: <p>Occurs when a conflict with a previous successful write is detected. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+            aws_sdk_sso_admin.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure with an internal server.</p>
+            aws_sdk_sso_admin.errors.resource_not_found_exception.ResourceNotFoundException: <p>Indicates that a requested resource is not found.</p>
+            aws_sdk_sso_admin.errors.throttling_exception.ThrottlingException: <p>Indicates that the principal has crossed the throttling limits of the API operations.</p>
+            aws_sdk_sso_admin.errors.validation_exception.ValidationException: <p>The request failed because it contains a syntax error.</p>
+            aws_sdk_sso_admin.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3647,6 +4182,15 @@ class SSOAdminClient:
             name: <p>Updates the instance name.</p>
             instance_arn: <p>The ARN of the instance of IAM Identity Center under which the operation will run. For more information about ARNs, see <a href=\"/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
             encryption_configuration: <p>Specifies the encryption configuration for your IAM Identity Center instance. You can use this to configure customer managed KMS keys or Amazon Web Services owned KMS keys for encrypting your instance data.</p>
+
+        Raises:
+            aws_sdk_sso_admin.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_sso_admin.errors.conflict_exception.ConflictException: <p>Occurs when a conflict with a previous successful write is detected. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+            aws_sdk_sso_admin.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure with an internal server.</p>
+            aws_sdk_sso_admin.errors.resource_not_found_exception.ResourceNotFoundException: <p>Indicates that a requested resource is not found.</p>
+            aws_sdk_sso_admin.errors.throttling_exception.ThrottlingException: <p>Indicates that the principal has crossed the throttling limits of the API operations.</p>
+            aws_sdk_sso_admin.errors.validation_exception.ValidationException: <p>The request failed because it contains a syntax error.</p>
+            aws_sdk_sso_admin.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3690,6 +4234,15 @@ class SSOAdminClient:
         Args:
             instance_arn: <p>The ARN of the IAM Identity Center instance under which the operation will be executed.</p>
             instance_access_control_attribute_configuration: <p>Updates the attributes for your ABAC configuration.</p>
+
+        Raises:
+            aws_sdk_sso_admin.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_sso_admin.errors.conflict_exception.ConflictException: <p>Occurs when a conflict with a previous successful write is detected. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+            aws_sdk_sso_admin.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure with an internal server.</p>
+            aws_sdk_sso_admin.errors.resource_not_found_exception.ResourceNotFoundException: <p>Indicates that a requested resource is not found.</p>
+            aws_sdk_sso_admin.errors.throttling_exception.ThrottlingException: <p>Indicates that the principal has crossed the throttling limits of the API operations.</p>
+            aws_sdk_sso_admin.errors.validation_exception.ValidationException: <p>The request failed because it contains a syntax error.</p>
+            aws_sdk_sso_admin.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3740,6 +4293,15 @@ class SSOAdminClient:
             description: <p>The description of the <a>PermissionSet</a>.</p>
             session_duration: <p>The length of time that the application user sessions are valid for in the ISO-8601 standard.</p>
             relay_state: <p>Used to redirect users within the application during the federation authentication process.</p>
+
+        Raises:
+            aws_sdk_sso_admin.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_sso_admin.errors.conflict_exception.ConflictException: <p>Occurs when a conflict with a previous successful write is detected. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+            aws_sdk_sso_admin.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure with an internal server.</p>
+            aws_sdk_sso_admin.errors.resource_not_found_exception.ResourceNotFoundException: <p>Indicates that a requested resource is not found.</p>
+            aws_sdk_sso_admin.errors.throttling_exception.ThrottlingException: <p>Indicates that the principal has crossed the throttling limits of the API operations.</p>
+            aws_sdk_sso_admin.errors.validation_exception.ValidationException: <p>The request failed because it contains a syntax error.</p>
+            aws_sdk_sso_admin.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3792,6 +4354,15 @@ class SSOAdminClient:
             trusted_token_issuer_arn: <p>Specifies the ARN of the trusted token issuer configuration that you want to update.</p>
             name: <p>Specifies the updated name to be applied to the trusted token issuer configuration.</p>
             trusted_token_issuer_configuration: <p>Specifies a structure with settings to apply to the specified trusted token issuer. The settings that you can provide are determined by the type of the trusted token issuer that you are updating.</p>
+
+        Raises:
+            aws_sdk_sso_admin.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_sso_admin.errors.conflict_exception.ConflictException: <p>Occurs when a conflict with a previous successful write is detected. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+            aws_sdk_sso_admin.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure with an internal server.</p>
+            aws_sdk_sso_admin.errors.resource_not_found_exception.ResourceNotFoundException: <p>Indicates that a requested resource is not found.</p>
+            aws_sdk_sso_admin.errors.throttling_exception.ThrottlingException: <p>Indicates that the principal has crossed the throttling limits of the API operations.</p>
+            aws_sdk_sso_admin.errors.validation_exception.ValidationException: <p>The request failed because it contains a syntax error.</p>
+            aws_sdk_sso_admin.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(

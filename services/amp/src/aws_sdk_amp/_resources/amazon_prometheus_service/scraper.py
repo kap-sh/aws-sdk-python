@@ -70,6 +70,16 @@ class Scraper:
             client_token: <p>(Optional) A unique, case-sensitive identifier that you can provide to ensure the idempotency of the request.</p>
             tags: <p>(Optional) The list of tag keys and values to associate with the scraper.</p>
 
+        Raises:
+            aws_sdk_amp.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_amp.errors.conflict_exception.ConflictException: <p>The request would cause an inconsistent state.</p>
+            aws_sdk_amp.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred during the processing of the request.</p>
+            aws_sdk_amp.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resources that doesn't exist.</p>
+            aws_sdk_amp.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Completing the request would cause a service quota to be exceeded.</p>
+            aws_sdk_amp.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_amp.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_amp.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             CreateScraper with optional alias input, optional clientToken input, and one set of tags
 
@@ -124,6 +134,14 @@ class Scraper:
 
         Args:
             scraper_id: <p>The ID of the scraper to describe.</p>
+
+        Raises:
+            aws_sdk_amp.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_amp.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred during the processing of the request.</p>
+            aws_sdk_amp.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resources that doesn't exist.</p>
+            aws_sdk_amp.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_amp.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_amp.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             DescribeScraper, with no statusReason to report
@@ -183,6 +201,16 @@ class Scraper:
             role_configuration: <p>Use this structure to enable cross-account access, so that you can use a target account to access Prometheus metrics from source accounts.</p>
             client_token: <p>A unique identifier that you can provide to ensure the idempotency of the request. Case-sensitive.</p>
 
+        Raises:
+            aws_sdk_amp.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_amp.errors.conflict_exception.ConflictException: <p>The request would cause an inconsistent state.</p>
+            aws_sdk_amp.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred during the processing of the request.</p>
+            aws_sdk_amp.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resources that doesn't exist.</p>
+            aws_sdk_amp.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Completing the request would cause a service quota to be exceeded.</p>
+            aws_sdk_amp.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_amp.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_amp.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             UpdateScraper with all optional parameters
 
@@ -239,6 +267,15 @@ class Scraper:
             scraper_id: <p>The ID of the scraper to delete.</p>
             client_token: <p>(Optional) A unique, case-sensitive identifier that you can provide to ensure the idempotency of the request.</p>
 
+        Raises:
+            aws_sdk_amp.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_amp.errors.conflict_exception.ConflictException: <p>The request would cause an inconsistent state.</p>
+            aws_sdk_amp.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred during the processing of the request.</p>
+            aws_sdk_amp.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resources that doesn't exist.</p>
+            aws_sdk_amp.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_amp.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_amp.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             DeleteScraper with optional clientToken input
 
@@ -288,6 +325,13 @@ class Scraper:
             filters: <p>(Optional) A list of key-value pairs to filter the list of scrapers returned. Keys include <code>status</code>, <code>sourceArn</code>, <code>destinationArn</code>, and <code>alias</code>.</p> <p>Filters on the same key are <code>OR</code>'d together, and filters on different keys are <code>AND</code>'d together. For example, <code>status=ACTIVE&amp;status=CREATING&amp;alias=Test</code>, will return all scrapers that have the alias Test, and are either in status ACTIVE or CREATING.</p> <p>To find all active scrapers that are sending metrics to a specific Amazon Managed Service for Prometheus workspace, you would use the ARN of the workspace in a query:</p> <p> <code>status=ACTIVE&amp;destinationArn=arn:aws:aps:us-east-1:123456789012:workspace/ws-example1-1234-abcd-56ef-123456789012</code> </p> <p>If this is included, it filters the results to only the scrapers that match the filter.</p>
             next_token: <p>(Optional) The token for the next set of items to return. (You received this token from a previous call.)</p>
             max_results: <p>Optional) The maximum number of scrapers to return in one <code>ListScrapers</code> operation. The range is 1-1000.</p> <p>If you omit this parameter, the default of 100 is used.</p>
+
+        Raises:
+            aws_sdk_amp.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_amp.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred during the processing of the request.</p>
+            aws_sdk_amp.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_amp.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_amp.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             ListScrapers, with a max result of 2, using a pagination token from a previous call to ListScrapers
@@ -360,6 +404,16 @@ class AsyncScraper:
             client_token: <p>(Optional) A unique, case-sensitive identifier that you can provide to ensure the idempotency of the request.</p>
             tags: <p>(Optional) The list of tag keys and values to associate with the scraper.</p>
 
+        Raises:
+            aws_sdk_amp.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_amp.errors.conflict_exception.ConflictException: <p>The request would cause an inconsistent state.</p>
+            aws_sdk_amp.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred during the processing of the request.</p>
+            aws_sdk_amp.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resources that doesn't exist.</p>
+            aws_sdk_amp.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Completing the request would cause a service quota to be exceeded.</p>
+            aws_sdk_amp.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_amp.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_amp.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             CreateScraper with optional alias input, optional clientToken input, and one set of tags
 
@@ -415,6 +469,14 @@ class AsyncScraper:
 
         Args:
             scraper_id: <p>The ID of the scraper to describe.</p>
+
+        Raises:
+            aws_sdk_amp.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_amp.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred during the processing of the request.</p>
+            aws_sdk_amp.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resources that doesn't exist.</p>
+            aws_sdk_amp.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_amp.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_amp.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             DescribeScraper, with no statusReason to report
@@ -475,6 +537,16 @@ class AsyncScraper:
             role_configuration: <p>Use this structure to enable cross-account access, so that you can use a target account to access Prometheus metrics from source accounts.</p>
             client_token: <p>A unique identifier that you can provide to ensure the idempotency of the request. Case-sensitive.</p>
 
+        Raises:
+            aws_sdk_amp.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_amp.errors.conflict_exception.ConflictException: <p>The request would cause an inconsistent state.</p>
+            aws_sdk_amp.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred during the processing of the request.</p>
+            aws_sdk_amp.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resources that doesn't exist.</p>
+            aws_sdk_amp.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Completing the request would cause a service quota to be exceeded.</p>
+            aws_sdk_amp.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_amp.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_amp.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             UpdateScraper with all optional parameters
 
@@ -532,6 +604,15 @@ class AsyncScraper:
             scraper_id: <p>The ID of the scraper to delete.</p>
             client_token: <p>(Optional) A unique, case-sensitive identifier that you can provide to ensure the idempotency of the request.</p>
 
+        Raises:
+            aws_sdk_amp.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_amp.errors.conflict_exception.ConflictException: <p>The request would cause an inconsistent state.</p>
+            aws_sdk_amp.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred during the processing of the request.</p>
+            aws_sdk_amp.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resources that doesn't exist.</p>
+            aws_sdk_amp.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_amp.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_amp.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             DeleteScraper with optional clientToken input
 
@@ -582,6 +663,13 @@ class AsyncScraper:
             filters: <p>(Optional) A list of key-value pairs to filter the list of scrapers returned. Keys include <code>status</code>, <code>sourceArn</code>, <code>destinationArn</code>, and <code>alias</code>.</p> <p>Filters on the same key are <code>OR</code>'d together, and filters on different keys are <code>AND</code>'d together. For example, <code>status=ACTIVE&amp;status=CREATING&amp;alias=Test</code>, will return all scrapers that have the alias Test, and are either in status ACTIVE or CREATING.</p> <p>To find all active scrapers that are sending metrics to a specific Amazon Managed Service for Prometheus workspace, you would use the ARN of the workspace in a query:</p> <p> <code>status=ACTIVE&amp;destinationArn=arn:aws:aps:us-east-1:123456789012:workspace/ws-example1-1234-abcd-56ef-123456789012</code> </p> <p>If this is included, it filters the results to only the scrapers that match the filter.</p>
             next_token: <p>(Optional) The token for the next set of items to return. (You received this token from a previous call.)</p>
             max_results: <p>Optional) The maximum number of scrapers to return in one <code>ListScrapers</code> operation. The range is 1-1000.</p> <p>If you omit this parameter, the default of 100 is used.</p>
+
+        Raises:
+            aws_sdk_amp.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_amp.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred during the processing of the request.</p>
+            aws_sdk_amp.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_amp.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_amp.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             ListScrapers, with a max result of 2, using a pagination token from a previous call to ListScrapers

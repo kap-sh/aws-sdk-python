@@ -212,6 +212,17 @@ class AsyncChimeSDKIdentityClient:
             metadata: <p>The metadata of the <code>AppInstance</code>. Limited to a 1KB string in UTF-8.</p>
             client_request_token: <p>The unique ID of the request. Use different tokens to create different <code>AppInstances</code>.</p>
             tags: <p>Tags assigned to the <code>AppInstance</code>.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_identity.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_identity.errors.conflict_exception.ConflictException: <p>The request could not be processed because of conflict in the current state of the resource.</p>
+            aws_sdk_chime_sdk_identity.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_identity.errors.resource_limit_exceeded_exception.ResourceLimitExceededException: <p>The request exceeds the resource limit.</p>
+            aws_sdk_chime_sdk_identity.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_identity.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_identity.errors.throttled_client_exception.ThrottledClientException: <p>The client exceeded its request rate limit.</p>
+            aws_sdk_chime_sdk_identity.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client is not currently authorized to make the request.</p>
+            aws_sdk_chime_sdk_identity.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -257,6 +268,17 @@ class AsyncChimeSDKIdentityClient:
         Args:
             app_instance_admin_arn: <p>The ARN of the administrator of the current <code>AppInstance</code>.</p>
             app_instance_arn: <p>The ARN of the <code>AppInstance</code>.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_identity.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_identity.errors.conflict_exception.ConflictException: <p>The request could not be processed because of conflict in the current state of the resource.</p>
+            aws_sdk_chime_sdk_identity.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_identity.errors.resource_limit_exceeded_exception.ResourceLimitExceededException: <p>The request exceeds the resource limit.</p>
+            aws_sdk_chime_sdk_identity.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_identity.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_identity.errors.throttled_client_exception.ThrottledClientException: <p>The client exceeded its request rate limit.</p>
+            aws_sdk_chime_sdk_identity.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client is not currently authorized to make the request.</p>
+            aws_sdk_chime_sdk_identity.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -308,6 +330,17 @@ class AsyncChimeSDKIdentityClient:
             client_request_token: <p>The unique ID for the client making the request. Use different tokens for different <code>AppInstanceBots</code>.</p>
             tags: <p>The tags assigned to the <code>AppInstanceBot</code>.</p>
             configuration: <p>Configuration information about the Amazon Lex V2 V2 bot.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_identity.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_identity.errors.conflict_exception.ConflictException: <p>The request could not be processed because of conflict in the current state of the resource.</p>
+            aws_sdk_chime_sdk_identity.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_identity.errors.resource_limit_exceeded_exception.ResourceLimitExceededException: <p>The request exceeds the resource limit.</p>
+            aws_sdk_chime_sdk_identity.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_identity.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_identity.errors.throttled_client_exception.ThrottledClientException: <p>The client exceeded its request rate limit.</p>
+            aws_sdk_chime_sdk_identity.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client is not currently authorized to make the request.</p>
+            aws_sdk_chime_sdk_identity.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -368,6 +401,17 @@ class AsyncChimeSDKIdentityClient:
             client_request_token: <p>The unique ID of the request. Use different tokens to request additional <code>AppInstances</code>.</p>
             tags: <p>Tags assigned to the <code>AppInstanceUser</code>.</p>
             expiration_settings: <p>Settings that control the interval after which the <code>AppInstanceUser</code> is automatically deleted.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_identity.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_identity.errors.conflict_exception.ConflictException: <p>The request could not be processed because of conflict in the current state of the resource.</p>
+            aws_sdk_chime_sdk_identity.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_identity.errors.resource_limit_exceeded_exception.ResourceLimitExceededException: <p>The request exceeds the resource limit.</p>
+            aws_sdk_chime_sdk_identity.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_identity.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_identity.errors.throttled_client_exception.ThrottledClientException: <p>The client exceeded its request rate limit.</p>
+            aws_sdk_chime_sdk_identity.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client is not currently authorized to make the request.</p>
+            aws_sdk_chime_sdk_identity.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -415,6 +459,16 @@ class AsyncChimeSDKIdentityClient:
 
         Args:
             app_instance_arn: <p>The ARN of the <code>AppInstance</code>.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_identity.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_identity.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_identity.errors.resource_limit_exceeded_exception.ResourceLimitExceededException: <p>The request exceeds the resource limit.</p>
+            aws_sdk_chime_sdk_identity.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_identity.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_identity.errors.throttled_client_exception.ThrottledClientException: <p>The client exceeded its request rate limit.</p>
+            aws_sdk_chime_sdk_identity.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client is not currently authorized to make the request.</p>
+            aws_sdk_chime_sdk_identity.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -453,6 +507,17 @@ class AsyncChimeSDKIdentityClient:
         Args:
             app_instance_admin_arn: <p>The ARN of the <code>AppInstance</code>'s administrator.</p>
             app_instance_arn: <p>The ARN of the <code>AppInstance</code>.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_identity.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_identity.errors.conflict_exception.ConflictException: <p>The request could not be processed because of conflict in the current state of the resource.</p>
+            aws_sdk_chime_sdk_identity.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_identity.errors.resource_limit_exceeded_exception.ResourceLimitExceededException: <p>The request exceeds the resource limit.</p>
+            aws_sdk_chime_sdk_identity.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_identity.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_identity.errors.throttled_client_exception.ThrottledClientException: <p>The client exceeded its request rate limit.</p>
+            aws_sdk_chime_sdk_identity.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client is not currently authorized to make the request.</p>
+            aws_sdk_chime_sdk_identity.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -490,6 +555,17 @@ class AsyncChimeSDKIdentityClient:
 
         Args:
             app_instance_bot_arn: <p>The ARN of the <code>AppInstanceBot</code> being deleted.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_identity.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_identity.errors.conflict_exception.ConflictException: <p>The request could not be processed because of conflict in the current state of the resource.</p>
+            aws_sdk_chime_sdk_identity.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_identity.errors.resource_limit_exceeded_exception.ResourceLimitExceededException: <p>The request exceeds the resource limit.</p>
+            aws_sdk_chime_sdk_identity.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_identity.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_identity.errors.throttled_client_exception.ThrottledClientException: <p>The client exceeded its request rate limit.</p>
+            aws_sdk_chime_sdk_identity.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client is not currently authorized to make the request.</p>
+            aws_sdk_chime_sdk_identity.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -526,6 +602,17 @@ class AsyncChimeSDKIdentityClient:
 
         Args:
             app_instance_user_arn: <p>The ARN of the user request being deleted.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_identity.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_identity.errors.conflict_exception.ConflictException: <p>The request could not be processed because of conflict in the current state of the resource.</p>
+            aws_sdk_chime_sdk_identity.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_identity.errors.resource_limit_exceeded_exception.ResourceLimitExceededException: <p>The request exceeds the resource limit.</p>
+            aws_sdk_chime_sdk_identity.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_identity.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_identity.errors.throttled_client_exception.ThrottledClientException: <p>The client exceeded its request rate limit.</p>
+            aws_sdk_chime_sdk_identity.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client is not currently authorized to make the request.</p>
+            aws_sdk_chime_sdk_identity.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -564,6 +651,15 @@ class AsyncChimeSDKIdentityClient:
         Args:
             app_instance_user_arn: <p>The ARN of the <code>AppInstanceUser</code>.</p>
             endpoint_id: <p>The unique identifier of the <code>AppInstanceUserEndpoint</code>.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_identity.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_identity.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_identity.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_identity.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_identity.errors.throttled_client_exception.ThrottledClientException: <p>The client exceeded its request rate limit.</p>
+            aws_sdk_chime_sdk_identity.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client is not currently authorized to make the request.</p>
+            aws_sdk_chime_sdk_identity.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -601,6 +697,15 @@ class AsyncChimeSDKIdentityClient:
 
         Args:
             app_instance_arn: <p>The ARN of the <code>AppInstance</code>.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_identity.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_identity.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_identity.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_identity.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_identity.errors.throttled_client_exception.ThrottledClientException: <p>The client exceeded its request rate limit.</p>
+            aws_sdk_chime_sdk_identity.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client is not currently authorized to make the request.</p>
+            aws_sdk_chime_sdk_identity.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -641,6 +746,15 @@ class AsyncChimeSDKIdentityClient:
         Args:
             app_instance_admin_arn: <p>The ARN of the <code>AppInstanceAdmin</code>.</p>
             app_instance_arn: <p>The ARN of the <code>AppInstance</code>.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_identity.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_identity.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_identity.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_identity.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_identity.errors.throttled_client_exception.ThrottledClientException: <p>The client exceeded its request rate limit.</p>
+            aws_sdk_chime_sdk_identity.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client is not currently authorized to make the request.</p>
+            aws_sdk_chime_sdk_identity.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -680,6 +794,16 @@ class AsyncChimeSDKIdentityClient:
 
         Args:
             app_instance_bot_arn: <p>The ARN of the <code>AppInstanceBot</code>.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_identity.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_identity.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_identity.errors.not_found_exception.NotFoundException: <p>One or more of the resources in the request does not exist in the system.</p>
+            aws_sdk_chime_sdk_identity.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_identity.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_identity.errors.throttled_client_exception.ThrottledClientException: <p>The client exceeded its request rate limit.</p>
+            aws_sdk_chime_sdk_identity.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client is not currently authorized to make the request.</p>
+            aws_sdk_chime_sdk_identity.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -718,6 +842,15 @@ class AsyncChimeSDKIdentityClient:
 
         Args:
             app_instance_user_arn: <p>The ARN of the <code>AppInstanceUser</code>.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_identity.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_identity.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_identity.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_identity.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_identity.errors.throttled_client_exception.ThrottledClientException: <p>The client exceeded its request rate limit.</p>
+            aws_sdk_chime_sdk_identity.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client is not currently authorized to make the request.</p>
+            aws_sdk_chime_sdk_identity.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -758,6 +891,15 @@ class AsyncChimeSDKIdentityClient:
         Args:
             app_instance_user_arn: <p>The ARN of the <code>AppInstanceUser</code>.</p>
             endpoint_id: <p>The unique identifier of the <code>AppInstanceUserEndpoint</code>.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_identity.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_identity.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_identity.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_identity.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_identity.errors.throttled_client_exception.ThrottledClientException: <p>The client exceeded its request rate limit.</p>
+            aws_sdk_chime_sdk_identity.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client is not currently authorized to make the request.</p>
+            aws_sdk_chime_sdk_identity.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -797,6 +939,15 @@ class AsyncChimeSDKIdentityClient:
 
         Args:
             app_instance_arn: <p>The ARN of the <code>AppInstance</code>.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_identity.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_identity.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_identity.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_identity.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_identity.errors.throttled_client_exception.ThrottledClientException: <p>The client exceeded its request rate limit.</p>
+            aws_sdk_chime_sdk_identity.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client is not currently authorized to make the request.</p>
+            aws_sdk_chime_sdk_identity.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -843,6 +994,16 @@ class AsyncChimeSDKIdentityClient:
             app_instance_arn: <p>The ARN of the <code>AppInstance</code>.</p>
             max_results: <p>The maximum number of administrators that you want to return.</p>
             next_token: <p>The token returned from previous API requests until the number of administrators is reached.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_identity.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_identity.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_identity.errors.resource_limit_exceeded_exception.ResourceLimitExceededException: <p>The request exceeds the resource limit.</p>
+            aws_sdk_chime_sdk_identity.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_identity.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_identity.errors.throttled_client_exception.ThrottledClientException: <p>The client exceeded its request rate limit.</p>
+            aws_sdk_chime_sdk_identity.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client is not currently authorized to make the request.</p>
+            aws_sdk_chime_sdk_identity.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -893,6 +1054,16 @@ class AsyncChimeSDKIdentityClient:
             app_instance_arn: <p>The ARN of the <code>AppInstance</code>.</p>
             max_results: <p>The maximum number of requests to return.</p>
             next_token: <p>The token passed by previous API calls until all requested bots are returned.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_identity.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_identity.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_identity.errors.resource_limit_exceeded_exception.ResourceLimitExceededException: <p>The request exceeds the resource limit.</p>
+            aws_sdk_chime_sdk_identity.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_identity.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_identity.errors.throttled_client_exception.ThrottledClientException: <p>The client exceeded its request rate limit.</p>
+            aws_sdk_chime_sdk_identity.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client is not currently authorized to make the request.</p>
+            aws_sdk_chime_sdk_identity.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -941,6 +1112,15 @@ class AsyncChimeSDKIdentityClient:
         Args:
             max_results: <p>The maximum number of <code>AppInstance</code>s that you want to return.</p>
             next_token: <p>The token passed by previous API requests until you reach the maximum number of <code>AppInstances</code>.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_identity.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_identity.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_identity.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_identity.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_identity.errors.throttled_client_exception.ThrottledClientException: <p>The client exceeded its request rate limit.</p>
+            aws_sdk_chime_sdk_identity.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client is not currently authorized to make the request.</p>
+            aws_sdk_chime_sdk_identity.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -990,6 +1170,15 @@ class AsyncChimeSDKIdentityClient:
             app_instance_user_arn: <p>The ARN of the <code>AppInstanceUser</code>.</p>
             max_results: <p>The maximum number of endpoints that you want to return.</p>
             next_token: <p>The token passed by previous API calls until all requested endpoints are returned.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_identity.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_identity.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_identity.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_identity.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_identity.errors.throttled_client_exception.ThrottledClientException: <p>The client exceeded its request rate limit.</p>
+            aws_sdk_chime_sdk_identity.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client is not currently authorized to make the request.</p>
+            aws_sdk_chime_sdk_identity.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1040,6 +1229,15 @@ class AsyncChimeSDKIdentityClient:
             app_instance_arn: <p>The ARN of the <code>AppInstance</code>.</p>
             max_results: <p>The maximum number of requests that you want returned.</p>
             next_token: <p>The token passed by previous API calls until all requested users are returned.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_identity.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_identity.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_identity.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_identity.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_identity.errors.throttled_client_exception.ThrottledClientException: <p>The client exceeded its request rate limit.</p>
+            aws_sdk_chime_sdk_identity.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client is not currently authorized to make the request.</p>
+            aws_sdk_chime_sdk_identity.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1082,6 +1280,15 @@ class AsyncChimeSDKIdentityClient:
 
         Args:
             resource_arn: <p>The ARN of the resource.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_identity.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_identity.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_identity.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_identity.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_identity.errors.throttled_client_exception.ThrottledClientException: <p>The client exceeded its request rate limit.</p>
+            aws_sdk_chime_sdk_identity.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client is not currently authorized to make the request.</p>
+            aws_sdk_chime_sdk_identity.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1122,6 +1329,15 @@ class AsyncChimeSDKIdentityClient:
         Args:
             app_instance_arn: <p>The ARN of the <code>AppInstance</code>.</p>
             app_instance_retention_settings: <p>The time in days to retain data. Data type: number.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_identity.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_identity.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_identity.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_identity.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_identity.errors.throttled_client_exception.ThrottledClientException: <p>The client exceeded its request rate limit.</p>
+            aws_sdk_chime_sdk_identity.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client is not currently authorized to make the request.</p>
+            aws_sdk_chime_sdk_identity.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1165,6 +1381,16 @@ class AsyncChimeSDKIdentityClient:
         Args:
             app_instance_user_arn: <p>The ARN of the <code>AppInstanceUser</code>.</p>
             expiration_settings: <p>Settings that control the interval after which an <code>AppInstanceUser</code> is automatically deleted.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_identity.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_identity.errors.conflict_exception.ConflictException: <p>The request could not be processed because of conflict in the current state of the resource.</p>
+            aws_sdk_chime_sdk_identity.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_identity.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_identity.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_identity.errors.throttled_client_exception.ThrottledClientException: <p>The client exceeded its request rate limit.</p>
+            aws_sdk_chime_sdk_identity.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client is not currently authorized to make the request.</p>
+            aws_sdk_chime_sdk_identity.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1221,6 +1447,17 @@ class AsyncChimeSDKIdentityClient:
             endpoint_attributes: <p>The attributes of an <code>Endpoint</code>.</p>
             client_request_token: <p>The unique ID assigned to the request. Use different tokens to register other endpoints.</p>
             allow_messages: <p>Boolean that controls whether the AppInstanceUserEndpoint is opted in to receive messages. <code>ALL</code> indicates the endpoint receives all messages. <code>NONE</code> indicates the endpoint receives no messages.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_identity.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_identity.errors.conflict_exception.ConflictException: <p>The request could not be processed because of conflict in the current state of the resource.</p>
+            aws_sdk_chime_sdk_identity.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_identity.errors.resource_limit_exceeded_exception.ResourceLimitExceededException: <p>The request exceeds the resource limit.</p>
+            aws_sdk_chime_sdk_identity.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_identity.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_identity.errors.throttled_client_exception.ThrottledClientException: <p>The client exceeded its request rate limit.</p>
+            aws_sdk_chime_sdk_identity.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client is not currently authorized to make the request.</p>
+            aws_sdk_chime_sdk_identity.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1269,6 +1506,16 @@ class AsyncChimeSDKIdentityClient:
         Args:
             resource_arn: <p>The resource ARN.</p>
             tags: <p>The tag key-value pairs.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_identity.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_identity.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_identity.errors.resource_limit_exceeded_exception.ResourceLimitExceededException: <p>The request exceeds the resource limit.</p>
+            aws_sdk_chime_sdk_identity.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_identity.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_identity.errors.throttled_client_exception.ThrottledClientException: <p>The client exceeded its request rate limit.</p>
+            aws_sdk_chime_sdk_identity.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client is not currently authorized to make the request.</p>
+            aws_sdk_chime_sdk_identity.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1308,6 +1555,15 @@ class AsyncChimeSDKIdentityClient:
         Args:
             resource_arn: <p>The resource ARN.</p>
             tag_keys: <p>The tag keys.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_identity.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_identity.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_identity.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_identity.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_identity.errors.throttled_client_exception.ThrottledClientException: <p>The client exceeded its request rate limit.</p>
+            aws_sdk_chime_sdk_identity.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client is not currently authorized to make the request.</p>
+            aws_sdk_chime_sdk_identity.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1349,6 +1605,16 @@ class AsyncChimeSDKIdentityClient:
             app_instance_arn: <p>The ARN of the <code>AppInstance</code>.</p>
             name: <p>The name that you want to change.</p>
             metadata: <p>The metadata that you want to change.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_identity.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_identity.errors.conflict_exception.ConflictException: <p>The request could not be processed because of conflict in the current state of the resource.</p>
+            aws_sdk_chime_sdk_identity.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_identity.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_identity.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_identity.errors.throttled_client_exception.ThrottledClientException: <p>The client exceeded its request rate limit.</p>
+            aws_sdk_chime_sdk_identity.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client is not currently authorized to make the request.</p>
+            aws_sdk_chime_sdk_identity.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1397,6 +1663,17 @@ class AsyncChimeSDKIdentityClient:
             name: <p>The name of the <code>AppInstanceBot</code>.</p>
             metadata: <p>The metadata of the <code>AppInstanceBot</code>.</p>
             configuration: <p>The configuration for the bot update.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_identity.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_identity.errors.conflict_exception.ConflictException: <p>The request could not be processed because of conflict in the current state of the resource.</p>
+            aws_sdk_chime_sdk_identity.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_identity.errors.resource_limit_exceeded_exception.ResourceLimitExceededException: <p>The request exceeds the resource limit.</p>
+            aws_sdk_chime_sdk_identity.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_identity.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_identity.errors.throttled_client_exception.ThrottledClientException: <p>The client exceeded its request rate limit.</p>
+            aws_sdk_chime_sdk_identity.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client is not currently authorized to make the request.</p>
+            aws_sdk_chime_sdk_identity.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1443,6 +1720,17 @@ class AsyncChimeSDKIdentityClient:
             app_instance_user_arn: <p>The ARN of the <code>AppInstanceUser</code>.</p>
             name: <p>The name of the <code>AppInstanceUser</code>.</p>
             metadata: <p>The metadata of the <code>AppInstanceUser</code>.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_identity.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_identity.errors.conflict_exception.ConflictException: <p>The request could not be processed because of conflict in the current state of the resource.</p>
+            aws_sdk_chime_sdk_identity.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_identity.errors.resource_limit_exceeded_exception.ResourceLimitExceededException: <p>The request exceeds the resource limit.</p>
+            aws_sdk_chime_sdk_identity.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_identity.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_identity.errors.throttled_client_exception.ThrottledClientException: <p>The client exceeded its request rate limit.</p>
+            aws_sdk_chime_sdk_identity.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client is not currently authorized to make the request.</p>
+            aws_sdk_chime_sdk_identity.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1493,6 +1781,16 @@ class AsyncChimeSDKIdentityClient:
             endpoint_id: <p>The unique identifier of the <code>AppInstanceUserEndpoint</code>.</p>
             name: <p>The name of the <code>AppInstanceUserEndpoint</code>.</p>
             allow_messages: <p>Boolean that controls whether the <code>AppInstanceUserEndpoint</code> is opted in to receive messages. <code>ALL</code> indicates the endpoint will receive all messages. <code>NONE</code> indicates the endpoint will receive no messages.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_identity.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_identity.errors.conflict_exception.ConflictException: <p>The request could not be processed because of conflict in the current state of the resource.</p>
+            aws_sdk_chime_sdk_identity.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_identity.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_identity.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_identity.errors.throttled_client_exception.ThrottledClientException: <p>The client exceeded its request rate limit.</p>
+            aws_sdk_chime_sdk_identity.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client is not currently authorized to make the request.</p>
+            aws_sdk_chime_sdk_identity.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

@@ -161,6 +161,13 @@ class AsyncAutoScalingPlansClient:
             scaling_plan_name: <p>The name of the scaling plan. Names cannot contain vertical bars, colons, or forward slashes.</p>
             application_source: <p>A CloudFormation stack or set of tags. You can create one scaling plan per application source.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_ApplicationSource.html\">ApplicationSource</a> in the <i>AWS Auto Scaling API Reference</i>.</p>
             scaling_instructions: <p>The scaling instructions.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_ScalingInstruction.html\">ScalingInstruction</a> in the <i>AWS Auto Scaling API Reference</i>.</p>
+
+        Raises:
+            aws_sdk_auto_scaling_plans.errors.concurrent_update_exception.ConcurrentUpdateException: <p>Concurrent updates caused an exception, for example, if you request an update to a scaling plan that already has a pending update.</p>
+            aws_sdk_auto_scaling_plans.errors.internal_service_exception.InternalServiceException: <p>The service encountered an internal error.</p>
+            aws_sdk_auto_scaling_plans.errors.limit_exceeded_exception.LimitExceededException: <p>Your account exceeded a limit. This exception is thrown when a per-account resource limit is exceeded.</p>
+            aws_sdk_auto_scaling_plans.errors.validation_exception.ValidationException: <p>An exception was thrown for a validation issue. Review the parameters provided.</p>
+            aws_sdk_auto_scaling_plans.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -203,6 +210,13 @@ class AsyncAutoScalingPlansClient:
         Args:
             scaling_plan_name: <p>The name of the scaling plan.</p>
             scaling_plan_version: <p>The version number of the scaling plan. Currently, the only valid value is <code>1</code>.</p>
+
+        Raises:
+            aws_sdk_auto_scaling_plans.errors.concurrent_update_exception.ConcurrentUpdateException: <p>Concurrent updates caused an exception, for example, if you request an update to a scaling plan that already has a pending update.</p>
+            aws_sdk_auto_scaling_plans.errors.internal_service_exception.InternalServiceException: <p>The service encountered an internal error.</p>
+            aws_sdk_auto_scaling_plans.errors.object_not_found_exception.ObjectNotFoundException: <p>The specified object could not be found.</p>
+            aws_sdk_auto_scaling_plans.errors.validation_exception.ValidationException: <p>An exception was thrown for a validation issue. Review the parameters provided.</p>
+            aws_sdk_auto_scaling_plans.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -252,6 +266,13 @@ class AsyncAutoScalingPlansClient:
             scaling_plan_version: <p>The version number of the scaling plan. Currently, the only valid value is <code>1</code>.</p>
             max_results: <p>The maximum number of scalable resources to return. The value must be between 1 and 50. The default value is 50.</p>
             next_token: <p>The token for the next set of results.</p>
+
+        Raises:
+            aws_sdk_auto_scaling_plans.errors.concurrent_update_exception.ConcurrentUpdateException: <p>Concurrent updates caused an exception, for example, if you request an update to a scaling plan that already has a pending update.</p>
+            aws_sdk_auto_scaling_plans.errors.internal_service_exception.InternalServiceException: <p>The service encountered an internal error.</p>
+            aws_sdk_auto_scaling_plans.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The token provided is not valid.</p>
+            aws_sdk_auto_scaling_plans.errors.validation_exception.ValidationException: <p>An exception was thrown for a validation issue. Review the parameters provided.</p>
+            aws_sdk_auto_scaling_plans.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -313,6 +334,13 @@ class AsyncAutoScalingPlansClient:
             application_sources: <p>The sources for the applications (up to 10). If you specify scaling plan names, you cannot specify application sources.</p>
             max_results: <p>The maximum number of scalable resources to return. This value can be between 1 and 50. The default value is 50.</p>
             next_token: <p>The token for the next set of results.</p>
+
+        Raises:
+            aws_sdk_auto_scaling_plans.errors.concurrent_update_exception.ConcurrentUpdateException: <p>Concurrent updates caused an exception, for example, if you request an update to a scaling plan that already has a pending update.</p>
+            aws_sdk_auto_scaling_plans.errors.internal_service_exception.InternalServiceException: <p>The service encountered an internal error.</p>
+            aws_sdk_auto_scaling_plans.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The token provided is not valid.</p>
+            aws_sdk_auto_scaling_plans.errors.validation_exception.ValidationException: <p>An exception was thrown for a validation issue. Review the parameters provided.</p>
+            aws_sdk_auto_scaling_plans.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -374,6 +402,11 @@ class AsyncAutoScalingPlansClient:
             forecast_data_type: <p>The type of forecast data to get.</p> <ul> <li> <p> <code>LoadForecast</code>: The load metric forecast. </p> </li> <li> <p> <code>CapacityForecast</code>: The capacity forecast. </p> </li> <li> <p> <code>ScheduledActionMinCapacity</code>: The minimum capacity for each scheduled scaling action. This data is calculated as the larger of two values: the capacity forecast or the minimum capacity in the scaling instruction.</p> </li> <li> <p> <code>ScheduledActionMaxCapacity</code>: The maximum capacity for each scheduled scaling action. The calculation used is determined by the predictive scaling maximum capacity behavior setting in the scaling instruction.</p> </li> </ul>
             start_time: <p>The inclusive start time of the time range for the forecast data to get. The date and time can be at most 56 days before the current date and time. </p>
             end_time: <p>The exclusive end time of the time range for the forecast data to get. The maximum time duration between the start and end time is seven days. </p> <p>Although this parameter can accept a date and time that is more than two days in the future, the availability of forecast data has limits. AWS Auto Scaling only issues forecasts for periods of two days in advance.</p>
+
+        Raises:
+            aws_sdk_auto_scaling_plans.errors.internal_service_exception.InternalServiceException: <p>The service encountered an internal error.</p>
+            aws_sdk_auto_scaling_plans.errors.validation_exception.ValidationException: <p>An exception was thrown for a validation issue. Review the parameters provided.</p>
+            aws_sdk_auto_scaling_plans.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -429,6 +462,13 @@ class AsyncAutoScalingPlansClient:
             scaling_plan_version: <p>The version number of the scaling plan. The only valid value is <code>1</code>. Currently, you cannot have multiple scaling plan versions.</p>
             application_source: <p>A CloudFormation stack or set of tags.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_ApplicationSource.html\">ApplicationSource</a> in the <i>AWS Auto Scaling API Reference</i>.</p>
             scaling_instructions: <p>The scaling instructions.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_ScalingInstruction.html\">ScalingInstruction</a> in the <i>AWS Auto Scaling API Reference</i>.</p>
+
+        Raises:
+            aws_sdk_auto_scaling_plans.errors.concurrent_update_exception.ConcurrentUpdateException: <p>Concurrent updates caused an exception, for example, if you request an update to a scaling plan that already has a pending update.</p>
+            aws_sdk_auto_scaling_plans.errors.internal_service_exception.InternalServiceException: <p>The service encountered an internal error.</p>
+            aws_sdk_auto_scaling_plans.errors.object_not_found_exception.ObjectNotFoundException: <p>The specified object could not be found.</p>
+            aws_sdk_auto_scaling_plans.errors.validation_exception.ValidationException: <p>An exception was thrown for a validation issue. Review the parameters provided.</p>
+            aws_sdk_auto_scaling_plans.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

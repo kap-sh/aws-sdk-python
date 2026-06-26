@@ -50,6 +50,15 @@ class TablePolicyResource:
             table_bucket_arn: <p>The Amazon Resource Name (ARN) of the table bucket that contains the table.</p>
             namespace: <p>The namespace associated with the table. </p>
             name: <p>The table name.</p>
+
+        Raises:
+            aws_sdk_s3tables.errors.bad_request_exception.BadRequestException: <p>The request is invalid or malformed.</p>
+            aws_sdk_s3tables.errors.conflict_exception.ConflictException: <p>The request failed because there is a conflict with a previous write. You can retry the request.</p>
+            aws_sdk_s3tables.errors.forbidden_exception.ForbiddenException: <p>The caller isn't authorized to make the request.</p>
+            aws_sdk_s3tables.errors.internal_server_error_exception.InternalServerErrorException: <p>The request failed due to an internal server error.</p>
+            aws_sdk_s3tables.errors.not_found_exception.NotFoundException: <p>The request was rejected because the specified resource could not be found.</p>
+            aws_sdk_s3tables.errors.too_many_requests_exception.TooManyRequestsException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_s3tables.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -91,6 +100,15 @@ class TablePolicyResource:
             table_bucket_arn: <p>The Amazon Resource Name (ARN) of the table bucket that contains the table.</p>
             namespace: <p>The namespace associated with the table.</p>
             name: <p>The name of the table.</p>
+
+        Raises:
+            aws_sdk_s3tables.errors.bad_request_exception.BadRequestException: <p>The request is invalid or malformed.</p>
+            aws_sdk_s3tables.errors.conflict_exception.ConflictException: <p>The request failed because there is a conflict with a previous write. You can retry the request.</p>
+            aws_sdk_s3tables.errors.forbidden_exception.ForbiddenException: <p>The caller isn't authorized to make the request.</p>
+            aws_sdk_s3tables.errors.internal_server_error_exception.InternalServerErrorException: <p>The request failed due to an internal server error.</p>
+            aws_sdk_s3tables.errors.not_found_exception.NotFoundException: <p>The request was rejected because the specified resource could not be found.</p>
+            aws_sdk_s3tables.errors.too_many_requests_exception.TooManyRequestsException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_s3tables.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -136,6 +154,15 @@ class TablePolicyResource:
             namespace: <p>The namespace associated with the table.</p>
             name: <p>The name of the table.</p>
             resource_policy: <p>The <code>JSON</code> that defines the policy.</p>
+
+        Raises:
+            aws_sdk_s3tables.errors.bad_request_exception.BadRequestException: <p>The request is invalid or malformed.</p>
+            aws_sdk_s3tables.errors.conflict_exception.ConflictException: <p>The request failed because there is a conflict with a previous write. You can retry the request.</p>
+            aws_sdk_s3tables.errors.forbidden_exception.ForbiddenException: <p>The caller isn't authorized to make the request.</p>
+            aws_sdk_s3tables.errors.internal_server_error_exception.InternalServerErrorException: <p>The request failed due to an internal server error.</p>
+            aws_sdk_s3tables.errors.not_found_exception.NotFoundException: <p>The request was rejected because the specified resource could not be found.</p>
+            aws_sdk_s3tables.errors.too_many_requests_exception.TooManyRequestsException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_s3tables.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -183,6 +210,15 @@ class AsyncTablePolicyResource:
             table_bucket_arn: <p>The Amazon Resource Name (ARN) of the table bucket that contains the table.</p>
             namespace: <p>The namespace associated with the table. </p>
             name: <p>The table name.</p>
+
+        Raises:
+            aws_sdk_s3tables.errors.bad_request_exception.BadRequestException: <p>The request is invalid or malformed.</p>
+            aws_sdk_s3tables.errors.conflict_exception.ConflictException: <p>The request failed because there is a conflict with a previous write. You can retry the request.</p>
+            aws_sdk_s3tables.errors.forbidden_exception.ForbiddenException: <p>The caller isn't authorized to make the request.</p>
+            aws_sdk_s3tables.errors.internal_server_error_exception.InternalServerErrorException: <p>The request failed due to an internal server error.</p>
+            aws_sdk_s3tables.errors.not_found_exception.NotFoundException: <p>The request was rejected because the specified resource could not be found.</p>
+            aws_sdk_s3tables.errors.too_many_requests_exception.TooManyRequestsException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_s3tables.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -225,6 +261,15 @@ class AsyncTablePolicyResource:
             table_bucket_arn: <p>The Amazon Resource Name (ARN) of the table bucket that contains the table.</p>
             namespace: <p>The namespace associated with the table.</p>
             name: <p>The name of the table.</p>
+
+        Raises:
+            aws_sdk_s3tables.errors.bad_request_exception.BadRequestException: <p>The request is invalid or malformed.</p>
+            aws_sdk_s3tables.errors.conflict_exception.ConflictException: <p>The request failed because there is a conflict with a previous write. You can retry the request.</p>
+            aws_sdk_s3tables.errors.forbidden_exception.ForbiddenException: <p>The caller isn't authorized to make the request.</p>
+            aws_sdk_s3tables.errors.internal_server_error_exception.InternalServerErrorException: <p>The request failed due to an internal server error.</p>
+            aws_sdk_s3tables.errors.not_found_exception.NotFoundException: <p>The request was rejected because the specified resource could not be found.</p>
+            aws_sdk_s3tables.errors.too_many_requests_exception.TooManyRequestsException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_s3tables.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -271,6 +316,15 @@ class AsyncTablePolicyResource:
             namespace: <p>The namespace associated with the table.</p>
             name: <p>The name of the table.</p>
             resource_policy: <p>The <code>JSON</code> that defines the policy.</p>
+
+        Raises:
+            aws_sdk_s3tables.errors.bad_request_exception.BadRequestException: <p>The request is invalid or malformed.</p>
+            aws_sdk_s3tables.errors.conflict_exception.ConflictException: <p>The request failed because there is a conflict with a previous write. You can retry the request.</p>
+            aws_sdk_s3tables.errors.forbidden_exception.ForbiddenException: <p>The caller isn't authorized to make the request.</p>
+            aws_sdk_s3tables.errors.internal_server_error_exception.InternalServerErrorException: <p>The request failed due to an internal server error.</p>
+            aws_sdk_s3tables.errors.not_found_exception.NotFoundException: <p>The request was rejected because the specified resource could not be found.</p>
+            aws_sdk_s3tables.errors.too_many_requests_exception.TooManyRequestsException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_s3tables.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

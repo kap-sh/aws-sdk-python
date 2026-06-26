@@ -201,6 +201,16 @@ class AutonomousDatabaseResource:
             encryption_key_configuration: <p>The configuration of the encryption key to use for the Autonomous Database.</p>
             client_token: <p>A client-provided token to ensure the idempotency of the request.</p>
             tags: <p>The list of resource tags to apply to the Autonomous Database. Each tag is a key-value pair with no predefined name, type, or namespace.</p>
+
+        Raises:
+            aws_sdk_odb.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action. Make sure you have the required permissions and try again.</p>
+            aws_sdk_odb.errors.conflict_exception.ConflictException: <p>Occurs when a conflict with the current status of your resource. Fix any inconsistencies with your resource and try again.</p>
+            aws_sdk_odb.errors.internal_server_exception.InternalServerException: <p>Occurs when there is an internal failure in the Oracle Database@Amazon Web Services service. Wait and try again.</p>
+            aws_sdk_odb.errors.resource_not_found_exception.ResourceNotFoundException: <p>The operation tried to access a resource that doesn't exist. Make sure you provided the correct resource and try again.</p>
+            aws_sdk_odb.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You have exceeded the service quota.</p>
+            aws_sdk_odb.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_odb.errors.validation_exception.ValidationException: <p>The request has failed validation because it is missing required fields or has invalid inputs.</p>
+            aws_sdk_odb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -321,6 +331,14 @@ class AutonomousDatabaseResource:
 
         Args:
             autonomous_database_id: <p>The unique identifier of the Autonomous Database to retrieve information about.</p>
+
+        Raises:
+            aws_sdk_odb.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action. Make sure you have the required permissions and try again.</p>
+            aws_sdk_odb.errors.internal_server_exception.InternalServerException: <p>Occurs when there is an internal failure in the Oracle Database@Amazon Web Services service. Wait and try again.</p>
+            aws_sdk_odb.errors.resource_not_found_exception.ResourceNotFoundException: <p>The operation tried to access a resource that doesn't exist. Make sure you provided the correct resource and try again.</p>
+            aws_sdk_odb.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_odb.errors.validation_exception.ValidationException: <p>The request has failed validation because it is missing required fields or has invalid inputs.</p>
+            aws_sdk_odb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -476,6 +494,15 @@ class AutonomousDatabaseResource:
             time_of_auto_refresh_start: <p>The date and time at which the automatic refresh of the refreshable clone Autonomous Database starts.</p>
             encryption_key_provider: <p>The provider of the encryption key to use for the Autonomous Database.</p>
             encryption_key_configuration: <p>The configuration of the encryption key to use for the Autonomous Database.</p>
+
+        Raises:
+            aws_sdk_odb.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action. Make sure you have the required permissions and try again.</p>
+            aws_sdk_odb.errors.conflict_exception.ConflictException: <p>Occurs when a conflict with the current status of your resource. Fix any inconsistencies with your resource and try again.</p>
+            aws_sdk_odb.errors.internal_server_exception.InternalServerException: <p>Occurs when there is an internal failure in the Oracle Database@Amazon Web Services service. Wait and try again.</p>
+            aws_sdk_odb.errors.resource_not_found_exception.ResourceNotFoundException: <p>The operation tried to access a resource that doesn't exist. Make sure you provided the correct resource and try again.</p>
+            aws_sdk_odb.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_odb.errors.validation_exception.ValidationException: <p>The request has failed validation because it is missing required fields or has invalid inputs.</p>
+            aws_sdk_odb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -609,6 +636,15 @@ class AutonomousDatabaseResource:
 
         Args:
             autonomous_database_id: <p>The unique identifier of the Autonomous Database to delete.</p>
+
+        Raises:
+            aws_sdk_odb.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action. Make sure you have the required permissions and try again.</p>
+            aws_sdk_odb.errors.conflict_exception.ConflictException: <p>Occurs when a conflict with the current status of your resource. Fix any inconsistencies with your resource and try again.</p>
+            aws_sdk_odb.errors.internal_server_exception.InternalServerException: <p>Occurs when there is an internal failure in the Oracle Database@Amazon Web Services service. Wait and try again.</p>
+            aws_sdk_odb.errors.resource_not_found_exception.ResourceNotFoundException: <p>The operation tried to access a resource that doesn't exist. Make sure you provided the correct resource and try again.</p>
+            aws_sdk_odb.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_odb.errors.validation_exception.ValidationException: <p>The request has failed validation because it is missing required fields or has invalid inputs.</p>
+            aws_sdk_odb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -648,6 +684,13 @@ class AutonomousDatabaseResource:
         Args:
             max_results: <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output.</p>
             next_token: <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
+
+        Raises:
+            aws_sdk_odb.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action. Make sure you have the required permissions and try again.</p>
+            aws_sdk_odb.errors.internal_server_exception.InternalServerException: <p>Occurs when there is an internal failure in the Oracle Database@Amazon Web Services service. Wait and try again.</p>
+            aws_sdk_odb.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_odb.errors.validation_exception.ValidationException: <p>The request has failed validation because it is missing required fields or has invalid inputs.</p>
+            aws_sdk_odb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -696,6 +739,14 @@ class AutonomousDatabaseResource:
             wallet_type: <p>The type of wallet to create, either a regional wallet or an instance wallet.</p>
             password: <p>The password to encrypt the keys inside the wallet.</p>
             client_token: <p>A client-provided token to ensure the idempotency of the request.</p>
+
+        Raises:
+            aws_sdk_odb.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action. Make sure you have the required permissions and try again.</p>
+            aws_sdk_odb.errors.internal_server_exception.InternalServerException: <p>Occurs when there is an internal failure in the Oracle Database@Amazon Web Services service. Wait and try again.</p>
+            aws_sdk_odb.errors.resource_not_found_exception.ResourceNotFoundException: <p>The operation tried to access a resource that doesn't exist. Make sure you provided the correct resource and try again.</p>
+            aws_sdk_odb.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_odb.errors.validation_exception.ValidationException: <p>The request has failed validation because it is missing required fields or has invalid inputs.</p>
+            aws_sdk_odb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -740,6 +791,15 @@ class AutonomousDatabaseResource:
         Args:
             autonomous_database_id: <p>The unique identifier of the Autonomous Database to fail over.</p>
             peer_db_arn: <p>The Amazon Resource Name (ARN) of the peer Autonomous Database to fail over to.</p>
+
+        Raises:
+            aws_sdk_odb.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action. Make sure you have the required permissions and try again.</p>
+            aws_sdk_odb.errors.conflict_exception.ConflictException: <p>Occurs when a conflict with the current status of your resource. Fix any inconsistencies with your resource and try again.</p>
+            aws_sdk_odb.errors.internal_server_exception.InternalServerException: <p>Occurs when there is an internal failure in the Oracle Database@Amazon Web Services service. Wait and try again.</p>
+            aws_sdk_odb.errors.resource_not_found_exception.ResourceNotFoundException: <p>The operation tried to access a resource that doesn't exist. Make sure you provided the correct resource and try again.</p>
+            aws_sdk_odb.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_odb.errors.validation_exception.ValidationException: <p>The request has failed validation because it is missing required fields or has invalid inputs.</p>
+            aws_sdk_odb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -779,6 +839,14 @@ class AutonomousDatabaseResource:
 
         Args:
             autonomous_database_id: <p>The unique identifier of the Autonomous Database to retrieve wallet details for.</p>
+
+        Raises:
+            aws_sdk_odb.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action. Make sure you have the required permissions and try again.</p>
+            aws_sdk_odb.errors.internal_server_exception.InternalServerException: <p>Occurs when there is an internal failure in the Oracle Database@Amazon Web Services service. Wait and try again.</p>
+            aws_sdk_odb.errors.resource_not_found_exception.ResourceNotFoundException: <p>The operation tried to access a resource that doesn't exist. Make sure you provided the correct resource and try again.</p>
+            aws_sdk_odb.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_odb.errors.validation_exception.ValidationException: <p>The request has failed validation because it is missing required fields or has invalid inputs.</p>
+            aws_sdk_odb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -820,6 +888,14 @@ class AutonomousDatabaseResource:
             max_results: <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output.</p>
             next_token: <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
             autonomous_database_id: <p>The unique identifier of the source Autonomous Database whose clones you want to list.</p>
+
+        Raises:
+            aws_sdk_odb.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action. Make sure you have the required permissions and try again.</p>
+            aws_sdk_odb.errors.internal_server_exception.InternalServerException: <p>Occurs when there is an internal failure in the Oracle Database@Amazon Web Services service. Wait and try again.</p>
+            aws_sdk_odb.errors.resource_not_found_exception.ResourceNotFoundException: <p>The operation tried to access a resource that doesn't exist. Make sure you provided the correct resource and try again.</p>
+            aws_sdk_odb.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_odb.errors.validation_exception.ValidationException: <p>The request has failed validation because it is missing required fields or has invalid inputs.</p>
+            aws_sdk_odb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -865,6 +941,14 @@ class AutonomousDatabaseResource:
             max_results: <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output.</p>
             next_token: <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
             autonomous_database_id: <p>The unique identifier of the Autonomous Database whose peer databases you want to list.</p>
+
+        Raises:
+            aws_sdk_odb.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action. Make sure you have the required permissions and try again.</p>
+            aws_sdk_odb.errors.internal_server_exception.InternalServerException: <p>Occurs when there is an internal failure in the Oracle Database@Amazon Web Services service. Wait and try again.</p>
+            aws_sdk_odb.errors.resource_not_found_exception.ResourceNotFoundException: <p>The operation tried to access a resource that doesn't exist. Make sure you provided the correct resource and try again.</p>
+            aws_sdk_odb.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_odb.errors.validation_exception.ValidationException: <p>The request has failed validation because it is missing required fields or has invalid inputs.</p>
+            aws_sdk_odb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -908,6 +992,15 @@ class AutonomousDatabaseResource:
         Args:
             autonomous_database_id: <p>The unique identifier of the Autonomous Database to reboot.</p>
             is_online_reboot: <p>Specifies whether to perform an online reboot of the Autonomous Database without interrupting active connections.</p>
+
+        Raises:
+            aws_sdk_odb.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action. Make sure you have the required permissions and try again.</p>
+            aws_sdk_odb.errors.conflict_exception.ConflictException: <p>Occurs when a conflict with the current status of your resource. Fix any inconsistencies with your resource and try again.</p>
+            aws_sdk_odb.errors.internal_server_exception.InternalServerException: <p>Occurs when there is an internal failure in the Oracle Database@Amazon Web Services service. Wait and try again.</p>
+            aws_sdk_odb.errors.resource_not_found_exception.ResourceNotFoundException: <p>The operation tried to access a resource that doesn't exist. Make sure you provided the correct resource and try again.</p>
+            aws_sdk_odb.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_odb.errors.validation_exception.ValidationException: <p>The request has failed validation because it is missing required fields or has invalid inputs.</p>
+            aws_sdk_odb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -949,6 +1042,15 @@ class AutonomousDatabaseResource:
         Args:
             autonomous_database_id: <p>The unique identifier of the Autonomous Database to restore.</p>
             timestamp: <p>The date and time to which to restore the Autonomous Database.</p>
+
+        Raises:
+            aws_sdk_odb.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action. Make sure you have the required permissions and try again.</p>
+            aws_sdk_odb.errors.conflict_exception.ConflictException: <p>Occurs when a conflict with the current status of your resource. Fix any inconsistencies with your resource and try again.</p>
+            aws_sdk_odb.errors.internal_server_exception.InternalServerException: <p>Occurs when there is an internal failure in the Oracle Database@Amazon Web Services service. Wait and try again.</p>
+            aws_sdk_odb.errors.resource_not_found_exception.ResourceNotFoundException: <p>The operation tried to access a resource that doesn't exist. Make sure you provided the correct resource and try again.</p>
+            aws_sdk_odb.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_odb.errors.validation_exception.ValidationException: <p>The request has failed validation because it is missing required fields or has invalid inputs.</p>
+            aws_sdk_odb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -987,6 +1089,15 @@ class AutonomousDatabaseResource:
 
         Args:
             autonomous_database_id: <p>The unique identifier of the Autonomous Database to shrink.</p>
+
+        Raises:
+            aws_sdk_odb.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action. Make sure you have the required permissions and try again.</p>
+            aws_sdk_odb.errors.conflict_exception.ConflictException: <p>Occurs when a conflict with the current status of your resource. Fix any inconsistencies with your resource and try again.</p>
+            aws_sdk_odb.errors.internal_server_exception.InternalServerException: <p>Occurs when there is an internal failure in the Oracle Database@Amazon Web Services service. Wait and try again.</p>
+            aws_sdk_odb.errors.resource_not_found_exception.ResourceNotFoundException: <p>The operation tried to access a resource that doesn't exist. Make sure you provided the correct resource and try again.</p>
+            aws_sdk_odb.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_odb.errors.validation_exception.ValidationException: <p>The request has failed validation because it is missing required fields or has invalid inputs.</p>
+            aws_sdk_odb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1024,6 +1135,15 @@ class AutonomousDatabaseResource:
 
         Args:
             autonomous_database_id: <p>The unique identifier of the Autonomous Database to start.</p>
+
+        Raises:
+            aws_sdk_odb.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action. Make sure you have the required permissions and try again.</p>
+            aws_sdk_odb.errors.conflict_exception.ConflictException: <p>Occurs when a conflict with the current status of your resource. Fix any inconsistencies with your resource and try again.</p>
+            aws_sdk_odb.errors.internal_server_exception.InternalServerException: <p>Occurs when there is an internal failure in the Oracle Database@Amazon Web Services service. Wait and try again.</p>
+            aws_sdk_odb.errors.resource_not_found_exception.ResourceNotFoundException: <p>The operation tried to access a resource that doesn't exist. Make sure you provided the correct resource and try again.</p>
+            aws_sdk_odb.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_odb.errors.validation_exception.ValidationException: <p>The request has failed validation because it is missing required fields or has invalid inputs.</p>
+            aws_sdk_odb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1063,6 +1183,15 @@ class AutonomousDatabaseResource:
 
         Args:
             autonomous_database_id: <p>The unique identifier of the Autonomous Database to stop.</p>
+
+        Raises:
+            aws_sdk_odb.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action. Make sure you have the required permissions and try again.</p>
+            aws_sdk_odb.errors.conflict_exception.ConflictException: <p>Occurs when a conflict with the current status of your resource. Fix any inconsistencies with your resource and try again.</p>
+            aws_sdk_odb.errors.internal_server_exception.InternalServerException: <p>Occurs when there is an internal failure in the Oracle Database@Amazon Web Services service. Wait and try again.</p>
+            aws_sdk_odb.errors.resource_not_found_exception.ResourceNotFoundException: <p>The operation tried to access a resource that doesn't exist. Make sure you provided the correct resource and try again.</p>
+            aws_sdk_odb.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_odb.errors.validation_exception.ValidationException: <p>The request has failed validation because it is missing required fields or has invalid inputs.</p>
+            aws_sdk_odb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1102,6 +1231,15 @@ class AutonomousDatabaseResource:
         Args:
             autonomous_database_id: <p>The unique identifier of the Autonomous Database to switch over.</p>
             peer_db_arn: <p>The Amazon Resource Name (ARN) of the peer Autonomous Database to switch over to.</p>
+
+        Raises:
+            aws_sdk_odb.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action. Make sure you have the required permissions and try again.</p>
+            aws_sdk_odb.errors.conflict_exception.ConflictException: <p>Occurs when a conflict with the current status of your resource. Fix any inconsistencies with your resource and try again.</p>
+            aws_sdk_odb.errors.internal_server_exception.InternalServerException: <p>Occurs when there is an internal failure in the Oracle Database@Amazon Web Services service. Wait and try again.</p>
+            aws_sdk_odb.errors.resource_not_found_exception.ResourceNotFoundException: <p>The operation tried to access a resource that doesn't exist. Make sure you provided the correct resource and try again.</p>
+            aws_sdk_odb.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_odb.errors.validation_exception.ValidationException: <p>The request has failed validation because it is missing required fields or has invalid inputs.</p>
+            aws_sdk_odb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1256,6 +1394,16 @@ class AsyncAutonomousDatabaseResource:
             encryption_key_configuration: <p>The configuration of the encryption key to use for the Autonomous Database.</p>
             client_token: <p>A client-provided token to ensure the idempotency of the request.</p>
             tags: <p>The list of resource tags to apply to the Autonomous Database. Each tag is a key-value pair with no predefined name, type, or namespace.</p>
+
+        Raises:
+            aws_sdk_odb.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action. Make sure you have the required permissions and try again.</p>
+            aws_sdk_odb.errors.conflict_exception.ConflictException: <p>Occurs when a conflict with the current status of your resource. Fix any inconsistencies with your resource and try again.</p>
+            aws_sdk_odb.errors.internal_server_exception.InternalServerException: <p>Occurs when there is an internal failure in the Oracle Database@Amazon Web Services service. Wait and try again.</p>
+            aws_sdk_odb.errors.resource_not_found_exception.ResourceNotFoundException: <p>The operation tried to access a resource that doesn't exist. Make sure you provided the correct resource and try again.</p>
+            aws_sdk_odb.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You have exceeded the service quota.</p>
+            aws_sdk_odb.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_odb.errors.validation_exception.ValidationException: <p>The request has failed validation because it is missing required fields or has invalid inputs.</p>
+            aws_sdk_odb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1377,6 +1525,14 @@ class AsyncAutonomousDatabaseResource:
 
         Args:
             autonomous_database_id: <p>The unique identifier of the Autonomous Database to retrieve information about.</p>
+
+        Raises:
+            aws_sdk_odb.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action. Make sure you have the required permissions and try again.</p>
+            aws_sdk_odb.errors.internal_server_exception.InternalServerException: <p>Occurs when there is an internal failure in the Oracle Database@Amazon Web Services service. Wait and try again.</p>
+            aws_sdk_odb.errors.resource_not_found_exception.ResourceNotFoundException: <p>The operation tried to access a resource that doesn't exist. Make sure you provided the correct resource and try again.</p>
+            aws_sdk_odb.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_odb.errors.validation_exception.ValidationException: <p>The request has failed validation because it is missing required fields or has invalid inputs.</p>
+            aws_sdk_odb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1533,6 +1689,15 @@ class AsyncAutonomousDatabaseResource:
             time_of_auto_refresh_start: <p>The date and time at which the automatic refresh of the refreshable clone Autonomous Database starts.</p>
             encryption_key_provider: <p>The provider of the encryption key to use for the Autonomous Database.</p>
             encryption_key_configuration: <p>The configuration of the encryption key to use for the Autonomous Database.</p>
+
+        Raises:
+            aws_sdk_odb.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action. Make sure you have the required permissions and try again.</p>
+            aws_sdk_odb.errors.conflict_exception.ConflictException: <p>Occurs when a conflict with the current status of your resource. Fix any inconsistencies with your resource and try again.</p>
+            aws_sdk_odb.errors.internal_server_exception.InternalServerException: <p>Occurs when there is an internal failure in the Oracle Database@Amazon Web Services service. Wait and try again.</p>
+            aws_sdk_odb.errors.resource_not_found_exception.ResourceNotFoundException: <p>The operation tried to access a resource that doesn't exist. Make sure you provided the correct resource and try again.</p>
+            aws_sdk_odb.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_odb.errors.validation_exception.ValidationException: <p>The request has failed validation because it is missing required fields or has invalid inputs.</p>
+            aws_sdk_odb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1667,6 +1832,15 @@ class AsyncAutonomousDatabaseResource:
 
         Args:
             autonomous_database_id: <p>The unique identifier of the Autonomous Database to delete.</p>
+
+        Raises:
+            aws_sdk_odb.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action. Make sure you have the required permissions and try again.</p>
+            aws_sdk_odb.errors.conflict_exception.ConflictException: <p>Occurs when a conflict with the current status of your resource. Fix any inconsistencies with your resource and try again.</p>
+            aws_sdk_odb.errors.internal_server_exception.InternalServerException: <p>Occurs when there is an internal failure in the Oracle Database@Amazon Web Services service. Wait and try again.</p>
+            aws_sdk_odb.errors.resource_not_found_exception.ResourceNotFoundException: <p>The operation tried to access a resource that doesn't exist. Make sure you provided the correct resource and try again.</p>
+            aws_sdk_odb.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_odb.errors.validation_exception.ValidationException: <p>The request has failed validation because it is missing required fields or has invalid inputs.</p>
+            aws_sdk_odb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1707,6 +1881,13 @@ class AsyncAutonomousDatabaseResource:
         Args:
             max_results: <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output.</p>
             next_token: <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
+
+        Raises:
+            aws_sdk_odb.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action. Make sure you have the required permissions and try again.</p>
+            aws_sdk_odb.errors.internal_server_exception.InternalServerException: <p>Occurs when there is an internal failure in the Oracle Database@Amazon Web Services service. Wait and try again.</p>
+            aws_sdk_odb.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_odb.errors.validation_exception.ValidationException: <p>The request has failed validation because it is missing required fields or has invalid inputs.</p>
+            aws_sdk_odb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1756,6 +1937,14 @@ class AsyncAutonomousDatabaseResource:
             wallet_type: <p>The type of wallet to create, either a regional wallet or an instance wallet.</p>
             password: <p>The password to encrypt the keys inside the wallet.</p>
             client_token: <p>A client-provided token to ensure the idempotency of the request.</p>
+
+        Raises:
+            aws_sdk_odb.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action. Make sure you have the required permissions and try again.</p>
+            aws_sdk_odb.errors.internal_server_exception.InternalServerException: <p>Occurs when there is an internal failure in the Oracle Database@Amazon Web Services service. Wait and try again.</p>
+            aws_sdk_odb.errors.resource_not_found_exception.ResourceNotFoundException: <p>The operation tried to access a resource that doesn't exist. Make sure you provided the correct resource and try again.</p>
+            aws_sdk_odb.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_odb.errors.validation_exception.ValidationException: <p>The request has failed validation because it is missing required fields or has invalid inputs.</p>
+            aws_sdk_odb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1801,6 +1990,15 @@ class AsyncAutonomousDatabaseResource:
         Args:
             autonomous_database_id: <p>The unique identifier of the Autonomous Database to fail over.</p>
             peer_db_arn: <p>The Amazon Resource Name (ARN) of the peer Autonomous Database to fail over to.</p>
+
+        Raises:
+            aws_sdk_odb.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action. Make sure you have the required permissions and try again.</p>
+            aws_sdk_odb.errors.conflict_exception.ConflictException: <p>Occurs when a conflict with the current status of your resource. Fix any inconsistencies with your resource and try again.</p>
+            aws_sdk_odb.errors.internal_server_exception.InternalServerException: <p>Occurs when there is an internal failure in the Oracle Database@Amazon Web Services service. Wait and try again.</p>
+            aws_sdk_odb.errors.resource_not_found_exception.ResourceNotFoundException: <p>The operation tried to access a resource that doesn't exist. Make sure you provided the correct resource and try again.</p>
+            aws_sdk_odb.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_odb.errors.validation_exception.ValidationException: <p>The request has failed validation because it is missing required fields or has invalid inputs.</p>
+            aws_sdk_odb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1841,6 +2039,14 @@ class AsyncAutonomousDatabaseResource:
 
         Args:
             autonomous_database_id: <p>The unique identifier of the Autonomous Database to retrieve wallet details for.</p>
+
+        Raises:
+            aws_sdk_odb.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action. Make sure you have the required permissions and try again.</p>
+            aws_sdk_odb.errors.internal_server_exception.InternalServerException: <p>Occurs when there is an internal failure in the Oracle Database@Amazon Web Services service. Wait and try again.</p>
+            aws_sdk_odb.errors.resource_not_found_exception.ResourceNotFoundException: <p>The operation tried to access a resource that doesn't exist. Make sure you provided the correct resource and try again.</p>
+            aws_sdk_odb.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_odb.errors.validation_exception.ValidationException: <p>The request has failed validation because it is missing required fields or has invalid inputs.</p>
+            aws_sdk_odb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1883,6 +2089,14 @@ class AsyncAutonomousDatabaseResource:
             max_results: <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output.</p>
             next_token: <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
             autonomous_database_id: <p>The unique identifier of the source Autonomous Database whose clones you want to list.</p>
+
+        Raises:
+            aws_sdk_odb.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action. Make sure you have the required permissions and try again.</p>
+            aws_sdk_odb.errors.internal_server_exception.InternalServerException: <p>Occurs when there is an internal failure in the Oracle Database@Amazon Web Services service. Wait and try again.</p>
+            aws_sdk_odb.errors.resource_not_found_exception.ResourceNotFoundException: <p>The operation tried to access a resource that doesn't exist. Make sure you provided the correct resource and try again.</p>
+            aws_sdk_odb.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_odb.errors.validation_exception.ValidationException: <p>The request has failed validation because it is missing required fields or has invalid inputs.</p>
+            aws_sdk_odb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1929,6 +2143,14 @@ class AsyncAutonomousDatabaseResource:
             max_results: <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output.</p>
             next_token: <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
             autonomous_database_id: <p>The unique identifier of the Autonomous Database whose peer databases you want to list.</p>
+
+        Raises:
+            aws_sdk_odb.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action. Make sure you have the required permissions and try again.</p>
+            aws_sdk_odb.errors.internal_server_exception.InternalServerException: <p>Occurs when there is an internal failure in the Oracle Database@Amazon Web Services service. Wait and try again.</p>
+            aws_sdk_odb.errors.resource_not_found_exception.ResourceNotFoundException: <p>The operation tried to access a resource that doesn't exist. Make sure you provided the correct resource and try again.</p>
+            aws_sdk_odb.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_odb.errors.validation_exception.ValidationException: <p>The request has failed validation because it is missing required fields or has invalid inputs.</p>
+            aws_sdk_odb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1973,6 +2195,15 @@ class AsyncAutonomousDatabaseResource:
         Args:
             autonomous_database_id: <p>The unique identifier of the Autonomous Database to reboot.</p>
             is_online_reboot: <p>Specifies whether to perform an online reboot of the Autonomous Database without interrupting active connections.</p>
+
+        Raises:
+            aws_sdk_odb.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action. Make sure you have the required permissions and try again.</p>
+            aws_sdk_odb.errors.conflict_exception.ConflictException: <p>Occurs when a conflict with the current status of your resource. Fix any inconsistencies with your resource and try again.</p>
+            aws_sdk_odb.errors.internal_server_exception.InternalServerException: <p>Occurs when there is an internal failure in the Oracle Database@Amazon Web Services service. Wait and try again.</p>
+            aws_sdk_odb.errors.resource_not_found_exception.ResourceNotFoundException: <p>The operation tried to access a resource that doesn't exist. Make sure you provided the correct resource and try again.</p>
+            aws_sdk_odb.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_odb.errors.validation_exception.ValidationException: <p>The request has failed validation because it is missing required fields or has invalid inputs.</p>
+            aws_sdk_odb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2015,6 +2246,15 @@ class AsyncAutonomousDatabaseResource:
         Args:
             autonomous_database_id: <p>The unique identifier of the Autonomous Database to restore.</p>
             timestamp: <p>The date and time to which to restore the Autonomous Database.</p>
+
+        Raises:
+            aws_sdk_odb.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action. Make sure you have the required permissions and try again.</p>
+            aws_sdk_odb.errors.conflict_exception.ConflictException: <p>Occurs when a conflict with the current status of your resource. Fix any inconsistencies with your resource and try again.</p>
+            aws_sdk_odb.errors.internal_server_exception.InternalServerException: <p>Occurs when there is an internal failure in the Oracle Database@Amazon Web Services service. Wait and try again.</p>
+            aws_sdk_odb.errors.resource_not_found_exception.ResourceNotFoundException: <p>The operation tried to access a resource that doesn't exist. Make sure you provided the correct resource and try again.</p>
+            aws_sdk_odb.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_odb.errors.validation_exception.ValidationException: <p>The request has failed validation because it is missing required fields or has invalid inputs.</p>
+            aws_sdk_odb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2054,6 +2294,15 @@ class AsyncAutonomousDatabaseResource:
 
         Args:
             autonomous_database_id: <p>The unique identifier of the Autonomous Database to shrink.</p>
+
+        Raises:
+            aws_sdk_odb.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action. Make sure you have the required permissions and try again.</p>
+            aws_sdk_odb.errors.conflict_exception.ConflictException: <p>Occurs when a conflict with the current status of your resource. Fix any inconsistencies with your resource and try again.</p>
+            aws_sdk_odb.errors.internal_server_exception.InternalServerException: <p>Occurs when there is an internal failure in the Oracle Database@Amazon Web Services service. Wait and try again.</p>
+            aws_sdk_odb.errors.resource_not_found_exception.ResourceNotFoundException: <p>The operation tried to access a resource that doesn't exist. Make sure you provided the correct resource and try again.</p>
+            aws_sdk_odb.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_odb.errors.validation_exception.ValidationException: <p>The request has failed validation because it is missing required fields or has invalid inputs.</p>
+            aws_sdk_odb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2092,6 +2341,15 @@ class AsyncAutonomousDatabaseResource:
 
         Args:
             autonomous_database_id: <p>The unique identifier of the Autonomous Database to start.</p>
+
+        Raises:
+            aws_sdk_odb.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action. Make sure you have the required permissions and try again.</p>
+            aws_sdk_odb.errors.conflict_exception.ConflictException: <p>Occurs when a conflict with the current status of your resource. Fix any inconsistencies with your resource and try again.</p>
+            aws_sdk_odb.errors.internal_server_exception.InternalServerException: <p>Occurs when there is an internal failure in the Oracle Database@Amazon Web Services service. Wait and try again.</p>
+            aws_sdk_odb.errors.resource_not_found_exception.ResourceNotFoundException: <p>The operation tried to access a resource that doesn't exist. Make sure you provided the correct resource and try again.</p>
+            aws_sdk_odb.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_odb.errors.validation_exception.ValidationException: <p>The request has failed validation because it is missing required fields or has invalid inputs.</p>
+            aws_sdk_odb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2132,6 +2390,15 @@ class AsyncAutonomousDatabaseResource:
 
         Args:
             autonomous_database_id: <p>The unique identifier of the Autonomous Database to stop.</p>
+
+        Raises:
+            aws_sdk_odb.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action. Make sure you have the required permissions and try again.</p>
+            aws_sdk_odb.errors.conflict_exception.ConflictException: <p>Occurs when a conflict with the current status of your resource. Fix any inconsistencies with your resource and try again.</p>
+            aws_sdk_odb.errors.internal_server_exception.InternalServerException: <p>Occurs when there is an internal failure in the Oracle Database@Amazon Web Services service. Wait and try again.</p>
+            aws_sdk_odb.errors.resource_not_found_exception.ResourceNotFoundException: <p>The operation tried to access a resource that doesn't exist. Make sure you provided the correct resource and try again.</p>
+            aws_sdk_odb.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_odb.errors.validation_exception.ValidationException: <p>The request has failed validation because it is missing required fields or has invalid inputs.</p>
+            aws_sdk_odb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2172,6 +2439,15 @@ class AsyncAutonomousDatabaseResource:
         Args:
             autonomous_database_id: <p>The unique identifier of the Autonomous Database to switch over.</p>
             peer_db_arn: <p>The Amazon Resource Name (ARN) of the peer Autonomous Database to switch over to.</p>
+
+        Raises:
+            aws_sdk_odb.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action. Make sure you have the required permissions and try again.</p>
+            aws_sdk_odb.errors.conflict_exception.ConflictException: <p>Occurs when a conflict with the current status of your resource. Fix any inconsistencies with your resource and try again.</p>
+            aws_sdk_odb.errors.internal_server_exception.InternalServerException: <p>Occurs when there is an internal failure in the Oracle Database@Amazon Web Services service. Wait and try again.</p>
+            aws_sdk_odb.errors.resource_not_found_exception.ResourceNotFoundException: <p>The operation tried to access a resource that doesn't exist. Make sure you provided the correct resource and try again.</p>
+            aws_sdk_odb.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_odb.errors.validation_exception.ValidationException: <p>The request has failed validation because it is missing required fields or has invalid inputs.</p>
+            aws_sdk_odb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

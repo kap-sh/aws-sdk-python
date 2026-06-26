@@ -152,6 +152,11 @@ class SimpleDBv2Client:
         Args:
             export_arn: Unique ARN identifier of the export.
 
+        Raises:
+            aws_sdk_simpledbv2.errors.invalid_parameter_value_exception.InvalidParameterValueException: The specified parameter value is not valid.
+            aws_sdk_simpledbv2.errors.no_such_export_exception.NoSuchExportException: Export with specified ARN does not exist.
+            aws_sdk_simpledbv2.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Get export details
 
@@ -197,6 +202,12 @@ class SimpleDBv2Client:
             domain_name: The name of the domain to filter exports. If not provided, exports for all the domains will be listed.
             max_results: The maximum number of exports to return in a single response.
             next_token: A pagination token used to retrieve the next page of results. This token is obtained from the nextToken field in the previous ListExportsResponse. Leave empty for the first request.
+
+        Raises:
+            aws_sdk_simpledbv2.errors.invalid_next_token_exception.InvalidNextTokenException: The specified next token is not valid.
+            aws_sdk_simpledbv2.errors.invalid_parameter_value_exception.InvalidParameterValueException: The specified parameter value is not valid.
+            aws_sdk_simpledbv2.errors.no_such_domain_exception.NoSuchDomainException: The specified domain does not exist.
+            aws_sdk_simpledbv2.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             List all exports
@@ -289,6 +300,14 @@ class SimpleDBv2Client:
             s3_sse_algorithm: The server-side encryption algorithm to use for the exported data in S3. Valid values are: AES256 (SSE-S3) and KMS (SSE-KMS). If not specified, bucket's default encryption will apply.
             s3_sse_kms_key_id: The KMS key ID to use for server-side encryption with AWS KMS-managed keys (SSE-KMS). This parameter is only expected with KMS as the S3 SSE algorithm.
             s3_bucket_owner: The ID of the AWS account that owns the bucket the export will be stored in.
+
+        Raises:
+            aws_sdk_simpledbv2.errors.conflict_exception.ConflictException: Indicates a conflict with one or more parameters of the request.
+            aws_sdk_simpledbv2.errors.invalid_parameter_combination_exception.InvalidParameterCombinationException: Parameters that must not be used together were used together in the request.
+            aws_sdk_simpledbv2.errors.invalid_parameter_value_exception.InvalidParameterValueException: The specified parameter value is not valid.
+            aws_sdk_simpledbv2.errors.no_such_domain_exception.NoSuchDomainException: The specified domain does not exist.
+            aws_sdk_simpledbv2.errors.number_exports_limit_exceeded.NumberExportsLimitExceeded: Cannot start export as export quota limit was exceeded
+            aws_sdk_simpledbv2.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Start a domain export

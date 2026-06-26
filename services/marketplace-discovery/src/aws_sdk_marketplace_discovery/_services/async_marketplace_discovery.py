@@ -164,6 +164,14 @@ class AsyncMarketplaceDiscoveryClient:
         Args:
             listing_id: <p>The unique identifier of the listing to retrieve.</p>
 
+        Raises:
+            aws_sdk_marketplace_discovery.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action.</p>
+            aws_sdk_marketplace_discovery.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of the request.</p>
+            aws_sdk_marketplace_discovery.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_marketplace_discovery.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by the service.</p>
+            aws_sdk_marketplace_discovery.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource doesn't exist.</p>
+            aws_sdk_marketplace_discovery.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             GetListing for SaaS listing
 
@@ -212,6 +220,14 @@ class AsyncMarketplaceDiscoveryClient:
 
         Args:
             offer_id: <p>The unique identifier of the offer to retrieve.</p>
+
+        Raises:
+            aws_sdk_marketplace_discovery.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action.</p>
+            aws_sdk_marketplace_discovery.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of the request.</p>
+            aws_sdk_marketplace_discovery.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_marketplace_discovery.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by the service.</p>
+            aws_sdk_marketplace_discovery.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource doesn't exist.</p>
+            aws_sdk_marketplace_discovery.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Invoke GetOffer for Contract Pricing offer
@@ -265,6 +281,14 @@ class AsyncMarketplaceDiscoveryClient:
         Args:
             offer_set_id: <p>The unique identifier of the offer set to retrieve.</p>
 
+        Raises:
+            aws_sdk_marketplace_discovery.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action.</p>
+            aws_sdk_marketplace_discovery.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of the request.</p>
+            aws_sdk_marketplace_discovery.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_marketplace_discovery.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by the service.</p>
+            aws_sdk_marketplace_discovery.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource doesn't exist.</p>
+            aws_sdk_marketplace_discovery.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Get offer set with multiple products
 
@@ -315,6 +339,14 @@ class AsyncMarketplaceDiscoveryClient:
             offer_id: <p>The unique identifier of the offer whose terms to retrieve.</p>
             max_results: <p>The maximum number of results that are returned per call. You can use <code>nextToken</code> to get more results.</p>
             next_token: <p>If <code>nextToken</code> is returned, there are more results available. Make the call again using the returned token to retrieve the next page.</p>
+
+        Raises:
+            aws_sdk_marketplace_discovery.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action.</p>
+            aws_sdk_marketplace_discovery.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of the request.</p>
+            aws_sdk_marketplace_discovery.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_marketplace_discovery.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by the service.</p>
+            aws_sdk_marketplace_discovery.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource doesn't exist.</p>
+            aws_sdk_marketplace_discovery.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             GetOfferTerms for Usage-based ML Model offer
@@ -412,6 +444,14 @@ class AsyncMarketplaceDiscoveryClient:
         Args:
             product_id: <p>The unique identifier of the product to retrieve.</p>
 
+        Raises:
+            aws_sdk_marketplace_discovery.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action.</p>
+            aws_sdk_marketplace_discovery.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of the request.</p>
+            aws_sdk_marketplace_discovery.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_marketplace_discovery.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by the service.</p>
+            aws_sdk_marketplace_discovery.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource doesn't exist.</p>
+            aws_sdk_marketplace_discovery.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             GetProduct for SaaS product with DEPLOYED status
 
@@ -466,6 +506,14 @@ class AsyncMarketplaceDiscoveryClient:
             product_id: <p>The unique identifier of the product for which to list fulfillment options.</p>
             max_results: <p>The maximum number of results that are returned per call. You can use <code>nextToken</code> to get more results.</p>
             next_token: <p>If <code>nextToken</code> is returned, there are more results available. Make the call again using the returned token to retrieve the next page.</p>
+
+        Raises:
+            aws_sdk_marketplace_discovery.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action.</p>
+            aws_sdk_marketplace_discovery.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of the request.</p>
+            aws_sdk_marketplace_discovery.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_marketplace_discovery.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by the service.</p>
+            aws_sdk_marketplace_discovery.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource doesn't exist.</p>
+            aws_sdk_marketplace_discovery.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             List AMI Fulfillment Options
@@ -582,6 +630,13 @@ class AsyncMarketplaceDiscoveryClient:
             max_results: <p>The maximum number of results that are returned per call. You can use <code>nextToken</code> to get more results.</p>
             next_token: <p>If <code>nextToken</code> is returned, there are more results available. Make the call again using the returned token to retrieve the next page.</p>
 
+        Raises:
+            aws_sdk_marketplace_discovery.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action.</p>
+            aws_sdk_marketplace_discovery.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of the request.</p>
+            aws_sdk_marketplace_discovery.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_marketplace_discovery.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by the service.</p>
+            aws_sdk_marketplace_discovery.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Filter by Product ID
 
@@ -675,6 +730,13 @@ class AsyncMarketplaceDiscoveryClient:
             filters: <p>Filters to apply before retrieving facets. Multiple filters are combined with AND logic. Multiple values within the same filter are combined with OR logic.</p>
             facet_types: <p>A list of specific facet types to retrieve. If empty or null, all available facets are returned.</p>
             next_token: <p>If <code>nextToken</code> is returned, there are more results available. Make the call again using the returned token to retrieve the next page.</p>
+
+        Raises:
+            aws_sdk_marketplace_discovery.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action.</p>
+            aws_sdk_marketplace_discovery.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of the request.</p>
+            aws_sdk_marketplace_discovery.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_marketplace_discovery.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by the service.</p>
+            aws_sdk_marketplace_discovery.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Get facets for machine learning category
@@ -785,6 +847,13 @@ class AsyncMarketplaceDiscoveryClient:
             sort_by: <p>The field to sort results by. Valid values are <code>RELEVANCE</code> and <code>AVERAGE_CUSTOMER_RATING</code>.</p>
             sort_order: <p>The sort direction. Valid values are <code>DESCENDING</code> and <code>ASCENDING</code>.</p>
             next_token: <p>If <code>nextToken</code> is returned, there are more results available. Make the call again using the returned token to retrieve the next page.</p>
+
+        Raises:
+            aws_sdk_marketplace_discovery.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action.</p>
+            aws_sdk_marketplace_discovery.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of the request.</p>
+            aws_sdk_marketplace_discovery.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_marketplace_discovery.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by the service.</p>
+            aws_sdk_marketplace_discovery.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Search for machine learning listings

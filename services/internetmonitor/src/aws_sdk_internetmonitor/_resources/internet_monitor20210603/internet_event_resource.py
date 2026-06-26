@@ -48,6 +48,13 @@ class InternetEventResource:
 
         Args:
             event_id: <p>The <code>EventId</code> of the internet event to return information for. </p>
+
+        Raises:
+            aws_sdk_internetmonitor.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permission to perform this action.</p>
+            aws_sdk_internetmonitor.errors.internal_server_exception.InternalServerException: <p>An internal error occurred.</p>
+            aws_sdk_internetmonitor.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_internetmonitor.errors.validation_exception.ValidationException: <p>Invalid request.</p>
+            aws_sdk_internetmonitor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -97,6 +104,13 @@ class InternetEventResource:
             end_time: <p>The end time of the time window that you want to get a list of internet events for.</p>
             event_status: <p>The status of an internet event.</p>
             event_type: <p>The type of network impairment.</p>
+
+        Raises:
+            aws_sdk_internetmonitor.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permission to perform this action.</p>
+            aws_sdk_internetmonitor.errors.internal_server_exception.InternalServerException: <p>An internal error occurred.</p>
+            aws_sdk_internetmonitor.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_internetmonitor.errors.validation_exception.ValidationException: <p>Invalid request.</p>
+            aws_sdk_internetmonitor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -152,6 +166,13 @@ class AsyncInternetEventResource:
 
         Args:
             event_id: <p>The <code>EventId</code> of the internet event to return information for. </p>
+
+        Raises:
+            aws_sdk_internetmonitor.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permission to perform this action.</p>
+            aws_sdk_internetmonitor.errors.internal_server_exception.InternalServerException: <p>An internal error occurred.</p>
+            aws_sdk_internetmonitor.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_internetmonitor.errors.validation_exception.ValidationException: <p>Invalid request.</p>
+            aws_sdk_internetmonitor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -202,6 +223,13 @@ class AsyncInternetEventResource:
             end_time: <p>The end time of the time window that you want to get a list of internet events for.</p>
             event_status: <p>The status of an internet event.</p>
             event_type: <p>The type of network impairment.</p>
+
+        Raises:
+            aws_sdk_internetmonitor.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permission to perform this action.</p>
+            aws_sdk_internetmonitor.errors.internal_server_exception.InternalServerException: <p>An internal error occurred.</p>
+            aws_sdk_internetmonitor.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_internetmonitor.errors.validation_exception.ValidationException: <p>Invalid request.</p>
+            aws_sdk_internetmonitor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

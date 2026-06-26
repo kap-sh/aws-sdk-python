@@ -53,6 +53,14 @@ class ImportResource:
             client_token: <p>Start import request client token.</p>
             s3_bucket_source: <p>Start import request s3 bucket source.</p>
             tags: <p>Start import request tags.</p>
+
+        Raises:
+            aws_sdk_mgn.errors.conflict_exception.ConflictException: <p>The request could not be completed due to a conflict with the current state of the target resource.</p>
+            aws_sdk_mgn.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found exception.</p>
+            aws_sdk_mgn.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request could not be completed because its exceeded the service quota.</p>
+            aws_sdk_mgn.errors.uninitialized_account_exception.UninitializedAccountException: <p>Uninitialized account exception.</p>
+            aws_sdk_mgn.errors.validation_exception.ValidationException: <p>Validate exception.</p>
+            aws_sdk_mgn.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -104,6 +112,11 @@ class ImportResource:
             filters: <p>List imports request filters.</p>
             max_results: <p>List imports request max results.</p>
             next_token: <p>List imports request next token.</p>
+
+        Raises:
+            aws_sdk_mgn.errors.uninitialized_account_exception.UninitializedAccountException: <p>Uninitialized account exception.</p>
+            aws_sdk_mgn.errors.validation_exception.ValidationException: <p>Validate exception.</p>
+            aws_sdk_mgn.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -154,6 +167,11 @@ class ImportResource:
             import_id: <p>List import errors request import id.</p>
             max_results: <p>List import errors request max results.</p>
             next_token: <p>List import errors request next token.</p>
+
+        Raises:
+            aws_sdk_mgn.errors.uninitialized_account_exception.UninitializedAccountException: <p>Uninitialized account exception.</p>
+            aws_sdk_mgn.errors.validation_exception.ValidationException: <p>Validate exception.</p>
+            aws_sdk_mgn.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -206,6 +224,14 @@ class AsyncImportResource:
             client_token: <p>Start import request client token.</p>
             s3_bucket_source: <p>Start import request s3 bucket source.</p>
             tags: <p>Start import request tags.</p>
+
+        Raises:
+            aws_sdk_mgn.errors.conflict_exception.ConflictException: <p>The request could not be completed due to a conflict with the current state of the target resource.</p>
+            aws_sdk_mgn.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found exception.</p>
+            aws_sdk_mgn.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request could not be completed because its exceeded the service quota.</p>
+            aws_sdk_mgn.errors.uninitialized_account_exception.UninitializedAccountException: <p>Uninitialized account exception.</p>
+            aws_sdk_mgn.errors.validation_exception.ValidationException: <p>Validate exception.</p>
+            aws_sdk_mgn.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -258,6 +284,11 @@ class AsyncImportResource:
             filters: <p>List imports request filters.</p>
             max_results: <p>List imports request max results.</p>
             next_token: <p>List imports request next token.</p>
+
+        Raises:
+            aws_sdk_mgn.errors.uninitialized_account_exception.UninitializedAccountException: <p>Uninitialized account exception.</p>
+            aws_sdk_mgn.errors.validation_exception.ValidationException: <p>Validate exception.</p>
+            aws_sdk_mgn.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -309,6 +340,11 @@ class AsyncImportResource:
             import_id: <p>List import errors request import id.</p>
             max_results: <p>List import errors request max results.</p>
             next_token: <p>List import errors request next token.</p>
+
+        Raises:
+            aws_sdk_mgn.errors.uninitialized_account_exception.UninitializedAccountException: <p>Uninitialized account exception.</p>
+            aws_sdk_mgn.errors.validation_exception.ValidationException: <p>Validate exception.</p>
+            aws_sdk_mgn.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

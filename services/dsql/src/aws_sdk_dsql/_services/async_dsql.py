@@ -139,6 +139,14 @@ class AsyncDSQLClient:
         Args:
             resource_arn: <p>The ARN of the resource for which you want to list the tags.</p>
 
+        Raises:
+            aws_sdk_dsql.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_dsql.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_dsql.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_dsql.errors.validation_exception.ValidationException: <p>The input failed to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_dsql.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_dsql.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             List Tags For Resource
 
@@ -184,6 +192,15 @@ class AsyncDSQLClient:
             resource_arn: <p>The ARN of the resource that you want to tag.</p>
             tags: <p>A map of key and value pairs to use to tag your resource.</p>
 
+        Raises:
+            aws_sdk_dsql.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_dsql.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_dsql.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_dsql.errors.validation_exception.ValidationException: <p>The input failed to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_dsql.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_dsql.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The service limit was exceeded.</p>
+            aws_sdk_dsql.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Tag Resource
 
@@ -227,6 +244,14 @@ class AsyncDSQLClient:
         Args:
             resource_arn: <p>The ARN of the resource from which to remove tags.</p>
             tag_keys: <p>The array of keys of the tags that you want to remove.</p>
+
+        Raises:
+            aws_sdk_dsql.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_dsql.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_dsql.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_dsql.errors.validation_exception.ValidationException: <p>The input failed to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_dsql.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_dsql.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Untag Resource

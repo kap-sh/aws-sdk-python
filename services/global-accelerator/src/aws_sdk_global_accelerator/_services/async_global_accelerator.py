@@ -280,6 +280,16 @@ class AsyncGlobalAcceleratorClient:
         Args:
             endpoint_configurations: <p>The list of endpoint objects to add to a custom routing accelerator.</p>
             endpoint_group_arn: <p>The Amazon Resource Name (ARN) of the endpoint group for the custom routing endpoint.</p>
+
+        Raises:
+            aws_sdk_global_accelerator.errors.access_denied_exception.AccessDeniedException: <p>You don't have access permission.</p>
+            aws_sdk_global_accelerator.errors.conflict_exception.ConflictException: <p>You can't use both of those options.</p>
+            aws_sdk_global_accelerator.errors.endpoint_already_exists_exception.EndpointAlreadyExistsException: <p>The endpoint that you specified doesn't exist.</p>
+            aws_sdk_global_accelerator.errors.endpoint_group_not_found_exception.EndpointGroupNotFoundException: <p>The endpoint group that you specified doesn't exist.</p>
+            aws_sdk_global_accelerator.errors.internal_service_error_exception.InternalServiceErrorException: <p>There was an internal error for Global Accelerator.</p>
+            aws_sdk_global_accelerator.errors.invalid_argument_exception.InvalidArgumentException: <p>An argument that you specified is invalid.</p>
+            aws_sdk_global_accelerator.errors.limit_exceeded_exception.LimitExceededException: <p>Processing your request would cause you to exceed an Global Accelerator limit.</p>
+            aws_sdk_global_accelerator.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -321,6 +331,15 @@ class AsyncGlobalAcceleratorClient:
         Args:
             endpoint_configurations: <p>The list of endpoint objects.</p>
             endpoint_group_arn: <p>The Amazon Resource Name (ARN) of the endpoint group.</p>
+
+        Raises:
+            aws_sdk_global_accelerator.errors.access_denied_exception.AccessDeniedException: <p>You don't have access permission.</p>
+            aws_sdk_global_accelerator.errors.endpoint_group_not_found_exception.EndpointGroupNotFoundException: <p>The endpoint group that you specified doesn't exist.</p>
+            aws_sdk_global_accelerator.errors.internal_service_error_exception.InternalServiceErrorException: <p>There was an internal error for Global Accelerator.</p>
+            aws_sdk_global_accelerator.errors.invalid_argument_exception.InvalidArgumentException: <p>An argument that you specified is invalid.</p>
+            aws_sdk_global_accelerator.errors.limit_exceeded_exception.LimitExceededException: <p>Processing your request would cause you to exceed an Global Accelerator limit.</p>
+            aws_sdk_global_accelerator.errors.transaction_in_progress_exception.TransactionInProgressException: <p>There's already a transaction in progress. Another transaction can't be processed.</p>
+            aws_sdk_global_accelerator.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -360,6 +379,14 @@ class AsyncGlobalAcceleratorClient:
 
         Args:
             cidr: <p>The address range, in CIDR notation. This must be the exact range that you provisioned. You can't advertise only a portion of the provisioned range.</p> <p> For more information, see <a href=\"https://docs.aws.amazon.com/global-accelerator/latest/dg/using-byoip.html\">Bring your own IP addresses (BYOIP)</a> in the Global Accelerator Developer Guide.</p>
+
+        Raises:
+            aws_sdk_global_accelerator.errors.access_denied_exception.AccessDeniedException: <p>You don't have access permission.</p>
+            aws_sdk_global_accelerator.errors.byoip_cidr_not_found_exception.ByoipCidrNotFoundException: <p>The CIDR that you specified was not found or is incorrect.</p>
+            aws_sdk_global_accelerator.errors.incorrect_cidr_state_exception.IncorrectCidrStateException: <p>The CIDR that you specified is not valid for this action. For example, the state of the CIDR might be incorrect for this action.</p>
+            aws_sdk_global_accelerator.errors.internal_service_error_exception.InternalServiceErrorException: <p>There was an internal error for Global Accelerator.</p>
+            aws_sdk_global_accelerator.errors.invalid_argument_exception.InvalidArgumentException: <p>An argument that you specified is invalid.</p>
+            aws_sdk_global_accelerator.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -412,6 +439,12 @@ class AsyncGlobalAcceleratorClient:
             destination_addresses: <p>A list of specific Amazon EC2 instance IP addresses (destination addresses) in a subnet that you want to allow to receive traffic. The IP addresses must be a subset of the IP addresses that you specified for the endpoint group.</p> <p> <code>DestinationAddresses</code> is required if <code>AllowAllTrafficToEndpoint</code> is <code>FALSE</code> or is not specified.</p>
             destination_ports: <p>A list of specific Amazon EC2 instance ports (destination ports) that you want to allow to receive traffic.</p>
             allow_all_traffic_to_endpoint: <p>Indicates whether all destination IP addresses and ports for a specified VPC subnet endpoint can receive traffic from a custom routing accelerator. The value is TRUE or FALSE. </p> <p>When set to TRUE, <i>all</i> destinations in the custom routing VPC subnet can receive traffic. Note that you cannot specify destination IP addresses and ports when the value is set to TRUE.</p> <p>When set to FALSE (or not specified), you <i>must</i> specify a list of destination IP addresses that are allowed to receive traffic. A list of ports is optional. If you don't specify a list of ports, the ports that can accept traffic is the same as the ports configured for the endpoint group.</p> <p>The default value is FALSE.</p>
+
+        Raises:
+            aws_sdk_global_accelerator.errors.endpoint_group_not_found_exception.EndpointGroupNotFoundException: <p>The endpoint group that you specified doesn't exist.</p>
+            aws_sdk_global_accelerator.errors.internal_service_error_exception.InternalServiceErrorException: <p>There was an internal error for Global Accelerator.</p>
+            aws_sdk_global_accelerator.errors.invalid_argument_exception.InvalidArgumentException: <p>An argument that you specified is invalid.</p>
+            aws_sdk_global_accelerator.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -471,6 +504,14 @@ class AsyncGlobalAcceleratorClient:
             enabled: <p>Indicates whether an accelerator is enabled. The value is true or false. The default value is true. </p> <p>If the value is set to true, an accelerator cannot be deleted. If set to false, the accelerator can be deleted.</p>
             idempotency_token: <p>A unique, case-sensitive identifier that you provide to ensure the idempotency—that is, the uniqueness—of an accelerator.</p>
             tags: <p>Create tags for an accelerator.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/global-accelerator/latest/dg/tagging-in-global-accelerator.html\">Tagging in Global Accelerator</a> in the <i>Global Accelerator Developer Guide</i>.</p>
+
+        Raises:
+            aws_sdk_global_accelerator.errors.access_denied_exception.AccessDeniedException: <p>You don't have access permission.</p>
+            aws_sdk_global_accelerator.errors.internal_service_error_exception.InternalServiceErrorException: <p>There was an internal error for Global Accelerator.</p>
+            aws_sdk_global_accelerator.errors.invalid_argument_exception.InvalidArgumentException: <p>An argument that you specified is invalid.</p>
+            aws_sdk_global_accelerator.errors.limit_exceeded_exception.LimitExceededException: <p>Processing your request would cause you to exceed an Global Accelerator limit.</p>
+            aws_sdk_global_accelerator.errors.transaction_in_progress_exception.TransactionInProgressException: <p>There's already a transaction in progress. Another transaction can't be processed.</p>
+            aws_sdk_global_accelerator.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -530,6 +571,14 @@ class AsyncGlobalAcceleratorClient:
             resources: <p>The Amazon Resource Names (ARNs) for the resources to include in the cross-account attachment. A resource can be any supported Amazon Web Services resource type for Global Accelerator or a CIDR range for a bring your own IP address (BYOIP) address pool. </p>
             idempotency_token: <p>A unique, case-sensitive identifier that you provide to ensure the idempotency—that is, the uniqueness—of the request.</p>
             tags: <p>Add tags for a cross-account attachment.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/global-accelerator/latest/dg/tagging-in-global-accelerator.html\">Tagging in Global Accelerator</a> in the <i>Global Accelerator Developer Guide</i>.</p>
+
+        Raises:
+            aws_sdk_global_accelerator.errors.access_denied_exception.AccessDeniedException: <p>You don't have access permission.</p>
+            aws_sdk_global_accelerator.errors.internal_service_error_exception.InternalServiceErrorException: <p>There was an internal error for Global Accelerator.</p>
+            aws_sdk_global_accelerator.errors.invalid_argument_exception.InvalidArgumentException: <p>An argument that you specified is invalid.</p>
+            aws_sdk_global_accelerator.errors.limit_exceeded_exception.LimitExceededException: <p>Processing your request would cause you to exceed an Global Accelerator limit.</p>
+            aws_sdk_global_accelerator.errors.transaction_in_progress_exception.TransactionInProgressException: <p>There's already a transaction in progress. Another transaction can't be processed.</p>
+            aws_sdk_global_accelerator.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -591,6 +640,14 @@ class AsyncGlobalAcceleratorClient:
             enabled: <p>Indicates whether an accelerator is enabled. The value is true or false. The default value is true. </p> <p>If the value is set to true, an accelerator cannot be deleted. If set to false, the accelerator can be deleted.</p>
             idempotency_token: <p>A unique, case-sensitive identifier that you provide to ensure the idempotency—that is, the uniqueness—of the request.</p>
             tags: <p>Create tags for an accelerator.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/global-accelerator/latest/dg/tagging-in-global-accelerator.html\">Tagging in Global Accelerator</a> in the <i>Global Accelerator Developer Guide</i>.</p>
+
+        Raises:
+            aws_sdk_global_accelerator.errors.access_denied_exception.AccessDeniedException: <p>You don't have access permission.</p>
+            aws_sdk_global_accelerator.errors.internal_service_error_exception.InternalServiceErrorException: <p>There was an internal error for Global Accelerator.</p>
+            aws_sdk_global_accelerator.errors.invalid_argument_exception.InvalidArgumentException: <p>An argument that you specified is invalid.</p>
+            aws_sdk_global_accelerator.errors.limit_exceeded_exception.LimitExceededException: <p>Processing your request would cause you to exceed an Global Accelerator limit.</p>
+            aws_sdk_global_accelerator.errors.transaction_in_progress_exception.TransactionInProgressException: <p>There's already a transaction in progress. Another transaction can't be processed.</p>
+            aws_sdk_global_accelerator.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -644,6 +701,17 @@ class AsyncGlobalAcceleratorClient:
             endpoint_group_region: <p>The Amazon Web Services Region where the endpoint group is located. A listener can have only one endpoint group in a specific Region.</p>
             destination_configurations: <p>Sets the port range and protocol for all endpoints (virtual private cloud subnets) in a custom routing endpoint group to accept client traffic on.</p>
             idempotency_token: <p>A unique, case-sensitive identifier that you provide to ensure the idempotency—that is, the uniqueness—of the request.</p>
+
+        Raises:
+            aws_sdk_global_accelerator.errors.accelerator_not_found_exception.AcceleratorNotFoundException: <p>The accelerator that you specified doesn't exist.</p>
+            aws_sdk_global_accelerator.errors.access_denied_exception.AccessDeniedException: <p>You don't have access permission.</p>
+            aws_sdk_global_accelerator.errors.endpoint_group_already_exists_exception.EndpointGroupAlreadyExistsException: <p>The endpoint group that you specified already exists.</p>
+            aws_sdk_global_accelerator.errors.internal_service_error_exception.InternalServiceErrorException: <p>There was an internal error for Global Accelerator.</p>
+            aws_sdk_global_accelerator.errors.invalid_argument_exception.InvalidArgumentException: <p>An argument that you specified is invalid.</p>
+            aws_sdk_global_accelerator.errors.invalid_port_range_exception.InvalidPortRangeException: <p>The port numbers that you specified are not valid numbers or are not unique for this accelerator.</p>
+            aws_sdk_global_accelerator.errors.limit_exceeded_exception.LimitExceededException: <p>Processing your request would cause you to exceed an Global Accelerator limit.</p>
+            aws_sdk_global_accelerator.errors.listener_not_found_exception.ListenerNotFoundException: <p>The listener that you specified doesn't exist.</p>
+            aws_sdk_global_accelerator.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -689,6 +757,14 @@ class AsyncGlobalAcceleratorClient:
             accelerator_arn: <p>The Amazon Resource Name (ARN) of the accelerator for a custom routing listener.</p>
             port_ranges: <p>The port range to support for connections from clients to your accelerator.</p> <p>Separately, you set port ranges for endpoints. For more information, see <a href=\"https://docs.aws.amazon.com/global-accelerator/latest/dg/about-custom-routing-endpoints.html\">About endpoints for custom routing accelerators</a>.</p>
             idempotency_token: <p>A unique, case-sensitive identifier that you provide to ensure the idempotency—that is, the uniqueness—of the request.</p>
+
+        Raises:
+            aws_sdk_global_accelerator.errors.accelerator_not_found_exception.AcceleratorNotFoundException: <p>The accelerator that you specified doesn't exist.</p>
+            aws_sdk_global_accelerator.errors.internal_service_error_exception.InternalServiceErrorException: <p>There was an internal error for Global Accelerator.</p>
+            aws_sdk_global_accelerator.errors.invalid_argument_exception.InvalidArgumentException: <p>An argument that you specified is invalid.</p>
+            aws_sdk_global_accelerator.errors.invalid_port_range_exception.InvalidPortRangeException: <p>The port numbers that you specified are not valid numbers or are not unique for this accelerator.</p>
+            aws_sdk_global_accelerator.errors.limit_exceeded_exception.LimitExceededException: <p>Processing your request would cause you to exceed an Global Accelerator limit.</p>
+            aws_sdk_global_accelerator.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -765,6 +841,16 @@ class AsyncGlobalAcceleratorClient:
             threshold_count: <p>The number of consecutive health checks required to set the state of a healthy endpoint to unhealthy, or to set an unhealthy endpoint to healthy. The default value is 3.</p>
             idempotency_token: <p>A unique, case-sensitive identifier that you provide to ensure the idempotency—that is, the uniqueness—of the request.</p>
             port_overrides: <p>Override specific listener ports used to route traffic to endpoints that are part of this endpoint group. For example, you can create a port override in which the listener receives user traffic on ports 80 and 443, but your accelerator routes that traffic to ports 1080 and 1443, respectively, on the endpoints.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/global-accelerator/latest/dg/about-endpoint-groups-port-override.html\"> Overriding listener ports</a> in the <i>Global Accelerator Developer Guide</i>.</p>
+
+        Raises:
+            aws_sdk_global_accelerator.errors.accelerator_not_found_exception.AcceleratorNotFoundException: <p>The accelerator that you specified doesn't exist.</p>
+            aws_sdk_global_accelerator.errors.access_denied_exception.AccessDeniedException: <p>You don't have access permission.</p>
+            aws_sdk_global_accelerator.errors.endpoint_group_already_exists_exception.EndpointGroupAlreadyExistsException: <p>The endpoint group that you specified already exists.</p>
+            aws_sdk_global_accelerator.errors.internal_service_error_exception.InternalServiceErrorException: <p>There was an internal error for Global Accelerator.</p>
+            aws_sdk_global_accelerator.errors.invalid_argument_exception.InvalidArgumentException: <p>An argument that you specified is invalid.</p>
+            aws_sdk_global_accelerator.errors.limit_exceeded_exception.LimitExceededException: <p>Processing your request would cause you to exceed an Global Accelerator limit.</p>
+            aws_sdk_global_accelerator.errors.listener_not_found_exception.ListenerNotFoundException: <p>The listener that you specified doesn't exist.</p>
+            aws_sdk_global_accelerator.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -831,6 +917,14 @@ class AsyncGlobalAcceleratorClient:
             protocol: <p>The protocol for connections from clients to your accelerator.</p>
             client_affinity: <p>Client affinity lets you direct all requests from a user to the same endpoint, if you have stateful applications, regardless of the port and protocol of the client request. Client affinity gives you control over whether to always route each client to the same specific endpoint.</p> <p>Global Accelerator uses a consistent-flow hashing algorithm to choose the optimal endpoint for a connection. If client affinity is <code>NONE</code>, Global Accelerator uses the \"five-tuple\" (5-tuple) properties—source IP address, source port, destination IP address, destination port, and protocol—to select the hash value, and then chooses the best endpoint. However, with this setting, if someone uses different ports to connect to Global Accelerator, their connections might not be always routed to the same endpoint because the hash value changes. </p> <p>If you want a given client to always be routed to the same endpoint, set client affinity to <code>SOURCE_IP</code> instead. When you use the <code>SOURCE_IP</code> setting, Global Accelerator uses the \"two-tuple\" (2-tuple) properties— source (client) IP address and destination IP address—to select the hash value.</p> <p>The default value is <code>NONE</code>.</p>
             idempotency_token: <p>A unique, case-sensitive identifier that you provide to ensure the idempotency—that is, the uniqueness—of the request.</p>
+
+        Raises:
+            aws_sdk_global_accelerator.errors.accelerator_not_found_exception.AcceleratorNotFoundException: <p>The accelerator that you specified doesn't exist.</p>
+            aws_sdk_global_accelerator.errors.internal_service_error_exception.InternalServiceErrorException: <p>There was an internal error for Global Accelerator.</p>
+            aws_sdk_global_accelerator.errors.invalid_argument_exception.InvalidArgumentException: <p>An argument that you specified is invalid.</p>
+            aws_sdk_global_accelerator.errors.invalid_port_range_exception.InvalidPortRangeException: <p>The port numbers that you specified are not valid numbers or are not unique for this accelerator.</p>
+            aws_sdk_global_accelerator.errors.limit_exceeded_exception.LimitExceededException: <p>Processing your request would cause you to exceed an Global Accelerator limit.</p>
+            aws_sdk_global_accelerator.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -874,6 +968,15 @@ class AsyncGlobalAcceleratorClient:
 
         Args:
             accelerator_arn: <p>The Amazon Resource Name (ARN) of an accelerator.</p>
+
+        Raises:
+            aws_sdk_global_accelerator.errors.accelerator_not_disabled_exception.AcceleratorNotDisabledException: <p>The accelerator that you specified could not be disabled.</p>
+            aws_sdk_global_accelerator.errors.accelerator_not_found_exception.AcceleratorNotFoundException: <p>The accelerator that you specified doesn't exist.</p>
+            aws_sdk_global_accelerator.errors.associated_listener_found_exception.AssociatedListenerFoundException: <p>The accelerator that you specified has a listener associated with it. You must remove all dependent resources from an accelerator before you can delete it.</p>
+            aws_sdk_global_accelerator.errors.internal_service_error_exception.InternalServiceErrorException: <p>There was an internal error for Global Accelerator.</p>
+            aws_sdk_global_accelerator.errors.invalid_argument_exception.InvalidArgumentException: <p>An argument that you specified is invalid.</p>
+            aws_sdk_global_accelerator.errors.transaction_in_progress_exception.TransactionInProgressException: <p>There's already a transaction in progress. Another transaction can't be processed.</p>
+            aws_sdk_global_accelerator.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -910,6 +1013,14 @@ class AsyncGlobalAcceleratorClient:
 
         Args:
             attachment_arn: <p>The Amazon Resource Name (ARN) for the cross-account attachment to delete.</p>
+
+        Raises:
+            aws_sdk_global_accelerator.errors.access_denied_exception.AccessDeniedException: <p>You don't have access permission.</p>
+            aws_sdk_global_accelerator.errors.attachment_not_found_exception.AttachmentNotFoundException: <p>No cross-account attachment was found.</p>
+            aws_sdk_global_accelerator.errors.internal_service_error_exception.InternalServiceErrorException: <p>There was an internal error for Global Accelerator.</p>
+            aws_sdk_global_accelerator.errors.invalid_argument_exception.InvalidArgumentException: <p>An argument that you specified is invalid.</p>
+            aws_sdk_global_accelerator.errors.transaction_in_progress_exception.TransactionInProgressException: <p>There's already a transaction in progress. Another transaction can't be processed.</p>
+            aws_sdk_global_accelerator.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -946,6 +1057,15 @@ class AsyncGlobalAcceleratorClient:
 
         Args:
             accelerator_arn: <p>The Amazon Resource Name (ARN) of the custom routing accelerator to delete.</p>
+
+        Raises:
+            aws_sdk_global_accelerator.errors.accelerator_not_disabled_exception.AcceleratorNotDisabledException: <p>The accelerator that you specified could not be disabled.</p>
+            aws_sdk_global_accelerator.errors.accelerator_not_found_exception.AcceleratorNotFoundException: <p>The accelerator that you specified doesn't exist.</p>
+            aws_sdk_global_accelerator.errors.associated_listener_found_exception.AssociatedListenerFoundException: <p>The accelerator that you specified has a listener associated with it. You must remove all dependent resources from an accelerator before you can delete it.</p>
+            aws_sdk_global_accelerator.errors.internal_service_error_exception.InternalServiceErrorException: <p>There was an internal error for Global Accelerator.</p>
+            aws_sdk_global_accelerator.errors.invalid_argument_exception.InvalidArgumentException: <p>An argument that you specified is invalid.</p>
+            aws_sdk_global_accelerator.errors.transaction_in_progress_exception.TransactionInProgressException: <p>There's already a transaction in progress. Another transaction can't be processed.</p>
+            aws_sdk_global_accelerator.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -982,6 +1102,12 @@ class AsyncGlobalAcceleratorClient:
 
         Args:
             endpoint_group_arn: <p>The Amazon Resource Name (ARN) of the endpoint group to delete.</p>
+
+        Raises:
+            aws_sdk_global_accelerator.errors.endpoint_group_not_found_exception.EndpointGroupNotFoundException: <p>The endpoint group that you specified doesn't exist.</p>
+            aws_sdk_global_accelerator.errors.internal_service_error_exception.InternalServiceErrorException: <p>There was an internal error for Global Accelerator.</p>
+            aws_sdk_global_accelerator.errors.invalid_argument_exception.InvalidArgumentException: <p>An argument that you specified is invalid.</p>
+            aws_sdk_global_accelerator.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1018,6 +1144,13 @@ class AsyncGlobalAcceleratorClient:
 
         Args:
             listener_arn: <p>The Amazon Resource Name (ARN) of the listener to delete.</p>
+
+        Raises:
+            aws_sdk_global_accelerator.errors.associated_endpoint_group_found_exception.AssociatedEndpointGroupFoundException: <p>The listener that you specified has an endpoint group associated with it. You must remove all dependent resources from a listener before you can delete it.</p>
+            aws_sdk_global_accelerator.errors.internal_service_error_exception.InternalServiceErrorException: <p>There was an internal error for Global Accelerator.</p>
+            aws_sdk_global_accelerator.errors.invalid_argument_exception.InvalidArgumentException: <p>An argument that you specified is invalid.</p>
+            aws_sdk_global_accelerator.errors.listener_not_found_exception.ListenerNotFoundException: <p>The listener that you specified doesn't exist.</p>
+            aws_sdk_global_accelerator.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1054,6 +1187,12 @@ class AsyncGlobalAcceleratorClient:
 
         Args:
             endpoint_group_arn: <p>The Amazon Resource Name (ARN) of the endpoint group to delete.</p>
+
+        Raises:
+            aws_sdk_global_accelerator.errors.endpoint_group_not_found_exception.EndpointGroupNotFoundException: <p>The endpoint group that you specified doesn't exist.</p>
+            aws_sdk_global_accelerator.errors.internal_service_error_exception.InternalServiceErrorException: <p>There was an internal error for Global Accelerator.</p>
+            aws_sdk_global_accelerator.errors.invalid_argument_exception.InvalidArgumentException: <p>An argument that you specified is invalid.</p>
+            aws_sdk_global_accelerator.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1090,6 +1229,13 @@ class AsyncGlobalAcceleratorClient:
 
         Args:
             listener_arn: <p>The Amazon Resource Name (ARN) of the listener.</p>
+
+        Raises:
+            aws_sdk_global_accelerator.errors.associated_endpoint_group_found_exception.AssociatedEndpointGroupFoundException: <p>The listener that you specified has an endpoint group associated with it. You must remove all dependent resources from a listener before you can delete it.</p>
+            aws_sdk_global_accelerator.errors.internal_service_error_exception.InternalServiceErrorException: <p>There was an internal error for Global Accelerator.</p>
+            aws_sdk_global_accelerator.errors.invalid_argument_exception.InvalidArgumentException: <p>An argument that you specified is invalid.</p>
+            aws_sdk_global_accelerator.errors.listener_not_found_exception.ListenerNotFoundException: <p>The listener that you specified doesn't exist.</p>
+            aws_sdk_global_accelerator.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1140,6 +1286,12 @@ class AsyncGlobalAcceleratorClient:
             destination_addresses: <p>A list of specific Amazon EC2 instance IP addresses (destination addresses) in a subnet that you want to prevent from receiving traffic. The IP addresses must be a subset of the IP addresses allowed for the VPC subnet associated with the endpoint group.</p>
             destination_ports: <p>A list of specific Amazon EC2 instance ports (destination ports) in a subnet endpoint that you want to prevent from receiving traffic.</p>
             deny_all_traffic_to_endpoint: <p>Indicates whether all destination IP addresses and ports for a specified VPC subnet endpoint <i>cannot</i> receive traffic from a custom routing accelerator. The value is TRUE or FALSE. </p> <p>When set to TRUE, <i>no</i> destinations in the custom routing VPC subnet can receive traffic. Note that you cannot specify destination IP addresses and ports when the value is set to TRUE.</p> <p>When set to FALSE (or not specified), you <i>must</i> specify a list of destination IP addresses that cannot receive traffic. A list of ports is optional. If you don't specify a list of ports, the ports that can accept traffic is the same as the ports configured for the endpoint group.</p> <p>The default value is FALSE.</p>
+
+        Raises:
+            aws_sdk_global_accelerator.errors.endpoint_group_not_found_exception.EndpointGroupNotFoundException: <p>The endpoint group that you specified doesn't exist.</p>
+            aws_sdk_global_accelerator.errors.internal_service_error_exception.InternalServiceErrorException: <p>There was an internal error for Global Accelerator.</p>
+            aws_sdk_global_accelerator.errors.invalid_argument_exception.InvalidArgumentException: <p>An argument that you specified is invalid.</p>
+            aws_sdk_global_accelerator.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1183,6 +1335,14 @@ class AsyncGlobalAcceleratorClient:
 
         Args:
             cidr: <p>The address range, in CIDR notation. The prefix must be the same prefix that you specified when you provisioned the address range.</p> <p> For more information, see <a href=\"https://docs.aws.amazon.com/global-accelerator/latest/dg/using-byoip.html\">Bring your own IP addresses (BYOIP)</a> in the Global Accelerator Developer Guide.</p>
+
+        Raises:
+            aws_sdk_global_accelerator.errors.access_denied_exception.AccessDeniedException: <p>You don't have access permission.</p>
+            aws_sdk_global_accelerator.errors.byoip_cidr_not_found_exception.ByoipCidrNotFoundException: <p>The CIDR that you specified was not found or is incorrect.</p>
+            aws_sdk_global_accelerator.errors.incorrect_cidr_state_exception.IncorrectCidrStateException: <p>The CIDR that you specified is not valid for this action. For example, the state of the CIDR might be incorrect for this action.</p>
+            aws_sdk_global_accelerator.errors.internal_service_error_exception.InternalServiceErrorException: <p>There was an internal error for Global Accelerator.</p>
+            aws_sdk_global_accelerator.errors.invalid_argument_exception.InvalidArgumentException: <p>An argument that you specified is invalid.</p>
+            aws_sdk_global_accelerator.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1221,6 +1381,12 @@ class AsyncGlobalAcceleratorClient:
 
         Args:
             accelerator_arn: <p>The Amazon Resource Name (ARN) of the accelerator to describe.</p>
+
+        Raises:
+            aws_sdk_global_accelerator.errors.accelerator_not_found_exception.AcceleratorNotFoundException: <p>The accelerator that you specified doesn't exist.</p>
+            aws_sdk_global_accelerator.errors.internal_service_error_exception.InternalServiceErrorException: <p>There was an internal error for Global Accelerator.</p>
+            aws_sdk_global_accelerator.errors.invalid_argument_exception.InvalidArgumentException: <p>An argument that you specified is invalid.</p>
+            aws_sdk_global_accelerator.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1259,6 +1425,12 @@ class AsyncGlobalAcceleratorClient:
 
         Args:
             accelerator_arn: <p>The Amazon Resource Name (ARN) of the accelerator with the attributes that you want to describe.</p>
+
+        Raises:
+            aws_sdk_global_accelerator.errors.accelerator_not_found_exception.AcceleratorNotFoundException: <p>The accelerator that you specified doesn't exist.</p>
+            aws_sdk_global_accelerator.errors.internal_service_error_exception.InternalServiceErrorException: <p>There was an internal error for Global Accelerator.</p>
+            aws_sdk_global_accelerator.errors.invalid_argument_exception.InvalidArgumentException: <p>An argument that you specified is invalid.</p>
+            aws_sdk_global_accelerator.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1297,6 +1469,13 @@ class AsyncGlobalAcceleratorClient:
 
         Args:
             attachment_arn: <p>The Amazon Resource Name (ARN) for the cross-account attachment to describe.</p>
+
+        Raises:
+            aws_sdk_global_accelerator.errors.access_denied_exception.AccessDeniedException: <p>You don't have access permission.</p>
+            aws_sdk_global_accelerator.errors.attachment_not_found_exception.AttachmentNotFoundException: <p>No cross-account attachment was found.</p>
+            aws_sdk_global_accelerator.errors.internal_service_error_exception.InternalServiceErrorException: <p>There was an internal error for Global Accelerator.</p>
+            aws_sdk_global_accelerator.errors.invalid_argument_exception.InvalidArgumentException: <p>An argument that you specified is invalid.</p>
+            aws_sdk_global_accelerator.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1335,6 +1514,12 @@ class AsyncGlobalAcceleratorClient:
 
         Args:
             accelerator_arn: <p>The Amazon Resource Name (ARN) of the accelerator to describe.</p>
+
+        Raises:
+            aws_sdk_global_accelerator.errors.accelerator_not_found_exception.AcceleratorNotFoundException: <p>The accelerator that you specified doesn't exist.</p>
+            aws_sdk_global_accelerator.errors.internal_service_error_exception.InternalServiceErrorException: <p>There was an internal error for Global Accelerator.</p>
+            aws_sdk_global_accelerator.errors.invalid_argument_exception.InvalidArgumentException: <p>An argument that you specified is invalid.</p>
+            aws_sdk_global_accelerator.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1373,6 +1558,12 @@ class AsyncGlobalAcceleratorClient:
 
         Args:
             accelerator_arn: <p>The Amazon Resource Name (ARN) of the custom routing accelerator to describe the attributes for.</p>
+
+        Raises:
+            aws_sdk_global_accelerator.errors.accelerator_not_found_exception.AcceleratorNotFoundException: <p>The accelerator that you specified doesn't exist.</p>
+            aws_sdk_global_accelerator.errors.internal_service_error_exception.InternalServiceErrorException: <p>There was an internal error for Global Accelerator.</p>
+            aws_sdk_global_accelerator.errors.invalid_argument_exception.InvalidArgumentException: <p>An argument that you specified is invalid.</p>
+            aws_sdk_global_accelerator.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1411,6 +1602,12 @@ class AsyncGlobalAcceleratorClient:
 
         Args:
             endpoint_group_arn: <p>The Amazon Resource Name (ARN) of the endpoint group to describe.</p>
+
+        Raises:
+            aws_sdk_global_accelerator.errors.endpoint_group_not_found_exception.EndpointGroupNotFoundException: <p>The endpoint group that you specified doesn't exist.</p>
+            aws_sdk_global_accelerator.errors.internal_service_error_exception.InternalServiceErrorException: <p>There was an internal error for Global Accelerator.</p>
+            aws_sdk_global_accelerator.errors.invalid_argument_exception.InvalidArgumentException: <p>An argument that you specified is invalid.</p>
+            aws_sdk_global_accelerator.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1449,6 +1646,12 @@ class AsyncGlobalAcceleratorClient:
 
         Args:
             listener_arn: <p>The Amazon Resource Name (ARN) of the listener to describe.</p>
+
+        Raises:
+            aws_sdk_global_accelerator.errors.internal_service_error_exception.InternalServiceErrorException: <p>There was an internal error for Global Accelerator.</p>
+            aws_sdk_global_accelerator.errors.invalid_argument_exception.InvalidArgumentException: <p>An argument that you specified is invalid.</p>
+            aws_sdk_global_accelerator.errors.listener_not_found_exception.ListenerNotFoundException: <p>The listener that you specified doesn't exist.</p>
+            aws_sdk_global_accelerator.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1487,6 +1690,12 @@ class AsyncGlobalAcceleratorClient:
 
         Args:
             endpoint_group_arn: <p>The Amazon Resource Name (ARN) of the endpoint group to describe.</p>
+
+        Raises:
+            aws_sdk_global_accelerator.errors.endpoint_group_not_found_exception.EndpointGroupNotFoundException: <p>The endpoint group that you specified doesn't exist.</p>
+            aws_sdk_global_accelerator.errors.internal_service_error_exception.InternalServiceErrorException: <p>There was an internal error for Global Accelerator.</p>
+            aws_sdk_global_accelerator.errors.invalid_argument_exception.InvalidArgumentException: <p>An argument that you specified is invalid.</p>
+            aws_sdk_global_accelerator.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1525,6 +1734,12 @@ class AsyncGlobalAcceleratorClient:
 
         Args:
             listener_arn: <p>The Amazon Resource Name (ARN) of the listener to describe.</p>
+
+        Raises:
+            aws_sdk_global_accelerator.errors.internal_service_error_exception.InternalServiceErrorException: <p>There was an internal error for Global Accelerator.</p>
+            aws_sdk_global_accelerator.errors.invalid_argument_exception.InvalidArgumentException: <p>An argument that you specified is invalid.</p>
+            aws_sdk_global_accelerator.errors.listener_not_found_exception.ListenerNotFoundException: <p>The listener that you specified doesn't exist.</p>
+            aws_sdk_global_accelerator.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1569,6 +1784,12 @@ class AsyncGlobalAcceleratorClient:
         Args:
             max_results: <p>The number of Global Accelerator objects that you want to return with this call. The default value is 10.</p>
             next_token: <p>The token for the next set of results. You receive this token from a previous call.</p>
+
+        Raises:
+            aws_sdk_global_accelerator.errors.internal_service_error_exception.InternalServiceErrorException: <p>There was an internal error for Global Accelerator.</p>
+            aws_sdk_global_accelerator.errors.invalid_argument_exception.InvalidArgumentException: <p>An argument that you specified is invalid.</p>
+            aws_sdk_global_accelerator.errors.invalid_next_token_exception.InvalidNextTokenException: <p>There isn't another item to return.</p>
+            aws_sdk_global_accelerator.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1641,6 +1862,13 @@ class AsyncGlobalAcceleratorClient:
         Args:
             max_results: <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
             next_token: <p>The token for the next page of results.</p>
+
+        Raises:
+            aws_sdk_global_accelerator.errors.access_denied_exception.AccessDeniedException: <p>You don't have access permission.</p>
+            aws_sdk_global_accelerator.errors.internal_service_error_exception.InternalServiceErrorException: <p>There was an internal error for Global Accelerator.</p>
+            aws_sdk_global_accelerator.errors.invalid_argument_exception.InvalidArgumentException: <p>An argument that you specified is invalid.</p>
+            aws_sdk_global_accelerator.errors.invalid_next_token_exception.InvalidNextTokenException: <p>There isn't another item to return.</p>
+            aws_sdk_global_accelerator.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1713,6 +1941,13 @@ class AsyncGlobalAcceleratorClient:
         Args:
             max_results: <p>The number of cross-account attachment objects that you want to return with this call. The default value is 10.</p>
             next_token: <p>The token for the next set of results. You receive this token from a previous call.</p>
+
+        Raises:
+            aws_sdk_global_accelerator.errors.access_denied_exception.AccessDeniedException: <p>You don't have access permission.</p>
+            aws_sdk_global_accelerator.errors.internal_service_error_exception.InternalServiceErrorException: <p>There was an internal error for Global Accelerator.</p>
+            aws_sdk_global_accelerator.errors.invalid_argument_exception.InvalidArgumentException: <p>An argument that you specified is invalid.</p>
+            aws_sdk_global_accelerator.errors.invalid_next_token_exception.InvalidNextTokenException: <p>There isn't another item to return.</p>
+            aws_sdk_global_accelerator.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1772,7 +2007,13 @@ class AsyncGlobalAcceleratorClient:
     async def list_cross_account_resource_accounts(
         self, *, config_overrides: Optional[AsyncGlobalAcceleratorClientConfig] = None
     ) -> "aws_sdk_global_accelerator.types.list_cross_account_resource_accounts_response.ListCrossAccountResourceAccountsResponse":
-        r"""<p>List the accounts that have cross-account resources.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/global-accelerator/latest/dg/cross-account-resources.html\"> Working with cross-account attachments and resources in Global Accelerator</a> in the <i> Global Accelerator Developer Guide</i>.</p>"""
+        r"""<p>List the accounts that have cross-account resources.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/global-accelerator/latest/dg/cross-account-resources.html\"> Working with cross-account attachments and resources in Global Accelerator</a> in the <i> Global Accelerator Developer Guide</i>.</p>
+
+        Raises:
+            aws_sdk_global_accelerator.errors.access_denied_exception.AccessDeniedException: <p>You don't have access permission.</p>
+            aws_sdk_global_accelerator.errors.internal_service_error_exception.InternalServiceErrorException: <p>There was an internal error for Global Accelerator.</p>
+            aws_sdk_global_accelerator.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_global_accelerator.types.list_cross_account_resource_accounts_request.ListCrossAccountResourceAccountsRequest]",
@@ -1821,6 +2062,14 @@ class AsyncGlobalAcceleratorClient:
             resource_owner_aws_account_id: <p>The account ID of a resource owner in a cross-account attachment.</p>
             max_results: <p>The number of cross-account resource objects that you want to return with this call. The default value is 10.</p>
             next_token: <p>The token for the next set of results. You receive this token from a previous call.</p>
+
+        Raises:
+            aws_sdk_global_accelerator.errors.accelerator_not_found_exception.AcceleratorNotFoundException: <p>The accelerator that you specified doesn't exist.</p>
+            aws_sdk_global_accelerator.errors.access_denied_exception.AccessDeniedException: <p>You don't have access permission.</p>
+            aws_sdk_global_accelerator.errors.internal_service_error_exception.InternalServiceErrorException: <p>There was an internal error for Global Accelerator.</p>
+            aws_sdk_global_accelerator.errors.invalid_argument_exception.InvalidArgumentException: <p>An argument that you specified is invalid.</p>
+            aws_sdk_global_accelerator.errors.invalid_next_token_exception.InvalidNextTokenException: <p>There isn't another item to return.</p>
+            aws_sdk_global_accelerator.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1902,6 +2151,12 @@ class AsyncGlobalAcceleratorClient:
         Args:
             max_results: <p>The number of custom routing Global Accelerator objects that you want to return with this call. The default value is 10.</p>
             next_token: <p>The token for the next set of results. You receive this token from a previous call.</p>
+
+        Raises:
+            aws_sdk_global_accelerator.errors.internal_service_error_exception.InternalServiceErrorException: <p>There was an internal error for Global Accelerator.</p>
+            aws_sdk_global_accelerator.errors.invalid_argument_exception.InvalidArgumentException: <p>An argument that you specified is invalid.</p>
+            aws_sdk_global_accelerator.errors.invalid_next_token_exception.InvalidNextTokenException: <p>There isn't another item to return.</p>
+            aws_sdk_global_accelerator.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1976,6 +2231,13 @@ class AsyncGlobalAcceleratorClient:
             listener_arn: <p>The Amazon Resource Name (ARN) of the listener to list endpoint groups for.</p>
             max_results: <p>The number of endpoint group objects that you want to return with this call. The default value is 10.</p>
             next_token: <p>The token for the next set of results. You receive this token from a previous call.</p>
+
+        Raises:
+            aws_sdk_global_accelerator.errors.internal_service_error_exception.InternalServiceErrorException: <p>There was an internal error for Global Accelerator.</p>
+            aws_sdk_global_accelerator.errors.invalid_argument_exception.InvalidArgumentException: <p>An argument that you specified is invalid.</p>
+            aws_sdk_global_accelerator.errors.invalid_next_token_exception.InvalidNextTokenException: <p>There isn't another item to return.</p>
+            aws_sdk_global_accelerator.errors.listener_not_found_exception.ListenerNotFoundException: <p>The listener that you specified doesn't exist.</p>
+            aws_sdk_global_accelerator.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2053,6 +2315,13 @@ class AsyncGlobalAcceleratorClient:
             accelerator_arn: <p>The Amazon Resource Name (ARN) of the accelerator to list listeners for.</p>
             max_results: <p>The number of listener objects that you want to return with this call. The default value is 10.</p>
             next_token: <p>The token for the next set of results. You receive this token from a previous call.</p>
+
+        Raises:
+            aws_sdk_global_accelerator.errors.accelerator_not_found_exception.AcceleratorNotFoundException: <p>The accelerator that you specified doesn't exist.</p>
+            aws_sdk_global_accelerator.errors.internal_service_error_exception.InternalServiceErrorException: <p>There was an internal error for Global Accelerator.</p>
+            aws_sdk_global_accelerator.errors.invalid_argument_exception.InvalidArgumentException: <p>An argument that you specified is invalid.</p>
+            aws_sdk_global_accelerator.errors.invalid_next_token_exception.InvalidNextTokenException: <p>There isn't another item to return.</p>
+            aws_sdk_global_accelerator.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2134,6 +2403,14 @@ class AsyncGlobalAcceleratorClient:
             endpoint_group_arn: <p>The Amazon Resource Name (ARN) of the endpoint group to list the custom routing port mappings for.</p>
             max_results: <p>The number of destination port mappings that you want to return with this call. The default value is 10.</p>
             next_token: <p>The token for the next set of results. You receive this token from a previous call.</p>
+
+        Raises:
+            aws_sdk_global_accelerator.errors.accelerator_not_found_exception.AcceleratorNotFoundException: <p>The accelerator that you specified doesn't exist.</p>
+            aws_sdk_global_accelerator.errors.endpoint_group_not_found_exception.EndpointGroupNotFoundException: <p>The endpoint group that you specified doesn't exist.</p>
+            aws_sdk_global_accelerator.errors.internal_service_error_exception.InternalServiceErrorException: <p>There was an internal error for Global Accelerator.</p>
+            aws_sdk_global_accelerator.errors.invalid_argument_exception.InvalidArgumentException: <p>An argument that you specified is invalid.</p>
+            aws_sdk_global_accelerator.errors.invalid_next_token_exception.InvalidNextTokenException: <p>There isn't another item to return.</p>
+            aws_sdk_global_accelerator.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2219,6 +2496,13 @@ class AsyncGlobalAcceleratorClient:
             destination_address: <p>The endpoint IP address in a virtual private cloud (VPC) subnet for which you want to receive back port mappings.</p>
             max_results: <p>The number of destination port mappings that you want to return with this call. The default value is 10.</p>
             next_token: <p>The token for the next set of results. You receive this token from a previous call.</p>
+
+        Raises:
+            aws_sdk_global_accelerator.errors.endpoint_not_found_exception.EndpointNotFoundException: <p>The endpoint that you specified doesn't exist.</p>
+            aws_sdk_global_accelerator.errors.internal_service_error_exception.InternalServiceErrorException: <p>There was an internal error for Global Accelerator.</p>
+            aws_sdk_global_accelerator.errors.invalid_argument_exception.InvalidArgumentException: <p>An argument that you specified is invalid.</p>
+            aws_sdk_global_accelerator.errors.invalid_next_token_exception.InvalidNextTokenException: <p>There isn't another item to return.</p>
+            aws_sdk_global_accelerator.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2299,6 +2583,13 @@ class AsyncGlobalAcceleratorClient:
             listener_arn: <p>The Amazon Resource Name (ARN) of the listener.</p>
             max_results: <p>The number of endpoint group objects that you want to return with this call. The default value is 10.</p>
             next_token: <p>The token for the next set of results. You receive this token from a previous call.</p>
+
+        Raises:
+            aws_sdk_global_accelerator.errors.internal_service_error_exception.InternalServiceErrorException: <p>There was an internal error for Global Accelerator.</p>
+            aws_sdk_global_accelerator.errors.invalid_argument_exception.InvalidArgumentException: <p>An argument that you specified is invalid.</p>
+            aws_sdk_global_accelerator.errors.invalid_next_token_exception.InvalidNextTokenException: <p>There isn't another item to return.</p>
+            aws_sdk_global_accelerator.errors.listener_not_found_exception.ListenerNotFoundException: <p>The listener that you specified doesn't exist.</p>
+            aws_sdk_global_accelerator.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2378,6 +2669,13 @@ class AsyncGlobalAcceleratorClient:
             accelerator_arn: <p>The Amazon Resource Name (ARN) of the accelerator for which you want to list listener objects.</p>
             max_results: <p>The number of listener objects that you want to return with this call. The default value is 10.</p>
             next_token: <p>The token for the next set of results. You receive this token from a previous call.</p>
+
+        Raises:
+            aws_sdk_global_accelerator.errors.accelerator_not_found_exception.AcceleratorNotFoundException: <p>The accelerator that you specified doesn't exist.</p>
+            aws_sdk_global_accelerator.errors.internal_service_error_exception.InternalServiceErrorException: <p>There was an internal error for Global Accelerator.</p>
+            aws_sdk_global_accelerator.errors.invalid_argument_exception.InvalidArgumentException: <p>An argument that you specified is invalid.</p>
+            aws_sdk_global_accelerator.errors.invalid_next_token_exception.InvalidNextTokenException: <p>There isn't another item to return.</p>
+            aws_sdk_global_accelerator.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2447,6 +2745,15 @@ class AsyncGlobalAcceleratorClient:
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the accelerator to list tags for. An ARN uniquely identifies an accelerator.</p>
+
+        Raises:
+            aws_sdk_global_accelerator.errors.accelerator_not_found_exception.AcceleratorNotFoundException: <p>The accelerator that you specified doesn't exist.</p>
+            aws_sdk_global_accelerator.errors.attachment_not_found_exception.AttachmentNotFoundException: <p>No cross-account attachment was found.</p>
+            aws_sdk_global_accelerator.errors.endpoint_group_not_found_exception.EndpointGroupNotFoundException: <p>The endpoint group that you specified doesn't exist.</p>
+            aws_sdk_global_accelerator.errors.internal_service_error_exception.InternalServiceErrorException: <p>There was an internal error for Global Accelerator.</p>
+            aws_sdk_global_accelerator.errors.invalid_argument_exception.InvalidArgumentException: <p>An argument that you specified is invalid.</p>
+            aws_sdk_global_accelerator.errors.listener_not_found_exception.ListenerNotFoundException: <p>The listener that you specified doesn't exist.</p>
+            aws_sdk_global_accelerator.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2487,6 +2794,14 @@ class AsyncGlobalAcceleratorClient:
         Args:
             cidr: <p>The public IPv4 address range, in CIDR notation. The most specific IP prefix that you can specify is /24. The address range cannot overlap with another address range that you've brought to this Amazon Web Services Region or another Region.</p> <p> For more information, see <a href=\"https://docs.aws.amazon.com/global-accelerator/latest/dg/using-byoip.html\">Bring your own IP addresses (BYOIP)</a> in the Global Accelerator Developer Guide.</p>
             cidr_authorization_context: <p>A signed document that proves that you are authorized to bring the specified IP address range to Amazon using BYOIP. </p>
+
+        Raises:
+            aws_sdk_global_accelerator.errors.access_denied_exception.AccessDeniedException: <p>You don't have access permission.</p>
+            aws_sdk_global_accelerator.errors.incorrect_cidr_state_exception.IncorrectCidrStateException: <p>The CIDR that you specified is not valid for this action. For example, the state of the CIDR might be incorrect for this action.</p>
+            aws_sdk_global_accelerator.errors.internal_service_error_exception.InternalServiceErrorException: <p>There was an internal error for Global Accelerator.</p>
+            aws_sdk_global_accelerator.errors.invalid_argument_exception.InvalidArgumentException: <p>An argument that you specified is invalid.</p>
+            aws_sdk_global_accelerator.errors.limit_exceeded_exception.LimitExceededException: <p>Processing your request would cause you to exceed an Global Accelerator limit.</p>
+            aws_sdk_global_accelerator.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2528,6 +2843,15 @@ class AsyncGlobalAcceleratorClient:
         Args:
             endpoint_ids: <p>The IDs for the endpoints. For custom routing accelerators, endpoint IDs are the virtual private cloud (VPC) subnet IDs. </p>
             endpoint_group_arn: <p>The Amazon Resource Name (ARN) of the endpoint group to remove endpoints from.</p>
+
+        Raises:
+            aws_sdk_global_accelerator.errors.access_denied_exception.AccessDeniedException: <p>You don't have access permission.</p>
+            aws_sdk_global_accelerator.errors.conflict_exception.ConflictException: <p>You can't use both of those options.</p>
+            aws_sdk_global_accelerator.errors.endpoint_group_not_found_exception.EndpointGroupNotFoundException: <p>The endpoint group that you specified doesn't exist.</p>
+            aws_sdk_global_accelerator.errors.endpoint_not_found_exception.EndpointNotFoundException: <p>The endpoint that you specified doesn't exist.</p>
+            aws_sdk_global_accelerator.errors.internal_service_error_exception.InternalServiceErrorException: <p>There was an internal error for Global Accelerator.</p>
+            aws_sdk_global_accelerator.errors.invalid_argument_exception.InvalidArgumentException: <p>An argument that you specified is invalid.</p>
+            aws_sdk_global_accelerator.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2567,6 +2891,14 @@ class AsyncGlobalAcceleratorClient:
         Args:
             endpoint_identifiers: <p>The identifiers of the endpoints that you want to remove.</p>
             endpoint_group_arn: <p>The Amazon Resource Name (ARN) of the endpoint group.</p>
+
+        Raises:
+            aws_sdk_global_accelerator.errors.access_denied_exception.AccessDeniedException: <p>You don't have access permission.</p>
+            aws_sdk_global_accelerator.errors.endpoint_group_not_found_exception.EndpointGroupNotFoundException: <p>The endpoint group that you specified doesn't exist.</p>
+            aws_sdk_global_accelerator.errors.internal_service_error_exception.InternalServiceErrorException: <p>There was an internal error for Global Accelerator.</p>
+            aws_sdk_global_accelerator.errors.invalid_argument_exception.InvalidArgumentException: <p>An argument that you specified is invalid.</p>
+            aws_sdk_global_accelerator.errors.transaction_in_progress_exception.TransactionInProgressException: <p>There's already a transaction in progress. Another transaction can't be processed.</p>
+            aws_sdk_global_accelerator.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2606,6 +2938,12 @@ class AsyncGlobalAcceleratorClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the Global Accelerator resource to add tags to. An ARN uniquely identifies a resource.</p>
             tags: <p>The tags to add to a resource. A tag consists of a key and a value that you define.</p>
+
+        Raises:
+            aws_sdk_global_accelerator.errors.accelerator_not_found_exception.AcceleratorNotFoundException: <p>The accelerator that you specified doesn't exist.</p>
+            aws_sdk_global_accelerator.errors.internal_service_error_exception.InternalServiceErrorException: <p>There was an internal error for Global Accelerator.</p>
+            aws_sdk_global_accelerator.errors.invalid_argument_exception.InvalidArgumentException: <p>An argument that you specified is invalid.</p>
+            aws_sdk_global_accelerator.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2649,6 +2987,12 @@ class AsyncGlobalAcceleratorClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the Global Accelerator resource to remove tags from. An ARN uniquely identifies a resource.</p>
             tag_keys: <p>The tag key pairs that you want to remove from the specified resources.</p>
+
+        Raises:
+            aws_sdk_global_accelerator.errors.accelerator_not_found_exception.AcceleratorNotFoundException: <p>The accelerator that you specified doesn't exist.</p>
+            aws_sdk_global_accelerator.errors.internal_service_error_exception.InternalServiceErrorException: <p>There was an internal error for Global Accelerator.</p>
+            aws_sdk_global_accelerator.errors.invalid_argument_exception.InvalidArgumentException: <p>An argument that you specified is invalid.</p>
+            aws_sdk_global_accelerator.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2704,6 +3048,15 @@ class AsyncGlobalAcceleratorClient:
             ip_address_type: <p>The IP address type that an accelerator supports. For a standard accelerator, the value can be IPV4 or DUAL_STACK.</p>
             ip_addresses: <p>The IP addresses for an accelerator.</p>
             enabled: <p>Indicates whether an accelerator is enabled. The value is true or false. The default value is true. </p> <p>If the value is set to true, the accelerator cannot be deleted. If set to false, the accelerator can be deleted.</p>
+
+        Raises:
+            aws_sdk_global_accelerator.errors.accelerator_not_found_exception.AcceleratorNotFoundException: <p>The accelerator that you specified doesn't exist.</p>
+            aws_sdk_global_accelerator.errors.access_denied_exception.AccessDeniedException: <p>You don't have access permission.</p>
+            aws_sdk_global_accelerator.errors.conflict_exception.ConflictException: <p>You can't use both of those options.</p>
+            aws_sdk_global_accelerator.errors.internal_service_error_exception.InternalServiceErrorException: <p>There was an internal error for Global Accelerator.</p>
+            aws_sdk_global_accelerator.errors.invalid_argument_exception.InvalidArgumentException: <p>An argument that you specified is invalid.</p>
+            aws_sdk_global_accelerator.errors.transaction_in_progress_exception.TransactionInProgressException: <p>There's already a transaction in progress. Another transaction can't be processed.</p>
+            aws_sdk_global_accelerator.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2762,6 +3115,14 @@ class AsyncGlobalAcceleratorClient:
             flow_logs_enabled: <p>Update whether flow logs are enabled. The default value is false. If the value is true, <code>FlowLogsS3Bucket</code> and <code>FlowLogsS3Prefix</code> must be specified.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/global-accelerator/latest/dg/monitoring-global-accelerator.flow-logs.html\">Flow Logs</a> in the <i>Global Accelerator Developer Guide</i>.</p>
             flow_logs_s3_bucket: <p>The name of the Amazon S3 bucket for the flow logs. Attribute is required if <code>FlowLogsEnabled</code> is <code>true</code>. The bucket must exist and have a bucket policy that grants Global Accelerator permission to write to the bucket.</p>
             flow_logs_s3_prefix: <p>Update the prefix for the location in the Amazon S3 bucket for the flow logs. Attribute is required if <code>FlowLogsEnabled</code> is <code>true</code>. </p> <p>If you specify slash (/) for the S3 bucket prefix, the log file bucket folder structure will include a double slash (//), like the following:</p> <p>s3-bucket_name//AWSLogs/aws_account_id</p>
+
+        Raises:
+            aws_sdk_global_accelerator.errors.accelerator_not_found_exception.AcceleratorNotFoundException: <p>The accelerator that you specified doesn't exist.</p>
+            aws_sdk_global_accelerator.errors.access_denied_exception.AccessDeniedException: <p>You don't have access permission.</p>
+            aws_sdk_global_accelerator.errors.internal_service_error_exception.InternalServiceErrorException: <p>There was an internal error for Global Accelerator.</p>
+            aws_sdk_global_accelerator.errors.invalid_argument_exception.InvalidArgumentException: <p>An argument that you specified is invalid.</p>
+            aws_sdk_global_accelerator.errors.transaction_in_progress_exception.TransactionInProgressException: <p>There's already a transaction in progress. Another transaction can't be processed.</p>
+            aws_sdk_global_accelerator.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2826,6 +3187,15 @@ class AsyncGlobalAcceleratorClient:
             remove_principals: <p>The principals to remove from the cross-account attachment. A principal is an account or the Amazon Resource Name (ARN) of an accelerator that the attachment gives permission to work with resources from another account. The resources are also listed in the attachment.</p> <p>To remove more than one principal, separate the account numbers or accelerator ARNs, or both, with commas.</p>
             add_resources: <p>The resources to add to the cross-account attachment. A resource listed in a cross-account attachment can be used with an accelerator by the principals that are listed in the attachment.</p> <p>To add more than one resource, separate the resource ARNs with commas.</p>
             remove_resources: <p>The resources to remove from the cross-account attachment. A resource listed in a cross-account attachment can be used with an accelerator by the principals that are listed in the attachment.</p> <p>To remove more than one resource, separate the resource ARNs with commas.</p>
+
+        Raises:
+            aws_sdk_global_accelerator.errors.access_denied_exception.AccessDeniedException: <p>You don't have access permission.</p>
+            aws_sdk_global_accelerator.errors.attachment_not_found_exception.AttachmentNotFoundException: <p>No cross-account attachment was found.</p>
+            aws_sdk_global_accelerator.errors.internal_service_error_exception.InternalServiceErrorException: <p>There was an internal error for Global Accelerator.</p>
+            aws_sdk_global_accelerator.errors.invalid_argument_exception.InvalidArgumentException: <p>An argument that you specified is invalid.</p>
+            aws_sdk_global_accelerator.errors.limit_exceeded_exception.LimitExceededException: <p>Processing your request would cause you to exceed an Global Accelerator limit.</p>
+            aws_sdk_global_accelerator.errors.transaction_in_progress_exception.TransactionInProgressException: <p>There's already a transaction in progress. Another transaction can't be processed.</p>
+            aws_sdk_global_accelerator.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2890,6 +3260,14 @@ class AsyncGlobalAcceleratorClient:
             ip_address_type: <p>The IP address type that an accelerator supports. For a custom routing accelerator, the value must be IPV4.</p>
             ip_addresses: <p>The IP addresses for an accelerator.</p>
             enabled: <p>Indicates whether an accelerator is enabled. The value is true or false. The default value is true. </p> <p>If the value is set to true, the accelerator cannot be deleted. If set to false, the accelerator can be deleted.</p>
+
+        Raises:
+            aws_sdk_global_accelerator.errors.accelerator_not_found_exception.AcceleratorNotFoundException: <p>The accelerator that you specified doesn't exist.</p>
+            aws_sdk_global_accelerator.errors.conflict_exception.ConflictException: <p>You can't use both of those options.</p>
+            aws_sdk_global_accelerator.errors.internal_service_error_exception.InternalServiceErrorException: <p>There was an internal error for Global Accelerator.</p>
+            aws_sdk_global_accelerator.errors.invalid_argument_exception.InvalidArgumentException: <p>An argument that you specified is invalid.</p>
+            aws_sdk_global_accelerator.errors.transaction_in_progress_exception.TransactionInProgressException: <p>There's already a transaction in progress. Another transaction can't be processed.</p>
+            aws_sdk_global_accelerator.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2948,6 +3326,14 @@ class AsyncGlobalAcceleratorClient:
             flow_logs_enabled: <p>Update whether flow logs are enabled. The default value is false. If the value is true, <code>FlowLogsS3Bucket</code> and <code>FlowLogsS3Prefix</code> must be specified.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/global-accelerator/latest/dg/monitoring-global-accelerator.flow-logs.html\">Flow logs</a> in the <i>Global Accelerator Developer Guide</i>.</p>
             flow_logs_s3_bucket: <p>The name of the Amazon S3 bucket for the flow logs. Attribute is required if <code>FlowLogsEnabled</code> is <code>true</code>. The bucket must exist and have a bucket policy that grants Global Accelerator permission to write to the bucket.</p>
             flow_logs_s3_prefix: <p>Update the prefix for the location in the Amazon S3 bucket for the flow logs. Attribute is required if <code>FlowLogsEnabled</code> is <code>true</code>. </p> <p>If you don’t specify a prefix, the flow logs are stored in the root of the bucket. If you specify slash (/) for the S3 bucket prefix, the log file bucket folder structure will include a double slash (//), like the following:</p> <p>DOC-EXAMPLE-BUCKET//AWSLogs/aws_account_id</p>
+
+        Raises:
+            aws_sdk_global_accelerator.errors.accelerator_not_found_exception.AcceleratorNotFoundException: <p>The accelerator that you specified doesn't exist.</p>
+            aws_sdk_global_accelerator.errors.access_denied_exception.AccessDeniedException: <p>You don't have access permission.</p>
+            aws_sdk_global_accelerator.errors.internal_service_error_exception.InternalServiceErrorException: <p>There was an internal error for Global Accelerator.</p>
+            aws_sdk_global_accelerator.errors.invalid_argument_exception.InvalidArgumentException: <p>An argument that you specified is invalid.</p>
+            aws_sdk_global_accelerator.errors.transaction_in_progress_exception.TransactionInProgressException: <p>There's already a transaction in progress. Another transaction can't be processed.</p>
+            aws_sdk_global_accelerator.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2994,6 +3380,14 @@ class AsyncGlobalAcceleratorClient:
         Args:
             listener_arn: <p>The Amazon Resource Name (ARN) of the listener to update.</p>
             port_ranges: <p>The updated port range to support for connections from clients to your accelerator. If you remove ports that are currently being used by a subnet endpoint, the call fails.</p> <p>Separately, you set port ranges for endpoints. For more information, see <a href=\"https://docs.aws.amazon.com/global-accelerator/latest/dg/about-custom-routing-endpoints.html\">About endpoints for custom routing accelerators</a>.</p>
+
+        Raises:
+            aws_sdk_global_accelerator.errors.internal_service_error_exception.InternalServiceErrorException: <p>There was an internal error for Global Accelerator.</p>
+            aws_sdk_global_accelerator.errors.invalid_argument_exception.InvalidArgumentException: <p>An argument that you specified is invalid.</p>
+            aws_sdk_global_accelerator.errors.invalid_port_range_exception.InvalidPortRangeException: <p>The port numbers that you specified are not valid numbers or are not unique for this accelerator.</p>
+            aws_sdk_global_accelerator.errors.limit_exceeded_exception.LimitExceededException: <p>Processing your request would cause you to exceed an Global Accelerator limit.</p>
+            aws_sdk_global_accelerator.errors.listener_not_found_exception.ListenerNotFoundException: <p>The listener that you specified doesn't exist.</p>
+            aws_sdk_global_accelerator.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3065,6 +3459,14 @@ class AsyncGlobalAcceleratorClient:
             health_check_interval_seconds: <p>The time—10 seconds or 30 seconds—between each health check for an endpoint. The default value is 30.</p>
             threshold_count: <p>The number of consecutive health checks required to set the state of a healthy endpoint to unhealthy, or to set an unhealthy endpoint to healthy. The default value is 3.</p>
             port_overrides: <p>Override specific listener ports used to route traffic to endpoints that are part of this endpoint group. For example, you can create a port override in which the listener receives user traffic on ports 80 and 443, but your accelerator routes that traffic to ports 1080 and 1443, respectively, on the endpoints.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/global-accelerator/latest/dg/about-endpoint-groups-port-override.html\"> Overriding listener ports</a> in the <i>Global Accelerator Developer Guide</i>.</p>
+
+        Raises:
+            aws_sdk_global_accelerator.errors.access_denied_exception.AccessDeniedException: <p>You don't have access permission.</p>
+            aws_sdk_global_accelerator.errors.endpoint_group_not_found_exception.EndpointGroupNotFoundException: <p>The endpoint group that you specified doesn't exist.</p>
+            aws_sdk_global_accelerator.errors.internal_service_error_exception.InternalServiceErrorException: <p>There was an internal error for Global Accelerator.</p>
+            aws_sdk_global_accelerator.errors.invalid_argument_exception.InvalidArgumentException: <p>An argument that you specified is invalid.</p>
+            aws_sdk_global_accelerator.errors.limit_exceeded_exception.LimitExceededException: <p>Processing your request would cause you to exceed an Global Accelerator limit.</p>
+            aws_sdk_global_accelerator.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3129,6 +3531,14 @@ class AsyncGlobalAcceleratorClient:
             port_ranges: <p>The updated list of port ranges for the connections from clients to the accelerator.</p>
             protocol: <p>The updated protocol for the connections from clients to the accelerator.</p>
             client_affinity: <p>Client affinity lets you direct all requests from a user to the same endpoint, if you have stateful applications, regardless of the port and protocol of the client request. Client affinity gives you control over whether to always route each client to the same specific endpoint.</p> <p>Global Accelerator uses a consistent-flow hashing algorithm to choose the optimal endpoint for a connection. If client affinity is <code>NONE</code>, Global Accelerator uses the \"five-tuple\" (5-tuple) properties—source IP address, source port, destination IP address, destination port, and protocol—to select the hash value, and then chooses the best endpoint. However, with this setting, if someone uses different ports to connect to Global Accelerator, their connections might not be always routed to the same endpoint because the hash value changes. </p> <p>If you want a given client to always be routed to the same endpoint, set client affinity to <code>SOURCE_IP</code> instead. When you use the <code>SOURCE_IP</code> setting, Global Accelerator uses the \"two-tuple\" (2-tuple) properties— source (client) IP address and destination IP address—to select the hash value.</p> <p>The default value is <code>NONE</code>.</p>
+
+        Raises:
+            aws_sdk_global_accelerator.errors.internal_service_error_exception.InternalServiceErrorException: <p>There was an internal error for Global Accelerator.</p>
+            aws_sdk_global_accelerator.errors.invalid_argument_exception.InvalidArgumentException: <p>An argument that you specified is invalid.</p>
+            aws_sdk_global_accelerator.errors.invalid_port_range_exception.InvalidPortRangeException: <p>The port numbers that you specified are not valid numbers or are not unique for this accelerator.</p>
+            aws_sdk_global_accelerator.errors.limit_exceeded_exception.LimitExceededException: <p>Processing your request would cause you to exceed an Global Accelerator limit.</p>
+            aws_sdk_global_accelerator.errors.listener_not_found_exception.ListenerNotFoundException: <p>The listener that you specified doesn't exist.</p>
+            aws_sdk_global_accelerator.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3173,6 +3583,14 @@ class AsyncGlobalAcceleratorClient:
 
         Args:
             cidr: <p>The address range, in CIDR notation.</p> <p> For more information, see <a href=\"https://docs.aws.amazon.com/global-accelerator/latest/dg/using-byoip.html\">Bring your own IP addresses (BYOIP)</a> in the Global Accelerator Developer Guide.</p>
+
+        Raises:
+            aws_sdk_global_accelerator.errors.access_denied_exception.AccessDeniedException: <p>You don't have access permission.</p>
+            aws_sdk_global_accelerator.errors.byoip_cidr_not_found_exception.ByoipCidrNotFoundException: <p>The CIDR that you specified was not found or is incorrect.</p>
+            aws_sdk_global_accelerator.errors.incorrect_cidr_state_exception.IncorrectCidrStateException: <p>The CIDR that you specified is not valid for this action. For example, the state of the CIDR might be incorrect for this action.</p>
+            aws_sdk_global_accelerator.errors.internal_service_error_exception.InternalServiceErrorException: <p>There was an internal error for Global Accelerator.</p>
+            aws_sdk_global_accelerator.errors.invalid_argument_exception.InvalidArgumentException: <p>An argument that you specified is invalid.</p>
+            aws_sdk_global_accelerator.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

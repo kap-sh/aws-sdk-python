@@ -149,6 +149,15 @@ class SageMakerRuntimeHTTP2Client:
             target_variant: <p>Target variant for the request.</p>
             model_invocation_path: <p>Model invocation path.</p>
             model_query_string: <p>Model query string.</p>
+
+        Raises:
+            aws_sdk_sagemaker_runtime_http2.errors.input_validation_error.InputValidationError: <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_sagemaker_runtime_http2.errors.internal_server_error.InternalServerError: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_sagemaker_runtime_http2.errors.internal_stream_failure.InternalStreamFailure: <p>Internal stream failure that occurs during streaming.</p>
+            aws_sdk_sagemaker_runtime_http2.errors.model_error.ModelError: <p>An error occurred while processing the model.</p>
+            aws_sdk_sagemaker_runtime_http2.errors.model_stream_error.ModelStreamError: <p>Model stream error that occurs during streaming.</p>
+            aws_sdk_sagemaker_runtime_http2.errors.service_unavailable_error.ServiceUnavailableError: <p>The request has failed due to a temporary failure of the server.</p>
+            aws_sdk_sagemaker_runtime_http2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(

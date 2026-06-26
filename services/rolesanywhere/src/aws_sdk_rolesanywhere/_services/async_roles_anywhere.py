@@ -160,6 +160,12 @@ class AsyncRolesAnywhereClient:
 
         Args:
             resource_arn: <p>The ARN of the resource.</p>
+
+        Raises:
+            aws_sdk_rolesanywhere.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_rolesanywhere.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_rolesanywhere.errors.validation_exception.ValidationException: <p>Validation exception error.</p>
+            aws_sdk_rolesanywhere.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -200,6 +206,12 @@ class AsyncRolesAnywhereClient:
         Args:
             trust_anchor_id: <p>The unique identifier of the trust anchor.</p>
             notification_settings: <p>A list of notification settings to be associated to the trust anchor.</p>
+
+        Raises:
+            aws_sdk_rolesanywhere.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_rolesanywhere.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_rolesanywhere.errors.validation_exception.ValidationException: <p>Validation exception error.</p>
+            aws_sdk_rolesanywhere.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             PutNotificationSettings - Adds custom notification settings
@@ -247,6 +259,12 @@ class AsyncRolesAnywhereClient:
             trust_anchor_id: <p>The unique identifier of the trust anchor.</p>
             notification_setting_keys: <p>A list of notification setting keys to reset. A notification setting key includes the event and the channel. </p>
 
+        Raises:
+            aws_sdk_rolesanywhere.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_rolesanywhere.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_rolesanywhere.errors.validation_exception.ValidationException: <p>Validation exception error.</p>
+            aws_sdk_rolesanywhere.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             ResetNotificationSettings - Resets to IAM Roles Anywhere defined default notification settings
 
@@ -292,6 +310,13 @@ class AsyncRolesAnywhereClient:
         Args:
             resource_arn: <p>The ARN of the resource.</p>
             tags: <p>The tags to attach to the resource.</p>
+
+        Raises:
+            aws_sdk_rolesanywhere.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_rolesanywhere.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_rolesanywhere.errors.too_many_tags_exception.TooManyTagsException: <p>Too many tags.</p>
+            aws_sdk_rolesanywhere.errors.validation_exception.ValidationException: <p>Validation exception error.</p>
+            aws_sdk_rolesanywhere.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -333,6 +358,12 @@ class AsyncRolesAnywhereClient:
         Args:
             resource_arn: <p>The ARN of the resource.</p>
             tag_keys: <p>A list of keys. Tag keys are the unique identifiers of tags. </p>
+
+        Raises:
+            aws_sdk_rolesanywhere.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_rolesanywhere.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_rolesanywhere.errors.validation_exception.ValidationException: <p>Validation exception error.</p>
+            aws_sdk_rolesanywhere.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

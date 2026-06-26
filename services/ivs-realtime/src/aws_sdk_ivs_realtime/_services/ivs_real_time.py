@@ -274,6 +274,16 @@ class IVSRealTimeClient:
             name: <p>Optional name to identify the resource.</p>
             video: <p>Video configuration. Default: video resolution 1280x720, bitrate 2500 kbps, 30 fps.</p>
             tags: <p>Tags attached to the resource. Array of maps, each of the form <code>string:string (key:value)</code>. See <a href=\"https://docs.aws.amazon.com/tag-editor/latest/userguide/best-practices-and-strats.html\">Best practices and strategies</a> in <i>Tagging AWS Resources and Tag Editor</i> for details, including restrictions that apply to tags and \"Tag naming limits and requirements\"; Amazon IVS has no constraints on tags beyond what is documented there.</p>
+
+        Raises:
+            aws_sdk_ivs_realtime.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_ivs_realtime.errors.conflict_exception.ConflictException: <p/>
+            aws_sdk_ivs_realtime.errors.internal_server_exception.InternalServerException: <p/>
+            aws_sdk_ivs_realtime.errors.pending_verification.PendingVerification: <p/>
+            aws_sdk_ivs_realtime.errors.resource_not_found_exception.ResourceNotFoundException: <p/>
+            aws_sdk_ivs_realtime.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p/>
+            aws_sdk_ivs_realtime.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_ivs_realtime.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -340,6 +350,13 @@ class IVSRealTimeClient:
             insecure_ingest: <p>Whether the stage allows insecure RTMP ingest. This must be set to <code>true</code>, if <code>ingestProtocol</code> is set to <code>RTMP</code>. Default: <code>false</code>. </p>
             redundant_ingest: <p>Indicates whether redundant ingest is enabled for the ingest configuration. Default: <code>false</code>.</p>
             tags: <p>Tags attached to the resource. Array of maps, each of the form <code>string:string (key:value)</code>. See <a href=\"https://docs.aws.amazon.com/tag-editor/latest/userguide/best-practices-and-strats.html\">Best practices and strategies</a> in <i>Tagging AWS Resources and Tag Editor</i> for details, including restrictions that apply to tags and \"Tag naming limits and requirements\"; Amazon IVS has no constraints on tags beyond what is documented there.</p>
+
+        Raises:
+            aws_sdk_ivs_realtime.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_ivs_realtime.errors.pending_verification.PendingVerification: <p/>
+            aws_sdk_ivs_realtime.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p/>
+            aws_sdk_ivs_realtime.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_ivs_realtime.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -407,6 +424,14 @@ class IVSRealTimeClient:
             user_id: <p>Name that can be specified to help identify the token. This can be any UTF-8 encoded text. <i>This field is exposed to all stage participants and should not be used for personally identifying, confidential, or sensitive information.</i> </p>
             attributes: <p>Application-provided attributes to encode into the token and attach to a stage. Map keys and values can contain UTF-8 encoded text. The maximum length of this field is 1 KB total. <i>This field is exposed to all stage participants and should not be used for personally identifying, confidential, or sensitive information.</i> </p>
             capabilities: <p>Set of capabilities that the user is allowed to perform in the stage. Default: <code>PUBLISH, SUBSCRIBE</code>.</p>
+
+        Raises:
+            aws_sdk_ivs_realtime.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_ivs_realtime.errors.pending_verification.PendingVerification: <p/>
+            aws_sdk_ivs_realtime.errors.resource_not_found_exception.ResourceNotFoundException: <p/>
+            aws_sdk_ivs_realtime.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p/>
+            aws_sdk_ivs_realtime.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_ivs_realtime.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -462,6 +487,13 @@ class IVSRealTimeClient:
             participant_token_configurations: <p>Array of participant token configuration objects to attach to the new stage.</p>
             tags: <p>Tags attached to the resource. Array of maps, each of the form <code>string:string (key:value)</code>. See <a href=\"https://docs.aws.amazon.com/tag-editor/latest/userguide/best-practices-and-strats.html\">Best practices and strategies</a> in <i>Tagging AWS Resources and Tag Editor</i> for details, including restrictions that apply to tags and \"Tag naming limits and requirements\"; Amazon IVS has no constraints on tags beyond what is documented there. </p>
             auto_participant_recording_configuration: <p>Configuration object for individual participant recording, to attach to the new stage.</p>
+
+        Raises:
+            aws_sdk_ivs_realtime.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_ivs_realtime.errors.pending_verification.PendingVerification: <p/>
+            aws_sdk_ivs_realtime.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p/>
+            aws_sdk_ivs_realtime.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_ivs_realtime.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -516,6 +548,16 @@ class IVSRealTimeClient:
             name: <p>Storage configuration name. The value does not need to be unique.</p>
             s3: <p>A complex type that contains a storage configuration for where recorded video will be stored.</p>
             tags: <p>Tags attached to the resource. Array of maps, each of the form <code>string:string (key:value)</code>. See <a href=\"https://docs.aws.amazon.com/tag-editor/latest/userguide/best-practices-and-strats.html\">Best practices and strategies</a> in <i>Tagging AWS Resources and Tag Editor</i> for details, including restrictions that apply to tags and \"Tag naming limits and requirements\"; Amazon IVS has no constraints on tags beyond what is documented there.</p>
+
+        Raises:
+            aws_sdk_ivs_realtime.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_ivs_realtime.errors.conflict_exception.ConflictException: <p/>
+            aws_sdk_ivs_realtime.errors.internal_server_exception.InternalServerException: <p/>
+            aws_sdk_ivs_realtime.errors.pending_verification.PendingVerification: <p/>
+            aws_sdk_ivs_realtime.errors.resource_not_found_exception.ResourceNotFoundException: <p/>
+            aws_sdk_ivs_realtime.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p/>
+            aws_sdk_ivs_realtime.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_ivs_realtime.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -557,6 +599,15 @@ class IVSRealTimeClient:
 
         Args:
             arn: <p>ARN of the EncoderConfiguration.</p>
+
+        Raises:
+            aws_sdk_ivs_realtime.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_ivs_realtime.errors.conflict_exception.ConflictException: <p/>
+            aws_sdk_ivs_realtime.errors.internal_server_exception.InternalServerException: <p/>
+            aws_sdk_ivs_realtime.errors.resource_not_found_exception.ResourceNotFoundException: <p/>
+            aws_sdk_ivs_realtime.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p/>
+            aws_sdk_ivs_realtime.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_ivs_realtime.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -596,6 +647,14 @@ class IVSRealTimeClient:
         Args:
             arn: <p>ARN of the IngestConfiguration.</p>
             force: <p>Optional field to force deletion of the IngestConfiguration. If this is set to <code>true</code> when a participant is actively publishing, the participant is disconnected from the stage, followed by deletion of the IngestConfiguration. Default: <code>false</code>.</p>
+
+        Raises:
+            aws_sdk_ivs_realtime.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_ivs_realtime.errors.conflict_exception.ConflictException: <p/>
+            aws_sdk_ivs_realtime.errors.pending_verification.PendingVerification: <p/>
+            aws_sdk_ivs_realtime.errors.resource_not_found_exception.ResourceNotFoundException: <p/>
+            aws_sdk_ivs_realtime.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_ivs_realtime.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -637,6 +696,14 @@ class IVSRealTimeClient:
 
         Args:
             arn: <p>ARN of the public key to be deleted.</p>
+
+        Raises:
+            aws_sdk_ivs_realtime.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_ivs_realtime.errors.conflict_exception.ConflictException: <p/>
+            aws_sdk_ivs_realtime.errors.pending_verification.PendingVerification: <p/>
+            aws_sdk_ivs_realtime.errors.resource_not_found_exception.ResourceNotFoundException: <p/>
+            aws_sdk_ivs_realtime.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_ivs_realtime.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -674,6 +741,14 @@ class IVSRealTimeClient:
 
         Args:
             arn: <p>ARN of the stage to be deleted.</p>
+
+        Raises:
+            aws_sdk_ivs_realtime.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_ivs_realtime.errors.conflict_exception.ConflictException: <p/>
+            aws_sdk_ivs_realtime.errors.pending_verification.PendingVerification: <p/>
+            aws_sdk_ivs_realtime.errors.resource_not_found_exception.ResourceNotFoundException: <p/>
+            aws_sdk_ivs_realtime.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_ivs_realtime.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -711,6 +786,15 @@ class IVSRealTimeClient:
 
         Args:
             arn: <p>ARN of the storage configuration to be deleted.</p>
+
+        Raises:
+            aws_sdk_ivs_realtime.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_ivs_realtime.errors.conflict_exception.ConflictException: <p/>
+            aws_sdk_ivs_realtime.errors.internal_server_exception.InternalServerException: <p/>
+            aws_sdk_ivs_realtime.errors.resource_not_found_exception.ResourceNotFoundException: <p/>
+            aws_sdk_ivs_realtime.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p/>
+            aws_sdk_ivs_realtime.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_ivs_realtime.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -754,6 +838,13 @@ class IVSRealTimeClient:
             stage_arn: <p>ARN of the stage to which the participant is attached.</p>
             participant_id: <p>Identifier of the participant to be disconnected. IVS assigns this; it is returned by <a>CreateParticipantToken</a> (for streams using WebRTC ingest) or <a>CreateIngestConfiguration</a> (for streams using RTMP ingest).</p>
             reason: <p>Description of why this participant is being disconnected.</p>
+
+        Raises:
+            aws_sdk_ivs_realtime.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_ivs_realtime.errors.pending_verification.PendingVerification: <p/>
+            aws_sdk_ivs_realtime.errors.resource_not_found_exception.ResourceNotFoundException: <p/>
+            aws_sdk_ivs_realtime.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_ivs_realtime.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -794,6 +885,15 @@ class IVSRealTimeClient:
 
         Args:
             arn: <p>ARN of the Composition resource.</p>
+
+        Raises:
+            aws_sdk_ivs_realtime.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_ivs_realtime.errors.conflict_exception.ConflictException: <p/>
+            aws_sdk_ivs_realtime.errors.internal_server_exception.InternalServerException: <p/>
+            aws_sdk_ivs_realtime.errors.resource_not_found_exception.ResourceNotFoundException: <p/>
+            aws_sdk_ivs_realtime.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p/>
+            aws_sdk_ivs_realtime.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_ivs_realtime.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -831,6 +931,15 @@ class IVSRealTimeClient:
 
         Args:
             arn: <p>ARN of the EncoderConfiguration resource.</p>
+
+        Raises:
+            aws_sdk_ivs_realtime.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_ivs_realtime.errors.conflict_exception.ConflictException: <p/>
+            aws_sdk_ivs_realtime.errors.internal_server_exception.InternalServerException: <p/>
+            aws_sdk_ivs_realtime.errors.resource_not_found_exception.ResourceNotFoundException: <p/>
+            aws_sdk_ivs_realtime.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p/>
+            aws_sdk_ivs_realtime.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_ivs_realtime.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -868,6 +977,12 @@ class IVSRealTimeClient:
 
         Args:
             arn: <p>ARN of the ingest for which the information is to be retrieved.</p>
+
+        Raises:
+            aws_sdk_ivs_realtime.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_ivs_realtime.errors.resource_not_found_exception.ResourceNotFoundException: <p/>
+            aws_sdk_ivs_realtime.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_ivs_realtime.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -909,6 +1024,12 @@ class IVSRealTimeClient:
             stage_arn: <p>Stage ARN.</p>
             session_id: <p>ID of a session within the stage.</p>
             participant_id: <p>Unique identifier for the participant. This is assigned by IVS and returned by <a>CreateParticipantToken</a>.</p>
+
+        Raises:
+            aws_sdk_ivs_realtime.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_ivs_realtime.errors.resource_not_found_exception.ResourceNotFoundException: <p/>
+            aws_sdk_ivs_realtime.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_ivs_realtime.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -948,6 +1069,12 @@ class IVSRealTimeClient:
 
         Args:
             arn: <p>ARN of the public key for which the information is to be retrieved.</p>
+
+        Raises:
+            aws_sdk_ivs_realtime.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_ivs_realtime.errors.resource_not_found_exception.ResourceNotFoundException: <p/>
+            aws_sdk_ivs_realtime.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_ivs_realtime.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -985,6 +1112,12 @@ class IVSRealTimeClient:
 
         Args:
             arn: <p>ARN of the stage for which the information is to be retrieved.</p>
+
+        Raises:
+            aws_sdk_ivs_realtime.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_ivs_realtime.errors.resource_not_found_exception.ResourceNotFoundException: <p/>
+            aws_sdk_ivs_realtime.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_ivs_realtime.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1026,6 +1159,12 @@ class IVSRealTimeClient:
         Args:
             stage_arn: <p>ARN of the stage for which the information is to be retrieved.</p>
             session_id: <p>ID of a session within the stage.</p>
+
+        Raises:
+            aws_sdk_ivs_realtime.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_ivs_realtime.errors.resource_not_found_exception.ResourceNotFoundException: <p/>
+            aws_sdk_ivs_realtime.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_ivs_realtime.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1064,6 +1203,15 @@ class IVSRealTimeClient:
 
         Args:
             arn: <p>ARN of the storage configuration to be retrieved.</p>
+
+        Raises:
+            aws_sdk_ivs_realtime.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_ivs_realtime.errors.conflict_exception.ConflictException: <p/>
+            aws_sdk_ivs_realtime.errors.internal_server_exception.InternalServerException: <p/>
+            aws_sdk_ivs_realtime.errors.resource_not_found_exception.ResourceNotFoundException: <p/>
+            aws_sdk_ivs_realtime.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p/>
+            aws_sdk_ivs_realtime.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_ivs_realtime.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1109,6 +1257,14 @@ class IVSRealTimeClient:
             public_key_material: <p>The content of the public key to be imported.</p>
             name: <p>Name of the public key to be imported.</p>
             tags: <p>Tags attached to the resource. Array of maps, each of the form <code>string:string (key:value)</code>. See <a href=\"https://docs.aws.amazon.com/tag-editor/latest/userguide/best-practices-and-strats.html\">Best practices and strategies</a> in <i>Tagging AWS Resources and Tag Editor</i> for details, including restrictions that apply to tags and \"Tag naming limits and requirements\"; Amazon IVS has no constraints on tags beyond what is documented there.</p>
+
+        Raises:
+            aws_sdk_ivs_realtime.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_ivs_realtime.errors.conflict_exception.ConflictException: <p/>
+            aws_sdk_ivs_realtime.errors.pending_verification.PendingVerification: <p/>
+            aws_sdk_ivs_realtime.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p/>
+            aws_sdk_ivs_realtime.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_ivs_realtime.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1166,6 +1322,14 @@ class IVSRealTimeClient:
             filter_by_encoder_configuration_arn: <p>Filters the Composition list to match the specified EncoderConfiguration attached to at least one of its output.</p>
             next_token: <p>The first Composition to retrieve. This is used for pagination; see the <code>nextToken</code> response field.</p>
             max_results: <p>Maximum number of results to return. Default: 100.</p>
+
+        Raises:
+            aws_sdk_ivs_realtime.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_ivs_realtime.errors.conflict_exception.ConflictException: <p/>
+            aws_sdk_ivs_realtime.errors.internal_server_exception.InternalServerException: <p/>
+            aws_sdk_ivs_realtime.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p/>
+            aws_sdk_ivs_realtime.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_ivs_realtime.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1218,6 +1382,14 @@ class IVSRealTimeClient:
         Args:
             next_token: <p>The first encoder configuration to retrieve. This is used for pagination; see the <code>nextToken</code> response field.</p>
             max_results: <p>Maximum number of results to return. Default: 100.</p>
+
+        Raises:
+            aws_sdk_ivs_realtime.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_ivs_realtime.errors.conflict_exception.ConflictException: <p/>
+            aws_sdk_ivs_realtime.errors.internal_server_exception.InternalServerException: <p/>
+            aws_sdk_ivs_realtime.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p/>
+            aws_sdk_ivs_realtime.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_ivs_realtime.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1272,6 +1444,11 @@ class IVSRealTimeClient:
             filter_by_state: <p>Filters the response list to match the specified state. Only one filter (by stage ARN or by state) can be used at a time.</p>
             next_token: <p>The first IngestConfiguration to retrieve. This is used for pagination; see the <code>nextToken</code> response field.</p>
             max_results: <p>Maximum number of results to return. Default: 50.</p>
+
+        Raises:
+            aws_sdk_ivs_realtime.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_ivs_realtime.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_ivs_realtime.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1361,6 +1538,11 @@ class IVSRealTimeClient:
             participant_id: <p>Unique identifier for this participant. This is assigned by IVS and returned by <a>CreateParticipantToken</a>.</p>
             next_token: <p>The first participant event to retrieve. This is used for pagination; see the <code>nextToken</code> response field.</p>
             max_results: <p>Maximum number of results to return. Default: 50.</p>
+
+        Raises:
+            aws_sdk_ivs_realtime.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_ivs_realtime.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_ivs_realtime.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1414,6 +1596,11 @@ class IVSRealTimeClient:
             participant_id: <p>Participant ID of the publisher that has been replicated. This is assigned by IVS and returned by <a>CreateParticipantToken</a> or the <code>jti</code> (JWT ID) used to <a href=\"https://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/getting-started-distribute-tokens.html#getting-started-distribute-tokens-self-signed\">create a self signed token</a>.</p>
             next_token: <p>The first participant to retrieve. This is used for pagination; see the <code>nextToken</code> response field.</p>
             max_results: <p>Maximum number of results to return. Default: 50.</p>
+
+        Raises:
+            aws_sdk_ivs_realtime.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_ivs_realtime.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_ivs_realtime.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1511,6 +1698,11 @@ class IVSRealTimeClient:
             next_token: <p>The first participant to retrieve. This is used for pagination; see the <code>nextToken</code> response field.</p>
             max_results: <p>Maximum number of results to return. Default: 50.</p>
             filter_by_recording_state: <p>Filters the response list to only show participants with the specified recording state. Only one of <code>filterByUserId</code>, <code>filterByPublished</code>, <code>filterByState</code>, or <code>filterByRecordingState</code> can be provided per request.</p>
+
+        Raises:
+            aws_sdk_ivs_realtime.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_ivs_realtime.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_ivs_realtime.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1567,6 +1759,11 @@ class IVSRealTimeClient:
         Args:
             next_token: <p>The first public key to retrieve. This is used for pagination; see the <code>nextToken</code> response field.</p>
             max_results: <p>Maximum number of results to return. Default: 50.</p>
+
+        Raises:
+            aws_sdk_ivs_realtime.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_ivs_realtime.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_ivs_realtime.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1638,6 +1835,12 @@ class IVSRealTimeClient:
         Args:
             next_token: <p>The first stage to retrieve. This is used for pagination; see the <code>nextToken</code> response field.</p>
             max_results: <p>Maximum number of results to return. Default: 50.</p>
+
+        Raises:
+            aws_sdk_ivs_realtime.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_ivs_realtime.errors.conflict_exception.ConflictException: <p/>
+            aws_sdk_ivs_realtime.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_ivs_realtime.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1686,6 +1889,11 @@ class IVSRealTimeClient:
             stage_arn: <p>Stage ARN.</p>
             next_token: <p>The first stage session to retrieve. This is used for pagination; see the <code>nextToken</code> response field.</p>
             max_results: <p>Maximum number of results to return. Default: 50.</p>
+
+        Raises:
+            aws_sdk_ivs_realtime.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_ivs_realtime.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_ivs_realtime.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1733,6 +1941,14 @@ class IVSRealTimeClient:
         Args:
             next_token: <p>The first storage configuration to retrieve. This is used for pagination; see the <code>nextToken</code> response field.</p>
             max_results: <p>Maximum number of storage configurations to return. Default: your service quota or 100, whichever is smaller.</p>
+
+        Raises:
+            aws_sdk_ivs_realtime.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_ivs_realtime.errors.conflict_exception.ConflictException: <p/>
+            aws_sdk_ivs_realtime.errors.internal_server_exception.InternalServerException: <p/>
+            aws_sdk_ivs_realtime.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p/>
+            aws_sdk_ivs_realtime.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_ivs_realtime.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1773,6 +1989,12 @@ class IVSRealTimeClient:
 
         Args:
             resource_arn: <p>The ARN of the resource to be retrieved. The ARN must be URL-encoded.</p>
+
+        Raises:
+            aws_sdk_ivs_realtime.errors.internal_server_exception.InternalServerException: <p/>
+            aws_sdk_ivs_realtime.errors.resource_not_found_exception.ResourceNotFoundException: <p/>
+            aws_sdk_ivs_realtime.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_ivs_realtime.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1824,6 +2046,16 @@ class IVSRealTimeClient:
             layout: <p>Layout object to configure composition parameters.</p>
             destinations: <p>Array of destination configuration.</p>
             tags: <p>Tags attached to the resource. Array of maps, each of the form <code>string:string (key:value)</code>. See <a href=\"https://docs.aws.amazon.com/tag-editor/latest/userguide/best-practices-and-strats.html\">Best practices and strategies</a> in <i>Tagging AWS Resources and Tag Editor</i> for details, including restrictions that apply to tags and \"Tag naming limits and requirements\"; Amazon IVS has no constraints on tags beyond what is documented there.</p>
+
+        Raises:
+            aws_sdk_ivs_realtime.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_ivs_realtime.errors.conflict_exception.ConflictException: <p/>
+            aws_sdk_ivs_realtime.errors.internal_server_exception.InternalServerException: <p/>
+            aws_sdk_ivs_realtime.errors.pending_verification.PendingVerification: <p/>
+            aws_sdk_ivs_realtime.errors.resource_not_found_exception.ResourceNotFoundException: <p/>
+            aws_sdk_ivs_realtime.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p/>
+            aws_sdk_ivs_realtime.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_ivs_realtime.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1880,6 +2112,16 @@ class IVSRealTimeClient:
             participant_id: <p>Participant ID of the publisher that will be replicated. This is assigned by IVS and returned by <a>CreateParticipantToken</a> or the <code>jti</code> (JWT ID) used to <a href=\"https://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/getting-started-distribute-tokens.html#getting-started-distribute-tokens-self-signed\">create a self signed token</a>. </p>
             reconnect_window_seconds: <p>If the participant disconnects and then reconnects within the specified interval, replication will continue to be <code>ACTIVE</code>. Default: 0.</p>
             attributes: <p>Application-provided attributes to set on the replicated participant in the destination stage. Map keys and values can contain UTF-8 encoded text. The maximum length of this field is 1 KB total. <i>This field is exposed to all stage participants and should not be used for personally identifying, confidential, or sensitive information.</i> </p> <p>These attributes are merged with any attributes set for this participant when creating the token. If there is overlap in keys, the values in these attributes are replaced.</p>
+
+        Raises:
+            aws_sdk_ivs_realtime.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_ivs_realtime.errors.conflict_exception.ConflictException: <p/>
+            aws_sdk_ivs_realtime.errors.internal_server_exception.InternalServerException: <p/>
+            aws_sdk_ivs_realtime.errors.pending_verification.PendingVerification: <p/>
+            aws_sdk_ivs_realtime.errors.resource_not_found_exception.ResourceNotFoundException: <p/>
+            aws_sdk_ivs_realtime.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p/>
+            aws_sdk_ivs_realtime.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_ivs_realtime.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1923,6 +2165,15 @@ class IVSRealTimeClient:
 
         Args:
             arn: <p>ARN of the Composition.</p>
+
+        Raises:
+            aws_sdk_ivs_realtime.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_ivs_realtime.errors.conflict_exception.ConflictException: <p/>
+            aws_sdk_ivs_realtime.errors.internal_server_exception.InternalServerException: <p/>
+            aws_sdk_ivs_realtime.errors.resource_not_found_exception.ResourceNotFoundException: <p/>
+            aws_sdk_ivs_realtime.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p/>
+            aws_sdk_ivs_realtime.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_ivs_realtime.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1964,6 +2215,13 @@ class IVSRealTimeClient:
             source_stage_arn: <p>ARN of the stage where the participant is publishing.</p>
             destination_stage_arn: <p>ARN of the stage where the participant has been replicated.</p>
             participant_id: <p>Participant ID of the publisher that has been replicated. This is assigned by IVS and returned by <a>CreateParticipantToken</a> or the <code>jti</code> (JWT ID) used to <a href=\"https://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/getting-started-distribute-tokens.html#getting-started-distribute-tokens-self-signed\"> create a self signed token</a>.</p>
+
+        Raises:
+            aws_sdk_ivs_realtime.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_ivs_realtime.errors.internal_server_exception.InternalServerException: <p/>
+            aws_sdk_ivs_realtime.errors.resource_not_found_exception.ResourceNotFoundException: <p/>
+            aws_sdk_ivs_realtime.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_ivs_realtime.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2005,6 +2263,12 @@ class IVSRealTimeClient:
         Args:
             resource_arn: <p>The ARN of the resource to be tagged. The ARN must be URL-encoded.</p>
             tags: <p>Array of tags to be added or updated. Array of maps, each of the form <code>string:string (key:value)</code>. See <a href=\"https://docs.aws.amazon.com/tag-editor/latest/userguide/best-practices-and-strats.html\">Best practices and strategies</a> in <i>Tagging AWS Resources and Tag Editor</i> for details, including restrictions that apply to tags and \"Tag naming limits and requirements\"; Amazon IVS has no constraints on tags beyond what is documented there.</p>
+
+        Raises:
+            aws_sdk_ivs_realtime.errors.internal_server_exception.InternalServerException: <p/>
+            aws_sdk_ivs_realtime.errors.resource_not_found_exception.ResourceNotFoundException: <p/>
+            aws_sdk_ivs_realtime.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_ivs_realtime.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2045,6 +2309,12 @@ class IVSRealTimeClient:
         Args:
             resource_arn: <p>The ARN of the resource to be untagged. The ARN must be URL-encoded.</p>
             tag_keys: <p>Array of tag keys (strings) for the tags to be removed. See <a href=\"https://docs.aws.amazon.com/tag-editor/latest/userguide/best-practices-and-strats.html\">Best practices and strategies</a> in <i>Tagging AWS Resources and Tag Editor</i> for details, including restrictions that apply to tags and \"Tag naming limits and requirements\"; Amazon IVS has no constraints on tags beyond what is documented there.</p>
+
+        Raises:
+            aws_sdk_ivs_realtime.errors.internal_server_exception.InternalServerException: <p/>
+            aws_sdk_ivs_realtime.errors.resource_not_found_exception.ResourceNotFoundException: <p/>
+            aws_sdk_ivs_realtime.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_ivs_realtime.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2091,6 +2361,14 @@ class IVSRealTimeClient:
             arn: <p>ARN of the IngestConfiguration, for which the related stage ARN needs to be updated.</p>
             stage_arn: <p>Stage ARN that needs to be updated.</p>
             redundant_ingest: <p>Indicates whether redundant ingest is enabled for the ingest configuration. Default: <code>false</code>.</p>
+
+        Raises:
+            aws_sdk_ivs_realtime.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_ivs_realtime.errors.conflict_exception.ConflictException: <p/>
+            aws_sdk_ivs_realtime.errors.pending_verification.PendingVerification: <p/>
+            aws_sdk_ivs_realtime.errors.resource_not_found_exception.ResourceNotFoundException: <p/>
+            aws_sdk_ivs_realtime.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_ivs_realtime.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2138,6 +2416,15 @@ class IVSRealTimeClient:
             arn: <p>ARN of the stage to be updated.</p>
             name: <p>Name of the stage to be updated.</p>
             auto_participant_recording_configuration: <p>Configuration object for individual participant recording, to attach to the stage. Note that this cannot be updated while recording is active.</p>
+
+        Raises:
+            aws_sdk_ivs_realtime.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_ivs_realtime.errors.conflict_exception.ConflictException: <p/>
+            aws_sdk_ivs_realtime.errors.pending_verification.PendingVerification: <p/>
+            aws_sdk_ivs_realtime.errors.resource_not_found_exception.ResourceNotFoundException: <p/>
+            aws_sdk_ivs_realtime.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p/>
+            aws_sdk_ivs_realtime.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_ivs_realtime.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(

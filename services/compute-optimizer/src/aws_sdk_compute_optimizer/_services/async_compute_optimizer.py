@@ -249,6 +249,17 @@ class AsyncComputeOptimizerClient:
             resource_type: <p>The target resource type of the recommendation preference to delete.</p> <p>The <code>Ec2Instance</code> option encompasses standalone instances and instances that are part of Auto Scaling groups. The <code>AutoScalingGroup</code> option encompasses only instances that are part of an Auto Scaling group.</p>
             scope: <p>An object that describes the scope of the recommendation preference to delete.</p> <p>You can delete recommendation preferences that are created at the organization level (for management accounts of an organization only), account level, and resource level. For more information, see <a href=\"https://docs.aws.amazon.com/compute-optimizer/latest/ug/enhanced-infrastructure-metrics.html\">Activating enhanced infrastructure metrics</a> in the <i>Compute Optimizer User Guide</i>.</p>
             recommendation_preference_names: <p>The name of the recommendation preference to delete.</p>
+
+        Raises:
+            aws_sdk_compute_optimizer.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_compute_optimizer.errors.internal_server_exception.InternalServerException: <p>An internal error has occurred. Try your call again.</p>
+            aws_sdk_compute_optimizer.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value supplied for the input parameter is out of range or not valid.</p>
+            aws_sdk_compute_optimizer.errors.missing_authentication_token.MissingAuthenticationToken: <p>The request must contain either a valid (registered) Amazon Web Services access key ID or X.509 certificate.</p>
+            aws_sdk_compute_optimizer.errors.opt_in_required_exception.OptInRequiredException: <p>The account is not opted in to Compute Optimizer.</p>
+            aws_sdk_compute_optimizer.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource that is required for the action doesn't exist.</p>
+            aws_sdk_compute_optimizer.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request has failed due to a temporary failure of the server.</p>
+            aws_sdk_compute_optimizer.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_compute_optimizer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -302,6 +313,17 @@ class AsyncComputeOptimizerClient:
             filters: <p>An array of objects to specify a filter that returns a more specific list of export jobs.</p>
             next_token: <p>The token to advance to the next page of export jobs.</p>
             max_results: <p>The maximum number of export jobs to return with a single request.</p> <p>To retrieve the remaining results, make another request with the returned <code>nextToken</code> value.</p>
+
+        Raises:
+            aws_sdk_compute_optimizer.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_compute_optimizer.errors.internal_server_exception.InternalServerException: <p>An internal error has occurred. Try your call again.</p>
+            aws_sdk_compute_optimizer.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value supplied for the input parameter is out of range or not valid.</p>
+            aws_sdk_compute_optimizer.errors.missing_authentication_token.MissingAuthenticationToken: <p>The request must contain either a valid (registered) Amazon Web Services access key ID or X.509 certificate.</p>
+            aws_sdk_compute_optimizer.errors.opt_in_required_exception.OptInRequiredException: <p>The account is not opted in to Compute Optimizer.</p>
+            aws_sdk_compute_optimizer.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource that is required for the action doesn't exist.</p>
+            aws_sdk_compute_optimizer.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request has failed due to a temporary failure of the server.</p>
+            aws_sdk_compute_optimizer.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_compute_optimizer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -400,6 +422,17 @@ class AsyncComputeOptimizerClient:
             file_format: <p>The format of the export file.</p> <p>The only export file format currently supported is <code>Csv</code>.</p>
             include_member_accounts: <p>Indicates whether to include recommendations for resources in all member accounts of the organization if your account is the management account of an organization.</p> <p>The member accounts must also be opted in to Compute Optimizer, and trusted access for Compute Optimizer must be enabled in the organization account. For more information, see <a href=\"https://docs.aws.amazon.com/compute-optimizer/latest/ug/security-iam.html#trusted-service-access\">Compute Optimizer and Amazon Web Services Organizations trusted access</a> in the <i>Compute Optimizer User Guide</i>.</p> <p>Recommendations for member accounts of the organization are not included in the export file if this parameter is omitted.</p> <p>This parameter cannot be specified together with the account IDs parameter. The parameters are mutually exclusive.</p> <p>Recommendations for member accounts are not included in the export if this parameter, or the account IDs parameter, is omitted.</p>
             recommendation_preferences: <p>An object to specify the preferences for the Auto Scaling group recommendations to export.</p>
+
+        Raises:
+            aws_sdk_compute_optimizer.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_compute_optimizer.errors.internal_server_exception.InternalServerException: <p>An internal error has occurred. Try your call again.</p>
+            aws_sdk_compute_optimizer.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value supplied for the input parameter is out of range or not valid.</p>
+            aws_sdk_compute_optimizer.errors.limit_exceeded_exception.LimitExceededException: <p>The request exceeds a limit of the service.</p>
+            aws_sdk_compute_optimizer.errors.missing_authentication_token.MissingAuthenticationToken: <p>The request must contain either a valid (registered) Amazon Web Services access key ID or X.509 certificate.</p>
+            aws_sdk_compute_optimizer.errors.opt_in_required_exception.OptInRequiredException: <p>The account is not opted in to Compute Optimizer.</p>
+            aws_sdk_compute_optimizer.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request has failed due to a temporary failure of the server.</p>
+            aws_sdk_compute_optimizer.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_compute_optimizer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -469,6 +502,17 @@ class AsyncComputeOptimizerClient:
             fields_to_export: <p>The recommendations data to include in the export file. For more information about the fields that can be exported, see <a href=\"https://docs.aws.amazon.com/compute-optimizer/latest/ug/exporting-recommendations.html#exported-files\">Exported files</a> in the <i>Compute Optimizer User Guide</i>.</p>
             file_format: <p>The format of the export file.</p> <p>The only export file format currently supported is <code>Csv</code>.</p>
             include_member_accounts: <p>Indicates whether to include recommendations for resources in all member accounts of the organization if your account is the management account of an organization.</p> <p>The member accounts must also be opted in to Compute Optimizer, and trusted access for Compute Optimizer must be enabled in the organization account. For more information, see <a href=\"https://docs.aws.amazon.com/compute-optimizer/latest/ug/security-iam.html#trusted-service-access\">Compute Optimizer and Amazon Web Services Organizations trusted access</a> in the <i>Compute Optimizer User Guide</i>.</p> <p>Recommendations for member accounts of the organization are not included in the export file if this parameter is omitted.</p> <p>This parameter cannot be specified together with the account IDs parameter. The parameters are mutually exclusive.</p> <p>Recommendations for member accounts are not included in the export if this parameter, or the account IDs parameter, is omitted.</p>
+
+        Raises:
+            aws_sdk_compute_optimizer.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_compute_optimizer.errors.internal_server_exception.InternalServerException: <p>An internal error has occurred. Try your call again.</p>
+            aws_sdk_compute_optimizer.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value supplied for the input parameter is out of range or not valid.</p>
+            aws_sdk_compute_optimizer.errors.limit_exceeded_exception.LimitExceededException: <p>The request exceeds a limit of the service.</p>
+            aws_sdk_compute_optimizer.errors.missing_authentication_token.MissingAuthenticationToken: <p>The request must contain either a valid (registered) Amazon Web Services access key ID or X.509 certificate.</p>
+            aws_sdk_compute_optimizer.errors.opt_in_required_exception.OptInRequiredException: <p>The account is not opted in to Compute Optimizer.</p>
+            aws_sdk_compute_optimizer.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request has failed due to a temporary failure of the server.</p>
+            aws_sdk_compute_optimizer.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_compute_optimizer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -539,6 +583,17 @@ class AsyncComputeOptimizerClient:
             file_format: <p>The format of the export file.</p> <p>The only export file format currently supported is <code>Csv</code>.</p>
             include_member_accounts: <p>Indicates whether to include recommendations for resources in all member accounts of the organization if your account is the management account of an organization.</p> <p>The member accounts must also be opted in to Compute Optimizer, and trusted access for Compute Optimizer must be enabled in the organization account. For more information, see <a href=\"https://docs.aws.amazon.com/compute-optimizer/latest/ug/security-iam.html#trusted-service-access\">Compute Optimizer and Amazon Web Services Organizations trusted access</a> in the <i>Compute Optimizer User Guide</i>.</p> <p>Recommendations for member accounts of the organization are not included in the export file if this parameter is omitted.</p> <p>Recommendations for member accounts are not included in the export if this parameter, or the account IDs parameter, is omitted.</p>
             recommendation_preferences: <p>An object to specify the preferences for the Amazon EC2 instance recommendations to export.</p>
+
+        Raises:
+            aws_sdk_compute_optimizer.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_compute_optimizer.errors.internal_server_exception.InternalServerException: <p>An internal error has occurred. Try your call again.</p>
+            aws_sdk_compute_optimizer.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value supplied for the input parameter is out of range or not valid.</p>
+            aws_sdk_compute_optimizer.errors.limit_exceeded_exception.LimitExceededException: <p>The request exceeds a limit of the service.</p>
+            aws_sdk_compute_optimizer.errors.missing_authentication_token.MissingAuthenticationToken: <p>The request must contain either a valid (registered) Amazon Web Services access key ID or X.509 certificate.</p>
+            aws_sdk_compute_optimizer.errors.opt_in_required_exception.OptInRequiredException: <p>The account is not opted in to Compute Optimizer.</p>
+            aws_sdk_compute_optimizer.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request has failed due to a temporary failure of the server.</p>
+            aws_sdk_compute_optimizer.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_compute_optimizer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -608,6 +663,17 @@ class AsyncComputeOptimizerClient:
             fields_to_export: <p>The recommendations data to include in the export file. For more information about the fields that can be exported, see <a href=\"https://docs.aws.amazon.com/compute-optimizer/latest/ug/exporting-recommendations.html#exported-files\">Exported files</a> in the <i>Compute Optimizer User Guide</i>.</p>
             file_format: <p> The format of the export file. </p> <p>The CSV file is the only export file format currently supported.</p>
             include_member_accounts: <p>If your account is the management account or the delegated administrator of an organization, this parameter indicates whether to include recommendations for resources in all member accounts of the organization.</p> <p>The member accounts must also be opted in to Compute Optimizer, and trusted access for Compute Optimizer must be enabled in the organization account. For more information, see <a href=\"https://docs.aws.amazon.com/compute-optimizer/latest/ug/security-iam.html#trusted-service-access\">Compute Optimizer and Amazon Web Services Organizations trusted access</a> in the <i>Compute Optimizer User Guide</i>.</p> <p>If this parameter is omitted, recommendations for member accounts of the organization aren't included in the export file.</p> <p>If this parameter or the account ID parameter is omitted, recommendations for member accounts aren't included in the export.</p>
+
+        Raises:
+            aws_sdk_compute_optimizer.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_compute_optimizer.errors.internal_server_exception.InternalServerException: <p>An internal error has occurred. Try your call again.</p>
+            aws_sdk_compute_optimizer.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value supplied for the input parameter is out of range or not valid.</p>
+            aws_sdk_compute_optimizer.errors.limit_exceeded_exception.LimitExceededException: <p>The request exceeds a limit of the service.</p>
+            aws_sdk_compute_optimizer.errors.missing_authentication_token.MissingAuthenticationToken: <p>The request must contain either a valid (registered) Amazon Web Services access key ID or X.509 certificate.</p>
+            aws_sdk_compute_optimizer.errors.opt_in_required_exception.OptInRequiredException: <p>The account is not opted in to Compute Optimizer.</p>
+            aws_sdk_compute_optimizer.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request has failed due to a temporary failure of the server.</p>
+            aws_sdk_compute_optimizer.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_compute_optimizer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -675,6 +741,17 @@ class AsyncComputeOptimizerClient:
             fields_to_export: <p>The recommendations data to include in the export file. For more information about the fields that can be exported, see <a href=\"https://docs.aws.amazon.com/compute-optimizer/latest/ug/exporting-recommendations.html#exported-files\">Exported files</a> in the <i>Compute Optimizer User Guide</i>.</p>
             file_format: <p>The format of the export file. The CSV file is the only export file format currently supported.</p>
             include_member_accounts: <p>If your account is the management account or the delegated administrator of an organization, this parameter indicates whether to include recommendations for resources in all member accounts of the organization.</p> <p>The member accounts must also be opted in to Compute Optimizer, and trusted access for Compute Optimizer must be enabled in the organization account. For more information, see <a href=\"https://docs.aws.amazon.com/compute-optimizer/latest/ug/security-iam.html#trusted-service-access\">Compute Optimizer and Amazon Web Services Organizations trusted access</a> in the <i>Compute Optimizer User Guide</i>.</p> <p>If this parameter is omitted, recommendations for member accounts of the organization aren't included in the export file.</p> <p>If this parameter or the account ID parameter is omitted, recommendations for member accounts aren't included in the export.</p>
+
+        Raises:
+            aws_sdk_compute_optimizer.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_compute_optimizer.errors.internal_server_exception.InternalServerException: <p>An internal error has occurred. Try your call again.</p>
+            aws_sdk_compute_optimizer.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value supplied for the input parameter is out of range or not valid.</p>
+            aws_sdk_compute_optimizer.errors.limit_exceeded_exception.LimitExceededException: <p>The request exceeds a limit of the service.</p>
+            aws_sdk_compute_optimizer.errors.missing_authentication_token.MissingAuthenticationToken: <p>The request must contain either a valid (registered) Amazon Web Services access key ID or X.509 certificate.</p>
+            aws_sdk_compute_optimizer.errors.opt_in_required_exception.OptInRequiredException: <p>The account is not opted in to Compute Optimizer.</p>
+            aws_sdk_compute_optimizer.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request has failed due to a temporary failure of the server.</p>
+            aws_sdk_compute_optimizer.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_compute_optimizer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -742,6 +819,17 @@ class AsyncComputeOptimizerClient:
             fields_to_export: <p>The recommendations data to include in the export file. For more information about the fields that can be exported, see <a href=\"https://docs.aws.amazon.com/compute-optimizer/latest/ug/exporting-recommendations.html#exported-files\">Exported files</a> in the <i>Compute Optimizer User Guide</i>.</p>
             file_format: <p>The format of the export file.</p> <p>The only export file format currently supported is <code>Csv</code>.</p>
             include_member_accounts: <p>Indicates whether to include recommendations for resources in all member accounts of the organization if your account is the management account of an organization.</p> <p>The member accounts must also be opted in to Compute Optimizer, and trusted access for Compute Optimizer must be enabled in the organization account. For more information, see <a href=\"https://docs.aws.amazon.com/compute-optimizer/latest/ug/security-iam.html#trusted-service-access\">Compute Optimizer and Amazon Web Services Organizations trusted access</a> in the <i>Compute Optimizer User Guide</i>.</p> <p>Recommendations for member accounts of the organization are not included in the export file if this parameter is omitted.</p> <p>This parameter cannot be specified together with the account IDs parameter. The parameters are mutually exclusive.</p> <p>Recommendations for member accounts are not included in the export if this parameter, or the account IDs parameter, is omitted.</p>
+
+        Raises:
+            aws_sdk_compute_optimizer.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_compute_optimizer.errors.internal_server_exception.InternalServerException: <p>An internal error has occurred. Try your call again.</p>
+            aws_sdk_compute_optimizer.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value supplied for the input parameter is out of range or not valid.</p>
+            aws_sdk_compute_optimizer.errors.limit_exceeded_exception.LimitExceededException: <p>The request exceeds a limit of the service.</p>
+            aws_sdk_compute_optimizer.errors.missing_authentication_token.MissingAuthenticationToken: <p>The request must contain either a valid (registered) Amazon Web Services access key ID or X.509 certificate.</p>
+            aws_sdk_compute_optimizer.errors.opt_in_required_exception.OptInRequiredException: <p>The account is not opted in to Compute Optimizer.</p>
+            aws_sdk_compute_optimizer.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request has failed due to a temporary failure of the server.</p>
+            aws_sdk_compute_optimizer.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_compute_optimizer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -809,6 +897,17 @@ class AsyncComputeOptimizerClient:
             fields_to_export: <p>The recommendations data to include in the export file. For more information about the fields that can be exported, see <a href=\"https://docs.aws.amazon.com/compute-optimizer/latest/ug/exporting-recommendations.html#exported-files\">Exported files</a> in the <i>Compute Optimizer User Guide</i>.</p>
             file_format: <p>The format of the export file.</p> <p>A CSV file is the only export format currently supported.</p>
             include_member_accounts: <p>Indicates whether to include recommendations for resources in all member accounts of the organization if your account is the management account of an organization.</p> <p>The member accounts must also be opted in to Compute Optimizer, and trusted access for Compute Optimizer must be enabled in the organization account. For more information, see <a href=\"https://docs.aws.amazon.com/compute-optimizer/latest/ug/security-iam.html#trusted-service-access\">Compute Optimizer and Amazon Web Services Organizations trusted access</a> in the <i>Compute Optimizer User Guide</i>.</p> <p>If this parameter is omitted, recommendations for member accounts of the organization aren't included in the export file .</p> <p>This parameter cannot be specified together with the account IDs parameter. The parameters are mutually exclusive.</p>
+
+        Raises:
+            aws_sdk_compute_optimizer.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_compute_optimizer.errors.internal_server_exception.InternalServerException: <p>An internal error has occurred. Try your call again.</p>
+            aws_sdk_compute_optimizer.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value supplied for the input parameter is out of range or not valid.</p>
+            aws_sdk_compute_optimizer.errors.limit_exceeded_exception.LimitExceededException: <p>The request exceeds a limit of the service.</p>
+            aws_sdk_compute_optimizer.errors.missing_authentication_token.MissingAuthenticationToken: <p>The request must contain either a valid (registered) Amazon Web Services access key ID or X.509 certificate.</p>
+            aws_sdk_compute_optimizer.errors.opt_in_required_exception.OptInRequiredException: <p>The account is not opted in to Compute Optimizer.</p>
+            aws_sdk_compute_optimizer.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request has failed due to a temporary failure of the server.</p>
+            aws_sdk_compute_optimizer.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_compute_optimizer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -879,6 +978,17 @@ class AsyncComputeOptimizerClient:
             fields_to_export: <p>The recommendations data to include in the export file. For more information about the fields that can be exported, see <a href=\"https://docs.aws.amazon.com/compute-optimizer/latest/ug/exporting-recommendations.html#exported-files\">Exported files</a> in the <i>Compute Optimizer User Guide</i>.</p>
             file_format: <p> The format of the export file. </p> <p>The CSV file is the only export file format currently supported.</p>
             include_member_accounts: <p>If your account is the management account or the delegated administrator of an organization, this parameter indicates whether to include recommendations for resources in all member accounts of the organization.</p> <p>The member accounts must also be opted in to Compute Optimizer, and trusted access for Compute Optimizer must be enabled in the organization account. For more information, see <a href=\"https://docs.aws.amazon.com/compute-optimizer/latest/ug/security-iam.html#trusted-service-access\">Compute Optimizer and Amazon Web Services Organizations trusted access</a> in the <i>Compute Optimizer User Guide</i>.</p> <p>If this parameter is omitted, recommendations for member accounts of the organization aren't included in the export file.</p> <p>If this parameter or the account ID parameter is omitted, recommendations for member accounts aren't included in the export.</p>
+
+        Raises:
+            aws_sdk_compute_optimizer.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_compute_optimizer.errors.internal_server_exception.InternalServerException: <p>An internal error has occurred. Try your call again.</p>
+            aws_sdk_compute_optimizer.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value supplied for the input parameter is out of range or not valid.</p>
+            aws_sdk_compute_optimizer.errors.limit_exceeded_exception.LimitExceededException: <p>The request exceeds a limit of the service.</p>
+            aws_sdk_compute_optimizer.errors.missing_authentication_token.MissingAuthenticationToken: <p>The request must contain either a valid (registered) Amazon Web Services access key ID or X.509 certificate.</p>
+            aws_sdk_compute_optimizer.errors.opt_in_required_exception.OptInRequiredException: <p>The account is not opted in to Compute Optimizer.</p>
+            aws_sdk_compute_optimizer.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request has failed due to a temporary failure of the server.</p>
+            aws_sdk_compute_optimizer.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_compute_optimizer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -949,6 +1059,17 @@ class AsyncComputeOptimizerClient:
             max_results: <p>The maximum number of Auto Scaling group recommendations to return with a single request.</p> <p>To retrieve the remaining results, make another request with the returned <code>nextToken</code> value.</p>
             filters: <p>An array of objects to specify a filter that returns a more specific list of Auto Scaling group recommendations.</p>
             recommendation_preferences: <p>An object to specify the preferences for the Auto Scaling group recommendations to return in the response.</p>
+
+        Raises:
+            aws_sdk_compute_optimizer.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_compute_optimizer.errors.internal_server_exception.InternalServerException: <p>An internal error has occurred. Try your call again.</p>
+            aws_sdk_compute_optimizer.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value supplied for the input parameter is out of range or not valid.</p>
+            aws_sdk_compute_optimizer.errors.missing_authentication_token.MissingAuthenticationToken: <p>The request must contain either a valid (registered) Amazon Web Services access key ID or X.509 certificate.</p>
+            aws_sdk_compute_optimizer.errors.opt_in_required_exception.OptInRequiredException: <p>The account is not opted in to Compute Optimizer.</p>
+            aws_sdk_compute_optimizer.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource that is required for the action doesn't exist.</p>
+            aws_sdk_compute_optimizer.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request has failed due to a temporary failure of the server.</p>
+            aws_sdk_compute_optimizer.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_compute_optimizer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1016,6 +1137,17 @@ class AsyncComputeOptimizerClient:
             max_results: <p>The maximum number of volume recommendations to return with a single request.</p> <p>To retrieve the remaining results, make another request with the returned <code>nextToken</code> value.</p>
             filters: <p>An array of objects to specify a filter that returns a more specific list of volume recommendations.</p>
             account_ids: <p>The ID of the Amazon Web Services account for which to return volume recommendations.</p> <p>If your account is the management account of an organization, use this parameter to specify the member account for which you want to return volume recommendations.</p> <p>Only one account ID can be specified per request.</p>
+
+        Raises:
+            aws_sdk_compute_optimizer.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_compute_optimizer.errors.internal_server_exception.InternalServerException: <p>An internal error has occurred. Try your call again.</p>
+            aws_sdk_compute_optimizer.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value supplied for the input parameter is out of range or not valid.</p>
+            aws_sdk_compute_optimizer.errors.missing_authentication_token.MissingAuthenticationToken: <p>The request must contain either a valid (registered) Amazon Web Services access key ID or X.509 certificate.</p>
+            aws_sdk_compute_optimizer.errors.opt_in_required_exception.OptInRequiredException: <p>The account is not opted in to Compute Optimizer.</p>
+            aws_sdk_compute_optimizer.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource that is required for the action doesn't exist.</p>
+            aws_sdk_compute_optimizer.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request has failed due to a temporary failure of the server.</p>
+            aws_sdk_compute_optimizer.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_compute_optimizer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1083,6 +1215,17 @@ class AsyncComputeOptimizerClient:
             filters: <p>An array of objects to specify a filter that returns a more specific list of instance recommendations.</p>
             account_ids: <p>The ID of the Amazon Web Services account for which to return instance recommendations.</p> <p>If your account is the management account of an organization, use this parameter to specify the member account for which you want to return instance recommendations.</p> <p>Only one account ID can be specified per request.</p>
             recommendation_preferences: <p>An object to specify the preferences for the Amazon EC2 instance recommendations to return in the response.</p>
+
+        Raises:
+            aws_sdk_compute_optimizer.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_compute_optimizer.errors.internal_server_exception.InternalServerException: <p>An internal error has occurred. Try your call again.</p>
+            aws_sdk_compute_optimizer.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value supplied for the input parameter is out of range or not valid.</p>
+            aws_sdk_compute_optimizer.errors.missing_authentication_token.MissingAuthenticationToken: <p>The request must contain either a valid (registered) Amazon Web Services access key ID or X.509 certificate.</p>
+            aws_sdk_compute_optimizer.errors.opt_in_required_exception.OptInRequiredException: <p>The account is not opted in to Compute Optimizer.</p>
+            aws_sdk_compute_optimizer.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource that is required for the action doesn't exist.</p>
+            aws_sdk_compute_optimizer.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request has failed due to a temporary failure of the server.</p>
+            aws_sdk_compute_optimizer.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_compute_optimizer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1144,6 +1287,17 @@ class AsyncComputeOptimizerClient:
             start_time: <p>The timestamp of the first projected metrics data point to return.</p>
             end_time: <p>The timestamp of the last projected metrics data point to return.</p>
             recommendation_preferences: <p>An object to specify the preferences for the Amazon EC2 recommendation projected metrics to return in the response.</p>
+
+        Raises:
+            aws_sdk_compute_optimizer.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_compute_optimizer.errors.internal_server_exception.InternalServerException: <p>An internal error has occurred. Try your call again.</p>
+            aws_sdk_compute_optimizer.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value supplied for the input parameter is out of range or not valid.</p>
+            aws_sdk_compute_optimizer.errors.missing_authentication_token.MissingAuthenticationToken: <p>The request must contain either a valid (registered) Amazon Web Services access key ID or X.509 certificate.</p>
+            aws_sdk_compute_optimizer.errors.opt_in_required_exception.OptInRequiredException: <p>The account is not opted in to Compute Optimizer.</p>
+            aws_sdk_compute_optimizer.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource that is required for the action doesn't exist.</p>
+            aws_sdk_compute_optimizer.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request has failed due to a temporary failure of the server.</p>
+            aws_sdk_compute_optimizer.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_compute_optimizer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1196,6 +1350,17 @@ class AsyncComputeOptimizerClient:
             period: <p> The granularity, in seconds, of the projected metrics data points. </p>
             start_time: <p> The timestamp of the first projected metrics data point to return. </p>
             end_time: <p> The timestamp of the last projected metrics data point to return. </p>
+
+        Raises:
+            aws_sdk_compute_optimizer.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_compute_optimizer.errors.internal_server_exception.InternalServerException: <p>An internal error has occurred. Try your call again.</p>
+            aws_sdk_compute_optimizer.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value supplied for the input parameter is out of range or not valid.</p>
+            aws_sdk_compute_optimizer.errors.missing_authentication_token.MissingAuthenticationToken: <p>The request must contain either a valid (registered) Amazon Web Services access key ID or X.509 certificate.</p>
+            aws_sdk_compute_optimizer.errors.opt_in_required_exception.OptInRequiredException: <p>The account is not opted in to Compute Optimizer.</p>
+            aws_sdk_compute_optimizer.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource that is required for the action doesn't exist.</p>
+            aws_sdk_compute_optimizer.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request has failed due to a temporary failure of the server.</p>
+            aws_sdk_compute_optimizer.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_compute_optimizer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1256,6 +1421,17 @@ class AsyncComputeOptimizerClient:
             max_results: <p> The maximum number of Amazon ECS service recommendations to return with a single request. </p> <p>To retrieve the remaining results, make another request with the returned <code>nextToken</code> value.</p>
             filters: <p> An array of objects to specify a filter that returns a more specific list of Amazon ECS service recommendations. </p>
             account_ids: <p> Return the Amazon ECS service recommendations to the specified Amazon Web Services account IDs. </p> <p>If your account is the management account or the delegated administrator of an organization, use this parameter to return the Amazon ECS service recommendations to specific member accounts.</p> <p>You can only specify one account ID per request.</p>
+
+        Raises:
+            aws_sdk_compute_optimizer.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_compute_optimizer.errors.internal_server_exception.InternalServerException: <p>An internal error has occurred. Try your call again.</p>
+            aws_sdk_compute_optimizer.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value supplied for the input parameter is out of range or not valid.</p>
+            aws_sdk_compute_optimizer.errors.missing_authentication_token.MissingAuthenticationToken: <p>The request must contain either a valid (registered) Amazon Web Services access key ID or X.509 certificate.</p>
+            aws_sdk_compute_optimizer.errors.opt_in_required_exception.OptInRequiredException: <p>The account is not opted in to Compute Optimizer.</p>
+            aws_sdk_compute_optimizer.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource that is required for the action doesn't exist.</p>
+            aws_sdk_compute_optimizer.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request has failed due to a temporary failure of the server.</p>
+            aws_sdk_compute_optimizer.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_compute_optimizer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1303,6 +1479,17 @@ class AsyncComputeOptimizerClient:
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource for which to confirm effective recommendation preferences. Only EC2 instance and Auto Scaling group ARNs are currently supported.</p>
+
+        Raises:
+            aws_sdk_compute_optimizer.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_compute_optimizer.errors.internal_server_exception.InternalServerException: <p>An internal error has occurred. Try your call again.</p>
+            aws_sdk_compute_optimizer.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value supplied for the input parameter is out of range or not valid.</p>
+            aws_sdk_compute_optimizer.errors.missing_authentication_token.MissingAuthenticationToken: <p>The request must contain either a valid (registered) Amazon Web Services access key ID or X.509 certificate.</p>
+            aws_sdk_compute_optimizer.errors.opt_in_required_exception.OptInRequiredException: <p>The account is not opted in to Compute Optimizer.</p>
+            aws_sdk_compute_optimizer.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource that is required for the action doesn't exist.</p>
+            aws_sdk_compute_optimizer.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request has failed due to a temporary failure of the server.</p>
+            aws_sdk_compute_optimizer.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_compute_optimizer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1334,7 +1521,17 @@ class AsyncComputeOptimizerClient:
     async def get_enrollment_status(
         self, *, config_overrides: Optional[AsyncComputeOptimizerClientConfig] = None
     ) -> "aws_sdk_compute_optimizer.types.get_enrollment_status_response.GetEnrollmentStatusResponse":
-        """<p>Returns the enrollment (opt in) status of an account to the Compute Optimizer service.</p> <p>If the account is the management account of an organization, this action also confirms the enrollment status of member accounts of the organization. Use the <a>GetEnrollmentStatusesForOrganization</a> action to get detailed information about the enrollment status of member accounts of an organization.</p>"""
+        """<p>Returns the enrollment (opt in) status of an account to the Compute Optimizer service.</p> <p>If the account is the management account of an organization, this action also confirms the enrollment status of member accounts of the organization. Use the <a>GetEnrollmentStatusesForOrganization</a> action to get detailed information about the enrollment status of member accounts of an organization.</p>
+
+        Raises:
+            aws_sdk_compute_optimizer.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_compute_optimizer.errors.internal_server_exception.InternalServerException: <p>An internal error has occurred. Try your call again.</p>
+            aws_sdk_compute_optimizer.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value supplied for the input parameter is out of range or not valid.</p>
+            aws_sdk_compute_optimizer.errors.missing_authentication_token.MissingAuthenticationToken: <p>The request must contain either a valid (registered) Amazon Web Services access key ID or X.509 certificate.</p>
+            aws_sdk_compute_optimizer.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request has failed due to a temporary failure of the server.</p>
+            aws_sdk_compute_optimizer.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_compute_optimizer.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_compute_optimizer.types.get_enrollment_status_request.GetEnrollmentStatusRequest]",
@@ -1381,6 +1578,15 @@ class AsyncComputeOptimizerClient:
             filters: <p>An array of objects to specify a filter that returns a more specific list of account enrollment statuses.</p>
             next_token: <p>The token to advance to the next page of account enrollment statuses.</p>
             max_results: <p>The maximum number of account enrollment statuses to return with a single request. You can specify up to 100 statuses to return with each request.</p> <p>To retrieve the remaining results, make another request with the returned <code>nextToken</code> value.</p>
+
+        Raises:
+            aws_sdk_compute_optimizer.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_compute_optimizer.errors.internal_server_exception.InternalServerException: <p>An internal error has occurred. Try your call again.</p>
+            aws_sdk_compute_optimizer.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value supplied for the input parameter is out of range or not valid.</p>
+            aws_sdk_compute_optimizer.errors.missing_authentication_token.MissingAuthenticationToken: <p>The request must contain either a valid (registered) Amazon Web Services access key ID or X.509 certificate.</p>
+            aws_sdk_compute_optimizer.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request has failed due to a temporary failure of the server.</p>
+            aws_sdk_compute_optimizer.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_compute_optimizer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1473,6 +1679,17 @@ class AsyncComputeOptimizerClient:
             filters: <p>An array of objects to specify a filter that returns a more specific list of idle resource recommendations.</p>
             account_ids: <p>Return the idle resource recommendations to the specified Amazon Web Services account IDs.</p> <p>If your account is the management account or the delegated administrator of an organization, use this parameter to return the idle resource recommendations to specific member accounts.</p> <p>You can only specify one account ID per request.</p>
             order_by: <p>The order to sort the idle resource recommendations.</p>
+
+        Raises:
+            aws_sdk_compute_optimizer.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_compute_optimizer.errors.internal_server_exception.InternalServerException: <p>An internal error has occurred. Try your call again.</p>
+            aws_sdk_compute_optimizer.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value supplied for the input parameter is out of range or not valid.</p>
+            aws_sdk_compute_optimizer.errors.missing_authentication_token.MissingAuthenticationToken: <p>The request must contain either a valid (registered) Amazon Web Services access key ID or X.509 certificate.</p>
+            aws_sdk_compute_optimizer.errors.opt_in_required_exception.OptInRequiredException: <p>The account is not opted in to Compute Optimizer.</p>
+            aws_sdk_compute_optimizer.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource that is required for the action doesn't exist.</p>
+            aws_sdk_compute_optimizer.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request has failed due to a temporary failure of the server.</p>
+            aws_sdk_compute_optimizer.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_compute_optimizer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1540,6 +1757,17 @@ class AsyncComputeOptimizerClient:
             filters: <p>An array of objects to specify a filter that returns a more specific list of function recommendations.</p>
             next_token: <p>The token to advance to the next page of function recommendations.</p>
             max_results: <p>The maximum number of function recommendations to return with a single request.</p> <p>To retrieve the remaining results, make another request with the returned <code>nextToken</code> value.</p>
+
+        Raises:
+            aws_sdk_compute_optimizer.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_compute_optimizer.errors.internal_server_exception.InternalServerException: <p>An internal error has occurred. Try your call again.</p>
+            aws_sdk_compute_optimizer.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value supplied for the input parameter is out of range or not valid.</p>
+            aws_sdk_compute_optimizer.errors.limit_exceeded_exception.LimitExceededException: <p>The request exceeds a limit of the service.</p>
+            aws_sdk_compute_optimizer.errors.missing_authentication_token.MissingAuthenticationToken: <p>The request must contain either a valid (registered) Amazon Web Services access key ID or X.509 certificate.</p>
+            aws_sdk_compute_optimizer.errors.opt_in_required_exception.OptInRequiredException: <p>The account is not opted in to Compute Optimizer.</p>
+            aws_sdk_compute_optimizer.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request has failed due to a temporary failure of the server.</p>
+            aws_sdk_compute_optimizer.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_compute_optimizer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1642,6 +1870,17 @@ class AsyncComputeOptimizerClient:
             max_results: <p> The maximum number of license recommendations to return with a single request. </p> <p> To retrieve the remaining results, make another request with the returned <code>nextToken</code> value. </p>
             filters: <p> An array of objects to specify a filter that returns a more specific list of license recommendations. </p>
             account_ids: <p>The ID of the Amazon Web Services account for which to return license recommendations.</p> <p>If your account is the management account of an organization, use this parameter to specify the member account for which you want to return license recommendations.</p> <p>Only one account ID can be specified per request.</p>
+
+        Raises:
+            aws_sdk_compute_optimizer.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_compute_optimizer.errors.internal_server_exception.InternalServerException: <p>An internal error has occurred. Try your call again.</p>
+            aws_sdk_compute_optimizer.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value supplied for the input parameter is out of range or not valid.</p>
+            aws_sdk_compute_optimizer.errors.missing_authentication_token.MissingAuthenticationToken: <p>The request must contain either a valid (registered) Amazon Web Services access key ID or X.509 certificate.</p>
+            aws_sdk_compute_optimizer.errors.opt_in_required_exception.OptInRequiredException: <p>The account is not opted in to Compute Optimizer.</p>
+            aws_sdk_compute_optimizer.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource that is required for the action doesn't exist.</p>
+            aws_sdk_compute_optimizer.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request has failed due to a temporary failure of the server.</p>
+            aws_sdk_compute_optimizer.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_compute_optimizer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1700,6 +1939,17 @@ class AsyncComputeOptimizerClient:
             period: <p> The granularity, in seconds, of the projected metrics data points. </p>
             start_time: <p> The timestamp of the first projected metrics data point to return. </p>
             end_time: <p> The timestamp of the last projected metrics data point to return. </p>
+
+        Raises:
+            aws_sdk_compute_optimizer.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_compute_optimizer.errors.internal_server_exception.InternalServerException: <p>An internal error has occurred. Try your call again.</p>
+            aws_sdk_compute_optimizer.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value supplied for the input parameter is out of range or not valid.</p>
+            aws_sdk_compute_optimizer.errors.missing_authentication_token.MissingAuthenticationToken: <p>The request must contain either a valid (registered) Amazon Web Services access key ID or X.509 certificate.</p>
+            aws_sdk_compute_optimizer.errors.opt_in_required_exception.OptInRequiredException: <p>The account is not opted in to Compute Optimizer.</p>
+            aws_sdk_compute_optimizer.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource that is required for the action doesn't exist.</p>
+            aws_sdk_compute_optimizer.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request has failed due to a temporary failure of the server.</p>
+            aws_sdk_compute_optimizer.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_compute_optimizer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1765,6 +2015,17 @@ class AsyncComputeOptimizerClient:
             max_results: <p>The maximum number of Amazon Aurora and RDS database recommendations to return with a single request.</p> <p>To retrieve the remaining results, make another request with the returned <code>nextToken</code> value.</p>
             filters: <p> An array of objects to specify a filter that returns a more specific list of Amazon Aurora and RDS database recommendations. </p>
             account_ids: <p> Return the Amazon Aurora and RDS database recommendations to the specified Amazon Web Services account IDs. </p> <p>If your account is the management account or the delegated administrator of an organization, use this parameter to return the Amazon Aurora and RDS database recommendations to specific member accounts.</p> <p>You can only specify one account ID per request.</p>
+
+        Raises:
+            aws_sdk_compute_optimizer.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_compute_optimizer.errors.internal_server_exception.InternalServerException: <p>An internal error has occurred. Try your call again.</p>
+            aws_sdk_compute_optimizer.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value supplied for the input parameter is out of range or not valid.</p>
+            aws_sdk_compute_optimizer.errors.missing_authentication_token.MissingAuthenticationToken: <p>The request must contain either a valid (registered) Amazon Web Services access key ID or X.509 certificate.</p>
+            aws_sdk_compute_optimizer.errors.opt_in_required_exception.OptInRequiredException: <p>The account is not opted in to Compute Optimizer.</p>
+            aws_sdk_compute_optimizer.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource that is required for the action doesn't exist.</p>
+            aws_sdk_compute_optimizer.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request has failed due to a temporary failure of the server.</p>
+            aws_sdk_compute_optimizer.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_compute_optimizer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1824,6 +2085,17 @@ class AsyncComputeOptimizerClient:
             scope: <p>An object that describes the scope of the recommendation preference to return.</p> <p>You can return recommendation preferences that are created at the organization level (for management accounts of an organization only), account level, and resource level. For more information, see <a href=\"https://docs.aws.amazon.com/compute-optimizer/latest/ug/enhanced-infrastructure-metrics.html\">Activating enhanced infrastructure metrics</a> in the <i>Compute Optimizer User Guide</i>.</p>
             next_token: <p>The token to advance to the next page of recommendation preferences.</p>
             max_results: <p>The maximum number of recommendation preferences to return with a single request.</p> <p>To retrieve the remaining results, make another request with the returned <code>nextToken</code> value.</p>
+
+        Raises:
+            aws_sdk_compute_optimizer.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_compute_optimizer.errors.internal_server_exception.InternalServerException: <p>An internal error has occurred. Try your call again.</p>
+            aws_sdk_compute_optimizer.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value supplied for the input parameter is out of range or not valid.</p>
+            aws_sdk_compute_optimizer.errors.missing_authentication_token.MissingAuthenticationToken: <p>The request must contain either a valid (registered) Amazon Web Services access key ID or X.509 certificate.</p>
+            aws_sdk_compute_optimizer.errors.opt_in_required_exception.OptInRequiredException: <p>The account is not opted in to Compute Optimizer.</p>
+            aws_sdk_compute_optimizer.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource that is required for the action doesn't exist.</p>
+            aws_sdk_compute_optimizer.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request has failed due to a temporary failure of the server.</p>
+            aws_sdk_compute_optimizer.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_compute_optimizer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1907,6 +2179,16 @@ class AsyncComputeOptimizerClient:
             account_ids: <p>The ID of the Amazon Web Services account for which to return recommendation summaries.</p> <p>If your account is the management account of an organization, use this parameter to specify the member account for which you want to return recommendation summaries.</p> <p>Only one account ID can be specified per request.</p>
             next_token: <p>The token to advance to the next page of recommendation summaries.</p>
             max_results: <p>The maximum number of recommendation summaries to return with a single request.</p> <p>To retrieve the remaining results, make another request with the returned <code>nextToken</code> value.</p>
+
+        Raises:
+            aws_sdk_compute_optimizer.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_compute_optimizer.errors.internal_server_exception.InternalServerException: <p>An internal error has occurred. Try your call again.</p>
+            aws_sdk_compute_optimizer.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value supplied for the input parameter is out of range or not valid.</p>
+            aws_sdk_compute_optimizer.errors.missing_authentication_token.MissingAuthenticationToken: <p>The request must contain either a valid (registered) Amazon Web Services access key ID or X.509 certificate.</p>
+            aws_sdk_compute_optimizer.errors.opt_in_required_exception.OptInRequiredException: <p>The account is not opted in to Compute Optimizer.</p>
+            aws_sdk_compute_optimizer.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request has failed due to a temporary failure of the server.</p>
+            aws_sdk_compute_optimizer.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_compute_optimizer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2009,6 +2291,17 @@ class AsyncComputeOptimizerClient:
             utilization_preferences: <p> The preference to control the resource’s CPU utilization threshold, CPU utilization headroom, and memory utilization headroom. When this preference isn't specified, we use the following default values. </p> <p>CPU utilization:</p> <ul> <li> <p> <code>P99_5</code> for threshold</p> </li> <li> <p> <code>PERCENT_20</code> for headroom</p> </li> </ul> <p>Memory utilization:</p> <ul> <li> <p> <code>PERCENT_20</code> for headroom</p> </li> </ul> <note> <ul> <li> <p>You can only set CPU and memory utilization preferences for the Amazon EC2 instance resource type.</p> </li> <li> <p>The threshold setting isn’t available for memory utilization.</p> </li> </ul> </note>
             preferred_resources: <p> The preference to control which resource type values are considered when generating rightsizing recommendations. You can specify this preference as a combination of include and exclude lists. You must specify either an <code>includeList</code> or <code>excludeList</code>. If the preference is an empty set of resource type values, an error occurs. </p> <note> <p>You can only set this preference for the Amazon EC2 instance, Auto Scaling group, Amazon EBS volume, Amazon ECS service, Amazon RDS DB instance, and Aurora DB cluster storage resource types.</p> </note>
             savings_estimation_mode: <p> The status of the savings estimation mode preference to create or update. </p> <p>Specify the <code>AfterDiscounts</code> status to activate the preference, or specify <code>BeforeDiscounts</code> to deactivate the preference.</p> <p>Only the account manager or delegated administrator of your organization can activate this preference.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/compute-optimizer/latest/ug/savings-estimation-mode.html\"> Savings estimation mode</a> in the <i>Compute Optimizer User Guide</i>.</p>
+
+        Raises:
+            aws_sdk_compute_optimizer.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_compute_optimizer.errors.internal_server_exception.InternalServerException: <p>An internal error has occurred. Try your call again.</p>
+            aws_sdk_compute_optimizer.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value supplied for the input parameter is out of range or not valid.</p>
+            aws_sdk_compute_optimizer.errors.missing_authentication_token.MissingAuthenticationToken: <p>The request must contain either a valid (registered) Amazon Web Services access key ID or X.509 certificate.</p>
+            aws_sdk_compute_optimizer.errors.opt_in_required_exception.OptInRequiredException: <p>The account is not opted in to Compute Optimizer.</p>
+            aws_sdk_compute_optimizer.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource that is required for the action doesn't exist.</p>
+            aws_sdk_compute_optimizer.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request has failed due to a temporary failure of the server.</p>
+            aws_sdk_compute_optimizer.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_compute_optimizer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2067,6 +2360,15 @@ class AsyncComputeOptimizerClient:
         Args:
             status: <p>The new enrollment status of the account.</p> <p>The following status options are available:</p> <ul> <li> <p> <code>Active</code> - Opts in your account to the Compute Optimizer service. Compute Optimizer begins analyzing the configuration and utilization metrics of your Amazon Web Services resources after you opt in. For more information, see <a href=\"https://docs.aws.amazon.com/compute-optimizer/latest/ug/metrics.html\">Metrics analyzed by Compute Optimizer</a> in the <i>Compute Optimizer User Guide</i>.</p> </li> <li> <p> <code>Inactive</code> - Opts out your account from the Compute Optimizer service. Your account's recommendations and related metrics data will be deleted from Compute Optimizer after you opt out.</p> </li> </ul> <note> <p>The <code>Pending</code> and <code>Failed</code> options cannot be used to update the enrollment status of an account. They are returned in the response of a request to update the enrollment status of an account.</p> </note>
             include_member_accounts: <p>Indicates whether to enroll member accounts of the organization if the account is the management account of an organization.</p>
+
+        Raises:
+            aws_sdk_compute_optimizer.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_compute_optimizer.errors.internal_server_exception.InternalServerException: <p>An internal error has occurred. Try your call again.</p>
+            aws_sdk_compute_optimizer.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value supplied for the input parameter is out of range or not valid.</p>
+            aws_sdk_compute_optimizer.errors.missing_authentication_token.MissingAuthenticationToken: <p>The request must contain either a valid (registered) Amazon Web Services access key ID or X.509 certificate.</p>
+            aws_sdk_compute_optimizer.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request has failed due to a temporary failure of the server.</p>
+            aws_sdk_compute_optimizer.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_compute_optimizer.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

@@ -47,6 +47,14 @@ class ControlResource:
 
         Args:
             control_arn: <p>The Amazon Resource Name (ARN) of the control. It has one of the following formats:</p> <p> <i>Global format</i> </p> <p> <code>arn:{PARTITION}:controlcatalog:::control/{CONTROL_CATALOG_OPAQUE_ID}</code> </p> <p> <i>Or Regional format</i> </p> <p> <code>arn:{PARTITION}:controltower:{REGION}::control/{CONTROL_TOWER_OPAQUE_ID}</code> </p> <p>Here is a more general pattern that covers Amazon Web Services Control Tower and Control Catalog ARNs:</p> <p> <code>^arn:(aws(?:[-a-z]*)?):(controlcatalog|controltower):[a-zA-Z0-9-]*::control/[0-9a-zA-Z_\\-]+$</code> </p>
+
+        Raises:
+            aws_sdk_controlcatalog.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_controlcatalog.errors.internal_server_exception.InternalServerException: <p>An internal service error occurred during the processing of your request. Try again later.</p>
+            aws_sdk_controlcatalog.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource does not exist.</p>
+            aws_sdk_controlcatalog.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_controlcatalog.errors.validation_exception.ValidationException: <p>The request has invalid or missing parameters.</p>
+            aws_sdk_controlcatalog.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -94,6 +102,13 @@ class ControlResource:
             next_token: <p>The pagination token that's used to fetch the next set of results.</p>
             max_results: <p>The maximum number of results on a page or for an API request call.</p>
             filter: <p>An optional filter that narrows the results to controls with specific implementation types or identifiers. If you don't provide a filter, the operation returns all available controls.</p>
+
+        Raises:
+            aws_sdk_controlcatalog.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_controlcatalog.errors.internal_server_exception.InternalServerException: <p>An internal service error occurred during the processing of your request. Try again later.</p>
+            aws_sdk_controlcatalog.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_controlcatalog.errors.validation_exception.ValidationException: <p>The request has invalid or missing parameters.</p>
+            aws_sdk_controlcatalog.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -141,6 +156,14 @@ class AsyncControlResource:
 
         Args:
             control_arn: <p>The Amazon Resource Name (ARN) of the control. It has one of the following formats:</p> <p> <i>Global format</i> </p> <p> <code>arn:{PARTITION}:controlcatalog:::control/{CONTROL_CATALOG_OPAQUE_ID}</code> </p> <p> <i>Or Regional format</i> </p> <p> <code>arn:{PARTITION}:controltower:{REGION}::control/{CONTROL_TOWER_OPAQUE_ID}</code> </p> <p>Here is a more general pattern that covers Amazon Web Services Control Tower and Control Catalog ARNs:</p> <p> <code>^arn:(aws(?:[-a-z]*)?):(controlcatalog|controltower):[a-zA-Z0-9-]*::control/[0-9a-zA-Z_\\-]+$</code> </p>
+
+        Raises:
+            aws_sdk_controlcatalog.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_controlcatalog.errors.internal_server_exception.InternalServerException: <p>An internal service error occurred during the processing of your request. Try again later.</p>
+            aws_sdk_controlcatalog.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource does not exist.</p>
+            aws_sdk_controlcatalog.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_controlcatalog.errors.validation_exception.ValidationException: <p>The request has invalid or missing parameters.</p>
+            aws_sdk_controlcatalog.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -189,6 +212,13 @@ class AsyncControlResource:
             next_token: <p>The pagination token that's used to fetch the next set of results.</p>
             max_results: <p>The maximum number of results on a page or for an API request call.</p>
             filter: <p>An optional filter that narrows the results to controls with specific implementation types or identifiers. If you don't provide a filter, the operation returns all available controls.</p>
+
+        Raises:
+            aws_sdk_controlcatalog.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_controlcatalog.errors.internal_server_exception.InternalServerException: <p>An internal service error occurred during the processing of your request. Try again later.</p>
+            aws_sdk_controlcatalog.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_controlcatalog.errors.validation_exception.ValidationException: <p>The request has invalid or missing parameters.</p>
+            aws_sdk_controlcatalog.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

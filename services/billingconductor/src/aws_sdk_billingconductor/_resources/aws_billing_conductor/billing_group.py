@@ -84,6 +84,15 @@ class BillingGroup:
             primary_account_id: <p> The account ID that serves as the main account in a billing group. </p>
             description: <p>The description of the billing group. </p>
             tags: <p> A map that contains tag keys and tag values that are attached to a billing group. This feature isn't available during the beta. </p>
+
+        Raises:
+            aws_sdk_billingconductor.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action. </p>
+            aws_sdk_billingconductor.errors.conflict_exception.ConflictException: <p>You can cause an inconsistent state by updating or deleting a resource. </p>
+            aws_sdk_billingconductor.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request. </p>
+            aws_sdk_billingconductor.errors.service_limit_exceeded_exception.ServiceLimitExceededException: <p>The request would cause a service limit to exceed. </p>
+            aws_sdk_billingconductor.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. </p>
+            aws_sdk_billingconductor.errors.validation_exception.ValidationException: <p>The input doesn't match with the constraints specified by Amazon Web Services services.</p>
+            aws_sdk_billingconductor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -151,6 +160,15 @@ class BillingGroup:
             computation_preference: <p> The preferences and settings that will be used to compute the Amazon Web Services charges for a billing group. </p>
             description: <p>A description of the billing group. </p>
             account_grouping: <p>Specifies if the billing group has automatic account association (<code>AutoAssociate</code>) enabled.</p>
+
+        Raises:
+            aws_sdk_billingconductor.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action. </p>
+            aws_sdk_billingconductor.errors.conflict_exception.ConflictException: <p>You can cause an inconsistent state by updating or deleting a resource. </p>
+            aws_sdk_billingconductor.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request. </p>
+            aws_sdk_billingconductor.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource that doesn't exist. </p>
+            aws_sdk_billingconductor.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. </p>
+            aws_sdk_billingconductor.errors.validation_exception.ValidationException: <p>The input doesn't match with the constraints specified by Amazon Web Services services.</p>
+            aws_sdk_billingconductor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -198,6 +216,13 @@ class BillingGroup:
 
         Args:
             arn: <p>The Amazon Resource Name (ARN) of the billing group that you're deleting.</p>
+
+        Raises:
+            aws_sdk_billingconductor.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action. </p>
+            aws_sdk_billingconductor.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request. </p>
+            aws_sdk_billingconductor.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. </p>
+            aws_sdk_billingconductor.errors.validation_exception.ValidationException: <p>The input doesn't match with the constraints specified by Amazon Web Services services.</p>
+            aws_sdk_billingconductor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -247,6 +272,14 @@ class BillingGroup:
             max_results: <p>The maximum number of billing groups to retrieve. </p>
             next_token: <p>The pagination token that's used on subsequent calls to get billing groups. </p>
             filters: <p>A <code>ListBillingGroupsFilter</code> that specifies the billing group and pricing plan to retrieve billing group information. </p>
+
+        Raises:
+            aws_sdk_billingconductor.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action. </p>
+            aws_sdk_billingconductor.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request. </p>
+            aws_sdk_billingconductor.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource that doesn't exist. </p>
+            aws_sdk_billingconductor.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. </p>
+            aws_sdk_billingconductor.errors.validation_exception.ValidationException: <p>The input doesn't match with the constraints specified by Amazon Web Services services.</p>
+            aws_sdk_billingconductor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -293,6 +326,16 @@ class BillingGroup:
         Args:
             arn: <p> The Amazon Resource Name (ARN) of the billing group that associates the array of account IDs. </p>
             account_ids: <p> The associating array of account IDs. </p>
+
+        Raises:
+            aws_sdk_billingconductor.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action. </p>
+            aws_sdk_billingconductor.errors.conflict_exception.ConflictException: <p>You can cause an inconsistent state by updating or deleting a resource. </p>
+            aws_sdk_billingconductor.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request. </p>
+            aws_sdk_billingconductor.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource that doesn't exist. </p>
+            aws_sdk_billingconductor.errors.service_limit_exceeded_exception.ServiceLimitExceededException: <p>The request would cause a service limit to exceed. </p>
+            aws_sdk_billingconductor.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. </p>
+            aws_sdk_billingconductor.errors.validation_exception.ValidationException: <p>The input doesn't match with the constraints specified by Amazon Web Services services.</p>
+            aws_sdk_billingconductor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -333,6 +376,15 @@ class BillingGroup:
         Args:
             arn: <p>The Amazon Resource Name (ARN) of the billing group that the array of account IDs will disassociate from. </p>
             account_ids: <p>The array of account IDs to disassociate. </p>
+
+        Raises:
+            aws_sdk_billingconductor.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action. </p>
+            aws_sdk_billingconductor.errors.conflict_exception.ConflictException: <p>You can cause an inconsistent state by updating or deleting a resource. </p>
+            aws_sdk_billingconductor.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request. </p>
+            aws_sdk_billingconductor.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource that doesn't exist. </p>
+            aws_sdk_billingconductor.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. </p>
+            aws_sdk_billingconductor.errors.validation_exception.ValidationException: <p>The input doesn't match with the constraints specified by Amazon Web Services services.</p>
+            aws_sdk_billingconductor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -394,6 +446,15 @@ class AsyncBillingGroup:
             primary_account_id: <p> The account ID that serves as the main account in a billing group. </p>
             description: <p>The description of the billing group. </p>
             tags: <p> A map that contains tag keys and tag values that are attached to a billing group. This feature isn't available during the beta. </p>
+
+        Raises:
+            aws_sdk_billingconductor.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action. </p>
+            aws_sdk_billingconductor.errors.conflict_exception.ConflictException: <p>You can cause an inconsistent state by updating or deleting a resource. </p>
+            aws_sdk_billingconductor.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request. </p>
+            aws_sdk_billingconductor.errors.service_limit_exceeded_exception.ServiceLimitExceededException: <p>The request would cause a service limit to exceed. </p>
+            aws_sdk_billingconductor.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. </p>
+            aws_sdk_billingconductor.errors.validation_exception.ValidationException: <p>The input doesn't match with the constraints specified by Amazon Web Services services.</p>
+            aws_sdk_billingconductor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -462,6 +523,15 @@ class AsyncBillingGroup:
             computation_preference: <p> The preferences and settings that will be used to compute the Amazon Web Services charges for a billing group. </p>
             description: <p>A description of the billing group. </p>
             account_grouping: <p>Specifies if the billing group has automatic account association (<code>AutoAssociate</code>) enabled.</p>
+
+        Raises:
+            aws_sdk_billingconductor.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action. </p>
+            aws_sdk_billingconductor.errors.conflict_exception.ConflictException: <p>You can cause an inconsistent state by updating or deleting a resource. </p>
+            aws_sdk_billingconductor.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request. </p>
+            aws_sdk_billingconductor.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource that doesn't exist. </p>
+            aws_sdk_billingconductor.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. </p>
+            aws_sdk_billingconductor.errors.validation_exception.ValidationException: <p>The input doesn't match with the constraints specified by Amazon Web Services services.</p>
+            aws_sdk_billingconductor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -510,6 +580,13 @@ class AsyncBillingGroup:
 
         Args:
             arn: <p>The Amazon Resource Name (ARN) of the billing group that you're deleting.</p>
+
+        Raises:
+            aws_sdk_billingconductor.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action. </p>
+            aws_sdk_billingconductor.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request. </p>
+            aws_sdk_billingconductor.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. </p>
+            aws_sdk_billingconductor.errors.validation_exception.ValidationException: <p>The input doesn't match with the constraints specified by Amazon Web Services services.</p>
+            aws_sdk_billingconductor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -560,6 +637,14 @@ class AsyncBillingGroup:
             max_results: <p>The maximum number of billing groups to retrieve. </p>
             next_token: <p>The pagination token that's used on subsequent calls to get billing groups. </p>
             filters: <p>A <code>ListBillingGroupsFilter</code> that specifies the billing group and pricing plan to retrieve billing group information. </p>
+
+        Raises:
+            aws_sdk_billingconductor.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action. </p>
+            aws_sdk_billingconductor.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request. </p>
+            aws_sdk_billingconductor.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource that doesn't exist. </p>
+            aws_sdk_billingconductor.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. </p>
+            aws_sdk_billingconductor.errors.validation_exception.ValidationException: <p>The input doesn't match with the constraints specified by Amazon Web Services services.</p>
+            aws_sdk_billingconductor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -607,6 +692,16 @@ class AsyncBillingGroup:
         Args:
             arn: <p> The Amazon Resource Name (ARN) of the billing group that associates the array of account IDs. </p>
             account_ids: <p> The associating array of account IDs. </p>
+
+        Raises:
+            aws_sdk_billingconductor.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action. </p>
+            aws_sdk_billingconductor.errors.conflict_exception.ConflictException: <p>You can cause an inconsistent state by updating or deleting a resource. </p>
+            aws_sdk_billingconductor.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request. </p>
+            aws_sdk_billingconductor.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource that doesn't exist. </p>
+            aws_sdk_billingconductor.errors.service_limit_exceeded_exception.ServiceLimitExceededException: <p>The request would cause a service limit to exceed. </p>
+            aws_sdk_billingconductor.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. </p>
+            aws_sdk_billingconductor.errors.validation_exception.ValidationException: <p>The input doesn't match with the constraints specified by Amazon Web Services services.</p>
+            aws_sdk_billingconductor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -648,6 +743,15 @@ class AsyncBillingGroup:
         Args:
             arn: <p>The Amazon Resource Name (ARN) of the billing group that the array of account IDs will disassociate from. </p>
             account_ids: <p>The array of account IDs to disassociate. </p>
+
+        Raises:
+            aws_sdk_billingconductor.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action. </p>
+            aws_sdk_billingconductor.errors.conflict_exception.ConflictException: <p>You can cause an inconsistent state by updating or deleting a resource. </p>
+            aws_sdk_billingconductor.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request. </p>
+            aws_sdk_billingconductor.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource that doesn't exist. </p>
+            aws_sdk_billingconductor.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. </p>
+            aws_sdk_billingconductor.errors.validation_exception.ValidationException: <p>The input doesn't match with the constraints specified by Amazon Web Services services.</p>
+            aws_sdk_billingconductor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

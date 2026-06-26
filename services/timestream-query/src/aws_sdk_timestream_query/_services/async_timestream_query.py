@@ -191,6 +191,14 @@ class AsyncTimestreamQueryClient:
 
         Args:
             query_id: <p> The ID of the query that needs to be cancelled. <code>QueryID</code> is returned as part of the query result. </p>
+
+        Raises:
+            aws_sdk_timestream_query.errors.access_denied_exception.AccessDeniedException: <p>You do not have the necessary permissions to access the account settings.</p>
+            aws_sdk_timestream_query.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred while processing the request.</p>
+            aws_sdk_timestream_query.errors.invalid_endpoint_exception.InvalidEndpointException: <p>The requested endpoint is invalid.</p>
+            aws_sdk_timestream_query.errors.throttling_exception.ThrottlingException: <p>The request was throttled due to excessive requests.</p>
+            aws_sdk_timestream_query.errors.validation_exception.ValidationException: <p> Invalid or malformed request. </p>
+            aws_sdk_timestream_query.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -253,6 +261,16 @@ class AsyncTimestreamQueryClient:
             tags: <p>A list of key-value pairs to label the scheduled query.</p>
             kms_key_id: <p>The Amazon KMS key used to encrypt the scheduled query resource, at-rest. If the Amazon KMS key is not specified, the scheduled query resource will be encrypted with a Timestream owned Amazon KMS key. To specify a KMS key, use the key ID, key ARN, alias name, or alias ARN. When using an alias name, prefix the name with <i>alias/</i> </p> <p>If ErrorReportConfiguration uses <code>SSE_KMS</code> as encryption type, the same KmsKeyId is used to encrypt the error report at rest.</p>
             error_report_configuration: <p>Configuration for error reporting. Error reports will be generated when a problem is encountered when writing the query results. </p>
+
+        Raises:
+            aws_sdk_timestream_query.errors.access_denied_exception.AccessDeniedException: <p>You do not have the necessary permissions to access the account settings.</p>
+            aws_sdk_timestream_query.errors.conflict_exception.ConflictException: <p> Unable to poll results for a cancelled query. </p>
+            aws_sdk_timestream_query.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred while processing the request.</p>
+            aws_sdk_timestream_query.errors.invalid_endpoint_exception.InvalidEndpointException: <p>The requested endpoint is invalid.</p>
+            aws_sdk_timestream_query.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You have exceeded the service quota.</p>
+            aws_sdk_timestream_query.errors.throttling_exception.ThrottlingException: <p>The request was throttled due to excessive requests.</p>
+            aws_sdk_timestream_query.errors.validation_exception.ValidationException: <p> Invalid or malformed request. </p>
+            aws_sdk_timestream_query.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -306,6 +324,15 @@ class AsyncTimestreamQueryClient:
 
         Args:
             scheduled_query_arn: <p>The ARN of the scheduled query. </p>
+
+        Raises:
+            aws_sdk_timestream_query.errors.access_denied_exception.AccessDeniedException: <p>You do not have the necessary permissions to access the account settings.</p>
+            aws_sdk_timestream_query.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred while processing the request.</p>
+            aws_sdk_timestream_query.errors.invalid_endpoint_exception.InvalidEndpointException: <p>The requested endpoint is invalid.</p>
+            aws_sdk_timestream_query.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource could not be found.</p>
+            aws_sdk_timestream_query.errors.throttling_exception.ThrottlingException: <p>The request was throttled due to excessive requests.</p>
+            aws_sdk_timestream_query.errors.validation_exception.ValidationException: <p> Invalid or malformed request. </p>
+            aws_sdk_timestream_query.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -335,7 +362,15 @@ class AsyncTimestreamQueryClient:
     async def describe_account_settings(
         self, *, config_overrides: Optional[AsyncTimestreamQueryClientConfig] = None
     ) -> "aws_sdk_timestream_query.types.describe_account_settings_response.DescribeAccountSettingsResponse":
-        """<p>Describes the settings for your account that include the query pricing model and the configured maximum TCUs the service can use for your query workload.</p> <p>You're charged only for the duration of compute units used for your workloads.</p>"""
+        """<p>Describes the settings for your account that include the query pricing model and the configured maximum TCUs the service can use for your query workload.</p> <p>You're charged only for the duration of compute units used for your workloads.</p>
+
+        Raises:
+            aws_sdk_timestream_query.errors.access_denied_exception.AccessDeniedException: <p>You do not have the necessary permissions to access the account settings.</p>
+            aws_sdk_timestream_query.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred while processing the request.</p>
+            aws_sdk_timestream_query.errors.invalid_endpoint_exception.InvalidEndpointException: <p>The requested endpoint is invalid.</p>
+            aws_sdk_timestream_query.errors.throttling_exception.ThrottlingException: <p>The request was throttled due to excessive requests.</p>
+            aws_sdk_timestream_query.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_timestream_query.types.describe_account_settings_request.DescribeAccountSettingsRequest]",
@@ -365,7 +400,14 @@ class AsyncTimestreamQueryClient:
     async def describe_endpoints(
         self, *, config_overrides: Optional[AsyncTimestreamQueryClientConfig] = None
     ) -> "aws_sdk_timestream_query.types.describe_endpoints_response.DescribeEndpointsResponse":
-        r"""<p>DescribeEndpoints returns a list of available endpoints to make Timestream API calls against. This API is available through both Write and Query.</p> <p>Because the Timestream SDKs are designed to transparently work with the service’s architecture, including the management and mapping of the service endpoints, <i>it is not recommended that you use this API unless</i>:</p> <ul> <li> <p>You are using <a href=\"https://docs.aws.amazon.com/timestream/latest/developerguide/VPCEndpoints\">VPC endpoints (Amazon Web Services PrivateLink) with Timestream </a> </p> </li> <li> <p>Your application uses a programming language that does not yet have SDK support</p> </li> <li> <p>You require better control over the client-side implementation</p> </li> </ul> <p>For detailed information on how and when to use and implement DescribeEndpoints, see <a href=\"https://docs.aws.amazon.com/timestream/latest/developerguide/Using.API.html#Using-API.endpoint-discovery\">The Endpoint Discovery Pattern</a>.</p>"""
+        r"""<p>DescribeEndpoints returns a list of available endpoints to make Timestream API calls against. This API is available through both Write and Query.</p> <p>Because the Timestream SDKs are designed to transparently work with the service’s architecture, including the management and mapping of the service endpoints, <i>it is not recommended that you use this API unless</i>:</p> <ul> <li> <p>You are using <a href=\"https://docs.aws.amazon.com/timestream/latest/developerguide/VPCEndpoints\">VPC endpoints (Amazon Web Services PrivateLink) with Timestream </a> </p> </li> <li> <p>Your application uses a programming language that does not yet have SDK support</p> </li> <li> <p>You require better control over the client-side implementation</p> </li> </ul> <p>For detailed information on how and when to use and implement DescribeEndpoints, see <a href=\"https://docs.aws.amazon.com/timestream/latest/developerguide/Using.API.html#Using-API.endpoint-discovery\">The Endpoint Discovery Pattern</a>.</p>
+
+        Raises:
+            aws_sdk_timestream_query.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred while processing the request.</p>
+            aws_sdk_timestream_query.errors.throttling_exception.ThrottlingException: <p>The request was throttled due to excessive requests.</p>
+            aws_sdk_timestream_query.errors.validation_exception.ValidationException: <p> Invalid or malformed request. </p>
+            aws_sdk_timestream_query.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_timestream_query.types.describe_endpoints_request.DescribeEndpointsRequest]",
@@ -402,6 +444,15 @@ class AsyncTimestreamQueryClient:
 
         Args:
             scheduled_query_arn: <p>The ARN of the scheduled query.</p>
+
+        Raises:
+            aws_sdk_timestream_query.errors.access_denied_exception.AccessDeniedException: <p>You do not have the necessary permissions to access the account settings.</p>
+            aws_sdk_timestream_query.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred while processing the request.</p>
+            aws_sdk_timestream_query.errors.invalid_endpoint_exception.InvalidEndpointException: <p>The requested endpoint is invalid.</p>
+            aws_sdk_timestream_query.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource could not be found.</p>
+            aws_sdk_timestream_query.errors.throttling_exception.ThrottlingException: <p>The request was throttled due to excessive requests.</p>
+            aws_sdk_timestream_query.errors.validation_exception.ValidationException: <p> Invalid or malformed request. </p>
+            aws_sdk_timestream_query.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -450,6 +501,15 @@ class AsyncTimestreamQueryClient:
             invocation_time: <p>The timestamp in UTC. Query will be run as if it was invoked at this timestamp. </p>
             client_token: <p>Not used. </p>
             query_insights: <p>Encapsulates settings for enabling <code>QueryInsights</code>.</p> <p>Enabling <code>QueryInsights</code> returns insights and metrics as a part of the Amazon SNS notification for the query that you executed. You can use <code>QueryInsights</code> to tune your query performance and cost.</p>
+
+        Raises:
+            aws_sdk_timestream_query.errors.access_denied_exception.AccessDeniedException: <p>You do not have the necessary permissions to access the account settings.</p>
+            aws_sdk_timestream_query.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred while processing the request.</p>
+            aws_sdk_timestream_query.errors.invalid_endpoint_exception.InvalidEndpointException: <p>The requested endpoint is invalid.</p>
+            aws_sdk_timestream_query.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource could not be found.</p>
+            aws_sdk_timestream_query.errors.throttling_exception.ThrottlingException: <p>The request was throttled due to excessive requests.</p>
+            aws_sdk_timestream_query.errors.validation_exception.ValidationException: <p> Invalid or malformed request. </p>
+            aws_sdk_timestream_query.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -497,6 +557,14 @@ class AsyncTimestreamQueryClient:
         Args:
             max_results: <p>The maximum number of items to return in the output. If the total number of items available is more than the value specified, a <code>NextToken</code> is provided in the output. To resume pagination, provide the <code>NextToken</code> value as the argument to the subsequent call to <code>ListScheduledQueriesRequest</code>.</p>
             next_token: <p> A pagination token to resume pagination.</p>
+
+        Raises:
+            aws_sdk_timestream_query.errors.access_denied_exception.AccessDeniedException: <p>You do not have the necessary permissions to access the account settings.</p>
+            aws_sdk_timestream_query.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred while processing the request.</p>
+            aws_sdk_timestream_query.errors.invalid_endpoint_exception.InvalidEndpointException: <p>The requested endpoint is invalid.</p>
+            aws_sdk_timestream_query.errors.throttling_exception.ThrottlingException: <p>The request was throttled due to excessive requests.</p>
+            aws_sdk_timestream_query.errors.validation_exception.ValidationException: <p> Invalid or malformed request. </p>
+            aws_sdk_timestream_query.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -571,6 +639,13 @@ class AsyncTimestreamQueryClient:
             resource_arn: <p>The Timestream resource with tags to be listed. This value is an Amazon Resource Name (ARN).</p>
             max_results: <p>The maximum number of tags to return.</p>
             next_token: <p>A pagination token to resume pagination.</p>
+
+        Raises:
+            aws_sdk_timestream_query.errors.invalid_endpoint_exception.InvalidEndpointException: <p>The requested endpoint is invalid.</p>
+            aws_sdk_timestream_query.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource could not be found.</p>
+            aws_sdk_timestream_query.errors.throttling_exception.ThrottlingException: <p>The request was throttled due to excessive requests.</p>
+            aws_sdk_timestream_query.errors.validation_exception.ValidationException: <p> Invalid or malformed request. </p>
+            aws_sdk_timestream_query.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -644,6 +719,14 @@ class AsyncTimestreamQueryClient:
         Args:
             query_string: <p>The Timestream query string that you want to use as a prepared statement. Parameter names can be specified in the query string <code>@</code> character followed by an identifier. </p>
             validate_only: <p>By setting this value to <code>true</code>, Timestream will only validate that the query string is a valid Timestream query, and not store the prepared query for later use.</p>
+
+        Raises:
+            aws_sdk_timestream_query.errors.access_denied_exception.AccessDeniedException: <p>You do not have the necessary permissions to access the account settings.</p>
+            aws_sdk_timestream_query.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred while processing the request.</p>
+            aws_sdk_timestream_query.errors.invalid_endpoint_exception.InvalidEndpointException: <p>The requested endpoint is invalid.</p>
+            aws_sdk_timestream_query.errors.throttling_exception.ThrottlingException: <p>The request was throttled due to excessive requests.</p>
+            aws_sdk_timestream_query.errors.validation_exception.ValidationException: <p> Invalid or malformed request. </p>
+            aws_sdk_timestream_query.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -700,6 +783,16 @@ class AsyncTimestreamQueryClient:
             next_token: <p> A pagination token used to return a set of results. When the <code>Query</code> API is invoked using <code>NextToken</code>, that particular invocation is assumed to be a subsequent invocation of a prior call to <code>Query</code>, and a result set is returned. However, if the <code>Query</code> invocation only contains the <code>ClientToken</code>, that invocation of <code>Query</code> is assumed to be a new query run. </p> <p>Note the following when using NextToken in a query:</p> <ul> <li> <p>A pagination token can be used for up to five <code>Query</code> invocations, OR for a duration of up to 1 hour – whichever comes first.</p> </li> <li> <p>Using the same <code>NextToken</code> will return the same set of records. To keep paginating through the result set, you must to use the most recent <code>nextToken</code>.</p> </li> <li> <p>Suppose a <code>Query</code> invocation returns two <code>NextToken</code> values, <code>TokenA</code> and <code>TokenB</code>. If <code>TokenB</code> is used in a subsequent <code>Query</code> invocation, then <code>TokenA</code> is invalidated and cannot be reused.</p> </li> <li> <p>To request a previous result set from a query after pagination has begun, you must re-invoke the Query API.</p> </li> <li> <p>The latest <code>NextToken</code> should be used to paginate until <code>null</code> is returned, at which point a new <code>NextToken</code> should be used.</p> </li> <li> <p> If the IAM principal of the query initiator and the result reader are not the same and/or the query initiator and the result reader do not have the same query string in the query requests, the query will fail with an <code>Invalid pagination token</code> error. </p> </li> </ul>
             max_rows: <p> The total number of rows to be returned in the <code>Query</code> output. The initial run of <code>Query</code> with a <code>MaxRows</code> value specified will return the result set of the query in two cases: </p> <ul> <li> <p>The size of the result is less than <code>1MB</code>.</p> </li> <li> <p>The number of rows in the result set is less than the value of <code>maxRows</code>.</p> </li> </ul> <p>Otherwise, the initial invocation of <code>Query</code> only returns a <code>NextToken</code>, which can then be used in subsequent calls to fetch the result set. To resume pagination, provide the <code>NextToken</code> value in the subsequent command.</p> <p>If the row size is large (e.g. a row has many columns), Timestream may return fewer rows to keep the response size from exceeding the 1 MB limit. If <code>MaxRows</code> is not provided, Timestream will send the necessary number of rows to meet the 1 MB limit.</p>
             query_insights: <p>Encapsulates settings for enabling <code>QueryInsights</code>.</p> <p>Enabling <code>QueryInsights</code> returns insights and metrics in addition to query results for the query that you executed. You can use <code>QueryInsights</code> to tune your query performance.</p>
+
+        Raises:
+            aws_sdk_timestream_query.errors.access_denied_exception.AccessDeniedException: <p>You do not have the necessary permissions to access the account settings.</p>
+            aws_sdk_timestream_query.errors.conflict_exception.ConflictException: <p> Unable to poll results for a cancelled query. </p>
+            aws_sdk_timestream_query.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred while processing the request.</p>
+            aws_sdk_timestream_query.errors.invalid_endpoint_exception.InvalidEndpointException: <p>The requested endpoint is invalid.</p>
+            aws_sdk_timestream_query.errors.query_execution_exception.QueryExecutionException: <p> Timestream was unable to run the query successfully. </p>
+            aws_sdk_timestream_query.errors.throttling_exception.ThrottlingException: <p>The request was throttled due to excessive requests.</p>
+            aws_sdk_timestream_query.errors.validation_exception.ValidationException: <p> Invalid or malformed request. </p>
+            aws_sdk_timestream_query.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -783,6 +876,14 @@ class AsyncTimestreamQueryClient:
         Args:
             resource_arn: <p>Identifies the Timestream resource to which tags should be added. This value is an Amazon Resource Name (ARN).</p>
             tags: <p>The tags to be assigned to the Timestream resource.</p>
+
+        Raises:
+            aws_sdk_timestream_query.errors.invalid_endpoint_exception.InvalidEndpointException: <p>The requested endpoint is invalid.</p>
+            aws_sdk_timestream_query.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource could not be found.</p>
+            aws_sdk_timestream_query.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You have exceeded the service quota.</p>
+            aws_sdk_timestream_query.errors.throttling_exception.ThrottlingException: <p>The request was throttled due to excessive requests.</p>
+            aws_sdk_timestream_query.errors.validation_exception.ValidationException: <p> Invalid or malformed request. </p>
+            aws_sdk_timestream_query.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -824,6 +925,13 @@ class AsyncTimestreamQueryClient:
         Args:
             resource_arn: <p>The Timestream resource that the tags will be removed from. This value is an Amazon Resource Name (ARN). </p>
             tag_keys: <p>A list of tags keys. Existing tags of the resource whose keys are members of this list will be removed from the Timestream resource. </p>
+
+        Raises:
+            aws_sdk_timestream_query.errors.invalid_endpoint_exception.InvalidEndpointException: <p>The requested endpoint is invalid.</p>
+            aws_sdk_timestream_query.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource could not be found.</p>
+            aws_sdk_timestream_query.errors.throttling_exception.ThrottlingException: <p>The request was throttled due to excessive requests.</p>
+            aws_sdk_timestream_query.errors.validation_exception.ValidationException: <p> Invalid or malformed request. </p>
+            aws_sdk_timestream_query.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -873,6 +981,14 @@ class AsyncTimestreamQueryClient:
             max_query_tcu: <p>The maximum number of compute units the service will use at any point in time to serve your queries. To run queries, you must set a minimum capacity of 4 TCU. You can set the maximum number of TCU in multiples of 4, for example, 4, 8, 16, 32, and so on. The maximum value supported for <code>MaxQueryTCU</code> is 1000. To request an increase to this soft limit, contact Amazon Web Services Support. For information about the default quota for maxQueryTCU, see Default quotas. This configuration is applicable only for on-demand usage of Timestream Compute Units (TCUs).</p> <p>The maximum value supported for <code>MaxQueryTCU</code> is 1000. To request an increase to this soft limit, contact Amazon Web Services Support. For information about the default quota for <code>maxQueryTCU</code>, see <a href=\"https://docs.aws.amazon.com/timestream/latest/developerguide/ts-limits.html#limits.default\">Default quotas</a>.</p>
             query_pricing_model: <p>The pricing model for queries in an account.</p> <note> <p>The <code>QueryPricingModel</code> parameter is used by several Timestream operations; however, the <code>UpdateAccountSettings</code> API operation doesn't recognize any values other than <code>COMPUTE_UNITS</code>.</p> </note>
             query_compute: <p>Modifies the query compute settings configured in your account, including the query pricing model and provisioned Timestream Compute Units (TCUs) in your account.</p> <note> <p>This API is idempotent, meaning that making the same request multiple times will have the same effect as making the request once.</p> </note>
+
+        Raises:
+            aws_sdk_timestream_query.errors.access_denied_exception.AccessDeniedException: <p>You do not have the necessary permissions to access the account settings.</p>
+            aws_sdk_timestream_query.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred while processing the request.</p>
+            aws_sdk_timestream_query.errors.invalid_endpoint_exception.InvalidEndpointException: <p>The requested endpoint is invalid.</p>
+            aws_sdk_timestream_query.errors.throttling_exception.ThrottlingException: <p>The request was throttled due to excessive requests.</p>
+            aws_sdk_timestream_query.errors.validation_exception.ValidationException: <p> Invalid or malformed request. </p>
+            aws_sdk_timestream_query.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -918,6 +1034,15 @@ class AsyncTimestreamQueryClient:
         Args:
             scheduled_query_arn: <p>ARN of the scheuled query.</p>
             state: <p>State of the scheduled query. </p>
+
+        Raises:
+            aws_sdk_timestream_query.errors.access_denied_exception.AccessDeniedException: <p>You do not have the necessary permissions to access the account settings.</p>
+            aws_sdk_timestream_query.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred while processing the request.</p>
+            aws_sdk_timestream_query.errors.invalid_endpoint_exception.InvalidEndpointException: <p>The requested endpoint is invalid.</p>
+            aws_sdk_timestream_query.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource could not be found.</p>
+            aws_sdk_timestream_query.errors.throttling_exception.ThrottlingException: <p>The request was throttled due to excessive requests.</p>
+            aws_sdk_timestream_query.errors.validation_exception.ValidationException: <p> Invalid or malformed request. </p>
+            aws_sdk_timestream_query.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

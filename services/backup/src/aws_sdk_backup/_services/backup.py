@@ -421,6 +421,14 @@ class BackupClient:
             backup_vault_name: <p>The name of the backup vault to associate with the MPA approval team.</p>
             mpa_approval_team_arn: <p>The Amazon Resource Name (ARN) of the MPA approval team to associate with the backup vault.</p>
             requester_comment: <p>A comment provided by the requester explaining the association request.</p>
+
+        Raises:
+            aws_sdk_backup.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>Indicates that something is wrong with a parameter's value. For example, the value is out of range.</p>
+            aws_sdk_backup.errors.invalid_request_exception.InvalidRequestException: <p>Indicates that something is wrong with the input to the request. For example, a parameter is of the wrong type.</p>
+            aws_sdk_backup.errors.missing_parameter_value_exception.MissingParameterValueException: <p>Indicates that a required parameter is missing.</p>
+            aws_sdk_backup.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource that is required for the action doesn't exist.</p>
+            aws_sdk_backup.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request failed due to a temporary failure of the server.</p>
+            aws_sdk_backup.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -463,6 +471,14 @@ class BackupClient:
             legal_hold_id: <p>The ID of the legal hold.</p>
             cancel_description: <p>A string the describes the reason for removing the legal hold.</p>
             retain_record_in_days: <p>The integer amount, in days, after which to remove legal hold.</p>
+
+        Raises:
+            aws_sdk_backup.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>Indicates that something is wrong with a parameter's value. For example, the value is out of range.</p>
+            aws_sdk_backup.errors.invalid_resource_state_exception.InvalidResourceStateException: <p>Backup is already performing an action on this recovery point. It can't perform the action you requested until the first action finishes. Try again later.</p>
+            aws_sdk_backup.errors.missing_parameter_value_exception.MissingParameterValueException: <p>Indicates that a required parameter is missing.</p>
+            aws_sdk_backup.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource that is required for the action doesn't exist.</p>
+            aws_sdk_backup.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request failed due to a temporary failure of the server.</p>
+            aws_sdk_backup.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -507,6 +523,14 @@ class BackupClient:
             backup_plan: <p>The body of a backup plan. Includes a <code>BackupPlanName</code> and one or more sets of <code>Rules</code>.</p>
             backup_plan_tags: <p>The tags to assign to the backup plan.</p>
             creator_request_id: <p>Identifies the request and allows failed requests to be retried without the risk of running the operation twice. If the request includes a <code>CreatorRequestId</code> that matches an existing backup plan, that plan is returned. This parameter is optional.</p> <p>If used, this parameter must contain 1 to 50 alphanumeric or '-_.' characters.</p>
+
+        Raises:
+            aws_sdk_backup.errors.already_exists_exception.AlreadyExistsException: <p>The required resource already exists.</p>
+            aws_sdk_backup.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>Indicates that something is wrong with a parameter's value. For example, the value is out of range.</p>
+            aws_sdk_backup.errors.limit_exceeded_exception.LimitExceededException: <p>A limit in the request has been exceeded; for example, a maximum number of items allowed in a request.</p>
+            aws_sdk_backup.errors.missing_parameter_value_exception.MissingParameterValueException: <p>Indicates that a required parameter is missing.</p>
+            aws_sdk_backup.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request failed due to a temporary failure of the server.</p>
+            aws_sdk_backup.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -552,6 +576,14 @@ class BackupClient:
             backup_plan_id: <p>The ID of the backup plan.</p>
             backup_selection: <p>The body of a request to assign a set of resources to a backup plan.</p>
             creator_request_id: <p>A unique string that identifies the request and allows failed requests to be retried without the risk of running the operation twice. This parameter is optional.</p> <p>If used, this parameter must contain 1 to 50 alphanumeric or '-_.' characters.</p>
+
+        Raises:
+            aws_sdk_backup.errors.already_exists_exception.AlreadyExistsException: <p>The required resource already exists.</p>
+            aws_sdk_backup.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>Indicates that something is wrong with a parameter's value. For example, the value is out of range.</p>
+            aws_sdk_backup.errors.limit_exceeded_exception.LimitExceededException: <p>A limit in the request has been exceeded; for example, a maximum number of items allowed in a request.</p>
+            aws_sdk_backup.errors.missing_parameter_value_exception.MissingParameterValueException: <p>Indicates that a required parameter is missing.</p>
+            aws_sdk_backup.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request failed due to a temporary failure of the server.</p>
+            aws_sdk_backup.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -598,6 +630,14 @@ class BackupClient:
             backup_vault_tags: <p>The tags to assign to the backup vault.</p>
             encryption_key_arn: <p>The server-side encryption key that is used to protect your backups; for example, <code>arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>.</p>
             creator_request_id: <p>A unique string that identifies the request and allows failed requests to be retried without the risk of running the operation twice. This parameter is optional.</p> <p>If used, this parameter must contain 1 to 50 alphanumeric or '-_.' characters.</p>
+
+        Raises:
+            aws_sdk_backup.errors.already_exists_exception.AlreadyExistsException: <p>The required resource already exists.</p>
+            aws_sdk_backup.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>Indicates that something is wrong with a parameter's value. For example, the value is out of range.</p>
+            aws_sdk_backup.errors.limit_exceeded_exception.LimitExceededException: <p>A limit in the request has been exceeded; for example, a maximum number of items allowed in a request.</p>
+            aws_sdk_backup.errors.missing_parameter_value_exception.MissingParameterValueException: <p>Indicates that a required parameter is missing.</p>
+            aws_sdk_backup.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request failed due to a temporary failure of the server.</p>
+            aws_sdk_backup.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -651,6 +691,14 @@ class BackupClient:
             framework_controls: <p>The controls that make up the framework. Each control in the list has a name, input parameters, and scope.</p>
             idempotency_token: <p>A customer-chosen string that you can use to distinguish between otherwise identical calls to <code>CreateFrameworkInput</code>. Retrying a successful request with the same idempotency token results in a success message with no action taken.</p>
             framework_tags: <p>The tags to assign to the framework.</p>
+
+        Raises:
+            aws_sdk_backup.errors.already_exists_exception.AlreadyExistsException: <p>The required resource already exists.</p>
+            aws_sdk_backup.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>Indicates that something is wrong with a parameter's value. For example, the value is out of range.</p>
+            aws_sdk_backup.errors.limit_exceeded_exception.LimitExceededException: <p>A limit in the request has been exceeded; for example, a maximum number of items allowed in a request.</p>
+            aws_sdk_backup.errors.missing_parameter_value_exception.MissingParameterValueException: <p>Indicates that a required parameter is missing.</p>
+            aws_sdk_backup.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request failed due to a temporary failure of the server.</p>
+            aws_sdk_backup.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -705,6 +753,13 @@ class BackupClient:
             idempotency_token: <p>This is a user-chosen string used to distinguish between otherwise identical calls. Retrying a successful request with the same idempotency token results in a success message with no action taken.</p>
             recovery_point_selection: <p>The criteria to assign a set of resources, such as resource types or backup vaults.</p>
             tags: <p>Optional tags to include. A tag is a key-value pair you can use to manage, filter, and search for your resources. Allowed characters include UTF-8 letters, numbers, spaces, and the following characters: + - = . _ : /. </p>
+
+        Raises:
+            aws_sdk_backup.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>Indicates that something is wrong with a parameter's value. For example, the value is out of range.</p>
+            aws_sdk_backup.errors.limit_exceeded_exception.LimitExceededException: <p>A limit in the request has been exceeded; for example, a maximum number of items allowed in a request.</p>
+            aws_sdk_backup.errors.missing_parameter_value_exception.MissingParameterValueException: <p>Indicates that a required parameter is missing.</p>
+            aws_sdk_backup.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request failed due to a temporary failure of the server.</p>
+            aws_sdk_backup.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -759,6 +814,15 @@ class BackupClient:
             min_retention_days: <p>This setting specifies the minimum retention period that the vault retains its recovery points.</p> <p>The minimum value accepted is 7 days.</p>
             max_retention_days: <p>The maximum retention period that the vault retains its recovery points.</p>
             encryption_key_arn: <p>The ARN of the customer-managed KMS key to use for encrypting the logically air-gapped backup vault. If not specified, the vault will be encrypted with an Amazon Web Services-owned key managed by Amazon Web Services Backup.</p>
+
+        Raises:
+            aws_sdk_backup.errors.already_exists_exception.AlreadyExistsException: <p>The required resource already exists.</p>
+            aws_sdk_backup.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>Indicates that something is wrong with a parameter's value. For example, the value is out of range.</p>
+            aws_sdk_backup.errors.invalid_request_exception.InvalidRequestException: <p>Indicates that something is wrong with the input to the request. For example, a parameter is of the wrong type.</p>
+            aws_sdk_backup.errors.limit_exceeded_exception.LimitExceededException: <p>A limit in the request has been exceeded; for example, a maximum number of items allowed in a request.</p>
+            aws_sdk_backup.errors.missing_parameter_value_exception.MissingParameterValueException: <p>Indicates that a required parameter is missing.</p>
+            aws_sdk_backup.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request failed due to a temporary failure of the server.</p>
+            aws_sdk_backup.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -816,6 +880,14 @@ class BackupClient:
             report_setting: <p>Identifies the report template for the report. Reports are built using a report template. The report templates are:</p> <p> <code>RESOURCE_COMPLIANCE_REPORT | CONTROL_COMPLIANCE_REPORT | BACKUP_JOB_REPORT | COPY_JOB_REPORT | RESTORE_JOB_REPORT | SCAN_JOB_REPORT </code> </p> <p>If the report template is <code>RESOURCE_COMPLIANCE_REPORT</code> or <code>CONTROL_COMPLIANCE_REPORT</code>, this API resource also describes the report coverage by Amazon Web Services Regions and frameworks.</p>
             report_plan_tags: <p>The tags to assign to the report plan.</p>
             idempotency_token: <p>A customer-chosen string that you can use to distinguish between otherwise identical calls to <code>CreateReportPlanInput</code>. Retrying a successful request with the same idempotency token results in a success message with no action taken.</p>
+
+        Raises:
+            aws_sdk_backup.errors.already_exists_exception.AlreadyExistsException: <p>The required resource already exists.</p>
+            aws_sdk_backup.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>Indicates that something is wrong with a parameter's value. For example, the value is out of range.</p>
+            aws_sdk_backup.errors.limit_exceeded_exception.LimitExceededException: <p>A limit in the request has been exceeded; for example, a maximum number of items allowed in a request.</p>
+            aws_sdk_backup.errors.missing_parameter_value_exception.MissingParameterValueException: <p>Indicates that a required parameter is missing.</p>
+            aws_sdk_backup.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request failed due to a temporary failure of the server.</p>
+            aws_sdk_backup.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -873,6 +945,16 @@ class BackupClient:
             backup_vault_tags: <p>Optional tags to assign to the restore access backup vault.</p>
             creator_request_id: <p>A unique string that identifies the request and allows failed requests to be retried without the risk of executing the operation twice.</p>
             requester_comment: <p>A comment explaining the reason for requesting restore access to the backup vault.</p>
+
+        Raises:
+            aws_sdk_backup.errors.already_exists_exception.AlreadyExistsException: <p>The required resource already exists.</p>
+            aws_sdk_backup.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>Indicates that something is wrong with a parameter's value. For example, the value is out of range.</p>
+            aws_sdk_backup.errors.invalid_request_exception.InvalidRequestException: <p>Indicates that something is wrong with the input to the request. For example, a parameter is of the wrong type.</p>
+            aws_sdk_backup.errors.limit_exceeded_exception.LimitExceededException: <p>A limit in the request has been exceeded; for example, a maximum number of items allowed in a request.</p>
+            aws_sdk_backup.errors.missing_parameter_value_exception.MissingParameterValueException: <p>Indicates that a required parameter is missing.</p>
+            aws_sdk_backup.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource that is required for the action doesn't exist.</p>
+            aws_sdk_backup.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request failed due to a temporary failure of the server.</p>
+            aws_sdk_backup.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -924,6 +1006,15 @@ class BackupClient:
             creator_request_id: <p>This is a unique string that identifies the request and allows failed requests to be retriedwithout the risk of running the operation twice. This parameter is optional. If used, this parameter must contain 1 to 50 alphanumeric or '-_.' characters.</p>
             restore_testing_plan: <p>A restore testing plan must contain a unique <code>RestoreTestingPlanName</code> string you create and must contain a <code>ScheduleExpression</code> cron. You may optionally include a <code>StartWindowHours</code> integer and a <code>CreatorRequestId</code> string.</p> <p>The <code>RestoreTestingPlanName</code> is a unique string that is the name of the restore testing plan. This cannot be changed after creation, and it must consist of only alphanumeric characters and underscores.</p>
             tags: <p>The tags to assign to the restore testing plan.</p>
+
+        Raises:
+            aws_sdk_backup.errors.already_exists_exception.AlreadyExistsException: <p>The required resource already exists.</p>
+            aws_sdk_backup.errors.conflict_exception.ConflictException: <p>Backup can't perform the action that you requested until it finishes performing a previous action. Try again later.</p>
+            aws_sdk_backup.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>Indicates that something is wrong with a parameter's value. For example, the value is out of range.</p>
+            aws_sdk_backup.errors.limit_exceeded_exception.LimitExceededException: <p>A limit in the request has been exceeded; for example, a maximum number of items allowed in a request.</p>
+            aws_sdk_backup.errors.missing_parameter_value_exception.MissingParameterValueException: <p>Indicates that a required parameter is missing.</p>
+            aws_sdk_backup.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request failed due to a temporary failure of the server.</p>
+            aws_sdk_backup.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -969,6 +1060,15 @@ class BackupClient:
             creator_request_id: <p>This is an optional unique string that identifies the request and allows failed requests to be retried without the risk of running the operation twice. If used, this parameter must contain 1 to 50 alphanumeric or '-_.' characters.</p>
             restore_testing_plan_name: <p>Input the restore testing plan name that was returned from the related CreateRestoreTestingPlan request.</p>
             restore_testing_selection: <p>This consists of <code>RestoreTestingSelectionName</code>, <code>ProtectedResourceType</code>, and one of the following:</p> <ul> <li> <p> <code>ProtectedResourceArns</code> </p> </li> <li> <p> <code>ProtectedResourceConditions</code> </p> </li> </ul> <p>Each protected resource type can have one single value.</p> <p>A restore testing selection can include a wildcard value (\"*\") for <code>ProtectedResourceArns</code> along with <code>ProtectedResourceConditions</code>. Alternatively, you can include up to 30 specific protected resource ARNs in <code>ProtectedResourceArns</code>.</p>
+
+        Raises:
+            aws_sdk_backup.errors.already_exists_exception.AlreadyExistsException: <p>The required resource already exists.</p>
+            aws_sdk_backup.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>Indicates that something is wrong with a parameter's value. For example, the value is out of range.</p>
+            aws_sdk_backup.errors.limit_exceeded_exception.LimitExceededException: <p>A limit in the request has been exceeded; for example, a maximum number of items allowed in a request.</p>
+            aws_sdk_backup.errors.missing_parameter_value_exception.MissingParameterValueException: <p>Indicates that a required parameter is missing.</p>
+            aws_sdk_backup.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource that is required for the action doesn't exist.</p>
+            aws_sdk_backup.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request failed due to a temporary failure of the server.</p>
+            aws_sdk_backup.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1015,6 +1115,15 @@ class BackupClient:
             tiering_configuration: <p>A tiering configuration must contain a unique <code>TieringConfigurationName</code> string you create and must contain a <code>BackupVaultName</code> and <code>ResourceSelection</code>. You may optionally include a <code>CreatorRequestId</code> string.</p> <p>The <code>TieringConfigurationName</code> is a unique string that is the name of the tiering configuration. This cannot be changed after creation, and it must consist of only alphanumeric characters and underscores.</p>
             tiering_configuration_tags: <p>The tags to assign to the tiering configuration.</p>
             creator_request_id: <p>This is a unique string that identifies the request and allows failed requests to be retried without the risk of running the operation twice. This parameter is optional. If used, this parameter must contain 1 to 50 alphanumeric or '-_.' characters.</p>
+
+        Raises:
+            aws_sdk_backup.errors.already_exists_exception.AlreadyExistsException: <p>The required resource already exists.</p>
+            aws_sdk_backup.errors.conflict_exception.ConflictException: <p>Backup can't perform the action that you requested until it finishes performing a previous action. Try again later.</p>
+            aws_sdk_backup.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>Indicates that something is wrong with a parameter's value. For example, the value is out of range.</p>
+            aws_sdk_backup.errors.limit_exceeded_exception.LimitExceededException: <p>A limit in the request has been exceeded; for example, a maximum number of items allowed in a request.</p>
+            aws_sdk_backup.errors.missing_parameter_value_exception.MissingParameterValueException: <p>Indicates that a required parameter is missing.</p>
+            aws_sdk_backup.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request failed due to a temporary failure of the server.</p>
+            aws_sdk_backup.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1056,6 +1165,14 @@ class BackupClient:
 
         Args:
             backup_plan_id: <p>Uniquely identifies a backup plan.</p>
+
+        Raises:
+            aws_sdk_backup.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>Indicates that something is wrong with a parameter's value. For example, the value is out of range.</p>
+            aws_sdk_backup.errors.invalid_request_exception.InvalidRequestException: <p>Indicates that something is wrong with the input to the request. For example, a parameter is of the wrong type.</p>
+            aws_sdk_backup.errors.missing_parameter_value_exception.MissingParameterValueException: <p>Indicates that a required parameter is missing.</p>
+            aws_sdk_backup.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource that is required for the action doesn't exist.</p>
+            aws_sdk_backup.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request failed due to a temporary failure of the server.</p>
+            aws_sdk_backup.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1095,6 +1212,13 @@ class BackupClient:
         Args:
             backup_plan_id: <p>Uniquely identifies a backup plan.</p>
             selection_id: <p>Uniquely identifies the body of a request to assign a set of resources to a backup plan.</p>
+
+        Raises:
+            aws_sdk_backup.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>Indicates that something is wrong with a parameter's value. For example, the value is out of range.</p>
+            aws_sdk_backup.errors.missing_parameter_value_exception.MissingParameterValueException: <p>Indicates that a required parameter is missing.</p>
+            aws_sdk_backup.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource that is required for the action doesn't exist.</p>
+            aws_sdk_backup.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request failed due to a temporary failure of the server.</p>
+            aws_sdk_backup.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1131,6 +1255,14 @@ class BackupClient:
 
         Args:
             backup_vault_name: <p>The name of a logical container where backups are stored. Backup vaults are identified by names that are unique to the account used to create them and the Amazon Web Services Region where they are created.</p>
+
+        Raises:
+            aws_sdk_backup.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>Indicates that something is wrong with a parameter's value. For example, the value is out of range.</p>
+            aws_sdk_backup.errors.invalid_request_exception.InvalidRequestException: <p>Indicates that something is wrong with the input to the request. For example, a parameter is of the wrong type.</p>
+            aws_sdk_backup.errors.missing_parameter_value_exception.MissingParameterValueException: <p>Indicates that a required parameter is missing.</p>
+            aws_sdk_backup.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource that is required for the action doesn't exist.</p>
+            aws_sdk_backup.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request failed due to a temporary failure of the server.</p>
+            aws_sdk_backup.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1166,6 +1298,13 @@ class BackupClient:
 
         Args:
             backup_vault_name: <p>The name of a logical container where backups are stored. Backup vaults are identified by names that are unique to the account used to create them and the Amazon Web Services Region where they are created. They consist of lowercase letters, numbers, and hyphens.</p>
+
+        Raises:
+            aws_sdk_backup.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>Indicates that something is wrong with a parameter's value. For example, the value is out of range.</p>
+            aws_sdk_backup.errors.missing_parameter_value_exception.MissingParameterValueException: <p>Indicates that a required parameter is missing.</p>
+            aws_sdk_backup.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource that is required for the action doesn't exist.</p>
+            aws_sdk_backup.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request failed due to a temporary failure of the server.</p>
+            aws_sdk_backup.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1201,6 +1340,14 @@ class BackupClient:
 
         Args:
             backup_vault_name: <p>The name of the backup vault from which to delete Backup Vault Lock.</p>
+
+        Raises:
+            aws_sdk_backup.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>Indicates that something is wrong with a parameter's value. For example, the value is out of range.</p>
+            aws_sdk_backup.errors.invalid_request_exception.InvalidRequestException: <p>Indicates that something is wrong with the input to the request. For example, a parameter is of the wrong type.</p>
+            aws_sdk_backup.errors.missing_parameter_value_exception.MissingParameterValueException: <p>Indicates that a required parameter is missing.</p>
+            aws_sdk_backup.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource that is required for the action doesn't exist.</p>
+            aws_sdk_backup.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request failed due to a temporary failure of the server.</p>
+            aws_sdk_backup.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1236,6 +1383,13 @@ class BackupClient:
 
         Args:
             backup_vault_name: <p>The name of a logical container where backups are stored. Backup vaults are identified by names that are unique to the account used to create them and the Region where they are created.</p>
+
+        Raises:
+            aws_sdk_backup.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>Indicates that something is wrong with a parameter's value. For example, the value is out of range.</p>
+            aws_sdk_backup.errors.missing_parameter_value_exception.MissingParameterValueException: <p>Indicates that a required parameter is missing.</p>
+            aws_sdk_backup.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource that is required for the action doesn't exist.</p>
+            aws_sdk_backup.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request failed due to a temporary failure of the server.</p>
+            aws_sdk_backup.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1271,6 +1425,14 @@ class BackupClient:
 
         Args:
             framework_name: <p>The unique name of a framework.</p>
+
+        Raises:
+            aws_sdk_backup.errors.conflict_exception.ConflictException: <p>Backup can't perform the action that you requested until it finishes performing a previous action. Try again later.</p>
+            aws_sdk_backup.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>Indicates that something is wrong with a parameter's value. For example, the value is out of range.</p>
+            aws_sdk_backup.errors.missing_parameter_value_exception.MissingParameterValueException: <p>Indicates that a required parameter is missing.</p>
+            aws_sdk_backup.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource that is required for the action doesn't exist.</p>
+            aws_sdk_backup.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request failed due to a temporary failure of the server.</p>
+            aws_sdk_backup.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1308,6 +1470,15 @@ class BackupClient:
         Args:
             backup_vault_name: <p>The name of a logical container where backups are stored. Backup vaults are identified by names that are unique to the account used to create them and the Amazon Web Services Region where they are created.</p>
             recovery_point_arn: <p>An Amazon Resource Name (ARN) that uniquely identifies a recovery point; for example, <code>arn:aws:backup:us-east-1:123456789012:recovery-point:1EB3B5E7-9EB0-435A-A80B-108B488B0D45</code>.</p>
+
+        Raises:
+            aws_sdk_backup.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>Indicates that something is wrong with a parameter's value. For example, the value is out of range.</p>
+            aws_sdk_backup.errors.invalid_request_exception.InvalidRequestException: <p>Indicates that something is wrong with the input to the request. For example, a parameter is of the wrong type.</p>
+            aws_sdk_backup.errors.invalid_resource_state_exception.InvalidResourceStateException: <p>Backup is already performing an action on this recovery point. It can't perform the action you requested until the first action finishes. Try again later.</p>
+            aws_sdk_backup.errors.missing_parameter_value_exception.MissingParameterValueException: <p>Indicates that a required parameter is missing.</p>
+            aws_sdk_backup.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource that is required for the action doesn't exist.</p>
+            aws_sdk_backup.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request failed due to a temporary failure of the server.</p>
+            aws_sdk_backup.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1344,6 +1515,14 @@ class BackupClient:
 
         Args:
             report_plan_name: <p>The unique name of a report plan.</p>
+
+        Raises:
+            aws_sdk_backup.errors.conflict_exception.ConflictException: <p>Backup can't perform the action that you requested until it finishes performing a previous action. Try again later.</p>
+            aws_sdk_backup.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>Indicates that something is wrong with a parameter's value. For example, the value is out of range.</p>
+            aws_sdk_backup.errors.missing_parameter_value_exception.MissingParameterValueException: <p>Indicates that a required parameter is missing.</p>
+            aws_sdk_backup.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource that is required for the action doesn't exist.</p>
+            aws_sdk_backup.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request failed due to a temporary failure of the server.</p>
+            aws_sdk_backup.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1379,6 +1558,11 @@ class BackupClient:
 
         Args:
             restore_testing_plan_name: <p>Required unique name of the restore testing plan you wish to delete.</p>
+
+        Raises:
+            aws_sdk_backup.errors.invalid_request_exception.InvalidRequestException: <p>Indicates that something is wrong with the input to the request. For example, a parameter is of the wrong type.</p>
+            aws_sdk_backup.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request failed due to a temporary failure of the server.</p>
+            aws_sdk_backup.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1416,6 +1600,11 @@ class BackupClient:
         Args:
             restore_testing_plan_name: <p>Required unique name of the restore testing plan that contains the restore testing selection you wish to delete.</p>
             restore_testing_selection_name: <p>Required unique name of the restore testing selection you wish to delete.</p>
+
+        Raises:
+            aws_sdk_backup.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource that is required for the action doesn't exist.</p>
+            aws_sdk_backup.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request failed due to a temporary failure of the server.</p>
+            aws_sdk_backup.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1452,6 +1641,13 @@ class BackupClient:
 
         Args:
             tiering_configuration_name: <p>The unique name of a tiering configuration.</p>
+
+        Raises:
+            aws_sdk_backup.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>Indicates that something is wrong with a parameter's value. For example, the value is out of range.</p>
+            aws_sdk_backup.errors.missing_parameter_value_exception.MissingParameterValueException: <p>Indicates that a required parameter is missing.</p>
+            aws_sdk_backup.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource that is required for the action doesn't exist.</p>
+            aws_sdk_backup.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request failed due to a temporary failure of the server.</p>
+            aws_sdk_backup.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1489,6 +1685,14 @@ class BackupClient:
 
         Args:
             backup_job_id: <p>Uniquely identifies a request to Backup to back up a resource.</p>
+
+        Raises:
+            aws_sdk_backup.errors.dependency_failure_exception.DependencyFailureException: <p>A dependent Amazon Web Services service or resource returned an error to the Backup service, and the action cannot be completed.</p>
+            aws_sdk_backup.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>Indicates that something is wrong with a parameter's value. For example, the value is out of range.</p>
+            aws_sdk_backup.errors.missing_parameter_value_exception.MissingParameterValueException: <p>Indicates that a required parameter is missing.</p>
+            aws_sdk_backup.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource that is required for the action doesn't exist.</p>
+            aws_sdk_backup.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request failed due to a temporary failure of the server.</p>
+            aws_sdk_backup.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1528,6 +1732,13 @@ class BackupClient:
         Args:
             backup_vault_name: <p>The name of a logical container where backups are stored. Backup vaults are identified by names that are unique to the account used to create them and the Amazon Web Services Region where they are created.</p>
             backup_vault_account_id: <p>The account ID of the specified backup vault.</p>
+
+        Raises:
+            aws_sdk_backup.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>Indicates that something is wrong with a parameter's value. For example, the value is out of range.</p>
+            aws_sdk_backup.errors.missing_parameter_value_exception.MissingParameterValueException: <p>Indicates that a required parameter is missing.</p>
+            aws_sdk_backup.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource that is required for the action doesn't exist.</p>
+            aws_sdk_backup.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request failed due to a temporary failure of the server.</p>
+            aws_sdk_backup.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1567,6 +1778,13 @@ class BackupClient:
 
         Args:
             copy_job_id: <p>Uniquely identifies a copy job.</p>
+
+        Raises:
+            aws_sdk_backup.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>Indicates that something is wrong with a parameter's value. For example, the value is out of range.</p>
+            aws_sdk_backup.errors.missing_parameter_value_exception.MissingParameterValueException: <p>Indicates that a required parameter is missing.</p>
+            aws_sdk_backup.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource that is required for the action doesn't exist.</p>
+            aws_sdk_backup.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request failed due to a temporary failure of the server.</p>
+            aws_sdk_backup.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1604,6 +1822,13 @@ class BackupClient:
 
         Args:
             framework_name: <p>The unique name of a framework.</p>
+
+        Raises:
+            aws_sdk_backup.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>Indicates that something is wrong with a parameter's value. For example, the value is out of range.</p>
+            aws_sdk_backup.errors.missing_parameter_value_exception.MissingParameterValueException: <p>Indicates that a required parameter is missing.</p>
+            aws_sdk_backup.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource that is required for the action doesn't exist.</p>
+            aws_sdk_backup.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request failed due to a temporary failure of the server.</p>
+            aws_sdk_backup.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1634,7 +1859,13 @@ class BackupClient:
     def describe_global_settings(
         self, *, config_overrides: Optional[BackupClientConfig] = None
     ) -> "aws_sdk_backup.types.describe_global_settings_output.DescribeGlobalSettingsOutput":
-        """<p>Describes whether the Amazon Web Services account has enabled different cross-account management options, including cross-account backup, multi-party approval, and delegated administrator. Returns an error if the account is not a member of an Organizations organization. Example: <code>describe-global-settings --region us-west-2</code> </p>"""
+        """<p>Describes whether the Amazon Web Services account has enabled different cross-account management options, including cross-account backup, multi-party approval, and delegated administrator. Returns an error if the account is not a member of an Organizations organization. Example: <code>describe-global-settings --region us-west-2</code> </p>
+
+        Raises:
+            aws_sdk_backup.errors.invalid_request_exception.InvalidRequestException: <p>Indicates that something is wrong with the input to the request. For example, a parameter is of the wrong type.</p>
+            aws_sdk_backup.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request failed due to a temporary failure of the server.</p>
+            aws_sdk_backup.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_backup.types.describe_global_settings_input.DescribeGlobalSettingsInput]",
@@ -1670,6 +1901,13 @@ class BackupClient:
 
         Args:
             resource_arn: <p>An Amazon Resource Name (ARN) that uniquely identifies a resource. The format of the ARN depends on the resource type.</p>
+
+        Raises:
+            aws_sdk_backup.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>Indicates that something is wrong with a parameter's value. For example, the value is out of range.</p>
+            aws_sdk_backup.errors.missing_parameter_value_exception.MissingParameterValueException: <p>Indicates that a required parameter is missing.</p>
+            aws_sdk_backup.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource that is required for the action doesn't exist.</p>
+            aws_sdk_backup.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request failed due to a temporary failure of the server.</p>
+            aws_sdk_backup.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1713,6 +1951,13 @@ class BackupClient:
             backup_vault_name: <p>The name of a logical container where backups are stored. Backup vaults are identified by names that are unique to the account used to create them and the Amazon Web Services Region where they are created.</p>
             recovery_point_arn: <p>An Amazon Resource Name (ARN) that uniquely identifies a recovery point; for example, <code>arn:aws:backup:us-east-1:123456789012:recovery-point:1EB3B5E7-9EB0-435A-A80B-108B488B0D45</code>.</p>
             backup_vault_account_id: <p>The account ID of the specified backup vault.</p>
+
+        Raises:
+            aws_sdk_backup.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>Indicates that something is wrong with a parameter's value. For example, the value is out of range.</p>
+            aws_sdk_backup.errors.missing_parameter_value_exception.MissingParameterValueException: <p>Indicates that a required parameter is missing.</p>
+            aws_sdk_backup.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource that is required for the action doesn't exist.</p>
+            aws_sdk_backup.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request failed due to a temporary failure of the server.</p>
+            aws_sdk_backup.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1746,7 +1991,12 @@ class BackupClient:
     def describe_region_settings(
         self, *, config_overrides: Optional[BackupClientConfig] = None
     ) -> "aws_sdk_backup.types.describe_region_settings_output.DescribeRegionSettingsOutput":
-        """<p>Returns the current service opt-in settings for the Region. If service opt-in is enabled for a service, Backup tries to protect that service's resources in this Region, when the resource is included in an on-demand backup or scheduled backup plan. Otherwise, Backup does not try to protect that service's resources in this Region.</p>"""
+        """<p>Returns the current service opt-in settings for the Region. If service opt-in is enabled for a service, Backup tries to protect that service's resources in this Region, when the resource is included in an on-demand backup or scheduled backup plan. Otherwise, Backup does not try to protect that service's resources in this Region.</p>
+
+        Raises:
+            aws_sdk_backup.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request failed due to a temporary failure of the server.</p>
+            aws_sdk_backup.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_backup.types.describe_region_settings_input.DescribeRegionSettingsInput]",
@@ -1782,6 +2032,12 @@ class BackupClient:
 
         Args:
             report_job_id: <p>The identifier of the report job. A unique, randomly generated, Unicode, UTF-8 encoded string that is at most 1,024 bytes long. The report job ID cannot be edited.</p>
+
+        Raises:
+            aws_sdk_backup.errors.missing_parameter_value_exception.MissingParameterValueException: <p>Indicates that a required parameter is missing.</p>
+            aws_sdk_backup.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource that is required for the action doesn't exist.</p>
+            aws_sdk_backup.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request failed due to a temporary failure of the server.</p>
+            aws_sdk_backup.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1819,6 +2075,13 @@ class BackupClient:
 
         Args:
             report_plan_name: <p>The unique name of a report plan.</p>
+
+        Raises:
+            aws_sdk_backup.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>Indicates that something is wrong with a parameter's value. For example, the value is out of range.</p>
+            aws_sdk_backup.errors.missing_parameter_value_exception.MissingParameterValueException: <p>Indicates that a required parameter is missing.</p>
+            aws_sdk_backup.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource that is required for the action doesn't exist.</p>
+            aws_sdk_backup.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request failed due to a temporary failure of the server.</p>
+            aws_sdk_backup.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1856,6 +2119,14 @@ class BackupClient:
 
         Args:
             restore_job_id: <p>Uniquely identifies the job that restores a recovery point.</p>
+
+        Raises:
+            aws_sdk_backup.errors.dependency_failure_exception.DependencyFailureException: <p>A dependent Amazon Web Services service or resource returned an error to the Backup service, and the action cannot be completed.</p>
+            aws_sdk_backup.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>Indicates that something is wrong with a parameter's value. For example, the value is out of range.</p>
+            aws_sdk_backup.errors.missing_parameter_value_exception.MissingParameterValueException: <p>Indicates that a required parameter is missing.</p>
+            aws_sdk_backup.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource that is required for the action doesn't exist.</p>
+            aws_sdk_backup.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request failed due to a temporary failure of the server.</p>
+            aws_sdk_backup.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1890,6 +2161,13 @@ class BackupClient:
 
         Args:
             scan_job_id: <p>Uniquely identifies a request to Backup to scan a resource.</p>
+
+        Raises:
+            aws_sdk_backup.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>Indicates that something is wrong with a parameter's value. For example, the value is out of range.</p>
+            aws_sdk_backup.errors.missing_parameter_value_exception.MissingParameterValueException: <p>Indicates that a required parameter is missing.</p>
+            aws_sdk_backup.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource that is required for the action doesn't exist.</p>
+            aws_sdk_backup.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request failed due to a temporary failure of the server.</p>
+            aws_sdk_backup.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1931,6 +2209,14 @@ class BackupClient:
         Args:
             backup_vault_name: <p>The name of the backup vault from which to disassociate the MPA approval team.</p>
             requester_comment: <p>An optional comment explaining the reason for disassociating the MPA approval team from the backup vault.</p>
+
+        Raises:
+            aws_sdk_backup.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>Indicates that something is wrong with a parameter's value. For example, the value is out of range.</p>
+            aws_sdk_backup.errors.invalid_request_exception.InvalidRequestException: <p>Indicates that something is wrong with the input to the request. For example, a parameter is of the wrong type.</p>
+            aws_sdk_backup.errors.missing_parameter_value_exception.MissingParameterValueException: <p>Indicates that a required parameter is missing.</p>
+            aws_sdk_backup.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource that is required for the action doesn't exist.</p>
+            aws_sdk_backup.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request failed due to a temporary failure of the server.</p>
+            aws_sdk_backup.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1970,6 +2256,15 @@ class BackupClient:
         Args:
             backup_vault_name: <p>The unique name of an Backup vault.</p>
             recovery_point_arn: <p>An Amazon Resource Name (ARN) that uniquely identifies an Backup recovery point.</p>
+
+        Raises:
+            aws_sdk_backup.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>Indicates that something is wrong with a parameter's value. For example, the value is out of range.</p>
+            aws_sdk_backup.errors.invalid_request_exception.InvalidRequestException: <p>Indicates that something is wrong with the input to the request. For example, a parameter is of the wrong type.</p>
+            aws_sdk_backup.errors.invalid_resource_state_exception.InvalidResourceStateException: <p>Backup is already performing an action on this recovery point. It can't perform the action you requested until the first action finishes. Try again later.</p>
+            aws_sdk_backup.errors.missing_parameter_value_exception.MissingParameterValueException: <p>Indicates that a required parameter is missing.</p>
+            aws_sdk_backup.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource that is required for the action doesn't exist.</p>
+            aws_sdk_backup.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request failed due to a temporary failure of the server.</p>
+            aws_sdk_backup.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2008,6 +2303,14 @@ class BackupClient:
         Args:
             backup_vault_name: <p>The name of a logical container where the child (nested) recovery point is stored. Backup vaults are identified by names that are unique to the account used to create them and the Amazon Web Services Region where they are created.</p>
             recovery_point_arn: <p>The Amazon Resource Name (ARN) that uniquely identifies the child (nested) recovery point; for example, <code>arn:aws:backup:us-east-1:123456789012:recovery-point:1EB3B5E7-9EB0-435A-A80B-108B488B0D45.</code> </p>
+
+        Raises:
+            aws_sdk_backup.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>Indicates that something is wrong with a parameter's value. For example, the value is out of range.</p>
+            aws_sdk_backup.errors.invalid_request_exception.InvalidRequestException: <p>Indicates that something is wrong with the input to the request. For example, a parameter is of the wrong type.</p>
+            aws_sdk_backup.errors.missing_parameter_value_exception.MissingParameterValueException: <p>Indicates that a required parameter is missing.</p>
+            aws_sdk_backup.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource that is required for the action doesn't exist.</p>
+            aws_sdk_backup.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request failed due to a temporary failure of the server.</p>
+            aws_sdk_backup.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2044,6 +2347,13 @@ class BackupClient:
 
         Args:
             backup_plan_id: <p>Uniquely identifies a backup plan.</p>
+
+        Raises:
+            aws_sdk_backup.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>Indicates that something is wrong with a parameter's value. For example, the value is out of range.</p>
+            aws_sdk_backup.errors.missing_parameter_value_exception.MissingParameterValueException: <p>Indicates that a required parameter is missing.</p>
+            aws_sdk_backup.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource that is required for the action doesn't exist.</p>
+            aws_sdk_backup.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request failed due to a temporary failure of the server.</p>
+            aws_sdk_backup.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2087,6 +2397,13 @@ class BackupClient:
             backup_plan_id: <p>Uniquely identifies a backup plan.</p>
             version_id: <p>Unique, randomly generated, Unicode, UTF-8 encoded strings that are at most 1,024 bytes long. Version IDs cannot be edited.</p>
             max_scheduled_runs_preview: <p>Number of future scheduled backup runs to preview. When set to 0 (default), no scheduled runs preview is included in the response. Valid range is 0-10.</p>
+
+        Raises:
+            aws_sdk_backup.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>Indicates that something is wrong with a parameter's value. For example, the value is out of range.</p>
+            aws_sdk_backup.errors.missing_parameter_value_exception.MissingParameterValueException: <p>Indicates that a required parameter is missing.</p>
+            aws_sdk_backup.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource that is required for the action doesn't exist.</p>
+            aws_sdk_backup.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request failed due to a temporary failure of the server.</p>
+            aws_sdk_backup.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2128,6 +2445,14 @@ class BackupClient:
 
         Args:
             backup_plan_template_json: <p>A customer-supplied backup plan document in JSON format.</p>
+
+        Raises:
+            aws_sdk_backup.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>Indicates that something is wrong with a parameter's value. For example, the value is out of range.</p>
+            aws_sdk_backup.errors.invalid_request_exception.InvalidRequestException: <p>Indicates that something is wrong with the input to the request. For example, a parameter is of the wrong type.</p>
+            aws_sdk_backup.errors.limit_exceeded_exception.LimitExceededException: <p>A limit in the request has been exceeded; for example, a maximum number of items allowed in a request.</p>
+            aws_sdk_backup.errors.missing_parameter_value_exception.MissingParameterValueException: <p>Indicates that a required parameter is missing.</p>
+            aws_sdk_backup.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request failed due to a temporary failure of the server.</p>
+            aws_sdk_backup.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2165,6 +2490,13 @@ class BackupClient:
 
         Args:
             backup_plan_template_id: <p>Uniquely identifies a stored backup plan template.</p>
+
+        Raises:
+            aws_sdk_backup.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>Indicates that something is wrong with a parameter's value. For example, the value is out of range.</p>
+            aws_sdk_backup.errors.missing_parameter_value_exception.MissingParameterValueException: <p>Indicates that a required parameter is missing.</p>
+            aws_sdk_backup.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource that is required for the action doesn't exist.</p>
+            aws_sdk_backup.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request failed due to a temporary failure of the server.</p>
+            aws_sdk_backup.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2204,6 +2536,13 @@ class BackupClient:
         Args:
             backup_plan_id: <p>Uniquely identifies a backup plan.</p>
             selection_id: <p>Uniquely identifies the body of a request to assign a set of resources to a backup plan.</p>
+
+        Raises:
+            aws_sdk_backup.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>Indicates that something is wrong with a parameter's value. For example, the value is out of range.</p>
+            aws_sdk_backup.errors.missing_parameter_value_exception.MissingParameterValueException: <p>Indicates that a required parameter is missing.</p>
+            aws_sdk_backup.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource that is required for the action doesn't exist.</p>
+            aws_sdk_backup.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request failed due to a temporary failure of the server.</p>
+            aws_sdk_backup.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2242,6 +2581,13 @@ class BackupClient:
 
         Args:
             backup_vault_name: <p>The name of a logical container where backups are stored. Backup vaults are identified by names that are unique to the account used to create them and the Amazon Web Services Region where they are created.</p>
+
+        Raises:
+            aws_sdk_backup.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>Indicates that something is wrong with a parameter's value. For example, the value is out of range.</p>
+            aws_sdk_backup.errors.missing_parameter_value_exception.MissingParameterValueException: <p>Indicates that a required parameter is missing.</p>
+            aws_sdk_backup.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource that is required for the action doesn't exist.</p>
+            aws_sdk_backup.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request failed due to a temporary failure of the server.</p>
+            aws_sdk_backup.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2279,6 +2625,13 @@ class BackupClient:
 
         Args:
             backup_vault_name: <p>The name of a logical container where backups are stored. Backup vaults are identified by names that are unique to the account used to create them and the Amazon Web Services Region where they are created.</p>
+
+        Raises:
+            aws_sdk_backup.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>Indicates that something is wrong with a parameter's value. For example, the value is out of range.</p>
+            aws_sdk_backup.errors.missing_parameter_value_exception.MissingParameterValueException: <p>Indicates that a required parameter is missing.</p>
+            aws_sdk_backup.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource that is required for the action doesn't exist.</p>
+            aws_sdk_backup.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request failed due to a temporary failure of the server.</p>
+            aws_sdk_backup.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2316,6 +2669,13 @@ class BackupClient:
 
         Args:
             legal_hold_id: <p>The ID of the legal hold.</p>
+
+        Raises:
+            aws_sdk_backup.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>Indicates that something is wrong with a parameter's value. For example, the value is out of range.</p>
+            aws_sdk_backup.errors.missing_parameter_value_exception.MissingParameterValueException: <p>Indicates that a required parameter is missing.</p>
+            aws_sdk_backup.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource that is required for the action doesn't exist.</p>
+            aws_sdk_backup.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request failed due to a temporary failure of the server.</p>
+            aws_sdk_backup.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2359,6 +2719,13 @@ class BackupClient:
             backup_vault_name: <p>The name of a logical container where backups are stored. Backup vaults are identified by names that are unique to the account used to create them and the Amazon Web Services Region where they are created.</p>
             scan_end_time: <p>The point in time within the continuous backup to examine for malware scan results.</p>
             malware_scanner: <p>The scanning engine used for the corresponding scan job. Currently only <code>GUARDDUTY</code> is supported.</p>
+
+        Raises:
+            aws_sdk_backup.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>Indicates that something is wrong with a parameter's value. For example, the value is out of range.</p>
+            aws_sdk_backup.errors.missing_parameter_value_exception.MissingParameterValueException: <p>Indicates that a required parameter is missing.</p>
+            aws_sdk_backup.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource that is required for the action doesn't exist.</p>
+            aws_sdk_backup.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request failed due to a temporary failure of the server.</p>
+            aws_sdk_backup.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2401,6 +2768,13 @@ class BackupClient:
         Args:
             backup_vault_name: <p>The name of a logical container where backups are stored. Backup vaults are identified by names that are unique to the account used to create them and the Region where they are created.</p> <p>Accepted characters include lowercase letters, numbers, and hyphens.</p>
             recovery_point_arn: <p>An ARN that uniquely identifies a recovery point; for example, <code>arn:aws:backup:us-east-1:123456789012:recovery-point:1EB3B5E7-9EB0-435A-A80B-108B488B0D45</code>.</p>
+
+        Raises:
+            aws_sdk_backup.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>Indicates that something is wrong with a parameter's value. For example, the value is out of range.</p>
+            aws_sdk_backup.errors.missing_parameter_value_exception.MissingParameterValueException: <p>Indicates that a required parameter is missing.</p>
+            aws_sdk_backup.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource that is required for the action doesn't exist.</p>
+            aws_sdk_backup.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request failed due to a temporary failure of the server.</p>
+            aws_sdk_backup.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2445,6 +2819,13 @@ class BackupClient:
             backup_vault_name: <p>The name of a logical container where backups are stored. Backup vaults are identified by names that are unique to the account used to create them and the Amazon Web Services Region where they are created.</p>
             recovery_point_arn: <p>An Amazon Resource Name (ARN) that uniquely identifies a recovery point; for example, <code>arn:aws:backup:us-east-1:123456789012:recovery-point:1EB3B5E7-9EB0-435A-A80B-108B488B0D45</code>.</p>
             backup_vault_account_id: <p>The account ID of the specified backup vault.</p>
+
+        Raises:
+            aws_sdk_backup.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>Indicates that something is wrong with a parameter's value. For example, the value is out of range.</p>
+            aws_sdk_backup.errors.missing_parameter_value_exception.MissingParameterValueException: <p>Indicates that a required parameter is missing.</p>
+            aws_sdk_backup.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource that is required for the action doesn't exist.</p>
+            aws_sdk_backup.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request failed due to a temporary failure of the server.</p>
+            aws_sdk_backup.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2485,6 +2866,13 @@ class BackupClient:
 
         Args:
             restore_job_id: <p>This is a unique identifier of a restore job within Backup.</p>
+
+        Raises:
+            aws_sdk_backup.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>Indicates that something is wrong with a parameter's value. For example, the value is out of range.</p>
+            aws_sdk_backup.errors.missing_parameter_value_exception.MissingParameterValueException: <p>Indicates that a required parameter is missing.</p>
+            aws_sdk_backup.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource that is required for the action doesn't exist.</p>
+            aws_sdk_backup.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request failed due to a temporary failure of the server.</p>
+            aws_sdk_backup.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2526,6 +2914,13 @@ class BackupClient:
             backup_vault_account_id: <p>The account ID of the specified backup vault.</p>
             backup_vault_name: <p>The name of a logical container where backups are stored. Backup vaults are identified by names that are unique to the account used to create them and the Amazon Web ServicesRegion where they are created. They consist of letters, numbers, and hyphens.</p>
             recovery_point_arn: <p>An Amazon Resource Name (ARN) that uniquely identifies a recovery point; for example, <code>arn:aws:backup:us-east-1:123456789012:recovery-point:1EB3B5E7-9EB0-435A-A80B-108B488B0D45</code>. </p>
+
+        Raises:
+            aws_sdk_backup.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>Indicates that something is wrong with a parameter's value. For example, the value is out of range.</p>
+            aws_sdk_backup.errors.missing_parameter_value_exception.MissingParameterValueException: <p>Indicates that a required parameter is missing.</p>
+            aws_sdk_backup.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource that is required for the action doesn't exist.</p>
+            aws_sdk_backup.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request failed due to a temporary failure of the server.</p>
+            aws_sdk_backup.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2566,6 +2961,11 @@ class BackupClient:
 
         Args:
             restore_testing_plan_name: <p>Required unique name of the restore testing plan.</p>
+
+        Raises:
+            aws_sdk_backup.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource that is required for the action doesn't exist.</p>
+            aws_sdk_backup.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request failed due to a temporary failure of the server.</p>
+            aws_sdk_backup.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2605,6 +3005,11 @@ class BackupClient:
         Args:
             restore_testing_plan_name: <p>Required unique name of the restore testing plan.</p>
             restore_testing_selection_name: <p>Required unique name of the restore testing selection.</p>
+
+        Raises:
+            aws_sdk_backup.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource that is required for the action doesn't exist.</p>
+            aws_sdk_backup.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request failed due to a temporary failure of the server.</p>
+            aws_sdk_backup.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2636,7 +3041,12 @@ class BackupClient:
     def get_supported_resource_types(
         self, *, config_overrides: Optional[BackupClientConfig] = None
     ) -> "aws_sdk_backup.types.get_supported_resource_types_output.GetSupportedResourceTypesOutput":
-        """<p>Returns the Amazon Web Services resource types supported by Backup.</p>"""
+        """<p>Returns the Amazon Web Services resource types supported by Backup.</p>
+
+        Raises:
+            aws_sdk_backup.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request failed due to a temporary failure of the server.</p>
+            aws_sdk_backup.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[None]",
@@ -2671,6 +3081,13 @@ class BackupClient:
 
         Args:
             tiering_configuration_name: <p>The unique name of a tiering configuration.</p>
+
+        Raises:
+            aws_sdk_backup.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>Indicates that something is wrong with a parameter's value. For example, the value is out of range.</p>
+            aws_sdk_backup.errors.missing_parameter_value_exception.MissingParameterValueException: <p>Indicates that a required parameter is missing.</p>
+            aws_sdk_backup.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource that is required for the action doesn't exist.</p>
+            aws_sdk_backup.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request failed due to a temporary failure of the server.</p>
+            aws_sdk_backup.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2738,6 +3155,11 @@ class BackupClient:
             by_complete_before: <p>Returns only backup jobs completed before a date expressed in Unix format and Coordinated Universal Time (UTC).</p>
             by_parent_job_id: <p>This is a filter to list child (nested) jobs based on parent job ID.</p>
             by_message_category: <p>This is an optional parameter that can be used to filter out jobs with a MessageCategory which matches the value you input.</p> <p>Example strings may include <code>AccessDenied</code>, <code>SUCCESS</code>, <code>AGGREGATE_ALL</code>, and <code>InvalidParameters</code>.</p> <p>View <a href=\"https://docs.aws.amazon.com/aws-backup/latest/devguide/monitoring.html\">Monitoring</a> </p> <p>The wildcard () returns count of all message categories.</p> <p> <code>AGGREGATE_ALL</code> aggregates job counts for all message categories and returns the sum.</p>
+
+        Raises:
+            aws_sdk_backup.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>Indicates that something is wrong with a parameter's value. For example, the value is out of range.</p>
+            aws_sdk_backup.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request failed due to a temporary failure of the server.</p>
+            aws_sdk_backup.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2869,6 +3291,11 @@ class BackupClient:
             aggregation_period: <p>The period for the returned results.</p> <ul> <li> <p> <code>ONE_DAY</code> - The daily job count for the prior 14 days.</p> </li> <li> <p> <code>SEVEN_DAYS</code> - The aggregated job count for the prior 7 days.</p> </li> <li> <p> <code>FOURTEEN_DAYS</code> - The aggregated job count for prior 14 days.</p> </li> </ul>
             max_results: <p>The maximum number of items to be returned.</p> <p>The value is an integer. Range of accepted values is from 1 to 500.</p>
             next_token: <p>The next item following a partial list of returned resources. For example, if a request is made to return <code>MaxResults</code> number of resources, <code>NextToken</code> allows you to return more items in your list starting at the location pointed to by the next token.</p>
+
+        Raises:
+            aws_sdk_backup.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>Indicates that something is wrong with a parameter's value. For example, the value is out of range.</p>
+            aws_sdk_backup.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request failed due to a temporary failure of the server.</p>
+            aws_sdk_backup.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2923,6 +3350,13 @@ class BackupClient:
             next_token: <p>The next item following a partial list of returned items. For example, if a request is made to return <code>MaxResults</code> number of items, <code>NextToken</code> allows you to return more items in your list starting at the location pointed to by the next token.</p>
             max_results: <p>The maximum number of items to be returned.</p>
             include_deleted: <p>A Boolean value with a default value of <code>FALSE</code> that returns deleted backup plans when set to <code>TRUE</code>.</p>
+
+        Raises:
+            aws_sdk_backup.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>Indicates that something is wrong with a parameter's value. For example, the value is out of range.</p>
+            aws_sdk_backup.errors.missing_parameter_value_exception.MissingParameterValueException: <p>Indicates that a required parameter is missing.</p>
+            aws_sdk_backup.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource that is required for the action doesn't exist.</p>
+            aws_sdk_backup.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request failed due to a temporary failure of the server.</p>
+            aws_sdk_backup.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2992,6 +3426,13 @@ class BackupClient:
         Args:
             next_token: <p>The next item following a partial list of returned items. For example, if a request is made to return <code>MaxResults</code> number of items, <code>NextToken</code> allows you to return more items in your list starting at the location pointed to by the next token.</p>
             max_results: <p>The maximum number of items to return.</p>
+
+        Raises:
+            aws_sdk_backup.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>Indicates that something is wrong with a parameter's value. For example, the value is out of range.</p>
+            aws_sdk_backup.errors.missing_parameter_value_exception.MissingParameterValueException: <p>Indicates that a required parameter is missing.</p>
+            aws_sdk_backup.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource that is required for the action doesn't exist.</p>
+            aws_sdk_backup.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request failed due to a temporary failure of the server.</p>
+            aws_sdk_backup.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3057,6 +3498,13 @@ class BackupClient:
             backup_plan_id: <p>Uniquely identifies a backup plan.</p>
             next_token: <p>The next item following a partial list of returned items. For example, if a request is made to return <code>MaxResults</code> number of items, <code>NextToken</code> allows you to return more items in your list starting at the location pointed to by the next token.</p>
             max_results: <p>The maximum number of items to be returned.</p>
+
+        Raises:
+            aws_sdk_backup.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>Indicates that something is wrong with a parameter's value. For example, the value is out of range.</p>
+            aws_sdk_backup.errors.missing_parameter_value_exception.MissingParameterValueException: <p>Indicates that a required parameter is missing.</p>
+            aws_sdk_backup.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource that is required for the action doesn't exist.</p>
+            aws_sdk_backup.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request failed due to a temporary failure of the server.</p>
+            aws_sdk_backup.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3129,6 +3577,13 @@ class BackupClient:
             backup_plan_id: <p>Uniquely identifies a backup plan.</p>
             next_token: <p>The next item following a partial list of returned items. For example, if a request is made to return <code>MaxResults</code> number of items, <code>NextToken</code> allows you to return more items in your list starting at the location pointed to by the next token.</p>
             max_results: <p>The maximum number of items to be returned.</p>
+
+        Raises:
+            aws_sdk_backup.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>Indicates that something is wrong with a parameter's value. For example, the value is out of range.</p>
+            aws_sdk_backup.errors.missing_parameter_value_exception.MissingParameterValueException: <p>Indicates that a required parameter is missing.</p>
+            aws_sdk_backup.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource that is required for the action doesn't exist.</p>
+            aws_sdk_backup.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request failed due to a temporary failure of the server.</p>
+            aws_sdk_backup.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3199,6 +3654,13 @@ class BackupClient:
             by_shared: <p>This parameter will sort the list of vaults by shared vaults.</p>
             next_token: <p>The next item following a partial list of returned items. For example, if a request is made to return <code>MaxResults</code> number of items, <code>NextToken</code> allows you to return more items in your list starting at the location pointed to by the next token.</p>
             max_results: <p>The maximum number of items to be returned.</p>
+
+        Raises:
+            aws_sdk_backup.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>Indicates that something is wrong with a parameter's value. For example, the value is out of range.</p>
+            aws_sdk_backup.errors.missing_parameter_value_exception.MissingParameterValueException: <p>Indicates that a required parameter is missing.</p>
+            aws_sdk_backup.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource that is required for the action doesn't exist.</p>
+            aws_sdk_backup.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request failed due to a temporary failure of the server.</p>
+            aws_sdk_backup.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3300,6 +3762,11 @@ class BackupClient:
             by_parent_job_id: <p>This is a filter to list child (nested) jobs based on parent job ID.</p>
             by_message_category: <p>This is an optional parameter that can be used to filter out jobs with a MessageCategory which matches the value you input.</p> <p>Example strings may include <code>AccessDenied</code>, <code>SUCCESS</code>, <code>AGGREGATE_ALL</code>, and <code>INVALIDPARAMETERS</code>.</p> <p>View <a href=\"https://docs.aws.amazon.com/aws-backup/latest/devguide/monitoring.html\">Monitoring</a> for a list of accepted strings.</p> <p>The the value ANY returns count of all message categories.</p> <p> <code>AGGREGATE_ALL</code> aggregates job counts for all message categories and returns the sum.</p>
             by_source_recovery_point_arn: <p>Filters copy jobs by the specified source recovery point ARN.</p>
+
+        Raises:
+            aws_sdk_backup.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>Indicates that something is wrong with a parameter's value. For example, the value is out of range.</p>
+            aws_sdk_backup.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request failed due to a temporary failure of the server.</p>
+            aws_sdk_backup.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3433,6 +3900,11 @@ class BackupClient:
             aggregation_period: <p>The period for the returned results.</p> <ul> <li> <p> <code>ONE_DAY</code> - The daily job count for the prior 14 days.</p> </li> <li> <p> <code>SEVEN_DAYS</code> - The aggregated job count for the prior 7 days.</p> </li> <li> <p> <code>FOURTEEN_DAYS</code> - The aggregated job count for prior 14 days.</p> </li> </ul>
             max_results: <p>This parameter sets the maximum number of items to be returned.</p> <p>The value is an integer. Range of accepted values is from 1 to 500.</p>
             next_token: <p>The next item following a partial list of returned resources. For example, if a request is made to return <code>MaxResults</code> number of resources, <code>NextToken</code> allows you to return more items in your list starting at the location pointed to by the next token.</p>
+
+        Raises:
+            aws_sdk_backup.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>Indicates that something is wrong with a parameter's value. For example, the value is out of range.</p>
+            aws_sdk_backup.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request failed due to a temporary failure of the server.</p>
+            aws_sdk_backup.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3487,6 +3959,11 @@ class BackupClient:
         Args:
             max_results: <p>The number of desired results from 1 to 1000. Optional. If unspecified, the query will return 1 MB of data.</p>
             next_token: <p>An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.</p>
+
+        Raises:
+            aws_sdk_backup.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>Indicates that something is wrong with a parameter's value. For example, the value is out of range.</p>
+            aws_sdk_backup.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request failed due to a temporary failure of the server.</p>
+            aws_sdk_backup.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3541,6 +4018,12 @@ class BackupClient:
             created_after: <p>Returns only indexed recovery points that were created after the specified date.</p>
             resource_type: <p>Returns a list of indexed recovery points for the specified resource type(s).</p> <p>Accepted values include:</p> <ul> <li> <p> <code>EBS</code> for Amazon Elastic Block Store</p> </li> <li> <p> <code>S3</code> for Amazon Simple Storage Service (Amazon S3)</p> </li> </ul>
             index_status: <p>Include this parameter to filter the returned list by the indicated statuses.</p> <p>Accepted values: <code>PENDING</code> | <code>ACTIVE</code> | <code>FAILED</code> | <code>DELETING</code> </p> <p>A recovery point with an index that has the status of <code>ACTIVE</code> can be included in a search.</p>
+
+        Raises:
+            aws_sdk_backup.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>Indicates that something is wrong with a parameter's value. For example, the value is out of range.</p>
+            aws_sdk_backup.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource that is required for the action doesn't exist.</p>
+            aws_sdk_backup.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request failed due to a temporary failure of the server.</p>
+            aws_sdk_backup.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3626,6 +4109,11 @@ class BackupClient:
         Args:
             next_token: <p>The next item following a partial list of returned resources. For example, if a request is made to return <code>MaxResults</code> number of resources, <code>NextToken</code> allows you to return more items in your list starting at the location pointed to by the next token.</p>
             max_results: <p>The maximum number of resource list items to be returned.</p>
+
+        Raises:
+            aws_sdk_backup.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>Indicates that something is wrong with a parameter's value. For example, the value is out of range.</p>
+            aws_sdk_backup.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request failed due to a temporary failure of the server.</p>
+            aws_sdk_backup.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3689,6 +4177,11 @@ class BackupClient:
         Args:
             next_token: <p>The next item following a partial list of returned items. For example, if a request is made to return <code>MaxResults</code> number of items, <code>NextToken</code> allows you to return more items in your list starting at the location pointed to by the next token.</p>
             max_results: <p>The maximum number of items to be returned.</p>
+
+        Raises:
+            aws_sdk_backup.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>Indicates that something is wrong with a parameter's value. For example, the value is out of range.</p>
+            aws_sdk_backup.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request failed due to a temporary failure of the server.</p>
+            aws_sdk_backup.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3758,6 +4251,12 @@ class BackupClient:
             backup_vault_account_id: <p>The list of protected resources by backup vault within the vault(s) you specify by account ID.</p>
             next_token: <p>The next item following a partial list of returned items. For example, if a request is made to return <code>MaxResults</code> number of items, <code>NextToken</code> allows you to return more items in your list starting at the location pointed to by the next token.</p>
             max_results: <p>The maximum number of items to be returned.</p>
+
+        Raises:
+            aws_sdk_backup.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>Indicates that something is wrong with a parameter's value. For example, the value is out of range.</p>
+            aws_sdk_backup.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource that is required for the action doesn't exist.</p>
+            aws_sdk_backup.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request failed due to a temporary failure of the server.</p>
+            aws_sdk_backup.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3850,6 +4349,13 @@ class BackupClient:
             by_created_before: <p>Returns only recovery points that were created before the specified timestamp.</p>
             by_created_after: <p>Returns only recovery points that were created after the specified timestamp.</p>
             by_parent_recovery_point_arn: <p>This returns only recovery points that match the specified parent (composite) recovery point Amazon Resource Name (ARN).</p>
+
+        Raises:
+            aws_sdk_backup.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>Indicates that something is wrong with a parameter's value. For example, the value is out of range.</p>
+            aws_sdk_backup.errors.missing_parameter_value_exception.MissingParameterValueException: <p>Indicates that a required parameter is missing.</p>
+            aws_sdk_backup.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource that is required for the action doesn't exist.</p>
+            aws_sdk_backup.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request failed due to a temporary failure of the server.</p>
+            aws_sdk_backup.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3950,6 +4456,12 @@ class BackupClient:
             legal_hold_id: <p>The ID of the legal hold.</p>
             next_token: <p>The next item following a partial list of returned resources. For example, if a request is made to return <code>MaxResults</code> number of resources, <code>NextToken</code> allows you to return more items in your list starting at the location pointed to by the next token.</p>
             max_results: <p>The maximum number of resource list items to be returned.</p>
+
+        Raises:
+            aws_sdk_backup.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>Indicates that something is wrong with a parameter's value. For example, the value is out of range.</p>
+            aws_sdk_backup.errors.missing_parameter_value_exception.MissingParameterValueException: <p>Indicates that a required parameter is missing.</p>
+            aws_sdk_backup.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request failed due to a temporary failure of the server.</p>
+            aws_sdk_backup.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4022,6 +4534,13 @@ class BackupClient:
             next_token: <p>The next item following a partial list of returned items. For example, if a request is made to return <code>MaxResults</code> number of items, <code>NextToken</code> allows you to return more items in your list starting at the location pointed to by the next token.</p>
             max_results: <p>The maximum number of items to be returned.</p> <note> <p>Amazon RDS requires a value of at least 20.</p> </note>
             managed_by_aws_backup_only: <p>This attribute filters recovery points based on ownership.</p> <p>If this is set to <code>TRUE</code>, the response will contain recovery points associated with the selected resources that are managed by Backup.</p> <p>If this is set to <code>FALSE</code>, the response will contain all recovery points associated with the selected resource.</p> <p>Type: Boolean</p>
+
+        Raises:
+            aws_sdk_backup.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>Indicates that something is wrong with a parameter's value. For example, the value is out of range.</p>
+            aws_sdk_backup.errors.missing_parameter_value_exception.MissingParameterValueException: <p>Indicates that a required parameter is missing.</p>
+            aws_sdk_backup.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource that is required for the action doesn't exist.</p>
+            aws_sdk_backup.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request failed due to a temporary failure of the server.</p>
+            aws_sdk_backup.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4104,6 +4623,12 @@ class BackupClient:
             by_status: <p>Returns only report jobs that are in the specified status. The statuses are:</p> <p> <code>CREATED | RUNNING | COMPLETED | FAILED | COMPLETED_WITH_ISSUES</code> </p> <p> Please note that only scanning jobs finish with state completed with issues. For backup jobs this is a console interpretation of a job that finishes in completed state and has a status message.</p>
             max_results: <p>The number of desired results from 1 to 1000. Optional. If unspecified, the query will return 1 MB of data.</p>
             next_token: <p>An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.</p>
+
+        Raises:
+            aws_sdk_backup.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>Indicates that something is wrong with a parameter's value. For example, the value is out of range.</p>
+            aws_sdk_backup.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource that is required for the action doesn't exist.</p>
+            aws_sdk_backup.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request failed due to a temporary failure of the server.</p>
+            aws_sdk_backup.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4154,6 +4679,11 @@ class BackupClient:
         Args:
             max_results: <p>The number of desired results from 1 to 1000. Optional. If unspecified, the query will return 1 MB of data.</p>
             next_token: <p>An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.</p>
+
+        Raises:
+            aws_sdk_backup.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>Indicates that something is wrong with a parameter's value. For example, the value is out of range.</p>
+            aws_sdk_backup.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request failed due to a temporary failure of the server.</p>
+            aws_sdk_backup.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4198,6 +4728,13 @@ class BackupClient:
             backup_vault_name: <p>The name of the backup vault for which to list associated restore access backup vaults.</p>
             next_token: <p>The pagination token from a previous request to retrieve the next set of results.</p>
             max_results: <p>The maximum number of items to return in the response.</p>
+
+        Raises:
+            aws_sdk_backup.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>Indicates that something is wrong with a parameter's value. For example, the value is out of range.</p>
+            aws_sdk_backup.errors.missing_parameter_value_exception.MissingParameterValueException: <p>Indicates that a required parameter is missing.</p>
+            aws_sdk_backup.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource that is required for the action doesn't exist.</p>
+            aws_sdk_backup.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request failed due to a temporary failure of the server.</p>
+            aws_sdk_backup.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4286,6 +4823,13 @@ class BackupClient:
             by_complete_after: <p>Returns only copy jobs completed after a date expressed in Unix format and Coordinated Universal Time (UTC).</p>
             by_restore_testing_plan_arn: <p>This returns only restore testing jobs that match the specified resource Amazon Resource Name (ARN).</p>
             by_parent_job_id: <p>This is a filter to list child (nested) restore jobs based on parent restore job ID.</p>
+
+        Raises:
+            aws_sdk_backup.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>Indicates that something is wrong with a parameter's value. For example, the value is out of range.</p>
+            aws_sdk_backup.errors.missing_parameter_value_exception.MissingParameterValueException: <p>Indicates that a required parameter is missing.</p>
+            aws_sdk_backup.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource that is required for the action doesn't exist.</p>
+            aws_sdk_backup.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request failed due to a temporary failure of the server.</p>
+            aws_sdk_backup.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4405,6 +4949,13 @@ class BackupClient:
             by_recovery_point_creation_date_before: <p>Returns only restore jobs of recovery points that were created before the specified date.</p>
             next_token: <p>The next item following a partial list of returned items. For example, if a request ismade to return <code>MaxResults</code> number of items, <code>NextToken</code> allows you to return more items in your list starting at the location pointed to by the next token.</p>
             max_results: <p>The maximum number of items to be returned.</p>
+
+        Raises:
+            aws_sdk_backup.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>Indicates that something is wrong with a parameter's value. For example, the value is out of range.</p>
+            aws_sdk_backup.errors.missing_parameter_value_exception.MissingParameterValueException: <p>Indicates that a required parameter is missing.</p>
+            aws_sdk_backup.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource that is required for the action doesn't exist.</p>
+            aws_sdk_backup.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request failed due to a temporary failure of the server.</p>
+            aws_sdk_backup.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4509,6 +5060,11 @@ class BackupClient:
             aggregation_period: <p>The period for the returned results.</p> <ul> <li> <p> <code>ONE_DAY</code> - The daily job count for the prior 14 days.</p> </li> <li> <p> <code>SEVEN_DAYS</code> - The aggregated job count for the prior 7 days.</p> </li> <li> <p> <code>FOURTEEN_DAYS</code> - The aggregated job count for prior 14 days.</p> </li> </ul>
             max_results: <p>This parameter sets the maximum number of items to be returned.</p> <p>The value is an integer. Range of accepted values is from 1 to 500.</p>
             next_token: <p>The next item following a partial list of returned resources. For example, if a request is made to return <code>MaxResults</code> number of resources, <code>NextToken</code> allows you to return more items in your list starting at the location pointed to by the next token.</p>
+
+        Raises:
+            aws_sdk_backup.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>Indicates that something is wrong with a parameter's value. For example, the value is out of range.</p>
+            aws_sdk_backup.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request failed due to a temporary failure of the server.</p>
+            aws_sdk_backup.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4561,6 +5117,11 @@ class BackupClient:
         Args:
             max_results: <p>The maximum number of items to be returned.</p>
             next_token: <p>The next item following a partial list of returned items. For example, if a request is made to return <code>MaxResults</code> number of items, <code>NextToken</code> allows you to return more items in your list starting at the location pointed to by the nexttoken.</p>
+
+        Raises:
+            aws_sdk_backup.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>Indicates that something is wrong with a parameter's value. For example, the value is out of range.</p>
+            aws_sdk_backup.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request failed due to a temporary failure of the server.</p>
+            aws_sdk_backup.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4630,6 +5191,12 @@ class BackupClient:
             max_results: <p>The maximum number of items to be returned.</p>
             next_token: <p>The next item following a partial list of returned items. For example, if a request is made to return <code>MaxResults</code> number of items, <code>NextToken</code> allows you to return more items in your list starting at the location pointed to by the nexttoken.</p>
             restore_testing_plan_name: <p>Returns restore testing selections by the specified restore testing plan name.</p>
+
+        Raises:
+            aws_sdk_backup.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>Indicates that something is wrong with a parameter's value. For example, the value is out of range.</p>
+            aws_sdk_backup.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource that is required for the action doesn't exist.</p>
+            aws_sdk_backup.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request failed due to a temporary failure of the server.</p>
+            aws_sdk_backup.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4726,6 +5293,11 @@ class BackupClient:
             by_state: <p>Returns only the scan jobs for the specified scanning job state.</p>
             max_results: <p>The maximum number of items to be returned.</p> <p>Valid Range: Minimum value of 1. Maximum value of 1000.</p>
             next_token: <p>The next item following a partial list of returned items. For example, if a request is made to return <code>MaxResults</code> number of items, <code>NextToken</code> allows you to return more items in your list starting at the location pointed to by the next token.</p>
+
+        Raises:
+            aws_sdk_backup.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>Indicates that something is wrong with a parameter's value. For example, the value is out of range.</p>
+            aws_sdk_backup.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request failed due to a temporary failure of the server.</p>
+            aws_sdk_backup.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4859,6 +5431,11 @@ class BackupClient:
             aggregation_period: <p>The period for the returned results.</p> <ul> <li> <p> <code>ONE_DAY</code>The daily job count for the prior 1 day.</p> </li> <li> <p> <code>SEVEN_DAYS</code>The daily job count for the prior 7 days.</p> </li> <li> <p> <code>FOURTEEN_DAYS</code>The daily job count for the prior 14 days.</p> </li> </ul>
             max_results: <p>The maximum number of items to be returned.</p> <p>The value is an integer. Range of accepted values is from 1 to 500.</p>
             next_token: <p>The next item following a partial list of returned items. For example, if a request is made to return <code>MaxResults</code> number of items, <code>NextToken</code> allows you to return more items in your list starting at the location pointed to by the next token.</p>
+
+        Raises:
+            aws_sdk_backup.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>Indicates that something is wrong with a parameter's value. For example, the value is out of range.</p>
+            aws_sdk_backup.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request failed due to a temporary failure of the server.</p>
+            aws_sdk_backup.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4956,6 +5533,13 @@ class BackupClient:
             resource_arn: <p>An Amazon Resource Name (ARN) that uniquely identifies a resource. The format of the ARN depends on the type of resource. Valid targets for <code>ListTags</code> are recovery points, backup plans, and backup vaults.</p>
             next_token: <p>The next item following a partial list of returned items. For example, if a request is made to return <code>MaxResults</code> number of items, <code>NextToken</code> allows you to return more items in your list starting at the location pointed to by the next token.</p>
             max_results: <p>The maximum number of items to be returned.</p>
+
+        Raises:
+            aws_sdk_backup.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>Indicates that something is wrong with a parameter's value. For example, the value is out of range.</p>
+            aws_sdk_backup.errors.missing_parameter_value_exception.MissingParameterValueException: <p>Indicates that a required parameter is missing.</p>
+            aws_sdk_backup.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource that is required for the action doesn't exist.</p>
+            aws_sdk_backup.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request failed due to a temporary failure of the server.</p>
+            aws_sdk_backup.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4997,6 +5581,11 @@ class BackupClient:
         Args:
             max_results: <p>The maximum number of items to be returned.</p>
             next_token: <p>The next item following a partial list of returned items. For example, if a request is made to return <code>MaxResults</code> number of items, <code>NextToken</code> allows you to return more items in your list starting at the location pointed to by the next token.</p>
+
+        Raises:
+            aws_sdk_backup.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>Indicates that something is wrong with a parameter's value. For example, the value is out of range.</p>
+            aws_sdk_backup.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request failed due to a temporary failure of the server.</p>
+            aws_sdk_backup.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5060,6 +5649,13 @@ class BackupClient:
         Args:
             backup_vault_name: <p>The name of a logical container where backups are stored. Backup vaults are identified by names that are unique to the account used to create them and the Amazon Web Services Region where they are created.</p>
             policy: <p>The backup vault access policy document in JSON format.</p>
+
+        Raises:
+            aws_sdk_backup.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>Indicates that something is wrong with a parameter's value. For example, the value is out of range.</p>
+            aws_sdk_backup.errors.missing_parameter_value_exception.MissingParameterValueException: <p>Indicates that a required parameter is missing.</p>
+            aws_sdk_backup.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource that is required for the action doesn't exist.</p>
+            aws_sdk_backup.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request failed due to a temporary failure of the server.</p>
+            aws_sdk_backup.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5103,6 +5699,14 @@ class BackupClient:
             min_retention_days: <p>The Backup Vault Lock configuration that specifies the minimum retention period that the vault retains its recovery points. This setting can be useful if, for example, your organization's policies require you to retain certain data for at least seven years (2555 days).</p> <p>This parameter is required when a vault lock is created through CloudFormation; otherwise, this parameter is optional. If this parameter is not specified, Vault Lock will not enforce a minimum retention period.</p> <p>If this parameter is specified, any backup or copy job to the vault must have a lifecycle policy with a retention period equal to or longer than the minimum retention period. If the job's retention period is shorter than that minimum retention period, then the vault fails that backup or copy job, and you should either modify your lifecycle settings or use a different vault. The shortest minimum retention period you can specify is 1 day. Recovery points already saved in the vault prior to Vault Lock are not affected.</p>
             max_retention_days: <p>The Backup Vault Lock configuration that specifies the maximum retention period that the vault retains its recovery points. This setting can be useful if, for example, your organization's policies require you to destroy certain data after retaining it for four years (1460 days).</p> <p>If this parameter is not included, Vault Lock does not enforce a maximum retention period on the recovery points in the vault. If this parameter is included without a value, Vault Lock will not enforce a maximum retention period.</p> <p>If this parameter is specified, any backup or copy job to the vault must have a lifecycle policy with a retention period equal to or shorter than the maximum retention period. If the job's retention period is longer than that maximum retention period, then the vault fails the backup or copy job, and you should either modify your lifecycle settings or use a different vault. The longest maximum retention period you can specify is 36500 days (approximately 100 years). Recovery points already saved in the vault prior to Vault Lock are not affected.</p>
             changeable_for_days: <p>The Backup Vault Lock configuration that specifies the number of days before the lock date. For example, setting <code>ChangeableForDays</code> to 30 on Jan. 1, 2022 at 8pm UTC will set the lock date to Jan. 31, 2022 at 8pm UTC.</p> <p>Backup enforces a 72-hour cooling-off period before Vault Lock takes effect and becomes immutable. Therefore, you must set <code>ChangeableForDays</code> to 3 or greater.</p> <p>The maximum value you can specify is 36,500 days (approximately 100 years).</p> <p>Before the lock date, you can delete Vault Lock from the vault using <code>DeleteBackupVaultLockConfiguration</code> or change the Vault Lock configuration using <code>PutBackupVaultLockConfiguration</code>. On and after the lock date, the Vault Lock becomes immutable and cannot be changed or deleted.</p> <p>If this parameter is not specified, you can delete Vault Lock from the vault using <code>DeleteBackupVaultLockConfiguration</code> or change the Vault Lock configuration using <code>PutBackupVaultLockConfiguration</code> at any time.</p>
+
+        Raises:
+            aws_sdk_backup.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>Indicates that something is wrong with a parameter's value. For example, the value is out of range.</p>
+            aws_sdk_backup.errors.invalid_request_exception.InvalidRequestException: <p>Indicates that something is wrong with the input to the request. For example, a parameter is of the wrong type.</p>
+            aws_sdk_backup.errors.missing_parameter_value_exception.MissingParameterValueException: <p>Indicates that a required parameter is missing.</p>
+            aws_sdk_backup.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource that is required for the action doesn't exist.</p>
+            aws_sdk_backup.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request failed due to a temporary failure of the server.</p>
+            aws_sdk_backup.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5148,6 +5752,13 @@ class BackupClient:
             backup_vault_name: <p>The name of a logical container where backups are stored. Backup vaults are identified by names that are unique to the account used to create them and the Amazon Web Services Region where they are created.</p>
             sns_topic_arn: <p>The Amazon Resource Name (ARN) that specifies the topic for a backup vault’s events; for example, <code>arn:aws:sns:us-west-2:111122223333:MyVaultTopic</code>.</p>
             backup_vault_events: <p>An array of events that indicate the status of jobs to back up resources to the backup vault. For the list of supported events, common use cases, and code samples, see <a href=\"https://docs.aws.amazon.com/aws-backup/latest/devguide/backup-notifications.html\">Notification options with Backup</a>.</p>
+
+        Raises:
+            aws_sdk_backup.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>Indicates that something is wrong with a parameter's value. For example, the value is out of range.</p>
+            aws_sdk_backup.errors.missing_parameter_value_exception.MissingParameterValueException: <p>Indicates that a required parameter is missing.</p>
+            aws_sdk_backup.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource that is required for the action doesn't exist.</p>
+            aws_sdk_backup.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request failed due to a temporary failure of the server.</p>
+            aws_sdk_backup.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5191,6 +5802,14 @@ class BackupClient:
             restore_job_id: <p>This is a unique identifier of a restore job within Backup.</p>
             validation_status: <p>The status of your restore validation.</p>
             validation_status_message: <p>This is an optional message string you can input to describe the validation status for the restore test validation.</p>
+
+        Raises:
+            aws_sdk_backup.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>Indicates that something is wrong with a parameter's value. For example, the value is out of range.</p>
+            aws_sdk_backup.errors.invalid_request_exception.InvalidRequestException: <p>Indicates that something is wrong with the input to the request. For example, a parameter is of the wrong type.</p>
+            aws_sdk_backup.errors.missing_parameter_value_exception.MissingParameterValueException: <p>Indicates that a required parameter is missing.</p>
+            aws_sdk_backup.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource that is required for the action doesn't exist.</p>
+            aws_sdk_backup.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request failed due to a temporary failure of the server.</p>
+            aws_sdk_backup.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5235,6 +5854,14 @@ class BackupClient:
             backup_vault_name: <p>The name of the source backup vault associated with the restore access backup vault to be revoked.</p>
             restore_access_backup_vault_arn: <p>The ARN of the restore access backup vault to revoke.</p>
             requester_comment: <p>A comment explaining the reason for revoking access to the restore access backup vault.</p>
+
+        Raises:
+            aws_sdk_backup.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>Indicates that something is wrong with a parameter's value. For example, the value is out of range.</p>
+            aws_sdk_backup.errors.invalid_request_exception.InvalidRequestException: <p>Indicates that something is wrong with the input to the request. For example, a parameter is of the wrong type.</p>
+            aws_sdk_backup.errors.missing_parameter_value_exception.MissingParameterValueException: <p>Indicates that a required parameter is missing.</p>
+            aws_sdk_backup.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource that is required for the action doesn't exist.</p>
+            aws_sdk_backup.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request failed due to a temporary failure of the server.</p>
+            aws_sdk_backup.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5301,6 +5928,15 @@ class BackupClient:
             recovery_point_tags: <p>The tags to assign to the resources.</p>
             backup_options: <p>The backup option for a selected resource. This option is only available for Windows Volume Shadow Copy Service (VSS) backup jobs.</p> <p>Valid values: Set to <code>\"WindowsVSS\":\"enabled\"</code> to enable the <code>WindowsVSS</code> backup option and create a Windows VSS backup. Set to <code>\"WindowsVSS\"\"disabled\"</code> to create a regular backup. The <code>WindowsVSS</code> option is not enabled by default.</p>
             index: <p>Include this parameter to enable index creation if your backup job has a resource type that supports backup indexes.</p> <p>Resource types that support backup indexes include:</p> <ul> <li> <p> <code>EBS</code> for Amazon Elastic Block Store</p> </li> <li> <p> <code>S3</code> for Amazon Simple Storage Service (Amazon S3)</p> </li> </ul> <p>Index can have 1 of 2 possible values, either <code>ENABLED</code> or <code>DISABLED</code>.</p> <p>To create a backup index for an eligible <code>ACTIVE</code> recovery point that does not yet have a backup index, set value to <code>ENABLED</code>.</p> <p>To delete a backup index, set value to <code>DISABLED</code>.</p>
+
+        Raises:
+            aws_sdk_backup.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>Indicates that something is wrong with a parameter's value. For example, the value is out of range.</p>
+            aws_sdk_backup.errors.invalid_request_exception.InvalidRequestException: <p>Indicates that something is wrong with the input to the request. For example, a parameter is of the wrong type.</p>
+            aws_sdk_backup.errors.limit_exceeded_exception.LimitExceededException: <p>A limit in the request has been exceeded; for example, a maximum number of items allowed in a request.</p>
+            aws_sdk_backup.errors.missing_parameter_value_exception.MissingParameterValueException: <p>Indicates that a required parameter is missing.</p>
+            aws_sdk_backup.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource that is required for the action doesn't exist.</p>
+            aws_sdk_backup.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request failed due to a temporary failure of the server.</p>
+            aws_sdk_backup.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5367,6 +6003,15 @@ class BackupClient:
             destination_backup_vault_arn: <p>An Amazon Resource Name (ARN) that uniquely identifies a destination backup vault to copy to; for example, <code>arn:aws:backup:us-east-1:123456789012:backup-vault:aBackupVault</code>.</p>
             iam_role_arn: <p>Specifies the IAM role ARN used to copy the target recovery point; for example, <code>arn:aws:iam::123456789012:role/S3Access</code>.</p>
             idempotency_token: <p>A customer-chosen string that you can use to distinguish between otherwise identical calls to <code>StartCopyJob</code>. Retrying a successful request with the same idempotency token results in a success message with no action taken.</p>
+
+        Raises:
+            aws_sdk_backup.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>Indicates that something is wrong with a parameter's value. For example, the value is out of range.</p>
+            aws_sdk_backup.errors.invalid_request_exception.InvalidRequestException: <p>Indicates that something is wrong with the input to the request. For example, a parameter is of the wrong type.</p>
+            aws_sdk_backup.errors.limit_exceeded_exception.LimitExceededException: <p>A limit in the request has been exceeded; for example, a maximum number of items allowed in a request.</p>
+            aws_sdk_backup.errors.missing_parameter_value_exception.MissingParameterValueException: <p>Indicates that a required parameter is missing.</p>
+            aws_sdk_backup.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource that is required for the action doesn't exist.</p>
+            aws_sdk_backup.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request failed due to a temporary failure of the server.</p>
+            aws_sdk_backup.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5413,6 +6058,13 @@ class BackupClient:
         Args:
             report_plan_name: <p>The unique name of a report plan.</p>
             idempotency_token: <p>A customer-chosen string that you can use to distinguish between otherwise identical calls to <code>StartReportJobInput</code>. Retrying a successful request with the same idempotency token results in a success message with no action taken.</p>
+
+        Raises:
+            aws_sdk_backup.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>Indicates that something is wrong with a parameter's value. For example, the value is out of range.</p>
+            aws_sdk_backup.errors.missing_parameter_value_exception.MissingParameterValueException: <p>Indicates that a required parameter is missing.</p>
+            aws_sdk_backup.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource that is required for the action doesn't exist.</p>
+            aws_sdk_backup.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request failed due to a temporary failure of the server.</p>
+            aws_sdk_backup.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5466,6 +6118,14 @@ class BackupClient:
             idempotency_token: <p>A customer-chosen string that you can use to distinguish between otherwise identical calls to <code>StartRestoreJob</code>. Retrying a successful request with the same idempotency token results in a success message with no action taken.</p>
             resource_type: <p>Starts a job to restore a recovery point for one of the following resources:</p> <ul> <li> <p> <code>Aurora</code> - Amazon Aurora</p> </li> <li> <p> <code>DocumentDB</code> - Amazon DocumentDB</p> </li> <li> <p> <code>CloudFormation</code> - CloudFormation</p> </li> <li> <p> <code>DynamoDB</code> - Amazon DynamoDB</p> </li> <li> <p> <code>EBS</code> - Amazon Elastic Block Store</p> </li> <li> <p> <code>EC2</code> - Amazon Elastic Compute Cloud</p> </li> <li> <p> <code>EFS</code> - Amazon Elastic File System</p> </li> <li> <p> <code>EKS</code> - Amazon Elastic Kubernetes Service</p> </li> <li> <p> <code>FSx</code> - Amazon FSx</p> </li> <li> <p> <code>Neptune</code> - Amazon Neptune</p> </li> <li> <p> <code>RDS</code> - Amazon Relational Database Service</p> </li> <li> <p> <code>Redshift</code> - Amazon Redshift</p> </li> <li> <p> <code>Storage Gateway</code> - Storage Gateway</p> </li> <li> <p> <code>S3</code> - Amazon Simple Storage Service</p> </li> <li> <p> <code>Timestream</code> - Amazon Timestream</p> </li> <li> <p> <code>VirtualMachine</code> - Virtual machines</p> </li> </ul>
             copy_source_tags_to_restored_resource: <p>This is an optional parameter. If this equals <code>True</code>, tags included in the backup will be copied to the restored resource.</p> <p>This can only be applied to backups created through Backup.</p>
+
+        Raises:
+            aws_sdk_backup.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>Indicates that something is wrong with a parameter's value. For example, the value is out of range.</p>
+            aws_sdk_backup.errors.invalid_request_exception.InvalidRequestException: <p>Indicates that something is wrong with the input to the request. For example, a parameter is of the wrong type.</p>
+            aws_sdk_backup.errors.missing_parameter_value_exception.MissingParameterValueException: <p>Indicates that a required parameter is missing.</p>
+            aws_sdk_backup.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource that is required for the action doesn't exist.</p>
+            aws_sdk_backup.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request failed due to a temporary failure of the server.</p>
+            aws_sdk_backup.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5530,6 +6190,15 @@ class BackupClient:
             scan_base_recovery_point_arn: <p>An ARN that uniquely identifies the base recovery point to be used for incremental scanning.</p>
             scan_mode: <p>Specifies the scan type use for the scan job.</p> <p>Includes:</p> <ul> <li> <p> <code>FULL_SCAN</code> will scan the entire data lineage within the backup.</p> </li> <li> <p> <code>INCREMENTAL_SCAN</code> will scan the data difference between the target recovery point and base recovery point ARN.</p> </li> </ul>
             scanner_role_arn: <p>Specified the IAM scanner role ARN.</p>
+
+        Raises:
+            aws_sdk_backup.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>Indicates that something is wrong with a parameter's value. For example, the value is out of range.</p>
+            aws_sdk_backup.errors.invalid_request_exception.InvalidRequestException: <p>Indicates that something is wrong with the input to the request. For example, a parameter is of the wrong type.</p>
+            aws_sdk_backup.errors.limit_exceeded_exception.LimitExceededException: <p>A limit in the request has been exceeded; for example, a maximum number of items allowed in a request.</p>
+            aws_sdk_backup.errors.missing_parameter_value_exception.MissingParameterValueException: <p>Indicates that a required parameter is missing.</p>
+            aws_sdk_backup.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource that is required for the action doesn't exist.</p>
+            aws_sdk_backup.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request failed due to a temporary failure of the server.</p>
+            aws_sdk_backup.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5578,6 +6247,14 @@ class BackupClient:
 
         Args:
             backup_job_id: <p>Uniquely identifies a request to Backup to back up a resource.</p>
+
+        Raises:
+            aws_sdk_backup.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>Indicates that something is wrong with a parameter's value. For example, the value is out of range.</p>
+            aws_sdk_backup.errors.invalid_request_exception.InvalidRequestException: <p>Indicates that something is wrong with the input to the request. For example, a parameter is of the wrong type.</p>
+            aws_sdk_backup.errors.missing_parameter_value_exception.MissingParameterValueException: <p>Indicates that a required parameter is missing.</p>
+            aws_sdk_backup.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource that is required for the action doesn't exist.</p>
+            aws_sdk_backup.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request failed due to a temporary failure of the server.</p>
+            aws_sdk_backup.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5615,6 +6292,14 @@ class BackupClient:
         Args:
             resource_arn: <p>The ARN that uniquely identifies the resource.</p>
             tags: <p>Key-value pairs that are used to help organize your resources. You can assign your own metadata to the resources you create. For clarity, this is the structure to assign tags: <code>[{\"Key\":\"string\",\"Value\":\"string\"}]</code>.</p>
+
+        Raises:
+            aws_sdk_backup.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>Indicates that something is wrong with a parameter's value. For example, the value is out of range.</p>
+            aws_sdk_backup.errors.limit_exceeded_exception.LimitExceededException: <p>A limit in the request has been exceeded; for example, a maximum number of items allowed in a request.</p>
+            aws_sdk_backup.errors.missing_parameter_value_exception.MissingParameterValueException: <p>Indicates that a required parameter is missing.</p>
+            aws_sdk_backup.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource that is required for the action doesn't exist.</p>
+            aws_sdk_backup.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request failed due to a temporary failure of the server.</p>
+            aws_sdk_backup.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5653,6 +6338,13 @@ class BackupClient:
         Args:
             resource_arn: <p>An ARN that uniquely identifies a resource. The format of the ARN depends on the type of the tagged resource.</p> <p>ARNs that do not include <code>backup</code> are incompatible with tagging. <code>TagResource</code> and <code>UntagResource</code> with invalid ARNs will result in an error. Acceptable ARN content can include <code>arn:aws:backup:us-east</code>. Invalid ARN content may look like <code>arn:aws:ec2:us-east</code>.</p>
             tag_key_list: <p>The keys to identify which key-value tags to remove from a resource.</p>
+
+        Raises:
+            aws_sdk_backup.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>Indicates that something is wrong with a parameter's value. For example, the value is out of range.</p>
+            aws_sdk_backup.errors.missing_parameter_value_exception.MissingParameterValueException: <p>Indicates that a required parameter is missing.</p>
+            aws_sdk_backup.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource that is required for the action doesn't exist.</p>
+            aws_sdk_backup.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request failed due to a temporary failure of the server.</p>
+            aws_sdk_backup.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5691,6 +6383,13 @@ class BackupClient:
         Args:
             backup_plan_id: <p>The ID of the backup plan.</p>
             backup_plan: <p>The body of a backup plan. Includes a <code>BackupPlanName</code> and one or more sets of <code>Rules</code>.</p>
+
+        Raises:
+            aws_sdk_backup.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>Indicates that something is wrong with a parameter's value. For example, the value is out of range.</p>
+            aws_sdk_backup.errors.missing_parameter_value_exception.MissingParameterValueException: <p>Indicates that a required parameter is missing.</p>
+            aws_sdk_backup.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource that is required for the action doesn't exist.</p>
+            aws_sdk_backup.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request failed due to a temporary failure of the server.</p>
+            aws_sdk_backup.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5739,6 +6438,16 @@ class BackupClient:
             framework_description: <p>An optional description of the framework with a maximum 1,024 characters.</p>
             framework_controls: <p>The controls that make up the framework. Each control in the list has a name, input parameters, and scope.</p>
             idempotency_token: <p>A customer-chosen string that you can use to distinguish between otherwise identical calls to <code>UpdateFrameworkInput</code>. Retrying a successful request with the same idempotency token results in a success message with no action taken.</p>
+
+        Raises:
+            aws_sdk_backup.errors.already_exists_exception.AlreadyExistsException: <p>The required resource already exists.</p>
+            aws_sdk_backup.errors.conflict_exception.ConflictException: <p>Backup can't perform the action that you requested until it finishes performing a previous action. Try again later.</p>
+            aws_sdk_backup.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>Indicates that something is wrong with a parameter's value. For example, the value is out of range.</p>
+            aws_sdk_backup.errors.limit_exceeded_exception.LimitExceededException: <p>A limit in the request has been exceeded; for example, a maximum number of items allowed in a request.</p>
+            aws_sdk_backup.errors.missing_parameter_value_exception.MissingParameterValueException: <p>Indicates that a required parameter is missing.</p>
+            aws_sdk_backup.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource that is required for the action doesn't exist.</p>
+            aws_sdk_backup.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request failed due to a temporary failure of the server.</p>
+            aws_sdk_backup.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5784,6 +6493,13 @@ class BackupClient:
 
         Args:
             global_settings: <p>Inputs can include:</p> <p>A value for <code>isCrossAccountBackupEnabled</code>. Values can be true or false. Example: <code>update-global-settings --global-settings isCrossAccountBackupEnabled=false</code>.</p> <p>A value for Multi-party approval, styled as <code>isMpaEnabled</code>. Values can be true or false. Example: <code>update-global-settings --global-settings isMpaEnabled=false</code>.</p> <p>A value for Backup Service-Linked Role creation, styled as <code>isDelegatedAdministratorEnabled</code>. Values can be true or false. Example: <code>update-global-settings --global-settings isDelegatedAdministratorEnabled=false</code>.</p>
+
+        Raises:
+            aws_sdk_backup.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>Indicates that something is wrong with a parameter's value. For example, the value is out of range.</p>
+            aws_sdk_backup.errors.invalid_request_exception.InvalidRequestException: <p>Indicates that something is wrong with the input to the request. For example, a parameter is of the wrong type.</p>
+            aws_sdk_backup.errors.missing_parameter_value_exception.MissingParameterValueException: <p>Indicates that a required parameter is missing.</p>
+            aws_sdk_backup.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request failed due to a temporary failure of the server.</p>
+            aws_sdk_backup.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5826,6 +6542,14 @@ class BackupClient:
             recovery_point_arn: <p>An ARN that uniquely identifies a recovery point; for example, <code>arn:aws:backup:us-east-1:123456789012:recovery-point:1EB3B5E7-9EB0-435A-A80B-108B488B0D45</code>.</p>
             iam_role_arn: <p>This specifies the IAM role ARN used for this operation.</p> <p>For example, arn:aws:iam::123456789012:role/S3Access</p>
             index: <p>Index can have 1 of 2 possible values, either <code>ENABLED</code> or <code>DISABLED</code>.</p> <p>To create a backup index for an eligible <code>ACTIVE</code> recovery point that does not yet have a backup index, set value to <code>ENABLED</code>.</p> <p>To delete a backup index, set value to <code>DISABLED</code>.</p>
+
+        Raises:
+            aws_sdk_backup.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>Indicates that something is wrong with a parameter's value. For example, the value is out of range.</p>
+            aws_sdk_backup.errors.invalid_request_exception.InvalidRequestException: <p>Indicates that something is wrong with the input to the request. For example, a parameter is of the wrong type.</p>
+            aws_sdk_backup.errors.missing_parameter_value_exception.MissingParameterValueException: <p>Indicates that a required parameter is missing.</p>
+            aws_sdk_backup.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource that is required for the action doesn't exist.</p>
+            aws_sdk_backup.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request failed due to a temporary failure of the server.</p>
+            aws_sdk_backup.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5871,6 +6595,14 @@ class BackupClient:
             backup_vault_name: <p>The name of a logical container where backups are stored. Backup vaults are identified by names that are unique to the account used to create them and the Amazon Web Services Region where they are created.</p>
             recovery_point_arn: <p>An Amazon Resource Name (ARN) that uniquely identifies a recovery point; for example, <code>arn:aws:backup:us-east-1:123456789012:recovery-point:1EB3B5E7-9EB0-435A-A80B-108B488B0D45</code>.</p>
             lifecycle: <p>The lifecycle defines when a protected resource is transitioned to cold storage and when it expires. Backup transitions and expires backups automatically according to the lifecycle that you define. </p> <p>Backups transitioned to cold storage must be stored in cold storage for a minimum of 90 days. Therefore, the “retention” setting must be 90 days greater than the “transition to cold after days” setting. The “transition to cold after days” setting cannot be changed after a backup has been transitioned to cold. </p>
+
+        Raises:
+            aws_sdk_backup.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>Indicates that something is wrong with a parameter's value. For example, the value is out of range.</p>
+            aws_sdk_backup.errors.invalid_request_exception.InvalidRequestException: <p>Indicates that something is wrong with the input to the request. For example, a parameter is of the wrong type.</p>
+            aws_sdk_backup.errors.missing_parameter_value_exception.MissingParameterValueException: <p>Indicates that a required parameter is missing.</p>
+            aws_sdk_backup.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource that is required for the action doesn't exist.</p>
+            aws_sdk_backup.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request failed due to a temporary failure of the server.</p>
+            aws_sdk_backup.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5917,6 +6649,12 @@ class BackupClient:
         Args:
             resource_type_opt_in_preference: <p>Updates the list of services along with the opt-in preferences for the Region.</p> <p>If resource assignments are only based on tags, then service opt-in settings are applied. If a resource type is explicitly assigned to a backup plan, such as Amazon S3, Amazon EC2, or Amazon RDS, it will be included in the backup even if the opt-in is not enabled for that particular service. If both a resource type and tags are specified in a resource assignment, the resource type specified in the backup plan takes priority over the tag condition. Service opt-in settings are disregarded in this situation.</p>
             resource_type_management_preference: <p>Enables or disables full Backup management of backups for a resource type. To enable full Backup management for DynamoDB along with <a href=\"https://docs.aws.amazon.com/aws-backup/latest/devguide/advanced-ddb-backup.html\"> Backup's advanced DynamoDB backup features</a>, follow the procedure to <a href=\"https://docs.aws.amazon.com/aws-backup/latest/devguide/advanced-ddb-backup.html#advanced-ddb-backup-enable-cli\"> enable advanced DynamoDB backup programmatically</a>.</p>
+
+        Raises:
+            aws_sdk_backup.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>Indicates that something is wrong with a parameter's value. For example, the value is out of range.</p>
+            aws_sdk_backup.errors.missing_parameter_value_exception.MissingParameterValueException: <p>Indicates that a required parameter is missing.</p>
+            aws_sdk_backup.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request failed due to a temporary failure of the server.</p>
+            aws_sdk_backup.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5971,6 +6709,14 @@ class BackupClient:
             report_delivery_channel: <p>The information about where to deliver your reports, specifically your Amazon S3 bucket name, S3 key prefix, and the formats of your reports.</p>
             report_setting: <p>The report template for the report. Reports are built using a report template. The report templates are:</p> <p> <code>RESOURCE_COMPLIANCE_REPORT | CONTROL_COMPLIANCE_REPORT | BACKUP_JOB_REPORT | COPY_JOB_REPORT | RESTORE_JOB_REPORT</code> </p> <p>If the report template is <code>RESOURCE_COMPLIANCE_REPORT</code> or <code>CONTROL_COMPLIANCE_REPORT</code>, this API resource also describes the report coverage by Amazon Web Services Regions and frameworks.</p>
             idempotency_token: <p>A customer-chosen string that you can use to distinguish between otherwise identical calls to <code>UpdateReportPlanInput</code>. Retrying a successful request with the same idempotency token results in a success message with no action taken.</p>
+
+        Raises:
+            aws_sdk_backup.errors.conflict_exception.ConflictException: <p>Backup can't perform the action that you requested until it finishes performing a previous action. Try again later.</p>
+            aws_sdk_backup.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>Indicates that something is wrong with a parameter's value. For example, the value is out of range.</p>
+            aws_sdk_backup.errors.missing_parameter_value_exception.MissingParameterValueException: <p>Indicates that a required parameter is missing.</p>
+            aws_sdk_backup.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource that is required for the action doesn't exist.</p>
+            aws_sdk_backup.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request failed due to a temporary failure of the server.</p>
+            aws_sdk_backup.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6018,6 +6764,14 @@ class BackupClient:
         Args:
             restore_testing_plan: <p>Specifies the body of a restore testing plan.</p>
             restore_testing_plan_name: <p>The name of the restore testing plan name.</p>
+
+        Raises:
+            aws_sdk_backup.errors.conflict_exception.ConflictException: <p>Backup can't perform the action that you requested until it finishes performing a previous action. Try again later.</p>
+            aws_sdk_backup.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>Indicates that something is wrong with a parameter's value. For example, the value is out of range.</p>
+            aws_sdk_backup.errors.missing_parameter_value_exception.MissingParameterValueException: <p>Indicates that a required parameter is missing.</p>
+            aws_sdk_backup.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource that is required for the action doesn't exist.</p>
+            aws_sdk_backup.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request failed due to a temporary failure of the server.</p>
+            aws_sdk_backup.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6060,6 +6814,14 @@ class BackupClient:
             restore_testing_plan_name: <p>The restore testing plan name is required to update the indicated testing plan.</p>
             restore_testing_selection: <p>To update your restore testing selection, you can use either protected resource ARNs or conditions, but not both. That is, if your selection has <code>ProtectedResourceArns</code>, requesting an update with the parameter <code>ProtectedResourceConditions</code> will be unsuccessful.</p>
             restore_testing_selection_name: <p>The required restore testing selection name of the restore testing selection you wish to update.</p>
+
+        Raises:
+            aws_sdk_backup.errors.conflict_exception.ConflictException: <p>Backup can't perform the action that you requested until it finishes performing a previous action. Try again later.</p>
+            aws_sdk_backup.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>Indicates that something is wrong with a parameter's value. For example, the value is out of range.</p>
+            aws_sdk_backup.errors.missing_parameter_value_exception.MissingParameterValueException: <p>Indicates that a required parameter is missing.</p>
+            aws_sdk_backup.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource that is required for the action doesn't exist.</p>
+            aws_sdk_backup.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request failed due to a temporary failure of the server.</p>
+            aws_sdk_backup.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6101,6 +6863,16 @@ class BackupClient:
         Args:
             tiering_configuration_name: <p>The name of a tiering configuration to update.</p>
             tiering_configuration: <p>Specifies the body of a tiering configuration.</p>
+
+        Raises:
+            aws_sdk_backup.errors.already_exists_exception.AlreadyExistsException: <p>The required resource already exists.</p>
+            aws_sdk_backup.errors.conflict_exception.ConflictException: <p>Backup can't perform the action that you requested until it finishes performing a previous action. Try again later.</p>
+            aws_sdk_backup.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>Indicates that something is wrong with a parameter's value. For example, the value is out of range.</p>
+            aws_sdk_backup.errors.limit_exceeded_exception.LimitExceededException: <p>A limit in the request has been exceeded; for example, a maximum number of items allowed in a request.</p>
+            aws_sdk_backup.errors.missing_parameter_value_exception.MissingParameterValueException: <p>Indicates that a required parameter is missing.</p>
+            aws_sdk_backup.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource that is required for the action doesn't exist.</p>
+            aws_sdk_backup.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request failed due to a temporary failure of the server.</p>
+            aws_sdk_backup.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(

@@ -165,6 +165,16 @@ class S3OutpostsClient:
             security_group_id: <p>The ID of the security group to use with the endpoint.</p>
             access_type: <p>The type of access for the network connectivity for the Amazon S3 on Outposts endpoint. To use the Amazon Web Services VPC, choose <code>Private</code>. To use the endpoint with an on-premises network, choose <code>CustomerOwnedIp</code>. If you choose <code>CustomerOwnedIp</code>, you must also provide the customer-owned IP address pool (CoIP pool).</p> <note> <p> <code>Private</code> is the default access type value.</p> </note>
             customer_owned_ipv4_pool: <p>The ID of the customer-owned IPv4 address pool (CoIP pool) for the endpoint. IP addresses are allocated from this pool for the endpoint.</p>
+
+        Raises:
+            aws_sdk_s3outposts.errors.access_denied_exception.AccessDeniedException: <p>Access was denied for this action.</p>
+            aws_sdk_s3outposts.errors.conflict_exception.ConflictException: <p>There was a conflict with this action, and it could not be completed.</p>
+            aws_sdk_s3outposts.errors.internal_server_exception.InternalServerException: <p>There was an exception with the internal server.</p>
+            aws_sdk_s3outposts.errors.outpost_offline_exception.OutpostOfflineException: <p>The service link connection to your Outposts home Region is down. Check your connection and try again.</p>
+            aws_sdk_s3outposts.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource was not found.</p>
+            aws_sdk_s3outposts.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_s3outposts.errors.validation_exception.ValidationException: <p>There was an exception validating this data.</p>
+            aws_sdk_s3outposts.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -210,6 +220,15 @@ class S3OutpostsClient:
         Args:
             endpoint_id: <p>The ID of the endpoint.</p>
             outpost_id: <p>The ID of the Outposts. </p>
+
+        Raises:
+            aws_sdk_s3outposts.errors.access_denied_exception.AccessDeniedException: <p>Access was denied for this action.</p>
+            aws_sdk_s3outposts.errors.internal_server_exception.InternalServerException: <p>There was an exception with the internal server.</p>
+            aws_sdk_s3outposts.errors.outpost_offline_exception.OutpostOfflineException: <p>The service link connection to your Outposts home Region is down. Check your connection and try again.</p>
+            aws_sdk_s3outposts.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource was not found.</p>
+            aws_sdk_s3outposts.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_s3outposts.errors.validation_exception.ValidationException: <p>There was an exception validating this data.</p>
+            aws_sdk_s3outposts.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -248,6 +267,14 @@ class S3OutpostsClient:
         Args:
             next_token: <p>If a previous response from this operation included a <code>NextToken</code> value, provide that value here to retrieve the next page of results.</p>
             max_results: <p>The maximum number of endpoints that will be returned in the response.</p>
+
+        Raises:
+            aws_sdk_s3outposts.errors.access_denied_exception.AccessDeniedException: <p>Access was denied for this action.</p>
+            aws_sdk_s3outposts.errors.internal_server_exception.InternalServerException: <p>There was an exception with the internal server.</p>
+            aws_sdk_s3outposts.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource was not found.</p>
+            aws_sdk_s3outposts.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_s3outposts.errors.validation_exception.ValidationException: <p>There was an exception validating this data.</p>
+            aws_sdk_s3outposts.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -313,6 +340,13 @@ class S3OutpostsClient:
         Args:
             next_token: <p>When you can get additional results from the <code>ListOutpostsWithS3</code> call, a <code>NextToken</code> parameter is returned in the output. You can then pass in a subsequent command to the <code>NextToken</code> parameter to continue listing additional Outposts.</p>
             max_results: <p>The maximum number of Outposts to return. The limit is 100.</p>
+
+        Raises:
+            aws_sdk_s3outposts.errors.access_denied_exception.AccessDeniedException: <p>Access was denied for this action.</p>
+            aws_sdk_s3outposts.errors.internal_server_exception.InternalServerException: <p>There was an exception with the internal server.</p>
+            aws_sdk_s3outposts.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_s3outposts.errors.validation_exception.ValidationException: <p>There was an exception validating this data.</p>
+            aws_sdk_s3outposts.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -378,6 +412,14 @@ class S3OutpostsClient:
             next_token: <p>If a previous response from this operation included a <code>NextToken</code> value, you can provide that value here to retrieve the next page of results.</p>
             max_results: <p>The maximum number of endpoints that will be returned in the response.</p>
             outpost_id: <p>The ID of the Amazon Web Services Outpost.</p>
+
+        Raises:
+            aws_sdk_s3outposts.errors.access_denied_exception.AccessDeniedException: <p>Access was denied for this action.</p>
+            aws_sdk_s3outposts.errors.internal_server_exception.InternalServerException: <p>There was an exception with the internal server.</p>
+            aws_sdk_s3outposts.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource was not found.</p>
+            aws_sdk_s3outposts.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_s3outposts.errors.validation_exception.ValidationException: <p>There was an exception validating this data.</p>
+            aws_sdk_s3outposts.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(

@@ -197,6 +197,15 @@ class CloudHSMV2Client:
             destination_region: <p>The AWS region that will contain your copied CloudHSM cluster backup.</p>
             backup_id: <p>The ID of the backup that will be copied to the destination region. </p>
             tag_list: <p>Tags to apply to the destination backup during creation. If you specify tags, only these tags will be applied to the destination backup. If you do not specify tags, the service copies tags from the source backup to the destination backup.</p>
+
+        Raises:
+            aws_sdk_cloudhsm_v2.errors.cloud_hsm_access_denied_exception.CloudHsmAccessDeniedException: <p>The request was rejected because the requester does not have permission to perform the requested operation.</p>
+            aws_sdk_cloudhsm_v2.errors.cloud_hsm_internal_failure_exception.CloudHsmInternalFailureException: <p>The request was rejected because of an CloudHSM internal failure. The request can be retried.</p>
+            aws_sdk_cloudhsm_v2.errors.cloud_hsm_invalid_request_exception.CloudHsmInvalidRequestException: <p>The request was rejected because it is not a valid request.</p>
+            aws_sdk_cloudhsm_v2.errors.cloud_hsm_resource_not_found_exception.CloudHsmResourceNotFoundException: <p>The request was rejected because it refers to a resource that cannot be found.</p>
+            aws_sdk_cloudhsm_v2.errors.cloud_hsm_service_exception.CloudHsmServiceException: <p>The request was rejected because an error occurred.</p>
+            aws_sdk_cloudhsm_v2.errors.cloud_hsm_tag_exception.CloudHsmTagException: <p>The request was rejected because of a tagging failure. Verify the tag conditions in all applicable policies, and then retry the request.</p>
+            aws_sdk_cloudhsm_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -255,6 +264,15 @@ class CloudHSMV2Client:
             network_type: <p>The NetworkType to create a cluster with. The allowed values are <code>IPV4</code> and <code>DUALSTACK</code>. </p>
             tag_list: <p>Tags to apply to the CloudHSM cluster during creation.</p>
             mode: <p>The mode to use in the cluster. The allowed values are <code>FIPS</code> and <code>NON_FIPS</code>.</p>
+
+        Raises:
+            aws_sdk_cloudhsm_v2.errors.cloud_hsm_access_denied_exception.CloudHsmAccessDeniedException: <p>The request was rejected because the requester does not have permission to perform the requested operation.</p>
+            aws_sdk_cloudhsm_v2.errors.cloud_hsm_internal_failure_exception.CloudHsmInternalFailureException: <p>The request was rejected because of an CloudHSM internal failure. The request can be retried.</p>
+            aws_sdk_cloudhsm_v2.errors.cloud_hsm_invalid_request_exception.CloudHsmInvalidRequestException: <p>The request was rejected because it is not a valid request.</p>
+            aws_sdk_cloudhsm_v2.errors.cloud_hsm_resource_not_found_exception.CloudHsmResourceNotFoundException: <p>The request was rejected because it refers to a resource that cannot be found.</p>
+            aws_sdk_cloudhsm_v2.errors.cloud_hsm_service_exception.CloudHsmServiceException: <p>The request was rejected because an error occurred.</p>
+            aws_sdk_cloudhsm_v2.errors.cloud_hsm_tag_exception.CloudHsmTagException: <p>The request was rejected because of a tagging failure. Verify the tag conditions in all applicable policies, and then retry the request.</p>
+            aws_sdk_cloudhsm_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -307,6 +325,14 @@ class CloudHSMV2Client:
             cluster_id: <p>The identifier (ID) of the HSM's cluster. To find the cluster ID, use <a>DescribeClusters</a>.</p>
             availability_zone: <p>The Availability Zone where you are creating the HSM. To find the cluster's Availability Zones, use <a>DescribeClusters</a>.</p>
             ip_address: <p>The HSM's IP address. If you specify an IP address, use an available address from the subnet that maps to the Availability Zone where you are creating the HSM. If you don't specify an IP address, one is chosen for you from that subnet.</p>
+
+        Raises:
+            aws_sdk_cloudhsm_v2.errors.cloud_hsm_access_denied_exception.CloudHsmAccessDeniedException: <p>The request was rejected because the requester does not have permission to perform the requested operation.</p>
+            aws_sdk_cloudhsm_v2.errors.cloud_hsm_internal_failure_exception.CloudHsmInternalFailureException: <p>The request was rejected because of an CloudHSM internal failure. The request can be retried.</p>
+            aws_sdk_cloudhsm_v2.errors.cloud_hsm_invalid_request_exception.CloudHsmInvalidRequestException: <p>The request was rejected because it is not a valid request.</p>
+            aws_sdk_cloudhsm_v2.errors.cloud_hsm_resource_not_found_exception.CloudHsmResourceNotFoundException: <p>The request was rejected because it refers to a resource that cannot be found.</p>
+            aws_sdk_cloudhsm_v2.errors.cloud_hsm_service_exception.CloudHsmServiceException: <p>The request was rejected because an error occurred.</p>
+            aws_sdk_cloudhsm_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -347,6 +373,14 @@ class CloudHSMV2Client:
 
         Args:
             backup_id: <p>The ID of the backup to be deleted. To find the ID of a backup, use the <a>DescribeBackups</a> operation.</p>
+
+        Raises:
+            aws_sdk_cloudhsm_v2.errors.cloud_hsm_access_denied_exception.CloudHsmAccessDeniedException: <p>The request was rejected because the requester does not have permission to perform the requested operation.</p>
+            aws_sdk_cloudhsm_v2.errors.cloud_hsm_internal_failure_exception.CloudHsmInternalFailureException: <p>The request was rejected because of an CloudHSM internal failure. The request can be retried.</p>
+            aws_sdk_cloudhsm_v2.errors.cloud_hsm_invalid_request_exception.CloudHsmInvalidRequestException: <p>The request was rejected because it is not a valid request.</p>
+            aws_sdk_cloudhsm_v2.errors.cloud_hsm_resource_not_found_exception.CloudHsmResourceNotFoundException: <p>The request was rejected because it refers to a resource that cannot be found.</p>
+            aws_sdk_cloudhsm_v2.errors.cloud_hsm_service_exception.CloudHsmServiceException: <p>The request was rejected because an error occurred.</p>
+            aws_sdk_cloudhsm_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -384,6 +418,15 @@ class CloudHSMV2Client:
 
         Args:
             cluster_id: <p>The identifier (ID) of the cluster that you are deleting. To find the cluster ID, use <a>DescribeClusters</a>.</p>
+
+        Raises:
+            aws_sdk_cloudhsm_v2.errors.cloud_hsm_access_denied_exception.CloudHsmAccessDeniedException: <p>The request was rejected because the requester does not have permission to perform the requested operation.</p>
+            aws_sdk_cloudhsm_v2.errors.cloud_hsm_internal_failure_exception.CloudHsmInternalFailureException: <p>The request was rejected because of an CloudHSM internal failure. The request can be retried.</p>
+            aws_sdk_cloudhsm_v2.errors.cloud_hsm_invalid_request_exception.CloudHsmInvalidRequestException: <p>The request was rejected because it is not a valid request.</p>
+            aws_sdk_cloudhsm_v2.errors.cloud_hsm_resource_not_found_exception.CloudHsmResourceNotFoundException: <p>The request was rejected because it refers to a resource that cannot be found.</p>
+            aws_sdk_cloudhsm_v2.errors.cloud_hsm_service_exception.CloudHsmServiceException: <p>The request was rejected because an error occurred.</p>
+            aws_sdk_cloudhsm_v2.errors.cloud_hsm_tag_exception.CloudHsmTagException: <p>The request was rejected because of a tagging failure. Verify the tag conditions in all applicable policies, and then retry the request.</p>
+            aws_sdk_cloudhsm_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -427,6 +470,14 @@ class CloudHSMV2Client:
             hsm_id: <p>The identifier (ID) of the HSM that you are deleting.</p>
             eni_id: <p>The identifier (ID) of the elastic network interface (ENI) of the HSM that you are deleting.</p>
             eni_ip: <p>The IP address of the elastic network interface (ENI) of the HSM that you are deleting.</p>
+
+        Raises:
+            aws_sdk_cloudhsm_v2.errors.cloud_hsm_access_denied_exception.CloudHsmAccessDeniedException: <p>The request was rejected because the requester does not have permission to perform the requested operation.</p>
+            aws_sdk_cloudhsm_v2.errors.cloud_hsm_internal_failure_exception.CloudHsmInternalFailureException: <p>The request was rejected because of an CloudHSM internal failure. The request can be retried.</p>
+            aws_sdk_cloudhsm_v2.errors.cloud_hsm_invalid_request_exception.CloudHsmInvalidRequestException: <p>The request was rejected because it is not a valid request.</p>
+            aws_sdk_cloudhsm_v2.errors.cloud_hsm_resource_not_found_exception.CloudHsmResourceNotFoundException: <p>The request was rejected because it refers to a resource that cannot be found.</p>
+            aws_sdk_cloudhsm_v2.errors.cloud_hsm_service_exception.CloudHsmServiceException: <p>The request was rejected because an error occurred.</p>
+            aws_sdk_cloudhsm_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -472,6 +523,14 @@ class CloudHSMV2Client:
 
         Args:
             resource_arn: <p>Amazon Resource Name (ARN) of the resource from which the policy will be removed. </p>
+
+        Raises:
+            aws_sdk_cloudhsm_v2.errors.cloud_hsm_access_denied_exception.CloudHsmAccessDeniedException: <p>The request was rejected because the requester does not have permission to perform the requested operation.</p>
+            aws_sdk_cloudhsm_v2.errors.cloud_hsm_internal_failure_exception.CloudHsmInternalFailureException: <p>The request was rejected because of an CloudHSM internal failure. The request can be retried.</p>
+            aws_sdk_cloudhsm_v2.errors.cloud_hsm_invalid_request_exception.CloudHsmInvalidRequestException: <p>The request was rejected because it is not a valid request.</p>
+            aws_sdk_cloudhsm_v2.errors.cloud_hsm_resource_not_found_exception.CloudHsmResourceNotFoundException: <p>The request was rejected because it refers to a resource that cannot be found.</p>
+            aws_sdk_cloudhsm_v2.errors.cloud_hsm_service_exception.CloudHsmServiceException: <p>The request was rejected because an error occurred.</p>
+            aws_sdk_cloudhsm_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -520,6 +579,15 @@ class CloudHSMV2Client:
             filters: <p>One or more filters to limit the items returned in the response.</p> <p>Use the <code>backupIds</code> filter to return only the specified backups. Specify backups by their backup identifier (ID).</p> <p>Use the <code>sourceBackupIds</code> filter to return only the backups created from a source backup. The <code>sourceBackupID</code> of a source backup is returned by the <a>CopyBackupToRegion</a> operation.</p> <p>Use the <code>clusterIds</code> filter to return only the backups for the specified clusters. Specify clusters by their cluster identifier (ID).</p> <p>Use the <code>states</code> filter to return only backups that match the specified state.</p> <p>Use the <code>neverExpires</code> filter to return backups filtered by the value in the <code>neverExpires</code> parameter. <code>True</code> returns all backups exempt from the backup retention policy. <code>False</code> returns all backups with a backup retention policy defined at the cluster.</p>
             shared: <p>Describe backups that are shared with you.</p> <note> <p>By default when using this option, the command returns backups that have been shared using a standard Resource Access Manager resource share. In order for a backup that was shared using the PutResourcePolicy command to be returned, the share must be promoted to a standard resource share using the RAM <a href=\"https://docs.aws.amazon.com/cli/latest/reference/ram/promote-resource-share-created-from-policy.html\">PromoteResourceShareCreatedFromPolicy</a> API operation. For more information about sharing backups, see <a href=\"https://docs.aws.amazon.com/cloudhsm/latest/userguide/sharing.html\"> Working with shared backups</a> in the CloudHSM User Guide.</p> </note>
             sort_ascending: <p>Designates whether or not to sort the return backups by ascending chronological order of generation.</p>
+
+        Raises:
+            aws_sdk_cloudhsm_v2.errors.cloud_hsm_access_denied_exception.CloudHsmAccessDeniedException: <p>The request was rejected because the requester does not have permission to perform the requested operation.</p>
+            aws_sdk_cloudhsm_v2.errors.cloud_hsm_internal_failure_exception.CloudHsmInternalFailureException: <p>The request was rejected because of an CloudHSM internal failure. The request can be retried.</p>
+            aws_sdk_cloudhsm_v2.errors.cloud_hsm_invalid_request_exception.CloudHsmInvalidRequestException: <p>The request was rejected because it is not a valid request.</p>
+            aws_sdk_cloudhsm_v2.errors.cloud_hsm_resource_not_found_exception.CloudHsmResourceNotFoundException: <p>The request was rejected because it refers to a resource that cannot be found.</p>
+            aws_sdk_cloudhsm_v2.errors.cloud_hsm_service_exception.CloudHsmServiceException: <p>The request was rejected because an error occurred.</p>
+            aws_sdk_cloudhsm_v2.errors.cloud_hsm_tag_exception.CloudHsmTagException: <p>The request was rejected because of a tagging failure. Verify the tag conditions in all applicable policies, and then retry the request.</p>
+            aws_sdk_cloudhsm_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -574,6 +642,14 @@ class CloudHSMV2Client:
             filters: <p>One or more filters to limit the items returned in the response.</p> <p>Use the <code>clusterIds</code> filter to return only the specified clusters. Specify clusters by their cluster identifier (ID).</p> <p>Use the <code>vpcIds</code> filter to return only the clusters in the specified virtual private clouds (VPCs). Specify VPCs by their VPC identifier (ID).</p> <p>Use the <code>states</code> filter to return only clusters that match the specified state.</p>
             next_token: <p>The <code>NextToken</code> value that you received in the previous response. Use this value to get more clusters.</p>
             max_results: <p>The maximum number of clusters to return in the response. When there are more clusters than the number you specify, the response contains a <code>NextToken</code> value.</p>
+
+        Raises:
+            aws_sdk_cloudhsm_v2.errors.cloud_hsm_access_denied_exception.CloudHsmAccessDeniedException: <p>The request was rejected because the requester does not have permission to perform the requested operation.</p>
+            aws_sdk_cloudhsm_v2.errors.cloud_hsm_internal_failure_exception.CloudHsmInternalFailureException: <p>The request was rejected because of an CloudHSM internal failure. The request can be retried.</p>
+            aws_sdk_cloudhsm_v2.errors.cloud_hsm_invalid_request_exception.CloudHsmInvalidRequestException: <p>The request was rejected because it is not a valid request.</p>
+            aws_sdk_cloudhsm_v2.errors.cloud_hsm_service_exception.CloudHsmServiceException: <p>The request was rejected because an error occurred.</p>
+            aws_sdk_cloudhsm_v2.errors.cloud_hsm_tag_exception.CloudHsmTagException: <p>The request was rejected because of a tagging failure. Verify the tag conditions in all applicable policies, and then retry the request.</p>
+            aws_sdk_cloudhsm_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -618,6 +694,14 @@ class CloudHSMV2Client:
 
         Args:
             resource_arn: <p>Amazon Resource Name (ARN) of the resource to which a policy is attached.</p>
+
+        Raises:
+            aws_sdk_cloudhsm_v2.errors.cloud_hsm_access_denied_exception.CloudHsmAccessDeniedException: <p>The request was rejected because the requester does not have permission to perform the requested operation.</p>
+            aws_sdk_cloudhsm_v2.errors.cloud_hsm_internal_failure_exception.CloudHsmInternalFailureException: <p>The request was rejected because of an CloudHSM internal failure. The request can be retried.</p>
+            aws_sdk_cloudhsm_v2.errors.cloud_hsm_invalid_request_exception.CloudHsmInvalidRequestException: <p>The request was rejected because it is not a valid request.</p>
+            aws_sdk_cloudhsm_v2.errors.cloud_hsm_resource_not_found_exception.CloudHsmResourceNotFoundException: <p>The request was rejected because it refers to a resource that cannot be found.</p>
+            aws_sdk_cloudhsm_v2.errors.cloud_hsm_service_exception.CloudHsmServiceException: <p>The request was rejected because an error occurred.</p>
+            aws_sdk_cloudhsm_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -660,6 +744,14 @@ class CloudHSMV2Client:
             cluster_id: <p>The identifier (ID) of the cluster that you are claiming. To find the cluster ID, use <a>DescribeClusters</a>.</p>
             signed_cert: <p>The cluster certificate issued (signed) by your issuing certificate authority (CA). The certificate must be in PEM format and can contain a maximum of 5000 characters.</p>
             trust_anchor: <p>The issuing certificate of the issuing certificate authority (CA) that issued (signed) the cluster certificate. You must use a self-signed certificate. The certificate used to sign the HSM CSR must be directly available, and thus must be the root certificate. The certificate must be in PEM format and can contain a maximum of 5000 characters.</p>
+
+        Raises:
+            aws_sdk_cloudhsm_v2.errors.cloud_hsm_access_denied_exception.CloudHsmAccessDeniedException: <p>The request was rejected because the requester does not have permission to perform the requested operation.</p>
+            aws_sdk_cloudhsm_v2.errors.cloud_hsm_internal_failure_exception.CloudHsmInternalFailureException: <p>The request was rejected because of an CloudHSM internal failure. The request can be retried.</p>
+            aws_sdk_cloudhsm_v2.errors.cloud_hsm_invalid_request_exception.CloudHsmInvalidRequestException: <p>The request was rejected because it is not a valid request.</p>
+            aws_sdk_cloudhsm_v2.errors.cloud_hsm_resource_not_found_exception.CloudHsmResourceNotFoundException: <p>The request was rejected because it refers to a resource that cannot be found.</p>
+            aws_sdk_cloudhsm_v2.errors.cloud_hsm_service_exception.CloudHsmServiceException: <p>The request was rejected because an error occurred.</p>
+            aws_sdk_cloudhsm_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -703,6 +795,15 @@ class CloudHSMV2Client:
             resource_id: <p>The cluster identifier (ID) for the cluster whose tags you are getting. To find the cluster ID, use <a>DescribeClusters</a>.</p>
             next_token: <p>The <code>NextToken</code> value that you received in the previous response. Use this value to get more tags.</p>
             max_results: <p>The maximum number of tags to return in the response. When there are more tags than the number you specify, the response contains a <code>NextToken</code> value.</p>
+
+        Raises:
+            aws_sdk_cloudhsm_v2.errors.cloud_hsm_access_denied_exception.CloudHsmAccessDeniedException: <p>The request was rejected because the requester does not have permission to perform the requested operation.</p>
+            aws_sdk_cloudhsm_v2.errors.cloud_hsm_internal_failure_exception.CloudHsmInternalFailureException: <p>The request was rejected because of an CloudHSM internal failure. The request can be retried.</p>
+            aws_sdk_cloudhsm_v2.errors.cloud_hsm_invalid_request_exception.CloudHsmInvalidRequestException: <p>The request was rejected because it is not a valid request.</p>
+            aws_sdk_cloudhsm_v2.errors.cloud_hsm_resource_not_found_exception.CloudHsmResourceNotFoundException: <p>The request was rejected because it refers to a resource that cannot be found.</p>
+            aws_sdk_cloudhsm_v2.errors.cloud_hsm_service_exception.CloudHsmServiceException: <p>The request was rejected because an error occurred.</p>
+            aws_sdk_cloudhsm_v2.errors.cloud_hsm_tag_exception.CloudHsmTagException: <p>The request was rejected because of a tagging failure. Verify the tag conditions in all applicable policies, and then retry the request.</p>
+            aws_sdk_cloudhsm_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -746,6 +847,14 @@ class CloudHSMV2Client:
         Args:
             backup_id: <p>The identifier (ID) of the backup to modify. To find the ID of a backup, use the <a>DescribeBackups</a> operation.</p>
             never_expires: <p>Specifies whether the service should exempt a backup from the retention policy for the cluster. <code>True</code> exempts a backup from the retention policy. <code>False</code> means the service applies the backup retention policy defined at the cluster.</p>
+
+        Raises:
+            aws_sdk_cloudhsm_v2.errors.cloud_hsm_access_denied_exception.CloudHsmAccessDeniedException: <p>The request was rejected because the requester does not have permission to perform the requested operation.</p>
+            aws_sdk_cloudhsm_v2.errors.cloud_hsm_internal_failure_exception.CloudHsmInternalFailureException: <p>The request was rejected because of an CloudHSM internal failure. The request can be retried.</p>
+            aws_sdk_cloudhsm_v2.errors.cloud_hsm_invalid_request_exception.CloudHsmInvalidRequestException: <p>The request was rejected because it is not a valid request.</p>
+            aws_sdk_cloudhsm_v2.errors.cloud_hsm_resource_not_found_exception.CloudHsmResourceNotFoundException: <p>The request was rejected because it refers to a resource that cannot be found.</p>
+            aws_sdk_cloudhsm_v2.errors.cloud_hsm_service_exception.CloudHsmServiceException: <p>The request was rejected because an error occurred.</p>
+            aws_sdk_cloudhsm_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -790,6 +899,14 @@ class CloudHSMV2Client:
             hsm_type: <p>The desired HSM type of the cluster.</p>
             backup_retention_policy: <p>A policy that defines how the service retains backups.</p>
             cluster_id: <p>The identifier (ID) of the cluster that you want to modify. To find the cluster ID, use <a>DescribeClusters</a>.</p>
+
+        Raises:
+            aws_sdk_cloudhsm_v2.errors.cloud_hsm_access_denied_exception.CloudHsmAccessDeniedException: <p>The request was rejected because the requester does not have permission to perform the requested operation.</p>
+            aws_sdk_cloudhsm_v2.errors.cloud_hsm_internal_failure_exception.CloudHsmInternalFailureException: <p>The request was rejected because of an CloudHSM internal failure. The request can be retried.</p>
+            aws_sdk_cloudhsm_v2.errors.cloud_hsm_invalid_request_exception.CloudHsmInvalidRequestException: <p>The request was rejected because it is not a valid request.</p>
+            aws_sdk_cloudhsm_v2.errors.cloud_hsm_resource_not_found_exception.CloudHsmResourceNotFoundException: <p>The request was rejected because it refers to a resource that cannot be found.</p>
+            aws_sdk_cloudhsm_v2.errors.cloud_hsm_service_exception.CloudHsmServiceException: <p>The request was rejected because an error occurred.</p>
+            aws_sdk_cloudhsm_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -837,6 +954,14 @@ class CloudHSMV2Client:
         Args:
             resource_arn: <p>Amazon Resource Name (ARN) of the resource to which you want to attach a policy. </p>
             policy: <p>The policy you want to associate with a resource. </p> <p>For an example policy, see <a href=\"https://docs.aws.amazon.com/cloudhsm/latest/userguide/sharing.html\"> Working with shared backups</a> in the CloudHSM User Guide</p>
+
+        Raises:
+            aws_sdk_cloudhsm_v2.errors.cloud_hsm_access_denied_exception.CloudHsmAccessDeniedException: <p>The request was rejected because the requester does not have permission to perform the requested operation.</p>
+            aws_sdk_cloudhsm_v2.errors.cloud_hsm_internal_failure_exception.CloudHsmInternalFailureException: <p>The request was rejected because of an CloudHSM internal failure. The request can be retried.</p>
+            aws_sdk_cloudhsm_v2.errors.cloud_hsm_invalid_request_exception.CloudHsmInvalidRequestException: <p>The request was rejected because it is not a valid request.</p>
+            aws_sdk_cloudhsm_v2.errors.cloud_hsm_resource_not_found_exception.CloudHsmResourceNotFoundException: <p>The request was rejected because it refers to a resource that cannot be found.</p>
+            aws_sdk_cloudhsm_v2.errors.cloud_hsm_service_exception.CloudHsmServiceException: <p>The request was rejected because an error occurred.</p>
+            aws_sdk_cloudhsm_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -877,6 +1002,14 @@ class CloudHSMV2Client:
 
         Args:
             backup_id: <p>The ID of the backup to be restored. To find the ID of a backup, use the <a>DescribeBackups</a> operation.</p>
+
+        Raises:
+            aws_sdk_cloudhsm_v2.errors.cloud_hsm_access_denied_exception.CloudHsmAccessDeniedException: <p>The request was rejected because the requester does not have permission to perform the requested operation.</p>
+            aws_sdk_cloudhsm_v2.errors.cloud_hsm_internal_failure_exception.CloudHsmInternalFailureException: <p>The request was rejected because of an CloudHSM internal failure. The request can be retried.</p>
+            aws_sdk_cloudhsm_v2.errors.cloud_hsm_invalid_request_exception.CloudHsmInvalidRequestException: <p>The request was rejected because it is not a valid request.</p>
+            aws_sdk_cloudhsm_v2.errors.cloud_hsm_resource_not_found_exception.CloudHsmResourceNotFoundException: <p>The request was rejected because it refers to a resource that cannot be found.</p>
+            aws_sdk_cloudhsm_v2.errors.cloud_hsm_service_exception.CloudHsmServiceException: <p>The request was rejected because an error occurred.</p>
+            aws_sdk_cloudhsm_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -916,6 +1049,16 @@ class CloudHSMV2Client:
         Args:
             resource_id: <p>The cluster identifier (ID) for the cluster that you are tagging. To find the cluster ID, use <a>DescribeClusters</a>.</p>
             tag_list: <p>A list of one or more tags.</p>
+
+        Raises:
+            aws_sdk_cloudhsm_v2.errors.cloud_hsm_access_denied_exception.CloudHsmAccessDeniedException: <p>The request was rejected because the requester does not have permission to perform the requested operation.</p>
+            aws_sdk_cloudhsm_v2.errors.cloud_hsm_internal_failure_exception.CloudHsmInternalFailureException: <p>The request was rejected because of an CloudHSM internal failure. The request can be retried.</p>
+            aws_sdk_cloudhsm_v2.errors.cloud_hsm_invalid_request_exception.CloudHsmInvalidRequestException: <p>The request was rejected because it is not a valid request.</p>
+            aws_sdk_cloudhsm_v2.errors.cloud_hsm_resource_limit_exceeded_exception.CloudHsmResourceLimitExceededException: <p>The request was rejected because it exceeds an CloudHSM limit.</p>
+            aws_sdk_cloudhsm_v2.errors.cloud_hsm_resource_not_found_exception.CloudHsmResourceNotFoundException: <p>The request was rejected because it refers to a resource that cannot be found.</p>
+            aws_sdk_cloudhsm_v2.errors.cloud_hsm_service_exception.CloudHsmServiceException: <p>The request was rejected because an error occurred.</p>
+            aws_sdk_cloudhsm_v2.errors.cloud_hsm_tag_exception.CloudHsmTagException: <p>The request was rejected because of a tagging failure. Verify the tag conditions in all applicable policies, and then retry the request.</p>
+            aws_sdk_cloudhsm_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -956,6 +1099,15 @@ class CloudHSMV2Client:
         Args:
             resource_id: <p>The cluster identifier (ID) for the cluster whose tags you are removing. To find the cluster ID, use <a>DescribeClusters</a>.</p>
             tag_key_list: <p>A list of one or more tag keys for the tags that you are removing. Specify only the tag keys, not the tag values.</p>
+
+        Raises:
+            aws_sdk_cloudhsm_v2.errors.cloud_hsm_access_denied_exception.CloudHsmAccessDeniedException: <p>The request was rejected because the requester does not have permission to perform the requested operation.</p>
+            aws_sdk_cloudhsm_v2.errors.cloud_hsm_internal_failure_exception.CloudHsmInternalFailureException: <p>The request was rejected because of an CloudHSM internal failure. The request can be retried.</p>
+            aws_sdk_cloudhsm_v2.errors.cloud_hsm_invalid_request_exception.CloudHsmInvalidRequestException: <p>The request was rejected because it is not a valid request.</p>
+            aws_sdk_cloudhsm_v2.errors.cloud_hsm_resource_not_found_exception.CloudHsmResourceNotFoundException: <p>The request was rejected because it refers to a resource that cannot be found.</p>
+            aws_sdk_cloudhsm_v2.errors.cloud_hsm_service_exception.CloudHsmServiceException: <p>The request was rejected because an error occurred.</p>
+            aws_sdk_cloudhsm_v2.errors.cloud_hsm_tag_exception.CloudHsmTagException: <p>The request was rejected because of a tagging failure. Verify the tag conditions in all applicable policies, and then retry the request.</p>
+            aws_sdk_cloudhsm_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(

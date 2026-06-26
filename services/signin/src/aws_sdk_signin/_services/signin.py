@@ -163,6 +163,13 @@ class SigninClient:
 
         Args:
             token_input: Flattened token operation inputs The specific operation is determined by grant_type in the request body
+
+        Raises:
+            aws_sdk_signin.errors.access_denied_exception.AccessDeniedException: Error thrown for access denied scenarios with flexible HTTP status mapping Runtime HTTP Status Code Mapping: - HTTP 401 (Unauthorized): TOKEN_EXPIRED, AUTHCODE_EXPIRED - HTTP 403 (Forbidden): USER_CREDENTIALS_CHANGED, INSUFFICIENT_PERMISSIONS The specific HTTP status code is determined at runtime based on the error enum value. Consumers should use the error field to determine the specific access denial reason.
+            aws_sdk_signin.errors.internal_server_exception.InternalServerException: Error thrown when an internal server error occurs HTTP Status Code: 500 Internal Server Error Used for unexpected server-side errors that prevent request processing.
+            aws_sdk_signin.errors.too_many_requests_error.TooManyRequestsError: Error thrown when rate limit is exceeded HTTP Status Code: 429 Too Many Requests Possible OAuth2ErrorCode values: - INVALID_REQUEST: Rate limiting, too many requests, abuse prevention Possible causes: - Too many token requests from the same client - Rate limiting based on client_id or IP address - Abuse prevention mechanisms triggered - Service protection against excessive token generation
+            aws_sdk_signin.errors.validation_exception.ValidationException: Error thrown when request validation fails HTTP Status Code: 400 Bad Request Used for request validation errors such as malformed parameters, missing required fields, or invalid parameter values.
+            aws_sdk_signin.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -200,6 +207,14 @@ class SigninClient:
 
         Args:
             target_id: Target account identifier
+
+        Raises:
+            aws_sdk_signin.errors.access_denied_exception.AccessDeniedException: Error thrown for access denied scenarios with flexible HTTP status mapping Runtime HTTP Status Code Mapping: - HTTP 401 (Unauthorized): TOKEN_EXPIRED, AUTHCODE_EXPIRED - HTTP 403 (Forbidden): USER_CREDENTIALS_CHANGED, INSUFFICIENT_PERMISSIONS The specific HTTP status code is determined at runtime based on the error enum value. Consumers should use the error field to determine the specific access denial reason.
+            aws_sdk_signin.errors.internal_server_exception.InternalServerException: Error thrown when an internal server error occurs HTTP Status Code: 500 Internal Server Error Used for unexpected server-side errors that prevent request processing.
+            aws_sdk_signin.errors.resource_not_found_exception.ResourceNotFoundException: Error thrown when requested resource is not found HTTP Status Code: 404 Not Found Used when the specified resource does not exist
+            aws_sdk_signin.errors.too_many_requests_error.TooManyRequestsError: Error thrown when rate limit is exceeded HTTP Status Code: 429 Too Many Requests Possible OAuth2ErrorCode values: - INVALID_REQUEST: Rate limiting, too many requests, abuse prevention Possible causes: - Too many token requests from the same client - Rate limiting based on client_id or IP address - Abuse prevention mechanisms triggered - Service protection against excessive token generation
+            aws_sdk_signin.errors.validation_exception.ValidationException: Error thrown when request validation fails HTTP Status Code: 400 Bad Request Used for request validation errors such as malformed parameters, missing required fields, or invalid parameter values.
+            aws_sdk_signin.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -240,6 +255,14 @@ class SigninClient:
         Args:
             statement_id: Unique identifier of the permission statement to delete
             client_token: Idempotency token for the request
+
+        Raises:
+            aws_sdk_signin.errors.access_denied_exception.AccessDeniedException: Error thrown for access denied scenarios with flexible HTTP status mapping Runtime HTTP Status Code Mapping: - HTTP 401 (Unauthorized): TOKEN_EXPIRED, AUTHCODE_EXPIRED - HTTP 403 (Forbidden): USER_CREDENTIALS_CHANGED, INSUFFICIENT_PERMISSIONS The specific HTTP status code is determined at runtime based on the error enum value. Consumers should use the error field to determine the specific access denial reason.
+            aws_sdk_signin.errors.internal_server_exception.InternalServerException: Error thrown when an internal server error occurs HTTP Status Code: 500 Internal Server Error Used for unexpected server-side errors that prevent request processing.
+            aws_sdk_signin.errors.resource_not_found_exception.ResourceNotFoundException: Error thrown when requested resource is not found HTTP Status Code: 404 Not Found Used when the specified resource does not exist
+            aws_sdk_signin.errors.too_many_requests_error.TooManyRequestsError: Error thrown when rate limit is exceeded HTTP Status Code: 429 Too Many Requests Possible OAuth2ErrorCode values: - INVALID_REQUEST: Rate limiting, too many requests, abuse prevention Possible causes: - Too many token requests from the same client - Rate limiting based on client_id or IP address - Abuse prevention mechanisms triggered - Service protection against excessive token generation
+            aws_sdk_signin.errors.validation_exception.ValidationException: Error thrown when request validation fails HTTP Status Code: 400 Bad Request Used for request validation errors such as malformed parameters, missing required fields, or invalid parameter values.
+            aws_sdk_signin.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -279,6 +302,14 @@ class SigninClient:
 
         Args:
             target_id: Target account identifier
+
+        Raises:
+            aws_sdk_signin.errors.access_denied_exception.AccessDeniedException: Error thrown for access denied scenarios with flexible HTTP status mapping Runtime HTTP Status Code Mapping: - HTTP 401 (Unauthorized): TOKEN_EXPIRED, AUTHCODE_EXPIRED - HTTP 403 (Forbidden): USER_CREDENTIALS_CHANGED, INSUFFICIENT_PERMISSIONS The specific HTTP status code is determined at runtime based on the error enum value. Consumers should use the error field to determine the specific access denial reason.
+            aws_sdk_signin.errors.internal_server_exception.InternalServerException: Error thrown when an internal server error occurs HTTP Status Code: 500 Internal Server Error Used for unexpected server-side errors that prevent request processing.
+            aws_sdk_signin.errors.resource_not_found_exception.ResourceNotFoundException: Error thrown when requested resource is not found HTTP Status Code: 404 Not Found Used when the specified resource does not exist
+            aws_sdk_signin.errors.too_many_requests_error.TooManyRequestsError: Error thrown when rate limit is exceeded HTTP Status Code: 429 Too Many Requests Possible OAuth2ErrorCode values: - INVALID_REQUEST: Rate limiting, too many requests, abuse prevention Possible causes: - Too many token requests from the same client - Rate limiting based on client_id or IP address - Abuse prevention mechanisms triggered - Service protection against excessive token generation
+            aws_sdk_signin.errors.validation_exception.ValidationException: Error thrown when request validation fails HTTP Status Code: 400 Bad Request Used for request validation errors such as malformed parameters, missing required fields, or invalid parameter values.
+            aws_sdk_signin.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -310,7 +341,15 @@ class SigninClient:
     def get_resource_policy(
         self, *, config_overrides: Optional[SigninClientConfig] = None
     ) -> "aws_sdk_signin.types.get_resource_policy_output.GetResourcePolicyOutput":
-        """Retrieve the account's consolidated SignIn resource-based policy"""
+        """Retrieve the account's consolidated SignIn resource-based policy
+
+        Raises:
+            aws_sdk_signin.errors.access_denied_exception.AccessDeniedException: Error thrown for access denied scenarios with flexible HTTP status mapping Runtime HTTP Status Code Mapping: - HTTP 401 (Unauthorized): TOKEN_EXPIRED, AUTHCODE_EXPIRED - HTTP 403 (Forbidden): USER_CREDENTIALS_CHANGED, INSUFFICIENT_PERMISSIONS The specific HTTP status code is determined at runtime based on the error enum value. Consumers should use the error field to determine the specific access denial reason.
+            aws_sdk_signin.errors.internal_server_exception.InternalServerException: Error thrown when an internal server error occurs HTTP Status Code: 500 Internal Server Error Used for unexpected server-side errors that prevent request processing.
+            aws_sdk_signin.errors.resource_not_found_exception.ResourceNotFoundException: Error thrown when requested resource is not found HTTP Status Code: 404 Not Found Used when the specified resource does not exist
+            aws_sdk_signin.errors.too_many_requests_error.TooManyRequestsError: Error thrown when rate limit is exceeded HTTP Status Code: 429 Too Many Requests Possible OAuth2ErrorCode values: - INVALID_REQUEST: Rate limiting, too many requests, abuse prevention Possible causes: - Too many token requests from the same client - Rate limiting based on client_id or IP address - Abuse prevention mechanisms triggered - Service protection against excessive token generation
+            aws_sdk_signin.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_signin.types.get_resource_policy_input.GetResourcePolicyInput]",
@@ -350,6 +389,14 @@ class SigninClient:
         Args:
             max_results: Maximum number of results to return
             next_token: Token for pagination
+
+        Raises:
+            aws_sdk_signin.errors.access_denied_exception.AccessDeniedException: Error thrown for access denied scenarios with flexible HTTP status mapping Runtime HTTP Status Code Mapping: - HTTP 401 (Unauthorized): TOKEN_EXPIRED, AUTHCODE_EXPIRED - HTTP 403 (Forbidden): USER_CREDENTIALS_CHANGED, INSUFFICIENT_PERMISSIONS The specific HTTP status code is determined at runtime based on the error enum value. Consumers should use the error field to determine the specific access denial reason.
+            aws_sdk_signin.errors.internal_server_exception.InternalServerException: Error thrown when an internal server error occurs HTTP Status Code: 500 Internal Server Error Used for unexpected server-side errors that prevent request processing.
+            aws_sdk_signin.errors.resource_not_found_exception.ResourceNotFoundException: Error thrown when requested resource is not found HTTP Status Code: 404 Not Found Used when the specified resource does not exist
+            aws_sdk_signin.errors.too_many_requests_error.TooManyRequestsError: Error thrown when rate limit is exceeded HTTP Status Code: 429 Too Many Requests Possible OAuth2ErrorCode values: - INVALID_REQUEST: Rate limiting, too many requests, abuse prevention Possible causes: - Too many token requests from the same client - Rate limiting based on client_id or IP address - Abuse prevention mechanisms triggered - Service protection against excessive token generation
+            aws_sdk_signin.errors.validation_exception.ValidationException: Error thrown when request validation fails HTTP Status Code: 400 Bad Request Used for request validation errors such as malformed parameters, missing required fields, or invalid parameter values.
+            aws_sdk_signin.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -413,6 +460,15 @@ class SigninClient:
 
         Args:
             target_id: Target account identifier
+
+        Raises:
+            aws_sdk_signin.errors.access_denied_exception.AccessDeniedException: Error thrown for access denied scenarios with flexible HTTP status mapping Runtime HTTP Status Code Mapping: - HTTP 401 (Unauthorized): TOKEN_EXPIRED, AUTHCODE_EXPIRED - HTTP 403 (Forbidden): USER_CREDENTIALS_CHANGED, INSUFFICIENT_PERMISSIONS The specific HTTP status code is determined at runtime based on the error enum value. Consumers should use the error field to determine the specific access denial reason.
+            aws_sdk_signin.errors.conflict_exception.ConflictException: Error thrown when request conflicts with current state HTTP Status Code: 409 Conflict Used when the request conflicts with the current state of the resource
+            aws_sdk_signin.errors.internal_server_exception.InternalServerException: Error thrown when an internal server error occurs HTTP Status Code: 500 Internal Server Error Used for unexpected server-side errors that prevent request processing.
+            aws_sdk_signin.errors.resource_not_found_exception.ResourceNotFoundException: Error thrown when requested resource is not found HTTP Status Code: 404 Not Found Used when the specified resource does not exist
+            aws_sdk_signin.errors.too_many_requests_error.TooManyRequestsError: Error thrown when rate limit is exceeded HTTP Status Code: 429 Too Many Requests Possible OAuth2ErrorCode values: - INVALID_REQUEST: Rate limiting, too many requests, abuse prevention Possible causes: - Too many token requests from the same client - Rate limiting based on client_id or IP address - Abuse prevention mechanisms triggered - Service protection against excessive token generation
+            aws_sdk_signin.errors.validation_exception.ValidationException: Error thrown when request validation fails HTTP Status Code: 400 Bad Request Used for request validation errors such as malformed parameters, missing required fields, or invalid parameter values.
+            aws_sdk_signin.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -475,6 +531,15 @@ class SigninClient:
             requested_region: AWS region where the VPC and VPC endpoint reside Required when sourceVpc or signinSourceVpce/consoleSourceVpce is provided
             excluded_principal: Principal to exclude from the permission statement
             client_token: Idempotency token for the request
+
+        Raises:
+            aws_sdk_signin.errors.access_denied_exception.AccessDeniedException: Error thrown for access denied scenarios with flexible HTTP status mapping Runtime HTTP Status Code Mapping: - HTTP 401 (Unauthorized): TOKEN_EXPIRED, AUTHCODE_EXPIRED - HTTP 403 (Forbidden): USER_CREDENTIALS_CHANGED, INSUFFICIENT_PERMISSIONS The specific HTTP status code is determined at runtime based on the error enum value. Consumers should use the error field to determine the specific access denial reason.
+            aws_sdk_signin.errors.conflict_exception.ConflictException: Error thrown when request conflicts with current state HTTP Status Code: 409 Conflict Used when the request conflicts with the current state of the resource
+            aws_sdk_signin.errors.internal_server_exception.InternalServerException: Error thrown when an internal server error occurs HTTP Status Code: 500 Internal Server Error Used for unexpected server-side errors that prevent request processing.
+            aws_sdk_signin.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: Error thrown when service quota is exceeded HTTP Status Code: 402 Payment Required (used as quota exceeded indicator) Used when the request would cause a service quota to be exceeded
+            aws_sdk_signin.errors.too_many_requests_error.TooManyRequestsError: Error thrown when rate limit is exceeded HTTP Status Code: 429 Too Many Requests Possible OAuth2ErrorCode values: - INVALID_REQUEST: Rate limiting, too many requests, abuse prevention Possible causes: - Too many token requests from the same client - Rate limiting based on client_id or IP address - Abuse prevention mechanisms triggered - Service protection against excessive token generation
+            aws_sdk_signin.errors.validation_exception.ValidationException: Error thrown when request validation fails HTTP Status Code: 400 Bad Request Used for request validation errors such as malformed parameters, missing required fields, or invalid parameter values.
+            aws_sdk_signin.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(

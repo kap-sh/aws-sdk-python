@@ -59,6 +59,13 @@ class AsyncInvokeResource:
 
         Args:
             invocation_arn: <p>The invocation's ARN.</p>
+
+        Raises:
+            aws_sdk_bedrock_runtime.errors.access_denied_exception.AccessDeniedException: <p>The request is denied because you do not have sufficient permissions to perform the requested action. For troubleshooting this error, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html#ts-access-denied\">AccessDeniedException</a> in the Amazon Bedrock User Guide</p>
+            aws_sdk_bedrock_runtime.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. For troubleshooting this error, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html#ts-internal-failure\">InternalFailure</a> in the Amazon Bedrock User Guide</p>
+            aws_sdk_bedrock_runtime.errors.throttling_exception.ThrottlingException: <p>Your request was denied due to exceeding the account quotas for <i>Amazon Bedrock</i>. For troubleshooting this error, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html#ts-throttling-exception\">ThrottlingException</a> in the Amazon Bedrock User Guide</p>
+            aws_sdk_bedrock_runtime.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by <i>Amazon Bedrock</i>. For troubleshooting this error, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html#ts-validation-error\">ValidationError</a> in the Amazon Bedrock User Guide</p>
+            aws_sdk_bedrock_runtime.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -122,6 +129,13 @@ class AsyncInvokeResource:
             next_token: <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
             sort_by: <p>How to sort the response.</p>
             sort_order: <p>The sorting order for the response.</p>
+
+        Raises:
+            aws_sdk_bedrock_runtime.errors.access_denied_exception.AccessDeniedException: <p>The request is denied because you do not have sufficient permissions to perform the requested action. For troubleshooting this error, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html#ts-access-denied\">AccessDeniedException</a> in the Amazon Bedrock User Guide</p>
+            aws_sdk_bedrock_runtime.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. For troubleshooting this error, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html#ts-internal-failure\">InternalFailure</a> in the Amazon Bedrock User Guide</p>
+            aws_sdk_bedrock_runtime.errors.throttling_exception.ThrottlingException: <p>Your request was denied due to exceeding the account quotas for <i>Amazon Bedrock</i>. For troubleshooting this error, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html#ts-throttling-exception\">ThrottlingException</a> in the Amazon Bedrock User Guide</p>
+            aws_sdk_bedrock_runtime.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by <i>Amazon Bedrock</i>. For troubleshooting this error, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html#ts-validation-error\">ValidationError</a> in the Amazon Bedrock User Guide</p>
+            aws_sdk_bedrock_runtime.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -182,6 +196,17 @@ class AsyncInvokeResource:
             model_input: <p>Input to send to the model.</p>
             output_data_config: <p>Where to store the output.</p>
             tags: <p>Tags to apply to the invocation.</p>
+
+        Raises:
+            aws_sdk_bedrock_runtime.errors.access_denied_exception.AccessDeniedException: <p>The request is denied because you do not have sufficient permissions to perform the requested action. For troubleshooting this error, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html#ts-access-denied\">AccessDeniedException</a> in the Amazon Bedrock User Guide</p>
+            aws_sdk_bedrock_runtime.errors.conflict_exception.ConflictException: <p>Error occurred because of a conflict while performing an operation.</p>
+            aws_sdk_bedrock_runtime.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. For troubleshooting this error, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html#ts-internal-failure\">InternalFailure</a> in the Amazon Bedrock User Guide</p>
+            aws_sdk_bedrock_runtime.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource ARN was not found. For troubleshooting this error, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html#ts-resource-not-found\">ResourceNotFound</a> in the Amazon Bedrock User Guide</p>
+            aws_sdk_bedrock_runtime.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Your request exceeds the service quota for your account. You can view your quotas at <a href=\"https://docs.aws.amazon.com/servicequotas/latest/userguide/gs-request-quota.html\">Viewing service quotas</a>. You can resubmit your request later.</p>
+            aws_sdk_bedrock_runtime.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service isn't currently available. For troubleshooting this error, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html#ts-service-unavailable\">ServiceUnavailable</a> in the Amazon Bedrock User Guide</p>
+            aws_sdk_bedrock_runtime.errors.throttling_exception.ThrottlingException: <p>Your request was denied due to exceeding the account quotas for <i>Amazon Bedrock</i>. For troubleshooting this error, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html#ts-throttling-exception\">ThrottlingException</a> in the Amazon Bedrock User Guide</p>
+            aws_sdk_bedrock_runtime.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by <i>Amazon Bedrock</i>. For troubleshooting this error, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html#ts-validation-error\">ValidationError</a> in the Amazon Bedrock User Guide</p>
+            aws_sdk_bedrock_runtime.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -232,6 +257,13 @@ class AsyncAsyncInvokeResource:
 
         Args:
             invocation_arn: <p>The invocation's ARN.</p>
+
+        Raises:
+            aws_sdk_bedrock_runtime.errors.access_denied_exception.AccessDeniedException: <p>The request is denied because you do not have sufficient permissions to perform the requested action. For troubleshooting this error, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html#ts-access-denied\">AccessDeniedException</a> in the Amazon Bedrock User Guide</p>
+            aws_sdk_bedrock_runtime.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. For troubleshooting this error, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html#ts-internal-failure\">InternalFailure</a> in the Amazon Bedrock User Guide</p>
+            aws_sdk_bedrock_runtime.errors.throttling_exception.ThrottlingException: <p>Your request was denied due to exceeding the account quotas for <i>Amazon Bedrock</i>. For troubleshooting this error, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html#ts-throttling-exception\">ThrottlingException</a> in the Amazon Bedrock User Guide</p>
+            aws_sdk_bedrock_runtime.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by <i>Amazon Bedrock</i>. For troubleshooting this error, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html#ts-validation-error\">ValidationError</a> in the Amazon Bedrock User Guide</p>
+            aws_sdk_bedrock_runtime.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -296,6 +328,13 @@ class AsyncAsyncInvokeResource:
             next_token: <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
             sort_by: <p>How to sort the response.</p>
             sort_order: <p>The sorting order for the response.</p>
+
+        Raises:
+            aws_sdk_bedrock_runtime.errors.access_denied_exception.AccessDeniedException: <p>The request is denied because you do not have sufficient permissions to perform the requested action. For troubleshooting this error, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html#ts-access-denied\">AccessDeniedException</a> in the Amazon Bedrock User Guide</p>
+            aws_sdk_bedrock_runtime.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. For troubleshooting this error, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html#ts-internal-failure\">InternalFailure</a> in the Amazon Bedrock User Guide</p>
+            aws_sdk_bedrock_runtime.errors.throttling_exception.ThrottlingException: <p>Your request was denied due to exceeding the account quotas for <i>Amazon Bedrock</i>. For troubleshooting this error, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html#ts-throttling-exception\">ThrottlingException</a> in the Amazon Bedrock User Guide</p>
+            aws_sdk_bedrock_runtime.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by <i>Amazon Bedrock</i>. For troubleshooting this error, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html#ts-validation-error\">ValidationError</a> in the Amazon Bedrock User Guide</p>
+            aws_sdk_bedrock_runtime.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -357,6 +396,17 @@ class AsyncAsyncInvokeResource:
             model_input: <p>Input to send to the model.</p>
             output_data_config: <p>Where to store the output.</p>
             tags: <p>Tags to apply to the invocation.</p>
+
+        Raises:
+            aws_sdk_bedrock_runtime.errors.access_denied_exception.AccessDeniedException: <p>The request is denied because you do not have sufficient permissions to perform the requested action. For troubleshooting this error, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html#ts-access-denied\">AccessDeniedException</a> in the Amazon Bedrock User Guide</p>
+            aws_sdk_bedrock_runtime.errors.conflict_exception.ConflictException: <p>Error occurred because of a conflict while performing an operation.</p>
+            aws_sdk_bedrock_runtime.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. For troubleshooting this error, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html#ts-internal-failure\">InternalFailure</a> in the Amazon Bedrock User Guide</p>
+            aws_sdk_bedrock_runtime.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource ARN was not found. For troubleshooting this error, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html#ts-resource-not-found\">ResourceNotFound</a> in the Amazon Bedrock User Guide</p>
+            aws_sdk_bedrock_runtime.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Your request exceeds the service quota for your account. You can view your quotas at <a href=\"https://docs.aws.amazon.com/servicequotas/latest/userguide/gs-request-quota.html\">Viewing service quotas</a>. You can resubmit your request later.</p>
+            aws_sdk_bedrock_runtime.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service isn't currently available. For troubleshooting this error, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html#ts-service-unavailable\">ServiceUnavailable</a> in the Amazon Bedrock User Guide</p>
+            aws_sdk_bedrock_runtime.errors.throttling_exception.ThrottlingException: <p>Your request was denied due to exceeding the account quotas for <i>Amazon Bedrock</i>. For troubleshooting this error, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html#ts-throttling-exception\">ThrottlingException</a> in the Amazon Bedrock User Guide</p>
+            aws_sdk_bedrock_runtime.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by <i>Amazon Bedrock</i>. For troubleshooting this error, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html#ts-validation-error\">ValidationError</a> in the Amazon Bedrock User Guide</p>
+            aws_sdk_bedrock_runtime.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

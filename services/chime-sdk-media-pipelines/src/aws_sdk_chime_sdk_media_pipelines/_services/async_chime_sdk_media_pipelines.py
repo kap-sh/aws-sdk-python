@@ -245,6 +245,16 @@ class AsyncChimeSDKMediaPipelinesClient:
             sse_aws_key_management_params: <p>An object that contains server side encryption parameters to be used by media capture pipeline. The parameters can also be used by media concatenation pipeline taking media capture pipeline as a media source.</p>
             sink_iam_role_arn: <p>The Amazon Resource Name (ARN) of the sink role to be used with <code>AwsKmsKeyId</code> in <code>SseAwsKeyManagementParams</code>. Can only interact with <code>S3Bucket</code> sink type. The role must belong to the caller’s account and be able to act on behalf of the caller during the API call. All minimum policy permissions requirements for the caller to perform sink-related actions are the same for <code>SinkIamRoleArn</code>.</p> <p>Additionally, the role must have permission to <code>kms:GenerateDataKey</code> using KMS key supplied as <code>AwsKmsKeyId</code> in <code>SseAwsKeyManagementParams</code>. If media concatenation will be required later, the role must also have permission to <code>kms:Decrypt</code> for the same KMS key.</p>
             tags: <p>The tag key-value pairs.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_media_pipelines.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.resource_limit_exceeded_exception.ResourceLimitExceededException: <p>The request exceeds the resource limit.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.throttled_client_exception.ThrottledClientException: <p>The client exceeded its request rate limit.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client is not currently authorized to make the request.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -306,6 +316,16 @@ class AsyncChimeSDKMediaPipelinesClient:
             sinks: <p>An object that specifies the data sinks for the media concatenation pipeline.</p>
             client_request_token: <p>The unique identifier for the client request. The token makes the API request idempotent. Use a unique token for each media concatenation pipeline request.</p>
             tags: <p>The tags associated with the media concatenation pipeline.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_media_pipelines.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.resource_limit_exceeded_exception.ResourceLimitExceededException: <p>The request exceeds the resource limit.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.throttled_client_exception.ThrottledClientException: <p>The client exceeded its request rate limit.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client is not currently authorized to make the request.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -373,6 +393,17 @@ class AsyncChimeSDKMediaPipelinesClient:
             s3_recording_sink_runtime_configuration: <p>The runtime configuration for the S3 recording sink. If specified, the settings in this structure override any settings in <code>S3RecordingSinkConfiguration</code>.</p>
             tags: <p>The tags assigned to the media insights pipeline.</p>
             client_request_token: <p>The unique identifier for the media insights pipeline request.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_media_pipelines.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.not_found_exception.NotFoundException: <p>One or more of the resources in the request does not exist in the system.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.resource_limit_exceeded_exception.ResourceLimitExceededException: <p>The request exceeds the resource limit.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.throttled_client_exception.ThrottledClientException: <p>The client exceeded its request rate limit.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client is not currently authorized to make the request.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -447,6 +478,17 @@ class AsyncChimeSDKMediaPipelinesClient:
             elements: <p>The elements in the request, such as a processor for Amazon Transcribe or a sink for a Kinesis Data Stream.</p>
             tags: <p>The tags assigned to the media insights pipeline configuration.</p>
             client_request_token: <p>The unique identifier for the media insights pipeline configuration request.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_media_pipelines.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.not_found_exception.NotFoundException: <p>One or more of the resources in the request does not exist in the system.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.resource_limit_exceeded_exception.ResourceLimitExceededException: <p>The request exceeds the resource limit.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.throttled_client_exception.ThrottledClientException: <p>The client exceeded its request rate limit.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client is not currently authorized to make the request.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -505,6 +547,16 @@ class AsyncChimeSDKMediaPipelinesClient:
             sinks: <p>The media live connector pipeline's data sinks.</p>
             client_request_token: <p>The token assigned to the client making the request.</p>
             tags: <p>The tags associated with the media live connector pipeline.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_media_pipelines.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.resource_limit_exceeded_exception.ResourceLimitExceededException: <p>The request exceeds the resource limit.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.throttled_client_exception.ThrottledClientException: <p>The client exceeded its request rate limit.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client is not currently authorized to make the request.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -558,6 +610,17 @@ class AsyncChimeSDKMediaPipelinesClient:
             pool_name: <p>The name of the pool.</p>
             client_request_token: <p>The token assigned to the client making the request.</p>
             tags: <p>The tags assigned to the stream pool.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_media_pipelines.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.conflict_exception.ConflictException: <p>The request could not be processed because of conflict in the current state of the resource.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.resource_limit_exceeded_exception.ResourceLimitExceededException: <p>The request exceeds the resource limit.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.throttled_client_exception.ThrottledClientException: <p>The client exceeded its request rate limit.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client is not currently authorized to make the request.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -611,6 +674,17 @@ class AsyncChimeSDKMediaPipelinesClient:
             sinks: <p>The data sink for the media pipeline.</p>
             client_request_token: <p>The token assigned to the client making the request.</p>
             tags: <p>The tags assigned to the media pipeline.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_media_pipelines.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.not_found_exception.NotFoundException: <p>One or more of the resources in the request does not exist in the system.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.resource_limit_exceeded_exception.ResourceLimitExceededException: <p>The request exceeds the resource limit.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.throttled_client_exception.ThrottledClientException: <p>The client exceeded its request rate limit.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client is not currently authorized to make the request.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -654,6 +728,16 @@ class AsyncChimeSDKMediaPipelinesClient:
 
         Args:
             media_pipeline_id: <p>The ID of the media pipeline being deleted. </p>
+
+        Raises:
+            aws_sdk_chime_sdk_media_pipelines.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.not_found_exception.NotFoundException: <p>One or more of the resources in the request does not exist in the system.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.throttled_client_exception.ThrottledClientException: <p>The client exceeded its request rate limit.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client is not currently authorized to make the request.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -690,6 +774,17 @@ class AsyncChimeSDKMediaPipelinesClient:
 
         Args:
             identifier: <p>The unique identifier of the resource to be deleted. Valid values include the name and ARN of the media insights pipeline configuration.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_media_pipelines.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.conflict_exception.ConflictException: <p>The request could not be processed because of conflict in the current state of the resource.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.not_found_exception.NotFoundException: <p>One or more of the resources in the request does not exist in the system.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.throttled_client_exception.ThrottledClientException: <p>The client exceeded its request rate limit.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client is not currently authorized to make the request.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -726,6 +821,17 @@ class AsyncChimeSDKMediaPipelinesClient:
 
         Args:
             media_pipeline_id: <p>The ID of the media pipeline to delete.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_media_pipelines.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.conflict_exception.ConflictException: <p>The request could not be processed because of conflict in the current state of the resource.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.not_found_exception.NotFoundException: <p>One or more of the resources in the request does not exist in the system.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.throttled_client_exception.ThrottledClientException: <p>The client exceeded its request rate limit.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client is not currently authorized to make the request.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -762,6 +868,17 @@ class AsyncChimeSDKMediaPipelinesClient:
 
         Args:
             identifier: <p>The unique identifier of the requested resource. Valid values include the name and ARN of the media pipeline Kinesis Video Stream pool.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_media_pipelines.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.conflict_exception.ConflictException: <p>The request could not be processed because of conflict in the current state of the resource.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.not_found_exception.NotFoundException: <p>One or more of the resources in the request does not exist in the system.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.throttled_client_exception.ThrottledClientException: <p>The client exceeded its request rate limit.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client is not currently authorized to make the request.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -798,6 +915,16 @@ class AsyncChimeSDKMediaPipelinesClient:
 
         Args:
             media_pipeline_id: <p>The ID of the pipeline that you want to get.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_media_pipelines.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.not_found_exception.NotFoundException: <p>One or more of the resources in the request does not exist in the system.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.throttled_client_exception.ThrottledClientException: <p>The client exceeded its request rate limit.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client is not currently authorized to make the request.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -836,6 +963,16 @@ class AsyncChimeSDKMediaPipelinesClient:
 
         Args:
             identifier: <p>The unique identifier of the requested resource. Valid values include the name and ARN of the media insights pipeline configuration.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_media_pipelines.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.not_found_exception.NotFoundException: <p>One or more of the resources in the request does not exist in the system.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.throttled_client_exception.ThrottledClientException: <p>The client exceeded its request rate limit.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client is not currently authorized to make the request.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -874,6 +1011,16 @@ class AsyncChimeSDKMediaPipelinesClient:
 
         Args:
             media_pipeline_id: <p>The ID of the pipeline that you want to get.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_media_pipelines.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.not_found_exception.NotFoundException: <p>One or more of the resources in the request does not exist in the system.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.throttled_client_exception.ThrottledClientException: <p>The client exceeded its request rate limit.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client is not currently authorized to make the request.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -912,6 +1059,16 @@ class AsyncChimeSDKMediaPipelinesClient:
 
         Args:
             identifier: <p>The unique identifier of the requested resource. Valid values include the name and ARN of the media pipeline Kinesis Video Stream pool.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_media_pipelines.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.not_found_exception.NotFoundException: <p>One or more of the resources in the request does not exist in the system.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.throttled_client_exception.ThrottledClientException: <p>The client exceeded its request rate limit.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client is not currently authorized to make the request.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -952,6 +1109,16 @@ class AsyncChimeSDKMediaPipelinesClient:
         Args:
             identifier: <p>The unique identifier of the resource to be updated. Valid values include the ID and ARN of the media insights pipeline.</p>
             speaker_search_task_id: <p>The ID of the speaker search task.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_media_pipelines.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.not_found_exception.NotFoundException: <p>One or more of the resources in the request does not exist in the system.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.throttled_client_exception.ThrottledClientException: <p>The client exceeded its request rate limit.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client is not currently authorized to make the request.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -993,6 +1160,16 @@ class AsyncChimeSDKMediaPipelinesClient:
         Args:
             identifier: <p>The unique identifier of the resource to be updated. Valid values include the ID and ARN of the media insights pipeline.</p>
             voice_tone_analysis_task_id: <p>The ID of the voice tone analysis task.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_media_pipelines.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.not_found_exception.NotFoundException: <p>One or more of the resources in the request does not exist in the system.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.throttled_client_exception.ThrottledClientException: <p>The client exceeded its request rate limit.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client is not currently authorized to make the request.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1038,6 +1215,16 @@ class AsyncChimeSDKMediaPipelinesClient:
         Args:
             next_token: <p>The token used to retrieve the next page of results.</p>
             max_results: <p>The maximum number of results to return in a single call. Valid Range: 1 - 99.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_media_pipelines.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.resource_limit_exceeded_exception.ResourceLimitExceededException: <p>The request exceeds the resource limit.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.throttled_client_exception.ThrottledClientException: <p>The client exceeded its request rate limit.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client is not currently authorized to make the request.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1085,6 +1272,16 @@ class AsyncChimeSDKMediaPipelinesClient:
         Args:
             next_token: <p>The token used to return the next page of results.</p>
             max_results: <p>The maximum number of results to return in a single call.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_media_pipelines.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.resource_limit_exceeded_exception.ResourceLimitExceededException: <p>The request exceeds the resource limit.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.throttled_client_exception.ThrottledClientException: <p>The client exceeded its request rate limit.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client is not currently authorized to make the request.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1132,6 +1329,16 @@ class AsyncChimeSDKMediaPipelinesClient:
         Args:
             next_token: <p>The token used to return the next page of results. </p>
             max_results: <p>The maximum number of results to return in a single call.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_media_pipelines.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.resource_limit_exceeded_exception.ResourceLimitExceededException: <p>The request exceeds the resource limit.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.throttled_client_exception.ThrottledClientException: <p>The client exceeded its request rate limit.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client is not currently authorized to make the request.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1179,6 +1386,16 @@ class AsyncChimeSDKMediaPipelinesClient:
         Args:
             next_token: <p>The token used to retrieve the next page of results.</p>
             max_results: <p>The maximum number of results to return in a single call. Valid Range: 1 - 99.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_media_pipelines.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.resource_limit_exceeded_exception.ResourceLimitExceededException: <p>The request exceeds the resource limit.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.throttled_client_exception.ThrottledClientException: <p>The client exceeded its request rate limit.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client is not currently authorized to make the request.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1220,6 +1437,16 @@ class AsyncChimeSDKMediaPipelinesClient:
 
         Args:
             resource_arn: <p>The ARN of the media pipeline associated with any tags. The ARN consists of the pipeline's region, resource ID, and pipeline ID.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_media_pipelines.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.not_found_exception.NotFoundException: <p>One or more of the resources in the request does not exist in the system.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.throttled_client_exception.ThrottledClientException: <p>The client exceeded its request rate limit.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client is not currently authorized to make the request.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1268,6 +1495,17 @@ class AsyncChimeSDKMediaPipelinesClient:
             voice_profile_domain_arn: <p>The ARN of the voice profile domain that will store the voice profile.</p>
             kinesis_video_stream_source_task_configuration: <p>The task configuration for the Kinesis video stream source of the media insights pipeline.</p>
             client_request_token: <p>The unique identifier for the client request. Use a different token for different speaker search tasks.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_media_pipelines.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.conflict_exception.ConflictException: <p>The request could not be processed because of conflict in the current state of the resource.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.not_found_exception.NotFoundException: <p>One or more of the resources in the request does not exist in the system.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.throttled_client_exception.ThrottledClientException: <p>The client exceeded its request rate limit.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client is not currently authorized to make the request.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1323,6 +1561,17 @@ class AsyncChimeSDKMediaPipelinesClient:
             language_code: <p>The language code.</p>
             kinesis_video_stream_source_task_configuration: <p>The task configuration for the Kinesis video stream source of the media insights pipeline.</p>
             client_request_token: <p>The unique identifier for the client request. Use a different token for different voice tone analysis tasks.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_media_pipelines.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.conflict_exception.ConflictException: <p>The request could not be processed because of conflict in the current state of the resource.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.not_found_exception.NotFoundException: <p>One or more of the resources in the request does not exist in the system.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.throttled_client_exception.ThrottledClientException: <p>The client exceeded its request rate limit.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client is not currently authorized to make the request.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1370,6 +1619,17 @@ class AsyncChimeSDKMediaPipelinesClient:
         Args:
             identifier: <p>The unique identifier of the resource to be updated. Valid values include the ID and ARN of the media insights pipeline.</p>
             speaker_search_task_id: <p>The speaker search task ID.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_media_pipelines.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.conflict_exception.ConflictException: <p>The request could not be processed because of conflict in the current state of the resource.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.not_found_exception.NotFoundException: <p>One or more of the resources in the request does not exist in the system.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.throttled_client_exception.ThrottledClientException: <p>The client exceeded its request rate limit.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client is not currently authorized to make the request.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1409,6 +1669,17 @@ class AsyncChimeSDKMediaPipelinesClient:
         Args:
             identifier: <p>The unique identifier of the resource to be updated. Valid values include the ID and ARN of the media insights pipeline.</p>
             voice_tone_analysis_task_id: <p>The ID of the voice tone analysis task.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_media_pipelines.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.conflict_exception.ConflictException: <p>The request could not be processed because of conflict in the current state of the resource.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.not_found_exception.NotFoundException: <p>One or more of the resources in the request does not exist in the system.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.throttled_client_exception.ThrottledClientException: <p>The client exceeded its request rate limit.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client is not currently authorized to make the request.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1448,6 +1719,16 @@ class AsyncChimeSDKMediaPipelinesClient:
         Args:
             resource_arn: <p>The ARN of the media pipeline associated with any tags. The ARN consists of the pipeline's endpoint region, resource ID, and pipeline ID.</p>
             tags: <p>The tags associated with the specified media pipeline.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_media_pipelines.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.not_found_exception.NotFoundException: <p>One or more of the resources in the request does not exist in the system.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.throttled_client_exception.ThrottledClientException: <p>The client exceeded its request rate limit.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client is not currently authorized to make the request.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1489,6 +1770,16 @@ class AsyncChimeSDKMediaPipelinesClient:
         Args:
             resource_arn: <p>The ARN of the pipeline that you want to untag.</p>
             tag_keys: <p>The key/value pairs in the tag that you want to remove.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_media_pipelines.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.not_found_exception.NotFoundException: <p>One or more of the resources in the request does not exist in the system.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.throttled_client_exception.ThrottledClientException: <p>The client exceeded its request rate limit.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client is not currently authorized to make the request.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1536,6 +1827,17 @@ class AsyncChimeSDKMediaPipelinesClient:
             resource_access_role_arn: <p>The ARN of the role used by the service to access Amazon Web Services resources.</p>
             real_time_alert_configuration: <p>The configuration settings for real-time alerts for the media insights pipeline.</p>
             elements: <p>The elements in the request, such as a processor for Amazon Transcribe or a sink for a Kinesis Data Stream..</p>
+
+        Raises:
+            aws_sdk_chime_sdk_media_pipelines.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.conflict_exception.ConflictException: <p>The request could not be processed because of conflict in the current state of the resource.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.not_found_exception.NotFoundException: <p>One or more of the resources in the request does not exist in the system.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.throttled_client_exception.ThrottledClientException: <p>The client exceeded its request rate limit.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client is not currently authorized to make the request.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1580,6 +1882,17 @@ class AsyncChimeSDKMediaPipelinesClient:
         Args:
             identifier: <p>The unique identifier of the resource to be updated. Valid values include the ID and ARN of the media insights pipeline.</p>
             update_status: <p>The requested status of the media insights pipeline.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_media_pipelines.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.conflict_exception.ConflictException: <p>The request could not be processed because of conflict in the current state of the resource.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.not_found_exception.NotFoundException: <p>One or more of the resources in the request does not exist in the system.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.throttled_client_exception.ThrottledClientException: <p>The client exceeded its request rate limit.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client is not currently authorized to make the request.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1621,6 +1934,17 @@ class AsyncChimeSDKMediaPipelinesClient:
         Args:
             identifier: <p>The unique identifier of the requested resource. Valid values include the name and ARN of the media pipeline Kinesis Video Stream pool.</p>
             stream_configuration: <p>The configuration settings for the video stream.</p>
+
+        Raises:
+            aws_sdk_chime_sdk_media_pipelines.errors.bad_request_exception.BadRequestException: <p>The input parameters don't match the service's restrictions.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.conflict_exception.ConflictException: <p>The request could not be processed because of conflict in the current state of the resource.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.forbidden_exception.ForbiddenException: <p>The client is permanently forbidden from making the request.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.not_found_exception.NotFoundException: <p>One or more of the resources in the request does not exist in the system.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.service_failure_exception.ServiceFailureException: <p>The service encountered an unexpected error.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.throttled_client_exception.ThrottledClientException: <p>The client exceeded its request rate limit.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.unauthorized_client_exception.UnauthorizedClientException: <p>The client is not currently authorized to make the request.</p>
+            aws_sdk_chime_sdk_media_pipelines.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

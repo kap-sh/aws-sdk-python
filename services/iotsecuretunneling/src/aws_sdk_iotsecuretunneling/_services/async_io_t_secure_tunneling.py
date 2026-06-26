@@ -164,6 +164,10 @@ class AsyncIoTSecureTunnelingClient:
         Args:
             tunnel_id: <p>The ID of the tunnel to close.</p>
             delete: <p>When set to true, IoT Secure Tunneling deletes the tunnel data immediately.</p>
+
+        Raises:
+            aws_sdk_iotsecuretunneling.errors.resource_not_found_exception.ResourceNotFoundException: <p>Thrown when an operation is attempted on a resource that does not exist.</p>
+            aws_sdk_iotsecuretunneling.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -204,6 +208,10 @@ class AsyncIoTSecureTunnelingClient:
 
         Args:
             tunnel_id: <p>The tunnel to describe.</p>
+
+        Raises:
+            aws_sdk_iotsecuretunneling.errors.resource_not_found_exception.ResourceNotFoundException: <p>Thrown when an operation is attempted on a resource that does not exist.</p>
+            aws_sdk_iotsecuretunneling.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -242,6 +250,10 @@ class AsyncIoTSecureTunnelingClient:
 
         Args:
             resource_arn: <p>The resource ARN.</p>
+
+        Raises:
+            aws_sdk_iotsecuretunneling.errors.resource_not_found_exception.ResourceNotFoundException: <p>Thrown when an operation is attempted on a resource that does not exist.</p>
+            aws_sdk_iotsecuretunneling.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -290,6 +302,9 @@ class AsyncIoTSecureTunnelingClient:
             thing_name: <p>The name of the IoT thing associated with the destination device.</p>
             max_results: <p>The maximum number of results to return at once.</p>
             next_token: <p>To retrieve the next set of results, the nextToken value from a previous response; otherwise null to receive the first set of results.</p>
+
+        Raises:
+            aws_sdk_iotsecuretunneling.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -345,6 +360,10 @@ class AsyncIoTSecureTunnelingClient:
             tags: <p>A collection of tag metadata.</p>
             destination_config: <p>The destination configuration for the OpenTunnel request.</p>
             timeout_config: <p>Timeout configuration for a tunnel.</p>
+
+        Raises:
+            aws_sdk_iotsecuretunneling.errors.limit_exceeded_exception.LimitExceededException: <p>Thrown when a tunnel limit is exceeded.</p>
+            aws_sdk_iotsecuretunneling.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -395,6 +414,10 @@ class AsyncIoTSecureTunnelingClient:
         Args:
             tunnel_id: <p>The tunnel for which you want to rotate the access tokens.</p>
             client_mode: <p>The mode of the client that will use the client token, which can be either the source or destination, or both source and destination.</p>
+
+        Raises:
+            aws_sdk_iotsecuretunneling.errors.resource_not_found_exception.ResourceNotFoundException: <p>Thrown when an operation is attempted on a resource that does not exist.</p>
+            aws_sdk_iotsecuretunneling.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -438,6 +461,10 @@ class AsyncIoTSecureTunnelingClient:
         Args:
             resource_arn: <p>The ARN of the resource.</p>
             tags: <p>The tags for the resource.</p>
+
+        Raises:
+            aws_sdk_iotsecuretunneling.errors.resource_not_found_exception.ResourceNotFoundException: <p>Thrown when an operation is attempted on a resource that does not exist.</p>
+            aws_sdk_iotsecuretunneling.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -481,6 +508,10 @@ class AsyncIoTSecureTunnelingClient:
         Args:
             resource_arn: <p>The resource ARN.</p>
             tag_keys: <p>The keys of the tags to remove.</p>
+
+        Raises:
+            aws_sdk_iotsecuretunneling.errors.resource_not_found_exception.ResourceNotFoundException: <p>Thrown when an operation is attempted on a resource that does not exist.</p>
+            aws_sdk_iotsecuretunneling.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

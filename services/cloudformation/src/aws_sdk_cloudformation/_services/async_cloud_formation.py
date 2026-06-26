@@ -456,7 +456,13 @@ class AsyncCloudFormationClient:
     async def activate_organizations_access(
         self, *, config_overrides: Optional[AsyncCloudFormationClientConfig] = None
     ) -> "aws_sdk_cloudformation.types.activate_organizations_access_output.ActivateOrganizationsAccessOutput":
-        """<p>Activate trusted access with Organizations. With trusted access between StackSets and Organizations activated, the management account has permissions to create and manage StackSets for your organization.</p>"""
+        """<p>Activate trusted access with Organizations. With trusted access between StackSets and Organizations activated, the management account has permissions to create and manage StackSets for your organization.</p>
+
+        Raises:
+            aws_sdk_cloudformation.errors.invalid_operation_exception.InvalidOperationException: <p>The specified operation isn't valid.</p>
+            aws_sdk_cloudformation.errors.operation_not_found_exception.OperationNotFoundException: <p>The specified ID refers to an operation that doesn't exist.</p>
+            aws_sdk_cloudformation.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_cloudformation.types.activate_organizations_access_input.ActivateOrganizationsAccessInput]",
@@ -529,6 +535,11 @@ class AsyncCloudFormationClient:
             execution_role_arn: <p>The name of the IAM execution role to use to activate the extension.</p>
             version_bump: <p>Manually updates a previously-activated type to a new major or minor version, if available. You can also use this parameter to update the value of <code>AutoUpdate</code>.</p> <ul> <li> <p> <code>MAJOR</code>: CloudFormation updates the extension to the newest major version, if one is available.</p> </li> <li> <p> <code>MINOR</code>: CloudFormation updates the extension to the newest minor version, if one is available.</p> </li> </ul>
             major_version: <p>The major version of this extension you want to activate, if multiple major versions are available. The default is the latest major version. CloudFormation uses the latest available <i>minor</i> version of the major version selected.</p> <p>You can specify <code>MajorVersion</code> or <code>VersionBump</code>, but not both.</p>
+
+        Raises:
+            aws_sdk_cloudformation.errors.cfn_registry_exception.CFNRegistryException: <p>An error occurred during a CloudFormation registry operation.</p>
+            aws_sdk_cloudformation.errors.type_not_found_exception.TypeNotFoundException: <p>The specified extension doesn't exist in the CloudFormation registry.</p>
+            aws_sdk_cloudformation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -586,6 +597,11 @@ class AsyncCloudFormationClient:
 
         Args:
             type_configuration_identifiers: <p>The list of identifiers for the desired extension configurations.</p>
+
+        Raises:
+            aws_sdk_cloudformation.errors.cfn_registry_exception.CFNRegistryException: <p>An error occurred during a CloudFormation registry operation.</p>
+            aws_sdk_cloudformation.errors.type_configuration_not_found_exception.TypeConfigurationNotFoundException: <p>The specified extension configuration can't be found.</p>
+            aws_sdk_cloudformation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -628,6 +644,10 @@ class AsyncCloudFormationClient:
         Args:
             stack_name: <note> <p>If you don't pass a parameter to <code>StackName</code>, the API returns a response that describes all resources in the account.</p> <p>The IAM policy below can be added to IAM policies when you want to limit resource-level permissions and avoid returning a response when no parameter is sent in the request:</p> <p> <code>{ \"Version\": \"2012-10-17\", \"Statement\": [{ \"Effect\": \"Deny\", \"Action\": \"cloudformation:DescribeStacks\", \"NotResource\": \"arn:aws:cloudformation:*:*:stack/*/*\" }] }</code> </p> </note> <p>The name or the unique stack ID that's associated with the stack.</p>
             client_request_token: <p>A unique identifier for this <code>CancelUpdateStack</code> request. Specify this token if you plan to retry requests so that CloudFormation knows that you're not attempting to cancel an update on a stack with the same name. You might retry <code>CancelUpdateStack</code> requests to ensure that CloudFormation successfully received them.</p>
+
+        Raises:
+            aws_sdk_cloudformation.errors.token_already_exists_exception.TokenAlreadyExistsException: <p>A client request token already exists.</p>
+            aws_sdk_cloudformation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -676,6 +696,10 @@ class AsyncCloudFormationClient:
             role_arn: <p>The Amazon Resource Name (ARN) of an IAM role that CloudFormation assumes to roll back the stack. CloudFormation uses the role's credentials to make calls on your behalf. CloudFormation always uses this role for all future operations on the stack. Provided that users have permission to operate on the stack, CloudFormation uses this role even if the users don't have permission to pass it. Ensure that the role grants least permission.</p> <p>If you don't specify a value, CloudFormation uses the role that was previously associated with the stack. If no role is available, CloudFormation uses a temporary session that's generated from your user credentials.</p>
             resources_to_skip: <p>A list of the logical IDs of the resources that CloudFormation skips during the continue update rollback operation. You can specify only resources that are in the <code>UPDATE_FAILED</code> state because a rollback failed. You can't specify resources that are in the <code>UPDATE_FAILED</code> state for other reasons, for example, because an update was canceled. To check why a resource update failed, use the <a>DescribeStackResources</a> action, and view the resource status reason.</p> <important> <p>Specify this property to skip rolling back resources that CloudFormation can't successfully roll back. We recommend that you <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/troubleshooting.html#troubleshooting-errors-update-rollback-failed\"> troubleshoot</a> resources before skipping them. CloudFormation sets the status of the specified resources to <code>UPDATE_COMPLETE</code> and continues to roll back the stack. After the rollback is complete, the state of the skipped resources will be inconsistent with the state of the resources in the stack template. Before performing another stack update, you must update the stack or resources to be consistent with each other. If you don't, subsequent stack updates might fail, and the stack will become unrecoverable.</p> </important> <p>Specify the minimum number of resources required to successfully roll back your stack. For example, a failed resource update might cause dependent resources to fail. In this case, it might not be necessary to skip the dependent resources.</p> <p>To skip resources that are part of nested stacks, use the following format: <code>NestedStackName.ResourceLogicalID</code>. If you want to specify the logical ID of a stack resource (<code>Type: AWS::CloudFormation::Stack</code>) in the <code>ResourcesToSkip</code> list, then its corresponding embedded stack must be in one of the following states: <code>DELETE_IN_PROGRESS</code>, <code>DELETE_COMPLETE</code>, or <code>DELETE_FAILED</code>.</p> <note> <p>Don't confuse a child stack's name with its corresponding logical ID defined in the parent stack. For an example of a continue update rollback operation with nested stacks, see <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-continueupdaterollback.html#nested-stacks\">Continue rolling back from failed nested stack updates</a>.</p> </note>
             client_request_token: <p>A unique identifier for this <code>ContinueUpdateRollback</code> request. Specify this token if you plan to retry requests so that CloudFormation knows that you're not attempting to continue the rollback to a stack with the same name. You might retry <code>ContinueUpdateRollback</code> requests to ensure that CloudFormation successfully received them.</p>
+
+        Raises:
+            aws_sdk_cloudformation.errors.token_already_exists_exception.TokenAlreadyExistsException: <p>A client request token already exists.</p>
+            aws_sdk_cloudformation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -790,6 +814,12 @@ class AsyncCloudFormationClient:
             on_stack_failure: <p>Determines what action will be taken if stack creation fails. If this parameter is specified, the <code>DisableRollback</code> parameter to the <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ExecuteChangeSet.html\">ExecuteChangeSet</a> API operation must not be specified. This must be one of these values:</p> <ul> <li> <p> <code>DELETE</code> - Deletes the change set if the stack creation fails. This is only valid when the <code>ChangeSetType</code> parameter is set to <code>CREATE</code>. If the deletion of the stack fails, the status of the stack is <code>DELETE_FAILED</code>.</p> </li> <li> <p> <code>DO_NOTHING</code> - if the stack creation fails, do nothing. This is equivalent to specifying <code>true</code> for the <code>DisableRollback</code> parameter to the <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ExecuteChangeSet.html\">ExecuteChangeSet</a> API operation.</p> </li> <li> <p> <code>ROLLBACK</code> - if the stack creation fails, roll back the stack. This is equivalent to specifying <code>false</code> for the <code>DisableRollback</code> parameter to the <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ExecuteChangeSet.html\">ExecuteChangeSet</a> API operation.</p> </li> </ul> <p>For nested stacks, when the <code>OnStackFailure</code> parameter is set to <code>DELETE</code> for the change set for the parent stack, any failure in a child stack will cause the parent stack creation to fail and all stacks to be deleted.</p>
             import_existing_resources: <p>Indicates if the change set auto-imports resources that already exist. For more information, see <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/import-resources-automatically.html\">Import Amazon Web Services resources into a CloudFormation stack automatically</a> in the <i>CloudFormation User Guide</i>.</p> <note> <p>This parameter can only import resources that have custom names in templates. For more information, see <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-name.html\">name type</a> in the <i>CloudFormation User Guide</i>. To import resources that do not accept custom names, such as EC2 instances, use the <code>ResourcesToImport</code> parameter instead.</p> </note>
             deployment_mode: <p>Determines how CloudFormation handles configuration drift during deployment.</p> <ul> <li> <p> <code>REVERT_DRIFT</code> – Creates a drift-aware change set that brings actual resource states in line with template definitions. Provides a three-way comparison between actual state, previous deployment state, and desired state.</p> </li> </ul> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/drift-aware-change-sets.html\">Using drift-aware change sets</a> in the <i>CloudFormation User Guide</i>.</p>
+
+        Raises:
+            aws_sdk_cloudformation.errors.already_exists_exception.AlreadyExistsException: <p>The resource with the name requested already exists.</p>
+            aws_sdk_cloudformation.errors.insufficient_capabilities_exception.InsufficientCapabilitiesException: <p>The template contains resources with capabilities that weren't specified in the Capabilities parameter.</p>
+            aws_sdk_cloudformation.errors.limit_exceeded_exception.LimitExceededException: <p>The quota for the resource has already been reached.</p> <p>For information about resource and stack limitations, see <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cloudformation-limits.html\">CloudFormation quotas</a> in the <i>CloudFormation User Guide</i>.</p>
+            aws_sdk_cloudformation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -877,6 +907,12 @@ class AsyncCloudFormationClient:
             generated_template_name: <p>The name assigned to the generated template.</p>
             stack_name: <p>An optional name or ARN of a stack to use as the base stack for the generated template.</p>
             template_configuration: <p>The configuration details of the generated template, including the <code>DeletionPolicy</code> and <code>UpdateReplacePolicy</code>.</p>
+
+        Raises:
+            aws_sdk_cloudformation.errors.already_exists_exception.AlreadyExistsException: <p>The resource with the name requested already exists.</p>
+            aws_sdk_cloudformation.errors.concurrent_resources_limit_exceeded_exception.ConcurrentResourcesLimitExceededException: <p>No more than 5 generated templates can be in an <code>InProgress</code> or <code>Pending</code> status at one time. This error is also returned if a generated template that is in an <code>InProgress</code> or <code>Pending</code> status is attempted to be updated or deleted.</p>
+            aws_sdk_cloudformation.errors.limit_exceeded_exception.LimitExceededException: <p>The quota for the resource has already been reached.</p> <p>For information about resource and stack limitations, see <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cloudformation-limits.html\">CloudFormation quotas</a> in the <i>CloudFormation User Guide</i>.</p>
+            aws_sdk_cloudformation.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To create a generated template
@@ -991,6 +1027,13 @@ class AsyncCloudFormationClient:
             client_request_token: <p>A unique identifier for this <code>CreateStack</code> request. Specify this token if you plan to retry requests so that CloudFormation knows that you're not attempting to create a stack with the same name. You might retry <code>CreateStack</code> requests to ensure that CloudFormation successfully received them.</p> <p>All events initiated by a given stack operation are assigned the same client request token, which you can use to track operations. For example, if you execute a <code>CreateStack</code> operation with the token <code>token1</code>, then all the <code>StackEvents</code> generated by that operation will have <code>ClientRequestToken</code> set as <code>token1</code>.</p> <p>In the console, stack operations display the client request token on the Events tab. Stack operations that are initiated from the console use the token format <i>Console-StackOperation-ID</i>, which helps you easily identify the stack operation . For example, if you create a stack using the console, each stack event would be assigned the same token in the following format: <code>Console-CreateStack-7f59c3cf-00d2-40c7-b2ff-e75db0987002</code>.</p>
             enable_termination_protection: <p>Whether to enable termination protection on the specified stack. If a user attempts to delete a stack with termination protection enabled, the operation fails and the stack remains unchanged. For more information, see <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-protect-stacks.html\">Protect CloudFormation stacks from being deleted</a> in the <i>CloudFormation User Guide</i>. Termination protection is deactivated on stacks by default.</p> <p>For <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html\">nested stacks</a>, termination protection is set on the root stack and can't be changed directly on the nested stack.</p>
             retain_except_on_create: <p>When set to <code>true</code>, newly created resources are deleted when the operation rolls back. This includes newly created resources marked with a deletion policy of <code>Retain</code>.</p> <p>Default: <code>false</code> </p>
+
+        Raises:
+            aws_sdk_cloudformation.errors.already_exists_exception.AlreadyExistsException: <p>The resource with the name requested already exists.</p>
+            aws_sdk_cloudformation.errors.insufficient_capabilities_exception.InsufficientCapabilitiesException: <p>The template contains resources with capabilities that weren't specified in the Capabilities parameter.</p>
+            aws_sdk_cloudformation.errors.limit_exceeded_exception.LimitExceededException: <p>The quota for the resource has already been reached.</p> <p>For information about resource and stack limitations, see <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cloudformation-limits.html\">CloudFormation quotas</a> in the <i>CloudFormation User Guide</i>.</p>
+            aws_sdk_cloudformation.errors.token_already_exists_exception.TokenAlreadyExistsException: <p>A client request token already exists.</p>
+            aws_sdk_cloudformation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1087,6 +1130,15 @@ class AsyncCloudFormationClient:
             operation_preferences: <p>Preferences for how CloudFormation performs this StackSet operation.</p>
             operation_id: <p>The unique identifier for this StackSet operation.</p> <p>The operation ID also functions as an idempotency token, to ensure that CloudFormation performs the StackSet operation only once, even if you retry the request multiple times. You might retry StackSet operation requests to ensure that CloudFormation successfully received them.</p> <p>If you don't specify an operation ID, the SDK generates one automatically.</p> <p>Repeating this StackSet operation with a new operation ID retries all stack instances whose status is <code>OUTDATED</code>.</p>
             call_as: <p>[Service-managed permissions] Specifies whether you are acting as an account administrator in the organization's management account or as a delegated administrator in a member account.</p> <p>By default, <code>SELF</code> is specified. Use <code>SELF</code> for StackSets with self-managed permissions.</p> <ul> <li> <p>If you are signed in to the management account, specify <code>SELF</code>.</p> </li> <li> <p>If you are signed in to a delegated administrator account, specify <code>DELEGATED_ADMIN</code>.</p> <p>Your Amazon Web Services account must be registered as a delegated administrator in the management account. For more information, see <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html\">Register a delegated administrator</a> in the <i>CloudFormation User Guide</i>.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_cloudformation.errors.invalid_operation_exception.InvalidOperationException: <p>The specified operation isn't valid.</p>
+            aws_sdk_cloudformation.errors.limit_exceeded_exception.LimitExceededException: <p>The quota for the resource has already been reached.</p> <p>For information about resource and stack limitations, see <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cloudformation-limits.html\">CloudFormation quotas</a> in the <i>CloudFormation User Guide</i>.</p>
+            aws_sdk_cloudformation.errors.operation_id_already_exists_exception.OperationIdAlreadyExistsException: <p>The specified operation ID already exists.</p>
+            aws_sdk_cloudformation.errors.operation_in_progress_exception.OperationInProgressException: <p>Another operation is currently in progress for this StackSet. Only one operation can be performed for a stack set at a given time.</p>
+            aws_sdk_cloudformation.errors.stack_set_not_found_exception.StackSetNotFoundException: <p>The specified StackSet doesn't exist.</p>
+            aws_sdk_cloudformation.errors.stale_request_exception.StaleRequestException: <p>Another operation has been performed on this StackSet since the specified operation was performed.</p>
+            aws_sdk_cloudformation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1150,6 +1202,9 @@ class AsyncCloudFormationClient:
             enable_stack_creation: <p>Determines if a new stack is created with the refactor.</p>
             resource_mappings: <p>The mappings for the stack resource <code>Source</code> and stack resource <code>Destination</code>.</p>
             stack_definitions: <p>The stacks being refactored.</p>
+
+        Raises:
+            aws_sdk_cloudformation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1244,6 +1299,12 @@ class AsyncCloudFormationClient:
             call_as: <p>Specifies whether you are acting as an account administrator in the organization's management account or as a delegated administrator in a member account.</p> <p>By default, <code>SELF</code> is specified. Use <code>SELF</code> for StackSets with self-managed permissions.</p> <ul> <li> <p>To create a StackSet with service-managed permissions while signed in to the management account, specify <code>SELF</code>.</p> </li> <li> <p>To create a StackSet with service-managed permissions while signed in to a delegated administrator account, specify <code>DELEGATED_ADMIN</code>.</p> <p>Your Amazon Web Services account must be registered as a delegated admin in the management account. For more information, see <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html\">Register a delegated administrator</a> in the <i>CloudFormation User Guide</i>.</p> </li> </ul> <p>StackSets with service-managed permissions are created in the management account, including StackSets that are created by delegated administrators.</p> <p>Valid only if the permissions model is <code>SERVICE_MANAGED</code>.</p>
             client_request_token: <p>A unique identifier for this <code>CreateStackSet</code> request. Specify this token if you plan to retry requests so that CloudFormation knows that you're not attempting to create another StackSet with the same name. You might retry <code>CreateStackSet</code> requests to ensure that CloudFormation successfully received them.</p> <p>If you don't specify an operation ID, the SDK generates one automatically.</p>
             managed_execution: <p>Describes whether CloudFormation performs non-conflicting operations concurrently and queues conflicting operations.</p>
+
+        Raises:
+            aws_sdk_cloudformation.errors.created_but_modified_exception.CreatedButModifiedException: <p>The specified resource exists, but has been changed.</p>
+            aws_sdk_cloudformation.errors.limit_exceeded_exception.LimitExceededException: <p>The quota for the resource has already been reached.</p> <p>For information about resource and stack limitations, see <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cloudformation-limits.html\">CloudFormation quotas</a> in the <i>CloudFormation User Guide</i>.</p>
+            aws_sdk_cloudformation.errors.name_already_exists_exception.NameAlreadyExistsException: <p>The specified name is already in use.</p>
+            aws_sdk_cloudformation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1303,7 +1364,13 @@ class AsyncCloudFormationClient:
     async def deactivate_organizations_access(
         self, *, config_overrides: Optional[AsyncCloudFormationClientConfig] = None
     ) -> "aws_sdk_cloudformation.types.deactivate_organizations_access_output.DeactivateOrganizationsAccessOutput":
-        """<p>Deactivates trusted access with Organizations. If trusted access is deactivated, the management account does not have permissions to create and manage service-managed StackSets for your organization.</p>"""
+        """<p>Deactivates trusted access with Organizations. If trusted access is deactivated, the management account does not have permissions to create and manage service-managed StackSets for your organization.</p>
+
+        Raises:
+            aws_sdk_cloudformation.errors.invalid_operation_exception.InvalidOperationException: <p>The specified operation isn't valid.</p>
+            aws_sdk_cloudformation.errors.operation_not_found_exception.OperationNotFoundException: <p>The specified ID refers to an operation that doesn't exist.</p>
+            aws_sdk_cloudformation.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_cloudformation.types.deactivate_organizations_access_input.DeactivateOrganizationsAccessInput]",
@@ -1348,6 +1415,11 @@ class AsyncCloudFormationClient:
             type_name: <p>The type name of the extension in this account and Region. If you specified a type name alias when enabling the extension, use the type name alias.</p> <p>Conditional: You must specify either <code>Arn</code>, or <code>TypeName</code> and <code>Type</code>.</p>
             type: <p>The extension type.</p> <p>Conditional: You must specify either <code>Arn</code>, or <code>TypeName</code> and <code>Type</code>.</p>
             arn: <p>The Amazon Resource Name (ARN) for the extension in this account and Region.</p> <p>Conditional: You must specify either <code>Arn</code>, or <code>TypeName</code> and <code>Type</code>.</p>
+
+        Raises:
+            aws_sdk_cloudformation.errors.cfn_registry_exception.CFNRegistryException: <p>An error occurred during a CloudFormation registry operation.</p>
+            aws_sdk_cloudformation.errors.type_not_found_exception.TypeNotFoundException: <p>The specified extension doesn't exist in the CloudFormation registry.</p>
+            aws_sdk_cloudformation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1395,6 +1467,10 @@ class AsyncCloudFormationClient:
         Args:
             change_set_name: <p>The name or Amazon Resource Name (ARN) of the change set that you want to delete.</p>
             stack_name: <p>If you specified the name of a change set to delete, specify the stack name or Amazon Resource Name (ARN) that's associated with it.</p>
+
+        Raises:
+            aws_sdk_cloudformation.errors.invalid_change_set_status_exception.InvalidChangeSetStatusException: <p>The specified change set can't be used to update the stack. For example, the change set status might be <code>CREATE_IN_PROGRESS</code>, or the stack status might be <code>UPDATE_IN_PROGRESS</code>.</p>
+            aws_sdk_cloudformation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1435,6 +1511,11 @@ class AsyncCloudFormationClient:
 
         Args:
             generated_template_name: <p>The name or Amazon Resource Name (ARN) of a generated template.</p>
+
+        Raises:
+            aws_sdk_cloudformation.errors.concurrent_resources_limit_exceeded_exception.ConcurrentResourcesLimitExceededException: <p>No more than 5 generated templates can be in an <code>InProgress</code> or <code>Pending</code> status at one time. This error is also returned if a generated template that is in an <code>InProgress</code> or <code>Pending</code> status is attempted to be updated or deleted.</p>
+            aws_sdk_cloudformation.errors.generated_template_not_found_exception.GeneratedTemplateNotFoundException: <p>The generated template was not found.</p>
+            aws_sdk_cloudformation.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To delete a generated template
@@ -1491,6 +1572,10 @@ class AsyncCloudFormationClient:
             role_arn: <p>The Amazon Resource Name (ARN) of an IAM role that CloudFormation assumes to delete the stack. CloudFormation uses the role's credentials to make calls on your behalf.</p> <p>If you don't specify a value, CloudFormation uses the role that was previously associated with the stack. If no role is available, CloudFormation uses a temporary session that's generated from your user credentials.</p>
             client_request_token: <p>A unique identifier for this <code>DeleteStack</code> request. Specify this token if you plan to retry requests so that CloudFormation knows that you're not attempting to delete a stack with the same name. You might retry <code>DeleteStack</code> requests to ensure that CloudFormation successfully received them.</p> <p>All events initiated by a given stack operation are assigned the same client request token, which you can use to track operations. For example, if you execute a <code>CreateStack</code> operation with the token <code>token1</code>, then all the <code>StackEvents</code> generated by that operation will have <code>ClientRequestToken</code> set as <code>token1</code>.</p> <p>In the console, stack operations display the client request token on the Events tab. Stack operations that are initiated from the console use the token format <i>Console-StackOperation-ID</i>, which helps you easily identify the stack operation . For example, if you create a stack using the console, each stack event would be assigned the same token in the following format: <code>Console-CreateStack-7f59c3cf-00d2-40c7-b2ff-e75db0987002</code>.</p>
             deletion_mode: <p>Specifies the deletion mode for the stack. Possible values are:</p> <ul> <li> <p> <code>STANDARD</code> - Use the standard behavior. Specifying this value is the same as not specifying this parameter.</p> </li> <li> <p> <code>FORCE_DELETE_STACK</code> - Delete the stack if it's stuck in a <code>DELETE_FAILED</code> state due to resource deletion failure.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_cloudformation.errors.token_already_exists_exception.TokenAlreadyExistsException: <p>A client request token already exists.</p>
+            aws_sdk_cloudformation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1557,6 +1642,14 @@ class AsyncCloudFormationClient:
             retain_stacks: <p>Removes the stack instances from the specified StackSet, but doesn't delete the stacks. You can't reassociate a retained stack or add an existing, saved stack to a new stack set.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-concepts.html#stackset-ops-options\">StackSet operation options</a>.</p>
             operation_id: <p>The unique identifier for this StackSet operation.</p> <p>If you don't specify an operation ID, the SDK generates one automatically.</p> <p>The operation ID also functions as an idempotency token, to ensure that CloudFormation performs the StackSet operation only once, even if you retry the request multiple times. You can retry StackSet operation requests to ensure that CloudFormation successfully received them.</p> <p>Repeating this StackSet operation with a new operation ID retries all stack instances whose status is <code>OUTDATED</code>.</p>
             call_as: <p>[Service-managed permissions] Specifies whether you are acting as an account administrator in the organization's management account or as a delegated administrator in a member account.</p> <p>By default, <code>SELF</code> is specified. Use <code>SELF</code> for StackSets with self-managed permissions.</p> <ul> <li> <p>If you are signed in to the management account, specify <code>SELF</code>.</p> </li> <li> <p>If you are signed in to a delegated administrator account, specify <code>DELEGATED_ADMIN</code>.</p> <p>Your Amazon Web Services account must be registered as a delegated administrator in the management account. For more information, see <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html\">Register a delegated administrator</a> in the <i>CloudFormation User Guide</i>.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_cloudformation.errors.invalid_operation_exception.InvalidOperationException: <p>The specified operation isn't valid.</p>
+            aws_sdk_cloudformation.errors.operation_id_already_exists_exception.OperationIdAlreadyExistsException: <p>The specified operation ID already exists.</p>
+            aws_sdk_cloudformation.errors.operation_in_progress_exception.OperationInProgressException: <p>Another operation is currently in progress for this StackSet. Only one operation can be performed for a stack set at a given time.</p>
+            aws_sdk_cloudformation.errors.stack_set_not_found_exception.StackSetNotFoundException: <p>The specified StackSet doesn't exist.</p>
+            aws_sdk_cloudformation.errors.stale_request_exception.StaleRequestException: <p>Another operation has been performed on this StackSet since the specified operation was performed.</p>
+            aws_sdk_cloudformation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1609,6 +1702,11 @@ class AsyncCloudFormationClient:
         Args:
             stack_set_name: <p>The name or unique ID of the StackSet that you're deleting. You can obtain this value by running <a>ListStackSets</a>.</p>
             call_as: <p>[Service-managed permissions] Specifies whether you are acting as an account administrator in the organization's management account or as a delegated administrator in a member account.</p> <p>By default, <code>SELF</code> is specified. Use <code>SELF</code> for StackSets with self-managed permissions.</p> <ul> <li> <p>If you are signed in to the management account, specify <code>SELF</code>.</p> </li> <li> <p>If you are signed in to a delegated administrator account, specify <code>DELEGATED_ADMIN</code>.</p> <p>Your Amazon Web Services account must be registered as a delegated administrator in the management account. For more information, see <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html\">Register a delegated administrator</a> in the <i>CloudFormation User Guide</i>.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_cloudformation.errors.operation_in_progress_exception.OperationInProgressException: <p>Another operation is currently in progress for this StackSet. Only one operation can be performed for a stack set at a given time.</p>
+            aws_sdk_cloudformation.errors.stack_set_not_empty_exception.StackSetNotEmptyException: <p>You can't yet delete this StackSet, because it still contains one or more stack instances. Delete all stack instances from the StackSet before deleting the StackSet.</p>
+            aws_sdk_cloudformation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1661,6 +1759,11 @@ class AsyncCloudFormationClient:
             type: <p>The kind of extension.</p> <p>Conditional: You must specify either <code>TypeName</code> and <code>Type</code>, or <code>Arn</code>.</p>
             type_name: <p>The name of the extension.</p> <p>Conditional: You must specify either <code>TypeName</code> and <code>Type</code>, or <code>Arn</code>.</p>
             version_id: <p>The ID of a specific version of the extension. The version ID is the value at the end of the Amazon Resource Name (ARN) assigned to the extension version when it is registered.</p>
+
+        Raises:
+            aws_sdk_cloudformation.errors.cfn_registry_exception.CFNRegistryException: <p>An error occurred during a CloudFormation registry operation.</p>
+            aws_sdk_cloudformation.errors.type_not_found_exception.TypeNotFoundException: <p>The specified extension doesn't exist in the CloudFormation registry.</p>
+            aws_sdk_cloudformation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1708,6 +1811,9 @@ class AsyncCloudFormationClient:
 
         Args:
             next_token: <p>The token for the next set of items to return. (You received this token from a previous call.)</p>
+
+        Raises:
+            aws_sdk_cloudformation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1780,6 +1886,10 @@ class AsyncCloudFormationClient:
             stack_name: <p>If you specified the name of a change set, specify the stack name or ID (ARN) of the change set you want to describe.</p>
             next_token: <p>The token for the next set of items to return. (You received this token from a previous call.)</p>
             include_property_values: <p>If <code>true</code>, the returned changes include detailed changes in the property values.</p>
+
+        Raises:
+            aws_sdk_cloudformation.errors.change_set_not_found_exception.ChangeSetNotFoundException: <p>The specified change set name or ID doesn't exit. To view valid change sets for a stack, use the <code>ListChangeSets</code> operation.</p>
+            aws_sdk_cloudformation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1867,6 +1977,10 @@ class AsyncCloudFormationClient:
             stack_name: <p>If you specified the name of a change set, specify the stack name or stack ID (ARN) of the change set you want to describe.</p>
             next_token: <p>The token for the next set of items to return. (You received this token from a previous call.)</p>
             logical_resource_id: <p>If specified, lists only the Hooks related to the specified <code>LogicalResourceId</code>.</p>
+
+        Raises:
+            aws_sdk_cloudformation.errors.change_set_not_found_exception.ChangeSetNotFoundException: <p>The specified change set name or ID doesn't exit. To view valid change sets for a stack, use the <code>ListChangeSets</code> operation.</p>
+            aws_sdk_cloudformation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1929,6 +2043,9 @@ class AsyncCloudFormationClient:
             operation_id: <p>The unique identifier of the operation for which you want to retrieve events.</p>
             filters: <p>Filters to apply when retrieving events.</p>
             next_token: <p>The token for the next set of items to return. (You received this token from a previous call.)</p>
+
+        Raises:
+            aws_sdk_cloudformation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2013,6 +2130,10 @@ class AsyncCloudFormationClient:
 
         Args:
             generated_template_name: <p>The name or Amazon Resource Name (ARN) of a generated template.</p>
+
+        Raises:
+            aws_sdk_cloudformation.errors.generated_template_not_found_exception.GeneratedTemplateNotFoundException: <p>The generated template was not found.</p>
+            aws_sdk_cloudformation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2051,6 +2172,11 @@ class AsyncCloudFormationClient:
 
         Args:
             call_as: <p>[Service-managed permissions] Specifies whether you are acting as an account administrator in the organization's management account or as a delegated administrator in a member account.</p> <p>By default, <code>SELF</code> is specified.</p> <ul> <li> <p>If you are signed in to the management account, specify <code>SELF</code>.</p> </li> <li> <p>If you are signed in to a delegated administrator account, specify <code>DELEGATED_ADMIN</code>.</p> <p>Your Amazon Web Services account must be registered as a delegated administrator in the management account. For more information, see <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html\">Register a delegated administrator</a> in the <i>CloudFormation User Guide</i>.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_cloudformation.errors.invalid_operation_exception.InvalidOperationException: <p>The specified operation isn't valid.</p>
+            aws_sdk_cloudformation.errors.operation_not_found_exception.OperationNotFoundException: <p>The specified ID refers to an operation that doesn't exist.</p>
+            aws_sdk_cloudformation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2094,6 +2220,10 @@ class AsyncCloudFormationClient:
 
         Args:
             publisher_id: <p>The ID of the extension publisher.</p> <p>If you don't supply a <code>PublisherId</code>, and you have registered as an extension publisher, <code>DescribePublisher</code> returns information about your own publisher account.</p>
+
+        Raises:
+            aws_sdk_cloudformation.errors.cfn_registry_exception.CFNRegistryException: <p>An error occurred during a CloudFormation registry operation.</p>
+            aws_sdk_cloudformation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2133,6 +2263,10 @@ class AsyncCloudFormationClient:
 
         Args:
             resource_scan_id: <p>The Amazon Resource Name (ARN) of the resource scan.</p>
+
+        Raises:
+            aws_sdk_cloudformation.errors.resource_scan_not_found_exception.ResourceScanNotFoundException: <p>The resource scan was not found.</p>
+            aws_sdk_cloudformation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2171,6 +2305,9 @@ class AsyncCloudFormationClient:
 
         Args:
             stack_drift_detection_id: <p>The ID of the drift detection results of this operation.</p> <p>CloudFormation generates new results, with a new drift detection ID, each time this operation is run. However, the number of drift results CloudFormation retains for any given stack, and for how long, may vary.</p>
+
+        Raises:
+            aws_sdk_cloudformation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2213,6 +2350,9 @@ class AsyncCloudFormationClient:
         Args:
             stack_name: <p>The name or the unique stack ID that's associated with the stack, which aren't always interchangeable:</p> <ul> <li> <p>Running stacks: You can specify either the stack's name or its unique stack ID.</p> </li> <li> <p>Deleted stacks: You must specify the unique stack ID.</p> </li> </ul>
             next_token: <p>The token for the next set of items to return. (You received this token from a previous call.)</p>
+
+        Raises:
+            aws_sdk_cloudformation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2282,6 +2422,11 @@ class AsyncCloudFormationClient:
             stack_instance_account: <p>The ID of an Amazon Web Services account that's associated with this stack instance.</p>
             stack_instance_region: <p>The name of a Region that's associated with this stack instance.</p>
             call_as: <p>[Service-managed permissions] Specifies whether you are acting as an account administrator in the organization's management account or as a delegated administrator in a member account.</p> <p>By default, <code>SELF</code> is specified. Use <code>SELF</code> for StackSets with self-managed permissions.</p> <ul> <li> <p>If you are signed in to the management account, specify <code>SELF</code>.</p> </li> <li> <p>If you are signed in to a delegated administrator account, specify <code>DELEGATED_ADMIN</code>.</p> <p>Your Amazon Web Services account must be registered as a delegated administrator in the management account. For more information, see <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html\">Register a delegated administrator</a> in the <i>CloudFormation User Guide</i>.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_cloudformation.errors.stack_instance_not_found_exception.StackInstanceNotFoundException: <p>The specified stack instance doesn't exist.</p>
+            aws_sdk_cloudformation.errors.stack_set_not_found_exception.StackSetNotFoundException: <p>The specified StackSet doesn't exist.</p>
+            aws_sdk_cloudformation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2324,6 +2469,10 @@ class AsyncCloudFormationClient:
 
         Args:
             stack_refactor_id: <p>The ID associated with the stack refactor created from the <a>CreateStackRefactor</a> action.</p>
+
+        Raises:
+            aws_sdk_cloudformation.errors.stack_refactor_not_found_exception.StackRefactorNotFoundException: <p>The specified stack refactor can't be found.</p>
+            aws_sdk_cloudformation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2364,6 +2513,9 @@ class AsyncCloudFormationClient:
         Args:
             stack_name: <p>The name or the unique stack ID that's associated with the stack, which aren't always interchangeable:</p> <ul> <li> <p>Running stacks: You can specify either the stack's name or its unique stack ID.</p> </li> <li> <p>Deleted stacks: You must specify the unique stack ID.</p> </li> </ul>
             logical_resource_id: <p>The logical name of the resource as specified in the template.</p>
+
+        Raises:
+            aws_sdk_cloudformation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2415,6 +2567,9 @@ class AsyncCloudFormationClient:
             stack_resource_drift_status_filters: <p>The resource drift status values to use as filters for the resource drift results returned.</p> <ul> <li> <p> <code>DELETED</code>: The resource differs from its expected template configuration in that the resource has been deleted.</p> </li> <li> <p> <code>MODIFIED</code>: One or more resource properties differ from their expected template values.</p> </li> <li> <p> <code>IN_SYNC</code>: The resource's actual configuration matches its expected template configuration.</p> </li> <li> <p> <code>NOT_CHECKED</code>: CloudFormation doesn't currently return this value.</p> </li> <li> <p> <code>UNKNOWN</code>: CloudFormation could not run drift detection for the resource.</p> </li> </ul>
             next_token: <p>The token for the next set of items to return. (You received this token from a previous call.)</p>
             max_results: <p>The maximum number of results to be returned with a single call. If the number of available results exceeds this maximum, the response includes a <code>NextToken</code> value that you can assign to the <code>NextToken</code> request parameter to get the next set of results.</p>
+
+        Raises:
+            aws_sdk_cloudformation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2471,6 +2626,9 @@ class AsyncCloudFormationClient:
             stack_name: <p>The name or the unique stack ID that is associated with the stack, which aren't always interchangeable:</p> <ul> <li> <p>Running stacks: You can specify either the stack's name or its unique stack ID.</p> </li> <li> <p>Deleted stacks: You must specify the unique stack ID.</p> </li> </ul> <p>Required: Conditional. If you don't specify <code>StackName</code>, you must specify <code>PhysicalResourceId</code>.</p>
             logical_resource_id: <p>The logical name of the resource as specified in the template.</p>
             physical_resource_id: <p>The name or unique identifier that corresponds to a physical instance ID of a resource supported by CloudFormation.</p> <p>For example, for an Amazon Elastic Compute Cloud (EC2) instance, <code>PhysicalResourceId</code> corresponds to the <code>InstanceId</code>. You can pass the EC2 <code>InstanceId</code> to <code>DescribeStackResources</code> to find which stack the instance belongs to and what other resources are part of the stack.</p> <p>Required: Conditional. If you don't specify <code>PhysicalResourceId</code>, you must specify <code>StackName</code>.</p>
+
+        Raises:
+            aws_sdk_cloudformation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2520,6 +2678,9 @@ class AsyncCloudFormationClient:
         Args:
             stack_name: <note> <p>If you don't pass a parameter to <code>StackName</code>, the API returns a response that describes all resources in the account, which can impact performance. This requires <code>ListStacks</code> and <code>DescribeStacks</code> permissions.</p> <p>Consider using the <a>ListStacks</a> API if you're not passing a parameter to <code>StackName</code>.</p> <p>The IAM policy below can be added to IAM policies when you want to limit resource-level permissions and avoid returning a response when no parameter is sent in the request:</p> <p>{ \"Version\": \"2012-10-17\", \"Statement\": [{ \"Effect\": \"Deny\", \"Action\": \"cloudformation:DescribeStacks\", \"NotResource\": \"arn:aws:cloudformation:*:*:stack/*/*\" }] }</p> </note> <p>The name or the unique stack ID that's associated with the stack, which aren't always interchangeable:</p> <ul> <li> <p>Running stacks: You can specify either the stack's name or its unique stack ID.</p> </li> <li> <p>Deleted stacks: You must specify the unique stack ID.</p> </li> </ul>
             next_token: <p>The token for the next set of items to return. (You received this token from a previous call.)</p>
+
+        Raises:
+            aws_sdk_cloudformation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2640,6 +2801,10 @@ class AsyncCloudFormationClient:
         Args:
             stack_set_name: <p>The name or unique ID of the StackSet whose description you want.</p>
             call_as: <p>[Service-managed permissions] Specifies whether you are acting as an account administrator in the organization's management account or as a delegated administrator in a member account.</p> <p>By default, <code>SELF</code> is specified. Use <code>SELF</code> for StackSets with self-managed permissions.</p> <ul> <li> <p>If you are signed in to the management account, specify <code>SELF</code>.</p> </li> <li> <p>If you are signed in to a delegated administrator account, specify <code>DELEGATED_ADMIN</code>.</p> <p>Your Amazon Web Services account must be registered as a delegated administrator in the management account. For more information, see <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html\">Register a delegated administrator</a> in the <i>CloudFormation User Guide</i>.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_cloudformation.errors.stack_set_not_found_exception.StackSetNotFoundException: <p>The specified StackSet doesn't exist.</p>
+            aws_sdk_cloudformation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2684,6 +2849,11 @@ class AsyncCloudFormationClient:
             stack_set_name: <p>The name or the unique stack ID of the StackSet for the stack operation.</p>
             operation_id: <p>The unique ID of the StackSet operation.</p>
             call_as: <p>[Service-managed permissions] Specifies whether you are acting as an account administrator in the organization's management account or as a delegated administrator in a member account.</p> <p>By default, <code>SELF</code> is specified. Use <code>SELF</code> for StackSets with self-managed permissions.</p> <ul> <li> <p>If you are signed in to the management account, specify <code>SELF</code>.</p> </li> <li> <p>If you are signed in to a delegated administrator account, specify <code>DELEGATED_ADMIN</code>.</p> <p>Your Amazon Web Services account must be registered as a delegated administrator in the management account. For more information, see <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html\">Register a delegated administrator</a> in the <i>CloudFormation User Guide</i>.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_cloudformation.errors.operation_not_found_exception.OperationNotFoundException: <p>The specified ID refers to an operation that doesn't exist.</p>
+            aws_sdk_cloudformation.errors.stack_set_not_found_exception.StackSetNotFoundException: <p>The specified StackSet doesn't exist.</p>
+            aws_sdk_cloudformation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2743,6 +2913,11 @@ class AsyncCloudFormationClient:
             version_id: <p>The ID of a specific version of the extension. The version ID is the value at the end of the Amazon Resource Name (ARN) assigned to the extension version when it is registered.</p> <p>If you specify a <code>VersionId</code>, <code>DescribeType</code> returns information about that specific extension version. Otherwise, it returns information about the default extension version.</p>
             publisher_id: <p>The publisher ID of the extension publisher.</p> <p>Extensions provided by Amazon Web Services are not assigned a publisher ID.</p>
             public_version_number: <p>The version number of a public third-party extension.</p>
+
+        Raises:
+            aws_sdk_cloudformation.errors.cfn_registry_exception.CFNRegistryException: <p>An error occurred during a CloudFormation registry operation.</p>
+            aws_sdk_cloudformation.errors.type_not_found_exception.TypeNotFoundException: <p>The specified extension doesn't exist in the CloudFormation registry.</p>
+            aws_sdk_cloudformation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2792,6 +2967,10 @@ class AsyncCloudFormationClient:
 
         Args:
             registration_token: <p>The identifier for this registration request.</p> <p>This registration token is generated by CloudFormation when you initiate a registration request using <a>RegisterType</a>.</p>
+
+        Raises:
+            aws_sdk_cloudformation.errors.cfn_registry_exception.CFNRegistryException: <p>An error occurred during a CloudFormation registry operation.</p>
+            aws_sdk_cloudformation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2836,6 +3015,9 @@ class AsyncCloudFormationClient:
         Args:
             stack_name: <p>The name of the stack for which you want to detect drift.</p>
             logical_resource_ids: <p>The logical names of any resources you want to use as filters.</p>
+
+        Raises:
+            aws_sdk_cloudformation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2878,6 +3060,9 @@ class AsyncCloudFormationClient:
         Args:
             stack_name: <p>The name of the stack to which the resource belongs.</p>
             logical_resource_id: <p>The logical name of the resource for which to return drift information.</p>
+
+        Raises:
+            aws_sdk_cloudformation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2927,6 +3112,12 @@ class AsyncCloudFormationClient:
             operation_preferences: <p>The user-specified preferences for how CloudFormation performs a StackSet operation.</p> <p>For more information about maximum concurrent accounts and failure tolerance, see <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-concepts.html#stackset-ops-options\">StackSet operation options</a>.</p>
             operation_id: <p> <i>The ID of the StackSet operation.</i> </p>
             call_as: <p>[Service-managed permissions] Specifies whether you are acting as an account administrator in the organization's management account or as a delegated administrator in a member account.</p> <p>By default, <code>SELF</code> is specified. Use <code>SELF</code> for StackSets with self-managed permissions.</p> <ul> <li> <p>If you are signed in to the management account, specify <code>SELF</code>.</p> </li> <li> <p>If you are signed in to a delegated administrator account, specify <code>DELEGATED_ADMIN</code>.</p> <p>Your Amazon Web Services account must be registered as a delegated administrator in the management account. For more information, see <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html\">Register a delegated administrator</a> in the <i>CloudFormation User Guide</i>.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_cloudformation.errors.invalid_operation_exception.InvalidOperationException: <p>The specified operation isn't valid.</p>
+            aws_sdk_cloudformation.errors.operation_in_progress_exception.OperationInProgressException: <p>Another operation is currently in progress for this StackSet. Only one operation can be performed for a stack set at a given time.</p>
+            aws_sdk_cloudformation.errors.stack_set_not_found_exception.StackSetNotFoundException: <p>The specified StackSet doesn't exist.</p>
+            aws_sdk_cloudformation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2981,6 +3172,9 @@ class AsyncCloudFormationClient:
             template_body: <p>Structure that contains the template body with a minimum length of 1 byte and a maximum length of 51,200 bytes.</p> <p>Conditional: You must pass <code>TemplateBody</code> or <code>TemplateURL</code>. If both are passed, only <code>TemplateBody</code> is used.</p>
             template_url: <p>The URL of a file that contains the template body. The URL must point to a template that's located in an Amazon S3 bucket or a Systems Manager document. The location for an Amazon S3 bucket must start with <code>https://</code>. URLs from S3 static websites are not supported.</p> <p>Conditional: You must pass <code>TemplateURL</code> or <code>TemplateBody</code>. If both are passed, only <code>TemplateBody</code> is used.</p>
             parameters: <p>A list of <code>Parameter</code> structures that specify input parameters.</p>
+
+        Raises:
+            aws_sdk_cloudformation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3042,6 +3236,13 @@ class AsyncCloudFormationClient:
             client_request_token: <p>A unique identifier for this <code>ExecuteChangeSet</code> request. Specify this token if you plan to retry requests so that CloudFormation knows that you're not attempting to execute a change set to update a stack with the same name. You might retry <code>ExecuteChangeSet</code> requests to ensure that CloudFormation successfully received them.</p>
             disable_rollback: <p>Preserves the state of previously provisioned resources when an operation fails. This parameter can't be specified when the <code>OnStackFailure</code> parameter to the <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_CreateChangeSet.html\">CreateChangeSet</a> API operation was specified.</p> <ul> <li> <p> <code>True</code> - if the stack creation fails, do nothing. This is equivalent to specifying <code>DO_NOTHING</code> for the <code>OnStackFailure</code> parameter to the <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_CreateChangeSet.html\">CreateChangeSet</a> API operation.</p> </li> <li> <p> <code>False</code> - if the stack creation fails, roll back the stack. This is equivalent to specifying <code>ROLLBACK</code> for the <code>OnStackFailure</code> parameter to the <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_CreateChangeSet.html\">CreateChangeSet</a> API operation.</p> </li> </ul> <p>Default: <code>True</code> </p>
             retain_except_on_create: <p>When set to <code>true</code>, newly created resources are deleted when the operation rolls back. This includes newly created resources marked with a deletion policy of <code>Retain</code>.</p> <p>Default: <code>false</code> </p>
+
+        Raises:
+            aws_sdk_cloudformation.errors.change_set_not_found_exception.ChangeSetNotFoundException: <p>The specified change set name or ID doesn't exit. To view valid change sets for a stack, use the <code>ListChangeSets</code> operation.</p>
+            aws_sdk_cloudformation.errors.insufficient_capabilities_exception.InsufficientCapabilitiesException: <p>The template contains resources with capabilities that weren't specified in the Capabilities parameter.</p>
+            aws_sdk_cloudformation.errors.invalid_change_set_status_exception.InvalidChangeSetStatusException: <p>The specified change set can't be used to update the stack. For example, the change set status might be <code>CREATE_IN_PROGRESS</code>, or the stack status might be <code>UPDATE_IN_PROGRESS</code>.</p>
+            aws_sdk_cloudformation.errors.token_already_exists_exception.TokenAlreadyExistsException: <p>A client request token already exists.</p>
+            aws_sdk_cloudformation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3088,6 +3289,9 @@ class AsyncCloudFormationClient:
 
         Args:
             stack_refactor_id: <p>The ID associated with the stack refactor created from the <a>CreateStackRefactor</a> action.</p>
+
+        Raises:
+            aws_sdk_cloudformation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3128,6 +3332,10 @@ class AsyncCloudFormationClient:
         Args:
             format: <p>The language to use to retrieve for the generated template. Supported values are:</p> <ul> <li> <p> <code>JSON</code> </p> </li> <li> <p> <code>YAML</code> </p> </li> </ul>
             generated_template_name: <p>The name or Amazon Resource Name (ARN) of the generated template. The format is <code>arn:${Partition}:cloudformation:${Region}:${Account}:generatedtemplate/${Id}</code>. For example, <code>arn:aws:cloudformation:<i>us-east-1</i>:<i>123456789012</i>:generatedtemplate/<i>2e8465c1-9a80-43ea-a3a3-4f2d692fe6dc</i> </code>.</p>
+
+        Raises:
+            aws_sdk_cloudformation.errors.generated_template_not_found_exception.GeneratedTemplateNotFoundException: <p>The generated template was not found.</p>
+            aws_sdk_cloudformation.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To get a generated template in JSON format
@@ -3180,6 +3388,10 @@ class AsyncCloudFormationClient:
 
         Args:
             hook_result_id: <p>The unique identifier (ID) of the Hook invocation result that you want details about. You can get the ID from the <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ListHookResults.html\">ListHookResults</a> operation.</p>
+
+        Raises:
+            aws_sdk_cloudformation.errors.hook_result_not_found_exception.HookResultNotFoundException: <p>The specified target doesn't have any requested Hook invocations.</p>
+            aws_sdk_cloudformation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3219,6 +3431,9 @@ class AsyncCloudFormationClient:
 
         Args:
             stack_name: <p>The name or unique stack ID that's associated with the stack whose policy you want to get.</p>
+
+        Raises:
+            aws_sdk_cloudformation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3267,6 +3482,10 @@ class AsyncCloudFormationClient:
             stack_name: <p>The name or the unique stack ID that's associated with the stack, which aren't always interchangeable:</p> <ul> <li> <p>Running stacks: You can specify either the stack's name or its unique stack ID.</p> </li> <li> <p>Deleted stacks: You must specify the unique stack ID.</p> </li> </ul>
             change_set_name: <p>The name or Amazon Resource Name (ARN) of a change set for which CloudFormation returns the associated template. If you specify a name, you must also specify the <code>StackName</code>.</p>
             template_stage: <p>For templates that include transforms, the stage of the template that CloudFormation returns. To get the user-submitted template, specify <code>Original</code>. To get the template after CloudFormation has processed all transforms, specify <code>Processed</code>.</p> <p>If the template doesn't include transforms, <code>Original</code> and <code>Processed</code> return the same template. By default, CloudFormation specifies <code>Processed</code>.</p>
+
+        Raises:
+            aws_sdk_cloudformation.errors.change_set_not_found_exception.ChangeSetNotFoundException: <p>The specified change set name or ID doesn't exit. To view valid change sets for a stack, use the <code>ListChangeSets</code> operation.</p>
+            aws_sdk_cloudformation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3330,6 +3549,10 @@ class AsyncCloudFormationClient:
             stack_set_name: <p>The name or unique ID of the StackSet from which the stack was created.</p> <p>Conditional: You must specify only one of the following parameters: <code>StackName</code>, <code>StackSetName</code>, <code>TemplateBody</code>, or <code>TemplateURL</code>.</p>
             call_as: <p>[Service-managed permissions] Specifies whether you are acting as an account administrator in the organization's management account or as a delegated administrator in a member account.</p> <p>By default, <code>SELF</code> is specified. Use <code>SELF</code> for StackSets with self-managed permissions.</p> <ul> <li> <p>If you are signed in to the management account, specify <code>SELF</code>.</p> </li> <li> <p>If you are signed in to a delegated administrator account, specify <code>DELEGATED_ADMIN</code>.</p> <p>Your Amazon Web Services account must be registered as a delegated administrator in the management account. For more information, see <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html\">Register a delegated administrator</a> in the <i>CloudFormation User Guide</i>.</p> </li> </ul>
             template_summary_config: <p>Specifies options for the <code>GetTemplateSummary</code> API action.</p>
+
+        Raises:
+            aws_sdk_cloudformation.errors.stack_set_not_found_exception.StackSetNotFoundException: <p>The specified StackSet doesn't exist.</p>
+            aws_sdk_cloudformation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3401,6 +3624,16 @@ class AsyncCloudFormationClient:
             operation_preferences: <p>The user-specified preferences for how CloudFormation performs a StackSet operation.</p> <p>For more information about maximum concurrent accounts and failure tolerance, see <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-concepts.html#stackset-ops-options\">StackSet operation options</a>.</p>
             operation_id: <p>A unique, user defined, identifier for the StackSet operation.</p>
             call_as: <p>By default, <code>SELF</code> is specified. Use <code>SELF</code> for StackSets with self-managed permissions.</p> <ul> <li> <p>If you are signed in to the management account, specify <code>SELF</code>.</p> </li> <li> <p>For service managed StackSets, specify <code>DELEGATED_ADMIN</code>.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_cloudformation.errors.invalid_operation_exception.InvalidOperationException: <p>The specified operation isn't valid.</p>
+            aws_sdk_cloudformation.errors.limit_exceeded_exception.LimitExceededException: <p>The quota for the resource has already been reached.</p> <p>For information about resource and stack limitations, see <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cloudformation-limits.html\">CloudFormation quotas</a> in the <i>CloudFormation User Guide</i>.</p>
+            aws_sdk_cloudformation.errors.operation_id_already_exists_exception.OperationIdAlreadyExistsException: <p>The specified operation ID already exists.</p>
+            aws_sdk_cloudformation.errors.operation_in_progress_exception.OperationInProgressException: <p>Another operation is currently in progress for this StackSet. Only one operation can be performed for a stack set at a given time.</p>
+            aws_sdk_cloudformation.errors.stack_not_found_exception.StackNotFoundException: <p>The specified stack ARN doesn't exist or stack doesn't exist corresponding to the ARN in input.</p>
+            aws_sdk_cloudformation.errors.stack_set_not_found_exception.StackSetNotFoundException: <p>The specified StackSet doesn't exist.</p>
+            aws_sdk_cloudformation.errors.stale_request_exception.StaleRequestException: <p>Another operation has been performed on this StackSet since the specified operation was performed.</p>
+            aws_sdk_cloudformation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3455,6 +3688,9 @@ class AsyncCloudFormationClient:
         Args:
             stack_name: <p>The name or the Amazon Resource Name (ARN) of the stack for which you want to list change sets.</p>
             next_token: <p>The token for the next set of items to return. (You received this token from a previous call.)</p>
+
+        Raises:
+            aws_sdk_cloudformation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3520,6 +3756,9 @@ class AsyncCloudFormationClient:
 
         Args:
             next_token: <p>The token for the next set of items to return. (You received this token from a previous call.)</p>
+
+        Raises:
+            aws_sdk_cloudformation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3586,6 +3825,9 @@ class AsyncCloudFormationClient:
         Args:
             next_token: <p>The token for the next set of items to return. (You received this token from a previous call.)</p>
             max_results: <p>If the number of available results exceeds this maximum, the response includes a <code>NextToken</code> value that you can use for the <code>NextToken</code> parameter to get the next set of results. By default the <code>ListGeneratedTemplates</code> API action will return at most 50 results in each response. The maximum value is 100.</p>
+
+        Raises:
+            aws_sdk_cloudformation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3668,6 +3910,10 @@ class AsyncCloudFormationClient:
             type_arn: <p>Filters results by the ARN of the Hook. Can be used alone or in combination with <code>Status</code>.</p>
             status: <p>Filters results by the status of Hook invocations. Can only be used in combination with <code>TypeArn</code>. Valid values are:</p> <ul> <li> <p> <code>HOOK_IN_PROGRESS</code>: The Hook is currently running.</p> </li> <li> <p> <code>HOOK_COMPLETE_SUCCEEDED</code>: The Hook completed successfully.</p> </li> <li> <p> <code>HOOK_COMPLETE_FAILED</code>: The Hook completed but failed validation.</p> </li> <li> <p> <code>HOOK_FAILED</code>: The Hook encountered an error during execution.</p> </li> </ul>
             next_token: <p>The token for the next set of items to return. (You received this token from a previous call.)</p>
+
+        Raises:
+            aws_sdk_cloudformation.errors.hook_result_not_found_exception.HookResultNotFoundException: <p>The specified target doesn't have any requested Hook invocations.</p>
+            aws_sdk_cloudformation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3719,6 +3965,9 @@ class AsyncCloudFormationClient:
         Args:
             export_name: <p>The name of the exported output value. CloudFormation returns the stack names that are importing this value.</p>
             next_token: <p>The token for the next set of items to return. (You received this token from a previous call.)</p>
+
+        Raises:
+            aws_sdk_cloudformation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3792,6 +4041,11 @@ class AsyncCloudFormationClient:
             resources: <p>The list of resources for which you want to get the related resources. Up to 100 resources can be provided.</p>
             next_token: <p>The token for the next set of items to return. (You received this token from a previous call.)</p>
             max_results: <p>If the number of available results exceeds this maximum, the response includes a <code>NextToken</code> value that you can use for the <code>NextToken</code> parameter to get the next set of results. By default the <code>ListResourceScanRelatedResources</code> API action will return up to 100 results in each response. The maximum value is 100.</p>
+
+        Raises:
+            aws_sdk_cloudformation.errors.resource_scan_in_progress_exception.ResourceScanInProgressException: <p>A resource scan is currently in progress. Only one can be run at a time for an account in a Region.</p>
+            aws_sdk_cloudformation.errors.resource_scan_not_found_exception.ResourceScanNotFoundException: <p>The resource scan was not found.</p>
+            aws_sdk_cloudformation.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To list resource scan related resources
@@ -3890,6 +4144,11 @@ class AsyncCloudFormationClient:
             tag_value: <p>If specified, the returned resources will have a matching tag value.</p>
             next_token: <p>The token for the next set of items to return. (You received this token from a previous call.)</p>
             max_results: <p>If the number of available results exceeds this maximum, the response includes a <code>NextToken</code> value that you can use for the <code>NextToken</code> parameter to get the next set of results. By default the <code>ListResourceScanResources</code> API action will return at most 100 results in each response. The maximum value is 100.</p>
+
+        Raises:
+            aws_sdk_cloudformation.errors.resource_scan_in_progress_exception.ResourceScanInProgressException: <p>A resource scan is currently in progress. Only one can be run at a time for an account in a Region.</p>
+            aws_sdk_cloudformation.errors.resource_scan_not_found_exception.ResourceScanNotFoundException: <p>The resource scan was not found.</p>
+            aws_sdk_cloudformation.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To list the resources in your resource scan
@@ -3999,6 +4258,9 @@ class AsyncCloudFormationClient:
             next_token: <p>The token for the next set of items to return. (You received this token from a previous call.)</p>
             max_results: <p>If the number of available results exceeds this maximum, the response includes a <code>NextToken</code> value that you can use for the <code>NextToken</code> parameter to get the next set of results. The default value is 10. The maximum value is 100.</p>
             scan_type_filter: <p>The scan type that you want to get summary information about. The default is <code>FULL</code>.</p>
+
+        Raises:
+            aws_sdk_cloudformation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4091,6 +4353,12 @@ class AsyncCloudFormationClient:
             stack_instance_region: <p>The name of the Region where you want to list resource drifts.</p>
             operation_id: <p>The unique ID of the drift operation.</p>
             call_as: <p>[Service-managed permissions] Specifies whether you are acting as an account administrator in the organization's management account or as a delegated administrator in a member account.</p> <p>By default, <code>SELF</code> is specified. Use <code>SELF</code> for StackSets with self-managed permissions.</p> <ul> <li> <p>If you are signed in to the management account, specify <code>SELF</code>.</p> </li> <li> <p>If you are signed in to a delegated administrator account, specify <code>DELEGATED_ADMIN</code>.</p> <p>Your Amazon Web Services account must be registered as a delegated administrator in the management account. For more information, see <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html\">Register a delegated administrator</a> in the <i>CloudFormation User Guide</i>.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_cloudformation.errors.operation_not_found_exception.OperationNotFoundException: <p>The specified ID refers to an operation that doesn't exist.</p>
+            aws_sdk_cloudformation.errors.stack_instance_not_found_exception.StackInstanceNotFoundException: <p>The specified stack instance doesn't exist.</p>
+            aws_sdk_cloudformation.errors.stack_set_not_found_exception.StackSetNotFoundException: <p>The specified StackSet doesn't exist.</p>
+            aws_sdk_cloudformation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4164,6 +4432,10 @@ class AsyncCloudFormationClient:
             stack_instance_account: <p>The name of the Amazon Web Services account that you want to list stack instances for.</p>
             stack_instance_region: <p>The name of the Region where you want to list stack instances.</p>
             call_as: <p>[Service-managed permissions] Specifies whether you are acting as an account administrator in the organization's management account or as a delegated administrator in a member account.</p> <p>By default, <code>SELF</code> is specified. Use <code>SELF</code> for StackSets with self-managed permissions.</p> <ul> <li> <p>If you are signed in to the management account, specify <code>SELF</code>.</p> </li> <li> <p>If you are signed in to a delegated administrator account, specify <code>DELEGATED_ADMIN</code>.</p> <p>Your Amazon Web Services account must be registered as a delegated administrator in the management account. For more information, see <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html\">Register a delegated administrator</a> in the <i>CloudFormation User Guide</i>.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_cloudformation.errors.stack_set_not_found_exception.StackSetNotFoundException: <p>The specified StackSet doesn't exist.</p>
+            aws_sdk_cloudformation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4263,6 +4535,9 @@ class AsyncCloudFormationClient:
             stack_refactor_id: <p>The ID associated with the stack refactor created from the <a>CreateStackRefactor</a> action.</p>
             next_token: <p>The token for the next set of items to return. (You received this token from a previous call.)</p>
             max_results: <p>The maximum number of results to be returned with a single call. If the number of available results exceeds this maximum, the response includes a <code>NextToken</code> value that you can assign to the <code>NextToken</code> request parameter to get the next set of results.</p>
+
+        Raises:
+            aws_sdk_cloudformation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4342,6 +4617,9 @@ class AsyncCloudFormationClient:
             execution_status_filter: <p>Execution status to use as a filter. Specify one or more execution status codes to list only stack refactors with the specified execution status codes.</p>
             next_token: <p>The token for the next set of items to return. (You received this token from a previous call.)</p>
             max_results: <p>The maximum number of results to be returned with a single call. If the number of available results exceeds this maximum, the response includes a <code>NextToken</code> value that you can assign to the <code>NextToken</code> request parameter to get the next set of results.</p>
+
+        Raises:
+            aws_sdk_cloudformation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4418,6 +4696,9 @@ class AsyncCloudFormationClient:
         Args:
             stack_name: <p>The name or the unique stack ID that is associated with the stack, which aren't always interchangeable:</p> <ul> <li> <p>Running stacks: You can specify either the stack's name or its unique stack ID.</p> </li> <li> <p>Deleted stacks: You must specify the unique stack ID.</p> </li> </ul>
             next_token: <p>The token for the next set of items to return. (You received this token from a previous call.)</p>
+
+        Raises:
+            aws_sdk_cloudformation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4487,6 +4768,9 @@ class AsyncCloudFormationClient:
         Args:
             next_token: <p>The token for the next set of items to return. (You received this token from a previous call.)</p>
             stack_status_filter: <p>Stack status to use as a filter. Specify one or more stack status codes to list only stacks with the specified status codes. For a complete list of stack status codes, see the <code>StackStatus</code> parameter of the <a>Stack</a> data type.</p>
+
+        Raises:
+            aws_sdk_cloudformation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4563,6 +4847,10 @@ class AsyncCloudFormationClient:
             next_token: <p>The token for the next set of items to return. (You received this token from a previous call.)</p>
             max_results: <p>The maximum number of results to be returned with a single call. If the number of available results exceeds this maximum, the response includes a <code>NextToken</code> value that you can assign to the <code>NextToken</code> request parameter to get the next set of results.</p>
             call_as: <p>Specifies whether you are acting as an account administrator in the organization's management account or as a delegated administrator in a member account.</p> <p>By default, <code>SELF</code> is specified. Use <code>SELF</code> for StackSets with self-managed permissions.</p> <ul> <li> <p>If you are signed in to the management account, specify <code>SELF</code>.</p> </li> <li> <p>If you are signed in to a delegated administrator account, specify <code>DELEGATED_ADMIN</code>.</p> <p>Your Amazon Web Services account must be registered as a delegated administrator in the management account. For more information, see <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html\">Register a delegated administrator</a> in the <i>CloudFormation User Guide</i>.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_cloudformation.errors.stack_set_not_found_exception.StackSetNotFoundException: <p>The specified StackSet doesn't exist.</p>
+            aws_sdk_cloudformation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4623,6 +4911,11 @@ class AsyncCloudFormationClient:
             max_results: <p>The maximum number of results to be returned with a single call. If the number of available results exceeds this maximum, the response includes a <code>NextToken</code> value that you can assign to the <code>NextToken</code> request parameter to get the next set of results.</p>
             call_as: <p>[Service-managed permissions] Specifies whether you are acting as an account administrator in the organization's management account or as a delegated administrator in a member account.</p> <p>By default, <code>SELF</code> is specified. Use <code>SELF</code> for StackSets with self-managed permissions.</p> <ul> <li> <p>If you are signed in to the management account, specify <code>SELF</code>.</p> </li> <li> <p>If you are signed in to a delegated administrator account, specify <code>DELEGATED_ADMIN</code>.</p> <p>Your Amazon Web Services account must be registered as a delegated administrator in the management account. For more information, see <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html\">Register a delegated administrator</a> in the <i>CloudFormation User Guide</i>.</p> </li> </ul>
             filters: <p>The filter to apply to operation results.</p>
+
+        Raises:
+            aws_sdk_cloudformation.errors.operation_not_found_exception.OperationNotFoundException: <p>The specified ID refers to an operation that doesn't exist.</p>
+            aws_sdk_cloudformation.errors.stack_set_not_found_exception.StackSetNotFoundException: <p>The specified StackSet doesn't exist.</p>
+            aws_sdk_cloudformation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4715,6 +5008,10 @@ class AsyncCloudFormationClient:
             next_token: <p>The token for the next set of items to return. (You received this token from a previous call.)</p>
             max_results: <p>The maximum number of results to be returned with a single call. If the number of available results exceeds this maximum, the response includes a <code>NextToken</code> value that you can assign to the <code>NextToken</code> request parameter to get the next set of results.</p>
             call_as: <p>[Service-managed permissions] Specifies whether you are acting as an account administrator in the organization's management account or as a delegated administrator in a member account.</p> <p>By default, <code>SELF</code> is specified. Use <code>SELF</code> for StackSets with self-managed permissions.</p> <ul> <li> <p>If you are signed in to the management account, specify <code>SELF</code>.</p> </li> <li> <p>If you are signed in to a delegated administrator account, specify <code>DELEGATED_ADMIN</code>.</p> <p>Your Amazon Web Services account must be registered as a delegated administrator in the management account. For more information, see <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html\">Register a delegated administrator</a> in the <i>CloudFormation User Guide</i>.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_cloudformation.errors.stack_set_not_found_exception.StackSetNotFoundException: <p>The specified StackSet doesn't exist.</p>
+            aws_sdk_cloudformation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4800,6 +5097,9 @@ class AsyncCloudFormationClient:
             max_results: <p>The maximum number of results to be returned with a single call. If the number of available results exceeds this maximum, the response includes a <code>NextToken</code> value that you can assign to the <code>NextToken</code> request parameter to get the next set of results.</p>
             status: <p>The status of the StackSets that you want to get summary information about.</p>
             call_as: <p>[Service-managed permissions] Specifies whether you are acting as an account administrator in the management account or as a delegated administrator in a member account.</p> <p>By default, <code>SELF</code> is specified. Use <code>SELF</code> for StackSets with self-managed permissions.</p> <ul> <li> <p>If you are signed in to the management account, specify <code>SELF</code>.</p> </li> <li> <p>If you are signed in to a delegated administrator account, specify <code>DELEGATED_ADMIN</code>.</p> <p>Your Amazon Web Services account must be registered as a delegated administrator in the management account. For more information, see <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html\">Register a delegated administrator</a> in the <i>CloudFormation User Guide</i>.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_cloudformation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4896,6 +5196,10 @@ class AsyncCloudFormationClient:
             registration_status_filter: <p>The current status of the extension registration request.</p> <p>The default is <code>IN_PROGRESS</code>.</p>
             max_results: <p>The maximum number of results to be returned with a single call. If the number of available results exceeds this maximum, the response includes a <code>NextToken</code> value that you can assign to the <code>NextToken</code> request parameter to get the next set of results.</p>
             next_token: <p>The token for the next set of items to return. (You received this token from a previous call.)</p>
+
+        Raises:
+            aws_sdk_cloudformation.errors.cfn_registry_exception.CFNRegistryException: <p>An error occurred during a CloudFormation registry operation.</p>
+            aws_sdk_cloudformation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4971,6 +5275,10 @@ class AsyncCloudFormationClient:
             filters: <p>Filter criteria to use in determining which extensions to return.</p> <p>Filters must be compatible with <code>Visibility</code> to return valid results. For example, specifying <code>AWS_TYPES</code> for <code>Category</code> and <code>PRIVATE</code> for <code>Visibility</code> returns an empty list of types, but specifying <code>PUBLIC</code> for <code>Visibility</code> returns the desired list.</p>
             max_results: <p>The maximum number of results to be returned with a single call. If the number of available results exceeds this maximum, the response includes a <code>NextToken</code> value that you can assign to the <code>NextToken</code> request parameter to get the next set of results.</p>
             next_token: <p>The token for the next set of items to return. (You received this token from a previous call.)</p>
+
+        Raises:
+            aws_sdk_cloudformation.errors.cfn_registry_exception.CFNRegistryException: <p>An error occurred during a CloudFormation registry operation.</p>
+            aws_sdk_cloudformation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5091,6 +5399,10 @@ class AsyncCloudFormationClient:
             next_token: <p>The token for the next set of items to return. (You received this token from a previous call.)</p>
             deprecated_status: <p>The deprecation status of the extension versions that you want to get summary information about.</p> <p>Valid values include:</p> <ul> <li> <p> <code>LIVE</code>: The extension version is registered and can be used in CloudFormation operations, dependent on its provisioning behavior and visibility scope.</p> </li> <li> <p> <code>DEPRECATED</code>: The extension version has been deregistered and can no longer be used in CloudFormation operations.</p> </li> </ul> <p>The default is <code>LIVE</code>.</p>
             publisher_id: <p>The publisher ID of the extension publisher.</p> <p>Extensions published by Amazon aren't assigned a publisher ID.</p>
+
+        Raises:
+            aws_sdk_cloudformation.errors.cfn_registry_exception.CFNRegistryException: <p>An error occurred during a CloudFormation registry operation.</p>
+            aws_sdk_cloudformation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5154,6 +5466,11 @@ class AsyncCloudFormationClient:
             arn: <p>The Amazon Resource Name (ARN) of the extension.</p> <p>Conditional: You must specify <code>Arn</code>, or <code>TypeName</code> and <code>Type</code>.</p>
             type_name: <p>The name of the extension.</p> <p>Conditional: You must specify <code>Arn</code>, or <code>TypeName</code> and <code>Type</code>.</p>
             public_version_number: <p>The version number to assign to this version of the extension.</p> <p>Use the following format, and adhere to semantic versioning when assigning a version number to your extension:</p> <p> <code>MAJOR.MINOR.PATCH</code> </p> <p>For more information, see <a href=\"https://semver.org/\">Semantic Versioning 2.0.0</a>.</p> <p>If you don't specify a version number, CloudFormation increments the version number by one minor version release.</p> <p>You cannot specify a version number the first time you publish a type. CloudFormation automatically sets the first version number to be <code>1.0.0</code>.</p>
+
+        Raises:
+            aws_sdk_cloudformation.errors.cfn_registry_exception.CFNRegistryException: <p>An error occurred during a CloudFormation registry operation.</p>
+            aws_sdk_cloudformation.errors.type_not_found_exception.TypeNotFoundException: <p>The specified extension doesn't exist in the CloudFormation registry.</p>
+            aws_sdk_cloudformation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5221,6 +5538,11 @@ class AsyncCloudFormationClient:
             error_code: <p>Reserved for use by the <a href=\"https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/what-is-cloudformation-cli.html\">CloudFormation CLI</a>.</p>
             resource_model: <p>Reserved for use by the <a href=\"https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/what-is-cloudformation-cli.html\">CloudFormation CLI</a>.</p>
             client_request_token: <p>Reserved for use by the <a href=\"https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/what-is-cloudformation-cli.html\">CloudFormation CLI</a>.</p>
+
+        Raises:
+            aws_sdk_cloudformation.errors.invalid_state_transition_exception.InvalidStateTransitionException: <p>Error reserved for use by the <a href=\"https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/what-is-cloudformation-cli.html\">CloudFormation CLI</a>. CloudFormation doesn't return this error to users.</p>
+            aws_sdk_cloudformation.errors.operation_status_check_failed_exception.OperationStatusCheckFailedException: <p>Error reserved for use by the <a href=\"https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/what-is-cloudformation-cli.html\">CloudFormation CLI</a>. CloudFormation doesn't return this error to users.</p>
+            aws_sdk_cloudformation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5278,6 +5600,10 @@ class AsyncCloudFormationClient:
         Args:
             accept_terms_and_conditions: <p>Whether you accept the <a href=\"https://cloudformation-registry-documents.s3.amazonaws.com/Terms_and_Conditions_for_AWS_CloudFormation_Registry_Publishers.pdf\">Terms and Conditions</a> for publishing extensions in the CloudFormation registry. You must accept the terms and conditions in order to register to publish public extensions to the CloudFormation registry.</p> <p>The default is <code>false</code>.</p>
             connection_arn: <p>If you are using a Bitbucket or GitHub account for identity verification, the Amazon Resource Name (ARN) for your connection to that account.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/publish-extension.html#publish-extension-prereqs\">Prerequisite: Registering your account to publish CloudFormation extensions</a> in the <i>CloudFormation Command Line Interface (CLI) User Guide</i>.</p>
+
+        Raises:
+            aws_sdk_cloudformation.errors.cfn_registry_exception.CFNRegistryException: <p>An error occurred during a CloudFormation registry operation.</p>
+            aws_sdk_cloudformation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5337,6 +5663,10 @@ class AsyncCloudFormationClient:
             logging_config: <p>Specifies logging configuration information for an extension.</p>
             execution_role_arn: <p>The Amazon Resource Name (ARN) of the IAM role for CloudFormation to assume when invoking the extension.</p> <p>For CloudFormation to assume the specified execution role, the role must contain a trust relationship with the CloudFormation service principal (<code>resources.cloudformation.amazonaws.com</code>). For more information about adding trust relationships, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/roles-managingrole-editing-console.html#roles-managingrole_edit-trust-policy\">Modifying a role trust policy</a> in the <i>Identity and Access Management User Guide</i>.</p> <p>If your extension calls Amazon Web Services APIs in any of its handlers, you must create an <i> <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html\">IAM execution role</a> </i> that includes the necessary permissions to call those Amazon Web Services APIs, and provision that execution role in your account. When CloudFormation needs to invoke the resource type handler, CloudFormation assumes this execution role to create a temporary session token, which it then passes to the resource type handler, thereby supplying your resource type with the appropriate credentials.</p>
             client_request_token: <p>A unique identifier that acts as an idempotency key for this registration request. Specifying a client request token prevents CloudFormation from generating more than one version of an extension from the same registration request, even if the request is submitted multiple times.</p>
+
+        Raises:
+            aws_sdk_cloudformation.errors.cfn_registry_exception.CFNRegistryException: <p>An error occurred during a CloudFormation registry operation.</p>
+            aws_sdk_cloudformation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5394,6 +5724,10 @@ class AsyncCloudFormationClient:
             role_arn: <p>The Amazon Resource Name (ARN) of an IAM role that CloudFormation assumes to rollback the stack.</p>
             client_request_token: <p>A unique identifier for this <code>RollbackStack</code> request.</p>
             retain_except_on_create: <p>When set to <code>true</code>, newly created resources are deleted when the operation rolls back. This includes newly created resources marked with a deletion policy of <code>Retain</code>.</p> <p>Default: <code>false</code> </p>
+
+        Raises:
+            aws_sdk_cloudformation.errors.token_already_exists_exception.TokenAlreadyExistsException: <p>A client request token already exists.</p>
+            aws_sdk_cloudformation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5446,6 +5780,9 @@ class AsyncCloudFormationClient:
             stack_name: <p>The name or unique stack ID that you want to associate a policy with.</p>
             stack_policy_body: <p>Structure that contains the stack policy body. For more information, see <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html\">Prevent updates to stack resources</a> in the <i>CloudFormation User Guide</i>. You can specify either the <code>StackPolicyBody</code> or the <code>StackPolicyURL</code> parameter, but not both.</p>
             stack_policy_url: <p>Location of a file that contains the stack policy. The URL must point to a policy (maximum size: 16 KB) located in an Amazon S3 bucket in the same Amazon Web Services Region as the stack. The location for an Amazon S3 bucket must start with <code>https://</code>. URLs from S3 static websites are not supported.</p> <p>You can specify either the <code>StackPolicyBody</code> or the <code>StackPolicyURL</code> parameter, but not both.</p>
+
+        Raises:
+            aws_sdk_cloudformation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5498,6 +5835,11 @@ class AsyncCloudFormationClient:
             configuration_alias: <p>An alias by which to refer to this extension configuration data.</p> <p>Conditional: Specifying a configuration alias is required when setting a configuration for a resource type extension.</p>
             type_name: <p>The name of the extension.</p> <p>Conditional: You must specify <code>ConfigurationArn</code>, or <code>Type</code> and <code>TypeName</code>.</p>
             type: <p>The type of extension.</p> <p>Conditional: You must specify <code>ConfigurationArn</code>, or <code>Type</code> and <code>TypeName</code>.</p>
+
+        Raises:
+            aws_sdk_cloudformation.errors.cfn_registry_exception.CFNRegistryException: <p>An error occurred during a CloudFormation registry operation.</p>
+            aws_sdk_cloudformation.errors.type_not_found_exception.TypeNotFoundException: <p>The specified extension doesn't exist in the CloudFormation registry.</p>
+            aws_sdk_cloudformation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5556,6 +5898,11 @@ class AsyncCloudFormationClient:
             type: <p>The kind of extension.</p> <p>Conditional: You must specify either <code>TypeName</code> and <code>Type</code>, or <code>Arn</code>.</p>
             type_name: <p>The name of the extension.</p> <p>Conditional: You must specify either <code>TypeName</code> and <code>Type</code>, or <code>Arn</code>.</p>
             version_id: <p>The ID of a specific version of the extension. The version ID is the value at the end of the Amazon Resource Name (ARN) assigned to the extension version when it is registered.</p>
+
+        Raises:
+            aws_sdk_cloudformation.errors.cfn_registry_exception.CFNRegistryException: <p>An error occurred during a CloudFormation registry operation.</p>
+            aws_sdk_cloudformation.errors.type_not_found_exception.TypeNotFoundException: <p>The specified extension doesn't exist in the CloudFormation registry.</p>
+            aws_sdk_cloudformation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5607,6 +5954,9 @@ class AsyncCloudFormationClient:
             logical_resource_id: <p>The logical ID of the resource that you want to signal. The logical ID is the name of the resource that given in the template.</p>
             unique_id: <p>A unique ID of the signal. When you signal Amazon EC2 instances or Auto Scaling groups, specify the instance ID that you are signaling as the unique ID. If you send multiple signals to a single resource (such as signaling a wait condition), each signal requires a different unique ID.</p>
             status: <p>The status of the signal, which is either success or failure. A failure signal causes CloudFormation to immediately fail the stack creation or update.</p>
+
+        Raises:
+            aws_sdk_cloudformation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5652,6 +6002,11 @@ class AsyncCloudFormationClient:
         Args:
             client_request_token: <p>A unique identifier for this <code>StartResourceScan</code> request. Specify this token if you plan to retry requests so that CloudFormation knows that you're not attempting to start a new resource scan.</p>
             scan_filters: <p>The scan filters to use.</p>
+
+        Raises:
+            aws_sdk_cloudformation.errors.resource_scan_in_progress_exception.ResourceScanInProgressException: <p>A resource scan is currently in progress. Only one can be run at a time for an account in a Region.</p>
+            aws_sdk_cloudformation.errors.resource_scan_limit_exceeded_exception.ResourceScanLimitExceededException: <p>The limit on resource scans has been exceeded. Reasons include:</p> <ul> <li> <p>Exceeded the daily quota for resource scans.</p> </li> <li> <p>A resource scan recently failed. You must wait 10 minutes before starting a new resource scan.</p> </li> <li> <p>The last resource scan failed after exceeding 100,000 resources. When this happens, you must wait 24 hours before starting a new resource scan.</p> </li> </ul>
+            aws_sdk_cloudformation.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To start a resource scan
@@ -5703,6 +6058,12 @@ class AsyncCloudFormationClient:
             stack_set_name: <p>The name or unique ID of the StackSet that you want to stop the operation for.</p>
             operation_id: <p>The ID of the stack operation.</p>
             call_as: <p>Specifies whether you are acting as an account administrator in the organization's management account or as a delegated administrator in a member account. Valid only if the StackSet uses service-managed permissions.</p> <p>By default, <code>SELF</code> is specified. Use <code>SELF</code> for StackSets with self-managed permissions.</p> <ul> <li> <p>If you are signed in to the management account, specify <code>SELF</code>.</p> </li> <li> <p>If you are signed in to a delegated administrator account, specify <code>DELEGATED_ADMIN</code>.</p> <p>Your Amazon Web Services account must be registered as a delegated administrator in the management account. For more information, see <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html\">Register a delegated administrator</a> in the <i>CloudFormation User Guide</i>.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_cloudformation.errors.invalid_operation_exception.InvalidOperationException: <p>The specified operation isn't valid.</p>
+            aws_sdk_cloudformation.errors.operation_not_found_exception.OperationNotFoundException: <p>The specified ID refers to an operation that doesn't exist.</p>
+            aws_sdk_cloudformation.errors.stack_set_not_found_exception.StackSetNotFoundException: <p>The specified StackSet doesn't exist.</p>
+            aws_sdk_cloudformation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5758,6 +6119,11 @@ class AsyncCloudFormationClient:
             type_name: <p>The name of the extension to test.</p> <p>Conditional: You must specify <code>Arn</code>, or <code>TypeName</code> and <code>Type</code>.</p>
             version_id: <p>The version of the extension to test.</p> <p>You can specify the version id with either <code>Arn</code>, or with <code>TypeName</code> and <code>Type</code>.</p> <p>If you don't specify a version, CloudFormation uses the default version of the extension in this account and Region for testing.</p>
             log_delivery_bucket: <p>The S3 bucket to which CloudFormation delivers the contract test execution logs.</p> <p>CloudFormation delivers the logs by the time contract testing has completed and the extension has been assigned a test type status of <code>PASSED</code> or <code>FAILED</code>.</p> <p>The user calling <code>TestType</code> must be able to access items in the specified S3 bucket. Specifically, the user needs the following permissions:</p> <ul> <li> <p> <code>GetObject</code> </p> </li> <li> <p> <code>PutObject</code> </p> </li> </ul> <p>For more information, see <a href=\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazons3.html\">Actions, Resources, and Condition Keys for Amazon S3</a> in the <i>Identity and Access Management User Guide</i>.</p>
+
+        Raises:
+            aws_sdk_cloudformation.errors.cfn_registry_exception.CFNRegistryException: <p>An error occurred during a CloudFormation registry operation.</p>
+            aws_sdk_cloudformation.errors.type_not_found_exception.TypeNotFoundException: <p>The specified extension doesn't exist in the CloudFormation registry.</p>
+            aws_sdk_cloudformation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5825,6 +6191,12 @@ class AsyncCloudFormationClient:
             remove_resources: <p>A list of logical ids for resources to remove from the generated template.</p>
             refresh_all_resources: <p>If <code>true</code>, update the resource properties in the generated template with their current live state. This feature is useful when the resource properties in your generated a template does not reflect the live state of the resource properties. This happens when a user update the resource properties after generating a template.</p>
             template_configuration: <p>The configuration details of the generated template, including the <code>DeletionPolicy</code> and <code>UpdateReplacePolicy</code>.</p>
+
+        Raises:
+            aws_sdk_cloudformation.errors.already_exists_exception.AlreadyExistsException: <p>The resource with the name requested already exists.</p>
+            aws_sdk_cloudformation.errors.generated_template_not_found_exception.GeneratedTemplateNotFoundException: <p>The generated template was not found.</p>
+            aws_sdk_cloudformation.errors.limit_exceeded_exception.LimitExceededException: <p>The quota for the resource has already been reached.</p> <p>For information about resource and stack limitations, see <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cloudformation-limits.html\">CloudFormation quotas</a> in the <i>CloudFormation User Guide</i>.</p>
+            aws_sdk_cloudformation.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To add resources to a generated template
@@ -5951,6 +6323,11 @@ class AsyncCloudFormationClient:
             disable_rollback: <p>Preserve the state of previously provisioned resources when an operation fails.</p> <p>Default: <code>False</code> </p>
             client_request_token: <p>A unique identifier for this <code>UpdateStack</code> request. Specify this token if you plan to retry requests so that CloudFormation knows that you're not attempting to update a stack with the same name. You might retry <code>UpdateStack</code> requests to ensure that CloudFormation successfully received them.</p> <p>All events triggered by a given stack operation are assigned the same client request token, which you can use to track operations. For example, if you execute a <code>CreateStack</code> operation with the token <code>token1</code>, then all the <code>StackEvents</code> generated by that operation will have <code>ClientRequestToken</code> set as <code>token1</code>.</p> <p>In the console, stack operations display the client request token on the Events tab. Stack operations that are initiated from the console use the token format <i>Console-StackOperation-ID</i>, which helps you easily identify the stack operation . For example, if you create a stack using the console, each stack event would be assigned the same token in the following format: <code>Console-CreateStack-7f59c3cf-00d2-40c7-b2ff-e75db0987002</code>.</p>
             retain_except_on_create: <p>When set to <code>true</code>, newly created resources are deleted when the operation rolls back. This includes newly created resources marked with a deletion policy of <code>Retain</code>.</p> <p>Default: <code>false</code> </p>
+
+        Raises:
+            aws_sdk_cloudformation.errors.insufficient_capabilities_exception.InsufficientCapabilitiesException: <p>The template contains resources with capabilities that weren't specified in the Capabilities parameter.</p>
+            aws_sdk_cloudformation.errors.token_already_exists_exception.TokenAlreadyExistsException: <p>A client request token already exists.</p>
+            aws_sdk_cloudformation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -6047,6 +6424,15 @@ class AsyncCloudFormationClient:
             operation_preferences: <p>Preferences for how CloudFormation performs this StackSet operation.</p>
             operation_id: <p>The unique identifier for this StackSet operation.</p> <p>The operation ID also functions as an idempotency token, to ensure that CloudFormation performs the StackSet operation only once, even if you retry the request multiple times. You might retry StackSet operation requests to ensure that CloudFormation successfully received them.</p> <p>If you don't specify an operation ID, the SDK generates one automatically.</p>
             call_as: <p>[Service-managed permissions] Specifies whether you are acting as an account administrator in the organization's management account or as a delegated administrator in a member account.</p> <p>By default, <code>SELF</code> is specified. Use <code>SELF</code> for StackSets with self-managed permissions.</p> <ul> <li> <p>If you are signed in to the management account, specify <code>SELF</code>.</p> </li> <li> <p>If you are signed in to a delegated administrator account, specify <code>DELEGATED_ADMIN</code>.</p> <p>Your Amazon Web Services account must be registered as a delegated administrator in the management account. For more information, see <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html\">Register a delegated administrator</a> in the <i>CloudFormation User Guide</i>.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_cloudformation.errors.invalid_operation_exception.InvalidOperationException: <p>The specified operation isn't valid.</p>
+            aws_sdk_cloudformation.errors.operation_id_already_exists_exception.OperationIdAlreadyExistsException: <p>The specified operation ID already exists.</p>
+            aws_sdk_cloudformation.errors.operation_in_progress_exception.OperationInProgressException: <p>Another operation is currently in progress for this StackSet. Only one operation can be performed for a stack set at a given time.</p>
+            aws_sdk_cloudformation.errors.stack_instance_not_found_exception.StackInstanceNotFoundException: <p>The specified stack instance doesn't exist.</p>
+            aws_sdk_cloudformation.errors.stack_set_not_found_exception.StackSetNotFoundException: <p>The specified StackSet doesn't exist.</p>
+            aws_sdk_cloudformation.errors.stale_request_exception.StaleRequestException: <p>Another operation has been performed on this StackSet since the specified operation was performed.</p>
+            aws_sdk_cloudformation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -6164,6 +6550,15 @@ class AsyncCloudFormationClient:
             regions: <p>The Amazon Web Services Regions in which to update associated stack instances. If you specify Regions, you must also specify accounts in which to update StackSet instances.</p> <p>To update <i>all</i> the stack instances associated with this StackSet, do not specify the <code>Accounts</code> or <code>Regions</code> properties.</p> <p>If the StackSet update includes changes to the template (that is, if the <code>TemplateBody</code> or <code>TemplateURL</code> properties are specified), or the <code>Parameters</code> property, CloudFormation marks all stack instances with a status of <code>OUTDATED</code> prior to updating the stack instances in the specified accounts and Regions. If the StackSet update does not include changes to the template or parameters, CloudFormation updates the stack instances in the specified accounts and Regions, while leaving all other stack instances with their existing stack instance status.</p>
             call_as: <p>[Service-managed permissions] Specifies whether you are acting as an account administrator in the organization's management account or as a delegated administrator in a member account.</p> <p>By default, <code>SELF</code> is specified. Use <code>SELF</code> for StackSets with self-managed permissions.</p> <ul> <li> <p>If you are signed in to the management account, specify <code>SELF</code>.</p> </li> <li> <p>If you are signed in to a delegated administrator account, specify <code>DELEGATED_ADMIN</code>.</p> <p>Your Amazon Web Services account must be registered as a delegated administrator in the management account. For more information, see <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html\">Register a delegated administrator</a> in the <i>CloudFormation User Guide</i>.</p> </li> </ul>
             managed_execution: <p>Describes whether CloudFormation performs non-conflicting operations concurrently and queues conflicting operations.</p>
+
+        Raises:
+            aws_sdk_cloudformation.errors.invalid_operation_exception.InvalidOperationException: <p>The specified operation isn't valid.</p>
+            aws_sdk_cloudformation.errors.operation_id_already_exists_exception.OperationIdAlreadyExistsException: <p>The specified operation ID already exists.</p>
+            aws_sdk_cloudformation.errors.operation_in_progress_exception.OperationInProgressException: <p>Another operation is currently in progress for this StackSet. Only one operation can be performed for a stack set at a given time.</p>
+            aws_sdk_cloudformation.errors.stack_instance_not_found_exception.StackInstanceNotFoundException: <p>The specified stack instance doesn't exist.</p>
+            aws_sdk_cloudformation.errors.stack_set_not_found_exception.StackSetNotFoundException: <p>The specified StackSet doesn't exist.</p>
+            aws_sdk_cloudformation.errors.stale_request_exception.StaleRequestException: <p>Another operation has been performed on this StackSet since the specified operation was performed.</p>
+            aws_sdk_cloudformation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -6240,6 +6635,9 @@ class AsyncCloudFormationClient:
         Args:
             enable_termination_protection: <p>Whether to enable termination protection on the specified stack.</p>
             stack_name: <p>The name or unique ID of the stack for which you want to set termination protection.</p>
+
+        Raises:
+            aws_sdk_cloudformation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -6285,6 +6683,9 @@ class AsyncCloudFormationClient:
         Args:
             template_body: <p>Structure that contains the template body with a minimum length of 1 byte and a maximum length of 51,200 bytes.</p> <p>Conditional: You must pass <code>TemplateURL</code> or <code>TemplateBody</code>. If both are passed, only <code>TemplateBody</code> is used.</p>
             template_url: <p>The URL of a file that contains the template body. The URL must point to a template (max size: 1 MB) that is located in an Amazon S3 bucket or a Systems Manager document. The location for an Amazon S3 bucket must start with <code>https://</code>.</p> <p>Conditional: You must pass <code>TemplateURL</code> or <code>TemplateBody</code>. If both are passed, only <code>TemplateBody</code> is used.</p>
+
+        Raises:
+            aws_sdk_cloudformation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

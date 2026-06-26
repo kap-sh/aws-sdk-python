@@ -349,6 +349,15 @@ class AsynckendraClient:
             id: <p>The identifier of your Amazon Kendra experience.</p>
             index_id: <p>The identifier of the index for your Amazon Kendra experience.</p>
             entity_list: <p>Lists users or groups in your IAM Identity Center identity source.</p>
+
+        Raises:
+            aws_sdk_kendra.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action. Please ensure you have the required permission policies and user accounts and try again.</p>
+            aws_sdk_kendra.errors.internal_server_exception.InternalServerException: <p>An issue occurred with the internal server used for your Amazon Kendra service. Please wait a few minutes and try again, or contact <a href=\"http://aws.amazon.com/contact-us/\">Support</a> for help.</p>
+            aws_sdk_kendra.errors.resource_already_exist_exception.ResourceAlreadyExistException: <p>The resource you want to use already exists. Please check you have provided the correct resource and try again.</p>
+            aws_sdk_kendra.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource you want to use doesn’t exist. Please check you have provided the correct resource and try again.</p>
+            aws_sdk_kendra.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. Please reduce the number of requests and try again.</p>
+            aws_sdk_kendra.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints set by the Amazon Kendra service. Please provide the correct input and try again.</p>
+            aws_sdk_kendra.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -393,6 +402,15 @@ class AsynckendraClient:
             id: <p>The identifier of your Amazon Kendra experience.</p>
             index_id: <p>The identifier of the index for your Amazon Kendra experience.</p>
             personas: <p>The personas that define the specific permissions of users or groups in your IAM Identity Center identity source. The available personas or access roles are <code>Owner</code> and <code>Viewer</code>. For more information on these personas, see <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/deploying-search-experience-no-code.html#access-search-experience\">Providing access to your search page</a>.</p>
+
+        Raises:
+            aws_sdk_kendra.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action. Please ensure you have the required permission policies and user accounts and try again.</p>
+            aws_sdk_kendra.errors.internal_server_exception.InternalServerException: <p>An issue occurred with the internal server used for your Amazon Kendra service. Please wait a few minutes and try again, or contact <a href=\"http://aws.amazon.com/contact-us/\">Support</a> for help.</p>
+            aws_sdk_kendra.errors.resource_already_exist_exception.ResourceAlreadyExistException: <p>The resource you want to use already exists. Please check you have provided the correct resource and try again.</p>
+            aws_sdk_kendra.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource you want to use doesn’t exist. Please check you have provided the correct resource and try again.</p>
+            aws_sdk_kendra.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. Please reduce the number of requests and try again.</p>
+            aws_sdk_kendra.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints set by the Amazon Kendra service. Please provide the correct input and try again.</p>
+            aws_sdk_kendra.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -438,6 +456,15 @@ class AsynckendraClient:
         Args:
             index_id: <p>The identifier of the index that contains the documents to delete.</p>
             document_id_list: <p>One or more identifiers for documents to delete from the index.</p>
+
+        Raises:
+            aws_sdk_kendra.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action. Please ensure you have the required permission policies and user accounts and try again.</p>
+            aws_sdk_kendra.errors.conflict_exception.ConflictException: <p>A conflict occurred with the request. Please fix any inconsistences with your resources and try again.</p>
+            aws_sdk_kendra.errors.internal_server_exception.InternalServerException: <p>An issue occurred with the internal server used for your Amazon Kendra service. Please wait a few minutes and try again, or contact <a href=\"http://aws.amazon.com/contact-us/\">Support</a> for help.</p>
+            aws_sdk_kendra.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource you want to use doesn’t exist. Please check you have provided the correct resource and try again.</p>
+            aws_sdk_kendra.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. Please reduce the number of requests and try again.</p>
+            aws_sdk_kendra.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints set by the Amazon Kendra service. Please provide the correct input and try again.</p>
+            aws_sdk_kendra.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -483,6 +510,14 @@ class AsynckendraClient:
         Args:
             index_id: <p>The identifier of the index used for featuring results.</p>
             featured_results_set_ids: <p>The identifiers of the featured results sets that you want to delete.</p>
+
+        Raises:
+            aws_sdk_kendra.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action. Please ensure you have the required permission policies and user accounts and try again.</p>
+            aws_sdk_kendra.errors.internal_server_exception.InternalServerException: <p>An issue occurred with the internal server used for your Amazon Kendra service. Please wait a few minutes and try again, or contact <a href=\"http://aws.amazon.com/contact-us/\">Support</a> for help.</p>
+            aws_sdk_kendra.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource you want to use doesn’t exist. Please check you have provided the correct resource and try again.</p>
+            aws_sdk_kendra.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. Please reduce the number of requests and try again.</p>
+            aws_sdk_kendra.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints set by the Amazon Kendra service. Please provide the correct input and try again.</p>
+            aws_sdk_kendra.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -524,6 +559,15 @@ class AsynckendraClient:
         Args:
             index_id: <p>The identifier of the index to add documents to. The index ID is returned by the <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/API_CreateIndex.html\">CreateIndex </a> API.</p>
             document_info_list: <p>A list of <code>DocumentInfo</code> objects that identify the documents for which to get the status. You identify the documents by their document ID and optional attributes.</p>
+
+        Raises:
+            aws_sdk_kendra.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action. Please ensure you have the required permission policies and user accounts and try again.</p>
+            aws_sdk_kendra.errors.conflict_exception.ConflictException: <p>A conflict occurred with the request. Please fix any inconsistences with your resources and try again.</p>
+            aws_sdk_kendra.errors.internal_server_exception.InternalServerException: <p>An issue occurred with the internal server used for your Amazon Kendra service. Please wait a few minutes and try again, or contact <a href=\"http://aws.amazon.com/contact-us/\">Support</a> for help.</p>
+            aws_sdk_kendra.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource you want to use doesn’t exist. Please check you have provided the correct resource and try again.</p>
+            aws_sdk_kendra.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. Please reduce the number of requests and try again.</p>
+            aws_sdk_kendra.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints set by the Amazon Kendra service. Please provide the correct input and try again.</p>
+            aws_sdk_kendra.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -571,6 +615,16 @@ class AsynckendraClient:
             role_arn: <p>The Amazon Resource Name (ARN) of an IAM role with permission to access your S3 bucket. For more information, see <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html\">IAM access roles for Amazon Kendra</a>.</p>
             documents: <p>One or more documents to add to the index.</p> <p>Documents have the following file size limits.</p> <ul> <li> <p>50 MB total size for any file</p> </li> <li> <p>5 MB extracted text for any file</p> </li> </ul> <p>For more information, see <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/quotas.html\">Quotas</a>.</p>
             custom_document_enrichment_configuration: <p>Configuration information for altering your document metadata and content during the document ingestion process when you use the <code>BatchPutDocument</code> API.</p> <p>For more information on how to create, modify and delete document metadata, or make other content alterations when you ingest documents into Amazon Kendra, see <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html\">Customizing document metadata during the ingestion process</a>.</p>
+
+        Raises:
+            aws_sdk_kendra.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action. Please ensure you have the required permission policies and user accounts and try again.</p>
+            aws_sdk_kendra.errors.conflict_exception.ConflictException: <p>A conflict occurred with the request. Please fix any inconsistences with your resources and try again.</p>
+            aws_sdk_kendra.errors.internal_server_exception.InternalServerException: <p>An issue occurred with the internal server used for your Amazon Kendra service. Please wait a few minutes and try again, or contact <a href=\"http://aws.amazon.com/contact-us/\">Support</a> for help.</p>
+            aws_sdk_kendra.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource you want to use doesn’t exist. Please check you have provided the correct resource and try again.</p>
+            aws_sdk_kendra.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You have exceeded the set limits for your Amazon Kendra service. Please see <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/quotas.html\">Quotas</a> for more information, or contact <a href=\"http://aws.amazon.com/contact-us/\">Support</a> to inquire about an increase of limits.</p>
+            aws_sdk_kendra.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. Please reduce the number of requests and try again.</p>
+            aws_sdk_kendra.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints set by the Amazon Kendra service. Please provide the correct input and try again.</p>
+            aws_sdk_kendra.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -616,6 +670,15 @@ class AsynckendraClient:
 
         Args:
             index_id: <p>The identifier of the index you want to clear query suggestions from.</p>
+
+        Raises:
+            aws_sdk_kendra.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action. Please ensure you have the required permission policies and user accounts and try again.</p>
+            aws_sdk_kendra.errors.conflict_exception.ConflictException: <p>A conflict occurred with the request. Please fix any inconsistences with your resources and try again.</p>
+            aws_sdk_kendra.errors.internal_server_exception.InternalServerException: <p>An issue occurred with the internal server used for your Amazon Kendra service. Please wait a few minutes and try again, or contact <a href=\"http://aws.amazon.com/contact-us/\">Support</a> for help.</p>
+            aws_sdk_kendra.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource you want to use doesn’t exist. Please check you have provided the correct resource and try again.</p>
+            aws_sdk_kendra.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. Please reduce the number of requests and try again.</p>
+            aws_sdk_kendra.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints set by the Amazon Kendra service. Please provide the correct input and try again.</p>
+            aws_sdk_kendra.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -668,6 +731,16 @@ class AsynckendraClient:
             access_control_list: <p>Information on principals (users and/or groups) and which documents they should have access to. This is useful for user context filtering, where search results are filtered based on the user or their group access to documents.</p>
             hierarchical_access_control_list: <p>The list of <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/API_Principal.html\">principal</a> lists that define the hierarchy for which documents users should have access to.</p>
             client_token: <p>A token that you provide to identify the request to create an access control configuration. Multiple calls to the <code>CreateAccessControlConfiguration</code> API with the same client token will create only one access control configuration.</p>
+
+        Raises:
+            aws_sdk_kendra.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action. Please ensure you have the required permission policies and user accounts and try again.</p>
+            aws_sdk_kendra.errors.conflict_exception.ConflictException: <p>A conflict occurred with the request. Please fix any inconsistences with your resources and try again.</p>
+            aws_sdk_kendra.errors.internal_server_exception.InternalServerException: <p>An issue occurred with the internal server used for your Amazon Kendra service. Please wait a few minutes and try again, or contact <a href=\"http://aws.amazon.com/contact-us/\">Support</a> for help.</p>
+            aws_sdk_kendra.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource you want to use doesn’t exist. Please check you have provided the correct resource and try again.</p>
+            aws_sdk_kendra.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You have exceeded the set limits for your Amazon Kendra service. Please see <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/quotas.html\">Quotas</a> for more information, or contact <a href=\"http://aws.amazon.com/contact-us/\">Support</a> to inquire about an increase of limits.</p>
+            aws_sdk_kendra.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. Please reduce the number of requests and try again.</p>
+            aws_sdk_kendra.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints set by the Amazon Kendra service. Please provide the correct input and try again.</p>
+            aws_sdk_kendra.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -749,6 +822,17 @@ class AsynckendraClient:
             client_token: <p>A token that you provide to identify the request to create a data source connector. Multiple calls to the <code>CreateDataSource</code> API with the same client token will create only one data source connector.</p>
             language_code: <p>The code for a language. This allows you to support a language for all documents when creating the data source connector. English is supported by default. For more information on supported languages, including their codes, see <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html\">Adding documents in languages other than English</a>.</p>
             custom_document_enrichment_configuration: <p>Configuration information for altering document metadata and content during the document ingestion process.</p> <p>For more information on how to create, modify and delete document metadata, or make other content alterations when you ingest documents into Amazon Kendra, see <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html\">Customizing document metadata during the ingestion process</a>.</p>
+
+        Raises:
+            aws_sdk_kendra.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action. Please ensure you have the required permission policies and user accounts and try again.</p>
+            aws_sdk_kendra.errors.conflict_exception.ConflictException: <p>A conflict occurred with the request. Please fix any inconsistences with your resources and try again.</p>
+            aws_sdk_kendra.errors.internal_server_exception.InternalServerException: <p>An issue occurred with the internal server used for your Amazon Kendra service. Please wait a few minutes and try again, or contact <a href=\"http://aws.amazon.com/contact-us/\">Support</a> for help.</p>
+            aws_sdk_kendra.errors.resource_already_exist_exception.ResourceAlreadyExistException: <p>The resource you want to use already exists. Please check you have provided the correct resource and try again.</p>
+            aws_sdk_kendra.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource you want to use doesn’t exist. Please check you have provided the correct resource and try again.</p>
+            aws_sdk_kendra.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You have exceeded the set limits for your Amazon Kendra service. Please see <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/quotas.html\">Quotas</a> for more information, or contact <a href=\"http://aws.amazon.com/contact-us/\">Support</a> to inquire about an increase of limits.</p>
+            aws_sdk_kendra.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. Please reduce the number of requests and try again.</p>
+            aws_sdk_kendra.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints set by the Amazon Kendra service. Please provide the correct input and try again.</p>
+            aws_sdk_kendra.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -823,6 +907,16 @@ class AsynckendraClient:
             configuration: <p>Configuration information for your Amazon Kendra experience. This includes <code>ContentSourceConfiguration</code>, which specifies the data source IDs and/or FAQ IDs, and <code>UserIdentityConfiguration</code>, which specifies the user or group information to grant access to your Amazon Kendra experience.</p>
             description: <p>A description for your Amazon Kendra experience.</p>
             client_token: <p>A token that you provide to identify the request to create your Amazon Kendra experience. Multiple calls to the <code>CreateExperience</code> API with the same client token creates only one Amazon Kendra experience.</p>
+
+        Raises:
+            aws_sdk_kendra.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action. Please ensure you have the required permission policies and user accounts and try again.</p>
+            aws_sdk_kendra.errors.conflict_exception.ConflictException: <p>A conflict occurred with the request. Please fix any inconsistences with your resources and try again.</p>
+            aws_sdk_kendra.errors.internal_server_exception.InternalServerException: <p>An issue occurred with the internal server used for your Amazon Kendra service. Please wait a few minutes and try again, or contact <a href=\"http://aws.amazon.com/contact-us/\">Support</a> for help.</p>
+            aws_sdk_kendra.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource you want to use doesn’t exist. Please check you have provided the correct resource and try again.</p>
+            aws_sdk_kendra.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You have exceeded the set limits for your Amazon Kendra service. Please see <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/quotas.html\">Quotas</a> for more information, or contact <a href=\"http://aws.amazon.com/contact-us/\">Support</a> to inquire about an increase of limits.</p>
+            aws_sdk_kendra.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. Please reduce the number of requests and try again.</p>
+            aws_sdk_kendra.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints set by the Amazon Kendra service. Please provide the correct input and try again.</p>
+            aws_sdk_kendra.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -892,6 +986,16 @@ class AsynckendraClient:
             file_format: <p>The format of the FAQ input file. You can choose between a basic CSV format, a CSV format that includes customs attributes in a header, and a JSON format that includes custom attributes.</p> <p>The default format is CSV.</p> <p>The format must match the format of the file stored in the S3 bucket identified in the <code>S3Path</code> parameter.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/in-creating-faq.html\">Adding questions and answers</a>.</p>
             client_token: <p>A token that you provide to identify the request to create a FAQ. Multiple calls to the <code>CreateFaqRequest</code> API with the same client token will create only one FAQ. </p>
             language_code: <p>The code for a language. This allows you to support a language for the FAQ document. English is supported by default. For more information on supported languages, including their codes, see <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html\">Adding documents in languages other than English</a>.</p>
+
+        Raises:
+            aws_sdk_kendra.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action. Please ensure you have the required permission policies and user accounts and try again.</p>
+            aws_sdk_kendra.errors.conflict_exception.ConflictException: <p>A conflict occurred with the request. Please fix any inconsistences with your resources and try again.</p>
+            aws_sdk_kendra.errors.internal_server_exception.InternalServerException: <p>An issue occurred with the internal server used for your Amazon Kendra service. Please wait a few minutes and try again, or contact <a href=\"http://aws.amazon.com/contact-us/\">Support</a> for help.</p>
+            aws_sdk_kendra.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource you want to use doesn’t exist. Please check you have provided the correct resource and try again.</p>
+            aws_sdk_kendra.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You have exceeded the set limits for your Amazon Kendra service. Please see <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/quotas.html\">Quotas</a> for more information, or contact <a href=\"http://aws.amazon.com/contact-us/\">Support</a> to inquire about an increase of limits.</p>
+            aws_sdk_kendra.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. Please reduce the number of requests and try again.</p>
+            aws_sdk_kendra.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints set by the Amazon Kendra service. Please provide the correct input and try again.</p>
+            aws_sdk_kendra.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -967,6 +1071,16 @@ class AsynckendraClient:
             query_texts: <p>A list of queries for featuring results. For more information on the list of queries, see <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/API_FeaturedResultsSet.html\">FeaturedResultsSet</a>.</p>
             featured_documents: <p>A list of document IDs for the documents you want to feature at the top of the search results page. For more information on the list of documents, see <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/API_FeaturedResultsSet.html\">FeaturedResultsSet</a>.</p>
             tags: <p>A list of key-value pairs that identify or categorize the featured results set. You can also use tags to help control access to the featured results set. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols:_ . : / = + - @.</p>
+
+        Raises:
+            aws_sdk_kendra.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action. Please ensure you have the required permission policies and user accounts and try again.</p>
+            aws_sdk_kendra.errors.conflict_exception.ConflictException: <p>A conflict occurred with the request. Please fix any inconsistences with your resources and try again.</p>
+            aws_sdk_kendra.errors.featured_results_conflict_exception.FeaturedResultsConflictException: <p>An error message with a list of conflicting queries used across different sets of featured results. This occurred with the request for a new featured results set. Check that the queries you specified for featured results are unique per featured results set for each index.</p>
+            aws_sdk_kendra.errors.internal_server_exception.InternalServerException: <p>An issue occurred with the internal server used for your Amazon Kendra service. Please wait a few minutes and try again, or contact <a href=\"http://aws.amazon.com/contact-us/\">Support</a> for help.</p>
+            aws_sdk_kendra.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource you want to use doesn’t exist. Please check you have provided the correct resource and try again.</p>
+            aws_sdk_kendra.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. Please reduce the number of requests and try again.</p>
+            aws_sdk_kendra.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints set by the Amazon Kendra service. Please provide the correct input and try again.</p>
+            aws_sdk_kendra.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1046,6 +1160,16 @@ class AsynckendraClient:
             user_token_configurations: <p>The user token configuration.</p> <important> <p>If you're using an Amazon Kendra Gen AI Enterprise Edition index and you try to use <code>UserTokenConfigurations</code> to configure user context policy, Amazon Kendra returns a <code>ValidationException</code> error.</p> </important>
             user_context_policy: <p>The user context policy.</p> <important> <p>If you're using an Amazon Kendra Gen AI Enterprise Edition index, you can only use <code>ATTRIBUTE_FILTER</code> to filter search results by user context. If you're using an Amazon Kendra Gen AI Enterprise Edition index and you try to use <code>USER_TOKEN</code> to configure user context policy, Amazon Kendra returns a <code>ValidationException</code> error.</p> </important> <dl> <dt>ATTRIBUTE_FILTER</dt> <dd> <p>All indexed content is searchable and displayable for all users. If you want to filter search results on user context, you can use the attribute filters of <code>_user_id</code> and <code>_group_ids</code> or you can provide user and group information in <code>UserContext</code>. </p> </dd> <dt>USER_TOKEN</dt> <dd> <p>Enables token-based user access control to filter search results on user context. All documents with no access control and all documents accessible to the user will be searchable and displayable. </p> </dd> </dl>
             user_group_resolution_configuration: <p>Gets users and groups from IAM Identity Center identity source. To configure this, see <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/API_UserGroupResolutionConfiguration.html\">UserGroupResolutionConfiguration</a>. This is useful for user context filtering, where search results are filtered based on the user or their group access to documents.</p> <important> <p>If you're using an Amazon Kendra Gen AI Enterprise Edition index, <code>UserGroupResolutionConfiguration</code> isn't supported.</p> </important>
+
+        Raises:
+            aws_sdk_kendra.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action. Please ensure you have the required permission policies and user accounts and try again.</p>
+            aws_sdk_kendra.errors.conflict_exception.ConflictException: <p>A conflict occurred with the request. Please fix any inconsistences with your resources and try again.</p>
+            aws_sdk_kendra.errors.internal_server_exception.InternalServerException: <p>An issue occurred with the internal server used for your Amazon Kendra service. Please wait a few minutes and try again, or contact <a href=\"http://aws.amazon.com/contact-us/\">Support</a> for help.</p>
+            aws_sdk_kendra.errors.resource_already_exist_exception.ResourceAlreadyExistException: <p>The resource you want to use already exists. Please check you have provided the correct resource and try again.</p>
+            aws_sdk_kendra.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You have exceeded the set limits for your Amazon Kendra service. Please see <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/quotas.html\">Quotas</a> for more information, or contact <a href=\"http://aws.amazon.com/contact-us/\">Support</a> to inquire about an increase of limits.</p>
+            aws_sdk_kendra.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. Please reduce the number of requests and try again.</p>
+            aws_sdk_kendra.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints set by the Amazon Kendra service. Please provide the correct input and try again.</p>
+            aws_sdk_kendra.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1119,6 +1243,16 @@ class AsynckendraClient:
             client_token: <p>A token that you provide to identify the request to create a query suggestions block list.</p>
             role_arn: <p>The Amazon Resource Name (ARN) of an IAM role with permission to access your S3 bucket that contains the block list text file. For more information, see <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html\">IAM access roles for Amazon Kendra</a>.</p>
             tags: <p>A list of key-value pairs that identify or categorize the block list. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.</p>
+
+        Raises:
+            aws_sdk_kendra.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action. Please ensure you have the required permission policies and user accounts and try again.</p>
+            aws_sdk_kendra.errors.conflict_exception.ConflictException: <p>A conflict occurred with the request. Please fix any inconsistences with your resources and try again.</p>
+            aws_sdk_kendra.errors.internal_server_exception.InternalServerException: <p>An issue occurred with the internal server used for your Amazon Kendra service. Please wait a few minutes and try again, or contact <a href=\"http://aws.amazon.com/contact-us/\">Support</a> for help.</p>
+            aws_sdk_kendra.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource you want to use doesn’t exist. Please check you have provided the correct resource and try again.</p>
+            aws_sdk_kendra.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You have exceeded the set limits for your Amazon Kendra service. Please see <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/quotas.html\">Quotas</a> for more information, or contact <a href=\"http://aws.amazon.com/contact-us/\">Support</a> to inquire about an increase of limits.</p>
+            aws_sdk_kendra.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. Please reduce the number of requests and try again.</p>
+            aws_sdk_kendra.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints set by the Amazon Kendra service. Please provide the correct input and try again.</p>
+            aws_sdk_kendra.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1180,6 +1314,16 @@ class AsynckendraClient:
             tags: <p>A list of key-value pairs that identify or categorize the thesaurus. You can also use tags to help control access to the thesaurus. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.</p>
             source_s3_path: <p>The path to the thesaurus file in S3.</p>
             client_token: <p>A token that you provide to identify the request to create a thesaurus. Multiple calls to the <code>CreateThesaurus</code> API with the same client token will create only one thesaurus. </p>
+
+        Raises:
+            aws_sdk_kendra.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action. Please ensure you have the required permission policies and user accounts and try again.</p>
+            aws_sdk_kendra.errors.conflict_exception.ConflictException: <p>A conflict occurred with the request. Please fix any inconsistences with your resources and try again.</p>
+            aws_sdk_kendra.errors.internal_server_exception.InternalServerException: <p>An issue occurred with the internal server used for your Amazon Kendra service. Please wait a few minutes and try again, or contact <a href=\"http://aws.amazon.com/contact-us/\">Support</a> for help.</p>
+            aws_sdk_kendra.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource you want to use doesn’t exist. Please check you have provided the correct resource and try again.</p>
+            aws_sdk_kendra.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You have exceeded the set limits for your Amazon Kendra service. Please see <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/quotas.html\">Quotas</a> for more information, or contact <a href=\"http://aws.amazon.com/contact-us/\">Support</a> to inquire about an increase of limits.</p>
+            aws_sdk_kendra.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. Please reduce the number of requests and try again.</p>
+            aws_sdk_kendra.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints set by the Amazon Kendra service. Please provide the correct input and try again.</p>
+            aws_sdk_kendra.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1229,6 +1373,15 @@ class AsynckendraClient:
         Args:
             index_id: <p>The identifier of the index for an access control configuration.</p>
             id: <p>The identifier of the access control configuration you want to delete.</p>
+
+        Raises:
+            aws_sdk_kendra.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action. Please ensure you have the required permission policies and user accounts and try again.</p>
+            aws_sdk_kendra.errors.conflict_exception.ConflictException: <p>A conflict occurred with the request. Please fix any inconsistences with your resources and try again.</p>
+            aws_sdk_kendra.errors.internal_server_exception.InternalServerException: <p>An issue occurred with the internal server used for your Amazon Kendra service. Please wait a few minutes and try again, or contact <a href=\"http://aws.amazon.com/contact-us/\">Support</a> for help.</p>
+            aws_sdk_kendra.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource you want to use doesn’t exist. Please check you have provided the correct resource and try again.</p>
+            aws_sdk_kendra.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. Please reduce the number of requests and try again.</p>
+            aws_sdk_kendra.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints set by the Amazon Kendra service. Please provide the correct input and try again.</p>
+            aws_sdk_kendra.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1270,6 +1423,15 @@ class AsynckendraClient:
         Args:
             id: <p>The identifier of the data source connector you want to delete.</p>
             index_id: <p>The identifier of the index used with the data source connector.</p>
+
+        Raises:
+            aws_sdk_kendra.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action. Please ensure you have the required permission policies and user accounts and try again.</p>
+            aws_sdk_kendra.errors.conflict_exception.ConflictException: <p>A conflict occurred with the request. Please fix any inconsistences with your resources and try again.</p>
+            aws_sdk_kendra.errors.internal_server_exception.InternalServerException: <p>An issue occurred with the internal server used for your Amazon Kendra service. Please wait a few minutes and try again, or contact <a href=\"http://aws.amazon.com/contact-us/\">Support</a> for help.</p>
+            aws_sdk_kendra.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource you want to use doesn’t exist. Please check you have provided the correct resource and try again.</p>
+            aws_sdk_kendra.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. Please reduce the number of requests and try again.</p>
+            aws_sdk_kendra.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints set by the Amazon Kendra service. Please provide the correct input and try again.</p>
+            aws_sdk_kendra.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1309,6 +1471,15 @@ class AsynckendraClient:
         Args:
             id: <p>The identifier of your Amazon Kendra experience you want to delete.</p>
             index_id: <p>The identifier of the index for your Amazon Kendra experience.</p>
+
+        Raises:
+            aws_sdk_kendra.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action. Please ensure you have the required permission policies and user accounts and try again.</p>
+            aws_sdk_kendra.errors.conflict_exception.ConflictException: <p>A conflict occurred with the request. Please fix any inconsistences with your resources and try again.</p>
+            aws_sdk_kendra.errors.internal_server_exception.InternalServerException: <p>An issue occurred with the internal server used for your Amazon Kendra service. Please wait a few minutes and try again, or contact <a href=\"http://aws.amazon.com/contact-us/\">Support</a> for help.</p>
+            aws_sdk_kendra.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource you want to use doesn’t exist. Please check you have provided the correct resource and try again.</p>
+            aws_sdk_kendra.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. Please reduce the number of requests and try again.</p>
+            aws_sdk_kendra.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints set by the Amazon Kendra service. Please provide the correct input and try again.</p>
+            aws_sdk_kendra.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1350,6 +1521,15 @@ class AsynckendraClient:
         Args:
             id: <p>The identifier of the FAQ you want to remove.</p>
             index_id: <p>The identifier of the index for the FAQ.</p>
+
+        Raises:
+            aws_sdk_kendra.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action. Please ensure you have the required permission policies and user accounts and try again.</p>
+            aws_sdk_kendra.errors.conflict_exception.ConflictException: <p>A conflict occurred with the request. Please fix any inconsistences with your resources and try again.</p>
+            aws_sdk_kendra.errors.internal_server_exception.InternalServerException: <p>An issue occurred with the internal server used for your Amazon Kendra service. Please wait a few minutes and try again, or contact <a href=\"http://aws.amazon.com/contact-us/\">Support</a> for help.</p>
+            aws_sdk_kendra.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource you want to use doesn’t exist. Please check you have provided the correct resource and try again.</p>
+            aws_sdk_kendra.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. Please reduce the number of requests and try again.</p>
+            aws_sdk_kendra.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints set by the Amazon Kendra service. Please provide the correct input and try again.</p>
+            aws_sdk_kendra.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1387,6 +1567,15 @@ class AsynckendraClient:
 
         Args:
             id: <p>The identifier of the index you want to delete.</p>
+
+        Raises:
+            aws_sdk_kendra.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action. Please ensure you have the required permission policies and user accounts and try again.</p>
+            aws_sdk_kendra.errors.conflict_exception.ConflictException: <p>A conflict occurred with the request. Please fix any inconsistences with your resources and try again.</p>
+            aws_sdk_kendra.errors.internal_server_exception.InternalServerException: <p>An issue occurred with the internal server used for your Amazon Kendra service. Please wait a few minutes and try again, or contact <a href=\"http://aws.amazon.com/contact-us/\">Support</a> for help.</p>
+            aws_sdk_kendra.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource you want to use doesn’t exist. Please check you have provided the correct resource and try again.</p>
+            aws_sdk_kendra.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. Please reduce the number of requests and try again.</p>
+            aws_sdk_kendra.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints set by the Amazon Kendra service. Please provide the correct input and try again.</p>
+            aws_sdk_kendra.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1433,6 +1622,15 @@ class AsynckendraClient:
             data_source_id: <p>The identifier of the data source you want to delete a group from.</p> <p>A group can be tied to multiple data sources. You can delete a group from accessing documents in a certain data source. For example, the groups \"Research\", \"Engineering\", and \"Sales and Marketing\" are all tied to the company's documents stored in the data sources Confluence and Salesforce. You want to delete \"Research\" and \"Engineering\" groups from Salesforce, so that these groups cannot access customer-related documents stored in Salesforce. Only \"Sales and Marketing\" should access documents in the Salesforce data source.</p>
             group_id: <p>The identifier of the group you want to delete.</p>
             ordering_id: <p>The timestamp identifier you specify to ensure Amazon Kendra does not override the latest <code>DELETE</code> action with previous actions. The highest number ID, which is the ordering ID, is the latest action you want to process and apply on top of other actions with lower number IDs. This prevents previous actions with lower number IDs from possibly overriding the latest action.</p> <p>The ordering ID can be the Unix time of the last update you made to a group members list. You would then provide this list when calling <code>PutPrincipalMapping</code>. This ensures your <code>DELETE</code> action for that updated group with the latest members list doesn't get overwritten by earlier <code>DELETE</code> actions for the same group which are yet to be processed.</p> <p>The default ordering ID is the current Unix time in milliseconds that the action was received by Amazon Kendra. </p>
+
+        Raises:
+            aws_sdk_kendra.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action. Please ensure you have the required permission policies and user accounts and try again.</p>
+            aws_sdk_kendra.errors.conflict_exception.ConflictException: <p>A conflict occurred with the request. Please fix any inconsistences with your resources and try again.</p>
+            aws_sdk_kendra.errors.internal_server_exception.InternalServerException: <p>An issue occurred with the internal server used for your Amazon Kendra service. Please wait a few minutes and try again, or contact <a href=\"http://aws.amazon.com/contact-us/\">Support</a> for help.</p>
+            aws_sdk_kendra.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource you want to use doesn’t exist. Please check you have provided the correct resource and try again.</p>
+            aws_sdk_kendra.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. Please reduce the number of requests and try again.</p>
+            aws_sdk_kendra.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints set by the Amazon Kendra service. Please provide the correct input and try again.</p>
+            aws_sdk_kendra.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1476,6 +1674,15 @@ class AsynckendraClient:
         Args:
             index_id: <p>The identifier of the index for the block list.</p>
             id: <p>The identifier of the block list you want to delete.</p>
+
+        Raises:
+            aws_sdk_kendra.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action. Please ensure you have the required permission policies and user accounts and try again.</p>
+            aws_sdk_kendra.errors.conflict_exception.ConflictException: <p>A conflict occurred with the request. Please fix any inconsistences with your resources and try again.</p>
+            aws_sdk_kendra.errors.internal_server_exception.InternalServerException: <p>An issue occurred with the internal server used for your Amazon Kendra service. Please wait a few minutes and try again, or contact <a href=\"http://aws.amazon.com/contact-us/\">Support</a> for help.</p>
+            aws_sdk_kendra.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource you want to use doesn’t exist. Please check you have provided the correct resource and try again.</p>
+            aws_sdk_kendra.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. Please reduce the number of requests and try again.</p>
+            aws_sdk_kendra.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints set by the Amazon Kendra service. Please provide the correct input and try again.</p>
+            aws_sdk_kendra.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1515,6 +1722,15 @@ class AsynckendraClient:
         Args:
             id: <p>The identifier of the thesaurus you want to delete.</p>
             index_id: <p>The identifier of the index for the thesaurus.</p>
+
+        Raises:
+            aws_sdk_kendra.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action. Please ensure you have the required permission policies and user accounts and try again.</p>
+            aws_sdk_kendra.errors.conflict_exception.ConflictException: <p>A conflict occurred with the request. Please fix any inconsistences with your resources and try again.</p>
+            aws_sdk_kendra.errors.internal_server_exception.InternalServerException: <p>An issue occurred with the internal server used for your Amazon Kendra service. Please wait a few minutes and try again, or contact <a href=\"http://aws.amazon.com/contact-us/\">Support</a> for help.</p>
+            aws_sdk_kendra.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource you want to use doesn’t exist. Please check you have provided the correct resource and try again.</p>
+            aws_sdk_kendra.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. Please reduce the number of requests and try again.</p>
+            aws_sdk_kendra.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints set by the Amazon Kendra service. Please provide the correct input and try again.</p>
+            aws_sdk_kendra.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1554,6 +1770,14 @@ class AsynckendraClient:
         Args:
             index_id: <p>The identifier of the index for an access control configuration.</p>
             id: <p>The identifier of the access control configuration you want to get information on.</p>
+
+        Raises:
+            aws_sdk_kendra.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action. Please ensure you have the required permission policies and user accounts and try again.</p>
+            aws_sdk_kendra.errors.internal_server_exception.InternalServerException: <p>An issue occurred with the internal server used for your Amazon Kendra service. Please wait a few minutes and try again, or contact <a href=\"http://aws.amazon.com/contact-us/\">Support</a> for help.</p>
+            aws_sdk_kendra.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource you want to use doesn’t exist. Please check you have provided the correct resource and try again.</p>
+            aws_sdk_kendra.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. Please reduce the number of requests and try again.</p>
+            aws_sdk_kendra.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints set by the Amazon Kendra service. Please provide the correct input and try again.</p>
+            aws_sdk_kendra.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1597,6 +1821,14 @@ class AsynckendraClient:
         Args:
             id: <p>The identifier of the data source connector.</p>
             index_id: <p>The identifier of the index used with the data source connector.</p>
+
+        Raises:
+            aws_sdk_kendra.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action. Please ensure you have the required permission policies and user accounts and try again.</p>
+            aws_sdk_kendra.errors.internal_server_exception.InternalServerException: <p>An issue occurred with the internal server used for your Amazon Kendra service. Please wait a few minutes and try again, or contact <a href=\"http://aws.amazon.com/contact-us/\">Support</a> for help.</p>
+            aws_sdk_kendra.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource you want to use doesn’t exist. Please check you have provided the correct resource and try again.</p>
+            aws_sdk_kendra.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. Please reduce the number of requests and try again.</p>
+            aws_sdk_kendra.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints set by the Amazon Kendra service. Please provide the correct input and try again.</p>
+            aws_sdk_kendra.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1638,6 +1870,14 @@ class AsynckendraClient:
         Args:
             id: <p>The identifier of your Amazon Kendra experience you want to get information on.</p>
             index_id: <p>The identifier of the index for your Amazon Kendra experience.</p>
+
+        Raises:
+            aws_sdk_kendra.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action. Please ensure you have the required permission policies and user accounts and try again.</p>
+            aws_sdk_kendra.errors.internal_server_exception.InternalServerException: <p>An issue occurred with the internal server used for your Amazon Kendra service. Please wait a few minutes and try again, or contact <a href=\"http://aws.amazon.com/contact-us/\">Support</a> for help.</p>
+            aws_sdk_kendra.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource you want to use doesn’t exist. Please check you have provided the correct resource and try again.</p>
+            aws_sdk_kendra.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. Please reduce the number of requests and try again.</p>
+            aws_sdk_kendra.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints set by the Amazon Kendra service. Please provide the correct input and try again.</p>
+            aws_sdk_kendra.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1679,6 +1919,14 @@ class AsynckendraClient:
         Args:
             id: <p>The identifier of the FAQ you want to get information on.</p>
             index_id: <p>The identifier of the index for the FAQ.</p>
+
+        Raises:
+            aws_sdk_kendra.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action. Please ensure you have the required permission policies and user accounts and try again.</p>
+            aws_sdk_kendra.errors.internal_server_exception.InternalServerException: <p>An issue occurred with the internal server used for your Amazon Kendra service. Please wait a few minutes and try again, or contact <a href=\"http://aws.amazon.com/contact-us/\">Support</a> for help.</p>
+            aws_sdk_kendra.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource you want to use doesn’t exist. Please check you have provided the correct resource and try again.</p>
+            aws_sdk_kendra.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. Please reduce the number of requests and try again.</p>
+            aws_sdk_kendra.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints set by the Amazon Kendra service. Please provide the correct input and try again.</p>
+            aws_sdk_kendra.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1720,6 +1968,14 @@ class AsynckendraClient:
         Args:
             index_id: <p>The identifier of the index used for featuring results.</p>
             featured_results_set_id: <p>The identifier of the set of featured results that you want to get information on.</p>
+
+        Raises:
+            aws_sdk_kendra.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action. Please ensure you have the required permission policies and user accounts and try again.</p>
+            aws_sdk_kendra.errors.internal_server_exception.InternalServerException: <p>An issue occurred with the internal server used for your Amazon Kendra service. Please wait a few minutes and try again, or contact <a href=\"http://aws.amazon.com/contact-us/\">Support</a> for help.</p>
+            aws_sdk_kendra.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource you want to use doesn’t exist. Please check you have provided the correct resource and try again.</p>
+            aws_sdk_kendra.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. Please reduce the number of requests and try again.</p>
+            aws_sdk_kendra.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints set by the Amazon Kendra service. Please provide the correct input and try again.</p>
+            aws_sdk_kendra.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1759,6 +2015,14 @@ class AsynckendraClient:
 
         Args:
             id: <p>The identifier of the index you want to get information on.</p>
+
+        Raises:
+            aws_sdk_kendra.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action. Please ensure you have the required permission policies and user accounts and try again.</p>
+            aws_sdk_kendra.errors.internal_server_exception.InternalServerException: <p>An issue occurred with the internal server used for your Amazon Kendra service. Please wait a few minutes and try again, or contact <a href=\"http://aws.amazon.com/contact-us/\">Support</a> for help.</p>
+            aws_sdk_kendra.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource you want to use doesn’t exist. Please check you have provided the correct resource and try again.</p>
+            aws_sdk_kendra.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. Please reduce the number of requests and try again.</p>
+            aws_sdk_kendra.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints set by the Amazon Kendra service. Please provide the correct input and try again.</p>
+            aws_sdk_kendra.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1803,6 +2067,14 @@ class AsynckendraClient:
             index_id: <p>The identifier of the index required to check the processing of <code>PUT</code> and <code>DELETE</code> actions for mapping users to their groups.</p>
             data_source_id: <p>The identifier of the data source to check the processing of <code>PUT</code> and <code>DELETE</code> actions for mapping users to their groups.</p>
             group_id: <p>The identifier of the group required to check the processing of <code>PUT</code> and <code>DELETE</code> actions for mapping users to their groups.</p>
+
+        Raises:
+            aws_sdk_kendra.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action. Please ensure you have the required permission policies and user accounts and try again.</p>
+            aws_sdk_kendra.errors.internal_server_exception.InternalServerException: <p>An issue occurred with the internal server used for your Amazon Kendra service. Please wait a few minutes and try again, or contact <a href=\"http://aws.amazon.com/contact-us/\">Support</a> for help.</p>
+            aws_sdk_kendra.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource you want to use doesn’t exist. Please check you have provided the correct resource and try again.</p>
+            aws_sdk_kendra.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. Please reduce the number of requests and try again.</p>
+            aws_sdk_kendra.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints set by the Amazon Kendra service. Please provide the correct input and try again.</p>
+            aws_sdk_kendra.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1846,6 +2118,14 @@ class AsynckendraClient:
         Args:
             index_id: <p>The identifier of the index for the block list.</p>
             id: <p>The identifier of the block list you want to get information on.</p>
+
+        Raises:
+            aws_sdk_kendra.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action. Please ensure you have the required permission policies and user accounts and try again.</p>
+            aws_sdk_kendra.errors.internal_server_exception.InternalServerException: <p>An issue occurred with the internal server used for your Amazon Kendra service. Please wait a few minutes and try again, or contact <a href=\"http://aws.amazon.com/contact-us/\">Support</a> for help.</p>
+            aws_sdk_kendra.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource you want to use doesn’t exist. Please check you have provided the correct resource and try again.</p>
+            aws_sdk_kendra.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. Please reduce the number of requests and try again.</p>
+            aws_sdk_kendra.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints set by the Amazon Kendra service. Please provide the correct input and try again.</p>
+            aws_sdk_kendra.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1885,6 +2165,14 @@ class AsynckendraClient:
 
         Args:
             index_id: <p>The identifier of the index with query suggestions that you want to get information on.</p>
+
+        Raises:
+            aws_sdk_kendra.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action. Please ensure you have the required permission policies and user accounts and try again.</p>
+            aws_sdk_kendra.errors.internal_server_exception.InternalServerException: <p>An issue occurred with the internal server used for your Amazon Kendra service. Please wait a few minutes and try again, or contact <a href=\"http://aws.amazon.com/contact-us/\">Support</a> for help.</p>
+            aws_sdk_kendra.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource you want to use doesn’t exist. Please check you have provided the correct resource and try again.</p>
+            aws_sdk_kendra.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. Please reduce the number of requests and try again.</p>
+            aws_sdk_kendra.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints set by the Amazon Kendra service. Please provide the correct input and try again.</p>
+            aws_sdk_kendra.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1925,6 +2213,14 @@ class AsynckendraClient:
         Args:
             id: <p>The identifier of the thesaurus you want to get information on.</p>
             index_id: <p>The identifier of the index for the thesaurus.</p>
+
+        Raises:
+            aws_sdk_kendra.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action. Please ensure you have the required permission policies and user accounts and try again.</p>
+            aws_sdk_kendra.errors.internal_server_exception.InternalServerException: <p>An issue occurred with the internal server used for your Amazon Kendra service. Please wait a few minutes and try again, or contact <a href=\"http://aws.amazon.com/contact-us/\">Support</a> for help.</p>
+            aws_sdk_kendra.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource you want to use doesn’t exist. Please check you have provided the correct resource and try again.</p>
+            aws_sdk_kendra.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. Please reduce the number of requests and try again.</p>
+            aws_sdk_kendra.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints set by the Amazon Kendra service. Please provide the correct input and try again.</p>
+            aws_sdk_kendra.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1968,6 +2264,14 @@ class AsynckendraClient:
             id: <p>The identifier of your Amazon Kendra experience.</p>
             index_id: <p>The identifier of the index for your Amazon Kendra experience.</p>
             entity_list: <p>Lists users or groups in your IAM Identity Center identity source.</p>
+
+        Raises:
+            aws_sdk_kendra.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action. Please ensure you have the required permission policies and user accounts and try again.</p>
+            aws_sdk_kendra.errors.internal_server_exception.InternalServerException: <p>An issue occurred with the internal server used for your Amazon Kendra service. Please wait a few minutes and try again, or contact <a href=\"http://aws.amazon.com/contact-us/\">Support</a> for help.</p>
+            aws_sdk_kendra.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource you want to use doesn’t exist. Please check you have provided the correct resource and try again.</p>
+            aws_sdk_kendra.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. Please reduce the number of requests and try again.</p>
+            aws_sdk_kendra.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints set by the Amazon Kendra service. Please provide the correct input and try again.</p>
+            aws_sdk_kendra.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2012,6 +2316,14 @@ class AsynckendraClient:
             id: <p>The identifier of your Amazon Kendra experience.</p>
             index_id: <p>The identifier of the index for your Amazon Kendra experience.</p>
             entity_ids: <p>The identifiers of users or groups in your IAM Identity Center identity source. For example, user IDs could be user emails.</p>
+
+        Raises:
+            aws_sdk_kendra.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action. Please ensure you have the required permission policies and user accounts and try again.</p>
+            aws_sdk_kendra.errors.internal_server_exception.InternalServerException: <p>An issue occurred with the internal server used for your Amazon Kendra service. Please wait a few minutes and try again, or contact <a href=\"http://aws.amazon.com/contact-us/\">Support</a> for help.</p>
+            aws_sdk_kendra.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource you want to use doesn’t exist. Please check you have provided the correct resource and try again.</p>
+            aws_sdk_kendra.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. Please reduce the number of requests and try again.</p>
+            aws_sdk_kendra.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints set by the Amazon Kendra service. Please provide the correct input and try again.</p>
+            aws_sdk_kendra.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2064,6 +2376,16 @@ class AsynckendraClient:
             max_suggestions_count: <p>The maximum number of query suggestions you want to show to your users.</p>
             suggestion_types: <p>The suggestions type to base query suggestions on. The suggestion types are query history or document fields/attributes. You can set one type or the other.</p> <p>If you set query history as your suggestions type, Amazon Kendra suggests queries relevant to your users based on popular queries in the query history.</p> <p>If you set document fields/attributes as your suggestions type, Amazon Kendra suggests queries relevant to your users based on the contents of document fields.</p>
             attribute_suggestions_config: <p>Configuration information for the document fields/attributes that you want to base query suggestions on.</p>
+
+        Raises:
+            aws_sdk_kendra.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action. Please ensure you have the required permission policies and user accounts and try again.</p>
+            aws_sdk_kendra.errors.conflict_exception.ConflictException: <p>A conflict occurred with the request. Please fix any inconsistences with your resources and try again.</p>
+            aws_sdk_kendra.errors.internal_server_exception.InternalServerException: <p>An issue occurred with the internal server used for your Amazon Kendra service. Please wait a few minutes and try again, or contact <a href=\"http://aws.amazon.com/contact-us/\">Support</a> for help.</p>
+            aws_sdk_kendra.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource you want to use doesn’t exist. Please check you have provided the correct resource and try again.</p>
+            aws_sdk_kendra.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You have exceeded the set limits for your Amazon Kendra service. Please see <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/quotas.html\">Quotas</a> for more information, or contact <a href=\"http://aws.amazon.com/contact-us/\">Support</a> to inquire about an increase of limits.</p>
+            aws_sdk_kendra.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. Please reduce the number of requests and try again.</p>
+            aws_sdk_kendra.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints set by the Amazon Kendra service. Please provide the correct input and try again.</p>
+            aws_sdk_kendra.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2117,6 +2439,13 @@ class AsynckendraClient:
             metric_type: <p>The metric you want to retrieve. You can specify only one metric per call.</p> <p>For more information about the metrics you can view, see <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/search-analytics.html\">Gaining insights with search analytics</a>.</p>
             next_token: <p>If the previous response was incomplete (because there is more data to retrieve), Amazon Kendra returns a pagination token in the response. You can use this pagination token to retrieve the next set of search metrics data.</p>
             max_results: <p>The maximum number of returned data for the metric.</p>
+
+        Raises:
+            aws_sdk_kendra.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action. Please ensure you have the required permission policies and user accounts and try again.</p>
+            aws_sdk_kendra.errors.internal_server_exception.InternalServerException: <p>An issue occurred with the internal server used for your Amazon Kendra service. Please wait a few minutes and try again, or contact <a href=\"http://aws.amazon.com/contact-us/\">Support</a> for help.</p>
+            aws_sdk_kendra.errors.invalid_request_exception.InvalidRequestException: <p>The input to the request is not valid. Please provide the correct input and try again.</p>
+            aws_sdk_kendra.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource you want to use doesn’t exist. Please check you have provided the correct resource and try again.</p>
+            aws_sdk_kendra.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2167,6 +2496,14 @@ class AsynckendraClient:
             index_id: <p>The identifier of the index for the access control configuration.</p>
             next_token: <p>If the previous response was incomplete (because there's more data to retrieve), Amazon Kendra returns a pagination token in the response. You can use this pagination token to retrieve the next set of access control configurations.</p>
             max_results: <p>The maximum number of access control configurations to return.</p>
+
+        Raises:
+            aws_sdk_kendra.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action. Please ensure you have the required permission policies and user accounts and try again.</p>
+            aws_sdk_kendra.errors.internal_server_exception.InternalServerException: <p>An issue occurred with the internal server used for your Amazon Kendra service. Please wait a few minutes and try again, or contact <a href=\"http://aws.amazon.com/contact-us/\">Support</a> for help.</p>
+            aws_sdk_kendra.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource you want to use doesn’t exist. Please check you have provided the correct resource and try again.</p>
+            aws_sdk_kendra.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. Please reduce the number of requests and try again.</p>
+            aws_sdk_kendra.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints set by the Amazon Kendra service. Please provide the correct input and try again.</p>
+            aws_sdk_kendra.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2215,6 +2552,14 @@ class AsynckendraClient:
             index_id: <p>The identifier of the index used with one or more data source connectors.</p>
             next_token: <p>If the previous response was incomplete (because there is more data to retrieve), Amazon Kendra returns a pagination token in the response. You can use this pagination token to retrieve the next set of data source connectors. </p>
             max_results: <p>The maximum number of data source connectors to return.</p>
+
+        Raises:
+            aws_sdk_kendra.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action. Please ensure you have the required permission policies and user accounts and try again.</p>
+            aws_sdk_kendra.errors.internal_server_exception.InternalServerException: <p>An issue occurred with the internal server used for your Amazon Kendra service. Please wait a few minutes and try again, or contact <a href=\"http://aws.amazon.com/contact-us/\">Support</a> for help.</p>
+            aws_sdk_kendra.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource you want to use doesn’t exist. Please check you have provided the correct resource and try again.</p>
+            aws_sdk_kendra.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. Please reduce the number of requests and try again.</p>
+            aws_sdk_kendra.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints set by the Amazon Kendra service. Please provide the correct input and try again.</p>
+            aws_sdk_kendra.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2271,6 +2616,15 @@ class AsynckendraClient:
             max_results: <p>The maximum number of synchronization jobs to return in the response. If there are fewer results in the list, this response contains only the actual results.</p>
             start_time_filter: <p>When specified, the synchronization jobs returned in the list are limited to jobs between the specified dates.</p>
             status_filter: <p>Only returns synchronization jobs with the <code>Status</code> field equal to the specified status.</p>
+
+        Raises:
+            aws_sdk_kendra.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action. Please ensure you have the required permission policies and user accounts and try again.</p>
+            aws_sdk_kendra.errors.conflict_exception.ConflictException: <p>A conflict occurred with the request. Please fix any inconsistences with your resources and try again.</p>
+            aws_sdk_kendra.errors.internal_server_exception.InternalServerException: <p>An issue occurred with the internal server used for your Amazon Kendra service. Please wait a few minutes and try again, or contact <a href=\"http://aws.amazon.com/contact-us/\">Support</a> for help.</p>
+            aws_sdk_kendra.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource you want to use doesn’t exist. Please check you have provided the correct resource and try again.</p>
+            aws_sdk_kendra.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. Please reduce the number of requests and try again.</p>
+            aws_sdk_kendra.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints set by the Amazon Kendra service. Please provide the correct input and try again.</p>
+            aws_sdk_kendra.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2328,6 +2682,14 @@ class AsynckendraClient:
             index_id: <p>The identifier of the index for your Amazon Kendra experience.</p>
             next_token: <p>If the previous response was incomplete (because there is more data to retrieve), Amazon Kendra returns a pagination token in the response. You can use this pagination token to retrieve the next set of users or groups.</p>
             max_results: <p>The maximum number of returned users or groups.</p>
+
+        Raises:
+            aws_sdk_kendra.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action. Please ensure you have the required permission policies and user accounts and try again.</p>
+            aws_sdk_kendra.errors.internal_server_exception.InternalServerException: <p>An issue occurred with the internal server used for your Amazon Kendra service. Please wait a few minutes and try again, or contact <a href=\"http://aws.amazon.com/contact-us/\">Support</a> for help.</p>
+            aws_sdk_kendra.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource you want to use doesn’t exist. Please check you have provided the correct resource and try again.</p>
+            aws_sdk_kendra.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. Please reduce the number of requests and try again.</p>
+            aws_sdk_kendra.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints set by the Amazon Kendra service. Please provide the correct input and try again.</p>
+            aws_sdk_kendra.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2375,6 +2737,14 @@ class AsynckendraClient:
             id: <p>The identifier of your Amazon Kendra experience.</p>
             index_id: <p>The identifier of the index for your Amazon Kendra experience.</p>
             next_token: <p>If the previous response was incomplete (because there is more data to retrieve), Amazon Kendra returns a pagination token in the response. You can use this pagination token to retrieve the next set of users or groups.</p>
+
+        Raises:
+            aws_sdk_kendra.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action. Please ensure you have the required permission policies and user accounts and try again.</p>
+            aws_sdk_kendra.errors.internal_server_exception.InternalServerException: <p>An issue occurred with the internal server used for your Amazon Kendra service. Please wait a few minutes and try again, or contact <a href=\"http://aws.amazon.com/contact-us/\">Support</a> for help.</p>
+            aws_sdk_kendra.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource you want to use doesn’t exist. Please check you have provided the correct resource and try again.</p>
+            aws_sdk_kendra.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. Please reduce the number of requests and try again.</p>
+            aws_sdk_kendra.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints set by the Amazon Kendra service. Please provide the correct input and try again.</p>
+            aws_sdk_kendra.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2422,6 +2792,14 @@ class AsynckendraClient:
             index_id: <p>The identifier of the index for your Amazon Kendra experience.</p>
             next_token: <p>If the previous response was incomplete (because there is more data to retrieve), Amazon Kendra returns a pagination token in the response. You can use this pagination token to retrieve the next set of Amazon Kendra experiences.</p>
             max_results: <p>The maximum number of returned Amazon Kendra experiences.</p>
+
+        Raises:
+            aws_sdk_kendra.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action. Please ensure you have the required permission policies and user accounts and try again.</p>
+            aws_sdk_kendra.errors.internal_server_exception.InternalServerException: <p>An issue occurred with the internal server used for your Amazon Kendra service. Please wait a few minutes and try again, or contact <a href=\"http://aws.amazon.com/contact-us/\">Support</a> for help.</p>
+            aws_sdk_kendra.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource you want to use doesn’t exist. Please check you have provided the correct resource and try again.</p>
+            aws_sdk_kendra.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. Please reduce the number of requests and try again.</p>
+            aws_sdk_kendra.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints set by the Amazon Kendra service. Please provide the correct input and try again.</p>
+            aws_sdk_kendra.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2470,6 +2848,14 @@ class AsynckendraClient:
             index_id: <p>The index for the FAQs.</p>
             next_token: <p>If the previous response was incomplete (because there is more data to retrieve), Amazon Kendra returns a pagination token in the response. You can use this pagination token to retrieve the next set of FAQs.</p>
             max_results: <p>The maximum number of FAQs to return in the response. If there are fewer results in the list, this response contains only the actual results.</p>
+
+        Raises:
+            aws_sdk_kendra.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action. Please ensure you have the required permission policies and user accounts and try again.</p>
+            aws_sdk_kendra.errors.internal_server_exception.InternalServerException: <p>An issue occurred with the internal server used for your Amazon Kendra service. Please wait a few minutes and try again, or contact <a href=\"http://aws.amazon.com/contact-us/\">Support</a> for help.</p>
+            aws_sdk_kendra.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource you want to use doesn’t exist. Please check you have provided the correct resource and try again.</p>
+            aws_sdk_kendra.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. Please reduce the number of requests and try again.</p>
+            aws_sdk_kendra.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints set by the Amazon Kendra service. Please provide the correct input and try again.</p>
+            aws_sdk_kendra.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2518,6 +2904,14 @@ class AsynckendraClient:
             index_id: <p>The identifier of the index used for featuring results.</p>
             next_token: <p>If the response is truncated, Amazon Kendra returns a pagination token in the response. You can use this pagination token to retrieve the next set of featured results sets.</p>
             max_results: <p>The maximum number of featured results sets to return.</p>
+
+        Raises:
+            aws_sdk_kendra.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action. Please ensure you have the required permission policies and user accounts and try again.</p>
+            aws_sdk_kendra.errors.internal_server_exception.InternalServerException: <p>An issue occurred with the internal server used for your Amazon Kendra service. Please wait a few minutes and try again, or contact <a href=\"http://aws.amazon.com/contact-us/\">Support</a> for help.</p>
+            aws_sdk_kendra.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource you want to use doesn’t exist. Please check you have provided the correct resource and try again.</p>
+            aws_sdk_kendra.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. Please reduce the number of requests and try again.</p>
+            aws_sdk_kendra.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints set by the Amazon Kendra service. Please provide the correct input and try again.</p>
+            aws_sdk_kendra.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2572,6 +2966,15 @@ class AsynckendraClient:
             ordering_id: <p>The timestamp identifier used for the latest <code>PUT</code> or <code>DELETE</code> action for mapping users to their groups.</p>
             next_token: <p> If the previous response was incomplete (because there is more data to retrieve), Amazon Kendra returns a pagination token in the response. You can use this pagination token to retrieve the next set of groups that are mapped to users before a given ordering or timestamp identifier. </p>
             max_results: <p> The maximum number of returned groups that are mapped to users before a given ordering or timestamp identifier. </p>
+
+        Raises:
+            aws_sdk_kendra.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action. Please ensure you have the required permission policies and user accounts and try again.</p>
+            aws_sdk_kendra.errors.conflict_exception.ConflictException: <p>A conflict occurred with the request. Please fix any inconsistences with your resources and try again.</p>
+            aws_sdk_kendra.errors.internal_server_exception.InternalServerException: <p>An issue occurred with the internal server used for your Amazon Kendra service. Please wait a few minutes and try again, or contact <a href=\"http://aws.amazon.com/contact-us/\">Support</a> for help.</p>
+            aws_sdk_kendra.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource you want to use doesn’t exist. Please check you have provided the correct resource and try again.</p>
+            aws_sdk_kendra.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. Please reduce the number of requests and try again.</p>
+            aws_sdk_kendra.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints set by the Amazon Kendra service. Please provide the correct input and try again.</p>
+            aws_sdk_kendra.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2621,6 +3024,13 @@ class AsynckendraClient:
         Args:
             next_token: <p>If the previous response was incomplete (because there is more data to retrieve), Amazon Kendra returns a pagination token in the response. You can use this pagination token to retrieve the next set of indexes. </p>
             max_results: <p>The maximum number of indices to return.</p>
+
+        Raises:
+            aws_sdk_kendra.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action. Please ensure you have the required permission policies and user accounts and try again.</p>
+            aws_sdk_kendra.errors.internal_server_exception.InternalServerException: <p>An issue occurred with the internal server used for your Amazon Kendra service. Please wait a few minutes and try again, or contact <a href=\"http://aws.amazon.com/contact-us/\">Support</a> for help.</p>
+            aws_sdk_kendra.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. Please reduce the number of requests and try again.</p>
+            aws_sdk_kendra.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints set by the Amazon Kendra service. Please provide the correct input and try again.</p>
+            aws_sdk_kendra.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2668,6 +3078,14 @@ class AsynckendraClient:
             index_id: <p>The identifier of the index for a list of all block lists that exist for that index.</p> <p>For information on the current quota limits for block lists, see <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/quotas.html\">Quotas for Amazon Kendra</a>.</p>
             next_token: <p>If the previous response was incomplete (because there is more data to retrieve), Amazon Kendra returns a pagination token in the response. You can use this pagination token to retrieve the next set of block lists (<code>BlockListSummaryItems</code>).</p>
             max_results: <p>The maximum number of block lists to return.</p>
+
+        Raises:
+            aws_sdk_kendra.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action. Please ensure you have the required permission policies and user accounts and try again.</p>
+            aws_sdk_kendra.errors.internal_server_exception.InternalServerException: <p>An issue occurred with the internal server used for your Amazon Kendra service. Please wait a few minutes and try again, or contact <a href=\"http://aws.amazon.com/contact-us/\">Support</a> for help.</p>
+            aws_sdk_kendra.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource you want to use doesn’t exist. Please check you have provided the correct resource and try again.</p>
+            aws_sdk_kendra.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. Please reduce the number of requests and try again.</p>
+            aws_sdk_kendra.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints set by the Amazon Kendra service. Please provide the correct input and try again.</p>
+            aws_sdk_kendra.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2710,6 +3128,14 @@ class AsynckendraClient:
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the index, FAQ, data source, or other resource to get a list of tags for. For example, the ARN of an index is constructed as follows: <i>arn:aws:kendra:your-region:your-account-id:index/index-id</i> For information on how to construct an ARN for all types of Amazon Kendra resources, see <a href=\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonkendra.html#amazonkendra-resources-for-iam-policies\">Resource types</a>.</p>
+
+        Raises:
+            aws_sdk_kendra.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action. Please ensure you have the required permission policies and user accounts and try again.</p>
+            aws_sdk_kendra.errors.internal_server_exception.InternalServerException: <p>An issue occurred with the internal server used for your Amazon Kendra service. Please wait a few minutes and try again, or contact <a href=\"http://aws.amazon.com/contact-us/\">Support</a> for help.</p>
+            aws_sdk_kendra.errors.resource_unavailable_exception.ResourceUnavailableException: <p>The resource you want to use isn't available. Please check you have provided the correct resource and try again.</p>
+            aws_sdk_kendra.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. Please reduce the number of requests and try again.</p>
+            aws_sdk_kendra.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints set by the Amazon Kendra service. Please provide the correct input and try again.</p>
+            aws_sdk_kendra.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2754,6 +3180,14 @@ class AsynckendraClient:
             index_id: <p>The identifier of the index with one or more thesauri.</p>
             next_token: <p>If the previous response was incomplete (because there is more data to retrieve), Amazon Kendra returns a pagination token in the response. You can use this pagination token to retrieve the next set of thesauri (<code>ThesaurusSummaryItems</code>). </p>
             max_results: <p>The maximum number of thesauri to return.</p>
+
+        Raises:
+            aws_sdk_kendra.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action. Please ensure you have the required permission policies and user accounts and try again.</p>
+            aws_sdk_kendra.errors.internal_server_exception.InternalServerException: <p>An issue occurred with the internal server used for your Amazon Kendra service. Please wait a few minutes and try again, or contact <a href=\"http://aws.amazon.com/contact-us/\">Support</a> for help.</p>
+            aws_sdk_kendra.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource you want to use doesn’t exist. Please check you have provided the correct resource and try again.</p>
+            aws_sdk_kendra.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. Please reduce the number of requests and try again.</p>
+            aws_sdk_kendra.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints set by the Amazon Kendra service. Please provide the correct input and try again.</p>
+            aws_sdk_kendra.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2810,6 +3244,16 @@ class AsynckendraClient:
             group_members: <p>The list that contains your users that belong the same group. This can include sub groups that belong to a group.</p> <p>For example, the group \"Company A\" includes the user \"CEO\" and the sub groups \"Research\", \"Engineering\", and \"Sales and Marketing\".</p> <p>If you have more than 1000 users and/or sub groups for a single group, you need to provide the path to the S3 file that lists your users and sub groups for a group. Your sub groups can contain more than 1000 users, but the list of sub groups that belong to a group (and/or users) must be no more than 1000.</p>
             ordering_id: <p>The timestamp identifier you specify to ensure Amazon Kendra doesn't override the latest <code>PUT</code> action with previous actions. The highest number ID, which is the ordering ID, is the latest action you want to process and apply on top of other actions with lower number IDs. This prevents previous actions with lower number IDs from possibly overriding the latest action.</p> <p>The ordering ID can be the Unix time of the last update you made to a group members list. You would then provide this list when calling <code>PutPrincipalMapping</code>. This ensures your <code>PUT</code> action for that updated group with the latest members list doesn't get overwritten by earlier <code>PUT</code> actions for the same group which are yet to be processed.</p> <p>The default ordering ID is the current Unix time in milliseconds that the action was received by Amazon Kendra.</p>
             role_arn: <p>The Amazon Resource Name (ARN) of an IAM role that has access to the S3 file that contains your list of users that belong to a group.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html#iam-roles-ds\">IAM roles for Amazon Kendra</a>.</p>
+
+        Raises:
+            aws_sdk_kendra.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action. Please ensure you have the required permission policies and user accounts and try again.</p>
+            aws_sdk_kendra.errors.conflict_exception.ConflictException: <p>A conflict occurred with the request. Please fix any inconsistences with your resources and try again.</p>
+            aws_sdk_kendra.errors.internal_server_exception.InternalServerException: <p>An issue occurred with the internal server used for your Amazon Kendra service. Please wait a few minutes and try again, or contact <a href=\"http://aws.amazon.com/contact-us/\">Support</a> for help.</p>
+            aws_sdk_kendra.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource you want to use doesn’t exist. Please check you have provided the correct resource and try again.</p>
+            aws_sdk_kendra.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You have exceeded the set limits for your Amazon Kendra service. Please see <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/quotas.html\">Quotas</a> for more information, or contact <a href=\"http://aws.amazon.com/contact-us/\">Support</a> to inquire about an increase of limits.</p>
+            aws_sdk_kendra.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. Please reduce the number of requests and try again.</p>
+            aws_sdk_kendra.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints set by the Amazon Kendra service. Please provide the correct input and try again.</p>
+            aws_sdk_kendra.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2898,6 +3342,16 @@ class AsynckendraClient:
             visitor_id: <p>Provides an identifier for a specific user. The <code>VisitorId</code> should be a unique identifier, such as a GUID. Don't use personally identifiable information, such as the user's email address, as the <code>VisitorId</code>.</p>
             spell_correction_configuration: <p>Enables suggested spell corrections for queries.</p>
             collapse_configuration: <p>Provides configuration to determine how to group results by document attribute value, and how to display them (collapsed or expanded) under a designated primary document for each group.</p>
+
+        Raises:
+            aws_sdk_kendra.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action. Please ensure you have the required permission policies and user accounts and try again.</p>
+            aws_sdk_kendra.errors.conflict_exception.ConflictException: <p>A conflict occurred with the request. Please fix any inconsistences with your resources and try again.</p>
+            aws_sdk_kendra.errors.internal_server_exception.InternalServerException: <p>An issue occurred with the internal server used for your Amazon Kendra service. Please wait a few minutes and try again, or contact <a href=\"http://aws.amazon.com/contact-us/\">Support</a> for help.</p>
+            aws_sdk_kendra.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource you want to use doesn’t exist. Please check you have provided the correct resource and try again.</p>
+            aws_sdk_kendra.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You have exceeded the set limits for your Amazon Kendra service. Please see <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/quotas.html\">Quotas</a> for more information, or contact <a href=\"http://aws.amazon.com/contact-us/\">Support</a> to inquire about an increase of limits.</p>
+            aws_sdk_kendra.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. Please reduce the number of requests and try again.</p>
+            aws_sdk_kendra.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints set by the Amazon Kendra service. Please provide the correct input and try again.</p>
+            aws_sdk_kendra.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2984,6 +3438,16 @@ class AsynckendraClient:
             page_number: <p>Retrieved relevant passages are returned in pages the size of the <code>PageSize</code> parameter. By default, Amazon Kendra returns the first page of results. Use this parameter to get result pages after the first one.</p>
             page_size: <p>Sets the number of retrieved relevant passages that are returned in each page of results. The default page size is 10. The maximum number of results returned is 100. If you ask for more than 100 results, only 100 are returned.</p>
             user_context: <p>The user context token or user and group information.</p>
+
+        Raises:
+            aws_sdk_kendra.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action. Please ensure you have the required permission policies and user accounts and try again.</p>
+            aws_sdk_kendra.errors.conflict_exception.ConflictException: <p>A conflict occurred with the request. Please fix any inconsistences with your resources and try again.</p>
+            aws_sdk_kendra.errors.internal_server_exception.InternalServerException: <p>An issue occurred with the internal server used for your Amazon Kendra service. Please wait a few minutes and try again, or contact <a href=\"http://aws.amazon.com/contact-us/\">Support</a> for help.</p>
+            aws_sdk_kendra.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource you want to use doesn’t exist. Please check you have provided the correct resource and try again.</p>
+            aws_sdk_kendra.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You have exceeded the set limits for your Amazon Kendra service. Please see <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/quotas.html\">Quotas</a> for more information, or contact <a href=\"http://aws.amazon.com/contact-us/\">Support</a> to inquire about an increase of limits.</p>
+            aws_sdk_kendra.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. Please reduce the number of requests and try again.</p>
+            aws_sdk_kendra.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints set by the Amazon Kendra service. Please provide the correct input and try again.</p>
+            aws_sdk_kendra.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3039,6 +3503,16 @@ class AsynckendraClient:
         Args:
             id: <p>The identifier of the data source connector to synchronize.</p>
             index_id: <p>The identifier of the index used with the data source connector.</p>
+
+        Raises:
+            aws_sdk_kendra.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action. Please ensure you have the required permission policies and user accounts and try again.</p>
+            aws_sdk_kendra.errors.conflict_exception.ConflictException: <p>A conflict occurred with the request. Please fix any inconsistences with your resources and try again.</p>
+            aws_sdk_kendra.errors.internal_server_exception.InternalServerException: <p>An issue occurred with the internal server used for your Amazon Kendra service. Please wait a few minutes and try again, or contact <a href=\"http://aws.amazon.com/contact-us/\">Support</a> for help.</p>
+            aws_sdk_kendra.errors.resource_in_use_exception.ResourceInUseException: <p>The resource you want to use is currently in use. Please check you have provided the correct resource and try again.</p>
+            aws_sdk_kendra.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource you want to use doesn’t exist. Please check you have provided the correct resource and try again.</p>
+            aws_sdk_kendra.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. Please reduce the number of requests and try again.</p>
+            aws_sdk_kendra.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints set by the Amazon Kendra service. Please provide the correct input and try again.</p>
+            aws_sdk_kendra.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3080,6 +3554,14 @@ class AsynckendraClient:
         Args:
             id: <p>The identifier of the data source connector for which to stop the synchronization jobs.</p>
             index_id: <p>The identifier of the index used with the data source connector.</p>
+
+        Raises:
+            aws_sdk_kendra.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action. Please ensure you have the required permission policies and user accounts and try again.</p>
+            aws_sdk_kendra.errors.internal_server_exception.InternalServerException: <p>An issue occurred with the internal server used for your Amazon Kendra service. Please wait a few minutes and try again, or contact <a href=\"http://aws.amazon.com/contact-us/\">Support</a> for help.</p>
+            aws_sdk_kendra.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource you want to use doesn’t exist. Please check you have provided the correct resource and try again.</p>
+            aws_sdk_kendra.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. Please reduce the number of requests and try again.</p>
+            aws_sdk_kendra.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints set by the Amazon Kendra service. Please provide the correct input and try again.</p>
+            aws_sdk_kendra.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3127,6 +3609,15 @@ class AsynckendraClient:
             query_id: <p>The identifier of the specific query for which you are submitting feedback. The query ID is returned in the response to the <code>Query</code> API.</p>
             click_feedback_items: <p>Tells Amazon Kendra that a particular search result link was chosen by the user. </p>
             relevance_feedback_items: <p>Provides Amazon Kendra with relevant or not relevant feedback for whether a particular item was relevant to the search.</p>
+
+        Raises:
+            aws_sdk_kendra.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action. Please ensure you have the required permission policies and user accounts and try again.</p>
+            aws_sdk_kendra.errors.internal_server_exception.InternalServerException: <p>An issue occurred with the internal server used for your Amazon Kendra service. Please wait a few minutes and try again, or contact <a href=\"http://aws.amazon.com/contact-us/\">Support</a> for help.</p>
+            aws_sdk_kendra.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource you want to use doesn’t exist. Please check you have provided the correct resource and try again.</p>
+            aws_sdk_kendra.errors.resource_unavailable_exception.ResourceUnavailableException: <p>The resource you want to use isn't available. Please check you have provided the correct resource and try again.</p>
+            aws_sdk_kendra.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. Please reduce the number of requests and try again.</p>
+            aws_sdk_kendra.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints set by the Amazon Kendra service. Please provide the correct input and try again.</p>
+            aws_sdk_kendra.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3170,6 +3661,14 @@ class AsynckendraClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the index, FAQ, data source, or other resource to add a tag. For example, the ARN of an index is constructed as follows: <i>arn:aws:kendra:your-region:your-account-id:index/index-id</i> For information on how to construct an ARN for all types of Amazon Kendra resources, see <a href=\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonkendra.html#amazonkendra-resources-for-iam-policies\">Resource types</a>.</p>
             tags: <p>A list of tag keys to add to the index, FAQ, data source, or other resource. If a tag already exists, the existing value is replaced with the new value.</p>
+
+        Raises:
+            aws_sdk_kendra.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action. Please ensure you have the required permission policies and user accounts and try again.</p>
+            aws_sdk_kendra.errors.internal_server_exception.InternalServerException: <p>An issue occurred with the internal server used for your Amazon Kendra service. Please wait a few minutes and try again, or contact <a href=\"http://aws.amazon.com/contact-us/\">Support</a> for help.</p>
+            aws_sdk_kendra.errors.resource_unavailable_exception.ResourceUnavailableException: <p>The resource you want to use isn't available. Please check you have provided the correct resource and try again.</p>
+            aws_sdk_kendra.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. Please reduce the number of requests and try again.</p>
+            aws_sdk_kendra.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints set by the Amazon Kendra service. Please provide the correct input and try again.</p>
+            aws_sdk_kendra.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3211,6 +3710,14 @@ class AsynckendraClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the index, FAQ, data source, or other resource to remove a tag. For example, the ARN of an index is constructed as follows: <i>arn:aws:kendra:your-region:your-account-id:index/index-id</i> For information on how to construct an ARN for all types of Amazon Kendra resources, see <a href=\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonkendra.html#amazonkendra-resources-for-iam-policies\">Resource types</a>.</p>
             tag_keys: <p>A list of tag keys to remove from the index, FAQ, data source, or other resource. If a tag key doesn't exist for the resource, it is ignored.</p>
+
+        Raises:
+            aws_sdk_kendra.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action. Please ensure you have the required permission policies and user accounts and try again.</p>
+            aws_sdk_kendra.errors.internal_server_exception.InternalServerException: <p>An issue occurred with the internal server used for your Amazon Kendra service. Please wait a few minutes and try again, or contact <a href=\"http://aws.amazon.com/contact-us/\">Support</a> for help.</p>
+            aws_sdk_kendra.errors.resource_unavailable_exception.ResourceUnavailableException: <p>The resource you want to use isn't available. Please check you have provided the correct resource and try again.</p>
+            aws_sdk_kendra.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. Please reduce the number of requests and try again.</p>
+            aws_sdk_kendra.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints set by the Amazon Kendra service. Please provide the correct input and try again.</p>
+            aws_sdk_kendra.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3266,6 +3773,16 @@ class AsynckendraClient:
             description: <p>A new description for the access control configuration.</p>
             access_control_list: <p>Information you want to update on principals (users and/or groups) and which documents they should have access to. This is useful for user context filtering, where search results are filtered based on the user or their group access to documents.</p>
             hierarchical_access_control_list: <p>The updated list of <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/API_Principal.html\">principal</a> lists that define the hierarchy for which documents users should have access to.</p>
+
+        Raises:
+            aws_sdk_kendra.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action. Please ensure you have the required permission policies and user accounts and try again.</p>
+            aws_sdk_kendra.errors.conflict_exception.ConflictException: <p>A conflict occurred with the request. Please fix any inconsistences with your resources and try again.</p>
+            aws_sdk_kendra.errors.internal_server_exception.InternalServerException: <p>An issue occurred with the internal server used for your Amazon Kendra service. Please wait a few minutes and try again, or contact <a href=\"http://aws.amazon.com/contact-us/\">Support</a> for help.</p>
+            aws_sdk_kendra.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource you want to use doesn’t exist. Please check you have provided the correct resource and try again.</p>
+            aws_sdk_kendra.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You have exceeded the set limits for your Amazon Kendra service. Please see <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/quotas.html\">Quotas</a> for more information, or contact <a href=\"http://aws.amazon.com/contact-us/\">Support</a> to inquire about an increase of limits.</p>
+            aws_sdk_kendra.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. Please reduce the number of requests and try again.</p>
+            aws_sdk_kendra.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints set by the Amazon Kendra service. Please provide the correct input and try again.</p>
+            aws_sdk_kendra.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3341,6 +3858,15 @@ class AsynckendraClient:
             role_arn: <p>The Amazon Resource Name (ARN) of an IAM role with permission to access the data source and required resources. For more information, see <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html\">IAM roles for Amazon Kendra</a>.</p>
             language_code: <p>The code for a language you want to update for the data source connector. This allows you to support a language for all documents when updating the data source. English is supported by default. For more information on supported languages, including their codes, see <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html\">Adding documents in languages other than English</a>.</p>
             custom_document_enrichment_configuration: <p>Configuration information you want to update for altering document metadata and content during the document ingestion process.</p> <p>For more information on how to create, modify and delete document metadata, or make other content alterations when you ingest documents into Amazon Kendra, see <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html\">Customizing document metadata during the ingestion process</a>.</p>
+
+        Raises:
+            aws_sdk_kendra.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action. Please ensure you have the required permission policies and user accounts and try again.</p>
+            aws_sdk_kendra.errors.conflict_exception.ConflictException: <p>A conflict occurred with the request. Please fix any inconsistences with your resources and try again.</p>
+            aws_sdk_kendra.errors.internal_server_exception.InternalServerException: <p>An issue occurred with the internal server used for your Amazon Kendra service. Please wait a few minutes and try again, or contact <a href=\"http://aws.amazon.com/contact-us/\">Support</a> for help.</p>
+            aws_sdk_kendra.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource you want to use doesn’t exist. Please check you have provided the correct resource and try again.</p>
+            aws_sdk_kendra.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. Please reduce the number of requests and try again.</p>
+            aws_sdk_kendra.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints set by the Amazon Kendra service. Please provide the correct input and try again.</p>
+            aws_sdk_kendra.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3408,6 +3934,15 @@ class AsynckendraClient:
             role_arn: <p>The Amazon Resource Name (ARN) of an IAM role with permission to access the <code>Query</code> API, <code>QuerySuggestions</code> API, <code>SubmitFeedback</code> API, and IAM Identity Center that stores your users and groups information. For more information, see <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html\">IAM roles for Amazon Kendra</a>.</p>
             configuration: <p>Configuration information you want to update for your Amazon Kendra experience.</p>
             description: <p>A new description for your Amazon Kendra experience.</p>
+
+        Raises:
+            aws_sdk_kendra.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action. Please ensure you have the required permission policies and user accounts and try again.</p>
+            aws_sdk_kendra.errors.conflict_exception.ConflictException: <p>A conflict occurred with the request. Please fix any inconsistences with your resources and try again.</p>
+            aws_sdk_kendra.errors.internal_server_exception.InternalServerException: <p>An issue occurred with the internal server used for your Amazon Kendra service. Please wait a few minutes and try again, or contact <a href=\"http://aws.amazon.com/contact-us/\">Support</a> for help.</p>
+            aws_sdk_kendra.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource you want to use doesn’t exist. Please check you have provided the correct resource and try again.</p>
+            aws_sdk_kendra.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. Please reduce the number of requests and try again.</p>
+            aws_sdk_kendra.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints set by the Amazon Kendra service. Please provide the correct input and try again.</p>
+            aws_sdk_kendra.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3475,6 +4010,15 @@ class AsynckendraClient:
             status: <p>You can set the status to <code>ACTIVE</code> or <code>INACTIVE</code>. When the value is <code>ACTIVE</code>, featured results are ready for use. You can still configure your settings before setting the status to <code>ACTIVE</code>. The queries you specify for featured results must be unique per featured results set for each index, whether the status is <code>ACTIVE</code> or <code>INACTIVE</code>.</p>
             query_texts: <p>A list of queries for featuring results. For more information on the list of queries, see <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/API_FeaturedResultsSet.html\">FeaturedResultsSet</a>.</p>
             featured_documents: <p>A list of document IDs for the documents you want to feature at the top of the search results page. For more information on the list of featured documents, see <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/API_FeaturedResultsSet.html\">FeaturedResultsSet</a>.</p>
+
+        Raises:
+            aws_sdk_kendra.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action. Please ensure you have the required permission policies and user accounts and try again.</p>
+            aws_sdk_kendra.errors.featured_results_conflict_exception.FeaturedResultsConflictException: <p>An error message with a list of conflicting queries used across different sets of featured results. This occurred with the request for a new featured results set. Check that the queries you specified for featured results are unique per featured results set for each index.</p>
+            aws_sdk_kendra.errors.internal_server_exception.InternalServerException: <p>An issue occurred with the internal server used for your Amazon Kendra service. Please wait a few minutes and try again, or contact <a href=\"http://aws.amazon.com/contact-us/\">Support</a> for help.</p>
+            aws_sdk_kendra.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource you want to use doesn’t exist. Please check you have provided the correct resource and try again.</p>
+            aws_sdk_kendra.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. Please reduce the number of requests and try again.</p>
+            aws_sdk_kendra.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints set by the Amazon Kendra service. Please provide the correct input and try again.</p>
+            aws_sdk_kendra.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3550,6 +4094,16 @@ class AsynckendraClient:
             user_token_configurations: <p>The user token configuration.</p> <important> <p>If you're using an Amazon Kendra Gen AI Enterprise Edition index and you try to use <code>UserTokenConfigurations</code> to configure user context policy, Amazon Kendra returns a <code>ValidationException</code> error.</p> </important>
             user_context_policy: <p>The user context policy.</p> <important> <p>If you're using an Amazon Kendra Gen AI Enterprise Edition index, you can only use <code>ATTRIBUTE_FILTER</code> to filter search results by user context. If you're using an Amazon Kendra Gen AI Enterprise Edition index and you try to use <code>USER_TOKEN</code> to configure user context policy, Amazon Kendra returns a <code>ValidationException</code> error.</p> </important>
             user_group_resolution_configuration: <p>Gets users and groups from IAM Identity Center identity source. To configure this, see <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/API_UserGroupResolutionConfiguration.html\">UserGroupResolutionConfiguration</a>. This is useful for user context filtering, where search results are filtered based on the user or their group access to documents.</p> <important> <p>If you're using an Amazon Kendra Gen AI Enterprise Edition index, <code>UserGroupResolutionConfiguration</code> isn't supported.</p> </important>
+
+        Raises:
+            aws_sdk_kendra.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action. Please ensure you have the required permission policies and user accounts and try again.</p>
+            aws_sdk_kendra.errors.conflict_exception.ConflictException: <p>A conflict occurred with the request. Please fix any inconsistences with your resources and try again.</p>
+            aws_sdk_kendra.errors.internal_server_exception.InternalServerException: <p>An issue occurred with the internal server used for your Amazon Kendra service. Please wait a few minutes and try again, or contact <a href=\"http://aws.amazon.com/contact-us/\">Support</a> for help.</p>
+            aws_sdk_kendra.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource you want to use doesn’t exist. Please check you have provided the correct resource and try again.</p>
+            aws_sdk_kendra.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You have exceeded the set limits for your Amazon Kendra service. Please see <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/quotas.html\">Quotas</a> for more information, or contact <a href=\"http://aws.amazon.com/contact-us/\">Support</a> to inquire about an increase of limits.</p>
+            aws_sdk_kendra.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. Please reduce the number of requests and try again.</p>
+            aws_sdk_kendra.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints set by the Amazon Kendra service. Please provide the correct input and try again.</p>
+            aws_sdk_kendra.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3618,6 +4172,15 @@ class AsynckendraClient:
             description: <p>A new description for the block list.</p>
             source_s3_path: <p>The S3 path where your block list text file sits in S3.</p> <p>If you update your block list and provide the same path to the block list text file in S3, then Amazon Kendra reloads the file to refresh the block list. Amazon Kendra does not automatically refresh your block list. You need to call the <code>UpdateQuerySuggestionsBlockList</code> API to refresh you block list.</p> <p>If you update your block list, then Amazon Kendra asynchronously refreshes all query suggestions with the latest content in the S3 file. This means changes might not take effect immediately.</p>
             role_arn: <p>The IAM (Identity and Access Management) role used to access the block list text file in S3.</p>
+
+        Raises:
+            aws_sdk_kendra.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action. Please ensure you have the required permission policies and user accounts and try again.</p>
+            aws_sdk_kendra.errors.conflict_exception.ConflictException: <p>A conflict occurred with the request. Please fix any inconsistences with your resources and try again.</p>
+            aws_sdk_kendra.errors.internal_server_exception.InternalServerException: <p>An issue occurred with the internal server used for your Amazon Kendra service. Please wait a few minutes and try again, or contact <a href=\"http://aws.amazon.com/contact-us/\">Support</a> for help.</p>
+            aws_sdk_kendra.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource you want to use doesn’t exist. Please check you have provided the correct resource and try again.</p>
+            aws_sdk_kendra.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. Please reduce the number of requests and try again.</p>
+            aws_sdk_kendra.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints set by the Amazon Kendra service. Please provide the correct input and try again.</p>
+            aws_sdk_kendra.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3685,6 +4248,15 @@ class AsynckendraClient:
             minimum_number_of_querying_users: <p>The minimum number of unique users who must search a query in order for the query to be eligible to suggest to your users.</p> <p>Increasing this number might decrease the number of suggestions. However, this ensures a query is searched by many users and is truly popular to suggest to users.</p> <p>How you tune this setting depends on your specific needs.</p>
             minimum_query_count: <p>The the minimum number of times a query must be searched in order to be eligible to suggest to your users.</p> <p>Decreasing this number increases the number of suggestions. However, this affects the quality of suggestions as it sets a low bar for a query to be considered popular to suggest to users.</p> <p>How you tune this setting depends on your specific needs.</p>
             attribute_suggestions_config: <p>Configuration information for the document fields/attributes that you want to base query suggestions on.</p>
+
+        Raises:
+            aws_sdk_kendra.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action. Please ensure you have the required permission policies and user accounts and try again.</p>
+            aws_sdk_kendra.errors.conflict_exception.ConflictException: <p>A conflict occurred with the request. Please fix any inconsistences with your resources and try again.</p>
+            aws_sdk_kendra.errors.internal_server_exception.InternalServerException: <p>An issue occurred with the internal server used for your Amazon Kendra service. Please wait a few minutes and try again, or contact <a href=\"http://aws.amazon.com/contact-us/\">Support</a> for help.</p>
+            aws_sdk_kendra.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource you want to use doesn’t exist. Please check you have provided the correct resource and try again.</p>
+            aws_sdk_kendra.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. Please reduce the number of requests and try again.</p>
+            aws_sdk_kendra.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints set by the Amazon Kendra service. Please provide the correct input and try again.</p>
+            aws_sdk_kendra.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3748,6 +4320,15 @@ class AsynckendraClient:
             index_id: <p>The identifier of the index for the thesaurus.</p>
             description: <p>A new description for the thesaurus.</p>
             role_arn: <p>An IAM role that gives Amazon Kendra permissions to access thesaurus file specified in <code>SourceS3Path</code>.</p>
+
+        Raises:
+            aws_sdk_kendra.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action. Please ensure you have the required permission policies and user accounts and try again.</p>
+            aws_sdk_kendra.errors.conflict_exception.ConflictException: <p>A conflict occurred with the request. Please fix any inconsistences with your resources and try again.</p>
+            aws_sdk_kendra.errors.internal_server_exception.InternalServerException: <p>An issue occurred with the internal server used for your Amazon Kendra service. Please wait a few minutes and try again, or contact <a href=\"http://aws.amazon.com/contact-us/\">Support</a> for help.</p>
+            aws_sdk_kendra.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource you want to use doesn’t exist. Please check you have provided the correct resource and try again.</p>
+            aws_sdk_kendra.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. Please reduce the number of requests and try again.</p>
+            aws_sdk_kendra.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints set by the Amazon Kendra service. Please provide the correct input and try again.</p>
+            aws_sdk_kendra.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

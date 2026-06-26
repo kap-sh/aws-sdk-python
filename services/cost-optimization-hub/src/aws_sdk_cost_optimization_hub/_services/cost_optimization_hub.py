@@ -158,7 +158,15 @@ class CostOptimizationHubClient:
     def get_preferences(
         self, *, config_overrides: Optional[CostOptimizationHubClientConfig] = None
     ) -> "aws_sdk_cost_optimization_hub.types.get_preferences_response.GetPreferencesResponse":
-        """<p>Returns a set of preferences for an account in order to add account-specific preferences into the service. These preferences impact how the savings associated with recommendations are presented—estimated savings after discounts or estimated savings before discounts, for example.</p>"""
+        """<p>Returns a set of preferences for an account in order to add account-specific preferences into the service. These preferences impact how the savings associated with recommendations are presented—estimated savings after discounts or estimated savings before discounts, for example.</p>
+
+        Raises:
+            aws_sdk_cost_optimization_hub.errors.access_denied_exception.AccessDeniedException: <p>You are not authorized to use this operation with the given parameters.</p>
+            aws_sdk_cost_optimization_hub.errors.internal_server_exception.InternalServerException: <p>An error on the server occurred during the processing of your request. Try again later.</p>
+            aws_sdk_cost_optimization_hub.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_cost_optimization_hub.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_cost_optimization_hub.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_cost_optimization_hub.types.get_preferences_request.GetPreferencesRequest]",
@@ -194,6 +202,14 @@ class CostOptimizationHubClient:
 
         Args:
             recommendation_id: <p>The ID for the recommendation.</p>
+
+        Raises:
+            aws_sdk_cost_optimization_hub.errors.access_denied_exception.AccessDeniedException: <p>You are not authorized to use this operation with the given parameters.</p>
+            aws_sdk_cost_optimization_hub.errors.internal_server_exception.InternalServerException: <p>An error on the server occurred during the processing of your request. Try again later.</p>
+            aws_sdk_cost_optimization_hub.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified Amazon Resource Name (ARN) in the request doesn't exist.</p>
+            aws_sdk_cost_optimization_hub.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_cost_optimization_hub.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_cost_optimization_hub.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -245,6 +261,13 @@ class CostOptimizationHubClient:
             max_results: <p>The maximum number of groups to return in the response. Valid values range from 0 to 1000. Use in conjunction with <code>nextToken</code> to paginate through results when the total number of groups exceeds this limit.</p>
             order_by: <p>The ordering specification for the results. Defines which dimension to sort by and whether to sort in ascending or descending order.</p>
             next_token: <p>The token to retrieve the next page of results. This value is returned in the response when the number of groups exceeds the specified <code>maxResults</code> value.</p>
+
+        Raises:
+            aws_sdk_cost_optimization_hub.errors.access_denied_exception.AccessDeniedException: <p>You are not authorized to use this operation with the given parameters.</p>
+            aws_sdk_cost_optimization_hub.errors.internal_server_exception.InternalServerException: <p>An error on the server occurred during the processing of your request. Try again later.</p>
+            aws_sdk_cost_optimization_hub.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_cost_optimization_hub.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_cost_optimization_hub.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -334,6 +357,13 @@ class CostOptimizationHubClient:
             account_id: <p>The account ID of a member account in the organization.</p>
             next_token: <p>The token to retrieve the next set of results.</p>
             max_results: <p>The maximum number of objects that are returned for the request.</p>
+
+        Raises:
+            aws_sdk_cost_optimization_hub.errors.access_denied_exception.AccessDeniedException: <p>You are not authorized to use this operation with the given parameters.</p>
+            aws_sdk_cost_optimization_hub.errors.internal_server_exception.InternalServerException: <p>An error on the server occurred during the processing of your request. Try again later.</p>
+            aws_sdk_cost_optimization_hub.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_cost_optimization_hub.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_cost_optimization_hub.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -419,6 +449,13 @@ class CostOptimizationHubClient:
             include_all_recommendations: <p>List of all recommendations for a resource, or a single recommendation if de-duped by <code>resourceId</code>.</p>
             max_results: <p>The maximum number of recommendations that are returned for the request.</p>
             next_token: <p>The token to retrieve the next set of results.</p>
+
+        Raises:
+            aws_sdk_cost_optimization_hub.errors.access_denied_exception.AccessDeniedException: <p>You are not authorized to use this operation with the given parameters.</p>
+            aws_sdk_cost_optimization_hub.errors.internal_server_exception.InternalServerException: <p>An error on the server occurred during the processing of your request. Try again later.</p>
+            aws_sdk_cost_optimization_hub.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_cost_optimization_hub.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_cost_optimization_hub.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -507,6 +544,13 @@ class CostOptimizationHubClient:
             max_results: <p>The maximum number of recommendations to be returned for the request.</p>
             metrics: <p>Additional metrics to be returned for the request. The only valid value is <code>savingsPercentage</code>.</p>
             next_token: <p>The token to retrieve the next set of results.</p>
+
+        Raises:
+            aws_sdk_cost_optimization_hub.errors.access_denied_exception.AccessDeniedException: <p>You are not authorized to use this operation with the given parameters.</p>
+            aws_sdk_cost_optimization_hub.errors.internal_server_exception.InternalServerException: <p>An error on the server occurred during the processing of your request. Try again later.</p>
+            aws_sdk_cost_optimization_hub.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_cost_optimization_hub.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_cost_optimization_hub.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -585,6 +629,13 @@ class CostOptimizationHubClient:
         Args:
             status: <p>Sets the account status.</p>
             include_member_accounts: <p>Indicates whether to enroll member accounts of the organization if the account is the management account or delegated administrator.</p>
+
+        Raises:
+            aws_sdk_cost_optimization_hub.errors.access_denied_exception.AccessDeniedException: <p>You are not authorized to use this operation with the given parameters.</p>
+            aws_sdk_cost_optimization_hub.errors.internal_server_exception.InternalServerException: <p>An error on the server occurred during the processing of your request. Try again later.</p>
+            aws_sdk_cost_optimization_hub.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_cost_optimization_hub.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_cost_optimization_hub.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -634,6 +685,13 @@ class CostOptimizationHubClient:
             savings_estimation_mode: <p>Sets the \"savings estimation mode\" preference.</p>
             member_account_discount_visibility: <p>Sets the \"member account discount visibility\" preference.</p>
             preferred_commitment: <p>Sets the preferences for how Reserved Instances and Savings Plans cost-saving opportunities are prioritized in terms of payment option and term length.</p>
+
+        Raises:
+            aws_sdk_cost_optimization_hub.errors.access_denied_exception.AccessDeniedException: <p>You are not authorized to use this operation with the given parameters.</p>
+            aws_sdk_cost_optimization_hub.errors.internal_server_exception.InternalServerException: <p>An error on the server occurred during the processing of your request. Try again later.</p>
+            aws_sdk_cost_optimization_hub.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_cost_optimization_hub.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_cost_optimization_hub.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(

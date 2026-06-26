@@ -64,6 +64,15 @@ class DictionaryResource:
             language: <p>The language of the dictionary entries. Specify the language using an ISO 639-2/T three-letter code. Supported values: eng, fra, ita, deu, spa, por. </p>
             entries: <p>The dictionary entries payload. Contains the custom words and phrases for the dictionary. Maximum size is 40,960 characters. </p>
             tags: <p>Optional tags to associate with the dictionary.</p>
+
+        Raises:
+            aws_sdk_elementalinference.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_elementalinference.errors.conflict_exception.ConflictException: <p>The request could not be completed due to a conflict.</p>
+            aws_sdk_elementalinference.errors.internal_server_error_exception.InternalServerErrorException: <p>An internal server error occurred. This is a temporary condition and the request can be retried. If the problem persists, contact AWS Support. </p>
+            aws_sdk_elementalinference.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request was rejected because it would exceed one or more service quotas for your account. Review your service quotas and either delete unused resources or request a quota increase. </p>
+            aws_sdk_elementalinference.errors.too_many_request_exception.TooManyRequestException: <p>The request was denied due to request throttling. Too many requests have been made within a given time period. Reduce the frequency of requests and use exponential backoff when retrying. </p>
+            aws_sdk_elementalinference.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by the service. Check the error message for details about which parameter or field is invalid and correct the request before retrying. </p>
+            aws_sdk_elementalinference.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -108,6 +117,14 @@ class DictionaryResource:
 
         Args:
             id: <p>The ID of the dictionary to retrieve.</p>
+
+        Raises:
+            aws_sdk_elementalinference.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_elementalinference.errors.internal_server_error_exception.InternalServerErrorException: <p>An internal server error occurred. This is a temporary condition and the request can be retried. If the problem persists, contact AWS Support. </p>
+            aws_sdk_elementalinference.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the action doesn't exist.</p>
+            aws_sdk_elementalinference.errors.too_many_request_exception.TooManyRequestException: <p>The request was denied due to request throttling. Too many requests have been made within a given time period. Reduce the frequency of requests and use exponential backoff when retrying. </p>
+            aws_sdk_elementalinference.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by the service. Check the error message for details about which parameter or field is invalid and correct the request before retrying. </p>
+            aws_sdk_elementalinference.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -157,6 +174,15 @@ class DictionaryResource:
             name: <p>A new name for the dictionary. If not specified, the name is not changed.</p>
             language: <p>A new language for the dictionary. If not specified, the language is not changed.</p>
             entries: <p>New dictionary entries. If not specified, the entries are not changed.</p>
+
+        Raises:
+            aws_sdk_elementalinference.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_elementalinference.errors.conflict_exception.ConflictException: <p>The request could not be completed due to a conflict.</p>
+            aws_sdk_elementalinference.errors.internal_server_error_exception.InternalServerErrorException: <p>An internal server error occurred. This is a temporary condition and the request can be retried. If the problem persists, contact AWS Support. </p>
+            aws_sdk_elementalinference.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the action doesn't exist.</p>
+            aws_sdk_elementalinference.errors.too_many_request_exception.TooManyRequestException: <p>The request was denied due to request throttling. Too many requests have been made within a given time period. Reduce the frequency of requests and use exponential backoff when retrying. </p>
+            aws_sdk_elementalinference.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by the service. Check the error message for details about which parameter or field is invalid and correct the request before retrying. </p>
+            aws_sdk_elementalinference.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -200,6 +226,15 @@ class DictionaryResource:
 
         Args:
             id: <p>The ID of the dictionary to delete.</p>
+
+        Raises:
+            aws_sdk_elementalinference.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_elementalinference.errors.conflict_exception.ConflictException: <p>The request could not be completed due to a conflict.</p>
+            aws_sdk_elementalinference.errors.internal_server_error_exception.InternalServerErrorException: <p>An internal server error occurred. This is a temporary condition and the request can be retried. If the problem persists, contact AWS Support. </p>
+            aws_sdk_elementalinference.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the action doesn't exist.</p>
+            aws_sdk_elementalinference.errors.too_many_request_exception.TooManyRequestException: <p>The request was denied due to request throttling. Too many requests have been made within a given time period. Reduce the frequency of requests and use exponential backoff when retrying. </p>
+            aws_sdk_elementalinference.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by the service. Check the error message for details about which parameter or field is invalid and correct the request before retrying. </p>
+            aws_sdk_elementalinference.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -239,6 +274,13 @@ class DictionaryResource:
         Args:
             max_results: <p>The maximum number of results to return per API request. Valid range: 1 to 100.</p>
             next_token: <p>The token that identifies the next batch of results to return.</p>
+
+        Raises:
+            aws_sdk_elementalinference.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_elementalinference.errors.internal_server_error_exception.InternalServerErrorException: <p>An internal server error occurred. This is a temporary condition and the request can be retried. If the problem persists, contact AWS Support. </p>
+            aws_sdk_elementalinference.errors.too_many_request_exception.TooManyRequestException: <p>The request was denied due to request throttling. Too many requests have been made within a given time period. Reduce the frequency of requests and use exponential backoff when retrying. </p>
+            aws_sdk_elementalinference.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by the service. Check the error message for details about which parameter or field is invalid and correct the request before retrying. </p>
+            aws_sdk_elementalinference.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -279,6 +321,14 @@ class DictionaryResource:
 
         Args:
             id: <p>The ID of the dictionary whose entries you want to export.</p>
+
+        Raises:
+            aws_sdk_elementalinference.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_elementalinference.errors.internal_server_error_exception.InternalServerErrorException: <p>An internal server error occurred. This is a temporary condition and the request can be retried. If the problem persists, contact AWS Support. </p>
+            aws_sdk_elementalinference.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the action doesn't exist.</p>
+            aws_sdk_elementalinference.errors.too_many_request_exception.TooManyRequestException: <p>The request was denied due to request throttling. Too many requests have been made within a given time period. Reduce the frequency of requests and use exponential backoff when retrying. </p>
+            aws_sdk_elementalinference.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by the service. Check the error message for details about which parameter or field is invalid and correct the request before retrying. </p>
+            aws_sdk_elementalinference.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -329,6 +379,15 @@ class AsyncDictionaryResource:
             language: <p>The language of the dictionary entries. Specify the language using an ISO 639-2/T three-letter code. Supported values: eng, fra, ita, deu, spa, por. </p>
             entries: <p>The dictionary entries payload. Contains the custom words and phrases for the dictionary. Maximum size is 40,960 characters. </p>
             tags: <p>Optional tags to associate with the dictionary.</p>
+
+        Raises:
+            aws_sdk_elementalinference.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_elementalinference.errors.conflict_exception.ConflictException: <p>The request could not be completed due to a conflict.</p>
+            aws_sdk_elementalinference.errors.internal_server_error_exception.InternalServerErrorException: <p>An internal server error occurred. This is a temporary condition and the request can be retried. If the problem persists, contact AWS Support. </p>
+            aws_sdk_elementalinference.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request was rejected because it would exceed one or more service quotas for your account. Review your service quotas and either delete unused resources or request a quota increase. </p>
+            aws_sdk_elementalinference.errors.too_many_request_exception.TooManyRequestException: <p>The request was denied due to request throttling. Too many requests have been made within a given time period. Reduce the frequency of requests and use exponential backoff when retrying. </p>
+            aws_sdk_elementalinference.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by the service. Check the error message for details about which parameter or field is invalid and correct the request before retrying. </p>
+            aws_sdk_elementalinference.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -374,6 +433,14 @@ class AsyncDictionaryResource:
 
         Args:
             id: <p>The ID of the dictionary to retrieve.</p>
+
+        Raises:
+            aws_sdk_elementalinference.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_elementalinference.errors.internal_server_error_exception.InternalServerErrorException: <p>An internal server error occurred. This is a temporary condition and the request can be retried. If the problem persists, contact AWS Support. </p>
+            aws_sdk_elementalinference.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the action doesn't exist.</p>
+            aws_sdk_elementalinference.errors.too_many_request_exception.TooManyRequestException: <p>The request was denied due to request throttling. Too many requests have been made within a given time period. Reduce the frequency of requests and use exponential backoff when retrying. </p>
+            aws_sdk_elementalinference.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by the service. Check the error message for details about which parameter or field is invalid and correct the request before retrying. </p>
+            aws_sdk_elementalinference.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -424,6 +491,15 @@ class AsyncDictionaryResource:
             name: <p>A new name for the dictionary. If not specified, the name is not changed.</p>
             language: <p>A new language for the dictionary. If not specified, the language is not changed.</p>
             entries: <p>New dictionary entries. If not specified, the entries are not changed.</p>
+
+        Raises:
+            aws_sdk_elementalinference.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_elementalinference.errors.conflict_exception.ConflictException: <p>The request could not be completed due to a conflict.</p>
+            aws_sdk_elementalinference.errors.internal_server_error_exception.InternalServerErrorException: <p>An internal server error occurred. This is a temporary condition and the request can be retried. If the problem persists, contact AWS Support. </p>
+            aws_sdk_elementalinference.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the action doesn't exist.</p>
+            aws_sdk_elementalinference.errors.too_many_request_exception.TooManyRequestException: <p>The request was denied due to request throttling. Too many requests have been made within a given time period. Reduce the frequency of requests and use exponential backoff when retrying. </p>
+            aws_sdk_elementalinference.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by the service. Check the error message for details about which parameter or field is invalid and correct the request before retrying. </p>
+            aws_sdk_elementalinference.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -468,6 +544,15 @@ class AsyncDictionaryResource:
 
         Args:
             id: <p>The ID of the dictionary to delete.</p>
+
+        Raises:
+            aws_sdk_elementalinference.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_elementalinference.errors.conflict_exception.ConflictException: <p>The request could not be completed due to a conflict.</p>
+            aws_sdk_elementalinference.errors.internal_server_error_exception.InternalServerErrorException: <p>An internal server error occurred. This is a temporary condition and the request can be retried. If the problem persists, contact AWS Support. </p>
+            aws_sdk_elementalinference.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the action doesn't exist.</p>
+            aws_sdk_elementalinference.errors.too_many_request_exception.TooManyRequestException: <p>The request was denied due to request throttling. Too many requests have been made within a given time period. Reduce the frequency of requests and use exponential backoff when retrying. </p>
+            aws_sdk_elementalinference.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by the service. Check the error message for details about which parameter or field is invalid and correct the request before retrying. </p>
+            aws_sdk_elementalinference.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -508,6 +593,13 @@ class AsyncDictionaryResource:
         Args:
             max_results: <p>The maximum number of results to return per API request. Valid range: 1 to 100.</p>
             next_token: <p>The token that identifies the next batch of results to return.</p>
+
+        Raises:
+            aws_sdk_elementalinference.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_elementalinference.errors.internal_server_error_exception.InternalServerErrorException: <p>An internal server error occurred. This is a temporary condition and the request can be retried. If the problem persists, contact AWS Support. </p>
+            aws_sdk_elementalinference.errors.too_many_request_exception.TooManyRequestException: <p>The request was denied due to request throttling. Too many requests have been made within a given time period. Reduce the frequency of requests and use exponential backoff when retrying. </p>
+            aws_sdk_elementalinference.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by the service. Check the error message for details about which parameter or field is invalid and correct the request before retrying. </p>
+            aws_sdk_elementalinference.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -549,6 +641,14 @@ class AsyncDictionaryResource:
 
         Args:
             id: <p>The ID of the dictionary whose entries you want to export.</p>
+
+        Raises:
+            aws_sdk_elementalinference.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_elementalinference.errors.internal_server_error_exception.InternalServerErrorException: <p>An internal server error occurred. This is a temporary condition and the request can be retried. If the problem persists, contact AWS Support. </p>
+            aws_sdk_elementalinference.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the action doesn't exist.</p>
+            aws_sdk_elementalinference.errors.too_many_request_exception.TooManyRequestException: <p>The request was denied due to request throttling. Too many requests have been made within a given time period. Reduce the frequency of requests and use exponential backoff when retrying. </p>
+            aws_sdk_elementalinference.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by the service. Check the error message for details about which parameter or field is invalid and correct the request before retrying. </p>
+            aws_sdk_elementalinference.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

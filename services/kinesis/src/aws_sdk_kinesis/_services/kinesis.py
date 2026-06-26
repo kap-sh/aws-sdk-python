@@ -239,6 +239,14 @@ class KinesisClient:
             tags: <p>A set of up to 50 key-value pairs to use to create the tags. A tag consists of a required key and an optional value. You can add up to 50 tags per resource.</p>
             stream_arn: <p>The ARN of the stream.</p>
             stream_id: <p>Not Implemented. Reserved for future use.</p>
+
+        Raises:
+            aws_sdk_kinesis.errors.access_denied_exception.AccessDeniedException: <p>Specifies that you do not have the permissions required to perform this operation.</p>
+            aws_sdk_kinesis.errors.invalid_argument_exception.InvalidArgumentException: <p>A specified parameter exceeds its restrictions, is not supported, or can't be used. For more information, see the returned message.</p>
+            aws_sdk_kinesis.errors.limit_exceeded_exception.LimitExceededException: <p>The requested resource exceeds the maximum number allowed, or the number of concurrent stream requests exceeds the maximum number allowed. </p>
+            aws_sdk_kinesis.errors.resource_in_use_exception.ResourceInUseException: <p>The resource is not available for this operation. For successful operation, the resource must be in the <code>ACTIVE</code> state.</p>
+            aws_sdk_kinesis.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource could not be found. The stream might not be specified correctly.</p>
+            aws_sdk_kinesis.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -298,6 +306,13 @@ class KinesisClient:
             tags: <p>A set of up to 50 key-value pairs to use to create the tags. A tag consists of a required key and an optional value.</p>
             warm_throughput_mi_bps: <p>The target warm throughput in MB/s that the stream should be scaled to handle. This represents the throughput capacity that will be immediately available for write operations.</p>
             max_record_size_in_ki_b: <p>The maximum record size of a single record in kibibyte (KiB) that you can write to, and read from a stream.</p>
+
+        Raises:
+            aws_sdk_kinesis.errors.invalid_argument_exception.InvalidArgumentException: <p>A specified parameter exceeds its restrictions, is not supported, or can't be used. For more information, see the returned message.</p>
+            aws_sdk_kinesis.errors.limit_exceeded_exception.LimitExceededException: <p>The requested resource exceeds the maximum number allowed, or the number of concurrent stream requests exceeds the maximum number allowed. </p>
+            aws_sdk_kinesis.errors.resource_in_use_exception.ResourceInUseException: <p>The resource is not available for this operation. For successful operation, the resource must be in the <code>ACTIVE</code> state.</p>
+            aws_sdk_kinesis.errors.validation_exception.ValidationException: <p>Specifies that you tried to invoke this API for a data stream with the on-demand capacity mode. This API is only supported for data streams with the provisioned capacity mode. </p>
+            aws_sdk_kinesis.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -349,6 +364,14 @@ class KinesisClient:
             retention_period_hours: <p>The new retention period of the stream, in hours. Must be less than the current retention period.</p>
             stream_arn: <p>The ARN of the stream.</p>
             stream_id: <p>Not Implemented. Reserved for future use.</p>
+
+        Raises:
+            aws_sdk_kinesis.errors.access_denied_exception.AccessDeniedException: <p>Specifies that you do not have the permissions required to perform this operation.</p>
+            aws_sdk_kinesis.errors.invalid_argument_exception.InvalidArgumentException: <p>A specified parameter exceeds its restrictions, is not supported, or can't be used. For more information, see the returned message.</p>
+            aws_sdk_kinesis.errors.limit_exceeded_exception.LimitExceededException: <p>The requested resource exceeds the maximum number allowed, or the number of concurrent stream requests exceeds the maximum number allowed. </p>
+            aws_sdk_kinesis.errors.resource_in_use_exception.ResourceInUseException: <p>The resource is not available for this operation. For successful operation, the resource must be in the <code>ACTIVE</code> state.</p>
+            aws_sdk_kinesis.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource could not be found. The stream might not be specified correctly.</p>
+            aws_sdk_kinesis.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -392,6 +415,14 @@ class KinesisClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the data stream or consumer.</p>
             stream_id: <p>Not Implemented. Reserved for future use.</p>
+
+        Raises:
+            aws_sdk_kinesis.errors.access_denied_exception.AccessDeniedException: <p>Specifies that you do not have the permissions required to perform this operation.</p>
+            aws_sdk_kinesis.errors.invalid_argument_exception.InvalidArgumentException: <p>A specified parameter exceeds its restrictions, is not supported, or can't be used. For more information, see the returned message.</p>
+            aws_sdk_kinesis.errors.limit_exceeded_exception.LimitExceededException: <p>The requested resource exceeds the maximum number allowed, or the number of concurrent stream requests exceeds the maximum number allowed. </p>
+            aws_sdk_kinesis.errors.resource_in_use_exception.ResourceInUseException: <p>The resource is not available for this operation. For successful operation, the resource must be in the <code>ACTIVE</code> state.</p>
+            aws_sdk_kinesis.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource could not be found. The stream might not be specified correctly.</p>
+            aws_sdk_kinesis.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -437,6 +468,14 @@ class KinesisClient:
             enforce_consumer_deletion: <p>If this parameter is unset (<code>null</code>) or if you set it to <code>false</code>, and the stream has registered consumers, the call to <code>DeleteStream</code> fails with a <code>ResourceInUseException</code>. </p>
             stream_arn: <p>The ARN of the stream.</p>
             stream_id: <p>Not Implemented. Reserved for future use.</p>
+
+        Raises:
+            aws_sdk_kinesis.errors.access_denied_exception.AccessDeniedException: <p>Specifies that you do not have the permissions required to perform this operation.</p>
+            aws_sdk_kinesis.errors.invalid_argument_exception.InvalidArgumentException: <p>A specified parameter exceeds its restrictions, is not supported, or can't be used. For more information, see the returned message.</p>
+            aws_sdk_kinesis.errors.limit_exceeded_exception.LimitExceededException: <p>The requested resource exceeds the maximum number allowed, or the number of concurrent stream requests exceeds the maximum number allowed. </p>
+            aws_sdk_kinesis.errors.resource_in_use_exception.ResourceInUseException: <p>The resource is not available for this operation. For successful operation, the resource must be in the <code>ACTIVE</code> state.</p>
+            aws_sdk_kinesis.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource could not be found. The stream might not be specified correctly.</p>
+            aws_sdk_kinesis.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -487,6 +526,12 @@ class KinesisClient:
             consumer_name: <p>The name that you gave to the consumer.</p>
             consumer_arn: <p>The ARN returned by Kinesis Data Streams when you registered the consumer. If you don't know the ARN of the consumer that you want to deregister, you can use the ListStreamConsumers operation to get a list of the descriptions of all the consumers that are currently registered with a given data stream. The description of a consumer contains its ARN.</p>
             stream_id: <p>Not Implemented. Reserved for future use.</p>
+
+        Raises:
+            aws_sdk_kinesis.errors.invalid_argument_exception.InvalidArgumentException: <p>A specified parameter exceeds its restrictions, is not supported, or can't be used. For more information, see the returned message.</p>
+            aws_sdk_kinesis.errors.limit_exceeded_exception.LimitExceededException: <p>The requested resource exceeds the maximum number allowed, or the number of concurrent stream requests exceeds the maximum number allowed. </p>
+            aws_sdk_kinesis.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource could not be found. The stream might not be specified correctly.</p>
+            aws_sdk_kinesis.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -522,7 +567,12 @@ class KinesisClient:
     def describe_account_settings(
         self, *, config_overrides: Optional[KinesisClientConfig] = None
     ) -> "aws_sdk_kinesis.types.describe_account_settings_output.DescribeAccountSettingsOutput":
-        """<p>Describes the account-level settings for Amazon Kinesis Data Streams. This operation returns information about the minimum throughput billing commitments and other account-level configurations.</p> <p>This API has a call limit of 5 transactions per second (TPS) for each Amazon Web Services account. TPS over 5 will initiate the <code>LimitExceededException</code>.</p>"""
+        """<p>Describes the account-level settings for Amazon Kinesis Data Streams. This operation returns information about the minimum throughput billing commitments and other account-level configurations.</p> <p>This API has a call limit of 5 transactions per second (TPS) for each Amazon Web Services account. TPS over 5 will initiate the <code>LimitExceededException</code>.</p>
+
+        Raises:
+            aws_sdk_kinesis.errors.limit_exceeded_exception.LimitExceededException: <p>The requested resource exceeds the maximum number allowed, or the number of concurrent stream requests exceeds the maximum number allowed. </p>
+            aws_sdk_kinesis.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_kinesis.types.describe_account_settings_input.DescribeAccountSettingsInput]",
@@ -551,7 +601,12 @@ class KinesisClient:
     def describe_limits(
         self, *, config_overrides: Optional[KinesisClientConfig] = None
     ) -> "aws_sdk_kinesis.types.describe_limits_output.DescribeLimitsOutput":
-        """<p>Describes the shard limits and usage for the account.</p> <p>If you update your account limits, the old limits might be returned for a few minutes.</p> <p>This operation has a limit of one transaction per second per account.</p>"""
+        """<p>Describes the shard limits and usage for the account.</p> <p>If you update your account limits, the old limits might be returned for a few minutes.</p> <p>This operation has a limit of one transaction per second per account.</p>
+
+        Raises:
+            aws_sdk_kinesis.errors.limit_exceeded_exception.LimitExceededException: <p>The requested resource exceeds the maximum number allowed, or the number of concurrent stream requests exceeds the maximum number allowed. </p>
+            aws_sdk_kinesis.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_kinesis.types.describe_limits_input.DescribeLimitsInput]",
@@ -599,6 +654,13 @@ class KinesisClient:
             exclusive_start_shard_id: <p>The shard ID of the shard to start with.</p> <p>Specify this parameter to indicate that you want to describe the stream starting with the shard whose ID immediately follows <code>ExclusiveStartShardId</code>.</p> <p>If you don't specify this parameter, the default behavior for <code>DescribeStream</code> is to describe the stream starting with the first shard in the stream.</p>
             stream_arn: <p>The ARN of the stream.</p>
             stream_id: <p>Not Implemented. Reserved for future use.</p>
+
+        Raises:
+            aws_sdk_kinesis.errors.access_denied_exception.AccessDeniedException: <p>Specifies that you do not have the permissions required to perform this operation.</p>
+            aws_sdk_kinesis.errors.invalid_argument_exception.InvalidArgumentException: <p>A specified parameter exceeds its restrictions, is not supported, or can't be used. For more information, see the returned message.</p>
+            aws_sdk_kinesis.errors.limit_exceeded_exception.LimitExceededException: <p>The requested resource exceeds the maximum number allowed, or the number of concurrent stream requests exceeds the maximum number allowed. </p>
+            aws_sdk_kinesis.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource could not be found. The stream might not be specified correctly.</p>
+            aws_sdk_kinesis.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -710,6 +772,12 @@ class KinesisClient:
             consumer_name: <p>The name that you gave to the consumer.</p>
             consumer_arn: <p>The ARN returned by Kinesis Data Streams when you registered the consumer.</p>
             stream_id: <p>Not Implemented. Reserved for future use.</p>
+
+        Raises:
+            aws_sdk_kinesis.errors.invalid_argument_exception.InvalidArgumentException: <p>A specified parameter exceeds its restrictions, is not supported, or can't be used. For more information, see the returned message.</p>
+            aws_sdk_kinesis.errors.limit_exceeded_exception.LimitExceededException: <p>The requested resource exceeds the maximum number allowed, or the number of concurrent stream requests exceeds the maximum number allowed. </p>
+            aws_sdk_kinesis.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource could not be found. The stream might not be specified correctly.</p>
+            aws_sdk_kinesis.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -758,6 +826,13 @@ class KinesisClient:
             stream_name: <p>The name of the stream to describe.</p>
             stream_arn: <p>The ARN of the stream.</p>
             stream_id: <p>Not Implemented. Reserved for future use.</p>
+
+        Raises:
+            aws_sdk_kinesis.errors.access_denied_exception.AccessDeniedException: <p>Specifies that you do not have the permissions required to perform this operation.</p>
+            aws_sdk_kinesis.errors.invalid_argument_exception.InvalidArgumentException: <p>A specified parameter exceeds its restrictions, is not supported, or can't be used. For more information, see the returned message.</p>
+            aws_sdk_kinesis.errors.limit_exceeded_exception.LimitExceededException: <p>The requested resource exceeds the maximum number allowed, or the number of concurrent stream requests exceeds the maximum number allowed. </p>
+            aws_sdk_kinesis.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource could not be found. The stream might not be specified correctly.</p>
+            aws_sdk_kinesis.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -806,6 +881,14 @@ class KinesisClient:
             shard_level_metrics: <p>List of shard-level metrics to disable.</p> <p>The following are the valid shard-level metrics. The value \"<code>ALL</code>\" disables every metric.</p> <ul> <li> <p> <code>IncomingBytes</code> </p> </li> <li> <p> <code>IncomingRecords</code> </p> </li> <li> <p> <code>OutgoingBytes</code> </p> </li> <li> <p> <code>OutgoingRecords</code> </p> </li> <li> <p> <code>WriteProvisionedThroughputExceeded</code> </p> </li> <li> <p> <code>ReadProvisionedThroughputExceeded</code> </p> </li> <li> <p> <code>IteratorAgeMilliseconds</code> </p> </li> <li> <p> <code>ALL</code> </p> </li> </ul> <p>For more information, see <a href=\"https://docs.aws.amazon.com/kinesis/latest/dev/monitoring-with-cloudwatch.html\">Monitoring the Amazon Kinesis Data Streams Service with Amazon CloudWatch</a> in the <i>Amazon Kinesis Data Streams Developer Guide</i>.</p>
             stream_arn: <p>The ARN of the stream.</p>
             stream_id: <p>Not Implemented. Reserved for future use.</p>
+
+        Raises:
+            aws_sdk_kinesis.errors.access_denied_exception.AccessDeniedException: <p>Specifies that you do not have the permissions required to perform this operation.</p>
+            aws_sdk_kinesis.errors.invalid_argument_exception.InvalidArgumentException: <p>A specified parameter exceeds its restrictions, is not supported, or can't be used. For more information, see the returned message.</p>
+            aws_sdk_kinesis.errors.limit_exceeded_exception.LimitExceededException: <p>The requested resource exceeds the maximum number allowed, or the number of concurrent stream requests exceeds the maximum number allowed. </p>
+            aws_sdk_kinesis.errors.resource_in_use_exception.ResourceInUseException: <p>The resource is not available for this operation. For successful operation, the resource must be in the <code>ACTIVE</code> state.</p>
+            aws_sdk_kinesis.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource could not be found. The stream might not be specified correctly.</p>
+            aws_sdk_kinesis.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -855,6 +938,14 @@ class KinesisClient:
             shard_level_metrics: <p>List of shard-level metrics to enable.</p> <p>The following are the valid shard-level metrics. The value \"<code>ALL</code>\" enables every metric.</p> <ul> <li> <p> <code>IncomingBytes</code> </p> </li> <li> <p> <code>IncomingRecords</code> </p> </li> <li> <p> <code>OutgoingBytes</code> </p> </li> <li> <p> <code>OutgoingRecords</code> </p> </li> <li> <p> <code>WriteProvisionedThroughputExceeded</code> </p> </li> <li> <p> <code>ReadProvisionedThroughputExceeded</code> </p> </li> <li> <p> <code>IteratorAgeMilliseconds</code> </p> </li> <li> <p> <code>ALL</code> </p> </li> </ul> <p>For more information, see <a href=\"https://docs.aws.amazon.com/kinesis/latest/dev/monitoring-with-cloudwatch.html\">Monitoring the Amazon Kinesis Data Streams Service with Amazon CloudWatch</a> in the <i>Amazon Kinesis Data Streams Developer Guide</i>.</p>
             stream_arn: <p>The ARN of the stream.</p>
             stream_id: <p>Not Implemented. Reserved for future use.</p>
+
+        Raises:
+            aws_sdk_kinesis.errors.access_denied_exception.AccessDeniedException: <p>Specifies that you do not have the permissions required to perform this operation.</p>
+            aws_sdk_kinesis.errors.invalid_argument_exception.InvalidArgumentException: <p>A specified parameter exceeds its restrictions, is not supported, or can't be used. For more information, see the returned message.</p>
+            aws_sdk_kinesis.errors.limit_exceeded_exception.LimitExceededException: <p>The requested resource exceeds the maximum number allowed, or the number of concurrent stream requests exceeds the maximum number allowed. </p>
+            aws_sdk_kinesis.errors.resource_in_use_exception.ResourceInUseException: <p>The resource is not available for this operation. For successful operation, the resource must be in the <code>ACTIVE</code> state.</p>
+            aws_sdk_kinesis.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource could not be found. The stream might not be specified correctly.</p>
+            aws_sdk_kinesis.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -906,6 +997,21 @@ class KinesisClient:
             limit: <p>The maximum number of records to return. Specify a value of up to 10,000. If you specify a value that is greater than 10,000, <a>GetRecords</a> throws <code>InvalidArgumentException</code>. The default value is 10,000.</p>
             stream_arn: <p>The ARN of the stream.</p>
             stream_id: <p>Not Implemented. Reserved for future use.</p>
+
+        Raises:
+            aws_sdk_kinesis.errors.access_denied_exception.AccessDeniedException: <p>Specifies that you do not have the permissions required to perform this operation.</p>
+            aws_sdk_kinesis.errors.expired_iterator_exception.ExpiredIteratorException: <p>The provided iterator exceeds the maximum age allowed.</p>
+            aws_sdk_kinesis.errors.internal_failure_exception.InternalFailureException: <p>The processing of the request failed because of an unknown error, exception, or failure.</p>
+            aws_sdk_kinesis.errors.invalid_argument_exception.InvalidArgumentException: <p>A specified parameter exceeds its restrictions, is not supported, or can't be used. For more information, see the returned message.</p>
+            aws_sdk_kinesis.errors.kms_access_denied_exception.KMSAccessDeniedException: <p>The ciphertext references a key that doesn't exist or that you don't have access to.</p>
+            aws_sdk_kinesis.errors.kms_disabled_exception.KMSDisabledException: <p>The request was rejected because the specified customer master key (CMK) isn't enabled.</p>
+            aws_sdk_kinesis.errors.kms_invalid_state_exception.KMSInvalidStateException: <p>The request was rejected because the state of the specified resource isn't valid for this request. For more information, see <a href=\"https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html\">How Key State Affects Use of a Customer Master Key</a> in the <i>Amazon Web Services Key Management Service Developer Guide</i>.</p>
+            aws_sdk_kinesis.errors.kms_not_found_exception.KMSNotFoundException: <p>The request was rejected because the specified entity or resource can't be found.</p>
+            aws_sdk_kinesis.errors.kms_opt_in_required.KMSOptInRequired: <p>The Amazon Web Services access key ID needs a subscription for the service.</p>
+            aws_sdk_kinesis.errors.kms_throttling_exception.KMSThrottlingException: <p>The request was denied due to request throttling. For more information about throttling, see <a href=\"https://docs.aws.amazon.com/kms/latest/developerguide/limits.html#requests-per-second\">Limits</a> in the <i>Amazon Web Services Key Management Service Developer Guide</i>.</p>
+            aws_sdk_kinesis.errors.provisioned_throughput_exceeded_exception.ProvisionedThroughputExceededException: <p>The request rate for the stream is too high, or the requested data is too large for the available throughput. Reduce the frequency or size of your requests. For more information, see <a href=\"https://docs.aws.amazon.com/kinesis/latest/dev/service-sizes-and-limits.html\">Streams Limits</a> in the <i>Amazon Kinesis Data Streams Developer Guide</i>, and <a href=\"https://docs.aws.amazon.com/general/latest/gr/api-retries.html\">Error Retries and Exponential Backoff in Amazon Web Services</a> in the <i>Amazon Web Services General Reference</i>.</p>
+            aws_sdk_kinesis.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource could not be found. The stream might not be specified correctly.</p>
+            aws_sdk_kinesis.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -951,6 +1057,14 @@ class KinesisClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the data stream or consumer.</p>
             stream_id: <p>Not Implemented. Reserved for future use.</p>
+
+        Raises:
+            aws_sdk_kinesis.errors.access_denied_exception.AccessDeniedException: <p>Specifies that you do not have the permissions required to perform this operation.</p>
+            aws_sdk_kinesis.errors.invalid_argument_exception.InvalidArgumentException: <p>A specified parameter exceeds its restrictions, is not supported, or can't be used. For more information, see the returned message.</p>
+            aws_sdk_kinesis.errors.limit_exceeded_exception.LimitExceededException: <p>The requested resource exceeds the maximum number allowed, or the number of concurrent stream requests exceeds the maximum number allowed. </p>
+            aws_sdk_kinesis.errors.resource_in_use_exception.ResourceInUseException: <p>The resource is not available for this operation. For successful operation, the resource must be in the <code>ACTIVE</code> state.</p>
+            aws_sdk_kinesis.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource could not be found. The stream might not be specified correctly.</p>
+            aws_sdk_kinesis.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1004,6 +1118,14 @@ class KinesisClient:
             timestamp: <p>The time stamp of the data record from which to start reading. Used with shard iterator type AT_TIMESTAMP. A time stamp is the Unix epoch date with precision in milliseconds. For example, <code>2016-04-04T19:58:46.480-00:00</code> or <code>1459799926.480</code>. If a record with this exact time stamp does not exist, the iterator returned is for the next (later) record. If the time stamp is older than the current trim horizon, the iterator returned is for the oldest untrimmed data record (TRIM_HORIZON).</p>
             stream_arn: <p>The ARN of the stream.</p>
             stream_id: <p>Not Implemented. Reserved for future use.</p>
+
+        Raises:
+            aws_sdk_kinesis.errors.access_denied_exception.AccessDeniedException: <p>Specifies that you do not have the permissions required to perform this operation.</p>
+            aws_sdk_kinesis.errors.internal_failure_exception.InternalFailureException: <p>The processing of the request failed because of an unknown error, exception, or failure.</p>
+            aws_sdk_kinesis.errors.invalid_argument_exception.InvalidArgumentException: <p>A specified parameter exceeds its restrictions, is not supported, or can't be used. For more information, see the returned message.</p>
+            aws_sdk_kinesis.errors.provisioned_throughput_exceeded_exception.ProvisionedThroughputExceededException: <p>The request rate for the stream is too high, or the requested data is too large for the available throughput. Reduce the frequency or size of your requests. For more information, see <a href=\"https://docs.aws.amazon.com/kinesis/latest/dev/service-sizes-and-limits.html\">Streams Limits</a> in the <i>Amazon Kinesis Data Streams Developer Guide</i>, and <a href=\"https://docs.aws.amazon.com/general/latest/gr/api-retries.html\">Error Retries and Exponential Backoff in Amazon Web Services</a> in the <i>Amazon Web Services General Reference</i>.</p>
+            aws_sdk_kinesis.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource could not be found. The stream might not be specified correctly.</p>
+            aws_sdk_kinesis.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1058,6 +1180,14 @@ class KinesisClient:
             retention_period_hours: <p>The new retention period of the stream, in hours. Must be more than the current retention period.</p>
             stream_arn: <p>The ARN of the stream.</p>
             stream_id: <p>Not Implemented. Reserved for future use.</p>
+
+        Raises:
+            aws_sdk_kinesis.errors.access_denied_exception.AccessDeniedException: <p>Specifies that you do not have the permissions required to perform this operation.</p>
+            aws_sdk_kinesis.errors.invalid_argument_exception.InvalidArgumentException: <p>A specified parameter exceeds its restrictions, is not supported, or can't be used. For more information, see the returned message.</p>
+            aws_sdk_kinesis.errors.limit_exceeded_exception.LimitExceededException: <p>The requested resource exceeds the maximum number allowed, or the number of concurrent stream requests exceeds the maximum number allowed. </p>
+            aws_sdk_kinesis.errors.resource_in_use_exception.ResourceInUseException: <p>The resource is not available for this operation. For successful operation, the resource must be in the <code>ACTIVE</code> state.</p>
+            aws_sdk_kinesis.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource could not be found. The stream might not be specified correctly.</p>
+            aws_sdk_kinesis.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1119,6 +1249,15 @@ class KinesisClient:
             shard_filter: <p>Enables you to filter out the response of the <code>ListShards</code> API. You can only specify one filter at a time. </p> <p>If you use the <code>ShardFilter</code> parameter when invoking the ListShards API, the <code>Type</code> is the required property and must be specified. If you specify the <code>AT_TRIM_HORIZON</code>, <code>FROM_TRIM_HORIZON</code>, or <code>AT_LATEST</code> types, you do not need to specify either the <code>ShardId</code> or the <code>Timestamp</code> optional properties. </p> <p>If you specify the <code>AFTER_SHARD_ID</code> type, you must also provide the value for the optional <code>ShardId</code> property. The <code>ShardId</code> property is identical in fuctionality to the <code>ExclusiveStartShardId</code> parameter of the <code>ListShards</code> API. When <code>ShardId</code> property is specified, the response includes the shards starting with the shard whose ID immediately follows the <code>ShardId</code> that you provided. </p> <p>If you specify the <code>AT_TIMESTAMP</code> or <code>FROM_TIMESTAMP_ID</code> type, you must also provide the value for the optional <code>Timestamp</code> property. If you specify the AT_TIMESTAMP type, then all shards that were open at the provided timestamp are returned. If you specify the FROM_TIMESTAMP type, then all shards starting from the provided timestamp to TIP are returned. </p>
             stream_arn: <p>The ARN of the stream.</p>
             stream_id: <p>Not Implemented. Reserved for future use.</p>
+
+        Raises:
+            aws_sdk_kinesis.errors.access_denied_exception.AccessDeniedException: <p>Specifies that you do not have the permissions required to perform this operation.</p>
+            aws_sdk_kinesis.errors.expired_next_token_exception.ExpiredNextTokenException: <p>The pagination token passed to the operation is expired.</p>
+            aws_sdk_kinesis.errors.invalid_argument_exception.InvalidArgumentException: <p>A specified parameter exceeds its restrictions, is not supported, or can't be used. For more information, see the returned message.</p>
+            aws_sdk_kinesis.errors.limit_exceeded_exception.LimitExceededException: <p>The requested resource exceeds the maximum number allowed, or the number of concurrent stream requests exceeds the maximum number allowed. </p>
+            aws_sdk_kinesis.errors.resource_in_use_exception.ResourceInUseException: <p>The resource is not available for this operation. For successful operation, the resource must be in the <code>ACTIVE</code> state.</p>
+            aws_sdk_kinesis.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource could not be found. The stream might not be specified correctly.</p>
+            aws_sdk_kinesis.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1183,6 +1322,14 @@ class KinesisClient:
             max_results: <p>The maximum number of consumers that you want a single call of <code>ListStreamConsumers</code> to return. The default value is 100. If you specify a value greater than 100, at most 100 results are returned. </p>
             stream_creation_timestamp: <p>Specify this input parameter to distinguish data streams that have the same name. For example, if you create a data stream and then delete it, and you later create another data stream with the same name, you can use this input parameter to specify which of the two streams you want to list the consumers for. </p> <p>You can't specify this parameter if you specify the NextToken parameter. </p>
             stream_id: <p>Not Implemented. Reserved for future use.</p>
+
+        Raises:
+            aws_sdk_kinesis.errors.expired_next_token_exception.ExpiredNextTokenException: <p>The pagination token passed to the operation is expired.</p>
+            aws_sdk_kinesis.errors.invalid_argument_exception.InvalidArgumentException: <p>A specified parameter exceeds its restrictions, is not supported, or can't be used. For more information, see the returned message.</p>
+            aws_sdk_kinesis.errors.limit_exceeded_exception.LimitExceededException: <p>The requested resource exceeds the maximum number allowed, or the number of concurrent stream requests exceeds the maximum number allowed. </p>
+            aws_sdk_kinesis.errors.resource_in_use_exception.ResourceInUseException: <p>The resource is not available for this operation. For successful operation, the resource must be in the <code>ACTIVE</code> state.</p>
+            aws_sdk_kinesis.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource could not be found. The stream might not be specified correctly.</p>
+            aws_sdk_kinesis.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1236,6 +1383,12 @@ class KinesisClient:
             limit: <p>The maximum number of streams to list. The default value is 100. If you specify a value greater than 100, at most 100 results are returned.</p>
             exclusive_start_stream_name: <p>The name of the stream to start the list with.</p>
             next_token: <p></p>
+
+        Raises:
+            aws_sdk_kinesis.errors.expired_next_token_exception.ExpiredNextTokenException: <p>The pagination token passed to the operation is expired.</p>
+            aws_sdk_kinesis.errors.invalid_argument_exception.InvalidArgumentException: <p>A specified parameter exceeds its restrictions, is not supported, or can't be used. For more information, see the returned message.</p>
+            aws_sdk_kinesis.errors.limit_exceeded_exception.LimitExceededException: <p>The requested resource exceeds the maximum number allowed, or the number of concurrent stream requests exceeds the maximum number allowed. </p>
+            aws_sdk_kinesis.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1282,6 +1435,14 @@ class KinesisClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the Kinesis resource for which to list tags.</p>
             stream_id: <p>Not Implemented. Reserved for future use.</p>
+
+        Raises:
+            aws_sdk_kinesis.errors.access_denied_exception.AccessDeniedException: <p>Specifies that you do not have the permissions required to perform this operation.</p>
+            aws_sdk_kinesis.errors.invalid_argument_exception.InvalidArgumentException: <p>A specified parameter exceeds its restrictions, is not supported, or can't be used. For more information, see the returned message.</p>
+            aws_sdk_kinesis.errors.limit_exceeded_exception.LimitExceededException: <p>The requested resource exceeds the maximum number allowed, or the number of concurrent stream requests exceeds the maximum number allowed. </p>
+            aws_sdk_kinesis.errors.resource_in_use_exception.ResourceInUseException: <p>The resource is not available for this operation. For successful operation, the resource must be in the <code>ACTIVE</code> state.</p>
+            aws_sdk_kinesis.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource could not be found. The stream might not be specified correctly.</p>
+            aws_sdk_kinesis.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1333,6 +1494,13 @@ class KinesisClient:
             limit: <p>The number of tags to return. If this number is less than the total number of tags associated with the stream, <code>HasMoreTags</code> is set to <code>true</code>. To list additional tags, set <code>ExclusiveStartTagKey</code> to the last key in the response.</p>
             stream_arn: <p>The ARN of the stream.</p>
             stream_id: <p>Not Implemented. Reserved for future use.</p>
+
+        Raises:
+            aws_sdk_kinesis.errors.access_denied_exception.AccessDeniedException: <p>Specifies that you do not have the permissions required to perform this operation.</p>
+            aws_sdk_kinesis.errors.invalid_argument_exception.InvalidArgumentException: <p>A specified parameter exceeds its restrictions, is not supported, or can't be used. For more information, see the returned message.</p>
+            aws_sdk_kinesis.errors.limit_exceeded_exception.LimitExceededException: <p>The requested resource exceeds the maximum number allowed, or the number of concurrent stream requests exceeds the maximum number allowed. </p>
+            aws_sdk_kinesis.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource could not be found. The stream might not be specified correctly.</p>
+            aws_sdk_kinesis.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1387,6 +1555,15 @@ class KinesisClient:
             adjacent_shard_to_merge: <p>The shard ID of the adjacent shard for the merge.</p>
             stream_arn: <p>The ARN of the stream.</p>
             stream_id: <p>Not Implemented. Reserved for future use.</p>
+
+        Raises:
+            aws_sdk_kinesis.errors.access_denied_exception.AccessDeniedException: <p>Specifies that you do not have the permissions required to perform this operation.</p>
+            aws_sdk_kinesis.errors.invalid_argument_exception.InvalidArgumentException: <p>A specified parameter exceeds its restrictions, is not supported, or can't be used. For more information, see the returned message.</p>
+            aws_sdk_kinesis.errors.limit_exceeded_exception.LimitExceededException: <p>The requested resource exceeds the maximum number allowed, or the number of concurrent stream requests exceeds the maximum number allowed. </p>
+            aws_sdk_kinesis.errors.resource_in_use_exception.ResourceInUseException: <p>The resource is not available for this operation. For successful operation, the resource must be in the <code>ACTIVE</code> state.</p>
+            aws_sdk_kinesis.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource could not be found. The stream might not be specified correctly.</p>
+            aws_sdk_kinesis.errors.validation_exception.ValidationException: <p>Specifies that you tried to invoke this API for a data stream with the on-demand capacity mode. This API is only supported for data streams with the provisioned capacity mode. </p>
+            aws_sdk_kinesis.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1443,6 +1620,20 @@ class KinesisClient:
             sequence_number_for_ordering: <p>Guarantees strictly increasing sequence numbers, for puts from the same client and to the same partition key. Usage: set the <code>SequenceNumberForOrdering</code> of record <i>n</i> to the sequence number of record <i>n-1</i> (as returned in the result when putting record <i>n-1</i>). If this parameter is not set, records are coarsely ordered based on arrival time.</p>
             stream_arn: <p>The ARN of the stream.</p>
             stream_id: <p>Not Implemented. Reserved for future use.</p>
+
+        Raises:
+            aws_sdk_kinesis.errors.access_denied_exception.AccessDeniedException: <p>Specifies that you do not have the permissions required to perform this operation.</p>
+            aws_sdk_kinesis.errors.internal_failure_exception.InternalFailureException: <p>The processing of the request failed because of an unknown error, exception, or failure.</p>
+            aws_sdk_kinesis.errors.invalid_argument_exception.InvalidArgumentException: <p>A specified parameter exceeds its restrictions, is not supported, or can't be used. For more information, see the returned message.</p>
+            aws_sdk_kinesis.errors.kms_access_denied_exception.KMSAccessDeniedException: <p>The ciphertext references a key that doesn't exist or that you don't have access to.</p>
+            aws_sdk_kinesis.errors.kms_disabled_exception.KMSDisabledException: <p>The request was rejected because the specified customer master key (CMK) isn't enabled.</p>
+            aws_sdk_kinesis.errors.kms_invalid_state_exception.KMSInvalidStateException: <p>The request was rejected because the state of the specified resource isn't valid for this request. For more information, see <a href=\"https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html\">How Key State Affects Use of a Customer Master Key</a> in the <i>Amazon Web Services Key Management Service Developer Guide</i>.</p>
+            aws_sdk_kinesis.errors.kms_not_found_exception.KMSNotFoundException: <p>The request was rejected because the specified entity or resource can't be found.</p>
+            aws_sdk_kinesis.errors.kms_opt_in_required.KMSOptInRequired: <p>The Amazon Web Services access key ID needs a subscription for the service.</p>
+            aws_sdk_kinesis.errors.kms_throttling_exception.KMSThrottlingException: <p>The request was denied due to request throttling. For more information about throttling, see <a href=\"https://docs.aws.amazon.com/kms/latest/developerguide/limits.html#requests-per-second\">Limits</a> in the <i>Amazon Web Services Key Management Service Developer Guide</i>.</p>
+            aws_sdk_kinesis.errors.provisioned_throughput_exceeded_exception.ProvisionedThroughputExceededException: <p>The request rate for the stream is too high, or the requested data is too large for the available throughput. Reduce the frequency or size of your requests. For more information, see <a href=\"https://docs.aws.amazon.com/kinesis/latest/dev/service-sizes-and-limits.html\">Streams Limits</a> in the <i>Amazon Kinesis Data Streams Developer Guide</i>, and <a href=\"https://docs.aws.amazon.com/general/latest/gr/api-retries.html\">Error Retries and Exponential Backoff in Amazon Web Services</a> in the <i>Amazon Web Services General Reference</i>.</p>
+            aws_sdk_kinesis.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource could not be found. The stream might not be specified correctly.</p>
+            aws_sdk_kinesis.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1497,6 +1688,20 @@ class KinesisClient:
             stream_name: <p>The stream name associated with the request.</p>
             stream_arn: <p>The ARN of the stream.</p>
             stream_id: <p>Not Implemented. Reserved for future use.</p>
+
+        Raises:
+            aws_sdk_kinesis.errors.access_denied_exception.AccessDeniedException: <p>Specifies that you do not have the permissions required to perform this operation.</p>
+            aws_sdk_kinesis.errors.internal_failure_exception.InternalFailureException: <p>The processing of the request failed because of an unknown error, exception, or failure.</p>
+            aws_sdk_kinesis.errors.invalid_argument_exception.InvalidArgumentException: <p>A specified parameter exceeds its restrictions, is not supported, or can't be used. For more information, see the returned message.</p>
+            aws_sdk_kinesis.errors.kms_access_denied_exception.KMSAccessDeniedException: <p>The ciphertext references a key that doesn't exist or that you don't have access to.</p>
+            aws_sdk_kinesis.errors.kms_disabled_exception.KMSDisabledException: <p>The request was rejected because the specified customer master key (CMK) isn't enabled.</p>
+            aws_sdk_kinesis.errors.kms_invalid_state_exception.KMSInvalidStateException: <p>The request was rejected because the state of the specified resource isn't valid for this request. For more information, see <a href=\"https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html\">How Key State Affects Use of a Customer Master Key</a> in the <i>Amazon Web Services Key Management Service Developer Guide</i>.</p>
+            aws_sdk_kinesis.errors.kms_not_found_exception.KMSNotFoundException: <p>The request was rejected because the specified entity or resource can't be found.</p>
+            aws_sdk_kinesis.errors.kms_opt_in_required.KMSOptInRequired: <p>The Amazon Web Services access key ID needs a subscription for the service.</p>
+            aws_sdk_kinesis.errors.kms_throttling_exception.KMSThrottlingException: <p>The request was denied due to request throttling. For more information about throttling, see <a href=\"https://docs.aws.amazon.com/kms/latest/developerguide/limits.html#requests-per-second\">Limits</a> in the <i>Amazon Web Services Key Management Service Developer Guide</i>.</p>
+            aws_sdk_kinesis.errors.provisioned_throughput_exceeded_exception.ProvisionedThroughputExceededException: <p>The request rate for the stream is too high, or the requested data is too large for the available throughput. Reduce the frequency or size of your requests. For more information, see <a href=\"https://docs.aws.amazon.com/kinesis/latest/dev/service-sizes-and-limits.html\">Streams Limits</a> in the <i>Amazon Kinesis Data Streams Developer Guide</i>, and <a href=\"https://docs.aws.amazon.com/general/latest/gr/api-retries.html\">Error Retries and Exponential Backoff in Amazon Web Services</a> in the <i>Amazon Web Services General Reference</i>.</p>
+            aws_sdk_kinesis.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource could not be found. The stream might not be specified correctly.</p>
+            aws_sdk_kinesis.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1544,6 +1749,14 @@ class KinesisClient:
             resource_arn: <p>The Amazon Resource Name (ARN) of the data stream or consumer.</p>
             stream_id: <p>Not Implemented. Reserved for future use.</p>
             policy: <p>Details of the resource policy. It must include the identity of the principal and the actions allowed on this resource. This is formatted as a JSON string.</p>
+
+        Raises:
+            aws_sdk_kinesis.errors.access_denied_exception.AccessDeniedException: <p>Specifies that you do not have the permissions required to perform this operation.</p>
+            aws_sdk_kinesis.errors.invalid_argument_exception.InvalidArgumentException: <p>A specified parameter exceeds its restrictions, is not supported, or can't be used. For more information, see the returned message.</p>
+            aws_sdk_kinesis.errors.limit_exceeded_exception.LimitExceededException: <p>The requested resource exceeds the maximum number allowed, or the number of concurrent stream requests exceeds the maximum number allowed. </p>
+            aws_sdk_kinesis.errors.resource_in_use_exception.ResourceInUseException: <p>The resource is not available for this operation. For successful operation, the resource must be in the <code>ACTIVE</code> state.</p>
+            aws_sdk_kinesis.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource could not be found. The stream might not be specified correctly.</p>
+            aws_sdk_kinesis.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1588,6 +1801,13 @@ class KinesisClient:
             consumer_name: <p>For a given Kinesis data stream, each consumer must have a unique name. However, consumer names don't have to be unique across data streams.</p>
             stream_id: <p>Not Implemented. Reserved for future use.</p>
             tags: <p>A set of up to 50 key-value pairs. A tag consists of a required key and an optional value.</p>
+
+        Raises:
+            aws_sdk_kinesis.errors.invalid_argument_exception.InvalidArgumentException: <p>A specified parameter exceeds its restrictions, is not supported, or can't be used. For more information, see the returned message.</p>
+            aws_sdk_kinesis.errors.limit_exceeded_exception.LimitExceededException: <p>The requested resource exceeds the maximum number allowed, or the number of concurrent stream requests exceeds the maximum number allowed. </p>
+            aws_sdk_kinesis.errors.resource_in_use_exception.ResourceInUseException: <p>The resource is not available for this operation. For successful operation, the resource must be in the <code>ACTIVE</code> state.</p>
+            aws_sdk_kinesis.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource could not be found. The stream might not be specified correctly.</p>
+            aws_sdk_kinesis.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1636,6 +1856,14 @@ class KinesisClient:
             tag_keys: <p>A list of tag keys. Each corresponding tag is removed from the stream.</p>
             stream_arn: <p>The ARN of the stream.</p>
             stream_id: <p>Not Implemented. Reserved for future use.</p>
+
+        Raises:
+            aws_sdk_kinesis.errors.access_denied_exception.AccessDeniedException: <p>Specifies that you do not have the permissions required to perform this operation.</p>
+            aws_sdk_kinesis.errors.invalid_argument_exception.InvalidArgumentException: <p>A specified parameter exceeds its restrictions, is not supported, or can't be used. For more information, see the returned message.</p>
+            aws_sdk_kinesis.errors.limit_exceeded_exception.LimitExceededException: <p>The requested resource exceeds the maximum number allowed, or the number of concurrent stream requests exceeds the maximum number allowed. </p>
+            aws_sdk_kinesis.errors.resource_in_use_exception.ResourceInUseException: <p>The resource is not available for this operation. For successful operation, the resource must be in the <code>ACTIVE</code> state.</p>
+            aws_sdk_kinesis.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource could not be found. The stream might not be specified correctly.</p>
+            aws_sdk_kinesis.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1685,6 +1913,15 @@ class KinesisClient:
             new_starting_hash_key: <p>A hash key value for the starting hash key of one of the child shards created by the split. The hash key range for a given shard constitutes a set of ordered contiguous positive integers. The value for <code>NewStartingHashKey</code> must be in the range of hash keys being mapped into the shard. The <code>NewStartingHashKey</code> hash key value and all higher hash key values in hash key range are distributed to one of the child shards. All the lower hash key values in the range are distributed to the other child shard.</p>
             stream_arn: <p>The ARN of the stream.</p>
             stream_id: <p>Not Implemented. Reserved for future use.</p>
+
+        Raises:
+            aws_sdk_kinesis.errors.access_denied_exception.AccessDeniedException: <p>Specifies that you do not have the permissions required to perform this operation.</p>
+            aws_sdk_kinesis.errors.invalid_argument_exception.InvalidArgumentException: <p>A specified parameter exceeds its restrictions, is not supported, or can't be used. For more information, see the returned message.</p>
+            aws_sdk_kinesis.errors.limit_exceeded_exception.LimitExceededException: <p>The requested resource exceeds the maximum number allowed, or the number of concurrent stream requests exceeds the maximum number allowed. </p>
+            aws_sdk_kinesis.errors.resource_in_use_exception.ResourceInUseException: <p>The resource is not available for this operation. For successful operation, the resource must be in the <code>ACTIVE</code> state.</p>
+            aws_sdk_kinesis.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource could not be found. The stream might not be specified correctly.</p>
+            aws_sdk_kinesis.errors.validation_exception.ValidationException: <p>Specifies that you tried to invoke this API for a data stream with the on-demand capacity mode. This API is only supported for data streams with the provisioned capacity mode. </p>
+            aws_sdk_kinesis.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1735,6 +1972,20 @@ class KinesisClient:
             key_id: <p>The GUID for the customer-managed Amazon Web Services KMS key to use for encryption. This value can be a globally unique identifier, a fully specified Amazon Resource Name (ARN) to either an alias or a key, or an alias name prefixed by \"alias/\".You can also use a master key owned by Kinesis Data Streams by specifying the alias <code>aws/kinesis</code>.</p> <ul> <li> <p>Key ARN example: <code>arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012</code> </p> </li> <li> <p>Alias ARN example: <code>arn:aws:kms:us-east-1:123456789012:alias/MyAliasName</code> </p> </li> <li> <p>Globally unique key ID example: <code>12345678-1234-1234-1234-123456789012</code> </p> </li> <li> <p>Alias name example: <code>alias/MyAliasName</code> </p> </li> <li> <p>Master key owned by Kinesis Data Streams: <code>alias/aws/kinesis</code> </p> </li> </ul>
             stream_arn: <p>The ARN of the stream.</p>
             stream_id: <p>Not Implemented. Reserved for future use.</p>
+
+        Raises:
+            aws_sdk_kinesis.errors.access_denied_exception.AccessDeniedException: <p>Specifies that you do not have the permissions required to perform this operation.</p>
+            aws_sdk_kinesis.errors.invalid_argument_exception.InvalidArgumentException: <p>A specified parameter exceeds its restrictions, is not supported, or can't be used. For more information, see the returned message.</p>
+            aws_sdk_kinesis.errors.kms_access_denied_exception.KMSAccessDeniedException: <p>The ciphertext references a key that doesn't exist or that you don't have access to.</p>
+            aws_sdk_kinesis.errors.kms_disabled_exception.KMSDisabledException: <p>The request was rejected because the specified customer master key (CMK) isn't enabled.</p>
+            aws_sdk_kinesis.errors.kms_invalid_state_exception.KMSInvalidStateException: <p>The request was rejected because the state of the specified resource isn't valid for this request. For more information, see <a href=\"https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html\">How Key State Affects Use of a Customer Master Key</a> in the <i>Amazon Web Services Key Management Service Developer Guide</i>.</p>
+            aws_sdk_kinesis.errors.kms_not_found_exception.KMSNotFoundException: <p>The request was rejected because the specified entity or resource can't be found.</p>
+            aws_sdk_kinesis.errors.kms_opt_in_required.KMSOptInRequired: <p>The Amazon Web Services access key ID needs a subscription for the service.</p>
+            aws_sdk_kinesis.errors.kms_throttling_exception.KMSThrottlingException: <p>The request was denied due to request throttling. For more information about throttling, see <a href=\"https://docs.aws.amazon.com/kms/latest/developerguide/limits.html#requests-per-second\">Limits</a> in the <i>Amazon Web Services Key Management Service Developer Guide</i>.</p>
+            aws_sdk_kinesis.errors.limit_exceeded_exception.LimitExceededException: <p>The requested resource exceeds the maximum number allowed, or the number of concurrent stream requests exceeds the maximum number allowed. </p>
+            aws_sdk_kinesis.errors.resource_in_use_exception.ResourceInUseException: <p>The resource is not available for this operation. For successful operation, the resource must be in the <code>ACTIVE</code> state.</p>
+            aws_sdk_kinesis.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource could not be found. The stream might not be specified correctly.</p>
+            aws_sdk_kinesis.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1785,6 +2036,14 @@ class KinesisClient:
             key_id: <p>The GUID for the customer-managed Amazon Web Services KMS key to use for encryption. This value can be a globally unique identifier, a fully specified Amazon Resource Name (ARN) to either an alias or a key, or an alias name prefixed by \"alias/\".You can also use a master key owned by Kinesis Data Streams by specifying the alias <code>aws/kinesis</code>.</p> <ul> <li> <p>Key ARN example: <code>arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012</code> </p> </li> <li> <p>Alias ARN example: <code>arn:aws:kms:us-east-1:123456789012:alias/MyAliasName</code> </p> </li> <li> <p>Globally unique key ID example: <code>12345678-1234-1234-1234-123456789012</code> </p> </li> <li> <p>Alias name example: <code>alias/MyAliasName</code> </p> </li> <li> <p>Master key owned by Kinesis Data Streams: <code>alias/aws/kinesis</code> </p> </li> </ul>
             stream_arn: <p>The ARN of the stream.</p>
             stream_id: <p>Not Implemented. Reserved for future use.</p>
+
+        Raises:
+            aws_sdk_kinesis.errors.access_denied_exception.AccessDeniedException: <p>Specifies that you do not have the permissions required to perform this operation.</p>
+            aws_sdk_kinesis.errors.invalid_argument_exception.InvalidArgumentException: <p>A specified parameter exceeds its restrictions, is not supported, or can't be used. For more information, see the returned message.</p>
+            aws_sdk_kinesis.errors.limit_exceeded_exception.LimitExceededException: <p>The requested resource exceeds the maximum number allowed, or the number of concurrent stream requests exceeds the maximum number allowed. </p>
+            aws_sdk_kinesis.errors.resource_in_use_exception.ResourceInUseException: <p>The resource is not available for this operation. For successful operation, the resource must be in the <code>ACTIVE</code> state.</p>
+            aws_sdk_kinesis.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource could not be found. The stream might not be specified correctly.</p>
+            aws_sdk_kinesis.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1833,6 +2092,14 @@ class KinesisClient:
             stream_id: <p>Not Implemented. Reserved for future use.</p>
             shard_id: <p>The ID of the shard you want to subscribe to. To see a list of all the shards for a given stream, use <a>ListShards</a>.</p>
             starting_position: <p>The starting position in the data stream from which to start streaming.</p>
+
+        Raises:
+            aws_sdk_kinesis.errors.access_denied_exception.AccessDeniedException: <p>Specifies that you do not have the permissions required to perform this operation.</p>
+            aws_sdk_kinesis.errors.invalid_argument_exception.InvalidArgumentException: <p>A specified parameter exceeds its restrictions, is not supported, or can't be used. For more information, see the returned message.</p>
+            aws_sdk_kinesis.errors.limit_exceeded_exception.LimitExceededException: <p>The requested resource exceeds the maximum number allowed, or the number of concurrent stream requests exceeds the maximum number allowed. </p>
+            aws_sdk_kinesis.errors.resource_in_use_exception.ResourceInUseException: <p>The resource is not available for this operation. For successful operation, the resource must be in the <code>ACTIVE</code> state.</p>
+            aws_sdk_kinesis.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource could not be found. The stream might not be specified correctly.</p>
+            aws_sdk_kinesis.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1878,6 +2145,14 @@ class KinesisClient:
             tags: <p>An array of tags to be added to the Kinesis resource. A tag consists of a required key and an optional value. You can add up to 50 tags per resource.</p> <p>Tags may only contain Unicode letters, digits, white space, or these symbols: _ . : / = + - @.</p>
             resource_arn: <p>The Amazon Resource Name (ARN) of the Kinesis resource to which to add tags.</p>
             stream_id: <p>Not Implemented. Reserved for future use.</p>
+
+        Raises:
+            aws_sdk_kinesis.errors.access_denied_exception.AccessDeniedException: <p>Specifies that you do not have the permissions required to perform this operation.</p>
+            aws_sdk_kinesis.errors.invalid_argument_exception.InvalidArgumentException: <p>A specified parameter exceeds its restrictions, is not supported, or can't be used. For more information, see the returned message.</p>
+            aws_sdk_kinesis.errors.limit_exceeded_exception.LimitExceededException: <p>The requested resource exceeds the maximum number allowed, or the number of concurrent stream requests exceeds the maximum number allowed. </p>
+            aws_sdk_kinesis.errors.resource_in_use_exception.ResourceInUseException: <p>The resource is not available for this operation. For successful operation, the resource must be in the <code>ACTIVE</code> state.</p>
+            aws_sdk_kinesis.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource could not be found. The stream might not be specified correctly.</p>
+            aws_sdk_kinesis.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1920,6 +2195,14 @@ class KinesisClient:
             tag_keys: <p>A list of tag key-value pairs. Existing tags of the resource whose keys are members of this list will be removed from the Kinesis resource.</p>
             resource_arn: <p>The Amazon Resource Name (ARN) of the Kinesis resource from which to remove tags.</p>
             stream_id: <p>Not Implemented. Reserved for future use.</p>
+
+        Raises:
+            aws_sdk_kinesis.errors.access_denied_exception.AccessDeniedException: <p>Specifies that you do not have the permissions required to perform this operation.</p>
+            aws_sdk_kinesis.errors.invalid_argument_exception.InvalidArgumentException: <p>A specified parameter exceeds its restrictions, is not supported, or can't be used. For more information, see the returned message.</p>
+            aws_sdk_kinesis.errors.limit_exceeded_exception.LimitExceededException: <p>The requested resource exceeds the maximum number allowed, or the number of concurrent stream requests exceeds the maximum number allowed. </p>
+            aws_sdk_kinesis.errors.resource_in_use_exception.ResourceInUseException: <p>The resource is not available for this operation. For successful operation, the resource must be in the <code>ACTIVE</code> state.</p>
+            aws_sdk_kinesis.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource could not be found. The stream might not be specified correctly.</p>
+            aws_sdk_kinesis.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1958,6 +2241,12 @@ class KinesisClient:
 
         Args:
             minimum_throughput_billing_commitment: <p>Specifies the minimum throughput billing commitment configuration for your account.</p>
+
+        Raises:
+            aws_sdk_kinesis.errors.invalid_argument_exception.InvalidArgumentException: <p>A specified parameter exceeds its restrictions, is not supported, or can't be used. For more information, see the returned message.</p>
+            aws_sdk_kinesis.errors.limit_exceeded_exception.LimitExceededException: <p>The requested resource exceeds the maximum number allowed, or the number of concurrent stream requests exceeds the maximum number allowed. </p>
+            aws_sdk_kinesis.errors.validation_exception.ValidationException: <p>Specifies that you tried to invoke this API for a data stream with the on-demand capacity mode. This API is only supported for data streams with the provisioned capacity mode. </p>
+            aws_sdk_kinesis.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2001,6 +2290,15 @@ class KinesisClient:
             stream_arn: <p>The Amazon Resource Name (ARN) of the stream for the <code>MaxRecordSize</code> update.</p>
             stream_id: <p>Not Implemented. Reserved for future use.</p>
             max_record_size_in_ki_b: <p>The maximum record size of a single record in KiB that you can write to, and read from a stream. Specify a value between 1024 and 10240 KiB (1 to 10 MiB). If you specify a value that is out of this range, <code>UpdateMaxRecordSize</code> sends back an <code>ValidationException</code> message.</p>
+
+        Raises:
+            aws_sdk_kinesis.errors.access_denied_exception.AccessDeniedException: <p>Specifies that you do not have the permissions required to perform this operation.</p>
+            aws_sdk_kinesis.errors.invalid_argument_exception.InvalidArgumentException: <p>A specified parameter exceeds its restrictions, is not supported, or can't be used. For more information, see the returned message.</p>
+            aws_sdk_kinesis.errors.limit_exceeded_exception.LimitExceededException: <p>The requested resource exceeds the maximum number allowed, or the number of concurrent stream requests exceeds the maximum number allowed. </p>
+            aws_sdk_kinesis.errors.resource_in_use_exception.ResourceInUseException: <p>The resource is not available for this operation. For successful operation, the resource must be in the <code>ACTIVE</code> state.</p>
+            aws_sdk_kinesis.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource could not be found. The stream might not be specified correctly.</p>
+            aws_sdk_kinesis.errors.validation_exception.ValidationException: <p>Specifies that you tried to invoke this API for a data stream with the on-demand capacity mode. This API is only supported for data streams with the provisioned capacity mode. </p>
+            aws_sdk_kinesis.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2048,6 +2346,15 @@ class KinesisClient:
             scaling_type: <p>The scaling type. Uniform scaling creates shards of equal size.</p>
             stream_arn: <p>The ARN of the stream.</p>
             stream_id: <p>Not Implemented. Reserved for future use.</p>
+
+        Raises:
+            aws_sdk_kinesis.errors.access_denied_exception.AccessDeniedException: <p>Specifies that you do not have the permissions required to perform this operation.</p>
+            aws_sdk_kinesis.errors.invalid_argument_exception.InvalidArgumentException: <p>A specified parameter exceeds its restrictions, is not supported, or can't be used. For more information, see the returned message.</p>
+            aws_sdk_kinesis.errors.limit_exceeded_exception.LimitExceededException: <p>The requested resource exceeds the maximum number allowed, or the number of concurrent stream requests exceeds the maximum number allowed. </p>
+            aws_sdk_kinesis.errors.resource_in_use_exception.ResourceInUseException: <p>The resource is not available for this operation. For successful operation, the resource must be in the <code>ACTIVE</code> state.</p>
+            aws_sdk_kinesis.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource could not be found. The stream might not be specified correctly.</p>
+            aws_sdk_kinesis.errors.validation_exception.ValidationException: <p>Specifies that you tried to invoke this API for a data stream with the on-demand capacity mode. This API is only supported for data streams with the provisioned capacity mode. </p>
+            aws_sdk_kinesis.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2100,6 +2407,14 @@ class KinesisClient:
             stream_id: <p>Not Implemented. Reserved for future use.</p>
             stream_mode_details: <p> Specifies the capacity mode to which you want to set your data stream. Currently, in Kinesis Data Streams, you can choose between an <b>on-demand</b> capacity mode and a <b>provisioned</b> capacity mode for your data streams. </p>
             warm_throughput_mi_bps: <p>The target warm throughput in MB/s that the stream should be scaled to handle. This represents the throughput capacity that will be immediately available for write operations. This field is only valid when the stream mode is being updated to on-demand.</p>
+
+        Raises:
+            aws_sdk_kinesis.errors.invalid_argument_exception.InvalidArgumentException: <p>A specified parameter exceeds its restrictions, is not supported, or can't be used. For more information, see the returned message.</p>
+            aws_sdk_kinesis.errors.limit_exceeded_exception.LimitExceededException: <p>The requested resource exceeds the maximum number allowed, or the number of concurrent stream requests exceeds the maximum number allowed. </p>
+            aws_sdk_kinesis.errors.resource_in_use_exception.ResourceInUseException: <p>The resource is not available for this operation. For successful operation, the resource must be in the <code>ACTIVE</code> state.</p>
+            aws_sdk_kinesis.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource could not be found. The stream might not be specified correctly.</p>
+            aws_sdk_kinesis.errors.validation_exception.ValidationException: <p>Specifies that you tried to invoke this API for a data stream with the on-demand capacity mode. This API is only supported for data streams with the provisioned capacity mode. </p>
+            aws_sdk_kinesis.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2146,6 +2461,15 @@ class KinesisClient:
             stream_name: <p>The name of the stream to be updated.</p>
             stream_id: <p>Not Implemented. Reserved for future use.</p>
             warm_throughput_mi_bps: <p>The target warm throughput in MB/s that the stream should be scaled to handle. This represents the throughput capacity that will be immediately available for write operations.</p>
+
+        Raises:
+            aws_sdk_kinesis.errors.access_denied_exception.AccessDeniedException: <p>Specifies that you do not have the permissions required to perform this operation.</p>
+            aws_sdk_kinesis.errors.invalid_argument_exception.InvalidArgumentException: <p>A specified parameter exceeds its restrictions, is not supported, or can't be used. For more information, see the returned message.</p>
+            aws_sdk_kinesis.errors.limit_exceeded_exception.LimitExceededException: <p>The requested resource exceeds the maximum number allowed, or the number of concurrent stream requests exceeds the maximum number allowed. </p>
+            aws_sdk_kinesis.errors.resource_in_use_exception.ResourceInUseException: <p>The resource is not available for this operation. For successful operation, the resource must be in the <code>ACTIVE</code> state.</p>
+            aws_sdk_kinesis.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource could not be found. The stream might not be specified correctly.</p>
+            aws_sdk_kinesis.errors.validation_exception.ValidationException: <p>Specifies that you tried to invoke this API for a data stream with the on-demand capacity mode. This API is only supported for data streams with the provisioned capacity mode. </p>
+            aws_sdk_kinesis.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(

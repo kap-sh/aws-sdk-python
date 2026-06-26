@@ -346,6 +346,13 @@ class AsyncFraudDetectorClient:
         Args:
             variable_entries: <p>The list of variables for the batch create variable request.</p>
             tags: <p>A collection of key and value pairs.</p>
+
+        Raises:
+            aws_sdk_frauddetector.errors.access_denied_exception.AccessDeniedException: <p>An exception indicating Amazon Fraud Detector does not have the needed permissions. This can occur if you submit a request, such as <code>PutExternalModel</code>, that specifies a role that is not in your account.</p>
+            aws_sdk_frauddetector.errors.internal_server_exception.InternalServerException: <p>An exception indicating an internal server error.</p>
+            aws_sdk_frauddetector.errors.throttling_exception.ThrottlingException: <p>An exception indicating a throttling error.</p>
+            aws_sdk_frauddetector.errors.validation_exception.ValidationException: <p>An exception indicating a specified value is not allowed.</p>
+            aws_sdk_frauddetector.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -386,6 +393,13 @@ class AsyncFraudDetectorClient:
 
         Args:
             names: <p>The list of variable names to get.</p>
+
+        Raises:
+            aws_sdk_frauddetector.errors.access_denied_exception.AccessDeniedException: <p>An exception indicating Amazon Fraud Detector does not have the needed permissions. This can occur if you submit a request, such as <code>PutExternalModel</code>, that specifies a role that is not in your account.</p>
+            aws_sdk_frauddetector.errors.internal_server_exception.InternalServerException: <p>An exception indicating an internal server error.</p>
+            aws_sdk_frauddetector.errors.throttling_exception.ThrottlingException: <p>An exception indicating a throttling error.</p>
+            aws_sdk_frauddetector.errors.validation_exception.ValidationException: <p>An exception indicating a specified value is not allowed.</p>
+            aws_sdk_frauddetector.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -424,6 +438,14 @@ class AsyncFraudDetectorClient:
 
         Args:
             job_id: <p> The ID of an in-progress batch import job to cancel. </p> <p>Amazon Fraud Detector will throw an error if the batch import job is in <code>FAILED</code>, <code>CANCELED</code>, or <code>COMPLETED</code> state.</p>
+
+        Raises:
+            aws_sdk_frauddetector.errors.access_denied_exception.AccessDeniedException: <p>An exception indicating Amazon Fraud Detector does not have the needed permissions. This can occur if you submit a request, such as <code>PutExternalModel</code>, that specifies a role that is not in your account.</p>
+            aws_sdk_frauddetector.errors.internal_server_exception.InternalServerException: <p>An exception indicating an internal server error.</p>
+            aws_sdk_frauddetector.errors.resource_not_found_exception.ResourceNotFoundException: <p>An exception indicating the specified resource was not found.</p>
+            aws_sdk_frauddetector.errors.throttling_exception.ThrottlingException: <p>An exception indicating a throttling error.</p>
+            aws_sdk_frauddetector.errors.validation_exception.ValidationException: <p>An exception indicating a specified value is not allowed.</p>
+            aws_sdk_frauddetector.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -462,6 +484,14 @@ class AsyncFraudDetectorClient:
 
         Args:
             job_id: <p>The ID of the batch prediction job to cancel.</p>
+
+        Raises:
+            aws_sdk_frauddetector.errors.access_denied_exception.AccessDeniedException: <p>An exception indicating Amazon Fraud Detector does not have the needed permissions. This can occur if you submit a request, such as <code>PutExternalModel</code>, that specifies a role that is not in your account.</p>
+            aws_sdk_frauddetector.errors.internal_server_exception.InternalServerException: <p>An exception indicating an internal server error.</p>
+            aws_sdk_frauddetector.errors.resource_not_found_exception.ResourceNotFoundException: <p>An exception indicating the specified resource was not found.</p>
+            aws_sdk_frauddetector.errors.throttling_exception.ThrottlingException: <p>An exception indicating a throttling error.</p>
+            aws_sdk_frauddetector.errors.validation_exception.ValidationException: <p>An exception indicating a specified value is not allowed.</p>
+            aws_sdk_frauddetector.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -510,6 +540,14 @@ class AsyncFraudDetectorClient:
             event_type_name: <p>The name of the event type.</p>
             iam_role_arn: <p>The ARN of the IAM role created for Amazon S3 bucket that holds your data file.</p> <p>The IAM role must have read permissions to your input S3 bucket and write permissions to your output S3 bucket. For more information about bucket permissions, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/example-policies-s3.html\">User policy examples</a> in the <i>Amazon S3 User Guide</i>.</p>
             tags: <p>A collection of key-value pairs associated with this request. </p>
+
+        Raises:
+            aws_sdk_frauddetector.errors.access_denied_exception.AccessDeniedException: <p>An exception indicating Amazon Fraud Detector does not have the needed permissions. This can occur if you submit a request, such as <code>PutExternalModel</code>, that specifies a role that is not in your account.</p>
+            aws_sdk_frauddetector.errors.internal_server_exception.InternalServerException: <p>An exception indicating an internal server error.</p>
+            aws_sdk_frauddetector.errors.resource_not_found_exception.ResourceNotFoundException: <p>An exception indicating the specified resource was not found.</p>
+            aws_sdk_frauddetector.errors.throttling_exception.ThrottlingException: <p>An exception indicating a throttling error.</p>
+            aws_sdk_frauddetector.errors.validation_exception.ValidationException: <p>An exception indicating a specified value is not allowed.</p>
+            aws_sdk_frauddetector.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -570,6 +608,14 @@ class AsyncFraudDetectorClient:
             detector_version: <p>The detector version.</p>
             iam_role_arn: <p>The ARN of the IAM role to use for this job request.</p> <p>The IAM Role must have read permissions to your input S3 bucket and write permissions to your output S3 bucket. For more information about bucket permissions, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/example-policies-s3.html\">User policy examples</a> in the <i>Amazon S3 User Guide</i>.</p>
             tags: <p>A collection of key and value pairs.</p>
+
+        Raises:
+            aws_sdk_frauddetector.errors.access_denied_exception.AccessDeniedException: <p>An exception indicating Amazon Fraud Detector does not have the needed permissions. This can occur if you submit a request, such as <code>PutExternalModel</code>, that specifies a role that is not in your account.</p>
+            aws_sdk_frauddetector.errors.internal_server_exception.InternalServerException: <p>An exception indicating an internal server error.</p>
+            aws_sdk_frauddetector.errors.resource_not_found_exception.ResourceNotFoundException: <p>An exception indicating the specified resource was not found.</p>
+            aws_sdk_frauddetector.errors.throttling_exception.ThrottlingException: <p>An exception indicating a throttling error.</p>
+            aws_sdk_frauddetector.errors.validation_exception.ValidationException: <p>An exception indicating a specified value is not allowed.</p>
+            aws_sdk_frauddetector.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -637,6 +683,14 @@ class AsyncFraudDetectorClient:
             model_versions: <p>The model versions to include in the detector version.</p>
             rule_execution_mode: <p>The rule execution mode for the rules included in the detector version.</p> <p>You can define and edit the rule mode at the detector version level, when it is in draft status.</p> <p>If you specify <code>FIRST_MATCHED</code>, Amazon Fraud Detector evaluates rules sequentially, first to last, stopping at the first matched rule. Amazon Fraud dectector then provides the outcomes for that single rule.</p> <p>If you specifiy <code>ALL_MATCHED</code>, Amazon Fraud Detector evaluates all rules and returns the outcomes for all matched rules. </p> <p>The default behavior is <code>FIRST_MATCHED</code>.</p>
             tags: <p>A collection of key and value pairs.</p>
+
+        Raises:
+            aws_sdk_frauddetector.errors.access_denied_exception.AccessDeniedException: <p>An exception indicating Amazon Fraud Detector does not have the needed permissions. This can occur if you submit a request, such as <code>PutExternalModel</code>, that specifies a role that is not in your account.</p>
+            aws_sdk_frauddetector.errors.internal_server_exception.InternalServerException: <p>An exception indicating an internal server error.</p>
+            aws_sdk_frauddetector.errors.resource_not_found_exception.ResourceNotFoundException: <p>An exception indicating the specified resource was not found.</p>
+            aws_sdk_frauddetector.errors.throttling_exception.ThrottlingException: <p>An exception indicating a throttling error.</p>
+            aws_sdk_frauddetector.errors.validation_exception.ValidationException: <p>An exception indicating a specified value is not allowed.</p>
+            aws_sdk_frauddetector.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -700,6 +754,13 @@ class AsyncFraudDetectorClient:
             variable_type: <p> The variable type of the list. You can only assign the variable type with String data type. For more information, see <a href=\"https://docs.aws.amazon.com/frauddetector/latest/ug/create-a-variable.html#variable-types\">Variable types</a>. </p>
             description: <p> The description of the list. </p>
             tags: <p> A collection of the key and value pairs. </p>
+
+        Raises:
+            aws_sdk_frauddetector.errors.access_denied_exception.AccessDeniedException: <p>An exception indicating Amazon Fraud Detector does not have the needed permissions. This can occur if you submit a request, such as <code>PutExternalModel</code>, that specifies a role that is not in your account.</p>
+            aws_sdk_frauddetector.errors.internal_server_exception.InternalServerException: <p>An exception indicating an internal server error.</p>
+            aws_sdk_frauddetector.errors.throttling_exception.ThrottlingException: <p>An exception indicating a throttling error.</p>
+            aws_sdk_frauddetector.errors.validation_exception.ValidationException: <p>An exception indicating a specified value is not allowed.</p>
+            aws_sdk_frauddetector.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -756,6 +817,13 @@ class AsyncFraudDetectorClient:
             description: <p>The model description. </p>
             event_type_name: <p>The name of the event type.</p>
             tags: <p>A collection of key and value pairs.</p>
+
+        Raises:
+            aws_sdk_frauddetector.errors.access_denied_exception.AccessDeniedException: <p>An exception indicating Amazon Fraud Detector does not have the needed permissions. This can occur if you submit a request, such as <code>PutExternalModel</code>, that specifies a role that is not in your account.</p>
+            aws_sdk_frauddetector.errors.internal_server_exception.InternalServerException: <p>An exception indicating an internal server error.</p>
+            aws_sdk_frauddetector.errors.throttling_exception.ThrottlingException: <p>An exception indicating a throttling error.</p>
+            aws_sdk_frauddetector.errors.validation_exception.ValidationException: <p>An exception indicating a specified value is not allowed.</p>
+            aws_sdk_frauddetector.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -816,6 +884,14 @@ class AsyncFraudDetectorClient:
             external_events_detail: <p>Details of the external events data used for model version training. Required if <code>trainingDataSource</code> is <code>EXTERNAL_EVENTS</code>.</p>
             ingested_events_detail: <p>Details of the ingested events data used for model version training. Required if <code>trainingDataSource</code> is <code>INGESTED_EVENTS</code>.</p>
             tags: <p>A collection of key and value pairs.</p>
+
+        Raises:
+            aws_sdk_frauddetector.errors.access_denied_exception.AccessDeniedException: <p>An exception indicating Amazon Fraud Detector does not have the needed permissions. This can occur if you submit a request, such as <code>PutExternalModel</code>, that specifies a role that is not in your account.</p>
+            aws_sdk_frauddetector.errors.internal_server_exception.InternalServerException: <p>An exception indicating an internal server error.</p>
+            aws_sdk_frauddetector.errors.resource_not_found_exception.ResourceNotFoundException: <p>An exception indicating the specified resource was not found.</p>
+            aws_sdk_frauddetector.errors.throttling_exception.ThrottlingException: <p>An exception indicating a throttling error.</p>
+            aws_sdk_frauddetector.errors.validation_exception.ValidationException: <p>An exception indicating a specified value is not allowed.</p>
+            aws_sdk_frauddetector.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -877,6 +953,13 @@ class AsyncFraudDetectorClient:
             language: <p>The language of the rule.</p>
             outcomes: <p>The outcome or outcomes returned when the rule expression matches.</p>
             tags: <p>A collection of key and value pairs.</p>
+
+        Raises:
+            aws_sdk_frauddetector.errors.access_denied_exception.AccessDeniedException: <p>An exception indicating Amazon Fraud Detector does not have the needed permissions. This can occur if you submit a request, such as <code>PutExternalModel</code>, that specifies a role that is not in your account.</p>
+            aws_sdk_frauddetector.errors.internal_server_exception.InternalServerException: <p>An exception indicating an internal server error.</p>
+            aws_sdk_frauddetector.errors.throttling_exception.ThrottlingException: <p>An exception indicating a throttling error.</p>
+            aws_sdk_frauddetector.errors.validation_exception.ValidationException: <p>An exception indicating a specified value is not allowed.</p>
+            aws_sdk_frauddetector.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -935,6 +1018,13 @@ class AsyncFraudDetectorClient:
             description: <p>The description.</p>
             variable_type: <p>The variable type. For more information see <a href=\"https://docs.aws.amazon.com/frauddetector/latest/ug/create-a-variable.html#variable-types\">Variable types</a>. </p> <p>Valid Values: <code>AUTH_CODE | AVS | BILLING_ADDRESS_L1 | BILLING_ADDRESS_L2 | BILLING_CITY | BILLING_COUNTRY | BILLING_NAME | BILLING_PHONE | BILLING_STATE | BILLING_ZIP | CARD_BIN | CATEGORICAL | CURRENCY_CODE | EMAIL_ADDRESS | FINGERPRINT | FRAUD_LABEL | FREE_FORM_TEXT | IP_ADDRESS | NUMERIC | ORDER_ID | PAYMENT_TYPE | PHONE_NUMBER | PRICE | PRODUCT_CATEGORY | SHIPPING_ADDRESS_L1 | SHIPPING_ADDRESS_L2 | SHIPPING_CITY | SHIPPING_COUNTRY | SHIPPING_NAME | SHIPPING_PHONE | SHIPPING_STATE | SHIPPING_ZIP | USERAGENT</code> </p>
             tags: <p>A collection of key and value pairs.</p>
+
+        Raises:
+            aws_sdk_frauddetector.errors.access_denied_exception.AccessDeniedException: <p>An exception indicating Amazon Fraud Detector does not have the needed permissions. This can occur if you submit a request, such as <code>PutExternalModel</code>, that specifies a role that is not in your account.</p>
+            aws_sdk_frauddetector.errors.internal_server_exception.InternalServerException: <p>An exception indicating an internal server error.</p>
+            aws_sdk_frauddetector.errors.throttling_exception.ThrottlingException: <p>An exception indicating a throttling error.</p>
+            aws_sdk_frauddetector.errors.validation_exception.ValidationException: <p>An exception indicating a specified value is not allowed.</p>
+            aws_sdk_frauddetector.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -982,6 +1072,13 @@ class AsyncFraudDetectorClient:
 
         Args:
             job_id: <p>The ID of the batch import job to delete. </p>
+
+        Raises:
+            aws_sdk_frauddetector.errors.access_denied_exception.AccessDeniedException: <p>An exception indicating Amazon Fraud Detector does not have the needed permissions. This can occur if you submit a request, such as <code>PutExternalModel</code>, that specifies a role that is not in your account.</p>
+            aws_sdk_frauddetector.errors.internal_server_exception.InternalServerException: <p>An exception indicating an internal server error.</p>
+            aws_sdk_frauddetector.errors.throttling_exception.ThrottlingException: <p>An exception indicating a throttling error.</p>
+            aws_sdk_frauddetector.errors.validation_exception.ValidationException: <p>An exception indicating a specified value is not allowed.</p>
+            aws_sdk_frauddetector.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1020,6 +1117,13 @@ class AsyncFraudDetectorClient:
 
         Args:
             job_id: <p>The ID of the batch prediction job to delete.</p>
+
+        Raises:
+            aws_sdk_frauddetector.errors.access_denied_exception.AccessDeniedException: <p>An exception indicating Amazon Fraud Detector does not have the needed permissions. This can occur if you submit a request, such as <code>PutExternalModel</code>, that specifies a role that is not in your account.</p>
+            aws_sdk_frauddetector.errors.internal_server_exception.InternalServerException: <p>An exception indicating an internal server error.</p>
+            aws_sdk_frauddetector.errors.throttling_exception.ThrottlingException: <p>An exception indicating a throttling error.</p>
+            aws_sdk_frauddetector.errors.validation_exception.ValidationException: <p>An exception indicating a specified value is not allowed.</p>
+            aws_sdk_frauddetector.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1058,6 +1162,14 @@ class AsyncFraudDetectorClient:
 
         Args:
             detector_id: <p>The ID of the detector to delete.</p>
+
+        Raises:
+            aws_sdk_frauddetector.errors.access_denied_exception.AccessDeniedException: <p>An exception indicating Amazon Fraud Detector does not have the needed permissions. This can occur if you submit a request, such as <code>PutExternalModel</code>, that specifies a role that is not in your account.</p>
+            aws_sdk_frauddetector.errors.conflict_exception.ConflictException: <p>An exception indicating there was a conflict during a delete operation.</p>
+            aws_sdk_frauddetector.errors.internal_server_exception.InternalServerException: <p>An exception indicating an internal server error.</p>
+            aws_sdk_frauddetector.errors.throttling_exception.ThrottlingException: <p>An exception indicating a throttling error.</p>
+            aws_sdk_frauddetector.errors.validation_exception.ValidationException: <p>An exception indicating a specified value is not allowed.</p>
+            aws_sdk_frauddetector.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1098,6 +1210,15 @@ class AsyncFraudDetectorClient:
         Args:
             detector_id: <p>The ID of the parent detector for the detector version to delete.</p>
             detector_version_id: <p>The ID of the detector version to delete.</p>
+
+        Raises:
+            aws_sdk_frauddetector.errors.access_denied_exception.AccessDeniedException: <p>An exception indicating Amazon Fraud Detector does not have the needed permissions. This can occur if you submit a request, such as <code>PutExternalModel</code>, that specifies a role that is not in your account.</p>
+            aws_sdk_frauddetector.errors.conflict_exception.ConflictException: <p>An exception indicating there was a conflict during a delete operation.</p>
+            aws_sdk_frauddetector.errors.internal_server_exception.InternalServerException: <p>An exception indicating an internal server error.</p>
+            aws_sdk_frauddetector.errors.resource_not_found_exception.ResourceNotFoundException: <p>An exception indicating the specified resource was not found.</p>
+            aws_sdk_frauddetector.errors.throttling_exception.ThrottlingException: <p>An exception indicating a throttling error.</p>
+            aws_sdk_frauddetector.errors.validation_exception.ValidationException: <p>An exception indicating a specified value is not allowed.</p>
+            aws_sdk_frauddetector.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1137,6 +1258,14 @@ class AsyncFraudDetectorClient:
 
         Args:
             name: <p>The name of the entity type to delete.</p>
+
+        Raises:
+            aws_sdk_frauddetector.errors.access_denied_exception.AccessDeniedException: <p>An exception indicating Amazon Fraud Detector does not have the needed permissions. This can occur if you submit a request, such as <code>PutExternalModel</code>, that specifies a role that is not in your account.</p>
+            aws_sdk_frauddetector.errors.conflict_exception.ConflictException: <p>An exception indicating there was a conflict during a delete operation.</p>
+            aws_sdk_frauddetector.errors.internal_server_exception.InternalServerException: <p>An exception indicating an internal server error.</p>
+            aws_sdk_frauddetector.errors.throttling_exception.ThrottlingException: <p>An exception indicating a throttling error.</p>
+            aws_sdk_frauddetector.errors.validation_exception.ValidationException: <p>An exception indicating a specified value is not allowed.</p>
+            aws_sdk_frauddetector.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1181,6 +1310,13 @@ class AsyncFraudDetectorClient:
             event_id: <p>The ID of the event to delete.</p>
             event_type_name: <p>The name of the event type.</p>
             delete_audit_history: <p>Specifies whether or not to delete any predictions associated with the event. If set to <code>True</code>, </p>
+
+        Raises:
+            aws_sdk_frauddetector.errors.access_denied_exception.AccessDeniedException: <p>An exception indicating Amazon Fraud Detector does not have the needed permissions. This can occur if you submit a request, such as <code>PutExternalModel</code>, that specifies a role that is not in your account.</p>
+            aws_sdk_frauddetector.errors.internal_server_exception.InternalServerException: <p>An exception indicating an internal server error.</p>
+            aws_sdk_frauddetector.errors.throttling_exception.ThrottlingException: <p>An exception indicating a throttling error.</p>
+            aws_sdk_frauddetector.errors.validation_exception.ValidationException: <p>An exception indicating a specified value is not allowed.</p>
+            aws_sdk_frauddetector.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1222,6 +1358,15 @@ class AsyncFraudDetectorClient:
 
         Args:
             event_type_name: <p>The name of the event type.</p>
+
+        Raises:
+            aws_sdk_frauddetector.errors.access_denied_exception.AccessDeniedException: <p>An exception indicating Amazon Fraud Detector does not have the needed permissions. This can occur if you submit a request, such as <code>PutExternalModel</code>, that specifies a role that is not in your account.</p>
+            aws_sdk_frauddetector.errors.conflict_exception.ConflictException: <p>An exception indicating there was a conflict during a delete operation.</p>
+            aws_sdk_frauddetector.errors.internal_server_exception.InternalServerException: <p>An exception indicating an internal server error.</p>
+            aws_sdk_frauddetector.errors.resource_not_found_exception.ResourceNotFoundException: <p>An exception indicating the specified resource was not found.</p>
+            aws_sdk_frauddetector.errors.throttling_exception.ThrottlingException: <p>An exception indicating a throttling error.</p>
+            aws_sdk_frauddetector.errors.validation_exception.ValidationException: <p>An exception indicating a specified value is not allowed.</p>
+            aws_sdk_frauddetector.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1260,6 +1405,14 @@ class AsyncFraudDetectorClient:
 
         Args:
             name: <p>The name of the event type to delete.</p>
+
+        Raises:
+            aws_sdk_frauddetector.errors.access_denied_exception.AccessDeniedException: <p>An exception indicating Amazon Fraud Detector does not have the needed permissions. This can occur if you submit a request, such as <code>PutExternalModel</code>, that specifies a role that is not in your account.</p>
+            aws_sdk_frauddetector.errors.conflict_exception.ConflictException: <p>An exception indicating there was a conflict during a delete operation.</p>
+            aws_sdk_frauddetector.errors.internal_server_exception.InternalServerException: <p>An exception indicating an internal server error.</p>
+            aws_sdk_frauddetector.errors.throttling_exception.ThrottlingException: <p>An exception indicating a throttling error.</p>
+            aws_sdk_frauddetector.errors.validation_exception.ValidationException: <p>An exception indicating a specified value is not allowed.</p>
+            aws_sdk_frauddetector.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1298,6 +1451,14 @@ class AsyncFraudDetectorClient:
 
         Args:
             model_endpoint: <p>The endpoint of the Amazon Sagemaker model to delete.</p>
+
+        Raises:
+            aws_sdk_frauddetector.errors.access_denied_exception.AccessDeniedException: <p>An exception indicating Amazon Fraud Detector does not have the needed permissions. This can occur if you submit a request, such as <code>PutExternalModel</code>, that specifies a role that is not in your account.</p>
+            aws_sdk_frauddetector.errors.conflict_exception.ConflictException: <p>An exception indicating there was a conflict during a delete operation.</p>
+            aws_sdk_frauddetector.errors.internal_server_exception.InternalServerException: <p>An exception indicating an internal server error.</p>
+            aws_sdk_frauddetector.errors.throttling_exception.ThrottlingException: <p>An exception indicating a throttling error.</p>
+            aws_sdk_frauddetector.errors.validation_exception.ValidationException: <p>An exception indicating a specified value is not allowed.</p>
+            aws_sdk_frauddetector.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1336,6 +1497,13 @@ class AsyncFraudDetectorClient:
 
         Args:
             name: <p>The name of the label to delete.</p>
+
+        Raises:
+            aws_sdk_frauddetector.errors.conflict_exception.ConflictException: <p>An exception indicating there was a conflict during a delete operation.</p>
+            aws_sdk_frauddetector.errors.internal_server_exception.InternalServerException: <p>An exception indicating an internal server error.</p>
+            aws_sdk_frauddetector.errors.throttling_exception.ThrottlingException: <p>An exception indicating a throttling error.</p>
+            aws_sdk_frauddetector.errors.validation_exception.ValidationException: <p>An exception indicating a specified value is not allowed.</p>
+            aws_sdk_frauddetector.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1374,6 +1542,14 @@ class AsyncFraudDetectorClient:
 
         Args:
             name: <p> The name of the list to delete. </p>
+
+        Raises:
+            aws_sdk_frauddetector.errors.access_denied_exception.AccessDeniedException: <p>An exception indicating Amazon Fraud Detector does not have the needed permissions. This can occur if you submit a request, such as <code>PutExternalModel</code>, that specifies a role that is not in your account.</p>
+            aws_sdk_frauddetector.errors.conflict_exception.ConflictException: <p>An exception indicating there was a conflict during a delete operation.</p>
+            aws_sdk_frauddetector.errors.internal_server_exception.InternalServerException: <p>An exception indicating an internal server error.</p>
+            aws_sdk_frauddetector.errors.throttling_exception.ThrottlingException: <p>An exception indicating a throttling error.</p>
+            aws_sdk_frauddetector.errors.validation_exception.ValidationException: <p>An exception indicating a specified value is not allowed.</p>
+            aws_sdk_frauddetector.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1414,6 +1590,14 @@ class AsyncFraudDetectorClient:
         Args:
             model_id: <p>The model ID of the model to delete.</p>
             model_type: <p>The model type of the model to delete.</p>
+
+        Raises:
+            aws_sdk_frauddetector.errors.access_denied_exception.AccessDeniedException: <p>An exception indicating Amazon Fraud Detector does not have the needed permissions. This can occur if you submit a request, such as <code>PutExternalModel</code>, that specifies a role that is not in your account.</p>
+            aws_sdk_frauddetector.errors.conflict_exception.ConflictException: <p>An exception indicating there was a conflict during a delete operation.</p>
+            aws_sdk_frauddetector.errors.internal_server_exception.InternalServerException: <p>An exception indicating an internal server error.</p>
+            aws_sdk_frauddetector.errors.throttling_exception.ThrottlingException: <p>An exception indicating a throttling error.</p>
+            aws_sdk_frauddetector.errors.validation_exception.ValidationException: <p>An exception indicating a specified value is not allowed.</p>
+            aws_sdk_frauddetector.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1457,6 +1641,14 @@ class AsyncFraudDetectorClient:
             model_id: <p>The model ID of the model version to delete.</p>
             model_type: <p>The model type of the model version to delete.</p>
             model_version_number: <p>The model version number of the model version to delete.</p>
+
+        Raises:
+            aws_sdk_frauddetector.errors.access_denied_exception.AccessDeniedException: <p>An exception indicating Amazon Fraud Detector does not have the needed permissions. This can occur if you submit a request, such as <code>PutExternalModel</code>, that specifies a role that is not in your account.</p>
+            aws_sdk_frauddetector.errors.conflict_exception.ConflictException: <p>An exception indicating there was a conflict during a delete operation.</p>
+            aws_sdk_frauddetector.errors.internal_server_exception.InternalServerException: <p>An exception indicating an internal server error.</p>
+            aws_sdk_frauddetector.errors.throttling_exception.ThrottlingException: <p>An exception indicating a throttling error.</p>
+            aws_sdk_frauddetector.errors.validation_exception.ValidationException: <p>An exception indicating a specified value is not allowed.</p>
+            aws_sdk_frauddetector.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1497,6 +1689,14 @@ class AsyncFraudDetectorClient:
 
         Args:
             name: <p>The name of the outcome to delete.</p>
+
+        Raises:
+            aws_sdk_frauddetector.errors.access_denied_exception.AccessDeniedException: <p>An exception indicating Amazon Fraud Detector does not have the needed permissions. This can occur if you submit a request, such as <code>PutExternalModel</code>, that specifies a role that is not in your account.</p>
+            aws_sdk_frauddetector.errors.conflict_exception.ConflictException: <p>An exception indicating there was a conflict during a delete operation.</p>
+            aws_sdk_frauddetector.errors.internal_server_exception.InternalServerException: <p>An exception indicating an internal server error.</p>
+            aws_sdk_frauddetector.errors.throttling_exception.ThrottlingException: <p>An exception indicating a throttling error.</p>
+            aws_sdk_frauddetector.errors.validation_exception.ValidationException: <p>An exception indicating a specified value is not allowed.</p>
+            aws_sdk_frauddetector.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1531,7 +1731,16 @@ class AsyncFraudDetectorClient:
         *,
         config_overrides: Optional[AsyncFraudDetectorClientConfig] = None,
     ) -> "aws_sdk_frauddetector.types.delete_rule_result.DeleteRuleResult":
-        """<p>Deletes the rule. You cannot delete a rule if it is used by an <code>ACTIVE</code> or <code>INACTIVE</code> detector version.</p> <p>When you delete a rule, Amazon Fraud Detector permanently deletes that rule and the data is no longer stored in Amazon Fraud Detector.</p>"""
+        """<p>Deletes the rule. You cannot delete a rule if it is used by an <code>ACTIVE</code> or <code>INACTIVE</code> detector version.</p> <p>When you delete a rule, Amazon Fraud Detector permanently deletes that rule and the data is no longer stored in Amazon Fraud Detector.</p>
+
+        Raises:
+            aws_sdk_frauddetector.errors.access_denied_exception.AccessDeniedException: <p>An exception indicating Amazon Fraud Detector does not have the needed permissions. This can occur if you submit a request, such as <code>PutExternalModel</code>, that specifies a role that is not in your account.</p>
+            aws_sdk_frauddetector.errors.conflict_exception.ConflictException: <p>An exception indicating there was a conflict during a delete operation.</p>
+            aws_sdk_frauddetector.errors.internal_server_exception.InternalServerException: <p>An exception indicating an internal server error.</p>
+            aws_sdk_frauddetector.errors.throttling_exception.ThrottlingException: <p>An exception indicating a throttling error.</p>
+            aws_sdk_frauddetector.errors.validation_exception.ValidationException: <p>An exception indicating a specified value is not allowed.</p>
+            aws_sdk_frauddetector.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_frauddetector.types.delete_rule_request.DeleteRuleRequest]",
@@ -1569,6 +1778,14 @@ class AsyncFraudDetectorClient:
 
         Args:
             name: <p>The name of the variable to delete.</p>
+
+        Raises:
+            aws_sdk_frauddetector.errors.access_denied_exception.AccessDeniedException: <p>An exception indicating Amazon Fraud Detector does not have the needed permissions. This can occur if you submit a request, such as <code>PutExternalModel</code>, that specifies a role that is not in your account.</p>
+            aws_sdk_frauddetector.errors.conflict_exception.ConflictException: <p>An exception indicating there was a conflict during a delete operation.</p>
+            aws_sdk_frauddetector.errors.internal_server_exception.InternalServerException: <p>An exception indicating an internal server error.</p>
+            aws_sdk_frauddetector.errors.throttling_exception.ThrottlingException: <p>An exception indicating a throttling error.</p>
+            aws_sdk_frauddetector.errors.validation_exception.ValidationException: <p>An exception indicating a specified value is not allowed.</p>
+            aws_sdk_frauddetector.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1613,6 +1830,14 @@ class AsyncFraudDetectorClient:
             detector_id: <p>The detector ID.</p>
             next_token: <p>The next token from the previous response.</p>
             max_results: <p>The maximum number of results to return for the request.</p>
+
+        Raises:
+            aws_sdk_frauddetector.errors.access_denied_exception.AccessDeniedException: <p>An exception indicating Amazon Fraud Detector does not have the needed permissions. This can occur if you submit a request, such as <code>PutExternalModel</code>, that specifies a role that is not in your account.</p>
+            aws_sdk_frauddetector.errors.internal_server_exception.InternalServerException: <p>An exception indicating an internal server error.</p>
+            aws_sdk_frauddetector.errors.resource_not_found_exception.ResourceNotFoundException: <p>An exception indicating the specified resource was not found.</p>
+            aws_sdk_frauddetector.errors.throttling_exception.ThrottlingException: <p>An exception indicating a throttling error.</p>
+            aws_sdk_frauddetector.errors.validation_exception.ValidationException: <p>An exception indicating a specified value is not allowed.</p>
+            aws_sdk_frauddetector.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1671,6 +1896,14 @@ class AsyncFraudDetectorClient:
             model_type: <p>The model type.</p>
             next_token: <p>The next token from the previous results.</p>
             max_results: <p>The maximum number of results to return.</p>
+
+        Raises:
+            aws_sdk_frauddetector.errors.access_denied_exception.AccessDeniedException: <p>An exception indicating Amazon Fraud Detector does not have the needed permissions. This can occur if you submit a request, such as <code>PutExternalModel</code>, that specifies a role that is not in your account.</p>
+            aws_sdk_frauddetector.errors.internal_server_exception.InternalServerException: <p>An exception indicating an internal server error.</p>
+            aws_sdk_frauddetector.errors.resource_not_found_exception.ResourceNotFoundException: <p>An exception indicating the specified resource was not found.</p>
+            aws_sdk_frauddetector.errors.throttling_exception.ThrottlingException: <p>An exception indicating a throttling error.</p>
+            aws_sdk_frauddetector.errors.validation_exception.ValidationException: <p>An exception indicating a specified value is not allowed.</p>
+            aws_sdk_frauddetector.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1724,6 +1957,14 @@ class AsyncFraudDetectorClient:
             job_id: <p>The ID of the batch import job to get.</p>
             max_results: <p>The maximum number of objects to return for request.</p>
             next_token: <p>The next token from the previous request.</p>
+
+        Raises:
+            aws_sdk_frauddetector.errors.access_denied_exception.AccessDeniedException: <p>An exception indicating Amazon Fraud Detector does not have the needed permissions. This can occur if you submit a request, such as <code>PutExternalModel</code>, that specifies a role that is not in your account.</p>
+            aws_sdk_frauddetector.errors.internal_server_exception.InternalServerException: <p>An exception indicating an internal server error.</p>
+            aws_sdk_frauddetector.errors.resource_not_found_exception.ResourceNotFoundException: <p>An exception indicating the specified resource was not found.</p>
+            aws_sdk_frauddetector.errors.throttling_exception.ThrottlingException: <p>An exception indicating a throttling error.</p>
+            aws_sdk_frauddetector.errors.validation_exception.ValidationException: <p>An exception indicating a specified value is not allowed.</p>
+            aws_sdk_frauddetector.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1773,6 +2014,14 @@ class AsyncFraudDetectorClient:
             job_id: <p>The batch prediction job for which to get the details.</p>
             max_results: <p>The maximum number of objects to return for the request.</p>
             next_token: <p>The next token from the previous request.</p>
+
+        Raises:
+            aws_sdk_frauddetector.errors.access_denied_exception.AccessDeniedException: <p>An exception indicating Amazon Fraud Detector does not have the needed permissions. This can occur if you submit a request, such as <code>PutExternalModel</code>, that specifies a role that is not in your account.</p>
+            aws_sdk_frauddetector.errors.internal_server_exception.InternalServerException: <p>An exception indicating an internal server error.</p>
+            aws_sdk_frauddetector.errors.resource_not_found_exception.ResourceNotFoundException: <p>An exception indicating the specified resource was not found.</p>
+            aws_sdk_frauddetector.errors.throttling_exception.ThrottlingException: <p>An exception indicating a throttling error.</p>
+            aws_sdk_frauddetector.errors.validation_exception.ValidationException: <p>An exception indicating a specified value is not allowed.</p>
+            aws_sdk_frauddetector.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1816,6 +2065,14 @@ class AsyncFraudDetectorClient:
 
         Args:
             event_type_name: <p>Name of event type for which to get the deletion status.</p>
+
+        Raises:
+            aws_sdk_frauddetector.errors.access_denied_exception.AccessDeniedException: <p>An exception indicating Amazon Fraud Detector does not have the needed permissions. This can occur if you submit a request, such as <code>PutExternalModel</code>, that specifies a role that is not in your account.</p>
+            aws_sdk_frauddetector.errors.internal_server_exception.InternalServerException: <p>An exception indicating an internal server error.</p>
+            aws_sdk_frauddetector.errors.resource_not_found_exception.ResourceNotFoundException: <p>An exception indicating the specified resource was not found.</p>
+            aws_sdk_frauddetector.errors.throttling_exception.ThrottlingException: <p>An exception indicating a throttling error.</p>
+            aws_sdk_frauddetector.errors.validation_exception.ValidationException: <p>An exception indicating a specified value is not allowed.</p>
+            aws_sdk_frauddetector.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1862,6 +2119,14 @@ class AsyncFraudDetectorClient:
             detector_id: <p>The detector ID.</p>
             next_token: <p>The next token for the subsequent request.</p>
             max_results: <p>The maximum number of objects to return for the request.</p>
+
+        Raises:
+            aws_sdk_frauddetector.errors.access_denied_exception.AccessDeniedException: <p>An exception indicating Amazon Fraud Detector does not have the needed permissions. This can occur if you submit a request, such as <code>PutExternalModel</code>, that specifies a role that is not in your account.</p>
+            aws_sdk_frauddetector.errors.internal_server_exception.InternalServerException: <p>An exception indicating an internal server error.</p>
+            aws_sdk_frauddetector.errors.resource_not_found_exception.ResourceNotFoundException: <p>An exception indicating the specified resource was not found.</p>
+            aws_sdk_frauddetector.errors.throttling_exception.ThrottlingException: <p>An exception indicating a throttling error.</p>
+            aws_sdk_frauddetector.errors.validation_exception.ValidationException: <p>An exception indicating a specified value is not allowed.</p>
+            aws_sdk_frauddetector.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1907,6 +2172,14 @@ class AsyncFraudDetectorClient:
         Args:
             detector_id: <p>The detector ID.</p>
             detector_version_id: <p>The detector version ID.</p>
+
+        Raises:
+            aws_sdk_frauddetector.errors.access_denied_exception.AccessDeniedException: <p>An exception indicating Amazon Fraud Detector does not have the needed permissions. This can occur if you submit a request, such as <code>PutExternalModel</code>, that specifies a role that is not in your account.</p>
+            aws_sdk_frauddetector.errors.internal_server_exception.InternalServerException: <p>An exception indicating an internal server error.</p>
+            aws_sdk_frauddetector.errors.resource_not_found_exception.ResourceNotFoundException: <p>An exception indicating the specified resource was not found.</p>
+            aws_sdk_frauddetector.errors.throttling_exception.ThrottlingException: <p>An exception indicating a throttling error.</p>
+            aws_sdk_frauddetector.errors.validation_exception.ValidationException: <p>An exception indicating a specified value is not allowed.</p>
+            aws_sdk_frauddetector.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1952,6 +2225,14 @@ class AsyncFraudDetectorClient:
             name: <p>The name.</p>
             next_token: <p>The next token for the subsequent request.</p>
             max_results: <p>The maximum number of objects to return for the request.</p>
+
+        Raises:
+            aws_sdk_frauddetector.errors.access_denied_exception.AccessDeniedException: <p>An exception indicating Amazon Fraud Detector does not have the needed permissions. This can occur if you submit a request, such as <code>PutExternalModel</code>, that specifies a role that is not in your account.</p>
+            aws_sdk_frauddetector.errors.internal_server_exception.InternalServerException: <p>An exception indicating an internal server error.</p>
+            aws_sdk_frauddetector.errors.resource_not_found_exception.ResourceNotFoundException: <p>An exception indicating the specified resource was not found.</p>
+            aws_sdk_frauddetector.errors.throttling_exception.ThrottlingException: <p>An exception indicating a throttling error.</p>
+            aws_sdk_frauddetector.errors.validation_exception.ValidationException: <p>An exception indicating a specified value is not allowed.</p>
+            aws_sdk_frauddetector.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1997,6 +2278,14 @@ class AsyncFraudDetectorClient:
         Args:
             event_id: <p>The ID of the event to retrieve.</p>
             event_type_name: <p>The event type of the event to retrieve.</p>
+
+        Raises:
+            aws_sdk_frauddetector.errors.access_denied_exception.AccessDeniedException: <p>An exception indicating Amazon Fraud Detector does not have the needed permissions. This can occur if you submit a request, such as <code>PutExternalModel</code>, that specifies a role that is not in your account.</p>
+            aws_sdk_frauddetector.errors.internal_server_exception.InternalServerException: <p>An exception indicating an internal server error.</p>
+            aws_sdk_frauddetector.errors.resource_not_found_exception.ResourceNotFoundException: <p>An exception indicating the specified resource was not found.</p>
+            aws_sdk_frauddetector.errors.throttling_exception.ThrottlingException: <p>An exception indicating a throttling error.</p>
+            aws_sdk_frauddetector.errors.validation_exception.ValidationException: <p>An exception indicating a specified value is not allowed.</p>
+            aws_sdk_frauddetector.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2054,6 +2343,16 @@ class AsyncFraudDetectorClient:
             event_timestamp: <p>Timestamp that defines when the event under evaluation occurred. The timestamp must be specified using ISO 8601 standard in UTC.</p>
             event_variables: <p>Names of the event type's variables you defined in Amazon Fraud Detector to represent data elements and their corresponding values for the event you are sending for evaluation.</p> <important> <p>You must provide at least one eventVariable</p> </important> <p>To ensure most accurate fraud prediction and to simplify your data preparation, Amazon Fraud Detector will replace all missing variables or values as follows:</p> <p> <b>For Amazon Fraud Detector trained models:</b> </p> <p>If a null value is provided explicitly for a variable or if a variable is missing, model will replace the null value or the missing variable (no variable name in the eventVariables map) with calculated default mean/medians for numeric variables and with special values for categorical variables.</p> <p> <b>For imported SageMaker models:</b> </p> <p>If a null value is provided explicitly for a variable, the model and rules will use “null” as the value. If a variable is not provided (no variable name in the eventVariables map), model and rules will use the default value that is provided for the variable. </p>
             external_model_endpoint_data_blobs: <p>The Amazon SageMaker model endpoint input data blobs.</p>
+
+        Raises:
+            aws_sdk_frauddetector.errors.access_denied_exception.AccessDeniedException: <p>An exception indicating Amazon Fraud Detector does not have the needed permissions. This can occur if you submit a request, such as <code>PutExternalModel</code>, that specifies a role that is not in your account.</p>
+            aws_sdk_frauddetector.errors.conflict_exception.ConflictException: <p>An exception indicating there was a conflict during a delete operation.</p>
+            aws_sdk_frauddetector.errors.internal_server_exception.InternalServerException: <p>An exception indicating an internal server error.</p>
+            aws_sdk_frauddetector.errors.resource_not_found_exception.ResourceNotFoundException: <p>An exception indicating the specified resource was not found.</p>
+            aws_sdk_frauddetector.errors.resource_unavailable_exception.ResourceUnavailableException: <p>An exception indicating that the attached customer-owned (external) model threw an exception when Amazon Fraud Detector invoked the model.</p>
+            aws_sdk_frauddetector.errors.throttling_exception.ThrottlingException: <p>An exception indicating a throttling error.</p>
+            aws_sdk_frauddetector.errors.validation_exception.ValidationException: <p>An exception indicating a specified value is not allowed.</p>
+            aws_sdk_frauddetector.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2111,6 +2410,14 @@ class AsyncFraudDetectorClient:
             detector_id: <p> The detector ID. </p>
             detector_version_id: <p> The detector version ID. </p>
             prediction_timestamp: <p> The timestamp that defines when the prediction was generated. The timestamp must be specified using ISO 8601 standard in UTC.</p> <p>We recommend calling <a href=\"https://docs.aws.amazon.com/frauddetector/latest/api/API_ListEventPredictions.html\">ListEventPredictions</a> first, and using the <code>predictionTimestamp</code> value in the response to provide an accurate prediction timestamp value.</p>
+
+        Raises:
+            aws_sdk_frauddetector.errors.access_denied_exception.AccessDeniedException: <p>An exception indicating Amazon Fraud Detector does not have the needed permissions. This can occur if you submit a request, such as <code>PutExternalModel</code>, that specifies a role that is not in your account.</p>
+            aws_sdk_frauddetector.errors.internal_server_exception.InternalServerException: <p>An exception indicating an internal server error.</p>
+            aws_sdk_frauddetector.errors.resource_not_found_exception.ResourceNotFoundException: <p>An exception indicating the specified resource was not found.</p>
+            aws_sdk_frauddetector.errors.throttling_exception.ThrottlingException: <p>An exception indicating a throttling error.</p>
+            aws_sdk_frauddetector.errors.validation_exception.ValidationException: <p>An exception indicating a specified value is not allowed.</p>
+            aws_sdk_frauddetector.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2159,6 +2466,14 @@ class AsyncFraudDetectorClient:
             name: <p>The name.</p>
             next_token: <p>The next token for the subsequent request.</p>
             max_results: <p>The maximum number of objects to return for the request.</p>
+
+        Raises:
+            aws_sdk_frauddetector.errors.access_denied_exception.AccessDeniedException: <p>An exception indicating Amazon Fraud Detector does not have the needed permissions. This can occur if you submit a request, such as <code>PutExternalModel</code>, that specifies a role that is not in your account.</p>
+            aws_sdk_frauddetector.errors.internal_server_exception.InternalServerException: <p>An exception indicating an internal server error.</p>
+            aws_sdk_frauddetector.errors.resource_not_found_exception.ResourceNotFoundException: <p>An exception indicating the specified resource was not found.</p>
+            aws_sdk_frauddetector.errors.throttling_exception.ThrottlingException: <p>An exception indicating a throttling error.</p>
+            aws_sdk_frauddetector.errors.validation_exception.ValidationException: <p>An exception indicating a specified value is not allowed.</p>
+            aws_sdk_frauddetector.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2210,6 +2525,14 @@ class AsyncFraudDetectorClient:
             model_endpoint: <p>The Amazon SageMaker model endpoint.</p>
             next_token: <p>The next page token for the request.</p>
             max_results: <p>The maximum number of objects to return for the request.</p>
+
+        Raises:
+            aws_sdk_frauddetector.errors.access_denied_exception.AccessDeniedException: <p>An exception indicating Amazon Fraud Detector does not have the needed permissions. This can occur if you submit a request, such as <code>PutExternalModel</code>, that specifies a role that is not in your account.</p>
+            aws_sdk_frauddetector.errors.internal_server_exception.InternalServerException: <p>An exception indicating an internal server error.</p>
+            aws_sdk_frauddetector.errors.resource_not_found_exception.ResourceNotFoundException: <p>An exception indicating the specified resource was not found.</p>
+            aws_sdk_frauddetector.errors.throttling_exception.ThrottlingException: <p>An exception indicating a throttling error.</p>
+            aws_sdk_frauddetector.errors.validation_exception.ValidationException: <p>An exception indicating a specified value is not allowed.</p>
+            aws_sdk_frauddetector.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2246,7 +2569,15 @@ class AsyncFraudDetectorClient:
     async def get_kms_encryption_key(
         self, *, config_overrides: Optional[AsyncFraudDetectorClientConfig] = None
     ) -> "aws_sdk_frauddetector.types.get_kms_encryption_key_result.GetKMSEncryptionKeyResult":
-        """<p>Gets the encryption key if a KMS key has been specified to be used to encrypt content in Amazon Fraud Detector.</p>"""
+        """<p>Gets the encryption key if a KMS key has been specified to be used to encrypt content in Amazon Fraud Detector.</p>
+
+        Raises:
+            aws_sdk_frauddetector.errors.access_denied_exception.AccessDeniedException: <p>An exception indicating Amazon Fraud Detector does not have the needed permissions. This can occur if you submit a request, such as <code>PutExternalModel</code>, that specifies a role that is not in your account.</p>
+            aws_sdk_frauddetector.errors.internal_server_exception.InternalServerException: <p>An exception indicating an internal server error.</p>
+            aws_sdk_frauddetector.errors.resource_not_found_exception.ResourceNotFoundException: <p>An exception indicating the specified resource was not found.</p>
+            aws_sdk_frauddetector.errors.throttling_exception.ThrottlingException: <p>An exception indicating a throttling error.</p>
+            aws_sdk_frauddetector.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[None]",
@@ -2288,6 +2619,14 @@ class AsyncFraudDetectorClient:
             name: <p>The name of the label or labels to get.</p>
             next_token: <p>The next token for the subsequent request.</p>
             max_results: <p>The maximum number of objects to return for the request.</p>
+
+        Raises:
+            aws_sdk_frauddetector.errors.access_denied_exception.AccessDeniedException: <p>An exception indicating Amazon Fraud Detector does not have the needed permissions. This can occur if you submit a request, such as <code>PutExternalModel</code>, that specifies a role that is not in your account.</p>
+            aws_sdk_frauddetector.errors.internal_server_exception.InternalServerException: <p>An exception indicating an internal server error.</p>
+            aws_sdk_frauddetector.errors.resource_not_found_exception.ResourceNotFoundException: <p>An exception indicating the specified resource was not found.</p>
+            aws_sdk_frauddetector.errors.throttling_exception.ThrottlingException: <p>An exception indicating a throttling error.</p>
+            aws_sdk_frauddetector.errors.validation_exception.ValidationException: <p>An exception indicating a specified value is not allowed.</p>
+            aws_sdk_frauddetector.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2337,6 +2676,14 @@ class AsyncFraudDetectorClient:
             name: <p> The name of the list. </p>
             next_token: <p> The next token for the subsequent request. </p>
             max_results: <p> The maximum number of objects to return for the request. </p>
+
+        Raises:
+            aws_sdk_frauddetector.errors.access_denied_exception.AccessDeniedException: <p>An exception indicating Amazon Fraud Detector does not have the needed permissions. This can occur if you submit a request, such as <code>PutExternalModel</code>, that specifies a role that is not in your account.</p>
+            aws_sdk_frauddetector.errors.internal_server_exception.InternalServerException: <p>An exception indicating an internal server error.</p>
+            aws_sdk_frauddetector.errors.resource_not_found_exception.ResourceNotFoundException: <p>An exception indicating the specified resource was not found.</p>
+            aws_sdk_frauddetector.errors.throttling_exception.ThrottlingException: <p>An exception indicating a throttling error.</p>
+            aws_sdk_frauddetector.errors.validation_exception.ValidationException: <p>An exception indicating a specified value is not allowed.</p>
+            aws_sdk_frauddetector.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2387,6 +2734,14 @@ class AsyncFraudDetectorClient:
             name: <p> The name of the list. </p>
             next_token: <p> The next token for the subsequent request. </p>
             max_results: <p> The maximum number of objects to return for the request. </p>
+
+        Raises:
+            aws_sdk_frauddetector.errors.access_denied_exception.AccessDeniedException: <p>An exception indicating Amazon Fraud Detector does not have the needed permissions. This can occur if you submit a request, such as <code>PutExternalModel</code>, that specifies a role that is not in your account.</p>
+            aws_sdk_frauddetector.errors.internal_server_exception.InternalServerException: <p>An exception indicating an internal server error.</p>
+            aws_sdk_frauddetector.errors.resource_not_found_exception.ResourceNotFoundException: <p>An exception indicating the specified resource was not found.</p>
+            aws_sdk_frauddetector.errors.throttling_exception.ThrottlingException: <p>An exception indicating a throttling error.</p>
+            aws_sdk_frauddetector.errors.validation_exception.ValidationException: <p>An exception indicating a specified value is not allowed.</p>
+            aws_sdk_frauddetector.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2442,6 +2797,14 @@ class AsyncFraudDetectorClient:
             model_type: <p>The model type.</p>
             next_token: <p>The next token for the subsequent request.</p>
             max_results: <p>The maximum number of objects to return for the request. </p>
+
+        Raises:
+            aws_sdk_frauddetector.errors.access_denied_exception.AccessDeniedException: <p>An exception indicating Amazon Fraud Detector does not have the needed permissions. This can occur if you submit a request, such as <code>PutExternalModel</code>, that specifies a role that is not in your account.</p>
+            aws_sdk_frauddetector.errors.internal_server_exception.InternalServerException: <p>An exception indicating an internal server error.</p>
+            aws_sdk_frauddetector.errors.resource_not_found_exception.ResourceNotFoundException: <p>An exception indicating the specified resource was not found.</p>
+            aws_sdk_frauddetector.errors.throttling_exception.ThrottlingException: <p>An exception indicating a throttling error.</p>
+            aws_sdk_frauddetector.errors.validation_exception.ValidationException: <p>An exception indicating a specified value is not allowed.</p>
+            aws_sdk_frauddetector.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2491,6 +2854,14 @@ class AsyncFraudDetectorClient:
             model_id: <p>The model ID.</p>
             model_type: <p>The model type.</p>
             model_version_number: <p>The model version number.</p>
+
+        Raises:
+            aws_sdk_frauddetector.errors.access_denied_exception.AccessDeniedException: <p>An exception indicating Amazon Fraud Detector does not have the needed permissions. This can occur if you submit a request, such as <code>PutExternalModel</code>, that specifies a role that is not in your account.</p>
+            aws_sdk_frauddetector.errors.internal_server_exception.InternalServerException: <p>An exception indicating an internal server error.</p>
+            aws_sdk_frauddetector.errors.resource_not_found_exception.ResourceNotFoundException: <p>An exception indicating the specified resource was not found.</p>
+            aws_sdk_frauddetector.errors.throttling_exception.ThrottlingException: <p>An exception indicating a throttling error.</p>
+            aws_sdk_frauddetector.errors.validation_exception.ValidationException: <p>An exception indicating a specified value is not allowed.</p>
+            aws_sdk_frauddetector.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2537,6 +2908,14 @@ class AsyncFraudDetectorClient:
             name: <p>The name of the outcome or outcomes to get.</p>
             next_token: <p>The next page token for the request. </p>
             max_results: <p>The maximum number of objects to return for the request. </p>
+
+        Raises:
+            aws_sdk_frauddetector.errors.access_denied_exception.AccessDeniedException: <p>An exception indicating Amazon Fraud Detector does not have the needed permissions. This can occur if you submit a request, such as <code>PutExternalModel</code>, that specifies a role that is not in your account.</p>
+            aws_sdk_frauddetector.errors.internal_server_exception.InternalServerException: <p>An exception indicating an internal server error.</p>
+            aws_sdk_frauddetector.errors.resource_not_found_exception.ResourceNotFoundException: <p>An exception indicating the specified resource was not found.</p>
+            aws_sdk_frauddetector.errors.throttling_exception.ThrottlingException: <p>An exception indicating a throttling error.</p>
+            aws_sdk_frauddetector.errors.validation_exception.ValidationException: <p>An exception indicating a specified value is not allowed.</p>
+            aws_sdk_frauddetector.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2592,6 +2971,14 @@ class AsyncFraudDetectorClient:
             rule_version: <p>The rule version.</p>
             next_token: <p>The next page token.</p>
             max_results: <p>The maximum number of rules to return for the request.</p>
+
+        Raises:
+            aws_sdk_frauddetector.errors.access_denied_exception.AccessDeniedException: <p>An exception indicating Amazon Fraud Detector does not have the needed permissions. This can occur if you submit a request, such as <code>PutExternalModel</code>, that specifies a role that is not in your account.</p>
+            aws_sdk_frauddetector.errors.internal_server_exception.InternalServerException: <p>An exception indicating an internal server error.</p>
+            aws_sdk_frauddetector.errors.resource_not_found_exception.ResourceNotFoundException: <p>An exception indicating the specified resource was not found.</p>
+            aws_sdk_frauddetector.errors.throttling_exception.ThrottlingException: <p>An exception indicating a throttling error.</p>
+            aws_sdk_frauddetector.errors.validation_exception.ValidationException: <p>An exception indicating a specified value is not allowed.</p>
+            aws_sdk_frauddetector.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2644,6 +3031,14 @@ class AsyncFraudDetectorClient:
             name: <p>The name of the variable. </p>
             next_token: <p>The next page token of the get variable request. </p>
             max_results: <p>The max size per page determined for the get variable request. </p>
+
+        Raises:
+            aws_sdk_frauddetector.errors.access_denied_exception.AccessDeniedException: <p>An exception indicating Amazon Fraud Detector does not have the needed permissions. This can occur if you submit a request, such as <code>PutExternalModel</code>, that specifies a role that is not in your account.</p>
+            aws_sdk_frauddetector.errors.internal_server_exception.InternalServerException: <p>An exception indicating an internal server error.</p>
+            aws_sdk_frauddetector.errors.resource_not_found_exception.ResourceNotFoundException: <p>An exception indicating the specified resource was not found.</p>
+            aws_sdk_frauddetector.errors.throttling_exception.ThrottlingException: <p>An exception indicating a throttling error.</p>
+            aws_sdk_frauddetector.errors.validation_exception.ValidationException: <p>An exception indicating a specified value is not allowed.</p>
+            aws_sdk_frauddetector.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2711,6 +3106,13 @@ class AsyncFraudDetectorClient:
             prediction_time_range: <p> The time period for when the predictions were generated. </p>
             next_token: <p> Identifies the next page of results to return. Use the token to make the call again to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. </p>
             max_results: <p> The maximum number of predictions to return for the request. </p>
+
+        Raises:
+            aws_sdk_frauddetector.errors.access_denied_exception.AccessDeniedException: <p>An exception indicating Amazon Fraud Detector does not have the needed permissions. This can occur if you submit a request, such as <code>PutExternalModel</code>, that specifies a role that is not in your account.</p>
+            aws_sdk_frauddetector.errors.internal_server_exception.InternalServerException: <p>An exception indicating an internal server error.</p>
+            aws_sdk_frauddetector.errors.throttling_exception.ThrottlingException: <p>An exception indicating a throttling error.</p>
+            aws_sdk_frauddetector.errors.validation_exception.ValidationException: <p>An exception indicating a specified value is not allowed.</p>
+            aws_sdk_frauddetector.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2768,6 +3170,13 @@ class AsyncFraudDetectorClient:
             resource_arn: <p>The ARN that specifies the resource whose tags you want to list.</p>
             next_token: <p>The next token from the previous results.</p>
             max_results: <p>The maximum number of objects to return for the request. </p>
+
+        Raises:
+            aws_sdk_frauddetector.errors.access_denied_exception.AccessDeniedException: <p>An exception indicating Amazon Fraud Detector does not have the needed permissions. This can occur if you submit a request, such as <code>PutExternalModel</code>, that specifies a role that is not in your account.</p>
+            aws_sdk_frauddetector.errors.resource_not_found_exception.ResourceNotFoundException: <p>An exception indicating the specified resource was not found.</p>
+            aws_sdk_frauddetector.errors.throttling_exception.ThrottlingException: <p>An exception indicating a throttling error.</p>
+            aws_sdk_frauddetector.errors.validation_exception.ValidationException: <p>An exception indicating a specified value is not allowed.</p>
+            aws_sdk_frauddetector.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2818,6 +3227,14 @@ class AsyncFraudDetectorClient:
             description: <p>The description of the detector.</p>
             event_type_name: <p>The name of the event type.</p>
             tags: <p>A collection of key and value pairs.</p>
+
+        Raises:
+            aws_sdk_frauddetector.errors.access_denied_exception.AccessDeniedException: <p>An exception indicating Amazon Fraud Detector does not have the needed permissions. This can occur if you submit a request, such as <code>PutExternalModel</code>, that specifies a role that is not in your account.</p>
+            aws_sdk_frauddetector.errors.conflict_exception.ConflictException: <p>An exception indicating there was a conflict during a delete operation.</p>
+            aws_sdk_frauddetector.errors.internal_server_exception.InternalServerException: <p>An exception indicating an internal server error.</p>
+            aws_sdk_frauddetector.errors.throttling_exception.ThrottlingException: <p>An exception indicating a throttling error.</p>
+            aws_sdk_frauddetector.errors.validation_exception.ValidationException: <p>An exception indicating a specified value is not allowed.</p>
+            aws_sdk_frauddetector.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2867,6 +3284,14 @@ class AsyncFraudDetectorClient:
             name: <p>The name of the entity type.</p>
             description: <p>The description.</p>
             tags: <p>A collection of key and value pairs.</p>
+
+        Raises:
+            aws_sdk_frauddetector.errors.access_denied_exception.AccessDeniedException: <p>An exception indicating Amazon Fraud Detector does not have the needed permissions. This can occur if you submit a request, such as <code>PutExternalModel</code>, that specifies a role that is not in your account.</p>
+            aws_sdk_frauddetector.errors.conflict_exception.ConflictException: <p>An exception indicating there was a conflict during a delete operation.</p>
+            aws_sdk_frauddetector.errors.internal_server_exception.InternalServerException: <p>An exception indicating an internal server error.</p>
+            aws_sdk_frauddetector.errors.throttling_exception.ThrottlingException: <p>An exception indicating a throttling error.</p>
+            aws_sdk_frauddetector.errors.validation_exception.ValidationException: <p>An exception indicating a specified value is not allowed.</p>
+            aws_sdk_frauddetector.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2931,6 +3356,14 @@ class AsyncFraudDetectorClient:
             event_ingestion: <p>Specifies if ingestion is enabled or disabled.</p>
             tags: <p>A collection of key and value pairs.</p>
             event_orchestration: <p>Enables or disables event orchestration. If enabled, you can send event predictions to select AWS services for downstream processing of the events.</p>
+
+        Raises:
+            aws_sdk_frauddetector.errors.access_denied_exception.AccessDeniedException: <p>An exception indicating Amazon Fraud Detector does not have the needed permissions. This can occur if you submit a request, such as <code>PutExternalModel</code>, that specifies a role that is not in your account.</p>
+            aws_sdk_frauddetector.errors.conflict_exception.ConflictException: <p>An exception indicating there was a conflict during a delete operation.</p>
+            aws_sdk_frauddetector.errors.internal_server_exception.InternalServerException: <p>An exception indicating an internal server error.</p>
+            aws_sdk_frauddetector.errors.throttling_exception.ThrottlingException: <p>An exception indicating a throttling error.</p>
+            aws_sdk_frauddetector.errors.validation_exception.ValidationException: <p>An exception indicating a specified value is not allowed.</p>
+            aws_sdk_frauddetector.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2993,6 +3426,14 @@ class AsyncFraudDetectorClient:
             output_configuration: <p>The model endpoint output configuration.</p>
             model_endpoint_status: <p>The model endpoint’s status in Amazon Fraud Detector.</p>
             tags: <p>A collection of key and value pairs.</p>
+
+        Raises:
+            aws_sdk_frauddetector.errors.access_denied_exception.AccessDeniedException: <p>An exception indicating Amazon Fraud Detector does not have the needed permissions. This can occur if you submit a request, such as <code>PutExternalModel</code>, that specifies a role that is not in your account.</p>
+            aws_sdk_frauddetector.errors.conflict_exception.ConflictException: <p>An exception indicating there was a conflict during a delete operation.</p>
+            aws_sdk_frauddetector.errors.internal_server_exception.InternalServerException: <p>An exception indicating an internal server error.</p>
+            aws_sdk_frauddetector.errors.throttling_exception.ThrottlingException: <p>An exception indicating a throttling error.</p>
+            aws_sdk_frauddetector.errors.validation_exception.ValidationException: <p>An exception indicating a specified value is not allowed.</p>
+            aws_sdk_frauddetector.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3038,6 +3479,15 @@ class AsyncFraudDetectorClient:
 
         Args:
             kms_encryption_key_arn: <p>The KMS encryption key ARN.</p> <p>The KMS key must be single-Region key. Amazon Fraud Detector does not support multi-Region KMS key.</p>
+
+        Raises:
+            aws_sdk_frauddetector.errors.access_denied_exception.AccessDeniedException: <p>An exception indicating Amazon Fraud Detector does not have the needed permissions. This can occur if you submit a request, such as <code>PutExternalModel</code>, that specifies a role that is not in your account.</p>
+            aws_sdk_frauddetector.errors.conflict_exception.ConflictException: <p>An exception indicating there was a conflict during a delete operation.</p>
+            aws_sdk_frauddetector.errors.internal_server_exception.InternalServerException: <p>An exception indicating an internal server error.</p>
+            aws_sdk_frauddetector.errors.resource_not_found_exception.ResourceNotFoundException: <p>An exception indicating the specified resource was not found.</p>
+            aws_sdk_frauddetector.errors.throttling_exception.ThrottlingException: <p>An exception indicating a throttling error.</p>
+            aws_sdk_frauddetector.errors.validation_exception.ValidationException: <p>An exception indicating a specified value is not allowed.</p>
+            aws_sdk_frauddetector.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3082,6 +3532,14 @@ class AsyncFraudDetectorClient:
             name: <p>The label name.</p>
             description: <p>The label description.</p>
             tags: <p>A collection of key and value pairs.</p>
+
+        Raises:
+            aws_sdk_frauddetector.errors.access_denied_exception.AccessDeniedException: <p>An exception indicating Amazon Fraud Detector does not have the needed permissions. This can occur if you submit a request, such as <code>PutExternalModel</code>, that specifies a role that is not in your account.</p>
+            aws_sdk_frauddetector.errors.conflict_exception.ConflictException: <p>An exception indicating there was a conflict during a delete operation.</p>
+            aws_sdk_frauddetector.errors.internal_server_exception.InternalServerException: <p>An exception indicating an internal server error.</p>
+            aws_sdk_frauddetector.errors.throttling_exception.ThrottlingException: <p>An exception indicating a throttling error.</p>
+            aws_sdk_frauddetector.errors.validation_exception.ValidationException: <p>An exception indicating a specified value is not allowed.</p>
+            aws_sdk_frauddetector.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3130,6 +3588,14 @@ class AsyncFraudDetectorClient:
             name: <p>The name of the outcome.</p>
             description: <p>The outcome description.</p>
             tags: <p>A collection of key and value pairs.</p>
+
+        Raises:
+            aws_sdk_frauddetector.errors.access_denied_exception.AccessDeniedException: <p>An exception indicating Amazon Fraud Detector does not have the needed permissions. This can occur if you submit a request, such as <code>PutExternalModel</code>, that specifies a role that is not in your account.</p>
+            aws_sdk_frauddetector.errors.conflict_exception.ConflictException: <p>An exception indicating there was a conflict during a delete operation.</p>
+            aws_sdk_frauddetector.errors.internal_server_exception.InternalServerException: <p>An exception indicating an internal server error.</p>
+            aws_sdk_frauddetector.errors.throttling_exception.ThrottlingException: <p>An exception indicating a throttling error.</p>
+            aws_sdk_frauddetector.errors.validation_exception.ValidationException: <p>An exception indicating a specified value is not allowed.</p>
+            aws_sdk_frauddetector.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3188,6 +3654,15 @@ class AsyncFraudDetectorClient:
             assigned_label: <p>The label to associate with the event. Required if specifying <code>labelTimestamp</code>.</p>
             label_timestamp: <p>The timestamp associated with the label. Required if specifying <code>assignedLabel</code>.</p>
             entities: <p>An array of entities.</p>
+
+        Raises:
+            aws_sdk_frauddetector.errors.access_denied_exception.AccessDeniedException: <p>An exception indicating Amazon Fraud Detector does not have the needed permissions. This can occur if you submit a request, such as <code>PutExternalModel</code>, that specifies a role that is not in your account.</p>
+            aws_sdk_frauddetector.errors.conflict_exception.ConflictException: <p>An exception indicating there was a conflict during a delete operation.</p>
+            aws_sdk_frauddetector.errors.internal_server_exception.InternalServerException: <p>An exception indicating an internal server error.</p>
+            aws_sdk_frauddetector.errors.resource_not_found_exception.ResourceNotFoundException: <p>An exception indicating the specified resource was not found.</p>
+            aws_sdk_frauddetector.errors.throttling_exception.ThrottlingException: <p>An exception indicating a throttling error.</p>
+            aws_sdk_frauddetector.errors.validation_exception.ValidationException: <p>An exception indicating a specified value is not allowed.</p>
+            aws_sdk_frauddetector.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3236,6 +3711,13 @@ class AsyncFraudDetectorClient:
         Args:
             resource_arn: <p>The resource ARN.</p>
             tags: <p>The tags to assign to the resource.</p>
+
+        Raises:
+            aws_sdk_frauddetector.errors.access_denied_exception.AccessDeniedException: <p>An exception indicating Amazon Fraud Detector does not have the needed permissions. This can occur if you submit a request, such as <code>PutExternalModel</code>, that specifies a role that is not in your account.</p>
+            aws_sdk_frauddetector.errors.resource_not_found_exception.ResourceNotFoundException: <p>An exception indicating the specified resource was not found.</p>
+            aws_sdk_frauddetector.errors.throttling_exception.ThrottlingException: <p>An exception indicating a throttling error.</p>
+            aws_sdk_frauddetector.errors.validation_exception.ValidationException: <p>An exception indicating a specified value is not allowed.</p>
+            aws_sdk_frauddetector.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3277,6 +3759,13 @@ class AsyncFraudDetectorClient:
         Args:
             resource_arn: <p>The ARN of the resource from which to remove the tag.</p>
             tag_keys: <p>The resource ARN.</p>
+
+        Raises:
+            aws_sdk_frauddetector.errors.access_denied_exception.AccessDeniedException: <p>An exception indicating Amazon Fraud Detector does not have the needed permissions. This can occur if you submit a request, such as <code>PutExternalModel</code>, that specifies a role that is not in your account.</p>
+            aws_sdk_frauddetector.errors.resource_not_found_exception.ResourceNotFoundException: <p>An exception indicating the specified resource was not found.</p>
+            aws_sdk_frauddetector.errors.throttling_exception.ThrottlingException: <p>An exception indicating a throttling error.</p>
+            aws_sdk_frauddetector.errors.validation_exception.ValidationException: <p>An exception indicating a specified value is not allowed.</p>
+            aws_sdk_frauddetector.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3334,6 +3823,15 @@ class AsyncFraudDetectorClient:
             description: <p>The detector version description. </p>
             model_versions: <p>The model versions to include in the detector version.</p>
             rule_execution_mode: <p>The rule execution mode to add to the detector.</p> <p>If you specify <code>FIRST_MATCHED</code>, Amazon Fraud Detector evaluates rules sequentially, first to last, stopping at the first matched rule. Amazon Fraud dectector then provides the outcomes for that single rule.</p> <p>If you specifiy <code>ALL_MATCHED</code>, Amazon Fraud Detector evaluates all rules and returns the outcomes for all matched rules. You can define and edit the rule mode at the detector version level, when it is in draft status.</p> <p>The default behavior is <code>FIRST_MATCHED</code>.</p>
+
+        Raises:
+            aws_sdk_frauddetector.errors.access_denied_exception.AccessDeniedException: <p>An exception indicating Amazon Fraud Detector does not have the needed permissions. This can occur if you submit a request, such as <code>PutExternalModel</code>, that specifies a role that is not in your account.</p>
+            aws_sdk_frauddetector.errors.conflict_exception.ConflictException: <p>An exception indicating there was a conflict during a delete operation.</p>
+            aws_sdk_frauddetector.errors.internal_server_exception.InternalServerException: <p>An exception indicating an internal server error.</p>
+            aws_sdk_frauddetector.errors.resource_not_found_exception.ResourceNotFoundException: <p>An exception indicating the specified resource was not found.</p>
+            aws_sdk_frauddetector.errors.throttling_exception.ThrottlingException: <p>An exception indicating a throttling error.</p>
+            aws_sdk_frauddetector.errors.validation_exception.ValidationException: <p>An exception indicating a specified value is not allowed.</p>
+            aws_sdk_frauddetector.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3385,6 +3883,14 @@ class AsyncFraudDetectorClient:
             detector_id: <p>The detector ID.</p>
             detector_version_id: <p>The detector version ID. </p>
             description: <p>The description.</p>
+
+        Raises:
+            aws_sdk_frauddetector.errors.access_denied_exception.AccessDeniedException: <p>An exception indicating Amazon Fraud Detector does not have the needed permissions. This can occur if you submit a request, such as <code>PutExternalModel</code>, that specifies a role that is not in your account.</p>
+            aws_sdk_frauddetector.errors.conflict_exception.ConflictException: <p>An exception indicating there was a conflict during a delete operation.</p>
+            aws_sdk_frauddetector.errors.internal_server_exception.InternalServerException: <p>An exception indicating an internal server error.</p>
+            aws_sdk_frauddetector.errors.throttling_exception.ThrottlingException: <p>An exception indicating a throttling error.</p>
+            aws_sdk_frauddetector.errors.validation_exception.ValidationException: <p>An exception indicating a specified value is not allowed.</p>
+            aws_sdk_frauddetector.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3429,6 +3935,15 @@ class AsyncFraudDetectorClient:
             detector_id: <p>The detector ID. </p>
             detector_version_id: <p>The detector version ID. </p>
             status: <p>The new status.</p> <p>The only supported values are <code>ACTIVE</code> and <code>INACTIVE</code> </p>
+
+        Raises:
+            aws_sdk_frauddetector.errors.access_denied_exception.AccessDeniedException: <p>An exception indicating Amazon Fraud Detector does not have the needed permissions. This can occur if you submit a request, such as <code>PutExternalModel</code>, that specifies a role that is not in your account.</p>
+            aws_sdk_frauddetector.errors.conflict_exception.ConflictException: <p>An exception indicating there was a conflict during a delete operation.</p>
+            aws_sdk_frauddetector.errors.internal_server_exception.InternalServerException: <p>An exception indicating an internal server error.</p>
+            aws_sdk_frauddetector.errors.resource_not_found_exception.ResourceNotFoundException: <p>An exception indicating the specified resource was not found.</p>
+            aws_sdk_frauddetector.errors.throttling_exception.ThrottlingException: <p>An exception indicating a throttling error.</p>
+            aws_sdk_frauddetector.errors.validation_exception.ValidationException: <p>An exception indicating a specified value is not allowed.</p>
+            aws_sdk_frauddetector.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3475,6 +3990,15 @@ class AsyncFraudDetectorClient:
             event_type_name: <p>The event type of the event associated with the label to update.</p>
             assigned_label: <p>The new label to assign to the event.</p>
             label_timestamp: <p>The timestamp associated with the label. The timestamp must be specified using ISO 8601 standard in UTC. </p>
+
+        Raises:
+            aws_sdk_frauddetector.errors.access_denied_exception.AccessDeniedException: <p>An exception indicating Amazon Fraud Detector does not have the needed permissions. This can occur if you submit a request, such as <code>PutExternalModel</code>, that specifies a role that is not in your account.</p>
+            aws_sdk_frauddetector.errors.conflict_exception.ConflictException: <p>An exception indicating there was a conflict during a delete operation.</p>
+            aws_sdk_frauddetector.errors.internal_server_exception.InternalServerException: <p>An exception indicating an internal server error.</p>
+            aws_sdk_frauddetector.errors.resource_not_found_exception.ResourceNotFoundException: <p>An exception indicating the specified resource was not found.</p>
+            aws_sdk_frauddetector.errors.throttling_exception.ThrottlingException: <p>An exception indicating a throttling error.</p>
+            aws_sdk_frauddetector.errors.validation_exception.ValidationException: <p>An exception indicating a specified value is not allowed.</p>
+            aws_sdk_frauddetector.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3532,6 +4056,15 @@ class AsyncFraudDetectorClient:
             description: <p> The new description. </p>
             update_mode: <p> The update mode (type). </p> <ul> <li> <p>Use <code>APPEND</code> if you are adding elements to the list.</p> </li> <li> <p>Use <code>REPLACE</code> if you replacing existing elements in the list.</p> </li> <li> <p>Use <code>REMOVE</code> if you are removing elements from the list.</p> </li> </ul>
             variable_type: <p> The variable type you want to assign to the list. </p> <note> <p>You cannot update a variable type of a list that already has a variable type assigned to it. You can assign a variable type to a list only if the list does not already have a variable type.</p> </note>
+
+        Raises:
+            aws_sdk_frauddetector.errors.access_denied_exception.AccessDeniedException: <p>An exception indicating Amazon Fraud Detector does not have the needed permissions. This can occur if you submit a request, such as <code>PutExternalModel</code>, that specifies a role that is not in your account.</p>
+            aws_sdk_frauddetector.errors.conflict_exception.ConflictException: <p>An exception indicating there was a conflict during a delete operation.</p>
+            aws_sdk_frauddetector.errors.internal_server_exception.InternalServerException: <p>An exception indicating an internal server error.</p>
+            aws_sdk_frauddetector.errors.resource_not_found_exception.ResourceNotFoundException: <p>An exception indicating the specified resource was not found.</p>
+            aws_sdk_frauddetector.errors.throttling_exception.ThrottlingException: <p>An exception indicating a throttling error.</p>
+            aws_sdk_frauddetector.errors.validation_exception.ValidationException: <p>An exception indicating a specified value is not allowed.</p>
+            aws_sdk_frauddetector.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3584,6 +4117,15 @@ class AsyncFraudDetectorClient:
             model_id: <p>The model ID.</p>
             model_type: <p>The model type.</p>
             description: <p>The new model description.</p>
+
+        Raises:
+            aws_sdk_frauddetector.errors.access_denied_exception.AccessDeniedException: <p>An exception indicating Amazon Fraud Detector does not have the needed permissions. This can occur if you submit a request, such as <code>PutExternalModel</code>, that specifies a role that is not in your account.</p>
+            aws_sdk_frauddetector.errors.conflict_exception.ConflictException: <p>An exception indicating there was a conflict during a delete operation.</p>
+            aws_sdk_frauddetector.errors.internal_server_exception.InternalServerException: <p>An exception indicating an internal server error.</p>
+            aws_sdk_frauddetector.errors.resource_not_found_exception.ResourceNotFoundException: <p>An exception indicating the specified resource was not found.</p>
+            aws_sdk_frauddetector.errors.throttling_exception.ThrottlingException: <p>An exception indicating a throttling error.</p>
+            aws_sdk_frauddetector.errors.validation_exception.ValidationException: <p>An exception indicating a specified value is not allowed.</p>
+            aws_sdk_frauddetector.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3639,6 +4181,15 @@ class AsyncFraudDetectorClient:
             external_events_detail: <p>The details of the external events data used for training the model version. Required if <code>trainingDataSource</code> is <code>EXTERNAL_EVENTS</code>.</p>
             ingested_events_detail: <p>The details of the ingested event used for training the model version. Required if your <code>trainingDataSource</code> is <code>INGESTED_EVENTS</code>.</p>
             tags: <p>A collection of key and value pairs.</p>
+
+        Raises:
+            aws_sdk_frauddetector.errors.access_denied_exception.AccessDeniedException: <p>An exception indicating Amazon Fraud Detector does not have the needed permissions. This can occur if you submit a request, such as <code>PutExternalModel</code>, that specifies a role that is not in your account.</p>
+            aws_sdk_frauddetector.errors.conflict_exception.ConflictException: <p>An exception indicating there was a conflict during a delete operation.</p>
+            aws_sdk_frauddetector.errors.internal_server_exception.InternalServerException: <p>An exception indicating an internal server error.</p>
+            aws_sdk_frauddetector.errors.resource_not_found_exception.ResourceNotFoundException: <p>An exception indicating the specified resource was not found.</p>
+            aws_sdk_frauddetector.errors.throttling_exception.ThrottlingException: <p>An exception indicating a throttling error.</p>
+            aws_sdk_frauddetector.errors.validation_exception.ValidationException: <p>An exception indicating a specified value is not allowed.</p>
+            aws_sdk_frauddetector.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3691,6 +4242,15 @@ class AsyncFraudDetectorClient:
             model_type: <p>The model type.</p>
             model_version_number: <p>The model version number.</p>
             status: <p>The model version status.</p>
+
+        Raises:
+            aws_sdk_frauddetector.errors.access_denied_exception.AccessDeniedException: <p>An exception indicating Amazon Fraud Detector does not have the needed permissions. This can occur if you submit a request, such as <code>PutExternalModel</code>, that specifies a role that is not in your account.</p>
+            aws_sdk_frauddetector.errors.conflict_exception.ConflictException: <p>An exception indicating there was a conflict during a delete operation.</p>
+            aws_sdk_frauddetector.errors.internal_server_exception.InternalServerException: <p>An exception indicating an internal server error.</p>
+            aws_sdk_frauddetector.errors.resource_not_found_exception.ResourceNotFoundException: <p>An exception indicating the specified resource was not found.</p>
+            aws_sdk_frauddetector.errors.throttling_exception.ThrottlingException: <p>An exception indicating a throttling error.</p>
+            aws_sdk_frauddetector.errors.validation_exception.ValidationException: <p>An exception indicating a specified value is not allowed.</p>
+            aws_sdk_frauddetector.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3734,6 +4294,15 @@ class AsyncFraudDetectorClient:
         Args:
             rule: <p>The rule to update.</p>
             description: <p>The rule description.</p>
+
+        Raises:
+            aws_sdk_frauddetector.errors.access_denied_exception.AccessDeniedException: <p>An exception indicating Amazon Fraud Detector does not have the needed permissions. This can occur if you submit a request, such as <code>PutExternalModel</code>, that specifies a role that is not in your account.</p>
+            aws_sdk_frauddetector.errors.conflict_exception.ConflictException: <p>An exception indicating there was a conflict during a delete operation.</p>
+            aws_sdk_frauddetector.errors.internal_server_exception.InternalServerException: <p>An exception indicating an internal server error.</p>
+            aws_sdk_frauddetector.errors.resource_not_found_exception.ResourceNotFoundException: <p>An exception indicating the specified resource was not found.</p>
+            aws_sdk_frauddetector.errors.throttling_exception.ThrottlingException: <p>An exception indicating a throttling error.</p>
+            aws_sdk_frauddetector.errors.validation_exception.ValidationException: <p>An exception indicating a specified value is not allowed.</p>
+            aws_sdk_frauddetector.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3787,6 +4356,15 @@ class AsyncFraudDetectorClient:
             language: <p>The language.</p>
             outcomes: <p>The outcomes.</p>
             tags: <p>The tags to assign to the rule version.</p>
+
+        Raises:
+            aws_sdk_frauddetector.errors.access_denied_exception.AccessDeniedException: <p>An exception indicating Amazon Fraud Detector does not have the needed permissions. This can occur if you submit a request, such as <code>PutExternalModel</code>, that specifies a role that is not in your account.</p>
+            aws_sdk_frauddetector.errors.conflict_exception.ConflictException: <p>An exception indicating there was a conflict during a delete operation.</p>
+            aws_sdk_frauddetector.errors.internal_server_exception.InternalServerException: <p>An exception indicating an internal server error.</p>
+            aws_sdk_frauddetector.errors.resource_not_found_exception.ResourceNotFoundException: <p>An exception indicating the specified resource was not found.</p>
+            aws_sdk_frauddetector.errors.throttling_exception.ThrottlingException: <p>An exception indicating a throttling error.</p>
+            aws_sdk_frauddetector.errors.validation_exception.ValidationException: <p>An exception indicating a specified value is not allowed.</p>
+            aws_sdk_frauddetector.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3838,6 +4416,15 @@ class AsyncFraudDetectorClient:
             default_value: <p>The new default value of the variable.</p>
             description: <p>The new description.</p>
             variable_type: <p>The variable type. For more information see <a href=\"https://docs.aws.amazon.com/frauddetector/latest/ug/create-a-variable.html#variable-types\">Variable types</a>.</p>
+
+        Raises:
+            aws_sdk_frauddetector.errors.access_denied_exception.AccessDeniedException: <p>An exception indicating Amazon Fraud Detector does not have the needed permissions. This can occur if you submit a request, such as <code>PutExternalModel</code>, that specifies a role that is not in your account.</p>
+            aws_sdk_frauddetector.errors.conflict_exception.ConflictException: <p>An exception indicating there was a conflict during a delete operation.</p>
+            aws_sdk_frauddetector.errors.internal_server_exception.InternalServerException: <p>An exception indicating an internal server error.</p>
+            aws_sdk_frauddetector.errors.resource_not_found_exception.ResourceNotFoundException: <p>An exception indicating the specified resource was not found.</p>
+            aws_sdk_frauddetector.errors.throttling_exception.ThrottlingException: <p>An exception indicating a throttling error.</p>
+            aws_sdk_frauddetector.errors.validation_exception.ValidationException: <p>An exception indicating a specified value is not allowed.</p>
+            aws_sdk_frauddetector.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

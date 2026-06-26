@@ -275,6 +275,16 @@ class AsyncWorkDocsClient:
             authentication_token: <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
             document_id: <p>The ID of the document.</p>
             version_id: <p>The ID of the version.</p>
+
+        Raises:
+            aws_sdk_workdocs.errors.concurrent_modification_exception.ConcurrentModificationException: <p>The resource hierarchy is changing.</p>
+            aws_sdk_workdocs.errors.entity_not_exists_exception.EntityNotExistsException: <p>The resource does not exist.</p>
+            aws_sdk_workdocs.errors.failed_dependency_exception.FailedDependencyException: <p>The Directory Service cannot reach an on-premises instance. Or a dependency under the control of the organization is failing, such as a connected Active Directory.</p>
+            aws_sdk_workdocs.errors.prohibited_state_exception.ProhibitedStateException: <p>The specified document version is not in the INITIALIZED state.</p>
+            aws_sdk_workdocs.errors.service_unavailable_exception.ServiceUnavailableException: <p>One or more of the dependencies is unavailable.</p>
+            aws_sdk_workdocs.errors.unauthorized_operation_exception.UnauthorizedOperationException: <p>The operation is not permitted.</p>
+            aws_sdk_workdocs.errors.unauthorized_resource_access_exception.UnauthorizedResourceAccessException: <p>The caller does not have access to perform the action on the resource.</p>
+            aws_sdk_workdocs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -318,6 +328,14 @@ class AsyncWorkDocsClient:
         Args:
             user_id: <p>The ID of the user.</p>
             authentication_token: <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
+
+        Raises:
+            aws_sdk_workdocs.errors.entity_not_exists_exception.EntityNotExistsException: <p>The resource does not exist.</p>
+            aws_sdk_workdocs.errors.failed_dependency_exception.FailedDependencyException: <p>The Directory Service cannot reach an on-premises instance. Or a dependency under the control of the organization is failing, such as a connected Active Directory.</p>
+            aws_sdk_workdocs.errors.service_unavailable_exception.ServiceUnavailableException: <p>One or more of the dependencies is unavailable.</p>
+            aws_sdk_workdocs.errors.unauthorized_operation_exception.UnauthorizedOperationException: <p>The operation is not permitted.</p>
+            aws_sdk_workdocs.errors.unauthorized_resource_access_exception.UnauthorizedResourceAccessException: <p>The caller does not have access to perform the action on the resource.</p>
+            aws_sdk_workdocs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -368,6 +386,14 @@ class AsyncWorkDocsClient:
             resource_id: <p>The ID of the resource.</p>
             principals: <p>The users, groups, or organization being granted permission.</p>
             notification_options: <p>The notification options.</p>
+
+        Raises:
+            aws_sdk_workdocs.errors.failed_dependency_exception.FailedDependencyException: <p>The Directory Service cannot reach an on-premises instance. Or a dependency under the control of the organization is failing, such as a connected Active Directory.</p>
+            aws_sdk_workdocs.errors.prohibited_state_exception.ProhibitedStateException: <p>The specified document version is not in the INITIALIZED state.</p>
+            aws_sdk_workdocs.errors.service_unavailable_exception.ServiceUnavailableException: <p>One or more of the dependencies is unavailable.</p>
+            aws_sdk_workdocs.errors.unauthorized_operation_exception.UnauthorizedOperationException: <p>The operation is not permitted.</p>
+            aws_sdk_workdocs.errors.unauthorized_resource_access_exception.UnauthorizedResourceAccessException: <p>The caller does not have access to perform the action on the resource.</p>
+            aws_sdk_workdocs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -435,6 +461,17 @@ class AsyncWorkDocsClient:
             text: <p>The text of the comment.</p>
             visibility: <p>The visibility of the comment. Options are either PRIVATE, where the comment is visible only to the comment author and document owner and co-owners, or PUBLIC, where the comment is visible to document owners, co-owners, and contributors.</p>
             notify_collaborators: <p>Set this parameter to TRUE to send an email out to the document collaborators after the comment is created.</p>
+
+        Raises:
+            aws_sdk_workdocs.errors.document_locked_for_comments_exception.DocumentLockedForCommentsException: <p>This exception is thrown when the document is locked for comments and user tries to create or delete a comment on that document.</p>
+            aws_sdk_workdocs.errors.entity_not_exists_exception.EntityNotExistsException: <p>The resource does not exist.</p>
+            aws_sdk_workdocs.errors.failed_dependency_exception.FailedDependencyException: <p>The Directory Service cannot reach an on-premises instance. Or a dependency under the control of the organization is failing, such as a connected Active Directory.</p>
+            aws_sdk_workdocs.errors.invalid_comment_operation_exception.InvalidCommentOperationException: <p>The requested operation is not allowed on the specified comment object.</p>
+            aws_sdk_workdocs.errors.prohibited_state_exception.ProhibitedStateException: <p>The specified document version is not in the INITIALIZED state.</p>
+            aws_sdk_workdocs.errors.service_unavailable_exception.ServiceUnavailableException: <p>One or more of the dependencies is unavailable.</p>
+            aws_sdk_workdocs.errors.unauthorized_operation_exception.UnauthorizedOperationException: <p>The operation is not permitted.</p>
+            aws_sdk_workdocs.errors.unauthorized_resource_access_exception.UnauthorizedResourceAccessException: <p>The caller does not have access to perform the action on the resource.</p>
+            aws_sdk_workdocs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -495,6 +532,16 @@ class AsyncWorkDocsClient:
             resource_id: <p>The ID of the resource.</p>
             version_id: <p>The ID of the version, if the custom metadata is being added to a document version.</p>
             custom_metadata: <p>Custom metadata in the form of name-value pairs.</p>
+
+        Raises:
+            aws_sdk_workdocs.errors.custom_metadata_limit_exceeded_exception.CustomMetadataLimitExceededException: <p>The limit has been reached on the number of custom properties for the specified resource.</p>
+            aws_sdk_workdocs.errors.entity_not_exists_exception.EntityNotExistsException: <p>The resource does not exist.</p>
+            aws_sdk_workdocs.errors.failed_dependency_exception.FailedDependencyException: <p>The Directory Service cannot reach an on-premises instance. Or a dependency under the control of the organization is failing, such as a connected Active Directory.</p>
+            aws_sdk_workdocs.errors.prohibited_state_exception.ProhibitedStateException: <p>The specified document version is not in the INITIALIZED state.</p>
+            aws_sdk_workdocs.errors.service_unavailable_exception.ServiceUnavailableException: <p>One or more of the dependencies is unavailable.</p>
+            aws_sdk_workdocs.errors.unauthorized_operation_exception.UnauthorizedOperationException: <p>The operation is not permitted.</p>
+            aws_sdk_workdocs.errors.unauthorized_resource_access_exception.UnauthorizedResourceAccessException: <p>The caller does not have access to perform the action on the resource.</p>
+            aws_sdk_workdocs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -546,6 +593,19 @@ class AsyncWorkDocsClient:
             authentication_token: <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
             name: <p>The name of the new folder.</p>
             parent_folder_id: <p>The ID of the parent folder.</p>
+
+        Raises:
+            aws_sdk_workdocs.errors.concurrent_modification_exception.ConcurrentModificationException: <p>The resource hierarchy is changing.</p>
+            aws_sdk_workdocs.errors.conflicting_operation_exception.ConflictingOperationException: <p>Another operation is in progress on the resource that conflicts with the current operation.</p>
+            aws_sdk_workdocs.errors.entity_already_exists_exception.EntityAlreadyExistsException: <p>The resource already exists.</p>
+            aws_sdk_workdocs.errors.entity_not_exists_exception.EntityNotExistsException: <p>The resource does not exist.</p>
+            aws_sdk_workdocs.errors.failed_dependency_exception.FailedDependencyException: <p>The Directory Service cannot reach an on-premises instance. Or a dependency under the control of the organization is failing, such as a connected Active Directory.</p>
+            aws_sdk_workdocs.errors.limit_exceeded_exception.LimitExceededException: <p>The maximum of 100,000 files and folders under the parent folder has been exceeded.</p>
+            aws_sdk_workdocs.errors.prohibited_state_exception.ProhibitedStateException: <p>The specified document version is not in the INITIALIZED state.</p>
+            aws_sdk_workdocs.errors.service_unavailable_exception.ServiceUnavailableException: <p>One or more of the dependencies is unavailable.</p>
+            aws_sdk_workdocs.errors.unauthorized_operation_exception.UnauthorizedOperationException: <p>The operation is not permitted.</p>
+            aws_sdk_workdocs.errors.unauthorized_resource_access_exception.UnauthorizedResourceAccessException: <p>The caller does not have access to perform the action on the resource.</p>
+            aws_sdk_workdocs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -594,6 +654,15 @@ class AsyncWorkDocsClient:
             resource_id: <p>The ID of the resource.</p>
             labels: <p>List of labels to add to the resource.</p>
             authentication_token: <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
+
+        Raises:
+            aws_sdk_workdocs.errors.entity_not_exists_exception.EntityNotExistsException: <p>The resource does not exist.</p>
+            aws_sdk_workdocs.errors.failed_dependency_exception.FailedDependencyException: <p>The Directory Service cannot reach an on-premises instance. Or a dependency under the control of the organization is failing, such as a connected Active Directory.</p>
+            aws_sdk_workdocs.errors.service_unavailable_exception.ServiceUnavailableException: <p>One or more of the dependencies is unavailable.</p>
+            aws_sdk_workdocs.errors.too_many_labels_exception.TooManyLabelsException: <p>The limit has been reached on the number of labels for the specified resource.</p>
+            aws_sdk_workdocs.errors.unauthorized_operation_exception.UnauthorizedOperationException: <p>The operation is not permitted.</p>
+            aws_sdk_workdocs.errors.unauthorized_resource_access_exception.UnauthorizedResourceAccessException: <p>The caller does not have access to perform the action on the resource.</p>
+            aws_sdk_workdocs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -641,6 +710,13 @@ class AsyncWorkDocsClient:
             endpoint: <p>The endpoint to receive the notifications. If the protocol is HTTPS, the endpoint is a URL that begins with <code>https</code>.</p>
             protocol: <p>The protocol to use. The supported value is https, which delivers JSON-encoded messages using HTTPS POST.</p>
             subscription_type: <p>The notification type.</p>
+
+        Raises:
+            aws_sdk_workdocs.errors.invalid_argument_exception.InvalidArgumentException: <p>The pagination marker or limit fields are not valid.</p>
+            aws_sdk_workdocs.errors.service_unavailable_exception.ServiceUnavailableException: <p>One or more of the dependencies is unavailable.</p>
+            aws_sdk_workdocs.errors.too_many_subscriptions_exception.TooManySubscriptionsException: <p>You've reached the limit on the number of subscriptions for the WorkDocs instance.</p>
+            aws_sdk_workdocs.errors.unauthorized_resource_access_exception.UnauthorizedResourceAccessException: <p>The caller does not have access to perform the action on the resource.</p>
+            aws_sdk_workdocs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -706,6 +782,14 @@ class AsyncWorkDocsClient:
             time_zone_id: <p>The time zone ID of the user.</p>
             storage_rule: <p>The amount of storage for the user.</p>
             authentication_token: <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
+
+        Raises:
+            aws_sdk_workdocs.errors.entity_already_exists_exception.EntityAlreadyExistsException: <p>The resource already exists.</p>
+            aws_sdk_workdocs.errors.failed_dependency_exception.FailedDependencyException: <p>The Directory Service cannot reach an on-premises instance. Or a dependency under the control of the organization is failing, such as a connected Active Directory.</p>
+            aws_sdk_workdocs.errors.service_unavailable_exception.ServiceUnavailableException: <p>One or more of the dependencies is unavailable.</p>
+            aws_sdk_workdocs.errors.unauthorized_operation_exception.UnauthorizedOperationException: <p>The operation is not permitted.</p>
+            aws_sdk_workdocs.errors.unauthorized_resource_access_exception.UnauthorizedResourceAccessException: <p>The caller does not have access to perform the action on the resource.</p>
+            aws_sdk_workdocs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -761,6 +845,14 @@ class AsyncWorkDocsClient:
         Args:
             user_id: <p>The ID of the user.</p>
             authentication_token: <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
+
+        Raises:
+            aws_sdk_workdocs.errors.entity_not_exists_exception.EntityNotExistsException: <p>The resource does not exist.</p>
+            aws_sdk_workdocs.errors.failed_dependency_exception.FailedDependencyException: <p>The Directory Service cannot reach an on-premises instance. Or a dependency under the control of the organization is failing, such as a connected Active Directory.</p>
+            aws_sdk_workdocs.errors.service_unavailable_exception.ServiceUnavailableException: <p>One or more of the dependencies is unavailable.</p>
+            aws_sdk_workdocs.errors.unauthorized_operation_exception.UnauthorizedOperationException: <p>The operation is not permitted.</p>
+            aws_sdk_workdocs.errors.unauthorized_resource_access_exception.UnauthorizedResourceAccessException: <p>The caller does not have access to perform the action on the resource.</p>
+            aws_sdk_workdocs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -807,6 +899,16 @@ class AsyncWorkDocsClient:
             document_id: <p>The ID of the document.</p>
             version_id: <p>The ID of the document version.</p>
             comment_id: <p>The ID of the comment.</p>
+
+        Raises:
+            aws_sdk_workdocs.errors.document_locked_for_comments_exception.DocumentLockedForCommentsException: <p>This exception is thrown when the document is locked for comments and user tries to create or delete a comment on that document.</p>
+            aws_sdk_workdocs.errors.entity_not_exists_exception.EntityNotExistsException: <p>The resource does not exist.</p>
+            aws_sdk_workdocs.errors.failed_dependency_exception.FailedDependencyException: <p>The Directory Service cannot reach an on-premises instance. Or a dependency under the control of the organization is failing, such as a connected Active Directory.</p>
+            aws_sdk_workdocs.errors.prohibited_state_exception.ProhibitedStateException: <p>The specified document version is not in the INITIALIZED state.</p>
+            aws_sdk_workdocs.errors.service_unavailable_exception.ServiceUnavailableException: <p>One or more of the dependencies is unavailable.</p>
+            aws_sdk_workdocs.errors.unauthorized_operation_exception.UnauthorizedOperationException: <p>The operation is not permitted.</p>
+            aws_sdk_workdocs.errors.unauthorized_resource_access_exception.UnauthorizedResourceAccessException: <p>The caller does not have access to perform the action on the resource.</p>
+            aws_sdk_workdocs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -861,6 +963,15 @@ class AsyncWorkDocsClient:
             version_id: <p>The ID of the version, if the custom metadata is being deleted from a document version.</p>
             keys: <p>List of properties to remove.</p>
             delete_all: <p>Flag to indicate removal of all custom metadata properties from the specified resource.</p>
+
+        Raises:
+            aws_sdk_workdocs.errors.entity_not_exists_exception.EntityNotExistsException: <p>The resource does not exist.</p>
+            aws_sdk_workdocs.errors.failed_dependency_exception.FailedDependencyException: <p>The Directory Service cannot reach an on-premises instance. Or a dependency under the control of the organization is failing, such as a connected Active Directory.</p>
+            aws_sdk_workdocs.errors.prohibited_state_exception.ProhibitedStateException: <p>The specified document version is not in the INITIALIZED state.</p>
+            aws_sdk_workdocs.errors.service_unavailable_exception.ServiceUnavailableException: <p>One or more of the dependencies is unavailable.</p>
+            aws_sdk_workdocs.errors.unauthorized_operation_exception.UnauthorizedOperationException: <p>The operation is not permitted.</p>
+            aws_sdk_workdocs.errors.unauthorized_resource_access_exception.UnauthorizedResourceAccessException: <p>The caller does not have access to perform the action on the resource.</p>
+            aws_sdk_workdocs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -911,6 +1022,18 @@ class AsyncWorkDocsClient:
         Args:
             authentication_token: <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
             document_id: <p>The ID of the document.</p>
+
+        Raises:
+            aws_sdk_workdocs.errors.concurrent_modification_exception.ConcurrentModificationException: <p>The resource hierarchy is changing.</p>
+            aws_sdk_workdocs.errors.conflicting_operation_exception.ConflictingOperationException: <p>Another operation is in progress on the resource that conflicts with the current operation.</p>
+            aws_sdk_workdocs.errors.entity_not_exists_exception.EntityNotExistsException: <p>The resource does not exist.</p>
+            aws_sdk_workdocs.errors.failed_dependency_exception.FailedDependencyException: <p>The Directory Service cannot reach an on-premises instance. Or a dependency under the control of the organization is failing, such as a connected Active Directory.</p>
+            aws_sdk_workdocs.errors.limit_exceeded_exception.LimitExceededException: <p>The maximum of 100,000 files and folders under the parent folder has been exceeded.</p>
+            aws_sdk_workdocs.errors.prohibited_state_exception.ProhibitedStateException: <p>The specified document version is not in the INITIALIZED state.</p>
+            aws_sdk_workdocs.errors.service_unavailable_exception.ServiceUnavailableException: <p>One or more of the dependencies is unavailable.</p>
+            aws_sdk_workdocs.errors.unauthorized_operation_exception.UnauthorizedOperationException: <p>The operation is not permitted.</p>
+            aws_sdk_workdocs.errors.unauthorized_resource_access_exception.UnauthorizedResourceAccessException: <p>The caller does not have access to perform the action on the resource.</p>
+            aws_sdk_workdocs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -957,6 +1080,17 @@ class AsyncWorkDocsClient:
             document_id: <p>The ID of the document associated with the version being deleted.</p>
             version_id: <p>The ID of the version being deleted.</p>
             delete_prior_versions: <p>Deletes all versions of a document prior to the current version.</p>
+
+        Raises:
+            aws_sdk_workdocs.errors.concurrent_modification_exception.ConcurrentModificationException: <p>The resource hierarchy is changing.</p>
+            aws_sdk_workdocs.errors.conflicting_operation_exception.ConflictingOperationException: <p>Another operation is in progress on the resource that conflicts with the current operation.</p>
+            aws_sdk_workdocs.errors.entity_not_exists_exception.EntityNotExistsException: <p>The resource does not exist.</p>
+            aws_sdk_workdocs.errors.failed_dependency_exception.FailedDependencyException: <p>The Directory Service cannot reach an on-premises instance. Or a dependency under the control of the organization is failing, such as a connected Active Directory.</p>
+            aws_sdk_workdocs.errors.invalid_operation_exception.InvalidOperationException: <p>The operation is invalid.</p>
+            aws_sdk_workdocs.errors.prohibited_state_exception.ProhibitedStateException: <p>The specified document version is not in the INITIALIZED state.</p>
+            aws_sdk_workdocs.errors.unauthorized_operation_exception.UnauthorizedOperationException: <p>The operation is not permitted.</p>
+            aws_sdk_workdocs.errors.unauthorized_resource_access_exception.UnauthorizedResourceAccessException: <p>The caller does not have access to perform the action on the resource.</p>
+            aws_sdk_workdocs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1001,6 +1135,18 @@ class AsyncWorkDocsClient:
         Args:
             authentication_token: <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
             folder_id: <p>The ID of the folder.</p>
+
+        Raises:
+            aws_sdk_workdocs.errors.concurrent_modification_exception.ConcurrentModificationException: <p>The resource hierarchy is changing.</p>
+            aws_sdk_workdocs.errors.conflicting_operation_exception.ConflictingOperationException: <p>Another operation is in progress on the resource that conflicts with the current operation.</p>
+            aws_sdk_workdocs.errors.entity_not_exists_exception.EntityNotExistsException: <p>The resource does not exist.</p>
+            aws_sdk_workdocs.errors.failed_dependency_exception.FailedDependencyException: <p>The Directory Service cannot reach an on-premises instance. Or a dependency under the control of the organization is failing, such as a connected Active Directory.</p>
+            aws_sdk_workdocs.errors.limit_exceeded_exception.LimitExceededException: <p>The maximum of 100,000 files and folders under the parent folder has been exceeded.</p>
+            aws_sdk_workdocs.errors.prohibited_state_exception.ProhibitedStateException: <p>The specified document version is not in the INITIALIZED state.</p>
+            aws_sdk_workdocs.errors.service_unavailable_exception.ServiceUnavailableException: <p>One or more of the dependencies is unavailable.</p>
+            aws_sdk_workdocs.errors.unauthorized_operation_exception.UnauthorizedOperationException: <p>The operation is not permitted.</p>
+            aws_sdk_workdocs.errors.unauthorized_resource_access_exception.UnauthorizedResourceAccessException: <p>The caller does not have access to perform the action on the resource.</p>
+            aws_sdk_workdocs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1043,6 +1189,16 @@ class AsyncWorkDocsClient:
         Args:
             authentication_token: <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
             folder_id: <p>The ID of the folder.</p>
+
+        Raises:
+            aws_sdk_workdocs.errors.conflicting_operation_exception.ConflictingOperationException: <p>Another operation is in progress on the resource that conflicts with the current operation.</p>
+            aws_sdk_workdocs.errors.entity_not_exists_exception.EntityNotExistsException: <p>The resource does not exist.</p>
+            aws_sdk_workdocs.errors.failed_dependency_exception.FailedDependencyException: <p>The Directory Service cannot reach an on-premises instance. Or a dependency under the control of the organization is failing, such as a connected Active Directory.</p>
+            aws_sdk_workdocs.errors.prohibited_state_exception.ProhibitedStateException: <p>The specified document version is not in the INITIALIZED state.</p>
+            aws_sdk_workdocs.errors.service_unavailable_exception.ServiceUnavailableException: <p>One or more of the dependencies is unavailable.</p>
+            aws_sdk_workdocs.errors.unauthorized_operation_exception.UnauthorizedOperationException: <p>The operation is not permitted.</p>
+            aws_sdk_workdocs.errors.unauthorized_resource_access_exception.UnauthorizedResourceAccessException: <p>The caller does not have access to perform the action on the resource.</p>
+            aws_sdk_workdocs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1089,6 +1245,15 @@ class AsyncWorkDocsClient:
             authentication_token: <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
             labels: <p>List of labels to delete from the resource.</p>
             delete_all: <p>Flag to request removal of all labels from the specified resource.</p>
+
+        Raises:
+            aws_sdk_workdocs.errors.entity_not_exists_exception.EntityNotExistsException: <p>The resource does not exist.</p>
+            aws_sdk_workdocs.errors.failed_dependency_exception.FailedDependencyException: <p>The Directory Service cannot reach an on-premises instance. Or a dependency under the control of the organization is failing, such as a connected Active Directory.</p>
+            aws_sdk_workdocs.errors.prohibited_state_exception.ProhibitedStateException: <p>The specified document version is not in the INITIALIZED state.</p>
+            aws_sdk_workdocs.errors.service_unavailable_exception.ServiceUnavailableException: <p>One or more of the dependencies is unavailable.</p>
+            aws_sdk_workdocs.errors.unauthorized_operation_exception.UnauthorizedOperationException: <p>The operation is not permitted.</p>
+            aws_sdk_workdocs.errors.unauthorized_resource_access_exception.UnauthorizedResourceAccessException: <p>The caller does not have access to perform the action on the resource.</p>
+            aws_sdk_workdocs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1135,6 +1300,13 @@ class AsyncWorkDocsClient:
         Args:
             subscription_id: <p>The ID of the subscription.</p>
             organization_id: <p>The ID of the organization.</p>
+
+        Raises:
+            aws_sdk_workdocs.errors.entity_not_exists_exception.EntityNotExistsException: <p>The resource does not exist.</p>
+            aws_sdk_workdocs.errors.prohibited_state_exception.ProhibitedStateException: <p>The specified document version is not in the INITIALIZED state.</p>
+            aws_sdk_workdocs.errors.service_unavailable_exception.ServiceUnavailableException: <p>One or more of the dependencies is unavailable.</p>
+            aws_sdk_workdocs.errors.unauthorized_resource_access_exception.UnauthorizedResourceAccessException: <p>The caller does not have access to perform the action on the resource.</p>
+            aws_sdk_workdocs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1176,6 +1348,14 @@ class AsyncWorkDocsClient:
         Args:
             authentication_token: <p>Amazon WorkDocs authentication token. Do not set this field when using administrative API actions, as in accessing the API using Amazon Web Services credentials.</p>
             user_id: <p>The ID of the user.</p>
+
+        Raises:
+            aws_sdk_workdocs.errors.entity_not_exists_exception.EntityNotExistsException: <p>The resource does not exist.</p>
+            aws_sdk_workdocs.errors.failed_dependency_exception.FailedDependencyException: <p>The Directory Service cannot reach an on-premises instance. Or a dependency under the control of the organization is failing, such as a connected Active Directory.</p>
+            aws_sdk_workdocs.errors.service_unavailable_exception.ServiceUnavailableException: <p>One or more of the dependencies is unavailable.</p>
+            aws_sdk_workdocs.errors.unauthorized_operation_exception.UnauthorizedOperationException: <p>The operation is not permitted.</p>
+            aws_sdk_workdocs.errors.unauthorized_resource_access_exception.UnauthorizedResourceAccessException: <p>The caller does not have access to perform the action on the resource.</p>
+            aws_sdk_workdocs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1246,6 +1426,14 @@ class AsyncWorkDocsClient:
             include_indirect_activities: <p>Includes indirect activities. An indirect activity results from a direct activity performed on a parent resource. For example, sharing a parent folder (the direct activity) shares all of the subfolders and documents within the parent folder (the indirect activity).</p>
             limit: <p>The maximum number of items to return.</p>
             marker: <p>The marker for the next set of results.</p>
+
+        Raises:
+            aws_sdk_workdocs.errors.failed_dependency_exception.FailedDependencyException: <p>The Directory Service cannot reach an on-premises instance. Or a dependency under the control of the organization is failing, such as a connected Active Directory.</p>
+            aws_sdk_workdocs.errors.invalid_argument_exception.InvalidArgumentException: <p>The pagination marker or limit fields are not valid.</p>
+            aws_sdk_workdocs.errors.service_unavailable_exception.ServiceUnavailableException: <p>One or more of the dependencies is unavailable.</p>
+            aws_sdk_workdocs.errors.unauthorized_operation_exception.UnauthorizedOperationException: <p>The operation is not permitted.</p>
+            aws_sdk_workdocs.errors.unauthorized_resource_access_exception.UnauthorizedResourceAccessException: <p>The caller does not have access to perform the action on the resource.</p>
+            aws_sdk_workdocs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1362,6 +1550,15 @@ class AsyncWorkDocsClient:
             version_id: <p>The ID of the document version.</p>
             limit: <p>The maximum number of items to return.</p>
             marker: <p>The marker for the next set of results. This marker was received from a previous call.</p>
+
+        Raises:
+            aws_sdk_workdocs.errors.entity_not_exists_exception.EntityNotExistsException: <p>The resource does not exist.</p>
+            aws_sdk_workdocs.errors.failed_dependency_exception.FailedDependencyException: <p>The Directory Service cannot reach an on-premises instance. Or a dependency under the control of the organization is failing, such as a connected Active Directory.</p>
+            aws_sdk_workdocs.errors.prohibited_state_exception.ProhibitedStateException: <p>The specified document version is not in the INITIALIZED state.</p>
+            aws_sdk_workdocs.errors.service_unavailable_exception.ServiceUnavailableException: <p>One or more of the dependencies is unavailable.</p>
+            aws_sdk_workdocs.errors.unauthorized_operation_exception.UnauthorizedOperationException: <p>The operation is not permitted.</p>
+            aws_sdk_workdocs.errors.unauthorized_resource_access_exception.UnauthorizedResourceAccessException: <p>The caller does not have access to perform the action on the resource.</p>
+            aws_sdk_workdocs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1454,6 +1651,17 @@ class AsyncWorkDocsClient:
             limit: <p>The maximum number of versions to return with this call.</p>
             include: <p>A comma-separated list of values. Specify \"INITIALIZED\" to include incomplete versions.</p>
             fields: <p>Specify \"SOURCE\" to include initialized versions and a URL for the source document.</p>
+
+        Raises:
+            aws_sdk_workdocs.errors.entity_not_exists_exception.EntityNotExistsException: <p>The resource does not exist.</p>
+            aws_sdk_workdocs.errors.failed_dependency_exception.FailedDependencyException: <p>The Directory Service cannot reach an on-premises instance. Or a dependency under the control of the organization is failing, such as a connected Active Directory.</p>
+            aws_sdk_workdocs.errors.invalid_argument_exception.InvalidArgumentException: <p>The pagination marker or limit fields are not valid.</p>
+            aws_sdk_workdocs.errors.invalid_password_exception.InvalidPasswordException: <p>The password is invalid.</p>
+            aws_sdk_workdocs.errors.prohibited_state_exception.ProhibitedStateException: <p>The specified document version is not in the INITIALIZED state.</p>
+            aws_sdk_workdocs.errors.service_unavailable_exception.ServiceUnavailableException: <p>One or more of the dependencies is unavailable.</p>
+            aws_sdk_workdocs.errors.unauthorized_operation_exception.UnauthorizedOperationException: <p>The operation is not permitted.</p>
+            aws_sdk_workdocs.errors.unauthorized_resource_access_exception.UnauthorizedResourceAccessException: <p>The caller does not have access to perform the action on the resource.</p>
+            aws_sdk_workdocs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1563,6 +1771,15 @@ class AsyncWorkDocsClient:
             marker: <p>The marker for the next set of results. This marker was received from a previous call.</p>
             type: <p>The type of items.</p>
             include: <p>The contents to include. Specify \"INITIALIZED\" to include initialized documents.</p>
+
+        Raises:
+            aws_sdk_workdocs.errors.entity_not_exists_exception.EntityNotExistsException: <p>The resource does not exist.</p>
+            aws_sdk_workdocs.errors.failed_dependency_exception.FailedDependencyException: <p>The Directory Service cannot reach an on-premises instance. Or a dependency under the control of the organization is failing, such as a connected Active Directory.</p>
+            aws_sdk_workdocs.errors.invalid_argument_exception.InvalidArgumentException: <p>The pagination marker or limit fields are not valid.</p>
+            aws_sdk_workdocs.errors.prohibited_state_exception.ProhibitedStateException: <p>The specified document version is not in the INITIALIZED state.</p>
+            aws_sdk_workdocs.errors.service_unavailable_exception.ServiceUnavailableException: <p>One or more of the dependencies is unavailable.</p>
+            aws_sdk_workdocs.errors.unauthorized_resource_access_exception.UnauthorizedResourceAccessException: <p>The caller does not have access to perform the action on the resource.</p>
+            aws_sdk_workdocs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1627,6 +1844,13 @@ class AsyncWorkDocsClient:
             organization_id: <p>The ID of the organization.</p>
             marker: <p>The marker for the next set of results. (You received this marker from a previous call.)</p>
             limit: <p>The maximum number of items to return with this call.</p>
+
+        Raises:
+            aws_sdk_workdocs.errors.failed_dependency_exception.FailedDependencyException: <p>The Directory Service cannot reach an on-premises instance. Or a dependency under the control of the organization is failing, such as a connected Active Directory.</p>
+            aws_sdk_workdocs.errors.service_unavailable_exception.ServiceUnavailableException: <p>One or more of the dependencies is unavailable.</p>
+            aws_sdk_workdocs.errors.unauthorized_operation_exception.UnauthorizedOperationException: <p>The operation is not permitted.</p>
+            aws_sdk_workdocs.errors.unauthorized_resource_access_exception.UnauthorizedResourceAccessException: <p>The caller does not have access to perform the action on the resource.</p>
+            aws_sdk_workdocs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1710,6 +1934,12 @@ class AsyncWorkDocsClient:
             organization_id: <p>The ID of the organization.</p>
             marker: <p>The marker for the next set of results. (You received this marker from a previous call.)</p>
             limit: <p>The maximum number of items to return with this call.</p>
+
+        Raises:
+            aws_sdk_workdocs.errors.entity_not_exists_exception.EntityNotExistsException: <p>The resource does not exist.</p>
+            aws_sdk_workdocs.errors.service_unavailable_exception.ServiceUnavailableException: <p>One or more of the dependencies is unavailable.</p>
+            aws_sdk_workdocs.errors.unauthorized_resource_access_exception.UnauthorizedResourceAccessException: <p>The caller does not have access to perform the action on the resource.</p>
+            aws_sdk_workdocs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1789,6 +2019,14 @@ class AsyncWorkDocsClient:
             principal_id: <p>The ID of the principal to filter permissions by.</p>
             limit: <p>The maximum number of items to return with this call.</p>
             marker: <p>The marker for the next set of results. (You received this marker from a previous call)</p>
+
+        Raises:
+            aws_sdk_workdocs.errors.failed_dependency_exception.FailedDependencyException: <p>The Directory Service cannot reach an on-premises instance. Or a dependency under the control of the organization is failing, such as a connected Active Directory.</p>
+            aws_sdk_workdocs.errors.invalid_argument_exception.InvalidArgumentException: <p>The pagination marker or limit fields are not valid.</p>
+            aws_sdk_workdocs.errors.service_unavailable_exception.ServiceUnavailableException: <p>One or more of the dependencies is unavailable.</p>
+            aws_sdk_workdocs.errors.unauthorized_operation_exception.UnauthorizedOperationException: <p>The operation is not permitted.</p>
+            aws_sdk_workdocs.errors.unauthorized_resource_access_exception.UnauthorizedResourceAccessException: <p>The caller does not have access to perform the action on the resource.</p>
+            aws_sdk_workdocs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1872,6 +2110,14 @@ class AsyncWorkDocsClient:
             authentication_token: <p>Amazon WorkDocs authentication token.</p>
             limit: <p>The maximum number of items to return.</p>
             marker: <p>The marker for the next set of results. (You received this marker from a previous call.)</p>
+
+        Raises:
+            aws_sdk_workdocs.errors.failed_dependency_exception.FailedDependencyException: <p>The Directory Service cannot reach an on-premises instance. Or a dependency under the control of the organization is failing, such as a connected Active Directory.</p>
+            aws_sdk_workdocs.errors.invalid_argument_exception.InvalidArgumentException: <p>The pagination marker or limit fields are not valid.</p>
+            aws_sdk_workdocs.errors.service_unavailable_exception.ServiceUnavailableException: <p>One or more of the dependencies is unavailable.</p>
+            aws_sdk_workdocs.errors.unauthorized_operation_exception.UnauthorizedOperationException: <p>The operation is not permitted.</p>
+            aws_sdk_workdocs.errors.unauthorized_resource_access_exception.UnauthorizedResourceAccessException: <p>The caller does not have access to perform the action on the resource.</p>
+            aws_sdk_workdocs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1967,6 +2213,16 @@ class AsyncWorkDocsClient:
             marker: <p>The marker for the next set of results. (You received this marker from a previous call.)</p>
             limit: <p>The maximum number of items to return.</p>
             fields: <p>A comma-separated list of values. Specify \"STORAGE_METADATA\" to include the user storage quota and utilization information.</p>
+
+        Raises:
+            aws_sdk_workdocs.errors.entity_not_exists_exception.EntityNotExistsException: <p>The resource does not exist.</p>
+            aws_sdk_workdocs.errors.failed_dependency_exception.FailedDependencyException: <p>The Directory Service cannot reach an on-premises instance. Or a dependency under the control of the organization is failing, such as a connected Active Directory.</p>
+            aws_sdk_workdocs.errors.invalid_argument_exception.InvalidArgumentException: <p>The pagination marker or limit fields are not valid.</p>
+            aws_sdk_workdocs.errors.requested_entity_too_large_exception.RequestedEntityTooLargeException: <p>The response is too large to return. The request must include a filter to reduce the size of the response.</p>
+            aws_sdk_workdocs.errors.service_unavailable_exception.ServiceUnavailableException: <p>One or more of the dependencies is unavailable.</p>
+            aws_sdk_workdocs.errors.unauthorized_operation_exception.UnauthorizedOperationException: <p>The operation is not permitted.</p>
+            aws_sdk_workdocs.errors.unauthorized_resource_access_exception.UnauthorizedResourceAccessException: <p>The caller does not have access to perform the action on the resource.</p>
+            aws_sdk_workdocs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2071,6 +2327,14 @@ class AsyncWorkDocsClient:
 
         Args:
             authentication_token: <p>Amazon WorkDocs authentication token.</p>
+
+        Raises:
+            aws_sdk_workdocs.errors.entity_not_exists_exception.EntityNotExistsException: <p>The resource does not exist.</p>
+            aws_sdk_workdocs.errors.failed_dependency_exception.FailedDependencyException: <p>The Directory Service cannot reach an on-premises instance. Or a dependency under the control of the organization is failing, such as a connected Active Directory.</p>
+            aws_sdk_workdocs.errors.service_unavailable_exception.ServiceUnavailableException: <p>One or more of the dependencies is unavailable.</p>
+            aws_sdk_workdocs.errors.unauthorized_operation_exception.UnauthorizedOperationException: <p>The operation is not permitted.</p>
+            aws_sdk_workdocs.errors.unauthorized_resource_access_exception.UnauthorizedResourceAccessException: <p>The caller does not have access to perform the action on the resource.</p>
+            aws_sdk_workdocs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2117,6 +2381,16 @@ class AsyncWorkDocsClient:
             authentication_token: <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
             document_id: <p>The ID of the document.</p>
             include_custom_metadata: <p>Set this to <code>TRUE</code> to include custom metadata in the response.</p>
+
+        Raises:
+            aws_sdk_workdocs.errors.entity_not_exists_exception.EntityNotExistsException: <p>The resource does not exist.</p>
+            aws_sdk_workdocs.errors.failed_dependency_exception.FailedDependencyException: <p>The Directory Service cannot reach an on-premises instance. Or a dependency under the control of the organization is failing, such as a connected Active Directory.</p>
+            aws_sdk_workdocs.errors.invalid_argument_exception.InvalidArgumentException: <p>The pagination marker or limit fields are not valid.</p>
+            aws_sdk_workdocs.errors.invalid_password_exception.InvalidPasswordException: <p>The password is invalid.</p>
+            aws_sdk_workdocs.errors.service_unavailable_exception.ServiceUnavailableException: <p>One or more of the dependencies is unavailable.</p>
+            aws_sdk_workdocs.errors.unauthorized_operation_exception.UnauthorizedOperationException: <p>The operation is not permitted.</p>
+            aws_sdk_workdocs.errors.unauthorized_resource_access_exception.UnauthorizedResourceAccessException: <p>The caller does not have access to perform the action on the resource.</p>
+            aws_sdk_workdocs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2173,6 +2447,14 @@ class AsyncWorkDocsClient:
             limit: <p>The maximum number of levels in the hierarchy to return.</p>
             fields: <p>A comma-separated list of values. Specify <code>NAME</code> to include the names of the parent folders.</p>
             marker: <p>This value is not supported.</p>
+
+        Raises:
+            aws_sdk_workdocs.errors.entity_not_exists_exception.EntityNotExistsException: <p>The resource does not exist.</p>
+            aws_sdk_workdocs.errors.failed_dependency_exception.FailedDependencyException: <p>The Directory Service cannot reach an on-premises instance. Or a dependency under the control of the organization is failing, such as a connected Active Directory.</p>
+            aws_sdk_workdocs.errors.service_unavailable_exception.ServiceUnavailableException: <p>One or more of the dependencies is unavailable.</p>
+            aws_sdk_workdocs.errors.unauthorized_operation_exception.UnauthorizedOperationException: <p>The operation is not permitted.</p>
+            aws_sdk_workdocs.errors.unauthorized_resource_access_exception.UnauthorizedResourceAccessException: <p>The caller does not have access to perform the action on the resource.</p>
+            aws_sdk_workdocs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2233,6 +2515,16 @@ class AsyncWorkDocsClient:
             version_id: <p>The version ID of the document.</p>
             fields: <p>A comma-separated list of values. Specify \"SOURCE\" to include a URL for the source document.</p>
             include_custom_metadata: <p>Set this to TRUE to include custom metadata in the response.</p>
+
+        Raises:
+            aws_sdk_workdocs.errors.entity_not_exists_exception.EntityNotExistsException: <p>The resource does not exist.</p>
+            aws_sdk_workdocs.errors.failed_dependency_exception.FailedDependencyException: <p>The Directory Service cannot reach an on-premises instance. Or a dependency under the control of the organization is failing, such as a connected Active Directory.</p>
+            aws_sdk_workdocs.errors.invalid_password_exception.InvalidPasswordException: <p>The password is invalid.</p>
+            aws_sdk_workdocs.errors.prohibited_state_exception.ProhibitedStateException: <p>The specified document version is not in the INITIALIZED state.</p>
+            aws_sdk_workdocs.errors.service_unavailable_exception.ServiceUnavailableException: <p>One or more of the dependencies is unavailable.</p>
+            aws_sdk_workdocs.errors.unauthorized_operation_exception.UnauthorizedOperationException: <p>The operation is not permitted.</p>
+            aws_sdk_workdocs.errors.unauthorized_resource_access_exception.UnauthorizedResourceAccessException: <p>The caller does not have access to perform the action on the resource.</p>
+            aws_sdk_workdocs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2286,6 +2578,16 @@ class AsyncWorkDocsClient:
             authentication_token: <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
             folder_id: <p>The ID of the folder.</p>
             include_custom_metadata: <p>Set to TRUE to include custom metadata in the response.</p>
+
+        Raises:
+            aws_sdk_workdocs.errors.entity_not_exists_exception.EntityNotExistsException: <p>The resource does not exist.</p>
+            aws_sdk_workdocs.errors.failed_dependency_exception.FailedDependencyException: <p>The Directory Service cannot reach an on-premises instance. Or a dependency under the control of the organization is failing, such as a connected Active Directory.</p>
+            aws_sdk_workdocs.errors.invalid_argument_exception.InvalidArgumentException: <p>The pagination marker or limit fields are not valid.</p>
+            aws_sdk_workdocs.errors.prohibited_state_exception.ProhibitedStateException: <p>The specified document version is not in the INITIALIZED state.</p>
+            aws_sdk_workdocs.errors.service_unavailable_exception.ServiceUnavailableException: <p>One or more of the dependencies is unavailable.</p>
+            aws_sdk_workdocs.errors.unauthorized_operation_exception.UnauthorizedOperationException: <p>The operation is not permitted.</p>
+            aws_sdk_workdocs.errors.unauthorized_resource_access_exception.UnauthorizedResourceAccessException: <p>The caller does not have access to perform the action on the resource.</p>
+            aws_sdk_workdocs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2342,6 +2644,14 @@ class AsyncWorkDocsClient:
             limit: <p>The maximum number of levels in the hierarchy to return.</p>
             fields: <p>A comma-separated list of values. Specify \"NAME\" to include the names of the parent folders.</p>
             marker: <p>This value is not supported.</p>
+
+        Raises:
+            aws_sdk_workdocs.errors.entity_not_exists_exception.EntityNotExistsException: <p>The resource does not exist.</p>
+            aws_sdk_workdocs.errors.failed_dependency_exception.FailedDependencyException: <p>The Directory Service cannot reach an on-premises instance. Or a dependency under the control of the organization is failing, such as a connected Active Directory.</p>
+            aws_sdk_workdocs.errors.service_unavailable_exception.ServiceUnavailableException: <p>One or more of the dependencies is unavailable.</p>
+            aws_sdk_workdocs.errors.unauthorized_operation_exception.UnauthorizedOperationException: <p>The operation is not permitted.</p>
+            aws_sdk_workdocs.errors.unauthorized_resource_access_exception.UnauthorizedResourceAccessException: <p>The caller does not have access to perform the action on the resource.</p>
+            aws_sdk_workdocs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2402,6 +2712,14 @@ class AsyncWorkDocsClient:
             collection_type: <p>The collection type.</p>
             limit: <p>The maximum number of resources to return.</p>
             marker: <p>The marker for the next set of results. This marker was received from a previous call.</p>
+
+        Raises:
+            aws_sdk_workdocs.errors.failed_dependency_exception.FailedDependencyException: <p>The Directory Service cannot reach an on-premises instance. Or a dependency under the control of the organization is failing, such as a connected Active Directory.</p>
+            aws_sdk_workdocs.errors.invalid_argument_exception.InvalidArgumentException: <p>The pagination marker or limit fields are not valid.</p>
+            aws_sdk_workdocs.errors.service_unavailable_exception.ServiceUnavailableException: <p>One or more of the dependencies is unavailable.</p>
+            aws_sdk_workdocs.errors.unauthorized_operation_exception.UnauthorizedOperationException: <p>The operation is not permitted.</p>
+            aws_sdk_workdocs.errors.unauthorized_resource_access_exception.UnauthorizedResourceAccessException: <p>The caller does not have access to perform the action on the resource.</p>
+            aws_sdk_workdocs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2477,6 +2795,23 @@ class AsyncWorkDocsClient:
             content_type: <p>The content type of the document.</p>
             document_size_in_bytes: <p>The size of the document, in bytes.</p>
             parent_folder_id: <p>The ID of the parent folder.</p>
+
+        Raises:
+            aws_sdk_workdocs.errors.draft_upload_out_of_sync_exception.DraftUploadOutOfSyncException: <p>This exception is thrown when a valid checkout ID is not presented on document version upload calls for a document that has been checked out from Web client.</p>
+            aws_sdk_workdocs.errors.entity_already_exists_exception.EntityAlreadyExistsException: <p>The resource already exists.</p>
+            aws_sdk_workdocs.errors.entity_not_exists_exception.EntityNotExistsException: <p>The resource does not exist.</p>
+            aws_sdk_workdocs.errors.failed_dependency_exception.FailedDependencyException: <p>The Directory Service cannot reach an on-premises instance. Or a dependency under the control of the organization is failing, such as a connected Active Directory.</p>
+            aws_sdk_workdocs.errors.invalid_argument_exception.InvalidArgumentException: <p>The pagination marker or limit fields are not valid.</p>
+            aws_sdk_workdocs.errors.invalid_password_exception.InvalidPasswordException: <p>The password is invalid.</p>
+            aws_sdk_workdocs.errors.limit_exceeded_exception.LimitExceededException: <p>The maximum of 100,000 files and folders under the parent folder has been exceeded.</p>
+            aws_sdk_workdocs.errors.prohibited_state_exception.ProhibitedStateException: <p>The specified document version is not in the INITIALIZED state.</p>
+            aws_sdk_workdocs.errors.resource_already_checked_out_exception.ResourceAlreadyCheckedOutException: <p>The resource is already checked out.</p>
+            aws_sdk_workdocs.errors.service_unavailable_exception.ServiceUnavailableException: <p>One or more of the dependencies is unavailable.</p>
+            aws_sdk_workdocs.errors.storage_limit_exceeded_exception.StorageLimitExceededException: <p>The storage limit has been exceeded.</p>
+            aws_sdk_workdocs.errors.storage_limit_will_exceed_exception.StorageLimitWillExceedException: <p>The storage limit will be exceeded.</p>
+            aws_sdk_workdocs.errors.unauthorized_operation_exception.UnauthorizedOperationException: <p>The operation is not permitted.</p>
+            aws_sdk_workdocs.errors.unauthorized_resource_access_exception.UnauthorizedResourceAccessException: <p>The caller does not have access to perform the action on the resource.</p>
+            aws_sdk_workdocs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2534,6 +2869,13 @@ class AsyncWorkDocsClient:
         Args:
             authentication_token: <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
             resource_id: <p>The ID of the resource.</p>
+
+        Raises:
+            aws_sdk_workdocs.errors.failed_dependency_exception.FailedDependencyException: <p>The Directory Service cannot reach an on-premises instance. Or a dependency under the control of the organization is failing, such as a connected Active Directory.</p>
+            aws_sdk_workdocs.errors.service_unavailable_exception.ServiceUnavailableException: <p>One or more of the dependencies is unavailable.</p>
+            aws_sdk_workdocs.errors.unauthorized_operation_exception.UnauthorizedOperationException: <p>The operation is not permitted.</p>
+            aws_sdk_workdocs.errors.unauthorized_resource_access_exception.UnauthorizedResourceAccessException: <p>The caller does not have access to perform the action on the resource.</p>
+            aws_sdk_workdocs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2582,6 +2924,13 @@ class AsyncWorkDocsClient:
             resource_id: <p>The ID of the resource.</p>
             principal_id: <p>The principal ID of the resource.</p>
             principal_type: <p>The principal type of the resource.</p>
+
+        Raises:
+            aws_sdk_workdocs.errors.failed_dependency_exception.FailedDependencyException: <p>The Directory Service cannot reach an on-premises instance. Or a dependency under the control of the organization is failing, such as a connected Active Directory.</p>
+            aws_sdk_workdocs.errors.service_unavailable_exception.ServiceUnavailableException: <p>One or more of the dependencies is unavailable.</p>
+            aws_sdk_workdocs.errors.unauthorized_operation_exception.UnauthorizedOperationException: <p>The operation is not permitted.</p>
+            aws_sdk_workdocs.errors.unauthorized_resource_access_exception.UnauthorizedResourceAccessException: <p>The caller does not have access to perform the action on the resource.</p>
+            aws_sdk_workdocs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2627,6 +2976,17 @@ class AsyncWorkDocsClient:
         Args:
             authentication_token: <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
             document_id: <p>The ID of the document.</p>
+
+        Raises:
+            aws_sdk_workdocs.errors.concurrent_modification_exception.ConcurrentModificationException: <p>The resource hierarchy is changing.</p>
+            aws_sdk_workdocs.errors.conflicting_operation_exception.ConflictingOperationException: <p>Another operation is in progress on the resource that conflicts with the current operation.</p>
+            aws_sdk_workdocs.errors.entity_not_exists_exception.EntityNotExistsException: <p>The resource does not exist.</p>
+            aws_sdk_workdocs.errors.failed_dependency_exception.FailedDependencyException: <p>The Directory Service cannot reach an on-premises instance. Or a dependency under the control of the organization is failing, such as a connected Active Directory.</p>
+            aws_sdk_workdocs.errors.invalid_operation_exception.InvalidOperationException: <p>The operation is invalid.</p>
+            aws_sdk_workdocs.errors.prohibited_state_exception.ProhibitedStateException: <p>The specified document version is not in the INITIALIZED state.</p>
+            aws_sdk_workdocs.errors.unauthorized_operation_exception.UnauthorizedOperationException: <p>The operation is not permitted.</p>
+            aws_sdk_workdocs.errors.unauthorized_resource_access_exception.UnauthorizedResourceAccessException: <p>The caller does not have access to perform the action on the resource.</p>
+            aws_sdk_workdocs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2695,6 +3055,13 @@ class AsyncWorkDocsClient:
             order_by: <p>Order by results in one or more categories.</p>
             limit: <p>Max results count per page.</p>
             marker: <p>The marker for the next set of results.</p>
+
+        Raises:
+            aws_sdk_workdocs.errors.invalid_argument_exception.InvalidArgumentException: <p>The pagination marker or limit fields are not valid.</p>
+            aws_sdk_workdocs.errors.service_unavailable_exception.ServiceUnavailableException: <p>One or more of the dependencies is unavailable.</p>
+            aws_sdk_workdocs.errors.unauthorized_operation_exception.UnauthorizedOperationException: <p>The operation is not permitted.</p>
+            aws_sdk_workdocs.errors.unauthorized_resource_access_exception.UnauthorizedResourceAccessException: <p>The caller does not have access to perform the action on the resource.</p>
+            aws_sdk_workdocs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2815,6 +3182,19 @@ class AsyncWorkDocsClient:
             name: <p>The name of the document.</p>
             parent_folder_id: <p>The ID of the parent folder.</p>
             resource_state: <p>The resource state of the document. Only ACTIVE and RECYCLED are supported.</p>
+
+        Raises:
+            aws_sdk_workdocs.errors.concurrent_modification_exception.ConcurrentModificationException: <p>The resource hierarchy is changing.</p>
+            aws_sdk_workdocs.errors.conflicting_operation_exception.ConflictingOperationException: <p>Another operation is in progress on the resource that conflicts with the current operation.</p>
+            aws_sdk_workdocs.errors.entity_already_exists_exception.EntityAlreadyExistsException: <p>The resource already exists.</p>
+            aws_sdk_workdocs.errors.entity_not_exists_exception.EntityNotExistsException: <p>The resource does not exist.</p>
+            aws_sdk_workdocs.errors.failed_dependency_exception.FailedDependencyException: <p>The Directory Service cannot reach an on-premises instance. Or a dependency under the control of the organization is failing, such as a connected Active Directory.</p>
+            aws_sdk_workdocs.errors.limit_exceeded_exception.LimitExceededException: <p>The maximum of 100,000 files and folders under the parent folder has been exceeded.</p>
+            aws_sdk_workdocs.errors.prohibited_state_exception.ProhibitedStateException: <p>The specified document version is not in the INITIALIZED state.</p>
+            aws_sdk_workdocs.errors.service_unavailable_exception.ServiceUnavailableException: <p>One or more of the dependencies is unavailable.</p>
+            aws_sdk_workdocs.errors.unauthorized_operation_exception.UnauthorizedOperationException: <p>The operation is not permitted.</p>
+            aws_sdk_workdocs.errors.unauthorized_resource_access_exception.UnauthorizedResourceAccessException: <p>The caller does not have access to perform the action on the resource.</p>
+            aws_sdk_workdocs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2869,6 +3249,17 @@ class AsyncWorkDocsClient:
             document_id: <p>The ID of the document.</p>
             version_id: <p>The version ID of the document.</p>
             version_status: <p>The status of the version.</p>
+
+        Raises:
+            aws_sdk_workdocs.errors.concurrent_modification_exception.ConcurrentModificationException: <p>The resource hierarchy is changing.</p>
+            aws_sdk_workdocs.errors.entity_not_exists_exception.EntityNotExistsException: <p>The resource does not exist.</p>
+            aws_sdk_workdocs.errors.failed_dependency_exception.FailedDependencyException: <p>The Directory Service cannot reach an on-premises instance. Or a dependency under the control of the organization is failing, such as a connected Active Directory.</p>
+            aws_sdk_workdocs.errors.invalid_operation_exception.InvalidOperationException: <p>The operation is invalid.</p>
+            aws_sdk_workdocs.errors.prohibited_state_exception.ProhibitedStateException: <p>The specified document version is not in the INITIALIZED state.</p>
+            aws_sdk_workdocs.errors.service_unavailable_exception.ServiceUnavailableException: <p>One or more of the dependencies is unavailable.</p>
+            aws_sdk_workdocs.errors.unauthorized_operation_exception.UnauthorizedOperationException: <p>The operation is not permitted.</p>
+            aws_sdk_workdocs.errors.unauthorized_resource_access_exception.UnauthorizedResourceAccessException: <p>The caller does not have access to perform the action on the resource.</p>
+            aws_sdk_workdocs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2926,6 +3317,19 @@ class AsyncWorkDocsClient:
             name: <p>The name of the folder.</p>
             parent_folder_id: <p>The ID of the parent folder.</p>
             resource_state: <p>The resource state of the folder. Only ACTIVE and RECYCLED are accepted values from the API.</p>
+
+        Raises:
+            aws_sdk_workdocs.errors.concurrent_modification_exception.ConcurrentModificationException: <p>The resource hierarchy is changing.</p>
+            aws_sdk_workdocs.errors.conflicting_operation_exception.ConflictingOperationException: <p>Another operation is in progress on the resource that conflicts with the current operation.</p>
+            aws_sdk_workdocs.errors.entity_already_exists_exception.EntityAlreadyExistsException: <p>The resource already exists.</p>
+            aws_sdk_workdocs.errors.entity_not_exists_exception.EntityNotExistsException: <p>The resource does not exist.</p>
+            aws_sdk_workdocs.errors.failed_dependency_exception.FailedDependencyException: <p>The Directory Service cannot reach an on-premises instance. Or a dependency under the control of the organization is failing, such as a connected Active Directory.</p>
+            aws_sdk_workdocs.errors.limit_exceeded_exception.LimitExceededException: <p>The maximum of 100,000 files and folders under the parent folder has been exceeded.</p>
+            aws_sdk_workdocs.errors.prohibited_state_exception.ProhibitedStateException: <p>The specified document version is not in the INITIALIZED state.</p>
+            aws_sdk_workdocs.errors.service_unavailable_exception.ServiceUnavailableException: <p>One or more of the dependencies is unavailable.</p>
+            aws_sdk_workdocs.errors.unauthorized_operation_exception.UnauthorizedOperationException: <p>The operation is not permitted.</p>
+            aws_sdk_workdocs.errors.unauthorized_resource_access_exception.UnauthorizedResourceAccessException: <p>The caller does not have access to perform the action on the resource.</p>
+            aws_sdk_workdocs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2998,6 +3402,18 @@ class AsyncWorkDocsClient:
             time_zone_id: <p>The time zone ID of the user.</p>
             locale: <p>The locale of the user.</p>
             grant_poweruser_privileges: <p>Boolean value to determine whether the user is granted Power user privileges.</p>
+
+        Raises:
+            aws_sdk_workdocs.errors.deactivating_last_system_user_exception.DeactivatingLastSystemUserException: <p>The last user in the organization is being deactivated.</p>
+            aws_sdk_workdocs.errors.entity_not_exists_exception.EntityNotExistsException: <p>The resource does not exist.</p>
+            aws_sdk_workdocs.errors.failed_dependency_exception.FailedDependencyException: <p>The Directory Service cannot reach an on-premises instance. Or a dependency under the control of the organization is failing, such as a connected Active Directory.</p>
+            aws_sdk_workdocs.errors.illegal_user_state_exception.IllegalUserStateException: <p>The user is undergoing transfer of ownership.</p>
+            aws_sdk_workdocs.errors.invalid_argument_exception.InvalidArgumentException: <p>The pagination marker or limit fields are not valid.</p>
+            aws_sdk_workdocs.errors.prohibited_state_exception.ProhibitedStateException: <p>The specified document version is not in the INITIALIZED state.</p>
+            aws_sdk_workdocs.errors.service_unavailable_exception.ServiceUnavailableException: <p>One or more of the dependencies is unavailable.</p>
+            aws_sdk_workdocs.errors.unauthorized_operation_exception.UnauthorizedOperationException: <p>The operation is not permitted.</p>
+            aws_sdk_workdocs.errors.unauthorized_resource_access_exception.UnauthorizedResourceAccessException: <p>The caller does not have access to perform the action on the resource.</p>
+            aws_sdk_workdocs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

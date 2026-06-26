@@ -403,6 +403,12 @@ class AsyncServiceCatalogClient:
             accept_language: <p>The language code.</p> <ul> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul>
             portfolio_id: <p>The portfolio identifier.</p>
             portfolio_share_type: <p>The type of shared portfolios to accept. The default is to accept imported portfolios.</p> <ul> <li> <p> <code>AWS_ORGANIZATIONS</code> - Accept portfolios shared by the management account of your organization.</p> </li> <li> <p> <code>IMPORTED</code> - Accept imported portfolios.</p> </li> <li> <p> <code>AWS_SERVICECATALOG</code> - Not supported. (Throws ResourceNotFoundException.)</p> </li> </ul> <p>For example, <code>aws servicecatalog accept-portfolio-share --portfolio-id \"port-2qwzkwxt3y5fk\" --portfolio-share-type AWS_ORGANIZATIONS</code> </p>
+
+        Raises:
+            aws_sdk_service_catalog.errors.invalid_parameters_exception.InvalidParametersException: <p>One or more parameters provided to the operation are not valid.</p>
+            aws_sdk_service_catalog.errors.limit_exceeded_exception.LimitExceededException: <p>The current limits of the service would have been exceeded by this operation. Decrease your resource use or increase your service limits and retry the operation.</p>
+            aws_sdk_service_catalog.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_service_catalog.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -447,6 +453,13 @@ class AsyncServiceCatalogClient:
         Args:
             budget_name: <p>The name of the budget you want to associate.</p>
             resource_id: <p> The resource identifier. Either a portfolio-id or a product-id.</p>
+
+        Raises:
+            aws_sdk_service_catalog.errors.duplicate_resource_exception.DuplicateResourceException: <p>The specified resource is a duplicate.</p>
+            aws_sdk_service_catalog.errors.invalid_parameters_exception.InvalidParametersException: <p>One or more parameters provided to the operation are not valid.</p>
+            aws_sdk_service_catalog.errors.limit_exceeded_exception.LimitExceededException: <p>The current limits of the service would have been exceeded by this operation. Decrease your resource use or increase your service limits and retry the operation.</p>
+            aws_sdk_service_catalog.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_service_catalog.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -494,6 +507,12 @@ class AsyncServiceCatalogClient:
             portfolio_id: <p>The portfolio identifier.</p>
             principal_arn: <p>The ARN of the principal (user, role, or group). If the <code>PrincipalType</code> is <code>IAM</code>, the supported value is a fully defined <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-arns\">IAM Amazon Resource Name (ARN)</a>. If the <code>PrincipalType</code> is <code>IAM_PATTERN</code>, the supported value is an <code>IAM</code> ARN <i>without an AccountID</i> in the following format:</p> <p> <i>arn:partition:iam:::resource-type/resource-id</i> </p> <p>The ARN resource-id can be either:</p> <ul> <li> <p>A fully formed resource-id. For example, <i>arn:aws:iam:::role/resource-name</i> or <i>arn:aws:iam:::role/resource-path/resource-name</i> </p> </li> <li> <p>A wildcard ARN. The wildcard ARN accepts <code>IAM_PATTERN</code> values with a \"*\" or \"?\" in the resource-id segment of the ARN. For example <i>arn:partition:service:::resource-type/resource-path/resource-name</i>. The new symbols are exclusive to the <b>resource-path</b> and <b>resource-name</b> and cannot replace the <b>resource-type</b> or other ARN values. </p> <p>The ARN path and principal name allow unlimited wildcard characters.</p> </li> </ul> <p>Examples of an <b>acceptable</b> wildcard ARN:</p> <ul> <li> <p>arn:aws:iam:::role/ResourceName_*</p> </li> <li> <p>arn:aws:iam:::role/*/ResourceName_?</p> </li> </ul> <p>Examples of an <b>unacceptable</b> wildcard ARN:</p> <ul> <li> <p>arn:aws:iam:::*/ResourceName</p> </li> </ul> <p>You can associate multiple <code>IAM_PATTERN</code>s even if the account has no principal with that name. </p> <p>The \"?\" wildcard character matches zero or one of any character. This is similar to \".?\" in regular regex context. The \"*\" wildcard character matches any number of any characters. This is similar to \".*\" in regular regex context.</p> <p>In the IAM Principal ARN format (<i>arn:partition:iam:::resource-type/resource-path/resource-name</i>), valid resource-type values include <b>user/</b>, <b>group/</b>, or <b>role/</b>. The \"?\" and \"*\" characters are allowed only after the resource-type in the resource-id segment. You can use special characters anywhere within the resource-id. </p> <p>The \"*\" character also matches the \"/\" character, allowing paths to be formed <i>within</i> the resource-id. For example, <i>arn:aws:iam:::role/<b>*</b>/ResourceName_?</i> matches both <i>arn:aws:iam:::role/pathA/pathB/ResourceName_1</i> and <i>arn:aws:iam:::role/pathA/ResourceName_1</i>. </p>
             principal_type: <p>The principal type. The supported value is <code>IAM</code> if you use a fully defined Amazon Resource Name (ARN), or <code>IAM_PATTERN</code> if you use an ARN with no <code>accountID</code>, with or without wildcard characters. </p>
+
+        Raises:
+            aws_sdk_service_catalog.errors.invalid_parameters_exception.InvalidParametersException: <p>One or more parameters provided to the operation are not valid.</p>
+            aws_sdk_service_catalog.errors.limit_exceeded_exception.LimitExceededException: <p>The current limits of the service would have been exceeded by this operation. Decrease your resource use or increase your service limits and retry the operation.</p>
+            aws_sdk_service_catalog.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_service_catalog.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -544,6 +563,12 @@ class AsyncServiceCatalogClient:
             product_id: <p>The product identifier.</p>
             portfolio_id: <p>The portfolio identifier.</p>
             source_portfolio_id: <p>The identifier of the source portfolio.</p>
+
+        Raises:
+            aws_sdk_service_catalog.errors.invalid_parameters_exception.InvalidParametersException: <p>One or more parameters provided to the operation are not valid.</p>
+            aws_sdk_service_catalog.errors.limit_exceeded_exception.LimitExceededException: <p>The current limits of the service would have been exceeded by this operation. Decrease your resource use or increase your service limits and retry the operation.</p>
+            aws_sdk_service_catalog.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_service_catalog.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -599,6 +624,13 @@ class AsyncServiceCatalogClient:
             service_action_id: <p>The self-service action identifier. For example, <code>act-fs7abcd89wxyz</code>.</p>
             accept_language: <p>The language code.</p> <ul> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul>
             idempotency_token: <p>A unique identifier that you provide to ensure idempotency. If multiple requests from the same Amazon Web Services account use the same idempotency token, the same response is returned for each repeated request. </p>
+
+        Raises:
+            aws_sdk_service_catalog.errors.duplicate_resource_exception.DuplicateResourceException: <p>The specified resource is a duplicate.</p>
+            aws_sdk_service_catalog.errors.invalid_parameters_exception.InvalidParametersException: <p>One or more parameters provided to the operation are not valid.</p>
+            aws_sdk_service_catalog.errors.limit_exceeded_exception.LimitExceededException: <p>The current limits of the service would have been exceeded by this operation. Decrease your resource use or increase your service limits and retry the operation.</p>
+            aws_sdk_service_catalog.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_service_catalog.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -645,6 +677,15 @@ class AsyncServiceCatalogClient:
         Args:
             resource_id: <p>The resource identifier.</p>
             tag_option_id: <p>The TagOption identifier.</p>
+
+        Raises:
+            aws_sdk_service_catalog.errors.duplicate_resource_exception.DuplicateResourceException: <p>The specified resource is a duplicate.</p>
+            aws_sdk_service_catalog.errors.invalid_parameters_exception.InvalidParametersException: <p>One or more parameters provided to the operation are not valid.</p>
+            aws_sdk_service_catalog.errors.invalid_state_exception.InvalidStateException: <p>An attempt was made to modify a resource that is in a state that is not valid. Check your resources to ensure that they are in valid states before retrying the operation.</p>
+            aws_sdk_service_catalog.errors.limit_exceeded_exception.LimitExceededException: <p>The current limits of the service would have been exceeded by this operation. Decrease your resource use or increase your service limits and retry the operation.</p>
+            aws_sdk_service_catalog.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_service_catalog.errors.tag_option_not_migrated_exception.TagOptionNotMigratedException: <p>An operation requiring TagOptions failed because the TagOptions migration process has not been performed for this account. Use the Amazon Web Services Management Console to perform the migration process before retrying the operation.</p>
+            aws_sdk_service_catalog.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -688,6 +729,10 @@ class AsyncServiceCatalogClient:
         Args:
             service_action_associations: <p>One or more associations, each consisting of the Action ID, the Product ID, and the Provisioning Artifact ID.</p>
             accept_language: <p>The language code.</p> <ul> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul>
+
+        Raises:
+            aws_sdk_service_catalog.errors.invalid_parameters_exception.InvalidParametersException: <p>One or more parameters provided to the operation are not valid.</p>
+            aws_sdk_service_catalog.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -732,6 +777,10 @@ class AsyncServiceCatalogClient:
         Args:
             service_action_associations: <p>One or more associations, each consisting of the Action ID, the Product ID, and the Provisioning Artifact ID.</p>
             accept_language: <p>The language code.</p> <ul> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul>
+
+        Raises:
+            aws_sdk_service_catalog.errors.invalid_parameters_exception.InvalidParametersException: <p>One or more parameters provided to the operation are not valid.</p>
+            aws_sdk_service_catalog.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -792,6 +841,11 @@ class AsyncServiceCatalogClient:
             source_provisioning_artifact_identifiers: <p>The identifiers of the provisioning artifacts (also known as versions) of the product to copy. By default, all provisioning artifacts are copied.</p>
             copy_options: <p>The copy options. If the value is <code>CopyTags</code>, the tags from the source product are copied to the target product.</p>
             idempotency_token: <p> A unique identifier that you provide to ensure idempotency. If multiple requests differ only by the idempotency token, the same response is returned for each repeated request. </p>
+
+        Raises:
+            aws_sdk_service_catalog.errors.invalid_parameters_exception.InvalidParametersException: <p>One or more parameters provided to the operation are not valid.</p>
+            aws_sdk_service_catalog.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_service_catalog.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -861,6 +915,13 @@ class AsyncServiceCatalogClient:
             type: <p>The type of constraint.</p> <ul> <li> <p> <code>LAUNCH</code> </p> </li> <li> <p> <code>NOTIFICATION</code> </p> </li> <li> <p> <code>RESOURCE_UPDATE</code> </p> </li> <li> <p> <code>STACKSET</code> </p> </li> <li> <p> <code>TEMPLATE</code> </p> </li> </ul>
             description: <p>The description of the constraint.</p>
             idempotency_token: <p>A unique identifier that you provide to ensure idempotency. If multiple requests differ only by the idempotency token, the same response is returned for each repeated request.</p>
+
+        Raises:
+            aws_sdk_service_catalog.errors.duplicate_resource_exception.DuplicateResourceException: <p>The specified resource is a duplicate.</p>
+            aws_sdk_service_catalog.errors.invalid_parameters_exception.InvalidParametersException: <p>One or more parameters provided to the operation are not valid.</p>
+            aws_sdk_service_catalog.errors.limit_exceeded_exception.LimitExceededException: <p>The current limits of the service would have been exceeded by this operation. Decrease your resource use or increase your service limits and retry the operation.</p>
+            aws_sdk_service_catalog.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_service_catalog.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -921,6 +982,12 @@ class AsyncServiceCatalogClient:
             provider_name: <p>The name of the portfolio provider.</p>
             tags: <p>One or more tags.</p>
             idempotency_token: <p>A unique identifier that you provide to ensure idempotency. If multiple requests differ only by the idempotency token, the same response is returned for each repeated request.</p>
+
+        Raises:
+            aws_sdk_service_catalog.errors.invalid_parameters_exception.InvalidParametersException: <p>One or more parameters provided to the operation are not valid.</p>
+            aws_sdk_service_catalog.errors.limit_exceeded_exception.LimitExceededException: <p>The current limits of the service would have been exceeded by this operation. Decrease your resource use or increase your service limits and retry the operation.</p>
+            aws_sdk_service_catalog.errors.tag_option_not_migrated_exception.TagOptionNotMigratedException: <p>An operation requiring TagOptions failed because the TagOptions migration process has not been performed for this account. Use the Amazon Web Services Management Console to perform the migration process before retrying the operation.</p>
+            aws_sdk_service_catalog.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -987,6 +1054,14 @@ class AsyncServiceCatalogClient:
             organization_node: <p>The organization node to whom you are going to share. When you pass <code>OrganizationNode</code>, it creates <code>PortfolioShare</code> for all of the Amazon Web Services accounts that are associated to the <code>OrganizationNode</code>. The output returns a <code>PortfolioShareToken</code>, which enables the administrator to monitor the status of the <code>PortfolioShare</code> creation process.</p>
             share_tag_options: <p>Enables or disables <code>TagOptions </code> sharing when creating the portfolio share. If this flag is not provided, TagOptions sharing is disabled.</p>
             share_principals: <p>This parameter is only supported for portfolios with an <b>OrganizationalNode</b> Type of <code>ORGANIZATION</code> or <code>ORGANIZATIONAL_UNIT</code>. </p> <p>Enables or disables <code>Principal</code> sharing when creating the portfolio share. If you do <b>not</b> provide this flag, principal sharing is disabled. </p> <p>When you enable Principal Name Sharing for a portfolio share, the share recipient account end users with a principal that matches any of the associated IAM patterns can provision products from the portfolio. Once shared, the share recipient can view associations of <code>PrincipalType</code>: <code>IAM_PATTERN</code> on their portfolio. You can create the principals in the recipient account before or after creating the share. </p>
+
+        Raises:
+            aws_sdk_service_catalog.errors.invalid_parameters_exception.InvalidParametersException: <p>One or more parameters provided to the operation are not valid.</p>
+            aws_sdk_service_catalog.errors.invalid_state_exception.InvalidStateException: <p>An attempt was made to modify a resource that is in a state that is not valid. Check your resources to ensure that they are in valid states before retrying the operation.</p>
+            aws_sdk_service_catalog.errors.limit_exceeded_exception.LimitExceededException: <p>The current limits of the service would have been exceeded by this operation. Decrease your resource use or increase your service limits and retry the operation.</p>
+            aws_sdk_service_catalog.errors.operation_not_supported_exception.OperationNotSupportedException: <p>The operation is not supported.</p>
+            aws_sdk_service_catalog.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_service_catalog.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1075,6 +1150,12 @@ class AsyncServiceCatalogClient:
             provisioning_artifact_parameters: <p>The configuration of the provisioning artifact. </p>
             idempotency_token: <p>A unique identifier that you provide to ensure idempotency. If multiple requests differ only by the idempotency token, the same response is returned for each repeated request.</p>
             source_connection: <p>Specifies connection details for the created product and syncs the product to the connection source artifact. This automatically manages the product's artifacts based on changes to the source. The <code>SourceConnection</code> parameter consists of the following sub-fields.</p> <ul> <li> <p> <code>Type</code> </p> </li> <li> <p> <code>ConnectionParamters</code> </p> </li> </ul>
+
+        Raises:
+            aws_sdk_service_catalog.errors.invalid_parameters_exception.InvalidParametersException: <p>One or more parameters provided to the operation are not valid.</p>
+            aws_sdk_service_catalog.errors.limit_exceeded_exception.LimitExceededException: <p>The current limits of the service would have been exceeded by this operation. Decrease your resource use or increase your service limits and retry the operation.</p>
+            aws_sdk_service_catalog.errors.tag_option_not_migrated_exception.TagOptionNotMigratedException: <p>An operation requiring TagOptions failed because the TagOptions migration process has not been performed for this account. Use the Amazon Web Services Management Console to perform the migration process before retrying the operation.</p>
+            aws_sdk_service_catalog.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1162,6 +1243,12 @@ class AsyncServiceCatalogClient:
             provisioning_parameters: <p>Parameters specified by the administrator that are required for provisioning the product.</p>
             idempotency_token: <p>A unique identifier that you provide to ensure idempotency. If multiple requests differ only by the idempotency token, the same response is returned for each repeated request.</p>
             tags: <p>One or more tags.</p> <p>If the plan is for an existing provisioned product, the product must have a <code>RESOURCE_UPDATE</code> constraint with <code>TagUpdatesOnProvisionedProduct</code> set to <code>ALLOWED</code> to allow tag updates.</p>
+
+        Raises:
+            aws_sdk_service_catalog.errors.invalid_parameters_exception.InvalidParametersException: <p>One or more parameters provided to the operation are not valid.</p>
+            aws_sdk_service_catalog.errors.invalid_state_exception.InvalidStateException: <p>An attempt was made to modify a resource that is in a state that is not valid. Check your resources to ensure that they are in valid states before retrying the operation.</p>
+            aws_sdk_service_catalog.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_service_catalog.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1223,6 +1310,12 @@ class AsyncServiceCatalogClient:
             product_id: <p>The product identifier.</p>
             parameters: <p>The configuration for the provisioning artifact.</p>
             idempotency_token: <p>A unique identifier that you provide to ensure idempotency. If multiple requests differ only by the idempotency token, the same response is returned for each repeated request.</p>
+
+        Raises:
+            aws_sdk_service_catalog.errors.invalid_parameters_exception.InvalidParametersException: <p>One or more parameters provided to the operation are not valid.</p>
+            aws_sdk_service_catalog.errors.limit_exceeded_exception.LimitExceededException: <p>The current limits of the service would have been exceeded by this operation. Decrease your resource use or increase your service limits and retry the operation.</p>
+            aws_sdk_service_catalog.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_service_catalog.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1279,6 +1372,11 @@ class AsyncServiceCatalogClient:
             description: <p>The self-service action description.</p>
             accept_language: <p>The language code.</p> <ul> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul>
             idempotency_token: <p>A unique identifier that you provide to ensure idempotency. If multiple requests differ only by the idempotency token, the same response is returned for each repeated request.</p>
+
+        Raises:
+            aws_sdk_service_catalog.errors.invalid_parameters_exception.InvalidParametersException: <p>One or more parameters provided to the operation are not valid.</p>
+            aws_sdk_service_catalog.errors.limit_exceeded_exception.LimitExceededException: <p>The current limits of the service would have been exceeded by this operation. Decrease your resource use or increase your service limits and retry the operation.</p>
+            aws_sdk_service_catalog.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1326,6 +1424,12 @@ class AsyncServiceCatalogClient:
         Args:
             key: <p>The TagOption key.</p>
             value: <p>The TagOption value.</p>
+
+        Raises:
+            aws_sdk_service_catalog.errors.duplicate_resource_exception.DuplicateResourceException: <p>The specified resource is a duplicate.</p>
+            aws_sdk_service_catalog.errors.limit_exceeded_exception.LimitExceededException: <p>The current limits of the service would have been exceeded by this operation. Decrease your resource use or increase your service limits and retry the operation.</p>
+            aws_sdk_service_catalog.errors.tag_option_not_migrated_exception.TagOptionNotMigratedException: <p>An operation requiring TagOptions failed because the TagOptions migration process has not been performed for this account. Use the Amazon Web Services Management Console to perform the migration process before retrying the operation.</p>
+            aws_sdk_service_catalog.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1371,6 +1475,11 @@ class AsyncServiceCatalogClient:
         Args:
             accept_language: <p>The language code.</p> <ul> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul>
             id: <p>The identifier of the constraint.</p>
+
+        Raises:
+            aws_sdk_service_catalog.errors.invalid_parameters_exception.InvalidParametersException: <p>One or more parameters provided to the operation are not valid.</p>
+            aws_sdk_service_catalog.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_service_catalog.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1415,6 +1524,13 @@ class AsyncServiceCatalogClient:
         Args:
             accept_language: <p>The language code.</p> <ul> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul>
             id: <p>The portfolio identifier.</p>
+
+        Raises:
+            aws_sdk_service_catalog.errors.invalid_parameters_exception.InvalidParametersException: <p>One or more parameters provided to the operation are not valid.</p>
+            aws_sdk_service_catalog.errors.resource_in_use_exception.ResourceInUseException: <p>A resource that is currently in use. Ensure that the resource is not in use and retry the operation.</p>
+            aws_sdk_service_catalog.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_service_catalog.errors.tag_option_not_migrated_exception.TagOptionNotMigratedException: <p>An operation requiring TagOptions failed because the TagOptions migration process has not been performed for this account. Use the Amazon Web Services Management Console to perform the migration process before retrying the operation.</p>
+            aws_sdk_service_catalog.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1467,6 +1583,13 @@ class AsyncServiceCatalogClient:
             portfolio_id: <p>The portfolio identifier.</p>
             account_id: <p>The Amazon Web Services account ID.</p>
             organization_node: <p>The organization node to whom you are going to stop sharing.</p>
+
+        Raises:
+            aws_sdk_service_catalog.errors.invalid_parameters_exception.InvalidParametersException: <p>One or more parameters provided to the operation are not valid.</p>
+            aws_sdk_service_catalog.errors.invalid_state_exception.InvalidStateException: <p>An attempt was made to modify a resource that is in a state that is not valid. Check your resources to ensure that they are in valid states before retrying the operation.</p>
+            aws_sdk_service_catalog.errors.operation_not_supported_exception.OperationNotSupportedException: <p>The operation is not supported.</p>
+            aws_sdk_service_catalog.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_service_catalog.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1515,6 +1638,13 @@ class AsyncServiceCatalogClient:
         Args:
             accept_language: <p>The language code.</p> <ul> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul>
             id: <p>The product identifier.</p>
+
+        Raises:
+            aws_sdk_service_catalog.errors.invalid_parameters_exception.InvalidParametersException: <p>One or more parameters provided to the operation are not valid.</p>
+            aws_sdk_service_catalog.errors.resource_in_use_exception.ResourceInUseException: <p>A resource that is currently in use. Ensure that the resource is not in use and retry the operation.</p>
+            aws_sdk_service_catalog.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_service_catalog.errors.tag_option_not_migrated_exception.TagOptionNotMigratedException: <p>An operation requiring TagOptions failed because the TagOptions migration process has not been performed for this account. Use the Amazon Web Services Management Console to perform the migration process before retrying the operation.</p>
+            aws_sdk_service_catalog.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1563,6 +1693,11 @@ class AsyncServiceCatalogClient:
             accept_language: <p>The language code.</p> <ul> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul>
             plan_id: <p>The plan identifier.</p>
             ignore_errors: <p>If set to true, Service Catalog stops managing the specified provisioned product even if it cannot delete the underlying resources.</p>
+
+        Raises:
+            aws_sdk_service_catalog.errors.invalid_parameters_exception.InvalidParametersException: <p>One or more parameters provided to the operation are not valid.</p>
+            aws_sdk_service_catalog.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_service_catalog.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1611,6 +1746,12 @@ class AsyncServiceCatalogClient:
             accept_language: <p>The language code.</p> <ul> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul>
             product_id: <p>The product identifier.</p>
             provisioning_artifact_id: <p>The identifier of the provisioning artifact.</p>
+
+        Raises:
+            aws_sdk_service_catalog.errors.invalid_parameters_exception.InvalidParametersException: <p>One or more parameters provided to the operation are not valid.</p>
+            aws_sdk_service_catalog.errors.resource_in_use_exception.ResourceInUseException: <p>A resource that is currently in use. Ensure that the resource is not in use and retry the operation.</p>
+            aws_sdk_service_catalog.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_service_catalog.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1660,6 +1801,12 @@ class AsyncServiceCatalogClient:
             id: <p>The self-service action identifier. For example, <code>act-fs7abcd89wxyz</code>.</p>
             accept_language: <p>The language code.</p> <ul> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul>
             idempotency_token: <p>A unique identifier that you provide to ensure idempotency. If multiple requests from the same Amazon Web Services account use the same idempotency token, the same response is returned for each repeated request. </p>
+
+        Raises:
+            aws_sdk_service_catalog.errors.invalid_parameters_exception.InvalidParametersException: <p>One or more parameters provided to the operation are not valid.</p>
+            aws_sdk_service_catalog.errors.resource_in_use_exception.ResourceInUseException: <p>A resource that is currently in use. Ensure that the resource is not in use and retry the operation.</p>
+            aws_sdk_service_catalog.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_service_catalog.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1702,6 +1849,12 @@ class AsyncServiceCatalogClient:
 
         Args:
             id: <p>The TagOption identifier.</p>
+
+        Raises:
+            aws_sdk_service_catalog.errors.resource_in_use_exception.ResourceInUseException: <p>A resource that is currently in use. Ensure that the resource is not in use and retry the operation.</p>
+            aws_sdk_service_catalog.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_service_catalog.errors.tag_option_not_migrated_exception.TagOptionNotMigratedException: <p>An operation requiring TagOptions failed because the TagOptions migration process has not been performed for this account. Use the Amazon Web Services Management Console to perform the migration process before retrying the operation.</p>
+            aws_sdk_service_catalog.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1744,6 +1897,10 @@ class AsyncServiceCatalogClient:
         Args:
             accept_language: <p>The language code.</p> <ul> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul>
             id: <p>The identifier of the constraint.</p>
+
+        Raises:
+            aws_sdk_service_catalog.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_service_catalog.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1788,6 +1945,10 @@ class AsyncServiceCatalogClient:
         Args:
             accept_language: <p>The language code.</p> <ul> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul>
             copy_product_token: <p>The token for the copy product operation. This token is returned by <a>CopyProduct</a>.</p>
+
+        Raises:
+            aws_sdk_service_catalog.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_service_catalog.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1832,6 +1993,10 @@ class AsyncServiceCatalogClient:
         Args:
             accept_language: <p>The language code.</p> <ul> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul>
             id: <p>The portfolio identifier.</p>
+
+        Raises:
+            aws_sdk_service_catalog.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_service_catalog.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1882,6 +2047,11 @@ class AsyncServiceCatalogClient:
             type: <p>The type of portfolio share to summarize. This field acts as a filter on the type of portfolio share, which can be one of the following:</p> <p>1. <code>ACCOUNT</code> - Represents an external account to account share.</p> <p>2. <code>ORGANIZATION</code> - Represents a share to an organization. This share is available to every account in the organization.</p> <p>3. <code>ORGANIZATIONAL_UNIT</code> - Represents a share to an organizational unit.</p> <p>4. <code>ORGANIZATION_MEMBER_ACCOUNT</code> - Represents a share to an account in the organization.</p>
             page_token: <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
             page_size: <p>The maximum number of items to return with this call.</p>
+
+        Raises:
+            aws_sdk_service_catalog.errors.invalid_parameters_exception.InvalidParametersException: <p>One or more parameters provided to the operation are not valid.</p>
+            aws_sdk_service_catalog.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_service_catalog.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1925,6 +2095,12 @@ class AsyncServiceCatalogClient:
 
         Args:
             portfolio_share_token: <p>The token for the portfolio share operation. This token is returned either by CreatePortfolioShare or by DeletePortfolioShare.</p>
+
+        Raises:
+            aws_sdk_service_catalog.errors.invalid_parameters_exception.InvalidParametersException: <p>One or more parameters provided to the operation are not valid.</p>
+            aws_sdk_service_catalog.errors.operation_not_supported_exception.OperationNotSupportedException: <p>The operation is not supported.</p>
+            aws_sdk_service_catalog.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_service_catalog.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1971,6 +2147,11 @@ class AsyncServiceCatalogClient:
             accept_language: <p>The language code.</p> <ul> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul>
             id: <p>The product identifier.</p>
             name: <p>The product name.</p>
+
+        Raises:
+            aws_sdk_service_catalog.errors.invalid_parameters_exception.InvalidParametersException: <p>One or more parameters provided to the operation are not valid.</p>
+            aws_sdk_service_catalog.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_service_catalog.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2024,6 +2205,11 @@ class AsyncServiceCatalogClient:
             id: <p>The product identifier.</p>
             name: <p>The product name.</p>
             source_portfolio_id: <p>The unique identifier of the shared portfolio that the specified product is associated with.</p> <p>You can provide this parameter to retrieve the shared TagOptions associated with the product. If this parameter is provided and if TagOptions sharing is enabled in the portfolio share, the API returns both local and shared TagOptions associated with the product. Otherwise only local TagOptions will be returned. </p>
+
+        Raises:
+            aws_sdk_service_catalog.errors.invalid_parameters_exception.InvalidParametersException: <p>One or more parameters provided to the operation are not valid.</p>
+            aws_sdk_service_catalog.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_service_catalog.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2073,6 +2259,11 @@ class AsyncServiceCatalogClient:
         Args:
             accept_language: <p>The language code.</p> <ul> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul>
             id: <p>The product view identifier.</p>
+
+        Raises:
+            aws_sdk_service_catalog.errors.invalid_parameters_exception.InvalidParametersException: <p>One or more parameters provided to the operation are not valid.</p>
+            aws_sdk_service_catalog.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_service_catalog.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2121,6 +2312,11 @@ class AsyncServiceCatalogClient:
             accept_language: <p>The language code.</p> <ul> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul>
             id: <p>The provisioned product identifier. You must provide the name or ID, but not both.</p> <p>If you do not provide a name or ID, or you provide both name and ID, an <code>InvalidParametersException</code> will occur.</p>
             name: <p>The name of the provisioned product. You must provide the name or ID, but not both.</p> <p>If you do not provide a name or ID, or you provide both name and ID, an <code>InvalidParametersException</code> will occur.</p>
+
+        Raises:
+            aws_sdk_service_catalog.errors.invalid_parameters_exception.InvalidParametersException: <p>One or more parameters provided to the operation are not valid.</p>
+            aws_sdk_service_catalog.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_service_catalog.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2174,6 +2370,11 @@ class AsyncServiceCatalogClient:
             plan_id: <p>The plan identifier.</p>
             page_size: <p>The maximum number of items to return with this call.</p>
             page_token: <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
+
+        Raises:
+            aws_sdk_service_catalog.errors.invalid_parameters_exception.InvalidParametersException: <p>One or more parameters provided to the operation are not valid.</p>
+            aws_sdk_service_catalog.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_service_catalog.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2240,6 +2441,11 @@ class AsyncServiceCatalogClient:
             product_name: <p>The product name.</p>
             verbose: <p>Indicates whether a verbose level of detail is enabled.</p>
             include_provisioning_artifact_parameters: <p>Indicates if the API call response does or does not include additional details about the provisioning parameters. </p>
+
+        Raises:
+            aws_sdk_service_catalog.errors.invalid_parameters_exception.InvalidParametersException: <p>One or more parameters provided to the operation are not valid.</p>
+            aws_sdk_service_catalog.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_service_catalog.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2315,6 +2521,11 @@ class AsyncServiceCatalogClient:
             provisioning_artifact_name: <p>The name of the provisioning artifact. You must provide the name or ID, but not both.</p>
             path_id: <p>The path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path. To list the paths for a product, use <a>ListLaunchPaths</a>. You must provide the name or ID, but not both.</p>
             path_name: <p>The name of the path. You must provide the name or ID, but not both.</p>
+
+        Raises:
+            aws_sdk_service_catalog.errors.invalid_parameters_exception.InvalidParametersException: <p>One or more parameters provided to the operation are not valid.</p>
+            aws_sdk_service_catalog.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_service_catalog.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2376,6 +2587,10 @@ class AsyncServiceCatalogClient:
             id: <p>The record identifier of the provisioned product. This identifier is returned by the request operation.</p>
             page_token: <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
             page_size: <p>The maximum number of items to return with this call.</p>
+
+        Raises:
+            aws_sdk_service_catalog.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_service_catalog.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2424,6 +2639,10 @@ class AsyncServiceCatalogClient:
         Args:
             id: <p>The self-service action identifier.</p>
             accept_language: <p>The language code.</p> <ul> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul>
+
+        Raises:
+            aws_sdk_service_catalog.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_service_catalog.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2470,6 +2689,11 @@ class AsyncServiceCatalogClient:
             provisioned_product_id: <p>The identifier of the provisioned product.</p>
             service_action_id: <p>The self-service action identifier.</p>
             accept_language: <p>The language code.</p> <ul> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul>
+
+        Raises:
+            aws_sdk_service_catalog.errors.invalid_parameters_exception.InvalidParametersException: <p>One or more parameters provided to the operation are not valid.</p>
+            aws_sdk_service_catalog.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_service_catalog.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2511,6 +2735,11 @@ class AsyncServiceCatalogClient:
 
         Args:
             id: <p>The TagOption identifier.</p>
+
+        Raises:
+            aws_sdk_service_catalog.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_service_catalog.errors.tag_option_not_migrated_exception.TagOptionNotMigratedException: <p>An operation requiring TagOptions failed because the TagOptions migration process has not been performed for this account. Use the Amazon Web Services Management Console to perform the migration process before retrying the operation.</p>
+            aws_sdk_service_catalog.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2542,7 +2771,14 @@ class AsyncServiceCatalogClient:
     async def disable_aws_organizations_access(
         self, *, config_overrides: Optional[AsyncServiceCatalogClientConfig] = None
     ) -> "aws_sdk_service_catalog.types.disable_aws_organizations_access_output.DisableAWSOrganizationsAccessOutput":
-        """<p>Disable portfolio sharing through the Organizations service. This command will not delete your current shares, but prevents you from creating new shares throughout your organization. Current shares are not kept in sync with your organization structure if the structure changes after calling this API. Only the management account in the organization can call this API.</p> <p>You cannot call this API if there are active delegated administrators in the organization.</p> <p>Note that a delegated administrator is not authorized to invoke <code>DisableAWSOrganizationsAccess</code>.</p> <important> <p>If you share an Service Catalog portfolio in an organization within Organizations, and then disable Organizations access for Service Catalog, the portfolio access permissions will not sync with the latest changes to the organization structure. Specifically, accounts that you removed from the organization after disabling Service Catalog access will retain access to the previously shared portfolio.</p> </important>"""
+        """<p>Disable portfolio sharing through the Organizations service. This command will not delete your current shares, but prevents you from creating new shares throughout your organization. Current shares are not kept in sync with your organization structure if the structure changes after calling this API. Only the management account in the organization can call this API.</p> <p>You cannot call this API if there are active delegated administrators in the organization.</p> <p>Note that a delegated administrator is not authorized to invoke <code>DisableAWSOrganizationsAccess</code>.</p> <important> <p>If you share an Service Catalog portfolio in an organization within Organizations, and then disable Organizations access for Service Catalog, the portfolio access permissions will not sync with the latest changes to the organization structure. Specifically, accounts that you removed from the organization after disabling Service Catalog access will retain access to the previously shared portfolio.</p> </important>
+
+        Raises:
+            aws_sdk_service_catalog.errors.invalid_state_exception.InvalidStateException: <p>An attempt was made to modify a resource that is in a state that is not valid. Check your resources to ensure that they are in valid states before retrying the operation.</p>
+            aws_sdk_service_catalog.errors.operation_not_supported_exception.OperationNotSupportedException: <p>The operation is not supported.</p>
+            aws_sdk_service_catalog.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_service_catalog.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_service_catalog.types.disable_aws_organizations_access_input.DisableAWSOrganizationsAccessInput]",
@@ -2581,6 +2817,10 @@ class AsyncServiceCatalogClient:
         Args:
             budget_name: <p>The name of the budget you want to disassociate.</p>
             resource_id: <p>The resource identifier you want to disassociate from. Either a portfolio-id or a product-id.</p>
+
+        Raises:
+            aws_sdk_service_catalog.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_service_catalog.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2630,6 +2870,11 @@ class AsyncServiceCatalogClient:
             portfolio_id: <p>The portfolio identifier.</p>
             principal_arn: <p>The ARN of the principal (user, role, or group). This field allows an ARN with no <code>accountID</code> with or without wildcard characters if <code>PrincipalType</code> is <code>IAM_PATTERN</code>.</p>
             principal_type: <p>The supported value is <code>IAM</code> if you use a fully defined ARN, or <code>IAM_PATTERN</code> if you specify an <code>IAM</code> ARN with no AccountId, with or without wildcard characters. </p>
+
+        Raises:
+            aws_sdk_service_catalog.errors.invalid_parameters_exception.InvalidParametersException: <p>One or more parameters provided to the operation are not valid.</p>
+            aws_sdk_service_catalog.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_service_catalog.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2679,6 +2924,12 @@ class AsyncServiceCatalogClient:
             accept_language: <p>The language code.</p> <ul> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul>
             product_id: <p>The product identifier.</p>
             portfolio_id: <p>The portfolio identifier.</p>
+
+        Raises:
+            aws_sdk_service_catalog.errors.invalid_parameters_exception.InvalidParametersException: <p>One or more parameters provided to the operation are not valid.</p>
+            aws_sdk_service_catalog.errors.resource_in_use_exception.ResourceInUseException: <p>A resource that is currently in use. Ensure that the resource is not in use and retry the operation.</p>
+            aws_sdk_service_catalog.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_service_catalog.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2732,6 +2983,11 @@ class AsyncServiceCatalogClient:
             service_action_id: <p>The self-service action identifier. For example, <code>act-fs7abcd89wxyz</code>.</p>
             accept_language: <p>The language code.</p> <ul> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul>
             idempotency_token: <p>A unique identifier that you provide to ensure idempotency. If multiple requests from the same Amazon Web Services account use the same idempotency token, the same response is returned for each repeated request. </p>
+
+        Raises:
+            aws_sdk_service_catalog.errors.invalid_parameters_exception.InvalidParametersException: <p>One or more parameters provided to the operation are not valid.</p>
+            aws_sdk_service_catalog.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_service_catalog.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2778,6 +3034,11 @@ class AsyncServiceCatalogClient:
         Args:
             resource_id: <p>The resource identifier.</p>
             tag_option_id: <p>The TagOption identifier.</p>
+
+        Raises:
+            aws_sdk_service_catalog.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_service_catalog.errors.tag_option_not_migrated_exception.TagOptionNotMigratedException: <p>An operation requiring TagOptions failed because the TagOptions migration process has not been performed for this account. Use the Amazon Web Services Management Console to perform the migration process before retrying the operation.</p>
+            aws_sdk_service_catalog.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2810,7 +3071,14 @@ class AsyncServiceCatalogClient:
     async def enable_aws_organizations_access(
         self, *, config_overrides: Optional[AsyncServiceCatalogClientConfig] = None
     ) -> "aws_sdk_service_catalog.types.enable_aws_organizations_access_output.EnableAWSOrganizationsAccessOutput":
-        """<p>Enable portfolio sharing feature through Organizations. This API will allow Service Catalog to receive updates on your organization in order to sync your shares with the current structure. This API can only be called by the management account in the organization.</p> <p>When you call this API, Service Catalog calls <code>organizations:EnableAWSServiceAccess</code> on your behalf so that your shares stay in sync with any changes in your Organizations structure.</p> <p>Note that a delegated administrator is not authorized to invoke <code>EnableAWSOrganizationsAccess</code>.</p> <important> <p>If you have previously disabled Organizations access for Service Catalog, and then enable access again, the portfolio access permissions might not sync with the latest changes to the organization structure. Specifically, accounts that you removed from the organization after disabling Service Catalog access, and before you enabled access again, can retain access to the previously shared portfolio. As a result, an account that has been removed from the organization might still be able to create or manage Amazon Web Services resources when it is no longer authorized to do so. Amazon Web Services is working to resolve this issue.</p> </important>"""
+        """<p>Enable portfolio sharing feature through Organizations. This API will allow Service Catalog to receive updates on your organization in order to sync your shares with the current structure. This API can only be called by the management account in the organization.</p> <p>When you call this API, Service Catalog calls <code>organizations:EnableAWSServiceAccess</code> on your behalf so that your shares stay in sync with any changes in your Organizations structure.</p> <p>Note that a delegated administrator is not authorized to invoke <code>EnableAWSOrganizationsAccess</code>.</p> <important> <p>If you have previously disabled Organizations access for Service Catalog, and then enable access again, the portfolio access permissions might not sync with the latest changes to the organization structure. Specifically, accounts that you removed from the organization after disabling Service Catalog access, and before you enabled access again, can retain access to the previously shared portfolio. As a result, an account that has been removed from the organization might still be able to create or manage Amazon Web Services resources when it is no longer authorized to do so. Amazon Web Services is working to resolve this issue.</p> </important>
+
+        Raises:
+            aws_sdk_service_catalog.errors.invalid_state_exception.InvalidStateException: <p>An attempt was made to modify a resource that is in a state that is not valid. Check your resources to ensure that they are in valid states before retrying the operation.</p>
+            aws_sdk_service_catalog.errors.operation_not_supported_exception.OperationNotSupportedException: <p>The operation is not supported.</p>
+            aws_sdk_service_catalog.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_service_catalog.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_service_catalog.types.enable_aws_organizations_access_input.EnableAWSOrganizationsAccessInput]",
@@ -2853,6 +3121,12 @@ class AsyncServiceCatalogClient:
             accept_language: <p>The language code.</p> <ul> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul>
             plan_id: <p>The plan identifier.</p>
             idempotency_token: <p>A unique identifier that you provide to ensure idempotency. If multiple requests differ only by the idempotency token, the same response is returned for each repeated request.</p>
+
+        Raises:
+            aws_sdk_service_catalog.errors.invalid_parameters_exception.InvalidParametersException: <p>One or more parameters provided to the operation are not valid.</p>
+            aws_sdk_service_catalog.errors.invalid_state_exception.InvalidStateException: <p>An attempt was made to modify a resource that is in a state that is not valid. Check your resources to ensure that they are in valid states before retrying the operation.</p>
+            aws_sdk_service_catalog.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_service_catalog.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2906,6 +3180,12 @@ class AsyncServiceCatalogClient:
             execute_token: <p>An idempotency token that uniquely identifies the execute request.</p>
             accept_language: <p>The language code.</p> <ul> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul>
             parameters: <p>A map of all self-service action parameters and their values. If a provided parameter is of a special type, such as <code>TARGET</code>, the provided value will override the default value generated by Service Catalog. If the parameters field is not provided, no additional parameters are passed and default values will be used for any special parameters such as <code>TARGET</code>.</p>
+
+        Raises:
+            aws_sdk_service_catalog.errors.invalid_parameters_exception.InvalidParametersException: <p>One or more parameters provided to the operation are not valid.</p>
+            aws_sdk_service_catalog.errors.invalid_state_exception.InvalidStateException: <p>An attempt was made to modify a resource that is in a state that is not valid. Check your resources to ensure that they are in valid states before retrying the operation.</p>
+            aws_sdk_service_catalog.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_service_catalog.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2943,7 +3223,13 @@ class AsyncServiceCatalogClient:
     async def get_aws_organizations_access_status(
         self, *, config_overrides: Optional[AsyncServiceCatalogClientConfig] = None
     ) -> "aws_sdk_service_catalog.types.get_aws_organizations_access_status_output.GetAWSOrganizationsAccessStatusOutput":
-        """<p>Get the Access Status for Organizations portfolio share feature. This API can only be called by the management account in the organization or by a delegated admin.</p>"""
+        """<p>Get the Access Status for Organizations portfolio share feature. This API can only be called by the management account in the organization or by a delegated admin.</p>
+
+        Raises:
+            aws_sdk_service_catalog.errors.operation_not_supported_exception.OperationNotSupportedException: <p>The operation is not supported.</p>
+            aws_sdk_service_catalog.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_service_catalog.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_service_catalog.types.get_aws_organizations_access_status_input.GetAWSOrganizationsAccessStatusInput]",
@@ -2998,6 +3284,11 @@ class AsyncServiceCatalogClient:
             output_keys: <p>The list of keys that the API should return with their values. If none are provided, the API will return all outputs of the provisioned product.</p>
             page_size: <p>The maximum number of items to return with this call.</p>
             page_token: <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
+
+        Raises:
+            aws_sdk_service_catalog.errors.invalid_parameters_exception.InvalidParametersException: <p>One or more parameters provided to the operation are not valid.</p>
+            aws_sdk_service_catalog.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_service_catalog.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3059,6 +3350,13 @@ class AsyncServiceCatalogClient:
             provisioned_product_name: <p>The user-friendly name of the provisioned product. The value must be unique for the Amazon Web Services account. The name cannot be updated after the product is provisioned. </p>
             physical_id: <p>The unique identifier of the resource to be imported. It only currently supports CloudFormation stack IDs.</p>
             idempotency_token: <p>A unique identifier that you provide to ensure idempotency. If multiple requests differ only by the idempotency token, the same response is returned for each repeated request.</p>
+
+        Raises:
+            aws_sdk_service_catalog.errors.duplicate_resource_exception.DuplicateResourceException: <p>The specified resource is a duplicate.</p>
+            aws_sdk_service_catalog.errors.invalid_parameters_exception.InvalidParametersException: <p>One or more parameters provided to the operation are not valid.</p>
+            aws_sdk_service_catalog.errors.invalid_state_exception.InvalidStateException: <p>An attempt was made to modify a resource that is in a state that is not valid. Check your resources to ensure that they are in valid states before retrying the operation.</p>
+            aws_sdk_service_catalog.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_service_catalog.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3117,6 +3415,11 @@ class AsyncServiceCatalogClient:
             page_token: <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
             page_size: <p>The maximum number of items to return with this call.</p>
             portfolio_share_type: <p>The type of shared portfolios to list. The default is to list imported portfolios.</p> <ul> <li> <p> <code>AWS_ORGANIZATIONS</code> - List portfolios accepted and shared via organizational sharing by the management account or delegated administrator of your organization.</p> </li> <li> <p> <code>AWS_SERVICECATALOG</code> - Deprecated type.</p> </li> <li> <p> <code>IMPORTED</code> - List imported portfolios that have been accepted and shared through account-to-account sharing.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_service_catalog.errors.invalid_parameters_exception.InvalidParametersException: <p>One or more parameters provided to the operation are not valid.</p>
+            aws_sdk_service_catalog.errors.operation_not_supported_exception.OperationNotSupportedException: <p>The operation is not supported.</p>
+            aws_sdk_service_catalog.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3172,6 +3475,11 @@ class AsyncServiceCatalogClient:
             resource_id: <p>The resource identifier.</p>
             page_size: <p>The maximum number of items to return with this call.</p>
             page_token: <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
+
+        Raises:
+            aws_sdk_service_catalog.errors.invalid_parameters_exception.InvalidParametersException: <p>One or more parameters provided to the operation are not valid.</p>
+            aws_sdk_service_catalog.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_service_catalog.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3228,6 +3536,11 @@ class AsyncServiceCatalogClient:
             product_id: <p>The product identifier.</p>
             page_size: <p>The maximum number of items to return with this call.</p>
             page_token: <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
+
+        Raises:
+            aws_sdk_service_catalog.errors.invalid_parameters_exception.InvalidParametersException: <p>One or more parameters provided to the operation are not valid.</p>
+            aws_sdk_service_catalog.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_service_catalog.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3284,6 +3597,11 @@ class AsyncServiceCatalogClient:
             product_id: <p>The product identifier.</p>
             page_size: <p>The maximum number of items to return with this call.</p>
             page_token: <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
+
+        Raises:
+            aws_sdk_service_catalog.errors.invalid_parameters_exception.InvalidParametersException: <p>One or more parameters provided to the operation are not valid.</p>
+            aws_sdk_service_catalog.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_service_catalog.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3340,6 +3658,12 @@ class AsyncServiceCatalogClient:
             organization_node_type: <p>The organization node type that will be returned in the output.</p> <ul> <li> <p> <code>ORGANIZATION</code> - Organization that has access to the portfolio. </p> </li> <li> <p> <code>ORGANIZATIONAL_UNIT</code> - Organizational unit that has access to the portfolio within your organization.</p> </li> <li> <p> <code>ACCOUNT</code> - Account that has access to the portfolio within your organization.</p> </li> </ul>
             page_token: <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
             page_size: <p>The maximum number of items to return with this call.</p>
+
+        Raises:
+            aws_sdk_service_catalog.errors.invalid_parameters_exception.InvalidParametersException: <p>One or more parameters provided to the operation are not valid.</p>
+            aws_sdk_service_catalog.errors.operation_not_supported_exception.OperationNotSupportedException: <p>The operation is not supported.</p>
+            aws_sdk_service_catalog.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_service_catalog.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3399,6 +3723,11 @@ class AsyncServiceCatalogClient:
             organization_parent_id: <p>The ID of an organization node the portfolio is shared with. All children of this node with an inherited portfolio share will be returned.</p>
             page_token: <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
             page_size: <p>The maximum number of items to return with this call.</p>
+
+        Raises:
+            aws_sdk_service_catalog.errors.invalid_parameters_exception.InvalidParametersException: <p>One or more parameters provided to the operation are not valid.</p>
+            aws_sdk_service_catalog.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_service_catalog.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3455,6 +3784,10 @@ class AsyncServiceCatalogClient:
             accept_language: <p>The language code.</p> <ul> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul>
             page_token: <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
             page_size: <p>The maximum number of items to return with this call.</p>
+
+        Raises:
+            aws_sdk_service_catalog.errors.invalid_parameters_exception.InvalidParametersException: <p>One or more parameters provided to the operation are not valid.</p>
+            aws_sdk_service_catalog.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3510,6 +3843,11 @@ class AsyncServiceCatalogClient:
             product_id: <p>The product identifier.</p>
             page_token: <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
             page_size: <p>The maximum number of items to return with this call.</p>
+
+        Raises:
+            aws_sdk_service_catalog.errors.invalid_parameters_exception.InvalidParametersException: <p>One or more parameters provided to the operation are not valid.</p>
+            aws_sdk_service_catalog.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_service_catalog.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3564,6 +3902,11 @@ class AsyncServiceCatalogClient:
             portfolio_id: <p>The portfolio identifier.</p>
             page_size: <p>The maximum number of items to return with this call.</p>
             page_token: <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
+
+        Raises:
+            aws_sdk_service_catalog.errors.invalid_parameters_exception.InvalidParametersException: <p>One or more parameters provided to the operation are not valid.</p>
+            aws_sdk_service_catalog.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_service_catalog.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3622,6 +3965,11 @@ class AsyncServiceCatalogClient:
             page_size: <p>The maximum number of items to return with this call.</p>
             page_token: <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
             access_level_filter: <p>The access level to use to obtain results. The default is <code>User</code>.</p>
+
+        Raises:
+            aws_sdk_service_catalog.errors.invalid_parameters_exception.InvalidParametersException: <p>One or more parameters provided to the operation are not valid.</p>
+            aws_sdk_service_catalog.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_service_catalog.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3673,6 +4021,11 @@ class AsyncServiceCatalogClient:
         Args:
             accept_language: <p>The language code.</p> <ul> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul>
             product_id: <p>The product identifier.</p>
+
+        Raises:
+            aws_sdk_service_catalog.errors.invalid_parameters_exception.InvalidParametersException: <p>One or more parameters provided to the operation are not valid.</p>
+            aws_sdk_service_catalog.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_service_catalog.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3723,6 +4076,11 @@ class AsyncServiceCatalogClient:
             page_size: <p>The maximum number of items to return with this call.</p>
             page_token: <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
             accept_language: <p>The language code.</p> <ul> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul>
+
+        Raises:
+            aws_sdk_service_catalog.errors.invalid_parameters_exception.InvalidParametersException: <p>One or more parameters provided to the operation are not valid.</p>
+            aws_sdk_service_catalog.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_service_catalog.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3783,6 +4141,10 @@ class AsyncServiceCatalogClient:
             search_filter: <p>The search filter to scope the results.</p>
             page_size: <p>The maximum number of items to return with this call.</p>
             page_token: <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
+
+        Raises:
+            aws_sdk_service_catalog.errors.invalid_parameters_exception.InvalidParametersException: <p>One or more parameters provided to the operation are not valid.</p>
+            aws_sdk_service_catalog.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3840,6 +4202,12 @@ class AsyncServiceCatalogClient:
             resource_type: <p>The resource type.</p> <ul> <li> <p> <code>Portfolio</code> </p> </li> <li> <p> <code>Product</code> </p> </li> </ul>
             page_size: <p>The maximum number of items to return with this call.</p>
             page_token: <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
+
+        Raises:
+            aws_sdk_service_catalog.errors.invalid_parameters_exception.InvalidParametersException: <p>One or more parameters provided to the operation are not valid.</p>
+            aws_sdk_service_catalog.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_service_catalog.errors.tag_option_not_migrated_exception.TagOptionNotMigratedException: <p>An operation requiring TagOptions failed because the TagOptions migration process has not been performed for this account. Use the Amazon Web Services Management Console to perform the migration process before retrying the operation.</p>
+            aws_sdk_service_catalog.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3892,6 +4260,10 @@ class AsyncServiceCatalogClient:
             accept_language: <p>The language code.</p> <ul> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul>
             page_size: <p>The maximum number of items to return with this call.</p>
             page_token: <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
+
+        Raises:
+            aws_sdk_service_catalog.errors.invalid_parameters_exception.InvalidParametersException: <p>One or more parameters provided to the operation are not valid.</p>
+            aws_sdk_service_catalog.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3947,6 +4319,11 @@ class AsyncServiceCatalogClient:
             page_size: <p>The maximum number of items to return with this call.</p>
             page_token: <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
             accept_language: <p>The language code.</p> <ul> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul>
+
+        Raises:
+            aws_sdk_service_catalog.errors.invalid_parameters_exception.InvalidParametersException: <p>One or more parameters provided to the operation are not valid.</p>
+            aws_sdk_service_catalog.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_service_catalog.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4002,6 +4379,11 @@ class AsyncServiceCatalogClient:
             provisioned_product_id: <p>The identifier of the provisioned product.</p>
             page_token: <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
             page_size: <p>The maximum number of items to return with this call.</p>
+
+        Raises:
+            aws_sdk_service_catalog.errors.invalid_parameters_exception.InvalidParametersException: <p>One or more parameters provided to the operation are not valid.</p>
+            aws_sdk_service_catalog.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_service_catalog.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4054,6 +4436,11 @@ class AsyncServiceCatalogClient:
             filters: <p>The search filters. If no search filters are specified, the output includes all TagOptions.</p>
             page_size: <p>The maximum number of items to return with this call.</p>
             page_token: <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
+
+        Raises:
+            aws_sdk_service_catalog.errors.invalid_parameters_exception.InvalidParametersException: <p>One or more parameters provided to the operation are not valid.</p>
+            aws_sdk_service_catalog.errors.tag_option_not_migrated_exception.TagOptionNotMigratedException: <p>An operation requiring TagOptions failed because the TagOptions migration process has not been performed for this account. Use the Amazon Web Services Management Console to perform the migration process before retrying the operation.</p>
+            aws_sdk_service_catalog.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4115,6 +4502,11 @@ class AsyncServiceCatalogClient:
             resource_identifier: <p> The ID for the provisioned product resources that are part of a resource group. </p>
             outputs: <p> The output of the provisioning engine execution. </p>
             idempotency_token: <p> The idempotency token that identifies the provisioning engine execution. </p>
+
+        Raises:
+            aws_sdk_service_catalog.errors.invalid_parameters_exception.InvalidParametersException: <p>One or more parameters provided to the operation are not valid.</p>
+            aws_sdk_service_catalog.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_service_catalog.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4172,6 +4564,11 @@ class AsyncServiceCatalogClient:
             status: <p> The status of the terminate engine execution. </p>
             failure_reason: <p> The reason why the terminate engine execution failed. </p>
             idempotency_token: <p> The idempotency token that identifies the terminate engine execution. </p>
+
+        Raises:
+            aws_sdk_service_catalog.errors.invalid_parameters_exception.InvalidParametersException: <p>One or more parameters provided to the operation are not valid.</p>
+            aws_sdk_service_catalog.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_service_catalog.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4229,6 +4626,11 @@ class AsyncServiceCatalogClient:
             failure_reason: <p> The reason why the update engine execution failed. </p>
             outputs: <p> The output of the update engine execution. </p>
             idempotency_token: <p> The idempotency token that identifies the update engine execution. </p>
+
+        Raises:
+            aws_sdk_service_catalog.errors.invalid_parameters_exception.InvalidParametersException: <p>One or more parameters provided to the operation are not valid.</p>
+            aws_sdk_service_catalog.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_service_catalog.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4316,6 +4718,12 @@ class AsyncServiceCatalogClient:
             tags: <p>One or more tags.</p>
             notification_arns: <p>Passed to CloudFormation. The SNS topic ARNs to which to publish stack-related events.</p>
             provision_token: <p>An idempotency token that uniquely identifies the provisioning request.</p>
+
+        Raises:
+            aws_sdk_service_catalog.errors.duplicate_resource_exception.DuplicateResourceException: <p>The specified resource is a duplicate.</p>
+            aws_sdk_service_catalog.errors.invalid_parameters_exception.InvalidParametersException: <p>One or more parameters provided to the operation are not valid.</p>
+            aws_sdk_service_catalog.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_service_catalog.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4385,6 +4793,10 @@ class AsyncServiceCatalogClient:
             accept_language: <p>The language code.</p> <ul> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul>
             portfolio_id: <p>The portfolio identifier.</p>
             portfolio_share_type: <p>The type of shared portfolios to reject. The default is to reject imported portfolios.</p> <ul> <li> <p> <code>AWS_ORGANIZATIONS</code> - Reject portfolios shared by the management account of your organization.</p> </li> <li> <p> <code>IMPORTED</code> - Reject imported portfolios.</p> </li> <li> <p> <code>AWS_SERVICECATALOG</code> - Not supported. (Throws ResourceNotFoundException.)</p> </li> </ul> <p>For example, <code>aws servicecatalog reject-portfolio-share --portfolio-id \"port-2qwzkwxt3y5fk\" --portfolio-share-type AWS_ORGANIZATIONS</code> </p>
+
+        Raises:
+            aws_sdk_service_catalog.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_service_catalog.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4439,6 +4851,10 @@ class AsyncServiceCatalogClient:
             access_level_filter: <p>The access level to use to obtain results. The default is <code>User</code>.</p>
             page_size: <p>The maximum number of items to return with this call.</p>
             page_token: <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
+
+        Raises:
+            aws_sdk_service_catalog.errors.invalid_parameters_exception.InvalidParametersException: <p>One or more parameters provided to the operation are not valid.</p>
+            aws_sdk_service_catalog.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4506,6 +4922,10 @@ class AsyncServiceCatalogClient:
             sort_by: <p>The sort field. If no value is specified, the results are not sorted.</p>
             sort_order: <p>The sort order. If no value is specified, the results are not sorted.</p>
             page_token: <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
+
+        Raises:
+            aws_sdk_service_catalog.errors.invalid_parameters_exception.InvalidParametersException: <p>One or more parameters provided to the operation are not valid.</p>
+            aws_sdk_service_catalog.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4581,6 +5001,11 @@ class AsyncServiceCatalogClient:
             page_token: <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
             page_size: <p>The maximum number of items to return with this call.</p>
             product_source: <p>Access level of the source of the product.</p>
+
+        Raises:
+            aws_sdk_service_catalog.errors.invalid_parameters_exception.InvalidParametersException: <p>One or more parameters provided to the operation are not valid.</p>
+            aws_sdk_service_catalog.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_service_catalog.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4658,6 +5083,10 @@ class AsyncServiceCatalogClient:
             sort_order: <p>The sort order. If no value is specified, the results are not sorted.</p>
             page_size: <p>The maximum number of items to return with this call.</p>
             page_token: <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
+
+        Raises:
+            aws_sdk_service_catalog.errors.invalid_parameters_exception.InvalidParametersException: <p>One or more parameters provided to the operation are not valid.</p>
+            aws_sdk_service_catalog.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4727,6 +5156,10 @@ class AsyncServiceCatalogClient:
             ignore_errors: <p>If set to true, Service Catalog stops managing the specified provisioned product even if it cannot delete the underlying resources.</p>
             accept_language: <p>The language code.</p> <ul> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul>
             retain_physical_resources: <p>When this boolean parameter is set to true, the <code>TerminateProvisionedProduct</code> API deletes the Service Catalog provisioned product. However, it does not remove the CloudFormation stack, stack set, or the underlying resources of the deleted provisioned product. The default value is false.</p>
+
+        Raises:
+            aws_sdk_service_catalog.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_service_catalog.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4789,6 +5222,11 @@ class AsyncServiceCatalogClient:
             id: <p>The identifier of the constraint.</p>
             description: <p>The updated description of the constraint.</p>
             parameters: <p>The constraint parameters, in JSON format. The syntax depends on the constraint type as follows:</p> <dl> <dt>LAUNCH</dt> <dd> <p>You are required to specify either the <code>RoleArn</code> or the <code>LocalRoleName</code> but can't use both.</p> <p>Specify the <code>RoleArn</code> property as follows:</p> <p> <code>{\"RoleArn\" : \"arn:aws:iam::123456789012:role/LaunchRole\"}</code> </p> <p>Specify the <code>LocalRoleName</code> property as follows:</p> <p> <code>{\"LocalRoleName\": \"SCBasicLaunchRole\"}</code> </p> <p>If you specify the <code>LocalRoleName</code> property, when an account uses the launch constraint, the IAM role with that name in the account will be used. This allows launch-role constraints to be account-agnostic so the administrator can create fewer resources per shared account.</p> <note> <p>The given role name must exist in the account used to create the launch constraint and the account of the user who launches a product with this launch constraint.</p> </note> <p>You cannot have both a <code>LAUNCH</code> and a <code>STACKSET</code> constraint.</p> <p>You also cannot have more than one <code>LAUNCH</code> constraint on a product and portfolio.</p> </dd> <dt>NOTIFICATION</dt> <dd> <p>Specify the <code>NotificationArns</code> property as follows:</p> <p> <code>{\"NotificationArns\" : [\"arn:aws:sns:us-east-1:123456789012:Topic\"]}</code> </p> </dd> <dt>RESOURCE_UPDATE</dt> <dd> <p>Specify the <code>TagUpdatesOnProvisionedProduct</code> property as follows:</p> <p> <code>{\"Version\":\"2.0\",\"Properties\":{\"TagUpdateOnProvisionedProduct\":\"String\"}}</code> </p> <p>The <code>TagUpdatesOnProvisionedProduct</code> property accepts a string value of <code>ALLOWED</code> or <code>NOT_ALLOWED</code>.</p> </dd> <dt>STACKSET</dt> <dd> <p>Specify the <code>Parameters</code> property as follows:</p> <p> <code>{\"Version\": \"String\", \"Properties\": {\"AccountList\": [ \"String\" ], \"RegionList\": [ \"String\" ], \"AdminRole\": \"String\", \"ExecutionRole\": \"String\"}}</code> </p> <p>You cannot have both a <code>LAUNCH</code> and a <code>STACKSET</code> constraint.</p> <p>You also cannot have more than one <code>STACKSET</code> constraint on a product and portfolio.</p> <p>Products with a <code>STACKSET</code> constraint will launch an CloudFormation stack set.</p> </dd> <dt>TEMPLATE</dt> <dd> <p>Specify the <code>Rules</code> property. For more information, see <a href=\"http://docs.aws.amazon.com/servicecatalog/latest/adminguide/reference-template_constraint_rules.html\">Template Constraint Rules</a>.</p> </dd> </dl>
+
+        Raises:
+            aws_sdk_service_catalog.errors.invalid_parameters_exception.InvalidParametersException: <p>One or more parameters provided to the operation are not valid.</p>
+            aws_sdk_service_catalog.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_service_catalog.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4853,6 +5291,13 @@ class AsyncServiceCatalogClient:
             provider_name: <p>The updated name of the portfolio provider.</p>
             add_tags: <p>The tags to add.</p>
             remove_tags: <p>The tags to remove.</p>
+
+        Raises:
+            aws_sdk_service_catalog.errors.invalid_parameters_exception.InvalidParametersException: <p>One or more parameters provided to the operation are not valid.</p>
+            aws_sdk_service_catalog.errors.limit_exceeded_exception.LimitExceededException: <p>The current limits of the service would have been exceeded by this operation. Decrease your resource use or increase your service limits and retry the operation.</p>
+            aws_sdk_service_catalog.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_service_catalog.errors.tag_option_not_migrated_exception.TagOptionNotMigratedException: <p>An operation requiring TagOptions failed because the TagOptions migration process has not been performed for this account. Use the Amazon Web Services Management Console to perform the migration process before retrying the operation.</p>
+            aws_sdk_service_catalog.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4922,6 +5367,13 @@ class AsyncServiceCatalogClient:
             account_id: <p>The Amazon Web Services account Id of the recipient account. This field is required when updating an external account to account type share.</p>
             share_tag_options: <p>Enables or disables <code>TagOptions</code> sharing for the portfolio share. If this field is not provided, the current state of TagOptions sharing on the portfolio share will not be modified.</p>
             share_principals: <p>A flag to enables or disables <code>Principals</code> sharing in the portfolio. If this field is not provided, the current state of the <code>Principals</code> sharing on the portfolio share will not be modified. </p>
+
+        Raises:
+            aws_sdk_service_catalog.errors.invalid_parameters_exception.InvalidParametersException: <p>One or more parameters provided to the operation are not valid.</p>
+            aws_sdk_service_catalog.errors.invalid_state_exception.InvalidStateException: <p>An attempt was made to modify a resource that is in a state that is not valid. Check your resources to ensure that they are in valid states before retrying the operation.</p>
+            aws_sdk_service_catalog.errors.operation_not_supported_exception.OperationNotSupportedException: <p>The operation is not supported.</p>
+            aws_sdk_service_catalog.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_service_catalog.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5010,6 +5462,12 @@ class AsyncServiceCatalogClient:
             add_tags: <p>The tags to add to the product.</p>
             remove_tags: <p>The tags to remove from the product.</p>
             source_connection: <p>Specifies connection details for the updated product and syncs the product to the connection source artifact. This automatically manages the product's artifacts based on changes to the source. The <code>SourceConnection</code> parameter consists of the following sub-fields.</p> <ul> <li> <p> <code>Type</code> </p> </li> <li> <p> <code>ConnectionParamters</code> </p> </li> </ul>
+
+        Raises:
+            aws_sdk_service_catalog.errors.invalid_parameters_exception.InvalidParametersException: <p>One or more parameters provided to the operation are not valid.</p>
+            aws_sdk_service_catalog.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_service_catalog.errors.tag_option_not_migrated_exception.TagOptionNotMigratedException: <p>An operation requiring TagOptions failed because the TagOptions migration process has not been performed for this account. Use the Amazon Web Services Management Console to perform the migration process before retrying the operation.</p>
+            aws_sdk_service_catalog.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5110,6 +5568,11 @@ class AsyncServiceCatalogClient:
             provisioning_preferences: <p>An object that contains information about the provisioning preferences for a stack set.</p>
             tags: <p>One or more tags. Requires the product to have <code>RESOURCE_UPDATE</code> constraint with <code>TagUpdatesOnProvisionedProduct</code> set to <code>ALLOWED</code> to allow tag updates.</p>
             update_token: <p>The idempotency token that uniquely identifies the provisioning update request.</p>
+
+        Raises:
+            aws_sdk_service_catalog.errors.invalid_parameters_exception.InvalidParametersException: <p>One or more parameters provided to the operation are not valid.</p>
+            aws_sdk_service_catalog.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_service_catalog.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5180,6 +5643,12 @@ class AsyncServiceCatalogClient:
             provisioned_product_id: <p>The identifier of the provisioned product.</p>
             provisioned_product_properties: <p>A map that contains the provisioned product properties to be updated.</p> <p>The <code>LAUNCH_ROLE</code> key accepts role ARNs. This key allows an administrator to call <code>UpdateProvisionedProductProperties</code> to update the launch role that is associated with a provisioned product. This role is used when an end user calls a provisioning operation such as <code>UpdateProvisionedProduct</code>, <code>TerminateProvisionedProduct</code>, or <code>ExecuteProvisionedProductServiceAction</code>. Only a role ARN is valid. A user ARN is invalid. </p> <p>The <code>OWNER</code> key accepts user ARNs, IAM role ARNs, and STS assumed-role ARNs. The owner is the user that has permission to see, update, terminate, and execute service actions in the provisioned product.</p> <p>The administrator can change the owner of a provisioned product to another IAM or STS entity within the same account. Both end user owners and administrators can see ownership history of the provisioned product using the <code>ListRecordHistory</code> API. The new owner can describe all past records for the provisioned product using the <code>DescribeRecord</code> API. The previous owner can no longer use <code>DescribeRecord</code>, but can still see the product's history from when he was an owner using <code>ListRecordHistory</code>.</p> <p>If a provisioned product ownership is assigned to an end user, they can see and perform any action through the API or Service Catalog console such as update, terminate, and execute service actions. If an end user provisions a product and the owner is updated to someone else, they will no longer be able to see or perform any actions through API or the Service Catalog console on that provisioned product.</p>
             idempotency_token: <p>The idempotency token that uniquely identifies the provisioning product update request.</p>
+
+        Raises:
+            aws_sdk_service_catalog.errors.invalid_parameters_exception.InvalidParametersException: <p>One or more parameters provided to the operation are not valid.</p>
+            aws_sdk_service_catalog.errors.invalid_state_exception.InvalidStateException: <p>An attempt was made to modify a resource that is in a state that is not valid. Check your resources to ensure that they are in valid states before retrying the operation.</p>
+            aws_sdk_service_catalog.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_service_catalog.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5244,6 +5713,11 @@ class AsyncServiceCatalogClient:
             description: <p>The updated description of the provisioning artifact.</p>
             active: <p>Indicates whether the product version is active.</p> <p>Inactive provisioning artifacts are invisible to end users. End users cannot launch or update a provisioned product from an inactive provisioning artifact.</p>
             guidance: <p>Information set by the administrator to provide guidance to end users about which provisioning artifacts to use.</p> <p>The <code>DEFAULT</code> value indicates that the product version is active.</p> <p>The administrator can set the guidance to <code>DEPRECATED</code> to inform users that the product version is deprecated. Users are able to make updates to a provisioned product of a deprecated version but cannot launch new provisioned products using a deprecated version.</p>
+
+        Raises:
+            aws_sdk_service_catalog.errors.invalid_parameters_exception.InvalidParametersException: <p>One or more parameters provided to the operation are not valid.</p>
+            aws_sdk_service_catalog.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_service_catalog.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5309,6 +5783,11 @@ class AsyncServiceCatalogClient:
             definition: <p>A map that defines the self-service action.</p>
             description: <p>The self-service action description.</p>
             accept_language: <p>The language code.</p> <ul> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul>
+
+        Raises:
+            aws_sdk_service_catalog.errors.invalid_parameters_exception.InvalidParametersException: <p>One or more parameters provided to the operation are not valid.</p>
+            aws_sdk_service_catalog.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_service_catalog.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5363,6 +5842,13 @@ class AsyncServiceCatalogClient:
             id: <p>The TagOption identifier.</p>
             value: <p>The updated value.</p>
             active: <p>The updated active state.</p>
+
+        Raises:
+            aws_sdk_service_catalog.errors.duplicate_resource_exception.DuplicateResourceException: <p>The specified resource is a duplicate.</p>
+            aws_sdk_service_catalog.errors.invalid_parameters_exception.InvalidParametersException: <p>One or more parameters provided to the operation are not valid.</p>
+            aws_sdk_service_catalog.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_service_catalog.errors.tag_option_not_migrated_exception.TagOptionNotMigratedException: <p>An operation requiring TagOptions failed because the TagOptions migration process has not been performed for this account. Use the Amazon Web Services Management Console to perform the migration process before retrying the operation.</p>
+            aws_sdk_service_catalog.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

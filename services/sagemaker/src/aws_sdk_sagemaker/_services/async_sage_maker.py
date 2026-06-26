@@ -1564,6 +1564,11 @@ class AsyncSageMakerClient:
             source_arn: <p>The ARN of the source.</p>
             destination_arn: <p>The Amazon Resource Name (ARN) of the destination.</p>
             association_type: <p>The type of association. The following are suggested uses for each type. Amazon SageMaker places no restrictions on their use.</p> <ul> <li> <p>ContributedTo - The source contributed to the destination or had a part in enabling the destination. For example, the training data contributed to the training job.</p> </li> <li> <p>AssociatedWith - The source is connected to the destination. For example, an approval workflow is associated with a model deployment.</p> </li> <li> <p>DerivedFrom - The destination is a modification of the source. For example, a digest output of a channel input for a processing job is derived from the original inputs.</p> </li> <li> <p>Produced - The source generated the destination. For example, a training job produced a model artifact.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_limit_exceeded.ResourceLimitExceeded: <p> You have exceeded an SageMaker resource limit. For example, you might have too many training jobs created. </p>
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1607,6 +1612,9 @@ class AsyncSageMakerClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource that you want to tag.</p>
             tags: <p>An array of key-value pairs. You can use tags to categorize your Amazon Web Services resources in different ways, for example, by purpose, owner, or environment. For more information, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html\">Tagging Amazon Web Services Resources</a>.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1648,6 +1656,11 @@ class AsyncSageMakerClient:
         Args:
             trial_component_name: <p>The name of the component to associated with the trial.</p>
             trial_name: <p>The name of the trial to associate with.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_limit_exceeded.ResourceLimitExceeded: <p> You have exceeded an SageMaker resource limit. For example, you might have too many training jobs created. </p>
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1691,6 +1704,10 @@ class AsyncSageMakerClient:
             cluster_arn: <p> The Amazon Resource Name (ARN) of your SageMaker HyperPod cluster containing the target node. Your cluster must use EKS as the orchestration and be in the <code>InService</code> state. </p>
             node_id: <p> The unique identifier of the cluster node to which you want to attach the volume. The node must belong to your specified HyperPod cluster and cannot be part of a Restricted Instance Group (RIG). </p>
             volume_id: <p> The unique identifier of your EBS volume to attach. The volume must be in the <code>available</code> state. </p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1735,6 +1752,11 @@ class AsyncSageMakerClient:
             cluster_name: <p>The name of the HyperPod cluster to which you want to add nodes.</p>
             client_token: <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. This token is valid for 8 hours. If you retry the request with the same client token within this timeframe and the same parameters, the API returns the same set of <code>NodeLogicalIds</code> with their latest status.</p>
             nodes_to_add: <p>A list of instance groups and the number of nodes to add to each. You can specify up to 5 instance groups in a single request, with a maximum of 50 nodes total across all instance groups.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_limit_exceeded.ResourceLimitExceeded: <p> You have exceeded an SageMaker resource limit. For example, you might have too many training jobs created. </p>
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1784,6 +1806,10 @@ class AsyncSageMakerClient:
             cluster_name: <p>The name of the SageMaker HyperPod cluster from which to delete the specified nodes.</p>
             node_ids: <p>A list of node IDs to be deleted from the specified cluster.</p> <note> <ul> <li> <p>For SageMaker HyperPod clusters using the Slurm workload manager, you cannot remove instances that are configured as Slurm controller nodes.</p> </li> <li> <p>If you need to delete more than 99 instances, contact <a href=\"http://aws.amazon.com/contact-us/\">Support</a> for assistance.</p> </li> </ul> </note>
             node_logical_ids: <p>A list of <code>NodeLogicalIds</code> identifying the nodes to be deleted. You can specify up to 50 <code>NodeLogicalIds</code>. You must specify either <code>NodeLogicalIds</code>, <code>InstanceIds</code>, or both, with a combined maximum of 50 identifiers.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1826,6 +1852,9 @@ class AsyncSageMakerClient:
 
         Args:
             model_package_arn_list: <p>The list of Amazon Resource Name (ARN) of the model package groups.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1872,6 +1901,10 @@ class AsyncSageMakerClient:
             cluster_name: <p>The name or Amazon Resource Name (ARN) of the SageMaker HyperPod cluster containing the nodes to reboot.</p>
             node_ids: <p>A list of EC2 instance IDs to reboot using soft recovery. You can specify between 1 and 25 instance IDs.</p> <note> <ul> <li> <p>Either <code>NodeIds</code> or <code>NodeLogicalIds</code> must be provided (or both), but at least one is required.</p> </li> <li> <p>Each instance ID must follow the pattern <code>i-</code> followed by 17 hexadecimal characters (for example, <code>i-0123456789abcdef0</code>).</p> </li> </ul> </note>
             node_logical_ids: <p>A list of logical node IDs to reboot using soft recovery. You can specify between 1 and 25 logical node IDs.</p> <p>The <code>NodeLogicalId</code> is a unique identifier that persists throughout the node's lifecycle and can be used to track nodes that are still being provisioned and don't yet have an EC2 instance ID assigned.</p> <important> <ul> <li> <p>This parameter is only supported for clusters using <code>Continuous</code> as the <code>NodeProvisioningMode</code>. For clusters using the default provisioning mode, use <code>NodeIds</code> instead.</p> </li> <li> <p>Either <code>NodeIds</code> or <code>NodeLogicalIds</code> must be provided (or both), but at least one is required.</p> </li> </ul> </important>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1922,6 +1955,10 @@ class AsyncSageMakerClient:
             cluster_name: <p>The name or Amazon Resource Name (ARN) of the SageMaker HyperPod cluster containing the nodes to replace.</p>
             node_ids: <p>A list of EC2 instance IDs to replace with new hardware. You can specify between 1 and 25 instance IDs.</p> <important> <p>Replace operations destroy all instance volumes (root and secondary). Ensure you have backed up any important data before proceeding.</p> </important> <note> <ul> <li> <p>Either <code>NodeIds</code> or <code>NodeLogicalIds</code> must be provided (or both), but at least one is required.</p> </li> <li> <p>Each instance ID must follow the pattern <code>i-</code> followed by 17 hexadecimal characters (for example, <code>i-0123456789abcdef0</code>).</p> </li> <li> <p>For SageMaker HyperPod clusters using the Slurm workload manager, you cannot replace instances that are configured as Slurm controller nodes.</p> </li> </ul> </note>
             node_logical_ids: <p>A list of logical node IDs to replace with new hardware. You can specify between 1 and 25 logical node IDs.</p> <p>The <code>NodeLogicalId</code> is a unique identifier that persists throughout the node's lifecycle and can be used to track nodes that are still being provisioned and don't yet have an EC2 instance ID assigned.</p> <important> <ul> <li> <p>Replace operations destroy all instance volumes (root and secondary). Ensure you have backed up any important data before proceeding.</p> </li> <li> <p>This parameter is only supported for clusters using <code>Continuous</code> as the <code>NodeProvisioningMode</code>. For clusters using the default provisioning mode, use <code>NodeIds</code> instead.</p> </li> <li> <p>Either <code>NodeIds</code> or <code>NodeLogicalIds</code> must be provided (or both), but at least one is required.</p> </li> </ul> </important>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1983,6 +2020,10 @@ class AsyncSageMakerClient:
             status: <p>The status of the action.</p>
             properties: <p>A list of properties to add to the action.</p>
             tags: <p>A list of tags to apply to the action.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_limit_exceeded.ResourceLimitExceeded: <p> You have exceeded an SageMaker resource limit. For example, you might have too many training jobs created. </p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2047,6 +2088,12 @@ class AsyncSageMakerClient:
             role_arn: <p>The Amazon Resource Name (ARN) of an IAM role that enables Amazon SageMaker AI to perform tasks on your behalf.</p>
             network_config: <p>The network configuration for the benchmark job, including VPC settings.</p>
             tags: <p>The metadata that you apply to Amazon Web Services resources to help you categorize and organize them. Each tag consists of a key and a value, both of which you define.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_in_use.ResourceInUse: <p>Resource being accessed is in use.</p>
+            aws_sdk_sagemaker.errors.resource_limit_exceeded.ResourceLimitExceeded: <p> You have exceeded an SageMaker resource limit. For example, you might have too many training jobs created. </p>
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2117,6 +2164,12 @@ class AsyncSageMakerClient:
             optimize_model: <p>Whether to allow model optimization techniques such as quantization, speculative decoding, and kernel tuning. The default is <code>true</code>.</p>
             compute_spec: <p>The compute resource specification for the recommendation job. You can specify up to 3 instance types to consider, and optionally provide capacity reservation configuration.</p>
             tags: <p>The metadata that you apply to Amazon Web Services resources to help you categorize and organize them.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_in_use.ResourceInUse: <p>Resource being accessed is in use.</p>
+            aws_sdk_sagemaker.errors.resource_limit_exceeded.ResourceLimitExceeded: <p> You have exceeded an SageMaker resource limit. For example, you might have too many training jobs created. </p>
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2178,6 +2231,11 @@ class AsyncSageMakerClient:
             dataset_config: <p>The dataset configuration for the workload. Specify input data channels with their data sources for benchmark workloads.</p>
             ai_workload_configs: <p>The benchmark tool configuration and workload specification. Provide the specification as an inline YAML or JSON string.</p>
             tags: <p>The metadata that you apply to Amazon Web Services resources to help you categorize and organize them. Each tag consists of a key and a value, both of which you define. For more information, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html\">Tagging Amazon Web Services Resources</a> in the Amazon Web Services General Reference.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_in_use.ResourceInUse: <p>Resource being accessed is in use.</p>
+            aws_sdk_sagemaker.errors.resource_limit_exceeded.ResourceLimitExceeded: <p> You have exceeded an SageMaker resource limit. For example, you might have too many training jobs created. </p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2242,6 +2300,9 @@ class AsyncSageMakerClient:
             validation_specification: <p>Specifies configurations for one or more training jobs and that SageMaker runs to test the algorithm's training code and, optionally, one or more batch transform jobs that SageMaker runs to test the algorithm's inference code.</p>
             certify_for_marketplace: <p>Whether to certify the algorithm so that it can be listed in Amazon Web Services Marketplace.</p>
             tags: <p>An array of key-value pairs. You can use tags to categorize your Amazon Web Services resources in different ways, for example, by purpose, owner, or environment. For more information, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html\">Tagging Amazon Web Services Resources</a>.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2309,6 +2370,11 @@ class AsyncSageMakerClient:
             tags: <p>Each tag consists of a key and an optional value. Tag keys must be unique per resource.</p>
             resource_spec: <p>The instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance.</p> <note> <p>The value of <code>InstanceType</code> passed as part of the <code>ResourceSpec</code> in the <code>CreateApp</code> call overrides the value passed as part of the <code>ResourceSpec</code> configured for the user profile or the domain. If <code>InstanceType</code> is not specified in any of those three <code>ResourceSpec</code> values for a <code>KernelGateway</code> app, the <code>CreateApp</code> call fails with a request validation error.</p> </note>
             recovery_mode: <p> Indicates whether the application is launched in recovery mode. </p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_in_use.ResourceInUse: <p>Resource being accessed is in use.</p>
+            aws_sdk_sagemaker.errors.resource_limit_exceeded.ResourceLimitExceeded: <p> You have exceeded an SageMaker resource limit. For example, you might have too many training jobs created. </p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2373,6 +2439,10 @@ class AsyncSageMakerClient:
             kernel_gateway_image_config: <p>The KernelGatewayImageConfig. You can only specify one image kernel in the AppImageConfig API. This kernel will be shown to users before the image starts. Once the image runs, all kernels are visible in JupyterLab.</p>
             jupyter_lab_app_image_config: <p>The <code>JupyterLabAppImageConfig</code>. You can only specify one image kernel in the <code>AppImageConfig</code> API. This kernel is shown to users before the image starts. After the image runs, all kernels are visible in JupyterLab.</p>
             code_editor_app_image_config: <p>The <code>CodeEditorAppImageConfig</code>. You can only specify one image kernel in the AppImageConfig API. This kernel is shown to users before the image starts. After the image runs, all kernels are visible in Code Editor.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_in_use.ResourceInUse: <p>Resource being accessed is in use.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2434,6 +2504,10 @@ class AsyncSageMakerClient:
             artifact_type: <p>The artifact type.</p>
             properties: <p>A list of properties to add to the artifact.</p>
             tags: <p>A list of tags to apply to the artifact.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_limit_exceeded.ResourceLimitExceeded: <p> You have exceeded an SageMaker resource limit. For example, you might have too many training jobs created. </p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2509,6 +2583,11 @@ class AsyncSageMakerClient:
             generate_candidate_definitions_only: <p>Generates possible candidates without training the models. A candidate is a combination of data preprocessors, algorithms, and algorithm parameter settings.</p>
             tags: <p>An array of key-value pairs. You can use tags to categorize your Amazon Web Services resources in different ways, for example, by purpose, owner, or environment. For more information, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html\">Tagging Amazon Web ServicesResources</a>. Tag keys must be unique per resource.</p>
             model_deploy_config: <p>Specifies how to generate the endpoint name for an automatic one-click Autopilot model deployment.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_in_use.ResourceInUse: <p>Resource being accessed is in use.</p>
+            aws_sdk_sagemaker.errors.resource_limit_exceeded.ResourceLimitExceeded: <p> You have exceeded an SageMaker resource limit. For example, you might have too many training jobs created. </p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2594,6 +2673,11 @@ class AsyncSageMakerClient:
             model_deploy_config: <p>Specifies how to generate the endpoint name for an automatic one-click Autopilot model deployment.</p>
             data_split_config: <p>This structure specifies how to split the data into train and validation datasets.</p> <p>The validation and training datasets must contain the same headers. For jobs created by calling <code>CreateAutoMLJob</code>, the validation dataset must be less than 2 GB in size.</p> <note> <p>This attribute must not be set for the time-series forecasting problem type, as Autopilot automatically splits the input dataset into training and validation sets.</p> </note>
             auto_ml_compute_config: <p>Specifies the compute configuration for the AutoML job V2.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_in_use.ResourceInUse: <p>Resource being accessed is in use.</p>
+            aws_sdk_sagemaker.errors.resource_limit_exceeded.ResourceLimitExceeded: <p> You have exceeded an SageMaker resource limit. For example, you might have too many training jobs created. </p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2686,6 +2770,11 @@ class AsyncSageMakerClient:
             node_provisioning_mode: <p>The mode for provisioning nodes in the cluster. You can specify the following modes:</p> <ul> <li> <p> <b>Continuous</b>: Scaling behavior that enables 1) concurrent operation execution within instance groups, 2) continuous retry mechanisms for failed operations, 3) enhanced customer visibility into cluster events through detailed event streams, 4) partial provisioning capabilities. Your clusters and instance groups remain <code>InService</code> while scaling. This mode is only supported for EKS orchestrated clusters.</p> </li> </ul>
             cluster_role: <p>The Amazon Resource Name (ARN) of the IAM role that HyperPod assumes to perform cluster autoscaling operations. This role must have permissions for <code>sagemaker:BatchAddClusterNodes</code> and <code>sagemaker:BatchDeleteClusterNodes</code>. This is only required when autoscaling is enabled and when HyperPod is performing autoscaling operations.</p>
             auto_scaling: <p>The autoscaling configuration for the cluster. Enables automatic scaling of cluster nodes based on workload demand using a Karpenter-based system.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_in_use.ResourceInUse: <p>Resource being accessed is in use.</p>
+            aws_sdk_sagemaker.errors.resource_limit_exceeded.ResourceLimitExceeded: <p> You have exceeded an SageMaker resource limit. For example, you might have too many training jobs created. </p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2758,6 +2847,11 @@ class AsyncSageMakerClient:
             scheduler_config: <p>Configuration about the monitoring schedule.</p>
             description: <p>Description of the cluster policy.</p>
             tags: <p>Tags of the cluster policy.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.conflict_exception.ConflictException: <p>There was a conflict when you attempted to modify a SageMaker entity such as an <code>Experiment</code> or <code>Artifact</code>.</p>
+            aws_sdk_sagemaker.errors.resource_limit_exceeded.ResourceLimitExceeded: <p> You have exceeded an SageMaker resource limit. For example, you might have too many training jobs created. </p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2806,6 +2900,9 @@ class AsyncSageMakerClient:
             code_repository_name: <p>The name of the Git repository. The name must have 1 to 63 characters. Valid characters are a-z, A-Z, 0-9, and - (hyphen).</p>
             git_config: <p>Specifies details about the repository, including the URL where the repository is located, the default branch, and credentials to use to access the repository.</p>
             tags: <p>An array of key-value pairs. You can use tags to categorize your Amazon Web Services resources in different ways, for example, by purpose, owner, or environment. For more information, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html\">Tagging Amazon Web Services Resources</a>.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2867,6 +2964,11 @@ class AsyncSageMakerClient:
             vpc_config: <p>A <a href=\"https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_VpcConfig.html\">VpcConfig</a> object that specifies the VPC that you want your compilation job to connect to. Control access to your models by configuring the VPC. For more information, see <a href=\"https://docs.aws.amazon.com/sagemaker/latest/dg/neo-vpc.html\">Protect Compilation Jobs by Using an Amazon Virtual Private Cloud</a>.</p>
             stopping_condition: <p>Specifies a limit to how long a model compilation job can run. When the job reaches the time limit, Amazon SageMaker AI ends the compilation job. Use this API to cap model training costs.</p>
             tags: <p>An array of key-value pairs. You can use tags to categorize your Amazon Web Services resources in different ways, for example, by purpose, owner, or environment. For more information, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html\">Tagging Amazon Web Services Resources</a>.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_in_use.ResourceInUse: <p>Resource being accessed is in use.</p>
+            aws_sdk_sagemaker.errors.resource_limit_exceeded.ResourceLimitExceeded: <p> You have exceeded an SageMaker resource limit. For example, you might have too many training jobs created. </p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2932,6 +3034,11 @@ class AsyncSageMakerClient:
             compute_quota_target: <p>The target entity to allocate compute resources to.</p>
             activation_state: <p>The state of the compute allocation being described. Use to enable or disable compute allocation.</p> <p>Default is <code>Enabled</code>.</p>
             tags: <p>Tags of the compute allocation definition.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.conflict_exception.ConflictException: <p>There was a conflict when you attempted to modify a SageMaker entity such as an <code>Experiment</code> or <code>Artifact</code>.</p>
+            aws_sdk_sagemaker.errors.resource_limit_exceeded.ResourceLimitExceeded: <p> You have exceeded an SageMaker resource limit. For example, you might have too many training jobs created. </p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2993,6 +3100,10 @@ class AsyncSageMakerClient:
             description: <p>The description of the context.</p>
             properties: <p>A list of properties to add to the context.</p>
             tags: <p>A list of tags to apply to the context.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_limit_exceeded.ResourceLimitExceeded: <p> You have exceeded an SageMaker resource limit. For example, you might have too many training jobs created. </p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3060,6 +3171,11 @@ class AsyncSageMakerClient:
             network_config: <p>Specifies networking configuration for the monitoring job.</p>
             role_arn: <p>The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker AI can assume to perform tasks on your behalf.</p>
             tags: <p>(Optional) An array of key-value pairs. For more information, see <a href=\"https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-whatURL\"> Using Cost Allocation Tags</a> in the <i>Amazon Web Services Billing and Cost Management User Guide</i>.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_in_use.ResourceInUse: <p>Resource being accessed is in use.</p>
+            aws_sdk_sagemaker.errors.resource_limit_exceeded.ResourceLimitExceeded: <p> You have exceeded an SageMaker resource limit. For example, you might have too many training jobs created. </p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3125,6 +3241,11 @@ class AsyncSageMakerClient:
             output_config: <p>The output configuration for storing sample data collected by the fleet.</p>
             tags: <p>Creates tags for the specified fleet.</p>
             enable_iot_role_alias: <p>Whether to create an Amazon Web Services IoT Role Alias during device fleet creation. The name of the role alias generated will match this pattern: \"SageMakerEdge-{DeviceFleetName}\".</p> <p>For example, if your device fleet is called \"demo-fleet\", the name of the role alias will be \"SageMakerEdge-demo-fleet\".</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_in_use.ResourceInUse: <p>Resource being accessed is in use.</p>
+            aws_sdk_sagemaker.errors.resource_limit_exceeded.ResourceLimitExceeded: <p> You have exceeded an SageMaker resource limit. For example, you might have too many training jobs created. </p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3210,6 +3331,11 @@ class AsyncSageMakerClient:
             home_efs_file_system_creation: <p>Indicates whether to create a home EFS file system for the domain. Defaults to <code>Enabled</code>. Set to <code>Disabled</code> to skip EFS creation and reduce domain creation time. You can enable EFS later by calling <code>UpdateDomain</code>.</p>
             tag_propagation: <p>Indicates whether custom tag propagation is supported for the domain. Defaults to <code>DISABLED</code>.</p>
             default_space_settings: <p>The default settings for shared spaces that users create in the domain.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_in_use.ResourceInUse: <p>Resource being accessed is in use.</p>
+            aws_sdk_sagemaker.errors.resource_limit_exceeded.ResourceLimitExceeded: <p> You have exceeded an SageMaker resource limit. For example, you might have too many training jobs created. </p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3282,6 +3408,10 @@ class AsyncSageMakerClient:
             device_fleet_name: <p>The device fleet used for this edge deployment plan.</p>
             stages: <p>List of stages of the edge deployment plan. The number of stages is limited to 10 per deployment.</p>
             tags: <p>List of tags with which to tag the edge deployment plan.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_limit_exceeded.ResourceLimitExceeded: <p> You have exceeded an SageMaker resource limit. For example, you might have too many training jobs created. </p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3328,6 +3458,10 @@ class AsyncSageMakerClient:
         Args:
             edge_deployment_plan_name: <p>The name of the edge deployment plan.</p>
             stages: <p>List of stages to be added to the edge deployment plan.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_limit_exceeded.ResourceLimitExceeded: <p> You have exceeded an SageMaker resource limit. For example, you might have too many training jobs created. </p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3379,6 +3513,10 @@ class AsyncSageMakerClient:
             output_config: <p>Provides information about the output location for the packaged model.</p>
             resource_key: <p>The Amazon Web Services KMS key to use when encrypting the EBS volume the edge packaging job runs on.</p>
             tags: <p>Creates tags for the packaging job.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_limit_exceeded.ResourceLimitExceeded: <p> You have exceeded an SageMaker resource limit. For example, you might have too many training jobs created. </p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3431,6 +3569,10 @@ class AsyncSageMakerClient:
             endpoint_name: <p>The name of the endpoint.The name must be unique within an Amazon Web Services Region in your Amazon Web Services account. The name is case-insensitive in <code>CreateEndpoint</code>, but the case is preserved and must be matched in <a href=\"https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_runtime_InvokeEndpoint.html\">InvokeEndpoint</a>.</p>
             endpoint_config_name: <p>The name of an endpoint configuration. For more information, see <a href=\"https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpointConfig.html\">CreateEndpointConfig</a>. </p>
             tags: <p>An array of key-value pairs. You can use tags to categorize your Amazon Web Services resources in different ways, for example, by purpose, owner, or environment. For more information, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html\">Tagging Amazon Web Services Resources</a>.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_limit_exceeded.ResourceLimitExceeded: <p> You have exceeded an SageMaker resource limit. For example, you might have too many training jobs created. </p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3506,6 +3648,10 @@ class AsyncSageMakerClient:
             execution_role_arn: <p>The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker AI can assume to perform actions on your behalf. For more information, see <a href=\"https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html\">SageMaker AI Roles</a>. </p> <note> <p>To be able to pass this role to Amazon SageMaker AI, the caller of this action must have the <code>iam:PassRole</code> permission.</p> </note>
             enable_network_isolation: <p>Sets whether all model containers deployed to the endpoint are isolated. If they are, no inbound or outbound network calls can be made to or from the model containers.</p>
             metrics_config: <p>The configuration parameters for utilization metrics.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_limit_exceeded.ResourceLimitExceeded: <p> You have exceeded an SageMaker resource limit. For example, you might have too many training jobs created. </p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3575,6 +3721,10 @@ class AsyncSageMakerClient:
             display_name: <p>The name of the experiment as displayed. The name doesn't need to be unique. If you don't specify <code>DisplayName</code>, the value in <code>ExperimentName</code> is displayed.</p>
             description: <p>The description of the experiment.</p>
             tags: <p>A list of tags to associate with the experiment. You can use <a href=\"https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_Search.html\">Search</a> API to search on the tags.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_limit_exceeded.ResourceLimitExceeded: <p> You have exceeded an SageMaker resource limit. For example, you might have too many training jobs created. </p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3642,6 +3792,11 @@ class AsyncSageMakerClient:
             role_arn: <p>The Amazon Resource Name (ARN) of the IAM execution role used to persist data into the <code>OfflineStore</code> if an <code>OfflineStoreConfig</code> is provided.</p>
             description: <p>A free-form description of a <code>FeatureGroup</code>.</p>
             tags: <p>Tags used to identify <code>Features</code> in each <code>FeatureGroup</code>.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_in_use.ResourceInUse: <p>Resource being accessed is in use.</p>
+            aws_sdk_sagemaker.errors.resource_limit_exceeded.ResourceLimitExceeded: <p> You have exceeded an SageMaker resource limit. For example, you might have too many training jobs created. </p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3713,6 +3868,11 @@ class AsyncSageMakerClient:
             output_config: <p>An object containing information about where the human review results will be uploaded.</p>
             role_arn: <p>The Amazon Resource Name (ARN) of the role needed to call other services on your behalf. For example, <code>arn:aws:iam::1234567890:role/service-role/AmazonSageMaker-ExecutionRole-20180111T151298</code>.</p>
             tags: <p>An array of key-value pairs that contain metadata to help you categorize and organize a flow definition. Each tag consists of a key and a value, both of which you define.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_in_use.ResourceInUse: <p>Resource being accessed is in use.</p>
+            aws_sdk_sagemaker.errors.resource_limit_exceeded.ResourceLimitExceeded: <p> You have exceeded an SageMaker resource limit. For example, you might have too many training jobs created. </p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3777,6 +3937,11 @@ class AsyncSageMakerClient:
             hub_search_keywords: <p>The searchable keywords for the hub.</p>
             s3_storage_config: <p>The Amazon S3 storage configuration for the hub.</p>
             tags: <p>Any tags to associate with the hub.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_in_use.ResourceInUse: <p>Resource being accessed is in use.</p>
+            aws_sdk_sagemaker.errors.resource_limit_exceeded.ResourceLimitExceeded: <p> You have exceeded an SageMaker resource limit. For example, you might have too many training jobs created. </p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3840,6 +4005,9 @@ class AsyncSageMakerClient:
             access_config: <p>Configuration settings for accessing the hub content, including end-user license agreement acceptance for gated models and expected S3 URL validation.</p>
             max_results: <p>The maximum number of presigned URLs to return in the response. Default value is 100. Large models may contain hundreds of files, requiring pagination to retrieve all URLs.</p>
             next_token: <p> A token for pagination. Use this token to retrieve the next set of presigned URLs when the response is truncated.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3935,6 +4103,12 @@ class AsyncSageMakerClient:
             hub_content_name: <p>The name of the hub content to reference.</p>
             min_version: <p>The minimum version of the hub content to reference.</p>
             tags: <p>Any tags associated with the hub content to reference.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_in_use.ResourceInUse: <p>Resource being accessed is in use.</p>
+            aws_sdk_sagemaker.errors.resource_limit_exceeded.ResourceLimitExceeded: <p> You have exceeded an SageMaker resource limit. For example, you might have too many training jobs created. </p>
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3983,6 +4157,11 @@ class AsyncSageMakerClient:
         Args:
             human_task_ui_name: <p>The name of the user interface you are creating.</p>
             tags: <p>An array of key-value pairs that contain metadata to help you categorize and organize a human review workflow user interface. Each tag consists of a key and a value, both of which you define.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_in_use.ResourceInUse: <p>Resource being accessed is in use.</p>
+            aws_sdk_sagemaker.errors.resource_limit_exceeded.ResourceLimitExceeded: <p> You have exceeded an SageMaker resource limit. For example, you might have too many training jobs created. </p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4042,6 +4221,11 @@ class AsyncSageMakerClient:
             warm_start_config: <p>Specifies the configuration for starting the hyperparameter tuning job using one or more previous tuning jobs as a starting point. The results of previous tuning jobs are used to inform which combinations of hyperparameters to search over in the new tuning job.</p> <p>All training jobs launched by the new hyperparameter tuning job are evaluated by using the objective metric. If you specify <code>IDENTICAL_DATA_AND_ALGORITHM</code> as the <code>WarmStartType</code> value for the warm start configuration, the training job that performs the best in the new tuning job is compared to the best training jobs from the parent tuning jobs. From these, the training job that performs the best as measured by the objective metric is returned as the overall best training job.</p> <note> <p>All training jobs launched by parent hyperparameter tuning jobs and the new hyperparameter tuning jobs count against the limit of training jobs for the tuning job.</p> </note>
             tags: <p>An array of key-value pairs. You can use tags to categorize your Amazon Web Services resources in different ways, for example, by purpose, owner, or environment. For more information, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html\">Tagging Amazon Web Services Resources</a>.</p> <p>Tags that you specify for the tuning job are also added to all training jobs that the tuning job launches.</p>
             autotune: <p>Configures SageMaker Automatic model tuning (AMT) to automatically find optimal parameters for the following fields:</p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_HyperParameterTuningJobConfig.html#sagemaker-Type-HyperParameterTuningJobConfig-ParameterRanges\">ParameterRanges</a>: The names and ranges of parameters that a hyperparameter tuning job can optimize.</p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ResourceLimits.html\">ResourceLimits</a>: The maximum resources that can be used for a training job. These resources include the maximum number of training jobs, the maximum runtime of a tuning job, and the maximum number of training jobs to run at the same time.</p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_HyperParameterTuningJobConfig.html#sagemaker-Type-HyperParameterTuningJobConfig-TrainingJobEarlyStoppingType\">TrainingJobEarlyStoppingType</a>: A flag that specifies whether or not to use early stopping for training jobs launched by a hyperparameter tuning job.</p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_HyperParameterTrainingJobDefinition.html#sagemaker-Type-HyperParameterTrainingJobDefinition-RetryStrategy\">RetryStrategy</a>: The number of times to retry a training job.</p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_HyperParameterTuningJobConfig.html\">Strategy</a>: Specifies how hyperparameter tuning chooses the combinations of hyperparameter values to use for the training jobs that it launches.</p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ConvergenceDetected.html\">ConvergenceDetected</a>: A flag to indicate that Automatic model tuning (AMT) has detected model convergence.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_in_use.ResourceInUse: <p>Resource being accessed is in use.</p>
+            aws_sdk_sagemaker.errors.resource_limit_exceeded.ResourceLimitExceeded: <p> You have exceeded an SageMaker resource limit. For example, you might have too many training jobs created. </p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4103,6 +4287,11 @@ class AsyncSageMakerClient:
             image_name: <p>The name of the image. Must be unique to your account.</p>
             role_arn: <p>The ARN of an IAM role that enables Amazon SageMaker AI to perform tasks on your behalf.</p>
             tags: <p>A list of tags to apply to the image.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_in_use.ResourceInUse: <p>Resource being accessed is in use.</p>
+            aws_sdk_sagemaker.errors.resource_limit_exceeded.ResourceLimitExceeded: <p> You have exceeded an SageMaker resource limit. For example, you might have too many training jobs created. </p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4178,6 +4367,12 @@ class AsyncSageMakerClient:
             processor: <p>Indicates CPU or GPU compatibility.</p> <ul> <li> <p> <code>CPU</code>: The image version is compatible with CPU.</p> </li> <li> <p> <code>GPU</code>: The image version is compatible with GPU.</p> </li> </ul>
             horovod: <p>Indicates Horovod compatibility.</p>
             release_notes: <p>The maintainer description of the image version.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_in_use.ResourceInUse: <p>Resource being accessed is in use.</p>
+            aws_sdk_sagemaker.errors.resource_limit_exceeded.ResourceLimitExceeded: <p> You have exceeded an SageMaker resource limit. For example, you might have too many training jobs created. </p>
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4254,6 +4449,10 @@ class AsyncSageMakerClient:
             specifications: <p>A list of specification objects for the inference component, one per instance type. Use this parameter when you want to deploy a different model or resource configuration for the inference component on each instance type. You can use either this parameter or the singular <code>Specification</code> parameter, but not both.</p>
             runtime_config: <p>Runtime settings for a model that is deployed with an inference component.</p>
             tags: <p>A list of key-value pairs associated with the model. For more information, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html\">Tagging Amazon Web Services resources</a> in the <i>Amazon Web Services General Reference</i>.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_limit_exceeded.ResourceLimitExceeded: <p> You have exceeded an SageMaker resource limit. For example, you might have too many training jobs created. </p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4329,6 +4528,11 @@ class AsyncSageMakerClient:
             shadow_mode_config: <p> The configuration of <code>ShadowMode</code> inference experiment type. Use this field to specify a production variant which takes all the inference requests, and a shadow variant to which Amazon SageMaker replicates a percentage of the inference requests. For the shadow variant also specify the percentage of requests that Amazon SageMaker replicates. </p>
             kms_key: <p> The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint. The <code>KmsKey</code> can be any of the following formats: </p> <ul> <li> <p>KMS key ID</p> <p> <code>\"1234abcd-12ab-34cd-56ef-1234567890ab\"</code> </p> </li> <li> <p>Amazon Resource Name (ARN) of a KMS key</p> <p> <code>\"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab\"</code> </p> </li> <li> <p>KMS key Alias</p> <p> <code>\"alias/ExampleAlias\"</code> </p> </li> <li> <p>Amazon Resource Name (ARN) of a KMS key Alias</p> <p> <code>\"arn:aws:kms:us-west-2:111122223333:alias/ExampleAlias\"</code> </p> </li> </ul> <p> If you use a KMS key ID or an alias of your KMS key, the Amazon SageMaker execution role must include permissions to call <code>kms:Encrypt</code>. If you don't provide a KMS key ID, Amazon SageMaker uses the default KMS key for Amazon S3 for your role's account. Amazon SageMaker uses server-side encryption with KMS managed keys for <code>OutputDataConfig</code>. If you use a bucket policy with an <code>s3:PutObject</code> permission that only allows objects with server-side encryption, set the condition key of <code>s3:x-amz-server-side-encryption</code> to <code>\"aws:kms\"</code>. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingKMSEncryption.html\">KMS managed Encryption Keys</a> in the <i>Amazon Simple Storage Service Developer Guide.</i> </p> <p> The KMS key policy must grant permission to the IAM role that you specify in your <code>CreateEndpoint</code> and <code>UpdateEndpoint</code> requests. For more information, see <a href=\"https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html\">Using Key Policies in Amazon Web Services KMS</a> in the <i>Amazon Web Services Key Management Service Developer Guide</i>. </p>
             tags: <p> Array of key-value pairs. You can use tags to categorize your Amazon Web Services resources in different ways, for example, by purpose, owner, or environment. For more information, see <a href=\"https://docs.aws.amazon.com/ARG/latest/userguide/tagging.html\">Tagging your Amazon Web Services Resources</a>. </p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_in_use.ResourceInUse: <p>Resource being accessed is in use.</p>
+            aws_sdk_sagemaker.errors.resource_limit_exceeded.ResourceLimitExceeded: <p> You have exceeded an SageMaker resource limit. For example, you might have too many training jobs created. </p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4402,6 +4606,11 @@ class AsyncSageMakerClient:
             stopping_conditions: <p>A set of conditions for stopping a recommendation job. If any of the conditions are met, the job is automatically stopped.</p>
             output_config: <p>Provides information about the output artifacts and the KMS key to use for Amazon S3 server-side encryption.</p>
             tags: <p>The metadata that you apply to Amazon Web Services resources to help you categorize and organize them. Each tag consists of a key and a value, both of which you define. For more information, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html\">Tagging Amazon Web Services Resources</a> in the Amazon Web Services General Reference.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_in_use.ResourceInUse: <p>Resource being accessed is in use.</p>
+            aws_sdk_sagemaker.errors.resource_limit_exceeded.ResourceLimitExceeded: <p> You have exceeded an SageMaker resource limit. For example, you might have too many training jobs created. </p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4461,6 +4670,12 @@ class AsyncSageMakerClient:
             job_config_schema_version: <p>The version of the configuration schema to use for the job configuration document. Use <code>ListJobSchemaVersions</code> to get available schema versions for a job category.</p>
             job_config_document: <p>The JSON configuration document for the job. The document must conform to the schema specified by <code>JobConfigSchemaVersion</code>. Use <code>DescribeJobSchemaVersion</code> to retrieve the schema for validation.</p>
             tags: <p>An array of key-value pairs to apply to the job as tags. For more information, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html\">Tagging Amazon Web Services Resources</a>.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_in_use.ResourceInUse: <p>Resource being accessed is in use.</p>
+            aws_sdk_sagemaker.errors.resource_limit_exceeded.ResourceLimitExceeded: <p> You have exceeded an SageMaker resource limit. For example, you might have too many training jobs created. </p>
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4531,6 +4746,11 @@ class AsyncSageMakerClient:
             labeling_job_algorithms_config: <p>Configures the information required to perform automated data labeling.</p>
             human_task_config: <p>Configures the labeling task and how it is presented to workers; including, but not limited to price, keywords, and batch size (task count).</p>
             tags: <p>An array of key/value pairs. For more information, see <a href=\"https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-what\">Using Cost Allocation Tags</a> in the <i>Amazon Web Services Billing and Cost Management User Guide</i>.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_in_use.ResourceInUse: <p>Resource being accessed is in use.</p>
+            aws_sdk_sagemaker.errors.resource_limit_exceeded.ResourceLimitExceeded: <p> You have exceeded an SageMaker resource limit. For example, you might have too many training jobs created. </p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4604,6 +4824,10 @@ class AsyncSageMakerClient:
             account_default_status: <p>Indicates whether this MLflow app is the default for the entire account.</p>
             default_domain_id_list: <p>List of SageMaker domain IDs for which this MLflow App is used as the default.</p>
             tags: <p>Tags consisting of key-value pairs used to manage metadata for the MLflow App.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_limit_exceeded.ResourceLimitExceeded: <p> You have exceeded an SageMaker resource limit. For example, you might have too many training jobs created. </p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4684,6 +4908,10 @@ class AsyncSageMakerClient:
             tags: <p>Tags consisting of key-value pairs used to manage metadata for the tracking server.</p>
             s3_bucket_owner_account_id: <p>Expected Amazon Web Services account ID that owns the Amazon S3 bucket for artifact storage. Defaults to caller's account ID if not provided.</p>
             s3_bucket_owner_verification: <p>Enable Amazon S3 Ownership checks when interacting with Amazon S3 buckets from a SageMaker Managed MLflow Tracking Server. Defaults to <code>True</code> if not provided. </p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_limit_exceeded.ResourceLimitExceeded: <p> You have exceeded an SageMaker resource limit. For example, you might have too many training jobs created. </p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4760,6 +4988,10 @@ class AsyncSageMakerClient:
             tags: <p>An array of key-value pairs. You can use tags to categorize your Amazon Web Services resources in different ways, for example, by purpose, owner, or environment. For more information, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html\">Tagging Amazon Web Services Resources</a>.</p>
             vpc_config: <p>A <a href=\"https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_VpcConfig.html\">VpcConfig</a> object that specifies the VPC that you want your model to connect to. Control access to and from your model container by configuring the VPC. <code>VpcConfig</code> is used in hosting services and in batch transform. For more information, see <a href=\"https://docs.aws.amazon.com/sagemaker/latest/dg/host-vpc.html\">Protect Endpoints by Using an Amazon Virtual Private Cloud</a> and <a href=\"https://docs.aws.amazon.com/sagemaker/latest/dg/batch-vpc.html\">Protect Data in Batch Transform Jobs by Using an Amazon Virtual Private Cloud</a>.</p>
             enable_network_isolation: <p>Isolates the model container. No inbound or outbound network calls can be made to or from the model container.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_limit_exceeded.ResourceLimitExceeded: <p> You have exceeded an SageMaker resource limit. For example, you might have too many training jobs created. </p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4833,6 +5065,11 @@ class AsyncSageMakerClient:
             network_config: <p>Networking options for a model bias job.</p>
             role_arn: <p>The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker AI can assume to perform tasks on your behalf.</p>
             tags: <p>(Optional) An array of key-value pairs. For more information, see <a href=\"https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-whatURL\"> Using Cost Allocation Tags</a> in the <i>Amazon Web Services Billing and Cost Management User Guide</i>.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_in_use.ResourceInUse: <p>Resource being accessed is in use.</p>
+            aws_sdk_sagemaker.errors.resource_limit_exceeded.ResourceLimitExceeded: <p> You have exceeded an SageMaker resource limit. For example, you might have too many training jobs created. </p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4894,6 +5131,11 @@ class AsyncSageMakerClient:
             content: <p>The content of the model card. Content must be in <a href=\"https://docs.aws.amazon.com/sagemaker/latest/dg/model-cards.html#model-cards-json-schema\">model card JSON schema</a> and provided as a string.</p>
             model_card_status: <p>The approval status of the model card within your organization. Different organizations might have different criteria for model card review and approval.</p> <ul> <li> <p> <code>Draft</code>: The model card is a work in progress.</p> </li> <li> <p> <code>PendingReview</code>: The model card is pending review.</p> </li> <li> <p> <code>Approved</code>: The model card is approved.</p> </li> <li> <p> <code>Archived</code>: The model card is archived. No more updates should be made to the model card, but it can still be exported.</p> </li> </ul>
             tags: <p>Key-value pairs used to manage metadata for model cards.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.conflict_exception.ConflictException: <p>There was a conflict when you attempted to modify a SageMaker entity such as an <code>Experiment</code> or <code>Artifact</code>.</p>
+            aws_sdk_sagemaker.errors.resource_limit_exceeded.ResourceLimitExceeded: <p> You have exceeded an SageMaker resource limit. For example, you might have too many training jobs created. </p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4944,6 +5186,12 @@ class AsyncSageMakerClient:
             model_card_version: <p>The version of the model card to export. If a version is not provided, then the latest version of the model card is exported.</p>
             model_card_export_job_name: <p>The name of the model card export job.</p>
             output_config: <p>The model card output configuration that specifies the Amazon S3 path for exporting.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.conflict_exception.ConflictException: <p>There was a conflict when you attempted to modify a SageMaker entity such as an <code>Experiment</code> or <code>Artifact</code>.</p>
+            aws_sdk_sagemaker.errors.resource_limit_exceeded.ResourceLimitExceeded: <p> You have exceeded an SageMaker resource limit. For example, you might have too many training jobs created. </p>
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5007,6 +5255,11 @@ class AsyncSageMakerClient:
             network_config: <p>Networking options for a model explainability job.</p>
             role_arn: <p>The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker AI can assume to perform tasks on your behalf.</p>
             tags: <p>(Optional) An array of key-value pairs. For more information, see <a href=\"https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-whatURL\"> Using Cost Allocation Tags</a> in the <i>Amazon Web Services Billing and Cost Management User Guide</i>.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_in_use.ResourceInUse: <p>Resource being accessed is in use.</p>
+            aws_sdk_sagemaker.errors.resource_limit_exceeded.ResourceLimitExceeded: <p> You have exceeded an SageMaker resource limit. For example, you might have too many training jobs created. </p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5153,6 +5406,11 @@ class AsyncSageMakerClient:
             model_card: <p>The model card associated with the model package. Since <code>ModelPackageModelCard</code> is tied to a model package, it is a specific usage of a model card and its schema is simplified compared to the schema of <code>ModelCard</code>. The <code>ModelPackageModelCard</code> schema does not include <code>model_package_details</code>, and <code>model_overview</code> is composed of the <code>model_creator</code> and <code>model_artifact</code> properties. For more information about the model package model card schema, see <a href=\"https://docs.aws.amazon.com/sagemaker/latest/dg/model-registry-details.html#model-card-schema\">Model package model card schema</a>. For more information about the model card associated with the model package, see <a href=\"https://docs.aws.amazon.com/sagemaker/latest/dg/model-registry-details.html\">View the Details of a Model Version</a>.</p>
             model_life_cycle: <p> A structure describing the current state of the model in its life cycle. </p>
             managed_storage_type: <p>The storage type of the model package.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.conflict_exception.ConflictException: <p>There was a conflict when you attempted to modify a SageMaker entity such as an <code>Experiment</code> or <code>Artifact</code>.</p>
+            aws_sdk_sagemaker.errors.resource_limit_exceeded.ResourceLimitExceeded: <p> You have exceeded an SageMaker resource limit. For example, you might have too many training jobs created. </p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5252,6 +5510,10 @@ class AsyncSageMakerClient:
             model_package_group_description: <p>A description for the model group.</p>
             tags: <p>A list of key value pairs associated with the model group. For more information, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html\">Tagging Amazon Web Services resources</a> in the <i>Amazon Web Services General Reference Guide</i>.</p>
             managed_configuration: <p>The managed configuration of the model package group.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_limit_exceeded.ResourceLimitExceeded: <p> You have exceeded an SageMaker resource limit. For example, you might have too many training jobs created. </p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5317,6 +5579,11 @@ class AsyncSageMakerClient:
             network_config: <p>Specifies the network configuration for the monitoring job.</p>
             role_arn: <p>The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker AI can assume to perform tasks on your behalf.</p>
             tags: <p>(Optional) An array of key-value pairs. For more information, see <a href=\"https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-whatURL\"> Using Cost Allocation Tags</a> in the <i>Amazon Web Services Billing and Cost Management User Guide</i>.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_in_use.ResourceInUse: <p>Resource being accessed is in use.</p>
+            aws_sdk_sagemaker.errors.resource_limit_exceeded.ResourceLimitExceeded: <p> You have exceeded an SageMaker resource limit. For example, you might have too many training jobs created. </p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5372,6 +5639,11 @@ class AsyncSageMakerClient:
             monitoring_schedule_name: <p>The name of the monitoring schedule. The name must be unique within an Amazon Web Services Region within an Amazon Web Services account.</p>
             monitoring_schedule_config: <p>The configuration object that specifies the monitoring schedule and defines the monitoring job.</p>
             tags: <p>(Optional) An array of key-value pairs. For more information, see <a href=\" https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-whatURL\">Using Cost Allocation Tags</a> in the <i>Amazon Web Services Billing and Cost Management User Guide</i>.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_in_use.ResourceInUse: <p>Resource being accessed is in use.</p>
+            aws_sdk_sagemaker.errors.resource_limit_exceeded.ResourceLimitExceeded: <p> You have exceeded an SageMaker resource limit. For example, you might have too many training jobs created. </p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5465,6 +5737,10 @@ class AsyncSageMakerClient:
             root_access: <p>Whether root access is enabled or disabled for users of the notebook instance. The default value is <code>Enabled</code>.</p> <note> <p>Lifecycle configurations need root access to be able to set up a notebook instance. Because of this, lifecycle configurations associated with a notebook instance always run with root access even if you disable root access for users.</p> </note>
             platform_identifier: <p>The platform identifier of the notebook instance runtime environment. The default value is <code>notebook-al2023-v1</code>.</p>
             instance_metadata_service_configuration: <p>Information on the IMDS configuration of the notebook instance</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_limit_exceeded.ResourceLimitExceeded: <p> You have exceeded an SageMaker resource limit. For example, you might have too many training jobs created. </p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5545,6 +5821,10 @@ class AsyncSageMakerClient:
             on_create: <p>A shell script that runs only once, when you create a notebook instance. The shell script must be a base64-encoded string.</p>
             on_start: <p>A shell script that runs every time you start a notebook instance, including when you create the notebook instance. The shell script must be a base64-encoded string.</p>
             tags: <p>An array of key-value pairs. You can use tags to categorize your Amazon Web Services resources in different ways, for example, by purpose, owner, or environment. For more information, see <a href=\"https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html\">Tagging Amazon Web Services Resources</a>.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_limit_exceeded.ResourceLimitExceeded: <p> You have exceeded an SageMaker resource limit. For example, you might have too many training jobs created. </p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5616,6 +5896,11 @@ class AsyncSageMakerClient:
             output_config: <p>Details for where to store the optimized model that you create with the optimization job.</p>
             tags: <p>A list of key-value pairs associated with the optimization job. For more information, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html\">Tagging Amazon Web Services resources</a> in the <i>Amazon Web Services General Reference Guide</i>.</p>
             vpc_config: <p>A VPC in Amazon VPC that your optimized model has access to.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_in_use.ResourceInUse: <p>Resource being accessed is in use.</p>
+            aws_sdk_sagemaker.errors.resource_limit_exceeded.ResourceLimitExceeded: <p> You have exceeded an SageMaker resource limit. For example, you might have too many training jobs created. </p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5700,6 +5985,11 @@ class AsyncSageMakerClient:
             enable_auto_minor_version_upgrade: <p>When set to <code>TRUE</code>, the SageMaker Partner AI App is automatically upgraded to the latest minor version during the next scheduled maintenance window, if one is available. Default is <code>FALSE</code>.</p>
             client_token: <p>A unique token that guarantees that the call to this API is idempotent.</p>
             tags: <p>Each tag consists of a key and an optional value. Tag keys must be unique per resource.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.conflict_exception.ConflictException: <p>There was a conflict when you attempted to modify a SageMaker entity such as an <code>Experiment</code> or <code>Artifact</code>.</p>
+            aws_sdk_sagemaker.errors.resource_limit_exceeded.ResourceLimitExceeded: <p> You have exceeded an SageMaker resource limit. For example, you might have too many training jobs created. </p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5768,6 +6058,10 @@ class AsyncSageMakerClient:
             arn: <p>The ARN of the SageMaker Partner AI App to create the presigned URL for.</p>
             expires_in_seconds: <p>The time that will pass before the presigned URL expires.</p>
             session_expiration_duration_in_seconds: <p>Indicates how long the Amazon SageMaker Partner AI App session can be accessed for after logging in.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5838,6 +6132,12 @@ class AsyncSageMakerClient:
             role_arn: <p>The Amazon Resource Name (ARN) of the role used by the pipeline to access and create resources.</p>
             tags: <p>A list of tags to apply to the created pipeline.</p>
             parallelism_configuration: <p>This is the configuration that controls the parallelism of the pipeline. If specified, it applies to all runs of this pipeline by default.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.conflict_exception.ConflictException: <p>There was a conflict when you attempted to modify a SageMaker entity such as an <code>Experiment</code> or <code>Artifact</code>.</p>
+            aws_sdk_sagemaker.errors.resource_limit_exceeded.ResourceLimitExceeded: <p> You have exceeded an SageMaker resource limit. For example, you might have too many training jobs created. </p>
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5904,6 +6204,10 @@ class AsyncSageMakerClient:
             expires_in_seconds: <p>The number of seconds until the pre-signed URL expires. This value defaults to 300.</p>
             space_name: <p>The name of the space.</p>
             landing_uri: <p>The landing page that the user is directed to when accessing the presigned URL. Using this value, users can access Studio or Studio Classic, even if it is not the default experience for the domain. The supported values are:</p> <ul> <li> <p> <code>studio::relative/path</code>: Directs users to the relative path in Studio.</p> </li> <li> <p> <code>app:JupyterServer:relative/path</code>: Directs users to the relative path in the Studio Classic application.</p> </li> <li> <p> <code>app:JupyterLab:relative/path</code>: Directs users to the relative path in the JupyterLab application.</p> </li> <li> <p> <code>app:RStudioServerPro:relative/path</code>: Directs users to the relative path in the RStudio application.</p> </li> <li> <p> <code>app:CodeEditor:relative/path</code>: Directs users to the relative path in the Code Editor, based on Code-OSS, Visual Studio Code - Open Source application.</p> </li> <li> <p> <code>app:Canvas:relative/path</code>: Directs users to the relative path in the Canvas application.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5961,6 +6265,10 @@ class AsyncSageMakerClient:
             arn: <p>The ARN of the MLflow App to connect to your MLflow UI.</p>
             expires_in_seconds: <p>The duration in seconds that your presigned URL is valid. The presigned URL can be used only once.</p>
             session_expiration_duration_in_seconds: <p>The duration in seconds that your presigned URL is valid. The presigned URL can be used only once.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -6013,6 +6321,10 @@ class AsyncSageMakerClient:
             tracking_server_name: <p>The name of the tracking server to connect to your MLflow UI.</p>
             expires_in_seconds: <p>The duration in seconds that your presigned URL is valid. The presigned URL can be used only once.</p>
             session_expiration_duration_in_seconds: <p>The duration in seconds that your MLflow UI session is valid.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -6061,6 +6373,9 @@ class AsyncSageMakerClient:
         Args:
             notebook_instance_name: <p>The name of the notebook instance.</p>
             session_expiration_duration_in_seconds: <p>The duration of the session, in seconds. The default is 12 hours.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -6134,6 +6449,12 @@ class AsyncSageMakerClient:
             network_config: <p>Networking options for a processing job, such as whether to allow inbound and outbound network calls to and from processing containers, and the VPC subnets and security groups to use for VPC-enabled processing jobs.</p>
             role_arn: <p>The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to perform tasks on your behalf.</p>
             tags: <p>(Optional) An array of key-value pairs. For more information, see <a href=\"https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-whatURL\">Using Cost Allocation Tags</a> in the <i>Amazon Web Services Billing and Cost Management User Guide</i>.</p> <important> <p>Do not include any security-sensitive information including account access IDs, secrets, or tokens in any tags. As part of the shared responsibility model, you are responsible for any potential exposure, unauthorized access, or compromise of your sensitive data if caused by security-sensitive information included in the request tag variable or plain text fields.</p> </important>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_in_use.ResourceInUse: <p>Resource being accessed is in use.</p>
+            aws_sdk_sagemaker.errors.resource_limit_exceeded.ResourceLimitExceeded: <p> You have exceeded an SageMaker resource limit. For example, you might have too many training jobs created. </p>
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -6203,6 +6524,10 @@ class AsyncSageMakerClient:
             service_catalog_provisioning_details: <p>The product ID and provisioning artifact ID to provision a service catalog. The provisioning artifact ID will default to the latest provisioning artifact ID of the product, if you don't provide the provisioning artifact ID. For more information, see <a href=\"https://docs.aws.amazon.com/servicecatalog/latest/adminguide/introduction.html\">What is Amazon Web Services Service Catalog</a>.</p>
             tags: <p>An array of key-value pairs that you want to use to organize and track your Amazon Web Services resource costs. For more information, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html\">Tagging Amazon Web Services resources</a> in the <i>Amazon Web Services General Reference Guide</i>.</p>
             template_providers: <p> An array of template provider configurations for creating infrastructure resources for the project. </p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_limit_exceeded.ResourceLimitExceeded: <p> You have exceeded an SageMaker resource limit. For example, you might have too many training jobs created. </p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -6271,6 +6596,11 @@ class AsyncSageMakerClient:
             ownership_settings: <p>A collection of ownership settings.</p>
             space_sharing_settings: <p>A collection of space sharing settings.</p>
             space_display_name: <p>The name of the space that appears in the SageMaker Studio UI.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_in_use.ResourceInUse: <p>Resource being accessed is in use.</p>
+            aws_sdk_sagemaker.errors.resource_limit_exceeded.ResourceLimitExceeded: <p> You have exceeded an SageMaker resource limit. For example, you might have too many training jobs created. </p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -6326,6 +6656,10 @@ class AsyncSageMakerClient:
             studio_lifecycle_config_content: <p>The content of your Amazon SageMaker AI Studio Lifecycle Configuration script. This content must be base64 encoded.</p>
             studio_lifecycle_config_app_type: <p>The App type that the Lifecycle Configuration is attached to.</p>
             tags: <p>Tags to be associated with the Lifecycle Configuration. Each tag consists of a key and an optional value. Tag keys must be unique per resource. Tags are searchable using the Search API. </p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_in_use.ResourceInUse: <p>Resource being accessed is in use.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -6466,6 +6800,12 @@ class AsyncSageMakerClient:
             serverless_job_config: <p> The configuration for serverless training jobs. </p>
             mlflow_config: <p> The MLflow configuration using SageMaker managed MLflow. </p>
             model_package_config: <p> The configuration for the model package. </p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_in_use.ResourceInUse: <p>Resource being accessed is in use.</p>
+            aws_sdk_sagemaker.errors.resource_limit_exceeded.ResourceLimitExceeded: <p> You have exceeded an SageMaker resource limit. For example, you might have too many training jobs created. </p>
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -6566,6 +6906,12 @@ class AsyncSageMakerClient:
             training_plan_offering_id: <p>The unique identifier of the training plan offering to use for creating this plan.</p>
             spare_instance_count_per_ultra_server: <p>Number of spare instances to reserve per UltraServer for enhanced resiliency. Default is 1.</p>
             tags: <p>An array of key-value pairs to apply to this training plan.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_in_use.ResourceInUse: <p>Resource being accessed is in use.</p>
+            aws_sdk_sagemaker.errors.resource_limit_exceeded.ResourceLimitExceeded: <p> You have exceeded an SageMaker resource limit. For example, you might have too many training jobs created. </p>
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -6652,6 +6998,12 @@ class AsyncSageMakerClient:
             transform_resources: <p>Describes the resources, including ML instance types and ML instance count, to use for the transform job.</p>
             data_processing: <p>The data structure used to specify the data to be used for inference in a batch transform job and to associate the data that is relevant to the prediction results in the output. The input filter provided allows you to exclude input data that is not needed for inference in a batch transform job. The output filter provided allows you to include input data relevant to interpreting the predictions in the output from the job. For more information, see <a href=\"https://docs.aws.amazon.com/sagemaker/latest/dg/batch-transform-data-processing.html\">Associate Prediction Results with their Corresponding Input Records</a>.</p>
             tags: <p>(Optional) An array of key-value pairs. For more information, see <a href=\"https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-what\">Using Cost Allocation Tags</a> in the <i>Amazon Web Services Billing and Cost Management User Guide</i>.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_in_use.ResourceInUse: <p>Resource being accessed is in use.</p>
+            aws_sdk_sagemaker.errors.resource_limit_exceeded.ResourceLimitExceeded: <p> You have exceeded an SageMaker resource limit. For example, you might have too many training jobs created. </p>
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -6723,6 +7075,11 @@ class AsyncSageMakerClient:
             display_name: <p>The name of the trial as displayed. The name doesn't need to be unique. If <code>DisplayName</code> isn't specified, <code>TrialName</code> is displayed.</p>
             experiment_name: <p>The name of the experiment to associate the trial with.</p>
             tags: <p>A list of tags to associate with the trial. You can use <a href=\"https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_Search.html\">Search</a> API to search on the tags.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_limit_exceeded.ResourceLimitExceeded: <p> You have exceeded an SageMaker resource limit. For example, you might have too many training jobs created. </p>
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -6797,6 +7154,10 @@ class AsyncSageMakerClient:
             input_artifacts: <p>The input artifacts for the component. Examples of input artifacts are datasets, algorithms, hyperparameters, source code, and instance types.</p>
             output_artifacts: <p>The output artifacts for the component. Examples of output artifacts are metrics, snapshots, logs, and images.</p>
             tags: <p>A list of tags to associate with the component. You can use <a href=\"https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_Search.html\">Search</a> API to search on the tags.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_limit_exceeded.ResourceLimitExceeded: <p> You have exceeded an SageMaker resource limit. For example, you might have too many training jobs created. </p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -6871,6 +7232,11 @@ class AsyncSageMakerClient:
             single_sign_on_user_value: <p>The username of the associated Amazon Web Services Single Sign-On User for this UserProfile. If the Domain's AuthMode is IAM Identity Center, this field is required, and must match a valid username of a user in your directory. If the Domain's AuthMode is not IAM Identity Center, this field cannot be specified. </p>
             tags: <p>Each tag consists of a key and an optional value. Tag keys must be unique per resource.</p> <p>Tags that you specify for the User Profile are also added to all Apps that the User Profile launches.</p>
             user_settings: <p>A collection of settings.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_in_use.ResourceInUse: <p>Resource being accessed is in use.</p>
+            aws_sdk_sagemaker.errors.resource_limit_exceeded.ResourceLimitExceeded: <p> You have exceeded an SageMaker resource limit. For example, you might have too many training jobs created. </p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -6937,6 +7303,9 @@ class AsyncSageMakerClient:
             tags: <p>An array of key-value pairs that contain metadata to help you categorize and organize our workforce. Each tag consists of a key and a value, both of which you define.</p>
             workforce_vpc_config: <p>Use this parameter to configure a workforce using VPC.</p>
             ip_address_type: <p>Use this parameter to specify whether you want <code>IPv4</code> only or <code>dualstack</code> (<code>IPv4</code> and <code>IPv6</code>) to support your labeling workforce.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -7005,6 +7374,11 @@ class AsyncSageMakerClient:
             notification_configuration: <p>Configures notification of workers regarding available or expiring work items.</p>
             worker_access_configuration: <p>Use this optional parameter to constrain access to an Amazon S3 resource based on the IP address using supported IAM global condition keys. The Amazon S3 resource is accessed in the worker portal using a Amazon S3 presigned URL.</p>
             tags: <p>An array of key-value pairs.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html\">Resource Tag</a> and <a href=\"https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-what\">Using Cost Allocation Tags</a> in the <i> Amazon Web Services Billing and Cost Management User Guide</i>.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_in_use.ResourceInUse: <p>Resource being accessed is in use.</p>
+            aws_sdk_sagemaker.errors.resource_limit_exceeded.ResourceLimitExceeded: <p> You have exceeded an SageMaker resource limit. For example, you might have too many training jobs created. </p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -7053,6 +7427,10 @@ class AsyncSageMakerClient:
 
         Args:
             action_name: <p>The name of the action to delete.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -7091,6 +7469,10 @@ class AsyncSageMakerClient:
 
         Args:
             ai_benchmark_job_name: <p>The name of the AI benchmark job to delete.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -7129,6 +7511,10 @@ class AsyncSageMakerClient:
 
         Args:
             ai_recommendation_job_name: <p>The name of the AI recommendation job to delete.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -7167,6 +7553,11 @@ class AsyncSageMakerClient:
 
         Args:
             ai_workload_config_name: <p>The name of the AI workload configuration to delete.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_in_use.ResourceInUse: <p>Resource being accessed is in use.</p>
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -7205,6 +7596,10 @@ class AsyncSageMakerClient:
 
         Args:
             algorithm_name: <p>The name of the algorithm to delete.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.conflict_exception.ConflictException: <p>There was a conflict when you attempted to modify a SageMaker entity such as an <code>Experiment</code> or <code>Artifact</code>.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -7251,6 +7646,11 @@ class AsyncSageMakerClient:
             space_name: <p>The name of the space. If this value is not set, then <code>UserProfileName</code> must be set.</p>
             app_type: <p>The type of app.</p>
             app_name: <p>The name of the app.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_in_use.ResourceInUse: <p>Resource being accessed is in use.</p>
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -7293,6 +7693,10 @@ class AsyncSageMakerClient:
 
         Args:
             app_image_config_name: <p>The name of the AppImageConfig to delete.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -7335,6 +7739,10 @@ class AsyncSageMakerClient:
         Args:
             artifact_arn: <p>The Amazon Resource Name (ARN) of the artifact to delete.</p>
             source: <p>The URI of the source.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -7380,6 +7788,10 @@ class AsyncSageMakerClient:
         Args:
             source_arn: <p>The ARN of the source.</p>
             destination_arn: <p>The Amazon Resource Name (ARN) of the destination.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -7419,6 +7831,11 @@ class AsyncSageMakerClient:
 
         Args:
             cluster_name: <p>The string name or the Amazon Resource Name (ARN) of the SageMaker HyperPod cluster to delete.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.conflict_exception.ConflictException: <p>There was a conflict when you attempted to modify a SageMaker entity such as an <code>Experiment</code> or <code>Artifact</code>.</p>
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -7457,6 +7874,10 @@ class AsyncSageMakerClient:
 
         Args:
             cluster_scheduler_config_id: <p>ID of the cluster policy.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -7493,6 +7914,9 @@ class AsyncSageMakerClient:
 
         Args:
             code_repository_name: <p>The name of the Git repository to delete.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -7529,6 +7953,10 @@ class AsyncSageMakerClient:
 
         Args:
             compilation_job_name: <p>The name of the compilation job to delete.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -7565,6 +7993,10 @@ class AsyncSageMakerClient:
 
         Args:
             compute_quota_id: <p>ID of the compute allocation definition.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -7601,6 +8033,10 @@ class AsyncSageMakerClient:
 
         Args:
             context_name: <p>The name of the context to delete.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -7639,6 +8075,10 @@ class AsyncSageMakerClient:
 
         Args:
             job_definition_name: <p>The name of the data quality monitoring job definition to delete.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -7675,6 +8115,10 @@ class AsyncSageMakerClient:
 
         Args:
             device_fleet_name: <p>The name of the fleet to delete.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_in_use.ResourceInUse: <p>Resource being accessed is in use.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -7715,6 +8159,11 @@ class AsyncSageMakerClient:
         Args:
             domain_id: <p>The domain ID.</p>
             retention_policy: <p>The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained (not automatically deleted). </p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_in_use.ResourceInUse: <p>Resource being accessed is in use.</p>
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -7753,6 +8202,10 @@ class AsyncSageMakerClient:
 
         Args:
             edge_deployment_plan_name: <p>The name of the edge deployment plan to delete.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_in_use.ResourceInUse: <p>Resource being accessed is in use.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -7791,6 +8244,10 @@ class AsyncSageMakerClient:
         Args:
             edge_deployment_plan_name: <p>The name of the edge deployment plan from which the stage will be deleted.</p>
             stage_name: <p>The name of the stage.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_in_use.ResourceInUse: <p>Resource being accessed is in use.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -7828,6 +8285,9 @@ class AsyncSageMakerClient:
 
         Args:
             endpoint_name: <p>The name of the endpoint that you want to delete.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -7864,6 +8324,9 @@ class AsyncSageMakerClient:
 
         Args:
             endpoint_config_name: <p>The name of the endpoint configuration that you want to delete.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -7900,6 +8363,10 @@ class AsyncSageMakerClient:
 
         Args:
             experiment_name: <p>The name of the experiment to delete.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -7938,6 +8405,10 @@ class AsyncSageMakerClient:
 
         Args:
             feature_group_name: <p>The name of the <code>FeatureGroup</code> you want to delete. The name must be unique within an Amazon Web Services Region in an Amazon Web Services account. </p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -7974,6 +8445,11 @@ class AsyncSageMakerClient:
 
         Args:
             flow_definition_name: <p>The name of the flow definition you are deleting.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_in_use.ResourceInUse: <p>Resource being accessed is in use.</p>
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -8012,6 +8488,11 @@ class AsyncSageMakerClient:
 
         Args:
             hub_name: <p>The name of the hub to delete.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_in_use.ResourceInUse: <p>Resource being accessed is in use.</p>
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -8054,6 +8535,11 @@ class AsyncSageMakerClient:
             hub_content_type: <p>The type of content that you want to delete from a hub.</p>
             hub_content_name: <p>The name of the content that you want to delete from a hub.</p>
             hub_content_version: <p>The version of the content that you want to delete from a hub.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_in_use.ResourceInUse: <p>Resource being accessed is in use.</p>
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -8097,6 +8583,10 @@ class AsyncSageMakerClient:
             hub_name: <p>The name of the hub to delete the hub content reference from.</p>
             hub_content_type: <p>The type of hub content reference to delete. The only supported type of hub content reference to delete is <code>ModelReference</code>.</p>
             hub_content_name: <p>The name of the hub content to delete.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -8135,6 +8625,10 @@ class AsyncSageMakerClient:
 
         Args:
             human_task_ui_name: <p>The name of the human task user interface (work task template) you want to delete.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -8173,6 +8667,9 @@ class AsyncSageMakerClient:
 
         Args:
             hyper_parameter_tuning_job_name: <p>The name of the hyperparameter tuning job that you want to delete.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -8209,6 +8706,11 @@ class AsyncSageMakerClient:
 
         Args:
             image_name: <p>The name of the image to delete.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_in_use.ResourceInUse: <p>Resource being accessed is in use.</p>
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -8255,6 +8757,11 @@ class AsyncSageMakerClient:
             image_name: <p>The name of the image to delete.</p>
             version: <p>The version to delete.</p>
             alias: <p>The alias of the image to delete.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_in_use.ResourceInUse: <p>Resource being accessed is in use.</p>
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -8297,6 +8804,9 @@ class AsyncSageMakerClient:
 
         Args:
             inference_component_name: <p>The name of the inference component to delete.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -8333,6 +8843,11 @@ class AsyncSageMakerClient:
 
         Args:
             name: <p>The name of the inference experiment you want to delete.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.conflict_exception.ConflictException: <p>There was a conflict when you attempted to modify a SageMaker entity such as an <code>Experiment</code> or <code>Artifact</code>.</p>
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -8373,6 +8888,11 @@ class AsyncSageMakerClient:
         Args:
             job_name: <p>The name of the job to delete.</p>
             job_category: <p>The category of the job to delete.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_in_use.ResourceInUse: <p>Resource being accessed is in use.</p>
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -8412,6 +8932,10 @@ class AsyncSageMakerClient:
 
         Args:
             arn: <p>The ARN of the MLflow App to delete.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -8450,6 +8974,10 @@ class AsyncSageMakerClient:
 
         Args:
             tracking_server_name: <p>The name of the the tracking server to delete.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -8488,6 +9016,9 @@ class AsyncSageMakerClient:
 
         Args:
             model_name: <p>The name of the model to delete.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -8524,6 +9055,10 @@ class AsyncSageMakerClient:
 
         Args:
             job_definition_name: <p>The name of the model bias job definition to delete.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -8560,6 +9095,11 @@ class AsyncSageMakerClient:
 
         Args:
             model_card_name: <p>The name of the model card to delete.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.conflict_exception.ConflictException: <p>There was a conflict when you attempted to modify a SageMaker entity such as an <code>Experiment</code> or <code>Artifact</code>.</p>
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -8596,6 +9136,10 @@ class AsyncSageMakerClient:
 
         Args:
             job_definition_name: <p>The name of the model explainability job definition to delete.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -8632,6 +9176,10 @@ class AsyncSageMakerClient:
 
         Args:
             model_package_name: <p>The name or Amazon Resource Name (ARN) of the model package to delete.</p> <p>When you specify a name, the name must have 1 to 63 characters. Valid characters are a-z, A-Z, 0-9, and - (hyphen).</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.conflict_exception.ConflictException: <p>There was a conflict when you attempted to modify a SageMaker entity such as an <code>Experiment</code> or <code>Artifact</code>.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -8668,6 +9216,10 @@ class AsyncSageMakerClient:
 
         Args:
             model_package_group_name: <p>The name of the model group to delete.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.conflict_exception.ConflictException: <p>There was a conflict when you attempted to modify a SageMaker entity such as an <code>Experiment</code> or <code>Artifact</code>.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -8704,6 +9256,9 @@ class AsyncSageMakerClient:
 
         Args:
             model_package_group_name: <p>The name of the model group for which to delete the policy.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -8740,6 +9295,10 @@ class AsyncSageMakerClient:
 
         Args:
             job_definition_name: <p>The name of the model quality monitoring job definition to delete.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -8776,6 +9335,10 @@ class AsyncSageMakerClient:
 
         Args:
             monitoring_schedule_name: <p>The name of the monitoring schedule to delete.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -8812,6 +9375,9 @@ class AsyncSageMakerClient:
 
         Args:
             notebook_instance_name: <p>The name of the SageMaker AI notebook instance to delete.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -8848,6 +9414,9 @@ class AsyncSageMakerClient:
 
         Args:
             notebook_instance_lifecycle_config_name: <p>The name of the lifecycle configuration to delete.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -8886,6 +9455,10 @@ class AsyncSageMakerClient:
 
         Args:
             optimization_job_name: <p>The name that you assigned to the optimization job.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -8926,6 +9499,11 @@ class AsyncSageMakerClient:
         Args:
             arn: <p>The ARN of the SageMaker Partner AI App to delete.</p>
             client_token: <p>A unique token that guarantees that the call to this API is idempotent.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.conflict_exception.ConflictException: <p>There was a conflict when you attempted to modify a SageMaker entity such as an <code>Experiment</code> or <code>Artifact</code>.</p>
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -8968,6 +9546,11 @@ class AsyncSageMakerClient:
         Args:
             pipeline_name: <p>The name of the pipeline to delete.</p>
             client_request_token: <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the operation. An idempotent operation completes no more than one time.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.conflict_exception.ConflictException: <p>There was a conflict when you attempted to modify a SageMaker entity such as an <code>Experiment</code> or <code>Artifact</code>.</p>
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -9007,6 +9590,11 @@ class AsyncSageMakerClient:
 
         Args:
             processing_job_name: <p>The name of the processing job to delete.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_in_use.ResourceInUse: <p>Resource being accessed is in use.</p>
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -9043,6 +9631,10 @@ class AsyncSageMakerClient:
 
         Args:
             project_name: <p>The name of the project to delete.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.conflict_exception.ConflictException: <p>There was a conflict when you attempted to modify a SageMaker entity such as an <code>Experiment</code> or <code>Artifact</code>.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -9081,6 +9673,11 @@ class AsyncSageMakerClient:
         Args:
             domain_id: <p>The ID of the associated domain.</p>
             space_name: <p>The name of the space.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_in_use.ResourceInUse: <p>Resource being accessed is in use.</p>
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -9118,6 +9715,11 @@ class AsyncSageMakerClient:
 
         Args:
             studio_lifecycle_config_name: <p>The name of the Amazon SageMaker AI Studio Lifecycle Configuration to delete.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_in_use.ResourceInUse: <p>Resource being accessed is in use.</p>
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -9156,6 +9758,9 @@ class AsyncSageMakerClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource whose tags you want to delete.</p>
             tag_keys: <p>An array or one or more tag keys to delete.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -9195,6 +9800,11 @@ class AsyncSageMakerClient:
 
         Args:
             training_job_name: <p>The name of the training job to delete.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_in_use.ResourceInUse: <p>Resource being accessed is in use.</p>
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -9231,6 +9841,10 @@ class AsyncSageMakerClient:
 
         Args:
             trial_name: <p>The name of the trial to delete.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -9269,6 +9883,10 @@ class AsyncSageMakerClient:
 
         Args:
             trial_component_name: <p>The name of the component to delete.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -9309,6 +9927,11 @@ class AsyncSageMakerClient:
         Args:
             domain_id: <p>The domain ID.</p>
             user_profile_name: <p>The user profile name.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_in_use.ResourceInUse: <p>Resource being accessed is in use.</p>
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -9346,6 +9969,9 @@ class AsyncSageMakerClient:
 
         Args:
             workforce_name: <p>The name of the workforce.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -9384,6 +10010,10 @@ class AsyncSageMakerClient:
 
         Args:
             workteam_name: <p>The name of the work team to delete.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_limit_exceeded.ResourceLimitExceeded: <p> You have exceeded an SageMaker resource limit. For example, you might have too many training jobs created. </p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -9424,6 +10054,9 @@ class AsyncSageMakerClient:
         Args:
             device_fleet_name: <p>The name of the fleet the devices belong to.</p>
             device_names: <p>The unique IDs of the devices.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -9461,6 +10094,10 @@ class AsyncSageMakerClient:
 
         Args:
             action_name: <p>The name of the action to describe.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -9499,6 +10136,10 @@ class AsyncSageMakerClient:
 
         Args:
             ai_benchmark_job_name: <p>The name of the AI benchmark job to describe.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -9537,6 +10178,10 @@ class AsyncSageMakerClient:
 
         Args:
             ai_recommendation_job_name: <p>The name of the AI recommendation job to describe.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -9575,6 +10220,10 @@ class AsyncSageMakerClient:
 
         Args:
             ai_workload_config_name: <p>The name of the AI workload configuration to describe.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -9613,6 +10262,9 @@ class AsyncSageMakerClient:
 
         Args:
             algorithm_name: <p>The name of the algorithm to describe.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -9661,6 +10313,10 @@ class AsyncSageMakerClient:
             space_name: <p>The name of the space.</p>
             app_type: <p>The type of app.</p>
             app_name: <p>The name of the app.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -9705,6 +10361,10 @@ class AsyncSageMakerClient:
 
         Args:
             app_image_config_name: <p>The name of the AppImageConfig to describe.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -9743,6 +10403,10 @@ class AsyncSageMakerClient:
 
         Args:
             artifact_arn: <p>The Amazon Resource Name (ARN) of the artifact to describe.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -9781,6 +10445,10 @@ class AsyncSageMakerClient:
 
         Args:
             auto_ml_job_name: <p>Requests information about an AutoML job using its unique name.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -9819,6 +10487,10 @@ class AsyncSageMakerClient:
 
         Args:
             auto_ml_job_name: <p>Requests information about an AutoML job V2 using its unique name.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -9857,6 +10529,10 @@ class AsyncSageMakerClient:
 
         Args:
             cluster_name: <p>The string name or the Amazon Resource Name (ARN) of the SageMaker HyperPod cluster.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -9897,6 +10573,10 @@ class AsyncSageMakerClient:
         Args:
             event_id: <p>The unique identifier (UUID) of the event to describe. This ID can be obtained from the <code>ListClusterEvents</code> operation.</p>
             cluster_name: <p>The name or Amazon Resource Name (ARN) of the HyperPod cluster associated with the event.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -9944,6 +10624,10 @@ class AsyncSageMakerClient:
             cluster_name: <p>The string name or the Amazon Resource Name (ARN) of the SageMaker HyperPod cluster in which the node is.</p>
             node_id: <p>The ID of the SageMaker HyperPod cluster node.</p>
             node_logical_id: <p>The logical identifier of the node to describe. You can specify either <code>NodeLogicalId</code> or <code>InstanceId</code>, but not both. <code>NodeLogicalId</code> can be used to describe nodes that are still being provisioned and don't yet have an <code>InstanceId</code> assigned.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -9990,6 +10674,10 @@ class AsyncSageMakerClient:
         Args:
             cluster_scheduler_config_id: <p>ID of the cluster policy.</p>
             cluster_scheduler_config_version: <p>Version of the cluster policy.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -10032,6 +10720,9 @@ class AsyncSageMakerClient:
 
         Args:
             code_repository_name: <p>The name of the Git repository to describe.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -10070,6 +10761,10 @@ class AsyncSageMakerClient:
 
         Args:
             compilation_job_name: <p>The name of the model compilation job that you want information about.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -10112,6 +10807,10 @@ class AsyncSageMakerClient:
         Args:
             compute_quota_id: <p>ID of the compute allocation definition.</p>
             compute_quota_version: <p>Version of the compute allocation definition.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -10152,6 +10851,10 @@ class AsyncSageMakerClient:
 
         Args:
             context_name: <p>The name of the context to describe.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -10190,6 +10893,10 @@ class AsyncSageMakerClient:
 
         Args:
             job_definition_name: <p>The name of the data quality monitoring job definition to describe.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -10232,6 +10939,10 @@ class AsyncSageMakerClient:
             next_token: <p>Next token of device description.</p>
             device_name: <p>The unique ID of the device.</p>
             device_fleet_name: <p>The name of the fleet the devices belong to.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -10273,6 +10984,10 @@ class AsyncSageMakerClient:
 
         Args:
             device_fleet_name: <p>The name of the fleet.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -10311,6 +11026,10 @@ class AsyncSageMakerClient:
 
         Args:
             domain_id: <p>The domain ID.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -10355,6 +11074,10 @@ class AsyncSageMakerClient:
             edge_deployment_plan_name: <p>The name of the deployment plan to describe.</p>
             next_token: <p>If the edge deployment plan has enough stages to require tokening, then this is the response from the last list of stages returned.</p>
             max_results: <p>The maximum number of results to select (50 by default).</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -10397,6 +11120,10 @@ class AsyncSageMakerClient:
 
         Args:
             edge_packaging_job_name: <p>The name of the edge packaging job.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -10435,6 +11162,9 @@ class AsyncSageMakerClient:
 
         Args:
             endpoint_name: <p>The name of the endpoint.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -10473,6 +11203,9 @@ class AsyncSageMakerClient:
 
         Args:
             endpoint_config_name: <p>The name of the endpoint configuration.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -10511,6 +11244,10 @@ class AsyncSageMakerClient:
 
         Args:
             experiment_name: <p>The name of the experiment to describe.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -10551,6 +11288,10 @@ class AsyncSageMakerClient:
         Args:
             feature_group_name: <p>The name or Amazon Resource Name (ARN) of the <code>FeatureGroup</code> you want described. </p>
             next_token: <p>A token to resume pagination of the list of <code>Features</code> (<code>FeatureDefinitions</code>). 2,500 <code>Features</code> are returned by default.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -10593,6 +11334,10 @@ class AsyncSageMakerClient:
         Args:
             feature_group_name: <p>The name or Amazon Resource Name (ARN) of the feature group containing the feature.</p>
             feature_name: <p>The name of the feature.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -10632,6 +11377,10 @@ class AsyncSageMakerClient:
 
         Args:
             flow_definition_name: <p>The name of the flow definition.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -10670,6 +11419,10 @@ class AsyncSageMakerClient:
 
         Args:
             hub_name: <p>The name of the hub to describe.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -10716,6 +11469,10 @@ class AsyncSageMakerClient:
             hub_content_type: <p>The type of content in the hub.</p>
             hub_content_name: <p>The name of the content to describe.</p>
             hub_content_version: <p>The version of the content to describe.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -10758,6 +11515,10 @@ class AsyncSageMakerClient:
 
         Args:
             human_task_ui_name: <p>The name of the human task user interface (worker task template) you want information about.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -10796,6 +11557,10 @@ class AsyncSageMakerClient:
 
         Args:
             hyper_parameter_tuning_job_name: <p>The name of the tuning job.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -10834,6 +11599,10 @@ class AsyncSageMakerClient:
 
         Args:
             image_name: <p>The name of the image to describe.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -10880,6 +11649,10 @@ class AsyncSageMakerClient:
             image_name: <p>The name of the image.</p>
             version: <p>The version of the image. If not specified, the latest version is described.</p>
             alias: <p>The alias of the image version.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -10922,6 +11695,9 @@ class AsyncSageMakerClient:
 
         Args:
             inference_component_name: <p>The name of the inference component.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -10960,6 +11736,10 @@ class AsyncSageMakerClient:
 
         Args:
             name: <p>The name of the inference experiment to describe.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -10998,6 +11778,10 @@ class AsyncSageMakerClient:
 
         Args:
             job_name: <p>The name of the job. The name must be unique within an Amazon Web Services Region in the Amazon Web Services account.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -11038,6 +11822,10 @@ class AsyncSageMakerClient:
         Args:
             job_name: <p>The name of the job to describe.</p>
             job_category: <p>The category of the job.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -11081,6 +11869,10 @@ class AsyncSageMakerClient:
         Args:
             job_category: <p>The category of the job schema to describe.</p>
             job_config_schema_version: <p>The version of the schema to retrieve. If not specified, the latest version is returned.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -11121,6 +11913,10 @@ class AsyncSageMakerClient:
 
         Args:
             labeling_job_name: <p>The name of the labeling job to return information for.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -11159,6 +11955,10 @@ class AsyncSageMakerClient:
 
         Args:
             lineage_group_name: <p>The name of the lineage group.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -11199,6 +11999,10 @@ class AsyncSageMakerClient:
 
         Args:
             arn: <p>The ARN of the MLflow App for which to get information.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -11237,6 +12041,10 @@ class AsyncSageMakerClient:
 
         Args:
             tracking_server_name: <p>The name of the MLflow Tracking Server to describe.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -11275,6 +12083,9 @@ class AsyncSageMakerClient:
 
         Args:
             model_name: <p>The name of the model.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -11313,6 +12124,10 @@ class AsyncSageMakerClient:
 
         Args:
             job_definition_name: <p>The name of the model bias job definition. The name must be unique within an Amazon Web Services Region in the Amazon Web Services account.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -11359,6 +12174,10 @@ class AsyncSageMakerClient:
             model_card_name: <p>The name or Amazon Resource Name (ARN) of the model card to describe.</p>
             model_card_version: <p>The version of the model card to describe. If a version is not provided, then the latest version of the model card is described.</p>
             included_data: <p>Specifies the level of model card data to include in the response. Use this parameter to call <code>DescribeModelCard</code> without requiring <code>kms:Decrypt</code> permission on the customer-managed Amazon Web Services KMS key.</p> <ul> <li> <p> <code>AllData</code>: Returns the full model card <code>Content</code>. This option requires <code>kms:Decrypt</code> permission on the customer-managed key, if one is associated with the model card. This is the default.</p> </li> <li> <p> <code>MetadataOnly</code>: Returns the model card with sanitized <code>Content</code> that includes only a small set of unencrypted metadata fields. This option does not require <code>kms:Decrypt</code> permission. For the list of fields preserved in the response, see <code>Content</code>.</p> </li> </ul> <p>If you don't specify a value, SageMaker returns <code>AllData</code>.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -11401,6 +12220,10 @@ class AsyncSageMakerClient:
 
         Args:
             model_card_export_job_arn: <p>The Amazon Resource Name (ARN) of the model card export job to describe.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -11439,6 +12262,10 @@ class AsyncSageMakerClient:
 
         Args:
             job_definition_name: <p>The name of the model explainability job definition. The name must be unique within an Amazon Web Services Region in the Amazon Web Services account.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -11481,6 +12308,9 @@ class AsyncSageMakerClient:
         Args:
             model_package_name: <p>The name or Amazon Resource Name (ARN) of the model package to describe.</p> <p>When you specify a name, the name must have 1 to 63 characters. Valid characters are a-z, A-Z, 0-9, and - (hyphen).</p>
             included_data: <p>Specifies the level of model package data to include in the response. Use this parameter to call <code>DescribeModelPackage</code> on a model package that has an associated model card without requiring <code>kms:Decrypt</code> permission on the customer-managed KMS key associated with the embedded model card.</p> <ul> <li> <p> <code>AllData</code>: Returns the full model package response, including the unredacted <code>ModelCard.ModelCardContent</code>. This option requires <code>kms:Decrypt</code> permission on the customer-managed key, if one is associated with the embedded model card. This is the default.</p> </li> <li> <p> <code>MetadataOnly</code>: Returns the full model package response, but with the embedded <code>ModelCard.ModelCardContent</code> sanitized to include only a small set of unencrypted metadata fields. This option does not require <code>kms:Decrypt</code> permission. All other top-level response fields, including <code>InferenceSpecification</code>, <code>ModelMetrics</code>, <code>DriftCheckBaselines</code>, and <code>SecurityConfig</code>, are returned unchanged. For the list of fields preserved within <code>ModelCardContent</code>, see <a href=\"https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeModelPackage.html#sagemaker-DescribeModelPackage-response-ModelCard\">ModelCard</a>.</p> </li> </ul> <p>If you don't specify a value, SageMaker returns <code>AllData</code>.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -11521,6 +12351,9 @@ class AsyncSageMakerClient:
 
         Args:
             model_package_group_name: <p>The name of the model group to describe.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -11559,6 +12392,10 @@ class AsyncSageMakerClient:
 
         Args:
             job_definition_name: <p>The name of the model quality job. The name must be unique within an Amazon Web Services Region in the Amazon Web Services account.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -11597,6 +12434,10 @@ class AsyncSageMakerClient:
 
         Args:
             monitoring_schedule_name: <p>Name of a previously created monitoring schedule.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -11635,6 +12476,9 @@ class AsyncSageMakerClient:
 
         Args:
             notebook_instance_name: <p>The name of the notebook instance that you want information about.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -11673,6 +12517,9 @@ class AsyncSageMakerClient:
 
         Args:
             notebook_instance_lifecycle_config_name: <p>The name of the lifecycle configuration to describe.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -11713,6 +12560,10 @@ class AsyncSageMakerClient:
 
         Args:
             optimization_job_name: <p>The name that you assigned to the optimization job.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -11755,6 +12606,10 @@ class AsyncSageMakerClient:
         Args:
             arn: <p>The ARN of the SageMaker Partner AI App to describe.</p>
             include_available_upgrade: <p>When set to <code>TRUE</code>, the response includes available upgrade information for the SageMaker Partner AI App. Default is <code>FALSE</code>.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -11799,6 +12654,10 @@ class AsyncSageMakerClient:
         Args:
             pipeline_name: <p>The name or Amazon Resource Name (ARN) of the pipeline to describe.</p>
             pipeline_version_id: <p>The ID of the pipeline version to describe.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -11839,6 +12698,10 @@ class AsyncSageMakerClient:
 
         Args:
             pipeline_execution_arn: <p>The Amazon Resource Name (ARN) of the pipeline execution.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -11877,6 +12740,10 @@ class AsyncSageMakerClient:
 
         Args:
             pipeline_execution_arn: <p>The Amazon Resource Name (ARN) of the pipeline execution.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -11915,6 +12782,10 @@ class AsyncSageMakerClient:
 
         Args:
             processing_job_name: <p>The name of the processing job. The name must be unique within an Amazon Web Services Region in the Amazon Web Services account.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -11953,6 +12824,9 @@ class AsyncSageMakerClient:
 
         Args:
             project_name: <p>The name of the project to describe.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -11991,6 +12865,10 @@ class AsyncSageMakerClient:
 
         Args:
             reserved_capacity_arn: <p>ARN of the reserved capacity to describe.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -12031,6 +12909,10 @@ class AsyncSageMakerClient:
         Args:
             domain_id: <p>The ID of the associated domain.</p>
             space_name: <p>The name of the space.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -12070,6 +12952,10 @@ class AsyncSageMakerClient:
 
         Args:
             studio_lifecycle_config_name: <p>The name of the Amazon SageMaker AI Studio Lifecycle Configuration to describe.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -12108,6 +12994,9 @@ class AsyncSageMakerClient:
 
         Args:
             workteam_arn: <p>The Amazon Resource Name (ARN) of the subscribed work team to describe.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -12146,6 +13035,10 @@ class AsyncSageMakerClient:
 
         Args:
             training_job_name: <p>The name of the training job.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -12184,6 +13077,10 @@ class AsyncSageMakerClient:
 
         Args:
             training_plan_name: <p>The name of the training plan to describe.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -12226,6 +13123,10 @@ class AsyncSageMakerClient:
             training_plan_arn: <p>The Amazon Resource Name (ARN); of the training plan to retrieve extension history for.</p>
             next_token: <p>A token to continue pagination if more results are available.</p>
             max_results: <p>The maximum number of extensions to return in the response.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -12291,6 +13192,10 @@ class AsyncSageMakerClient:
 
         Args:
             transform_job_name: <p>The name of the transform job that you want to view details of.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -12329,6 +13234,10 @@ class AsyncSageMakerClient:
 
         Args:
             trial_name: <p>The name of the trial to describe.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -12367,6 +13276,10 @@ class AsyncSageMakerClient:
 
         Args:
             trial_component_name: <p>The name of the trial component to describe.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -12407,6 +13320,11 @@ class AsyncSageMakerClient:
         Args:
             domain_id: <p>The domain ID.</p>
             user_profile_name: <p>The user profile name. This value is not case sensitive.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_limit_exceeded.ResourceLimitExceeded: <p> You have exceeded an SageMaker resource limit. For example, you might have too many training jobs created. </p>
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -12448,6 +13366,9 @@ class AsyncSageMakerClient:
 
         Args:
             workforce_name: <p>The name of the private workforce whose access you want to restrict. <code>WorkforceName</code> is automatically set to <code>default</code> when a workforce is created and cannot be modified. </p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -12486,6 +13407,9 @@ class AsyncSageMakerClient:
 
         Args:
             workteam_name: <p>The name of the work team to return a description of.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -12528,6 +13452,10 @@ class AsyncSageMakerClient:
             cluster_arn: <p> The Amazon Resource Name (ARN) of your SageMaker HyperPod cluster containing the target node. Your cluster must use EKS as the orchestration and be in the <code>InService</code> state. </p>
             node_id: <p> The unique identifier of the cluster node from which you want to detach the volume. </p>
             volume_id: <p> The unique identifier of your EBS volume that you want to detach. Your volume must be currently attached to the specified node. </p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -12561,7 +13489,11 @@ class AsyncSageMakerClient:
     async def disable_sagemaker_servicecatalog_portfolio(
         self, *, config_overrides: Optional[AsyncSageMakerClientConfig] = None
     ) -> "aws_sdk_sagemaker.types.disable_sagemaker_servicecatalog_portfolio_output.DisableSagemakerServicecatalogPortfolioOutput":
-        """<p>Disables using Service Catalog in SageMaker. Service Catalog is used to create SageMaker projects.</p>"""
+        """<p>Disables using Service Catalog in SageMaker. Service Catalog is used to create SageMaker projects.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_sagemaker.types.disable_sagemaker_servicecatalog_portfolio_input.DisableSagemakerServicecatalogPortfolioInput]",
@@ -12600,6 +13532,10 @@ class AsyncSageMakerClient:
         Args:
             trial_component_name: <p>The name of the component to disassociate from the trial.</p>
             trial_name: <p>The name of the trial to disassociate from.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -12632,7 +13568,11 @@ class AsyncSageMakerClient:
     async def enable_sagemaker_servicecatalog_portfolio(
         self, *, config_overrides: Optional[AsyncSageMakerClientConfig] = None
     ) -> "aws_sdk_sagemaker.types.enable_sagemaker_servicecatalog_portfolio_output.EnableSagemakerServicecatalogPortfolioOutput":
-        """<p>Enables using Service Catalog in SageMaker. Service Catalog is used to create SageMaker projects.</p>"""
+        """<p>Enables using Service Catalog in SageMaker. Service Catalog is used to create SageMaker projects.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_sagemaker.types.enable_sagemaker_servicecatalog_portfolio_input.EnableSagemakerServicecatalogPortfolioInput]",
@@ -12669,6 +13609,10 @@ class AsyncSageMakerClient:
 
         Args:
             training_plan_extension_offering_id: <p>The unique identifier of the extension offering to purchase. You can retrieve this ID from the <code>TrainingPlanExtensionOfferings</code> in the response of the <code>SearchTrainingPlanOfferings</code> API.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -12709,6 +13653,9 @@ class AsyncSageMakerClient:
 
         Args:
             device_fleet_name: <p>The name of the fleet.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -12747,6 +13694,10 @@ class AsyncSageMakerClient:
 
         Args:
             lineage_group_name: <p>The name or Amazon Resource Name (ARN) of the lineage group.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -12785,6 +13736,9 @@ class AsyncSageMakerClient:
 
         Args:
             model_package_group_name: <p>The name of the model group for which to get the resource policy.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -12816,7 +13770,11 @@ class AsyncSageMakerClient:
     async def get_sagemaker_servicecatalog_portfolio_status(
         self, *, config_overrides: Optional[AsyncSageMakerClientConfig] = None
     ) -> "aws_sdk_sagemaker.types.get_sagemaker_servicecatalog_portfolio_status_output.GetSagemakerServicecatalogPortfolioStatusOutput":
-        """<p>Gets the status of Service Catalog in SageMaker. Service Catalog is used to create SageMaker projects.</p>"""
+        """<p>Gets the status of Service Catalog in SageMaker. Service Catalog is used to create SageMaker projects.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_sagemaker.types.get_sagemaker_servicecatalog_portfolio_status_input.GetSagemakerServicecatalogPortfolioStatusInput]",
@@ -12867,6 +13825,10 @@ class AsyncSageMakerClient:
             endpoint_name: <p>The name of an endpoint benchmarked during a previously completed inference recommendation job. This name should come from one of the recommendations returned by the job specified in the <code>InferenceRecommendationsJobName</code> field.</p> <p>Specify either this field or the <code>RecommendationId</code> field.</p>
             target_cpu_utilization_per_core: <p>The percentage of how much utilization you want an instance to use before autoscaling. The default value is 50%.</p>
             scaling_policy_objective: <p>An object where you specify the anticipated traffic pattern for an endpoint.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -12919,6 +13881,9 @@ class AsyncSageMakerClient:
         Args:
             resource: <p>The name of the SageMaker resource to search for.</p>
             suggestion_query: <p>Limits the property names that are included in the response.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -12993,6 +13958,12 @@ class AsyncSageMakerClient:
             support_status: <p>The status of the hub content resource.</p>
             hub_content_search_keywords: <p>The searchable keywords of the hub content.</p>
             tags: <p>Any tags associated with the hub content.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_in_use.ResourceInUse: <p>Resource being accessed is in use.</p>
+            aws_sdk_sagemaker.errors.resource_limit_exceeded.ResourceLimitExceeded: <p> You have exceeded an SageMaker resource limit. For example, you might have too many training jobs created. </p>
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -13065,6 +14036,10 @@ class AsyncSageMakerClient:
             sort_order: <p>The sort order. The default value is <code>Descending</code>.</p>
             next_token: <p>If the previous call to <code>ListActions</code> didn't return the full set of actions, the call returns a token for getting the next set of actions.</p>
             max_results: <p>The maximum number of actions to return in the response. The default value is 10.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -13177,6 +14152,9 @@ class AsyncSageMakerClient:
             creation_time_before: <p>A filter that returns only jobs created before the specified time.</p>
             sort_by: <p>The field to sort results by. The default is <code>CreationTime</code>.</p>
             sort_order: <p>The sort order for results. The default is <code>Descending</code>.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -13297,6 +14275,9 @@ class AsyncSageMakerClient:
             creation_time_before: <p>A filter that returns only jobs created before the specified time.</p>
             sort_by: <p>The field to sort results by. The default is <code>CreationTime</code>.</p>
             sort_order: <p>The sort order for results. The default is <code>Descending</code>.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -13413,6 +14394,9 @@ class AsyncSageMakerClient:
             creation_time_before: <p>A filter that returns only configurations created before the specified time.</p>
             sort_by: <p>The field to sort results by. The default is <code>CreationTime</code>.</p>
             sort_order: <p>The sort order for results. The default is <code>Descending</code>.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -13523,6 +14507,9 @@ class AsyncSageMakerClient:
             next_token: <p>If the response to a previous <code>ListAlgorithms</code> request was truncated, the response includes a <code>NextToken</code>. To retrieve the next set of algorithms, use the token in the next request.</p>
             sort_by: <p>The parameter by which to sort the results. The default is <code>CreationTime</code>.</p>
             sort_order: <p>The sort order for the results. The default is <code>Ascending</code>.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -13625,6 +14612,10 @@ class AsyncSageMakerClient:
             version: <p>The version of the image. If image version is not specified, the aliases of all versions of the image are listed.</p>
             max_results: <p>The maximum number of aliases to return.</p>
             next_token: <p>If the previous call to <code>ListAliases</code> didn't return the full set of aliases, the call returns a token for retrieving the next set of aliases.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -13730,6 +14721,9 @@ class AsyncSageMakerClient:
             modified_time_after: <p>A filter that returns only AppImageConfigs modified on or after the specified time.</p>
             sort_by: <p>The property used to sort results. The default value is <code>CreationTime</code>.</p>
             sort_order: <p>The sort order. The default value is <code>Descending</code>.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -13848,6 +14842,9 @@ class AsyncSageMakerClient:
             domain_id_equals: <p>A parameter to search for the domain ID.</p>
             user_profile_name_equals: <p>A parameter to search by user profile name. If <code>SpaceNameEquals</code> is set, then this value cannot be set.</p>
             space_name_equals: <p>A parameter to search by space name. If <code>UserProfileNameEquals</code> is set, then this value cannot be set.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -13950,6 +14947,10 @@ class AsyncSageMakerClient:
             sort_order: <p>The sort order. The default value is <code>Descending</code>.</p>
             next_token: <p>If the previous call to <code>ListArtifacts</code> didn't return the full set of artifacts, the call returns a token for getting the next set of artifacts.</p>
             max_results: <p>The maximum number of artifacts to return in the response. The default value is 10.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -14068,6 +15069,10 @@ class AsyncSageMakerClient:
             sort_order: <p>The sort order. The default value is <code>Descending</code>.</p>
             next_token: <p>If the previous call to <code>ListAssociations</code> didn't return the full set of associations, the call returns a token for getting the next set of associations.</p>
             max_results: <p>The maximum number of associations to return in the response. The default value is 10.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -14214,6 +15219,9 @@ class AsyncSageMakerClient:
             sort_by: <p>The parameter by which to sort the results. The default is <code>Name</code>.</p>
             max_results: <p>Request a list of jobs up to a specified limit.</p>
             next_token: <p>If the previous response was truncated, you receive this token. Use it in your next request to receive the next set of results.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -14348,6 +15356,10 @@ class AsyncSageMakerClient:
             sort_by: <p>The parameter by which to sort the results. The default is <code>Descending</code>.</p>
             max_results: <p>List the job's candidates up to a specified limit.</p>
             next_token: <p>If the previous response was truncated, you receive this token. Use it in your next request to receive the next set of results.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -14471,6 +15483,10 @@ class AsyncSageMakerClient:
             resource_type: <p>The type of resource for which to filter events. Valid values are <code>Cluster</code>, <code>InstanceGroup</code>, or <code>Instance</code>.</p>
             max_results: <p>The maximum number of events to return in the response. Valid range is 1 to 100.</p>
             next_token: <p>A token to retrieve the next set of results. This token is obtained from the output of a previous <code>ListClusterEvents</code> call.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -14602,6 +15618,10 @@ class AsyncSageMakerClient:
             sort_by: <p>The field by which to sort results. The default value is <code>CREATION_TIME</code>.</p>
             sort_order: <p>The sort order for results. The default value is <code>Ascending</code>.</p>
             include_node_logical_ids: <p>Specifies whether to include nodes that are still being provisioned in the response. When set to true, the response includes all nodes regardless of their provisioning status. When set to <code>False</code> (default), only nodes with assigned <code>InstanceIds</code> are returned.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -14727,6 +15747,9 @@ class AsyncSageMakerClient:
             sort_by: <p>The field by which to sort results. The default value is <code>CREATION_TIME</code>.</p>
             sort_order: <p>The sort order for results. The default value is <code>Ascending</code>.</p>
             training_plan_arn: <p>The Amazon Resource Name (ARN); of the training plan to filter clusters by. For more information about reserving GPU capacity for your SageMaker HyperPod clusters using Amazon SageMaker Training Plan, see <code> <a href=\"https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTrainingPlan.html\">CreateTrainingPlan</a> </code>.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -14845,6 +15868,9 @@ class AsyncSageMakerClient:
             sort_order: <p>The order of the list. By default, listed in <code>Descending</code> order according to by <code>SortBy</code>. To change the list order, you can specify <code>SortOrder</code> to be <code>Ascending</code>.</p>
             next_token: <p>If the previous response was truncated, you will receive this token. Use it in your next request to receive the next set of results.</p>
             max_results: <p>The maximum number of cluster policies to list.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -14971,6 +15997,9 @@ class AsyncSageMakerClient:
             next_token: <p>If the result of a <code>ListCodeRepositoriesOutput</code> request was truncated, the response includes a <code>NextToken</code>. To get the next set of Git repositories, use the token in the next request.</p>
             sort_by: <p>The field to sort results by. The default is <code>Name</code>.</p>
             sort_order: <p>The sort order for results. The default is <code>Ascending</code>.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -15107,6 +16136,9 @@ class AsyncSageMakerClient:
             status_equals: <p>A filter that retrieves model compilation jobs with a specific <code>CompilationJobStatus</code> status.</p>
             sort_by: <p>The field by which to sort results. The default is <code>CreationTime</code>.</p>
             sort_order: <p>The sort order for results. The default is <code>Ascending</code>.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -15237,6 +16269,9 @@ class AsyncSageMakerClient:
             sort_order: <p>The order of the list. By default, listed in <code>Descending</code> order according to by <code>SortBy</code>. To change the list order, you can specify <code>SortOrder</code> to be <code>Ascending</code>.</p>
             next_token: <p>If the previous response was truncated, you will receive this token. Use it in your next request to receive the next set of results.</p>
             max_results: <p>The maximum number of compute allocation definitions to list.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -15347,6 +16382,10 @@ class AsyncSageMakerClient:
             sort_order: <p>The sort order. The default value is <code>Descending</code>.</p>
             next_token: <p>If the previous call to <code>ListContexts</code> didn't return the full set of contexts, the call returns a token for getting the next set of contexts.</p>
             max_results: <p>The maximum number of contexts to return in the response. The default value is 10.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -15459,6 +16498,9 @@ class AsyncSageMakerClient:
             name_contains: <p>A string in the data quality monitoring job definition name. This filter returns only data quality monitoring job definitions whose name contains the specified string.</p>
             creation_time_before: <p>A filter that returns only data quality monitoring job definitions created before the specified time.</p>
             creation_time_after: <p>A filter that returns only data quality monitoring job definitions created after the specified time.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -15585,6 +16627,9 @@ class AsyncSageMakerClient:
             name_contains: <p>Filter for fleets containing this name in their fleet device name.</p>
             sort_by: <p>The column to sort by.</p>
             sort_order: <p>What direction to sort in.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -15705,6 +16750,9 @@ class AsyncSageMakerClient:
             latest_heartbeat_after: <p>Select fleets where the job was updated after X</p>
             model_name: <p>A filter that searches devices that contains this name in any of their models.</p>
             device_fleet_name: <p>Filter for fleets containing this name in their device fleet name.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -15787,6 +16835,9 @@ class AsyncSageMakerClient:
         Args:
             next_token: <p>If the previous response was truncated, you will receive this token. Use it in your next request to receive the next set of results.</p>
             max_results: <p>This parameter defines the maximum number of results that can be return in a single response. The <code>MaxResults</code> parameter is an upper bound, not a target. If there are more results available than the value specified, a <code>NextToken</code> is provided in the response. The <code>NextToken</code> indicates that the user should get the next set of results by providing this token as a part of a subsequent call. The default value for <code>MaxResults</code> is 10.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -15883,6 +16934,9 @@ class AsyncSageMakerClient:
             device_fleet_name_contains: <p>Selects edge deployment plans with a device fleet name containing this name.</p>
             sort_by: <p>The column by which to sort the edge deployment plans. Can be one of <code>NAME</code>, <code>DEVICEFLEETNAME</code>, <code>CREATIONTIME</code>, <code>LASTMODIFIEDTIME</code>.</p>
             sort_order: <p>The direction of the sorting (ascending or descending).</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -16031,6 +17085,9 @@ class AsyncSageMakerClient:
             status_equals: <p>The job status to filter for.</p>
             sort_by: <p>Use to specify what column to sort by.</p>
             sort_order: <p>What direction to sort by.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -16171,6 +17228,9 @@ class AsyncSageMakerClient:
             name_contains: <p>A string in the endpoint configuration name. This filter returns only endpoint configurations whose name contains the specified string. </p>
             creation_time_before: <p>A filter that returns only endpoint configurations created before the specified time (timestamp).</p>
             creation_time_after: <p>A filter that returns only endpoint configurations with a creation time greater than or equal to the specified time (timestamp).</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -16297,6 +17357,9 @@ class AsyncSageMakerClient:
             last_modified_time_before: <p> A filter that returns only endpoints that were modified before the specified timestamp. </p>
             last_modified_time_after: <p> A filter that returns only endpoints that were modified after the specified timestamp. </p>
             status_equals: <p> A filter that returns only endpoints with the specified status.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -16419,6 +17482,9 @@ class AsyncSageMakerClient:
             sort_order: <p>The sort order. The default value is <code>Descending</code>.</p>
             next_token: <p>If the previous call to <code>ListExperiments</code> didn't return the full set of experiments, the call returns a token for getting the next set of experiments.</p>
             max_results: <p>The maximum number of experiments to return in the response. The default value is 10.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -16533,6 +17599,9 @@ class AsyncSageMakerClient:
             sort_by: <p>The value on which the feature group list is sorted.</p>
             max_results: <p>The maximum number of results returned by <code>ListFeatureGroups</code>.</p>
             next_token: <p>A token to resume pagination of <code>ListFeatureGroups</code> results.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -16651,6 +17720,9 @@ class AsyncSageMakerClient:
             sort_order: <p>An optional value that specifies whether you want the results sorted in <code>Ascending</code> or <code>Descending</code> order.</p>
             next_token: <p>A token to resume pagination.</p>
             max_results: <p>The total number of items to return. If the total number of available items is more than the value specified in <code>MaxResults</code>, then a <code>NextToken</code> will be provided in the output that you can use to resume pagination.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -16757,6 +17829,10 @@ class AsyncSageMakerClient:
             sort_order: <p>Sort hubs by ascending or descending order.</p>
             max_results: <p>The maximum amount of hub content to list.</p>
             next_token: <p>If the response to a previous <code>ListHubContents</code> request was truncated, the response includes a <code>NextToken</code>. To retrieve the next set of hub content, use the token in the next request.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -16842,6 +17918,10 @@ class AsyncSageMakerClient:
             sort_order: <p>Sort hub content versions by ascending or descending order.</p>
             max_results: <p>The maximum number of hub content versions to list.</p>
             next_token: <p>If the response to a previous <code>ListHubContentVersions</code> request was truncated, the response includes a <code>NextToken</code>. To retrieve the next set of hub content versions, use the token in the next request.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -16924,6 +18004,9 @@ class AsyncSageMakerClient:
             sort_order: <p>Sort hubs by ascending or descending order.</p>
             max_results: <p>The maximum number of hubs to list.</p>
             next_token: <p>If the response to a previous <code>ListHubs</code> request was truncated, the response includes a <code>NextToken</code>. To retrieve the next set of hubs, use the token in the next request.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -16993,6 +18076,9 @@ class AsyncSageMakerClient:
             sort_order: <p>An optional value that specifies whether you want the results sorted in <code>Ascending</code> or <code>Descending</code> order.</p>
             next_token: <p>A token to resume pagination.</p>
             max_results: <p>The total number of items to return. If the total number of available items is more than the value specified in <code>MaxResults</code>, then a <code>NextToken</code> will be provided in the output that you can use to resume pagination.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -17103,6 +18189,9 @@ class AsyncSageMakerClient:
             last_modified_time_after: <p>A filter that returns only tuning jobs that were modified after the specified time.</p>
             last_modified_time_before: <p>A filter that returns only tuning jobs that were modified before the specified time.</p>
             status_equals: <p>A filter that returns only tuning jobs with the specified status.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -17239,6 +18328,9 @@ class AsyncSageMakerClient:
             next_token: <p>If the previous call to <code>ListImages</code> didn't return the full set of images, the call returns a token for getting the next set of images.</p>
             sort_by: <p>The property used to sort results. The default value is <code>CREATION_TIME</code>.</p>
             sort_order: <p>The sort order. The default value is <code>DESCENDING</code>.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -17371,6 +18463,10 @@ class AsyncSageMakerClient:
             next_token: <p>If the previous call to <code>ListImageVersions</code> didn't return the full set of versions, the call returns a token for getting the next set of versions.</p>
             sort_by: <p>The property used to sort results. The default value is <code>CREATION_TIME</code>.</p>
             sort_order: <p>The sort order. The default value is <code>DESCENDING</code>.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -17514,6 +18610,9 @@ class AsyncSageMakerClient:
             status_equals: <p>Filters the results to only those inference components with the specified status.</p>
             endpoint_name_equals: <p>An endpoint name to filter the listed inference components. The response includes only those inference components that are hosted at the specified endpoint.</p>
             variant_name_equals: <p>A production variant name to filter the listed inference components. The response includes only those inference components that are hosted at the specified variant.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -17672,6 +18771,9 @@ class AsyncSageMakerClient:
             sort_order: <p>The direction of sorting (ascending or descending).</p>
             next_token: <p> The response from the last list when returning a list large enough to need tokening. </p>
             max_results: <p>The maximum number of results to select.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -17826,6 +18928,9 @@ class AsyncSageMakerClient:
             max_results: <p>The maximum number of recommendations to return in the response.</p>
             model_name_equals: <p>A filter that returns only jobs that were created for this model.</p>
             model_package_version_arn_equals: <p>A filter that returns only jobs that were created for this versioned model package.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -17960,6 +19065,10 @@ class AsyncSageMakerClient:
             step_type: <p>A filter to return details about the specified type of subtask.</p> <p> <code>BENCHMARK</code>: Evaluate the performance of your model on different instance types.</p>
             max_results: <p>The maximum number of results to return.</p>
             next_token: <p>A token that you can specify to return more results from the list. Specify this field if you have a token that was returned from a previous request.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -18067,6 +19176,9 @@ class AsyncSageMakerClient:
             sort_by: <p>The field to sort results by.</p>
             sort_order: <p>The sort order for results. Valid values are <code>Ascending</code> and <code>Descending</code>.</p>
             status_equals: <p>A filter that returns only jobs with the specified status.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -18178,6 +19290,10 @@ class AsyncSageMakerClient:
             job_category: <p>The category of job schemas to list.</p>
             next_token: <p>If the previous response was truncated, this token retrieves the next set of results.</p>
             max_results: <p>The maximum number of schema versions to return in the response. The default value is 5.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -18273,6 +19389,9 @@ class AsyncSageMakerClient:
             sort_by: <p>The field to sort results by. The default is <code>CreationTime</code>.</p>
             sort_order: <p>The sort order for results. The default is <code>Ascending</code>.</p>
             status_equals: <p>A filter that retrieves only labeling jobs with a specific status.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -18403,6 +19522,10 @@ class AsyncSageMakerClient:
             job_reference_code_contains: <p>A filter the limits jobs to only the ones whose job reference code contains the specified string.</p>
             sort_by: <p>The field to sort results by. The default is <code>CreationTime</code>.</p>
             sort_order: <p>The sort order for results. The default is <code>Ascending</code>.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -18510,6 +19633,9 @@ class AsyncSageMakerClient:
             sort_order: <p>The sort order for the results. The default is <code>Ascending</code>.</p>
             next_token: <p>If the response is truncated, SageMaker returns this token. To retrieve the next set of algorithms, use it in the subsequent request.</p>
             max_results: <p>The maximum number of endpoints to return in the response. This value defaults to 10.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -18616,6 +19742,9 @@ class AsyncSageMakerClient:
             sort_order: <p>Change the order of the listed MLflow Apps. By default, MLflow Apps are listed in <code>Descending</code> order by creation time. To change the list order, specify <code>SortOrder</code> to be <code>Ascending</code>.</p>
             next_token: <p>If the previous response was truncated, use this token in your next request to receive the next set of results.</p>
             max_results: <p>The maximum number of MLflow Apps to list.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -18738,6 +19867,9 @@ class AsyncSageMakerClient:
             sort_order: <p>Change the order of the listed tracking servers. By default, tracking servers are listed in <code>Descending</code> order by creation time. To change the list order, you can specify <code>SortOrder</code> to be <code>Ascending</code>.</p>
             next_token: <p>If the previous response was truncated, you will receive this token. Use it in your next request to receive the next set of results.</p>
             max_results: <p>The maximum number of tracking servers to list.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -18854,6 +19986,9 @@ class AsyncSageMakerClient:
             name_contains: <p>Filter for model bias jobs whose name contains a specified string.</p>
             creation_time_before: <p>A filter that returns only model bias jobs created before a specified time.</p>
             creation_time_after: <p>A filter that returns only model bias jobs created after a specified time.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -18980,6 +20115,9 @@ class AsyncSageMakerClient:
             sort_order: <p>Sort model card export jobs by ascending or descending order.</p>
             next_token: <p>If the response to a previous <code>ListModelCardExportJobs</code> request was truncated, the response includes a <code>NextToken</code>. To retrieve the next set of model card export jobs, use the token in the next request.</p>
             max_results: <p>The maximum number of model card export jobs to list.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -19113,6 +20251,9 @@ class AsyncSageMakerClient:
             next_token: <p>If the response to a previous <code>ListModelCards</code> request was truncated, the response includes a <code>NextToken</code>. To retrieve the next set of model cards, use the token in the next request.</p>
             sort_by: <p>Sort model cards by either name or creation time. Sorts by creation time by default.</p>
             sort_order: <p>Sort model cards by ascending or descending order.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -19235,6 +20376,10 @@ class AsyncSageMakerClient:
             next_token: <p>If the response to a previous <code>ListModelCardVersions</code> request was truncated, the response includes a <code>NextToken</code>. To retrieve the next set of model card versions, use the token in the next request.</p>
             sort_by: <p>Sort listed model card versions by version. Sorts by version by default.</p>
             sort_order: <p>Sort model card versions by ascending or descending order.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -19354,6 +20499,9 @@ class AsyncSageMakerClient:
             name_contains: <p>Filter for model explainability jobs whose name contains a specified string.</p>
             creation_time_before: <p>A filter that returns only model explainability jobs created before a specified time.</p>
             creation_time_after: <p>A filter that returns only model explainability jobs created after a specified time.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -19458,6 +20606,9 @@ class AsyncSageMakerClient:
             search_expression: <p>One or more filters that searches for the specified resource or resources in a search. All resource objects that satisfy the expression's condition are included in the search results. Specify the Framework, FrameworkVersion, Domain or Task to filter supported. Filter names and values are case-sensitive.</p>
             next_token: <p>If the response to a previous <code>ListModelMetadataResponse</code> request was truncated, the response includes a NextToken. To retrieve the next set of model metadata, use the token in the next request.</p>
             max_results: <p>The maximum number of models to return in the response.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -19550,6 +20701,9 @@ class AsyncSageMakerClient:
             sort_by: <p>The field to sort results by. The default is <code>CreationTime</code>.</p>
             sort_order: <p>The sort order for results. The default is <code>Ascending</code>.</p>
             cross_account_filter_option: <p>A filter that returns either model groups shared with you or model groups in your own account. When the value is <code>CrossAccount</code>, the results show the resources made discoverable to you from other accounts. When the value is <code>SameAccount</code> or <code>null</code>, the results show resources from your account. The default is <code>SameAccount</code>.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -19678,6 +20832,9 @@ class AsyncSageMakerClient:
             next_token: <p>If the response to a previous <code>ListModelPackages</code> request was truncated, the response includes a <code>NextToken</code>. To retrieve the next set of model packages, use the token in the next request.</p>
             sort_by: <p>The parameter by which to sort the results. The default is <code>CreationTime</code>.</p>
             sort_order: <p>The sort order for the results. The default is <code>Ascending</code>.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -19810,6 +20967,9 @@ class AsyncSageMakerClient:
             name_contains: <p>A string in the transform job name. This filter returns only model quality monitoring job definitions whose name contains the specified string.</p>
             creation_time_before: <p>A filter that returns only model quality monitoring job definitions created before the specified time.</p>
             creation_time_after: <p>A filter that returns only model quality monitoring job definitions created after the specified time.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -19926,6 +21086,9 @@ class AsyncSageMakerClient:
             name_contains: <p>A string in the model name. This filter returns only models whose name contains the specified string.</p>
             creation_time_before: <p>A filter that returns only models created before the specified time (timestamp).</p>
             creation_time_after: <p>A filter that returns only models with a creation time greater than or equal to the specified time (timestamp).</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -20044,6 +21207,10 @@ class AsyncSageMakerClient:
             creation_time_before: <p>A filter that returns only alerts created on or before the specified time.</p>
             creation_time_after: <p>A filter that returns only alerts created on or after the specified time.</p>
             status_equals: <p>A filter that retrieves only alerts with a specific status.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -20150,6 +21317,10 @@ class AsyncSageMakerClient:
             monitoring_schedule_name: <p>The name of a monitoring schedule.</p>
             next_token: <p>If the result of the previous <code>ListMonitoringAlerts</code> request was truncated, the response includes a <code>NextToken</code>. To retrieve the next set of alerts in the history, use the token in the next request.</p>
             max_results: <p>The maximum number of results to display. The default is 100.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -20267,6 +21438,9 @@ class AsyncSageMakerClient:
             status_equals: <p>A filter that retrieves only jobs with a specific status.</p>
             monitoring_job_definition_name: <p>Gets a list of the monitoring job runs of the specified monitoring job definitions.</p>
             monitoring_type_equals: <p>A filter that returns only the monitoring job runs of the specified monitoring type.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -20449,6 +21623,9 @@ class AsyncSageMakerClient:
             status_equals: <p>A filter that returns only monitoring schedules modified before a specified time.</p>
             monitoring_job_definition_name: <p>Gets a list of the monitoring schedules for the specified monitoring job definition.</p>
             monitoring_type_equals: <p>A filter that returns only the monitoring schedules for the specified monitoring type.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -20605,6 +21782,9 @@ class AsyncSageMakerClient:
             creation_time_after: <p>A filter that returns only lifecycle configurations that were created after the specified time (timestamp).</p>
             last_modified_time_before: <p>A filter that returns only lifecycle configurations that were modified before the specified time (timestamp).</p>
             last_modified_time_after: <p>A filter that returns only lifecycle configurations that were modified after the specified time (timestamp).</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -20755,6 +21935,9 @@ class AsyncSageMakerClient:
             notebook_instance_lifecycle_config_name_contains: <p>A string in the name of a notebook instances lifecycle configuration associated with this notebook instance. This filter returns only notebook instances associated with a lifecycle configuration with a name that contains the specified string.</p>
             default_code_repository_contains: <p>A string in the name or URL of a Git repository associated with this notebook instance. This filter returns only notebook instances associated with a git repository with a name that contains the specified string.</p>
             additional_code_repository_equals: <p>A filter that returns only notebook instances with associated with the specified git repository.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -20925,6 +22108,9 @@ class AsyncSageMakerClient:
             status_equals: <p>Filters the results to only those optimization jobs with the specified status.</p>
             sort_by: <p>The field by which to sort the optimization jobs in the response. The default is <code>CreationTime</code> </p>
             sort_order: <p>The sort order for results. The default is <code>Ascending</code> </p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -21041,6 +22227,9 @@ class AsyncSageMakerClient:
         Args:
             max_results: <p>This parameter defines the maximum number of results that can be returned in a single response. The <code>MaxResults</code> parameter is an upper bound, not a target. If there are more results available than the value specified, a <code>NextToken</code> is provided in the response. The <code>NextToken</code> indicates that the user should get the next set of results by providing this token as a part of a subsequent call. The default value for <code>MaxResults</code> is 10.</p>
             next_token: <p>If the previous response was truncated, you will receive this token. Use it in your next request to receive the next set of results.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -21117,6 +22306,10 @@ class AsyncSageMakerClient:
             sort_order: <p>The sort order for results.</p>
             next_token: <p>If the result of the previous <code>ListPipelineExecutions</code> request was truncated, the response includes a <code>NextToken</code>. To retrieve the next set of pipeline executions, use the token in the next request.</p>
             max_results: <p>The maximum number of pipeline executions to return in the response.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -21208,6 +22401,10 @@ class AsyncSageMakerClient:
             next_token: <p>If the result of the previous <code>ListPipelineExecutionSteps</code> request was truncated, the response includes a <code>NextToken</code>. To retrieve the next set of pipeline execution steps, use the token in the next request.</p>
             max_results: <p>The maximum number of pipeline execution steps to return in the response.</p>
             sort_order: <p>The field by which to sort results. The default is <code>CreatedTime</code>.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -21284,6 +22481,10 @@ class AsyncSageMakerClient:
             pipeline_execution_arn: <p>The Amazon Resource Name (ARN) of the pipeline execution.</p>
             next_token: <p>If the result of the previous <code>ListPipelineParametersForExecution</code> request was truncated, the response includes a <code>NextToken</code>. To retrieve the next set of parameters, use the token in the next request.</p>
             max_results: <p>The maximum number of parameters to return in the response.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -21365,6 +22566,9 @@ class AsyncSageMakerClient:
             sort_order: <p>The sort order for results.</p>
             next_token: <p>If the result of the previous <code>ListPipelines</code> request was truncated, the response includes a <code>NextToken</code>. To retrieve the next set of pipelines, use the token in the next request.</p>
             max_results: <p>The maximum number of pipelines to return in the response.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -21461,6 +22665,10 @@ class AsyncSageMakerClient:
             sort_order: <p>The sort order for the results.</p>
             next_token: <p>If the result of the previous <code>ListPipelineVersions</code> request was truncated, the response includes a <code>NextToken</code>. To retrieve the next set of pipeline versions, use this token in your next request.</p>
             max_results: <p>The maximum number of pipeline versions to return in the response.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -21566,6 +22774,9 @@ class AsyncSageMakerClient:
             sort_order: <p>The sort order for results. The default is <code>Ascending</code>.</p>
             next_token: <p>If the result of the previous <code>ListProcessingJobs</code> request was truncated, the response includes a <code>NextToken</code>. To retrieve the next set of processing jobs, use the token in the next request.</p>
             max_results: <p>The maximum number of processing jobs to return in the response.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -21692,6 +22903,9 @@ class AsyncSageMakerClient:
             next_token: <p>If the result of the previous <code>ListProjects</code> request was truncated, the response includes a <code>NextToken</code>. To retrieve the next set of projects, use the token in the next request.</p>
             sort_by: <p>The field by which to sort results. The default is <code>CreationTime</code>.</p>
             sort_order: <p>The sort order for results. The default is <code>Ascending</code>.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -21765,6 +22979,9 @@ class AsyncSageMakerClient:
             sort_by: <p> The value on which the resource catalog list is sorted. </p>
             max_results: <p> The maximum number of results returned by <code>ListResourceCatalogs</code>. </p>
             next_token: <p> A token to resume pagination of <code>ListResourceCatalogs</code> results. </p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -21869,6 +23086,9 @@ class AsyncSageMakerClient:
             sort_by: <p>The parameter by which to sort the results. The default is <code>CreationTime</code>.</p>
             domain_id_equals: <p>A parameter to search for the domain ID.</p>
             space_name_contains: <p>A parameter by which to filter the results.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -21961,6 +23181,9 @@ class AsyncSageMakerClient:
             edge_deployment_plan_name: <p>The name of the edge deployment plan.</p>
             exclude_devices_deployed_in_other_stage: <p>Toggle for excluding devices deployed in other stages.</p>
             stage_name: <p>The name of the stage in the deployment.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -22071,6 +23294,10 @@ class AsyncSageMakerClient:
             modified_time_after: <p>A filter that returns only Lifecycle Configurations modified after the specified time.</p>
             sort_by: <p>The property used to sort results. The default value is CreationTime.</p>
             sort_order: <p>The sort order. The default value is Descending.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_in_use.ResourceInUse: <p>Resource being accessed is in use.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -22185,6 +23412,9 @@ class AsyncSageMakerClient:
             name_contains: <p>A string in the work team name. This filter returns only work teams whose name contains the specified string.</p>
             next_token: <p>If the result of the previous <code>ListSubscribedWorkteams</code> request was truncated, the response includes a <code>NextToken</code>. To retrieve the next set of labeling jobs, use the token in the next request.</p>
             max_results: <p>The maximum number of work teams to return in each page of the response.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -22261,6 +23491,9 @@ class AsyncSageMakerClient:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource whose tags you want to retrieve.</p>
             next_token: <p> If the response to the previous <code>ListTags</code> request is truncated, SageMaker returns this token. To retrieve the next set of tags, use it in the subsequent request. </p>
             max_results: <p>Maximum number of tags to return.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -22366,6 +23599,9 @@ class AsyncSageMakerClient:
             sort_order: <p>The sort order for results. The default is <code>Ascending</code>.</p>
             warm_pool_status_equals: <p>A filter that retrieves only training jobs with a specific warm pool status.</p>
             training_plan_arn_equals: <p>The Amazon Resource Name (ARN); of the training plan to filter training jobs by. For more information about reserving GPU capacity for your SageMaker training jobs using Amazon SageMaker Training Plan, see <code> <a href=\"https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTrainingPlan.html\">CreateTrainingPlan</a> </code>.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -22500,6 +23736,10 @@ class AsyncSageMakerClient:
             status_equals: <p>A filter that returns only training jobs with the specified status.</p>
             sort_by: <p>The field to sort results by. The default is <code>Name</code>.</p> <p>If the value of this field is <code>FinalObjectiveMetricValue</code>, any training jobs that did not return an objective metric are not listed.</p>
             sort_order: <p>The sort order for results. The default is <code>Ascending</code>.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -22605,6 +23845,9 @@ class AsyncSageMakerClient:
             sort_by: <p>The training plan field to sort the results by (e.g., StartTime, Status).</p>
             sort_order: <p>The order to sort the results (Ascending or Descending).</p>
             filters: <p>Additional filters to apply to the list of training plans.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -22729,6 +23972,9 @@ class AsyncSageMakerClient:
             sort_order: <p>The sort order for results. The default is <code>Descending</code>.</p>
             next_token: <p>If the result of the previous <code>ListTransformJobs</code> request was truncated, the response includes a <code>NextToken</code>. To retrieve the next set of transform jobs, use the token in the next request.</p>
             max_results: <p>The maximum number of transform jobs to return in the response. The default value is <code>10</code>.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -22857,6 +24103,10 @@ class AsyncSageMakerClient:
             sort_order: <p>The sort order. The default value is <code>Descending</code>.</p>
             max_results: <p>The maximum number of components to return in the response. The default value is 10.</p>
             next_token: <p>If the previous call to <code>ListTrialComponents</code> didn't return the full set of components, the call returns a token for getting the next set of components.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -22971,6 +24221,10 @@ class AsyncSageMakerClient:
             sort_order: <p>The sort order. The default value is <code>Descending</code>.</p>
             max_results: <p>The maximum number of trials to return in the response. The default value is 10.</p>
             next_token: <p>If the previous call to <code>ListTrials</code> didn't return the full set of trials, the call returns a token for getting the next set of trials.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -23065,6 +24319,10 @@ class AsyncSageMakerClient:
             reserved_capacity_arn: <p>The ARN of the reserved capacity to list UltraServers for.</p>
             max_results: <p>The maximum number of UltraServers to return in the response. The default value is 10.</p>
             next_token: <p>If the previous response was truncated, you receive this token. Use it in your next request to receive the next set of results.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -23144,6 +24402,9 @@ class AsyncSageMakerClient:
             sort_by: <p>The parameter by which to sort the results. The default is CreationTime.</p>
             domain_id_equals: <p>A parameter by which to filter the results.</p>
             user_profile_name_contains: <p>A parameter by which to filter the results.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -23240,6 +24501,9 @@ class AsyncSageMakerClient:
             name_contains: <p>A filter you can use to search for workforces using part of the workforce name.</p>
             next_token: <p>A token to resume pagination.</p>
             max_results: <p>The maximum number of workforces returned in the response.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -23330,6 +24594,9 @@ class AsyncSageMakerClient:
             name_contains: <p>A string in the work team's name. This filter returns only work teams whose name contains the specified string.</p>
             next_token: <p>If the result of the previous <code>ListWorkteams</code> request was truncated, the response includes a <code>NextToken</code>. To retrieve the next set of labeling jobs, use the token in the next request.</p>
             max_results: <p>The maximum number of work teams to return in each page of the response.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -23410,6 +24677,10 @@ class AsyncSageMakerClient:
         Args:
             model_package_group_name: <p>The name of the model group to add a resource policy to.</p>
             resource_policy: <p>The resource policy for the model group.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.conflict_exception.ConflictException: <p>There was a conflict when you attempted to modify a SageMaker entity such as an <code>Experiment</code> or <code>Artifact</code>.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -23467,6 +24738,10 @@ class AsyncSageMakerClient:
             max_depth: <p>The maximum depth in lineage relationships from the <code>StartArns</code> that are traversed. Depth is a measure of the number of <code>Associations</code> from the <code>StartArn</code> entity to the matched results.</p>
             max_results: <p>Limits the number of vertices in the results. Use the <code>NextToken</code> in a response to to retrieve the next page of results.</p>
             next_token: <p>Limits the number of vertices in the request. Use the <code>NextToken</code> in a response to to retrieve the next page of results.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -23522,6 +24797,10 @@ class AsyncSageMakerClient:
             device_fleet_name: <p>The name of the fleet.</p>
             devices: <p>A list of devices to register with SageMaker Edge Manager.</p>
             tags: <p>The tags associated with devices.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_limit_exceeded.ResourceLimitExceeded: <p> You have exceeded an SageMaker resource limit. For example, you might have too many training jobs created. </p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -23569,6 +24848,10 @@ class AsyncSageMakerClient:
             task: <p>A <code>RenderableTask</code> object containing a representative task to render.</p>
             role_arn: <p>The Amazon Resource Name (ARN) that has access to the S3 objects that are used by the template.</p>
             human_task_ui_arn: <p>The <code>HumanTaskUiArn</code> of the worker UI that you want to render. Do not provide a <code>HumanTaskUiArn</code> if you use the <code>UiTemplate</code> parameter.</p> <p>See a list of available Human Ui Amazon Resource Names (ARNs) in <a href=\"https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UiConfig.html\">UiConfig</a>.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -23618,6 +24901,12 @@ class AsyncSageMakerClient:
             pipeline_execution_arn: <p>The Amazon Resource Name (ARN) of the pipeline execution.</p>
             client_request_token: <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the operation. An idempotent operation completes no more than once.</p>
             parallelism_configuration: <p>This configuration, if specified, overrides the parallelism configuration of the parent pipeline.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.conflict_exception.ConflictException: <p>There was a conflict when you attempted to modify a SageMaker entity such as an <code>Experiment</code> or <code>Artifact</code>.</p>
+            aws_sdk_sagemaker.errors.resource_limit_exceeded.ResourceLimitExceeded: <p> You have exceeded an SageMaker resource limit. For example, you might have too many training jobs created. </p>
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -23683,6 +24972,9 @@ class AsyncSageMakerClient:
             max_results: <p>The maximum number of results to return.</p>
             cross_account_filter_option: <p> A cross account filter option. When the value is <code>\"CrossAccount\"</code> the search results will only include resources made discoverable to you from other accounts. When the value is <code>\"SameAccount\"</code> or <code>null</code> the search results will only include resources from your account. Default is <code>null</code>. For more information on searching for resources made discoverable to your account, see <a href=\"https://docs.aws.amazon.com/sagemaker/latest/dg/feature-store-cross-account-discoverability-use.html\"> Search discoverable resources</a> in the SageMaker Developer Guide. The maximum number of <code>ResourceCatalog</code>s viewable is 1000. </p>
             visibility_conditions: <p> Limits the results of your search request to the resources that you can access. </p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -23808,6 +25100,10 @@ class AsyncSageMakerClient:
             duration_hours: <p>The desired duration in hours for the training plan offerings.</p>
             target_resources: <p>The target resources (e.g., SageMaker Training Jobs, SageMaker HyperPod, SageMaker Endpoints, Studio apps) to search for in the offerings.</p> <p>Training plans are specific to their target resource.</p> <ul> <li> <p>A training plan designed for SageMaker training jobs can only be used to schedule and run training jobs.</p> </li> <li> <p>A training plan for HyperPod clusters can be used exclusively to provide compute resources to a cluster's instance group.</p> </li> <li> <p>A training plan for SageMaker endpoints can be used exclusively to provide compute resources to SageMaker endpoints for model deployment.</p> </li> <li> <p>A training plan for Studio apps can be used to launch JupyterLab and Code Editor apps on reserved training plan capacity.</p> </li> </ul>
             training_plan_arn: <p>The Amazon Resource Name (ARN); of an existing training plan to search for extension offerings. When specified, the API returns extension offerings that can be used to extend the specified training plan.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_limit_exceeded.ResourceLimitExceeded: <p> You have exceeded an SageMaker resource limit. For example, you might have too many training jobs created. </p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -23869,6 +25165,12 @@ class AsyncSageMakerClient:
             callback_token: <p>The pipeline generated token from the Amazon SQS queue.</p>
             failure_reason: <p>A message describing why the step failed.</p>
             client_request_token: <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the operation. An idempotent operation completes no more than one time.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.conflict_exception.ConflictException: <p>There was a conflict when you attempted to modify a SageMaker entity such as an <code>Experiment</code> or <code>Artifact</code>.</p>
+            aws_sdk_sagemaker.errors.resource_limit_exceeded.ResourceLimitExceeded: <p> You have exceeded an SageMaker resource limit. For example, you might have too many training jobs created. </p>
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -23919,6 +25221,12 @@ class AsyncSageMakerClient:
             callback_token: <p>The pipeline generated token from the Amazon SQS queue.</p>
             output_parameters: <p>A list of the output parameters of the callback step.</p>
             client_request_token: <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the operation. An idempotent operation completes no more than one time.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.conflict_exception.ConflictException: <p>There was a conflict when you attempted to modify a SageMaker entity such as an <code>Experiment</code> or <code>Artifact</code>.</p>
+            aws_sdk_sagemaker.errors.resource_limit_exceeded.ResourceLimitExceeded: <p> You have exceeded an SageMaker resource limit. For example, you might have too many training jobs created. </p>
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -23963,6 +25271,10 @@ class AsyncSageMakerClient:
         Args:
             cluster_name: <p>The string name or the Amazon Resource Name (ARN) of the SageMaker HyperPod cluster.</p>
             deep_health_check_configurations: <p>A list of configurations containing instance group names, EC2 instance IDs, and deep health checks to perform.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -24004,6 +25316,9 @@ class AsyncSageMakerClient:
         Args:
             edge_deployment_plan_name: <p>The name of the edge deployment plan to start.</p>
             stage_name: <p>The name of the stage to start.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -24041,6 +25356,11 @@ class AsyncSageMakerClient:
 
         Args:
             name: <p>The name of the inference experiment to start.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.conflict_exception.ConflictException: <p>There was a conflict when you attempted to modify a SageMaker entity such as an <code>Experiment</code> or <code>Artifact</code>.</p>
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -24079,6 +25399,11 @@ class AsyncSageMakerClient:
 
         Args:
             tracking_server_name: <p>The name of the tracking server to start.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.conflict_exception.ConflictException: <p>There was a conflict when you attempted to modify a SageMaker entity such as an <code>Experiment</code> or <code>Artifact</code>.</p>
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -24117,6 +25442,10 @@ class AsyncSageMakerClient:
 
         Args:
             monitoring_schedule_name: <p>The name of the schedule to start.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -24153,6 +25482,10 @@ class AsyncSageMakerClient:
 
         Args:
             notebook_instance_name: <p>The name of the notebook instance to start.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_limit_exceeded.ResourceLimitExceeded: <p> You have exceeded an SageMaker resource limit. For example, you might have too many training jobs created. </p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -24219,6 +25552,12 @@ class AsyncSageMakerClient:
             selective_execution_config: <p>The selective execution configuration applied to the pipeline run.</p>
             pipeline_version_id: <p>The ID of the pipeline version to start execution from.</p>
             mlflow_experiment_name: <p> The MLflow experiment name of the pipeline execution. </p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.conflict_exception.ConflictException: <p>There was a conflict when you attempted to modify a SageMaker entity such as an <code>Experiment</code> or <code>Artifact</code>.</p>
+            aws_sdk_sagemaker.errors.resource_limit_exceeded.ResourceLimitExceeded: <p> You have exceeded an SageMaker resource limit. For example, you might have too many training jobs created. </p>
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -24272,6 +25611,11 @@ class AsyncSageMakerClient:
 
         Args:
             resource_identifier: <p>The Amazon Resource Name (ARN) of the resource to which the remote connection will be established. For example, this identifies the specific ARN space application you want to connect to from your local IDE.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_limit_exceeded.ResourceLimitExceeded: <p> You have exceeded an SageMaker resource limit. For example, you might have too many training jobs created. </p>
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -24310,6 +25654,10 @@ class AsyncSageMakerClient:
 
         Args:
             ai_benchmark_job_name: <p>The name of the AI benchmark job to stop.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -24348,6 +25696,10 @@ class AsyncSageMakerClient:
 
         Args:
             ai_recommendation_job_name: <p>The name of the AI recommendation job to stop.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -24386,6 +25738,10 @@ class AsyncSageMakerClient:
 
         Args:
             auto_ml_job_name: <p>The name of the object you are requesting.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -24422,6 +25778,10 @@ class AsyncSageMakerClient:
 
         Args:
             compilation_job_name: <p>The name of the model compilation job to stop.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -24460,6 +25820,9 @@ class AsyncSageMakerClient:
         Args:
             edge_deployment_plan_name: <p>The name of the edge deployment plan to stop.</p>
             stage_name: <p>The name of the stage to stop.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -24497,6 +25860,9 @@ class AsyncSageMakerClient:
 
         Args:
             edge_packaging_job_name: <p>The name of the edge packaging job.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -24533,6 +25899,10 @@ class AsyncSageMakerClient:
 
         Args:
             hyper_parameter_tuning_job_name: <p>The name of the tuning job to stop.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -24583,6 +25953,11 @@ class AsyncSageMakerClient:
             desired_model_variants: <p> An array of <code>ModelVariantConfig</code> objects. There is one for each variant that you want to deploy after the inference experiment stops. Each <code>ModelVariantConfig</code> describes the infrastructure configuration for deploying the corresponding variant. </p>
             desired_state: <p> The desired state of the experiment after stopping. The possible states are the following: </p> <ul> <li> <p> <code>Completed</code>: The experiment completed successfully</p> </li> <li> <p> <code>Cancelled</code>: The experiment was canceled</p> </li> </ul>
             reason: <p>The reason for stopping the experiment.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.conflict_exception.ConflictException: <p>There was a conflict when you attempted to modify a SageMaker entity such as an <code>Experiment</code> or <code>Artifact</code>.</p>
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -24628,6 +26003,10 @@ class AsyncSageMakerClient:
 
         Args:
             job_name: <p>The name of the job you want to stop.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -24666,6 +26045,10 @@ class AsyncSageMakerClient:
         Args:
             job_name: <p>The name of the job to stop.</p>
             job_category: <p>The category of the job to stop.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -24705,6 +26088,10 @@ class AsyncSageMakerClient:
 
         Args:
             labeling_job_name: <p>The name of the labeling job to stop.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -24741,6 +26128,11 @@ class AsyncSageMakerClient:
 
         Args:
             tracking_server_name: <p>The name of the tracking server to stop.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.conflict_exception.ConflictException: <p>There was a conflict when you attempted to modify a SageMaker entity such as an <code>Experiment</code> or <code>Artifact</code>.</p>
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -24779,6 +26171,10 @@ class AsyncSageMakerClient:
 
         Args:
             monitoring_schedule_name: <p>The name of the schedule to stop.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -24815,6 +26211,9 @@ class AsyncSageMakerClient:
 
         Args:
             notebook_instance_name: <p>The name of the notebook instance to terminate.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -24851,6 +26250,10 @@ class AsyncSageMakerClient:
 
         Args:
             optimization_job_name: <p>The name that you assigned to the optimization job.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -24889,6 +26292,11 @@ class AsyncSageMakerClient:
         Args:
             pipeline_execution_arn: <p>The Amazon Resource Name (ARN) of the pipeline execution.</p>
             client_request_token: <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the operation. An idempotent operation completes no more than once.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.conflict_exception.ConflictException: <p>There was a conflict when you attempted to modify a SageMaker entity such as an <code>Experiment</code> or <code>Artifact</code>.</p>
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -24928,6 +26336,10 @@ class AsyncSageMakerClient:
 
         Args:
             processing_job_name: <p>The name of the processing job to stop.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -24964,6 +26376,10 @@ class AsyncSageMakerClient:
 
         Args:
             training_job_name: <p>The name of the training job to stop.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -25000,6 +26416,10 @@ class AsyncSageMakerClient:
 
         Args:
             transform_job_name: <p>The name of the batch transform job to stop.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -25050,6 +26470,11 @@ class AsyncSageMakerClient:
             status: <p>The new status for the action.</p>
             properties: <p>The new list of properties. Overwrites the current property list.</p>
             properties_to_remove: <p>A list of properties to remove.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.conflict_exception.ConflictException: <p>There was a conflict when you attempted to modify a SageMaker entity such as an <code>Experiment</code> or <code>Artifact</code>.</p>
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -25108,6 +26533,10 @@ class AsyncSageMakerClient:
             kernel_gateway_image_config: <p>The new KernelGateway app to run on the image.</p>
             jupyter_lab_app_image_config: <p>The JupyterLab app running on the image.</p>
             code_editor_app_image_config: <p>The Code Editor app running on the image.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -25164,6 +26593,11 @@ class AsyncSageMakerClient:
             artifact_name: <p>The new name for the artifact.</p>
             properties: <p>The new list of properties. Overwrites the current property list.</p>
             properties_to_remove: <p>A list of properties to remove.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.conflict_exception.ConflictException: <p>There was a conflict when you attempted to modify a SageMaker entity such as an <code>Experiment</code> or <code>Artifact</code>.</p>
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -25245,6 +26679,12 @@ class AsyncSageMakerClient:
             node_provisioning_mode: <p>Determines how instance provisioning is handled during cluster operations. In <code>Continuous</code> mode, the cluster provisions available instances incrementally and retries until the target count is reached. The cluster becomes operational once cluster-level resources are ready. Use <code>CurrentCount</code> and <code>TargetCount</code> in <code>DescribeCluster</code> to track provisioning progress.</p>
             cluster_role: <p>The Amazon Resource Name (ARN) of the IAM role that HyperPod assumes for cluster autoscaling operations. Cannot be updated while autoscaling is enabled.</p>
             auto_scaling: <p>Updates the autoscaling configuration for the cluster. Use to enable or disable automatic node scaling.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.conflict_exception.ConflictException: <p>There was a conflict when you attempted to modify a SageMaker entity such as an <code>Experiment</code> or <code>Artifact</code>.</p>
+            aws_sdk_sagemaker.errors.resource_limit_exceeded.ResourceLimitExceeded: <p> You have exceeded an SageMaker resource limit. For example, you might have too many training jobs created. </p>
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -25315,6 +26755,12 @@ class AsyncSageMakerClient:
             target_version: <p>Target version.</p>
             scheduler_config: <p>Cluster policy configuration.</p>
             description: <p>Description of the cluster policy.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.conflict_exception.ConflictException: <p>There was a conflict when you attempted to modify a SageMaker entity such as an <code>Experiment</code> or <code>Artifact</code>.</p>
+            aws_sdk_sagemaker.errors.resource_limit_exceeded.ResourceLimitExceeded: <p> You have exceeded an SageMaker resource limit. For example, you might have too many training jobs created. </p>
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -25368,6 +26814,11 @@ class AsyncSageMakerClient:
             instance_groups: <p>The array of instance groups for which to update AMI versions.</p>
             deployment_config: <p>The configuration to use when updating the AMI versions.</p>
             image_id: <p>When configuring your HyperPod cluster, you can specify an image ID using one of the following options:</p> <ul> <li> <p> <code>HyperPodPublicAmiId</code>: Use a HyperPod public AMI</p> </li> <li> <p> <code>CustomAmiId</code>: Use your custom AMI</p> </li> <li> <p> <code>default</code>: Use the default latest system image</p> </li> </ul> <p>If you choose to use a custom AMI (<code>CustomAmiId</code>), ensure it meets the following requirements:</p> <ul> <li> <p>Encryption: The custom AMI must be unencrypted.</p> </li> <li> <p>Ownership: The custom AMI must be owned by the same Amazon Web Services account that is creating the HyperPod cluster.</p> </li> <li> <p>Volume support: Only the primary AMI snapshot volume is supported; additional AMI volumes are not supported.</p> </li> </ul> <p>When updating the instance group's AMI through the <code>UpdateClusterSoftware</code> operation, if an instance group uses a custom AMI, you must provide an <code>ImageId</code> or use the default as input. Note that if you don't specify an instance group in your <code>UpdateClusterSoftware</code> request, then all of the instance groups are patched with the specified image.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.conflict_exception.ConflictException: <p>There was a conflict when you attempted to modify a SageMaker entity such as an <code>Experiment</code> or <code>Artifact</code>.</p>
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -25416,6 +26867,10 @@ class AsyncSageMakerClient:
         Args:
             code_repository_name: <p>The name of the Git repository to update.</p>
             git_config: <p>The configuration of the git repository, including the URL and the Amazon Resource Name (ARN) of the Amazon Web Services Secrets Manager secret that contains the credentials used to access the repository. The secret must have a staging label of <code>AWSCURRENT</code> and must be in the following format:</p> <p> <code>{\"username\": <i>UserName</i>, \"password\": <i>Password</i>}</code> </p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.conflict_exception.ConflictException: <p>There was a conflict when you attempted to modify a SageMaker entity such as an <code>Experiment</code> or <code>Artifact</code>.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -25474,6 +26929,12 @@ class AsyncSageMakerClient:
             compute_quota_target: <p>The target entity to allocate compute resources to.</p>
             activation_state: <p>The state of the compute allocation being described. Use to enable or disable compute allocation.</p> <p>Default is <code>Enabled</code>.</p>
             description: <p>Description of the compute allocation definition.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.conflict_exception.ConflictException: <p>There was a conflict when you attempted to modify a SageMaker entity such as an <code>Experiment</code> or <code>Artifact</code>.</p>
+            aws_sdk_sagemaker.errors.resource_limit_exceeded.ResourceLimitExceeded: <p> You have exceeded an SageMaker resource limit. For example, you might have too many training jobs created. </p>
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -25533,6 +26994,11 @@ class AsyncSageMakerClient:
             description: <p>The new description for the context.</p>
             properties: <p>The new list of properties. Overwrites the current property list.</p>
             properties_to_remove: <p>A list of properties to remove.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.conflict_exception.ConflictException: <p>There was a conflict when you attempted to modify a SageMaker entity such as an <code>Experiment</code> or <code>Artifact</code>.</p>
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -25589,6 +27055,10 @@ class AsyncSageMakerClient:
             description: <p>Description of the fleet.</p>
             output_config: <p>Output configuration for storing sample data collected by the fleet.</p>
             enable_iot_role_alias: <p>Whether to create an Amazon Web Services IoT Role Alias during device fleet creation. The name of the role alias generated will match this pattern: \"SageMakerEdge-{DeviceFleetName}\".</p> <p>For example, if your device fleet is called \"demo-fleet\", the name of the role alias will be \"SageMakerEdge-demo-fleet\".</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_in_use.ResourceInUse: <p>Resource being accessed is in use.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -25634,6 +27104,9 @@ class AsyncSageMakerClient:
         Args:
             device_fleet_name: <p>The name of the fleet the devices belong to.</p>
             devices: <p>List of devices to register with Edge Manager agent.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -25703,6 +27176,12 @@ class AsyncSageMakerClient:
             tag_propagation: <p>Indicates whether custom tag propagation is supported for the domain. Defaults to <code>DISABLED</code>.</p>
             home_efs_file_system_creation: <p>Indicates whether to create a home EFS file system for the domain. You can change from <code>Disabled</code> to <code>Enabled</code> to provision EFS on demand, but you cannot change from <code>Enabled</code> to <code>Disabled</code>.</p>
             vpc_id: <p>The identifier for the VPC used by the domain for network communication. Use this field only when adding VPC configuration to a SageMaker AI domain used in Amazon SageMaker Unified Studio that was created without VPC settings. SageMaker AI doesn't automatically apply VPC updates to existing applications. Stop and restart your applications to apply the changes.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_in_use.ResourceInUse: <p>Resource being accessed is in use.</p>
+            aws_sdk_sagemaker.errors.resource_limit_exceeded.ResourceLimitExceeded: <p> You have exceeded an SageMaker resource limit. For example, you might have too many training jobs created. </p>
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -25777,6 +27256,10 @@ class AsyncSageMakerClient:
             exclude_retained_variant_properties: <p>When you are updating endpoint resources with <code>RetainAllVariantProperties</code>, whose value is set to <code>true</code>, <code>ExcludeRetainedVariantProperties</code> specifies the list of type <a href=\"https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_VariantProperty.html\">VariantProperty</a> to override with the values provided by <code>EndpointConfig</code>. If you don't specify a value for <code>ExcludeRetainedVariantProperties</code>, no variant properties are overridden. </p>
             deployment_config: <p>The deployment configuration for an endpoint, which contains the desired deployment strategy and rollback configurations.</p>
             retain_deployment_config: <p>Specifies whether to reuse the last deployment configuration. The default value is false (the configuration is not reused).</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_limit_exceeded.ResourceLimitExceeded: <p> You have exceeded an SageMaker resource limit. For example, you might have too many training jobs created. </p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -25828,6 +27311,10 @@ class AsyncSageMakerClient:
         Args:
             endpoint_name: <p>The name of an existing SageMaker endpoint.</p>
             desired_weights_and_capacities: <p>An object that provides new capacity and weight values for a variant.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_limit_exceeded.ResourceLimitExceeded: <p> You have exceeded an SageMaker resource limit. For example, you might have too many training jobs created. </p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -25875,6 +27362,11 @@ class AsyncSageMakerClient:
             experiment_name: <p>The name of the experiment to update.</p>
             display_name: <p>The name of the experiment as displayed. The name doesn't need to be unique. If <code>DisplayName</code> isn't specified, <code>ExperimentName</code> is displayed.</p>
             description: <p>The description of the experiment.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.conflict_exception.ConflictException: <p>There was a conflict when you attempted to modify a SageMaker entity such as an <code>Experiment</code> or <code>Artifact</code>.</p>
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -25928,6 +27420,11 @@ class AsyncSageMakerClient:
             feature_group_name: <p>The name or Amazon Resource Name (ARN) of the feature group that you're updating.</p>
             feature_additions: <p>Updates the feature group. Updating a feature group is an asynchronous operation. When you get an HTTP 200 response, you've made a valid request. It takes some time after you've made a valid request for Feature Store to update the feature group.</p>
             online_store_config: <p>Updates the feature group online store configuration.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_limit_exceeded.ResourceLimitExceeded: <p> You have exceeded an SageMaker resource limit. For example, you might have too many training jobs created. </p>
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -25986,6 +27483,10 @@ class AsyncSageMakerClient:
             description: <p>A description that you can write to better describe the feature.</p>
             parameter_additions: <p>A list of key-value pairs that you can add to better describe the feature.</p>
             parameter_removals: <p>A list of parameter keys that you can specify to remove parameters that describe your feature.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -26041,6 +27542,10 @@ class AsyncSageMakerClient:
             hub_description: <p>A description of the updated hub.</p>
             hub_display_name: <p>The display name of the hub.</p>
             hub_search_keywords: <p>The searchable keywords for the hub.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -26111,6 +27616,11 @@ class AsyncSageMakerClient:
             hub_content_markdown: <p>A string that provides a description of the hub content. This string can include links, tables, and standard markdown formatting.</p>
             hub_content_search_keywords: <p>The searchable keywords of the hub content.</p>
             support_status: <p>Indicates the current status of the hub content resource.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_in_use.ResourceInUse: <p>Resource being accessed is in use.</p>
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -26170,6 +27680,11 @@ class AsyncSageMakerClient:
             hub_content_name: <p>The name of the hub content resource that you want to update.</p>
             hub_content_type: <p>The content type of the resource that you want to update. Only specify a <code>ModelReference</code> resource for this API. To update a <code>Model</code> or <code>Notebook</code> resource, use the <code>UpdateHubContent</code> API instead.</p>
             min_version: <p>The minimum hub content version of the referenced model that you want to use. The minimum version must be older than the latest available version of the referenced model. To support all versions of a model, set the value to <code>1.0.0</code>.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_in_use.ResourceInUse: <p>Resource being accessed is in use.</p>
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -26226,6 +27741,11 @@ class AsyncSageMakerClient:
             display_name: <p>The new display name for the image.</p>
             image_name: <p>The name of the image to update.</p>
             role_arn: <p>The new ARN for the IAM role that enables Amazon SageMaker AI to perform tasks on your behalf.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_in_use.ResourceInUse: <p>Resource being accessed is in use.</p>
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -26310,6 +27830,11 @@ class AsyncSageMakerClient:
             processor: <p>Indicates CPU or GPU compatibility.</p> <ul> <li> <p> <code>CPU</code>: The image version is compatible with CPU.</p> </li> <li> <p> <code>GPU</code>: The image version is compatible with GPU.</p> </li> </ul>
             horovod: <p>Indicates Horovod compatibility.</p>
             release_notes: <p>The maintainer description of the image version.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_in_use.ResourceInUse: <p>Resource being accessed is in use.</p>
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -26386,6 +27911,10 @@ class AsyncSageMakerClient:
             specifications: <p>A list of specification objects for the inference component, one per instance type. Use this parameter when you want to specify different model or resource configurations for the inference component on each instance type. You can use either this parameter or the singular <code>Specification</code> parameter, but not both.</p>
             runtime_config: <p>Runtime settings for a model that is deployed with an inference component.</p>
             deployment_config: <p>The deployment configuration for the inference component. The configuration contains the desired deployment strategy and rollback settings.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_limit_exceeded.ResourceLimitExceeded: <p> You have exceeded an SageMaker resource limit. For example, you might have too many training jobs created. </p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -26434,6 +27963,10 @@ class AsyncSageMakerClient:
         Args:
             inference_component_name: <p>The name of the inference component to update.</p>
             desired_runtime_config: <p>Runtime settings for a model that is deployed with an inference component.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_limit_exceeded.ResourceLimitExceeded: <p> You have exceeded an SageMaker resource limit. For example, you might have too many training jobs created. </p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -26493,6 +28026,11 @@ class AsyncSageMakerClient:
             model_variants: <p> An array of <code>ModelVariantConfig</code> objects. There is one for each variant, whose infrastructure configuration you want to update. </p>
             data_storage_config: <p>The Amazon S3 location and configuration for storing inference request and response data.</p>
             shadow_mode_config: <p> The configuration of <code>ShadowMode</code> inference experiment type. Use this field to specify a production variant which takes all the inference requests, and a shadow variant to which Amazon SageMaker replicates a percentage of the inference requests. For the shadow variant also specify the percentage of requests that Amazon SageMaker replicates. </p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.conflict_exception.ConflictException: <p>There was a conflict when you attempted to modify a SageMaker entity such as an <code>Experiment</code> or <code>Artifact</code>.</p>
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -26561,6 +28099,11 @@ class AsyncSageMakerClient:
             weekly_maintenance_window_start: <p>The new weekly maintenance window start day and time to update. The maintenance window day and time should be in Coordinated Universal Time (UTC) 24-hour standard time. For example: TUE:03:30.</p>
             default_domain_id_list: <p>List of SageMaker Domain IDs for which this MLflow App is the default.</p>
             account_default_status: <p>Indicates whether this this MLflow App is the default for the account.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.conflict_exception.ConflictException: <p>There was a conflict when you attempted to modify a SageMaker entity such as an <code>Experiment</code> or <code>Artifact</code>.</p>
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -26633,6 +28176,12 @@ class AsyncSageMakerClient:
             weekly_maintenance_window_start: <p>The new weekly maintenance window start day and time to update. The maintenance window day and time should be in Coordinated Universal Time (UTC) 24-hour standard time. For example: TUE:03:30.</p>
             s3_bucket_owner_account_id: <p>The new expected Amazon Web Services account ID that owns the Amazon S3 bucket for artifact storage.</p>
             s3_bucket_owner_verification: <p>Whether to enable or disable Amazon S3 Bucket Owenrship Verifaction whenever the MLflow Tracking Server interacts with Amazon Amazon S3.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.conflict_exception.ConflictException: <p>There was a conflict when you attempted to modify a SageMaker entity such as an <code>Experiment</code> or <code>Artifact</code>.</p>
+            aws_sdk_sagemaker.errors.resource_limit_exceeded.ResourceLimitExceeded: <p> You have exceeded an SageMaker resource limit. For example, you might have too many training jobs created. </p>
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -26691,6 +28240,12 @@ class AsyncSageMakerClient:
             model_card_name: <p>The name or Amazon Resource Name (ARN) of the model card to update.</p>
             content: <p>The updated model card content. Content must be in <a href=\"https://docs.aws.amazon.com/sagemaker/latest/dg/model-cards.html#model-cards-json-schema\">model card JSON schema</a> and provided as a string.</p> <p>When updating model card content, be sure to include the full content and not just updated content.</p>
             model_card_status: <p>The approval status of the model card within your organization. Different organizations might have different criteria for model card review and approval.</p> <ul> <li> <p> <code>Draft</code>: The model card is a work in progress.</p> </li> <li> <p> <code>PendingReview</code>: The model card is pending review.</p> </li> <li> <p> <code>Approved</code>: The model card is approved.</p> </li> <li> <p> <code>Archived</code>: The model card is archived. No more updates should be made to the model card, but it can still be exported.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_sagemaker.errors.conflict_exception.ConflictException: <p>There was a conflict when you attempted to modify a SageMaker entity such as an <code>Experiment</code> or <code>Artifact</code>.</p>
+            aws_sdk_sagemaker.errors.resource_limit_exceeded.ResourceLimitExceeded: <p> You have exceeded an SageMaker resource limit. For example, you might have too many training jobs created. </p>
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -26777,6 +28332,10 @@ class AsyncSageMakerClient:
             model_card: <p>The model card associated with the model package. Since <code>ModelPackageModelCard</code> is tied to a model package, it is a specific usage of a model card and its schema is simplified compared to the schema of <code>ModelCard</code>. The <code>ModelPackageModelCard</code> schema does not include <code>model_package_details</code>, and <code>model_overview</code> is composed of the <code>model_creator</code> and <code>model_artifact</code> properties. For more information about the model package model card schema, see <a href=\"https://docs.aws.amazon.com/sagemaker/latest/dg/model-registry-details.html#model-card-schema\">Model package model card schema</a>. For more information about the model card associated with the model package, see <a href=\"https://docs.aws.amazon.com/sagemaker/latest/dg/model-registry-details.html\">View the Details of a Model Version</a>.</p>
             model_life_cycle: <p> A structure describing the current state of the model in its life cycle. </p>
             client_token: <p> A unique token that guarantees that the call to this API is idempotent. </p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.conflict_exception.ConflictException: <p>There was a conflict when you attempted to modify a SageMaker entity such as an <code>Experiment</code> or <code>Artifact</code>.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -26847,6 +28406,11 @@ class AsyncSageMakerClient:
             monitoring_alert_name: <p>The name of a monitoring alert.</p>
             datapoints_to_alert: <p>Within <code>EvaluationPeriod</code>, how many execution failures will raise an alert.</p>
             evaluation_period: <p>The number of most recent monitoring executions to consider when evaluating alert status.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_limit_exceeded.ResourceLimitExceeded: <p> You have exceeded an SageMaker resource limit. For example, you might have too many training jobs created. </p>
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -26890,6 +28454,11 @@ class AsyncSageMakerClient:
         Args:
             monitoring_schedule_name: <p>The name of the monitoring schedule. The name must be unique within an Amazon Web Services Region within an Amazon Web Services account.</p>
             monitoring_schedule_config: <p>The configuration object that specifies the monitoring schedule and defines the monitoring job.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_limit_exceeded.ResourceLimitExceeded: <p> You have exceeded an SageMaker resource limit. For example, you might have too many training jobs created. </p>
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -26985,6 +28554,10 @@ class AsyncSageMakerClient:
             disassociate_additional_code_repositories: <p>A list of names or URLs of the default Git repositories to remove from this notebook instance. This operation is idempotent. If you specify a Git repository that is not associated with the notebook instance when you call this method, it does not throw an error.</p>
             root_access: <p>Whether root access is enabled or disabled for users of the notebook instance. The default value is <code>Enabled</code>.</p> <note> <p>If you set this to <code>Disabled</code>, users don't have root access on the notebook instance, but lifecycle configuration scripts still run with root permissions.</p> </note>
             instance_metadata_service_configuration: <p>Information on the IMDS configuration of the notebook instance</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_limit_exceeded.ResourceLimitExceeded: <p> You have exceeded an SageMaker resource limit. For example, you might have too many training jobs created. </p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -27067,6 +28640,10 @@ class AsyncSageMakerClient:
             notebook_instance_lifecycle_config_name: <p>The name of the lifecycle configuration.</p>
             on_create: <p>The shell script that runs only once, when you create a notebook instance. The shell script must be a base64-encoded string.</p>
             on_start: <p>The shell script that runs every time you start a notebook instance, including when you create the notebook instance. The shell script must be a base64-encoded string.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_limit_exceeded.ResourceLimitExceeded: <p> You have exceeded an SageMaker resource limit. For example, you might have too many training jobs created. </p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -27141,6 +28718,11 @@ class AsyncSageMakerClient:
             app_version: <p>The semantic version to upgrade the SageMaker Partner AI App to. Must be the same semantic version returned in the <code>AvailableUpgrade</code> field from <code>DescribePartnerApp</code>. Version skipping and downgrades are not supported.</p>
             client_token: <p>A unique token that guarantees that the call to this API is idempotent.</p>
             tags: <p>Each tag consists of a key and an optional value. Tag keys must be unique per resource.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.conflict_exception.ConflictException: <p>There was a conflict when you attempted to modify a SageMaker entity such as an <code>Experiment</code> or <code>Artifact</code>.</p>
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -27221,6 +28803,11 @@ class AsyncSageMakerClient:
             pipeline_description: <p>The description of the pipeline.</p>
             role_arn: <p>The Amazon Resource Name (ARN) that the pipeline uses to execute.</p>
             parallelism_configuration: <p>If specified, it applies to all executions of this pipeline by default.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.conflict_exception.ConflictException: <p>There was a conflict when you attempted to modify a SageMaker entity such as an <code>Experiment</code> or <code>Artifact</code>.</p>
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -27283,6 +28870,11 @@ class AsyncSageMakerClient:
             pipeline_execution_description: <p>The description of the pipeline execution.</p>
             pipeline_execution_display_name: <p>The display name of the pipeline execution.</p>
             parallelism_configuration: <p>This configuration, if specified, overrides the parallelism configuration of the parent pipeline for this specific run.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.conflict_exception.ConflictException: <p>There was a conflict when you attempted to modify a SageMaker entity such as an <code>Experiment</code> or <code>Artifact</code>.</p>
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -27337,6 +28929,11 @@ class AsyncSageMakerClient:
             pipeline_version_id: <p>The pipeline version ID to update.</p>
             pipeline_version_display_name: <p>The display name of the pipeline version.</p>
             pipeline_version_description: <p>The description of the pipeline version.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.conflict_exception.ConflictException: <p>There was a conflict when you attempted to modify a SageMaker entity such as an <code>Experiment</code> or <code>Artifact</code>.</p>
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -27394,6 +28991,10 @@ class AsyncSageMakerClient:
             service_catalog_provisioning_update_details: <p>The product ID and provisioning artifact ID to provision a service catalog. The provisioning artifact ID will default to the latest provisioning artifact ID of the product, if you don't provide the provisioning artifact ID. For more information, see <a href=\"https://docs.aws.amazon.com/servicecatalog/latest/adminguide/introduction.html\">What is Amazon Web Services Service Catalog</a>. </p>
             tags: <p>An array of key-value pairs. You can use tags to categorize your Amazon Web Services resources in different ways, for example, by purpose, owner, or environment. For more information, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html\">Tagging Amazon Web Services Resources</a>. In addition, the project must have tag update constraints set in order to include this parameter in the request. For more information, see <a href=\"https://docs.aws.amazon.com/servicecatalog/latest/adminguide/constraints-resourceupdate.html\">Amazon Web Services Service Catalog Tag Update Constraints</a>.</p>
             template_providers_to_update: <p> The template providers to update in the project. </p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.conflict_exception.ConflictException: <p>There was a conflict when you attempted to modify a SageMaker entity such as an <code>Experiment</code> or <code>Artifact</code>.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -27452,6 +29053,12 @@ class AsyncSageMakerClient:
             space_name: <p>The name of the space.</p>
             space_settings: <p>A collection of space settings.</p>
             space_display_name: <p>The name of the space that appears in the Amazon SageMaker Studio UI.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_in_use.ResourceInUse: <p>Resource being accessed is in use.</p>
+            aws_sdk_sagemaker.errors.resource_limit_exceeded.ResourceLimitExceeded: <p> You have exceeded an SageMaker resource limit. For example, you might have too many training jobs created. </p>
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -27513,6 +29120,11 @@ class AsyncSageMakerClient:
             profiler_rule_configurations: <p>Configuration information for Amazon SageMaker Debugger rules for profiling system and framework metrics.</p>
             resource_config: <p>The training job <code>ResourceConfig</code> to update warm pool retention length.</p>
             remote_debug_config: <p>Configuration for remote debugging while the training job is running. You can update the remote debugging configuration when the <code>SecondaryStatus</code> of the job is <code>Downloading</code> or <code>Training</code>.To learn more about the remote debugging functionality of SageMaker, see <a href=\"https://docs.aws.amazon.com/sagemaker/latest/dg/train-remote-debugging.html\">Access a training container through Amazon Web Services Systems Manager (SSM) for remote debugging</a>.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_limit_exceeded.ResourceLimitExceeded: <p> You have exceeded an SageMaker resource limit. For example, you might have too many training jobs created. </p>
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -27563,6 +29175,11 @@ class AsyncSageMakerClient:
         Args:
             trial_name: <p>The name of the trial to update.</p>
             display_name: <p>The name of the trial as displayed. The name doesn't need to be unique. If <code>DisplayName</code> isn't specified, <code>TrialName</code> is displayed.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.conflict_exception.ConflictException: <p>There was a conflict when you attempted to modify a SageMaker entity such as an <code>Experiment</code> or <code>Artifact</code>.</p>
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -27639,6 +29256,11 @@ class AsyncSageMakerClient:
             input_artifacts_to_remove: <p>The input artifacts to remove from the component.</p>
             output_artifacts: <p>Replaces all of the component's output artifacts with the specified artifacts or adds new output artifacts. Existing output artifacts are replaced if the trial component is updated with an identical output artifact key.</p>
             output_artifacts_to_remove: <p>The output artifacts to remove from the component.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.conflict_exception.ConflictException: <p>There was a conflict when you attempted to modify a SageMaker entity such as an <code>Experiment</code> or <code>Artifact</code>.</p>
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -27705,6 +29327,12 @@ class AsyncSageMakerClient:
             domain_id: <p>The domain ID.</p>
             user_profile_name: <p>The user profile name.</p>
             user_settings: <p>A collection of settings.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_in_use.ResourceInUse: <p>Resource being accessed is in use.</p>
+            aws_sdk_sagemaker.errors.resource_limit_exceeded.ResourceLimitExceeded: <p> You have exceeded an SageMaker resource limit. For example, you might have too many training jobs created. </p>
+            aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound: <p>Resource being access is not found.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -27760,6 +29388,10 @@ class AsyncSageMakerClient:
             oidc_config: <p>Use this parameter to update your OIDC Identity Provider (IdP) configuration for a workforce made using your own IdP.</p>
             workforce_vpc_config: <p>Use this parameter to update your VPC configuration for a workforce.</p>
             ip_address_type: <p>Use this parameter to specify whether you want <code>IPv4</code> only or <code>dualstack</code> (<code>IPv4</code> and <code>IPv6</code>) to support your labeling workforce.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.conflict_exception.ConflictException: <p>There was a conflict when you attempted to modify a SageMaker entity such as an <code>Experiment</code> or <code>Artifact</code>.</p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -27820,6 +29452,10 @@ class AsyncSageMakerClient:
             description: <p>An updated description for the work team.</p>
             notification_configuration: <p>Configures SNS topic notifications for available or expiring work items</p>
             worker_access_configuration: <p>Use this optional parameter to constrain access to an Amazon S3 resource based on the IP address using supported IAM global condition keys. The Amazon S3 resource is accessed in the worker portal using a Amazon S3 presigned URL.</p>
+
+        Raises:
+            aws_sdk_sagemaker.errors.resource_limit_exceeded.ResourceLimitExceeded: <p> You have exceeded an SageMaker resource limit. For example, you might have too many training jobs created. </p>
+            aws_sdk_sagemaker.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

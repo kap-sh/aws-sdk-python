@@ -245,6 +245,13 @@ class AsyncIoTThingsGraphClient:
             thing_name: <p>The name of the thing to which the entity is to be associated.</p>
             entity_id: <p>The ID of the device to be associated with the thing.</p> <p>The ID should be in the following format.</p> <p> <code>urn:tdm:REGION/ACCOUNT ID/default:device:DEVICENAME</code> </p>
             namespace_version: <p>The version of the user's namespace. Defaults to the latest version of the user's namespace.</p>
+
+        Raises:
+            aws_sdk_iotthingsgraph.errors.internal_failure_exception.InternalFailureException: <p></p>
+            aws_sdk_iotthingsgraph.errors.invalid_request_exception.InvalidRequestException: <p></p>
+            aws_sdk_iotthingsgraph.errors.resource_not_found_exception.ResourceNotFoundException: <p></p>
+            aws_sdk_iotthingsgraph.errors.throttling_exception.ThrottlingException: <p></p>
+            aws_sdk_iotthingsgraph.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -290,6 +297,14 @@ class AsyncIoTThingsGraphClient:
         Args:
             definition: <p>The workflow <code>DefinitionDocument</code>.</p>
             compatible_namespace_version: <p>The namespace version in which the workflow is to be created.</p> <p>If no value is specified, the latest version is used by default.</p>
+
+        Raises:
+            aws_sdk_iotthingsgraph.errors.internal_failure_exception.InternalFailureException: <p></p>
+            aws_sdk_iotthingsgraph.errors.invalid_request_exception.InvalidRequestException: <p></p>
+            aws_sdk_iotthingsgraph.errors.limit_exceeded_exception.LimitExceededException: <p></p>
+            aws_sdk_iotthingsgraph.errors.resource_already_exists_exception.ResourceAlreadyExistsException: <p></p>
+            aws_sdk_iotthingsgraph.errors.throttling_exception.ThrottlingException: <p></p>
+            aws_sdk_iotthingsgraph.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -348,6 +363,14 @@ class AsyncIoTThingsGraphClient:
             greengrass_group_name: <p>The name of the Greengrass group where the system instance will be deployed. This value is required if the value of the <code>target</code> parameter is <code>GREENGRASS</code>.</p>
             s3_bucket_name: <p>The name of the Amazon Simple Storage Service bucket that will be used to store and deploy the system instance's resource file. This value is required if the value of the <code>target</code> parameter is <code>GREENGRASS</code>.</p>
             flow_actions_role_arn: <p>The ARN of the IAM role that AWS IoT Things Graph will assume when it executes the flow. This role must have read and write access to AWS Lambda and AWS IoT and any other AWS services that the flow uses when it executes. This value is required if the value of the <code>target</code> parameter is <code>CLOUD</code>.</p>
+
+        Raises:
+            aws_sdk_iotthingsgraph.errors.internal_failure_exception.InternalFailureException: <p></p>
+            aws_sdk_iotthingsgraph.errors.invalid_request_exception.InvalidRequestException: <p></p>
+            aws_sdk_iotthingsgraph.errors.limit_exceeded_exception.LimitExceededException: <p></p>
+            aws_sdk_iotthingsgraph.errors.resource_already_exists_exception.ResourceAlreadyExistsException: <p></p>
+            aws_sdk_iotthingsgraph.errors.throttling_exception.ThrottlingException: <p></p>
+            aws_sdk_iotthingsgraph.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -401,6 +424,13 @@ class AsyncIoTThingsGraphClient:
         Args:
             definition: <p>The <code>DefinitionDocument</code> used to create the system.</p>
             compatible_namespace_version: <p>The namespace version in which the system is to be created.</p> <p>If no value is specified, the latest version is used by default.</p>
+
+        Raises:
+            aws_sdk_iotthingsgraph.errors.internal_failure_exception.InternalFailureException: <p></p>
+            aws_sdk_iotthingsgraph.errors.invalid_request_exception.InvalidRequestException: <p></p>
+            aws_sdk_iotthingsgraph.errors.resource_already_exists_exception.ResourceAlreadyExistsException: <p></p>
+            aws_sdk_iotthingsgraph.errors.throttling_exception.ThrottlingException: <p></p>
+            aws_sdk_iotthingsgraph.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -441,6 +471,13 @@ class AsyncIoTThingsGraphClient:
 
         Args:
             id: <p>The ID of the workflow to be deleted.</p> <p>The ID should be in the following format.</p> <p> <code>urn:tdm:REGION/ACCOUNT ID/default:workflow:WORKFLOWNAME</code> </p>
+
+        Raises:
+            aws_sdk_iotthingsgraph.errors.internal_failure_exception.InternalFailureException: <p></p>
+            aws_sdk_iotthingsgraph.errors.invalid_request_exception.InvalidRequestException: <p></p>
+            aws_sdk_iotthingsgraph.errors.resource_in_use_exception.ResourceInUseException: <p></p>
+            aws_sdk_iotthingsgraph.errors.throttling_exception.ThrottlingException: <p></p>
+            aws_sdk_iotthingsgraph.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -474,7 +511,13 @@ class AsyncIoTThingsGraphClient:
     ) -> (
         "aws_sdk_iotthingsgraph.types.delete_namespace_response.DeleteNamespaceResponse"
     ):
-        """<p>Deletes the specified namespace. This action deletes all of the entities in the namespace. Delete the systems and flows that use entities in the namespace before performing this action. This action takes no request parameters.</p>"""
+        """<p>Deletes the specified namespace. This action deletes all of the entities in the namespace. Delete the systems and flows that use entities in the namespace before performing this action. This action takes no request parameters.</p>
+
+        Raises:
+            aws_sdk_iotthingsgraph.errors.internal_failure_exception.InternalFailureException: <p></p>
+            aws_sdk_iotthingsgraph.errors.throttling_exception.ThrottlingException: <p></p>
+            aws_sdk_iotthingsgraph.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_iotthingsgraph.types.delete_namespace_request.DeleteNamespaceRequest]",
@@ -511,6 +554,13 @@ class AsyncIoTThingsGraphClient:
 
         Args:
             id: <p>The ID of the system instance to be deleted.</p>
+
+        Raises:
+            aws_sdk_iotthingsgraph.errors.internal_failure_exception.InternalFailureException: <p></p>
+            aws_sdk_iotthingsgraph.errors.invalid_request_exception.InvalidRequestException: <p></p>
+            aws_sdk_iotthingsgraph.errors.resource_in_use_exception.ResourceInUseException: <p></p>
+            aws_sdk_iotthingsgraph.errors.throttling_exception.ThrottlingException: <p></p>
+            aws_sdk_iotthingsgraph.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -550,6 +600,13 @@ class AsyncIoTThingsGraphClient:
 
         Args:
             id: <p>The ID of the system to be deleted.</p> <p>The ID should be in the following format.</p> <p> <code>urn:tdm:REGION/ACCOUNT ID/default:system:SYSTEMNAME</code> </p>
+
+        Raises:
+            aws_sdk_iotthingsgraph.errors.internal_failure_exception.InternalFailureException: <p></p>
+            aws_sdk_iotthingsgraph.errors.invalid_request_exception.InvalidRequestException: <p></p>
+            aws_sdk_iotthingsgraph.errors.resource_in_use_exception.ResourceInUseException: <p></p>
+            aws_sdk_iotthingsgraph.errors.throttling_exception.ThrottlingException: <p></p>
+            aws_sdk_iotthingsgraph.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -588,6 +645,14 @@ class AsyncIoTThingsGraphClient:
 
         Args:
             id: <p>The ID of the system instance. This value is returned by the <code>CreateSystemInstance</code> action.</p> <p>The ID should be in the following format.</p> <p> <code>urn:tdm:REGION/ACCOUNT ID/default:deployment:DEPLOYMENTNAME</code> </p>
+
+        Raises:
+            aws_sdk_iotthingsgraph.errors.internal_failure_exception.InternalFailureException: <p></p>
+            aws_sdk_iotthingsgraph.errors.invalid_request_exception.InvalidRequestException: <p></p>
+            aws_sdk_iotthingsgraph.errors.resource_in_use_exception.ResourceInUseException: <p></p>
+            aws_sdk_iotthingsgraph.errors.resource_not_found_exception.ResourceNotFoundException: <p></p>
+            aws_sdk_iotthingsgraph.errors.throttling_exception.ThrottlingException: <p></p>
+            aws_sdk_iotthingsgraph.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -627,6 +692,13 @@ class AsyncIoTThingsGraphClient:
 
         Args:
             id: <p>The ID of the workflow to be deleted.</p> <p>The ID should be in the following format.</p> <p> <code>urn:tdm:REGION/ACCOUNT ID/default:workflow:WORKFLOWNAME</code> </p>
+
+        Raises:
+            aws_sdk_iotthingsgraph.errors.internal_failure_exception.InternalFailureException: <p></p>
+            aws_sdk_iotthingsgraph.errors.invalid_request_exception.InvalidRequestException: <p></p>
+            aws_sdk_iotthingsgraph.errors.resource_not_found_exception.ResourceNotFoundException: <p></p>
+            aws_sdk_iotthingsgraph.errors.throttling_exception.ThrottlingException: <p></p>
+            aws_sdk_iotthingsgraph.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -665,6 +737,13 @@ class AsyncIoTThingsGraphClient:
 
         Args:
             id: <p>The ID of the system to delete.</p> <p>The ID should be in the following format.</p> <p> <code>urn:tdm:REGION/ACCOUNT ID/default:system:SYSTEMNAME</code> </p>
+
+        Raises:
+            aws_sdk_iotthingsgraph.errors.internal_failure_exception.InternalFailureException: <p></p>
+            aws_sdk_iotthingsgraph.errors.invalid_request_exception.InvalidRequestException: <p></p>
+            aws_sdk_iotthingsgraph.errors.resource_not_found_exception.ResourceNotFoundException: <p></p>
+            aws_sdk_iotthingsgraph.errors.throttling_exception.ThrottlingException: <p></p>
+            aws_sdk_iotthingsgraph.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -705,6 +784,13 @@ class AsyncIoTThingsGraphClient:
 
         Args:
             namespace_name: <p>The name of the user's namespace. Set this to <code>aws</code> to get the public namespace.</p>
+
+        Raises:
+            aws_sdk_iotthingsgraph.errors.internal_failure_exception.InternalFailureException: <p></p>
+            aws_sdk_iotthingsgraph.errors.invalid_request_exception.InvalidRequestException: <p></p>
+            aws_sdk_iotthingsgraph.errors.resource_not_found_exception.ResourceNotFoundException: <p></p>
+            aws_sdk_iotthingsgraph.errors.throttling_exception.ThrottlingException: <p></p>
+            aws_sdk_iotthingsgraph.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -746,6 +832,13 @@ class AsyncIoTThingsGraphClient:
         Args:
             thing_name: <p>The name of the thing to disassociate.</p>
             entity_type: <p>The entity type from which to disassociate the thing.</p>
+
+        Raises:
+            aws_sdk_iotthingsgraph.errors.internal_failure_exception.InternalFailureException: <p></p>
+            aws_sdk_iotthingsgraph.errors.invalid_request_exception.InvalidRequestException: <p></p>
+            aws_sdk_iotthingsgraph.errors.resource_not_found_exception.ResourceNotFoundException: <p></p>
+            aws_sdk_iotthingsgraph.errors.throttling_exception.ThrottlingException: <p></p>
+            aws_sdk_iotthingsgraph.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -789,6 +882,13 @@ class AsyncIoTThingsGraphClient:
         Args:
             ids: <p>An array of entity IDs.</p> <p>The IDs should be in the following format.</p> <p> <code>urn:tdm:REGION/ACCOUNT ID/default:device:DEVICENAME</code> </p>
             namespace_version: <p>The version of the user's namespace. Defaults to the latest version of the user's namespace.</p>
+
+        Raises:
+            aws_sdk_iotthingsgraph.errors.internal_failure_exception.InternalFailureException: <p></p>
+            aws_sdk_iotthingsgraph.errors.invalid_request_exception.InvalidRequestException: <p></p>
+            aws_sdk_iotthingsgraph.errors.resource_not_found_exception.ResourceNotFoundException: <p></p>
+            aws_sdk_iotthingsgraph.errors.throttling_exception.ThrottlingException: <p></p>
+            aws_sdk_iotthingsgraph.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -833,6 +933,13 @@ class AsyncIoTThingsGraphClient:
         Args:
             id: <p>The ID of the workflow.</p> <p>The ID should be in the following format.</p> <p> <code>urn:tdm:REGION/ACCOUNT ID/default:workflow:WORKFLOWNAME</code> </p>
             revision_number: <p>The number of the workflow revision to retrieve.</p>
+
+        Raises:
+            aws_sdk_iotthingsgraph.errors.internal_failure_exception.InternalFailureException: <p></p>
+            aws_sdk_iotthingsgraph.errors.invalid_request_exception.InvalidRequestException: <p></p>
+            aws_sdk_iotthingsgraph.errors.resource_not_found_exception.ResourceNotFoundException: <p></p>
+            aws_sdk_iotthingsgraph.errors.throttling_exception.ThrottlingException: <p></p>
+            aws_sdk_iotthingsgraph.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -881,6 +988,13 @@ class AsyncIoTThingsGraphClient:
             id: <p>The ID of the workflow.</p> <p>The ID should be in the following format.</p> <p> <code>urn:tdm:REGION/ACCOUNT ID/default:workflow:WORKFLOWNAME</code> </p>
             next_token: <p>The string that specifies the next page of results. Use this when you're paginating results.</p>
             max_results: <p>The maximum number of results to return in the response.</p>
+
+        Raises:
+            aws_sdk_iotthingsgraph.errors.internal_failure_exception.InternalFailureException: <p></p>
+            aws_sdk_iotthingsgraph.errors.invalid_request_exception.InvalidRequestException: <p></p>
+            aws_sdk_iotthingsgraph.errors.resource_not_found_exception.ResourceNotFoundException: <p></p>
+            aws_sdk_iotthingsgraph.errors.throttling_exception.ThrottlingException: <p></p>
+            aws_sdk_iotthingsgraph.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -943,7 +1057,14 @@ class AsyncIoTThingsGraphClient:
     async def get_namespace_deletion_status(
         self, *, config_overrides: Optional[AsyncIoTThingsGraphClientConfig] = None
     ) -> "aws_sdk_iotthingsgraph.types.get_namespace_deletion_status_response.GetNamespaceDeletionStatusResponse":
-        """<p>Gets the status of a namespace deletion task.</p>"""
+        """<p>Gets the status of a namespace deletion task.</p>
+
+        Raises:
+            aws_sdk_iotthingsgraph.errors.internal_failure_exception.InternalFailureException: <p></p>
+            aws_sdk_iotthingsgraph.errors.invalid_request_exception.InvalidRequestException: <p></p>
+            aws_sdk_iotthingsgraph.errors.throttling_exception.ThrottlingException: <p></p>
+            aws_sdk_iotthingsgraph.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_iotthingsgraph.types.get_namespace_deletion_status_request.GetNamespaceDeletionStatusRequest]",
@@ -980,6 +1101,13 @@ class AsyncIoTThingsGraphClient:
 
         Args:
             id: <p>The ID of the system deployment instance. This value is returned by <code>CreateSystemInstance</code>.</p> <p>The ID should be in the following format.</p> <p> <code>urn:tdm:REGION/ACCOUNT ID/default:deployment:DEPLOYMENTNAME</code> </p>
+
+        Raises:
+            aws_sdk_iotthingsgraph.errors.internal_failure_exception.InternalFailureException: <p></p>
+            aws_sdk_iotthingsgraph.errors.invalid_request_exception.InvalidRequestException: <p></p>
+            aws_sdk_iotthingsgraph.errors.resource_not_found_exception.ResourceNotFoundException: <p></p>
+            aws_sdk_iotthingsgraph.errors.throttling_exception.ThrottlingException: <p></p>
+            aws_sdk_iotthingsgraph.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1022,6 +1150,13 @@ class AsyncIoTThingsGraphClient:
         Args:
             id: <p>The ID of the system to get. This ID must be in the user's namespace.</p> <p>The ID should be in the following format.</p> <p> <code>urn:tdm:REGION/ACCOUNT ID/default:system:SYSTEMNAME</code> </p>
             revision_number: <p>The number that specifies the revision of the system to get.</p>
+
+        Raises:
+            aws_sdk_iotthingsgraph.errors.internal_failure_exception.InternalFailureException: <p></p>
+            aws_sdk_iotthingsgraph.errors.invalid_request_exception.InvalidRequestException: <p></p>
+            aws_sdk_iotthingsgraph.errors.resource_not_found_exception.ResourceNotFoundException: <p></p>
+            aws_sdk_iotthingsgraph.errors.throttling_exception.ThrottlingException: <p></p>
+            aws_sdk_iotthingsgraph.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1070,6 +1205,13 @@ class AsyncIoTThingsGraphClient:
             id: <p>The ID of the system template.</p> <p>The ID should be in the following format.</p> <p> <code>urn:tdm:REGION/ACCOUNT ID/default:system:SYSTEMNAME</code> </p>
             next_token: <p>The string that specifies the next page of results. Use this when you're paginating results.</p>
             max_results: <p>The maximum number of results to return in the response.</p>
+
+        Raises:
+            aws_sdk_iotthingsgraph.errors.internal_failure_exception.InternalFailureException: <p></p>
+            aws_sdk_iotthingsgraph.errors.invalid_request_exception.InvalidRequestException: <p></p>
+            aws_sdk_iotthingsgraph.errors.resource_not_found_exception.ResourceNotFoundException: <p></p>
+            aws_sdk_iotthingsgraph.errors.throttling_exception.ThrottlingException: <p></p>
+            aws_sdk_iotthingsgraph.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1139,6 +1281,13 @@ class AsyncIoTThingsGraphClient:
 
         Args:
             upload_id: <p>The ID of the upload. This value is returned by the <code>UploadEntityDefinitions</code> action.</p>
+
+        Raises:
+            aws_sdk_iotthingsgraph.errors.internal_failure_exception.InternalFailureException: <p></p>
+            aws_sdk_iotthingsgraph.errors.invalid_request_exception.InvalidRequestException: <p></p>
+            aws_sdk_iotthingsgraph.errors.resource_not_found_exception.ResourceNotFoundException: <p></p>
+            aws_sdk_iotthingsgraph.errors.throttling_exception.ThrottlingException: <p></p>
+            aws_sdk_iotthingsgraph.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1185,6 +1334,13 @@ class AsyncIoTThingsGraphClient:
             flow_execution_id: <p>The ID of the flow execution.</p>
             next_token: <p>The string that specifies the next page of results. Use this when you're paginating results.</p>
             max_results: <p>The maximum number of results to return in the response.</p>
+
+        Raises:
+            aws_sdk_iotthingsgraph.errors.internal_failure_exception.InternalFailureException: <p></p>
+            aws_sdk_iotthingsgraph.errors.invalid_request_exception.InvalidRequestException: <p></p>
+            aws_sdk_iotthingsgraph.errors.resource_not_found_exception.ResourceNotFoundException: <p></p>
+            aws_sdk_iotthingsgraph.errors.throttling_exception.ThrottlingException: <p></p>
+            aws_sdk_iotthingsgraph.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1262,6 +1418,13 @@ class AsyncIoTThingsGraphClient:
             max_results: <p>The maximum number of tags to return.</p>
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource whose tags are to be returned.</p>
             next_token: <p>The token that specifies the next page of results to return.</p>
+
+        Raises:
+            aws_sdk_iotthingsgraph.errors.internal_failure_exception.InternalFailureException: <p></p>
+            aws_sdk_iotthingsgraph.errors.invalid_request_exception.InvalidRequestException: <p></p>
+            aws_sdk_iotthingsgraph.errors.resource_already_exists_exception.ResourceAlreadyExistsException: <p></p>
+            aws_sdk_iotthingsgraph.errors.throttling_exception.ThrottlingException: <p></p>
+            aws_sdk_iotthingsgraph.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1347,6 +1510,12 @@ class AsyncIoTThingsGraphClient:
             next_token: <p>The string that specifies the next page of results. Use this when you're paginating results.</p>
             max_results: <p>The maximum number of results to return in the response.</p>
             namespace_version: <p>The version of the user's namespace. Defaults to the latest version of the user's namespace.</p>
+
+        Raises:
+            aws_sdk_iotthingsgraph.errors.internal_failure_exception.InternalFailureException: <p></p>
+            aws_sdk_iotthingsgraph.errors.invalid_request_exception.InvalidRequestException: <p></p>
+            aws_sdk_iotthingsgraph.errors.throttling_exception.ThrottlingException: <p></p>
+            aws_sdk_iotthingsgraph.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1444,6 +1613,13 @@ class AsyncIoTThingsGraphClient:
             end_time: <p>The date and time of the latest flow execution to return.</p>
             next_token: <p>The string that specifies the next page of results. Use this when you're paginating results.</p>
             max_results: <p>The maximum number of results to return in the response.</p>
+
+        Raises:
+            aws_sdk_iotthingsgraph.errors.internal_failure_exception.InternalFailureException: <p></p>
+            aws_sdk_iotthingsgraph.errors.invalid_request_exception.InvalidRequestException: <p></p>
+            aws_sdk_iotthingsgraph.errors.resource_not_found_exception.ResourceNotFoundException: <p></p>
+            aws_sdk_iotthingsgraph.errors.throttling_exception.ThrottlingException: <p></p>
+            aws_sdk_iotthingsgraph.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1537,6 +1713,12 @@ class AsyncIoTThingsGraphClient:
             filters: <p>An array of objects that limit the result set. The only valid filter is <code>DEVICE_MODEL_ID</code>.</p>
             next_token: <p>The string that specifies the next page of results. Use this when you're paginating results.</p>
             max_results: <p>The maximum number of results to return in the response.</p>
+
+        Raises:
+            aws_sdk_iotthingsgraph.errors.internal_failure_exception.InternalFailureException: <p></p>
+            aws_sdk_iotthingsgraph.errors.invalid_request_exception.InvalidRequestException: <p></p>
+            aws_sdk_iotthingsgraph.errors.throttling_exception.ThrottlingException: <p></p>
+            aws_sdk_iotthingsgraph.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1619,6 +1801,12 @@ class AsyncIoTThingsGraphClient:
             filters: <p>Optional filter to apply to the search. Valid filters are <code>SYSTEM_TEMPLATE_ID</code>, <code>STATUS</code>, and <code>GREENGRASS_GROUP_NAME</code>.</p> <p>Multiple filters function as OR criteria in the query. Multiple values passed inside the filter function as AND criteria.</p>
             next_token: <p>The string that specifies the next page of results. Use this when you're paginating results.</p>
             max_results: <p>The maximum number of results to return in the response.</p>
+
+        Raises:
+            aws_sdk_iotthingsgraph.errors.internal_failure_exception.InternalFailureException: <p></p>
+            aws_sdk_iotthingsgraph.errors.invalid_request_exception.InvalidRequestException: <p></p>
+            aws_sdk_iotthingsgraph.errors.throttling_exception.ThrottlingException: <p></p>
+            aws_sdk_iotthingsgraph.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1701,6 +1889,12 @@ class AsyncIoTThingsGraphClient:
             filters: <p>An array of filters that limit the result set. The only valid filter is <code>FLOW_TEMPLATE_ID</code>.</p>
             next_token: <p>The string that specifies the next page of results. Use this when you're paginating results.</p>
             max_results: <p>The maximum number of results to return in the response.</p>
+
+        Raises:
+            aws_sdk_iotthingsgraph.errors.internal_failure_exception.InternalFailureException: <p></p>
+            aws_sdk_iotthingsgraph.errors.invalid_request_exception.InvalidRequestException: <p></p>
+            aws_sdk_iotthingsgraph.errors.throttling_exception.ThrottlingException: <p></p>
+            aws_sdk_iotthingsgraph.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1785,6 +1979,13 @@ class AsyncIoTThingsGraphClient:
             next_token: <p>The string that specifies the next page of results. Use this when you're paginating results.</p>
             max_results: <p>The maximum number of results to return in the response.</p>
             namespace_version: <p>The version of the user's namespace. Defaults to the latest version of the user's namespace.</p>
+
+        Raises:
+            aws_sdk_iotthingsgraph.errors.internal_failure_exception.InternalFailureException: <p></p>
+            aws_sdk_iotthingsgraph.errors.invalid_request_exception.InvalidRequestException: <p></p>
+            aws_sdk_iotthingsgraph.errors.resource_not_found_exception.ResourceNotFoundException: <p></p>
+            aws_sdk_iotthingsgraph.errors.throttling_exception.ThrottlingException: <p></p>
+            aws_sdk_iotthingsgraph.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1862,6 +2063,13 @@ class AsyncIoTThingsGraphClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource whose tags are returned.</p>
             tags: <p>A list of tags to add to the resource.></p>
+
+        Raises:
+            aws_sdk_iotthingsgraph.errors.internal_failure_exception.InternalFailureException: <p></p>
+            aws_sdk_iotthingsgraph.errors.invalid_request_exception.InvalidRequestException: <p></p>
+            aws_sdk_iotthingsgraph.errors.resource_already_exists_exception.ResourceAlreadyExistsException: <p></p>
+            aws_sdk_iotthingsgraph.errors.throttling_exception.ThrottlingException: <p></p>
+            aws_sdk_iotthingsgraph.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1901,6 +2109,14 @@ class AsyncIoTThingsGraphClient:
 
         Args:
             id: <p>The ID of the system instance to remove from its target.</p>
+
+        Raises:
+            aws_sdk_iotthingsgraph.errors.internal_failure_exception.InternalFailureException: <p></p>
+            aws_sdk_iotthingsgraph.errors.invalid_request_exception.InvalidRequestException: <p></p>
+            aws_sdk_iotthingsgraph.errors.resource_in_use_exception.ResourceInUseException: <p></p>
+            aws_sdk_iotthingsgraph.errors.resource_not_found_exception.ResourceNotFoundException: <p></p>
+            aws_sdk_iotthingsgraph.errors.throttling_exception.ThrottlingException: <p></p>
+            aws_sdk_iotthingsgraph.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1942,6 +2158,13 @@ class AsyncIoTThingsGraphClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource whose tags are to be removed.</p>
             tag_keys: <p>A list of tag key names to remove from the resource. You don't specify the value. Both the key and its associated value are removed. </p> <p>This parameter to the API requires a JSON text string argument. For information on how to format a JSON parameter for the various command line tool environments, see <a href=\"https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-parameters.html#cli-using-param-json\">Using JSON for Parameters</a> in the <i>AWS CLI User Guide</i>. </p>
+
+        Raises:
+            aws_sdk_iotthingsgraph.errors.internal_failure_exception.InternalFailureException: <p></p>
+            aws_sdk_iotthingsgraph.errors.invalid_request_exception.InvalidRequestException: <p></p>
+            aws_sdk_iotthingsgraph.errors.resource_already_exists_exception.ResourceAlreadyExistsException: <p></p>
+            aws_sdk_iotthingsgraph.errors.throttling_exception.ThrottlingException: <p></p>
+            aws_sdk_iotthingsgraph.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1987,6 +2210,13 @@ class AsyncIoTThingsGraphClient:
             id: <p>The ID of the workflow to be updated.</p> <p>The ID should be in the following format.</p> <p> <code>urn:tdm:REGION/ACCOUNT ID/default:workflow:WORKFLOWNAME</code> </p>
             definition: <p>The <code>DefinitionDocument</code> that contains the updated workflow definition.</p>
             compatible_namespace_version: <p>The version of the user's namespace.</p> <p>If no value is specified, the latest version is used by default. Use the <code>GetFlowTemplateRevisions</code> if you want to find earlier revisions of the flow to update.</p>
+
+        Raises:
+            aws_sdk_iotthingsgraph.errors.internal_failure_exception.InternalFailureException: <p></p>
+            aws_sdk_iotthingsgraph.errors.invalid_request_exception.InvalidRequestException: <p></p>
+            aws_sdk_iotthingsgraph.errors.resource_not_found_exception.ResourceNotFoundException: <p></p>
+            aws_sdk_iotthingsgraph.errors.throttling_exception.ThrottlingException: <p></p>
+            aws_sdk_iotthingsgraph.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2034,6 +2264,13 @@ class AsyncIoTThingsGraphClient:
             id: <p>The ID of the system to be updated.</p> <p>The ID should be in the following format.</p> <p> <code>urn:tdm:REGION/ACCOUNT ID/default:system:SYSTEMNAME</code> </p>
             definition: <p>The <code>DefinitionDocument</code> that contains the updated system definition.</p>
             compatible_namespace_version: <p>The version of the user's namespace. Defaults to the latest version of the user's namespace.</p> <p>If no value is specified, the latest version is used by default.</p>
+
+        Raises:
+            aws_sdk_iotthingsgraph.errors.internal_failure_exception.InternalFailureException: <p></p>
+            aws_sdk_iotthingsgraph.errors.invalid_request_exception.InvalidRequestException: <p></p>
+            aws_sdk_iotthingsgraph.errors.resource_not_found_exception.ResourceNotFoundException: <p></p>
+            aws_sdk_iotthingsgraph.errors.throttling_exception.ThrottlingException: <p></p>
+            aws_sdk_iotthingsgraph.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2085,6 +2322,12 @@ class AsyncIoTThingsGraphClient:
             document: <p>The <code>DefinitionDocument</code> that defines the updated entities.</p>
             sync_with_public_namespace: <p>A Boolean that specifies whether to synchronize with the latest version of the public namespace. If set to <code>true</code>, the upload will create a new namespace version.</p>
             deprecate_existing_entities: <p>A Boolean that specifies whether to deprecate all entities in the latest version before uploading the new <code>DefinitionDocument</code>. If set to <code>true</code>, the upload will create a new namespace version.</p>
+
+        Raises:
+            aws_sdk_iotthingsgraph.errors.internal_failure_exception.InternalFailureException: <p></p>
+            aws_sdk_iotthingsgraph.errors.invalid_request_exception.InvalidRequestException: <p></p>
+            aws_sdk_iotthingsgraph.errors.throttling_exception.ThrottlingException: <p></p>
+            aws_sdk_iotthingsgraph.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

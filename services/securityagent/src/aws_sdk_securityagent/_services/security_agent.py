@@ -282,6 +282,14 @@ class SecurityAgentClient:
             artifact_content: <p>The binary content of the artifact to upload.</p>
             artifact_type: <p>The file type of the artifact. Valid values include TXT, PNG, JPEG, MD, PDF, DOCX, DOC, JSON, and YAML.</p>
             file_name: <p>The file name of the artifact.</p>
+
+        Raises:
+            aws_sdk_securityagent.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_securityagent.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred during the processing of your request.</p>
+            aws_sdk_securityagent.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found. Verify that the resource identifier is correct and that the resource exists in the specified agent space or account.</p>
+            aws_sdk_securityagent.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_securityagent.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by the service.</p>
+            aws_sdk_securityagent.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -324,6 +332,9 @@ class SecurityAgentClient:
         Args:
             code_review_ids: <p>The list of code review identifiers to delete.</p>
             agent_space_id: <p>The unique identifier of the agent space that contains the code reviews to delete.</p>
+
+        Raises:
+            aws_sdk_securityagent.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -364,6 +375,9 @@ class SecurityAgentClient:
         Args:
             pentest_ids: <p>The list of pentest identifiers to delete.</p>
             agent_space_id: <p>The unique identifier of the agent space that contains the pentests to delete.</p>
+
+        Raises:
+            aws_sdk_securityagent.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -404,6 +418,14 @@ class SecurityAgentClient:
         Args:
             agent_space_id: <p>The unique identifier of the agent space that contains the artifacts.</p>
             artifact_ids: <p>The list of artifact identifiers to retrieve metadata for.</p>
+
+        Raises:
+            aws_sdk_securityagent.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_securityagent.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred during the processing of your request.</p>
+            aws_sdk_securityagent.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found. Verify that the resource identifier is correct and that the resource exists in the specified agent space or account.</p>
+            aws_sdk_securityagent.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_securityagent.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by the service.</p>
+            aws_sdk_securityagent.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -444,6 +466,9 @@ class SecurityAgentClient:
         Args:
             code_review_job_ids: <p>The list of code review job identifiers to retrieve.</p>
             agent_space_id: <p>The unique identifier of the agent space that contains the code review jobs.</p>
+
+        Raises:
+            aws_sdk_securityagent.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -484,6 +509,9 @@ class SecurityAgentClient:
         Args:
             agent_space_id: <p>The unique identifier of the agent space that contains the tasks.</p>
             code_review_job_task_ids: <p>The list of task identifiers to retrieve.</p>
+
+        Raises:
+            aws_sdk_securityagent.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -524,6 +552,9 @@ class SecurityAgentClient:
         Args:
             code_review_ids: <p>The list of code review identifiers to retrieve.</p>
             agent_space_id: <p>The unique identifier of the agent space that contains the code reviews.</p>
+
+        Raises:
+            aws_sdk_securityagent.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -564,6 +595,9 @@ class SecurityAgentClient:
         Args:
             finding_ids: <p>The list of finding identifiers to retrieve.</p>
             agent_space_id: <p>The unique identifier of the agent space that contains the findings.</p>
+
+        Raises:
+            aws_sdk_securityagent.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -604,6 +638,9 @@ class SecurityAgentClient:
         Args:
             pentest_job_ids: <p>The list of pentest job identifiers to retrieve.</p>
             agent_space_id: <p>The unique identifier of the agent space that contains the pentest jobs.</p>
+
+        Raises:
+            aws_sdk_securityagent.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -644,6 +681,9 @@ class SecurityAgentClient:
         Args:
             agent_space_id: <p>The unique identifier of the agent space that contains the tasks.</p>
             task_ids: <p>The list of task identifiers to retrieve.</p>
+
+        Raises:
+            aws_sdk_securityagent.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -684,6 +724,9 @@ class SecurityAgentClient:
         Args:
             pentest_ids: <p>The list of pentest identifiers to retrieve.</p>
             agent_space_id: <p>The unique identifier of the agent space that contains the pentests.</p>
+
+        Raises:
+            aws_sdk_securityagent.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -738,6 +781,9 @@ class SecurityAgentClient:
             service_role: <p>The IAM service role to use for the code review.</p>
             log_config: <p>The CloudWatch Logs configuration for the code review.</p>
             code_remediation_strategy: <p>The code remediation strategy for the code review. Valid values are AUTOMATIC and DISABLED.</p>
+
+        Raises:
+            aws_sdk_securityagent.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -793,6 +839,9 @@ class SecurityAgentClient:
             membership_id: <p>The unique identifier for the membership.</p>
             member_type: <p>The type of member. Currently, only USER is supported.</p>
             config: <p>The configuration for the membership, such as the user role.</p>
+
+        Raises:
+            aws_sdk_securityagent.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -861,6 +910,9 @@ class SecurityAgentClient:
             vpc_config: <p>The VPC configuration for the pentest.</p>
             network_traffic_config: <p>The network traffic configuration for the pentest, including custom headers and traffic rules.</p>
             code_remediation_strategy: <p>The code remediation strategy for the pentest. Valid values are AUTOMATIC and DISABLED.</p>
+
+        Raises:
+            aws_sdk_securityagent.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -915,6 +967,14 @@ class SecurityAgentClient:
         Args:
             agent_space_id: <p>The unique identifier of the agent space that contains the artifact.</p>
             artifact_id: <p>The unique identifier of the artifact to delete.</p>
+
+        Raises:
+            aws_sdk_securityagent.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_securityagent.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred during the processing of your request.</p>
+            aws_sdk_securityagent.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found. Verify that the resource identifier is correct and that the resource exists in the specified agent space or account.</p>
+            aws_sdk_securityagent.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_securityagent.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by the service.</p>
+            aws_sdk_securityagent.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -961,6 +1021,9 @@ class SecurityAgentClient:
             agent_space_id: <p>The unique identifier of the agent space to revoke access from.</p>
             membership_id: <p>The unique identifier of the membership to delete.</p>
             member_type: <p>The type of member to remove.</p>
+
+        Raises:
+            aws_sdk_securityagent.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1004,6 +1067,14 @@ class SecurityAgentClient:
         Args:
             agent_space_id: <p>The unique identifier of the agent space that contains the artifact.</p>
             artifact_id: <p>The unique identifier of the artifact to retrieve.</p>
+
+        Raises:
+            aws_sdk_securityagent.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_securityagent.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred during the processing of your request.</p>
+            aws_sdk_securityagent.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found. Verify that the resource identifier is correct and that the resource exists in the specified agent space or account.</p>
+            aws_sdk_securityagent.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_securityagent.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by the service.</p>
+            aws_sdk_securityagent.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1042,6 +1113,15 @@ class SecurityAgentClient:
 
         Args:
             provider: <p>The provider to initiate registration with. Currently, only GITHUB is supported.</p>
+
+        Raises:
+            aws_sdk_securityagent.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_securityagent.errors.conflict_exception.ConflictException: <p>The request could not be completed due to a conflict with the current state of the resource.</p>
+            aws_sdk_securityagent.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred during the processing of your request.</p>
+            aws_sdk_securityagent.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found. Verify that the resource identifier is correct and that the resource exists in the specified agent space or account.</p>
+            aws_sdk_securityagent.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_securityagent.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by the service.</p>
+            aws_sdk_securityagent.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1085,6 +1165,14 @@ class SecurityAgentClient:
             agent_space_id: <p>The unique identifier of the agent space to list artifacts for.</p>
             next_token: <p>A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request. For subsequent calls, use the nextToken value returned from the previous request.</p>
             max_results: <p>The maximum number of results to return in a single call.</p>
+
+        Raises:
+            aws_sdk_securityagent.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_securityagent.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred during the processing of your request.</p>
+            aws_sdk_securityagent.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found. Verify that the resource identifier is correct and that the resource exists in the specified agent space or account.</p>
+            aws_sdk_securityagent.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_securityagent.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by the service.</p>
+            aws_sdk_securityagent.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1159,6 +1247,9 @@ class SecurityAgentClient:
             code_review_id: <p>The unique identifier of the code review to list jobs for.</p>
             agent_space_id: <p>The unique identifier of the agent space.</p>
             next_token: <p>A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request. For subsequent calls, use the nextToken value returned from the previous request.</p>
+
+        Raises:
+            aws_sdk_securityagent.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1240,6 +1331,9 @@ class SecurityAgentClient:
             step_name: <p>Filter tasks by step name.</p>
             category_name: <p>Filter tasks by category name.</p>
             next_token: <p>A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request. For subsequent calls, use the nextToken value returned from the previous request.</p>
+
+        Raises:
+            aws_sdk_securityagent.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1324,6 +1418,9 @@ class SecurityAgentClient:
             max_results: <p>The maximum number of results to return in a single call.</p>
             next_token: <p>A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request. For subsequent calls, use the nextToken value returned from the previous request.</p>
             agent_space_id: <p>The unique identifier of the agent space to list code reviews for.</p>
+
+        Raises:
+            aws_sdk_securityagent.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1400,6 +1497,9 @@ class SecurityAgentClient:
             agent_space_id: <p>The unique identifier of the agent space.</p>
             prefix: <p>A prefix to filter discovered endpoints by URI.</p>
             next_token: <p>A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request. For subsequent calls, use the nextToken value returned from the previous request.</p>
+
+        Raises:
+            aws_sdk_securityagent.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1497,6 +1597,9 @@ class SecurityAgentClient:
             status: <p>Filter findings by status.</p>
             confidence: <p>Filter findings by confidence level.</p>
             name: <p>Filter findings by name.</p>
+
+        Raises:
+            aws_sdk_securityagent.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1609,6 +1712,14 @@ class SecurityAgentClient:
             resource_type: <p>The type of resource to filter by.</p>
             next_token: <p>A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request. For subsequent calls, use the nextToken value returned from the previous request.</p>
             max_results: <p>The maximum number of results to return in a single call.</p>
+
+        Raises:
+            aws_sdk_securityagent.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_securityagent.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred during the processing of your request.</p>
+            aws_sdk_securityagent.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found. Verify that the resource identifier is correct and that the resource exists in the specified agent space or account.</p>
+            aws_sdk_securityagent.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_securityagent.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by the service.</p>
+            aws_sdk_securityagent.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1701,6 +1812,9 @@ class SecurityAgentClient:
             member_type: <p>Filter memberships by member type.</p>
             max_results: <p>The maximum number of results to return in a single call.</p>
             next_token: <p>A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request. For subsequent calls, use the nextToken value returned from the previous request.</p>
+
+        Raises:
+            aws_sdk_securityagent.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1784,6 +1898,9 @@ class SecurityAgentClient:
             pentest_id: <p>The unique identifier of the pentest to list jobs for.</p>
             agent_space_id: <p>The unique identifier of the agent space.</p>
             next_token: <p>A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request. For subsequent calls, use the nextToken value returned from the previous request.</p>
+
+        Raises:
+            aws_sdk_securityagent.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1865,6 +1982,9 @@ class SecurityAgentClient:
             step_name: <p>Filter tasks by step name. Valid values include PREFLIGHT, STATIC_ANALYSIS, PENTEST, and FINALIZING.</p>
             category_name: <p>Filter tasks by category name.</p>
             next_token: <p>A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request. For subsequent calls, use the nextToken value returned from the previous request.</p>
+
+        Raises:
+            aws_sdk_securityagent.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1949,6 +2069,9 @@ class SecurityAgentClient:
             max_results: <p>The maximum number of results to return in a single call.</p>
             next_token: <p>A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request. For subsequent calls, use the nextToken value returned from the previous request.</p>
             agent_space_id: <p>The unique identifier of the agent space to list pentests for.</p>
+
+        Raises:
+            aws_sdk_securityagent.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2015,6 +2138,9 @@ class SecurityAgentClient:
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource to list tags for.</p>
+
+        Raises:
+            aws_sdk_securityagent.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2058,6 +2184,9 @@ class SecurityAgentClient:
             pentest_job_id: <p>The unique identifier of the pentest job that produced the findings. Mutually exclusive with <code>codeReviewJobId</code>.</p>
             code_review_job_id: <p>The unique identifier of the code review job that produced the findings. Mutually exclusive with <code>pentestJobId</code>.</p>
             finding_ids: <p>The list of finding identifiers to initiate code remediation for.</p>
+
+        Raises:
+            aws_sdk_securityagent.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2102,6 +2231,9 @@ class SecurityAgentClient:
         Args:
             agent_space_id: <p>The unique identifier of the agent space.</p>
             code_review_id: <p>The unique identifier of the code review to start a job for.</p>
+
+        Raises:
+            aws_sdk_securityagent.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2142,6 +2274,9 @@ class SecurityAgentClient:
         Args:
             agent_space_id: <p>The unique identifier of the agent space.</p>
             pentest_id: <p>The unique identifier of the pentest to start a job for.</p>
+
+        Raises:
+            aws_sdk_securityagent.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2182,6 +2317,9 @@ class SecurityAgentClient:
         Args:
             agent_space_id: <p>The unique identifier of the agent space.</p>
             code_review_job_id: <p>The unique identifier of the code review job to stop.</p>
+
+        Raises:
+            aws_sdk_securityagent.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2222,6 +2360,9 @@ class SecurityAgentClient:
         Args:
             agent_space_id: <p>The unique identifier of the agent space.</p>
             pentest_job_id: <p>The unique identifier of the pentest job to stop.</p>
+
+        Raises:
+            aws_sdk_securityagent.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2262,6 +2403,9 @@ class SecurityAgentClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource to tag.</p>
             tags: <p>The tags to add to the resource.</p>
+
+        Raises:
+            aws_sdk_securityagent.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2302,6 +2446,9 @@ class SecurityAgentClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource to remove tags from.</p>
             tag_keys: <p>The list of tag keys to remove from the resource.</p>
+
+        Raises:
+            aws_sdk_securityagent.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2358,6 +2505,9 @@ class SecurityAgentClient:
             service_role: <p>The updated IAM service role for the code review.</p>
             log_config: <p>The updated CloudWatch Logs configuration for the code review.</p>
             code_remediation_strategy: <p>The updated code remediation strategy for the code review.</p>
+
+        Raises:
+            aws_sdk_securityagent.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2414,6 +2564,9 @@ class SecurityAgentClient:
             agent_space_id: <p>The unique identifier of the agent space that contains the finding.</p>
             risk_level: <p>The updated risk level for the finding.</p>
             status: <p>The updated status for the finding.</p>
+
+        Raises:
+            aws_sdk_securityagent.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2460,6 +2613,15 @@ class SecurityAgentClient:
             agent_space_id: <p>The unique identifier of the agent space.</p>
             integration_id: <p>The unique identifier of the integration.</p>
             items: <p>The list of integrated resource items to update.</p>
+
+        Raises:
+            aws_sdk_securityagent.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_securityagent.errors.conflict_exception.ConflictException: <p>The request could not be completed due to a conflict with the current state of the resource.</p>
+            aws_sdk_securityagent.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred during the processing of your request.</p>
+            aws_sdk_securityagent.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found. Verify that the resource identifier is correct and that the resource exists in the specified agent space or account.</p>
+            aws_sdk_securityagent.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_securityagent.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by the service.</p>
+            aws_sdk_securityagent.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2527,6 +2689,9 @@ class SecurityAgentClient:
             vpc_config: <p>The updated VPC configuration for the pentest.</p>
             network_traffic_config: <p>The updated network traffic configuration for the pentest.</p>
             code_remediation_strategy: <p>The updated code remediation strategy for the pentest.</p>
+
+        Raises:
+            aws_sdk_securityagent.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2581,6 +2746,9 @@ class SecurityAgentClient:
 
         Args:
             target_domain_id: <p>The unique identifier of the target domain to verify.</p>
+
+        Raises:
+            aws_sdk_securityagent.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(

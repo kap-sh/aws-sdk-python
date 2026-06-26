@@ -74,6 +74,16 @@ class VectorEnrichmentJob:
             job_config: <p>An object containing information about the job configuration.</p>
             execution_role_arn: <p>The Amazon Resource Name (ARN) of the IAM role that you specified for the job.</p>
             tags: <p>Each tag consists of a key and a value.</p>
+
+        Raises:
+            aws_sdk_sagemaker_geospatial.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_sagemaker_geospatial.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_sagemaker_geospatial.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure.</p>
+            aws_sdk_sagemaker_geospatial.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource which does not exist.</p>
+            aws_sdk_sagemaker_geospatial.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You have exceeded the service quota.</p>
+            aws_sdk_sagemaker_geospatial.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_sagemaker_geospatial.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_sagemaker_geospatial.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -120,6 +130,14 @@ class VectorEnrichmentJob:
 
         Args:
             arn: <p>The Amazon Resource Name (ARN) of the Vector Enrichment job.</p>
+
+        Raises:
+            aws_sdk_sagemaker_geospatial.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_sagemaker_geospatial.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure.</p>
+            aws_sdk_sagemaker_geospatial.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource which does not exist.</p>
+            aws_sdk_sagemaker_geospatial.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_sagemaker_geospatial.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_sagemaker_geospatial.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -157,6 +175,15 @@ class VectorEnrichmentJob:
 
         Args:
             arn: <p>The Amazon Resource Name (ARN) of the Vector Enrichment job being deleted.</p>
+
+        Raises:
+            aws_sdk_sagemaker_geospatial.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_sagemaker_geospatial.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_sagemaker_geospatial.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure.</p>
+            aws_sdk_sagemaker_geospatial.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource which does not exist.</p>
+            aws_sdk_sagemaker_geospatial.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_sagemaker_geospatial.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_sagemaker_geospatial.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -206,6 +233,14 @@ class VectorEnrichmentJob:
             sort_by: <p>The parameter by which to sort the results.</p>
             next_token: <p>If the previous response was truncated, you receive this token. Use it in your next request to receive the next set of results.</p>
             max_results: <p>The maximum number of items to return.</p>
+
+        Raises:
+            aws_sdk_sagemaker_geospatial.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_sagemaker_geospatial.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure.</p>
+            aws_sdk_sagemaker_geospatial.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource which does not exist.</p>
+            aws_sdk_sagemaker_geospatial.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_sagemaker_geospatial.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_sagemaker_geospatial.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -258,6 +293,16 @@ class VectorEnrichmentJob:
             client_token: <p>A unique token that guarantees that the call to this API is idempotent.</p>
             execution_role_arn: <p>The Amazon Resource Name (ARN) of the IAM rolewith permission to upload to the location in OutputConfig.</p>
             output_config: <p>Output location information for exporting Vector Enrichment Job results. </p>
+
+        Raises:
+            aws_sdk_sagemaker_geospatial.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_sagemaker_geospatial.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_sagemaker_geospatial.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure.</p>
+            aws_sdk_sagemaker_geospatial.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource which does not exist.</p>
+            aws_sdk_sagemaker_geospatial.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You have exceeded the service quota.</p>
+            aws_sdk_sagemaker_geospatial.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_sagemaker_geospatial.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_sagemaker_geospatial.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -299,6 +344,15 @@ class VectorEnrichmentJob:
 
         Args:
             arn: <p>The Amazon Resource Name (ARN) of the Vector Enrichment job.</p>
+
+        Raises:
+            aws_sdk_sagemaker_geospatial.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_sagemaker_geospatial.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_sagemaker_geospatial.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure.</p>
+            aws_sdk_sagemaker_geospatial.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource which does not exist.</p>
+            aws_sdk_sagemaker_geospatial.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_sagemaker_geospatial.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_sagemaker_geospatial.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -355,6 +409,16 @@ class AsyncVectorEnrichmentJob:
             job_config: <p>An object containing information about the job configuration.</p>
             execution_role_arn: <p>The Amazon Resource Name (ARN) of the IAM role that you specified for the job.</p>
             tags: <p>Each tag consists of a key and a value.</p>
+
+        Raises:
+            aws_sdk_sagemaker_geospatial.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_sagemaker_geospatial.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_sagemaker_geospatial.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure.</p>
+            aws_sdk_sagemaker_geospatial.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource which does not exist.</p>
+            aws_sdk_sagemaker_geospatial.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You have exceeded the service quota.</p>
+            aws_sdk_sagemaker_geospatial.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_sagemaker_geospatial.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_sagemaker_geospatial.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -402,6 +466,14 @@ class AsyncVectorEnrichmentJob:
 
         Args:
             arn: <p>The Amazon Resource Name (ARN) of the Vector Enrichment job.</p>
+
+        Raises:
+            aws_sdk_sagemaker_geospatial.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_sagemaker_geospatial.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure.</p>
+            aws_sdk_sagemaker_geospatial.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource which does not exist.</p>
+            aws_sdk_sagemaker_geospatial.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_sagemaker_geospatial.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_sagemaker_geospatial.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -440,6 +512,15 @@ class AsyncVectorEnrichmentJob:
 
         Args:
             arn: <p>The Amazon Resource Name (ARN) of the Vector Enrichment job being deleted.</p>
+
+        Raises:
+            aws_sdk_sagemaker_geospatial.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_sagemaker_geospatial.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_sagemaker_geospatial.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure.</p>
+            aws_sdk_sagemaker_geospatial.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource which does not exist.</p>
+            aws_sdk_sagemaker_geospatial.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_sagemaker_geospatial.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_sagemaker_geospatial.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -490,6 +571,14 @@ class AsyncVectorEnrichmentJob:
             sort_by: <p>The parameter by which to sort the results.</p>
             next_token: <p>If the previous response was truncated, you receive this token. Use it in your next request to receive the next set of results.</p>
             max_results: <p>The maximum number of items to return.</p>
+
+        Raises:
+            aws_sdk_sagemaker_geospatial.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_sagemaker_geospatial.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure.</p>
+            aws_sdk_sagemaker_geospatial.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource which does not exist.</p>
+            aws_sdk_sagemaker_geospatial.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_sagemaker_geospatial.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_sagemaker_geospatial.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -543,6 +632,16 @@ class AsyncVectorEnrichmentJob:
             client_token: <p>A unique token that guarantees that the call to this API is idempotent.</p>
             execution_role_arn: <p>The Amazon Resource Name (ARN) of the IAM rolewith permission to upload to the location in OutputConfig.</p>
             output_config: <p>Output location information for exporting Vector Enrichment Job results. </p>
+
+        Raises:
+            aws_sdk_sagemaker_geospatial.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_sagemaker_geospatial.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_sagemaker_geospatial.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure.</p>
+            aws_sdk_sagemaker_geospatial.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource which does not exist.</p>
+            aws_sdk_sagemaker_geospatial.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You have exceeded the service quota.</p>
+            aws_sdk_sagemaker_geospatial.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_sagemaker_geospatial.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_sagemaker_geospatial.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -585,6 +684,15 @@ class AsyncVectorEnrichmentJob:
 
         Args:
             arn: <p>The Amazon Resource Name (ARN) of the Vector Enrichment job.</p>
+
+        Raises:
+            aws_sdk_sagemaker_geospatial.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_sagemaker_geospatial.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_sagemaker_geospatial.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure.</p>
+            aws_sdk_sagemaker_geospatial.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource which does not exist.</p>
+            aws_sdk_sagemaker_geospatial.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_sagemaker_geospatial.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_sagemaker_geospatial.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

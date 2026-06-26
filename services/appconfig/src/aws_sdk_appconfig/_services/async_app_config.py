@@ -244,6 +244,12 @@ class AsyncAppConfigClient:
             description: <p>A description of the application.</p>
             tags: <p>Metadata to assign to the application. Tags help organize and categorize your AppConfig resources. Each tag consists of a key and an optional value, both of which you define.</p>
 
+        Raises:
+            aws_sdk_appconfig.errors.bad_request_exception.BadRequestException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_appconfig.errors.internal_server_exception.InternalServerException: <p>There was an internal failure in the AppConfig service.</p>
+            aws_sdk_appconfig.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The number of one more AppConfig resources exceeds the maximum allowed. Verify that your environment doesn't exceed the following service quotas:</p> <p>Applications: 100 max</p> <p>Deployment strategies: 20 max</p> <p>Configuration profiles: 100 max per application</p> <p>Environments: 20 max per application</p> <p>To resolve this issue, you can delete one or more resources and try again. Or, you can request a quota increase. For more information about quotas and to request an increase, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/appconfig.html#limits_appconfig\">Service quotas for AppConfig</a> in the Amazon Web Services General Reference.</p>
+            aws_sdk_appconfig.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To create an application
             The following create-application example creates an application in AWS AppConfig.
@@ -311,6 +317,13 @@ class AsyncAppConfigClient:
             tags: <p>Metadata to assign to the configuration profile. Tags help organize and categorize your AppConfig resources. Each tag consists of a key and an optional value, both of which you define.</p>
             type: <p>The type of configurations contained in the profile. AppConfig supports <code>feature flags</code> and <code>freeform</code> configurations. We recommend you create feature flag configurations to enable or disable new features and freeform configurations to distribute configurations to an application. When calling this API, enter one of the following values for <code>Type</code>:</p> <p> <code>AWS.AppConfig.FeatureFlags</code> </p> <p> <code>AWS.Freeform</code> </p>
             kms_key_identifier: <p>The identifier for an Key Management Service key to encrypt new configuration data versions in the AppConfig hosted configuration store. This attribute is only used for <code>hosted</code> configuration types. The identifier can be an KMS key ID, alias, or the Amazon Resource Name (ARN) of the key ID or alias. To encrypt data managed in other configuration stores, see the documentation for how to specify an KMS key for that particular service.</p>
+
+        Raises:
+            aws_sdk_appconfig.errors.bad_request_exception.BadRequestException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_appconfig.errors.internal_server_exception.InternalServerException: <p>There was an internal failure in the AppConfig service.</p>
+            aws_sdk_appconfig.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource could not be found.</p>
+            aws_sdk_appconfig.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The number of one more AppConfig resources exceeds the maximum allowed. Verify that your environment doesn't exceed the following service quotas:</p> <p>Applications: 100 max</p> <p>Deployment strategies: 20 max</p> <p>Configuration profiles: 100 max per application</p> <p>Environments: 20 max per application</p> <p>To resolve this issue, you can delete one or more resources and try again. Or, you can request a quota increase. For more information about quotas and to request an increase, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/appconfig.html#limits_appconfig\">Service quotas for AppConfig</a> in the Amazon Web Services General Reference.</p>
+            aws_sdk_appconfig.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To create a configuration profile
@@ -388,6 +401,12 @@ class AsyncAppConfigClient:
             replicate_to: <p>Save the deployment strategy to a Systems Manager (SSM) document.</p>
             tags: <p>Metadata to assign to the deployment strategy. Tags help organize and categorize your AppConfig resources. Each tag consists of a key and an optional value, both of which you define.</p>
 
+        Raises:
+            aws_sdk_appconfig.errors.bad_request_exception.BadRequestException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_appconfig.errors.internal_server_exception.InternalServerException: <p>There was an internal failure in the AppConfig service.</p>
+            aws_sdk_appconfig.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The number of one more AppConfig resources exceeds the maximum allowed. Verify that your environment doesn't exceed the following service quotas:</p> <p>Applications: 100 max</p> <p>Deployment strategies: 20 max</p> <p>Configuration profiles: 100 max per application</p> <p>Environments: 20 max per application</p> <p>To resolve this issue, you can delete one or more resources and try again. Or, you can request a quota increase. For more information about quotas and to request an increase, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/appconfig.html#limits_appconfig\">Service quotas for AppConfig</a> in the Amazon Web Services General Reference.</p>
+            aws_sdk_appconfig.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To create a deployment strategy
             The following create-deployment-strategy example creates a deployment strategy called Example-Deployment that takes 15 minutes and deploys the configuration to 25% of the application at a time. The strategy is also copied to an SSM Document.
@@ -452,6 +471,13 @@ class AsyncAppConfigClient:
             monitors: <p>Amazon CloudWatch alarms to monitor during the deployment process.</p>
             tags: <p>Metadata to assign to the environment. Tags help organize and categorize your AppConfig resources. Each tag consists of a key and an optional value, both of which you define.</p>
 
+        Raises:
+            aws_sdk_appconfig.errors.bad_request_exception.BadRequestException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_appconfig.errors.internal_server_exception.InternalServerException: <p>There was an internal failure in the AppConfig service.</p>
+            aws_sdk_appconfig.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource could not be found.</p>
+            aws_sdk_appconfig.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The number of one more AppConfig resources exceeds the maximum allowed. Verify that your environment doesn't exceed the following service quotas:</p> <p>Applications: 100 max</p> <p>Deployment strategies: 20 max</p> <p>Configuration profiles: 100 max per application</p> <p>Environments: 20 max per application</p> <p>To resolve this issue, you can delete one or more resources and try again. Or, you can request a quota increase. For more information about quotas and to request an increase, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/appconfig.html#limits_appconfig\">Service quotas for AppConfig</a> in the Amazon Web Services General Reference.</p>
+            aws_sdk_appconfig.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To create an environment
             The following create-environment example creates an AWS AppConfig environment named Example-Environment using the application you created using create-application
@@ -514,6 +540,13 @@ class AsyncAppConfigClient:
             parameters: <p>The parameters accepted by the extension. You specify parameter values when you associate the extension to an AppConfig resource by using the <code>CreateExtensionAssociation</code> API action. For Lambda extension actions, these parameters are included in the Lambda request object.</p>
             tags: <p>Adds one or more tags for the specified extension. Tags are metadata that help you categorize resources in different ways, for example, by purpose, owner, or environment. Each tag consists of a key and an optional value, both of which you define. </p>
             latest_version_number: <p>You can omit this field when you create an extension. When you create a new version, specify the most recent current version number. For example, you create version 3, enter 2 for this field.</p>
+
+        Raises:
+            aws_sdk_appconfig.errors.bad_request_exception.BadRequestException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_appconfig.errors.conflict_exception.ConflictException: <p>The request could not be processed because of conflict in the current state of the resource.</p>
+            aws_sdk_appconfig.errors.internal_server_exception.InternalServerException: <p>There was an internal failure in the AppConfig service.</p>
+            aws_sdk_appconfig.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The number of one more AppConfig resources exceeds the maximum allowed. Verify that your environment doesn't exceed the following service quotas:</p> <p>Applications: 100 max</p> <p>Deployment strategies: 20 max</p> <p>Configuration profiles: 100 max per application</p> <p>Environments: 20 max per application</p> <p>To resolve this issue, you can delete one or more resources and try again. Or, you can request a quota increase. For more information about quotas and to request an increase, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/appconfig.html#limits_appconfig\">Service quotas for AppConfig</a> in the Amazon Web Services General Reference.</p>
+            aws_sdk_appconfig.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -571,6 +604,13 @@ class AsyncAppConfigClient:
             resource_identifier: <p>The ARN of an application, configuration profile, or environment.</p>
             parameters: <p>The parameter names and values defined in the extensions. Extension parameters marked <code>Required</code> must be entered for this field.</p>
             tags: <p>Adds one or more tags for the specified extension association. Tags are metadata that help you categorize resources in different ways, for example, by purpose, owner, or environment. Each tag consists of a key and an optional value, both of which you define. </p>
+
+        Raises:
+            aws_sdk_appconfig.errors.bad_request_exception.BadRequestException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_appconfig.errors.internal_server_exception.InternalServerException: <p>There was an internal failure in the AppConfig service.</p>
+            aws_sdk_appconfig.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource could not be found.</p>
+            aws_sdk_appconfig.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The number of one more AppConfig resources exceeds the maximum allowed. Verify that your environment doesn't exceed the following service quotas:</p> <p>Applications: 100 max</p> <p>Deployment strategies: 20 max</p> <p>Configuration profiles: 100 max per application</p> <p>Environments: 20 max per application</p> <p>To resolve this issue, you can delete one or more resources and try again. Or, you can request a quota increase. For more information about quotas and to request an increase, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/appconfig.html#limits_appconfig\">Service quotas for AppConfig</a> in the Amazon Web Services General Reference.</p>
+            aws_sdk_appconfig.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -633,6 +673,15 @@ class AsyncAppConfigClient:
             latest_version_number: <p>An optional locking token used to prevent race conditions from overwriting configuration updates when creating a new version. To ensure your data is not overwritten when creating multiple hosted configuration versions in rapid succession, specify the version number of the latest hosted configuration version.</p>
             version_label: <p>An optional, user-defined label for the AppConfig hosted configuration version. This value must contain at least one non-numeric character. For example, \"v2.2.0\".</p>
 
+        Raises:
+            aws_sdk_appconfig.errors.bad_request_exception.BadRequestException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_appconfig.errors.conflict_exception.ConflictException: <p>The request could not be processed because of conflict in the current state of the resource.</p>
+            aws_sdk_appconfig.errors.internal_server_exception.InternalServerException: <p>There was an internal failure in the AppConfig service.</p>
+            aws_sdk_appconfig.errors.payload_too_large_exception.PayloadTooLargeException: <p>The configuration size is too large.</p>
+            aws_sdk_appconfig.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource could not be found.</p>
+            aws_sdk_appconfig.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The number of one more AppConfig resources exceeds the maximum allowed. Verify that your environment doesn't exceed the following service quotas:</p> <p>Applications: 100 max</p> <p>Deployment strategies: 20 max</p> <p>Configuration profiles: 100 max per application</p> <p>Environments: 20 max per application</p> <p>To resolve this issue, you can delete one or more resources and try again. Or, you can request a quota increase. For more information about quotas and to request an increase, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/appconfig.html#limits_appconfig\">Service quotas for AppConfig</a> in the Amazon Web Services General Reference.</p>
+            aws_sdk_appconfig.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To create a hosted configuration version
             The following create-hosted-configuration-version example creates a new configuration in the AWS AppConfig configuration store.
@@ -686,6 +735,12 @@ class AsyncAppConfigClient:
         Args:
             application_id: <p>The ID of the application to delete.</p>
 
+        Raises:
+            aws_sdk_appconfig.errors.bad_request_exception.BadRequestException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_appconfig.errors.internal_server_exception.InternalServerException: <p>There was an internal failure in the AppConfig service.</p>
+            aws_sdk_appconfig.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource could not be found.</p>
+            aws_sdk_appconfig.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To delete an application
             The following delete-application example deletes the specified application.
@@ -735,6 +790,13 @@ class AsyncAppConfigClient:
             configuration_profile_id: <p>The ID of the configuration profile you want to delete.</p>
             deletion_protection_check: <p>A parameter to configure deletion protection. Deletion protection prevents a user from deleting a configuration profile if your application has called either <a href=\"https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_appconfigdata_GetLatestConfiguration.html\">GetLatestConfiguration</a> or for the configuration profile during the specified interval. </p> <p>This parameter supports the following values:</p> <ul> <li> <p> <code>BYPASS</code>: Instructs AppConfig to bypass the deletion protection check and delete a configuration profile even if deletion protection would have otherwise prevented it.</p> </li> <li> <p> <code>APPLY</code>: Instructs the deletion protection check to run, even if deletion protection is disabled at the account level. <code>APPLY</code> also forces the deletion protection check to run against resources created in the past hour, which are normally excluded from deletion protection checks. </p> </li> <li> <p> <code>ACCOUNT_DEFAULT</code>: The default setting, which instructs AppConfig to implement the deletion protection value specified in the <code>UpdateAccountSettings</code> API.</p> </li> </ul>
 
+        Raises:
+            aws_sdk_appconfig.errors.bad_request_exception.BadRequestException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_appconfig.errors.conflict_exception.ConflictException: <p>The request could not be processed because of conflict in the current state of the resource.</p>
+            aws_sdk_appconfig.errors.internal_server_exception.InternalServerException: <p>There was an internal failure in the AppConfig service.</p>
+            aws_sdk_appconfig.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource could not be found.</p>
+            aws_sdk_appconfig.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To delete a configuration profile
             The following delete-configuration-profile example deletes the specified configuration profile.
@@ -779,6 +841,12 @@ class AsyncAppConfigClient:
 
         Args:
             deployment_strategy_id: <p>The ID of the deployment strategy you want to delete.</p>
+
+        Raises:
+            aws_sdk_appconfig.errors.bad_request_exception.BadRequestException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_appconfig.errors.internal_server_exception.InternalServerException: <p>There was an internal failure in the AppConfig service.</p>
+            aws_sdk_appconfig.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource could not be found.</p>
+            aws_sdk_appconfig.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To delete a deployment strategy
@@ -828,6 +896,13 @@ class AsyncAppConfigClient:
             application_id: <p>The application ID that includes the environment that you want to delete.</p>
             deletion_protection_check: <p>A parameter to configure deletion protection. Deletion protection prevents a user from deleting an environment if your application called either <a href=\"https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_appconfigdata_GetLatestConfiguration.html\">GetLatestConfiguration</a> or in the environment during the specified interval. </p> <p>This parameter supports the following values:</p> <ul> <li> <p> <code>BYPASS</code>: Instructs AppConfig to bypass the deletion protection check and delete a configuration profile even if deletion protection would have otherwise prevented it. </p> </li> <li> <p> <code>APPLY</code>: Instructs the deletion protection check to run, even if deletion protection is disabled at the account level. <code>APPLY</code> also forces the deletion protection check to run against resources created in the past hour, which are normally excluded from deletion protection checks.</p> </li> <li> <p> <code>ACCOUNT_DEFAULT</code>: The default setting, which instructs AppConfig to implement the deletion protection value specified in the <code>UpdateAccountSettings</code> API.</p> </li> </ul>
 
+        Raises:
+            aws_sdk_appconfig.errors.bad_request_exception.BadRequestException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_appconfig.errors.conflict_exception.ConflictException: <p>The request could not be processed because of conflict in the current state of the resource.</p>
+            aws_sdk_appconfig.errors.internal_server_exception.InternalServerException: <p>There was an internal failure in the AppConfig service.</p>
+            aws_sdk_appconfig.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource could not be found.</p>
+            aws_sdk_appconfig.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To delete an environment
             The following delete-environment example deletes the specified application environment.
@@ -874,6 +949,12 @@ class AsyncAppConfigClient:
         Args:
             extension_identifier: <p>The name, ID, or Amazon Resource Name (ARN) of the extension you want to delete.</p>
             version_number: <p>A specific version of an extension to delete. If omitted, the highest version is deleted.</p>
+
+        Raises:
+            aws_sdk_appconfig.errors.bad_request_exception.BadRequestException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_appconfig.errors.internal_server_exception.InternalServerException: <p>There was an internal failure in the AppConfig service.</p>
+            aws_sdk_appconfig.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource could not be found.</p>
+            aws_sdk_appconfig.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -912,6 +993,12 @@ class AsyncAppConfigClient:
 
         Args:
             extension_association_id: <p>The ID of the extension association to delete.</p>
+
+        Raises:
+            aws_sdk_appconfig.errors.bad_request_exception.BadRequestException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_appconfig.errors.internal_server_exception.InternalServerException: <p>There was an internal failure in the AppConfig service.</p>
+            aws_sdk_appconfig.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource could not be found.</p>
+            aws_sdk_appconfig.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -953,6 +1040,12 @@ class AsyncAppConfigClient:
             configuration_profile_id: <p>The configuration profile ID.</p>
             version_number: <p>The versions number to delete.</p>
 
+        Raises:
+            aws_sdk_appconfig.errors.bad_request_exception.BadRequestException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_appconfig.errors.internal_server_exception.InternalServerException: <p>There was an internal failure in the AppConfig service.</p>
+            aws_sdk_appconfig.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource could not be found.</p>
+            aws_sdk_appconfig.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To delete a hosted configuration version
             The following delete-hosted-configuration-version example deletes a configuration version hosted in the AWS AppConfig configuration store.
@@ -989,7 +1082,13 @@ class AsyncAppConfigClient:
     async def get_account_settings(
         self, *, config_overrides: Optional[AsyncAppConfigClientConfig] = None
     ) -> "aws_sdk_appconfig.types.account_settings.AccountSettings":
-        """<p>Returns information about the status of the <code>DeletionProtection</code> parameter.</p>"""
+        """<p>Returns information about the status of the <code>DeletionProtection</code> parameter.</p>
+
+        Raises:
+            aws_sdk_appconfig.errors.bad_request_exception.BadRequestException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_appconfig.errors.internal_server_exception.InternalServerException: <p>There was an internal failure in the AppConfig service.</p>
+            aws_sdk_appconfig.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[None]",
@@ -1025,6 +1124,12 @@ class AsyncAppConfigClient:
 
         Args:
             application_id: <p>The ID of the application you want to get.</p>
+
+        Raises:
+            aws_sdk_appconfig.errors.bad_request_exception.BadRequestException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_appconfig.errors.internal_server_exception.InternalServerException: <p>There was an internal failure in the AppConfig service.</p>
+            aws_sdk_appconfig.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource could not be found.</p>
+            aws_sdk_appconfig.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To list details of an application
@@ -1078,6 +1183,12 @@ class AsyncAppConfigClient:
             client_id: <p>The clientId parameter in the following command is a unique, user-specified ID to identify the client for the configuration. This ID enables AppConfig to deploy the configuration in intervals, as defined in the deployment strategy. </p>
             client_configuration_version: <p>The configuration version returned in the most recent <a>GetConfiguration</a> response.</p> <important> <p>AppConfig uses the value of the <code>ClientConfigurationVersion</code> parameter to identify the configuration version on your clients. If you don’t send <code>ClientConfigurationVersion</code> with each call to <a>GetConfiguration</a>, your clients receive the current configuration. You are charged each time your clients receive a configuration.</p> <p>To avoid excess charges, we recommend you use the <a href=\"https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/StartConfigurationSession.html\">StartConfigurationSession</a> and <a href=\"https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/GetLatestConfiguration.html\">GetLatestConfiguration</a> APIs, which track the client configuration version on your behalf. If you choose to continue using <a>GetConfiguration</a>, we recommend that you include the <code>ClientConfigurationVersion</code> value with every call to <a>GetConfiguration</a>. The value to use for <code>ClientConfigurationVersion</code> comes from the <code>ConfigurationVersion</code> attribute returned by <a>GetConfiguration</a> when there is new or updated data, and should be saved for subsequent calls to <a>GetConfiguration</a>.</p> </important> <p>For more information about working with configurations, see <a href=\"http://docs.aws.amazon.com/appconfig/latest/userguide/retrieving-feature-flags.html\">Retrieving feature flags and configuration data in AppConfig</a> in the <i>AppConfig User Guide</i>.</p>
 
+        Raises:
+            aws_sdk_appconfig.errors.bad_request_exception.BadRequestException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_appconfig.errors.internal_server_exception.InternalServerException: <p>There was an internal failure in the AppConfig service.</p>
+            aws_sdk_appconfig.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource could not be found.</p>
+            aws_sdk_appconfig.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To retrieve configuration details
             The following get-configuration example returns the configuration details of the example application. On subsequent calls to get-configuration, use the client-configuration-version parameter to only update the configuration of your application if the version has changed. Only updating the configuration when the version has changed avoids excess charges incurred by calling get-configuration.
@@ -1129,6 +1240,12 @@ class AsyncAppConfigClient:
             application_id: <p>The ID of the application that includes the configuration profile you want to get.</p>
             configuration_profile_id: <p>The ID of the configuration profile that you want to get.</p>
 
+        Raises:
+            aws_sdk_appconfig.errors.bad_request_exception.BadRequestException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_appconfig.errors.internal_server_exception.InternalServerException: <p>There was an internal failure in the AppConfig service.</p>
+            aws_sdk_appconfig.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource could not be found.</p>
+            aws_sdk_appconfig.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To retrieve configuration profile details
             The following get-configuration-profile example returns the details of the specified configuration profile.
@@ -1177,6 +1294,12 @@ class AsyncAppConfigClient:
             application_id: <p>The ID of the application that includes the deployment you want to get. </p>
             environment_id: <p>The ID of the environment that includes the deployment you want to get. </p>
             deployment_number: <p>The sequence number of the deployment.</p>
+
+        Raises:
+            aws_sdk_appconfig.errors.bad_request_exception.BadRequestException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_appconfig.errors.internal_server_exception.InternalServerException: <p>There was an internal failure in the AppConfig service.</p>
+            aws_sdk_appconfig.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource could not be found.</p>
+            aws_sdk_appconfig.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1215,6 +1338,12 @@ class AsyncAppConfigClient:
 
         Args:
             deployment_strategy_id: <p>The ID of the deployment strategy to get.</p>
+
+        Raises:
+            aws_sdk_appconfig.errors.bad_request_exception.BadRequestException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_appconfig.errors.internal_server_exception.InternalServerException: <p>There was an internal failure in the AppConfig service.</p>
+            aws_sdk_appconfig.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource could not be found.</p>
+            aws_sdk_appconfig.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To retrieve details of a deployment strategy
@@ -1262,6 +1391,12 @@ class AsyncAppConfigClient:
             application_id: <p>The ID of the application that includes the environment you want to get.</p>
             environment_id: <p>The ID of the environment that you want to get.</p>
 
+        Raises:
+            aws_sdk_appconfig.errors.bad_request_exception.BadRequestException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_appconfig.errors.internal_server_exception.InternalServerException: <p>There was an internal failure in the AppConfig service.</p>
+            aws_sdk_appconfig.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource could not be found.</p>
+            aws_sdk_appconfig.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To retrieve environment details
             The following get-environment example returns the details and state of the specified environment.
@@ -1306,6 +1441,12 @@ class AsyncAppConfigClient:
         Args:
             extension_identifier: <p>The name, the ID, or the Amazon Resource Name (ARN) of the extension.</p>
             version_number: <p>The extension version number. If no version number was defined, AppConfig uses the highest version.</p>
+
+        Raises:
+            aws_sdk_appconfig.errors.bad_request_exception.BadRequestException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_appconfig.errors.internal_server_exception.InternalServerException: <p>There was an internal failure in the AppConfig service.</p>
+            aws_sdk_appconfig.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource could not be found.</p>
+            aws_sdk_appconfig.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1344,6 +1485,12 @@ class AsyncAppConfigClient:
 
         Args:
             extension_association_id: <p>The extension association ID to get.</p>
+
+        Raises:
+            aws_sdk_appconfig.errors.bad_request_exception.BadRequestException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_appconfig.errors.internal_server_exception.InternalServerException: <p>There was an internal failure in the AppConfig service.</p>
+            aws_sdk_appconfig.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource could not be found.</p>
+            aws_sdk_appconfig.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1386,6 +1533,12 @@ class AsyncAppConfigClient:
             application_id: <p>The application ID.</p>
             configuration_profile_id: <p>The configuration profile ID.</p>
             version_number: <p>The version.</p>
+
+        Raises:
+            aws_sdk_appconfig.errors.bad_request_exception.BadRequestException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_appconfig.errors.internal_server_exception.InternalServerException: <p>There was an internal failure in the AppConfig service.</p>
+            aws_sdk_appconfig.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource could not be found.</p>
+            aws_sdk_appconfig.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To retrieve hosted configuration details
@@ -1434,6 +1587,11 @@ class AsyncAppConfigClient:
         Args:
             max_results: <p>The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.</p>
             next_token: <p>A token to start the list. Next token is a pagination token generated by AppConfig to describe what page the previous List call ended on. For the first List request, the nextToken should not be set. On subsequent calls, the nextToken parameter should be set to the previous responses nextToken value. Use this token to get the next set of results. </p>
+
+        Raises:
+            aws_sdk_appconfig.errors.bad_request_exception.BadRequestException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_appconfig.errors.internal_server_exception.InternalServerException: <p>There was an internal failure in the AppConfig service.</p>
+            aws_sdk_appconfig.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To list the available applications
@@ -1510,6 +1668,12 @@ class AsyncAppConfigClient:
             max_results: <p>The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.</p>
             next_token: <p>A token to start the list. Use this token to get the next set of results.</p>
             type: <p>A filter based on the type of configurations that the configuration profile contains. A configuration can be a feature flag or a freeform configuration.</p>
+
+        Raises:
+            aws_sdk_appconfig.errors.bad_request_exception.BadRequestException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_appconfig.errors.internal_server_exception.InternalServerException: <p>There was an internal failure in the AppConfig service.</p>
+            aws_sdk_appconfig.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource could not be found.</p>
+            aws_sdk_appconfig.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To list the available configuration profiles
@@ -1593,6 +1757,12 @@ class AsyncAppConfigClient:
             environment_id: <p>The environment ID.</p>
             max_results: <p>The maximum number of items that may be returned for this call. If there are items that have not yet been returned, the response will include a non-null <code>NextToken</code> that you can provide in a subsequent call to get the next set of results.</p>
             next_token: <p>The token returned by a prior call to this operation indicating the next set of results to be returned. If not specified, the operation will return the first set of results.</p>
+
+        Raises:
+            aws_sdk_appconfig.errors.bad_request_exception.BadRequestException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_appconfig.errors.internal_server_exception.InternalServerException: <p>There was an internal failure in the AppConfig service.</p>
+            aws_sdk_appconfig.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource could not be found.</p>
+            aws_sdk_appconfig.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1661,6 +1831,11 @@ class AsyncAppConfigClient:
         Args:
             max_results: <p>The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.</p>
             next_token: <p>A token to start the list. Use this token to get the next set of results.</p>
+
+        Raises:
+            aws_sdk_appconfig.errors.bad_request_exception.BadRequestException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_appconfig.errors.internal_server_exception.InternalServerException: <p>There was an internal failure in the AppConfig service.</p>
+            aws_sdk_appconfig.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To list the available deployment strategies
@@ -1735,6 +1910,12 @@ class AsyncAppConfigClient:
             application_id: <p>The application ID.</p>
             max_results: <p>The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.</p>
             next_token: <p>A token to start the list. Use this token to get the next set of results.</p>
+
+        Raises:
+            aws_sdk_appconfig.errors.bad_request_exception.BadRequestException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_appconfig.errors.internal_server_exception.InternalServerException: <p>There was an internal failure in the AppConfig service.</p>
+            aws_sdk_appconfig.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource could not be found.</p>
+            aws_sdk_appconfig.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To list the available environments
@@ -1818,6 +1999,11 @@ class AsyncAppConfigClient:
             extension_version_number: <p>The version number for the extension defined in the association.</p>
             max_results: <p>The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.</p>
             next_token: <p>A token to start the list. Use this token to get the next set of results or pass null to get the first set of results. </p>
+
+        Raises:
+            aws_sdk_appconfig.errors.bad_request_exception.BadRequestException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_appconfig.errors.internal_server_exception.InternalServerException: <p>There was an internal failure in the AppConfig service.</p>
+            aws_sdk_appconfig.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1900,6 +2086,11 @@ class AsyncAppConfigClient:
             max_results: <p>The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.</p>
             next_token: <p>A token to start the list. Use this token to get the next set of results. </p>
             name: <p>The extension name.</p>
+
+        Raises:
+            aws_sdk_appconfig.errors.bad_request_exception.BadRequestException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_appconfig.errors.internal_server_exception.InternalServerException: <p>There was an internal failure in the AppConfig service.</p>
+            aws_sdk_appconfig.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1972,6 +2163,12 @@ class AsyncAppConfigClient:
             max_results: <p>The maximum number of items to return for this call. If <code>MaxResults</code> is not provided in the call, AppConfig returns the maximum of 50. The call also returns a token that you can specify in a subsequent call to get the next set of results.</p>
             next_token: <p>A token to start the list. Use this token to get the next set of results. </p>
             version_label: <p>An optional filter that can be used to specify the version label of an AppConfig hosted configuration version. This parameter supports filtering by prefix using a wildcard, for example \"v2*\". If you don't specify an asterisk at the end of the value, only an exact match is returned.</p>
+
+        Raises:
+            aws_sdk_appconfig.errors.bad_request_exception.BadRequestException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_appconfig.errors.internal_server_exception.InternalServerException: <p>There was an internal failure in the AppConfig service.</p>
+            aws_sdk_appconfig.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource could not be found.</p>
+            aws_sdk_appconfig.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To list the available hosted configuration versions
@@ -2051,6 +2248,12 @@ class AsyncAppConfigClient:
         Args:
             resource_arn: <p>The resource ARN.</p>
 
+        Raises:
+            aws_sdk_appconfig.errors.bad_request_exception.BadRequestException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_appconfig.errors.internal_server_exception.InternalServerException: <p>There was an internal failure in the AppConfig service.</p>
+            aws_sdk_appconfig.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource could not be found.</p>
+            aws_sdk_appconfig.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To list the tags of an application
             The following list-tags-for-resource example lists the tags of a specified application.
@@ -2114,6 +2317,13 @@ class AsyncAppConfigClient:
             tags: <p>Metadata to assign to the deployment. Tags help organize and categorize your AppConfig resources. Each tag consists of a key and an optional value, both of which you define.</p>
             kms_key_identifier: <p>The KMS key identifier (key ID, key alias, or key ARN). AppConfig uses this ID to encrypt the configuration data using a customer managed key. </p>
             dynamic_extension_parameters: <p>A map of dynamic extension parameter names to values to pass to associated extensions with <code>PRE_START_DEPLOYMENT</code> actions.</p>
+
+        Raises:
+            aws_sdk_appconfig.errors.bad_request_exception.BadRequestException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_appconfig.errors.conflict_exception.ConflictException: <p>The request could not be processed because of conflict in the current state of the resource.</p>
+            aws_sdk_appconfig.errors.internal_server_exception.InternalServerException: <p>There was an internal failure in the AppConfig service.</p>
+            aws_sdk_appconfig.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource could not be found.</p>
+            aws_sdk_appconfig.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2169,6 +2379,12 @@ class AsyncAppConfigClient:
             deployment_number: <p>The sequence number of the deployment.</p>
             allow_revert: <p>A Boolean that enables AppConfig to rollback a <code>COMPLETED</code> deployment to the previous configuration version. This action moves the deployment to a status of <code>REVERTED</code>.</p>
 
+        Raises:
+            aws_sdk_appconfig.errors.bad_request_exception.BadRequestException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_appconfig.errors.internal_server_exception.InternalServerException: <p>There was an internal failure in the AppConfig service.</p>
+            aws_sdk_appconfig.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource could not be found.</p>
+            aws_sdk_appconfig.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To stop configuration deployment
             The following stop-deployment example stops the deployment of an application configuration to the specified environment.
@@ -2217,6 +2433,12 @@ class AsyncAppConfigClient:
             resource_arn: <p>The ARN of the resource for which to retrieve tags.</p>
             tags: <p>The key-value string map. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with <code>aws:</code>. The tag value can be up to 256 characters.</p>
 
+        Raises:
+            aws_sdk_appconfig.errors.bad_request_exception.BadRequestException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_appconfig.errors.internal_server_exception.InternalServerException: <p>There was an internal failure in the AppConfig service.</p>
+            aws_sdk_appconfig.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource could not be found.</p>
+            aws_sdk_appconfig.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To tag an application
             The following tag-resource example tags an application resource.
@@ -2262,6 +2484,12 @@ class AsyncAppConfigClient:
             resource_arn: <p>The ARN of the resource for which to remove tags.</p>
             tag_keys: <p>The tag keys to delete.</p>
 
+        Raises:
+            aws_sdk_appconfig.errors.bad_request_exception.BadRequestException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_appconfig.errors.internal_server_exception.InternalServerException: <p>There was an internal failure in the AppConfig service.</p>
+            aws_sdk_appconfig.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource could not be found.</p>
+            aws_sdk_appconfig.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To remove a tag from an application
             The following untag-resource example removes the group1 tag from the specified application.
@@ -2306,6 +2534,11 @@ class AsyncAppConfigClient:
 
         Args:
             deletion_protection: <p>A parameter to configure deletion protection. Deletion protection prevents a user from deleting a configuration profile or an environment if AppConfig has called either <a href=\"https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_appconfigdata_GetLatestConfiguration.html\">GetLatestConfiguration</a> or for the configuration profile or from the environment during the specified interval. The default interval for <code>ProtectionPeriodInMinutes</code> is 60.</p>
+
+        Raises:
+            aws_sdk_appconfig.errors.bad_request_exception.BadRequestException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_appconfig.errors.internal_server_exception.InternalServerException: <p>There was an internal failure in the AppConfig service.</p>
+            aws_sdk_appconfig.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2349,6 +2582,12 @@ class AsyncAppConfigClient:
             application_id: <p>The application ID.</p>
             name: <p>The name of the application.</p>
             description: <p>A description of the application.</p>
+
+        Raises:
+            aws_sdk_appconfig.errors.bad_request_exception.BadRequestException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_appconfig.errors.internal_server_exception.InternalServerException: <p>There was an internal failure in the AppConfig service.</p>
+            aws_sdk_appconfig.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource could not be found.</p>
+            aws_sdk_appconfig.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To update an application
@@ -2411,6 +2650,12 @@ class AsyncAppConfigClient:
             retrieval_role_arn: <p>The ARN of an IAM role with permission to access the configuration at the specified <code>LocationUri</code>.</p> <important> <p>A retrieval role ARN is not required for configurations stored in CodePipeline or the AppConfig hosted configuration store. It is required for all other sources that store your configuration. </p> </important>
             validators: <p>A list of methods for validating the configuration.</p>
             kms_key_identifier: <p>The identifier for a Key Management Service key to encrypt new configuration data versions in the AppConfig hosted configuration store. This attribute is only used for <code>hosted</code> configuration types. The identifier can be an KMS key ID, alias, or the Amazon Resource Name (ARN) of the key ID or alias. To encrypt data managed in other configuration stores, see the documentation for how to specify an KMS key for that particular service.</p>
+
+        Raises:
+            aws_sdk_appconfig.errors.bad_request_exception.BadRequestException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_appconfig.errors.internal_server_exception.InternalServerException: <p>There was an internal failure in the AppConfig service.</p>
+            aws_sdk_appconfig.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource could not be found.</p>
+            aws_sdk_appconfig.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To update a configuration profile
@@ -2483,6 +2728,12 @@ class AsyncAppConfigClient:
             growth_factor: <p>The percentage of targets to receive a deployed configuration during each interval.</p>
             growth_type: <p>The algorithm used to define how percentage grows over time. AppConfig supports the following growth types:</p> <p> <b>Linear</b>: For this type, AppConfig processes the deployment by increments of the growth factor evenly distributed over the deployment time. For example, a linear deployment that uses a growth factor of 20 initially makes the configuration available to 20 percent of the targets. After 1/5th of the deployment time has passed, the system updates the percentage to 40 percent. This continues until 100% of the targets are set to receive the deployed configuration.</p> <p> <b>Exponential</b>: For this type, AppConfig processes the deployment exponentially using the following formula: <code>G*(2^N)</code>. In this formula, <code>G</code> is the growth factor specified by the user and <code>N</code> is the number of steps until the configuration is deployed to all targets. For example, if you specify a growth factor of 2, then the system rolls out the configuration as follows:</p> <p> <code>2*(2^0)</code> </p> <p> <code>2*(2^1)</code> </p> <p> <code>2*(2^2)</code> </p> <p>Expressed numerically, the deployment rolls out as follows: 2% of the targets, 4% of the targets, 8% of the targets, and continues until the configuration has been deployed to all targets.</p>
 
+        Raises:
+            aws_sdk_appconfig.errors.bad_request_exception.BadRequestException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_appconfig.errors.internal_server_exception.InternalServerException: <p>There was an internal failure in the AppConfig service.</p>
+            aws_sdk_appconfig.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource could not be found.</p>
+            aws_sdk_appconfig.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To update a deployment strategy
             The following update-deployment-strategy example updates final bake time to 20 minutes in the specified deployment strategy. ::
@@ -2546,6 +2797,12 @@ class AsyncAppConfigClient:
             description: <p>A description of the environment.</p>
             monitors: <p>Amazon CloudWatch alarms to monitor during the deployment process.</p>
 
+        Raises:
+            aws_sdk_appconfig.errors.bad_request_exception.BadRequestException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_appconfig.errors.internal_server_exception.InternalServerException: <p>There was an internal failure in the AppConfig service.</p>
+            aws_sdk_appconfig.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource could not be found.</p>
+            aws_sdk_appconfig.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To update an environment
             The following update-environment example updates an environment's description.
@@ -2604,6 +2861,13 @@ class AsyncAppConfigClient:
             actions: <p>The actions defined in the extension.</p>
             parameters: <p>One or more parameters for the actions called by the extension.</p>
             version_number: <p>The extension version number.</p>
+
+        Raises:
+            aws_sdk_appconfig.errors.bad_request_exception.BadRequestException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_appconfig.errors.conflict_exception.ConflictException: <p>The request could not be processed because of conflict in the current state of the resource.</p>
+            aws_sdk_appconfig.errors.internal_server_exception.InternalServerException: <p>There was an internal failure in the AppConfig service.</p>
+            aws_sdk_appconfig.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource could not be found.</p>
+            aws_sdk_appconfig.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2652,6 +2916,12 @@ class AsyncAppConfigClient:
         Args:
             extension_association_id: <p>The system-generated ID for the association.</p>
             parameters: <p>The parameter names and values defined in the extension.</p>
+
+        Raises:
+            aws_sdk_appconfig.errors.bad_request_exception.BadRequestException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_appconfig.errors.internal_server_exception.InternalServerException: <p>There was an internal failure in the AppConfig service.</p>
+            aws_sdk_appconfig.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource could not be found.</p>
+            aws_sdk_appconfig.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2696,6 +2966,12 @@ class AsyncAppConfigClient:
             application_id: <p>The application ID.</p>
             configuration_profile_id: <p>The configuration profile ID.</p>
             configuration_version: <p>The version of the configuration to validate.</p>
+
+        Raises:
+            aws_sdk_appconfig.errors.bad_request_exception.BadRequestException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_appconfig.errors.internal_server_exception.InternalServerException: <p>There was an internal failure in the AppConfig service.</p>
+            aws_sdk_appconfig.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource could not be found.</p>
+            aws_sdk_appconfig.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To validate a configuration

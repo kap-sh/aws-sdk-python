@@ -276,6 +276,12 @@ class AsyncCodePipelineClient:
         Args:
             job_id: <p>The unique system-generated ID of the job for which you want to confirm receipt.</p>
             nonce: <p>A system-generated random number that CodePipeline uses to ensure that the job is being worked on by only one job worker. Get this number from the response of the <a>PollForJobs</a> request that returned this job.</p>
+
+        Raises:
+            aws_sdk_codepipeline.errors.invalid_nonce_exception.InvalidNonceException: <p>The nonce was specified in an invalid format.</p>
+            aws_sdk_codepipeline.errors.job_not_found_exception.JobNotFoundException: <p>The job was specified in an invalid format or cannot be found.</p>
+            aws_sdk_codepipeline.errors.validation_exception.ValidationException: <p>The validation was specified in an invalid format.</p>
+            aws_sdk_codepipeline.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -319,6 +325,13 @@ class AsyncCodePipelineClient:
             job_id: <p>The unique system-generated ID of the job.</p>
             nonce: <p>A system-generated random number that CodePipeline uses to ensure that the job is being worked on by only one job worker. Get this number from the response to a <a>GetThirdPartyJobDetails</a> request.</p>
             client_token: <p>The clientToken portion of the clientId and clientToken pair used to verify that the calling entity is allowed access to the job and its details.</p>
+
+        Raises:
+            aws_sdk_codepipeline.errors.invalid_client_token_exception.InvalidClientTokenException: <p>The client token was specified in an invalid format</p>
+            aws_sdk_codepipeline.errors.invalid_nonce_exception.InvalidNonceException: <p>The nonce was specified in an invalid format.</p>
+            aws_sdk_codepipeline.errors.job_not_found_exception.JobNotFoundException: <p>The job was specified in an invalid format or cannot be found.</p>
+            aws_sdk_codepipeline.errors.validation_exception.ValidationException: <p>The validation was specified in an invalid format.</p>
+            aws_sdk_codepipeline.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -377,6 +390,14 @@ class AsyncCodePipelineClient:
             input_artifact_details: <p>The details of the input artifact for the action, such as its commit ID.</p>
             output_artifact_details: <p>The details of the output artifact of the action, such as its commit ID.</p>
             tags: <p>The tags for the custom action.</p>
+
+        Raises:
+            aws_sdk_codepipeline.errors.concurrent_modification_exception.ConcurrentModificationException: <p>Unable to modify the tag due to a simultaneous update request.</p>
+            aws_sdk_codepipeline.errors.invalid_tags_exception.InvalidTagsException: <p>The specified resource tags are invalid.</p>
+            aws_sdk_codepipeline.errors.limit_exceeded_exception.LimitExceededException: <p>The number of pipelines associated with the Amazon Web Services account has exceeded the limit allowed for the account.</p>
+            aws_sdk_codepipeline.errors.too_many_tags_exception.TooManyTagsException: <p>The tags limit for a resource has been exceeded.</p>
+            aws_sdk_codepipeline.errors.validation_exception.ValidationException: <p>The validation was specified in an invalid format.</p>
+            aws_sdk_codepipeline.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -427,6 +448,19 @@ class AsyncCodePipelineClient:
         Args:
             pipeline: <p>Represents the structure of actions and stages to be performed in the pipeline. </p>
             tags: <p>The tags for the pipeline.</p>
+
+        Raises:
+            aws_sdk_codepipeline.errors.concurrent_modification_exception.ConcurrentModificationException: <p>Unable to modify the tag due to a simultaneous update request.</p>
+            aws_sdk_codepipeline.errors.invalid_action_declaration_exception.InvalidActionDeclarationException: <p>The action declaration was specified in an invalid format.</p>
+            aws_sdk_codepipeline.errors.invalid_blocker_declaration_exception.InvalidBlockerDeclarationException: <p>Reserved for future use.</p>
+            aws_sdk_codepipeline.errors.invalid_stage_declaration_exception.InvalidStageDeclarationException: <p>The stage declaration was specified in an invalid format.</p>
+            aws_sdk_codepipeline.errors.invalid_structure_exception.InvalidStructureException: <p>The structure was specified in an invalid format.</p>
+            aws_sdk_codepipeline.errors.invalid_tags_exception.InvalidTagsException: <p>The specified resource tags are invalid.</p>
+            aws_sdk_codepipeline.errors.limit_exceeded_exception.LimitExceededException: <p>The number of pipelines associated with the Amazon Web Services account has exceeded the limit allowed for the account.</p>
+            aws_sdk_codepipeline.errors.pipeline_name_in_use_exception.PipelineNameInUseException: <p>The specified pipeline name is already in use.</p>
+            aws_sdk_codepipeline.errors.too_many_tags_exception.TooManyTagsException: <p>The tags limit for a resource has been exceeded.</p>
+            aws_sdk_codepipeline.errors.validation_exception.ValidationException: <p>The validation was specified in an invalid format.</p>
+            aws_sdk_codepipeline.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -471,6 +505,11 @@ class AsyncCodePipelineClient:
             category: <p>The category of the custom action that you want to delete, such as source or deploy.</p>
             provider: <p>The provider of the service used in the custom action, such as CodeDeploy.</p>
             version: <p>The version of the custom action to delete.</p>
+
+        Raises:
+            aws_sdk_codepipeline.errors.concurrent_modification_exception.ConcurrentModificationException: <p>Unable to modify the tag due to a simultaneous update request.</p>
+            aws_sdk_codepipeline.errors.validation_exception.ValidationException: <p>The validation was specified in an invalid format.</p>
+            aws_sdk_codepipeline.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -509,6 +548,11 @@ class AsyncCodePipelineClient:
 
         Args:
             name: <p>The name of the pipeline to be deleted.</p>
+
+        Raises:
+            aws_sdk_codepipeline.errors.concurrent_modification_exception.ConcurrentModificationException: <p>Unable to modify the tag due to a simultaneous update request.</p>
+            aws_sdk_codepipeline.errors.validation_exception.ValidationException: <p>The validation was specified in an invalid format.</p>
+            aws_sdk_codepipeline.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -545,6 +589,11 @@ class AsyncCodePipelineClient:
 
         Args:
             name: <p>The name of the webhook you want to delete.</p>
+
+        Raises:
+            aws_sdk_codepipeline.errors.concurrent_modification_exception.ConcurrentModificationException: <p>Unable to modify the tag due to a simultaneous update request.</p>
+            aws_sdk_codepipeline.errors.validation_exception.ValidationException: <p>The validation was specified in an invalid format.</p>
+            aws_sdk_codepipeline.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -585,6 +634,11 @@ class AsyncCodePipelineClient:
 
         Args:
             webhook_name: <p>The name of the webhook you want to deregister.</p>
+
+        Raises:
+            aws_sdk_codepipeline.errors.validation_exception.ValidationException: <p>The validation was specified in an invalid format.</p>
+            aws_sdk_codepipeline.errors.webhook_not_found_exception.WebhookNotFoundException: <p>The specified webhook was entered in an invalid format or cannot be found.</p>
+            aws_sdk_codepipeline.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -630,6 +684,12 @@ class AsyncCodePipelineClient:
             stage_name: <p>The name of the stage where you want to disable the inbound or outbound transition of artifacts.</p>
             transition_type: <p>Specifies whether artifacts are prevented from transitioning into the stage and being processed by the actions in that stage (inbound), or prevented from transitioning from the stage after they have been processed by the actions in that stage (outbound).</p>
             reason: <p>The reason given to the user that a stage is disabled, such as waiting for manual approval or manual tests. This message is displayed in the pipeline console UI.</p>
+
+        Raises:
+            aws_sdk_codepipeline.errors.pipeline_not_found_exception.PipelineNotFoundException: <p>The pipeline was specified in an invalid format or cannot be found.</p>
+            aws_sdk_codepipeline.errors.stage_not_found_exception.StageNotFoundException: <p>The stage was specified in an invalid format or cannot be found.</p>
+            aws_sdk_codepipeline.errors.validation_exception.ValidationException: <p>The validation was specified in an invalid format.</p>
+            aws_sdk_codepipeline.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -673,6 +733,12 @@ class AsyncCodePipelineClient:
             pipeline_name: <p>The name of the pipeline in which you want to enable the flow of artifacts from one stage to another.</p>
             stage_name: <p>The name of the stage where you want to enable the transition of artifacts, either into the stage (inbound) or from that stage to the next stage (outbound).</p>
             transition_type: <p>Specifies whether artifacts are allowed to enter the stage and be processed by the actions in that stage (inbound) or whether already processed artifacts are allowed to transition to the next stage (outbound).</p>
+
+        Raises:
+            aws_sdk_codepipeline.errors.pipeline_not_found_exception.PipelineNotFoundException: <p>The pipeline was specified in an invalid format or cannot be found.</p>
+            aws_sdk_codepipeline.errors.stage_not_found_exception.StageNotFoundException: <p>The stage was specified in an invalid format or cannot be found.</p>
+            aws_sdk_codepipeline.errors.validation_exception.ValidationException: <p>The validation was specified in an invalid format.</p>
+            aws_sdk_codepipeline.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -717,6 +783,11 @@ class AsyncCodePipelineClient:
             owner: <p>The creator of an action type that was created with any supported integration model. There are two valid values: <code>AWS</code> and <code>ThirdParty</code>.</p>
             provider: <p>The provider of the action type being called. The provider name is specified when the action type is created.</p>
             version: <p>A string that describes the action type version.</p>
+
+        Raises:
+            aws_sdk_codepipeline.errors.action_type_not_found_exception.ActionTypeNotFoundException: <p>The specified action type cannot be found.</p>
+            aws_sdk_codepipeline.errors.validation_exception.ValidationException: <p>The validation was specified in an invalid format.</p>
+            aws_sdk_codepipeline.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -758,6 +829,11 @@ class AsyncCodePipelineClient:
 
         Args:
             job_id: <p>The unique system-generated ID for the job.</p>
+
+        Raises:
+            aws_sdk_codepipeline.errors.job_not_found_exception.JobNotFoundException: <p>The job was specified in an invalid format or cannot be found.</p>
+            aws_sdk_codepipeline.errors.validation_exception.ValidationException: <p>The validation was specified in an invalid format.</p>
+            aws_sdk_codepipeline.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -800,6 +876,12 @@ class AsyncCodePipelineClient:
         Args:
             name: <p>The name of the pipeline for which you want to get information. Pipeline names must be unique in an Amazon Web Services account.</p>
             version: <p>The version number of the pipeline. If you do not specify a version, defaults to the current version.</p>
+
+        Raises:
+            aws_sdk_codepipeline.errors.pipeline_not_found_exception.PipelineNotFoundException: <p>The pipeline was specified in an invalid format or cannot be found.</p>
+            aws_sdk_codepipeline.errors.pipeline_version_not_found_exception.PipelineVersionNotFoundException: <p>The pipeline version was specified in an invalid format or cannot be found.</p>
+            aws_sdk_codepipeline.errors.validation_exception.ValidationException: <p>The validation was specified in an invalid format.</p>
+            aws_sdk_codepipeline.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -842,6 +924,12 @@ class AsyncCodePipelineClient:
         Args:
             pipeline_name: <p>The name of the pipeline about which you want to get execution details.</p>
             pipeline_execution_id: <p>The ID of the pipeline execution about which you want to get execution details.</p>
+
+        Raises:
+            aws_sdk_codepipeline.errors.pipeline_execution_not_found_exception.PipelineExecutionNotFoundException: <p>The pipeline execution was specified in an invalid format or cannot be found, or an execution ID does not belong to the specified pipeline. </p>
+            aws_sdk_codepipeline.errors.pipeline_not_found_exception.PipelineNotFoundException: <p>The pipeline was specified in an invalid format or cannot be found.</p>
+            aws_sdk_codepipeline.errors.validation_exception.ValidationException: <p>The validation was specified in an invalid format.</p>
+            aws_sdk_codepipeline.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -881,6 +969,11 @@ class AsyncCodePipelineClient:
 
         Args:
             name: <p>The name of the pipeline about which you want to get information.</p>
+
+        Raises:
+            aws_sdk_codepipeline.errors.pipeline_not_found_exception.PipelineNotFoundException: <p>The pipeline was specified in an invalid format or cannot be found.</p>
+            aws_sdk_codepipeline.errors.validation_exception.ValidationException: <p>The validation was specified in an invalid format.</p>
+            aws_sdk_codepipeline.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -921,6 +1014,13 @@ class AsyncCodePipelineClient:
         Args:
             job_id: <p>The unique system-generated ID used for identifying the job.</p>
             client_token: <p>The clientToken portion of the clientId and clientToken pair used to verify that the calling entity is allowed access to the job and its details.</p>
+
+        Raises:
+            aws_sdk_codepipeline.errors.invalid_client_token_exception.InvalidClientTokenException: <p>The client token was specified in an invalid format</p>
+            aws_sdk_codepipeline.errors.invalid_job_exception.InvalidJobException: <p>The job was specified in an invalid format or cannot be found.</p>
+            aws_sdk_codepipeline.errors.job_not_found_exception.JobNotFoundException: <p>The job was specified in an invalid format or cannot be found.</p>
+            aws_sdk_codepipeline.errors.validation_exception.ValidationException: <p>The validation was specified in an invalid format.</p>
+            aws_sdk_codepipeline.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -970,6 +1070,13 @@ class AsyncCodePipelineClient:
             filter: <p>Input information used to filter action execution history.</p>
             max_results: <p>The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned nextToken value. Action execution history is retained for up to 12 months, based on action execution start times. Default value is 100. </p>
             next_token: <p>The token that was returned from the previous <code>ListActionExecutions</code> call, which can be used to return the next set of action executions in the list.</p>
+
+        Raises:
+            aws_sdk_codepipeline.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The next token was specified in an invalid format. Make sure that the next token you provide is the token returned by a previous call.</p>
+            aws_sdk_codepipeline.errors.pipeline_execution_not_found_exception.PipelineExecutionNotFoundException: <p>The pipeline execution was specified in an invalid format or cannot be found, or an execution ID does not belong to the specified pipeline. </p>
+            aws_sdk_codepipeline.errors.pipeline_not_found_exception.PipelineNotFoundException: <p>The pipeline was specified in an invalid format or cannot be found.</p>
+            aws_sdk_codepipeline.errors.validation_exception.ValidationException: <p>The validation was specified in an invalid format.</p>
+            aws_sdk_codepipeline.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1051,6 +1158,11 @@ class AsyncCodePipelineClient:
             action_owner_filter: <p>Filters the list of action types to those created by a specified entity.</p>
             next_token: <p>An identifier that was returned from the previous list action types call, which can be used to return the next set of action types in the list.</p>
             region_filter: <p>The Region to filter on for the list of action types.</p>
+
+        Raises:
+            aws_sdk_codepipeline.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The next token was specified in an invalid format. Make sure that the next token you provide is the token returned by a previous call.</p>
+            aws_sdk_codepipeline.errors.validation_exception.ValidationException: <p>The validation was specified in an invalid format.</p>
+            aws_sdk_codepipeline.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1135,6 +1247,13 @@ class AsyncCodePipelineClient:
             filters: <p>Filters the targets for a specified deploy action.</p>
             max_results: <p>The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned nextToken value.</p>
             next_token: <p>An identifier that was returned from the previous list action types call, which can be used to return the next set of action types in the list.</p>
+
+        Raises:
+            aws_sdk_codepipeline.errors.action_execution_not_found_exception.ActionExecutionNotFoundException: <p>The action execution was not found.</p>
+            aws_sdk_codepipeline.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The next token was specified in an invalid format. Make sure that the next token you provide is the token returned by a previous call.</p>
+            aws_sdk_codepipeline.errors.pipeline_not_found_exception.PipelineNotFoundException: <p>The pipeline was specified in an invalid format or cannot be found.</p>
+            aws_sdk_codepipeline.errors.validation_exception.ValidationException: <p>The validation was specified in an invalid format.</p>
+            aws_sdk_codepipeline.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1224,6 +1343,12 @@ class AsyncCodePipelineClient:
             max_results: <p>The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned nextToken value. Pipeline history is limited to the most recent 12 months, based on pipeline execution start times. Default value is 100.</p>
             filter: <p>The pipeline execution to filter on.</p>
             next_token: <p>The token that was returned from the previous <code>ListPipelineExecutions</code> call, which can be used to return the next set of pipeline executions in the list.</p>
+
+        Raises:
+            aws_sdk_codepipeline.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The next token was specified in an invalid format. Make sure that the next token you provide is the token returned by a previous call.</p>
+            aws_sdk_codepipeline.errors.pipeline_not_found_exception.PipelineNotFoundException: <p>The pipeline was specified in an invalid format or cannot be found.</p>
+            aws_sdk_codepipeline.errors.validation_exception.ValidationException: <p>The validation was specified in an invalid format.</p>
+            aws_sdk_codepipeline.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1301,6 +1426,11 @@ class AsyncCodePipelineClient:
         Args:
             next_token: <p>An identifier that was returned from the previous list pipelines call. It can be used to return the next set of pipelines in the list.</p>
             max_results: <p>The maximum number of pipelines to return in a single call. To retrieve the remaining pipelines, make another call with the returned nextToken value. The minimum value you can specify is 1. The maximum accepted value is 1000.</p>
+
+        Raises:
+            aws_sdk_codepipeline.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The next token was specified in an invalid format. Make sure that the next token you provide is the token returned by a previous call.</p>
+            aws_sdk_codepipeline.errors.validation_exception.ValidationException: <p>The validation was specified in an invalid format.</p>
+            aws_sdk_codepipeline.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1375,6 +1505,13 @@ class AsyncCodePipelineClient:
             filter: <p>Input information used to filter rule execution history.</p>
             max_results: <p>The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned nextToken value. Pipeline history is limited to the most recent 12 months, based on pipeline execution start times. Default value is 100.</p>
             next_token: <p>The token that was returned from the previous <code>ListRuleExecutions</code> call, which can be used to return the next set of rule executions in the list.</p>
+
+        Raises:
+            aws_sdk_codepipeline.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The next token was specified in an invalid format. Make sure that the next token you provide is the token returned by a previous call.</p>
+            aws_sdk_codepipeline.errors.pipeline_execution_not_found_exception.PipelineExecutionNotFoundException: <p>The pipeline execution was specified in an invalid format or cannot be found, or an execution ID does not belong to the specified pipeline. </p>
+            aws_sdk_codepipeline.errors.pipeline_not_found_exception.PipelineNotFoundException: <p>The pipeline was specified in an invalid format or cannot be found.</p>
+            aws_sdk_codepipeline.errors.validation_exception.ValidationException: <p>The validation was specified in an invalid format.</p>
+            aws_sdk_codepipeline.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1454,6 +1591,11 @@ class AsyncCodePipelineClient:
         Args:
             rule_owner_filter: <p>The rule owner to filter on.</p>
             region_filter: <p>The rule Region to filter on.</p>
+
+        Raises:
+            aws_sdk_codepipeline.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The next token was specified in an invalid format. Make sure that the next token you provide is the token returned by a previous call.</p>
+            aws_sdk_codepipeline.errors.validation_exception.ValidationException: <p>The validation was specified in an invalid format.</p>
+            aws_sdk_codepipeline.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1501,6 +1643,13 @@ class AsyncCodePipelineClient:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource to get tags for.</p>
             next_token: <p>The token that was returned from the previous API call, which would be used to return the next page of the list. The ListTagsforResource call lists all available tags in one call and does not use pagination.</p>
             max_results: <p>The maximum number of results to return in a single call.</p>
+
+        Raises:
+            aws_sdk_codepipeline.errors.invalid_arn_exception.InvalidArnException: <p>The specified resource ARN is invalid.</p>
+            aws_sdk_codepipeline.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The next token was specified in an invalid format. Make sure that the next token you provide is the token returned by a previous call.</p>
+            aws_sdk_codepipeline.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource was specified in an invalid format.</p>
+            aws_sdk_codepipeline.errors.validation_exception.ValidationException: <p>The validation was specified in an invalid format.</p>
+            aws_sdk_codepipeline.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1572,6 +1721,11 @@ class AsyncCodePipelineClient:
         Args:
             next_token: <p>The token that was returned from the previous ListWebhooks call, which can be used to return the next set of webhooks in the list.</p>
             max_results: <p>The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned nextToken value.</p>
+
+        Raises:
+            aws_sdk_codepipeline.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The next token was specified in an invalid format. Make sure that the next token you provide is the token returned by a previous call.</p>
+            aws_sdk_codepipeline.errors.validation_exception.ValidationException: <p>The validation was specified in an invalid format.</p>
+            aws_sdk_codepipeline.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1642,6 +1796,16 @@ class AsyncCodePipelineClient:
             stage_name: <p>The name of the stage for the override.</p>
             pipeline_execution_id: <p>The ID of the pipeline execution for the override.</p>
             condition_type: <p>The type of condition to override for the stage, such as entry conditions, failure conditions, or success conditions.</p>
+
+        Raises:
+            aws_sdk_codepipeline.errors.concurrent_pipeline_executions_limit_exceeded_exception.ConcurrentPipelineExecutionsLimitExceededException: <p>The pipeline has reached the limit for concurrent pipeline executions.</p>
+            aws_sdk_codepipeline.errors.condition_not_overridable_exception.ConditionNotOverridableException: <p>Unable to override because the condition does not allow overrides.</p>
+            aws_sdk_codepipeline.errors.conflict_exception.ConflictException: <p>Your request cannot be handled because the pipeline is busy handling ongoing activities. Try again later.</p>
+            aws_sdk_codepipeline.errors.not_latest_pipeline_execution_exception.NotLatestPipelineExecutionException: <p>The stage has failed in a later run of the pipeline and the <code>pipelineExecutionId</code> associated with the request is out of date.</p>
+            aws_sdk_codepipeline.errors.pipeline_not_found_exception.PipelineNotFoundException: <p>The pipeline was specified in an invalid format or cannot be found.</p>
+            aws_sdk_codepipeline.errors.stage_not_found_exception.StageNotFoundException: <p>The stage was specified in an invalid format or cannot be found.</p>
+            aws_sdk_codepipeline.errors.validation_exception.ValidationException: <p>The validation was specified in an invalid format.</p>
+            aws_sdk_codepipeline.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1689,6 +1853,11 @@ class AsyncCodePipelineClient:
             action_type_id: <p>Represents information about an action type.</p>
             max_batch_size: <p>The maximum number of jobs to return in a poll for jobs call.</p>
             query_param: <p>A map of property names and values. For an action type with no queryable properties, this value must be null or an empty map. For an action type with a queryable property, you must supply that property as a key in the map. Only jobs whose action configuration matches the mapped value are returned.</p>
+
+        Raises:
+            aws_sdk_codepipeline.errors.action_type_not_found_exception.ActionTypeNotFoundException: <p>The specified action type cannot be found.</p>
+            aws_sdk_codepipeline.errors.validation_exception.ValidationException: <p>The validation was specified in an invalid format.</p>
+            aws_sdk_codepipeline.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1735,6 +1904,11 @@ class AsyncCodePipelineClient:
         Args:
             action_type_id: <p>Represents information about an action type.</p>
             max_batch_size: <p>The maximum number of jobs to return in a poll for jobs call.</p>
+
+        Raises:
+            aws_sdk_codepipeline.errors.action_type_not_found_exception.ActionTypeNotFoundException: <p>The specified action type cannot be found.</p>
+            aws_sdk_codepipeline.errors.validation_exception.ValidationException: <p>The validation was specified in an invalid format.</p>
+            aws_sdk_codepipeline.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1783,6 +1957,14 @@ class AsyncCodePipelineClient:
             stage_name: <p>The name of the stage that contains the action that acts on the revision.</p>
             action_name: <p>The name of the action that processes the revision.</p>
             action_revision: <p>Represents information about the version (or revision) of an action.</p>
+
+        Raises:
+            aws_sdk_codepipeline.errors.action_not_found_exception.ActionNotFoundException: <p>The specified action cannot be found.</p>
+            aws_sdk_codepipeline.errors.concurrent_pipeline_executions_limit_exceeded_exception.ConcurrentPipelineExecutionsLimitExceededException: <p>The pipeline has reached the limit for concurrent pipeline executions.</p>
+            aws_sdk_codepipeline.errors.pipeline_not_found_exception.PipelineNotFoundException: <p>The pipeline was specified in an invalid format or cannot be found.</p>
+            aws_sdk_codepipeline.errors.stage_not_found_exception.StageNotFoundException: <p>The stage was specified in an invalid format or cannot be found.</p>
+            aws_sdk_codepipeline.errors.validation_exception.ValidationException: <p>The validation was specified in an invalid format.</p>
+            aws_sdk_codepipeline.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1834,6 +2016,15 @@ class AsyncCodePipelineClient:
             action_name: <p>The name of the action for which approval is requested.</p>
             result: <p>Represents information about the result of the approval request.</p>
             token: <p>The system-generated token used to identify a unique approval request. The token for each open approval request can be obtained using the <a>GetPipelineState</a> action. It is used to validate that the approval request corresponding to this token is still valid.</p> <important> <p>For a pipeline where the execution mode is set to PARALLEL, the token required to approve/reject an approval request as detailed above is not available. Instead, use the <code>externalExecutionId</code> in the response output from the <a>ListActionExecutions</a> action as the token in the approval request.</p> </important>
+
+        Raises:
+            aws_sdk_codepipeline.errors.action_not_found_exception.ActionNotFoundException: <p>The specified action cannot be found.</p>
+            aws_sdk_codepipeline.errors.approval_already_completed_exception.ApprovalAlreadyCompletedException: <p>The approval action has already been approved or rejected.</p>
+            aws_sdk_codepipeline.errors.invalid_approval_token_exception.InvalidApprovalTokenException: <p>The approval request already received a response or has expired.</p>
+            aws_sdk_codepipeline.errors.pipeline_not_found_exception.PipelineNotFoundException: <p>The pipeline was specified in an invalid format or cannot be found.</p>
+            aws_sdk_codepipeline.errors.stage_not_found_exception.StageNotFoundException: <p>The stage was specified in an invalid format or cannot be found.</p>
+            aws_sdk_codepipeline.errors.validation_exception.ValidationException: <p>The validation was specified in an invalid format.</p>
+            aws_sdk_codepipeline.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1878,6 +2069,12 @@ class AsyncCodePipelineClient:
         Args:
             job_id: <p>The unique system-generated ID of the job that failed. This is the same ID returned from <code>PollForJobs</code>.</p>
             failure_details: <p>The details about the failure of a job.</p>
+
+        Raises:
+            aws_sdk_codepipeline.errors.invalid_job_state_exception.InvalidJobStateException: <p>The job state was specified in an invalid format.</p>
+            aws_sdk_codepipeline.errors.job_not_found_exception.JobNotFoundException: <p>The job was specified in an invalid format or cannot be found.</p>
+            aws_sdk_codepipeline.errors.validation_exception.ValidationException: <p>The validation was specified in an invalid format.</p>
+            aws_sdk_codepipeline.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1931,6 +2128,13 @@ class AsyncCodePipelineClient:
             continuation_token: <p>A token generated by a job worker, such as a CodeDeploy deployment ID, that a successful job provides to identify a custom action in progress. Future jobs use this token to identify the running instance of the action. It can be reused to return more information about the progress of the custom action. When the action is complete, no continuation token should be supplied.</p>
             execution_details: <p>The execution details of the successful job, such as the actions taken by the job worker.</p>
             output_variables: <p>Key-value pairs produced as output by a job worker that can be made available to a downstream action configuration. <code>outputVariables</code> can be included only when there is no continuation token on the request.</p>
+
+        Raises:
+            aws_sdk_codepipeline.errors.invalid_job_state_exception.InvalidJobStateException: <p>The job state was specified in an invalid format.</p>
+            aws_sdk_codepipeline.errors.job_not_found_exception.JobNotFoundException: <p>The job was specified in an invalid format or cannot be found.</p>
+            aws_sdk_codepipeline.errors.output_variables_size_exceeded_exception.OutputVariablesSizeExceededException: <p>Exceeded the total size limit for all variables in the pipeline.</p>
+            aws_sdk_codepipeline.errors.validation_exception.ValidationException: <p>The validation was specified in an invalid format.</p>
+            aws_sdk_codepipeline.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1979,6 +2183,13 @@ class AsyncCodePipelineClient:
             job_id: <p>The ID of the job that failed. This is the same ID returned from <code>PollForThirdPartyJobs</code>.</p>
             client_token: <p>The clientToken portion of the clientId and clientToken pair used to verify that the calling entity is allowed access to the job and its details.</p>
             failure_details: <p>Represents information about failure details.</p>
+
+        Raises:
+            aws_sdk_codepipeline.errors.invalid_client_token_exception.InvalidClientTokenException: <p>The client token was specified in an invalid format</p>
+            aws_sdk_codepipeline.errors.invalid_job_state_exception.InvalidJobStateException: <p>The job state was specified in an invalid format.</p>
+            aws_sdk_codepipeline.errors.job_not_found_exception.JobNotFoundException: <p>The job was specified in an invalid format or cannot be found.</p>
+            aws_sdk_codepipeline.errors.validation_exception.ValidationException: <p>The validation was specified in an invalid format.</p>
+            aws_sdk_codepipeline.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2031,6 +2242,13 @@ class AsyncCodePipelineClient:
             current_revision: <p>Represents information about a current revision.</p>
             continuation_token: <p>A token generated by a job worker, such as a CodeDeploy deployment ID, that a successful job provides to identify a partner action in progress. Future jobs use this token to identify the running instance of the action. It can be reused to return more information about the progress of the partner action. When the action is complete, no continuation token should be supplied.</p>
             execution_details: <p>The details of the actions taken and results produced on an artifact as it passes through stages in the pipeline. </p>
+
+        Raises:
+            aws_sdk_codepipeline.errors.invalid_client_token_exception.InvalidClientTokenException: <p>The client token was specified in an invalid format</p>
+            aws_sdk_codepipeline.errors.invalid_job_state_exception.InvalidJobStateException: <p>The job state was specified in an invalid format.</p>
+            aws_sdk_codepipeline.errors.job_not_found_exception.JobNotFoundException: <p>The job was specified in an invalid format or cannot be found.</p>
+            aws_sdk_codepipeline.errors.validation_exception.ValidationException: <p>The validation was specified in an invalid format.</p>
+            aws_sdk_codepipeline.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2076,6 +2294,17 @@ class AsyncCodePipelineClient:
         Args:
             webhook: <p>The detail provided in an input file to create the webhook, such as the webhook name, the pipeline name, and the action name. Give the webhook a unique name that helps you identify it. You might name the webhook after the pipeline and action it targets so that you can easily recognize what it's used for later.</p>
             tags: <p>The tags for the webhook.</p>
+
+        Raises:
+            aws_sdk_codepipeline.errors.concurrent_modification_exception.ConcurrentModificationException: <p>Unable to modify the tag due to a simultaneous update request.</p>
+            aws_sdk_codepipeline.errors.invalid_tags_exception.InvalidTagsException: <p>The specified resource tags are invalid.</p>
+            aws_sdk_codepipeline.errors.invalid_webhook_authentication_parameters_exception.InvalidWebhookAuthenticationParametersException: <p>The specified authentication type is in an invalid format.</p>
+            aws_sdk_codepipeline.errors.invalid_webhook_filter_pattern_exception.InvalidWebhookFilterPatternException: <p>The specified event filter rule is in an invalid format.</p>
+            aws_sdk_codepipeline.errors.limit_exceeded_exception.LimitExceededException: <p>The number of pipelines associated with the Amazon Web Services account has exceeded the limit allowed for the account.</p>
+            aws_sdk_codepipeline.errors.pipeline_not_found_exception.PipelineNotFoundException: <p>The pipeline was specified in an invalid format or cannot be found.</p>
+            aws_sdk_codepipeline.errors.too_many_tags_exception.TooManyTagsException: <p>The tags limit for a resource has been exceeded.</p>
+            aws_sdk_codepipeline.errors.validation_exception.ValidationException: <p>The validation was specified in an invalid format.</p>
+            aws_sdk_codepipeline.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2118,6 +2347,11 @@ class AsyncCodePipelineClient:
 
         Args:
             webhook_name: <p>The name of an existing webhook created with PutWebhook to register with a supported third party. </p>
+
+        Raises:
+            aws_sdk_codepipeline.errors.validation_exception.ValidationException: <p>The validation was specified in an invalid format.</p>
+            aws_sdk_codepipeline.errors.webhook_not_found_exception.WebhookNotFoundException: <p>The specified webhook was entered in an invalid format or cannot be found.</p>
+            aws_sdk_codepipeline.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2163,6 +2397,16 @@ class AsyncCodePipelineClient:
             stage_name: <p>The name of the failed stage to be retried.</p>
             pipeline_execution_id: <p>The ID of the pipeline execution in the failed stage to be retried. Use the <a>GetPipelineState</a> action to retrieve the current pipelineExecutionId of the failed stage</p>
             retry_mode: <p>The scope of the retry attempt.</p>
+
+        Raises:
+            aws_sdk_codepipeline.errors.concurrent_pipeline_executions_limit_exceeded_exception.ConcurrentPipelineExecutionsLimitExceededException: <p>The pipeline has reached the limit for concurrent pipeline executions.</p>
+            aws_sdk_codepipeline.errors.conflict_exception.ConflictException: <p>Your request cannot be handled because the pipeline is busy handling ongoing activities. Try again later.</p>
+            aws_sdk_codepipeline.errors.not_latest_pipeline_execution_exception.NotLatestPipelineExecutionException: <p>The stage has failed in a later run of the pipeline and the <code>pipelineExecutionId</code> associated with the request is out of date.</p>
+            aws_sdk_codepipeline.errors.pipeline_not_found_exception.PipelineNotFoundException: <p>The pipeline was specified in an invalid format or cannot be found.</p>
+            aws_sdk_codepipeline.errors.stage_not_found_exception.StageNotFoundException: <p>The stage was specified in an invalid format or cannot be found.</p>
+            aws_sdk_codepipeline.errors.stage_not_retryable_exception.StageNotRetryableException: <p>Unable to retry. The pipeline structure or stage state might have changed while actions awaited retry, or the stage contains no failed actions.</p>
+            aws_sdk_codepipeline.errors.validation_exception.ValidationException: <p>The validation was specified in an invalid format.</p>
+            aws_sdk_codepipeline.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2208,6 +2452,16 @@ class AsyncCodePipelineClient:
             pipeline_name: <p>The name of the pipeline for which the stage will be rolled back. </p>
             stage_name: <p>The name of the stage in the pipeline to be rolled back. </p>
             target_pipeline_execution_id: <p>The pipeline execution ID for the stage to be rolled back to. </p>
+
+        Raises:
+            aws_sdk_codepipeline.errors.conflict_exception.ConflictException: <p>Your request cannot be handled because the pipeline is busy handling ongoing activities. Try again later.</p>
+            aws_sdk_codepipeline.errors.pipeline_execution_not_found_exception.PipelineExecutionNotFoundException: <p>The pipeline execution was specified in an invalid format or cannot be found, or an execution ID does not belong to the specified pipeline. </p>
+            aws_sdk_codepipeline.errors.pipeline_execution_outdated_exception.PipelineExecutionOutdatedException: <p>The specified pipeline execution is outdated and cannot be used as a target pipeline execution for rollback.</p>
+            aws_sdk_codepipeline.errors.pipeline_not_found_exception.PipelineNotFoundException: <p>The pipeline was specified in an invalid format or cannot be found.</p>
+            aws_sdk_codepipeline.errors.stage_not_found_exception.StageNotFoundException: <p>The stage was specified in an invalid format or cannot be found.</p>
+            aws_sdk_codepipeline.errors.unable_to_rollback_stage_exception.UnableToRollbackStageException: <p>Unable to roll back the stage. The cause might be if the pipeline version has changed since the target pipeline execution was deployed, the stage is currently running, or an incorrect target pipeline execution ID was provided.</p>
+            aws_sdk_codepipeline.errors.validation_exception.ValidationException: <p>The validation was specified in an invalid format.</p>
+            aws_sdk_codepipeline.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2260,6 +2514,13 @@ class AsyncCodePipelineClient:
             variables: <p>A list that overrides pipeline variables for a pipeline execution that's being started. Variable names must match <code>[A-Za-z0-9@\-_]+</code>, and the values can be anything except an empty string.</p>
             client_request_token: <p>The system-generated unique ID used to identify a unique execution request.</p>
             source_revisions: <p>A list that allows you to specify, or override, the source revision for a pipeline execution that's being started. A source revision is the version with all the changes to your application code, or source artifact, for the pipeline execution.</p>
+
+        Raises:
+            aws_sdk_codepipeline.errors.concurrent_pipeline_executions_limit_exceeded_exception.ConcurrentPipelineExecutionsLimitExceededException: <p>The pipeline has reached the limit for concurrent pipeline executions.</p>
+            aws_sdk_codepipeline.errors.conflict_exception.ConflictException: <p>Your request cannot be handled because the pipeline is busy handling ongoing activities. Try again later.</p>
+            aws_sdk_codepipeline.errors.pipeline_not_found_exception.PipelineNotFoundException: <p>The pipeline was specified in an invalid format or cannot be found.</p>
+            aws_sdk_codepipeline.errors.validation_exception.ValidationException: <p>The validation was specified in an invalid format.</p>
+            aws_sdk_codepipeline.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2312,6 +2573,14 @@ class AsyncCodePipelineClient:
             pipeline_execution_id: <p>The ID of the pipeline execution to be stopped in the current stage. Use the <code>GetPipelineState</code> action to retrieve the current pipelineExecutionId.</p>
             abandon: <p>Use this option to stop the pipeline execution by abandoning, rather than finishing, in-progress actions.</p> <note> <p>This option can lead to failed or out-of-sequence tasks.</p> </note>
             reason: <p>Use this option to enter comments, such as the reason the pipeline was stopped.</p>
+
+        Raises:
+            aws_sdk_codepipeline.errors.conflict_exception.ConflictException: <p>Your request cannot be handled because the pipeline is busy handling ongoing activities. Try again later.</p>
+            aws_sdk_codepipeline.errors.duplicated_stop_request_exception.DuplicatedStopRequestException: <p>The pipeline execution is already in a <code>Stopping</code> state. If you already chose to stop and wait, you cannot make that request again. You can choose to stop and abandon now, but be aware that this option can lead to failed tasks or out of sequence tasks. If you already chose to stop and abandon, you cannot make that request again.</p>
+            aws_sdk_codepipeline.errors.pipeline_execution_not_stoppable_exception.PipelineExecutionNotStoppableException: <p>Unable to stop the pipeline execution. The execution might already be in a <code>Stopped</code> state, or it might no longer be in progress.</p>
+            aws_sdk_codepipeline.errors.pipeline_not_found_exception.PipelineNotFoundException: <p>The pipeline was specified in an invalid format or cannot be found.</p>
+            aws_sdk_codepipeline.errors.validation_exception.ValidationException: <p>The validation was specified in an invalid format.</p>
+            aws_sdk_codepipeline.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2357,6 +2626,15 @@ class AsyncCodePipelineClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource you want to add tags to.</p>
             tags: <p>The tags you want to modify or add to the resource.</p>
+
+        Raises:
+            aws_sdk_codepipeline.errors.concurrent_modification_exception.ConcurrentModificationException: <p>Unable to modify the tag due to a simultaneous update request.</p>
+            aws_sdk_codepipeline.errors.invalid_arn_exception.InvalidArnException: <p>The specified resource ARN is invalid.</p>
+            aws_sdk_codepipeline.errors.invalid_tags_exception.InvalidTagsException: <p>The specified resource tags are invalid.</p>
+            aws_sdk_codepipeline.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource was specified in an invalid format.</p>
+            aws_sdk_codepipeline.errors.too_many_tags_exception.TooManyTagsException: <p>The tags limit for a resource has been exceeded.</p>
+            aws_sdk_codepipeline.errors.validation_exception.ValidationException: <p>The validation was specified in an invalid format.</p>
+            aws_sdk_codepipeline.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2398,6 +2676,14 @@ class AsyncCodePipelineClient:
         Args:
             resource_arn: <p> The Amazon Resource Name (ARN) of the resource to remove tags from.</p>
             tag_keys: <p>The list of keys for the tags to be removed from the resource.</p>
+
+        Raises:
+            aws_sdk_codepipeline.errors.concurrent_modification_exception.ConcurrentModificationException: <p>Unable to modify the tag due to a simultaneous update request.</p>
+            aws_sdk_codepipeline.errors.invalid_arn_exception.InvalidArnException: <p>The specified resource ARN is invalid.</p>
+            aws_sdk_codepipeline.errors.invalid_tags_exception.InvalidTagsException: <p>The specified resource tags are invalid.</p>
+            aws_sdk_codepipeline.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource was specified in an invalid format.</p>
+            aws_sdk_codepipeline.errors.validation_exception.ValidationException: <p>The validation was specified in an invalid format.</p>
+            aws_sdk_codepipeline.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2437,6 +2723,12 @@ class AsyncCodePipelineClient:
 
         Args:
             action_type: <p>The action type definition for the action type to be updated.</p>
+
+        Raises:
+            aws_sdk_codepipeline.errors.action_type_not_found_exception.ActionTypeNotFoundException: <p>The specified action type cannot be found.</p>
+            aws_sdk_codepipeline.errors.request_failed_exception.RequestFailedException: <p>The request failed because of an unknown error, exception, or failure.</p>
+            aws_sdk_codepipeline.errors.validation_exception.ValidationException: <p>The validation was specified in an invalid format.</p>
+            aws_sdk_codepipeline.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2473,6 +2765,15 @@ class AsyncCodePipelineClient:
 
         Args:
             pipeline: <p>The name of the pipeline to be updated.</p>
+
+        Raises:
+            aws_sdk_codepipeline.errors.invalid_action_declaration_exception.InvalidActionDeclarationException: <p>The action declaration was specified in an invalid format.</p>
+            aws_sdk_codepipeline.errors.invalid_blocker_declaration_exception.InvalidBlockerDeclarationException: <p>Reserved for future use.</p>
+            aws_sdk_codepipeline.errors.invalid_stage_declaration_exception.InvalidStageDeclarationException: <p>The stage declaration was specified in an invalid format.</p>
+            aws_sdk_codepipeline.errors.invalid_structure_exception.InvalidStructureException: <p>The structure was specified in an invalid format.</p>
+            aws_sdk_codepipeline.errors.limit_exceeded_exception.LimitExceededException: <p>The number of pipelines associated with the Amazon Web Services account has exceeded the limit allowed for the account.</p>
+            aws_sdk_codepipeline.errors.validation_exception.ValidationException: <p>The validation was specified in an invalid format.</p>
+            aws_sdk_codepipeline.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

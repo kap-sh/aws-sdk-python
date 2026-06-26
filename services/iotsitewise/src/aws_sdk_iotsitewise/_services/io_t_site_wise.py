@@ -487,6 +487,16 @@ class IoTSiteWiseClient:
             hierarchy_id: <p>The ID of a hierarchy in the parent asset's model. (This can be either the actual ID in UUID format, or else <code>externalId:</code> followed by the external ID, if it has one. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references\">Referencing objects with external IDs</a> in the <i>IoT SiteWise User Guide</i>.) Hierarchies allow different groupings of assets to be formed that all come from the same asset model. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/asset-hierarchies.html\">Asset hierarchies</a> in the <i>IoT SiteWise User Guide</i>.</p>
             child_asset_id: <p>The ID of the child asset to be associated. This can be either the actual ID in UUID format, or else <code>externalId:</code> followed by the external ID, if it has one. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references\">Referencing objects with external IDs</a> in the <i>IoT SiteWise User Guide</i>.</p>
             client_token: <p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required.</p>
+
+        Raises:
+            aws_sdk_iotsitewise.errors.conflicting_operation_exception.ConflictingOperationException: <p>Your request has conflicting operations. This can occur if you're trying to perform more than one operation on the same resource at the same time.</p>
+            aws_sdk_iotsitewise.errors.internal_failure_exception.InternalFailureException: <p>IoT SiteWise can't process your request right now. Try again later.</p>
+            aws_sdk_iotsitewise.errors.invalid_request_exception.InvalidRequestException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters. Check your request and try again.</p>
+            aws_sdk_iotsitewise.errors.limit_exceeded_exception.LimitExceededException: <p>You've reached the quota for a resource. For example, this can occur if you're trying to associate more than the allowed number of child assets or attempting to create more than the allowed number of properties for an asset model.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html\">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+            aws_sdk_iotsitewise.errors.resource_already_exists_exception.ResourceAlreadyExistsException: <p>The resource already exists.</p>
+            aws_sdk_iotsitewise.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_iotsitewise.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a rate limit. For example, you might have exceeded the number of IoT SiteWise assets that can be created per second, the allowed number of messages per second, and so on.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html\">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+            aws_sdk_iotsitewise.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -534,6 +544,14 @@ class IoTSiteWiseClient:
             asset_id: <p>The ID of the asset in which the asset property was created. This can be either the actual ID in UUID format, or else <code>externalId:</code> followed by the external ID, if it has one. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references\">Referencing objects with external IDs</a> in the <i>IoT SiteWise User Guide</i>.</p>
             property_id: <p>The ID of the asset property. This can be either the actual ID in UUID format, or else <code>externalId:</code> followed by the external ID, if it has one. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references\">Referencing objects with external IDs</a> in the <i>IoT SiteWise User Guide</i>.</p>
             client_token: <p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required.</p>
+
+        Raises:
+            aws_sdk_iotsitewise.errors.conflicting_operation_exception.ConflictingOperationException: <p>Your request has conflicting operations. This can occur if you're trying to perform more than one operation on the same resource at the same time.</p>
+            aws_sdk_iotsitewise.errors.internal_failure_exception.InternalFailureException: <p>IoT SiteWise can't process your request right now. Try again later.</p>
+            aws_sdk_iotsitewise.errors.invalid_request_exception.InvalidRequestException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters. Check your request and try again.</p>
+            aws_sdk_iotsitewise.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_iotsitewise.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a rate limit. For example, you might have exceeded the number of IoT SiteWise assets that can be created per second, the allowed number of messages per second, and so on.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html\">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+            aws_sdk_iotsitewise.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -579,6 +597,14 @@ class IoTSiteWiseClient:
             project_id: <p>The ID of the project to which to associate the assets.</p>
             asset_ids: <p>The IDs of the assets to be associated to the project.</p>
             client_token: <p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required.</p>
+
+        Raises:
+            aws_sdk_iotsitewise.errors.internal_failure_exception.InternalFailureException: <p>IoT SiteWise can't process your request right now. Try again later.</p>
+            aws_sdk_iotsitewise.errors.invalid_request_exception.InvalidRequestException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters. Check your request and try again.</p>
+            aws_sdk_iotsitewise.errors.limit_exceeded_exception.LimitExceededException: <p>You've reached the quota for a resource. For example, this can occur if you're trying to associate more than the allowed number of child assets or attempting to create more than the allowed number of properties for an asset model.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html\">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+            aws_sdk_iotsitewise.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_iotsitewise.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a rate limit. For example, you might have exceeded the number of IoT SiteWise assets that can be created per second, the allowed number of messages per second, and so on.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html\">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+            aws_sdk_iotsitewise.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -625,6 +651,13 @@ class IoTSiteWiseClient:
             project_id: <p>The ID of the project from which to disassociate the assets.</p>
             asset_ids: <p>The IDs of the assets to be disassociated from the project.</p>
             client_token: <p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required.</p>
+
+        Raises:
+            aws_sdk_iotsitewise.errors.internal_failure_exception.InternalFailureException: <p>IoT SiteWise can't process your request right now. Try again later.</p>
+            aws_sdk_iotsitewise.errors.invalid_request_exception.InvalidRequestException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters. Check your request and try again.</p>
+            aws_sdk_iotsitewise.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_iotsitewise.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a rate limit. For example, you might have exceeded the number of IoT SiteWise assets that can be created per second, the allowed number of messages per second, and so on.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html\">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+            aws_sdk_iotsitewise.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -671,6 +704,13 @@ class IoTSiteWiseClient:
             entries: <p>The list of asset property aggregate entries for the batch get request. You can specify up to 16 entries per request.</p>
             next_token: <p>The token to be used for the next set of paginated results.</p>
             max_results: <p>The maximum number of results to return for each paginated request. A result set is returned in the two cases, whichever occurs first.</p> <ul> <li> <p>The size of the result set is equal to 1 MB.</p> </li> <li> <p>The number of data points in the result set is equal to the value of <code>maxResults</code>. The maximum value of <code>maxResults</code> is 4000.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_iotsitewise.errors.internal_failure_exception.InternalFailureException: <p>IoT SiteWise can't process your request right now. Try again later.</p>
+            aws_sdk_iotsitewise.errors.invalid_request_exception.InvalidRequestException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters. Check your request and try again.</p>
+            aws_sdk_iotsitewise.errors.service_unavailable_exception.ServiceUnavailableException: <p>The requested service is unavailable.</p>
+            aws_sdk_iotsitewise.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a rate limit. For example, you might have exceeded the number of IoT SiteWise assets that can be created per second, the allowed number of messages per second, and so on.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html\">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+            aws_sdk_iotsitewise.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -714,6 +754,13 @@ class IoTSiteWiseClient:
         Args:
             entries: <p>The list of asset property value entries for the batch get request. You can specify up to 128 entries per request.</p>
             next_token: <p>The token to be used for the next set of paginated results.</p>
+
+        Raises:
+            aws_sdk_iotsitewise.errors.internal_failure_exception.InternalFailureException: <p>IoT SiteWise can't process your request right now. Try again later.</p>
+            aws_sdk_iotsitewise.errors.invalid_request_exception.InvalidRequestException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters. Check your request and try again.</p>
+            aws_sdk_iotsitewise.errors.service_unavailable_exception.ServiceUnavailableException: <p>The requested service is unavailable.</p>
+            aws_sdk_iotsitewise.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a rate limit. For example, you might have exceeded the number of IoT SiteWise assets that can be created per second, the allowed number of messages per second, and so on.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html\">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+            aws_sdk_iotsitewise.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -759,6 +806,13 @@ class IoTSiteWiseClient:
             entries: <p>The list of asset property historical value entries for the batch get request. You can specify up to 16 entries per request.</p>
             next_token: <p>The token to be used for the next set of paginated results.</p>
             max_results: <p>The maximum number of results to return for each paginated request. A result set is returned in the two cases, whichever occurs first.</p> <ul> <li> <p>The size of the result set is equal to 4 MB.</p> </li> <li> <p>The number of data points in the result set is equal to the value of <code>maxResults</code>. The maximum value of <code>maxResults</code> is 20000.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_iotsitewise.errors.internal_failure_exception.InternalFailureException: <p>IoT SiteWise can't process your request right now. Try again later.</p>
+            aws_sdk_iotsitewise.errors.invalid_request_exception.InvalidRequestException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters. Check your request and try again.</p>
+            aws_sdk_iotsitewise.errors.service_unavailable_exception.ServiceUnavailableException: <p>The requested service is unavailable.</p>
+            aws_sdk_iotsitewise.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a rate limit. For example, you might have exceeded the number of IoT SiteWise assets that can be created per second, the allowed number of messages per second, and so on.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html\">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+            aws_sdk_iotsitewise.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -804,6 +858,16 @@ class IoTSiteWiseClient:
         Args:
             enable_partial_entry_processing: <p>This setting enables partial ingestion at entry-level. If set to <code>true</code>, we ingest all TQVs not resulting in an error. If set to <code>false</code>, an invalid TQV fails ingestion of the entire entry that contains it.</p>
             entries: <p>The list of asset property value entries for the batch put request. You can specify up to 10 entries per request.</p>
+
+        Raises:
+            aws_sdk_iotsitewise.errors.conflicting_operation_exception.ConflictingOperationException: <p>Your request has conflicting operations. This can occur if you're trying to perform more than one operation on the same resource at the same time.</p>
+            aws_sdk_iotsitewise.errors.internal_failure_exception.InternalFailureException: <p>IoT SiteWise can't process your request right now. Try again later.</p>
+            aws_sdk_iotsitewise.errors.invalid_request_exception.InvalidRequestException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters. Check your request and try again.</p>
+            aws_sdk_iotsitewise.errors.limit_exceeded_exception.LimitExceededException: <p>You've reached the quota for a resource. For example, this can occur if you're trying to associate more than the allowed number of child assets or attempting to create more than the allowed number of properties for an asset model.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html\">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+            aws_sdk_iotsitewise.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_iotsitewise.errors.service_unavailable_exception.ServiceUnavailableException: <p>The requested service is unavailable.</p>
+            aws_sdk_iotsitewise.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a rate limit. For example, you might have exceeded the number of IoT SiteWise assets that can be created per second, the allowed number of messages per second, and so on.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html\">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+            aws_sdk_iotsitewise.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -853,6 +917,14 @@ class IoTSiteWiseClient:
             access_policy_permission: <p>The permission level for this access policy. Note that a project <code>ADMINISTRATOR</code> is also known as a project owner.</p>
             client_token: <p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required.</p>
             tags: <p>A list of key-value pairs that contain metadata for the access policy. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/tag-resources.html\">Tagging your IoT SiteWise resources</a> in the <i>IoT SiteWise User Guide</i>.</p>
+
+        Raises:
+            aws_sdk_iotsitewise.errors.internal_failure_exception.InternalFailureException: <p>IoT SiteWise can't process your request right now. Try again later.</p>
+            aws_sdk_iotsitewise.errors.invalid_request_exception.InvalidRequestException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters. Check your request and try again.</p>
+            aws_sdk_iotsitewise.errors.limit_exceeded_exception.LimitExceededException: <p>You've reached the quota for a resource. For example, this can occur if you're trying to associate more than the allowed number of child assets or attempting to create more than the allowed number of properties for an asset model.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html\">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+            aws_sdk_iotsitewise.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_iotsitewise.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a rate limit. For example, you might have exceeded the number of IoT SiteWise assets that can be created per second, the allowed number of messages per second, and so on.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html\">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+            aws_sdk_iotsitewise.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -914,6 +986,16 @@ class IoTSiteWiseClient:
             client_token: <p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required.</p>
             tags: <p>A list of key-value pairs that contain metadata for the asset. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/tag-resources.html\">Tagging your IoT SiteWise resources</a> in the <i>IoT SiteWise User Guide</i>.</p>
             asset_description: <p>A description for the asset.</p>
+
+        Raises:
+            aws_sdk_iotsitewise.errors.conflicting_operation_exception.ConflictingOperationException: <p>Your request has conflicting operations. This can occur if you're trying to perform more than one operation on the same resource at the same time.</p>
+            aws_sdk_iotsitewise.errors.internal_failure_exception.InternalFailureException: <p>IoT SiteWise can't process your request right now. Try again later.</p>
+            aws_sdk_iotsitewise.errors.invalid_request_exception.InvalidRequestException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters. Check your request and try again.</p>
+            aws_sdk_iotsitewise.errors.limit_exceeded_exception.LimitExceededException: <p>You've reached the quota for a resource. For example, this can occur if you're trying to associate more than the allowed number of child assets or attempting to create more than the allowed number of properties for an asset model.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html\">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+            aws_sdk_iotsitewise.errors.resource_already_exists_exception.ResourceAlreadyExistsException: <p>The resource already exists.</p>
+            aws_sdk_iotsitewise.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_iotsitewise.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a rate limit. For example, you might have exceeded the number of IoT SiteWise assets that can be created per second, the allowed number of messages per second, and so on.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html\">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+            aws_sdk_iotsitewise.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -996,6 +1078,16 @@ class IoTSiteWiseClient:
             asset_model_composite_models: <p>The composite models that are part of this asset model. It groups properties (such as attributes, measurements, transforms, and metrics) and child composite models that model parts of your industrial equipment. Each composite model has a type that defines the properties that the composite model supports. Use composite models to define alarms on this asset model.</p> <note> <p>When creating custom composite models, you need to use <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_CreateAssetModelCompositeModel.html\">CreateAssetModelCompositeModel</a>. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/create-custom-composite-models.html\">Creating custom composite models (Components)</a> in the <i>IoT SiteWise User Guide</i>.</p> </note>
             client_token: <p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required.</p>
             tags: <p>A list of key-value pairs that contain metadata for the asset model. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/tag-resources.html\">Tagging your IoT SiteWise resources</a> in the <i>IoT SiteWise User Guide</i>.</p>
+
+        Raises:
+            aws_sdk_iotsitewise.errors.conflicting_operation_exception.ConflictingOperationException: <p>Your request has conflicting operations. This can occur if you're trying to perform more than one operation on the same resource at the same time.</p>
+            aws_sdk_iotsitewise.errors.internal_failure_exception.InternalFailureException: <p>IoT SiteWise can't process your request right now. Try again later.</p>
+            aws_sdk_iotsitewise.errors.invalid_request_exception.InvalidRequestException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters. Check your request and try again.</p>
+            aws_sdk_iotsitewise.errors.limit_exceeded_exception.LimitExceededException: <p>You've reached the quota for a resource. For example, this can occur if you're trying to associate more than the allowed number of child assets or attempting to create more than the allowed number of properties for an asset model.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html\">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+            aws_sdk_iotsitewise.errors.resource_already_exists_exception.ResourceAlreadyExistsException: <p>The resource already exists.</p>
+            aws_sdk_iotsitewise.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_iotsitewise.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a rate limit. For example, you might have exceeded the number of IoT SiteWise assets that can be created per second, the allowed number of messages per second, and so on.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html\">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+            aws_sdk_iotsitewise.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1093,6 +1185,17 @@ class IoTSiteWiseClient:
             if_match: <p>The expected current entity tag (ETag) for the asset model’s latest or active version (specified using <code>matchForVersionType</code>). The create request is rejected if the tag does not match the latest or active version's current entity tag. See <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/opt-locking-for-model.html\">Optimistic locking for asset model writes</a> in the <i>IoT SiteWise User Guide</i>.</p>
             if_none_match: <p>Accepts <b>*</b> to reject the create request if an active version (specified using <code>matchForVersionType</code> as <code>ACTIVE</code>) already exists for the asset model.</p>
             match_for_version_type: <p>Specifies the asset model version type (<code>LATEST</code> or <code>ACTIVE</code>) used in conjunction with <code>If-Match</code> or <code>If-None-Match</code> headers to determine the target ETag for the create operation.</p>
+
+        Raises:
+            aws_sdk_iotsitewise.errors.conflicting_operation_exception.ConflictingOperationException: <p>Your request has conflicting operations. This can occur if you're trying to perform more than one operation on the same resource at the same time.</p>
+            aws_sdk_iotsitewise.errors.internal_failure_exception.InternalFailureException: <p>IoT SiteWise can't process your request right now. Try again later.</p>
+            aws_sdk_iotsitewise.errors.invalid_request_exception.InvalidRequestException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters. Check your request and try again.</p>
+            aws_sdk_iotsitewise.errors.limit_exceeded_exception.LimitExceededException: <p>You've reached the quota for a resource. For example, this can occur if you're trying to associate more than the allowed number of child assets or attempting to create more than the allowed number of properties for an asset model.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html\">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+            aws_sdk_iotsitewise.errors.precondition_failed_exception.PreconditionFailedException: <p>The precondition in one or more of the request-header fields evaluated to <code>FALSE</code>.</p>
+            aws_sdk_iotsitewise.errors.resource_already_exists_exception.ResourceAlreadyExistsException: <p>The resource already exists.</p>
+            aws_sdk_iotsitewise.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_iotsitewise.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a rate limit. For example, you might have exceeded the number of IoT SiteWise assets that can be created per second, the allowed number of messages per second, and so on.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html\">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+            aws_sdk_iotsitewise.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1176,6 +1279,16 @@ class IoTSiteWiseClient:
             job_configuration: <p>Contains the configuration information of a job, such as the file format used to save data in Amazon S3.</p>
             adaptive_ingestion: <p>If set to true, ingest new data into IoT SiteWise storage. Measurements with notifications, metrics and transforms are computed. If set to false, historical data is ingested into IoT SiteWise as is.</p>
             delete_files_after_import: <p>If set to true, your data files is deleted from S3, after ingestion into IoT SiteWise storage.</p>
+
+        Raises:
+            aws_sdk_iotsitewise.errors.conflicting_operation_exception.ConflictingOperationException: <p>Your request has conflicting operations. This can occur if you're trying to perform more than one operation on the same resource at the same time.</p>
+            aws_sdk_iotsitewise.errors.internal_failure_exception.InternalFailureException: <p>IoT SiteWise can't process your request right now. Try again later.</p>
+            aws_sdk_iotsitewise.errors.invalid_request_exception.InvalidRequestException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters. Check your request and try again.</p>
+            aws_sdk_iotsitewise.errors.limit_exceeded_exception.LimitExceededException: <p>You've reached the quota for a resource. For example, this can occur if you're trying to associate more than the allowed number of child assets or attempting to create more than the allowed number of properties for an asset model.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html\">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+            aws_sdk_iotsitewise.errors.resource_already_exists_exception.ResourceAlreadyExistsException: <p>The resource already exists.</p>
+            aws_sdk_iotsitewise.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_iotsitewise.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a rate limit. For example, you might have exceeded the number of IoT SiteWise assets that can be created per second, the allowed number of messages per second, and so on.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html\">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+            aws_sdk_iotsitewise.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1235,6 +1348,16 @@ class IoTSiteWiseClient:
             computation_model_data_binding: <p>The data binding for the computation model. Key is a variable name defined in configuration. Value is a <code>ComputationModelDataBindingValue</code> referenced by the variable.</p>
             client_token: <p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required.</p>
             tags: <p>A list of key-value pairs that contain metadata for the asset. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/tag-resources.html\">Tagging your IoT SiteWise resources</a> in the <i>IoT SiteWise User Guide</i>.</p>
+
+        Raises:
+            aws_sdk_iotsitewise.errors.conflicting_operation_exception.ConflictingOperationException: <p>Your request has conflicting operations. This can occur if you're trying to perform more than one operation on the same resource at the same time.</p>
+            aws_sdk_iotsitewise.errors.internal_failure_exception.InternalFailureException: <p>IoT SiteWise can't process your request right now. Try again later.</p>
+            aws_sdk_iotsitewise.errors.invalid_request_exception.InvalidRequestException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters. Check your request and try again.</p>
+            aws_sdk_iotsitewise.errors.limit_exceeded_exception.LimitExceededException: <p>You've reached the quota for a resource. For example, this can occur if you're trying to associate more than the allowed number of child assets or attempting to create more than the allowed number of properties for an asset model.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html\">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+            aws_sdk_iotsitewise.errors.resource_already_exists_exception.ResourceAlreadyExistsException: <p>The resource already exists.</p>
+            aws_sdk_iotsitewise.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_iotsitewise.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a rate limit. For example, you might have exceeded the number of IoT SiteWise assets that can be created per second, the allowed number of messages per second, and so on.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html\">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+            aws_sdk_iotsitewise.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1294,6 +1417,14 @@ class IoTSiteWiseClient:
             dashboard_definition: <p>The dashboard definition specified in a JSON literal.</p> <ul> <li> <p>IoT SiteWise Monitor (Classic) see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/create-dashboards-using-aws-cli.html\">Create dashboards (CLI)</a> </p> </li> <li> <p>IoT SiteWise Monitor (AI-aware) see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/create-dashboards-ai-dashboard-cli.html\">Create dashboards (CLI)</a> </p> </li> </ul> <p>in the <i>IoT SiteWise User Guide</i> </p>
             client_token: <p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required.</p>
             tags: <p>A list of key-value pairs that contain metadata for the dashboard. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/tag-resources.html\">Tagging your IoT SiteWise resources</a> in the <i>IoT SiteWise User Guide</i>.</p>
+
+        Raises:
+            aws_sdk_iotsitewise.errors.internal_failure_exception.InternalFailureException: <p>IoT SiteWise can't process your request right now. Try again later.</p>
+            aws_sdk_iotsitewise.errors.invalid_request_exception.InvalidRequestException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters. Check your request and try again.</p>
+            aws_sdk_iotsitewise.errors.limit_exceeded_exception.LimitExceededException: <p>You've reached the quota for a resource. For example, this can occur if you're trying to associate more than the allowed number of child assets or attempting to create more than the allowed number of properties for an asset model.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html\">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+            aws_sdk_iotsitewise.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_iotsitewise.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a rate limit. For example, you might have exceeded the number of IoT SiteWise assets that can be created per second, the allowed number of messages per second, and so on.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html\">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+            aws_sdk_iotsitewise.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1353,6 +1484,16 @@ class IoTSiteWiseClient:
             dataset_source: <p>The data source for the dataset.</p>
             client_token: <p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required.</p>
             tags: <p>A list of key-value pairs that contain metadata for the access policy. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/tag-resources.html\">Tagging your IoT SiteWise resources</a> in the <i>IoT SiteWise User Guide</i>.</p>
+
+        Raises:
+            aws_sdk_iotsitewise.errors.conflicting_operation_exception.ConflictingOperationException: <p>Your request has conflicting operations. This can occur if you're trying to perform more than one operation on the same resource at the same time.</p>
+            aws_sdk_iotsitewise.errors.internal_failure_exception.InternalFailureException: <p>IoT SiteWise can't process your request right now. Try again later.</p>
+            aws_sdk_iotsitewise.errors.invalid_request_exception.InvalidRequestException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters. Check your request and try again.</p>
+            aws_sdk_iotsitewise.errors.limit_exceeded_exception.LimitExceededException: <p>You've reached the quota for a resource. For example, this can occur if you're trying to associate more than the allowed number of child assets or attempting to create more than the allowed number of properties for an asset model.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html\">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+            aws_sdk_iotsitewise.errors.resource_already_exists_exception.ResourceAlreadyExistsException: <p>The resource already exists.</p>
+            aws_sdk_iotsitewise.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_iotsitewise.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a rate limit. For example, you might have exceeded the number of IoT SiteWise assets that can be created per second, the allowed number of messages per second, and so on.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html\">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+            aws_sdk_iotsitewise.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1407,6 +1548,14 @@ class IoTSiteWiseClient:
             gateway_platform: <p>The gateway's platform. You can only specify one platform in a gateway.</p>
             gateway_version: <p>The version of the gateway to create. Specify <code>3</code> to create an MQTT-enabled, V3 gateway and <code>2</code> to create a Classic streams, V2 gateway. If not specified, the default is <code>2</code> (Classic streams, V2 gateway).</p> <note> <p>When creating a V3 gateway (<code>gatewayVersion=3</code>) with the <code>GreengrassV2</code> platform, you must also specify the <code>coreDeviceOperatingSystem</code> parameter.</p> </note> <p> We recommend creating an MQTT-enabled gateway for self-hosted gateways and Siemens Industrial Edge gateways. For more information on gateway versions, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/gateways.html\">Use Amazon Web Services IoT SiteWise Edge Edge gateways</a>.</p>
             tags: <p>A list of key-value pairs that contain metadata for the gateway. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/tag-resources.html\">Tagging your IoT SiteWise resources</a> in the <i>IoT SiteWise User Guide</i>.</p>
+
+        Raises:
+            aws_sdk_iotsitewise.errors.internal_failure_exception.InternalFailureException: <p>IoT SiteWise can't process your request right now. Try again later.</p>
+            aws_sdk_iotsitewise.errors.invalid_request_exception.InvalidRequestException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters. Check your request and try again.</p>
+            aws_sdk_iotsitewise.errors.limit_exceeded_exception.LimitExceededException: <p>You've reached the quota for a resource. For example, this can occur if you're trying to associate more than the allowed number of child assets or attempting to create more than the allowed number of properties for an asset model.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html\">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+            aws_sdk_iotsitewise.errors.resource_already_exists_exception.ResourceAlreadyExistsException: <p>The resource already exists.</p>
+            aws_sdk_iotsitewise.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a rate limit. For example, you might have exceeded the number of IoT SiteWise assets that can be created per second, the allowed number of messages per second, and so on.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html\">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+            aws_sdk_iotsitewise.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1485,6 +1634,14 @@ class IoTSiteWiseClient:
             alarms: <p>Contains the configuration information of an alarm created in an IoT SiteWise Monitor portal. You can use the alarm to monitor an asset property and get notified when the asset property value is outside a specified range. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/appguide/monitor-alarms.html\">Monitoring with alarms</a> in the <i>IoT SiteWise Application Guide</i>.</p>
             portal_type: <p>Define the type of portal. The value for IoT SiteWise Monitor (Classic) is <code>SITEWISE_PORTAL_V1</code>. The value for IoT SiteWise Monitor (AI-aware) is <code>SITEWISE_PORTAL_V2</code>.</p>
             portal_type_configuration: <p>The configuration entry associated with the specific portal type. The value for IoT SiteWise Monitor (Classic) is <code>SITEWISE_PORTAL_V1</code>. The value for IoT SiteWise Monitor (AI-aware) is <code>SITEWISE_PORTAL_V2</code>.</p>
+
+        Raises:
+            aws_sdk_iotsitewise.errors.internal_failure_exception.InternalFailureException: <p>IoT SiteWise can't process your request right now. Try again later.</p>
+            aws_sdk_iotsitewise.errors.invalid_request_exception.InvalidRequestException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters. Check your request and try again.</p>
+            aws_sdk_iotsitewise.errors.limit_exceeded_exception.LimitExceededException: <p>You've reached the quota for a resource. For example, this can occur if you're trying to associate more than the allowed number of child assets or attempting to create more than the allowed number of properties for an asset model.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html\">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+            aws_sdk_iotsitewise.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_iotsitewise.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a rate limit. For example, you might have exceeded the number of IoT SiteWise assets that can be created per second, the allowed number of messages per second, and so on.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html\">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+            aws_sdk_iotsitewise.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1554,6 +1711,14 @@ class IoTSiteWiseClient:
             project_description: <p>A description for the project.</p>
             client_token: <p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required.</p>
             tags: <p>A list of key-value pairs that contain metadata for the project. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/tag-resources.html\">Tagging your IoT SiteWise resources</a> in the <i>IoT SiteWise User Guide</i>.</p>
+
+        Raises:
+            aws_sdk_iotsitewise.errors.internal_failure_exception.InternalFailureException: <p>IoT SiteWise can't process your request right now. Try again later.</p>
+            aws_sdk_iotsitewise.errors.invalid_request_exception.InvalidRequestException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters. Check your request and try again.</p>
+            aws_sdk_iotsitewise.errors.limit_exceeded_exception.LimitExceededException: <p>You've reached the quota for a resource. For example, this can occur if you're trying to associate more than the allowed number of child assets or attempting to create more than the allowed number of properties for an asset model.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html\">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+            aws_sdk_iotsitewise.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_iotsitewise.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a rate limit. For example, you might have exceeded the number of IoT SiteWise assets that can be created per second, the allowed number of messages per second, and so on.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html\">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+            aws_sdk_iotsitewise.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1602,6 +1767,13 @@ class IoTSiteWiseClient:
         Args:
             access_policy_id: <p>The ID of the access policy to be deleted.</p>
             client_token: <p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required.</p>
+
+        Raises:
+            aws_sdk_iotsitewise.errors.internal_failure_exception.InternalFailureException: <p>IoT SiteWise can't process your request right now. Try again later.</p>
+            aws_sdk_iotsitewise.errors.invalid_request_exception.InvalidRequestException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters. Check your request and try again.</p>
+            aws_sdk_iotsitewise.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_iotsitewise.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a rate limit. For example, you might have exceeded the number of IoT SiteWise assets that can be created per second, the allowed number of messages per second, and so on.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html\">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+            aws_sdk_iotsitewise.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1645,6 +1817,14 @@ class IoTSiteWiseClient:
         Args:
             asset_id: <p>The ID of the asset to delete. This can be either the actual ID in UUID format, or else <code>externalId:</code> followed by the external ID, if it has one. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references\">Referencing objects with external IDs</a> in the <i>IoT SiteWise User Guide</i>.</p>
             client_token: <p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required.</p>
+
+        Raises:
+            aws_sdk_iotsitewise.errors.conflicting_operation_exception.ConflictingOperationException: <p>Your request has conflicting operations. This can occur if you're trying to perform more than one operation on the same resource at the same time.</p>
+            aws_sdk_iotsitewise.errors.internal_failure_exception.InternalFailureException: <p>IoT SiteWise can't process your request right now. Try again later.</p>
+            aws_sdk_iotsitewise.errors.invalid_request_exception.InvalidRequestException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters. Check your request and try again.</p>
+            aws_sdk_iotsitewise.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_iotsitewise.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a rate limit. For example, you might have exceeded the number of IoT SiteWise assets that can be created per second, the allowed number of messages per second, and so on.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html\">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+            aws_sdk_iotsitewise.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1700,6 +1880,15 @@ class IoTSiteWiseClient:
             if_match: <p>The expected current entity tag (ETag) for the asset model’s latest or active version (specified using <code>matchForVersionType</code>). The delete request is rejected if the tag does not match the latest or active version's current entity tag. See <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/opt-locking-for-model.html\">Optimistic locking for asset model writes</a> in the <i>IoT SiteWise User Guide</i>.</p>
             if_none_match: <p>Accepts <b>*</b> to reject the delete request if an active version (specified using <code>matchForVersionType</code> as <code>ACTIVE</code>) already exists for the asset model.</p>
             match_for_version_type: <p>Specifies the asset model version type (<code>LATEST</code> or <code>ACTIVE</code>) used in conjunction with <code>If-Match</code> or <code>If-None-Match</code> headers to determine the target ETag for the delete operation.</p>
+
+        Raises:
+            aws_sdk_iotsitewise.errors.conflicting_operation_exception.ConflictingOperationException: <p>Your request has conflicting operations. This can occur if you're trying to perform more than one operation on the same resource at the same time.</p>
+            aws_sdk_iotsitewise.errors.internal_failure_exception.InternalFailureException: <p>IoT SiteWise can't process your request right now. Try again later.</p>
+            aws_sdk_iotsitewise.errors.invalid_request_exception.InvalidRequestException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters. Check your request and try again.</p>
+            aws_sdk_iotsitewise.errors.precondition_failed_exception.PreconditionFailedException: <p>The precondition in one or more of the request-header fields evaluated to <code>FALSE</code>.</p>
+            aws_sdk_iotsitewise.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_iotsitewise.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a rate limit. For example, you might have exceeded the number of IoT SiteWise assets that can be created per second, the allowed number of messages per second, and so on.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html\">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+            aws_sdk_iotsitewise.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1761,6 +1950,15 @@ class IoTSiteWiseClient:
             if_match: <p>The expected current entity tag (ETag) for the asset model’s latest or active version (specified using <code>matchForVersionType</code>). The delete request is rejected if the tag does not match the latest or active version's current entity tag. See <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/opt-locking-for-model.html\">Optimistic locking for asset model writes</a> in the <i>IoT SiteWise User Guide</i>.</p>
             if_none_match: <p>Accepts <b>*</b> to reject the delete request if an active version (specified using <code>matchForVersionType</code> as <code>ACTIVE</code>) already exists for the asset model.</p>
             match_for_version_type: <p>Specifies the asset model version type (<code>LATEST</code> or <code>ACTIVE</code>) used in conjunction with <code>If-Match</code> or <code>If-None-Match</code> headers to determine the target ETag for the delete operation.</p>
+
+        Raises:
+            aws_sdk_iotsitewise.errors.conflicting_operation_exception.ConflictingOperationException: <p>Your request has conflicting operations. This can occur if you're trying to perform more than one operation on the same resource at the same time.</p>
+            aws_sdk_iotsitewise.errors.internal_failure_exception.InternalFailureException: <p>IoT SiteWise can't process your request right now. Try again later.</p>
+            aws_sdk_iotsitewise.errors.invalid_request_exception.InvalidRequestException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters. Check your request and try again.</p>
+            aws_sdk_iotsitewise.errors.precondition_failed_exception.PreconditionFailedException: <p>The precondition in one or more of the request-header fields evaluated to <code>FALSE</code>.</p>
+            aws_sdk_iotsitewise.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_iotsitewise.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a rate limit. For example, you might have exceeded the number of IoT SiteWise assets that can be created per second, the allowed number of messages per second, and so on.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html\">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+            aws_sdk_iotsitewise.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1813,6 +2011,14 @@ class IoTSiteWiseClient:
             asset_model_id: <p>The ID of the asset model. This can be either the actual ID in UUID format, or else externalId: followed by the external ID.</p>
             interface_asset_model_id: <p>The ID of the interface asset model. This can be either the actual ID in UUID format, or else externalId: followed by the external ID.</p>
             client_token: <p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required.</p>
+
+        Raises:
+            aws_sdk_iotsitewise.errors.conflicting_operation_exception.ConflictingOperationException: <p>Your request has conflicting operations. This can occur if you're trying to perform more than one operation on the same resource at the same time.</p>
+            aws_sdk_iotsitewise.errors.internal_failure_exception.InternalFailureException: <p>IoT SiteWise can't process your request right now. Try again later.</p>
+            aws_sdk_iotsitewise.errors.invalid_request_exception.InvalidRequestException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters. Check your request and try again.</p>
+            aws_sdk_iotsitewise.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_iotsitewise.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a rate limit. For example, you might have exceeded the number of IoT SiteWise assets that can be created per second, the allowed number of messages per second, and so on.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html\">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+            aws_sdk_iotsitewise.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1857,6 +2063,14 @@ class IoTSiteWiseClient:
         Args:
             computation_model_id: <p>The ID of the computation model.</p>
             client_token: <p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required.</p>
+
+        Raises:
+            aws_sdk_iotsitewise.errors.conflicting_operation_exception.ConflictingOperationException: <p>Your request has conflicting operations. This can occur if you're trying to perform more than one operation on the same resource at the same time.</p>
+            aws_sdk_iotsitewise.errors.internal_failure_exception.InternalFailureException: <p>IoT SiteWise can't process your request right now. Try again later.</p>
+            aws_sdk_iotsitewise.errors.invalid_request_exception.InvalidRequestException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters. Check your request and try again.</p>
+            aws_sdk_iotsitewise.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_iotsitewise.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a rate limit. For example, you might have exceeded the number of IoT SiteWise assets that can be created per second, the allowed number of messages per second, and so on.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html\">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+            aws_sdk_iotsitewise.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1900,6 +2114,13 @@ class IoTSiteWiseClient:
         Args:
             dashboard_id: <p>The ID of the dashboard to delete.</p>
             client_token: <p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required.</p>
+
+        Raises:
+            aws_sdk_iotsitewise.errors.internal_failure_exception.InternalFailureException: <p>IoT SiteWise can't process your request right now. Try again later.</p>
+            aws_sdk_iotsitewise.errors.invalid_request_exception.InvalidRequestException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters. Check your request and try again.</p>
+            aws_sdk_iotsitewise.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_iotsitewise.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a rate limit. For example, you might have exceeded the number of IoT SiteWise assets that can be created per second, the allowed number of messages per second, and so on.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html\">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+            aws_sdk_iotsitewise.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1943,6 +2164,14 @@ class IoTSiteWiseClient:
         Args:
             dataset_id: <p>The ID of the dataset.</p>
             client_token: <p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required.</p>
+
+        Raises:
+            aws_sdk_iotsitewise.errors.conflicting_operation_exception.ConflictingOperationException: <p>Your request has conflicting operations. This can occur if you're trying to perform more than one operation on the same resource at the same time.</p>
+            aws_sdk_iotsitewise.errors.internal_failure_exception.InternalFailureException: <p>IoT SiteWise can't process your request right now. Try again later.</p>
+            aws_sdk_iotsitewise.errors.invalid_request_exception.InvalidRequestException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters. Check your request and try again.</p>
+            aws_sdk_iotsitewise.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_iotsitewise.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a rate limit. For example, you might have exceeded the number of IoT SiteWise assets that can be created per second, the allowed number of messages per second, and so on.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html\">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+            aws_sdk_iotsitewise.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1982,6 +2211,14 @@ class IoTSiteWiseClient:
 
         Args:
             gateway_id: <p>The ID of the gateway to delete.</p>
+
+        Raises:
+            aws_sdk_iotsitewise.errors.conflicting_operation_exception.ConflictingOperationException: <p>Your request has conflicting operations. This can occur if you're trying to perform more than one operation on the same resource at the same time.</p>
+            aws_sdk_iotsitewise.errors.internal_failure_exception.InternalFailureException: <p>IoT SiteWise can't process your request right now. Try again later.</p>
+            aws_sdk_iotsitewise.errors.invalid_request_exception.InvalidRequestException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters. Check your request and try again.</p>
+            aws_sdk_iotsitewise.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_iotsitewise.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a rate limit. For example, you might have exceeded the number of IoT SiteWise assets that can be created per second, the allowed number of messages per second, and so on.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html\">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+            aws_sdk_iotsitewise.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2021,6 +2258,14 @@ class IoTSiteWiseClient:
         Args:
             portal_id: <p>The ID of the portal to delete.</p>
             client_token: <p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required.</p>
+
+        Raises:
+            aws_sdk_iotsitewise.errors.conflicting_operation_exception.ConflictingOperationException: <p>Your request has conflicting operations. This can occur if you're trying to perform more than one operation on the same resource at the same time.</p>
+            aws_sdk_iotsitewise.errors.internal_failure_exception.InternalFailureException: <p>IoT SiteWise can't process your request right now. Try again later.</p>
+            aws_sdk_iotsitewise.errors.invalid_request_exception.InvalidRequestException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters. Check your request and try again.</p>
+            aws_sdk_iotsitewise.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_iotsitewise.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a rate limit. For example, you might have exceeded the number of IoT SiteWise assets that can be created per second, the allowed number of messages per second, and so on.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html\">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+            aws_sdk_iotsitewise.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2064,6 +2309,13 @@ class IoTSiteWiseClient:
         Args:
             project_id: <p>The ID of the project.</p>
             client_token: <p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required.</p>
+
+        Raises:
+            aws_sdk_iotsitewise.errors.internal_failure_exception.InternalFailureException: <p>IoT SiteWise can't process your request right now. Try again later.</p>
+            aws_sdk_iotsitewise.errors.invalid_request_exception.InvalidRequestException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters. Check your request and try again.</p>
+            aws_sdk_iotsitewise.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_iotsitewise.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a rate limit. For example, you might have exceeded the number of IoT SiteWise assets that can be created per second, the allowed number of messages per second, and so on.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html\">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+            aws_sdk_iotsitewise.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2113,6 +2365,14 @@ class IoTSiteWiseClient:
             asset_id: <p>The ID of the asset in which the asset property was created. This can be either the actual ID in UUID format, or else <code>externalId:</code> followed by the external ID, if it has one. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references\">Referencing objects with external IDs</a> in the <i>IoT SiteWise User Guide</i>.</p>
             property_id: <p>The ID of the asset property. This can be either the actual ID in UUID format, or else <code>externalId:</code> followed by the external ID, if it has one. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references\">Referencing objects with external IDs</a> in the <i>IoT SiteWise User Guide</i>.</p>
             client_token: <p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required.</p>
+
+        Raises:
+            aws_sdk_iotsitewise.errors.conflicting_operation_exception.ConflictingOperationException: <p>Your request has conflicting operations. This can occur if you're trying to perform more than one operation on the same resource at the same time.</p>
+            aws_sdk_iotsitewise.errors.internal_failure_exception.InternalFailureException: <p>IoT SiteWise can't process your request right now. Try again later.</p>
+            aws_sdk_iotsitewise.errors.invalid_request_exception.InvalidRequestException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters. Check your request and try again.</p>
+            aws_sdk_iotsitewise.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_iotsitewise.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a rate limit. For example, you might have exceeded the number of IoT SiteWise assets that can be created per second, the allowed number of messages per second, and so on.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html\">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+            aws_sdk_iotsitewise.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2155,6 +2415,13 @@ class IoTSiteWiseClient:
 
         Args:
             access_policy_id: <p>The ID of the access policy.</p>
+
+        Raises:
+            aws_sdk_iotsitewise.errors.internal_failure_exception.InternalFailureException: <p>IoT SiteWise can't process your request right now. Try again later.</p>
+            aws_sdk_iotsitewise.errors.invalid_request_exception.InvalidRequestException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters. Check your request and try again.</p>
+            aws_sdk_iotsitewise.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_iotsitewise.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a rate limit. For example, you might have exceeded the number of IoT SiteWise assets that can be created per second, the allowed number of messages per second, and so on.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html\">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+            aws_sdk_iotsitewise.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2192,6 +2459,13 @@ class IoTSiteWiseClient:
 
         Args:
             action_id: <p>The ID of the action.</p>
+
+        Raises:
+            aws_sdk_iotsitewise.errors.internal_failure_exception.InternalFailureException: <p>IoT SiteWise can't process your request right now. Try again later.</p>
+            aws_sdk_iotsitewise.errors.invalid_request_exception.InvalidRequestException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters. Check your request and try again.</p>
+            aws_sdk_iotsitewise.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_iotsitewise.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a rate limit. For example, you might have exceeded the number of IoT SiteWise assets that can be created per second, the allowed number of messages per second, and so on.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html\">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+            aws_sdk_iotsitewise.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2233,6 +2507,13 @@ class IoTSiteWiseClient:
         Args:
             asset_id: <p>The ID of the asset. This can be either the actual ID in UUID format, or else <code>externalId:</code> followed by the external ID, if it has one. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references\">Referencing objects with external IDs</a> in the <i>IoT SiteWise User Guide</i>.</p>
             exclude_properties: <p> Whether or not to exclude asset properties from the response. </p>
+
+        Raises:
+            aws_sdk_iotsitewise.errors.internal_failure_exception.InternalFailureException: <p>IoT SiteWise can't process your request right now. Try again later.</p>
+            aws_sdk_iotsitewise.errors.invalid_request_exception.InvalidRequestException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters. Check your request and try again.</p>
+            aws_sdk_iotsitewise.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_iotsitewise.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a rate limit. For example, you might have exceeded the number of IoT SiteWise assets that can be created per second, the allowed number of messages per second, and so on.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html\">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+            aws_sdk_iotsitewise.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2320,6 +2601,13 @@ class IoTSiteWiseClient:
         Args:
             asset_id: <p>The ID of the asset. This can be either the actual ID in UUID format, or else <code>externalId:</code> followed by the external ID, if it has one. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references\">Referencing objects with external IDs</a> in the <i>IoT SiteWise User Guide</i>.</p>
             asset_composite_model_id: <p>The ID of a composite model on this asset. This can be either the actual ID in UUID format, or else <code>externalId:</code> followed by the external ID, if it has one. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references\">Referencing objects with external IDs</a> in the <i>IoT SiteWise User Guide</i>.</p>
+
+        Raises:
+            aws_sdk_iotsitewise.errors.internal_failure_exception.InternalFailureException: <p>IoT SiteWise can't process your request right now. Try again later.</p>
+            aws_sdk_iotsitewise.errors.invalid_request_exception.InvalidRequestException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters. Check your request and try again.</p>
+            aws_sdk_iotsitewise.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_iotsitewise.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a rate limit. For example, you might have exceeded the number of IoT SiteWise assets that can be created per second, the allowed number of messages per second, and so on.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html\">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+            aws_sdk_iotsitewise.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2366,6 +2654,13 @@ class IoTSiteWiseClient:
             asset_model_id: <p>The ID of the asset model. This can be either the actual ID in UUID format, or else <code>externalId:</code> followed by the external ID, if it has one. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references\">Referencing objects with external IDs</a> in the <i>IoT SiteWise User Guide</i>.</p>
             exclude_properties: <p> Whether or not to exclude asset model properties from the response. </p>
             asset_model_version: <p>The version alias that specifies the latest or active version of the asset model. The details are returned in the response. The default value is <code>LATEST</code>. See <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/model-active-version.html\"> Asset model versions</a> in the <i>IoT SiteWise User Guide</i>.</p>
+
+        Raises:
+            aws_sdk_iotsitewise.errors.internal_failure_exception.InternalFailureException: <p>IoT SiteWise can't process your request right now. Try again later.</p>
+            aws_sdk_iotsitewise.errors.invalid_request_exception.InvalidRequestException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters. Check your request and try again.</p>
+            aws_sdk_iotsitewise.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_iotsitewise.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a rate limit. For example, you might have exceeded the number of IoT SiteWise assets that can be created per second, the allowed number of messages per second, and so on.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html\">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+            aws_sdk_iotsitewise.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2464,6 +2759,13 @@ class IoTSiteWiseClient:
             asset_model_id: <p>The ID of the asset model. This can be either the actual ID in UUID format, or else <code>externalId:</code> followed by the external ID, if it has one. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references\">Referencing objects with external IDs</a> in the <i>IoT SiteWise User Guide</i>.</p>
             asset_model_composite_model_id: <p>The ID of a composite model on this asset model. This can be either the actual ID in UUID format, or else <code>externalId:</code> followed by the external ID, if it has one. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references\">Referencing objects with external IDs</a> in the <i>IoT SiteWise User Guide</i>.</p>
             asset_model_version: <p>The version alias that specifies the latest or active version of the asset model. The details are returned in the response. The default value is <code>LATEST</code>. See <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/model-active-version.html\"> Asset model versions</a> in the <i>IoT SiteWise User Guide</i>.</p>
+
+        Raises:
+            aws_sdk_iotsitewise.errors.internal_failure_exception.InternalFailureException: <p>IoT SiteWise can't process your request right now. Try again later.</p>
+            aws_sdk_iotsitewise.errors.invalid_request_exception.InvalidRequestException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters. Check your request and try again.</p>
+            aws_sdk_iotsitewise.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_iotsitewise.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a rate limit. For example, you might have exceeded the number of IoT SiteWise assets that can be created per second, the allowed number of messages per second, and so on.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html\">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+            aws_sdk_iotsitewise.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2506,6 +2808,13 @@ class IoTSiteWiseClient:
         Args:
             asset_model_id: <p>The ID of the asset model. This can be either the actual ID in UUID format, or else externalId: followed by the external ID.</p>
             interface_asset_model_id: <p>The ID of the interface asset model. This can be either the actual ID in UUID format, or else externalId: followed by the external ID.</p>
+
+        Raises:
+            aws_sdk_iotsitewise.errors.internal_failure_exception.InternalFailureException: <p>IoT SiteWise can't process your request right now. Try again later.</p>
+            aws_sdk_iotsitewise.errors.invalid_request_exception.InvalidRequestException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters. Check your request and try again.</p>
+            aws_sdk_iotsitewise.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_iotsitewise.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a rate limit. For example, you might have exceeded the number of IoT SiteWise assets that can be created per second, the allowed number of messages per second, and so on.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html\">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+            aws_sdk_iotsitewise.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2546,6 +2855,13 @@ class IoTSiteWiseClient:
         Args:
             asset_id: <p>The ID of the asset. This can be either the actual ID in UUID format, or else <code>externalId:</code> followed by the external ID, if it has one. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references\">Referencing objects with external IDs</a> in the <i>IoT SiteWise User Guide</i>.</p>
             property_id: <p>The ID of the asset property. This can be either the actual ID in UUID format, or else <code>externalId:</code> followed by the external ID, if it has one. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references\">Referencing objects with external IDs</a> in the <i>IoT SiteWise User Guide</i>.</p>
+
+        Raises:
+            aws_sdk_iotsitewise.errors.internal_failure_exception.InternalFailureException: <p>IoT SiteWise can't process your request right now. Try again later.</p>
+            aws_sdk_iotsitewise.errors.invalid_request_exception.InvalidRequestException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters. Check your request and try again.</p>
+            aws_sdk_iotsitewise.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_iotsitewise.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a rate limit. For example, you might have exceeded the number of IoT SiteWise assets that can be created per second, the allowed number of messages per second, and so on.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html\">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+            aws_sdk_iotsitewise.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2584,6 +2900,13 @@ class IoTSiteWiseClient:
 
         Args:
             job_id: <p>The ID of the job.</p>
+
+        Raises:
+            aws_sdk_iotsitewise.errors.internal_failure_exception.InternalFailureException: <p>IoT SiteWise can't process your request right now. Try again later.</p>
+            aws_sdk_iotsitewise.errors.invalid_request_exception.InvalidRequestException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters. Check your request and try again.</p>
+            aws_sdk_iotsitewise.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_iotsitewise.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a rate limit. For example, you might have exceeded the number of IoT SiteWise assets that can be created per second, the allowed number of messages per second, and so on.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html\">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+            aws_sdk_iotsitewise.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2625,6 +2948,13 @@ class IoTSiteWiseClient:
         Args:
             computation_model_id: <p>The ID of the computation model.</p>
             computation_model_version: <p>The version of the computation model.</p>
+
+        Raises:
+            aws_sdk_iotsitewise.errors.internal_failure_exception.InternalFailureException: <p>IoT SiteWise can't process your request right now. Try again later.</p>
+            aws_sdk_iotsitewise.errors.invalid_request_exception.InvalidRequestException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters. Check your request and try again.</p>
+            aws_sdk_iotsitewise.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_iotsitewise.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a rate limit. For example, you might have exceeded the number of IoT SiteWise assets that can be created per second, the allowed number of messages per second, and so on.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html\">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+            aws_sdk_iotsitewise.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2670,6 +3000,13 @@ class IoTSiteWiseClient:
             computation_model_id: <p>The ID of the computation model.</p>
             resolve_to_resource_type: <p>The type of the resolved resource.</p>
             resolve_to_resource_id: <p>The ID of the resolved resource.</p>
+
+        Raises:
+            aws_sdk_iotsitewise.errors.internal_failure_exception.InternalFailureException: <p>IoT SiteWise can't process your request right now. Try again later.</p>
+            aws_sdk_iotsitewise.errors.invalid_request_exception.InvalidRequestException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters. Check your request and try again.</p>
+            aws_sdk_iotsitewise.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_iotsitewise.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a rate limit. For example, you might have exceeded the number of IoT SiteWise assets that can be created per second, the allowed number of messages per second, and so on.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html\">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+            aws_sdk_iotsitewise.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2711,6 +3048,13 @@ class IoTSiteWiseClient:
 
         Args:
             dashboard_id: <p>The ID of the dashboard.</p>
+
+        Raises:
+            aws_sdk_iotsitewise.errors.internal_failure_exception.InternalFailureException: <p>IoT SiteWise can't process your request right now. Try again later.</p>
+            aws_sdk_iotsitewise.errors.invalid_request_exception.InvalidRequestException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters. Check your request and try again.</p>
+            aws_sdk_iotsitewise.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_iotsitewise.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a rate limit. For example, you might have exceeded the number of IoT SiteWise assets that can be created per second, the allowed number of messages per second, and so on.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html\">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+            aws_sdk_iotsitewise.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2748,6 +3092,13 @@ class IoTSiteWiseClient:
 
         Args:
             dataset_id: <p>The ID of the dataset.</p>
+
+        Raises:
+            aws_sdk_iotsitewise.errors.internal_failure_exception.InternalFailureException: <p>IoT SiteWise can't process your request right now. Try again later.</p>
+            aws_sdk_iotsitewise.errors.invalid_request_exception.InvalidRequestException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters. Check your request and try again.</p>
+            aws_sdk_iotsitewise.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_iotsitewise.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a rate limit. For example, you might have exceeded the number of IoT SiteWise assets that can be created per second, the allowed number of messages per second, and so on.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html\">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+            aws_sdk_iotsitewise.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2778,7 +3129,14 @@ class IoTSiteWiseClient:
     def describe_default_encryption_configuration(
         self, *, config_overrides: Optional[IoTSiteWiseClientConfig] = None
     ) -> "aws_sdk_iotsitewise.types.describe_default_encryption_configuration_response.DescribeDefaultEncryptionConfigurationResponse":
-        r"""<p>Retrieves information about the default encryption configuration for the Amazon Web Services account in the default or specified Region. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/key-management.html\">Key management</a> in the <i>IoT SiteWise User Guide</i>.</p>"""
+        r"""<p>Retrieves information about the default encryption configuration for the Amazon Web Services account in the default or specified Region. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/key-management.html\">Key management</a> in the <i>IoT SiteWise User Guide</i>.</p>
+
+        Raises:
+            aws_sdk_iotsitewise.errors.internal_failure_exception.InternalFailureException: <p>IoT SiteWise can't process your request right now. Try again later.</p>
+            aws_sdk_iotsitewise.errors.invalid_request_exception.InvalidRequestException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters. Check your request and try again.</p>
+            aws_sdk_iotsitewise.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a rate limit. For example, you might have exceeded the number of IoT SiteWise assets that can be created per second, the allowed number of messages per second, and so on.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html\">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+            aws_sdk_iotsitewise.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_iotsitewise.types.describe_default_encryption_configuration_request.DescribeDefaultEncryptionConfigurationRequest]",
@@ -2814,6 +3172,13 @@ class IoTSiteWiseClient:
 
         Args:
             execution_id: <p>The ID of the execution.</p>
+
+        Raises:
+            aws_sdk_iotsitewise.errors.internal_failure_exception.InternalFailureException: <p>IoT SiteWise can't process your request right now. Try again later.</p>
+            aws_sdk_iotsitewise.errors.invalid_request_exception.InvalidRequestException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters. Check your request and try again.</p>
+            aws_sdk_iotsitewise.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_iotsitewise.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a rate limit. For example, you might have exceeded the number of IoT SiteWise assets that can be created per second, the allowed number of messages per second, and so on.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html\">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+            aws_sdk_iotsitewise.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2851,6 +3216,13 @@ class IoTSiteWiseClient:
 
         Args:
             gateway_id: <p>The ID of the gateway device.</p>
+
+        Raises:
+            aws_sdk_iotsitewise.errors.internal_failure_exception.InternalFailureException: <p>IoT SiteWise can't process your request right now. Try again later.</p>
+            aws_sdk_iotsitewise.errors.invalid_request_exception.InvalidRequestException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters. Check your request and try again.</p>
+            aws_sdk_iotsitewise.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_iotsitewise.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a rate limit. For example, you might have exceeded the number of IoT SiteWise assets that can be created per second, the allowed number of messages per second, and so on.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html\">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+            aws_sdk_iotsitewise.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2890,6 +3262,13 @@ class IoTSiteWiseClient:
         Args:
             gateway_id: <p>The ID of the gateway that defines the capability configuration.</p>
             capability_namespace: <p>The namespace of the capability configuration. For example, if you configure OPC UA sources for an MQTT-enabled gateway, your OPC-UA capability configuration has the namespace <code>iotsitewise:opcuacollector:3</code>.</p>
+
+        Raises:
+            aws_sdk_iotsitewise.errors.internal_failure_exception.InternalFailureException: <p>IoT SiteWise can't process your request right now. Try again later.</p>
+            aws_sdk_iotsitewise.errors.invalid_request_exception.InvalidRequestException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters. Check your request and try again.</p>
+            aws_sdk_iotsitewise.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_iotsitewise.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a rate limit. For example, you might have exceeded the number of IoT SiteWise assets that can be created per second, the allowed number of messages per second, and so on.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html\">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+            aws_sdk_iotsitewise.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2921,7 +3300,15 @@ class IoTSiteWiseClient:
     def describe_logging_options(
         self, *, config_overrides: Optional[IoTSiteWiseClientConfig] = None
     ) -> "aws_sdk_iotsitewise.types.describe_logging_options_response.DescribeLoggingOptionsResponse":
-        """<p>Retrieves the current IoT SiteWise logging options.</p>"""
+        """<p>Retrieves the current IoT SiteWise logging options.</p>
+
+        Raises:
+            aws_sdk_iotsitewise.errors.internal_failure_exception.InternalFailureException: <p>IoT SiteWise can't process your request right now. Try again later.</p>
+            aws_sdk_iotsitewise.errors.invalid_request_exception.InvalidRequestException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters. Check your request and try again.</p>
+            aws_sdk_iotsitewise.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_iotsitewise.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a rate limit. For example, you might have exceeded the number of IoT SiteWise assets that can be created per second, the allowed number of messages per second, and so on.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html\">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+            aws_sdk_iotsitewise.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_iotsitewise.types.describe_logging_options_request.DescribeLoggingOptionsRequest]",
@@ -2957,6 +3344,13 @@ class IoTSiteWiseClient:
 
         Args:
             portal_id: <p>The ID of the portal.</p>
+
+        Raises:
+            aws_sdk_iotsitewise.errors.internal_failure_exception.InternalFailureException: <p>IoT SiteWise can't process your request right now. Try again later.</p>
+            aws_sdk_iotsitewise.errors.invalid_request_exception.InvalidRequestException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters. Check your request and try again.</p>
+            aws_sdk_iotsitewise.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_iotsitewise.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a rate limit. For example, you might have exceeded the number of IoT SiteWise assets that can be created per second, the allowed number of messages per second, and so on.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html\">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+            aws_sdk_iotsitewise.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3034,6 +3428,13 @@ class IoTSiteWiseClient:
 
         Args:
             project_id: <p>The ID of the project.</p>
+
+        Raises:
+            aws_sdk_iotsitewise.errors.internal_failure_exception.InternalFailureException: <p>IoT SiteWise can't process your request right now. Try again later.</p>
+            aws_sdk_iotsitewise.errors.invalid_request_exception.InvalidRequestException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters. Check your request and try again.</p>
+            aws_sdk_iotsitewise.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_iotsitewise.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a rate limit. For example, you might have exceeded the number of IoT SiteWise assets that can be created per second, the allowed number of messages per second, and so on.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html\">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+            aws_sdk_iotsitewise.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3064,7 +3465,17 @@ class IoTSiteWiseClient:
     def describe_storage_configuration(
         self, *, config_overrides: Optional[IoTSiteWiseClientConfig] = None
     ) -> "aws_sdk_iotsitewise.types.describe_storage_configuration_response.DescribeStorageConfigurationResponse":
-        """<p>Retrieves information about the storage configuration for IoT SiteWise.</p>"""
+        """<p>Retrieves information about the storage configuration for IoT SiteWise.</p>
+
+        Raises:
+            aws_sdk_iotsitewise.errors.conflicting_operation_exception.ConflictingOperationException: <p>Your request has conflicting operations. This can occur if you're trying to perform more than one operation on the same resource at the same time.</p>
+            aws_sdk_iotsitewise.errors.internal_failure_exception.InternalFailureException: <p>IoT SiteWise can't process your request right now. Try again later.</p>
+            aws_sdk_iotsitewise.errors.invalid_request_exception.InvalidRequestException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters. Check your request and try again.</p>
+            aws_sdk_iotsitewise.errors.limit_exceeded_exception.LimitExceededException: <p>You've reached the quota for a resource. For example, this can occur if you're trying to associate more than the allowed number of child assets or attempting to create more than the allowed number of properties for an asset model.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html\">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+            aws_sdk_iotsitewise.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_iotsitewise.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a rate limit. For example, you might have exceeded the number of IoT SiteWise assets that can be created per second, the allowed number of messages per second, and so on.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html\">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+            aws_sdk_iotsitewise.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_iotsitewise.types.describe_storage_configuration_request.DescribeStorageConfigurationRequest]",
@@ -3106,6 +3517,13 @@ class IoTSiteWiseClient:
             alias: <p>The alias that identifies the time series.</p>
             asset_id: <p>The ID of the asset in which the asset property was created. This can be either the actual ID in UUID format, or else <code>externalId:</code> followed by the external ID, if it has one. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references\">Referencing objects with external IDs</a> in the <i>IoT SiteWise User Guide</i>.</p>
             property_id: <p>The ID of the asset property. This can be either the actual ID in UUID format, or else <code>externalId:</code> followed by the external ID, if it has one. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references\">Referencing objects with external IDs</a> in the <i>IoT SiteWise User Guide</i>.</p>
+
+        Raises:
+            aws_sdk_iotsitewise.errors.internal_failure_exception.InternalFailureException: <p>IoT SiteWise can't process your request right now. Try again later.</p>
+            aws_sdk_iotsitewise.errors.invalid_request_exception.InvalidRequestException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters. Check your request and try again.</p>
+            aws_sdk_iotsitewise.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_iotsitewise.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a rate limit. For example, you might have exceeded the number of IoT SiteWise assets that can be created per second, the allowed number of messages per second, and so on.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html\">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+            aws_sdk_iotsitewise.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3156,6 +3574,14 @@ class IoTSiteWiseClient:
             hierarchy_id: <p>The ID of a hierarchy in the parent asset's model. (This can be either the actual ID in UUID format, or else <code>externalId:</code> followed by the external ID, if it has one. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references\">Referencing objects with external IDs</a> in the <i>IoT SiteWise User Guide</i>.) Hierarchies allow different groupings of assets to be formed that all come from the same asset model. You can use the hierarchy ID to identify the correct asset to disassociate. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/asset-hierarchies.html\">Asset hierarchies</a> in the <i>IoT SiteWise User Guide</i>.</p>
             child_asset_id: <p>The ID of the child asset to disassociate. This can be either the actual ID in UUID format, or else <code>externalId:</code> followed by the external ID, if it has one. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references\">Referencing objects with external IDs</a> in the <i>IoT SiteWise User Guide</i>.</p>
             client_token: <p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required.</p>
+
+        Raises:
+            aws_sdk_iotsitewise.errors.conflicting_operation_exception.ConflictingOperationException: <p>Your request has conflicting operations. This can occur if you're trying to perform more than one operation on the same resource at the same time.</p>
+            aws_sdk_iotsitewise.errors.internal_failure_exception.InternalFailureException: <p>IoT SiteWise can't process your request right now. Try again later.</p>
+            aws_sdk_iotsitewise.errors.invalid_request_exception.InvalidRequestException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters. Check your request and try again.</p>
+            aws_sdk_iotsitewise.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_iotsitewise.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a rate limit. For example, you might have exceeded the number of IoT SiteWise assets that can be created per second, the allowed number of messages per second, and so on.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html\">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+            aws_sdk_iotsitewise.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3203,6 +3629,14 @@ class IoTSiteWiseClient:
             asset_id: <p>The ID of the asset in which the asset property was created. This can be either the actual ID in UUID format, or else <code>externalId:</code> followed by the external ID, if it has one. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references\">Referencing objects with external IDs</a> in the <i>IoT SiteWise User Guide</i>.</p>
             property_id: <p>The ID of the asset property. This can be either the actual ID in UUID format, or else <code>externalId:</code> followed by the external ID, if it has one. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references\">Referencing objects with external IDs</a> in the <i>IoT SiteWise User Guide</i>.</p>
             client_token: <p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required.</p>
+
+        Raises:
+            aws_sdk_iotsitewise.errors.conflicting_operation_exception.ConflictingOperationException: <p>Your request has conflicting operations. This can occur if you're trying to perform more than one operation on the same resource at the same time.</p>
+            aws_sdk_iotsitewise.errors.internal_failure_exception.InternalFailureException: <p>IoT SiteWise can't process your request right now. Try again later.</p>
+            aws_sdk_iotsitewise.errors.invalid_request_exception.InvalidRequestException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters. Check your request and try again.</p>
+            aws_sdk_iotsitewise.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_iotsitewise.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a rate limit. For example, you might have exceeded the number of IoT SiteWise assets that can be created per second, the allowed number of messages per second, and so on.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html\">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+            aws_sdk_iotsitewise.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3252,6 +3686,15 @@ class IoTSiteWiseClient:
             action_payload: <p>The JSON payload of the action.</p>
             client_token: <p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required.</p>
             resolve_to: <p>The detailed resource this action resolves to.</p>
+
+        Raises:
+            aws_sdk_iotsitewise.errors.conflicting_operation_exception.ConflictingOperationException: <p>Your request has conflicting operations. This can occur if you're trying to perform more than one operation on the same resource at the same time.</p>
+            aws_sdk_iotsitewise.errors.internal_failure_exception.InternalFailureException: <p>IoT SiteWise can't process your request right now. Try again later.</p>
+            aws_sdk_iotsitewise.errors.invalid_request_exception.InvalidRequestException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters. Check your request and try again.</p>
+            aws_sdk_iotsitewise.errors.limit_exceeded_exception.LimitExceededException: <p>You've reached the quota for a resource. For example, this can occur if you're trying to associate more than the allowed number of child assets or attempting to create more than the allowed number of properties for an asset model.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html\">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+            aws_sdk_iotsitewise.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_iotsitewise.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a rate limit. For example, you might have exceeded the number of IoT SiteWise assets that can be created per second, the allowed number of messages per second, and so on.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html\">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+            aws_sdk_iotsitewise.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3307,6 +3750,16 @@ class IoTSiteWiseClient:
             next_token: <p>The string that specifies the next page of results.</p>
             max_results: <p>The maximum number of results to return at one time.</p> <ul> <li> <p>Minimum is 1</p> </li> <li> <p>Maximum is 20000</p> </li> <li> <p>Default is 20000</p> </li> </ul>
             client_token: <p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required.</p>
+
+        Raises:
+            aws_sdk_iotsitewise.errors.access_denied_exception.AccessDeniedException: <p>Access is denied.</p>
+            aws_sdk_iotsitewise.errors.internal_failure_exception.InternalFailureException: <p>IoT SiteWise can't process your request right now. Try again later.</p>
+            aws_sdk_iotsitewise.errors.invalid_request_exception.InvalidRequestException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters. Check your request and try again.</p>
+            aws_sdk_iotsitewise.errors.query_timeout_exception.QueryTimeoutException: <p>The query timed out.</p>
+            aws_sdk_iotsitewise.errors.service_unavailable_exception.ServiceUnavailableException: <p>The requested service is unavailable.</p>
+            aws_sdk_iotsitewise.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a rate limit. For example, you might have exceeded the number of IoT SiteWise assets that can be created per second, the allowed number of messages per second, and so on.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html\">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+            aws_sdk_iotsitewise.errors.validation_exception.ValidationException: <p>The validation failed for this query.</p>
+            aws_sdk_iotsitewise.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3407,6 +3860,14 @@ class IoTSiteWiseClient:
             time_ordering: <p>The chronological sorting order of the requested information.</p> <p>Default: <code>ASCENDING</code> </p>
             next_token: <p>The token to be used for the next set of paginated results.</p>
             max_results: <p>The maximum number of results to return for each paginated request. A result set is returned in the two cases, whichever occurs first.</p> <ul> <li> <p>The size of the result set is equal to 1 MB.</p> </li> <li> <p>The number of data points in the result set is equal to the value of <code>maxResults</code>. The maximum value of <code>maxResults</code> is 2500.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_iotsitewise.errors.internal_failure_exception.InternalFailureException: <p>IoT SiteWise can't process your request right now. Try again later.</p>
+            aws_sdk_iotsitewise.errors.invalid_request_exception.InvalidRequestException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters. Check your request and try again.</p>
+            aws_sdk_iotsitewise.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_iotsitewise.errors.service_unavailable_exception.ServiceUnavailableException: <p>The requested service is unavailable.</p>
+            aws_sdk_iotsitewise.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a rate limit. For example, you might have exceeded the number of IoT SiteWise assets that can be created per second, the allowed number of messages per second, and so on.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html\">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+            aws_sdk_iotsitewise.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3512,6 +3973,14 @@ class IoTSiteWiseClient:
             asset_id: <p>The ID of the asset, in UUID format.</p>
             property_id: <p>The ID of the asset property, in UUID format.</p>
             property_alias: <p>The alias that identifies the property, such as an OPC-UA server data stream path (for example, <code>/company/windfarm/3/turbine/7/temperature</code>). For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/connect-data-streams.html\">Mapping industrial data streams to asset properties</a> in the <i>IoT SiteWise User Guide</i>.</p>
+
+        Raises:
+            aws_sdk_iotsitewise.errors.internal_failure_exception.InternalFailureException: <p>IoT SiteWise can't process your request right now. Try again later.</p>
+            aws_sdk_iotsitewise.errors.invalid_request_exception.InvalidRequestException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters. Check your request and try again.</p>
+            aws_sdk_iotsitewise.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_iotsitewise.errors.service_unavailable_exception.ServiceUnavailableException: <p>The requested service is unavailable.</p>
+            aws_sdk_iotsitewise.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a rate limit. For example, you might have exceeded the number of IoT SiteWise assets that can be created per second, the allowed number of messages per second, and so on.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html\">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+            aws_sdk_iotsitewise.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3576,6 +4045,14 @@ class IoTSiteWiseClient:
             time_ordering: <p>The chronological sorting order of the requested information.</p> <p>Default: <code>ASCENDING</code> </p>
             next_token: <p>The token to be used for the next set of paginated results.</p>
             max_results: <p>The maximum number of results to return for each paginated request. A result set is returned in the two cases, whichever occurs first.</p> <ul> <li> <p>The size of the result set is equal to 4 MB.</p> </li> <li> <p>The number of data points in the result set is equal to the value of <code>maxResults</code>. The maximum value of <code>maxResults</code> is 20000.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_iotsitewise.errors.internal_failure_exception.InternalFailureException: <p>IoT SiteWise can't process your request right now. Try again later.</p>
+            aws_sdk_iotsitewise.errors.invalid_request_exception.InvalidRequestException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters. Check your request and try again.</p>
+            aws_sdk_iotsitewise.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_iotsitewise.errors.service_unavailable_exception.ServiceUnavailableException: <p>The requested service is unavailable.</p>
+            aws_sdk_iotsitewise.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a rate limit. For example, you might have exceeded the number of IoT SiteWise assets that can be created per second, the allowed number of messages per second, and so on.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html\">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+            aws_sdk_iotsitewise.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3705,6 +4182,14 @@ class IoTSiteWiseClient:
             max_results: <p>The maximum number of results to return for each paginated request. If not specified, the default value is 10.</p>
             type: <p>The interpolation type.</p> <p>Valid values: <code>LINEAR_INTERPOLATION | LOCF_INTERPOLATION</code> </p> <ul> <li> <p> <code>LINEAR_INTERPOLATION</code> – Estimates missing data using <a href=\"https://en.wikipedia.org/wiki/Linear_interpolation\">linear interpolation</a>.</p> <p>For example, you can use this operation to return the interpolated temperature values for a wind turbine every 24 hours over a duration of 7 days. If the interpolation starts July 1, 2021, at 9 AM, IoT SiteWise returns the first interpolated value on July 2, 2021, at 9 AM, the second interpolated value on July 3, 2021, at 9 AM, and so on.</p> </li> <li> <p> <code>LOCF_INTERPOLATION</code> – Estimates missing data using last observation carried forward interpolation</p> <p>If no data point is found for an interval, IoT SiteWise returns the last observed data point for the previous interval and carries forward this interpolated value until a new data point is found.</p> <p>For example, you can get the state of an on-off valve every 24 hours over a duration of 7 days. If the interpolation starts July 1, 2021, at 9 AM, IoT SiteWise returns the last observed data point between July 1, 2021, at 9 AM and July 2, 2021, at 9 AM as the first interpolated value. If a data point isn't found after 9 AM on July 2, 2021, IoT SiteWise uses the same interpolated value for the rest of the days.</p> </li> </ul>
             interval_window_in_seconds: <p>The query interval for the window, in seconds. IoT SiteWise computes each interpolated value by using data points from the timestamp of each interval, minus the window to the timestamp of each interval plus the window. If not specified, the window ranges between the start time minus the interval and the end time plus the interval.</p> <note> <ul> <li> <p>If you specify a value for the <code>intervalWindowInSeconds</code> parameter, the value for the <code>type</code> parameter must be <code>LINEAR_INTERPOLATION</code>.</p> </li> <li> <p>If a data point isn't found during the specified query window, IoT SiteWise won't return an interpolated value for the interval. This indicates that there's a gap in the ingested data points.</p> </li> </ul> </note> <p>For example, you can get the interpolated temperature values for a wind turbine every 24 hours over a duration of 7 days. If the interpolation starts on July 1, 2021, at 9 AM with a window of 2 hours, IoT SiteWise uses the data points from 7 AM (9 AM minus 2 hours) to 11 AM (9 AM plus 2 hours) on July 2, 2021 to compute the first interpolated value. Next, IoT SiteWise uses the data points from 7 AM (9 AM minus 2 hours) to 11 AM (9 AM plus 2 hours) on July 3, 2021 to compute the second interpolated value, and so on. </p>
+
+        Raises:
+            aws_sdk_iotsitewise.errors.internal_failure_exception.InternalFailureException: <p>IoT SiteWise can't process your request right now. Try again later.</p>
+            aws_sdk_iotsitewise.errors.invalid_request_exception.InvalidRequestException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters. Check your request and try again.</p>
+            aws_sdk_iotsitewise.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_iotsitewise.errors.service_unavailable_exception.ServiceUnavailableException: <p>The requested service is unavailable.</p>
+            aws_sdk_iotsitewise.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a rate limit. For example, you might have exceeded the number of IoT SiteWise assets that can be created per second, the allowed number of messages per second, and so on.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html\">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+            aws_sdk_iotsitewise.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3822,6 +4307,16 @@ class IoTSiteWiseClient:
             conversation_id: <p>The ID assigned to a conversation. IoT SiteWise automatically generates a unique ID for you, and this parameter is never required. However, if you prefer to have your own ID, you must specify it here in UUID format. If you specify your own ID, it must be globally unique.</p>
             message: <p>A text message sent to the SiteWise Assistant by the user.</p>
             enable_trace: <p>Specifies if to turn trace on or not. It is used to track the SiteWise Assistant's reasoning, and data access process.</p>
+
+        Raises:
+            aws_sdk_iotsitewise.errors.access_denied_exception.AccessDeniedException: <p>Access is denied.</p>
+            aws_sdk_iotsitewise.errors.conflicting_operation_exception.ConflictingOperationException: <p>Your request has conflicting operations. This can occur if you're trying to perform more than one operation on the same resource at the same time.</p>
+            aws_sdk_iotsitewise.errors.internal_failure_exception.InternalFailureException: <p>IoT SiteWise can't process your request right now. Try again later.</p>
+            aws_sdk_iotsitewise.errors.invalid_request_exception.InvalidRequestException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters. Check your request and try again.</p>
+            aws_sdk_iotsitewise.errors.limit_exceeded_exception.LimitExceededException: <p>You've reached the quota for a resource. For example, this can occur if you're trying to associate more than the allowed number of child assets or attempting to create more than the allowed number of properties for an asset model.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html\">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+            aws_sdk_iotsitewise.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_iotsitewise.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a rate limit. For example, you might have exceeded the number of IoT SiteWise assets that can be created per second, the allowed number of messages per second, and so on.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html\">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+            aws_sdk_iotsitewise.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3883,6 +4378,12 @@ class IoTSiteWiseClient:
             iam_arn: <p>The ARN of the IAM user. For more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html\">IAM ARNs</a> in the <i>IAM User Guide</i>. This parameter is required if you specify <code>IAM</code> for <code>identityType</code>.</p>
             next_token: <p>The token to be used for the next set of paginated results.</p>
             max_results: <p>The maximum number of results to return for each paginated request.</p> <p>Default: 50</p>
+
+        Raises:
+            aws_sdk_iotsitewise.errors.internal_failure_exception.InternalFailureException: <p>IoT SiteWise can't process your request right now. Try again later.</p>
+            aws_sdk_iotsitewise.errors.invalid_request_exception.InvalidRequestException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters. Check your request and try again.</p>
+            aws_sdk_iotsitewise.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a rate limit. For example, you might have exceeded the number of IoT SiteWise assets that can be created per second, the allowed number of messages per second, and so on.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html\">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+            aws_sdk_iotsitewise.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3988,6 +4489,13 @@ class IoTSiteWiseClient:
             max_results: <p>The maximum number of results to return for each paginated request.</p>
             resolve_to_resource_type: <p>The type of the resolved resource.</p>
             resolve_to_resource_id: <p>The ID of the resolved resource.</p>
+
+        Raises:
+            aws_sdk_iotsitewise.errors.internal_failure_exception.InternalFailureException: <p>IoT SiteWise can't process your request right now. Try again later.</p>
+            aws_sdk_iotsitewise.errors.invalid_request_exception.InvalidRequestException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters. Check your request and try again.</p>
+            aws_sdk_iotsitewise.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_iotsitewise.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a rate limit. For example, you might have exceeded the number of IoT SiteWise assets that can be created per second, the allowed number of messages per second, and so on.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html\">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+            aws_sdk_iotsitewise.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4077,6 +4585,13 @@ class IoTSiteWiseClient:
             next_token: <p>The token to be used for the next set of paginated results.</p>
             max_results: <p>The maximum number of results to return for each paginated request.</p> <p>Default: 50</p>
             asset_model_version: <p>The version alias that specifies the latest or active version of the asset model. The details are returned in the response. The default value is <code>LATEST</code>. See <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/model-active-version.html\"> Asset model versions</a> in the <i>IoT SiteWise User Guide</i>.</p>
+
+        Raises:
+            aws_sdk_iotsitewise.errors.internal_failure_exception.InternalFailureException: <p>IoT SiteWise can't process your request right now. Try again later.</p>
+            aws_sdk_iotsitewise.errors.invalid_request_exception.InvalidRequestException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters. Check your request and try again.</p>
+            aws_sdk_iotsitewise.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_iotsitewise.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a rate limit. For example, you might have exceeded the number of IoT SiteWise assets that can be created per second, the allowed number of messages per second, and so on.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html\">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+            aws_sdk_iotsitewise.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4163,6 +4678,13 @@ class IoTSiteWiseClient:
             max_results: <p>The maximum number of results to return for each paginated request. If not specified, the default value is 50.</p>
             filter: <p> Filters the requested list of asset model properties. You can choose one of the following options:</p> <ul> <li> <p> <code>ALL</code> – The list includes all asset model properties for a given asset model ID. </p> </li> <li> <p> <code>BASE</code> – The list includes only base asset model properties for a given asset model ID. </p> </li> </ul> <p>Default: <code>BASE</code> </p>
             asset_model_version: <p>The version alias that specifies the latest or active version of the asset model. The details are returned in the response. The default value is <code>LATEST</code>. See <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/model-active-version.html\"> Asset model versions</a> in the <i>IoT SiteWise User Guide</i>.</p>
+
+        Raises:
+            aws_sdk_iotsitewise.errors.internal_failure_exception.InternalFailureException: <p>IoT SiteWise can't process your request right now. Try again later.</p>
+            aws_sdk_iotsitewise.errors.invalid_request_exception.InvalidRequestException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters. Check your request and try again.</p>
+            aws_sdk_iotsitewise.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_iotsitewise.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a rate limit. For example, you might have exceeded the number of IoT SiteWise assets that can be created per second, the allowed number of messages per second, and so on.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html\">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+            aws_sdk_iotsitewise.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4253,6 +4775,12 @@ class IoTSiteWiseClient:
             next_token: <p>The token to be used for the next set of paginated results.</p>
             max_results: <p>The maximum number of results to return for each paginated request.</p> <p>Default: 50</p>
             asset_model_version: <p>The version alias that specifies the latest or active version of the asset model. The details are returned in the response. The default value is <code>LATEST</code>. See <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/model-active-version.html\"> Asset model versions</a> in the <i>IoT SiteWise User Guide</i>.</p>
+
+        Raises:
+            aws_sdk_iotsitewise.errors.internal_failure_exception.InternalFailureException: <p>IoT SiteWise can't process your request right now. Try again later.</p>
+            aws_sdk_iotsitewise.errors.invalid_request_exception.InvalidRequestException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters. Check your request and try again.</p>
+            aws_sdk_iotsitewise.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a rate limit. For example, you might have exceeded the number of IoT SiteWise assets that can be created per second, the allowed number of messages per second, and so on.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html\">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+            aws_sdk_iotsitewise.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4338,6 +4866,13 @@ class IoTSiteWiseClient:
             next_token: <p>The token to be used for the next set of paginated results.</p>
             max_results: <p>The maximum number of results to return for each paginated request. If not specified, the default value is 50.</p>
             filter: <p> Filters the requested list of asset properties. You can choose one of the following options:</p> <ul> <li> <p> <code>ALL</code> – The list includes all asset properties for a given asset model ID. </p> </li> <li> <p> <code>BASE</code> – The list includes only base asset properties for a given asset model ID. </p> </li> </ul> <p>Default: <code>BASE</code> </p>
+
+        Raises:
+            aws_sdk_iotsitewise.errors.internal_failure_exception.InternalFailureException: <p>IoT SiteWise can't process your request right now. Try again later.</p>
+            aws_sdk_iotsitewise.errors.invalid_request_exception.InvalidRequestException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters. Check your request and try again.</p>
+            aws_sdk_iotsitewise.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_iotsitewise.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a rate limit. For example, you might have exceeded the number of IoT SiteWise assets that can be created per second, the allowed number of messages per second, and so on.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html\">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+            aws_sdk_iotsitewise.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4418,6 +4953,13 @@ class IoTSiteWiseClient:
             traversal_type: <p>The type of traversal to use to identify asset relationships. Choose the following option:</p> <ul> <li> <p> <code>PATH_TO_ROOT</code> – Identify the asset's parent assets up to the root asset. The asset that you specify in <code>assetId</code> is the first result in the list of <code>assetRelationshipSummaries</code>, and the root asset is the last result.</p> </li> </ul>
             next_token: <p>The token to be used for the next set of paginated results.</p>
             max_results: <p>The maximum number of results to return for each paginated request.</p>
+
+        Raises:
+            aws_sdk_iotsitewise.errors.internal_failure_exception.InternalFailureException: <p>IoT SiteWise can't process your request right now. Try again later.</p>
+            aws_sdk_iotsitewise.errors.invalid_request_exception.InvalidRequestException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters. Check your request and try again.</p>
+            aws_sdk_iotsitewise.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_iotsitewise.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a rate limit. For example, you might have exceeded the number of IoT SiteWise assets that can be created per second, the allowed number of messages per second, and so on.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html\">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+            aws_sdk_iotsitewise.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4497,6 +5039,13 @@ class IoTSiteWiseClient:
             max_results: <p>The maximum number of results to return for each paginated request.</p> <p>Default: 50</p>
             asset_model_id: <p>The ID of the asset model by which to filter the list of assets. This parameter is required if you choose <code>ALL</code> for <code>filter</code>. This can be either the actual ID in UUID format, or else <code>externalId:</code> followed by the external ID, if it has one. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references\">Referencing objects with external IDs</a> in the <i>IoT SiteWise User Guide</i>.</p>
             filter: <p>The filter for the requested list of assets. Choose one of the following options:</p> <ul> <li> <p> <code>ALL</code> – The list includes all assets for a given asset model ID. The <code>assetModelId</code> parameter is required if you filter by <code>ALL</code>.</p> </li> <li> <p> <code>TOP_LEVEL</code> – The list includes only top-level assets in the asset hierarchy tree.</p> </li> </ul> <p>Default: <code>ALL</code> </p>
+
+        Raises:
+            aws_sdk_iotsitewise.errors.internal_failure_exception.InternalFailureException: <p>IoT SiteWise can't process your request right now. Try again later.</p>
+            aws_sdk_iotsitewise.errors.invalid_request_exception.InvalidRequestException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters. Check your request and try again.</p>
+            aws_sdk_iotsitewise.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_iotsitewise.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a rate limit. For example, you might have exceeded the number of IoT SiteWise assets that can be created per second, the allowed number of messages per second, and so on.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html\">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+            aws_sdk_iotsitewise.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4582,6 +5131,13 @@ class IoTSiteWiseClient:
             traversal_direction: <p>The direction to list associated assets. Choose one of the following options:</p> <ul> <li> <p> <code>CHILD</code> – The list includes all child assets associated to the asset.</p> </li> <li> <p> <code>PARENT</code> – The list includes the asset's parent asset.</p> </li> </ul> <p>Default: <code>CHILD</code> </p>
             next_token: <p>The token to be used for the next set of paginated results.</p>
             max_results: <p>The maximum number of results to return for each paginated request.</p> <p>Default: 50</p>
+
+        Raises:
+            aws_sdk_iotsitewise.errors.internal_failure_exception.InternalFailureException: <p>IoT SiteWise can't process your request right now. Try again later.</p>
+            aws_sdk_iotsitewise.errors.invalid_request_exception.InvalidRequestException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters. Check your request and try again.</p>
+            aws_sdk_iotsitewise.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_iotsitewise.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a rate limit. For example, you might have exceeded the number of IoT SiteWise assets that can be created per second, the allowed number of messages per second, and so on.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html\">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+            aws_sdk_iotsitewise.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4666,6 +5222,13 @@ class IoTSiteWiseClient:
             next_token: <p>The token to be used for the next set of paginated results.</p>
             max_results: <p>The maximum number of results to return for each paginated request.</p>
             filter: <p>You can use a filter to select the bulk import jobs that you want to retrieve.</p>
+
+        Raises:
+            aws_sdk_iotsitewise.errors.internal_failure_exception.InternalFailureException: <p>IoT SiteWise can't process your request right now. Try again later.</p>
+            aws_sdk_iotsitewise.errors.invalid_request_exception.InvalidRequestException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters. Check your request and try again.</p>
+            aws_sdk_iotsitewise.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_iotsitewise.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a rate limit. For example, you might have exceeded the number of IoT SiteWise assets that can be created per second, the allowed number of messages per second, and so on.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html\">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+            aws_sdk_iotsitewise.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4741,6 +5304,13 @@ class IoTSiteWiseClient:
             asset_model_id: <p>The ID of the asset model. This can be either the actual ID in UUID format, or else <code>externalId:</code> followed by the external ID, if it has one. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references\">Referencing objects with external IDs</a> in the <i>IoT SiteWise User Guide</i>.</p>
             next_token: <p>The token to be used for the next set of paginated results.</p>
             max_results: <p>The maximum number of results to return for each paginated request.</p> <p>Default: 50</p>
+
+        Raises:
+            aws_sdk_iotsitewise.errors.internal_failure_exception.InternalFailureException: <p>IoT SiteWise can't process your request right now. Try again later.</p>
+            aws_sdk_iotsitewise.errors.invalid_request_exception.InvalidRequestException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters. Check your request and try again.</p>
+            aws_sdk_iotsitewise.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_iotsitewise.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a rate limit. For example, you might have exceeded the number of IoT SiteWise assets that can be created per second, the allowed number of messages per second, and so on.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html\">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+            aws_sdk_iotsitewise.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4813,6 +5383,12 @@ class IoTSiteWiseClient:
             data_binding_value_filter: <p>A filter used to limit the returned data binding usages based on specific data binding values. You can filter by asset, asset model, asset property, or asset model property to find all computation models using these specific data sources.</p>
             next_token: <p>The token used for the next set of paginated results.</p>
             max_results: <p>The maximum number of results returned for each paginated request.</p>
+
+        Raises:
+            aws_sdk_iotsitewise.errors.internal_failure_exception.InternalFailureException: <p>IoT SiteWise can't process your request right now. Try again later.</p>
+            aws_sdk_iotsitewise.errors.invalid_request_exception.InvalidRequestException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters. Check your request and try again.</p>
+            aws_sdk_iotsitewise.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a rate limit. For example, you might have exceeded the number of IoT SiteWise assets that can be created per second, the allowed number of messages per second, and so on.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html\">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+            aws_sdk_iotsitewise.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4885,6 +5461,13 @@ class IoTSiteWiseClient:
             computation_model_id: <p>The ID of the computation model for which to list resolved resources.</p>
             next_token: <p>The token used for the next set of paginated results.</p>
             max_results: <p>The maximum number of results returned for each paginated request.</p>
+
+        Raises:
+            aws_sdk_iotsitewise.errors.internal_failure_exception.InternalFailureException: <p>IoT SiteWise can't process your request right now. Try again later.</p>
+            aws_sdk_iotsitewise.errors.invalid_request_exception.InvalidRequestException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters. Check your request and try again.</p>
+            aws_sdk_iotsitewise.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_iotsitewise.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a rate limit. For example, you might have exceeded the number of IoT SiteWise assets that can be created per second, the allowed number of messages per second, and so on.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html\">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+            aws_sdk_iotsitewise.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4961,6 +5544,12 @@ class IoTSiteWiseClient:
             computation_model_type: <p>The type of computation model. If a <code>computationModelType</code> is not provided, all types of computation models are returned.</p>
             next_token: <p>The token to be used for the next set of paginated results.</p>
             max_results: <p>The maximum number of results to return for each paginated request.</p>
+
+        Raises:
+            aws_sdk_iotsitewise.errors.internal_failure_exception.InternalFailureException: <p>IoT SiteWise can't process your request right now. Try again later.</p>
+            aws_sdk_iotsitewise.errors.invalid_request_exception.InvalidRequestException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters. Check your request and try again.</p>
+            aws_sdk_iotsitewise.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a rate limit. For example, you might have exceeded the number of IoT SiteWise assets that can be created per second, the allowed number of messages per second, and so on.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html\">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+            aws_sdk_iotsitewise.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5036,6 +5625,12 @@ class IoTSiteWiseClient:
             project_id: <p>The ID of the project.</p>
             next_token: <p>The token to be used for the next set of paginated results.</p>
             max_results: <p>The maximum number of results to return for each paginated request.</p> <p>Default: 50</p>
+
+        Raises:
+            aws_sdk_iotsitewise.errors.internal_failure_exception.InternalFailureException: <p>IoT SiteWise can't process your request right now. Try again later.</p>
+            aws_sdk_iotsitewise.errors.invalid_request_exception.InvalidRequestException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters. Check your request and try again.</p>
+            aws_sdk_iotsitewise.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a rate limit. For example, you might have exceeded the number of IoT SiteWise assets that can be created per second, the allowed number of messages per second, and so on.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html\">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+            aws_sdk_iotsitewise.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5108,6 +5703,12 @@ class IoTSiteWiseClient:
             source_type: <p>The type of data source for the dataset.</p>
             next_token: <p>The token for the next set of results, or null if there are no additional results.</p>
             max_results: <p>The maximum number of results to return for each paginated request.</p>
+
+        Raises:
+            aws_sdk_iotsitewise.errors.internal_failure_exception.InternalFailureException: <p>IoT SiteWise can't process your request right now. Try again later.</p>
+            aws_sdk_iotsitewise.errors.invalid_request_exception.InvalidRequestException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters. Check your request and try again.</p>
+            aws_sdk_iotsitewise.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a rate limit. For example, you might have exceeded the number of IoT SiteWise assets that can be created per second, the allowed number of messages per second, and so on.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html\">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+            aws_sdk_iotsitewise.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5190,6 +5791,13 @@ class IoTSiteWiseClient:
             next_token: <p>The token used for the next set of paginated results.</p>
             max_results: <p>The maximum number of results returned for each paginated request.</p>
             action_type: <p>The type of action exectued.</p>
+
+        Raises:
+            aws_sdk_iotsitewise.errors.internal_failure_exception.InternalFailureException: <p>IoT SiteWise can't process your request right now. Try again later.</p>
+            aws_sdk_iotsitewise.errors.invalid_request_exception.InvalidRequestException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters. Check your request and try again.</p>
+            aws_sdk_iotsitewise.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_iotsitewise.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a rate limit. For example, you might have exceeded the number of IoT SiteWise assets that can be created per second, the allowed number of messages per second, and so on.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html\">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+            aws_sdk_iotsitewise.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5277,6 +5885,12 @@ class IoTSiteWiseClient:
         Args:
             next_token: <p>The token to be used for the next set of paginated results.</p>
             max_results: <p>The maximum number of results to return for each paginated request.</p> <p>Default: 50</p>
+
+        Raises:
+            aws_sdk_iotsitewise.errors.internal_failure_exception.InternalFailureException: <p>IoT SiteWise can't process your request right now. Try again later.</p>
+            aws_sdk_iotsitewise.errors.invalid_request_exception.InvalidRequestException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters. Check your request and try again.</p>
+            aws_sdk_iotsitewise.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a rate limit. For example, you might have exceeded the number of IoT SiteWise assets that can be created per second, the allowed number of messages per second, and so on.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html\">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+            aws_sdk_iotsitewise.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5346,6 +5960,13 @@ class IoTSiteWiseClient:
             interface_asset_model_id: <p>The ID of the interface asset model. This can be either the actual ID in UUID format, or else externalId: followed by the external ID.</p>
             next_token: <p>The token to be used for the next set of paginated results.</p>
             max_results: <p>The maximum number of results to return for each paginated request. Default: 50</p>
+
+        Raises:
+            aws_sdk_iotsitewise.errors.internal_failure_exception.InternalFailureException: <p>IoT SiteWise can't process your request right now. Try again later.</p>
+            aws_sdk_iotsitewise.errors.invalid_request_exception.InvalidRequestException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters. Check your request and try again.</p>
+            aws_sdk_iotsitewise.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_iotsitewise.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a rate limit. For example, you might have exceeded the number of IoT SiteWise assets that can be created per second, the allowed number of messages per second, and so on.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html\">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+            aws_sdk_iotsitewise.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5416,6 +6037,12 @@ class IoTSiteWiseClient:
         Args:
             next_token: <p>The token to be used for the next set of paginated results.</p>
             max_results: <p>The maximum number of results to return for each paginated request.</p> <p>Default: 50</p>
+
+        Raises:
+            aws_sdk_iotsitewise.errors.internal_failure_exception.InternalFailureException: <p>IoT SiteWise can't process your request right now. Try again later.</p>
+            aws_sdk_iotsitewise.errors.invalid_request_exception.InvalidRequestException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters. Check your request and try again.</p>
+            aws_sdk_iotsitewise.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a rate limit. For example, you might have exceeded the number of IoT SiteWise assets that can be created per second, the allowed number of messages per second, and so on.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html\">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+            aws_sdk_iotsitewise.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5485,6 +6112,12 @@ class IoTSiteWiseClient:
             project_id: <p>The ID of the project.</p>
             next_token: <p>The token to be used for the next set of paginated results.</p>
             max_results: <p>The maximum number of results to return for each paginated request.</p> <p>Default: 50</p>
+
+        Raises:
+            aws_sdk_iotsitewise.errors.internal_failure_exception.InternalFailureException: <p>IoT SiteWise can't process your request right now. Try again later.</p>
+            aws_sdk_iotsitewise.errors.invalid_request_exception.InvalidRequestException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters. Check your request and try again.</p>
+            aws_sdk_iotsitewise.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a rate limit. For example, you might have exceeded the number of IoT SiteWise assets that can be created per second, the allowed number of messages per second, and so on.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html\">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+            aws_sdk_iotsitewise.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5557,6 +6190,12 @@ class IoTSiteWiseClient:
             portal_id: <p>The ID of the portal.</p>
             next_token: <p>The token to be used for the next set of paginated results.</p>
             max_results: <p>The maximum number of results to return for each paginated request.</p> <p>Default: 50</p>
+
+        Raises:
+            aws_sdk_iotsitewise.errors.internal_failure_exception.InternalFailureException: <p>IoT SiteWise can't process your request right now. Try again later.</p>
+            aws_sdk_iotsitewise.errors.invalid_request_exception.InvalidRequestException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters. Check your request and try again.</p>
+            aws_sdk_iotsitewise.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a rate limit. For example, you might have exceeded the number of IoT SiteWise assets that can be created per second, the allowed number of messages per second, and so on.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html\">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+            aws_sdk_iotsitewise.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5623,6 +6262,16 @@ class IoTSiteWiseClient:
 
         Args:
             resource_arn: <p>The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">ARN</a> of the resource.</p>
+
+        Raises:
+            aws_sdk_iotsitewise.errors.conflicting_operation_exception.ConflictingOperationException: <p>Your request has conflicting operations. This can occur if you're trying to perform more than one operation on the same resource at the same time.</p>
+            aws_sdk_iotsitewise.errors.internal_failure_exception.InternalFailureException: <p>IoT SiteWise can't process your request right now. Try again later.</p>
+            aws_sdk_iotsitewise.errors.invalid_request_exception.InvalidRequestException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters. Check your request and try again.</p>
+            aws_sdk_iotsitewise.errors.limit_exceeded_exception.LimitExceededException: <p>You've reached the quota for a resource. For example, this can occur if you're trying to associate more than the allowed number of child assets or attempting to create more than the allowed number of properties for an asset model.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html\">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+            aws_sdk_iotsitewise.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_iotsitewise.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a rate limit. For example, you might have exceeded the number of IoT SiteWise assets that can be created per second, the allowed number of messages per second, and so on.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html\">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+            aws_sdk_iotsitewise.errors.unauthorized_exception.UnauthorizedException: <p>You are not authorized.</p>
+            aws_sdk_iotsitewise.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5674,6 +6323,13 @@ class IoTSiteWiseClient:
             asset_id: <p>The ID of the asset in which the asset property was created. This can be either the actual ID in UUID format, or else <code>externalId:</code> followed by the external ID, if it has one. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references\">Referencing objects with external IDs</a> in the <i>IoT SiteWise User Guide</i>.</p>
             alias_prefix: <p>The alias prefix of the time series.</p>
             time_series_type: <p>The type of the time series. The time series type can be one of the following values:</p> <ul> <li> <p> <code>ASSOCIATED</code> – The time series is associated with an asset property.</p> </li> <li> <p> <code>DISASSOCIATED</code> – The time series isn't associated with any asset property.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_iotsitewise.errors.internal_failure_exception.InternalFailureException: <p>IoT SiteWise can't process your request right now. Try again later.</p>
+            aws_sdk_iotsitewise.errors.invalid_request_exception.InvalidRequestException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters. Check your request and try again.</p>
+            aws_sdk_iotsitewise.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_iotsitewise.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a rate limit. For example, you might have exceeded the number of IoT SiteWise assets that can be created per second, the allowed number of messages per second, and so on.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html\">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+            aws_sdk_iotsitewise.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5761,6 +6417,15 @@ class IoTSiteWiseClient:
             interface_asset_model_id: <p>The ID of the interface asset model. This can be either the actual ID in UUID format, or else externalId: followed by the external ID.</p>
             property_mapping_configuration: <p>The configuration for mapping properties from the interface asset model to the asset model where the interface is applied. This configuration controls how properties are matched and created during the interface application process.</p>
             client_token: <p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required.</p>
+
+        Raises:
+            aws_sdk_iotsitewise.errors.conflicting_operation_exception.ConflictingOperationException: <p>Your request has conflicting operations. This can occur if you're trying to perform more than one operation on the same resource at the same time.</p>
+            aws_sdk_iotsitewise.errors.internal_failure_exception.InternalFailureException: <p>IoT SiteWise can't process your request right now. Try again later.</p>
+            aws_sdk_iotsitewise.errors.invalid_request_exception.InvalidRequestException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters. Check your request and try again.</p>
+            aws_sdk_iotsitewise.errors.limit_exceeded_exception.LimitExceededException: <p>You've reached the quota for a resource. For example, this can occur if you're trying to associate more than the allowed number of child assets or attempting to create more than the allowed number of properties for an asset model.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html\">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+            aws_sdk_iotsitewise.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_iotsitewise.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a rate limit. For example, you might have exceeded the number of IoT SiteWise assets that can be created per second, the allowed number of messages per second, and so on.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html\">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+            aws_sdk_iotsitewise.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5804,6 +6469,14 @@ class IoTSiteWiseClient:
         Args:
             encryption_type: <p>The type of encryption used for the encryption configuration.</p>
             kms_key_id: <p>The Key ID of the customer managed key used for KMS encryption. This is required if you use <code>KMS_BASED_ENCRYPTION</code>.</p>
+
+        Raises:
+            aws_sdk_iotsitewise.errors.conflicting_operation_exception.ConflictingOperationException: <p>Your request has conflicting operations. This can occur if you're trying to perform more than one operation on the same resource at the same time.</p>
+            aws_sdk_iotsitewise.errors.internal_failure_exception.InternalFailureException: <p>IoT SiteWise can't process your request right now. Try again later.</p>
+            aws_sdk_iotsitewise.errors.invalid_request_exception.InvalidRequestException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters. Check your request and try again.</p>
+            aws_sdk_iotsitewise.errors.limit_exceeded_exception.LimitExceededException: <p>You've reached the quota for a resource. For example, this can occur if you're trying to associate more than the allowed number of child assets or attempting to create more than the allowed number of properties for an asset model.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html\">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+            aws_sdk_iotsitewise.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a rate limit. For example, you might have exceeded the number of IoT SiteWise assets that can be created per second, the allowed number of messages per second, and so on.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html\">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+            aws_sdk_iotsitewise.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5843,6 +6516,14 @@ class IoTSiteWiseClient:
 
         Args:
             logging_options: <p>The logging options to set.</p>
+
+        Raises:
+            aws_sdk_iotsitewise.errors.conflicting_operation_exception.ConflictingOperationException: <p>Your request has conflicting operations. This can occur if you're trying to perform more than one operation on the same resource at the same time.</p>
+            aws_sdk_iotsitewise.errors.internal_failure_exception.InternalFailureException: <p>IoT SiteWise can't process your request right now. Try again later.</p>
+            aws_sdk_iotsitewise.errors.invalid_request_exception.InvalidRequestException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters. Check your request and try again.</p>
+            aws_sdk_iotsitewise.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_iotsitewise.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a rate limit. For example, you might have exceeded the number of IoT SiteWise assets that can be created per second, the allowed number of messages per second, and so on.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html\">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+            aws_sdk_iotsitewise.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5903,6 +6584,16 @@ class IoTSiteWiseClient:
             warm_tier: <p>A service managed storage tier optimized for analytical queries. It stores periodically uploaded, buffered and historical data ingested with the CreaeBulkImportJob API.</p>
             warm_tier_retention_period: <p>Set this period to specify how long your data is stored in the warm tier before it is deleted. You can set this only if cold tier is enabled.</p>
             disallow_ingest_null_na_n: <p>Describes the configuration for ingesting NULL and NaN data. By default the feature is allowed. The feature is disallowed if the value is <code>true</code>.</p>
+
+        Raises:
+            aws_sdk_iotsitewise.errors.conflicting_operation_exception.ConflictingOperationException: <p>Your request has conflicting operations. This can occur if you're trying to perform more than one operation on the same resource at the same time.</p>
+            aws_sdk_iotsitewise.errors.internal_failure_exception.InternalFailureException: <p>IoT SiteWise can't process your request right now. Try again later.</p>
+            aws_sdk_iotsitewise.errors.invalid_request_exception.InvalidRequestException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters. Check your request and try again.</p>
+            aws_sdk_iotsitewise.errors.limit_exceeded_exception.LimitExceededException: <p>You've reached the quota for a resource. For example, this can occur if you're trying to associate more than the allowed number of child assets or attempting to create more than the allowed number of properties for an asset model.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html\">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+            aws_sdk_iotsitewise.errors.resource_already_exists_exception.ResourceAlreadyExistsException: <p>The resource already exists.</p>
+            aws_sdk_iotsitewise.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_iotsitewise.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a rate limit. For example, you might have exceeded the number of IoT SiteWise assets that can be created per second, the allowed number of messages per second, and so on.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html\">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+            aws_sdk_iotsitewise.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5954,6 +6645,17 @@ class IoTSiteWiseClient:
         Args:
             resource_arn: <p>The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">ARN</a> of the resource to tag.</p>
             tags: <p>A list of key-value pairs that contain metadata for the resource. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/tag-resources.html\">Tagging your IoT SiteWise resources</a> in the <i>IoT SiteWise User Guide</i>.</p>
+
+        Raises:
+            aws_sdk_iotsitewise.errors.conflicting_operation_exception.ConflictingOperationException: <p>Your request has conflicting operations. This can occur if you're trying to perform more than one operation on the same resource at the same time.</p>
+            aws_sdk_iotsitewise.errors.internal_failure_exception.InternalFailureException: <p>IoT SiteWise can't process your request right now. Try again later.</p>
+            aws_sdk_iotsitewise.errors.invalid_request_exception.InvalidRequestException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters. Check your request and try again.</p>
+            aws_sdk_iotsitewise.errors.limit_exceeded_exception.LimitExceededException: <p>You've reached the quota for a resource. For example, this can occur if you're trying to associate more than the allowed number of child assets or attempting to create more than the allowed number of properties for an asset model.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html\">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+            aws_sdk_iotsitewise.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_iotsitewise.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a rate limit. For example, you might have exceeded the number of IoT SiteWise assets that can be created per second, the allowed number of messages per second, and so on.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html\">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+            aws_sdk_iotsitewise.errors.too_many_tags_exception.TooManyTagsException: <p>You've reached the quota for the number of tags allowed for a resource. For more information, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html#tag-conventions\">Tag naming limits and requirements</a> in the <i>Amazon Web Services General Reference</i>.</p>
+            aws_sdk_iotsitewise.errors.unauthorized_exception.UnauthorizedException: <p>You are not authorized.</p>
+            aws_sdk_iotsitewise.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5994,6 +6696,16 @@ class IoTSiteWiseClient:
         Args:
             resource_arn: <p>The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">ARN</a> of the resource to untag.</p>
             tag_keys: <p>A list of keys for tags to remove from the resource.</p>
+
+        Raises:
+            aws_sdk_iotsitewise.errors.conflicting_operation_exception.ConflictingOperationException: <p>Your request has conflicting operations. This can occur if you're trying to perform more than one operation on the same resource at the same time.</p>
+            aws_sdk_iotsitewise.errors.internal_failure_exception.InternalFailureException: <p>IoT SiteWise can't process your request right now. Try again later.</p>
+            aws_sdk_iotsitewise.errors.invalid_request_exception.InvalidRequestException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters. Check your request and try again.</p>
+            aws_sdk_iotsitewise.errors.limit_exceeded_exception.LimitExceededException: <p>You've reached the quota for a resource. For example, this can occur if you're trying to associate more than the allowed number of child assets or attempting to create more than the allowed number of properties for an asset model.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html\">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+            aws_sdk_iotsitewise.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_iotsitewise.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a rate limit. For example, you might have exceeded the number of IoT SiteWise assets that can be created per second, the allowed number of messages per second, and so on.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html\">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+            aws_sdk_iotsitewise.errors.unauthorized_exception.UnauthorizedException: <p>You are not authorized.</p>
+            aws_sdk_iotsitewise.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6042,6 +6754,13 @@ class IoTSiteWiseClient:
             access_policy_resource: <p>The IoT SiteWise Monitor resource for this access policy. Choose either a portal or a project.</p>
             access_policy_permission: <p>The permission level for this access policy. Note that a project <code>ADMINISTRATOR</code> is also known as a project owner.</p>
             client_token: <p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required.</p>
+
+        Raises:
+            aws_sdk_iotsitewise.errors.internal_failure_exception.InternalFailureException: <p>IoT SiteWise can't process your request right now. Try again later.</p>
+            aws_sdk_iotsitewise.errors.invalid_request_exception.InvalidRequestException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters. Check your request and try again.</p>
+            aws_sdk_iotsitewise.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_iotsitewise.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a rate limit. For example, you might have exceeded the number of IoT SiteWise assets that can be created per second, the allowed number of messages per second, and so on.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html\">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+            aws_sdk_iotsitewise.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6098,6 +6817,15 @@ class IoTSiteWiseClient:
             asset_name: <p>A friendly name for the asset.</p>
             client_token: <p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required.</p>
             asset_description: <p>A description for the asset.</p>
+
+        Raises:
+            aws_sdk_iotsitewise.errors.conflicting_operation_exception.ConflictingOperationException: <p>Your request has conflicting operations. This can occur if you're trying to perform more than one operation on the same resource at the same time.</p>
+            aws_sdk_iotsitewise.errors.internal_failure_exception.InternalFailureException: <p>IoT SiteWise can't process your request right now. Try again later.</p>
+            aws_sdk_iotsitewise.errors.invalid_request_exception.InvalidRequestException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters. Check your request and try again.</p>
+            aws_sdk_iotsitewise.errors.resource_already_exists_exception.ResourceAlreadyExistsException: <p>The resource already exists.</p>
+            aws_sdk_iotsitewise.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_iotsitewise.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a rate limit. For example, you might have exceeded the number of IoT SiteWise assets that can be created per second, the allowed number of messages per second, and so on.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html\">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+            aws_sdk_iotsitewise.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6180,6 +6908,17 @@ class IoTSiteWiseClient:
             if_match: <p>The expected current entity tag (ETag) for the asset model’s latest or active version (specified using <code>matchForVersionType</code>). The update request is rejected if the tag does not match the latest or active version's current entity tag. See <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/opt-locking-for-model.html\">Optimistic locking for asset model writes</a> in the <i>IoT SiteWise User Guide</i>.</p>
             if_none_match: <p>Accepts <b>*</b> to reject the update request if an active version (specified using <code>matchForVersionType</code> as <code>ACTIVE</code>) already exists for the asset model.</p>
             match_for_version_type: <p>Specifies the asset model version type (<code>LATEST</code> or <code>ACTIVE</code>) used in conjunction with <code>If-Match</code> or <code>If-None-Match</code> headers to determine the target ETag for the update operation.</p>
+
+        Raises:
+            aws_sdk_iotsitewise.errors.conflicting_operation_exception.ConflictingOperationException: <p>Your request has conflicting operations. This can occur if you're trying to perform more than one operation on the same resource at the same time.</p>
+            aws_sdk_iotsitewise.errors.internal_failure_exception.InternalFailureException: <p>IoT SiteWise can't process your request right now. Try again later.</p>
+            aws_sdk_iotsitewise.errors.invalid_request_exception.InvalidRequestException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters. Check your request and try again.</p>
+            aws_sdk_iotsitewise.errors.limit_exceeded_exception.LimitExceededException: <p>You've reached the quota for a resource. For example, this can occur if you're trying to associate more than the allowed number of child assets or attempting to create more than the allowed number of properties for an asset model.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html\">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+            aws_sdk_iotsitewise.errors.precondition_failed_exception.PreconditionFailedException: <p>The precondition in one or more of the request-header fields evaluated to <code>FALSE</code>.</p>
+            aws_sdk_iotsitewise.errors.resource_already_exists_exception.ResourceAlreadyExistsException: <p>The resource already exists.</p>
+            aws_sdk_iotsitewise.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_iotsitewise.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a rate limit. For example, you might have exceeded the number of IoT SiteWise assets that can be created per second, the allowed number of messages per second, and so on.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html\">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+            aws_sdk_iotsitewise.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6266,6 +7005,17 @@ class IoTSiteWiseClient:
             if_match: <p>The expected current entity tag (ETag) for the asset model’s latest or active version (specified using <code>matchForVersionType</code>). The update request is rejected if the tag does not match the latest or active version's current entity tag. See <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/opt-locking-for-model.html\">Optimistic locking for asset model writes</a> in the <i>IoT SiteWise User Guide</i>.</p>
             if_none_match: <p>Accepts <b>*</b> to reject the update request if an active version (specified using <code>matchForVersionType</code> as <code>ACTIVE</code>) already exists for the asset model.</p>
             match_for_version_type: <p>Specifies the asset model version type (<code>LATEST</code> or <code>ACTIVE</code>) used in conjunction with <code>If-Match</code> or <code>If-None-Match</code> headers to determine the target ETag for the update operation.</p>
+
+        Raises:
+            aws_sdk_iotsitewise.errors.conflicting_operation_exception.ConflictingOperationException: <p>Your request has conflicting operations. This can occur if you're trying to perform more than one operation on the same resource at the same time.</p>
+            aws_sdk_iotsitewise.errors.internal_failure_exception.InternalFailureException: <p>IoT SiteWise can't process your request right now. Try again later.</p>
+            aws_sdk_iotsitewise.errors.invalid_request_exception.InvalidRequestException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters. Check your request and try again.</p>
+            aws_sdk_iotsitewise.errors.limit_exceeded_exception.LimitExceededException: <p>You've reached the quota for a resource. For example, this can occur if you're trying to associate more than the allowed number of child assets or attempting to create more than the allowed number of properties for an asset model.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html\">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+            aws_sdk_iotsitewise.errors.precondition_failed_exception.PreconditionFailedException: <p>The precondition in one or more of the request-header fields evaluated to <code>FALSE</code>.</p>
+            aws_sdk_iotsitewise.errors.resource_already_exists_exception.ResourceAlreadyExistsException: <p>The resource already exists.</p>
+            aws_sdk_iotsitewise.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_iotsitewise.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a rate limit. For example, you might have exceeded the number of IoT SiteWise assets that can be created per second, the allowed number of messages per second, and so on.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html\">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+            aws_sdk_iotsitewise.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6343,6 +7093,14 @@ class IoTSiteWiseClient:
             property_notification_state: <p>The MQTT notification state (enabled or disabled) for this asset property. When the notification state is enabled, IoT SiteWise publishes property value updates to a unique MQTT topic. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/interact-with-other-services.html\">Interacting with other services</a> in the <i>IoT SiteWise User Guide</i>.</p> <p>If you omit this parameter, the notification state is set to <code>DISABLED</code>.</p>
             client_token: <p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required.</p>
             property_unit: <p>The unit of measure (such as Newtons or RPM) of the asset property. If you don't specify a value for this parameter, the service uses the value of the <code>assetModelProperty</code> in the asset model.</p>
+
+        Raises:
+            aws_sdk_iotsitewise.errors.conflicting_operation_exception.ConflictingOperationException: <p>Your request has conflicting operations. This can occur if you're trying to perform more than one operation on the same resource at the same time.</p>
+            aws_sdk_iotsitewise.errors.internal_failure_exception.InternalFailureException: <p>IoT SiteWise can't process your request right now. Try again later.</p>
+            aws_sdk_iotsitewise.errors.invalid_request_exception.InvalidRequestException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters. Check your request and try again.</p>
+            aws_sdk_iotsitewise.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_iotsitewise.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a rate limit. For example, you might have exceeded the number of IoT SiteWise assets that can be created per second, the allowed number of messages per second, and so on.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html\">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+            aws_sdk_iotsitewise.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6401,6 +7159,16 @@ class IoTSiteWiseClient:
             computation_model_configuration: <p>The configuration for the computation model.</p>
             computation_model_data_binding: <p>The data binding for the computation model. Key is a variable name defined in configuration. Value is a <code>ComputationModelDataBindingValue</code> referenced by the variable.</p>
             client_token: <p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required.</p>
+
+        Raises:
+            aws_sdk_iotsitewise.errors.conflicting_operation_exception.ConflictingOperationException: <p>Your request has conflicting operations. This can occur if you're trying to perform more than one operation on the same resource at the same time.</p>
+            aws_sdk_iotsitewise.errors.internal_failure_exception.InternalFailureException: <p>IoT SiteWise can't process your request right now. Try again later.</p>
+            aws_sdk_iotsitewise.errors.invalid_request_exception.InvalidRequestException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters. Check your request and try again.</p>
+            aws_sdk_iotsitewise.errors.limit_exceeded_exception.LimitExceededException: <p>You've reached the quota for a resource. For example, this can occur if you're trying to associate more than the allowed number of child assets or attempting to create more than the allowed number of properties for an asset model.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html\">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+            aws_sdk_iotsitewise.errors.resource_already_exists_exception.ResourceAlreadyExistsException: <p>The resource already exists.</p>
+            aws_sdk_iotsitewise.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_iotsitewise.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a rate limit. For example, you might have exceeded the number of IoT SiteWise assets that can be created per second, the allowed number of messages per second, and so on.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html\">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+            aws_sdk_iotsitewise.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6457,6 +7225,13 @@ class IoTSiteWiseClient:
             dashboard_description: <p>A new description for the dashboard.</p>
             dashboard_definition: <p>The new dashboard definition, as specified in a JSON literal.</p> <ul> <li> <p>IoT SiteWise Monitor (Classic) see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/create-dashboards-using-aws-cli.html\">Create dashboards (CLI)</a> </p> </li> <li> <p>IoT SiteWise Monitor (AI-aware) see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/create-dashboards-ai-dashboard-cli.html\">Create dashboards (CLI)</a> </p> </li> </ul> <p>in the <i>IoT SiteWise User Guide</i> </p>
             client_token: <p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required.</p>
+
+        Raises:
+            aws_sdk_iotsitewise.errors.internal_failure_exception.InternalFailureException: <p>IoT SiteWise can't process your request right now. Try again later.</p>
+            aws_sdk_iotsitewise.errors.invalid_request_exception.InvalidRequestException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters. Check your request and try again.</p>
+            aws_sdk_iotsitewise.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_iotsitewise.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a rate limit. For example, you might have exceeded the number of IoT SiteWise assets that can be created per second, the allowed number of messages per second, and so on.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html\">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+            aws_sdk_iotsitewise.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6512,6 +7287,15 @@ class IoTSiteWiseClient:
             dataset_description: <p>A description about the dataset, and its functionality.</p>
             dataset_source: <p>The data source for the dataset.</p>
             client_token: <p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required.</p>
+
+        Raises:
+            aws_sdk_iotsitewise.errors.conflicting_operation_exception.ConflictingOperationException: <p>Your request has conflicting operations. This can occur if you're trying to perform more than one operation on the same resource at the same time.</p>
+            aws_sdk_iotsitewise.errors.internal_failure_exception.InternalFailureException: <p>IoT SiteWise can't process your request right now. Try again later.</p>
+            aws_sdk_iotsitewise.errors.invalid_request_exception.InvalidRequestException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters. Check your request and try again.</p>
+            aws_sdk_iotsitewise.errors.limit_exceeded_exception.LimitExceededException: <p>You've reached the quota for a resource. For example, this can occur if you're trying to associate more than the allowed number of child assets or attempting to create more than the allowed number of properties for an asset model.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html\">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+            aws_sdk_iotsitewise.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_iotsitewise.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a rate limit. For example, you might have exceeded the number of IoT SiteWise assets that can be created per second, the allowed number of messages per second, and so on.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html\">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+            aws_sdk_iotsitewise.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6557,6 +7341,14 @@ class IoTSiteWiseClient:
         Args:
             gateway_id: <p>The ID of the gateway to update.</p>
             gateway_name: <p>A unique name for the gateway.</p>
+
+        Raises:
+            aws_sdk_iotsitewise.errors.conflicting_operation_exception.ConflictingOperationException: <p>Your request has conflicting operations. This can occur if you're trying to perform more than one operation on the same resource at the same time.</p>
+            aws_sdk_iotsitewise.errors.internal_failure_exception.InternalFailureException: <p>IoT SiteWise can't process your request right now. Try again later.</p>
+            aws_sdk_iotsitewise.errors.invalid_request_exception.InvalidRequestException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters. Check your request and try again.</p>
+            aws_sdk_iotsitewise.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_iotsitewise.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a rate limit. For example, you might have exceeded the number of IoT SiteWise assets that can be created per second, the allowed number of messages per second, and so on.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html\">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+            aws_sdk_iotsitewise.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6597,6 +7389,15 @@ class IoTSiteWiseClient:
             gateway_id: <p>The ID of the gateway to be updated.</p>
             capability_namespace: <p>The namespace of the gateway capability configuration to be updated. For example, if you configure OPC UA sources for an MQTT-enabled gateway, your OPC-UA capability configuration has the namespace <code>iotsitewise:opcuacollector:3</code>.</p>
             capability_configuration: <p>The JSON document that defines the configuration for the gateway capability. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/configure-sources.html#configure-source-cli\">Configuring data sources (CLI)</a> in the <i>IoT SiteWise User Guide</i>.</p>
+
+        Raises:
+            aws_sdk_iotsitewise.errors.conflicting_operation_exception.ConflictingOperationException: <p>Your request has conflicting operations. This can occur if you're trying to perform more than one operation on the same resource at the same time.</p>
+            aws_sdk_iotsitewise.errors.internal_failure_exception.InternalFailureException: <p>IoT SiteWise can't process your request right now. Try again later.</p>
+            aws_sdk_iotsitewise.errors.invalid_request_exception.InvalidRequestException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters. Check your request and try again.</p>
+            aws_sdk_iotsitewise.errors.limit_exceeded_exception.LimitExceededException: <p>You've reached the quota for a resource. For example, this can occur if you're trying to associate more than the allowed number of child assets or attempting to create more than the allowed number of properties for an asset model.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html\">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+            aws_sdk_iotsitewise.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_iotsitewise.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a rate limit. For example, you might have exceeded the number of IoT SiteWise assets that can be created per second, the allowed number of messages per second, and so on.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html\">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+            aws_sdk_iotsitewise.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6665,6 +7466,14 @@ class IoTSiteWiseClient:
             alarms: <p>Contains the configuration information of an alarm created in an IoT SiteWise Monitor portal. You can use the alarm to monitor an asset property and get notified when the asset property value is outside a specified range. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/appguide/monitor-alarms.html\">Monitoring with alarms</a> in the <i>IoT SiteWise Application Guide</i>.</p>
             portal_type: <p>Define the type of portal. The value for IoT SiteWise Monitor (Classic) is <code>SITEWISE_PORTAL_V1</code>. The value for IoT SiteWise Monitor (AI-aware) is <code>SITEWISE_PORTAL_V2</code>.</p>
             portal_type_configuration: <p>The configuration entry associated with the specific portal type. The value for IoT SiteWise Monitor (Classic) is <code>SITEWISE_PORTAL_V1</code>. The value for IoT SiteWise Monitor (AI-aware) is <code>SITEWISE_PORTAL_V2</code>.</p>
+
+        Raises:
+            aws_sdk_iotsitewise.errors.conflicting_operation_exception.ConflictingOperationException: <p>Your request has conflicting operations. This can occur if you're trying to perform more than one operation on the same resource at the same time.</p>
+            aws_sdk_iotsitewise.errors.internal_failure_exception.InternalFailureException: <p>IoT SiteWise can't process your request right now. Try again later.</p>
+            aws_sdk_iotsitewise.errors.invalid_request_exception.InvalidRequestException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters. Check your request and try again.</p>
+            aws_sdk_iotsitewise.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_iotsitewise.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a rate limit. For example, you might have exceeded the number of IoT SiteWise assets that can be created per second, the allowed number of messages per second, and so on.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html\">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+            aws_sdk_iotsitewise.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6729,6 +7538,13 @@ class IoTSiteWiseClient:
             project_name: <p>A new friendly name for the project.</p>
             project_description: <p>A new description for the project.</p>
             client_token: <p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required.</p>
+
+        Raises:
+            aws_sdk_iotsitewise.errors.internal_failure_exception.InternalFailureException: <p>IoT SiteWise can't process your request right now. Try again later.</p>
+            aws_sdk_iotsitewise.errors.invalid_request_exception.InvalidRequestException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters. Check your request and try again.</p>
+            aws_sdk_iotsitewise.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_iotsitewise.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a rate limit. For example, you might have exceeded the number of IoT SiteWise assets that can be created per second, the allowed number of messages per second, and so on.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html\">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+            aws_sdk_iotsitewise.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(

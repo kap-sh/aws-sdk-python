@@ -143,6 +143,18 @@ class AsyncSecurityIRClient:
         Args:
             resource_arn: <p>Required element for ListTagsForResource to provide the ARN to identify a specific resource.</p>
 
+        Raises:
+            aws_sdk_security_ir.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_security_ir.errors.conflict_exception.ConflictException: <p/>
+            aws_sdk_security_ir.errors.internal_server_exception.InternalServerException: <p/>
+            aws_sdk_security_ir.errors.invalid_token_exception.InvalidTokenException: <p/>
+            aws_sdk_security_ir.errors.resource_not_found_exception.ResourceNotFoundException: <p/>
+            aws_sdk_security_ir.errors.security_incident_response_not_active_exception.SecurityIncidentResponseNotActiveException: <p/>
+            aws_sdk_security_ir.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p/>
+            aws_sdk_security_ir.errors.throttling_exception.ThrottlingException: <p/>
+            aws_sdk_security_ir.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_security_ir.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Invoke ListTagsForResource
 
@@ -187,6 +199,18 @@ class AsyncSecurityIRClient:
         Args:
             resource_arn: <p>Required element for TagResource to identify the ARN for the resource to add a tag to.</p>
             tags: <p>Required element for ListTagsForResource to provide the content for a tag.</p>
+
+        Raises:
+            aws_sdk_security_ir.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_security_ir.errors.conflict_exception.ConflictException: <p/>
+            aws_sdk_security_ir.errors.internal_server_exception.InternalServerException: <p/>
+            aws_sdk_security_ir.errors.invalid_token_exception.InvalidTokenException: <p/>
+            aws_sdk_security_ir.errors.resource_not_found_exception.ResourceNotFoundException: <p/>
+            aws_sdk_security_ir.errors.security_incident_response_not_active_exception.SecurityIncidentResponseNotActiveException: <p/>
+            aws_sdk_security_ir.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p/>
+            aws_sdk_security_ir.errors.throttling_exception.ThrottlingException: <p/>
+            aws_sdk_security_ir.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_security_ir.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Invoke TagResource
@@ -233,6 +257,18 @@ class AsyncSecurityIRClient:
         Args:
             resource_arn: <p>Required element for UnTagResource to identify the ARN for the resource to remove a tag from.</p>
             tag_keys: <p>Required element for UnTagResource to identify tag to remove.</p>
+
+        Raises:
+            aws_sdk_security_ir.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_security_ir.errors.conflict_exception.ConflictException: <p/>
+            aws_sdk_security_ir.errors.internal_server_exception.InternalServerException: <p/>
+            aws_sdk_security_ir.errors.invalid_token_exception.InvalidTokenException: <p/>
+            aws_sdk_security_ir.errors.resource_not_found_exception.ResourceNotFoundException: <p/>
+            aws_sdk_security_ir.errors.security_incident_response_not_active_exception.SecurityIncidentResponseNotActiveException: <p/>
+            aws_sdk_security_ir.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p/>
+            aws_sdk_security_ir.errors.throttling_exception.ThrottlingException: <p/>
+            aws_sdk_security_ir.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_security_ir.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Invoke UntagResource

@@ -140,6 +140,14 @@ class NotificationsContactsClient:
 
         Args:
             arn: <p>The ARN you specified to list the tags of.</p>
+
+        Raises:
+            aws_sdk_notificationscontacts.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_notificationscontacts.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_notificationscontacts.errors.resource_not_found_exception.ResourceNotFoundException: <p>Your request references a resource which does not exist. </p>
+            aws_sdk_notificationscontacts.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_notificationscontacts.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_notificationscontacts.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -181,6 +189,14 @@ class NotificationsContactsClient:
         Args:
             arn: <p>The ARN of the configuration.</p>
             tags: <p>A list of tags to apply to the configuration.</p>
+
+        Raises:
+            aws_sdk_notificationscontacts.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_notificationscontacts.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_notificationscontacts.errors.resource_not_found_exception.ResourceNotFoundException: <p>Your request references a resource which does not exist. </p>
+            aws_sdk_notificationscontacts.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_notificationscontacts.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_notificationscontacts.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -221,6 +237,14 @@ class NotificationsContactsClient:
         Args:
             arn: <p>The value of the resource that will have the tag removed. An Amazon Resource Name (ARN) is an identifier for a specific AWS resource, such as a server, user, or role.</p>
             tag_keys: <p>Specifies a list of tag keys that you want to remove from the specified resources.</p>
+
+        Raises:
+            aws_sdk_notificationscontacts.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_notificationscontacts.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_notificationscontacts.errors.resource_not_found_exception.ResourceNotFoundException: <p>Your request references a resource which does not exist. </p>
+            aws_sdk_notificationscontacts.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_notificationscontacts.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_notificationscontacts.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(

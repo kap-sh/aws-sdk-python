@@ -201,6 +201,14 @@ class AsyncIoTFleetWiseClient:
 
         Args:
             vehicles: <p> A list of information about each vehicle to create. For more information, see the API data type.</p>
+
+        Raises:
+            aws_sdk_iotfleetwise.errors.internal_server_exception.InternalServerException: <p>The request couldn't be completed because the server temporarily failed.</p>
+            aws_sdk_iotfleetwise.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permission to perform this action.</p>
+            aws_sdk_iotfleetwise.errors.limit_exceeded_exception.LimitExceededException: <p>A service quota was exceeded. </p>
+            aws_sdk_iotfleetwise.errors.throttling_exception.ThrottlingException: <p>The request couldn't be completed due to throttling.</p>
+            aws_sdk_iotfleetwise.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_iotfleetwise.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -239,6 +247,14 @@ class AsyncIoTFleetWiseClient:
 
         Args:
             vehicles: <p> A list of information about the vehicles to update. For more information, see the API data type.</p>
+
+        Raises:
+            aws_sdk_iotfleetwise.errors.internal_server_exception.InternalServerException: <p>The request couldn't be completed because the server temporarily failed.</p>
+            aws_sdk_iotfleetwise.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permission to perform this action.</p>
+            aws_sdk_iotfleetwise.errors.limit_exceeded_exception.LimitExceededException: <p>A service quota was exceeded. </p>
+            aws_sdk_iotfleetwise.errors.throttling_exception.ThrottlingException: <p>The request couldn't be completed due to throttling.</p>
+            aws_sdk_iotfleetwise.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_iotfleetwise.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -270,7 +286,16 @@ class AsyncIoTFleetWiseClient:
     async def get_encryption_configuration(
         self, *, config_overrides: Optional[AsyncIoTFleetWiseClientConfig] = None
     ) -> "aws_sdk_iotfleetwise.types.get_encryption_configuration_response.GetEncryptionConfigurationResponse":
-        """<p>Retrieves the encryption configuration for resources and data in Amazon Web Services IoT FleetWise.</p>"""
+        """<p>Retrieves the encryption configuration for resources and data in Amazon Web Services IoT FleetWise.</p>
+
+        Raises:
+            aws_sdk_iotfleetwise.errors.internal_server_exception.InternalServerException: <p>The request couldn't be completed because the server temporarily failed.</p>
+            aws_sdk_iotfleetwise.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permission to perform this action.</p>
+            aws_sdk_iotfleetwise.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource wasn't found.</p>
+            aws_sdk_iotfleetwise.errors.throttling_exception.ThrottlingException: <p>The request couldn't be completed due to throttling.</p>
+            aws_sdk_iotfleetwise.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_iotfleetwise.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_iotfleetwise.types.get_encryption_configuration_request.GetEncryptionConfigurationRequest]",
@@ -300,7 +325,14 @@ class AsyncIoTFleetWiseClient:
     async def get_logging_options(
         self, *, config_overrides: Optional[AsyncIoTFleetWiseClientConfig] = None
     ) -> "aws_sdk_iotfleetwise.types.get_logging_options_response.GetLoggingOptionsResponse":
-        """<p>Retrieves the logging options.</p>"""
+        """<p>Retrieves the logging options.</p>
+
+        Raises:
+            aws_sdk_iotfleetwise.errors.internal_server_exception.InternalServerException: <p>The request couldn't be completed because the server temporarily failed.</p>
+            aws_sdk_iotfleetwise.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permission to perform this action.</p>
+            aws_sdk_iotfleetwise.errors.throttling_exception.ThrottlingException: <p>The request couldn't be completed due to throttling.</p>
+            aws_sdk_iotfleetwise.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_iotfleetwise.types.get_logging_options_request.GetLoggingOptionsRequest]",
@@ -330,7 +362,16 @@ class AsyncIoTFleetWiseClient:
     async def get_register_account_status(
         self, *, config_overrides: Optional[AsyncIoTFleetWiseClientConfig] = None
     ) -> "aws_sdk_iotfleetwise.types.get_register_account_status_response.GetRegisterAccountStatusResponse":
-        r"""<p> Retrieves information about the status of registering your Amazon Web Services account, IAM, and Amazon Timestream resources so that Amazon Web Services IoT FleetWise can transfer your vehicle data to the Amazon Web Services Cloud. </p> <p>For more information, including step-by-step procedures, see <a href=\"https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/setting-up.html\">Setting up Amazon Web Services IoT FleetWise</a>. </p> <note> <p>This API operation doesn't require input parameters.</p> </note>"""
+        r"""<p> Retrieves information about the status of registering your Amazon Web Services account, IAM, and Amazon Timestream resources so that Amazon Web Services IoT FleetWise can transfer your vehicle data to the Amazon Web Services Cloud. </p> <p>For more information, including step-by-step procedures, see <a href=\"https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/setting-up.html\">Setting up Amazon Web Services IoT FleetWise</a>. </p> <note> <p>This API operation doesn't require input parameters.</p> </note>
+
+        Raises:
+            aws_sdk_iotfleetwise.errors.internal_server_exception.InternalServerException: <p>The request couldn't be completed because the server temporarily failed.</p>
+            aws_sdk_iotfleetwise.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permission to perform this action.</p>
+            aws_sdk_iotfleetwise.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource wasn't found.</p>
+            aws_sdk_iotfleetwise.errors.throttling_exception.ThrottlingException: <p>The request couldn't be completed due to throttling.</p>
+            aws_sdk_iotfleetwise.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_iotfleetwise.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_iotfleetwise.types.get_register_account_status_request.GetRegisterAccountStatusRequest]",
@@ -373,6 +414,14 @@ class AsyncIoTFleetWiseClient:
             next_token: <p>A pagination token for the next set of results.</p> <p>If the results of a search are large, only a portion of the results are returned, and a <code>nextToken</code> pagination token is returned in the response. To retrieve the next set of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value. This parameter is only supported for resources of type <code>CAMPAIGN</code>.</p>
             max_results: <p>The maximum number of items to return, between 1 and 100, inclusive. This parameter is only supported for resources of type <code>CAMPAIGN</code>.</p>
             vehicle_name: <p> The ID of the vehicle to retrieve information about. </p>
+
+        Raises:
+            aws_sdk_iotfleetwise.errors.internal_server_exception.InternalServerException: <p>The request couldn't be completed because the server temporarily failed.</p>
+            aws_sdk_iotfleetwise.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permission to perform this action.</p>
+            aws_sdk_iotfleetwise.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource wasn't found.</p>
+            aws_sdk_iotfleetwise.errors.throttling_exception.ThrottlingException: <p>The request couldn't be completed due to throttling.</p>
+            aws_sdk_iotfleetwise.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_iotfleetwise.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -440,6 +489,14 @@ class AsyncIoTFleetWiseClient:
 
         Args:
             resource_arn: <p>The ARN of the resource.</p>
+
+        Raises:
+            aws_sdk_iotfleetwise.errors.internal_server_exception.InternalServerException: <p>The request couldn't be completed because the server temporarily failed.</p>
+            aws_sdk_iotfleetwise.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permission to perform this action.</p>
+            aws_sdk_iotfleetwise.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource wasn't found.</p>
+            aws_sdk_iotfleetwise.errors.throttling_exception.ThrottlingException: <p>The request couldn't be completed due to throttling.</p>
+            aws_sdk_iotfleetwise.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_iotfleetwise.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -480,6 +537,15 @@ class AsyncIoTFleetWiseClient:
         Args:
             kms_key_id: <p>The ID of the KMS key that is used for encryption.</p>
             encryption_type: <p>The type of encryption. Choose <code>KMS_BASED_ENCRYPTION</code> to use a KMS key or <code>FLEETWISE_DEFAULT_ENCRYPTION</code> to use an Amazon Web Services managed key.</p>
+
+        Raises:
+            aws_sdk_iotfleetwise.errors.internal_server_exception.InternalServerException: <p>The request couldn't be completed because the server temporarily failed.</p>
+            aws_sdk_iotfleetwise.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permission to perform this action.</p>
+            aws_sdk_iotfleetwise.errors.conflict_exception.ConflictException: <p>The request has conflicting operations. This can occur if you're trying to perform more than one operation on the same resource at the same time.</p>
+            aws_sdk_iotfleetwise.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource wasn't found.</p>
+            aws_sdk_iotfleetwise.errors.throttling_exception.ThrottlingException: <p>The request couldn't be completed due to throttling.</p>
+            aws_sdk_iotfleetwise.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_iotfleetwise.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -520,6 +586,15 @@ class AsyncIoTFleetWiseClient:
 
         Args:
             cloud_watch_log_delivery: <p>Creates or updates the log delivery option to Amazon CloudWatch Logs.</p>
+
+        Raises:
+            aws_sdk_iotfleetwise.errors.internal_server_exception.InternalServerException: <p>The request couldn't be completed because the server temporarily failed.</p>
+            aws_sdk_iotfleetwise.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permission to perform this action.</p>
+            aws_sdk_iotfleetwise.errors.conflict_exception.ConflictException: <p>The request has conflicting operations. This can occur if you're trying to perform more than one operation on the same resource at the same time.</p>
+            aws_sdk_iotfleetwise.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource wasn't found.</p>
+            aws_sdk_iotfleetwise.errors.throttling_exception.ThrottlingException: <p>The request couldn't be completed due to throttling.</p>
+            aws_sdk_iotfleetwise.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_iotfleetwise.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -563,6 +638,15 @@ class AsyncIoTFleetWiseClient:
 
         Args:
             iam_resources: <p>The IAM resource that allows Amazon Web Services IoT FleetWise to send data to Amazon Timestream.</p>
+
+        Raises:
+            aws_sdk_iotfleetwise.errors.internal_server_exception.InternalServerException: <p>The request couldn't be completed because the server temporarily failed.</p>
+            aws_sdk_iotfleetwise.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permission to perform this action.</p>
+            aws_sdk_iotfleetwise.errors.conflict_exception.ConflictException: <p>The request has conflicting operations. This can occur if you're trying to perform more than one operation on the same resource at the same time.</p>
+            aws_sdk_iotfleetwise.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource wasn't found.</p>
+            aws_sdk_iotfleetwise.errors.throttling_exception.ThrottlingException: <p>The request couldn't be completed due to throttling.</p>
+            aws_sdk_iotfleetwise.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_iotfleetwise.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -606,6 +690,14 @@ class AsyncIoTFleetWiseClient:
         Args:
             resource_arn: <p>The ARN of the resource.</p>
             tags: <p>The new or modified tags for the resource.</p>
+
+        Raises:
+            aws_sdk_iotfleetwise.errors.internal_server_exception.InternalServerException: <p>The request couldn't be completed because the server temporarily failed.</p>
+            aws_sdk_iotfleetwise.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permission to perform this action.</p>
+            aws_sdk_iotfleetwise.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource wasn't found.</p>
+            aws_sdk_iotfleetwise.errors.throttling_exception.ThrottlingException: <p>The request couldn't be completed due to throttling.</p>
+            aws_sdk_iotfleetwise.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_iotfleetwise.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -647,6 +739,14 @@ class AsyncIoTFleetWiseClient:
         Args:
             resource_arn: <p>The ARN of the resource.</p>
             tag_keys: <p>A list of the keys of the tags to be removed from the resource.</p>
+
+        Raises:
+            aws_sdk_iotfleetwise.errors.internal_server_exception.InternalServerException: <p>The request couldn't be completed because the server temporarily failed.</p>
+            aws_sdk_iotfleetwise.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permission to perform this action.</p>
+            aws_sdk_iotfleetwise.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource wasn't found.</p>
+            aws_sdk_iotfleetwise.errors.throttling_exception.ThrottlingException: <p>The request couldn't be completed due to throttling.</p>
+            aws_sdk_iotfleetwise.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_iotfleetwise.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

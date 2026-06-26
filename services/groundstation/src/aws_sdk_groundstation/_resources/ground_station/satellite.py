@@ -46,6 +46,12 @@ class Satellite:
 
         Args:
             satellite_id: <p>UUID of a satellite.</p>
+
+        Raises:
+            aws_sdk_groundstation.errors.dependency_exception.DependencyException: <p>Dependency encountered an error.</p>
+            aws_sdk_groundstation.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters are not valid.</p>
+            aws_sdk_groundstation.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource was not found.</p>
+            aws_sdk_groundstation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -89,6 +95,12 @@ class Satellite:
         Args:
             max_results: <p>Maximum number of satellites returned.</p>
             next_token: <p>Next token that can be supplied in the next call to get the next page of satellites.</p>
+
+        Raises:
+            aws_sdk_groundstation.errors.dependency_exception.DependencyException: <p>Dependency encountered an error.</p>
+            aws_sdk_groundstation.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters are not valid.</p>
+            aws_sdk_groundstation.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource was not found.</p>
+            aws_sdk_groundstation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -134,6 +146,12 @@ class AsyncSatellite:
 
         Args:
             satellite_id: <p>UUID of a satellite.</p>
+
+        Raises:
+            aws_sdk_groundstation.errors.dependency_exception.DependencyException: <p>Dependency encountered an error.</p>
+            aws_sdk_groundstation.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters are not valid.</p>
+            aws_sdk_groundstation.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource was not found.</p>
+            aws_sdk_groundstation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -178,6 +196,12 @@ class AsyncSatellite:
         Args:
             max_results: <p>Maximum number of satellites returned.</p>
             next_token: <p>Next token that can be supplied in the next call to get the next page of satellites.</p>
+
+        Raises:
+            aws_sdk_groundstation.errors.dependency_exception.DependencyException: <p>Dependency encountered an error.</p>
+            aws_sdk_groundstation.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters are not valid.</p>
+            aws_sdk_groundstation.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource was not found.</p>
+            aws_sdk_groundstation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

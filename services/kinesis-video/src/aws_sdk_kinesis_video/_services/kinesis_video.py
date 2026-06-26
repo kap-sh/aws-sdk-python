@@ -244,6 +244,15 @@ class KinesisVideoClient:
             channel_type: <p>A type of the signaling channel that you are creating. Currently, <code>SINGLE_MASTER</code> is the only supported channel type. </p>
             single_master_configuration: <p>A structure containing the configuration for the <code>SINGLE_MASTER</code> channel type. The default configuration for the channel message's time to live is 60 seconds (1 minute).</p>
             tags: <p>A set of tags (key-value pairs) that you want to associate with this channel.</p>
+
+        Raises:
+            aws_sdk_kinesis_video.errors.access_denied_exception.AccessDeniedException: <p>You do not have required permissions to perform this operation.</p>
+            aws_sdk_kinesis_video.errors.account_channel_limit_exceeded_exception.AccountChannelLimitExceededException: <p>You have reached the maximum limit of active signaling channels for this Amazon Web Services account in this region.</p>
+            aws_sdk_kinesis_video.errors.client_limit_exceeded_exception.ClientLimitExceededException: <p>Kinesis Video Streams has throttled the request because you have exceeded the limit of allowed client calls. Try making the call later.</p>
+            aws_sdk_kinesis_video.errors.invalid_argument_exception.InvalidArgumentException: <p>The value for this input parameter is invalid.</p>
+            aws_sdk_kinesis_video.errors.resource_in_use_exception.ResourceInUseException: <p>When the input <code>StreamARN</code> or <code>ChannelARN</code> in <code>CLOUD_STORAGE_MODE</code> is already mapped to a different Kinesis Video Stream resource, or if the provided input <code>StreamARN</code> or <code>ChannelARN</code> is not in Active status, try one of the following : </p> <ol> <li> <p>The <code>DescribeMediaStorageConfiguration</code> API to determine what the stream given channel is mapped to. </p> </li> <li> <p>The <code>DescribeMappedResourceConfiguration</code> API to determine the channel that the given stream is mapped to. </p> </li> <li> <p>The <code>DescribeStream</code> or <code>DescribeSignalingChannel</code> API to determine the status of the resource. </p> </li> </ol>
+            aws_sdk_kinesis_video.errors.tags_per_resource_exceeded_limit_exception.TagsPerResourceExceededLimitException: <p>You have exceeded the limit of tags that you can associate with the resource. A Kinesis video stream can support up to 50 tags. </p>
+            aws_sdk_kinesis_video.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -305,6 +314,16 @@ class KinesisVideoClient:
             data_retention_in_hours: <p>The number of hours that you want to retain the data in the stream. Kinesis Video Streams retains the data in a data store that is associated with the stream.</p> <p>The default value is 0, indicating that the stream does not persist data. The minimum is 1 hour.</p> <p>When the <code>DataRetentionInHours</code> value is 0, consumers can still consume the fragments that remain in the service host buffer, which has a retention time limit of 5 minutes and a retention memory limit of 200 MB. Fragments are removed from the buffer when either limit is reached.</p>
             tags: <p>A list of tags to associate with the specified stream. Each tag is a key-value pair (the value is optional).</p>
             stream_storage_configuration: <p>The configuration for the stream's storage, including the default storage tier for stream data. This configuration determines how stream data is stored and accessed, with different tiers offering varying levels of performance and cost optimization.</p> <p>If not specified, the stream will use the default storage configuration with HOT tier for optimal performance.</p>
+
+        Raises:
+            aws_sdk_kinesis_video.errors.account_stream_limit_exceeded_exception.AccountStreamLimitExceededException: <p>The number of streams created for the account is too high.</p>
+            aws_sdk_kinesis_video.errors.client_limit_exceeded_exception.ClientLimitExceededException: <p>Kinesis Video Streams has throttled the request because you have exceeded the limit of allowed client calls. Try making the call later.</p>
+            aws_sdk_kinesis_video.errors.device_stream_limit_exceeded_exception.DeviceStreamLimitExceededException: <p>Not implemented. </p>
+            aws_sdk_kinesis_video.errors.invalid_argument_exception.InvalidArgumentException: <p>The value for this input parameter is invalid.</p>
+            aws_sdk_kinesis_video.errors.invalid_device_exception.InvalidDeviceException: <p>Not implemented.</p>
+            aws_sdk_kinesis_video.errors.resource_in_use_exception.ResourceInUseException: <p>When the input <code>StreamARN</code> or <code>ChannelARN</code> in <code>CLOUD_STORAGE_MODE</code> is already mapped to a different Kinesis Video Stream resource, or if the provided input <code>StreamARN</code> or <code>ChannelARN</code> is not in Active status, try one of the following : </p> <ol> <li> <p>The <code>DescribeMediaStorageConfiguration</code> API to determine what the stream given channel is mapped to. </p> </li> <li> <p>The <code>DescribeMappedResourceConfiguration</code> API to determine the channel that the given stream is mapped to. </p> </li> <li> <p>The <code>DescribeStream</code> or <code>DescribeSignalingChannel</code> API to determine the status of the resource. </p> </li> </ol>
+            aws_sdk_kinesis_video.errors.tags_per_resource_exceeded_limit_exception.TagsPerResourceExceededLimitException: <p>You have exceeded the limit of tags that you can associate with the resource. A Kinesis video stream can support up to 50 tags. </p>
+            aws_sdk_kinesis_video.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -360,6 +379,14 @@ class KinesisVideoClient:
         Args:
             stream_name: <p>The name of the stream from which to delete the edge configuration. Specify either the <code>StreamName</code> or the <code>StreamARN</code>.</p>
             stream_arn: <p>The Amazon Resource Name (ARN) of the stream. Specify either the <code>StreamName</code> or the <code>StreamARN</code>.</p>
+
+        Raises:
+            aws_sdk_kinesis_video.errors.access_denied_exception.AccessDeniedException: <p>You do not have required permissions to perform this operation.</p>
+            aws_sdk_kinesis_video.errors.client_limit_exceeded_exception.ClientLimitExceededException: <p>Kinesis Video Streams has throttled the request because you have exceeded the limit of allowed client calls. Try making the call later.</p>
+            aws_sdk_kinesis_video.errors.invalid_argument_exception.InvalidArgumentException: <p>The value for this input parameter is invalid.</p>
+            aws_sdk_kinesis_video.errors.resource_not_found_exception.ResourceNotFoundException: <p>Amazon Kinesis Video Streams can't find the stream that you specified.</p>
+            aws_sdk_kinesis_video.errors.stream_edge_configuration_not_found_exception.StreamEdgeConfigurationNotFoundException: <p>The Exception rendered when the Amazon Kinesis Video Stream can't find a stream's edge configuration that you specified. </p>
+            aws_sdk_kinesis_video.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -402,6 +429,15 @@ class KinesisVideoClient:
         Args:
             channel_arn: <p>The Amazon Resource Name (ARN) of the signaling channel that you want to delete.</p>
             current_version: <p>The current version of the signaling channel that you want to delete. You can obtain the current version by invoking the <code>DescribeSignalingChannel</code> or <code>ListSignalingChannels</code> API operations.</p>
+
+        Raises:
+            aws_sdk_kinesis_video.errors.access_denied_exception.AccessDeniedException: <p>You do not have required permissions to perform this operation.</p>
+            aws_sdk_kinesis_video.errors.client_limit_exceeded_exception.ClientLimitExceededException: <p>Kinesis Video Streams has throttled the request because you have exceeded the limit of allowed client calls. Try making the call later.</p>
+            aws_sdk_kinesis_video.errors.invalid_argument_exception.InvalidArgumentException: <p>The value for this input parameter is invalid.</p>
+            aws_sdk_kinesis_video.errors.resource_in_use_exception.ResourceInUseException: <p>When the input <code>StreamARN</code> or <code>ChannelARN</code> in <code>CLOUD_STORAGE_MODE</code> is already mapped to a different Kinesis Video Stream resource, or if the provided input <code>StreamARN</code> or <code>ChannelARN</code> is not in Active status, try one of the following : </p> <ol> <li> <p>The <code>DescribeMediaStorageConfiguration</code> API to determine what the stream given channel is mapped to. </p> </li> <li> <p>The <code>DescribeMappedResourceConfiguration</code> API to determine the channel that the given stream is mapped to. </p> </li> <li> <p>The <code>DescribeStream</code> or <code>DescribeSignalingChannel</code> API to determine the status of the resource. </p> </li> </ol>
+            aws_sdk_kinesis_video.errors.resource_not_found_exception.ResourceNotFoundException: <p>Amazon Kinesis Video Streams can't find the stream that you specified.</p>
+            aws_sdk_kinesis_video.errors.version_mismatch_exception.VersionMismatchException: <p>The stream version that you specified is not the latest version. To get the latest version, use the <a href=\"https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_DescribeStream.html\">DescribeStream</a> API.</p>
+            aws_sdk_kinesis_video.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -443,6 +479,15 @@ class KinesisVideoClient:
         Args:
             stream_arn: <p>The Amazon Resource Name (ARN) of the stream that you want to delete. </p>
             current_version: <p>Optional: The version of the stream that you want to delete. </p> <p>Specify the version as a safeguard to ensure that your are deleting the correct stream. To get the stream version, use the <code>DescribeStream</code> API.</p> <p>If not specified, only the <code>CreationTime</code> is checked before deleting the stream.</p>
+
+        Raises:
+            aws_sdk_kinesis_video.errors.client_limit_exceeded_exception.ClientLimitExceededException: <p>Kinesis Video Streams has throttled the request because you have exceeded the limit of allowed client calls. Try making the call later.</p>
+            aws_sdk_kinesis_video.errors.invalid_argument_exception.InvalidArgumentException: <p>The value for this input parameter is invalid.</p>
+            aws_sdk_kinesis_video.errors.not_authorized_exception.NotAuthorizedException: <p>The caller is not authorized to perform this operation.</p>
+            aws_sdk_kinesis_video.errors.resource_in_use_exception.ResourceInUseException: <p>When the input <code>StreamARN</code> or <code>ChannelARN</code> in <code>CLOUD_STORAGE_MODE</code> is already mapped to a different Kinesis Video Stream resource, or if the provided input <code>StreamARN</code> or <code>ChannelARN</code> is not in Active status, try one of the following : </p> <ol> <li> <p>The <code>DescribeMediaStorageConfiguration</code> API to determine what the stream given channel is mapped to. </p> </li> <li> <p>The <code>DescribeMappedResourceConfiguration</code> API to determine the channel that the given stream is mapped to. </p> </li> <li> <p>The <code>DescribeStream</code> or <code>DescribeSignalingChannel</code> API to determine the status of the resource. </p> </li> </ol>
+            aws_sdk_kinesis_video.errors.resource_not_found_exception.ResourceNotFoundException: <p>Amazon Kinesis Video Streams can't find the stream that you specified.</p>
+            aws_sdk_kinesis_video.errors.version_mismatch_exception.VersionMismatchException: <p>The stream version that you specified is not the latest version. To get the latest version, use the <a href=\"https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_DescribeStream.html\">DescribeStream</a> API.</p>
+            aws_sdk_kinesis_video.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -488,6 +533,14 @@ class KinesisVideoClient:
         Args:
             stream_name: <p>The name of the stream whose edge configuration you want to update. Specify either the <code>StreamName</code> or the <code>StreamARN</code>. </p>
             stream_arn: <p>The Amazon Resource Name (ARN) of the stream. Specify either the <code>StreamName</code>or the <code>StreamARN</code>.</p>
+
+        Raises:
+            aws_sdk_kinesis_video.errors.access_denied_exception.AccessDeniedException: <p>You do not have required permissions to perform this operation.</p>
+            aws_sdk_kinesis_video.errors.client_limit_exceeded_exception.ClientLimitExceededException: <p>Kinesis Video Streams has throttled the request because you have exceeded the limit of allowed client calls. Try making the call later.</p>
+            aws_sdk_kinesis_video.errors.invalid_argument_exception.InvalidArgumentException: <p>The value for this input parameter is invalid.</p>
+            aws_sdk_kinesis_video.errors.resource_not_found_exception.ResourceNotFoundException: <p>Amazon Kinesis Video Streams can't find the stream that you specified.</p>
+            aws_sdk_kinesis_video.errors.stream_edge_configuration_not_found_exception.StreamEdgeConfigurationNotFoundException: <p>The Exception rendered when the Amazon Kinesis Video Stream can't find a stream's edge configuration that you specified. </p>
+            aws_sdk_kinesis_video.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -534,6 +587,13 @@ class KinesisVideoClient:
         Args:
             stream_name: <p>The name of the stream from which to retrieve the image generation configuration. You must specify either the <code>StreamName</code> or the <code>StreamARN</code>. </p>
             stream_arn: <p>The Amazon Resource Name (ARN) of the Kinesis video stream from which to retrieve the image generation configuration. You must specify either the <code>StreamName</code> or the <code>StreamARN</code>.</p>
+
+        Raises:
+            aws_sdk_kinesis_video.errors.access_denied_exception.AccessDeniedException: <p>You do not have required permissions to perform this operation.</p>
+            aws_sdk_kinesis_video.errors.client_limit_exceeded_exception.ClientLimitExceededException: <p>Kinesis Video Streams has throttled the request because you have exceeded the limit of allowed client calls. Try making the call later.</p>
+            aws_sdk_kinesis_video.errors.invalid_argument_exception.InvalidArgumentException: <p>The value for this input parameter is invalid.</p>
+            aws_sdk_kinesis_video.errors.resource_not_found_exception.ResourceNotFoundException: <p>Amazon Kinesis Video Streams can't find the stream that you specified.</p>
+            aws_sdk_kinesis_video.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -586,6 +646,13 @@ class KinesisVideoClient:
             stream_arn: <p>The Amazon Resource Name (ARN) of the stream.</p>
             max_results: <p>The maximum number of results to return in the response.</p>
             next_token: <p>The token to provide in your next request, to get another batch of results.</p>
+
+        Raises:
+            aws_sdk_kinesis_video.errors.access_denied_exception.AccessDeniedException: <p>You do not have required permissions to perform this operation.</p>
+            aws_sdk_kinesis_video.errors.client_limit_exceeded_exception.ClientLimitExceededException: <p>Kinesis Video Streams has throttled the request because you have exceeded the limit of allowed client calls. Try making the call later.</p>
+            aws_sdk_kinesis_video.errors.invalid_argument_exception.InvalidArgumentException: <p>The value for this input parameter is invalid.</p>
+            aws_sdk_kinesis_video.errors.resource_not_found_exception.ResourceNotFoundException: <p>Amazon Kinesis Video Streams can't find the stream that you specified.</p>
+            aws_sdk_kinesis_video.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -667,6 +734,13 @@ class KinesisVideoClient:
         Args:
             channel_name: <p>The name of the channel.</p>
             channel_arn: <p>The Amazon Resource Name (ARN) of the channel.</p>
+
+        Raises:
+            aws_sdk_kinesis_video.errors.access_denied_exception.AccessDeniedException: <p>You do not have required permissions to perform this operation.</p>
+            aws_sdk_kinesis_video.errors.client_limit_exceeded_exception.ClientLimitExceededException: <p>Kinesis Video Streams has throttled the request because you have exceeded the limit of allowed client calls. Try making the call later.</p>
+            aws_sdk_kinesis_video.errors.invalid_argument_exception.InvalidArgumentException: <p>The value for this input parameter is invalid.</p>
+            aws_sdk_kinesis_video.errors.resource_not_found_exception.ResourceNotFoundException: <p>Amazon Kinesis Video Streams can't find the stream that you specified.</p>
+            aws_sdk_kinesis_video.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -713,6 +787,13 @@ class KinesisVideoClient:
         Args:
             stream_name: <p>The name of the stream from which to retrieve the notification configuration. You must specify either the <code>StreamName</code> or the <code>StreamARN</code>.</p>
             stream_arn: <p>The Amazon Resource Name (ARN) of the Kinesis video stream from where you want to retrieve the notification configuration. You must specify either the <code>StreamName</code> or the StreamARN.</p>
+
+        Raises:
+            aws_sdk_kinesis_video.errors.access_denied_exception.AccessDeniedException: <p>You do not have required permissions to perform this operation.</p>
+            aws_sdk_kinesis_video.errors.client_limit_exceeded_exception.ClientLimitExceededException: <p>Kinesis Video Streams has throttled the request because you have exceeded the limit of allowed client calls. Try making the call later.</p>
+            aws_sdk_kinesis_video.errors.invalid_argument_exception.InvalidArgumentException: <p>The value for this input parameter is invalid.</p>
+            aws_sdk_kinesis_video.errors.resource_not_found_exception.ResourceNotFoundException: <p>Amazon Kinesis Video Streams can't find the stream that you specified.</p>
+            aws_sdk_kinesis_video.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -759,6 +840,13 @@ class KinesisVideoClient:
         Args:
             channel_name: <p>The name of the signaling channel that you want to describe.</p>
             channel_arn: <p>The ARN of the signaling channel that you want to describe.</p>
+
+        Raises:
+            aws_sdk_kinesis_video.errors.access_denied_exception.AccessDeniedException: <p>You do not have required permissions to perform this operation.</p>
+            aws_sdk_kinesis_video.errors.client_limit_exceeded_exception.ClientLimitExceededException: <p>Kinesis Video Streams has throttled the request because you have exceeded the limit of allowed client calls. Try making the call later.</p>
+            aws_sdk_kinesis_video.errors.invalid_argument_exception.InvalidArgumentException: <p>The value for this input parameter is invalid.</p>
+            aws_sdk_kinesis_video.errors.resource_not_found_exception.ResourceNotFoundException: <p>Amazon Kinesis Video Streams can't find the stream that you specified.</p>
+            aws_sdk_kinesis_video.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -805,6 +893,13 @@ class KinesisVideoClient:
         Args:
             stream_name: <p>The name of the stream.</p>
             stream_arn: <p>The Amazon Resource Name (ARN) of the stream.</p>
+
+        Raises:
+            aws_sdk_kinesis_video.errors.client_limit_exceeded_exception.ClientLimitExceededException: <p>Kinesis Video Streams has throttled the request because you have exceeded the limit of allowed client calls. Try making the call later.</p>
+            aws_sdk_kinesis_video.errors.invalid_argument_exception.InvalidArgumentException: <p>The value for this input parameter is invalid.</p>
+            aws_sdk_kinesis_video.errors.not_authorized_exception.NotAuthorizedException: <p>The caller is not authorized to perform this operation.</p>
+            aws_sdk_kinesis_video.errors.resource_not_found_exception.ResourceNotFoundException: <p>Amazon Kinesis Video Streams can't find the stream that you specified.</p>
+            aws_sdk_kinesis_video.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -851,6 +946,13 @@ class KinesisVideoClient:
         Args:
             stream_name: <p>The name of the stream for which you want to retrieve the storage configuration.</p>
             stream_arn: <p>The Amazon Resource Name (ARN) of the stream for which you want to retrieve the storage configuration.</p>
+
+        Raises:
+            aws_sdk_kinesis_video.errors.access_denied_exception.AccessDeniedException: <p>You do not have required permissions to perform this operation.</p>
+            aws_sdk_kinesis_video.errors.client_limit_exceeded_exception.ClientLimitExceededException: <p>Kinesis Video Streams has throttled the request because you have exceeded the limit of allowed client calls. Try making the call later.</p>
+            aws_sdk_kinesis_video.errors.invalid_argument_exception.InvalidArgumentException: <p>The value for this input parameter is invalid.</p>
+            aws_sdk_kinesis_video.errors.resource_not_found_exception.ResourceNotFoundException: <p>Amazon Kinesis Video Streams can't find the stream that you specified.</p>
+            aws_sdk_kinesis_video.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -899,6 +1001,13 @@ class KinesisVideoClient:
             stream_name: <p>The name of the stream that you want to get the endpoint for. You must specify either this parameter or a <code>StreamARN</code> in the request.</p>
             stream_arn: <p>The Amazon Resource Name (ARN) of the stream that you want to get the endpoint for. You must specify either this parameter or a <code>StreamName</code> in the request. </p>
             api_name: <p>The name of the API action for which to get an endpoint.</p>
+
+        Raises:
+            aws_sdk_kinesis_video.errors.client_limit_exceeded_exception.ClientLimitExceededException: <p>Kinesis Video Streams has throttled the request because you have exceeded the limit of allowed client calls. Try making the call later.</p>
+            aws_sdk_kinesis_video.errors.invalid_argument_exception.InvalidArgumentException: <p>The value for this input parameter is invalid.</p>
+            aws_sdk_kinesis_video.errors.not_authorized_exception.NotAuthorizedException: <p>The caller is not authorized to perform this operation.</p>
+            aws_sdk_kinesis_video.errors.resource_not_found_exception.ResourceNotFoundException: <p>Amazon Kinesis Video Streams can't find the stream that you specified.</p>
+            aws_sdk_kinesis_video.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -944,6 +1053,14 @@ class KinesisVideoClient:
         Args:
             channel_arn: <p>The Amazon Resource Name (ARN) of the signalling channel for which you want to get an endpoint.</p>
             single_master_channel_endpoint_configuration: <p>A structure containing the endpoint configuration for the <code>SINGLE_MASTER</code> channel type.</p>
+
+        Raises:
+            aws_sdk_kinesis_video.errors.access_denied_exception.AccessDeniedException: <p>You do not have required permissions to perform this operation.</p>
+            aws_sdk_kinesis_video.errors.client_limit_exceeded_exception.ClientLimitExceededException: <p>Kinesis Video Streams has throttled the request because you have exceeded the limit of allowed client calls. Try making the call later.</p>
+            aws_sdk_kinesis_video.errors.invalid_argument_exception.InvalidArgumentException: <p>The value for this input parameter is invalid.</p>
+            aws_sdk_kinesis_video.errors.resource_in_use_exception.ResourceInUseException: <p>When the input <code>StreamARN</code> or <code>ChannelARN</code> in <code>CLOUD_STORAGE_MODE</code> is already mapped to a different Kinesis Video Stream resource, or if the provided input <code>StreamARN</code> or <code>ChannelARN</code> is not in Active status, try one of the following : </p> <ol> <li> <p>The <code>DescribeMediaStorageConfiguration</code> API to determine what the stream given channel is mapped to. </p> </li> <li> <p>The <code>DescribeMappedResourceConfiguration</code> API to determine the channel that the given stream is mapped to. </p> </li> <li> <p>The <code>DescribeStream</code> or <code>DescribeSignalingChannel</code> API to determine the status of the resource. </p> </li> </ol>
+            aws_sdk_kinesis_video.errors.resource_not_found_exception.ResourceNotFoundException: <p>Amazon Kinesis Video Streams can't find the stream that you specified.</p>
+            aws_sdk_kinesis_video.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -991,6 +1108,12 @@ class KinesisVideoClient:
             hub_device_arn: <p>The \"Internet of Things (IoT) Thing\" Arn of the edge agent.</p>
             max_results: <p>The maximum number of edge configurations to return in the response. The default is 5.</p>
             next_token: <p>If you specify this parameter, when the result of a <code>ListEdgeAgentConfigurations</code> operation is truncated, the call returns the <code>NextToken</code> in the response. To get another batch of edge configurations, provide this token in your next request. </p>
+
+        Raises:
+            aws_sdk_kinesis_video.errors.client_limit_exceeded_exception.ClientLimitExceededException: <p>Kinesis Video Streams has throttled the request because you have exceeded the limit of allowed client calls. Try making the call later.</p>
+            aws_sdk_kinesis_video.errors.invalid_argument_exception.InvalidArgumentException: <p>The value for this input parameter is invalid.</p>
+            aws_sdk_kinesis_video.errors.not_authorized_exception.NotAuthorizedException: <p>The caller is not authorized to perform this operation.</p>
+            aws_sdk_kinesis_video.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1065,6 +1188,12 @@ class KinesisVideoClient:
             max_results: <p>The maximum number of channels to return in the response. The default is 500.</p>
             next_token: <p>If you specify this parameter, when the result of a <code>ListSignalingChannels</code> operation is truncated, the call returns the <code>NextToken</code> in the response. To get another batch of channels, provide this token in your next request.</p>
             channel_name_condition: <p>Optional: Returns only the channels that satisfy a specific condition.</p>
+
+        Raises:
+            aws_sdk_kinesis_video.errors.access_denied_exception.AccessDeniedException: <p>You do not have required permissions to perform this operation.</p>
+            aws_sdk_kinesis_video.errors.client_limit_exceeded_exception.ClientLimitExceededException: <p>Kinesis Video Streams has throttled the request because you have exceeded the limit of allowed client calls. Try making the call later.</p>
+            aws_sdk_kinesis_video.errors.invalid_argument_exception.InvalidArgumentException: <p>The value for this input parameter is invalid.</p>
+            aws_sdk_kinesis_video.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1142,6 +1271,11 @@ class KinesisVideoClient:
             max_results: <p>The maximum number of streams to return in the response. The default is 10,000.</p>
             next_token: <p>If you specify this parameter, when the result of a <code>ListStreams</code> operation is truncated, the call returns the <code>NextToken</code> in the response. To get another batch of streams, provide this token in your next request.</p>
             stream_name_condition: <p>Optional: Returns only streams that satisfy a specific condition. Currently, you can specify only the prefix of a stream name as a condition. </p>
+
+        Raises:
+            aws_sdk_kinesis_video.errors.client_limit_exceeded_exception.ClientLimitExceededException: <p>Kinesis Video Streams has throttled the request because you have exceeded the limit of allowed client calls. Try making the call later.</p>
+            aws_sdk_kinesis_video.errors.invalid_argument_exception.InvalidArgumentException: <p>The value for this input parameter is invalid.</p>
+            aws_sdk_kinesis_video.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1213,6 +1347,13 @@ class KinesisVideoClient:
         Args:
             next_token: <p>If you specify this parameter and the result of a <code>ListTagsForResource</code> call is truncated, the response includes a token that you can use in the next request to fetch the next batch of tags. </p>
             resource_arn: <p>The Amazon Resource Name (ARN) of the signaling channel for which you want to list tags.</p>
+
+        Raises:
+            aws_sdk_kinesis_video.errors.access_denied_exception.AccessDeniedException: <p>You do not have required permissions to perform this operation.</p>
+            aws_sdk_kinesis_video.errors.client_limit_exceeded_exception.ClientLimitExceededException: <p>Kinesis Video Streams has throttled the request because you have exceeded the limit of allowed client calls. Try making the call later.</p>
+            aws_sdk_kinesis_video.errors.invalid_argument_exception.InvalidArgumentException: <p>The value for this input parameter is invalid.</p>
+            aws_sdk_kinesis_video.errors.resource_not_found_exception.ResourceNotFoundException: <p>Amazon Kinesis Video Streams can't find the stream that you specified.</p>
+            aws_sdk_kinesis_video.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1260,6 +1401,14 @@ class KinesisVideoClient:
             next_token: <p>If you specify this parameter and the result of a <code>ListTagsForStream</code> call is truncated, the response includes a token that you can use in the next request to fetch the next batch of tags.</p>
             stream_arn: <p>The Amazon Resource Name (ARN) of the stream that you want to list tags for.</p>
             stream_name: <p>The name of the stream that you want to list tags for.</p>
+
+        Raises:
+            aws_sdk_kinesis_video.errors.client_limit_exceeded_exception.ClientLimitExceededException: <p>Kinesis Video Streams has throttled the request because you have exceeded the limit of allowed client calls. Try making the call later.</p>
+            aws_sdk_kinesis_video.errors.invalid_argument_exception.InvalidArgumentException: <p>The value for this input parameter is invalid.</p>
+            aws_sdk_kinesis_video.errors.invalid_resource_format_exception.InvalidResourceFormatException: <p>The format of the <code>StreamARN</code> is invalid.</p>
+            aws_sdk_kinesis_video.errors.not_authorized_exception.NotAuthorizedException: <p>The caller is not authorized to perform this operation.</p>
+            aws_sdk_kinesis_video.errors.resource_not_found_exception.ResourceNotFoundException: <p>Amazon Kinesis Video Streams can't find the stream that you specified.</p>
+            aws_sdk_kinesis_video.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1310,6 +1459,15 @@ class KinesisVideoClient:
             stream_name: <p>The name of the stream whose edge configuration you want to update. Specify either the <code>StreamName</code> or the <code>StreamARN</code>.</p>
             stream_arn: <p> The Amazon Resource Name (ARN) of the stream. Specify either the <code>StreamName</code> or the <code>StreamARN</code>.</p>
             edge_config: <p>The edge configuration details required to invoke the update process.</p>
+
+        Raises:
+            aws_sdk_kinesis_video.errors.access_denied_exception.AccessDeniedException: <p>You do not have required permissions to perform this operation.</p>
+            aws_sdk_kinesis_video.errors.client_limit_exceeded_exception.ClientLimitExceededException: <p>Kinesis Video Streams has throttled the request because you have exceeded the limit of allowed client calls. Try making the call later.</p>
+            aws_sdk_kinesis_video.errors.invalid_argument_exception.InvalidArgumentException: <p>The value for this input parameter is invalid.</p>
+            aws_sdk_kinesis_video.errors.no_data_retention_exception.NoDataRetentionException: <p>The Stream data retention in hours is equal to zero.</p>
+            aws_sdk_kinesis_video.errors.resource_in_use_exception.ResourceInUseException: <p>When the input <code>StreamARN</code> or <code>ChannelARN</code> in <code>CLOUD_STORAGE_MODE</code> is already mapped to a different Kinesis Video Stream resource, or if the provided input <code>StreamARN</code> or <code>ChannelARN</code> is not in Active status, try one of the following : </p> <ol> <li> <p>The <code>DescribeMediaStorageConfiguration</code> API to determine what the stream given channel is mapped to. </p> </li> <li> <p>The <code>DescribeMappedResourceConfiguration</code> API to determine the channel that the given stream is mapped to. </p> </li> <li> <p>The <code>DescribeStream</code> or <code>DescribeSignalingChannel</code> API to determine the status of the resource. </p> </li> </ol>
+            aws_sdk_kinesis_video.errors.resource_not_found_exception.ResourceNotFoundException: <p>Amazon Kinesis Video Streams can't find the stream that you specified.</p>
+            aws_sdk_kinesis_video.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1353,6 +1511,14 @@ class KinesisVideoClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the signaling channel to which you want to add tags.</p>
             tags: <p>A list of tags to associate with the specified signaling channel. Each tag is a key-value pair.</p>
+
+        Raises:
+            aws_sdk_kinesis_video.errors.access_denied_exception.AccessDeniedException: <p>You do not have required permissions to perform this operation.</p>
+            aws_sdk_kinesis_video.errors.client_limit_exceeded_exception.ClientLimitExceededException: <p>Kinesis Video Streams has throttled the request because you have exceeded the limit of allowed client calls. Try making the call later.</p>
+            aws_sdk_kinesis_video.errors.invalid_argument_exception.InvalidArgumentException: <p>The value for this input parameter is invalid.</p>
+            aws_sdk_kinesis_video.errors.resource_not_found_exception.ResourceNotFoundException: <p>Amazon Kinesis Video Streams can't find the stream that you specified.</p>
+            aws_sdk_kinesis_video.errors.tags_per_resource_exceeded_limit_exception.TagsPerResourceExceededLimitException: <p>You have exceeded the limit of tags that you can associate with the resource. A Kinesis video stream can support up to 50 tags. </p>
+            aws_sdk_kinesis_video.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1399,6 +1565,15 @@ class KinesisVideoClient:
             stream_arn: <p>The Amazon Resource Name (ARN) of the resource that you want to add the tag or tags to.</p>
             stream_name: <p>The name of the stream that you want to add the tag or tags to.</p>
             tags: <p>A list of tags to associate with the specified stream. Each tag is a key-value pair (the value is optional).</p>
+
+        Raises:
+            aws_sdk_kinesis_video.errors.client_limit_exceeded_exception.ClientLimitExceededException: <p>Kinesis Video Streams has throttled the request because you have exceeded the limit of allowed client calls. Try making the call later.</p>
+            aws_sdk_kinesis_video.errors.invalid_argument_exception.InvalidArgumentException: <p>The value for this input parameter is invalid.</p>
+            aws_sdk_kinesis_video.errors.invalid_resource_format_exception.InvalidResourceFormatException: <p>The format of the <code>StreamARN</code> is invalid.</p>
+            aws_sdk_kinesis_video.errors.not_authorized_exception.NotAuthorizedException: <p>The caller is not authorized to perform this operation.</p>
+            aws_sdk_kinesis_video.errors.resource_not_found_exception.ResourceNotFoundException: <p>Amazon Kinesis Video Streams can't find the stream that you specified.</p>
+            aws_sdk_kinesis_video.errors.tags_per_resource_exceeded_limit_exception.TagsPerResourceExceededLimitException: <p>You have exceeded the limit of tags that you can associate with the resource. A Kinesis video stream can support up to 50 tags. </p>
+            aws_sdk_kinesis_video.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1442,6 +1617,13 @@ class KinesisVideoClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the signaling channel from which you want to remove tags.</p>
             tag_key_list: <p>A list of the keys of the tags that you want to remove.</p>
+
+        Raises:
+            aws_sdk_kinesis_video.errors.access_denied_exception.AccessDeniedException: <p>You do not have required permissions to perform this operation.</p>
+            aws_sdk_kinesis_video.errors.client_limit_exceeded_exception.ClientLimitExceededException: <p>Kinesis Video Streams has throttled the request because you have exceeded the limit of allowed client calls. Try making the call later.</p>
+            aws_sdk_kinesis_video.errors.invalid_argument_exception.InvalidArgumentException: <p>The value for this input parameter is invalid.</p>
+            aws_sdk_kinesis_video.errors.resource_not_found_exception.ResourceNotFoundException: <p>Amazon Kinesis Video Streams can't find the stream that you specified.</p>
+            aws_sdk_kinesis_video.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1488,6 +1670,14 @@ class KinesisVideoClient:
             stream_arn: <p>The Amazon Resource Name (ARN) of the stream that you want to remove tags from.</p>
             stream_name: <p>The name of the stream that you want to remove tags from.</p>
             tag_key_list: <p>A list of the keys of the tags that you want to remove.</p>
+
+        Raises:
+            aws_sdk_kinesis_video.errors.client_limit_exceeded_exception.ClientLimitExceededException: <p>Kinesis Video Streams has throttled the request because you have exceeded the limit of allowed client calls. Try making the call later.</p>
+            aws_sdk_kinesis_video.errors.invalid_argument_exception.InvalidArgumentException: <p>The value for this input parameter is invalid.</p>
+            aws_sdk_kinesis_video.errors.invalid_resource_format_exception.InvalidResourceFormatException: <p>The format of the <code>StreamARN</code> is invalid.</p>
+            aws_sdk_kinesis_video.errors.not_authorized_exception.NotAuthorizedException: <p>The caller is not authorized to perform this operation.</p>
+            aws_sdk_kinesis_video.errors.resource_not_found_exception.ResourceNotFoundException: <p>Amazon Kinesis Video Streams can't find the stream that you specified.</p>
+            aws_sdk_kinesis_video.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1541,6 +1731,15 @@ class KinesisVideoClient:
             current_version: <p>The version of the stream whose retention period you want to change. To get the version, call either the <code>DescribeStream</code> or the <code>ListStreams</code> API.</p>
             operation: <p>Indicates whether you want to increase or decrease the retention period.</p>
             data_retention_change_in_hours: <p>The number of hours to adjust the current retention by. The value you specify is added to or subtracted from the current value, depending on the <code>operation</code>.</p> <p>The minimum value for data retention is 0 and the maximum value is 87600 (ten years).</p>
+
+        Raises:
+            aws_sdk_kinesis_video.errors.client_limit_exceeded_exception.ClientLimitExceededException: <p>Kinesis Video Streams has throttled the request because you have exceeded the limit of allowed client calls. Try making the call later.</p>
+            aws_sdk_kinesis_video.errors.invalid_argument_exception.InvalidArgumentException: <p>The value for this input parameter is invalid.</p>
+            aws_sdk_kinesis_video.errors.not_authorized_exception.NotAuthorizedException: <p>The caller is not authorized to perform this operation.</p>
+            aws_sdk_kinesis_video.errors.resource_in_use_exception.ResourceInUseException: <p>When the input <code>StreamARN</code> or <code>ChannelARN</code> in <code>CLOUD_STORAGE_MODE</code> is already mapped to a different Kinesis Video Stream resource, or if the provided input <code>StreamARN</code> or <code>ChannelARN</code> is not in Active status, try one of the following : </p> <ol> <li> <p>The <code>DescribeMediaStorageConfiguration</code> API to determine what the stream given channel is mapped to. </p> </li> <li> <p>The <code>DescribeMappedResourceConfiguration</code> API to determine the channel that the given stream is mapped to. </p> </li> <li> <p>The <code>DescribeStream</code> or <code>DescribeSignalingChannel</code> API to determine the status of the resource. </p> </li> </ol>
+            aws_sdk_kinesis_video.errors.resource_not_found_exception.ResourceNotFoundException: <p>Amazon Kinesis Video Streams can't find the stream that you specified.</p>
+            aws_sdk_kinesis_video.errors.version_mismatch_exception.VersionMismatchException: <p>The stream version that you specified is not the latest version. To get the latest version, use the <a href=\"https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_DescribeStream.html\">DescribeStream</a> API.</p>
+            aws_sdk_kinesis_video.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1594,6 +1793,15 @@ class KinesisVideoClient:
             stream_name: <p>The name of the stream from which to update the image generation configuration. You must specify either the <code>StreamName</code> or the <code>StreamARN</code>.</p>
             stream_arn: <p>The Amazon Resource Name (ARN) of the Kinesis video stream from where you want to update the image generation configuration. You must specify either the <code>StreamName</code> or the <code>StreamARN</code>.</p>
             image_generation_configuration: <p>The structure that contains the information required for the KVS images delivery. If the structure is null, the configuration will be deleted from the stream.</p>
+
+        Raises:
+            aws_sdk_kinesis_video.errors.access_denied_exception.AccessDeniedException: <p>You do not have required permissions to perform this operation.</p>
+            aws_sdk_kinesis_video.errors.client_limit_exceeded_exception.ClientLimitExceededException: <p>Kinesis Video Streams has throttled the request because you have exceeded the limit of allowed client calls. Try making the call later.</p>
+            aws_sdk_kinesis_video.errors.invalid_argument_exception.InvalidArgumentException: <p>The value for this input parameter is invalid.</p>
+            aws_sdk_kinesis_video.errors.no_data_retention_exception.NoDataRetentionException: <p>The Stream data retention in hours is equal to zero.</p>
+            aws_sdk_kinesis_video.errors.resource_in_use_exception.ResourceInUseException: <p>When the input <code>StreamARN</code> or <code>ChannelARN</code> in <code>CLOUD_STORAGE_MODE</code> is already mapped to a different Kinesis Video Stream resource, or if the provided input <code>StreamARN</code> or <code>ChannelARN</code> is not in Active status, try one of the following : </p> <ol> <li> <p>The <code>DescribeMediaStorageConfiguration</code> API to determine what the stream given channel is mapped to. </p> </li> <li> <p>The <code>DescribeMappedResourceConfiguration</code> API to determine the channel that the given stream is mapped to. </p> </li> <li> <p>The <code>DescribeStream</code> or <code>DescribeSignalingChannel</code> API to determine the status of the resource. </p> </li> </ol>
+            aws_sdk_kinesis_video.errors.resource_not_found_exception.ResourceNotFoundException: <p>Amazon Kinesis Video Streams can't find the stream that you specified.</p>
+            aws_sdk_kinesis_video.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1638,6 +1846,15 @@ class KinesisVideoClient:
         Args:
             channel_arn: <p>The Amazon Resource Name (ARN) of the channel.</p>
             media_storage_configuration: <p>A structure that encapsulates, or contains, the media storage configuration properties.</p>
+
+        Raises:
+            aws_sdk_kinesis_video.errors.access_denied_exception.AccessDeniedException: <p>You do not have required permissions to perform this operation.</p>
+            aws_sdk_kinesis_video.errors.client_limit_exceeded_exception.ClientLimitExceededException: <p>Kinesis Video Streams has throttled the request because you have exceeded the limit of allowed client calls. Try making the call later.</p>
+            aws_sdk_kinesis_video.errors.invalid_argument_exception.InvalidArgumentException: <p>The value for this input parameter is invalid.</p>
+            aws_sdk_kinesis_video.errors.no_data_retention_exception.NoDataRetentionException: <p>The Stream data retention in hours is equal to zero.</p>
+            aws_sdk_kinesis_video.errors.resource_in_use_exception.ResourceInUseException: <p>When the input <code>StreamARN</code> or <code>ChannelARN</code> in <code>CLOUD_STORAGE_MODE</code> is already mapped to a different Kinesis Video Stream resource, or if the provided input <code>StreamARN</code> or <code>ChannelARN</code> is not in Active status, try one of the following : </p> <ol> <li> <p>The <code>DescribeMediaStorageConfiguration</code> API to determine what the stream given channel is mapped to. </p> </li> <li> <p>The <code>DescribeMappedResourceConfiguration</code> API to determine the channel that the given stream is mapped to. </p> </li> <li> <p>The <code>DescribeStream</code> or <code>DescribeSignalingChannel</code> API to determine the status of the resource. </p> </li> </ol>
+            aws_sdk_kinesis_video.errors.resource_not_found_exception.ResourceNotFoundException: <p>Amazon Kinesis Video Streams can't find the stream that you specified.</p>
+            aws_sdk_kinesis_video.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1686,6 +1903,15 @@ class KinesisVideoClient:
             stream_name: <p>The name of the stream from which to update the notification configuration. You must specify either the <code>StreamName</code> or the <code>StreamARN</code>.</p>
             stream_arn: <p>The Amazon Resource Name (ARN) of the Kinesis video stream from where you want to update the notification configuration. You must specify either the <code>StreamName</code> or the <code>StreamARN</code>.</p>
             notification_configuration: <p>The structure containing the information required for notifications. If the structure is null, the configuration will be deleted from the stream.</p>
+
+        Raises:
+            aws_sdk_kinesis_video.errors.access_denied_exception.AccessDeniedException: <p>You do not have required permissions to perform this operation.</p>
+            aws_sdk_kinesis_video.errors.client_limit_exceeded_exception.ClientLimitExceededException: <p>Kinesis Video Streams has throttled the request because you have exceeded the limit of allowed client calls. Try making the call later.</p>
+            aws_sdk_kinesis_video.errors.invalid_argument_exception.InvalidArgumentException: <p>The value for this input parameter is invalid.</p>
+            aws_sdk_kinesis_video.errors.no_data_retention_exception.NoDataRetentionException: <p>The Stream data retention in hours is equal to zero.</p>
+            aws_sdk_kinesis_video.errors.resource_in_use_exception.ResourceInUseException: <p>When the input <code>StreamARN</code> or <code>ChannelARN</code> in <code>CLOUD_STORAGE_MODE</code> is already mapped to a different Kinesis Video Stream resource, or if the provided input <code>StreamARN</code> or <code>ChannelARN</code> is not in Active status, try one of the following : </p> <ol> <li> <p>The <code>DescribeMediaStorageConfiguration</code> API to determine what the stream given channel is mapped to. </p> </li> <li> <p>The <code>DescribeMappedResourceConfiguration</code> API to determine the channel that the given stream is mapped to. </p> </li> <li> <p>The <code>DescribeStream</code> or <code>DescribeSignalingChannel</code> API to determine the status of the resource. </p> </li> </ol>
+            aws_sdk_kinesis_video.errors.resource_not_found_exception.ResourceNotFoundException: <p>Amazon Kinesis Video Streams can't find the stream that you specified.</p>
+            aws_sdk_kinesis_video.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1734,6 +1960,15 @@ class KinesisVideoClient:
             channel_arn: <p>The Amazon Resource Name (ARN) of the signaling channel that you want to update.</p>
             current_version: <p>The current version of the signaling channel that you want to update.</p>
             single_master_configuration: <p>The structure containing the configuration for the <code>SINGLE_MASTER</code> type of the signaling channel that you want to update. This parameter and the channel message's time-to-live are required for channels with the <code>SINGLE_MASTER</code> channel type.</p>
+
+        Raises:
+            aws_sdk_kinesis_video.errors.access_denied_exception.AccessDeniedException: <p>You do not have required permissions to perform this operation.</p>
+            aws_sdk_kinesis_video.errors.client_limit_exceeded_exception.ClientLimitExceededException: <p>Kinesis Video Streams has throttled the request because you have exceeded the limit of allowed client calls. Try making the call later.</p>
+            aws_sdk_kinesis_video.errors.invalid_argument_exception.InvalidArgumentException: <p>The value for this input parameter is invalid.</p>
+            aws_sdk_kinesis_video.errors.resource_in_use_exception.ResourceInUseException: <p>When the input <code>StreamARN</code> or <code>ChannelARN</code> in <code>CLOUD_STORAGE_MODE</code> is already mapped to a different Kinesis Video Stream resource, or if the provided input <code>StreamARN</code> or <code>ChannelARN</code> is not in Active status, try one of the following : </p> <ol> <li> <p>The <code>DescribeMediaStorageConfiguration</code> API to determine what the stream given channel is mapped to. </p> </li> <li> <p>The <code>DescribeMappedResourceConfiguration</code> API to determine the channel that the given stream is mapped to. </p> </li> <li> <p>The <code>DescribeStream</code> or <code>DescribeSignalingChannel</code> API to determine the status of the resource. </p> </li> </ol>
+            aws_sdk_kinesis_video.errors.resource_not_found_exception.ResourceNotFoundException: <p>Amazon Kinesis Video Streams can't find the stream that you specified.</p>
+            aws_sdk_kinesis_video.errors.version_mismatch_exception.VersionMismatchException: <p>The stream version that you specified is not the latest version. To get the latest version, use the <a href=\"https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_DescribeStream.html\">DescribeStream</a> API.</p>
+            aws_sdk_kinesis_video.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1788,6 +2023,15 @@ class KinesisVideoClient:
             current_version: <p>The version of the stream whose metadata you want to update.</p>
             device_name: <p>The name of the device that is writing to the stream. </p> <note> <p> In the current implementation, Kinesis Video Streams does not use this name. </p> </note>
             media_type: <p>The stream's media type. Use <code>MediaType</code> to specify the type of content that the stream contains to the consumers of the stream. For more information about media types, see <a href=\"http://www.iana.org/assignments/media-types/media-types.xhtml\">Media Types</a>. If you choose to specify the <code>MediaType</code>, see <a href=\"https://tools.ietf.org/html/rfc6838#section-4.2\">Naming Requirements</a>.</p> <p>To play video on the console, you must specify the correct video type. For example, if the video in the stream is H.264, specify <code>video/h264</code> as the <code>MediaType</code>.</p>
+
+        Raises:
+            aws_sdk_kinesis_video.errors.client_limit_exceeded_exception.ClientLimitExceededException: <p>Kinesis Video Streams has throttled the request because you have exceeded the limit of allowed client calls. Try making the call later.</p>
+            aws_sdk_kinesis_video.errors.invalid_argument_exception.InvalidArgumentException: <p>The value for this input parameter is invalid.</p>
+            aws_sdk_kinesis_video.errors.not_authorized_exception.NotAuthorizedException: <p>The caller is not authorized to perform this operation.</p>
+            aws_sdk_kinesis_video.errors.resource_in_use_exception.ResourceInUseException: <p>When the input <code>StreamARN</code> or <code>ChannelARN</code> in <code>CLOUD_STORAGE_MODE</code> is already mapped to a different Kinesis Video Stream resource, or if the provided input <code>StreamARN</code> or <code>ChannelARN</code> is not in Active status, try one of the following : </p> <ol> <li> <p>The <code>DescribeMediaStorageConfiguration</code> API to determine what the stream given channel is mapped to. </p> </li> <li> <p>The <code>DescribeMappedResourceConfiguration</code> API to determine the channel that the given stream is mapped to. </p> </li> <li> <p>The <code>DescribeStream</code> or <code>DescribeSignalingChannel</code> API to determine the status of the resource. </p> </li> </ol>
+            aws_sdk_kinesis_video.errors.resource_not_found_exception.ResourceNotFoundException: <p>Amazon Kinesis Video Streams can't find the stream that you specified.</p>
+            aws_sdk_kinesis_video.errors.version_mismatch_exception.VersionMismatchException: <p>The stream version that you specified is not the latest version. To get the latest version, use the <a href=\"https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_DescribeStream.html\">DescribeStream</a> API.</p>
+            aws_sdk_kinesis_video.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1843,6 +2087,15 @@ class KinesisVideoClient:
             stream_arn: <p>The Amazon Resource Name (ARN) of the stream for which you want to update the storage configuration.</p>
             current_version: <p>The version of the stream whose storage configuration you want to change. To get the version, call either the <code>DescribeStream</code> or the <code>ListStreams</code> API.</p>
             stream_storage_configuration: <p>The new storage configuration for the stream. This includes the default storage tier that determines how stream data is stored and accessed.</p> <p>Different storage tiers offer varying levels of performance and cost optimization to match your specific use case requirements.</p>
+
+        Raises:
+            aws_sdk_kinesis_video.errors.access_denied_exception.AccessDeniedException: <p>You do not have required permissions to perform this operation.</p>
+            aws_sdk_kinesis_video.errors.client_limit_exceeded_exception.ClientLimitExceededException: <p>Kinesis Video Streams has throttled the request because you have exceeded the limit of allowed client calls. Try making the call later.</p>
+            aws_sdk_kinesis_video.errors.invalid_argument_exception.InvalidArgumentException: <p>The value for this input parameter is invalid.</p>
+            aws_sdk_kinesis_video.errors.resource_in_use_exception.ResourceInUseException: <p>When the input <code>StreamARN</code> or <code>ChannelARN</code> in <code>CLOUD_STORAGE_MODE</code> is already mapped to a different Kinesis Video Stream resource, or if the provided input <code>StreamARN</code> or <code>ChannelARN</code> is not in Active status, try one of the following : </p> <ol> <li> <p>The <code>DescribeMediaStorageConfiguration</code> API to determine what the stream given channel is mapped to. </p> </li> <li> <p>The <code>DescribeMappedResourceConfiguration</code> API to determine the channel that the given stream is mapped to. </p> </li> <li> <p>The <code>DescribeStream</code> or <code>DescribeSignalingChannel</code> API to determine the status of the resource. </p> </li> </ol>
+            aws_sdk_kinesis_video.errors.resource_not_found_exception.ResourceNotFoundException: <p>Amazon Kinesis Video Streams can't find the stream that you specified.</p>
+            aws_sdk_kinesis_video.errors.version_mismatch_exception.VersionMismatchException: <p>The stream version that you specified is not the latest version. To get the latest version, use the <a href=\"https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_DescribeStream.html\">DescribeStream</a> API.</p>
+            aws_sdk_kinesis_video.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(

@@ -350,6 +350,11 @@ class AutoScalingClient:
             instance_ids: <p>The IDs of the instances. You can specify up to 20 instances.</p>
             auto_scaling_group_name: <p>The name of the Auto Scaling group.</p>
 
+        Raises:
+            aws_sdk_auto_scaling.errors.resource_contention_fault.ResourceContentionFault: <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group, instance, or load balancer).</p>
+            aws_sdk_auto_scaling.errors.service_linked_role_failure.ServiceLinkedRoleFailure: <p>The service-linked role is not yet ready for use.</p>
+            aws_sdk_auto_scaling.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To attach an instance to an Auto Scaling group
             This example attaches the specified instance to the specified Auto Scaling group.
@@ -394,6 +399,12 @@ class AutoScalingClient:
         Args:
             auto_scaling_group_name: <p>The name of the Auto Scaling group.</p>
             load_balancer_names: <p>The names of the load balancers. You can specify up to 10 load balancers.</p>
+
+        Raises:
+            aws_sdk_auto_scaling.errors.instance_refresh_in_progress_fault.InstanceRefreshInProgressFault: <p>The request failed because an active instance refresh already exists for the specified Auto Scaling group.</p>
+            aws_sdk_auto_scaling.errors.resource_contention_fault.ResourceContentionFault: <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group, instance, or load balancer).</p>
+            aws_sdk_auto_scaling.errors.service_linked_role_failure.ServiceLinkedRoleFailure: <p>The service-linked role is not yet ready for use.</p>
+            aws_sdk_auto_scaling.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To attach a load balancer to an Auto Scaling group
@@ -440,6 +451,12 @@ class AutoScalingClient:
         Args:
             auto_scaling_group_name: <p>The name of the Auto Scaling group.</p>
             target_group_ar_ns: <p>The Amazon Resource Names (ARNs) of the target groups. You can specify up to 10 target groups. To get the ARN of a target group, use the Elastic Load Balancing <a href=\"https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_DescribeTargetGroups.html\">DescribeTargetGroups</a> API operation.</p>
+
+        Raises:
+            aws_sdk_auto_scaling.errors.instance_refresh_in_progress_fault.InstanceRefreshInProgressFault: <p>The request failed because an active instance refresh already exists for the specified Auto Scaling group.</p>
+            aws_sdk_auto_scaling.errors.resource_contention_fault.ResourceContentionFault: <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group, instance, or load balancer).</p>
+            aws_sdk_auto_scaling.errors.service_linked_role_failure.ServiceLinkedRoleFailure: <p>The service-linked role is not yet ready for use.</p>
+            aws_sdk_auto_scaling.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To attach a target group to an Auto Scaling group
@@ -491,6 +508,12 @@ class AutoScalingClient:
             traffic_sources: <p>The unique identifiers of one or more traffic sources. You can specify up to 10 traffic sources.</p>
             skip_zonal_shift_validation: <p> If you enable zonal shift with cross-zone disabled load balancers, capacity could become imbalanced across Availability Zones. To skip the validation, specify <code>true</code>. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-zonal-shift.html\">Auto Scaling group zonal shift</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>. </p>
 
+        Raises:
+            aws_sdk_auto_scaling.errors.instance_refresh_in_progress_fault.InstanceRefreshInProgressFault: <p>The request failed because an active instance refresh already exists for the specified Auto Scaling group.</p>
+            aws_sdk_auto_scaling.errors.resource_contention_fault.ResourceContentionFault: <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group, instance, or load balancer).</p>
+            aws_sdk_auto_scaling.errors.service_linked_role_failure.ServiceLinkedRoleFailure: <p>The service-linked role is not yet ready for use.</p>
+            aws_sdk_auto_scaling.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To attach a target group to an Auto Scaling group
             This example attaches the specified target group to the specified Auto Scaling group.
@@ -538,6 +561,10 @@ class AutoScalingClient:
         Args:
             auto_scaling_group_name: <p>The name of the Auto Scaling group.</p>
             scheduled_action_names: <p>The names of the scheduled actions to delete. The maximum number allowed is 50. </p>
+
+        Raises:
+            aws_sdk_auto_scaling.errors.resource_contention_fault.ResourceContentionFault: <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group, instance, or load balancer).</p>
+            aws_sdk_auto_scaling.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -578,6 +605,12 @@ class AutoScalingClient:
         Args:
             auto_scaling_group_name: <p>The name of the Auto Scaling group.</p>
             scheduled_update_group_actions: <p>One or more scheduled actions. The maximum number allowed is 50.</p>
+
+        Raises:
+            aws_sdk_auto_scaling.errors.already_exists_fault.AlreadyExistsFault: <p>You already have an Auto Scaling group or launch configuration with this name.</p>
+            aws_sdk_auto_scaling.errors.limit_exceeded_fault.LimitExceededFault: <p>You have already reached a limit for your Amazon EC2 Auto Scaling resources (for example, Auto Scaling groups, launch configurations, or lifecycle hooks). For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeAccountLimits.html\">DescribeAccountLimits</a> in the <i>Amazon EC2 Auto Scaling API Reference</i>.</p>
+            aws_sdk_auto_scaling.errors.resource_contention_fault.ResourceContentionFault: <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group, instance, or load balancer).</p>
+            aws_sdk_auto_scaling.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -620,6 +653,12 @@ class AutoScalingClient:
         Args:
             auto_scaling_group_name: <p>The name of the Auto Scaling group.</p>
             wait_for_transitioning_instances: <p>When cancelling an instance refresh, this indicates whether to wait for in-flight launches and terminations to complete. The default is true.</p> <p>When set to false, Amazon EC2 Auto Scaling cancels the instance refresh without waiting for any pending launches or terminations to complete.</p>
+
+        Raises:
+            aws_sdk_auto_scaling.errors.active_instance_refresh_not_found_fault.ActiveInstanceRefreshNotFoundFault: <p>The request failed because an active instance refresh or rollback for the specified Auto Scaling group was not found.</p>
+            aws_sdk_auto_scaling.errors.limit_exceeded_fault.LimitExceededFault: <p>You have already reached a limit for your Amazon EC2 Auto Scaling resources (for example, Auto Scaling groups, launch configurations, or lifecycle hooks). For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeAccountLimits.html\">DescribeAccountLimits</a> in the <i>Amazon EC2 Auto Scaling API Reference</i>.</p>
+            aws_sdk_auto_scaling.errors.resource_contention_fault.ResourceContentionFault: <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group, instance, or load balancer).</p>
+            aws_sdk_auto_scaling.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To cancel an instance refresh
@@ -679,6 +718,10 @@ class AutoScalingClient:
             lifecycle_action_token: <p>A universally unique identifier (UUID) that identifies a specific lifecycle action associated with an instance. Amazon EC2 Auto Scaling sends this token to the notification target you specified when you created the lifecycle hook.</p>
             lifecycle_action_result: <p>The action for the group to take. You can specify either <code>CONTINUE</code> or <code>ABANDON</code>.</p>
             instance_id: <p>The ID of the instance.</p>
+
+        Raises:
+            aws_sdk_auto_scaling.errors.resource_contention_fault.ResourceContentionFault: <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group, instance, or load balancer).</p>
+            aws_sdk_auto_scaling.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To complete the lifecycle action
@@ -856,6 +899,13 @@ class AutoScalingClient:
             skip_zonal_shift_validation: <p> If you enable zonal shift with cross-zone disabled load balancers, capacity could become imbalanced across Availability Zones. To skip the validation, specify <code>true</code>. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-zonal-shift.html\">Auto Scaling group zonal shift</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>. </p>
             capacity_reservation_specification: <p> The capacity reservation specification for the Auto Scaling group. </p>
             instance_lifecycle_policy: <p> The instance lifecycle policy for the Auto Scaling group. This policy controls instance behavior when an instance transitions through its lifecycle states. Configure retention triggers to specify when instances should move to a <code>Retained</code> state instead of automatic termination. </p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/instance-lifecycle-policy.html\"> Control instance retention with instance lifecycle policies</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>. </p> <note> <p>Instances in a Retained state will continue to incur standard EC2 charges until terminated.</p> </note>
+
+        Raises:
+            aws_sdk_auto_scaling.errors.already_exists_fault.AlreadyExistsFault: <p>You already have an Auto Scaling group or launch configuration with this name.</p>
+            aws_sdk_auto_scaling.errors.limit_exceeded_fault.LimitExceededFault: <p>You have already reached a limit for your Amazon EC2 Auto Scaling resources (for example, Auto Scaling groups, launch configurations, or lifecycle hooks). For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeAccountLimits.html\">DescribeAccountLimits</a> in the <i>Amazon EC2 Auto Scaling API Reference</i>.</p>
+            aws_sdk_auto_scaling.errors.resource_contention_fault.ResourceContentionFault: <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group, instance, or load balancer).</p>
+            aws_sdk_auto_scaling.errors.service_linked_role_failure.ServiceLinkedRoleFailure: <p>The service-linked role is not yet ready for use.</p>
+            aws_sdk_auto_scaling.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To create an Auto Scaling group with an attached target group
@@ -1054,6 +1104,12 @@ class AutoScalingClient:
             placement_tenancy: <p>The tenancy of the instance, either <code>default</code> or <code>dedicated</code>. An instance with <code>dedicated</code> tenancy runs on isolated, single-tenant hardware and can only be launched into a VPC. To launch dedicated instances into a shared tenancy VPC (a VPC with the instance placement tenancy attribute set to <code>default</code>), you must set the value of this property to <code>dedicated</code>.</p> <p>If you specify <code>PlacementTenancy</code>, you must specify at least one subnet for <code>VPCZoneIdentifier</code> when you create your group.</p> <p>Valid values: <code>default</code> | <code>dedicated</code> </p>
             metadata_options: <p>The metadata options for the instances. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-launch-config.html#launch-configurations-imds\">Configure the instance metadata options</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
 
+        Raises:
+            aws_sdk_auto_scaling.errors.already_exists_fault.AlreadyExistsFault: <p>You already have an Auto Scaling group or launch configuration with this name.</p>
+            aws_sdk_auto_scaling.errors.limit_exceeded_fault.LimitExceededFault: <p>You have already reached a limit for your Amazon EC2 Auto Scaling resources (for example, Auto Scaling groups, launch configurations, or lifecycle hooks). For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeAccountLimits.html\">DescribeAccountLimits</a> in the <i>Amazon EC2 Auto Scaling API Reference</i>.</p>
+            aws_sdk_auto_scaling.errors.resource_contention_fault.ResourceContentionFault: <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group, instance, or load balancer).</p>
+            aws_sdk_auto_scaling.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To create a launch configuration
             This example creates a launch configuration.
@@ -1133,6 +1189,13 @@ class AutoScalingClient:
         Args:
             tags: <p>One or more tags.</p>
 
+        Raises:
+            aws_sdk_auto_scaling.errors.already_exists_fault.AlreadyExistsFault: <p>You already have an Auto Scaling group or launch configuration with this name.</p>
+            aws_sdk_auto_scaling.errors.limit_exceeded_fault.LimitExceededFault: <p>You have already reached a limit for your Amazon EC2 Auto Scaling resources (for example, Auto Scaling groups, launch configurations, or lifecycle hooks). For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeAccountLimits.html\">DescribeAccountLimits</a> in the <i>Amazon EC2 Auto Scaling API Reference</i>.</p>
+            aws_sdk_auto_scaling.errors.resource_contention_fault.ResourceContentionFault: <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group, instance, or load balancer).</p>
+            aws_sdk_auto_scaling.errors.resource_in_use_fault.ResourceInUseFault: <p>The operation can't be performed because the resource is in use.</p>
+            aws_sdk_auto_scaling.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To create or update tags for an Auto Scaling group
             This example adds two tags to the specified Auto Scaling group.
@@ -1177,6 +1240,12 @@ class AutoScalingClient:
         Args:
             auto_scaling_group_name: <p>The name of the Auto Scaling group.</p>
             force_delete: <p>Specifies that the group is to be deleted along with all instances associated with the group, without waiting for all instances to be terminated. This action also deletes any outstanding lifecycle actions associated with the group.</p>
+
+        Raises:
+            aws_sdk_auto_scaling.errors.resource_contention_fault.ResourceContentionFault: <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group, instance, or load balancer).</p>
+            aws_sdk_auto_scaling.errors.resource_in_use_fault.ResourceInUseFault: <p>The operation can't be performed because the resource is in use.</p>
+            aws_sdk_auto_scaling.errors.scaling_activity_in_progress_fault.ScalingActivityInProgressFault: <p>The operation can't be performed because there are scaling activities in progress.</p>
+            aws_sdk_auto_scaling.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To delete an Auto Scaling group
@@ -1225,6 +1294,11 @@ class AutoScalingClient:
         Args:
             launch_configuration_name: <p>The name of the launch configuration.</p>
 
+        Raises:
+            aws_sdk_auto_scaling.errors.resource_contention_fault.ResourceContentionFault: <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group, instance, or load balancer).</p>
+            aws_sdk_auto_scaling.errors.resource_in_use_fault.ResourceInUseFault: <p>The operation can't be performed because the resource is in use.</p>
+            aws_sdk_auto_scaling.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To delete a launch configuration
             This example deletes the specified launch configuration.
@@ -1267,6 +1341,10 @@ class AutoScalingClient:
         Args:
             lifecycle_hook_name: <p>The name of the lifecycle hook.</p>
             auto_scaling_group_name: <p>The name of the Auto Scaling group.</p>
+
+        Raises:
+            aws_sdk_auto_scaling.errors.resource_contention_fault.ResourceContentionFault: <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group, instance, or load balancer).</p>
+            aws_sdk_auto_scaling.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To delete a lifecycle hook
@@ -1314,6 +1392,10 @@ class AutoScalingClient:
             auto_scaling_group_name: <p>The name of the Auto Scaling group.</p>
             topic_arn: <p>The Amazon Resource Name (ARN) of the Amazon SNS topic.</p>
 
+        Raises:
+            aws_sdk_auto_scaling.errors.resource_contention_fault.ResourceContentionFault: <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group, instance, or load balancer).</p>
+            aws_sdk_auto_scaling.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To delete an Auto Scaling notification
             This example deletes the specified notification from the specified Auto Scaling group.
@@ -1360,6 +1442,11 @@ class AutoScalingClient:
             auto_scaling_group_name: <p>The name of the Auto Scaling group.</p>
             policy_name: <p>The name or Amazon Resource Name (ARN) of the policy.</p>
 
+        Raises:
+            aws_sdk_auto_scaling.errors.resource_contention_fault.ResourceContentionFault: <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group, instance, or load balancer).</p>
+            aws_sdk_auto_scaling.errors.service_linked_role_failure.ServiceLinkedRoleFailure: <p>The service-linked role is not yet ready for use.</p>
+            aws_sdk_auto_scaling.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To delete an Auto Scaling policy
             This example deletes the specified Auto Scaling policy.
@@ -1405,6 +1492,10 @@ class AutoScalingClient:
             auto_scaling_group_name: <p>The name of the Auto Scaling group.</p>
             scheduled_action_name: <p>The name of the action to delete.</p>
 
+        Raises:
+            aws_sdk_auto_scaling.errors.resource_contention_fault.ResourceContentionFault: <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group, instance, or load balancer).</p>
+            aws_sdk_auto_scaling.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To delete a scheduled action from an Auto Scaling group
             This example deletes the specified scheduled action from the specified Auto Scaling group.
@@ -1446,6 +1537,11 @@ class AutoScalingClient:
 
         Args:
             tags: <p>One or more tags.</p>
+
+        Raises:
+            aws_sdk_auto_scaling.errors.resource_contention_fault.ResourceContentionFault: <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group, instance, or load balancer).</p>
+            aws_sdk_auto_scaling.errors.resource_in_use_fault.ResourceInUseFault: <p>The operation can't be performed because the resource is in use.</p>
+            aws_sdk_auto_scaling.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To delete a tag from an Auto Scaling group
@@ -1491,6 +1587,13 @@ class AutoScalingClient:
         Args:
             auto_scaling_group_name: <p>The name of the Auto Scaling group.</p>
             force_delete: <p>Specifies that the warm pool is to be deleted along with all of its associated instances, without waiting for all instances to be terminated. This parameter also deletes any outstanding lifecycle actions associated with the warm pool instances.</p>
+
+        Raises:
+            aws_sdk_auto_scaling.errors.limit_exceeded_fault.LimitExceededFault: <p>You have already reached a limit for your Amazon EC2 Auto Scaling resources (for example, Auto Scaling groups, launch configurations, or lifecycle hooks). For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeAccountLimits.html\">DescribeAccountLimits</a> in the <i>Amazon EC2 Auto Scaling API Reference</i>.</p>
+            aws_sdk_auto_scaling.errors.resource_contention_fault.ResourceContentionFault: <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group, instance, or load balancer).</p>
+            aws_sdk_auto_scaling.errors.resource_in_use_fault.ResourceInUseFault: <p>The operation can't be performed because the resource is in use.</p>
+            aws_sdk_auto_scaling.errors.scaling_activity_in_progress_fault.ScalingActivityInProgressFault: <p>The operation can't be performed because there are scaling activities in progress.</p>
+            aws_sdk_auto_scaling.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1524,6 +1627,10 @@ class AutoScalingClient:
         self, *, config_overrides: Optional[AutoScalingClientConfig] = None
     ) -> "aws_sdk_auto_scaling.types.describe_account_limits_answer.DescribeAccountLimitsAnswer":
         r"""<p>Describes the current Amazon EC2 Auto Scaling resource quotas for your account.</p> <p>When you establish an Amazon Web Services account, the account has initial quotas on the maximum number of Auto Scaling groups and launch configurations that you can create in a given Region. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-quotas.html\">Quotas for Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+
+        Raises:
+            aws_sdk_auto_scaling.errors.resource_contention_fault.ResourceContentionFault: <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group, instance, or load balancer).</p>
+            aws_sdk_auto_scaling.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To describe your Auto Scaling account limits
@@ -1559,6 +1666,10 @@ class AutoScalingClient:
         self, *, config_overrides: Optional[AutoScalingClientConfig] = None
     ) -> "aws_sdk_auto_scaling.types.describe_adjustment_types_answer.DescribeAdjustmentTypesAnswer":
         """<p>Describes the available adjustment types for step scaling and simple scaling policies.</p> <p>The following adjustment types are supported:</p> <ul> <li> <p> <code>ChangeInCapacity</code> </p> </li> <li> <p> <code>ExactCapacity</code> </p> </li> <li> <p> <code>PercentChangeInCapacity</code> </p> </li> </ul>
+
+        Raises:
+            aws_sdk_auto_scaling.errors.resource_contention_fault.ResourceContentionFault: <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group, instance, or load balancer).</p>
+            aws_sdk_auto_scaling.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To describe the Amazon EC2 Auto Scaling adjustment types
@@ -1614,6 +1725,11 @@ class AutoScalingClient:
             next_token: <p>The token for the next set of items to return. (You received this token from a previous call.)</p>
             max_records: <p>The maximum number of items to return with this call. The default value is <code>50</code> and the maximum value is <code>100</code>.</p>
             filters: <p>One or more filters to limit the results based on specific tags. </p>
+
+        Raises:
+            aws_sdk_auto_scaling.errors.invalid_next_token.InvalidNextToken: <p>The <code>NextToken</code> value is not valid.</p>
+            aws_sdk_auto_scaling.errors.resource_contention_fault.ResourceContentionFault: <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group, instance, or load balancer).</p>
+            aws_sdk_auto_scaling.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To describe an Auto Scaling group
@@ -1708,6 +1824,11 @@ class AutoScalingClient:
             max_records: <p>The maximum number of items to return with this call. The default value is <code>50</code> and the maximum value is <code>50</code>.</p>
             next_token: <p>The token for the next set of items to return. (You received this token from a previous call.)</p>
 
+        Raises:
+            aws_sdk_auto_scaling.errors.invalid_next_token.InvalidNextToken: <p>The <code>NextToken</code> value is not valid.</p>
+            aws_sdk_auto_scaling.errors.resource_contention_fault.ResourceContentionFault: <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group, instance, or load balancer).</p>
+            aws_sdk_auto_scaling.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To describe one or more Auto Scaling instances
             This example describes the specified Auto Scaling instance.
@@ -1777,6 +1898,10 @@ class AutoScalingClient:
     ) -> "aws_sdk_auto_scaling.types.describe_auto_scaling_notification_types_answer.DescribeAutoScalingNotificationTypesAnswer":
         """<p>Describes the notification types that are supported by Amazon EC2 Auto Scaling.</p>
 
+        Raises:
+            aws_sdk_auto_scaling.errors.resource_contention_fault.ResourceContentionFault: <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group, instance, or load balancer).</p>
+            aws_sdk_auto_scaling.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To describe the Auto Scaling notification types
             This example describes the available notification types.
@@ -1827,6 +1952,11 @@ class AutoScalingClient:
             instance_refresh_ids: <p>One or more instance refresh IDs.</p>
             next_token: <p>The token for the next set of items to return. (You received this token from a previous call.)</p>
             max_records: <p>The maximum number of items to return with this call. The default value is <code>50</code> and the maximum value is <code>100</code>.</p>
+
+        Raises:
+            aws_sdk_auto_scaling.errors.invalid_next_token.InvalidNextToken: <p>The <code>NextToken</code> value is not valid.</p>
+            aws_sdk_auto_scaling.errors.resource_contention_fault.ResourceContentionFault: <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group, instance, or load balancer).</p>
+            aws_sdk_auto_scaling.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1880,6 +2010,11 @@ class AutoScalingClient:
             launch_configuration_names: <p>The launch configuration names. If you omit this property, all launch configurations are described.</p> <p>Array Members: Maximum number of 50 items.</p>
             next_token: <p>The token for the next set of items to return. (You received this token from a previous call.)</p>
             max_records: <p>The maximum number of items to return with this call. The default value is <code>50</code> and the maximum value is <code>100</code>.</p>
+
+        Raises:
+            aws_sdk_auto_scaling.errors.invalid_next_token.InvalidNextToken: <p>The <code>NextToken</code> value is not valid.</p>
+            aws_sdk_auto_scaling.errors.resource_contention_fault.ResourceContentionFault: <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group, instance, or load balancer).</p>
+            aws_sdk_auto_scaling.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To describe Auto Scaling launch configurations
@@ -1962,6 +2097,10 @@ class AutoScalingClient:
             auto_scaling_group_name: <p>The name of the Auto Scaling group.</p>
             lifecycle_hook_names: <p>The names of one or more lifecycle hooks. If you omit this property, all lifecycle hooks are described.</p>
 
+        Raises:
+            aws_sdk_auto_scaling.errors.resource_contention_fault.ResourceContentionFault: <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group, instance, or load balancer).</p>
+            aws_sdk_auto_scaling.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To describe your lifecycle hooks
             This example describes the lifecycle hooks for the specified Auto Scaling group.
@@ -2000,6 +2139,10 @@ class AutoScalingClient:
         self, *, config_overrides: Optional[AutoScalingClientConfig] = None
     ) -> "aws_sdk_auto_scaling.types.describe_lifecycle_hook_types_answer.DescribeLifecycleHookTypesAnswer":
         """<p>Describes the available types of lifecycle hooks.</p> <p>The following hook types are supported:</p> <ul> <li> <p> <code>autoscaling:EC2_INSTANCE_LAUNCHING</code> </p> </li> <li> <p> <code>autoscaling:EC2_INSTANCE_TERMINATING</code> </p> </li> </ul>
+
+        Raises:
+            aws_sdk_auto_scaling.errors.resource_contention_fault.ResourceContentionFault: <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group, instance, or load balancer).</p>
+            aws_sdk_auto_scaling.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To describe the available types of lifecycle hooks
@@ -2047,6 +2190,11 @@ class AutoScalingClient:
             auto_scaling_group_name: <p>The name of the Auto Scaling group.</p>
             next_token: <p>The token for the next set of items to return. (You received this token from a previous call.)</p>
             max_records: <p>The maximum number of items to return with this call. The default value is <code>100</code> and the maximum value is <code>100</code>.</p>
+
+        Raises:
+            aws_sdk_auto_scaling.errors.invalid_next_token.InvalidNextToken: <p>The <code>NextToken</code> value is not valid.</p>
+            aws_sdk_auto_scaling.errors.resource_contention_fault.ResourceContentionFault: <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group, instance, or load balancer).</p>
+            aws_sdk_auto_scaling.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To describe the load balancers for an Auto Scaling group
@@ -2101,6 +2249,11 @@ class AutoScalingClient:
             next_token: <p>The token for the next set of items to return. (You received this token from a previous call.)</p>
             max_records: <p>The maximum number of items to return with this call. The default value is <code>100</code> and the maximum value is <code>100</code>.</p>
 
+        Raises:
+            aws_sdk_auto_scaling.errors.invalid_next_token.InvalidNextToken: <p>The <code>NextToken</code> value is not valid.</p>
+            aws_sdk_auto_scaling.errors.resource_contention_fault.ResourceContentionFault: <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group, instance, or load balancer).</p>
+            aws_sdk_auto_scaling.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To describe the target groups for an Auto Scaling group
             This example describes the target groups attached to the specified Auto Scaling group.
@@ -2141,6 +2294,10 @@ class AutoScalingClient:
         self, *, config_overrides: Optional[AutoScalingClientConfig] = None
     ) -> "aws_sdk_auto_scaling.types.describe_metric_collection_types_answer.DescribeMetricCollectionTypesAnswer":
         """<p>Describes the available CloudWatch metrics for Amazon EC2 Auto Scaling.</p>
+
+        Raises:
+            aws_sdk_auto_scaling.errors.resource_contention_fault.ResourceContentionFault: <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group, instance, or load balancer).</p>
+            aws_sdk_auto_scaling.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To describe the Auto Scaling metric collection types
@@ -2190,6 +2347,11 @@ class AutoScalingClient:
             auto_scaling_group_names: <p>The name of the Auto Scaling group.</p>
             next_token: <p>The token for the next set of items to return. (You received this token from a previous call.)</p>
             max_records: <p>The maximum number of items to return with this call. The default value is <code>50</code> and the maximum value is <code>100</code>.</p>
+
+        Raises:
+            aws_sdk_auto_scaling.errors.invalid_next_token.InvalidNextToken: <p>The <code>NextToken</code> value is not valid.</p>
+            aws_sdk_auto_scaling.errors.resource_contention_fault.ResourceContentionFault: <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group, instance, or load balancer).</p>
+            aws_sdk_auto_scaling.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To describe Auto Scaling notification configurations
@@ -2281,6 +2443,12 @@ class AutoScalingClient:
             policy_types: <p>One or more policy types. The valid values are <code>SimpleScaling</code>, <code>StepScaling</code>, <code>TargetTrackingScaling</code>, and <code>PredictiveScaling</code>.</p>
             next_token: <p>The token for the next set of items to return. (You received this token from a previous call.)</p>
             max_records: <p>The maximum number of items to be returned with each call. The default value is <code>50</code> and the maximum value is <code>100</code>.</p>
+
+        Raises:
+            aws_sdk_auto_scaling.errors.invalid_next_token.InvalidNextToken: <p>The <code>NextToken</code> value is not valid.</p>
+            aws_sdk_auto_scaling.errors.resource_contention_fault.ResourceContentionFault: <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group, instance, or load balancer).</p>
+            aws_sdk_auto_scaling.errors.service_linked_role_failure.ServiceLinkedRoleFailure: <p>The service-linked role is not yet ready for use.</p>
+            aws_sdk_auto_scaling.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To describe scaling policies
@@ -2385,6 +2553,11 @@ class AutoScalingClient:
             next_token: <p>The token for the next set of items to return. (You received this token from a previous call.)</p>
             filters: <p> One or more filters to limit the results based on specific criteria. The following filters are supported: </p> <ul> <li> <p> <code>StartTimeLowerBound</code> - The earliest scaling activities to return based on the activity start time. Scaling activities with a start time earlier than this value are not included in the results. Only activities started within the last six weeks can be returned regardless of the value specified. </p> </li> <li> <p> <code>StartTimeUpperBound</code> - The latest scaling activities to return based on the activity start time. Scaling activities with a start time later than this value are not included in the results. Only activities started within the last six weeks can be returned regardless of the value specified. </p> </li> <li> <p> <code>Status</code> - The <code>StatusCode</code> value of the scaling activity. This filter can only be used in combination with the <code>AutoScalingGroupName</code> parameter. For valid <code>StatusCode</code> values, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_Activity.html\">Activity</a> in the <i>Amazon EC2 Auto Scaling API Reference</i>. </p> </li> </ul> <p> <code>StartTimeLowerBound</code> and <code>StartTimeUpperBound</code> accept ISO 8601 formatted timestamps. Timestamps without a timezone offset are assumed to be UTC. </p> <ul> <li> <p> <code>2000-01-18T08:15:00Z</code> </p> </li> <li> <p> <code>2000-01-18T16:15:00+08:00</code> </p> </li> </ul>
 
+        Raises:
+            aws_sdk_auto_scaling.errors.invalid_next_token.InvalidNextToken: <p>The <code>NextToken</code> value is not valid.</p>
+            aws_sdk_auto_scaling.errors.resource_contention_fault.ResourceContentionFault: <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group, instance, or load balancer).</p>
+            aws_sdk_auto_scaling.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To describe the scaling activities for an Auto Scaling group
             This example describes the scaling activities for the specified Auto Scaling group.
@@ -2470,6 +2643,10 @@ class AutoScalingClient:
     ) -> "aws_sdk_auto_scaling.types.processes_type.ProcessesType":
         r"""<p>Describes the scaling process types for use with the <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_ResumeProcesses.html\">ResumeProcesses</a> and <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_SuspendProcesses.html\">SuspendProcesses</a> APIs.</p>
 
+        Raises:
+            aws_sdk_auto_scaling.errors.resource_contention_fault.ResourceContentionFault: <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group, instance, or load balancer).</p>
+            aws_sdk_auto_scaling.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To describe the Auto Scaling process types
             This example describes the Auto Scaling process types.
@@ -2530,6 +2707,11 @@ class AutoScalingClient:
             end_time: <p>The latest scheduled start time to return. If scheduled action names are provided, this property is ignored.</p>
             next_token: <p>The token for the next set of items to return. (You received this token from a previous call.)</p>
             max_records: <p>The maximum number of items to return with this call. The default value is <code>50</code> and the maximum value is <code>100</code>.</p>
+
+        Raises:
+            aws_sdk_auto_scaling.errors.invalid_next_token.InvalidNextToken: <p>The <code>NextToken</code> value is not valid.</p>
+            aws_sdk_auto_scaling.errors.resource_contention_fault.ResourceContentionFault: <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group, instance, or load balancer).</p>
+            aws_sdk_auto_scaling.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To describe scheduled actions
@@ -2630,6 +2812,11 @@ class AutoScalingClient:
             next_token: <p>The token for the next set of items to return. (You received this token from a previous call.)</p>
             max_records: <p>The maximum number of items to return with this call. The default value is <code>50</code> and the maximum value is <code>100</code>.</p>
 
+        Raises:
+            aws_sdk_auto_scaling.errors.invalid_next_token.InvalidNextToken: <p>The <code>NextToken</code> value is not valid.</p>
+            aws_sdk_auto_scaling.errors.resource_contention_fault.ResourceContentionFault: <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group, instance, or load balancer).</p>
+            aws_sdk_auto_scaling.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To describe tags
             This example describes the tags for the specified Auto Scaling group.
@@ -2695,6 +2882,10 @@ class AutoScalingClient:
     ) -> "aws_sdk_auto_scaling.types.describe_termination_policy_types_answer.DescribeTerminationPolicyTypesAnswer":
         r"""<p>Describes the termination policies supported by Amazon EC2 Auto Scaling.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-termination-policies.html\">Configure termination policies for Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
 
+        Raises:
+            aws_sdk_auto_scaling.errors.resource_contention_fault.ResourceContentionFault: <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group, instance, or load balancer).</p>
+            aws_sdk_auto_scaling.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To describe termination policy types
             This example describes the available termination policy types.
@@ -2745,6 +2936,11 @@ class AutoScalingClient:
             traffic_source_type: <p>The traffic source type that you want to describe.</p> <p>The following lists the valid values:</p> <ul> <li> <p> <code>elb</code> if the traffic source is a Classic Load Balancer.</p> </li> <li> <p> <code>elbv2</code> if the traffic source is a Application Load Balancer, Gateway Load Balancer, or Network Load Balancer.</p> </li> <li> <p> <code>vpc-lattice</code> if the traffic source is VPC Lattice.</p> </li> </ul>
             next_token: <p>The token for the next set of items to return. (You received this token from a previous call.)</p>
             max_records: <p>The maximum number of items to return with this call. The maximum value is <code>50</code>.</p>
+
+        Raises:
+            aws_sdk_auto_scaling.errors.invalid_next_token.InvalidNextToken: <p>The <code>NextToken</code> value is not valid.</p>
+            aws_sdk_auto_scaling.errors.resource_contention_fault.ResourceContentionFault: <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group, instance, or load balancer).</p>
+            aws_sdk_auto_scaling.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To describe the target groups for an Auto Scaling group
@@ -2800,6 +2996,12 @@ class AutoScalingClient:
             auto_scaling_group_name: <p>The name of the Auto Scaling group.</p>
             max_records: <p>The maximum number of instances to return with this call. The maximum value is <code>50</code>.</p>
             next_token: <p>The token for the next set of instances to return. (You received this token from a previous call.)</p>
+
+        Raises:
+            aws_sdk_auto_scaling.errors.invalid_next_token.InvalidNextToken: <p>The <code>NextToken</code> value is not valid.</p>
+            aws_sdk_auto_scaling.errors.limit_exceeded_fault.LimitExceededFault: <p>You have already reached a limit for your Amazon EC2 Auto Scaling resources (for example, Auto Scaling groups, launch configurations, or lifecycle hooks). For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeAccountLimits.html\">DescribeAccountLimits</a> in the <i>Amazon EC2 Auto Scaling API Reference</i>.</p>
+            aws_sdk_auto_scaling.errors.resource_contention_fault.ResourceContentionFault: <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group, instance, or load balancer).</p>
+            aws_sdk_auto_scaling.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2873,6 +3075,10 @@ class AutoScalingClient:
             auto_scaling_group_name: <p>The name of the Auto Scaling group.</p>
             should_decrement_desired_capacity: <p>Indicates whether the Auto Scaling group decrements the desired capacity value by the number of instances detached.</p>
 
+        Raises:
+            aws_sdk_auto_scaling.errors.resource_contention_fault.ResourceContentionFault: <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group, instance, or load balancer).</p>
+            aws_sdk_auto_scaling.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To detach an instance from an Auto Scaling group
             This example detaches the specified instance from the specified Auto Scaling group.
@@ -2921,6 +3127,10 @@ class AutoScalingClient:
             auto_scaling_group_name: <p>The name of the Auto Scaling group.</p>
             load_balancer_names: <p>The names of the load balancers. You can specify up to 10 load balancers.</p>
 
+        Raises:
+            aws_sdk_auto_scaling.errors.resource_contention_fault.ResourceContentionFault: <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group, instance, or load balancer).</p>
+            aws_sdk_auto_scaling.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To detach a load balancer from an Auto Scaling group
             This example detaches the specified load balancer from the specified Auto Scaling group.
@@ -2966,6 +3176,10 @@ class AutoScalingClient:
         Args:
             auto_scaling_group_name: <p>The name of the Auto Scaling group.</p>
             target_group_ar_ns: <p>The Amazon Resource Names (ARN) of the target groups. You can specify up to 10 target groups.</p>
+
+        Raises:
+            aws_sdk_auto_scaling.errors.resource_contention_fault.ResourceContentionFault: <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group, instance, or load balancer).</p>
+            aws_sdk_auto_scaling.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To detach a target group from an Auto Scaling group
@@ -3013,6 +3227,10 @@ class AutoScalingClient:
             auto_scaling_group_name: <p>The name of the Auto Scaling group.</p>
             traffic_sources: <p>The unique identifiers of one or more traffic sources. You can specify up to 10 traffic sources.</p>
 
+        Raises:
+            aws_sdk_auto_scaling.errors.resource_contention_fault.ResourceContentionFault: <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group, instance, or load balancer).</p>
+            aws_sdk_auto_scaling.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To detach a target group from an Auto Scaling group
             This example detaches the specified target group from the specified Auto Scaling group.
@@ -3058,6 +3276,10 @@ class AutoScalingClient:
         Args:
             auto_scaling_group_name: <p>The name of the Auto Scaling group.</p>
             metrics: <p>Identifies the metrics to disable.</p> <p>You can specify one or more of the following metrics:</p> <ul> <li> <p> <code>GroupMinSize</code> </p> </li> <li> <p> <code>GroupMaxSize</code> </p> </li> <li> <p> <code>GroupDesiredCapacity</code> </p> </li> <li> <p> <code>GroupInServiceInstances</code> </p> </li> <li> <p> <code>GroupPendingInstances</code> </p> </li> <li> <p> <code>GroupStandbyInstances</code> </p> </li> <li> <p> <code>GroupTerminatingInstances</code> </p> </li> <li> <p> <code>GroupTotalInstances</code> </p> </li> <li> <p> <code>GroupInServiceCapacity</code> </p> </li> <li> <p> <code>GroupPendingCapacity</code> </p> </li> <li> <p> <code>GroupStandbyCapacity</code> </p> </li> <li> <p> <code>GroupTerminatingCapacity</code> </p> </li> <li> <p> <code>GroupTotalCapacity</code> </p> </li> <li> <p> <code>WarmPoolDesiredCapacity</code> </p> </li> <li> <p> <code>WarmPoolWarmedCapacity</code> </p> </li> <li> <p> <code>WarmPoolPendingCapacity</code> </p> </li> <li> <p> <code>WarmPoolTerminatingCapacity</code> </p> </li> <li> <p> <code>WarmPoolTotalCapacity</code> </p> </li> <li> <p> <code>GroupAndWarmPoolDesiredCapacity</code> </p> </li> <li> <p> <code>GroupAndWarmPoolTotalCapacity</code> </p> </li> </ul> <p>If you omit this property, all metrics are disabled.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-metrics.html\">Amazon CloudWatch metrics for Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+
+        Raises:
+            aws_sdk_auto_scaling.errors.resource_contention_fault.ResourceContentionFault: <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group, instance, or load balancer).</p>
+            aws_sdk_auto_scaling.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To disable metrics collection for an Auto Scaling group
@@ -3105,6 +3327,10 @@ class AutoScalingClient:
             auto_scaling_group_name: <p>The name of the Auto Scaling group.</p>
             metrics: <p>Identifies the metrics to enable.</p> <p>You can specify one or more of the following metrics:</p> <ul> <li> <p> <code>GroupMinSize</code> </p> </li> <li> <p> <code>GroupMaxSize</code> </p> </li> <li> <p> <code>GroupDesiredCapacity</code> </p> </li> <li> <p> <code>GroupInServiceInstances</code> </p> </li> <li> <p> <code>GroupPendingInstances</code> </p> </li> <li> <p> <code>GroupStandbyInstances</code> </p> </li> <li> <p> <code>GroupTerminatingInstances</code> </p> </li> <li> <p> <code>GroupTotalInstances</code> </p> </li> <li> <p> <code>GroupInServiceCapacity</code> </p> </li> <li> <p> <code>GroupPendingCapacity</code> </p> </li> <li> <p> <code>GroupStandbyCapacity</code> </p> </li> <li> <p> <code>GroupTerminatingCapacity</code> </p> </li> <li> <p> <code>GroupTotalCapacity</code> </p> </li> <li> <p> <code>WarmPoolDesiredCapacity</code> </p> </li> <li> <p> <code>WarmPoolWarmedCapacity</code> </p> </li> <li> <p> <code>WarmPoolPendingCapacity</code> </p> </li> <li> <p> <code>WarmPoolTerminatingCapacity</code> </p> </li> <li> <p> <code>WarmPoolTotalCapacity</code> </p> </li> <li> <p> <code>GroupAndWarmPoolDesiredCapacity</code> </p> </li> <li> <p> <code>GroupAndWarmPoolTotalCapacity</code> </p> </li> </ul> <p>If you specify <code>Granularity</code> and don't specify any metrics, all metrics are enabled.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-metrics.html\">Amazon CloudWatch metrics for Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
             granularity: <p>The frequency at which Amazon EC2 Auto Scaling sends aggregated data to CloudWatch. The only valid value is <code>1Minute</code>.</p>
+
+        Raises:
+            aws_sdk_auto_scaling.errors.resource_contention_fault.ResourceContentionFault: <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group, instance, or load balancer).</p>
+            aws_sdk_auto_scaling.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To enable metrics collection for an Auto Scaling group
@@ -3155,6 +3381,10 @@ class AutoScalingClient:
             instance_ids: <p>The IDs of the instances. You can specify up to 20 instances.</p>
             auto_scaling_group_name: <p>The name of the Auto Scaling group.</p>
             should_decrement_desired_capacity: <p>Indicates whether to decrement the desired capacity of the Auto Scaling group by the number of instances moved to <code>Standby</code> mode.</p>
+
+        Raises:
+            aws_sdk_auto_scaling.errors.resource_contention_fault.ResourceContentionFault: <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group, instance, or load balancer).</p>
+            aws_sdk_auto_scaling.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To move instances into standby mode
@@ -3218,6 +3448,11 @@ class AutoScalingClient:
             metric_value: <p>The metric value to compare to <code>BreachThreshold</code>. This enables you to execute a policy of type <code>StepScaling</code> and determine which step adjustment to use. For example, if the breach threshold is 50 and you want to use a step adjustment with a lower bound of 0 and an upper bound of 10, you can set the metric value to 59.</p> <p>If you specify a metric value that doesn't correspond to a step adjustment for the policy, the call returns an error.</p> <p>Required if the policy type is <code>StepScaling</code> and not supported otherwise.</p>
             breach_threshold: <p>The breach threshold for the alarm.</p> <p>Required if the policy type is <code>StepScaling</code> and not supported otherwise.</p>
 
+        Raises:
+            aws_sdk_auto_scaling.errors.resource_contention_fault.ResourceContentionFault: <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group, instance, or load balancer).</p>
+            aws_sdk_auto_scaling.errors.scaling_activity_in_progress_fault.ScalingActivityInProgressFault: <p>The operation can't be performed because there are scaling activities in progress.</p>
+            aws_sdk_auto_scaling.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To execute a scaling policy
             This example executes the specified policy.
@@ -3271,6 +3506,10 @@ class AutoScalingClient:
             instance_ids: <p>The IDs of the instances. You can specify up to 20 instances.</p>
             auto_scaling_group_name: <p>The name of the Auto Scaling group.</p>
 
+        Raises:
+            aws_sdk_auto_scaling.errors.resource_contention_fault.ResourceContentionFault: <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group, instance, or load balancer).</p>
+            aws_sdk_auto_scaling.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To move instances out of standby mode
             This example moves the specified instance out of standby mode.
@@ -3321,6 +3560,10 @@ class AutoScalingClient:
             policy_name: <p>The name of the policy.</p>
             start_time: <p>The inclusive start time of the time range for the forecast data to get. At most, the date and time can be one year before the current date and time.</p>
             end_time: <p>The exclusive end time of the time range for the forecast data to get. The maximum time duration between the start and end time is 30 days. </p> <p>Although this parameter can accept a date and time that is more than two days in the future, the availability of forecast data has limits. Amazon EC2 Auto Scaling only issues forecasts for periods of two days in advance.</p>
+
+        Raises:
+            aws_sdk_auto_scaling.errors.resource_contention_fault.ResourceContentionFault: <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group, instance, or load balancer).</p>
+            aws_sdk_auto_scaling.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3381,6 +3624,11 @@ class AutoScalingClient:
             availability_zone_ids: <p> A list of Availability Zone IDs where instances should be launched. Must match or be included in the group's AZ configuration. You cannot specify both AvailabilityZones and AvailabilityZoneIds. Required for multi-AZ groups, optional for single-AZ groups. </p>
             subnet_ids: <p> The subnet IDs for the instance launch. Either <code>AvailabilityZones</code> or <code>SubnetIds</code> must be specified. If both are specified, the subnets must reside in the specified Availability Zones. </p>
             retry_strategy: <p> Specifies whether to retry asynchronously if the synchronous launch fails. Valid values are NONE (default, no async retry) and RETRY_WITH_GROUP_CONFIGURATION (increase desired capacity and retry with group configuration). </p>
+
+        Raises:
+            aws_sdk_auto_scaling.errors.idempotent_parameter_mismatch_error.IdempotentParameterMismatchError: <p> Indicates that the parameters in the current request do not match the parameters from a previous request with the same client token within the idempotency window. </p>
+            aws_sdk_auto_scaling.errors.resource_contention_fault.ResourceContentionFault: <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group, instance, or load balancer).</p>
+            aws_sdk_auto_scaling.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3455,6 +3703,11 @@ class AutoScalingClient:
             heartbeat_timeout: <p>The maximum time, in seconds, that can elapse before the lifecycle hook times out. The range is from <code>30</code> to <code>7200</code> seconds. The default value is <code>3600</code> seconds (1 hour).</p>
             default_result: <p>The action the Auto Scaling group takes when the lifecycle hook timeout elapses or if an unexpected failure occurs. The default value is <code>ABANDON</code>.</p> <p>Valid values: <code>CONTINUE</code> | <code>ABANDON</code> </p>
 
+        Raises:
+            aws_sdk_auto_scaling.errors.limit_exceeded_fault.LimitExceededFault: <p>You have already reached a limit for your Amazon EC2 Auto Scaling resources (for example, Auto Scaling groups, launch configurations, or lifecycle hooks). For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeAccountLimits.html\">DescribeAccountLimits</a> in the <i>Amazon EC2 Auto Scaling API Reference</i>.</p>
+            aws_sdk_auto_scaling.errors.resource_contention_fault.ResourceContentionFault: <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group, instance, or load balancer).</p>
+            aws_sdk_auto_scaling.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To create a launch lifecycle hook
             This example creates a lifecycle hook for instance launch.
@@ -3514,6 +3767,12 @@ class AutoScalingClient:
             auto_scaling_group_name: <p>The name of the Auto Scaling group.</p>
             topic_arn: <p>The Amazon Resource Name (ARN) of the Amazon SNS topic.</p>
             notification_types: <p>The type of event that causes the notification to be sent. To query the notification types supported by Amazon EC2 Auto Scaling, call the <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeAutoScalingNotificationTypes.html\">DescribeAutoScalingNotificationTypes</a> API.</p>
+
+        Raises:
+            aws_sdk_auto_scaling.errors.limit_exceeded_fault.LimitExceededFault: <p>You have already reached a limit for your Amazon EC2 Auto Scaling resources (for example, Auto Scaling groups, launch configurations, or lifecycle hooks). For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeAccountLimits.html\">DescribeAccountLimits</a> in the <i>Amazon EC2 Auto Scaling API Reference</i>.</p>
+            aws_sdk_auto_scaling.errors.resource_contention_fault.ResourceContentionFault: <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group, instance, or load balancer).</p>
+            aws_sdk_auto_scaling.errors.service_linked_role_failure.ServiceLinkedRoleFailure: <p>The service-linked role is not yet ready for use.</p>
+            aws_sdk_auto_scaling.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To add an Auto Scaling notification
@@ -3605,6 +3864,12 @@ class AutoScalingClient:
             target_tracking_configuration: <p>A target tracking scaling policy. Provides support for predefined or custom metrics.</p> <p>The following predefined metrics are available:</p> <ul> <li> <p> <code>ASGAverageCPUUtilization</code> </p> </li> <li> <p> <code>ASGAverageNetworkIn</code> </p> </li> <li> <p> <code>ASGAverageNetworkOut</code> </p> </li> <li> <p> <code>ALBRequestCountPerTarget</code> </p> </li> </ul> <p>If you specify <code>ALBRequestCountPerTarget</code> for the metric, you must specify the <code>ResourceLabel</code> property with the <code>PredefinedMetricSpecification</code>.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_TargetTrackingConfiguration.html\">TargetTrackingConfiguration</a> in the <i>Amazon EC2 Auto Scaling API Reference</i>.</p> <p>Required if the policy type is <code>TargetTrackingScaling</code>.</p>
             enabled: <p>Indicates whether the scaling policy is enabled or disabled. The default is enabled. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-enable-disable-scaling-policy.html\">Disable a scaling policy for an Auto Scaling group</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
             predictive_scaling_configuration: <p>A predictive scaling policy. Provides support for predefined and custom metrics.</p> <p>Predefined metrics include CPU utilization, network in/out, and the Application Load Balancer request count.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_PredictiveScalingConfiguration.html\">PredictiveScalingConfiguration</a> in the <i>Amazon EC2 Auto Scaling API Reference</i>.</p> <p>Required if the policy type is <code>PredictiveScaling</code>.</p>
+
+        Raises:
+            aws_sdk_auto_scaling.errors.limit_exceeded_fault.LimitExceededFault: <p>You have already reached a limit for your Amazon EC2 Auto Scaling resources (for example, Auto Scaling groups, launch configurations, or lifecycle hooks). For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeAccountLimits.html\">DescribeAccountLimits</a> in the <i>Amazon EC2 Auto Scaling API Reference</i>.</p>
+            aws_sdk_auto_scaling.errors.resource_contention_fault.ResourceContentionFault: <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group, instance, or load balancer).</p>
+            aws_sdk_auto_scaling.errors.service_linked_role_failure.ServiceLinkedRoleFailure: <p>The service-linked role is not yet ready for use.</p>
+            aws_sdk_auto_scaling.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To add a scaling policy to an Auto Scaling group
@@ -3710,6 +3975,12 @@ class AutoScalingClient:
             desired_capacity: <p>The desired capacity is the initial capacity of the Auto Scaling group after the scheduled action runs and the capacity it attempts to maintain. It can scale beyond this capacity if you add more scaling conditions. </p> <note> <p>You must specify at least one of the following properties: <code>MaxSize</code>, <code>MinSize</code>, or <code>DesiredCapacity</code>. </p> </note>
             time_zone: <p>Specifies the time zone for a cron expression. If a time zone is not provided, UTC is used by default. </p> <p>Valid values are the canonical names of the IANA time zones, derived from the IANA Time Zone Database (such as <code>Etc/GMT+9</code> or <code>Pacific/Tahiti</code>). For more information, see <a href=\"https://en.wikipedia.org/wiki/List_of_tz_database_time_zones\">https://en.wikipedia.org/wiki/List_of_tz_database_time_zones</a>.</p>
 
+        Raises:
+            aws_sdk_auto_scaling.errors.already_exists_fault.AlreadyExistsFault: <p>You already have an Auto Scaling group or launch configuration with this name.</p>
+            aws_sdk_auto_scaling.errors.limit_exceeded_fault.LimitExceededFault: <p>You have already reached a limit for your Amazon EC2 Auto Scaling resources (for example, Auto Scaling groups, launch configurations, or lifecycle hooks). For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeAccountLimits.html\">DescribeAccountLimits</a> in the <i>Amazon EC2 Auto Scaling API Reference</i>.</p>
+            aws_sdk_auto_scaling.errors.resource_contention_fault.ResourceContentionFault: <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group, instance, or load balancer).</p>
+            aws_sdk_auto_scaling.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To add a scheduled action to an Auto Scaling group
             This example adds the specified scheduled action to the specified Auto Scaling group.
@@ -3784,6 +4055,12 @@ class AutoScalingClient:
             pool_state: <p>Sets the instance state to transition to after the lifecycle actions are complete. Default is <code>Stopped</code>.</p>
             instance_reuse_policy: <p>Indicates whether instances in the Auto Scaling group can be returned to the warm pool on scale in. The default is to terminate instances in the Auto Scaling group when the group scales in.</p>
 
+        Raises:
+            aws_sdk_auto_scaling.errors.instance_refresh_in_progress_fault.InstanceRefreshInProgressFault: <p>The request failed because an active instance refresh already exists for the specified Auto Scaling group.</p>
+            aws_sdk_auto_scaling.errors.limit_exceeded_fault.LimitExceededFault: <p>You have already reached a limit for your Amazon EC2 Auto Scaling resources (for example, Auto Scaling groups, launch configurations, or lifecycle hooks). For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeAccountLimits.html\">DescribeAccountLimits</a> in the <i>Amazon EC2 Auto Scaling API Reference</i>.</p>
+            aws_sdk_auto_scaling.errors.resource_contention_fault.ResourceContentionFault: <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group, instance, or load balancer).</p>
+            aws_sdk_auto_scaling.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To create a warm pool for an Auto Scaling group
             This example creates a warm pool for the specified Auto Scaling group.
@@ -3845,6 +4122,10 @@ class AutoScalingClient:
             lifecycle_action_token: <p>A token that uniquely identifies a specific lifecycle action associated with an instance. Amazon EC2 Auto Scaling sends this token to the notification target that you specified when you created the lifecycle hook.</p>
             instance_id: <p>The ID of the instance.</p>
 
+        Raises:
+            aws_sdk_auto_scaling.errors.resource_contention_fault.ResourceContentionFault: <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group, instance, or load balancer).</p>
+            aws_sdk_auto_scaling.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To record a lifecycle action heartbeat
             This example records a lifecycle action heartbeat to keep the instance in a pending state.
@@ -3897,6 +4178,11 @@ class AutoScalingClient:
             auto_scaling_group_name: <p>The name of the Auto Scaling group.</p>
             scaling_processes: <p>One or more of the following processes:</p> <ul> <li> <p> <code>Launch</code> </p> </li> <li> <p> <code>Terminate</code> </p> </li> <li> <p> <code>AddToLoadBalancer</code> </p> </li> <li> <p> <code>AlarmNotification</code> </p> </li> <li> <p> <code>AZRebalance</code> </p> </li> <li> <p> <code>HealthCheck</code> </p> </li> <li> <p> <code>InstanceRefresh</code> </p> </li> <li> <p> <code>ReplaceUnhealthy</code> </p> </li> <li> <p> <code>ScheduledActions</code> </p> </li> </ul> <p>If you omit this property, all processes are specified.</p>
 
+        Raises:
+            aws_sdk_auto_scaling.errors.resource_contention_fault.ResourceContentionFault: <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group, instance, or load balancer).</p>
+            aws_sdk_auto_scaling.errors.resource_in_use_fault.ResourceInUseFault: <p>The operation can't be performed because the resource is in use.</p>
+            aws_sdk_auto_scaling.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To resume Auto Scaling processes
             This example resumes the specified suspended scaling process for the specified Auto Scaling group.
@@ -3939,6 +4225,13 @@ class AutoScalingClient:
 
         Args:
             auto_scaling_group_name: <p>The name of the Auto Scaling group.</p>
+
+        Raises:
+            aws_sdk_auto_scaling.errors.active_instance_refresh_not_found_fault.ActiveInstanceRefreshNotFoundFault: <p>The request failed because an active instance refresh or rollback for the specified Auto Scaling group was not found.</p>
+            aws_sdk_auto_scaling.errors.irreversible_instance_refresh_fault.IrreversibleInstanceRefreshFault: <p>The request failed because a desired configuration was not found or an incompatible launch template (uses a Systems Manager parameter instead of an AMI ID) or launch template version (<code>$Latest</code> or <code>$Default</code>) is present on the Auto Scaling group.</p>
+            aws_sdk_auto_scaling.errors.limit_exceeded_fault.LimitExceededFault: <p>You have already reached a limit for your Amazon EC2 Auto Scaling resources (for example, Auto Scaling groups, launch configurations, or lifecycle hooks). For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeAccountLimits.html\">DescribeAccountLimits</a> in the <i>Amazon EC2 Auto Scaling API Reference</i>.</p>
+            aws_sdk_auto_scaling.errors.resource_contention_fault.ResourceContentionFault: <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group, instance, or load balancer).</p>
+            aws_sdk_auto_scaling.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3982,6 +4275,11 @@ class AutoScalingClient:
             auto_scaling_group_name: <p>The name of the Auto Scaling group.</p>
             desired_capacity: <p>The desired capacity is the initial capacity of the Auto Scaling group after this operation completes and the capacity it attempts to maintain.</p>
             honor_cooldown: <p>Indicates whether Amazon EC2 Auto Scaling waits for the cooldown period to complete before initiating a scaling activity to set your Auto Scaling group to its new capacity. By default, Amazon EC2 Auto Scaling does not honor the cooldown period during manual scaling activities.</p>
+
+        Raises:
+            aws_sdk_auto_scaling.errors.resource_contention_fault.ResourceContentionFault: <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group, instance, or load balancer).</p>
+            aws_sdk_auto_scaling.errors.scaling_activity_in_progress_fault.ScalingActivityInProgressFault: <p>The operation can't be performed because there are scaling activities in progress.</p>
+            aws_sdk_auto_scaling.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To set the desired capacity for an Auto Scaling group
@@ -4033,6 +4331,10 @@ class AutoScalingClient:
             health_status: <p>The health status of the instance. Set to <code>Healthy</code> to have the instance remain in service. Set to <code>Unhealthy</code> to have the instance be out of service. Amazon EC2 Auto Scaling terminates and replaces the unhealthy instance.</p>
             should_respect_grace_period: <p>If the Auto Scaling group of the specified instance has a <code>HealthCheckGracePeriod</code> specified for the group, by default, this call respects the grace period. Set this to <code>False</code>, to have the call not respect the grace period associated with the group.</p> <p>For more information about the health check grace period, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/health-check-grace-period.html\">Set the health check grace period for an Auto Scaling group</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
 
+        Raises:
+            aws_sdk_auto_scaling.errors.resource_contention_fault.ResourceContentionFault: <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group, instance, or load balancer).</p>
+            aws_sdk_auto_scaling.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To set the health status of an instance
             This example sets the health status of the specified instance to Unhealthy.
@@ -4080,6 +4382,11 @@ class AutoScalingClient:
             instance_ids: <p>One or more instance IDs. You can specify up to 50 instances.</p>
             auto_scaling_group_name: <p>The name of the Auto Scaling group.</p>
             protected_from_scale_in: <p>Indicates whether the instance is protected from termination by Amazon EC2 Auto Scaling when scaling in.</p>
+
+        Raises:
+            aws_sdk_auto_scaling.errors.limit_exceeded_fault.LimitExceededFault: <p>You have already reached a limit for your Amazon EC2 Auto Scaling resources (for example, Auto Scaling groups, launch configurations, or lifecycle hooks). For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeAccountLimits.html\">DescribeAccountLimits</a> in the <i>Amazon EC2 Auto Scaling API Reference</i>.</p>
+            aws_sdk_auto_scaling.errors.resource_contention_fault.ResourceContentionFault: <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group, instance, or load balancer).</p>
+            aws_sdk_auto_scaling.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To enable instance protection for an instance
@@ -4142,6 +4449,12 @@ class AutoScalingClient:
             desired_configuration: <p>The desired configuration. For example, the desired configuration can specify a new launch template or a new version of the current launch template.</p> <p>Once the instance refresh succeeds, Amazon EC2 Auto Scaling updates the settings of the Auto Scaling group to reflect the new desired configuration. </p> <note> <p>When you specify a new launch template or a new version of the current launch template for your desired configuration, consider enabling the <code>SkipMatching</code> property in preferences. If it's enabled, Amazon EC2 Auto Scaling skips replacing instances that already use the specified launch template and instance types. This can help you reduce the number of replacements that are required to apply updates. </p> </note>
             preferences: <p>Sets your preferences for the instance refresh so that it performs as expected when you start it. Includes the instance warmup time, the minimum and maximum healthy percentages, and the behaviors that you want Amazon EC2 Auto Scaling to use if instances that are in <code>Standby</code> state or protected from scale in are found. You can also choose to enable additional features, such as the following:</p> <ul> <li> <p>Auto rollback</p> </li> <li> <p>Checkpoints</p> </li> <li> <p>CloudWatch alarms</p> </li> <li> <p>Skip matching</p> </li> <li> <p>Bake time</p> </li> </ul>
 
+        Raises:
+            aws_sdk_auto_scaling.errors.instance_refresh_in_progress_fault.InstanceRefreshInProgressFault: <p>The request failed because an active instance refresh already exists for the specified Auto Scaling group.</p>
+            aws_sdk_auto_scaling.errors.limit_exceeded_fault.LimitExceededFault: <p>You have already reached a limit for your Amazon EC2 Auto Scaling resources (for example, Auto Scaling groups, launch configurations, or lifecycle hooks). For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeAccountLimits.html\">DescribeAccountLimits</a> in the <i>Amazon EC2 Auto Scaling API Reference</i>.</p>
+            aws_sdk_auto_scaling.errors.resource_contention_fault.ResourceContentionFault: <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group, instance, or load balancer).</p>
+            aws_sdk_auto_scaling.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To start an instance refresh
             This example starts an instance refresh for the specified Auto Scaling group.
@@ -4195,6 +4508,11 @@ class AutoScalingClient:
             auto_scaling_group_name: <p>The name of the Auto Scaling group.</p>
             scaling_processes: <p>One or more of the following processes:</p> <ul> <li> <p> <code>Launch</code> </p> </li> <li> <p> <code>Terminate</code> </p> </li> <li> <p> <code>AddToLoadBalancer</code> </p> </li> <li> <p> <code>AlarmNotification</code> </p> </li> <li> <p> <code>AZRebalance</code> </p> </li> <li> <p> <code>HealthCheck</code> </p> </li> <li> <p> <code>InstanceRefresh</code> </p> </li> <li> <p> <code>ReplaceUnhealthy</code> </p> </li> <li> <p> <code>ScheduledActions</code> </p> </li> </ul> <p>If you omit this property, all processes are specified.</p>
 
+        Raises:
+            aws_sdk_auto_scaling.errors.resource_contention_fault.ResourceContentionFault: <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group, instance, or load balancer).</p>
+            aws_sdk_auto_scaling.errors.resource_in_use_fault.ResourceInUseFault: <p>The operation can't be performed because the resource is in use.</p>
+            aws_sdk_auto_scaling.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To suspend Auto Scaling processes
             This example suspends the specified scaling process for the specified Auto Scaling group.
@@ -4239,6 +4557,11 @@ class AutoScalingClient:
         Args:
             instance_id: <p>The ID of the instance.</p>
             should_decrement_desired_capacity: <p>Indicates whether terminating the instance also decrements the size of the Auto Scaling group.</p>
+
+        Raises:
+            aws_sdk_auto_scaling.errors.resource_contention_fault.ResourceContentionFault: <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group, instance, or load balancer).</p>
+            aws_sdk_auto_scaling.errors.scaling_activity_in_progress_fault.ScalingActivityInProgressFault: <p>The operation can't be performed because there are scaling activities in progress.</p>
+            aws_sdk_auto_scaling.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To terminate an instance in an Auto Scaling group
@@ -4391,6 +4714,12 @@ class AutoScalingClient:
             capacity_reservation_specification: <p> The capacity reservation specification for the Auto Scaling group. </p>
             instance_lifecycle_policy: <p> The instance lifecycle policy for the Auto Scaling group. This policy controls instance behavior when an instance transitions through its lifecycle states. Configure retention triggers to specify when instances should move to a <code>Retained</code> state instead of automatic termination. </p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/instance-lifecycle-policy.html\"> Control instance retention with instance lifecycle policies</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>. </p>
             deletion_protection: <p> The deletion protection setting for the Auto Scaling group. This setting helps safeguard your Auto Scaling group and its instances by controlling whether the <code>DeleteAutoScalingGroup</code> operation is allowed. When deletion protection is enabled, users cannot delete the Auto Scaling group according to the specified protection level until the setting is changed back to a less restrictive level. </p> <p> The valid values are <code>none</code>, <code>prevent-force-deletion</code>, and <code>prevent-all-deletion</code>. </p> <p> Default: <code>none</code> </p> <p> For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/resource-deletion-protection.html\"> Configure deletion protection for your Amazon EC2 Auto Scaling resources</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>. </p>
+
+        Raises:
+            aws_sdk_auto_scaling.errors.resource_contention_fault.ResourceContentionFault: <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group, instance, or load balancer).</p>
+            aws_sdk_auto_scaling.errors.scaling_activity_in_progress_fault.ScalingActivityInProgressFault: <p>The operation can't be performed because there are scaling activities in progress.</p>
+            aws_sdk_auto_scaling.errors.service_linked_role_failure.ServiceLinkedRoleFailure: <p>The service-linked role is not yet ready for use.</p>
+            aws_sdk_auto_scaling.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To update an Auto Scaling group

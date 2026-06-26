@@ -72,6 +72,16 @@ class BillScenario:
             tags: <p> The tags to apply to the bill scenario. </p>
             group_sharing_preference: <p>The setting for the reserved instance and savings plan group sharing used in this estimate.</p>
             cost_category_group_sharing_preference_arn: <p>The arn of the cost category used in the reserved and prioritized group sharing.</p>
+
+        Raises:
+            aws_sdk_bcm_pricing_calculator.errors.access_denied_exception.AccessDeniedException: <p> You do not have sufficient access to perform this action. </p>
+            aws_sdk_bcm_pricing_calculator.errors.internal_server_exception.InternalServerException: <p> An internal error has occurred. Retry your request, but if the problem persists, contact Amazon Web Services support. </p>
+            aws_sdk_bcm_pricing_calculator.errors.throttling_exception.ThrottlingException: <p> The request was denied due to request throttling. </p>
+            aws_sdk_bcm_pricing_calculator.errors.validation_exception.ValidationException: <p> The input provided fails to satisfy the constraints specified by an Amazon Web Services service. </p>
+            aws_sdk_bcm_pricing_calculator.errors.conflict_exception.ConflictException: <p> The request could not be processed because of conflict in the current state of the resource. </p>
+            aws_sdk_bcm_pricing_calculator.errors.data_unavailable_exception.DataUnavailableException: <p> The requested data is currently unavailable. </p>
+            aws_sdk_bcm_pricing_calculator.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p> The request would cause you to exceed your service quota. </p>
+            aws_sdk_bcm_pricing_calculator.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -119,6 +129,15 @@ class BillScenario:
 
         Args:
             identifier: <p> The unique identifier of the bill scenario to retrieve. </p>
+
+        Raises:
+            aws_sdk_bcm_pricing_calculator.errors.access_denied_exception.AccessDeniedException: <p> You do not have sufficient access to perform this action. </p>
+            aws_sdk_bcm_pricing_calculator.errors.internal_server_exception.InternalServerException: <p> An internal error has occurred. Retry your request, but if the problem persists, contact Amazon Web Services support. </p>
+            aws_sdk_bcm_pricing_calculator.errors.throttling_exception.ThrottlingException: <p> The request was denied due to request throttling. </p>
+            aws_sdk_bcm_pricing_calculator.errors.validation_exception.ValidationException: <p> The input provided fails to satisfy the constraints specified by an Amazon Web Services service. </p>
+            aws_sdk_bcm_pricing_calculator.errors.data_unavailable_exception.DataUnavailableException: <p> The requested data is currently unavailable. </p>
+            aws_sdk_bcm_pricing_calculator.errors.resource_not_found_exception.ResourceNotFoundException: <p> The specified resource was not found. </p>
+            aws_sdk_bcm_pricing_calculator.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -170,6 +189,16 @@ class BillScenario:
             expires_at: <p> The new expiration date for the bill scenario. </p>
             group_sharing_preference: <p>The setting for the reserved instance and savings plan group sharing used in this estimate.</p>
             cost_category_group_sharing_preference_arn: <p>The arn of the cost category used in the reserved and prioritized group sharing.</p>
+
+        Raises:
+            aws_sdk_bcm_pricing_calculator.errors.access_denied_exception.AccessDeniedException: <p> You do not have sufficient access to perform this action. </p>
+            aws_sdk_bcm_pricing_calculator.errors.internal_server_exception.InternalServerException: <p> An internal error has occurred. Retry your request, but if the problem persists, contact Amazon Web Services support. </p>
+            aws_sdk_bcm_pricing_calculator.errors.throttling_exception.ThrottlingException: <p> The request was denied due to request throttling. </p>
+            aws_sdk_bcm_pricing_calculator.errors.validation_exception.ValidationException: <p> The input provided fails to satisfy the constraints specified by an Amazon Web Services service. </p>
+            aws_sdk_bcm_pricing_calculator.errors.conflict_exception.ConflictException: <p> The request could not be processed because of conflict in the current state of the resource. </p>
+            aws_sdk_bcm_pricing_calculator.errors.data_unavailable_exception.DataUnavailableException: <p> The requested data is currently unavailable. </p>
+            aws_sdk_bcm_pricing_calculator.errors.resource_not_found_exception.ResourceNotFoundException: <p> The specified resource was not found. </p>
+            aws_sdk_bcm_pricing_calculator.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -217,6 +246,15 @@ class BillScenario:
 
         Args:
             identifier: <p> The unique identifier of the bill scenario to delete. </p>
+
+        Raises:
+            aws_sdk_bcm_pricing_calculator.errors.access_denied_exception.AccessDeniedException: <p> You do not have sufficient access to perform this action. </p>
+            aws_sdk_bcm_pricing_calculator.errors.internal_server_exception.InternalServerException: <p> An internal error has occurred. Retry your request, but if the problem persists, contact Amazon Web Services support. </p>
+            aws_sdk_bcm_pricing_calculator.errors.throttling_exception.ThrottlingException: <p> The request was denied due to request throttling. </p>
+            aws_sdk_bcm_pricing_calculator.errors.validation_exception.ValidationException: <p> The input provided fails to satisfy the constraints specified by an Amazon Web Services service. </p>
+            aws_sdk_bcm_pricing_calculator.errors.conflict_exception.ConflictException: <p> The request could not be processed because of conflict in the current state of the resource. </p>
+            aws_sdk_bcm_pricing_calculator.errors.data_unavailable_exception.DataUnavailableException: <p> The requested data is currently unavailable. </p>
+            aws_sdk_bcm_pricing_calculator.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -272,6 +310,14 @@ class BillScenario:
             expires_at_filter: <p> Filter bill scenarios based on the expiration date. </p>
             next_token: <p> A token to retrieve the next page of results. </p>
             max_results: <p> The maximum number of results to return per page. </p>
+
+        Raises:
+            aws_sdk_bcm_pricing_calculator.errors.access_denied_exception.AccessDeniedException: <p> You do not have sufficient access to perform this action. </p>
+            aws_sdk_bcm_pricing_calculator.errors.internal_server_exception.InternalServerException: <p> An internal error has occurred. Retry your request, but if the problem persists, contact Amazon Web Services support. </p>
+            aws_sdk_bcm_pricing_calculator.errors.throttling_exception.ThrottlingException: <p> The request was denied due to request throttling. </p>
+            aws_sdk_bcm_pricing_calculator.errors.validation_exception.ValidationException: <p> The input provided fails to satisfy the constraints specified by an Amazon Web Services service. </p>
+            aws_sdk_bcm_pricing_calculator.errors.data_unavailable_exception.DataUnavailableException: <p> The requested data is currently unavailable. </p>
+            aws_sdk_bcm_pricing_calculator.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -337,6 +383,16 @@ class AsyncBillScenario:
             tags: <p> The tags to apply to the bill scenario. </p>
             group_sharing_preference: <p>The setting for the reserved instance and savings plan group sharing used in this estimate.</p>
             cost_category_group_sharing_preference_arn: <p>The arn of the cost category used in the reserved and prioritized group sharing.</p>
+
+        Raises:
+            aws_sdk_bcm_pricing_calculator.errors.access_denied_exception.AccessDeniedException: <p> You do not have sufficient access to perform this action. </p>
+            aws_sdk_bcm_pricing_calculator.errors.internal_server_exception.InternalServerException: <p> An internal error has occurred. Retry your request, but if the problem persists, contact Amazon Web Services support. </p>
+            aws_sdk_bcm_pricing_calculator.errors.throttling_exception.ThrottlingException: <p> The request was denied due to request throttling. </p>
+            aws_sdk_bcm_pricing_calculator.errors.validation_exception.ValidationException: <p> The input provided fails to satisfy the constraints specified by an Amazon Web Services service. </p>
+            aws_sdk_bcm_pricing_calculator.errors.conflict_exception.ConflictException: <p> The request could not be processed because of conflict in the current state of the resource. </p>
+            aws_sdk_bcm_pricing_calculator.errors.data_unavailable_exception.DataUnavailableException: <p> The requested data is currently unavailable. </p>
+            aws_sdk_bcm_pricing_calculator.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p> The request would cause you to exceed your service quota. </p>
+            aws_sdk_bcm_pricing_calculator.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -385,6 +441,15 @@ class AsyncBillScenario:
 
         Args:
             identifier: <p> The unique identifier of the bill scenario to retrieve. </p>
+
+        Raises:
+            aws_sdk_bcm_pricing_calculator.errors.access_denied_exception.AccessDeniedException: <p> You do not have sufficient access to perform this action. </p>
+            aws_sdk_bcm_pricing_calculator.errors.internal_server_exception.InternalServerException: <p> An internal error has occurred. Retry your request, but if the problem persists, contact Amazon Web Services support. </p>
+            aws_sdk_bcm_pricing_calculator.errors.throttling_exception.ThrottlingException: <p> The request was denied due to request throttling. </p>
+            aws_sdk_bcm_pricing_calculator.errors.validation_exception.ValidationException: <p> The input provided fails to satisfy the constraints specified by an Amazon Web Services service. </p>
+            aws_sdk_bcm_pricing_calculator.errors.data_unavailable_exception.DataUnavailableException: <p> The requested data is currently unavailable. </p>
+            aws_sdk_bcm_pricing_calculator.errors.resource_not_found_exception.ResourceNotFoundException: <p> The specified resource was not found. </p>
+            aws_sdk_bcm_pricing_calculator.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -437,6 +502,16 @@ class AsyncBillScenario:
             expires_at: <p> The new expiration date for the bill scenario. </p>
             group_sharing_preference: <p>The setting for the reserved instance and savings plan group sharing used in this estimate.</p>
             cost_category_group_sharing_preference_arn: <p>The arn of the cost category used in the reserved and prioritized group sharing.</p>
+
+        Raises:
+            aws_sdk_bcm_pricing_calculator.errors.access_denied_exception.AccessDeniedException: <p> You do not have sufficient access to perform this action. </p>
+            aws_sdk_bcm_pricing_calculator.errors.internal_server_exception.InternalServerException: <p> An internal error has occurred. Retry your request, but if the problem persists, contact Amazon Web Services support. </p>
+            aws_sdk_bcm_pricing_calculator.errors.throttling_exception.ThrottlingException: <p> The request was denied due to request throttling. </p>
+            aws_sdk_bcm_pricing_calculator.errors.validation_exception.ValidationException: <p> The input provided fails to satisfy the constraints specified by an Amazon Web Services service. </p>
+            aws_sdk_bcm_pricing_calculator.errors.conflict_exception.ConflictException: <p> The request could not be processed because of conflict in the current state of the resource. </p>
+            aws_sdk_bcm_pricing_calculator.errors.data_unavailable_exception.DataUnavailableException: <p> The requested data is currently unavailable. </p>
+            aws_sdk_bcm_pricing_calculator.errors.resource_not_found_exception.ResourceNotFoundException: <p> The specified resource was not found. </p>
+            aws_sdk_bcm_pricing_calculator.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -485,6 +560,15 @@ class AsyncBillScenario:
 
         Args:
             identifier: <p> The unique identifier of the bill scenario to delete. </p>
+
+        Raises:
+            aws_sdk_bcm_pricing_calculator.errors.access_denied_exception.AccessDeniedException: <p> You do not have sufficient access to perform this action. </p>
+            aws_sdk_bcm_pricing_calculator.errors.internal_server_exception.InternalServerException: <p> An internal error has occurred. Retry your request, but if the problem persists, contact Amazon Web Services support. </p>
+            aws_sdk_bcm_pricing_calculator.errors.throttling_exception.ThrottlingException: <p> The request was denied due to request throttling. </p>
+            aws_sdk_bcm_pricing_calculator.errors.validation_exception.ValidationException: <p> The input provided fails to satisfy the constraints specified by an Amazon Web Services service. </p>
+            aws_sdk_bcm_pricing_calculator.errors.conflict_exception.ConflictException: <p> The request could not be processed because of conflict in the current state of the resource. </p>
+            aws_sdk_bcm_pricing_calculator.errors.data_unavailable_exception.DataUnavailableException: <p> The requested data is currently unavailable. </p>
+            aws_sdk_bcm_pricing_calculator.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -541,6 +625,14 @@ class AsyncBillScenario:
             expires_at_filter: <p> Filter bill scenarios based on the expiration date. </p>
             next_token: <p> A token to retrieve the next page of results. </p>
             max_results: <p> The maximum number of results to return per page. </p>
+
+        Raises:
+            aws_sdk_bcm_pricing_calculator.errors.access_denied_exception.AccessDeniedException: <p> You do not have sufficient access to perform this action. </p>
+            aws_sdk_bcm_pricing_calculator.errors.internal_server_exception.InternalServerException: <p> An internal error has occurred. Retry your request, but if the problem persists, contact Amazon Web Services support. </p>
+            aws_sdk_bcm_pricing_calculator.errors.throttling_exception.ThrottlingException: <p> The request was denied due to request throttling. </p>
+            aws_sdk_bcm_pricing_calculator.errors.validation_exception.ValidationException: <p> The input provided fails to satisfy the constraints specified by an Amazon Web Services service. </p>
+            aws_sdk_bcm_pricing_calculator.errors.data_unavailable_exception.DataUnavailableException: <p> The requested data is currently unavailable. </p>
+            aws_sdk_bcm_pricing_calculator.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

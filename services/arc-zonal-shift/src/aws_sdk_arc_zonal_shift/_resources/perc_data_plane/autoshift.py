@@ -53,6 +53,13 @@ class Autoshift:
             next_token: <p>Specifies that you want to receive the next page of results. Valid only if you received a <code>nextToken</code> response in the previous request. If you did, it indicates that more output is available. Set this parameter to the value provided by the previous call's <code>nextToken</code> response to request the next page of results.</p>
             status: <p>The status of the autoshift.</p>
             max_results: <p>The number of objects that you want to return with this call.</p>
+
+        Raises:
+            aws_sdk_arc_zonal_shift.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_arc_zonal_shift.errors.internal_server_exception.InternalServerException: <p>There was an internal server error.</p>
+            aws_sdk_arc_zonal_shift.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_arc_zonal_shift.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_arc_zonal_shift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -110,6 +117,13 @@ class AsyncAutoshift:
             next_token: <p>Specifies that you want to receive the next page of results. Valid only if you received a <code>nextToken</code> response in the previous request. If you did, it indicates that more output is available. Set this parameter to the value provided by the previous call's <code>nextToken</code> response to request the next page of results.</p>
             status: <p>The status of the autoshift.</p>
             max_results: <p>The number of objects that you want to return with this call.</p>
+
+        Raises:
+            aws_sdk_arc_zonal_shift.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_arc_zonal_shift.errors.internal_server_exception.InternalServerException: <p>There was an internal server error.</p>
+            aws_sdk_arc_zonal_shift.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_arc_zonal_shift.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_arc_zonal_shift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

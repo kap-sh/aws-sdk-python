@@ -56,6 +56,14 @@ class DataExport:
         Args:
             export: <p>The details of the export, including data query, name, description, and destination configuration.</p>
             resource_tags: <p>An optional list of tags to associate with the specified export. Each tag consists of a key and a value, and each key must be unique for the resource.</p>
+
+        Raises:
+            aws_sdk_bcm_data_exports.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action.</p>
+            aws_sdk_bcm_data_exports.errors.internal_server_exception.InternalServerException: <p>An error on the server occurred during the processing of your request. Try again later.</p>
+            aws_sdk_bcm_data_exports.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You've reached the limit on the number of resources you can create, or exceeded the size of an individual resource.</p>
+            aws_sdk_bcm_data_exports.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_bcm_data_exports.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_bcm_data_exports.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -95,6 +103,13 @@ class DataExport:
 
         Args:
             export_arn: <p>The Amazon Resource Name (ARN) for this export.</p>
+
+        Raises:
+            aws_sdk_bcm_data_exports.errors.internal_server_exception.InternalServerException: <p>An error on the server occurred during the processing of your request. Try again later.</p>
+            aws_sdk_bcm_data_exports.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified Amazon Resource Name (ARN) in the request doesn't exist.</p>
+            aws_sdk_bcm_data_exports.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_bcm_data_exports.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_bcm_data_exports.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -134,6 +149,13 @@ class DataExport:
         Args:
             export_arn: <p>The Amazon Resource Name (ARN) for this export.</p>
             export: <p>The name and query details for the export.</p>
+
+        Raises:
+            aws_sdk_bcm_data_exports.errors.internal_server_exception.InternalServerException: <p>An error on the server occurred during the processing of your request. Try again later.</p>
+            aws_sdk_bcm_data_exports.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified Amazon Resource Name (ARN) in the request doesn't exist.</p>
+            aws_sdk_bcm_data_exports.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_bcm_data_exports.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_bcm_data_exports.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -172,6 +194,13 @@ class DataExport:
 
         Args:
             export_arn: <p>The Amazon Resource Name (ARN) for this export.</p>
+
+        Raises:
+            aws_sdk_bcm_data_exports.errors.internal_server_exception.InternalServerException: <p>An error on the server occurred during the processing of your request. Try again later.</p>
+            aws_sdk_bcm_data_exports.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified Amazon Resource Name (ARN) in the request doesn't exist.</p>
+            aws_sdk_bcm_data_exports.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_bcm_data_exports.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_bcm_data_exports.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -215,6 +244,12 @@ class DataExport:
         Args:
             max_results: <p>The maximum number of objects that are returned for the request.</p>
             next_token: <p>The token to retrieve the next set of results.</p>
+
+        Raises:
+            aws_sdk_bcm_data_exports.errors.internal_server_exception.InternalServerException: <p>An error on the server occurred during the processing of your request. Try again later.</p>
+            aws_sdk_bcm_data_exports.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_bcm_data_exports.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_bcm_data_exports.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -264,6 +299,14 @@ class AsyncDataExport:
         Args:
             export: <p>The details of the export, including data query, name, description, and destination configuration.</p>
             resource_tags: <p>An optional list of tags to associate with the specified export. Each tag consists of a key and a value, and each key must be unique for the resource.</p>
+
+        Raises:
+            aws_sdk_bcm_data_exports.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action.</p>
+            aws_sdk_bcm_data_exports.errors.internal_server_exception.InternalServerException: <p>An error on the server occurred during the processing of your request. Try again later.</p>
+            aws_sdk_bcm_data_exports.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You've reached the limit on the number of resources you can create, or exceeded the size of an individual resource.</p>
+            aws_sdk_bcm_data_exports.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_bcm_data_exports.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_bcm_data_exports.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -304,6 +347,13 @@ class AsyncDataExport:
 
         Args:
             export_arn: <p>The Amazon Resource Name (ARN) for this export.</p>
+
+        Raises:
+            aws_sdk_bcm_data_exports.errors.internal_server_exception.InternalServerException: <p>An error on the server occurred during the processing of your request. Try again later.</p>
+            aws_sdk_bcm_data_exports.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified Amazon Resource Name (ARN) in the request doesn't exist.</p>
+            aws_sdk_bcm_data_exports.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_bcm_data_exports.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_bcm_data_exports.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -344,6 +394,13 @@ class AsyncDataExport:
         Args:
             export_arn: <p>The Amazon Resource Name (ARN) for this export.</p>
             export: <p>The name and query details for the export.</p>
+
+        Raises:
+            aws_sdk_bcm_data_exports.errors.internal_server_exception.InternalServerException: <p>An error on the server occurred during the processing of your request. Try again later.</p>
+            aws_sdk_bcm_data_exports.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified Amazon Resource Name (ARN) in the request doesn't exist.</p>
+            aws_sdk_bcm_data_exports.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_bcm_data_exports.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_bcm_data_exports.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -383,6 +440,13 @@ class AsyncDataExport:
 
         Args:
             export_arn: <p>The Amazon Resource Name (ARN) for this export.</p>
+
+        Raises:
+            aws_sdk_bcm_data_exports.errors.internal_server_exception.InternalServerException: <p>An error on the server occurred during the processing of your request. Try again later.</p>
+            aws_sdk_bcm_data_exports.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified Amazon Resource Name (ARN) in the request doesn't exist.</p>
+            aws_sdk_bcm_data_exports.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_bcm_data_exports.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_bcm_data_exports.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -427,6 +491,12 @@ class AsyncDataExport:
         Args:
             max_results: <p>The maximum number of objects that are returned for the request.</p>
             next_token: <p>The token to retrieve the next set of results.</p>
+
+        Raises:
+            aws_sdk_bcm_data_exports.errors.internal_server_exception.InternalServerException: <p>An error on the server occurred during the processing of your request. Try again later.</p>
+            aws_sdk_bcm_data_exports.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_bcm_data_exports.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_bcm_data_exports.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

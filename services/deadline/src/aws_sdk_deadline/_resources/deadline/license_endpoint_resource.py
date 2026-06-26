@@ -70,6 +70,15 @@ class LicenseEndpointResource:
             subnet_ids: <p>The subnet IDs.</p>
             security_group_ids: <p>The security group IDs.</p>
             tags: <p>Each tag consists of a tag key and a tag value. Tag keys and values are both required, but tag values can be empty strings.</p>
+
+        Raises:
+            aws_sdk_deadline.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action.</p>
+            aws_sdk_deadline.errors.conflict_exception.ConflictException: <p>Your request has conflicting operations. This can occur if you're trying to perform more than one operation on the same resource at the same time.</p>
+            aws_sdk_deadline.errors.internal_server_error_exception.InternalServerErrorException: <p>Deadline Cloud can't process your request right now. Try again later.</p>
+            aws_sdk_deadline.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You exceeded your service quota. Service quotas, also referred to as limits, are the maximum number of service resources or operations for your Amazon Web Services account.</p>
+            aws_sdk_deadline.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a request rate quota.</p>
+            aws_sdk_deadline.errors.validation_exception.ValidationException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
+            aws_sdk_deadline.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -113,6 +122,14 @@ class LicenseEndpointResource:
 
         Args:
             license_endpoint_id: <p>The license endpoint ID.</p>
+
+        Raises:
+            aws_sdk_deadline.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action.</p>
+            aws_sdk_deadline.errors.internal_server_error_exception.InternalServerErrorException: <p>Deadline Cloud can't process your request right now. Try again later.</p>
+            aws_sdk_deadline.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_deadline.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a request rate quota.</p>
+            aws_sdk_deadline.errors.validation_exception.ValidationException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
+            aws_sdk_deadline.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -150,6 +167,15 @@ class LicenseEndpointResource:
 
         Args:
             license_endpoint_id: <p>The license endpoint ID of the license endpoint to delete.</p>
+
+        Raises:
+            aws_sdk_deadline.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action.</p>
+            aws_sdk_deadline.errors.conflict_exception.ConflictException: <p>Your request has conflicting operations. This can occur if you're trying to perform more than one operation on the same resource at the same time.</p>
+            aws_sdk_deadline.errors.internal_server_error_exception.InternalServerErrorException: <p>Deadline Cloud can't process your request right now. Try again later.</p>
+            aws_sdk_deadline.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_deadline.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a request rate quota.</p>
+            aws_sdk_deadline.errors.validation_exception.ValidationException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
+            aws_sdk_deadline.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -189,6 +215,14 @@ class LicenseEndpointResource:
         Args:
             next_token: <p>The token for the next set of results, or <code>null</code> to start from the beginning.</p>
             max_results: <p>The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.</p>
+
+        Raises:
+            aws_sdk_deadline.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action.</p>
+            aws_sdk_deadline.errors.internal_server_error_exception.InternalServerErrorException: <p>Deadline Cloud can't process your request right now. Try again later.</p>
+            aws_sdk_deadline.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_deadline.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a request rate quota.</p>
+            aws_sdk_deadline.errors.validation_exception.ValidationException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
+            aws_sdk_deadline.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -231,6 +265,14 @@ class LicenseEndpointResource:
         Args:
             license_endpoint_id: <p>The ID of the license endpoint from which to remove the metered product.</p>
             product_id: <p>The product ID to remove from the license endpoint.</p>
+
+        Raises:
+            aws_sdk_deadline.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action.</p>
+            aws_sdk_deadline.errors.internal_server_error_exception.InternalServerErrorException: <p>Deadline Cloud can't process your request right now. Try again later.</p>
+            aws_sdk_deadline.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_deadline.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a request rate quota.</p>
+            aws_sdk_deadline.errors.validation_exception.ValidationException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
+            aws_sdk_deadline.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -273,6 +315,14 @@ class LicenseEndpointResource:
             license_endpoint_id: <p>The license endpoint ID to include on the list of metered products.</p>
             next_token: <p>The token for the next set of results, or <code>null</code> to start from the beginning.</p>
             max_results: <p>The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.</p>
+
+        Raises:
+            aws_sdk_deadline.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action.</p>
+            aws_sdk_deadline.errors.internal_server_error_exception.InternalServerErrorException: <p>Deadline Cloud can't process your request right now. Try again later.</p>
+            aws_sdk_deadline.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_deadline.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a request rate quota.</p>
+            aws_sdk_deadline.errors.validation_exception.ValidationException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
+            aws_sdk_deadline.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -318,6 +368,14 @@ class LicenseEndpointResource:
         Args:
             license_endpoint_id: <p>The license endpoint ID to add to the metered product.</p>
             product_id: <p>The product ID to add to the metered product.</p>
+
+        Raises:
+            aws_sdk_deadline.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action.</p>
+            aws_sdk_deadline.errors.internal_server_error_exception.InternalServerErrorException: <p>Deadline Cloud can't process your request right now. Try again later.</p>
+            aws_sdk_deadline.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_deadline.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a request rate quota.</p>
+            aws_sdk_deadline.errors.validation_exception.ValidationException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
+            aws_sdk_deadline.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -371,6 +429,15 @@ class AsyncLicenseEndpointResource:
             subnet_ids: <p>The subnet IDs.</p>
             security_group_ids: <p>The security group IDs.</p>
             tags: <p>Each tag consists of a tag key and a tag value. Tag keys and values are both required, but tag values can be empty strings.</p>
+
+        Raises:
+            aws_sdk_deadline.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action.</p>
+            aws_sdk_deadline.errors.conflict_exception.ConflictException: <p>Your request has conflicting operations. This can occur if you're trying to perform more than one operation on the same resource at the same time.</p>
+            aws_sdk_deadline.errors.internal_server_error_exception.InternalServerErrorException: <p>Deadline Cloud can't process your request right now. Try again later.</p>
+            aws_sdk_deadline.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You exceeded your service quota. Service quotas, also referred to as limits, are the maximum number of service resources or operations for your Amazon Web Services account.</p>
+            aws_sdk_deadline.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a request rate quota.</p>
+            aws_sdk_deadline.errors.validation_exception.ValidationException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
+            aws_sdk_deadline.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -415,6 +482,14 @@ class AsyncLicenseEndpointResource:
 
         Args:
             license_endpoint_id: <p>The license endpoint ID.</p>
+
+        Raises:
+            aws_sdk_deadline.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action.</p>
+            aws_sdk_deadline.errors.internal_server_error_exception.InternalServerErrorException: <p>Deadline Cloud can't process your request right now. Try again later.</p>
+            aws_sdk_deadline.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_deadline.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a request rate quota.</p>
+            aws_sdk_deadline.errors.validation_exception.ValidationException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
+            aws_sdk_deadline.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -453,6 +528,15 @@ class AsyncLicenseEndpointResource:
 
         Args:
             license_endpoint_id: <p>The license endpoint ID of the license endpoint to delete.</p>
+
+        Raises:
+            aws_sdk_deadline.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action.</p>
+            aws_sdk_deadline.errors.conflict_exception.ConflictException: <p>Your request has conflicting operations. This can occur if you're trying to perform more than one operation on the same resource at the same time.</p>
+            aws_sdk_deadline.errors.internal_server_error_exception.InternalServerErrorException: <p>Deadline Cloud can't process your request right now. Try again later.</p>
+            aws_sdk_deadline.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_deadline.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a request rate quota.</p>
+            aws_sdk_deadline.errors.validation_exception.ValidationException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
+            aws_sdk_deadline.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -493,6 +577,14 @@ class AsyncLicenseEndpointResource:
         Args:
             next_token: <p>The token for the next set of results, or <code>null</code> to start from the beginning.</p>
             max_results: <p>The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.</p>
+
+        Raises:
+            aws_sdk_deadline.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action.</p>
+            aws_sdk_deadline.errors.internal_server_error_exception.InternalServerErrorException: <p>Deadline Cloud can't process your request right now. Try again later.</p>
+            aws_sdk_deadline.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_deadline.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a request rate quota.</p>
+            aws_sdk_deadline.errors.validation_exception.ValidationException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
+            aws_sdk_deadline.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -536,6 +628,14 @@ class AsyncLicenseEndpointResource:
         Args:
             license_endpoint_id: <p>The ID of the license endpoint from which to remove the metered product.</p>
             product_id: <p>The product ID to remove from the license endpoint.</p>
+
+        Raises:
+            aws_sdk_deadline.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action.</p>
+            aws_sdk_deadline.errors.internal_server_error_exception.InternalServerErrorException: <p>Deadline Cloud can't process your request right now. Try again later.</p>
+            aws_sdk_deadline.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_deadline.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a request rate quota.</p>
+            aws_sdk_deadline.errors.validation_exception.ValidationException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
+            aws_sdk_deadline.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -579,6 +679,14 @@ class AsyncLicenseEndpointResource:
             license_endpoint_id: <p>The license endpoint ID to include on the list of metered products.</p>
             next_token: <p>The token for the next set of results, or <code>null</code> to start from the beginning.</p>
             max_results: <p>The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.</p>
+
+        Raises:
+            aws_sdk_deadline.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action.</p>
+            aws_sdk_deadline.errors.internal_server_error_exception.InternalServerErrorException: <p>Deadline Cloud can't process your request right now. Try again later.</p>
+            aws_sdk_deadline.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_deadline.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a request rate quota.</p>
+            aws_sdk_deadline.errors.validation_exception.ValidationException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
+            aws_sdk_deadline.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -625,6 +733,14 @@ class AsyncLicenseEndpointResource:
         Args:
             license_endpoint_id: <p>The license endpoint ID to add to the metered product.</p>
             product_id: <p>The product ID to add to the metered product.</p>
+
+        Raises:
+            aws_sdk_deadline.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action.</p>
+            aws_sdk_deadline.errors.internal_server_error_exception.InternalServerErrorException: <p>Deadline Cloud can't process your request right now. Try again later.</p>
+            aws_sdk_deadline.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_deadline.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a request rate quota.</p>
+            aws_sdk_deadline.errors.validation_exception.ValidationException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
+            aws_sdk_deadline.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

@@ -168,6 +168,13 @@ class ControlCatalogClient:
             next_token: <p>The pagination token that's used to fetch the next set of results.</p>
             max_results: <p>The maximum number of results on a page or for an API request call.</p>
             filter: <p>An optional filter that narrows the results to specific control mappings based on control ARNs, common control ARNs, or mapping types.</p>
+
+        Raises:
+            aws_sdk_controlcatalog.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_controlcatalog.errors.internal_server_exception.InternalServerException: <p>An internal service error occurred during the processing of your request. Try again later.</p>
+            aws_sdk_controlcatalog.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_controlcatalog.errors.validation_exception.ValidationException: <p>The request has invalid or missing parameters.</p>
+            aws_sdk_controlcatalog.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(

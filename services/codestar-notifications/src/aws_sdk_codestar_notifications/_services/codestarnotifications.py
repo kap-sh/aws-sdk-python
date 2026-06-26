@@ -199,6 +199,15 @@ class codestarnotificationsClient:
             client_request_token: <p>A unique, client-generated idempotency token that, when provided in a request, ensures the request cannot be repeated with a changed parameter. If a request with the same parameters is received and a token is included, the request returns information about the initial request that used that token.</p> <note> <p>The Amazon Web Services SDKs prepopulate client request tokens. If you are using an Amazon Web Services SDK, an idempotency token is created for you.</p> </note>
             tags: <p>A list of tags to apply to this notification rule. Key names cannot start with \"<code>aws</code>\". </p>
             status: <p>The status of the notification rule. The default value is <code>ENABLED</code>. If the status is set to <code>DISABLED</code>, notifications aren't sent for the notification rule.</p>
+
+        Raises:
+            aws_sdk_codestar_notifications.errors.access_denied_exception.AccessDeniedException: <p>CodeStar Notifications can't create the notification rule because you do not have sufficient permissions.</p>
+            aws_sdk_codestar_notifications.errors.concurrent_modification_exception.ConcurrentModificationException: <p>CodeStar Notifications can't complete the request because the resource is being modified by another process. Wait a few minutes and try again.</p>
+            aws_sdk_codestar_notifications.errors.configuration_exception.ConfigurationException: <p>Some or all of the configuration is incomplete, missing, or not valid.</p>
+            aws_sdk_codestar_notifications.errors.limit_exceeded_exception.LimitExceededException: <p>One of the CodeStar Notifications limits has been exceeded. Limits apply to accounts, notification rules, notifications, resources, and targets. For more information, see Limits.</p>
+            aws_sdk_codestar_notifications.errors.resource_already_exists_exception.ResourceAlreadyExistsException: <p>A resource with the same name or ID already exists. Notification rule names must be unique in your Amazon Web Services account.</p>
+            aws_sdk_codestar_notifications.errors.validation_exception.ValidationException: <p>One or more parameter values are not valid.</p>
+            aws_sdk_codestar_notifications.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -246,6 +255,12 @@ class codestarnotificationsClient:
 
         Args:
             arn: <p>The Amazon Resource Name (ARN) of the notification rule you want to delete.</p>
+
+        Raises:
+            aws_sdk_codestar_notifications.errors.concurrent_modification_exception.ConcurrentModificationException: <p>CodeStar Notifications can't complete the request because the resource is being modified by another process. Wait a few minutes and try again.</p>
+            aws_sdk_codestar_notifications.errors.limit_exceeded_exception.LimitExceededException: <p>One of the CodeStar Notifications limits has been exceeded. Limits apply to accounts, notification rules, notifications, resources, and targets. For more information, see Limits.</p>
+            aws_sdk_codestar_notifications.errors.validation_exception.ValidationException: <p>One or more parameter values are not valid.</p>
+            aws_sdk_codestar_notifications.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -287,6 +302,10 @@ class codestarnotificationsClient:
         Args:
             target_address: <p>The Amazon Resource Name (ARN) of the Amazon Q Developer in chat applications topic or Amazon Q Developer in chat applications client to delete.</p>
             force_unsubscribe_all: <p>A Boolean value that can be used to delete all associations with this Amazon Q Developer in chat applications topic. The default value is FALSE. If set to TRUE, all associations between that target and every notification rule in your Amazon Web Services account are deleted.</p>
+
+        Raises:
+            aws_sdk_codestar_notifications.errors.validation_exception.ValidationException: <p>One or more parameter values are not valid.</p>
+            aws_sdk_codestar_notifications.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -326,6 +345,11 @@ class codestarnotificationsClient:
 
         Args:
             arn: <p>The Amazon Resource Name (ARN) of the notification rule.</p>
+
+        Raises:
+            aws_sdk_codestar_notifications.errors.resource_not_found_exception.ResourceNotFoundException: <p>CodeStar Notifications can't find a resource that matches the provided ARN. </p>
+            aws_sdk_codestar_notifications.errors.validation_exception.ValidationException: <p>One or more parameter values are not valid.</p>
+            aws_sdk_codestar_notifications.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -373,6 +397,11 @@ class codestarnotificationsClient:
             filters: <p>The filters to use to return information by service or resource type.</p>
             next_token: <p>An enumeration token that, when provided in a request, returns the next batch of the results.</p>
             max_results: <p>A non-negative integer used to limit the number of returned results. The default number is 50. The maximum number of results that can be returned is 100.</p>
+
+        Raises:
+            aws_sdk_codestar_notifications.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The value for the enumeration token used in the request to return the next batch of the results is not valid. </p>
+            aws_sdk_codestar_notifications.errors.validation_exception.ValidationException: <p>One or more parameter values are not valid.</p>
+            aws_sdk_codestar_notifications.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -454,6 +483,11 @@ class codestarnotificationsClient:
             filters: <p>The filters to use to return information by service or resource type. For valid values, see <a>ListNotificationRulesFilter</a>.</p> <note> <p>A filter with the same name can appear more than once when used with OR statements. Filters with different names should be applied with AND statements.</p> </note>
             next_token: <p>An enumeration token that, when provided in a request, returns the next batch of the results.</p>
             max_results: <p>A non-negative integer used to limit the number of returned results. The maximum number of results that can be returned is 100.</p>
+
+        Raises:
+            aws_sdk_codestar_notifications.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The value for the enumeration token used in the request to return the next batch of the results is not valid. </p>
+            aws_sdk_codestar_notifications.errors.validation_exception.ValidationException: <p>One or more parameter values are not valid.</p>
+            aws_sdk_codestar_notifications.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -525,6 +559,11 @@ class codestarnotificationsClient:
 
         Args:
             arn: <p>The Amazon Resource Name (ARN) for the notification rule.</p>
+
+        Raises:
+            aws_sdk_codestar_notifications.errors.resource_not_found_exception.ResourceNotFoundException: <p>CodeStar Notifications can't find a resource that matches the provided ARN. </p>
+            aws_sdk_codestar_notifications.errors.validation_exception.ValidationException: <p>One or more parameter values are not valid.</p>
+            aws_sdk_codestar_notifications.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -572,6 +611,11 @@ class codestarnotificationsClient:
             filters: <p>The filters to use to return information by service or resource type. Valid filters include target type, target address, and target status.</p> <note> <p>A filter with the same name can appear more than once when used with OR statements. Filters with different names should be applied with AND statements.</p> </note>
             next_token: <p>An enumeration token that, when provided in a request, returns the next batch of the results.</p>
             max_results: <p>A non-negative integer used to limit the number of returned results. The maximum number of results that can be returned is 100.</p>
+
+        Raises:
+            aws_sdk_codestar_notifications.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The value for the enumeration token used in the request to return the next batch of the results is not valid. </p>
+            aws_sdk_codestar_notifications.errors.validation_exception.ValidationException: <p>One or more parameter values are not valid.</p>
+            aws_sdk_codestar_notifications.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -648,6 +692,12 @@ class codestarnotificationsClient:
         Args:
             arn: <p>The Amazon Resource Name (ARN) of the notification rule for which you want to create the association.</p>
             client_request_token: <p>An enumeration token that, when provided in a request, returns the next batch of the results.</p>
+
+        Raises:
+            aws_sdk_codestar_notifications.errors.configuration_exception.ConfigurationException: <p>Some or all of the configuration is incomplete, missing, or not valid.</p>
+            aws_sdk_codestar_notifications.errors.resource_not_found_exception.ResourceNotFoundException: <p>CodeStar Notifications can't find a resource that matches the provided ARN. </p>
+            aws_sdk_codestar_notifications.errors.validation_exception.ValidationException: <p>One or more parameter values are not valid.</p>
+            aws_sdk_codestar_notifications.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -690,6 +740,13 @@ class codestarnotificationsClient:
         Args:
             arn: <p>The Amazon Resource Name (ARN) of the notification rule to tag.</p>
             tags: <p>The list of tags to associate with the resource. Tag key names cannot start with \"<code>aws</code>\".</p>
+
+        Raises:
+            aws_sdk_codestar_notifications.errors.concurrent_modification_exception.ConcurrentModificationException: <p>CodeStar Notifications can't complete the request because the resource is being modified by another process. Wait a few minutes and try again.</p>
+            aws_sdk_codestar_notifications.errors.limit_exceeded_exception.LimitExceededException: <p>One of the CodeStar Notifications limits has been exceeded. Limits apply to accounts, notification rules, notifications, resources, and targets. For more information, see Limits.</p>
+            aws_sdk_codestar_notifications.errors.resource_not_found_exception.ResourceNotFoundException: <p>CodeStar Notifications can't find a resource that matches the provided ARN. </p>
+            aws_sdk_codestar_notifications.errors.validation_exception.ValidationException: <p>One or more parameter values are not valid.</p>
+            aws_sdk_codestar_notifications.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -730,6 +787,10 @@ class codestarnotificationsClient:
         Args:
             arn: <p>The Amazon Resource Name (ARN) of the notification rule.</p>
             target_address: <p>The ARN of the Amazon Q Developer in chat applications topic to unsubscribe from the notification rule.</p>
+
+        Raises:
+            aws_sdk_codestar_notifications.errors.validation_exception.ValidationException: <p>One or more parameter values are not valid.</p>
+            aws_sdk_codestar_notifications.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -772,6 +833,13 @@ class codestarnotificationsClient:
         Args:
             arn: <p>The Amazon Resource Name (ARN) of the notification rule from which to remove the tags.</p>
             tag_keys: <p>The key names of the tags to remove.</p>
+
+        Raises:
+            aws_sdk_codestar_notifications.errors.concurrent_modification_exception.ConcurrentModificationException: <p>CodeStar Notifications can't complete the request because the resource is being modified by another process. Wait a few minutes and try again.</p>
+            aws_sdk_codestar_notifications.errors.limit_exceeded_exception.LimitExceededException: <p>One of the CodeStar Notifications limits has been exceeded. Limits apply to accounts, notification rules, notifications, resources, and targets. For more information, see Limits.</p>
+            aws_sdk_codestar_notifications.errors.resource_not_found_exception.ResourceNotFoundException: <p>CodeStar Notifications can't find a resource that matches the provided ARN. </p>
+            aws_sdk_codestar_notifications.errors.validation_exception.ValidationException: <p>One or more parameter values are not valid.</p>
+            aws_sdk_codestar_notifications.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -830,6 +898,12 @@ class codestarnotificationsClient:
             event_type_ids: <p>A list of event types associated with this notification rule. For a complete list of event types and IDs, see <a href=\"https://docs.aws.amazon.com/codestar-notifications/latest/userguide/concepts.html#concepts-api\">Notification concepts</a> in the <i>Developer Tools Console User Guide</i>.</p>
             targets: <p>The address and type of the targets to receive notifications from this notification rule.</p>
             detail_type: <p>The level of detail to include in the notifications for this resource. BASIC will include only the contents of the event as it would appear in Amazon CloudWatch. FULL will include any supplemental information provided by CodeStar Notifications and/or the service for the resource for which the notification is created.</p>
+
+        Raises:
+            aws_sdk_codestar_notifications.errors.configuration_exception.ConfigurationException: <p>Some or all of the configuration is incomplete, missing, or not valid.</p>
+            aws_sdk_codestar_notifications.errors.resource_not_found_exception.ResourceNotFoundException: <p>CodeStar Notifications can't find a resource that matches the provided ARN. </p>
+            aws_sdk_codestar_notifications.errors.validation_exception.ValidationException: <p>One or more parameter values are not valid.</p>
+            aws_sdk_codestar_notifications.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(

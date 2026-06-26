@@ -237,6 +237,16 @@ class AsyncDevOpsGuruClient:
 
         Args:
             config: <p> A <code>NotificationChannelConfig</code> object that specifies what type of notification channel to add. The one supported notification channel is Amazon Simple Notification Service (Amazon SNS). </p>
+
+        Raises:
+            aws_sdk_devops_guru.errors.access_denied_exception.AccessDeniedException: <p> You don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions. For more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html\">Access Management</a> in the <i>IAM User Guide</i>. </p>
+            aws_sdk_devops_guru.errors.conflict_exception.ConflictException: <p> An exception that is thrown when a conflict occurs. </p>
+            aws_sdk_devops_guru.errors.internal_server_exception.InternalServerException: <p>An internal failure in an Amazon service occurred.</p>
+            aws_sdk_devops_guru.errors.resource_not_found_exception.ResourceNotFoundException: <p>A requested resource could not be found</p>
+            aws_sdk_devops_guru.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request contains a value that exceeds a maximum quota.</p>
+            aws_sdk_devops_guru.errors.throttling_exception.ThrottlingException: <p>The request was denied due to a request throttling.</p>
+            aws_sdk_devops_guru.errors.validation_exception.ValidationException: <p> Contains information about data passed in to a field during a request that is not valid. </p>
+            aws_sdk_devops_guru.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -275,6 +285,15 @@ class AsyncDevOpsGuruClient:
 
         Args:
             id: <p>The ID of the insight.</p>
+
+        Raises:
+            aws_sdk_devops_guru.errors.access_denied_exception.AccessDeniedException: <p> You don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions. For more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html\">Access Management</a> in the <i>IAM User Guide</i>. </p>
+            aws_sdk_devops_guru.errors.conflict_exception.ConflictException: <p> An exception that is thrown when a conflict occurs. </p>
+            aws_sdk_devops_guru.errors.internal_server_exception.InternalServerException: <p>An internal failure in an Amazon service occurred.</p>
+            aws_sdk_devops_guru.errors.resource_not_found_exception.ResourceNotFoundException: <p>A requested resource could not be found</p>
+            aws_sdk_devops_guru.errors.throttling_exception.ThrottlingException: <p>The request was denied due to a request throttling.</p>
+            aws_sdk_devops_guru.errors.validation_exception.ValidationException: <p> Contains information about data passed in to a field during a request that is not valid. </p>
+            aws_sdk_devops_guru.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -306,7 +325,15 @@ class AsyncDevOpsGuruClient:
     async def describe_account_health(
         self, *, config_overrides: Optional[AsyncDevOpsGuruClientConfig] = None
     ) -> "aws_sdk_devops_guru.types.describe_account_health_response.DescribeAccountHealthResponse":
-        """<p> Returns the number of open reactive insights, the number of open proactive insights, and the number of metrics analyzed in your Amazon Web Services account. Use these numbers to gauge the health of operations in your Amazon Web Services account. </p>"""
+        """<p> Returns the number of open reactive insights, the number of open proactive insights, and the number of metrics analyzed in your Amazon Web Services account. Use these numbers to gauge the health of operations in your Amazon Web Services account. </p>
+
+        Raises:
+            aws_sdk_devops_guru.errors.access_denied_exception.AccessDeniedException: <p> You don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions. For more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html\">Access Management</a> in the <i>IAM User Guide</i>. </p>
+            aws_sdk_devops_guru.errors.internal_server_exception.InternalServerException: <p>An internal failure in an Amazon service occurred.</p>
+            aws_sdk_devops_guru.errors.throttling_exception.ThrottlingException: <p>The request was denied due to a request throttling.</p>
+            aws_sdk_devops_guru.errors.validation_exception.ValidationException: <p> Contains information about data passed in to a field during a request that is not valid. </p>
+            aws_sdk_devops_guru.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_devops_guru.types.describe_account_health_request.DescribeAccountHealthRequest]",
@@ -345,6 +372,13 @@ class AsyncDevOpsGuruClient:
         Args:
             from_time: <p> The start of the time range passed in. The start time granularity is at the day level. The floor of the start time is used. Returned information occurred after this day. </p>
             to_time: <p> The end of the time range passed in. The start time granularity is at the day level. The floor of the start time is used. Returned information occurred before this day. If this is not specified, then the current day is used. </p>
+
+        Raises:
+            aws_sdk_devops_guru.errors.access_denied_exception.AccessDeniedException: <p> You don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions. For more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html\">Access Management</a> in the <i>IAM User Guide</i>. </p>
+            aws_sdk_devops_guru.errors.internal_server_exception.InternalServerException: <p>An internal failure in an Amazon service occurred.</p>
+            aws_sdk_devops_guru.errors.throttling_exception.ThrottlingException: <p>The request was denied due to a request throttling.</p>
+            aws_sdk_devops_guru.errors.validation_exception.ValidationException: <p> Contains information about data passed in to a field during a request that is not valid. </p>
+            aws_sdk_devops_guru.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -389,6 +423,14 @@ class AsyncDevOpsGuruClient:
         Args:
             id: <p> The ID of the anomaly. </p>
             account_id: <p>The ID of the member account.</p>
+
+        Raises:
+            aws_sdk_devops_guru.errors.access_denied_exception.AccessDeniedException: <p> You don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions. For more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html\">Access Management</a> in the <i>IAM User Guide</i>. </p>
+            aws_sdk_devops_guru.errors.internal_server_exception.InternalServerException: <p>An internal failure in an Amazon service occurred.</p>
+            aws_sdk_devops_guru.errors.resource_not_found_exception.ResourceNotFoundException: <p>A requested resource could not be found</p>
+            aws_sdk_devops_guru.errors.throttling_exception.ThrottlingException: <p>The request was denied due to a request throttling.</p>
+            aws_sdk_devops_guru.errors.validation_exception.ValidationException: <p> Contains information about data passed in to a field during a request that is not valid. </p>
+            aws_sdk_devops_guru.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -422,7 +464,15 @@ class AsyncDevOpsGuruClient:
     async def describe_event_sources_config(
         self, *, config_overrides: Optional[AsyncDevOpsGuruClientConfig] = None
     ) -> "aws_sdk_devops_guru.types.describe_event_sources_config_response.DescribeEventSourcesConfigResponse":
-        """<p>Returns the integration status of services that are integrated with DevOps Guru as Consumer via EventBridge. The one service that can be integrated with DevOps Guru is Amazon CodeGuru Profiler, which can produce proactive recommendations which can be stored and viewed in DevOps Guru.</p>"""
+        """<p>Returns the integration status of services that are integrated with DevOps Guru as Consumer via EventBridge. The one service that can be integrated with DevOps Guru is Amazon CodeGuru Profiler, which can produce proactive recommendations which can be stored and viewed in DevOps Guru.</p>
+
+        Raises:
+            aws_sdk_devops_guru.errors.access_denied_exception.AccessDeniedException: <p> You don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions. For more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html\">Access Management</a> in the <i>IAM User Guide</i>. </p>
+            aws_sdk_devops_guru.errors.internal_server_exception.InternalServerException: <p>An internal failure in an Amazon service occurred.</p>
+            aws_sdk_devops_guru.errors.throttling_exception.ThrottlingException: <p>The request was denied due to a request throttling.</p>
+            aws_sdk_devops_guru.errors.validation_exception.ValidationException: <p> Contains information about data passed in to a field during a request that is not valid. </p>
+            aws_sdk_devops_guru.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_devops_guru.types.describe_event_sources_config_request.DescribeEventSourcesConfigRequest]",
@@ -461,6 +511,14 @@ class AsyncDevOpsGuruClient:
 
         Args:
             insight_id: <p> The ID of the insight for which the feedback was provided. </p>
+
+        Raises:
+            aws_sdk_devops_guru.errors.access_denied_exception.AccessDeniedException: <p> You don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions. For more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html\">Access Management</a> in the <i>IAM User Guide</i>. </p>
+            aws_sdk_devops_guru.errors.internal_server_exception.InternalServerException: <p>An internal failure in an Amazon service occurred.</p>
+            aws_sdk_devops_guru.errors.resource_not_found_exception.ResourceNotFoundException: <p>A requested resource could not be found</p>
+            aws_sdk_devops_guru.errors.throttling_exception.ThrottlingException: <p>The request was denied due to a request throttling.</p>
+            aws_sdk_devops_guru.errors.validation_exception.ValidationException: <p> Contains information about data passed in to a field during a request that is not valid. </p>
+            aws_sdk_devops_guru.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -504,6 +562,14 @@ class AsyncDevOpsGuruClient:
         Args:
             id: <p> The ID of the insight. </p>
             account_id: <p>The ID of the member account in the organization.</p>
+
+        Raises:
+            aws_sdk_devops_guru.errors.access_denied_exception.AccessDeniedException: <p> You don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions. For more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html\">Access Management</a> in the <i>IAM User Guide</i>. </p>
+            aws_sdk_devops_guru.errors.internal_server_exception.InternalServerException: <p>An internal failure in an Amazon service occurred.</p>
+            aws_sdk_devops_guru.errors.resource_not_found_exception.ResourceNotFoundException: <p>A requested resource could not be found</p>
+            aws_sdk_devops_guru.errors.throttling_exception.ThrottlingException: <p>The request was denied due to a request throttling.</p>
+            aws_sdk_devops_guru.errors.validation_exception.ValidationException: <p> Contains information about data passed in to a field during a request that is not valid. </p>
+            aws_sdk_devops_guru.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -550,6 +616,13 @@ class AsyncDevOpsGuruClient:
         Args:
             account_ids: <p>The ID of the Amazon Web Services account.</p>
             organizational_unit_ids: <p>The ID of the organizational unit.</p>
+
+        Raises:
+            aws_sdk_devops_guru.errors.access_denied_exception.AccessDeniedException: <p> You don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions. For more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html\">Access Management</a> in the <i>IAM User Guide</i>. </p>
+            aws_sdk_devops_guru.errors.internal_server_exception.InternalServerException: <p>An internal failure in an Amazon service occurred.</p>
+            aws_sdk_devops_guru.errors.throttling_exception.ThrottlingException: <p>The request was denied due to a request throttling.</p>
+            aws_sdk_devops_guru.errors.validation_exception.ValidationException: <p> Contains information about data passed in to a field during a request that is not valid. </p>
+            aws_sdk_devops_guru.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -601,6 +674,13 @@ class AsyncDevOpsGuruClient:
             to_time: <p> The end of the time range passed in. The start time granularity is at the day level. The floor of the start time is used. Returned information occurred before this day. If this is not specified, then the current day is used. </p>
             account_ids: <p>The ID of the Amazon Web Services account.</p>
             organizational_unit_ids: <p>The ID of the organizational unit.</p>
+
+        Raises:
+            aws_sdk_devops_guru.errors.access_denied_exception.AccessDeniedException: <p> You don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions. For more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html\">Access Management</a> in the <i>IAM User Guide</i>. </p>
+            aws_sdk_devops_guru.errors.internal_server_exception.InternalServerException: <p>An internal failure in an Amazon service occurred.</p>
+            aws_sdk_devops_guru.errors.throttling_exception.ThrottlingException: <p>The request was denied due to a request throttling.</p>
+            aws_sdk_devops_guru.errors.validation_exception.ValidationException: <p> Contains information about data passed in to a field during a request that is not valid. </p>
+            aws_sdk_devops_guru.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -661,6 +741,13 @@ class AsyncDevOpsGuruClient:
             organizational_unit_ids: <p>The ID of the organizational unit.</p>
             next_token: <p>The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.</p>
             max_results: <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+
+        Raises:
+            aws_sdk_devops_guru.errors.access_denied_exception.AccessDeniedException: <p> You don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions. For more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html\">Access Management</a> in the <i>IAM User Guide</i>. </p>
+            aws_sdk_devops_guru.errors.internal_server_exception.InternalServerException: <p>An internal failure in an Amazon service occurred.</p>
+            aws_sdk_devops_guru.errors.throttling_exception.ThrottlingException: <p>The request was denied due to a request throttling.</p>
+            aws_sdk_devops_guru.errors.validation_exception.ValidationException: <p> Contains information about data passed in to a field during a request that is not valid. </p>
+            aws_sdk_devops_guru.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -713,6 +800,13 @@ class AsyncDevOpsGuruClient:
         Args:
             resource_collection_type: <p> An Amazon Web Services resource collection type. This type specifies how analyzed Amazon Web Services resources are defined. The two types of Amazon Web Services resource collections supported are Amazon Web Services CloudFormation stacks and Amazon Web Services resources that contain the same Amazon Web Services tag. DevOps Guru can be configured to analyze the Amazon Web Services resources that are defined in the stacks or that are tagged using the same tag <i>key</i>. You can specify up to 500 Amazon Web Services CloudFormation stacks. </p>
             next_token: <p>The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.</p>
+
+        Raises:
+            aws_sdk_devops_guru.errors.access_denied_exception.AccessDeniedException: <p> You don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions. For more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html\">Access Management</a> in the <i>IAM User Guide</i>. </p>
+            aws_sdk_devops_guru.errors.internal_server_exception.InternalServerException: <p>An internal failure in an Amazon service occurred.</p>
+            aws_sdk_devops_guru.errors.throttling_exception.ThrottlingException: <p>The request was denied due to a request throttling.</p>
+            aws_sdk_devops_guru.errors.validation_exception.ValidationException: <p> Contains information about data passed in to a field during a request that is not valid. </p>
+            aws_sdk_devops_guru.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -746,7 +840,16 @@ class AsyncDevOpsGuruClient:
     async def describe_service_integration(
         self, *, config_overrides: Optional[AsyncDevOpsGuruClientConfig] = None
     ) -> "aws_sdk_devops_guru.types.describe_service_integration_response.DescribeServiceIntegrationResponse":
-        """<p> Returns the integration status of services that are integrated with DevOps Guru. The one service that can be integrated with DevOps Guru is Amazon Web Services Systems Manager, which can be used to create an OpsItem for each generated insight. </p>"""
+        """<p> Returns the integration status of services that are integrated with DevOps Guru. The one service that can be integrated with DevOps Guru is Amazon Web Services Systems Manager, which can be used to create an OpsItem for each generated insight. </p>
+
+        Raises:
+            aws_sdk_devops_guru.errors.access_denied_exception.AccessDeniedException: <p> You don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions. For more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html\">Access Management</a> in the <i>IAM User Guide</i>. </p>
+            aws_sdk_devops_guru.errors.internal_server_exception.InternalServerException: <p>An internal failure in an Amazon service occurred.</p>
+            aws_sdk_devops_guru.errors.resource_not_found_exception.ResourceNotFoundException: <p>A requested resource could not be found</p>
+            aws_sdk_devops_guru.errors.throttling_exception.ThrottlingException: <p>The request was denied due to a request throttling.</p>
+            aws_sdk_devops_guru.errors.validation_exception.ValidationException: <p> Contains information about data passed in to a field during a request that is not valid. </p>
+            aws_sdk_devops_guru.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_devops_guru.types.describe_service_integration_request.DescribeServiceIntegrationRequest]",
@@ -785,6 +888,14 @@ class AsyncDevOpsGuruClient:
 
         Args:
             next_token: <p>The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.</p>
+
+        Raises:
+            aws_sdk_devops_guru.errors.access_denied_exception.AccessDeniedException: <p> You don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions. For more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html\">Access Management</a> in the <i>IAM User Guide</i>. </p>
+            aws_sdk_devops_guru.errors.internal_server_exception.InternalServerException: <p>An internal failure in an Amazon service occurred.</p>
+            aws_sdk_devops_guru.errors.resource_not_found_exception.ResourceNotFoundException: <p>A requested resource could not be found</p>
+            aws_sdk_devops_guru.errors.throttling_exception.ThrottlingException: <p>The request was denied due to a request throttling.</p>
+            aws_sdk_devops_guru.errors.validation_exception.ValidationException: <p> Contains information about data passed in to a field during a request that is not valid. </p>
+            aws_sdk_devops_guru.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -828,6 +939,14 @@ class AsyncDevOpsGuruClient:
         Args:
             resource_collection_type: <p> The type of Amazon Web Services resource collections to return. The one valid value is <code>CLOUD_FORMATION</code> for Amazon Web Services CloudFormation stacks. </p>
             next_token: <p>The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.</p>
+
+        Raises:
+            aws_sdk_devops_guru.errors.access_denied_exception.AccessDeniedException: <p> You don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions. For more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html\">Access Management</a> in the <i>IAM User Guide</i>. </p>
+            aws_sdk_devops_guru.errors.internal_server_exception.InternalServerException: <p>An internal failure in an Amazon service occurred.</p>
+            aws_sdk_devops_guru.errors.resource_not_found_exception.ResourceNotFoundException: <p>A requested resource could not be found</p>
+            aws_sdk_devops_guru.errors.throttling_exception.ThrottlingException: <p>The request was denied due to a request throttling.</p>
+            aws_sdk_devops_guru.errors.validation_exception.ValidationException: <p> Contains information about data passed in to a field during a request that is not valid. </p>
+            aws_sdk_devops_guru.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -888,6 +1007,14 @@ class AsyncDevOpsGuruClient:
             next_token: <p>The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.</p>
             account_id: <p>The ID of the Amazon Web Services account. </p>
             filters: <p> Specifies one or more service names that are used to list anomalies. </p>
+
+        Raises:
+            aws_sdk_devops_guru.errors.access_denied_exception.AccessDeniedException: <p> You don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions. For more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html\">Access Management</a> in the <i>IAM User Guide</i>. </p>
+            aws_sdk_devops_guru.errors.internal_server_exception.InternalServerException: <p>An internal failure in an Amazon service occurred.</p>
+            aws_sdk_devops_guru.errors.resource_not_found_exception.ResourceNotFoundException: <p>A requested resource could not be found</p>
+            aws_sdk_devops_guru.errors.throttling_exception.ThrottlingException: <p>The request was denied due to a request throttling.</p>
+            aws_sdk_devops_guru.errors.validation_exception.ValidationException: <p> Contains information about data passed in to a field during a request that is not valid. </p>
+            aws_sdk_devops_guru.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -944,6 +1071,14 @@ class AsyncDevOpsGuruClient:
             insight_id: <p> The ID of the insight containing the log groups. </p>
             max_results: <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
             next_token: <p>The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.</p>
+
+        Raises:
+            aws_sdk_devops_guru.errors.access_denied_exception.AccessDeniedException: <p> You don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions. For more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html\">Access Management</a> in the <i>IAM User Guide</i>. </p>
+            aws_sdk_devops_guru.errors.internal_server_exception.InternalServerException: <p>An internal failure in an Amazon service occurred.</p>
+            aws_sdk_devops_guru.errors.resource_not_found_exception.ResourceNotFoundException: <p>A requested resource could not be found</p>
+            aws_sdk_devops_guru.errors.throttling_exception.ThrottlingException: <p>The request was denied due to a request throttling.</p>
+            aws_sdk_devops_guru.errors.validation_exception.ValidationException: <p> Contains information about data passed in to a field during a request that is not valid. </p>
+            aws_sdk_devops_guru.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -998,6 +1133,14 @@ class AsyncDevOpsGuruClient:
             max_results: <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
             next_token: <p>The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.</p>
             account_id: <p>The ID of the Amazon Web Services account. </p>
+
+        Raises:
+            aws_sdk_devops_guru.errors.access_denied_exception.AccessDeniedException: <p> You don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions. For more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html\">Access Management</a> in the <i>IAM User Guide</i>. </p>
+            aws_sdk_devops_guru.errors.internal_server_exception.InternalServerException: <p>An internal failure in an Amazon service occurred.</p>
+            aws_sdk_devops_guru.errors.resource_not_found_exception.ResourceNotFoundException: <p>A requested resource could not be found</p>
+            aws_sdk_devops_guru.errors.throttling_exception.ThrottlingException: <p>The request was denied due to a request throttling.</p>
+            aws_sdk_devops_guru.errors.validation_exception.ValidationException: <p> Contains information about data passed in to a field during a request that is not valid. </p>
+            aws_sdk_devops_guru.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1081,6 +1224,13 @@ class AsyncDevOpsGuruClient:
             status_filter: <p> A filter used to filter the returned insights by their status. You can specify one status filter. </p>
             max_results: <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
             next_token: <p>The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.</p>
+
+        Raises:
+            aws_sdk_devops_guru.errors.access_denied_exception.AccessDeniedException: <p> You don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions. For more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html\">Access Management</a> in the <i>IAM User Guide</i>. </p>
+            aws_sdk_devops_guru.errors.internal_server_exception.InternalServerException: <p>An internal failure in an Amazon service occurred.</p>
+            aws_sdk_devops_guru.errors.throttling_exception.ThrottlingException: <p>The request was denied due to a request throttling.</p>
+            aws_sdk_devops_guru.errors.validation_exception.ValidationException: <p> Contains information about data passed in to a field during a request that is not valid. </p>
+            aws_sdk_devops_guru.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1133,6 +1283,13 @@ class AsyncDevOpsGuruClient:
             filters: <p> Filters to determine which monitored resources you want to retrieve. You can filter by resource type or resource permission status. </p>
             max_results: <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
             next_token: <p>The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.</p>
+
+        Raises:
+            aws_sdk_devops_guru.errors.internal_server_exception.InternalServerException: <p>An internal failure in an Amazon service occurred.</p>
+            aws_sdk_devops_guru.errors.resource_not_found_exception.ResourceNotFoundException: <p>A requested resource could not be found</p>
+            aws_sdk_devops_guru.errors.throttling_exception.ThrottlingException: <p>The request was denied due to a request throttling.</p>
+            aws_sdk_devops_guru.errors.validation_exception.ValidationException: <p> Contains information about data passed in to a field during a request that is not valid. </p>
+            aws_sdk_devops_guru.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1178,6 +1335,13 @@ class AsyncDevOpsGuruClient:
 
         Args:
             next_token: <p>The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.</p>
+
+        Raises:
+            aws_sdk_devops_guru.errors.access_denied_exception.AccessDeniedException: <p> You don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions. For more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html\">Access Management</a> in the <i>IAM User Guide</i>. </p>
+            aws_sdk_devops_guru.errors.internal_server_exception.InternalServerException: <p>An internal failure in an Amazon service occurred.</p>
+            aws_sdk_devops_guru.errors.throttling_exception.ThrottlingException: <p>The request was denied due to a request throttling.</p>
+            aws_sdk_devops_guru.errors.validation_exception.ValidationException: <p> Contains information about data passed in to a field during a request that is not valid. </p>
+            aws_sdk_devops_guru.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1253,6 +1417,13 @@ class AsyncDevOpsGuruClient:
             account_ids: <p>The ID of the Amazon Web Services account. </p>
             organizational_unit_ids: <p>The ID of the organizational unit.</p>
             next_token: <p>The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.</p>
+
+        Raises:
+            aws_sdk_devops_guru.errors.access_denied_exception.AccessDeniedException: <p> You don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions. For more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html\">Access Management</a> in the <i>IAM User Guide</i>. </p>
+            aws_sdk_devops_guru.errors.internal_server_exception.InternalServerException: <p>An internal failure in an Amazon service occurred.</p>
+            aws_sdk_devops_guru.errors.throttling_exception.ThrottlingException: <p>The request was denied due to a request throttling.</p>
+            aws_sdk_devops_guru.errors.validation_exception.ValidationException: <p> Contains information about data passed in to a field during a request that is not valid. </p>
+            aws_sdk_devops_guru.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1309,6 +1480,14 @@ class AsyncDevOpsGuruClient:
             next_token: <p>The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.</p>
             locale: <p>A locale that specifies the language to use for recommendations.</p>
             account_id: <p>The ID of the Amazon Web Services account. </p>
+
+        Raises:
+            aws_sdk_devops_guru.errors.access_denied_exception.AccessDeniedException: <p> You don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions. For more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html\">Access Management</a> in the <i>IAM User Guide</i>. </p>
+            aws_sdk_devops_guru.errors.internal_server_exception.InternalServerException: <p>An internal failure in an Amazon service occurred.</p>
+            aws_sdk_devops_guru.errors.resource_not_found_exception.ResourceNotFoundException: <p>A requested resource could not be found</p>
+            aws_sdk_devops_guru.errors.throttling_exception.ThrottlingException: <p>The request was denied due to a request throttling.</p>
+            aws_sdk_devops_guru.errors.validation_exception.ValidationException: <p> Contains information about data passed in to a field during a request that is not valid. </p>
+            aws_sdk_devops_guru.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1384,6 +1563,15 @@ class AsyncDevOpsGuruClient:
 
         Args:
             insight_feedback: <p> The feedback from customers is about the recommendations in this insight. </p>
+
+        Raises:
+            aws_sdk_devops_guru.errors.access_denied_exception.AccessDeniedException: <p> You don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions. For more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html\">Access Management</a> in the <i>IAM User Guide</i>. </p>
+            aws_sdk_devops_guru.errors.conflict_exception.ConflictException: <p> An exception that is thrown when a conflict occurs. </p>
+            aws_sdk_devops_guru.errors.internal_server_exception.InternalServerException: <p>An internal failure in an Amazon service occurred.</p>
+            aws_sdk_devops_guru.errors.resource_not_found_exception.ResourceNotFoundException: <p>A requested resource could not be found</p>
+            aws_sdk_devops_guru.errors.throttling_exception.ThrottlingException: <p>The request was denied due to a request throttling.</p>
+            aws_sdk_devops_guru.errors.validation_exception.ValidationException: <p> Contains information about data passed in to a field during a request that is not valid. </p>
+            aws_sdk_devops_guru.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1423,6 +1611,15 @@ class AsyncDevOpsGuruClient:
 
         Args:
             id: <p> The ID of the notification channel to be removed. </p>
+
+        Raises:
+            aws_sdk_devops_guru.errors.access_denied_exception.AccessDeniedException: <p> You don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions. For more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html\">Access Management</a> in the <i>IAM User Guide</i>. </p>
+            aws_sdk_devops_guru.errors.conflict_exception.ConflictException: <p> An exception that is thrown when a conflict occurs. </p>
+            aws_sdk_devops_guru.errors.internal_server_exception.InternalServerException: <p>An internal failure in an Amazon service occurred.</p>
+            aws_sdk_devops_guru.errors.resource_not_found_exception.ResourceNotFoundException: <p>A requested resource could not be found</p>
+            aws_sdk_devops_guru.errors.throttling_exception.ThrottlingException: <p>The request was denied due to a request throttling.</p>
+            aws_sdk_devops_guru.errors.validation_exception.ValidationException: <p> Contains information about data passed in to a field during a request that is not valid. </p>
+            aws_sdk_devops_guru.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1475,6 +1672,13 @@ class AsyncDevOpsGuruClient:
             max_results: <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
             next_token: <p>The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.</p>
             type: <p> The type of insights you are searching for (<code>REACTIVE</code> or <code>PROACTIVE</code>). </p>
+
+        Raises:
+            aws_sdk_devops_guru.errors.access_denied_exception.AccessDeniedException: <p> You don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions. For more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html\">Access Management</a> in the <i>IAM User Guide</i>. </p>
+            aws_sdk_devops_guru.errors.internal_server_exception.InternalServerException: <p>An internal failure in an Amazon service occurred.</p>
+            aws_sdk_devops_guru.errors.throttling_exception.ThrottlingException: <p>The request was denied due to a request throttling.</p>
+            aws_sdk_devops_guru.errors.validation_exception.ValidationException: <p> Contains information about data passed in to a field during a request that is not valid. </p>
+            aws_sdk_devops_guru.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1535,6 +1739,13 @@ class AsyncDevOpsGuruClient:
             max_results: <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
             next_token: <p>The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.</p>
             type: <p> The type of insights you are searching for (<code>REACTIVE</code> or <code>PROACTIVE</code>). </p>
+
+        Raises:
+            aws_sdk_devops_guru.errors.access_denied_exception.AccessDeniedException: <p> You don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions. For more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html\">Access Management</a> in the <i>IAM User Guide</i>. </p>
+            aws_sdk_devops_guru.errors.internal_server_exception.InternalServerException: <p>An internal failure in an Amazon service occurred.</p>
+            aws_sdk_devops_guru.errors.throttling_exception.ThrottlingException: <p>The request was denied due to a request throttling.</p>
+            aws_sdk_devops_guru.errors.validation_exception.ValidationException: <p> Contains information about data passed in to a field during a request that is not valid. </p>
+            aws_sdk_devops_guru.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1585,6 +1796,15 @@ class AsyncDevOpsGuruClient:
         Args:
             resource_collection: <p>The collection of Amazon Web Services resources used to create a monthly DevOps Guru cost estimate.</p>
             client_token: <p>The idempotency token used to identify each cost estimate request.</p>
+
+        Raises:
+            aws_sdk_devops_guru.errors.access_denied_exception.AccessDeniedException: <p> You don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions. For more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html\">Access Management</a> in the <i>IAM User Guide</i>. </p>
+            aws_sdk_devops_guru.errors.conflict_exception.ConflictException: <p> An exception that is thrown when a conflict occurs. </p>
+            aws_sdk_devops_guru.errors.internal_server_exception.InternalServerException: <p>An internal failure in an Amazon service occurred.</p>
+            aws_sdk_devops_guru.errors.resource_not_found_exception.ResourceNotFoundException: <p>A requested resource could not be found</p>
+            aws_sdk_devops_guru.errors.throttling_exception.ThrottlingException: <p>The request was denied due to a request throttling.</p>
+            aws_sdk_devops_guru.errors.validation_exception.ValidationException: <p> Contains information about data passed in to a field during a request that is not valid. </p>
+            aws_sdk_devops_guru.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1627,6 +1847,13 @@ class AsyncDevOpsGuruClient:
 
         Args:
             event_sources: <p>Configuration information about the integration of DevOps Guru as the Consumer via EventBridge with another AWS Service.</p>
+
+        Raises:
+            aws_sdk_devops_guru.errors.access_denied_exception.AccessDeniedException: <p> You don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions. For more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html\">Access Management</a> in the <i>IAM User Guide</i>. </p>
+            aws_sdk_devops_guru.errors.internal_server_exception.InternalServerException: <p>An internal failure in an Amazon service occurred.</p>
+            aws_sdk_devops_guru.errors.throttling_exception.ThrottlingException: <p>The request was denied due to a request throttling.</p>
+            aws_sdk_devops_guru.errors.validation_exception.ValidationException: <p> Contains information about data passed in to a field during a request that is not valid. </p>
+            aws_sdk_devops_guru.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1667,6 +1894,14 @@ class AsyncDevOpsGuruClient:
 
         Args:
             action: <p> Specifies if the resource collection in the request is added or deleted to the resource collection. </p>
+
+        Raises:
+            aws_sdk_devops_guru.errors.access_denied_exception.AccessDeniedException: <p> You don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions. For more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html\">Access Management</a> in the <i>IAM User Guide</i>. </p>
+            aws_sdk_devops_guru.errors.conflict_exception.ConflictException: <p> An exception that is thrown when a conflict occurs. </p>
+            aws_sdk_devops_guru.errors.internal_server_exception.InternalServerException: <p>An internal failure in an Amazon service occurred.</p>
+            aws_sdk_devops_guru.errors.throttling_exception.ThrottlingException: <p>The request was denied due to a request throttling.</p>
+            aws_sdk_devops_guru.errors.validation_exception.ValidationException: <p> Contains information about data passed in to a field during a request that is not valid. </p>
+            aws_sdk_devops_guru.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1706,6 +1941,14 @@ class AsyncDevOpsGuruClient:
 
         Args:
             service_integration: <p> An <code>IntegratedServiceConfig</code> object used to specify the integrated service you want to update, and whether you want to update it to enabled or disabled. </p>
+
+        Raises:
+            aws_sdk_devops_guru.errors.access_denied_exception.AccessDeniedException: <p> You don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions. For more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html\">Access Management</a> in the <i>IAM User Guide</i>. </p>
+            aws_sdk_devops_guru.errors.conflict_exception.ConflictException: <p> An exception that is thrown when a conflict occurs. </p>
+            aws_sdk_devops_guru.errors.internal_server_exception.InternalServerException: <p>An internal failure in an Amazon service occurred.</p>
+            aws_sdk_devops_guru.errors.throttling_exception.ThrottlingException: <p>The request was denied due to a request throttling.</p>
+            aws_sdk_devops_guru.errors.validation_exception.ValidationException: <p> Contains information about data passed in to a field during a request that is not valid. </p>
+            aws_sdk_devops_guru.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

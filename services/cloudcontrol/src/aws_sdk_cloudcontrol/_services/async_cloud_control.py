@@ -164,6 +164,11 @@ class AsyncCloudControlClient:
 
         Args:
             request_token: <p>The <code>RequestToken</code> of the <code>ProgressEvent</code> object returned by the resource operation request.</p>
+
+        Raises:
+            aws_sdk_cloudcontrol.errors.concurrent_modification_exception.ConcurrentModificationException: <p>The resource is currently being modified by another operation.</p>
+            aws_sdk_cloudcontrol.errors.request_token_not_found_exception.RequestTokenNotFoundException: <p>A resource operation with the specified request token can't be found.</p>
+            aws_sdk_cloudcontrol.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -214,6 +219,28 @@ class AsyncCloudControlClient:
             role_arn: <p>The Amazon Resource Name (ARN) of the Identity and Access Management (IAM) role for Cloud Control API to use when performing this resource operation. The role specified must have the permissions required for this operation. The necessary permissions for each event handler are defined in the <code> <a href=\"https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-schema.html#schema-properties-handlers\">handlers</a> </code> section of the <a href=\"https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-schema.html\">resource type definition schema</a>.</p> <p>If you do not specify a role, Cloud Control API uses a temporary session created using your Amazon Web Services user credentials.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations.html#resource-operations-permissions\">Specifying credentials</a> in the <i>Amazon Web Services Cloud Control API User Guide</i>.</p>
             client_token: <p>A unique identifier to ensure the idempotency of the resource request. As a best practice, specify this token to ensure idempotency, so that Amazon Web Services Cloud Control API can accurately distinguish between request retries and new resource requests. You might retry a resource request to ensure that it was successfully received.</p> <p>A client token is valid for 36 hours once used. After that, a resource request with the same client token is treated as a new request.</p> <p>If you do not specify a client token, one is generated for inclusion in the request.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations.html#resource-operations-idempotency\">Ensuring resource operation requests are unique</a> in the <i>Amazon Web Services Cloud Control API User Guide</i>.</p>
             desired_state: <p>Structured data format representing the desired state of the resource, consisting of that resource's properties and their desired values.</p> <note> <p>Cloud Control API currently supports JSON as a structured data format.</p> </note> <p>Specify the desired state as one of the following:</p> <ul> <li> <p>A JSON blob</p> </li> <li> <p>A local path containing the desired state in JSON data format</p> </li> </ul> <p>For more information, see <a href=\"https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations-create.html#resource-operations-create-desiredstate\">Composing the desired state of the resource</a> in the <i>Amazon Web Services Cloud Control API User Guide</i>.</p> <p>For more information about the properties of a specific resource, refer to the related topic for the resource in the <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html\">Resource and property types reference</a> in the <i>CloudFormation Users Guide</i>.</p>
+
+        Raises:
+            aws_sdk_cloudcontrol.errors.already_exists_exception.AlreadyExistsException: <p>The resource with the name requested already exists.</p>
+            aws_sdk_cloudcontrol.errors.client_token_conflict_exception.ClientTokenConflictException: <p>The specified client token has already been used in another resource request.</p> <p>It's best practice for client tokens to be unique for each resource operation request. However, client token expire after 36 hours.</p>
+            aws_sdk_cloudcontrol.errors.concurrent_operation_exception.ConcurrentOperationException: <p>Another resource operation is currently being performed on this resource.</p>
+            aws_sdk_cloudcontrol.errors.general_service_exception.GeneralServiceException: <p>The resource handler has returned that the downstream service generated an error that doesn't map to any other handler error code.</p>
+            aws_sdk_cloudcontrol.errors.handler_failure_exception.HandlerFailureException: <p>The resource handler has failed without a returning a more specific error code. This can include timeouts.</p>
+            aws_sdk_cloudcontrol.errors.handler_internal_failure_exception.HandlerInternalFailureException: <p>The resource handler has returned that an unexpected error occurred within the resource handler.</p>
+            aws_sdk_cloudcontrol.errors.invalid_credentials_exception.InvalidCredentialsException: <p>The resource handler has returned that the credentials provided by the user are invalid.</p>
+            aws_sdk_cloudcontrol.errors.invalid_request_exception.InvalidRequestException: <p>The resource handler has returned that invalid input from the user has generated a generic exception.</p>
+            aws_sdk_cloudcontrol.errors.network_failure_exception.NetworkFailureException: <p>The resource handler has returned that the request couldn't be completed due to networking issues, such as a failure to receive a response from the server.</p>
+            aws_sdk_cloudcontrol.errors.not_stabilized_exception.NotStabilizedException: <p>The resource handler has returned that the downstream resource failed to complete all of its ready-state checks.</p>
+            aws_sdk_cloudcontrol.errors.not_updatable_exception.NotUpdatableException: <p>One or more properties included in this resource operation are defined as create-only, and therefore can't be updated.</p>
+            aws_sdk_cloudcontrol.errors.private_type_exception.PrivateTypeException: <p>Cloud Control API hasn't received a valid response from the resource handler, due to a configuration error. This includes issues such as the resource handler returning an invalid response, or timing out.</p>
+            aws_sdk_cloudcontrol.errors.resource_conflict_exception.ResourceConflictException: <p>The resource is temporarily unavailable to be acted upon. For example, if the resource is currently undergoing an operation and can't be acted upon until that operation is finished.</p>
+            aws_sdk_cloudcontrol.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource with the specified identifier can't be found.</p>
+            aws_sdk_cloudcontrol.errors.service_internal_error_exception.ServiceInternalErrorException: <p>The resource handler has returned that the downstream service returned an internal error, typically with a <code>5XX HTTP</code> status code.</p>
+            aws_sdk_cloudcontrol.errors.service_limit_exceeded_exception.ServiceLimitExceededException: <p>The resource handler has returned that a non-transient resource limit was reached on the service side.</p>
+            aws_sdk_cloudcontrol.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_cloudcontrol.errors.type_not_found_exception.TypeNotFoundException: <p>The specified extension doesn't exist in the CloudFormation registry.</p>
+            aws_sdk_cloudcontrol.errors.unsupported_action_exception.UnsupportedActionException: <p>The specified resource doesn't support this resource operation.</p>
+            aws_sdk_cloudcontrol.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -271,6 +298,28 @@ class AsyncCloudControlClient:
             role_arn: <p>The Amazon Resource Name (ARN) of the Identity and Access Management (IAM) role for Cloud Control API to use when performing this resource operation. The role specified must have the permissions required for this operation. The necessary permissions for each event handler are defined in the <code> <a href=\"https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-schema.html#schema-properties-handlers\">handlers</a> </code> section of the <a href=\"https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-schema.html\">resource type definition schema</a>.</p> <p>If you do not specify a role, Cloud Control API uses a temporary session created using your Amazon Web Services user credentials.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations.html#resource-operations-permissions\">Specifying credentials</a> in the <i>Amazon Web Services Cloud Control API User Guide</i>.</p>
             client_token: <p>A unique identifier to ensure the idempotency of the resource request. As a best practice, specify this token to ensure idempotency, so that Amazon Web Services Cloud Control API can accurately distinguish between request retries and new resource requests. You might retry a resource request to ensure that it was successfully received.</p> <p>A client token is valid for 36 hours once used. After that, a resource request with the same client token is treated as a new request.</p> <p>If you do not specify a client token, one is generated for inclusion in the request.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations.html#resource-operations-idempotency\">Ensuring resource operation requests are unique</a> in the <i>Amazon Web Services Cloud Control API User Guide</i>.</p>
             identifier: <p>The identifier for the resource.</p> <p>You can specify the primary identifier, or any secondary identifier defined for the resource type in its resource schema. You can only specify one identifier. Primary identifiers can be specified as a string or JSON; secondary identifiers must be specified as JSON.</p> <p>For compound primary identifiers (that is, one that consists of multiple resource properties strung together), to specify the primary identifier as a string, list the property values <i>in the order they are specified</i> in the primary identifier definition, separated by <code>|</code>.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-identifier.html\">Identifying resources</a> in the <i>Amazon Web Services Cloud Control API User Guide</i>.</p>
+
+        Raises:
+            aws_sdk_cloudcontrol.errors.already_exists_exception.AlreadyExistsException: <p>The resource with the name requested already exists.</p>
+            aws_sdk_cloudcontrol.errors.client_token_conflict_exception.ClientTokenConflictException: <p>The specified client token has already been used in another resource request.</p> <p>It's best practice for client tokens to be unique for each resource operation request. However, client token expire after 36 hours.</p>
+            aws_sdk_cloudcontrol.errors.concurrent_operation_exception.ConcurrentOperationException: <p>Another resource operation is currently being performed on this resource.</p>
+            aws_sdk_cloudcontrol.errors.general_service_exception.GeneralServiceException: <p>The resource handler has returned that the downstream service generated an error that doesn't map to any other handler error code.</p>
+            aws_sdk_cloudcontrol.errors.handler_failure_exception.HandlerFailureException: <p>The resource handler has failed without a returning a more specific error code. This can include timeouts.</p>
+            aws_sdk_cloudcontrol.errors.handler_internal_failure_exception.HandlerInternalFailureException: <p>The resource handler has returned that an unexpected error occurred within the resource handler.</p>
+            aws_sdk_cloudcontrol.errors.invalid_credentials_exception.InvalidCredentialsException: <p>The resource handler has returned that the credentials provided by the user are invalid.</p>
+            aws_sdk_cloudcontrol.errors.invalid_request_exception.InvalidRequestException: <p>The resource handler has returned that invalid input from the user has generated a generic exception.</p>
+            aws_sdk_cloudcontrol.errors.network_failure_exception.NetworkFailureException: <p>The resource handler has returned that the request couldn't be completed due to networking issues, such as a failure to receive a response from the server.</p>
+            aws_sdk_cloudcontrol.errors.not_stabilized_exception.NotStabilizedException: <p>The resource handler has returned that the downstream resource failed to complete all of its ready-state checks.</p>
+            aws_sdk_cloudcontrol.errors.not_updatable_exception.NotUpdatableException: <p>One or more properties included in this resource operation are defined as create-only, and therefore can't be updated.</p>
+            aws_sdk_cloudcontrol.errors.private_type_exception.PrivateTypeException: <p>Cloud Control API hasn't received a valid response from the resource handler, due to a configuration error. This includes issues such as the resource handler returning an invalid response, or timing out.</p>
+            aws_sdk_cloudcontrol.errors.resource_conflict_exception.ResourceConflictException: <p>The resource is temporarily unavailable to be acted upon. For example, if the resource is currently undergoing an operation and can't be acted upon until that operation is finished.</p>
+            aws_sdk_cloudcontrol.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource with the specified identifier can't be found.</p>
+            aws_sdk_cloudcontrol.errors.service_internal_error_exception.ServiceInternalErrorException: <p>The resource handler has returned that the downstream service returned an internal error, typically with a <code>5XX HTTP</code> status code.</p>
+            aws_sdk_cloudcontrol.errors.service_limit_exceeded_exception.ServiceLimitExceededException: <p>The resource handler has returned that a non-transient resource limit was reached on the service side.</p>
+            aws_sdk_cloudcontrol.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_cloudcontrol.errors.type_not_found_exception.TypeNotFoundException: <p>The specified extension doesn't exist in the CloudFormation registry.</p>
+            aws_sdk_cloudcontrol.errors.unsupported_action_exception.UnsupportedActionException: <p>The specified resource doesn't support this resource operation.</p>
+            aws_sdk_cloudcontrol.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -324,6 +373,26 @@ class AsyncCloudControlClient:
             type_version_id: <p>For private resource types, the type version to use in this resource operation. If you do not specify a resource version, CloudFormation uses the default version.</p>
             role_arn: <p>The Amazon Resource Name (ARN) of the Identity and Access Management (IAM) role for Cloud Control API to use when performing this resource operation. The role specified must have the permissions required for this operation. The necessary permissions for each event handler are defined in the <code> <a href=\"https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-schema.html#schema-properties-handlers\">handlers</a> </code> section of the <a href=\"https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-schema.html\">resource type definition schema</a>.</p> <p>If you do not specify a role, Cloud Control API uses a temporary session created using your Amazon Web Services user credentials.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations.html#resource-operations-permissions\">Specifying credentials</a> in the <i>Amazon Web Services Cloud Control API User Guide</i>.</p>
             identifier: <p>The identifier for the resource.</p> <p>You can specify the primary identifier, or any secondary identifier defined for the resource type in its resource schema. You can only specify one identifier. Primary identifiers can be specified as a string or JSON; secondary identifiers must be specified as JSON.</p> <p>For compound primary identifiers (that is, one that consists of multiple resource properties strung together), to specify the primary identifier as a string, list the property values <i>in the order they are specified</i> in the primary identifier definition, separated by <code>|</code>.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-identifier.html\">Identifying resources</a> in the <i>Amazon Web Services Cloud Control API User Guide</i>.</p>
+
+        Raises:
+            aws_sdk_cloudcontrol.errors.already_exists_exception.AlreadyExistsException: <p>The resource with the name requested already exists.</p>
+            aws_sdk_cloudcontrol.errors.general_service_exception.GeneralServiceException: <p>The resource handler has returned that the downstream service generated an error that doesn't map to any other handler error code.</p>
+            aws_sdk_cloudcontrol.errors.handler_failure_exception.HandlerFailureException: <p>The resource handler has failed without a returning a more specific error code. This can include timeouts.</p>
+            aws_sdk_cloudcontrol.errors.handler_internal_failure_exception.HandlerInternalFailureException: <p>The resource handler has returned that an unexpected error occurred within the resource handler.</p>
+            aws_sdk_cloudcontrol.errors.invalid_credentials_exception.InvalidCredentialsException: <p>The resource handler has returned that the credentials provided by the user are invalid.</p>
+            aws_sdk_cloudcontrol.errors.invalid_request_exception.InvalidRequestException: <p>The resource handler has returned that invalid input from the user has generated a generic exception.</p>
+            aws_sdk_cloudcontrol.errors.network_failure_exception.NetworkFailureException: <p>The resource handler has returned that the request couldn't be completed due to networking issues, such as a failure to receive a response from the server.</p>
+            aws_sdk_cloudcontrol.errors.not_stabilized_exception.NotStabilizedException: <p>The resource handler has returned that the downstream resource failed to complete all of its ready-state checks.</p>
+            aws_sdk_cloudcontrol.errors.not_updatable_exception.NotUpdatableException: <p>One or more properties included in this resource operation are defined as create-only, and therefore can't be updated.</p>
+            aws_sdk_cloudcontrol.errors.private_type_exception.PrivateTypeException: <p>Cloud Control API hasn't received a valid response from the resource handler, due to a configuration error. This includes issues such as the resource handler returning an invalid response, or timing out.</p>
+            aws_sdk_cloudcontrol.errors.resource_conflict_exception.ResourceConflictException: <p>The resource is temporarily unavailable to be acted upon. For example, if the resource is currently undergoing an operation and can't be acted upon until that operation is finished.</p>
+            aws_sdk_cloudcontrol.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource with the specified identifier can't be found.</p>
+            aws_sdk_cloudcontrol.errors.service_internal_error_exception.ServiceInternalErrorException: <p>The resource handler has returned that the downstream service returned an internal error, typically with a <code>5XX HTTP</code> status code.</p>
+            aws_sdk_cloudcontrol.errors.service_limit_exceeded_exception.ServiceLimitExceededException: <p>The resource handler has returned that a non-transient resource limit was reached on the service side.</p>
+            aws_sdk_cloudcontrol.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_cloudcontrol.errors.type_not_found_exception.TypeNotFoundException: <p>The specified extension doesn't exist in the CloudFormation registry.</p>
+            aws_sdk_cloudcontrol.errors.unsupported_action_exception.UnsupportedActionException: <p>The specified resource doesn't support this resource operation.</p>
+            aws_sdk_cloudcontrol.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -367,6 +436,10 @@ class AsyncCloudControlClient:
 
         Args:
             request_token: <p>A unique token used to track the progress of the resource operation request.</p> <p>Request tokens are included in the <code>ProgressEvent</code> type returned by a resource operation request.</p>
+
+        Raises:
+            aws_sdk_cloudcontrol.errors.request_token_not_found_exception.RequestTokenNotFoundException: <p>A resource operation with the specified request token can't be found.</p>
+            aws_sdk_cloudcontrol.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -413,6 +486,9 @@ class AsyncCloudControlClient:
             max_results: <p>The maximum number of results to be returned with a single call. If the number of available results exceeds this maximum, the response includes a <code>NextToken</code> value that you can assign to the <code>NextToken</code> request parameter to get the next set of results.</p> <p>The default is <code>20</code>.</p>
             next_token: <p>If the previous paginated request didn't return all of the remaining results, the response object's <code>NextToken</code> parameter value is set to a token. To retrieve the next set of results, call this action again and assign that token to the request object's <code>NextToken</code> parameter. If there are no remaining results, the previous response object's <code>NextToken</code> parameter is set to <code>null</code>.</p>
             resource_request_status_filter: <p>The filter criteria to apply to the requests returned.</p>
+
+        Raises:
+            aws_sdk_cloudcontrol.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -501,6 +577,26 @@ class AsyncCloudControlClient:
             next_token: <p>If the previous paginated request didn't return all of the remaining results, the response object's <code>NextToken</code> parameter value is set to a token. To retrieve the next set of results, call this action again and assign that token to the request object's <code>NextToken</code> parameter. If there are no remaining results, the previous response object's <code>NextToken</code> parameter is set to <code>null</code>.</p>
             max_results: <p>Reserved.</p>
             resource_model: <p>The resource model to use to select the resources to return.</p>
+
+        Raises:
+            aws_sdk_cloudcontrol.errors.already_exists_exception.AlreadyExistsException: <p>The resource with the name requested already exists.</p>
+            aws_sdk_cloudcontrol.errors.general_service_exception.GeneralServiceException: <p>The resource handler has returned that the downstream service generated an error that doesn't map to any other handler error code.</p>
+            aws_sdk_cloudcontrol.errors.handler_failure_exception.HandlerFailureException: <p>The resource handler has failed without a returning a more specific error code. This can include timeouts.</p>
+            aws_sdk_cloudcontrol.errors.handler_internal_failure_exception.HandlerInternalFailureException: <p>The resource handler has returned that an unexpected error occurred within the resource handler.</p>
+            aws_sdk_cloudcontrol.errors.invalid_credentials_exception.InvalidCredentialsException: <p>The resource handler has returned that the credentials provided by the user are invalid.</p>
+            aws_sdk_cloudcontrol.errors.invalid_request_exception.InvalidRequestException: <p>The resource handler has returned that invalid input from the user has generated a generic exception.</p>
+            aws_sdk_cloudcontrol.errors.network_failure_exception.NetworkFailureException: <p>The resource handler has returned that the request couldn't be completed due to networking issues, such as a failure to receive a response from the server.</p>
+            aws_sdk_cloudcontrol.errors.not_stabilized_exception.NotStabilizedException: <p>The resource handler has returned that the downstream resource failed to complete all of its ready-state checks.</p>
+            aws_sdk_cloudcontrol.errors.not_updatable_exception.NotUpdatableException: <p>One or more properties included in this resource operation are defined as create-only, and therefore can't be updated.</p>
+            aws_sdk_cloudcontrol.errors.private_type_exception.PrivateTypeException: <p>Cloud Control API hasn't received a valid response from the resource handler, due to a configuration error. This includes issues such as the resource handler returning an invalid response, or timing out.</p>
+            aws_sdk_cloudcontrol.errors.resource_conflict_exception.ResourceConflictException: <p>The resource is temporarily unavailable to be acted upon. For example, if the resource is currently undergoing an operation and can't be acted upon until that operation is finished.</p>
+            aws_sdk_cloudcontrol.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource with the specified identifier can't be found.</p>
+            aws_sdk_cloudcontrol.errors.service_internal_error_exception.ServiceInternalErrorException: <p>The resource handler has returned that the downstream service returned an internal error, typically with a <code>5XX HTTP</code> status code.</p>
+            aws_sdk_cloudcontrol.errors.service_limit_exceeded_exception.ServiceLimitExceededException: <p>The resource handler has returned that a non-transient resource limit was reached on the service side.</p>
+            aws_sdk_cloudcontrol.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_cloudcontrol.errors.type_not_found_exception.TypeNotFoundException: <p>The specified extension doesn't exist in the CloudFormation registry.</p>
+            aws_sdk_cloudcontrol.errors.unsupported_action_exception.UnsupportedActionException: <p>The specified resource doesn't support this resource operation.</p>
+            aws_sdk_cloudcontrol.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -600,6 +696,28 @@ class AsyncCloudControlClient:
             client_token: <p>A unique identifier to ensure the idempotency of the resource request. As a best practice, specify this token to ensure idempotency, so that Amazon Web Services Cloud Control API can accurately distinguish between request retries and new resource requests. You might retry a resource request to ensure that it was successfully received.</p> <p>A client token is valid for 36 hours once used. After that, a resource request with the same client token is treated as a new request.</p> <p>If you do not specify a client token, one is generated for inclusion in the request.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations.html#resource-operations-idempotency\">Ensuring resource operation requests are unique</a> in the <i>Amazon Web Services Cloud Control API User Guide</i>.</p>
             identifier: <p>The identifier for the resource.</p> <p>You can specify the primary identifier, or any secondary identifier defined for the resource type in its resource schema. You can only specify one identifier. Primary identifiers can be specified as a string or JSON; secondary identifiers must be specified as JSON.</p> <p>For compound primary identifiers (that is, one that consists of multiple resource properties strung together), to specify the primary identifier as a string, list the property values <i>in the order they are specified</i> in the primary identifier definition, separated by <code>|</code>.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-identifier.html\">Identifying resources</a> in the <i>Amazon Web Services Cloud Control API User Guide</i>.</p>
             patch_document: <p>A JavaScript Object Notation (JSON) document listing the patch operations that represent the updates to apply to the current resource properties. For details, see <a href=\"https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations-update.html#resource-operations-update-patch\">Composing the patch document</a> in the <i>Amazon Web Services Cloud Control API User Guide</i>.</p>
+
+        Raises:
+            aws_sdk_cloudcontrol.errors.already_exists_exception.AlreadyExistsException: <p>The resource with the name requested already exists.</p>
+            aws_sdk_cloudcontrol.errors.client_token_conflict_exception.ClientTokenConflictException: <p>The specified client token has already been used in another resource request.</p> <p>It's best practice for client tokens to be unique for each resource operation request. However, client token expire after 36 hours.</p>
+            aws_sdk_cloudcontrol.errors.concurrent_operation_exception.ConcurrentOperationException: <p>Another resource operation is currently being performed on this resource.</p>
+            aws_sdk_cloudcontrol.errors.general_service_exception.GeneralServiceException: <p>The resource handler has returned that the downstream service generated an error that doesn't map to any other handler error code.</p>
+            aws_sdk_cloudcontrol.errors.handler_failure_exception.HandlerFailureException: <p>The resource handler has failed without a returning a more specific error code. This can include timeouts.</p>
+            aws_sdk_cloudcontrol.errors.handler_internal_failure_exception.HandlerInternalFailureException: <p>The resource handler has returned that an unexpected error occurred within the resource handler.</p>
+            aws_sdk_cloudcontrol.errors.invalid_credentials_exception.InvalidCredentialsException: <p>The resource handler has returned that the credentials provided by the user are invalid.</p>
+            aws_sdk_cloudcontrol.errors.invalid_request_exception.InvalidRequestException: <p>The resource handler has returned that invalid input from the user has generated a generic exception.</p>
+            aws_sdk_cloudcontrol.errors.network_failure_exception.NetworkFailureException: <p>The resource handler has returned that the request couldn't be completed due to networking issues, such as a failure to receive a response from the server.</p>
+            aws_sdk_cloudcontrol.errors.not_stabilized_exception.NotStabilizedException: <p>The resource handler has returned that the downstream resource failed to complete all of its ready-state checks.</p>
+            aws_sdk_cloudcontrol.errors.not_updatable_exception.NotUpdatableException: <p>One or more properties included in this resource operation are defined as create-only, and therefore can't be updated.</p>
+            aws_sdk_cloudcontrol.errors.private_type_exception.PrivateTypeException: <p>Cloud Control API hasn't received a valid response from the resource handler, due to a configuration error. This includes issues such as the resource handler returning an invalid response, or timing out.</p>
+            aws_sdk_cloudcontrol.errors.resource_conflict_exception.ResourceConflictException: <p>The resource is temporarily unavailable to be acted upon. For example, if the resource is currently undergoing an operation and can't be acted upon until that operation is finished.</p>
+            aws_sdk_cloudcontrol.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource with the specified identifier can't be found.</p>
+            aws_sdk_cloudcontrol.errors.service_internal_error_exception.ServiceInternalErrorException: <p>The resource handler has returned that the downstream service returned an internal error, typically with a <code>5XX HTTP</code> status code.</p>
+            aws_sdk_cloudcontrol.errors.service_limit_exceeded_exception.ServiceLimitExceededException: <p>The resource handler has returned that a non-transient resource limit was reached on the service side.</p>
+            aws_sdk_cloudcontrol.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_cloudcontrol.errors.type_not_found_exception.TypeNotFoundException: <p>The specified extension doesn't exist in the CloudFormation registry.</p>
+            aws_sdk_cloudcontrol.errors.unsupported_action_exception.UnsupportedActionException: <p>The specified resource doesn't support this resource operation.</p>
+            aws_sdk_cloudcontrol.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

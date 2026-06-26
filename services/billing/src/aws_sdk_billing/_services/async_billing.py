@@ -178,6 +178,17 @@ class AsyncBillingClient:
             arn: <p> The Amazon Resource Name (ARN) of the billing view to associate source views with. </p>
             source_views: <p> A list of ARNs of the source billing views to associate. </p>
 
+        Raises:
+            aws_sdk_billing.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action.</p>
+            aws_sdk_billing.errors.billing_view_health_status_exception.BillingViewHealthStatusException: <p> Exception thrown when a billing view's health status prevents an operation from being performed. This may occur if the billing view is in a state other than <code>HEALTHY</code>.</p>
+            aws_sdk_billing.errors.conflict_exception.ConflictException: <p> The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request. </p>
+            aws_sdk_billing.errors.internal_server_exception.InternalServerException: <p>The request processing failed because of an unknown error, exception, or failure. </p>
+            aws_sdk_billing.errors.resource_not_found_exception.ResourceNotFoundException: <p> The specified ARN in the request doesn't exist. </p>
+            aws_sdk_billing.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p> You've reached the limit of resources you can create, or exceeded the size of an individual resource. </p>
+            aws_sdk_billing.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. </p>
+            aws_sdk_billing.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service. </p>
+            aws_sdk_billing.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Invoke AssociateSourceViews
 
@@ -238,6 +249,17 @@ class AsyncBillingClient:
             client_token: <p>A unique, case-sensitive identifier you specify to ensure idempotency of the request. Idempotency ensures that an API request completes no more than one time. If the original request completes successfully, any subsequent retries complete successfully without performing any further actions with an idempotent request. </p>
             resource_tags: <p>A list of key value map specifying tags associated to the billing view being created. </p>
 
+        Raises:
+            aws_sdk_billing.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action.</p>
+            aws_sdk_billing.errors.billing_view_health_status_exception.BillingViewHealthStatusException: <p> Exception thrown when a billing view's health status prevents an operation from being performed. This may occur if the billing view is in a state other than <code>HEALTHY</code>.</p>
+            aws_sdk_billing.errors.conflict_exception.ConflictException: <p> The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request. </p>
+            aws_sdk_billing.errors.internal_server_exception.InternalServerException: <p>The request processing failed because of an unknown error, exception, or failure. </p>
+            aws_sdk_billing.errors.resource_not_found_exception.ResourceNotFoundException: <p> The specified ARN in the request doesn't exist. </p>
+            aws_sdk_billing.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p> You've reached the limit of resources you can create, or exceeded the size of an individual resource. </p>
+            aws_sdk_billing.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. </p>
+            aws_sdk_billing.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service. </p>
+            aws_sdk_billing.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Invoke CreateBillingView
 
@@ -292,6 +314,14 @@ class AsyncBillingClient:
             arn: <p> The Amazon Resource Name (ARN) that can be used to uniquely identify the billing view. </p>
             force: <p> If set to true, forces deletion of the billing view even if it has derived resources (e.g. other billing views or budgets). Use with caution as this may break dependent resources. </p>
 
+        Raises:
+            aws_sdk_billing.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action.</p>
+            aws_sdk_billing.errors.conflict_exception.ConflictException: <p> The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request. </p>
+            aws_sdk_billing.errors.internal_server_exception.InternalServerException: <p>The request processing failed because of an unknown error, exception, or failure. </p>
+            aws_sdk_billing.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. </p>
+            aws_sdk_billing.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service. </p>
+            aws_sdk_billing.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Invoke DeleteBillingView
 
@@ -339,6 +369,16 @@ class AsyncBillingClient:
             arn: <p> The Amazon Resource Name (ARN) of the billing view to disassociate source views from. </p>
             source_views: <p> A list of ARNs of the source billing views to disassociate. </p>
 
+        Raises:
+            aws_sdk_billing.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action.</p>
+            aws_sdk_billing.errors.billing_view_health_status_exception.BillingViewHealthStatusException: <p> Exception thrown when a billing view's health status prevents an operation from being performed. This may occur if the billing view is in a state other than <code>HEALTHY</code>.</p>
+            aws_sdk_billing.errors.conflict_exception.ConflictException: <p> The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request. </p>
+            aws_sdk_billing.errors.internal_server_exception.InternalServerException: <p>The request processing failed because of an unknown error, exception, or failure. </p>
+            aws_sdk_billing.errors.resource_not_found_exception.ResourceNotFoundException: <p> The specified ARN in the request doesn't exist. </p>
+            aws_sdk_billing.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. </p>
+            aws_sdk_billing.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service. </p>
+            aws_sdk_billing.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Invoke DisassociateSourceViews
 
@@ -383,6 +423,14 @@ class AsyncBillingClient:
         Args:
             arn: <p> The Amazon Resource Name (ARN) that can be used to uniquely identify the billing view. </p>
 
+        Raises:
+            aws_sdk_billing.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action.</p>
+            aws_sdk_billing.errors.internal_server_exception.InternalServerException: <p>The request processing failed because of an unknown error, exception, or failure. </p>
+            aws_sdk_billing.errors.resource_not_found_exception.ResourceNotFoundException: <p> The specified ARN in the request doesn't exist. </p>
+            aws_sdk_billing.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. </p>
+            aws_sdk_billing.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service. </p>
+            aws_sdk_billing.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Invoke GetBillingView
 
@@ -425,6 +473,14 @@ class AsyncBillingClient:
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the billing view resource to which the policy is attached to. </p>
+
+        Raises:
+            aws_sdk_billing.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action.</p>
+            aws_sdk_billing.errors.internal_server_exception.InternalServerException: <p>The request processing failed because of an unknown error, exception, or failure. </p>
+            aws_sdk_billing.errors.resource_not_found_exception.ResourceNotFoundException: <p> The specified ARN in the request doesn't exist. </p>
+            aws_sdk_billing.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. </p>
+            aws_sdk_billing.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service. </p>
+            aws_sdk_billing.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Invoke GetResourcePolicy
@@ -492,6 +548,13 @@ class AsyncBillingClient:
             source_account_id: <p> Filters the results to include only billing views that use the specified account as a source. </p>
             max_results: <p>The maximum number of billing views to retrieve. Default is 100. </p>
             next_token: <p>The pagination token that is used on subsequent calls to list billing views.</p>
+
+        Raises:
+            aws_sdk_billing.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action.</p>
+            aws_sdk_billing.errors.internal_server_exception.InternalServerException: <p>The request processing failed because of an unknown error, exception, or failure. </p>
+            aws_sdk_billing.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. </p>
+            aws_sdk_billing.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service. </p>
+            aws_sdk_billing.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Invoke ListBillingViews
@@ -603,6 +666,14 @@ class AsyncBillingClient:
             max_results: <p> The number of entries a paginated response contains. </p>
             next_token: <p> The pagination token that is used on subsequent calls to list billing views. </p>
 
+        Raises:
+            aws_sdk_billing.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action.</p>
+            aws_sdk_billing.errors.internal_server_exception.InternalServerException: <p>The request processing failed because of an unknown error, exception, or failure. </p>
+            aws_sdk_billing.errors.resource_not_found_exception.ResourceNotFoundException: <p> The specified ARN in the request doesn't exist. </p>
+            aws_sdk_billing.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. </p>
+            aws_sdk_billing.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service. </p>
+            aws_sdk_billing.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Invoke ListSourceViewsForBillingView
 
@@ -675,6 +746,14 @@ class AsyncBillingClient:
         Args:
             resource_arn: <p> The Amazon Resource Name (ARN) of the resource. </p>
 
+        Raises:
+            aws_sdk_billing.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action.</p>
+            aws_sdk_billing.errors.internal_server_exception.InternalServerException: <p>The request processing failed because of an unknown error, exception, or failure. </p>
+            aws_sdk_billing.errors.resource_not_found_exception.ResourceNotFoundException: <p> The specified ARN in the request doesn't exist. </p>
+            aws_sdk_billing.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. </p>
+            aws_sdk_billing.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service. </p>
+            aws_sdk_billing.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Invoke ListTagsForResource
 
@@ -719,6 +798,14 @@ class AsyncBillingClient:
         Args:
             resource_arn: <p> The Amazon Resource Name (ARN) of the resource. </p>
             resource_tags: <p> A list of tag key value pairs that are associated with the resource. </p>
+
+        Raises:
+            aws_sdk_billing.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action.</p>
+            aws_sdk_billing.errors.internal_server_exception.InternalServerException: <p>The request processing failed because of an unknown error, exception, or failure. </p>
+            aws_sdk_billing.errors.resource_not_found_exception.ResourceNotFoundException: <p> The specified ARN in the request doesn't exist. </p>
+            aws_sdk_billing.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. </p>
+            aws_sdk_billing.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service. </p>
+            aws_sdk_billing.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Invoke TagResource
@@ -765,6 +852,14 @@ class AsyncBillingClient:
         Args:
             resource_arn: <p> The Amazon Resource Name (ARN) of the resource. </p>
             resource_tag_keys: <p> A list of tag key value pairs that are associated with the resource. </p>
+
+        Raises:
+            aws_sdk_billing.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action.</p>
+            aws_sdk_billing.errors.internal_server_exception.InternalServerException: <p>The request processing failed because of an unknown error, exception, or failure. </p>
+            aws_sdk_billing.errors.resource_not_found_exception.ResourceNotFoundException: <p> The specified ARN in the request doesn't exist. </p>
+            aws_sdk_billing.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. </p>
+            aws_sdk_billing.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service. </p>
+            aws_sdk_billing.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Invoke UntagResource
@@ -821,6 +916,17 @@ class AsyncBillingClient:
             name: <p> The name of the billing view. </p>
             description: <p> The description of the billing view. </p>
             data_filter_expression: <p>See <a href=\"https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_billing_Expression.html\">Expression</a>. Billing view only supports <code>LINKED_ACCOUNT</code>, <code>Tags</code>, and <code>CostCategories</code>. </p>
+
+        Raises:
+            aws_sdk_billing.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action.</p>
+            aws_sdk_billing.errors.billing_view_health_status_exception.BillingViewHealthStatusException: <p> Exception thrown when a billing view's health status prevents an operation from being performed. This may occur if the billing view is in a state other than <code>HEALTHY</code>.</p>
+            aws_sdk_billing.errors.conflict_exception.ConflictException: <p> The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request. </p>
+            aws_sdk_billing.errors.internal_server_exception.InternalServerException: <p>The request processing failed because of an unknown error, exception, or failure. </p>
+            aws_sdk_billing.errors.resource_not_found_exception.ResourceNotFoundException: <p> The specified ARN in the request doesn't exist. </p>
+            aws_sdk_billing.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p> You've reached the limit of resources you can create, or exceeded the size of an individual resource. </p>
+            aws_sdk_billing.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. </p>
+            aws_sdk_billing.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service. </p>
+            aws_sdk_billing.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Invoke UpdateBillingView

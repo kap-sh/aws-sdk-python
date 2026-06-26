@@ -170,6 +170,13 @@ class SustainabilityClient:
             max_results: <p>The maximum number of results to return in a single call. Default is 40.</p>
             next_token: <p>The pagination token specifying which page of results to return in the response. If no token is provided, the default page is the first page. </p>
 
+        Raises:
+            aws_sdk_sustainability.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_sustainability.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure.</p>
+            aws_sdk_sustainability.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_sustainability.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_sustainability.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             GetEstimatedCarbonEmissionsSuccess
 
@@ -282,6 +289,13 @@ class SustainabilityClient:
             dimensions: <p>The dimensions available for grouping estimated carbon emissions.</p>
             max_results: <p>The maximum number of results to return in a single call. Default is 40.</p>
             next_token: <p>The pagination token specifying which page of results to return in the response. If no token is provided, the default page is the first page. </p>
+
+        Raises:
+            aws_sdk_sustainability.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_sustainability.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure.</p>
+            aws_sdk_sustainability.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_sustainability.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_sustainability.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             GetEstimatedCarbonEmissionsDimensionValuesSuccess

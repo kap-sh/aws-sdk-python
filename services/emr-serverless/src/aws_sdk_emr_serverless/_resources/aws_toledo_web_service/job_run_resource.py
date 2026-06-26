@@ -99,6 +99,13 @@ class JobRunResource:
             name: <p>The optional job run name. This doesn't have to be unique.</p>
             mode: <p>The mode of the job run when it starts.</p>
             retry_policy: <p>The retry policy when job run starts.</p>
+
+        Raises:
+            aws_sdk_emr_serverless.errors.conflict_exception.ConflictException: <p>The request could not be processed because of conflict in the current state of the resource.</p>
+            aws_sdk_emr_serverless.errors.internal_server_exception.InternalServerException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_emr_serverless.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_emr_serverless.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_emr_serverless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -160,6 +167,12 @@ class JobRunResource:
             application_id: <p>The ID of the application on which the job run is submitted.</p>
             job_run_id: <p>The ID of the job run.</p>
             attempt: <p>An optimal parameter that indicates the amount of attempts for the job. If not specified, this value defaults to the attempt of the latest job.</p>
+
+        Raises:
+            aws_sdk_emr_serverless.errors.internal_server_exception.InternalServerException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_emr_serverless.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_emr_serverless.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_emr_serverless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -206,6 +219,12 @@ class JobRunResource:
             application_id: <p>The ID of the application on which the job run will be canceled.</p>
             job_run_id: <p>The ID of the job run to cancel.</p>
             shutdown_grace_period_in_seconds: <p>The duration in seconds to wait before forcefully terminating the job after cancellation is requested.</p>
+
+        Raises:
+            aws_sdk_emr_serverless.errors.internal_server_exception.InternalServerException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_emr_serverless.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_emr_serverless.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_emr_serverless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -264,6 +283,11 @@ class JobRunResource:
             created_at_before: <p>The upper bound of the option to filter by creation date and time.</p>
             states: <p>An optional filter for job run states. Note that if this filter contains multiple states, the resulting list will be grouped by the state.</p>
             mode: <p>The mode of the job runs to list.</p>
+
+        Raises:
+            aws_sdk_emr_serverless.errors.internal_server_exception.InternalServerException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_emr_serverless.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_emr_serverless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -321,6 +345,12 @@ class JobRunResource:
             job_run_id: <p>The ID of the job run.</p>
             attempt: <p>An optimal parameter that indicates the amount of attempts for the job. If not specified, this value defaults to the attempt of the latest job.</p>
             access_system_profile_logs: <p>Allows access to system profile logs for Lake Formation-enabled jobs. Default is false.</p>
+
+        Raises:
+            aws_sdk_emr_serverless.errors.internal_server_exception.InternalServerException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_emr_serverless.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_emr_serverless.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_emr_serverless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -371,6 +401,12 @@ class JobRunResource:
             job_run_id: <p>The ID of the job run to list.</p>
             next_token: <p>The token for the next set of job run attempt results.</p>
             max_results: <p>The maximum number of job run attempts to list.</p>
+
+        Raises:
+            aws_sdk_emr_serverless.errors.internal_server_exception.InternalServerException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_emr_serverless.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_emr_serverless.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_emr_serverless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -448,6 +484,13 @@ class AsyncJobRunResource:
             name: <p>The optional job run name. This doesn't have to be unique.</p>
             mode: <p>The mode of the job run when it starts.</p>
             retry_policy: <p>The retry policy when job run starts.</p>
+
+        Raises:
+            aws_sdk_emr_serverless.errors.conflict_exception.ConflictException: <p>The request could not be processed because of conflict in the current state of the resource.</p>
+            aws_sdk_emr_serverless.errors.internal_server_exception.InternalServerException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_emr_serverless.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_emr_serverless.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_emr_serverless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -510,6 +553,12 @@ class AsyncJobRunResource:
             application_id: <p>The ID of the application on which the job run is submitted.</p>
             job_run_id: <p>The ID of the job run.</p>
             attempt: <p>An optimal parameter that indicates the amount of attempts for the job. If not specified, this value defaults to the attempt of the latest job.</p>
+
+        Raises:
+            aws_sdk_emr_serverless.errors.internal_server_exception.InternalServerException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_emr_serverless.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_emr_serverless.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_emr_serverless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -557,6 +606,12 @@ class AsyncJobRunResource:
             application_id: <p>The ID of the application on which the job run will be canceled.</p>
             job_run_id: <p>The ID of the job run to cancel.</p>
             shutdown_grace_period_in_seconds: <p>The duration in seconds to wait before forcefully terminating the job after cancellation is requested.</p>
+
+        Raises:
+            aws_sdk_emr_serverless.errors.internal_server_exception.InternalServerException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_emr_serverless.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_emr_serverless.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_emr_serverless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -616,6 +671,11 @@ class AsyncJobRunResource:
             created_at_before: <p>The upper bound of the option to filter by creation date and time.</p>
             states: <p>An optional filter for job run states. Note that if this filter contains multiple states, the resulting list will be grouped by the state.</p>
             mode: <p>The mode of the job runs to list.</p>
+
+        Raises:
+            aws_sdk_emr_serverless.errors.internal_server_exception.InternalServerException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_emr_serverless.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_emr_serverless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -674,6 +734,12 @@ class AsyncJobRunResource:
             job_run_id: <p>The ID of the job run.</p>
             attempt: <p>An optimal parameter that indicates the amount of attempts for the job. If not specified, this value defaults to the attempt of the latest job.</p>
             access_system_profile_logs: <p>Allows access to system profile logs for Lake Formation-enabled jobs. Default is false.</p>
+
+        Raises:
+            aws_sdk_emr_serverless.errors.internal_server_exception.InternalServerException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_emr_serverless.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_emr_serverless.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_emr_serverless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -725,6 +791,12 @@ class AsyncJobRunResource:
             job_run_id: <p>The ID of the job run to list.</p>
             next_token: <p>The token for the next set of job run attempt results.</p>
             max_results: <p>The maximum number of job run attempts to list.</p>
+
+        Raises:
+            aws_sdk_emr_serverless.errors.internal_server_exception.InternalServerException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_emr_serverless.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_emr_serverless.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_emr_serverless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

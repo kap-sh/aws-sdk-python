@@ -260,6 +260,14 @@ class mqClient:
             users: <p>The list of broker users (persons or applications) who can access queues and topics. For Amazon MQ for RabbitMQ brokers, an administrative user is required if using simple authentication and authorization. For brokers using OAuth2, this user is optional. When provided, one and only one administrative user is accepted and created when a broker is first provisioned. All subsequent broker users are created by making RabbitMQ API calls directly to brokers or via the RabbitMQ web console.</p>
             data_replication_mode: <p>Defines whether this broker is a part of a data replication pair.</p>
             data_replication_primary_broker_arn: <p>The Amazon Resource Name (ARN) of the primary broker that is used to replicate data from in a data replication pair, and is applied to the replica broker. Must be set when dataReplicationMode is set to CRDR.</p>
+
+        Raises:
+            aws_sdk_mq.errors.bad_request_exception.BadRequestException: <p>Returns information about an error.</p>
+            aws_sdk_mq.errors.conflict_exception.ConflictException: <p>Returns information about an error.</p>
+            aws_sdk_mq.errors.forbidden_exception.ForbiddenException: <p>Returns information about an error.</p>
+            aws_sdk_mq.errors.internal_server_error_exception.InternalServerErrorException: <p>Returns information about an error.</p>
+            aws_sdk_mq.errors.unauthorized_exception.UnauthorizedException: <p>Returns information about an error.</p>
+            aws_sdk_mq.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -345,6 +353,13 @@ class mqClient:
             engine_version: <p>The broker engine version. Defaults to the latest available version for the specified broker engine type. For more information, see the <a href=\"https://docs.aws.amazon.com//amazon-mq/latest/developer-guide/activemq-version-management.html\">ActiveMQ version management</a> and the <a href=\"https://docs.aws.amazon.com//amazon-mq/latest/developer-guide/rabbitmq-version-management.html\">RabbitMQ version management</a> sections in the Amazon MQ Developer Guide.</p>
             name: <p>Required. The name of the configuration. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 1-150 characters long.</p>
             tags: <p>Create tags when creating the configuration.</p>
+
+        Raises:
+            aws_sdk_mq.errors.bad_request_exception.BadRequestException: <p>Returns information about an error.</p>
+            aws_sdk_mq.errors.conflict_exception.ConflictException: <p>Returns information about an error.</p>
+            aws_sdk_mq.errors.forbidden_exception.ForbiddenException: <p>Returns information about an error.</p>
+            aws_sdk_mq.errors.internal_server_error_exception.InternalServerErrorException: <p>Returns information about an error.</p>
+            aws_sdk_mq.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -391,6 +406,13 @@ class mqClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource tag.</p>
             tags: <p>The key-value pair for the resource tag.</p>
+
+        Raises:
+            aws_sdk_mq.errors.bad_request_exception.BadRequestException: <p>Returns information about an error.</p>
+            aws_sdk_mq.errors.forbidden_exception.ForbiddenException: <p>Returns information about an error.</p>
+            aws_sdk_mq.errors.internal_server_error_exception.InternalServerErrorException: <p>Returns information about an error.</p>
+            aws_sdk_mq.errors.not_found_exception.NotFoundException: <p>Returns information about an error.</p>
+            aws_sdk_mq.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -436,6 +458,14 @@ class mqClient:
             password: <p>Required. The password of the user. This value must be at least 12 characters long, must contain at least 4 unique characters, and must not contain commas, colons, or equal signs (,:=).</p>
             username: <p>The username of the ActiveMQ user. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long.</p>
             replication_user: <p>Defines if this user is intended for CRDR replication purposes.</p>
+
+        Raises:
+            aws_sdk_mq.errors.bad_request_exception.BadRequestException: <p>Returns information about an error.</p>
+            aws_sdk_mq.errors.conflict_exception.ConflictException: <p>Returns information about an error.</p>
+            aws_sdk_mq.errors.forbidden_exception.ForbiddenException: <p>Returns information about an error.</p>
+            aws_sdk_mq.errors.internal_server_error_exception.InternalServerErrorException: <p>Returns information about an error.</p>
+            aws_sdk_mq.errors.not_found_exception.NotFoundException: <p>Returns information about an error.</p>
+            aws_sdk_mq.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -479,6 +509,13 @@ class mqClient:
 
         Args:
             broker_id: <p>The unique ID that Amazon MQ generates for the broker.</p>
+
+        Raises:
+            aws_sdk_mq.errors.bad_request_exception.BadRequestException: <p>Returns information about an error.</p>
+            aws_sdk_mq.errors.forbidden_exception.ForbiddenException: <p>Returns information about an error.</p>
+            aws_sdk_mq.errors.internal_server_error_exception.InternalServerErrorException: <p>Returns information about an error.</p>
+            aws_sdk_mq.errors.not_found_exception.NotFoundException: <p>Returns information about an error.</p>
+            aws_sdk_mq.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -516,6 +553,14 @@ class mqClient:
 
         Args:
             configuration_id: <p>The unique ID that Amazon MQ generates for the configuration.</p>
+
+        Raises:
+            aws_sdk_mq.errors.bad_request_exception.BadRequestException: <p>Returns information about an error.</p>
+            aws_sdk_mq.errors.conflict_exception.ConflictException: <p>Returns information about an error.</p>
+            aws_sdk_mq.errors.forbidden_exception.ForbiddenException: <p>Returns information about an error.</p>
+            aws_sdk_mq.errors.internal_server_error_exception.InternalServerErrorException: <p>Returns information about an error.</p>
+            aws_sdk_mq.errors.not_found_exception.NotFoundException: <p>Returns information about an error.</p>
+            aws_sdk_mq.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -555,6 +600,13 @@ class mqClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource tag.</p>
             tag_keys: <p>An array of tag keys to delete</p>
+
+        Raises:
+            aws_sdk_mq.errors.bad_request_exception.BadRequestException: <p>Returns information about an error.</p>
+            aws_sdk_mq.errors.forbidden_exception.ForbiddenException: <p>Returns information about an error.</p>
+            aws_sdk_mq.errors.internal_server_error_exception.InternalServerErrorException: <p>Returns information about an error.</p>
+            aws_sdk_mq.errors.not_found_exception.NotFoundException: <p>Returns information about an error.</p>
+            aws_sdk_mq.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -591,6 +643,13 @@ class mqClient:
         Args:
             broker_id: <p>The unique ID that Amazon MQ generates for the broker.</p>
             username: <p>The username of the ActiveMQ user. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long.</p>
+
+        Raises:
+            aws_sdk_mq.errors.bad_request_exception.BadRequestException: <p>Returns information about an error.</p>
+            aws_sdk_mq.errors.forbidden_exception.ForbiddenException: <p>Returns information about an error.</p>
+            aws_sdk_mq.errors.internal_server_error_exception.InternalServerErrorException: <p>Returns information about an error.</p>
+            aws_sdk_mq.errors.not_found_exception.NotFoundException: <p>Returns information about an error.</p>
+            aws_sdk_mq.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -627,6 +686,13 @@ class mqClient:
 
         Args:
             broker_id: <p>The unique ID that Amazon MQ generates for the broker.</p>
+
+        Raises:
+            aws_sdk_mq.errors.bad_request_exception.BadRequestException: <p>Returns information about an error.</p>
+            aws_sdk_mq.errors.forbidden_exception.ForbiddenException: <p>Returns information about an error.</p>
+            aws_sdk_mq.errors.internal_server_error_exception.InternalServerErrorException: <p>Returns information about an error.</p>
+            aws_sdk_mq.errors.not_found_exception.NotFoundException: <p>Returns information about an error.</p>
+            aws_sdk_mq.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -668,6 +734,12 @@ class mqClient:
             engine_type: <p>Filter response by engine type.</p>
             max_results: <p>The maximum number of brokers that Amazon MQ can return per page (20 by default). This value must be an integer from 5 to 100.</p>
             next_token: <p>The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty.</p>
+
+        Raises:
+            aws_sdk_mq.errors.bad_request_exception.BadRequestException: <p>Returns information about an error.</p>
+            aws_sdk_mq.errors.forbidden_exception.ForbiddenException: <p>Returns information about an error.</p>
+            aws_sdk_mq.errors.internal_server_error_exception.InternalServerErrorException: <p>Returns information about an error.</p>
+            aws_sdk_mq.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -718,6 +790,12 @@ class mqClient:
             max_results: <p>The maximum number of brokers that Amazon MQ can return per page (20 by default). This value must be an integer from 5 to 100.</p>
             next_token: <p>The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty.</p>
             storage_type: <p>Filter response by storage type.</p>
+
+        Raises:
+            aws_sdk_mq.errors.bad_request_exception.BadRequestException: <p>Returns information about an error.</p>
+            aws_sdk_mq.errors.forbidden_exception.ForbiddenException: <p>Returns information about an error.</p>
+            aws_sdk_mq.errors.internal_server_error_exception.InternalServerErrorException: <p>Returns information about an error.</p>
+            aws_sdk_mq.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -766,6 +844,13 @@ class mqClient:
 
         Args:
             configuration_id: <p>The unique ID that Amazon MQ generates for the configuration.</p>
+
+        Raises:
+            aws_sdk_mq.errors.bad_request_exception.BadRequestException: <p>Returns information about an error.</p>
+            aws_sdk_mq.errors.forbidden_exception.ForbiddenException: <p>Returns information about an error.</p>
+            aws_sdk_mq.errors.internal_server_error_exception.InternalServerErrorException: <p>Returns information about an error.</p>
+            aws_sdk_mq.errors.not_found_exception.NotFoundException: <p>Returns information about an error.</p>
+            aws_sdk_mq.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -805,6 +890,13 @@ class mqClient:
         Args:
             configuration_id: <p>The unique ID that Amazon MQ generates for the configuration.</p>
             configuration_revision: <p>The revision of the configuration.</p>
+
+        Raises:
+            aws_sdk_mq.errors.bad_request_exception.BadRequestException: <p>Returns information about an error.</p>
+            aws_sdk_mq.errors.forbidden_exception.ForbiddenException: <p>Returns information about an error.</p>
+            aws_sdk_mq.errors.internal_server_error_exception.InternalServerErrorException: <p>Returns information about an error.</p>
+            aws_sdk_mq.errors.not_found_exception.NotFoundException: <p>Returns information about an error.</p>
+            aws_sdk_mq.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -845,6 +937,13 @@ class mqClient:
         Args:
             broker_id: <p>The unique ID that Amazon MQ generates for the broker.</p>
             username: <p>The username of the ActiveMQ user. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long.</p>
+
+        Raises:
+            aws_sdk_mq.errors.bad_request_exception.BadRequestException: <p>Returns information about an error.</p>
+            aws_sdk_mq.errors.forbidden_exception.ForbiddenException: <p>Returns information about an error.</p>
+            aws_sdk_mq.errors.internal_server_error_exception.InternalServerErrorException: <p>Returns information about an error.</p>
+            aws_sdk_mq.errors.not_found_exception.NotFoundException: <p>Returns information about an error.</p>
+            aws_sdk_mq.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -885,6 +984,12 @@ class mqClient:
         Args:
             max_results: <p>The maximum number of brokers that Amazon MQ can return per page (20 by default). This value must be an integer from 5 to 100.</p>
             next_token: <p>The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty.</p>
+
+        Raises:
+            aws_sdk_mq.errors.bad_request_exception.BadRequestException: <p>Returns information about an error.</p>
+            aws_sdk_mq.errors.forbidden_exception.ForbiddenException: <p>Returns information about an error.</p>
+            aws_sdk_mq.errors.internal_server_error_exception.InternalServerErrorException: <p>Returns information about an error.</p>
+            aws_sdk_mq.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -948,6 +1053,13 @@ class mqClient:
             configuration_id: <p>The unique ID that Amazon MQ generates for the configuration.</p>
             max_results: <p>The maximum number of brokers that Amazon MQ can return per page (20 by default). This value must be an integer from 5 to 100.</p>
             next_token: <p>The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty.</p>
+
+        Raises:
+            aws_sdk_mq.errors.bad_request_exception.BadRequestException: <p>Returns information about an error.</p>
+            aws_sdk_mq.errors.forbidden_exception.ForbiddenException: <p>Returns information about an error.</p>
+            aws_sdk_mq.errors.internal_server_error_exception.InternalServerErrorException: <p>Returns information about an error.</p>
+            aws_sdk_mq.errors.not_found_exception.NotFoundException: <p>Returns information about an error.</p>
+            aws_sdk_mq.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -991,6 +1103,12 @@ class mqClient:
         Args:
             max_results: <p>The maximum number of brokers that Amazon MQ can return per page (20 by default). This value must be an integer from 5 to 100.</p>
             next_token: <p>The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty.</p>
+
+        Raises:
+            aws_sdk_mq.errors.bad_request_exception.BadRequestException: <p>Returns information about an error.</p>
+            aws_sdk_mq.errors.forbidden_exception.ForbiddenException: <p>Returns information about an error.</p>
+            aws_sdk_mq.errors.internal_server_error_exception.InternalServerErrorException: <p>Returns information about an error.</p>
+            aws_sdk_mq.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1031,6 +1149,13 @@ class mqClient:
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource tag.</p>
+
+        Raises:
+            aws_sdk_mq.errors.bad_request_exception.BadRequestException: <p>Returns information about an error.</p>
+            aws_sdk_mq.errors.forbidden_exception.ForbiddenException: <p>Returns information about an error.</p>
+            aws_sdk_mq.errors.internal_server_error_exception.InternalServerErrorException: <p>Returns information about an error.</p>
+            aws_sdk_mq.errors.not_found_exception.NotFoundException: <p>Returns information about an error.</p>
+            aws_sdk_mq.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1068,6 +1193,13 @@ class mqClient:
             broker_id: <p>The unique ID that Amazon MQ generates for the broker.</p>
             max_results: <p>The maximum number of brokers that Amazon MQ can return per page (20 by default). This value must be an integer from 5 to 100.</p>
             next_token: <p>The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty.</p>
+
+        Raises:
+            aws_sdk_mq.errors.bad_request_exception.BadRequestException: <p>Returns information about an error.</p>
+            aws_sdk_mq.errors.forbidden_exception.ForbiddenException: <p>Returns information about an error.</p>
+            aws_sdk_mq.errors.internal_server_error_exception.InternalServerErrorException: <p>Returns information about an error.</p>
+            aws_sdk_mq.errors.not_found_exception.NotFoundException: <p>Returns information about an error.</p>
+            aws_sdk_mq.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1109,6 +1241,13 @@ class mqClient:
         Args:
             broker_id: <p>The unique ID that Amazon MQ generates for the broker.</p>
             mode: <p>The Promote mode requested. Note: Valid values for the parameter are SWITCHOVER, FAILOVER.</p>
+
+        Raises:
+            aws_sdk_mq.errors.bad_request_exception.BadRequestException: <p>Returns information about an error.</p>
+            aws_sdk_mq.errors.forbidden_exception.ForbiddenException: <p>Returns information about an error.</p>
+            aws_sdk_mq.errors.internal_server_error_exception.InternalServerErrorException: <p>Returns information about an error.</p>
+            aws_sdk_mq.errors.not_found_exception.NotFoundException: <p>Returns information about an error.</p>
+            aws_sdk_mq.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1143,6 +1282,13 @@ class mqClient:
 
         Args:
             broker_id: <p>The unique ID that Amazon MQ generates for the broker.</p>
+
+        Raises:
+            aws_sdk_mq.errors.bad_request_exception.BadRequestException: <p>Returns information about an error.</p>
+            aws_sdk_mq.errors.forbidden_exception.ForbiddenException: <p>Returns information about an error.</p>
+            aws_sdk_mq.errors.internal_server_error_exception.InternalServerErrorException: <p>Returns information about an error.</p>
+            aws_sdk_mq.errors.not_found_exception.NotFoundException: <p>Returns information about an error.</p>
+            aws_sdk_mq.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1214,6 +1360,14 @@ class mqClient:
             maintenance_window_start_time: <p>The parameters that determine the WeeklyStartTime.</p>
             security_groups: <p>The list of security groups (1 minimum, 5 maximum) that authorizes connections to brokers.</p>
             data_replication_mode: <p>Defines whether this broker is a part of a data replication pair.</p>
+
+        Raises:
+            aws_sdk_mq.errors.bad_request_exception.BadRequestException: <p>Returns information about an error.</p>
+            aws_sdk_mq.errors.conflict_exception.ConflictException: <p>Returns information about an error.</p>
+            aws_sdk_mq.errors.forbidden_exception.ForbiddenException: <p>Returns information about an error.</p>
+            aws_sdk_mq.errors.internal_server_error_exception.InternalServerErrorException: <p>Returns information about an error.</p>
+            aws_sdk_mq.errors.not_found_exception.NotFoundException: <p>Returns information about an error.</p>
+            aws_sdk_mq.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1275,6 +1429,14 @@ class mqClient:
             configuration_id: <p>The unique ID that Amazon MQ generates for the configuration.</p>
             data: <p>Amazon MQ for Active MQ: The base64-encoded XML configuration. Amazon MQ for RabbitMQ: the base64-encoded Cuttlefish configuration.</p>
             description: <p>The description of the configuration.</p>
+
+        Raises:
+            aws_sdk_mq.errors.bad_request_exception.BadRequestException: <p>Returns information about an error.</p>
+            aws_sdk_mq.errors.conflict_exception.ConflictException: <p>Returns information about an error.</p>
+            aws_sdk_mq.errors.forbidden_exception.ForbiddenException: <p>Returns information about an error.</p>
+            aws_sdk_mq.errors.internal_server_error_exception.InternalServerErrorException: <p>Returns information about an error.</p>
+            aws_sdk_mq.errors.not_found_exception.NotFoundException: <p>Returns information about an error.</p>
+            aws_sdk_mq.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1325,6 +1487,14 @@ class mqClient:
             password: <p>The password of the user. This value must be at least 12 characters long, must contain at least 4 unique characters, and must not contain commas, colons, or equal signs (,:=).</p>
             username: <p>The username of the ActiveMQ user. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long.</p>
             replication_user: <p>Defines whether the user is intended for data replication.</p>
+
+        Raises:
+            aws_sdk_mq.errors.bad_request_exception.BadRequestException: <p>Returns information about an error.</p>
+            aws_sdk_mq.errors.conflict_exception.ConflictException: <p>Returns information about an error.</p>
+            aws_sdk_mq.errors.forbidden_exception.ForbiddenException: <p>Returns information about an error.</p>
+            aws_sdk_mq.errors.internal_server_error_exception.InternalServerErrorException: <p>Returns information about an error.</p>
+            aws_sdk_mq.errors.not_found_exception.NotFoundException: <p>Returns information about an error.</p>
+            aws_sdk_mq.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(

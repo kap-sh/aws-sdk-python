@@ -54,6 +54,12 @@ class ExportResource:
             s3_key: <p>Start export request s3key.</p>
             s3_bucket_owner: <p>Start export request s3 bucket owner.</p>
             tags: <p>Start import request tags.</p>
+
+        Raises:
+            aws_sdk_mgn.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request could not be completed because its exceeded the service quota.</p>
+            aws_sdk_mgn.errors.uninitialized_account_exception.UninitializedAccountException: <p>Uninitialized account exception.</p>
+            aws_sdk_mgn.errors.validation_exception.ValidationException: <p>Validate exception.</p>
+            aws_sdk_mgn.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -105,6 +111,10 @@ class ExportResource:
         Args:
             max_results: <p>List export request max results.</p>
             next_token: <p>List export request next token.</p>
+
+        Raises:
+            aws_sdk_mgn.errors.uninitialized_account_exception.UninitializedAccountException: <p>Uninitialized account exception.</p>
+            aws_sdk_mgn.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -155,6 +165,11 @@ class ExportResource:
             export_id: <p>List export errors request export id.</p>
             max_results: <p>List export errors request max results.</p>
             next_token: <p>List export errors request next token.</p>
+
+        Raises:
+            aws_sdk_mgn.errors.uninitialized_account_exception.UninitializedAccountException: <p>Uninitialized account exception.</p>
+            aws_sdk_mgn.errors.validation_exception.ValidationException: <p>Validate exception.</p>
+            aws_sdk_mgn.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -207,6 +222,12 @@ class AsyncExportResource:
             s3_key: <p>Start export request s3key.</p>
             s3_bucket_owner: <p>Start export request s3 bucket owner.</p>
             tags: <p>Start import request tags.</p>
+
+        Raises:
+            aws_sdk_mgn.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request could not be completed because its exceeded the service quota.</p>
+            aws_sdk_mgn.errors.uninitialized_account_exception.UninitializedAccountException: <p>Uninitialized account exception.</p>
+            aws_sdk_mgn.errors.validation_exception.ValidationException: <p>Validate exception.</p>
+            aws_sdk_mgn.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -259,6 +280,10 @@ class AsyncExportResource:
         Args:
             max_results: <p>List export request max results.</p>
             next_token: <p>List export request next token.</p>
+
+        Raises:
+            aws_sdk_mgn.errors.uninitialized_account_exception.UninitializedAccountException: <p>Uninitialized account exception.</p>
+            aws_sdk_mgn.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -310,6 +335,11 @@ class AsyncExportResource:
             export_id: <p>List export errors request export id.</p>
             max_results: <p>List export errors request max results.</p>
             next_token: <p>List export errors request next token.</p>
+
+        Raises:
+            aws_sdk_mgn.errors.uninitialized_account_exception.UninitializedAccountException: <p>Uninitialized account exception.</p>
+            aws_sdk_mgn.errors.validation_exception.ValidationException: <p>Validate exception.</p>
+            aws_sdk_mgn.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

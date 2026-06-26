@@ -346,6 +346,13 @@ class EKSClient:
             principal_arn: <p>The Amazon Resource Name (ARN) of the IAM user or role for the <code>AccessEntry</code> that you're associating the access policy to. </p>
             policy_arn: <p>The ARN of the <code>AccessPolicy</code> that you're associating. For a list of ARNs, use <code>ListAccessPolicies</code>.</p>
             access_scope: <p>The scope for the <code>AccessPolicy</code>. You can scope access policies to an entire cluster or to specific Kubernetes namespaces.</p>
+
+        Raises:
+            aws_sdk_eks.errors.invalid_parameter_exception.InvalidParameterException: <p>The specified parameter is invalid. Review the available parameters for the API request.</p>
+            aws_sdk_eks.errors.invalid_request_exception.InvalidRequestException: <p>The request is invalid given the state of the cluster. Check the state of the cluster and the associated operations.</p>
+            aws_sdk_eks.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found. You can view your available clusters with <code>ListClusters</code>. You can view your available managed node groups with <code>ListNodegroups</code>. Amazon EKS clusters and node groups are Amazon Web Services Region specific.</p>
+            aws_sdk_eks.errors.server_exception.ServerException: <p>These errors are usually caused by a server-side issue.</p>
+            aws_sdk_eks.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -390,6 +397,16 @@ class EKSClient:
             cluster_name: <p>The name of your cluster.</p>
             encryption_config: <p>The configuration you are using for encryption.</p>
             client_request_token: <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+
+        Raises:
+            aws_sdk_eks.errors.client_exception.ClientException: <p>These errors are usually caused by a client action. Actions can include using an action or resource on behalf of an <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html\">IAM principal</a> that doesn't have permissions to use the action or resource or specifying an identifier that is not valid.</p>
+            aws_sdk_eks.errors.invalid_parameter_exception.InvalidParameterException: <p>The specified parameter is invalid. Review the available parameters for the API request.</p>
+            aws_sdk_eks.errors.invalid_request_exception.InvalidRequestException: <p>The request is invalid given the state of the cluster. Check the state of the cluster and the associated operations.</p>
+            aws_sdk_eks.errors.resource_in_use_exception.ResourceInUseException: <p>The specified resource is in use.</p>
+            aws_sdk_eks.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found. You can view your available clusters with <code>ListClusters</code>. You can view your available managed node groups with <code>ListNodegroups</code>. Amazon EKS clusters and node groups are Amazon Web Services Region specific.</p>
+            aws_sdk_eks.errors.server_exception.ServerException: <p>These errors are usually caused by a server-side issue.</p>
+            aws_sdk_eks.errors.throttling_exception.ThrottlingException: <p>The request or operation couldn't be performed because a service is throttling requests.</p>
+            aws_sdk_eks.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -436,6 +453,16 @@ class EKSClient:
             oidc: <p>An object representing an OpenID Connect (OIDC) identity provider configuration.</p>
             tags: <p>Metadata that assists with categorization and organization. Each tag consists of a key and an optional value. You define both. Tags don't propagate to any other cluster or Amazon Web Services resources.</p>
             client_request_token: <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+
+        Raises:
+            aws_sdk_eks.errors.client_exception.ClientException: <p>These errors are usually caused by a client action. Actions can include using an action or resource on behalf of an <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html\">IAM principal</a> that doesn't have permissions to use the action or resource or specifying an identifier that is not valid.</p>
+            aws_sdk_eks.errors.invalid_parameter_exception.InvalidParameterException: <p>The specified parameter is invalid. Review the available parameters for the API request.</p>
+            aws_sdk_eks.errors.invalid_request_exception.InvalidRequestException: <p>The request is invalid given the state of the cluster. Check the state of the cluster and the associated operations.</p>
+            aws_sdk_eks.errors.resource_in_use_exception.ResourceInUseException: <p>The specified resource is in use.</p>
+            aws_sdk_eks.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found. You can view your available clusters with <code>ListClusters</code>. You can view your available managed node groups with <code>ListNodegroups</code>. Amazon EKS clusters and node groups are Amazon Web Services Region specific.</p>
+            aws_sdk_eks.errors.server_exception.ServerException: <p>These errors are usually caused by a server-side issue.</p>
+            aws_sdk_eks.errors.throttling_exception.ThrottlingException: <p>The request or operation couldn't be performed because a service is throttling requests.</p>
+            aws_sdk_eks.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -490,6 +517,15 @@ class EKSClient:
             client_request_token: <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
             username: <p>The username to authenticate to Kubernetes with. We recommend not specifying a username and letting Amazon EKS specify it for you. For more information about the value Amazon EKS specifies for you, or constraints before specifying your own username, see <a href=\"https://docs.aws.amazon.com/eks/latest/userguide/access-entries.html#creating-access-entries\">Creating access entries</a> in the <i>Amazon EKS User Guide</i>.</p>
             type: <p>The type of the new access entry. Valid values are <code>STANDARD</code>, <code>FARGATE_LINUX</code>, <code>EC2_LINUX</code>, <code>EC2_WINDOWS</code>, <code>EC2</code> (for EKS Auto Mode), <code>HYBRID_LINUX</code>, and <code>HYPERPOD_LINUX</code>. </p> <p>If the <code>principalArn</code> is for an IAM role that's used for self-managed Amazon EC2 nodes, specify <code>EC2_LINUX</code> or <code>EC2_WINDOWS</code>. Amazon EKS grants the necessary permissions to the node for you. If the <code>principalArn</code> is for any other purpose, specify <code>STANDARD</code>. If you don't specify a value, Amazon EKS sets the value to <code>STANDARD</code>. If you have the access mode of the cluster set to <code>API_AND_CONFIG_MAP</code>, it's unnecessary to create access entries for IAM roles used with Fargate profiles or managed Amazon EC2 nodes, because Amazon EKS creates entries in the <code>aws-auth</code> <code>ConfigMap</code> for the roles. You can't change this value once you've created the access entry.</p> <p>If you set the value to <code>EC2_LINUX</code> or <code>EC2_WINDOWS</code>, you can't specify values for <code>kubernetesGroups</code>, or associate an <code>AccessPolicy</code> to the access entry.</p>
+
+        Raises:
+            aws_sdk_eks.errors.invalid_parameter_exception.InvalidParameterException: <p>The specified parameter is invalid. Review the available parameters for the API request.</p>
+            aws_sdk_eks.errors.invalid_request_exception.InvalidRequestException: <p>The request is invalid given the state of the cluster. Check the state of the cluster and the associated operations.</p>
+            aws_sdk_eks.errors.resource_in_use_exception.ResourceInUseException: <p>The specified resource is in use.</p>
+            aws_sdk_eks.errors.resource_limit_exceeded_exception.ResourceLimitExceededException: <p>You have encountered a service limit on the specified resource.</p>
+            aws_sdk_eks.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found. You can view your available clusters with <code>ListClusters</code>. You can view your available managed node groups with <code>ListNodegroups</code>. Amazon EKS clusters and node groups are Amazon Web Services Region specific.</p>
+            aws_sdk_eks.errors.server_exception.ServerException: <p>These errors are usually caused by a server-side issue.</p>
+            aws_sdk_eks.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -562,6 +598,15 @@ class EKSClient:
             configuration_values: <p>The set of configuration values for the add-on that's created. The values that you provide are validated against the schema returned by <code>DescribeAddonConfiguration</code>.</p>
             pod_identity_associations: <p>An array of EKS Pod Identity associations to be created. Each association maps a Kubernetes service account to an IAM role.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/eks/latest/userguide/add-ons-iam.html\">Attach an IAM Role to an Amazon EKS add-on using EKS Pod Identity</a> in the <i>Amazon EKS User Guide</i>.</p>
             namespace_config: <p>The namespace configuration for the addon. If specified, this will override the default namespace for the addon.</p>
+
+        Raises:
+            aws_sdk_eks.errors.client_exception.ClientException: <p>These errors are usually caused by a client action. Actions can include using an action or resource on behalf of an <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html\">IAM principal</a> that doesn't have permissions to use the action or resource or specifying an identifier that is not valid.</p>
+            aws_sdk_eks.errors.invalid_parameter_exception.InvalidParameterException: <p>The specified parameter is invalid. Review the available parameters for the API request.</p>
+            aws_sdk_eks.errors.invalid_request_exception.InvalidRequestException: <p>The request is invalid given the state of the cluster. Check the state of the cluster and the associated operations.</p>
+            aws_sdk_eks.errors.resource_in_use_exception.ResourceInUseException: <p>The specified resource is in use.</p>
+            aws_sdk_eks.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found. You can view your available clusters with <code>ListClusters</code>. You can view your available managed node groups with <code>ListNodegroups</code>. Amazon EKS clusters and node groups are Amazon Web Services Region specific.</p>
+            aws_sdk_eks.errors.server_exception.ServerException: <p>These errors are usually caused by a server-side issue.</p>
+            aws_sdk_eks.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -631,6 +676,16 @@ class EKSClient:
             role_arn: <p>The Amazon Resource Name (ARN) of the IAM role that the capability uses to interact with Amazon Web Services services. This role must have a trust policy that allows the EKS service principal to assume it, and it must have the necessary permissions for the capability type you're creating.</p> <p>For ACK capabilities, the role needs permissions to manage the resources you want to control through Kubernetes. For Argo CD capabilities, the role needs permissions to access Git repositories and Secrets Manager. For KRO capabilities, the role needs permissions based on the resources you'll be orchestrating.</p>
             configuration: <p>The configuration settings for the capability. The structure of this object varies depending on the capability type. For Argo CD capabilities, you can configure IAM Identity CenterIAM; Identity Center integration, RBAC role mappings, and network access settings.</p>
             delete_propagation_policy: <p>Specifies how Kubernetes resources managed by the capability should be handled when the capability is deleted. Currently, the only supported value is <code>RETAIN</code> which retains all Kubernetes resources managed by the capability when the capability is deleted.</p> <p>Because resources are retained, all Kubernetes resources created by the capability should be deleted from the cluster before deleting the capability itself. After the capability is deleted, these resources become difficult to manage because the controller is no longer available.</p>
+
+        Raises:
+            aws_sdk_eks.errors.access_denied_exception.AccessDeniedException: <p>You don't have permissions to perform the requested operation. The <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html\">IAM principal</a> making the request must have at least one IAM permissions policy attached that grants the required permissions. For more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html\">Access management</a> in the <i>IAM User Guide</i>. </p>
+            aws_sdk_eks.errors.invalid_parameter_exception.InvalidParameterException: <p>The specified parameter is invalid. Review the available parameters for the API request.</p>
+            aws_sdk_eks.errors.invalid_request_exception.InvalidRequestException: <p>The request is invalid given the state of the cluster. Check the state of the cluster and the associated operations.</p>
+            aws_sdk_eks.errors.resource_in_use_exception.ResourceInUseException: <p>The specified resource is in use.</p>
+            aws_sdk_eks.errors.resource_limit_exceeded_exception.ResourceLimitExceededException: <p>You have encountered a service limit on the specified resource.</p>
+            aws_sdk_eks.errors.server_exception.ServerException: <p>These errors are usually caused by a server-side issue.</p>
+            aws_sdk_eks.errors.throttling_exception.ThrottlingException: <p>The request or operation couldn't be performed because a service is throttling requests.</p>
+            aws_sdk_eks.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -739,6 +794,16 @@ class EKSClient:
             deletion_protection: <p>Indicates whether to enable deletion protection for the cluster. When enabled, the cluster cannot be deleted unless deletion protection is first disabled. This helps prevent accidental cluster deletion. Default value is <code>false</code>.</p>
             control_plane_scaling_config: <p>The control plane scaling tier configuration. For more information, see EKS Provisioned Control Plane in the Amazon EKS User Guide.</p>
 
+        Raises:
+            aws_sdk_eks.errors.client_exception.ClientException: <p>These errors are usually caused by a client action. Actions can include using an action or resource on behalf of an <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html\">IAM principal</a> that doesn't have permissions to use the action or resource or specifying an identifier that is not valid.</p>
+            aws_sdk_eks.errors.invalid_parameter_exception.InvalidParameterException: <p>The specified parameter is invalid. Review the available parameters for the API request.</p>
+            aws_sdk_eks.errors.resource_in_use_exception.ResourceInUseException: <p>The specified resource is in use.</p>
+            aws_sdk_eks.errors.resource_limit_exceeded_exception.ResourceLimitExceededException: <p>You have encountered a service limit on the specified resource.</p>
+            aws_sdk_eks.errors.server_exception.ServerException: <p>These errors are usually caused by a server-side issue.</p>
+            aws_sdk_eks.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is unavailable. Back off and retry the operation.</p>
+            aws_sdk_eks.errors.unsupported_availability_zone_exception.UnsupportedAvailabilityZoneException: <p>At least one of your specified cluster subnets is in an Availability Zone that does not support Amazon EKS. The exception output specifies the supported Availability Zones for your account, from which you can choose subnets for your cluster.</p>
+            aws_sdk_eks.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To create a new cluster
             The following example creates an Amazon EKS cluster called prod.
@@ -829,6 +894,14 @@ class EKSClient:
             auto_renew: <p>A boolean indicating whether the subscription auto renews at the end of the term.</p>
             client_request_token: <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
             tags: <p>The metadata for a subscription to assist with categorization and organization. Each tag consists of a key and an optional value. Subscription tags don't propagate to any other resources associated with the subscription.</p>
+
+        Raises:
+            aws_sdk_eks.errors.client_exception.ClientException: <p>These errors are usually caused by a client action. Actions can include using an action or resource on behalf of an <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html\">IAM principal</a> that doesn't have permissions to use the action or resource or specifying an identifier that is not valid.</p>
+            aws_sdk_eks.errors.invalid_parameter_exception.InvalidParameterException: <p>The specified parameter is invalid. Review the available parameters for the API request.</p>
+            aws_sdk_eks.errors.resource_limit_exceeded_exception.ResourceLimitExceededException: <p>You have encountered a service limit on the specified resource.</p>
+            aws_sdk_eks.errors.server_exception.ServerException: <p>These errors are usually caused by a server-side issue.</p>
+            aws_sdk_eks.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is unavailable. Back off and retry the operation.</p>
+            aws_sdk_eks.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -893,6 +966,15 @@ class EKSClient:
             selectors: <p>The selectors to match for a <code>Pod</code> to use this Fargate profile. Each selector must have an associated Kubernetes <code>namespace</code>. Optionally, you can also specify <code>labels</code> for a <code>namespace</code>. You may specify up to five selectors in a Fargate profile.</p>
             client_request_token: <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
             tags: <p>Metadata that assists with categorization and organization. Each tag consists of a key and an optional value. You define both. Tags don't propagate to any other cluster or Amazon Web Services resources.</p>
+
+        Raises:
+            aws_sdk_eks.errors.client_exception.ClientException: <p>These errors are usually caused by a client action. Actions can include using an action or resource on behalf of an <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html\">IAM principal</a> that doesn't have permissions to use the action or resource or specifying an identifier that is not valid.</p>
+            aws_sdk_eks.errors.invalid_parameter_exception.InvalidParameterException: <p>The specified parameter is invalid. Review the available parameters for the API request.</p>
+            aws_sdk_eks.errors.invalid_request_exception.InvalidRequestException: <p>The request is invalid given the state of the cluster. Check the state of the cluster and the associated operations.</p>
+            aws_sdk_eks.errors.resource_limit_exceeded_exception.ResourceLimitExceededException: <p>You have encountered a service limit on the specified resource.</p>
+            aws_sdk_eks.errors.server_exception.ServerException: <p>These errors are usually caused by a server-side issue.</p>
+            aws_sdk_eks.errors.unsupported_availability_zone_exception.UnsupportedAvailabilityZoneException: <p>At least one of your specified cluster subnets is in an Availability Zone that does not support Amazon EKS. The exception output specifies the supported Availability Zones for your account, from which you can choose subnets for your cluster.</p>
+            aws_sdk_eks.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -992,6 +1074,16 @@ class EKSClient:
             version: <p>The Kubernetes version to use for your managed nodes. By default, the Kubernetes version of the cluster is used, and this is the only accepted specified value. If you specify <code>launchTemplate</code>, and your launch template uses a custom AMI, then don't specify <code>version</code>, or the node group deployment will fail. For more information about using launch templates with Amazon EKS, see <a href=\"https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html\">Customizing managed nodes with launch templates</a> in the <i>Amazon EKS User Guide</i>.</p>
             release_version: <p>The AMI version of the Amazon EKS optimized AMI to use with your node group. By default, the latest available AMI version for the node group's current Kubernetes version is used. For information about Linux versions, see <a href=\"https://docs.aws.amazon.com/eks/latest/userguide/eks-linux-ami-versions.html\">Amazon EKS optimized Amazon Linux AMI versions</a> in the <i>Amazon EKS User Guide</i>. Amazon EKS managed node groups support the November 2022 and later releases of the Windows AMIs. For information about Windows versions, see <a href=\"https://docs.aws.amazon.com/eks/latest/userguide/eks-ami-versions-windows.html\">Amazon EKS optimized Windows AMI versions</a> in the <i>Amazon EKS User Guide</i>.</p> <p>If you specify <code>launchTemplate</code>, and your launch template uses a custom AMI, then don't specify <code>releaseVersion</code>, or the node group deployment will fail. For more information about using launch templates with Amazon EKS, see <a href=\"https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html\">Customizing managed nodes with launch templates</a> in the <i>Amazon EKS User Guide</i>.</p>
             warm_pool_config: <p>The warm pool configuration for the node group. Warm pools maintain pre-initialized EC2 instances that can quickly join your cluster during scale-out events, improving application scaling performance and reducing costs.</p>
+
+        Raises:
+            aws_sdk_eks.errors.client_exception.ClientException: <p>These errors are usually caused by a client action. Actions can include using an action or resource on behalf of an <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html\">IAM principal</a> that doesn't have permissions to use the action or resource or specifying an identifier that is not valid.</p>
+            aws_sdk_eks.errors.invalid_parameter_exception.InvalidParameterException: <p>The specified parameter is invalid. Review the available parameters for the API request.</p>
+            aws_sdk_eks.errors.invalid_request_exception.InvalidRequestException: <p>The request is invalid given the state of the cluster. Check the state of the cluster and the associated operations.</p>
+            aws_sdk_eks.errors.resource_in_use_exception.ResourceInUseException: <p>The specified resource is in use.</p>
+            aws_sdk_eks.errors.resource_limit_exceeded_exception.ResourceLimitExceededException: <p>You have encountered a service limit on the specified resource.</p>
+            aws_sdk_eks.errors.server_exception.ServerException: <p>These errors are usually caused by a server-side issue.</p>
+            aws_sdk_eks.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is unavailable. Back off and retry the operation.</p>
+            aws_sdk_eks.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1082,6 +1174,15 @@ class EKSClient:
             disable_session_tags: <p>Disable the automatic sessions tags that are appended by EKS Pod Identity.</p> <p>EKS Pod Identity adds a pre-defined set of session tags when it assumes the role. You can use these tags to author a single role that can work across resources by allowing access to Amazon Web Services resources based on matching tags. By default, EKS Pod Identity attaches six tags, including tags for cluster name, namespace, and service account name. For the list of tags added by EKS Pod Identity, see <a href=\"https://docs.aws.amazon.com/eks/latest/userguide/pod-id-abac.html#pod-id-abac-tags\">List of session tags added by EKS Pod Identity</a> in the <i>Amazon EKS User Guide</i>.</p> <p>Amazon Web Services compresses inline session policies, managed policy ARNs, and session tags into a packed binary format that has a separate limit. If you receive a <code>PackedPolicyTooLarge</code> error indicating the packed binary format has exceeded the size limit, you can attempt to reduce the size by disabling the session tags added by EKS Pod Identity.</p>
             target_role_arn: <p>The Amazon Resource Name (ARN) of the target IAM role to associate with the service account. This role is assumed by using the EKS Pod Identity association role, then the credentials for this role are injected into the Pod.</p> <p>When you run applications on Amazon EKS, your application might need to access Amazon Web Services resources from a different role that exists in the same or different Amazon Web Services account. For example, your application running in “Account A” might need to access resources, such as Amazon S3 buckets in “Account B” or within “Account A” itself. You can create a association to access Amazon Web Services resources in “Account B” by creating two IAM roles: a role in “Account A” and a role in “Account B” (which can be the same or different account), each with the necessary trust and permission policies. After you provide these roles in the <i>IAM role</i> and <i>Target IAM role</i> fields, EKS will perform role chaining to ensure your application gets the required permissions. This means Role A will assume Role B, allowing your Pods to securely access resources like S3 buckets in the target account.</p>
             policy: <p>An optional IAM policy in JSON format (as an escaped string) that applies additional restrictions to this pod identity association beyond the IAM policies attached to the IAM role. This policy is applied as the intersection of the role's policies and this policy, allowing you to reduce the permissions that applications in the pods can use. Use this policy to enforce least privilege access while still leveraging a shared IAM role across multiple applications.</p> <p> <b>Important considerations</b> </p> <ul> <li> <p> <b>Session tags:</b> When using this policy, <code>disableSessionTags</code> must be set to <code>true</code>.</p> </li> <li> <p> <b>Target role permissions:</b> If you specify both a <code>TargetRoleArn</code> and a policy, the policy restrictions apply only to the target role's permissions, not to the initial role used for assuming the target role.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_eks.errors.invalid_parameter_exception.InvalidParameterException: <p>The specified parameter is invalid. Review the available parameters for the API request.</p>
+            aws_sdk_eks.errors.invalid_request_exception.InvalidRequestException: <p>The request is invalid given the state of the cluster. Check the state of the cluster and the associated operations.</p>
+            aws_sdk_eks.errors.resource_in_use_exception.ResourceInUseException: <p>The specified resource is in use.</p>
+            aws_sdk_eks.errors.resource_limit_exceeded_exception.ResourceLimitExceededException: <p>You have encountered a service limit on the specified resource.</p>
+            aws_sdk_eks.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found. You can view your available clusters with <code>ListClusters</code>. You can view your available managed node groups with <code>ListNodegroups</code>. Amazon EKS clusters and node groups are Amazon Web Services Region specific.</p>
+            aws_sdk_eks.errors.server_exception.ServerException: <p>These errors are usually caused by a server-side issue.</p>
+            aws_sdk_eks.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1134,6 +1235,12 @@ class EKSClient:
         Args:
             cluster_name: <p>The name of your cluster.</p>
             principal_arn: <p>The ARN of the IAM principal for the <code>AccessEntry</code>.</p>
+
+        Raises:
+            aws_sdk_eks.errors.invalid_request_exception.InvalidRequestException: <p>The request is invalid given the state of the cluster. Check the state of the cluster and the associated operations.</p>
+            aws_sdk_eks.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found. You can view your available clusters with <code>ListClusters</code>. You can view your available managed node groups with <code>ListNodegroups</code>. Amazon EKS clusters and node groups are Amazon Web Services Region specific.</p>
+            aws_sdk_eks.errors.server_exception.ServerException: <p>These errors are usually caused by a server-side issue.</p>
+            aws_sdk_eks.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1176,6 +1283,14 @@ class EKSClient:
             cluster_name: <p>The name of your cluster.</p>
             addon_name: <p>The name of the add-on. The name must match one of the names returned by <a href=\"https://docs.aws.amazon.com/eks/latest/APIReference/API_ListAddons.html\"> <code>ListAddons</code> </a>.</p>
             preserve: <p>Specifying this option preserves the add-on software on your cluster but Amazon EKS stops managing any settings for the add-on. If an IAM account is associated with the add-on, it isn't removed.</p>
+
+        Raises:
+            aws_sdk_eks.errors.client_exception.ClientException: <p>These errors are usually caused by a client action. Actions can include using an action or resource on behalf of an <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html\">IAM principal</a> that doesn't have permissions to use the action or resource or specifying an identifier that is not valid.</p>
+            aws_sdk_eks.errors.invalid_parameter_exception.InvalidParameterException: <p>The specified parameter is invalid. Review the available parameters for the API request.</p>
+            aws_sdk_eks.errors.invalid_request_exception.InvalidRequestException: <p>The request is invalid given the state of the cluster. Check the state of the cluster and the associated operations.</p>
+            aws_sdk_eks.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found. You can view your available clusters with <code>ListClusters</code>. You can view your available managed node groups with <code>ListNodegroups</code>. Amazon EKS clusters and node groups are Amazon Web Services Region specific.</p>
+            aws_sdk_eks.errors.server_exception.ServerException: <p>These errors are usually caused by a server-side issue.</p>
+            aws_sdk_eks.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1218,6 +1333,14 @@ class EKSClient:
         Args:
             cluster_name: <p>The name of the Amazon EKS cluster that contains the capability you want to delete.</p>
             capability_name: <p>The name of the capability to delete.</p>
+
+        Raises:
+            aws_sdk_eks.errors.access_denied_exception.AccessDeniedException: <p>You don't have permissions to perform the requested operation. The <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html\">IAM principal</a> making the request must have at least one IAM permissions policy attached that grants the required permissions. For more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html\">Access management</a> in the <i>IAM User Guide</i>. </p>
+            aws_sdk_eks.errors.invalid_parameter_exception.InvalidParameterException: <p>The specified parameter is invalid. Review the available parameters for the API request.</p>
+            aws_sdk_eks.errors.resource_in_use_exception.ResourceInUseException: <p>The specified resource is in use.</p>
+            aws_sdk_eks.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found. You can view your available clusters with <code>ListClusters</code>. You can view your available managed node groups with <code>ListNodegroups</code>. Amazon EKS clusters and node groups are Amazon Web Services Region specific.</p>
+            aws_sdk_eks.errors.server_exception.ServerException: <p>These errors are usually caused by a server-side issue.</p>
+            aws_sdk_eks.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1256,6 +1379,15 @@ class EKSClient:
 
         Args:
             name: <p>The name of the cluster to delete.</p>
+
+        Raises:
+            aws_sdk_eks.errors.client_exception.ClientException: <p>These errors are usually caused by a client action. Actions can include using an action or resource on behalf of an <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html\">IAM principal</a> that doesn't have permissions to use the action or resource or specifying an identifier that is not valid.</p>
+            aws_sdk_eks.errors.invalid_request_exception.InvalidRequestException: <p>The request is invalid given the state of the cluster. Check the state of the cluster and the associated operations.</p>
+            aws_sdk_eks.errors.resource_in_use_exception.ResourceInUseException: <p>The specified resource is in use.</p>
+            aws_sdk_eks.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found. You can view your available clusters with <code>ListClusters</code>. You can view your available managed node groups with <code>ListNodegroups</code>. Amazon EKS clusters and node groups are Amazon Web Services Region specific.</p>
+            aws_sdk_eks.errors.server_exception.ServerException: <p>These errors are usually caused by a server-side issue.</p>
+            aws_sdk_eks.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is unavailable. Back off and retry the operation.</p>
+            aws_sdk_eks.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To delete a cluster
@@ -1299,6 +1431,13 @@ class EKSClient:
 
         Args:
             id: <p>The ID of the subscription.</p>
+
+        Raises:
+            aws_sdk_eks.errors.client_exception.ClientException: <p>These errors are usually caused by a client action. Actions can include using an action or resource on behalf of an <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html\">IAM principal</a> that doesn't have permissions to use the action or resource or specifying an identifier that is not valid.</p>
+            aws_sdk_eks.errors.invalid_request_exception.InvalidRequestException: <p>The request is invalid given the state of the cluster. Check the state of the cluster and the associated operations.</p>
+            aws_sdk_eks.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found. You can view your available clusters with <code>ListClusters</code>. You can view your available managed node groups with <code>ListNodegroups</code>. Amazon EKS clusters and node groups are Amazon Web Services Region specific.</p>
+            aws_sdk_eks.errors.server_exception.ServerException: <p>These errors are usually caused by a server-side issue.</p>
+            aws_sdk_eks.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1340,6 +1479,13 @@ class EKSClient:
         Args:
             cluster_name: <p>The name of your cluster.</p>
             fargate_profile_name: <p>The name of the Fargate profile to delete.</p>
+
+        Raises:
+            aws_sdk_eks.errors.client_exception.ClientException: <p>These errors are usually caused by a client action. Actions can include using an action or resource on behalf of an <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html\">IAM principal</a> that doesn't have permissions to use the action or resource or specifying an identifier that is not valid.</p>
+            aws_sdk_eks.errors.invalid_parameter_exception.InvalidParameterException: <p>The specified parameter is invalid. Review the available parameters for the API request.</p>
+            aws_sdk_eks.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found. You can view your available clusters with <code>ListClusters</code>. You can view your available managed node groups with <code>ListNodegroups</code>. Amazon EKS clusters and node groups are Amazon Web Services Region specific.</p>
+            aws_sdk_eks.errors.server_exception.ServerException: <p>These errors are usually caused by a server-side issue.</p>
+            aws_sdk_eks.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1380,6 +1526,15 @@ class EKSClient:
         Args:
             cluster_name: <p>The name of your cluster.</p>
             nodegroup_name: <p>The name of the node group to delete.</p>
+
+        Raises:
+            aws_sdk_eks.errors.client_exception.ClientException: <p>These errors are usually caused by a client action. Actions can include using an action or resource on behalf of an <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html\">IAM principal</a> that doesn't have permissions to use the action or resource or specifying an identifier that is not valid.</p>
+            aws_sdk_eks.errors.invalid_parameter_exception.InvalidParameterException: <p>The specified parameter is invalid. Review the available parameters for the API request.</p>
+            aws_sdk_eks.errors.resource_in_use_exception.ResourceInUseException: <p>The specified resource is in use.</p>
+            aws_sdk_eks.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found. You can view your available clusters with <code>ListClusters</code>. You can view your available managed node groups with <code>ListNodegroups</code>. Amazon EKS clusters and node groups are Amazon Web Services Region specific.</p>
+            aws_sdk_eks.errors.server_exception.ServerException: <p>These errors are usually caused by a server-side issue.</p>
+            aws_sdk_eks.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is unavailable. Back off and retry the operation.</p>
+            aws_sdk_eks.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1420,6 +1575,13 @@ class EKSClient:
         Args:
             cluster_name: <p>The cluster name that</p>
             association_id: <p>The ID of the association to be deleted.</p>
+
+        Raises:
+            aws_sdk_eks.errors.invalid_parameter_exception.InvalidParameterException: <p>The specified parameter is invalid. Review the available parameters for the API request.</p>
+            aws_sdk_eks.errors.invalid_request_exception.InvalidRequestException: <p>The request is invalid given the state of the cluster. Check the state of the cluster and the associated operations.</p>
+            aws_sdk_eks.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found. You can view your available clusters with <code>ListClusters</code>. You can view your available managed node groups with <code>ListNodegroups</code>. Amazon EKS clusters and node groups are Amazon Web Services Region specific.</p>
+            aws_sdk_eks.errors.server_exception.ServerException: <p>These errors are usually caused by a server-side issue.</p>
+            aws_sdk_eks.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1458,6 +1620,15 @@ class EKSClient:
 
         Args:
             name: <p>The name of the connected cluster to deregister.</p>
+
+        Raises:
+            aws_sdk_eks.errors.access_denied_exception.AccessDeniedException: <p>You don't have permissions to perform the requested operation. The <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html\">IAM principal</a> making the request must have at least one IAM permissions policy attached that grants the required permissions. For more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html\">Access management</a> in the <i>IAM User Guide</i>. </p>
+            aws_sdk_eks.errors.client_exception.ClientException: <p>These errors are usually caused by a client action. Actions can include using an action or resource on behalf of an <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html\">IAM principal</a> that doesn't have permissions to use the action or resource or specifying an identifier that is not valid.</p>
+            aws_sdk_eks.errors.resource_in_use_exception.ResourceInUseException: <p>The specified resource is in use.</p>
+            aws_sdk_eks.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found. You can view your available clusters with <code>ListClusters</code>. You can view your available managed node groups with <code>ListNodegroups</code>. Amazon EKS clusters and node groups are Amazon Web Services Region specific.</p>
+            aws_sdk_eks.errors.server_exception.ServerException: <p>These errors are usually caused by a server-side issue.</p>
+            aws_sdk_eks.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is unavailable. Back off and retry the operation.</p>
+            aws_sdk_eks.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1497,6 +1668,12 @@ class EKSClient:
         Args:
             cluster_name: <p>The name of your cluster.</p>
             principal_arn: <p>The ARN of the IAM principal for the <code>AccessEntry</code>.</p>
+
+        Raises:
+            aws_sdk_eks.errors.invalid_request_exception.InvalidRequestException: <p>The request is invalid given the state of the cluster. Check the state of the cluster and the associated operations.</p>
+            aws_sdk_eks.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found. You can view your available clusters with <code>ListClusters</code>. You can view your available managed node groups with <code>ListNodegroups</code>. Amazon EKS clusters and node groups are Amazon Web Services Region specific.</p>
+            aws_sdk_eks.errors.server_exception.ServerException: <p>These errors are usually caused by a server-side issue.</p>
+            aws_sdk_eks.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1537,6 +1714,14 @@ class EKSClient:
         Args:
             cluster_name: <p>The name of your cluster.</p>
             addon_name: <p>The name of the add-on. The name must match one of the names returned by <a href=\"https://docs.aws.amazon.com/eks/latest/APIReference/API_ListAddons.html\"> <code>ListAddons</code> </a>.</p>
+
+        Raises:
+            aws_sdk_eks.errors.client_exception.ClientException: <p>These errors are usually caused by a client action. Actions can include using an action or resource on behalf of an <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html\">IAM principal</a> that doesn't have permissions to use the action or resource or specifying an identifier that is not valid.</p>
+            aws_sdk_eks.errors.invalid_parameter_exception.InvalidParameterException: <p>The specified parameter is invalid. Review the available parameters for the API request.</p>
+            aws_sdk_eks.errors.invalid_request_exception.InvalidRequestException: <p>The request is invalid given the state of the cluster. Check the state of the cluster and the associated operations.</p>
+            aws_sdk_eks.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found. You can view your available clusters with <code>ListClusters</code>. You can view your available managed node groups with <code>ListNodegroups</code>. Amazon EKS clusters and node groups are Amazon Web Services Region specific.</p>
+            aws_sdk_eks.errors.server_exception.ServerException: <p>These errors are usually caused by a server-side issue.</p>
+            aws_sdk_eks.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1577,6 +1762,12 @@ class EKSClient:
         Args:
             addon_name: <p>The name of the add-on. The name must match one of the names returned by <code>DescribeAddonVersions</code>.</p>
             addon_version: <p>The version of the add-on. The version must match one of the versions returned by <a href=\"https://docs.aws.amazon.com/eks/latest/APIReference/API_DescribeAddonVersions.html\"> <code>DescribeAddonVersions</code> </a>.</p>
+
+        Raises:
+            aws_sdk_eks.errors.invalid_parameter_exception.InvalidParameterException: <p>The specified parameter is invalid. Review the available parameters for the API request.</p>
+            aws_sdk_eks.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found. You can view your available clusters with <code>ListClusters</code>. You can view your available managed node groups with <code>ListNodegroups</code>. Amazon EKS clusters and node groups are Amazon Web Services Region specific.</p>
+            aws_sdk_eks.errors.server_exception.ServerException: <p>These errors are usually caused by a server-side issue.</p>
+            aws_sdk_eks.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1629,6 +1820,12 @@ class EKSClient:
             types: <p>The type of the add-on. For valid <code>types</code>, don't specify a value for this property.</p>
             publishers: <p>The publisher of the add-on. For valid <code>publishers</code>, don't specify a value for this property.</p>
             owners: <p>The owner of the add-on. For valid <code>owners</code>, don't specify a value for this property.</p>
+
+        Raises:
+            aws_sdk_eks.errors.invalid_parameter_exception.InvalidParameterException: <p>The specified parameter is invalid. Review the available parameters for the API request.</p>
+            aws_sdk_eks.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found. You can view your available clusters with <code>ListClusters</code>. You can view your available managed node groups with <code>ListNodegroups</code>. Amazon EKS clusters and node groups are Amazon Web Services Region specific.</p>
+            aws_sdk_eks.errors.server_exception.ServerException: <p>These errors are usually caused by a server-side issue.</p>
+            aws_sdk_eks.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1714,6 +1911,13 @@ class EKSClient:
         Args:
             cluster_name: <p>The name of the Amazon EKS cluster that contains the capability you want to describe.</p>
             capability_name: <p>The name of the capability to describe.</p>
+
+        Raises:
+            aws_sdk_eks.errors.access_denied_exception.AccessDeniedException: <p>You don't have permissions to perform the requested operation. The <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html\">IAM principal</a> making the request must have at least one IAM permissions policy attached that grants the required permissions. For more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html\">Access management</a> in the <i>IAM User Guide</i>. </p>
+            aws_sdk_eks.errors.invalid_parameter_exception.InvalidParameterException: <p>The specified parameter is invalid. Review the available parameters for the API request.</p>
+            aws_sdk_eks.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found. You can view your available clusters with <code>ListClusters</code>. You can view your available managed node groups with <code>ListNodegroups</code>. Amazon EKS clusters and node groups are Amazon Web Services Region specific.</p>
+            aws_sdk_eks.errors.server_exception.ServerException: <p>These errors are usually caused by a server-side issue.</p>
+            aws_sdk_eks.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1752,6 +1956,13 @@ class EKSClient:
 
         Args:
             name: <p>The name of your cluster.</p>
+
+        Raises:
+            aws_sdk_eks.errors.client_exception.ClientException: <p>These errors are usually caused by a client action. Actions can include using an action or resource on behalf of an <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html\">IAM principal</a> that doesn't have permissions to use the action or resource or specifying an identifier that is not valid.</p>
+            aws_sdk_eks.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found. You can view your available clusters with <code>ListClusters</code>. You can view your available managed node groups with <code>ListNodegroups</code>. Amazon EKS clusters and node groups are Amazon Web Services Region specific.</p>
+            aws_sdk_eks.errors.server_exception.ServerException: <p>These errors are usually caused by a server-side issue.</p>
+            aws_sdk_eks.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is unavailable. Back off and retry the operation.</p>
+            aws_sdk_eks.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To describe a cluster
@@ -1815,6 +2026,12 @@ class EKSClient:
             cluster_versions: <p>List of specific cluster versions to describe.</p>
             status: <important> <p>This field is deprecated. Use <code>versionStatus</code> instead, as that field matches for input and output of this action.</p> </important> <p>Filter versions by their current status.</p>
             version_status: <p>Filter versions by their current status.</p>
+
+        Raises:
+            aws_sdk_eks.errors.invalid_parameter_exception.InvalidParameterException: <p>The specified parameter is invalid. Review the available parameters for the API request.</p>
+            aws_sdk_eks.errors.invalid_request_exception.InvalidRequestException: <p>The request is invalid given the state of the cluster. Check the state of the cluster and the associated operations.</p>
+            aws_sdk_eks.errors.server_exception.ServerException: <p>These errors are usually caused by a server-side issue.</p>
+            aws_sdk_eks.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1906,6 +2123,13 @@ class EKSClient:
 
         Args:
             id: <p>The ID of the subscription.</p>
+
+        Raises:
+            aws_sdk_eks.errors.client_exception.ClientException: <p>These errors are usually caused by a client action. Actions can include using an action or resource on behalf of an <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html\">IAM principal</a> that doesn't have permissions to use the action or resource or specifying an identifier that is not valid.</p>
+            aws_sdk_eks.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found. You can view your available clusters with <code>ListClusters</code>. You can view your available managed node groups with <code>ListNodegroups</code>. Amazon EKS clusters and node groups are Amazon Web Services Region specific.</p>
+            aws_sdk_eks.errors.server_exception.ServerException: <p>These errors are usually caused by a server-side issue.</p>
+            aws_sdk_eks.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is unavailable. Back off and retry the operation.</p>
+            aws_sdk_eks.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1945,6 +2169,13 @@ class EKSClient:
         Args:
             cluster_name: <p>The name of your cluster.</p>
             fargate_profile_name: <p>The name of the Fargate profile to describe.</p>
+
+        Raises:
+            aws_sdk_eks.errors.client_exception.ClientException: <p>These errors are usually caused by a client action. Actions can include using an action or resource on behalf of an <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html\">IAM principal</a> that doesn't have permissions to use the action or resource or specifying an identifier that is not valid.</p>
+            aws_sdk_eks.errors.invalid_parameter_exception.InvalidParameterException: <p>The specified parameter is invalid. Review the available parameters for the API request.</p>
+            aws_sdk_eks.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found. You can view your available clusters with <code>ListClusters</code>. You can view your available managed node groups with <code>ListNodegroups</code>. Amazon EKS clusters and node groups are Amazon Web Services Region specific.</p>
+            aws_sdk_eks.errors.server_exception.ServerException: <p>These errors are usually caused by a server-side issue.</p>
+            aws_sdk_eks.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1985,6 +2216,14 @@ class EKSClient:
         Args:
             cluster_name: <p>The name of your cluster.</p>
             identity_provider_config: <p>An object representing an identity provider configuration.</p>
+
+        Raises:
+            aws_sdk_eks.errors.client_exception.ClientException: <p>These errors are usually caused by a client action. Actions can include using an action or resource on behalf of an <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html\">IAM principal</a> that doesn't have permissions to use the action or resource or specifying an identifier that is not valid.</p>
+            aws_sdk_eks.errors.invalid_parameter_exception.InvalidParameterException: <p>The specified parameter is invalid. Review the available parameters for the API request.</p>
+            aws_sdk_eks.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found. You can view your available clusters with <code>ListClusters</code>. You can view your available managed node groups with <code>ListNodegroups</code>. Amazon EKS clusters and node groups are Amazon Web Services Region specific.</p>
+            aws_sdk_eks.errors.server_exception.ServerException: <p>These errors are usually caused by a server-side issue.</p>
+            aws_sdk_eks.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is unavailable. Back off and retry the operation.</p>
+            aws_sdk_eks.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2025,6 +2264,13 @@ class EKSClient:
         Args:
             cluster_name: <p>The name of the cluster to describe the insight for.</p>
             id: <p>The identity of the insight to describe.</p>
+
+        Raises:
+            aws_sdk_eks.errors.invalid_parameter_exception.InvalidParameterException: <p>The specified parameter is invalid. Review the available parameters for the API request.</p>
+            aws_sdk_eks.errors.invalid_request_exception.InvalidRequestException: <p>The request is invalid given the state of the cluster. Check the state of the cluster and the associated operations.</p>
+            aws_sdk_eks.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found. You can view your available clusters with <code>ListClusters</code>. You can view your available managed node groups with <code>ListNodegroups</code>. Amazon EKS clusters and node groups are Amazon Web Services Region specific.</p>
+            aws_sdk_eks.errors.server_exception.ServerException: <p>These errors are usually caused by a server-side issue.</p>
+            aws_sdk_eks.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2063,6 +2309,13 @@ class EKSClient:
 
         Args:
             cluster_name: <p>The name of the cluster associated with the insights refresh operation.</p>
+
+        Raises:
+            aws_sdk_eks.errors.invalid_parameter_exception.InvalidParameterException: <p>The specified parameter is invalid. Review the available parameters for the API request.</p>
+            aws_sdk_eks.errors.invalid_request_exception.InvalidRequestException: <p>The request is invalid given the state of the cluster. Check the state of the cluster and the associated operations.</p>
+            aws_sdk_eks.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found. You can view your available clusters with <code>ListClusters</code>. You can view your available managed node groups with <code>ListNodegroups</code>. Amazon EKS clusters and node groups are Amazon Web Services Region specific.</p>
+            aws_sdk_eks.errors.server_exception.ServerException: <p>These errors are usually caused by a server-side issue.</p>
+            aws_sdk_eks.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2102,6 +2355,14 @@ class EKSClient:
         Args:
             cluster_name: <p>The name of your cluster.</p>
             nodegroup_name: <p>The name of the node group to describe.</p>
+
+        Raises:
+            aws_sdk_eks.errors.client_exception.ClientException: <p>These errors are usually caused by a client action. Actions can include using an action or resource on behalf of an <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html\">IAM principal</a> that doesn't have permissions to use the action or resource or specifying an identifier that is not valid.</p>
+            aws_sdk_eks.errors.invalid_parameter_exception.InvalidParameterException: <p>The specified parameter is invalid. Review the available parameters for the API request.</p>
+            aws_sdk_eks.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found. You can view your available clusters with <code>ListClusters</code>. You can view your available managed node groups with <code>ListNodegroups</code>. Amazon EKS clusters and node groups are Amazon Web Services Region specific.</p>
+            aws_sdk_eks.errors.server_exception.ServerException: <p>These errors are usually caused by a server-side issue.</p>
+            aws_sdk_eks.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is unavailable. Back off and retry the operation.</p>
+            aws_sdk_eks.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2142,6 +2403,13 @@ class EKSClient:
         Args:
             cluster_name: <p>The name of the cluster that the association is in.</p>
             association_id: <p>The ID of the association that you want the description of.</p>
+
+        Raises:
+            aws_sdk_eks.errors.invalid_parameter_exception.InvalidParameterException: <p>The specified parameter is invalid. Review the available parameters for the API request.</p>
+            aws_sdk_eks.errors.invalid_request_exception.InvalidRequestException: <p>The request is invalid given the state of the cluster. Check the state of the cluster and the associated operations.</p>
+            aws_sdk_eks.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found. You can view your available clusters with <code>ListClusters</code>. You can view your available managed node groups with <code>ListNodegroups</code>. Amazon EKS clusters and node groups are Amazon Web Services Region specific.</p>
+            aws_sdk_eks.errors.server_exception.ServerException: <p>These errors are usually caused by a server-side issue.</p>
+            aws_sdk_eks.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2188,6 +2456,13 @@ class EKSClient:
             nodegroup_name: <p>The name of the Amazon EKS node group associated with the update. This parameter is required if the update is a node group update.</p>
             addon_name: <p>The name of the add-on. The name must match one of the names returned by <a href=\"https://docs.aws.amazon.com/eks/latest/APIReference/API_ListAddons.html\"> <code>ListAddons</code> </a>. This parameter is required if the update is an add-on update.</p>
             capability_name: <p>The name of the capability for which you want to describe updates.</p>
+
+        Raises:
+            aws_sdk_eks.errors.client_exception.ClientException: <p>These errors are usually caused by a client action. Actions can include using an action or resource on behalf of an <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html\">IAM principal</a> that doesn't have permissions to use the action or resource or specifying an identifier that is not valid.</p>
+            aws_sdk_eks.errors.invalid_parameter_exception.InvalidParameterException: <p>The specified parameter is invalid. Review the available parameters for the API request.</p>
+            aws_sdk_eks.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found. You can view your available clusters with <code>ListClusters</code>. You can view your available managed node groups with <code>ListNodegroups</code>. Amazon EKS clusters and node groups are Amazon Web Services Region specific.</p>
+            aws_sdk_eks.errors.server_exception.ServerException: <p>These errors are usually caused by a server-side issue.</p>
+            aws_sdk_eks.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2236,6 +2511,12 @@ class EKSClient:
             cluster_name: <p>The name of your cluster.</p>
             principal_arn: <p>The ARN of the IAM principal for the <code>AccessEntry</code>.</p>
             policy_arn: <p>The ARN of the policy to disassociate from the access entry. For a list of associated policies ARNs, use <code>ListAssociatedAccessPolicies</code>.</p>
+
+        Raises:
+            aws_sdk_eks.errors.invalid_request_exception.InvalidRequestException: <p>The request is invalid given the state of the cluster. Check the state of the cluster and the associated operations.</p>
+            aws_sdk_eks.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found. You can view your available clusters with <code>ListClusters</code>. You can view your available managed node groups with <code>ListNodegroups</code>. Amazon EKS clusters and node groups are Amazon Web Services Region specific.</p>
+            aws_sdk_eks.errors.server_exception.ServerException: <p>These errors are usually caused by a server-side issue.</p>
+            aws_sdk_eks.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2279,6 +2560,16 @@ class EKSClient:
             cluster_name: <p>The name of your cluster.</p>
             identity_provider_config: <p>An object representing an identity provider configuration.</p>
             client_request_token: <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+
+        Raises:
+            aws_sdk_eks.errors.client_exception.ClientException: <p>These errors are usually caused by a client action. Actions can include using an action or resource on behalf of an <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html\">IAM principal</a> that doesn't have permissions to use the action or resource or specifying an identifier that is not valid.</p>
+            aws_sdk_eks.errors.invalid_parameter_exception.InvalidParameterException: <p>The specified parameter is invalid. Review the available parameters for the API request.</p>
+            aws_sdk_eks.errors.invalid_request_exception.InvalidRequestException: <p>The request is invalid given the state of the cluster. Check the state of the cluster and the associated operations.</p>
+            aws_sdk_eks.errors.resource_in_use_exception.ResourceInUseException: <p>The specified resource is in use.</p>
+            aws_sdk_eks.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found. You can view your available clusters with <code>ListClusters</code>. You can view your available managed node groups with <code>ListNodegroups</code>. Amazon EKS clusters and node groups are Amazon Web Services Region specific.</p>
+            aws_sdk_eks.errors.server_exception.ServerException: <p>These errors are usually caused by a server-side issue.</p>
+            aws_sdk_eks.errors.throttling_exception.ThrottlingException: <p>The request or operation couldn't be performed because a service is throttling requests.</p>
+            aws_sdk_eks.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2327,6 +2618,13 @@ class EKSClient:
             associated_policy_arn: <p>The ARN of an <code>AccessPolicy</code>. When you specify an access policy ARN, only the access entries associated to that access policy are returned. For a list of available policy ARNs, use <code>ListAccessPolicies</code>.</p>
             max_results: <p>The maximum number of results, returned in paginated output. You receive <code>maxResults</code> in a single page, along with a <code>nextToken</code> response element. You can see the remaining results of the initial request by sending another request with the returned <code>nextToken</code> value. This value can be between 1 and 100. If you don't use this parameter, 100 results and a <code>nextToken</code> value, if applicable, are returned.</p>
             next_token: <p>The <code>nextToken</code> value returned from a previous paginated request, where <code>maxResults</code> was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the <code>nextToken</code> value. This value is null when there are no more results to return.</p> <note> <p>This token should be treated as an opaque identifier that is used only to retrieve the next items in a list and not for other programmatic purposes.</p> </note>
+
+        Raises:
+            aws_sdk_eks.errors.invalid_parameter_exception.InvalidParameterException: <p>The specified parameter is invalid. Review the available parameters for the API request.</p>
+            aws_sdk_eks.errors.invalid_request_exception.InvalidRequestException: <p>The request is invalid given the state of the cluster. Check the state of the cluster and the associated operations.</p>
+            aws_sdk_eks.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found. You can view your available clusters with <code>ListClusters</code>. You can view your available managed node groups with <code>ListNodegroups</code>. Amazon EKS clusters and node groups are Amazon Web Services Region specific.</p>
+            aws_sdk_eks.errors.server_exception.ServerException: <p>These errors are usually caused by a server-side issue.</p>
+            aws_sdk_eks.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2401,6 +2699,10 @@ class EKSClient:
         Args:
             max_results: <p>The maximum number of results, returned in paginated output. You receive <code>maxResults</code> in a single page, along with a <code>nextToken</code> response element. You can see the remaining results of the initial request by sending another request with the returned <code>nextToken</code> value. This value can be between 1 and 100. If you don't use this parameter, 100 results and a <code>nextToken</code> value, if applicable, are returned.</p>
             next_token: <p>The <code>nextToken</code> value returned from a previous paginated request, where <code>maxResults</code> was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the <code>nextToken</code> value. This value is null when there are no more results to return.</p> <note> <p>This token should be treated as an opaque identifier that is used only to retrieve the next items in a list and not for other programmatic purposes.</p> </note>
+
+        Raises:
+            aws_sdk_eks.errors.server_exception.ServerException: <p>These errors are usually caused by a server-side issue.</p>
+            aws_sdk_eks.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2470,6 +2772,14 @@ class EKSClient:
             cluster_name: <p>The name of your cluster.</p>
             max_results: <p>The maximum number of results, returned in paginated output. You receive <code>maxResults</code> in a single page, along with a <code>nextToken</code> response element. You can see the remaining results of the initial request by sending another request with the returned <code>nextToken</code> value. This value can be between 1 and 100. If you don't use this parameter, 100 results and a <code>nextToken</code> value, if applicable, are returned.</p>
             next_token: <p>The <code>nextToken</code> value returned from a previous paginated request, where <code>maxResults</code> was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the <code>nextToken</code> value. This value is null when there are no more results to return.</p> <note> <p>This token should be treated as an opaque identifier that is used only to retrieve the next items in a list and not for other programmatic purposes.</p> </note>
+
+        Raises:
+            aws_sdk_eks.errors.client_exception.ClientException: <p>These errors are usually caused by a client action. Actions can include using an action or resource on behalf of an <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html\">IAM principal</a> that doesn't have permissions to use the action or resource or specifying an identifier that is not valid.</p>
+            aws_sdk_eks.errors.invalid_parameter_exception.InvalidParameterException: <p>The specified parameter is invalid. Review the available parameters for the API request.</p>
+            aws_sdk_eks.errors.invalid_request_exception.InvalidRequestException: <p>The request is invalid given the state of the cluster. Check the state of the cluster and the associated operations.</p>
+            aws_sdk_eks.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found. You can view your available clusters with <code>ListClusters</code>. You can view your available managed node groups with <code>ListNodegroups</code>. Amazon EKS clusters and node groups are Amazon Web Services Region specific.</p>
+            aws_sdk_eks.errors.server_exception.ServerException: <p>These errors are usually caused by a server-side issue.</p>
+            aws_sdk_eks.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2544,6 +2854,12 @@ class EKSClient:
             principal_arn: <p>The ARN of the IAM principal for the <code>AccessEntry</code>.</p>
             max_results: <p>The maximum number of results, returned in paginated output. You receive <code>maxResults</code> in a single page, along with a <code>nextToken</code> response element. You can see the remaining results of the initial request by sending another request with the returned <code>nextToken</code> value. This value can be between 1 and 100. If you don't use this parameter, 100 results and a <code>nextToken</code> value, if applicable, are returned.</p>
             next_token: <p>The <code>nextToken</code> value returned from a previous paginated request, where <code>maxResults</code> was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the <code>nextToken</code> value. This value is null when there are no more results to return.</p> <note> <p>This token should be treated as an opaque identifier that is used only to retrieve the next items in a list and not for other programmatic purposes.</p> </note>
+
+        Raises:
+            aws_sdk_eks.errors.invalid_request_exception.InvalidRequestException: <p>The request is invalid given the state of the cluster. Check the state of the cluster and the associated operations.</p>
+            aws_sdk_eks.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found. You can view your available clusters with <code>ListClusters</code>. You can view your available managed node groups with <code>ListNodegroups</code>. Amazon EKS clusters and node groups are Amazon Web Services Region specific.</p>
+            aws_sdk_eks.errors.server_exception.ServerException: <p>These errors are usually caused by a server-side issue.</p>
+            aws_sdk_eks.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2619,6 +2935,11 @@ class EKSClient:
             cluster_name: <p>The name of the Amazon EKS cluster for which you want to list capabilities.</p>
             next_token: <p>The <code>nextToken</code> value returned from a previous paginated request, where <code>maxResults</code> was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the <code>nextToken</code> value. This value is null when there are no more results to return.</p>
             max_results: <p>The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value. If you don't specify a value, the default is 100 results.</p>
+
+        Raises:
+            aws_sdk_eks.errors.invalid_parameter_exception.InvalidParameterException: <p>The specified parameter is invalid. Review the available parameters for the API request.</p>
+            aws_sdk_eks.errors.server_exception.ServerException: <p>These errors are usually caused by a server-side issue.</p>
+            aws_sdk_eks.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2693,6 +3014,13 @@ class EKSClient:
             max_results: <p>The maximum number of results, returned in paginated output. You receive <code>maxResults</code> in a single page, along with a <code>nextToken</code> response element. You can see the remaining results of the initial request by sending another request with the returned <code>nextToken</code> value. This value can be between 1 and 100. If you don't use this parameter, 100 results and a <code>nextToken</code> value, if applicable, are returned.</p>
             next_token: <p>The <code>nextToken</code> value returned from a previous paginated request, where <code>maxResults</code> was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the <code>nextToken</code> value. This value is null when there are no more results to return.</p> <note> <p>This token should be treated as an opaque identifier that is used only to retrieve the next items in a list and not for other programmatic purposes.</p> </note>
             include: <p>Indicates whether external clusters are included in the returned list. Use '<code>all</code>' to return <a href=\"https://docs.aws.amazon.com/eks/latest/userguide/eks-connector.html\">https://docs.aws.amazon.com/eks/latest/userguide/eks-connector.html</a>connected clusters, or blank to return only Amazon EKS clusters. '<code>all</code>' must be in lowercase otherwise an error occurs.</p>
+
+        Raises:
+            aws_sdk_eks.errors.client_exception.ClientException: <p>These errors are usually caused by a client action. Actions can include using an action or resource on behalf of an <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html\">IAM principal</a> that doesn't have permissions to use the action or resource or specifying an identifier that is not valid.</p>
+            aws_sdk_eks.errors.invalid_parameter_exception.InvalidParameterException: <p>The specified parameter is invalid. Review the available parameters for the API request.</p>
+            aws_sdk_eks.errors.server_exception.ServerException: <p>These errors are usually caused by a server-side issue.</p>
+            aws_sdk_eks.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is unavailable. Back off and retry the operation.</p>
+            aws_sdk_eks.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To list your available clusters
@@ -2776,6 +3104,13 @@ class EKSClient:
             max_results: <p>The maximum number of cluster results returned by ListEksAnywhereSubscriptions in paginated output. When you use this parameter, ListEksAnywhereSubscriptions returns only maxResults results in a single page along with a nextToken response element. You can see the remaining results of the initial request by sending another ListEksAnywhereSubscriptions request with the returned nextToken value. This value can be between 1 and 100. If you don't use this parameter, ListEksAnywhereSubscriptions returns up to 10 results and a nextToken value if applicable.</p>
             next_token: <p>The <code>nextToken</code> value returned from a previous paginated <code>ListEksAnywhereSubscriptions</code> request where <code>maxResults</code> was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the <code>nextToken</code> value.</p>
             include_status: <p>An array of subscription statuses to filter on.</p>
+
+        Raises:
+            aws_sdk_eks.errors.client_exception.ClientException: <p>These errors are usually caused by a client action. Actions can include using an action or resource on behalf of an <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html\">IAM principal</a> that doesn't have permissions to use the action or resource or specifying an identifier that is not valid.</p>
+            aws_sdk_eks.errors.invalid_parameter_exception.InvalidParameterException: <p>The specified parameter is invalid. Review the available parameters for the API request.</p>
+            aws_sdk_eks.errors.server_exception.ServerException: <p>These errors are usually caused by a server-side issue.</p>
+            aws_sdk_eks.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is unavailable. Back off and retry the operation.</p>
+            aws_sdk_eks.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2853,6 +3188,13 @@ class EKSClient:
             cluster_name: <p>The name of your cluster.</p>
             max_results: <p>The maximum number of results, returned in paginated output. You receive <code>maxResults</code> in a single page, along with a <code>nextToken</code> response element. You can see the remaining results of the initial request by sending another request with the returned <code>nextToken</code> value. This value can be between 1 and 100. If you don't use this parameter, 100 results and a <code>nextToken</code> value, if applicable, are returned.</p>
             next_token: <p>The <code>nextToken</code> value returned from a previous paginated request, where <code>maxResults</code> was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the <code>nextToken</code> value. This value is null when there are no more results to return.</p> <note> <p>This token should be treated as an opaque identifier that is used only to retrieve the next items in a list and not for other programmatic purposes.</p> </note>
+
+        Raises:
+            aws_sdk_eks.errors.client_exception.ClientException: <p>These errors are usually caused by a client action. Actions can include using an action or resource on behalf of an <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html\">IAM principal</a> that doesn't have permissions to use the action or resource or specifying an identifier that is not valid.</p>
+            aws_sdk_eks.errors.invalid_parameter_exception.InvalidParameterException: <p>The specified parameter is invalid. Review the available parameters for the API request.</p>
+            aws_sdk_eks.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found. You can view your available clusters with <code>ListClusters</code>. You can view your available managed node groups with <code>ListNodegroups</code>. Amazon EKS clusters and node groups are Amazon Web Services Region specific.</p>
+            aws_sdk_eks.errors.server_exception.ServerException: <p>These errors are usually caused by a server-side issue.</p>
+            aws_sdk_eks.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2925,6 +3267,14 @@ class EKSClient:
             cluster_name: <p>The name of your cluster.</p>
             max_results: <p>The maximum number of results, returned in paginated output. You receive <code>maxResults</code> in a single page, along with a <code>nextToken</code> response element. You can see the remaining results of the initial request by sending another request with the returned <code>nextToken</code> value. This value can be between 1 and 100. If you don't use this parameter, 100 results and a <code>nextToken</code> value, if applicable, are returned.</p>
             next_token: <p>The <code>nextToken</code> value returned from a previous paginated request, where <code>maxResults</code> was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the <code>nextToken</code> value. This value is null when there are no more results to return.</p> <note> <p>This token should be treated as an opaque identifier that is used only to retrieve the next items in a list and not for other programmatic purposes.</p> </note>
+
+        Raises:
+            aws_sdk_eks.errors.client_exception.ClientException: <p>These errors are usually caused by a client action. Actions can include using an action or resource on behalf of an <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html\">IAM principal</a> that doesn't have permissions to use the action or resource or specifying an identifier that is not valid.</p>
+            aws_sdk_eks.errors.invalid_parameter_exception.InvalidParameterException: <p>The specified parameter is invalid. Review the available parameters for the API request.</p>
+            aws_sdk_eks.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found. You can view your available clusters with <code>ListClusters</code>. You can view your available managed node groups with <code>ListNodegroups</code>. Amazon EKS clusters and node groups are Amazon Web Services Region specific.</p>
+            aws_sdk_eks.errors.server_exception.ServerException: <p>These errors are usually caused by a server-side issue.</p>
+            aws_sdk_eks.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is unavailable. Back off and retry the operation.</p>
+            aws_sdk_eks.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2999,6 +3349,13 @@ class EKSClient:
             filter: <p>The criteria to filter your list of insights for your cluster. You can filter which insights are returned by category, associated Kubernetes version, and status.</p>
             max_results: <p>The maximum number of identity provider configurations returned by <code>ListInsights</code> in paginated output. When you use this parameter, <code>ListInsights</code> returns only <code>maxResults</code> results in a single page along with a <code>nextToken</code> response element. You can see the remaining results of the initial request by sending another <code>ListInsights</code> request with the returned <code>nextToken</code> value. This value can be between 1 and 100. If you don't use this parameter, <code>ListInsights</code> returns up to 100 results and a <code>nextToken</code> value, if applicable.</p>
             next_token: <p>The <code>nextToken</code> value returned from a previous paginated <code>ListInsights</code> request. When the results of a <code>ListInsights</code> request exceed <code>maxResults</code>, you can use this value to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+
+        Raises:
+            aws_sdk_eks.errors.invalid_parameter_exception.InvalidParameterException: <p>The specified parameter is invalid. Review the available parameters for the API request.</p>
+            aws_sdk_eks.errors.invalid_request_exception.InvalidRequestException: <p>The request is invalid given the state of the cluster. Check the state of the cluster and the associated operations.</p>
+            aws_sdk_eks.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found. You can view your available clusters with <code>ListClusters</code>. You can view your available managed node groups with <code>ListNodegroups</code>. Amazon EKS clusters and node groups are Amazon Web Services Region specific.</p>
+            aws_sdk_eks.errors.server_exception.ServerException: <p>These errors are usually caused by a server-side issue.</p>
+            aws_sdk_eks.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3075,6 +3432,14 @@ class EKSClient:
             cluster_name: <p>The name of your cluster.</p>
             max_results: <p>The maximum number of results, returned in paginated output. You receive <code>maxResults</code> in a single page, along with a <code>nextToken</code> response element. You can see the remaining results of the initial request by sending another request with the returned <code>nextToken</code> value. This value can be between 1 and 100. If you don't use this parameter, 100 results and a <code>nextToken</code> value, if applicable, are returned.</p>
             next_token: <p>The <code>nextToken</code> value returned from a previous paginated request, where <code>maxResults</code> was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the <code>nextToken</code> value. This value is null when there are no more results to return.</p> <note> <p>This token should be treated as an opaque identifier that is used only to retrieve the next items in a list and not for other programmatic purposes.</p> </note>
+
+        Raises:
+            aws_sdk_eks.errors.client_exception.ClientException: <p>These errors are usually caused by a client action. Actions can include using an action or resource on behalf of an <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html\">IAM principal</a> that doesn't have permissions to use the action or resource or specifying an identifier that is not valid.</p>
+            aws_sdk_eks.errors.invalid_parameter_exception.InvalidParameterException: <p>The specified parameter is invalid. Review the available parameters for the API request.</p>
+            aws_sdk_eks.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found. You can view your available clusters with <code>ListClusters</code>. You can view your available managed node groups with <code>ListNodegroups</code>. Amazon EKS clusters and node groups are Amazon Web Services Region specific.</p>
+            aws_sdk_eks.errors.server_exception.ServerException: <p>These errors are usually caused by a server-side issue.</p>
+            aws_sdk_eks.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is unavailable. Back off and retry the operation.</p>
+            aws_sdk_eks.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3151,6 +3516,13 @@ class EKSClient:
             service_account: <p>The name of the Kubernetes service account that the associations use.</p>
             max_results: <p>The maximum number of EKS Pod Identity association results returned by <code>ListPodIdentityAssociations</code> in paginated output. When you use this parameter, <code>ListPodIdentityAssociations</code> returns only <code>maxResults</code> results in a single page along with a <code>nextToken</code> response element. You can see the remaining results of the initial request by sending another <code>ListPodIdentityAssociations</code> request with the returned <code>nextToken</code> value. This value can be between 1 and 100. If you don't use this parameter, <code>ListPodIdentityAssociations</code> returns up to 100 results and a <code>nextToken</code> value if applicable.</p>
             next_token: <p>The <code>nextToken</code> value returned from a previous paginated <code>ListUpdates</code> request where <code>maxResults</code> was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the <code>nextToken</code> value.</p> <note> <p>This token should be treated as an opaque identifier that is used only to retrieve the next items in a list and not for other programmatic purposes.</p> </note>
+
+        Raises:
+            aws_sdk_eks.errors.invalid_parameter_exception.InvalidParameterException: <p>The specified parameter is invalid. Review the available parameters for the API request.</p>
+            aws_sdk_eks.errors.invalid_request_exception.InvalidRequestException: <p>The request is invalid given the state of the cluster. Check the state of the cluster and the associated operations.</p>
+            aws_sdk_eks.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found. You can view your available clusters with <code>ListClusters</code>. You can view your available managed node groups with <code>ListNodegroups</code>. Amazon EKS clusters and node groups are Amazon Web Services Region specific.</p>
+            aws_sdk_eks.errors.server_exception.ServerException: <p>These errors are usually caused by a server-side issue.</p>
+            aws_sdk_eks.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3228,6 +3600,11 @@ class EKSClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) that identifies the resource to list tags for.</p>
 
+        Raises:
+            aws_sdk_eks.errors.bad_request_exception.BadRequestException: <p>This exception is thrown if the request contains a semantic error. The precise meaning will depend on the API, and will be documented in the error message.</p>
+            aws_sdk_eks.errors.not_found_exception.NotFoundException: <p>A service resource associated with the request could not be found. Clients should not retry such requests.</p>
+            aws_sdk_eks.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To list tags for a cluster
             This example lists all of the tags for the `beta` cluster.
@@ -3282,6 +3659,13 @@ class EKSClient:
             capability_name: <p>The name of the capability for which you want to list updates.</p>
             next_token: <p>The <code>nextToken</code> value returned from a previous paginated request, where <code>maxResults</code> was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the <code>nextToken</code> value. This value is null when there are no more results to return.</p> <note> <p>This token should be treated as an opaque identifier that is used only to retrieve the next items in a list and not for other programmatic purposes.</p> </note>
             max_results: <p>The maximum number of results, returned in paginated output. You receive <code>maxResults</code> in a single page, along with a <code>nextToken</code> response element. You can see the remaining results of the initial request by sending another request with the returned <code>nextToken</code> value. This value can be between 1 and 100. If you don't use this parameter, 100 results and a <code>nextToken</code> value, if applicable, are returned.</p>
+
+        Raises:
+            aws_sdk_eks.errors.client_exception.ClientException: <p>These errors are usually caused by a client action. Actions can include using an action or resource on behalf of an <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html\">IAM principal</a> that doesn't have permissions to use the action or resource or specifying an identifier that is not valid.</p>
+            aws_sdk_eks.errors.invalid_parameter_exception.InvalidParameterException: <p>The specified parameter is invalid. Review the available parameters for the API request.</p>
+            aws_sdk_eks.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found. You can view your available clusters with <code>ListClusters</code>. You can view your available managed node groups with <code>ListNodegroups</code>. Amazon EKS clusters and node groups are Amazon Web Services Region specific.</p>
+            aws_sdk_eks.errors.server_exception.ServerException: <p>These errors are usually caused by a server-side issue.</p>
+            aws_sdk_eks.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3366,6 +3750,17 @@ class EKSClient:
             connector_config: <p>The configuration settings required to connect the Kubernetes cluster to the Amazon EKS control plane.</p>
             client_request_token: <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
             tags: <p>Metadata that assists with categorization and organization. Each tag consists of a key and an optional value. You define both. Tags don't propagate to any other cluster or Amazon Web Services resources.</p>
+
+        Raises:
+            aws_sdk_eks.errors.access_denied_exception.AccessDeniedException: <p>You don't have permissions to perform the requested operation. The <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html\">IAM principal</a> making the request must have at least one IAM permissions policy attached that grants the required permissions. For more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html\">Access management</a> in the <i>IAM User Guide</i>. </p>
+            aws_sdk_eks.errors.client_exception.ClientException: <p>These errors are usually caused by a client action. Actions can include using an action or resource on behalf of an <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html\">IAM principal</a> that doesn't have permissions to use the action or resource or specifying an identifier that is not valid.</p>
+            aws_sdk_eks.errors.invalid_parameter_exception.InvalidParameterException: <p>The specified parameter is invalid. Review the available parameters for the API request.</p>
+            aws_sdk_eks.errors.resource_in_use_exception.ResourceInUseException: <p>The specified resource is in use.</p>
+            aws_sdk_eks.errors.resource_limit_exceeded_exception.ResourceLimitExceededException: <p>You have encountered a service limit on the specified resource.</p>
+            aws_sdk_eks.errors.resource_propagation_delay_exception.ResourcePropagationDelayException: <p>Required resources (such as service-linked roles) were created and are still propagating. Retry later.</p>
+            aws_sdk_eks.errors.server_exception.ServerException: <p>These errors are usually caused by a server-side issue.</p>
+            aws_sdk_eks.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is unavailable. Back off and retry the operation.</p>
+            aws_sdk_eks.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3410,6 +3805,13 @@ class EKSClient:
 
         Args:
             cluster_name: <p>The name of the cluster for the refresh insights operation.</p>
+
+        Raises:
+            aws_sdk_eks.errors.invalid_parameter_exception.InvalidParameterException: <p>The specified parameter is invalid. Review the available parameters for the API request.</p>
+            aws_sdk_eks.errors.invalid_request_exception.InvalidRequestException: <p>The request is invalid given the state of the cluster. Check the state of the cluster and the associated operations.</p>
+            aws_sdk_eks.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found. You can view your available clusters with <code>ListClusters</code>. You can view your available managed node groups with <code>ListNodegroups</code>. Amazon EKS clusters and node groups are Amazon Web Services Region specific.</p>
+            aws_sdk_eks.errors.server_exception.ServerException: <p>These errors are usually caused by a server-side issue.</p>
+            aws_sdk_eks.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3449,6 +3851,11 @@ class EKSClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource to add tags to.</p>
             tags: <p>Metadata that assists with categorization and organization. Each tag consists of a key and an optional value. You define both. Tags don't propagate to any other cluster or Amazon Web Services resources.</p>
+
+        Raises:
+            aws_sdk_eks.errors.bad_request_exception.BadRequestException: <p>This exception is thrown if the request contains a semantic error. The precise meaning will depend on the API, and will be documented in the error message.</p>
+            aws_sdk_eks.errors.not_found_exception.NotFoundException: <p>A service resource associated with the request could not be found. Clients should not retry such requests.</p>
+            aws_sdk_eks.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3489,6 +3896,11 @@ class EKSClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource to delete tags from.</p>
             tag_keys: <p>The keys of the tags to remove.</p>
+
+        Raises:
+            aws_sdk_eks.errors.bad_request_exception.BadRequestException: <p>This exception is thrown if the request contains a semantic error. The precise meaning will depend on the API, and will be documented in the error message.</p>
+            aws_sdk_eks.errors.not_found_exception.NotFoundException: <p>A service resource associated with the request could not be found. Clients should not retry such requests.</p>
+            aws_sdk_eks.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3535,6 +3947,13 @@ class EKSClient:
             kubernetes_groups: <p>The value for <code>name</code> that you've specified for <code>kind: Group</code> as a <code>subject</code> in a Kubernetes <code>RoleBinding</code> or <code>ClusterRoleBinding</code> object. Amazon EKS doesn't confirm that the value for <code>name</code> exists in any bindings on your cluster. You can specify one or more names.</p> <p>Kubernetes authorizes the <code>principalArn</code> of the access entry to access any cluster objects that you've specified in a Kubernetes <code>Role</code> or <code>ClusterRole</code> object that is also specified in a binding's <code>roleRef</code>. For more information about creating Kubernetes <code>RoleBinding</code>, <code>ClusterRoleBinding</code>, <code>Role</code>, or <code>ClusterRole</code> objects, see <a href=\"https://kubernetes.io/docs/reference/access-authn-authz/rbac/\">Using RBAC Authorization in the Kubernetes documentation</a>.</p> <p>If you want Amazon EKS to authorize the <code>principalArn</code> (instead of, or in addition to Kubernetes authorizing the <code>principalArn</code>), you can associate one or more access policies to the access entry using <code>AssociateAccessPolicy</code>. If you associate any access policies, the <code>principalARN</code> has all permissions assigned in the associated access policies and all permissions in any Kubernetes <code>Role</code> or <code>ClusterRole</code> objects that the group names are bound to.</p>
             client_request_token: <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
             username: <p>The username to authenticate to Kubernetes with. We recommend not specifying a username and letting Amazon EKS specify it for you. For more information about the value Amazon EKS specifies for you, or constraints before specifying your own username, see <a href=\"https://docs.aws.amazon.com/eks/latest/userguide/access-entries.html#creating-access-entries\">Creating access entries</a> in the <i>Amazon EKS User Guide</i>.</p>
+
+        Raises:
+            aws_sdk_eks.errors.invalid_parameter_exception.InvalidParameterException: <p>The specified parameter is invalid. Review the available parameters for the API request.</p>
+            aws_sdk_eks.errors.invalid_request_exception.InvalidRequestException: <p>The request is invalid given the state of the cluster. Check the state of the cluster and the associated operations.</p>
+            aws_sdk_eks.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found. You can view your available clusters with <code>ListClusters</code>. You can view your available managed node groups with <code>ListNodegroups</code>. Amazon EKS clusters and node groups are Amazon Web Services Region specific.</p>
+            aws_sdk_eks.errors.server_exception.ServerException: <p>These errors are usually caused by a server-side issue.</p>
+            aws_sdk_eks.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3597,6 +4016,15 @@ class EKSClient:
             client_request_token: <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
             configuration_values: <p>The set of configuration values for the add-on that's created. The values that you provide are validated against the schema returned by <code>DescribeAddonConfiguration</code>.</p>
             pod_identity_associations: <p>An array of EKS Pod Identity associations to be updated. Each association maps a Kubernetes service account to an IAM role. If this value is left blank, no change. If an empty array is provided, existing associations owned by the add-on are deleted.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/eks/latest/userguide/add-ons-iam.html\">Attach an IAM Role to an Amazon EKS add-on using EKS Pod Identity</a> in the <i>Amazon EKS User Guide</i>.</p>
+
+        Raises:
+            aws_sdk_eks.errors.client_exception.ClientException: <p>These errors are usually caused by a client action. Actions can include using an action or resource on behalf of an <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html\">IAM principal</a> that doesn't have permissions to use the action or resource or specifying an identifier that is not valid.</p>
+            aws_sdk_eks.errors.invalid_parameter_exception.InvalidParameterException: <p>The specified parameter is invalid. Review the available parameters for the API request.</p>
+            aws_sdk_eks.errors.invalid_request_exception.InvalidRequestException: <p>The request is invalid given the state of the cluster. Check the state of the cluster and the associated operations.</p>
+            aws_sdk_eks.errors.resource_in_use_exception.ResourceInUseException: <p>The specified resource is in use.</p>
+            aws_sdk_eks.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found. You can view your available clusters with <code>ListClusters</code>. You can view your available managed node groups with <code>ListNodegroups</code>. Amazon EKS clusters and node groups are Amazon Web Services Region specific.</p>
+            aws_sdk_eks.errors.server_exception.ServerException: <p>These errors are usually caused by a server-side issue.</p>
+            aws_sdk_eks.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3661,6 +4089,14 @@ class EKSClient:
             configuration: <p>The updated configuration settings for the capability. You only need to specify the configuration parameters you want to change. For Argo CD capabilities, you can update RBAC role mappings and network access settings.</p>
             client_request_token: <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. This token is valid for 24 hours after creation.</p>
             delete_propagation_policy: <p>The updated delete propagation policy for the capability. Currently, the only supported value is <code>RETAIN</code>.</p>
+
+        Raises:
+            aws_sdk_eks.errors.access_denied_exception.AccessDeniedException: <p>You don't have permissions to perform the requested operation. The <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html\">IAM principal</a> making the request must have at least one IAM permissions policy attached that grants the required permissions. For more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html\">Access management</a> in the <i>IAM User Guide</i>. </p>
+            aws_sdk_eks.errors.invalid_parameter_exception.InvalidParameterException: <p>The specified parameter is invalid. Review the available parameters for the API request.</p>
+            aws_sdk_eks.errors.resource_in_use_exception.ResourceInUseException: <p>The specified resource is in use.</p>
+            aws_sdk_eks.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found. You can view your available clusters with <code>ListClusters</code>. You can view your available managed node groups with <code>ListNodegroups</code>. Amazon EKS clusters and node groups are Amazon Web Services Region specific.</p>
+            aws_sdk_eks.errors.server_exception.ServerException: <p>These errors are usually caused by a server-side issue.</p>
+            aws_sdk_eks.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3748,6 +4184,16 @@ class EKSClient:
             storage_config: <p>Update the configuration of the block storage capability of your EKS Auto Mode cluster. For example, enable the capability.</p>
             deletion_protection: <p>Specifies whether to enable or disable deletion protection for the cluster. When enabled (<code>true</code>), the cluster cannot be deleted until deletion protection is explicitly disabled. When disabled (<code>false</code>), the cluster can be deleted normally.</p>
             control_plane_scaling_config: <p>The control plane scaling tier configuration. For more information, see EKS Provisioned Control Plane in the Amazon EKS User Guide.</p>
+
+        Raises:
+            aws_sdk_eks.errors.client_exception.ClientException: <p>These errors are usually caused by a client action. Actions can include using an action or resource on behalf of an <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html\">IAM principal</a> that doesn't have permissions to use the action or resource or specifying an identifier that is not valid.</p>
+            aws_sdk_eks.errors.invalid_parameter_exception.InvalidParameterException: <p>The specified parameter is invalid. Review the available parameters for the API request.</p>
+            aws_sdk_eks.errors.invalid_request_exception.InvalidRequestException: <p>The request is invalid given the state of the cluster. Check the state of the cluster and the associated operations.</p>
+            aws_sdk_eks.errors.resource_in_use_exception.ResourceInUseException: <p>The specified resource is in use.</p>
+            aws_sdk_eks.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found. You can view your available clusters with <code>ListClusters</code>. You can view your available managed node groups with <code>ListNodegroups</code>. Amazon EKS clusters and node groups are Amazon Web Services Region specific.</p>
+            aws_sdk_eks.errors.server_exception.ServerException: <p>These errors are usually caused by a server-side issue.</p>
+            aws_sdk_eks.errors.throttling_exception.ThrottlingException: <p>The request or operation couldn't be performed because a service is throttling requests.</p>
+            aws_sdk_eks.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3817,6 +4263,17 @@ class EKSClient:
             version: <p>The desired Kubernetes version following a successful update.</p>
             client_request_token: <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
             force: <p>Set this value to <code>true</code> to override upgrade-blocking readiness checks when updating a cluster.</p>
+
+        Raises:
+            aws_sdk_eks.errors.client_exception.ClientException: <p>These errors are usually caused by a client action. Actions can include using an action or resource on behalf of an <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html\">IAM principal</a> that doesn't have permissions to use the action or resource or specifying an identifier that is not valid.</p>
+            aws_sdk_eks.errors.invalid_parameter_exception.InvalidParameterException: <p>The specified parameter is invalid. Review the available parameters for the API request.</p>
+            aws_sdk_eks.errors.invalid_request_exception.InvalidRequestException: <p>The request is invalid given the state of the cluster. Check the state of the cluster and the associated operations.</p>
+            aws_sdk_eks.errors.invalid_state_exception.InvalidStateException: <p>Amazon EKS detected upgrade readiness issues. Call the <a href=\"https://docs.aws.amazon.com/eks/latest/APIReference/API_ListInsights.html\"> <code>ListInsights</code> </a> API to view detected upgrade blocking issues. Pass the <a href=\"https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateClusterVersion.html#API_UpdateClusterVersion_RequestBody\"> <code>force</code> </a> flag when updating to override upgrade readiness errors.</p>
+            aws_sdk_eks.errors.resource_in_use_exception.ResourceInUseException: <p>The specified resource is in use.</p>
+            aws_sdk_eks.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found. You can view your available clusters with <code>ListClusters</code>. You can view your available managed node groups with <code>ListNodegroups</code>. Amazon EKS clusters and node groups are Amazon Web Services Region specific.</p>
+            aws_sdk_eks.errors.server_exception.ServerException: <p>These errors are usually caused by a server-side issue.</p>
+            aws_sdk_eks.errors.throttling_exception.ThrottlingException: <p>The request or operation couldn't be performed because a service is throttling requests.</p>
+            aws_sdk_eks.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3863,6 +4320,14 @@ class EKSClient:
             id: <p>The ID of the subscription.</p>
             auto_renew: <p>A boolean indicating whether or not to automatically renew the subscription.</p>
             client_request_token: <p>Unique, case-sensitive identifier to ensure the idempotency of the request.</p>
+
+        Raises:
+            aws_sdk_eks.errors.client_exception.ClientException: <p>These errors are usually caused by a client action. Actions can include using an action or resource on behalf of an <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html\">IAM principal</a> that doesn't have permissions to use the action or resource or specifying an identifier that is not valid.</p>
+            aws_sdk_eks.errors.invalid_parameter_exception.InvalidParameterException: <p>The specified parameter is invalid. Review the available parameters for the API request.</p>
+            aws_sdk_eks.errors.invalid_request_exception.InvalidRequestException: <p>The request is invalid given the state of the cluster. Check the state of the cluster and the associated operations.</p>
+            aws_sdk_eks.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found. You can view your available clusters with <code>ListClusters</code>. You can view your available managed node groups with <code>ListNodegroups</code>. Amazon EKS clusters and node groups are Amazon Web Services Region specific.</p>
+            aws_sdk_eks.errors.server_exception.ServerException: <p>These errors are usually caused by a server-side issue.</p>
+            aws_sdk_eks.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3931,6 +4396,15 @@ class EKSClient:
             node_repair_config: <p>The node auto repair configuration for the node group.</p>
             warm_pool_config: <p>The warm pool configuration to apply to the node group. You can use this to add a warm pool to an existing node group or modify the settings of an existing warm pool.</p>
             client_request_token: <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+
+        Raises:
+            aws_sdk_eks.errors.client_exception.ClientException: <p>These errors are usually caused by a client action. Actions can include using an action or resource on behalf of an <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html\">IAM principal</a> that doesn't have permissions to use the action or resource or specifying an identifier that is not valid.</p>
+            aws_sdk_eks.errors.invalid_parameter_exception.InvalidParameterException: <p>The specified parameter is invalid. Review the available parameters for the API request.</p>
+            aws_sdk_eks.errors.invalid_request_exception.InvalidRequestException: <p>The request is invalid given the state of the cluster. Check the state of the cluster and the associated operations.</p>
+            aws_sdk_eks.errors.resource_in_use_exception.ResourceInUseException: <p>The specified resource is in use.</p>
+            aws_sdk_eks.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found. You can view your available clusters with <code>ListClusters</code>. You can view your available managed node groups with <code>ListNodegroups</code>. Amazon EKS clusters and node groups are Amazon Web Services Region specific.</p>
+            aws_sdk_eks.errors.server_exception.ServerException: <p>These errors are usually caused by a server-side issue.</p>
+            aws_sdk_eks.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3997,6 +4471,15 @@ class EKSClient:
             launch_template: <p>An object representing a node group's launch template specification. You can only update a node group using a launch template if the node group was originally deployed with a launch template. When updating, you must specify the same launch template ID or name that was used to create the node group.</p>
             force: <p>Force the update if any <code>Pod</code> on the existing node group can't be drained due to a <code>Pod</code> disruption budget issue. If an update fails because all Pods can't be drained, you can force the update after it fails to terminate the old node whether or not any <code>Pod</code> is running on the node.</p>
             client_request_token: <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+
+        Raises:
+            aws_sdk_eks.errors.client_exception.ClientException: <p>These errors are usually caused by a client action. Actions can include using an action or resource on behalf of an <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html\">IAM principal</a> that doesn't have permissions to use the action or resource or specifying an identifier that is not valid.</p>
+            aws_sdk_eks.errors.invalid_parameter_exception.InvalidParameterException: <p>The specified parameter is invalid. Review the available parameters for the API request.</p>
+            aws_sdk_eks.errors.invalid_request_exception.InvalidRequestException: <p>The request is invalid given the state of the cluster. Check the state of the cluster and the associated operations.</p>
+            aws_sdk_eks.errors.resource_in_use_exception.ResourceInUseException: <p>The specified resource is in use.</p>
+            aws_sdk_eks.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found. You can view your available clusters with <code>ListClusters</code>. You can view your available managed node groups with <code>ListNodegroups</code>. Amazon EKS clusters and node groups are Amazon Web Services Region specific.</p>
+            aws_sdk_eks.errors.server_exception.ServerException: <p>These errors are usually caused by a server-side issue.</p>
+            aws_sdk_eks.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4059,6 +4542,13 @@ class EKSClient:
             disable_session_tags: <p>Disable the automatic sessions tags that are appended by EKS Pod Identity.</p> <p>EKS Pod Identity adds a pre-defined set of session tags when it assumes the role. You can use these tags to author a single role that can work across resources by allowing access to Amazon Web Services resources based on matching tags. By default, EKS Pod Identity attaches six tags, including tags for cluster name, namespace, and service account name. For the list of tags added by EKS Pod Identity, see <a href=\"https://docs.aws.amazon.com/eks/latest/userguide/pod-id-abac.html#pod-id-abac-tags\">List of session tags added by EKS Pod Identity</a> in the <i>Amazon EKS User Guide</i>.</p> <p>Amazon Web Services compresses inline session policies, managed policy ARNs, and session tags into a packed binary format that has a separate limit. If you receive a <code>PackedPolicyTooLarge</code> error indicating the packed binary format has exceeded the size limit, you can attempt to reduce the size by disabling the session tags added by EKS Pod Identity.</p>
             target_role_arn: <p>The Amazon Resource Name (ARN) of the target IAM role to associate with the service account. This role is assumed by using the EKS Pod Identity association role, then the credentials for this role are injected into the Pod.</p> <p>When you run applications on Amazon EKS, your application might need to access Amazon Web Services resources from a different role that exists in the same or different Amazon Web Services account. For example, your application running in “Account A” might need to access resources, such as buckets in “Account B” or within “Account A” itself. You can create a association to access Amazon Web Services resources in “Account B” by creating two IAM roles: a role in “Account A” and a role in “Account B” (which can be the same or different account), each with the necessary trust and permission policies. After you provide these roles in the <i>IAM role</i> and <i>Target IAM role</i> fields, EKS will perform role chaining to ensure your application gets the required permissions. This means Role A will assume Role B, allowing your Pods to securely access resources like S3 buckets in the target account.</p>
             policy: <p>An optional IAM policy in JSON format (as an escaped string) that applies additional restrictions to this pod identity association beyond the IAM policies attached to the IAM role. This policy is applied as the intersection of the role's policies and this policy, allowing you to reduce the permissions that applications in the pods can use. Use this policy to enforce least privilege access while still leveraging a shared IAM role across multiple applications.</p> <p> <b>Important considerations</b> </p> <ul> <li> <p> <b>Session tags:</b> When using this policy, <code>disableSessionTags</code> must be set to <code>true</code>.</p> </li> <li> <p> <b>Target role permissions:</b> If you specify both a <code>TargetRoleArn</code> and a policy, the policy restrictions apply only to the target role's permissions, not to the initial role used for assuming the target role.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_eks.errors.invalid_parameter_exception.InvalidParameterException: <p>The specified parameter is invalid. Review the available parameters for the API request.</p>
+            aws_sdk_eks.errors.invalid_request_exception.InvalidRequestException: <p>The request is invalid given the state of the cluster. Check the state of the cluster and the associated operations.</p>
+            aws_sdk_eks.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found. You can view your available clusters with <code>ListClusters</code>. You can view your available managed node groups with <code>ListNodegroups</code>. Amazon EKS clusters and node groups are Amazon Web Services Region specific.</p>
+            aws_sdk_eks.errors.server_exception.ServerException: <p>These errors are usually caused by a server-side issue.</p>
+            aws_sdk_eks.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(

@@ -149,6 +149,14 @@ class forecastqueryClient:
             end_date: <p>The end date for the forecast. Specify the date using this format: yyyy-MM-dd'T'HH:mm:ss (ISO 8601 format). For example, 2015-01-01T20:00:00. </p>
             filters: <p>The filtering criteria to apply when retrieving the forecast. For example, to get the forecast for <code>client_21</code> in the electricity usage dataset, specify the following:</p> <p> <code>{\"item_id\" : \"client_21\"}</code> </p> <p>To get the full forecast, use the <a href=\"https://docs.aws.amazon.com/en_us/forecast/latest/dg/API_CreateForecastExportJob.html\">CreateForecastExportJob</a> operation.</p>
             next_token: <p>If the result of the previous request was truncated, the response includes a <code>NextToken</code>. To retrieve the next set of results, use the token in the next request. Tokens expire after 24 hours.</p>
+
+        Raises:
+            aws_sdk_forecastquery.errors.invalid_input_exception.InvalidInputException: <p>The value is invalid or is too long.</p>
+            aws_sdk_forecastquery.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The token is not valid. Tokens expire after 24 hours.</p>
+            aws_sdk_forecastquery.errors.limit_exceeded_exception.LimitExceededException: <p>The limit on the number of requests per second has been exceeded.</p>
+            aws_sdk_forecastquery.errors.resource_in_use_exception.ResourceInUseException: <p>The specified resource is in use.</p>
+            aws_sdk_forecastquery.errors.resource_not_found_exception.ResourceNotFoundException: <p>We can't find that resource. Check the information that you've provided and try again.</p>
+            aws_sdk_forecastquery.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -201,6 +209,14 @@ class forecastqueryClient:
             end_date: <p>The end date for the what-if forecast. Specify the date using this format: yyyy-MM-dd'T'HH:mm:ss (ISO 8601 format). For example, 2015-01-01T20:00:00. </p>
             filters: <p>The filtering criteria to apply when retrieving the forecast. For example, to get the forecast for <code>client_21</code> in the electricity usage dataset, specify the following:</p> <p> <code>{\"item_id\" : \"client_21\"}</code> </p> <p>To get the full what-if forecast, use the <a href=\"https://docs.aws.amazon.com/en_us/forecast/latest/dg/API_CreateWhatIfForecastExport.html\">CreateForecastExportJob</a> operation.</p>
             next_token: <p>If the result of the previous request was truncated, the response includes a <code>NextToken</code>. To retrieve the next set of results, use the token in the next request. Tokens expire after 24 hours.</p>
+
+        Raises:
+            aws_sdk_forecastquery.errors.invalid_input_exception.InvalidInputException: <p>The value is invalid or is too long.</p>
+            aws_sdk_forecastquery.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The token is not valid. Tokens expire after 24 hours.</p>
+            aws_sdk_forecastquery.errors.limit_exceeded_exception.LimitExceededException: <p>The limit on the number of requests per second has been exceeded.</p>
+            aws_sdk_forecastquery.errors.resource_in_use_exception.ResourceInUseException: <p>The specified resource is in use.</p>
+            aws_sdk_forecastquery.errors.resource_not_found_exception.ResourceNotFoundException: <p>We can't find that resource. Check the information that you've provided and try again.</p>
+            aws_sdk_forecastquery.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(

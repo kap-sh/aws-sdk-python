@@ -174,6 +174,13 @@ class TranscribeStreamingClient:
 
         Args:
             session_id: <p>The identifier of the HealthScribe streaming session you want information about.</p>
+
+        Raises:
+            aws_sdk_transcribe_streaming.errors.bad_request_exception.BadRequestException: <p>One or more arguments to the <code>StartStreamTranscription</code>, <code>StartMedicalStreamTranscription</code>, or <code>StartCallAnalyticsStreamTranscription</code> operation was not valid. For example, <code>MediaEncoding</code> or <code>LanguageCode</code> used unsupported values. Check the specified parameters and try your request again.</p>
+            aws_sdk_transcribe_streaming.errors.internal_failure_exception.InternalFailureException: <p>A problem occurred while processing the audio. Amazon Transcribe terminated processing.</p>
+            aws_sdk_transcribe_streaming.errors.limit_exceeded_exception.LimitExceededException: <p>Your client has exceeded one of the Amazon Transcribe limits. This is typically the audio length limit. Break your audio stream into smaller chunks and try your request again.</p>
+            aws_sdk_transcribe_streaming.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource which doesn't exist.</p>
+            aws_sdk_transcribe_streaming.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -280,6 +287,14 @@ class TranscribeStreamingClient:
             content_identification_type: <p>Labels all personally identifiable information (PII) identified in your transcript.</p> <p>Content identification is performed at the segment level; PII specified in <code>PiiEntityTypes</code> is flagged upon complete transcription of an audio segment. If you don't include <code>PiiEntityTypes</code> in your request, all PII is identified.</p> <p>You can’t set <code>ContentIdentificationType</code> and <code>ContentRedactionType</code> in the same request. If you set both, your request returns a <code>BadRequestException</code>.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/transcribe/latest/dg/pii-redaction.html\">Redacting or identifying personally identifiable information</a>.</p>
             content_redaction_type: <p>Redacts all personally identifiable information (PII) identified in your transcript.</p> <p>Content redaction is performed at the segment level; PII specified in <code>PiiEntityTypes</code> is redacted upon complete transcription of an audio segment. If you don't include <code>PiiEntityTypes</code> in your request, all PII is redacted.</p> <p>You can’t set <code>ContentRedactionType</code> and <code>ContentIdentificationType</code> in the same request. If you set both, your request returns a <code>BadRequestException</code>.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/transcribe/latest/dg/pii-redaction.html\">Redacting or identifying personally identifiable information</a>.</p>
             pii_entity_types: <p>Specify which types of personally identifiable information (PII) you want to redact in your transcript. You can include as many types as you'd like, or you can select <code>ALL</code>.</p> <p>Values must be comma-separated and can include: <code>ADDRESS</code>, <code>BANK_ACCOUNT_NUMBER</code>, <code>BANK_ROUTING</code>, <code>CREDIT_DEBIT_CVV</code>, <code>CREDIT_DEBIT_EXPIRY</code>, <code>CREDIT_DEBIT_NUMBER</code>, <code>EMAIL</code>, <code>NAME</code>, <code>PHONE</code>, <code>PIN</code>, <code>SSN</code>, or <code>ALL</code>.</p> <p>Note that if you include <code>PiiEntityTypes</code> in your request, you must also include <code>ContentIdentificationType</code> or <code>ContentRedactionType</code>.</p> <p>If you include <code>ContentRedactionType</code> or <code>ContentIdentificationType</code> in your request, but do not include <code>PiiEntityTypes</code>, all PII is redacted or identified.</p>
+
+        Raises:
+            aws_sdk_transcribe_streaming.errors.bad_request_exception.BadRequestException: <p>One or more arguments to the <code>StartStreamTranscription</code>, <code>StartMedicalStreamTranscription</code>, or <code>StartCallAnalyticsStreamTranscription</code> operation was not valid. For example, <code>MediaEncoding</code> or <code>LanguageCode</code> used unsupported values. Check the specified parameters and try your request again.</p>
+            aws_sdk_transcribe_streaming.errors.conflict_exception.ConflictException: <p>A new stream started with the same session ID. The current stream has been terminated.</p>
+            aws_sdk_transcribe_streaming.errors.internal_failure_exception.InternalFailureException: <p>A problem occurred while processing the audio. Amazon Transcribe terminated processing.</p>
+            aws_sdk_transcribe_streaming.errors.limit_exceeded_exception.LimitExceededException: <p>Your client has exceeded one of the Amazon Transcribe limits. This is typically the audio length limit. Break your audio stream into smaller chunks and try your request again.</p>
+            aws_sdk_transcribe_streaming.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable. Try your request later.</p>
+            aws_sdk_transcribe_streaming.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -364,6 +379,14 @@ class TranscribeStreamingClient:
             media_sample_rate_hertz: <p>Specify the sample rate of the input audio (in hertz). Amazon Web Services HealthScribe supports a range from 16,000 Hz to 48,000 Hz. The sample rate you specify must match that of your audio. </p>
             media_encoding: <p>Specify the encoding used for the input audio.</p> <p>Supported formats are:</p> <ul> <li> <p>FLAC</p> </li> <li> <p>OPUS-encoded audio in an Ogg container</p> </li> <li> <p>PCM (only signed 16-bit little-endian audio formats, which does not include WAV) </p> </li> </ul> <p>For more information, see <a href=\"https://docs.aws.amazon.com/transcribe/latest/dg/how-input.html#how-input-audio\">Media formats</a>. </p>
             input_stream: <p>Specify the input stream where you will send events in real time.</p> <p>The first element of the input stream must be a <code>MedicalScribeConfigurationEvent</code>. </p>
+
+        Raises:
+            aws_sdk_transcribe_streaming.errors.bad_request_exception.BadRequestException: <p>One or more arguments to the <code>StartStreamTranscription</code>, <code>StartMedicalStreamTranscription</code>, or <code>StartCallAnalyticsStreamTranscription</code> operation was not valid. For example, <code>MediaEncoding</code> or <code>LanguageCode</code> used unsupported values. Check the specified parameters and try your request again.</p>
+            aws_sdk_transcribe_streaming.errors.conflict_exception.ConflictException: <p>A new stream started with the same session ID. The current stream has been terminated.</p>
+            aws_sdk_transcribe_streaming.errors.internal_failure_exception.InternalFailureException: <p>A problem occurred while processing the audio. Amazon Transcribe terminated processing.</p>
+            aws_sdk_transcribe_streaming.errors.limit_exceeded_exception.LimitExceededException: <p>Your client has exceeded one of the Amazon Transcribe limits. This is typically the audio length limit. Break your audio stream into smaller chunks and try your request again.</p>
+            aws_sdk_transcribe_streaming.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable. Try your request later.</p>
+            aws_sdk_transcribe_streaming.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -440,6 +463,14 @@ class TranscribeStreamingClient:
             enable_channel_identification: <p>Enables channel identification in multi-channel audio.</p> <p>Channel identification transcribes the audio on each channel independently, then appends the output for each channel into one transcript.</p> <p>If you have multi-channel audio and do not enable channel identification, your audio is transcribed in a continuous manner and your transcript is not separated by channel.</p> <p>If you include <code>EnableChannelIdentification</code> in your request, you must also include <code>NumberOfChannels</code>.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/transcribe/latest/dg/channel-id.html\">Transcribing multi-channel audio</a>.</p>
             number_of_channels: <p>Specify the number of channels in your audio stream. This value must be <code>2</code>, as only two channels are supported. If your audio doesn't contain multiple channels, do not include this parameter in your request.</p> <p>If you include <code>NumberOfChannels</code> in your request, you must also include <code>EnableChannelIdentification</code>.</p>
             content_identification_type: <p>Labels all personal health information (PHI) identified in your transcript.</p> <p>Content identification is performed at the segment level; PHI is flagged upon complete transcription of an audio segment.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/transcribe/latest/dg/phi-id.html\">Identifying personal health information (PHI) in a transcription</a>.</p>
+
+        Raises:
+            aws_sdk_transcribe_streaming.errors.bad_request_exception.BadRequestException: <p>One or more arguments to the <code>StartStreamTranscription</code>, <code>StartMedicalStreamTranscription</code>, or <code>StartCallAnalyticsStreamTranscription</code> operation was not valid. For example, <code>MediaEncoding</code> or <code>LanguageCode</code> used unsupported values. Check the specified parameters and try your request again.</p>
+            aws_sdk_transcribe_streaming.errors.conflict_exception.ConflictException: <p>A new stream started with the same session ID. The current stream has been terminated.</p>
+            aws_sdk_transcribe_streaming.errors.internal_failure_exception.InternalFailureException: <p>A problem occurred while processing the audio. Amazon Transcribe terminated processing.</p>
+            aws_sdk_transcribe_streaming.errors.limit_exceeded_exception.LimitExceededException: <p>Your client has exceeded one of the Amazon Transcribe limits. This is typically the audio length limit. Break your audio stream into smaller chunks and try your request again.</p>
+            aws_sdk_transcribe_streaming.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable. Try your request later.</p>
+            aws_sdk_transcribe_streaming.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -583,6 +614,14 @@ class TranscribeStreamingClient:
             vocabulary_names: <p>Specify the names of the custom vocabularies that you want to use when processing your transcription. Note that vocabulary names are case sensitive.</p> <p>If none of the languages of the specified custom vocabularies match the language identified in your media, your job fails.</p> <important> <p>This parameter is only intended for use <b>with</b> the <code>IdentifyLanguage</code> parameter. If you're <b>not</b> including <code>IdentifyLanguage</code> in your request and want to use a custom vocabulary with your transcription, use the <code>VocabularyName</code> parameter instead.</p> </important> <p>For more information, see <a href=\"https://docs.aws.amazon.com/transcribe/latest/dg/custom-vocabulary.html\">Custom vocabularies</a>.</p>
             vocabulary_filter_names: <p>Specify the names of the custom vocabulary filters that you want to use when processing your transcription. Note that vocabulary filter names are case sensitive.</p> <p>If none of the languages of the specified custom vocabulary filters match the language identified in your media, your job fails.</p> <important> <p>This parameter is only intended for use <b>with</b> the <code>IdentifyLanguage</code> parameter. If you're <b>not</b> including <code>IdentifyLanguage</code> in your request and want to use a custom vocabulary filter with your transcription, use the <code>VocabularyFilterName</code> parameter instead.</p> </important> <p>For more information, see <a href=\"https://docs.aws.amazon.com/transcribe/latest/dg/vocabulary-filtering.html\">Using vocabulary filtering with unwanted words</a>.</p>
             session_resume_window: <p>Specify the time window, in minutes, during which your transcription session can be resumed, measured from the stream start time. This optional parameter accepts integer values from 1 to 300 (5 hours).</p> <p> For example, if your stream starts at 1 PM and you specify a <code>SessionResumeWindow</code> of 30 minutes, you can reconnect to the session as many times as you want until 1:30 PM. </p>
+
+        Raises:
+            aws_sdk_transcribe_streaming.errors.bad_request_exception.BadRequestException: <p>One or more arguments to the <code>StartStreamTranscription</code>, <code>StartMedicalStreamTranscription</code>, or <code>StartCallAnalyticsStreamTranscription</code> operation was not valid. For example, <code>MediaEncoding</code> or <code>LanguageCode</code> used unsupported values. Check the specified parameters and try your request again.</p>
+            aws_sdk_transcribe_streaming.errors.conflict_exception.ConflictException: <p>A new stream started with the same session ID. The current stream has been terminated.</p>
+            aws_sdk_transcribe_streaming.errors.internal_failure_exception.InternalFailureException: <p>A problem occurred while processing the audio. Amazon Transcribe terminated processing.</p>
+            aws_sdk_transcribe_streaming.errors.limit_exceeded_exception.LimitExceededException: <p>Your client has exceeded one of the Amazon Transcribe limits. This is typically the audio length limit. Break your audio stream into smaller chunks and try your request again.</p>
+            aws_sdk_transcribe_streaming.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable. Try your request later.</p>
+            aws_sdk_transcribe_streaming.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(

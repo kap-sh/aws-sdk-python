@@ -153,6 +153,13 @@ class AsyncSageMakerA2IRuntimeClient:
 
         Args:
             human_loop_name: <p>The name of the human loop that you want to delete.</p>
+
+        Raises:
+            aws_sdk_sagemaker_a2i_runtime.errors.internal_server_exception.InternalServerException: <p>We couldn't process your request because of an issue with the server. Try again later.</p>
+            aws_sdk_sagemaker_a2i_runtime.errors.resource_not_found_exception.ResourceNotFoundException: <p>We couldn't find the requested resource. Check that your resources exists and were created in the same AWS Region as your request, and try your request again. </p>
+            aws_sdk_sagemaker_a2i_runtime.errors.throttling_exception.ThrottlingException: <p>You exceeded the maximum number of requests.</p>
+            aws_sdk_sagemaker_a2i_runtime.errors.validation_exception.ValidationException: <p>The request isn't valid. Check the syntax and try again.</p>
+            aws_sdk_sagemaker_a2i_runtime.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -191,6 +198,13 @@ class AsyncSageMakerA2IRuntimeClient:
 
         Args:
             human_loop_name: <p>The name of the human loop that you want information about.</p>
+
+        Raises:
+            aws_sdk_sagemaker_a2i_runtime.errors.internal_server_exception.InternalServerException: <p>We couldn't process your request because of an issue with the server. Try again later.</p>
+            aws_sdk_sagemaker_a2i_runtime.errors.resource_not_found_exception.ResourceNotFoundException: <p>We couldn't find the requested resource. Check that your resources exists and were created in the same AWS Region as your request, and try your request again. </p>
+            aws_sdk_sagemaker_a2i_runtime.errors.throttling_exception.ThrottlingException: <p>You exceeded the maximum number of requests.</p>
+            aws_sdk_sagemaker_a2i_runtime.errors.validation_exception.ValidationException: <p>The request isn't valid. Check the syntax and try again.</p>
+            aws_sdk_sagemaker_a2i_runtime.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -249,6 +263,13 @@ class AsyncSageMakerA2IRuntimeClient:
             sort_order: <p>Optional. The order for displaying results. Valid values: <code>Ascending</code> and <code>Descending</code>.</p>
             next_token: <p>A token to display the next page of results.</p>
             max_results: <p>The total number of items to return. If the total number of available items is more than the value specified in <code>MaxResults</code>, then a <code>NextToken</code> is returned in the output. You can use this token to display the next page of results. </p>
+
+        Raises:
+            aws_sdk_sagemaker_a2i_runtime.errors.internal_server_exception.InternalServerException: <p>We couldn't process your request because of an issue with the server. Try again later.</p>
+            aws_sdk_sagemaker_a2i_runtime.errors.resource_not_found_exception.ResourceNotFoundException: <p>We couldn't find the requested resource. Check that your resources exists and were created in the same AWS Region as your request, and try your request again. </p>
+            aws_sdk_sagemaker_a2i_runtime.errors.throttling_exception.ThrottlingException: <p>You exceeded the maximum number of requests.</p>
+            aws_sdk_sagemaker_a2i_runtime.errors.validation_exception.ValidationException: <p>The request isn't valid. Check the syntax and try again.</p>
+            aws_sdk_sagemaker_a2i_runtime.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -344,6 +365,14 @@ class AsyncSageMakerA2IRuntimeClient:
             flow_definition_arn: <p>The Amazon Resource Name (ARN) of the flow definition associated with this human loop.</p>
             human_loop_input: <p>An object that contains information about the human loop.</p>
             data_attributes: <p>Attributes of the specified data. Use <code>DataAttributes</code> to specify if your data is free of personally identifiable information and/or free of adult content.</p>
+
+        Raises:
+            aws_sdk_sagemaker_a2i_runtime.errors.conflict_exception.ConflictException: <p>Your request has the same name as another active human loop but has different input data. You cannot start two human loops with the same name and different input data.</p>
+            aws_sdk_sagemaker_a2i_runtime.errors.internal_server_exception.InternalServerException: <p>We couldn't process your request because of an issue with the server. Try again later.</p>
+            aws_sdk_sagemaker_a2i_runtime.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You exceeded your service quota. Service quotas, also referred to as limits, are the maximum number of service resources or operations for your AWS account. For a list of Amazon A2I service quotes, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/a2i.html\">Amazon Augmented AI Service Quotes</a>. Delete some resources or request an increase in your service quota. You can request a quota increase using Service Quotas or the AWS Support Center. To request an increase, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html\">AWS Service Quotas</a> in the <i>AWS General Reference</i>.</p>
+            aws_sdk_sagemaker_a2i_runtime.errors.throttling_exception.ThrottlingException: <p>You exceeded the maximum number of requests.</p>
+            aws_sdk_sagemaker_a2i_runtime.errors.validation_exception.ValidationException: <p>The request isn't valid. Check the syntax and try again.</p>
+            aws_sdk_sagemaker_a2i_runtime.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -386,6 +415,13 @@ class AsyncSageMakerA2IRuntimeClient:
 
         Args:
             human_loop_name: <p>The name of the human loop that you want to stop.</p>
+
+        Raises:
+            aws_sdk_sagemaker_a2i_runtime.errors.internal_server_exception.InternalServerException: <p>We couldn't process your request because of an issue with the server. Try again later.</p>
+            aws_sdk_sagemaker_a2i_runtime.errors.resource_not_found_exception.ResourceNotFoundException: <p>We couldn't find the requested resource. Check that your resources exists and were created in the same AWS Region as your request, and try your request again. </p>
+            aws_sdk_sagemaker_a2i_runtime.errors.throttling_exception.ThrottlingException: <p>You exceeded the maximum number of requests.</p>
+            aws_sdk_sagemaker_a2i_runtime.errors.validation_exception.ValidationException: <p>The request isn't valid. Check the syntax and try again.</p>
+            aws_sdk_sagemaker_a2i_runtime.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

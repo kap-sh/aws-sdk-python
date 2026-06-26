@@ -205,6 +205,14 @@ class ServiceCatalogAppRegistryClient:
         Args:
             application: <p> The name, ID, or ARN of the application. </p>
             attribute_group: <p> The name, ID, or ARN of the attribute group that holds the attributes to describe the application. </p>
+
+        Raises:
+            aws_sdk_service_catalog_appregistry.errors.conflict_exception.ConflictException: <p>There was a conflict when processing the request (for example, a resource with the given name already exists within the account).</p>
+            aws_sdk_service_catalog_appregistry.errors.internal_server_exception.InternalServerException: <p>The service is experiencing internal problems.</p>
+            aws_sdk_service_catalog_appregistry.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_service_catalog_appregistry.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p> The maximum number of resources per account has been reached.</p>
+            aws_sdk_service_catalog_appregistry.errors.validation_exception.ValidationException: <p>The request has invalid or missing parameters.</p>
+            aws_sdk_service_catalog_appregistry.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -251,6 +259,15 @@ class ServiceCatalogAppRegistryClient:
             resource_type: <p>The type of resource of which the application will be associated.</p>
             resource: <p>The name or ID of the resource of which the application will be associated.</p>
             options: <p> Determines whether an application tag is applied or skipped. </p>
+
+        Raises:
+            aws_sdk_service_catalog_appregistry.errors.conflict_exception.ConflictException: <p>There was a conflict when processing the request (for example, a resource with the given name already exists within the account).</p>
+            aws_sdk_service_catalog_appregistry.errors.internal_server_exception.InternalServerException: <p>The service is experiencing internal problems.</p>
+            aws_sdk_service_catalog_appregistry.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_service_catalog_appregistry.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p> The maximum number of resources per account has been reached.</p>
+            aws_sdk_service_catalog_appregistry.errors.throttling_exception.ThrottlingException: <p> The maximum number of API requests has been exceeded. </p>
+            aws_sdk_service_catalog_appregistry.errors.validation_exception.ValidationException: <p>The request has invalid or missing parameters.</p>
+            aws_sdk_service_catalog_appregistry.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -300,6 +317,14 @@ class ServiceCatalogAppRegistryClient:
             description: <p>The description of the application.</p>
             tags: <p>Key-value pairs you can use to associate with the application.</p>
             client_token: <p>A unique identifier that you provide to ensure idempotency. If you retry a request that completed successfully using the same client token and the same parameters, the retry succeeds without performing any further actions. If you retry a successful request using the same client token, but one or more of the parameters are different, the retry fails.</p>
+
+        Raises:
+            aws_sdk_service_catalog_appregistry.errors.conflict_exception.ConflictException: <p>There was a conflict when processing the request (for example, a resource with the given name already exists within the account).</p>
+            aws_sdk_service_catalog_appregistry.errors.internal_server_exception.InternalServerException: <p>The service is experiencing internal problems.</p>
+            aws_sdk_service_catalog_appregistry.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p> The maximum number of resources per account has been reached.</p>
+            aws_sdk_service_catalog_appregistry.errors.throttling_exception.ThrottlingException: <p> The maximum number of API requests has been exceeded. </p>
+            aws_sdk_service_catalog_appregistry.errors.validation_exception.ValidationException: <p>The request has invalid or missing parameters.</p>
+            aws_sdk_service_catalog_appregistry.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -352,6 +377,13 @@ class ServiceCatalogAppRegistryClient:
             attributes: <p>A JSON string in the form of nested key-value pairs that represent the attributes in the group and describes an application and its components.</p>
             tags: <p>Key-value pairs you can use to associate with the attribute group.</p>
             client_token: <p>A unique identifier that you provide to ensure idempotency. If you retry a request that completed successfully using the same client token and the same parameters, the retry succeeds without performing any further actions. If you retry a successful request using the same client token, but one or more of the parameters are different, the retry fails.</p>
+
+        Raises:
+            aws_sdk_service_catalog_appregistry.errors.conflict_exception.ConflictException: <p>There was a conflict when processing the request (for example, a resource with the given name already exists within the account).</p>
+            aws_sdk_service_catalog_appregistry.errors.internal_server_exception.InternalServerException: <p>The service is experiencing internal problems.</p>
+            aws_sdk_service_catalog_appregistry.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p> The maximum number of resources per account has been reached.</p>
+            aws_sdk_service_catalog_appregistry.errors.validation_exception.ValidationException: <p>The request has invalid or missing parameters.</p>
+            aws_sdk_service_catalog_appregistry.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -395,6 +427,12 @@ class ServiceCatalogAppRegistryClient:
 
         Args:
             application: <p> The name, ID, or ARN of the application. </p>
+
+        Raises:
+            aws_sdk_service_catalog_appregistry.errors.internal_server_exception.InternalServerException: <p>The service is experiencing internal problems.</p>
+            aws_sdk_service_catalog_appregistry.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_service_catalog_appregistry.errors.validation_exception.ValidationException: <p>The request has invalid or missing parameters.</p>
+            aws_sdk_service_catalog_appregistry.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -432,6 +470,12 @@ class ServiceCatalogAppRegistryClient:
 
         Args:
             attribute_group: <p> The name, ID, or ARN of the attribute group that holds the attributes to describe the application. </p>
+
+        Raises:
+            aws_sdk_service_catalog_appregistry.errors.internal_server_exception.InternalServerException: <p>The service is experiencing internal problems.</p>
+            aws_sdk_service_catalog_appregistry.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_service_catalog_appregistry.errors.validation_exception.ValidationException: <p>The request has invalid or missing parameters.</p>
+            aws_sdk_service_catalog_appregistry.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -471,6 +515,12 @@ class ServiceCatalogAppRegistryClient:
         Args:
             application: <p> The name, ID, or ARN of the application. </p>
             attribute_group: <p> The name, ID, or ARN of the attribute group that holds the attributes to describe the application. </p>
+
+        Raises:
+            aws_sdk_service_catalog_appregistry.errors.internal_server_exception.InternalServerException: <p>The service is experiencing internal problems.</p>
+            aws_sdk_service_catalog_appregistry.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_service_catalog_appregistry.errors.validation_exception.ValidationException: <p>The request has invalid or missing parameters.</p>
+            aws_sdk_service_catalog_appregistry.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -513,6 +563,13 @@ class ServiceCatalogAppRegistryClient:
             application: <p>The name or ID of the application.</p>
             resource_type: <p>The type of the resource that is being disassociated.</p>
             resource: <p>The name or ID of the resource.</p>
+
+        Raises:
+            aws_sdk_service_catalog_appregistry.errors.internal_server_exception.InternalServerException: <p>The service is experiencing internal problems.</p>
+            aws_sdk_service_catalog_appregistry.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_service_catalog_appregistry.errors.throttling_exception.ThrottlingException: <p> The maximum number of API requests has been exceeded. </p>
+            aws_sdk_service_catalog_appregistry.errors.validation_exception.ValidationException: <p>The request has invalid or missing parameters.</p>
+            aws_sdk_service_catalog_appregistry.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -552,6 +609,13 @@ class ServiceCatalogAppRegistryClient:
 
         Args:
             application: <p> The name, ID, or ARN of the application. </p>
+
+        Raises:
+            aws_sdk_service_catalog_appregistry.errors.conflict_exception.ConflictException: <p>There was a conflict when processing the request (for example, a resource with the given name already exists within the account).</p>
+            aws_sdk_service_catalog_appregistry.errors.internal_server_exception.InternalServerException: <p>The service is experiencing internal problems.</p>
+            aws_sdk_service_catalog_appregistry.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_service_catalog_appregistry.errors.validation_exception.ValidationException: <p>The request has invalid or missing parameters.</p>
+            aws_sdk_service_catalog_appregistry.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -605,6 +669,12 @@ class ServiceCatalogAppRegistryClient:
             next_token: <p> A unique pagination token for each page of results. Make the call again with the returned token to retrieve the next page of results. </p>
             resource_tag_status: <p> States whether an application tag is applied, not applied, in the process of being applied, or skipped. </p>
             max_results: <p> The maximum number of results to return. If the parameter is omitted, it defaults to 25. The value is optional. </p>
+
+        Raises:
+            aws_sdk_service_catalog_appregistry.errors.internal_server_exception.InternalServerException: <p>The service is experiencing internal problems.</p>
+            aws_sdk_service_catalog_appregistry.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_service_catalog_appregistry.errors.validation_exception.ValidationException: <p>The request has invalid or missing parameters.</p>
+            aws_sdk_service_catalog_appregistry.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -650,6 +720,13 @@ class ServiceCatalogAppRegistryClient:
 
         Args:
             attribute_group: <p> The name, ID, or ARN of the attribute group that holds the attributes to describe the application. </p>
+
+        Raises:
+            aws_sdk_service_catalog_appregistry.errors.conflict_exception.ConflictException: <p>There was a conflict when processing the request (for example, a resource with the given name already exists within the account).</p>
+            aws_sdk_service_catalog_appregistry.errors.internal_server_exception.InternalServerException: <p>The service is experiencing internal problems.</p>
+            aws_sdk_service_catalog_appregistry.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_service_catalog_appregistry.errors.validation_exception.ValidationException: <p>The request has invalid or missing parameters.</p>
+            aws_sdk_service_catalog_appregistry.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -682,7 +759,12 @@ class ServiceCatalogAppRegistryClient:
         *,
         config_overrides: Optional[ServiceCatalogAppRegistryClientConfig] = None,
     ) -> "aws_sdk_service_catalog_appregistry.types.get_configuration_response.GetConfigurationResponse":
-        """<p> Retrieves a <code>TagKey</code> configuration from an account. </p>"""
+        """<p> Retrieves a <code>TagKey</code> configuration from an account. </p>
+
+        Raises:
+            aws_sdk_service_catalog_appregistry.errors.internal_server_exception.InternalServerException: <p>The service is experiencing internal problems.</p>
+            aws_sdk_service_catalog_appregistry.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[None]",
@@ -723,6 +805,11 @@ class ServiceCatalogAppRegistryClient:
         Args:
             next_token: <p>The token to use to get the next page of results after a previous API call. </p>
             max_results: <p>The upper bound of the number of results to return (cannot exceed 25). If this parameter is omitted, it defaults to 25. This value is optional.</p>
+
+        Raises:
+            aws_sdk_service_catalog_appregistry.errors.internal_server_exception.InternalServerException: <p>The service is experiencing internal problems.</p>
+            aws_sdk_service_catalog_appregistry.errors.validation_exception.ValidationException: <p>The request has invalid or missing parameters.</p>
+            aws_sdk_service_catalog_appregistry.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -796,6 +883,12 @@ class ServiceCatalogAppRegistryClient:
             application: <p>The name or ID of the application.</p>
             next_token: <p>The token to use to get the next page of results after a previous API call. </p>
             max_results: <p>The upper bound of the number of results to return (cannot exceed 25). If this parameter is omitted, it defaults to 25. This value is optional.</p>
+
+        Raises:
+            aws_sdk_service_catalog_appregistry.errors.internal_server_exception.InternalServerException: <p>The service is experiencing internal problems.</p>
+            aws_sdk_service_catalog_appregistry.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_service_catalog_appregistry.errors.validation_exception.ValidationException: <p>The request has invalid or missing parameters.</p>
+            aws_sdk_service_catalog_appregistry.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -872,6 +965,12 @@ class ServiceCatalogAppRegistryClient:
             application: <p> The name, ID, or ARN of the application. </p>
             next_token: <p>The token to use to get the next page of results after a previous API call. </p>
             max_results: <p>The upper bound of the number of results to return (cannot exceed 25). If this parameter is omitted, it defaults to 25. This value is optional.</p>
+
+        Raises:
+            aws_sdk_service_catalog_appregistry.errors.internal_server_exception.InternalServerException: <p>The service is experiencing internal problems.</p>
+            aws_sdk_service_catalog_appregistry.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_service_catalog_appregistry.errors.validation_exception.ValidationException: <p>The request has invalid or missing parameters.</p>
+            aws_sdk_service_catalog_appregistry.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -948,6 +1047,11 @@ class ServiceCatalogAppRegistryClient:
         Args:
             next_token: <p>The token to use to get the next page of results after a previous API call. </p>
             max_results: <p>The upper bound of the number of results to return (cannot exceed 25). If this parameter is omitted, it defaults to 25. This value is optional.</p>
+
+        Raises:
+            aws_sdk_service_catalog_appregistry.errors.internal_server_exception.InternalServerException: <p>The service is experiencing internal problems.</p>
+            aws_sdk_service_catalog_appregistry.errors.validation_exception.ValidationException: <p>The request has invalid or missing parameters.</p>
+            aws_sdk_service_catalog_appregistry.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1021,6 +1125,12 @@ class ServiceCatalogAppRegistryClient:
             application: <p>The name or ID of the application.</p>
             next_token: <p>This token retrieves the next page of results after a previous API call.</p>
             max_results: <p>The upper bound of the number of results to return. The value cannot exceed 25. If you omit this parameter, it defaults to 25. This value is optional.</p>
+
+        Raises:
+            aws_sdk_service_catalog_appregistry.errors.internal_server_exception.InternalServerException: <p>The service is experiencing internal problems.</p>
+            aws_sdk_service_catalog_appregistry.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_service_catalog_appregistry.errors.validation_exception.ValidationException: <p>The request has invalid or missing parameters.</p>
+            aws_sdk_service_catalog_appregistry.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1089,6 +1199,12 @@ class ServiceCatalogAppRegistryClient:
 
         Args:
             resource_arn: <p>The Amazon resource name (ARN) that specifies the resource.</p>
+
+        Raises:
+            aws_sdk_service_catalog_appregistry.errors.internal_server_exception.InternalServerException: <p>The service is experiencing internal problems.</p>
+            aws_sdk_service_catalog_appregistry.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_service_catalog_appregistry.errors.validation_exception.ValidationException: <p>The request has invalid or missing parameters.</p>
+            aws_sdk_service_catalog_appregistry.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1126,6 +1242,12 @@ class ServiceCatalogAppRegistryClient:
 
         Args:
             configuration: <p> Associates a <code>TagKey</code> configuration to an account. </p>
+
+        Raises:
+            aws_sdk_service_catalog_appregistry.errors.conflict_exception.ConflictException: <p>There was a conflict when processing the request (for example, a resource with the given name already exists within the account).</p>
+            aws_sdk_service_catalog_appregistry.errors.internal_server_exception.InternalServerException: <p>The service is experiencing internal problems.</p>
+            aws_sdk_service_catalog_appregistry.errors.validation_exception.ValidationException: <p>The request has invalid or missing parameters.</p>
+            aws_sdk_service_catalog_appregistry.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1163,6 +1285,14 @@ class ServiceCatalogAppRegistryClient:
         Args:
             resource_type: <p>The type of resource of which the application will be associated.</p>
             resource: <p>An entity you can work with and specify with a name or ID. Examples include an Amazon EC2 instance, an Amazon Web Services CloudFormation stack, or an Amazon S3 bucket.</p>
+
+        Raises:
+            aws_sdk_service_catalog_appregistry.errors.conflict_exception.ConflictException: <p>There was a conflict when processing the request (for example, a resource with the given name already exists within the account).</p>
+            aws_sdk_service_catalog_appregistry.errors.internal_server_exception.InternalServerException: <p>The service is experiencing internal problems.</p>
+            aws_sdk_service_catalog_appregistry.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_service_catalog_appregistry.errors.throttling_exception.ThrottlingException: <p> The maximum number of API requests has been exceeded. </p>
+            aws_sdk_service_catalog_appregistry.errors.validation_exception.ValidationException: <p>The request has invalid or missing parameters.</p>
+            aws_sdk_service_catalog_appregistry.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1203,6 +1333,12 @@ class ServiceCatalogAppRegistryClient:
         Args:
             resource_arn: <p>The Amazon resource name (ARN) that specifies the resource.</p>
             tags: <p>The new or modified tags for the resource.</p>
+
+        Raises:
+            aws_sdk_service_catalog_appregistry.errors.internal_server_exception.InternalServerException: <p>The service is experiencing internal problems.</p>
+            aws_sdk_service_catalog_appregistry.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_service_catalog_appregistry.errors.validation_exception.ValidationException: <p>The request has invalid or missing parameters.</p>
+            aws_sdk_service_catalog_appregistry.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1243,6 +1379,12 @@ class ServiceCatalogAppRegistryClient:
         Args:
             resource_arn: <p>The Amazon resource name (ARN) that specifies the resource.</p>
             tag_keys: <p>A list of the tag keys to remove from the specified resource.</p>
+
+        Raises:
+            aws_sdk_service_catalog_appregistry.errors.internal_server_exception.InternalServerException: <p>The service is experiencing internal problems.</p>
+            aws_sdk_service_catalog_appregistry.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_service_catalog_appregistry.errors.validation_exception.ValidationException: <p>The request has invalid or missing parameters.</p>
+            aws_sdk_service_catalog_appregistry.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1287,6 +1429,14 @@ class ServiceCatalogAppRegistryClient:
             application: <p> The name, ID, or ARN of the application that will be updated. </p>
             name: <p>Deprecated: The new name of the application. The name must be unique in the region in which you are updating the application. Please do not use this field as we have stopped supporting name updates.</p>
             description: <p>The new description of the application.</p>
+
+        Raises:
+            aws_sdk_service_catalog_appregistry.errors.conflict_exception.ConflictException: <p>There was a conflict when processing the request (for example, a resource with the given name already exists within the account).</p>
+            aws_sdk_service_catalog_appregistry.errors.internal_server_exception.InternalServerException: <p>The service is experiencing internal problems.</p>
+            aws_sdk_service_catalog_appregistry.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_service_catalog_appregistry.errors.throttling_exception.ThrottlingException: <p> The maximum number of API requests has been exceeded. </p>
+            aws_sdk_service_catalog_appregistry.errors.validation_exception.ValidationException: <p>The request has invalid or missing parameters.</p>
+            aws_sdk_service_catalog_appregistry.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1338,6 +1488,13 @@ class ServiceCatalogAppRegistryClient:
             name: <p>Deprecated: The new name of the attribute group. The name must be unique in the region in which you are updating the attribute group. Please do not use this field as we have stopped supporting name updates.</p>
             description: <p>The description of the attribute group that the user provides.</p>
             attributes: <p>A JSON string in the form of nested key-value pairs that represent the attributes in the group and describes an application and its components.</p>
+
+        Raises:
+            aws_sdk_service_catalog_appregistry.errors.conflict_exception.ConflictException: <p>There was a conflict when processing the request (for example, a resource with the given name already exists within the account).</p>
+            aws_sdk_service_catalog_appregistry.errors.internal_server_exception.InternalServerException: <p>The service is experiencing internal problems.</p>
+            aws_sdk_service_catalog_appregistry.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_service_catalog_appregistry.errors.validation_exception.ValidationException: <p>The request has invalid or missing parameters.</p>
+            aws_sdk_service_catalog_appregistry.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(

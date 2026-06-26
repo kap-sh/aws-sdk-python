@@ -66,6 +66,16 @@ class ChannelGroupResource:
             description: <p>Enter any descriptive text that helps you to identify the channel group.</p>
             tags: <p>A comma-separated list of tag key:value pairs that you define. For example:</p> <p> <code>\"Key1\": \"Value1\",</code> </p> <p> <code>\"Key2\": \"Value2\"</code> </p>
 
+        Raises:
+            aws_sdk_mediapackagev2.errors.access_denied_exception.AccessDeniedException: <p>Access is denied because either you don't have permissions to perform the requested operation or MediaPackage is getting throttling errors with CDN authorization. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions. For more information, see Access Management in the IAM User Guide. Or, if you're using CDN authorization, you will receive this exception if MediaPackage receives a throttling error from Secrets Manager.</p>
+            aws_sdk_mediapackagev2.errors.conflict_exception.ConflictException: <p>Updating or deleting this resource can cause an inconsistent state.</p>
+            aws_sdk_mediapackagev2.errors.internal_server_exception.InternalServerException: <p>Indicates that an error from the service occurred while trying to process a request.</p>
+            aws_sdk_mediapackagev2.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource doesn't exist.</p>
+            aws_sdk_mediapackagev2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request would cause a service quota to be exceeded.</p>
+            aws_sdk_mediapackagev2.errors.throttling_exception.ThrottlingException: <p>The request throughput limit was exceeded.</p>
+            aws_sdk_mediapackagev2.errors.validation_exception.ValidationException: <p>The input failed to meet the constraints specified by the AWS service.</p>
+            aws_sdk_mediapackagev2.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Creating a Channel Group
 
@@ -113,6 +123,14 @@ class ChannelGroupResource:
 
         Args:
             channel_group_name: <p>The name that describes the channel group. The name is the primary identifier for the channel group, and must be unique for your account in the AWS Region.</p>
+
+        Raises:
+            aws_sdk_mediapackagev2.errors.access_denied_exception.AccessDeniedException: <p>Access is denied because either you don't have permissions to perform the requested operation or MediaPackage is getting throttling errors with CDN authorization. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions. For more information, see Access Management in the IAM User Guide. Or, if you're using CDN authorization, you will receive this exception if MediaPackage receives a throttling error from Secrets Manager.</p>
+            aws_sdk_mediapackagev2.errors.internal_server_exception.InternalServerException: <p>Indicates that an error from the service occurred while trying to process a request.</p>
+            aws_sdk_mediapackagev2.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource doesn't exist.</p>
+            aws_sdk_mediapackagev2.errors.throttling_exception.ThrottlingException: <p>The request throughput limit was exceeded.</p>
+            aws_sdk_mediapackagev2.errors.validation_exception.ValidationException: <p>The input failed to meet the constraints specified by the AWS service.</p>
+            aws_sdk_mediapackagev2.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Getting a Channel Group
@@ -162,6 +180,15 @@ class ChannelGroupResource:
             e_tag: <p>The expected current Entity Tag (ETag) for the resource. If the specified ETag does not match the resource's current entity tag, the update request will be rejected.</p>
             description: <p>Any descriptive information that you want to add to the channel group for future identification purposes.</p>
 
+        Raises:
+            aws_sdk_mediapackagev2.errors.access_denied_exception.AccessDeniedException: <p>Access is denied because either you don't have permissions to perform the requested operation or MediaPackage is getting throttling errors with CDN authorization. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions. For more information, see Access Management in the IAM User Guide. Or, if you're using CDN authorization, you will receive this exception if MediaPackage receives a throttling error from Secrets Manager.</p>
+            aws_sdk_mediapackagev2.errors.conflict_exception.ConflictException: <p>Updating or deleting this resource can cause an inconsistent state.</p>
+            aws_sdk_mediapackagev2.errors.internal_server_exception.InternalServerException: <p>Indicates that an error from the service occurred while trying to process a request.</p>
+            aws_sdk_mediapackagev2.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource doesn't exist.</p>
+            aws_sdk_mediapackagev2.errors.throttling_exception.ThrottlingException: <p>The request throughput limit was exceeded.</p>
+            aws_sdk_mediapackagev2.errors.validation_exception.ValidationException: <p>The input failed to meet the constraints specified by the AWS service.</p>
+            aws_sdk_mediapackagev2.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Updating a Channel Group
 
@@ -208,6 +235,14 @@ class ChannelGroupResource:
         Args:
             channel_group_name: <p>The name that describes the channel group. The name is the primary identifier for the channel group, and must be unique for your account in the AWS Region.</p>
 
+        Raises:
+            aws_sdk_mediapackagev2.errors.access_denied_exception.AccessDeniedException: <p>Access is denied because either you don't have permissions to perform the requested operation or MediaPackage is getting throttling errors with CDN authorization. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions. For more information, see Access Management in the IAM User Guide. Or, if you're using CDN authorization, you will receive this exception if MediaPackage receives a throttling error from Secrets Manager.</p>
+            aws_sdk_mediapackagev2.errors.conflict_exception.ConflictException: <p>Updating or deleting this resource can cause an inconsistent state.</p>
+            aws_sdk_mediapackagev2.errors.internal_server_exception.InternalServerException: <p>Indicates that an error from the service occurred while trying to process a request.</p>
+            aws_sdk_mediapackagev2.errors.throttling_exception.ThrottlingException: <p>The request throughput limit was exceeded.</p>
+            aws_sdk_mediapackagev2.errors.validation_exception.ValidationException: <p>The input failed to meet the constraints specified by the AWS service.</p>
+            aws_sdk_mediapackagev2.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Deleting a Channel Group
 
@@ -253,6 +288,13 @@ class ChannelGroupResource:
         Args:
             max_results: <p>The maximum number of results to return in the response.</p>
             next_token: <p>The pagination token from the GET list request. Use the token to fetch the next page of results.</p>
+
+        Raises:
+            aws_sdk_mediapackagev2.errors.access_denied_exception.AccessDeniedException: <p>Access is denied because either you don't have permissions to perform the requested operation or MediaPackage is getting throttling errors with CDN authorization. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions. For more information, see Access Management in the IAM User Guide. Or, if you're using CDN authorization, you will receive this exception if MediaPackage receives a throttling error from Secrets Manager.</p>
+            aws_sdk_mediapackagev2.errors.internal_server_exception.InternalServerException: <p>Indicates that an error from the service occurred while trying to process a request.</p>
+            aws_sdk_mediapackagev2.errors.throttling_exception.ThrottlingException: <p>The request throughput limit was exceeded.</p>
+            aws_sdk_mediapackagev2.errors.validation_exception.ValidationException: <p>The input failed to meet the constraints specified by the AWS service.</p>
+            aws_sdk_mediapackagev2.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Listing all Channel Groups
@@ -314,6 +356,16 @@ class AsyncChannelGroupResource:
             description: <p>Enter any descriptive text that helps you to identify the channel group.</p>
             tags: <p>A comma-separated list of tag key:value pairs that you define. For example:</p> <p> <code>\"Key1\": \"Value1\",</code> </p> <p> <code>\"Key2\": \"Value2\"</code> </p>
 
+        Raises:
+            aws_sdk_mediapackagev2.errors.access_denied_exception.AccessDeniedException: <p>Access is denied because either you don't have permissions to perform the requested operation or MediaPackage is getting throttling errors with CDN authorization. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions. For more information, see Access Management in the IAM User Guide. Or, if you're using CDN authorization, you will receive this exception if MediaPackage receives a throttling error from Secrets Manager.</p>
+            aws_sdk_mediapackagev2.errors.conflict_exception.ConflictException: <p>Updating or deleting this resource can cause an inconsistent state.</p>
+            aws_sdk_mediapackagev2.errors.internal_server_exception.InternalServerException: <p>Indicates that an error from the service occurred while trying to process a request.</p>
+            aws_sdk_mediapackagev2.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource doesn't exist.</p>
+            aws_sdk_mediapackagev2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request would cause a service quota to be exceeded.</p>
+            aws_sdk_mediapackagev2.errors.throttling_exception.ThrottlingException: <p>The request throughput limit was exceeded.</p>
+            aws_sdk_mediapackagev2.errors.validation_exception.ValidationException: <p>The input failed to meet the constraints specified by the AWS service.</p>
+            aws_sdk_mediapackagev2.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Creating a Channel Group
 
@@ -362,6 +414,14 @@ class AsyncChannelGroupResource:
 
         Args:
             channel_group_name: <p>The name that describes the channel group. The name is the primary identifier for the channel group, and must be unique for your account in the AWS Region.</p>
+
+        Raises:
+            aws_sdk_mediapackagev2.errors.access_denied_exception.AccessDeniedException: <p>Access is denied because either you don't have permissions to perform the requested operation or MediaPackage is getting throttling errors with CDN authorization. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions. For more information, see Access Management in the IAM User Guide. Or, if you're using CDN authorization, you will receive this exception if MediaPackage receives a throttling error from Secrets Manager.</p>
+            aws_sdk_mediapackagev2.errors.internal_server_exception.InternalServerException: <p>Indicates that an error from the service occurred while trying to process a request.</p>
+            aws_sdk_mediapackagev2.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource doesn't exist.</p>
+            aws_sdk_mediapackagev2.errors.throttling_exception.ThrottlingException: <p>The request throughput limit was exceeded.</p>
+            aws_sdk_mediapackagev2.errors.validation_exception.ValidationException: <p>The input failed to meet the constraints specified by the AWS service.</p>
+            aws_sdk_mediapackagev2.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Getting a Channel Group
@@ -412,6 +472,15 @@ class AsyncChannelGroupResource:
             e_tag: <p>The expected current Entity Tag (ETag) for the resource. If the specified ETag does not match the resource's current entity tag, the update request will be rejected.</p>
             description: <p>Any descriptive information that you want to add to the channel group for future identification purposes.</p>
 
+        Raises:
+            aws_sdk_mediapackagev2.errors.access_denied_exception.AccessDeniedException: <p>Access is denied because either you don't have permissions to perform the requested operation or MediaPackage is getting throttling errors with CDN authorization. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions. For more information, see Access Management in the IAM User Guide. Or, if you're using CDN authorization, you will receive this exception if MediaPackage receives a throttling error from Secrets Manager.</p>
+            aws_sdk_mediapackagev2.errors.conflict_exception.ConflictException: <p>Updating or deleting this resource can cause an inconsistent state.</p>
+            aws_sdk_mediapackagev2.errors.internal_server_exception.InternalServerException: <p>Indicates that an error from the service occurred while trying to process a request.</p>
+            aws_sdk_mediapackagev2.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource doesn't exist.</p>
+            aws_sdk_mediapackagev2.errors.throttling_exception.ThrottlingException: <p>The request throughput limit was exceeded.</p>
+            aws_sdk_mediapackagev2.errors.validation_exception.ValidationException: <p>The input failed to meet the constraints specified by the AWS service.</p>
+            aws_sdk_mediapackagev2.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Updating a Channel Group
 
@@ -459,6 +528,14 @@ class AsyncChannelGroupResource:
         Args:
             channel_group_name: <p>The name that describes the channel group. The name is the primary identifier for the channel group, and must be unique for your account in the AWS Region.</p>
 
+        Raises:
+            aws_sdk_mediapackagev2.errors.access_denied_exception.AccessDeniedException: <p>Access is denied because either you don't have permissions to perform the requested operation or MediaPackage is getting throttling errors with CDN authorization. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions. For more information, see Access Management in the IAM User Guide. Or, if you're using CDN authorization, you will receive this exception if MediaPackage receives a throttling error from Secrets Manager.</p>
+            aws_sdk_mediapackagev2.errors.conflict_exception.ConflictException: <p>Updating or deleting this resource can cause an inconsistent state.</p>
+            aws_sdk_mediapackagev2.errors.internal_server_exception.InternalServerException: <p>Indicates that an error from the service occurred while trying to process a request.</p>
+            aws_sdk_mediapackagev2.errors.throttling_exception.ThrottlingException: <p>The request throughput limit was exceeded.</p>
+            aws_sdk_mediapackagev2.errors.validation_exception.ValidationException: <p>The input failed to meet the constraints specified by the AWS service.</p>
+            aws_sdk_mediapackagev2.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Deleting a Channel Group
 
@@ -505,6 +582,13 @@ class AsyncChannelGroupResource:
         Args:
             max_results: <p>The maximum number of results to return in the response.</p>
             next_token: <p>The pagination token from the GET list request. Use the token to fetch the next page of results.</p>
+
+        Raises:
+            aws_sdk_mediapackagev2.errors.access_denied_exception.AccessDeniedException: <p>Access is denied because either you don't have permissions to perform the requested operation or MediaPackage is getting throttling errors with CDN authorization. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions. For more information, see Access Management in the IAM User Guide. Or, if you're using CDN authorization, you will receive this exception if MediaPackage receives a throttling error from Secrets Manager.</p>
+            aws_sdk_mediapackagev2.errors.internal_server_exception.InternalServerException: <p>Indicates that an error from the service occurred while trying to process a request.</p>
+            aws_sdk_mediapackagev2.errors.throttling_exception.ThrottlingException: <p>The request throughput limit was exceeded.</p>
+            aws_sdk_mediapackagev2.errors.validation_exception.ValidationException: <p>The input failed to meet the constraints specified by the AWS service.</p>
+            aws_sdk_mediapackagev2.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Listing all Channel Groups

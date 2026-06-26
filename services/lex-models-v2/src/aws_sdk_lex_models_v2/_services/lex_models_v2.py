@@ -482,6 +482,14 @@ class LexModelsV2Client:
             bot_version: <p>The identifier of the version of the bot associated with this custom vocabulary.</p>
             locale_id: <p>The identifier of the language and locale where this custom vocabulary is used. The string must match one of the supported locales. For more information, see <a href=\"https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html\"> Supported Languages </a>.</p>
             custom_vocabulary_item_list: <p>A list of new custom vocabulary items. Each entry must contain a phrase and can optionally contain a displayAs and/or a weight.</p>
+
+        Raises:
+            aws_sdk_lex_models_v2.errors.internal_server_exception.InternalServerException: <p>The service encountered an unexpected condition. Try your request again.</p>
+            aws_sdk_lex_models_v2.errors.resource_not_found_exception.ResourceNotFoundException: <p>You asked to describe a resource that doesn't exist. Check the resource that you are requesting and try again.</p>
+            aws_sdk_lex_models_v2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You have reached a quota for your bot. </p>
+            aws_sdk_lex_models_v2.errors.throttling_exception.ThrottlingException: <p>Your request rate is too high. Reduce the frequency of requests.</p>
+            aws_sdk_lex_models_v2.errors.validation_exception.ValidationException: <p>One of the input parameters in your request isn't valid. Check the parameters and try your request again.</p>
+            aws_sdk_lex_models_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -528,6 +536,14 @@ class LexModelsV2Client:
             bot_version: <p>The identifier of the version of the bot associated with this custom vocabulary.</p>
             locale_id: <p>The identifier of the language and locale where this custom vocabulary is used. The string must match one of the supported locales. For more information, see <a href=\"https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html\"> Supported Languages </a>.</p>
             custom_vocabulary_item_list: <p>A list of custom vocabulary items requested to be deleted. Each entry must contain the unique custom vocabulary entry identifier.</p>
+
+        Raises:
+            aws_sdk_lex_models_v2.errors.internal_server_exception.InternalServerException: <p>The service encountered an unexpected condition. Try your request again.</p>
+            aws_sdk_lex_models_v2.errors.resource_not_found_exception.ResourceNotFoundException: <p>You asked to describe a resource that doesn't exist. Check the resource that you are requesting and try again.</p>
+            aws_sdk_lex_models_v2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You have reached a quota for your bot. </p>
+            aws_sdk_lex_models_v2.errors.throttling_exception.ThrottlingException: <p>Your request rate is too high. Reduce the frequency of requests.</p>
+            aws_sdk_lex_models_v2.errors.validation_exception.ValidationException: <p>One of the input parameters in your request isn't valid. Check the parameters and try your request again.</p>
+            aws_sdk_lex_models_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -574,6 +590,14 @@ class LexModelsV2Client:
             bot_version: <p>The identifier of the version of the bot associated with this custom vocabulary.</p>
             locale_id: <p>The identifier of the language and locale where this custom vocabulary is used. The string must match one of the supported locales. For more information, see <a href=\"https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html\"> Supported Languages </a>.</p>
             custom_vocabulary_item_list: <p>A list of custom vocabulary items with updated fields. Each entry must contain a phrase and can optionally contain a displayAs and/or a weight.</p>
+
+        Raises:
+            aws_sdk_lex_models_v2.errors.internal_server_exception.InternalServerException: <p>The service encountered an unexpected condition. Try your request again.</p>
+            aws_sdk_lex_models_v2.errors.resource_not_found_exception.ResourceNotFoundException: <p>You asked to describe a resource that doesn't exist. Check the resource that you are requesting and try again.</p>
+            aws_sdk_lex_models_v2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You have reached a quota for your bot. </p>
+            aws_sdk_lex_models_v2.errors.throttling_exception.ThrottlingException: <p>Your request rate is too high. Reduce the frequency of requests.</p>
+            aws_sdk_lex_models_v2.errors.validation_exception.ValidationException: <p>One of the input parameters in your request isn't valid. Check the parameters and try your request again.</p>
+            aws_sdk_lex_models_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -618,6 +642,15 @@ class LexModelsV2Client:
             bot_id: <p>The identifier of the bot to build. The identifier is returned in the response from the <a href=\"https://docs.aws.amazon.com/lexv2/latest/APIReference/API_CreateBot.html\">CreateBot</a> operation.</p>
             bot_version: <p>The version of the bot to build. This can only be the draft version of the bot.</p>
             locale_id: <p>The identifier of the language and locale that the bot will be used in. The string must match one of the supported locales. All of the intents, slot types, and slots used in the bot must have the same locale. For more information, see <a href=\"https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html\">Supported languages</a>.</p>
+
+        Raises:
+            aws_sdk_lex_models_v2.errors.conflict_exception.ConflictException: <p>The action that you tried to perform couldn't be completed because the resource is in a conflicting state. For example, deleting a bot that is in the CREATING state. Try your request again. </p>
+            aws_sdk_lex_models_v2.errors.internal_server_exception.InternalServerException: <p>The service encountered an unexpected condition. Try your request again.</p>
+            aws_sdk_lex_models_v2.errors.precondition_failed_exception.PreconditionFailedException: <p>Your request couldn't be completed because one or more request fields aren't valid. Check the fields in your request and try again.</p>
+            aws_sdk_lex_models_v2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You have reached a quota for your bot. </p>
+            aws_sdk_lex_models_v2.errors.throttling_exception.ThrottlingException: <p>Your request rate is too high. Reduce the frequency of requests.</p>
+            aws_sdk_lex_models_v2.errors.validation_exception.ValidationException: <p>One of the input parameters in your request isn't valid. Check the parameters and try your request again.</p>
+            aws_sdk_lex_models_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -683,6 +716,15 @@ class LexModelsV2Client:
             bot_type: <p>The type of a bot to create.</p>
             bot_members: <p>The list of bot members in a network to be created.</p>
             error_log_settings: <p>Specifies the configuration for error logging during bot creation.</p>
+
+        Raises:
+            aws_sdk_lex_models_v2.errors.conflict_exception.ConflictException: <p>The action that you tried to perform couldn't be completed because the resource is in a conflicting state. For example, deleting a bot that is in the CREATING state. Try your request again. </p>
+            aws_sdk_lex_models_v2.errors.internal_server_exception.InternalServerException: <p>The service encountered an unexpected condition. Try your request again.</p>
+            aws_sdk_lex_models_v2.errors.precondition_failed_exception.PreconditionFailedException: <p>Your request couldn't be completed because one or more request fields aren't valid. Check the fields in your request and try again.</p>
+            aws_sdk_lex_models_v2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You have reached a quota for your bot. </p>
+            aws_sdk_lex_models_v2.errors.throttling_exception.ThrottlingException: <p>Your request rate is too high. Reduce the frequency of requests.</p>
+            aws_sdk_lex_models_v2.errors.validation_exception.ValidationException: <p>One of the input parameters in your request isn't valid. Check the parameters and try your request again.</p>
+            aws_sdk_lex_models_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -758,6 +800,15 @@ class LexModelsV2Client:
             conversation_log_settings: <p>Specifies whether Amazon Lex logs text and audio for a conversation with the bot. When you enable conversation logs, text logs store text input, transcripts of audio input, and associated metadata in Amazon CloudWatch Logs. Audio logs store audio input in Amazon S3.</p>
             bot_id: <p>The unique identifier of the bot that the alias applies to.</p>
             tags: <p>A list of tags to add to the bot alias. You can only add tags when you create an alias, you can't use the <code>UpdateBotAlias</code> operation to update the tags on a bot alias. To update tags, use the <code>TagResource</code> operation.</p>
+
+        Raises:
+            aws_sdk_lex_models_v2.errors.conflict_exception.ConflictException: <p>The action that you tried to perform couldn't be completed because the resource is in a conflicting state. For example, deleting a bot that is in the CREATING state. Try your request again. </p>
+            aws_sdk_lex_models_v2.errors.internal_server_exception.InternalServerException: <p>The service encountered an unexpected condition. Try your request again.</p>
+            aws_sdk_lex_models_v2.errors.precondition_failed_exception.PreconditionFailedException: <p>Your request couldn't be completed because one or more request fields aren't valid. Check the fields in your request and try again.</p>
+            aws_sdk_lex_models_v2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You have reached a quota for your bot. </p>
+            aws_sdk_lex_models_v2.errors.throttling_exception.ThrottlingException: <p>Your request rate is too high. Reduce the frequency of requests.</p>
+            aws_sdk_lex_models_v2.errors.validation_exception.ValidationException: <p>One of the input parameters in your request isn't valid. Check the parameters and try your request again.</p>
+            aws_sdk_lex_models_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -843,6 +894,15 @@ class LexModelsV2Client:
             audio_filler_settings: <p>Audio filler settings to configure for the new bot locale. When enabled, Amazon Lex plays a brief background audio filler during speech-to-speech interactions to mask processing delays. Requires <code>unifiedSpeechSettings</code> (speech-to-speech) to be configured on the bot locale.</p>
             speech_recognition_settings: <p>Speech-to-text settings to configure for the new bot locale.</p>
             speech_detection_sensitivity: <p>The sensitivity level for voice activity detection (VAD) in the bot locale. This setting helps optimize speech recognition accuracy by adjusting how the system responds to background noise during voice interactions.</p>
+
+        Raises:
+            aws_sdk_lex_models_v2.errors.conflict_exception.ConflictException: <p>The action that you tried to perform couldn't be completed because the resource is in a conflicting state. For example, deleting a bot that is in the CREATING state. Try your request again. </p>
+            aws_sdk_lex_models_v2.errors.internal_server_exception.InternalServerException: <p>The service encountered an unexpected condition. Try your request again.</p>
+            aws_sdk_lex_models_v2.errors.precondition_failed_exception.PreconditionFailedException: <p>Your request couldn't be completed because one or more request fields aren't valid. Check the fields in your request and try again.</p>
+            aws_sdk_lex_models_v2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You have reached a quota for your bot. </p>
+            aws_sdk_lex_models_v2.errors.throttling_exception.ThrottlingException: <p>Your request rate is too high. Reduce the frequency of requests.</p>
+            aws_sdk_lex_models_v2.errors.validation_exception.ValidationException: <p>One of the input parameters in your request isn't valid. Check the parameters and try your request again.</p>
+            aws_sdk_lex_models_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -899,6 +959,15 @@ class LexModelsV2Client:
         Args:
             bot_id: <p>The request for the unique bot ID of the source bot to be replicated in the secondary region.</p>
             replica_region: <p>The request for the secondary region that will be used in the replication of the source bot.</p>
+
+        Raises:
+            aws_sdk_lex_models_v2.errors.conflict_exception.ConflictException: <p>The action that you tried to perform couldn't be completed because the resource is in a conflicting state. For example, deleting a bot that is in the CREATING state. Try your request again. </p>
+            aws_sdk_lex_models_v2.errors.internal_server_exception.InternalServerException: <p>The service encountered an unexpected condition. Try your request again.</p>
+            aws_sdk_lex_models_v2.errors.precondition_failed_exception.PreconditionFailedException: <p>Your request couldn't be completed because one or more request fields aren't valid. Check the fields in your request and try again.</p>
+            aws_sdk_lex_models_v2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You have reached a quota for your bot. </p>
+            aws_sdk_lex_models_v2.errors.throttling_exception.ThrottlingException: <p>Your request rate is too high. Reduce the frequency of requests.</p>
+            aws_sdk_lex_models_v2.errors.validation_exception.ValidationException: <p>One of the input parameters in your request isn't valid. Check the parameters and try your request again.</p>
+            aws_sdk_lex_models_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -943,6 +1012,15 @@ class LexModelsV2Client:
             bot_id: <p>The identifier of the bot to create the version for.</p>
             description: <p>A description of the version. Use the description to help identify the version in lists.</p>
             bot_version_locale_specification: <p>Specifies the locales that Amazon Lex adds to this version. You can choose the <code>Draft</code> version or any other previously published version for each locale. When you specify a source version, the locale data is copied from the source version to the new version.</p>
+
+        Raises:
+            aws_sdk_lex_models_v2.errors.conflict_exception.ConflictException: <p>The action that you tried to perform couldn't be completed because the resource is in a conflicting state. For example, deleting a bot that is in the CREATING state. Try your request again. </p>
+            aws_sdk_lex_models_v2.errors.internal_server_exception.InternalServerException: <p>The service encountered an unexpected condition. Try your request again.</p>
+            aws_sdk_lex_models_v2.errors.precondition_failed_exception.PreconditionFailedException: <p>Your request couldn't be completed because one or more request fields aren't valid. Check the fields in your request and try again.</p>
+            aws_sdk_lex_models_v2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You have reached a quota for your bot. </p>
+            aws_sdk_lex_models_v2.errors.throttling_exception.ThrottlingException: <p>Your request rate is too high. Reduce the frequency of requests.</p>
+            aws_sdk_lex_models_v2.errors.validation_exception.ValidationException: <p>One of the input parameters in your request isn't valid. Check the parameters and try your request again.</p>
+            aws_sdk_lex_models_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -989,6 +1067,15 @@ class LexModelsV2Client:
             resource_specification: <p>Specifies the type of resource to export, either a bot or a bot locale. You can only specify one type of resource to export.</p>
             file_format: <p>The file format of the bot or bot locale definition files.</p>
             file_password: <p>An password to use to encrypt the exported archive. Using a password is optional, but you should encrypt the archive to protect the data in transit between Amazon Lex and your local computer.</p>
+
+        Raises:
+            aws_sdk_lex_models_v2.errors.conflict_exception.ConflictException: <p>The action that you tried to perform couldn't be completed because the resource is in a conflicting state. For example, deleting a bot that is in the CREATING state. Try your request again. </p>
+            aws_sdk_lex_models_v2.errors.internal_server_exception.InternalServerException: <p>The service encountered an unexpected condition. Try your request again.</p>
+            aws_sdk_lex_models_v2.errors.resource_not_found_exception.ResourceNotFoundException: <p>You asked to describe a resource that doesn't exist. Check the resource that you are requesting and try again.</p>
+            aws_sdk_lex_models_v2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You have reached a quota for your bot. </p>
+            aws_sdk_lex_models_v2.errors.throttling_exception.ThrottlingException: <p>Your request rate is too high. Reduce the frequency of requests.</p>
+            aws_sdk_lex_models_v2.errors.validation_exception.ValidationException: <p>One of the input parameters in your request isn't valid. Check the parameters and try your request again.</p>
+            aws_sdk_lex_models_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1091,6 +1178,15 @@ class LexModelsV2Client:
             initial_response_setting: <p>Configuration settings for the response that is sent to the user at the beginning of a conversation, before eliciting slot values.</p>
             qn_a_intent_configuration: <p>Specifies the configuration of the built-in <code>Amazon.QnAIntent</code>. The <code>AMAZON.QnAIntent</code> intent is called when Amazon Lex can't determine another intent to invoke. If you specify this field, you can't specify the <code>kendraConfiguration</code> field.</p>
             q_in_connect_intent_configuration: <p>Qinconnect intent configuration details for the create intent request.</p>
+
+        Raises:
+            aws_sdk_lex_models_v2.errors.conflict_exception.ConflictException: <p>The action that you tried to perform couldn't be completed because the resource is in a conflicting state. For example, deleting a bot that is in the CREATING state. Try your request again. </p>
+            aws_sdk_lex_models_v2.errors.internal_server_exception.InternalServerException: <p>The service encountered an unexpected condition. Try your request again.</p>
+            aws_sdk_lex_models_v2.errors.precondition_failed_exception.PreconditionFailedException: <p>Your request couldn't be completed because one or more request fields aren't valid. Check the fields in your request and try again.</p>
+            aws_sdk_lex_models_v2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You have reached a quota for your bot. </p>
+            aws_sdk_lex_models_v2.errors.throttling_exception.ThrottlingException: <p>Your request rate is too high. Reduce the frequency of requests.</p>
+            aws_sdk_lex_models_v2.errors.validation_exception.ValidationException: <p>One of the input parameters in your request isn't valid. Check the parameters and try your request again.</p>
+            aws_sdk_lex_models_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1163,6 +1259,15 @@ class LexModelsV2Client:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the bot or bot alias that the resource policy is attached to.</p>
             policy: <p>A resource policy to add to the resource. The policy is a JSON structure that contains one or more statements that define the policy. The policy must follow the IAM syntax. For more information about the contents of a JSON policy document, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies.html\"> IAM JSON policy reference </a>. </p> <p>If the policy isn't valid, Amazon Lex returns a validation exception.</p>
+
+        Raises:
+            aws_sdk_lex_models_v2.errors.internal_server_exception.InternalServerException: <p>The service encountered an unexpected condition. Try your request again.</p>
+            aws_sdk_lex_models_v2.errors.precondition_failed_exception.PreconditionFailedException: <p>Your request couldn't be completed because one or more request fields aren't valid. Check the fields in your request and try again.</p>
+            aws_sdk_lex_models_v2.errors.resource_not_found_exception.ResourceNotFoundException: <p>You asked to describe a resource that doesn't exist. Check the resource that you are requesting and try again.</p>
+            aws_sdk_lex_models_v2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You have reached a quota for your bot. </p>
+            aws_sdk_lex_models_v2.errors.throttling_exception.ThrottlingException: <p>Your request rate is too high. Reduce the frequency of requests.</p>
+            aws_sdk_lex_models_v2.errors.validation_exception.ValidationException: <p>One of the input parameters in your request isn't valid. Check the parameters and try your request again.</p>
+            aws_sdk_lex_models_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1217,6 +1322,16 @@ class LexModelsV2Client:
             action: <p>The Amazon Lex action that this policy either allows or denies. The action must apply to the resource type of the specified ARN. For more information, see <a href=\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonlexv2.html\"> Actions, resources, and condition keys for Amazon Lex V2</a>.</p>
             condition: <p>Specifies a condition when the policy is in effect. If the principal of the policy is a service principal, you must provide two condition blocks, one with a SourceAccount global condition key and one with a SourceArn global condition key.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_condition.html\">IAM JSON policy elements: Condition </a>.</p>
             expected_revision_id: <p>The identifier of the revision of the policy to edit. If this revision ID doesn't match the current revision ID, Amazon Lex throws an exception.</p> <p>If you don't specify a revision, Amazon Lex overwrites the contents of the policy with the new values.</p>
+
+        Raises:
+            aws_sdk_lex_models_v2.errors.conflict_exception.ConflictException: <p>The action that you tried to perform couldn't be completed because the resource is in a conflicting state. For example, deleting a bot that is in the CREATING state. Try your request again. </p>
+            aws_sdk_lex_models_v2.errors.internal_server_exception.InternalServerException: <p>The service encountered an unexpected condition. Try your request again.</p>
+            aws_sdk_lex_models_v2.errors.precondition_failed_exception.PreconditionFailedException: <p>Your request couldn't be completed because one or more request fields aren't valid. Check the fields in your request and try again.</p>
+            aws_sdk_lex_models_v2.errors.resource_not_found_exception.ResourceNotFoundException: <p>You asked to describe a resource that doesn't exist. Check the resource that you are requesting and try again.</p>
+            aws_sdk_lex_models_v2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You have reached a quota for your bot. </p>
+            aws_sdk_lex_models_v2.errors.throttling_exception.ThrottlingException: <p>Your request rate is too high. Reduce the frequency of requests.</p>
+            aws_sdk_lex_models_v2.errors.validation_exception.ValidationException: <p>One of the input parameters in your request isn't valid. Check the parameters and try your request again.</p>
+            aws_sdk_lex_models_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1292,6 +1407,15 @@ class LexModelsV2Client:
             intent_id: <p>The identifier of the intent that contains the slot.</p>
             multiple_values_setting: <p>Indicates whether the slot returns multiple values in one response. Multi-value slots are only available in the <code>en-US</code> locale. If you set this value to <code>true</code> in any other locale, Amazon Lex throws a <code>ValidationException</code>. </p> <p>If the <code>multipleValuesSetting</code> is not set, the default value is <code>false</code>.</p>
             sub_slot_setting: <p>Specifications for the constituent sub slots and the expression for the composite slot.</p>
+
+        Raises:
+            aws_sdk_lex_models_v2.errors.conflict_exception.ConflictException: <p>The action that you tried to perform couldn't be completed because the resource is in a conflicting state. For example, deleting a bot that is in the CREATING state. Try your request again. </p>
+            aws_sdk_lex_models_v2.errors.internal_server_exception.InternalServerException: <p>The service encountered an unexpected condition. Try your request again.</p>
+            aws_sdk_lex_models_v2.errors.precondition_failed_exception.PreconditionFailedException: <p>Your request couldn't be completed because one or more request fields aren't valid. Check the fields in your request and try again.</p>
+            aws_sdk_lex_models_v2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You have reached a quota for your bot. </p>
+            aws_sdk_lex_models_v2.errors.throttling_exception.ThrottlingException: <p>Your request rate is too high. Reduce the frequency of requests.</p>
+            aws_sdk_lex_models_v2.errors.validation_exception.ValidationException: <p>One of the input parameters in your request isn't valid. Check the parameters and try your request again.</p>
+            aws_sdk_lex_models_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1374,6 +1498,15 @@ class LexModelsV2Client:
             locale_id: <p>The identifier of the language and locale that the slot type will be used in. The string must match one of the supported locales. All of the bots, intents, and slots used by the slot type must have the same locale. For more information, see <a href=\"https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html\">Supported languages</a>.</p>
             external_source_setting: <p>Sets the type of external information used to create the slot type.</p>
             composite_slot_type_setting: <p>Specifications for a composite slot type.</p>
+
+        Raises:
+            aws_sdk_lex_models_v2.errors.conflict_exception.ConflictException: <p>The action that you tried to perform couldn't be completed because the resource is in a conflicting state. For example, deleting a bot that is in the CREATING state. Try your request again. </p>
+            aws_sdk_lex_models_v2.errors.internal_server_exception.InternalServerException: <p>The service encountered an unexpected condition. Try your request again.</p>
+            aws_sdk_lex_models_v2.errors.precondition_failed_exception.PreconditionFailedException: <p>Your request couldn't be completed because one or more request fields aren't valid. Check the fields in your request and try again.</p>
+            aws_sdk_lex_models_v2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You have reached a quota for your bot. </p>
+            aws_sdk_lex_models_v2.errors.throttling_exception.ThrottlingException: <p>Your request rate is too high. Reduce the frequency of requests.</p>
+            aws_sdk_lex_models_v2.errors.validation_exception.ValidationException: <p>One of the input parameters in your request isn't valid. Check the parameters and try your request again.</p>
+            aws_sdk_lex_models_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1428,6 +1561,15 @@ class LexModelsV2Client:
         Args:
             test_set_id: <p>The test set Id for the test set discrepancy report.</p>
             target: <p>The target bot for the test set discrepancy report.</p>
+
+        Raises:
+            aws_sdk_lex_models_v2.errors.conflict_exception.ConflictException: <p>The action that you tried to perform couldn't be completed because the resource is in a conflicting state. For example, deleting a bot that is in the CREATING state. Try your request again. </p>
+            aws_sdk_lex_models_v2.errors.internal_server_exception.InternalServerException: <p>The service encountered an unexpected condition. Try your request again.</p>
+            aws_sdk_lex_models_v2.errors.resource_not_found_exception.ResourceNotFoundException: <p>You asked to describe a resource that doesn't exist. Check the resource that you are requesting and try again.</p>
+            aws_sdk_lex_models_v2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You have reached a quota for your bot. </p>
+            aws_sdk_lex_models_v2.errors.throttling_exception.ThrottlingException: <p>Your request rate is too high. Reduce the frequency of requests.</p>
+            aws_sdk_lex_models_v2.errors.validation_exception.ValidationException: <p>One of the input parameters in your request isn't valid. Check the parameters and try your request again.</p>
+            aws_sdk_lex_models_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1461,7 +1603,16 @@ class LexModelsV2Client:
     ) -> (
         "aws_sdk_lex_models_v2.types.create_upload_url_response.CreateUploadUrlResponse"
     ):
-        """<p>Gets a pre-signed S3 write URL that you use to upload the zip archive when importing a bot or a bot locale. </p>"""
+        """<p>Gets a pre-signed S3 write URL that you use to upload the zip archive when importing a bot or a bot locale. </p>
+
+        Raises:
+            aws_sdk_lex_models_v2.errors.conflict_exception.ConflictException: <p>The action that you tried to perform couldn't be completed because the resource is in a conflicting state. For example, deleting a bot that is in the CREATING state. Try your request again. </p>
+            aws_sdk_lex_models_v2.errors.internal_server_exception.InternalServerException: <p>The service encountered an unexpected condition. Try your request again.</p>
+            aws_sdk_lex_models_v2.errors.resource_not_found_exception.ResourceNotFoundException: <p>You asked to describe a resource that doesn't exist. Check the resource that you are requesting and try again.</p>
+            aws_sdk_lex_models_v2.errors.throttling_exception.ThrottlingException: <p>Your request rate is too high. Reduce the frequency of requests.</p>
+            aws_sdk_lex_models_v2.errors.validation_exception.ValidationException: <p>One of the input parameters in your request isn't valid. Check the parameters and try your request again.</p>
+            aws_sdk_lex_models_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_lex_models_v2.types.create_upload_url_request.CreateUploadUrlRequest]",
@@ -1501,6 +1652,15 @@ class LexModelsV2Client:
         Args:
             bot_id: <p>The identifier of the bot to delete. </p>
             skip_resource_in_use_check: <p>By default, Amazon Lex checks if any other resource, such as an alias or bot network, is using the bot version before it is deleted and throws a <code>ResourceInUseException</code> exception if the bot is being used by another resource. Set this parameter to <code>true</code> to skip this check and remove the bot even if it is being used by another resource.</p>
+
+        Raises:
+            aws_sdk_lex_models_v2.errors.conflict_exception.ConflictException: <p>The action that you tried to perform couldn't be completed because the resource is in a conflicting state. For example, deleting a bot that is in the CREATING state. Try your request again. </p>
+            aws_sdk_lex_models_v2.errors.internal_server_exception.InternalServerException: <p>The service encountered an unexpected condition. Try your request again.</p>
+            aws_sdk_lex_models_v2.errors.precondition_failed_exception.PreconditionFailedException: <p>Your request couldn't be completed because one or more request fields aren't valid. Check the fields in your request and try again.</p>
+            aws_sdk_lex_models_v2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You have reached a quota for your bot. </p>
+            aws_sdk_lex_models_v2.errors.throttling_exception.ThrottlingException: <p>Your request rate is too high. Reduce the frequency of requests.</p>
+            aws_sdk_lex_models_v2.errors.validation_exception.ValidationException: <p>One of the input parameters in your request isn't valid. Check the parameters and try your request again.</p>
+            aws_sdk_lex_models_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1546,6 +1706,15 @@ class LexModelsV2Client:
             bot_alias_id: <p>The unique identifier of the bot alias to delete.</p>
             bot_id: <p>The unique identifier of the bot associated with the alias to delete.</p>
             skip_resource_in_use_check: <p>By default, Amazon Lex checks if any other resource, such as a bot network, is using the bot alias before it is deleted and throws a <code>ResourceInUseException</code> exception if the alias is being used by another resource. Set this parameter to <code>true</code> to skip this check and remove the alias even if it is being used by another resource.</p>
+
+        Raises:
+            aws_sdk_lex_models_v2.errors.conflict_exception.ConflictException: <p>The action that you tried to perform couldn't be completed because the resource is in a conflicting state. For example, deleting a bot that is in the CREATING state. Try your request again. </p>
+            aws_sdk_lex_models_v2.errors.internal_server_exception.InternalServerException: <p>The service encountered an unexpected condition. Try your request again.</p>
+            aws_sdk_lex_models_v2.errors.precondition_failed_exception.PreconditionFailedException: <p>Your request couldn't be completed because one or more request fields aren't valid. Check the fields in your request and try again.</p>
+            aws_sdk_lex_models_v2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You have reached a quota for your bot. </p>
+            aws_sdk_lex_models_v2.errors.throttling_exception.ThrottlingException: <p>Your request rate is too high. Reduce the frequency of requests.</p>
+            aws_sdk_lex_models_v2.errors.validation_exception.ValidationException: <p>One of the input parameters in your request isn't valid. Check the parameters and try your request again.</p>
+            aws_sdk_lex_models_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1588,6 +1757,13 @@ class LexModelsV2Client:
         Args:
             bot_id: <p>The unique identifier of the bot.</p>
             bot_analyzer_request_id: <p>The unique identifier of the analysis request whose recommendations should be deleted.</p>
+
+        Raises:
+            aws_sdk_lex_models_v2.errors.internal_server_exception.InternalServerException: <p>The service encountered an unexpected condition. Try your request again.</p>
+            aws_sdk_lex_models_v2.errors.resource_not_found_exception.ResourceNotFoundException: <p>You asked to describe a resource that doesn't exist. Check the resource that you are requesting and try again.</p>
+            aws_sdk_lex_models_v2.errors.throttling_exception.ThrottlingException: <p>Your request rate is too high. Reduce the frequency of requests.</p>
+            aws_sdk_lex_models_v2.errors.validation_exception.ValidationException: <p>One of the input parameters in your request isn't valid. Check the parameters and try your request again.</p>
+            aws_sdk_lex_models_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1632,6 +1808,15 @@ class LexModelsV2Client:
             bot_id: <p>The unique identifier of the bot that contains the locale.</p>
             bot_version: <p>The version of the bot that contains the locale. </p>
             locale_id: <p>The identifier of the language and locale that will be deleted. The string must match one of the supported locales. For more information, see <a href=\"https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html\">Supported languages</a>.</p>
+
+        Raises:
+            aws_sdk_lex_models_v2.errors.conflict_exception.ConflictException: <p>The action that you tried to perform couldn't be completed because the resource is in a conflicting state. For example, deleting a bot that is in the CREATING state. Try your request again. </p>
+            aws_sdk_lex_models_v2.errors.internal_server_exception.InternalServerException: <p>The service encountered an unexpected condition. Try your request again.</p>
+            aws_sdk_lex_models_v2.errors.precondition_failed_exception.PreconditionFailedException: <p>Your request couldn't be completed because one or more request fields aren't valid. Check the fields in your request and try again.</p>
+            aws_sdk_lex_models_v2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You have reached a quota for your bot. </p>
+            aws_sdk_lex_models_v2.errors.throttling_exception.ThrottlingException: <p>Your request rate is too high. Reduce the frequency of requests.</p>
+            aws_sdk_lex_models_v2.errors.validation_exception.ValidationException: <p>One of the input parameters in your request isn't valid. Check the parameters and try your request again.</p>
+            aws_sdk_lex_models_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1673,6 +1858,15 @@ class LexModelsV2Client:
         Args:
             bot_id: <p>The unique ID of the replicated bot to be deleted from the secondary region</p>
             replica_region: <p>The secondary region of the replicated bot that will be deleted.</p>
+
+        Raises:
+            aws_sdk_lex_models_v2.errors.conflict_exception.ConflictException: <p>The action that you tried to perform couldn't be completed because the resource is in a conflicting state. For example, deleting a bot that is in the CREATING state. Try your request again. </p>
+            aws_sdk_lex_models_v2.errors.internal_server_exception.InternalServerException: <p>The service encountered an unexpected condition. Try your request again.</p>
+            aws_sdk_lex_models_v2.errors.precondition_failed_exception.PreconditionFailedException: <p>Your request couldn't be completed because one or more request fields aren't valid. Check the fields in your request and try again.</p>
+            aws_sdk_lex_models_v2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You have reached a quota for your bot. </p>
+            aws_sdk_lex_models_v2.errors.throttling_exception.ThrottlingException: <p>Your request rate is too high. Reduce the frequency of requests.</p>
+            aws_sdk_lex_models_v2.errors.validation_exception.ValidationException: <p>One of the input parameters in your request isn't valid. Check the parameters and try your request again.</p>
+            aws_sdk_lex_models_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1717,6 +1911,15 @@ class LexModelsV2Client:
             bot_id: <p>The identifier of the bot that contains the version.</p>
             bot_version: <p>The version of the bot to delete.</p>
             skip_resource_in_use_check: <p>By default, Amazon Lex checks if any other resource, such as an alias or bot network, is using the bot version before it is deleted and throws a <code>ResourceInUseException</code> exception if the version is being used by another resource. Set this parameter to <code>true</code> to skip this check and remove the version even if it is being used by another resource.</p>
+
+        Raises:
+            aws_sdk_lex_models_v2.errors.conflict_exception.ConflictException: <p>The action that you tried to perform couldn't be completed because the resource is in a conflicting state. For example, deleting a bot that is in the CREATING state. Try your request again. </p>
+            aws_sdk_lex_models_v2.errors.internal_server_exception.InternalServerException: <p>The service encountered an unexpected condition. Try your request again.</p>
+            aws_sdk_lex_models_v2.errors.precondition_failed_exception.PreconditionFailedException: <p>Your request couldn't be completed because one or more request fields aren't valid. Check the fields in your request and try again.</p>
+            aws_sdk_lex_models_v2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You have reached a quota for your bot. </p>
+            aws_sdk_lex_models_v2.errors.throttling_exception.ThrottlingException: <p>Your request rate is too high. Reduce the frequency of requests.</p>
+            aws_sdk_lex_models_v2.errors.validation_exception.ValidationException: <p>One of the input parameters in your request isn't valid. Check the parameters and try your request again.</p>
+            aws_sdk_lex_models_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1761,6 +1964,15 @@ class LexModelsV2Client:
             bot_id: <p>The unique identifier of the bot to remove the custom vocabulary from.</p>
             bot_version: <p>The version of the bot to remove the custom vocabulary from.</p>
             locale_id: <p>The locale identifier for the locale that contains the custom vocabulary to remove.</p>
+
+        Raises:
+            aws_sdk_lex_models_v2.errors.conflict_exception.ConflictException: <p>The action that you tried to perform couldn't be completed because the resource is in a conflicting state. For example, deleting a bot that is in the CREATING state. Try your request again. </p>
+            aws_sdk_lex_models_v2.errors.internal_server_exception.InternalServerException: <p>The service encountered an unexpected condition. Try your request again.</p>
+            aws_sdk_lex_models_v2.errors.precondition_failed_exception.PreconditionFailedException: <p>Your request couldn't be completed because one or more request fields aren't valid. Check the fields in your request and try again.</p>
+            aws_sdk_lex_models_v2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You have reached a quota for your bot. </p>
+            aws_sdk_lex_models_v2.errors.throttling_exception.ThrottlingException: <p>Your request rate is too high. Reduce the frequency of requests.</p>
+            aws_sdk_lex_models_v2.errors.validation_exception.ValidationException: <p>One of the input parameters in your request isn't valid. Check the parameters and try your request again.</p>
+            aws_sdk_lex_models_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1800,6 +2012,14 @@ class LexModelsV2Client:
 
         Args:
             export_id: <p>The unique identifier of the export to delete.</p>
+
+        Raises:
+            aws_sdk_lex_models_v2.errors.internal_server_exception.InternalServerException: <p>The service encountered an unexpected condition. Try your request again.</p>
+            aws_sdk_lex_models_v2.errors.precondition_failed_exception.PreconditionFailedException: <p>Your request couldn't be completed because one or more request fields aren't valid. Check the fields in your request and try again.</p>
+            aws_sdk_lex_models_v2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You have reached a quota for your bot. </p>
+            aws_sdk_lex_models_v2.errors.throttling_exception.ThrottlingException: <p>Your request rate is too high. Reduce the frequency of requests.</p>
+            aws_sdk_lex_models_v2.errors.validation_exception.ValidationException: <p>One of the input parameters in your request isn't valid. Check the parameters and try your request again.</p>
+            aws_sdk_lex_models_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1837,6 +2057,14 @@ class LexModelsV2Client:
 
         Args:
             import_id: <p>The unique identifier of the import to delete.</p>
+
+        Raises:
+            aws_sdk_lex_models_v2.errors.internal_server_exception.InternalServerException: <p>The service encountered an unexpected condition. Try your request again.</p>
+            aws_sdk_lex_models_v2.errors.precondition_failed_exception.PreconditionFailedException: <p>Your request couldn't be completed because one or more request fields aren't valid. Check the fields in your request and try again.</p>
+            aws_sdk_lex_models_v2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You have reached a quota for your bot. </p>
+            aws_sdk_lex_models_v2.errors.throttling_exception.ThrottlingException: <p>Your request rate is too high. Reduce the frequency of requests.</p>
+            aws_sdk_lex_models_v2.errors.validation_exception.ValidationException: <p>One of the input parameters in your request isn't valid. Check the parameters and try your request again.</p>
+            aws_sdk_lex_models_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1880,6 +2108,15 @@ class LexModelsV2Client:
             bot_id: <p>The identifier of the bot associated with the intent.</p>
             bot_version: <p>The version of the bot associated with the intent.</p>
             locale_id: <p>The identifier of the language and locale where the bot will be deleted. The string must match one of the supported locales. For more information, see <a href=\"https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html\">Supported languages</a>.</p>
+
+        Raises:
+            aws_sdk_lex_models_v2.errors.conflict_exception.ConflictException: <p>The action that you tried to perform couldn't be completed because the resource is in a conflicting state. For example, deleting a bot that is in the CREATING state. Try your request again. </p>
+            aws_sdk_lex_models_v2.errors.internal_server_exception.InternalServerException: <p>The service encountered an unexpected condition. Try your request again.</p>
+            aws_sdk_lex_models_v2.errors.precondition_failed_exception.PreconditionFailedException: <p>Your request couldn't be completed because one or more request fields aren't valid. Check the fields in your request and try again.</p>
+            aws_sdk_lex_models_v2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You have reached a quota for your bot. </p>
+            aws_sdk_lex_models_v2.errors.throttling_exception.ThrottlingException: <p>Your request rate is too high. Reduce the frequency of requests.</p>
+            aws_sdk_lex_models_v2.errors.validation_exception.ValidationException: <p>One of the input parameters in your request isn't valid. Check the parameters and try your request again.</p>
+            aws_sdk_lex_models_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1922,6 +2159,13 @@ class LexModelsV2Client:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the bot or bot alias that has the resource policy attached.</p>
             expected_revision_id: <p>The identifier of the revision to edit. If this ID doesn't match the current revision number, Amazon Lex returns an exception</p> <p>If you don't specify a revision ID, Amazon Lex will delete the current policy.</p>
+
+        Raises:
+            aws_sdk_lex_models_v2.errors.internal_server_exception.InternalServerException: <p>The service encountered an unexpected condition. Try your request again.</p>
+            aws_sdk_lex_models_v2.errors.precondition_failed_exception.PreconditionFailedException: <p>Your request couldn't be completed because one or more request fields aren't valid. Check the fields in your request and try again.</p>
+            aws_sdk_lex_models_v2.errors.resource_not_found_exception.ResourceNotFoundException: <p>You asked to describe a resource that doesn't exist. Check the resource that you are requesting and try again.</p>
+            aws_sdk_lex_models_v2.errors.throttling_exception.ThrottlingException: <p>Your request rate is too high. Reduce the frequency of requests.</p>
+            aws_sdk_lex_models_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1967,6 +2211,13 @@ class LexModelsV2Client:
             resource_arn: <p>The Amazon Resource Name (ARN) of the bot or bot alias that the resource policy is attached to.</p>
             statement_id: <p>The name of the statement (SID) to delete from the policy.</p>
             expected_revision_id: <p>The identifier of the revision of the policy to delete the statement from. If this revision ID doesn't match the current revision ID, Amazon Lex throws an exception.</p> <p>If you don't specify a revision, Amazon Lex removes the current contents of the statement. </p>
+
+        Raises:
+            aws_sdk_lex_models_v2.errors.internal_server_exception.InternalServerException: <p>The service encountered an unexpected condition. Try your request again.</p>
+            aws_sdk_lex_models_v2.errors.precondition_failed_exception.PreconditionFailedException: <p>Your request couldn't be completed because one or more request fields aren't valid. Check the fields in your request and try again.</p>
+            aws_sdk_lex_models_v2.errors.resource_not_found_exception.ResourceNotFoundException: <p>You asked to describe a resource that doesn't exist. Check the resource that you are requesting and try again.</p>
+            aws_sdk_lex_models_v2.errors.throttling_exception.ThrottlingException: <p>Your request rate is too high. Reduce the frequency of requests.</p>
+            aws_sdk_lex_models_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2015,6 +2266,15 @@ class LexModelsV2Client:
             bot_version: <p>The version of the bot associated with the slot to delete.</p>
             locale_id: <p>The identifier of the language and locale that the slot will be deleted from. The string must match one of the supported locales. For more information, see <a href=\"https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html\">Supported languages</a>.</p>
             intent_id: <p>The identifier of the intent associated with the slot.</p>
+
+        Raises:
+            aws_sdk_lex_models_v2.errors.conflict_exception.ConflictException: <p>The action that you tried to perform couldn't be completed because the resource is in a conflicting state. For example, deleting a bot that is in the CREATING state. Try your request again. </p>
+            aws_sdk_lex_models_v2.errors.internal_server_exception.InternalServerException: <p>The service encountered an unexpected condition. Try your request again.</p>
+            aws_sdk_lex_models_v2.errors.precondition_failed_exception.PreconditionFailedException: <p>Your request couldn't be completed because one or more request fields aren't valid. Check the fields in your request and try again.</p>
+            aws_sdk_lex_models_v2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You have reached a quota for your bot. </p>
+            aws_sdk_lex_models_v2.errors.throttling_exception.ThrottlingException: <p>Your request rate is too high. Reduce the frequency of requests.</p>
+            aws_sdk_lex_models_v2.errors.validation_exception.ValidationException: <p>One of the input parameters in your request isn't valid. Check the parameters and try your request again.</p>
+            aws_sdk_lex_models_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2064,6 +2324,15 @@ class LexModelsV2Client:
             bot_version: <p>The version of the bot associated with the slot type.</p>
             locale_id: <p>The identifier of the language and locale that the slot type will be deleted from. The string must match one of the supported locales. For more information, see <a href=\"https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html\">Supported languages</a>.</p>
             skip_resource_in_use_check: <p>By default, the <code>DeleteSlotType</code> operations throws a <code>ResourceInUseException</code> exception if you try to delete a slot type used by a slot. Set the <code>skipResourceInUseCheck</code> parameter to <code>true</code> to skip this check and remove the slot type even if a slot uses it.</p>
+
+        Raises:
+            aws_sdk_lex_models_v2.errors.conflict_exception.ConflictException: <p>The action that you tried to perform couldn't be completed because the resource is in a conflicting state. For example, deleting a bot that is in the CREATING state. Try your request again. </p>
+            aws_sdk_lex_models_v2.errors.internal_server_exception.InternalServerException: <p>The service encountered an unexpected condition. Try your request again.</p>
+            aws_sdk_lex_models_v2.errors.precondition_failed_exception.PreconditionFailedException: <p>Your request couldn't be completed because one or more request fields aren't valid. Check the fields in your request and try again.</p>
+            aws_sdk_lex_models_v2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You have reached a quota for your bot. </p>
+            aws_sdk_lex_models_v2.errors.throttling_exception.ThrottlingException: <p>Your request rate is too high. Reduce the frequency of requests.</p>
+            aws_sdk_lex_models_v2.errors.validation_exception.ValidationException: <p>One of the input parameters in your request isn't valid. Check the parameters and try your request again.</p>
+            aws_sdk_lex_models_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2104,6 +2373,15 @@ class LexModelsV2Client:
 
         Args:
             test_set_id: <p>The test set Id of the test set to be deleted.</p>
+
+        Raises:
+            aws_sdk_lex_models_v2.errors.conflict_exception.ConflictException: <p>The action that you tried to perform couldn't be completed because the resource is in a conflicting state. For example, deleting a bot that is in the CREATING state. Try your request again. </p>
+            aws_sdk_lex_models_v2.errors.internal_server_exception.InternalServerException: <p>The service encountered an unexpected condition. Try your request again.</p>
+            aws_sdk_lex_models_v2.errors.precondition_failed_exception.PreconditionFailedException: <p>Your request couldn't be completed because one or more request fields aren't valid. Check the fields in your request and try again.</p>
+            aws_sdk_lex_models_v2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You have reached a quota for your bot. </p>
+            aws_sdk_lex_models_v2.errors.throttling_exception.ThrottlingException: <p>Your request rate is too high. Reduce the frequency of requests.</p>
+            aws_sdk_lex_models_v2.errors.validation_exception.ValidationException: <p>One of the input parameters in your request isn't valid. Check the parameters and try your request again.</p>
+            aws_sdk_lex_models_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2143,6 +2421,12 @@ class LexModelsV2Client:
             bot_id: <p>The unique identifier of the bot that contains the utterances.</p>
             locale_id: <p>The identifier of the language and locale where the utterances were collected. The string must match one of the supported locales. For more information, see <a href=\"https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html\">Supported languages</a>.</p>
             session_id: <p>The unique identifier of the session with the user. The ID is returned in the response from the <a href=\"https://docs.aws.amazon.com/lexv2/latest/APIReference/API_runtime_RecognizeText.html\">RecognizeText</a> and <a href=\"https://docs.aws.amazon.com/lexv2/latest/APIReference/API_runtime_RecognizeUtterance.html\">RecognizeUtterance</a> operations.</p>
+
+        Raises:
+            aws_sdk_lex_models_v2.errors.internal_server_exception.InternalServerException: <p>The service encountered an unexpected condition. Try your request again.</p>
+            aws_sdk_lex_models_v2.errors.throttling_exception.ThrottlingException: <p>Your request rate is too high. Reduce the frequency of requests.</p>
+            aws_sdk_lex_models_v2.errors.validation_exception.ValidationException: <p>One of the input parameters in your request isn't valid. Check the parameters and try your request again.</p>
+            aws_sdk_lex_models_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2184,6 +2468,14 @@ class LexModelsV2Client:
 
         Args:
             bot_id: <p>The unique identifier of the bot to describe.</p>
+
+        Raises:
+            aws_sdk_lex_models_v2.errors.internal_server_exception.InternalServerException: <p>The service encountered an unexpected condition. Try your request again.</p>
+            aws_sdk_lex_models_v2.errors.resource_not_found_exception.ResourceNotFoundException: <p>You asked to describe a resource that doesn't exist. Check the resource that you are requesting and try again.</p>
+            aws_sdk_lex_models_v2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You have reached a quota for your bot. </p>
+            aws_sdk_lex_models_v2.errors.throttling_exception.ThrottlingException: <p>Your request rate is too high. Reduce the frequency of requests.</p>
+            aws_sdk_lex_models_v2.errors.validation_exception.ValidationException: <p>One of the input parameters in your request isn't valid. Check the parameters and try your request again.</p>
+            aws_sdk_lex_models_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2223,6 +2515,14 @@ class LexModelsV2Client:
         Args:
             bot_alias_id: <p>The identifier of the bot alias to describe.</p>
             bot_id: <p>The identifier of the bot associated with the bot alias to describe.</p>
+
+        Raises:
+            aws_sdk_lex_models_v2.errors.internal_server_exception.InternalServerException: <p>The service encountered an unexpected condition. Try your request again.</p>
+            aws_sdk_lex_models_v2.errors.resource_not_found_exception.ResourceNotFoundException: <p>You asked to describe a resource that doesn't exist. Check the resource that you are requesting and try again.</p>
+            aws_sdk_lex_models_v2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You have reached a quota for your bot. </p>
+            aws_sdk_lex_models_v2.errors.throttling_exception.ThrottlingException: <p>Your request rate is too high. Reduce the frequency of requests.</p>
+            aws_sdk_lex_models_v2.errors.validation_exception.ValidationException: <p>One of the input parameters in your request isn't valid. Check the parameters and try your request again.</p>
+            aws_sdk_lex_models_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2269,6 +2569,13 @@ class LexModelsV2Client:
             bot_analyzer_request_id: <p>The unique identifier of the analysis request.</p>
             next_token: <p>If the response from a previous request was truncated, the <code>nextToken</code> value is used to retrieve the next page of recommendations.</p>
             max_results: <p>The maximum number of recommendations to return in the response. The default is 5.</p>
+
+        Raises:
+            aws_sdk_lex_models_v2.errors.internal_server_exception.InternalServerException: <p>The service encountered an unexpected condition. Try your request again.</p>
+            aws_sdk_lex_models_v2.errors.resource_not_found_exception.ResourceNotFoundException: <p>You asked to describe a resource that doesn't exist. Check the resource that you are requesting and try again.</p>
+            aws_sdk_lex_models_v2.errors.throttling_exception.ThrottlingException: <p>Your request rate is too high. Reduce the frequency of requests.</p>
+            aws_sdk_lex_models_v2.errors.validation_exception.ValidationException: <p>One of the input parameters in your request isn't valid. Check the parameters and try your request again.</p>
+            aws_sdk_lex_models_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2342,6 +2649,14 @@ class LexModelsV2Client:
             bot_id: <p>The identifier of the bot associated with the locale.</p>
             bot_version: <p>The version of the bot associated with the locale.</p>
             locale_id: <p>The unique identifier of the locale to describe. The string must match one of the supported locales. For more information, see <a href=\"https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html\">Supported languages</a>. </p>
+
+        Raises:
+            aws_sdk_lex_models_v2.errors.internal_server_exception.InternalServerException: <p>The service encountered an unexpected condition. Try your request again.</p>
+            aws_sdk_lex_models_v2.errors.resource_not_found_exception.ResourceNotFoundException: <p>You asked to describe a resource that doesn't exist. Check the resource that you are requesting and try again.</p>
+            aws_sdk_lex_models_v2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You have reached a quota for your bot. </p>
+            aws_sdk_lex_models_v2.errors.throttling_exception.ThrottlingException: <p>Your request rate is too high. Reduce the frequency of requests.</p>
+            aws_sdk_lex_models_v2.errors.validation_exception.ValidationException: <p>One of the input parameters in your request isn't valid. Check the parameters and try your request again.</p>
+            aws_sdk_lex_models_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2387,6 +2702,13 @@ class LexModelsV2Client:
             bot_version: <p>The version of the bot associated with the bot recommendation.</p>
             locale_id: <p>The identifier of the language and locale of the bot recommendation to describe. The string must match one of the supported locales. For more information, see <a href=\"https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html\">Supported languages</a>.</p>
             bot_recommendation_id: <p>The identifier of the bot recommendation to describe.</p>
+
+        Raises:
+            aws_sdk_lex_models_v2.errors.internal_server_exception.InternalServerException: <p>The service encountered an unexpected condition. Try your request again.</p>
+            aws_sdk_lex_models_v2.errors.resource_not_found_exception.ResourceNotFoundException: <p>You asked to describe a resource that doesn't exist. Check the resource that you are requesting and try again.</p>
+            aws_sdk_lex_models_v2.errors.throttling_exception.ThrottlingException: <p>Your request rate is too high. Reduce the frequency of requests.</p>
+            aws_sdk_lex_models_v2.errors.validation_exception.ValidationException: <p>One of the input parameters in your request isn't valid. Check the parameters and try your request again.</p>
+            aws_sdk_lex_models_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2429,6 +2751,14 @@ class LexModelsV2Client:
         Args:
             bot_id: <p>The request for the unique bot ID of the replicated bot being monitored.</p>
             replica_region: <p>The request for the region of the replicated bot being monitored.</p>
+
+        Raises:
+            aws_sdk_lex_models_v2.errors.internal_server_exception.InternalServerException: <p>The service encountered an unexpected condition. Try your request again.</p>
+            aws_sdk_lex_models_v2.errors.resource_not_found_exception.ResourceNotFoundException: <p>You asked to describe a resource that doesn't exist. Check the resource that you are requesting and try again.</p>
+            aws_sdk_lex_models_v2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You have reached a quota for your bot. </p>
+            aws_sdk_lex_models_v2.errors.throttling_exception.ThrottlingException: <p>Your request rate is too high. Reduce the frequency of requests.</p>
+            aws_sdk_lex_models_v2.errors.validation_exception.ValidationException: <p>One of the input parameters in your request isn't valid. Check the parameters and try your request again.</p>
+            aws_sdk_lex_models_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2473,6 +2803,13 @@ class LexModelsV2Client:
             bot_version: <p>The version of the bot for which to return the generation details.</p>
             locale_id: <p>The locale of the bot for which to return the generation details.</p>
             generation_id: <p>The unique identifier of the generation request for which to return the generation details.</p>
+
+        Raises:
+            aws_sdk_lex_models_v2.errors.internal_server_exception.InternalServerException: <p>The service encountered an unexpected condition. Try your request again.</p>
+            aws_sdk_lex_models_v2.errors.resource_not_found_exception.ResourceNotFoundException: <p>You asked to describe a resource that doesn't exist. Check the resource that you are requesting and try again.</p>
+            aws_sdk_lex_models_v2.errors.throttling_exception.ThrottlingException: <p>Your request rate is too high. Reduce the frequency of requests.</p>
+            aws_sdk_lex_models_v2.errors.validation_exception.ValidationException: <p>One of the input parameters in your request isn't valid. Check the parameters and try your request again.</p>
+            aws_sdk_lex_models_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2515,6 +2852,14 @@ class LexModelsV2Client:
         Args:
             bot_id: <p>The identifier of the bot containing the version to return metadata for.</p>
             bot_version: <p>The version of the bot to return metadata for.</p>
+
+        Raises:
+            aws_sdk_lex_models_v2.errors.internal_server_exception.InternalServerException: <p>The service encountered an unexpected condition. Try your request again.</p>
+            aws_sdk_lex_models_v2.errors.resource_not_found_exception.ResourceNotFoundException: <p>You asked to describe a resource that doesn't exist. Check the resource that you are requesting and try again.</p>
+            aws_sdk_lex_models_v2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You have reached a quota for your bot. </p>
+            aws_sdk_lex_models_v2.errors.throttling_exception.ThrottlingException: <p>Your request rate is too high. Reduce the frequency of requests.</p>
+            aws_sdk_lex_models_v2.errors.validation_exception.ValidationException: <p>One of the input parameters in your request isn't valid. Check the parameters and try your request again.</p>
+            aws_sdk_lex_models_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2557,6 +2902,14 @@ class LexModelsV2Client:
             bot_id: <p>The unique identifier of the bot that contains the custom vocabulary.</p>
             bot_version: <p>The bot version of the bot to return metadata for.</p>
             locale_id: <p>The locale to return the custom vocabulary information for. The locale must be <code>en_GB</code>.</p>
+
+        Raises:
+            aws_sdk_lex_models_v2.errors.internal_server_exception.InternalServerException: <p>The service encountered an unexpected condition. Try your request again.</p>
+            aws_sdk_lex_models_v2.errors.resource_not_found_exception.ResourceNotFoundException: <p>You asked to describe a resource that doesn't exist. Check the resource that you are requesting and try again.</p>
+            aws_sdk_lex_models_v2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You have reached a quota for your bot. </p>
+            aws_sdk_lex_models_v2.errors.throttling_exception.ThrottlingException: <p>Your request rate is too high. Reduce the frequency of requests.</p>
+            aws_sdk_lex_models_v2.errors.validation_exception.ValidationException: <p>One of the input parameters in your request isn't valid. Check the parameters and try your request again.</p>
+            aws_sdk_lex_models_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2596,6 +2949,13 @@ class LexModelsV2Client:
 
         Args:
             export_id: <p>The unique identifier of the export to describe.</p>
+
+        Raises:
+            aws_sdk_lex_models_v2.errors.internal_server_exception.InternalServerException: <p>The service encountered an unexpected condition. Try your request again.</p>
+            aws_sdk_lex_models_v2.errors.resource_not_found_exception.ResourceNotFoundException: <p>You asked to describe a resource that doesn't exist. Check the resource that you are requesting and try again.</p>
+            aws_sdk_lex_models_v2.errors.throttling_exception.ThrottlingException: <p>Your request rate is too high. Reduce the frequency of requests.</p>
+            aws_sdk_lex_models_v2.errors.validation_exception.ValidationException: <p>One of the input parameters in your request isn't valid. Check the parameters and try your request again.</p>
+            aws_sdk_lex_models_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2633,6 +2993,13 @@ class LexModelsV2Client:
 
         Args:
             import_id: <p>The unique identifier of the import to describe.</p>
+
+        Raises:
+            aws_sdk_lex_models_v2.errors.internal_server_exception.InternalServerException: <p>The service encountered an unexpected condition. Try your request again.</p>
+            aws_sdk_lex_models_v2.errors.resource_not_found_exception.ResourceNotFoundException: <p>You asked to describe a resource that doesn't exist. Check the resource that you are requesting and try again.</p>
+            aws_sdk_lex_models_v2.errors.throttling_exception.ThrottlingException: <p>Your request rate is too high. Reduce the frequency of requests.</p>
+            aws_sdk_lex_models_v2.errors.validation_exception.ValidationException: <p>One of the input parameters in your request isn't valid. Check the parameters and try your request again.</p>
+            aws_sdk_lex_models_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2676,6 +3043,14 @@ class LexModelsV2Client:
             bot_id: <p>The identifier of the bot associated with the intent.</p>
             bot_version: <p>The version of the bot associated with the intent.</p>
             locale_id: <p>The identifier of the language and locale of the intent to describe. The string must match one of the supported locales. For more information, see <a href=\"https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html\">Supported languages</a>.</p>
+
+        Raises:
+            aws_sdk_lex_models_v2.errors.internal_server_exception.InternalServerException: <p>The service encountered an unexpected condition. Try your request again.</p>
+            aws_sdk_lex_models_v2.errors.resource_not_found_exception.ResourceNotFoundException: <p>You asked to describe a resource that doesn't exist. Check the resource that you are requesting and try again.</p>
+            aws_sdk_lex_models_v2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You have reached a quota for your bot. </p>
+            aws_sdk_lex_models_v2.errors.throttling_exception.ThrottlingException: <p>Your request rate is too high. Reduce the frequency of requests.</p>
+            aws_sdk_lex_models_v2.errors.validation_exception.ValidationException: <p>One of the input parameters in your request isn't valid. Check the parameters and try your request again.</p>
+            aws_sdk_lex_models_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2716,6 +3091,12 @@ class LexModelsV2Client:
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the bot or bot alias that the resource policy is attached to.</p>
+
+        Raises:
+            aws_sdk_lex_models_v2.errors.internal_server_exception.InternalServerException: <p>The service encountered an unexpected condition. Try your request again.</p>
+            aws_sdk_lex_models_v2.errors.resource_not_found_exception.ResourceNotFoundException: <p>You asked to describe a resource that doesn't exist. Check the resource that you are requesting and try again.</p>
+            aws_sdk_lex_models_v2.errors.throttling_exception.ThrottlingException: <p>Your request rate is too high. Reduce the frequency of requests.</p>
+            aws_sdk_lex_models_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2761,6 +3142,14 @@ class LexModelsV2Client:
             bot_version: <p>The version of the bot associated with the slot.</p>
             locale_id: <p>The identifier of the language and locale of the slot to describe. The string must match one of the supported locales. For more information, see <a href=\"https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html\">Supported languages</a>.</p>
             intent_id: <p>The identifier of the intent that contains the slot.</p>
+
+        Raises:
+            aws_sdk_lex_models_v2.errors.internal_server_exception.InternalServerException: <p>The service encountered an unexpected condition. Try your request again.</p>
+            aws_sdk_lex_models_v2.errors.resource_not_found_exception.ResourceNotFoundException: <p>You asked to describe a resource that doesn't exist. Check the resource that you are requesting and try again.</p>
+            aws_sdk_lex_models_v2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You have reached a quota for your bot. </p>
+            aws_sdk_lex_models_v2.errors.throttling_exception.ThrottlingException: <p>Your request rate is too high. Reduce the frequency of requests.</p>
+            aws_sdk_lex_models_v2.errors.validation_exception.ValidationException: <p>One of the input parameters in your request isn't valid. Check the parameters and try your request again.</p>
+            aws_sdk_lex_models_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2808,6 +3197,14 @@ class LexModelsV2Client:
             bot_id: <p>The identifier of the bot associated with the slot type.</p>
             bot_version: <p>The version of the bot associated with the slot type.</p>
             locale_id: <p>The identifier of the language and locale of the slot type to describe. The string must match one of the supported locales. For more information, see <a href=\"https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html\">Supported languages</a>.</p>
+
+        Raises:
+            aws_sdk_lex_models_v2.errors.internal_server_exception.InternalServerException: <p>The service encountered an unexpected condition. Try your request again.</p>
+            aws_sdk_lex_models_v2.errors.resource_not_found_exception.ResourceNotFoundException: <p>You asked to describe a resource that doesn't exist. Check the resource that you are requesting and try again.</p>
+            aws_sdk_lex_models_v2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You have reached a quota for your bot. </p>
+            aws_sdk_lex_models_v2.errors.throttling_exception.ThrottlingException: <p>Your request rate is too high. Reduce the frequency of requests.</p>
+            aws_sdk_lex_models_v2.errors.validation_exception.ValidationException: <p>One of the input parameters in your request isn't valid. Check the parameters and try your request again.</p>
+            aws_sdk_lex_models_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2848,6 +3245,14 @@ class LexModelsV2Client:
 
         Args:
             test_execution_id: <p>The execution Id of the test set execution.</p>
+
+        Raises:
+            aws_sdk_lex_models_v2.errors.internal_server_exception.InternalServerException: <p>The service encountered an unexpected condition. Try your request again.</p>
+            aws_sdk_lex_models_v2.errors.resource_not_found_exception.ResourceNotFoundException: <p>You asked to describe a resource that doesn't exist. Check the resource that you are requesting and try again.</p>
+            aws_sdk_lex_models_v2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You have reached a quota for your bot. </p>
+            aws_sdk_lex_models_v2.errors.throttling_exception.ThrottlingException: <p>Your request rate is too high. Reduce the frequency of requests.</p>
+            aws_sdk_lex_models_v2.errors.validation_exception.ValidationException: <p>One of the input parameters in your request isn't valid. Check the parameters and try your request again.</p>
+            aws_sdk_lex_models_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2887,6 +3292,14 @@ class LexModelsV2Client:
 
         Args:
             test_set_id: <p>The test set Id for the test set request.</p>
+
+        Raises:
+            aws_sdk_lex_models_v2.errors.internal_server_exception.InternalServerException: <p>The service encountered an unexpected condition. Try your request again.</p>
+            aws_sdk_lex_models_v2.errors.resource_not_found_exception.ResourceNotFoundException: <p>You asked to describe a resource that doesn't exist. Check the resource that you are requesting and try again.</p>
+            aws_sdk_lex_models_v2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You have reached a quota for your bot. </p>
+            aws_sdk_lex_models_v2.errors.throttling_exception.ThrottlingException: <p>Your request rate is too high. Reduce the frequency of requests.</p>
+            aws_sdk_lex_models_v2.errors.validation_exception.ValidationException: <p>One of the input parameters in your request isn't valid. Check the parameters and try your request again.</p>
+            aws_sdk_lex_models_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2924,6 +3337,14 @@ class LexModelsV2Client:
 
         Args:
             test_set_discrepancy_report_id: <p>The unique identifier of the test set discrepancy report.</p>
+
+        Raises:
+            aws_sdk_lex_models_v2.errors.internal_server_exception.InternalServerException: <p>The service encountered an unexpected condition. Try your request again.</p>
+            aws_sdk_lex_models_v2.errors.resource_not_found_exception.ResourceNotFoundException: <p>You asked to describe a resource that doesn't exist. Check the resource that you are requesting and try again.</p>
+            aws_sdk_lex_models_v2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You have reached a quota for your bot. </p>
+            aws_sdk_lex_models_v2.errors.throttling_exception.ThrottlingException: <p>Your request rate is too high. Reduce the frequency of requests.</p>
+            aws_sdk_lex_models_v2.errors.validation_exception.ValidationException: <p>One of the input parameters in your request isn't valid. Check the parameters and try your request again.</p>
+            aws_sdk_lex_models_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2961,6 +3382,14 @@ class LexModelsV2Client:
 
         Args:
             test_set_generation_id: <p>The unique identifier of the test set generation.</p>
+
+        Raises:
+            aws_sdk_lex_models_v2.errors.internal_server_exception.InternalServerException: <p>The service encountered an unexpected condition. Try your request again.</p>
+            aws_sdk_lex_models_v2.errors.resource_not_found_exception.ResourceNotFoundException: <p>You asked to describe a resource that doesn't exist. Check the resource that you are requesting and try again.</p>
+            aws_sdk_lex_models_v2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You have reached a quota for your bot. </p>
+            aws_sdk_lex_models_v2.errors.throttling_exception.ThrottlingException: <p>Your request rate is too high. Reduce the frequency of requests.</p>
+            aws_sdk_lex_models_v2.errors.validation_exception.ValidationException: <p>One of the input parameters in your request isn't valid. Check the parameters and try your request again.</p>
+            aws_sdk_lex_models_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3004,6 +3433,16 @@ class LexModelsV2Client:
             bot_id: <p>The bot unique Id for the bot request to generate utterances.</p>
             bot_version: <p>The bot version for the bot request to generate utterances.</p>
             locale_id: <p>The unique locale Id for the bot request to generate utterances.</p>
+
+        Raises:
+            aws_sdk_lex_models_v2.errors.conflict_exception.ConflictException: <p>The action that you tried to perform couldn't be completed because the resource is in a conflicting state. For example, deleting a bot that is in the CREATING state. Try your request again. </p>
+            aws_sdk_lex_models_v2.errors.internal_server_exception.InternalServerException: <p>The service encountered an unexpected condition. Try your request again.</p>
+            aws_sdk_lex_models_v2.errors.precondition_failed_exception.PreconditionFailedException: <p>Your request couldn't be completed because one or more request fields aren't valid. Check the fields in your request and try again.</p>
+            aws_sdk_lex_models_v2.errors.resource_not_found_exception.ResourceNotFoundException: <p>You asked to describe a resource that doesn't exist. Check the resource that you are requesting and try again.</p>
+            aws_sdk_lex_models_v2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You have reached a quota for your bot. </p>
+            aws_sdk_lex_models_v2.errors.throttling_exception.ThrottlingException: <p>Your request rate is too high. Reduce the frequency of requests.</p>
+            aws_sdk_lex_models_v2.errors.validation_exception.ValidationException: <p>One of the input parameters in your request isn't valid. Check the parameters and try your request again.</p>
+            aws_sdk_lex_models_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3044,6 +3483,14 @@ class LexModelsV2Client:
 
         Args:
             test_execution_id: <p>The unique identifier of the completed test execution.</p>
+
+        Raises:
+            aws_sdk_lex_models_v2.errors.internal_server_exception.InternalServerException: <p>The service encountered an unexpected condition. Try your request again.</p>
+            aws_sdk_lex_models_v2.errors.resource_not_found_exception.ResourceNotFoundException: <p>You asked to describe a resource that doesn't exist. Check the resource that you are requesting and try again.</p>
+            aws_sdk_lex_models_v2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You have reached a quota for your bot. </p>
+            aws_sdk_lex_models_v2.errors.throttling_exception.ThrottlingException: <p>Your request rate is too high. Reduce the frequency of requests.</p>
+            aws_sdk_lex_models_v2.errors.validation_exception.ValidationException: <p>One of the input parameters in your request isn't valid. Check the parameters and try your request again.</p>
+            aws_sdk_lex_models_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3107,6 +3554,13 @@ class LexModelsV2Client:
             filters: <p>Provides the specification of a filter used to limit the utterances in the response to only those that match the filter specification. You can only specify one filter and one string to filter on.</p>
             max_results: <p>The maximum number of utterances to return in each page of results. If there are fewer results than the maximum page size, only the actual number of results are returned. If you don't specify the <code>maxResults</code> parameter, 1,000 results are returned.</p>
             next_token: <p>If the response from the <code>ListAggregatedUtterances</code> operation contains more results that specified in the <code>maxResults</code> parameter, a token is returned in the response. Use that token in the <code>nextToken</code> parameter to return the next page of results.</p>
+
+        Raises:
+            aws_sdk_lex_models_v2.errors.internal_server_exception.InternalServerException: <p>The service encountered an unexpected condition. Try your request again.</p>
+            aws_sdk_lex_models_v2.errors.precondition_failed_exception.PreconditionFailedException: <p>Your request couldn't be completed because one or more request fields aren't valid. Check the fields in your request and try again.</p>
+            aws_sdk_lex_models_v2.errors.throttling_exception.ThrottlingException: <p>Your request rate is too high. Reduce the frequency of requests.</p>
+            aws_sdk_lex_models_v2.errors.validation_exception.ValidationException: <p>One of the input parameters in your request isn't valid. Check the parameters and try your request again.</p>
+            aws_sdk_lex_models_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3164,6 +3618,13 @@ class LexModelsV2Client:
             bot_id: <p>The identifier of the bot to list aliases for.</p>
             max_results: <p>The maximum number of aliases to return in each page of results. If there are fewer results than the max page size, only the actual number of results are returned.</p>
             next_token: <p>If the response from the <code>ListBotAliases</code> operation contains more results than specified in the <code>maxResults</code> parameter, a token is returned in the response. Use that token in the <code>nextToken</code> parameter to return the next page of results.</p>
+
+        Raises:
+            aws_sdk_lex_models_v2.errors.internal_server_exception.InternalServerException: <p>The service encountered an unexpected condition. Try your request again.</p>
+            aws_sdk_lex_models_v2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You have reached a quota for your bot. </p>
+            aws_sdk_lex_models_v2.errors.throttling_exception.ThrottlingException: <p>Your request rate is too high. Reduce the frequency of requests.</p>
+            aws_sdk_lex_models_v2.errors.validation_exception.ValidationException: <p>One of the input parameters in your request isn't valid. Check the parameters and try your request again.</p>
+            aws_sdk_lex_models_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3213,6 +3674,13 @@ class LexModelsV2Client:
             replica_region: <p>The request for the secondary region of the replicated bot created from the source bot alias.</p>
             max_results: <p>The request for maximum results to list the replicated bots created from the source bot alias.</p>
             next_token: <p>The request for the next token for the replicated bot created from the source bot alias.</p>
+
+        Raises:
+            aws_sdk_lex_models_v2.errors.internal_server_exception.InternalServerException: <p>The service encountered an unexpected condition. Try your request again.</p>
+            aws_sdk_lex_models_v2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You have reached a quota for your bot. </p>
+            aws_sdk_lex_models_v2.errors.throttling_exception.ThrottlingException: <p>Your request rate is too high. Reduce the frequency of requests.</p>
+            aws_sdk_lex_models_v2.errors.validation_exception.ValidationException: <p>One of the input parameters in your request isn't valid. Check the parameters and try your request again.</p>
+            aws_sdk_lex_models_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3267,6 +3735,13 @@ class LexModelsV2Client:
             bot_version: <p>The bot version to filter the history. If not specified, defaults to <code>DRAFT</code>.</p>
             next_token: <p>If the response from a previous request was truncated, the <code>nextToken</code> value is used to retrieve the next page of history entries.</p>
             max_results: <p>The maximum number of history entries to return in the response. The default is 10.</p>
+
+        Raises:
+            aws_sdk_lex_models_v2.errors.internal_server_exception.InternalServerException: <p>The service encountered an unexpected condition. Try your request again.</p>
+            aws_sdk_lex_models_v2.errors.resource_not_found_exception.ResourceNotFoundException: <p>You asked to describe a resource that doesn't exist. Check the resource that you are requesting and try again.</p>
+            aws_sdk_lex_models_v2.errors.throttling_exception.ThrottlingException: <p>Your request rate is too high. Reduce the frequency of requests.</p>
+            aws_sdk_lex_models_v2.errors.validation_exception.ValidationException: <p>One of the input parameters in your request isn't valid. Check the parameters and try your request again.</p>
+            aws_sdk_lex_models_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3359,6 +3834,13 @@ class LexModelsV2Client:
             filters: <p>Provides the specification for a filter used to limit the response to only those locales that match the filter specification. You can only specify one filter and one value to filter on.</p>
             max_results: <p>The maximum number of aliases to return in each page of results. If there are fewer results than the max page size, only the actual number of results are returned.</p>
             next_token: <p>If the response from the <code>ListBotLocales</code> operation contains more results than specified in the <code>maxResults</code> parameter, a token is returned in the response. Use that token as the <code>nextToken</code> parameter to return the next page of results. </p>
+
+        Raises:
+            aws_sdk_lex_models_v2.errors.internal_server_exception.InternalServerException: <p>The service encountered an unexpected condition. Try your request again.</p>
+            aws_sdk_lex_models_v2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You have reached a quota for your bot. </p>
+            aws_sdk_lex_models_v2.errors.throttling_exception.ThrottlingException: <p>Your request rate is too high. Reduce the frequency of requests.</p>
+            aws_sdk_lex_models_v2.errors.validation_exception.ValidationException: <p>One of the input parameters in your request isn't valid. Check the parameters and try your request again.</p>
+            aws_sdk_lex_models_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3415,6 +3897,13 @@ class LexModelsV2Client:
             locale_id: <p>The identifier of the language and locale of the bot recommendation list.</p>
             max_results: <p>The maximum number of bot recommendations to return in each page of results. If there are fewer results than the max page size, only the actual number of results are returned.</p>
             next_token: <p>If the response from the ListBotRecommendation operation contains more results than specified in the maxResults parameter, a token is returned in the response. Use that token in the nextToken parameter to return the next page of results.</p>
+
+        Raises:
+            aws_sdk_lex_models_v2.errors.internal_server_exception.InternalServerException: <p>The service encountered an unexpected condition. Try your request again.</p>
+            aws_sdk_lex_models_v2.errors.resource_not_found_exception.ResourceNotFoundException: <p>You asked to describe a resource that doesn't exist. Check the resource that you are requesting and try again.</p>
+            aws_sdk_lex_models_v2.errors.throttling_exception.ThrottlingException: <p>Your request rate is too high. Reduce the frequency of requests.</p>
+            aws_sdk_lex_models_v2.errors.validation_exception.ValidationException: <p>One of the input parameters in your request isn't valid. Check the parameters and try your request again.</p>
+            aws_sdk_lex_models_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3460,6 +3949,13 @@ class LexModelsV2Client:
 
         Args:
             bot_id: <p>The request for the unique bot IDs in the list of replicated bots.</p>
+
+        Raises:
+            aws_sdk_lex_models_v2.errors.internal_server_exception.InternalServerException: <p>The service encountered an unexpected condition. Try your request again.</p>
+            aws_sdk_lex_models_v2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You have reached a quota for your bot. </p>
+            aws_sdk_lex_models_v2.errors.throttling_exception.ThrottlingException: <p>Your request rate is too high. Reduce the frequency of requests.</p>
+            aws_sdk_lex_models_v2.errors.validation_exception.ValidationException: <p>One of the input parameters in your request isn't valid. Check the parameters and try your request again.</p>
+            aws_sdk_lex_models_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3511,6 +4007,13 @@ class LexModelsV2Client:
             sort_by: <p>An object containing information about the attribute and the method by which to sort the results</p>
             max_results: <p>The maximum number of results to return in the response.</p>
             next_token: <p>If the total number of results is greater than the number specified in the <code>maxResults</code>, the response returns a token in the <code>nextToken</code> field. Use this token when making a request to return the next batch of results.</p>
+
+        Raises:
+            aws_sdk_lex_models_v2.errors.internal_server_exception.InternalServerException: <p>The service encountered an unexpected condition. Try your request again.</p>
+            aws_sdk_lex_models_v2.errors.resource_not_found_exception.ResourceNotFoundException: <p>You asked to describe a resource that doesn't exist. Check the resource that you are requesting and try again.</p>
+            aws_sdk_lex_models_v2.errors.throttling_exception.ThrottlingException: <p>Your request rate is too high. Reduce the frequency of requests.</p>
+            aws_sdk_lex_models_v2.errors.validation_exception.ValidationException: <p>One of the input parameters in your request isn't valid. Check the parameters and try your request again.</p>
+            aws_sdk_lex_models_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3564,6 +4067,13 @@ class LexModelsV2Client:
             filters: <p>Provides the specification of a filter used to limit the bots in the response to only those that match the filter specification. You can only specify one filter and one string to filter on.</p>
             max_results: <p>The maximum number of bots to return in each page of results. If there are fewer results than the maximum page size, only the actual number of results are returned.</p>
             next_token: <p>If the response from the <code>ListBots</code> operation contains more results than specified in the <code>maxResults</code> parameter, a token is returned in the response. </p> <p>Use the returned token in the <code>nextToken</code> parameter of a <code>ListBots</code> request to return the next page of results. For a complete set of results, call the <code>ListBots</code> operation until the <code>nextToken</code> returned in the response is null.</p>
+
+        Raises:
+            aws_sdk_lex_models_v2.errors.internal_server_exception.InternalServerException: <p>The service encountered an unexpected condition. Try your request again.</p>
+            aws_sdk_lex_models_v2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You have reached a quota for your bot. </p>
+            aws_sdk_lex_models_v2.errors.throttling_exception.ThrottlingException: <p>Your request rate is too high. Reduce the frequency of requests.</p>
+            aws_sdk_lex_models_v2.errors.validation_exception.ValidationException: <p>One of the input parameters in your request isn't valid. Check the parameters and try your request again.</p>
+            aws_sdk_lex_models_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3620,6 +4130,13 @@ class LexModelsV2Client:
             max_results: <p>The maximum results given in the list of replicated bots.</p>
             next_token: <p>The next token given in the list of replicated bots.</p>
             sort_by: <p>The requested sort category for the list of replicated bots.</p>
+
+        Raises:
+            aws_sdk_lex_models_v2.errors.internal_server_exception.InternalServerException: <p>The service encountered an unexpected condition. Try your request again.</p>
+            aws_sdk_lex_models_v2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You have reached a quota for your bot. </p>
+            aws_sdk_lex_models_v2.errors.throttling_exception.ThrottlingException: <p>Your request rate is too high. Reduce the frequency of requests.</p>
+            aws_sdk_lex_models_v2.errors.validation_exception.ValidationException: <p>One of the input parameters in your request isn't valid. Check the parameters and try your request again.</p>
+            aws_sdk_lex_models_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3676,6 +4193,13 @@ class LexModelsV2Client:
             sort_by: <p>Specifies sorting parameters for the list of versions. You can specify that the list be sorted by version name in either ascending or descending order.</p>
             max_results: <p>The maximum number of versions to return in each page of results. If there are fewer results than the max page size, only the actual number of results are returned.</p>
             next_token: <p>If the response to the <code>ListBotVersion</code> operation contains more results than specified in the <code>maxResults</code> parameter, a token is returned in the response. Use that token in the <code>nextToken</code> parameter to return the next page of results.</p>
+
+        Raises:
+            aws_sdk_lex_models_v2.errors.internal_server_exception.InternalServerException: <p>The service encountered an unexpected condition. Try your request again.</p>
+            aws_sdk_lex_models_v2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You have reached a quota for your bot. </p>
+            aws_sdk_lex_models_v2.errors.throttling_exception.ThrottlingException: <p>Your request rate is too high. Reduce the frequency of requests.</p>
+            aws_sdk_lex_models_v2.errors.validation_exception.ValidationException: <p>One of the input parameters in your request isn't valid. Check the parameters and try your request again.</p>
+            aws_sdk_lex_models_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3729,6 +4253,13 @@ class LexModelsV2Client:
             sort_by: <p>Specifies sorting parameters for the list of built-in intents. You can specify that the list be sorted by the built-in intent signature in either ascending or descending order.</p>
             max_results: <p>The maximum number of built-in intents to return in each page of results. If there are fewer results than the max page size, only the actual number of results are returned.</p>
             next_token: <p>If the response from the <code>ListBuiltInIntents</code> operation contains more results than specified in the <code>maxResults</code> parameter, a token is returned in the response. Use that token in the <code>nextToken</code> parameter to return the next page of results.</p>
+
+        Raises:
+            aws_sdk_lex_models_v2.errors.internal_server_exception.InternalServerException: <p>The service encountered an unexpected condition. Try your request again.</p>
+            aws_sdk_lex_models_v2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You have reached a quota for your bot. </p>
+            aws_sdk_lex_models_v2.errors.throttling_exception.ThrottlingException: <p>Your request rate is too high. Reduce the frequency of requests.</p>
+            aws_sdk_lex_models_v2.errors.validation_exception.ValidationException: <p>One of the input parameters in your request isn't valid. Check the parameters and try your request again.</p>
+            aws_sdk_lex_models_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3782,6 +4313,13 @@ class LexModelsV2Client:
             sort_by: <p>Determines the sort order for the response from the <code>ListBuiltInSlotTypes</code> operation. You can choose to sort by the slot type signature in either ascending or descending order.</p>
             max_results: <p>The maximum number of built-in slot types to return in each page of results. If there are fewer results than the max page size, only the actual number of results are returned.</p>
             next_token: <p>If the response from the <code>ListBuiltInSlotTypes</code> operation contains more results than specified in the <code>maxResults</code> parameter, a token is returned in the response. Use that token in the <code>nextToken</code> parameter to return the next page of results.</p>
+
+        Raises:
+            aws_sdk_lex_models_v2.errors.internal_server_exception.InternalServerException: <p>The service encountered an unexpected condition. Try your request again.</p>
+            aws_sdk_lex_models_v2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You have reached a quota for your bot. </p>
+            aws_sdk_lex_models_v2.errors.throttling_exception.ThrottlingException: <p>Your request rate is too high. Reduce the frequency of requests.</p>
+            aws_sdk_lex_models_v2.errors.validation_exception.ValidationException: <p>One of the input parameters in your request isn't valid. Check the parameters and try your request again.</p>
+            aws_sdk_lex_models_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3835,6 +4373,14 @@ class LexModelsV2Client:
             locale_id: <p>The identifier of the language and locale where this custom vocabulary is used. The string must match one of the supported locales. For more information, see Supported languages (https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html).</p>
             max_results: <p>The maximum number of items returned by the list operation.</p>
             next_token: <p>The nextToken identifier to the list custom vocabulary request.</p>
+
+        Raises:
+            aws_sdk_lex_models_v2.errors.internal_server_exception.InternalServerException: <p>The service encountered an unexpected condition. Try your request again.</p>
+            aws_sdk_lex_models_v2.errors.resource_not_found_exception.ResourceNotFoundException: <p>You asked to describe a resource that doesn't exist. Check the resource that you are requesting and try again.</p>
+            aws_sdk_lex_models_v2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You have reached a quota for your bot. </p>
+            aws_sdk_lex_models_v2.errors.throttling_exception.ThrottlingException: <p>Your request rate is too high. Reduce the frequency of requests.</p>
+            aws_sdk_lex_models_v2.errors.validation_exception.ValidationException: <p>One of the input parameters in your request isn't valid. Check the parameters and try your request again.</p>
+            aws_sdk_lex_models_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3898,6 +4444,12 @@ class LexModelsV2Client:
             max_results: <p>The maximum number of exports to return in each page of results. If there are fewer results than the max page size, only the actual number of results are returned.</p>
             next_token: <p>If the response from the <code>ListExports</code> operation contains more results that specified in the <code>maxResults</code> parameter, a token is returned in the response. </p> <p>Use the returned token in the <code>nextToken</code> parameter of a <code>ListExports</code> request to return the next page of results. For a complete set of results, call the <code>ListExports</code> operation until the <code>nextToken</code> returned in the response is null.</p>
             locale_id: <p>Specifies the resources that should be exported. If you don't specify a resource type in the <code>filters</code> parameter, both bot locales and custom vocabularies are exported.</p>
+
+        Raises:
+            aws_sdk_lex_models_v2.errors.internal_server_exception.InternalServerException: <p>The service encountered an unexpected condition. Try your request again.</p>
+            aws_sdk_lex_models_v2.errors.throttling_exception.ThrottlingException: <p>Your request rate is too high. Reduce the frequency of requests.</p>
+            aws_sdk_lex_models_v2.errors.validation_exception.ValidationException: <p>One of the input parameters in your request isn't valid. Check the parameters and try your request again.</p>
+            aws_sdk_lex_models_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3968,6 +4520,12 @@ class LexModelsV2Client:
             max_results: <p>The maximum number of imports to return in each page of results. If there are fewer results than the max page size, only the actual number of results are returned.</p>
             next_token: <p>If the response from the <code>ListImports</code> operation contains more results than specified in the <code>maxResults</code> parameter, a token is returned in the response.</p> <p>Use the returned token in the <code>nextToken</code> parameter of a <code>ListImports</code> request to return the next page of results. For a complete set of results, call the <code>ListImports</code> operation until the <code>nextToken</code> returned in the response is null.</p>
             locale_id: <p>Specifies the locale that should be present in the list. If you don't specify a resource type in the <code>filters</code> parameter, the list contains both bot locales and custom vocabularies.</p>
+
+        Raises:
+            aws_sdk_lex_models_v2.errors.internal_server_exception.InternalServerException: <p>The service encountered an unexpected condition. Try your request again.</p>
+            aws_sdk_lex_models_v2.errors.throttling_exception.ThrottlingException: <p>Your request rate is too high. Reduce the frequency of requests.</p>
+            aws_sdk_lex_models_v2.errors.validation_exception.ValidationException: <p>One of the input parameters in your request isn't valid. Check the parameters and try your request again.</p>
+            aws_sdk_lex_models_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4042,6 +4600,14 @@ class LexModelsV2Client:
             filters: <p>A list of objects, each of which describes a condition by which you want to filter the results.</p>
             max_results: <p>The maximum number of results to return in each page of results. If there are fewer results than the maximum page size, only the actual number of results are returned.</p>
             next_token: <p>If the response from the ListIntentMetrics operation contains more results than specified in the maxResults parameter, a token is returned in the response.</p> <p>Use the returned token in the nextToken parameter of a ListIntentMetrics request to return the next page of results. For a complete set of results, call the ListIntentMetrics operation until the nextToken returned in the response is null.</p>
+
+        Raises:
+            aws_sdk_lex_models_v2.errors.internal_server_exception.InternalServerException: <p>The service encountered an unexpected condition. Try your request again.</p>
+            aws_sdk_lex_models_v2.errors.precondition_failed_exception.PreconditionFailedException: <p>Your request couldn't be completed because one or more request fields aren't valid. Check the fields in your request and try again.</p>
+            aws_sdk_lex_models_v2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You have reached a quota for your bot. </p>
+            aws_sdk_lex_models_v2.errors.throttling_exception.ThrottlingException: <p>Your request rate is too high. Reduce the frequency of requests.</p>
+            aws_sdk_lex_models_v2.errors.validation_exception.ValidationException: <p>One of the input parameters in your request isn't valid. Check the parameters and try your request again.</p>
+            aws_sdk_lex_models_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4104,6 +4670,14 @@ class LexModelsV2Client:
             end_date_time: <p>The date and time that marks the end of the range of time for which you want to see intent path metrics.</p>
             intent_path: <p>The intent path for which you want to retrieve metrics. Use a forward slash to separate intents in the path. For example:</p> <ul> <li> <p>/BookCar</p> </li> <li> <p>/BookCar/BookHotel</p> </li> <li> <p>/BookHotel/BookCar</p> </li> </ul>
             filters: <p>A list of objects, each describes a condition by which you want to filter the results.</p>
+
+        Raises:
+            aws_sdk_lex_models_v2.errors.internal_server_exception.InternalServerException: <p>The service encountered an unexpected condition. Try your request again.</p>
+            aws_sdk_lex_models_v2.errors.precondition_failed_exception.PreconditionFailedException: <p>Your request couldn't be completed because one or more request fields aren't valid. Check the fields in your request and try again.</p>
+            aws_sdk_lex_models_v2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You have reached a quota for your bot. </p>
+            aws_sdk_lex_models_v2.errors.throttling_exception.ThrottlingException: <p>Your request rate is too high. Reduce the frequency of requests.</p>
+            aws_sdk_lex_models_v2.errors.validation_exception.ValidationException: <p>One of the input parameters in your request isn't valid. Check the parameters and try your request again.</p>
+            aws_sdk_lex_models_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4164,6 +4738,13 @@ class LexModelsV2Client:
             filters: <p>Provides the specification of a filter used to limit the intents in the response to only those that match the filter specification. You can only specify one filter and only one string to filter on.</p>
             max_results: <p>The maximum number of intents to return in each page of results. If there are fewer results than the max page size, only the actual number of results are returned.</p>
             next_token: <p>If the response from the <code>ListIntents</code> operation contains more results than specified in the <code>maxResults</code> parameter, a token is returned in the response.</p> <p>Use the returned token in the <code>nextToken</code> parameter of a <code>ListIntents</code> request to return the next page of results. For a complete set of results, call the <code>ListIntents</code> operation until the <code>nextToken</code> returned in the response is null.</p>
+
+        Raises:
+            aws_sdk_lex_models_v2.errors.internal_server_exception.InternalServerException: <p>The service encountered an unexpected condition. Try your request again.</p>
+            aws_sdk_lex_models_v2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You have reached a quota for your bot. </p>
+            aws_sdk_lex_models_v2.errors.throttling_exception.ThrottlingException: <p>Your request rate is too high. Reduce the frequency of requests.</p>
+            aws_sdk_lex_models_v2.errors.validation_exception.ValidationException: <p>One of the input parameters in your request isn't valid. Check the parameters and try your request again.</p>
+            aws_sdk_lex_models_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4235,6 +4816,14 @@ class LexModelsV2Client:
             filters: <p>A list of objects, each of which describes a condition by which you want to filter the results.</p>
             max_results: <p>The maximum number of results to return in each page of results. If there are fewer results than the maximum page size, only the actual number of results are returned.</p>
             next_token: <p>If the response from the ListIntentStageMetrics operation contains more results than specified in the maxResults parameter, a token is returned in the response.</p> <p>Use the returned token in the nextToken parameter of a ListIntentStageMetrics request to return the next page of results. For a complete set of results, call the ListIntentStageMetrics operation until the nextToken returned in the response is null.</p>
+
+        Raises:
+            aws_sdk_lex_models_v2.errors.internal_server_exception.InternalServerException: <p>The service encountered an unexpected condition. Try your request again.</p>
+            aws_sdk_lex_models_v2.errors.precondition_failed_exception.PreconditionFailedException: <p>Your request couldn't be completed because one or more request fields aren't valid. Check the fields in your request and try again.</p>
+            aws_sdk_lex_models_v2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You have reached a quota for your bot. </p>
+            aws_sdk_lex_models_v2.errors.throttling_exception.ThrottlingException: <p>Your request rate is too high. Reduce the frequency of requests.</p>
+            aws_sdk_lex_models_v2.errors.validation_exception.ValidationException: <p>One of the input parameters in your request isn't valid. Check the parameters and try your request again.</p>
+            aws_sdk_lex_models_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4297,6 +4886,14 @@ class LexModelsV2Client:
             bot_recommendation_id: <p>The identifier of the bot recommendation that contains the recommended intents.</p>
             next_token: <p>If the response from the ListRecommendedIntents operation contains more results than specified in the maxResults parameter, a token is returned in the response. Use that token in the nextToken parameter to return the next page of results.</p>
             max_results: <p>The maximum number of bot recommendations to return in each page of results. If there are fewer results than the max page size, only the actual number of results are returned.</p>
+
+        Raises:
+            aws_sdk_lex_models_v2.errors.internal_server_exception.InternalServerException: <p>The service encountered an unexpected condition. Try your request again.</p>
+            aws_sdk_lex_models_v2.errors.resource_not_found_exception.ResourceNotFoundException: <p>You asked to describe a resource that doesn't exist. Check the resource that you are requesting and try again.</p>
+            aws_sdk_lex_models_v2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You have reached a quota for your bot. </p>
+            aws_sdk_lex_models_v2.errors.throttling_exception.ThrottlingException: <p>Your request rate is too high. Reduce the frequency of requests.</p>
+            aws_sdk_lex_models_v2.errors.validation_exception.ValidationException: <p>One of the input parameters in your request isn't valid. Check the parameters and try your request again.</p>
+            aws_sdk_lex_models_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4359,6 +4956,14 @@ class LexModelsV2Client:
             filters: <p>A list of objects, each of which describes a condition by which you want to filter the results.</p>
             max_results: <p>The maximum number of results to return in each page of results. If there are fewer results than the maximum page size, only the actual number of results are returned.</p>
             next_token: <p>If the response from the ListSessionAnalyticsData operation contains more results than specified in the maxResults parameter, a token is returned in the response.</p> <p>Use the returned token in the nextToken parameter of a ListSessionAnalyticsData request to return the next page of results. For a complete set of results, call the ListSessionAnalyticsData operation until the nextToken returned in the response is null.</p>
+
+        Raises:
+            aws_sdk_lex_models_v2.errors.internal_server_exception.InternalServerException: <p>The service encountered an unexpected condition. Try your request again.</p>
+            aws_sdk_lex_models_v2.errors.precondition_failed_exception.PreconditionFailedException: <p>Your request couldn't be completed because one or more request fields aren't valid. Check the fields in your request and try again.</p>
+            aws_sdk_lex_models_v2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You have reached a quota for your bot. </p>
+            aws_sdk_lex_models_v2.errors.throttling_exception.ThrottlingException: <p>Your request rate is too high. Reduce the frequency of requests.</p>
+            aws_sdk_lex_models_v2.errors.validation_exception.ValidationException: <p>One of the input parameters in your request isn't valid. Check the parameters and try your request again.</p>
+            aws_sdk_lex_models_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4430,6 +5035,14 @@ class LexModelsV2Client:
             filters: <p>A list of objects, each of which describes a condition by which you want to filter the results.</p>
             max_results: <p>The maximum number of results to return in each page of results. If there are fewer results than the maximum page size, only the actual number of results are returned.</p>
             next_token: <p>If the response from the ListSessionMetrics operation contains more results than specified in the maxResults parameter, a token is returned in the response.</p> <p>Use the returned token in the nextToken parameter of a ListSessionMetrics request to return the next page of results. For a complete set of results, call the ListSessionMetrics operation until the nextToken returned in the response is null.</p>
+
+        Raises:
+            aws_sdk_lex_models_v2.errors.internal_server_exception.InternalServerException: <p>The service encountered an unexpected condition. Try your request again.</p>
+            aws_sdk_lex_models_v2.errors.precondition_failed_exception.PreconditionFailedException: <p>Your request couldn't be completed because one or more request fields aren't valid. Check the fields in your request and try again.</p>
+            aws_sdk_lex_models_v2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You have reached a quota for your bot. </p>
+            aws_sdk_lex_models_v2.errors.throttling_exception.ThrottlingException: <p>Your request rate is too high. Reduce the frequency of requests.</p>
+            aws_sdk_lex_models_v2.errors.validation_exception.ValidationException: <p>One of the input parameters in your request isn't valid. Check the parameters and try your request again.</p>
+            aws_sdk_lex_models_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4498,6 +5111,13 @@ class LexModelsV2Client:
             filters: <p>Provides the specification of a filter used to limit the slots in the response to only those that match the filter specification. You can only specify one filter and only one string to filter on.</p>
             max_results: <p>The maximum number of slots to return in each page of results. If there are fewer results than the max page size, only the actual number of results are returned.</p>
             next_token: <p>If the response from the <code>ListSlots</code> operation contains more results than specified in the <code>maxResults</code> parameter, a token is returned in the response. Use that token in the <code>nextToken</code> parameter to return the next page of results.</p>
+
+        Raises:
+            aws_sdk_lex_models_v2.errors.internal_server_exception.InternalServerException: <p>The service encountered an unexpected condition. Try your request again.</p>
+            aws_sdk_lex_models_v2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You have reached a quota for your bot. </p>
+            aws_sdk_lex_models_v2.errors.throttling_exception.ThrottlingException: <p>Your request rate is too high. Reduce the frequency of requests.</p>
+            aws_sdk_lex_models_v2.errors.validation_exception.ValidationException: <p>One of the input parameters in your request isn't valid. Check the parameters and try your request again.</p>
+            aws_sdk_lex_models_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4564,6 +5184,13 @@ class LexModelsV2Client:
             filters: <p>Provides the specification of a filter used to limit the slot types in the response to only those that match the filter specification. You can only specify one filter and only one string to filter on.</p>
             max_results: <p>The maximum number of slot types to return in each page of results. If there are fewer results than the max page size, only the actual number of results are returned.</p>
             next_token: <p>If the response from the <code>ListSlotTypes</code> operation contains more results than specified in the <code>maxResults</code> parameter, a token is returned in the response. Use that token in the <code>nextToken</code> parameter to return the next page of results.</p>
+
+        Raises:
+            aws_sdk_lex_models_v2.errors.internal_server_exception.InternalServerException: <p>The service encountered an unexpected condition. Try your request again.</p>
+            aws_sdk_lex_models_v2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You have reached a quota for your bot. </p>
+            aws_sdk_lex_models_v2.errors.throttling_exception.ThrottlingException: <p>Your request rate is too high. Reduce the frequency of requests.</p>
+            aws_sdk_lex_models_v2.errors.validation_exception.ValidationException: <p>One of the input parameters in your request isn't valid. Check the parameters and try your request again.</p>
+            aws_sdk_lex_models_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4611,6 +5238,13 @@ class LexModelsV2Client:
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource to get a list of tags for.</p>
+
+        Raises:
+            aws_sdk_lex_models_v2.errors.internal_server_exception.InternalServerException: <p>The service encountered an unexpected condition. Try your request again.</p>
+            aws_sdk_lex_models_v2.errors.resource_not_found_exception.ResourceNotFoundException: <p>You asked to describe a resource that doesn't exist. Check the resource that you are requesting and try again.</p>
+            aws_sdk_lex_models_v2.errors.throttling_exception.ThrottlingException: <p>Your request rate is too high. Reduce the frequency of requests.</p>
+            aws_sdk_lex_models_v2.errors.validation_exception.ValidationException: <p>One of the input parameters in your request isn't valid. Check the parameters and try your request again.</p>
+            aws_sdk_lex_models_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4656,6 +5290,14 @@ class LexModelsV2Client:
             result_filter_by: <p>The filter for the list of results from the test set execution.</p>
             max_results: <p>The maximum number of test execution result items to return in each page. If there are fewer results than the max page size, only the actual number of results are returned.</p>
             next_token: <p>If the response from the <code>ListTestExecutionResultItems</code> operation contains more results than specified in the <code>maxResults</code> parameter, a token is returned in the response. Use that token in the <code>nextToken</code> parameter to return the next page of results.</p>
+
+        Raises:
+            aws_sdk_lex_models_v2.errors.internal_server_exception.InternalServerException: <p>The service encountered an unexpected condition. Try your request again.</p>
+            aws_sdk_lex_models_v2.errors.resource_not_found_exception.ResourceNotFoundException: <p>You asked to describe a resource that doesn't exist. Check the resource that you are requesting and try again.</p>
+            aws_sdk_lex_models_v2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You have reached a quota for your bot. </p>
+            aws_sdk_lex_models_v2.errors.throttling_exception.ThrottlingException: <p>Your request rate is too high. Reduce the frequency of requests.</p>
+            aws_sdk_lex_models_v2.errors.validation_exception.ValidationException: <p>One of the input parameters in your request isn't valid. Check the parameters and try your request again.</p>
+            aws_sdk_lex_models_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4706,6 +5348,13 @@ class LexModelsV2Client:
             sort_by: <p>The sort order of the test set executions.</p>
             max_results: <p>The maximum number of test executions to return in each page. If there are fewer results than the max page size, only the actual number of results are returned.</p>
             next_token: <p>If the response from the ListTestExecutions operation contains more results than specified in the maxResults parameter, a token is returned in the response. Use that token in the nextToken parameter to return the next page of results.</p>
+
+        Raises:
+            aws_sdk_lex_models_v2.errors.internal_server_exception.InternalServerException: <p>The service encountered an unexpected condition. Try your request again.</p>
+            aws_sdk_lex_models_v2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You have reached a quota for your bot. </p>
+            aws_sdk_lex_models_v2.errors.throttling_exception.ThrottlingException: <p>Your request rate is too high. Reduce the frequency of requests.</p>
+            aws_sdk_lex_models_v2.errors.validation_exception.ValidationException: <p>One of the input parameters in your request isn't valid. Check the parameters and try your request again.</p>
+            aws_sdk_lex_models_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4754,6 +5403,14 @@ class LexModelsV2Client:
             test_set_id: <p>The identifier of the test set to list its test set records.</p>
             max_results: <p>The maximum number of test set records to return in each page. If there are fewer records than the max page size, only the actual number of records are returned.</p>
             next_token: <p>If the response from the ListTestSetRecords operation contains more results than specified in the maxResults parameter, a token is returned in the response. Use that token in the nextToken parameter to return the next page of results.</p>
+
+        Raises:
+            aws_sdk_lex_models_v2.errors.internal_server_exception.InternalServerException: <p>The service encountered an unexpected condition. Try your request again.</p>
+            aws_sdk_lex_models_v2.errors.resource_not_found_exception.ResourceNotFoundException: <p>You asked to describe a resource that doesn't exist. Check the resource that you are requesting and try again.</p>
+            aws_sdk_lex_models_v2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You have reached a quota for your bot. </p>
+            aws_sdk_lex_models_v2.errors.throttling_exception.ThrottlingException: <p>Your request rate is too high. Reduce the frequency of requests.</p>
+            aws_sdk_lex_models_v2.errors.validation_exception.ValidationException: <p>One of the input parameters in your request isn't valid. Check the parameters and try your request again.</p>
+            aws_sdk_lex_models_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4803,6 +5460,13 @@ class LexModelsV2Client:
             sort_by: <p>The sort order for the list of test sets.</p>
             max_results: <p>The maximum number of test sets to return in each page. If there are fewer results than the max page size, only the actual number of results are returned.</p>
             next_token: <p>If the response from the ListTestSets operation contains more results than specified in the maxResults parameter, a token is returned in the response. Use that token in the nextToken parameter to return the next page of results.</p>
+
+        Raises:
+            aws_sdk_lex_models_v2.errors.internal_server_exception.InternalServerException: <p>The service encountered an unexpected condition. Try your request again.</p>
+            aws_sdk_lex_models_v2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You have reached a quota for your bot. </p>
+            aws_sdk_lex_models_v2.errors.throttling_exception.ThrottlingException: <p>Your request rate is too high. Reduce the frequency of requests.</p>
+            aws_sdk_lex_models_v2.errors.validation_exception.ValidationException: <p>One of the input parameters in your request isn't valid. Check the parameters and try your request again.</p>
+            aws_sdk_lex_models_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4863,6 +5527,14 @@ class LexModelsV2Client:
             filters: <p>A list of objects, each of which describes a condition by which you want to filter the results.</p>
             max_results: <p>The maximum number of results to return in each page of results. If there are fewer results than the maximum page size, only the actual number of results are returned.</p>
             next_token: <p>If the response from the ListUtteranceAnalyticsData operation contains more results than specified in the maxResults parameter, a token is returned in the response.</p> <p>Use the returned token in the nextToken parameter of a ListUtteranceAnalyticsData request to return the next page of results. For a complete set of results, call the ListUtteranceAnalyticsData operation until the nextToken returned in the response is null.</p>
+
+        Raises:
+            aws_sdk_lex_models_v2.errors.internal_server_exception.InternalServerException: <p>The service encountered an unexpected condition. Try your request again.</p>
+            aws_sdk_lex_models_v2.errors.precondition_failed_exception.PreconditionFailedException: <p>Your request couldn't be completed because one or more request fields aren't valid. Check the fields in your request and try again.</p>
+            aws_sdk_lex_models_v2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You have reached a quota for your bot. </p>
+            aws_sdk_lex_models_v2.errors.throttling_exception.ThrottlingException: <p>Your request rate is too high. Reduce the frequency of requests.</p>
+            aws_sdk_lex_models_v2.errors.validation_exception.ValidationException: <p>One of the input parameters in your request isn't valid. Check the parameters and try your request again.</p>
+            aws_sdk_lex_models_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4938,6 +5610,14 @@ class LexModelsV2Client:
             filters: <p>A list of objects, each of which describes a condition by which you want to filter the results.</p>
             max_results: <p>The maximum number of results to return in each page of results. If there are fewer results than the maximum page size, only the actual number of results are returned.</p>
             next_token: <p>If the response from the ListUtteranceMetrics operation contains more results than specified in the maxResults parameter, a token is returned in the response.</p> <p>Use the returned token in the nextToken parameter of a ListUtteranceMetrics request to return the next page of results. For a complete set of results, call the ListUtteranceMetrics operation until the nextToken returned in the response is null.</p>
+
+        Raises:
+            aws_sdk_lex_models_v2.errors.internal_server_exception.InternalServerException: <p>The service encountered an unexpected condition. Try your request again.</p>
+            aws_sdk_lex_models_v2.errors.precondition_failed_exception.PreconditionFailedException: <p>Your request couldn't be completed because one or more request fields aren't valid. Check the fields in your request and try again.</p>
+            aws_sdk_lex_models_v2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You have reached a quota for your bot. </p>
+            aws_sdk_lex_models_v2.errors.throttling_exception.ThrottlingException: <p>Your request rate is too high. Reduce the frequency of requests.</p>
+            aws_sdk_lex_models_v2.errors.validation_exception.ValidationException: <p>One of the input parameters in your request isn't valid. Check the parameters and try your request again.</p>
+            aws_sdk_lex_models_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5008,6 +5688,14 @@ class LexModelsV2Client:
             filters: <p>A list of filter objects.</p>
             max_results: <p>The maximum number of bot recommendations to return in each page of results. If there are fewer results than the max page size, only the actual number of results are returned.</p>
             next_index: <p>If the response from the SearchAssociatedTranscriptsRequest operation contains more results than specified in the maxResults parameter, an index is returned in the response. Use that index in the nextIndex parameter to return the next page of results.</p>
+
+        Raises:
+            aws_sdk_lex_models_v2.errors.internal_server_exception.InternalServerException: <p>The service encountered an unexpected condition. Try your request again.</p>
+            aws_sdk_lex_models_v2.errors.resource_not_found_exception.ResourceNotFoundException: <p>You asked to describe a resource that doesn't exist. Check the resource that you are requesting and try again.</p>
+            aws_sdk_lex_models_v2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You have reached a quota for your bot. </p>
+            aws_sdk_lex_models_v2.errors.throttling_exception.ThrottlingException: <p>Your request rate is too high. Reduce the frequency of requests.</p>
+            aws_sdk_lex_models_v2.errors.validation_exception.ValidationException: <p>One of the input parameters in your request isn't valid. Check the parameters and try your request again.</p>
+            aws_sdk_lex_models_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5063,6 +5751,14 @@ class LexModelsV2Client:
             analysis_scope: <p>The scope of analysis to perform. Currently only <code>BotLocale</code> scope is supported.</p> <p>Valid Values: <code>BotLocale</code> </p>
             locale_id: <p>The locale identifier for the bot locale to analyze. Required when <code>analysisScope</code> is <code>BotLocale</code>.</p>
             bot_version: <p>The version of the bot to analyze. Defaults to <code>DRAFT</code> if not specified.</p>
+
+        Raises:
+            aws_sdk_lex_models_v2.errors.conflict_exception.ConflictException: <p>The action that you tried to perform couldn't be completed because the resource is in a conflicting state. For example, deleting a bot that is in the CREATING state. Try your request again. </p>
+            aws_sdk_lex_models_v2.errors.internal_server_exception.InternalServerException: <p>The service encountered an unexpected condition. Try your request again.</p>
+            aws_sdk_lex_models_v2.errors.resource_not_found_exception.ResourceNotFoundException: <p>You asked to describe a resource that doesn't exist. Check the resource that you are requesting and try again.</p>
+            aws_sdk_lex_models_v2.errors.throttling_exception.ThrottlingException: <p>Your request rate is too high. Reduce the frequency of requests.</p>
+            aws_sdk_lex_models_v2.errors.validation_exception.ValidationException: <p>One of the input parameters in your request isn't valid. Check the parameters and try your request again.</p>
+            aws_sdk_lex_models_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5115,6 +5811,16 @@ class LexModelsV2Client:
             locale_id: <p>The identifier of the language and locale of the bot recommendation to start. The string must match one of the supported locales. For more information, see <a href=\"https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html\">Supported languages</a> </p>
             transcript_source_setting: <p>The object representing the Amazon S3 bucket containing the transcript, as well as the associated metadata.</p>
             encryption_setting: <p>The object representing the passwords that will be used to encrypt the data related to the bot recommendation results, as well as the KMS key ARN used to encrypt the associated metadata.</p>
+
+        Raises:
+            aws_sdk_lex_models_v2.errors.conflict_exception.ConflictException: <p>The action that you tried to perform couldn't be completed because the resource is in a conflicting state. For example, deleting a bot that is in the CREATING state. Try your request again. </p>
+            aws_sdk_lex_models_v2.errors.internal_server_exception.InternalServerException: <p>The service encountered an unexpected condition. Try your request again.</p>
+            aws_sdk_lex_models_v2.errors.precondition_failed_exception.PreconditionFailedException: <p>Your request couldn't be completed because one or more request fields aren't valid. Check the fields in your request and try again.</p>
+            aws_sdk_lex_models_v2.errors.resource_not_found_exception.ResourceNotFoundException: <p>You asked to describe a resource that doesn't exist. Check the resource that you are requesting and try again.</p>
+            aws_sdk_lex_models_v2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You have reached a quota for your bot. </p>
+            aws_sdk_lex_models_v2.errors.throttling_exception.ThrottlingException: <p>Your request rate is too high. Reduce the frequency of requests.</p>
+            aws_sdk_lex_models_v2.errors.validation_exception.ValidationException: <p>One of the input parameters in your request isn't valid. Check the parameters and try your request again.</p>
+            aws_sdk_lex_models_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5163,6 +5869,15 @@ class LexModelsV2Client:
             bot_id: <p>The unique identifier of the bot for which to generate intents and slot types.</p>
             bot_version: <p>The version of the bot for which to generate intents and slot types.</p>
             locale_id: <p>The locale of the bot for which to generate intents and slot types.</p>
+
+        Raises:
+            aws_sdk_lex_models_v2.errors.conflict_exception.ConflictException: <p>The action that you tried to perform couldn't be completed because the resource is in a conflicting state. For example, deleting a bot that is in the CREATING state. Try your request again. </p>
+            aws_sdk_lex_models_v2.errors.internal_server_exception.InternalServerException: <p>The service encountered an unexpected condition. Try your request again.</p>
+            aws_sdk_lex_models_v2.errors.precondition_failed_exception.PreconditionFailedException: <p>Your request couldn't be completed because one or more request fields aren't valid. Check the fields in your request and try again.</p>
+            aws_sdk_lex_models_v2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You have reached a quota for your bot. </p>
+            aws_sdk_lex_models_v2.errors.throttling_exception.ThrottlingException: <p>Your request rate is too high. Reduce the frequency of requests.</p>
+            aws_sdk_lex_models_v2.errors.validation_exception.ValidationException: <p>One of the input parameters in your request isn't valid. Check the parameters and try your request again.</p>
+            aws_sdk_lex_models_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5211,6 +5926,15 @@ class LexModelsV2Client:
             resource_specification: <p>Parameters for creating the bot, bot locale or custom vocabulary.</p>
             merge_strategy: <p>The strategy to use when there is a name conflict between the imported resource and an existing resource. When the merge strategy is <code>FailOnConflict</code> existing resources are not overwritten and the import fails.</p>
             file_password: <p>The password used to encrypt the zip archive that contains the resource definition. You should always encrypt the zip archive to protect it during transit between your site and Amazon Lex.</p>
+
+        Raises:
+            aws_sdk_lex_models_v2.errors.conflict_exception.ConflictException: <p>The action that you tried to perform couldn't be completed because the resource is in a conflicting state. For example, deleting a bot that is in the CREATING state. Try your request again. </p>
+            aws_sdk_lex_models_v2.errors.internal_server_exception.InternalServerException: <p>The service encountered an unexpected condition. Try your request again.</p>
+            aws_sdk_lex_models_v2.errors.resource_not_found_exception.ResourceNotFoundException: <p>You asked to describe a resource that doesn't exist. Check the resource that you are requesting and try again.</p>
+            aws_sdk_lex_models_v2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You have reached a quota for your bot. </p>
+            aws_sdk_lex_models_v2.errors.throttling_exception.ThrottlingException: <p>Your request rate is too high. Reduce the frequency of requests.</p>
+            aws_sdk_lex_models_v2.errors.validation_exception.ValidationException: <p>One of the input parameters in your request isn't valid. Check the parameters and try your request again.</p>
+            aws_sdk_lex_models_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5260,6 +5984,15 @@ class LexModelsV2Client:
             target: <p>The target bot for the test set execution.</p>
             api_mode: <p>Indicates whether we use streaming or non-streaming APIs for the test set execution. For streaming, StartConversation Runtime API is used. Whereas, for non-streaming, RecognizeUtterance and RecognizeText Amazon Lex Runtime API are used.</p>
             test_execution_modality: <p>Indicates whether audio or text is used.</p>
+
+        Raises:
+            aws_sdk_lex_models_v2.errors.conflict_exception.ConflictException: <p>The action that you tried to perform couldn't be completed because the resource is in a conflicting state. For example, deleting a bot that is in the CREATING state. Try your request again. </p>
+            aws_sdk_lex_models_v2.errors.internal_server_exception.InternalServerException: <p>The service encountered an unexpected condition. Try your request again.</p>
+            aws_sdk_lex_models_v2.errors.resource_not_found_exception.ResourceNotFoundException: <p>You asked to describe a resource that doesn't exist. Check the resource that you are requesting and try again.</p>
+            aws_sdk_lex_models_v2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You have reached a quota for your bot. </p>
+            aws_sdk_lex_models_v2.errors.throttling_exception.ThrottlingException: <p>Your request rate is too high. Reduce the frequency of requests.</p>
+            aws_sdk_lex_models_v2.errors.validation_exception.ValidationException: <p>One of the input parameters in your request isn't valid. Check the parameters and try your request again.</p>
+            aws_sdk_lex_models_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5313,6 +6046,15 @@ class LexModelsV2Client:
             generation_data_source: <p>The data source for the test set generation.</p>
             role_arn: <p>The roleARN used for any operation in the test set to access resources in the Amazon Web Services account.</p>
             test_set_tags: <p>A list of tags to add to the test set. You can only add tags when you import/generate a new test set. You can't use the <code>UpdateTestSet</code> operation to update tags. To update tags, use the <code>TagResource</code> operation.</p>
+
+        Raises:
+            aws_sdk_lex_models_v2.errors.conflict_exception.ConflictException: <p>The action that you tried to perform couldn't be completed because the resource is in a conflicting state. For example, deleting a bot that is in the CREATING state. Try your request again. </p>
+            aws_sdk_lex_models_v2.errors.internal_server_exception.InternalServerException: <p>The service encountered an unexpected condition. Try your request again.</p>
+            aws_sdk_lex_models_v2.errors.resource_not_found_exception.ResourceNotFoundException: <p>You asked to describe a resource that doesn't exist. Check the resource that you are requesting and try again.</p>
+            aws_sdk_lex_models_v2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You have reached a quota for your bot. </p>
+            aws_sdk_lex_models_v2.errors.throttling_exception.ThrottlingException: <p>Your request rate is too high. Reduce the frequency of requests.</p>
+            aws_sdk_lex_models_v2.errors.validation_exception.ValidationException: <p>One of the input parameters in your request isn't valid. Check the parameters and try your request again.</p>
+            aws_sdk_lex_models_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5361,6 +6103,13 @@ class LexModelsV2Client:
         Args:
             bot_id: <p>The unique identifier of the bot.</p>
             bot_analyzer_request_id: <p>The unique identifier of the analysis request to stop.</p>
+
+        Raises:
+            aws_sdk_lex_models_v2.errors.internal_server_exception.InternalServerException: <p>The service encountered an unexpected condition. Try your request again.</p>
+            aws_sdk_lex_models_v2.errors.resource_not_found_exception.ResourceNotFoundException: <p>You asked to describe a resource that doesn't exist. Check the resource that you are requesting and try again.</p>
+            aws_sdk_lex_models_v2.errors.throttling_exception.ThrottlingException: <p>Your request rate is too high. Reduce the frequency of requests.</p>
+            aws_sdk_lex_models_v2.errors.validation_exception.ValidationException: <p>One of the input parameters in your request isn't valid. Check the parameters and try your request again.</p>
+            aws_sdk_lex_models_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5405,6 +6154,16 @@ class LexModelsV2Client:
             bot_version: <p>The version of the bot containing the bot recommendation.</p>
             locale_id: <p>The identifier of the language and locale of the bot recommendation to stop. The string must match one of the supported locales. For more information, see <a href=\"https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html\">Supported languages</a> </p>
             bot_recommendation_id: <p>The unique identifier of the bot recommendation to be stopped.</p>
+
+        Raises:
+            aws_sdk_lex_models_v2.errors.conflict_exception.ConflictException: <p>The action that you tried to perform couldn't be completed because the resource is in a conflicting state. For example, deleting a bot that is in the CREATING state. Try your request again. </p>
+            aws_sdk_lex_models_v2.errors.internal_server_exception.InternalServerException: <p>The service encountered an unexpected condition. Try your request again.</p>
+            aws_sdk_lex_models_v2.errors.precondition_failed_exception.PreconditionFailedException: <p>Your request couldn't be completed because one or more request fields aren't valid. Check the fields in your request and try again.</p>
+            aws_sdk_lex_models_v2.errors.resource_not_found_exception.ResourceNotFoundException: <p>You asked to describe a resource that doesn't exist. Check the resource that you are requesting and try again.</p>
+            aws_sdk_lex_models_v2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You have reached a quota for your bot. </p>
+            aws_sdk_lex_models_v2.errors.throttling_exception.ThrottlingException: <p>Your request rate is too high. Reduce the frequency of requests.</p>
+            aws_sdk_lex_models_v2.errors.validation_exception.ValidationException: <p>One of the input parameters in your request isn't valid. Check the parameters and try your request again.</p>
+            aws_sdk_lex_models_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5447,6 +6206,13 @@ class LexModelsV2Client:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the bot, bot alias, or bot channel to tag.</p>
             tags: <p>A list of tag keys to add to the resource. If a tag key already exists, the existing value is replaced with the new value.</p>
+
+        Raises:
+            aws_sdk_lex_models_v2.errors.internal_server_exception.InternalServerException: <p>The service encountered an unexpected condition. Try your request again.</p>
+            aws_sdk_lex_models_v2.errors.resource_not_found_exception.ResourceNotFoundException: <p>You asked to describe a resource that doesn't exist. Check the resource that you are requesting and try again.</p>
+            aws_sdk_lex_models_v2.errors.throttling_exception.ThrottlingException: <p>Your request rate is too high. Reduce the frequency of requests.</p>
+            aws_sdk_lex_models_v2.errors.validation_exception.ValidationException: <p>One of the input parameters in your request isn't valid. Check the parameters and try your request again.</p>
+            aws_sdk_lex_models_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5487,6 +6253,13 @@ class LexModelsV2Client:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource to remove the tags from.</p>
             tag_keys: <p>A list of tag keys to remove from the resource. If a tag key does not exist on the resource, it is ignored.</p>
+
+        Raises:
+            aws_sdk_lex_models_v2.errors.internal_server_exception.InternalServerException: <p>The service encountered an unexpected condition. Try your request again.</p>
+            aws_sdk_lex_models_v2.errors.resource_not_found_exception.ResourceNotFoundException: <p>You asked to describe a resource that doesn't exist. Check the resource that you are requesting and try again.</p>
+            aws_sdk_lex_models_v2.errors.throttling_exception.ThrottlingException: <p>Your request rate is too high. Reduce the frequency of requests.</p>
+            aws_sdk_lex_models_v2.errors.validation_exception.ValidationException: <p>One of the input parameters in your request isn't valid. Check the parameters and try your request again.</p>
+            aws_sdk_lex_models_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5547,6 +6320,15 @@ class LexModelsV2Client:
             bot_type: <p>The type of the bot to be updated.</p>
             bot_members: <p>The list of bot members in the network associated with the update action.</p>
             error_log_settings: <p>Allows you to modify how Amazon Lex logs errors during bot interactions, including destinations for error logs and the types of errors to be captured.</p>
+
+        Raises:
+            aws_sdk_lex_models_v2.errors.conflict_exception.ConflictException: <p>The action that you tried to perform couldn't be completed because the resource is in a conflicting state. For example, deleting a bot that is in the CREATING state. Try your request again. </p>
+            aws_sdk_lex_models_v2.errors.internal_server_exception.InternalServerException: <p>The service encountered an unexpected condition. Try your request again.</p>
+            aws_sdk_lex_models_v2.errors.precondition_failed_exception.PreconditionFailedException: <p>Your request couldn't be completed because one or more request fields aren't valid. Check the fields in your request and try again.</p>
+            aws_sdk_lex_models_v2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You have reached a quota for your bot. </p>
+            aws_sdk_lex_models_v2.errors.throttling_exception.ThrottlingException: <p>Your request rate is too high. Reduce the frequency of requests.</p>
+            aws_sdk_lex_models_v2.errors.validation_exception.ValidationException: <p>One of the input parameters in your request isn't valid. Check the parameters and try your request again.</p>
+            aws_sdk_lex_models_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5619,6 +6401,15 @@ class LexModelsV2Client:
             bot_alias_locale_settings: <p>The new Lambda functions to use in each locale for the bot alias.</p>
             conversation_log_settings: <p>The new settings for storing conversation logs in Amazon CloudWatch Logs and Amazon S3 buckets.</p>
             bot_id: <p>The identifier of the bot with the updated alias.</p>
+
+        Raises:
+            aws_sdk_lex_models_v2.errors.conflict_exception.ConflictException: <p>The action that you tried to perform couldn't be completed because the resource is in a conflicting state. For example, deleting a bot that is in the CREATING state. Try your request again. </p>
+            aws_sdk_lex_models_v2.errors.internal_server_exception.InternalServerException: <p>The service encountered an unexpected condition. Try your request again.</p>
+            aws_sdk_lex_models_v2.errors.precondition_failed_exception.PreconditionFailedException: <p>Your request couldn't be completed because one or more request fields aren't valid. Check the fields in your request and try again.</p>
+            aws_sdk_lex_models_v2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You have reached a quota for your bot. </p>
+            aws_sdk_lex_models_v2.errors.throttling_exception.ThrottlingException: <p>Your request rate is too high. Reduce the frequency of requests.</p>
+            aws_sdk_lex_models_v2.errors.validation_exception.ValidationException: <p>One of the input parameters in your request isn't valid. Check the parameters and try your request again.</p>
+            aws_sdk_lex_models_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5704,6 +6495,15 @@ class LexModelsV2Client:
             speech_recognition_settings: <p>Updated speech-to-text settings to apply to the bot locale.</p>
             generative_ai_settings: <p>Contains settings for generative AI features powered by Amazon Bedrock for your bot locale. Use this object to turn generative AI features on and off. Pricing may differ if you turn a feature on. For more information, see LINK.</p>
             speech_detection_sensitivity: <p>The new sensitivity level for voice activity detection (VAD) in the bot locale. This setting helps optimize speech recognition accuracy by adjusting how the system responds to background noise during voice interactions.</p>
+
+        Raises:
+            aws_sdk_lex_models_v2.errors.conflict_exception.ConflictException: <p>The action that you tried to perform couldn't be completed because the resource is in a conflicting state. For example, deleting a bot that is in the CREATING state. Try your request again. </p>
+            aws_sdk_lex_models_v2.errors.internal_server_exception.InternalServerException: <p>The service encountered an unexpected condition. Try your request again.</p>
+            aws_sdk_lex_models_v2.errors.precondition_failed_exception.PreconditionFailedException: <p>Your request couldn't be completed because one or more request fields aren't valid. Check the fields in your request and try again.</p>
+            aws_sdk_lex_models_v2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You have reached a quota for your bot. </p>
+            aws_sdk_lex_models_v2.errors.throttling_exception.ThrottlingException: <p>Your request rate is too high. Reduce the frequency of requests.</p>
+            aws_sdk_lex_models_v2.errors.validation_exception.ValidationException: <p>One of the input parameters in your request isn't valid. Check the parameters and try your request again.</p>
+            aws_sdk_lex_models_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5766,6 +6566,16 @@ class LexModelsV2Client:
             locale_id: <p>The identifier of the language and locale of the bot recommendation to update. The string must match one of the supported locales. For more information, see <a href=\"https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html\">Supported languages</a> </p>
             bot_recommendation_id: <p>The unique identifier of the bot recommendation to be updated.</p>
             encryption_setting: <p>The object representing the passwords that will be used to encrypt the data related to the bot recommendation results, as well as the KMS key ARN used to encrypt the associated metadata.</p>
+
+        Raises:
+            aws_sdk_lex_models_v2.errors.conflict_exception.ConflictException: <p>The action that you tried to perform couldn't be completed because the resource is in a conflicting state. For example, deleting a bot that is in the CREATING state. Try your request again. </p>
+            aws_sdk_lex_models_v2.errors.internal_server_exception.InternalServerException: <p>The service encountered an unexpected condition. Try your request again.</p>
+            aws_sdk_lex_models_v2.errors.precondition_failed_exception.PreconditionFailedException: <p>Your request couldn't be completed because one or more request fields aren't valid. Check the fields in your request and try again.</p>
+            aws_sdk_lex_models_v2.errors.resource_not_found_exception.ResourceNotFoundException: <p>You asked to describe a resource that doesn't exist. Check the resource that you are requesting and try again.</p>
+            aws_sdk_lex_models_v2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You have reached a quota for your bot. </p>
+            aws_sdk_lex_models_v2.errors.throttling_exception.ThrottlingException: <p>Your request rate is too high. Reduce the frequency of requests.</p>
+            aws_sdk_lex_models_v2.errors.validation_exception.ValidationException: <p>One of the input parameters in your request isn't valid. Check the parameters and try your request again.</p>
+            aws_sdk_lex_models_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5811,6 +6621,15 @@ class LexModelsV2Client:
         Args:
             export_id: <p>The unique identifier Amazon Lex assigned to the export.</p>
             file_password: <p>The new password to use to encrypt the export zip archive.</p>
+
+        Raises:
+            aws_sdk_lex_models_v2.errors.conflict_exception.ConflictException: <p>The action that you tried to perform couldn't be completed because the resource is in a conflicting state. For example, deleting a bot that is in the CREATING state. Try your request again. </p>
+            aws_sdk_lex_models_v2.errors.internal_server_exception.InternalServerException: <p>The service encountered an unexpected condition. Try your request again.</p>
+            aws_sdk_lex_models_v2.errors.resource_not_found_exception.ResourceNotFoundException: <p>You asked to describe a resource that doesn't exist. Check the resource that you are requesting and try again.</p>
+            aws_sdk_lex_models_v2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You have reached a quota for your bot. </p>
+            aws_sdk_lex_models_v2.errors.throttling_exception.ThrottlingException: <p>Your request rate is too high. Reduce the frequency of requests.</p>
+            aws_sdk_lex_models_v2.errors.validation_exception.ValidationException: <p>One of the input parameters in your request isn't valid. Check the parameters and try your request again.</p>
+            aws_sdk_lex_models_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5918,6 +6737,15 @@ class LexModelsV2Client:
             initial_response_setting: <p>Configuration settings for a response sent to the user before Amazon Lex starts eliciting slots.</p>
             qn_a_intent_configuration: <p>Specifies the configuration of the built-in <code>Amazon.QnAIntent</code>. The <code>AMAZON.QnAIntent</code> intent is called when Amazon Lex can't determine another intent to invoke. If you specify this field, you can't specify the <code>kendraConfiguration</code> field.</p>
             q_in_connect_intent_configuration: <p>Qinconnect intent configuration details for the update intent request.</p>
+
+        Raises:
+            aws_sdk_lex_models_v2.errors.conflict_exception.ConflictException: <p>The action that you tried to perform couldn't be completed because the resource is in a conflicting state. For example, deleting a bot that is in the CREATING state. Try your request again. </p>
+            aws_sdk_lex_models_v2.errors.internal_server_exception.InternalServerException: <p>The service encountered an unexpected condition. Try your request again.</p>
+            aws_sdk_lex_models_v2.errors.precondition_failed_exception.PreconditionFailedException: <p>Your request couldn't be completed because one or more request fields aren't valid. Check the fields in your request and try again.</p>
+            aws_sdk_lex_models_v2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You have reached a quota for your bot. </p>
+            aws_sdk_lex_models_v2.errors.throttling_exception.ThrottlingException: <p>Your request rate is too high. Reduce the frequency of requests.</p>
+            aws_sdk_lex_models_v2.errors.validation_exception.ValidationException: <p>One of the input parameters in your request isn't valid. Check the parameters and try your request again.</p>
+            aws_sdk_lex_models_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5997,6 +6825,15 @@ class LexModelsV2Client:
             resource_arn: <p>The Amazon Resource Name (ARN) of the bot or bot alias that the resource policy is attached to.</p>
             policy: <p>A resource policy to add to the resource. The policy is a JSON structure that contains one or more statements that define the policy. The policy must follow the IAM syntax. For more information about the contents of a JSON policy document, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies.html\"> IAM JSON policy reference </a>. </p> <p>If the policy isn't valid, Amazon Lex returns a validation exception.</p>
             expected_revision_id: <p>The identifier of the revision of the policy to update. If this revision ID doesn't match the current revision ID, Amazon Lex throws an exception.</p> <p>If you don't specify a revision, Amazon Lex overwrites the contents of the policy with the new values.</p>
+
+        Raises:
+            aws_sdk_lex_models_v2.errors.internal_server_exception.InternalServerException: <p>The service encountered an unexpected condition. Try your request again.</p>
+            aws_sdk_lex_models_v2.errors.precondition_failed_exception.PreconditionFailedException: <p>Your request couldn't be completed because one or more request fields aren't valid. Check the fields in your request and try again.</p>
+            aws_sdk_lex_models_v2.errors.resource_not_found_exception.ResourceNotFoundException: <p>You asked to describe a resource that doesn't exist. Check the resource that you are requesting and try again.</p>
+            aws_sdk_lex_models_v2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You have reached a quota for your bot. </p>
+            aws_sdk_lex_models_v2.errors.throttling_exception.ThrottlingException: <p>Your request rate is too high. Reduce the frequency of requests.</p>
+            aws_sdk_lex_models_v2.errors.validation_exception.ValidationException: <p>One of the input parameters in your request isn't valid. Check the parameters and try your request again.</p>
+            aws_sdk_lex_models_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6069,6 +6906,15 @@ class LexModelsV2Client:
             intent_id: <p>The identifier of the intent that contains the slot.</p>
             multiple_values_setting: <p>Determines whether the slot accepts multiple values in one response. Multiple value slots are only available in the en-US locale. If you set this value to <code>true</code> in any other locale, Amazon Lex throws a <code>ValidationException</code>.</p> <p>If the <code>multipleValuesSetting</code> is not set, the default value is <code>false</code>.</p>
             sub_slot_setting: <p>Specifications for the constituent sub slots and the expression for the composite slot.</p>
+
+        Raises:
+            aws_sdk_lex_models_v2.errors.conflict_exception.ConflictException: <p>The action that you tried to perform couldn't be completed because the resource is in a conflicting state. For example, deleting a bot that is in the CREATING state. Try your request again. </p>
+            aws_sdk_lex_models_v2.errors.internal_server_exception.InternalServerException: <p>The service encountered an unexpected condition. Try your request again.</p>
+            aws_sdk_lex_models_v2.errors.precondition_failed_exception.PreconditionFailedException: <p>Your request couldn't be completed because one or more request fields aren't valid. Check the fields in your request and try again.</p>
+            aws_sdk_lex_models_v2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You have reached a quota for your bot. </p>
+            aws_sdk_lex_models_v2.errors.throttling_exception.ThrottlingException: <p>Your request rate is too high. Reduce the frequency of requests.</p>
+            aws_sdk_lex_models_v2.errors.validation_exception.ValidationException: <p>One of the input parameters in your request isn't valid. Check the parameters and try your request again.</p>
+            aws_sdk_lex_models_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6153,6 +6999,15 @@ class LexModelsV2Client:
             bot_version: <p>The version of the bot that contains the slot type. Must be <code>DRAFT</code>.</p>
             locale_id: <p>The identifier of the language and locale that contains the slot type. The string must match one of the supported locales. For more information, see <a href=\"https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html\">Supported languages</a>.</p>
             composite_slot_type_setting: <p>Specifications for a composite slot type.</p>
+
+        Raises:
+            aws_sdk_lex_models_v2.errors.conflict_exception.ConflictException: <p>The action that you tried to perform couldn't be completed because the resource is in a conflicting state. For example, deleting a bot that is in the CREATING state. Try your request again. </p>
+            aws_sdk_lex_models_v2.errors.internal_server_exception.InternalServerException: <p>The service encountered an unexpected condition. Try your request again.</p>
+            aws_sdk_lex_models_v2.errors.precondition_failed_exception.PreconditionFailedException: <p>Your request couldn't be completed because one or more request fields aren't valid. Check the fields in your request and try again.</p>
+            aws_sdk_lex_models_v2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You have reached a quota for your bot. </p>
+            aws_sdk_lex_models_v2.errors.throttling_exception.ThrottlingException: <p>Your request rate is too high. Reduce the frequency of requests.</p>
+            aws_sdk_lex_models_v2.errors.validation_exception.ValidationException: <p>One of the input parameters in your request isn't valid. Check the parameters and try your request again.</p>
+            aws_sdk_lex_models_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6212,6 +7067,15 @@ class LexModelsV2Client:
             test_set_id: <p>The test set Id for which update test operation to be performed.</p>
             test_set_name: <p>The new test set name.</p>
             description: <p>The new test set description.</p>
+
+        Raises:
+            aws_sdk_lex_models_v2.errors.conflict_exception.ConflictException: <p>The action that you tried to perform couldn't be completed because the resource is in a conflicting state. For example, deleting a bot that is in the CREATING state. Try your request again. </p>
+            aws_sdk_lex_models_v2.errors.internal_server_exception.InternalServerException: <p>The service encountered an unexpected condition. Try your request again.</p>
+            aws_sdk_lex_models_v2.errors.precondition_failed_exception.PreconditionFailedException: <p>Your request couldn't be completed because one or more request fields aren't valid. Check the fields in your request and try again.</p>
+            aws_sdk_lex_models_v2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You have reached a quota for your bot. </p>
+            aws_sdk_lex_models_v2.errors.throttling_exception.ThrottlingException: <p>Your request rate is too high. Reduce the frequency of requests.</p>
+            aws_sdk_lex_models_v2.errors.validation_exception.ValidationException: <p>One of the input parameters in your request isn't valid. Check the parameters and try your request again.</p>
+            aws_sdk_lex_models_v2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(

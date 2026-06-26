@@ -200,6 +200,11 @@ class AsyncApplicationSignalsClient:
         Args:
             timestamp: <p>The date and time that you want the report to be for. It is expressed as the number of milliseconds since Jan 1, 1970 00:00:00 UTC.</p>
             slo_ids: <p>An array containing the IDs of the service level objectives that you want to include in the report.</p>
+
+        Raises:
+            aws_sdk_application_signals.errors.throttling_exception.ThrottlingException: <p>The request was throttled because of quota limits.</p>
+            aws_sdk_application_signals.errors.validation_exception.ValidationException: <p>The resource is not valid.</p>
+            aws_sdk_application_signals.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -247,6 +252,12 @@ class AsyncApplicationSignalsClient:
             slo_ids: <p>The list of SLO IDs to add or remove exclusion windows from.</p>
             add_exclusion_windows: <p>A list of exclusion windows to add to the specified SLOs. You can add up to 10 exclusion windows per SLO.</p>
             remove_exclusion_windows: <p>A list of exclusion windows to remove from the specified SLOs. The window configuration must match an existing exclusion window.</p>
+
+        Raises:
+            aws_sdk_application_signals.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found.</p>
+            aws_sdk_application_signals.errors.throttling_exception.ThrottlingException: <p>The request was throttled because of quota limits.</p>
+            aws_sdk_application_signals.errors.validation_exception.ValidationException: <p>The resource is not valid.</p>
+            aws_sdk_application_signals.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -282,7 +293,14 @@ class AsyncApplicationSignalsClient:
     async def delete_grouping_configuration(
         self, *, config_overrides: Optional[AsyncApplicationSignalsClientConfig] = None
     ) -> "aws_sdk_application_signals.types.delete_grouping_configuration_output.DeleteGroupingConfigurationOutput":
-        """<p>Deletes the grouping configuration for this account. This removes all custom grouping attribute definitions that were previously configured.</p>"""
+        """<p>Deletes the grouping configuration for this account. This removes all custom grouping attribute definitions that were previously configured.</p>
+
+        Raises:
+            aws_sdk_application_signals.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permissions to perform this action.</p>
+            aws_sdk_application_signals.errors.throttling_exception.ThrottlingException: <p>The request was throttled because of quota limits.</p>
+            aws_sdk_application_signals.errors.validation_exception.ValidationException: <p>The resource is not valid.</p>
+            aws_sdk_application_signals.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[None]",
@@ -322,6 +340,11 @@ class AsyncApplicationSignalsClient:
             start_time: <p>The start of the time period to retrieve information about. When used in a raw HTTP Query API, it is formatted as be epoch time in seconds. For example: <code>1698778057</code> </p> <p>Your requested start time will be rounded to the nearest hour.</p>
             end_time: <p>The end of the time period to retrieve information about. When used in a raw HTTP Query API, it is formatted as be epoch time in seconds. For example: <code>1698778057</code> </p> <p>Your requested start time will be rounded to the nearest hour.</p>
             key_attributes: <p>Use this field to specify which service you want to retrieve information for. You must specify at least the <code>Type</code>, <code>Name</code>, and <code>Environment</code> attributes.</p> <p>This is a string-to-string map. It can include the following fields.</p> <ul> <li> <p> <code>Type</code> designates the type of object this is.</p> </li> <li> <p> <code>ResourceType</code> specifies the type of the resource. This field is used only when the value of the <code>Type</code> field is <code>Resource</code> or <code>AWS::Resource</code>.</p> </li> <li> <p> <code>Name</code> specifies the name of the object. This is used only if the value of the <code>Type</code> field is <code>Service</code>, <code>RemoteService</code>, or <code>AWS::Service</code>.</p> </li> <li> <p> <code>Identifier</code> identifies the resource objects of this resource. This is used only if the value of the <code>Type</code> field is <code>Resource</code> or <code>AWS::Resource</code>.</p> </li> <li> <p> <code>Environment</code> specifies the location where this object is hosted, or what it belongs to.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_application_signals.errors.throttling_exception.ThrottlingException: <p>The request was throttled because of quota limits.</p>
+            aws_sdk_application_signals.errors.validation_exception.ValidationException: <p>The resource is not valid.</p>
+            aws_sdk_application_signals.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -382,6 +405,11 @@ class AsyncApplicationSignalsClient:
             detail_level: <p>The level of details of the audit findings. Supported values: <code>BRIEF</code>, <code>DETAILED</code>.</p>
             next_token: <p>Include this value, if it was returned by the previous operation, to get the next set of audit findings.</p>
             max_results: <p>The maximum number of audit findings to return in one operation. If you omit this parameter, the default of 10 is used.</p>
+
+        Raises:
+            aws_sdk_application_signals.errors.throttling_exception.ThrottlingException: <p>The request was throttled because of quota limits.</p>
+            aws_sdk_application_signals.errors.validation_exception.ValidationException: <p>The resource is not valid.</p>
+            aws_sdk_application_signals.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -442,6 +470,11 @@ class AsyncApplicationSignalsClient:
             end_time: <p>The end of the time period to retrieve change events for. When used in a raw HTTP Query API, it is formatted as epoch time in seconds. For example: <code>1698778057</code> </p>
             max_results: <p>The maximum number of change events to return in one operation. If you omit this parameter, the default of 50 is used.</p>
             next_token: <p>Include this value, if it was returned by the previous operation, to get the next set of change events.</p>
+
+        Raises:
+            aws_sdk_application_signals.errors.throttling_exception.ThrottlingException: <p>The request was throttled because of quota limits.</p>
+            aws_sdk_application_signals.errors.validation_exception.ValidationException: <p>The resource is not valid.</p>
+            aws_sdk_application_signals.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -525,6 +558,12 @@ class AsyncApplicationSignalsClient:
             next_token: <p>Include this value, if it was returned by the previous operation, to get the next set of grouping attribute definitions.</p>
             aws_account_id: <p>The Amazon Web Services account ID to retrieve grouping attribute definitions for. Use this when accessing grouping configurations from a different account in cross-account monitoring scenarios.</p>
             include_linked_accounts: <p>If you are using this operation in a monitoring account, specify <code>true</code> to include grouping attributes from source accounts in the returned data.</p>
+
+        Raises:
+            aws_sdk_application_signals.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permissions to perform this action.</p>
+            aws_sdk_application_signals.errors.throttling_exception.ThrottlingException: <p>The request was throttled because of quota limits.</p>
+            aws_sdk_application_signals.errors.validation_exception.ValidationException: <p>The resource is not valid.</p>
+            aws_sdk_application_signals.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -580,6 +619,11 @@ class AsyncApplicationSignalsClient:
             key_attributes: <p>Use this field to specify which service you want to retrieve information for. You must specify at least the <code>Type</code>, <code>Name</code>, and <code>Environment</code> attributes.</p> <p>This is a string-to-string map. It can include the following fields.</p> <ul> <li> <p> <code>Type</code> designates the type of object this is.</p> </li> <li> <p> <code>ResourceType</code> specifies the type of the resource. This field is used only when the value of the <code>Type</code> field is <code>Resource</code> or <code>AWS::Resource</code>.</p> </li> <li> <p> <code>Name</code> specifies the name of the object. This is used only if the value of the <code>Type</code> field is <code>Service</code>, <code>RemoteService</code>, or <code>AWS::Service</code>.</p> </li> <li> <p> <code>Identifier</code> identifies the resource objects of this resource. This is used only if the value of the <code>Type</code> field is <code>Resource</code> or <code>AWS::Resource</code>.</p> </li> <li> <p> <code>Environment</code> specifies the location where this object is hosted, or what it belongs to.</p> </li> </ul>
             max_results: <p>The maximum number of results to return in one operation. If you omit this parameter, the default of 50 is used.</p>
             next_token: <p>Include this value, if it was returned by the previous operation, to get the next set of service dependencies.</p>
+
+        Raises:
+            aws_sdk_application_signals.errors.throttling_exception.ThrottlingException: <p>The request was throttled because of quota limits.</p>
+            aws_sdk_application_signals.errors.validation_exception.ValidationException: <p>The resource is not valid.</p>
+            aws_sdk_application_signals.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -667,6 +711,11 @@ class AsyncApplicationSignalsClient:
             key_attributes: <p>Use this field to specify which service you want to retrieve information for. You must specify at least the <code>Type</code>, <code>Name</code>, and <code>Environment</code> attributes.</p> <p>This is a string-to-string map. It can include the following fields.</p> <ul> <li> <p> <code>Type</code> designates the type of object this is.</p> </li> <li> <p> <code>ResourceType</code> specifies the type of the resource. This field is used only when the value of the <code>Type</code> field is <code>Resource</code> or <code>AWS::Resource</code>.</p> </li> <li> <p> <code>Name</code> specifies the name of the object. This is used only if the value of the <code>Type</code> field is <code>Service</code>, <code>RemoteService</code>, or <code>AWS::Service</code>.</p> </li> <li> <p> <code>Identifier</code> identifies the resource objects of this resource. This is used only if the value of the <code>Type</code> field is <code>Resource</code> or <code>AWS::Resource</code>.</p> </li> <li> <p> <code>Environment</code> specifies the location where this object is hosted, or what it belongs to.</p> </li> </ul>
             max_results: <p>The maximum number of results to return in one operation. If you omit this parameter, the default of 50 is used.</p>
             next_token: <p>Include this value, if it was returned by the previous operation, to get the next set of service dependents.</p>
+
+        Raises:
+            aws_sdk_application_signals.errors.throttling_exception.ThrottlingException: <p>The request was throttled because of quota limits.</p>
+            aws_sdk_application_signals.errors.validation_exception.ValidationException: <p>The resource is not valid.</p>
+            aws_sdk_application_signals.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -750,6 +799,12 @@ class AsyncApplicationSignalsClient:
             id: <p>The ID of the SLO to list exclusion windows for.</p>
             max_results: <p>The maximum number of results to return in one operation. If you omit this parameter, the default of 50 is used. </p>
             next_token: <p>Include this value, if it was returned by the previous operation, to get the next set of service level objectives. </p>
+
+        Raises:
+            aws_sdk_application_signals.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found.</p>
+            aws_sdk_application_signals.errors.throttling_exception.ThrottlingException: <p>The request was throttled because of quota limits.</p>
+            aws_sdk_application_signals.errors.validation_exception.ValidationException: <p>The resource is not valid.</p>
+            aws_sdk_application_signals.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -831,6 +886,11 @@ class AsyncApplicationSignalsClient:
             key_attributes: <p>Use this field to specify which service you want to retrieve information for. You must specify at least the <code>Type</code>, <code>Name</code>, and <code>Environment</code> attributes.</p> <p>This is a string-to-string map. It can include the following fields.</p> <ul> <li> <p> <code>Type</code> designates the type of object this is.</p> </li> <li> <p> <code>ResourceType</code> specifies the type of the resource. This field is used only when the value of the <code>Type</code> field is <code>Resource</code> or <code>AWS::Resource</code>.</p> </li> <li> <p> <code>Name</code> specifies the name of the object. This is used only if the value of the <code>Type</code> field is <code>Service</code>, <code>RemoteService</code>, or <code>AWS::Service</code>.</p> </li> <li> <p> <code>Identifier</code> identifies the resource objects of this resource. This is used only if the value of the <code>Type</code> field is <code>Resource</code> or <code>AWS::Resource</code>.</p> </li> <li> <p> <code>Environment</code> specifies the location where this object is hosted, or what it belongs to.</p> </li> </ul>
             max_results: <p>The maximum number of results to return in one operation. If you omit this parameter, the default of 50 is used.</p>
             next_token: <p>Include this value, if it was returned by the previous operation, to get the next set of service operations.</p>
+
+        Raises:
+            aws_sdk_application_signals.errors.throttling_exception.ThrottlingException: <p>The request was throttled because of quota limits.</p>
+            aws_sdk_application_signals.errors.validation_exception.ValidationException: <p>The resource is not valid.</p>
+            aws_sdk_application_signals.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -922,6 +982,11 @@ class AsyncApplicationSignalsClient:
             next_token: <p>Include this value, if it was returned by the previous operation, to get the next set of services.</p>
             include_linked_accounts: <p>If you are using this operation in a monitoring account, specify <code>true</code> to include services from source accounts in the returned data. </p>
             aws_account_id: <p>Amazon Web Services Account ID.</p>
+
+        Raises:
+            aws_sdk_application_signals.errors.throttling_exception.ThrottlingException: <p>The request was throttled because of quota limits.</p>
+            aws_sdk_application_signals.errors.validation_exception.ValidationException: <p>The resource is not valid.</p>
+            aws_sdk_application_signals.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1024,6 +1089,11 @@ class AsyncApplicationSignalsClient:
             include_linked_accounts: <p>If you are using this operation in a monitoring account, specify <code>true</code> to include service states from source accounts in the returned data.</p>
             aws_account_id: <p>The Amazon Web Services account ID to filter service states by. Use this to limit results to services from a specific account.</p>
             attribute_filters: <p>A list of attribute filters to narrow down the services. You can filter by platform, environment, or other service attributes.</p>
+
+        Raises:
+            aws_sdk_application_signals.errors.throttling_exception.ThrottlingException: <p>The request was throttled because of quota limits.</p>
+            aws_sdk_application_signals.errors.validation_exception.ValidationException: <p>The resource is not valid.</p>
+            aws_sdk_application_signals.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1112,6 +1182,11 @@ class AsyncApplicationSignalsClient:
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the CloudWatch resource that you want to view tags for.</p> <p>The ARN format of an Application Signals SLO is <code>arn:aws:cloudwatch:<i>Region</i>:<i>account-id</i>:slo:<i>slo-name</i> </code> </p> <p>For more information about ARN format, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazoncloudwatch.html#amazoncloudwatch-resources-for-iam-policies\"> Resource Types Defined by Amazon CloudWatch</a> in the <i>Amazon Web Services General Reference</i>.</p>
+
+        Raises:
+            aws_sdk_application_signals.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found.</p>
+            aws_sdk_application_signals.errors.throttling_exception.ThrottlingException: <p>The request was throttled because of quota limits.</p>
+            aws_sdk_application_signals.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1150,6 +1225,12 @@ class AsyncApplicationSignalsClient:
 
         Args:
             grouping_attribute_definitions: <p>An array of grouping attribute definitions that specify how services should be grouped. Each definition includes a friendly name, source keys to derive the grouping value from, and an optional default value.</p>
+
+        Raises:
+            aws_sdk_application_signals.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permissions to perform this action.</p>
+            aws_sdk_application_signals.errors.throttling_exception.ThrottlingException: <p>The request was throttled because of quota limits.</p>
+            aws_sdk_application_signals.errors.validation_exception.ValidationException: <p>The resource is not valid.</p>
+            aws_sdk_application_signals.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1183,7 +1264,14 @@ class AsyncApplicationSignalsClient:
     ) -> (
         "aws_sdk_application_signals.types.start_discovery_output.StartDiscoveryOutput"
     ):
-        r"""<p>Enables this Amazon Web Services account to be able to use CloudWatch Application Signals by creating the <i>AWSServiceRoleForCloudWatchApplicationSignals</i> service-linked role. This service- linked role has the following permissions:</p> <ul> <li> <p> <code>xray:GetServiceGraph</code> </p> </li> <li> <p> <code>logs:StartQuery</code> </p> </li> <li> <p> <code>logs:GetQueryResults</code> </p> </li> <li> <p> <code>cloudwatch:GetMetricData</code> </p> </li> <li> <p> <code>cloudwatch:ListMetrics</code> </p> </li> <li> <p> <code>tag:GetResources</code> </p> </li> <li> <p> <code>autoscaling:DescribeAutoScalingGroups</code> </p> </li> </ul> <p>A service-linked CloudTrail event channel is created to process CloudTrail events and return change event information. This includes last deployment time, userName, eventName, and other event metadata.</p> <p>After completing this step, you still need to instrument your Java and Python applications to send data to Application Signals. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Application-Signals-Enable.html\"> Enabling Application Signals</a>.</p>"""
+        r"""<p>Enables this Amazon Web Services account to be able to use CloudWatch Application Signals by creating the <i>AWSServiceRoleForCloudWatchApplicationSignals</i> service-linked role. This service- linked role has the following permissions:</p> <ul> <li> <p> <code>xray:GetServiceGraph</code> </p> </li> <li> <p> <code>logs:StartQuery</code> </p> </li> <li> <p> <code>logs:GetQueryResults</code> </p> </li> <li> <p> <code>cloudwatch:GetMetricData</code> </p> </li> <li> <p> <code>cloudwatch:ListMetrics</code> </p> </li> <li> <p> <code>tag:GetResources</code> </p> </li> <li> <p> <code>autoscaling:DescribeAutoScalingGroups</code> </p> </li> </ul> <p>A service-linked CloudTrail event channel is created to process CloudTrail events and return change event information. This includes last deployment time, userName, eventName, and other event metadata.</p> <p>After completing this step, you still need to instrument your Java and Python applications to send data to Application Signals. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Application-Signals-Enable.html\"> Enabling Application Signals</a>.</p>
+
+        Raises:
+            aws_sdk_application_signals.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permissions to perform this action.</p>
+            aws_sdk_application_signals.errors.throttling_exception.ThrottlingException: <p>The request was throttled because of quota limits.</p>
+            aws_sdk_application_signals.errors.validation_exception.ValidationException: <p>The resource is not valid.</p>
+            aws_sdk_application_signals.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_application_signals.types.start_discovery_input.StartDiscoveryInput]",
@@ -1222,6 +1310,12 @@ class AsyncApplicationSignalsClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the CloudWatch resource that you want to set tags for.</p> <p>The ARN format of an Application Signals SLO is <code>arn:aws:cloudwatch:<i>Region</i>:<i>account-id</i>:slo:<i>slo-name</i> </code> </p> <p>For more information about ARN format, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazoncloudwatch.html#amazoncloudwatch-resources-for-iam-policies\"> Resource Types Defined by Amazon CloudWatch</a> in the <i>Amazon Web Services General Reference</i>.</p>
             tags: <p>The list of key-value pairs to associate with the alarm.</p>
+
+        Raises:
+            aws_sdk_application_signals.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found.</p>
+            aws_sdk_application_signals.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>This request exceeds a service quota.</p>
+            aws_sdk_application_signals.errors.throttling_exception.ThrottlingException: <p>The request was throttled because of quota limits.</p>
+            aws_sdk_application_signals.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1263,6 +1357,11 @@ class AsyncApplicationSignalsClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the CloudWatch resource that you want to delete tags from.</p> <p>The ARN format of an Application Signals SLO is <code>arn:aws:cloudwatch:<i>Region</i>:<i>account-id</i>:slo:<i>slo-name</i> </code> </p> <p>For more information about ARN format, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazoncloudwatch.html#amazoncloudwatch-resources-for-iam-policies\"> Resource Types Defined by Amazon CloudWatch</a> in the <i>Amazon Web Services General Reference</i>.</p>
             tag_keys: <p>The list of tag keys to remove from the resource.</p>
+
+        Raises:
+            aws_sdk_application_signals.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found.</p>
+            aws_sdk_application_signals.errors.throttling_exception.ThrottlingException: <p>The request was throttled because of quota limits.</p>
+            aws_sdk_application_signals.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

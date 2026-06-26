@@ -473,6 +473,15 @@ class IoTWirelessClient:
             sidewalk: <p>The Sidewalk account credentials.</p>
             client_request_token: <p>Each resource must have a unique client request token. The client token is used to implement idempotency. It ensures that the request completes no more than one time. If you retry a request with the same token and the same parameters, the request will complete successfully. However, if you try to create a new resource using the same token but different parameters, an HTTP 409 conflict occurs. If you omit this value, AWS SDKs will automatically generate a unique client request. For more information about idempotency, see <a href=\"https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html\">Ensuring idempotency in Amazon EC2 API requests</a>.</p>
             tags: <p>The tags to attach to the specified resource. Tags are metadata that you can use to manage a resource.</p>
+
+        Raises:
+            aws_sdk_iot_wireless.errors.access_denied_exception.AccessDeniedException: <p>User does not have permission to perform this action.</p>
+            aws_sdk_iot_wireless.errors.conflict_exception.ConflictException: <p>Adding, updating, or deleting the resource can cause an inconsistent state.</p>
+            aws_sdk_iot_wireless.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request.</p>
+            aws_sdk_iot_wireless.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource does not exist.</p>
+            aws_sdk_iot_wireless.errors.throttling_exception.ThrottlingException: <p>The request was denied because it exceeded the allowed API request rate.</p>
+            aws_sdk_iot_wireless.errors.validation_exception.ValidationException: <p>The input did not meet the specified constraints.</p>
+            aws_sdk_iot_wireless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -511,7 +520,17 @@ class IoTWirelessClient:
         *,
         config_overrides: Optional[IoTWirelessClientConfig] = None,
     ) -> "aws_sdk_iot_wireless.types.associate_multicast_group_with_fuota_task_response.AssociateMulticastGroupWithFuotaTaskResponse":
-        """<p>Associate a multicast group with a FUOTA task.</p>"""
+        """<p>Associate a multicast group with a FUOTA task.</p>
+
+        Raises:
+            aws_sdk_iot_wireless.errors.access_denied_exception.AccessDeniedException: <p>User does not have permission to perform this action.</p>
+            aws_sdk_iot_wireless.errors.conflict_exception.ConflictException: <p>Adding, updating, or deleting the resource can cause an inconsistent state.</p>
+            aws_sdk_iot_wireless.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request.</p>
+            aws_sdk_iot_wireless.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource does not exist.</p>
+            aws_sdk_iot_wireless.errors.throttling_exception.ThrottlingException: <p>The request was denied because it exceeded the allowed API request rate.</p>
+            aws_sdk_iot_wireless.errors.validation_exception.ValidationException: <p>The input did not meet the specified constraints.</p>
+            aws_sdk_iot_wireless.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_iot_wireless.types.associate_multicast_group_with_fuota_task_request.AssociateMulticastGroupWithFuotaTaskRequest]",
@@ -546,7 +565,17 @@ class IoTWirelessClient:
         *,
         config_overrides: Optional[IoTWirelessClientConfig] = None,
     ) -> "aws_sdk_iot_wireless.types.associate_wireless_device_with_fuota_task_response.AssociateWirelessDeviceWithFuotaTaskResponse":
-        """<p>Associate a wireless device with a FUOTA task.</p>"""
+        """<p>Associate a wireless device with a FUOTA task.</p>
+
+        Raises:
+            aws_sdk_iot_wireless.errors.access_denied_exception.AccessDeniedException: <p>User does not have permission to perform this action.</p>
+            aws_sdk_iot_wireless.errors.conflict_exception.ConflictException: <p>Adding, updating, or deleting the resource can cause an inconsistent state.</p>
+            aws_sdk_iot_wireless.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request.</p>
+            aws_sdk_iot_wireless.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource does not exist.</p>
+            aws_sdk_iot_wireless.errors.throttling_exception.ThrottlingException: <p>The request was denied because it exceeded the allowed API request rate.</p>
+            aws_sdk_iot_wireless.errors.validation_exception.ValidationException: <p>The input did not meet the specified constraints.</p>
+            aws_sdk_iot_wireless.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_iot_wireless.types.associate_wireless_device_with_fuota_task_request.AssociateWirelessDeviceWithFuotaTaskRequest]",
@@ -581,7 +610,17 @@ class IoTWirelessClient:
         *,
         config_overrides: Optional[IoTWirelessClientConfig] = None,
     ) -> "aws_sdk_iot_wireless.types.associate_wireless_device_with_multicast_group_response.AssociateWirelessDeviceWithMulticastGroupResponse":
-        """<p>Associates a wireless device with a multicast group.</p>"""
+        """<p>Associates a wireless device with a multicast group.</p>
+
+        Raises:
+            aws_sdk_iot_wireless.errors.access_denied_exception.AccessDeniedException: <p>User does not have permission to perform this action.</p>
+            aws_sdk_iot_wireless.errors.conflict_exception.ConflictException: <p>Adding, updating, or deleting the resource can cause an inconsistent state.</p>
+            aws_sdk_iot_wireless.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request.</p>
+            aws_sdk_iot_wireless.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource does not exist.</p>
+            aws_sdk_iot_wireless.errors.throttling_exception.ThrottlingException: <p>The request was denied because it exceeded the allowed API request rate.</p>
+            aws_sdk_iot_wireless.errors.validation_exception.ValidationException: <p>The input did not meet the specified constraints.</p>
+            aws_sdk_iot_wireless.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_iot_wireless.types.associate_wireless_device_with_multicast_group_request.AssociateWirelessDeviceWithMulticastGroupRequest]",
@@ -621,6 +660,15 @@ class IoTWirelessClient:
         Args:
             id: <p>The ID of the resource to update.</p>
             thing_arn: <p>The ARN of the thing to associate with the wireless device.</p>
+
+        Raises:
+            aws_sdk_iot_wireless.errors.access_denied_exception.AccessDeniedException: <p>User does not have permission to perform this action.</p>
+            aws_sdk_iot_wireless.errors.conflict_exception.ConflictException: <p>Adding, updating, or deleting the resource can cause an inconsistent state.</p>
+            aws_sdk_iot_wireless.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request.</p>
+            aws_sdk_iot_wireless.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource does not exist.</p>
+            aws_sdk_iot_wireless.errors.throttling_exception.ThrottlingException: <p>The request was denied because it exceeded the allowed API request rate.</p>
+            aws_sdk_iot_wireless.errors.validation_exception.ValidationException: <p>The input did not meet the specified constraints.</p>
+            aws_sdk_iot_wireless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -661,6 +709,15 @@ class IoTWirelessClient:
         Args:
             id: <p>The ID of the resource to update.</p>
             iot_certificate_id: <p>The ID of the certificate to associate with the wireless gateway.</p>
+
+        Raises:
+            aws_sdk_iot_wireless.errors.access_denied_exception.AccessDeniedException: <p>User does not have permission to perform this action.</p>
+            aws_sdk_iot_wireless.errors.conflict_exception.ConflictException: <p>Adding, updating, or deleting the resource can cause an inconsistent state.</p>
+            aws_sdk_iot_wireless.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request.</p>
+            aws_sdk_iot_wireless.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource does not exist.</p>
+            aws_sdk_iot_wireless.errors.throttling_exception.ThrottlingException: <p>The request was denied because it exceeded the allowed API request rate.</p>
+            aws_sdk_iot_wireless.errors.validation_exception.ValidationException: <p>The input did not meet the specified constraints.</p>
+            aws_sdk_iot_wireless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -701,6 +758,15 @@ class IoTWirelessClient:
         Args:
             id: <p>The ID of the resource to update.</p>
             thing_arn: <p>The ARN of the thing to associate with the wireless gateway.</p>
+
+        Raises:
+            aws_sdk_iot_wireless.errors.access_denied_exception.AccessDeniedException: <p>User does not have permission to perform this action.</p>
+            aws_sdk_iot_wireless.errors.conflict_exception.ConflictException: <p>Adding, updating, or deleting the resource can cause an inconsistent state.</p>
+            aws_sdk_iot_wireless.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request.</p>
+            aws_sdk_iot_wireless.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource does not exist.</p>
+            aws_sdk_iot_wireless.errors.throttling_exception.ThrottlingException: <p>The request was denied because it exceeded the allowed API request rate.</p>
+            aws_sdk_iot_wireless.errors.validation_exception.ValidationException: <p>The input did not meet the specified constraints.</p>
+            aws_sdk_iot_wireless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -735,7 +801,17 @@ class IoTWirelessClient:
         *,
         config_overrides: Optional[IoTWirelessClientConfig] = None,
     ) -> "aws_sdk_iot_wireless.types.cancel_multicast_group_session_response.CancelMulticastGroupSessionResponse":
-        """<p>Cancels an existing multicast group session.</p>"""
+        """<p>Cancels an existing multicast group session.</p>
+
+        Raises:
+            aws_sdk_iot_wireless.errors.access_denied_exception.AccessDeniedException: <p>User does not have permission to perform this action.</p>
+            aws_sdk_iot_wireless.errors.conflict_exception.ConflictException: <p>Adding, updating, or deleting the resource can cause an inconsistent state.</p>
+            aws_sdk_iot_wireless.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request.</p>
+            aws_sdk_iot_wireless.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource does not exist.</p>
+            aws_sdk_iot_wireless.errors.throttling_exception.ThrottlingException: <p>The request was denied because it exceeded the allowed API request rate.</p>
+            aws_sdk_iot_wireless.errors.validation_exception.ValidationException: <p>The input did not meet the specified constraints.</p>
+            aws_sdk_iot_wireless.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_iot_wireless.types.cancel_multicast_group_session_request.CancelMulticastGroupSessionRequest]",
@@ -788,6 +864,15 @@ class IoTWirelessClient:
             role_arn: <p>The ARN of the IAM Role that authorizes the destination.</p>
             tags: <p>The tags to attach to the new destination. Tags are metadata that you can use to manage a resource.</p>
             client_request_token: <p>Each resource must have a unique client request token. The client token is used to implement idempotency. It ensures that the request completes no more than one time. If you retry a request with the same token and the same parameters, the request will complete successfully. However, if you try to create a new resource using the same token but different parameters, an HTTP 409 conflict occurs. If you omit this value, AWS SDKs will automatically generate a unique client request. For more information about idempotency, see <a href=\"https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html\">Ensuring idempotency in Amazon EC2 API requests</a>.</p>
+
+        Raises:
+            aws_sdk_iot_wireless.errors.access_denied_exception.AccessDeniedException: <p>User does not have permission to perform this action.</p>
+            aws_sdk_iot_wireless.errors.conflict_exception.ConflictException: <p>Adding, updating, or deleting the resource can cause an inconsistent state.</p>
+            aws_sdk_iot_wireless.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request.</p>
+            aws_sdk_iot_wireless.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource does not exist.</p>
+            aws_sdk_iot_wireless.errors.throttling_exception.ThrottlingException: <p>The request was denied because it exceeded the allowed API request rate.</p>
+            aws_sdk_iot_wireless.errors.validation_exception.ValidationException: <p>The input did not meet the specified constraints.</p>
+            aws_sdk_iot_wireless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -850,6 +935,14 @@ class IoTWirelessClient:
             tags: <p>The tags to attach to the new device profile. Tags are metadata that you can use to manage a resource.</p>
             client_request_token: <p>Each resource must have a unique client request token. The client token is used to implement idempotency. It ensures that the request completes no more than one time. If you retry a request with the same token and the same parameters, the request will complete successfully. However, if you try to create a new resource using the same token but different parameters, an HTTP 409 conflict occurs. If you omit this value, AWS SDKs will automatically generate a unique client request. For more information about idempotency, see <a href=\"https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html\">Ensuring idempotency in Amazon EC2 API requests</a>.</p>
             sidewalk: <p>The Sidewalk-related information for creating the Sidewalk device profile.</p>
+
+        Raises:
+            aws_sdk_iot_wireless.errors.access_denied_exception.AccessDeniedException: <p>User does not have permission to perform this action.</p>
+            aws_sdk_iot_wireless.errors.conflict_exception.ConflictException: <p>Adding, updating, or deleting the resource can cause an inconsistent state.</p>
+            aws_sdk_iot_wireless.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request.</p>
+            aws_sdk_iot_wireless.errors.throttling_exception.ThrottlingException: <p>The request was denied because it exceeded the allowed API request rate.</p>
+            aws_sdk_iot_wireless.errors.validation_exception.ValidationException: <p>The input did not meet the specified constraints.</p>
+            aws_sdk_iot_wireless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -920,7 +1013,17 @@ class IoTWirelessClient:
     ) -> (
         "aws_sdk_iot_wireless.types.create_fuota_task_response.CreateFuotaTaskResponse"
     ):
-        """<p>Creates a FUOTA task.</p>"""
+        """<p>Creates a FUOTA task.</p>
+
+        Raises:
+            aws_sdk_iot_wireless.errors.access_denied_exception.AccessDeniedException: <p>User does not have permission to perform this action.</p>
+            aws_sdk_iot_wireless.errors.conflict_exception.ConflictException: <p>Adding, updating, or deleting the resource can cause an inconsistent state.</p>
+            aws_sdk_iot_wireless.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request.</p>
+            aws_sdk_iot_wireless.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource does not exist.</p>
+            aws_sdk_iot_wireless.errors.throttling_exception.ThrottlingException: <p>The request was denied because it exceeded the allowed API request rate.</p>
+            aws_sdk_iot_wireless.errors.validation_exception.ValidationException: <p>The input did not meet the specified constraints.</p>
+            aws_sdk_iot_wireless.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_iot_wireless.types.create_fuota_task_request.CreateFuotaTaskRequest]",
@@ -987,6 +1090,15 @@ class IoTWirelessClient:
         Args:
             description: <p>The description of the multicast group.</p>
             client_request_token: <p>Each resource must have a unique client request token. The client token is used to implement idempotency. It ensures that the request completes no more than one time. If you retry a request with the same token and the same parameters, the request will complete successfully. However, if you try to create a new resource using the same token but different parameters, an HTTP 409 conflict occurs. If you omit this value, AWS SDKs will automatically generate a unique client request. For more information about idempotency, see <a href=\"https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html\">Ensuring idempotency in Amazon EC2 API requests</a>.</p>
+
+        Raises:
+            aws_sdk_iot_wireless.errors.access_denied_exception.AccessDeniedException: <p>User does not have permission to perform this action.</p>
+            aws_sdk_iot_wireless.errors.conflict_exception.ConflictException: <p>Adding, updating, or deleting the resource can cause an inconsistent state.</p>
+            aws_sdk_iot_wireless.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request.</p>
+            aws_sdk_iot_wireless.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource does not exist.</p>
+            aws_sdk_iot_wireless.errors.throttling_exception.ThrottlingException: <p>The request was denied because it exceeded the allowed API request rate.</p>
+            aws_sdk_iot_wireless.errors.validation_exception.ValidationException: <p>The input did not meet the specified constraints.</p>
+            aws_sdk_iot_wireless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1053,6 +1165,15 @@ class IoTWirelessClient:
             wireless_devices: <p>Wireless device resources to add to the network analyzer configuration. Provide the <code>WirelessDeviceId</code> of the resource to add in the input array.</p>
             wireless_gateways: <p>Wireless gateway resources to add to the network analyzer configuration. Provide the <code>WirelessGatewayId</code> of the resource to add in the input array.</p>
             multicast_groups: <p>Multicast Group resources to add to the network analyzer configruation. Provide the <code>MulticastGroupId</code> of the resource to add in the input array.</p>
+
+        Raises:
+            aws_sdk_iot_wireless.errors.access_denied_exception.AccessDeniedException: <p>User does not have permission to perform this action.</p>
+            aws_sdk_iot_wireless.errors.conflict_exception.ConflictException: <p>Adding, updating, or deleting the resource can cause an inconsistent state.</p>
+            aws_sdk_iot_wireless.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request.</p>
+            aws_sdk_iot_wireless.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource does not exist.</p>
+            aws_sdk_iot_wireless.errors.throttling_exception.ThrottlingException: <p>The request was denied because it exceeded the allowed API request rate.</p>
+            aws_sdk_iot_wireless.errors.validation_exception.ValidationException: <p>The input did not meet the specified constraints.</p>
+            aws_sdk_iot_wireless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1116,6 +1237,14 @@ class IoTWirelessClient:
             lo_ra_wan: <p>The service profile information to use to create the service profile.</p>
             tags: <p>The tags to attach to the new service profile. Tags are metadata that you can use to manage a resource.</p>
             client_request_token: <p>Each resource must have a unique client request token. The client token is used to implement idempotency. It ensures that the request completes no more than one time. If you retry a request with the same token and the same parameters, the request will complete successfully. However, if you try to create a new resource using the same token but different parameters, an HTTP 409 conflict occurs. If you omit this value, AWS SDKs will automatically generate a unique client request. For more information about idempotency, see <a href=\"https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html\">Ensuring idempotency in Amazon EC2 API requests</a>.</p>
+
+        Raises:
+            aws_sdk_iot_wireless.errors.access_denied_exception.AccessDeniedException: <p>User does not have permission to perform this action.</p>
+            aws_sdk_iot_wireless.errors.conflict_exception.ConflictException: <p>Adding, updating, or deleting the resource can cause an inconsistent state.</p>
+            aws_sdk_iot_wireless.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request.</p>
+            aws_sdk_iot_wireless.errors.throttling_exception.ThrottlingException: <p>The request was denied because it exceeded the allowed API request rate.</p>
+            aws_sdk_iot_wireless.errors.validation_exception.ValidationException: <p>The input did not meet the specified constraints.</p>
+            aws_sdk_iot_wireless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1188,6 +1317,15 @@ class IoTWirelessClient:
             tags: <p>The tags to attach to the new wireless device. Tags are metadata that you can use to manage a resource.</p>
             positioning: <p>The integration status of the Device Location feature for LoRaWAN and Sidewalk devices.</p>
             sidewalk: <p>The device configuration information to use to create the Sidewalk device.</p>
+
+        Raises:
+            aws_sdk_iot_wireless.errors.access_denied_exception.AccessDeniedException: <p>User does not have permission to perform this action.</p>
+            aws_sdk_iot_wireless.errors.conflict_exception.ConflictException: <p>Adding, updating, or deleting the resource can cause an inconsistent state.</p>
+            aws_sdk_iot_wireless.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request.</p>
+            aws_sdk_iot_wireless.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource does not exist.</p>
+            aws_sdk_iot_wireless.errors.throttling_exception.ThrottlingException: <p>The request was denied because it exceeded the allowed API request rate.</p>
+            aws_sdk_iot_wireless.errors.validation_exception.ValidationException: <p>The input did not meet the specified constraints.</p>
+            aws_sdk_iot_wireless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1254,6 +1392,14 @@ class IoTWirelessClient:
             lo_ra_wan: <p>The gateway configuration information to use to create the wireless gateway.</p>
             tags: <p>The tags to attach to the new wireless gateway. Tags are metadata that you can use to manage a resource.</p>
             client_request_token: <p>Each resource must have a unique client request token. The client token is used to implement idempotency. It ensures that the request completes no more than one time. If you retry a request with the same token and the same parameters, the request will complete successfully. However, if you try to create a new resource using the same token but different parameters, an HTTP 409 conflict occurs. If you omit this value, AWS SDKs will automatically generate a unique client request. For more information about idempotency, see <a href=\"https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html\">Ensuring idempotency in Amazon EC2 API requests</a>.</p>
+
+        Raises:
+            aws_sdk_iot_wireless.errors.access_denied_exception.AccessDeniedException: <p>User does not have permission to perform this action.</p>
+            aws_sdk_iot_wireless.errors.conflict_exception.ConflictException: <p>Adding, updating, or deleting the resource can cause an inconsistent state.</p>
+            aws_sdk_iot_wireless.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request.</p>
+            aws_sdk_iot_wireless.errors.throttling_exception.ThrottlingException: <p>The request was denied because it exceeded the allowed API request rate.</p>
+            aws_sdk_iot_wireless.errors.validation_exception.ValidationException: <p>The input did not meet the specified constraints.</p>
+            aws_sdk_iot_wireless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1301,6 +1447,15 @@ class IoTWirelessClient:
         Args:
             id: <p>The ID of the resource to update.</p>
             wireless_gateway_task_definition_id: <p>The ID of the WirelessGatewayTaskDefinition.</p>
+
+        Raises:
+            aws_sdk_iot_wireless.errors.access_denied_exception.AccessDeniedException: <p>User does not have permission to perform this action.</p>
+            aws_sdk_iot_wireless.errors.conflict_exception.ConflictException: <p>Adding, updating, or deleting the resource can cause an inconsistent state.</p>
+            aws_sdk_iot_wireless.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request.</p>
+            aws_sdk_iot_wireless.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource does not exist.</p>
+            aws_sdk_iot_wireless.errors.throttling_exception.ThrottlingException: <p>The request was denied because it exceeded the allowed API request rate.</p>
+            aws_sdk_iot_wireless.errors.validation_exception.ValidationException: <p>The input did not meet the specified constraints.</p>
+            aws_sdk_iot_wireless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1355,6 +1510,15 @@ class IoTWirelessClient:
             update: <p>Information about the gateways to update.</p>
             client_request_token: <p>Each resource must have a unique client request token. The client token is used to implement idempotency. It ensures that the request completes no more than one time. If you retry a request with the same token and the same parameters, the request will complete successfully. However, if you try to create a new resource using the same token but different parameters, an HTTP 409 conflict occurs. If you omit this value, AWS SDKs will automatically generate a unique client request. For more information about idempotency, see <a href=\"https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html\">Ensuring idempotency in Amazon EC2 API requests</a>.</p>
             tags: <p>The tags to attach to the specified resource. Tags are metadata that you can use to manage a resource.</p>
+
+        Raises:
+            aws_sdk_iot_wireless.errors.access_denied_exception.AccessDeniedException: <p>User does not have permission to perform this action.</p>
+            aws_sdk_iot_wireless.errors.conflict_exception.ConflictException: <p>Adding, updating, or deleting the resource can cause an inconsistent state.</p>
+            aws_sdk_iot_wireless.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request.</p>
+            aws_sdk_iot_wireless.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource does not exist.</p>
+            aws_sdk_iot_wireless.errors.throttling_exception.ThrottlingException: <p>The request was denied because it exceeded the allowed API request rate.</p>
+            aws_sdk_iot_wireless.errors.validation_exception.ValidationException: <p>The input did not meet the specified constraints.</p>
+            aws_sdk_iot_wireless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1400,6 +1564,15 @@ class IoTWirelessClient:
 
         Args:
             name: <p>The name of the resource to delete.</p>
+
+        Raises:
+            aws_sdk_iot_wireless.errors.access_denied_exception.AccessDeniedException: <p>User does not have permission to perform this action.</p>
+            aws_sdk_iot_wireless.errors.conflict_exception.ConflictException: <p>Adding, updating, or deleting the resource can cause an inconsistent state.</p>
+            aws_sdk_iot_wireless.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request.</p>
+            aws_sdk_iot_wireless.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource does not exist.</p>
+            aws_sdk_iot_wireless.errors.throttling_exception.ThrottlingException: <p>The request was denied because it exceeded the allowed API request rate.</p>
+            aws_sdk_iot_wireless.errors.validation_exception.ValidationException: <p>The input did not meet the specified constraints.</p>
+            aws_sdk_iot_wireless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1437,6 +1610,15 @@ class IoTWirelessClient:
 
         Args:
             id: <p>The ID of the resource to delete.</p>
+
+        Raises:
+            aws_sdk_iot_wireless.errors.access_denied_exception.AccessDeniedException: <p>User does not have permission to perform this action.</p>
+            aws_sdk_iot_wireless.errors.conflict_exception.ConflictException: <p>Adding, updating, or deleting the resource can cause an inconsistent state.</p>
+            aws_sdk_iot_wireless.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request.</p>
+            aws_sdk_iot_wireless.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource does not exist.</p>
+            aws_sdk_iot_wireless.errors.throttling_exception.ThrottlingException: <p>The request was denied because it exceeded the allowed API request rate.</p>
+            aws_sdk_iot_wireless.errors.validation_exception.ValidationException: <p>The input did not meet the specified constraints.</p>
+            aws_sdk_iot_wireless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1472,7 +1654,16 @@ class IoTWirelessClient:
     ) -> (
         "aws_sdk_iot_wireless.types.delete_fuota_task_response.DeleteFuotaTaskResponse"
     ):
-        """<p>Deletes a FUOTA task.</p>"""
+        """<p>Deletes a FUOTA task.</p>
+
+        Raises:
+            aws_sdk_iot_wireless.errors.access_denied_exception.AccessDeniedException: <p>User does not have permission to perform this action.</p>
+            aws_sdk_iot_wireless.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request.</p>
+            aws_sdk_iot_wireless.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource does not exist.</p>
+            aws_sdk_iot_wireless.errors.throttling_exception.ThrottlingException: <p>The request was denied because it exceeded the allowed API request rate.</p>
+            aws_sdk_iot_wireless.errors.validation_exception.ValidationException: <p>The input did not meet the specified constraints.</p>
+            aws_sdk_iot_wireless.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_iot_wireless.types.delete_fuota_task_request.DeleteFuotaTaskRequest]",
@@ -1505,7 +1696,17 @@ class IoTWirelessClient:
         *,
         config_overrides: Optional[IoTWirelessClientConfig] = None,
     ) -> "aws_sdk_iot_wireless.types.delete_multicast_group_response.DeleteMulticastGroupResponse":
-        """<p>Deletes a multicast group if it is not in use by a FUOTA task.</p>"""
+        """<p>Deletes a multicast group if it is not in use by a FUOTA task.</p>
+
+        Raises:
+            aws_sdk_iot_wireless.errors.access_denied_exception.AccessDeniedException: <p>User does not have permission to perform this action.</p>
+            aws_sdk_iot_wireless.errors.conflict_exception.ConflictException: <p>Adding, updating, or deleting the resource can cause an inconsistent state.</p>
+            aws_sdk_iot_wireless.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request.</p>
+            aws_sdk_iot_wireless.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource does not exist.</p>
+            aws_sdk_iot_wireless.errors.throttling_exception.ThrottlingException: <p>The request was denied because it exceeded the allowed API request rate.</p>
+            aws_sdk_iot_wireless.errors.validation_exception.ValidationException: <p>The input did not meet the specified constraints.</p>
+            aws_sdk_iot_wireless.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_iot_wireless.types.delete_multicast_group_request.DeleteMulticastGroupRequest]",
@@ -1538,7 +1739,17 @@ class IoTWirelessClient:
         *,
         config_overrides: Optional[IoTWirelessClientConfig] = None,
     ) -> "aws_sdk_iot_wireless.types.delete_network_analyzer_configuration_response.DeleteNetworkAnalyzerConfigurationResponse":
-        """<p>Deletes a network analyzer configuration.</p>"""
+        """<p>Deletes a network analyzer configuration.</p>
+
+        Raises:
+            aws_sdk_iot_wireless.errors.access_denied_exception.AccessDeniedException: <p>User does not have permission to perform this action.</p>
+            aws_sdk_iot_wireless.errors.conflict_exception.ConflictException: <p>Adding, updating, or deleting the resource can cause an inconsistent state.</p>
+            aws_sdk_iot_wireless.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request.</p>
+            aws_sdk_iot_wireless.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource does not exist.</p>
+            aws_sdk_iot_wireless.errors.throttling_exception.ThrottlingException: <p>The request was denied because it exceeded the allowed API request rate.</p>
+            aws_sdk_iot_wireless.errors.validation_exception.ValidationException: <p>The input did not meet the specified constraints.</p>
+            aws_sdk_iot_wireless.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_iot_wireless.types.delete_network_analyzer_configuration_request.DeleteNetworkAnalyzerConfigurationRequest]",
@@ -1581,6 +1792,14 @@ class IoTWirelessClient:
             id: <p>The ID of a given wireless device for which downlink messages will be deleted.</p>
             message_id: <p>If message ID is <code>\"*\"</code>, it cleares the entire downlink queue for a given device, specified by the wireless device ID. Otherwise, the downlink message with the specified message ID will be deleted.</p>
             wireless_device_type: <p>The wireless device type, which can be either Sidewalk or LoRaWAN.</p>
+
+        Raises:
+            aws_sdk_iot_wireless.errors.access_denied_exception.AccessDeniedException: <p>User does not have permission to perform this action.</p>
+            aws_sdk_iot_wireless.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request.</p>
+            aws_sdk_iot_wireless.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource does not exist.</p>
+            aws_sdk_iot_wireless.errors.throttling_exception.ThrottlingException: <p>The request was denied because it exceeded the allowed API request rate.</p>
+            aws_sdk_iot_wireless.errors.validation_exception.ValidationException: <p>The input did not meet the specified constraints.</p>
+            aws_sdk_iot_wireless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1621,6 +1840,15 @@ class IoTWirelessClient:
 
         Args:
             id: <p>The ID of the resource to delete.</p>
+
+        Raises:
+            aws_sdk_iot_wireless.errors.access_denied_exception.AccessDeniedException: <p>User does not have permission to perform this action.</p>
+            aws_sdk_iot_wireless.errors.conflict_exception.ConflictException: <p>Adding, updating, or deleting the resource can cause an inconsistent state.</p>
+            aws_sdk_iot_wireless.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request.</p>
+            aws_sdk_iot_wireless.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource does not exist.</p>
+            aws_sdk_iot_wireless.errors.throttling_exception.ThrottlingException: <p>The request was denied because it exceeded the allowed API request rate.</p>
+            aws_sdk_iot_wireless.errors.validation_exception.ValidationException: <p>The input did not meet the specified constraints.</p>
+            aws_sdk_iot_wireless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1658,6 +1886,14 @@ class IoTWirelessClient:
 
         Args:
             id: <p>The ID of the resource to delete.</p>
+
+        Raises:
+            aws_sdk_iot_wireless.errors.access_denied_exception.AccessDeniedException: <p>User does not have permission to perform this action.</p>
+            aws_sdk_iot_wireless.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request.</p>
+            aws_sdk_iot_wireless.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource does not exist.</p>
+            aws_sdk_iot_wireless.errors.throttling_exception.ThrottlingException: <p>The request was denied because it exceeded the allowed API request rate.</p>
+            aws_sdk_iot_wireless.errors.validation_exception.ValidationException: <p>The input did not meet the specified constraints.</p>
+            aws_sdk_iot_wireless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1695,6 +1931,15 @@ class IoTWirelessClient:
 
         Args:
             id: <p>The unique identifier of the import task to be deleted.</p>
+
+        Raises:
+            aws_sdk_iot_wireless.errors.access_denied_exception.AccessDeniedException: <p>User does not have permission to perform this action.</p>
+            aws_sdk_iot_wireless.errors.conflict_exception.ConflictException: <p>Adding, updating, or deleting the resource can cause an inconsistent state.</p>
+            aws_sdk_iot_wireless.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request.</p>
+            aws_sdk_iot_wireless.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource does not exist.</p>
+            aws_sdk_iot_wireless.errors.throttling_exception.ThrottlingException: <p>The request was denied because it exceeded the allowed API request rate.</p>
+            aws_sdk_iot_wireless.errors.validation_exception.ValidationException: <p>The input did not meet the specified constraints.</p>
+            aws_sdk_iot_wireless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1732,6 +1977,14 @@ class IoTWirelessClient:
 
         Args:
             id: <p>The ID of the resource to delete.</p>
+
+        Raises:
+            aws_sdk_iot_wireless.errors.access_denied_exception.AccessDeniedException: <p>User does not have permission to perform this action.</p>
+            aws_sdk_iot_wireless.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request.</p>
+            aws_sdk_iot_wireless.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource does not exist.</p>
+            aws_sdk_iot_wireless.errors.throttling_exception.ThrottlingException: <p>The request was denied because it exceeded the allowed API request rate.</p>
+            aws_sdk_iot_wireless.errors.validation_exception.ValidationException: <p>The input did not meet the specified constraints.</p>
+            aws_sdk_iot_wireless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1769,6 +2022,14 @@ class IoTWirelessClient:
 
         Args:
             id: <p>The ID of the resource to delete.</p>
+
+        Raises:
+            aws_sdk_iot_wireless.errors.access_denied_exception.AccessDeniedException: <p>User does not have permission to perform this action.</p>
+            aws_sdk_iot_wireless.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request.</p>
+            aws_sdk_iot_wireless.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource does not exist.</p>
+            aws_sdk_iot_wireless.errors.throttling_exception.ThrottlingException: <p>The request was denied because it exceeded the allowed API request rate.</p>
+            aws_sdk_iot_wireless.errors.validation_exception.ValidationException: <p>The input did not meet the specified constraints.</p>
+            aws_sdk_iot_wireless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1806,6 +2067,14 @@ class IoTWirelessClient:
 
         Args:
             id: <p>The ID of the resource to delete.</p>
+
+        Raises:
+            aws_sdk_iot_wireless.errors.access_denied_exception.AccessDeniedException: <p>User does not have permission to perform this action.</p>
+            aws_sdk_iot_wireless.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request.</p>
+            aws_sdk_iot_wireless.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource does not exist.</p>
+            aws_sdk_iot_wireless.errors.throttling_exception.ThrottlingException: <p>The request was denied because it exceeded the allowed API request rate.</p>
+            aws_sdk_iot_wireless.errors.validation_exception.ValidationException: <p>The input did not meet the specified constraints.</p>
+            aws_sdk_iot_wireless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1847,6 +2116,13 @@ class IoTWirelessClient:
         Args:
             identifier: <p>The identifier of the wireless device to deregister from AWS IoT Wireless.</p>
             wireless_device_type: <p>The type of wireless device to deregister from AWS IoT Wireless, which can be <code>LoRaWAN</code> or <code>Sidewalk</code>.</p>
+
+        Raises:
+            aws_sdk_iot_wireless.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request.</p>
+            aws_sdk_iot_wireless.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource does not exist.</p>
+            aws_sdk_iot_wireless.errors.throttling_exception.ThrottlingException: <p>The request was denied because it exceeded the allowed API request rate.</p>
+            aws_sdk_iot_wireless.errors.validation_exception.ValidationException: <p>The input did not meet the specified constraints.</p>
+            aws_sdk_iot_wireless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1888,6 +2164,13 @@ class IoTWirelessClient:
         Args:
             partner_account_id: <p>The partner account ID to disassociate from the AWS account.</p>
             partner_type: <p>The partner type.</p>
+
+        Raises:
+            aws_sdk_iot_wireless.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request.</p>
+            aws_sdk_iot_wireless.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource does not exist.</p>
+            aws_sdk_iot_wireless.errors.throttling_exception.ThrottlingException: <p>The request was denied because it exceeded the allowed API request rate.</p>
+            aws_sdk_iot_wireless.errors.validation_exception.ValidationException: <p>The input did not meet the specified constraints.</p>
+            aws_sdk_iot_wireless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1923,7 +2206,16 @@ class IoTWirelessClient:
         *,
         config_overrides: Optional[IoTWirelessClientConfig] = None,
     ) -> "aws_sdk_iot_wireless.types.disassociate_multicast_group_from_fuota_task_response.DisassociateMulticastGroupFromFuotaTaskResponse":
-        """<p>Disassociates a multicast group from a FUOTA task.</p>"""
+        """<p>Disassociates a multicast group from a FUOTA task.</p>
+
+        Raises:
+            aws_sdk_iot_wireless.errors.access_denied_exception.AccessDeniedException: <p>User does not have permission to perform this action.</p>
+            aws_sdk_iot_wireless.errors.conflict_exception.ConflictException: <p>Adding, updating, or deleting the resource can cause an inconsistent state.</p>
+            aws_sdk_iot_wireless.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request.</p>
+            aws_sdk_iot_wireless.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource does not exist.</p>
+            aws_sdk_iot_wireless.errors.validation_exception.ValidationException: <p>The input did not meet the specified constraints.</p>
+            aws_sdk_iot_wireless.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_iot_wireless.types.disassociate_multicast_group_from_fuota_task_request.DisassociateMulticastGroupFromFuotaTaskRequest]",
@@ -1958,7 +2250,17 @@ class IoTWirelessClient:
         *,
         config_overrides: Optional[IoTWirelessClientConfig] = None,
     ) -> "aws_sdk_iot_wireless.types.disassociate_wireless_device_from_fuota_task_response.DisassociateWirelessDeviceFromFuotaTaskResponse":
-        """<p>Disassociates a wireless device from a FUOTA task.</p>"""
+        """<p>Disassociates a wireless device from a FUOTA task.</p>
+
+        Raises:
+            aws_sdk_iot_wireless.errors.access_denied_exception.AccessDeniedException: <p>User does not have permission to perform this action.</p>
+            aws_sdk_iot_wireless.errors.conflict_exception.ConflictException: <p>Adding, updating, or deleting the resource can cause an inconsistent state.</p>
+            aws_sdk_iot_wireless.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request.</p>
+            aws_sdk_iot_wireless.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource does not exist.</p>
+            aws_sdk_iot_wireless.errors.throttling_exception.ThrottlingException: <p>The request was denied because it exceeded the allowed API request rate.</p>
+            aws_sdk_iot_wireless.errors.validation_exception.ValidationException: <p>The input did not meet the specified constraints.</p>
+            aws_sdk_iot_wireless.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_iot_wireless.types.disassociate_wireless_device_from_fuota_task_request.DisassociateWirelessDeviceFromFuotaTaskRequest]",
@@ -1993,7 +2295,16 @@ class IoTWirelessClient:
         *,
         config_overrides: Optional[IoTWirelessClientConfig] = None,
     ) -> "aws_sdk_iot_wireless.types.disassociate_wireless_device_from_multicast_group_response.DisassociateWirelessDeviceFromMulticastGroupResponse":
-        """<p>Disassociates a wireless device from a multicast group.</p>"""
+        """<p>Disassociates a wireless device from a multicast group.</p>
+
+        Raises:
+            aws_sdk_iot_wireless.errors.access_denied_exception.AccessDeniedException: <p>User does not have permission to perform this action.</p>
+            aws_sdk_iot_wireless.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request.</p>
+            aws_sdk_iot_wireless.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource does not exist.</p>
+            aws_sdk_iot_wireless.errors.throttling_exception.ThrottlingException: <p>The request was denied because it exceeded the allowed API request rate.</p>
+            aws_sdk_iot_wireless.errors.validation_exception.ValidationException: <p>The input did not meet the specified constraints.</p>
+            aws_sdk_iot_wireless.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_iot_wireless.types.disassociate_wireless_device_from_multicast_group_request.DisassociateWirelessDeviceFromMulticastGroupRequest]",
@@ -2031,6 +2342,15 @@ class IoTWirelessClient:
 
         Args:
             id: <p>The ID of the resource to update.</p>
+
+        Raises:
+            aws_sdk_iot_wireless.errors.access_denied_exception.AccessDeniedException: <p>User does not have permission to perform this action.</p>
+            aws_sdk_iot_wireless.errors.conflict_exception.ConflictException: <p>Adding, updating, or deleting the resource can cause an inconsistent state.</p>
+            aws_sdk_iot_wireless.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request.</p>
+            aws_sdk_iot_wireless.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource does not exist.</p>
+            aws_sdk_iot_wireless.errors.throttling_exception.ThrottlingException: <p>The request was denied because it exceeded the allowed API request rate.</p>
+            aws_sdk_iot_wireless.errors.validation_exception.ValidationException: <p>The input did not meet the specified constraints.</p>
+            aws_sdk_iot_wireless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2068,6 +2388,14 @@ class IoTWirelessClient:
 
         Args:
             id: <p>The ID of the resource to update.</p>
+
+        Raises:
+            aws_sdk_iot_wireless.errors.access_denied_exception.AccessDeniedException: <p>User does not have permission to perform this action.</p>
+            aws_sdk_iot_wireless.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request.</p>
+            aws_sdk_iot_wireless.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource does not exist.</p>
+            aws_sdk_iot_wireless.errors.throttling_exception.ThrottlingException: <p>The request was denied because it exceeded the allowed API request rate.</p>
+            aws_sdk_iot_wireless.errors.validation_exception.ValidationException: <p>The input did not meet the specified constraints.</p>
+            aws_sdk_iot_wireless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2105,6 +2433,15 @@ class IoTWirelessClient:
 
         Args:
             id: <p>The ID of the resource to update.</p>
+
+        Raises:
+            aws_sdk_iot_wireless.errors.access_denied_exception.AccessDeniedException: <p>User does not have permission to perform this action.</p>
+            aws_sdk_iot_wireless.errors.conflict_exception.ConflictException: <p>Adding, updating, or deleting the resource can cause an inconsistent state.</p>
+            aws_sdk_iot_wireless.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request.</p>
+            aws_sdk_iot_wireless.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource does not exist.</p>
+            aws_sdk_iot_wireless.errors.throttling_exception.ThrottlingException: <p>The request was denied because it exceeded the allowed API request rate.</p>
+            aws_sdk_iot_wireless.errors.validation_exception.ValidationException: <p>The input did not meet the specified constraints.</p>
+            aws_sdk_iot_wireless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2142,6 +2479,14 @@ class IoTWirelessClient:
 
         Args:
             name: <p>The name of the resource to get.</p>
+
+        Raises:
+            aws_sdk_iot_wireless.errors.access_denied_exception.AccessDeniedException: <p>User does not have permission to perform this action.</p>
+            aws_sdk_iot_wireless.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request.</p>
+            aws_sdk_iot_wireless.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource does not exist.</p>
+            aws_sdk_iot_wireless.errors.throttling_exception.ThrottlingException: <p>The request was denied because it exceeded the allowed API request rate.</p>
+            aws_sdk_iot_wireless.errors.validation_exception.ValidationException: <p>The input did not meet the specified constraints.</p>
+            aws_sdk_iot_wireless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2179,6 +2524,14 @@ class IoTWirelessClient:
 
         Args:
             id: <p>The ID of the resource to get.</p>
+
+        Raises:
+            aws_sdk_iot_wireless.errors.access_denied_exception.AccessDeniedException: <p>User does not have permission to perform this action.</p>
+            aws_sdk_iot_wireless.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request.</p>
+            aws_sdk_iot_wireless.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource does not exist.</p>
+            aws_sdk_iot_wireless.errors.throttling_exception.ThrottlingException: <p>The request was denied because it exceeded the allowed API request rate.</p>
+            aws_sdk_iot_wireless.errors.validation_exception.ValidationException: <p>The input did not meet the specified constraints.</p>
+            aws_sdk_iot_wireless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2209,7 +2562,14 @@ class IoTWirelessClient:
     def get_event_configuration_by_resource_types(
         self, *, config_overrides: Optional[IoTWirelessClientConfig] = None
     ) -> "aws_sdk_iot_wireless.types.get_event_configuration_by_resource_types_response.GetEventConfigurationByResourceTypesResponse":
-        """<p>Get the event configuration based on resource types.</p>"""
+        """<p>Get the event configuration based on resource types.</p>
+
+        Raises:
+            aws_sdk_iot_wireless.errors.access_denied_exception.AccessDeniedException: <p>User does not have permission to perform this action.</p>
+            aws_sdk_iot_wireless.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request.</p>
+            aws_sdk_iot_wireless.errors.throttling_exception.ThrottlingException: <p>The request was denied because it exceeded the allowed API request rate.</p>
+            aws_sdk_iot_wireless.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_iot_wireless.types.get_event_configuration_by_resource_types_request.GetEventConfigurationByResourceTypesRequest]",
@@ -2241,7 +2601,16 @@ class IoTWirelessClient:
         *,
         config_overrides: Optional[IoTWirelessClientConfig] = None,
     ) -> "aws_sdk_iot_wireless.types.get_fuota_task_response.GetFuotaTaskResponse":
-        """<p>Gets information about a FUOTA task.</p>"""
+        """<p>Gets information about a FUOTA task.</p>
+
+        Raises:
+            aws_sdk_iot_wireless.errors.access_denied_exception.AccessDeniedException: <p>User does not have permission to perform this action.</p>
+            aws_sdk_iot_wireless.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request.</p>
+            aws_sdk_iot_wireless.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource does not exist.</p>
+            aws_sdk_iot_wireless.errors.throttling_exception.ThrottlingException: <p>The request was denied because it exceeded the allowed API request rate.</p>
+            aws_sdk_iot_wireless.errors.validation_exception.ValidationException: <p>The input did not meet the specified constraints.</p>
+            aws_sdk_iot_wireless.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_iot_wireless.types.get_fuota_task_request.GetFuotaTaskRequest]",
@@ -2271,7 +2640,16 @@ class IoTWirelessClient:
     def get_log_levels_by_resource_types(
         self, *, config_overrides: Optional[IoTWirelessClientConfig] = None
     ) -> "aws_sdk_iot_wireless.types.get_log_levels_by_resource_types_response.GetLogLevelsByResourceTypesResponse":
-        """<p>Returns current default log levels or log levels by resource types. Based on the resource type, log levels can be returned for wireless device, wireless gateway, or FUOTA task log options.</p>"""
+        """<p>Returns current default log levels or log levels by resource types. Based on the resource type, log levels can be returned for wireless device, wireless gateway, or FUOTA task log options.</p>
+
+        Raises:
+            aws_sdk_iot_wireless.errors.access_denied_exception.AccessDeniedException: <p>User does not have permission to perform this action.</p>
+            aws_sdk_iot_wireless.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request.</p>
+            aws_sdk_iot_wireless.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource does not exist.</p>
+            aws_sdk_iot_wireless.errors.throttling_exception.ThrottlingException: <p>The request was denied because it exceeded the allowed API request rate.</p>
+            aws_sdk_iot_wireless.errors.validation_exception.ValidationException: <p>The input did not meet the specified constraints.</p>
+            aws_sdk_iot_wireless.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_iot_wireless.types.get_log_levels_by_resource_types_request.GetLogLevelsByResourceTypesRequest]",
@@ -2300,7 +2678,17 @@ class IoTWirelessClient:
     def get_metric_configuration(
         self, *, config_overrides: Optional[IoTWirelessClientConfig] = None
     ) -> "aws_sdk_iot_wireless.types.get_metric_configuration_response.GetMetricConfigurationResponse":
-        """<p>Get the metric configuration status for this AWS account.</p>"""
+        """<p>Get the metric configuration status for this AWS account.</p>
+
+        Raises:
+            aws_sdk_iot_wireless.errors.access_denied_exception.AccessDeniedException: <p>User does not have permission to perform this action.</p>
+            aws_sdk_iot_wireless.errors.conflict_exception.ConflictException: <p>Adding, updating, or deleting the resource can cause an inconsistent state.</p>
+            aws_sdk_iot_wireless.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request.</p>
+            aws_sdk_iot_wireless.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource does not exist.</p>
+            aws_sdk_iot_wireless.errors.throttling_exception.ThrottlingException: <p>The request was denied because it exceeded the allowed API request rate.</p>
+            aws_sdk_iot_wireless.errors.validation_exception.ValidationException: <p>The input did not meet the specified constraints.</p>
+            aws_sdk_iot_wireless.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_iot_wireless.types.get_metric_configuration_request.GetMetricConfigurationRequest]",
@@ -2338,6 +2726,15 @@ class IoTWirelessClient:
 
         Args:
             summary_metric_queries: <p>The list of queries to retrieve the summary metrics.</p>
+
+        Raises:
+            aws_sdk_iot_wireless.errors.access_denied_exception.AccessDeniedException: <p>User does not have permission to perform this action.</p>
+            aws_sdk_iot_wireless.errors.conflict_exception.ConflictException: <p>Adding, updating, or deleting the resource can cause an inconsistent state.</p>
+            aws_sdk_iot_wireless.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request.</p>
+            aws_sdk_iot_wireless.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource does not exist.</p>
+            aws_sdk_iot_wireless.errors.throttling_exception.ThrottlingException: <p>The request was denied because it exceeded the allowed API request rate.</p>
+            aws_sdk_iot_wireless.errors.validation_exception.ValidationException: <p>The input did not meet the specified constraints.</p>
+            aws_sdk_iot_wireless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2372,7 +2769,16 @@ class IoTWirelessClient:
         *,
         config_overrides: Optional[IoTWirelessClientConfig] = None,
     ) -> "aws_sdk_iot_wireless.types.get_multicast_group_response.GetMulticastGroupResponse":
-        """<p>Gets information about a multicast group.</p>"""
+        """<p>Gets information about a multicast group.</p>
+
+        Raises:
+            aws_sdk_iot_wireless.errors.access_denied_exception.AccessDeniedException: <p>User does not have permission to perform this action.</p>
+            aws_sdk_iot_wireless.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request.</p>
+            aws_sdk_iot_wireless.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource does not exist.</p>
+            aws_sdk_iot_wireless.errors.throttling_exception.ThrottlingException: <p>The request was denied because it exceeded the allowed API request rate.</p>
+            aws_sdk_iot_wireless.errors.validation_exception.ValidationException: <p>The input did not meet the specified constraints.</p>
+            aws_sdk_iot_wireless.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_iot_wireless.types.get_multicast_group_request.GetMulticastGroupRequest]",
@@ -2405,7 +2811,16 @@ class IoTWirelessClient:
         *,
         config_overrides: Optional[IoTWirelessClientConfig] = None,
     ) -> "aws_sdk_iot_wireless.types.get_multicast_group_session_response.GetMulticastGroupSessionResponse":
-        """<p>Gets information about a multicast group session.</p>"""
+        """<p>Gets information about a multicast group session.</p>
+
+        Raises:
+            aws_sdk_iot_wireless.errors.access_denied_exception.AccessDeniedException: <p>User does not have permission to perform this action.</p>
+            aws_sdk_iot_wireless.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request.</p>
+            aws_sdk_iot_wireless.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource does not exist.</p>
+            aws_sdk_iot_wireless.errors.throttling_exception.ThrottlingException: <p>The request was denied because it exceeded the allowed API request rate.</p>
+            aws_sdk_iot_wireless.errors.validation_exception.ValidationException: <p>The input did not meet the specified constraints.</p>
+            aws_sdk_iot_wireless.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_iot_wireless.types.get_multicast_group_session_request.GetMulticastGroupSessionRequest]",
@@ -2438,7 +2853,16 @@ class IoTWirelessClient:
         *,
         config_overrides: Optional[IoTWirelessClientConfig] = None,
     ) -> "aws_sdk_iot_wireless.types.get_network_analyzer_configuration_response.GetNetworkAnalyzerConfigurationResponse":
-        """<p>Get network analyzer configuration.</p>"""
+        """<p>Get network analyzer configuration.</p>
+
+        Raises:
+            aws_sdk_iot_wireless.errors.access_denied_exception.AccessDeniedException: <p>User does not have permission to perform this action.</p>
+            aws_sdk_iot_wireless.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request.</p>
+            aws_sdk_iot_wireless.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource does not exist.</p>
+            aws_sdk_iot_wireless.errors.throttling_exception.ThrottlingException: <p>The request was denied because it exceeded the allowed API request rate.</p>
+            aws_sdk_iot_wireless.errors.validation_exception.ValidationException: <p>The input did not meet the specified constraints.</p>
+            aws_sdk_iot_wireless.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_iot_wireless.types.get_network_analyzer_configuration_request.GetNetworkAnalyzerConfigurationRequest]",
@@ -2477,6 +2901,13 @@ class IoTWirelessClient:
         Args:
             partner_account_id: <p>The partner account ID to disassociate from the AWS account.</p>
             partner_type: <p>The partner type.</p>
+
+        Raises:
+            aws_sdk_iot_wireless.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request.</p>
+            aws_sdk_iot_wireless.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource does not exist.</p>
+            aws_sdk_iot_wireless.errors.throttling_exception.ThrottlingException: <p>The request was denied because it exceeded the allowed API request rate.</p>
+            aws_sdk_iot_wireless.errors.validation_exception.ValidationException: <p>The input did not meet the specified constraints.</p>
+            aws_sdk_iot_wireless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2517,6 +2948,14 @@ class IoTWirelessClient:
         Args:
             resource_identifier: <p>Resource identifier used to retrieve the position information.</p>
             resource_type: <p>Resource type of the resource for which position information is retrieved.</p>
+
+        Raises:
+            aws_sdk_iot_wireless.errors.access_denied_exception.AccessDeniedException: <p>User does not have permission to perform this action.</p>
+            aws_sdk_iot_wireless.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request.</p>
+            aws_sdk_iot_wireless.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource does not exist.</p>
+            aws_sdk_iot_wireless.errors.throttling_exception.ThrottlingException: <p>The request was denied because it exceeded the allowed API request rate.</p>
+            aws_sdk_iot_wireless.errors.validation_exception.ValidationException: <p>The input did not meet the specified constraints.</p>
+            aws_sdk_iot_wireless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2557,6 +2996,14 @@ class IoTWirelessClient:
         Args:
             resource_identifier: <p>Resource identifier used in a position configuration.</p>
             resource_type: <p>Resource type of the resource for which position configuration is retrieved.</p>
+
+        Raises:
+            aws_sdk_iot_wireless.errors.access_denied_exception.AccessDeniedException: <p>User does not have permission to perform this action.</p>
+            aws_sdk_iot_wireless.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request.</p>
+            aws_sdk_iot_wireless.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource does not exist.</p>
+            aws_sdk_iot_wireless.errors.throttling_exception.ThrottlingException: <p>The request was denied because it exceeded the allowed API request rate.</p>
+            aws_sdk_iot_wireless.errors.validation_exception.ValidationException: <p>The input did not meet the specified constraints.</p>
+            aws_sdk_iot_wireless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2613,6 +3060,14 @@ class IoTWirelessClient:
             gnss: <p>Retrieves an estimated device position by resolving the global navigation satellite system (GNSS) scan data. The position is resolved using the GNSS solver powered by LoRa Cloud.</p>
             timestamp: <p>Optional information that specifies the time when the position information will be resolved. It uses the Unix timestamp format. If not specified, the time at which the request was received will be used.</p>
             advanced_configuration: Optional configuration to customize position estimates. If not provided, defaults are applied.
+
+        Raises:
+            aws_sdk_iot_wireless.errors.access_denied_exception.AccessDeniedException: <p>User does not have permission to perform this action.</p>
+            aws_sdk_iot_wireless.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request.</p>
+            aws_sdk_iot_wireless.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource does not exist.</p>
+            aws_sdk_iot_wireless.errors.throttling_exception.ThrottlingException: <p>The request was denied because it exceeded the allowed API request rate.</p>
+            aws_sdk_iot_wireless.errors.validation_exception.ValidationException: <p>The input did not meet the specified constraints.</p>
+            aws_sdk_iot_wireless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2667,6 +3122,14 @@ class IoTWirelessClient:
             identifier: <p>Resource identifier to opt in for event messaging.</p>
             identifier_type: <p>Identifier type of the particular resource identifier for event configuration.</p>
             partner_type: <p>Partner type of the resource if the identifier type is <code>PartnerAccountId</code>.</p>
+
+        Raises:
+            aws_sdk_iot_wireless.errors.access_denied_exception.AccessDeniedException: <p>User does not have permission to perform this action.</p>
+            aws_sdk_iot_wireless.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request.</p>
+            aws_sdk_iot_wireless.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource does not exist.</p>
+            aws_sdk_iot_wireless.errors.throttling_exception.ThrottlingException: <p>The request was denied because it exceeded the allowed API request rate.</p>
+            aws_sdk_iot_wireless.errors.validation_exception.ValidationException: <p>The input did not meet the specified constraints.</p>
+            aws_sdk_iot_wireless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2708,6 +3171,14 @@ class IoTWirelessClient:
 
         Args:
             resource_type: <p>The type of resource, which can be <code>WirelessDevice</code>, <code>WirelessGateway</code>, or <code>FuotaTask</code>.</p>
+
+        Raises:
+            aws_sdk_iot_wireless.errors.access_denied_exception.AccessDeniedException: <p>User does not have permission to perform this action.</p>
+            aws_sdk_iot_wireless.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request.</p>
+            aws_sdk_iot_wireless.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource does not exist.</p>
+            aws_sdk_iot_wireless.errors.throttling_exception.ThrottlingException: <p>The request was denied because it exceeded the allowed API request rate.</p>
+            aws_sdk_iot_wireless.errors.validation_exception.ValidationException: <p>The input did not meet the specified constraints.</p>
+            aws_sdk_iot_wireless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2748,6 +3219,14 @@ class IoTWirelessClient:
         Args:
             resource_identifier: <p>The identifier of the resource for which position information is retrieved. It can be the wireless device ID or the wireless gateway ID, depending on the resource type.</p>
             resource_type: <p>The type of resource for which position information is retrieved, which can be a wireless device or a wireless gateway.</p>
+
+        Raises:
+            aws_sdk_iot_wireless.errors.access_denied_exception.AccessDeniedException: <p>User does not have permission to perform this action.</p>
+            aws_sdk_iot_wireless.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request.</p>
+            aws_sdk_iot_wireless.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource does not exist.</p>
+            aws_sdk_iot_wireless.errors.throttling_exception.ThrottlingException: <p>The request was denied because it exceeded the allowed API request rate.</p>
+            aws_sdk_iot_wireless.errors.validation_exception.ValidationException: <p>The input did not meet the specified constraints.</p>
+            aws_sdk_iot_wireless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2788,6 +3267,13 @@ class IoTWirelessClient:
 
         Args:
             service_type: <p>The service type for which to get endpoint information about. Can be <code>CUPS</code> for the Configuration and Update Server endpoint, or <code>LNS</code> for the LoRaWAN Network Server endpoint.</p>
+
+        Raises:
+            aws_sdk_iot_wireless.errors.access_denied_exception.AccessDeniedException: <p>User does not have permission to perform this action.</p>
+            aws_sdk_iot_wireless.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request.</p>
+            aws_sdk_iot_wireless.errors.throttling_exception.ThrottlingException: <p>The request was denied because it exceeded the allowed API request rate.</p>
+            aws_sdk_iot_wireless.errors.validation_exception.ValidationException: <p>The input did not meet the specified constraints.</p>
+            aws_sdk_iot_wireless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2826,6 +3312,14 @@ class IoTWirelessClient:
 
         Args:
             id: <p>The ID of the resource to get.</p>
+
+        Raises:
+            aws_sdk_iot_wireless.errors.access_denied_exception.AccessDeniedException: <p>User does not have permission to perform this action.</p>
+            aws_sdk_iot_wireless.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request.</p>
+            aws_sdk_iot_wireless.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource does not exist.</p>
+            aws_sdk_iot_wireless.errors.throttling_exception.ThrottlingException: <p>The request was denied because it exceeded the allowed API request rate.</p>
+            aws_sdk_iot_wireless.errors.validation_exception.ValidationException: <p>The input did not meet the specified constraints.</p>
+            aws_sdk_iot_wireless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2865,6 +3359,14 @@ class IoTWirelessClient:
         Args:
             identifier: <p>The identifier of the wireless device to get.</p>
             identifier_type: <p>The type of identifier used in <code>identifier</code>.</p>
+
+        Raises:
+            aws_sdk_iot_wireless.errors.access_denied_exception.AccessDeniedException: <p>User does not have permission to perform this action.</p>
+            aws_sdk_iot_wireless.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request.</p>
+            aws_sdk_iot_wireless.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource does not exist.</p>
+            aws_sdk_iot_wireless.errors.throttling_exception.ThrottlingException: <p>The request was denied because it exceeded the allowed API request rate.</p>
+            aws_sdk_iot_wireless.errors.validation_exception.ValidationException: <p>The input did not meet the specified constraints.</p>
+            aws_sdk_iot_wireless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2903,6 +3405,15 @@ class IoTWirelessClient:
 
         Args:
             id: <p>The identifier of the import task for which information is requested.</p>
+
+        Raises:
+            aws_sdk_iot_wireless.errors.access_denied_exception.AccessDeniedException: <p>User does not have permission to perform this action.</p>
+            aws_sdk_iot_wireless.errors.conflict_exception.ConflictException: <p>Adding, updating, or deleting the resource can cause an inconsistent state.</p>
+            aws_sdk_iot_wireless.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request.</p>
+            aws_sdk_iot_wireless.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource does not exist.</p>
+            aws_sdk_iot_wireless.errors.throttling_exception.ThrottlingException: <p>The request was denied because it exceeded the allowed API request rate.</p>
+            aws_sdk_iot_wireless.errors.validation_exception.ValidationException: <p>The input did not meet the specified constraints.</p>
+            aws_sdk_iot_wireless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2940,6 +3451,14 @@ class IoTWirelessClient:
 
         Args:
             wireless_device_id: <p>The ID of the wireless device for which to get the data.</p>
+
+        Raises:
+            aws_sdk_iot_wireless.errors.access_denied_exception.AccessDeniedException: <p>User does not have permission to perform this action.</p>
+            aws_sdk_iot_wireless.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request.</p>
+            aws_sdk_iot_wireless.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource does not exist.</p>
+            aws_sdk_iot_wireless.errors.throttling_exception.ThrottlingException: <p>The request was denied because it exceeded the allowed API request rate.</p>
+            aws_sdk_iot_wireless.errors.validation_exception.ValidationException: <p>The input did not meet the specified constraints.</p>
+            aws_sdk_iot_wireless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2979,6 +3498,14 @@ class IoTWirelessClient:
         Args:
             identifier: <p>The identifier of the wireless gateway to get.</p>
             identifier_type: <p>The type of identifier used in <code>identifier</code>.</p>
+
+        Raises:
+            aws_sdk_iot_wireless.errors.access_denied_exception.AccessDeniedException: <p>User does not have permission to perform this action.</p>
+            aws_sdk_iot_wireless.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request.</p>
+            aws_sdk_iot_wireless.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource does not exist.</p>
+            aws_sdk_iot_wireless.errors.throttling_exception.ThrottlingException: <p>The request was denied because it exceeded the allowed API request rate.</p>
+            aws_sdk_iot_wireless.errors.validation_exception.ValidationException: <p>The input did not meet the specified constraints.</p>
+            aws_sdk_iot_wireless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3017,6 +3544,14 @@ class IoTWirelessClient:
 
         Args:
             id: <p>The ID of the resource to get.</p>
+
+        Raises:
+            aws_sdk_iot_wireless.errors.access_denied_exception.AccessDeniedException: <p>User does not have permission to perform this action.</p>
+            aws_sdk_iot_wireless.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request.</p>
+            aws_sdk_iot_wireless.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource does not exist.</p>
+            aws_sdk_iot_wireless.errors.throttling_exception.ThrottlingException: <p>The request was denied because it exceeded the allowed API request rate.</p>
+            aws_sdk_iot_wireless.errors.validation_exception.ValidationException: <p>The input did not meet the specified constraints.</p>
+            aws_sdk_iot_wireless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3054,6 +3589,14 @@ class IoTWirelessClient:
 
         Args:
             id: <p>The ID of the resource to get.</p>
+
+        Raises:
+            aws_sdk_iot_wireless.errors.access_denied_exception.AccessDeniedException: <p>User does not have permission to perform this action.</p>
+            aws_sdk_iot_wireless.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request.</p>
+            aws_sdk_iot_wireless.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource does not exist.</p>
+            aws_sdk_iot_wireless.errors.throttling_exception.ThrottlingException: <p>The request was denied because it exceeded the allowed API request rate.</p>
+            aws_sdk_iot_wireless.errors.validation_exception.ValidationException: <p>The input did not meet the specified constraints.</p>
+            aws_sdk_iot_wireless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3091,6 +3634,14 @@ class IoTWirelessClient:
 
         Args:
             wireless_gateway_id: <p>The ID of the wireless gateway for which to get the data.</p>
+
+        Raises:
+            aws_sdk_iot_wireless.errors.access_denied_exception.AccessDeniedException: <p>User does not have permission to perform this action.</p>
+            aws_sdk_iot_wireless.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request.</p>
+            aws_sdk_iot_wireless.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource does not exist.</p>
+            aws_sdk_iot_wireless.errors.throttling_exception.ThrottlingException: <p>The request was denied because it exceeded the allowed API request rate.</p>
+            aws_sdk_iot_wireless.errors.validation_exception.ValidationException: <p>The input did not meet the specified constraints.</p>
+            aws_sdk_iot_wireless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3128,6 +3679,14 @@ class IoTWirelessClient:
 
         Args:
             id: <p>The ID of the resource to get.</p>
+
+        Raises:
+            aws_sdk_iot_wireless.errors.access_denied_exception.AccessDeniedException: <p>User does not have permission to perform this action.</p>
+            aws_sdk_iot_wireless.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request.</p>
+            aws_sdk_iot_wireless.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource does not exist.</p>
+            aws_sdk_iot_wireless.errors.throttling_exception.ThrottlingException: <p>The request was denied because it exceeded the allowed API request rate.</p>
+            aws_sdk_iot_wireless.errors.validation_exception.ValidationException: <p>The input did not meet the specified constraints.</p>
+            aws_sdk_iot_wireless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3165,6 +3724,14 @@ class IoTWirelessClient:
 
         Args:
             id: <p>The ID of the resource to get.</p>
+
+        Raises:
+            aws_sdk_iot_wireless.errors.access_denied_exception.AccessDeniedException: <p>User does not have permission to perform this action.</p>
+            aws_sdk_iot_wireless.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request.</p>
+            aws_sdk_iot_wireless.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource does not exist.</p>
+            aws_sdk_iot_wireless.errors.throttling_exception.ThrottlingException: <p>The request was denied because it exceeded the allowed API request rate.</p>
+            aws_sdk_iot_wireless.errors.validation_exception.ValidationException: <p>The input did not meet the specified constraints.</p>
+            aws_sdk_iot_wireless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3208,6 +3775,13 @@ class IoTWirelessClient:
         Args:
             max_results: <p>The maximum number of results to return in this operation.</p>
             next_token: <p>To retrieve the next set of results, the <code>nextToken</code> value from a previous response; otherwise <b>null</b> to receive the first set of results.</p>
+
+        Raises:
+            aws_sdk_iot_wireless.errors.access_denied_exception.AccessDeniedException: <p>User does not have permission to perform this action.</p>
+            aws_sdk_iot_wireless.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request.</p>
+            aws_sdk_iot_wireless.errors.throttling_exception.ThrottlingException: <p>The request was denied because it exceeded the allowed API request rate.</p>
+            aws_sdk_iot_wireless.errors.validation_exception.ValidationException: <p>The input did not meet the specified constraints.</p>
+            aws_sdk_iot_wireless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3256,6 +3830,13 @@ class IoTWirelessClient:
             next_token: <p>To retrieve the next set of results, the <code>nextToken</code> value from a previous response; otherwise <b>null</b> to receive the first set of results.</p>
             max_results: <p>The maximum number of results to return in this operation.</p>
             device_profile_type: <p>A filter to list only device profiles that use this type, which can be <code>LoRaWAN</code> or <code>Sidewalk</code>.</p>
+
+        Raises:
+            aws_sdk_iot_wireless.errors.access_denied_exception.AccessDeniedException: <p>User does not have permission to perform this action.</p>
+            aws_sdk_iot_wireless.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request.</p>
+            aws_sdk_iot_wireless.errors.throttling_exception.ThrottlingException: <p>The request was denied because it exceeded the allowed API request rate.</p>
+            aws_sdk_iot_wireless.errors.validation_exception.ValidationException: <p>The input did not meet the specified constraints.</p>
+            aws_sdk_iot_wireless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3307,6 +3888,15 @@ class IoTWirelessClient:
             id: <p>The identifier of the import task for which wireless devices are listed.</p>
             next_token: <p>To retrieve the next set of results, the <code>nextToken</code> value from a previous response; otherwise <code>null</code> to receive the first set of results.</p>
             status: <p>The status of the devices in the import task.</p>
+
+        Raises:
+            aws_sdk_iot_wireless.errors.access_denied_exception.AccessDeniedException: <p>User does not have permission to perform this action.</p>
+            aws_sdk_iot_wireless.errors.conflict_exception.ConflictException: <p>Adding, updating, or deleting the resource can cause an inconsistent state.</p>
+            aws_sdk_iot_wireless.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request.</p>
+            aws_sdk_iot_wireless.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource does not exist.</p>
+            aws_sdk_iot_wireless.errors.throttling_exception.ThrottlingException: <p>The request was denied because it exceeded the allowed API request rate.</p>
+            aws_sdk_iot_wireless.errors.validation_exception.ValidationException: <p>The input did not meet the specified constraints.</p>
+            aws_sdk_iot_wireless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3355,6 +3945,13 @@ class IoTWirelessClient:
         Args:
             resource_type: <p>Resource type to filter event configurations.</p>
             next_token: <p>To retrieve the next set of results, the <code>nextToken</code> value from a previous response; otherwise <b>null</b> to receive the first set of results.</p>
+
+        Raises:
+            aws_sdk_iot_wireless.errors.access_denied_exception.AccessDeniedException: <p>User does not have permission to perform this action.</p>
+            aws_sdk_iot_wireless.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request.</p>
+            aws_sdk_iot_wireless.errors.throttling_exception.ThrottlingException: <p>The request was denied because it exceeded the allowed API request rate.</p>
+            aws_sdk_iot_wireless.errors.validation_exception.ValidationException: <p>The input did not meet the specified constraints.</p>
+            aws_sdk_iot_wireless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3399,6 +3996,13 @@ class IoTWirelessClient:
 
         Args:
             next_token: <p>To retrieve the next set of results, the <code>nextToken</code> value from a previous response; otherwise <b>null</b> to receive the first set of results.</p>
+
+        Raises:
+            aws_sdk_iot_wireless.errors.access_denied_exception.AccessDeniedException: <p>User does not have permission to perform this action.</p>
+            aws_sdk_iot_wireless.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request.</p>
+            aws_sdk_iot_wireless.errors.throttling_exception.ThrottlingException: <p>The request was denied because it exceeded the allowed API request rate.</p>
+            aws_sdk_iot_wireless.errors.validation_exception.ValidationException: <p>The input did not meet the specified constraints.</p>
+            aws_sdk_iot_wireless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3442,6 +4046,13 @@ class IoTWirelessClient:
 
         Args:
             next_token: <p>To retrieve the next set of results, the <code>nextToken</code> value from a previous response; otherwise <b>null</b> to receive the first set of results.</p>
+
+        Raises:
+            aws_sdk_iot_wireless.errors.access_denied_exception.AccessDeniedException: <p>User does not have permission to perform this action.</p>
+            aws_sdk_iot_wireless.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request.</p>
+            aws_sdk_iot_wireless.errors.throttling_exception.ThrottlingException: <p>The request was denied because it exceeded the allowed API request rate.</p>
+            aws_sdk_iot_wireless.errors.validation_exception.ValidationException: <p>The input did not meet the specified constraints.</p>
+            aws_sdk_iot_wireless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3486,6 +4097,14 @@ class IoTWirelessClient:
 
         Args:
             next_token: <p>To retrieve the next set of results, the <code>nextToken</code> value from a previous response; otherwise <b>null</b> to receive the first set of results.</p>
+
+        Raises:
+            aws_sdk_iot_wireless.errors.access_denied_exception.AccessDeniedException: <p>User does not have permission to perform this action.</p>
+            aws_sdk_iot_wireless.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request.</p>
+            aws_sdk_iot_wireless.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource does not exist.</p>
+            aws_sdk_iot_wireless.errors.throttling_exception.ThrottlingException: <p>The request was denied because it exceeded the allowed API request rate.</p>
+            aws_sdk_iot_wireless.errors.validation_exception.ValidationException: <p>The input did not meet the specified constraints.</p>
+            aws_sdk_iot_wireless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3530,6 +4149,13 @@ class IoTWirelessClient:
 
         Args:
             next_token: <p>To retrieve the next set of results, the <code>nextToken</code> value from a previous response; otherwise <b>null</b> to receive the first set of results.</p>
+
+        Raises:
+            aws_sdk_iot_wireless.errors.access_denied_exception.AccessDeniedException: <p>User does not have permission to perform this action.</p>
+            aws_sdk_iot_wireless.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request.</p>
+            aws_sdk_iot_wireless.errors.throttling_exception.ThrottlingException: <p>The request was denied because it exceeded the allowed API request rate.</p>
+            aws_sdk_iot_wireless.errors.validation_exception.ValidationException: <p>The input did not meet the specified constraints.</p>
+            aws_sdk_iot_wireless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3574,6 +4200,13 @@ class IoTWirelessClient:
         Args:
             next_token: <p>To retrieve the next set of results, the <code>nextToken</code> value from a previous response; otherwise <b>null</b> to receive the first set of results.</p>
             max_results: <p>The maximum number of results to return in this operation.</p>
+
+        Raises:
+            aws_sdk_iot_wireless.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request.</p>
+            aws_sdk_iot_wireless.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource does not exist.</p>
+            aws_sdk_iot_wireless.errors.throttling_exception.ThrottlingException: <p>The request was denied because it exceeded the allowed API request rate.</p>
+            aws_sdk_iot_wireless.errors.validation_exception.ValidationException: <p>The input did not meet the specified constraints.</p>
+            aws_sdk_iot_wireless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3621,6 +4254,13 @@ class IoTWirelessClient:
         Args:
             resource_type: <p>Resource type for which position configurations are listed.</p>
             next_token: <p>To retrieve the next set of results, the <code>nextToken</code> value from a previous response; otherwise <b>null</b> to receive the first set of results.</p>
+
+        Raises:
+            aws_sdk_iot_wireless.errors.access_denied_exception.AccessDeniedException: <p>User does not have permission to perform this action.</p>
+            aws_sdk_iot_wireless.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request.</p>
+            aws_sdk_iot_wireless.errors.throttling_exception.ThrottlingException: <p>The request was denied because it exceeded the allowed API request rate.</p>
+            aws_sdk_iot_wireless.errors.validation_exception.ValidationException: <p>The input did not meet the specified constraints.</p>
+            aws_sdk_iot_wireless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3673,6 +4313,14 @@ class IoTWirelessClient:
             next_token: <p>To retrieve the next set of results, the <code>nextToken</code> value from a previous response; otherwise <b>null</b> to receive the first set of results.</p>
             max_results: <p>The maximum number of results to return in this operation.</p>
             wireless_device_type: <p>The wireless device type, whic can be either Sidewalk or LoRaWAN.</p>
+
+        Raises:
+            aws_sdk_iot_wireless.errors.access_denied_exception.AccessDeniedException: <p>User does not have permission to perform this action.</p>
+            aws_sdk_iot_wireless.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request.</p>
+            aws_sdk_iot_wireless.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource does not exist.</p>
+            aws_sdk_iot_wireless.errors.throttling_exception.ThrottlingException: <p>The request was denied because it exceeded the allowed API request rate.</p>
+            aws_sdk_iot_wireless.errors.validation_exception.ValidationException: <p>The input did not meet the specified constraints.</p>
+            aws_sdk_iot_wireless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3720,6 +4368,13 @@ class IoTWirelessClient:
         Args:
             next_token: <p>To retrieve the next set of results, the <code>nextToken</code> value from a previous response; otherwise <b>null</b> to receive the first set of results.</p>
             max_results: <p>The maximum number of results to return in this operation.</p>
+
+        Raises:
+            aws_sdk_iot_wireless.errors.access_denied_exception.AccessDeniedException: <p>User does not have permission to perform this action.</p>
+            aws_sdk_iot_wireless.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request.</p>
+            aws_sdk_iot_wireless.errors.throttling_exception.ThrottlingException: <p>The request was denied because it exceeded the allowed API request rate.</p>
+            aws_sdk_iot_wireless.errors.validation_exception.ValidationException: <p>The input did not meet the specified constraints.</p>
+            aws_sdk_iot_wireless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3760,6 +4415,14 @@ class IoTWirelessClient:
 
         Args:
             resource_arn: <p>The ARN of the resource for which you want to list tags.</p>
+
+        Raises:
+            aws_sdk_iot_wireless.errors.conflict_exception.ConflictException: <p>Adding, updating, or deleting the resource can cause an inconsistent state.</p>
+            aws_sdk_iot_wireless.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request.</p>
+            aws_sdk_iot_wireless.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource does not exist.</p>
+            aws_sdk_iot_wireless.errors.throttling_exception.ThrottlingException: <p>The request was denied because it exceeded the allowed API request rate.</p>
+            aws_sdk_iot_wireless.errors.validation_exception.ValidationException: <p>The input did not meet the specified constraints.</p>
+            aws_sdk_iot_wireless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3800,6 +4463,15 @@ class IoTWirelessClient:
 
         Args:
             next_token: <p>To retrieve the next set of results, the <code>nextToken</code> value from a previous response; otherwise <code>null</code> to receive the first set of results.</p>
+
+        Raises:
+            aws_sdk_iot_wireless.errors.access_denied_exception.AccessDeniedException: <p>User does not have permission to perform this action.</p>
+            aws_sdk_iot_wireless.errors.conflict_exception.ConflictException: <p>Adding, updating, or deleting the resource can cause an inconsistent state.</p>
+            aws_sdk_iot_wireless.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request.</p>
+            aws_sdk_iot_wireless.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource does not exist.</p>
+            aws_sdk_iot_wireless.errors.throttling_exception.ThrottlingException: <p>The request was denied because it exceeded the allowed API request rate.</p>
+            aws_sdk_iot_wireless.errors.validation_exception.ValidationException: <p>The input did not meet the specified constraints.</p>
+            aws_sdk_iot_wireless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3866,6 +4538,13 @@ class IoTWirelessClient:
             device_profile_id: <p>A filter to list only the wireless devices that use this device profile.</p>
             service_profile_id: <p>A filter to list only the wireless devices that use this service profile.</p>
             wireless_device_type: <p>A filter to list only the wireless devices that use this wireless device type.</p>
+
+        Raises:
+            aws_sdk_iot_wireless.errors.access_denied_exception.AccessDeniedException: <p>User does not have permission to perform this action.</p>
+            aws_sdk_iot_wireless.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request.</p>
+            aws_sdk_iot_wireless.errors.throttling_exception.ThrottlingException: <p>The request was denied because it exceeded the allowed API request rate.</p>
+            aws_sdk_iot_wireless.errors.validation_exception.ValidationException: <p>The input did not meet the specified constraints.</p>
+            aws_sdk_iot_wireless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3922,6 +4601,13 @@ class IoTWirelessClient:
         Args:
             next_token: <p>To retrieve the next set of results, the <code>nextToken</code> value from a previous response; otherwise <b>null</b> to receive the first set of results.</p>
             max_results: <p>The maximum number of results to return in this operation.</p>
+
+        Raises:
+            aws_sdk_iot_wireless.errors.access_denied_exception.AccessDeniedException: <p>User does not have permission to perform this action.</p>
+            aws_sdk_iot_wireless.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request.</p>
+            aws_sdk_iot_wireless.errors.throttling_exception.ThrottlingException: <p>The request was denied because it exceeded the allowed API request rate.</p>
+            aws_sdk_iot_wireless.errors.validation_exception.ValidationException: <p>The input did not meet the specified constraints.</p>
+            aws_sdk_iot_wireless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3970,6 +4656,13 @@ class IoTWirelessClient:
             max_results: <p>The maximum number of results to return in this operation.</p>
             next_token: <p>To retrieve the next set of results, the <code>nextToken</code> value from a previous response; otherwise <b>null</b> to receive the first set of results.</p>
             task_definition_type: <p>A filter to list only the wireless gateway task definitions that use this task definition type.</p>
+
+        Raises:
+            aws_sdk_iot_wireless.errors.access_denied_exception.AccessDeniedException: <p>User does not have permission to perform this action.</p>
+            aws_sdk_iot_wireless.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request.</p>
+            aws_sdk_iot_wireless.errors.throttling_exception.ThrottlingException: <p>The request was denied because it exceeded the allowed API request rate.</p>
+            aws_sdk_iot_wireless.errors.validation_exception.ValidationException: <p>The input did not meet the specified constraints.</p>
+            aws_sdk_iot_wireless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4022,6 +4715,14 @@ class IoTWirelessClient:
             resource_type: <p>Resource type of the resource for which you want to update the position configuration.</p>
             solvers: <p>The positioning solvers used to update the position configuration of the resource.</p>
             destination: <p>The position data destination that describes the AWS IoT rule that processes the device's position data for use by AWS IoT Core for LoRaWAN.</p>
+
+        Raises:
+            aws_sdk_iot_wireless.errors.access_denied_exception.AccessDeniedException: <p>User does not have permission to perform this action.</p>
+            aws_sdk_iot_wireless.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request.</p>
+            aws_sdk_iot_wireless.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource does not exist.</p>
+            aws_sdk_iot_wireless.errors.throttling_exception.ThrottlingException: <p>The request was denied because it exceeded the allowed API request rate.</p>
+            aws_sdk_iot_wireless.errors.validation_exception.ValidationException: <p>The input did not meet the specified constraints.</p>
+            aws_sdk_iot_wireless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4066,6 +4767,14 @@ class IoTWirelessClient:
 
         Args:
             resource_type: <p>The type of resource, which can be <code>WirelessDevice</code>, <code>WirelessGateway</code>, or <code>FuotaTask</code>.</p>
+
+        Raises:
+            aws_sdk_iot_wireless.errors.access_denied_exception.AccessDeniedException: <p>User does not have permission to perform this action.</p>
+            aws_sdk_iot_wireless.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request.</p>
+            aws_sdk_iot_wireless.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource does not exist.</p>
+            aws_sdk_iot_wireless.errors.throttling_exception.ThrottlingException: <p>The request was denied because it exceeded the allowed API request rate.</p>
+            aws_sdk_iot_wireless.errors.validation_exception.ValidationException: <p>The input did not meet the specified constraints.</p>
+            aws_sdk_iot_wireless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4098,7 +4807,16 @@ class IoTWirelessClient:
     def reset_all_resource_log_levels(
         self, *, config_overrides: Optional[IoTWirelessClientConfig] = None
     ) -> "aws_sdk_iot_wireless.types.reset_all_resource_log_levels_response.ResetAllResourceLogLevelsResponse":
-        """<p>Removes the log-level overrides for all resources; wireless devices, wireless gateways, and FUOTA tasks.</p>"""
+        """<p>Removes the log-level overrides for all resources; wireless devices, wireless gateways, and FUOTA tasks.</p>
+
+        Raises:
+            aws_sdk_iot_wireless.errors.access_denied_exception.AccessDeniedException: <p>User does not have permission to perform this action.</p>
+            aws_sdk_iot_wireless.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request.</p>
+            aws_sdk_iot_wireless.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource does not exist.</p>
+            aws_sdk_iot_wireless.errors.throttling_exception.ThrottlingException: <p>The request was denied because it exceeded the allowed API request rate.</p>
+            aws_sdk_iot_wireless.errors.validation_exception.ValidationException: <p>The input did not meet the specified constraints.</p>
+            aws_sdk_iot_wireless.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_iot_wireless.types.reset_all_resource_log_levels_request.ResetAllResourceLogLevelsRequest]",
@@ -4135,6 +4853,14 @@ class IoTWirelessClient:
 
         Args:
             resource_type: <p>The type of resource, which can be <code>WirelessDevice</code>, <code>WirelessGateway</code>, or <code>FuotaTask</code>.</p>
+
+        Raises:
+            aws_sdk_iot_wireless.errors.access_denied_exception.AccessDeniedException: <p>User does not have permission to perform this action.</p>
+            aws_sdk_iot_wireless.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request.</p>
+            aws_sdk_iot_wireless.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource does not exist.</p>
+            aws_sdk_iot_wireless.errors.throttling_exception.ThrottlingException: <p>The request was denied because it exceeded the allowed API request rate.</p>
+            aws_sdk_iot_wireless.errors.validation_exception.ValidationException: <p>The input did not meet the specified constraints.</p>
+            aws_sdk_iot_wireless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4171,7 +4897,17 @@ class IoTWirelessClient:
         *,
         config_overrides: Optional[IoTWirelessClientConfig] = None,
     ) -> "aws_sdk_iot_wireless.types.send_data_to_multicast_group_response.SendDataToMulticastGroupResponse":
-        """<p>Sends the specified data to a multicast group.</p>"""
+        """<p>Sends the specified data to a multicast group.</p>
+
+        Raises:
+            aws_sdk_iot_wireless.errors.access_denied_exception.AccessDeniedException: <p>User does not have permission to perform this action.</p>
+            aws_sdk_iot_wireless.errors.conflict_exception.ConflictException: <p>Adding, updating, or deleting the resource can cause an inconsistent state.</p>
+            aws_sdk_iot_wireless.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request.</p>
+            aws_sdk_iot_wireless.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource does not exist.</p>
+            aws_sdk_iot_wireless.errors.throttling_exception.ThrottlingException: <p>The request was denied because it exceeded the allowed API request rate.</p>
+            aws_sdk_iot_wireless.errors.validation_exception.ValidationException: <p>The input did not meet the specified constraints.</p>
+            aws_sdk_iot_wireless.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_iot_wireless.types.send_data_to_multicast_group_request.SendDataToMulticastGroupRequest]",
@@ -4217,6 +4953,13 @@ class IoTWirelessClient:
             id: <p>The ID of the wireless device to receive the data.</p>
             transmit_mode: <p>The transmit mode to use to send data to the wireless device. Can be: <code>0</code> for UM (unacknowledge mode) or <code>1</code> for AM (acknowledge mode).</p>
             wireless_metadata: <p>Metadata about the message request.</p>
+
+        Raises:
+            aws_sdk_iot_wireless.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request.</p>
+            aws_sdk_iot_wireless.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource does not exist.</p>
+            aws_sdk_iot_wireless.errors.throttling_exception.ThrottlingException: <p>The request was denied because it exceeded the allowed API request rate.</p>
+            aws_sdk_iot_wireless.errors.validation_exception.ValidationException: <p>The input did not meet the specified constraints.</p>
+            aws_sdk_iot_wireless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4258,7 +5001,16 @@ class IoTWirelessClient:
         ] = None,
         tags: Optional["aws_sdk_iot_wireless.types.tag_list.TagList"] = None,
     ) -> "aws_sdk_iot_wireless.types.start_bulk_associate_wireless_device_with_multicast_group_response.StartBulkAssociateWirelessDeviceWithMulticastGroupResponse":
-        """<p>Starts a bulk association of all qualifying wireless devices with a multicast group.</p>"""
+        """<p>Starts a bulk association of all qualifying wireless devices with a multicast group.</p>
+
+        Raises:
+            aws_sdk_iot_wireless.errors.access_denied_exception.AccessDeniedException: <p>User does not have permission to perform this action.</p>
+            aws_sdk_iot_wireless.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request.</p>
+            aws_sdk_iot_wireless.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource does not exist.</p>
+            aws_sdk_iot_wireless.errors.throttling_exception.ThrottlingException: <p>The request was denied because it exceeded the allowed API request rate.</p>
+            aws_sdk_iot_wireless.errors.validation_exception.ValidationException: <p>The input did not meet the specified constraints.</p>
+            aws_sdk_iot_wireless.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_iot_wireless.types.start_bulk_associate_wireless_device_with_multicast_group_request.StartBulkAssociateWirelessDeviceWithMulticastGroupRequest]",
@@ -4299,7 +5051,16 @@ class IoTWirelessClient:
         ] = None,
         tags: Optional["aws_sdk_iot_wireless.types.tag_list.TagList"] = None,
     ) -> "aws_sdk_iot_wireless.types.start_bulk_disassociate_wireless_device_from_multicast_group_response.StartBulkDisassociateWirelessDeviceFromMulticastGroupResponse":
-        """<p>Starts a bulk disassociatin of all qualifying wireless devices from a multicast group.</p>"""
+        """<p>Starts a bulk disassociatin of all qualifying wireless devices from a multicast group.</p>
+
+        Raises:
+            aws_sdk_iot_wireless.errors.access_denied_exception.AccessDeniedException: <p>User does not have permission to perform this action.</p>
+            aws_sdk_iot_wireless.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request.</p>
+            aws_sdk_iot_wireless.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource does not exist.</p>
+            aws_sdk_iot_wireless.errors.throttling_exception.ThrottlingException: <p>The request was denied because it exceeded the allowed API request rate.</p>
+            aws_sdk_iot_wireless.errors.validation_exception.ValidationException: <p>The input did not meet the specified constraints.</p>
+            aws_sdk_iot_wireless.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_iot_wireless.types.start_bulk_disassociate_wireless_device_from_multicast_group_request.StartBulkDisassociateWirelessDeviceFromMulticastGroupRequest]",
@@ -4339,7 +5100,17 @@ class IoTWirelessClient:
             "aws_sdk_iot_wireless.types.lo_ra_wan_start_fuota_task.LoRaWANStartFuotaTask"
         ] = None,
     ) -> "aws_sdk_iot_wireless.types.start_fuota_task_response.StartFuotaTaskResponse":
-        """<p>Starts a FUOTA task.</p>"""
+        """<p>Starts a FUOTA task.</p>
+
+        Raises:
+            aws_sdk_iot_wireless.errors.access_denied_exception.AccessDeniedException: <p>User does not have permission to perform this action.</p>
+            aws_sdk_iot_wireless.errors.conflict_exception.ConflictException: <p>Adding, updating, or deleting the resource can cause an inconsistent state.</p>
+            aws_sdk_iot_wireless.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request.</p>
+            aws_sdk_iot_wireless.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource does not exist.</p>
+            aws_sdk_iot_wireless.errors.throttling_exception.ThrottlingException: <p>The request was denied because it exceeded the allowed API request rate.</p>
+            aws_sdk_iot_wireless.errors.validation_exception.ValidationException: <p>The input did not meet the specified constraints.</p>
+            aws_sdk_iot_wireless.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_iot_wireless.types.start_fuota_task_request.StartFuotaTaskRequest]",
@@ -4375,7 +5146,17 @@ class IoTWirelessClient:
         *,
         config_overrides: Optional[IoTWirelessClientConfig] = None,
     ) -> "aws_sdk_iot_wireless.types.start_multicast_group_session_response.StartMulticastGroupSessionResponse":
-        """<p>Starts a multicast group session.</p>"""
+        """<p>Starts a multicast group session.</p>
+
+        Raises:
+            aws_sdk_iot_wireless.errors.access_denied_exception.AccessDeniedException: <p>User does not have permission to perform this action.</p>
+            aws_sdk_iot_wireless.errors.conflict_exception.ConflictException: <p>Adding, updating, or deleting the resource can cause an inconsistent state.</p>
+            aws_sdk_iot_wireless.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request.</p>
+            aws_sdk_iot_wireless.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource does not exist.</p>
+            aws_sdk_iot_wireless.errors.throttling_exception.ThrottlingException: <p>The request was denied because it exceeded the allowed API request rate.</p>
+            aws_sdk_iot_wireless.errors.validation_exception.ValidationException: <p>The input did not meet the specified constraints.</p>
+            aws_sdk_iot_wireless.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_iot_wireless.types.start_multicast_group_session_request.StartMulticastGroupSessionRequest]",
@@ -4427,6 +5208,15 @@ class IoTWirelessClient:
             device_name: <p>The name of the wireless device for which an import task is being started.</p>
             positioning: <p>The integration status of the Device Location feature for Sidewalk devices.</p>
             sidewalk: <p>The Sidewalk-related parameters for importing a single wireless device.</p>
+
+        Raises:
+            aws_sdk_iot_wireless.errors.access_denied_exception.AccessDeniedException: <p>User does not have permission to perform this action.</p>
+            aws_sdk_iot_wireless.errors.conflict_exception.ConflictException: <p>Adding, updating, or deleting the resource can cause an inconsistent state.</p>
+            aws_sdk_iot_wireless.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request.</p>
+            aws_sdk_iot_wireless.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource does not exist.</p>
+            aws_sdk_iot_wireless.errors.throttling_exception.ThrottlingException: <p>The request was denied because it exceeded the allowed API request rate.</p>
+            aws_sdk_iot_wireless.errors.validation_exception.ValidationException: <p>The input did not meet the specified constraints.</p>
+            aws_sdk_iot_wireless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4483,6 +5273,15 @@ class IoTWirelessClient:
             destination_name: <p>The name of the Sidewalk destination that describes the IoT rule to route messages from the devices in the import task that are onboarded to AWS IoT Wireless.</p>
             positioning: <p>The integration status of the Device Location feature for Sidewalk devices.</p>
             sidewalk: <p>The Sidewalk-related parameters for importing wireless devices that need to be provisioned in bulk.</p>
+
+        Raises:
+            aws_sdk_iot_wireless.errors.access_denied_exception.AccessDeniedException: <p>User does not have permission to perform this action.</p>
+            aws_sdk_iot_wireless.errors.conflict_exception.ConflictException: <p>Adding, updating, or deleting the resource can cause an inconsistent state.</p>
+            aws_sdk_iot_wireless.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request.</p>
+            aws_sdk_iot_wireless.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource does not exist.</p>
+            aws_sdk_iot_wireless.errors.throttling_exception.ThrottlingException: <p>The request was denied because it exceeded the allowed API request rate.</p>
+            aws_sdk_iot_wireless.errors.validation_exception.ValidationException: <p>The input did not meet the specified constraints.</p>
+            aws_sdk_iot_wireless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4529,6 +5328,15 @@ class IoTWirelessClient:
         Args:
             resource_arn: <p>The ARN of the resource to add tags to.</p>
             tags: <p>Adds to or modifies the tags of the given resource. Tags are metadata that you can use to manage a resource.</p>
+
+        Raises:
+            aws_sdk_iot_wireless.errors.conflict_exception.ConflictException: <p>Adding, updating, or deleting the resource can cause an inconsistent state.</p>
+            aws_sdk_iot_wireless.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request.</p>
+            aws_sdk_iot_wireless.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource does not exist.</p>
+            aws_sdk_iot_wireless.errors.throttling_exception.ThrottlingException: <p>The request was denied because it exceeded the allowed API request rate.</p>
+            aws_sdk_iot_wireless.errors.too_many_tags_exception.TooManyTagsException: <p>The request was denied because the resource can't have any more tags.</p>
+            aws_sdk_iot_wireless.errors.validation_exception.ValidationException: <p>The input did not meet the specified constraints.</p>
+            aws_sdk_iot_wireless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4567,6 +5375,13 @@ class IoTWirelessClient:
 
         Args:
             id: <p>The ID of the wireless device to test.</p>
+
+        Raises:
+            aws_sdk_iot_wireless.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request.</p>
+            aws_sdk_iot_wireless.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource does not exist.</p>
+            aws_sdk_iot_wireless.errors.throttling_exception.ThrottlingException: <p>The request was denied because it exceeded the allowed API request rate.</p>
+            aws_sdk_iot_wireless.errors.validation_exception.ValidationException: <p>The input did not meet the specified constraints.</p>
+            aws_sdk_iot_wireless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4606,6 +5421,14 @@ class IoTWirelessClient:
         Args:
             resource_arn: <p>The ARN of the resource to remove tags from.</p>
             tag_keys: <p>A list of the keys of the tags to remove from the resource.</p>
+
+        Raises:
+            aws_sdk_iot_wireless.errors.conflict_exception.ConflictException: <p>Adding, updating, or deleting the resource can cause an inconsistent state.</p>
+            aws_sdk_iot_wireless.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request.</p>
+            aws_sdk_iot_wireless.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource does not exist.</p>
+            aws_sdk_iot_wireless.errors.throttling_exception.ThrottlingException: <p>The request was denied because it exceeded the allowed API request rate.</p>
+            aws_sdk_iot_wireless.errors.validation_exception.ValidationException: <p>The input did not meet the specified constraints.</p>
+            aws_sdk_iot_wireless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4656,6 +5479,14 @@ class IoTWirelessClient:
             expression: <p>The new rule name or topic rule to send messages to.</p>
             description: <p>A new description of the resource.</p>
             role_arn: <p>The ARN of the IAM Role that authorizes the destination.</p>
+
+        Raises:
+            aws_sdk_iot_wireless.errors.access_denied_exception.AccessDeniedException: <p>User does not have permission to perform this action.</p>
+            aws_sdk_iot_wireless.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request.</p>
+            aws_sdk_iot_wireless.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource does not exist.</p>
+            aws_sdk_iot_wireless.errors.throttling_exception.ThrottlingException: <p>The request was denied because it exceeded the allowed API request rate.</p>
+            aws_sdk_iot_wireless.errors.validation_exception.ValidationException: <p>The input did not meet the specified constraints.</p>
+            aws_sdk_iot_wireless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4719,6 +5550,13 @@ class IoTWirelessClient:
             join: <p>Join resource type event configuration object for enabling and disabling wireless device topic.</p>
             connection_status: <p>Connection status resource type event configuration object for enabling and disabling wireless gateway topic.</p>
             message_delivery_status: <p>Message delivery status resource type event configuration object for enabling and disabling wireless device topic.</p>
+
+        Raises:
+            aws_sdk_iot_wireless.errors.access_denied_exception.AccessDeniedException: <p>User does not have permission to perform this action.</p>
+            aws_sdk_iot_wireless.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request.</p>
+            aws_sdk_iot_wireless.errors.throttling_exception.ThrottlingException: <p>The request was denied because it exceeded the allowed API request rate.</p>
+            aws_sdk_iot_wireless.errors.validation_exception.ValidationException: <p>The input did not meet the specified constraints.</p>
+            aws_sdk_iot_wireless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4790,7 +5628,17 @@ class IoTWirelessClient:
     ) -> (
         "aws_sdk_iot_wireless.types.update_fuota_task_response.UpdateFuotaTaskResponse"
     ):
-        """<p>Updates properties of a FUOTA task.</p>"""
+        """<p>Updates properties of a FUOTA task.</p>
+
+        Raises:
+            aws_sdk_iot_wireless.errors.access_denied_exception.AccessDeniedException: <p>User does not have permission to perform this action.</p>
+            aws_sdk_iot_wireless.errors.conflict_exception.ConflictException: <p>Adding, updating, or deleting the resource can cause an inconsistent state.</p>
+            aws_sdk_iot_wireless.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request.</p>
+            aws_sdk_iot_wireless.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource does not exist.</p>
+            aws_sdk_iot_wireless.errors.throttling_exception.ThrottlingException: <p>The request was denied because it exceeded the allowed API request rate.</p>
+            aws_sdk_iot_wireless.errors.validation_exception.ValidationException: <p>The input did not meet the specified constraints.</p>
+            aws_sdk_iot_wireless.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_iot_wireless.types.update_fuota_task_request.UpdateFuotaTaskRequest]",
@@ -4852,7 +5700,17 @@ class IoTWirelessClient:
             "aws_sdk_iot_wireless.types.wireless_gateway_log_option_list.WirelessGatewayLogOptionList"
         ] = None,
     ) -> "aws_sdk_iot_wireless.types.update_log_levels_by_resource_types_response.UpdateLogLevelsByResourceTypesResponse":
-        """<p>Set default log level, or log levels by resource types. This can be for wireless device, wireless gateway, or FUOTA task log options, and is used to control the log messages that'll be displayed in CloudWatch.</p>"""
+        """<p>Set default log level, or log levels by resource types. This can be for wireless device, wireless gateway, or FUOTA task log options, and is used to control the log messages that'll be displayed in CloudWatch.</p>
+
+        Raises:
+            aws_sdk_iot_wireless.errors.access_denied_exception.AccessDeniedException: <p>User does not have permission to perform this action.</p>
+            aws_sdk_iot_wireless.errors.conflict_exception.ConflictException: <p>Adding, updating, or deleting the resource can cause an inconsistent state.</p>
+            aws_sdk_iot_wireless.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request.</p>
+            aws_sdk_iot_wireless.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource does not exist.</p>
+            aws_sdk_iot_wireless.errors.throttling_exception.ThrottlingException: <p>The request was denied because it exceeded the allowed API request rate.</p>
+            aws_sdk_iot_wireless.errors.validation_exception.ValidationException: <p>The input did not meet the specified constraints.</p>
+            aws_sdk_iot_wireless.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_iot_wireless.types.update_log_levels_by_resource_types_request.UpdateLogLevelsByResourceTypesRequest]",
@@ -4898,6 +5756,15 @@ class IoTWirelessClient:
 
         Args:
             summary_metric: <p>The value to be used to set summary metric configuration.</p>
+
+        Raises:
+            aws_sdk_iot_wireless.errors.access_denied_exception.AccessDeniedException: <p>User does not have permission to perform this action.</p>
+            aws_sdk_iot_wireless.errors.conflict_exception.ConflictException: <p>Adding, updating, or deleting the resource can cause an inconsistent state.</p>
+            aws_sdk_iot_wireless.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request.</p>
+            aws_sdk_iot_wireless.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource does not exist.</p>
+            aws_sdk_iot_wireless.errors.throttling_exception.ThrottlingException: <p>The request was denied because it exceeded the allowed API request rate.</p>
+            aws_sdk_iot_wireless.errors.validation_exception.ValidationException: <p>The input did not meet the specified constraints.</p>
+            aws_sdk_iot_wireless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4941,7 +5808,17 @@ class IoTWirelessClient:
             "aws_sdk_iot_wireless.types.lo_ra_wan_multicast.LoRaWANMulticast"
         ] = None,
     ) -> "aws_sdk_iot_wireless.types.update_multicast_group_response.UpdateMulticastGroupResponse":
-        """<p>Updates properties of a multicast group session.</p>"""
+        """<p>Updates properties of a multicast group session.</p>
+
+        Raises:
+            aws_sdk_iot_wireless.errors.access_denied_exception.AccessDeniedException: <p>User does not have permission to perform this action.</p>
+            aws_sdk_iot_wireless.errors.conflict_exception.ConflictException: <p>Adding, updating, or deleting the resource can cause an inconsistent state.</p>
+            aws_sdk_iot_wireless.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request.</p>
+            aws_sdk_iot_wireless.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource does not exist.</p>
+            aws_sdk_iot_wireless.errors.throttling_exception.ThrottlingException: <p>The request was denied because it exceeded the allowed API request rate.</p>
+            aws_sdk_iot_wireless.errors.validation_exception.ValidationException: <p>The input did not meet the specified constraints.</p>
+            aws_sdk_iot_wireless.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_iot_wireless.types.update_multicast_group_request.UpdateMulticastGroupRequest]",
@@ -5013,6 +5890,14 @@ class IoTWirelessClient:
             wireless_gateways_to_remove: <p>Wireless gateway resources to remove from the network analyzer configuration. Provide the <code>WirelessGatewayId</code> of the resources to remove in the input array.</p>
             multicast_groups_to_add: <p>Multicast group resources to add to the network analyzer configuration. Provide the <code>MulticastGroupId</code> of the resource to add in the input array.</p>
             multicast_groups_to_remove: <p>Multicast group resources to remove from the network analyzer configuration. Provide the <code>MulticastGroupId</code> of the resources to remove in the input array.</p>
+
+        Raises:
+            aws_sdk_iot_wireless.errors.access_denied_exception.AccessDeniedException: <p>User does not have permission to perform this action.</p>
+            aws_sdk_iot_wireless.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request.</p>
+            aws_sdk_iot_wireless.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource does not exist.</p>
+            aws_sdk_iot_wireless.errors.throttling_exception.ThrottlingException: <p>The request was denied because it exceeded the allowed API request rate.</p>
+            aws_sdk_iot_wireless.errors.validation_exception.ValidationException: <p>The input did not meet the specified constraints.</p>
+            aws_sdk_iot_wireless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5070,6 +5955,13 @@ class IoTWirelessClient:
             sidewalk: <p>The Sidewalk account credentials.</p>
             partner_account_id: <p>The ID of the partner account to update.</p>
             partner_type: <p>The partner type.</p>
+
+        Raises:
+            aws_sdk_iot_wireless.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request.</p>
+            aws_sdk_iot_wireless.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource does not exist.</p>
+            aws_sdk_iot_wireless.errors.throttling_exception.ThrottlingException: <p>The request was denied because it exceeded the allowed API request rate.</p>
+            aws_sdk_iot_wireless.errors.validation_exception.ValidationException: <p>The input did not meet the specified constraints.</p>
+            aws_sdk_iot_wireless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5113,6 +6005,14 @@ class IoTWirelessClient:
             resource_identifier: <p>Resource identifier of the resource for which position is updated.</p>
             resource_type: <p>Resource type of the resource for which position is updated.</p>
             position: <p>The position information of the resource.</p>
+
+        Raises:
+            aws_sdk_iot_wireless.errors.access_denied_exception.AccessDeniedException: <p>User does not have permission to perform this action.</p>
+            aws_sdk_iot_wireless.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request.</p>
+            aws_sdk_iot_wireless.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource does not exist.</p>
+            aws_sdk_iot_wireless.errors.throttling_exception.ThrottlingException: <p>The request was denied because it exceeded the allowed API request rate.</p>
+            aws_sdk_iot_wireless.errors.validation_exception.ValidationException: <p>The input did not meet the specified constraints.</p>
+            aws_sdk_iot_wireless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5178,6 +6078,15 @@ class IoTWirelessClient:
             join: <p>Event configuration for the join event.</p>
             connection_status: <p>Event configuration for the connection status event.</p>
             message_delivery_status: <p>Event configuration for the message delivery status event.</p>
+
+        Raises:
+            aws_sdk_iot_wireless.errors.access_denied_exception.AccessDeniedException: <p>User does not have permission to perform this action.</p>
+            aws_sdk_iot_wireless.errors.conflict_exception.ConflictException: <p>Adding, updating, or deleting the resource can cause an inconsistent state.</p>
+            aws_sdk_iot_wireless.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request.</p>
+            aws_sdk_iot_wireless.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource does not exist.</p>
+            aws_sdk_iot_wireless.errors.throttling_exception.ThrottlingException: <p>The request was denied because it exceeded the allowed API request rate.</p>
+            aws_sdk_iot_wireless.errors.validation_exception.ValidationException: <p>The input did not meet the specified constraints.</p>
+            aws_sdk_iot_wireless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5234,6 +6143,14 @@ class IoTWirelessClient:
             resource_identifier: <p>The identifier of the resource for which position information is updated. It can be the wireless device ID or the wireless gateway ID, depending on the resource type.</p>
             resource_type: <p>The type of resource for which position information is updated, which can be a wireless device or a wireless gateway.</p>
             geo_json_payload: <p>The position information of the resource, displayed as a JSON payload. The payload uses the GeoJSON format, which a format that's used to encode geographic data structures. For more information, see <a href=\"https://geojson.org/\">GeoJSON</a>.</p>
+
+        Raises:
+            aws_sdk_iot_wireless.errors.access_denied_exception.AccessDeniedException: <p>User does not have permission to perform this action.</p>
+            aws_sdk_iot_wireless.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request.</p>
+            aws_sdk_iot_wireless.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource does not exist.</p>
+            aws_sdk_iot_wireless.errors.throttling_exception.ThrottlingException: <p>The request was denied because it exceeded the allowed API request rate.</p>
+            aws_sdk_iot_wireless.errors.validation_exception.ValidationException: <p>The input did not meet the specified constraints.</p>
+            aws_sdk_iot_wireless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5298,6 +6215,14 @@ class IoTWirelessClient:
             lo_ra_wan: <p>The updated wireless device's configuration.</p>
             positioning: <p>The integration status of the Device Location feature for LoRaWAN and Sidewalk devices.</p>
             sidewalk: <p>The updated sidewalk properties.</p>
+
+        Raises:
+            aws_sdk_iot_wireless.errors.access_denied_exception.AccessDeniedException: <p>User does not have permission to perform this action.</p>
+            aws_sdk_iot_wireless.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request.</p>
+            aws_sdk_iot_wireless.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource does not exist.</p>
+            aws_sdk_iot_wireless.errors.throttling_exception.ThrottlingException: <p>The request was denied because it exceeded the allowed API request rate.</p>
+            aws_sdk_iot_wireless.errors.validation_exception.ValidationException: <p>The input did not meet the specified constraints.</p>
+            aws_sdk_iot_wireless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5349,6 +6274,15 @@ class IoTWirelessClient:
         Args:
             id: <p>The identifier of the import task to be updated.</p>
             sidewalk: <p>The Sidewalk-related parameters of the import task to be updated.</p>
+
+        Raises:
+            aws_sdk_iot_wireless.errors.access_denied_exception.AccessDeniedException: <p>User does not have permission to perform this action.</p>
+            aws_sdk_iot_wireless.errors.conflict_exception.ConflictException: <p>Adding, updating, or deleting the resource can cause an inconsistent state.</p>
+            aws_sdk_iot_wireless.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request.</p>
+            aws_sdk_iot_wireless.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource does not exist.</p>
+            aws_sdk_iot_wireless.errors.throttling_exception.ThrottlingException: <p>The request was denied because it exceeded the allowed API request rate.</p>
+            aws_sdk_iot_wireless.errors.validation_exception.ValidationException: <p>The input did not meet the specified constraints.</p>
+            aws_sdk_iot_wireless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5405,6 +6339,14 @@ class IoTWirelessClient:
             name: <p>The new name of the resource.</p> <note> <p>The following special characters aren't accepted: <code><>^#~$</code> </p> </note>
             description: <p>A new description of the resource.</p>
             max_eirp: <p>The MaxEIRP value.</p>
+
+        Raises:
+            aws_sdk_iot_wireless.errors.access_denied_exception.AccessDeniedException: <p>User does not have permission to perform this action.</p>
+            aws_sdk_iot_wireless.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing a request.</p>
+            aws_sdk_iot_wireless.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource does not exist.</p>
+            aws_sdk_iot_wireless.errors.throttling_exception.ThrottlingException: <p>The request was denied because it exceeded the allowed API request rate.</p>
+            aws_sdk_iot_wireless.errors.validation_exception.ValidationException: <p>The input did not meet the specified constraints.</p>
+            aws_sdk_iot_wireless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(

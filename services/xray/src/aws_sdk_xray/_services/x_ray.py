@@ -263,6 +263,11 @@ class XRayClient:
         Args:
             trace_ids: <p>Specify the trace IDs of requests for which to retrieve segments.</p>
             next_token: <p>Pagination token.</p>
+
+        Raises:
+            aws_sdk_xray.errors.invalid_request_exception.InvalidRequestException: <p>The request is missing required parameters or has invalid parameters.</p>
+            aws_sdk_xray.errors.throttled_exception.ThrottledException: <p>The request exceeds the maximum number of requests per second.</p>
+            aws_sdk_xray.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -323,6 +328,12 @@ class XRayClient:
 
         Args:
             retrieval_token: <p> Retrieval token. </p>
+
+        Raises:
+            aws_sdk_xray.errors.invalid_request_exception.InvalidRequestException: <p>The request is missing required parameters or has invalid parameters.</p>
+            aws_sdk_xray.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource was not found. Verify that the name or Amazon Resource Name (ARN) of the resource is correct.</p>
+            aws_sdk_xray.errors.throttled_exception.ThrottledException: <p>The request exceeds the maximum number of requests per second.</p>
+            aws_sdk_xray.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -370,6 +381,11 @@ class XRayClient:
             filter_expression: <p>The filter expression defining criteria by which to group traces.</p>
             insights_configuration: <p>The structure containing configurations related to insights.</p> <ul> <li> <p>The InsightsEnabled boolean can be set to true to enable insights for the new group or false to disable insights for the new group.</p> </li> <li> <p>The NotificationsEnabled boolean can be set to true to enable insights notifications for the new group. Notifications may only be enabled on a group with InsightsEnabled set to true.</p> </li> </ul>
             tags: <p>A map that contains one or more tag keys and tag values to attach to an X-Ray group. For more information about ways to use tags, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html\">Tagging Amazon Web Services resources</a> in the <i>Amazon Web Services General Reference</i>.</p> <p>The following restrictions apply to tags:</p> <ul> <li> <p>Maximum number of user-applied tags per resource: 50</p> </li> <li> <p>Maximum tag key length: 128 Unicode characters</p> </li> <li> <p>Maximum tag value length: 256 Unicode characters</p> </li> <li> <p>Valid values for key and value: a-z, A-Z, 0-9, space, and the following characters: _ . : / = + - and @</p> </li> <li> <p>Tag keys and values are case sensitive.</p> </li> <li> <p>Don't use <code>aws:</code> as a prefix for keys; it's reserved for Amazon Web Services use.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_xray.errors.invalid_request_exception.InvalidRequestException: <p>The request is missing required parameters or has invalid parameters.</p>
+            aws_sdk_xray.errors.throttled_exception.ThrottledException: <p>The request exceeds the maximum number of requests per second.</p>
+            aws_sdk_xray.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -415,6 +431,12 @@ class XRayClient:
         Args:
             sampling_rule: <p>The rule definition.</p>
             tags: <p>A map that contains one or more tag keys and tag values to attach to an X-Ray sampling rule. For more information about ways to use tags, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html\">Tagging Amazon Web Services resources</a> in the <i>Amazon Web Services General Reference</i>.</p> <p>The following restrictions apply to tags:</p> <ul> <li> <p>Maximum number of user-applied tags per resource: 50</p> </li> <li> <p>Maximum tag key length: 128 Unicode characters</p> </li> <li> <p>Maximum tag value length: 256 Unicode characters</p> </li> <li> <p>Valid values for key and value: a-z, A-Z, 0-9, space, and the following characters: _ . : / = + - and @</p> </li> <li> <p>Tag keys and values are case sensitive.</p> </li> <li> <p>Don't use <code>aws:</code> as a prefix for keys; it's reserved for Amazon Web Services use.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_xray.errors.invalid_request_exception.InvalidRequestException: <p>The request is missing required parameters or has invalid parameters.</p>
+            aws_sdk_xray.errors.rule_limit_exceeded_exception.RuleLimitExceededException: <p>You have reached the maximum number of sampling rules.</p>
+            aws_sdk_xray.errors.throttled_exception.ThrottledException: <p>The request exceeds the maximum number of requests per second.</p>
+            aws_sdk_xray.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -456,6 +478,11 @@ class XRayClient:
         Args:
             group_name: <p>The case-sensitive name of the group.</p>
             group_arn: <p>The ARN of the group that was generated on creation.</p>
+
+        Raises:
+            aws_sdk_xray.errors.invalid_request_exception.InvalidRequestException: <p>The request is missing required parameters or has invalid parameters.</p>
+            aws_sdk_xray.errors.throttled_exception.ThrottledException: <p>The request exceeds the maximum number of requests per second.</p>
+            aws_sdk_xray.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -500,6 +527,12 @@ class XRayClient:
         Args:
             policy_name: <p>The name of the resource policy to delete.</p>
             policy_revision_id: <p>Specifies a specific policy revision to delete. Provide a <code>PolicyRevisionId</code> to ensure an atomic delete operation. If the provided revision id does not match the latest policy revision id, an <code>InvalidPolicyRevisionIdException</code> exception is returned. </p>
+
+        Raises:
+            aws_sdk_xray.errors.invalid_policy_revision_id_exception.InvalidPolicyRevisionIdException: <p>A policy revision id was provided which does not match the latest policy revision. This exception is also if a policy revision id of 0 is provided via <code>PutResourcePolicy</code> and a policy with the same name already exists.</p>
+            aws_sdk_xray.errors.invalid_request_exception.InvalidRequestException: <p>The request is missing required parameters or has invalid parameters.</p>
+            aws_sdk_xray.errors.throttled_exception.ThrottledException: <p>The request exceeds the maximum number of requests per second.</p>
+            aws_sdk_xray.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -541,6 +574,11 @@ class XRayClient:
         Args:
             rule_name: <p>The name of the sampling rule. Specify a rule by either name or ARN, but not both.</p>
             rule_arn: <p>The ARN of the sampling rule. Specify a rule by either name or ARN, but not both.</p>
+
+        Raises:
+            aws_sdk_xray.errors.invalid_request_exception.InvalidRequestException: <p>The request is missing required parameters or has invalid parameters.</p>
+            aws_sdk_xray.errors.throttled_exception.ThrottledException: <p>The request exceeds the maximum number of requests per second.</p>
+            aws_sdk_xray.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -574,7 +612,13 @@ class XRayClient:
     def get_encryption_config(
         self, *, config_overrides: Optional[XRayClientConfig] = None
     ) -> "aws_sdk_xray.types.get_encryption_config_result.GetEncryptionConfigResult":
-        """<p>Retrieves the current encryption configuration for X-Ray data.</p>"""
+        """<p>Retrieves the current encryption configuration for X-Ray data.</p>
+
+        Raises:
+            aws_sdk_xray.errors.invalid_request_exception.InvalidRequestException: <p>The request is missing required parameters or has invalid parameters.</p>
+            aws_sdk_xray.errors.throttled_exception.ThrottledException: <p>The request exceeds the maximum number of requests per second.</p>
+            aws_sdk_xray.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_xray.types.get_encryption_config_request.GetEncryptionConfigRequest]",
@@ -612,6 +656,11 @@ class XRayClient:
         Args:
             group_name: <p>The case-sensitive name of the group.</p>
             group_arn: <p>The ARN of the group that was generated on creation.</p>
+
+        Raises:
+            aws_sdk_xray.errors.invalid_request_exception.InvalidRequestException: <p>The request is missing required parameters or has invalid parameters.</p>
+            aws_sdk_xray.errors.throttled_exception.ThrottledException: <p>The request exceeds the maximum number of requests per second.</p>
+            aws_sdk_xray.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -652,6 +701,11 @@ class XRayClient:
 
         Args:
             next_token: <p>Pagination token.</p>
+
+        Raises:
+            aws_sdk_xray.errors.invalid_request_exception.InvalidRequestException: <p>The request is missing required parameters or has invalid parameters.</p>
+            aws_sdk_xray.errors.throttled_exception.ThrottledException: <p>The request exceeds the maximum number of requests per second.</p>
+            aws_sdk_xray.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -709,6 +763,11 @@ class XRayClient:
 
         Args:
             next_token: <p> Specify the pagination token returned by a previous request to retrieve the next page of indexes. </p>
+
+        Raises:
+            aws_sdk_xray.errors.invalid_request_exception.InvalidRequestException: <p>The request is missing required parameters or has invalid parameters.</p>
+            aws_sdk_xray.errors.throttled_exception.ThrottledException: <p>The request exceeds the maximum number of requests per second.</p>
+            aws_sdk_xray.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -747,6 +806,11 @@ class XRayClient:
 
         Args:
             insight_id: <p>The insight's unique identifier. Use the GetInsightSummaries action to retrieve an InsightId.</p>
+
+        Raises:
+            aws_sdk_xray.errors.invalid_request_exception.InvalidRequestException: <p>The request is missing required parameters or has invalid parameters.</p>
+            aws_sdk_xray.errors.throttled_exception.ThrottledException: <p>The request exceeds the maximum number of requests per second.</p>
+            aws_sdk_xray.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -790,6 +854,11 @@ class XRayClient:
             insight_id: <p>The insight's unique identifier. Use the GetInsightSummaries action to retrieve an InsightId.</p>
             max_results: <p>Used to retrieve at most the specified value of events.</p>
             next_token: <p>Specify the pagination token returned by a previous request to retrieve the next page of events. </p>
+
+        Raises:
+            aws_sdk_xray.errors.invalid_request_exception.InvalidRequestException: <p>The request is missing required parameters or has invalid parameters.</p>
+            aws_sdk_xray.errors.throttled_exception.ThrottledException: <p>The request exceeds the maximum number of requests per second.</p>
+            aws_sdk_xray.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -839,6 +908,11 @@ class XRayClient:
             start_time: <p>The estimated start time of the insight, in Unix time seconds. The StartTime is inclusive of the value provided and can't be more than 30 days old.</p>
             end_time: <p>The estimated end time of the insight, in Unix time seconds. The EndTime is exclusive of the value provided. The time range between the start time and end time can't be more than six hours. </p>
             next_token: <p>Specify the pagination token returned by a previous request to retrieve the next page of results. </p>
+
+        Raises:
+            aws_sdk_xray.errors.invalid_request_exception.InvalidRequestException: <p>The request is missing required parameters or has invalid parameters.</p>
+            aws_sdk_xray.errors.throttled_exception.ThrottledException: <p>The request exceeds the maximum number of requests per second.</p>
+            aws_sdk_xray.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -896,6 +970,11 @@ class XRayClient:
             end_time: <p>The end of the time frame in which the insights ended. The end time can't be more than 30 days old.</p>
             max_results: <p>The maximum number of results to display.</p>
             next_token: <p>Pagination token.</p>
+
+        Raises:
+            aws_sdk_xray.errors.invalid_request_exception.InvalidRequestException: <p>The request is missing required parameters or has invalid parameters.</p>
+            aws_sdk_xray.errors.throttled_exception.ThrottledException: <p>The request exceeds the maximum number of requests per second.</p>
+            aws_sdk_xray.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -946,6 +1025,12 @@ class XRayClient:
         Args:
             retrieval_token: <p> Retrieval token. </p>
             next_token: <p> Specify the pagination token returned by a previous request to retrieve the next page of indexes. </p>
+
+        Raises:
+            aws_sdk_xray.errors.invalid_request_exception.InvalidRequestException: <p>The request is missing required parameters or has invalid parameters.</p>
+            aws_sdk_xray.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource was not found. Verify that the name or Amazon Resource Name (ARN) of the resource is correct.</p>
+            aws_sdk_xray.errors.throttled_exception.ThrottledException: <p>The request exceeds the maximum number of requests per second.</p>
+            aws_sdk_xray.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -985,6 +1070,11 @@ class XRayClient:
 
         Args:
             next_token: <p>Pagination token.</p>
+
+        Raises:
+            aws_sdk_xray.errors.invalid_request_exception.InvalidRequestException: <p>The request is missing required parameters or has invalid parameters.</p>
+            aws_sdk_xray.errors.throttled_exception.ThrottledException: <p>The request exceeds the maximum number of requests per second.</p>
+            aws_sdk_xray.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1042,6 +1132,11 @@ class XRayClient:
 
         Args:
             next_token: <p>Pagination token.</p>
+
+        Raises:
+            aws_sdk_xray.errors.invalid_request_exception.InvalidRequestException: <p>The request is missing required parameters or has invalid parameters.</p>
+            aws_sdk_xray.errors.throttled_exception.ThrottledException: <p>The request exceeds the maximum number of requests per second.</p>
+            aws_sdk_xray.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1103,6 +1198,11 @@ class XRayClient:
         Args:
             sampling_statistics_documents: <p>Information about rules that the service is using to sample requests.</p>
             sampling_boost_statistics_documents: <p>Information about rules that the service is using to boost sampling rate.</p>
+
+        Raises:
+            aws_sdk_xray.errors.invalid_request_exception.InvalidRequestException: <p>The request is missing required parameters or has invalid parameters.</p>
+            aws_sdk_xray.errors.throttled_exception.ThrottledException: <p>The request exceeds the maximum number of requests per second.</p>
+            aws_sdk_xray.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1152,6 +1252,11 @@ class XRayClient:
             group_name: <p>The name of a group based on which you want to generate a graph.</p>
             group_arn: <p>The Amazon Resource Name (ARN) of a group based on which you want to generate a graph.</p>
             next_token: <p>Pagination token.</p>
+
+        Raises:
+            aws_sdk_xray.errors.invalid_request_exception.InvalidRequestException: <p>The request is missing required parameters or has invalid parameters.</p>
+            aws_sdk_xray.errors.throttled_exception.ThrottledException: <p>The request exceeds the maximum number of requests per second.</p>
+            aws_sdk_xray.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1241,6 +1346,11 @@ class XRayClient:
             period: <p>Aggregation period in seconds.</p>
             forecast_statistics: <p>The forecasted high and low fault count values. Forecast enabled requests require the EntitySelectorExpression ID be provided.</p>
             next_token: <p>Pagination token.</p>
+
+        Raises:
+            aws_sdk_xray.errors.invalid_request_exception.InvalidRequestException: <p>The request is missing required parameters or has invalid parameters.</p>
+            aws_sdk_xray.errors.throttled_exception.ThrottledException: <p>The request exceeds the maximum number of requests per second.</p>
+            aws_sdk_xray.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1330,6 +1440,11 @@ class XRayClient:
         Args:
             trace_ids: <p>Trace IDs of requests for which to generate a service graph.</p>
             next_token: <p>Pagination token.</p>
+
+        Raises:
+            aws_sdk_xray.errors.invalid_request_exception.InvalidRequestException: <p>The request is missing required parameters or has invalid parameters.</p>
+            aws_sdk_xray.errors.throttled_exception.ThrottledException: <p>The request exceeds the maximum number of requests per second.</p>
+            aws_sdk_xray.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1383,7 +1498,13 @@ class XRayClient:
     def get_trace_segment_destination(
         self, *, config_overrides: Optional[XRayClientConfig] = None
     ) -> "aws_sdk_xray.types.get_trace_segment_destination_result.GetTraceSegmentDestinationResult":
-        r"""<p> Retrieves the current destination of data sent to <code>PutTraceSegments</code> and <i>OpenTelemetry protocol (OTLP)</i> endpoint. The Transaction Search feature requires a CloudWatchLogs destination. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Transaction-Search.html\">Transaction Search</a> and <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-OpenTelemetry-Sections.html\">OpenTelemetry</a>. </p>"""
+        r"""<p> Retrieves the current destination of data sent to <code>PutTraceSegments</code> and <i>OpenTelemetry protocol (OTLP)</i> endpoint. The Transaction Search feature requires a CloudWatchLogs destination. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Transaction-Search.html\">Transaction Search</a> and <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-OpenTelemetry-Sections.html\">OpenTelemetry</a>. </p>
+
+        Raises:
+            aws_sdk_xray.errors.invalid_request_exception.InvalidRequestException: <p>The request is missing required parameters or has invalid parameters.</p>
+            aws_sdk_xray.errors.throttled_exception.ThrottledException: <p>The request exceeds the maximum number of requests per second.</p>
+            aws_sdk_xray.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_xray.types.get_trace_segment_destination_request.GetTraceSegmentDestinationRequest]",
@@ -1439,6 +1560,11 @@ class XRayClient:
             sampling_strategy: <p>A parameter to indicate whether to enable sampling on trace summaries. Input parameters are Name and Value.</p>
             filter_expression: <p>Specify a filter expression to retrieve trace summaries for services or requests that meet certain requirements.</p>
             next_token: <p>Specify the pagination token returned by a previous request to retrieve the next page of results.</p>
+
+        Raises:
+            aws_sdk_xray.errors.invalid_request_exception.InvalidRequestException: <p>The request is missing required parameters or has invalid parameters.</p>
+            aws_sdk_xray.errors.throttled_exception.ThrottledException: <p>The request exceeds the maximum number of requests per second.</p>
+            aws_sdk_xray.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1528,6 +1654,11 @@ class XRayClient:
 
         Args:
             next_token: <p>Not currently supported.</p>
+
+        Raises:
+            aws_sdk_xray.errors.invalid_request_exception.InvalidRequestException: <p>The request is missing required parameters or has invalid parameters.</p>
+            aws_sdk_xray.errors.throttled_exception.ThrottledException: <p>The request exceeds the maximum number of requests per second.</p>
+            aws_sdk_xray.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1593,6 +1724,12 @@ class XRayClient:
             retrieval_token: <p> Retrieval token. </p>
             trace_format: <p> Format of the requested traces. </p>
             next_token: <p> Specify the pagination token returned by a previous request to retrieve the next page of indexes. </p>
+
+        Raises:
+            aws_sdk_xray.errors.invalid_request_exception.InvalidRequestException: <p>The request is missing required parameters or has invalid parameters.</p>
+            aws_sdk_xray.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource was not found. Verify that the name or Amazon Resource Name (ARN) of the resource is correct.</p>
+            aws_sdk_xray.errors.throttled_exception.ThrottledException: <p>The request exceeds the maximum number of requests per second.</p>
+            aws_sdk_xray.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1638,6 +1775,12 @@ class XRayClient:
         Args:
             resource_arn: <p>The Amazon Resource Number (ARN) of an X-Ray group or sampling rule.</p>
             next_token: <p>A pagination token. If multiple pages of results are returned, use the <code>NextToken</code> value returned with the current page of results as the value of this parameter to get the next page of results.</p>
+
+        Raises:
+            aws_sdk_xray.errors.invalid_request_exception.InvalidRequestException: <p>The request is missing required parameters or has invalid parameters.</p>
+            aws_sdk_xray.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource was not found. Verify that the name or Amazon Resource Name (ARN) of the resource is correct.</p>
+            aws_sdk_xray.errors.throttled_exception.ThrottledException: <p>The request exceeds the maximum number of requests per second.</p>
+            aws_sdk_xray.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1700,6 +1843,11 @@ class XRayClient:
         Args:
             key_id: <p>An Amazon Web Services KMS key in one of the following formats:</p> <ul> <li> <p> <b>Alias</b> - The name of the key. For example, <code>alias/MyKey</code>.</p> </li> <li> <p> <b>Key ID</b> - The KMS key ID of the key. For example, <code>ae4aa6d49-a4d8-9df9-a475-4ff6d7898456</code>. Amazon Web Services X-Ray does not support asymmetric KMS keys.</p> </li> <li> <p> <b>ARN</b> - The full Amazon Resource Name of the key ID or alias. For example, <code>arn:aws:kms:us-east-2:123456789012:key/ae4aa6d49-a4d8-9df9-a475-4ff6d7898456</code>. Use this format to specify a key in a different account.</p> </li> </ul> <p>Omit this key if you set <code>Type</code> to <code>NONE</code>.</p>
             type: <p>The type of encryption. Set to <code>KMS</code> to use your own key for encryption. Set to <code>NONE</code> for default encryption.</p>
+
+        Raises:
+            aws_sdk_xray.errors.invalid_request_exception.InvalidRequestException: <p>The request is missing required parameters or has invalid parameters.</p>
+            aws_sdk_xray.errors.throttled_exception.ThrottledException: <p>The request exceeds the maximum number of requests per second.</p>
+            aws_sdk_xray.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1749,6 +1897,15 @@ class XRayClient:
             policy_document: <p>The resource policy document, which can be up to 5kb in size.</p>
             policy_revision_id: <p>Specifies a specific policy revision, to ensure an atomic create operation. By default the resource policy is created if it does not exist, or updated with an incremented revision id. The revision id is unique to each policy in the account.</p> <p>If the policy revision id does not match the latest revision id, the operation will fail with an <code>InvalidPolicyRevisionIdException</code> exception. You can also provide a <code>PolicyRevisionId</code> of 0. In this case, the operation will fail with an <code>InvalidPolicyRevisionIdException</code> exception if a resource policy with the same name already exists. </p>
             bypass_policy_lockout_check: <p>A flag to indicate whether to bypass the resource policy lockout safety check.</p> <important> <p>Setting this value to true increases the risk that the policy becomes unmanageable. Do not set this value to true indiscriminately.</p> </important> <p>Use this parameter only when you include a policy in the request and you intend to prevent the principal that is making the request from making a subsequent <code>PutResourcePolicy</code> request.</p> <p>The default value is false.</p>
+
+        Raises:
+            aws_sdk_xray.errors.invalid_policy_revision_id_exception.InvalidPolicyRevisionIdException: <p>A policy revision id was provided which does not match the latest policy revision. This exception is also if a policy revision id of 0 is provided via <code>PutResourcePolicy</code> and a policy with the same name already exists.</p>
+            aws_sdk_xray.errors.lockout_prevention_exception.LockoutPreventionException: <p>The provided resource policy would prevent the caller of this request from calling PutResourcePolicy in the future.</p>
+            aws_sdk_xray.errors.malformed_policy_document_exception.MalformedPolicyDocumentException: <p>Invalid policy document provided in request.</p>
+            aws_sdk_xray.errors.policy_count_limit_exceeded_exception.PolicyCountLimitExceededException: <p>Exceeded the maximum number of resource policies for a target Amazon Web Services account.</p>
+            aws_sdk_xray.errors.policy_size_limit_exceeded_exception.PolicySizeLimitExceededException: <p>Exceeded the maximum size for a resource policy.</p>
+            aws_sdk_xray.errors.throttled_exception.ThrottledException: <p>The request exceeds the maximum number of requests per second.</p>
+            aws_sdk_xray.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1799,6 +1956,11 @@ class XRayClient:
             ec2_instance_id: <p></p>
             hostname: <p></p>
             resource_arn: <p></p>
+
+        Raises:
+            aws_sdk_xray.errors.invalid_request_exception.InvalidRequestException: <p>The request is missing required parameters or has invalid parameters.</p>
+            aws_sdk_xray.errors.throttled_exception.ThrottledException: <p>The request exceeds the maximum number of requests per second.</p>
+            aws_sdk_xray.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1842,6 +2004,11 @@ class XRayClient:
 
         Args:
             trace_segment_documents: <p>A string containing a JSON document defining one or more segments or subsegments.</p>
+
+        Raises:
+            aws_sdk_xray.errors.invalid_request_exception.InvalidRequestException: <p>The request is missing required parameters or has invalid parameters.</p>
+            aws_sdk_xray.errors.throttled_exception.ThrottledException: <p>The request exceeds the maximum number of requests per second.</p>
+            aws_sdk_xray.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1883,6 +2050,12 @@ class XRayClient:
             trace_ids: <p> Specify the trace IDs of the traces to be retrieved. </p>
             start_time: <p> The start of the time range to retrieve traces. The range is inclusive, so the specified start time is included in the query. Specified as epoch time, the number of seconds since January 1, 1970, 00:00:00 UTC. </p>
             end_time: <p> The end of the time range to retrieve traces. The range is inclusive, so the specified end time is included in the query. Specified as epoch time, the number of seconds since January 1, 1970, 00:00:00 UTC.</p>
+
+        Raises:
+            aws_sdk_xray.errors.invalid_request_exception.InvalidRequestException: <p>The request is missing required parameters or has invalid parameters.</p>
+            aws_sdk_xray.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource was not found. Verify that the name or Amazon Resource Name (ARN) of the resource is correct.</p>
+            aws_sdk_xray.errors.throttled_exception.ThrottledException: <p>The request exceeds the maximum number of requests per second.</p>
+            aws_sdk_xray.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1924,6 +2097,13 @@ class XRayClient:
         Args:
             resource_arn: <p>The Amazon Resource Number (ARN) of an X-Ray group or sampling rule.</p>
             tags: <p>A map that contains one or more tag keys and tag values to attach to an X-Ray group or sampling rule. For more information about ways to use tags, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html\">Tagging Amazon Web Services resources</a> in the <i>Amazon Web Services General Reference</i>.</p> <p>The following restrictions apply to tags:</p> <ul> <li> <p>Maximum number of user-applied tags per resource: 50</p> </li> <li> <p>Maximum tag key length: 128 Unicode characters</p> </li> <li> <p>Maximum tag value length: 256 Unicode characters</p> </li> <li> <p>Valid values for key and value: a-z, A-Z, 0-9, space, and the following characters: _ . : / = + - and @</p> </li> <li> <p>Tag keys and values are case sensitive.</p> </li> <li> <p>Don't use <code>aws:</code> as a prefix for keys; it's reserved for Amazon Web Services use. You cannot edit or delete system tags.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_xray.errors.invalid_request_exception.InvalidRequestException: <p>The request is missing required parameters or has invalid parameters.</p>
+            aws_sdk_xray.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource was not found. Verify that the name or Amazon Resource Name (ARN) of the resource is correct.</p>
+            aws_sdk_xray.errors.throttled_exception.ThrottledException: <p>The request exceeds the maximum number of requests per second.</p>
+            aws_sdk_xray.errors.too_many_tags_exception.TooManyTagsException: <p>You have exceeded the maximum number of tags you can apply to this resource.</p>
+            aws_sdk_xray.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1964,6 +2144,12 @@ class XRayClient:
         Args:
             resource_arn: <p>The Amazon Resource Number (ARN) of an X-Ray group or sampling rule.</p>
             tag_keys: <p>Keys for one or more tags that you want to remove from an X-Ray group or sampling rule.</p>
+
+        Raises:
+            aws_sdk_xray.errors.invalid_request_exception.InvalidRequestException: <p>The request is missing required parameters or has invalid parameters.</p>
+            aws_sdk_xray.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource was not found. Verify that the name or Amazon Resource Name (ARN) of the resource is correct.</p>
+            aws_sdk_xray.errors.throttled_exception.ThrottledException: <p>The request exceeds the maximum number of requests per second.</p>
+            aws_sdk_xray.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2012,6 +2198,11 @@ class XRayClient:
             group_arn: <p>The ARN that was generated upon creation.</p>
             filter_expression: <p>The updated filter expression defining criteria by which to group traces.</p>
             insights_configuration: <p>The structure containing configurations related to insights.</p> <ul> <li> <p>The InsightsEnabled boolean can be set to true to enable insights for the group or false to disable insights for the group.</p> </li> <li> <p>The NotificationsEnabled boolean can be set to true to enable insights notifications for the group. Notifications can only be enabled on a group with InsightsEnabled set to true.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_xray.errors.invalid_request_exception.InvalidRequestException: <p>The request is missing required parameters or has invalid parameters.</p>
+            aws_sdk_xray.errors.throttled_exception.ThrottledException: <p>The request exceeds the maximum number of requests per second.</p>
+            aws_sdk_xray.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2058,6 +2249,12 @@ class XRayClient:
         Args:
             name: <p> Name of the indexing rule to be updated. </p>
             rule: <p> Rule configuration to be updated. </p>
+
+        Raises:
+            aws_sdk_xray.errors.invalid_request_exception.InvalidRequestException: <p>The request is missing required parameters or has invalid parameters.</p>
+            aws_sdk_xray.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource was not found. Verify that the name or Amazon Resource Name (ARN) of the resource is correct.</p>
+            aws_sdk_xray.errors.throttled_exception.ThrottledException: <p>The request exceeds the maximum number of requests per second.</p>
+            aws_sdk_xray.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2096,6 +2293,11 @@ class XRayClient:
 
         Args:
             sampling_rule_update: <p>The rule and fields to change.</p>
+
+        Raises:
+            aws_sdk_xray.errors.invalid_request_exception.InvalidRequestException: <p>The request is missing required parameters or has invalid parameters.</p>
+            aws_sdk_xray.errors.throttled_exception.ThrottledException: <p>The request exceeds the maximum number of requests per second.</p>
+            aws_sdk_xray.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2135,6 +2337,11 @@ class XRayClient:
 
         Args:
             destination: <p> The configured destination of trace segments. </p>
+
+        Raises:
+            aws_sdk_xray.errors.invalid_request_exception.InvalidRequestException: <p>The request is missing required parameters or has invalid parameters.</p>
+            aws_sdk_xray.errors.throttled_exception.ThrottledException: <p>The request exceeds the maximum number of requests per second.</p>
+            aws_sdk_xray.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(

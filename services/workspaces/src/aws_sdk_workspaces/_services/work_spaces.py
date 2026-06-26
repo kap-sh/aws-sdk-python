@@ -436,6 +436,14 @@ class WorkSpacesClient:
         Args:
             link_id: <p>The identifier of the account link.</p>
             client_token: <p>A string of up to 64 ASCII characters that Amazon WorkSpaces uses to ensure idempotent creation.</p>
+
+        Raises:
+            aws_sdk_workspaces.errors.access_denied_exception.AccessDeniedException: <p>The user is not authorized to access a resource.</p>
+            aws_sdk_workspaces.errors.conflict_exception.ConflictException: <p>The <code>TargetAccountId</code> is already linked or invited.</p>
+            aws_sdk_workspaces.errors.internal_server_exception.InternalServerException: <p>Unexpected server error occured.</p>
+            aws_sdk_workspaces.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_workspaces.errors.validation_exception.ValidationException: <p>You either haven't provided a <code>TargetAccountId</code> or are using the same value for <code>TargetAccountId</code> and <code>SourceAccountId</code>.</p>
+            aws_sdk_workspaces.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -477,6 +485,15 @@ class WorkSpacesClient:
         Args:
             alias_id: <p>The identifier of the connection alias.</p>
             resource_id: <p>The identifier of the directory to associate the connection alias with.</p>
+
+        Raises:
+            aws_sdk_workspaces.errors.access_denied_exception.AccessDeniedException: <p>The user is not authorized to access a resource.</p>
+            aws_sdk_workspaces.errors.invalid_parameter_values_exception.InvalidParameterValuesException: <p>One or more parameter values are not valid.</p>
+            aws_sdk_workspaces.errors.invalid_resource_state_exception.InvalidResourceStateException: <p>The state of the resource is not valid for this operation.</p>
+            aws_sdk_workspaces.errors.operation_not_supported_exception.OperationNotSupportedException: <p>This operation is not supported.</p>
+            aws_sdk_workspaces.errors.resource_associated_exception.ResourceAssociatedException: <p>The resource is associated with a directory.</p>
+            aws_sdk_workspaces.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_workspaces.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -517,6 +534,15 @@ class WorkSpacesClient:
         Args:
             directory_id: <p>The identifier of the directory.</p>
             group_ids: <p>The identifiers of one or more IP access control groups.</p>
+
+        Raises:
+            aws_sdk_workspaces.errors.access_denied_exception.AccessDeniedException: <p>The user is not authorized to access a resource.</p>
+            aws_sdk_workspaces.errors.invalid_parameter_values_exception.InvalidParameterValuesException: <p>One or more parameter values are not valid.</p>
+            aws_sdk_workspaces.errors.invalid_resource_state_exception.InvalidResourceStateException: <p>The state of the resource is not valid for this operation.</p>
+            aws_sdk_workspaces.errors.operation_not_supported_exception.OperationNotSupportedException: <p>This operation is not supported.</p>
+            aws_sdk_workspaces.errors.resource_limit_exceeded_exception.ResourceLimitExceededException: <p>Your resource limits have been exceeded.</p>
+            aws_sdk_workspaces.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_workspaces.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -557,6 +583,19 @@ class WorkSpacesClient:
         Args:
             workspace_id: <p>The identifier of the WorkSpace.</p>
             application_id: <p>The identifier of the application.</p>
+
+        Raises:
+            aws_sdk_workspaces.errors.access_denied_exception.AccessDeniedException: <p>The user is not authorized to access a resource.</p>
+            aws_sdk_workspaces.errors.application_not_supported_exception.ApplicationNotSupportedException: <p>The specified application is not supported.</p>
+            aws_sdk_workspaces.errors.compute_not_compatible_exception.ComputeNotCompatibleException: <p>The compute type of the WorkSpace is not compatible with the application.</p>
+            aws_sdk_workspaces.errors.incompatible_applications_exception.IncompatibleApplicationsException: <p>The specified application is not compatible with the resource.</p>
+            aws_sdk_workspaces.errors.invalid_parameter_values_exception.InvalidParameterValuesException: <p>One or more parameter values are not valid.</p>
+            aws_sdk_workspaces.errors.operating_system_not_compatible_exception.OperatingSystemNotCompatibleException: <p>The operating system of the WorkSpace is not compatible with the application.</p>
+            aws_sdk_workspaces.errors.operation_not_supported_exception.OperationNotSupportedException: <p>This operation is not supported.</p>
+            aws_sdk_workspaces.errors.resource_already_exists_exception.ResourceAlreadyExistsException: <p>The specified resource already exists.</p>
+            aws_sdk_workspaces.errors.resource_in_use_exception.ResourceInUseException: <p>The specified resource is currently in use.</p>
+            aws_sdk_workspaces.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_workspaces.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -597,6 +636,14 @@ class WorkSpacesClient:
         Args:
             group_id: <p>The identifier of the group.</p>
             user_rules: <p>The rules to add to the group.</p>
+
+        Raises:
+            aws_sdk_workspaces.errors.access_denied_exception.AccessDeniedException: <p>The user is not authorized to access a resource.</p>
+            aws_sdk_workspaces.errors.invalid_parameter_values_exception.InvalidParameterValuesException: <p>One or more parameter values are not valid.</p>
+            aws_sdk_workspaces.errors.invalid_resource_state_exception.InvalidResourceStateException: <p>The state of the resource is not valid for this operation.</p>
+            aws_sdk_workspaces.errors.resource_limit_exceeded_exception.ResourceLimitExceededException: <p>Your resource limits have been exceeded.</p>
+            aws_sdk_workspaces.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_workspaces.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -647,6 +694,16 @@ class WorkSpacesClient:
             source_image_id: <p>The identifier of the source image.</p>
             source_region: <p>The identifier of the source Region.</p>
             tags: <p>The tags for the image.</p>
+
+        Raises:
+            aws_sdk_workspaces.errors.access_denied_exception.AccessDeniedException: <p>The user is not authorized to access a resource.</p>
+            aws_sdk_workspaces.errors.invalid_parameter_values_exception.InvalidParameterValuesException: <p>One or more parameter values are not valid.</p>
+            aws_sdk_workspaces.errors.operation_not_supported_exception.OperationNotSupportedException: <p>This operation is not supported.</p>
+            aws_sdk_workspaces.errors.resource_already_exists_exception.ResourceAlreadyExistsException: <p>The specified resource already exists.</p>
+            aws_sdk_workspaces.errors.resource_limit_exceeded_exception.ResourceLimitExceededException: <p>Your resource limits have been exceeded.</p>
+            aws_sdk_workspaces.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_workspaces.errors.resource_unavailable_exception.ResourceUnavailableException: <p>The specified resource is not available.</p>
+            aws_sdk_workspaces.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -694,6 +751,13 @@ class WorkSpacesClient:
         Args:
             target_account_id: <p>The identifier of the target account.</p>
             client_token: <p>A string of up to 64 ASCII characters that Amazon WorkSpaces uses to ensure idempotent creation.</p>
+
+        Raises:
+            aws_sdk_workspaces.errors.access_denied_exception.AccessDeniedException: <p>The user is not authorized to access a resource.</p>
+            aws_sdk_workspaces.errors.conflict_exception.ConflictException: <p>The <code>TargetAccountId</code> is already linked or invited.</p>
+            aws_sdk_workspaces.errors.internal_server_exception.InternalServerException: <p>Unexpected server error occured.</p>
+            aws_sdk_workspaces.errors.validation_exception.ValidationException: <p>You either haven't provided a <code>TargetAccountId</code> or are using the same value for <code>TargetAccountId</code> and <code>SourceAccountId</code>.</p>
+            aws_sdk_workspaces.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -737,6 +801,14 @@ class WorkSpacesClient:
             resource_id: <p>The directory identifier for which to configure the client add-in.</p>
             name: <p>The name of the client add-in.</p>
             url: <p>The endpoint URL of the Connect Customer client add-in.</p>
+
+        Raises:
+            aws_sdk_workspaces.errors.access_denied_exception.AccessDeniedException: <p>The user is not authorized to access a resource.</p>
+            aws_sdk_workspaces.errors.invalid_parameter_values_exception.InvalidParameterValuesException: <p>One or more parameter values are not valid.</p>
+            aws_sdk_workspaces.errors.resource_already_exists_exception.ResourceAlreadyExistsException: <p>The specified resource already exists.</p>
+            aws_sdk_workspaces.errors.resource_creation_failed_exception.ResourceCreationFailedException: <p>The resource could not be created.</p>
+            aws_sdk_workspaces.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_workspaces.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -778,6 +850,15 @@ class WorkSpacesClient:
         Args:
             connection_string: <p>A connection string in the form of a fully qualified domain name (FQDN), such as <code>www.example.com</code>.</p> <important> <p>After you create a connection string, it is always associated to your Amazon Web Services account. You cannot recreate the same connection string with a different account, even if you delete all instances of it from the original account. The connection string is globally reserved for your account.</p> </important>
             tags: <p>The tags to associate with the connection alias.</p>
+
+        Raises:
+            aws_sdk_workspaces.errors.access_denied_exception.AccessDeniedException: <p>The user is not authorized to access a resource.</p>
+            aws_sdk_workspaces.errors.invalid_parameter_values_exception.InvalidParameterValuesException: <p>One or more parameter values are not valid.</p>
+            aws_sdk_workspaces.errors.invalid_resource_state_exception.InvalidResourceStateException: <p>The state of the resource is not valid for this operation.</p>
+            aws_sdk_workspaces.errors.operation_not_supported_exception.OperationNotSupportedException: <p>This operation is not supported.</p>
+            aws_sdk_workspaces.errors.resource_already_exists_exception.ResourceAlreadyExistsException: <p>The specified resource already exists.</p>
+            aws_sdk_workspaces.errors.resource_limit_exceeded_exception.ResourceLimitExceededException: <p>Your resource limits have been exceeded.</p>
+            aws_sdk_workspaces.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -825,6 +906,14 @@ class WorkSpacesClient:
             group_desc: <p>The description of the group.</p>
             user_rules: <p>The rules to add to the group.</p>
             tags: <p>The tags. Each WorkSpaces resource can have a maximum of 50 tags.</p>
+
+        Raises:
+            aws_sdk_workspaces.errors.access_denied_exception.AccessDeniedException: <p>The user is not authorized to access a resource.</p>
+            aws_sdk_workspaces.errors.invalid_parameter_values_exception.InvalidParameterValuesException: <p>One or more parameter values are not valid.</p>
+            aws_sdk_workspaces.errors.resource_already_exists_exception.ResourceAlreadyExistsException: <p>The specified resource already exists.</p>
+            aws_sdk_workspaces.errors.resource_creation_failed_exception.ResourceCreationFailedException: <p>The resource could not be created.</p>
+            aws_sdk_workspaces.errors.resource_limit_exceeded_exception.ResourceLimitExceededException: <p>Your resource limits have been exceeded.</p>
+            aws_sdk_workspaces.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -870,6 +959,14 @@ class WorkSpacesClient:
         Args:
             primary_region: <p>The Region of the primary WorkSpace.</p>
             standby_workspaces: <p>Information about the standby WorkSpace to be created.</p>
+
+        Raises:
+            aws_sdk_workspaces.errors.access_denied_exception.AccessDeniedException: <p>The user is not authorized to access a resource.</p>
+            aws_sdk_workspaces.errors.invalid_parameter_values_exception.InvalidParameterValuesException: <p>One or more parameter values are not valid.</p>
+            aws_sdk_workspaces.errors.operation_not_supported_exception.OperationNotSupportedException: <p>This operation is not supported.</p>
+            aws_sdk_workspaces.errors.resource_limit_exceeded_exception.ResourceLimitExceededException: <p>Your resource limits have been exceeded.</p>
+            aws_sdk_workspaces.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_workspaces.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -910,6 +1007,12 @@ class WorkSpacesClient:
         Args:
             resource_id: <p>The identifier of the WorkSpaces resource. The supported resource types are WorkSpaces, registered directories, images, custom bundles, IP access control groups, and connection aliases.</p>
             tags: <p>The tags. Each WorkSpaces resource can have a maximum of 50 tags.</p>
+
+        Raises:
+            aws_sdk_workspaces.errors.invalid_parameter_values_exception.InvalidParameterValuesException: <p>One or more parameter values are not valid.</p>
+            aws_sdk_workspaces.errors.resource_limit_exceeded_exception.ResourceLimitExceededException: <p>Your resource limits have been exceeded.</p>
+            aws_sdk_workspaces.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_workspaces.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -954,6 +1057,16 @@ class WorkSpacesClient:
             description: <p>A description of whether updates for the WorkSpace image are available.</p>
             source_image_id: <p>The identifier of the source WorkSpace image.</p>
             tags: <p>The tags that you want to add to the new updated WorkSpace image.</p> <note> <p>To add tags at the same time when you're creating the updated image, you must create an IAM policy that grants your IAM user permissions to use <code>workspaces:CreateTags</code>. </p> </note>
+
+        Raises:
+            aws_sdk_workspaces.errors.access_denied_exception.AccessDeniedException: <p>The user is not authorized to access a resource.</p>
+            aws_sdk_workspaces.errors.invalid_parameter_values_exception.InvalidParameterValuesException: <p>One or more parameter values are not valid.</p>
+            aws_sdk_workspaces.errors.invalid_resource_state_exception.InvalidResourceStateException: <p>The state of the resource is not valid for this operation.</p>
+            aws_sdk_workspaces.errors.operation_not_supported_exception.OperationNotSupportedException: <p>This operation is not supported.</p>
+            aws_sdk_workspaces.errors.resource_already_exists_exception.ResourceAlreadyExistsException: <p>The specified resource already exists.</p>
+            aws_sdk_workspaces.errors.resource_limit_exceeded_exception.ResourceLimitExceededException: <p>Your resource limits have been exceeded.</p>
+            aws_sdk_workspaces.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_workspaces.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1006,6 +1119,15 @@ class WorkSpacesClient:
             bundle_description: <p>The description of the bundle.</p>
             image_id: <p>The identifier of the image that is used to create the bundle.</p>
             tags: <p>The tags associated with the bundle.</p> <note> <p>To add tags at the same time when you're creating the bundle, you must create an IAM policy that grants your IAM user permissions to use <code>workspaces:CreateTags</code>. </p> </note>
+
+        Raises:
+            aws_sdk_workspaces.errors.access_denied_exception.AccessDeniedException: <p>The user is not authorized to access a resource.</p>
+            aws_sdk_workspaces.errors.invalid_parameter_values_exception.InvalidParameterValuesException: <p>One or more parameter values are not valid.</p>
+            aws_sdk_workspaces.errors.resource_already_exists_exception.ResourceAlreadyExistsException: <p>The specified resource already exists.</p>
+            aws_sdk_workspaces.errors.resource_limit_exceeded_exception.ResourceLimitExceededException: <p>Your resource limits have been exceeded.</p>
+            aws_sdk_workspaces.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_workspaces.errors.resource_unavailable_exception.ResourceUnavailableException: <p>The specified resource is not available.</p>
+            aws_sdk_workspaces.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1057,6 +1179,16 @@ class WorkSpacesClient:
             description: <p>The description of the new WorkSpace image.</p>
             workspace_id: <p>The identifier of the source WorkSpace</p>
             tags: <p>The tags that you want to add to the new WorkSpace image. To add tags when you're creating the image, you must create an IAM policy that grants your IAM user permission to use <code>workspaces:CreateTags</code>.</p>
+
+        Raises:
+            aws_sdk_workspaces.errors.access_denied_exception.AccessDeniedException: <p>The user is not authorized to access a resource.</p>
+            aws_sdk_workspaces.errors.invalid_parameter_values_exception.InvalidParameterValuesException: <p>One or more parameter values are not valid.</p>
+            aws_sdk_workspaces.errors.invalid_resource_state_exception.InvalidResourceStateException: <p>The state of the resource is not valid for this operation.</p>
+            aws_sdk_workspaces.errors.operation_not_supported_exception.OperationNotSupportedException: <p>This operation is not supported.</p>
+            aws_sdk_workspaces.errors.resource_already_exists_exception.ResourceAlreadyExistsException: <p>The specified resource already exists.</p>
+            aws_sdk_workspaces.errors.resource_limit_exceeded_exception.ResourceLimitExceededException: <p>Your resource limits have been exceeded.</p>
+            aws_sdk_workspaces.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_workspaces.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1098,6 +1230,11 @@ class WorkSpacesClient:
 
         Args:
             workspaces: <p>The WorkSpaces to create. You can specify up to 25 WorkSpaces.</p>
+
+        Raises:
+            aws_sdk_workspaces.errors.invalid_parameter_values_exception.InvalidParameterValuesException: <p>One or more parameter values are not valid.</p>
+            aws_sdk_workspaces.errors.resource_limit_exceeded_exception.ResourceLimitExceededException: <p>Your resource limits have been exceeded.</p>
+            aws_sdk_workspaces.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1157,6 +1294,15 @@ class WorkSpacesClient:
             application_settings: <p>Indicates the application settings of the pool.</p>
             timeout_settings: <p>Indicates the timeout settings of the pool.</p>
             running_mode: <p>The running mode for the pool.</p>
+
+        Raises:
+            aws_sdk_workspaces.errors.access_denied_exception.AccessDeniedException: <p>The user is not authorized to access a resource.</p>
+            aws_sdk_workspaces.errors.invalid_parameter_values_exception.InvalidParameterValuesException: <p>One or more parameter values are not valid.</p>
+            aws_sdk_workspaces.errors.operation_not_supported_exception.OperationNotSupportedException: <p>This operation is not supported.</p>
+            aws_sdk_workspaces.errors.resource_already_exists_exception.ResourceAlreadyExistsException: <p>The specified resource already exists.</p>
+            aws_sdk_workspaces.errors.resource_limit_exceeded_exception.ResourceLimitExceededException: <p>Your resource limits have been exceeded.</p>
+            aws_sdk_workspaces.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_workspaces.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1210,6 +1356,14 @@ class WorkSpacesClient:
         Args:
             link_id: <p>The identifier of the account link.</p>
             client_token: <p>A string of up to 64 ASCII characters that Amazon WorkSpaces uses to ensure idempotent creation.</p>
+
+        Raises:
+            aws_sdk_workspaces.errors.access_denied_exception.AccessDeniedException: <p>The user is not authorized to access a resource.</p>
+            aws_sdk_workspaces.errors.conflict_exception.ConflictException: <p>The <code>TargetAccountId</code> is already linked or invited.</p>
+            aws_sdk_workspaces.errors.internal_server_exception.InternalServerException: <p>Unexpected server error occured.</p>
+            aws_sdk_workspaces.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_workspaces.errors.validation_exception.ValidationException: <p>You either haven't provided a <code>TargetAccountId</code> or are using the same value for <code>TargetAccountId</code> and <code>SourceAccountId</code>.</p>
+            aws_sdk_workspaces.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1251,6 +1405,12 @@ class WorkSpacesClient:
         Args:
             resource_id: <p>The directory identifier of the WorkSpace for which you want to delete client branding.</p>
             platforms: <p>The device type for which you want to delete client branding.</p>
+
+        Raises:
+            aws_sdk_workspaces.errors.access_denied_exception.AccessDeniedException: <p>The user is not authorized to access a resource.</p>
+            aws_sdk_workspaces.errors.invalid_parameter_values_exception.InvalidParameterValuesException: <p>One or more parameter values are not valid.</p>
+            aws_sdk_workspaces.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_workspaces.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1291,6 +1451,12 @@ class WorkSpacesClient:
         Args:
             add_in_id: <p>The identifier of the client add-in to delete.</p>
             resource_id: <p>The directory identifier for which the client add-in is configured.</p>
+
+        Raises:
+            aws_sdk_workspaces.errors.access_denied_exception.AccessDeniedException: <p>The user is not authorized to access a resource.</p>
+            aws_sdk_workspaces.errors.invalid_parameter_values_exception.InvalidParameterValuesException: <p>One or more parameter values are not valid.</p>
+            aws_sdk_workspaces.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_workspaces.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1329,6 +1495,15 @@ class WorkSpacesClient:
 
         Args:
             alias_id: <p>The identifier of the connection alias to delete.</p>
+
+        Raises:
+            aws_sdk_workspaces.errors.access_denied_exception.AccessDeniedException: <p>The user is not authorized to access a resource.</p>
+            aws_sdk_workspaces.errors.invalid_parameter_values_exception.InvalidParameterValuesException: <p>One or more parameter values are not valid.</p>
+            aws_sdk_workspaces.errors.invalid_resource_state_exception.InvalidResourceStateException: <p>The state of the resource is not valid for this operation.</p>
+            aws_sdk_workspaces.errors.operation_not_supported_exception.OperationNotSupportedException: <p>This operation is not supported.</p>
+            aws_sdk_workspaces.errors.resource_associated_exception.ResourceAssociatedException: <p>The resource is associated with a directory.</p>
+            aws_sdk_workspaces.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_workspaces.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1366,6 +1541,13 @@ class WorkSpacesClient:
 
         Args:
             group_id: <p>The identifier of the IP access control group.</p>
+
+        Raises:
+            aws_sdk_workspaces.errors.access_denied_exception.AccessDeniedException: <p>The user is not authorized to access a resource.</p>
+            aws_sdk_workspaces.errors.invalid_parameter_values_exception.InvalidParameterValuesException: <p>One or more parameter values are not valid.</p>
+            aws_sdk_workspaces.errors.resource_associated_exception.ResourceAssociatedException: <p>The resource is associated with a directory.</p>
+            aws_sdk_workspaces.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_workspaces.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1405,6 +1587,11 @@ class WorkSpacesClient:
         Args:
             resource_id: <p>The identifier of the WorkSpaces resource. The supported resource types are WorkSpaces, registered directories, images, custom bundles, IP access control groups, and connection aliases.</p>
             tag_keys: <p>The tag keys.</p>
+
+        Raises:
+            aws_sdk_workspaces.errors.invalid_parameter_values_exception.InvalidParameterValuesException: <p>One or more parameter values are not valid.</p>
+            aws_sdk_workspaces.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_workspaces.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1443,6 +1630,13 @@ class WorkSpacesClient:
 
         Args:
             bundle_id: <p>The identifier of the bundle.</p>
+
+        Raises:
+            aws_sdk_workspaces.errors.access_denied_exception.AccessDeniedException: <p>The user is not authorized to access a resource.</p>
+            aws_sdk_workspaces.errors.invalid_parameter_values_exception.InvalidParameterValuesException: <p>One or more parameter values are not valid.</p>
+            aws_sdk_workspaces.errors.resource_associated_exception.ResourceAssociatedException: <p>The resource is associated with a directory.</p>
+            aws_sdk_workspaces.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_workspaces.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1481,6 +1675,12 @@ class WorkSpacesClient:
 
         Args:
             image_id: <p>The identifier of the image.</p>
+
+        Raises:
+            aws_sdk_workspaces.errors.access_denied_exception.AccessDeniedException: <p>The user is not authorized to access a resource.</p>
+            aws_sdk_workspaces.errors.invalid_resource_state_exception.InvalidResourceStateException: <p>The state of the resource is not valid for this operation.</p>
+            aws_sdk_workspaces.errors.resource_associated_exception.ResourceAssociatedException: <p>The resource is associated with a directory.</p>
+            aws_sdk_workspaces.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1520,6 +1720,15 @@ class WorkSpacesClient:
         Args:
             workspace_id: <p>The identifier of the WorkSpace.</p>
             force: <p>Indicates whether the force flag is applied for the specified WorkSpace. When the force flag is enabled, it allows previously failed deployments to be retried.</p>
+
+        Raises:
+            aws_sdk_workspaces.errors.access_denied_exception.AccessDeniedException: <p>The user is not authorized to access a resource.</p>
+            aws_sdk_workspaces.errors.incompatible_applications_exception.IncompatibleApplicationsException: <p>The specified application is not compatible with the resource.</p>
+            aws_sdk_workspaces.errors.invalid_parameter_values_exception.InvalidParameterValuesException: <p>One or more parameter values are not valid.</p>
+            aws_sdk_workspaces.errors.operation_not_supported_exception.OperationNotSupportedException: <p>This operation is not supported.</p>
+            aws_sdk_workspaces.errors.resource_in_use_exception.ResourceInUseException: <p>The specified resource is currently in use.</p>
+            aws_sdk_workspaces.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_workspaces.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1559,6 +1768,14 @@ class WorkSpacesClient:
 
         Args:
             directory_id: <p>The identifier of the directory. If any WorkSpaces are registered to this directory, you must remove them before you deregister the directory, or you will receive an OperationNotSupportedException error.</p>
+
+        Raises:
+            aws_sdk_workspaces.errors.access_denied_exception.AccessDeniedException: <p>The user is not authorized to access a resource.</p>
+            aws_sdk_workspaces.errors.invalid_parameter_values_exception.InvalidParameterValuesException: <p>One or more parameter values are not valid.</p>
+            aws_sdk_workspaces.errors.invalid_resource_state_exception.InvalidResourceStateException: <p>The state of the resource is not valid for this operation.</p>
+            aws_sdk_workspaces.errors.operation_not_supported_exception.OperationNotSupportedException: <p>This operation is not supported.</p>
+            aws_sdk_workspaces.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_workspaces.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1589,7 +1806,12 @@ class WorkSpacesClient:
     def describe_account(
         self, *, config_overrides: Optional[WorkSpacesClientConfig] = None
     ) -> "aws_sdk_workspaces.types.describe_account_result.DescribeAccountResult":
-        """<p>Retrieves a list that describes the configuration of Bring Your Own License (BYOL) for the specified account.</p>"""
+        """<p>Retrieves a list that describes the configuration of Bring Your Own License (BYOL) for the specified account.</p>
+
+        Raises:
+            aws_sdk_workspaces.errors.access_denied_exception.AccessDeniedException: <p>The user is not authorized to access a resource.</p>
+            aws_sdk_workspaces.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_workspaces.types.describe_account_request.DescribeAccountRequest]",
@@ -1627,6 +1849,10 @@ class WorkSpacesClient:
 
         Args:
             next_token: <p>If you received a <code>NextToken</code> from a previous call that was paginated, provide this token to receive the next set of results.</p>
+
+        Raises:
+            aws_sdk_workspaces.errors.access_denied_exception.AccessDeniedException: <p>The user is not authorized to access a resource.</p>
+            aws_sdk_workspaces.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1673,6 +1899,13 @@ class WorkSpacesClient:
             next_token: <p>If you received a <code>NextToken</code> from a previous call that was paginated, provide this token to receive the next set of results.</p>
             application_id: <p>The identifier of the specified application.</p>
             associated_resource_types: <p>The resource type of the associated resources.</p>
+
+        Raises:
+            aws_sdk_workspaces.errors.access_denied_exception.AccessDeniedException: <p>The user is not authorized to access a resource.</p>
+            aws_sdk_workspaces.errors.invalid_parameter_values_exception.InvalidParameterValuesException: <p>One or more parameter values are not valid.</p>
+            aws_sdk_workspaces.errors.operation_not_supported_exception.OperationNotSupportedException: <p>This operation is not supported.</p>
+            aws_sdk_workspaces.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_workspaces.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1739,6 +1972,13 @@ class WorkSpacesClient:
             owner: <p>The owner of the applications.</p>
             max_results: <p>The maximum number of applications to return.</p>
             next_token: <p>If you received a <code>NextToken</code> from a previous call that was paginated, provide this token to receive the next set of results.</p>
+
+        Raises:
+            aws_sdk_workspaces.errors.access_denied_exception.AccessDeniedException: <p>The user is not authorized to access a resource.</p>
+            aws_sdk_workspaces.errors.invalid_parameter_values_exception.InvalidParameterValuesException: <p>One or more parameter values are not valid.</p>
+            aws_sdk_workspaces.errors.operation_not_supported_exception.OperationNotSupportedException: <p>This operation is not supported.</p>
+            aws_sdk_workspaces.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_workspaces.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1791,6 +2031,13 @@ class WorkSpacesClient:
         Args:
             bundle_id: <p>The identifier of the bundle.</p>
             associated_resource_types: <p>The resource types of the associated resource.</p>
+
+        Raises:
+            aws_sdk_workspaces.errors.access_denied_exception.AccessDeniedException: <p>The user is not authorized to access a resource.</p>
+            aws_sdk_workspaces.errors.invalid_parameter_values_exception.InvalidParameterValuesException: <p>One or more parameter values are not valid.</p>
+            aws_sdk_workspaces.errors.operation_not_supported_exception.OperationNotSupportedException: <p>This operation is not supported.</p>
+            aws_sdk_workspaces.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_workspaces.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1829,6 +2076,12 @@ class WorkSpacesClient:
 
         Args:
             resource_id: <p>The directory identifier of the WorkSpace for which you want to view client branding information.</p>
+
+        Raises:
+            aws_sdk_workspaces.errors.access_denied_exception.AccessDeniedException: <p>The user is not authorized to access a resource.</p>
+            aws_sdk_workspaces.errors.invalid_parameter_values_exception.InvalidParameterValuesException: <p>One or more parameter values are not valid.</p>
+            aws_sdk_workspaces.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_workspaces.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1866,6 +2119,12 @@ class WorkSpacesClient:
 
         Args:
             resource_ids: <p>The resource identifier, in the form of directory IDs.</p>
+
+        Raises:
+            aws_sdk_workspaces.errors.access_denied_exception.AccessDeniedException: <p>The user is not authorized to access a resource.</p>
+            aws_sdk_workspaces.errors.invalid_parameter_values_exception.InvalidParameterValuesException: <p>One or more parameter values are not valid.</p>
+            aws_sdk_workspaces.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_workspaces.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1909,6 +2168,12 @@ class WorkSpacesClient:
             resource_id: <p>The directory identifier for which the client add-in is configured.</p>
             next_token: <p>If you received a <code>NextToken</code> from a previous call that was paginated, provide this token to receive the next set of results.</p>
             max_results: <p>The maximum number of items to return.</p>
+
+        Raises:
+            aws_sdk_workspaces.errors.access_denied_exception.AccessDeniedException: <p>The user is not authorized to access a resource.</p>
+            aws_sdk_workspaces.errors.invalid_parameter_values_exception.InvalidParameterValuesException: <p>One or more parameter values are not valid.</p>
+            aws_sdk_workspaces.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_workspaces.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1962,6 +2227,12 @@ class WorkSpacesClient:
             resource_id: <p>The identifier of the directory associated with the connection alias.</p>
             limit: <p>The maximum number of connection aliases to return.</p>
             next_token: <p>If you received a <code>NextToken</code> from a previous call that was paginated, provide this token to receive the next set of results. </p>
+
+        Raises:
+            aws_sdk_workspaces.errors.access_denied_exception.AccessDeniedException: <p>The user is not authorized to access a resource.</p>
+            aws_sdk_workspaces.errors.invalid_parameter_values_exception.InvalidParameterValuesException: <p>One or more parameter values are not valid.</p>
+            aws_sdk_workspaces.errors.operation_not_supported_exception.OperationNotSupportedException: <p>This operation is not supported.</p>
+            aws_sdk_workspaces.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2012,6 +2283,13 @@ class WorkSpacesClient:
             alias_id: <p>The identifier of the connection alias.</p>
             next_token: <p>If you received a <code>NextToken</code> from a previous call that was paginated, provide this token to receive the next set of results. </p>
             max_results: <p>The maximum number of results to return.</p>
+
+        Raises:
+            aws_sdk_workspaces.errors.access_denied_exception.AccessDeniedException: <p>The user is not authorized to access a resource.</p>
+            aws_sdk_workspaces.errors.invalid_parameter_values_exception.InvalidParameterValuesException: <p>One or more parameter values are not valid.</p>
+            aws_sdk_workspaces.errors.operation_not_supported_exception.OperationNotSupportedException: <p>This operation is not supported.</p>
+            aws_sdk_workspaces.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_workspaces.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2053,6 +2331,11 @@ class WorkSpacesClient:
 
         Args:
             image_id: <p>The identifier of the WorkSpace image.</p>
+
+        Raises:
+            aws_sdk_workspaces.errors.access_denied_exception.AccessDeniedException: <p>The user is not authorized to access a resource.</p>
+            aws_sdk_workspaces.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_workspaces.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2092,6 +2375,13 @@ class WorkSpacesClient:
         Args:
             image_id: <p>The identifier of the image.</p>
             associated_resource_types: <p>The resource types of the associated resource.</p>
+
+        Raises:
+            aws_sdk_workspaces.errors.access_denied_exception.AccessDeniedException: <p>The user is not authorized to access a resource.</p>
+            aws_sdk_workspaces.errors.invalid_parameter_values_exception.InvalidParameterValuesException: <p>One or more parameter values are not valid.</p>
+            aws_sdk_workspaces.errors.operation_not_supported_exception.OperationNotSupportedException: <p>This operation is not supported.</p>
+            aws_sdk_workspaces.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_workspaces.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2138,6 +2428,11 @@ class WorkSpacesClient:
             group_ids: <p>The identifiers of one or more IP access control groups.</p>
             next_token: <p>If you received a <code>NextToken</code> from a previous call that was paginated, provide this token to receive the next set of results.</p>
             max_results: <p>The maximum number of items to return.</p>
+
+        Raises:
+            aws_sdk_workspaces.errors.access_denied_exception.AccessDeniedException: <p>The user is not authorized to access a resource.</p>
+            aws_sdk_workspaces.errors.invalid_parameter_values_exception.InvalidParameterValuesException: <p>One or more parameter values are not valid.</p>
+            aws_sdk_workspaces.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2180,6 +2475,10 @@ class WorkSpacesClient:
 
         Args:
             resource_id: <p>The identifier of the WorkSpaces resource. The supported resource types are WorkSpaces, registered directories, images, custom bundles, IP access control groups, and connection aliases.</p>
+
+        Raises:
+            aws_sdk_workspaces.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_workspaces.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2219,6 +2518,13 @@ class WorkSpacesClient:
         Args:
             workspace_id: <p>The identifier of the WorkSpace.</p>
             associated_resource_types: <p>The resource types of the associated resources.</p>
+
+        Raises:
+            aws_sdk_workspaces.errors.access_denied_exception.AccessDeniedException: <p>The user is not authorized to access a resource.</p>
+            aws_sdk_workspaces.errors.invalid_parameter_values_exception.InvalidParameterValuesException: <p>One or more parameter values are not valid.</p>
+            aws_sdk_workspaces.errors.operation_not_supported_exception.OperationNotSupportedException: <p>This operation is not supported.</p>
+            aws_sdk_workspaces.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_workspaces.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2265,6 +2571,10 @@ class WorkSpacesClient:
             bundle_ids: <p>The identifiers of the bundles. You cannot combine this parameter with any other filter.</p>
             owner: <p>The owner of the bundles. You cannot combine this parameter with any other filter.</p> <p>To describe the bundles provided by Amazon Web Services, specify <code>AMAZON</code>. To describe the bundles that belong to your account, don't specify a value.</p>
             next_token: <p>The token for the next set of results. (You received this token from a previous call.)</p>
+
+        Raises:
+            aws_sdk_workspaces.errors.invalid_parameter_values_exception.InvalidParameterValuesException: <p>One or more parameter values are not valid.</p>
+            aws_sdk_workspaces.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2350,6 +2660,10 @@ class WorkSpacesClient:
             limit: <p>The maximum number of directories to return.</p>
             next_token: <p>If you received a <code>NextToken</code> from a previous call that was paginated, provide this token to receive the next set of results.</p>
             filters: <p>The filter condition for the WorkSpaces.</p>
+
+        Raises:
+            aws_sdk_workspaces.errors.invalid_parameter_values_exception.InvalidParameterValuesException: <p>One or more parameter values are not valid.</p>
+            aws_sdk_workspaces.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2437,6 +2751,12 @@ class WorkSpacesClient:
             image_id: <p>The identifier of the image.</p>
             next_token: <p>If you received a <code>NextToken</code> from a previous call that was paginated, provide this token to receive the next set of results.</p>
             max_results: <p>The maximum number of items to return.</p>
+
+        Raises:
+            aws_sdk_workspaces.errors.access_denied_exception.AccessDeniedException: <p>The user is not authorized to access a resource.</p>
+            aws_sdk_workspaces.errors.invalid_parameter_values_exception.InvalidParameterValuesException: <p>One or more parameter values are not valid.</p>
+            aws_sdk_workspaces.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_workspaces.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2488,6 +2808,10 @@ class WorkSpacesClient:
             image_type: <p>The type (owned or shared) of the image.</p>
             next_token: <p>If you received a <code>NextToken</code> from a previous call that was paginated, provide this token to receive the next set of results.</p>
             max_results: <p>The maximum number of items to return.</p>
+
+        Raises:
+            aws_sdk_workspaces.errors.access_denied_exception.AccessDeniedException: <p>The user is not authorized to access a resource.</p>
+            aws_sdk_workspaces.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2552,6 +2876,11 @@ class WorkSpacesClient:
             limit: <p>The maximum number of items to return.</p>
             next_token: <p>If you received a <code>NextToken</code> from a previous call that was paginated, provide this token to receive the next set of results.</p>
             workspace_name: <p>The name of the user-decoupled WorkSpace.</p>
+
+        Raises:
+            aws_sdk_workspaces.errors.invalid_parameter_values_exception.InvalidParameterValuesException: <p>One or more parameter values are not valid.</p>
+            aws_sdk_workspaces.errors.resource_unavailable_exception.ResourceUnavailableException: <p>The specified resource is not available.</p>
+            aws_sdk_workspaces.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2647,6 +2976,10 @@ class WorkSpacesClient:
         Args:
             workspace_ids: <p>The identifiers of the WorkSpaces. You can specify up to 25 WorkSpaces.</p>
             next_token: <p>If you received a <code>NextToken</code> from a previous call that was paginated, provide this token to receive the next set of results.</p>
+
+        Raises:
+            aws_sdk_workspaces.errors.invalid_parameter_values_exception.InvalidParameterValuesException: <p>One or more parameter values are not valid.</p>
+            aws_sdk_workspaces.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2687,6 +3020,12 @@ class WorkSpacesClient:
 
         Args:
             workspace_id: <p>The identifier of the WorkSpace.</p>
+
+        Raises:
+            aws_sdk_workspaces.errors.access_denied_exception.AccessDeniedException: <p>The user is not authorized to access a resource.</p>
+            aws_sdk_workspaces.errors.invalid_parameter_values_exception.InvalidParameterValuesException: <p>One or more parameter values are not valid.</p>
+            aws_sdk_workspaces.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_workspaces.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2736,6 +3075,12 @@ class WorkSpacesClient:
             filters: <p>The filter conditions for the WorkSpaces Pool to return.</p>
             limit: <p>The maximum number of items to return.</p>
             next_token: <p>If you received a <code>NextToken</code> from a previous call that was paginated, provide this token to receive the next set of results.</p>
+
+        Raises:
+            aws_sdk_workspaces.errors.access_denied_exception.AccessDeniedException: <p>The user is not authorized to access a resource.</p>
+            aws_sdk_workspaces.errors.invalid_parameter_values_exception.InvalidParameterValuesException: <p>One or more parameter values are not valid.</p>
+            aws_sdk_workspaces.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_workspaces.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2790,6 +3135,12 @@ class WorkSpacesClient:
             user_id: <p>The identifier of the user.</p>
             limit: <p>The maximum size of each page of results. The default value is 20 and the maximum value is 50.</p>
             next_token: <p>If you received a <code>NextToken</code> from a previous call that was paginated, provide this token to receive the next set of results.</p>
+
+        Raises:
+            aws_sdk_workspaces.errors.access_denied_exception.AccessDeniedException: <p>The user is not authorized to access a resource.</p>
+            aws_sdk_workspaces.errors.invalid_parameter_values_exception.InvalidParameterValuesException: <p>One or more parameter values are not valid.</p>
+            aws_sdk_workspaces.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_workspaces.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2833,6 +3184,14 @@ class WorkSpacesClient:
 
         Args:
             alias_id: <p>The identifier of the connection alias to disassociate.</p>
+
+        Raises:
+            aws_sdk_workspaces.errors.access_denied_exception.AccessDeniedException: <p>The user is not authorized to access a resource.</p>
+            aws_sdk_workspaces.errors.invalid_parameter_values_exception.InvalidParameterValuesException: <p>One or more parameter values are not valid.</p>
+            aws_sdk_workspaces.errors.invalid_resource_state_exception.InvalidResourceStateException: <p>The state of the resource is not valid for this operation.</p>
+            aws_sdk_workspaces.errors.operation_not_supported_exception.OperationNotSupportedException: <p>This operation is not supported.</p>
+            aws_sdk_workspaces.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_workspaces.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2872,6 +3231,14 @@ class WorkSpacesClient:
         Args:
             directory_id: <p>The identifier of the directory.</p>
             group_ids: <p>The identifiers of one or more IP access control groups.</p>
+
+        Raises:
+            aws_sdk_workspaces.errors.access_denied_exception.AccessDeniedException: <p>The user is not authorized to access a resource.</p>
+            aws_sdk_workspaces.errors.invalid_parameter_values_exception.InvalidParameterValuesException: <p>One or more parameter values are not valid.</p>
+            aws_sdk_workspaces.errors.invalid_resource_state_exception.InvalidResourceStateException: <p>The state of the resource is not valid for this operation.</p>
+            aws_sdk_workspaces.errors.operation_not_supported_exception.OperationNotSupportedException: <p>This operation is not supported.</p>
+            aws_sdk_workspaces.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_workspaces.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2912,6 +3279,14 @@ class WorkSpacesClient:
         Args:
             workspace_id: <p>The identifier of the WorkSpace.</p>
             application_id: <p>The identifier of the application.</p>
+
+        Raises:
+            aws_sdk_workspaces.errors.access_denied_exception.AccessDeniedException: <p>The user is not authorized to access a resource.</p>
+            aws_sdk_workspaces.errors.invalid_parameter_values_exception.InvalidParameterValuesException: <p>One or more parameter values are not valid.</p>
+            aws_sdk_workspaces.errors.operation_not_supported_exception.OperationNotSupportedException: <p>This operation is not supported.</p>
+            aws_sdk_workspaces.errors.resource_in_use_exception.ResourceInUseException: <p>The specified resource is currently in use.</p>
+            aws_sdk_workspaces.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_workspaces.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2954,6 +3329,13 @@ class WorkSpacesClient:
         Args:
             link_id: <p>The identifier of the account to link.</p>
             linked_account_id: <p>The identifier of the account link</p>
+
+        Raises:
+            aws_sdk_workspaces.errors.access_denied_exception.AccessDeniedException: <p>The user is not authorized to access a resource.</p>
+            aws_sdk_workspaces.errors.internal_server_exception.InternalServerException: <p>Unexpected server error occured.</p>
+            aws_sdk_workspaces.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_workspaces.errors.validation_exception.ValidationException: <p>You either haven't provided a <code>TargetAccountId</code> or are using the same value for <code>TargetAccountId</code> and <code>SourceAccountId</code>.</p>
+            aws_sdk_workspaces.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3018,6 +3400,13 @@ class WorkSpacesClient:
             device_type_ios: <p>The branding information to import for iOS devices.</p>
             device_type_linux: <p>The branding information to import for Linux devices.</p>
             device_type_web: <p>The branding information to import for web access.</p>
+
+        Raises:
+            aws_sdk_workspaces.errors.access_denied_exception.AccessDeniedException: <p>The user is not authorized to access a resource.</p>
+            aws_sdk_workspaces.errors.invalid_parameter_values_exception.InvalidParameterValuesException: <p>One or more parameter values are not valid.</p>
+            aws_sdk_workspaces.errors.resource_limit_exceeded_exception.ResourceLimitExceededException: <p>Your resource limits have been exceeded.</p>
+            aws_sdk_workspaces.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_workspaces.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3083,6 +3472,15 @@ class WorkSpacesClient:
             platform: <p>The platform for the WorkSpace image source.</p>
             os_version: <p>The OS version for the WorkSpace image source.</p>
             tags: <p>The resource tags. Each WorkSpaces resource can have a maximum of 50 tags.</p>
+
+        Raises:
+            aws_sdk_workspaces.errors.access_denied_exception.AccessDeniedException: <p>The user is not authorized to access a resource.</p>
+            aws_sdk_workspaces.errors.invalid_parameter_values_exception.InvalidParameterValuesException: <p>One or more parameter values are not valid.</p>
+            aws_sdk_workspaces.errors.operation_not_supported_exception.OperationNotSupportedException: <p>This operation is not supported.</p>
+            aws_sdk_workspaces.errors.resource_already_exists_exception.ResourceAlreadyExistsException: <p>The specified resource already exists.</p>
+            aws_sdk_workspaces.errors.resource_limit_exceeded_exception.ResourceLimitExceededException: <p>Your resource limits have been exceeded.</p>
+            aws_sdk_workspaces.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_workspaces.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3141,6 +3539,15 @@ class WorkSpacesClient:
             image_description: <p>The description of the WorkSpace image.</p>
             tags: <p>The tags. Each WorkSpaces resource can have a maximum of 50 tags.</p>
             applications: <p>If specified, the version of Microsoft Office to subscribe to. Valid only for Windows 10 and 11 BYOL images. For more information about subscribing to Office for BYOL images, see <a href=\"https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.html\"> Bring Your Own Windows Desktop Licenses</a>.</p> <note> <ul> <li> <p>Although this parameter is an array, only one item is allowed at this time.</p> </li> <li> <p>During the image import process, non-GPU DCV (formerly WSP) WorkSpaces with Windows 11 support only <code>Microsoft_Office_2019</code>. GPU DCV (formerly WSP) WorkSpaces with Windows 11 do not support Office installation.</p> </li> </ul> </note>
+
+        Raises:
+            aws_sdk_workspaces.errors.access_denied_exception.AccessDeniedException: <p>The user is not authorized to access a resource.</p>
+            aws_sdk_workspaces.errors.invalid_parameter_values_exception.InvalidParameterValuesException: <p>One or more parameter values are not valid.</p>
+            aws_sdk_workspaces.errors.operation_not_supported_exception.OperationNotSupportedException: <p>This operation is not supported.</p>
+            aws_sdk_workspaces.errors.resource_already_exists_exception.ResourceAlreadyExistsException: <p>The specified resource already exists.</p>
+            aws_sdk_workspaces.errors.resource_limit_exceeded_exception.ResourceLimitExceededException: <p>Your resource limits have been exceeded.</p>
+            aws_sdk_workspaces.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_workspaces.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3193,6 +3600,12 @@ class WorkSpacesClient:
             link_status_filter: <p>Filters the account based on their link status.</p>
             next_token: <p>The token to use to retrieve the next page of results. This value is null when there are no more results to return.</p>
             max_results: <p>The maximum number of accounts to return.</p>
+
+        Raises:
+            aws_sdk_workspaces.errors.access_denied_exception.AccessDeniedException: <p>The user is not authorized to access a resource.</p>
+            aws_sdk_workspaces.errors.internal_server_exception.InternalServerException: <p>Unexpected server error occured.</p>
+            aws_sdk_workspaces.errors.validation_exception.ValidationException: <p>You either haven't provided a <code>TargetAccountId</code> or are using the same value for <code>TargetAccountId</code> and <code>SourceAccountId</code>.</p>
+            aws_sdk_workspaces.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3270,6 +3683,11 @@ class WorkSpacesClient:
             management_cidr_range_constraint: <p>The IP address range to search. Specify an IP address range that is compatible with your network and in CIDR notation (that is, specify the range as an IPv4 CIDR block).</p>
             max_results: <p>The maximum number of items to return.</p>
             next_token: <p>If you received a <code>NextToken</code> from a previous call that was paginated, provide this token to receive the next set of results.</p>
+
+        Raises:
+            aws_sdk_workspaces.errors.access_denied_exception.AccessDeniedException: <p>The user is not authorized to access a resource.</p>
+            aws_sdk_workspaces.errors.invalid_parameter_values_exception.InvalidParameterValuesException: <p>One or more parameter values are not valid.</p>
+            aws_sdk_workspaces.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3313,6 +3731,15 @@ class WorkSpacesClient:
         Args:
             source_workspace_id: <p>The identifier of the WorkSpace to migrate from.</p>
             bundle_id: <p>The identifier of the target bundle type to migrate the WorkSpace to.</p>
+
+        Raises:
+            aws_sdk_workspaces.errors.access_denied_exception.AccessDeniedException: <p>The user is not authorized to access a resource.</p>
+            aws_sdk_workspaces.errors.invalid_parameter_values_exception.InvalidParameterValuesException: <p>One or more parameter values are not valid.</p>
+            aws_sdk_workspaces.errors.operation_in_progress_exception.OperationInProgressException: <p>The properties of this WorkSpace are currently being modified. Try again in a moment.</p>
+            aws_sdk_workspaces.errors.operation_not_supported_exception.OperationNotSupportedException: <p>This operation is not supported.</p>
+            aws_sdk_workspaces.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_workspaces.errors.resource_unavailable_exception.ResourceUnavailableException: <p>The specified resource is not available.</p>
+            aws_sdk_workspaces.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3357,6 +3784,14 @@ class WorkSpacesClient:
         Args:
             dedicated_tenancy_support: <p>The status of BYOL.</p>
             dedicated_tenancy_management_cidr_range: <p>The IP address range, specified as an IPv4 CIDR block, for the management network interface. Specify an IP address range that is compatible with your network and in CIDR notation (that is, specify the range as an IPv4 CIDR block). The CIDR block size must be /16 (for example, 203.0.113.25/16). It must also be specified as available by the <code>ListAvailableManagementCidrRanges</code> operation.</p>
+
+        Raises:
+            aws_sdk_workspaces.errors.access_denied_exception.AccessDeniedException: <p>The user is not authorized to access a resource.</p>
+            aws_sdk_workspaces.errors.invalid_parameter_values_exception.InvalidParameterValuesException: <p>One or more parameter values are not valid.</p>
+            aws_sdk_workspaces.errors.invalid_resource_state_exception.InvalidResourceStateException: <p>The state of the resource is not valid for this operation.</p>
+            aws_sdk_workspaces.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_workspaces.errors.resource_unavailable_exception.ResourceUnavailableException: <p>The specified resource is not available.</p>
+            aws_sdk_workspaces.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3407,6 +3842,13 @@ class WorkSpacesClient:
             resource_id: <p>The resource identifiers, in the form of directory IDs.</p>
             certificate_based_auth_properties: <p>The properties of the certificate-based authentication.</p>
             properties_to_delete: <p>The properties of the certificate-based authentication you want to delete.</p>
+
+        Raises:
+            aws_sdk_workspaces.errors.access_denied_exception.AccessDeniedException: <p>The user is not authorized to access a resource.</p>
+            aws_sdk_workspaces.errors.invalid_parameter_values_exception.InvalidParameterValuesException: <p>One or more parameter values are not valid.</p>
+            aws_sdk_workspaces.errors.operation_not_supported_exception.OperationNotSupportedException: <p>This operation is not supported.</p>
+            aws_sdk_workspaces.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_workspaces.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3452,6 +3894,13 @@ class WorkSpacesClient:
         Args:
             resource_id: <p>The resource identifiers, in the form of directory IDs.</p>
             client_properties: <p>Information about the Amazon WorkSpaces client.</p>
+
+        Raises:
+            aws_sdk_workspaces.errors.access_denied_exception.AccessDeniedException: <p>The user is not authorized to access a resource.</p>
+            aws_sdk_workspaces.errors.invalid_parameter_values_exception.InvalidParameterValuesException: <p>One or more parameter values are not valid.</p>
+            aws_sdk_workspaces.errors.operation_not_supported_exception.OperationNotSupportedException: <p>This operation is not supported.</p>
+            aws_sdk_workspaces.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_workspaces.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3492,6 +3941,12 @@ class WorkSpacesClient:
         Args:
             directory_id: <p> The identifier of the directory.</p>
             endpoint_encryption_mode: <p>The encryption mode used for endpoint connections when streaming to WorkSpaces Personal or WorkSpace Pools.</p>
+
+        Raises:
+            aws_sdk_workspaces.errors.access_denied_exception.AccessDeniedException: <p>The user is not authorized to access a resource.</p>
+            aws_sdk_workspaces.errors.operation_not_supported_exception.OperationNotSupportedException: <p>This operation is not supported.</p>
+            aws_sdk_workspaces.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_workspaces.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3538,6 +3993,13 @@ class WorkSpacesClient:
             resource_id: <p>The directory identifier for which you want to configure SAML properties.</p>
             saml_properties: <p>The properties for configuring SAML 2.0 authentication.</p>
             properties_to_delete: <p>The SAML properties to delete as part of your request.</p> <p>Specify one of the following options:</p> <ul> <li> <p> <code>SAML_PROPERTIES_USER_ACCESS_URL</code> to delete the user access URL.</p> </li> <li> <p> <code>SAML_PROPERTIES_RELAY_STATE_PARAMETER_NAME</code> to delete the relay state parameter name.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_workspaces.errors.access_denied_exception.AccessDeniedException: <p>The user is not authorized to access a resource.</p>
+            aws_sdk_workspaces.errors.invalid_parameter_values_exception.InvalidParameterValuesException: <p>One or more parameter values are not valid.</p>
+            aws_sdk_workspaces.errors.operation_not_supported_exception.OperationNotSupportedException: <p>This operation is not supported.</p>
+            aws_sdk_workspaces.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_workspaces.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3581,6 +4043,13 @@ class WorkSpacesClient:
         Args:
             resource_id: <p>The identifier of the directory.</p>
             selfservice_permissions: <p>The permissions to enable or disable self-service capabilities.</p>
+
+        Raises:
+            aws_sdk_workspaces.errors.access_denied_exception.AccessDeniedException: <p>The user is not authorized to access a resource.</p>
+            aws_sdk_workspaces.errors.invalid_parameter_values_exception.InvalidParameterValuesException: <p>One or more parameter values are not valid.</p>
+            aws_sdk_workspaces.errors.operation_not_supported_exception.OperationNotSupportedException: <p>This operation is not supported.</p>
+            aws_sdk_workspaces.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_workspaces.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3623,6 +4092,13 @@ class WorkSpacesClient:
         Args:
             resource_id: <p>The identifier of the resource.</p>
             streaming_properties: <p>The streaming properties to configure.</p>
+
+        Raises:
+            aws_sdk_workspaces.errors.access_denied_exception.AccessDeniedException: <p>The user is not authorized to access a resource.</p>
+            aws_sdk_workspaces.errors.invalid_parameter_values_exception.InvalidParameterValuesException: <p>One or more parameter values are not valid.</p>
+            aws_sdk_workspaces.errors.operation_not_supported_exception.OperationNotSupportedException: <p>This operation is not supported.</p>
+            aws_sdk_workspaces.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_workspaces.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3664,6 +4140,14 @@ class WorkSpacesClient:
         Args:
             resource_id: <p>The identifier of the directory.</p>
             workspace_access_properties: <p>The device types and operating systems to enable or disable for access.</p>
+
+        Raises:
+            aws_sdk_workspaces.errors.access_denied_exception.AccessDeniedException: <p>The user is not authorized to access a resource.</p>
+            aws_sdk_workspaces.errors.invalid_parameter_combination_exception.InvalidParameterCombinationException: <p>Two or more of the selected parameter values cannot be used together.</p>
+            aws_sdk_workspaces.errors.invalid_parameter_values_exception.InvalidParameterValuesException: <p>One or more parameter values are not valid.</p>
+            aws_sdk_workspaces.errors.operation_not_supported_exception.OperationNotSupportedException: <p>This operation is not supported.</p>
+            aws_sdk_workspaces.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_workspaces.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3704,6 +4188,13 @@ class WorkSpacesClient:
         Args:
             resource_id: <p>The identifier of the directory.</p>
             workspace_creation_properties: <p>The default properties for creating WorkSpaces.</p>
+
+        Raises:
+            aws_sdk_workspaces.errors.access_denied_exception.AccessDeniedException: <p>The user is not authorized to access a resource.</p>
+            aws_sdk_workspaces.errors.invalid_parameter_values_exception.InvalidParameterValuesException: <p>One or more parameter values are not valid.</p>
+            aws_sdk_workspaces.errors.operation_not_supported_exception.OperationNotSupportedException: <p>This operation is not supported.</p>
+            aws_sdk_workspaces.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_workspaces.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3750,6 +4241,16 @@ class WorkSpacesClient:
             workspace_id: <p>The identifier of the WorkSpace.</p>
             workspace_properties: <p>The properties of the WorkSpace.</p>
             data_replication: <p>Indicates the data replication status.</p>
+
+        Raises:
+            aws_sdk_workspaces.errors.access_denied_exception.AccessDeniedException: <p>The user is not authorized to access a resource.</p>
+            aws_sdk_workspaces.errors.invalid_parameter_values_exception.InvalidParameterValuesException: <p>One or more parameter values are not valid.</p>
+            aws_sdk_workspaces.errors.invalid_resource_state_exception.InvalidResourceStateException: <p>The state of the resource is not valid for this operation.</p>
+            aws_sdk_workspaces.errors.operation_in_progress_exception.OperationInProgressException: <p>The properties of this WorkSpace are currently being modified. Try again in a moment.</p>
+            aws_sdk_workspaces.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_workspaces.errors.resource_unavailable_exception.ResourceUnavailableException: <p>The specified resource is not available.</p>
+            aws_sdk_workspaces.errors.unsupported_workspace_configuration_exception.UnsupportedWorkspaceConfigurationException: <p>The configuration of this WorkSpace is not supported for this operation. For more information, see <a href=\"https://docs.aws.amazon.com/workspaces/latest/adminguide/required-service-components.html\">Required Configuration and Service Components for WorkSpaces </a>.</p>
+            aws_sdk_workspaces.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3793,6 +4294,13 @@ class WorkSpacesClient:
         Args:
             workspace_id: <p>The identifier of the WorkSpace.</p>
             workspace_state: <p>The WorkSpace state.</p>
+
+        Raises:
+            aws_sdk_workspaces.errors.invalid_parameter_values_exception.InvalidParameterValuesException: <p>One or more parameter values are not valid.</p>
+            aws_sdk_workspaces.errors.invalid_resource_state_exception.InvalidResourceStateException: <p>The state of the resource is not valid for this operation.</p>
+            aws_sdk_workspaces.errors.operation_not_supported_exception.OperationNotSupportedException: <p>This operation is not supported.</p>
+            aws_sdk_workspaces.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_workspaces.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3831,6 +4339,10 @@ class WorkSpacesClient:
 
         Args:
             reboot_workspace_requests: <p>The WorkSpaces to reboot. You can specify up to 25 WorkSpaces.</p>
+
+        Raises:
+            aws_sdk_workspaces.errors.operation_not_supported_exception.OperationNotSupportedException: <p>This operation is not supported.</p>
+            aws_sdk_workspaces.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3868,6 +4380,10 @@ class WorkSpacesClient:
 
         Args:
             rebuild_workspace_requests: <p>The WorkSpace to rebuild. You can specify a single WorkSpace.</p>
+
+        Raises:
+            aws_sdk_workspaces.errors.operation_not_supported_exception.OperationNotSupportedException: <p>This operation is not supported.</p>
+            aws_sdk_workspaces.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3943,6 +4459,18 @@ class WorkSpacesClient:
             microsoft_entra_config: <p>The details about Microsoft Entra config.</p>
             workspace_type: <p>Indicates whether the directory's WorkSpace type is personal or pools.</p>
             active_directory_config: <p>The active directory config of the directory.</p>
+
+        Raises:
+            aws_sdk_workspaces.errors.access_denied_exception.AccessDeniedException: <p>The user is not authorized to access a resource.</p>
+            aws_sdk_workspaces.errors.invalid_parameter_values_exception.InvalidParameterValuesException: <p>One or more parameter values are not valid.</p>
+            aws_sdk_workspaces.errors.invalid_resource_state_exception.InvalidResourceStateException: <p>The state of the resource is not valid for this operation.</p>
+            aws_sdk_workspaces.errors.operation_not_supported_exception.OperationNotSupportedException: <p>This operation is not supported.</p>
+            aws_sdk_workspaces.errors.resource_already_exists_exception.ResourceAlreadyExistsException: <p>The specified resource already exists.</p>
+            aws_sdk_workspaces.errors.resource_limit_exceeded_exception.ResourceLimitExceededException: <p>Your resource limits have been exceeded.</p>
+            aws_sdk_workspaces.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_workspaces.errors.unsupported_network_configuration_exception.UnsupportedNetworkConfigurationException: <p>The configuration of this network is not supported for this operation, or your network configuration conflicts with the Amazon WorkSpaces management network IP range. For more information, see <a href=\"https://docs.aws.amazon.com/workspaces/latest/adminguide/amazon-workspaces-vpc.html\"> Configure a VPC for Amazon WorkSpaces</a>.</p>
+            aws_sdk_workspaces.errors.workspaces_default_role_not_found_exception.WorkspacesDefaultRoleNotFoundException: <p>The workspaces_DefaultRole role could not be found. If this is the first time you are registering a directory, you will need to create the workspaces_DefaultRole role before you can register a directory. For more information, see <a href=\"https://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-access-control.html#create-default-role\">Creating the workspaces_DefaultRole Role</a>.</p>
+            aws_sdk_workspaces.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4007,6 +4535,14 @@ class WorkSpacesClient:
         Args:
             link_id: <p>The identifier of the account link</p>
             client_token: <p>The client token of the account link invitation to reject.</p>
+
+        Raises:
+            aws_sdk_workspaces.errors.access_denied_exception.AccessDeniedException: <p>The user is not authorized to access a resource.</p>
+            aws_sdk_workspaces.errors.conflict_exception.ConflictException: <p>The <code>TargetAccountId</code> is already linked or invited.</p>
+            aws_sdk_workspaces.errors.internal_server_exception.InternalServerException: <p>Unexpected server error occured.</p>
+            aws_sdk_workspaces.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_workspaces.errors.validation_exception.ValidationException: <p>You either haven't provided a <code>TargetAccountId</code> or are using the same value for <code>TargetAccountId</code> and <code>SourceAccountId</code>.</p>
+            aws_sdk_workspaces.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4046,6 +4582,13 @@ class WorkSpacesClient:
 
         Args:
             workspace_id: <p>The identifier of the WorkSpace.</p>
+
+        Raises:
+            aws_sdk_workspaces.errors.access_denied_exception.AccessDeniedException: <p>The user is not authorized to access a resource.</p>
+            aws_sdk_workspaces.errors.invalid_parameter_values_exception.InvalidParameterValuesException: <p>One or more parameter values are not valid.</p>
+            aws_sdk_workspaces.errors.operation_not_supported_exception.OperationNotSupportedException: <p>This operation is not supported.</p>
+            aws_sdk_workspaces.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_workspaces.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4085,6 +4628,13 @@ class WorkSpacesClient:
         Args:
             group_id: <p>The identifier of the group.</p>
             user_rules: <p>The rules to remove from the group.</p>
+
+        Raises:
+            aws_sdk_workspaces.errors.access_denied_exception.AccessDeniedException: <p>The user is not authorized to access a resource.</p>
+            aws_sdk_workspaces.errors.invalid_parameter_values_exception.InvalidParameterValuesException: <p>One or more parameter values are not valid.</p>
+            aws_sdk_workspaces.errors.invalid_resource_state_exception.InvalidResourceStateException: <p>The state of the resource is not valid for this operation.</p>
+            aws_sdk_workspaces.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_workspaces.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4123,6 +4673,9 @@ class WorkSpacesClient:
 
         Args:
             start_workspace_requests: <p>The WorkSpaces to start. You can specify up to 25 WorkSpaces.</p>
+
+        Raises:
+            aws_sdk_workspaces.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4160,6 +4713,16 @@ class WorkSpacesClient:
 
         Args:
             pool_id: <p>The identifier of the pool.</p>
+
+        Raises:
+            aws_sdk_workspaces.errors.access_denied_exception.AccessDeniedException: <p>The user is not authorized to access a resource.</p>
+            aws_sdk_workspaces.errors.invalid_parameter_values_exception.InvalidParameterValuesException: <p>One or more parameter values are not valid.</p>
+            aws_sdk_workspaces.errors.invalid_resource_state_exception.InvalidResourceStateException: <p>The state of the resource is not valid for this operation.</p>
+            aws_sdk_workspaces.errors.operation_in_progress_exception.OperationInProgressException: <p>The properties of this WorkSpace are currently being modified. Try again in a moment.</p>
+            aws_sdk_workspaces.errors.operation_not_supported_exception.OperationNotSupportedException: <p>This operation is not supported.</p>
+            aws_sdk_workspaces.errors.resource_limit_exceeded_exception.ResourceLimitExceededException: <p>Your resource limits have been exceeded.</p>
+            aws_sdk_workspaces.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_workspaces.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4197,6 +4760,9 @@ class WorkSpacesClient:
 
         Args:
             stop_workspace_requests: <p>The WorkSpaces to stop. You can specify up to 25 WorkSpaces.</p>
+
+        Raises:
+            aws_sdk_workspaces.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4236,6 +4802,14 @@ class WorkSpacesClient:
 
         Args:
             pool_id: <p>The identifier of the pool.</p>
+
+        Raises:
+            aws_sdk_workspaces.errors.access_denied_exception.AccessDeniedException: <p>The user is not authorized to access a resource.</p>
+            aws_sdk_workspaces.errors.invalid_parameter_values_exception.InvalidParameterValuesException: <p>One or more parameter values are not valid.</p>
+            aws_sdk_workspaces.errors.invalid_resource_state_exception.InvalidResourceStateException: <p>The state of the resource is not valid for this operation.</p>
+            aws_sdk_workspaces.errors.operation_in_progress_exception.OperationInProgressException: <p>The properties of this WorkSpace are currently being modified. Try again in a moment.</p>
+            aws_sdk_workspaces.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_workspaces.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4275,6 +4849,9 @@ class WorkSpacesClient:
 
         Args:
             terminate_workspace_requests: <p>The WorkSpaces to terminate. You can specify up to 25 WorkSpaces.</p>
+
+        Raises:
+            aws_sdk_workspaces.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4312,6 +4889,14 @@ class WorkSpacesClient:
 
         Args:
             pool_id: <p>The identifier of the pool.</p>
+
+        Raises:
+            aws_sdk_workspaces.errors.access_denied_exception.AccessDeniedException: <p>The user is not authorized to access a resource.</p>
+            aws_sdk_workspaces.errors.invalid_parameter_values_exception.InvalidParameterValuesException: <p>One or more parameter values are not valid.</p>
+            aws_sdk_workspaces.errors.invalid_resource_state_exception.InvalidResourceStateException: <p>The state of the resource is not valid for this operation.</p>
+            aws_sdk_workspaces.errors.operation_in_progress_exception.OperationInProgressException: <p>The properties of this WorkSpace are currently being modified. Try again in a moment.</p>
+            aws_sdk_workspaces.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_workspaces.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4349,6 +4934,14 @@ class WorkSpacesClient:
 
         Args:
             session_id: <p>The identifier of the pool session.</p>
+
+        Raises:
+            aws_sdk_workspaces.errors.access_denied_exception.AccessDeniedException: <p>The user is not authorized to access a resource.</p>
+            aws_sdk_workspaces.errors.invalid_parameter_values_exception.InvalidParameterValuesException: <p>One or more parameter values are not valid.</p>
+            aws_sdk_workspaces.errors.operation_in_progress_exception.OperationInProgressException: <p>The properties of this WorkSpace are currently being modified. Try again in a moment.</p>
+            aws_sdk_workspaces.errors.operation_not_supported_exception.OperationNotSupportedException: <p>This operation is not supported.</p>
+            aws_sdk_workspaces.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_workspaces.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4392,6 +4985,12 @@ class WorkSpacesClient:
             resource_id: <p>The directory identifier for which the client add-in is configured.</p>
             name: <p>The name of the client add-in.</p>
             url: <p>The endpoint URL of the Connect Customer client add-in.</p>
+
+        Raises:
+            aws_sdk_workspaces.errors.access_denied_exception.AccessDeniedException: <p>The user is not authorized to access a resource.</p>
+            aws_sdk_workspaces.errors.invalid_parameter_values_exception.InvalidParameterValuesException: <p>One or more parameter values are not valid.</p>
+            aws_sdk_workspaces.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_workspaces.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4436,6 +5035,16 @@ class WorkSpacesClient:
         Args:
             alias_id: <p>The identifier of the connection alias that you want to update permissions for.</p>
             connection_alias_permission: <p>Indicates whether to share or unshare the connection alias with the specified Amazon Web Services account.</p>
+
+        Raises:
+            aws_sdk_workspaces.errors.access_denied_exception.AccessDeniedException: <p>The user is not authorized to access a resource.</p>
+            aws_sdk_workspaces.errors.invalid_parameter_values_exception.InvalidParameterValuesException: <p>One or more parameter values are not valid.</p>
+            aws_sdk_workspaces.errors.invalid_resource_state_exception.InvalidResourceStateException: <p>The state of the resource is not valid for this operation.</p>
+            aws_sdk_workspaces.errors.operation_not_supported_exception.OperationNotSupportedException: <p>This operation is not supported.</p>
+            aws_sdk_workspaces.errors.resource_associated_exception.ResourceAssociatedException: <p>The resource is associated with a directory.</p>
+            aws_sdk_workspaces.errors.resource_limit_exceeded_exception.ResourceLimitExceededException: <p>Your resource limits have been exceeded.</p>
+            aws_sdk_workspaces.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_workspaces.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4476,6 +5085,14 @@ class WorkSpacesClient:
         Args:
             group_id: <p>The identifier of the group.</p>
             user_rules: <p>One or more rules.</p>
+
+        Raises:
+            aws_sdk_workspaces.errors.access_denied_exception.AccessDeniedException: <p>The user is not authorized to access a resource.</p>
+            aws_sdk_workspaces.errors.invalid_parameter_values_exception.InvalidParameterValuesException: <p>One or more parameter values are not valid.</p>
+            aws_sdk_workspaces.errors.invalid_resource_state_exception.InvalidResourceStateException: <p>The state of the resource is not valid for this operation.</p>
+            aws_sdk_workspaces.errors.resource_limit_exceeded_exception.ResourceLimitExceededException: <p>Your resource limits have been exceeded.</p>
+            aws_sdk_workspaces.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_workspaces.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4518,6 +5135,14 @@ class WorkSpacesClient:
         Args:
             bundle_id: <p>The identifier of the bundle.</p>
             image_id: <p>The identifier of the image.</p>
+
+        Raises:
+            aws_sdk_workspaces.errors.access_denied_exception.AccessDeniedException: <p>The user is not authorized to access a resource.</p>
+            aws_sdk_workspaces.errors.invalid_parameter_values_exception.InvalidParameterValuesException: <p>One or more parameter values are not valid.</p>
+            aws_sdk_workspaces.errors.operation_not_supported_exception.OperationNotSupportedException: <p>This operation is not supported.</p>
+            aws_sdk_workspaces.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_workspaces.errors.resource_unavailable_exception.ResourceUnavailableException: <p>The specified resource is not available.</p>
+            aws_sdk_workspaces.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4562,6 +5187,14 @@ class WorkSpacesClient:
             image_id: <p>The identifier of the image.</p>
             allow_copy_image: <p>The permission to copy the image. This permission can be revoked only after an image has been shared.</p>
             shared_account_id: <p>The identifier of the Amazon Web Services account to share or unshare the image with.</p> <important> <p>Before sharing the image, confirm that you are sharing to the correct Amazon Web Services account ID.</p> </important>
+
+        Raises:
+            aws_sdk_workspaces.errors.access_denied_exception.AccessDeniedException: <p>The user is not authorized to access a resource.</p>
+            aws_sdk_workspaces.errors.invalid_parameter_values_exception.InvalidParameterValuesException: <p>One or more parameter values are not valid.</p>
+            aws_sdk_workspaces.errors.operation_not_supported_exception.OperationNotSupportedException: <p>This operation is not supported.</p>
+            aws_sdk_workspaces.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_workspaces.errors.resource_unavailable_exception.ResourceUnavailableException: <p>The specified resource is not available.</p>
+            aws_sdk_workspaces.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4625,6 +5258,16 @@ class WorkSpacesClient:
             application_settings: <p>The persistent application settings for users in the pool.</p>
             timeout_settings: <p>Indicates the timeout settings of the specified pool.</p>
             running_mode: <p>The desired running mode for the pool. The running mode can only be updated when the pool is in a stopped state.</p>
+
+        Raises:
+            aws_sdk_workspaces.errors.access_denied_exception.AccessDeniedException: <p>The user is not authorized to access a resource.</p>
+            aws_sdk_workspaces.errors.invalid_parameter_values_exception.InvalidParameterValuesException: <p>One or more parameter values are not valid.</p>
+            aws_sdk_workspaces.errors.invalid_resource_state_exception.InvalidResourceStateException: <p>The state of the resource is not valid for this operation.</p>
+            aws_sdk_workspaces.errors.operation_in_progress_exception.OperationInProgressException: <p>The properties of this WorkSpace are currently being modified. Try again in a moment.</p>
+            aws_sdk_workspaces.errors.operation_not_supported_exception.OperationNotSupportedException: <p>This operation is not supported.</p>
+            aws_sdk_workspaces.errors.resource_limit_exceeded_exception.ResourceLimitExceededException: <p>Your resource limits have been exceeded.</p>
+            aws_sdk_workspaces.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_workspaces.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(

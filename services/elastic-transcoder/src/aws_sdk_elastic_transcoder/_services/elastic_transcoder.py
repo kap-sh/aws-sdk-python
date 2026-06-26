@@ -194,6 +194,15 @@ class ElasticTranscoderClient:
 
         Args:
             id: <p>The identifier of the job that you want to cancel.</p> <p>To get a list of the jobs (including their <code>jobId</code>) that have a status of <code>Submitted</code>, use the <a>ListJobsByStatus</a> API action.</p>
+
+        Raises:
+            aws_sdk_elastic_transcoder.errors.access_denied_exception.AccessDeniedException: <p>General authentication failure. The request was not signed correctly.</p>
+            aws_sdk_elastic_transcoder.errors.incompatible_version_exception.IncompatibleVersionException
+            aws_sdk_elastic_transcoder.errors.internal_service_exception.InternalServiceException: <p>Elastic Transcoder encountered an unexpected exception while trying to fulfill the request.</p>
+            aws_sdk_elastic_transcoder.errors.resource_in_use_exception.ResourceInUseException: <p>The resource you are attempting to change is in use. For example, you are attempting to delete a pipeline that is currently in use.</p>
+            aws_sdk_elastic_transcoder.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource does not exist or is not available. For example, the pipeline to which you're trying to add a job doesn't exist or is still being created.</p>
+            aws_sdk_elastic_transcoder.errors.validation_exception.ValidationException: <p>One or more required parameter values were not provided in the request.</p>
+            aws_sdk_elastic_transcoder.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -255,6 +264,15 @@ class ElasticTranscoderClient:
             output_key_prefix: <p>The value, if any, that you want Elastic Transcoder to prepend to the names of all files that this job creates, including output files, thumbnails, and playlists.</p>
             playlists: <p>If you specify a preset in <code>PresetId</code> for which the value of <code>Container</code> is fmp4 (Fragmented MP4) or ts (MPEG-TS), Playlists contains information about the master playlists that you want Elastic Transcoder to create.</p> <p>The maximum number of master playlists in a job is 30.</p>
             user_metadata: <p>User-defined metadata that you want to associate with an Elastic Transcoder job. You specify metadata in <code>key/value</code> pairs, and you can add up to 10 <code>key/value</code> pairs per job. Elastic Transcoder does not guarantee that <code>key/value</code> pairs are returned in the same order in which you specify them.</p>
+
+        Raises:
+            aws_sdk_elastic_transcoder.errors.access_denied_exception.AccessDeniedException: <p>General authentication failure. The request was not signed correctly.</p>
+            aws_sdk_elastic_transcoder.errors.incompatible_version_exception.IncompatibleVersionException
+            aws_sdk_elastic_transcoder.errors.internal_service_exception.InternalServiceException: <p>Elastic Transcoder encountered an unexpected exception while trying to fulfill the request.</p>
+            aws_sdk_elastic_transcoder.errors.limit_exceeded_exception.LimitExceededException: <p>Too many operations for a given AWS account. For example, the number of pipelines exceeds the maximum allowed.</p>
+            aws_sdk_elastic_transcoder.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource does not exist or is not available. For example, the pipeline to which you're trying to add a job doesn't exist or is still being created.</p>
+            aws_sdk_elastic_transcoder.errors.validation_exception.ValidationException: <p>One or more required parameter values were not provided in the request.</p>
+            aws_sdk_elastic_transcoder.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -330,6 +348,15 @@ class ElasticTranscoderClient:
             notifications: <p>The Amazon Simple Notification Service (Amazon SNS) topic that you want to notify to report job status.</p> <important> <p>To receive notifications, you must also subscribe to the new topic in the Amazon SNS console.</p> </important> <ul> <li> <p> <b>Progressing</b>: The topic ARN for the Amazon Simple Notification Service (Amazon SNS) topic that you want to notify when Elastic Transcoder has started to process a job in this pipeline. This is the ARN that Amazon SNS returned when you created the topic. For more information, see Create a Topic in the Amazon Simple Notification Service Developer Guide.</p> </li> <li> <p> <b>Complete</b>: The topic ARN for the Amazon SNS topic that you want to notify when Elastic Transcoder has finished processing a job in this pipeline. This is the ARN that Amazon SNS returned when you created the topic.</p> </li> <li> <p> <b>Warning</b>: The topic ARN for the Amazon SNS topic that you want to notify when Elastic Transcoder encounters a warning condition while processing a job in this pipeline. This is the ARN that Amazon SNS returned when you created the topic.</p> </li> <li> <p> <b>Error</b>: The topic ARN for the Amazon SNS topic that you want to notify when Elastic Transcoder encounters an error condition while processing a job in this pipeline. This is the ARN that Amazon SNS returned when you created the topic.</p> </li> </ul>
             content_config: <p>The optional <code>ContentConfig</code> object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save transcoded files and playlists: which bucket to use, which users you want to have access to the files, the type of access you want users to have, and the storage class that you want to assign to the files.</p> <p>If you specify values for <code>ContentConfig</code>, you must also specify values for <code>ThumbnailConfig</code>.</p> <p>If you specify values for <code>ContentConfig</code> and <code>ThumbnailConfig</code>, omit the <code>OutputBucket</code> object.</p> <ul> <li> <p> <b>Bucket</b>: The Amazon S3 bucket in which you want Elastic Transcoder to save transcoded files and playlists.</p> </li> <li> <p> <b>Permissions</b> (Optional): The Permissions object specifies which users you want to have access to transcoded files and the type of access you want them to have. You can grant permissions to a maximum of 30 users and/or predefined Amazon S3 groups.</p> </li> <li> <p> <b>Grantee Type</b>: Specify the type of value that appears in the <code>Grantee</code> object: </p> <ul> <li> <p> <b>Canonical</b>: The value in the <code>Grantee</code> object is either the canonical user ID for an AWS account or an origin access identity for an Amazon CloudFront distribution. For more information about canonical user IDs, see Access Control List (ACL) Overview in the Amazon Simple Storage Service Developer Guide. For more information about using CloudFront origin access identities to require that users use CloudFront URLs instead of Amazon S3 URLs, see Using an Origin Access Identity to Restrict Access to Your Amazon S3 Content.</p> <important> <p>A canonical user ID is not the same as an AWS account number.</p> </important> </li> <li> <p> <b>Email</b>: The value in the <code>Grantee</code> object is the registered email address of an AWS account.</p> </li> <li> <p> <b>Group</b>: The value in the <code>Grantee</code> object is one of the following predefined Amazon S3 groups: <code>AllUsers</code>, <code>AuthenticatedUsers</code>, or <code>LogDelivery</code>.</p> </li> </ul> </li> <li> <p> <b>Grantee</b>: The AWS user or group that you want to have access to transcoded files and playlists. To identify the user or group, you can specify the canonical user ID for an AWS account, an origin access identity for a CloudFront distribution, the registered email address of an AWS account, or a predefined Amazon S3 group </p> </li> <li> <p> <b>Access</b>: The permission that you want to give to the AWS user that you specified in <code>Grantee</code>. Permissions are granted on the files that Elastic Transcoder adds to the bucket, including playlists and video files. Valid values include: </p> <ul> <li> <p> <code>READ</code>: The grantee can read the objects and metadata for objects that Elastic Transcoder adds to the Amazon S3 bucket.</p> </li> <li> <p> <code>READ_ACP</code>: The grantee can read the object ACL for objects that Elastic Transcoder adds to the Amazon S3 bucket.</p> </li> <li> <p> <code>WRITE_ACP</code>: The grantee can write the ACL for the objects that Elastic Transcoder adds to the Amazon S3 bucket.</p> </li> <li> <p> <code>FULL_CONTROL</code>: The grantee has <code>READ</code>, <code>READ_ACP</code>, and <code>WRITE_ACP</code> permissions for the objects that Elastic Transcoder adds to the Amazon S3 bucket.</p> </li> </ul> </li> <li> <p> <b>StorageClass</b>: The Amazon S3 storage class, <code>Standard</code> or <code>ReducedRedundancy</code>, that you want Elastic Transcoder to assign to the video files and playlists that it stores in your Amazon S3 bucket.</p> </li> </ul>
             thumbnail_config: <p>The <code>ThumbnailConfig</code> object specifies several values, including the Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files, which users you want to have access to the files, the type of access you want users to have, and the storage class that you want to assign to the files.</p> <p>If you specify values for <code>ContentConfig</code>, you must also specify values for <code>ThumbnailConfig</code> even if you don't want to create thumbnails.</p> <p>If you specify values for <code>ContentConfig</code> and <code>ThumbnailConfig</code>, omit the <code>OutputBucket</code> object.</p> <ul> <li> <p> <b>Bucket</b>: The Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files.</p> </li> <li> <p> <b>Permissions</b> (Optional): The <code>Permissions</code> object specifies which users and/or predefined Amazon S3 groups you want to have access to thumbnail files, and the type of access you want them to have. You can grant permissions to a maximum of 30 users and/or predefined Amazon S3 groups.</p> </li> <li> <p> <b>GranteeType</b>: Specify the type of value that appears in the Grantee object: </p> <ul> <li> <p> <b>Canonical</b>: The value in the <code>Grantee</code> object is either the canonical user ID for an AWS account or an origin access identity for an Amazon CloudFront distribution.</p> <important> <p>A canonical user ID is not the same as an AWS account number.</p> </important> </li> <li> <p> <b>Email</b>: The value in the <code>Grantee</code> object is the registered email address of an AWS account. </p> </li> <li> <p> <b>Group</b>: The value in the <code>Grantee</code> object is one of the following predefined Amazon S3 groups: <code>AllUsers</code>, <code>AuthenticatedUsers</code>, or <code>LogDelivery</code>.</p> </li> </ul> </li> <li> <p> <b>Grantee</b>: The AWS user or group that you want to have access to thumbnail files. To identify the user or group, you can specify the canonical user ID for an AWS account, an origin access identity for a CloudFront distribution, the registered email address of an AWS account, or a predefined Amazon S3 group. </p> </li> <li> <p> <b>Access</b>: The permission that you want to give to the AWS user that you specified in <code>Grantee</code>. Permissions are granted on the thumbnail files that Elastic Transcoder adds to the bucket. Valid values include: </p> <ul> <li> <p> <code>READ</code>: The grantee can read the thumbnails and metadata for objects that Elastic Transcoder adds to the Amazon S3 bucket.</p> </li> <li> <p> <code>READ_ACP</code>: The grantee can read the object ACL for thumbnails that Elastic Transcoder adds to the Amazon S3 bucket.</p> </li> <li> <p> <code>WRITE_ACP</code>: The grantee can write the ACL for the thumbnails that Elastic Transcoder adds to the Amazon S3 bucket.</p> </li> <li> <p> <code>FULL_CONTROL</code>: The grantee has <code>READ</code>, <code>READ_ACP</code>, and <code>WRITE_ACP</code> permissions for the thumbnails that Elastic Transcoder adds to the Amazon S3 bucket.</p> </li> </ul> </li> <li> <p> <b>StorageClass</b>: The Amazon S3 storage class, <code>Standard</code> or <code>ReducedRedundancy</code>, that you want Elastic Transcoder to assign to the thumbnails that it stores in your Amazon S3 bucket.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_elastic_transcoder.errors.access_denied_exception.AccessDeniedException: <p>General authentication failure. The request was not signed correctly.</p>
+            aws_sdk_elastic_transcoder.errors.incompatible_version_exception.IncompatibleVersionException
+            aws_sdk_elastic_transcoder.errors.internal_service_exception.InternalServiceException: <p>Elastic Transcoder encountered an unexpected exception while trying to fulfill the request.</p>
+            aws_sdk_elastic_transcoder.errors.limit_exceeded_exception.LimitExceededException: <p>Too many operations for a given AWS account. For example, the number of pipelines exceeds the maximum allowed.</p>
+            aws_sdk_elastic_transcoder.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource does not exist or is not available. For example, the pipeline to which you're trying to add a job doesn't exist or is still being created.</p>
+            aws_sdk_elastic_transcoder.errors.validation_exception.ValidationException: <p>One or more required parameter values were not provided in the request.</p>
+            aws_sdk_elastic_transcoder.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -397,6 +424,14 @@ class ElasticTranscoderClient:
             video: <p>A section of the request body that specifies the video parameters.</p>
             audio: <p>A section of the request body that specifies the audio parameters.</p>
             thumbnails: <p>A section of the request body that specifies the thumbnail parameters, if any.</p>
+
+        Raises:
+            aws_sdk_elastic_transcoder.errors.access_denied_exception.AccessDeniedException: <p>General authentication failure. The request was not signed correctly.</p>
+            aws_sdk_elastic_transcoder.errors.incompatible_version_exception.IncompatibleVersionException
+            aws_sdk_elastic_transcoder.errors.internal_service_exception.InternalServiceException: <p>Elastic Transcoder encountered an unexpected exception while trying to fulfill the request.</p>
+            aws_sdk_elastic_transcoder.errors.limit_exceeded_exception.LimitExceededException: <p>Too many operations for a given AWS account. For example, the number of pipelines exceeds the maximum allowed.</p>
+            aws_sdk_elastic_transcoder.errors.validation_exception.ValidationException: <p>One or more required parameter values were not provided in the request.</p>
+            aws_sdk_elastic_transcoder.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -443,6 +478,15 @@ class ElasticTranscoderClient:
 
         Args:
             id: <p>The identifier of the pipeline that you want to delete.</p>
+
+        Raises:
+            aws_sdk_elastic_transcoder.errors.access_denied_exception.AccessDeniedException: <p>General authentication failure. The request was not signed correctly.</p>
+            aws_sdk_elastic_transcoder.errors.incompatible_version_exception.IncompatibleVersionException
+            aws_sdk_elastic_transcoder.errors.internal_service_exception.InternalServiceException: <p>Elastic Transcoder encountered an unexpected exception while trying to fulfill the request.</p>
+            aws_sdk_elastic_transcoder.errors.resource_in_use_exception.ResourceInUseException: <p>The resource you are attempting to change is in use. For example, you are attempting to delete a pipeline that is currently in use.</p>
+            aws_sdk_elastic_transcoder.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource does not exist or is not available. For example, the pipeline to which you're trying to add a job doesn't exist or is still being created.</p>
+            aws_sdk_elastic_transcoder.errors.validation_exception.ValidationException: <p>One or more required parameter values were not provided in the request.</p>
+            aws_sdk_elastic_transcoder.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -480,6 +524,14 @@ class ElasticTranscoderClient:
 
         Args:
             id: <p>The identifier of the preset for which you want to get detailed information.</p>
+
+        Raises:
+            aws_sdk_elastic_transcoder.errors.access_denied_exception.AccessDeniedException: <p>General authentication failure. The request was not signed correctly.</p>
+            aws_sdk_elastic_transcoder.errors.incompatible_version_exception.IncompatibleVersionException
+            aws_sdk_elastic_transcoder.errors.internal_service_exception.InternalServiceException: <p>Elastic Transcoder encountered an unexpected exception while trying to fulfill the request.</p>
+            aws_sdk_elastic_transcoder.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource does not exist or is not available. For example, the pipeline to which you're trying to add a job doesn't exist or is still being created.</p>
+            aws_sdk_elastic_transcoder.errors.validation_exception.ValidationException: <p>One or more required parameter values were not provided in the request.</p>
+            aws_sdk_elastic_transcoder.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -523,6 +575,14 @@ class ElasticTranscoderClient:
             pipeline_id: <p>The ID of the pipeline for which you want to get job information.</p>
             ascending: <p> To list jobs in chronological order by the date and time that they were submitted, enter <code>true</code>. To list jobs in reverse chronological order, enter <code>false</code>. </p>
             page_token: <p> When Elastic Transcoder returns more than one page of results, use <code>pageToken</code> in subsequent <code>GET</code> requests to get each successive page of results. </p>
+
+        Raises:
+            aws_sdk_elastic_transcoder.errors.access_denied_exception.AccessDeniedException: <p>General authentication failure. The request was not signed correctly.</p>
+            aws_sdk_elastic_transcoder.errors.incompatible_version_exception.IncompatibleVersionException
+            aws_sdk_elastic_transcoder.errors.internal_service_exception.InternalServiceException: <p>Elastic Transcoder encountered an unexpected exception while trying to fulfill the request.</p>
+            aws_sdk_elastic_transcoder.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource does not exist or is not available. For example, the pipeline to which you're trying to add a job doesn't exist or is still being created.</p>
+            aws_sdk_elastic_transcoder.errors.validation_exception.ValidationException: <p>One or more required parameter values were not provided in the request.</p>
+            aws_sdk_elastic_transcoder.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -595,6 +655,14 @@ class ElasticTranscoderClient:
             status: <p>To get information about all of the jobs associated with the current AWS account that have a given status, specify the following status: <code>Submitted</code>, <code>Progressing</code>, <code>Complete</code>, <code>Canceled</code>, or <code>Error</code>.</p>
             ascending: <p> To list jobs in chronological order by the date and time that they were submitted, enter <code>true</code>. To list jobs in reverse chronological order, enter <code>false</code>. </p>
             page_token: <p> When Elastic Transcoder returns more than one page of results, use <code>pageToken</code> in subsequent <code>GET</code> requests to get each successive page of results. </p>
+
+        Raises:
+            aws_sdk_elastic_transcoder.errors.access_denied_exception.AccessDeniedException: <p>General authentication failure. The request was not signed correctly.</p>
+            aws_sdk_elastic_transcoder.errors.incompatible_version_exception.IncompatibleVersionException
+            aws_sdk_elastic_transcoder.errors.internal_service_exception.InternalServiceException: <p>Elastic Transcoder encountered an unexpected exception while trying to fulfill the request.</p>
+            aws_sdk_elastic_transcoder.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource does not exist or is not available. For example, the pipeline to which you're trying to add a job doesn't exist or is still being created.</p>
+            aws_sdk_elastic_transcoder.errors.validation_exception.ValidationException: <p>One or more required parameter values were not provided in the request.</p>
+            aws_sdk_elastic_transcoder.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -667,6 +735,13 @@ class ElasticTranscoderClient:
         Args:
             ascending: <p>To list pipelines in chronological order by the date and time that they were created, enter <code>true</code>. To list pipelines in reverse chronological order, enter <code>false</code>.</p>
             page_token: <p>When Elastic Transcoder returns more than one page of results, use <code>pageToken</code> in subsequent <code>GET</code> requests to get each successive page of results. </p>
+
+        Raises:
+            aws_sdk_elastic_transcoder.errors.access_denied_exception.AccessDeniedException: <p>General authentication failure. The request was not signed correctly.</p>
+            aws_sdk_elastic_transcoder.errors.incompatible_version_exception.IncompatibleVersionException
+            aws_sdk_elastic_transcoder.errors.internal_service_exception.InternalServiceException: <p>Elastic Transcoder encountered an unexpected exception while trying to fulfill the request.</p>
+            aws_sdk_elastic_transcoder.errors.validation_exception.ValidationException: <p>One or more required parameter values were not provided in the request.</p>
+            aws_sdk_elastic_transcoder.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -734,6 +809,13 @@ class ElasticTranscoderClient:
         Args:
             ascending: <p>To list presets in chronological order by the date and time that they were created, enter <code>true</code>. To list presets in reverse chronological order, enter <code>false</code>.</p>
             page_token: <p>When Elastic Transcoder returns more than one page of results, use <code>pageToken</code> in subsequent <code>GET</code> requests to get each successive page of results. </p>
+
+        Raises:
+            aws_sdk_elastic_transcoder.errors.access_denied_exception.AccessDeniedException: <p>General authentication failure. The request was not signed correctly.</p>
+            aws_sdk_elastic_transcoder.errors.incompatible_version_exception.IncompatibleVersionException
+            aws_sdk_elastic_transcoder.errors.internal_service_exception.InternalServiceException: <p>Elastic Transcoder encountered an unexpected exception while trying to fulfill the request.</p>
+            aws_sdk_elastic_transcoder.errors.validation_exception.ValidationException: <p>One or more required parameter values were not provided in the request.</p>
+            aws_sdk_elastic_transcoder.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -797,6 +879,14 @@ class ElasticTranscoderClient:
 
         Args:
             id: <p>The identifier of the job for which you want to get detailed information.</p>
+
+        Raises:
+            aws_sdk_elastic_transcoder.errors.access_denied_exception.AccessDeniedException: <p>General authentication failure. The request was not signed correctly.</p>
+            aws_sdk_elastic_transcoder.errors.incompatible_version_exception.IncompatibleVersionException
+            aws_sdk_elastic_transcoder.errors.internal_service_exception.InternalServiceException: <p>Elastic Transcoder encountered an unexpected exception while trying to fulfill the request.</p>
+            aws_sdk_elastic_transcoder.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource does not exist or is not available. For example, the pipeline to which you're trying to add a job doesn't exist or is still being created.</p>
+            aws_sdk_elastic_transcoder.errors.validation_exception.ValidationException: <p>One or more required parameter values were not provided in the request.</p>
+            aws_sdk_elastic_transcoder.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -834,6 +924,14 @@ class ElasticTranscoderClient:
 
         Args:
             id: <p>The identifier of the pipeline to read.</p>
+
+        Raises:
+            aws_sdk_elastic_transcoder.errors.access_denied_exception.AccessDeniedException: <p>General authentication failure. The request was not signed correctly.</p>
+            aws_sdk_elastic_transcoder.errors.incompatible_version_exception.IncompatibleVersionException
+            aws_sdk_elastic_transcoder.errors.internal_service_exception.InternalServiceException: <p>Elastic Transcoder encountered an unexpected exception while trying to fulfill the request.</p>
+            aws_sdk_elastic_transcoder.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource does not exist or is not available. For example, the pipeline to which you're trying to add a job doesn't exist or is still being created.</p>
+            aws_sdk_elastic_transcoder.errors.validation_exception.ValidationException: <p>One or more required parameter values were not provided in the request.</p>
+            aws_sdk_elastic_transcoder.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -871,6 +969,14 @@ class ElasticTranscoderClient:
 
         Args:
             id: <p>The identifier of the preset for which you want to get detailed information.</p>
+
+        Raises:
+            aws_sdk_elastic_transcoder.errors.access_denied_exception.AccessDeniedException: <p>General authentication failure. The request was not signed correctly.</p>
+            aws_sdk_elastic_transcoder.errors.incompatible_version_exception.IncompatibleVersionException
+            aws_sdk_elastic_transcoder.errors.internal_service_exception.InternalServiceException: <p>Elastic Transcoder encountered an unexpected exception while trying to fulfill the request.</p>
+            aws_sdk_elastic_transcoder.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource does not exist or is not available. For example, the pipeline to which you're trying to add a job doesn't exist or is still being created.</p>
+            aws_sdk_elastic_transcoder.errors.validation_exception.ValidationException: <p>One or more required parameter values were not provided in the request.</p>
+            aws_sdk_elastic_transcoder.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -914,6 +1020,14 @@ class ElasticTranscoderClient:
             input_bucket: <p>The Amazon S3 bucket that contains media files to be transcoded. The action attempts to read from this bucket.</p>
             output_bucket: <p>The Amazon S3 bucket that Elastic Transcoder writes transcoded media files to. The action attempts to read from this bucket.</p>
             topics: <p>The ARNs of one or more Amazon Simple Notification Service (Amazon SNS) topics that you want the action to send a test notification to.</p>
+
+        Raises:
+            aws_sdk_elastic_transcoder.errors.access_denied_exception.AccessDeniedException: <p>General authentication failure. The request was not signed correctly.</p>
+            aws_sdk_elastic_transcoder.errors.incompatible_version_exception.IncompatibleVersionException
+            aws_sdk_elastic_transcoder.errors.internal_service_exception.InternalServiceException: <p>Elastic Transcoder encountered an unexpected exception while trying to fulfill the request.</p>
+            aws_sdk_elastic_transcoder.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource does not exist or is not available. For example, the pipeline to which you're trying to add a job doesn't exist or is still being created.</p>
+            aws_sdk_elastic_transcoder.errors.validation_exception.ValidationException: <p>One or more required parameter values were not provided in the request.</p>
+            aws_sdk_elastic_transcoder.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -978,6 +1092,15 @@ class ElasticTranscoderClient:
             notifications: <p>The topic ARN for the Amazon Simple Notification Service (Amazon SNS) topic that you want to notify to report job status.</p> <important> <p>To receive notifications, you must also subscribe to the new topic in the Amazon SNS console.</p> </important> <ul> <li> <p> <b>Progressing</b>: The topic ARN for the Amazon Simple Notification Service (Amazon SNS) topic that you want to notify when Elastic Transcoder has started to process jobs that are added to this pipeline. This is the ARN that Amazon SNS returned when you created the topic.</p> </li> <li> <p> <b>Complete</b>: The topic ARN for the Amazon SNS topic that you want to notify when Elastic Transcoder has finished processing a job. This is the ARN that Amazon SNS returned when you created the topic.</p> </li> <li> <p> <b>Warning</b>: The topic ARN for the Amazon SNS topic that you want to notify when Elastic Transcoder encounters a warning condition. This is the ARN that Amazon SNS returned when you created the topic.</p> </li> <li> <p> <b>Error</b>: The topic ARN for the Amazon SNS topic that you want to notify when Elastic Transcoder encounters an error condition. This is the ARN that Amazon SNS returned when you created the topic.</p> </li> </ul>
             content_config: <p>The optional <code>ContentConfig</code> object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save transcoded files and playlists: which bucket to use, which users you want to have access to the files, the type of access you want users to have, and the storage class that you want to assign to the files.</p> <p>If you specify values for <code>ContentConfig</code>, you must also specify values for <code>ThumbnailConfig</code>.</p> <p>If you specify values for <code>ContentConfig</code> and <code>ThumbnailConfig</code>, omit the <code>OutputBucket</code> object.</p> <ul> <li> <p> <b>Bucket</b>: The Amazon S3 bucket in which you want Elastic Transcoder to save transcoded files and playlists.</p> </li> <li> <p> <b>Permissions</b> (Optional): The Permissions object specifies which users you want to have access to transcoded files and the type of access you want them to have. You can grant permissions to a maximum of 30 users and/or predefined Amazon S3 groups.</p> </li> <li> <p> <b>Grantee Type</b>: Specify the type of value that appears in the <code>Grantee</code> object:</p> <ul> <li> <p> <b>Canonical</b>: The value in the <code>Grantee</code> object is either the canonical user ID for an AWS account or an origin access identity for an Amazon CloudFront distribution. For more information about canonical user IDs, see Access Control List (ACL) Overview in the Amazon Simple Storage Service Developer Guide. For more information about using CloudFront origin access identities to require that users use CloudFront URLs instead of Amazon S3 URLs, see Using an Origin Access Identity to Restrict Access to Your Amazon S3 Content.</p> <important> <p>A canonical user ID is not the same as an AWS account number.</p> </important> </li> <li> <p> <b>Email</b>: The value in the <code>Grantee</code> object is the registered email address of an AWS account.</p> </li> <li> <p> <b>Group</b>: The value in the <code>Grantee</code> object is one of the following predefined Amazon S3 groups: <code>AllUsers</code>, <code>AuthenticatedUsers</code>, or <code>LogDelivery</code>.</p> </li> </ul> </li> <li> <p> <b>Grantee</b>: The AWS user or group that you want to have access to transcoded files and playlists. To identify the user or group, you can specify the canonical user ID for an AWS account, an origin access identity for a CloudFront distribution, the registered email address of an AWS account, or a predefined Amazon S3 group </p> </li> <li> <p> <b>Access</b>: The permission that you want to give to the AWS user that you specified in <code>Grantee</code>. Permissions are granted on the files that Elastic Transcoder adds to the bucket, including playlists and video files. Valid values include: </p> <ul> <li> <p> <code>READ</code>: The grantee can read the objects and metadata for objects that Elastic Transcoder adds to the Amazon S3 bucket.</p> </li> <li> <p> <code>READ_ACP</code>: The grantee can read the object ACL for objects that Elastic Transcoder adds to the Amazon S3 bucket. </p> </li> <li> <p> <code>WRITE_ACP</code>: The grantee can write the ACL for the objects that Elastic Transcoder adds to the Amazon S3 bucket.</p> </li> <li> <p> <code>FULL_CONTROL</code>: The grantee has <code>READ</code>, <code>READ_ACP</code>, and <code>WRITE_ACP</code> permissions for the objects that Elastic Transcoder adds to the Amazon S3 bucket.</p> </li> </ul> </li> <li> <p> <b>StorageClass</b>: The Amazon S3 storage class, <code>Standard</code> or <code>ReducedRedundancy</code>, that you want Elastic Transcoder to assign to the video files and playlists that it stores in your Amazon S3 bucket.</p> </li> </ul>
             thumbnail_config: <p>The <code>ThumbnailConfig</code> object specifies several values, including the Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files, which users you want to have access to the files, the type of access you want users to have, and the storage class that you want to assign to the files.</p> <p>If you specify values for <code>ContentConfig</code>, you must also specify values for <code>ThumbnailConfig</code> even if you don't want to create thumbnails.</p> <p>If you specify values for <code>ContentConfig</code> and <code>ThumbnailConfig</code>, omit the <code>OutputBucket</code> object.</p> <ul> <li> <p> <b>Bucket</b>: The Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files.</p> </li> <li> <p> <b>Permissions</b> (Optional): The <code>Permissions</code> object specifies which users and/or predefined Amazon S3 groups you want to have access to thumbnail files, and the type of access you want them to have. You can grant permissions to a maximum of 30 users and/or predefined Amazon S3 groups.</p> </li> <li> <p> <b>GranteeType</b>: Specify the type of value that appears in the Grantee object:</p> <ul> <li> <p> <b>Canonical</b>: The value in the <code>Grantee</code> object is either the canonical user ID for an AWS account or an origin access identity for an Amazon CloudFront distribution.</p> <important> <p>A canonical user ID is not the same as an AWS account number.</p> </important> </li> <li> <p> <b>Email</b>: The value in the <code>Grantee</code> object is the registered email address of an AWS account.</p> </li> <li> <p> <b>Group</b>: The value in the <code>Grantee</code> object is one of the following predefined Amazon S3 groups: <code>AllUsers</code>, <code>AuthenticatedUsers</code>, or <code>LogDelivery</code>.</p> </li> </ul> </li> <li> <p> <b>Grantee</b>: The AWS user or group that you want to have access to thumbnail files. To identify the user or group, you can specify the canonical user ID for an AWS account, an origin access identity for a CloudFront distribution, the registered email address of an AWS account, or a predefined Amazon S3 group. </p> </li> <li> <p> <b>Access</b>: The permission that you want to give to the AWS user that you specified in <code>Grantee</code>. Permissions are granted on the thumbnail files that Elastic Transcoder adds to the bucket. Valid values include: </p> <ul> <li> <p> <code>READ</code>: The grantee can read the thumbnails and metadata for objects that Elastic Transcoder adds to the Amazon S3 bucket.</p> </li> <li> <p> <code>READ_ACP</code>: The grantee can read the object ACL for thumbnails that Elastic Transcoder adds to the Amazon S3 bucket.</p> </li> <li> <p> <code>WRITE_ACP</code>: The grantee can write the ACL for the thumbnails that Elastic Transcoder adds to the Amazon S3 bucket.</p> </li> <li> <p> <code>FULL_CONTROL</code>: The grantee has <code>READ</code>, <code>READ_ACP</code>, and <code>WRITE_ACP</code> permissions for the thumbnails that Elastic Transcoder adds to the Amazon S3 bucket. </p> </li> </ul> </li> <li> <p> <b>StorageClass</b>: The Amazon S3 storage class, <code>Standard</code> or <code>ReducedRedundancy</code>, that you want Elastic Transcoder to assign to the thumbnails that it stores in your Amazon S3 bucket.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_elastic_transcoder.errors.access_denied_exception.AccessDeniedException: <p>General authentication failure. The request was not signed correctly.</p>
+            aws_sdk_elastic_transcoder.errors.incompatible_version_exception.IncompatibleVersionException
+            aws_sdk_elastic_transcoder.errors.internal_service_exception.InternalServiceException: <p>Elastic Transcoder encountered an unexpected exception while trying to fulfill the request.</p>
+            aws_sdk_elastic_transcoder.errors.resource_in_use_exception.ResourceInUseException: <p>The resource you are attempting to change is in use. For example, you are attempting to delete a pipeline that is currently in use.</p>
+            aws_sdk_elastic_transcoder.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource does not exist or is not available. For example, the pipeline to which you're trying to add a job doesn't exist or is still being created.</p>
+            aws_sdk_elastic_transcoder.errors.validation_exception.ValidationException: <p>One or more required parameter values were not provided in the request.</p>
+            aws_sdk_elastic_transcoder.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1031,6 +1154,15 @@ class ElasticTranscoderClient:
         Args:
             id: <p>The identifier of the pipeline for which you want to change notification settings.</p>
             notifications: <p>The topic ARN for the Amazon Simple Notification Service (Amazon SNS) topic that you want to notify to report job status.</p> <important> <p>To receive notifications, you must also subscribe to the new topic in the Amazon SNS console.</p> </important> <ul> <li> <p> <b>Progressing</b>: The topic ARN for the Amazon Simple Notification Service (Amazon SNS) topic that you want to notify when Elastic Transcoder has started to process jobs that are added to this pipeline. This is the ARN that Amazon SNS returned when you created the topic.</p> </li> <li> <p> <b>Complete</b>: The topic ARN for the Amazon SNS topic that you want to notify when Elastic Transcoder has finished processing a job. This is the ARN that Amazon SNS returned when you created the topic.</p> </li> <li> <p> <b>Warning</b>: The topic ARN for the Amazon SNS topic that you want to notify when Elastic Transcoder encounters a warning condition. This is the ARN that Amazon SNS returned when you created the topic.</p> </li> <li> <p> <b>Error</b>: The topic ARN for the Amazon SNS topic that you want to notify when Elastic Transcoder encounters an error condition. This is the ARN that Amazon SNS returned when you created the topic.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_elastic_transcoder.errors.access_denied_exception.AccessDeniedException: <p>General authentication failure. The request was not signed correctly.</p>
+            aws_sdk_elastic_transcoder.errors.incompatible_version_exception.IncompatibleVersionException
+            aws_sdk_elastic_transcoder.errors.internal_service_exception.InternalServiceException: <p>Elastic Transcoder encountered an unexpected exception while trying to fulfill the request.</p>
+            aws_sdk_elastic_transcoder.errors.resource_in_use_exception.ResourceInUseException: <p>The resource you are attempting to change is in use. For example, you are attempting to delete a pipeline that is currently in use.</p>
+            aws_sdk_elastic_transcoder.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource does not exist or is not available. For example, the pipeline to which you're trying to add a job doesn't exist or is still being created.</p>
+            aws_sdk_elastic_transcoder.errors.validation_exception.ValidationException: <p>One or more required parameter values were not provided in the request.</p>
+            aws_sdk_elastic_transcoder.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1071,6 +1203,15 @@ class ElasticTranscoderClient:
         Args:
             id: <p>The identifier of the pipeline to update.</p>
             status: <p>The desired status of the pipeline:</p> <ul> <li> <p> <code>Active</code>: The pipeline is processing jobs.</p> </li> <li> <p> <code>Paused</code>: The pipeline is not currently processing jobs.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_elastic_transcoder.errors.access_denied_exception.AccessDeniedException: <p>General authentication failure. The request was not signed correctly.</p>
+            aws_sdk_elastic_transcoder.errors.incompatible_version_exception.IncompatibleVersionException
+            aws_sdk_elastic_transcoder.errors.internal_service_exception.InternalServiceException: <p>Elastic Transcoder encountered an unexpected exception while trying to fulfill the request.</p>
+            aws_sdk_elastic_transcoder.errors.resource_in_use_exception.ResourceInUseException: <p>The resource you are attempting to change is in use. For example, you are attempting to delete a pipeline that is currently in use.</p>
+            aws_sdk_elastic_transcoder.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource does not exist or is not available. For example, the pipeline to which you're trying to add a job doesn't exist or is still being created.</p>
+            aws_sdk_elastic_transcoder.errors.validation_exception.ValidationException: <p>One or more required parameter values were not provided in the request.</p>
+            aws_sdk_elastic_transcoder.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(

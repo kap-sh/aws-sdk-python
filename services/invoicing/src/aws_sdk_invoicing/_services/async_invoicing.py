@@ -196,6 +196,14 @@ class AsyncInvoicingClient:
         Args:
             account_ids: <p>Retrieves the corresponding invoice profile data for these account IDs. </p>
 
+        Raises:
+            aws_sdk_invoicing.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action.</p>
+            aws_sdk_invoicing.errors.internal_server_exception.InternalServerException: <p>The processing request failed because of an unknown error, exception, or failure. </p>
+            aws_sdk_invoicing.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found. </p>
+            aws_sdk_invoicing.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_invoicing.errors.validation_exception.ValidationException: <p> The input fails to satisfy the constraints specified by an Amazon Web Services service. </p>
+            aws_sdk_invoicing.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             BatchGetInvoiceProfile
 
@@ -260,6 +268,13 @@ class AsyncInvoicingClient:
             rule: <p>The <code>InvoiceUnitRule</code> object used to create invoice units. </p>
             resource_tags: <p> The tag structure that contains a tag key and value. </p>
             client_token: <p> A unique, case-sensitive identifier that you provide to ensure idempotency of the request. </p>
+
+        Raises:
+            aws_sdk_invoicing.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action.</p>
+            aws_sdk_invoicing.errors.internal_server_exception.InternalServerException: <p>The processing request failed because of an unknown error, exception, or failure. </p>
+            aws_sdk_invoicing.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_invoicing.errors.validation_exception.ValidationException: <p> The input fails to satisfy the constraints specified by an Amazon Web Services service. </p>
+            aws_sdk_invoicing.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             CreateInvoiceUnit
@@ -355,6 +370,15 @@ class AsyncInvoicingClient:
             resource_tags: <p>The tags to apply to this procurement portal preference resource. Each tag consists of a key and an optional value.</p>
             client_token: <p>A unique, case-sensitive identifier that you provide to ensure idempotency of the request.</p>
 
+        Raises:
+            aws_sdk_invoicing.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action.</p>
+            aws_sdk_invoicing.errors.conflict_exception.ConflictException: <p>The request could not be completed due to a conflict with the current state of the resource. This exception occurs when a concurrent modification is detected during an update operation, or when attempting to create a resource that already exists.</p>
+            aws_sdk_invoicing.errors.internal_server_exception.InternalServerException: <p>The processing request failed because of an unknown error, exception, or failure. </p>
+            aws_sdk_invoicing.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account limits. The error message describes the limit exceeded. </p>
+            aws_sdk_invoicing.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_invoicing.errors.validation_exception.ValidationException: <p> The input fails to satisfy the constraints specified by an Amazon Web Services service. </p>
+            aws_sdk_invoicing.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             CreateProcurementPortalPreference for Coupa
 
@@ -429,6 +453,14 @@ class AsyncInvoicingClient:
             invoice_unit_arn: <p> The ARN to identify an invoice unit. This information can't be modified or deleted. </p>
             client_token: <p> A unique, case-sensitive identifier that you provide to ensure idempotency of the request. </p>
 
+        Raises:
+            aws_sdk_invoicing.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action.</p>
+            aws_sdk_invoicing.errors.internal_server_exception.InternalServerException: <p>The processing request failed because of an unknown error, exception, or failure. </p>
+            aws_sdk_invoicing.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found. </p>
+            aws_sdk_invoicing.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_invoicing.errors.validation_exception.ValidationException: <p> The input fails to satisfy the constraints specified by an Amazon Web Services service. </p>
+            aws_sdk_invoicing.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             DeleteInvoiceUnit
 
@@ -478,6 +510,15 @@ class AsyncInvoicingClient:
             procurement_portal_preference_arn: <p>The Amazon Resource Name (ARN) of the procurement portal preference to delete.</p>
             client_token: <p>A unique, case-sensitive identifier that you provide to ensure idempotency of the request.</p>
 
+        Raises:
+            aws_sdk_invoicing.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action.</p>
+            aws_sdk_invoicing.errors.internal_server_exception.InternalServerException: <p>The processing request failed because of an unknown error, exception, or failure. </p>
+            aws_sdk_invoicing.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found. </p>
+            aws_sdk_invoicing.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account limits. The error message describes the limit exceeded. </p>
+            aws_sdk_invoicing.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_invoicing.errors.validation_exception.ValidationException: <p> The input fails to satisfy the constraints specified by an Amazon Web Services service. </p>
+            aws_sdk_invoicing.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             DeleteProcurementPortalPreference call
 
@@ -522,6 +563,14 @@ class AsyncInvoicingClient:
 
         Args:
             invoice_id: <p> Your unique invoice ID. </p>
+
+        Raises:
+            aws_sdk_invoicing.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action.</p>
+            aws_sdk_invoicing.errors.internal_server_exception.InternalServerException: <p>The processing request failed because of an unknown error, exception, or failure. </p>
+            aws_sdk_invoicing.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found. </p>
+            aws_sdk_invoicing.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_invoicing.errors.validation_exception.ValidationException: <p> The input fails to satisfy the constraints specified by an Amazon Web Services service. </p>
+            aws_sdk_invoicing.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             GetInvoicePDF without supplemental documents
@@ -571,6 +620,14 @@ class AsyncInvoicingClient:
             invoice_unit_arn: <p> The ARN to identify an invoice unit. This information can't be modified or deleted. </p>
             as_of: <p> The state of an invoice unit at a specified time. You can see legacy invoice units that are currently deleted if the <code>AsOf</code> time is set to before it was deleted. If an <code>AsOf</code> is not provided, the default value is the current time. </p>
 
+        Raises:
+            aws_sdk_invoicing.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action.</p>
+            aws_sdk_invoicing.errors.internal_server_exception.InternalServerException: <p>The processing request failed because of an unknown error, exception, or failure. </p>
+            aws_sdk_invoicing.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found. </p>
+            aws_sdk_invoicing.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_invoicing.errors.validation_exception.ValidationException: <p> The input fails to satisfy the constraints specified by an Amazon Web Services service. </p>
+            aws_sdk_invoicing.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             GetInvoiceUnit as of current time
 
@@ -618,6 +675,16 @@ class AsyncInvoicingClient:
 
         Args:
             procurement_portal_preference_arn: <p>The Amazon Resource Name (ARN) of the procurement portal preference to retrieve.</p>
+
+        Raises:
+            aws_sdk_invoicing.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action.</p>
+            aws_sdk_invoicing.errors.conflict_exception.ConflictException: <p>The request could not be completed due to a conflict with the current state of the resource. This exception occurs when a concurrent modification is detected during an update operation, or when attempting to create a resource that already exists.</p>
+            aws_sdk_invoicing.errors.internal_server_exception.InternalServerException: <p>The processing request failed because of an unknown error, exception, or failure. </p>
+            aws_sdk_invoicing.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found. </p>
+            aws_sdk_invoicing.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account limits. The error message describes the limit exceeded. </p>
+            aws_sdk_invoicing.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_invoicing.errors.validation_exception.ValidationException: <p> The input fails to satisfy the constraints specified by an Amazon Web Services service. </p>
+            aws_sdk_invoicing.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             GetProcurementPortalPreference for Coupa pref
@@ -673,6 +740,14 @@ class AsyncInvoicingClient:
             filter: <p>Filters you can use to customize your invoice summary.</p>
             next_token: <p>The token for the next set of results. (You received this token from a previous call.)</p>
             max_results: <p>The maximum number of invoice summaries a paginated response can contain.</p>
+
+        Raises:
+            aws_sdk_invoicing.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action.</p>
+            aws_sdk_invoicing.errors.internal_server_exception.InternalServerException: <p>The processing request failed because of an unknown error, exception, or failure. </p>
+            aws_sdk_invoicing.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found. </p>
+            aws_sdk_invoicing.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_invoicing.errors.validation_exception.ValidationException: <p> The input fails to satisfy the constraints specified by an Amazon Web Services service. </p>
+            aws_sdk_invoicing.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             ListInvoiceSummaries with InvoiceId as selector
@@ -779,6 +854,13 @@ class AsyncInvoicingClient:
             max_results: <p>The maximum number of invoice units that can be returned. </p>
             as_of: <p> The state of an invoice unit at a specified time. You can see legacy invoice units that are currently deleted if the <code>AsOf</code> time is set to before it was deleted. If an <code>AsOf</code> is not provided, the default value is the current time. </p>
 
+        Raises:
+            aws_sdk_invoicing.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action.</p>
+            aws_sdk_invoicing.errors.internal_server_exception.InternalServerException: <p>The processing request failed because of an unknown error, exception, or failure. </p>
+            aws_sdk_invoicing.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_invoicing.errors.validation_exception.ValidationException: <p> The input fails to satisfy the constraints specified by an Amazon Web Services service. </p>
+            aws_sdk_invoicing.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             ListInvoiceUnits without filters as of current time
 
@@ -871,6 +953,15 @@ class AsyncInvoicingClient:
             next_token: <p>The token for the next set of results. (You received this token from a previous call.)</p>
             max_results: <p>The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned NextToken value.</p>
 
+        Raises:
+            aws_sdk_invoicing.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action.</p>
+            aws_sdk_invoicing.errors.conflict_exception.ConflictException: <p>The request could not be completed due to a conflict with the current state of the resource. This exception occurs when a concurrent modification is detected during an update operation, or when attempting to create a resource that already exists.</p>
+            aws_sdk_invoicing.errors.internal_server_exception.InternalServerException: <p>The processing request failed because of an unknown error, exception, or failure. </p>
+            aws_sdk_invoicing.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account limits. The error message describes the limit exceeded. </p>
+            aws_sdk_invoicing.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_invoicing.errors.validation_exception.ValidationException: <p> The input fails to satisfy the constraints specified by an Amazon Web Services service. </p>
+            aws_sdk_invoicing.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             ListProcurementPortalPreferences for Coupa prefs. First Call with following pages
 
@@ -942,6 +1033,14 @@ class AsyncInvoicingClient:
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of tags to list. </p>
+
+        Raises:
+            aws_sdk_invoicing.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action.</p>
+            aws_sdk_invoicing.errors.internal_server_exception.InternalServerException: <p>The processing request failed because of an unknown error, exception, or failure. </p>
+            aws_sdk_invoicing.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found. </p>
+            aws_sdk_invoicing.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_invoicing.errors.validation_exception.ValidationException: <p> The input fails to satisfy the constraints specified by an Amazon Web Services service. </p>
+            aws_sdk_invoicing.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             ListTagsForResource
@@ -1015,6 +1114,16 @@ class AsyncInvoicingClient:
             contacts: <p>Updated list of contact information for portal administrators and technical contacts.</p>
             client_token: <p>A unique, case-sensitive identifier that you provide to ensure idempotency of the request.</p>
 
+        Raises:
+            aws_sdk_invoicing.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action.</p>
+            aws_sdk_invoicing.errors.conflict_exception.ConflictException: <p>The request could not be completed due to a conflict with the current state of the resource. This exception occurs when a concurrent modification is detected during an update operation, or when attempting to create a resource that already exists.</p>
+            aws_sdk_invoicing.errors.internal_server_exception.InternalServerException: <p>The processing request failed because of an unknown error, exception, or failure. </p>
+            aws_sdk_invoicing.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found. </p>
+            aws_sdk_invoicing.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account limits. The error message describes the limit exceeded. </p>
+            aws_sdk_invoicing.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_invoicing.errors.validation_exception.ValidationException: <p> The input fails to satisfy the constraints specified by an Amazon Web Services service. </p>
+            aws_sdk_invoicing.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             PutProcurementPortalPreference for Coupa pref
 
@@ -1079,6 +1188,15 @@ class AsyncInvoicingClient:
             resource_arn: <p>The Amazon Resource Name (ARN) of the tags. </p>
             resource_tags: <p> Adds a tag to a resource. </p>
 
+        Raises:
+            aws_sdk_invoicing.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action.</p>
+            aws_sdk_invoicing.errors.internal_server_exception.InternalServerException: <p>The processing request failed because of an unknown error, exception, or failure. </p>
+            aws_sdk_invoicing.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found. </p>
+            aws_sdk_invoicing.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account limits. The error message describes the limit exceeded. </p>
+            aws_sdk_invoicing.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_invoicing.errors.validation_exception.ValidationException: <p> The input fails to satisfy the constraints specified by an Amazon Web Services service. </p>
+            aws_sdk_invoicing.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             TagResource
 
@@ -1124,6 +1242,14 @@ class AsyncInvoicingClient:
         Args:
             resource_arn: <p> The Amazon Resource Name (ARN) to untag. </p>
             resource_tag_keys: <p> Keys for the tags to be removed. </p>
+
+        Raises:
+            aws_sdk_invoicing.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action.</p>
+            aws_sdk_invoicing.errors.internal_server_exception.InternalServerException: <p>The processing request failed because of an unknown error, exception, or failure. </p>
+            aws_sdk_invoicing.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found. </p>
+            aws_sdk_invoicing.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_invoicing.errors.validation_exception.ValidationException: <p> The input fails to satisfy the constraints specified by an Amazon Web Services service. </p>
+            aws_sdk_invoicing.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             UntagResource
@@ -1186,6 +1312,14 @@ class AsyncInvoicingClient:
             tax_inheritance_disabled: <p>Whether the invoice unit based tax inheritance is/ should be enabled or disabled. </p>
             rule: <p>The <code>InvoiceUnitRule</code> object used to update invoice units. </p>
             client_token: <p> A unique, case-sensitive identifier that you provide to ensure idempotency of the request. </p>
+
+        Raises:
+            aws_sdk_invoicing.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action.</p>
+            aws_sdk_invoicing.errors.internal_server_exception.InternalServerException: <p>The processing request failed because of an unknown error, exception, or failure. </p>
+            aws_sdk_invoicing.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found. </p>
+            aws_sdk_invoicing.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_invoicing.errors.validation_exception.ValidationException: <p> The input fails to satisfy the constraints specified by an Amazon Web Services service. </p>
+            aws_sdk_invoicing.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             UpdateInvoiceUnit with all updatable fields
@@ -1260,6 +1394,16 @@ class AsyncInvoicingClient:
             purchase_order_retrieval_preference_status: <p>The updated status of the purchase order retrieval preference.</p>
             purchase_order_retrieval_preference_status_reason: <p>The reason for the purchase order retrieval preference status update, providing context for the change.</p>
             client_token: <p>A unique, case-sensitive identifier that you provide to ensure idempotency of the request.</p>
+
+        Raises:
+            aws_sdk_invoicing.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action.</p>
+            aws_sdk_invoicing.errors.conflict_exception.ConflictException: <p>The request could not be completed due to a conflict with the current state of the resource. This exception occurs when a concurrent modification is detected during an update operation, or when attempting to create a resource that already exists.</p>
+            aws_sdk_invoicing.errors.internal_server_exception.InternalServerException: <p>The processing request failed because of an unknown error, exception, or failure. </p>
+            aws_sdk_invoicing.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found. </p>
+            aws_sdk_invoicing.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account limits. The error message describes the limit exceeded. </p>
+            aws_sdk_invoicing.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_invoicing.errors.validation_exception.ValidationException: <p> The input fails to satisfy the constraints specified by an Amazon Web Services service. </p>
+            aws_sdk_invoicing.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             UpdateProcurementPortalPreference for EinvoiceDeliveryPreferenceStatus and PurchaseOrderRetrievalPreferenceStatus

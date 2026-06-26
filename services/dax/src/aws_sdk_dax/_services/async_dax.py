@@ -230,6 +230,24 @@ class AsyncDAXClient:
             sse_specification: <p>Represents the settings used to enable server-side encryption on the cluster.</p>
             cluster_endpoint_encryption_type: <p>The type of encryption the cluster's endpoint should support. Values are:</p> <ul> <li> <p> <code>NONE</code> for no encryption</p> </li> <li> <p> <code>TLS</code> for Transport Layer Security</p> </li> </ul>
             network_type: <p>Specifies the IP protocol(s) the cluster uses for network communications. Values are:</p> <ul> <li> <p> <code>ipv4</code> - The cluster is accessible only through IPv4 addresses</p> </li> <li> <p> <code>ipv6</code> - The cluster is accessible only through IPv6 addresses</p> </li> <li> <p> <code>dual_stack</code> - The cluster is accessible through both IPv4 and IPv6 addresses.</p> </li> </ul> <note> <p>If no explicit <code>NetworkType</code> is provided, the network type is derived based on the subnet group's configuration.</p> </note>
+
+        Raises:
+            aws_sdk_dax.errors.cluster_already_exists_fault.ClusterAlreadyExistsFault: <p>You already have a DAX cluster with the given identifier.</p>
+            aws_sdk_dax.errors.cluster_quota_for_customer_exceeded_fault.ClusterQuotaForCustomerExceededFault: <p>You have attempted to exceed the maximum number of DAX clusters for your Amazon Web Services account.</p>
+            aws_sdk_dax.errors.insufficient_cluster_capacity_fault.InsufficientClusterCapacityFault: <p>There are not enough system resources to create the cluster you requested (or to resize an already-existing cluster). </p>
+            aws_sdk_dax.errors.invalid_cluster_state_fault.InvalidClusterStateFault: <p>The requested DAX cluster is not in the <i>available</i> state.</p>
+            aws_sdk_dax.errors.invalid_parameter_combination_exception.InvalidParameterCombinationException: <p>Two or more incompatible parameters were specified.</p>
+            aws_sdk_dax.errors.invalid_parameter_group_state_fault.InvalidParameterGroupStateFault: <p>One or more parameters in a parameter group are in an invalid state.</p>
+            aws_sdk_dax.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value for a parameter is invalid.</p>
+            aws_sdk_dax.errors.invalid_vpc_network_state_fault.InvalidVPCNetworkStateFault: <p>The VPC network is in an invalid state.</p>
+            aws_sdk_dax.errors.node_quota_for_cluster_exceeded_fault.NodeQuotaForClusterExceededFault: <p>You have attempted to exceed the maximum number of nodes for a DAX cluster.</p>
+            aws_sdk_dax.errors.node_quota_for_customer_exceeded_fault.NodeQuotaForCustomerExceededFault: <p>You have attempted to exceed the maximum number of nodes for your Amazon Web Services account.</p>
+            aws_sdk_dax.errors.parameter_group_not_found_fault.ParameterGroupNotFoundFault: <p>The specified parameter group does not exist.</p>
+            aws_sdk_dax.errors.service_linked_role_not_found_fault.ServiceLinkedRoleNotFoundFault: <p>The specified service linked role (SLR) was not found.</p>
+            aws_sdk_dax.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You have reached the maximum number of x509 certificates that can be created for encrypted clusters in a 30 day period. Contact Amazon Web Services customer support to discuss options for continuing to create encrypted clusters.</p>
+            aws_sdk_dax.errors.subnet_group_not_found_fault.SubnetGroupNotFoundFault: <p>The requested subnet group name does not refer to an existing subnet group.</p>
+            aws_sdk_dax.errors.tag_quota_per_resource_exceeded.TagQuotaPerResourceExceeded: <p>You have exceeded the maximum number of tags for this DAX cluster.</p>
+            aws_sdk_dax.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -299,6 +317,15 @@ class AsyncDAXClient:
         Args:
             parameter_group_name: <p>The name of the parameter group to apply to all of the clusters in this replication group.</p>
             description: <p>A description of the parameter group.</p>
+
+        Raises:
+            aws_sdk_dax.errors.invalid_parameter_combination_exception.InvalidParameterCombinationException: <p>Two or more incompatible parameters were specified.</p>
+            aws_sdk_dax.errors.invalid_parameter_group_state_fault.InvalidParameterGroupStateFault: <p>One or more parameters in a parameter group are in an invalid state.</p>
+            aws_sdk_dax.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value for a parameter is invalid.</p>
+            aws_sdk_dax.errors.parameter_group_already_exists_fault.ParameterGroupAlreadyExistsFault: <p>The specified parameter group already exists.</p>
+            aws_sdk_dax.errors.parameter_group_quota_exceeded_fault.ParameterGroupQuotaExceededFault: <p>You have attempted to exceed the maximum number of parameter groups.</p>
+            aws_sdk_dax.errors.service_linked_role_not_found_fault.ServiceLinkedRoleNotFoundFault: <p>The specified service linked role (SLR) was not found.</p>
+            aws_sdk_dax.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -343,6 +370,15 @@ class AsyncDAXClient:
             subnet_group_name: <p>A name for the subnet group. This value is stored as a lowercase string. </p>
             description: <p>A description for the subnet group</p>
             subnet_ids: <p>A list of VPC subnet IDs for the subnet group.</p>
+
+        Raises:
+            aws_sdk_dax.errors.invalid_subnet.InvalidSubnet: <p>An invalid subnet identifier was specified.</p>
+            aws_sdk_dax.errors.service_linked_role_not_found_fault.ServiceLinkedRoleNotFoundFault: <p>The specified service linked role (SLR) was not found.</p>
+            aws_sdk_dax.errors.subnet_group_already_exists_fault.SubnetGroupAlreadyExistsFault: <p>The specified subnet group already exists.</p>
+            aws_sdk_dax.errors.subnet_group_quota_exceeded_fault.SubnetGroupQuotaExceededFault: <p>The request cannot be processed because it would exceed the allowed number of subnets in a subnet group.</p>
+            aws_sdk_dax.errors.subnet_not_allowed_fault.SubnetNotAllowedFault: <p>The specified subnet can't be used for the requested network type. This error occurs when either there aren't enough subnets of the required network type to create the cluster, or when you try to use a subnet that doesn't support the requested network type (for example, trying to create a dual-stack cluster with a subnet that doesn't have IPv6 CIDR). </p>
+            aws_sdk_dax.errors.subnet_quota_exceeded_fault.SubnetQuotaExceededFault: <p>The request cannot be processed because it would exceed the allowed number of subnets in a subnet group.</p>
+            aws_sdk_dax.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -394,6 +430,15 @@ class AsyncDAXClient:
             new_replication_factor: <p>The new number of nodes for the DAX cluster.</p>
             availability_zones: <p>The Availability Zone(s) from which to remove nodes.</p>
             node_ids_to_remove: <p>The unique identifiers of the nodes to be removed from the cluster.</p>
+
+        Raises:
+            aws_sdk_dax.errors.cluster_not_found_fault.ClusterNotFoundFault: <p>The requested cluster ID does not refer to an existing DAX cluster.</p>
+            aws_sdk_dax.errors.invalid_cluster_state_fault.InvalidClusterStateFault: <p>The requested DAX cluster is not in the <i>available</i> state.</p>
+            aws_sdk_dax.errors.invalid_parameter_combination_exception.InvalidParameterCombinationException: <p>Two or more incompatible parameters were specified.</p>
+            aws_sdk_dax.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value for a parameter is invalid.</p>
+            aws_sdk_dax.errors.node_not_found_fault.NodeNotFoundFault: <p>None of the nodes in the cluster have the given node ID.</p>
+            aws_sdk_dax.errors.service_linked_role_not_found_fault.ServiceLinkedRoleNotFoundFault: <p>The specified service linked role (SLR) was not found.</p>
+            aws_sdk_dax.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -437,6 +482,14 @@ class AsyncDAXClient:
 
         Args:
             cluster_name: <p>The name of the cluster to be deleted.</p>
+
+        Raises:
+            aws_sdk_dax.errors.cluster_not_found_fault.ClusterNotFoundFault: <p>The requested cluster ID does not refer to an existing DAX cluster.</p>
+            aws_sdk_dax.errors.invalid_cluster_state_fault.InvalidClusterStateFault: <p>The requested DAX cluster is not in the <i>available</i> state.</p>
+            aws_sdk_dax.errors.invalid_parameter_combination_exception.InvalidParameterCombinationException: <p>Two or more incompatible parameters were specified.</p>
+            aws_sdk_dax.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value for a parameter is invalid.</p>
+            aws_sdk_dax.errors.service_linked_role_not_found_fault.ServiceLinkedRoleNotFoundFault: <p>The specified service linked role (SLR) was not found.</p>
+            aws_sdk_dax.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -477,6 +530,14 @@ class AsyncDAXClient:
 
         Args:
             parameter_group_name: <p>The name of the parameter group to delete.</p>
+
+        Raises:
+            aws_sdk_dax.errors.invalid_parameter_combination_exception.InvalidParameterCombinationException: <p>Two or more incompatible parameters were specified.</p>
+            aws_sdk_dax.errors.invalid_parameter_group_state_fault.InvalidParameterGroupStateFault: <p>One or more parameters in a parameter group are in an invalid state.</p>
+            aws_sdk_dax.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value for a parameter is invalid.</p>
+            aws_sdk_dax.errors.parameter_group_not_found_fault.ParameterGroupNotFoundFault: <p>The specified parameter group does not exist.</p>
+            aws_sdk_dax.errors.service_linked_role_not_found_fault.ServiceLinkedRoleNotFoundFault: <p>The specified service linked role (SLR) was not found.</p>
+            aws_sdk_dax.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -515,6 +576,12 @@ class AsyncDAXClient:
 
         Args:
             subnet_group_name: <p>The name of the subnet group to delete.</p>
+
+        Raises:
+            aws_sdk_dax.errors.service_linked_role_not_found_fault.ServiceLinkedRoleNotFoundFault: <p>The specified service linked role (SLR) was not found.</p>
+            aws_sdk_dax.errors.subnet_group_in_use_fault.SubnetGroupInUseFault: <p>The specified subnet group is currently in use.</p>
+            aws_sdk_dax.errors.subnet_group_not_found_fault.SubnetGroupNotFoundFault: <p>The requested subnet group name does not refer to an existing subnet group.</p>
+            aws_sdk_dax.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -561,6 +628,13 @@ class AsyncDAXClient:
             cluster_names: <p>The names of the DAX clusters being described.</p>
             max_results: <p>The maximum number of results to include in the response. If more results exist than the specified <code>MaxResults</code> value, a token is included in the response so that the remaining results can be retrieved.</p> <p>The value for <code>MaxResults</code> must be between 20 and 100.</p>
             next_token: <p>An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by <code>MaxResults</code>.</p>
+
+        Raises:
+            aws_sdk_dax.errors.cluster_not_found_fault.ClusterNotFoundFault: <p>The requested cluster ID does not refer to an existing DAX cluster.</p>
+            aws_sdk_dax.errors.invalid_parameter_combination_exception.InvalidParameterCombinationException: <p>Two or more incompatible parameters were specified.</p>
+            aws_sdk_dax.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value for a parameter is invalid.</p>
+            aws_sdk_dax.errors.service_linked_role_not_found_fault.ServiceLinkedRoleNotFoundFault: <p>The specified service linked role (SLR) was not found.</p>
+            aws_sdk_dax.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -608,6 +682,12 @@ class AsyncDAXClient:
         Args:
             max_results: <p>The maximum number of results to include in the response. If more results exist than the specified <code>MaxResults</code> value, a token is included in the response so that the remaining results can be retrieved.</p> <p>The value for <code>MaxResults</code> must be between 20 and 100.</p>
             next_token: <p>An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by <code>MaxResults</code>.</p>
+
+        Raises:
+            aws_sdk_dax.errors.invalid_parameter_combination_exception.InvalidParameterCombinationException: <p>Two or more incompatible parameters were specified.</p>
+            aws_sdk_dax.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value for a parameter is invalid.</p>
+            aws_sdk_dax.errors.service_linked_role_not_found_fault.ServiceLinkedRoleNotFoundFault: <p>The specified service linked role (SLR) was not found.</p>
+            aws_sdk_dax.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -663,6 +743,12 @@ class AsyncDAXClient:
             duration: <p>The number of minutes' worth of events to retrieve.</p>
             max_results: <p>The maximum number of results to include in the response. If more results exist than the specified <code>MaxResults</code> value, a token is included in the response so that the remaining results can be retrieved.</p> <p>The value for <code>MaxResults</code> must be between 20 and 100.</p>
             next_token: <p>An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by <code>MaxResults</code>.</p>
+
+        Raises:
+            aws_sdk_dax.errors.invalid_parameter_combination_exception.InvalidParameterCombinationException: <p>Two or more incompatible parameters were specified.</p>
+            aws_sdk_dax.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value for a parameter is invalid.</p>
+            aws_sdk_dax.errors.service_linked_role_not_found_fault.ServiceLinkedRoleNotFoundFault: <p>The specified service linked role (SLR) was not found.</p>
+            aws_sdk_dax.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -722,6 +808,13 @@ class AsyncDAXClient:
             parameter_group_names: <p>The names of the parameter groups.</p>
             max_results: <p>The maximum number of results to include in the response. If more results exist than the specified <code>MaxResults</code> value, a token is included in the response so that the remaining results can be retrieved.</p> <p>The value for <code>MaxResults</code> must be between 20 and 100.</p>
             next_token: <p>An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by <code>MaxResults</code>.</p>
+
+        Raises:
+            aws_sdk_dax.errors.invalid_parameter_combination_exception.InvalidParameterCombinationException: <p>Two or more incompatible parameters were specified.</p>
+            aws_sdk_dax.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value for a parameter is invalid.</p>
+            aws_sdk_dax.errors.parameter_group_not_found_fault.ParameterGroupNotFoundFault: <p>The specified parameter group does not exist.</p>
+            aws_sdk_dax.errors.service_linked_role_not_found_fault.ServiceLinkedRoleNotFoundFault: <p>The specified service linked role (SLR) was not found.</p>
+            aws_sdk_dax.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -773,6 +866,13 @@ class AsyncDAXClient:
             source: <p>How the parameter is defined. For example, <code>system</code> denotes a system-defined parameter.</p>
             max_results: <p>The maximum number of results to include in the response. If more results exist than the specified <code>MaxResults</code> value, a token is included in the response so that the remaining results can be retrieved.</p> <p>The value for <code>MaxResults</code> must be between 20 and 100.</p>
             next_token: <p>An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by <code>MaxResults</code>.</p>
+
+        Raises:
+            aws_sdk_dax.errors.invalid_parameter_combination_exception.InvalidParameterCombinationException: <p>Two or more incompatible parameters were specified.</p>
+            aws_sdk_dax.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value for a parameter is invalid.</p>
+            aws_sdk_dax.errors.parameter_group_not_found_fault.ParameterGroupNotFoundFault: <p>The specified parameter group does not exist.</p>
+            aws_sdk_dax.errors.service_linked_role_not_found_fault.ServiceLinkedRoleNotFoundFault: <p>The specified service linked role (SLR) was not found.</p>
+            aws_sdk_dax.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -827,6 +927,11 @@ class AsyncDAXClient:
             subnet_group_names: <p>The name of the subnet group.</p>
             max_results: <p>The maximum number of results to include in the response. If more results exist than the specified <code>MaxResults</code> value, a token is included in the response so that the remaining results can be retrieved.</p> <p>The value for <code>MaxResults</code> must be between 20 and 100.</p>
             next_token: <p>An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by <code>MaxResults</code>.</p>
+
+        Raises:
+            aws_sdk_dax.errors.service_linked_role_not_found_fault.ServiceLinkedRoleNotFoundFault: <p>The specified service linked role (SLR) was not found.</p>
+            aws_sdk_dax.errors.subnet_group_not_found_fault.SubnetGroupNotFoundFault: <p>The requested subnet group name does not refer to an existing subnet group.</p>
+            aws_sdk_dax.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -876,6 +981,18 @@ class AsyncDAXClient:
             cluster_name: <p>The name of the DAX cluster that will receive additional nodes.</p>
             new_replication_factor: <p>The new number of nodes for the DAX cluster.</p>
             availability_zones: <p>The Availability Zones (AZs) in which the cluster nodes will be created. All nodes belonging to the cluster are placed in these Availability Zones. Use this parameter if you want to distribute the nodes across multiple AZs.</p>
+
+        Raises:
+            aws_sdk_dax.errors.cluster_not_found_fault.ClusterNotFoundFault: <p>The requested cluster ID does not refer to an existing DAX cluster.</p>
+            aws_sdk_dax.errors.insufficient_cluster_capacity_fault.InsufficientClusterCapacityFault: <p>There are not enough system resources to create the cluster you requested (or to resize an already-existing cluster). </p>
+            aws_sdk_dax.errors.invalid_cluster_state_fault.InvalidClusterStateFault: <p>The requested DAX cluster is not in the <i>available</i> state.</p>
+            aws_sdk_dax.errors.invalid_parameter_combination_exception.InvalidParameterCombinationException: <p>Two or more incompatible parameters were specified.</p>
+            aws_sdk_dax.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value for a parameter is invalid.</p>
+            aws_sdk_dax.errors.invalid_vpc_network_state_fault.InvalidVPCNetworkStateFault: <p>The VPC network is in an invalid state.</p>
+            aws_sdk_dax.errors.node_quota_for_cluster_exceeded_fault.NodeQuotaForClusterExceededFault: <p>You have attempted to exceed the maximum number of nodes for a DAX cluster.</p>
+            aws_sdk_dax.errors.node_quota_for_customer_exceeded_fault.NodeQuotaForCustomerExceededFault: <p>You have attempted to exceed the maximum number of nodes for your Amazon Web Services account.</p>
+            aws_sdk_dax.errors.service_linked_role_not_found_fault.ServiceLinkedRoleNotFoundFault: <p>The specified service linked role (SLR) was not found.</p>
+            aws_sdk_dax.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -919,6 +1036,15 @@ class AsyncDAXClient:
         Args:
             resource_name: <p>The name of the DAX resource to which the tags belong.</p>
             next_token: <p>An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token.</p>
+
+        Raises:
+            aws_sdk_dax.errors.cluster_not_found_fault.ClusterNotFoundFault: <p>The requested cluster ID does not refer to an existing DAX cluster.</p>
+            aws_sdk_dax.errors.invalid_arn_fault.InvalidARNFault: <p>The Amazon Resource Name (ARN) supplied in the request is not valid.</p>
+            aws_sdk_dax.errors.invalid_cluster_state_fault.InvalidClusterStateFault: <p>The requested DAX cluster is not in the <i>available</i> state.</p>
+            aws_sdk_dax.errors.invalid_parameter_combination_exception.InvalidParameterCombinationException: <p>Two or more incompatible parameters were specified.</p>
+            aws_sdk_dax.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value for a parameter is invalid.</p>
+            aws_sdk_dax.errors.service_linked_role_not_found_fault.ServiceLinkedRoleNotFoundFault: <p>The specified service linked role (SLR) was not found.</p>
+            aws_sdk_dax.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -961,6 +1087,15 @@ class AsyncDAXClient:
         Args:
             cluster_name: <p>The name of the DAX cluster containing the node to be rebooted.</p>
             node_id: <p>The system-assigned ID of the node to be rebooted.</p>
+
+        Raises:
+            aws_sdk_dax.errors.cluster_not_found_fault.ClusterNotFoundFault: <p>The requested cluster ID does not refer to an existing DAX cluster.</p>
+            aws_sdk_dax.errors.invalid_cluster_state_fault.InvalidClusterStateFault: <p>The requested DAX cluster is not in the <i>available</i> state.</p>
+            aws_sdk_dax.errors.invalid_parameter_combination_exception.InvalidParameterCombinationException: <p>Two or more incompatible parameters were specified.</p>
+            aws_sdk_dax.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value for a parameter is invalid.</p>
+            aws_sdk_dax.errors.node_not_found_fault.NodeNotFoundFault: <p>None of the nodes in the cluster have the given node ID.</p>
+            aws_sdk_dax.errors.service_linked_role_not_found_fault.ServiceLinkedRoleNotFoundFault: <p>The specified service linked role (SLR) was not found.</p>
+            aws_sdk_dax.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1002,6 +1137,16 @@ class AsyncDAXClient:
         Args:
             resource_name: <p>The name of the DAX resource to which tags should be added.</p>
             tags: <p>The tags to be assigned to the DAX resource. </p>
+
+        Raises:
+            aws_sdk_dax.errors.cluster_not_found_fault.ClusterNotFoundFault: <p>The requested cluster ID does not refer to an existing DAX cluster.</p>
+            aws_sdk_dax.errors.invalid_arn_fault.InvalidARNFault: <p>The Amazon Resource Name (ARN) supplied in the request is not valid.</p>
+            aws_sdk_dax.errors.invalid_cluster_state_fault.InvalidClusterStateFault: <p>The requested DAX cluster is not in the <i>available</i> state.</p>
+            aws_sdk_dax.errors.invalid_parameter_combination_exception.InvalidParameterCombinationException: <p>Two or more incompatible parameters were specified.</p>
+            aws_sdk_dax.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value for a parameter is invalid.</p>
+            aws_sdk_dax.errors.service_linked_role_not_found_fault.ServiceLinkedRoleNotFoundFault: <p>The specified service linked role (SLR) was not found.</p>
+            aws_sdk_dax.errors.tag_quota_per_resource_exceeded.TagQuotaPerResourceExceeded: <p>You have exceeded the maximum number of tags for this DAX cluster.</p>
+            aws_sdk_dax.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1043,6 +1188,16 @@ class AsyncDAXClient:
         Args:
             resource_name: <p>The name of the DAX resource from which the tags should be removed.</p>
             tag_keys: <p>A list of tag keys. If the DAX cluster has any tags with these keys, then the tags are removed from the cluster.</p>
+
+        Raises:
+            aws_sdk_dax.errors.cluster_not_found_fault.ClusterNotFoundFault: <p>The requested cluster ID does not refer to an existing DAX cluster.</p>
+            aws_sdk_dax.errors.invalid_arn_fault.InvalidARNFault: <p>The Amazon Resource Name (ARN) supplied in the request is not valid.</p>
+            aws_sdk_dax.errors.invalid_cluster_state_fault.InvalidClusterStateFault: <p>The requested DAX cluster is not in the <i>available</i> state.</p>
+            aws_sdk_dax.errors.invalid_parameter_combination_exception.InvalidParameterCombinationException: <p>Two or more incompatible parameters were specified.</p>
+            aws_sdk_dax.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value for a parameter is invalid.</p>
+            aws_sdk_dax.errors.service_linked_role_not_found_fault.ServiceLinkedRoleNotFoundFault: <p>The specified service linked role (SLR) was not found.</p>
+            aws_sdk_dax.errors.tag_not_found_fault.TagNotFoundFault: <p>The tag does not exist.</p>
+            aws_sdk_dax.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1098,6 +1253,16 @@ class AsyncDAXClient:
             notification_topic_status: <p>The current state of the topic. A value of “active” means that notifications will be sent to the topic. A value of “inactive” means that notifications will not be sent to the topic.</p>
             parameter_group_name: <p>The name of a parameter group for this cluster.</p>
             security_group_ids: <p>A list of user-specified security group IDs to be assigned to each node in the DAX cluster. If this parameter is not specified, DAX assigns the default VPC security group to each node.</p>
+
+        Raises:
+            aws_sdk_dax.errors.cluster_not_found_fault.ClusterNotFoundFault: <p>The requested cluster ID does not refer to an existing DAX cluster.</p>
+            aws_sdk_dax.errors.invalid_cluster_state_fault.InvalidClusterStateFault: <p>The requested DAX cluster is not in the <i>available</i> state.</p>
+            aws_sdk_dax.errors.invalid_parameter_combination_exception.InvalidParameterCombinationException: <p>Two or more incompatible parameters were specified.</p>
+            aws_sdk_dax.errors.invalid_parameter_group_state_fault.InvalidParameterGroupStateFault: <p>One or more parameters in a parameter group are in an invalid state.</p>
+            aws_sdk_dax.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value for a parameter is invalid.</p>
+            aws_sdk_dax.errors.parameter_group_not_found_fault.ParameterGroupNotFoundFault: <p>The specified parameter group does not exist.</p>
+            aws_sdk_dax.errors.service_linked_role_not_found_fault.ServiceLinkedRoleNotFoundFault: <p>The specified service linked role (SLR) was not found.</p>
+            aws_sdk_dax.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1152,6 +1317,14 @@ class AsyncDAXClient:
         Args:
             parameter_group_name: <p>The name of the parameter group.</p>
             parameter_name_values: <p>An array of name-value pairs for the parameters in the group. Each element in the array represents a single parameter.</p> <note> <p> <code>record-ttl-millis</code> and <code>query-ttl-millis</code> are the only supported parameter names. For more details, see <a href=\"https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DAX.cluster-management.html#DAX.cluster-management.custom-settings.ttl\">Configuring TTL Settings</a>.</p> </note>
+
+        Raises:
+            aws_sdk_dax.errors.invalid_parameter_combination_exception.InvalidParameterCombinationException: <p>Two or more incompatible parameters were specified.</p>
+            aws_sdk_dax.errors.invalid_parameter_group_state_fault.InvalidParameterGroupStateFault: <p>One or more parameters in a parameter group are in an invalid state.</p>
+            aws_sdk_dax.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value for a parameter is invalid.</p>
+            aws_sdk_dax.errors.parameter_group_not_found_fault.ParameterGroupNotFoundFault: <p>The specified parameter group does not exist.</p>
+            aws_sdk_dax.errors.service_linked_role_not_found_fault.ServiceLinkedRoleNotFoundFault: <p>The specified service linked role (SLR) was not found.</p>
+            aws_sdk_dax.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1197,6 +1370,15 @@ class AsyncDAXClient:
             subnet_group_name: <p>The name of the subnet group.</p>
             description: <p>A description of the subnet group.</p>
             subnet_ids: <p>A list of subnet IDs in the subnet group.</p>
+
+        Raises:
+            aws_sdk_dax.errors.invalid_subnet.InvalidSubnet: <p>An invalid subnet identifier was specified.</p>
+            aws_sdk_dax.errors.service_linked_role_not_found_fault.ServiceLinkedRoleNotFoundFault: <p>The specified service linked role (SLR) was not found.</p>
+            aws_sdk_dax.errors.subnet_group_not_found_fault.SubnetGroupNotFoundFault: <p>The requested subnet group name does not refer to an existing subnet group.</p>
+            aws_sdk_dax.errors.subnet_in_use.SubnetInUse: <p>The requested subnet is being used by another subnet group.</p>
+            aws_sdk_dax.errors.subnet_not_allowed_fault.SubnetNotAllowedFault: <p>The specified subnet can't be used for the requested network type. This error occurs when either there aren't enough subnets of the required network type to create the cluster, or when you try to use a subnet that doesn't support the requested network type (for example, trying to create a dual-stack cluster with a subnet that doesn't have IPv6 CIDR). </p>
+            aws_sdk_dax.errors.subnet_quota_exceeded_fault.SubnetQuotaExceededFault: <p>The request cannot be processed because it would exceed the allowed number of subnets in a subnet group.</p>
+            aws_sdk_dax.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

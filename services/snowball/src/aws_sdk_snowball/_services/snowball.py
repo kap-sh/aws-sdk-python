@@ -222,6 +222,12 @@ class SnowballClient:
         Args:
             cluster_id: <p>The 39-character ID for the cluster that you want to cancel, for example <code>CID123e4567-e89b-12d3-a456-426655440000</code>.</p>
 
+        Raises:
+            aws_sdk_snowball.errors.invalid_job_state_exception.InvalidJobStateException: <p>The action can't be performed because the job's current state doesn't allow that action to be performed.</p>
+            aws_sdk_snowball.errors.invalid_resource_exception.InvalidResourceException: <p>The specified resource can't be found. Check the information you provided in your last request, and try again.</p>
+            aws_sdk_snowball.errors.kms_request_failed_exception.KMSRequestFailedException: <p>The provided Key Management Service key lacks the permissions to perform the specified <a>CreateJob</a> or <a>UpdateJob</a> action.</p>
+            aws_sdk_snowball.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To cancel a cluster job
             This operation cancels a cluster job. You can only cancel a cluster job while it's in the AwaitingQuorum status.
@@ -265,6 +271,12 @@ class SnowballClient:
         Args:
             job_id: <p>The 39-character job ID for the job that you want to cancel, for example <code>JID123e4567-e89b-12d3-a456-426655440000</code>.</p>
 
+        Raises:
+            aws_sdk_snowball.errors.invalid_job_state_exception.InvalidJobStateException: <p>The action can't be performed because the job's current state doesn't allow that action to be performed.</p>
+            aws_sdk_snowball.errors.invalid_resource_exception.InvalidResourceException: <p>The specified resource can't be found. Check the information you provided in your last request, and try again.</p>
+            aws_sdk_snowball.errors.kms_request_failed_exception.KMSRequestFailedException: <p>The provided Key Management Service key lacks the permissions to perform the specified <a>CreateJob</a> or <a>UpdateJob</a> action.</p>
+            aws_sdk_snowball.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To cancel a job for a Snowball device
             This operation cancels a job. You can only cancel a job before its JobState value changes to PreparingAppliance.
@@ -307,6 +319,11 @@ class SnowballClient:
 
         Args:
             address: <p>The address that you want the Snow device shipped to.</p>
+
+        Raises:
+            aws_sdk_snowball.errors.invalid_address_exception.InvalidAddressException: <p>The address provided was invalid. Check the address with your region's carrier, and try again.</p>
+            aws_sdk_snowball.errors.unsupported_address_exception.UnsupportedAddressException: <p>The address is either outside the serviceable area for your region, or an error occurred. Check the address with your region's carrier and try again. If the issue persists, contact Amazon Web Services Support.</p>
+            aws_sdk_snowball.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To create an address for a job
@@ -398,6 +415,13 @@ class SnowballClient:
             force_create_jobs: <p>Force to create cluster when user attempts to overprovision or underprovision a cluster. A cluster is overprovisioned or underprovisioned if the initial size of the cluster is more (overprovisioned) or less (underprovisioned) than what needed to meet capacity requirement specified with <code>OnDeviceServiceConfiguration</code>.</p>
             long_term_pricing_ids: <p>Lists long-term pricing id that will be used to associate with jobs automatically created for the new cluster.</p>
             snowball_capacity_preference: <p>If your job is being created in one of the US regions, you have the option of specifying what size Snow device you'd like for this job. In all other regions, Snowballs come with 80 TB in storage capacity.</p> <p>For more information, see \"https://docs.aws.amazon.com/snowball/latest/snowcone-guide/snow-device-types.html\" (Snow Family Devices and Capacity) in the <i>Snowcone User Guide</i> or \"https://docs.aws.amazon.com/snowball/latest/developer-guide/snow-device-types.html\" (Snow Family Devices and Capacity) in the <i>Snowcone User Guide</i>.</p>
+
+        Raises:
+            aws_sdk_snowball.errors.ec2_request_failed_exception.Ec2RequestFailedException: <p>Your user lacks the necessary Amazon EC2 permissions to perform the attempted action.</p>
+            aws_sdk_snowball.errors.invalid_input_combination_exception.InvalidInputCombinationException: <p>Job or cluster creation failed. One or more inputs were invalid. Confirm that the <a>CreateClusterRequest$SnowballType</a> value supports your <a>CreateJobRequest$JobType</a>, and try again.</p>
+            aws_sdk_snowball.errors.invalid_resource_exception.InvalidResourceException: <p>The specified resource can't be found. Check the information you provided in your last request, and try again.</p>
+            aws_sdk_snowball.errors.kms_request_failed_exception.KMSRequestFailedException: <p>The provided Key Management Service key lacks the permissions to perform the specified <a>CreateJob</a> or <a>UpdateJob</a> action.</p>
+            aws_sdk_snowball.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To create a cluster
@@ -531,6 +555,14 @@ class SnowballClient:
             impact_level: <p>The highest impact level of data that will be stored or processed on the device, provided at job creation.</p>
             pickup_details: <p>Information identifying the person picking up the device.</p>
 
+        Raises:
+            aws_sdk_snowball.errors.cluster_limit_exceeded_exception.ClusterLimitExceededException: <p>Job creation failed. Currently, clusters support five nodes. If you have fewer than five nodes for your cluster and you have more nodes to create for this cluster, try again and create jobs until your cluster has exactly five nodes.</p>
+            aws_sdk_snowball.errors.ec2_request_failed_exception.Ec2RequestFailedException: <p>Your user lacks the necessary Amazon EC2 permissions to perform the attempted action.</p>
+            aws_sdk_snowball.errors.invalid_input_combination_exception.InvalidInputCombinationException: <p>Job or cluster creation failed. One or more inputs were invalid. Confirm that the <a>CreateClusterRequest$SnowballType</a> value supports your <a>CreateJobRequest$JobType</a>, and try again.</p>
+            aws_sdk_snowball.errors.invalid_resource_exception.InvalidResourceException: <p>The specified resource can't be found. Check the information you provided in your last request, and try again.</p>
+            aws_sdk_snowball.errors.kms_request_failed_exception.KMSRequestFailedException: <p>The provided Key Management Service key lacks the permissions to perform the specified <a>CreateJob</a> or <a>UpdateJob</a> action.</p>
+            aws_sdk_snowball.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To create a job
             Creates a job to import or export data between Amazon S3 and your on-premises data center. Your AWS account must have the right trust policies and permissions in place to create a job for Snowball. If you're creating a job for a node in a cluster, you only need to provide the clusterId value; the other job attributes are inherited from the cluster.
@@ -616,6 +648,10 @@ class SnowballClient:
             long_term_pricing_type: <p>The type of long-term pricing option you want for the device, either 1-year or 3-year long-term pricing.</p>
             is_long_term_pricing_auto_renew: <p>Specifies whether the current long-term pricing type for the device should be renewed.</p>
             snowball_type: <p>The type of Snow Family devices to use for the long-term pricing job.</p>
+
+        Raises:
+            aws_sdk_snowball.errors.invalid_resource_exception.InvalidResourceException: <p>The specified resource can't be found. Check the information you provided in your last request, and try again.</p>
+            aws_sdk_snowball.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -660,6 +696,14 @@ class SnowballClient:
         Args:
             job_id: <p>The ID for a job that you want to create the return shipping label for; for example, <code>JID123e4567-e89b-12d3-a456-426655440000</code>.</p>
             shipping_option: <p>The shipping speed for a particular job. This speed doesn't dictate how soon the device is returned to Amazon Web Services. This speed represents how quickly it moves to its destination while in transit. Regional shipping speeds are as follows:</p>
+
+        Raises:
+            aws_sdk_snowball.errors.conflict_exception.ConflictException: <p>You get this exception when you call <code>CreateReturnShippingLabel</code> more than once when other requests are not completed.</p>
+            aws_sdk_snowball.errors.invalid_input_combination_exception.InvalidInputCombinationException: <p>Job or cluster creation failed. One or more inputs were invalid. Confirm that the <a>CreateClusterRequest$SnowballType</a> value supports your <a>CreateJobRequest$JobType</a>, and try again.</p>
+            aws_sdk_snowball.errors.invalid_job_state_exception.InvalidJobStateException: <p>The action can't be performed because the job's current state doesn't allow that action to be performed.</p>
+            aws_sdk_snowball.errors.invalid_resource_exception.InvalidResourceException: <p>The specified resource can't be found. Check the information you provided in your last request, and try again.</p>
+            aws_sdk_snowball.errors.return_shipping_label_already_exists_exception.ReturnShippingLabelAlreadyExistsException: <p>You get this exception if you call <code>CreateReturnShippingLabel</code> and a valid return shipping label already exists. In this case, use <code>DescribeReturnShippingLabel</code> to get the URL.</p>
+            aws_sdk_snowball.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -699,6 +743,10 @@ class SnowballClient:
 
         Args:
             address_id: <p>The automatically generated ID for a specific address.</p>
+
+        Raises:
+            aws_sdk_snowball.errors.invalid_resource_exception.InvalidResourceException: <p>The specified resource can't be found. Check the information you provided in your last request, and try again.</p>
+            aws_sdk_snowball.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To describe an address for a job
@@ -744,6 +792,11 @@ class SnowballClient:
         Args:
             max_results: <p>The number of <code>ADDRESS</code> objects to return.</p>
             next_token: <p>HTTP requests are stateless. To identify what object comes \"next\" in the list of <code>ADDRESS</code> objects, you have the option of specifying a value for <code>NextToken</code> as the starting point for your list of returned addresses.</p>
+
+        Raises:
+            aws_sdk_snowball.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The <code>NextToken</code> string was altered unexpectedly, and the operation has stopped. Run the operation without changing the <code>NextToken</code> string, and try again.</p>
+            aws_sdk_snowball.errors.invalid_resource_exception.InvalidResourceException: <p>The specified resource can't be found. Check the information you provided in your last request, and try again.</p>
+            aws_sdk_snowball.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To describe all the addresses you've created for AWS Snowball
@@ -811,6 +864,10 @@ class SnowballClient:
 
         Args:
             cluster_id: <p>The automatically generated ID for a cluster.</p>
+
+        Raises:
+            aws_sdk_snowball.errors.invalid_resource_exception.InvalidResourceException: <p>The specified resource can't be found. Check the information you provided in your last request, and try again.</p>
+            aws_sdk_snowball.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -848,6 +905,10 @@ class SnowballClient:
 
         Args:
             job_id: <p>The automatically generated ID for a job, for example <code>JID123e4567-e89b-12d3-a456-426655440000</code>.</p>
+
+        Raises:
+            aws_sdk_snowball.errors.invalid_resource_exception.InvalidResourceException: <p>The specified resource can't be found. Check the information you provided in your last request, and try again.</p>
+            aws_sdk_snowball.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -885,6 +946,12 @@ class SnowballClient:
 
         Args:
             job_id: <p>The automatically generated ID for a job, for example <code>JID123e4567-e89b-12d3-a456-426655440000</code>.</p>
+
+        Raises:
+            aws_sdk_snowball.errors.conflict_exception.ConflictException: <p>You get this exception when you call <code>CreateReturnShippingLabel</code> more than once when other requests are not completed.</p>
+            aws_sdk_snowball.errors.invalid_job_state_exception.InvalidJobStateException: <p>The action can't be performed because the job's current state doesn't allow that action to be performed.</p>
+            aws_sdk_snowball.errors.invalid_resource_exception.InvalidResourceException: <p>The specified resource can't be found. Check the information you provided in your last request, and try again.</p>
+            aws_sdk_snowball.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -922,6 +989,11 @@ class SnowballClient:
 
                 Args:
                     job_id: <p>The ID for a job that you want to get the manifest file for, for example <code>JID123e4567-e89b-12d3-a456-426655440000</code>.</p>
+
+                Raises:
+                    aws_sdk_snowball.errors.invalid_job_state_exception.InvalidJobStateException: <p>The action can't be performed because the job's current state doesn't allow that action to be performed.</p>
+                    aws_sdk_snowball.errors.invalid_resource_exception.InvalidResourceException: <p>The specified resource can't be found. Check the information you provided in your last request, and try again.</p>
+                    aws_sdk_snowball.errors.UnknownServiceError: The service returned an error code this client does not model.
 
                 Examples:
                     To get the manifest for a job you've created for AWS Snowball
@@ -972,6 +1044,11 @@ class SnowballClient:
                 Args:
                     job_id: <p>The ID for the job that you want to get the <code>UnlockCode</code> value for, for example <code>JID123e4567-e89b-12d3-a456-426655440000</code>.</p>
 
+                Raises:
+                    aws_sdk_snowball.errors.invalid_job_state_exception.InvalidJobStateException: <p>The action can't be performed because the job's current state doesn't allow that action to be performed.</p>
+                    aws_sdk_snowball.errors.invalid_resource_exception.InvalidResourceException: <p>The specified resource can't be found. Check the information you provided in your last request, and try again.</p>
+                    aws_sdk_snowball.errors.UnknownServiceError: The service returned an error code this client does not model.
+
                 Examples:
                     To get the unlock code for a job you've created for AWS Snowball
                     Returns the UnlockCode code value for the specified job. A particular UnlockCode value can be accessed for up to 90 days after the associated job has been created.
@@ -1012,6 +1089,9 @@ class SnowballClient:
         self, *, config_overrides: Optional[SnowballClientConfig] = None
     ) -> "aws_sdk_snowball.types.get_snowball_usage_result.GetSnowballUsageResult":
         """<p>Returns information about the Snow Family service limit for your account, and also the number of Snow devices your account has in use.</p> <p>The default service limit for the number of Snow devices that you can have at one time is 1. If you want to increase your service limit, contact Amazon Web Services Support.</p>
+
+                Raises:
+                    aws_sdk_snowball.errors.UnknownServiceError: The service returned an error code this client does not model.
 
                 Examples:
                     To see your Snowball service limit and the number of Snowballs you have in use
@@ -1056,6 +1136,11 @@ class SnowballClient:
 
         Args:
             job_id: <p>The ID for a job that you want to get the software update file for, for example <code>JID123e4567-e89b-12d3-a456-426655440000</code>.</p>
+
+        Raises:
+            aws_sdk_snowball.errors.invalid_job_state_exception.InvalidJobStateException: <p>The action can't be performed because the job's current state doesn't allow that action to be performed.</p>
+            aws_sdk_snowball.errors.invalid_resource_exception.InvalidResourceException: <p>The specified resource can't be found. Check the information you provided in your last request, and try again.</p>
+            aws_sdk_snowball.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1097,6 +1182,11 @@ class SnowballClient:
             cluster_id: <p>The 39-character ID for the cluster that you want to list, for example <code>CID123e4567-e89b-12d3-a456-426655440000</code>.</p>
             max_results: <p>The number of <code>JobListEntry</code> objects to return.</p>
             next_token: <p>HTTP requests are stateless. To identify what object comes \"next\" in the list of <code>JobListEntry</code> objects, you have the option of specifying <code>NextToken</code> as the starting point for your returned list.</p>
+
+        Raises:
+            aws_sdk_snowball.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The <code>NextToken</code> string was altered unexpectedly, and the operation has stopped. Run the operation without changing the <code>NextToken</code> string, and try again.</p>
+            aws_sdk_snowball.errors.invalid_resource_exception.InvalidResourceException: <p>The specified resource can't be found. Check the information you provided in your last request, and try again.</p>
+            aws_sdk_snowball.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1163,6 +1253,10 @@ class SnowballClient:
         Args:
             max_results: <p>The number of <code>ClusterListEntry</code> objects to return.</p>
             next_token: <p>HTTP requests are stateless. To identify what object comes \"next\" in the list of <code>ClusterListEntry</code> objects, you have the option of specifying <code>NextToken</code> as the starting point for your returned list.</p>
+
+        Raises:
+            aws_sdk_snowball.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The <code>NextToken</code> string was altered unexpectedly, and the operation has stopped. Run the operation without changing the <code>NextToken</code> string, and try again.</p>
+            aws_sdk_snowball.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1226,6 +1320,11 @@ class SnowballClient:
         Args:
             max_results: <p>The maximum number of results for the list of compatible images. Currently, a Snowball Edge device can store 10 AMIs.</p>
             next_token: <p>HTTP requests are stateless. To identify what object comes \"next\" in the list of compatible images, you can specify a value for <code>NextToken</code> as the starting point for your list of returned images.</p>
+
+        Raises:
+            aws_sdk_snowball.errors.ec2_request_failed_exception.Ec2RequestFailedException: <p>Your user lacks the necessary Amazon EC2 permissions to perform the attempted action.</p>
+            aws_sdk_snowball.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The <code>NextToken</code> string was altered unexpectedly, and the operation has stopped. Run the operation without changing the <code>NextToken</code> string, and try again.</p>
+            aws_sdk_snowball.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1289,6 +1388,10 @@ class SnowballClient:
         Args:
             max_results: <p>The number of <code>JobListEntry</code> objects to return.</p>
             next_token: <p>HTTP requests are stateless. To identify what object comes \"next\" in the list of <code>JobListEntry</code> objects, you have the option of specifying <code>NextToken</code> as the starting point for your returned list.</p>
+
+        Raises:
+            aws_sdk_snowball.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The <code>NextToken</code> string was altered unexpectedly, and the operation has stopped. Run the operation without changing the <code>NextToken</code> string, and try again.</p>
+            aws_sdk_snowball.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1354,6 +1457,11 @@ class SnowballClient:
         Args:
             max_results: <p>The maximum number of <code>ListLongTermPricing</code> objects to return.</p>
             next_token: <p>Because HTTP requests are stateless, this is the starting point for your next list of <code>ListLongTermPricing</code> to return.</p>
+
+        Raises:
+            aws_sdk_snowball.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The <code>NextToken</code> string was altered unexpectedly, and the operation has stopped. Run the operation without changing the <code>NextToken</code> string, and try again.</p>
+            aws_sdk_snowball.errors.invalid_resource_exception.InvalidResourceException: <p>The specified resource can't be found. Check the information you provided in your last request, and try again.</p>
+            aws_sdk_snowball.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1420,6 +1528,10 @@ class SnowballClient:
             max_results: <p>The maximum number of locations to list per page.</p>
             next_token: <p>HTTP requests are stateless. To identify what object comes \"next\" in the list of <code>ListPickupLocationsRequest</code> objects, you have the option of specifying <code>NextToken</code> as the starting point for your returned list.</p>
 
+        Raises:
+            aws_sdk_snowball.errors.invalid_resource_exception.InvalidResourceException: <p>The specified resource can't be found. Check the information you provided in your last request, and try again.</p>
+            aws_sdk_snowball.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To get a list of locations from which the customer can choose to pickup a device.
             Returns a specified number of Address objects. Each Address is a pickup location address for Snow Family devices.
@@ -1475,6 +1587,11 @@ class SnowballClient:
             dependent_services: <p>A list of names and versions of dependant services of the requested service.</p>
             max_results: <p>The maximum number of <code>ListServiceVersions</code> objects to return.</p>
             next_token: <p>Because HTTP requests are stateless, this is the starting point for the next list of returned <code>ListServiceVersionsRequest</code> versions.</p>
+
+        Raises:
+            aws_sdk_snowball.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The <code>NextToken</code> string was altered unexpectedly, and the operation has stopped. Run the operation without changing the <code>NextToken</code> string, and try again.</p>
+            aws_sdk_snowball.errors.invalid_resource_exception.InvalidResourceException: <p>The specified resource can't be found. Check the information you provided in your last request, and try again.</p>
+            aws_sdk_snowball.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1542,6 +1659,14 @@ class SnowballClient:
             shipping_option: <p>The updated shipping option value of this cluster's <a>ShippingDetails</a> object.</p>
             notification: <p>The new or updated <a>Notification</a> object.</p>
             forwarding_address_id: <p>The updated ID for the forwarding address for a cluster. This field is not supported in most regions.</p>
+
+        Raises:
+            aws_sdk_snowball.errors.ec2_request_failed_exception.Ec2RequestFailedException: <p>Your user lacks the necessary Amazon EC2 permissions to perform the attempted action.</p>
+            aws_sdk_snowball.errors.invalid_input_combination_exception.InvalidInputCombinationException: <p>Job or cluster creation failed. One or more inputs were invalid. Confirm that the <a>CreateClusterRequest$SnowballType</a> value supports your <a>CreateJobRequest$JobType</a>, and try again.</p>
+            aws_sdk_snowball.errors.invalid_job_state_exception.InvalidJobStateException: <p>The action can't be performed because the job's current state doesn't allow that action to be performed.</p>
+            aws_sdk_snowball.errors.invalid_resource_exception.InvalidResourceException: <p>The specified resource can't be found. Check the information you provided in your last request, and try again.</p>
+            aws_sdk_snowball.errors.kms_request_failed_exception.KMSRequestFailedException: <p>The provided Key Management Service key lacks the permissions to perform the specified <a>CreateJob</a> or <a>UpdateJob</a> action.</p>
+            aws_sdk_snowball.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To update a cluster
@@ -1633,6 +1758,15 @@ class SnowballClient:
             snowball_capacity_preference: <p>The updated <code>SnowballCapacityPreference</code> of this job's <a>JobMetadata</a> object. The 50 TB Snowballs are only available in the US regions.</p> <p>For more information, see \"https://docs.aws.amazon.com/snowball/latest/snowcone-guide/snow-device-types.html\" (Snow Family Devices and Capacity) in the <i>Snowcone User Guide</i> or \"https://docs.aws.amazon.com/snowball/latest/developer-guide/snow-device-types.html\" (Snow Family Devices and Capacity) in the <i>Snowcone User Guide</i>.</p>
             forwarding_address_id: <p>The updated ID for the forwarding address for a job. This field is not supported in most regions.</p>
 
+        Raises:
+            aws_sdk_snowball.errors.cluster_limit_exceeded_exception.ClusterLimitExceededException: <p>Job creation failed. Currently, clusters support five nodes. If you have fewer than five nodes for your cluster and you have more nodes to create for this cluster, try again and create jobs until your cluster has exactly five nodes.</p>
+            aws_sdk_snowball.errors.ec2_request_failed_exception.Ec2RequestFailedException: <p>Your user lacks the necessary Amazon EC2 permissions to perform the attempted action.</p>
+            aws_sdk_snowball.errors.invalid_input_combination_exception.InvalidInputCombinationException: <p>Job or cluster creation failed. One or more inputs were invalid. Confirm that the <a>CreateClusterRequest$SnowballType</a> value supports your <a>CreateJobRequest$JobType</a>, and try again.</p>
+            aws_sdk_snowball.errors.invalid_job_state_exception.InvalidJobStateException: <p>The action can't be performed because the job's current state doesn't allow that action to be performed.</p>
+            aws_sdk_snowball.errors.invalid_resource_exception.InvalidResourceException: <p>The specified resource can't be found. Check the information you provided in your last request, and try again.</p>
+            aws_sdk_snowball.errors.kms_request_failed_exception.KMSRequestFailedException: <p>The provided Key Management Service key lacks the permissions to perform the specified <a>CreateJob</a> or <a>UpdateJob</a> action.</p>
+            aws_sdk_snowball.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To update a job
             This action allows you to update certain parameters for a job. Once the job changes to a different job state, usually within 60 minutes of the job being created, this action is no longer available.
@@ -1697,6 +1831,11 @@ class SnowballClient:
         Args:
             job_id: <p>The job ID of the job whose shipment date you want to update, for example <code>JID123e4567-e89b-12d3-a456-426655440000</code>.</p>
             shipment_state: <p>The state of a device when it is being shipped. </p> <p>Set to <code>RECEIVED</code> when the device arrives at your location.</p> <p>Set to <code>RETURNED</code> when you have returned the device to Amazon Web Services.</p>
+
+        Raises:
+            aws_sdk_snowball.errors.invalid_job_state_exception.InvalidJobStateException: <p>The action can't be performed because the job's current state doesn't allow that action to be performed.</p>
+            aws_sdk_snowball.errors.invalid_resource_exception.InvalidResourceException: <p>The specified resource can't be found. Check the information you provided in your last request, and try again.</p>
+            aws_sdk_snowball.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1741,6 +1880,10 @@ class SnowballClient:
             long_term_pricing_id: <p>The ID of the long-term pricing type for the device.</p>
             replacement_job: <p>Specifies that a device that is ordered with long-term pricing should be replaced with a new device.</p>
             is_long_term_pricing_auto_renew: <p>If set to <code>true</code>, specifies that the current long-term pricing type for the device should be automatically renewed before the long-term pricing contract expires.</p>
+
+        Raises:
+            aws_sdk_snowball.errors.invalid_resource_exception.InvalidResourceException: <p>The specified resource can't be found. Check the information you provided in your last request, and try again.</p>
+            aws_sdk_snowball.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(

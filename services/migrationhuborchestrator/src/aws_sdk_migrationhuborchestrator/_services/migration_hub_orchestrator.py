@@ -175,6 +175,11 @@ class MigrationHubOrchestratorClient:
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource.</p>
+
+        Raises:
+            aws_sdk_migrationhuborchestrator.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource is not available.</p>
+            aws_sdk_migrationhuborchestrator.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_migrationhuborchestrator.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -214,6 +219,11 @@ class MigrationHubOrchestratorClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource to which you want to add tags.</p>
             tags: <p>A collection of labels, in the form of key:value pairs, that apply to this resource.</p>
+
+        Raises:
+            aws_sdk_migrationhuborchestrator.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource is not available.</p>
+            aws_sdk_migrationhuborchestrator.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_migrationhuborchestrator.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -254,6 +264,11 @@ class MigrationHubOrchestratorClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource from which you want to remove tags.</p>
             tag_keys: <p>One or more tag keys. Specify only the tag keys, not the tag values.</p>
+
+        Raises:
+            aws_sdk_migrationhuborchestrator.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource is not available.</p>
+            aws_sdk_migrationhuborchestrator.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_migrationhuborchestrator.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(

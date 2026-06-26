@@ -187,6 +187,10 @@ class AsyncMWAAClient:
 
         Args:
             name: <p>The name of the Amazon MWAA environment. For example, <code>MyMWAAEnvironment</code>.</p>
+
+        Raises:
+            aws_sdk_mwaa.errors.resource_not_found_exception.ResourceNotFoundException: <p>ResourceNotFoundException: The resource is not available.</p>
+            aws_sdk_mwaa.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -303,6 +307,12 @@ class AsyncMWAAClient:
             endpoint_management: <p>Defines whether the VPC endpoints configured for the environment are created, and managed, by the customer or by Amazon MWAA. If set to <code>SERVICE</code>, Amazon MWAA will create and manage the required VPC endpoints in your VPC. If set to <code>CUSTOMER</code>, you must create, and manage, the VPC endpoints for your VPC. If you choose to create an environment in a shared VPC, you must set this value to <code>CUSTOMER</code>. In a shared VPC deployment, the environment will remain in <code>PENDING</code> status until you create the VPC endpoints. If you do not take action to create the endpoints within 72 hours, the status will change to <code>CREATE_FAILED</code>. You can delete the failed environment and create a new one.</p>
             min_webservers: <p> The minimum number of web servers that you want to run in your environment. Amazon MWAA scales the number of Apache Airflow web servers up to the number you specify for <code>MaxWebservers</code> when you interact with your Apache Airflow environment using Apache Airflow REST API, or the Apache Airflow CLI. As the transaction-per-second rate, and the network load, decrease, Amazon MWAA disposes of the additional web servers, and scales down to the number set in <code>MinxWebserers</code>. </p> <p>Valid values: For environments larger than mw1.micro, accepts values from <code>2</code> to <code>5</code>. Defaults to <code>2</code> for all environment sizes except mw1.micro, which defaults to <code>1</code>.</p>
             max_webservers: <p> The maximum number of web servers that you want to run in your environment. Amazon MWAA scales the number of Apache Airflow web servers up to the number you specify for <code>MaxWebservers</code> when you interact with your Apache Airflow environment using Apache Airflow REST API, or the Apache Airflow CLI. For example, in scenarios where your workload requires network calls to the Apache Airflow REST API with a high transaction-per-second (TPS) rate, Amazon MWAA will increase the number of web servers up to the number set in <code>MaxWebserers</code>. As TPS rates decrease Amazon MWAA disposes of the additional web servers, and scales down to the number set in <code>MinxWebserers</code>. </p> <p>Valid values: For environments larger than mw1.micro, accepts values from <code>2</code> to <code>5</code>. Defaults to <code>2</code> for all environment sizes except mw1.micro, which defaults to <code>1</code>.</p>
+
+        Raises:
+            aws_sdk_mwaa.errors.internal_server_exception.InternalServerException: <p>InternalServerException: An internal error has occurred.</p>
+            aws_sdk_mwaa.errors.service_unavailable_exception.ServiceUnavailableException: <p>ServiceUnavailableException: The service is currently unavailable.</p>
+            aws_sdk_mwaa.errors.validation_exception.ValidationException: <p>ValidationException: The provided input is not valid.</p>
+            aws_sdk_mwaa.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -389,6 +399,13 @@ class AsyncMWAAClient:
 
         Args:
             name: <p>The name of the Amazon MWAA environment. For example, <code>MyMWAAEnvironment</code>.</p>
+
+        Raises:
+            aws_sdk_mwaa.errors.access_denied_exception.AccessDeniedException: <p>Access to the Apache Airflow Web UI or CLI has been denied due to insufficient permissions. To learn more, see <a href=\"https://docs.aws.amazon.com/mwaa/latest/userguide/access-policies.html\">Accessing an Amazon MWAA environment</a>.</p>
+            aws_sdk_mwaa.errors.internal_server_exception.InternalServerException: <p>InternalServerException: An internal error has occurred.</p>
+            aws_sdk_mwaa.errors.resource_not_found_exception.ResourceNotFoundException: <p>ResourceNotFoundException: The resource is not available.</p>
+            aws_sdk_mwaa.errors.validation_exception.ValidationException: <p>ValidationException: The provided input is not valid.</p>
+            aws_sdk_mwaa.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -427,6 +444,13 @@ class AsyncMWAAClient:
 
         Args:
             name: <p>The name of the Amazon MWAA environment. For example, <code>MyMWAAEnvironment</code>.</p>
+
+        Raises:
+            aws_sdk_mwaa.errors.internal_server_exception.InternalServerException: <p>InternalServerException: An internal error has occurred.</p>
+            aws_sdk_mwaa.errors.resource_not_found_exception.ResourceNotFoundException: <p>ResourceNotFoundException: The resource is not available.</p>
+            aws_sdk_mwaa.errors.service_unavailable_exception.ServiceUnavailableException: <p>ServiceUnavailableException: The service is currently unavailable.</p>
+            aws_sdk_mwaa.errors.validation_exception.ValidationException: <p>ValidationException: The provided input is not valid.</p>
+            aws_sdk_mwaa.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -465,6 +489,12 @@ class AsyncMWAAClient:
 
         Args:
             name: <p>The name of the Amazon MWAA environment. For example, <code>MyMWAAEnvironment</code>.</p>
+
+        Raises:
+            aws_sdk_mwaa.errors.internal_server_exception.InternalServerException: <p>InternalServerException: An internal error has occurred.</p>
+            aws_sdk_mwaa.errors.resource_not_found_exception.ResourceNotFoundException: <p>ResourceNotFoundException: The resource is not available.</p>
+            aws_sdk_mwaa.errors.validation_exception.ValidationException: <p>ValidationException: The provided input is not valid.</p>
+            aws_sdk_mwaa.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -513,6 +543,15 @@ class AsyncMWAAClient:
             method: <p>The HTTP method used for making Airflow REST API calls. For example, <code>POST</code>. </p>
             query_parameters: <p>Query parameters to be included in the Apache Airflow REST API call, provided as a JSON object. </p>
             body: <p>The request body for the Apache Airflow REST API call, provided as a JSON object.</p>
+
+        Raises:
+            aws_sdk_mwaa.errors.access_denied_exception.AccessDeniedException: <p>Access to the Apache Airflow Web UI or CLI has been denied due to insufficient permissions. To learn more, see <a href=\"https://docs.aws.amazon.com/mwaa/latest/userguide/access-policies.html\">Accessing an Amazon MWAA environment</a>.</p>
+            aws_sdk_mwaa.errors.internal_server_exception.InternalServerException: <p>InternalServerException: An internal error has occurred.</p>
+            aws_sdk_mwaa.errors.resource_not_found_exception.ResourceNotFoundException: <p>ResourceNotFoundException: The resource is not available.</p>
+            aws_sdk_mwaa.errors.rest_api_client_exception.RestApiClientException: <p>An exception indicating that a client-side error occurred during the Apache Airflow REST API call.</p>
+            aws_sdk_mwaa.errors.rest_api_server_exception.RestApiServerException: <p>An exception indicating that a server-side error occurred during the Apache Airflow REST API call.</p>
+            aws_sdk_mwaa.errors.validation_exception.ValidationException: <p>ValidationException: The provided input is not valid.</p>
+            aws_sdk_mwaa.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Listing Airflow variables.
@@ -564,6 +603,11 @@ class AsyncMWAAClient:
         Args:
             next_token: <p>Retrieves the next page of the results.</p>
             max_results: <p>The maximum number of results to retrieve per page. For example, <code>5</code> environments per page.</p>
+
+        Raises:
+            aws_sdk_mwaa.errors.internal_server_exception.InternalServerException: <p>InternalServerException: An internal error has occurred.</p>
+            aws_sdk_mwaa.errors.validation_exception.ValidationException: <p>ValidationException: The provided input is not valid.</p>
+            aws_sdk_mwaa.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -626,6 +670,12 @@ class AsyncMWAAClient:
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the Amazon MWAA environment. For example, <code>arn:aws:airflow:us-east-1:123456789012:environment/MyMWAAEnvironment</code>.</p>
+
+        Raises:
+            aws_sdk_mwaa.errors.internal_server_exception.InternalServerException: <p>InternalServerException: An internal error has occurred.</p>
+            aws_sdk_mwaa.errors.resource_not_found_exception.ResourceNotFoundException: <p>ResourceNotFoundException: The resource is not available.</p>
+            aws_sdk_mwaa.errors.validation_exception.ValidationException: <p>ValidationException: The provided input is not valid.</p>
+            aws_sdk_mwaa.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -666,6 +716,11 @@ class AsyncMWAAClient:
         Args:
             environment_name: <p> <b>Internal only</b>. The name of the environment.</p>
             metric_data: <p> <b>Internal only</b>. Publishes metrics to Amazon CloudWatch. To learn more about the metrics published to Amazon CloudWatch, see <a href=\"https://docs.aws.amazon.com/mwaa/latest/userguide/cw-metrics.html\">Amazon MWAA performance metrics in Amazon CloudWatch</a>.</p>
+
+        Raises:
+            aws_sdk_mwaa.errors.internal_server_exception.InternalServerException: <p>InternalServerException: An internal error has occurred.</p>
+            aws_sdk_mwaa.errors.validation_exception.ValidationException: <p>ValidationException: The provided input is not valid.</p>
+            aws_sdk_mwaa.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -707,6 +762,12 @@ class AsyncMWAAClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the Amazon MWAA environment. For example, <code>arn:aws:airflow:us-east-1:123456789012:environment/MyMWAAEnvironment</code>.</p>
             tags: <p>The key-value tag pairs you want to associate to your environment. For example, <code>\"Environment\": \"Staging\"</code>. For more information, refer to <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html\">Tagging Amazon Web Services resources</a>.</p>
+
+        Raises:
+            aws_sdk_mwaa.errors.internal_server_exception.InternalServerException: <p>InternalServerException: An internal error has occurred.</p>
+            aws_sdk_mwaa.errors.resource_not_found_exception.ResourceNotFoundException: <p>ResourceNotFoundException: The resource is not available.</p>
+            aws_sdk_mwaa.errors.validation_exception.ValidationException: <p>ValidationException: The provided input is not valid.</p>
+            aws_sdk_mwaa.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -748,6 +809,12 @@ class AsyncMWAAClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the Amazon MWAA environment. For example, <code>arn:aws:airflow:us-east-1:123456789012:environment/MyMWAAEnvironment</code>.</p>
             tag_keys: <p>The key-value tag pair you want to remove. For example, <code>\"Environment\": \"Staging\"</code>. </p>
+
+        Raises:
+            aws_sdk_mwaa.errors.internal_server_exception.InternalServerException: <p>InternalServerException: An internal error has occurred.</p>
+            aws_sdk_mwaa.errors.resource_not_found_exception.ResourceNotFoundException: <p>ResourceNotFoundException: The resource is not available.</p>
+            aws_sdk_mwaa.errors.validation_exception.ValidationException: <p>ValidationException: The provided input is not valid.</p>
+            aws_sdk_mwaa.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -867,6 +934,13 @@ class AsyncMWAAClient:
             startup_script_s3_object_version: <p> The version of the startup shell script in your Amazon S3 bucket. You must specify the <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/versioning-workflows.html\">version ID</a> that Amazon S3 assigns to the file every time you update the script. </p> <p> Version IDs are Unicode, UTF-8 encoded, URL-ready, opaque strings that are no more than 1,024 bytes long. The following is an example: </p> <p> <code>3sL4kqtJlcpXroDTDmJ+rmSpXd3dIbrHY+MTRCxf3vjVBH40Nr8X8gdRQBpUMLUo</code> </p> <p> For more information, refer to <a href=\"https://docs.aws.amazon.com/mwaa/latest/userguide/using-startup-script.html\">Using a startup script</a>. </p>
             webserver_access_mode: <p>The Apache Airflow <i>Web server</i> access mode. For more information, refer to <a href=\"https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-networking.html\">Apache Airflow access modes</a>.</p> <p>If set to <code>PUBLIC_AND_PRIVATE</code>, creates both a public network load balancer (NLB) for browser access and a private VPC endpoint (VPCE) for worker-to-webserver communication. This mode is only available for Apache Airflow version 3.2 and later.</p>
             weekly_maintenance_window_start: <p>The day and time of the week in Coordinated Universal Time (UTC) 24-hour standard time to start weekly maintenance updates of your environment in the following format: <code>DAY:HH:MM</code>. For example: <code>TUE:03:30</code>. You can specify a start time in 30 minute increments only.</p>
+
+        Raises:
+            aws_sdk_mwaa.errors.internal_server_exception.InternalServerException: <p>InternalServerException: An internal error has occurred.</p>
+            aws_sdk_mwaa.errors.resource_not_found_exception.ResourceNotFoundException: <p>ResourceNotFoundException: The resource is not available.</p>
+            aws_sdk_mwaa.errors.service_unavailable_exception.ServiceUnavailableException: <p>ServiceUnavailableException: The service is currently unavailable.</p>
+            aws_sdk_mwaa.errors.validation_exception.ValidationException: <p>ValidationException: The provided input is not valid.</p>
+            aws_sdk_mwaa.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

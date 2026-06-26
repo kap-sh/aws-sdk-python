@@ -210,6 +210,14 @@ class AppFabricClient:
         Args:
             app_bundle_identifier: <p>The Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app bundle to use for the request.</p>
             task_id_list: <p>The tasks IDs to use for the request.</p>
+
+        Raises:
+            aws_sdk_appfabric.errors.access_denied_exception.AccessDeniedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_appfabric.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure with an internal server.</p>
+            aws_sdk_appfabric.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_appfabric.errors.throttling_exception.ThrottlingException: <p>The request rate exceeds the limit.</p>
+            aws_sdk_appfabric.errors.validation_exception.ValidationException: <p>The request has invalid or missing parameters.</p>
+            aws_sdk_appfabric.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -254,6 +262,14 @@ class AppFabricClient:
             app_bundle_identifier: <p>The Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app bundle that contains the app authorization to use for the request.</p>
             app_authorization_identifier: <p>The Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app authorization to use for the request.</p>
             auth_request: <p>Contains OAuth2 authorization information.</p> <p>This is required if the app authorization for the request is configured with an OAuth2 (<code>oauth2</code>) authorization type.</p>
+
+        Raises:
+            aws_sdk_appfabric.errors.access_denied_exception.AccessDeniedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_appfabric.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure with an internal server.</p>
+            aws_sdk_appfabric.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_appfabric.errors.throttling_exception.ThrottlingException: <p>The request rate exceeds the limit.</p>
+            aws_sdk_appfabric.errors.validation_exception.ValidationException: <p>The request has invalid or missing parameters.</p>
+            aws_sdk_appfabric.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -306,6 +322,16 @@ class AppFabricClient:
             auth_type: <p>The authorization type for the app authorization.</p>
             client_token: <p>Specifies a unique, case-sensitive identifier that you provide to ensure the idempotency of the request. This lets you safely retry the request without accidentally performing the same operation a second time. Passing the same value to a later call to an operation requires that you also pass the same value for all other parameters. We recommend that you use a <a href=\"https://wikipedia.org/wiki/Universally_unique_identifier\">UUID type of value</a>.</p> <p>If you don't provide this value, then Amazon Web Services generates a random one for you.</p> <p>If you retry the operation with the same <code>ClientToken</code>, but with different parameters, the retry fails with an <code>IdempotentParameterMismatch</code> error.</p>
             tags: <p>A map of the key-value pairs of the tag or tags to assign to the resource.</p>
+
+        Raises:
+            aws_sdk_appfabric.errors.access_denied_exception.AccessDeniedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_appfabric.errors.conflict_exception.ConflictException: <p>The request has created a conflict. Check the request parameters and try again.</p>
+            aws_sdk_appfabric.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure with an internal server.</p>
+            aws_sdk_appfabric.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_appfabric.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request exceeds a service quota.</p>
+            aws_sdk_appfabric.errors.throttling_exception.ThrottlingException: <p>The request rate exceeds the limit.</p>
+            aws_sdk_appfabric.errors.validation_exception.ValidationException: <p>The request has invalid or missing parameters.</p>
+            aws_sdk_appfabric.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -357,6 +383,15 @@ class AppFabricClient:
             client_token: <p>Specifies a unique, case-sensitive identifier that you provide to ensure the idempotency of the request. This lets you safely retry the request without accidentally performing the same operation a second time. Passing the same value to a later call to an operation requires that you also pass the same value for all other parameters. We recommend that you use a <a href=\"https://wikipedia.org/wiki/Universally_unique_identifier\">UUID type of value</a>.</p> <p>If you don't provide this value, then Amazon Web Services generates a random one for you.</p> <p>If you retry the operation with the same <code>ClientToken</code>, but with different parameters, the retry fails with an <code>IdempotentParameterMismatch</code> error.</p>
             customer_managed_key_identifier: <p>The Amazon Resource Name (ARN) of the Key Management Service (KMS) key to use to encrypt the application data. If this is not specified, an Amazon Web Services owned key is used for encryption.</p>
             tags: <p>A map of the key-value pairs of the tag or tags to assign to the resource.</p>
+
+        Raises:
+            aws_sdk_appfabric.errors.access_denied_exception.AccessDeniedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_appfabric.errors.conflict_exception.ConflictException: <p>The request has created a conflict. Check the request parameters and try again.</p>
+            aws_sdk_appfabric.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure with an internal server.</p>
+            aws_sdk_appfabric.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request exceeds a service quota.</p>
+            aws_sdk_appfabric.errors.throttling_exception.ThrottlingException: <p>The request rate exceeds the limit.</p>
+            aws_sdk_appfabric.errors.validation_exception.ValidationException: <p>The request has invalid or missing parameters.</p>
+            aws_sdk_appfabric.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -409,6 +444,15 @@ class AppFabricClient:
             ingestion_type: <p>The ingestion type.</p>
             client_token: <p>Specifies a unique, case-sensitive identifier that you provide to ensure the idempotency of the request. This lets you safely retry the request without accidentally performing the same operation a second time. Passing the same value to a later call to an operation requires that you also pass the same value for all other parameters. We recommend that you use a <a href=\"https://wikipedia.org/wiki/Universally_unique_identifier\">UUID type of value</a>.</p> <p>If you don't provide this value, then Amazon Web Services generates a random one for you.</p> <p>If you retry the operation with the same <code>ClientToken</code>, but with different parameters, the retry fails with an <code>IdempotentParameterMismatch</code> error.</p>
             tags: <p>A map of the key-value pairs of the tag or tags to assign to the resource.</p>
+
+        Raises:
+            aws_sdk_appfabric.errors.access_denied_exception.AccessDeniedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_appfabric.errors.conflict_exception.ConflictException: <p>The request has created a conflict. Check the request parameters and try again.</p>
+            aws_sdk_appfabric.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure with an internal server.</p>
+            aws_sdk_appfabric.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request exceeds a service quota.</p>
+            aws_sdk_appfabric.errors.throttling_exception.ThrottlingException: <p>The request rate exceeds the limit.</p>
+            aws_sdk_appfabric.errors.validation_exception.ValidationException: <p>The request has invalid or missing parameters.</p>
+            aws_sdk_appfabric.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -463,6 +507,15 @@ class AppFabricClient:
             destination_configuration: <p>Contains information about the destination of ingested data.</p>
             client_token: <p>Specifies a unique, case-sensitive identifier that you provide to ensure the idempotency of the request. This lets you safely retry the request without accidentally performing the same operation a second time. Passing the same value to a later call to an operation requires that you also pass the same value for all other parameters. We recommend that you use a <a href=\"https://wikipedia.org/wiki/Universally_unique_identifier\">UUID type of value</a>.</p> <p>If you don't provide this value, then Amazon Web Services generates a random one for you.</p> <p>If you retry the operation with the same <code>ClientToken</code>, but with different parameters, the retry fails with an <code>IdempotentParameterMismatch</code> error.</p>
             tags: <p>A map of the key-value pairs of the tag or tags to assign to the resource.</p>
+
+        Raises:
+            aws_sdk_appfabric.errors.access_denied_exception.AccessDeniedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_appfabric.errors.conflict_exception.ConflictException: <p>The request has created a conflict. Check the request parameters and try again.</p>
+            aws_sdk_appfabric.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure with an internal server.</p>
+            aws_sdk_appfabric.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request exceeds a service quota.</p>
+            aws_sdk_appfabric.errors.throttling_exception.ThrottlingException: <p>The request rate exceeds the limit.</p>
+            aws_sdk_appfabric.errors.validation_exception.ValidationException: <p>The request has invalid or missing parameters.</p>
+            aws_sdk_appfabric.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -509,6 +562,14 @@ class AppFabricClient:
         Args:
             app_bundle_identifier: <p>The Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app bundle to use for the request.</p>
             app_authorization_identifier: <p>The Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app authorization to use for the request.</p>
+
+        Raises:
+            aws_sdk_appfabric.errors.access_denied_exception.AccessDeniedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_appfabric.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure with an internal server.</p>
+            aws_sdk_appfabric.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_appfabric.errors.throttling_exception.ThrottlingException: <p>The request rate exceeds the limit.</p>
+            aws_sdk_appfabric.errors.validation_exception.ValidationException: <p>The request has invalid or missing parameters.</p>
+            aws_sdk_appfabric.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -547,6 +608,14 @@ class AppFabricClient:
 
         Args:
             app_bundle_identifier: <p>The ID or Amazon Resource Name (ARN) of the app bundle that needs to be deleted.</p>
+
+        Raises:
+            aws_sdk_appfabric.errors.access_denied_exception.AccessDeniedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_appfabric.errors.conflict_exception.ConflictException: <p>The request has created a conflict. Check the request parameters and try again.</p>
+            aws_sdk_appfabric.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure with an internal server.</p>
+            aws_sdk_appfabric.errors.throttling_exception.ThrottlingException: <p>The request rate exceeds the limit.</p>
+            aws_sdk_appfabric.errors.validation_exception.ValidationException: <p>The request has invalid or missing parameters.</p>
+            aws_sdk_appfabric.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -586,6 +655,14 @@ class AppFabricClient:
         Args:
             app_bundle_identifier: <p>The Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app bundle to use for the request.</p>
             ingestion_identifier: <p>The Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the ingestion to use for the request.</p>
+
+        Raises:
+            aws_sdk_appfabric.errors.access_denied_exception.AccessDeniedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_appfabric.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure with an internal server.</p>
+            aws_sdk_appfabric.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_appfabric.errors.throttling_exception.ThrottlingException: <p>The request rate exceeds the limit.</p>
+            aws_sdk_appfabric.errors.validation_exception.ValidationException: <p>The request has invalid or missing parameters.</p>
+            aws_sdk_appfabric.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -628,6 +705,14 @@ class AppFabricClient:
             app_bundle_identifier: <p>The Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app bundle to use for the request.</p>
             ingestion_identifier: <p>The Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the ingestion to use for the request.</p>
             ingestion_destination_identifier: <p>The Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the ingestion destination to use for the request.</p>
+
+        Raises:
+            aws_sdk_appfabric.errors.access_denied_exception.AccessDeniedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_appfabric.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure with an internal server.</p>
+            aws_sdk_appfabric.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_appfabric.errors.throttling_exception.ThrottlingException: <p>The request rate exceeds the limit.</p>
+            aws_sdk_appfabric.errors.validation_exception.ValidationException: <p>The request has invalid or missing parameters.</p>
+            aws_sdk_appfabric.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -669,6 +754,14 @@ class AppFabricClient:
         Args:
             app_bundle_identifier: <p>The Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app bundle to use for the request.</p>
             app_authorization_identifier: <p>The Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app authorization to use for the request.</p>
+
+        Raises:
+            aws_sdk_appfabric.errors.access_denied_exception.AccessDeniedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_appfabric.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure with an internal server.</p>
+            aws_sdk_appfabric.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_appfabric.errors.throttling_exception.ThrottlingException: <p>The request rate exceeds the limit.</p>
+            aws_sdk_appfabric.errors.validation_exception.ValidationException: <p>The request has invalid or missing parameters.</p>
+            aws_sdk_appfabric.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -707,6 +800,14 @@ class AppFabricClient:
 
         Args:
             app_bundle_identifier: <p>The Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app bundle to use for the request.</p>
+
+        Raises:
+            aws_sdk_appfabric.errors.access_denied_exception.AccessDeniedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_appfabric.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure with an internal server.</p>
+            aws_sdk_appfabric.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_appfabric.errors.throttling_exception.ThrottlingException: <p>The request rate exceeds the limit.</p>
+            aws_sdk_appfabric.errors.validation_exception.ValidationException: <p>The request has invalid or missing parameters.</p>
+            aws_sdk_appfabric.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -746,6 +847,14 @@ class AppFabricClient:
         Args:
             app_bundle_identifier: <p>The Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app bundle to use for the request.</p>
             ingestion_identifier: <p>The Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the ingestion to use for the request.</p>
+
+        Raises:
+            aws_sdk_appfabric.errors.access_denied_exception.AccessDeniedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_appfabric.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure with an internal server.</p>
+            aws_sdk_appfabric.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_appfabric.errors.throttling_exception.ThrottlingException: <p>The request rate exceeds the limit.</p>
+            aws_sdk_appfabric.errors.validation_exception.ValidationException: <p>The request has invalid or missing parameters.</p>
+            aws_sdk_appfabric.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -788,6 +897,14 @@ class AppFabricClient:
             app_bundle_identifier: <p>The Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app bundle to use for the request.</p>
             ingestion_identifier: <p>The Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the ingestion to use for the request.</p>
             ingestion_destination_identifier: <p>The Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the ingestion destination to use for the request.</p>
+
+        Raises:
+            aws_sdk_appfabric.errors.access_denied_exception.AccessDeniedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_appfabric.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure with an internal server.</p>
+            aws_sdk_appfabric.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_appfabric.errors.throttling_exception.ThrottlingException: <p>The request rate exceeds the limit.</p>
+            aws_sdk_appfabric.errors.validation_exception.ValidationException: <p>The request has invalid or missing parameters.</p>
+            aws_sdk_appfabric.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -831,6 +948,14 @@ class AppFabricClient:
             app_bundle_identifier: <p>The Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app bundle to use for the request.</p>
             max_results: <p>The maximum number of results that are returned per call. You can use <code>nextToken</code> to obtain further pages of results.</p> <p>This is only an upper limit. The actual number of results returned per call might be fewer than the specified maximum.</p>
             next_token: <p>If <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an <i>HTTP 400 InvalidToken error</i>.</p>
+
+        Raises:
+            aws_sdk_appfabric.errors.access_denied_exception.AccessDeniedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_appfabric.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure with an internal server.</p>
+            aws_sdk_appfabric.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_appfabric.errors.throttling_exception.ThrottlingException: <p>The request rate exceeds the limit.</p>
+            aws_sdk_appfabric.errors.validation_exception.ValidationException: <p>The request has invalid or missing parameters.</p>
+            aws_sdk_appfabric.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -897,6 +1022,13 @@ class AppFabricClient:
         Args:
             max_results: <p>The maximum number of results that are returned per call. You can use <code>nextToken</code> to obtain further pages of results.</p> <p>This is only an upper limit. The actual number of results returned per call might be fewer than the specified maximum.</p>
             next_token: <p>If <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an <i>HTTP 400 InvalidToken error</i>.</p>
+
+        Raises:
+            aws_sdk_appfabric.errors.access_denied_exception.AccessDeniedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_appfabric.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure with an internal server.</p>
+            aws_sdk_appfabric.errors.throttling_exception.ThrottlingException: <p>The request rate exceeds the limit.</p>
+            aws_sdk_appfabric.errors.validation_exception.ValidationException: <p>The request has invalid or missing parameters.</p>
+            aws_sdk_appfabric.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -964,6 +1096,14 @@ class AppFabricClient:
             ingestion_identifier: <p>The Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the ingestion to use for the request.</p>
             max_results: <p>The maximum number of results that are returned per call. You can use <code>nextToken</code> to obtain further pages of results.</p> <p>This is only an upper limit. The actual number of results returned per call might be fewer than the specified maximum.</p>
             next_token: <p>If <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an <i>HTTP 400 InvalidToken error</i>.</p>
+
+        Raises:
+            aws_sdk_appfabric.errors.access_denied_exception.AccessDeniedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_appfabric.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure with an internal server.</p>
+            aws_sdk_appfabric.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_appfabric.errors.throttling_exception.ThrottlingException: <p>The request rate exceeds the limit.</p>
+            aws_sdk_appfabric.errors.validation_exception.ValidationException: <p>The request has invalid or missing parameters.</p>
+            aws_sdk_appfabric.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1035,6 +1175,14 @@ class AppFabricClient:
             app_bundle_identifier: <p>The Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app bundle to use for the request.</p>
             max_results: <p>The maximum number of results that are returned per call. You can use <code>nextToken</code> to obtain further pages of results.</p> <p>This is only an upper limit. The actual number of results returned per call might be fewer than the specified maximum.</p>
             next_token: <p>If <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an <i>HTTP 400 InvalidToken error</i>.</p>
+
+        Raises:
+            aws_sdk_appfabric.errors.access_denied_exception.AccessDeniedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_appfabric.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure with an internal server.</p>
+            aws_sdk_appfabric.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_appfabric.errors.throttling_exception.ThrottlingException: <p>The request rate exceeds the limit.</p>
+            aws_sdk_appfabric.errors.validation_exception.ValidationException: <p>The request has invalid or missing parameters.</p>
+            aws_sdk_appfabric.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1099,6 +1247,14 @@ class AppFabricClient:
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource for which you want to retrieve tags.</p>
+
+        Raises:
+            aws_sdk_appfabric.errors.access_denied_exception.AccessDeniedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_appfabric.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure with an internal server.</p>
+            aws_sdk_appfabric.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_appfabric.errors.throttling_exception.ThrottlingException: <p>The request rate exceeds the limit.</p>
+            aws_sdk_appfabric.errors.validation_exception.ValidationException: <p>The request has invalid or missing parameters.</p>
+            aws_sdk_appfabric.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1138,6 +1294,15 @@ class AppFabricClient:
         Args:
             ingestion_identifier: <p>The Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the ingestion to use for the request.</p>
             app_bundle_identifier: <p>The Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app bundle to use for the request.</p>
+
+        Raises:
+            aws_sdk_appfabric.errors.access_denied_exception.AccessDeniedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_appfabric.errors.conflict_exception.ConflictException: <p>The request has created a conflict. Check the request parameters and try again.</p>
+            aws_sdk_appfabric.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure with an internal server.</p>
+            aws_sdk_appfabric.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_appfabric.errors.throttling_exception.ThrottlingException: <p>The request rate exceeds the limit.</p>
+            aws_sdk_appfabric.errors.validation_exception.ValidationException: <p>The request has invalid or missing parameters.</p>
+            aws_sdk_appfabric.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1178,6 +1343,14 @@ class AppFabricClient:
         Args:
             app_bundle_identifier: <p>The Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app bundle to use for the request.</p>
             email: <p>The email address of the target user.</p>
+
+        Raises:
+            aws_sdk_appfabric.errors.access_denied_exception.AccessDeniedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_appfabric.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure with an internal server.</p>
+            aws_sdk_appfabric.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_appfabric.errors.throttling_exception.ThrottlingException: <p>The request rate exceeds the limit.</p>
+            aws_sdk_appfabric.errors.validation_exception.ValidationException: <p>The request has invalid or missing parameters.</p>
+            aws_sdk_appfabric.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1218,6 +1391,15 @@ class AppFabricClient:
         Args:
             ingestion_identifier: <p>The Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the ingestion to use for the request.</p>
             app_bundle_identifier: <p>The Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app bundle to use for the request.</p>
+
+        Raises:
+            aws_sdk_appfabric.errors.access_denied_exception.AccessDeniedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_appfabric.errors.conflict_exception.ConflictException: <p>The request has created a conflict. Check the request parameters and try again.</p>
+            aws_sdk_appfabric.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure with an internal server.</p>
+            aws_sdk_appfabric.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_appfabric.errors.throttling_exception.ThrottlingException: <p>The request rate exceeds the limit.</p>
+            aws_sdk_appfabric.errors.validation_exception.ValidationException: <p>The request has invalid or missing parameters.</p>
+            aws_sdk_appfabric.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1258,6 +1440,14 @@ class AppFabricClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource that you want to tag.</p>
             tags: <p>A map of the key-value pairs of the tag or tags to assign to the resource.</p>
+
+        Raises:
+            aws_sdk_appfabric.errors.access_denied_exception.AccessDeniedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_appfabric.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure with an internal server.</p>
+            aws_sdk_appfabric.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_appfabric.errors.throttling_exception.ThrottlingException: <p>The request rate exceeds the limit.</p>
+            aws_sdk_appfabric.errors.validation_exception.ValidationException: <p>The request has invalid or missing parameters.</p>
+            aws_sdk_appfabric.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1298,6 +1488,14 @@ class AppFabricClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource that you want to untag.</p>
             tag_keys: <p>The keys of the key-value pairs for the tag or tags you want to remove from the specified resource.</p>
+
+        Raises:
+            aws_sdk_appfabric.errors.access_denied_exception.AccessDeniedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_appfabric.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure with an internal server.</p>
+            aws_sdk_appfabric.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_appfabric.errors.throttling_exception.ThrottlingException: <p>The request rate exceeds the limit.</p>
+            aws_sdk_appfabric.errors.validation_exception.ValidationException: <p>The request has invalid or missing parameters.</p>
+            aws_sdk_appfabric.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1342,6 +1540,14 @@ class AppFabricClient:
             app_authorization_identifier: <p>The Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app authorization to use for the request.</p>
             credential: <p>Contains credentials for the application, such as an API key or OAuth2 client ID and secret.</p> <p>Specify credentials that match the authorization type of the app authorization to update. For example, if the authorization type of the app authorization is OAuth2 (<code>oauth2</code>), then you should provide only the OAuth2 credentials.</p>
             tenant: <p>Contains information about an application tenant, such as the application display name and identifier.</p>
+
+        Raises:
+            aws_sdk_appfabric.errors.access_denied_exception.AccessDeniedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_appfabric.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure with an internal server.</p>
+            aws_sdk_appfabric.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_appfabric.errors.throttling_exception.ThrottlingException: <p>The request rate exceeds the limit.</p>
+            aws_sdk_appfabric.errors.validation_exception.ValidationException: <p>The request has invalid or missing parameters.</p>
+            aws_sdk_appfabric.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1390,6 +1596,16 @@ class AppFabricClient:
             ingestion_identifier: <p>The Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the ingestion to use for the request.</p>
             ingestion_destination_identifier: <p>The Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the ingestion destination to use for the request.</p>
             destination_configuration: <p>Contains information about the destination of ingested data.</p>
+
+        Raises:
+            aws_sdk_appfabric.errors.access_denied_exception.AccessDeniedException: <p>You are not authorized to perform this operation.</p>
+            aws_sdk_appfabric.errors.conflict_exception.ConflictException: <p>The request has created a conflict. Check the request parameters and try again.</p>
+            aws_sdk_appfabric.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure with an internal server.</p>
+            aws_sdk_appfabric.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_appfabric.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request exceeds a service quota.</p>
+            aws_sdk_appfabric.errors.throttling_exception.ThrottlingException: <p>The request rate exceeds the limit.</p>
+            aws_sdk_appfabric.errors.validation_exception.ValidationException: <p>The request has invalid or missing parameters.</p>
+            aws_sdk_appfabric.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(

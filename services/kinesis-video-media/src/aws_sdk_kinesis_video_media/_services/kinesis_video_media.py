@@ -148,6 +148,15 @@ class KinesisVideoMediaClient:
             stream_name: <p>The Kinesis video stream name from where you want to get the media content. If you don't specify the <code>streamName</code>, you must specify the <code>streamARN</code>.</p>
             stream_arn: <p>The ARN of the stream from where you want to get the media content. If you don't specify the <code>streamARN</code>, you must specify the <code>streamName</code>.</p>
             start_selector: <p>Identifies the starting chunk to get from the specified stream. </p>
+
+        Raises:
+            aws_sdk_kinesis_video_media.errors.client_limit_exceeded_exception.ClientLimitExceededException: <p>Kinesis Video Streams has throttled the request because you have exceeded the limit of allowed client calls. Try making the call later.</p>
+            aws_sdk_kinesis_video_media.errors.connection_limit_exceeded_exception.ConnectionLimitExceededException: <p>Kinesis Video Streams has throttled the request because you have exceeded the limit of allowed client connections.</p>
+            aws_sdk_kinesis_video_media.errors.invalid_argument_exception.InvalidArgumentException: <p>The value for this input parameter is invalid.</p>
+            aws_sdk_kinesis_video_media.errors.invalid_endpoint_exception.InvalidEndpointException: <p> Status Code: 400, Caller used wrong endpoint to write data to a stream. On receiving such an exception, the user must call <code>GetDataEndpoint</code> with <code>AccessMode</code> set to \"READ\" and use the endpoint Kinesis Video returns in the next <code>GetMedia</code> call. </p>
+            aws_sdk_kinesis_video_media.errors.not_authorized_exception.NotAuthorizedException: <p>Status Code: 403, The caller is not authorized to perform an operation on the given stream, or the token has expired.</p>
+            aws_sdk_kinesis_video_media.errors.resource_not_found_exception.ResourceNotFoundException: <p>Status Code: 404, The stream with the given name does not exist.</p>
+            aws_sdk_kinesis_video_media.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(

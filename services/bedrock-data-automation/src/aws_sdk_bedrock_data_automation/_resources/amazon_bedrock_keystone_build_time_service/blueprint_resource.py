@@ -71,7 +71,17 @@ class BlueprintResource:
         ] = None,
         tags: Optional["aws_sdk_bedrock_data_automation.types.tag_list.TagList"] = None,
     ) -> "aws_sdk_bedrock_data_automation.types.create_blueprint_response.CreateBlueprintResponse":
-        """Creates an Amazon Bedrock Data Automation Blueprint"""
+        """Creates an Amazon Bedrock Data Automation Blueprint
+
+        Raises:
+            aws_sdk_bedrock_data_automation.errors.access_denied_exception.AccessDeniedException: This exception is thrown when a request is denied per access permissions
+            aws_sdk_bedrock_data_automation.errors.conflict_exception.ConflictException: This exception is thrown when there is a conflict performing an operation
+            aws_sdk_bedrock_data_automation.errors.internal_server_exception.InternalServerException: This exception is thrown if there was an unexpected error during processing of request
+            aws_sdk_bedrock_data_automation.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: This exception is thrown when a request is made beyond the service quota
+            aws_sdk_bedrock_data_automation.errors.throttling_exception.ThrottlingException: This exception is thrown when the number of requests exceeds the limit
+            aws_sdk_bedrock_data_automation.errors.validation_exception.ValidationException: This exception is thrown when the request's input validation fails
+            aws_sdk_bedrock_data_automation.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_bedrock_data_automation.types.create_blueprint_request.CreateBlueprintRequest]",
@@ -126,6 +136,14 @@ class BlueprintResource:
             blueprint_arn: ARN generated at the server side when a Blueprint is created
             blueprint_version: Optional field to get a specific Blueprint version
             blueprint_stage: Optional field to get a specific Blueprint stage
+
+        Raises:
+            aws_sdk_bedrock_data_automation.errors.access_denied_exception.AccessDeniedException: This exception is thrown when a request is denied per access permissions
+            aws_sdk_bedrock_data_automation.errors.internal_server_exception.InternalServerException: This exception is thrown if there was an unexpected error during processing of request
+            aws_sdk_bedrock_data_automation.errors.resource_not_found_exception.ResourceNotFoundException: This exception is thrown when a resource referenced by the operation does not exist
+            aws_sdk_bedrock_data_automation.errors.throttling_exception.ThrottlingException: This exception is thrown when the number of requests exceeds the limit
+            aws_sdk_bedrock_data_automation.errors.validation_exception.ValidationException: This exception is thrown when the request's input validation fails
+            aws_sdk_bedrock_data_automation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -174,6 +192,15 @@ class BlueprintResource:
 
         Args:
             blueprint_arn: ARN generated at the server side when a Blueprint is created
+
+        Raises:
+            aws_sdk_bedrock_data_automation.errors.access_denied_exception.AccessDeniedException: This exception is thrown when a request is denied per access permissions
+            aws_sdk_bedrock_data_automation.errors.conflict_exception.ConflictException: This exception is thrown when there is a conflict performing an operation
+            aws_sdk_bedrock_data_automation.errors.internal_server_exception.InternalServerException: This exception is thrown if there was an unexpected error during processing of request
+            aws_sdk_bedrock_data_automation.errors.resource_not_found_exception.ResourceNotFoundException: This exception is thrown when a resource referenced by the operation does not exist
+            aws_sdk_bedrock_data_automation.errors.throttling_exception.ThrottlingException: This exception is thrown when the number of requests exceeds the limit
+            aws_sdk_bedrock_data_automation.errors.validation_exception.ValidationException: This exception is thrown when the request's input validation fails
+            aws_sdk_bedrock_data_automation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -220,6 +247,14 @@ class BlueprintResource:
         Args:
             blueprint_arn: ARN generated at the server side when a Blueprint is created
             blueprint_version: Optional field to delete a specific Blueprint version
+
+        Raises:
+            aws_sdk_bedrock_data_automation.errors.access_denied_exception.AccessDeniedException: This exception is thrown when a request is denied per access permissions
+            aws_sdk_bedrock_data_automation.errors.internal_server_exception.InternalServerException: This exception is thrown if there was an unexpected error during processing of request
+            aws_sdk_bedrock_data_automation.errors.resource_not_found_exception.ResourceNotFoundException: This exception is thrown when a resource referenced by the operation does not exist
+            aws_sdk_bedrock_data_automation.errors.throttling_exception.ThrottlingException: This exception is thrown when the number of requests exceeds the limit
+            aws_sdk_bedrock_data_automation.errors.validation_exception.ValidationException: This exception is thrown when the request's input validation fails
+            aws_sdk_bedrock_data_automation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -272,7 +307,16 @@ class BlueprintResource:
             "aws_sdk_bedrock_data_automation.types.data_automation_project_filter.DataAutomationProjectFilter"
         ] = None,
     ) -> "aws_sdk_bedrock_data_automation.types.list_blueprints_response.ListBlueprintsResponse":
-        """Lists all existing Amazon Bedrock Data Automation Blueprints"""
+        """Lists all existing Amazon Bedrock Data Automation Blueprints
+
+        Raises:
+            aws_sdk_bedrock_data_automation.errors.access_denied_exception.AccessDeniedException: This exception is thrown when a request is denied per access permissions
+            aws_sdk_bedrock_data_automation.errors.internal_server_exception.InternalServerException: This exception is thrown if there was an unexpected error during processing of request
+            aws_sdk_bedrock_data_automation.errors.resource_not_found_exception.ResourceNotFoundException: This exception is thrown when a resource referenced by the operation does not exist
+            aws_sdk_bedrock_data_automation.errors.throttling_exception.ThrottlingException: This exception is thrown when the number of requests exceeds the limit
+            aws_sdk_bedrock_data_automation.errors.validation_exception.ValidationException: This exception is thrown when the request's input validation fails
+            aws_sdk_bedrock_data_automation.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_bedrock_data_automation.types.list_blueprints_request.ListBlueprintsRequest]",
@@ -333,7 +377,17 @@ class AsyncBlueprintResource:
         ] = None,
         tags: Optional["aws_sdk_bedrock_data_automation.types.tag_list.TagList"] = None,
     ) -> "aws_sdk_bedrock_data_automation.types.create_blueprint_response.CreateBlueprintResponse":
-        """Creates an Amazon Bedrock Data Automation Blueprint"""
+        """Creates an Amazon Bedrock Data Automation Blueprint
+
+        Raises:
+            aws_sdk_bedrock_data_automation.errors.access_denied_exception.AccessDeniedException: This exception is thrown when a request is denied per access permissions
+            aws_sdk_bedrock_data_automation.errors.conflict_exception.ConflictException: This exception is thrown when there is a conflict performing an operation
+            aws_sdk_bedrock_data_automation.errors.internal_server_exception.InternalServerException: This exception is thrown if there was an unexpected error during processing of request
+            aws_sdk_bedrock_data_automation.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: This exception is thrown when a request is made beyond the service quota
+            aws_sdk_bedrock_data_automation.errors.throttling_exception.ThrottlingException: This exception is thrown when the number of requests exceeds the limit
+            aws_sdk_bedrock_data_automation.errors.validation_exception.ValidationException: This exception is thrown when the request's input validation fails
+            aws_sdk_bedrock_data_automation.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_bedrock_data_automation.types.create_blueprint_request.CreateBlueprintRequest]",
@@ -389,6 +443,14 @@ class AsyncBlueprintResource:
             blueprint_arn: ARN generated at the server side when a Blueprint is created
             blueprint_version: Optional field to get a specific Blueprint version
             blueprint_stage: Optional field to get a specific Blueprint stage
+
+        Raises:
+            aws_sdk_bedrock_data_automation.errors.access_denied_exception.AccessDeniedException: This exception is thrown when a request is denied per access permissions
+            aws_sdk_bedrock_data_automation.errors.internal_server_exception.InternalServerException: This exception is thrown if there was an unexpected error during processing of request
+            aws_sdk_bedrock_data_automation.errors.resource_not_found_exception.ResourceNotFoundException: This exception is thrown when a resource referenced by the operation does not exist
+            aws_sdk_bedrock_data_automation.errors.throttling_exception.ThrottlingException: This exception is thrown when the number of requests exceeds the limit
+            aws_sdk_bedrock_data_automation.errors.validation_exception.ValidationException: This exception is thrown when the request's input validation fails
+            aws_sdk_bedrock_data_automation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -438,6 +500,15 @@ class AsyncBlueprintResource:
 
         Args:
             blueprint_arn: ARN generated at the server side when a Blueprint is created
+
+        Raises:
+            aws_sdk_bedrock_data_automation.errors.access_denied_exception.AccessDeniedException: This exception is thrown when a request is denied per access permissions
+            aws_sdk_bedrock_data_automation.errors.conflict_exception.ConflictException: This exception is thrown when there is a conflict performing an operation
+            aws_sdk_bedrock_data_automation.errors.internal_server_exception.InternalServerException: This exception is thrown if there was an unexpected error during processing of request
+            aws_sdk_bedrock_data_automation.errors.resource_not_found_exception.ResourceNotFoundException: This exception is thrown when a resource referenced by the operation does not exist
+            aws_sdk_bedrock_data_automation.errors.throttling_exception.ThrottlingException: This exception is thrown when the number of requests exceeds the limit
+            aws_sdk_bedrock_data_automation.errors.validation_exception.ValidationException: This exception is thrown when the request's input validation fails
+            aws_sdk_bedrock_data_automation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -485,6 +556,14 @@ class AsyncBlueprintResource:
         Args:
             blueprint_arn: ARN generated at the server side when a Blueprint is created
             blueprint_version: Optional field to delete a specific Blueprint version
+
+        Raises:
+            aws_sdk_bedrock_data_automation.errors.access_denied_exception.AccessDeniedException: This exception is thrown when a request is denied per access permissions
+            aws_sdk_bedrock_data_automation.errors.internal_server_exception.InternalServerException: This exception is thrown if there was an unexpected error during processing of request
+            aws_sdk_bedrock_data_automation.errors.resource_not_found_exception.ResourceNotFoundException: This exception is thrown when a resource referenced by the operation does not exist
+            aws_sdk_bedrock_data_automation.errors.throttling_exception.ThrottlingException: This exception is thrown when the number of requests exceeds the limit
+            aws_sdk_bedrock_data_automation.errors.validation_exception.ValidationException: This exception is thrown when the request's input validation fails
+            aws_sdk_bedrock_data_automation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -538,7 +617,16 @@ class AsyncBlueprintResource:
             "aws_sdk_bedrock_data_automation.types.data_automation_project_filter.DataAutomationProjectFilter"
         ] = None,
     ) -> "aws_sdk_bedrock_data_automation.types.list_blueprints_response.ListBlueprintsResponse":
-        """Lists all existing Amazon Bedrock Data Automation Blueprints"""
+        """Lists all existing Amazon Bedrock Data Automation Blueprints
+
+        Raises:
+            aws_sdk_bedrock_data_automation.errors.access_denied_exception.AccessDeniedException: This exception is thrown when a request is denied per access permissions
+            aws_sdk_bedrock_data_automation.errors.internal_server_exception.InternalServerException: This exception is thrown if there was an unexpected error during processing of request
+            aws_sdk_bedrock_data_automation.errors.resource_not_found_exception.ResourceNotFoundException: This exception is thrown when a resource referenced by the operation does not exist
+            aws_sdk_bedrock_data_automation.errors.throttling_exception.ThrottlingException: This exception is thrown when the number of requests exceeds the limit
+            aws_sdk_bedrock_data_automation.errors.validation_exception.ValidationException: This exception is thrown when the request's input validation fails
+            aws_sdk_bedrock_data_automation.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_bedrock_data_automation.types.list_blueprints_request.ListBlueprintsRequest]",

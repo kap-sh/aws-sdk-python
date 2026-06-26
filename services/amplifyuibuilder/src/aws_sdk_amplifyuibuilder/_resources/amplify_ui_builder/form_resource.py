@@ -61,6 +61,13 @@ class FormResource:
             environment_name: <p>The name of the backend environment that is a part of the Amplify app.</p>
             client_token: <p>The unique client token.</p>
             form_to_create: <p>Represents the configuration of the form to create.</p>
+
+        Raises:
+            aws_sdk_amplifyuibuilder.errors.internal_server_exception.InternalServerException: <p>An internal error has occurred. Please retry your request.</p>
+            aws_sdk_amplifyuibuilder.errors.invalid_parameter_exception.InvalidParameterException: <p>An invalid or out-of-range value was supplied for the input parameter.</p>
+            aws_sdk_amplifyuibuilder.errors.resource_conflict_exception.ResourceConflictException: <p>The resource specified in the request conflicts with an existing resource.</p>
+            aws_sdk_amplifyuibuilder.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You exceeded your service quota. Service quotas, also referred to as limits, are the maximum number of service resources or operations for your Amazon Web Services account. </p>
+            aws_sdk_amplifyuibuilder.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -106,6 +113,12 @@ class FormResource:
             app_id: <p>The unique ID of the Amplify app.</p>
             environment_name: <p>The name of the backend environment that is part of the Amplify app.</p>
             id: <p>The unique ID of the form.</p>
+
+        Raises:
+            aws_sdk_amplifyuibuilder.errors.internal_server_exception.InternalServerException: <p>An internal error has occurred. Please retry your request.</p>
+            aws_sdk_amplifyuibuilder.errors.invalid_parameter_exception.InvalidParameterException: <p>An invalid or out-of-range value was supplied for the input parameter.</p>
+            aws_sdk_amplifyuibuilder.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource does not exist, or access was denied.</p>
+            aws_sdk_amplifyuibuilder.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -153,6 +166,12 @@ class FormResource:
             id: <p>The unique ID for the form.</p>
             client_token: <p>The unique client token.</p>
             updated_form: <p>The request accepts the following data in JSON format.</p>
+
+        Raises:
+            aws_sdk_amplifyuibuilder.errors.internal_server_exception.InternalServerException: <p>An internal error has occurred. Please retry your request.</p>
+            aws_sdk_amplifyuibuilder.errors.invalid_parameter_exception.InvalidParameterException: <p>An invalid or out-of-range value was supplied for the input parameter.</p>
+            aws_sdk_amplifyuibuilder.errors.resource_conflict_exception.ResourceConflictException: <p>The resource specified in the request conflicts with an existing resource.</p>
+            aws_sdk_amplifyuibuilder.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -199,6 +218,12 @@ class FormResource:
             app_id: <p>The unique ID of the Amplify app associated with the form to delete.</p>
             environment_name: <p>The name of the backend environment that is a part of the Amplify app.</p>
             id: <p>The unique ID of the form to delete.</p>
+
+        Raises:
+            aws_sdk_amplifyuibuilder.errors.internal_server_exception.InternalServerException: <p>An internal error has occurred. Please retry your request.</p>
+            aws_sdk_amplifyuibuilder.errors.invalid_parameter_exception.InvalidParameterException: <p>An invalid or out-of-range value was supplied for the input parameter.</p>
+            aws_sdk_amplifyuibuilder.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource does not exist, or access was denied.</p>
+            aws_sdk_amplifyuibuilder.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -244,6 +269,11 @@ class FormResource:
             environment_name: <p>The name of the backend environment that is a part of the Amplify app.</p>
             next_token: <p>The token to request the next page of results.</p>
             max_results: <p>The maximum number of forms to retrieve.</p>
+
+        Raises:
+            aws_sdk_amplifyuibuilder.errors.internal_server_exception.InternalServerException: <p>An internal error has occurred. Please retry your request.</p>
+            aws_sdk_amplifyuibuilder.errors.invalid_parameter_exception.InvalidParameterException: <p>An invalid or out-of-range value was supplied for the input parameter.</p>
+            aws_sdk_amplifyuibuilder.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -290,6 +320,11 @@ class FormResource:
             app_id: <p>The unique ID of the Amplify app to export forms to.</p>
             environment_name: <p>The name of the backend environment that is a part of the Amplify app.</p>
             next_token: <p>The token to request the next page of results.</p>
+
+        Raises:
+            aws_sdk_amplifyuibuilder.errors.internal_server_exception.InternalServerException: <p>An internal error has occurred. Please retry your request.</p>
+            aws_sdk_amplifyuibuilder.errors.invalid_parameter_exception.InvalidParameterException: <p>An invalid or out-of-range value was supplied for the input parameter.</p>
+            aws_sdk_amplifyuibuilder.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -341,6 +376,13 @@ class AsyncFormResource:
             environment_name: <p>The name of the backend environment that is a part of the Amplify app.</p>
             client_token: <p>The unique client token.</p>
             form_to_create: <p>Represents the configuration of the form to create.</p>
+
+        Raises:
+            aws_sdk_amplifyuibuilder.errors.internal_server_exception.InternalServerException: <p>An internal error has occurred. Please retry your request.</p>
+            aws_sdk_amplifyuibuilder.errors.invalid_parameter_exception.InvalidParameterException: <p>An invalid or out-of-range value was supplied for the input parameter.</p>
+            aws_sdk_amplifyuibuilder.errors.resource_conflict_exception.ResourceConflictException: <p>The resource specified in the request conflicts with an existing resource.</p>
+            aws_sdk_amplifyuibuilder.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You exceeded your service quota. Service quotas, also referred to as limits, are the maximum number of service resources or operations for your Amazon Web Services account. </p>
+            aws_sdk_amplifyuibuilder.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -387,6 +429,12 @@ class AsyncFormResource:
             app_id: <p>The unique ID of the Amplify app.</p>
             environment_name: <p>The name of the backend environment that is part of the Amplify app.</p>
             id: <p>The unique ID of the form.</p>
+
+        Raises:
+            aws_sdk_amplifyuibuilder.errors.internal_server_exception.InternalServerException: <p>An internal error has occurred. Please retry your request.</p>
+            aws_sdk_amplifyuibuilder.errors.invalid_parameter_exception.InvalidParameterException: <p>An invalid or out-of-range value was supplied for the input parameter.</p>
+            aws_sdk_amplifyuibuilder.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource does not exist, or access was denied.</p>
+            aws_sdk_amplifyuibuilder.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -435,6 +483,12 @@ class AsyncFormResource:
             id: <p>The unique ID for the form.</p>
             client_token: <p>The unique client token.</p>
             updated_form: <p>The request accepts the following data in JSON format.</p>
+
+        Raises:
+            aws_sdk_amplifyuibuilder.errors.internal_server_exception.InternalServerException: <p>An internal error has occurred. Please retry your request.</p>
+            aws_sdk_amplifyuibuilder.errors.invalid_parameter_exception.InvalidParameterException: <p>An invalid or out-of-range value was supplied for the input parameter.</p>
+            aws_sdk_amplifyuibuilder.errors.resource_conflict_exception.ResourceConflictException: <p>The resource specified in the request conflicts with an existing resource.</p>
+            aws_sdk_amplifyuibuilder.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -482,6 +536,12 @@ class AsyncFormResource:
             app_id: <p>The unique ID of the Amplify app associated with the form to delete.</p>
             environment_name: <p>The name of the backend environment that is a part of the Amplify app.</p>
             id: <p>The unique ID of the form to delete.</p>
+
+        Raises:
+            aws_sdk_amplifyuibuilder.errors.internal_server_exception.InternalServerException: <p>An internal error has occurred. Please retry your request.</p>
+            aws_sdk_amplifyuibuilder.errors.invalid_parameter_exception.InvalidParameterException: <p>An invalid or out-of-range value was supplied for the input parameter.</p>
+            aws_sdk_amplifyuibuilder.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource does not exist, or access was denied.</p>
+            aws_sdk_amplifyuibuilder.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -528,6 +588,11 @@ class AsyncFormResource:
             environment_name: <p>The name of the backend environment that is a part of the Amplify app.</p>
             next_token: <p>The token to request the next page of results.</p>
             max_results: <p>The maximum number of forms to retrieve.</p>
+
+        Raises:
+            aws_sdk_amplifyuibuilder.errors.internal_server_exception.InternalServerException: <p>An internal error has occurred. Please retry your request.</p>
+            aws_sdk_amplifyuibuilder.errors.invalid_parameter_exception.InvalidParameterException: <p>An invalid or out-of-range value was supplied for the input parameter.</p>
+            aws_sdk_amplifyuibuilder.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -575,6 +640,11 @@ class AsyncFormResource:
             app_id: <p>The unique ID of the Amplify app to export forms to.</p>
             environment_name: <p>The name of the backend environment that is a part of the Amplify app.</p>
             next_token: <p>The token to request the next page of results.</p>
+
+        Raises:
+            aws_sdk_amplifyuibuilder.errors.internal_server_exception.InternalServerException: <p>An internal error has occurred. Please retry your request.</p>
+            aws_sdk_amplifyuibuilder.errors.invalid_parameter_exception.InvalidParameterException: <p>An invalid or out-of-range value was supplied for the input parameter.</p>
+            aws_sdk_amplifyuibuilder.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

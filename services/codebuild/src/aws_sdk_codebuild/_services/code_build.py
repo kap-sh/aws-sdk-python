@@ -327,6 +327,10 @@ class CodeBuildClient:
 
         Args:
             ids: <p>The IDs of the builds to delete.</p>
+
+        Raises:
+            aws_sdk_codebuild.errors.invalid_input_exception.InvalidInputException: <p>The input value that was provided is not valid.</p>
+            aws_sdk_codebuild.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -364,6 +368,10 @@ class CodeBuildClient:
 
         Args:
             ids: <p>An array that contains the batch build identifiers to retrieve.</p>
+
+        Raises:
+            aws_sdk_codebuild.errors.invalid_input_exception.InvalidInputException: <p>The input value that was provided is not valid.</p>
+            aws_sdk_codebuild.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -401,6 +409,10 @@ class CodeBuildClient:
 
         Args:
             ids: <p>The IDs of the builds.</p>
+
+        Raises:
+            aws_sdk_codebuild.errors.invalid_input_exception.InvalidInputException: <p>The input value that was provided is not valid.</p>
+            aws_sdk_codebuild.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -440,6 +452,10 @@ class CodeBuildClient:
         Args:
             sandbox_id: <p>A <code>sandboxId</code> or <code>sandboxArn</code>.</p>
             command_execution_ids: <p>A comma separated list of <code>commandExecutionIds</code>.</p>
+
+        Raises:
+            aws_sdk_codebuild.errors.invalid_input_exception.InvalidInputException: <p>The input value that was provided is not valid.</p>
+            aws_sdk_codebuild.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -478,6 +494,10 @@ class CodeBuildClient:
 
         Args:
             names: <p>The names or ARNs of the compute fleets.</p>
+
+        Raises:
+            aws_sdk_codebuild.errors.invalid_input_exception.InvalidInputException: <p>The input value that was provided is not valid.</p>
+            aws_sdk_codebuild.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -515,6 +535,10 @@ class CodeBuildClient:
 
         Args:
             names: <p>The names or ARNs of the build projects. To get information about a project shared with your Amazon Web Services account, its ARN must be specified. You cannot specify a shared project using its name.</p>
+
+        Raises:
+            aws_sdk_codebuild.errors.invalid_input_exception.InvalidInputException: <p>The input value that was provided is not valid.</p>
+            aws_sdk_codebuild.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -552,6 +576,10 @@ class CodeBuildClient:
 
         Args:
             report_group_arns: <p> An array of report group ARNs that identify the report groups to return. </p>
+
+        Raises:
+            aws_sdk_codebuild.errors.invalid_input_exception.InvalidInputException: <p>The input value that was provided is not valid.</p>
+            aws_sdk_codebuild.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -589,6 +617,10 @@ class CodeBuildClient:
 
         Args:
             report_arns: <p> An array of ARNs that identify the <code>Report</code> objects to return. </p>
+
+        Raises:
+            aws_sdk_codebuild.errors.invalid_input_exception.InvalidInputException: <p>The input value that was provided is not valid.</p>
+            aws_sdk_codebuild.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -626,6 +658,10 @@ class CodeBuildClient:
 
         Args:
             ids: <p>A comma separated list of <code>sandboxIds</code> or <code>sandboxArns</code>.</p>
+
+        Raises:
+            aws_sdk_codebuild.errors.invalid_input_exception.InvalidInputException: <p>The input value that was provided is not valid.</p>
+            aws_sdk_codebuild.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -696,6 +732,12 @@ class CodeBuildClient:
             image_id: <p>The Amazon Machine Image (AMI) of the compute fleet.</p>
             fleet_service_role: <p>The service role associated with the compute fleet. For more information, see <a href=\"https://docs.aws.amazon.com/codebuild/latest/userguide/auth-and-access-control-iam-identity-based-access-control.html#customer-managed-policies-example-permission-policy-fleet-service-role.html\"> Allow a user to add a permission policy for a fleet service role</a> in the <i>CodeBuild User Guide</i>.</p>
             tags: <p>A list of tag key and value pairs associated with this compute fleet.</p> <p>These tags are available for use by Amazon Web Services services that support CodeBuild build project tags.</p>
+
+        Raises:
+            aws_sdk_codebuild.errors.account_limit_exceeded_exception.AccountLimitExceededException: <p>An Amazon Web Services service limit was exceeded for the calling Amazon Web Services account.</p>
+            aws_sdk_codebuild.errors.invalid_input_exception.InvalidInputException: <p>The input value that was provided is not valid.</p>
+            aws_sdk_codebuild.errors.resource_already_exists_exception.ResourceAlreadyExistsException: <p>The specified Amazon Web Services resource cannot be created, because an Amazon Web Services resource with the same settings already exists.</p>
+            aws_sdk_codebuild.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -818,6 +860,12 @@ class CodeBuildClient:
             build_batch_config: <p>A <a>ProjectBuildBatchConfig</a> object that defines the batch build options for the project.</p>
             concurrent_build_limit: <p>The maximum number of concurrent builds that are allowed for this project.</p> <p>New builds are only started if the current number of builds is less than or equal to this limit. If the current build count meets this limit, new builds are throttled and are not run.</p>
             auto_retry_limit: <p>The maximum number of additional automatic retries after a failed build. For example, if the auto-retry limit is set to 2, CodeBuild will call the <code>RetryBuild</code> API to automatically retry your build for up to 2 additional times.</p>
+
+        Raises:
+            aws_sdk_codebuild.errors.account_limit_exceeded_exception.AccountLimitExceededException: <p>An Amazon Web Services service limit was exceeded for the calling Amazon Web Services account.</p>
+            aws_sdk_codebuild.errors.invalid_input_exception.InvalidInputException: <p>The input value that was provided is not valid.</p>
+            aws_sdk_codebuild.errors.resource_already_exists_exception.ResourceAlreadyExistsException: <p>The specified Amazon Web Services resource cannot be created, because an Amazon Web Services resource with the same settings already exists.</p>
+            aws_sdk_codebuild.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -899,6 +947,12 @@ class CodeBuildClient:
             type: <p> The type of report group. </p>
             export_config: <p> A <code>ReportExportConfig</code> object that contains information about where the report group test results are exported. </p>
             tags: <p> A list of tag key and value pairs associated with this report group. </p> <p>These tags are available for use by Amazon Web Services services that support CodeBuild report group tags.</p>
+
+        Raises:
+            aws_sdk_codebuild.errors.account_limit_exceeded_exception.AccountLimitExceededException: <p>An Amazon Web Services service limit was exceeded for the calling Amazon Web Services account.</p>
+            aws_sdk_codebuild.errors.invalid_input_exception.InvalidInputException: <p>The input value that was provided is not valid.</p>
+            aws_sdk_codebuild.errors.resource_already_exists_exception.ResourceAlreadyExistsException: <p>The specified Amazon Web Services resource cannot be created, because an Amazon Web Services resource with the same settings already exists.</p>
+            aws_sdk_codebuild.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -962,6 +1016,13 @@ class CodeBuildClient:
             manual_creation: <p>If manualCreation is true, CodeBuild doesn't create a webhook in GitHub and instead returns <code>payloadUrl</code> and <code>secret</code> values for the webhook. The <code>payloadUrl</code> and <code>secret</code> values in the output can be used to manually create a webhook within GitHub.</p> <note> <p> <code>manualCreation</code> is only available for GitHub webhooks.</p> </note>
             scope_configuration: <p>The scope configuration for global or organization webhooks.</p> <note> <p>Global or organization webhooks are only available for GitHub and Github Enterprise webhooks.</p> </note>
             pull_request_build_policy: <p>A PullRequestBuildPolicy object that defines comment-based approval requirements for triggering builds on pull requests. This policy helps control when automated builds are executed based on contributor permissions and approval workflows.</p>
+
+        Raises:
+            aws_sdk_codebuild.errors.invalid_input_exception.InvalidInputException: <p>The input value that was provided is not valid.</p>
+            aws_sdk_codebuild.errors.o_auth_provider_exception.OAuthProviderException: <p>There was a problem with the underlying OAuth provider.</p>
+            aws_sdk_codebuild.errors.resource_already_exists_exception.ResourceAlreadyExistsException: <p>The specified Amazon Web Services resource cannot be created, because an Amazon Web Services resource with the same settings already exists.</p>
+            aws_sdk_codebuild.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified Amazon Web Services resource cannot be found.</p>
+            aws_sdk_codebuild.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1011,6 +1072,10 @@ class CodeBuildClient:
 
         Args:
             id: <p>The identifier of the batch build to delete.</p>
+
+        Raises:
+            aws_sdk_codebuild.errors.invalid_input_exception.InvalidInputException: <p>The input value that was provided is not valid.</p>
+            aws_sdk_codebuild.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1048,6 +1113,10 @@ class CodeBuildClient:
 
         Args:
             arn: <p>The ARN of the compute fleet.</p>
+
+        Raises:
+            aws_sdk_codebuild.errors.invalid_input_exception.InvalidInputException: <p>The input value that was provided is not valid.</p>
+            aws_sdk_codebuild.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1085,6 +1154,10 @@ class CodeBuildClient:
 
         Args:
             name: <p>The name of the build project.</p>
+
+        Raises:
+            aws_sdk_codebuild.errors.invalid_input_exception.InvalidInputException: <p>The input value that was provided is not valid.</p>
+            aws_sdk_codebuild.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1122,6 +1195,10 @@ class CodeBuildClient:
 
         Args:
             arn: <p> The ARN of the report to delete. </p>
+
+        Raises:
+            aws_sdk_codebuild.errors.invalid_input_exception.InvalidInputException: <p>The input value that was provided is not valid.</p>
+            aws_sdk_codebuild.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1161,6 +1238,10 @@ class CodeBuildClient:
         Args:
             arn: <p>The ARN of the report group to delete. </p>
             delete_reports: <p>If <code>true</code>, deletes any reports that belong to a report group before deleting the report group. </p> <p>If <code>false</code>, you must delete any reports in the report group. Use <a href=\"https://docs.aws.amazon.com/codebuild/latest/APIReference/API_ListReportsForReportGroup.html\">ListReportsForReportGroup</a> to get the reports in a report group. Use <a href=\"https://docs.aws.amazon.com/codebuild/latest/APIReference/API_DeleteReport.html\">DeleteReport</a> to delete the reports. If you call <code>DeleteReportGroup</code> for a report group that contains one or more reports, an exception is thrown. </p>
+
+        Raises:
+            aws_sdk_codebuild.errors.invalid_input_exception.InvalidInputException: <p>The input value that was provided is not valid.</p>
+            aws_sdk_codebuild.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1200,6 +1281,10 @@ class CodeBuildClient:
 
         Args:
             resource_arn: <p> The ARN of the resource that is associated with the resource policy. </p>
+
+        Raises:
+            aws_sdk_codebuild.errors.invalid_input_exception.InvalidInputException: <p>The input value that was provided is not valid.</p>
+            aws_sdk_codebuild.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1237,6 +1322,11 @@ class CodeBuildClient:
 
         Args:
             arn: <p> The Amazon Resource Name (ARN) of the token.</p>
+
+        Raises:
+            aws_sdk_codebuild.errors.invalid_input_exception.InvalidInputException: <p>The input value that was provided is not valid.</p>
+            aws_sdk_codebuild.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified Amazon Web Services resource cannot be found.</p>
+            aws_sdk_codebuild.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1274,6 +1364,12 @@ class CodeBuildClient:
 
         Args:
             project_name: <p>The name of the CodeBuild project.</p>
+
+        Raises:
+            aws_sdk_codebuild.errors.invalid_input_exception.InvalidInputException: <p>The input value that was provided is not valid.</p>
+            aws_sdk_codebuild.errors.o_auth_provider_exception.OAuthProviderException: <p>There was a problem with the underlying OAuth provider.</p>
+            aws_sdk_codebuild.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified Amazon Web Services resource cannot be found.</p>
+            aws_sdk_codebuild.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1331,6 +1427,10 @@ class CodeBuildClient:
             sort_by: <p>Specifies how the results are sorted. Possible values are:</p> <dl> <dt>FILE_PATH</dt> <dd> <p>The results are sorted by file path.</p> </dd> <dt>LINE_COVERAGE_PERCENTAGE</dt> <dd> <p>The results are sorted by the percentage of lines that are covered.</p> </dd> </dl>
             min_line_coverage_percentage: <p>The minimum line coverage percentage to report.</p>
             max_line_coverage_percentage: <p>The maximum line coverage percentage to report.</p>
+
+        Raises:
+            aws_sdk_codebuild.errors.invalid_input_exception.InvalidInputException: <p>The input value that was provided is not valid.</p>
+            aws_sdk_codebuild.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1427,6 +1527,11 @@ class CodeBuildClient:
             next_token: <p> During a previous call, the maximum number of items that can be returned is the value specified in <code>maxResults</code>. If there more items in the list, then a unique string called a <i>nextToken</i> is returned. To get the next batch of items in the list, call this operation again, adding the next token to the call. To get all of the items in the list, keep calling this operation with each subsequent next token that is returned, until no more next tokens are returned. </p>
             max_results: <p> The maximum number of paginated test cases returned per response. Use <code>nextToken</code> to iterate pages in the list of returned <code>TestCase</code> objects. The default value is 100. </p>
             filter: <p> A <code>TestCaseFilter</code> object used to filter the returned reports. </p>
+
+        Raises:
+            aws_sdk_codebuild.errors.invalid_input_exception.InvalidInputException: <p>The input value that was provided is not valid.</p>
+            aws_sdk_codebuild.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified Amazon Web Services resource cannot be found.</p>
+            aws_sdk_codebuild.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1501,6 +1606,11 @@ class CodeBuildClient:
             report_group_arn: <p>The ARN of the report group that contains the reports to analyze.</p>
             num_of_reports: <p>The number of reports to analyze. This operation always retrieves the most recent reports.</p> <p>If this parameter is omitted, the most recent 100 reports are analyzed.</p>
             trend_field: <p>The test report value to accumulate. This must be one of the following values:</p> <dl> <dt>Test reports:</dt> <dd> <dl> <dt>DURATION</dt> <dd> <p>Accumulate the test run times for the specified reports.</p> </dd> <dt>PASS_RATE</dt> <dd> <p>Accumulate the percentage of tests that passed for the specified test reports.</p> </dd> <dt>TOTAL</dt> <dd> <p>Accumulate the total number of tests for the specified test reports.</p> </dd> </dl> </dd> </dl> <dl> <dt>Code coverage reports:</dt> <dd> <dl> <dt>BRANCH_COVERAGE</dt> <dd> <p>Accumulate the branch coverage percentages for the specified test reports.</p> </dd> <dt>BRANCHES_COVERED</dt> <dd> <p>Accumulate the branches covered values for the specified test reports.</p> </dd> <dt>BRANCHES_MISSED</dt> <dd> <p>Accumulate the branches missed values for the specified test reports.</p> </dd> <dt>LINE_COVERAGE</dt> <dd> <p>Accumulate the line coverage percentages for the specified test reports.</p> </dd> <dt>LINES_COVERED</dt> <dd> <p>Accumulate the lines covered values for the specified test reports.</p> </dd> <dt>LINES_MISSED</dt> <dd> <p>Accumulate the lines not covered values for the specified test reports.</p> </dd> </dl> </dd> </dl>
+
+        Raises:
+            aws_sdk_codebuild.errors.invalid_input_exception.InvalidInputException: <p>The input value that was provided is not valid.</p>
+            aws_sdk_codebuild.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified Amazon Web Services resource cannot be found.</p>
+            aws_sdk_codebuild.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1541,6 +1651,11 @@ class CodeBuildClient:
 
         Args:
             resource_arn: <p> The ARN of the resource that is associated with the resource policy. </p>
+
+        Raises:
+            aws_sdk_codebuild.errors.invalid_input_exception.InvalidInputException: <p>The input value that was provided is not valid.</p>
+            aws_sdk_codebuild.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified Amazon Web Services resource cannot be found.</p>
+            aws_sdk_codebuild.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1590,6 +1705,12 @@ class CodeBuildClient:
             server_type: <p> The source provider used for this project. </p>
             auth_type: <p> The type of authentication used to connect to a GitHub, GitHub Enterprise, GitLab, GitLab Self Managed, or Bitbucket repository. An OAUTH connection is not supported by the API and must be created using the CodeBuild console.</p>
             should_overwrite: <p> Set to <code>false</code> to prevent overwriting the repository source credentials. Set to <code>true</code> to overwrite the repository source credentials. The default value is <code>true</code>. </p>
+
+        Raises:
+            aws_sdk_codebuild.errors.account_limit_exceeded_exception.AccountLimitExceededException: <p>An Amazon Web Services service limit was exceeded for the calling Amazon Web Services account.</p>
+            aws_sdk_codebuild.errors.invalid_input_exception.InvalidInputException: <p>The input value that was provided is not valid.</p>
+            aws_sdk_codebuild.errors.resource_already_exists_exception.ResourceAlreadyExistsException: <p>The specified Amazon Web Services resource cannot be created, because an Amazon Web Services resource with the same settings already exists.</p>
+            aws_sdk_codebuild.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1633,6 +1754,11 @@ class CodeBuildClient:
 
         Args:
             project_name: <p>The name of the CodeBuild build project that the cache is reset for.</p>
+
+        Raises:
+            aws_sdk_codebuild.errors.invalid_input_exception.InvalidInputException: <p>The input value that was provided is not valid.</p>
+            aws_sdk_codebuild.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified Amazon Web Services resource cannot be found.</p>
+            aws_sdk_codebuild.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1680,6 +1806,10 @@ class CodeBuildClient:
             max_results: <p>The maximum number of results to return.</p>
             sort_order: <p>Specifies the sort order of the returned items. Valid values include:</p> <ul> <li> <p> <code>ASCENDING</code>: List the batch build identifiers in ascending order by identifier.</p> </li> <li> <p> <code>DESCENDING</code>: List the batch build identifiers in descending order by identifier.</p> </li> </ul>
             next_token: <p>The <code>nextToken</code> value returned from a previous call to <code>ListBuildBatches</code>. This specifies the next item to return. To return the beginning of the list, exclude this parameter.</p>
+
+        Raises:
+            aws_sdk_codebuild.errors.invalid_input_exception.InvalidInputException: <p>The input value that was provided is not valid.</p>
+            aws_sdk_codebuild.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1767,6 +1897,11 @@ class CodeBuildClient:
             max_results: <p>The maximum number of results to return.</p>
             sort_order: <p>Specifies the sort order of the returned items. Valid values include:</p> <ul> <li> <p> <code>ASCENDING</code>: List the batch build identifiers in ascending order by identifier.</p> </li> <li> <p> <code>DESCENDING</code>: List the batch build identifiers in descending order by identifier.</p> </li> </ul>
             next_token: <p>The <code>nextToken</code> value returned from a previous call to <code>ListBuildBatchesForProject</code>. This specifies the next item to return. To return the beginning of the list, exclude this parameter.</p>
+
+        Raises:
+            aws_sdk_codebuild.errors.invalid_input_exception.InvalidInputException: <p>The input value that was provided is not valid.</p>
+            aws_sdk_codebuild.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified Amazon Web Services resource cannot be found.</p>
+            aws_sdk_codebuild.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1850,6 +1985,10 @@ class CodeBuildClient:
         Args:
             sort_order: <p>The order to list build IDs. Valid values include:</p> <ul> <li> <p> <code>ASCENDING</code>: List the build IDs in ascending order by build ID.</p> </li> <li> <p> <code>DESCENDING</code>: List the build IDs in descending order by build ID.</p> </li> </ul>
             next_token: <p>During a previous call, if there are more than 100 items in the list, only the first 100 items are returned, along with a unique string called a <i>nextToken</i>. To get the next batch of items in the list, call this operation again, adding the next token to the call. To get all of the items in the list, keep calling this operation with each subsequent next token that is returned, until no more next tokens are returned.</p>
+
+        Raises:
+            aws_sdk_codebuild.errors.invalid_input_exception.InvalidInputException: <p>The input value that was provided is not valid.</p>
+            aws_sdk_codebuild.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1919,6 +2058,11 @@ class CodeBuildClient:
             project_name: <p>The name of the CodeBuild project.</p>
             sort_order: <p>The order to sort the results in. The results are sorted by build number, not the build identifier. If this is not specified, the results are sorted in descending order.</p> <p>Valid values include:</p> <ul> <li> <p> <code>ASCENDING</code>: List the build identifiers in ascending order, by build number.</p> </li> <li> <p> <code>DESCENDING</code>: List the build identifiers in descending order, by build number.</p> </li> </ul> <p>If the project has more than 100 builds, setting the sort order will result in an error. </p>
             next_token: <p>During a previous call, if there are more than 100 items in the list, only the first 100 items are returned, along with a unique string called a <i>nextToken</i>. To get the next batch of items in the list, call this operation again, adding the next token to the call. To get all of the items in the list, keep calling this operation with each subsequent next token that is returned, until no more next tokens are returned.</p>
+
+        Raises:
+            aws_sdk_codebuild.errors.invalid_input_exception.InvalidInputException: <p>The input value that was provided is not valid.</p>
+            aws_sdk_codebuild.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified Amazon Web Services resource cannot be found.</p>
+            aws_sdk_codebuild.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1995,6 +2139,11 @@ class CodeBuildClient:
             max_results: <p>The maximum number of sandbox records to be retrieved.</p>
             sort_order: <p>The order in which sandbox records should be retrieved.</p>
             next_token: <p>The next token, if any, to get paginated results. You will get this value from previous execution of list sandboxes.</p>
+
+        Raises:
+            aws_sdk_codebuild.errors.invalid_input_exception.InvalidInputException: <p>The input value that was provided is not valid.</p>
+            aws_sdk_codebuild.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified Amazon Web Services resource cannot be found.</p>
+            aws_sdk_codebuild.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2060,7 +2209,11 @@ class CodeBuildClient:
     def list_curated_environment_images(
         self, *, config_overrides: Optional[CodeBuildClientConfig] = None
     ) -> "aws_sdk_codebuild.types.list_curated_environment_images_output.ListCuratedEnvironmentImagesOutput":
-        """<p>Gets information about Docker images that are managed by CodeBuild.</p>"""
+        """<p>Gets information about Docker images that are managed by CodeBuild.</p>
+
+        Raises:
+            aws_sdk_codebuild.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_codebuild.types.list_curated_environment_images_input.ListCuratedEnvironmentImagesInput]",
@@ -2108,6 +2261,10 @@ class CodeBuildClient:
             max_results: <p>The maximum number of paginated compute fleets returned per response. Use <code>nextToken</code> to iterate pages in the list of returned compute fleets.</p>
             sort_order: <p>The order in which to list compute fleets. Valid values include:</p> <ul> <li> <p> <code>ASCENDING</code>: List in ascending order.</p> </li> <li> <p> <code>DESCENDING</code>: List in descending order.</p> </li> </ul> <p>Use <code>sortBy</code> to specify the criterion to be used to list compute fleet names.</p>
             sort_by: <p>The criterion to be used to list compute fleet names. Valid values include:</p> <ul> <li> <p> <code>CREATED_TIME</code>: List based on when each compute fleet was created.</p> </li> <li> <p> <code>LAST_MODIFIED_TIME</code>: List based on when information about each compute fleet was last changed.</p> </li> <li> <p> <code>NAME</code>: List based on each compute fleet's name.</p> </li> </ul> <p>Use <code>sortOrder</code> to specify in what order to list the compute fleet names based on the preceding criteria.</p>
+
+        Raises:
+            aws_sdk_codebuild.errors.invalid_input_exception.InvalidInputException: <p>The input value that was provided is not valid.</p>
+            aws_sdk_codebuild.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2162,6 +2319,10 @@ class CodeBuildClient:
             sort_by: <p>The criterion to be used to list build project names. Valid values include:</p> <ul> <li> <p> <code>CREATED_TIME</code>: List based on when each build project was created.</p> </li> <li> <p> <code>LAST_MODIFIED_TIME</code>: List based on when information about each build project was last changed.</p> </li> <li> <p> <code>NAME</code>: List based on each build project's name.</p> </li> </ul> <p>Use <code>sortOrder</code> to specify in what order to list the build project names based on the preceding criteria.</p>
             sort_order: <p>The order in which to list build projects. Valid values include:</p> <ul> <li> <p> <code>ASCENDING</code>: List in ascending order.</p> </li> <li> <p> <code>DESCENDING</code>: List in descending order.</p> </li> </ul> <p>Use <code>sortBy</code> to specify the criterion to be used to list build project names.</p>
             next_token: <p>During a previous call, if there are more than 100 items in the list, only the first 100 items are returned, along with a unique string called a <i>nextToken</i>. To get the next batch of items in the list, call this operation again, adding the next token to the call. To get all of the items in the list, keep calling this operation with each subsequent next token that is returned, until no more next tokens are returned.</p>
+
+        Raises:
+            aws_sdk_codebuild.errors.invalid_input_exception.InvalidInputException: <p>The input value that was provided is not valid.</p>
+            aws_sdk_codebuild.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2243,6 +2404,10 @@ class CodeBuildClient:
             sort_by: <p> The criterion to be used to list build report groups. Valid values include: </p> <ul> <li> <p> <code>CREATED_TIME</code>: List based on when each report group was created.</p> </li> <li> <p> <code>LAST_MODIFIED_TIME</code>: List based on when each report group was last changed.</p> </li> <li> <p> <code>NAME</code>: List based on each report group's name.</p> </li> </ul>
             next_token: <p> During a previous call, the maximum number of items that can be returned is the value specified in <code>maxResults</code>. If there more items in the list, then a unique string called a <i>nextToken</i> is returned. To get the next batch of items in the list, call this operation again, adding the next token to the call. To get all of the items in the list, keep calling this operation with each subsequent next token that is returned, until no more next tokens are returned. </p>
             max_results: <p> The maximum number of paginated report groups returned per response. Use <code>nextToken</code> to iterate pages in the list of returned <code>ReportGroup</code> objects. The default value is 100. </p>
+
+        Raises:
+            aws_sdk_codebuild.errors.invalid_input_exception.InvalidInputException: <p>The input value that was provided is not valid.</p>
+            aws_sdk_codebuild.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2324,6 +2489,10 @@ class CodeBuildClient:
             next_token: <p> During a previous call, the maximum number of items that can be returned is the value specified in <code>maxResults</code>. If there more items in the list, then a unique string called a <i>nextToken</i> is returned. To get the next batch of items in the list, call this operation again, adding the next token to the call. To get all of the items in the list, keep calling this operation with each subsequent next token that is returned, until no more next tokens are returned. </p>
             max_results: <p> The maximum number of paginated reports returned per response. Use <code>nextToken</code> to iterate pages in the list of returned <code>Report</code> objects. The default value is 100. </p>
             filter: <p> A <code>ReportFilter</code> object used to filter the returned reports. </p>
+
+        Raises:
+            aws_sdk_codebuild.errors.invalid_input_exception.InvalidInputException: <p>The input value that was provided is not valid.</p>
+            aws_sdk_codebuild.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2405,6 +2574,11 @@ class CodeBuildClient:
             sort_order: <p> Use to specify whether the results are returned in ascending or descending order. </p>
             max_results: <p> The maximum number of paginated reports in this report group returned per response. Use <code>nextToken</code> to iterate pages in the list of returned <code>Report</code> objects. The default value is 100. </p>
             filter: <p> A <code>ReportFilter</code> object used to filter the returned reports. </p>
+
+        Raises:
+            aws_sdk_codebuild.errors.invalid_input_exception.InvalidInputException: <p>The input value that was provided is not valid.</p>
+            aws_sdk_codebuild.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified Amazon Web Services resource cannot be found.</p>
+            aws_sdk_codebuild.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2485,6 +2659,10 @@ class CodeBuildClient:
             max_results: <p>The maximum number of sandbox records to be retrieved.</p>
             sort_order: <p>The order in which sandbox records should be retrieved.</p>
             next_token: <p>The next token, if any, to get paginated results. You will get this value from previous execution of list sandboxes.</p>
+
+        Raises:
+            aws_sdk_codebuild.errors.invalid_input_exception.InvalidInputException: <p>The input value that was provided is not valid.</p>
+            aws_sdk_codebuild.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2562,6 +2740,11 @@ class CodeBuildClient:
             max_results: <p>The maximum number of sandbox records to be retrieved.</p>
             sort_order: <p>The order in which sandbox records should be retrieved.</p>
             next_token: <p>The next token, if any, to get paginated results. You will get this value from previous execution of list sandboxes.</p>
+
+        Raises:
+            aws_sdk_codebuild.errors.invalid_input_exception.InvalidInputException: <p>The input value that was provided is not valid.</p>
+            aws_sdk_codebuild.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified Amazon Web Services resource cannot be found.</p>
+            aws_sdk_codebuild.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2646,6 +2829,10 @@ class CodeBuildClient:
             sort_order: <p>The order in which to list shared build projects. Valid values include:</p> <ul> <li> <p> <code>ASCENDING</code>: List in ascending order.</p> </li> <li> <p> <code>DESCENDING</code>: List in descending order.</p> </li> </ul>
             max_results: <p> The maximum number of paginated shared build projects returned per response. Use <code>nextToken</code> to iterate pages in the list of returned <code>Project</code> objects. The default value is 100. </p>
             next_token: <p> During a previous call, the maximum number of items that can be returned is the value specified in <code>maxResults</code>. If there more items in the list, then a unique string called a <i>nextToken</i> is returned. To get the next batch of items in the list, call this operation again, adding the next token to the call. To get all of the items in the list, keep calling this operation with each subsequent next token that is returned, until no more next tokens are returned. </p>
+
+        Raises:
+            aws_sdk_codebuild.errors.invalid_input_exception.InvalidInputException: <p>The input value that was provided is not valid.</p>
+            aws_sdk_codebuild.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2731,6 +2918,10 @@ class CodeBuildClient:
             sort_by: <p> The criterion to be used to list report groups shared with the current Amazon Web Services account or user. Valid values include: </p> <ul> <li> <p> <code>ARN</code>: List based on the ARN. </p> </li> <li> <p> <code>MODIFIED_TIME</code>: List based on when information about the shared report group was last changed. </p> </li> </ul>
             next_token: <p> During a previous call, the maximum number of items that can be returned is the value specified in <code>maxResults</code>. If there more items in the list, then a unique string called a <i>nextToken</i> is returned. To get the next batch of items in the list, call this operation again, adding the next token to the call. To get all of the items in the list, keep calling this operation with each subsequent next token that is returned, until no more next tokens are returned. </p>
             max_results: <p> The maximum number of paginated shared report groups per response. Use <code>nextToken</code> to iterate pages in the list of returned <code>ReportGroup</code> objects. The default value is 100. </p>
+
+        Raises:
+            aws_sdk_codebuild.errors.invalid_input_exception.InvalidInputException: <p>The input value that was provided is not valid.</p>
+            aws_sdk_codebuild.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2797,7 +2988,12 @@ class CodeBuildClient:
     def list_source_credentials(
         self, *, config_overrides: Optional[CodeBuildClientConfig] = None
     ) -> "aws_sdk_codebuild.types.list_source_credentials_output.ListSourceCredentialsOutput":
-        """<p> Returns a list of <code>SourceCredentialsInfo</code> objects. </p>"""
+        """<p> Returns a list of <code>SourceCredentialsInfo</code> objects. </p>
+
+        Raises:
+            aws_sdk_codebuild.errors.invalid_input_exception.InvalidInputException: <p>The input value that was provided is not valid.</p>
+            aws_sdk_codebuild.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_codebuild.types.list_source_credentials_input.ListSourceCredentialsInput]",
@@ -2835,6 +3031,11 @@ class CodeBuildClient:
         Args:
             policy: <p> A JSON-formatted resource policy. For more information, see <a href=\"https://docs.aws.amazon.com/codebuild/latest/userguide/project-sharing.html#project-sharing-share\">Sharing a Project</a> and <a href=\"https://docs.aws.amazon.com/codebuild/latest/userguide/report-groups-sharing.html#report-groups-sharing-share\">Sharing a Report Group</a> in the <i>CodeBuild User Guide</i>. </p>
             resource_arn: <p> The ARN of the <code>Project</code> or <code>ReportGroup</code> resource you want to associate with a resource policy. </p>
+
+        Raises:
+            aws_sdk_codebuild.errors.invalid_input_exception.InvalidInputException: <p>The input value that was provided is not valid.</p>
+            aws_sdk_codebuild.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified Amazon Web Services resource cannot be found.</p>
+            aws_sdk_codebuild.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2875,6 +3076,12 @@ class CodeBuildClient:
         Args:
             id: <p>Specifies the identifier of the build to restart.</p>
             idempotency_token: <p>A unique, case sensitive identifier you provide to ensure the idempotency of the <code>RetryBuild</code> request. The token is included in the <code>RetryBuild</code> request and is valid for five minutes. If you repeat the <code>RetryBuild</code> request with the same token, but change a parameter, CodeBuild returns a parameter mismatch error.</p>
+
+        Raises:
+            aws_sdk_codebuild.errors.account_limit_exceeded_exception.AccountLimitExceededException: <p>An Amazon Web Services service limit was exceeded for the calling Amazon Web Services account.</p>
+            aws_sdk_codebuild.errors.invalid_input_exception.InvalidInputException: <p>The input value that was provided is not valid.</p>
+            aws_sdk_codebuild.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified Amazon Web Services resource cannot be found.</p>
+            aws_sdk_codebuild.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2921,6 +3128,11 @@ class CodeBuildClient:
             id: <p>Specifies the identifier of the batch build to restart.</p>
             idempotency_token: <p>A unique, case sensitive identifier you provide to ensure the idempotency of the <code>RetryBuildBatch</code> request. The token is included in the <code>RetryBuildBatch</code> request and is valid for five minutes. If you repeat the <code>RetryBuildBatch</code> request with the same token, but change a parameter, CodeBuild returns a parameter mismatch error.</p>
             retry_type: <p>Specifies the type of retry to perform.</p>
+
+        Raises:
+            aws_sdk_codebuild.errors.invalid_input_exception.InvalidInputException: <p>The input value that was provided is not valid.</p>
+            aws_sdk_codebuild.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified Amazon Web Services resource cannot be found.</p>
+            aws_sdk_codebuild.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3083,6 +3295,12 @@ class CodeBuildClient:
             debug_session_enabled: <p>Specifies if session debugging is enabled for this build. For more information, see <a href=\"https://docs.aws.amazon.com/codebuild/latest/userguide/session-manager.html\">Viewing a running build in Session Manager</a>.</p>
             fleet_override: <p>A ProjectFleet object specified for this build that overrides the one defined in the build project.</p>
             auto_retry_limit_override: <p>The maximum number of additional automatic retries after a failed build. For example, if the auto-retry limit is set to 2, CodeBuild will call the <code>RetryBuild</code> API to automatically retry your build for up to 2 additional times.</p>
+
+        Raises:
+            aws_sdk_codebuild.errors.account_limit_exceeded_exception.AccountLimitExceededException: <p>An Amazon Web Services service limit was exceeded for the calling Amazon Web Services account.</p>
+            aws_sdk_codebuild.errors.invalid_input_exception.InvalidInputException: <p>The input value that was provided is not valid.</p>
+            aws_sdk_codebuild.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified Amazon Web Services resource cannot be found.</p>
+            aws_sdk_codebuild.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3302,6 +3520,11 @@ class CodeBuildClient:
             image_pull_credentials_type_override: <p>The type of credentials CodeBuild uses to pull images in your batch build. There are two valid values: </p> <dl> <dt>CODEBUILD</dt> <dd> <p>Specifies that CodeBuild uses its own credentials. This requires that you modify your ECR repository policy to trust CodeBuild's service principal.</p> </dd> <dt>SERVICE_ROLE</dt> <dd> <p>Specifies that CodeBuild uses your build project's service role. </p> </dd> </dl> <p>When using a cross-account or private registry image, you must use <code>SERVICE_ROLE</code> credentials. When using an CodeBuild curated image, you must use <code>CODEBUILD</code> credentials. </p>
             build_batch_config_override: <p>A <code>BuildBatchConfigOverride</code> object that contains batch build configuration overrides.</p>
             debug_session_enabled: <p>Specifies if session debugging is enabled for this batch build. For more information, see <a href=\"https://docs.aws.amazon.com/codebuild/latest/userguide/session-manager.html\">Viewing a running build in Session Manager</a>. Batch session debugging is not supported for matrix batch builds.</p>
+
+        Raises:
+            aws_sdk_codebuild.errors.invalid_input_exception.InvalidInputException: <p>The input value that was provided is not valid.</p>
+            aws_sdk_codebuild.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified Amazon Web Services resource cannot be found.</p>
+            aws_sdk_codebuild.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3413,6 +3636,11 @@ class CodeBuildClient:
             sandbox_id: <p>A <code>sandboxId</code> or <code>sandboxArn</code>.</p>
             command: <p>The command that needs to be executed.</p>
             type: <p>The command type.</p>
+
+        Raises:
+            aws_sdk_codebuild.errors.invalid_input_exception.InvalidInputException: <p>The input value that was provided is not valid.</p>
+            aws_sdk_codebuild.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified Amazon Web Services resource cannot be found.</p>
+            aws_sdk_codebuild.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3459,6 +3687,12 @@ class CodeBuildClient:
         Args:
             project_name: <p>The CodeBuild project name.</p>
             idempotency_token: <p>A unique client token.</p>
+
+        Raises:
+            aws_sdk_codebuild.errors.account_suspended_exception.AccountSuspendedException: <p>The CodeBuild access has been suspended for the calling Amazon Web Services account.</p>
+            aws_sdk_codebuild.errors.invalid_input_exception.InvalidInputException: <p>The input value that was provided is not valid.</p>
+            aws_sdk_codebuild.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified Amazon Web Services resource cannot be found.</p>
+            aws_sdk_codebuild.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3499,6 +3733,11 @@ class CodeBuildClient:
 
         Args:
             sandbox_id: <p>A <code>sandboxId</code> or <code>sandboxArn</code>.</p>
+
+        Raises:
+            aws_sdk_codebuild.errors.invalid_input_exception.InvalidInputException: <p>The input value that was provided is not valid.</p>
+            aws_sdk_codebuild.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified Amazon Web Services resource cannot be found.</p>
+            aws_sdk_codebuild.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3536,6 +3775,11 @@ class CodeBuildClient:
 
         Args:
             id: <p>The ID of the build.</p>
+
+        Raises:
+            aws_sdk_codebuild.errors.invalid_input_exception.InvalidInputException: <p>The input value that was provided is not valid.</p>
+            aws_sdk_codebuild.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified Amazon Web Services resource cannot be found.</p>
+            aws_sdk_codebuild.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3573,6 +3817,11 @@ class CodeBuildClient:
 
         Args:
             id: <p>The identifier of the batch build to stop.</p>
+
+        Raises:
+            aws_sdk_codebuild.errors.invalid_input_exception.InvalidInputException: <p>The input value that was provided is not valid.</p>
+            aws_sdk_codebuild.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified Amazon Web Services resource cannot be found.</p>
+            aws_sdk_codebuild.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3610,6 +3859,11 @@ class CodeBuildClient:
 
         Args:
             id: <p>Information about the requested sandbox ID.</p>
+
+        Raises:
+            aws_sdk_codebuild.errors.invalid_input_exception.InvalidInputException: <p>The input value that was provided is not valid.</p>
+            aws_sdk_codebuild.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified Amazon Web Services resource cannot be found.</p>
+            aws_sdk_codebuild.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3686,6 +3940,12 @@ class CodeBuildClient:
             image_id: <p>The Amazon Machine Image (AMI) of the compute fleet.</p>
             fleet_service_role: <p>The service role associated with the compute fleet. For more information, see <a href=\"https://docs.aws.amazon.com/codebuild/latest/userguide/auth-and-access-control-iam-identity-based-access-control.html#customer-managed-policies-example-permission-policy-fleet-service-role.html\"> Allow a user to add a permission policy for a fleet service role</a> in the <i>CodeBuild User Guide</i>.</p>
             tags: <p>A list of tag key and value pairs associated with this compute fleet.</p> <p>These tags are available for use by Amazon Web Services services that support CodeBuild build project tags.</p>
+
+        Raises:
+            aws_sdk_codebuild.errors.account_limit_exceeded_exception.AccountLimitExceededException: <p>An Amazon Web Services service limit was exceeded for the calling Amazon Web Services account.</p>
+            aws_sdk_codebuild.errors.invalid_input_exception.InvalidInputException: <p>The input value that was provided is not valid.</p>
+            aws_sdk_codebuild.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified Amazon Web Services resource cannot be found.</p>
+            aws_sdk_codebuild.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3816,6 +4076,11 @@ class CodeBuildClient:
             file_system_locations: <p> An array of <code>ProjectFileSystemLocation</code> objects for a CodeBuild build project. A <code>ProjectFileSystemLocation</code> object specifies the <code>identifier</code>, <code>location</code>, <code>mountOptions</code>, <code>mountPoint</code>, and <code>type</code> of a file system created using Amazon Elastic File System. </p>
             concurrent_build_limit: <p>The maximum number of concurrent builds that are allowed for this project.</p> <p>New builds are only started if the current number of builds is less than or equal to this limit. If the current build count meets this limit, new builds are throttled and are not run.</p> <p>To remove this limit, set this value to -1.</p>
             auto_retry_limit: <p>The maximum number of additional automatic retries after a failed build. For example, if the auto-retry limit is set to 2, CodeBuild will call the <code>RetryBuild</code> API to automatically retry your build for up to 2 additional times.</p>
+
+        Raises:
+            aws_sdk_codebuild.errors.invalid_input_exception.InvalidInputException: <p>The input value that was provided is not valid.</p>
+            aws_sdk_codebuild.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified Amazon Web Services resource cannot be found.</p>
+            aws_sdk_codebuild.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3900,6 +4165,11 @@ class CodeBuildClient:
         Args:
             project_arn: <p>The Amazon Resource Name (ARN) of the build project.</p>
             resource_access_role: <p>The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and Amazon S3 artifacts for the project's builds.</p>
+
+        Raises:
+            aws_sdk_codebuild.errors.invalid_input_exception.InvalidInputException: <p>The input value that was provided is not valid.</p>
+            aws_sdk_codebuild.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified Amazon Web Services resource cannot be found.</p>
+            aws_sdk_codebuild.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3946,6 +4216,11 @@ class CodeBuildClient:
             arn: <p> The ARN of the report group to update. </p>
             export_config: <p> Used to specify an updated export type. Valid values are: </p> <ul> <li> <p> <code>S3</code>: The report results are exported to an S3 bucket. </p> </li> <li> <p> <code>NO_EXPORT</code>: The report results are not exported. </p> </li> </ul>
             tags: <p> An updated list of tag key and value pairs associated with this report group. </p> <p>These tags are available for use by Amazon Web Services services that support CodeBuild report group tags.</p>
+
+        Raises:
+            aws_sdk_codebuild.errors.invalid_input_exception.InvalidInputException: <p>The input value that was provided is not valid.</p>
+            aws_sdk_codebuild.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified Amazon Web Services resource cannot be found.</p>
+            aws_sdk_codebuild.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4003,6 +4278,12 @@ class CodeBuildClient:
             filter_groups: <p> An array of arrays of <code>WebhookFilter</code> objects used to determine if a webhook event can trigger a build. A filter group must contain at least one <code>EVENT</code> <code>WebhookFilter</code>. </p>
             build_type: <p>Specifies the type of build this webhook will trigger.</p> <note> <p> <code>RUNNER_BUILDKITE_BUILD</code> is only available for <code>NO_SOURCE</code> source type projects configured for Buildkite runner builds. For more information about CodeBuild-hosted Buildkite runner builds, see <a href=\"https://docs.aws.amazon.com/codebuild/latest/userguide/sample-runner-buildkite.html\">Tutorial: Configure a CodeBuild-hosted Buildkite runner</a> in the <i>CodeBuild user guide</i>.</p> </note>
             pull_request_build_policy: <p>A PullRequestBuildPolicy object that defines comment-based approval requirements for triggering builds on pull requests. This policy helps control when automated builds are executed based on contributor permissions and approval workflows.</p>
+
+        Raises:
+            aws_sdk_codebuild.errors.invalid_input_exception.InvalidInputException: <p>The input value that was provided is not valid.</p>
+            aws_sdk_codebuild.errors.o_auth_provider_exception.OAuthProviderException: <p>There was a problem with the underlying OAuth provider.</p>
+            aws_sdk_codebuild.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified Amazon Web Services resource cannot be found.</p>
+            aws_sdk_codebuild.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(

@@ -155,6 +155,14 @@ class AsyncSocialMessagingClient:
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource to retrieve the tags from.</p>
+
+        Raises:
+            aws_sdk_socialmessaging.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_socialmessaging.errors.validation_exception.ValidationException: <p>The request contains an invalid parameter value. </p>
+            aws_sdk_socialmessaging.errors.internal_service_exception.InternalServiceException: <p>The request processing has failed because of an unknown error, exception, or failure.</p>
+            aws_sdk_socialmessaging.errors.invalid_parameters_exception.InvalidParametersException: <p>One or more parameters provided to the action are not valid.</p>
+            aws_sdk_socialmessaging.errors.throttled_request_exception.ThrottledRequestException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_socialmessaging.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -195,6 +203,14 @@ class AsyncSocialMessagingClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource to tag.</p>
             tags: <p>The tags to add to the resource.</p>
+
+        Raises:
+            aws_sdk_socialmessaging.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_socialmessaging.errors.validation_exception.ValidationException: <p>The request contains an invalid parameter value. </p>
+            aws_sdk_socialmessaging.errors.internal_service_exception.InternalServiceException: <p>The request processing has failed because of an unknown error, exception, or failure.</p>
+            aws_sdk_socialmessaging.errors.invalid_parameters_exception.InvalidParametersException: <p>One or more parameters provided to the action are not valid.</p>
+            aws_sdk_socialmessaging.errors.throttled_request_exception.ThrottledRequestException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_socialmessaging.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -236,6 +252,14 @@ class AsyncSocialMessagingClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource to remove tags from.</p>
             tag_keys: <p>The keys of the tags to remove from the resource.</p>
+
+        Raises:
+            aws_sdk_socialmessaging.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_socialmessaging.errors.validation_exception.ValidationException: <p>The request contains an invalid parameter value. </p>
+            aws_sdk_socialmessaging.errors.internal_service_exception.InternalServiceException: <p>The request processing has failed because of an unknown error, exception, or failure.</p>
+            aws_sdk_socialmessaging.errors.invalid_parameters_exception.InvalidParametersException: <p>One or more parameters provided to the action are not valid.</p>
+            aws_sdk_socialmessaging.errors.throttled_request_exception.ThrottledRequestException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_socialmessaging.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

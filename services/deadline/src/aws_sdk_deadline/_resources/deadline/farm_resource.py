@@ -109,6 +109,15 @@ class FarmResource:
             kms_key_arn: <p>The ARN of the KMS key to use on the farm.</p>
             cost_scale_factor: <p>A multiplier applied to the farm's calculated costs for usage data and budget tracking. A value less than 1 represents a discount, a value greater than 1 represents a premium, and a value of 1 represents no adjustment. The default value is 1.</p>
             tags: <p>The tags to add to your farm. Each tag consists of a tag key and a tag value. Tag keys and values are both required, but tag values can be empty strings.</p>
+
+        Raises:
+            aws_sdk_deadline.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action.</p>
+            aws_sdk_deadline.errors.internal_server_error_exception.InternalServerErrorException: <p>Deadline Cloud can't process your request right now. Try again later.</p>
+            aws_sdk_deadline.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_deadline.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You exceeded your service quota. Service quotas, also referred to as limits, are the maximum number of service resources or operations for your Amazon Web Services account.</p>
+            aws_sdk_deadline.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a request rate quota.</p>
+            aws_sdk_deadline.errors.validation_exception.ValidationException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
+            aws_sdk_deadline.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -156,6 +165,14 @@ class FarmResource:
 
         Args:
             farm_id: <p>The farm ID of the farm.</p>
+
+        Raises:
+            aws_sdk_deadline.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action.</p>
+            aws_sdk_deadline.errors.internal_server_error_exception.InternalServerErrorException: <p>Deadline Cloud can't process your request right now. Try again later.</p>
+            aws_sdk_deadline.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_deadline.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a request rate quota.</p>
+            aws_sdk_deadline.errors.validation_exception.ValidationException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
+            aws_sdk_deadline.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -203,6 +220,14 @@ class FarmResource:
             display_name: <p>The display name of the farm to update.</p> <important> <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p> </important>
             description: <p>The description of the farm to update.</p> <important> <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p> </important>
             cost_scale_factor: <p>A multiplier applied to the farm's calculated costs for usage data and budget tracking. A value less than 1 represents a discount, a value greater than 1 represents a premium, and a value of 1 represents no adjustment.</p>
+
+        Raises:
+            aws_sdk_deadline.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action.</p>
+            aws_sdk_deadline.errors.internal_server_error_exception.InternalServerErrorException: <p>Deadline Cloud can't process your request right now. Try again later.</p>
+            aws_sdk_deadline.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_deadline.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a request rate quota.</p>
+            aws_sdk_deadline.errors.validation_exception.ValidationException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
+            aws_sdk_deadline.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -246,6 +271,14 @@ class FarmResource:
 
         Args:
             farm_id: <p>The farm ID of the farm to delete.</p>
+
+        Raises:
+            aws_sdk_deadline.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action.</p>
+            aws_sdk_deadline.errors.internal_server_error_exception.InternalServerErrorException: <p>Deadline Cloud can't process your request right now. Try again later.</p>
+            aws_sdk_deadline.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_deadline.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a request rate quota.</p>
+            aws_sdk_deadline.errors.validation_exception.ValidationException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
+            aws_sdk_deadline.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -289,6 +322,13 @@ class FarmResource:
             next_token: <p>The token for the next set of results, or <code>null</code> to start from the beginning.</p>
             max_results: <p>The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.</p>
             principal_id: <p>The principal ID of the member to list on the farm.</p>
+
+        Raises:
+            aws_sdk_deadline.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action.</p>
+            aws_sdk_deadline.errors.internal_server_error_exception.InternalServerErrorException: <p>Deadline Cloud can't process your request right now. Try again later.</p>
+            aws_sdk_deadline.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a request rate quota.</p>
+            aws_sdk_deadline.errors.validation_exception.ValidationException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
+            aws_sdk_deadline.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -341,6 +381,15 @@ class FarmResource:
             membership_level: <p>The principal's membership level for the associated farm.</p>
             principal_id: <p>The member's principal ID to associate with the farm.</p>
             identity_center_region: <p>The Region of the IAM Identity Center instance. If not provided, the service defaults to the Region of the farm.</p>
+
+        Raises:
+            aws_sdk_deadline.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action.</p>
+            aws_sdk_deadline.errors.internal_server_error_exception.InternalServerErrorException: <p>Deadline Cloud can't process your request right now. Try again later.</p>
+            aws_sdk_deadline.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_deadline.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You exceeded your service quota. Service quotas, also referred to as limits, are the maximum number of service resources or operations for your Amazon Web Services account.</p>
+            aws_sdk_deadline.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a request rate quota.</p>
+            aws_sdk_deadline.errors.validation_exception.ValidationException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
+            aws_sdk_deadline.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -396,6 +445,15 @@ class FarmResource:
             amount_requirement_name: <p>The value that you specify as the <code>name</code> in the <code>amounts</code> field of the <code>hostRequirements</code> in a step of a job template to declare the limit requirement.</p>
             max_count: <p>The maximum number of resources constrained by this limit. When all of the resources are in use, steps that require the limit won't be scheduled until the resource is available.</p> <p>The <code>maxCount</code> must not be 0. If the value is -1, there is no restriction on the number of resources that can be acquired for this limit.</p>
             description: <p>A description of the limit. A description helps you identify the purpose of the limit.</p> <important> <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p> </important>
+
+        Raises:
+            aws_sdk_deadline.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action.</p>
+            aws_sdk_deadline.errors.internal_server_error_exception.InternalServerErrorException: <p>Deadline Cloud can't process your request right now. Try again later.</p>
+            aws_sdk_deadline.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_deadline.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You exceeded your service quota. Service quotas, also referred to as limits, are the maximum number of service resources or operations for your Amazon Web Services account.</p>
+            aws_sdk_deadline.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a request rate quota.</p>
+            aws_sdk_deadline.errors.validation_exception.ValidationException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
+            aws_sdk_deadline.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -452,6 +510,15 @@ class FarmResource:
             display_name: <p>The display name of the storage profile.</p> <important> <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p> </important>
             os_family: <p>The type of operating system (OS) for the storage profile.</p>
             file_system_locations: <p>File system paths to include in the storage profile.</p>
+
+        Raises:
+            aws_sdk_deadline.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action.</p>
+            aws_sdk_deadline.errors.internal_server_error_exception.InternalServerErrorException: <p>Deadline Cloud can't process your request right now. Try again later.</p>
+            aws_sdk_deadline.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_deadline.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You exceeded your service quota. Service quotas, also referred to as limits, are the maximum number of service resources or operations for your Amazon Web Services account.</p>
+            aws_sdk_deadline.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a request rate quota.</p>
+            aws_sdk_deadline.errors.validation_exception.ValidationException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
+            aws_sdk_deadline.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -497,6 +564,13 @@ class FarmResource:
         Args:
             farm_id: <p>The unique identifier of the farm that contains the limit to delete.</p>
             limit_id: <p>The unique identifier of the limit to delete.</p>
+
+        Raises:
+            aws_sdk_deadline.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action.</p>
+            aws_sdk_deadline.errors.internal_server_error_exception.InternalServerErrorException: <p>Deadline Cloud can't process your request right now. Try again later.</p>
+            aws_sdk_deadline.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a request rate quota.</p>
+            aws_sdk_deadline.errors.validation_exception.ValidationException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
+            aws_sdk_deadline.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -537,6 +611,13 @@ class FarmResource:
         Args:
             farm_id: <p>The farm ID of the farm from which to remove the storage profile.</p>
             storage_profile_id: <p>The storage profile ID of the storage profile to delete.</p>
+
+        Raises:
+            aws_sdk_deadline.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action.</p>
+            aws_sdk_deadline.errors.internal_server_error_exception.InternalServerErrorException: <p>Deadline Cloud can't process your request right now. Try again later.</p>
+            aws_sdk_deadline.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a request rate quota.</p>
+            aws_sdk_deadline.errors.validation_exception.ValidationException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
+            aws_sdk_deadline.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -577,6 +658,14 @@ class FarmResource:
         Args:
             farm_id: <p>The farm ID of the farm to disassociate from the member.</p>
             principal_id: <p>A member's principal ID to disassociate from a farm.</p>
+
+        Raises:
+            aws_sdk_deadline.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action.</p>
+            aws_sdk_deadline.errors.internal_server_error_exception.InternalServerErrorException: <p>Deadline Cloud can't process your request right now. Try again later.</p>
+            aws_sdk_deadline.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_deadline.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a request rate quota.</p>
+            aws_sdk_deadline.errors.validation_exception.ValidationException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
+            aws_sdk_deadline.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -617,6 +706,14 @@ class FarmResource:
         Args:
             farm_id: <p>The unique identifier of the farm that contains the limit.</p>
             limit_id: <p>The unique identifier of the limit to return.</p>
+
+        Raises:
+            aws_sdk_deadline.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action.</p>
+            aws_sdk_deadline.errors.internal_server_error_exception.InternalServerErrorException: <p>Deadline Cloud can't process your request right now. Try again later.</p>
+            aws_sdk_deadline.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_deadline.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a request rate quota.</p>
+            aws_sdk_deadline.errors.validation_exception.ValidationException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
+            aws_sdk_deadline.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -659,6 +756,14 @@ class FarmResource:
         Args:
             farm_id: <p>The farm ID for the storage profile.</p>
             storage_profile_id: <p>The storage profile ID.</p>
+
+        Raises:
+            aws_sdk_deadline.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action.</p>
+            aws_sdk_deadline.errors.internal_server_error_exception.InternalServerErrorException: <p>Deadline Cloud can't process your request right now. Try again later.</p>
+            aws_sdk_deadline.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_deadline.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a request rate quota.</p>
+            aws_sdk_deadline.errors.validation_exception.ValidationException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
+            aws_sdk_deadline.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -701,6 +806,14 @@ class FarmResource:
             farm_id: <p>The farm ID.</p>
             next_token: <p>The token for the next set of results, or <code>null</code> to start from the beginning.</p>
             max_results: <p>The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.</p>
+
+        Raises:
+            aws_sdk_deadline.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action.</p>
+            aws_sdk_deadline.errors.internal_server_error_exception.InternalServerErrorException: <p>Deadline Cloud can't process your request right now. Try again later.</p>
+            aws_sdk_deadline.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_deadline.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a request rate quota.</p>
+            aws_sdk_deadline.errors.validation_exception.ValidationException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
+            aws_sdk_deadline.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -746,6 +859,14 @@ class FarmResource:
             farm_id: <p>The unique identifier of the farm that contains the limits.</p>
             next_token: <p>The token for the next set of results, or <code>null</code> to start from the beginning.</p>
             max_results: <p>The maximum number of limits to return in each page of results.</p>
+
+        Raises:
+            aws_sdk_deadline.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action.</p>
+            aws_sdk_deadline.errors.internal_server_error_exception.InternalServerErrorException: <p>Deadline Cloud can't process your request right now. Try again later.</p>
+            aws_sdk_deadline.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_deadline.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a request rate quota.</p>
+            aws_sdk_deadline.errors.validation_exception.ValidationException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
+            aws_sdk_deadline.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -791,6 +912,14 @@ class FarmResource:
             farm_id: <p>The farm ID of the storage profile.</p>
             next_token: <p>The token for the next set of results, or <code>null</code> to start from the beginning.</p>
             max_results: <p>The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.</p>
+
+        Raises:
+            aws_sdk_deadline.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action.</p>
+            aws_sdk_deadline.errors.internal_server_error_exception.InternalServerErrorException: <p>Deadline Cloud can't process your request right now. Try again later.</p>
+            aws_sdk_deadline.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_deadline.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a request rate quota.</p>
+            aws_sdk_deadline.errors.validation_exception.ValidationException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
+            aws_sdk_deadline.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -842,6 +971,14 @@ class FarmResource:
             display_name: <p>The new display name of the limit.</p> <important> <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p> </important>
             description: <p>The new description of the limit.</p> <important> <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p> </important>
             max_count: <p>The maximum number of resources constrained by this limit. When all of the resources are in use, steps that require the limit won't be scheduled until the resource is available.</p> <p>If more than the new maximum number is currently in use, running jobs finish but no new jobs are started until the number of resources in use is below the new maximum number.</p> <p>The <code>maxCount</code> must not be 0. If the value is -1, there is no restriction on the number of resources that can be acquired for this limit.</p>
+
+        Raises:
+            aws_sdk_deadline.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action.</p>
+            aws_sdk_deadline.errors.internal_server_error_exception.InternalServerErrorException: <p>Deadline Cloud can't process your request right now. Try again later.</p>
+            aws_sdk_deadline.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_deadline.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a request rate quota.</p>
+            aws_sdk_deadline.errors.validation_exception.ValidationException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
+            aws_sdk_deadline.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -908,6 +1045,14 @@ class FarmResource:
             os_family: <p>The OS system to update.</p>
             file_system_locations_to_add: <p>The file system location names to add.</p>
             file_system_locations_to_remove: <p>The file system location names to remove.</p>
+
+        Raises:
+            aws_sdk_deadline.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action.</p>
+            aws_sdk_deadline.errors.internal_server_error_exception.InternalServerErrorException: <p>Deadline Cloud can't process your request right now. Try again later.</p>
+            aws_sdk_deadline.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_deadline.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a request rate quota.</p>
+            aws_sdk_deadline.errors.validation_exception.ValidationException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
+            aws_sdk_deadline.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -975,6 +1120,15 @@ class AsyncFarmResource:
             kms_key_arn: <p>The ARN of the KMS key to use on the farm.</p>
             cost_scale_factor: <p>A multiplier applied to the farm's calculated costs for usage data and budget tracking. A value less than 1 represents a discount, a value greater than 1 represents a premium, and a value of 1 represents no adjustment. The default value is 1.</p>
             tags: <p>The tags to add to your farm. Each tag consists of a tag key and a tag value. Tag keys and values are both required, but tag values can be empty strings.</p>
+
+        Raises:
+            aws_sdk_deadline.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action.</p>
+            aws_sdk_deadline.errors.internal_server_error_exception.InternalServerErrorException: <p>Deadline Cloud can't process your request right now. Try again later.</p>
+            aws_sdk_deadline.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_deadline.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You exceeded your service quota. Service quotas, also referred to as limits, are the maximum number of service resources or operations for your Amazon Web Services account.</p>
+            aws_sdk_deadline.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a request rate quota.</p>
+            aws_sdk_deadline.errors.validation_exception.ValidationException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
+            aws_sdk_deadline.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1023,6 +1177,14 @@ class AsyncFarmResource:
 
         Args:
             farm_id: <p>The farm ID of the farm.</p>
+
+        Raises:
+            aws_sdk_deadline.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action.</p>
+            aws_sdk_deadline.errors.internal_server_error_exception.InternalServerErrorException: <p>Deadline Cloud can't process your request right now. Try again later.</p>
+            aws_sdk_deadline.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_deadline.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a request rate quota.</p>
+            aws_sdk_deadline.errors.validation_exception.ValidationException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
+            aws_sdk_deadline.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1071,6 +1233,14 @@ class AsyncFarmResource:
             display_name: <p>The display name of the farm to update.</p> <important> <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p> </important>
             description: <p>The description of the farm to update.</p> <important> <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p> </important>
             cost_scale_factor: <p>A multiplier applied to the farm's calculated costs for usage data and budget tracking. A value less than 1 represents a discount, a value greater than 1 represents a premium, and a value of 1 represents no adjustment.</p>
+
+        Raises:
+            aws_sdk_deadline.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action.</p>
+            aws_sdk_deadline.errors.internal_server_error_exception.InternalServerErrorException: <p>Deadline Cloud can't process your request right now. Try again later.</p>
+            aws_sdk_deadline.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_deadline.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a request rate quota.</p>
+            aws_sdk_deadline.errors.validation_exception.ValidationException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
+            aws_sdk_deadline.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1115,6 +1285,14 @@ class AsyncFarmResource:
 
         Args:
             farm_id: <p>The farm ID of the farm to delete.</p>
+
+        Raises:
+            aws_sdk_deadline.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action.</p>
+            aws_sdk_deadline.errors.internal_server_error_exception.InternalServerErrorException: <p>Deadline Cloud can't process your request right now. Try again later.</p>
+            aws_sdk_deadline.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_deadline.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a request rate quota.</p>
+            aws_sdk_deadline.errors.validation_exception.ValidationException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
+            aws_sdk_deadline.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1159,6 +1337,13 @@ class AsyncFarmResource:
             next_token: <p>The token for the next set of results, or <code>null</code> to start from the beginning.</p>
             max_results: <p>The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.</p>
             principal_id: <p>The principal ID of the member to list on the farm.</p>
+
+        Raises:
+            aws_sdk_deadline.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action.</p>
+            aws_sdk_deadline.errors.internal_server_error_exception.InternalServerErrorException: <p>Deadline Cloud can't process your request right now. Try again later.</p>
+            aws_sdk_deadline.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a request rate quota.</p>
+            aws_sdk_deadline.errors.validation_exception.ValidationException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
+            aws_sdk_deadline.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1212,6 +1397,15 @@ class AsyncFarmResource:
             membership_level: <p>The principal's membership level for the associated farm.</p>
             principal_id: <p>The member's principal ID to associate with the farm.</p>
             identity_center_region: <p>The Region of the IAM Identity Center instance. If not provided, the service defaults to the Region of the farm.</p>
+
+        Raises:
+            aws_sdk_deadline.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action.</p>
+            aws_sdk_deadline.errors.internal_server_error_exception.InternalServerErrorException: <p>Deadline Cloud can't process your request right now. Try again later.</p>
+            aws_sdk_deadline.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_deadline.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You exceeded your service quota. Service quotas, also referred to as limits, are the maximum number of service resources or operations for your Amazon Web Services account.</p>
+            aws_sdk_deadline.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a request rate quota.</p>
+            aws_sdk_deadline.errors.validation_exception.ValidationException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
+            aws_sdk_deadline.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1268,6 +1462,15 @@ class AsyncFarmResource:
             amount_requirement_name: <p>The value that you specify as the <code>name</code> in the <code>amounts</code> field of the <code>hostRequirements</code> in a step of a job template to declare the limit requirement.</p>
             max_count: <p>The maximum number of resources constrained by this limit. When all of the resources are in use, steps that require the limit won't be scheduled until the resource is available.</p> <p>The <code>maxCount</code> must not be 0. If the value is -1, there is no restriction on the number of resources that can be acquired for this limit.</p>
             description: <p>A description of the limit. A description helps you identify the purpose of the limit.</p> <important> <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p> </important>
+
+        Raises:
+            aws_sdk_deadline.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action.</p>
+            aws_sdk_deadline.errors.internal_server_error_exception.InternalServerErrorException: <p>Deadline Cloud can't process your request right now. Try again later.</p>
+            aws_sdk_deadline.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_deadline.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You exceeded your service quota. Service quotas, also referred to as limits, are the maximum number of service resources or operations for your Amazon Web Services account.</p>
+            aws_sdk_deadline.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a request rate quota.</p>
+            aws_sdk_deadline.errors.validation_exception.ValidationException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
+            aws_sdk_deadline.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1325,6 +1528,15 @@ class AsyncFarmResource:
             display_name: <p>The display name of the storage profile.</p> <important> <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p> </important>
             os_family: <p>The type of operating system (OS) for the storage profile.</p>
             file_system_locations: <p>File system paths to include in the storage profile.</p>
+
+        Raises:
+            aws_sdk_deadline.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action.</p>
+            aws_sdk_deadline.errors.internal_server_error_exception.InternalServerErrorException: <p>Deadline Cloud can't process your request right now. Try again later.</p>
+            aws_sdk_deadline.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_deadline.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You exceeded your service quota. Service quotas, also referred to as limits, are the maximum number of service resources or operations for your Amazon Web Services account.</p>
+            aws_sdk_deadline.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a request rate quota.</p>
+            aws_sdk_deadline.errors.validation_exception.ValidationException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
+            aws_sdk_deadline.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1371,6 +1583,13 @@ class AsyncFarmResource:
         Args:
             farm_id: <p>The unique identifier of the farm that contains the limit to delete.</p>
             limit_id: <p>The unique identifier of the limit to delete.</p>
+
+        Raises:
+            aws_sdk_deadline.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action.</p>
+            aws_sdk_deadline.errors.internal_server_error_exception.InternalServerErrorException: <p>Deadline Cloud can't process your request right now. Try again later.</p>
+            aws_sdk_deadline.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a request rate quota.</p>
+            aws_sdk_deadline.errors.validation_exception.ValidationException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
+            aws_sdk_deadline.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1412,6 +1631,13 @@ class AsyncFarmResource:
         Args:
             farm_id: <p>The farm ID of the farm from which to remove the storage profile.</p>
             storage_profile_id: <p>The storage profile ID of the storage profile to delete.</p>
+
+        Raises:
+            aws_sdk_deadline.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action.</p>
+            aws_sdk_deadline.errors.internal_server_error_exception.InternalServerErrorException: <p>Deadline Cloud can't process your request right now. Try again later.</p>
+            aws_sdk_deadline.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a request rate quota.</p>
+            aws_sdk_deadline.errors.validation_exception.ValidationException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
+            aws_sdk_deadline.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1453,6 +1679,14 @@ class AsyncFarmResource:
         Args:
             farm_id: <p>The farm ID of the farm to disassociate from the member.</p>
             principal_id: <p>A member's principal ID to disassociate from a farm.</p>
+
+        Raises:
+            aws_sdk_deadline.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action.</p>
+            aws_sdk_deadline.errors.internal_server_error_exception.InternalServerErrorException: <p>Deadline Cloud can't process your request right now. Try again later.</p>
+            aws_sdk_deadline.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_deadline.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a request rate quota.</p>
+            aws_sdk_deadline.errors.validation_exception.ValidationException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
+            aws_sdk_deadline.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1494,6 +1728,14 @@ class AsyncFarmResource:
         Args:
             farm_id: <p>The unique identifier of the farm that contains the limit.</p>
             limit_id: <p>The unique identifier of the limit to return.</p>
+
+        Raises:
+            aws_sdk_deadline.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action.</p>
+            aws_sdk_deadline.errors.internal_server_error_exception.InternalServerErrorException: <p>Deadline Cloud can't process your request right now. Try again later.</p>
+            aws_sdk_deadline.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_deadline.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a request rate quota.</p>
+            aws_sdk_deadline.errors.validation_exception.ValidationException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
+            aws_sdk_deadline.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1537,6 +1779,14 @@ class AsyncFarmResource:
         Args:
             farm_id: <p>The farm ID for the storage profile.</p>
             storage_profile_id: <p>The storage profile ID.</p>
+
+        Raises:
+            aws_sdk_deadline.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action.</p>
+            aws_sdk_deadline.errors.internal_server_error_exception.InternalServerErrorException: <p>Deadline Cloud can't process your request right now. Try again later.</p>
+            aws_sdk_deadline.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_deadline.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a request rate quota.</p>
+            aws_sdk_deadline.errors.validation_exception.ValidationException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
+            aws_sdk_deadline.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1580,6 +1830,14 @@ class AsyncFarmResource:
             farm_id: <p>The farm ID.</p>
             next_token: <p>The token for the next set of results, or <code>null</code> to start from the beginning.</p>
             max_results: <p>The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.</p>
+
+        Raises:
+            aws_sdk_deadline.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action.</p>
+            aws_sdk_deadline.errors.internal_server_error_exception.InternalServerErrorException: <p>Deadline Cloud can't process your request right now. Try again later.</p>
+            aws_sdk_deadline.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_deadline.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a request rate quota.</p>
+            aws_sdk_deadline.errors.validation_exception.ValidationException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
+            aws_sdk_deadline.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1626,6 +1884,14 @@ class AsyncFarmResource:
             farm_id: <p>The unique identifier of the farm that contains the limits.</p>
             next_token: <p>The token for the next set of results, or <code>null</code> to start from the beginning.</p>
             max_results: <p>The maximum number of limits to return in each page of results.</p>
+
+        Raises:
+            aws_sdk_deadline.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action.</p>
+            aws_sdk_deadline.errors.internal_server_error_exception.InternalServerErrorException: <p>Deadline Cloud can't process your request right now. Try again later.</p>
+            aws_sdk_deadline.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_deadline.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a request rate quota.</p>
+            aws_sdk_deadline.errors.validation_exception.ValidationException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
+            aws_sdk_deadline.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1672,6 +1938,14 @@ class AsyncFarmResource:
             farm_id: <p>The farm ID of the storage profile.</p>
             next_token: <p>The token for the next set of results, or <code>null</code> to start from the beginning.</p>
             max_results: <p>The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.</p>
+
+        Raises:
+            aws_sdk_deadline.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action.</p>
+            aws_sdk_deadline.errors.internal_server_error_exception.InternalServerErrorException: <p>Deadline Cloud can't process your request right now. Try again later.</p>
+            aws_sdk_deadline.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_deadline.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a request rate quota.</p>
+            aws_sdk_deadline.errors.validation_exception.ValidationException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
+            aws_sdk_deadline.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1724,6 +1998,14 @@ class AsyncFarmResource:
             display_name: <p>The new display name of the limit.</p> <important> <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p> </important>
             description: <p>The new description of the limit.</p> <important> <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p> </important>
             max_count: <p>The maximum number of resources constrained by this limit. When all of the resources are in use, steps that require the limit won't be scheduled until the resource is available.</p> <p>If more than the new maximum number is currently in use, running jobs finish but no new jobs are started until the number of resources in use is below the new maximum number.</p> <p>The <code>maxCount</code> must not be 0. If the value is -1, there is no restriction on the number of resources that can be acquired for this limit.</p>
+
+        Raises:
+            aws_sdk_deadline.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action.</p>
+            aws_sdk_deadline.errors.internal_server_error_exception.InternalServerErrorException: <p>Deadline Cloud can't process your request right now. Try again later.</p>
+            aws_sdk_deadline.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_deadline.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a request rate quota.</p>
+            aws_sdk_deadline.errors.validation_exception.ValidationException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
+            aws_sdk_deadline.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1791,6 +2073,14 @@ class AsyncFarmResource:
             os_family: <p>The OS system to update.</p>
             file_system_locations_to_add: <p>The file system location names to add.</p>
             file_system_locations_to_remove: <p>The file system location names to remove.</p>
+
+        Raises:
+            aws_sdk_deadline.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action.</p>
+            aws_sdk_deadline.errors.internal_server_error_exception.InternalServerErrorException: <p>Deadline Cloud can't process your request right now. Try again later.</p>
+            aws_sdk_deadline.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_deadline.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a request rate quota.</p>
+            aws_sdk_deadline.errors.validation_exception.ValidationException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
+            aws_sdk_deadline.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

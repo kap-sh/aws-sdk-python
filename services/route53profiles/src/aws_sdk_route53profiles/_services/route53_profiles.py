@@ -186,6 +186,17 @@ class Route53ProfilesClient:
             resource_id: <p> The ID of the VPC. </p>
             name: <p> A name for the association. </p>
             tags: <p> A list of the tag keys and values that you want to identify the Profile association. </p>
+
+        Raises:
+            aws_sdk_route53profiles.errors.access_denied_exception.AccessDeniedException: <p> The current account doesn't have the IAM permissions required to perform the specified operation. </p>
+            aws_sdk_route53profiles.errors.conflict_exception.ConflictException: <p> The request you submitted conflicts with an existing request. </p>
+            aws_sdk_route53profiles.errors.invalid_parameter_exception.InvalidParameterException: <p> One or more parameters in this request are not valid. </p>
+            aws_sdk_route53profiles.errors.limit_exceeded_exception.LimitExceededException: <p> The request caused one or more limits to be exceeded. </p>
+            aws_sdk_route53profiles.errors.resource_exists_exception.ResourceExistsException: <p> The resource you are trying to associate, has already been associated. </p>
+            aws_sdk_route53profiles.errors.resource_not_found_exception.ResourceNotFoundException: <p> The resource you are associating is not found. </p>
+            aws_sdk_route53profiles.errors.throttling_exception.ThrottlingException: <p> The request was throttled. Try again in a few minutes. </p>
+            aws_sdk_route53profiles.errors.validation_exception.ValidationException: <p> You have provided an invalid command. </p>
+            aws_sdk_route53profiles.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -235,6 +246,17 @@ class Route53ProfilesClient:
             resource_arn: <p> Amazon resource number, ARN, of the DNS resource. </p>
             name: <p> Name for the resource association. </p>
             resource_properties: <p> If you are adding a DNS Firewall rule group, include also a priority. The priority indicates the processing order for the rule groups, starting with the priority assinged the lowest value. </p> <p>The allowed values for priority are between 100 and 9900.</p>
+
+        Raises:
+            aws_sdk_route53profiles.errors.access_denied_exception.AccessDeniedException: <p> The current account doesn't have the IAM permissions required to perform the specified operation. </p>
+            aws_sdk_route53profiles.errors.conflict_exception.ConflictException: <p> The request you submitted conflicts with an existing request. </p>
+            aws_sdk_route53profiles.errors.internal_service_error_exception.InternalServiceErrorException: <p> An internal server error occured. Retry your request. </p>
+            aws_sdk_route53profiles.errors.invalid_parameter_exception.InvalidParameterException: <p> One or more parameters in this request are not valid. </p>
+            aws_sdk_route53profiles.errors.limit_exceeded_exception.LimitExceededException: <p> The request caused one or more limits to be exceeded. </p>
+            aws_sdk_route53profiles.errors.resource_not_found_exception.ResourceNotFoundException: <p> The resource you are associating is not found. </p>
+            aws_sdk_route53profiles.errors.throttling_exception.ThrottlingException: <p> The request was throttled. Try again in a few minutes. </p>
+            aws_sdk_route53profiles.errors.validation_exception.ValidationException: <p> You have provided an invalid command. </p>
+            aws_sdk_route53profiles.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -280,6 +302,14 @@ class Route53ProfilesClient:
             name: <p> A name for the Profile. </p>
             client_token: <p> <code>ClientToken</code> is an idempotency token that ensures a call to <code>CreateProfile</code> completes only once. You choose the value to pass. For example, an issue might prevent you from getting a response from <code>CreateProfile</code>. In this case, safely retry your call to <code>CreateProfile</code> by using the same <code>CreateProfile</code> parameter value. </p>
             tags: <p> A list of the tag keys and values that you want to associate with the Route 53 Profile. </p>
+
+        Raises:
+            aws_sdk_route53profiles.errors.access_denied_exception.AccessDeniedException: <p> The current account doesn't have the IAM permissions required to perform the specified operation. </p>
+            aws_sdk_route53profiles.errors.invalid_parameter_exception.InvalidParameterException: <p> One or more parameters in this request are not valid. </p>
+            aws_sdk_route53profiles.errors.limit_exceeded_exception.LimitExceededException: <p> The request caused one or more limits to be exceeded. </p>
+            aws_sdk_route53profiles.errors.throttling_exception.ThrottlingException: <p> The request was throttled. Try again in a few minutes. </p>
+            aws_sdk_route53profiles.errors.validation_exception.ValidationException: <p> You have provided an invalid command. </p>
+            aws_sdk_route53profiles.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -320,6 +350,14 @@ class Route53ProfilesClient:
 
         Args:
             profile_id: <p> The ID of the Profile that you want to delete. </p>
+
+        Raises:
+            aws_sdk_route53profiles.errors.access_denied_exception.AccessDeniedException: <p> The current account doesn't have the IAM permissions required to perform the specified operation. </p>
+            aws_sdk_route53profiles.errors.conflict_exception.ConflictException: <p> The request you submitted conflicts with an existing request. </p>
+            aws_sdk_route53profiles.errors.resource_not_found_exception.ResourceNotFoundException: <p> The resource you are associating is not found. </p>
+            aws_sdk_route53profiles.errors.throttling_exception.ThrottlingException: <p> The request was throttled. Try again in a few minutes. </p>
+            aws_sdk_route53profiles.errors.validation_exception.ValidationException: <p> You have provided an invalid command. </p>
+            aws_sdk_route53profiles.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -359,6 +397,15 @@ class Route53ProfilesClient:
         Args:
             profile_id: <p> ID of the Profile. </p>
             resource_id: <p> The ID of the VPC. </p>
+
+        Raises:
+            aws_sdk_route53profiles.errors.access_denied_exception.AccessDeniedException: <p> The current account doesn't have the IAM permissions required to perform the specified operation. </p>
+            aws_sdk_route53profiles.errors.invalid_parameter_exception.InvalidParameterException: <p> One or more parameters in this request are not valid. </p>
+            aws_sdk_route53profiles.errors.limit_exceeded_exception.LimitExceededException: <p> The request caused one or more limits to be exceeded. </p>
+            aws_sdk_route53profiles.errors.resource_not_found_exception.ResourceNotFoundException: <p> The resource you are associating is not found. </p>
+            aws_sdk_route53profiles.errors.throttling_exception.ThrottlingException: <p> The request was throttled. Try again in a few minutes. </p>
+            aws_sdk_route53profiles.errors.validation_exception.ValidationException: <p> You have provided an invalid command. </p>
+            aws_sdk_route53profiles.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -399,6 +446,17 @@ class Route53ProfilesClient:
         Args:
             profile_id: <p> The ID of the Profile. </p>
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource. </p>
+
+        Raises:
+            aws_sdk_route53profiles.errors.access_denied_exception.AccessDeniedException: <p> The current account doesn't have the IAM permissions required to perform the specified operation. </p>
+            aws_sdk_route53profiles.errors.conflict_exception.ConflictException: <p> The request you submitted conflicts with an existing request. </p>
+            aws_sdk_route53profiles.errors.internal_service_error_exception.InternalServiceErrorException: <p> An internal server error occured. Retry your request. </p>
+            aws_sdk_route53profiles.errors.invalid_parameter_exception.InvalidParameterException: <p> One or more parameters in this request are not valid. </p>
+            aws_sdk_route53profiles.errors.limit_exceeded_exception.LimitExceededException: <p> The request caused one or more limits to be exceeded. </p>
+            aws_sdk_route53profiles.errors.resource_not_found_exception.ResourceNotFoundException: <p> The resource you are associating is not found. </p>
+            aws_sdk_route53profiles.errors.throttling_exception.ThrottlingException: <p> The request was throttled. Try again in a few minutes. </p>
+            aws_sdk_route53profiles.errors.validation_exception.ValidationException: <p> You have provided an invalid command. </p>
+            aws_sdk_route53profiles.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -437,6 +495,13 @@ class Route53ProfilesClient:
 
         Args:
             profile_id: <p> ID of the Profile. </p>
+
+        Raises:
+            aws_sdk_route53profiles.errors.access_denied_exception.AccessDeniedException: <p> The current account doesn't have the IAM permissions required to perform the specified operation. </p>
+            aws_sdk_route53profiles.errors.resource_not_found_exception.ResourceNotFoundException: <p> The resource you are associating is not found. </p>
+            aws_sdk_route53profiles.errors.throttling_exception.ThrottlingException: <p> The request was throttled. Try again in a few minutes. </p>
+            aws_sdk_route53profiles.errors.validation_exception.ValidationException: <p> You have provided an invalid command. </p>
+            aws_sdk_route53profiles.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -474,6 +539,13 @@ class Route53ProfilesClient:
 
         Args:
             profile_association_id: <p> The identifier of the association you want to get information about. </p>
+
+        Raises:
+            aws_sdk_route53profiles.errors.access_denied_exception.AccessDeniedException: <p> The current account doesn't have the IAM permissions required to perform the specified operation. </p>
+            aws_sdk_route53profiles.errors.resource_not_found_exception.ResourceNotFoundException: <p> The resource you are associating is not found. </p>
+            aws_sdk_route53profiles.errors.throttling_exception.ThrottlingException: <p> The request was throttled. Try again in a few minutes. </p>
+            aws_sdk_route53profiles.errors.validation_exception.ValidationException: <p> You have provided an invalid command. </p>
+            aws_sdk_route53profiles.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -511,6 +583,14 @@ class Route53ProfilesClient:
 
         Args:
             profile_resource_association_id: <p> The ID of the profile resource association that you want to get information about. </p>
+
+        Raises:
+            aws_sdk_route53profiles.errors.access_denied_exception.AccessDeniedException: <p> The current account doesn't have the IAM permissions required to perform the specified operation. </p>
+            aws_sdk_route53profiles.errors.invalid_parameter_exception.InvalidParameterException: <p> One or more parameters in this request are not valid. </p>
+            aws_sdk_route53profiles.errors.resource_not_found_exception.ResourceNotFoundException: <p> The resource you are associating is not found. </p>
+            aws_sdk_route53profiles.errors.throttling_exception.ThrottlingException: <p> The request was throttled. Try again in a few minutes. </p>
+            aws_sdk_route53profiles.errors.validation_exception.ValidationException: <p> You have provided an invalid command. </p>
+            aws_sdk_route53profiles.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -562,6 +642,14 @@ class Route53ProfilesClient:
             profile_id: <p> ID of the Profile. </p>
             max_results: <p> The maximum number of objects that you want to return for this request. If more objects are available, in the response, a <code>NextToken</code> value, which you can use in a subsequent call to get the next batch of objects, is provided.</p> <p> If you don't specify a value for <code>MaxResults</code>, up to 100 objects are returned. </p>
             next_token: <p> For the first call to this list request, omit this value. </p> <p>When you request a list of objects, at most the number of objects specified by <code>MaxResults</code> is returned. If more objects are available for retrieval, a <code>NextToken</code> value is returned in the response. To retrieve the next batch of objects, use the token that was returned for the prior request in your next request.</p>
+
+        Raises:
+            aws_sdk_route53profiles.errors.access_denied_exception.AccessDeniedException: <p> The current account doesn't have the IAM permissions required to perform the specified operation. </p>
+            aws_sdk_route53profiles.errors.invalid_next_token_exception.InvalidNextTokenException: <p> The <code>NextToken</code> you provided isn;t valid. </p>
+            aws_sdk_route53profiles.errors.invalid_parameter_exception.InvalidParameterException: <p> One or more parameters in this request are not valid. </p>
+            aws_sdk_route53profiles.errors.throttling_exception.ThrottlingException: <p> The request was throttled. Try again in a few minutes. </p>
+            aws_sdk_route53profiles.errors.validation_exception.ValidationException: <p> You have provided an invalid command. </p>
+            aws_sdk_route53profiles.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -651,6 +739,16 @@ class Route53ProfilesClient:
             resource_type: <p> ID of a resource if you want information on only one type. </p>
             max_results: <p> The maximum number of objects that you want to return for this request. If more objects are available, in the response, a <code>NextToken</code> value, which you can use in a subsequent call to get the next batch of objects, is provided.</p> <p> If you don't specify a value for <code>MaxResults</code>, up to 100 objects are returned. </p>
             next_token: <p> For the first call to this list request, omit this value. </p> <p>When you request a list of objects, at most the number of objects specified by <code>MaxResults</code> is returned. If more objects are available for retrieval, a <code>NextToken</code> value is returned in the response. To retrieve the next batch of objects, use the token that was returned for the prior request in your next request.</p>
+
+        Raises:
+            aws_sdk_route53profiles.errors.access_denied_exception.AccessDeniedException: <p> The current account doesn't have the IAM permissions required to perform the specified operation. </p>
+            aws_sdk_route53profiles.errors.internal_service_error_exception.InternalServiceErrorException: <p> An internal server error occured. Retry your request. </p>
+            aws_sdk_route53profiles.errors.invalid_next_token_exception.InvalidNextTokenException: <p> The <code>NextToken</code> you provided isn;t valid. </p>
+            aws_sdk_route53profiles.errors.invalid_parameter_exception.InvalidParameterException: <p> One or more parameters in this request are not valid. </p>
+            aws_sdk_route53profiles.errors.resource_not_found_exception.ResourceNotFoundException: <p> The resource you are associating is not found. </p>
+            aws_sdk_route53profiles.errors.throttling_exception.ThrottlingException: <p> The request was throttled. Try again in a few minutes. </p>
+            aws_sdk_route53profiles.errors.validation_exception.ValidationException: <p> You have provided an invalid command. </p>
+            aws_sdk_route53profiles.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -729,6 +827,14 @@ class Route53ProfilesClient:
         Args:
             max_results: <p> The maximum number of objects that you want to return for this request. If more objects are available, in the response, a <code>NextToken</code> value, which you can use in a subsequent call to get the next batch of objects, is provided.</p> <p> If you don't specify a value for <code>MaxResults</code>, up to 100 objects are returned. </p>
             next_token: <p> For the first call to this list request, omit this value. </p> <p>When you request a list of objects, at most the number of objects specified by <code>MaxResults</code> is returned. If more objects are available for retrieval, a <code>NextToken</code> value is returned in the response. To retrieve the next batch of objects, use the token that was returned for the prior request in your next request.</p>
+
+        Raises:
+            aws_sdk_route53profiles.errors.access_denied_exception.AccessDeniedException: <p> The current account doesn't have the IAM permissions required to perform the specified operation. </p>
+            aws_sdk_route53profiles.errors.invalid_next_token_exception.InvalidNextTokenException: <p> The <code>NextToken</code> you provided isn;t valid. </p>
+            aws_sdk_route53profiles.errors.invalid_parameter_exception.InvalidParameterException: <p> One or more parameters in this request are not valid. </p>
+            aws_sdk_route53profiles.errors.throttling_exception.ThrottlingException: <p> The request was throttled. Try again in a few minutes. </p>
+            aws_sdk_route53profiles.errors.validation_exception.ValidationException: <p> You have provided an invalid command. </p>
+            aws_sdk_route53profiles.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -794,6 +900,14 @@ class Route53ProfilesClient:
 
         Args:
             resource_arn: <p> The Amazon Resource Name (ARN) for the resource that you want to list the tags for. </p>
+
+        Raises:
+            aws_sdk_route53profiles.errors.access_denied_exception.AccessDeniedException: <p> The current account doesn't have the IAM permissions required to perform the specified operation. </p>
+            aws_sdk_route53profiles.errors.conflict_exception.ConflictException: <p> The request you submitted conflicts with an existing request. </p>
+            aws_sdk_route53profiles.errors.resource_not_found_exception.ResourceNotFoundException: <p> The resource you are associating is not found. </p>
+            aws_sdk_route53profiles.errors.throttling_exception.ThrottlingException: <p> The request was throttled. Try again in a few minutes. </p>
+            aws_sdk_route53profiles.errors.validation_exception.ValidationException: <p> You have provided an invalid command. </p>
+            aws_sdk_route53profiles.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -833,6 +947,13 @@ class Route53ProfilesClient:
         Args:
             resource_arn: <p> The Amazon Resource Name (ARN) for the resource that you want to add tags to. </p>
             tags: <p> The tags that you want to add to the specified resource. </p>
+
+        Raises:
+            aws_sdk_route53profiles.errors.access_denied_exception.AccessDeniedException: <p> The current account doesn't have the IAM permissions required to perform the specified operation. </p>
+            aws_sdk_route53profiles.errors.resource_not_found_exception.ResourceNotFoundException: <p> The resource you are associating is not found. </p>
+            aws_sdk_route53profiles.errors.throttling_exception.ThrottlingException: <p> The request was throttled. Try again in a few minutes. </p>
+            aws_sdk_route53profiles.errors.validation_exception.ValidationException: <p> You have provided an invalid command. </p>
+            aws_sdk_route53profiles.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -873,6 +994,14 @@ class Route53ProfilesClient:
         Args:
             resource_arn: <p> The Amazon Resource Name (ARN) for the resource that you want to remove tags from. </p>
             tag_keys: <p> The tags that you want to remove to the specified resource. </p>
+
+        Raises:
+            aws_sdk_route53profiles.errors.access_denied_exception.AccessDeniedException: <p> The current account doesn't have the IAM permissions required to perform the specified operation. </p>
+            aws_sdk_route53profiles.errors.conflict_exception.ConflictException: <p> The request you submitted conflicts with an existing request. </p>
+            aws_sdk_route53profiles.errors.resource_not_found_exception.ResourceNotFoundException: <p> The resource you are associating is not found. </p>
+            aws_sdk_route53profiles.errors.throttling_exception.ThrottlingException: <p> The request was throttled. Try again in a few minutes. </p>
+            aws_sdk_route53profiles.errors.validation_exception.ValidationException: <p> You have provided an invalid command. </p>
+            aws_sdk_route53profiles.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -917,6 +1046,17 @@ class Route53ProfilesClient:
             profile_resource_association_id: <p> ID of the resource association. </p>
             name: <p> Name of the resource association. </p>
             resource_properties: <p> If you are adding a DNS Firewall rule group, include also a priority. The priority indicates the processing order for the rule groups, starting with the priority assinged the lowest value. </p> <p>The allowed values for priority are between 100 and 9900.</p>
+
+        Raises:
+            aws_sdk_route53profiles.errors.access_denied_exception.AccessDeniedException: <p> The current account doesn't have the IAM permissions required to perform the specified operation. </p>
+            aws_sdk_route53profiles.errors.conflict_exception.ConflictException: <p> The request you submitted conflicts with an existing request. </p>
+            aws_sdk_route53profiles.errors.internal_service_error_exception.InternalServiceErrorException: <p> An internal server error occured. Retry your request. </p>
+            aws_sdk_route53profiles.errors.invalid_parameter_exception.InvalidParameterException: <p> One or more parameters in this request are not valid. </p>
+            aws_sdk_route53profiles.errors.limit_exceeded_exception.LimitExceededException: <p> The request caused one or more limits to be exceeded. </p>
+            aws_sdk_route53profiles.errors.resource_not_found_exception.ResourceNotFoundException: <p> The resource you are associating is not found. </p>
+            aws_sdk_route53profiles.errors.throttling_exception.ThrottlingException: <p> The request was throttled. Try again in a few minutes. </p>
+            aws_sdk_route53profiles.errors.validation_exception.ValidationException: <p> You have provided an invalid command. </p>
+            aws_sdk_route53profiles.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(

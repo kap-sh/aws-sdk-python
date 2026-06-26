@@ -219,6 +219,14 @@ class tnbClient:
         Args:
             ns_lcm_op_occ_id: <p>The identifier of the network operation.</p>
 
+        Raises:
+            aws_sdk_tnb.errors.access_denied_exception.AccessDeniedException: <p>Insufficient permissions to make request.</p>
+            aws_sdk_tnb.errors.internal_server_exception.InternalServerException: <p>Unexpected error occurred. Problem on the server.</p>
+            aws_sdk_tnb.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource that doesn't exist.</p>
+            aws_sdk_tnb.errors.throttling_exception.ThrottlingException: <p>Exception caused by throttling.</p>
+            aws_sdk_tnb.errors.validation_exception.ValidationException: <p>Unable to process the request because the client provided input failed to satisfy request constraints.</p>
+            aws_sdk_tnb.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Cancel a in-progress Sol Network Operation.
 
@@ -258,6 +266,14 @@ class tnbClient:
 
         Args:
             tags: <p>A tag is a label that you assign to an Amazon Web Services resource. Each tag consists of a key and an optional value. You can use tags to search and filter your resources or track your Amazon Web Services costs.</p>
+
+        Raises:
+            aws_sdk_tnb.errors.access_denied_exception.AccessDeniedException: <p>Insufficient permissions to make request.</p>
+            aws_sdk_tnb.errors.internal_server_exception.InternalServerException: <p>Unexpected error occurred. Problem on the server.</p>
+            aws_sdk_tnb.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Service quotas have been exceeded.</p>
+            aws_sdk_tnb.errors.throttling_exception.ThrottlingException: <p>Exception caused by throttling.</p>
+            aws_sdk_tnb.errors.validation_exception.ValidationException: <p>Unable to process the request because the client provided input failed to satisfy request constraints.</p>
+            aws_sdk_tnb.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Create a Sol function package
@@ -308,6 +324,15 @@ class tnbClient:
             ns_description: <p>Network instance description.</p>
             tags: <p>A tag is a label that you assign to an Amazon Web Services resource. Each tag consists of a key and an optional value. You can use tags to search and filter your resources or track your Amazon Web Services costs.</p>
 
+        Raises:
+            aws_sdk_tnb.errors.access_denied_exception.AccessDeniedException: <p>Insufficient permissions to make request.</p>
+            aws_sdk_tnb.errors.internal_server_exception.InternalServerException: <p>Unexpected error occurred. Problem on the server.</p>
+            aws_sdk_tnb.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource that doesn't exist.</p>
+            aws_sdk_tnb.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Service quotas have been exceeded.</p>
+            aws_sdk_tnb.errors.throttling_exception.ThrottlingException: <p>Exception caused by throttling.</p>
+            aws_sdk_tnb.errors.validation_exception.ValidationException: <p>Unable to process the request because the client provided input failed to satisfy request constraints.</p>
+            aws_sdk_tnb.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Create a Sol Network Instance
 
@@ -355,6 +380,14 @@ class tnbClient:
         Args:
             tags: <p>A tag is a label that you assign to an Amazon Web Services resource. Each tag consists of a key and an optional value. You can use tags to search and filter your resources or track your Amazon Web Services costs.</p>
 
+        Raises:
+            aws_sdk_tnb.errors.access_denied_exception.AccessDeniedException: <p>Insufficient permissions to make request.</p>
+            aws_sdk_tnb.errors.internal_server_exception.InternalServerException: <p>Unexpected error occurred. Problem on the server.</p>
+            aws_sdk_tnb.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Service quotas have been exceeded.</p>
+            aws_sdk_tnb.errors.throttling_exception.ThrottlingException: <p>Exception caused by throttling.</p>
+            aws_sdk_tnb.errors.validation_exception.ValidationException: <p>Unable to process the request because the client provided input failed to satisfy request constraints.</p>
+            aws_sdk_tnb.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Create a Sol network package
 
@@ -398,6 +431,14 @@ class tnbClient:
         Args:
             vnf_pkg_id: <p>ID of the function package.</p>
 
+        Raises:
+            aws_sdk_tnb.errors.access_denied_exception.AccessDeniedException: <p>Insufficient permissions to make request.</p>
+            aws_sdk_tnb.errors.internal_server_exception.InternalServerException: <p>Unexpected error occurred. Problem on the server.</p>
+            aws_sdk_tnb.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource that doesn't exist.</p>
+            aws_sdk_tnb.errors.throttling_exception.ThrottlingException: <p>Exception caused by throttling.</p>
+            aws_sdk_tnb.errors.validation_exception.ValidationException: <p>Unable to process the request because the client provided input failed to satisfy request constraints.</p>
+            aws_sdk_tnb.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Delete a function package
 
@@ -437,6 +478,14 @@ class tnbClient:
 
         Args:
             ns_instance_id: <p>Network instance ID.</p>
+
+        Raises:
+            aws_sdk_tnb.errors.access_denied_exception.AccessDeniedException: <p>Insufficient permissions to make request.</p>
+            aws_sdk_tnb.errors.internal_server_exception.InternalServerException: <p>Unexpected error occurred. Problem on the server.</p>
+            aws_sdk_tnb.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource that doesn't exist.</p>
+            aws_sdk_tnb.errors.throttling_exception.ThrottlingException: <p>Exception caused by throttling.</p>
+            aws_sdk_tnb.errors.validation_exception.ValidationException: <p>Unable to process the request because the client provided input failed to satisfy request constraints.</p>
+            aws_sdk_tnb.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Delete a Sol Network Instance.
@@ -478,6 +527,14 @@ class tnbClient:
         Args:
             nsd_info_id: <p>ID of the network service descriptor in the network package.</p>
 
+        Raises:
+            aws_sdk_tnb.errors.access_denied_exception.AccessDeniedException: <p>Insufficient permissions to make request.</p>
+            aws_sdk_tnb.errors.internal_server_exception.InternalServerException: <p>Unexpected error occurred. Problem on the server.</p>
+            aws_sdk_tnb.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource that doesn't exist.</p>
+            aws_sdk_tnb.errors.throttling_exception.ThrottlingException: <p>Exception caused by throttling.</p>
+            aws_sdk_tnb.errors.validation_exception.ValidationException: <p>Unable to process the request because the client provided input failed to satisfy request constraints.</p>
+            aws_sdk_tnb.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Delete a Sol network package
 
@@ -517,6 +574,14 @@ class tnbClient:
 
         Args:
             vnf_instance_id: <p>ID of the network function.</p>
+
+        Raises:
+            aws_sdk_tnb.errors.access_denied_exception.AccessDeniedException: <p>Insufficient permissions to make request.</p>
+            aws_sdk_tnb.errors.internal_server_exception.InternalServerException: <p>Unexpected error occurred. Problem on the server.</p>
+            aws_sdk_tnb.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource that doesn't exist.</p>
+            aws_sdk_tnb.errors.throttling_exception.ThrottlingException: <p>Exception caused by throttling.</p>
+            aws_sdk_tnb.errors.validation_exception.ValidationException: <p>Unable to process the request because the client provided input failed to satisfy request constraints.</p>
+            aws_sdk_tnb.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Get a Sol Network Function Instance details
@@ -562,6 +627,14 @@ class tnbClient:
         Args:
             vnf_pkg_id: <p>ID of the function package.</p>
 
+        Raises:
+            aws_sdk_tnb.errors.access_denied_exception.AccessDeniedException: <p>Insufficient permissions to make request.</p>
+            aws_sdk_tnb.errors.internal_server_exception.InternalServerException: <p>Unexpected error occurred. Problem on the server.</p>
+            aws_sdk_tnb.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource that doesn't exist.</p>
+            aws_sdk_tnb.errors.throttling_exception.ThrottlingException: <p>Exception caused by throttling.</p>
+            aws_sdk_tnb.errors.validation_exception.ValidationException: <p>Unable to process the request because the client provided input failed to satisfy request constraints.</p>
+            aws_sdk_tnb.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Describe a function package with correct vnfPkgId
 
@@ -605,6 +678,14 @@ class tnbClient:
         Args:
             vnf_pkg_id: <p>ID of the function package.</p>
             accept: <p>The format of the package that you want to download from the function packages.</p>
+
+        Raises:
+            aws_sdk_tnb.errors.access_denied_exception.AccessDeniedException: <p>Insufficient permissions to make request.</p>
+            aws_sdk_tnb.errors.internal_server_exception.InternalServerException: <p>Unexpected error occurred. Problem on the server.</p>
+            aws_sdk_tnb.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource that doesn't exist.</p>
+            aws_sdk_tnb.errors.throttling_exception.ThrottlingException: <p>Exception caused by throttling.</p>
+            aws_sdk_tnb.errors.validation_exception.ValidationException: <p>Unable to process the request because the client provided input failed to satisfy request constraints.</p>
+            aws_sdk_tnb.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Get the content of a function package
@@ -651,6 +732,14 @@ class tnbClient:
             vnf_pkg_id: <p>ID of the function package.</p>
             accept: <p>Indicates which content types, expressed as MIME types, the client is able to understand.</p>
 
+        Raises:
+            aws_sdk_tnb.errors.access_denied_exception.AccessDeniedException: <p>Insufficient permissions to make request.</p>
+            aws_sdk_tnb.errors.internal_server_exception.InternalServerException: <p>Unexpected error occurred. Problem on the server.</p>
+            aws_sdk_tnb.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource that doesn't exist.</p>
+            aws_sdk_tnb.errors.throttling_exception.ThrottlingException: <p>Exception caused by throttling.</p>
+            aws_sdk_tnb.errors.validation_exception.ValidationException: <p>Unable to process the request because the client provided input failed to satisfy request constraints.</p>
+            aws_sdk_tnb.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Get the descriptor of a function package
 
@@ -696,6 +785,14 @@ class tnbClient:
         Args:
             ns_instance_id: <p>ID of the network instance.</p>
 
+        Raises:
+            aws_sdk_tnb.errors.access_denied_exception.AccessDeniedException: <p>Insufficient permissions to make request.</p>
+            aws_sdk_tnb.errors.internal_server_exception.InternalServerException: <p>Unexpected error occurred. Problem on the server.</p>
+            aws_sdk_tnb.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource that doesn't exist.</p>
+            aws_sdk_tnb.errors.throttling_exception.ThrottlingException: <p>Exception caused by throttling.</p>
+            aws_sdk_tnb.errors.validation_exception.ValidationException: <p>Unable to process the request because the client provided input failed to satisfy request constraints.</p>
+            aws_sdk_tnb.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Get a Sol Network Instance details
 
@@ -737,6 +834,14 @@ class tnbClient:
 
         Args:
             ns_lcm_op_occ_id: <p>The identifier of the network operation.</p>
+
+        Raises:
+            aws_sdk_tnb.errors.access_denied_exception.AccessDeniedException: <p>Insufficient permissions to make request.</p>
+            aws_sdk_tnb.errors.internal_server_exception.InternalServerException: <p>Unexpected error occurred. Problem on the server.</p>
+            aws_sdk_tnb.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource that doesn't exist.</p>
+            aws_sdk_tnb.errors.throttling_exception.ThrottlingException: <p>Exception caused by throttling.</p>
+            aws_sdk_tnb.errors.validation_exception.ValidationException: <p>Unable to process the request because the client provided input failed to satisfy request constraints.</p>
+            aws_sdk_tnb.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Get Sol Network Instantiate operation
@@ -789,6 +894,14 @@ class tnbClient:
         Args:
             nsd_info_id: <p>ID of the network service descriptor in the network package.</p>
 
+        Raises:
+            aws_sdk_tnb.errors.access_denied_exception.AccessDeniedException: <p>Insufficient permissions to make request.</p>
+            aws_sdk_tnb.errors.internal_server_exception.InternalServerException: <p>Unexpected error occurred. Problem on the server.</p>
+            aws_sdk_tnb.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource that doesn't exist.</p>
+            aws_sdk_tnb.errors.throttling_exception.ThrottlingException: <p>Exception caused by throttling.</p>
+            aws_sdk_tnb.errors.validation_exception.ValidationException: <p>Unable to process the request because the client provided input failed to satisfy request constraints.</p>
+            aws_sdk_tnb.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Describe an individual Sol network package
 
@@ -833,6 +946,14 @@ class tnbClient:
             nsd_info_id: <p>ID of the network service descriptor in the network package.</p>
             accept: <p>The format of the package you want to download from the network package.</p>
 
+        Raises:
+            aws_sdk_tnb.errors.access_denied_exception.AccessDeniedException: <p>Insufficient permissions to make request.</p>
+            aws_sdk_tnb.errors.internal_server_exception.InternalServerException: <p>Unexpected error occurred. Problem on the server.</p>
+            aws_sdk_tnb.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource that doesn't exist.</p>
+            aws_sdk_tnb.errors.throttling_exception.ThrottlingException: <p>Exception caused by throttling.</p>
+            aws_sdk_tnb.errors.validation_exception.ValidationException: <p>Unable to process the request because the client provided input failed to satisfy request constraints.</p>
+            aws_sdk_tnb.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Get a network package Content
 
@@ -875,6 +996,14 @@ class tnbClient:
 
         Args:
             nsd_info_id: <p>ID of the network service descriptor in the network package.</p>
+
+        Raises:
+            aws_sdk_tnb.errors.access_denied_exception.AccessDeniedException: <p>Insufficient permissions to make request.</p>
+            aws_sdk_tnb.errors.internal_server_exception.InternalServerException: <p>Unexpected error occurred. Problem on the server.</p>
+            aws_sdk_tnb.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource that doesn't exist.</p>
+            aws_sdk_tnb.errors.throttling_exception.ThrottlingException: <p>Exception caused by throttling.</p>
+            aws_sdk_tnb.errors.validation_exception.ValidationException: <p>Unable to process the request because the client provided input failed to satisfy request constraints.</p>
+            aws_sdk_tnb.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Get the descriptor of a Network Pacakge
@@ -923,6 +1052,15 @@ class tnbClient:
             dry_run: <p>A check for whether you have the required permissions for the action without actually making the request and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             additional_params_for_ns: <p>Provides values for the configurable properties.</p>
             tags: <p>A tag is a label that you assign to an Amazon Web Services resource. Each tag consists of a key and an optional value. When you use this API, the tags are only applied to the network operation that is created. These tags are not applied to the network instance. Use tags to search and filter your resources or track your Amazon Web Services costs.</p>
+
+        Raises:
+            aws_sdk_tnb.errors.access_denied_exception.AccessDeniedException: <p>Insufficient permissions to make request.</p>
+            aws_sdk_tnb.errors.internal_server_exception.InternalServerException: <p>Unexpected error occurred. Problem on the server.</p>
+            aws_sdk_tnb.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource that doesn't exist.</p>
+            aws_sdk_tnb.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Service quotas have been exceeded.</p>
+            aws_sdk_tnb.errors.throttling_exception.ThrottlingException: <p>Exception caused by throttling.</p>
+            aws_sdk_tnb.errors.validation_exception.ValidationException: <p>Unable to process the request because the client provided input failed to satisfy request constraints.</p>
+            aws_sdk_tnb.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Instantiate a Sol Network Instance
@@ -978,6 +1116,13 @@ class tnbClient:
         Args:
             max_results: <p>The maximum number of results to include in the response.</p>
             next_token: <p>The token for the next page of results.</p>
+
+        Raises:
+            aws_sdk_tnb.errors.access_denied_exception.AccessDeniedException: <p>Insufficient permissions to make request.</p>
+            aws_sdk_tnb.errors.internal_server_exception.InternalServerException: <p>Unexpected error occurred. Problem on the server.</p>
+            aws_sdk_tnb.errors.throttling_exception.ThrottlingException: <p>Exception caused by throttling.</p>
+            aws_sdk_tnb.errors.validation_exception.ValidationException: <p>Unable to process the request because the client provided input failed to satisfy request constraints.</p>
+            aws_sdk_tnb.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             List Sol Function instances
@@ -1053,6 +1198,13 @@ class tnbClient:
         Args:
             max_results: <p>The maximum number of results to include in the response.</p>
             next_token: <p>The token for the next page of results.</p>
+
+        Raises:
+            aws_sdk_tnb.errors.access_denied_exception.AccessDeniedException: <p>Insufficient permissions to make request.</p>
+            aws_sdk_tnb.errors.internal_server_exception.InternalServerException: <p>Unexpected error occurred. Problem on the server.</p>
+            aws_sdk_tnb.errors.throttling_exception.ThrottlingException: <p>Exception caused by throttling.</p>
+            aws_sdk_tnb.errors.validation_exception.ValidationException: <p>Unable to process the request because the client provided input failed to satisfy request constraints.</p>
+            aws_sdk_tnb.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             List information about multiple function packages without PaginationToken
@@ -1132,6 +1284,13 @@ class tnbClient:
             max_results: <p>The maximum number of results to include in the response.</p>
             next_token: <p>The token for the next page of results.</p>
 
+        Raises:
+            aws_sdk_tnb.errors.access_denied_exception.AccessDeniedException: <p>Insufficient permissions to make request.</p>
+            aws_sdk_tnb.errors.internal_server_exception.InternalServerException: <p>Unexpected error occurred. Problem on the server.</p>
+            aws_sdk_tnb.errors.throttling_exception.ThrottlingException: <p>Exception caused by throttling.</p>
+            aws_sdk_tnb.errors.validation_exception.ValidationException: <p>Unable to process the request because the client provided input failed to satisfy request constraints.</p>
+            aws_sdk_tnb.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             List Sol Network Instantiate instances
 
@@ -1210,6 +1369,13 @@ class tnbClient:
             ns_instance_id: <p>Network instance id filter, to retrieve network operations associated to a network instance.</p>
             max_results: <p>The maximum number of results to include in the response.</p>
             next_token: <p>The token for the next page of results.</p>
+
+        Raises:
+            aws_sdk_tnb.errors.access_denied_exception.AccessDeniedException: <p>Insufficient permissions to make request.</p>
+            aws_sdk_tnb.errors.internal_server_exception.InternalServerException: <p>Unexpected error occurred. Problem on the server.</p>
+            aws_sdk_tnb.errors.throttling_exception.ThrottlingException: <p>Exception caused by throttling.</p>
+            aws_sdk_tnb.errors.validation_exception.ValidationException: <p>Unable to process the request because the client provided input failed to satisfy request constraints.</p>
+            aws_sdk_tnb.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             List Sol Network Instantiate operations
@@ -1298,6 +1464,13 @@ class tnbClient:
             max_results: <p>The maximum number of results to include in the response.</p>
             next_token: <p>The token for the next page of results.</p>
 
+        Raises:
+            aws_sdk_tnb.errors.access_denied_exception.AccessDeniedException: <p>Insufficient permissions to make request.</p>
+            aws_sdk_tnb.errors.internal_server_exception.InternalServerException: <p>Unexpected error occurred. Problem on the server.</p>
+            aws_sdk_tnb.errors.throttling_exception.ThrottlingException: <p>Exception caused by throttling.</p>
+            aws_sdk_tnb.errors.validation_exception.ValidationException: <p>Unable to process the request because the client provided input failed to satisfy request constraints.</p>
+            aws_sdk_tnb.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             List information about multiple network packages without PaginationToken
 
@@ -1371,6 +1544,14 @@ class tnbClient:
 
         Args:
             resource_arn: <p>Resource ARN.</p>
+
+        Raises:
+            aws_sdk_tnb.errors.access_denied_exception.AccessDeniedException: <p>Insufficient permissions to make request.</p>
+            aws_sdk_tnb.errors.internal_server_exception.InternalServerException: <p>Unexpected error occurred. Problem on the server.</p>
+            aws_sdk_tnb.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource that doesn't exist.</p>
+            aws_sdk_tnb.errors.throttling_exception.ThrottlingException: <p>Exception caused by throttling.</p>
+            aws_sdk_tnb.errors.validation_exception.ValidationException: <p>Unable to process the request because the client provided input failed to satisfy request constraints.</p>
+            aws_sdk_tnb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1414,6 +1595,14 @@ class tnbClient:
             vnf_pkg_id: <p>Function package ID.</p>
             content_type: <p>Function package content type.</p>
             file: <p>Function package file.</p>
+
+        Raises:
+            aws_sdk_tnb.errors.access_denied_exception.AccessDeniedException: <p>Insufficient permissions to make request.</p>
+            aws_sdk_tnb.errors.internal_server_exception.InternalServerException: <p>Unexpected error occurred. Problem on the server.</p>
+            aws_sdk_tnb.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource that doesn't exist.</p>
+            aws_sdk_tnb.errors.throttling_exception.ThrottlingException: <p>Exception caused by throttling.</p>
+            aws_sdk_tnb.errors.validation_exception.ValidationException: <p>Unable to process the request because the client provided input failed to satisfy request constraints.</p>
+            aws_sdk_tnb.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Upload a function package content
@@ -1466,6 +1655,14 @@ class tnbClient:
             content_type: <p>Network package content type.</p>
             file: <p>Network package file.</p>
 
+        Raises:
+            aws_sdk_tnb.errors.access_denied_exception.AccessDeniedException: <p>Insufficient permissions to make request.</p>
+            aws_sdk_tnb.errors.internal_server_exception.InternalServerException: <p>Unexpected error occurred. Problem on the server.</p>
+            aws_sdk_tnb.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource that doesn't exist.</p>
+            aws_sdk_tnb.errors.throttling_exception.ThrottlingException: <p>Exception caused by throttling.</p>
+            aws_sdk_tnb.errors.validation_exception.ValidationException: <p>Unable to process the request because the client provided input failed to satisfy request constraints.</p>
+            aws_sdk_tnb.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Upload the network package content of an NSD archive
 
@@ -1512,6 +1709,14 @@ class tnbClient:
         Args:
             resource_arn: <p>Resource ARN.</p>
             tags: <p>A tag is a label that you assign to an Amazon Web Services resource. Each tag consists of a key and an optional value. You can use tags to search and filter your resources or track your Amazon Web Services costs.</p>
+
+        Raises:
+            aws_sdk_tnb.errors.access_denied_exception.AccessDeniedException: <p>Insufficient permissions to make request.</p>
+            aws_sdk_tnb.errors.internal_server_exception.InternalServerException: <p>Unexpected error occurred. Problem on the server.</p>
+            aws_sdk_tnb.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource that doesn't exist.</p>
+            aws_sdk_tnb.errors.throttling_exception.ThrottlingException: <p>Exception caused by throttling.</p>
+            aws_sdk_tnb.errors.validation_exception.ValidationException: <p>Unable to process the request because the client provided input failed to satisfy request constraints.</p>
+            aws_sdk_tnb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1552,6 +1757,15 @@ class tnbClient:
         Args:
             ns_instance_id: <p>ID of the network instance.</p>
             tags: <p>A tag is a label that you assign to an Amazon Web Services resource. Each tag consists of a key and an optional value. When you use this API, the tags are only applied to the network operation that is created. These tags are not applied to the network instance. Use tags to search and filter your resources or track your Amazon Web Services costs.</p>
+
+        Raises:
+            aws_sdk_tnb.errors.access_denied_exception.AccessDeniedException: <p>Insufficient permissions to make request.</p>
+            aws_sdk_tnb.errors.internal_server_exception.InternalServerException: <p>Unexpected error occurred. Problem on the server.</p>
+            aws_sdk_tnb.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource that doesn't exist.</p>
+            aws_sdk_tnb.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Service quotas have been exceeded.</p>
+            aws_sdk_tnb.errors.throttling_exception.ThrottlingException: <p>Exception caused by throttling.</p>
+            aws_sdk_tnb.errors.validation_exception.ValidationException: <p>Unable to process the request because the client provided input failed to satisfy request constraints.</p>
+            aws_sdk_tnb.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Terminate a Sol Network Instance
@@ -1598,6 +1812,14 @@ class tnbClient:
         Args:
             resource_arn: <p>Resource ARN.</p>
             tag_keys: <p>Tag keys.</p>
+
+        Raises:
+            aws_sdk_tnb.errors.access_denied_exception.AccessDeniedException: <p>Insufficient permissions to make request.</p>
+            aws_sdk_tnb.errors.internal_server_exception.InternalServerException: <p>Unexpected error occurred. Problem on the server.</p>
+            aws_sdk_tnb.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource that doesn't exist.</p>
+            aws_sdk_tnb.errors.throttling_exception.ThrottlingException: <p>Exception caused by throttling.</p>
+            aws_sdk_tnb.errors.validation_exception.ValidationException: <p>Unable to process the request because the client provided input failed to satisfy request constraints.</p>
+            aws_sdk_tnb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1638,6 +1860,14 @@ class tnbClient:
         Args:
             vnf_pkg_id: <p>ID of the function package.</p>
             operational_state: <p>Operational state of the function package.</p>
+
+        Raises:
+            aws_sdk_tnb.errors.access_denied_exception.AccessDeniedException: <p>Insufficient permissions to make request.</p>
+            aws_sdk_tnb.errors.internal_server_exception.InternalServerException: <p>Unexpected error occurred. Problem on the server.</p>
+            aws_sdk_tnb.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource that doesn't exist.</p>
+            aws_sdk_tnb.errors.throttling_exception.ThrottlingException: <p>Exception caused by throttling.</p>
+            aws_sdk_tnb.errors.validation_exception.ValidationException: <p>Unable to process the request because the client provided input failed to satisfy request constraints.</p>
+            aws_sdk_tnb.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Enable a function package's Operational State
@@ -1697,6 +1927,15 @@ class tnbClient:
             update_ns: <p>Identifies the network service descriptor and the configurable properties of the descriptor, to be used for the update.</p> <p>Include this property only if the update type is <code>UPDATE_NS</code>.</p>
             tags: <p>A tag is a label that you assign to an Amazon Web Services resource. Each tag consists of a key and an optional value. When you use this API, the tags are only applied to the network operation that is created. These tags are not applied to the network instance. Use tags to search and filter your resources or track your Amazon Web Services costs.</p>
 
+        Raises:
+            aws_sdk_tnb.errors.access_denied_exception.AccessDeniedException: <p>Insufficient permissions to make request.</p>
+            aws_sdk_tnb.errors.internal_server_exception.InternalServerException: <p>Unexpected error occurred. Problem on the server.</p>
+            aws_sdk_tnb.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource that doesn't exist.</p>
+            aws_sdk_tnb.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Service quotas have been exceeded.</p>
+            aws_sdk_tnb.errors.throttling_exception.ThrottlingException: <p>Exception caused by throttling.</p>
+            aws_sdk_tnb.errors.validation_exception.ValidationException: <p>Unable to process the request because the client provided input failed to satisfy request constraints.</p>
+            aws_sdk_tnb.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Update a Sol Network Instance
 
@@ -1751,6 +1990,14 @@ class tnbClient:
             nsd_info_id: <p>ID of the network service descriptor in the network package.</p>
             nsd_operational_state: <p>Operational state of the network service descriptor in the network package.</p>
 
+        Raises:
+            aws_sdk_tnb.errors.access_denied_exception.AccessDeniedException: <p>Insufficient permissions to make request.</p>
+            aws_sdk_tnb.errors.internal_server_exception.InternalServerException: <p>Unexpected error occurred. Problem on the server.</p>
+            aws_sdk_tnb.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource that doesn't exist.</p>
+            aws_sdk_tnb.errors.throttling_exception.ThrottlingException: <p>Exception caused by throttling.</p>
+            aws_sdk_tnb.errors.validation_exception.ValidationException: <p>Unable to process the request because the client provided input failed to satisfy request constraints.</p>
+            aws_sdk_tnb.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Enable a network package's Operational State
 
@@ -1803,6 +2050,14 @@ class tnbClient:
             content_type: <p>Function package content type.</p>
             file: <p>Function package file.</p>
 
+        Raises:
+            aws_sdk_tnb.errors.access_denied_exception.AccessDeniedException: <p>Insufficient permissions to make request.</p>
+            aws_sdk_tnb.errors.internal_server_exception.InternalServerException: <p>Unexpected error occurred. Problem on the server.</p>
+            aws_sdk_tnb.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource that doesn't exist.</p>
+            aws_sdk_tnb.errors.throttling_exception.ThrottlingException: <p>Exception caused by throttling.</p>
+            aws_sdk_tnb.errors.validation_exception.ValidationException: <p>Unable to process the request because the client provided input failed to satisfy request constraints.</p>
+            aws_sdk_tnb.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Validate a Function Package content
 
@@ -1853,6 +2108,14 @@ class tnbClient:
             nsd_info_id: <p>Network service descriptor file.</p>
             content_type: <p>Network package content type.</p>
             file: <p>Network package file.</p>
+
+        Raises:
+            aws_sdk_tnb.errors.access_denied_exception.AccessDeniedException: <p>Insufficient permissions to make request.</p>
+            aws_sdk_tnb.errors.internal_server_exception.InternalServerException: <p>Unexpected error occurred. Problem on the server.</p>
+            aws_sdk_tnb.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource that doesn't exist.</p>
+            aws_sdk_tnb.errors.throttling_exception.ThrottlingException: <p>Exception caused by throttling.</p>
+            aws_sdk_tnb.errors.validation_exception.ValidationException: <p>Unable to process the request because the client provided input failed to satisfy request constraints.</p>
+            aws_sdk_tnb.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Validate the network package content of a NSD archive

@@ -166,6 +166,14 @@ class AsyncMPAClient:
 
         Args:
             policy_version_arn: <p>Amazon Resource Name (ARN) for the policy.</p>
+
+        Raises:
+            aws_sdk_mpa.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action. Check your permissions, and try again.</p>
+            aws_sdk_mpa.errors.internal_server_exception.InternalServerException: <p>The service encountered an internal error. Try your request again. If the problem persists, contact Amazon Web Services Support.</p>
+            aws_sdk_mpa.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource doesn't exist. Check the resource ID, and try again.</p>
+            aws_sdk_mpa.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_mpa.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_mpa.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -208,6 +216,14 @@ class AsyncMPAClient:
             resource_arn: <p>Amazon Resource Name (ARN) for the resource.</p>
             policy_name: <p>Name of the policy.</p>
             policy_type: <p>The type of policy.</p>
+
+        Raises:
+            aws_sdk_mpa.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action. Check your permissions, and try again.</p>
+            aws_sdk_mpa.errors.invalid_parameter_exception.InvalidParameterException: <p>The request contains an invalid parameter value.</p>
+            aws_sdk_mpa.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource doesn't exist. Check the resource ID, and try again.</p>
+            aws_sdk_mpa.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_mpa.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_mpa.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -250,6 +266,13 @@ class AsyncMPAClient:
         Args:
             max_results: <p>The maximum number of items to return in the response. If more results exist than the specified <code>MaxResults</code> value, a token is included in the response so that you can retrieve the remaining results.</p>
             next_token: <p>If present, indicates that more output is available than is included in the current response. Use this value in the <code>NextToken</code> request parameter in a next call to the operation to get more output. You can repeat this until the <code>NextToken</code> response element returns <code>null</code>.</p>
+
+        Raises:
+            aws_sdk_mpa.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action. Check your permissions, and try again.</p>
+            aws_sdk_mpa.errors.internal_server_exception.InternalServerException: <p>The service encountered an internal error. Try your request again. If the problem persists, contact Amazon Web Services Support.</p>
+            aws_sdk_mpa.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_mpa.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_mpa.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -316,6 +339,14 @@ class AsyncMPAClient:
             max_results: <p>The maximum number of items to return in the response. If more results exist than the specified <code>MaxResults</code> value, a token is included in the response so that you can retrieve the remaining results.</p>
             next_token: <p>If present, indicates that more output is available than is included in the current response. Use this value in the <code>NextToken</code> request parameter in a next call to the operation to get more output. You can repeat this until the <code>NextToken</code> response element returns <code>null</code>.</p>
             policy_arn: <p>Amazon Resource Name (ARN) for the policy.</p>
+
+        Raises:
+            aws_sdk_mpa.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action. Check your permissions, and try again.</p>
+            aws_sdk_mpa.errors.internal_server_exception.InternalServerException: <p>The service encountered an internal error. Try your request again. If the problem persists, contact Amazon Web Services Support.</p>
+            aws_sdk_mpa.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource doesn't exist. Check the resource ID, and try again.</p>
+            aws_sdk_mpa.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_mpa.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_mpa.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -387,6 +418,14 @@ class AsyncMPAClient:
             resource_arn: <p>Amazon Resource Name (ARN) for the resource.</p>
             max_results: <p>The maximum number of items to return in the response. If more results exist than the specified <code>MaxResults</code> value, a token is included in the response so that you can retrieve the remaining results.</p>
             next_token: <p>If present, indicates that more output is available than is included in the current response. Use this value in the <code>NextToken</code> request parameter in a next call to the operation to get more output. You can repeat this until the <code>NextToken</code> response element returns <code>null</code>.</p>
+
+        Raises:
+            aws_sdk_mpa.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action. Check your permissions, and try again.</p>
+            aws_sdk_mpa.errors.internal_server_exception.InternalServerException: <p>The service encountered an internal error. Try your request again. If the problem persists, contact Amazon Web Services Support.</p>
+            aws_sdk_mpa.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource doesn't exist. Check the resource ID, and try again.</p>
+            aws_sdk_mpa.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_mpa.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_mpa.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -454,6 +493,14 @@ class AsyncMPAClient:
 
         Args:
             resource_arn: <p>Amazon Resource Name (ARN) for the resource.</p>
+
+        Raises:
+            aws_sdk_mpa.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action. Check your permissions, and try again.</p>
+            aws_sdk_mpa.errors.internal_server_exception.InternalServerException: <p>The service encountered an internal error. Try your request again. If the problem persists, contact Amazon Web Services Support.</p>
+            aws_sdk_mpa.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource doesn't exist. Check the resource ID, and try again.</p>
+            aws_sdk_mpa.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_mpa.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_mpa.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -494,6 +541,15 @@ class AsyncMPAClient:
         Args:
             resource_arn: <p>Amazon Resource Name (ARN) for the resource you want to tag.</p>
             tags: <p>Tags that you have added to the specified resource.</p>
+
+        Raises:
+            aws_sdk_mpa.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action. Check your permissions, and try again.</p>
+            aws_sdk_mpa.errors.internal_server_exception.InternalServerException: <p>The service encountered an internal error. Try your request again. If the problem persists, contact Amazon Web Services Support.</p>
+            aws_sdk_mpa.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource doesn't exist. Check the resource ID, and try again.</p>
+            aws_sdk_mpa.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_mpa.errors.too_many_tags_exception.TooManyTagsException: <p>The request exceeds the maximum number of tags allowed for this resource. Remove some tags, and try again.</p>
+            aws_sdk_mpa.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_mpa.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -535,6 +591,14 @@ class AsyncMPAClient:
         Args:
             resource_arn: <p>Amazon Resource Name (ARN) for the resource you want to untag.</p>
             tag_keys: <p>Array of tag key-value pairs that you want to untag.</p>
+
+        Raises:
+            aws_sdk_mpa.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action. Check your permissions, and try again.</p>
+            aws_sdk_mpa.errors.internal_server_exception.InternalServerException: <p>The service encountered an internal error. Try your request again. If the problem persists, contact Amazon Web Services Support.</p>
+            aws_sdk_mpa.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource doesn't exist. Check the resource ID, and try again.</p>
+            aws_sdk_mpa.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_mpa.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_mpa.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

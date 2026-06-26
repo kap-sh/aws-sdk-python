@@ -234,6 +234,12 @@ class AsyncchatbotClient:
             resource: <p>The resource Amazon Resource Name (ARN) to link.</p>
             chat_configuration: <p>The channel configuration to associate with the resource.</p>
 
+        Raises:
+            aws_sdk_chatbot.errors.internal_service_error.InternalServiceError: <p>Unexpected error during processing of request.</p>
+            aws_sdk_chatbot.errors.invalid_request_exception.InvalidRequestException: <p>Your request input doesn't meet the constraints required by AWS Chatbot.</p>
+            aws_sdk_chatbot.errors.unauthorized_exception.UnauthorizedException: <p>The request was rejected because it doesn't have valid credentials for the target resource.</p>
+            aws_sdk_chatbot.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Associate a custom action to a configuration
             Associate a custom action to a channel configuration, allowing it to be used in that channel
@@ -292,6 +298,14 @@ class AsyncchatbotClient:
             configuration_name: <p>The name of the configuration.</p>
             logging_level: <p>Logging levels include <code>ERROR</code>, <code>INFO</code>, or <code>NONE</code>.</p>
             tags: <p>A map of tags assigned to a resource. A tag is a string-to-string map of key-value pairs.</p>
+
+        Raises:
+            aws_sdk_chatbot.errors.conflict_exception.ConflictException: <p>There was an issue processing your request.</p>
+            aws_sdk_chatbot.errors.create_chime_webhook_configuration_exception.CreateChimeWebhookConfigurationException: <p>We can’t process your request right now because of a server issue. Try again later.</p>
+            aws_sdk_chatbot.errors.invalid_parameter_exception.InvalidParameterException: <p>Your request input doesn't meet the constraints required by AWS Chatbot.</p>
+            aws_sdk_chatbot.errors.invalid_request_exception.InvalidRequestException: <p>Your request input doesn't meet the constraints required by AWS Chatbot.</p>
+            aws_sdk_chatbot.errors.limit_exceeded_exception.LimitExceededException: <p>You have exceeded a service limit for AWS Chatbot.</p>
+            aws_sdk_chatbot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -370,6 +384,14 @@ class AsyncchatbotClient:
             guardrail_policy_arns: <p>The list of IAM policy ARNs that are applied as channel guardrails. The AWS managed <code>AdministratorAccess</code> policy is applied by default if this is not set. </p>
             user_authorization_required: <p>Enables use of a user role requirement in your chat configuration.</p>
             tags: <p>A map of tags assigned to a resource. A tag is a string-to-string map of key-value pairs.</p>
+
+        Raises:
+            aws_sdk_chatbot.errors.conflict_exception.ConflictException: <p>There was an issue processing your request.</p>
+            aws_sdk_chatbot.errors.create_teams_channel_configuration_exception.CreateTeamsChannelConfigurationException: <p>We can’t process your request right now because of a server issue. Try again later.</p>
+            aws_sdk_chatbot.errors.invalid_parameter_exception.InvalidParameterException: <p>Your request input doesn't meet the constraints required by AWS Chatbot.</p>
+            aws_sdk_chatbot.errors.invalid_request_exception.InvalidRequestException: <p>Your request input doesn't meet the constraints required by AWS Chatbot.</p>
+            aws_sdk_chatbot.errors.limit_exceeded_exception.LimitExceededException: <p>You have exceeded a service limit for AWS Chatbot.</p>
+            aws_sdk_chatbot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -454,6 +476,14 @@ class AsyncchatbotClient:
             guardrail_policy_arns: <p>The list of IAM policy ARNs that are applied as channel guardrails. The AWS managed <code>AdministratorAccess</code> policy is applied by default if this is not set. </p>
             user_authorization_required: <p>Enables use of a user role requirement in your chat configuration.</p>
             tags: <p>A map of tags assigned to a resource. A tag is a string-to-string map of key-value pairs.</p>
+
+        Raises:
+            aws_sdk_chatbot.errors.conflict_exception.ConflictException: <p>There was an issue processing your request.</p>
+            aws_sdk_chatbot.errors.create_slack_channel_configuration_exception.CreateSlackChannelConfigurationException: <p>We can’t process your request right now because of a server issue. Try again later.</p>
+            aws_sdk_chatbot.errors.invalid_parameter_exception.InvalidParameterException: <p>Your request input doesn't meet the constraints required by AWS Chatbot.</p>
+            aws_sdk_chatbot.errors.invalid_request_exception.InvalidRequestException: <p>Your request input doesn't meet the constraints required by AWS Chatbot.</p>
+            aws_sdk_chatbot.errors.limit_exceeded_exception.LimitExceededException: <p>You have exceeded a service limit for AWS Chatbot.</p>
+            aws_sdk_chatbot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -507,6 +537,13 @@ class AsyncchatbotClient:
 
         Args:
             chat_configuration_arn: <p>The Amazon Resource Name (ARN) of the ChimeWebhookConfiguration to delete.</p>
+
+        Raises:
+            aws_sdk_chatbot.errors.delete_chime_webhook_configuration_exception.DeleteChimeWebhookConfigurationException: <p>We can’t process your request right now because of a server issue. Try again later.</p>
+            aws_sdk_chatbot.errors.invalid_parameter_exception.InvalidParameterException: <p>Your request input doesn't meet the constraints required by AWS Chatbot.</p>
+            aws_sdk_chatbot.errors.invalid_request_exception.InvalidRequestException: <p>Your request input doesn't meet the constraints required by AWS Chatbot.</p>
+            aws_sdk_chatbot.errors.resource_not_found_exception.ResourceNotFoundException: <p>We were unable to find the resource for your request</p>
+            aws_sdk_chatbot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -545,6 +582,13 @@ class AsyncchatbotClient:
 
         Args:
             chat_configuration_arn: <p>The Amazon Resource Name (ARN) of the MicrosoftTeamsChannelConfiguration associated with the user identity to delete.</p>
+
+        Raises:
+            aws_sdk_chatbot.errors.delete_teams_channel_configuration_exception.DeleteTeamsChannelConfigurationException: <p>We can’t process your request right now because of a server issue. Try again later.</p>
+            aws_sdk_chatbot.errors.invalid_parameter_exception.InvalidParameterException: <p>Your request input doesn't meet the constraints required by AWS Chatbot.</p>
+            aws_sdk_chatbot.errors.invalid_request_exception.InvalidRequestException: <p>Your request input doesn't meet the constraints required by AWS Chatbot.</p>
+            aws_sdk_chatbot.errors.resource_not_found_exception.ResourceNotFoundException: <p>We were unable to find the resource for your request</p>
+            aws_sdk_chatbot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -583,6 +627,11 @@ class AsyncchatbotClient:
 
         Args:
             team_id: <p>The ID of the Microsoft Teams team authorized with AWS Chatbot.</p> <p>To get the team ID, you must perform the initial authorization flow with Microsoft Teams in the AWS Chatbot console. Then you can copy and paste the team ID from the console. For more information, see <a href=\"https://docs.aws.amazon.com/chatbot/latest/adminguide/teams-setup.html#teams-client-setup\">Step 1: Configure a Microsoft Teams client</a> in the <i> AWS Chatbot Administrator Guide</i>. </p>
+
+        Raises:
+            aws_sdk_chatbot.errors.delete_teams_configured_team_exception.DeleteTeamsConfiguredTeamException: <p>We can’t process your request right now because of a server issue. Try again later.</p>
+            aws_sdk_chatbot.errors.invalid_parameter_exception.InvalidParameterException: <p>Your request input doesn't meet the constraints required by AWS Chatbot.</p>
+            aws_sdk_chatbot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -623,6 +672,12 @@ class AsyncchatbotClient:
         Args:
             chat_configuration_arn: <p>The ARN of the MicrosoftTeamsChannelConfiguration associated with the user identity to delete.</p>
             user_id: <p>The Microsoft Teams user ID.</p>
+
+        Raises:
+            aws_sdk_chatbot.errors.delete_microsoft_teams_user_identity_exception.DeleteMicrosoftTeamsUserIdentityException: <p>We can’t process your request right now because of a server issue. Try again later.</p>
+            aws_sdk_chatbot.errors.invalid_parameter_exception.InvalidParameterException: <p>Your request input doesn't meet the constraints required by AWS Chatbot.</p>
+            aws_sdk_chatbot.errors.resource_not_found_exception.ResourceNotFoundException: <p>We were unable to find the resource for your request</p>
+            aws_sdk_chatbot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -662,6 +717,13 @@ class AsyncchatbotClient:
 
         Args:
             chat_configuration_arn: <p>The Amazon Resource Name (ARN) of the SlackChannelConfiguration to delete.</p>
+
+        Raises:
+            aws_sdk_chatbot.errors.delete_slack_channel_configuration_exception.DeleteSlackChannelConfigurationException: <p>We can’t process your request right now because of a server issue. Try again later.</p>
+            aws_sdk_chatbot.errors.invalid_parameter_exception.InvalidParameterException: <p>Your request input doesn't meet the constraints required by AWS Chatbot.</p>
+            aws_sdk_chatbot.errors.invalid_request_exception.InvalidRequestException: <p>Your request input doesn't meet the constraints required by AWS Chatbot.</p>
+            aws_sdk_chatbot.errors.resource_not_found_exception.ResourceNotFoundException: <p>We were unable to find the resource for your request</p>
+            aws_sdk_chatbot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -704,6 +766,12 @@ class AsyncchatbotClient:
             chat_configuration_arn: <p>The ARN of the SlackChannelConfiguration associated with the user identity to delete.</p>
             slack_team_id: <p>The ID of the Slack workspace authorized with AWS Chatbot.</p>
             slack_user_id: <p>The ID of the user in Slack</p>
+
+        Raises:
+            aws_sdk_chatbot.errors.delete_slack_user_identity_exception.DeleteSlackUserIdentityException: <p>We can’t process your request right now because of a server issue. Try again later.</p>
+            aws_sdk_chatbot.errors.invalid_parameter_exception.InvalidParameterException: <p>Your request input doesn't meet the constraints required by AWS Chatbot.</p>
+            aws_sdk_chatbot.errors.resource_not_found_exception.ResourceNotFoundException: <p>We were unable to find the resource for your request</p>
+            aws_sdk_chatbot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -744,6 +812,11 @@ class AsyncchatbotClient:
 
         Args:
             slack_team_id: <p>The ID of the Slack workspace authorized with AWS Chatbot.</p>
+
+        Raises:
+            aws_sdk_chatbot.errors.delete_slack_workspace_authorization_fault.DeleteSlackWorkspaceAuthorizationFault: <p>There was an issue deleting your Slack workspace.</p>
+            aws_sdk_chatbot.errors.invalid_parameter_exception.InvalidParameterException: <p>Your request input doesn't meet the constraints required by AWS Chatbot.</p>
+            aws_sdk_chatbot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -790,6 +863,12 @@ class AsyncchatbotClient:
             max_results: <p>The maximum number of results to include in the response. If more results exist than the specified MaxResults value, a token is included in the response so that the remaining results can be retrieved. </p>
             next_token: <p>An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by MaxResults. </p>
             chat_configuration_arn: <p>An optional Amazon Resource Name (ARN) of a ChimeWebhookConfiguration to describe.</p>
+
+        Raises:
+            aws_sdk_chatbot.errors.describe_chime_webhook_configurations_exception.DescribeChimeWebhookConfigurationsException: <p>We can’t process your request right now because of a server issue. Try again later.</p>
+            aws_sdk_chatbot.errors.invalid_parameter_exception.InvalidParameterException: <p>Your request input doesn't meet the constraints required by AWS Chatbot.</p>
+            aws_sdk_chatbot.errors.invalid_request_exception.InvalidRequestException: <p>Your request input doesn't meet the constraints required by AWS Chatbot.</p>
+            aws_sdk_chatbot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -868,6 +947,12 @@ class AsyncchatbotClient:
             max_results: <p>The maximum number of results to include in the response. If more results exist than the specified MaxResults value, a token is included in the response so that the remaining results can be retrieved. </p>
             next_token: <p> An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by MaxResults. </p>
             chat_configuration_arn: <p>An optional Amazon Resource Name (ARN) of a SlackChannelConfiguration to describe.</p>
+
+        Raises:
+            aws_sdk_chatbot.errors.describe_slack_channel_configurations_exception.DescribeSlackChannelConfigurationsException: <p>We can’t process your request right now because of a server issue. Try again later.</p>
+            aws_sdk_chatbot.errors.invalid_parameter_exception.InvalidParameterException: <p>Your request input doesn't meet the constraints required by AWS Chatbot.</p>
+            aws_sdk_chatbot.errors.invalid_request_exception.InvalidRequestException: <p>Your request input doesn't meet the constraints required by AWS Chatbot.</p>
+            aws_sdk_chatbot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -946,6 +1031,12 @@ class AsyncchatbotClient:
             chat_configuration_arn: <p>The Amazon Resource Name (ARN) of the SlackChannelConfiguration associated with the user identities to describe.</p>
             next_token: <p> An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by MaxResults. </p>
             max_results: <p>The maximum number of results to include in the response. If more results exist than the specified MaxResults value, a token is included in the response so that the remaining results can be retrieved. </p>
+
+        Raises:
+            aws_sdk_chatbot.errors.describe_slack_user_identities_exception.DescribeSlackUserIdentitiesException: <p>We can’t process your request right now because of a server issue. Try again later.</p>
+            aws_sdk_chatbot.errors.invalid_parameter_exception.InvalidParameterException: <p>Your request input doesn't meet the constraints required by AWS Chatbot.</p>
+            aws_sdk_chatbot.errors.invalid_request_exception.InvalidRequestException: <p>Your request input doesn't meet the constraints required by AWS Chatbot.</p>
+            aws_sdk_chatbot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1020,6 +1111,12 @@ class AsyncchatbotClient:
         Args:
             max_results: <p>The maximum number of results to include in the response. If more results exist than the specified MaxResults value, a token is included in the response so that the remaining results can be retrieved. </p>
             next_token: <p> An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by MaxResults. </p>
+
+        Raises:
+            aws_sdk_chatbot.errors.describe_slack_workspaces_exception.DescribeSlackWorkspacesException: <p>We can’t process your request right now because of a server issue. Try again later.</p>
+            aws_sdk_chatbot.errors.invalid_parameter_exception.InvalidParameterException: <p>Your request input doesn't meet the constraints required by AWS Chatbot.</p>
+            aws_sdk_chatbot.errors.invalid_request_exception.InvalidRequestException: <p>Your request input doesn't meet the constraints required by AWS Chatbot.</p>
+            aws_sdk_chatbot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1087,6 +1184,12 @@ class AsyncchatbotClient:
             resource: <p>The resource (for example, a custom action) Amazon Resource Name (ARN) to unlink.</p>
             chat_configuration: <p>The channel configuration the resource is being disassociated from.</p>
 
+        Raises:
+            aws_sdk_chatbot.errors.internal_service_error.InternalServiceError: <p>Unexpected error during processing of request.</p>
+            aws_sdk_chatbot.errors.invalid_request_exception.InvalidRequestException: <p>Your request input doesn't meet the constraints required by AWS Chatbot.</p>
+            aws_sdk_chatbot.errors.unauthorized_exception.UnauthorizedException: <p>The request was rejected because it doesn't have valid credentials for the target resource.</p>
+            aws_sdk_chatbot.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Disassociate a custom action from a configuration
 
@@ -1123,7 +1226,13 @@ class AsyncchatbotClient:
     async def get_account_preferences(
         self, *, config_overrides: Optional[AsyncchatbotClientConfig] = None
     ) -> "aws_sdk_chatbot.types.get_account_preferences_result.GetAccountPreferencesResult":
-        """<p>Returns AWS Chatbot account preferences.</p>"""
+        """<p>Returns AWS Chatbot account preferences.</p>
+
+        Raises:
+            aws_sdk_chatbot.errors.get_account_preferences_exception.GetAccountPreferencesException: <p>We can’t process your request right now because of a server issue. Try again later.</p>
+            aws_sdk_chatbot.errors.invalid_request_exception.InvalidRequestException: <p>Your request input doesn't meet the constraints required by AWS Chatbot.</p>
+            aws_sdk_chatbot.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_chatbot.types.get_account_preferences_request.GetAccountPreferencesRequest]",
@@ -1160,6 +1269,12 @@ class AsyncchatbotClient:
 
         Args:
             chat_configuration_arn: <p>The Amazon Resource Name (ARN) of the MicrosoftTeamsChannelConfiguration to retrieve.</p>
+
+        Raises:
+            aws_sdk_chatbot.errors.get_teams_channel_configuration_exception.GetTeamsChannelConfigurationException: <p>We can’t process your request right now because of a server issue. Try again later.</p>
+            aws_sdk_chatbot.errors.invalid_parameter_exception.InvalidParameterException: <p>Your request input doesn't meet the constraints required by AWS Chatbot.</p>
+            aws_sdk_chatbot.errors.invalid_request_exception.InvalidRequestException: <p>Your request input doesn't meet the constraints required by AWS Chatbot.</p>
+            aws_sdk_chatbot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1202,6 +1317,9 @@ class AsyncchatbotClient:
             chat_configuration: <p>The channel configuration to list associations for.</p>
             max_results: <p>The maximum number of results to include in the response. If more results exist than the specified MaxResults value, a token is included in the response so that the remaining results can be retrieved.</p>
             next_token: <p>An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by MaxResults.</p>
+
+        Raises:
+            aws_sdk_chatbot.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             List custom actions associated with a configuration
@@ -1278,6 +1396,12 @@ class AsyncchatbotClient:
             max_results: <p>The maximum number of results to include in the response. If more results exist than the specified MaxResults value, a token is included in the response so that the remaining results can be retrieved.</p>
             next_token: <p>An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by MaxResults.</p>
             team_id: <p> The ID of the Microsoft Teams authorized with AWS Chatbot.</p> <p>To get the team ID, you must perform the initial authorization flow with Microsoft Teams in the AWS Chatbot console. Then you can copy and paste the team ID from the console. For more information, see <a href=\"https://docs.aws.amazon.com/chatbot/latest/adminguide/teams-setup.html#teams-client-setup\">Step 1: Configure a Microsoft Teams client</a> in the <i> AWS Chatbot Administrator Guide</i>. </p>
+
+        Raises:
+            aws_sdk_chatbot.errors.invalid_parameter_exception.InvalidParameterException: <p>Your request input doesn't meet the constraints required by AWS Chatbot.</p>
+            aws_sdk_chatbot.errors.invalid_request_exception.InvalidRequestException: <p>Your request input doesn't meet the constraints required by AWS Chatbot.</p>
+            aws_sdk_chatbot.errors.list_teams_channel_configurations_exception.ListTeamsChannelConfigurationsException: <p>We can’t process your request right now because of a server issue. Try again later.</p>
+            aws_sdk_chatbot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1350,6 +1474,12 @@ class AsyncchatbotClient:
         Args:
             max_results: <p>The maximum number of results to include in the response. If more results exist than the specified MaxResults value, a token is included in the response so that the remaining results can be retrieved.</p>
             next_token: <p>An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by MaxResults.</p>
+
+        Raises:
+            aws_sdk_chatbot.errors.invalid_parameter_exception.InvalidParameterException: <p>Your request input doesn't meet the constraints required by AWS Chatbot.</p>
+            aws_sdk_chatbot.errors.invalid_request_exception.InvalidRequestException: <p>Your request input doesn't meet the constraints required by AWS Chatbot.</p>
+            aws_sdk_chatbot.errors.list_microsoft_teams_configured_teams_exception.ListMicrosoftTeamsConfiguredTeamsException: <p>We can’t process your request right now because of a server issue. Try again later.</p>
+            aws_sdk_chatbot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1422,6 +1552,12 @@ class AsyncchatbotClient:
             chat_configuration_arn: <p>The Amazon Resource Name (ARN) of the MicrosoftTeamsChannelConfiguration associated with the user identities to list.</p>
             next_token: <p>An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by MaxResults. </p>
             max_results: <p>The maximum number of results to include in the response. If more results exist than the specified MaxResults value, a token is included in the response so that the remaining results can be retrieved. </p>
+
+        Raises:
+            aws_sdk_chatbot.errors.invalid_parameter_exception.InvalidParameterException: <p>Your request input doesn't meet the constraints required by AWS Chatbot.</p>
+            aws_sdk_chatbot.errors.invalid_request_exception.InvalidRequestException: <p>Your request input doesn't meet the constraints required by AWS Chatbot.</p>
+            aws_sdk_chatbot.errors.list_microsoft_teams_user_identities_exception.ListMicrosoftTeamsUserIdentitiesException: <p>We can’t process your request right now because of a server issue. Try again later.</p>
+            aws_sdk_chatbot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1492,6 +1628,12 @@ class AsyncchatbotClient:
 
         Args:
             resource_arn: <p>The ARN of the resource to list tags for.</p>
+
+        Raises:
+            aws_sdk_chatbot.errors.internal_service_error.InternalServiceError: <p>Unexpected error during processing of request.</p>
+            aws_sdk_chatbot.errors.resource_not_found_exception.ResourceNotFoundException: <p>We were unable to find the resource for your request</p>
+            aws_sdk_chatbot.errors.service_unavailable_exception.ServiceUnavailableException: <p>We can’t process your request right now because of a server issue. Try again later.</p>
+            aws_sdk_chatbot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1532,6 +1674,13 @@ class AsyncchatbotClient:
         Args:
             resource_arn: <p>The ARN of the configuration.</p>
             tags: <p>A list of tags to apply to the configuration.</p>
+
+        Raises:
+            aws_sdk_chatbot.errors.internal_service_error.InternalServiceError: <p>Unexpected error during processing of request.</p>
+            aws_sdk_chatbot.errors.resource_not_found_exception.ResourceNotFoundException: <p>We were unable to find the resource for your request</p>
+            aws_sdk_chatbot.errors.service_unavailable_exception.ServiceUnavailableException: <p>We can’t process your request right now because of a server issue. Try again later.</p>
+            aws_sdk_chatbot.errors.too_many_tags_exception.TooManyTagsException: <p>The supplied list of tags contains too many tags.</p>
+            aws_sdk_chatbot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1573,6 +1722,12 @@ class AsyncchatbotClient:
         Args:
             resource_arn: <p>The value of the resource that will have the tag removed. An Amazon Resource Name (ARN) is an identifier for a specific AWS resource, such as a server, user, or role.</p>
             tag_keys: <p>TagKeys are key-value pairs assigned to ARNs that can be used to group and search for resources by type. This metadata can be attached to resources for any purpose.</p>
+
+        Raises:
+            aws_sdk_chatbot.errors.internal_service_error.InternalServiceError: <p>Unexpected error during processing of request.</p>
+            aws_sdk_chatbot.errors.resource_not_found_exception.ResourceNotFoundException: <p>We were unable to find the resource for your request</p>
+            aws_sdk_chatbot.errors.service_unavailable_exception.ServiceUnavailableException: <p>We can’t process your request right now because of a server issue. Try again later.</p>
+            aws_sdk_chatbot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1618,6 +1773,12 @@ class AsyncchatbotClient:
         Args:
             user_authorization_required: <p>Enables use of a user role requirement in your chat configuration.</p>
             training_data_collection_enabled: <p>Turns on training data collection.</p> <p>This helps improve the AWS Chatbot experience by allowing AWS Chatbot to store and use your customer information, such as AWS Chatbot configurations, notifications, user inputs, AWS Chatbot generated responses, and interaction data. This data helps us to continuously improve and develop Artificial Intelligence (AI) technologies. Your data is not shared with any third parties and is protected using sophisticated controls to prevent unauthorized access and misuse. AWS Chatbot does not store or use interactions in chat channels with Amazon Q for training AI technologies for AWS Chatbot. </p>
+
+        Raises:
+            aws_sdk_chatbot.errors.invalid_parameter_exception.InvalidParameterException: <p>Your request input doesn't meet the constraints required by AWS Chatbot.</p>
+            aws_sdk_chatbot.errors.invalid_request_exception.InvalidRequestException: <p>Your request input doesn't meet the constraints required by AWS Chatbot.</p>
+            aws_sdk_chatbot.errors.update_account_preferences_exception.UpdateAccountPreferencesException: <p>We can’t process your request right now because of a server issue. Try again later.</p>
+            aws_sdk_chatbot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1679,6 +1840,13 @@ class AsyncchatbotClient:
             sns_topic_arns: <p>The ARNs of the SNS topics that deliver notifications to AWS Chatbot.</p>
             iam_role_arn: <p>A user-defined role that AWS Chatbot assumes. This is not the service-linked role.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/chatbot/latest/adminguide/chatbot-iam-policies.html\">IAM policies for AWS Chatbot</a> in the <i> AWS Chatbot Administrator Guide</i>. </p>
             logging_level: <p>Logging levels include <code>ERROR</code>, <code>INFO</code>, or <code>NONE</code>.</p>
+
+        Raises:
+            aws_sdk_chatbot.errors.invalid_parameter_exception.InvalidParameterException: <p>Your request input doesn't meet the constraints required by AWS Chatbot.</p>
+            aws_sdk_chatbot.errors.invalid_request_exception.InvalidRequestException: <p>Your request input doesn't meet the constraints required by AWS Chatbot.</p>
+            aws_sdk_chatbot.errors.resource_not_found_exception.ResourceNotFoundException: <p>We were unable to find the resource for your request</p>
+            aws_sdk_chatbot.errors.update_chime_webhook_configuration_exception.UpdateChimeWebhookConfigurationException: <p>We can’t process your request right now because of a server issue. Try again later.</p>
+            aws_sdk_chatbot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1751,6 +1919,13 @@ class AsyncchatbotClient:
             logging_level: <p>Logging levels include <code>ERROR</code>, <code>INFO</code>, or <code>NONE</code>.</p>
             guardrail_policy_arns: <p>The list of IAM policy ARNs that are applied as channel guardrails. The AWS managed <code>AdministratorAccess</code> policy is applied by default if this is not set. </p>
             user_authorization_required: <p>Enables use of a user role requirement in your chat configuration.</p>
+
+        Raises:
+            aws_sdk_chatbot.errors.invalid_parameter_exception.InvalidParameterException: <p>Your request input doesn't meet the constraints required by AWS Chatbot.</p>
+            aws_sdk_chatbot.errors.invalid_request_exception.InvalidRequestException: <p>Your request input doesn't meet the constraints required by AWS Chatbot.</p>
+            aws_sdk_chatbot.errors.resource_not_found_exception.ResourceNotFoundException: <p>We were unable to find the resource for your request</p>
+            aws_sdk_chatbot.errors.update_teams_channel_configuration_exception.UpdateTeamsChannelConfigurationException: <p>We can’t process your request right now because of a server issue. Try again later.</p>
+            aws_sdk_chatbot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1826,6 +2001,13 @@ class AsyncchatbotClient:
             logging_level: <p>Logging levels include <code>ERROR</code>, <code>INFO</code>, or <code>NONE</code>.</p>
             guardrail_policy_arns: <p>The list of IAM policy ARNs that are applied as channel guardrails. The AWS managed <code>AdministratorAccess</code> policy is applied by default if this is not set. </p>
             user_authorization_required: <p>Enables use of a user role requirement in your chat configuration.</p>
+
+        Raises:
+            aws_sdk_chatbot.errors.invalid_parameter_exception.InvalidParameterException: <p>Your request input doesn't meet the constraints required by AWS Chatbot.</p>
+            aws_sdk_chatbot.errors.invalid_request_exception.InvalidRequestException: <p>Your request input doesn't meet the constraints required by AWS Chatbot.</p>
+            aws_sdk_chatbot.errors.resource_not_found_exception.ResourceNotFoundException: <p>We were unable to find the resource for your request</p>
+            aws_sdk_chatbot.errors.update_slack_channel_configuration_exception.UpdateSlackChannelConfigurationException: <p>We can’t process your request right now because of a server issue. Try again later.</p>
+            aws_sdk_chatbot.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

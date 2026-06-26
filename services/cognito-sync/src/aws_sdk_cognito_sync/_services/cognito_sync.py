@@ -180,6 +180,15 @@ class CognitoSyncClient:
 
         Args:
             identity_pool_id: A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
+
+        Raises:
+            aws_sdk_cognito_sync.errors.already_streamed_exception.AlreadyStreamedException: An exception thrown when a bulk publish operation is requested less than 24 hours after a previous bulk publish operation completed successfully.
+            aws_sdk_cognito_sync.errors.duplicate_request_exception.DuplicateRequestException: An exception thrown when there is an IN_PROGRESS bulk publish operation for the given identity pool.
+            aws_sdk_cognito_sync.errors.internal_error_exception.InternalErrorException: Indicates an internal service error.
+            aws_sdk_cognito_sync.errors.invalid_parameter_exception.InvalidParameterException: Thrown when a request parameter does not comply with the associated constraints.
+            aws_sdk_cognito_sync.errors.not_authorized_exception.NotAuthorizedException: Thrown when a user is not authorized to access the requested resource.
+            aws_sdk_cognito_sync.errors.resource_not_found_exception.ResourceNotFoundException: Thrown if the resource doesn't exist.
+            aws_sdk_cognito_sync.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -221,6 +230,15 @@ class CognitoSyncClient:
             identity_pool_id: A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
             identity_id: A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
             dataset_name: A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9, '_' (underscore), '-' (dash), and '.' (dot).
+
+        Raises:
+            aws_sdk_cognito_sync.errors.internal_error_exception.InternalErrorException: Indicates an internal service error.
+            aws_sdk_cognito_sync.errors.invalid_parameter_exception.InvalidParameterException: Thrown when a request parameter does not comply with the associated constraints.
+            aws_sdk_cognito_sync.errors.not_authorized_exception.NotAuthorizedException: Thrown when a user is not authorized to access the requested resource.
+            aws_sdk_cognito_sync.errors.resource_conflict_exception.ResourceConflictException: Thrown if an update can't be applied because the resource was changed by another call and this would result in a conflict.
+            aws_sdk_cognito_sync.errors.resource_not_found_exception.ResourceNotFoundException: Thrown if the resource doesn't exist.
+            aws_sdk_cognito_sync.errors.too_many_requests_exception.TooManyRequestsException: Thrown if the request is throttled.
+            aws_sdk_cognito_sync.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -264,6 +282,14 @@ class CognitoSyncClient:
             identity_pool_id: A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
             identity_id: A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
             dataset_name: A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9, '_' (underscore), '-' (dash), and '.' (dot).
+
+        Raises:
+            aws_sdk_cognito_sync.errors.internal_error_exception.InternalErrorException: Indicates an internal service error.
+            aws_sdk_cognito_sync.errors.invalid_parameter_exception.InvalidParameterException: Thrown when a request parameter does not comply with the associated constraints.
+            aws_sdk_cognito_sync.errors.not_authorized_exception.NotAuthorizedException: Thrown when a user is not authorized to access the requested resource.
+            aws_sdk_cognito_sync.errors.resource_not_found_exception.ResourceNotFoundException: Thrown if the resource doesn't exist.
+            aws_sdk_cognito_sync.errors.too_many_requests_exception.TooManyRequestsException: Thrown if the request is throttled.
+            aws_sdk_cognito_sync.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -303,6 +329,14 @@ class CognitoSyncClient:
 
         Args:
             identity_pool_id: A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
+
+        Raises:
+            aws_sdk_cognito_sync.errors.internal_error_exception.InternalErrorException: Indicates an internal service error.
+            aws_sdk_cognito_sync.errors.invalid_parameter_exception.InvalidParameterException: Thrown when a request parameter does not comply with the associated constraints.
+            aws_sdk_cognito_sync.errors.not_authorized_exception.NotAuthorizedException: Thrown when a user is not authorized to access the requested resource.
+            aws_sdk_cognito_sync.errors.resource_not_found_exception.ResourceNotFoundException: Thrown if the resource doesn't exist.
+            aws_sdk_cognito_sync.errors.too_many_requests_exception.TooManyRequestsException: Thrown if the request is throttled.
+            aws_sdk_cognito_sync.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -342,6 +376,14 @@ class CognitoSyncClient:
         Args:
             identity_pool_id: A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
             identity_id: A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
+
+        Raises:
+            aws_sdk_cognito_sync.errors.internal_error_exception.InternalErrorException: Indicates an internal service error.
+            aws_sdk_cognito_sync.errors.invalid_parameter_exception.InvalidParameterException: Thrown when a request parameter does not comply with the associated constraints.
+            aws_sdk_cognito_sync.errors.not_authorized_exception.NotAuthorizedException: Thrown when a user is not authorized to access the requested resource.
+            aws_sdk_cognito_sync.errors.resource_not_found_exception.ResourceNotFoundException: Thrown if the resource doesn't exist.
+            aws_sdk_cognito_sync.errors.too_many_requests_exception.TooManyRequestsException: Thrown if the request is throttled.
+            aws_sdk_cognito_sync.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -380,6 +422,13 @@ class CognitoSyncClient:
 
         Args:
             identity_pool_id: A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
+
+        Raises:
+            aws_sdk_cognito_sync.errors.internal_error_exception.InternalErrorException: Indicates an internal service error.
+            aws_sdk_cognito_sync.errors.invalid_parameter_exception.InvalidParameterException: Thrown when a request parameter does not comply with the associated constraints.
+            aws_sdk_cognito_sync.errors.not_authorized_exception.NotAuthorizedException: Thrown when a user is not authorized to access the requested resource.
+            aws_sdk_cognito_sync.errors.resource_not_found_exception.ResourceNotFoundException: Thrown if the resource doesn't exist.
+            aws_sdk_cognito_sync.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -417,6 +466,14 @@ class CognitoSyncClient:
 
         Args:
             identity_pool_id: <p>The Cognito Identity Pool ID for the request</p>
+
+        Raises:
+            aws_sdk_cognito_sync.errors.internal_error_exception.InternalErrorException: Indicates an internal service error.
+            aws_sdk_cognito_sync.errors.invalid_parameter_exception.InvalidParameterException: Thrown when a request parameter does not comply with the associated constraints.
+            aws_sdk_cognito_sync.errors.not_authorized_exception.NotAuthorizedException: Thrown when a user is not authorized to access the requested resource.
+            aws_sdk_cognito_sync.errors.resource_not_found_exception.ResourceNotFoundException: Thrown if the resource doesn't exist.
+            aws_sdk_cognito_sync.errors.too_many_requests_exception.TooManyRequestsException: Thrown if the request is throttled.
+            aws_sdk_cognito_sync.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -454,6 +511,14 @@ class CognitoSyncClient:
 
         Args:
             identity_pool_id: <p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. This is the ID of the pool for which to return a configuration.</p>
+
+        Raises:
+            aws_sdk_cognito_sync.errors.internal_error_exception.InternalErrorException: Indicates an internal service error.
+            aws_sdk_cognito_sync.errors.invalid_parameter_exception.InvalidParameterException: Thrown when a request parameter does not comply with the associated constraints.
+            aws_sdk_cognito_sync.errors.not_authorized_exception.NotAuthorizedException: Thrown when a user is not authorized to access the requested resource.
+            aws_sdk_cognito_sync.errors.resource_not_found_exception.ResourceNotFoundException: Thrown if the resource doesn't exist.
+            aws_sdk_cognito_sync.errors.too_many_requests_exception.TooManyRequestsException: Thrown if the request is throttled.
+            aws_sdk_cognito_sync.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -499,6 +564,13 @@ class CognitoSyncClient:
             identity_id: A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
             next_token: A pagination token for obtaining the next page of results.
             max_results: The maximum number of results to be returned.
+
+        Raises:
+            aws_sdk_cognito_sync.errors.internal_error_exception.InternalErrorException: Indicates an internal service error.
+            aws_sdk_cognito_sync.errors.invalid_parameter_exception.InvalidParameterException: Thrown when a request parameter does not comply with the associated constraints.
+            aws_sdk_cognito_sync.errors.not_authorized_exception.NotAuthorizedException: Thrown when a user is not authorized to access the requested resource.
+            aws_sdk_cognito_sync.errors.too_many_requests_exception.TooManyRequestsException: Thrown if the request is throttled.
+            aws_sdk_cognito_sync.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -545,6 +617,13 @@ class CognitoSyncClient:
         Args:
             next_token: A pagination token for obtaining the next page of results.
             max_results: The maximum number of results to be returned.
+
+        Raises:
+            aws_sdk_cognito_sync.errors.internal_error_exception.InternalErrorException: Indicates an internal service error.
+            aws_sdk_cognito_sync.errors.invalid_parameter_exception.InvalidParameterException: Thrown when a request parameter does not comply with the associated constraints.
+            aws_sdk_cognito_sync.errors.not_authorized_exception.NotAuthorizedException: Thrown when a user is not authorized to access the requested resource.
+            aws_sdk_cognito_sync.errors.too_many_requests_exception.TooManyRequestsException: Thrown if the request is throttled.
+            aws_sdk_cognito_sync.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -601,6 +680,13 @@ class CognitoSyncClient:
             next_token: A pagination token for obtaining the next page of results.
             max_results: The maximum number of results to be returned.
             sync_session_token: A token containing a session ID, identity ID, and expiration.
+
+        Raises:
+            aws_sdk_cognito_sync.errors.internal_error_exception.InternalErrorException: Indicates an internal service error.
+            aws_sdk_cognito_sync.errors.invalid_parameter_exception.InvalidParameterException: Thrown when a request parameter does not comply with the associated constraints.
+            aws_sdk_cognito_sync.errors.not_authorized_exception.NotAuthorizedException: Thrown when a user is not authorized to access the requested resource.
+            aws_sdk_cognito_sync.errors.too_many_requests_exception.TooManyRequestsException: Thrown if the request is throttled.
+            aws_sdk_cognito_sync.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -654,6 +740,15 @@ class CognitoSyncClient:
             identity_id: <p>The unique ID for this identity.</p>
             platform: <p>The SNS platform type (e.g. GCM, SDM, APNS, APNS_SANDBOX).</p>
             token: <p>The push token.</p>
+
+        Raises:
+            aws_sdk_cognito_sync.errors.internal_error_exception.InternalErrorException: Indicates an internal service error.
+            aws_sdk_cognito_sync.errors.invalid_configuration_exception.InvalidConfigurationException
+            aws_sdk_cognito_sync.errors.invalid_parameter_exception.InvalidParameterException: Thrown when a request parameter does not comply with the associated constraints.
+            aws_sdk_cognito_sync.errors.not_authorized_exception.NotAuthorizedException: Thrown when a user is not authorized to access the requested resource.
+            aws_sdk_cognito_sync.errors.resource_not_found_exception.ResourceNotFoundException: Thrown if the resource doesn't exist.
+            aws_sdk_cognito_sync.errors.too_many_requests_exception.TooManyRequestsException: Thrown if the request is throttled.
+            aws_sdk_cognito_sync.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -696,6 +791,14 @@ class CognitoSyncClient:
         Args:
             identity_pool_id: <p>The Cognito Identity Pool to use when configuring Cognito Events</p>
             events: <p>The events to configure</p>
+
+        Raises:
+            aws_sdk_cognito_sync.errors.internal_error_exception.InternalErrorException: Indicates an internal service error.
+            aws_sdk_cognito_sync.errors.invalid_parameter_exception.InvalidParameterException: Thrown when a request parameter does not comply with the associated constraints.
+            aws_sdk_cognito_sync.errors.not_authorized_exception.NotAuthorizedException: Thrown when a user is not authorized to access the requested resource.
+            aws_sdk_cognito_sync.errors.resource_not_found_exception.ResourceNotFoundException: Thrown if the resource doesn't exist.
+            aws_sdk_cognito_sync.errors.too_many_requests_exception.TooManyRequestsException: Thrown if the request is throttled.
+            aws_sdk_cognito_sync.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -738,6 +841,15 @@ class CognitoSyncClient:
             identity_pool_id: <p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. This is the ID of the pool to modify.</p>
             push_sync: <p>Options to apply to this identity pool for push synchronization.</p>
             cognito_streams: Options to apply to this identity pool for Amazon Cognito streams.
+
+        Raises:
+            aws_sdk_cognito_sync.errors.concurrent_modification_exception.ConcurrentModificationException: <p>Thrown if there are parallel requests to modify a resource.</p>
+            aws_sdk_cognito_sync.errors.internal_error_exception.InternalErrorException: Indicates an internal service error.
+            aws_sdk_cognito_sync.errors.invalid_parameter_exception.InvalidParameterException: Thrown when a request parameter does not comply with the associated constraints.
+            aws_sdk_cognito_sync.errors.not_authorized_exception.NotAuthorizedException: Thrown when a user is not authorized to access the requested resource.
+            aws_sdk_cognito_sync.errors.resource_not_found_exception.ResourceNotFoundException: Thrown if the resource doesn't exist.
+            aws_sdk_cognito_sync.errors.too_many_requests_exception.TooManyRequestsException: Thrown if the request is throttled.
+            aws_sdk_cognito_sync.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -785,6 +897,15 @@ class CognitoSyncClient:
             identity_id: <p>Unique ID for this identity.</p>
             dataset_name: <p>The name of the dataset to subcribe to.</p>
             device_id: <p>The unique ID generated for this device by Cognito.</p>
+
+        Raises:
+            aws_sdk_cognito_sync.errors.internal_error_exception.InternalErrorException: Indicates an internal service error.
+            aws_sdk_cognito_sync.errors.invalid_configuration_exception.InvalidConfigurationException
+            aws_sdk_cognito_sync.errors.invalid_parameter_exception.InvalidParameterException: Thrown when a request parameter does not comply with the associated constraints.
+            aws_sdk_cognito_sync.errors.not_authorized_exception.NotAuthorizedException: Thrown when a user is not authorized to access the requested resource.
+            aws_sdk_cognito_sync.errors.resource_not_found_exception.ResourceNotFoundException: Thrown if the resource doesn't exist.
+            aws_sdk_cognito_sync.errors.too_many_requests_exception.TooManyRequestsException: Thrown if the request is throttled.
+            aws_sdk_cognito_sync.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -831,6 +952,15 @@ class CognitoSyncClient:
             identity_id: <p>Unique ID for this identity.</p>
             dataset_name: <p>The name of the dataset from which to unsubcribe.</p>
             device_id: <p>The unique ID generated for this device by Cognito.</p>
+
+        Raises:
+            aws_sdk_cognito_sync.errors.internal_error_exception.InternalErrorException: Indicates an internal service error.
+            aws_sdk_cognito_sync.errors.invalid_configuration_exception.InvalidConfigurationException
+            aws_sdk_cognito_sync.errors.invalid_parameter_exception.InvalidParameterException: Thrown when a request parameter does not comply with the associated constraints.
+            aws_sdk_cognito_sync.errors.not_authorized_exception.NotAuthorizedException: Thrown when a user is not authorized to access the requested resource.
+            aws_sdk_cognito_sync.errors.resource_not_found_exception.ResourceNotFoundException: Thrown if the resource doesn't exist.
+            aws_sdk_cognito_sync.errors.too_many_requests_exception.TooManyRequestsException: Thrown if the request is throttled.
+            aws_sdk_cognito_sync.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -887,6 +1017,18 @@ class CognitoSyncClient:
             record_patches: A list of patch operations.
             sync_session_token: The SyncSessionToken returned by a previous call to ListRecords for this dataset and identity.
             client_context: Intended to supply a device ID that will populate the lastModifiedBy field referenced in other methods. The ClientContext field is not yet implemented.
+
+        Raises:
+            aws_sdk_cognito_sync.errors.internal_error_exception.InternalErrorException: Indicates an internal service error.
+            aws_sdk_cognito_sync.errors.invalid_lambda_function_output_exception.InvalidLambdaFunctionOutputException: <p>The AWS Lambda function returned invalid output or an exception.</p>
+            aws_sdk_cognito_sync.errors.invalid_parameter_exception.InvalidParameterException: Thrown when a request parameter does not comply with the associated constraints.
+            aws_sdk_cognito_sync.errors.lambda_throttled_exception.LambdaThrottledException: <p>AWS Lambda throttled your account, please contact AWS Support</p>
+            aws_sdk_cognito_sync.errors.limit_exceeded_exception.LimitExceededException: Thrown when the limit on the number of objects or operations has been exceeded.
+            aws_sdk_cognito_sync.errors.not_authorized_exception.NotAuthorizedException: Thrown when a user is not authorized to access the requested resource.
+            aws_sdk_cognito_sync.errors.resource_conflict_exception.ResourceConflictException: Thrown if an update can't be applied because the resource was changed by another call and this would result in a conflict.
+            aws_sdk_cognito_sync.errors.resource_not_found_exception.ResourceNotFoundException: Thrown if the resource doesn't exist.
+            aws_sdk_cognito_sync.errors.too_many_requests_exception.TooManyRequestsException: Thrown if the request is throttled.
+            aws_sdk_cognito_sync.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(

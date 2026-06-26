@@ -207,6 +207,15 @@ class ResourceGroupsClient:
 
         Args:
             task_arn: <p>The Amazon resource name (ARN) of the tag-sync task. </p>
+
+        Raises:
+            aws_sdk_resource_groups.errors.bad_request_exception.BadRequestException: <p>The request includes one or more parameters that violate validation rules.</p>
+            aws_sdk_resource_groups.errors.forbidden_exception.ForbiddenException: <p>The caller isn't authorized to make the request. Check permissions.</p>
+            aws_sdk_resource_groups.errors.internal_server_error_exception.InternalServerErrorException: <p>An internal error occurred while processing the request. Try again later.</p>
+            aws_sdk_resource_groups.errors.method_not_allowed_exception.MethodNotAllowedException: <p>The request uses an HTTP method that isn't allowed for the specified resource.</p>
+            aws_sdk_resource_groups.errors.too_many_requests_exception.TooManyRequestsException: <p>You've exceeded throttling limits by making too many requests in a period of time.</p>
+            aws_sdk_resource_groups.errors.unauthorized_exception.UnauthorizedException: <p>The request was rejected because it doesn't have valid credentials for the target resource.</p>
+            aws_sdk_resource_groups.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -266,6 +275,14 @@ class ResourceGroupsClient:
             criticality: <p>The critical rank of the application group on a scale of 1 to 10, with a rank of 1 being the most critical, and a rank of 10 being least critical.</p>
             owner: <p>A name, email address or other identifier for the person or group who is considered as the owner of this application group within your organization. </p>
             display_name: <p>The name of the application group, which you can change at any time. </p>
+
+        Raises:
+            aws_sdk_resource_groups.errors.bad_request_exception.BadRequestException: <p>The request includes one or more parameters that violate validation rules.</p>
+            aws_sdk_resource_groups.errors.forbidden_exception.ForbiddenException: <p>The caller isn't authorized to make the request. Check permissions.</p>
+            aws_sdk_resource_groups.errors.internal_server_error_exception.InternalServerErrorException: <p>An internal error occurred while processing the request. Try again later.</p>
+            aws_sdk_resource_groups.errors.method_not_allowed_exception.MethodNotAllowedException: <p>The request uses an HTTP method that isn't allowed for the specified resource.</p>
+            aws_sdk_resource_groups.errors.too_many_requests_exception.TooManyRequestsException: <p>You've exceeded throttling limits by making too many requests in a period of time.</p>
+            aws_sdk_resource_groups.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -323,6 +340,15 @@ class ResourceGroupsClient:
         Args:
             group_name: <p>Deprecated - don't use this parameter. Use <code>Group</code> instead.</p>
             group: <p>The name or the Amazon resource name (ARN) of the resource group to delete.</p>
+
+        Raises:
+            aws_sdk_resource_groups.errors.bad_request_exception.BadRequestException: <p>The request includes one or more parameters that violate validation rules.</p>
+            aws_sdk_resource_groups.errors.forbidden_exception.ForbiddenException: <p>The caller isn't authorized to make the request. Check permissions.</p>
+            aws_sdk_resource_groups.errors.internal_server_error_exception.InternalServerErrorException: <p>An internal error occurred while processing the request. Try again later.</p>
+            aws_sdk_resource_groups.errors.method_not_allowed_exception.MethodNotAllowedException: <p>The request uses an HTTP method that isn't allowed for the specified resource.</p>
+            aws_sdk_resource_groups.errors.not_found_exception.NotFoundException: <p>One or more of the specified resources don't exist.</p>
+            aws_sdk_resource_groups.errors.too_many_requests_exception.TooManyRequestsException: <p>You've exceeded throttling limits by making too many requests in a period of time.</p>
+            aws_sdk_resource_groups.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -356,7 +382,16 @@ class ResourceGroupsClient:
     def get_account_settings(
         self, *, config_overrides: Optional[ResourceGroupsClientConfig] = None
     ) -> "aws_sdk_resource_groups.types.get_account_settings_output.GetAccountSettingsOutput":
-        """<p>Retrieves the current status of optional features in Resource Groups.</p>"""
+        """<p>Retrieves the current status of optional features in Resource Groups.</p>
+
+        Raises:
+            aws_sdk_resource_groups.errors.bad_request_exception.BadRequestException: <p>The request includes one or more parameters that violate validation rules.</p>
+            aws_sdk_resource_groups.errors.forbidden_exception.ForbiddenException: <p>The caller isn't authorized to make the request. Check permissions.</p>
+            aws_sdk_resource_groups.errors.internal_server_error_exception.InternalServerErrorException: <p>An internal error occurred while processing the request. Try again later.</p>
+            aws_sdk_resource_groups.errors.method_not_allowed_exception.MethodNotAllowedException: <p>The request uses an HTTP method that isn't allowed for the specified resource.</p>
+            aws_sdk_resource_groups.errors.too_many_requests_exception.TooManyRequestsException: <p>You've exceeded throttling limits by making too many requests in a period of time.</p>
+            aws_sdk_resource_groups.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[None]",
@@ -397,6 +432,15 @@ class ResourceGroupsClient:
         Args:
             group_name: <p>Deprecated - don't use this parameter. Use <code>Group</code> instead.</p>
             group: <p>The name or the Amazon resource name (ARN) of the resource group to retrieve.</p>
+
+        Raises:
+            aws_sdk_resource_groups.errors.bad_request_exception.BadRequestException: <p>The request includes one or more parameters that violate validation rules.</p>
+            aws_sdk_resource_groups.errors.forbidden_exception.ForbiddenException: <p>The caller isn't authorized to make the request. Check permissions.</p>
+            aws_sdk_resource_groups.errors.internal_server_error_exception.InternalServerErrorException: <p>An internal error occurred while processing the request. Try again later.</p>
+            aws_sdk_resource_groups.errors.method_not_allowed_exception.MethodNotAllowedException: <p>The request uses an HTTP method that isn't allowed for the specified resource.</p>
+            aws_sdk_resource_groups.errors.not_found_exception.NotFoundException: <p>One or more of the specified resources don't exist.</p>
+            aws_sdk_resource_groups.errors.too_many_requests_exception.TooManyRequestsException: <p>You've exceeded throttling limits by making too many requests in a period of time.</p>
+            aws_sdk_resource_groups.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -439,6 +483,15 @@ class ResourceGroupsClient:
 
         Args:
             group: <p>The name or the Amazon resource name (ARN) of the resource group for which you want to retrive the service configuration.</p>
+
+        Raises:
+            aws_sdk_resource_groups.errors.bad_request_exception.BadRequestException: <p>The request includes one or more parameters that violate validation rules.</p>
+            aws_sdk_resource_groups.errors.forbidden_exception.ForbiddenException: <p>The caller isn't authorized to make the request. Check permissions.</p>
+            aws_sdk_resource_groups.errors.internal_server_error_exception.InternalServerErrorException: <p>An internal error occurred while processing the request. Try again later.</p>
+            aws_sdk_resource_groups.errors.method_not_allowed_exception.MethodNotAllowedException: <p>The request uses an HTTP method that isn't allowed for the specified resource.</p>
+            aws_sdk_resource_groups.errors.not_found_exception.NotFoundException: <p>One or more of the specified resources don't exist.</p>
+            aws_sdk_resource_groups.errors.too_many_requests_exception.TooManyRequestsException: <p>You've exceeded throttling limits by making too many requests in a period of time.</p>
+            aws_sdk_resource_groups.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -483,6 +536,15 @@ class ResourceGroupsClient:
         Args:
             group_name: <p>Don't use this parameter. Use <code>Group</code> instead.</p>
             group: <p>The name or the Amazon resource name (ARN) of the resource group to query.</p>
+
+        Raises:
+            aws_sdk_resource_groups.errors.bad_request_exception.BadRequestException: <p>The request includes one or more parameters that violate validation rules.</p>
+            aws_sdk_resource_groups.errors.forbidden_exception.ForbiddenException: <p>The caller isn't authorized to make the request. Check permissions.</p>
+            aws_sdk_resource_groups.errors.internal_server_error_exception.InternalServerErrorException: <p>An internal error occurred while processing the request. Try again later.</p>
+            aws_sdk_resource_groups.errors.method_not_allowed_exception.MethodNotAllowedException: <p>The request uses an HTTP method that isn't allowed for the specified resource.</p>
+            aws_sdk_resource_groups.errors.not_found_exception.NotFoundException: <p>One or more of the specified resources don't exist.</p>
+            aws_sdk_resource_groups.errors.too_many_requests_exception.TooManyRequestsException: <p>You've exceeded throttling limits by making too many requests in a period of time.</p>
+            aws_sdk_resource_groups.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -523,6 +585,15 @@ class ResourceGroupsClient:
 
         Args:
             arn: <p>The Amazon resource name (ARN) of the resource group whose tags you want to retrieve.</p>
+
+        Raises:
+            aws_sdk_resource_groups.errors.bad_request_exception.BadRequestException: <p>The request includes one or more parameters that violate validation rules.</p>
+            aws_sdk_resource_groups.errors.forbidden_exception.ForbiddenException: <p>The caller isn't authorized to make the request. Check permissions.</p>
+            aws_sdk_resource_groups.errors.internal_server_error_exception.InternalServerErrorException: <p>An internal error occurred while processing the request. Try again later.</p>
+            aws_sdk_resource_groups.errors.method_not_allowed_exception.MethodNotAllowedException: <p>The request uses an HTTP method that isn't allowed for the specified resource.</p>
+            aws_sdk_resource_groups.errors.not_found_exception.NotFoundException: <p>One or more of the specified resources don't exist.</p>
+            aws_sdk_resource_groups.errors.too_many_requests_exception.TooManyRequestsException: <p>You've exceeded throttling limits by making too many requests in a period of time.</p>
+            aws_sdk_resource_groups.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -560,6 +631,16 @@ class ResourceGroupsClient:
 
         Args:
             task_arn: <p>The Amazon resource name (ARN) of the tag-sync task. </p>
+
+        Raises:
+            aws_sdk_resource_groups.errors.bad_request_exception.BadRequestException: <p>The request includes one or more parameters that violate validation rules.</p>
+            aws_sdk_resource_groups.errors.forbidden_exception.ForbiddenException: <p>The caller isn't authorized to make the request. Check permissions.</p>
+            aws_sdk_resource_groups.errors.internal_server_error_exception.InternalServerErrorException: <p>An internal error occurred while processing the request. Try again later.</p>
+            aws_sdk_resource_groups.errors.method_not_allowed_exception.MethodNotAllowedException: <p>The request uses an HTTP method that isn't allowed for the specified resource.</p>
+            aws_sdk_resource_groups.errors.not_found_exception.NotFoundException: <p>One or more of the specified resources don't exist.</p>
+            aws_sdk_resource_groups.errors.too_many_requests_exception.TooManyRequestsException: <p>You've exceeded throttling limits by making too many requests in a period of time.</p>
+            aws_sdk_resource_groups.errors.unauthorized_exception.UnauthorizedException: <p>The request was rejected because it doesn't have valid credentials for the target resource.</p>
+            aws_sdk_resource_groups.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -599,6 +680,15 @@ class ResourceGroupsClient:
         Args:
             group: <p>The name or the Amazon resource name (ARN) of the resource group to add resources to.</p>
             resource_arns: <p>The list of Amazon resource names (ARNs) of the resources to be added to the group. </p>
+
+        Raises:
+            aws_sdk_resource_groups.errors.bad_request_exception.BadRequestException: <p>The request includes one or more parameters that violate validation rules.</p>
+            aws_sdk_resource_groups.errors.forbidden_exception.ForbiddenException: <p>The caller isn't authorized to make the request. Check permissions.</p>
+            aws_sdk_resource_groups.errors.internal_server_error_exception.InternalServerErrorException: <p>An internal error occurred while processing the request. Try again later.</p>
+            aws_sdk_resource_groups.errors.method_not_allowed_exception.MethodNotAllowedException: <p>The request uses an HTTP method that isn't allowed for the specified resource.</p>
+            aws_sdk_resource_groups.errors.not_found_exception.NotFoundException: <p>One or more of the specified resources don't exist.</p>
+            aws_sdk_resource_groups.errors.too_many_requests_exception.TooManyRequestsException: <p>You've exceeded throttling limits by making too many requests in a period of time.</p>
+            aws_sdk_resource_groups.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -649,6 +739,14 @@ class ResourceGroupsClient:
             max_results: <p>The maximum number of resources and their statuses returned in the response. </p>
             filters: <p>The filter name and value pair that is used to return more specific results from a list of resources. </p>
             next_token: <p>The parameter for receiving additional results if you receive a <code>NextToken</code> response in a previous request. A <code>NextToken</code> response indicates that more output is available. Set this parameter to the value provided by a previous call's <code>NextToken</code> response to indicate where the output should continue from. </p>
+
+        Raises:
+            aws_sdk_resource_groups.errors.bad_request_exception.BadRequestException: <p>The request includes one or more parameters that violate validation rules.</p>
+            aws_sdk_resource_groups.errors.forbidden_exception.ForbiddenException: <p>The caller isn't authorized to make the request. Check permissions.</p>
+            aws_sdk_resource_groups.errors.internal_server_error_exception.InternalServerErrorException: <p>An internal error occurred while processing the request. Try again later.</p>
+            aws_sdk_resource_groups.errors.method_not_allowed_exception.MethodNotAllowedException: <p>The request uses an HTTP method that isn't allowed for the specified resource.</p>
+            aws_sdk_resource_groups.errors.too_many_requests_exception.TooManyRequestsException: <p>You've exceeded throttling limits by making too many requests in a period of time.</p>
+            aws_sdk_resource_groups.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -741,6 +839,16 @@ class ResourceGroupsClient:
             filters: <p>Filters, formatted as <a>ResourceFilter</a> objects, that you want to apply to a <code>ListGroupResources</code> operation. Filters the results to include only those of the specified resource types.</p> <ul> <li> <p> <code>resource-type</code> - Filter resources by their type. Specify up to five resource types in the format <code>AWS::ServiceCode::ResourceType</code>. For example, <code>AWS::EC2::Instance</code>, or <code>AWS::S3::Bucket</code>. </p> </li> </ul> <p>When you specify a <code>resource-type</code> filter for <code>ListGroupResources</code>, Resource Groups validates your filter resource types against the types that are defined in the query associated with the group. For example, if a group contains only S3 buckets because its query specifies only that resource type, but your <code>resource-type</code> filter includes EC2 instances, AWS Resource Groups does not filter for EC2 instances. In this case, a <code>ListGroupResources</code> request returns a <code>BadRequestException</code> error with a message similar to the following:</p> <p> <code>The resource types specified as filters in the request are not valid.</code> </p> <p>The error includes a list of resource types that failed the validation because they are not part of the query associated with the group. This validation doesn't occur when the group query specifies <code>AWS::AllSupported</code>, because a group based on such a query can contain any of the allowed resource types for the query type (tag-based or Amazon CloudFront stack-based queries).</p>
             max_results: <p>The total number of results that you want included on each page of the response. If you do not include this parameter, it defaults to a value that is specific to the operation. If additional items exist beyond the maximum you specify, the <code>NextToken</code> response element is present and has a value (is not null). Include that value as the <code>NextToken</code> request parameter in the next call to the operation to get the next part of the results. Note that the service might return fewer results than the maximum even when there are more results available. You should check <code>NextToken</code> after every operation to ensure that you receive all of the results.</p>
             next_token: <p>The parameter for receiving additional results if you receive a <code>NextToken</code> response in a previous request. A <code>NextToken</code> response indicates that more output is available. Set this parameter to the value provided by a previous call's <code>NextToken</code> response to indicate where the output should continue from.</p>
+
+        Raises:
+            aws_sdk_resource_groups.errors.bad_request_exception.BadRequestException: <p>The request includes one or more parameters that violate validation rules.</p>
+            aws_sdk_resource_groups.errors.forbidden_exception.ForbiddenException: <p>The caller isn't authorized to make the request. Check permissions.</p>
+            aws_sdk_resource_groups.errors.internal_server_error_exception.InternalServerErrorException: <p>An internal error occurred while processing the request. Try again later.</p>
+            aws_sdk_resource_groups.errors.method_not_allowed_exception.MethodNotAllowedException: <p>The request uses an HTTP method that isn't allowed for the specified resource.</p>
+            aws_sdk_resource_groups.errors.not_found_exception.NotFoundException: <p>One or more of the specified resources don't exist.</p>
+            aws_sdk_resource_groups.errors.too_many_requests_exception.TooManyRequestsException: <p>You've exceeded throttling limits by making too many requests in a period of time.</p>
+            aws_sdk_resource_groups.errors.unauthorized_exception.UnauthorizedException: <p>The request was rejected because it doesn't have valid credentials for the target resource.</p>
+            aws_sdk_resource_groups.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -836,6 +944,14 @@ class ResourceGroupsClient:
             filters: <p>Filters, formatted as <a>GroupFilter</a> objects, that you want to apply to a <code>ListGroups</code> operation.</p> <ul> <li> <p> <code>resource-type</code> - Filter the results to include only those resource groups that have the specified resource type in their <code>ResourceTypeFilter</code>. For example, <code>AWS::EC2::Instance</code> would return any resource group with a <code>ResourceTypeFilter</code> that includes <code>AWS::EC2::Instance</code>.</p> </li> <li> <p> <code>configuration-type</code> - Filter the results to include only those groups that have the specified configuration types attached. The current supported values are:</p> <ul> <li> <p> <code>AWS::ResourceGroups::ApplicationGroup</code> </p> </li> <li> <p> <code>AWS::AppRegistry::Application</code> </p> </li> <li> <p> <code>AWS::AppRegistry::ApplicationResourceGroup</code> </p> </li> <li> <p> <code>AWS::CloudFormation::Stack</code> </p> </li> <li> <p> <code>AWS::EC2::CapacityReservationPool</code> </p> </li> <li> <p> <code>AWS::EC2::HostManagement</code> </p> </li> <li> <p> <code>AWS::NetworkFirewall::RuleGroup</code> </p> </li> </ul> </li> </ul>
             max_results: <p>The total number of results that you want included on each page of the response. If you do not include this parameter, it defaults to a value that is specific to the operation. If additional items exist beyond the maximum you specify, the <code>NextToken</code> response element is present and has a value (is not null). Include that value as the <code>NextToken</code> request parameter in the next call to the operation to get the next part of the results. Note that the service might return fewer results than the maximum even when there are more results available. You should check <code>NextToken</code> after every operation to ensure that you receive all of the results.</p>
             next_token: <p>The parameter for receiving additional results if you receive a <code>NextToken</code> response in a previous request. A <code>NextToken</code> response indicates that more output is available. Set this parameter to the value provided by a previous call's <code>NextToken</code> response to indicate where the output should continue from.</p>
+
+        Raises:
+            aws_sdk_resource_groups.errors.bad_request_exception.BadRequestException: <p>The request includes one or more parameters that violate validation rules.</p>
+            aws_sdk_resource_groups.errors.forbidden_exception.ForbiddenException: <p>The caller isn't authorized to make the request. Check permissions.</p>
+            aws_sdk_resource_groups.errors.internal_server_error_exception.InternalServerErrorException: <p>An internal error occurred while processing the request. Try again later.</p>
+            aws_sdk_resource_groups.errors.method_not_allowed_exception.MethodNotAllowedException: <p>The request uses an HTTP method that isn't allowed for the specified resource.</p>
+            aws_sdk_resource_groups.errors.too_many_requests_exception.TooManyRequestsException: <p>You've exceeded throttling limits by making too many requests in a period of time.</p>
+            aws_sdk_resource_groups.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -917,6 +1033,15 @@ class ResourceGroupsClient:
             filters: <p>The Amazon resource name (ARN) or name of the application group for which you want to return a list of tag-sync tasks. </p>
             max_results: <p>The maximum number of results to be included in the response. </p>
             next_token: <p>The parameter for receiving additional results if you receive a <code>NextToken</code> response in a previous request. A <code>NextToken</code> response indicates that more output is available. Set this parameter to the value provided by a previous call's <code>NextToken</code> response to indicate where the output should continue from. </p>
+
+        Raises:
+            aws_sdk_resource_groups.errors.bad_request_exception.BadRequestException: <p>The request includes one or more parameters that violate validation rules.</p>
+            aws_sdk_resource_groups.errors.forbidden_exception.ForbiddenException: <p>The caller isn't authorized to make the request. Check permissions.</p>
+            aws_sdk_resource_groups.errors.internal_server_error_exception.InternalServerErrorException: <p>An internal error occurred while processing the request. Try again later.</p>
+            aws_sdk_resource_groups.errors.method_not_allowed_exception.MethodNotAllowedException: <p>The request uses an HTTP method that isn't allowed for the specified resource.</p>
+            aws_sdk_resource_groups.errors.too_many_requests_exception.TooManyRequestsException: <p>You've exceeded throttling limits by making too many requests in a period of time.</p>
+            aws_sdk_resource_groups.errors.unauthorized_exception.UnauthorizedException: <p>The request was rejected because it doesn't have valid credentials for the target resource.</p>
+            aws_sdk_resource_groups.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -994,6 +1119,15 @@ class ResourceGroupsClient:
         Args:
             group: <p>The name or Amazon resource name (ARN) of the resource group with the configuration that you want to update.</p>
             configuration: <p>The new configuration to associate with the specified group. A configuration associates the resource group with an Amazon Web Services service and specifies how the service can interact with the resources in the group. A configuration is an array of <a>GroupConfigurationItem</a> elements.</p> <p>For information about the syntax of a service configuration, see <a href=\"https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html\">Service configurations for Resource Groups</a>.</p> <note> <p>A resource group can contain either a <code>Configuration</code> or a <code>ResourceQuery</code>, but not both.</p> </note>
+
+        Raises:
+            aws_sdk_resource_groups.errors.bad_request_exception.BadRequestException: <p>The request includes one or more parameters that violate validation rules.</p>
+            aws_sdk_resource_groups.errors.forbidden_exception.ForbiddenException: <p>The caller isn't authorized to make the request. Check permissions.</p>
+            aws_sdk_resource_groups.errors.internal_server_error_exception.InternalServerErrorException: <p>An internal error occurred while processing the request. Try again later.</p>
+            aws_sdk_resource_groups.errors.method_not_allowed_exception.MethodNotAllowedException: <p>The request uses an HTTP method that isn't allowed for the specified resource.</p>
+            aws_sdk_resource_groups.errors.not_found_exception.NotFoundException: <p>One or more of the specified resources don't exist.</p>
+            aws_sdk_resource_groups.errors.too_many_requests_exception.TooManyRequestsException: <p>You've exceeded throttling limits by making too many requests in a period of time.</p>
+            aws_sdk_resource_groups.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1042,6 +1176,15 @@ class ResourceGroupsClient:
             resource_query: <p>The search query, using the same formats that are supported for resource group definition. For more information, see <a>CreateGroup</a>.</p>
             max_results: <p>The total number of results that you want included on each page of the response. If you do not include this parameter, it defaults to a value that is specific to the operation. If additional items exist beyond the maximum you specify, the <code>NextToken</code> response element is present and has a value (is not null). Include that value as the <code>NextToken</code> request parameter in the next call to the operation to get the next part of the results. Note that the service might return fewer results than the maximum even when there are more results available. You should check <code>NextToken</code> after every operation to ensure that you receive all of the results.</p>
             next_token: <p>The parameter for receiving additional results if you receive a <code>NextToken</code> response in a previous request. A <code>NextToken</code> response indicates that more output is available. Set this parameter to the value provided by a previous call's <code>NextToken</code> response to indicate where the output should continue from.</p>
+
+        Raises:
+            aws_sdk_resource_groups.errors.bad_request_exception.BadRequestException: <p>The request includes one or more parameters that violate validation rules.</p>
+            aws_sdk_resource_groups.errors.forbidden_exception.ForbiddenException: <p>The caller isn't authorized to make the request. Check permissions.</p>
+            aws_sdk_resource_groups.errors.internal_server_error_exception.InternalServerErrorException: <p>An internal error occurred while processing the request. Try again later.</p>
+            aws_sdk_resource_groups.errors.method_not_allowed_exception.MethodNotAllowedException: <p>The request uses an HTTP method that isn't allowed for the specified resource.</p>
+            aws_sdk_resource_groups.errors.too_many_requests_exception.TooManyRequestsException: <p>You've exceeded throttling limits by making too many requests in a period of time.</p>
+            aws_sdk_resource_groups.errors.unauthorized_exception.UnauthorizedException: <p>The request was rejected because it doesn't have valid credentials for the target resource.</p>
+            aws_sdk_resource_groups.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1122,6 +1265,16 @@ class ResourceGroupsClient:
             tag_value: <p>The tag value. Resources tagged with this tag key-value pair will be added to the application. If a resource with this tag is later untagged, the tag-sync task removes the resource from the application. </p> <p>When using the <code>TagValue</code> parameter, you must also specify the <code>TagKey</code> parameter. If you specify a tag key-value pair, you can't use the <code>ResourceQuery</code> parameter. </p>
             resource_query: <p>The query you can use to create the tag-sync task. With this method, all resources matching the query are added to the specified application group. A <code>ResourceQuery</code> specifies both a query <code>Type</code> and a <code>Query</code> string as JSON string objects. For more information on defining a resource query for a tag-sync task, see the tag-based query type in <a href=\"https://docs.aws.amazon.com/ARG/latest/userguide/gettingstarted-query.html#getting_started-query_types\"> Types of resource group queries</a> in <i>Resource Groups User Guide</i>. </p> <p>When using the <code>ResourceQuery</code> parameter, you cannot use the <code>TagKey</code> and <code>TagValue</code> parameters. </p> <p>When you combine all of the elements together into a single string, any double quotes that are embedded inside another double quote pair must be escaped by preceding the embedded double quote with a backslash character (\). For example, a complete <code>ResourceQuery</code> parameter must be formatted like the following CLI parameter example:</p> <p> <code>--resource-query '{\"Type\":\"TAG_FILTERS_1_0\",\"Query\":\"{\\"ResourceTypeFilters\\":[\\"AWS::AllSupported\\"],\\"TagFilters\\":[{\\"Key\\":\\"Stage\\",\\"Values\\":[\\"Test\\"]}]}\"}'</code> </p> <p>In the preceding example, all of the double quote characters in the value part of the <code>Query</code> element must be escaped because the value itself is surrounded by double quotes. For more information, see <a href=\"https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-parameters-quoting-strings.html\">Quoting strings</a> in the <i>Command Line Interface User Guide</i>.</p> <p>For the complete list of resource types that you can use in the array value for <code>ResourceTypeFilters</code>, see <a href=\"https://docs.aws.amazon.com/ARG/latest/userguide/supported-resources.html\">Resources you can use with Resource Groups and Tag Editor</a> in the <i>Resource Groups User Guide</i>. For example:</p> <p> <code>\"ResourceTypeFilters\":[\"AWS::S3::Bucket\", \"AWS::EC2::Instance\"]</code> </p>
             role_arn: <p>The Amazon resource name (ARN) of the role assumed by the service to tag and untag resources on your behalf.</p>
+
+        Raises:
+            aws_sdk_resource_groups.errors.bad_request_exception.BadRequestException: <p>The request includes one or more parameters that violate validation rules.</p>
+            aws_sdk_resource_groups.errors.forbidden_exception.ForbiddenException: <p>The caller isn't authorized to make the request. Check permissions.</p>
+            aws_sdk_resource_groups.errors.internal_server_error_exception.InternalServerErrorException: <p>An internal error occurred while processing the request. Try again later.</p>
+            aws_sdk_resource_groups.errors.method_not_allowed_exception.MethodNotAllowedException: <p>The request uses an HTTP method that isn't allowed for the specified resource.</p>
+            aws_sdk_resource_groups.errors.not_found_exception.NotFoundException: <p>One or more of the specified resources don't exist.</p>
+            aws_sdk_resource_groups.errors.too_many_requests_exception.TooManyRequestsException: <p>You've exceeded throttling limits by making too many requests in a period of time.</p>
+            aws_sdk_resource_groups.errors.unauthorized_exception.UnauthorizedException: <p>The request was rejected because it doesn't have valid credentials for the target resource.</p>
+            aws_sdk_resource_groups.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1168,6 +1321,15 @@ class ResourceGroupsClient:
         Args:
             arn: <p>The Amazon resource name (ARN) of the resource group to which to add tags.</p>
             tags: <p>The tags to add to the specified resource group. A tag is a string-to-string map of key-value pairs.</p>
+
+        Raises:
+            aws_sdk_resource_groups.errors.bad_request_exception.BadRequestException: <p>The request includes one or more parameters that violate validation rules.</p>
+            aws_sdk_resource_groups.errors.forbidden_exception.ForbiddenException: <p>The caller isn't authorized to make the request. Check permissions.</p>
+            aws_sdk_resource_groups.errors.internal_server_error_exception.InternalServerErrorException: <p>An internal error occurred while processing the request. Try again later.</p>
+            aws_sdk_resource_groups.errors.method_not_allowed_exception.MethodNotAllowedException: <p>The request uses an HTTP method that isn't allowed for the specified resource.</p>
+            aws_sdk_resource_groups.errors.not_found_exception.NotFoundException: <p>One or more of the specified resources don't exist.</p>
+            aws_sdk_resource_groups.errors.too_many_requests_exception.TooManyRequestsException: <p>You've exceeded throttling limits by making too many requests in a period of time.</p>
+            aws_sdk_resource_groups.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1206,6 +1368,15 @@ class ResourceGroupsClient:
         Args:
             group: <p>The name or the Amazon resource name (ARN) of the resource group from which to remove the resources.</p>
             resource_arns: <p>The Amazon resource names (ARNs) of the resources to be removed from the group.</p>
+
+        Raises:
+            aws_sdk_resource_groups.errors.bad_request_exception.BadRequestException: <p>The request includes one or more parameters that violate validation rules.</p>
+            aws_sdk_resource_groups.errors.forbidden_exception.ForbiddenException: <p>The caller isn't authorized to make the request. Check permissions.</p>
+            aws_sdk_resource_groups.errors.internal_server_error_exception.InternalServerErrorException: <p>An internal error occurred while processing the request. Try again later.</p>
+            aws_sdk_resource_groups.errors.method_not_allowed_exception.MethodNotAllowedException: <p>The request uses an HTTP method that isn't allowed for the specified resource.</p>
+            aws_sdk_resource_groups.errors.not_found_exception.NotFoundException: <p>One or more of the specified resources don't exist.</p>
+            aws_sdk_resource_groups.errors.too_many_requests_exception.TooManyRequestsException: <p>You've exceeded throttling limits by making too many requests in a period of time.</p>
+            aws_sdk_resource_groups.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1246,6 +1417,15 @@ class ResourceGroupsClient:
         Args:
             arn: <p>The Amazon resource name (ARN) of the resource group from which to remove tags. The command removed both the specified keys and any values associated with those keys.</p>
             keys: <p>The keys of the tags to be removed.</p>
+
+        Raises:
+            aws_sdk_resource_groups.errors.bad_request_exception.BadRequestException: <p>The request includes one or more parameters that violate validation rules.</p>
+            aws_sdk_resource_groups.errors.forbidden_exception.ForbiddenException: <p>The caller isn't authorized to make the request. Check permissions.</p>
+            aws_sdk_resource_groups.errors.internal_server_error_exception.InternalServerErrorException: <p>An internal error occurred while processing the request. Try again later.</p>
+            aws_sdk_resource_groups.errors.method_not_allowed_exception.MethodNotAllowedException: <p>The request uses an HTTP method that isn't allowed for the specified resource.</p>
+            aws_sdk_resource_groups.errors.not_found_exception.NotFoundException: <p>One or more of the specified resources don't exist.</p>
+            aws_sdk_resource_groups.errors.too_many_requests_exception.TooManyRequestsException: <p>You've exceeded throttling limits by making too many requests in a period of time.</p>
+            aws_sdk_resource_groups.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1286,6 +1466,14 @@ class ResourceGroupsClient:
 
         Args:
             group_lifecycle_events_desired_status: <p>Specifies whether you want to turn <a href=\"https://docs.aws.amazon.com/ARG/latest/userguide/monitor-groups.html\">group lifecycle events</a> on or off.</p> <p>You can't turn on group lifecycle events if your resource groups quota is greater than 2,000. </p>
+
+        Raises:
+            aws_sdk_resource_groups.errors.bad_request_exception.BadRequestException: <p>The request includes one or more parameters that violate validation rules.</p>
+            aws_sdk_resource_groups.errors.forbidden_exception.ForbiddenException: <p>The caller isn't authorized to make the request. Check permissions.</p>
+            aws_sdk_resource_groups.errors.internal_server_error_exception.InternalServerErrorException: <p>An internal error occurred while processing the request. Try again later.</p>
+            aws_sdk_resource_groups.errors.method_not_allowed_exception.MethodNotAllowedException: <p>The request uses an HTTP method that isn't allowed for the specified resource.</p>
+            aws_sdk_resource_groups.errors.too_many_requests_exception.TooManyRequestsException: <p>You've exceeded throttling limits by making too many requests in a period of time.</p>
+            aws_sdk_resource_groups.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1346,6 +1534,15 @@ class ResourceGroupsClient:
             criticality: <p>The critical rank of the application group on a scale of 1 to 10, with a rank of 1 being the most critical, and a rank of 10 being least critical.</p>
             owner: <p>A name, email address or other identifier for the person or group who is considered as the owner of this application group within your organization. </p>
             display_name: <p>The name of the application group, which you can change at any time. </p>
+
+        Raises:
+            aws_sdk_resource_groups.errors.bad_request_exception.BadRequestException: <p>The request includes one or more parameters that violate validation rules.</p>
+            aws_sdk_resource_groups.errors.forbidden_exception.ForbiddenException: <p>The caller isn't authorized to make the request. Check permissions.</p>
+            aws_sdk_resource_groups.errors.internal_server_error_exception.InternalServerErrorException: <p>An internal error occurred while processing the request. Try again later.</p>
+            aws_sdk_resource_groups.errors.method_not_allowed_exception.MethodNotAllowedException: <p>The request uses an HTTP method that isn't allowed for the specified resource.</p>
+            aws_sdk_resource_groups.errors.not_found_exception.NotFoundException: <p>One or more of the specified resources don't exist.</p>
+            aws_sdk_resource_groups.errors.too_many_requests_exception.TooManyRequestsException: <p>You've exceeded throttling limits by making too many requests in a period of time.</p>
+            aws_sdk_resource_groups.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1404,6 +1601,15 @@ class ResourceGroupsClient:
             group_name: <p>Don't use this parameter. Use <code>Group</code> instead.</p>
             group: <p>The name or the Amazon resource name (ARN) of the resource group to query.</p>
             resource_query: <p>The resource query to determine which Amazon Web Services resources are members of this resource group.</p> <note> <p>A resource group can contain either a <code>Configuration</code> or a <code>ResourceQuery</code>, but not both.</p> </note>
+
+        Raises:
+            aws_sdk_resource_groups.errors.bad_request_exception.BadRequestException: <p>The request includes one or more parameters that violate validation rules.</p>
+            aws_sdk_resource_groups.errors.forbidden_exception.ForbiddenException: <p>The caller isn't authorized to make the request. Check permissions.</p>
+            aws_sdk_resource_groups.errors.internal_server_error_exception.InternalServerErrorException: <p>An internal error occurred while processing the request. Try again later.</p>
+            aws_sdk_resource_groups.errors.method_not_allowed_exception.MethodNotAllowedException: <p>The request uses an HTTP method that isn't allowed for the specified resource.</p>
+            aws_sdk_resource_groups.errors.not_found_exception.NotFoundException: <p>One or more of the specified resources don't exist.</p>
+            aws_sdk_resource_groups.errors.too_many_requests_exception.TooManyRequestsException: <p>You've exceeded throttling limits by making too many requests in a period of time.</p>
+            aws_sdk_resource_groups.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(

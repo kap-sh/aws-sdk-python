@@ -58,6 +58,13 @@ class Config:
             name: <p>Name of a <code>Config</code>.</p>
             config_data: <p>Parameters of a <code>Config</code>.</p>
             tags: <p>Tags assigned to a <code>Config</code>.</p>
+
+        Raises:
+            aws_sdk_groundstation.errors.dependency_exception.DependencyException: <p>Dependency encountered an error.</p>
+            aws_sdk_groundstation.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters are not valid.</p>
+            aws_sdk_groundstation.errors.resource_limit_exceeded_exception.ResourceLimitExceededException: <p>Account limits for this resource have been exceeded.</p>
+            aws_sdk_groundstation.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource was not found.</p>
+            aws_sdk_groundstation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -100,6 +107,12 @@ class Config:
         Args:
             config_id: <p>UUID of a <code>Config</code>.</p>
             config_type: <p>Type of a <code>Config</code>.</p>
+
+        Raises:
+            aws_sdk_groundstation.errors.dependency_exception.DependencyException: <p>Dependency encountered an error.</p>
+            aws_sdk_groundstation.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters are not valid.</p>
+            aws_sdk_groundstation.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource was not found.</p>
+            aws_sdk_groundstation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -144,6 +157,12 @@ class Config:
             name: <p>Name of a <code>Config</code>.</p>
             config_type: <p>Type of a <code>Config</code>.</p>
             config_data: <p>Parameters of a <code>Config</code>.</p>
+
+        Raises:
+            aws_sdk_groundstation.errors.dependency_exception.DependencyException: <p>Dependency encountered an error.</p>
+            aws_sdk_groundstation.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters are not valid.</p>
+            aws_sdk_groundstation.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource was not found.</p>
+            aws_sdk_groundstation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -186,6 +205,12 @@ class Config:
         Args:
             config_id: <p>UUID of a <code>Config</code>.</p>
             config_type: <p>Type of a <code>Config</code>.</p>
+
+        Raises:
+            aws_sdk_groundstation.errors.dependency_exception.DependencyException: <p>Dependency encountered an error.</p>
+            aws_sdk_groundstation.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters are not valid.</p>
+            aws_sdk_groundstation.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource was not found.</p>
+            aws_sdk_groundstation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -230,6 +255,12 @@ class Config:
         Args:
             max_results: <p>Maximum number of <code>Configs</code> returned.</p>
             next_token: <p>Next token returned in the request of a previous <code>ListConfigs</code> call. Used to get the next page of results.</p>
+
+        Raises:
+            aws_sdk_groundstation.errors.dependency_exception.DependencyException: <p>Dependency encountered an error.</p>
+            aws_sdk_groundstation.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters are not valid.</p>
+            aws_sdk_groundstation.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource was not found.</p>
+            aws_sdk_groundstation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -279,6 +310,13 @@ class AsyncConfig:
             name: <p>Name of a <code>Config</code>.</p>
             config_data: <p>Parameters of a <code>Config</code>.</p>
             tags: <p>Tags assigned to a <code>Config</code>.</p>
+
+        Raises:
+            aws_sdk_groundstation.errors.dependency_exception.DependencyException: <p>Dependency encountered an error.</p>
+            aws_sdk_groundstation.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters are not valid.</p>
+            aws_sdk_groundstation.errors.resource_limit_exceeded_exception.ResourceLimitExceededException: <p>Account limits for this resource have been exceeded.</p>
+            aws_sdk_groundstation.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource was not found.</p>
+            aws_sdk_groundstation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -322,6 +360,12 @@ class AsyncConfig:
         Args:
             config_id: <p>UUID of a <code>Config</code>.</p>
             config_type: <p>Type of a <code>Config</code>.</p>
+
+        Raises:
+            aws_sdk_groundstation.errors.dependency_exception.DependencyException: <p>Dependency encountered an error.</p>
+            aws_sdk_groundstation.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters are not valid.</p>
+            aws_sdk_groundstation.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource was not found.</p>
+            aws_sdk_groundstation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -367,6 +411,12 @@ class AsyncConfig:
             name: <p>Name of a <code>Config</code>.</p>
             config_type: <p>Type of a <code>Config</code>.</p>
             config_data: <p>Parameters of a <code>Config</code>.</p>
+
+        Raises:
+            aws_sdk_groundstation.errors.dependency_exception.DependencyException: <p>Dependency encountered an error.</p>
+            aws_sdk_groundstation.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters are not valid.</p>
+            aws_sdk_groundstation.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource was not found.</p>
+            aws_sdk_groundstation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -410,6 +460,12 @@ class AsyncConfig:
         Args:
             config_id: <p>UUID of a <code>Config</code>.</p>
             config_type: <p>Type of a <code>Config</code>.</p>
+
+        Raises:
+            aws_sdk_groundstation.errors.dependency_exception.DependencyException: <p>Dependency encountered an error.</p>
+            aws_sdk_groundstation.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters are not valid.</p>
+            aws_sdk_groundstation.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource was not found.</p>
+            aws_sdk_groundstation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -455,6 +511,12 @@ class AsyncConfig:
         Args:
             max_results: <p>Maximum number of <code>Configs</code> returned.</p>
             next_token: <p>Next token returned in the request of a previous <code>ListConfigs</code> call. Used to get the next page of results.</p>
+
+        Raises:
+            aws_sdk_groundstation.errors.dependency_exception.DependencyException: <p>Dependency encountered an error.</p>
+            aws_sdk_groundstation.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters are not valid.</p>
+            aws_sdk_groundstation.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource was not found.</p>
+            aws_sdk_groundstation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

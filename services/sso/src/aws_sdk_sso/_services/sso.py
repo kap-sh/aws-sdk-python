@@ -152,6 +152,13 @@ class SSOClient:
             role_name: <p>The friendly name of the role that is assigned to the user.</p>
             account_id: <p>The identifier for the AWS account that is assigned to the user.</p>
             access_token: <p>The token issued by the <code>CreateToken</code> API call. For more information, see <a href=\"https://docs.aws.amazon.com/singlesignon/latest/OIDCAPIReference/API_CreateToken.html\">CreateToken</a> in the <i>IAM Identity Center OIDC API Reference Guide</i>.</p>
+
+        Raises:
+            aws_sdk_sso.errors.invalid_request_exception.InvalidRequestException: <p>Indicates that a problem occurred with the input to the request. For example, a required parameter might be missing or out of range.</p>
+            aws_sdk_sso.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource doesn't exist.</p>
+            aws_sdk_sso.errors.too_many_requests_exception.TooManyRequestsException: <p>Indicates that the request is being made too frequently and is more than what the server can handle.</p>
+            aws_sdk_sso.errors.unauthorized_exception.UnauthorizedException: <p>Indicates that the request is not authorized. This can happen due to an invalid access token in the request.</p>
+            aws_sdk_sso.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -197,6 +204,13 @@ class SSOClient:
             max_results: <p>The number of items that clients can request per page.</p>
             access_token: <p>The token issued by the <code>CreateToken</code> API call. For more information, see <a href=\"https://docs.aws.amazon.com/singlesignon/latest/OIDCAPIReference/API_CreateToken.html\">CreateToken</a> in the <i>IAM Identity Center OIDC API Reference Guide</i>.</p>
             account_id: <p>The identifier for the AWS account that is assigned to the user.</p>
+
+        Raises:
+            aws_sdk_sso.errors.invalid_request_exception.InvalidRequestException: <p>Indicates that a problem occurred with the input to the request. For example, a required parameter might be missing or out of range.</p>
+            aws_sdk_sso.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource doesn't exist.</p>
+            aws_sdk_sso.errors.too_many_requests_exception.TooManyRequestsException: <p>Indicates that the request is being made too frequently and is more than what the server can handle.</p>
+            aws_sdk_sso.errors.unauthorized_exception.UnauthorizedException: <p>Indicates that the request is not authorized. This can happen due to an invalid access token in the request.</p>
+            aws_sdk_sso.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -268,6 +282,13 @@ class SSOClient:
             next_token: <p>(Optional) When requesting subsequent pages, this is the page token from the previous response output.</p>
             max_results: <p>This is the number of items clients can request per page.</p>
             access_token: <p>The token issued by the <code>CreateToken</code> API call. For more information, see <a href=\"https://docs.aws.amazon.com/singlesignon/latest/OIDCAPIReference/API_CreateToken.html\">CreateToken</a> in the <i>IAM Identity Center OIDC API Reference Guide</i>.</p>
+
+        Raises:
+            aws_sdk_sso.errors.invalid_request_exception.InvalidRequestException: <p>Indicates that a problem occurred with the input to the request. For example, a required parameter might be missing or out of range.</p>
+            aws_sdk_sso.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource doesn't exist.</p>
+            aws_sdk_sso.errors.too_many_requests_exception.TooManyRequestsException: <p>Indicates that the request is being made too frequently and is more than what the server can handle.</p>
+            aws_sdk_sso.errors.unauthorized_exception.UnauthorizedException: <p>Indicates that the request is not authorized. This can happen due to an invalid access token in the request.</p>
+            aws_sdk_sso.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -332,6 +353,12 @@ class SSOClient:
 
         Args:
             access_token: <p>The token issued by the <code>CreateToken</code> API call. For more information, see <a href=\"https://docs.aws.amazon.com/singlesignon/latest/OIDCAPIReference/API_CreateToken.html\">CreateToken</a> in the <i>IAM Identity Center OIDC API Reference Guide</i>.</p>
+
+        Raises:
+            aws_sdk_sso.errors.invalid_request_exception.InvalidRequestException: <p>Indicates that a problem occurred with the input to the request. For example, a required parameter might be missing or out of range.</p>
+            aws_sdk_sso.errors.too_many_requests_exception.TooManyRequestsException: <p>Indicates that the request is being made too frequently and is more than what the server can handle.</p>
+            aws_sdk_sso.errors.unauthorized_exception.UnauthorizedException: <p>Indicates that the request is not authorized. This can happen due to an invalid access token in the request.</p>
+            aws_sdk_sso.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(

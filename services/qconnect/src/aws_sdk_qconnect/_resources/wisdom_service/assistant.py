@@ -109,6 +109,14 @@ class Assistant:
             description: <p>The description of the assistant.</p>
             tags: <p>The tags used to organize, track, or control access for this resource.</p>
             server_side_encryption_configuration: <p>The configuration information for the customer managed key used for encryption. </p> <p>The customer managed key must have a policy that allows <code>kms:CreateGrant</code>, <code> kms:DescribeKey</code>, <code>kms:Decrypt</code>, and <code>kms:GenerateDataKey*</code> permissions to the IAM identity using the key to invoke Amazon Q in Connect. To use Amazon Q in Connect with chat, the key policy must also allow <code>kms:Decrypt</code>, <code>kms:GenerateDataKey*</code>, and <code>kms:DescribeKey</code> permissions to the <code>connect.amazonaws.com</code> service principal. </p> <p>For more information about setting up a customer managed key for Amazon Q in Connect, see <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/enable-q.html\">Enable Amazon Q in Connect for your instance</a>.</p>
+
+        Raises:
+            aws_sdk_qconnect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_qconnect.errors.conflict_exception.ConflictException: <p>The request could not be processed because of conflict in the current state of the resource. For example, if you're using a <code>Create</code> API (such as <code>CreateAssistant</code>) that accepts name, a conflicting resource (usually with the same name) is being created or mutated.</p>
+            aws_sdk_qconnect.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You've exceeded your service quota. To perform the requested action, remove some of the relevant resources, or use service quotas to request a service quota increase.</p>
+            aws_sdk_qconnect.errors.unauthorized_exception.UnauthorizedException: <p>You do not have permission to perform this action.</p>
+            aws_sdk_qconnect.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by a service.</p>
+            aws_sdk_qconnect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -157,6 +165,13 @@ class Assistant:
 
         Args:
             assistant_id: <p>The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+
+        Raises:
+            aws_sdk_qconnect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_qconnect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_qconnect.errors.unauthorized_exception.UnauthorizedException: <p>You do not have permission to perform this action.</p>
+            aws_sdk_qconnect.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by a service.</p>
+            aws_sdk_qconnect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -194,6 +209,13 @@ class Assistant:
 
         Args:
             assistant_id: <p>The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+
+        Raises:
+            aws_sdk_qconnect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_qconnect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_qconnect.errors.unauthorized_exception.UnauthorizedException: <p>You do not have permission to perform this action.</p>
+            aws_sdk_qconnect.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by a service.</p>
+            aws_sdk_qconnect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -233,6 +255,12 @@ class Assistant:
         Args:
             next_token: <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
             max_results: <p>The maximum number of results to return per page.</p>
+
+        Raises:
+            aws_sdk_qconnect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_qconnect.errors.unauthorized_exception.UnauthorizedException: <p>You do not have permission to perform this action.</p>
+            aws_sdk_qconnect.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by a service.</p>
+            aws_sdk_qconnect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -291,6 +319,12 @@ class Assistant:
             wait_time_seconds: <p>The duration (in seconds) for which the call waits for a recommendation to be made available before returning. If a recommendation is available, the call returns sooner than <code>WaitTimeSeconds</code>. If no messages are available and the wait time expires, the call returns successfully with an empty list.</p>
             next_chunk_token: <p>The token for the next set of chunks. Use the value returned in the previous response in the next request to retrieve the next set of chunks.</p>
             recommendation_type: <p>The type of recommendation being requested.</p>
+
+        Raises:
+            aws_sdk_qconnect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_qconnect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_qconnect.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by a service.</p>
+            aws_sdk_qconnect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -349,6 +383,15 @@ class Assistant:
             model_lifecycle: <p>The lifecycle status of models to filter by. When specified, only models with the given lifecycle status are returned.</p>
             next_token: <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
             max_results: <p>The maximum number of results to return per page.</p>
+
+        Raises:
+            aws_sdk_qconnect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_qconnect.errors.conflict_exception.ConflictException: <p>The request could not be processed because of conflict in the current state of the resource. For example, if you're using a <code>Create</code> API (such as <code>CreateAssistant</code>) that accepts name, a conflicting resource (usually with the same name) is being created or mutated.</p>
+            aws_sdk_qconnect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_qconnect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_qconnect.errors.unauthorized_exception.UnauthorizedException: <p>You do not have permission to perform this action.</p>
+            aws_sdk_qconnect.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by a service.</p>
+            aws_sdk_qconnect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -398,6 +441,12 @@ class Assistant:
             assistant_id: <p>The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
             session_id: <p>The identifier of the session. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
             recommendation_ids: <p>The identifiers of the recommendations.</p>
+
+        Raises:
+            aws_sdk_qconnect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_qconnect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_qconnect.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by a service.</p>
+            aws_sdk_qconnect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -443,6 +492,12 @@ class Assistant:
             target_id: <p>The identifier of the feedback target.</p>
             target_type: <p>The type of the feedback target.</p>
             content_feedback: <p>Information about the feedback provided.</p>
+
+        Raises:
+            aws_sdk_qconnect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_qconnect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_qconnect.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by a service.</p>
+            aws_sdk_qconnect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -503,6 +558,13 @@ class Assistant:
             query_condition: <p>Information about how to query content.</p>
             query_input_data: <p>Information about the query.</p>
             override_knowledge_base_search_type: <p>The search type to be used against the Knowledge Base for this request. The values can be <code>SEMANTIC</code> which uses vector embeddings or <code>HYBRID</code> which use vector embeddings and raw text.</p>
+
+        Raises:
+            aws_sdk_qconnect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_qconnect.errors.request_timeout_exception.RequestTimeoutException: <p>The request reached the service more than 15 minutes after the date stamp on the request or more than 15 minutes after the request expiration date (such as for pre-signed URLs), or the date stamp on the request is more than 15 minutes in the future.</p>
+            aws_sdk_qconnect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_qconnect.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by a service.</p>
+            aws_sdk_qconnect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -562,6 +624,13 @@ class Assistant:
             assistant_id: <p>The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
             ai_agent_type: <p>The type of the AI Agent being removed for use by default from the Amazon Q in Connect Assistant.</p>
             orchestrator_use_case: <p>The orchestrator use case for the AI Agent being removed.</p>
+
+        Raises:
+            aws_sdk_qconnect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_qconnect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_qconnect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_qconnect.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by a service.</p>
+            aws_sdk_qconnect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -606,6 +675,17 @@ class Assistant:
             assistant_id: <p>The identifier of the Amazon Q in Connect assistant for content retrieval.</p>
             retrieval_configuration: <p>The configuration for the content retrieval operation.</p>
             retrieval_query: <p>The query for content retrieval.</p>
+
+        Raises:
+            aws_sdk_qconnect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_qconnect.errors.conflict_exception.ConflictException: <p>The request could not be processed because of conflict in the current state of the resource. For example, if you're using a <code>Create</code> API (such as <code>CreateAssistant</code>) that accepts name, a conflicting resource (usually with the same name) is being created or mutated.</p>
+            aws_sdk_qconnect.errors.dependency_failed_exception.DependencyFailedException: <p>The request failed because it depends on another request that failed.</p>
+            aws_sdk_qconnect.errors.request_timeout_exception.RequestTimeoutException: <p>The request reached the service more than 15 minutes after the date stamp on the request or more than 15 minutes after the request expiration date (such as for pre-signed URLs), or the date stamp on the request is more than 15 minutes in the future.</p>
+            aws_sdk_qconnect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_qconnect.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You've exceeded your service quota. To perform the requested action, remove some of the relevant resources, or use service quotas to request a service quota increase.</p>
+            aws_sdk_qconnect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_qconnect.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by a service.</p>
+            aws_sdk_qconnect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -651,6 +731,13 @@ class Assistant:
             max_results: <p>The maximum number of results to return per page.</p>
             assistant_id: <p>The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
             search_expression: <p>The search expression to filter results.</p>
+
+        Raises:
+            aws_sdk_qconnect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_qconnect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_qconnect.errors.unauthorized_exception.UnauthorizedException: <p>You do not have permission to perform this action.</p>
+            aws_sdk_qconnect.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by a service.</p>
+            aws_sdk_qconnect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -701,6 +788,13 @@ class Assistant:
             ai_agent_type: <p>The type of the AI Agent being updated for use by default on the Amazon Q in Connect Assistant.</p>
             configuration: <p>The configuration of the AI Agent being updated for use by default on the Amazon Q in Connect Assistant.</p>
             orchestrator_use_case: <p>The orchestrator use case for the AI Agent being added.</p>
+
+        Raises:
+            aws_sdk_qconnect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_qconnect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_qconnect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_qconnect.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by a service.</p>
+            aws_sdk_qconnect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -761,6 +855,14 @@ class AsyncAssistant:
             description: <p>The description of the assistant.</p>
             tags: <p>The tags used to organize, track, or control access for this resource.</p>
             server_side_encryption_configuration: <p>The configuration information for the customer managed key used for encryption. </p> <p>The customer managed key must have a policy that allows <code>kms:CreateGrant</code>, <code> kms:DescribeKey</code>, <code>kms:Decrypt</code>, and <code>kms:GenerateDataKey*</code> permissions to the IAM identity using the key to invoke Amazon Q in Connect. To use Amazon Q in Connect with chat, the key policy must also allow <code>kms:Decrypt</code>, <code>kms:GenerateDataKey*</code>, and <code>kms:DescribeKey</code> permissions to the <code>connect.amazonaws.com</code> service principal. </p> <p>For more information about setting up a customer managed key for Amazon Q in Connect, see <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/enable-q.html\">Enable Amazon Q in Connect for your instance</a>.</p>
+
+        Raises:
+            aws_sdk_qconnect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_qconnect.errors.conflict_exception.ConflictException: <p>The request could not be processed because of conflict in the current state of the resource. For example, if you're using a <code>Create</code> API (such as <code>CreateAssistant</code>) that accepts name, a conflicting resource (usually with the same name) is being created or mutated.</p>
+            aws_sdk_qconnect.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You've exceeded your service quota. To perform the requested action, remove some of the relevant resources, or use service quotas to request a service quota increase.</p>
+            aws_sdk_qconnect.errors.unauthorized_exception.UnauthorizedException: <p>You do not have permission to perform this action.</p>
+            aws_sdk_qconnect.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by a service.</p>
+            aws_sdk_qconnect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -810,6 +912,13 @@ class AsyncAssistant:
 
         Args:
             assistant_id: <p>The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+
+        Raises:
+            aws_sdk_qconnect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_qconnect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_qconnect.errors.unauthorized_exception.UnauthorizedException: <p>You do not have permission to perform this action.</p>
+            aws_sdk_qconnect.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by a service.</p>
+            aws_sdk_qconnect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -848,6 +957,13 @@ class AsyncAssistant:
 
         Args:
             assistant_id: <p>The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+
+        Raises:
+            aws_sdk_qconnect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_qconnect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_qconnect.errors.unauthorized_exception.UnauthorizedException: <p>You do not have permission to perform this action.</p>
+            aws_sdk_qconnect.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by a service.</p>
+            aws_sdk_qconnect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -888,6 +1004,12 @@ class AsyncAssistant:
         Args:
             next_token: <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
             max_results: <p>The maximum number of results to return per page.</p>
+
+        Raises:
+            aws_sdk_qconnect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_qconnect.errors.unauthorized_exception.UnauthorizedException: <p>You do not have permission to perform this action.</p>
+            aws_sdk_qconnect.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by a service.</p>
+            aws_sdk_qconnect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -947,6 +1069,12 @@ class AsyncAssistant:
             wait_time_seconds: <p>The duration (in seconds) for which the call waits for a recommendation to be made available before returning. If a recommendation is available, the call returns sooner than <code>WaitTimeSeconds</code>. If no messages are available and the wait time expires, the call returns successfully with an empty list.</p>
             next_chunk_token: <p>The token for the next set of chunks. Use the value returned in the previous response in the next request to retrieve the next set of chunks.</p>
             recommendation_type: <p>The type of recommendation being requested.</p>
+
+        Raises:
+            aws_sdk_qconnect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_qconnect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_qconnect.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by a service.</p>
+            aws_sdk_qconnect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1006,6 +1134,15 @@ class AsyncAssistant:
             model_lifecycle: <p>The lifecycle status of models to filter by. When specified, only models with the given lifecycle status are returned.</p>
             next_token: <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
             max_results: <p>The maximum number of results to return per page.</p>
+
+        Raises:
+            aws_sdk_qconnect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_qconnect.errors.conflict_exception.ConflictException: <p>The request could not be processed because of conflict in the current state of the resource. For example, if you're using a <code>Create</code> API (such as <code>CreateAssistant</code>) that accepts name, a conflicting resource (usually with the same name) is being created or mutated.</p>
+            aws_sdk_qconnect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_qconnect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_qconnect.errors.unauthorized_exception.UnauthorizedException: <p>You do not have permission to perform this action.</p>
+            aws_sdk_qconnect.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by a service.</p>
+            aws_sdk_qconnect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1056,6 +1193,12 @@ class AsyncAssistant:
             assistant_id: <p>The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
             session_id: <p>The identifier of the session. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
             recommendation_ids: <p>The identifiers of the recommendations.</p>
+
+        Raises:
+            aws_sdk_qconnect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_qconnect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_qconnect.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by a service.</p>
+            aws_sdk_qconnect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1102,6 +1245,12 @@ class AsyncAssistant:
             target_id: <p>The identifier of the feedback target.</p>
             target_type: <p>The type of the feedback target.</p>
             content_feedback: <p>Information about the feedback provided.</p>
+
+        Raises:
+            aws_sdk_qconnect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_qconnect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_qconnect.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by a service.</p>
+            aws_sdk_qconnect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1163,6 +1312,13 @@ class AsyncAssistant:
             query_condition: <p>Information about how to query content.</p>
             query_input_data: <p>Information about the query.</p>
             override_knowledge_base_search_type: <p>The search type to be used against the Knowledge Base for this request. The values can be <code>SEMANTIC</code> which uses vector embeddings or <code>HYBRID</code> which use vector embeddings and raw text.</p>
+
+        Raises:
+            aws_sdk_qconnect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_qconnect.errors.request_timeout_exception.RequestTimeoutException: <p>The request reached the service more than 15 minutes after the date stamp on the request or more than 15 minutes after the request expiration date (such as for pre-signed URLs), or the date stamp on the request is more than 15 minutes in the future.</p>
+            aws_sdk_qconnect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_qconnect.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by a service.</p>
+            aws_sdk_qconnect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1223,6 +1379,13 @@ class AsyncAssistant:
             assistant_id: <p>The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
             ai_agent_type: <p>The type of the AI Agent being removed for use by default from the Amazon Q in Connect Assistant.</p>
             orchestrator_use_case: <p>The orchestrator use case for the AI Agent being removed.</p>
+
+        Raises:
+            aws_sdk_qconnect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_qconnect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_qconnect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_qconnect.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by a service.</p>
+            aws_sdk_qconnect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1268,6 +1431,17 @@ class AsyncAssistant:
             assistant_id: <p>The identifier of the Amazon Q in Connect assistant for content retrieval.</p>
             retrieval_configuration: <p>The configuration for the content retrieval operation.</p>
             retrieval_query: <p>The query for content retrieval.</p>
+
+        Raises:
+            aws_sdk_qconnect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_qconnect.errors.conflict_exception.ConflictException: <p>The request could not be processed because of conflict in the current state of the resource. For example, if you're using a <code>Create</code> API (such as <code>CreateAssistant</code>) that accepts name, a conflicting resource (usually with the same name) is being created or mutated.</p>
+            aws_sdk_qconnect.errors.dependency_failed_exception.DependencyFailedException: <p>The request failed because it depends on another request that failed.</p>
+            aws_sdk_qconnect.errors.request_timeout_exception.RequestTimeoutException: <p>The request reached the service more than 15 minutes after the date stamp on the request or more than 15 minutes after the request expiration date (such as for pre-signed URLs), or the date stamp on the request is more than 15 minutes in the future.</p>
+            aws_sdk_qconnect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_qconnect.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You've exceeded your service quota. To perform the requested action, remove some of the relevant resources, or use service quotas to request a service quota increase.</p>
+            aws_sdk_qconnect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_qconnect.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by a service.</p>
+            aws_sdk_qconnect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1314,6 +1488,13 @@ class AsyncAssistant:
             max_results: <p>The maximum number of results to return per page.</p>
             assistant_id: <p>The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
             search_expression: <p>The search expression to filter results.</p>
+
+        Raises:
+            aws_sdk_qconnect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_qconnect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_qconnect.errors.unauthorized_exception.UnauthorizedException: <p>You do not have permission to perform this action.</p>
+            aws_sdk_qconnect.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by a service.</p>
+            aws_sdk_qconnect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1365,6 +1546,13 @@ class AsyncAssistant:
             ai_agent_type: <p>The type of the AI Agent being updated for use by default on the Amazon Q in Connect Assistant.</p>
             configuration: <p>The configuration of the AI Agent being updated for use by default on the Amazon Q in Connect Assistant.</p>
             orchestrator_use_case: <p>The orchestrator use case for the AI Agent being added.</p>
+
+        Raises:
+            aws_sdk_qconnect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_qconnect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_qconnect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_qconnect.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by a service.</p>
+            aws_sdk_qconnect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

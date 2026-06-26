@@ -126,6 +126,16 @@ class PortalResource:
             instance_type: <p>The type and resources of the underlying instance.</p>
             max_concurrent_sessions: <p>The maximum number of concurrent sessions for the portal.</p>
             portal_custom_domain: <p>The custom domain of the web portal that users access in order to start streaming sessions.</p>
+
+        Raises:
+            aws_sdk_workspaces_web.errors.access_denied_exception.AccessDeniedException: <p>Access is denied.</p>
+            aws_sdk_workspaces_web.errors.conflict_exception.ConflictException: <p>There is a conflict.</p>
+            aws_sdk_workspaces_web.errors.internal_server_exception.InternalServerException: <p>There is an internal server error.</p>
+            aws_sdk_workspaces_web.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource cannot be found.</p>
+            aws_sdk_workspaces_web.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The service quota has been exceeded.</p>
+            aws_sdk_workspaces_web.errors.throttling_exception.ThrottlingException: <p>There is a throttling error.</p>
+            aws_sdk_workspaces_web.errors.validation_exception.ValidationException: <p>There is a validation error.</p>
+            aws_sdk_workspaces_web.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -180,6 +190,14 @@ class PortalResource:
 
         Args:
             portal_arn: <p>The ARN of the web portal.</p>
+
+        Raises:
+            aws_sdk_workspaces_web.errors.access_denied_exception.AccessDeniedException: <p>Access is denied.</p>
+            aws_sdk_workspaces_web.errors.internal_server_exception.InternalServerException: <p>There is an internal server error.</p>
+            aws_sdk_workspaces_web.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource cannot be found.</p>
+            aws_sdk_workspaces_web.errors.throttling_exception.ThrottlingException: <p>There is a throttling error.</p>
+            aws_sdk_workspaces_web.errors.validation_exception.ValidationException: <p>There is a validation error.</p>
+            aws_sdk_workspaces_web.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -237,6 +255,16 @@ class PortalResource:
             instance_type: <p>The type and resources of the underlying instance.</p>
             max_concurrent_sessions: <p>The maximum number of concurrent sessions for the portal.</p>
             portal_custom_domain: <p>The custom domain of the web portal that users access in order to start streaming sessions. </p>
+
+        Raises:
+            aws_sdk_workspaces_web.errors.access_denied_exception.AccessDeniedException: <p>Access is denied.</p>
+            aws_sdk_workspaces_web.errors.conflict_exception.ConflictException: <p>There is a conflict.</p>
+            aws_sdk_workspaces_web.errors.internal_server_exception.InternalServerException: <p>There is an internal server error.</p>
+            aws_sdk_workspaces_web.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource cannot be found.</p>
+            aws_sdk_workspaces_web.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The service quota has been exceeded.</p>
+            aws_sdk_workspaces_web.errors.throttling_exception.ThrottlingException: <p>There is a throttling error.</p>
+            aws_sdk_workspaces_web.errors.validation_exception.ValidationException: <p>There is a validation error.</p>
+            aws_sdk_workspaces_web.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -284,6 +312,14 @@ class PortalResource:
 
         Args:
             portal_arn: <p>The ARN of the web portal.</p>
+
+        Raises:
+            aws_sdk_workspaces_web.errors.access_denied_exception.AccessDeniedException: <p>Access is denied.</p>
+            aws_sdk_workspaces_web.errors.conflict_exception.ConflictException: <p>There is a conflict.</p>
+            aws_sdk_workspaces_web.errors.internal_server_exception.InternalServerException: <p>There is an internal server error.</p>
+            aws_sdk_workspaces_web.errors.throttling_exception.ThrottlingException: <p>There is a throttling error.</p>
+            aws_sdk_workspaces_web.errors.validation_exception.ValidationException: <p>There is a validation error.</p>
+            aws_sdk_workspaces_web.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -327,6 +363,13 @@ class PortalResource:
         Args:
             next_token: <p>The pagination token used to retrieve the next page of results for this operation. </p>
             max_results: <p>The maximum number of results to be included in the next page.</p>
+
+        Raises:
+            aws_sdk_workspaces_web.errors.access_denied_exception.AccessDeniedException: <p>Access is denied.</p>
+            aws_sdk_workspaces_web.errors.internal_server_exception.InternalServerException: <p>There is an internal server error.</p>
+            aws_sdk_workspaces_web.errors.throttling_exception.ThrottlingException: <p>There is a throttling error.</p>
+            aws_sdk_workspaces_web.errors.validation_exception.ValidationException: <p>There is a validation error.</p>
+            aws_sdk_workspaces_web.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -369,6 +412,15 @@ class PortalResource:
         Args:
             portal_arn: <p>The ARN of the web portal.</p>
             browser_settings_arn: <p>The ARN of the browser settings.</p>
+
+        Raises:
+            aws_sdk_workspaces_web.errors.access_denied_exception.AccessDeniedException: <p>Access is denied.</p>
+            aws_sdk_workspaces_web.errors.conflict_exception.ConflictException: <p>There is a conflict.</p>
+            aws_sdk_workspaces_web.errors.internal_server_exception.InternalServerException: <p>There is an internal server error.</p>
+            aws_sdk_workspaces_web.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource cannot be found.</p>
+            aws_sdk_workspaces_web.errors.throttling_exception.ThrottlingException: <p>There is a throttling error.</p>
+            aws_sdk_workspaces_web.errors.validation_exception.ValidationException: <p>There is a validation error.</p>
+            aws_sdk_workspaces_web.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -409,6 +461,15 @@ class PortalResource:
         Args:
             portal_arn: <p>The ARN of the web portal.</p>
             data_protection_settings_arn: <p>The ARN of the data protection settings.</p>
+
+        Raises:
+            aws_sdk_workspaces_web.errors.access_denied_exception.AccessDeniedException: <p>Access is denied.</p>
+            aws_sdk_workspaces_web.errors.conflict_exception.ConflictException: <p>There is a conflict.</p>
+            aws_sdk_workspaces_web.errors.internal_server_exception.InternalServerException: <p>There is an internal server error.</p>
+            aws_sdk_workspaces_web.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource cannot be found.</p>
+            aws_sdk_workspaces_web.errors.throttling_exception.ThrottlingException: <p>There is a throttling error.</p>
+            aws_sdk_workspaces_web.errors.validation_exception.ValidationException: <p>There is a validation error.</p>
+            aws_sdk_workspaces_web.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -449,6 +510,15 @@ class PortalResource:
         Args:
             portal_arn: <p>The ARN of the web portal.</p>
             ip_access_settings_arn: <p>The ARN of the IP access settings.</p>
+
+        Raises:
+            aws_sdk_workspaces_web.errors.access_denied_exception.AccessDeniedException: <p>Access is denied.</p>
+            aws_sdk_workspaces_web.errors.conflict_exception.ConflictException: <p>There is a conflict.</p>
+            aws_sdk_workspaces_web.errors.internal_server_exception.InternalServerException: <p>There is an internal server error.</p>
+            aws_sdk_workspaces_web.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource cannot be found.</p>
+            aws_sdk_workspaces_web.errors.throttling_exception.ThrottlingException: <p>There is a throttling error.</p>
+            aws_sdk_workspaces_web.errors.validation_exception.ValidationException: <p>There is a validation error.</p>
+            aws_sdk_workspaces_web.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -489,6 +559,15 @@ class PortalResource:
         Args:
             portal_arn: <p>The ARN of the web portal.</p>
             network_settings_arn: <p>The ARN of the network settings.</p>
+
+        Raises:
+            aws_sdk_workspaces_web.errors.access_denied_exception.AccessDeniedException: <p>Access is denied.</p>
+            aws_sdk_workspaces_web.errors.conflict_exception.ConflictException: <p>There is a conflict.</p>
+            aws_sdk_workspaces_web.errors.internal_server_exception.InternalServerException: <p>There is an internal server error.</p>
+            aws_sdk_workspaces_web.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource cannot be found.</p>
+            aws_sdk_workspaces_web.errors.throttling_exception.ThrottlingException: <p>There is a throttling error.</p>
+            aws_sdk_workspaces_web.errors.validation_exception.ValidationException: <p>There is a validation error.</p>
+            aws_sdk_workspaces_web.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -529,6 +608,15 @@ class PortalResource:
         Args:
             portal_arn: <p>The ARN of the portal to associate to the session logger ARN.</p>
             session_logger_arn: <p>The ARN of the session logger to associate to the portal ARN.</p>
+
+        Raises:
+            aws_sdk_workspaces_web.errors.access_denied_exception.AccessDeniedException: <p>Access is denied.</p>
+            aws_sdk_workspaces_web.errors.conflict_exception.ConflictException: <p>There is a conflict.</p>
+            aws_sdk_workspaces_web.errors.internal_server_exception.InternalServerException: <p>There is an internal server error.</p>
+            aws_sdk_workspaces_web.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource cannot be found.</p>
+            aws_sdk_workspaces_web.errors.throttling_exception.ThrottlingException: <p>There is a throttling error.</p>
+            aws_sdk_workspaces_web.errors.validation_exception.ValidationException: <p>There is a validation error.</p>
+            aws_sdk_workspaces_web.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Associate Session Logger with Portal
@@ -575,6 +663,15 @@ class PortalResource:
         Args:
             portal_arn: <p>The ARN of the web portal.</p>
             trust_store_arn: <p>The ARN of the trust store.</p>
+
+        Raises:
+            aws_sdk_workspaces_web.errors.access_denied_exception.AccessDeniedException: <p>Access is denied.</p>
+            aws_sdk_workspaces_web.errors.conflict_exception.ConflictException: <p>There is a conflict.</p>
+            aws_sdk_workspaces_web.errors.internal_server_exception.InternalServerException: <p>There is an internal server error.</p>
+            aws_sdk_workspaces_web.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource cannot be found.</p>
+            aws_sdk_workspaces_web.errors.throttling_exception.ThrottlingException: <p>There is a throttling error.</p>
+            aws_sdk_workspaces_web.errors.validation_exception.ValidationException: <p>There is a validation error.</p>
+            aws_sdk_workspaces_web.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -615,6 +712,15 @@ class PortalResource:
         Args:
             portal_arn: <p>The ARN of the web portal.</p>
             user_access_logging_settings_arn: <p>The ARN of the user access logging settings.</p>
+
+        Raises:
+            aws_sdk_workspaces_web.errors.access_denied_exception.AccessDeniedException: <p>Access is denied.</p>
+            aws_sdk_workspaces_web.errors.conflict_exception.ConflictException: <p>There is a conflict.</p>
+            aws_sdk_workspaces_web.errors.internal_server_exception.InternalServerException: <p>There is an internal server error.</p>
+            aws_sdk_workspaces_web.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource cannot be found.</p>
+            aws_sdk_workspaces_web.errors.throttling_exception.ThrottlingException: <p>There is a throttling error.</p>
+            aws_sdk_workspaces_web.errors.validation_exception.ValidationException: <p>There is a validation error.</p>
+            aws_sdk_workspaces_web.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -655,6 +761,15 @@ class PortalResource:
         Args:
             portal_arn: <p>The ARN of the web portal.</p>
             user_settings_arn: <p>The ARN of the user settings.</p>
+
+        Raises:
+            aws_sdk_workspaces_web.errors.access_denied_exception.AccessDeniedException: <p>Access is denied.</p>
+            aws_sdk_workspaces_web.errors.conflict_exception.ConflictException: <p>There is a conflict.</p>
+            aws_sdk_workspaces_web.errors.internal_server_exception.InternalServerException: <p>There is an internal server error.</p>
+            aws_sdk_workspaces_web.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource cannot be found.</p>
+            aws_sdk_workspaces_web.errors.throttling_exception.ThrottlingException: <p>There is a throttling error.</p>
+            aws_sdk_workspaces_web.errors.validation_exception.ValidationException: <p>There is a validation error.</p>
+            aws_sdk_workspaces_web.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -693,6 +808,15 @@ class PortalResource:
 
         Args:
             portal_arn: <p>The ARN of the web portal.</p>
+
+        Raises:
+            aws_sdk_workspaces_web.errors.access_denied_exception.AccessDeniedException: <p>Access is denied.</p>
+            aws_sdk_workspaces_web.errors.conflict_exception.ConflictException: <p>There is a conflict.</p>
+            aws_sdk_workspaces_web.errors.internal_server_exception.InternalServerException: <p>There is an internal server error.</p>
+            aws_sdk_workspaces_web.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource cannot be found.</p>
+            aws_sdk_workspaces_web.errors.throttling_exception.ThrottlingException: <p>There is a throttling error.</p>
+            aws_sdk_workspaces_web.errors.validation_exception.ValidationException: <p>There is a validation error.</p>
+            aws_sdk_workspaces_web.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -730,6 +854,15 @@ class PortalResource:
 
         Args:
             portal_arn: <p>The ARN of the web portal.</p>
+
+        Raises:
+            aws_sdk_workspaces_web.errors.access_denied_exception.AccessDeniedException: <p>Access is denied.</p>
+            aws_sdk_workspaces_web.errors.conflict_exception.ConflictException: <p>There is a conflict.</p>
+            aws_sdk_workspaces_web.errors.internal_server_exception.InternalServerException: <p>There is an internal server error.</p>
+            aws_sdk_workspaces_web.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource cannot be found.</p>
+            aws_sdk_workspaces_web.errors.throttling_exception.ThrottlingException: <p>There is a throttling error.</p>
+            aws_sdk_workspaces_web.errors.validation_exception.ValidationException: <p>There is a validation error.</p>
+            aws_sdk_workspaces_web.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -767,6 +900,15 @@ class PortalResource:
 
         Args:
             portal_arn: <p>The ARN of the web portal.</p>
+
+        Raises:
+            aws_sdk_workspaces_web.errors.access_denied_exception.AccessDeniedException: <p>Access is denied.</p>
+            aws_sdk_workspaces_web.errors.conflict_exception.ConflictException: <p>There is a conflict.</p>
+            aws_sdk_workspaces_web.errors.internal_server_exception.InternalServerException: <p>There is an internal server error.</p>
+            aws_sdk_workspaces_web.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource cannot be found.</p>
+            aws_sdk_workspaces_web.errors.throttling_exception.ThrottlingException: <p>There is a throttling error.</p>
+            aws_sdk_workspaces_web.errors.validation_exception.ValidationException: <p>There is a validation error.</p>
+            aws_sdk_workspaces_web.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -804,6 +946,15 @@ class PortalResource:
 
         Args:
             portal_arn: <p>The ARN of the web portal.</p>
+
+        Raises:
+            aws_sdk_workspaces_web.errors.access_denied_exception.AccessDeniedException: <p>Access is denied.</p>
+            aws_sdk_workspaces_web.errors.conflict_exception.ConflictException: <p>There is a conflict.</p>
+            aws_sdk_workspaces_web.errors.internal_server_exception.InternalServerException: <p>There is an internal server error.</p>
+            aws_sdk_workspaces_web.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource cannot be found.</p>
+            aws_sdk_workspaces_web.errors.throttling_exception.ThrottlingException: <p>There is a throttling error.</p>
+            aws_sdk_workspaces_web.errors.validation_exception.ValidationException: <p>There is a validation error.</p>
+            aws_sdk_workspaces_web.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -841,6 +992,14 @@ class PortalResource:
 
         Args:
             portal_arn: <p>The ARN of the portal to disassociate from the a session logger.</p>
+
+        Raises:
+            aws_sdk_workspaces_web.errors.access_denied_exception.AccessDeniedException: <p>Access is denied.</p>
+            aws_sdk_workspaces_web.errors.internal_server_exception.InternalServerException: <p>There is an internal server error.</p>
+            aws_sdk_workspaces_web.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource cannot be found.</p>
+            aws_sdk_workspaces_web.errors.throttling_exception.ThrottlingException: <p>There is a throttling error.</p>
+            aws_sdk_workspaces_web.errors.validation_exception.ValidationException: <p>There is a validation error.</p>
+            aws_sdk_workspaces_web.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Disassociate Session Logger from Portal
@@ -884,6 +1043,15 @@ class PortalResource:
 
         Args:
             portal_arn: <p>The ARN of the web portal.</p>
+
+        Raises:
+            aws_sdk_workspaces_web.errors.access_denied_exception.AccessDeniedException: <p>Access is denied.</p>
+            aws_sdk_workspaces_web.errors.conflict_exception.ConflictException: <p>There is a conflict.</p>
+            aws_sdk_workspaces_web.errors.internal_server_exception.InternalServerException: <p>There is an internal server error.</p>
+            aws_sdk_workspaces_web.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource cannot be found.</p>
+            aws_sdk_workspaces_web.errors.throttling_exception.ThrottlingException: <p>There is a throttling error.</p>
+            aws_sdk_workspaces_web.errors.validation_exception.ValidationException: <p>There is a validation error.</p>
+            aws_sdk_workspaces_web.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -921,6 +1089,15 @@ class PortalResource:
 
         Args:
             portal_arn: <p>The ARN of the web portal.</p>
+
+        Raises:
+            aws_sdk_workspaces_web.errors.access_denied_exception.AccessDeniedException: <p>Access is denied.</p>
+            aws_sdk_workspaces_web.errors.conflict_exception.ConflictException: <p>There is a conflict.</p>
+            aws_sdk_workspaces_web.errors.internal_server_exception.InternalServerException: <p>There is an internal server error.</p>
+            aws_sdk_workspaces_web.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource cannot be found.</p>
+            aws_sdk_workspaces_web.errors.throttling_exception.ThrottlingException: <p>There is a throttling error.</p>
+            aws_sdk_workspaces_web.errors.validation_exception.ValidationException: <p>There is a validation error.</p>
+            aws_sdk_workspaces_web.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -958,6 +1135,15 @@ class PortalResource:
 
         Args:
             portal_arn: <p>The ARN of the web portal.</p>
+
+        Raises:
+            aws_sdk_workspaces_web.errors.access_denied_exception.AccessDeniedException: <p>Access is denied.</p>
+            aws_sdk_workspaces_web.errors.conflict_exception.ConflictException: <p>There is a conflict.</p>
+            aws_sdk_workspaces_web.errors.internal_server_exception.InternalServerException: <p>There is an internal server error.</p>
+            aws_sdk_workspaces_web.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource cannot be found.</p>
+            aws_sdk_workspaces_web.errors.throttling_exception.ThrottlingException: <p>There is a throttling error.</p>
+            aws_sdk_workspaces_web.errors.validation_exception.ValidationException: <p>There is a validation error.</p>
+            aws_sdk_workspaces_web.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -995,6 +1181,14 @@ class PortalResource:
 
         Args:
             portal_arn: <p>The ARN of the web portal.</p>
+
+        Raises:
+            aws_sdk_workspaces_web.errors.access_denied_exception.AccessDeniedException: <p>Access is denied.</p>
+            aws_sdk_workspaces_web.errors.internal_server_exception.InternalServerException: <p>There is an internal server error.</p>
+            aws_sdk_workspaces_web.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource cannot be found.</p>
+            aws_sdk_workspaces_web.errors.throttling_exception.ThrottlingException: <p>There is a throttling error.</p>
+            aws_sdk_workspaces_web.errors.validation_exception.ValidationException: <p>There is a validation error.</p>
+            aws_sdk_workspaces_web.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1069,6 +1263,16 @@ class AsyncPortalResource:
             instance_type: <p>The type and resources of the underlying instance.</p>
             max_concurrent_sessions: <p>The maximum number of concurrent sessions for the portal.</p>
             portal_custom_domain: <p>The custom domain of the web portal that users access in order to start streaming sessions.</p>
+
+        Raises:
+            aws_sdk_workspaces_web.errors.access_denied_exception.AccessDeniedException: <p>Access is denied.</p>
+            aws_sdk_workspaces_web.errors.conflict_exception.ConflictException: <p>There is a conflict.</p>
+            aws_sdk_workspaces_web.errors.internal_server_exception.InternalServerException: <p>There is an internal server error.</p>
+            aws_sdk_workspaces_web.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource cannot be found.</p>
+            aws_sdk_workspaces_web.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The service quota has been exceeded.</p>
+            aws_sdk_workspaces_web.errors.throttling_exception.ThrottlingException: <p>There is a throttling error.</p>
+            aws_sdk_workspaces_web.errors.validation_exception.ValidationException: <p>There is a validation error.</p>
+            aws_sdk_workspaces_web.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1124,6 +1328,14 @@ class AsyncPortalResource:
 
         Args:
             portal_arn: <p>The ARN of the web portal.</p>
+
+        Raises:
+            aws_sdk_workspaces_web.errors.access_denied_exception.AccessDeniedException: <p>Access is denied.</p>
+            aws_sdk_workspaces_web.errors.internal_server_exception.InternalServerException: <p>There is an internal server error.</p>
+            aws_sdk_workspaces_web.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource cannot be found.</p>
+            aws_sdk_workspaces_web.errors.throttling_exception.ThrottlingException: <p>There is a throttling error.</p>
+            aws_sdk_workspaces_web.errors.validation_exception.ValidationException: <p>There is a validation error.</p>
+            aws_sdk_workspaces_web.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1182,6 +1394,16 @@ class AsyncPortalResource:
             instance_type: <p>The type and resources of the underlying instance.</p>
             max_concurrent_sessions: <p>The maximum number of concurrent sessions for the portal.</p>
             portal_custom_domain: <p>The custom domain of the web portal that users access in order to start streaming sessions. </p>
+
+        Raises:
+            aws_sdk_workspaces_web.errors.access_denied_exception.AccessDeniedException: <p>Access is denied.</p>
+            aws_sdk_workspaces_web.errors.conflict_exception.ConflictException: <p>There is a conflict.</p>
+            aws_sdk_workspaces_web.errors.internal_server_exception.InternalServerException: <p>There is an internal server error.</p>
+            aws_sdk_workspaces_web.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource cannot be found.</p>
+            aws_sdk_workspaces_web.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The service quota has been exceeded.</p>
+            aws_sdk_workspaces_web.errors.throttling_exception.ThrottlingException: <p>There is a throttling error.</p>
+            aws_sdk_workspaces_web.errors.validation_exception.ValidationException: <p>There is a validation error.</p>
+            aws_sdk_workspaces_web.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1230,6 +1452,14 @@ class AsyncPortalResource:
 
         Args:
             portal_arn: <p>The ARN of the web portal.</p>
+
+        Raises:
+            aws_sdk_workspaces_web.errors.access_denied_exception.AccessDeniedException: <p>Access is denied.</p>
+            aws_sdk_workspaces_web.errors.conflict_exception.ConflictException: <p>There is a conflict.</p>
+            aws_sdk_workspaces_web.errors.internal_server_exception.InternalServerException: <p>There is an internal server error.</p>
+            aws_sdk_workspaces_web.errors.throttling_exception.ThrottlingException: <p>There is a throttling error.</p>
+            aws_sdk_workspaces_web.errors.validation_exception.ValidationException: <p>There is a validation error.</p>
+            aws_sdk_workspaces_web.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1274,6 +1504,13 @@ class AsyncPortalResource:
         Args:
             next_token: <p>The pagination token used to retrieve the next page of results for this operation. </p>
             max_results: <p>The maximum number of results to be included in the next page.</p>
+
+        Raises:
+            aws_sdk_workspaces_web.errors.access_denied_exception.AccessDeniedException: <p>Access is denied.</p>
+            aws_sdk_workspaces_web.errors.internal_server_exception.InternalServerException: <p>There is an internal server error.</p>
+            aws_sdk_workspaces_web.errors.throttling_exception.ThrottlingException: <p>There is a throttling error.</p>
+            aws_sdk_workspaces_web.errors.validation_exception.ValidationException: <p>There is a validation error.</p>
+            aws_sdk_workspaces_web.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1317,6 +1554,15 @@ class AsyncPortalResource:
         Args:
             portal_arn: <p>The ARN of the web portal.</p>
             browser_settings_arn: <p>The ARN of the browser settings.</p>
+
+        Raises:
+            aws_sdk_workspaces_web.errors.access_denied_exception.AccessDeniedException: <p>Access is denied.</p>
+            aws_sdk_workspaces_web.errors.conflict_exception.ConflictException: <p>There is a conflict.</p>
+            aws_sdk_workspaces_web.errors.internal_server_exception.InternalServerException: <p>There is an internal server error.</p>
+            aws_sdk_workspaces_web.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource cannot be found.</p>
+            aws_sdk_workspaces_web.errors.throttling_exception.ThrottlingException: <p>There is a throttling error.</p>
+            aws_sdk_workspaces_web.errors.validation_exception.ValidationException: <p>There is a validation error.</p>
+            aws_sdk_workspaces_web.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1358,6 +1604,15 @@ class AsyncPortalResource:
         Args:
             portal_arn: <p>The ARN of the web portal.</p>
             data_protection_settings_arn: <p>The ARN of the data protection settings.</p>
+
+        Raises:
+            aws_sdk_workspaces_web.errors.access_denied_exception.AccessDeniedException: <p>Access is denied.</p>
+            aws_sdk_workspaces_web.errors.conflict_exception.ConflictException: <p>There is a conflict.</p>
+            aws_sdk_workspaces_web.errors.internal_server_exception.InternalServerException: <p>There is an internal server error.</p>
+            aws_sdk_workspaces_web.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource cannot be found.</p>
+            aws_sdk_workspaces_web.errors.throttling_exception.ThrottlingException: <p>There is a throttling error.</p>
+            aws_sdk_workspaces_web.errors.validation_exception.ValidationException: <p>There is a validation error.</p>
+            aws_sdk_workspaces_web.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1399,6 +1654,15 @@ class AsyncPortalResource:
         Args:
             portal_arn: <p>The ARN of the web portal.</p>
             ip_access_settings_arn: <p>The ARN of the IP access settings.</p>
+
+        Raises:
+            aws_sdk_workspaces_web.errors.access_denied_exception.AccessDeniedException: <p>Access is denied.</p>
+            aws_sdk_workspaces_web.errors.conflict_exception.ConflictException: <p>There is a conflict.</p>
+            aws_sdk_workspaces_web.errors.internal_server_exception.InternalServerException: <p>There is an internal server error.</p>
+            aws_sdk_workspaces_web.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource cannot be found.</p>
+            aws_sdk_workspaces_web.errors.throttling_exception.ThrottlingException: <p>There is a throttling error.</p>
+            aws_sdk_workspaces_web.errors.validation_exception.ValidationException: <p>There is a validation error.</p>
+            aws_sdk_workspaces_web.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1440,6 +1704,15 @@ class AsyncPortalResource:
         Args:
             portal_arn: <p>The ARN of the web portal.</p>
             network_settings_arn: <p>The ARN of the network settings.</p>
+
+        Raises:
+            aws_sdk_workspaces_web.errors.access_denied_exception.AccessDeniedException: <p>Access is denied.</p>
+            aws_sdk_workspaces_web.errors.conflict_exception.ConflictException: <p>There is a conflict.</p>
+            aws_sdk_workspaces_web.errors.internal_server_exception.InternalServerException: <p>There is an internal server error.</p>
+            aws_sdk_workspaces_web.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource cannot be found.</p>
+            aws_sdk_workspaces_web.errors.throttling_exception.ThrottlingException: <p>There is a throttling error.</p>
+            aws_sdk_workspaces_web.errors.validation_exception.ValidationException: <p>There is a validation error.</p>
+            aws_sdk_workspaces_web.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1481,6 +1754,15 @@ class AsyncPortalResource:
         Args:
             portal_arn: <p>The ARN of the portal to associate to the session logger ARN.</p>
             session_logger_arn: <p>The ARN of the session logger to associate to the portal ARN.</p>
+
+        Raises:
+            aws_sdk_workspaces_web.errors.access_denied_exception.AccessDeniedException: <p>Access is denied.</p>
+            aws_sdk_workspaces_web.errors.conflict_exception.ConflictException: <p>There is a conflict.</p>
+            aws_sdk_workspaces_web.errors.internal_server_exception.InternalServerException: <p>There is an internal server error.</p>
+            aws_sdk_workspaces_web.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource cannot be found.</p>
+            aws_sdk_workspaces_web.errors.throttling_exception.ThrottlingException: <p>There is a throttling error.</p>
+            aws_sdk_workspaces_web.errors.validation_exception.ValidationException: <p>There is a validation error.</p>
+            aws_sdk_workspaces_web.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Associate Session Logger with Portal
@@ -1528,6 +1810,15 @@ class AsyncPortalResource:
         Args:
             portal_arn: <p>The ARN of the web portal.</p>
             trust_store_arn: <p>The ARN of the trust store.</p>
+
+        Raises:
+            aws_sdk_workspaces_web.errors.access_denied_exception.AccessDeniedException: <p>Access is denied.</p>
+            aws_sdk_workspaces_web.errors.conflict_exception.ConflictException: <p>There is a conflict.</p>
+            aws_sdk_workspaces_web.errors.internal_server_exception.InternalServerException: <p>There is an internal server error.</p>
+            aws_sdk_workspaces_web.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource cannot be found.</p>
+            aws_sdk_workspaces_web.errors.throttling_exception.ThrottlingException: <p>There is a throttling error.</p>
+            aws_sdk_workspaces_web.errors.validation_exception.ValidationException: <p>There is a validation error.</p>
+            aws_sdk_workspaces_web.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1569,6 +1860,15 @@ class AsyncPortalResource:
         Args:
             portal_arn: <p>The ARN of the web portal.</p>
             user_access_logging_settings_arn: <p>The ARN of the user access logging settings.</p>
+
+        Raises:
+            aws_sdk_workspaces_web.errors.access_denied_exception.AccessDeniedException: <p>Access is denied.</p>
+            aws_sdk_workspaces_web.errors.conflict_exception.ConflictException: <p>There is a conflict.</p>
+            aws_sdk_workspaces_web.errors.internal_server_exception.InternalServerException: <p>There is an internal server error.</p>
+            aws_sdk_workspaces_web.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource cannot be found.</p>
+            aws_sdk_workspaces_web.errors.throttling_exception.ThrottlingException: <p>There is a throttling error.</p>
+            aws_sdk_workspaces_web.errors.validation_exception.ValidationException: <p>There is a validation error.</p>
+            aws_sdk_workspaces_web.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1610,6 +1910,15 @@ class AsyncPortalResource:
         Args:
             portal_arn: <p>The ARN of the web portal.</p>
             user_settings_arn: <p>The ARN of the user settings.</p>
+
+        Raises:
+            aws_sdk_workspaces_web.errors.access_denied_exception.AccessDeniedException: <p>Access is denied.</p>
+            aws_sdk_workspaces_web.errors.conflict_exception.ConflictException: <p>There is a conflict.</p>
+            aws_sdk_workspaces_web.errors.internal_server_exception.InternalServerException: <p>There is an internal server error.</p>
+            aws_sdk_workspaces_web.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource cannot be found.</p>
+            aws_sdk_workspaces_web.errors.throttling_exception.ThrottlingException: <p>There is a throttling error.</p>
+            aws_sdk_workspaces_web.errors.validation_exception.ValidationException: <p>There is a validation error.</p>
+            aws_sdk_workspaces_web.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1649,6 +1958,15 @@ class AsyncPortalResource:
 
         Args:
             portal_arn: <p>The ARN of the web portal.</p>
+
+        Raises:
+            aws_sdk_workspaces_web.errors.access_denied_exception.AccessDeniedException: <p>Access is denied.</p>
+            aws_sdk_workspaces_web.errors.conflict_exception.ConflictException: <p>There is a conflict.</p>
+            aws_sdk_workspaces_web.errors.internal_server_exception.InternalServerException: <p>There is an internal server error.</p>
+            aws_sdk_workspaces_web.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource cannot be found.</p>
+            aws_sdk_workspaces_web.errors.throttling_exception.ThrottlingException: <p>There is a throttling error.</p>
+            aws_sdk_workspaces_web.errors.validation_exception.ValidationException: <p>There is a validation error.</p>
+            aws_sdk_workspaces_web.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1687,6 +2005,15 @@ class AsyncPortalResource:
 
         Args:
             portal_arn: <p>The ARN of the web portal.</p>
+
+        Raises:
+            aws_sdk_workspaces_web.errors.access_denied_exception.AccessDeniedException: <p>Access is denied.</p>
+            aws_sdk_workspaces_web.errors.conflict_exception.ConflictException: <p>There is a conflict.</p>
+            aws_sdk_workspaces_web.errors.internal_server_exception.InternalServerException: <p>There is an internal server error.</p>
+            aws_sdk_workspaces_web.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource cannot be found.</p>
+            aws_sdk_workspaces_web.errors.throttling_exception.ThrottlingException: <p>There is a throttling error.</p>
+            aws_sdk_workspaces_web.errors.validation_exception.ValidationException: <p>There is a validation error.</p>
+            aws_sdk_workspaces_web.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1725,6 +2052,15 @@ class AsyncPortalResource:
 
         Args:
             portal_arn: <p>The ARN of the web portal.</p>
+
+        Raises:
+            aws_sdk_workspaces_web.errors.access_denied_exception.AccessDeniedException: <p>Access is denied.</p>
+            aws_sdk_workspaces_web.errors.conflict_exception.ConflictException: <p>There is a conflict.</p>
+            aws_sdk_workspaces_web.errors.internal_server_exception.InternalServerException: <p>There is an internal server error.</p>
+            aws_sdk_workspaces_web.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource cannot be found.</p>
+            aws_sdk_workspaces_web.errors.throttling_exception.ThrottlingException: <p>There is a throttling error.</p>
+            aws_sdk_workspaces_web.errors.validation_exception.ValidationException: <p>There is a validation error.</p>
+            aws_sdk_workspaces_web.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1763,6 +2099,15 @@ class AsyncPortalResource:
 
         Args:
             portal_arn: <p>The ARN of the web portal.</p>
+
+        Raises:
+            aws_sdk_workspaces_web.errors.access_denied_exception.AccessDeniedException: <p>Access is denied.</p>
+            aws_sdk_workspaces_web.errors.conflict_exception.ConflictException: <p>There is a conflict.</p>
+            aws_sdk_workspaces_web.errors.internal_server_exception.InternalServerException: <p>There is an internal server error.</p>
+            aws_sdk_workspaces_web.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource cannot be found.</p>
+            aws_sdk_workspaces_web.errors.throttling_exception.ThrottlingException: <p>There is a throttling error.</p>
+            aws_sdk_workspaces_web.errors.validation_exception.ValidationException: <p>There is a validation error.</p>
+            aws_sdk_workspaces_web.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1801,6 +2146,14 @@ class AsyncPortalResource:
 
         Args:
             portal_arn: <p>The ARN of the portal to disassociate from the a session logger.</p>
+
+        Raises:
+            aws_sdk_workspaces_web.errors.access_denied_exception.AccessDeniedException: <p>Access is denied.</p>
+            aws_sdk_workspaces_web.errors.internal_server_exception.InternalServerException: <p>There is an internal server error.</p>
+            aws_sdk_workspaces_web.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource cannot be found.</p>
+            aws_sdk_workspaces_web.errors.throttling_exception.ThrottlingException: <p>There is a throttling error.</p>
+            aws_sdk_workspaces_web.errors.validation_exception.ValidationException: <p>There is a validation error.</p>
+            aws_sdk_workspaces_web.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Disassociate Session Logger from Portal
@@ -1845,6 +2198,15 @@ class AsyncPortalResource:
 
         Args:
             portal_arn: <p>The ARN of the web portal.</p>
+
+        Raises:
+            aws_sdk_workspaces_web.errors.access_denied_exception.AccessDeniedException: <p>Access is denied.</p>
+            aws_sdk_workspaces_web.errors.conflict_exception.ConflictException: <p>There is a conflict.</p>
+            aws_sdk_workspaces_web.errors.internal_server_exception.InternalServerException: <p>There is an internal server error.</p>
+            aws_sdk_workspaces_web.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource cannot be found.</p>
+            aws_sdk_workspaces_web.errors.throttling_exception.ThrottlingException: <p>There is a throttling error.</p>
+            aws_sdk_workspaces_web.errors.validation_exception.ValidationException: <p>There is a validation error.</p>
+            aws_sdk_workspaces_web.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1883,6 +2245,15 @@ class AsyncPortalResource:
 
         Args:
             portal_arn: <p>The ARN of the web portal.</p>
+
+        Raises:
+            aws_sdk_workspaces_web.errors.access_denied_exception.AccessDeniedException: <p>Access is denied.</p>
+            aws_sdk_workspaces_web.errors.conflict_exception.ConflictException: <p>There is a conflict.</p>
+            aws_sdk_workspaces_web.errors.internal_server_exception.InternalServerException: <p>There is an internal server error.</p>
+            aws_sdk_workspaces_web.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource cannot be found.</p>
+            aws_sdk_workspaces_web.errors.throttling_exception.ThrottlingException: <p>There is a throttling error.</p>
+            aws_sdk_workspaces_web.errors.validation_exception.ValidationException: <p>There is a validation error.</p>
+            aws_sdk_workspaces_web.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1921,6 +2292,15 @@ class AsyncPortalResource:
 
         Args:
             portal_arn: <p>The ARN of the web portal.</p>
+
+        Raises:
+            aws_sdk_workspaces_web.errors.access_denied_exception.AccessDeniedException: <p>Access is denied.</p>
+            aws_sdk_workspaces_web.errors.conflict_exception.ConflictException: <p>There is a conflict.</p>
+            aws_sdk_workspaces_web.errors.internal_server_exception.InternalServerException: <p>There is an internal server error.</p>
+            aws_sdk_workspaces_web.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource cannot be found.</p>
+            aws_sdk_workspaces_web.errors.throttling_exception.ThrottlingException: <p>There is a throttling error.</p>
+            aws_sdk_workspaces_web.errors.validation_exception.ValidationException: <p>There is a validation error.</p>
+            aws_sdk_workspaces_web.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1959,6 +2339,14 @@ class AsyncPortalResource:
 
         Args:
             portal_arn: <p>The ARN of the web portal.</p>
+
+        Raises:
+            aws_sdk_workspaces_web.errors.access_denied_exception.AccessDeniedException: <p>Access is denied.</p>
+            aws_sdk_workspaces_web.errors.internal_server_exception.InternalServerException: <p>There is an internal server error.</p>
+            aws_sdk_workspaces_web.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource cannot be found.</p>
+            aws_sdk_workspaces_web.errors.throttling_exception.ThrottlingException: <p>There is a throttling error.</p>
+            aws_sdk_workspaces_web.errors.validation_exception.ValidationException: <p>There is a validation error.</p>
+            aws_sdk_workspaces_web.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

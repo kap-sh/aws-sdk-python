@@ -106,6 +106,15 @@ class PipeResource:
             tags: <p>The list of key-value pairs to associate with the pipe.</p>
             log_configuration: <p>The logging configuration settings for the pipe.</p>
             kms_key_identifier: <p>The identifier of the KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt pipe data. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.</p> <p>If you do not specify a customer managed key identifier, EventBridge uses an Amazon Web Services owned key to encrypt pipe data.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/kms/latest/developerguide/getting-started.html\">Managing keys</a> in the <i>Key Management Service Developer Guide</i>. </p>
+
+        Raises:
+            aws_sdk_pipes.errors.conflict_exception.ConflictException: <p>An action you attempted resulted in an exception.</p>
+            aws_sdk_pipes.errors.internal_exception.InternalException: <p>This exception occurs due to unexpected causes.</p>
+            aws_sdk_pipes.errors.not_found_exception.NotFoundException: <p>An entity that you specified does not exist.</p>
+            aws_sdk_pipes.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>A quota has been exceeded.</p>
+            aws_sdk_pipes.errors.throttling_exception.ThrottlingException: <p>An action was throttled.</p>
+            aws_sdk_pipes.errors.validation_exception.ValidationException: <p>Indicates that an error has occurred while performing a validate operation.</p>
+            aws_sdk_pipes.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -164,6 +173,13 @@ class PipeResource:
 
         Args:
             name: <p>The name of the pipe.</p>
+
+        Raises:
+            aws_sdk_pipes.errors.internal_exception.InternalException: <p>This exception occurs due to unexpected causes.</p>
+            aws_sdk_pipes.errors.not_found_exception.NotFoundException: <p>An entity that you specified does not exist.</p>
+            aws_sdk_pipes.errors.throttling_exception.ThrottlingException: <p>An action was throttled.</p>
+            aws_sdk_pipes.errors.validation_exception.ValidationException: <p>Indicates that an error has occurred while performing a validate operation.</p>
+            aws_sdk_pipes.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -235,6 +251,14 @@ class PipeResource:
             role_arn: <p>The ARN of the role that allows the pipe to send data to the target.</p>
             log_configuration: <p>The logging configuration settings for the pipe.</p>
             kms_key_identifier: <p>The identifier of the KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt pipe data. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.</p> <p>To update a pipe that is using the default Amazon Web Services owned key to use a customer managed key instead, or update a pipe that is using a customer managed key to use a different customer managed key, specify a customer managed key identifier.</p> <p>To update a pipe that is using a customer managed key to use the default Amazon Web Services owned key, specify an empty string.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/kms/latest/developerguide/getting-started.html\">Managing keys</a> in the <i>Key Management Service Developer Guide</i>. </p>
+
+        Raises:
+            aws_sdk_pipes.errors.conflict_exception.ConflictException: <p>An action you attempted resulted in an exception.</p>
+            aws_sdk_pipes.errors.internal_exception.InternalException: <p>This exception occurs due to unexpected causes.</p>
+            aws_sdk_pipes.errors.not_found_exception.NotFoundException: <p>An entity that you specified does not exist.</p>
+            aws_sdk_pipes.errors.throttling_exception.ThrottlingException: <p>An action was throttled.</p>
+            aws_sdk_pipes.errors.validation_exception.ValidationException: <p>Indicates that an error has occurred while performing a validate operation.</p>
+            aws_sdk_pipes.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -291,6 +315,14 @@ class PipeResource:
 
         Args:
             name: <p>The name of the pipe.</p>
+
+        Raises:
+            aws_sdk_pipes.errors.conflict_exception.ConflictException: <p>An action you attempted resulted in an exception.</p>
+            aws_sdk_pipes.errors.internal_exception.InternalException: <p>This exception occurs due to unexpected causes.</p>
+            aws_sdk_pipes.errors.not_found_exception.NotFoundException: <p>An entity that you specified does not exist.</p>
+            aws_sdk_pipes.errors.throttling_exception.ThrottlingException: <p>An action was throttled.</p>
+            aws_sdk_pipes.errors.validation_exception.ValidationException: <p>Indicates that an error has occurred while performing a validate operation.</p>
+            aws_sdk_pipes.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -342,6 +374,12 @@ class PipeResource:
             target_prefix: <p>The prefix matching the pipe target.</p>
             next_token: <p>If <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an HTTP 400 InvalidToken error.</p>
             limit: <p>The maximum number of pipes to include in the response.</p>
+
+        Raises:
+            aws_sdk_pipes.errors.internal_exception.InternalException: <p>This exception occurs due to unexpected causes.</p>
+            aws_sdk_pipes.errors.throttling_exception.ThrottlingException: <p>An action was throttled.</p>
+            aws_sdk_pipes.errors.validation_exception.ValidationException: <p>Indicates that an error has occurred while performing a validate operation.</p>
+            aws_sdk_pipes.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -392,6 +430,14 @@ class PipeResource:
 
         Args:
             name: <p>The name of the pipe.</p>
+
+        Raises:
+            aws_sdk_pipes.errors.conflict_exception.ConflictException: <p>An action you attempted resulted in an exception.</p>
+            aws_sdk_pipes.errors.internal_exception.InternalException: <p>This exception occurs due to unexpected causes.</p>
+            aws_sdk_pipes.errors.not_found_exception.NotFoundException: <p>An entity that you specified does not exist.</p>
+            aws_sdk_pipes.errors.throttling_exception.ThrottlingException: <p>An action was throttled.</p>
+            aws_sdk_pipes.errors.validation_exception.ValidationException: <p>Indicates that an error has occurred while performing a validate operation.</p>
+            aws_sdk_pipes.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -429,6 +475,14 @@ class PipeResource:
 
         Args:
             name: <p>The name of the pipe.</p>
+
+        Raises:
+            aws_sdk_pipes.errors.conflict_exception.ConflictException: <p>An action you attempted resulted in an exception.</p>
+            aws_sdk_pipes.errors.internal_exception.InternalException: <p>This exception occurs due to unexpected causes.</p>
+            aws_sdk_pipes.errors.not_found_exception.NotFoundException: <p>An entity that you specified does not exist.</p>
+            aws_sdk_pipes.errors.throttling_exception.ThrottlingException: <p>An action was throttled.</p>
+            aws_sdk_pipes.errors.validation_exception.ValidationException: <p>Indicates that an error has occurred while performing a validate operation.</p>
+            aws_sdk_pipes.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -507,6 +561,15 @@ class AsyncPipeResource:
             tags: <p>The list of key-value pairs to associate with the pipe.</p>
             log_configuration: <p>The logging configuration settings for the pipe.</p>
             kms_key_identifier: <p>The identifier of the KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt pipe data. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.</p> <p>If you do not specify a customer managed key identifier, EventBridge uses an Amazon Web Services owned key to encrypt pipe data.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/kms/latest/developerguide/getting-started.html\">Managing keys</a> in the <i>Key Management Service Developer Guide</i>. </p>
+
+        Raises:
+            aws_sdk_pipes.errors.conflict_exception.ConflictException: <p>An action you attempted resulted in an exception.</p>
+            aws_sdk_pipes.errors.internal_exception.InternalException: <p>This exception occurs due to unexpected causes.</p>
+            aws_sdk_pipes.errors.not_found_exception.NotFoundException: <p>An entity that you specified does not exist.</p>
+            aws_sdk_pipes.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>A quota has been exceeded.</p>
+            aws_sdk_pipes.errors.throttling_exception.ThrottlingException: <p>An action was throttled.</p>
+            aws_sdk_pipes.errors.validation_exception.ValidationException: <p>Indicates that an error has occurred while performing a validate operation.</p>
+            aws_sdk_pipes.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -566,6 +629,13 @@ class AsyncPipeResource:
 
         Args:
             name: <p>The name of the pipe.</p>
+
+        Raises:
+            aws_sdk_pipes.errors.internal_exception.InternalException: <p>This exception occurs due to unexpected causes.</p>
+            aws_sdk_pipes.errors.not_found_exception.NotFoundException: <p>An entity that you specified does not exist.</p>
+            aws_sdk_pipes.errors.throttling_exception.ThrottlingException: <p>An action was throttled.</p>
+            aws_sdk_pipes.errors.validation_exception.ValidationException: <p>Indicates that an error has occurred while performing a validate operation.</p>
+            aws_sdk_pipes.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -638,6 +708,14 @@ class AsyncPipeResource:
             role_arn: <p>The ARN of the role that allows the pipe to send data to the target.</p>
             log_configuration: <p>The logging configuration settings for the pipe.</p>
             kms_key_identifier: <p>The identifier of the KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt pipe data. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.</p> <p>To update a pipe that is using the default Amazon Web Services owned key to use a customer managed key instead, or update a pipe that is using a customer managed key to use a different customer managed key, specify a customer managed key identifier.</p> <p>To update a pipe that is using a customer managed key to use the default Amazon Web Services owned key, specify an empty string.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/kms/latest/developerguide/getting-started.html\">Managing keys</a> in the <i>Key Management Service Developer Guide</i>. </p>
+
+        Raises:
+            aws_sdk_pipes.errors.conflict_exception.ConflictException: <p>An action you attempted resulted in an exception.</p>
+            aws_sdk_pipes.errors.internal_exception.InternalException: <p>This exception occurs due to unexpected causes.</p>
+            aws_sdk_pipes.errors.not_found_exception.NotFoundException: <p>An entity that you specified does not exist.</p>
+            aws_sdk_pipes.errors.throttling_exception.ThrottlingException: <p>An action was throttled.</p>
+            aws_sdk_pipes.errors.validation_exception.ValidationException: <p>Indicates that an error has occurred while performing a validate operation.</p>
+            aws_sdk_pipes.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -695,6 +773,14 @@ class AsyncPipeResource:
 
         Args:
             name: <p>The name of the pipe.</p>
+
+        Raises:
+            aws_sdk_pipes.errors.conflict_exception.ConflictException: <p>An action you attempted resulted in an exception.</p>
+            aws_sdk_pipes.errors.internal_exception.InternalException: <p>This exception occurs due to unexpected causes.</p>
+            aws_sdk_pipes.errors.not_found_exception.NotFoundException: <p>An entity that you specified does not exist.</p>
+            aws_sdk_pipes.errors.throttling_exception.ThrottlingException: <p>An action was throttled.</p>
+            aws_sdk_pipes.errors.validation_exception.ValidationException: <p>Indicates that an error has occurred while performing a validate operation.</p>
+            aws_sdk_pipes.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -747,6 +833,12 @@ class AsyncPipeResource:
             target_prefix: <p>The prefix matching the pipe target.</p>
             next_token: <p>If <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an HTTP 400 InvalidToken error.</p>
             limit: <p>The maximum number of pipes to include in the response.</p>
+
+        Raises:
+            aws_sdk_pipes.errors.internal_exception.InternalException: <p>This exception occurs due to unexpected causes.</p>
+            aws_sdk_pipes.errors.throttling_exception.ThrottlingException: <p>An action was throttled.</p>
+            aws_sdk_pipes.errors.validation_exception.ValidationException: <p>Indicates that an error has occurred while performing a validate operation.</p>
+            aws_sdk_pipes.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -798,6 +890,14 @@ class AsyncPipeResource:
 
         Args:
             name: <p>The name of the pipe.</p>
+
+        Raises:
+            aws_sdk_pipes.errors.conflict_exception.ConflictException: <p>An action you attempted resulted in an exception.</p>
+            aws_sdk_pipes.errors.internal_exception.InternalException: <p>This exception occurs due to unexpected causes.</p>
+            aws_sdk_pipes.errors.not_found_exception.NotFoundException: <p>An entity that you specified does not exist.</p>
+            aws_sdk_pipes.errors.throttling_exception.ThrottlingException: <p>An action was throttled.</p>
+            aws_sdk_pipes.errors.validation_exception.ValidationException: <p>Indicates that an error has occurred while performing a validate operation.</p>
+            aws_sdk_pipes.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -836,6 +936,14 @@ class AsyncPipeResource:
 
         Args:
             name: <p>The name of the pipe.</p>
+
+        Raises:
+            aws_sdk_pipes.errors.conflict_exception.ConflictException: <p>An action you attempted resulted in an exception.</p>
+            aws_sdk_pipes.errors.internal_exception.InternalException: <p>This exception occurs due to unexpected causes.</p>
+            aws_sdk_pipes.errors.not_found_exception.NotFoundException: <p>An entity that you specified does not exist.</p>
+            aws_sdk_pipes.errors.throttling_exception.ThrottlingException: <p>An action was throttled.</p>
+            aws_sdk_pipes.errors.validation_exception.ValidationException: <p>Indicates that an error has occurred while performing a validate operation.</p>
+            aws_sdk_pipes.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

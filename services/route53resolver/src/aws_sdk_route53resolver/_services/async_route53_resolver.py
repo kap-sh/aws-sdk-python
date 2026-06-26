@@ -372,6 +372,16 @@ class AsyncRoute53ResolverClient:
             name: <p>A name that lets you identify the association, to manage and use it.</p>
             mutation_protection: <p>If enabled, this setting disallows modification or removal of the association, to help prevent against accidentally altering DNS firewall protections. When you create the association, the default setting is <code>DISABLED</code>. </p>
             tags: <p>A list of the tag keys and values that you want to associate with the rule group association. </p>
+
+        Raises:
+            aws_sdk_route53resolver.errors.access_denied_exception.AccessDeniedException: <p>The current account doesn't have the IAM permissions required to perform the specified Resolver operation.</p> <p>This error can also be thrown when a customer has reached the 5120 character limit for a resource policy for CloudWatch Logs.</p>
+            aws_sdk_route53resolver.errors.conflict_exception.ConflictException: <p>The requested state transition isn't valid. For example, you can't delete a firewall domain list if it is in the process of being deleted, or you can't import domains into a domain list that is in the process of being deleted.</p>
+            aws_sdk_route53resolver.errors.internal_service_error_exception.InternalServiceErrorException: <p>We encountered an unknown error. Try again in a few minutes.</p>
+            aws_sdk_route53resolver.errors.limit_exceeded_exception.LimitExceededException: <p>The request caused one or more limits to be exceeded.</p>
+            aws_sdk_route53resolver.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource doesn't exist.</p>
+            aws_sdk_route53resolver.errors.throttling_exception.ThrottlingException: <p>The request was throttled. Try again in a few minutes.</p>
+            aws_sdk_route53resolver.errors.validation_exception.ValidationException: <p>You have provided an invalid command. If you ran the <code>UpdateFirewallDomains</code> request. supported values are <code>ADD</code>, <code>REMOVE</code>, or <code>REPLACE</code> a domain.</p>
+            aws_sdk_route53resolver.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -420,6 +430,16 @@ class AsyncRoute53ResolverClient:
         Args:
             resolver_endpoint_id: <p>The ID of the Resolver endpoint that you want to associate IP addresses with.</p>
             ip_address: <p>Either the IPv4 address that you want to add to a Resolver endpoint or a subnet ID. If you specify a subnet ID, Resolver chooses an IP address for you from the available IPs in the specified subnet.</p>
+
+        Raises:
+            aws_sdk_route53resolver.errors.internal_service_error_exception.InternalServiceErrorException: <p>We encountered an unknown error. Try again in a few minutes.</p>
+            aws_sdk_route53resolver.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters in this request are not valid.</p>
+            aws_sdk_route53resolver.errors.invalid_request_exception.InvalidRequestException: <p>The request is invalid.</p>
+            aws_sdk_route53resolver.errors.limit_exceeded_exception.LimitExceededException: <p>The request caused one or more limits to be exceeded.</p>
+            aws_sdk_route53resolver.errors.resource_exists_exception.ResourceExistsException: <p>The resource that you tried to create already exists.</p>
+            aws_sdk_route53resolver.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource doesn't exist.</p>
+            aws_sdk_route53resolver.errors.throttling_exception.ThrottlingException: <p>The request was throttled. Try again in a few minutes.</p>
+            aws_sdk_route53resolver.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -461,6 +481,17 @@ class AsyncRoute53ResolverClient:
         Args:
             resolver_query_log_config_id: <p>The ID of the query logging configuration that you want to associate a VPC with.</p>
             resource_id: <p>The ID of an Amazon VPC that you want this query logging configuration to log queries for.</p> <note> <p>The VPCs and the query logging configuration must be in the same Region.</p> </note>
+
+        Raises:
+            aws_sdk_route53resolver.errors.access_denied_exception.AccessDeniedException: <p>The current account doesn't have the IAM permissions required to perform the specified Resolver operation.</p> <p>This error can also be thrown when a customer has reached the 5120 character limit for a resource policy for CloudWatch Logs.</p>
+            aws_sdk_route53resolver.errors.internal_service_error_exception.InternalServiceErrorException: <p>We encountered an unknown error. Try again in a few minutes.</p>
+            aws_sdk_route53resolver.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters in this request are not valid.</p>
+            aws_sdk_route53resolver.errors.invalid_request_exception.InvalidRequestException: <p>The request is invalid.</p>
+            aws_sdk_route53resolver.errors.limit_exceeded_exception.LimitExceededException: <p>The request caused one or more limits to be exceeded.</p>
+            aws_sdk_route53resolver.errors.resource_exists_exception.ResourceExistsException: <p>The resource that you tried to create already exists.</p>
+            aws_sdk_route53resolver.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource doesn't exist.</p>
+            aws_sdk_route53resolver.errors.throttling_exception.ThrottlingException: <p>The request was throttled. Try again in a few minutes.</p>
+            aws_sdk_route53resolver.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -504,6 +535,17 @@ class AsyncRoute53ResolverClient:
             resolver_rule_id: <p>The ID of the Resolver rule that you want to associate with the VPC. To list the existing Resolver rules, use <a href=\"https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_ListResolverRules.html\">ListResolverRules</a>.</p>
             name: <p>A name for the association that you're creating between a Resolver rule and a VPC.</p> <p>The name can be up to 64 characters long and can contain letters (a-z, A-Z), numbers (0-9), hyphens (-), underscores (_), and spaces. The name cannot consist of only numbers.</p>
             vpc_id: <p>The ID of the VPC that you want to associate the Resolver rule with.</p>
+
+        Raises:
+            aws_sdk_route53resolver.errors.internal_service_error_exception.InternalServiceErrorException: <p>We encountered an unknown error. Try again in a few minutes.</p>
+            aws_sdk_route53resolver.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters in this request are not valid.</p>
+            aws_sdk_route53resolver.errors.invalid_request_exception.InvalidRequestException: <p>The request is invalid.</p>
+            aws_sdk_route53resolver.errors.limit_exceeded_exception.LimitExceededException: <p>The request caused one or more limits to be exceeded.</p>
+            aws_sdk_route53resolver.errors.resource_exists_exception.ResourceExistsException: <p>The resource that you tried to create already exists.</p>
+            aws_sdk_route53resolver.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource doesn't exist.</p>
+            aws_sdk_route53resolver.errors.resource_unavailable_exception.ResourceUnavailableException: <p>The specified resource isn't available.</p>
+            aws_sdk_route53resolver.errors.throttling_exception.ThrottlingException: <p>The request was throttled. Try again in a few minutes.</p>
+            aws_sdk_route53resolver.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -545,6 +587,14 @@ class AsyncRoute53ResolverClient:
 
         Args:
             create_firewall_rule_entries: <p>The list of firewall rules to create.</p>
+
+        Raises:
+            aws_sdk_route53resolver.errors.access_denied_exception.AccessDeniedException: <p>The current account doesn't have the IAM permissions required to perform the specified Resolver operation.</p> <p>This error can also be thrown when a customer has reached the 5120 character limit for a resource policy for CloudWatch Logs.</p>
+            aws_sdk_route53resolver.errors.internal_service_error_exception.InternalServiceErrorException: <p>We encountered an unknown error. Try again in a few minutes.</p>
+            aws_sdk_route53resolver.errors.limit_exceeded_exception.LimitExceededException: <p>The request caused one or more limits to be exceeded.</p>
+            aws_sdk_route53resolver.errors.throttling_exception.ThrottlingException: <p>The request was throttled. Try again in a few minutes.</p>
+            aws_sdk_route53resolver.errors.validation_exception.ValidationException: <p>You have provided an invalid command. If you ran the <code>UpdateFirewallDomains</code> request. supported values are <code>ADD</code>, <code>REMOVE</code>, or <code>REPLACE</code> a domain.</p>
+            aws_sdk_route53resolver.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -583,6 +633,14 @@ class AsyncRoute53ResolverClient:
 
         Args:
             delete_firewall_rule_entries: <p>The list of firewall rules to delete.</p>
+
+        Raises:
+            aws_sdk_route53resolver.errors.access_denied_exception.AccessDeniedException: <p>The current account doesn't have the IAM permissions required to perform the specified Resolver operation.</p> <p>This error can also be thrown when a customer has reached the 5120 character limit for a resource policy for CloudWatch Logs.</p>
+            aws_sdk_route53resolver.errors.internal_service_error_exception.InternalServiceErrorException: <p>We encountered an unknown error. Try again in a few minutes.</p>
+            aws_sdk_route53resolver.errors.limit_exceeded_exception.LimitExceededException: <p>The request caused one or more limits to be exceeded.</p>
+            aws_sdk_route53resolver.errors.throttling_exception.ThrottlingException: <p>The request was throttled. Try again in a few minutes.</p>
+            aws_sdk_route53resolver.errors.validation_exception.ValidationException: <p>You have provided an invalid command. If you ran the <code>UpdateFirewallDomains</code> request. supported values are <code>ADD</code>, <code>REMOVE</code>, or <code>REPLACE</code> a domain.</p>
+            aws_sdk_route53resolver.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -621,6 +679,14 @@ class AsyncRoute53ResolverClient:
 
         Args:
             update_firewall_rule_entries: <p>The list of firewall rules to update.</p>
+
+        Raises:
+            aws_sdk_route53resolver.errors.access_denied_exception.AccessDeniedException: <p>The current account doesn't have the IAM permissions required to perform the specified Resolver operation.</p> <p>This error can also be thrown when a customer has reached the 5120 character limit for a resource policy for CloudWatch Logs.</p>
+            aws_sdk_route53resolver.errors.internal_service_error_exception.InternalServiceErrorException: <p>We encountered an unknown error. Try again in a few minutes.</p>
+            aws_sdk_route53resolver.errors.limit_exceeded_exception.LimitExceededException: <p>The request caused one or more limits to be exceeded.</p>
+            aws_sdk_route53resolver.errors.throttling_exception.ThrottlingException: <p>The request was throttled. Try again in a few minutes.</p>
+            aws_sdk_route53resolver.errors.validation_exception.ValidationException: <p>You have provided an invalid command. If you ran the <code>UpdateFirewallDomains</code> request. supported values are <code>ADD</code>, <code>REMOVE</code>, or <code>REPLACE</code> a domain.</p>
+            aws_sdk_route53resolver.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -663,6 +729,14 @@ class AsyncRoute53ResolverClient:
             creator_request_id: <p>A unique string that identifies the request and that allows you to retry failed requests without the risk of running the operation twice. <code>CreatorRequestId</code> can be any unique string, for example, a date/time stamp. </p>
             name: <p>A name that lets you identify the domain list to manage and use it.</p>
             tags: <p>A list of the tag keys and values that you want to associate with the domain list. </p>
+
+        Raises:
+            aws_sdk_route53resolver.errors.access_denied_exception.AccessDeniedException: <p>The current account doesn't have the IAM permissions required to perform the specified Resolver operation.</p> <p>This error can also be thrown when a customer has reached the 5120 character limit for a resource policy for CloudWatch Logs.</p>
+            aws_sdk_route53resolver.errors.internal_service_error_exception.InternalServiceErrorException: <p>We encountered an unknown error. Try again in a few minutes.</p>
+            aws_sdk_route53resolver.errors.limit_exceeded_exception.LimitExceededException: <p>The request caused one or more limits to be exceeded.</p>
+            aws_sdk_route53resolver.errors.throttling_exception.ThrottlingException: <p>The request was throttled. Try again in a few minutes.</p>
+            aws_sdk_route53resolver.errors.validation_exception.ValidationException: <p>You have provided an invalid command. If you ran the <code>UpdateFirewallDomains</code> request. supported values are <code>ADD</code>, <code>REMOVE</code>, or <code>REPLACE</code> a domain.</p>
+            aws_sdk_route53resolver.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -750,6 +824,15 @@ class AsyncRoute53ResolverClient:
             dns_threat_protection: <p> Use to create a DNS Firewall Advanced rule. </p>
             confidence_threshold: <p> The confidence threshold for DNS Firewall Advanced. You must provide this value when you create a DNS Firewall Advanced rule. The confidence level values mean: </p> <ul> <li> <p> <code>LOW</code>: Provides the highest detection rate for threats, but also increases false positives.</p> </li> <li> <p> <code>MEDIUM</code>: Provides a balance between detecting threats and false positives.</p> </li> <li> <p> <code>HIGH</code>: Detects only the most well corroborated threats with a low rate of false positives. </p> </li> </ul>
             firewall_rule_type: <p>The rule type configuration for the firewall rule. This setting is mutually exclusive with the top-level <code>FirewallDomainListId</code> and <code>DnsThreatProtection</code> fields.</p>
+
+        Raises:
+            aws_sdk_route53resolver.errors.access_denied_exception.AccessDeniedException: <p>The current account doesn't have the IAM permissions required to perform the specified Resolver operation.</p> <p>This error can also be thrown when a customer has reached the 5120 character limit for a resource policy for CloudWatch Logs.</p>
+            aws_sdk_route53resolver.errors.internal_service_error_exception.InternalServiceErrorException: <p>We encountered an unknown error. Try again in a few minutes.</p>
+            aws_sdk_route53resolver.errors.limit_exceeded_exception.LimitExceededException: <p>The request caused one or more limits to be exceeded.</p>
+            aws_sdk_route53resolver.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource doesn't exist.</p>
+            aws_sdk_route53resolver.errors.throttling_exception.ThrottlingException: <p>The request was throttled. Try again in a few minutes.</p>
+            aws_sdk_route53resolver.errors.validation_exception.ValidationException: <p>You have provided an invalid command. If you ran the <code>UpdateFirewallDomains</code> request. supported values are <code>ADD</code>, <code>REMOVE</code>, or <code>REPLACE</code> a domain.</p>
+            aws_sdk_route53resolver.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -818,6 +901,14 @@ class AsyncRoute53ResolverClient:
             creator_request_id: <p>A unique string defined by you to identify the request. This allows you to retry failed requests without the risk of running the operation twice. This can be any unique string, for example, a timestamp. </p>
             name: <p>A name that lets you identify the rule group, to manage and use it.</p>
             tags: <p>A list of the tag keys and values that you want to associate with the rule group. </p>
+
+        Raises:
+            aws_sdk_route53resolver.errors.access_denied_exception.AccessDeniedException: <p>The current account doesn't have the IAM permissions required to perform the specified Resolver operation.</p> <p>This error can also be thrown when a customer has reached the 5120 character limit for a resource policy for CloudWatch Logs.</p>
+            aws_sdk_route53resolver.errors.internal_service_error_exception.InternalServiceErrorException: <p>We encountered an unknown error. Try again in a few minutes.</p>
+            aws_sdk_route53resolver.errors.limit_exceeded_exception.LimitExceededException: <p>The request caused one or more limits to be exceeded.</p>
+            aws_sdk_route53resolver.errors.throttling_exception.ThrottlingException: <p>The request was throttled. Try again in a few minutes.</p>
+            aws_sdk_route53resolver.errors.validation_exception.ValidationException: <p>You have provided an invalid command. If you ran the <code>UpdateFirewallDomains</code> request. supported values are <code>ADD</code>, <code>REMOVE</code>, or <code>REPLACE</code> a domain.</p>
+            aws_sdk_route53resolver.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -871,6 +962,15 @@ class AsyncRoute53ResolverClient:
             preferred_instance_type: <p> The Amazon EC2 instance type. If you specify this, you must also specify a value for the <code>OutpostArn</code>. </p>
             outpost_arn: <p>The Amazon Resource Name (ARN) of the Outpost. If you specify this, you must also specify a value for the <code>PreferredInstanceType</code>.</p>
             tags: <p> A string that helps identify the Route 53 Resolvers on Outpost. </p>
+
+        Raises:
+            aws_sdk_route53resolver.errors.access_denied_exception.AccessDeniedException: <p>The current account doesn't have the IAM permissions required to perform the specified Resolver operation.</p> <p>This error can also be thrown when a customer has reached the 5120 character limit for a resource policy for CloudWatch Logs.</p>
+            aws_sdk_route53resolver.errors.internal_service_error_exception.InternalServiceErrorException: <p>We encountered an unknown error. Try again in a few minutes.</p>
+            aws_sdk_route53resolver.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource doesn't exist.</p>
+            aws_sdk_route53resolver.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Fulfilling the request would cause one or more quotas to be exceeded.</p>
+            aws_sdk_route53resolver.errors.throttling_exception.ThrottlingException: <p>The request was throttled. Try again in a few minutes.</p>
+            aws_sdk_route53resolver.errors.validation_exception.ValidationException: <p>You have provided an invalid command. If you ran the <code>UpdateFirewallDomains</code> request. supported values are <code>ADD</code>, <code>REMOVE</code>, or <code>REPLACE</code> a domain.</p>
+            aws_sdk_route53resolver.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -958,6 +1058,17 @@ class AsyncRoute53ResolverClient:
             target_name_server_metrics_enabled: <p>Specifies whether target name server metrics are enabled for the outbound Resolver endpoints. When set to true, one-minute granular metrics are published in CloudWatch for each target name server associated with this endpoint. When set to false, metrics are not published. Default is false. This is not supported for inbound Resolver endpoints.</p> <note> <p>Standard CloudWatch pricing and charges are applied for using the Route 53 Resolver endpoint target name server metrics. For more information, see <a href=\"https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/monitoring-resolver-with-cloudwatch.html\">Detailed metrics</a>.</p> </note>
             dns64_enabled: <p>Specifies whether DNS64 is enabled for the inbound Resolver endpoint. When set to <code>true</code>, Route 53 Resolver synthesizes AAAA (IPv6) records for IPv4-only services by prepending the <code>64:ff9b::/96</code> prefix to the IPv4 address. This enables IPv6-only clients that send queries through the inbound endpoint to reach IPv4-only services. DNS64 works with NAT64 to provide complete IPv6-to-IPv4 translation. Default is false.</p>
             ipv6_internet_access_enabled: <p>Specifies whether IPv6 internet access is enabled for the outbound Resolver endpoint. When set to <code>true</code>, the endpoint elastic network interfaces (ENIs) can forward DNS queries to public IPv6 targets through an internet gateway. Default is false.</p> <important> <p>When you enable IPv6 internet access, use network controls like security groups, NACLs, or egress-only internet gateways to protect the endpoint ENIs from unsolicited ingress traffic. Be aware that some network controls can affect DNS query throughput due to connection tracking. For more information, see <a href=\"https://docs.aws.amazon.com/ec2/latest/userguide/security-group-connection-tracking.html\">Amazon EC2 security group connection tracking</a> and <a href=\"https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/best-practices-resolver-endpoint-scaling.html\">Resolver endpoint scaling</a>.</p> </important>
+
+        Raises:
+            aws_sdk_route53resolver.errors.access_denied_exception.AccessDeniedException: <p>The current account doesn't have the IAM permissions required to perform the specified Resolver operation.</p> <p>This error can also be thrown when a customer has reached the 5120 character limit for a resource policy for CloudWatch Logs.</p>
+            aws_sdk_route53resolver.errors.internal_service_error_exception.InternalServiceErrorException: <p>We encountered an unknown error. Try again in a few minutes.</p>
+            aws_sdk_route53resolver.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters in this request are not valid.</p>
+            aws_sdk_route53resolver.errors.invalid_request_exception.InvalidRequestException: <p>The request is invalid.</p>
+            aws_sdk_route53resolver.errors.limit_exceeded_exception.LimitExceededException: <p>The request caused one or more limits to be exceeded.</p>
+            aws_sdk_route53resolver.errors.resource_exists_exception.ResourceExistsException: <p>The resource that you tried to create already exists.</p>
+            aws_sdk_route53resolver.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource doesn't exist.</p>
+            aws_sdk_route53resolver.errors.throttling_exception.ThrottlingException: <p>The request was throttled. Try again in a few minutes.</p>
+            aws_sdk_route53resolver.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1027,6 +1138,17 @@ class AsyncRoute53ResolverClient:
             destination_arn: <p>The ARN of the resource that you want Resolver to send query logs. You can send query logs to an S3 bucket, a CloudWatch Logs log group, or a Kinesis Data Firehose delivery stream. Examples of valid values include the following:</p> <ul> <li> <p> <b>S3 bucket</b>: </p> <p> <code>arn:aws:s3:::amzn-s3-demo-bucket</code> </p> <p>You can optionally append a file prefix to the end of the ARN.</p> <p> <code>arn:aws:s3:::amzn-s3-demo-bucket/development/</code> </p> </li> <li> <p> <b>CloudWatch Logs log group</b>: </p> <p> <code>arn:aws:logs:us-west-1:123456789012:log-group:/mystack-testgroup-12ABC1AB12A1:*</code> </p> </li> <li> <p> <b>Kinesis Data Firehose delivery stream</b>:</p> <p> <code>arn:aws:kinesis:us-east-2:0123456789:stream/my_stream_name</code> </p> </li> </ul>
             creator_request_id: <p>A unique string that identifies the request and that allows failed requests to be retried without the risk of running the operation twice. <code>CreatorRequestId</code> can be any unique string, for example, a date/time stamp. </p>
             tags: <p>A list of the tag keys and values that you want to associate with the query logging configuration.</p>
+
+        Raises:
+            aws_sdk_route53resolver.errors.access_denied_exception.AccessDeniedException: <p>The current account doesn't have the IAM permissions required to perform the specified Resolver operation.</p> <p>This error can also be thrown when a customer has reached the 5120 character limit for a resource policy for CloudWatch Logs.</p>
+            aws_sdk_route53resolver.errors.internal_service_error_exception.InternalServiceErrorException: <p>We encountered an unknown error. Try again in a few minutes.</p>
+            aws_sdk_route53resolver.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters in this request are not valid.</p>
+            aws_sdk_route53resolver.errors.invalid_request_exception.InvalidRequestException: <p>The request is invalid.</p>
+            aws_sdk_route53resolver.errors.limit_exceeded_exception.LimitExceededException: <p>The request caused one or more limits to be exceeded.</p>
+            aws_sdk_route53resolver.errors.resource_exists_exception.ResourceExistsException: <p>The resource that you tried to create already exists.</p>
+            aws_sdk_route53resolver.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource doesn't exist.</p>
+            aws_sdk_route53resolver.errors.throttling_exception.ThrottlingException: <p>The request was throttled. Try again in a few minutes.</p>
+            aws_sdk_route53resolver.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1091,6 +1213,18 @@ class AsyncRoute53ResolverClient:
             resolver_endpoint_id: <p>The ID of the outbound Resolver endpoint that you want to use to route DNS queries to the IP addresses that you specify in <code>TargetIps</code>.</p>
             tags: <p>A list of the tag keys and values that you want to associate with the endpoint.</p>
             delegation_record: <p> DNS queries with the delegation records that match this domain name are forwarded to the resolvers on your network. </p>
+
+        Raises:
+            aws_sdk_route53resolver.errors.access_denied_exception.AccessDeniedException: <p>The current account doesn't have the IAM permissions required to perform the specified Resolver operation.</p> <p>This error can also be thrown when a customer has reached the 5120 character limit for a resource policy for CloudWatch Logs.</p>
+            aws_sdk_route53resolver.errors.internal_service_error_exception.InternalServiceErrorException: <p>We encountered an unknown error. Try again in a few minutes.</p>
+            aws_sdk_route53resolver.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters in this request are not valid.</p>
+            aws_sdk_route53resolver.errors.invalid_request_exception.InvalidRequestException: <p>The request is invalid.</p>
+            aws_sdk_route53resolver.errors.limit_exceeded_exception.LimitExceededException: <p>The request caused one or more limits to be exceeded.</p>
+            aws_sdk_route53resolver.errors.resource_exists_exception.ResourceExistsException: <p>The resource that you tried to create already exists.</p>
+            aws_sdk_route53resolver.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource doesn't exist.</p>
+            aws_sdk_route53resolver.errors.resource_unavailable_exception.ResourceUnavailableException: <p>The specified resource isn't available.</p>
+            aws_sdk_route53resolver.errors.throttling_exception.ThrottlingException: <p>The request was throttled. Try again in a few minutes.</p>
+            aws_sdk_route53resolver.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1142,6 +1276,14 @@ class AsyncRoute53ResolverClient:
 
         Args:
             firewall_domain_list_id: <p>The ID of the domain list that you want to delete. </p>
+
+        Raises:
+            aws_sdk_route53resolver.errors.access_denied_exception.AccessDeniedException: <p>The current account doesn't have the IAM permissions required to perform the specified Resolver operation.</p> <p>This error can also be thrown when a customer has reached the 5120 character limit for a resource policy for CloudWatch Logs.</p>
+            aws_sdk_route53resolver.errors.conflict_exception.ConflictException: <p>The requested state transition isn't valid. For example, you can't delete a firewall domain list if it is in the process of being deleted, or you can't import domains into a domain list that is in the process of being deleted.</p>
+            aws_sdk_route53resolver.errors.internal_service_error_exception.InternalServiceErrorException: <p>We encountered an unknown error. Try again in a few minutes.</p>
+            aws_sdk_route53resolver.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource doesn't exist.</p>
+            aws_sdk_route53resolver.errors.throttling_exception.ThrottlingException: <p>The request was throttled. Try again in a few minutes.</p>
+            aws_sdk_route53resolver.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1190,6 +1332,14 @@ class AsyncRoute53ResolverClient:
             firewall_domain_list_id: <p>The ID of the domain list that's used in the rule. </p>
             firewall_threat_protection_id: <p> The ID that is created for a DNS Firewall Advanced rule. </p>
             qtype: <p> The DNS query type that the rule you are deleting evaluates. Allowed values are; </p> <ul> <li> <p> A: Returns an IPv4 address.</p> </li> <li> <p>AAAA: Returns an Ipv6 address.</p> </li> <li> <p>CAA: Restricts CAs that can create SSL/TLS certifications for the domain.</p> </li> <li> <p>CNAME: Returns another domain name.</p> </li> <li> <p>DS: Record that identifies the DNSSEC signing key of a delegated zone.</p> </li> <li> <p>MX: Specifies mail servers.</p> </li> <li> <p>NAPTR: Regular-expression-based rewriting of domain names.</p> </li> <li> <p>NS: Authoritative name servers.</p> </li> <li> <p>PTR: Maps an IP address to a domain name.</p> </li> <li> <p>SOA: Start of authority record for the zone.</p> </li> <li> <p>SPF: Lists the servers authorized to send emails from a domain.</p> </li> <li> <p>SRV: Application specific values that identify servers.</p> </li> <li> <p>TXT: Verifies email senders and application-specific values.</p> </li> <li> <p>A query type you define by using the DNS type ID, for example 28 for AAAA. The values must be defined as TYPENUMBER, where the NUMBER can be 1-65534, for example, TYPE28. For more information, see <a href=\"https://en.wikipedia.org/wiki/List_of_DNS_record_types\">List of DNS record types</a>.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_route53resolver.errors.access_denied_exception.AccessDeniedException: <p>The current account doesn't have the IAM permissions required to perform the specified Resolver operation.</p> <p>This error can also be thrown when a customer has reached the 5120 character limit for a resource policy for CloudWatch Logs.</p>
+            aws_sdk_route53resolver.errors.internal_service_error_exception.InternalServiceErrorException: <p>We encountered an unknown error. Try again in a few minutes.</p>
+            aws_sdk_route53resolver.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource doesn't exist.</p>
+            aws_sdk_route53resolver.errors.throttling_exception.ThrottlingException: <p>The request was throttled. Try again in a few minutes.</p>
+            aws_sdk_route53resolver.errors.validation_exception.ValidationException: <p>You have provided an invalid command. If you ran the <code>UpdateFirewallDomains</code> request. supported values are <code>ADD</code>, <code>REMOVE</code>, or <code>REPLACE</code> a domain.</p>
+            aws_sdk_route53resolver.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1234,6 +1384,15 @@ class AsyncRoute53ResolverClient:
 
         Args:
             firewall_rule_group_id: <p>The unique identifier of the firewall rule group that you want to delete. </p>
+
+        Raises:
+            aws_sdk_route53resolver.errors.access_denied_exception.AccessDeniedException: <p>The current account doesn't have the IAM permissions required to perform the specified Resolver operation.</p> <p>This error can also be thrown when a customer has reached the 5120 character limit for a resource policy for CloudWatch Logs.</p>
+            aws_sdk_route53resolver.errors.conflict_exception.ConflictException: <p>The requested state transition isn't valid. For example, you can't delete a firewall domain list if it is in the process of being deleted, or you can't import domains into a domain list that is in the process of being deleted.</p>
+            aws_sdk_route53resolver.errors.internal_service_error_exception.InternalServiceErrorException: <p>We encountered an unknown error. Try again in a few minutes.</p>
+            aws_sdk_route53resolver.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource doesn't exist.</p>
+            aws_sdk_route53resolver.errors.throttling_exception.ThrottlingException: <p>The request was throttled. Try again in a few minutes.</p>
+            aws_sdk_route53resolver.errors.validation_exception.ValidationException: <p>You have provided an invalid command. If you ran the <code>UpdateFirewallDomains</code> request. supported values are <code>ADD</code>, <code>REMOVE</code>, or <code>REPLACE</code> a domain.</p>
+            aws_sdk_route53resolver.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1272,6 +1431,15 @@ class AsyncRoute53ResolverClient:
 
         Args:
             id: <p>A unique string that identifies the Resolver on the Outpost.</p>
+
+        Raises:
+            aws_sdk_route53resolver.errors.access_denied_exception.AccessDeniedException: <p>The current account doesn't have the IAM permissions required to perform the specified Resolver operation.</p> <p>This error can also be thrown when a customer has reached the 5120 character limit for a resource policy for CloudWatch Logs.</p>
+            aws_sdk_route53resolver.errors.conflict_exception.ConflictException: <p>The requested state transition isn't valid. For example, you can't delete a firewall domain list if it is in the process of being deleted, or you can't import domains into a domain list that is in the process of being deleted.</p>
+            aws_sdk_route53resolver.errors.internal_service_error_exception.InternalServiceErrorException: <p>We encountered an unknown error. Try again in a few minutes.</p>
+            aws_sdk_route53resolver.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource doesn't exist.</p>
+            aws_sdk_route53resolver.errors.throttling_exception.ThrottlingException: <p>The request was throttled. Try again in a few minutes.</p>
+            aws_sdk_route53resolver.errors.validation_exception.ValidationException: <p>You have provided an invalid command. If you ran the <code>UpdateFirewallDomains</code> request. supported values are <code>ADD</code>, <code>REMOVE</code>, or <code>REPLACE</code> a domain.</p>
+            aws_sdk_route53resolver.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1310,6 +1478,14 @@ class AsyncRoute53ResolverClient:
 
         Args:
             resolver_endpoint_id: <p>The ID of the Resolver endpoint that you want to delete.</p>
+
+        Raises:
+            aws_sdk_route53resolver.errors.internal_service_error_exception.InternalServiceErrorException: <p>We encountered an unknown error. Try again in a few minutes.</p>
+            aws_sdk_route53resolver.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters in this request are not valid.</p>
+            aws_sdk_route53resolver.errors.invalid_request_exception.InvalidRequestException: <p>The request is invalid.</p>
+            aws_sdk_route53resolver.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource doesn't exist.</p>
+            aws_sdk_route53resolver.errors.throttling_exception.ThrottlingException: <p>The request was throttled. Try again in a few minutes.</p>
+            aws_sdk_route53resolver.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1348,6 +1524,15 @@ class AsyncRoute53ResolverClient:
 
         Args:
             resolver_query_log_config_id: <p>The ID of the query logging configuration that you want to delete.</p>
+
+        Raises:
+            aws_sdk_route53resolver.errors.access_denied_exception.AccessDeniedException: <p>The current account doesn't have the IAM permissions required to perform the specified Resolver operation.</p> <p>This error can also be thrown when a customer has reached the 5120 character limit for a resource policy for CloudWatch Logs.</p>
+            aws_sdk_route53resolver.errors.internal_service_error_exception.InternalServiceErrorException: <p>We encountered an unknown error. Try again in a few minutes.</p>
+            aws_sdk_route53resolver.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters in this request are not valid.</p>
+            aws_sdk_route53resolver.errors.invalid_request_exception.InvalidRequestException: <p>The request is invalid.</p>
+            aws_sdk_route53resolver.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource doesn't exist.</p>
+            aws_sdk_route53resolver.errors.throttling_exception.ThrottlingException: <p>The request was throttled. Try again in a few minutes.</p>
+            aws_sdk_route53resolver.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1386,6 +1571,15 @@ class AsyncRoute53ResolverClient:
 
         Args:
             resolver_rule_id: <p>The ID of the Resolver rule that you want to delete.</p>
+
+        Raises:
+            aws_sdk_route53resolver.errors.internal_service_error_exception.InternalServiceErrorException: <p>We encountered an unknown error. Try again in a few minutes.</p>
+            aws_sdk_route53resolver.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters in this request are not valid.</p>
+            aws_sdk_route53resolver.errors.invalid_request_exception.InvalidRequestException: <p>The request is invalid.</p>
+            aws_sdk_route53resolver.errors.resource_in_use_exception.ResourceInUseException: <p>The resource that you tried to update or delete is currently in use.</p>
+            aws_sdk_route53resolver.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource doesn't exist.</p>
+            aws_sdk_route53resolver.errors.throttling_exception.ThrottlingException: <p>The request was throttled. Try again in a few minutes.</p>
+            aws_sdk_route53resolver.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1424,6 +1618,15 @@ class AsyncRoute53ResolverClient:
 
         Args:
             firewall_rule_group_association_id: <p>The identifier of the <a>FirewallRuleGroupAssociation</a>. </p>
+
+        Raises:
+            aws_sdk_route53resolver.errors.access_denied_exception.AccessDeniedException: <p>The current account doesn't have the IAM permissions required to perform the specified Resolver operation.</p> <p>This error can also be thrown when a customer has reached the 5120 character limit for a resource policy for CloudWatch Logs.</p>
+            aws_sdk_route53resolver.errors.conflict_exception.ConflictException: <p>The requested state transition isn't valid. For example, you can't delete a firewall domain list if it is in the process of being deleted, or you can't import domains into a domain list that is in the process of being deleted.</p>
+            aws_sdk_route53resolver.errors.internal_service_error_exception.InternalServiceErrorException: <p>We encountered an unknown error. Try again in a few minutes.</p>
+            aws_sdk_route53resolver.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource doesn't exist.</p>
+            aws_sdk_route53resolver.errors.throttling_exception.ThrottlingException: <p>The request was throttled. Try again in a few minutes.</p>
+            aws_sdk_route53resolver.errors.validation_exception.ValidationException: <p>You have provided an invalid command. If you ran the <code>UpdateFirewallDomains</code> request. supported values are <code>ADD</code>, <code>REMOVE</code>, or <code>REPLACE</code> a domain.</p>
+            aws_sdk_route53resolver.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1466,6 +1669,15 @@ class AsyncRoute53ResolverClient:
         Args:
             resolver_endpoint_id: <p>The ID of the Resolver endpoint that you want to disassociate an IP address from.</p>
             ip_address: <p>The IPv4 address that you want to remove from a Resolver endpoint.</p>
+
+        Raises:
+            aws_sdk_route53resolver.errors.internal_service_error_exception.InternalServiceErrorException: <p>We encountered an unknown error. Try again in a few minutes.</p>
+            aws_sdk_route53resolver.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters in this request are not valid.</p>
+            aws_sdk_route53resolver.errors.invalid_request_exception.InvalidRequestException: <p>The request is invalid.</p>
+            aws_sdk_route53resolver.errors.resource_exists_exception.ResourceExistsException: <p>The resource that you tried to create already exists.</p>
+            aws_sdk_route53resolver.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource doesn't exist.</p>
+            aws_sdk_route53resolver.errors.throttling_exception.ThrottlingException: <p>The request was throttled. Try again in a few minutes.</p>
+            aws_sdk_route53resolver.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1507,6 +1719,15 @@ class AsyncRoute53ResolverClient:
         Args:
             resolver_query_log_config_id: <p>The ID of the query logging configuration that you want to disassociate a specified VPC from.</p>
             resource_id: <p>The ID of the Amazon VPC that you want to disassociate from a specified query logging configuration.</p>
+
+        Raises:
+            aws_sdk_route53resolver.errors.access_denied_exception.AccessDeniedException: <p>The current account doesn't have the IAM permissions required to perform the specified Resolver operation.</p> <p>This error can also be thrown when a customer has reached the 5120 character limit for a resource policy for CloudWatch Logs.</p>
+            aws_sdk_route53resolver.errors.internal_service_error_exception.InternalServiceErrorException: <p>We encountered an unknown error. Try again in a few minutes.</p>
+            aws_sdk_route53resolver.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters in this request are not valid.</p>
+            aws_sdk_route53resolver.errors.invalid_request_exception.InvalidRequestException: <p>The request is invalid.</p>
+            aws_sdk_route53resolver.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource doesn't exist.</p>
+            aws_sdk_route53resolver.errors.throttling_exception.ThrottlingException: <p>The request was throttled. Try again in a few minutes.</p>
+            aws_sdk_route53resolver.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1548,6 +1769,14 @@ class AsyncRoute53ResolverClient:
         Args:
             vpc_id: <p>The ID of the VPC that you want to disassociate the Resolver rule from.</p>
             resolver_rule_id: <p>The ID of the Resolver rule that you want to disassociate from the specified VPC.</p>
+
+        Raises:
+            aws_sdk_route53resolver.errors.internal_service_error_exception.InternalServiceErrorException: <p>We encountered an unknown error. Try again in a few minutes.</p>
+            aws_sdk_route53resolver.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters in this request are not valid.</p>
+            aws_sdk_route53resolver.errors.invalid_request_exception.InvalidRequestException: <p>The request is invalid.</p>
+            aws_sdk_route53resolver.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource doesn't exist.</p>
+            aws_sdk_route53resolver.errors.throttling_exception.ThrottlingException: <p>The request was throttled. Try again in a few minutes.</p>
+            aws_sdk_route53resolver.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1587,6 +1816,14 @@ class AsyncRoute53ResolverClient:
 
         Args:
             resource_id: <p>The ID of the VPC from Amazon VPC that the configuration is for.</p>
+
+        Raises:
+            aws_sdk_route53resolver.errors.access_denied_exception.AccessDeniedException: <p>The current account doesn't have the IAM permissions required to perform the specified Resolver operation.</p> <p>This error can also be thrown when a customer has reached the 5120 character limit for a resource policy for CloudWatch Logs.</p>
+            aws_sdk_route53resolver.errors.internal_service_error_exception.InternalServiceErrorException: <p>We encountered an unknown error. Try again in a few minutes.</p>
+            aws_sdk_route53resolver.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource doesn't exist.</p>
+            aws_sdk_route53resolver.errors.throttling_exception.ThrottlingException: <p>The request was throttled. Try again in a few minutes.</p>
+            aws_sdk_route53resolver.errors.validation_exception.ValidationException: <p>You have provided an invalid command. If you ran the <code>UpdateFirewallDomains</code> request. supported values are <code>ADD</code>, <code>REMOVE</code>, or <code>REPLACE</code> a domain.</p>
+            aws_sdk_route53resolver.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1625,6 +1862,13 @@ class AsyncRoute53ResolverClient:
 
         Args:
             firewall_domain_list_id: <p>The ID of the domain list. </p>
+
+        Raises:
+            aws_sdk_route53resolver.errors.access_denied_exception.AccessDeniedException: <p>The current account doesn't have the IAM permissions required to perform the specified Resolver operation.</p> <p>This error can also be thrown when a customer has reached the 5120 character limit for a resource policy for CloudWatch Logs.</p>
+            aws_sdk_route53resolver.errors.internal_service_error_exception.InternalServiceErrorException: <p>We encountered an unknown error. Try again in a few minutes.</p>
+            aws_sdk_route53resolver.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource doesn't exist.</p>
+            aws_sdk_route53resolver.errors.throttling_exception.ThrottlingException: <p>The request was throttled. Try again in a few minutes.</p>
+            aws_sdk_route53resolver.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1663,6 +1907,13 @@ class AsyncRoute53ResolverClient:
 
         Args:
             firewall_rule_group_id: <p>The unique identifier of the firewall rule group. </p>
+
+        Raises:
+            aws_sdk_route53resolver.errors.access_denied_exception.AccessDeniedException: <p>The current account doesn't have the IAM permissions required to perform the specified Resolver operation.</p> <p>This error can also be thrown when a customer has reached the 5120 character limit for a resource policy for CloudWatch Logs.</p>
+            aws_sdk_route53resolver.errors.internal_service_error_exception.InternalServiceErrorException: <p>We encountered an unknown error. Try again in a few minutes.</p>
+            aws_sdk_route53resolver.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource doesn't exist.</p>
+            aws_sdk_route53resolver.errors.throttling_exception.ThrottlingException: <p>The request was throttled. Try again in a few minutes.</p>
+            aws_sdk_route53resolver.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1701,6 +1952,13 @@ class AsyncRoute53ResolverClient:
 
         Args:
             firewall_rule_group_association_id: <p>The identifier of the <a>FirewallRuleGroupAssociation</a>. </p>
+
+        Raises:
+            aws_sdk_route53resolver.errors.access_denied_exception.AccessDeniedException: <p>The current account doesn't have the IAM permissions required to perform the specified Resolver operation.</p> <p>This error can also be thrown when a customer has reached the 5120 character limit for a resource policy for CloudWatch Logs.</p>
+            aws_sdk_route53resolver.errors.internal_service_error_exception.InternalServiceErrorException: <p>We encountered an unknown error. Try again in a few minutes.</p>
+            aws_sdk_route53resolver.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource doesn't exist.</p>
+            aws_sdk_route53resolver.errors.throttling_exception.ThrottlingException: <p>The request was throttled. Try again in a few minutes.</p>
+            aws_sdk_route53resolver.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1741,6 +1999,14 @@ class AsyncRoute53ResolverClient:
 
         Args:
             arn: <p>The ARN (Amazon Resource Name) for the rule group.</p>
+
+        Raises:
+            aws_sdk_route53resolver.errors.access_denied_exception.AccessDeniedException: <p>The current account doesn't have the IAM permissions required to perform the specified Resolver operation.</p> <p>This error can also be thrown when a customer has reached the 5120 character limit for a resource policy for CloudWatch Logs.</p>
+            aws_sdk_route53resolver.errors.internal_service_error_exception.InternalServiceErrorException: <p>We encountered an unknown error. Try again in a few minutes.</p>
+            aws_sdk_route53resolver.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource doesn't exist.</p>
+            aws_sdk_route53resolver.errors.throttling_exception.ThrottlingException: <p>The request was throttled. Try again in a few minutes.</p>
+            aws_sdk_route53resolver.errors.validation_exception.ValidationException: <p>You have provided an invalid command. If you ran the <code>UpdateFirewallDomains</code> request. supported values are <code>ADD</code>, <code>REMOVE</code>, or <code>REPLACE</code> a domain.</p>
+            aws_sdk_route53resolver.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1779,6 +2045,14 @@ class AsyncRoute53ResolverClient:
 
         Args:
             id: <p>The ID of the Resolver on the Outpost.</p>
+
+        Raises:
+            aws_sdk_route53resolver.errors.access_denied_exception.AccessDeniedException: <p>The current account doesn't have the IAM permissions required to perform the specified Resolver operation.</p> <p>This error can also be thrown when a customer has reached the 5120 character limit for a resource policy for CloudWatch Logs.</p>
+            aws_sdk_route53resolver.errors.internal_service_error_exception.InternalServiceErrorException: <p>We encountered an unknown error. Try again in a few minutes.</p>
+            aws_sdk_route53resolver.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource doesn't exist.</p>
+            aws_sdk_route53resolver.errors.throttling_exception.ThrottlingException: <p>The request was throttled. Try again in a few minutes.</p>
+            aws_sdk_route53resolver.errors.validation_exception.ValidationException: <p>You have provided an invalid command. If you ran the <code>UpdateFirewallDomains</code> request. supported values are <code>ADD</code>, <code>REMOVE</code>, or <code>REPLACE</code> a domain.</p>
+            aws_sdk_route53resolver.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1817,6 +2091,15 @@ class AsyncRoute53ResolverClient:
 
         Args:
             resource_id: <p>Resource ID of the Amazon VPC that you want to get information about.</p>
+
+        Raises:
+            aws_sdk_route53resolver.errors.access_denied_exception.AccessDeniedException: <p>The current account doesn't have the IAM permissions required to perform the specified Resolver operation.</p> <p>This error can also be thrown when a customer has reached the 5120 character limit for a resource policy for CloudWatch Logs.</p>
+            aws_sdk_route53resolver.errors.internal_service_error_exception.InternalServiceErrorException: <p>We encountered an unknown error. Try again in a few minutes.</p>
+            aws_sdk_route53resolver.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters in this request are not valid.</p>
+            aws_sdk_route53resolver.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource doesn't exist.</p>
+            aws_sdk_route53resolver.errors.throttling_exception.ThrottlingException: <p>The request was throttled. Try again in a few minutes.</p>
+            aws_sdk_route53resolver.errors.validation_exception.ValidationException: <p>You have provided an invalid command. If you ran the <code>UpdateFirewallDomains</code> request. supported values are <code>ADD</code>, <code>REMOVE</code>, or <code>REPLACE</code> a domain.</p>
+            aws_sdk_route53resolver.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1855,6 +2138,15 @@ class AsyncRoute53ResolverClient:
 
         Args:
             resource_id: <p>The ID of the virtual private cloud (VPC) for the DNSSEC validation status.</p>
+
+        Raises:
+            aws_sdk_route53resolver.errors.access_denied_exception.AccessDeniedException: <p>The current account doesn't have the IAM permissions required to perform the specified Resolver operation.</p> <p>This error can also be thrown when a customer has reached the 5120 character limit for a resource policy for CloudWatch Logs.</p>
+            aws_sdk_route53resolver.errors.internal_service_error_exception.InternalServiceErrorException: <p>We encountered an unknown error. Try again in a few minutes.</p>
+            aws_sdk_route53resolver.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters in this request are not valid.</p>
+            aws_sdk_route53resolver.errors.invalid_request_exception.InvalidRequestException: <p>The request is invalid.</p>
+            aws_sdk_route53resolver.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource doesn't exist.</p>
+            aws_sdk_route53resolver.errors.throttling_exception.ThrottlingException: <p>The request was throttled. Try again in a few minutes.</p>
+            aws_sdk_route53resolver.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1893,6 +2185,13 @@ class AsyncRoute53ResolverClient:
 
         Args:
             resolver_endpoint_id: <p>The ID of the Resolver endpoint that you want to get information about.</p>
+
+        Raises:
+            aws_sdk_route53resolver.errors.internal_service_error_exception.InternalServiceErrorException: <p>We encountered an unknown error. Try again in a few minutes.</p>
+            aws_sdk_route53resolver.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters in this request are not valid.</p>
+            aws_sdk_route53resolver.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource doesn't exist.</p>
+            aws_sdk_route53resolver.errors.throttling_exception.ThrottlingException: <p>The request was throttled. Try again in a few minutes.</p>
+            aws_sdk_route53resolver.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1931,6 +2230,15 @@ class AsyncRoute53ResolverClient:
 
         Args:
             resolver_query_log_config_id: <p>The ID of the Resolver query logging configuration that you want to get information about.</p>
+
+        Raises:
+            aws_sdk_route53resolver.errors.access_denied_exception.AccessDeniedException: <p>The current account doesn't have the IAM permissions required to perform the specified Resolver operation.</p> <p>This error can also be thrown when a customer has reached the 5120 character limit for a resource policy for CloudWatch Logs.</p>
+            aws_sdk_route53resolver.errors.internal_service_error_exception.InternalServiceErrorException: <p>We encountered an unknown error. Try again in a few minutes.</p>
+            aws_sdk_route53resolver.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters in this request are not valid.</p>
+            aws_sdk_route53resolver.errors.invalid_request_exception.InvalidRequestException: <p>The request is invalid.</p>
+            aws_sdk_route53resolver.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource doesn't exist.</p>
+            aws_sdk_route53resolver.errors.throttling_exception.ThrottlingException: <p>The request was throttled. Try again in a few minutes.</p>
+            aws_sdk_route53resolver.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1969,6 +2277,15 @@ class AsyncRoute53ResolverClient:
 
         Args:
             resolver_query_log_config_association_id: <p>The ID of the Resolver query logging configuration association that you want to get information about.</p>
+
+        Raises:
+            aws_sdk_route53resolver.errors.access_denied_exception.AccessDeniedException: <p>The current account doesn't have the IAM permissions required to perform the specified Resolver operation.</p> <p>This error can also be thrown when a customer has reached the 5120 character limit for a resource policy for CloudWatch Logs.</p>
+            aws_sdk_route53resolver.errors.internal_service_error_exception.InternalServiceErrorException: <p>We encountered an unknown error. Try again in a few minutes.</p>
+            aws_sdk_route53resolver.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters in this request are not valid.</p>
+            aws_sdk_route53resolver.errors.invalid_request_exception.InvalidRequestException: <p>The request is invalid.</p>
+            aws_sdk_route53resolver.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource doesn't exist.</p>
+            aws_sdk_route53resolver.errors.throttling_exception.ThrottlingException: <p>The request was throttled. Try again in a few minutes.</p>
+            aws_sdk_route53resolver.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2009,6 +2326,14 @@ class AsyncRoute53ResolverClient:
 
         Args:
             arn: <p>The ARN of the query logging configuration that you want to get the query logging policy for.</p>
+
+        Raises:
+            aws_sdk_route53resolver.errors.access_denied_exception.AccessDeniedException: <p>The current account doesn't have the IAM permissions required to perform the specified Resolver operation.</p> <p>This error can also be thrown when a customer has reached the 5120 character limit for a resource policy for CloudWatch Logs.</p>
+            aws_sdk_route53resolver.errors.internal_service_error_exception.InternalServiceErrorException: <p>We encountered an unknown error. Try again in a few minutes.</p>
+            aws_sdk_route53resolver.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters in this request are not valid.</p>
+            aws_sdk_route53resolver.errors.invalid_request_exception.InvalidRequestException: <p>The request is invalid.</p>
+            aws_sdk_route53resolver.errors.unknown_resource_exception.UnknownResourceException: <p>The specified resource doesn't exist.</p>
+            aws_sdk_route53resolver.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2047,6 +2372,13 @@ class AsyncRoute53ResolverClient:
 
         Args:
             resolver_rule_id: <p>The ID of the Resolver rule that you want to get information about.</p>
+
+        Raises:
+            aws_sdk_route53resolver.errors.internal_service_error_exception.InternalServiceErrorException: <p>We encountered an unknown error. Try again in a few minutes.</p>
+            aws_sdk_route53resolver.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters in this request are not valid.</p>
+            aws_sdk_route53resolver.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource doesn't exist.</p>
+            aws_sdk_route53resolver.errors.throttling_exception.ThrottlingException: <p>The request was throttled. Try again in a few minutes.</p>
+            aws_sdk_route53resolver.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2085,6 +2417,13 @@ class AsyncRoute53ResolverClient:
 
         Args:
             resolver_rule_association_id: <p>The ID of the Resolver rule association that you want to get information about.</p>
+
+        Raises:
+            aws_sdk_route53resolver.errors.internal_service_error_exception.InternalServiceErrorException: <p>We encountered an unknown error. Try again in a few minutes.</p>
+            aws_sdk_route53resolver.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters in this request are not valid.</p>
+            aws_sdk_route53resolver.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource doesn't exist.</p>
+            aws_sdk_route53resolver.errors.throttling_exception.ThrottlingException: <p>The request was throttled. Try again in a few minutes.</p>
+            aws_sdk_route53resolver.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2123,6 +2462,13 @@ class AsyncRoute53ResolverClient:
 
         Args:
             arn: <p>The ID of the Resolver rule that you want to get the Resolver rule policy for.</p>
+
+        Raises:
+            aws_sdk_route53resolver.errors.access_denied_exception.AccessDeniedException: <p>The current account doesn't have the IAM permissions required to perform the specified Resolver operation.</p> <p>This error can also be thrown when a customer has reached the 5120 character limit for a resource policy for CloudWatch Logs.</p>
+            aws_sdk_route53resolver.errors.internal_service_error_exception.InternalServiceErrorException: <p>We encountered an unknown error. Try again in a few minutes.</p>
+            aws_sdk_route53resolver.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters in this request are not valid.</p>
+            aws_sdk_route53resolver.errors.unknown_resource_exception.UnknownResourceException: <p>The specified resource doesn't exist.</p>
+            aws_sdk_route53resolver.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2165,6 +2511,16 @@ class AsyncRoute53ResolverClient:
             firewall_domain_list_id: <p>The ID of the domain list that you want to modify with the import operation.</p>
             operation: <p>What you want DNS Firewall to do with the domains that are listed in the file. This must be set to <code>REPLACE</code>, which updates the domain list to exactly match the list in the file. </p>
             domain_file_url: <p>The fully qualified URL or URI of the file stored in Amazon Simple Storage Service (Amazon S3) that contains the list of domains to import.</p> <p>The file must be in an S3 bucket that's in the same Region as your DNS Firewall. The file must be a text file and must contain a single domain per line.</p>
+
+        Raises:
+            aws_sdk_route53resolver.errors.access_denied_exception.AccessDeniedException: <p>The current account doesn't have the IAM permissions required to perform the specified Resolver operation.</p> <p>This error can also be thrown when a customer has reached the 5120 character limit for a resource policy for CloudWatch Logs.</p>
+            aws_sdk_route53resolver.errors.conflict_exception.ConflictException: <p>The requested state transition isn't valid. For example, you can't delete a firewall domain list if it is in the process of being deleted, or you can't import domains into a domain list that is in the process of being deleted.</p>
+            aws_sdk_route53resolver.errors.internal_service_error_exception.InternalServiceErrorException: <p>We encountered an unknown error. Try again in a few minutes.</p>
+            aws_sdk_route53resolver.errors.limit_exceeded_exception.LimitExceededException: <p>The request caused one or more limits to be exceeded.</p>
+            aws_sdk_route53resolver.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource doesn't exist.</p>
+            aws_sdk_route53resolver.errors.throttling_exception.ThrottlingException: <p>The request was throttled. Try again in a few minutes.</p>
+            aws_sdk_route53resolver.errors.validation_exception.ValidationException: <p>You have provided an invalid command. If you ran the <code>UpdateFirewallDomains</code> request. supported values are <code>ADD</code>, <code>REMOVE</code>, or <code>REPLACE</code> a domain.</p>
+            aws_sdk_route53resolver.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2211,6 +2567,13 @@ class AsyncRoute53ResolverClient:
         Args:
             max_results: <p>The maximum number of objects that you want Resolver to return for this request. If more objects are available, in the response, Resolver provides a <code>NextToken</code> value that you can use in a subsequent call to get the next batch of objects.</p> <p>If you don't specify a value for <code>MaxResults</code>, Resolver returns up to 100 objects. </p>
             next_token: <p>For the first call to this list request, omit this value.</p> <p>When you request a list of objects, Resolver returns at most the number of objects specified in <code>MaxResults</code>. If more objects are available for retrieval, Resolver returns a <code>NextToken</code> value in the response. To retrieve the next batch of objects, use the token that was returned for the prior request in your next request.</p>
+
+        Raises:
+            aws_sdk_route53resolver.errors.access_denied_exception.AccessDeniedException: <p>The current account doesn't have the IAM permissions required to perform the specified Resolver operation.</p> <p>This error can also be thrown when a customer has reached the 5120 character limit for a resource policy for CloudWatch Logs.</p>
+            aws_sdk_route53resolver.errors.internal_service_error_exception.InternalServiceErrorException: <p>We encountered an unknown error. Try again in a few minutes.</p>
+            aws_sdk_route53resolver.errors.throttling_exception.ThrottlingException: <p>The request was throttled. Try again in a few minutes.</p>
+            aws_sdk_route53resolver.errors.validation_exception.ValidationException: <p>You have provided an invalid command. If you ran the <code>UpdateFirewallDomains</code> request. supported values are <code>ADD</code>, <code>REMOVE</code>, or <code>REPLACE</code> a domain.</p>
+            aws_sdk_route53resolver.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2283,6 +2646,13 @@ class AsyncRoute53ResolverClient:
         Args:
             max_results: <p>The maximum number of objects that you want Resolver to return for this request. If more objects are available, in the response, Resolver provides a <code>NextToken</code> value that you can use in a subsequent call to get the next batch of objects.</p> <p>If you don't specify a value for <code>MaxResults</code>, Resolver returns up to 100 objects. </p>
             next_token: <p>For the first call to this list request, omit this value.</p> <p>When you request a list of objects, Resolver returns at most the number of objects specified in <code>MaxResults</code>. If more objects are available for retrieval, Resolver returns a <code>NextToken</code> value in the response. To retrieve the next batch of objects, use the token that was returned for the prior request in your next request.</p>
+
+        Raises:
+            aws_sdk_route53resolver.errors.access_denied_exception.AccessDeniedException: <p>The current account doesn't have the IAM permissions required to perform the specified Resolver operation.</p> <p>This error can also be thrown when a customer has reached the 5120 character limit for a resource policy for CloudWatch Logs.</p>
+            aws_sdk_route53resolver.errors.internal_service_error_exception.InternalServiceErrorException: <p>We encountered an unknown error. Try again in a few minutes.</p>
+            aws_sdk_route53resolver.errors.throttling_exception.ThrottlingException: <p>The request was throttled. Try again in a few minutes.</p>
+            aws_sdk_route53resolver.errors.validation_exception.ValidationException: <p>You have provided an invalid command. If you ran the <code>UpdateFirewallDomains</code> request. supported values are <code>ADD</code>, <code>REMOVE</code>, or <code>REPLACE</code> a domain.</p>
+            aws_sdk_route53resolver.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2357,6 +2727,14 @@ class AsyncRoute53ResolverClient:
             firewall_domain_list_id: <p>The ID of the domain list whose domains you want to retrieve. </p>
             max_results: <p>The maximum number of objects that you want Resolver to return for this request. If more objects are available, in the response, Resolver provides a <code>NextToken</code> value that you can use in a subsequent call to get the next batch of objects.</p> <p>If you don't specify a value for <code>MaxResults</code>, Resolver returns up to 100 objects. </p>
             next_token: <p>For the first call to this list request, omit this value.</p> <p>When you request a list of objects, Resolver returns at most the number of objects specified in <code>MaxResults</code>. If more objects are available for retrieval, Resolver returns a <code>NextToken</code> value in the response. To retrieve the next batch of objects, use the token that was returned for the prior request in your next request.</p>
+
+        Raises:
+            aws_sdk_route53resolver.errors.access_denied_exception.AccessDeniedException: <p>The current account doesn't have the IAM permissions required to perform the specified Resolver operation.</p> <p>This error can also be thrown when a customer has reached the 5120 character limit for a resource policy for CloudWatch Logs.</p>
+            aws_sdk_route53resolver.errors.internal_service_error_exception.InternalServiceErrorException: <p>We encountered an unknown error. Try again in a few minutes.</p>
+            aws_sdk_route53resolver.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource doesn't exist.</p>
+            aws_sdk_route53resolver.errors.throttling_exception.ThrottlingException: <p>The request was throttled. Try again in a few minutes.</p>
+            aws_sdk_route53resolver.errors.validation_exception.ValidationException: <p>You have provided an invalid command. If you ran the <code>UpdateFirewallDomains</code> request. supported values are <code>ADD</code>, <code>REMOVE</code>, or <code>REPLACE</code> a domain.</p>
+            aws_sdk_route53resolver.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2444,6 +2822,13 @@ class AsyncRoute53ResolverClient:
             status: <p>The association <code>Status</code> setting that you want DNS Firewall to filter on for the list. If you don't specify this, then DNS Firewall returns all associations, regardless of status.</p>
             max_results: <p>The maximum number of objects that you want Resolver to return for this request. If more objects are available, in the response, Resolver provides a <code>NextToken</code> value that you can use in a subsequent call to get the next batch of objects.</p> <p>If you don't specify a value for <code>MaxResults</code>, Resolver returns up to 100 objects. </p>
             next_token: <p>For the first call to this list request, omit this value.</p> <p>When you request a list of objects, Resolver returns at most the number of objects specified in <code>MaxResults</code>. If more objects are available for retrieval, Resolver returns a <code>NextToken</code> value in the response. To retrieve the next batch of objects, use the token that was returned for the prior request in your next request.</p>
+
+        Raises:
+            aws_sdk_route53resolver.errors.access_denied_exception.AccessDeniedException: <p>The current account doesn't have the IAM permissions required to perform the specified Resolver operation.</p> <p>This error can also be thrown when a customer has reached the 5120 character limit for a resource policy for CloudWatch Logs.</p>
+            aws_sdk_route53resolver.errors.internal_service_error_exception.InternalServiceErrorException: <p>We encountered an unknown error. Try again in a few minutes.</p>
+            aws_sdk_route53resolver.errors.throttling_exception.ThrottlingException: <p>The request was throttled. Try again in a few minutes.</p>
+            aws_sdk_route53resolver.errors.validation_exception.ValidationException: <p>You have provided an invalid command. If you ran the <code>UpdateFirewallDomains</code> request. supported values are <code>ADD</code>, <code>REMOVE</code>, or <code>REPLACE</code> a domain.</p>
+            aws_sdk_route53resolver.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2536,6 +2921,13 @@ class AsyncRoute53ResolverClient:
         Args:
             max_results: <p>The maximum number of objects that you want Resolver to return for this request. If more objects are available, in the response, Resolver provides a <code>NextToken</code> value that you can use in a subsequent call to get the next batch of objects.</p> <p>If you don't specify a value for <code>MaxResults</code>, Resolver returns up to 100 objects. </p>
             next_token: <p>For the first call to this list request, omit this value.</p> <p>When you request a list of objects, Resolver returns at most the number of objects specified in <code>MaxResults</code>. If more objects are available for retrieval, Resolver returns a <code>NextToken</code> value in the response. To retrieve the next batch of objects, use the token that was returned for the prior request in your next request.</p>
+
+        Raises:
+            aws_sdk_route53resolver.errors.access_denied_exception.AccessDeniedException: <p>The current account doesn't have the IAM permissions required to perform the specified Resolver operation.</p> <p>This error can also be thrown when a customer has reached the 5120 character limit for a resource policy for CloudWatch Logs.</p>
+            aws_sdk_route53resolver.errors.internal_service_error_exception.InternalServiceErrorException: <p>We encountered an unknown error. Try again in a few minutes.</p>
+            aws_sdk_route53resolver.errors.throttling_exception.ThrottlingException: <p>The request was throttled. Try again in a few minutes.</p>
+            aws_sdk_route53resolver.errors.validation_exception.ValidationException: <p>You have provided an invalid command. If you ran the <code>UpdateFirewallDomains</code> request. supported values are <code>ADD</code>, <code>REMOVE</code>, or <code>REPLACE</code> a domain.</p>
+            aws_sdk_route53resolver.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2614,6 +3006,14 @@ class AsyncRoute53ResolverClient:
             action: <p>Optional additional filter for the rules to retrieve.</p> <p>The action that DNS Firewall should take on a DNS query when it matches one of the domains in the rule's domain list, or a threat in a DNS Firewall Advanced rule:</p> <ul> <li> <p> <code>ALLOW</code> - Permit the request to go through. Not availabe for DNS Firewall Advanced rules.</p> </li> <li> <p> <code>ALERT</code> - Permit the request to go through but send an alert to the logs.</p> </li> <li> <p> <code>BLOCK</code> - Disallow the request. If this is specified, additional handling details are provided in the rule's <code>BlockResponse</code> setting. </p> </li> </ul>
             max_results: <p>The maximum number of objects that you want Resolver to return for this request. If more objects are available, in the response, Resolver provides a <code>NextToken</code> value that you can use in a subsequent call to get the next batch of objects.</p> <p>If you don't specify a value for <code>MaxResults</code>, Resolver returns up to 100 objects. </p>
             next_token: <p>For the first call to this list request, omit this value.</p> <p>When you request a list of objects, Resolver returns at most the number of objects specified in <code>MaxResults</code>. If more objects are available for retrieval, Resolver returns a <code>NextToken</code> value in the response. To retrieve the next batch of objects, use the token that was returned for the prior request in your next request.</p>
+
+        Raises:
+            aws_sdk_route53resolver.errors.access_denied_exception.AccessDeniedException: <p>The current account doesn't have the IAM permissions required to perform the specified Resolver operation.</p> <p>This error can also be thrown when a customer has reached the 5120 character limit for a resource policy for CloudWatch Logs.</p>
+            aws_sdk_route53resolver.errors.internal_service_error_exception.InternalServiceErrorException: <p>We encountered an unknown error. Try again in a few minutes.</p>
+            aws_sdk_route53resolver.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource doesn't exist.</p>
+            aws_sdk_route53resolver.errors.throttling_exception.ThrottlingException: <p>The request was throttled. Try again in a few minutes.</p>
+            aws_sdk_route53resolver.errors.validation_exception.ValidationException: <p>You have provided an invalid command. If you ran the <code>UpdateFirewallDomains</code> request. supported values are <code>ADD</code>, <code>REMOVE</code>, or <code>REPLACE</code> a domain.</p>
+            aws_sdk_route53resolver.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2701,6 +3101,13 @@ class AsyncRoute53ResolverClient:
             rule_type: <p>The rule type to filter by. If specified, only rule types matching this value are returned.</p>
             max_results: <p>The maximum number of objects that you want Resolver to return for this request. If more objects are available, in the response, Resolver provides a <code>NextToken</code> value that you can use in a subsequent call to get the next batch of objects.</p>
             next_token: <p>For the first call to this list request, omit this value. When you request a list of objects, Resolver returns at most the number of objects specified in <code>MaxResults</code>. If more objects are available for retrieval, Resolver provides a <code>NextToken</code> value in the response. To retrieve the next batch of objects, use the token that was returned for the prior request in your next request.</p>
+
+        Raises:
+            aws_sdk_route53resolver.errors.access_denied_exception.AccessDeniedException: <p>The current account doesn't have the IAM permissions required to perform the specified Resolver operation.</p> <p>This error can also be thrown when a customer has reached the 5120 character limit for a resource policy for CloudWatch Logs.</p>
+            aws_sdk_route53resolver.errors.internal_service_error_exception.InternalServiceErrorException: <p>We encountered an unknown error. Try again in a few minutes.</p>
+            aws_sdk_route53resolver.errors.throttling_exception.ThrottlingException: <p>The request was throttled. Try again in a few minutes.</p>
+            aws_sdk_route53resolver.errors.validation_exception.ValidationException: <p>You have provided an invalid command. If you ran the <code>UpdateFirewallDomains</code> request. supported values are <code>ADD</code>, <code>REMOVE</code>, or <code>REPLACE</code> a domain.</p>
+            aws_sdk_route53resolver.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2783,6 +3190,14 @@ class AsyncRoute53ResolverClient:
             outpost_arn: <p>The Amazon Resource Name (ARN) of the Outpost.</p>
             max_results: <p>The maximum number of Resolvers on the Outpost that you want to return in the response to a <code>ListOutpostResolver</code> request. If you don't specify a value for <code>MaxResults</code>, the request returns up to 100 Resolvers.</p>
             next_token: <p>For the first <code>ListOutpostResolver</code> request, omit this value.</p> <p></p>
+
+        Raises:
+            aws_sdk_route53resolver.errors.access_denied_exception.AccessDeniedException: <p>The current account doesn't have the IAM permissions required to perform the specified Resolver operation.</p> <p>This error can also be thrown when a customer has reached the 5120 character limit for a resource policy for CloudWatch Logs.</p>
+            aws_sdk_route53resolver.errors.internal_service_error_exception.InternalServiceErrorException: <p>We encountered an unknown error. Try again in a few minutes.</p>
+            aws_sdk_route53resolver.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource doesn't exist.</p>
+            aws_sdk_route53resolver.errors.throttling_exception.ThrottlingException: <p>The request was throttled. Try again in a few minutes.</p>
+            aws_sdk_route53resolver.errors.validation_exception.ValidationException: <p>You have provided an invalid command. If you ran the <code>UpdateFirewallDomains</code> request. supported values are <code>ADD</code>, <code>REMOVE</code>, or <code>REPLACE</code> a domain.</p>
+            aws_sdk_route53resolver.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2863,6 +3278,16 @@ class AsyncRoute53ResolverClient:
         Args:
             max_results: <p>The maximum number of Resolver configurations that you want to return in the response to a <code>ListResolverConfigs</code> request. If you don't specify a value for <code>MaxResults</code>, up to 100 Resolver configurations are returned.</p>
             next_token: <p>(Optional) If the current Amazon Web Services account has more than <code>MaxResults</code> Resolver configurations, use <code>NextToken</code> to get the second and subsequent pages of results.</p> <p>For the first <code>ListResolverConfigs</code> request, omit this value.</p> <p>For the second and subsequent requests, get the value of <code>NextToken</code> from the previous response and specify that value for <code>NextToken</code> in the request.</p>
+
+        Raises:
+            aws_sdk_route53resolver.errors.access_denied_exception.AccessDeniedException: <p>The current account doesn't have the IAM permissions required to perform the specified Resolver operation.</p> <p>This error can also be thrown when a customer has reached the 5120 character limit for a resource policy for CloudWatch Logs.</p>
+            aws_sdk_route53resolver.errors.internal_service_error_exception.InternalServiceErrorException: <p>We encountered an unknown error. Try again in a few minutes.</p>
+            aws_sdk_route53resolver.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The value that you specified for <code>NextToken</code> in a <code>List</code> request isn't valid.</p>
+            aws_sdk_route53resolver.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters in this request are not valid.</p>
+            aws_sdk_route53resolver.errors.invalid_request_exception.InvalidRequestException: <p>The request is invalid.</p>
+            aws_sdk_route53resolver.errors.throttling_exception.ThrottlingException: <p>The request was throttled. Try again in a few minutes.</p>
+            aws_sdk_route53resolver.errors.validation_exception.ValidationException: <p>You have provided an invalid command. If you ran the <code>UpdateFirewallDomains</code> request. supported values are <code>ADD</code>, <code>REMOVE</code>, or <code>REPLACE</code> a domain.</p>
+            aws_sdk_route53resolver.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2937,6 +3362,15 @@ class AsyncRoute53ResolverClient:
             max_results: <p> <i>Optional</i>: An integer that specifies the maximum number of DNSSEC configuration results that you want Amazon Route 53 to return. If you don't specify a value for <code>MaxResults</code>, Route 53 returns up to 100 configuration per page.</p>
             next_token: <p>(Optional) If the current Amazon Web Services account has more than <code>MaxResults</code> DNSSEC configurations, use <code>NextToken</code> to get the second and subsequent pages of results.</p> <p>For the first <code>ListResolverDnssecConfigs</code> request, omit this value.</p> <p>For the second and subsequent requests, get the value of <code>NextToken</code> from the previous response and specify that value for <code>NextToken</code> in the request.</p>
             filters: <p>An optional specification to return a subset of objects.</p>
+
+        Raises:
+            aws_sdk_route53resolver.errors.access_denied_exception.AccessDeniedException: <p>The current account doesn't have the IAM permissions required to perform the specified Resolver operation.</p> <p>This error can also be thrown when a customer has reached the 5120 character limit for a resource policy for CloudWatch Logs.</p>
+            aws_sdk_route53resolver.errors.internal_service_error_exception.InternalServiceErrorException: <p>We encountered an unknown error. Try again in a few minutes.</p>
+            aws_sdk_route53resolver.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The value that you specified for <code>NextToken</code> in a <code>List</code> request isn't valid.</p>
+            aws_sdk_route53resolver.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters in this request are not valid.</p>
+            aws_sdk_route53resolver.errors.invalid_request_exception.InvalidRequestException: <p>The request is invalid.</p>
+            aws_sdk_route53resolver.errors.throttling_exception.ThrottlingException: <p>The request was throttled. Try again in a few minutes.</p>
+            aws_sdk_route53resolver.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3015,6 +3449,14 @@ class AsyncRoute53ResolverClient:
             resolver_endpoint_id: <p>The ID of the Resolver endpoint that you want to get IP addresses for.</p>
             max_results: <p>The maximum number of IP addresses that you want to return in the response to a <code>ListResolverEndpointIpAddresses</code> request. If you don't specify a value for <code>MaxResults</code>, Resolver returns up to 100 IP addresses. </p>
             next_token: <p>For the first <code>ListResolverEndpointIpAddresses</code> request, omit this value.</p> <p>If the specified Resolver endpoint has more than <code>MaxResults</code> IP addresses, you can submit another <code>ListResolverEndpointIpAddresses</code> request to get the next group of IP addresses. In the next request, specify the value of <code>NextToken</code> from the previous response. </p>
+
+        Raises:
+            aws_sdk_route53resolver.errors.internal_service_error_exception.InternalServiceErrorException: <p>We encountered an unknown error. Try again in a few minutes.</p>
+            aws_sdk_route53resolver.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The value that you specified for <code>NextToken</code> in a <code>List</code> request isn't valid.</p>
+            aws_sdk_route53resolver.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters in this request are not valid.</p>
+            aws_sdk_route53resolver.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource doesn't exist.</p>
+            aws_sdk_route53resolver.errors.throttling_exception.ThrottlingException: <p>The request was throttled. Try again in a few minutes.</p>
+            aws_sdk_route53resolver.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3092,6 +3534,14 @@ class AsyncRoute53ResolverClient:
             max_results: <p>The maximum number of Resolver endpoints that you want to return in the response to a <code>ListResolverEndpoints</code> request. If you don't specify a value for <code>MaxResults</code>, Resolver returns up to 100 Resolver endpoints. </p>
             next_token: <p>For the first <code>ListResolverEndpoints</code> request, omit this value.</p> <p>If you have more than <code>MaxResults</code> Resolver endpoints, you can submit another <code>ListResolverEndpoints</code> request to get the next group of Resolver endpoints. In the next request, specify the value of <code>NextToken</code> from the previous response. </p>
             filters: <p>An optional specification to return a subset of Resolver endpoints, such as all inbound Resolver endpoints.</p> <note> <p>If you submit a second or subsequent <code>ListResolverEndpoints</code> request and specify the <code>NextToken</code> parameter, you must use the same values for <code>Filters</code>, if any, as in the previous request.</p> </note>
+
+        Raises:
+            aws_sdk_route53resolver.errors.internal_service_error_exception.InternalServiceErrorException: <p>We encountered an unknown error. Try again in a few minutes.</p>
+            aws_sdk_route53resolver.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The value that you specified for <code>NextToken</code> in a <code>List</code> request isn't valid.</p>
+            aws_sdk_route53resolver.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters in this request are not valid.</p>
+            aws_sdk_route53resolver.errors.invalid_request_exception.InvalidRequestException: <p>The request is invalid.</p>
+            aws_sdk_route53resolver.errors.throttling_exception.ThrottlingException: <p>The request was throttled. Try again in a few minutes.</p>
+            aws_sdk_route53resolver.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3176,6 +3626,15 @@ class AsyncRoute53ResolverClient:
             filters: <p>An optional specification to return a subset of query logging associations.</p> <note> <p>If you submit a second or subsequent <code>ListResolverQueryLogConfigAssociations</code> request and specify the <code>NextToken</code> parameter, you must use the same values for <code>Filters</code>, if any, as in the previous request.</p> </note>
             sort_by: <p>The element that you want Resolver to sort query logging associations by. </p> <note> <p>If you submit a second or subsequent <code>ListResolverQueryLogConfigAssociations</code> request and specify the <code>NextToken</code> parameter, you must use the same value for <code>SortBy</code>, if any, as in the previous request.</p> </note> <p>Valid values include the following elements:</p> <ul> <li> <p> <code>CreationTime</code>: The ID of the query logging association.</p> </li> <li> <p> <code>Error</code>: If the value of <code>Status</code> is <code>FAILED</code>, the value of <code>Error</code> indicates the cause: </p> <ul> <li> <p> <code>DESTINATION_NOT_FOUND</code>: The specified destination (for example, an Amazon S3 bucket) was deleted.</p> </li> <li> <p> <code>ACCESS_DENIED</code>: Permissions don't allow sending logs to the destination.</p> </li> </ul> <p>If <code>Status</code> is a value other than <code>FAILED</code>, <code>ERROR</code> is null.</p> </li> <li> <p> <code>Id</code>: The ID of the query logging association</p> </li> <li> <p> <code>ResolverQueryLogConfigId</code>: The ID of the query logging configuration</p> </li> <li> <p> <code>ResourceId</code>: The ID of the VPC that is associated with the query logging configuration</p> </li> <li> <p> <code>Status</code>: The current status of the configuration. Valid values include the following:</p> <ul> <li> <p> <code>CREATING</code>: Resolver is creating an association between an Amazon VPC and a query logging configuration.</p> </li> <li> <p> <code>CREATED</code>: The association between an Amazon VPC and a query logging configuration was successfully created. Resolver is logging queries that originate in the specified VPC.</p> </li> <li> <p> <code>DELETING</code>: Resolver is deleting this query logging association.</p> </li> <li> <p> <code>FAILED</code>: Resolver either couldn't create or couldn't delete the query logging association. Here are two common causes:</p> <ul> <li> <p>The specified destination (for example, an Amazon S3 bucket) was deleted.</p> </li> <li> <p>Permissions don't allow sending logs to the destination.</p> </li> </ul> </li> </ul> </li> </ul>
             sort_order: <p>If you specified a value for <code>SortBy</code>, the order that you want query logging associations to be listed in, <code>ASCENDING</code> or <code>DESCENDING</code>.</p> <note> <p>If you submit a second or subsequent <code>ListResolverQueryLogConfigAssociations</code> request and specify the <code>NextToken</code> parameter, you must use the same value for <code>SortOrder</code>, if any, as in the previous request.</p> </note>
+
+        Raises:
+            aws_sdk_route53resolver.errors.access_denied_exception.AccessDeniedException: <p>The current account doesn't have the IAM permissions required to perform the specified Resolver operation.</p> <p>This error can also be thrown when a customer has reached the 5120 character limit for a resource policy for CloudWatch Logs.</p>
+            aws_sdk_route53resolver.errors.internal_service_error_exception.InternalServiceErrorException: <p>We encountered an unknown error. Try again in a few minutes.</p>
+            aws_sdk_route53resolver.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters in this request are not valid.</p>
+            aws_sdk_route53resolver.errors.invalid_request_exception.InvalidRequestException: <p>The request is invalid.</p>
+            aws_sdk_route53resolver.errors.limit_exceeded_exception.LimitExceededException: <p>The request caused one or more limits to be exceeded.</p>
+            aws_sdk_route53resolver.errors.throttling_exception.ThrottlingException: <p>The request was throttled. Try again in a few minutes.</p>
+            aws_sdk_route53resolver.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3272,6 +3731,15 @@ class AsyncRoute53ResolverClient:
             filters: <p>An optional specification to return a subset of query logging configurations.</p> <note> <p>If you submit a second or subsequent <code>ListResolverQueryLogConfigs</code> request and specify the <code>NextToken</code> parameter, you must use the same values for <code>Filters</code>, if any, as in the previous request.</p> </note>
             sort_by: <p>The element that you want Resolver to sort query logging configurations by. </p> <note> <p>If you submit a second or subsequent <code>ListResolverQueryLogConfigs</code> request and specify the <code>NextToken</code> parameter, you must use the same value for <code>SortBy</code>, if any, as in the previous request.</p> </note> <p>Valid values include the following elements:</p> <ul> <li> <p> <code>Arn</code>: The ARN of the query logging configuration</p> </li> <li> <p> <code>AssociationCount</code>: The number of VPCs that are associated with the specified configuration </p> </li> <li> <p> <code>CreationTime</code>: The date and time that Resolver returned when the configuration was created</p> </li> <li> <p> <code>CreatorRequestId</code>: The value that was specified for <code>CreatorRequestId</code> when the configuration was created</p> </li> <li> <p> <code>DestinationArn</code>: The location that logs are sent to</p> </li> <li> <p> <code>Id</code>: The ID of the configuration</p> </li> <li> <p> <code>Name</code>: The name of the configuration</p> </li> <li> <p> <code>OwnerId</code>: The Amazon Web Services account number of the account that created the configuration</p> </li> <li> <p> <code>ShareStatus</code>: Whether the configuration is shared with other Amazon Web Services accounts or shared with the current account by another Amazon Web Services account. Sharing is configured through Resource Access Manager (RAM).</p> </li> <li> <p> <code>Status</code>: The current status of the configuration. Valid values include the following:</p> <ul> <li> <p> <code>CREATING</code>: Resolver is creating the query logging configuration.</p> </li> <li> <p> <code>CREATED</code>: The query logging configuration was successfully created. Resolver is logging queries that originate in the specified VPC.</p> </li> <li> <p> <code>DELETING</code>: Resolver is deleting this query logging configuration.</p> </li> <li> <p> <code>FAILED</code>: Resolver either couldn't create or couldn't delete the query logging configuration. Here are two common causes:</p> <ul> <li> <p>The specified destination (for example, an Amazon S3 bucket) was deleted.</p> </li> <li> <p>Permissions don't allow sending logs to the destination.</p> </li> </ul> </li> </ul> </li> </ul>
             sort_order: <p>If you specified a value for <code>SortBy</code>, the order that you want query logging configurations to be listed in, <code>ASCENDING</code> or <code>DESCENDING</code>.</p> <note> <p>If you submit a second or subsequent <code>ListResolverQueryLogConfigs</code> request and specify the <code>NextToken</code> parameter, you must use the same value for <code>SortOrder</code>, if any, as in the previous request.</p> </note>
+
+        Raises:
+            aws_sdk_route53resolver.errors.access_denied_exception.AccessDeniedException: <p>The current account doesn't have the IAM permissions required to perform the specified Resolver operation.</p> <p>This error can also be thrown when a customer has reached the 5120 character limit for a resource policy for CloudWatch Logs.</p>
+            aws_sdk_route53resolver.errors.internal_service_error_exception.InternalServiceErrorException: <p>We encountered an unknown error. Try again in a few minutes.</p>
+            aws_sdk_route53resolver.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The value that you specified for <code>NextToken</code> in a <code>List</code> request isn't valid.</p>
+            aws_sdk_route53resolver.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters in this request are not valid.</p>
+            aws_sdk_route53resolver.errors.invalid_request_exception.InvalidRequestException: <p>The request is invalid.</p>
+            aws_sdk_route53resolver.errors.throttling_exception.ThrottlingException: <p>The request was throttled. Try again in a few minutes.</p>
+            aws_sdk_route53resolver.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3360,6 +3828,14 @@ class AsyncRoute53ResolverClient:
             max_results: <p>The maximum number of rule associations that you want to return in the response to a <code>ListResolverRuleAssociations</code> request. If you don't specify a value for <code>MaxResults</code>, Resolver returns up to 100 rule associations. </p>
             next_token: <p>For the first <code>ListResolverRuleAssociation</code> request, omit this value.</p> <p>If you have more than <code>MaxResults</code> rule associations, you can submit another <code>ListResolverRuleAssociation</code> request to get the next group of rule associations. In the next request, specify the value of <code>NextToken</code> from the previous response. </p>
             filters: <p>An optional specification to return a subset of Resolver rules, such as Resolver rules that are associated with the same VPC ID.</p> <note> <p>If you submit a second or subsequent <code>ListResolverRuleAssociations</code> request and specify the <code>NextToken</code> parameter, you must use the same values for <code>Filters</code>, if any, as in the previous request.</p> </note>
+
+        Raises:
+            aws_sdk_route53resolver.errors.internal_service_error_exception.InternalServiceErrorException: <p>We encountered an unknown error. Try again in a few minutes.</p>
+            aws_sdk_route53resolver.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The value that you specified for <code>NextToken</code> in a <code>List</code> request isn't valid.</p>
+            aws_sdk_route53resolver.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters in this request are not valid.</p>
+            aws_sdk_route53resolver.errors.invalid_request_exception.InvalidRequestException: <p>The request is invalid.</p>
+            aws_sdk_route53resolver.errors.throttling_exception.ThrottlingException: <p>The request was throttled. Try again in a few minutes.</p>
+            aws_sdk_route53resolver.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3438,6 +3914,14 @@ class AsyncRoute53ResolverClient:
             max_results: <p>The maximum number of Resolver rules that you want to return in the response to a <code>ListResolverRules</code> request. If you don't specify a value for <code>MaxResults</code>, Resolver returns up to 100 Resolver rules.</p>
             next_token: <p>For the first <code>ListResolverRules</code> request, omit this value.</p> <p>If you have more than <code>MaxResults</code> Resolver rules, you can submit another <code>ListResolverRules</code> request to get the next group of Resolver rules. In the next request, specify the value of <code>NextToken</code> from the previous response. </p>
             filters: <p>An optional specification to return a subset of Resolver rules, such as all Resolver rules that are associated with the same Resolver endpoint.</p> <note> <p>If you submit a second or subsequent <code>ListResolverRules</code> request and specify the <code>NextToken</code> parameter, you must use the same values for <code>Filters</code>, if any, as in the previous request.</p> </note>
+
+        Raises:
+            aws_sdk_route53resolver.errors.internal_service_error_exception.InternalServiceErrorException: <p>We encountered an unknown error. Try again in a few minutes.</p>
+            aws_sdk_route53resolver.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The value that you specified for <code>NextToken</code> in a <code>List</code> request isn't valid.</p>
+            aws_sdk_route53resolver.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters in this request are not valid.</p>
+            aws_sdk_route53resolver.errors.invalid_request_exception.InvalidRequestException: <p>The request is invalid.</p>
+            aws_sdk_route53resolver.errors.throttling_exception.ThrottlingException: <p>The request was throttled. Try again in a few minutes.</p>
+            aws_sdk_route53resolver.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3516,6 +4000,15 @@ class AsyncRoute53ResolverClient:
             resource_arn: <p>The Amazon Resource Name (ARN) for the resource that you want to list tags for.</p>
             max_results: <p>The maximum number of tags that you want to return in the response to a <code>ListTagsForResource</code> request. If you don't specify a value for <code>MaxResults</code>, Resolver returns up to 100 tags.</p>
             next_token: <p>For the first <code>ListTagsForResource</code> request, omit this value.</p> <p>If you have more than <code>MaxResults</code> tags, you can submit another <code>ListTagsForResource</code> request to get the next group of tags for the resource. In the next request, specify the value of <code>NextToken</code> from the previous response. </p>
+
+        Raises:
+            aws_sdk_route53resolver.errors.internal_service_error_exception.InternalServiceErrorException: <p>We encountered an unknown error. Try again in a few minutes.</p>
+            aws_sdk_route53resolver.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The value that you specified for <code>NextToken</code> in a <code>List</code> request isn't valid.</p>
+            aws_sdk_route53resolver.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters in this request are not valid.</p>
+            aws_sdk_route53resolver.errors.invalid_request_exception.InvalidRequestException: <p>The request is invalid.</p>
+            aws_sdk_route53resolver.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource doesn't exist.</p>
+            aws_sdk_route53resolver.errors.throttling_exception.ThrottlingException: <p>The request was throttled. Try again in a few minutes.</p>
+            aws_sdk_route53resolver.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3587,6 +4080,14 @@ class AsyncRoute53ResolverClient:
         Args:
             arn: <p>The ARN (Amazon Resource Name) for the rule group that you want to share.</p>
             firewall_rule_group_policy: <p>The Identity and Access Management (Amazon Web Services IAM) policy to attach to the rule group.</p>
+
+        Raises:
+            aws_sdk_route53resolver.errors.access_denied_exception.AccessDeniedException: <p>The current account doesn't have the IAM permissions required to perform the specified Resolver operation.</p> <p>This error can also be thrown when a customer has reached the 5120 character limit for a resource policy for CloudWatch Logs.</p>
+            aws_sdk_route53resolver.errors.internal_service_error_exception.InternalServiceErrorException: <p>We encountered an unknown error. Try again in a few minutes.</p>
+            aws_sdk_route53resolver.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource doesn't exist.</p>
+            aws_sdk_route53resolver.errors.throttling_exception.ThrottlingException: <p>The request was throttled. Try again in a few minutes.</p>
+            aws_sdk_route53resolver.errors.validation_exception.ValidationException: <p>You have provided an invalid command. If you ran the <code>UpdateFirewallDomains</code> request. supported values are <code>ADD</code>, <code>REMOVE</code>, or <code>REPLACE</code> a domain.</p>
+            aws_sdk_route53resolver.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3628,6 +4129,15 @@ class AsyncRoute53ResolverClient:
         Args:
             arn: <p>The Amazon Resource Name (ARN) of the account that you want to share rules with.</p>
             resolver_query_log_config_policy: <p>An Identity and Access Management policy statement that lists the query logging configurations that you want to share with another Amazon Web Services account and the operations that you want the account to be able to perform. You can specify the following operations in the <code>Actions</code> section of the statement:</p> <ul> <li> <p> <code>route53resolver:AssociateResolverQueryLogConfig</code> </p> </li> <li> <p> <code>route53resolver:DisassociateResolverQueryLogConfig</code> </p> </li> <li> <p> <code>route53resolver:ListResolverQueryLogConfigs</code> </p> </li> </ul> <p>In the <code>Resource</code> section of the statement, you specify the ARNs for the query logging configurations that you want to share with the account that you specified in <code>Arn</code>. </p>
+
+        Raises:
+            aws_sdk_route53resolver.errors.access_denied_exception.AccessDeniedException: <p>The current account doesn't have the IAM permissions required to perform the specified Resolver operation.</p> <p>This error can also be thrown when a customer has reached the 5120 character limit for a resource policy for CloudWatch Logs.</p>
+            aws_sdk_route53resolver.errors.internal_service_error_exception.InternalServiceErrorException: <p>We encountered an unknown error. Try again in a few minutes.</p>
+            aws_sdk_route53resolver.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters in this request are not valid.</p>
+            aws_sdk_route53resolver.errors.invalid_policy_document.InvalidPolicyDocument: <p>The specified Resolver rule policy is invalid.</p>
+            aws_sdk_route53resolver.errors.invalid_request_exception.InvalidRequestException: <p>The request is invalid.</p>
+            aws_sdk_route53resolver.errors.unknown_resource_exception.UnknownResourceException: <p>The specified resource doesn't exist.</p>
+            aws_sdk_route53resolver.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3669,6 +4179,14 @@ class AsyncRoute53ResolverClient:
         Args:
             arn: <p>The Amazon Resource Name (ARN) of the rule that you want to share with another account.</p>
             resolver_rule_policy: <p>An Identity and Access Management policy statement that lists the rules that you want to share with another Amazon Web Services account and the operations that you want the account to be able to perform. You can specify the following operations in the <code>Action</code> section of the statement:</p> <ul> <li> <p> <code>route53resolver:GetResolverRule</code> </p> </li> <li> <p> <code>route53resolver:AssociateResolverRule</code> </p> </li> <li> <p> <code>route53resolver:DisassociateResolverRule</code> </p> </li> <li> <p> <code>route53resolver:ListResolverRules</code> </p> </li> <li> <p> <code>route53resolver:ListResolverRuleAssociations</code> </p> </li> </ul> <p>In the <code>Resource</code> section of the statement, specify the ARN for the rule that you want to share with another account. Specify the same ARN that you specified in <code>Arn</code>.</p>
+
+        Raises:
+            aws_sdk_route53resolver.errors.access_denied_exception.AccessDeniedException: <p>The current account doesn't have the IAM permissions required to perform the specified Resolver operation.</p> <p>This error can also be thrown when a customer has reached the 5120 character limit for a resource policy for CloudWatch Logs.</p>
+            aws_sdk_route53resolver.errors.internal_service_error_exception.InternalServiceErrorException: <p>We encountered an unknown error. Try again in a few minutes.</p>
+            aws_sdk_route53resolver.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters in this request are not valid.</p>
+            aws_sdk_route53resolver.errors.invalid_policy_document.InvalidPolicyDocument: <p>The specified Resolver rule policy is invalid.</p>
+            aws_sdk_route53resolver.errors.unknown_resource_exception.UnknownResourceException: <p>The specified resource doesn't exist.</p>
+            aws_sdk_route53resolver.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3710,6 +4228,16 @@ class AsyncRoute53ResolverClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) for the resource that you want to add tags to. To get the ARN for a resource, use the applicable <code>Get</code> or <code>List</code> command: </p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_GetResolverEndpoint.html\">GetResolverEndpoint</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_GetResolverRule.html\">GetResolverRule</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_GetResolverRuleAssociation.html\">GetResolverRuleAssociation</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_ListResolverEndpoints.html\">ListResolverEndpoints</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_ListResolverRuleAssociations.html\">ListResolverRuleAssociations</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_ListResolverRules.html\">ListResolverRules</a> </p> </li> </ul>
             tags: <p>The tags that you want to add to the specified resource.</p>
+
+        Raises:
+            aws_sdk_route53resolver.errors.internal_service_error_exception.InternalServiceErrorException: <p>We encountered an unknown error. Try again in a few minutes.</p>
+            aws_sdk_route53resolver.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters in this request are not valid.</p>
+            aws_sdk_route53resolver.errors.invalid_request_exception.InvalidRequestException: <p>The request is invalid.</p>
+            aws_sdk_route53resolver.errors.invalid_tag_exception.InvalidTagException: <p>The specified tag is invalid.</p>
+            aws_sdk_route53resolver.errors.limit_exceeded_exception.LimitExceededException: <p>The request caused one or more limits to be exceeded.</p>
+            aws_sdk_route53resolver.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource doesn't exist.</p>
+            aws_sdk_route53resolver.errors.throttling_exception.ThrottlingException: <p>The request was throttled. Try again in a few minutes.</p>
+            aws_sdk_route53resolver.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3751,6 +4279,14 @@ class AsyncRoute53ResolverClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) for the resource that you want to remove tags from. To get the ARN for a resource, use the applicable <code>Get</code> or <code>List</code> command: </p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_GetResolverEndpoint.html\">GetResolverEndpoint</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_GetResolverRule.html\">GetResolverRule</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_GetResolverRuleAssociation.html\">GetResolverRuleAssociation</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_ListResolverEndpoints.html\">ListResolverEndpoints</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_ListResolverRuleAssociations.html\">ListResolverRuleAssociations</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_ListResolverRules.html\">ListResolverRules</a> </p> </li> </ul>
             tag_keys: <p>The tags that you want to remove to the specified resource.</p>
+
+        Raises:
+            aws_sdk_route53resolver.errors.internal_service_error_exception.InternalServiceErrorException: <p>We encountered an unknown error. Try again in a few minutes.</p>
+            aws_sdk_route53resolver.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters in this request are not valid.</p>
+            aws_sdk_route53resolver.errors.invalid_request_exception.InvalidRequestException: <p>The request is invalid.</p>
+            aws_sdk_route53resolver.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource doesn't exist.</p>
+            aws_sdk_route53resolver.errors.throttling_exception.ThrottlingException: <p>The request was throttled. Try again in a few minutes.</p>
+            aws_sdk_route53resolver.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3792,6 +4328,14 @@ class AsyncRoute53ResolverClient:
         Args:
             resource_id: <p>The ID of the VPC that the configuration is for.</p>
             firewall_fail_open: <p>Determines how Route 53 Resolver handles queries during failures, for example when all traffic that is sent to DNS Firewall fails to receive a reply. </p> <ul> <li> <p>By default, fail open is disabled, which means the failure mode is closed. This approach favors security over availability. DNS Firewall blocks queries that it is unable to evaluate properly. </p> </li> <li> <p>If you enable this option, the failure mode is open. This approach favors availability over security. DNS Firewall allows queries to proceed if it is unable to properly evaluate them. </p> </li> </ul> <p>This behavior is only enforced for VPCs that have at least one DNS Firewall rule group association. </p>
+
+        Raises:
+            aws_sdk_route53resolver.errors.access_denied_exception.AccessDeniedException: <p>The current account doesn't have the IAM permissions required to perform the specified Resolver operation.</p> <p>This error can also be thrown when a customer has reached the 5120 character limit for a resource policy for CloudWatch Logs.</p>
+            aws_sdk_route53resolver.errors.internal_service_error_exception.InternalServiceErrorException: <p>We encountered an unknown error. Try again in a few minutes.</p>
+            aws_sdk_route53resolver.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource doesn't exist.</p>
+            aws_sdk_route53resolver.errors.throttling_exception.ThrottlingException: <p>The request was throttled. Try again in a few minutes.</p>
+            aws_sdk_route53resolver.errors.validation_exception.ValidationException: <p>You have provided an invalid command. If you ran the <code>UpdateFirewallDomains</code> request. supported values are <code>ADD</code>, <code>REMOVE</code>, or <code>REPLACE</code> a domain.</p>
+            aws_sdk_route53resolver.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3835,6 +4379,16 @@ class AsyncRoute53ResolverClient:
             firewall_domain_list_id: <p>The ID of the domain list whose domains you want to update. </p>
             operation: <p>What you want DNS Firewall to do with the domains that you are providing: </p> <ul> <li> <p> <code>ADD</code> - Add the domains to the ones that are already in the domain list. </p> </li> <li> <p> <code>REMOVE</code> - Search the domain list for the domains and remove them from the list.</p> </li> <li> <p> <code>REPLACE</code> - Update the domain list to exactly match the list that you are providing. </p> </li> </ul>
             domains: <p>A list of domains to use in the update operation.</p> <important> <p>There is a limit of 1000 domains per request.</p> </important> <p>Each domain specification in your domain list must satisfy the following requirements: </p> <ul> <li> <p>It can optionally start with <code>*</code> (asterisk).</p> </li> <li> <p>With the exception of the optional starting asterisk, it must only contain the following characters: <code>A-Z</code>, <code>a-z</code>, <code>0-9</code>, <code>-</code> (hyphen).</p> </li> <li> <p>It must be from 1-255 characters in length. </p> </li> </ul>
+
+        Raises:
+            aws_sdk_route53resolver.errors.access_denied_exception.AccessDeniedException: <p>The current account doesn't have the IAM permissions required to perform the specified Resolver operation.</p> <p>This error can also be thrown when a customer has reached the 5120 character limit for a resource policy for CloudWatch Logs.</p>
+            aws_sdk_route53resolver.errors.conflict_exception.ConflictException: <p>The requested state transition isn't valid. For example, you can't delete a firewall domain list if it is in the process of being deleted, or you can't import domains into a domain list that is in the process of being deleted.</p>
+            aws_sdk_route53resolver.errors.internal_service_error_exception.InternalServiceErrorException: <p>We encountered an unknown error. Try again in a few minutes.</p>
+            aws_sdk_route53resolver.errors.limit_exceeded_exception.LimitExceededException: <p>The request caused one or more limits to be exceeded.</p>
+            aws_sdk_route53resolver.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource doesn't exist.</p>
+            aws_sdk_route53resolver.errors.throttling_exception.ThrottlingException: <p>The request was throttled. Try again in a few minutes.</p>
+            aws_sdk_route53resolver.errors.validation_exception.ValidationException: <p>You have provided an invalid command. If you ran the <code>UpdateFirewallDomains</code> request. supported values are <code>ADD</code>, <code>REMOVE</code>, or <code>REPLACE</code> a domain.</p>
+            aws_sdk_route53resolver.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3923,6 +4477,15 @@ class AsyncRoute53ResolverClient:
             dns_threat_protection: <p> The type of the DNS Firewall Advanced rule. Valid values are: </p> <ul> <li> <p> <code>DGA</code>: Domain generation algorithms detection. DGAs are used by attackers to generate a large number of domains to to launch malware attacks.</p> </li> <li> <p> <code>DNS_TUNNELING</code>: DNS tunneling detection. DNS tunneling is used by attackers to exfiltrate data from the client by using the DNS tunnel without making a network connection to the client.</p> </li> </ul>
             confidence_threshold: <p> The confidence threshold for DNS Firewall Advanced. You must provide this value when you create a DNS Firewall Advanced rule. The confidence level values mean: </p> <ul> <li> <p> <code>LOW</code>: Provides the highest detection rate for threats, but also increases false positives.</p> </li> <li> <p> <code>MEDIUM</code>: Provides a balance between detecting threats and false positives.</p> </li> <li> <p> <code>HIGH</code>: Detects only the most well corroborated threats with a low rate of false positives. </p> </li> </ul>
             firewall_rule_type: <p>The rule type configuration for the firewall rule. This setting is mutually exclusive with the top-level <code>FirewallDomainListId</code> and <code>DnsThreatProtection</code> fields.</p>
+
+        Raises:
+            aws_sdk_route53resolver.errors.access_denied_exception.AccessDeniedException: <p>The current account doesn't have the IAM permissions required to perform the specified Resolver operation.</p> <p>This error can also be thrown when a customer has reached the 5120 character limit for a resource policy for CloudWatch Logs.</p>
+            aws_sdk_route53resolver.errors.conflict_exception.ConflictException: <p>The requested state transition isn't valid. For example, you can't delete a firewall domain list if it is in the process of being deleted, or you can't import domains into a domain list that is in the process of being deleted.</p>
+            aws_sdk_route53resolver.errors.internal_service_error_exception.InternalServiceErrorException: <p>We encountered an unknown error. Try again in a few minutes.</p>
+            aws_sdk_route53resolver.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource doesn't exist.</p>
+            aws_sdk_route53resolver.errors.throttling_exception.ThrottlingException: <p>The request was throttled. Try again in a few minutes.</p>
+            aws_sdk_route53resolver.errors.validation_exception.ValidationException: <p>You have provided an invalid command. If you ran the <code>UpdateFirewallDomains</code> request. supported values are <code>ADD</code>, <code>REMOVE</code>, or <code>REPLACE</code> a domain.</p>
+            aws_sdk_route53resolver.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3999,6 +4562,15 @@ class AsyncRoute53ResolverClient:
             priority: <p>The setting that determines the processing order of the rule group among the rule groups that you associate with the specified VPC. DNS Firewall filters VPC traffic starting from the rule group with the lowest numeric priority setting. </p> <p>You must specify a unique priority for each rule group that you associate with a single VPC. To make it easier to insert rule groups later, leave space between the numbers, for example, use 100, 200, and so on. You can change the priority setting for a rule group association after you create it.</p>
             mutation_protection: <p>If enabled, this setting disallows modification or removal of the association, to help prevent against accidentally altering DNS firewall protections. </p>
             name: <p>The name of the rule group association.</p>
+
+        Raises:
+            aws_sdk_route53resolver.errors.access_denied_exception.AccessDeniedException: <p>The current account doesn't have the IAM permissions required to perform the specified Resolver operation.</p> <p>This error can also be thrown when a customer has reached the 5120 character limit for a resource policy for CloudWatch Logs.</p>
+            aws_sdk_route53resolver.errors.conflict_exception.ConflictException: <p>The requested state transition isn't valid. For example, you can't delete a firewall domain list if it is in the process of being deleted, or you can't import domains into a domain list that is in the process of being deleted.</p>
+            aws_sdk_route53resolver.errors.internal_service_error_exception.InternalServiceErrorException: <p>We encountered an unknown error. Try again in a few minutes.</p>
+            aws_sdk_route53resolver.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource doesn't exist.</p>
+            aws_sdk_route53resolver.errors.throttling_exception.ThrottlingException: <p>The request was throttled. Try again in a few minutes.</p>
+            aws_sdk_route53resolver.errors.validation_exception.ValidationException: <p>You have provided an invalid command. If you ran the <code>UpdateFirewallDomains</code> request. supported values are <code>ADD</code>, <code>REMOVE</code>, or <code>REPLACE</code> a domain.</p>
+            aws_sdk_route53resolver.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4057,6 +4629,16 @@ class AsyncRoute53ResolverClient:
             name: <p>Name of the Resolver on the Outpost.</p>
             instance_count: <p>The Amazon EC2 instance count for a Resolver on the Outpost.</p>
             preferred_instance_type: <p> Amazon EC2 instance type. </p>
+
+        Raises:
+            aws_sdk_route53resolver.errors.access_denied_exception.AccessDeniedException: <p>The current account doesn't have the IAM permissions required to perform the specified Resolver operation.</p> <p>This error can also be thrown when a customer has reached the 5120 character limit for a resource policy for CloudWatch Logs.</p>
+            aws_sdk_route53resolver.errors.conflict_exception.ConflictException: <p>The requested state transition isn't valid. For example, you can't delete a firewall domain list if it is in the process of being deleted, or you can't import domains into a domain list that is in the process of being deleted.</p>
+            aws_sdk_route53resolver.errors.internal_service_error_exception.InternalServiceErrorException: <p>We encountered an unknown error. Try again in a few minutes.</p>
+            aws_sdk_route53resolver.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource doesn't exist.</p>
+            aws_sdk_route53resolver.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Fulfilling the request would cause one or more quotas to be exceeded.</p>
+            aws_sdk_route53resolver.errors.throttling_exception.ThrottlingException: <p>The request was throttled. Try again in a few minutes.</p>
+            aws_sdk_route53resolver.errors.validation_exception.ValidationException: <p>You have provided an invalid command. If you ran the <code>UpdateFirewallDomains</code> request. supported values are <code>ADD</code>, <code>REMOVE</code>, or <code>REPLACE</code> a domain.</p>
+            aws_sdk_route53resolver.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4103,6 +4685,18 @@ class AsyncRoute53ResolverClient:
         Args:
             resource_id: <p>The ID of the Amazon Virtual Private Cloud VPC or a Route 53 Profile that you're configuring Resolver for.</p>
             autodefined_reverse_flag: <p>Indicates whether or not the Resolver will create autodefined rules for reverse DNS lookups. This is enabled by default. Disabling this option will also affect EC2-Classic instances using ClassicLink. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html\">ClassicLink</a> in the <i>Amazon EC2 guide</i>.</p> <important> <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon EC2 guide</i> and the blog <a href=\"http://aws.amazon.com/blogs/aws/ec2-classic-is-retiring-heres-how-to-prepare/\">EC2-Classic Networking is Retiring – Here’s How to Prepare</a>.</p> </important> <note> <p>It can take some time for the status change to be completed.</p> </note> <p></p>
+
+        Raises:
+            aws_sdk_route53resolver.errors.access_denied_exception.AccessDeniedException: <p>The current account doesn't have the IAM permissions required to perform the specified Resolver operation.</p> <p>This error can also be thrown when a customer has reached the 5120 character limit for a resource policy for CloudWatch Logs.</p>
+            aws_sdk_route53resolver.errors.internal_service_error_exception.InternalServiceErrorException: <p>We encountered an unknown error. Try again in a few minutes.</p>
+            aws_sdk_route53resolver.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters in this request are not valid.</p>
+            aws_sdk_route53resolver.errors.invalid_request_exception.InvalidRequestException: <p>The request is invalid.</p>
+            aws_sdk_route53resolver.errors.limit_exceeded_exception.LimitExceededException: <p>The request caused one or more limits to be exceeded.</p>
+            aws_sdk_route53resolver.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource doesn't exist.</p>
+            aws_sdk_route53resolver.errors.resource_unavailable_exception.ResourceUnavailableException: <p>The specified resource isn't available.</p>
+            aws_sdk_route53resolver.errors.throttling_exception.ThrottlingException: <p>The request was throttled. Try again in a few minutes.</p>
+            aws_sdk_route53resolver.errors.validation_exception.ValidationException: <p>You have provided an invalid command. If you ran the <code>UpdateFirewallDomains</code> request. supported values are <code>ADD</code>, <code>REMOVE</code>, or <code>REPLACE</code> a domain.</p>
+            aws_sdk_route53resolver.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4144,6 +4738,15 @@ class AsyncRoute53ResolverClient:
         Args:
             resource_id: <p>The ID of the virtual private cloud (VPC) that you're updating the DNSSEC validation status for.</p>
             validation: <p>The new value that you are specifying for DNSSEC validation for the VPC. The value can be <code>ENABLE</code> or <code>DISABLE</code>. Be aware that it can take time for a validation status change to be completed.</p>
+
+        Raises:
+            aws_sdk_route53resolver.errors.access_denied_exception.AccessDeniedException: <p>The current account doesn't have the IAM permissions required to perform the specified Resolver operation.</p> <p>This error can also be thrown when a customer has reached the 5120 character limit for a resource policy for CloudWatch Logs.</p>
+            aws_sdk_route53resolver.errors.internal_service_error_exception.InternalServiceErrorException: <p>We encountered an unknown error. Try again in a few minutes.</p>
+            aws_sdk_route53resolver.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters in this request are not valid.</p>
+            aws_sdk_route53resolver.errors.invalid_request_exception.InvalidRequestException: <p>The request is invalid.</p>
+            aws_sdk_route53resolver.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource doesn't exist.</p>
+            aws_sdk_route53resolver.errors.throttling_exception.ThrottlingException: <p>The request was throttled. Try again in a few minutes.</p>
+            aws_sdk_route53resolver.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4213,6 +4816,15 @@ class AsyncRoute53ResolverClient:
             target_name_server_metrics_enabled: <p>Updates whether target name server metrics are enabled for the outbound Resolver endpoints. When set to true, one-minute granular metrics are published in CloudWatch for each target name server associated with this endpoint. When set to false, metrics are not published. This setting is not supported for inbound Resolver endpoints.</p> <note> <p>Standard CloudWatch pricing and charges are applied for using the Route 53 Resolver endpoint target name server metrics. For more information, see <a href=\"https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/monitoring-resolver-with-cloudwatch.html\">Detailed metrics</a>.</p> </note>
             dns64_enabled: <p>Specifies whether DNS64 is enabled for the inbound Resolver endpoint. When set to <code>true</code>, Route 53 Resolver synthesizes AAAA (IPv6) records for IPv4-only services by prepending the <code>64:ff9b::/96</code> prefix to the IPv4 address. This enables IPv6-only clients that send queries through the inbound endpoint to reach IPv4-only services. DNS64 works with NAT64 to provide complete IPv6-to-IPv4 translation.</p>
             ipv6_internet_access_enabled: <p>Specifies whether IPv6 internet access is enabled for the outbound Resolver endpoint. When set to <code>true</code>, the endpoint elastic network interfaces (ENIs) can forward DNS queries to public IPv6 targets through an internet gateway.</p> <important> <p>When you enable IPv6 internet access, use network controls like security groups, NACLs, or egress-only internet gateways to protect the endpoint ENIs from unsolicited ingress traffic. Be aware that some network controls can affect DNS query throughput due to connection tracking. For more information, see <a href=\"https://docs.aws.amazon.com/ec2/latest/userguide/security-group-connection-tracking.html\">Amazon EC2 security group connection tracking</a> and <a href=\"https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/best-practices-resolver-endpoint-scaling.html\">Resolver endpoint scaling</a>.</p> </important>
+
+        Raises:
+            aws_sdk_route53resolver.errors.access_denied_exception.AccessDeniedException: <p>The current account doesn't have the IAM permissions required to perform the specified Resolver operation.</p> <p>This error can also be thrown when a customer has reached the 5120 character limit for a resource policy for CloudWatch Logs.</p>
+            aws_sdk_route53resolver.errors.internal_service_error_exception.InternalServiceErrorException: <p>We encountered an unknown error. Try again in a few minutes.</p>
+            aws_sdk_route53resolver.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters in this request are not valid.</p>
+            aws_sdk_route53resolver.errors.invalid_request_exception.InvalidRequestException: <p>The request is invalid.</p>
+            aws_sdk_route53resolver.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource doesn't exist.</p>
+            aws_sdk_route53resolver.errors.throttling_exception.ThrottlingException: <p>The request was throttled. Try again in a few minutes.</p>
+            aws_sdk_route53resolver.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4271,6 +4883,17 @@ class AsyncRoute53ResolverClient:
         Args:
             resolver_rule_id: <p>The ID of the Resolver rule that you want to update.</p>
             config: <p>The new settings for the Resolver rule.</p>
+
+        Raises:
+            aws_sdk_route53resolver.errors.access_denied_exception.AccessDeniedException: <p>The current account doesn't have the IAM permissions required to perform the specified Resolver operation.</p> <p>This error can also be thrown when a customer has reached the 5120 character limit for a resource policy for CloudWatch Logs.</p>
+            aws_sdk_route53resolver.errors.internal_service_error_exception.InternalServiceErrorException: <p>We encountered an unknown error. Try again in a few minutes.</p>
+            aws_sdk_route53resolver.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters in this request are not valid.</p>
+            aws_sdk_route53resolver.errors.invalid_request_exception.InvalidRequestException: <p>The request is invalid.</p>
+            aws_sdk_route53resolver.errors.limit_exceeded_exception.LimitExceededException: <p>The request caused one or more limits to be exceeded.</p>
+            aws_sdk_route53resolver.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource doesn't exist.</p>
+            aws_sdk_route53resolver.errors.resource_unavailable_exception.ResourceUnavailableException: <p>The specified resource isn't available.</p>
+            aws_sdk_route53resolver.errors.throttling_exception.ThrottlingException: <p>The request was throttled. Try again in a few minutes.</p>
+            aws_sdk_route53resolver.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

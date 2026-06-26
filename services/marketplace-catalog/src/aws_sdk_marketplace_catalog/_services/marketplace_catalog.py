@@ -182,6 +182,13 @@ class MarketplaceCatalogClient:
 
         Args:
             entity_request_list: <p>List of entity IDs and the catalogs the entities are present in.</p>
+
+        Raises:
+            aws_sdk_marketplace_catalog.errors.access_denied_exception.AccessDeniedException: <p>Access is denied.</p> <p>HTTP status code: 403</p>
+            aws_sdk_marketplace_catalog.errors.internal_service_exception.InternalServiceException: <p>There was an internal service exception.</p> <p>HTTP status code: 500</p>
+            aws_sdk_marketplace_catalog.errors.throttling_exception.ThrottlingException: <p>Too many requests.</p> <p>HTTP status code: 429</p>
+            aws_sdk_marketplace_catalog.errors.validation_exception.ValidationException: <p>An error occurred during validation.</p> <p>HTTP status code: 422</p>
+            aws_sdk_marketplace_catalog.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -221,6 +228,15 @@ class MarketplaceCatalogClient:
         Args:
             catalog: <p>Required. The catalog related to the request. Fixed value: <code>AWSMarketplace</code>.</p>
             change_set_id: <p>Required. The unique identifier of the <code>StartChangeSet</code> request that you want to cancel.</p>
+
+        Raises:
+            aws_sdk_marketplace_catalog.errors.access_denied_exception.AccessDeniedException: <p>Access is denied.</p> <p>HTTP status code: 403</p>
+            aws_sdk_marketplace_catalog.errors.internal_service_exception.InternalServiceException: <p>There was an internal service exception.</p> <p>HTTP status code: 500</p>
+            aws_sdk_marketplace_catalog.errors.resource_in_use_exception.ResourceInUseException: <p>The resource is currently in use.</p>
+            aws_sdk_marketplace_catalog.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource wasn't found.</p> <p>HTTP status code: 404</p>
+            aws_sdk_marketplace_catalog.errors.throttling_exception.ThrottlingException: <p>Too many requests.</p> <p>HTTP status code: 429</p>
+            aws_sdk_marketplace_catalog.errors.validation_exception.ValidationException: <p>An error occurred during validation.</p> <p>HTTP status code: 422</p>
+            aws_sdk_marketplace_catalog.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -259,6 +275,14 @@ class MarketplaceCatalogClient:
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the entity resource that is associated with the resource policy.</p>
+
+        Raises:
+            aws_sdk_marketplace_catalog.errors.access_denied_exception.AccessDeniedException: <p>Access is denied.</p> <p>HTTP status code: 403</p>
+            aws_sdk_marketplace_catalog.errors.internal_service_exception.InternalServiceException: <p>There was an internal service exception.</p> <p>HTTP status code: 500</p>
+            aws_sdk_marketplace_catalog.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource wasn't found.</p> <p>HTTP status code: 404</p>
+            aws_sdk_marketplace_catalog.errors.throttling_exception.ThrottlingException: <p>Too many requests.</p> <p>HTTP status code: 429</p>
+            aws_sdk_marketplace_catalog.errors.validation_exception.ValidationException: <p>An error occurred during validation.</p> <p>HTTP status code: 422</p>
+            aws_sdk_marketplace_catalog.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -298,6 +322,14 @@ class MarketplaceCatalogClient:
         Args:
             catalog: <p>Required. The catalog related to the request. Fixed value: <code>AWSMarketplace</code> </p>
             change_set_id: <p>Required. The unique identifier for the <code>StartChangeSet</code> request that you want to describe the details for.</p>
+
+        Raises:
+            aws_sdk_marketplace_catalog.errors.access_denied_exception.AccessDeniedException: <p>Access is denied.</p> <p>HTTP status code: 403</p>
+            aws_sdk_marketplace_catalog.errors.internal_service_exception.InternalServiceException: <p>There was an internal service exception.</p> <p>HTTP status code: 500</p>
+            aws_sdk_marketplace_catalog.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource wasn't found.</p> <p>HTTP status code: 404</p>
+            aws_sdk_marketplace_catalog.errors.throttling_exception.ThrottlingException: <p>Too many requests.</p> <p>HTTP status code: 429</p>
+            aws_sdk_marketplace_catalog.errors.validation_exception.ValidationException: <p>An error occurred during validation.</p> <p>HTTP status code: 422</p>
+            aws_sdk_marketplace_catalog.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -338,6 +370,15 @@ class MarketplaceCatalogClient:
         Args:
             catalog: <p>Required. The catalog related to the request. Fixed value: <code>AWSMarketplace</code> </p>
             entity_id: <p>Required. The unique ID of the entity to describe.</p>
+
+        Raises:
+            aws_sdk_marketplace_catalog.errors.access_denied_exception.AccessDeniedException: <p>Access is denied.</p> <p>HTTP status code: 403</p>
+            aws_sdk_marketplace_catalog.errors.internal_service_exception.InternalServiceException: <p>There was an internal service exception.</p> <p>HTTP status code: 500</p>
+            aws_sdk_marketplace_catalog.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource wasn't found.</p> <p>HTTP status code: 404</p>
+            aws_sdk_marketplace_catalog.errors.resource_not_supported_exception.ResourceNotSupportedException: <p>Currently, the specified resource is not supported.</p>
+            aws_sdk_marketplace_catalog.errors.throttling_exception.ThrottlingException: <p>Too many requests.</p> <p>HTTP status code: 429</p>
+            aws_sdk_marketplace_catalog.errors.validation_exception.ValidationException: <p>An error occurred during validation.</p> <p>HTTP status code: 422</p>
+            aws_sdk_marketplace_catalog.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -376,6 +417,14 @@ class MarketplaceCatalogClient:
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the entity resource that is associated with the resource policy.</p>
+
+        Raises:
+            aws_sdk_marketplace_catalog.errors.access_denied_exception.AccessDeniedException: <p>Access is denied.</p> <p>HTTP status code: 403</p>
+            aws_sdk_marketplace_catalog.errors.internal_service_exception.InternalServiceException: <p>There was an internal service exception.</p> <p>HTTP status code: 500</p>
+            aws_sdk_marketplace_catalog.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource wasn't found.</p> <p>HTTP status code: 404</p>
+            aws_sdk_marketplace_catalog.errors.throttling_exception.ThrottlingException: <p>Too many requests.</p> <p>HTTP status code: 429</p>
+            aws_sdk_marketplace_catalog.errors.validation_exception.ValidationException: <p>An error occurred during validation.</p> <p>HTTP status code: 422</p>
+            aws_sdk_marketplace_catalog.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -427,6 +476,13 @@ class MarketplaceCatalogClient:
             sort: <p>An object that contains two attributes, <code>SortBy</code> and <code>SortOrder</code>.</p>
             max_results: <p>The maximum number of results returned by a single call. This value must be provided in the next call to retrieve the next set of results. By default, this value is 20.</p>
             next_token: <p>The token value retrieved from a previous call to access the next page of results.</p>
+
+        Raises:
+            aws_sdk_marketplace_catalog.errors.access_denied_exception.AccessDeniedException: <p>Access is denied.</p> <p>HTTP status code: 403</p>
+            aws_sdk_marketplace_catalog.errors.internal_service_exception.InternalServiceException: <p>There was an internal service exception.</p> <p>HTTP status code: 500</p>
+            aws_sdk_marketplace_catalog.errors.throttling_exception.ThrottlingException: <p>Too many requests.</p> <p>HTTP status code: 429</p>
+            aws_sdk_marketplace_catalog.errors.validation_exception.ValidationException: <p>An error occurred during validation.</p> <p>HTTP status code: 422</p>
+            aws_sdk_marketplace_catalog.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -535,6 +591,14 @@ class MarketplaceCatalogClient:
             ownership_type: <p>Filters the returned set of entities based on their owner. The default is <code>SELF</code>. To list entities shared with you through AWS Resource Access Manager (AWS RAM), set to <code>SHARED</code>. Entities shared through the AWS Marketplace Catalog API <code>PutResourcePolicy</code> operation can't be discovered through the <code>SHARED</code> parameter.</p>
             entity_type_filters: <p>A Union object containing filter shapes for all <code>EntityType</code>s. Each <code>EntityTypeFilter</code> shape will have filters applicable for that <code>EntityType</code> that can be used to search or filter entities.</p>
             entity_type_sort: <p>A Union object containing <code>Sort</code> shapes for all <code>EntityType</code>s. Each <code>EntityTypeSort</code> shape will have <code>SortBy</code> and <code>SortOrder</code> applicable for fields on that <code>EntityType</code>. This can be used to sort the results of the filter query.</p>
+
+        Raises:
+            aws_sdk_marketplace_catalog.errors.access_denied_exception.AccessDeniedException: <p>Access is denied.</p> <p>HTTP status code: 403</p>
+            aws_sdk_marketplace_catalog.errors.internal_service_exception.InternalServiceException: <p>There was an internal service exception.</p> <p>HTTP status code: 500</p>
+            aws_sdk_marketplace_catalog.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource wasn't found.</p> <p>HTTP status code: 404</p>
+            aws_sdk_marketplace_catalog.errors.throttling_exception.ThrottlingException: <p>Too many requests.</p> <p>HTTP status code: 429</p>
+            aws_sdk_marketplace_catalog.errors.validation_exception.ValidationException: <p>An error occurred during validation.</p> <p>HTTP status code: 422</p>
+            aws_sdk_marketplace_catalog.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -634,6 +698,14 @@ class MarketplaceCatalogClient:
 
         Args:
             resource_arn: <p>Required. The Amazon Resource Name (ARN) associated with the resource you want to list tags on.</p>
+
+        Raises:
+            aws_sdk_marketplace_catalog.errors.access_denied_exception.AccessDeniedException: <p>Access is denied.</p> <p>HTTP status code: 403</p>
+            aws_sdk_marketplace_catalog.errors.internal_service_exception.InternalServiceException: <p>There was an internal service exception.</p> <p>HTTP status code: 500</p>
+            aws_sdk_marketplace_catalog.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource wasn't found.</p> <p>HTTP status code: 404</p>
+            aws_sdk_marketplace_catalog.errors.throttling_exception.ThrottlingException: <p>Too many requests.</p> <p>HTTP status code: 429</p>
+            aws_sdk_marketplace_catalog.errors.validation_exception.ValidationException: <p>An error occurred during validation.</p> <p>HTTP status code: 422</p>
+            aws_sdk_marketplace_catalog.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -673,6 +745,14 @@ class MarketplaceCatalogClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the entity resource you want to associate with a resource policy.</p>
             policy: <p>The policy document to set; formatted in JSON.</p>
+
+        Raises:
+            aws_sdk_marketplace_catalog.errors.access_denied_exception.AccessDeniedException: <p>Access is denied.</p> <p>HTTP status code: 403</p>
+            aws_sdk_marketplace_catalog.errors.internal_service_exception.InternalServiceException: <p>There was an internal service exception.</p> <p>HTTP status code: 500</p>
+            aws_sdk_marketplace_catalog.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource wasn't found.</p> <p>HTTP status code: 404</p>
+            aws_sdk_marketplace_catalog.errors.throttling_exception.ThrottlingException: <p>Too many requests.</p> <p>HTTP status code: 429</p>
+            aws_sdk_marketplace_catalog.errors.validation_exception.ValidationException: <p>An error occurred during validation.</p> <p>HTTP status code: 422</p>
+            aws_sdk_marketplace_catalog.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -727,6 +807,16 @@ class MarketplaceCatalogClient:
             client_request_token: <p>A unique token to identify the request to ensure idempotency.</p>
             change_set_tags: <p>A list of objects specifying each key name and value for the <code>ChangeSetTags</code> property.</p>
             intent: <p>The intent related to the request. The default is <code>APPLY</code>. To test your request before applying changes to your entities, use <code>VALIDATE</code>. This feature is currently available for adding versions to single-AMI products. For more information, see <a href=\"https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/ami-products.html#ami-add-version\">Add a new version</a>.</p>
+
+        Raises:
+            aws_sdk_marketplace_catalog.errors.access_denied_exception.AccessDeniedException: <p>Access is denied.</p> <p>HTTP status code: 403</p>
+            aws_sdk_marketplace_catalog.errors.internal_service_exception.InternalServiceException: <p>There was an internal service exception.</p> <p>HTTP status code: 500</p>
+            aws_sdk_marketplace_catalog.errors.resource_in_use_exception.ResourceInUseException: <p>The resource is currently in use.</p>
+            aws_sdk_marketplace_catalog.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource wasn't found.</p> <p>HTTP status code: 404</p>
+            aws_sdk_marketplace_catalog.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The maximum number of open requests per account has been exceeded.</p>
+            aws_sdk_marketplace_catalog.errors.throttling_exception.ThrottlingException: <p>Too many requests.</p> <p>HTTP status code: 429</p>
+            aws_sdk_marketplace_catalog.errors.validation_exception.ValidationException: <p>An error occurred during validation.</p> <p>HTTP status code: 422</p>
+            aws_sdk_marketplace_catalog.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -775,6 +865,14 @@ class MarketplaceCatalogClient:
         Args:
             resource_arn: <p>Required. The Amazon Resource Name (ARN) associated with the resource you want to tag.</p>
             tags: <p>Required. A list of objects specifying each key name and value. Number of objects allowed: 1-50.</p>
+
+        Raises:
+            aws_sdk_marketplace_catalog.errors.access_denied_exception.AccessDeniedException: <p>Access is denied.</p> <p>HTTP status code: 403</p>
+            aws_sdk_marketplace_catalog.errors.internal_service_exception.InternalServiceException: <p>There was an internal service exception.</p> <p>HTTP status code: 500</p>
+            aws_sdk_marketplace_catalog.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource wasn't found.</p> <p>HTTP status code: 404</p>
+            aws_sdk_marketplace_catalog.errors.throttling_exception.ThrottlingException: <p>Too many requests.</p> <p>HTTP status code: 429</p>
+            aws_sdk_marketplace_catalog.errors.validation_exception.ValidationException: <p>An error occurred during validation.</p> <p>HTTP status code: 422</p>
+            aws_sdk_marketplace_catalog.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -815,6 +913,14 @@ class MarketplaceCatalogClient:
         Args:
             resource_arn: <p>Required. The Amazon Resource Name (ARN) associated with the resource you want to remove the tag from.</p>
             tag_keys: <p>Required. A list of key names of tags to be removed. Number of strings allowed: 0-256.</p>
+
+        Raises:
+            aws_sdk_marketplace_catalog.errors.access_denied_exception.AccessDeniedException: <p>Access is denied.</p> <p>HTTP status code: 403</p>
+            aws_sdk_marketplace_catalog.errors.internal_service_exception.InternalServiceException: <p>There was an internal service exception.</p> <p>HTTP status code: 500</p>
+            aws_sdk_marketplace_catalog.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource wasn't found.</p> <p>HTTP status code: 404</p>
+            aws_sdk_marketplace_catalog.errors.throttling_exception.ThrottlingException: <p>Too many requests.</p> <p>HTTP status code: 429</p>
+            aws_sdk_marketplace_catalog.errors.validation_exception.ValidationException: <p>An error occurred during validation.</p> <p>HTTP status code: 422</p>
+            aws_sdk_marketplace_catalog.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(

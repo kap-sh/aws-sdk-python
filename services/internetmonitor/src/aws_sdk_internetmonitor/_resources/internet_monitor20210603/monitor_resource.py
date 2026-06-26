@@ -95,6 +95,15 @@ class MonitorResource:
             internet_measurements_log_delivery: <p>Publish internet measurements for Internet Monitor to an Amazon S3 bucket in addition to CloudWatch Logs.</p>
             traffic_percentage_to_monitor: <p>The percentage of the internet-facing traffic for your application that you want to monitor with this monitor. If you set a city-networks maximum, that limit overrides the traffic percentage that you set.</p> <p>To learn more, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/IMTrafficPercentage.html\">Choosing an application traffic percentage to monitor </a> in the Amazon CloudWatch Internet Monitor section of the <i>CloudWatch User Guide</i>.</p>
             health_events_config: <p>Defines the threshold percentages and other configuration information for when Amazon CloudWatch Internet Monitor creates a health event. Internet Monitor creates a health event when an internet issue that affects your application end users has a health score percentage that is at or below a specific threshold, and, sometimes, when other criteria are met.</p> <p>If you don't set a health event threshold, the default value is 95%.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-IM-overview.html#IMUpdateThresholdFromOverview\"> Change health event thresholds</a> in the Internet Monitor section of the <i>CloudWatch User Guide</i>.</p>
+
+        Raises:
+            aws_sdk_internetmonitor.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permission to perform this action.</p>
+            aws_sdk_internetmonitor.errors.conflict_exception.ConflictException: <p>The requested resource is in use.</p>
+            aws_sdk_internetmonitor.errors.internal_server_exception.InternalServerException: <p>An internal error occurred.</p>
+            aws_sdk_internetmonitor.errors.limit_exceeded_exception.LimitExceededException: <p>The request exceeded a service quota.</p>
+            aws_sdk_internetmonitor.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_internetmonitor.errors.validation_exception.ValidationException: <p>Invalid request.</p>
+            aws_sdk_internetmonitor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -152,6 +161,13 @@ class MonitorResource:
         Args:
             monitor_name: <p>The name of the monitor.</p>
             linked_account_id: <p>The account ID for an account that you've set up cross-account sharing for in Amazon CloudWatch Internet Monitor. You configure cross-account sharing by using Amazon CloudWatch Observability Access Manager. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cwim-cross-account.html\">Internet Monitor cross-account observability</a> in the Amazon CloudWatch Internet Monitor User Guide.</p>
+
+        Raises:
+            aws_sdk_internetmonitor.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permission to perform this action.</p>
+            aws_sdk_internetmonitor.errors.internal_server_exception.InternalServerException: <p>An internal error occurred.</p>
+            aws_sdk_internetmonitor.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_internetmonitor.errors.validation_exception.ValidationException: <p>Invalid request.</p>
+            aws_sdk_internetmonitor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -221,6 +237,15 @@ class MonitorResource:
             internet_measurements_log_delivery: <p>Publish internet measurements for Internet Monitor to another location, such as an Amazon S3 bucket. The measurements are also published to Amazon CloudWatch Logs.</p>
             traffic_percentage_to_monitor: <p>The percentage of the internet-facing traffic for your application that you want to monitor with this monitor. If you set a city-networks maximum, that limit overrides the traffic percentage that you set.</p> <p>To learn more, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/IMTrafficPercentage.html\">Choosing an application traffic percentage to monitor </a> in the Amazon CloudWatch Internet Monitor section of the <i>CloudWatch User Guide</i>.</p>
             health_events_config: <p>The list of health score thresholds. A threshold percentage for health scores, along with other configuration information, determines when Internet Monitor creates a health event when there's an internet issue that affects your application end users.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-IM-overview.html#IMUpdateThresholdFromOverview\"> Change health event thresholds</a> in the Internet Monitor section of the <i>CloudWatch User Guide</i>.</p>
+
+        Raises:
+            aws_sdk_internetmonitor.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permission to perform this action.</p>
+            aws_sdk_internetmonitor.errors.internal_server_exception.InternalServerException: <p>An internal error occurred.</p>
+            aws_sdk_internetmonitor.errors.limit_exceeded_exception.LimitExceededException: <p>The request exceeded a service quota.</p>
+            aws_sdk_internetmonitor.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request specifies a resource that doesn't exist.</p>
+            aws_sdk_internetmonitor.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_internetmonitor.errors.validation_exception.ValidationException: <p>Invalid request.</p>
+            aws_sdk_internetmonitor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -276,6 +301,13 @@ class MonitorResource:
 
         Args:
             monitor_name: <p>The name of the monitor to delete.</p>
+
+        Raises:
+            aws_sdk_internetmonitor.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permission to perform this action.</p>
+            aws_sdk_internetmonitor.errors.internal_server_exception.InternalServerException: <p>An internal error occurred.</p>
+            aws_sdk_internetmonitor.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_internetmonitor.errors.validation_exception.ValidationException: <p>Invalid request.</p>
+            aws_sdk_internetmonitor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -321,6 +353,13 @@ class MonitorResource:
             max_results: <p>The number of monitor objects that you want to return with this call.</p>
             monitor_status: <p>The status of a monitor. This includes the status of the data processing for the monitor and the status of the monitor itself.</p> <p>For information about the statuses for a monitor, see <a href=\"https://docs.aws.amazon.com/internet-monitor/latest/api/API_Monitor.html\"> Monitor</a>.</p>
             include_linked_accounts: <p>A boolean option that you can set to <code>TRUE</code> to include monitors for linked accounts in a list of monitors, when you've set up cross-account sharing in Amazon CloudWatch Internet Monitor. You configure cross-account sharing by using Amazon CloudWatch Observability Access Manager. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cwim-cross-account.html\">Internet Monitor cross-account observability</a> in the Amazon CloudWatch Internet Monitor User Guide.</p>
+
+        Raises:
+            aws_sdk_internetmonitor.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permission to perform this action.</p>
+            aws_sdk_internetmonitor.errors.internal_server_exception.InternalServerException: <p>An internal error occurred.</p>
+            aws_sdk_internetmonitor.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_internetmonitor.errors.validation_exception.ValidationException: <p>Invalid request.</p>
+            aws_sdk_internetmonitor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -373,6 +412,14 @@ class MonitorResource:
             query_id: <p>The ID of the query that you want to return data results for. A <code>QueryId</code> is an internally-generated identifier for a specific query.</p>
             next_token: <p>The token for the next set of results. You receive this token from a previous call.</p>
             max_results: <p>The number of query results that you want to return with this call.</p>
+
+        Raises:
+            aws_sdk_internetmonitor.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permission to perform this action.</p>
+            aws_sdk_internetmonitor.errors.internal_server_exception.InternalServerException: <p>An internal error occurred.</p>
+            aws_sdk_internetmonitor.errors.limit_exceeded_exception.LimitExceededException: <p>The request exceeded a service quota.</p>
+            aws_sdk_internetmonitor.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_internetmonitor.errors.validation_exception.ValidationException: <p>Invalid request.</p>
+            aws_sdk_internetmonitor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -417,6 +464,14 @@ class MonitorResource:
         Args:
             monitor_name: <p>The name of the monitor.</p>
             query_id: <p>The ID of the query that you want to return the status for. A <code>QueryId</code> is an internally-generated dentifier for a specific query.</p>
+
+        Raises:
+            aws_sdk_internetmonitor.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permission to perform this action.</p>
+            aws_sdk_internetmonitor.errors.internal_server_exception.InternalServerException: <p>An internal error occurred.</p>
+            aws_sdk_internetmonitor.errors.limit_exceeded_exception.LimitExceededException: <p>The request exceeded a service quota.</p>
+            aws_sdk_internetmonitor.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_internetmonitor.errors.validation_exception.ValidationException: <p>Invalid request.</p>
+            aws_sdk_internetmonitor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -469,6 +524,14 @@ class MonitorResource:
             query_type: <p>The type of query to run. The following are the three types of queries that you can run using the Internet Monitor query interface:</p> <ul> <li> <p> <code>MEASUREMENTS</code>: Provides availability score, performance score, total traffic, and round-trip times, at 5 minute intervals.</p> </li> <li> <p> <code>TOP_LOCATIONS</code>: Provides availability score, performance score, total traffic, and time to first byte (TTFB) information, for the top location and ASN combinations that you're monitoring, by traffic volume.</p> </li> <li> <p> <code>TOP_LOCATION_DETAILS</code>: Provides TTFB for Amazon CloudFront, your current configuration, and the best performing EC2 configuration, at 1 hour intervals.</p> </li> <li> <p> <code>OVERALL_TRAFFIC_SUGGESTIONS</code>: Provides TTFB, using a 30-day weighted average, for all traffic in each Amazon Web Services location that is monitored.</p> </li> <li> <p> <code>OVERALL_TRAFFIC_SUGGESTIONS_DETAILS</code>: Provides TTFB, using a 30-day weighted average, for each top location, for a proposed Amazon Web Services location. Must provide an Amazon Web Services location to search.</p> </li> <li> <p> <code>ROUTING_SUGGESTIONS</code>: Provides the predicted average round-trip time (RTT) from an IP prefix toward an Amazon Web Services location for a DNS resolver. The RTT is calculated at one hour intervals, over a one hour period.</p> </li> </ul> <p>For lists of the fields returned with each query type and more information about how each type of query is performed, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-IM-view-cw-tools-cwim-query.html\"> Using the Amazon CloudWatch Internet Monitor query interface</a> in the Amazon CloudWatch Internet Monitor User Guide.</p>
             filter_parameters: <p>The <code>FilterParameters</code> field that you use with Amazon CloudWatch Internet Monitor queries is a string the defines how you want a query to be filtered. The filter parameters that you can specify depend on the query type, since each query type returns a different set of Internet Monitor data.</p> <p>For more information about specifying filter parameters, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-IM-view-cw-tools-cwim-query.html\">Using the Amazon CloudWatch Internet Monitor query interface</a> in the Amazon CloudWatch Internet Monitor User Guide.</p>
             linked_account_id: <p>The account ID for an account that you've set up cross-account sharing for in Amazon CloudWatch Internet Monitor. You configure cross-account sharing by using Amazon CloudWatch Observability Access Manager. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cwim-cross-account.html\">Internet Monitor cross-account observability</a> in the Amazon CloudWatch Internet Monitor User Guide.</p>
+
+        Raises:
+            aws_sdk_internetmonitor.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permission to perform this action.</p>
+            aws_sdk_internetmonitor.errors.internal_server_exception.InternalServerException: <p>An internal error occurred.</p>
+            aws_sdk_internetmonitor.errors.limit_exceeded_exception.LimitExceededException: <p>The request exceeded a service quota.</p>
+            aws_sdk_internetmonitor.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_internetmonitor.errors.validation_exception.ValidationException: <p>Invalid request.</p>
+            aws_sdk_internetmonitor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -515,6 +578,14 @@ class MonitorResource:
         Args:
             monitor_name: <p>The name of the monitor.</p>
             query_id: <p>The ID of the query that you want to stop. A <code>QueryId</code> is an internally-generated identifier for a specific query.</p>
+
+        Raises:
+            aws_sdk_internetmonitor.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permission to perform this action.</p>
+            aws_sdk_internetmonitor.errors.internal_server_exception.InternalServerException: <p>An internal error occurred.</p>
+            aws_sdk_internetmonitor.errors.limit_exceeded_exception.LimitExceededException: <p>The request exceeded a service quota.</p>
+            aws_sdk_internetmonitor.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_internetmonitor.errors.validation_exception.ValidationException: <p>Invalid request.</p>
+            aws_sdk_internetmonitor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -582,6 +653,15 @@ class AsyncMonitorResource:
             internet_measurements_log_delivery: <p>Publish internet measurements for Internet Monitor to an Amazon S3 bucket in addition to CloudWatch Logs.</p>
             traffic_percentage_to_monitor: <p>The percentage of the internet-facing traffic for your application that you want to monitor with this monitor. If you set a city-networks maximum, that limit overrides the traffic percentage that you set.</p> <p>To learn more, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/IMTrafficPercentage.html\">Choosing an application traffic percentage to monitor </a> in the Amazon CloudWatch Internet Monitor section of the <i>CloudWatch User Guide</i>.</p>
             health_events_config: <p>Defines the threshold percentages and other configuration information for when Amazon CloudWatch Internet Monitor creates a health event. Internet Monitor creates a health event when an internet issue that affects your application end users has a health score percentage that is at or below a specific threshold, and, sometimes, when other criteria are met.</p> <p>If you don't set a health event threshold, the default value is 95%.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-IM-overview.html#IMUpdateThresholdFromOverview\"> Change health event thresholds</a> in the Internet Monitor section of the <i>CloudWatch User Guide</i>.</p>
+
+        Raises:
+            aws_sdk_internetmonitor.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permission to perform this action.</p>
+            aws_sdk_internetmonitor.errors.conflict_exception.ConflictException: <p>The requested resource is in use.</p>
+            aws_sdk_internetmonitor.errors.internal_server_exception.InternalServerException: <p>An internal error occurred.</p>
+            aws_sdk_internetmonitor.errors.limit_exceeded_exception.LimitExceededException: <p>The request exceeded a service quota.</p>
+            aws_sdk_internetmonitor.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_internetmonitor.errors.validation_exception.ValidationException: <p>Invalid request.</p>
+            aws_sdk_internetmonitor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -640,6 +720,13 @@ class AsyncMonitorResource:
         Args:
             monitor_name: <p>The name of the monitor.</p>
             linked_account_id: <p>The account ID for an account that you've set up cross-account sharing for in Amazon CloudWatch Internet Monitor. You configure cross-account sharing by using Amazon CloudWatch Observability Access Manager. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cwim-cross-account.html\">Internet Monitor cross-account observability</a> in the Amazon CloudWatch Internet Monitor User Guide.</p>
+
+        Raises:
+            aws_sdk_internetmonitor.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permission to perform this action.</p>
+            aws_sdk_internetmonitor.errors.internal_server_exception.InternalServerException: <p>An internal error occurred.</p>
+            aws_sdk_internetmonitor.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_internetmonitor.errors.validation_exception.ValidationException: <p>Invalid request.</p>
+            aws_sdk_internetmonitor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -710,6 +797,15 @@ class AsyncMonitorResource:
             internet_measurements_log_delivery: <p>Publish internet measurements for Internet Monitor to another location, such as an Amazon S3 bucket. The measurements are also published to Amazon CloudWatch Logs.</p>
             traffic_percentage_to_monitor: <p>The percentage of the internet-facing traffic for your application that you want to monitor with this monitor. If you set a city-networks maximum, that limit overrides the traffic percentage that you set.</p> <p>To learn more, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/IMTrafficPercentage.html\">Choosing an application traffic percentage to monitor </a> in the Amazon CloudWatch Internet Monitor section of the <i>CloudWatch User Guide</i>.</p>
             health_events_config: <p>The list of health score thresholds. A threshold percentage for health scores, along with other configuration information, determines when Internet Monitor creates a health event when there's an internet issue that affects your application end users.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-IM-overview.html#IMUpdateThresholdFromOverview\"> Change health event thresholds</a> in the Internet Monitor section of the <i>CloudWatch User Guide</i>.</p>
+
+        Raises:
+            aws_sdk_internetmonitor.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permission to perform this action.</p>
+            aws_sdk_internetmonitor.errors.internal_server_exception.InternalServerException: <p>An internal error occurred.</p>
+            aws_sdk_internetmonitor.errors.limit_exceeded_exception.LimitExceededException: <p>The request exceeded a service quota.</p>
+            aws_sdk_internetmonitor.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request specifies a resource that doesn't exist.</p>
+            aws_sdk_internetmonitor.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_internetmonitor.errors.validation_exception.ValidationException: <p>Invalid request.</p>
+            aws_sdk_internetmonitor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -766,6 +862,13 @@ class AsyncMonitorResource:
 
         Args:
             monitor_name: <p>The name of the monitor to delete.</p>
+
+        Raises:
+            aws_sdk_internetmonitor.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permission to perform this action.</p>
+            aws_sdk_internetmonitor.errors.internal_server_exception.InternalServerException: <p>An internal error occurred.</p>
+            aws_sdk_internetmonitor.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_internetmonitor.errors.validation_exception.ValidationException: <p>Invalid request.</p>
+            aws_sdk_internetmonitor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -812,6 +915,13 @@ class AsyncMonitorResource:
             max_results: <p>The number of monitor objects that you want to return with this call.</p>
             monitor_status: <p>The status of a monitor. This includes the status of the data processing for the monitor and the status of the monitor itself.</p> <p>For information about the statuses for a monitor, see <a href=\"https://docs.aws.amazon.com/internet-monitor/latest/api/API_Monitor.html\"> Monitor</a>.</p>
             include_linked_accounts: <p>A boolean option that you can set to <code>TRUE</code> to include monitors for linked accounts in a list of monitors, when you've set up cross-account sharing in Amazon CloudWatch Internet Monitor. You configure cross-account sharing by using Amazon CloudWatch Observability Access Manager. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cwim-cross-account.html\">Internet Monitor cross-account observability</a> in the Amazon CloudWatch Internet Monitor User Guide.</p>
+
+        Raises:
+            aws_sdk_internetmonitor.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permission to perform this action.</p>
+            aws_sdk_internetmonitor.errors.internal_server_exception.InternalServerException: <p>An internal error occurred.</p>
+            aws_sdk_internetmonitor.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_internetmonitor.errors.validation_exception.ValidationException: <p>Invalid request.</p>
+            aws_sdk_internetmonitor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -865,6 +975,14 @@ class AsyncMonitorResource:
             query_id: <p>The ID of the query that you want to return data results for. A <code>QueryId</code> is an internally-generated identifier for a specific query.</p>
             next_token: <p>The token for the next set of results. You receive this token from a previous call.</p>
             max_results: <p>The number of query results that you want to return with this call.</p>
+
+        Raises:
+            aws_sdk_internetmonitor.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permission to perform this action.</p>
+            aws_sdk_internetmonitor.errors.internal_server_exception.InternalServerException: <p>An internal error occurred.</p>
+            aws_sdk_internetmonitor.errors.limit_exceeded_exception.LimitExceededException: <p>The request exceeded a service quota.</p>
+            aws_sdk_internetmonitor.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_internetmonitor.errors.validation_exception.ValidationException: <p>Invalid request.</p>
+            aws_sdk_internetmonitor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -910,6 +1028,14 @@ class AsyncMonitorResource:
         Args:
             monitor_name: <p>The name of the monitor.</p>
             query_id: <p>The ID of the query that you want to return the status for. A <code>QueryId</code> is an internally-generated dentifier for a specific query.</p>
+
+        Raises:
+            aws_sdk_internetmonitor.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permission to perform this action.</p>
+            aws_sdk_internetmonitor.errors.internal_server_exception.InternalServerException: <p>An internal error occurred.</p>
+            aws_sdk_internetmonitor.errors.limit_exceeded_exception.LimitExceededException: <p>The request exceeded a service quota.</p>
+            aws_sdk_internetmonitor.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_internetmonitor.errors.validation_exception.ValidationException: <p>Invalid request.</p>
+            aws_sdk_internetmonitor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -963,6 +1089,14 @@ class AsyncMonitorResource:
             query_type: <p>The type of query to run. The following are the three types of queries that you can run using the Internet Monitor query interface:</p> <ul> <li> <p> <code>MEASUREMENTS</code>: Provides availability score, performance score, total traffic, and round-trip times, at 5 minute intervals.</p> </li> <li> <p> <code>TOP_LOCATIONS</code>: Provides availability score, performance score, total traffic, and time to first byte (TTFB) information, for the top location and ASN combinations that you're monitoring, by traffic volume.</p> </li> <li> <p> <code>TOP_LOCATION_DETAILS</code>: Provides TTFB for Amazon CloudFront, your current configuration, and the best performing EC2 configuration, at 1 hour intervals.</p> </li> <li> <p> <code>OVERALL_TRAFFIC_SUGGESTIONS</code>: Provides TTFB, using a 30-day weighted average, for all traffic in each Amazon Web Services location that is monitored.</p> </li> <li> <p> <code>OVERALL_TRAFFIC_SUGGESTIONS_DETAILS</code>: Provides TTFB, using a 30-day weighted average, for each top location, for a proposed Amazon Web Services location. Must provide an Amazon Web Services location to search.</p> </li> <li> <p> <code>ROUTING_SUGGESTIONS</code>: Provides the predicted average round-trip time (RTT) from an IP prefix toward an Amazon Web Services location for a DNS resolver. The RTT is calculated at one hour intervals, over a one hour period.</p> </li> </ul> <p>For lists of the fields returned with each query type and more information about how each type of query is performed, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-IM-view-cw-tools-cwim-query.html\"> Using the Amazon CloudWatch Internet Monitor query interface</a> in the Amazon CloudWatch Internet Monitor User Guide.</p>
             filter_parameters: <p>The <code>FilterParameters</code> field that you use with Amazon CloudWatch Internet Monitor queries is a string the defines how you want a query to be filtered. The filter parameters that you can specify depend on the query type, since each query type returns a different set of Internet Monitor data.</p> <p>For more information about specifying filter parameters, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-IM-view-cw-tools-cwim-query.html\">Using the Amazon CloudWatch Internet Monitor query interface</a> in the Amazon CloudWatch Internet Monitor User Guide.</p>
             linked_account_id: <p>The account ID for an account that you've set up cross-account sharing for in Amazon CloudWatch Internet Monitor. You configure cross-account sharing by using Amazon CloudWatch Observability Access Manager. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cwim-cross-account.html\">Internet Monitor cross-account observability</a> in the Amazon CloudWatch Internet Monitor User Guide.</p>
+
+        Raises:
+            aws_sdk_internetmonitor.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permission to perform this action.</p>
+            aws_sdk_internetmonitor.errors.internal_server_exception.InternalServerException: <p>An internal error occurred.</p>
+            aws_sdk_internetmonitor.errors.limit_exceeded_exception.LimitExceededException: <p>The request exceeded a service quota.</p>
+            aws_sdk_internetmonitor.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_internetmonitor.errors.validation_exception.ValidationException: <p>Invalid request.</p>
+            aws_sdk_internetmonitor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1010,6 +1144,14 @@ class AsyncMonitorResource:
         Args:
             monitor_name: <p>The name of the monitor.</p>
             query_id: <p>The ID of the query that you want to stop. A <code>QueryId</code> is an internally-generated identifier for a specific query.</p>
+
+        Raises:
+            aws_sdk_internetmonitor.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permission to perform this action.</p>
+            aws_sdk_internetmonitor.errors.internal_server_exception.InternalServerException: <p>An internal error occurred.</p>
+            aws_sdk_internetmonitor.errors.limit_exceeded_exception.LimitExceededException: <p>The request exceeded a service quota.</p>
+            aws_sdk_internetmonitor.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_internetmonitor.errors.validation_exception.ValidationException: <p>Invalid request.</p>
+            aws_sdk_internetmonitor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

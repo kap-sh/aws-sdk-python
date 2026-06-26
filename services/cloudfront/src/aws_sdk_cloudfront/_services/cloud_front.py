@@ -511,6 +511,14 @@ class CloudFrontClient:
         Args:
             target_distribution_id: <p>The ID of the standard distribution that you're associating the alias with.</p>
             alias: <p>The alias (also known as a CNAME) to add to the target standard distribution.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.access_denied.AccessDenied: <p>Access denied.</p>
+            aws_sdk_cloudfront.errors.illegal_update.IllegalUpdate: <p>The update contains modifications that are not allowed.</p>
+            aws_sdk_cloudfront.errors.invalid_argument.InvalidArgument: <p>An argument is invalid.</p>
+            aws_sdk_cloudfront.errors.no_such_distribution.NoSuchDistribution: <p>The specified distribution does not exist.</p>
+            aws_sdk_cloudfront.errors.too_many_distribution_cnam_es.TooManyDistributionCNAMEs: <p>Your request contains more CNAMEs than are allowed per distribution.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -551,6 +559,15 @@ class CloudFrontClient:
             id: <p>The ID of the distribution tenant.</p>
             web_acl_arn: <p>The Amazon Resource Name (ARN) of the WAF web ACL to associate.</p>
             if_match: <p>The current <code>ETag</code> of the distribution tenant. This value is returned in the response of the <code>GetDistributionTenant</code> API operation.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.access_denied.AccessDenied: <p>Access denied.</p>
+            aws_sdk_cloudfront.errors.entity_limit_exceeded.EntityLimitExceeded: <p>The entity limit has been exceeded.</p>
+            aws_sdk_cloudfront.errors.entity_not_found.EntityNotFound: <p>The entity was not found.</p>
+            aws_sdk_cloudfront.errors.invalid_argument.InvalidArgument: <p>An argument is invalid.</p>
+            aws_sdk_cloudfront.errors.invalid_if_match_version.InvalidIfMatchVersion: <p>The <code>If-Match</code> version is missing or not valid.</p>
+            aws_sdk_cloudfront.errors.precondition_failed.PreconditionFailed: <p>The precondition in one or more of the request fields evaluated to <code>false</code>.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -595,6 +612,15 @@ class CloudFrontClient:
             id: <p>The ID of the distribution.</p>
             web_acl_arn: <p>The Amazon Resource Name (ARN) of the WAF web ACL to associate.</p>
             if_match: <p>The value of the <code>ETag</code> header that you received when retrieving the distribution that you're associating with the WAF web ACL.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.access_denied.AccessDenied: <p>Access denied.</p>
+            aws_sdk_cloudfront.errors.entity_limit_exceeded.EntityLimitExceeded: <p>The entity limit has been exceeded.</p>
+            aws_sdk_cloudfront.errors.entity_not_found.EntityNotFound: <p>The entity was not found.</p>
+            aws_sdk_cloudfront.errors.invalid_argument.InvalidArgument: <p>An argument is invalid.</p>
+            aws_sdk_cloudfront.errors.invalid_if_match_version.InvalidIfMatchVersion: <p>The <code>If-Match</code> version is missing or not valid.</p>
+            aws_sdk_cloudfront.errors.precondition_failed.PreconditionFailed: <p>The precondition in one or more of the request fields evaluated to <code>false</code>.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -643,6 +669,73 @@ class CloudFrontClient:
             if_match: <p>The version identifier of the primary distribution whose configuration you are copying. This is the <code>ETag</code> value returned in the response to <code>GetDistribution</code> and <code>GetDistributionConfig</code>.</p>
             caller_reference: <p>A value that uniquely identifies a request to create a resource. This helps to prevent CloudFront from creating a duplicate resource if you accidentally resubmit an identical request.</p>
             enabled: <p>A Boolean flag to specify the state of the staging distribution when it's created. When you set this value to <code>True</code>, the staging distribution is enabled. When you set this value to <code>False</code>, the staging distribution is disabled.</p> <p>If you omit this field, the default value is <code>True</code>.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.access_denied.AccessDenied: <p>Access denied.</p>
+            aws_sdk_cloudfront.errors.cname_already_exists.CNAMEAlreadyExists: <p>The CNAME specified is already defined for CloudFront.</p>
+            aws_sdk_cloudfront.errors.distribution_already_exists.DistributionAlreadyExists: <p>The caller reference you attempted to create the distribution with is associated with another distribution.</p>
+            aws_sdk_cloudfront.errors.illegal_field_level_encryption_config_association_with_cache_behavior.IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior: <p>The specified configuration for field-level encryption can't be associated with the specified cache behavior.</p>
+            aws_sdk_cloudfront.errors.inconsistent_quantities.InconsistentQuantities: <p>The value of <code>Quantity</code> and the size of <code>Items</code> don't match.</p>
+            aws_sdk_cloudfront.errors.invalid_argument.InvalidArgument: <p>An argument is invalid.</p>
+            aws_sdk_cloudfront.errors.invalid_default_root_object.InvalidDefaultRootObject: <p>The default root object file name is too big or contains an invalid character.</p>
+            aws_sdk_cloudfront.errors.invalid_error_code.InvalidErrorCode: <p>An invalid error code was specified.</p>
+            aws_sdk_cloudfront.errors.invalid_forward_cookies.InvalidForwardCookies: <p>Your request contains forward cookies option which doesn't match with the expectation for the <code>whitelisted</code> list of cookie names. Either list of cookie names has been specified when not allowed or list of cookie names is missing when expected.</p>
+            aws_sdk_cloudfront.errors.invalid_function_association.InvalidFunctionAssociation: <p>A CloudFront function association is invalid.</p>
+            aws_sdk_cloudfront.errors.invalid_geo_restriction_parameter.InvalidGeoRestrictionParameter: <p>The specified geo restriction parameter is not valid.</p>
+            aws_sdk_cloudfront.errors.invalid_headers_for_s3_origin.InvalidHeadersForS3Origin: <p>The headers specified are not valid for an Amazon S3 origin.</p>
+            aws_sdk_cloudfront.errors.invalid_if_match_version.InvalidIfMatchVersion: <p>The <code>If-Match</code> version is missing or not valid.</p>
+            aws_sdk_cloudfront.errors.invalid_lambda_function_association.InvalidLambdaFunctionAssociation: <p>The specified Lambda@Edge function association is invalid.</p>
+            aws_sdk_cloudfront.errors.invalid_location_code.InvalidLocationCode: <p>The location code specified is not valid.</p>
+            aws_sdk_cloudfront.errors.invalid_minimum_protocol_version.InvalidMinimumProtocolVersion: <p>The minimum protocol version specified is not valid.</p>
+            aws_sdk_cloudfront.errors.invalid_origin.InvalidOrigin: <p>The Amazon S3 origin server specified does not refer to a valid Amazon S3 bucket.</p>
+            aws_sdk_cloudfront.errors.invalid_origin_access_control.InvalidOriginAccessControl: <p>The origin access control is not valid.</p>
+            aws_sdk_cloudfront.errors.invalid_origin_access_identity.InvalidOriginAccessIdentity: <p>The origin access identity is not valid or doesn't exist.</p>
+            aws_sdk_cloudfront.errors.invalid_origin_keepalive_timeout.InvalidOriginKeepaliveTimeout: <p>The keep alive timeout specified for the origin is not valid.</p>
+            aws_sdk_cloudfront.errors.invalid_origin_read_timeout.InvalidOriginReadTimeout: <p>The read timeout specified for the origin is not valid.</p>
+            aws_sdk_cloudfront.errors.invalid_protocol_settings.InvalidProtocolSettings: <p>You cannot specify SSLv3 as the minimum protocol version if you only want to support only clients that support Server Name Indication (SNI).</p>
+            aws_sdk_cloudfront.errors.invalid_query_string_parameters.InvalidQueryStringParameters: <p>The query string parameters specified are not valid.</p>
+            aws_sdk_cloudfront.errors.invalid_relative_path.InvalidRelativePath: <p>The relative path is too big, is not URL-encoded, or does not begin with a slash (/).</p>
+            aws_sdk_cloudfront.errors.invalid_required_protocol.InvalidRequiredProtocol: <p>This operation requires the HTTPS protocol. Ensure that you specify the HTTPS protocol in your request, or omit the <code>RequiredProtocols</code> element from your distribution configuration.</p>
+            aws_sdk_cloudfront.errors.invalid_response_code.InvalidResponseCode: <p>A response code is not valid.</p>
+            aws_sdk_cloudfront.errors.invalid_ttl_order.InvalidTTLOrder: <p>The TTL order specified is not valid.</p>
+            aws_sdk_cloudfront.errors.invalid_viewer_certificate.InvalidViewerCertificate: <p>A viewer certificate specified is not valid.</p>
+            aws_sdk_cloudfront.errors.invalid_web_acl_id.InvalidWebACLId: <p>A web ACL ID specified is not valid. To specify a web ACL created using the latest version of WAF, use the ACL ARN, for example <code>arn:aws:wafv2:us-east-1:123456789012:global/webacl/ExampleWebACL/473e64fd-f30b-4765-81a0-62ad96dd167a</code>. To specify a web ACL created using WAF Classic, use the ACL ID, for example <code>473e64fd-f30b-4765-81a0-62ad96dd167a</code>.</p>
+            aws_sdk_cloudfront.errors.missing_body.MissingBody: <p>This operation requires a body. Ensure that the body is present and the <code>Content-Type</code> header is set.</p>
+            aws_sdk_cloudfront.errors.no_such_cache_policy.NoSuchCachePolicy: <p>The cache policy does not exist.</p>
+            aws_sdk_cloudfront.errors.no_such_distribution.NoSuchDistribution: <p>The specified distribution does not exist.</p>
+            aws_sdk_cloudfront.errors.no_such_field_level_encryption_config.NoSuchFieldLevelEncryptionConfig: <p>The specified configuration for field-level encryption doesn't exist.</p>
+            aws_sdk_cloudfront.errors.no_such_origin.NoSuchOrigin: <p>No origin exists with the specified <code>Origin Id</code>.</p>
+            aws_sdk_cloudfront.errors.no_such_origin_request_policy.NoSuchOriginRequestPolicy: <p>The origin request policy does not exist.</p>
+            aws_sdk_cloudfront.errors.no_such_realtime_log_config.NoSuchRealtimeLogConfig: <p>The real-time log configuration does not exist.</p>
+            aws_sdk_cloudfront.errors.no_such_response_headers_policy.NoSuchResponseHeadersPolicy: <p>The response headers policy does not exist.</p>
+            aws_sdk_cloudfront.errors.precondition_failed.PreconditionFailed: <p>The precondition in one or more of the request fields evaluated to <code>false</code>.</p>
+            aws_sdk_cloudfront.errors.realtime_log_config_owner_mismatch.RealtimeLogConfigOwnerMismatch: <p>The specified real-time log configuration belongs to a different Amazon Web Services account.</p>
+            aws_sdk_cloudfront.errors.too_many_cache_behaviors.TooManyCacheBehaviors: <p>You cannot create more cache behaviors for the distribution.</p>
+            aws_sdk_cloudfront.errors.too_many_certificates.TooManyCertificates: <p>You cannot create anymore custom SSL/TLS certificates.</p>
+            aws_sdk_cloudfront.errors.too_many_cookie_names_in_white_list.TooManyCookieNamesInWhiteList: <p>Your request contains more cookie names in the whitelist than are allowed per cache behavior.</p>
+            aws_sdk_cloudfront.errors.too_many_distribution_cnam_es.TooManyDistributionCNAMEs: <p>Your request contains more CNAMEs than are allowed per distribution.</p>
+            aws_sdk_cloudfront.errors.too_many_distributions.TooManyDistributions: <p>Processing your request would cause you to exceed the maximum number of distributions allowed.</p>
+            aws_sdk_cloudfront.errors.too_many_distributions_associated_to_cache_policy.TooManyDistributionsAssociatedToCachePolicy: <p>The maximum number of distributions have been associated with the specified cache policy. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html\">Quotas</a> (formerly known as limits) in the <i>Amazon CloudFront Developer Guide</i>.</p>
+            aws_sdk_cloudfront.errors.too_many_distributions_associated_to_field_level_encryption_config.TooManyDistributionsAssociatedToFieldLevelEncryptionConfig: <p>The maximum number of distributions have been associated with the specified configuration for field-level encryption.</p>
+            aws_sdk_cloudfront.errors.too_many_distributions_associated_to_key_group.TooManyDistributionsAssociatedToKeyGroup: <p>The number of distributions that reference this key group is more than the maximum allowed. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html\">Quotas</a> (formerly known as limits) in the <i>Amazon CloudFront Developer Guide</i>.</p>
+            aws_sdk_cloudfront.errors.too_many_distributions_associated_to_origin_access_control.TooManyDistributionsAssociatedToOriginAccessControl: <p>The maximum number of distributions have been associated with the specified origin access control.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html\">Quotas</a> (formerly known as limits) in the <i>Amazon CloudFront Developer Guide</i>.</p>
+            aws_sdk_cloudfront.errors.too_many_distributions_associated_to_origin_request_policy.TooManyDistributionsAssociatedToOriginRequestPolicy: <p>The maximum number of distributions have been associated with the specified origin request policy. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html\">Quotas</a> (formerly known as limits) in the <i>Amazon CloudFront Developer Guide</i>.</p>
+            aws_sdk_cloudfront.errors.too_many_distributions_associated_to_response_headers_policy.TooManyDistributionsAssociatedToResponseHeadersPolicy: <p>The maximum number of distributions have been associated with the specified response headers policy.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html\">Quotas</a> (formerly known as limits) in the <i>Amazon CloudFront Developer Guide</i>.</p>
+            aws_sdk_cloudfront.errors.too_many_distributions_with_function_associations.TooManyDistributionsWithFunctionAssociations: <p>You have reached the maximum number of distributions that are associated with a CloudFront function. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html\">Quotas</a> (formerly known as limits) in the <i>Amazon CloudFront Developer Guide</i>.</p>
+            aws_sdk_cloudfront.errors.too_many_distributions_with_lambda_associations.TooManyDistributionsWithLambdaAssociations: <p>Processing your request would cause the maximum number of distributions with Lambda@Edge function associations per owner to be exceeded.</p>
+            aws_sdk_cloudfront.errors.too_many_distributions_with_single_function_arn.TooManyDistributionsWithSingleFunctionARN: <p>The maximum number of distributions have been associated with the specified Lambda@Edge function.</p>
+            aws_sdk_cloudfront.errors.too_many_function_associations.TooManyFunctionAssociations: <p>You have reached the maximum number of CloudFront function associations for this distribution. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html\">Quotas</a> (formerly known as limits) in the <i>Amazon CloudFront Developer Guide</i>.</p>
+            aws_sdk_cloudfront.errors.too_many_headers_in_forwarded_values.TooManyHeadersInForwardedValues: <p>Your request contains too many headers in forwarded values.</p>
+            aws_sdk_cloudfront.errors.too_many_key_groups_associated_to_distribution.TooManyKeyGroupsAssociatedToDistribution: <p>The number of key groups referenced by this distribution is more than the maximum allowed. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html\">Quotas</a> (formerly known as limits) in the <i>Amazon CloudFront Developer Guide</i>.</p>
+            aws_sdk_cloudfront.errors.too_many_lambda_function_associations.TooManyLambdaFunctionAssociations: <p>Your request contains more Lambda@Edge function associations than are allowed per distribution.</p>
+            aws_sdk_cloudfront.errors.too_many_origin_custom_headers.TooManyOriginCustomHeaders: <p>Your request contains too many origin custom headers.</p>
+            aws_sdk_cloudfront.errors.too_many_origin_groups_per_distribution.TooManyOriginGroupsPerDistribution: <p>Processing your request would cause you to exceed the maximum number of origin groups allowed.</p>
+            aws_sdk_cloudfront.errors.too_many_origins.TooManyOrigins: <p>You cannot create more origins for the distribution.</p>
+            aws_sdk_cloudfront.errors.too_many_query_string_parameters.TooManyQueryStringParameters: <p>Your request contains too many query string parameters.</p>
+            aws_sdk_cloudfront.errors.too_many_trusted_signers.TooManyTrustedSigners: <p>Your request contains more trusted signers than are allowed per distribution.</p>
+            aws_sdk_cloudfront.errors.trusted_key_group_does_not_exist.TrustedKeyGroupDoesNotExist: <p>The specified key group does not exist.</p>
+            aws_sdk_cloudfront.errors.trusted_signer_does_not_exist.TrustedSignerDoesNotExist: <p>One or more of your trusted signers don't exist.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -698,6 +791,15 @@ class CloudFrontClient:
             ip_count: <p>The number of static IP addresses that are allocated to the Anycast static IP list. Valid values: 21 or 3.</p>
             ip_address_type: <p>The IP address type for the Anycast static IP list. You can specify one of the following options:</p> <ul> <li> <p> <code>ipv4</code> only</p> </li> <li> <p> <code>ipv6</code> only </p> </li> <li> <p> <code>dualstack</code> - Allocate a list of both IPv4 and IPv6 addresses</p> </li> </ul>
             ipam_cidr_configs: <p> A list of IPAM CIDR configurations that specify the IP address ranges and IPAM pool settings for creating the Anycast static IP list. </p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.access_denied.AccessDenied: <p>Access denied.</p>
+            aws_sdk_cloudfront.errors.entity_already_exists.EntityAlreadyExists: <p>The entity already exists. You must provide a unique entity.</p>
+            aws_sdk_cloudfront.errors.entity_limit_exceeded.EntityLimitExceeded: <p>The entity limit has been exceeded.</p>
+            aws_sdk_cloudfront.errors.invalid_argument.InvalidArgument: <p>An argument is invalid.</p>
+            aws_sdk_cloudfront.errors.invalid_tagging.InvalidTagging: <p>The tagging specified is not valid.</p>
+            aws_sdk_cloudfront.errors.unsupported_operation.UnsupportedOperation: <p>This operation is not supported in this Amazon Web Services Region.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -742,6 +844,17 @@ class CloudFrontClient:
 
         Args:
             cache_policy_config: <p>A cache policy configuration.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.access_denied.AccessDenied: <p>Access denied.</p>
+            aws_sdk_cloudfront.errors.cache_policy_already_exists.CachePolicyAlreadyExists: <p>A cache policy with this name already exists. You must provide a unique name. To modify an existing cache policy, use <code>UpdateCachePolicy</code>.</p>
+            aws_sdk_cloudfront.errors.inconsistent_quantities.InconsistentQuantities: <p>The value of <code>Quantity</code> and the size of <code>Items</code> don't match.</p>
+            aws_sdk_cloudfront.errors.invalid_argument.InvalidArgument: <p>An argument is invalid.</p>
+            aws_sdk_cloudfront.errors.too_many_cache_policies.TooManyCachePolicies: <p>You have reached the maximum number of cache policies for this Amazon Web Services account. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html\">Quotas</a> (formerly known as limits) in the <i>Amazon CloudFront Developer Guide</i>.</p>
+            aws_sdk_cloudfront.errors.too_many_cookies_in_cache_policy.TooManyCookiesInCachePolicy: <p>The number of cookies in the cache policy exceeds the maximum. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html\">Quotas</a> (formerly known as limits) in the <i>Amazon CloudFront Developer Guide</i>.</p>
+            aws_sdk_cloudfront.errors.too_many_headers_in_cache_policy.TooManyHeadersInCachePolicy: <p>The number of headers in the cache policy exceeds the maximum. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html\">Quotas</a> (formerly known as limits) in the <i>Amazon CloudFront Developer Guide</i>.</p>
+            aws_sdk_cloudfront.errors.too_many_query_strings_in_cache_policy.TooManyQueryStringsInCachePolicy: <p>The number of query strings in the cache policy exceeds the maximum. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html\">Quotas</a> (formerly known as limits) in the <i>Amazon CloudFront Developer Guide</i>.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -779,6 +892,14 @@ class CloudFrontClient:
 
         Args:
             cloud_front_origin_access_identity_config: <p>The current configuration information for the identity.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.cloud_front_origin_access_identity_already_exists.CloudFrontOriginAccessIdentityAlreadyExists: <p>If the <code>CallerReference</code> is a value you already sent in a previous request to create an identity but the content of the <code>CloudFrontOriginAccessIdentityConfig</code> is different from the original request, CloudFront returns a <code>CloudFrontOriginAccessIdentityAlreadyExists</code> error. </p>
+            aws_sdk_cloudfront.errors.inconsistent_quantities.InconsistentQuantities: <p>The value of <code>Quantity</code> and the size of <code>Items</code> don't match.</p>
+            aws_sdk_cloudfront.errors.invalid_argument.InvalidArgument: <p>An argument is invalid.</p>
+            aws_sdk_cloudfront.errors.missing_body.MissingBody: <p>This operation requires a body. Ensure that the body is present and the <code>Content-Type</code> header is set.</p>
+            aws_sdk_cloudfront.errors.too_many_cloud_front_origin_access_identities.TooManyCloudFrontOriginAccessIdentities: <p>Processing your request would cause you to exceed the maximum number of origin access identities allowed.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -822,6 +943,16 @@ class CloudFrontClient:
         Args:
             name: <p>A name for the connection function.</p>
             connection_function_code: <p>The code for the connection function.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.access_denied.AccessDenied: <p>Access denied.</p>
+            aws_sdk_cloudfront.errors.entity_already_exists.EntityAlreadyExists: <p>The entity already exists. You must provide a unique entity.</p>
+            aws_sdk_cloudfront.errors.entity_limit_exceeded.EntityLimitExceeded: <p>The entity limit has been exceeded.</p>
+            aws_sdk_cloudfront.errors.entity_size_limit_exceeded.EntitySizeLimitExceeded: <p>The entity size limit was exceeded.</p>
+            aws_sdk_cloudfront.errors.invalid_argument.InvalidArgument: <p>An argument is invalid.</p>
+            aws_sdk_cloudfront.errors.invalid_tagging.InvalidTagging: <p>The tagging specified is not valid.</p>
+            aws_sdk_cloudfront.errors.unsupported_operation.UnsupportedOperation: <p>This operation is not supported in this Amazon Web Services Region.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -870,6 +1001,15 @@ class CloudFrontClient:
             ipv6_enabled: <p>Enable IPv6 for the connection group. The default is <code>true</code>. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesEnableIPv6\">Enable IPv6</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>
             anycast_ip_list_id: <p>The ID of the Anycast static IP list.</p>
             enabled: <p>Enable the connection group.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.access_denied.AccessDenied: <p>Access denied.</p>
+            aws_sdk_cloudfront.errors.entity_already_exists.EntityAlreadyExists: <p>The entity already exists. You must provide a unique entity.</p>
+            aws_sdk_cloudfront.errors.entity_limit_exceeded.EntityLimitExceeded: <p>The entity limit has been exceeded.</p>
+            aws_sdk_cloudfront.errors.entity_not_found.EntityNotFound: <p>The entity was not found.</p>
+            aws_sdk_cloudfront.errors.invalid_argument.InvalidArgument: <p>An argument is invalid.</p>
+            aws_sdk_cloudfront.errors.invalid_tagging.InvalidTagging: <p>The tagging specified is not valid.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -915,6 +1055,15 @@ class CloudFrontClient:
 
         Args:
             continuous_deployment_policy_config: <p>Contains the configuration for a continuous deployment policy.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.access_denied.AccessDenied: <p>Access denied.</p>
+            aws_sdk_cloudfront.errors.continuous_deployment_policy_already_exists.ContinuousDeploymentPolicyAlreadyExists: <p>A continuous deployment policy with this configuration already exists.</p>
+            aws_sdk_cloudfront.errors.inconsistent_quantities.InconsistentQuantities: <p>The value of <code>Quantity</code> and the size of <code>Items</code> don't match.</p>
+            aws_sdk_cloudfront.errors.invalid_argument.InvalidArgument: <p>An argument is invalid.</p>
+            aws_sdk_cloudfront.errors.staging_distribution_in_use.StagingDistributionInUse: <p>A continuous deployment policy for this staging distribution already exists.</p>
+            aws_sdk_cloudfront.errors.too_many_continuous_deployment_policies.TooManyContinuousDeploymentPolicies: <p>You have reached the maximum number of continuous deployment policies for this Amazon Web Services account.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -954,6 +1103,76 @@ class CloudFrontClient:
 
         Args:
             distribution_config: <p>The distribution's configuration information.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.access_denied.AccessDenied: <p>Access denied.</p>
+            aws_sdk_cloudfront.errors.cname_already_exists.CNAMEAlreadyExists: <p>The CNAME specified is already defined for CloudFront.</p>
+            aws_sdk_cloudfront.errors.continuous_deployment_policy_in_use.ContinuousDeploymentPolicyInUse: <p>You cannot delete a continuous deployment policy that is associated with a primary distribution.</p>
+            aws_sdk_cloudfront.errors.distribution_already_exists.DistributionAlreadyExists: <p>The caller reference you attempted to create the distribution with is associated with another distribution.</p>
+            aws_sdk_cloudfront.errors.entity_limit_exceeded.EntityLimitExceeded: <p>The entity limit has been exceeded.</p>
+            aws_sdk_cloudfront.errors.entity_not_found.EntityNotFound: <p>The entity was not found.</p>
+            aws_sdk_cloudfront.errors.illegal_field_level_encryption_config_association_with_cache_behavior.IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior: <p>The specified configuration for field-level encryption can't be associated with the specified cache behavior.</p>
+            aws_sdk_cloudfront.errors.illegal_origin_access_configuration.IllegalOriginAccessConfiguration: <p>An origin cannot contain both an origin access control (OAC) and an origin access identity (OAI).</p>
+            aws_sdk_cloudfront.errors.inconsistent_quantities.InconsistentQuantities: <p>The value of <code>Quantity</code> and the size of <code>Items</code> don't match.</p>
+            aws_sdk_cloudfront.errors.invalid_argument.InvalidArgument: <p>An argument is invalid.</p>
+            aws_sdk_cloudfront.errors.invalid_default_root_object.InvalidDefaultRootObject: <p>The default root object file name is too big or contains an invalid character.</p>
+            aws_sdk_cloudfront.errors.invalid_domain_name_for_origin_access_control.InvalidDomainNameForOriginAccessControl: <p>An origin access control is associated with an origin whose domain name is not supported.</p>
+            aws_sdk_cloudfront.errors.invalid_error_code.InvalidErrorCode: <p>An invalid error code was specified.</p>
+            aws_sdk_cloudfront.errors.invalid_forward_cookies.InvalidForwardCookies: <p>Your request contains forward cookies option which doesn't match with the expectation for the <code>whitelisted</code> list of cookie names. Either list of cookie names has been specified when not allowed or list of cookie names is missing when expected.</p>
+            aws_sdk_cloudfront.errors.invalid_function_association.InvalidFunctionAssociation: <p>A CloudFront function association is invalid.</p>
+            aws_sdk_cloudfront.errors.invalid_geo_restriction_parameter.InvalidGeoRestrictionParameter: <p>The specified geo restriction parameter is not valid.</p>
+            aws_sdk_cloudfront.errors.invalid_headers_for_s3_origin.InvalidHeadersForS3Origin: <p>The headers specified are not valid for an Amazon S3 origin.</p>
+            aws_sdk_cloudfront.errors.invalid_lambda_function_association.InvalidLambdaFunctionAssociation: <p>The specified Lambda@Edge function association is invalid.</p>
+            aws_sdk_cloudfront.errors.invalid_location_code.InvalidLocationCode: <p>The location code specified is not valid.</p>
+            aws_sdk_cloudfront.errors.invalid_minimum_protocol_version.InvalidMinimumProtocolVersion: <p>The minimum protocol version specified is not valid.</p>
+            aws_sdk_cloudfront.errors.invalid_origin.InvalidOrigin: <p>The Amazon S3 origin server specified does not refer to a valid Amazon S3 bucket.</p>
+            aws_sdk_cloudfront.errors.invalid_origin_access_control.InvalidOriginAccessControl: <p>The origin access control is not valid.</p>
+            aws_sdk_cloudfront.errors.invalid_origin_access_identity.InvalidOriginAccessIdentity: <p>The origin access identity is not valid or doesn't exist.</p>
+            aws_sdk_cloudfront.errors.invalid_origin_keepalive_timeout.InvalidOriginKeepaliveTimeout: <p>The keep alive timeout specified for the origin is not valid.</p>
+            aws_sdk_cloudfront.errors.invalid_origin_read_timeout.InvalidOriginReadTimeout: <p>The read timeout specified for the origin is not valid.</p>
+            aws_sdk_cloudfront.errors.invalid_protocol_settings.InvalidProtocolSettings: <p>You cannot specify SSLv3 as the minimum protocol version if you only want to support only clients that support Server Name Indication (SNI).</p>
+            aws_sdk_cloudfront.errors.invalid_query_string_parameters.InvalidQueryStringParameters: <p>The query string parameters specified are not valid.</p>
+            aws_sdk_cloudfront.errors.invalid_relative_path.InvalidRelativePath: <p>The relative path is too big, is not URL-encoded, or does not begin with a slash (/).</p>
+            aws_sdk_cloudfront.errors.invalid_required_protocol.InvalidRequiredProtocol: <p>This operation requires the HTTPS protocol. Ensure that you specify the HTTPS protocol in your request, or omit the <code>RequiredProtocols</code> element from your distribution configuration.</p>
+            aws_sdk_cloudfront.errors.invalid_response_code.InvalidResponseCode: <p>A response code is not valid.</p>
+            aws_sdk_cloudfront.errors.invalid_ttl_order.InvalidTTLOrder: <p>The TTL order specified is not valid.</p>
+            aws_sdk_cloudfront.errors.invalid_viewer_certificate.InvalidViewerCertificate: <p>A viewer certificate specified is not valid.</p>
+            aws_sdk_cloudfront.errors.invalid_web_acl_id.InvalidWebACLId: <p>A web ACL ID specified is not valid. To specify a web ACL created using the latest version of WAF, use the ACL ARN, for example <code>arn:aws:wafv2:us-east-1:123456789012:global/webacl/ExampleWebACL/473e64fd-f30b-4765-81a0-62ad96dd167a</code>. To specify a web ACL created using WAF Classic, use the ACL ID, for example <code>473e64fd-f30b-4765-81a0-62ad96dd167a</code>.</p>
+            aws_sdk_cloudfront.errors.missing_body.MissingBody: <p>This operation requires a body. Ensure that the body is present and the <code>Content-Type</code> header is set.</p>
+            aws_sdk_cloudfront.errors.no_such_cache_policy.NoSuchCachePolicy: <p>The cache policy does not exist.</p>
+            aws_sdk_cloudfront.errors.no_such_continuous_deployment_policy.NoSuchContinuousDeploymentPolicy: <p>The continuous deployment policy doesn't exist.</p>
+            aws_sdk_cloudfront.errors.no_such_field_level_encryption_config.NoSuchFieldLevelEncryptionConfig: <p>The specified configuration for field-level encryption doesn't exist.</p>
+            aws_sdk_cloudfront.errors.no_such_origin.NoSuchOrigin: <p>No origin exists with the specified <code>Origin Id</code>.</p>
+            aws_sdk_cloudfront.errors.no_such_origin_request_policy.NoSuchOriginRequestPolicy: <p>The origin request policy does not exist.</p>
+            aws_sdk_cloudfront.errors.no_such_realtime_log_config.NoSuchRealtimeLogConfig: <p>The real-time log configuration does not exist.</p>
+            aws_sdk_cloudfront.errors.no_such_response_headers_policy.NoSuchResponseHeadersPolicy: <p>The response headers policy does not exist.</p>
+            aws_sdk_cloudfront.errors.realtime_log_config_owner_mismatch.RealtimeLogConfigOwnerMismatch: <p>The specified real-time log configuration belongs to a different Amazon Web Services account.</p>
+            aws_sdk_cloudfront.errors.too_many_cache_behaviors.TooManyCacheBehaviors: <p>You cannot create more cache behaviors for the distribution.</p>
+            aws_sdk_cloudfront.errors.too_many_certificates.TooManyCertificates: <p>You cannot create anymore custom SSL/TLS certificates.</p>
+            aws_sdk_cloudfront.errors.too_many_cookie_names_in_white_list.TooManyCookieNamesInWhiteList: <p>Your request contains more cookie names in the whitelist than are allowed per cache behavior.</p>
+            aws_sdk_cloudfront.errors.too_many_distribution_cnam_es.TooManyDistributionCNAMEs: <p>Your request contains more CNAMEs than are allowed per distribution.</p>
+            aws_sdk_cloudfront.errors.too_many_distributions.TooManyDistributions: <p>Processing your request would cause you to exceed the maximum number of distributions allowed.</p>
+            aws_sdk_cloudfront.errors.too_many_distributions_associated_to_cache_policy.TooManyDistributionsAssociatedToCachePolicy: <p>The maximum number of distributions have been associated with the specified cache policy. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html\">Quotas</a> (formerly known as limits) in the <i>Amazon CloudFront Developer Guide</i>.</p>
+            aws_sdk_cloudfront.errors.too_many_distributions_associated_to_field_level_encryption_config.TooManyDistributionsAssociatedToFieldLevelEncryptionConfig: <p>The maximum number of distributions have been associated with the specified configuration for field-level encryption.</p>
+            aws_sdk_cloudfront.errors.too_many_distributions_associated_to_key_group.TooManyDistributionsAssociatedToKeyGroup: <p>The number of distributions that reference this key group is more than the maximum allowed. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html\">Quotas</a> (formerly known as limits) in the <i>Amazon CloudFront Developer Guide</i>.</p>
+            aws_sdk_cloudfront.errors.too_many_distributions_associated_to_origin_access_control.TooManyDistributionsAssociatedToOriginAccessControl: <p>The maximum number of distributions have been associated with the specified origin access control.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html\">Quotas</a> (formerly known as limits) in the <i>Amazon CloudFront Developer Guide</i>.</p>
+            aws_sdk_cloudfront.errors.too_many_distributions_associated_to_origin_request_policy.TooManyDistributionsAssociatedToOriginRequestPolicy: <p>The maximum number of distributions have been associated with the specified origin request policy. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html\">Quotas</a> (formerly known as limits) in the <i>Amazon CloudFront Developer Guide</i>.</p>
+            aws_sdk_cloudfront.errors.too_many_distributions_associated_to_response_headers_policy.TooManyDistributionsAssociatedToResponseHeadersPolicy: <p>The maximum number of distributions have been associated with the specified response headers policy.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html\">Quotas</a> (formerly known as limits) in the <i>Amazon CloudFront Developer Guide</i>.</p>
+            aws_sdk_cloudfront.errors.too_many_distributions_with_function_associations.TooManyDistributionsWithFunctionAssociations: <p>You have reached the maximum number of distributions that are associated with a CloudFront function. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html\">Quotas</a> (formerly known as limits) in the <i>Amazon CloudFront Developer Guide</i>.</p>
+            aws_sdk_cloudfront.errors.too_many_distributions_with_lambda_associations.TooManyDistributionsWithLambdaAssociations: <p>Processing your request would cause the maximum number of distributions with Lambda@Edge function associations per owner to be exceeded.</p>
+            aws_sdk_cloudfront.errors.too_many_distributions_with_single_function_arn.TooManyDistributionsWithSingleFunctionARN: <p>The maximum number of distributions have been associated with the specified Lambda@Edge function.</p>
+            aws_sdk_cloudfront.errors.too_many_function_associations.TooManyFunctionAssociations: <p>You have reached the maximum number of CloudFront function associations for this distribution. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html\">Quotas</a> (formerly known as limits) in the <i>Amazon CloudFront Developer Guide</i>.</p>
+            aws_sdk_cloudfront.errors.too_many_headers_in_forwarded_values.TooManyHeadersInForwardedValues: <p>Your request contains too many headers in forwarded values.</p>
+            aws_sdk_cloudfront.errors.too_many_key_groups_associated_to_distribution.TooManyKeyGroupsAssociatedToDistribution: <p>The number of key groups referenced by this distribution is more than the maximum allowed. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html\">Quotas</a> (formerly known as limits) in the <i>Amazon CloudFront Developer Guide</i>.</p>
+            aws_sdk_cloudfront.errors.too_many_lambda_function_associations.TooManyLambdaFunctionAssociations: <p>Your request contains more Lambda@Edge function associations than are allowed per distribution.</p>
+            aws_sdk_cloudfront.errors.too_many_origin_custom_headers.TooManyOriginCustomHeaders: <p>Your request contains too many origin custom headers.</p>
+            aws_sdk_cloudfront.errors.too_many_origin_groups_per_distribution.TooManyOriginGroupsPerDistribution: <p>Processing your request would cause you to exceed the maximum number of origin groups allowed.</p>
+            aws_sdk_cloudfront.errors.too_many_origins.TooManyOrigins: <p>You cannot create more origins for the distribution.</p>
+            aws_sdk_cloudfront.errors.too_many_query_string_parameters.TooManyQueryStringParameters: <p>Your request contains too many query string parameters.</p>
+            aws_sdk_cloudfront.errors.too_many_trusted_signers.TooManyTrustedSigners: <p>Your request contains more trusted signers than are allowed per distribution.</p>
+            aws_sdk_cloudfront.errors.trusted_key_group_does_not_exist.TrustedKeyGroupDoesNotExist: <p>The specified key group does not exist.</p>
+            aws_sdk_cloudfront.errors.trusted_signer_does_not_exist.TrustedSignerDoesNotExist: <p>One or more of your trusted signers don't exist.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1010,6 +1229,17 @@ class CloudFrontClient:
             connection_group_id: <p>The ID of the connection group to associate with the distribution tenant.</p>
             managed_certificate_request: <p>The configuration for the CloudFront managed ACM certificate request.</p>
             enabled: <p>Indicates whether the distribution tenant should be enabled when created. If the distribution tenant is disabled, the distribution tenant won't serve traffic.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.access_denied.AccessDenied: <p>Access denied.</p>
+            aws_sdk_cloudfront.errors.cname_already_exists.CNAMEAlreadyExists: <p>The CNAME specified is already defined for CloudFront.</p>
+            aws_sdk_cloudfront.errors.entity_already_exists.EntityAlreadyExists: <p>The entity already exists. You must provide a unique entity.</p>
+            aws_sdk_cloudfront.errors.entity_limit_exceeded.EntityLimitExceeded: <p>The entity limit has been exceeded.</p>
+            aws_sdk_cloudfront.errors.entity_not_found.EntityNotFound: <p>The entity was not found.</p>
+            aws_sdk_cloudfront.errors.invalid_argument.InvalidArgument: <p>An argument is invalid.</p>
+            aws_sdk_cloudfront.errors.invalid_association.InvalidAssociation: <p>The specified CloudFront resource can't be associated.</p>
+            aws_sdk_cloudfront.errors.invalid_tagging.InvalidTagging: <p>The tagging specified is not valid.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1061,6 +1291,76 @@ class CloudFrontClient:
 
         Args:
             distribution_config_with_tags: <p>The distribution's configuration information.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.access_denied.AccessDenied: <p>Access denied.</p>
+            aws_sdk_cloudfront.errors.cname_already_exists.CNAMEAlreadyExists: <p>The CNAME specified is already defined for CloudFront.</p>
+            aws_sdk_cloudfront.errors.continuous_deployment_policy_in_use.ContinuousDeploymentPolicyInUse: <p>You cannot delete a continuous deployment policy that is associated with a primary distribution.</p>
+            aws_sdk_cloudfront.errors.distribution_already_exists.DistributionAlreadyExists: <p>The caller reference you attempted to create the distribution with is associated with another distribution.</p>
+            aws_sdk_cloudfront.errors.entity_not_found.EntityNotFound: <p>The entity was not found.</p>
+            aws_sdk_cloudfront.errors.illegal_field_level_encryption_config_association_with_cache_behavior.IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior: <p>The specified configuration for field-level encryption can't be associated with the specified cache behavior.</p>
+            aws_sdk_cloudfront.errors.illegal_origin_access_configuration.IllegalOriginAccessConfiguration: <p>An origin cannot contain both an origin access control (OAC) and an origin access identity (OAI).</p>
+            aws_sdk_cloudfront.errors.inconsistent_quantities.InconsistentQuantities: <p>The value of <code>Quantity</code> and the size of <code>Items</code> don't match.</p>
+            aws_sdk_cloudfront.errors.invalid_argument.InvalidArgument: <p>An argument is invalid.</p>
+            aws_sdk_cloudfront.errors.invalid_default_root_object.InvalidDefaultRootObject: <p>The default root object file name is too big or contains an invalid character.</p>
+            aws_sdk_cloudfront.errors.invalid_domain_name_for_origin_access_control.InvalidDomainNameForOriginAccessControl: <p>An origin access control is associated with an origin whose domain name is not supported.</p>
+            aws_sdk_cloudfront.errors.invalid_error_code.InvalidErrorCode: <p>An invalid error code was specified.</p>
+            aws_sdk_cloudfront.errors.invalid_forward_cookies.InvalidForwardCookies: <p>Your request contains forward cookies option which doesn't match with the expectation for the <code>whitelisted</code> list of cookie names. Either list of cookie names has been specified when not allowed or list of cookie names is missing when expected.</p>
+            aws_sdk_cloudfront.errors.invalid_function_association.InvalidFunctionAssociation: <p>A CloudFront function association is invalid.</p>
+            aws_sdk_cloudfront.errors.invalid_geo_restriction_parameter.InvalidGeoRestrictionParameter: <p>The specified geo restriction parameter is not valid.</p>
+            aws_sdk_cloudfront.errors.invalid_headers_for_s3_origin.InvalidHeadersForS3Origin: <p>The headers specified are not valid for an Amazon S3 origin.</p>
+            aws_sdk_cloudfront.errors.invalid_lambda_function_association.InvalidLambdaFunctionAssociation: <p>The specified Lambda@Edge function association is invalid.</p>
+            aws_sdk_cloudfront.errors.invalid_location_code.InvalidLocationCode: <p>The location code specified is not valid.</p>
+            aws_sdk_cloudfront.errors.invalid_minimum_protocol_version.InvalidMinimumProtocolVersion: <p>The minimum protocol version specified is not valid.</p>
+            aws_sdk_cloudfront.errors.invalid_origin.InvalidOrigin: <p>The Amazon S3 origin server specified does not refer to a valid Amazon S3 bucket.</p>
+            aws_sdk_cloudfront.errors.invalid_origin_access_control.InvalidOriginAccessControl: <p>The origin access control is not valid.</p>
+            aws_sdk_cloudfront.errors.invalid_origin_access_identity.InvalidOriginAccessIdentity: <p>The origin access identity is not valid or doesn't exist.</p>
+            aws_sdk_cloudfront.errors.invalid_origin_keepalive_timeout.InvalidOriginKeepaliveTimeout: <p>The keep alive timeout specified for the origin is not valid.</p>
+            aws_sdk_cloudfront.errors.invalid_origin_read_timeout.InvalidOriginReadTimeout: <p>The read timeout specified for the origin is not valid.</p>
+            aws_sdk_cloudfront.errors.invalid_protocol_settings.InvalidProtocolSettings: <p>You cannot specify SSLv3 as the minimum protocol version if you only want to support only clients that support Server Name Indication (SNI).</p>
+            aws_sdk_cloudfront.errors.invalid_query_string_parameters.InvalidQueryStringParameters: <p>The query string parameters specified are not valid.</p>
+            aws_sdk_cloudfront.errors.invalid_relative_path.InvalidRelativePath: <p>The relative path is too big, is not URL-encoded, or does not begin with a slash (/).</p>
+            aws_sdk_cloudfront.errors.invalid_required_protocol.InvalidRequiredProtocol: <p>This operation requires the HTTPS protocol. Ensure that you specify the HTTPS protocol in your request, or omit the <code>RequiredProtocols</code> element from your distribution configuration.</p>
+            aws_sdk_cloudfront.errors.invalid_response_code.InvalidResponseCode: <p>A response code is not valid.</p>
+            aws_sdk_cloudfront.errors.invalid_tagging.InvalidTagging: <p>The tagging specified is not valid.</p>
+            aws_sdk_cloudfront.errors.invalid_ttl_order.InvalidTTLOrder: <p>The TTL order specified is not valid.</p>
+            aws_sdk_cloudfront.errors.invalid_viewer_certificate.InvalidViewerCertificate: <p>A viewer certificate specified is not valid.</p>
+            aws_sdk_cloudfront.errors.invalid_web_acl_id.InvalidWebACLId: <p>A web ACL ID specified is not valid. To specify a web ACL created using the latest version of WAF, use the ACL ARN, for example <code>arn:aws:wafv2:us-east-1:123456789012:global/webacl/ExampleWebACL/473e64fd-f30b-4765-81a0-62ad96dd167a</code>. To specify a web ACL created using WAF Classic, use the ACL ID, for example <code>473e64fd-f30b-4765-81a0-62ad96dd167a</code>.</p>
+            aws_sdk_cloudfront.errors.missing_body.MissingBody: <p>This operation requires a body. Ensure that the body is present and the <code>Content-Type</code> header is set.</p>
+            aws_sdk_cloudfront.errors.no_such_cache_policy.NoSuchCachePolicy: <p>The cache policy does not exist.</p>
+            aws_sdk_cloudfront.errors.no_such_continuous_deployment_policy.NoSuchContinuousDeploymentPolicy: <p>The continuous deployment policy doesn't exist.</p>
+            aws_sdk_cloudfront.errors.no_such_field_level_encryption_config.NoSuchFieldLevelEncryptionConfig: <p>The specified configuration for field-level encryption doesn't exist.</p>
+            aws_sdk_cloudfront.errors.no_such_origin.NoSuchOrigin: <p>No origin exists with the specified <code>Origin Id</code>.</p>
+            aws_sdk_cloudfront.errors.no_such_origin_request_policy.NoSuchOriginRequestPolicy: <p>The origin request policy does not exist.</p>
+            aws_sdk_cloudfront.errors.no_such_realtime_log_config.NoSuchRealtimeLogConfig: <p>The real-time log configuration does not exist.</p>
+            aws_sdk_cloudfront.errors.no_such_response_headers_policy.NoSuchResponseHeadersPolicy: <p>The response headers policy does not exist.</p>
+            aws_sdk_cloudfront.errors.realtime_log_config_owner_mismatch.RealtimeLogConfigOwnerMismatch: <p>The specified real-time log configuration belongs to a different Amazon Web Services account.</p>
+            aws_sdk_cloudfront.errors.too_many_cache_behaviors.TooManyCacheBehaviors: <p>You cannot create more cache behaviors for the distribution.</p>
+            aws_sdk_cloudfront.errors.too_many_certificates.TooManyCertificates: <p>You cannot create anymore custom SSL/TLS certificates.</p>
+            aws_sdk_cloudfront.errors.too_many_cookie_names_in_white_list.TooManyCookieNamesInWhiteList: <p>Your request contains more cookie names in the whitelist than are allowed per cache behavior.</p>
+            aws_sdk_cloudfront.errors.too_many_distribution_cnam_es.TooManyDistributionCNAMEs: <p>Your request contains more CNAMEs than are allowed per distribution.</p>
+            aws_sdk_cloudfront.errors.too_many_distributions.TooManyDistributions: <p>Processing your request would cause you to exceed the maximum number of distributions allowed.</p>
+            aws_sdk_cloudfront.errors.too_many_distributions_associated_to_cache_policy.TooManyDistributionsAssociatedToCachePolicy: <p>The maximum number of distributions have been associated with the specified cache policy. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html\">Quotas</a> (formerly known as limits) in the <i>Amazon CloudFront Developer Guide</i>.</p>
+            aws_sdk_cloudfront.errors.too_many_distributions_associated_to_field_level_encryption_config.TooManyDistributionsAssociatedToFieldLevelEncryptionConfig: <p>The maximum number of distributions have been associated with the specified configuration for field-level encryption.</p>
+            aws_sdk_cloudfront.errors.too_many_distributions_associated_to_key_group.TooManyDistributionsAssociatedToKeyGroup: <p>The number of distributions that reference this key group is more than the maximum allowed. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html\">Quotas</a> (formerly known as limits) in the <i>Amazon CloudFront Developer Guide</i>.</p>
+            aws_sdk_cloudfront.errors.too_many_distributions_associated_to_origin_access_control.TooManyDistributionsAssociatedToOriginAccessControl: <p>The maximum number of distributions have been associated with the specified origin access control.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html\">Quotas</a> (formerly known as limits) in the <i>Amazon CloudFront Developer Guide</i>.</p>
+            aws_sdk_cloudfront.errors.too_many_distributions_associated_to_origin_request_policy.TooManyDistributionsAssociatedToOriginRequestPolicy: <p>The maximum number of distributions have been associated with the specified origin request policy. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html\">Quotas</a> (formerly known as limits) in the <i>Amazon CloudFront Developer Guide</i>.</p>
+            aws_sdk_cloudfront.errors.too_many_distributions_associated_to_response_headers_policy.TooManyDistributionsAssociatedToResponseHeadersPolicy: <p>The maximum number of distributions have been associated with the specified response headers policy.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html\">Quotas</a> (formerly known as limits) in the <i>Amazon CloudFront Developer Guide</i>.</p>
+            aws_sdk_cloudfront.errors.too_many_distributions_with_function_associations.TooManyDistributionsWithFunctionAssociations: <p>You have reached the maximum number of distributions that are associated with a CloudFront function. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html\">Quotas</a> (formerly known as limits) in the <i>Amazon CloudFront Developer Guide</i>.</p>
+            aws_sdk_cloudfront.errors.too_many_distributions_with_lambda_associations.TooManyDistributionsWithLambdaAssociations: <p>Processing your request would cause the maximum number of distributions with Lambda@Edge function associations per owner to be exceeded.</p>
+            aws_sdk_cloudfront.errors.too_many_distributions_with_single_function_arn.TooManyDistributionsWithSingleFunctionARN: <p>The maximum number of distributions have been associated with the specified Lambda@Edge function.</p>
+            aws_sdk_cloudfront.errors.too_many_function_associations.TooManyFunctionAssociations: <p>You have reached the maximum number of CloudFront function associations for this distribution. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html\">Quotas</a> (formerly known as limits) in the <i>Amazon CloudFront Developer Guide</i>.</p>
+            aws_sdk_cloudfront.errors.too_many_headers_in_forwarded_values.TooManyHeadersInForwardedValues: <p>Your request contains too many headers in forwarded values.</p>
+            aws_sdk_cloudfront.errors.too_many_key_groups_associated_to_distribution.TooManyKeyGroupsAssociatedToDistribution: <p>The number of key groups referenced by this distribution is more than the maximum allowed. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html\">Quotas</a> (formerly known as limits) in the <i>Amazon CloudFront Developer Guide</i>.</p>
+            aws_sdk_cloudfront.errors.too_many_lambda_function_associations.TooManyLambdaFunctionAssociations: <p>Your request contains more Lambda@Edge function associations than are allowed per distribution.</p>
+            aws_sdk_cloudfront.errors.too_many_origin_custom_headers.TooManyOriginCustomHeaders: <p>Your request contains too many origin custom headers.</p>
+            aws_sdk_cloudfront.errors.too_many_origin_groups_per_distribution.TooManyOriginGroupsPerDistribution: <p>Processing your request would cause you to exceed the maximum number of origin groups allowed.</p>
+            aws_sdk_cloudfront.errors.too_many_origins.TooManyOrigins: <p>You cannot create more origins for the distribution.</p>
+            aws_sdk_cloudfront.errors.too_many_query_string_parameters.TooManyQueryStringParameters: <p>Your request contains too many query string parameters.</p>
+            aws_sdk_cloudfront.errors.too_many_trusted_signers.TooManyTrustedSigners: <p>Your request contains more trusted signers than are allowed per distribution.</p>
+            aws_sdk_cloudfront.errors.trusted_key_group_does_not_exist.TrustedKeyGroupDoesNotExist: <p>The specified key group does not exist.</p>
+            aws_sdk_cloudfront.errors.trusted_signer_does_not_exist.TrustedSignerDoesNotExist: <p>One or more of your trusted signers don't exist.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1098,6 +1398,17 @@ class CloudFrontClient:
 
         Args:
             field_level_encryption_config: <p>The request to create a new field-level encryption configuration.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.field_level_encryption_config_already_exists.FieldLevelEncryptionConfigAlreadyExists: <p>The specified configuration for field-level encryption already exists.</p>
+            aws_sdk_cloudfront.errors.inconsistent_quantities.InconsistentQuantities: <p>The value of <code>Quantity</code> and the size of <code>Items</code> don't match.</p>
+            aws_sdk_cloudfront.errors.invalid_argument.InvalidArgument: <p>An argument is invalid.</p>
+            aws_sdk_cloudfront.errors.no_such_field_level_encryption_profile.NoSuchFieldLevelEncryptionProfile: <p>The specified profile for field-level encryption doesn't exist.</p>
+            aws_sdk_cloudfront.errors.query_arg_profile_empty.QueryArgProfileEmpty: <p>No profile specified for the field-level encryption query argument.</p>
+            aws_sdk_cloudfront.errors.too_many_field_level_encryption_configs.TooManyFieldLevelEncryptionConfigs: <p>The maximum number of configurations for field-level encryption have been created.</p>
+            aws_sdk_cloudfront.errors.too_many_field_level_encryption_content_type_profiles.TooManyFieldLevelEncryptionContentTypeProfiles: <p>The maximum number of content type profiles for field-level encryption have been created.</p>
+            aws_sdk_cloudfront.errors.too_many_field_level_encryption_query_arg_profiles.TooManyFieldLevelEncryptionQueryArgProfiles: <p>The maximum number of query arg profiles for field-level encryption have been created.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1135,6 +1446,17 @@ class CloudFrontClient:
 
         Args:
             field_level_encryption_profile_config: <p>The request to create a field-level encryption profile.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.field_level_encryption_profile_already_exists.FieldLevelEncryptionProfileAlreadyExists: <p>The specified profile for field-level encryption already exists.</p>
+            aws_sdk_cloudfront.errors.field_level_encryption_profile_size_exceeded.FieldLevelEncryptionProfileSizeExceeded: <p>The maximum size of a profile for field-level encryption was exceeded.</p>
+            aws_sdk_cloudfront.errors.inconsistent_quantities.InconsistentQuantities: <p>The value of <code>Quantity</code> and the size of <code>Items</code> don't match.</p>
+            aws_sdk_cloudfront.errors.invalid_argument.InvalidArgument: <p>An argument is invalid.</p>
+            aws_sdk_cloudfront.errors.no_such_public_key.NoSuchPublicKey: <p>The specified public key doesn't exist.</p>
+            aws_sdk_cloudfront.errors.too_many_field_level_encryption_encryption_entities.TooManyFieldLevelEncryptionEncryptionEntities: <p>The maximum number of encryption entities for field-level encryption have been created.</p>
+            aws_sdk_cloudfront.errors.too_many_field_level_encryption_field_patterns.TooManyFieldLevelEncryptionFieldPatterns: <p>The maximum number of field patterns for field-level encryption have been created.</p>
+            aws_sdk_cloudfront.errors.too_many_field_level_encryption_profiles.TooManyFieldLevelEncryptionProfiles: <p>The maximum number of profiles for field-level encryption have been created.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1179,6 +1501,14 @@ class CloudFrontClient:
             name: <p>A name to identify the function.</p>
             function_config: <p>Configuration information about the function, including an optional comment and the function's runtime.</p>
             function_code: <p>The function code. For more information about writing a CloudFront function, see <a href=\"https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/writing-function-code.html\">Writing function code for CloudFront Functions</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.function_already_exists.FunctionAlreadyExists: <p>A function with the same name already exists in this Amazon Web Services account. To create a function, you must provide a unique name. To update an existing function, use <code>UpdateFunction</code>.</p>
+            aws_sdk_cloudfront.errors.function_size_limit_exceeded.FunctionSizeLimitExceeded: <p>The function is too large. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html\">Quotas</a> (formerly known as limits) in the <i>Amazon CloudFront Developer Guide</i>.</p>
+            aws_sdk_cloudfront.errors.invalid_argument.InvalidArgument: <p>An argument is invalid.</p>
+            aws_sdk_cloudfront.errors.too_many_functions.TooManyFunctions: <p>You have reached the maximum number of CloudFront functions for this Amazon Web Services account. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html\">Quotas</a> (formerly known as limits) in the <i>Amazon CloudFront Developer Guide</i>.</p>
+            aws_sdk_cloudfront.errors.unsupported_operation.UnsupportedOperation: <p>This operation is not supported in this Amazon Web Services Region.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To create a function
@@ -1228,6 +1558,16 @@ class CloudFrontClient:
         Args:
             distribution_id: <p>The distribution's id.</p>
             invalidation_batch: <p>The batch information for the invalidation.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.access_denied.AccessDenied: <p>Access denied.</p>
+            aws_sdk_cloudfront.errors.batch_too_large.BatchTooLarge: <p>Invalidation batch specified is too large.</p>
+            aws_sdk_cloudfront.errors.inconsistent_quantities.InconsistentQuantities: <p>The value of <code>Quantity</code> and the size of <code>Items</code> don't match.</p>
+            aws_sdk_cloudfront.errors.invalid_argument.InvalidArgument: <p>An argument is invalid.</p>
+            aws_sdk_cloudfront.errors.missing_body.MissingBody: <p>This operation requires a body. Ensure that the body is present and the <code>Content-Type</code> header is set.</p>
+            aws_sdk_cloudfront.errors.no_such_distribution.NoSuchDistribution: <p>The specified distribution does not exist.</p>
+            aws_sdk_cloudfront.errors.too_many_invalidations_in_progress.TooManyInvalidationsInProgress: <p>You have exceeded the maximum number of allowable InProgress invalidation batch requests, or invalidation objects.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1267,6 +1607,16 @@ class CloudFrontClient:
 
         Args:
             id: <p>The ID of the distribution tenant.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.access_denied.AccessDenied: <p>Access denied.</p>
+            aws_sdk_cloudfront.errors.batch_too_large.BatchTooLarge: <p>Invalidation batch specified is too large.</p>
+            aws_sdk_cloudfront.errors.entity_not_found.EntityNotFound: <p>The entity was not found.</p>
+            aws_sdk_cloudfront.errors.inconsistent_quantities.InconsistentQuantities: <p>The value of <code>Quantity</code> and the size of <code>Items</code> don't match.</p>
+            aws_sdk_cloudfront.errors.invalid_argument.InvalidArgument: <p>An argument is invalid.</p>
+            aws_sdk_cloudfront.errors.missing_body.MissingBody: <p>This operation requires a body. Ensure that the body is present and the <code>Content-Type</code> header is set.</p>
+            aws_sdk_cloudfront.errors.too_many_invalidations_in_progress.TooManyInvalidationsInProgress: <p>You have exceeded the maximum number of allowable InProgress invalidation batch requests, or invalidation objects.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1305,6 +1655,13 @@ class CloudFrontClient:
 
         Args:
             key_group_config: <p>A key group configuration.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.invalid_argument.InvalidArgument: <p>An argument is invalid.</p>
+            aws_sdk_cloudfront.errors.key_group_already_exists.KeyGroupAlreadyExists: <p>A key group with this name already exists. You must provide a unique name. To modify an existing key group, use <code>UpdateKeyGroup</code>.</p>
+            aws_sdk_cloudfront.errors.too_many_key_groups.TooManyKeyGroups: <p>You have reached the maximum number of key groups for this Amazon Web Services account. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html\">Quotas</a> (formerly known as limits) in the <i>Amazon CloudFront Developer Guide</i>.</p>
+            aws_sdk_cloudfront.errors.too_many_public_keys_in_key_group.TooManyPublicKeysInKeyGroup: <p>The number of public keys in this key group is more than the maximum allowed. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html\">Quotas</a> (formerly known as limits) in the <i>Amazon CloudFront Developer Guide</i>.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1351,6 +1708,15 @@ class CloudFrontClient:
             name: <p>The name of the key value store. The minimum length is 1 character and the maximum length is 64 characters.</p>
             comment: <p>The comment of the key value store.</p>
             import_source: <p>The S3 bucket that provides the source for the import. The source must be in a valid JSON format.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.access_denied.AccessDenied: <p>Access denied.</p>
+            aws_sdk_cloudfront.errors.entity_already_exists.EntityAlreadyExists: <p>The entity already exists. You must provide a unique entity.</p>
+            aws_sdk_cloudfront.errors.entity_limit_exceeded.EntityLimitExceeded: <p>The entity limit has been exceeded.</p>
+            aws_sdk_cloudfront.errors.entity_size_limit_exceeded.EntitySizeLimitExceeded: <p>The entity size limit was exceeded.</p>
+            aws_sdk_cloudfront.errors.invalid_argument.InvalidArgument: <p>An argument is invalid.</p>
+            aws_sdk_cloudfront.errors.unsupported_operation.UnsupportedOperation: <p>This operation is not supported in this Amazon Web Services Region.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To create a KeyValueStore
@@ -1402,6 +1768,13 @@ class CloudFrontClient:
         Args:
             distribution_id: <p>The ID of the distribution that you are enabling metrics for.</p>
             monitoring_subscription: <p>A monitoring subscription. This structure contains information about whether additional CloudWatch metrics are enabled for a given CloudFront distribution.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.access_denied.AccessDenied: <p>Access denied.</p>
+            aws_sdk_cloudfront.errors.monitoring_subscription_already_exists.MonitoringSubscriptionAlreadyExists: <p>A monitoring subscription already exists for the specified distribution.</p>
+            aws_sdk_cloudfront.errors.no_such_distribution.NoSuchDistribution: <p>The specified distribution does not exist.</p>
+            aws_sdk_cloudfront.errors.unsupported_operation.UnsupportedOperation: <p>This operation is not supported in this Amazon Web Services Region.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1440,6 +1813,12 @@ class CloudFrontClient:
 
         Args:
             origin_access_control_config: <p>Contains the origin access control.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.invalid_argument.InvalidArgument: <p>An argument is invalid.</p>
+            aws_sdk_cloudfront.errors.origin_access_control_already_exists.OriginAccessControlAlreadyExists: <p>An origin access control with the specified parameters already exists.</p>
+            aws_sdk_cloudfront.errors.too_many_origin_access_controls.TooManyOriginAccessControls: <p>The number of origin access controls in your Amazon Web Services account exceeds the maximum allowed.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html\">Quotas</a> (formerly known as limits) in the <i>Amazon CloudFront Developer Guide</i>.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1477,6 +1856,17 @@ class CloudFrontClient:
 
         Args:
             origin_request_policy_config: <p>An origin request policy configuration.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.access_denied.AccessDenied: <p>Access denied.</p>
+            aws_sdk_cloudfront.errors.inconsistent_quantities.InconsistentQuantities: <p>The value of <code>Quantity</code> and the size of <code>Items</code> don't match.</p>
+            aws_sdk_cloudfront.errors.invalid_argument.InvalidArgument: <p>An argument is invalid.</p>
+            aws_sdk_cloudfront.errors.origin_request_policy_already_exists.OriginRequestPolicyAlreadyExists: <p>An origin request policy with this name already exists. You must provide a unique name. To modify an existing origin request policy, use <code>UpdateOriginRequestPolicy</code>.</p>
+            aws_sdk_cloudfront.errors.too_many_cookies_in_origin_request_policy.TooManyCookiesInOriginRequestPolicy: <p>The number of cookies in the origin request policy exceeds the maximum. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html\">Quotas</a> (formerly known as limits) in the <i>Amazon CloudFront Developer Guide</i>.</p>
+            aws_sdk_cloudfront.errors.too_many_headers_in_origin_request_policy.TooManyHeadersInOriginRequestPolicy: <p>The number of headers in the origin request policy exceeds the maximum. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html\">Quotas</a> (formerly known as limits) in the <i>Amazon CloudFront Developer Guide</i>.</p>
+            aws_sdk_cloudfront.errors.too_many_origin_request_policies.TooManyOriginRequestPolicies: <p>You have reached the maximum number of origin request policies for this Amazon Web Services account. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html\">Quotas</a> (formerly known as limits) in the <i>Amazon CloudFront Developer Guide</i>.</p>
+            aws_sdk_cloudfront.errors.too_many_query_strings_in_origin_request_policy.TooManyQueryStringsInOriginRequestPolicy: <p>The number of query strings in the origin request policy exceeds the maximum. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html\">Quotas</a> (formerly known as limits) in the <i>Amazon CloudFront Developer Guide</i>.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1514,6 +1904,12 @@ class CloudFrontClient:
 
         Args:
             public_key_config: <p>A CloudFront public key configuration.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.invalid_argument.InvalidArgument: <p>An argument is invalid.</p>
+            aws_sdk_cloudfront.errors.public_key_already_exists.PublicKeyAlreadyExists: <p>The specified public key already exists.</p>
+            aws_sdk_cloudfront.errors.too_many_public_keys.TooManyPublicKeys: <p>The maximum number of public keys for field-level encryption have been created. To create a new public key, delete one of the existing keys.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1557,6 +1953,13 @@ class CloudFrontClient:
             fields: <p>A list of fields to include in each real-time log record.</p> <p>For more information about fields, see <a href=\"https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-fields\">Real-time log configuration fields</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>
             name: <p>A unique name to identify this real-time log configuration.</p>
             sampling_rate: <p>The sampling rate for this real-time log configuration. You can specify a whole number between 1 and 100 (inclusive) to determine the percentage of viewer requests that are represented in the real-time log data.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.access_denied.AccessDenied: <p>Access denied.</p>
+            aws_sdk_cloudfront.errors.invalid_argument.InvalidArgument: <p>An argument is invalid.</p>
+            aws_sdk_cloudfront.errors.realtime_log_config_already_exists.RealtimeLogConfigAlreadyExists: <p>A real-time log configuration with this name already exists. You must provide a unique name. To modify an existing real-time log configuration, use <code>UpdateRealtimeLogConfig</code>.</p>
+            aws_sdk_cloudfront.errors.too_many_realtime_log_configs.TooManyRealtimeLogConfigs: <p>You have reached the maximum number of real-time log configurations for this Amazon Web Services account. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html\">Quotas</a> (formerly known as limits) in the <i>Amazon CloudFront Developer Guide</i>.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1597,6 +2000,17 @@ class CloudFrontClient:
 
         Args:
             response_headers_policy_config: <p>Contains metadata about the response headers policy, and a set of configurations that specify the HTTP headers.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.access_denied.AccessDenied: <p>Access denied.</p>
+            aws_sdk_cloudfront.errors.inconsistent_quantities.InconsistentQuantities: <p>The value of <code>Quantity</code> and the size of <code>Items</code> don't match.</p>
+            aws_sdk_cloudfront.errors.invalid_argument.InvalidArgument: <p>An argument is invalid.</p>
+            aws_sdk_cloudfront.errors.response_headers_policy_already_exists.ResponseHeadersPolicyAlreadyExists: <p>A response headers policy with this name already exists. You must provide a unique name. To modify an existing response headers policy, use <code>UpdateResponseHeadersPolicy</code>.</p>
+            aws_sdk_cloudfront.errors.too_long_csp_in_response_headers_policy.TooLongCSPInResponseHeadersPolicy: <p>The length of the <code>Content-Security-Policy</code> header value in the response headers policy exceeds the maximum.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html\">Quotas</a> (formerly known as limits) in the <i>Amazon CloudFront Developer Guide</i>.</p>
+            aws_sdk_cloudfront.errors.too_many_custom_headers_in_response_headers_policy.TooManyCustomHeadersInResponseHeadersPolicy: <p>The number of custom headers in the response headers policy exceeds the maximum.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html\">Quotas</a> (formerly known as limits) in the <i>Amazon CloudFront Developer Guide</i>.</p>
+            aws_sdk_cloudfront.errors.too_many_remove_headers_in_response_headers_policy.TooManyRemoveHeadersInResponseHeadersPolicy: <p>The number of headers in <code>RemoveHeadersConfig</code> in the response headers policy exceeds the maximum.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html\">Quotas</a> (formerly known as limits) in the <i>Amazon CloudFront Developer Guide</i>.</p>
+            aws_sdk_cloudfront.errors.too_many_response_headers_policies.TooManyResponseHeadersPolicies: <p>You have reached the maximum number of response headers policies for this Amazon Web Services account.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html\">Quotas</a> (formerly known as limits) in the <i>Amazon CloudFront Developer Guide</i>.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1634,6 +2048,22 @@ class CloudFrontClient:
 
         Args:
             streaming_distribution_config: <p>The streaming distribution's configuration information.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.access_denied.AccessDenied: <p>Access denied.</p>
+            aws_sdk_cloudfront.errors.cname_already_exists.CNAMEAlreadyExists: <p>The CNAME specified is already defined for CloudFront.</p>
+            aws_sdk_cloudfront.errors.inconsistent_quantities.InconsistentQuantities: <p>The value of <code>Quantity</code> and the size of <code>Items</code> don't match.</p>
+            aws_sdk_cloudfront.errors.invalid_argument.InvalidArgument: <p>An argument is invalid.</p>
+            aws_sdk_cloudfront.errors.invalid_origin.InvalidOrigin: <p>The Amazon S3 origin server specified does not refer to a valid Amazon S3 bucket.</p>
+            aws_sdk_cloudfront.errors.invalid_origin_access_control.InvalidOriginAccessControl: <p>The origin access control is not valid.</p>
+            aws_sdk_cloudfront.errors.invalid_origin_access_identity.InvalidOriginAccessIdentity: <p>The origin access identity is not valid or doesn't exist.</p>
+            aws_sdk_cloudfront.errors.missing_body.MissingBody: <p>This operation requires a body. Ensure that the body is present and the <code>Content-Type</code> header is set.</p>
+            aws_sdk_cloudfront.errors.streaming_distribution_already_exists.StreamingDistributionAlreadyExists: <p>The caller reference you attempted to create the streaming distribution with is associated with another distribution</p>
+            aws_sdk_cloudfront.errors.too_many_streaming_distribution_cnam_es.TooManyStreamingDistributionCNAMEs: <p>Your request contains more CNAMEs than are allowed per distribution.</p>
+            aws_sdk_cloudfront.errors.too_many_streaming_distributions.TooManyStreamingDistributions: <p>Processing your request would cause you to exceed the maximum number of streaming distributions allowed.</p>
+            aws_sdk_cloudfront.errors.too_many_trusted_signers.TooManyTrustedSigners: <p>Your request contains more trusted signers than are allowed per distribution.</p>
+            aws_sdk_cloudfront.errors.trusted_signer_does_not_exist.TrustedSignerDoesNotExist: <p>One or more of your trusted signers don't exist.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1671,6 +2101,23 @@ class CloudFrontClient:
 
         Args:
             streaming_distribution_config_with_tags: <p>The streaming distribution's configuration information.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.access_denied.AccessDenied: <p>Access denied.</p>
+            aws_sdk_cloudfront.errors.cname_already_exists.CNAMEAlreadyExists: <p>The CNAME specified is already defined for CloudFront.</p>
+            aws_sdk_cloudfront.errors.inconsistent_quantities.InconsistentQuantities: <p>The value of <code>Quantity</code> and the size of <code>Items</code> don't match.</p>
+            aws_sdk_cloudfront.errors.invalid_argument.InvalidArgument: <p>An argument is invalid.</p>
+            aws_sdk_cloudfront.errors.invalid_origin.InvalidOrigin: <p>The Amazon S3 origin server specified does not refer to a valid Amazon S3 bucket.</p>
+            aws_sdk_cloudfront.errors.invalid_origin_access_control.InvalidOriginAccessControl: <p>The origin access control is not valid.</p>
+            aws_sdk_cloudfront.errors.invalid_origin_access_identity.InvalidOriginAccessIdentity: <p>The origin access identity is not valid or doesn't exist.</p>
+            aws_sdk_cloudfront.errors.invalid_tagging.InvalidTagging: <p>The tagging specified is not valid.</p>
+            aws_sdk_cloudfront.errors.missing_body.MissingBody: <p>This operation requires a body. Ensure that the body is present and the <code>Content-Type</code> header is set.</p>
+            aws_sdk_cloudfront.errors.streaming_distribution_already_exists.StreamingDistributionAlreadyExists: <p>The caller reference you attempted to create the streaming distribution with is associated with another distribution</p>
+            aws_sdk_cloudfront.errors.too_many_streaming_distribution_cnam_es.TooManyStreamingDistributionCNAMEs: <p>Your request contains more CNAMEs than are allowed per distribution.</p>
+            aws_sdk_cloudfront.errors.too_many_streaming_distributions.TooManyStreamingDistributions: <p>Processing your request would cause you to exceed the maximum number of streaming distributions allowed.</p>
+            aws_sdk_cloudfront.errors.too_many_trusted_signers.TooManyTrustedSigners: <p>Your request contains more trusted signers than are allowed per distribution.</p>
+            aws_sdk_cloudfront.errors.trusted_signer_does_not_exist.TrustedSignerDoesNotExist: <p>One or more of your trusted signers don't exist.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1717,6 +2164,15 @@ class CloudFrontClient:
             name: <p>A name for the trust store.</p>
             ca_certificates_bundle_source: <p>The CA certificates bundle source for the trust store.</p>
             use_client_certificate_ocsp_endpoint: <p>A Boolean that determines whether to use the CA certificate's OCSP endpoint to check certificate revocation status.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.access_denied.AccessDenied: <p>Access denied.</p>
+            aws_sdk_cloudfront.errors.entity_already_exists.EntityAlreadyExists: <p>The entity already exists. You must provide a unique entity.</p>
+            aws_sdk_cloudfront.errors.entity_limit_exceeded.EntityLimitExceeded: <p>The entity limit has been exceeded.</p>
+            aws_sdk_cloudfront.errors.entity_not_found.EntityNotFound: <p>The entity was not found.</p>
+            aws_sdk_cloudfront.errors.invalid_argument.InvalidArgument: <p>An argument is invalid.</p>
+            aws_sdk_cloudfront.errors.invalid_tagging.InvalidTagging: <p>The tagging specified is not valid.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1762,6 +2218,16 @@ class CloudFrontClient:
 
         Args:
             vpc_origin_endpoint_config: <p>The VPC origin endpoint configuration.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.access_denied.AccessDenied: <p>Access denied.</p>
+            aws_sdk_cloudfront.errors.entity_already_exists.EntityAlreadyExists: <p>The entity already exists. You must provide a unique entity.</p>
+            aws_sdk_cloudfront.errors.entity_limit_exceeded.EntityLimitExceeded: <p>The entity limit has been exceeded.</p>
+            aws_sdk_cloudfront.errors.inconsistent_quantities.InconsistentQuantities: <p>The value of <code>Quantity</code> and the size of <code>Items</code> don't match.</p>
+            aws_sdk_cloudfront.errors.invalid_argument.InvalidArgument: <p>An argument is invalid.</p>
+            aws_sdk_cloudfront.errors.invalid_tagging.InvalidTagging: <p>The tagging specified is not valid.</p>
+            aws_sdk_cloudfront.errors.unsupported_operation.UnsupportedOperation: <p>This operation is not supported in this Amazon Web Services Region.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To create a VPC origin
@@ -1809,6 +2275,17 @@ class CloudFrontClient:
         Args:
             id: <p>The ID of the Anycast static IP list.</p>
             if_match: <p>The current version (<code>ETag</code> value) of the Anycast static IP list that you are deleting.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.access_denied.AccessDenied: <p>Access denied.</p>
+            aws_sdk_cloudfront.errors.cannot_delete_entity_while_in_use.CannotDeleteEntityWhileInUse: <p>The entity cannot be deleted while it is in use.</p>
+            aws_sdk_cloudfront.errors.entity_not_found.EntityNotFound: <p>The entity was not found.</p>
+            aws_sdk_cloudfront.errors.illegal_delete.IllegalDelete: <p>Deletion is not allowed for this entity.</p>
+            aws_sdk_cloudfront.errors.invalid_argument.InvalidArgument: <p>An argument is invalid.</p>
+            aws_sdk_cloudfront.errors.invalid_if_match_version.InvalidIfMatchVersion: <p>The <code>If-Match</code> version is missing or not valid.</p>
+            aws_sdk_cloudfront.errors.precondition_failed.PreconditionFailed: <p>The precondition in one or more of the request fields evaluated to <code>false</code>.</p>
+            aws_sdk_cloudfront.errors.unsupported_operation.UnsupportedOperation: <p>This operation is not supported in this Amazon Web Services Region.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1847,6 +2324,15 @@ class CloudFrontClient:
         Args:
             id: <p>The unique identifier for the cache policy that you are deleting. To get the identifier, you can use <code>ListCachePolicies</code>.</p>
             if_match: <p>The version of the cache policy that you are deleting. The version is the cache policy's <code>ETag</code> value, which you can get using <code>ListCachePolicies</code>, <code>GetCachePolicy</code>, or <code>GetCachePolicyConfig</code>.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.access_denied.AccessDenied: <p>Access denied.</p>
+            aws_sdk_cloudfront.errors.cache_policy_in_use.CachePolicyInUse: <p>Cannot delete the cache policy because it is attached to one or more cache behaviors.</p>
+            aws_sdk_cloudfront.errors.illegal_delete.IllegalDelete: <p>Deletion is not allowed for this entity.</p>
+            aws_sdk_cloudfront.errors.invalid_if_match_version.InvalidIfMatchVersion: <p>The <code>If-Match</code> version is missing or not valid.</p>
+            aws_sdk_cloudfront.errors.no_such_cache_policy.NoSuchCachePolicy: <p>The cache policy does not exist.</p>
+            aws_sdk_cloudfront.errors.precondition_failed.PreconditionFailed: <p>The precondition in one or more of the request fields evaluated to <code>false</code>.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1886,6 +2372,14 @@ class CloudFrontClient:
         Args:
             id: <p>The origin access identity's ID.</p>
             if_match: <p>The value of the <code>ETag</code> header you received from a previous <code>GET</code> or <code>PUT</code> request. For example: <code>E2QWRUHAPOMQZL</code>.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.access_denied.AccessDenied: <p>Access denied.</p>
+            aws_sdk_cloudfront.errors.cloud_front_origin_access_identity_in_use.CloudFrontOriginAccessIdentityInUse: <p>The Origin Access Identity specified is already in use.</p>
+            aws_sdk_cloudfront.errors.invalid_if_match_version.InvalidIfMatchVersion: <p>The <code>If-Match</code> version is missing or not valid.</p>
+            aws_sdk_cloudfront.errors.no_such_cloud_front_origin_access_identity.NoSuchCloudFrontOriginAccessIdentity: <p>The specified origin access identity does not exist.</p>
+            aws_sdk_cloudfront.errors.precondition_failed.PreconditionFailed: <p>The precondition in one or more of the request fields evaluated to <code>false</code>.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1925,6 +2419,16 @@ class CloudFrontClient:
         Args:
             id: <p>The connection function's ID.</p>
             if_match: <p>The current version (<code>ETag</code> value) of the connection function you are deleting.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.access_denied.AccessDenied: <p>Access denied.</p>
+            aws_sdk_cloudfront.errors.cannot_delete_entity_while_in_use.CannotDeleteEntityWhileInUse: <p>The entity cannot be deleted while it is in use.</p>
+            aws_sdk_cloudfront.errors.entity_not_found.EntityNotFound: <p>The entity was not found.</p>
+            aws_sdk_cloudfront.errors.invalid_argument.InvalidArgument: <p>An argument is invalid.</p>
+            aws_sdk_cloudfront.errors.invalid_if_match_version.InvalidIfMatchVersion: <p>The <code>If-Match</code> version is missing or not valid.</p>
+            aws_sdk_cloudfront.errors.precondition_failed.PreconditionFailed: <p>The precondition in one or more of the request fields evaluated to <code>false</code>.</p>
+            aws_sdk_cloudfront.errors.unsupported_operation.UnsupportedOperation: <p>This operation is not supported in this Amazon Web Services Region.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1963,6 +2467,15 @@ class CloudFrontClient:
         Args:
             id: <p>The ID of the connection group to delete.</p>
             if_match: <p>The value of the <code>ETag</code> header that you received when retrieving the connection group to delete.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.access_denied.AccessDenied: <p>Access denied.</p>
+            aws_sdk_cloudfront.errors.cannot_delete_entity_while_in_use.CannotDeleteEntityWhileInUse: <p>The entity cannot be deleted while it is in use.</p>
+            aws_sdk_cloudfront.errors.entity_not_found.EntityNotFound: <p>The entity was not found.</p>
+            aws_sdk_cloudfront.errors.invalid_if_match_version.InvalidIfMatchVersion: <p>The <code>If-Match</code> version is missing or not valid.</p>
+            aws_sdk_cloudfront.errors.precondition_failed.PreconditionFailed: <p>The precondition in one or more of the request fields evaluated to <code>false</code>.</p>
+            aws_sdk_cloudfront.errors.resource_not_disabled.ResourceNotDisabled: <p>The specified CloudFront resource hasn't been disabled yet.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2001,6 +2514,15 @@ class CloudFrontClient:
         Args:
             id: <p>The identifier of the continuous deployment policy that you are deleting.</p>
             if_match: <p>The current version (<code>ETag</code> value) of the continuous deployment policy that you are deleting.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.access_denied.AccessDenied: <p>Access denied.</p>
+            aws_sdk_cloudfront.errors.continuous_deployment_policy_in_use.ContinuousDeploymentPolicyInUse: <p>You cannot delete a continuous deployment policy that is associated with a primary distribution.</p>
+            aws_sdk_cloudfront.errors.invalid_argument.InvalidArgument: <p>An argument is invalid.</p>
+            aws_sdk_cloudfront.errors.invalid_if_match_version.InvalidIfMatchVersion: <p>The <code>If-Match</code> version is missing or not valid.</p>
+            aws_sdk_cloudfront.errors.no_such_continuous_deployment_policy.NoSuchContinuousDeploymentPolicy: <p>The continuous deployment policy doesn't exist.</p>
+            aws_sdk_cloudfront.errors.precondition_failed.PreconditionFailed: <p>The precondition in one or more of the request fields evaluated to <code>false</code>.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2040,6 +2562,15 @@ class CloudFrontClient:
         Args:
             id: <p>The distribution ID.</p>
             if_match: <p>The value of the <code>ETag</code> header that you received when you disabled the distribution. For example: <code>E2QWRUHAPOMQZL</code>.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.access_denied.AccessDenied: <p>Access denied.</p>
+            aws_sdk_cloudfront.errors.distribution_not_disabled.DistributionNotDisabled: <p>The specified CloudFront distribution is not disabled. You must disable the distribution before you can delete it.</p>
+            aws_sdk_cloudfront.errors.invalid_if_match_version.InvalidIfMatchVersion: <p>The <code>If-Match</code> version is missing or not valid.</p>
+            aws_sdk_cloudfront.errors.no_such_distribution.NoSuchDistribution: <p>The specified distribution does not exist.</p>
+            aws_sdk_cloudfront.errors.precondition_failed.PreconditionFailed: <p>The precondition in one or more of the request fields evaluated to <code>false</code>.</p>
+            aws_sdk_cloudfront.errors.resource_in_use.ResourceInUse: <p>Cannot delete this resource because it is in use.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2079,6 +2610,14 @@ class CloudFrontClient:
         Args:
             id: <p>The ID of the distribution tenant to delete.</p>
             if_match: <p>The value of the <code>ETag</code> header that you received when retrieving the distribution tenant. This value is returned in the response of the <code>GetDistributionTenant</code> API operation.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.access_denied.AccessDenied: <p>Access denied.</p>
+            aws_sdk_cloudfront.errors.entity_not_found.EntityNotFound: <p>The entity was not found.</p>
+            aws_sdk_cloudfront.errors.invalid_if_match_version.InvalidIfMatchVersion: <p>The <code>If-Match</code> version is missing or not valid.</p>
+            aws_sdk_cloudfront.errors.precondition_failed.PreconditionFailed: <p>The precondition in one or more of the request fields evaluated to <code>false</code>.</p>
+            aws_sdk_cloudfront.errors.resource_not_disabled.ResourceNotDisabled: <p>The specified CloudFront resource hasn't been disabled yet.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2117,6 +2656,14 @@ class CloudFrontClient:
         Args:
             id: <p>The ID of the configuration you want to delete from CloudFront.</p>
             if_match: <p>The value of the <code>ETag</code> header that you received when retrieving the configuration identity to delete. For example: <code>E2QWRUHAPOMQZL</code>.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.access_denied.AccessDenied: <p>Access denied.</p>
+            aws_sdk_cloudfront.errors.field_level_encryption_config_in_use.FieldLevelEncryptionConfigInUse: <p>The specified configuration for field-level encryption is in use.</p>
+            aws_sdk_cloudfront.errors.invalid_if_match_version.InvalidIfMatchVersion: <p>The <code>If-Match</code> version is missing or not valid.</p>
+            aws_sdk_cloudfront.errors.no_such_field_level_encryption_config.NoSuchFieldLevelEncryptionConfig: <p>The specified configuration for field-level encryption doesn't exist.</p>
+            aws_sdk_cloudfront.errors.precondition_failed.PreconditionFailed: <p>The precondition in one or more of the request fields evaluated to <code>false</code>.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2156,6 +2703,14 @@ class CloudFrontClient:
         Args:
             id: <p>Request the ID of the profile you want to delete from CloudFront.</p>
             if_match: <p>The value of the <code>ETag</code> header that you received when retrieving the profile to delete. For example: <code>E2QWRUHAPOMQZL</code>.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.access_denied.AccessDenied: <p>Access denied.</p>
+            aws_sdk_cloudfront.errors.field_level_encryption_profile_in_use.FieldLevelEncryptionProfileInUse: <p>The specified profile for field-level encryption is in use.</p>
+            aws_sdk_cloudfront.errors.invalid_if_match_version.InvalidIfMatchVersion: <p>The <code>If-Match</code> version is missing or not valid.</p>
+            aws_sdk_cloudfront.errors.no_such_field_level_encryption_profile.NoSuchFieldLevelEncryptionProfile: <p>The specified profile for field-level encryption doesn't exist.</p>
+            aws_sdk_cloudfront.errors.precondition_failed.PreconditionFailed: <p>The precondition in one or more of the request fields evaluated to <code>false</code>.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2195,6 +2750,14 @@ class CloudFrontClient:
         Args:
             name: <p>The name of the function that you are deleting.</p>
             if_match: <p>The current version (<code>ETag</code> value) of the function that you are deleting, which you can get using <code>DescribeFunction</code>.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.function_in_use.FunctionInUse: <p>Cannot delete the function because it's attached to one or more cache behaviors.</p>
+            aws_sdk_cloudfront.errors.invalid_if_match_version.InvalidIfMatchVersion: <p>The <code>If-Match</code> version is missing or not valid.</p>
+            aws_sdk_cloudfront.errors.no_such_function_exists.NoSuchFunctionExists: <p>The function does not exist.</p>
+            aws_sdk_cloudfront.errors.precondition_failed.PreconditionFailed: <p>The precondition in one or more of the request fields evaluated to <code>false</code>.</p>
+            aws_sdk_cloudfront.errors.unsupported_operation.UnsupportedOperation: <p>This operation is not supported in this Amazon Web Services Region.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2233,6 +2796,13 @@ class CloudFrontClient:
         Args:
             id: <p>The identifier of the key group that you are deleting. To get the identifier, use <code>ListKeyGroups</code>.</p>
             if_match: <p>The version of the key group that you are deleting. The version is the key group's <code>ETag</code> value. To get the <code>ETag</code>, use <code>GetKeyGroup</code> or <code>GetKeyGroupConfig</code>.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.invalid_if_match_version.InvalidIfMatchVersion: <p>The <code>If-Match</code> version is missing or not valid.</p>
+            aws_sdk_cloudfront.errors.no_such_resource.NoSuchResource: <p>A resource that was specified is not valid.</p>
+            aws_sdk_cloudfront.errors.precondition_failed.PreconditionFailed: <p>The precondition in one or more of the request fields evaluated to <code>false</code>.</p>
+            aws_sdk_cloudfront.errors.resource_in_use.ResourceInUse: <p>Cannot delete this resource because it is in use.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2272,6 +2842,15 @@ class CloudFrontClient:
         Args:
             name: <p>The name of the key value store.</p>
             if_match: <p>The key value store to delete, if a match occurs.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.access_denied.AccessDenied: <p>Access denied.</p>
+            aws_sdk_cloudfront.errors.cannot_delete_entity_while_in_use.CannotDeleteEntityWhileInUse: <p>The entity cannot be deleted while it is in use.</p>
+            aws_sdk_cloudfront.errors.entity_not_found.EntityNotFound: <p>The entity was not found.</p>
+            aws_sdk_cloudfront.errors.invalid_if_match_version.InvalidIfMatchVersion: <p>The <code>If-Match</code> version is missing or not valid.</p>
+            aws_sdk_cloudfront.errors.precondition_failed.PreconditionFailed: <p>The precondition in one or more of the request fields evaluated to <code>false</code>.</p>
+            aws_sdk_cloudfront.errors.unsupported_operation.UnsupportedOperation: <p>This operation is not supported in this Amazon Web Services Region.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To delete a KeyValueStore
@@ -2314,6 +2893,13 @@ class CloudFrontClient:
 
         Args:
             distribution_id: <p>The ID of the distribution that you are disabling metrics for.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.access_denied.AccessDenied: <p>Access denied.</p>
+            aws_sdk_cloudfront.errors.no_such_distribution.NoSuchDistribution: <p>The specified distribution does not exist.</p>
+            aws_sdk_cloudfront.errors.no_such_monitoring_subscription.NoSuchMonitoringSubscription: <p>A monitoring subscription does not exist for the specified distribution.</p>
+            aws_sdk_cloudfront.errors.unsupported_operation.UnsupportedOperation: <p>This operation is not supported in this Amazon Web Services Region.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2353,6 +2939,14 @@ class CloudFrontClient:
         Args:
             id: <p>The unique identifier of the origin access control that you are deleting.</p>
             if_match: <p>The current version (<code>ETag</code> value) of the origin access control that you are deleting.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.access_denied.AccessDenied: <p>Access denied.</p>
+            aws_sdk_cloudfront.errors.invalid_if_match_version.InvalidIfMatchVersion: <p>The <code>If-Match</code> version is missing or not valid.</p>
+            aws_sdk_cloudfront.errors.no_such_origin_access_control.NoSuchOriginAccessControl: <p>The origin access control does not exist.</p>
+            aws_sdk_cloudfront.errors.origin_access_control_in_use.OriginAccessControlInUse: <p>Cannot delete the origin access control because it's in use by one or more distributions.</p>
+            aws_sdk_cloudfront.errors.precondition_failed.PreconditionFailed: <p>The precondition in one or more of the request fields evaluated to <code>false</code>.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2392,6 +2986,15 @@ class CloudFrontClient:
         Args:
             id: <p>The unique identifier for the origin request policy that you are deleting. To get the identifier, you can use <code>ListOriginRequestPolicies</code>.</p>
             if_match: <p>The version of the origin request policy that you are deleting. The version is the origin request policy's <code>ETag</code> value, which you can get using <code>ListOriginRequestPolicies</code>, <code>GetOriginRequestPolicy</code>, or <code>GetOriginRequestPolicyConfig</code>.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.access_denied.AccessDenied: <p>Access denied.</p>
+            aws_sdk_cloudfront.errors.illegal_delete.IllegalDelete: <p>Deletion is not allowed for this entity.</p>
+            aws_sdk_cloudfront.errors.invalid_if_match_version.InvalidIfMatchVersion: <p>The <code>If-Match</code> version is missing or not valid.</p>
+            aws_sdk_cloudfront.errors.no_such_origin_request_policy.NoSuchOriginRequestPolicy: <p>The origin request policy does not exist.</p>
+            aws_sdk_cloudfront.errors.origin_request_policy_in_use.OriginRequestPolicyInUse: <p>Cannot delete the origin request policy because it is attached to one or more cache behaviors.</p>
+            aws_sdk_cloudfront.errors.precondition_failed.PreconditionFailed: <p>The precondition in one or more of the request fields evaluated to <code>false</code>.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2431,6 +3034,14 @@ class CloudFrontClient:
         Args:
             id: <p>The ID of the public key you want to remove from CloudFront.</p>
             if_match: <p>The value of the <code>ETag</code> header that you received when retrieving the public key identity to delete. For example: <code>E2QWRUHAPOMQZL</code>.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.access_denied.AccessDenied: <p>Access denied.</p>
+            aws_sdk_cloudfront.errors.invalid_if_match_version.InvalidIfMatchVersion: <p>The <code>If-Match</code> version is missing or not valid.</p>
+            aws_sdk_cloudfront.errors.no_such_public_key.NoSuchPublicKey: <p>The specified public key doesn't exist.</p>
+            aws_sdk_cloudfront.errors.precondition_failed.PreconditionFailed: <p>The precondition in one or more of the request fields evaluated to <code>false</code>.</p>
+            aws_sdk_cloudfront.errors.public_key_in_use.PublicKeyInUse: <p>The specified public key is in use.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2470,6 +3081,13 @@ class CloudFrontClient:
         Args:
             name: <p>The name of the real-time log configuration to delete.</p>
             arn: <p>The Amazon Resource Name (ARN) of the real-time log configuration to delete.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.access_denied.AccessDenied: <p>Access denied.</p>
+            aws_sdk_cloudfront.errors.invalid_argument.InvalidArgument: <p>An argument is invalid.</p>
+            aws_sdk_cloudfront.errors.no_such_realtime_log_config.NoSuchRealtimeLogConfig: <p>The real-time log configuration does not exist.</p>
+            aws_sdk_cloudfront.errors.realtime_log_config_in_use.RealtimeLogConfigInUse: <p>Cannot delete the real-time log configuration because it is attached to one or more cache behaviors.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2508,6 +3126,15 @@ class CloudFrontClient:
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the CloudFront resource for which the resource policy should be deleted.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.access_denied.AccessDenied: <p>Access denied.</p>
+            aws_sdk_cloudfront.errors.entity_not_found.EntityNotFound: <p>The entity was not found.</p>
+            aws_sdk_cloudfront.errors.illegal_delete.IllegalDelete: <p>Deletion is not allowed for this entity.</p>
+            aws_sdk_cloudfront.errors.invalid_argument.InvalidArgument: <p>An argument is invalid.</p>
+            aws_sdk_cloudfront.errors.precondition_failed.PreconditionFailed: <p>The precondition in one or more of the request fields evaluated to <code>false</code>.</p>
+            aws_sdk_cloudfront.errors.unsupported_operation.UnsupportedOperation: <p>This operation is not supported in this Amazon Web Services Region.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2545,6 +3172,15 @@ class CloudFrontClient:
         Args:
             id: <p>The identifier for the response headers policy that you are deleting.</p> <p>To get the identifier, you can use <code>ListResponseHeadersPolicies</code>.</p>
             if_match: <p>The version of the response headers policy that you are deleting.</p> <p>The version is the response headers policy's <code>ETag</code> value, which you can get using <code>ListResponseHeadersPolicies</code>, <code>GetResponseHeadersPolicy</code>, or <code>GetResponseHeadersPolicyConfig</code>.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.access_denied.AccessDenied: <p>Access denied.</p>
+            aws_sdk_cloudfront.errors.illegal_delete.IllegalDelete: <p>Deletion is not allowed for this entity.</p>
+            aws_sdk_cloudfront.errors.invalid_if_match_version.InvalidIfMatchVersion: <p>The <code>If-Match</code> version is missing or not valid.</p>
+            aws_sdk_cloudfront.errors.no_such_response_headers_policy.NoSuchResponseHeadersPolicy: <p>The response headers policy does not exist.</p>
+            aws_sdk_cloudfront.errors.precondition_failed.PreconditionFailed: <p>The precondition in one or more of the request fields evaluated to <code>false</code>.</p>
+            aws_sdk_cloudfront.errors.response_headers_policy_in_use.ResponseHeadersPolicyInUse: <p>Cannot delete the response headers policy because it is attached to one or more cache behaviors in a CloudFront distribution.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2584,6 +3220,14 @@ class CloudFrontClient:
         Args:
             id: <p>The distribution ID.</p>
             if_match: <p>The value of the <code>ETag</code> header that you received when you disabled the streaming distribution. For example: <code>E2QWRUHAPOMQZL</code>.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.access_denied.AccessDenied: <p>Access denied.</p>
+            aws_sdk_cloudfront.errors.invalid_if_match_version.InvalidIfMatchVersion: <p>The <code>If-Match</code> version is missing or not valid.</p>
+            aws_sdk_cloudfront.errors.no_such_streaming_distribution.NoSuchStreamingDistribution: <p>The specified streaming distribution does not exist.</p>
+            aws_sdk_cloudfront.errors.precondition_failed.PreconditionFailed: <p>The precondition in one or more of the request fields evaluated to <code>false</code>.</p>
+            aws_sdk_cloudfront.errors.streaming_distribution_not_disabled.StreamingDistributionNotDisabled: <p>The specified CloudFront distribution is not disabled. You must disable the distribution before you can delete it.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2623,6 +3267,15 @@ class CloudFrontClient:
         Args:
             id: <p>The trust store's ID.</p>
             if_match: <p>The current version (<code>ETag</code> value) of the trust store you are deleting.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.access_denied.AccessDenied: <p>Access denied.</p>
+            aws_sdk_cloudfront.errors.cannot_delete_entity_while_in_use.CannotDeleteEntityWhileInUse: <p>The entity cannot be deleted while it is in use.</p>
+            aws_sdk_cloudfront.errors.entity_not_found.EntityNotFound: <p>The entity was not found.</p>
+            aws_sdk_cloudfront.errors.invalid_argument.InvalidArgument: <p>An argument is invalid.</p>
+            aws_sdk_cloudfront.errors.invalid_if_match_version.InvalidIfMatchVersion: <p>The <code>If-Match</code> version is missing or not valid.</p>
+            aws_sdk_cloudfront.errors.precondition_failed.PreconditionFailed: <p>The precondition in one or more of the request fields evaluated to <code>false</code>.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2661,6 +3314,17 @@ class CloudFrontClient:
         Args:
             id: <p>The VPC origin ID.</p>
             if_match: <p>The version identifier of the VPC origin to delete. This is the <code>ETag</code> value returned in the response to <a>GetVpcOrigin</a>.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.access_denied.AccessDenied: <p>Access denied.</p>
+            aws_sdk_cloudfront.errors.cannot_delete_entity_while_in_use.CannotDeleteEntityWhileInUse: <p>The entity cannot be deleted while it is in use.</p>
+            aws_sdk_cloudfront.errors.entity_not_found.EntityNotFound: <p>The entity was not found.</p>
+            aws_sdk_cloudfront.errors.illegal_delete.IllegalDelete: <p>Deletion is not allowed for this entity.</p>
+            aws_sdk_cloudfront.errors.invalid_argument.InvalidArgument: <p>An argument is invalid.</p>
+            aws_sdk_cloudfront.errors.invalid_if_match_version.InvalidIfMatchVersion: <p>The <code>If-Match</code> version is missing or not valid.</p>
+            aws_sdk_cloudfront.errors.precondition_failed.PreconditionFailed: <p>The precondition in one or more of the request fields evaluated to <code>false</code>.</p>
+            aws_sdk_cloudfront.errors.unsupported_operation.UnsupportedOperation: <p>This operation is not supported in this Amazon Web Services Region.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To delete a VPC origin
@@ -2707,6 +3371,13 @@ class CloudFrontClient:
         Args:
             identifier: <p>The connection function's identifier.</p>
             stage: <p>The connection function's stage.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.access_denied.AccessDenied: <p>Access denied.</p>
+            aws_sdk_cloudfront.errors.entity_not_found.EntityNotFound: <p>The entity was not found.</p>
+            aws_sdk_cloudfront.errors.invalid_argument.InvalidArgument: <p>An argument is invalid.</p>
+            aws_sdk_cloudfront.errors.unsupported_operation.UnsupportedOperation: <p>This operation is not supported in this Amazon Web Services Region.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2748,6 +3419,11 @@ class CloudFrontClient:
         Args:
             name: <p>The name of the function that you are getting information about.</p>
             stage: <p>The function's stage, either <code>DEVELOPMENT</code> or <code>LIVE</code>.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.no_such_function_exists.NoSuchFunctionExists: <p>The function does not exist.</p>
+            aws_sdk_cloudfront.errors.unsupported_operation.UnsupportedOperation: <p>This operation is not supported in this Amazon Web Services Region.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2787,6 +3463,13 @@ class CloudFrontClient:
 
         Args:
             name: <p>The name of the key value store.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.access_denied.AccessDenied: <p>Access denied.</p>
+            aws_sdk_cloudfront.errors.entity_not_found.EntityNotFound: <p>The entity was not found.</p>
+            aws_sdk_cloudfront.errors.invalid_argument.InvalidArgument: <p>An argument is invalid.</p>
+            aws_sdk_cloudfront.errors.unsupported_operation.UnsupportedOperation: <p>This operation is not supported in this Amazon Web Services Region.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To describe a KeyValueStore
@@ -2832,6 +3515,14 @@ class CloudFrontClient:
         Args:
             id: <p>The ID of the distribution tenant.</p>
             if_match: <p>The current version of the distribution tenant that you're disassociating from the WAF web ACL. This is the <code>ETag</code> value returned in the response to the <code>GetDistributionTenant</code> API operation.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.access_denied.AccessDenied: <p>Access denied.</p>
+            aws_sdk_cloudfront.errors.entity_not_found.EntityNotFound: <p>The entity was not found.</p>
+            aws_sdk_cloudfront.errors.invalid_argument.InvalidArgument: <p>An argument is invalid.</p>
+            aws_sdk_cloudfront.errors.invalid_if_match_version.InvalidIfMatchVersion: <p>The <code>If-Match</code> version is missing or not valid.</p>
+            aws_sdk_cloudfront.errors.precondition_failed.PreconditionFailed: <p>The precondition in one or more of the request fields evaluated to <code>false</code>.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2873,6 +3564,14 @@ class CloudFrontClient:
         Args:
             id: <p>The ID of the distribution.</p>
             if_match: <p>The value of the <code>ETag</code> header that you received when retrieving the distribution that you're disassociating from the WAF web ACL.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.access_denied.AccessDenied: <p>Access denied.</p>
+            aws_sdk_cloudfront.errors.entity_not_found.EntityNotFound: <p>The entity was not found.</p>
+            aws_sdk_cloudfront.errors.invalid_argument.InvalidArgument: <p>An argument is invalid.</p>
+            aws_sdk_cloudfront.errors.invalid_if_match_version.InvalidIfMatchVersion: <p>The <code>If-Match</code> version is missing or not valid.</p>
+            aws_sdk_cloudfront.errors.precondition_failed.PreconditionFailed: <p>The precondition in one or more of the request fields evaluated to <code>false</code>.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2912,6 +3611,13 @@ class CloudFrontClient:
 
         Args:
             id: <p>The ID of the Anycast static IP list.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.access_denied.AccessDenied: <p>Access denied.</p>
+            aws_sdk_cloudfront.errors.entity_not_found.EntityNotFound: <p>The entity was not found.</p>
+            aws_sdk_cloudfront.errors.invalid_argument.InvalidArgument: <p>An argument is invalid.</p>
+            aws_sdk_cloudfront.errors.unsupported_operation.UnsupportedOperation: <p>This operation is not supported in this Amazon Web Services Region.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2949,6 +3655,11 @@ class CloudFrontClient:
 
         Args:
             id: <p>The unique identifier for the cache policy. If the cache policy is attached to a distribution's cache behavior, you can get the policy's identifier using <code>ListDistributions</code> or <code>GetDistribution</code>. If the cache policy is not attached to a cache behavior, you can get the identifier using <code>ListCachePolicies</code>.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.access_denied.AccessDenied: <p>Access denied.</p>
+            aws_sdk_cloudfront.errors.no_such_cache_policy.NoSuchCachePolicy: <p>The cache policy does not exist.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2986,6 +3697,11 @@ class CloudFrontClient:
 
         Args:
             id: <p>The unique identifier for the cache policy. If the cache policy is attached to a distribution's cache behavior, you can get the policy's identifier using <code>ListDistributions</code> or <code>GetDistribution</code>. If the cache policy is not attached to a cache behavior, you can get the identifier using <code>ListCachePolicies</code>.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.access_denied.AccessDenied: <p>Access denied.</p>
+            aws_sdk_cloudfront.errors.no_such_cache_policy.NoSuchCachePolicy: <p>The cache policy does not exist.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3023,6 +3739,11 @@ class CloudFrontClient:
 
         Args:
             id: <p>The identity's ID.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.access_denied.AccessDenied: <p>Access denied.</p>
+            aws_sdk_cloudfront.errors.no_such_cloud_front_origin_access_identity.NoSuchCloudFrontOriginAccessIdentity: <p>The specified origin access identity does not exist.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3060,6 +3781,11 @@ class CloudFrontClient:
 
         Args:
             id: <p>The identity's ID.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.access_denied.AccessDenied: <p>Access denied.</p>
+            aws_sdk_cloudfront.errors.no_such_cloud_front_origin_access_identity.NoSuchCloudFrontOriginAccessIdentity: <p>The specified origin access identity does not exist.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3099,6 +3825,12 @@ class CloudFrontClient:
         Args:
             identifier: <p>The connection function's identifier.</p>
             stage: <p>The connection function's stage.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.access_denied.AccessDenied: <p>Access denied.</p>
+            aws_sdk_cloudfront.errors.entity_not_found.EntityNotFound: <p>The entity was not found.</p>
+            aws_sdk_cloudfront.errors.unsupported_operation.UnsupportedOperation: <p>This operation is not supported in this Amazon Web Services Region.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3140,6 +3872,11 @@ class CloudFrontClient:
 
         Args:
             identifier: <p>The ID, name, or Amazon Resource Name (ARN) of the connection group.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.access_denied.AccessDenied: <p>Access denied.</p>
+            aws_sdk_cloudfront.errors.entity_not_found.EntityNotFound: <p>The entity was not found.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3177,6 +3914,11 @@ class CloudFrontClient:
 
         Args:
             routing_endpoint: <p>The routing endpoint for the target connection group, such as d111111abcdef8.cloudfront.net.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.access_denied.AccessDenied: <p>Access denied.</p>
+            aws_sdk_cloudfront.errors.entity_not_found.EntityNotFound: <p>The entity was not found.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3214,6 +3956,11 @@ class CloudFrontClient:
 
         Args:
             id: <p>The identifier of the continuous deployment policy that you are getting.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.access_denied.AccessDenied: <p>Access denied.</p>
+            aws_sdk_cloudfront.errors.no_such_continuous_deployment_policy.NoSuchContinuousDeploymentPolicy: <p>The continuous deployment policy doesn't exist.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3251,6 +3998,11 @@ class CloudFrontClient:
 
         Args:
             id: <p>The identifier of the continuous deployment policy whose configuration you are getting.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.access_denied.AccessDenied: <p>Access denied.</p>
+            aws_sdk_cloudfront.errors.no_such_continuous_deployment_policy.NoSuchContinuousDeploymentPolicy: <p>The continuous deployment policy doesn't exist.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3288,6 +4040,11 @@ class CloudFrontClient:
 
         Args:
             id: <p>The distribution's ID. If the ID is empty, an empty distribution configuration is returned.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.access_denied.AccessDenied: <p>Access denied.</p>
+            aws_sdk_cloudfront.errors.no_such_distribution.NoSuchDistribution: <p>The specified distribution does not exist.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3325,6 +4082,11 @@ class CloudFrontClient:
 
         Args:
             id: <p>The distribution's ID. If the ID is empty, an empty distribution configuration is returned.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.access_denied.AccessDenied: <p>Access denied.</p>
+            aws_sdk_cloudfront.errors.no_such_distribution.NoSuchDistribution: <p>The specified distribution does not exist.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3362,6 +4124,11 @@ class CloudFrontClient:
 
         Args:
             identifier: <p>The identifier of the distribution tenant. You can specify the ARN, ID, or name of the distribution tenant.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.access_denied.AccessDenied: <p>Access denied.</p>
+            aws_sdk_cloudfront.errors.entity_not_found.EntityNotFound: <p>The entity was not found.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3399,6 +4166,11 @@ class CloudFrontClient:
 
         Args:
             domain: <p>A domain name associated with the target distribution tenant.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.access_denied.AccessDenied: <p>Access denied.</p>
+            aws_sdk_cloudfront.errors.entity_not_found.EntityNotFound: <p>The entity was not found.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3436,6 +4208,11 @@ class CloudFrontClient:
 
         Args:
             id: <p>Request the ID for the field-level encryption configuration information.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.access_denied.AccessDenied: <p>Access denied.</p>
+            aws_sdk_cloudfront.errors.no_such_field_level_encryption_config.NoSuchFieldLevelEncryptionConfig: <p>The specified configuration for field-level encryption doesn't exist.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3473,6 +4250,11 @@ class CloudFrontClient:
 
         Args:
             id: <p>Request the ID for the field-level encryption configuration information.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.access_denied.AccessDenied: <p>Access denied.</p>
+            aws_sdk_cloudfront.errors.no_such_field_level_encryption_config.NoSuchFieldLevelEncryptionConfig: <p>The specified configuration for field-level encryption doesn't exist.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3510,6 +4292,11 @@ class CloudFrontClient:
 
         Args:
             id: <p>Get the ID for the field-level encryption profile information.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.access_denied.AccessDenied: <p>Access denied.</p>
+            aws_sdk_cloudfront.errors.no_such_field_level_encryption_profile.NoSuchFieldLevelEncryptionProfile: <p>The specified profile for field-level encryption doesn't exist.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3547,6 +4334,11 @@ class CloudFrontClient:
 
         Args:
             id: <p>Get the ID for the field-level encryption profile configuration information.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.access_denied.AccessDenied: <p>Access denied.</p>
+            aws_sdk_cloudfront.errors.no_such_field_level_encryption_profile.NoSuchFieldLevelEncryptionProfile: <p>The specified profile for field-level encryption doesn't exist.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3586,6 +4378,11 @@ class CloudFrontClient:
         Args:
             name: <p>The name of the function whose code you are getting.</p>
             stage: <p>The function's stage, either <code>DEVELOPMENT</code> or <code>LIVE</code>.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.no_such_function_exists.NoSuchFunctionExists: <p>The function does not exist.</p>
+            aws_sdk_cloudfront.errors.unsupported_operation.UnsupportedOperation: <p>This operation is not supported in this Amazon Web Services Region.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3627,6 +4424,12 @@ class CloudFrontClient:
         Args:
             distribution_id: <p>The distribution's ID.</p>
             id: <p>The identifier for the invalidation request, for example, <code>IDFDVBD632BHDS5</code>.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.access_denied.AccessDenied: <p>Access denied.</p>
+            aws_sdk_cloudfront.errors.no_such_distribution.NoSuchDistribution: <p>The specified distribution does not exist.</p>
+            aws_sdk_cloudfront.errors.no_such_invalidation.NoSuchInvalidation: <p>The specified invalidation does not exist.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3667,6 +4470,12 @@ class CloudFrontClient:
         Args:
             distribution_tenant_id: <p>The ID of the distribution tenant.</p>
             id: <p>The ID of the invalidation to retrieve.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.access_denied.AccessDenied: <p>Access denied.</p>
+            aws_sdk_cloudfront.errors.entity_not_found.EntityNotFound: <p>The entity was not found.</p>
+            aws_sdk_cloudfront.errors.no_such_invalidation.NoSuchInvalidation: <p>The specified invalidation does not exist.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3705,6 +4514,10 @@ class CloudFrontClient:
 
         Args:
             id: <p>The identifier of the key group that you are getting. To get the identifier, use <code>ListKeyGroups</code>.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.no_such_resource.NoSuchResource: <p>A resource that was specified is not valid.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3742,6 +4555,10 @@ class CloudFrontClient:
 
         Args:
             id: <p>The identifier of the key group whose configuration you are getting. To get the identifier, use <code>ListKeyGroups</code>.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.no_such_resource.NoSuchResource: <p>A resource that was specified is not valid.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3779,6 +4596,11 @@ class CloudFrontClient:
 
         Args:
             identifier: <p>The identifier of the distribution tenant. You can specify the ARN, ID, or name of the distribution tenant.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.access_denied.AccessDenied: <p>Access denied.</p>
+            aws_sdk_cloudfront.errors.entity_not_found.EntityNotFound: <p>The entity was not found.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3816,6 +4638,13 @@ class CloudFrontClient:
 
         Args:
             distribution_id: <p>The ID of the distribution that you are getting metrics information for.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.access_denied.AccessDenied: <p>Access denied.</p>
+            aws_sdk_cloudfront.errors.no_such_distribution.NoSuchDistribution: <p>The specified distribution does not exist.</p>
+            aws_sdk_cloudfront.errors.no_such_monitoring_subscription.NoSuchMonitoringSubscription: <p>A monitoring subscription does not exist for the specified distribution.</p>
+            aws_sdk_cloudfront.errors.unsupported_operation.UnsupportedOperation: <p>This operation is not supported in this Amazon Web Services Region.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3853,6 +4682,11 @@ class CloudFrontClient:
 
         Args:
             id: <p>The unique identifier of the origin access control.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.access_denied.AccessDenied: <p>Access denied.</p>
+            aws_sdk_cloudfront.errors.no_such_origin_access_control.NoSuchOriginAccessControl: <p>The origin access control does not exist.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3890,6 +4724,11 @@ class CloudFrontClient:
 
         Args:
             id: <p>The unique identifier of the origin access control.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.access_denied.AccessDenied: <p>Access denied.</p>
+            aws_sdk_cloudfront.errors.no_such_origin_access_control.NoSuchOriginAccessControl: <p>The origin access control does not exist.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3927,6 +4766,11 @@ class CloudFrontClient:
 
         Args:
             id: <p>The unique identifier for the origin request policy. If the origin request policy is attached to a distribution's cache behavior, you can get the policy's identifier using <code>ListDistributions</code> or <code>GetDistribution</code>. If the origin request policy is not attached to a cache behavior, you can get the identifier using <code>ListOriginRequestPolicies</code>.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.access_denied.AccessDenied: <p>Access denied.</p>
+            aws_sdk_cloudfront.errors.no_such_origin_request_policy.NoSuchOriginRequestPolicy: <p>The origin request policy does not exist.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3964,6 +4808,11 @@ class CloudFrontClient:
 
         Args:
             id: <p>The unique identifier for the origin request policy. If the origin request policy is attached to a distribution's cache behavior, you can get the policy's identifier using <code>ListDistributions</code> or <code>GetDistribution</code>. If the origin request policy is not attached to a cache behavior, you can get the identifier using <code>ListOriginRequestPolicies</code>.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.access_denied.AccessDenied: <p>Access denied.</p>
+            aws_sdk_cloudfront.errors.no_such_origin_request_policy.NoSuchOriginRequestPolicy: <p>The origin request policy does not exist.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4001,6 +4850,11 @@ class CloudFrontClient:
 
         Args:
             id: <p>The identifier of the public key you are getting.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.access_denied.AccessDenied: <p>Access denied.</p>
+            aws_sdk_cloudfront.errors.no_such_public_key.NoSuchPublicKey: <p>The specified public key doesn't exist.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4040,6 +4894,11 @@ class CloudFrontClient:
 
         Args:
             id: <p>The identifier of the public key whose configuration you are getting.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.access_denied.AccessDenied: <p>Access denied.</p>
+            aws_sdk_cloudfront.errors.no_such_public_key.NoSuchPublicKey: <p>The specified public key doesn't exist.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4079,6 +4938,12 @@ class CloudFrontClient:
         Args:
             name: <p>The name of the real-time log configuration to get.</p>
             arn: <p>The Amazon Resource Name (ARN) of the real-time log configuration to get.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.access_denied.AccessDenied: <p>Access denied.</p>
+            aws_sdk_cloudfront.errors.invalid_argument.InvalidArgument: <p>An argument is invalid.</p>
+            aws_sdk_cloudfront.errors.no_such_realtime_log_config.NoSuchRealtimeLogConfig: <p>The real-time log configuration does not exist.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4119,6 +4984,13 @@ class CloudFrontClient:
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the CloudFront resource that is associated with the resource policy.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.access_denied.AccessDenied: <p>Access denied.</p>
+            aws_sdk_cloudfront.errors.entity_not_found.EntityNotFound: <p>The entity was not found.</p>
+            aws_sdk_cloudfront.errors.invalid_argument.InvalidArgument: <p>An argument is invalid.</p>
+            aws_sdk_cloudfront.errors.unsupported_operation.UnsupportedOperation: <p>This operation is not supported in this Amazon Web Services Region.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4156,6 +5028,11 @@ class CloudFrontClient:
 
         Args:
             id: <p>The identifier for the response headers policy.</p> <p>If the response headers policy is attached to a distribution's cache behavior, you can get the policy's identifier using <code>ListDistributions</code> or <code>GetDistribution</code>. If the response headers policy is not attached to a cache behavior, you can get the identifier using <code>ListResponseHeadersPolicies</code>.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.access_denied.AccessDenied: <p>Access denied.</p>
+            aws_sdk_cloudfront.errors.no_such_response_headers_policy.NoSuchResponseHeadersPolicy: <p>The response headers policy does not exist.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4193,6 +5070,11 @@ class CloudFrontClient:
 
         Args:
             id: <p>The identifier for the response headers policy.</p> <p>If the response headers policy is attached to a distribution's cache behavior, you can get the policy's identifier using <code>ListDistributions</code> or <code>GetDistribution</code>. If the response headers policy is not attached to a cache behavior, you can get the identifier using <code>ListResponseHeadersPolicies</code>.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.access_denied.AccessDenied: <p>Access denied.</p>
+            aws_sdk_cloudfront.errors.no_such_response_headers_policy.NoSuchResponseHeadersPolicy: <p>The response headers policy does not exist.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4230,6 +5112,11 @@ class CloudFrontClient:
 
         Args:
             id: <p>The streaming distribution's ID.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.access_denied.AccessDenied: <p>Access denied.</p>
+            aws_sdk_cloudfront.errors.no_such_streaming_distribution.NoSuchStreamingDistribution: <p>The specified streaming distribution does not exist.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4267,6 +5154,11 @@ class CloudFrontClient:
 
         Args:
             id: <p>The streaming distribution's ID.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.access_denied.AccessDenied: <p>Access denied.</p>
+            aws_sdk_cloudfront.errors.no_such_streaming_distribution.NoSuchStreamingDistribution: <p>The specified streaming distribution does not exist.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4304,6 +5196,12 @@ class CloudFrontClient:
 
         Args:
             identifier: <p>The trust store's identifier.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.access_denied.AccessDenied: <p>Access denied.</p>
+            aws_sdk_cloudfront.errors.entity_not_found.EntityNotFound: <p>The entity was not found.</p>
+            aws_sdk_cloudfront.errors.invalid_argument.InvalidArgument: <p>An argument is invalid.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4341,6 +5239,13 @@ class CloudFrontClient:
 
         Args:
             id: <p>The VPC origin ID.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.access_denied.AccessDenied: <p>Access denied.</p>
+            aws_sdk_cloudfront.errors.entity_not_found.EntityNotFound: <p>The entity was not found.</p>
+            aws_sdk_cloudfront.errors.invalid_argument.InvalidArgument: <p>An argument is invalid.</p>
+            aws_sdk_cloudfront.errors.unsupported_operation.UnsupportedOperation: <p>This operation is not supported in this Amazon Web Services Region.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To get a VPC origin
@@ -4388,6 +5293,13 @@ class CloudFrontClient:
         Args:
             marker: <p>Use this field when paginating results to indicate where to begin in your list. The response includes items in the list that occur after the marker. To get the next page of the list, set this field's value to the value of <code>NextMarker</code> from the current page's response.</p>
             max_items: <p>The maximum number of Anycast static IP lists that you want returned in the response.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.access_denied.AccessDenied: <p>Access denied.</p>
+            aws_sdk_cloudfront.errors.entity_not_found.EntityNotFound: <p>The entity was not found.</p>
+            aws_sdk_cloudfront.errors.invalid_argument.InvalidArgument: <p>An argument is invalid.</p>
+            aws_sdk_cloudfront.errors.unsupported_operation.UnsupportedOperation: <p>This operation is not supported in this Amazon Web Services Region.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4434,6 +5346,12 @@ class CloudFrontClient:
             type: <p>A filter to return only the specified kinds of cache policies. Valid values are:</p> <ul> <li> <p> <code>managed</code> – Returns only the managed policies created by Amazon Web Services.</p> </li> <li> <p> <code>custom</code> – Returns only the custom policies created in your Amazon Web Services account.</p> </li> </ul>
             marker: <p>Use this field when paginating results to indicate where to begin in your list of cache policies. The response includes cache policies in the list that occur after the marker. To get the next page of the list, set this field's value to the value of <code>NextMarker</code> from the current page's response.</p>
             max_items: <p>The maximum number of cache policies that you want in the response.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.access_denied.AccessDenied: <p>Access denied.</p>
+            aws_sdk_cloudfront.errors.invalid_argument.InvalidArgument: <p>An argument is invalid.</p>
+            aws_sdk_cloudfront.errors.no_such_cache_policy.NoSuchCachePolicy: <p>The cache policy does not exist.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4478,6 +5396,10 @@ class CloudFrontClient:
         Args:
             marker: <p>Use this when paginating results to indicate where to begin in your list of origin access identities. The results include identities in the list that occur after the marker. To get the next page of results, set the <code>Marker</code> to the value of the <code>NextMarker</code> from the current page's response (which is also the ID of the last identity on that page).</p>
             max_items: <p>The maximum number of origin access identities you want in the response body.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.invalid_argument.InvalidArgument: <p>An argument is invalid.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4551,6 +5473,11 @@ class CloudFrontClient:
             alias: <p>The alias (also called a CNAME) to search for conflicting aliases.</p>
             marker: <p>Use this field when paginating results to indicate where to begin in the list of conflicting aliases. The response includes conflicting aliases in the list that occur after the marker. To get the next page of the list, set this field's value to the value of <code>NextMarker</code> from the current page's response.</p>
             max_items: <p>The maximum number of conflicting aliases that you want in the response.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.invalid_argument.InvalidArgument: <p>An argument is invalid.</p>
+            aws_sdk_cloudfront.errors.no_such_distribution.NoSuchDistribution: <p>The specified distribution does not exist.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4597,6 +5524,12 @@ class CloudFrontClient:
             marker: <p>Use this field when paginating results to indicate where to begin in your list. The response includes items in the list that occur after the marker. To get the next page of the list, set this field's value to the value of <code>NextMarker</code> from the current page's response.</p>
             max_items: <p>The maximum number of connection functions that you want returned in the response.</p>
             stage: <p>The connection function's stage.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.access_denied.AccessDenied: <p>Access denied.</p>
+            aws_sdk_cloudfront.errors.invalid_argument.InvalidArgument: <p>An argument is invalid.</p>
+            aws_sdk_cloudfront.errors.unsupported_operation.UnsupportedOperation: <p>This operation is not supported in this Amazon Web Services Region.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4668,6 +5601,12 @@ class CloudFrontClient:
             association_filter: <p>Filter by associated Anycast IP list ID.</p>
             marker: <p>The marker for the next set of connection groups to retrieve.</p>
             max_items: <p>The maximum number of connection groups to return.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.access_denied.AccessDenied: <p>Access denied.</p>
+            aws_sdk_cloudfront.errors.entity_not_found.EntityNotFound: <p>The entity was not found.</p>
+            aws_sdk_cloudfront.errors.invalid_argument.InvalidArgument: <p>An argument is invalid.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4737,6 +5676,12 @@ class CloudFrontClient:
         Args:
             marker: <p>Use this field when paginating results to indicate where to begin in your list of continuous deployment policies. The response includes policies in the list that occur after the marker. To get the next page of the list, set this field's value to the value of <code>NextMarker</code> from the current page's response.</p>
             max_items: <p>The maximum number of continuous deployment policies that you want returned in the response.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.access_denied.AccessDenied: <p>Access denied.</p>
+            aws_sdk_cloudfront.errors.invalid_argument.InvalidArgument: <p>An argument is invalid.</p>
+            aws_sdk_cloudfront.errors.no_such_continuous_deployment_policy.NoSuchContinuousDeploymentPolicy: <p>The continuous deployment policy doesn't exist.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4779,6 +5724,10 @@ class CloudFrontClient:
         Args:
             marker: <p>Use this when paginating results to indicate where to begin in your list of distributions. The results include distributions in the list that occur after the marker. To get the next page of results, set the <code>Marker</code> to the value of the <code>NextMarker</code> from the current page's response (which is also the ID of the last distribution on that page).</p>
             max_items: <p>The maximum number of distributions you want in the response body.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.invalid_argument.InvalidArgument: <p>An argument is invalid.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4844,6 +5793,13 @@ class CloudFrontClient:
             marker: <p>Use this field when paginating results to indicate where to begin in your list. The response includes items in the list that occur after the marker. To get the next page of the list, set this field's value to the value of <code>NextMarker</code> from the current page's response.</p>
             max_items: <p>The maximum number of distributions that you want returned in the response.</p>
             anycast_ip_list_id: <p>The ID of the Anycast static IP list.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.access_denied.AccessDenied: <p>Access denied.</p>
+            aws_sdk_cloudfront.errors.entity_not_found.EntityNotFound: <p>The entity was not found.</p>
+            aws_sdk_cloudfront.errors.invalid_argument.InvalidArgument: <p>An argument is invalid.</p>
+            aws_sdk_cloudfront.errors.unsupported_operation.UnsupportedOperation: <p>This operation is not supported in this Amazon Web Services Region.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4889,6 +5845,12 @@ class CloudFrontClient:
             marker: <p>Use this field when paginating results to indicate where to begin in your list of distribution IDs. The response includes distribution IDs in the list that occur after the marker. To get the next page of the list, set this field's value to the value of <code>NextMarker</code> from the current page's response.</p>
             max_items: <p>The maximum number of distribution IDs that you want in the response.</p>
             cache_policy_id: <p>The ID of the cache policy whose associated distribution IDs you want to list.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.access_denied.AccessDenied: <p>Access denied.</p>
+            aws_sdk_cloudfront.errors.invalid_argument.InvalidArgument: <p>An argument is invalid.</p>
+            aws_sdk_cloudfront.errors.no_such_cache_policy.NoSuchCachePolicy: <p>The cache policy does not exist.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4934,6 +5896,12 @@ class CloudFrontClient:
             marker: <p>Use this field when paginating results to indicate where to begin in your list. The response includes items in the list that occur after the marker. To get the next page of the list, set this field's value to the value of <code>NextMarker</code> from the current page's response.</p>
             max_items: <p>The maximum number of distributions that you want returned in the response.</p>
             connection_function_identifier: <p>The distributions by connection function identifier.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.access_denied.AccessDenied: <p>Access denied.</p>
+            aws_sdk_cloudfront.errors.entity_not_found.EntityNotFound: <p>The entity was not found.</p>
+            aws_sdk_cloudfront.errors.invalid_argument.InvalidArgument: <p>An argument is invalid.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5002,6 +5970,11 @@ class CloudFrontClient:
             marker: <p> The marker for the next set of distributions to retrieve.</p>
             max_items: <p>The maximum number of distributions to return.</p>
             connection_mode: <p>This field specifies whether the connection mode is through a standard distribution (direct) or a multi-tenant distribution with distribution tenants (tenant-only).</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.access_denied.AccessDenied: <p>Access denied.</p>
+            aws_sdk_cloudfront.errors.invalid_argument.InvalidArgument: <p>An argument is invalid.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5070,6 +6043,11 @@ class CloudFrontClient:
             marker: <p>Use this field when paginating results to indicate where to begin in your list of distribution IDs. The response includes distribution IDs in the list that occur after the marker. To get the next page of the list, set this field's value to the value of <code>NextMarker</code> from the current page's response.</p>
             max_items: <p>The maximum number of distribution IDs that you want in the response.</p>
             key_group_id: <p>The ID of the key group whose associated distribution IDs you are listing.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.invalid_argument.InvalidArgument: <p>An argument is invalid.</p>
+            aws_sdk_cloudfront.errors.no_such_resource.NoSuchResource: <p>A resource that was specified is not valid.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5115,6 +6093,12 @@ class CloudFrontClient:
             marker: <p>Use this field when paginating results to indicate where to begin in your list of distribution IDs. The response includes distribution IDs in the list that occur after the marker. To get the next page of the list, set this field's value to the value of <code>NextMarker</code> from the current page's response.</p>
             max_items: <p>The maximum number of distribution IDs that you want in the response.</p>
             origin_request_policy_id: <p>The ID of the origin request policy whose associated distribution IDs you want to list.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.access_denied.AccessDenied: <p>Access denied.</p>
+            aws_sdk_cloudfront.errors.invalid_argument.InvalidArgument: <p>An argument is invalid.</p>
+            aws_sdk_cloudfront.errors.no_such_origin_request_policy.NoSuchOriginRequestPolicy: <p>The origin request policy does not exist.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5160,6 +6144,13 @@ class CloudFrontClient:
             resource_arn: <p>The ARN of the CloudFront resource that you've shared with other Amazon Web Services accounts.</p>
             marker: <p>Use this field when paginating results to indicate where to begin in your list of distributions. The response includes distributions in the list that occur after the marker. To get the next page of the list, set this field's value to the value of <code>NextMarker</code> from the current page's response.</p>
             max_items: <p>The maximum number of distributions to return.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.access_denied.AccessDenied: <p>Access denied.</p>
+            aws_sdk_cloudfront.errors.entity_not_found.EntityNotFound: <p>The entity was not found.</p>
+            aws_sdk_cloudfront.errors.invalid_argument.InvalidArgument: <p>An argument is invalid.</p>
+            aws_sdk_cloudfront.errors.unsupported_operation.UnsupportedOperation: <p>This operation is not supported in this Amazon Web Services Region.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5211,6 +6202,10 @@ class CloudFrontClient:
             max_items: <p>The maximum number of distributions that you want in the response.</p>
             realtime_log_config_name: <p>The name of the real-time log configuration whose associated distributions you want to list.</p>
             realtime_log_config_arn: <p>The Amazon Resource Name (ARN) of the real-time log configuration whose associated distributions you want to list.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.invalid_argument.InvalidArgument: <p>An argument is invalid.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5259,6 +6254,12 @@ class CloudFrontClient:
             marker: <p>Use this field when paginating results to indicate where to begin in your list of distribution IDs. The response includes distribution IDs in the list that occur after the marker. To get the next page of the list, set this field's value to the value of <code>NextMarker</code> from the current page's response.</p>
             max_items: <p>The maximum number of distribution IDs that you want to get in the response.</p>
             response_headers_policy_id: <p>The ID of the response headers policy whose associated distribution IDs you want to list.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.access_denied.AccessDenied: <p>Access denied.</p>
+            aws_sdk_cloudfront.errors.invalid_argument.InvalidArgument: <p>An argument is invalid.</p>
+            aws_sdk_cloudfront.errors.no_such_response_headers_policy.NoSuchResponseHeadersPolicy: <p>The response headers policy does not exist.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5304,6 +6305,12 @@ class CloudFrontClient:
             trust_store_identifier: <p>The distributions by trust store identifier.</p>
             marker: <p>Use this field when paginating results to indicate where to begin in your list. The response includes items in the list that occur after the marker. To get the next page of the list, set this field's value to the value of <code>NextMarker</code> from the current page's response.</p>
             max_items: <p>The maximum number of distributions that you want returned in the response.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.access_denied.AccessDenied: <p>Access denied.</p>
+            aws_sdk_cloudfront.errors.entity_not_found.EntityNotFound: <p>The entity was not found.</p>
+            aws_sdk_cloudfront.errors.invalid_argument.InvalidArgument: <p>An argument is invalid.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5373,6 +6380,13 @@ class CloudFrontClient:
             max_items: <p>The maximum number of items included in the list.</p>
             vpc_origin_id: <p>The VPC origin ID.</p>
 
+        Raises:
+            aws_sdk_cloudfront.errors.access_denied.AccessDenied: <p>Access denied.</p>
+            aws_sdk_cloudfront.errors.entity_not_found.EntityNotFound: <p>The entity was not found.</p>
+            aws_sdk_cloudfront.errors.invalid_argument.InvalidArgument: <p>An argument is invalid.</p>
+            aws_sdk_cloudfront.errors.unsupported_operation.UnsupportedOperation: <p>This operation is not supported in this Amazon Web Services Region.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To list distributions by VPC origin ID
             The following command lists distributions by VPC origin ID:
@@ -5423,6 +6437,11 @@ class CloudFrontClient:
             marker: <p>Use <code>Marker</code> and <code>MaxItems</code> to control pagination of results. If you have more than <code>MaxItems</code> distributions that satisfy the request, the response includes a <code>NextMarker</code> element. To get the next page of results, submit another request. For the value of <code>Marker</code>, specify the value of <code>NextMarker</code> from the last response. (For the first request, omit <code>Marker</code>.)</p>
             max_items: <p>The maximum number of distributions that you want CloudFront to return in the response body. The maximum and default values are both 100.</p>
             web_acl_id: <p>The ID of the WAF web ACL that you want to list the associated distributions. If you specify \"null\" for the ID, the request returns a list of the distributions that aren't associated with a web ACL. </p> <p>For WAFV2, this is the ARN of the web ACL, such as <code>arn:aws:wafv2:us-east-1:123456789012:global/webacl/ExampleWebACL/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111</code>.</p> <p>For WAF Classic, this is the ID of the web ACL, such as <code>a1b2c3d4-5678-90ab-cdef-EXAMPLE11111</code>.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.invalid_argument.InvalidArgument: <p>An argument is invalid.</p>
+            aws_sdk_cloudfront.errors.invalid_web_acl_id.InvalidWebACLId: <p>A web ACL ID specified is not valid. To specify a web ACL created using the latest version of WAF, use the ACL ARN, for example <code>arn:aws:wafv2:us-east-1:123456789012:global/webacl/ExampleWebACL/473e64fd-f30b-4765-81a0-62ad96dd167a</code>. To specify a web ACL created using WAF Classic, use the ACL ID, for example <code>473e64fd-f30b-4765-81a0-62ad96dd167a</code>.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5469,6 +6488,12 @@ class CloudFrontClient:
         Args:
             marker: <p>The marker for the next set of results.</p>
             max_items: <p>The maximum number of distribution tenants to return.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.access_denied.AccessDenied: <p>Access denied.</p>
+            aws_sdk_cloudfront.errors.entity_not_found.EntityNotFound: <p>The entity was not found.</p>
+            aws_sdk_cloudfront.errors.invalid_argument.InvalidArgument: <p>An argument is invalid.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5542,6 +6567,12 @@ class CloudFrontClient:
             certificate_arn: <p>Filter by the ARN of the associated ACM certificate.</p>
             marker: <p>The marker for the next set of results.</p>
             max_items: <p>The maximum number of distribution tenants to return by the specified customization.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.access_denied.AccessDenied: <p>Access denied.</p>
+            aws_sdk_cloudfront.errors.entity_not_found.EntityNotFound: <p>The entity was not found.</p>
+            aws_sdk_cloudfront.errors.invalid_argument.InvalidArgument: <p>An argument is invalid.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5617,6 +6648,12 @@ class CloudFrontClient:
             domain_control_validation_resource: <p>The distribution resource identifier. This can be the standard distribution or distribution tenant that has a valid certificate, which covers the domain that you specify.</p>
             max_items: <p>The maximum number of domain conflicts to return.</p>
             marker: <p>The marker for the next set of domain conflicts.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.access_denied.AccessDenied: <p>Access denied.</p>
+            aws_sdk_cloudfront.errors.entity_not_found.EntityNotFound: <p>The entity was not found.</p>
+            aws_sdk_cloudfront.errors.invalid_argument.InvalidArgument: <p>An argument is invalid.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5688,6 +6725,10 @@ class CloudFrontClient:
         Args:
             marker: <p>Use this when paginating results to indicate where to begin in your list of configurations. The results include configurations in the list that occur after the marker. To get the next page of results, set the <code>Marker</code> to the value of the <code>NextMarker</code> from the current page's response (which is also the ID of the last configuration on that page).</p>
             max_items: <p>The maximum number of field-level encryption configurations you want in the response body.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.invalid_argument.InvalidArgument: <p>An argument is invalid.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5730,6 +6771,10 @@ class CloudFrontClient:
         Args:
             marker: <p>Use this when paginating results to indicate where to begin in your list of profiles. The results include profiles in the list that occur after the marker. To get the next page of results, set the <code>Marker</code> to the value of the <code>NextMarker</code> from the current page's response (which is also the ID of the last profile on that page).</p>
             max_items: <p>The maximum number of field-level encryption profiles you want in the response body. </p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.invalid_argument.InvalidArgument: <p>An argument is invalid.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5774,6 +6819,11 @@ class CloudFrontClient:
             marker: <p>Use this field when paginating results to indicate where to begin in your list of functions. The response includes functions in the list that occur after the marker. To get the next page of the list, set this field's value to the value of <code>NextMarker</code> from the current page's response.</p>
             max_items: <p>The maximum number of functions that you want in the response.</p>
             stage: <p>An optional filter to return only the functions that are in the specified stage, either <code>DEVELOPMENT</code> or <code>LIVE</code>.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.invalid_argument.InvalidArgument: <p>An argument is invalid.</p>
+            aws_sdk_cloudfront.errors.unsupported_operation.UnsupportedOperation: <p>This operation is not supported in this Amazon Web Services Region.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5820,6 +6870,12 @@ class CloudFrontClient:
             distribution_id: <p>The distribution's ID.</p>
             marker: <p>Use this parameter when paginating results to indicate where to begin in your list of invalidation batches. Because the results are returned in decreasing order from most recent to oldest, the most recent results are on the first page, the second page will contain earlier results, and so on. To get the next page of results, set <code>Marker</code> to the value of the <code>NextMarker</code> from the current page's response. This value is the same as the ID of the last invalidation batch on that page.</p>
             max_items: <p>The maximum number of invalidation batches that you want in the response body.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.access_denied.AccessDenied: <p>Access denied.</p>
+            aws_sdk_cloudfront.errors.invalid_argument.InvalidArgument: <p>An argument is invalid.</p>
+            aws_sdk_cloudfront.errors.no_such_distribution.NoSuchDistribution: <p>The specified distribution does not exist.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5888,6 +6944,12 @@ class CloudFrontClient:
             id: <p>The ID of the distribution tenant.</p>
             marker: <p>Use this parameter when paginating results to indicate where to begin in your list of invalidation batches. Because the results are returned in decreasing order from most recent to oldest, the most recent results are on the first page, the second page will contain earlier results, and so on. To get the next page of results, set <code>Marker</code> to the value of the <code>NextMarker</code> from the current page's response. This value is the same as the ID of the last invalidation batch on that page.</p>
             max_items: <p>The maximum number of invalidations to return for the distribution tenant.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.access_denied.AccessDenied: <p>Access denied.</p>
+            aws_sdk_cloudfront.errors.entity_not_found.EntityNotFound: <p>The entity was not found.</p>
+            aws_sdk_cloudfront.errors.invalid_argument.InvalidArgument: <p>An argument is invalid.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5954,6 +7016,10 @@ class CloudFrontClient:
         Args:
             marker: <p>Use this field when paginating results to indicate where to begin in your list of key groups. The response includes key groups in the list that occur after the marker. To get the next page of the list, set this field's value to the value of <code>NextMarker</code> from the current page's response.</p>
             max_items: <p>The maximum number of key groups that you want in the response.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.invalid_argument.InvalidArgument: <p>An argument is invalid.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6000,6 +7066,12 @@ class CloudFrontClient:
             marker: <p>The marker associated with the key value stores list.</p>
             max_items: <p>The maximum number of items in the key value stores list.</p>
             status: <p>The status of the request for the key value stores list.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.access_denied.AccessDenied: <p>Access denied.</p>
+            aws_sdk_cloudfront.errors.invalid_argument.InvalidArgument: <p>An argument is invalid.</p>
+            aws_sdk_cloudfront.errors.unsupported_operation.UnsupportedOperation: <p>This operation is not supported in this Amazon Web Services Region.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To get a list of KeyValueStores
@@ -6073,6 +7145,10 @@ class CloudFrontClient:
         Args:
             marker: <p>Use this field when paginating results to indicate where to begin in your list of origin access controls. The response includes the items in the list that occur after the marker. To get the next page of the list, set this field's value to the value of <code>NextMarker</code> from the current page's response.</p>
             max_items: <p>The maximum number of origin access controls that you want in the response.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.invalid_argument.InvalidArgument: <p>An argument is invalid.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6142,6 +7218,12 @@ class CloudFrontClient:
             type: <p>A filter to return only the specified kinds of origin request policies. Valid values are:</p> <ul> <li> <p> <code>managed</code> – Returns only the managed policies created by Amazon Web Services.</p> </li> <li> <p> <code>custom</code> – Returns only the custom policies created in your Amazon Web Services account.</p> </li> </ul>
             marker: <p>Use this field when paginating results to indicate where to begin in your list of origin request policies. The response includes origin request policies in the list that occur after the marker. To get the next page of the list, set this field's value to the value of <code>NextMarker</code> from the current page's response.</p>
             max_items: <p>The maximum number of origin request policies that you want in the response.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.access_denied.AccessDenied: <p>Access denied.</p>
+            aws_sdk_cloudfront.errors.invalid_argument.InvalidArgument: <p>An argument is invalid.</p>
+            aws_sdk_cloudfront.errors.no_such_origin_request_policy.NoSuchOriginRequestPolicy: <p>The origin request policy does not exist.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6186,6 +7268,10 @@ class CloudFrontClient:
         Args:
             marker: <p>Use this when paginating results to indicate where to begin in your list of public keys. The results include public keys in the list that occur after the marker. To get the next page of results, set the <code>Marker</code> to the value of the <code>NextMarker</code> from the current page's response (which is also the ID of the last public key on that page).</p>
             max_items: <p>The maximum number of public keys you want in the response body.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.invalid_argument.InvalidArgument: <p>An argument is invalid.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6249,6 +7335,12 @@ class CloudFrontClient:
         Args:
             max_items: <p>The maximum number of real-time log configurations that you want in the response.</p>
             marker: <p>Use this field when paginating results to indicate where to begin in your list of real-time log configurations. The response includes real-time log configurations in the list that occur after the marker. To get the next page of the list, set this field's value to the value of <code>NextMarker</code> from the current page's response.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.access_denied.AccessDenied: <p>Access denied.</p>
+            aws_sdk_cloudfront.errors.invalid_argument.InvalidArgument: <p>An argument is invalid.</p>
+            aws_sdk_cloudfront.errors.no_such_realtime_log_config.NoSuchRealtimeLogConfig: <p>The real-time log configuration does not exist.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6295,6 +7387,12 @@ class CloudFrontClient:
             type: <p>A filter to get only the specified kind of response headers policies. Valid values are:</p> <ul> <li> <p> <code>managed</code> – Gets only the managed policies created by Amazon Web Services.</p> </li> <li> <p> <code>custom</code> – Gets only the custom policies created in your Amazon Web Services account.</p> </li> </ul>
             marker: <p>Use this field when paginating results to indicate where to begin in your list of response headers policies. The response includes response headers policies in the list that occur after the marker. To get the next page of the list, set this field's value to the value of <code>NextMarker</code> from the current page's response.</p>
             max_items: <p>The maximum number of response headers policies that you want to get in the response.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.access_denied.AccessDenied: <p>Access denied.</p>
+            aws_sdk_cloudfront.errors.invalid_argument.InvalidArgument: <p>An argument is invalid.</p>
+            aws_sdk_cloudfront.errors.no_such_response_headers_policy.NoSuchResponseHeadersPolicy: <p>The response headers policy does not exist.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6339,6 +7437,10 @@ class CloudFrontClient:
         Args:
             marker: <p>The value that you provided for the <code>Marker</code> request parameter.</p>
             max_items: <p>The value that you provided for the <code>MaxItems</code> request parameter.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.invalid_argument.InvalidArgument: <p>An argument is invalid.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6402,6 +7504,13 @@ class CloudFrontClient:
 
         Args:
             resource: <p>An ARN of a CloudFront resource.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.access_denied.AccessDenied: <p>Access denied.</p>
+            aws_sdk_cloudfront.errors.invalid_argument.InvalidArgument: <p>An argument is invalid.</p>
+            aws_sdk_cloudfront.errors.invalid_tagging.InvalidTagging: <p>The tagging specified is not valid.</p>
+            aws_sdk_cloudfront.errors.no_such_resource.NoSuchResource: <p>A resource that was specified is not valid.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6441,6 +7550,12 @@ class CloudFrontClient:
         Args:
             marker: <p>Use this field when paginating results to indicate where to begin in your list. The response includes items in the list that occur after the marker. To get the next page of the list, set this field's value to the value of <code>NextMarker</code> from the current page's response.</p>
             max_items: <p>The maximum number of trust stores that you want returned in the response.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.access_denied.AccessDenied: <p>Access denied.</p>
+            aws_sdk_cloudfront.errors.entity_not_found.EntityNotFound: <p>The entity was not found.</p>
+            aws_sdk_cloudfront.errors.invalid_argument.InvalidArgument: <p>An argument is invalid.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6505,6 +7620,13 @@ class CloudFrontClient:
             marker: <p>The marker associated with the VPC origins list.</p>
             max_items: <p>The maximum number of items included in the list.</p>
 
+        Raises:
+            aws_sdk_cloudfront.errors.access_denied.AccessDenied: <p>Access denied.</p>
+            aws_sdk_cloudfront.errors.entity_not_found.EntityNotFound: <p>The entity was not found.</p>
+            aws_sdk_cloudfront.errors.invalid_argument.InvalidArgument: <p>An argument is invalid.</p>
+            aws_sdk_cloudfront.errors.unsupported_operation.UnsupportedOperation: <p>This operation is not supported in this Amazon Web Services Region.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To list VPC origins
             The following command lists VPC origins:
@@ -6552,6 +7674,15 @@ class CloudFrontClient:
         Args:
             id: <p>The connection function ID.</p>
             if_match: <p>The current version (<code>ETag</code> value) of the connection function.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.access_denied.AccessDenied: <p>Access denied.</p>
+            aws_sdk_cloudfront.errors.entity_not_found.EntityNotFound: <p>The entity was not found.</p>
+            aws_sdk_cloudfront.errors.invalid_argument.InvalidArgument: <p>An argument is invalid.</p>
+            aws_sdk_cloudfront.errors.invalid_if_match_version.InvalidIfMatchVersion: <p>The <code>If-Match</code> version is missing or not valid.</p>
+            aws_sdk_cloudfront.errors.precondition_failed.PreconditionFailed: <p>The precondition in one or more of the request fields evaluated to <code>false</code>.</p>
+            aws_sdk_cloudfront.errors.unsupported_operation.UnsupportedOperation: <p>This operation is not supported in this Amazon Web Services Region.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6592,6 +7723,14 @@ class CloudFrontClient:
         Args:
             name: <p>The name of the function that you are publishing.</p>
             if_match: <p>The current version (<code>ETag</code> value) of the function that you are publishing, which you can get using <code>DescribeFunction</code>.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.invalid_argument.InvalidArgument: <p>An argument is invalid.</p>
+            aws_sdk_cloudfront.errors.invalid_if_match_version.InvalidIfMatchVersion: <p>The <code>If-Match</code> version is missing or not valid.</p>
+            aws_sdk_cloudfront.errors.no_such_function_exists.NoSuchFunctionExists: <p>The function does not exist.</p>
+            aws_sdk_cloudfront.errors.precondition_failed.PreconditionFailed: <p>The precondition in one or more of the request fields evaluated to <code>false</code>.</p>
+            aws_sdk_cloudfront.errors.unsupported_operation.UnsupportedOperation: <p>This operation is not supported in this Amazon Web Services Region.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6632,6 +7771,15 @@ class CloudFrontClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the CloudFront resource for which the policy is being created.</p>
             policy_document: <p>The JSON-formatted resource policy to create.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.access_denied.AccessDenied: <p>Access denied.</p>
+            aws_sdk_cloudfront.errors.entity_not_found.EntityNotFound: <p>The entity was not found.</p>
+            aws_sdk_cloudfront.errors.illegal_update.IllegalUpdate: <p>The update contains modifications that are not allowed.</p>
+            aws_sdk_cloudfront.errors.invalid_argument.InvalidArgument: <p>An argument is invalid.</p>
+            aws_sdk_cloudfront.errors.precondition_failed.PreconditionFailed: <p>The precondition in one or more of the request fields evaluated to <code>false</code>.</p>
+            aws_sdk_cloudfront.errors.unsupported_operation.UnsupportedOperation: <p>This operation is not supported in this Amazon Web Services Region.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6672,6 +7820,13 @@ class CloudFrontClient:
         Args:
             resource: <p>An ARN of a CloudFront resource.</p>
             tags: <p>A complex type that contains zero or more <code>Tag</code> elements.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.access_denied.AccessDenied: <p>Access denied.</p>
+            aws_sdk_cloudfront.errors.invalid_argument.InvalidArgument: <p>An argument is invalid.</p>
+            aws_sdk_cloudfront.errors.invalid_tagging.InvalidTagging: <p>The tagging specified is not valid.</p>
+            aws_sdk_cloudfront.errors.no_such_resource.NoSuchResource: <p>A resource that was specified is not valid.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6714,6 +7869,15 @@ class CloudFrontClient:
             if_match: <p>The current version (<code>ETag</code> value) of the connection function.</p>
             stage: <p>The connection function stage.</p>
             connection_object: <p>The connection object.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.entity_not_found.EntityNotFound: <p>The entity was not found.</p>
+            aws_sdk_cloudfront.errors.invalid_argument.InvalidArgument: <p>An argument is invalid.</p>
+            aws_sdk_cloudfront.errors.invalid_if_match_version.InvalidIfMatchVersion: <p>The <code>If-Match</code> version is missing or not valid.</p>
+            aws_sdk_cloudfront.errors.precondition_failed.PreconditionFailed: <p>The precondition in one or more of the request fields evaluated to <code>false</code>.</p>
+            aws_sdk_cloudfront.errors.test_function_failed.TestFunctionFailed: <p>The CloudFront function failed.</p>
+            aws_sdk_cloudfront.errors.unsupported_operation.UnsupportedOperation: <p>This operation is not supported in this Amazon Web Services Region.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6761,6 +7925,14 @@ class CloudFrontClient:
             if_match: <p>The current version (<code>ETag</code> value) of the function that you are testing, which you can get using <code>DescribeFunction</code>.</p>
             stage: <p>The stage of the function that you are testing, either <code>DEVELOPMENT</code> or <code>LIVE</code>.</p>
             event_object: <p>The event object to test the function with. For more information about the structure of the event object, see <a href=\"https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/managing-functions.html#test-function\">Testing functions</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.invalid_argument.InvalidArgument: <p>An argument is invalid.</p>
+            aws_sdk_cloudfront.errors.invalid_if_match_version.InvalidIfMatchVersion: <p>The <code>If-Match</code> version is missing or not valid.</p>
+            aws_sdk_cloudfront.errors.no_such_function_exists.NoSuchFunctionExists: <p>The function does not exist.</p>
+            aws_sdk_cloudfront.errors.test_function_failed.TestFunctionFailed: <p>The CloudFront function failed.</p>
+            aws_sdk_cloudfront.errors.unsupported_operation.UnsupportedOperation: <p>This operation is not supported in this Amazon Web Services Region.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6804,6 +7976,13 @@ class CloudFrontClient:
         Args:
             resource: <p>An ARN of a CloudFront resource.</p>
             tag_keys: <p>A complex type that contains zero or more <code>Tag</code> key elements.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.access_denied.AccessDenied: <p>Access denied.</p>
+            aws_sdk_cloudfront.errors.invalid_argument.InvalidArgument: <p>An argument is invalid.</p>
+            aws_sdk_cloudfront.errors.invalid_tagging.InvalidTagging: <p>The tagging specified is not valid.</p>
+            aws_sdk_cloudfront.errors.no_such_resource.NoSuchResource: <p>A resource that was specified is not valid.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6850,6 +8029,15 @@ class CloudFrontClient:
             ip_address_type: <p>The IP address type for the Anycast static IP list. You can specify one of the following options:</p> <ul> <li> <p> <code>ipv4</code> only</p> </li> <li> <p> <code>ipv6</code> only</p> </li> <li> <p> <code>dualstack</code> - Allocate a list of both IPv4 and IPv6 addresses</p> </li> </ul>
             ipam_cidr_configs: <p>A list of IPAM CIDR configurations that specify the IP address ranges and IPAM pool settings for updating the Anycast static IP list.</p>
             if_match: <p>The current version (ETag value) of the Anycast static IP list that you are updating.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.access_denied.AccessDenied: <p>Access denied.</p>
+            aws_sdk_cloudfront.errors.entity_not_found.EntityNotFound: <p>The entity was not found.</p>
+            aws_sdk_cloudfront.errors.invalid_argument.InvalidArgument: <p>An argument is invalid.</p>
+            aws_sdk_cloudfront.errors.invalid_if_match_version.InvalidIfMatchVersion: <p>The <code>If-Match</code> version is missing or not valid.</p>
+            aws_sdk_cloudfront.errors.precondition_failed.PreconditionFailed: <p>The precondition in one or more of the request fields evaluated to <code>false</code>.</p>
+            aws_sdk_cloudfront.errors.unsupported_operation.UnsupportedOperation: <p>This operation is not supported in this Amazon Web Services Region.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6896,6 +8084,20 @@ class CloudFrontClient:
             cache_policy_config: <p>A cache policy configuration.</p>
             id: <p>The unique identifier for the cache policy that you are updating. The identifier is returned in a cache behavior's <code>CachePolicyId</code> field in the response to <code>GetDistributionConfig</code>.</p>
             if_match: <p>The version of the cache policy that you are updating. The version is returned in the cache policy's <code>ETag</code> field in the response to <code>GetCachePolicyConfig</code>.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.access_denied.AccessDenied: <p>Access denied.</p>
+            aws_sdk_cloudfront.errors.cache_policy_already_exists.CachePolicyAlreadyExists: <p>A cache policy with this name already exists. You must provide a unique name. To modify an existing cache policy, use <code>UpdateCachePolicy</code>.</p>
+            aws_sdk_cloudfront.errors.illegal_update.IllegalUpdate: <p>The update contains modifications that are not allowed.</p>
+            aws_sdk_cloudfront.errors.inconsistent_quantities.InconsistentQuantities: <p>The value of <code>Quantity</code> and the size of <code>Items</code> don't match.</p>
+            aws_sdk_cloudfront.errors.invalid_argument.InvalidArgument: <p>An argument is invalid.</p>
+            aws_sdk_cloudfront.errors.invalid_if_match_version.InvalidIfMatchVersion: <p>The <code>If-Match</code> version is missing or not valid.</p>
+            aws_sdk_cloudfront.errors.no_such_cache_policy.NoSuchCachePolicy: <p>The cache policy does not exist.</p>
+            aws_sdk_cloudfront.errors.precondition_failed.PreconditionFailed: <p>The precondition in one or more of the request fields evaluated to <code>false</code>.</p>
+            aws_sdk_cloudfront.errors.too_many_cookies_in_cache_policy.TooManyCookiesInCachePolicy: <p>The number of cookies in the cache policy exceeds the maximum. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html\">Quotas</a> (formerly known as limits) in the <i>Amazon CloudFront Developer Guide</i>.</p>
+            aws_sdk_cloudfront.errors.too_many_headers_in_cache_policy.TooManyHeadersInCachePolicy: <p>The number of headers in the cache policy exceeds the maximum. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html\">Quotas</a> (formerly known as limits) in the <i>Amazon CloudFront Developer Guide</i>.</p>
+            aws_sdk_cloudfront.errors.too_many_query_strings_in_cache_policy.TooManyQueryStringsInCachePolicy: <p>The number of query strings in the cache policy exceeds the maximum. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html\">Quotas</a> (formerly known as limits) in the <i>Amazon CloudFront Developer Guide</i>.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6940,6 +8142,17 @@ class CloudFrontClient:
             cloud_front_origin_access_identity_config: <p>The identity's configuration information.</p>
             id: <p>The identity's id.</p>
             if_match: <p>The value of the <code>ETag</code> header that you received when retrieving the identity's configuration. For example: <code>E2QWRUHAPOMQZL</code>.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.access_denied.AccessDenied: <p>Access denied.</p>
+            aws_sdk_cloudfront.errors.illegal_update.IllegalUpdate: <p>The update contains modifications that are not allowed.</p>
+            aws_sdk_cloudfront.errors.inconsistent_quantities.InconsistentQuantities: <p>The value of <code>Quantity</code> and the size of <code>Items</code> don't match.</p>
+            aws_sdk_cloudfront.errors.invalid_argument.InvalidArgument: <p>An argument is invalid.</p>
+            aws_sdk_cloudfront.errors.invalid_if_match_version.InvalidIfMatchVersion: <p>The <code>If-Match</code> version is missing or not valid.</p>
+            aws_sdk_cloudfront.errors.missing_body.MissingBody: <p>This operation requires a body. Ensure that the body is present and the <code>Content-Type</code> header is set.</p>
+            aws_sdk_cloudfront.errors.no_such_cloud_front_origin_access_identity.NoSuchCloudFrontOriginAccessIdentity: <p>The specified origin access identity does not exist.</p>
+            aws_sdk_cloudfront.errors.precondition_failed.PreconditionFailed: <p>The precondition in one or more of the request fields evaluated to <code>false</code>.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6987,6 +8200,16 @@ class CloudFrontClient:
             id: <p>The connection function ID.</p>
             if_match: <p>The current version (<code>ETag</code> value) of the connection function you are updating.</p>
             connection_function_code: <p>The connection function code.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.access_denied.AccessDenied: <p>Access denied.</p>
+            aws_sdk_cloudfront.errors.entity_not_found.EntityNotFound: <p>The entity was not found.</p>
+            aws_sdk_cloudfront.errors.entity_size_limit_exceeded.EntitySizeLimitExceeded: <p>The entity size limit was exceeded.</p>
+            aws_sdk_cloudfront.errors.invalid_argument.InvalidArgument: <p>An argument is invalid.</p>
+            aws_sdk_cloudfront.errors.invalid_if_match_version.InvalidIfMatchVersion: <p>The <code>If-Match</code> version is missing or not valid.</p>
+            aws_sdk_cloudfront.errors.precondition_failed.PreconditionFailed: <p>The precondition in one or more of the request fields evaluated to <code>false</code>.</p>
+            aws_sdk_cloudfront.errors.unsupported_operation.UnsupportedOperation: <p>This operation is not supported in this Amazon Web Services Region.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -7035,6 +8258,17 @@ class CloudFrontClient:
             if_match: <p>The value of the <code>ETag</code> header that you received when retrieving the connection group that you're updating.</p>
             anycast_ip_list_id: <p>The ID of the Anycast static IP list.</p>
             enabled: <p>Whether the connection group is enabled.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.access_denied.AccessDenied: <p>Access denied.</p>
+            aws_sdk_cloudfront.errors.entity_already_exists.EntityAlreadyExists: <p>The entity already exists. You must provide a unique entity.</p>
+            aws_sdk_cloudfront.errors.entity_limit_exceeded.EntityLimitExceeded: <p>The entity limit has been exceeded.</p>
+            aws_sdk_cloudfront.errors.entity_not_found.EntityNotFound: <p>The entity was not found.</p>
+            aws_sdk_cloudfront.errors.invalid_argument.InvalidArgument: <p>An argument is invalid.</p>
+            aws_sdk_cloudfront.errors.invalid_if_match_version.InvalidIfMatchVersion: <p>The <code>If-Match</code> version is missing or not valid.</p>
+            aws_sdk_cloudfront.errors.precondition_failed.PreconditionFailed: <p>The precondition in one or more of the request fields evaluated to <code>false</code>.</p>
+            aws_sdk_cloudfront.errors.resource_in_use.ResourceInUse: <p>Cannot delete this resource because it is in use.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -7083,6 +8317,16 @@ class CloudFrontClient:
             continuous_deployment_policy_config: <p>The continuous deployment policy configuration.</p>
             id: <p>The identifier of the continuous deployment policy that you are updating.</p>
             if_match: <p>The current version (<code>ETag</code> value) of the continuous deployment policy that you are updating.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.access_denied.AccessDenied: <p>Access denied.</p>
+            aws_sdk_cloudfront.errors.inconsistent_quantities.InconsistentQuantities: <p>The value of <code>Quantity</code> and the size of <code>Items</code> don't match.</p>
+            aws_sdk_cloudfront.errors.invalid_argument.InvalidArgument: <p>An argument is invalid.</p>
+            aws_sdk_cloudfront.errors.invalid_if_match_version.InvalidIfMatchVersion: <p>The <code>If-Match</code> version is missing or not valid.</p>
+            aws_sdk_cloudfront.errors.no_such_continuous_deployment_policy.NoSuchContinuousDeploymentPolicy: <p>The continuous deployment policy doesn't exist.</p>
+            aws_sdk_cloudfront.errors.precondition_failed.PreconditionFailed: <p>The precondition in one or more of the request fields evaluated to <code>false</code>.</p>
+            aws_sdk_cloudfront.errors.staging_distribution_in_use.StagingDistributionInUse: <p>A continuous deployment policy for this staging distribution already exists.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -7129,6 +8373,76 @@ class CloudFrontClient:
             distribution_config: <p>The distribution's configuration information.</p>
             id: <p>The distribution's id.</p>
             if_match: <p>The value of the <code>ETag</code> header that you received when retrieving the distribution's configuration. For example: <code>E2QWRUHAPOMQZL</code>.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.access_denied.AccessDenied: <p>Access denied.</p>
+            aws_sdk_cloudfront.errors.cname_already_exists.CNAMEAlreadyExists: <p>The CNAME specified is already defined for CloudFront.</p>
+            aws_sdk_cloudfront.errors.continuous_deployment_policy_in_use.ContinuousDeploymentPolicyInUse: <p>You cannot delete a continuous deployment policy that is associated with a primary distribution.</p>
+            aws_sdk_cloudfront.errors.entity_not_found.EntityNotFound: <p>The entity was not found.</p>
+            aws_sdk_cloudfront.errors.illegal_field_level_encryption_config_association_with_cache_behavior.IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior: <p>The specified configuration for field-level encryption can't be associated with the specified cache behavior.</p>
+            aws_sdk_cloudfront.errors.illegal_origin_access_configuration.IllegalOriginAccessConfiguration: <p>An origin cannot contain both an origin access control (OAC) and an origin access identity (OAI).</p>
+            aws_sdk_cloudfront.errors.illegal_update.IllegalUpdate: <p>The update contains modifications that are not allowed.</p>
+            aws_sdk_cloudfront.errors.inconsistent_quantities.InconsistentQuantities: <p>The value of <code>Quantity</code> and the size of <code>Items</code> don't match.</p>
+            aws_sdk_cloudfront.errors.invalid_argument.InvalidArgument: <p>An argument is invalid.</p>
+            aws_sdk_cloudfront.errors.invalid_default_root_object.InvalidDefaultRootObject: <p>The default root object file name is too big or contains an invalid character.</p>
+            aws_sdk_cloudfront.errors.invalid_domain_name_for_origin_access_control.InvalidDomainNameForOriginAccessControl: <p>An origin access control is associated with an origin whose domain name is not supported.</p>
+            aws_sdk_cloudfront.errors.invalid_error_code.InvalidErrorCode: <p>An invalid error code was specified.</p>
+            aws_sdk_cloudfront.errors.invalid_forward_cookies.InvalidForwardCookies: <p>Your request contains forward cookies option which doesn't match with the expectation for the <code>whitelisted</code> list of cookie names. Either list of cookie names has been specified when not allowed or list of cookie names is missing when expected.</p>
+            aws_sdk_cloudfront.errors.invalid_function_association.InvalidFunctionAssociation: <p>A CloudFront function association is invalid.</p>
+            aws_sdk_cloudfront.errors.invalid_geo_restriction_parameter.InvalidGeoRestrictionParameter: <p>The specified geo restriction parameter is not valid.</p>
+            aws_sdk_cloudfront.errors.invalid_headers_for_s3_origin.InvalidHeadersForS3Origin: <p>The headers specified are not valid for an Amazon S3 origin.</p>
+            aws_sdk_cloudfront.errors.invalid_if_match_version.InvalidIfMatchVersion: <p>The <code>If-Match</code> version is missing or not valid.</p>
+            aws_sdk_cloudfront.errors.invalid_lambda_function_association.InvalidLambdaFunctionAssociation: <p>The specified Lambda@Edge function association is invalid.</p>
+            aws_sdk_cloudfront.errors.invalid_location_code.InvalidLocationCode: <p>The location code specified is not valid.</p>
+            aws_sdk_cloudfront.errors.invalid_minimum_protocol_version.InvalidMinimumProtocolVersion: <p>The minimum protocol version specified is not valid.</p>
+            aws_sdk_cloudfront.errors.invalid_origin_access_control.InvalidOriginAccessControl: <p>The origin access control is not valid.</p>
+            aws_sdk_cloudfront.errors.invalid_origin_access_identity.InvalidOriginAccessIdentity: <p>The origin access identity is not valid or doesn't exist.</p>
+            aws_sdk_cloudfront.errors.invalid_origin_keepalive_timeout.InvalidOriginKeepaliveTimeout: <p>The keep alive timeout specified for the origin is not valid.</p>
+            aws_sdk_cloudfront.errors.invalid_origin_read_timeout.InvalidOriginReadTimeout: <p>The read timeout specified for the origin is not valid.</p>
+            aws_sdk_cloudfront.errors.invalid_query_string_parameters.InvalidQueryStringParameters: <p>The query string parameters specified are not valid.</p>
+            aws_sdk_cloudfront.errors.invalid_relative_path.InvalidRelativePath: <p>The relative path is too big, is not URL-encoded, or does not begin with a slash (/).</p>
+            aws_sdk_cloudfront.errors.invalid_required_protocol.InvalidRequiredProtocol: <p>This operation requires the HTTPS protocol. Ensure that you specify the HTTPS protocol in your request, or omit the <code>RequiredProtocols</code> element from your distribution configuration.</p>
+            aws_sdk_cloudfront.errors.invalid_response_code.InvalidResponseCode: <p>A response code is not valid.</p>
+            aws_sdk_cloudfront.errors.invalid_ttl_order.InvalidTTLOrder: <p>The TTL order specified is not valid.</p>
+            aws_sdk_cloudfront.errors.invalid_viewer_certificate.InvalidViewerCertificate: <p>A viewer certificate specified is not valid.</p>
+            aws_sdk_cloudfront.errors.invalid_web_acl_id.InvalidWebACLId: <p>A web ACL ID specified is not valid. To specify a web ACL created using the latest version of WAF, use the ACL ARN, for example <code>arn:aws:wafv2:us-east-1:123456789012:global/webacl/ExampleWebACL/473e64fd-f30b-4765-81a0-62ad96dd167a</code>. To specify a web ACL created using WAF Classic, use the ACL ID, for example <code>473e64fd-f30b-4765-81a0-62ad96dd167a</code>.</p>
+            aws_sdk_cloudfront.errors.missing_body.MissingBody: <p>This operation requires a body. Ensure that the body is present and the <code>Content-Type</code> header is set.</p>
+            aws_sdk_cloudfront.errors.no_such_cache_policy.NoSuchCachePolicy: <p>The cache policy does not exist.</p>
+            aws_sdk_cloudfront.errors.no_such_continuous_deployment_policy.NoSuchContinuousDeploymentPolicy: <p>The continuous deployment policy doesn't exist.</p>
+            aws_sdk_cloudfront.errors.no_such_distribution.NoSuchDistribution: <p>The specified distribution does not exist.</p>
+            aws_sdk_cloudfront.errors.no_such_field_level_encryption_config.NoSuchFieldLevelEncryptionConfig: <p>The specified configuration for field-level encryption doesn't exist.</p>
+            aws_sdk_cloudfront.errors.no_such_origin.NoSuchOrigin: <p>No origin exists with the specified <code>Origin Id</code>.</p>
+            aws_sdk_cloudfront.errors.no_such_origin_request_policy.NoSuchOriginRequestPolicy: <p>The origin request policy does not exist.</p>
+            aws_sdk_cloudfront.errors.no_such_realtime_log_config.NoSuchRealtimeLogConfig: <p>The real-time log configuration does not exist.</p>
+            aws_sdk_cloudfront.errors.no_such_response_headers_policy.NoSuchResponseHeadersPolicy: <p>The response headers policy does not exist.</p>
+            aws_sdk_cloudfront.errors.precondition_failed.PreconditionFailed: <p>The precondition in one or more of the request fields evaluated to <code>false</code>.</p>
+            aws_sdk_cloudfront.errors.realtime_log_config_owner_mismatch.RealtimeLogConfigOwnerMismatch: <p>The specified real-time log configuration belongs to a different Amazon Web Services account.</p>
+            aws_sdk_cloudfront.errors.staging_distribution_in_use.StagingDistributionInUse: <p>A continuous deployment policy for this staging distribution already exists.</p>
+            aws_sdk_cloudfront.errors.too_many_cache_behaviors.TooManyCacheBehaviors: <p>You cannot create more cache behaviors for the distribution.</p>
+            aws_sdk_cloudfront.errors.too_many_certificates.TooManyCertificates: <p>You cannot create anymore custom SSL/TLS certificates.</p>
+            aws_sdk_cloudfront.errors.too_many_cookie_names_in_white_list.TooManyCookieNamesInWhiteList: <p>Your request contains more cookie names in the whitelist than are allowed per cache behavior.</p>
+            aws_sdk_cloudfront.errors.too_many_distribution_cnam_es.TooManyDistributionCNAMEs: <p>Your request contains more CNAMEs than are allowed per distribution.</p>
+            aws_sdk_cloudfront.errors.too_many_distributions_associated_to_cache_policy.TooManyDistributionsAssociatedToCachePolicy: <p>The maximum number of distributions have been associated with the specified cache policy. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html\">Quotas</a> (formerly known as limits) in the <i>Amazon CloudFront Developer Guide</i>.</p>
+            aws_sdk_cloudfront.errors.too_many_distributions_associated_to_field_level_encryption_config.TooManyDistributionsAssociatedToFieldLevelEncryptionConfig: <p>The maximum number of distributions have been associated with the specified configuration for field-level encryption.</p>
+            aws_sdk_cloudfront.errors.too_many_distributions_associated_to_key_group.TooManyDistributionsAssociatedToKeyGroup: <p>The number of distributions that reference this key group is more than the maximum allowed. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html\">Quotas</a> (formerly known as limits) in the <i>Amazon CloudFront Developer Guide</i>.</p>
+            aws_sdk_cloudfront.errors.too_many_distributions_associated_to_origin_access_control.TooManyDistributionsAssociatedToOriginAccessControl: <p>The maximum number of distributions have been associated with the specified origin access control.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html\">Quotas</a> (formerly known as limits) in the <i>Amazon CloudFront Developer Guide</i>.</p>
+            aws_sdk_cloudfront.errors.too_many_distributions_associated_to_origin_request_policy.TooManyDistributionsAssociatedToOriginRequestPolicy: <p>The maximum number of distributions have been associated with the specified origin request policy. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html\">Quotas</a> (formerly known as limits) in the <i>Amazon CloudFront Developer Guide</i>.</p>
+            aws_sdk_cloudfront.errors.too_many_distributions_associated_to_response_headers_policy.TooManyDistributionsAssociatedToResponseHeadersPolicy: <p>The maximum number of distributions have been associated with the specified response headers policy.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html\">Quotas</a> (formerly known as limits) in the <i>Amazon CloudFront Developer Guide</i>.</p>
+            aws_sdk_cloudfront.errors.too_many_distributions_with_function_associations.TooManyDistributionsWithFunctionAssociations: <p>You have reached the maximum number of distributions that are associated with a CloudFront function. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html\">Quotas</a> (formerly known as limits) in the <i>Amazon CloudFront Developer Guide</i>.</p>
+            aws_sdk_cloudfront.errors.too_many_distributions_with_lambda_associations.TooManyDistributionsWithLambdaAssociations: <p>Processing your request would cause the maximum number of distributions with Lambda@Edge function associations per owner to be exceeded.</p>
+            aws_sdk_cloudfront.errors.too_many_distributions_with_single_function_arn.TooManyDistributionsWithSingleFunctionARN: <p>The maximum number of distributions have been associated with the specified Lambda@Edge function.</p>
+            aws_sdk_cloudfront.errors.too_many_function_associations.TooManyFunctionAssociations: <p>You have reached the maximum number of CloudFront function associations for this distribution. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html\">Quotas</a> (formerly known as limits) in the <i>Amazon CloudFront Developer Guide</i>.</p>
+            aws_sdk_cloudfront.errors.too_many_headers_in_forwarded_values.TooManyHeadersInForwardedValues: <p>Your request contains too many headers in forwarded values.</p>
+            aws_sdk_cloudfront.errors.too_many_key_groups_associated_to_distribution.TooManyKeyGroupsAssociatedToDistribution: <p>The number of key groups referenced by this distribution is more than the maximum allowed. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html\">Quotas</a> (formerly known as limits) in the <i>Amazon CloudFront Developer Guide</i>.</p>
+            aws_sdk_cloudfront.errors.too_many_lambda_function_associations.TooManyLambdaFunctionAssociations: <p>Your request contains more Lambda@Edge function associations than are allowed per distribution.</p>
+            aws_sdk_cloudfront.errors.too_many_origin_custom_headers.TooManyOriginCustomHeaders: <p>Your request contains too many origin custom headers.</p>
+            aws_sdk_cloudfront.errors.too_many_origin_groups_per_distribution.TooManyOriginGroupsPerDistribution: <p>Processing your request would cause you to exceed the maximum number of origin groups allowed.</p>
+            aws_sdk_cloudfront.errors.too_many_origins.TooManyOrigins: <p>You cannot create more origins for the distribution.</p>
+            aws_sdk_cloudfront.errors.too_many_query_string_parameters.TooManyQueryStringParameters: <p>Your request contains too many query string parameters.</p>
+            aws_sdk_cloudfront.errors.too_many_trusted_signers.TooManyTrustedSigners: <p>Your request contains more trusted signers than are allowed per distribution.</p>
+            aws_sdk_cloudfront.errors.trusted_key_group_does_not_exist.TrustedKeyGroupDoesNotExist: <p>The specified key group does not exist.</p>
+            aws_sdk_cloudfront.errors.trusted_signer_does_not_exist.TrustedSignerDoesNotExist: <p>One or more of your trusted signers don't exist.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -7189,6 +8503,18 @@ class CloudFrontClient:
             if_match: <p>The value of the <code>ETag</code> header that you received when retrieving the distribution tenant to update. This value is returned in the response of the <code>GetDistributionTenant</code> API operation.</p>
             managed_certificate_request: <p>An object that contains the CloudFront managed ACM certificate request.</p>
             enabled: <p>Indicates whether the distribution tenant should be updated to an enabled state. If you update the distribution tenant and it's not enabled, the distribution tenant won't serve traffic.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.access_denied.AccessDenied: <p>Access denied.</p>
+            aws_sdk_cloudfront.errors.cname_already_exists.CNAMEAlreadyExists: <p>The CNAME specified is already defined for CloudFront.</p>
+            aws_sdk_cloudfront.errors.entity_already_exists.EntityAlreadyExists: <p>The entity already exists. You must provide a unique entity.</p>
+            aws_sdk_cloudfront.errors.entity_limit_exceeded.EntityLimitExceeded: <p>The entity limit has been exceeded.</p>
+            aws_sdk_cloudfront.errors.entity_not_found.EntityNotFound: <p>The entity was not found.</p>
+            aws_sdk_cloudfront.errors.invalid_argument.InvalidArgument: <p>An argument is invalid.</p>
+            aws_sdk_cloudfront.errors.invalid_association.InvalidAssociation: <p>The specified CloudFront resource can't be associated.</p>
+            aws_sdk_cloudfront.errors.invalid_if_match_version.InvalidIfMatchVersion: <p>The <code>If-Match</code> version is missing or not valid.</p>
+            aws_sdk_cloudfront.errors.precondition_failed.PreconditionFailed: <p>The precondition in one or more of the request fields evaluated to <code>false</code>.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -7247,6 +8573,72 @@ class CloudFrontClient:
             id: <p>The identifier of the primary distribution to which you are copying a staging distribution's configuration.</p>
             staging_distribution_id: <p>The identifier of the staging distribution whose configuration you are copying to the primary distribution.</p>
             if_match: <p>The current versions (<code>ETag</code> values) of both primary and staging distributions. Provide these in the following format:</p> <p> <code>&lt;primary ETag&gt;, &lt;staging ETag&gt;</code> </p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.access_denied.AccessDenied: <p>Access denied.</p>
+            aws_sdk_cloudfront.errors.cname_already_exists.CNAMEAlreadyExists: <p>The CNAME specified is already defined for CloudFront.</p>
+            aws_sdk_cloudfront.errors.entity_limit_exceeded.EntityLimitExceeded: <p>The entity limit has been exceeded.</p>
+            aws_sdk_cloudfront.errors.entity_not_found.EntityNotFound: <p>The entity was not found.</p>
+            aws_sdk_cloudfront.errors.illegal_field_level_encryption_config_association_with_cache_behavior.IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior: <p>The specified configuration for field-level encryption can't be associated with the specified cache behavior.</p>
+            aws_sdk_cloudfront.errors.illegal_update.IllegalUpdate: <p>The update contains modifications that are not allowed.</p>
+            aws_sdk_cloudfront.errors.inconsistent_quantities.InconsistentQuantities: <p>The value of <code>Quantity</code> and the size of <code>Items</code> don't match.</p>
+            aws_sdk_cloudfront.errors.invalid_argument.InvalidArgument: <p>An argument is invalid.</p>
+            aws_sdk_cloudfront.errors.invalid_default_root_object.InvalidDefaultRootObject: <p>The default root object file name is too big or contains an invalid character.</p>
+            aws_sdk_cloudfront.errors.invalid_error_code.InvalidErrorCode: <p>An invalid error code was specified.</p>
+            aws_sdk_cloudfront.errors.invalid_forward_cookies.InvalidForwardCookies: <p>Your request contains forward cookies option which doesn't match with the expectation for the <code>whitelisted</code> list of cookie names. Either list of cookie names has been specified when not allowed or list of cookie names is missing when expected.</p>
+            aws_sdk_cloudfront.errors.invalid_function_association.InvalidFunctionAssociation: <p>A CloudFront function association is invalid.</p>
+            aws_sdk_cloudfront.errors.invalid_geo_restriction_parameter.InvalidGeoRestrictionParameter: <p>The specified geo restriction parameter is not valid.</p>
+            aws_sdk_cloudfront.errors.invalid_headers_for_s3_origin.InvalidHeadersForS3Origin: <p>The headers specified are not valid for an Amazon S3 origin.</p>
+            aws_sdk_cloudfront.errors.invalid_if_match_version.InvalidIfMatchVersion: <p>The <code>If-Match</code> version is missing or not valid.</p>
+            aws_sdk_cloudfront.errors.invalid_lambda_function_association.InvalidLambdaFunctionAssociation: <p>The specified Lambda@Edge function association is invalid.</p>
+            aws_sdk_cloudfront.errors.invalid_location_code.InvalidLocationCode: <p>The location code specified is not valid.</p>
+            aws_sdk_cloudfront.errors.invalid_minimum_protocol_version.InvalidMinimumProtocolVersion: <p>The minimum protocol version specified is not valid.</p>
+            aws_sdk_cloudfront.errors.invalid_origin_access_control.InvalidOriginAccessControl: <p>The origin access control is not valid.</p>
+            aws_sdk_cloudfront.errors.invalid_origin_access_identity.InvalidOriginAccessIdentity: <p>The origin access identity is not valid or doesn't exist.</p>
+            aws_sdk_cloudfront.errors.invalid_origin_keepalive_timeout.InvalidOriginKeepaliveTimeout: <p>The keep alive timeout specified for the origin is not valid.</p>
+            aws_sdk_cloudfront.errors.invalid_origin_read_timeout.InvalidOriginReadTimeout: <p>The read timeout specified for the origin is not valid.</p>
+            aws_sdk_cloudfront.errors.invalid_query_string_parameters.InvalidQueryStringParameters: <p>The query string parameters specified are not valid.</p>
+            aws_sdk_cloudfront.errors.invalid_relative_path.InvalidRelativePath: <p>The relative path is too big, is not URL-encoded, or does not begin with a slash (/).</p>
+            aws_sdk_cloudfront.errors.invalid_required_protocol.InvalidRequiredProtocol: <p>This operation requires the HTTPS protocol. Ensure that you specify the HTTPS protocol in your request, or omit the <code>RequiredProtocols</code> element from your distribution configuration.</p>
+            aws_sdk_cloudfront.errors.invalid_response_code.InvalidResponseCode: <p>A response code is not valid.</p>
+            aws_sdk_cloudfront.errors.invalid_ttl_order.InvalidTTLOrder: <p>The TTL order specified is not valid.</p>
+            aws_sdk_cloudfront.errors.invalid_viewer_certificate.InvalidViewerCertificate: <p>A viewer certificate specified is not valid.</p>
+            aws_sdk_cloudfront.errors.invalid_web_acl_id.InvalidWebACLId: <p>A web ACL ID specified is not valid. To specify a web ACL created using the latest version of WAF, use the ACL ARN, for example <code>arn:aws:wafv2:us-east-1:123456789012:global/webacl/ExampleWebACL/473e64fd-f30b-4765-81a0-62ad96dd167a</code>. To specify a web ACL created using WAF Classic, use the ACL ID, for example <code>473e64fd-f30b-4765-81a0-62ad96dd167a</code>.</p>
+            aws_sdk_cloudfront.errors.missing_body.MissingBody: <p>This operation requires a body. Ensure that the body is present and the <code>Content-Type</code> header is set.</p>
+            aws_sdk_cloudfront.errors.no_such_cache_policy.NoSuchCachePolicy: <p>The cache policy does not exist.</p>
+            aws_sdk_cloudfront.errors.no_such_distribution.NoSuchDistribution: <p>The specified distribution does not exist.</p>
+            aws_sdk_cloudfront.errors.no_such_field_level_encryption_config.NoSuchFieldLevelEncryptionConfig: <p>The specified configuration for field-level encryption doesn't exist.</p>
+            aws_sdk_cloudfront.errors.no_such_origin.NoSuchOrigin: <p>No origin exists with the specified <code>Origin Id</code>.</p>
+            aws_sdk_cloudfront.errors.no_such_origin_request_policy.NoSuchOriginRequestPolicy: <p>The origin request policy does not exist.</p>
+            aws_sdk_cloudfront.errors.no_such_realtime_log_config.NoSuchRealtimeLogConfig: <p>The real-time log configuration does not exist.</p>
+            aws_sdk_cloudfront.errors.no_such_response_headers_policy.NoSuchResponseHeadersPolicy: <p>The response headers policy does not exist.</p>
+            aws_sdk_cloudfront.errors.precondition_failed.PreconditionFailed: <p>The precondition in one or more of the request fields evaluated to <code>false</code>.</p>
+            aws_sdk_cloudfront.errors.realtime_log_config_owner_mismatch.RealtimeLogConfigOwnerMismatch: <p>The specified real-time log configuration belongs to a different Amazon Web Services account.</p>
+            aws_sdk_cloudfront.errors.too_many_cache_behaviors.TooManyCacheBehaviors: <p>You cannot create more cache behaviors for the distribution.</p>
+            aws_sdk_cloudfront.errors.too_many_certificates.TooManyCertificates: <p>You cannot create anymore custom SSL/TLS certificates.</p>
+            aws_sdk_cloudfront.errors.too_many_cookie_names_in_white_list.TooManyCookieNamesInWhiteList: <p>Your request contains more cookie names in the whitelist than are allowed per cache behavior.</p>
+            aws_sdk_cloudfront.errors.too_many_distribution_cnam_es.TooManyDistributionCNAMEs: <p>Your request contains more CNAMEs than are allowed per distribution.</p>
+            aws_sdk_cloudfront.errors.too_many_distributions_associated_to_cache_policy.TooManyDistributionsAssociatedToCachePolicy: <p>The maximum number of distributions have been associated with the specified cache policy. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html\">Quotas</a> (formerly known as limits) in the <i>Amazon CloudFront Developer Guide</i>.</p>
+            aws_sdk_cloudfront.errors.too_many_distributions_associated_to_field_level_encryption_config.TooManyDistributionsAssociatedToFieldLevelEncryptionConfig: <p>The maximum number of distributions have been associated with the specified configuration for field-level encryption.</p>
+            aws_sdk_cloudfront.errors.too_many_distributions_associated_to_key_group.TooManyDistributionsAssociatedToKeyGroup: <p>The number of distributions that reference this key group is more than the maximum allowed. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html\">Quotas</a> (formerly known as limits) in the <i>Amazon CloudFront Developer Guide</i>.</p>
+            aws_sdk_cloudfront.errors.too_many_distributions_associated_to_origin_access_control.TooManyDistributionsAssociatedToOriginAccessControl: <p>The maximum number of distributions have been associated with the specified origin access control.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html\">Quotas</a> (formerly known as limits) in the <i>Amazon CloudFront Developer Guide</i>.</p>
+            aws_sdk_cloudfront.errors.too_many_distributions_associated_to_origin_request_policy.TooManyDistributionsAssociatedToOriginRequestPolicy: <p>The maximum number of distributions have been associated with the specified origin request policy. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html\">Quotas</a> (formerly known as limits) in the <i>Amazon CloudFront Developer Guide</i>.</p>
+            aws_sdk_cloudfront.errors.too_many_distributions_associated_to_response_headers_policy.TooManyDistributionsAssociatedToResponseHeadersPolicy: <p>The maximum number of distributions have been associated with the specified response headers policy.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html\">Quotas</a> (formerly known as limits) in the <i>Amazon CloudFront Developer Guide</i>.</p>
+            aws_sdk_cloudfront.errors.too_many_distributions_with_function_associations.TooManyDistributionsWithFunctionAssociations: <p>You have reached the maximum number of distributions that are associated with a CloudFront function. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html\">Quotas</a> (formerly known as limits) in the <i>Amazon CloudFront Developer Guide</i>.</p>
+            aws_sdk_cloudfront.errors.too_many_distributions_with_lambda_associations.TooManyDistributionsWithLambdaAssociations: <p>Processing your request would cause the maximum number of distributions with Lambda@Edge function associations per owner to be exceeded.</p>
+            aws_sdk_cloudfront.errors.too_many_distributions_with_single_function_arn.TooManyDistributionsWithSingleFunctionARN: <p>The maximum number of distributions have been associated with the specified Lambda@Edge function.</p>
+            aws_sdk_cloudfront.errors.too_many_function_associations.TooManyFunctionAssociations: <p>You have reached the maximum number of CloudFront function associations for this distribution. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html\">Quotas</a> (formerly known as limits) in the <i>Amazon CloudFront Developer Guide</i>.</p>
+            aws_sdk_cloudfront.errors.too_many_headers_in_forwarded_values.TooManyHeadersInForwardedValues: <p>Your request contains too many headers in forwarded values.</p>
+            aws_sdk_cloudfront.errors.too_many_key_groups_associated_to_distribution.TooManyKeyGroupsAssociatedToDistribution: <p>The number of key groups referenced by this distribution is more than the maximum allowed. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html\">Quotas</a> (formerly known as limits) in the <i>Amazon CloudFront Developer Guide</i>.</p>
+            aws_sdk_cloudfront.errors.too_many_lambda_function_associations.TooManyLambdaFunctionAssociations: <p>Your request contains more Lambda@Edge function associations than are allowed per distribution.</p>
+            aws_sdk_cloudfront.errors.too_many_origin_custom_headers.TooManyOriginCustomHeaders: <p>Your request contains too many origin custom headers.</p>
+            aws_sdk_cloudfront.errors.too_many_origin_groups_per_distribution.TooManyOriginGroupsPerDistribution: <p>Processing your request would cause you to exceed the maximum number of origin groups allowed.</p>
+            aws_sdk_cloudfront.errors.too_many_origins.TooManyOrigins: <p>You cannot create more origins for the distribution.</p>
+            aws_sdk_cloudfront.errors.too_many_query_string_parameters.TooManyQueryStringParameters: <p>Your request contains too many query string parameters.</p>
+            aws_sdk_cloudfront.errors.too_many_trusted_signers.TooManyTrustedSigners: <p>Your request contains more trusted signers than are allowed per distribution.</p>
+            aws_sdk_cloudfront.errors.trusted_key_group_does_not_exist.TrustedKeyGroupDoesNotExist: <p>The specified key group does not exist.</p>
+            aws_sdk_cloudfront.errors.trusted_signer_does_not_exist.TrustedSignerDoesNotExist: <p>One or more of your trusted signers don't exist.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -7292,6 +8684,15 @@ class CloudFrontClient:
             domain: <p>The domain to update.</p>
             target_resource: <p>The target standard distribution or distribution tenant resource for the domain. You can specify either <code>DistributionId</code> or <code>DistributionTenantId</code>, but not both.</p>
             if_match: <p>The value of the <code>ETag</code> identifier for the standard distribution or distribution tenant that will be associated with the domain.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.access_denied.AccessDenied: <p>Access denied.</p>
+            aws_sdk_cloudfront.errors.entity_not_found.EntityNotFound: <p>The entity was not found.</p>
+            aws_sdk_cloudfront.errors.illegal_update.IllegalUpdate: <p>The update contains modifications that are not allowed.</p>
+            aws_sdk_cloudfront.errors.invalid_argument.InvalidArgument: <p>An argument is invalid.</p>
+            aws_sdk_cloudfront.errors.invalid_if_match_version.InvalidIfMatchVersion: <p>The <code>If-Match</code> version is missing or not valid.</p>
+            aws_sdk_cloudfront.errors.precondition_failed.PreconditionFailed: <p>The precondition in one or more of the request fields evaluated to <code>false</code>.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -7336,6 +8737,20 @@ class CloudFrontClient:
             field_level_encryption_config: <p>Request to update a field-level encryption configuration.</p>
             id: <p>The ID of the configuration you want to update.</p>
             if_match: <p>The value of the <code>ETag</code> header that you received when retrieving the configuration identity to update. For example: <code>E2QWRUHAPOMQZL</code>.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.access_denied.AccessDenied: <p>Access denied.</p>
+            aws_sdk_cloudfront.errors.illegal_update.IllegalUpdate: <p>The update contains modifications that are not allowed.</p>
+            aws_sdk_cloudfront.errors.inconsistent_quantities.InconsistentQuantities: <p>The value of <code>Quantity</code> and the size of <code>Items</code> don't match.</p>
+            aws_sdk_cloudfront.errors.invalid_argument.InvalidArgument: <p>An argument is invalid.</p>
+            aws_sdk_cloudfront.errors.invalid_if_match_version.InvalidIfMatchVersion: <p>The <code>If-Match</code> version is missing or not valid.</p>
+            aws_sdk_cloudfront.errors.no_such_field_level_encryption_config.NoSuchFieldLevelEncryptionConfig: <p>The specified configuration for field-level encryption doesn't exist.</p>
+            aws_sdk_cloudfront.errors.no_such_field_level_encryption_profile.NoSuchFieldLevelEncryptionProfile: <p>The specified profile for field-level encryption doesn't exist.</p>
+            aws_sdk_cloudfront.errors.precondition_failed.PreconditionFailed: <p>The precondition in one or more of the request fields evaluated to <code>false</code>.</p>
+            aws_sdk_cloudfront.errors.query_arg_profile_empty.QueryArgProfileEmpty: <p>No profile specified for the field-level encryption query argument.</p>
+            aws_sdk_cloudfront.errors.too_many_field_level_encryption_content_type_profiles.TooManyFieldLevelEncryptionContentTypeProfiles: <p>The maximum number of content type profiles for field-level encryption have been created.</p>
+            aws_sdk_cloudfront.errors.too_many_field_level_encryption_query_arg_profiles.TooManyFieldLevelEncryptionQueryArgProfiles: <p>The maximum number of query arg profiles for field-level encryption have been created.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -7380,6 +8795,21 @@ class CloudFrontClient:
             field_level_encryption_profile_config: <p>Request to update a field-level encryption profile.</p>
             id: <p>The ID of the field-level encryption profile request.</p>
             if_match: <p>The value of the <code>ETag</code> header that you received when retrieving the profile identity to update. For example: <code>E2QWRUHAPOMQZL</code>.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.access_denied.AccessDenied: <p>Access denied.</p>
+            aws_sdk_cloudfront.errors.field_level_encryption_profile_already_exists.FieldLevelEncryptionProfileAlreadyExists: <p>The specified profile for field-level encryption already exists.</p>
+            aws_sdk_cloudfront.errors.field_level_encryption_profile_size_exceeded.FieldLevelEncryptionProfileSizeExceeded: <p>The maximum size of a profile for field-level encryption was exceeded.</p>
+            aws_sdk_cloudfront.errors.illegal_update.IllegalUpdate: <p>The update contains modifications that are not allowed.</p>
+            aws_sdk_cloudfront.errors.inconsistent_quantities.InconsistentQuantities: <p>The value of <code>Quantity</code> and the size of <code>Items</code> don't match.</p>
+            aws_sdk_cloudfront.errors.invalid_argument.InvalidArgument: <p>An argument is invalid.</p>
+            aws_sdk_cloudfront.errors.invalid_if_match_version.InvalidIfMatchVersion: <p>The <code>If-Match</code> version is missing or not valid.</p>
+            aws_sdk_cloudfront.errors.no_such_field_level_encryption_profile.NoSuchFieldLevelEncryptionProfile: <p>The specified profile for field-level encryption doesn't exist.</p>
+            aws_sdk_cloudfront.errors.no_such_public_key.NoSuchPublicKey: <p>The specified public key doesn't exist.</p>
+            aws_sdk_cloudfront.errors.precondition_failed.PreconditionFailed: <p>The precondition in one or more of the request fields evaluated to <code>false</code>.</p>
+            aws_sdk_cloudfront.errors.too_many_field_level_encryption_encryption_entities.TooManyFieldLevelEncryptionEncryptionEntities: <p>The maximum number of encryption entities for field-level encryption have been created.</p>
+            aws_sdk_cloudfront.errors.too_many_field_level_encryption_field_patterns.TooManyFieldLevelEncryptionFieldPatterns: <p>The maximum number of field patterns for field-level encryption have been created.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -7428,6 +8858,15 @@ class CloudFrontClient:
             if_match: <p>The current version (<code>ETag</code> value) of the function that you are updating, which you can get using <code>DescribeFunction</code>.</p>
             function_config: <p>Configuration information about the function.</p>
             function_code: <p>The function code. For more information about writing a CloudFront function, see <a href=\"https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/writing-function-code.html\">Writing function code for CloudFront Functions</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.function_size_limit_exceeded.FunctionSizeLimitExceeded: <p>The function is too large. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html\">Quotas</a> (formerly known as limits) in the <i>Amazon CloudFront Developer Guide</i>.</p>
+            aws_sdk_cloudfront.errors.invalid_argument.InvalidArgument: <p>An argument is invalid.</p>
+            aws_sdk_cloudfront.errors.invalid_if_match_version.InvalidIfMatchVersion: <p>The <code>If-Match</code> version is missing or not valid.</p>
+            aws_sdk_cloudfront.errors.no_such_function_exists.NoSuchFunctionExists: <p>The function does not exist.</p>
+            aws_sdk_cloudfront.errors.precondition_failed.PreconditionFailed: <p>The precondition in one or more of the request fields evaluated to <code>false</code>.</p>
+            aws_sdk_cloudfront.errors.unsupported_operation.UnsupportedOperation: <p>This operation is not supported in this Amazon Web Services Region.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To update a function
@@ -7478,6 +8917,15 @@ class CloudFrontClient:
             key_group_config: <p>The key group configuration.</p>
             id: <p>The identifier of the key group that you are updating.</p>
             if_match: <p>The version of the key group that you are updating. The version is the key group's <code>ETag</code> value.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.invalid_argument.InvalidArgument: <p>An argument is invalid.</p>
+            aws_sdk_cloudfront.errors.invalid_if_match_version.InvalidIfMatchVersion: <p>The <code>If-Match</code> version is missing or not valid.</p>
+            aws_sdk_cloudfront.errors.key_group_already_exists.KeyGroupAlreadyExists: <p>A key group with this name already exists. You must provide a unique name. To modify an existing key group, use <code>UpdateKeyGroup</code>.</p>
+            aws_sdk_cloudfront.errors.no_such_resource.NoSuchResource: <p>A resource that was specified is not valid.</p>
+            aws_sdk_cloudfront.errors.precondition_failed.PreconditionFailed: <p>The precondition in one or more of the request fields evaluated to <code>false</code>.</p>
+            aws_sdk_cloudfront.errors.too_many_public_keys_in_key_group.TooManyPublicKeysInKeyGroup: <p>The number of public keys in this key group is more than the maximum allowed. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html\">Quotas</a> (formerly known as limits) in the <i>Amazon CloudFront Developer Guide</i>.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -7522,6 +8970,15 @@ class CloudFrontClient:
             name: <p>The name of the key value store to update.</p>
             comment: <p>The comment of the key value store to update.</p>
             if_match: <p>The key value store to update, if a match occurs.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.access_denied.AccessDenied: <p>Access denied.</p>
+            aws_sdk_cloudfront.errors.entity_not_found.EntityNotFound: <p>The entity was not found.</p>
+            aws_sdk_cloudfront.errors.invalid_argument.InvalidArgument: <p>An argument is invalid.</p>
+            aws_sdk_cloudfront.errors.invalid_if_match_version.InvalidIfMatchVersion: <p>The <code>If-Match</code> version is missing or not valid.</p>
+            aws_sdk_cloudfront.errors.precondition_failed.PreconditionFailed: <p>The precondition in one or more of the request fields evaluated to <code>false</code>.</p>
+            aws_sdk_cloudfront.errors.unsupported_operation.UnsupportedOperation: <p>This operation is not supported in this Amazon Web Services Region.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To update a KeyValueStore
@@ -7571,6 +9028,16 @@ class CloudFrontClient:
             origin_access_control_config: <p>An origin access control.</p>
             id: <p>The unique identifier of the origin access control that you are updating.</p>
             if_match: <p>The current version (<code>ETag</code> value) of the origin access control that you are updating.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.access_denied.AccessDenied: <p>Access denied.</p>
+            aws_sdk_cloudfront.errors.illegal_update.IllegalUpdate: <p>The update contains modifications that are not allowed.</p>
+            aws_sdk_cloudfront.errors.invalid_argument.InvalidArgument: <p>An argument is invalid.</p>
+            aws_sdk_cloudfront.errors.invalid_if_match_version.InvalidIfMatchVersion: <p>The <code>If-Match</code> version is missing or not valid.</p>
+            aws_sdk_cloudfront.errors.no_such_origin_access_control.NoSuchOriginAccessControl: <p>The origin access control does not exist.</p>
+            aws_sdk_cloudfront.errors.origin_access_control_already_exists.OriginAccessControlAlreadyExists: <p>An origin access control with the specified parameters already exists.</p>
+            aws_sdk_cloudfront.errors.precondition_failed.PreconditionFailed: <p>The precondition in one or more of the request fields evaluated to <code>false</code>.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -7615,6 +9082,20 @@ class CloudFrontClient:
             origin_request_policy_config: <p>An origin request policy configuration.</p>
             id: <p>The unique identifier for the origin request policy that you are updating. The identifier is returned in a cache behavior's <code>OriginRequestPolicyId</code> field in the response to <code>GetDistributionConfig</code>.</p>
             if_match: <p>The version of the origin request policy that you are updating. The version is returned in the origin request policy's <code>ETag</code> field in the response to <code>GetOriginRequestPolicyConfig</code>.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.access_denied.AccessDenied: <p>Access denied.</p>
+            aws_sdk_cloudfront.errors.illegal_update.IllegalUpdate: <p>The update contains modifications that are not allowed.</p>
+            aws_sdk_cloudfront.errors.inconsistent_quantities.InconsistentQuantities: <p>The value of <code>Quantity</code> and the size of <code>Items</code> don't match.</p>
+            aws_sdk_cloudfront.errors.invalid_argument.InvalidArgument: <p>An argument is invalid.</p>
+            aws_sdk_cloudfront.errors.invalid_if_match_version.InvalidIfMatchVersion: <p>The <code>If-Match</code> version is missing or not valid.</p>
+            aws_sdk_cloudfront.errors.no_such_origin_request_policy.NoSuchOriginRequestPolicy: <p>The origin request policy does not exist.</p>
+            aws_sdk_cloudfront.errors.origin_request_policy_already_exists.OriginRequestPolicyAlreadyExists: <p>An origin request policy with this name already exists. You must provide a unique name. To modify an existing origin request policy, use <code>UpdateOriginRequestPolicy</code>.</p>
+            aws_sdk_cloudfront.errors.precondition_failed.PreconditionFailed: <p>The precondition in one or more of the request fields evaluated to <code>false</code>.</p>
+            aws_sdk_cloudfront.errors.too_many_cookies_in_origin_request_policy.TooManyCookiesInOriginRequestPolicy: <p>The number of cookies in the origin request policy exceeds the maximum. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html\">Quotas</a> (formerly known as limits) in the <i>Amazon CloudFront Developer Guide</i>.</p>
+            aws_sdk_cloudfront.errors.too_many_headers_in_origin_request_policy.TooManyHeadersInOriginRequestPolicy: <p>The number of headers in the origin request policy exceeds the maximum. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html\">Quotas</a> (formerly known as limits) in the <i>Amazon CloudFront Developer Guide</i>.</p>
+            aws_sdk_cloudfront.errors.too_many_query_strings_in_origin_request_policy.TooManyQueryStringsInOriginRequestPolicy: <p>The number of query strings in the origin request policy exceeds the maximum. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html\">Quotas</a> (formerly known as limits) in the <i>Amazon CloudFront Developer Guide</i>.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -7659,6 +9140,16 @@ class CloudFrontClient:
             public_key_config: <p>A public key configuration.</p>
             id: <p>The identifier of the public key that you are updating.</p>
             if_match: <p>The value of the <code>ETag</code> header that you received when retrieving the public key to update. For example: <code>E2QWRUHAPOMQZL</code>.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.access_denied.AccessDenied: <p>Access denied.</p>
+            aws_sdk_cloudfront.errors.cannot_change_immutable_public_key_fields.CannotChangeImmutablePublicKeyFields: <p>You can't change the value of a public key.</p>
+            aws_sdk_cloudfront.errors.illegal_update.IllegalUpdate: <p>The update contains modifications that are not allowed.</p>
+            aws_sdk_cloudfront.errors.invalid_argument.InvalidArgument: <p>An argument is invalid.</p>
+            aws_sdk_cloudfront.errors.invalid_if_match_version.InvalidIfMatchVersion: <p>The <code>If-Match</code> version is missing or not valid.</p>
+            aws_sdk_cloudfront.errors.no_such_public_key.NoSuchPublicKey: <p>The specified public key doesn't exist.</p>
+            aws_sdk_cloudfront.errors.precondition_failed.PreconditionFailed: <p>The precondition in one or more of the request fields evaluated to <code>false</code>.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -7709,6 +9200,12 @@ class CloudFrontClient:
             name: <p>The name for this real-time log configuration.</p>
             arn: <p>The Amazon Resource Name (ARN) for this real-time log configuration.</p>
             sampling_rate: <p>The sampling rate for this real-time log configuration. The sampling rate determines the percentage of viewer requests that are represented in the real-time log data. You must provide an integer between 1 and 100, inclusive.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.access_denied.AccessDenied: <p>Access denied.</p>
+            aws_sdk_cloudfront.errors.invalid_argument.InvalidArgument: <p>An argument is invalid.</p>
+            aws_sdk_cloudfront.errors.no_such_realtime_log_config.NoSuchRealtimeLogConfig: <p>The real-time log configuration does not exist.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -7759,6 +9256,20 @@ class CloudFrontClient:
             response_headers_policy_config: <p>A response headers policy configuration.</p>
             id: <p>The identifier for the response headers policy that you are updating.</p>
             if_match: <p>The version of the response headers policy that you are updating.</p> <p>The version is returned in the cache policy's <code>ETag</code> field in the response to <code>GetResponseHeadersPolicyConfig</code>.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.access_denied.AccessDenied: <p>Access denied.</p>
+            aws_sdk_cloudfront.errors.illegal_update.IllegalUpdate: <p>The update contains modifications that are not allowed.</p>
+            aws_sdk_cloudfront.errors.inconsistent_quantities.InconsistentQuantities: <p>The value of <code>Quantity</code> and the size of <code>Items</code> don't match.</p>
+            aws_sdk_cloudfront.errors.invalid_argument.InvalidArgument: <p>An argument is invalid.</p>
+            aws_sdk_cloudfront.errors.invalid_if_match_version.InvalidIfMatchVersion: <p>The <code>If-Match</code> version is missing or not valid.</p>
+            aws_sdk_cloudfront.errors.no_such_response_headers_policy.NoSuchResponseHeadersPolicy: <p>The response headers policy does not exist.</p>
+            aws_sdk_cloudfront.errors.precondition_failed.PreconditionFailed: <p>The precondition in one or more of the request fields evaluated to <code>false</code>.</p>
+            aws_sdk_cloudfront.errors.response_headers_policy_already_exists.ResponseHeadersPolicyAlreadyExists: <p>A response headers policy with this name already exists. You must provide a unique name. To modify an existing response headers policy, use <code>UpdateResponseHeadersPolicy</code>.</p>
+            aws_sdk_cloudfront.errors.too_long_csp_in_response_headers_policy.TooLongCSPInResponseHeadersPolicy: <p>The length of the <code>Content-Security-Policy</code> header value in the response headers policy exceeds the maximum.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html\">Quotas</a> (formerly known as limits) in the <i>Amazon CloudFront Developer Guide</i>.</p>
+            aws_sdk_cloudfront.errors.too_many_custom_headers_in_response_headers_policy.TooManyCustomHeadersInResponseHeadersPolicy: <p>The number of custom headers in the response headers policy exceeds the maximum.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html\">Quotas</a> (formerly known as limits) in the <i>Amazon CloudFront Developer Guide</i>.</p>
+            aws_sdk_cloudfront.errors.too_many_remove_headers_in_response_headers_policy.TooManyRemoveHeadersInResponseHeadersPolicy: <p>The number of headers in <code>RemoveHeadersConfig</code> in the response headers policy exceeds the maximum.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html\">Quotas</a> (formerly known as limits) in the <i>Amazon CloudFront Developer Guide</i>.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -7803,6 +9314,23 @@ class CloudFrontClient:
             streaming_distribution_config: <p>The streaming distribution's configuration information.</p>
             id: <p>The streaming distribution's id.</p>
             if_match: <p>The value of the <code>ETag</code> header that you received when retrieving the streaming distribution's configuration. For example: <code>E2QWRUHAPOMQZL</code>.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.access_denied.AccessDenied: <p>Access denied.</p>
+            aws_sdk_cloudfront.errors.cname_already_exists.CNAMEAlreadyExists: <p>The CNAME specified is already defined for CloudFront.</p>
+            aws_sdk_cloudfront.errors.illegal_update.IllegalUpdate: <p>The update contains modifications that are not allowed.</p>
+            aws_sdk_cloudfront.errors.inconsistent_quantities.InconsistentQuantities: <p>The value of <code>Quantity</code> and the size of <code>Items</code> don't match.</p>
+            aws_sdk_cloudfront.errors.invalid_argument.InvalidArgument: <p>An argument is invalid.</p>
+            aws_sdk_cloudfront.errors.invalid_if_match_version.InvalidIfMatchVersion: <p>The <code>If-Match</code> version is missing or not valid.</p>
+            aws_sdk_cloudfront.errors.invalid_origin_access_control.InvalidOriginAccessControl: <p>The origin access control is not valid.</p>
+            aws_sdk_cloudfront.errors.invalid_origin_access_identity.InvalidOriginAccessIdentity: <p>The origin access identity is not valid or doesn't exist.</p>
+            aws_sdk_cloudfront.errors.missing_body.MissingBody: <p>This operation requires a body. Ensure that the body is present and the <code>Content-Type</code> header is set.</p>
+            aws_sdk_cloudfront.errors.no_such_streaming_distribution.NoSuchStreamingDistribution: <p>The specified streaming distribution does not exist.</p>
+            aws_sdk_cloudfront.errors.precondition_failed.PreconditionFailed: <p>The precondition in one or more of the request fields evaluated to <code>false</code>.</p>
+            aws_sdk_cloudfront.errors.too_many_streaming_distribution_cnam_es.TooManyStreamingDistributionCNAMEs: <p>Your request contains more CNAMEs than are allowed per distribution.</p>
+            aws_sdk_cloudfront.errors.too_many_trusted_signers.TooManyTrustedSigners: <p>Your request contains more trusted signers than are allowed per distribution.</p>
+            aws_sdk_cloudfront.errors.trusted_signer_does_not_exist.TrustedSignerDoesNotExist: <p>One or more of your trusted signers don't exist.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -7853,6 +9381,14 @@ class CloudFrontClient:
             ca_certificates_bundle_source: <p>The CA certificates bundle source.</p>
             use_client_certificate_ocsp_endpoint: <p>A Boolean that determines whether to use the CA certificate's OCSP endpoint to check certificate revocation status.</p>
             if_match: <p>The current version (<code>ETag</code> value) of the trust store you are updating.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.access_denied.AccessDenied: <p>Access denied.</p>
+            aws_sdk_cloudfront.errors.entity_not_found.EntityNotFound: <p>The entity was not found.</p>
+            aws_sdk_cloudfront.errors.invalid_argument.InvalidArgument: <p>An argument is invalid.</p>
+            aws_sdk_cloudfront.errors.invalid_if_match_version.InvalidIfMatchVersion: <p>The <code>If-Match</code> version is missing or not valid.</p>
+            aws_sdk_cloudfront.errors.precondition_failed.PreconditionFailed: <p>The precondition in one or more of the request fields evaluated to <code>false</code>.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -7902,6 +9438,20 @@ class CloudFrontClient:
             id: <p>The VPC origin ID.</p>
             if_match: <p>The VPC origin to update, if a match occurs.</p>
 
+        Raises:
+            aws_sdk_cloudfront.errors.access_denied.AccessDenied: <p>Access denied.</p>
+            aws_sdk_cloudfront.errors.cannot_update_entity_while_in_use.CannotUpdateEntityWhileInUse: <p>The entity cannot be updated while it is in use.</p>
+            aws_sdk_cloudfront.errors.entity_already_exists.EntityAlreadyExists: <p>The entity already exists. You must provide a unique entity.</p>
+            aws_sdk_cloudfront.errors.entity_limit_exceeded.EntityLimitExceeded: <p>The entity limit has been exceeded.</p>
+            aws_sdk_cloudfront.errors.entity_not_found.EntityNotFound: <p>The entity was not found.</p>
+            aws_sdk_cloudfront.errors.illegal_update.IllegalUpdate: <p>The update contains modifications that are not allowed.</p>
+            aws_sdk_cloudfront.errors.inconsistent_quantities.InconsistentQuantities: <p>The value of <code>Quantity</code> and the size of <code>Items</code> don't match.</p>
+            aws_sdk_cloudfront.errors.invalid_argument.InvalidArgument: <p>An argument is invalid.</p>
+            aws_sdk_cloudfront.errors.invalid_if_match_version.InvalidIfMatchVersion: <p>The <code>If-Match</code> version is missing or not valid.</p>
+            aws_sdk_cloudfront.errors.precondition_failed.PreconditionFailed: <p>The precondition in one or more of the request fields evaluated to <code>false</code>.</p>
+            aws_sdk_cloudfront.errors.unsupported_operation.UnsupportedOperation: <p>This operation is not supported in this Amazon Web Services Region.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To update a VPC origin
             The following command updates a VPC origin:
@@ -7948,6 +9498,12 @@ class CloudFrontClient:
         Args:
             domain: <p>The domain name that you're verifying.</p>
             identifier: <p>The identifier of the distribution tenant. You can specify the ARN, ID, or name of the distribution tenant.</p>
+
+        Raises:
+            aws_sdk_cloudfront.errors.access_denied.AccessDenied: <p>Access denied.</p>
+            aws_sdk_cloudfront.errors.entity_not_found.EntityNotFound: <p>The entity was not found.</p>
+            aws_sdk_cloudfront.errors.invalid_argument.InvalidArgument: <p>An argument is invalid.</p>
+            aws_sdk_cloudfront.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(

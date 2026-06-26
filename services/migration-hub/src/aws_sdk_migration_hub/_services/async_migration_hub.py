@@ -208,6 +208,18 @@ class AsyncMigrationHubClient:
             migration_task_name: <p>Unique identifier that references the migration task. <i>Do not store personal data in this field.</i> </p>
             created_artifact: <p>An ARN of the AWS resource related to the migration (e.g., AMI, EC2 instance, RDS instance, etc.) </p>
             dry_run: <p>Optional boolean flag to indicate whether any effect should take place. Used to test if the caller has permission to make the call.</p>
+
+        Raises:
+            aws_sdk_migration_hub.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_migration_hub.errors.dry_run_operation.DryRunOperation: <p>Exception raised to indicate a successfully authorized action when the <code>DryRun</code> flag is set to \"true\".</p>
+            aws_sdk_migration_hub.errors.home_region_not_set_exception.HomeRegionNotSetException: <p>The home region is not set. Set the home region to continue.</p>
+            aws_sdk_migration_hub.errors.internal_server_error.InternalServerError: <p>Exception raised when an internal, configuration, or dependency error is encountered.</p>
+            aws_sdk_migration_hub.errors.invalid_input_exception.InvalidInputException: <p>Exception raised when the provided input violates a policy constraint or is entered in the wrong format or data type.</p>
+            aws_sdk_migration_hub.errors.resource_not_found_exception.ResourceNotFoundException: <p>Exception raised when the request references a resource (Application Discovery Service configuration, update stream, migration task, etc.) that does not exist in Application Discovery Service (Application Discovery Service) or in Migration Hub's repository.</p>
+            aws_sdk_migration_hub.errors.service_unavailable_exception.ServiceUnavailableException: <p>Exception raised when there is an internal, configuration, or dependency error encountered.</p>
+            aws_sdk_migration_hub.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_migration_hub.errors.unauthorized_operation.UnauthorizedOperation: <p>Exception raised to indicate a request was not authorized when the <code>DryRun</code> flag is set to \"true\".</p>
+            aws_sdk_migration_hub.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -256,6 +268,19 @@ class AsyncMigrationHubClient:
             migration_task_name: <p>The identifier given to the MigrationTask. <i>Do not store personal data in this field.</i> </p>
             discovered_resource: <p>Object representing a Resource.</p>
             dry_run: <p>Optional boolean flag to indicate whether any effect should take place. Used to test if the caller has permission to make the call.</p>
+
+        Raises:
+            aws_sdk_migration_hub.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_migration_hub.errors.dry_run_operation.DryRunOperation: <p>Exception raised to indicate a successfully authorized action when the <code>DryRun</code> flag is set to \"true\".</p>
+            aws_sdk_migration_hub.errors.home_region_not_set_exception.HomeRegionNotSetException: <p>The home region is not set. Set the home region to continue.</p>
+            aws_sdk_migration_hub.errors.internal_server_error.InternalServerError: <p>Exception raised when an internal, configuration, or dependency error is encountered.</p>
+            aws_sdk_migration_hub.errors.invalid_input_exception.InvalidInputException: <p>Exception raised when the provided input violates a policy constraint or is entered in the wrong format or data type.</p>
+            aws_sdk_migration_hub.errors.policy_error_exception.PolicyErrorException: <p>Exception raised when there are problems accessing Application Discovery Service (Application Discovery Service); most likely due to a misconfigured policy or the <code>migrationhub-discovery</code> role is missing or not configured correctly.</p>
+            aws_sdk_migration_hub.errors.resource_not_found_exception.ResourceNotFoundException: <p>Exception raised when the request references a resource (Application Discovery Service configuration, update stream, migration task, etc.) that does not exist in Application Discovery Service (Application Discovery Service) or in Migration Hub's repository.</p>
+            aws_sdk_migration_hub.errors.service_unavailable_exception.ServiceUnavailableException: <p>Exception raised when there is an internal, configuration, or dependency error encountered.</p>
+            aws_sdk_migration_hub.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_migration_hub.errors.unauthorized_operation.UnauthorizedOperation: <p>Exception raised to indicate a request was not authorized when the <code>DryRun</code> flag is set to \"true\".</p>
+            aws_sdk_migration_hub.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -304,6 +329,17 @@ class AsyncMigrationHubClient:
             migration_task_name: <p>A unique identifier that references the migration task. <i>Do not include sensitive data in this field.</i> </p>
             source_resource: <p>The source resource that you want to associate.</p>
             dry_run: <p>This is an optional parameter that you can use to test whether the call will succeed. Set this parameter to <code>true</code> to verify that you have the permissions that are required to make the call, and that you have specified the other parameters in the call correctly.</p>
+
+        Raises:
+            aws_sdk_migration_hub.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_migration_hub.errors.dry_run_operation.DryRunOperation: <p>Exception raised to indicate a successfully authorized action when the <code>DryRun</code> flag is set to \"true\".</p>
+            aws_sdk_migration_hub.errors.internal_server_error.InternalServerError: <p>Exception raised when an internal, configuration, or dependency error is encountered.</p>
+            aws_sdk_migration_hub.errors.invalid_input_exception.InvalidInputException: <p>Exception raised when the provided input violates a policy constraint or is entered in the wrong format or data type.</p>
+            aws_sdk_migration_hub.errors.resource_not_found_exception.ResourceNotFoundException: <p>Exception raised when the request references a resource (Application Discovery Service configuration, update stream, migration task, etc.) that does not exist in Application Discovery Service (Application Discovery Service) or in Migration Hub's repository.</p>
+            aws_sdk_migration_hub.errors.service_unavailable_exception.ServiceUnavailableException: <p>Exception raised when there is an internal, configuration, or dependency error encountered.</p>
+            aws_sdk_migration_hub.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_migration_hub.errors.unauthorized_operation.UnauthorizedOperation: <p>Exception raised to indicate a request was not authorized when the <code>DryRun</code> flag is set to \"true\".</p>
+            aws_sdk_migration_hub.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -348,6 +384,17 @@ class AsyncMigrationHubClient:
         Args:
             progress_update_stream_name: <p>The name of the ProgressUpdateStream. <i>Do not store personal data in this field.</i> </p>
             dry_run: <p>Optional boolean flag to indicate whether any effect should take place. Used to test if the caller has permission to make the call.</p>
+
+        Raises:
+            aws_sdk_migration_hub.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_migration_hub.errors.dry_run_operation.DryRunOperation: <p>Exception raised to indicate a successfully authorized action when the <code>DryRun</code> flag is set to \"true\".</p>
+            aws_sdk_migration_hub.errors.home_region_not_set_exception.HomeRegionNotSetException: <p>The home region is not set. Set the home region to continue.</p>
+            aws_sdk_migration_hub.errors.internal_server_error.InternalServerError: <p>Exception raised when an internal, configuration, or dependency error is encountered.</p>
+            aws_sdk_migration_hub.errors.invalid_input_exception.InvalidInputException: <p>Exception raised when the provided input violates a policy constraint or is entered in the wrong format or data type.</p>
+            aws_sdk_migration_hub.errors.service_unavailable_exception.ServiceUnavailableException: <p>Exception raised when there is an internal, configuration, or dependency error encountered.</p>
+            aws_sdk_migration_hub.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_migration_hub.errors.unauthorized_operation.UnauthorizedOperation: <p>Exception raised to indicate a request was not authorized when the <code>DryRun</code> flag is set to \"true\".</p>
+            aws_sdk_migration_hub.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -390,6 +437,18 @@ class AsyncMigrationHubClient:
         Args:
             progress_update_stream_name: <p>The name of the ProgressUpdateStream. <i>Do not store personal data in this field.</i> </p>
             dry_run: <p>Optional boolean flag to indicate whether any effect should take place. Used to test if the caller has permission to make the call.</p>
+
+        Raises:
+            aws_sdk_migration_hub.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_migration_hub.errors.dry_run_operation.DryRunOperation: <p>Exception raised to indicate a successfully authorized action when the <code>DryRun</code> flag is set to \"true\".</p>
+            aws_sdk_migration_hub.errors.home_region_not_set_exception.HomeRegionNotSetException: <p>The home region is not set. Set the home region to continue.</p>
+            aws_sdk_migration_hub.errors.internal_server_error.InternalServerError: <p>Exception raised when an internal, configuration, or dependency error is encountered.</p>
+            aws_sdk_migration_hub.errors.invalid_input_exception.InvalidInputException: <p>Exception raised when the provided input violates a policy constraint or is entered in the wrong format or data type.</p>
+            aws_sdk_migration_hub.errors.resource_not_found_exception.ResourceNotFoundException: <p>Exception raised when the request references a resource (Application Discovery Service configuration, update stream, migration task, etc.) that does not exist in Application Discovery Service (Application Discovery Service) or in Migration Hub's repository.</p>
+            aws_sdk_migration_hub.errors.service_unavailable_exception.ServiceUnavailableException: <p>Exception raised when there is an internal, configuration, or dependency error encountered.</p>
+            aws_sdk_migration_hub.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_migration_hub.errors.unauthorized_operation.UnauthorizedOperation: <p>Exception raised to indicate a request was not authorized when the <code>DryRun</code> flag is set to \"true\".</p>
+            aws_sdk_migration_hub.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -430,6 +489,17 @@ class AsyncMigrationHubClient:
 
         Args:
             application_id: <p>The configurationId in Application Discovery Service that uniquely identifies the grouped application.</p>
+
+        Raises:
+            aws_sdk_migration_hub.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_migration_hub.errors.home_region_not_set_exception.HomeRegionNotSetException: <p>The home region is not set. Set the home region to continue.</p>
+            aws_sdk_migration_hub.errors.internal_server_error.InternalServerError: <p>Exception raised when an internal, configuration, or dependency error is encountered.</p>
+            aws_sdk_migration_hub.errors.invalid_input_exception.InvalidInputException: <p>Exception raised when the provided input violates a policy constraint or is entered in the wrong format or data type.</p>
+            aws_sdk_migration_hub.errors.policy_error_exception.PolicyErrorException: <p>Exception raised when there are problems accessing Application Discovery Service (Application Discovery Service); most likely due to a misconfigured policy or the <code>migrationhub-discovery</code> role is missing or not configured correctly.</p>
+            aws_sdk_migration_hub.errors.resource_not_found_exception.ResourceNotFoundException: <p>Exception raised when the request references a resource (Application Discovery Service configuration, update stream, migration task, etc.) that does not exist in Application Discovery Service (Application Discovery Service) or in Migration Hub's repository.</p>
+            aws_sdk_migration_hub.errors.service_unavailable_exception.ServiceUnavailableException: <p>Exception raised when there is an internal, configuration, or dependency error encountered.</p>
+            aws_sdk_migration_hub.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_migration_hub.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -470,6 +540,16 @@ class AsyncMigrationHubClient:
         Args:
             progress_update_stream: <p>The name of the ProgressUpdateStream. </p>
             migration_task_name: <p>The identifier given to the MigrationTask. <i>Do not store personal data in this field.</i> </p>
+
+        Raises:
+            aws_sdk_migration_hub.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_migration_hub.errors.home_region_not_set_exception.HomeRegionNotSetException: <p>The home region is not set. Set the home region to continue.</p>
+            aws_sdk_migration_hub.errors.internal_server_error.InternalServerError: <p>Exception raised when an internal, configuration, or dependency error is encountered.</p>
+            aws_sdk_migration_hub.errors.invalid_input_exception.InvalidInputException: <p>Exception raised when the provided input violates a policy constraint or is entered in the wrong format or data type.</p>
+            aws_sdk_migration_hub.errors.resource_not_found_exception.ResourceNotFoundException: <p>Exception raised when the request references a resource (Application Discovery Service configuration, update stream, migration task, etc.) that does not exist in Application Discovery Service (Application Discovery Service) or in Migration Hub's repository.</p>
+            aws_sdk_migration_hub.errors.service_unavailable_exception.ServiceUnavailableException: <p>Exception raised when there is an internal, configuration, or dependency error encountered.</p>
+            aws_sdk_migration_hub.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_migration_hub.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -515,6 +595,18 @@ class AsyncMigrationHubClient:
             migration_task_name: <p>Unique identifier that references the migration task to be disassociated with the artifact. <i>Do not store personal data in this field.</i> </p>
             created_artifact_name: <p>An ARN of the AWS resource related to the migration (e.g., AMI, EC2 instance, RDS instance, etc.)</p>
             dry_run: <p>Optional boolean flag to indicate whether any effect should take place. Used to test if the caller has permission to make the call.</p>
+
+        Raises:
+            aws_sdk_migration_hub.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_migration_hub.errors.dry_run_operation.DryRunOperation: <p>Exception raised to indicate a successfully authorized action when the <code>DryRun</code> flag is set to \"true\".</p>
+            aws_sdk_migration_hub.errors.home_region_not_set_exception.HomeRegionNotSetException: <p>The home region is not set. Set the home region to continue.</p>
+            aws_sdk_migration_hub.errors.internal_server_error.InternalServerError: <p>Exception raised when an internal, configuration, or dependency error is encountered.</p>
+            aws_sdk_migration_hub.errors.invalid_input_exception.InvalidInputException: <p>Exception raised when the provided input violates a policy constraint or is entered in the wrong format or data type.</p>
+            aws_sdk_migration_hub.errors.resource_not_found_exception.ResourceNotFoundException: <p>Exception raised when the request references a resource (Application Discovery Service configuration, update stream, migration task, etc.) that does not exist in Application Discovery Service (Application Discovery Service) or in Migration Hub's repository.</p>
+            aws_sdk_migration_hub.errors.service_unavailable_exception.ServiceUnavailableException: <p>Exception raised when there is an internal, configuration, or dependency error encountered.</p>
+            aws_sdk_migration_hub.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_migration_hub.errors.unauthorized_operation.UnauthorizedOperation: <p>Exception raised to indicate a request was not authorized when the <code>DryRun</code> flag is set to \"true\".</p>
+            aws_sdk_migration_hub.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -563,6 +655,18 @@ class AsyncMigrationHubClient:
             migration_task_name: <p>The identifier given to the MigrationTask. <i>Do not store personal data in this field.</i> </p>
             configuration_id: <p>ConfigurationId of the Application Discovery Service resource to be disassociated.</p>
             dry_run: <p>Optional boolean flag to indicate whether any effect should take place. Used to test if the caller has permission to make the call.</p>
+
+        Raises:
+            aws_sdk_migration_hub.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_migration_hub.errors.dry_run_operation.DryRunOperation: <p>Exception raised to indicate a successfully authorized action when the <code>DryRun</code> flag is set to \"true\".</p>
+            aws_sdk_migration_hub.errors.home_region_not_set_exception.HomeRegionNotSetException: <p>The home region is not set. Set the home region to continue.</p>
+            aws_sdk_migration_hub.errors.internal_server_error.InternalServerError: <p>Exception raised when an internal, configuration, or dependency error is encountered.</p>
+            aws_sdk_migration_hub.errors.invalid_input_exception.InvalidInputException: <p>Exception raised when the provided input violates a policy constraint or is entered in the wrong format or data type.</p>
+            aws_sdk_migration_hub.errors.resource_not_found_exception.ResourceNotFoundException: <p>Exception raised when the request references a resource (Application Discovery Service configuration, update stream, migration task, etc.) that does not exist in Application Discovery Service (Application Discovery Service) or in Migration Hub's repository.</p>
+            aws_sdk_migration_hub.errors.service_unavailable_exception.ServiceUnavailableException: <p>Exception raised when there is an internal, configuration, or dependency error encountered.</p>
+            aws_sdk_migration_hub.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_migration_hub.errors.unauthorized_operation.UnauthorizedOperation: <p>Exception raised to indicate a request was not authorized when the <code>DryRun</code> flag is set to \"true\".</p>
+            aws_sdk_migration_hub.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -611,6 +715,17 @@ class AsyncMigrationHubClient:
             migration_task_name: <p>A unique identifier that references the migration task. <i>Do not include sensitive data in this field.</i> </p>
             source_resource_name: <p>The name that was specified for the source resource.</p>
             dry_run: <p>This is an optional parameter that you can use to test whether the call will succeed. Set this parameter to <code>true</code> to verify that you have the permissions that are required to make the call, and that you have specified the other parameters in the call correctly.</p>
+
+        Raises:
+            aws_sdk_migration_hub.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_migration_hub.errors.dry_run_operation.DryRunOperation: <p>Exception raised to indicate a successfully authorized action when the <code>DryRun</code> flag is set to \"true\".</p>
+            aws_sdk_migration_hub.errors.internal_server_error.InternalServerError: <p>Exception raised when an internal, configuration, or dependency error is encountered.</p>
+            aws_sdk_migration_hub.errors.invalid_input_exception.InvalidInputException: <p>Exception raised when the provided input violates a policy constraint or is entered in the wrong format or data type.</p>
+            aws_sdk_migration_hub.errors.resource_not_found_exception.ResourceNotFoundException: <p>Exception raised when the request references a resource (Application Discovery Service configuration, update stream, migration task, etc.) that does not exist in Application Discovery Service (Application Discovery Service) or in Migration Hub's repository.</p>
+            aws_sdk_migration_hub.errors.service_unavailable_exception.ServiceUnavailableException: <p>Exception raised when there is an internal, configuration, or dependency error encountered.</p>
+            aws_sdk_migration_hub.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_migration_hub.errors.unauthorized_operation.UnauthorizedOperation: <p>Exception raised to indicate a request was not authorized when the <code>DryRun</code> flag is set to \"true\".</p>
+            aws_sdk_migration_hub.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -657,6 +772,18 @@ class AsyncMigrationHubClient:
             progress_update_stream: <p>The name of the ProgressUpdateStream. ></p>
             migration_task_name: <p>Unique identifier that references the migration task. <i>Do not store personal data in this field.</i> </p>
             dry_run: <p>Optional boolean flag to indicate whether any effect should take place. Used to test if the caller has permission to make the call.</p>
+
+        Raises:
+            aws_sdk_migration_hub.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_migration_hub.errors.dry_run_operation.DryRunOperation: <p>Exception raised to indicate a successfully authorized action when the <code>DryRun</code> flag is set to \"true\".</p>
+            aws_sdk_migration_hub.errors.home_region_not_set_exception.HomeRegionNotSetException: <p>The home region is not set. Set the home region to continue.</p>
+            aws_sdk_migration_hub.errors.internal_server_error.InternalServerError: <p>Exception raised when an internal, configuration, or dependency error is encountered.</p>
+            aws_sdk_migration_hub.errors.invalid_input_exception.InvalidInputException: <p>Exception raised when the provided input violates a policy constraint or is entered in the wrong format or data type.</p>
+            aws_sdk_migration_hub.errors.resource_not_found_exception.ResourceNotFoundException: <p>Exception raised when the request references a resource (Application Discovery Service configuration, update stream, migration task, etc.) that does not exist in Application Discovery Service (Application Discovery Service) or in Migration Hub's repository.</p>
+            aws_sdk_migration_hub.errors.service_unavailable_exception.ServiceUnavailableException: <p>Exception raised when there is an internal, configuration, or dependency error encountered.</p>
+            aws_sdk_migration_hub.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_migration_hub.errors.unauthorized_operation.UnauthorizedOperation: <p>Exception raised to indicate a request was not authorized when the <code>DryRun</code> flag is set to \"true\".</p>
+            aws_sdk_migration_hub.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -706,6 +833,15 @@ class AsyncMigrationHubClient:
             application_ids: <p>The configurationIds from the Application Discovery Service that uniquely identifies your applications.</p>
             next_token: <p>If a <code>NextToken</code> was returned by a previous call, there are more results available. To retrieve the next page of results, make the call again using the returned token in <code>NextToken</code>.</p>
             max_results: <p>Maximum number of results to be returned per page.</p>
+
+        Raises:
+            aws_sdk_migration_hub.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_migration_hub.errors.home_region_not_set_exception.HomeRegionNotSetException: <p>The home region is not set. Set the home region to continue.</p>
+            aws_sdk_migration_hub.errors.internal_server_error.InternalServerError: <p>Exception raised when an internal, configuration, or dependency error is encountered.</p>
+            aws_sdk_migration_hub.errors.invalid_input_exception.InvalidInputException: <p>Exception raised when the provided input violates a policy constraint or is entered in the wrong format or data type.</p>
+            aws_sdk_migration_hub.errors.service_unavailable_exception.ServiceUnavailableException: <p>Exception raised when there is an internal, configuration, or dependency error encountered.</p>
+            aws_sdk_migration_hub.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_migration_hub.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -786,6 +922,16 @@ class AsyncMigrationHubClient:
             migration_task_name: <p>Unique identifier that references the migration task. <i>Do not store personal data in this field.</i> </p>
             next_token: <p>If a <code>NextToken</code> was returned by a previous call, there are more results available. To retrieve the next page of results, make the call again using the returned token in <code>NextToken</code>.</p>
             max_results: <p>Maximum number of results to be returned per page.</p>
+
+        Raises:
+            aws_sdk_migration_hub.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_migration_hub.errors.home_region_not_set_exception.HomeRegionNotSetException: <p>The home region is not set. Set the home region to continue.</p>
+            aws_sdk_migration_hub.errors.internal_server_error.InternalServerError: <p>Exception raised when an internal, configuration, or dependency error is encountered.</p>
+            aws_sdk_migration_hub.errors.invalid_input_exception.InvalidInputException: <p>Exception raised when the provided input violates a policy constraint or is entered in the wrong format or data type.</p>
+            aws_sdk_migration_hub.errors.resource_not_found_exception.ResourceNotFoundException: <p>Exception raised when the request references a resource (Application Discovery Service configuration, update stream, migration task, etc.) that does not exist in Application Discovery Service (Application Discovery Service) or in Migration Hub's repository.</p>
+            aws_sdk_migration_hub.errors.service_unavailable_exception.ServiceUnavailableException: <p>Exception raised when there is an internal, configuration, or dependency error encountered.</p>
+            aws_sdk_migration_hub.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_migration_hub.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -864,6 +1010,16 @@ class AsyncMigrationHubClient:
             migration_task_name: <p>The name of the MigrationTask. <i>Do not store personal data in this field.</i> </p>
             next_token: <p>If a <code>NextToken</code> was returned by a previous call, there are more results available. To retrieve the next page of results, make the call again using the returned token in <code>NextToken</code>.</p>
             max_results: <p>The maximum number of results returned per page.</p>
+
+        Raises:
+            aws_sdk_migration_hub.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_migration_hub.errors.home_region_not_set_exception.HomeRegionNotSetException: <p>The home region is not set. Set the home region to continue.</p>
+            aws_sdk_migration_hub.errors.internal_server_error.InternalServerError: <p>Exception raised when an internal, configuration, or dependency error is encountered.</p>
+            aws_sdk_migration_hub.errors.invalid_input_exception.InvalidInputException: <p>Exception raised when the provided input violates a policy constraint or is entered in the wrong format or data type.</p>
+            aws_sdk_migration_hub.errors.resource_not_found_exception.ResourceNotFoundException: <p>Exception raised when the request references a resource (Application Discovery Service configuration, update stream, migration task, etc.) that does not exist in Application Discovery Service (Application Discovery Service) or in Migration Hub's repository.</p>
+            aws_sdk_migration_hub.errors.service_unavailable_exception.ServiceUnavailableException: <p>Exception raised when there is an internal, configuration, or dependency error encountered.</p>
+            aws_sdk_migration_hub.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_migration_hub.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -942,6 +1098,17 @@ class AsyncMigrationHubClient:
             next_token: <p>If a <code>NextToken</code> was returned by a previous call, there are more results available. To retrieve the next page of results, make the call again using the returned token in <code>NextToken</code>.</p>
             max_results: <p>Value to specify how many results are returned per page.</p>
             resource_name: <p>Filter migration tasks by discovered resource name.</p>
+
+        Raises:
+            aws_sdk_migration_hub.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_migration_hub.errors.home_region_not_set_exception.HomeRegionNotSetException: <p>The home region is not set. Set the home region to continue.</p>
+            aws_sdk_migration_hub.errors.internal_server_error.InternalServerError: <p>Exception raised when an internal, configuration, or dependency error is encountered.</p>
+            aws_sdk_migration_hub.errors.invalid_input_exception.InvalidInputException: <p>Exception raised when the provided input violates a policy constraint or is entered in the wrong format or data type.</p>
+            aws_sdk_migration_hub.errors.policy_error_exception.PolicyErrorException: <p>Exception raised when there are problems accessing Application Discovery Service (Application Discovery Service); most likely due to a misconfigured policy or the <code>migrationhub-discovery</code> role is missing or not configured correctly.</p>
+            aws_sdk_migration_hub.errors.resource_not_found_exception.ResourceNotFoundException: <p>Exception raised when the request references a resource (Application Discovery Service configuration, update stream, migration task, etc.) that does not exist in Application Discovery Service (Application Discovery Service) or in Migration Hub's repository.</p>
+            aws_sdk_migration_hub.errors.service_unavailable_exception.ServiceUnavailableException: <p>Exception raised when there is an internal, configuration, or dependency error encountered.</p>
+            aws_sdk_migration_hub.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_migration_hub.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1020,6 +1187,15 @@ class AsyncMigrationHubClient:
             migration_task_name: <p>A unique identifier that references the migration task. <i>Do not include sensitive data in this field.</i> </p>
             next_token: <p>If <code>NextToken</code> was returned by a previous call, there are more results available. The value of <code>NextToken</code> is a unique pagination token for each page. To retrieve the next page of results, specify the <code>NextToken</code> value that the previous call returned. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an HTTP 400 InvalidToken error.</p>
             max_results: <p>The maximum number of results to include in the response. If more results exist than the value that you specify here for <code>MaxResults</code>, the response will include a token that you can use to retrieve the next set of results.</p>
+
+        Raises:
+            aws_sdk_migration_hub.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_migration_hub.errors.internal_server_error.InternalServerError: <p>Exception raised when an internal, configuration, or dependency error is encountered.</p>
+            aws_sdk_migration_hub.errors.invalid_input_exception.InvalidInputException: <p>Exception raised when the provided input violates a policy constraint or is entered in the wrong format or data type.</p>
+            aws_sdk_migration_hub.errors.resource_not_found_exception.ResourceNotFoundException: <p>Exception raised when the request references a resource (Application Discovery Service configuration, update stream, migration task, etc.) that does not exist in Application Discovery Service (Application Discovery Service) or in Migration Hub's repository.</p>
+            aws_sdk_migration_hub.errors.service_unavailable_exception.ServiceUnavailableException: <p>Exception raised when there is an internal, configuration, or dependency error encountered.</p>
+            aws_sdk_migration_hub.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_migration_hub.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1094,6 +1270,15 @@ class AsyncMigrationHubClient:
         Args:
             next_token: <p>If a <code>NextToken</code> was returned by a previous call, there are more results available. To retrieve the next page of results, make the call again using the returned token in <code>NextToken</code>.</p>
             max_results: <p>Filter to limit the maximum number of results to list per page.</p>
+
+        Raises:
+            aws_sdk_migration_hub.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_migration_hub.errors.home_region_not_set_exception.HomeRegionNotSetException: <p>The home region is not set. Set the home region to continue.</p>
+            aws_sdk_migration_hub.errors.internal_server_error.InternalServerError: <p>Exception raised when an internal, configuration, or dependency error is encountered.</p>
+            aws_sdk_migration_hub.errors.invalid_input_exception.InvalidInputException: <p>Exception raised when the provided input violates a policy constraint or is entered in the wrong format or data type.</p>
+            aws_sdk_migration_hub.errors.service_unavailable_exception.ServiceUnavailableException: <p>Exception raised when there is an internal, configuration, or dependency error encountered.</p>
+            aws_sdk_migration_hub.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_migration_hub.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1166,6 +1351,15 @@ class AsyncMigrationHubClient:
             migration_task_name: <p>A unique identifier that references the migration task. <i>Do not store confidential data in this field.</i> </p>
             next_token: <p>If <code>NextToken</code> was returned by a previous call, there are more results available. The value of <code>NextToken</code> is a unique pagination token for each page. To retrieve the next page of results, specify the <code>NextToken</code> value that the previous call returned. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an HTTP 400 InvalidToken error.</p>
             max_results: <p>The maximum number of results to include in the response. If more results exist than the value that you specify here for <code>MaxResults</code>, the response will include a token that you can use to retrieve the next set of results.</p>
+
+        Raises:
+            aws_sdk_migration_hub.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_migration_hub.errors.internal_server_error.InternalServerError: <p>Exception raised when an internal, configuration, or dependency error is encountered.</p>
+            aws_sdk_migration_hub.errors.invalid_input_exception.InvalidInputException: <p>Exception raised when the provided input violates a policy constraint or is entered in the wrong format or data type.</p>
+            aws_sdk_migration_hub.errors.resource_not_found_exception.ResourceNotFoundException: <p>Exception raised when the request references a resource (Application Discovery Service configuration, update stream, migration task, etc.) that does not exist in Application Discovery Service (Application Discovery Service) or in Migration Hub's repository.</p>
+            aws_sdk_migration_hub.errors.service_unavailable_exception.ServiceUnavailableException: <p>Exception raised when there is an internal, configuration, or dependency error encountered.</p>
+            aws_sdk_migration_hub.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_migration_hub.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1244,6 +1438,19 @@ class AsyncMigrationHubClient:
             status: <p>Status of the application - Not Started, In-Progress, Complete.</p>
             update_date_time: <p>The timestamp when the application state changed.</p>
             dry_run: <p>Optional boolean flag to indicate whether any effect should take place. Used to test if the caller has permission to make the call.</p>
+
+        Raises:
+            aws_sdk_migration_hub.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_migration_hub.errors.dry_run_operation.DryRunOperation: <p>Exception raised to indicate a successfully authorized action when the <code>DryRun</code> flag is set to \"true\".</p>
+            aws_sdk_migration_hub.errors.home_region_not_set_exception.HomeRegionNotSetException: <p>The home region is not set. Set the home region to continue.</p>
+            aws_sdk_migration_hub.errors.internal_server_error.InternalServerError: <p>Exception raised when an internal, configuration, or dependency error is encountered.</p>
+            aws_sdk_migration_hub.errors.invalid_input_exception.InvalidInputException: <p>Exception raised when the provided input violates a policy constraint or is entered in the wrong format or data type.</p>
+            aws_sdk_migration_hub.errors.policy_error_exception.PolicyErrorException: <p>Exception raised when there are problems accessing Application Discovery Service (Application Discovery Service); most likely due to a misconfigured policy or the <code>migrationhub-discovery</code> role is missing or not configured correctly.</p>
+            aws_sdk_migration_hub.errors.resource_not_found_exception.ResourceNotFoundException: <p>Exception raised when the request references a resource (Application Discovery Service configuration, update stream, migration task, etc.) that does not exist in Application Discovery Service (Application Discovery Service) or in Migration Hub's repository.</p>
+            aws_sdk_migration_hub.errors.service_unavailable_exception.ServiceUnavailableException: <p>Exception raised when there is an internal, configuration, or dependency error encountered.</p>
+            aws_sdk_migration_hub.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_migration_hub.errors.unauthorized_operation.UnauthorizedOperation: <p>Exception raised to indicate a request was not authorized when the <code>DryRun</code> flag is set to \"true\".</p>
+            aws_sdk_migration_hub.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1297,6 +1504,18 @@ class AsyncMigrationHubClient:
             update_date_time: <p>The timestamp when the task was gathered.</p>
             next_update_seconds: <p>Number of seconds after the UpdateDateTime within which the Migration Hub can expect an update. If Migration Hub does not receive an update within the specified interval, then the migration task will be considered stale.</p>
             dry_run: <p>Optional boolean flag to indicate whether any effect should take place. Used to test if the caller has permission to make the call.</p>
+
+        Raises:
+            aws_sdk_migration_hub.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_migration_hub.errors.dry_run_operation.DryRunOperation: <p>Exception raised to indicate a successfully authorized action when the <code>DryRun</code> flag is set to \"true\".</p>
+            aws_sdk_migration_hub.errors.home_region_not_set_exception.HomeRegionNotSetException: <p>The home region is not set. Set the home region to continue.</p>
+            aws_sdk_migration_hub.errors.internal_server_error.InternalServerError: <p>Exception raised when an internal, configuration, or dependency error is encountered.</p>
+            aws_sdk_migration_hub.errors.invalid_input_exception.InvalidInputException: <p>Exception raised when the provided input violates a policy constraint or is entered in the wrong format or data type.</p>
+            aws_sdk_migration_hub.errors.resource_not_found_exception.ResourceNotFoundException: <p>Exception raised when the request references a resource (Application Discovery Service configuration, update stream, migration task, etc.) that does not exist in Application Discovery Service (Application Discovery Service) or in Migration Hub's repository.</p>
+            aws_sdk_migration_hub.errors.service_unavailable_exception.ServiceUnavailableException: <p>Exception raised when there is an internal, configuration, or dependency error encountered.</p>
+            aws_sdk_migration_hub.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_migration_hub.errors.unauthorized_operation.UnauthorizedOperation: <p>Exception raised to indicate a request was not authorized when the <code>DryRun</code> flag is set to \"true\".</p>
+            aws_sdk_migration_hub.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1347,6 +1566,18 @@ class AsyncMigrationHubClient:
             migration_task_name: <p>Unique identifier that references the migration task. <i>Do not store personal data in this field.</i> </p>
             resource_attribute_list: <p>Information about the resource that is being migrated. This data will be used to map the task to a resource in the Application Discovery Service repository.</p> <note> <p>Takes the object array of <code>ResourceAttribute</code> where the <code>Type</code> field is reserved for the following values: <code>IPV4_ADDRESS | IPV6_ADDRESS | MAC_ADDRESS | FQDN | VM_MANAGER_ID | VM_MANAGED_OBJECT_REFERENCE | VM_NAME | VM_PATH | BIOS_ID | MOTHERBOARD_SERIAL_NUMBER</code> where the identifying value can be a string up to 256 characters.</p> </note> <important> <ul> <li> <p>If any \"VM\" related value is set for a <code>ResourceAttribute</code> object, it is required that <code>VM_MANAGER_ID</code>, as a minimum, is always set. If <code>VM_MANAGER_ID</code> is not set, then all \"VM\" fields will be discarded and \"VM\" fields will not be used for matching the migration task to a server in Application Discovery Service repository. See the <a href=\"https://docs.aws.amazon.com/migrationhub/latest/ug/API_PutResourceAttributes.html#API_PutResourceAttributes_Examples\">Example</a> section below for a use case of specifying \"VM\" related values.</p> </li> <li> <p> If a server you are trying to match has multiple IP or MAC addresses, you should provide as many as you know in separate type/value pairs passed to the <code>ResourceAttributeList</code> parameter to maximize the chances of matching.</p> </li> </ul> </important>
             dry_run: <p>Optional boolean flag to indicate whether any effect should take place. Used to test if the caller has permission to make the call.</p>
+
+        Raises:
+            aws_sdk_migration_hub.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_migration_hub.errors.dry_run_operation.DryRunOperation: <p>Exception raised to indicate a successfully authorized action when the <code>DryRun</code> flag is set to \"true\".</p>
+            aws_sdk_migration_hub.errors.home_region_not_set_exception.HomeRegionNotSetException: <p>The home region is not set. Set the home region to continue.</p>
+            aws_sdk_migration_hub.errors.internal_server_error.InternalServerError: <p>Exception raised when an internal, configuration, or dependency error is encountered.</p>
+            aws_sdk_migration_hub.errors.invalid_input_exception.InvalidInputException: <p>Exception raised when the provided input violates a policy constraint or is entered in the wrong format or data type.</p>
+            aws_sdk_migration_hub.errors.resource_not_found_exception.ResourceNotFoundException: <p>Exception raised when the request references a resource (Application Discovery Service configuration, update stream, migration task, etc.) that does not exist in Application Discovery Service (Application Discovery Service) or in Migration Hub's repository.</p>
+            aws_sdk_migration_hub.errors.service_unavailable_exception.ServiceUnavailableException: <p>Exception raised when there is an internal, configuration, or dependency error encountered.</p>
+            aws_sdk_migration_hub.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_migration_hub.errors.unauthorized_operation.UnauthorizedOperation: <p>Exception raised to indicate a request was not authorized when the <code>DryRun</code> flag is set to \"true\".</p>
+            aws_sdk_migration_hub.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

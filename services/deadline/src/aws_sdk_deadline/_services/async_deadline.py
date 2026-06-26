@@ -238,6 +238,13 @@ class AsyncdeadlineClient:
         Args:
             identifiers: <p>The list of job identifiers to retrieve. You can specify up to 100 identifiers per request.</p>
 
+        Raises:
+            aws_sdk_deadline.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action.</p>
+            aws_sdk_deadline.errors.internal_server_error_exception.InternalServerErrorException: <p>Deadline Cloud can't process your request right now. Try again later.</p>
+            aws_sdk_deadline.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a request rate quota.</p>
+            aws_sdk_deadline.errors.validation_exception.ValidationException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
+            aws_sdk_deadline.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Get multiple jobs in a single request
 
@@ -280,6 +287,13 @@ class AsyncdeadlineClient:
 
         Args:
             identifiers: <p>The list of session identifiers to retrieve. You can specify up to 100 identifiers per request.</p>
+
+        Raises:
+            aws_sdk_deadline.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action.</p>
+            aws_sdk_deadline.errors.internal_server_error_exception.InternalServerErrorException: <p>Deadline Cloud can't process your request right now. Try again later.</p>
+            aws_sdk_deadline.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a request rate quota.</p>
+            aws_sdk_deadline.errors.validation_exception.ValidationException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
+            aws_sdk_deadline.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Get multiple sessions in a single request
@@ -324,6 +338,13 @@ class AsyncdeadlineClient:
         Args:
             identifiers: <p>The list of session action identifiers to retrieve. You can specify up to 100 identifiers per request.</p>
 
+        Raises:
+            aws_sdk_deadline.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action.</p>
+            aws_sdk_deadline.errors.internal_server_error_exception.InternalServerErrorException: <p>Deadline Cloud can't process your request right now. Try again later.</p>
+            aws_sdk_deadline.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a request rate quota.</p>
+            aws_sdk_deadline.errors.validation_exception.ValidationException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
+            aws_sdk_deadline.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Get multiple session actions in a single request
 
@@ -366,6 +387,13 @@ class AsyncdeadlineClient:
 
         Args:
             identifiers: <p>The list of step identifiers to retrieve. You can specify up to 100 identifiers per request.</p>
+
+        Raises:
+            aws_sdk_deadline.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action.</p>
+            aws_sdk_deadline.errors.internal_server_error_exception.InternalServerErrorException: <p>Deadline Cloud can't process your request right now. Try again later.</p>
+            aws_sdk_deadline.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a request rate quota.</p>
+            aws_sdk_deadline.errors.validation_exception.ValidationException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
+            aws_sdk_deadline.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Get multiple steps in a single request
@@ -410,6 +438,13 @@ class AsyncdeadlineClient:
         Args:
             identifiers: <p>The list of task identifiers to retrieve. You can specify up to 100 identifiers per request.</p>
 
+        Raises:
+            aws_sdk_deadline.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action.</p>
+            aws_sdk_deadline.errors.internal_server_error_exception.InternalServerErrorException: <p>Deadline Cloud can't process your request right now. Try again later.</p>
+            aws_sdk_deadline.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a request rate quota.</p>
+            aws_sdk_deadline.errors.validation_exception.ValidationException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
+            aws_sdk_deadline.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Get multiple tasks in a single request
 
@@ -452,6 +487,13 @@ class AsyncdeadlineClient:
 
         Args:
             identifiers: <p>The list of worker identifiers to retrieve. You can specify up to 100 identifiers per request.</p>
+
+        Raises:
+            aws_sdk_deadline.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action.</p>
+            aws_sdk_deadline.errors.internal_server_error_exception.InternalServerErrorException: <p>Deadline Cloud can't process your request right now. Try again later.</p>
+            aws_sdk_deadline.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a request rate quota.</p>
+            aws_sdk_deadline.errors.validation_exception.ValidationException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
+            aws_sdk_deadline.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Get multiple workers in a single request
@@ -499,6 +541,13 @@ class AsyncdeadlineClient:
         Args:
             client_token: <p>The unique token which the server uses to recognize retries of the same request.</p>
             jobs: <p>The list of jobs to update. You can specify up to 100 jobs per request.</p>
+
+        Raises:
+            aws_sdk_deadline.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action.</p>
+            aws_sdk_deadline.errors.internal_server_error_exception.InternalServerErrorException: <p>Deadline Cloud can't process your request right now. Try again later.</p>
+            aws_sdk_deadline.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a request rate quota.</p>
+            aws_sdk_deadline.errors.validation_exception.ValidationException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
+            aws_sdk_deadline.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Update multiple jobs in a single request
@@ -549,6 +598,13 @@ class AsyncdeadlineClient:
             client_token: <p>The unique token which the server uses to recognize retries of the same request.</p>
             tasks: <p>The list of tasks to update. You can specify up to 100 tasks per request.</p>
 
+        Raises:
+            aws_sdk_deadline.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action.</p>
+            aws_sdk_deadline.errors.internal_server_error_exception.InternalServerErrorException: <p>Deadline Cloud can't process your request right now. Try again later.</p>
+            aws_sdk_deadline.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a request rate quota.</p>
+            aws_sdk_deadline.errors.validation_exception.ValidationException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
+            aws_sdk_deadline.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Update multiple tasks in a single request
 
@@ -597,6 +653,14 @@ class AsyncdeadlineClient:
             farm_id: <p>The ID of the farm that the queue and fleet belong to.</p>
             queue_id: <p>The queue ID.</p>
             fleet_id: <p>The fleet ID.</p>
+
+        Raises:
+            aws_sdk_deadline.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action.</p>
+            aws_sdk_deadline.errors.internal_server_error_exception.InternalServerErrorException: <p>Deadline Cloud can't process your request right now. Try again later.</p>
+            aws_sdk_deadline.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_deadline.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a request rate quota.</p>
+            aws_sdk_deadline.errors.validation_exception.ValidationException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
+            aws_sdk_deadline.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -641,6 +705,14 @@ class AsyncdeadlineClient:
             farm_id: <p>The unique identifier of the farm that contains the queue and limit to associate.</p>
             queue_id: <p>The unique identifier of the queue to associate with the limit.</p>
             limit_id: <p>The unique identifier of the limit to associate with the queue.</p>
+
+        Raises:
+            aws_sdk_deadline.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action.</p>
+            aws_sdk_deadline.errors.internal_server_error_exception.InternalServerErrorException: <p>Deadline Cloud can't process your request right now. Try again later.</p>
+            aws_sdk_deadline.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_deadline.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a request rate quota.</p>
+            aws_sdk_deadline.errors.validation_exception.ValidationException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
+            aws_sdk_deadline.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -685,6 +757,15 @@ class AsyncdeadlineClient:
             farm_id: <p>The farm ID of the farm that holds the queue-fleet association.</p>
             queue_id: <p>The queue ID of the queue-fleet association.</p>
             fleet_id: <p>The fleet ID of the queue-fleet association.</p>
+
+        Raises:
+            aws_sdk_deadline.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action.</p>
+            aws_sdk_deadline.errors.conflict_exception.ConflictException: <p>Your request has conflicting operations. This can occur if you're trying to perform more than one operation on the same resource at the same time.</p>
+            aws_sdk_deadline.errors.internal_server_error_exception.InternalServerErrorException: <p>Deadline Cloud can't process your request right now. Try again later.</p>
+            aws_sdk_deadline.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_deadline.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a request rate quota.</p>
+            aws_sdk_deadline.errors.validation_exception.ValidationException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
+            aws_sdk_deadline.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -729,6 +810,15 @@ class AsyncdeadlineClient:
             farm_id: <p>The unique identifier of the farm that contains the queue and limit to disassociate.</p>
             queue_id: <p>The unique identifier of the queue to disassociate.</p>
             limit_id: <p>The unique identifier of the limit to disassociate.</p>
+
+        Raises:
+            aws_sdk_deadline.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action.</p>
+            aws_sdk_deadline.errors.conflict_exception.ConflictException: <p>Your request has conflicting operations. This can occur if you're trying to perform more than one operation on the same resource at the same time.</p>
+            aws_sdk_deadline.errors.internal_server_error_exception.InternalServerErrorException: <p>Deadline Cloud can't process your request right now. Try again later.</p>
+            aws_sdk_deadline.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_deadline.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a request rate quota.</p>
+            aws_sdk_deadline.errors.validation_exception.ValidationException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
+            aws_sdk_deadline.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -773,6 +863,14 @@ class AsyncdeadlineClient:
             farm_id: <p>The farm ID of the farm that contains the queue-fleet association.</p>
             queue_id: <p>The queue ID for the queue-fleet association.</p>
             fleet_id: <p>The fleet ID for the queue-fleet association.</p>
+
+        Raises:
+            aws_sdk_deadline.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action.</p>
+            aws_sdk_deadline.errors.internal_server_error_exception.InternalServerErrorException: <p>Deadline Cloud can't process your request right now. Try again later.</p>
+            aws_sdk_deadline.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_deadline.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a request rate quota.</p>
+            aws_sdk_deadline.errors.validation_exception.ValidationException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
+            aws_sdk_deadline.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -817,6 +915,14 @@ class AsyncdeadlineClient:
             farm_id: <p>The unique identifier of the farm that contains the associated queue and limit.</p>
             queue_id: <p>The unique identifier of the queue associated with the limit.</p>
             limit_id: <p>The unique identifier of the limit associated with the queue.</p>
+
+        Raises:
+            aws_sdk_deadline.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action.</p>
+            aws_sdk_deadline.errors.internal_server_error_exception.InternalServerErrorException: <p>Deadline Cloud can't process your request right now. Try again later.</p>
+            aws_sdk_deadline.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_deadline.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a request rate quota.</p>
+            aws_sdk_deadline.errors.validation_exception.ValidationException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
+            aws_sdk_deadline.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -863,6 +969,14 @@ class AsyncdeadlineClient:
             next_token: <p>The token for the next set of results, or <code>null</code> to start from the beginning.</p>
             max_results: <p>The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.</p>
             aggregation_id: <p>The identifier returned by the <code>StartSessionsStatisticsAggregation</code> operation that identifies the aggregated statistics.</p>
+
+        Raises:
+            aws_sdk_deadline.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action.</p>
+            aws_sdk_deadline.errors.internal_server_error_exception.InternalServerErrorException: <p>Deadline Cloud can't process your request right now. Try again later.</p>
+            aws_sdk_deadline.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_deadline.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a request rate quota.</p>
+            aws_sdk_deadline.errors.validation_exception.ValidationException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
+            aws_sdk_deadline.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -933,6 +1047,11 @@ class AsyncdeadlineClient:
         Args:
             next_token: <p>The token for the next set of results, or <code>null</code> to start from the beginning.</p>
             max_results: <p>The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.</p>
+
+        Raises:
+            aws_sdk_deadline.errors.internal_server_error_exception.InternalServerErrorException: <p>Deadline Cloud can't process your request right now. Try again later.</p>
+            aws_sdk_deadline.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a request rate quota.</p>
+            aws_sdk_deadline.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1003,6 +1122,13 @@ class AsyncdeadlineClient:
             max_results: <p>The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.</p>
             queue_id: <p>The queue ID for the queue-fleet association list.</p>
             fleet_id: <p>The fleet ID for the queue-fleet association list.</p>
+
+        Raises:
+            aws_sdk_deadline.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action.</p>
+            aws_sdk_deadline.errors.internal_server_error_exception.InternalServerErrorException: <p>Deadline Cloud can't process your request right now. Try again later.</p>
+            aws_sdk_deadline.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_deadline.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a request rate quota.</p>
+            aws_sdk_deadline.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1084,6 +1210,13 @@ class AsyncdeadlineClient:
             max_results: <p>The maximum number of associations to return in each page of results.</p>
             queue_id: <p>Specifies that the operation should return only the queue limit associations for the specified queue. If you specify both the <code>queueId</code> and the <code>limitId</code>, only the specified limit is returned if it exists.</p>
             limit_id: <p>Specifies that the operation should return only the queue limit associations for the specified limit. If you specify both the <code>queueId</code> and the <code>limitId</code>, only the specified limit is returned if it exists.</p>
+
+        Raises:
+            aws_sdk_deadline.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action.</p>
+            aws_sdk_deadline.errors.internal_server_error_exception.InternalServerErrorException: <p>Deadline Cloud can't process your request right now. Try again later.</p>
+            aws_sdk_deadline.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_deadline.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a request rate quota.</p>
+            aws_sdk_deadline.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1157,6 +1290,14 @@ class AsyncdeadlineClient:
 
         Args:
             resource_arn: <p>The resource ARN to list tags for.</p>
+
+        Raises:
+            aws_sdk_deadline.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action.</p>
+            aws_sdk_deadline.errors.internal_server_error_exception.InternalServerErrorException: <p>Deadline Cloud can't process your request right now. Try again later.</p>
+            aws_sdk_deadline.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_deadline.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a request rate quota.</p>
+            aws_sdk_deadline.errors.validation_exception.ValidationException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
+            aws_sdk_deadline.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1209,6 +1350,14 @@ class AsyncdeadlineClient:
             item_offset: <p>The offset for the search results.</p>
             page_size: <p>Specifies the number of results to return.</p>
             queue_ids: <p>The queue ID to use in the job search.</p>
+
+        Raises:
+            aws_sdk_deadline.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action.</p>
+            aws_sdk_deadline.errors.internal_server_error_exception.InternalServerErrorException: <p>Deadline Cloud can't process your request right now. Try again later.</p>
+            aws_sdk_deadline.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_deadline.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a request rate quota.</p>
+            aws_sdk_deadline.errors.validation_exception.ValidationException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
+            aws_sdk_deadline.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1271,6 +1420,14 @@ class AsyncdeadlineClient:
             page_size: <p>Specifies the number of results to return.</p>
             queue_ids: <p>The queue IDs in the step search.</p>
             job_id: <p>The job ID to use in the step search.</p>
+
+        Raises:
+            aws_sdk_deadline.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action.</p>
+            aws_sdk_deadline.errors.internal_server_error_exception.InternalServerErrorException: <p>Deadline Cloud can't process your request right now. Try again later.</p>
+            aws_sdk_deadline.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_deadline.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a request rate quota.</p>
+            aws_sdk_deadline.errors.validation_exception.ValidationException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
+            aws_sdk_deadline.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1335,6 +1492,14 @@ class AsyncdeadlineClient:
             page_size: <p>Specifies the number of results to return.</p>
             queue_ids: <p>The queue IDs to include in the search.</p>
             job_id: <p>The job ID for the task search.</p>
+
+        Raises:
+            aws_sdk_deadline.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action.</p>
+            aws_sdk_deadline.errors.internal_server_error_exception.InternalServerErrorException: <p>Deadline Cloud can't process your request right now. Try again later.</p>
+            aws_sdk_deadline.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_deadline.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a request rate quota.</p>
+            aws_sdk_deadline.errors.validation_exception.ValidationException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
+            aws_sdk_deadline.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1397,6 +1562,14 @@ class AsyncdeadlineClient:
             item_offset: <p>The offset for the search results.</p>
             page_size: <p>Specifies the number of results to return.</p>
             fleet_ids: <p>The fleet ID of the workers to search for.</p>
+
+        Raises:
+            aws_sdk_deadline.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action.</p>
+            aws_sdk_deadline.errors.internal_server_error_exception.InternalServerErrorException: <p>Deadline Cloud can't process your request right now. Try again later.</p>
+            aws_sdk_deadline.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_deadline.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a request rate quota.</p>
+            aws_sdk_deadline.errors.validation_exception.ValidationException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
+            aws_sdk_deadline.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1457,6 +1630,14 @@ class AsyncdeadlineClient:
             period: <p>The period to aggregate the statistics.</p>
             group_by: <p>The field to use to group the statistics.</p>
             statistics: <p>One to four statistics to return.</p>
+
+        Raises:
+            aws_sdk_deadline.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action.</p>
+            aws_sdk_deadline.errors.internal_server_error_exception.InternalServerErrorException: <p>Deadline Cloud can't process your request right now. Try again later.</p>
+            aws_sdk_deadline.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_deadline.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a request rate quota.</p>
+            aws_sdk_deadline.errors.validation_exception.ValidationException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
+            aws_sdk_deadline.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1506,6 +1687,15 @@ class AsyncdeadlineClient:
         Args:
             resource_arn: <p>The ARN of the resource to apply tags to.</p>
             tags: <p>Each tag consists of a tag key and a tag value. Tag keys and values are both required, but tag values can be empty strings.</p>
+
+        Raises:
+            aws_sdk_deadline.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action.</p>
+            aws_sdk_deadline.errors.conflict_exception.ConflictException: <p>Your request has conflicting operations. This can occur if you're trying to perform more than one operation on the same resource at the same time.</p>
+            aws_sdk_deadline.errors.internal_server_error_exception.InternalServerErrorException: <p>Deadline Cloud can't process your request right now. Try again later.</p>
+            aws_sdk_deadline.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_deadline.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a request rate quota.</p>
+            aws_sdk_deadline.errors.validation_exception.ValidationException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
+            aws_sdk_deadline.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1548,6 +1738,15 @@ class AsyncdeadlineClient:
         Args:
             resource_arn: <p>The ARN of the resource to remove the tag from.</p>
             tag_keys: <p>They keys of the tag.</p>
+
+        Raises:
+            aws_sdk_deadline.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action.</p>
+            aws_sdk_deadline.errors.conflict_exception.ConflictException: <p>Your request has conflicting operations. This can occur if you're trying to perform more than one operation on the same resource at the same time.</p>
+            aws_sdk_deadline.errors.internal_server_error_exception.InternalServerErrorException: <p>Deadline Cloud can't process your request right now. Try again later.</p>
+            aws_sdk_deadline.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_deadline.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a request rate quota.</p>
+            aws_sdk_deadline.errors.validation_exception.ValidationException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
+            aws_sdk_deadline.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1593,6 +1792,14 @@ class AsyncdeadlineClient:
             queue_id: <p>The queue ID to update.</p>
             fleet_id: <p>The fleet ID to update.</p>
             status: <p>The status to update.</p>
+
+        Raises:
+            aws_sdk_deadline.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action.</p>
+            aws_sdk_deadline.errors.internal_server_error_exception.InternalServerErrorException: <p>Deadline Cloud can't process your request right now. Try again later.</p>
+            aws_sdk_deadline.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_deadline.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a request rate quota.</p>
+            aws_sdk_deadline.errors.validation_exception.ValidationException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
+            aws_sdk_deadline.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1640,6 +1847,14 @@ class AsyncdeadlineClient:
             queue_id: <p>The unique identifier of the queue associated to the limit.</p>
             limit_id: <p>The unique identifier of the limit associated to the queue.</p>
             status: <p>Sets the status of the limit. You can mark the limit active, or you can stop usage of the limit and either complete existing tasks or cancel any existing tasks immediately. </p>
+
+        Raises:
+            aws_sdk_deadline.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action.</p>
+            aws_sdk_deadline.errors.internal_server_error_exception.InternalServerErrorException: <p>Deadline Cloud can't process your request right now. Try again later.</p>
+            aws_sdk_deadline.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_deadline.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a request rate quota.</p>
+            aws_sdk_deadline.errors.validation_exception.ValidationException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
+            aws_sdk_deadline.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

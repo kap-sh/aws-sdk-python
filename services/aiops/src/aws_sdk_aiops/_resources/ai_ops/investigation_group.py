@@ -79,6 +79,17 @@ class InvestigationGroup:
             chatbot_notification_channel: <p>Use this structure to integrate CloudWatch investigations with chat applications. This structure is a string array. For the first string, specify the ARN of an Amazon SNS topic. For the array of strings, specify the ARNs of one or more chat applications configurations that you want to associate with that topic. For more information about these configuration ARNs, see <a href=\"https://docs.aws.amazon.com/chatbot/latest/adminguide/getting-started.html\">Getting started with Amazon Q in chat applications</a> and <a href=\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awschatbot.html#awschatbot-resources-for-iam-policies\">Resource type defined by Amazon Web Services Chatbot</a>.</p>
             is_cloud_trail_event_history_enabled: <p>Specify <code>true</code> to enable CloudWatch investigations to have access to change events that are recorded by CloudTrail. The default is <code>true</code>.</p>
             cross_account_configurations: <p>List of <code>sourceRoleArn</code> values that have been configured for cross-account access.</p>
+
+        Raises:
+            aws_sdk_aiops.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permissions to perform this action.</p>
+            aws_sdk_aiops.errors.conflict_exception.ConflictException: <p>This operation couldn't be completed because of a conflict in resource states.</p>
+            aws_sdk_aiops.errors.forbidden_exception.ForbiddenException: <p>Access id denied for this operation, or this operation is not valid for the specified resource.</p>
+            aws_sdk_aiops.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. You can try again later.</p>
+            aws_sdk_aiops.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource doesn't exist.</p>
+            aws_sdk_aiops.errors.validation_exception.ValidationException: <p>This operation or its parameters aren't formatted correctly.</p>
+            aws_sdk_aiops.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>This request exceeds a service quota.</p>
+            aws_sdk_aiops.errors.throttling_exception.ThrottlingException: <p>The request was throttled because of quota limits. You can try again later.</p>
+            aws_sdk_aiops.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -133,6 +144,16 @@ class InvestigationGroup:
 
         Args:
             identifier: <p>Specify either the name or the ARN of the investigation group that you want to view. This is used to set the name of the investigation group.</p>
+
+        Raises:
+            aws_sdk_aiops.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permissions to perform this action.</p>
+            aws_sdk_aiops.errors.conflict_exception.ConflictException: <p>This operation couldn't be completed because of a conflict in resource states.</p>
+            aws_sdk_aiops.errors.forbidden_exception.ForbiddenException: <p>Access id denied for this operation, or this operation is not valid for the specified resource.</p>
+            aws_sdk_aiops.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. You can try again later.</p>
+            aws_sdk_aiops.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource doesn't exist.</p>
+            aws_sdk_aiops.errors.validation_exception.ValidationException: <p>This operation or its parameters aren't formatted correctly.</p>
+            aws_sdk_aiops.errors.throttling_exception.ThrottlingException: <p>The request was throttled because of quota limits. You can try again later.</p>
+            aws_sdk_aiops.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -190,6 +211,16 @@ class InvestigationGroup:
             chatbot_notification_channel: <p>Use this structure to integrate CloudWatch investigations with chat applications. This structure is a string array. For the first string, specify the ARN of an Amazon SNS topic. For the array of strings, specify the ARNs of one or more chat applications configurations that you want to associate with that topic. For more information about these configuration ARNs, see <a href=\"https://docs.aws.amazon.com/chatbot/latest/adminguide/getting-started.html\">Getting started with Amazon Q in chat applications</a> and <a href=\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awschatbot.html#awschatbot-resources-for-iam-policies\">Resource type defined by Amazon Web Services Chatbot</a>.</p>
             is_cloud_trail_event_history_enabled: <p>Specify <code>true</code> to enable CloudWatch investigations to have access to change events that are recorded by CloudTrail. The default is <code>true</code>.</p>
             cross_account_configurations: <p>Used to configure cross-account access for an investigation group. It allows the investigation group to access resources in other accounts. </p>
+
+        Raises:
+            aws_sdk_aiops.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permissions to perform this action.</p>
+            aws_sdk_aiops.errors.conflict_exception.ConflictException: <p>This operation couldn't be completed because of a conflict in resource states.</p>
+            aws_sdk_aiops.errors.forbidden_exception.ForbiddenException: <p>Access id denied for this operation, or this operation is not valid for the specified resource.</p>
+            aws_sdk_aiops.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. You can try again later.</p>
+            aws_sdk_aiops.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource doesn't exist.</p>
+            aws_sdk_aiops.errors.validation_exception.ValidationException: <p>This operation or its parameters aren't formatted correctly.</p>
+            aws_sdk_aiops.errors.throttling_exception.ThrottlingException: <p>The request was throttled because of quota limits. You can try again later.</p>
+            aws_sdk_aiops.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -241,6 +272,16 @@ class InvestigationGroup:
 
         Args:
             identifier: <p>Specify either the name or the ARN of the investigation group that you want to delete.</p>
+
+        Raises:
+            aws_sdk_aiops.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permissions to perform this action.</p>
+            aws_sdk_aiops.errors.conflict_exception.ConflictException: <p>This operation couldn't be completed because of a conflict in resource states.</p>
+            aws_sdk_aiops.errors.forbidden_exception.ForbiddenException: <p>Access id denied for this operation, or this operation is not valid for the specified resource.</p>
+            aws_sdk_aiops.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. You can try again later.</p>
+            aws_sdk_aiops.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource doesn't exist.</p>
+            aws_sdk_aiops.errors.validation_exception.ValidationException: <p>This operation or its parameters aren't formatted correctly.</p>
+            aws_sdk_aiops.errors.throttling_exception.ThrottlingException: <p>The request was throttled because of quota limits. You can try again later.</p>
+            aws_sdk_aiops.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -280,6 +321,16 @@ class InvestigationGroup:
         Args:
             next_token: <p>Include this value, if it was returned by the previous operation, to get the next set of service operations.</p>
             max_results: <p>The maximum number of results to return in one operation. If you omit this parameter, the default of 50 is used.</p>
+
+        Raises:
+            aws_sdk_aiops.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permissions to perform this action.</p>
+            aws_sdk_aiops.errors.conflict_exception.ConflictException: <p>This operation couldn't be completed because of a conflict in resource states.</p>
+            aws_sdk_aiops.errors.forbidden_exception.ForbiddenException: <p>Access id denied for this operation, or this operation is not valid for the specified resource.</p>
+            aws_sdk_aiops.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. You can try again later.</p>
+            aws_sdk_aiops.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource doesn't exist.</p>
+            aws_sdk_aiops.errors.validation_exception.ValidationException: <p>This operation or its parameters aren't formatted correctly.</p>
+            aws_sdk_aiops.errors.throttling_exception.ThrottlingException: <p>The request was throttled because of quota limits. You can try again later.</p>
+            aws_sdk_aiops.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -349,6 +400,17 @@ class AsyncInvestigationGroup:
             chatbot_notification_channel: <p>Use this structure to integrate CloudWatch investigations with chat applications. This structure is a string array. For the first string, specify the ARN of an Amazon SNS topic. For the array of strings, specify the ARNs of one or more chat applications configurations that you want to associate with that topic. For more information about these configuration ARNs, see <a href=\"https://docs.aws.amazon.com/chatbot/latest/adminguide/getting-started.html\">Getting started with Amazon Q in chat applications</a> and <a href=\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awschatbot.html#awschatbot-resources-for-iam-policies\">Resource type defined by Amazon Web Services Chatbot</a>.</p>
             is_cloud_trail_event_history_enabled: <p>Specify <code>true</code> to enable CloudWatch investigations to have access to change events that are recorded by CloudTrail. The default is <code>true</code>.</p>
             cross_account_configurations: <p>List of <code>sourceRoleArn</code> values that have been configured for cross-account access.</p>
+
+        Raises:
+            aws_sdk_aiops.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permissions to perform this action.</p>
+            aws_sdk_aiops.errors.conflict_exception.ConflictException: <p>This operation couldn't be completed because of a conflict in resource states.</p>
+            aws_sdk_aiops.errors.forbidden_exception.ForbiddenException: <p>Access id denied for this operation, or this operation is not valid for the specified resource.</p>
+            aws_sdk_aiops.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. You can try again later.</p>
+            aws_sdk_aiops.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource doesn't exist.</p>
+            aws_sdk_aiops.errors.validation_exception.ValidationException: <p>This operation or its parameters aren't formatted correctly.</p>
+            aws_sdk_aiops.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>This request exceeds a service quota.</p>
+            aws_sdk_aiops.errors.throttling_exception.ThrottlingException: <p>The request was throttled because of quota limits. You can try again later.</p>
+            aws_sdk_aiops.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -404,6 +466,16 @@ class AsyncInvestigationGroup:
 
         Args:
             identifier: <p>Specify either the name or the ARN of the investigation group that you want to view. This is used to set the name of the investigation group.</p>
+
+        Raises:
+            aws_sdk_aiops.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permissions to perform this action.</p>
+            aws_sdk_aiops.errors.conflict_exception.ConflictException: <p>This operation couldn't be completed because of a conflict in resource states.</p>
+            aws_sdk_aiops.errors.forbidden_exception.ForbiddenException: <p>Access id denied for this operation, or this operation is not valid for the specified resource.</p>
+            aws_sdk_aiops.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. You can try again later.</p>
+            aws_sdk_aiops.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource doesn't exist.</p>
+            aws_sdk_aiops.errors.validation_exception.ValidationException: <p>This operation or its parameters aren't formatted correctly.</p>
+            aws_sdk_aiops.errors.throttling_exception.ThrottlingException: <p>The request was throttled because of quota limits. You can try again later.</p>
+            aws_sdk_aiops.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -462,6 +534,16 @@ class AsyncInvestigationGroup:
             chatbot_notification_channel: <p>Use this structure to integrate CloudWatch investigations with chat applications. This structure is a string array. For the first string, specify the ARN of an Amazon SNS topic. For the array of strings, specify the ARNs of one or more chat applications configurations that you want to associate with that topic. For more information about these configuration ARNs, see <a href=\"https://docs.aws.amazon.com/chatbot/latest/adminguide/getting-started.html\">Getting started with Amazon Q in chat applications</a> and <a href=\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awschatbot.html#awschatbot-resources-for-iam-policies\">Resource type defined by Amazon Web Services Chatbot</a>.</p>
             is_cloud_trail_event_history_enabled: <p>Specify <code>true</code> to enable CloudWatch investigations to have access to change events that are recorded by CloudTrail. The default is <code>true</code>.</p>
             cross_account_configurations: <p>Used to configure cross-account access for an investigation group. It allows the investigation group to access resources in other accounts. </p>
+
+        Raises:
+            aws_sdk_aiops.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permissions to perform this action.</p>
+            aws_sdk_aiops.errors.conflict_exception.ConflictException: <p>This operation couldn't be completed because of a conflict in resource states.</p>
+            aws_sdk_aiops.errors.forbidden_exception.ForbiddenException: <p>Access id denied for this operation, or this operation is not valid for the specified resource.</p>
+            aws_sdk_aiops.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. You can try again later.</p>
+            aws_sdk_aiops.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource doesn't exist.</p>
+            aws_sdk_aiops.errors.validation_exception.ValidationException: <p>This operation or its parameters aren't formatted correctly.</p>
+            aws_sdk_aiops.errors.throttling_exception.ThrottlingException: <p>The request was throttled because of quota limits. You can try again later.</p>
+            aws_sdk_aiops.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -514,6 +596,16 @@ class AsyncInvestigationGroup:
 
         Args:
             identifier: <p>Specify either the name or the ARN of the investigation group that you want to delete.</p>
+
+        Raises:
+            aws_sdk_aiops.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permissions to perform this action.</p>
+            aws_sdk_aiops.errors.conflict_exception.ConflictException: <p>This operation couldn't be completed because of a conflict in resource states.</p>
+            aws_sdk_aiops.errors.forbidden_exception.ForbiddenException: <p>Access id denied for this operation, or this operation is not valid for the specified resource.</p>
+            aws_sdk_aiops.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. You can try again later.</p>
+            aws_sdk_aiops.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource doesn't exist.</p>
+            aws_sdk_aiops.errors.validation_exception.ValidationException: <p>This operation or its parameters aren't formatted correctly.</p>
+            aws_sdk_aiops.errors.throttling_exception.ThrottlingException: <p>The request was throttled because of quota limits. You can try again later.</p>
+            aws_sdk_aiops.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -554,6 +646,16 @@ class AsyncInvestigationGroup:
         Args:
             next_token: <p>Include this value, if it was returned by the previous operation, to get the next set of service operations.</p>
             max_results: <p>The maximum number of results to return in one operation. If you omit this parameter, the default of 50 is used.</p>
+
+        Raises:
+            aws_sdk_aiops.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permissions to perform this action.</p>
+            aws_sdk_aiops.errors.conflict_exception.ConflictException: <p>This operation couldn't be completed because of a conflict in resource states.</p>
+            aws_sdk_aiops.errors.forbidden_exception.ForbiddenException: <p>Access id denied for this operation, or this operation is not valid for the specified resource.</p>
+            aws_sdk_aiops.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. You can try again later.</p>
+            aws_sdk_aiops.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource doesn't exist.</p>
+            aws_sdk_aiops.errors.validation_exception.ValidationException: <p>This operation or its parameters aren't formatted correctly.</p>
+            aws_sdk_aiops.errors.throttling_exception.ThrottlingException: <p>The request was throttled because of quota limits. You can try again later.</p>
+            aws_sdk_aiops.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

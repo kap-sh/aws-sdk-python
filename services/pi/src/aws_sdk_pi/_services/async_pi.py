@@ -195,6 +195,12 @@ class AsyncPIClient:
             start_time: <p>The start time defined for the analysis report.</p>
             end_time: <p>The end time defined for the analysis report.</p>
             tags: <p>The metadata assigned to the analysis report consisting of a key-value pair.</p>
+
+        Raises:
+            aws_sdk_pi.errors.internal_service_error.InternalServiceError: <p>The request failed due to an unknown error.</p>
+            aws_sdk_pi.errors.invalid_argument_exception.InvalidArgumentException: <p>One of the arguments provided is invalid for this request.</p>
+            aws_sdk_pi.errors.not_authorized_exception.NotAuthorizedException: <p>The user is not authorized to perform this request.</p>
+            aws_sdk_pi.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -243,6 +249,12 @@ class AsyncPIClient:
             service_type: <p>The Amazon Web Services service for which Performance Insights will return metrics. Valid value is <code>RDS</code>.</p>
             identifier: <p>An immutable identifier for a data source that is unique for an Amazon Web Services Region. Performance Insights gathers metrics from this data source. In the console, the identifier is shown as <i>ResourceID</i>. When you call <code>DescribeDBInstances</code>, the identifier is returned as <code>DbiResourceId</code>.</p> <p>To use a DB instance as a data source, specify its <code>DbiResourceId</code> value. For example, specify <code>db-ABCDEFGHIJKLMNOPQRSTU1VW2X</code>.</p>
             analysis_report_id: <p>The unique identifier of the analysis report for deletion.</p>
+
+        Raises:
+            aws_sdk_pi.errors.internal_service_error.InternalServiceError: <p>The request failed due to an unknown error.</p>
+            aws_sdk_pi.errors.invalid_argument_exception.InvalidArgumentException: <p>One of the arguments provided is invalid for this request.</p>
+            aws_sdk_pi.errors.not_authorized_exception.NotAuthorizedException: <p>The user is not authorized to perform this request.</p>
+            aws_sdk_pi.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -311,6 +323,12 @@ class AsyncPIClient:
             filter: <p>One or more filters to apply in the request. Restrictions:</p> <ul> <li> <p>Any number of filters by the same dimension, as specified in the <code>GroupBy</code> or <code>Partition</code> parameters.</p> </li> <li> <p>A single filter for any other dimension in this dimension group.</p> </li> </ul> <note> <p>The <code>db.sql.db_id</code> filter isn't available for RDS for SQL Server DB instances.</p> </note>
             max_results: <p>The maximum number of items to return in the response. If more items exist than the specified <code>MaxRecords</code> value, a pagination token is included in the response so that the remaining results can be retrieved. </p>
             next_token: <p>An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the token, up to the value specified by <code>MaxRecords</code>.</p>
+
+        Raises:
+            aws_sdk_pi.errors.internal_service_error.InternalServiceError: <p>The request failed due to an unknown error.</p>
+            aws_sdk_pi.errors.invalid_argument_exception.InvalidArgumentException: <p>One of the arguments provided is invalid for this request.</p>
+            aws_sdk_pi.errors.not_authorized_exception.NotAuthorizedException: <p>The user is not authorized to perform this request.</p>
+            aws_sdk_pi.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -376,6 +394,12 @@ class AsyncPIClient:
             group: <p>The name of the dimension group. Performance Insights searches the specified group for the dimension group ID. The following group name values are valid:</p> <ul> <li> <p> <code>db.execution_plan</code> (Amazon RDS and Aurora only)</p> </li> <li> <p> <code>db.lock_snapshot</code> (Aurora only)</p> </li> <li> <p> <code>db.query</code> (Amazon DocumentDB only)</p> </li> <li> <p> <code>db.sql</code> (Amazon RDS and Aurora only)</p> </li> </ul>
             group_identifier: <p>The ID of the dimension group from which to retrieve dimension details. For dimension group <code>db.sql</code>, the group ID is <code>db.sql.id</code>. The following group ID values are valid:</p> <ul> <li> <p> <code>db.execution_plan.id</code> for dimension group <code>db.execution_plan</code> (Aurora and RDS only)</p> </li> <li> <p> <code>db.sql.id</code> for dimension group <code>db.sql</code> (Aurora and RDS only)</p> </li> <li> <p> <code>db.query.id</code> for dimension group <code>db.query</code> (DocumentDB only)</p> </li> <li> <p>For the dimension group <code>db.lock_snapshot</code>, the <code>GroupIdentifier</code> is the epoch timestamp when Performance Insights captured the snapshot, in seconds. You can retrieve this value with the <code>GetResourceMetrics</code> operation for a 1 second period.</p> </li> </ul>
             requested_dimensions: <p>A list of dimensions to retrieve the detail data for within the given dimension group. If you don't specify this parameter, Performance Insights returns all dimension data within the specified dimension group. Specify dimension names for the following dimension groups:</p> <ul> <li> <p> <code>db.execution_plan</code> - Specify the dimension name <code>db.execution_plan.raw_plan</code> or the short dimension name <code>raw_plan</code> (Amazon RDS and Aurora only)</p> </li> <li> <p> <code>db.lock_snapshot</code> - Specify the dimension name <code>db.lock_snapshot.lock_trees</code> or the short dimension name <code>lock_trees</code>. (Aurora only)</p> </li> <li> <p> <code>db.sql</code> - Specify either the full dimension name <code>db.sql.statement</code> or the short dimension name <code>statement</code> (Aurora and RDS only).</p> </li> <li> <p> <code>db.query</code> - Specify either the full dimension name <code>db.query.statement</code> or the short dimension name <code>statement</code> (DocumentDB only).</p> </li> </ul>
+
+        Raises:
+            aws_sdk_pi.errors.internal_service_error.InternalServiceError: <p>The request failed due to an unknown error.</p>
+            aws_sdk_pi.errors.invalid_argument_exception.InvalidArgumentException: <p>One of the arguments provided is invalid for this request.</p>
+            aws_sdk_pi.errors.not_authorized_exception.NotAuthorizedException: <p>The user is not authorized to perform this request.</p>
+            aws_sdk_pi.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -429,6 +453,12 @@ class AsyncPIClient:
             analysis_report_id: <p>A unique identifier of the created analysis report. For example, <code>report-12345678901234567</code> </p>
             text_format: <p>Indicates the text format in the report. The options are <code>PLAIN_TEXT</code> or <code>MARKDOWN</code>. The default value is <code>plain text</code>.</p>
             accept_language: <p>The text language in the report. The default language is <code>EN_US</code> (English). </p>
+
+        Raises:
+            aws_sdk_pi.errors.internal_service_error.InternalServiceError: <p>The request failed due to an unknown error.</p>
+            aws_sdk_pi.errors.invalid_argument_exception.InvalidArgumentException: <p>One of the arguments provided is invalid for this request.</p>
+            aws_sdk_pi.errors.not_authorized_exception.NotAuthorizedException: <p>The user is not authorized to perform this request.</p>
+            aws_sdk_pi.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -475,6 +505,12 @@ class AsyncPIClient:
         Args:
             service_type: <p>The Amazon Web Services service for which Performance Insights returns metrics.</p>
             identifier: <p>An immutable identifier for a data source that is unique for an Amazon Web Services Region. Performance Insights gathers metrics from this data source. To use a DB instance as a data source, specify its <code>DbiResourceId</code> value. For example, specify <code>db-ABCDEFGHIJKLMNOPQRSTU1VW2X</code>. </p>
+
+        Raises:
+            aws_sdk_pi.errors.internal_service_error.InternalServiceError: <p>The request failed due to an unknown error.</p>
+            aws_sdk_pi.errors.invalid_argument_exception.InvalidArgumentException: <p>One of the arguments provided is invalid for this request.</p>
+            aws_sdk_pi.errors.not_authorized_exception.NotAuthorizedException: <p>The user is not authorized to perform this request.</p>
+            aws_sdk_pi.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -532,6 +568,12 @@ class AsyncPIClient:
             max_results: <p>The maximum number of items to return in the response.</p>
             next_token: <p>An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the token, up to the value specified by <code>MaxRecords</code>.</p>
             period_alignment: <p>The returned timestamp which is the start or end time of the time periods. The default value is <code>END_TIME</code>.</p>
+
+        Raises:
+            aws_sdk_pi.errors.internal_service_error.InternalServiceError: <p>The request failed due to an unknown error.</p>
+            aws_sdk_pi.errors.invalid_argument_exception.InvalidArgumentException: <p>One of the arguments provided is invalid for this request.</p>
+            aws_sdk_pi.errors.not_authorized_exception.NotAuthorizedException: <p>The user is not authorized to perform this request.</p>
+            aws_sdk_pi.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -594,6 +636,12 @@ class AsyncPIClient:
             max_results: <p>The maximum number of items to return in the response. If more items exist than the specified <code>MaxRecords</code> value, a pagination token is included in the response so that the remaining results can be retrieved.</p>
             next_token: <p>An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the token, up to the value specified by <code>MaxRecords</code>. </p>
             authorized_actions: <p>The actions to discover the dimensions you are authorized to access. If you specify multiple actions, then the response will contain the dimensions common for all the actions.</p> <p>When you don't specify this request parameter or provide an empty list, the response contains all the available dimensions for the target database engine whether or not you are authorized to access them.</p>
+
+        Raises:
+            aws_sdk_pi.errors.internal_service_error.InternalServiceError: <p>The request failed due to an unknown error.</p>
+            aws_sdk_pi.errors.invalid_argument_exception.InvalidArgumentException: <p>One of the arguments provided is invalid for this request.</p>
+            aws_sdk_pi.errors.not_authorized_exception.NotAuthorizedException: <p>The user is not authorized to perform this request.</p>
+            aws_sdk_pi.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -648,6 +696,12 @@ class AsyncPIClient:
             metric_types: <p>The types of metrics to return in the response. Valid values in the array include the following:</p> <ul> <li> <p> <code>os</code> (OS counter metrics) - All engines</p> </li> <li> <p> <code>db</code> (DB load metrics) - All engines except for Amazon DocumentDB</p> </li> <li> <p> <code>db.sql.stats</code> (per-SQL metrics) - All engines except for Amazon DocumentDB</p> </li> <li> <p> <code>db.sql_tokenized.stats</code> (per-SQL digest metrics) - All engines except for Amazon DocumentDB</p> </li> </ul>
             next_token: <p>An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the token, up to the value specified by <code>MaxRecords</code>. </p>
             max_results: <p>The maximum number of items to return. If the <code>MaxRecords</code> value is less than the number of existing items, the response includes a pagination token. </p>
+
+        Raises:
+            aws_sdk_pi.errors.internal_service_error.InternalServiceError: <p>The request failed due to an unknown error.</p>
+            aws_sdk_pi.errors.invalid_argument_exception.InvalidArgumentException: <p>One of the arguments provided is invalid for this request.</p>
+            aws_sdk_pi.errors.not_authorized_exception.NotAuthorizedException: <p>The user is not authorized to perform this request.</p>
+            aws_sdk_pi.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -704,6 +758,12 @@ class AsyncPIClient:
             recommendation_ids: <p>A list of recommendation identifiers to filter the results.</p>
             max_results: <p>The maximum number of items to return in the response. If more items exist than the specified <code>MaxResults</code> value, a pagination token is included in the response so that the remaining results can be retrieved. </p>
             next_token: <p>An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the token, up to the value specified by <code>MaxResults</code>.</p>
+
+        Raises:
+            aws_sdk_pi.errors.internal_service_error.InternalServiceError: <p>The request failed due to an unknown error.</p>
+            aws_sdk_pi.errors.invalid_argument_exception.InvalidArgumentException: <p>One of the arguments provided is invalid for this request.</p>
+            aws_sdk_pi.errors.not_authorized_exception.NotAuthorizedException: <p>The user is not authorized to perform this request.</p>
+            aws_sdk_pi.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -789,6 +849,12 @@ class AsyncPIClient:
             next_token: <p>An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the token, up to the value specified by <code>MaxResults</code>.</p>
             max_results: <p>The maximum number of items to return in the response. If more items exist than the specified <code>MaxResults</code> value, a pagination token is included in the response so that the remaining results can be retrieved. </p>
             list_tags: <p>Specifies whether or not to include the list of tags in the response.</p>
+
+        Raises:
+            aws_sdk_pi.errors.internal_service_error.InternalServiceError: <p>The request failed due to an unknown error.</p>
+            aws_sdk_pi.errors.invalid_argument_exception.InvalidArgumentException: <p>One of the arguments provided is invalid for this request.</p>
+            aws_sdk_pi.errors.not_authorized_exception.NotAuthorizedException: <p>The user is not authorized to perform this request.</p>
+            aws_sdk_pi.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -836,6 +902,12 @@ class AsyncPIClient:
         Args:
             service_type: <p>List the tags for the Amazon Web Services service for which Performance Insights returns metrics. Valid value is <code>RDS</code>.</p>
             resource_arn: <p>Lists all the tags for the Amazon RDS Performance Insights resource. This value is an Amazon Resource Name (ARN). For information about creating an ARN, see <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing\"> Constructing an RDS Amazon Resource Name (ARN)</a>.</p>
+
+        Raises:
+            aws_sdk_pi.errors.internal_service_error.InternalServiceError: <p>The request failed due to an unknown error.</p>
+            aws_sdk_pi.errors.invalid_argument_exception.InvalidArgumentException: <p>One of the arguments provided is invalid for this request.</p>
+            aws_sdk_pi.errors.not_authorized_exception.NotAuthorizedException: <p>The user is not authorized to perform this request.</p>
+            aws_sdk_pi.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -879,6 +951,12 @@ class AsyncPIClient:
             service_type: <p>The Amazon Web Services service for which Performance Insights returns metrics. Valid value is <code>RDS</code>.</p>
             resource_arn: <p>The Amazon RDS Performance Insights resource that the tags are added to. This value is an Amazon Resource Name (ARN). For information about creating an ARN, see <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing\"> Constructing an RDS Amazon Resource Name (ARN)</a>.</p>
             tags: <p>The metadata assigned to an Amazon RDS resource consisting of a key-value pair.</p>
+
+        Raises:
+            aws_sdk_pi.errors.internal_service_error.InternalServiceError: <p>The request failed due to an unknown error.</p>
+            aws_sdk_pi.errors.invalid_argument_exception.InvalidArgumentException: <p>One of the arguments provided is invalid for this request.</p>
+            aws_sdk_pi.errors.not_authorized_exception.NotAuthorizedException: <p>The user is not authorized to perform this request.</p>
+            aws_sdk_pi.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -923,6 +1001,12 @@ class AsyncPIClient:
             service_type: <p>List the tags for the Amazon Web Services service for which Performance Insights returns metrics. Valid value is <code>RDS</code>.</p>
             resource_arn: <p>The Amazon RDS Performance Insights resource that the tags are added to. This value is an Amazon Resource Name (ARN). For information about creating an ARN, see <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing\"> Constructing an RDS Amazon Resource Name (ARN)</a>.</p>
             tag_keys: <p>The metadata assigned to an Amazon RDS Performance Insights resource consisting of a key-value pair.</p>
+
+        Raises:
+            aws_sdk_pi.errors.internal_service_error.InternalServiceError: <p>The request failed due to an unknown error.</p>
+            aws_sdk_pi.errors.invalid_argument_exception.InvalidArgumentException: <p>One of the arguments provided is invalid for this request.</p>
+            aws_sdk_pi.errors.not_authorized_exception.NotAuthorizedException: <p>The user is not authorized to perform this request.</p>
+            aws_sdk_pi.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

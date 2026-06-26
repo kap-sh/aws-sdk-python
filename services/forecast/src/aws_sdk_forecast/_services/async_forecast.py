@@ -337,6 +337,14 @@ class AsyncforecastClient:
             tags: <p>Optional metadata to help you categorize and organize your predictors. Each tag consists of a key and an optional value, both of which you define. Tag keys and values are case sensitive.</p> <p>The following restrictions apply to tags:</p> <ul> <li> <p>For each resource, each tag key must be unique and each tag key must have one value.</p> </li> <li> <p>Maximum number of tags per resource: 50.</p> </li> <li> <p>Maximum key length: 128 Unicode characters in UTF-8.</p> </li> <li> <p>Maximum value length: 256 Unicode characters in UTF-8.</p> </li> <li> <p>Accepted characters: all letters and numbers, spaces representable in UTF-8, and + - = . _ : / @. If your tagging schema is used across other services and resources, the character restrictions of those services also apply. </p> </li> <li> <p>Key prefixes cannot include any upper or lowercase combination of <code>aws:</code> or <code>AWS:</code>. Values can have this prefix. If a tag value has <code>aws</code> as its prefix but the key does not, Forecast considers it to be a user tag and will count against the limit of 50 tags. Tags with only the key prefix of <code>aws</code> do not count against your tags per resource limit. You cannot edit or delete tag keys with this prefix.</p> </li> </ul>
             monitor_config: <p>The configuration details for predictor monitoring. Provide a name for the monitor resource to enable predictor monitoring.</p> <p>Predictor monitoring allows you to see how your predictor's performance changes over time. For more information, see <a href=\"https://docs.aws.amazon.com/forecast/latest/dg/predictor-monitoring.html\">Predictor Monitoring</a>.</p>
             time_alignment_boundary: <p>The time boundary Forecast uses to align and aggregate any data that doesn't align with your forecast frequency. Provide the unit of time and the time boundary as a key value pair. For more information on specifying a time boundary, see <a href=\"https://docs.aws.amazon.com/forecast/latest/dg/data-aggregation.html#specifying-time-boundary\">Specifying a Time Boundary</a>. If you don't provide a time boundary, Forecast uses a set of <a href=\"https://docs.aws.amazon.com/forecast/latest/dg/data-aggregation.html#default-time-boundaries\">Default Time Boundaries</a>.</p>
+
+        Raises:
+            aws_sdk_forecast.errors.invalid_input_exception.InvalidInputException: <p>We can't process the request because it includes an invalid value or a value that exceeds the valid range.</p>
+            aws_sdk_forecast.errors.limit_exceeded_exception.LimitExceededException: <p>The limit on the number of resources per account has been exceeded.</p>
+            aws_sdk_forecast.errors.resource_already_exists_exception.ResourceAlreadyExistsException: <p>There is already a resource with this name. Try again with a different name.</p>
+            aws_sdk_forecast.errors.resource_in_use_exception.ResourceInUseException: <p>The specified resource is in use.</p>
+            aws_sdk_forecast.errors.resource_not_found_exception.ResourceNotFoundException: <p>We can't find a resource with that Amazon Resource Name (ARN). Check the ARN and try again.</p>
+            aws_sdk_forecast.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -413,6 +421,12 @@ class AsyncforecastClient:
             schema: <p>The schema for the dataset. The schema attributes and their order must match the fields in your data. The dataset <code>Domain</code> and <code>DatasetType</code> that you choose determine the minimum required fields in your training data. For information about the required fields for a specific dataset domain and type, see <a href=\"https://docs.aws.amazon.com/forecast/latest/dg/howitworks-domains-ds-types.html\">Dataset Domains and Dataset Types</a>.</p>
             encryption_config: <p>An Key Management Service (KMS) key and the Identity and Access Management (IAM) role that Amazon Forecast can assume to access the key.</p>
             tags: <p>The optional metadata that you apply to the dataset to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.</p> <p>The following basic restrictions apply to tags:</p> <ul> <li> <p>Maximum number of tags per resource - 50.</p> </li> <li> <p>For each resource, each tag key must be unique, and each tag key can have only one value.</p> </li> <li> <p>Maximum key length - 128 Unicode characters in UTF-8.</p> </li> <li> <p>Maximum value length - 256 Unicode characters in UTF-8.</p> </li> <li> <p>If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.</p> </li> <li> <p>Tag keys and values are case sensitive.</p> </li> <li> <p>Do not use <code>aws:</code>, <code>AWS:</code>, or any upper or lowercase combination of such as a prefix for keys as it is reserved for Amazon Web Services use. You cannot edit or delete tag keys with this prefix. Values can have this prefix. If a tag value has <code>aws</code> as its prefix but the key does not, then Forecast considers it to be a user tag and will count against the limit of 50 tags. Tags with only the key prefix of <code>aws</code> do not count against your tags per resource limit.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_forecast.errors.invalid_input_exception.InvalidInputException: <p>We can't process the request because it includes an invalid value or a value that exceeds the valid range.</p>
+            aws_sdk_forecast.errors.limit_exceeded_exception.LimitExceededException: <p>The limit on the number of resources per account has been exceeded.</p>
+            aws_sdk_forecast.errors.resource_already_exists_exception.ResourceAlreadyExistsException: <p>There is already a resource with this name. Try again with a different name.</p>
+            aws_sdk_forecast.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -466,6 +480,14 @@ class AsyncforecastClient:
             domain: <p>The domain associated with the dataset group. When you add a dataset to a dataset group, this value and the value specified for the <code>Domain</code> parameter of the <a href=\"https://docs.aws.amazon.com/forecast/latest/dg/API_CreateDataset.html\">CreateDataset</a> operation must match.</p> <p>The <code>Domain</code> and <code>DatasetType</code> that you choose determine the fields that must be present in training data that you import to a dataset. For example, if you choose the <code>RETAIL</code> domain and <code>TARGET_TIME_SERIES</code> as the <code>DatasetType</code>, Amazon Forecast requires that <code>item_id</code>, <code>timestamp</code>, and <code>demand</code> fields are present in your data. For more information, see <a href=\"https://docs.aws.amazon.com/forecast/latest/dg/howitworks-datasets-groups.html\">Dataset groups</a>.</p>
             dataset_arns: <p>An array of Amazon Resource Names (ARNs) of the datasets that you want to include in the dataset group.</p>
             tags: <p>The optional metadata that you apply to the dataset group to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.</p> <p>The following basic restrictions apply to tags:</p> <ul> <li> <p>Maximum number of tags per resource - 50.</p> </li> <li> <p>For each resource, each tag key must be unique, and each tag key can have only one value.</p> </li> <li> <p>Maximum key length - 128 Unicode characters in UTF-8.</p> </li> <li> <p>Maximum value length - 256 Unicode characters in UTF-8.</p> </li> <li> <p>If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.</p> </li> <li> <p>Tag keys and values are case sensitive.</p> </li> <li> <p>Do not use <code>aws:</code>, <code>AWS:</code>, or any upper or lowercase combination of such as a prefix for keys as it is reserved for Amazon Web Services use. You cannot edit or delete tag keys with this prefix. Values can have this prefix. If a tag value has <code>aws</code> as its prefix but the key does not, then Forecast considers it to be a user tag and will count against the limit of 50 tags. Tags with only the key prefix of <code>aws</code> do not count against your tags per resource limit.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_forecast.errors.invalid_input_exception.InvalidInputException: <p>We can't process the request because it includes an invalid value or a value that exceeds the valid range.</p>
+            aws_sdk_forecast.errors.limit_exceeded_exception.LimitExceededException: <p>The limit on the number of resources per account has been exceeded.</p>
+            aws_sdk_forecast.errors.resource_already_exists_exception.ResourceAlreadyExistsException: <p>There is already a resource with this name. Try again with a different name.</p>
+            aws_sdk_forecast.errors.resource_in_use_exception.ResourceInUseException: <p>The specified resource is in use.</p>
+            aws_sdk_forecast.errors.resource_not_found_exception.ResourceNotFoundException: <p>We can't find a resource with that Amazon Resource Name (ARN). Check the ARN and try again.</p>
+            aws_sdk_forecast.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -533,6 +555,14 @@ class AsyncforecastClient:
             tags: <p>The optional metadata that you apply to the dataset import job to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.</p> <p>The following basic restrictions apply to tags:</p> <ul> <li> <p>Maximum number of tags per resource - 50.</p> </li> <li> <p>For each resource, each tag key must be unique, and each tag key can have only one value.</p> </li> <li> <p>Maximum key length - 128 Unicode characters in UTF-8.</p> </li> <li> <p>Maximum value length - 256 Unicode characters in UTF-8.</p> </li> <li> <p>If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.</p> </li> <li> <p>Tag keys and values are case sensitive.</p> </li> <li> <p>Do not use <code>aws:</code>, <code>AWS:</code>, or any upper or lowercase combination of such as a prefix for keys as it is reserved for Amazon Web Services use. You cannot edit or delete tag keys with this prefix. Values can have this prefix. If a tag value has <code>aws</code> as its prefix but the key does not, then Forecast considers it to be a user tag and will count against the limit of 50 tags. Tags with only the key prefix of <code>aws</code> do not count against your tags per resource limit.</p> </li> </ul>
             format: <p>The format of the imported data, CSV or PARQUET. The default value is CSV.</p>
             import_mode: <p>Specifies whether the dataset import job is a <code>FULL</code> or <code>INCREMENTAL</code> import. A <code>FULL</code> dataset import replaces all of the existing data with the newly imported data. An <code>INCREMENTAL</code> import appends the imported data to the existing data.</p>
+
+        Raises:
+            aws_sdk_forecast.errors.invalid_input_exception.InvalidInputException: <p>We can't process the request because it includes an invalid value or a value that exceeds the valid range.</p>
+            aws_sdk_forecast.errors.limit_exceeded_exception.LimitExceededException: <p>The limit on the number of resources per account has been exceeded.</p>
+            aws_sdk_forecast.errors.resource_already_exists_exception.ResourceAlreadyExistsException: <p>There is already a resource with this name. Try again with a different name.</p>
+            aws_sdk_forecast.errors.resource_in_use_exception.ResourceInUseException: <p>The specified resource is in use.</p>
+            aws_sdk_forecast.errors.resource_not_found_exception.ResourceNotFoundException: <p>We can't find a resource with that Amazon Resource Name (ARN). Check the ARN and try again.</p>
+            aws_sdk_forecast.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -605,6 +635,14 @@ class AsyncforecastClient:
             start_date_time: <p>If <code>TimePointGranularity</code> is set to <code>SPECIFIC</code>, define the first point for the Explainability.</p> <p>Use the following timestamp format: yyyy-MM-ddTHH:mm:ss (example: 2015-01-01T20:00:00)</p>
             end_date_time: <p>If <code>TimePointGranularity</code> is set to <code>SPECIFIC</code>, define the last time point for the Explainability.</p> <p>Use the following timestamp format: yyyy-MM-ddTHH:mm:ss (example: 2015-01-01T20:00:00)</p>
             tags: <p>Optional metadata to help you categorize and organize your resources. Each tag consists of a key and an optional value, both of which you define. Tag keys and values are case sensitive.</p> <p>The following restrictions apply to tags:</p> <ul> <li> <p>For each resource, each tag key must be unique and each tag key must have one value.</p> </li> <li> <p>Maximum number of tags per resource: 50.</p> </li> <li> <p>Maximum key length: 128 Unicode characters in UTF-8.</p> </li> <li> <p>Maximum value length: 256 Unicode characters in UTF-8.</p> </li> <li> <p>Accepted characters: all letters and numbers, spaces representable in UTF-8, and + - = . _ : / @. If your tagging schema is used across other services and resources, the character restrictions of those services also apply. </p> </li> <li> <p>Key prefixes cannot include any upper or lowercase combination of <code>aws:</code> or <code>AWS:</code>. Values can have this prefix. If a tag value has <code>aws</code> as its prefix but the key does not, Forecast considers it to be a user tag and will count against the limit of 50 tags. Tags with only the key prefix of <code>aws</code> do not count against your tags per resource limit. You cannot edit or delete tag keys with this prefix.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_forecast.errors.invalid_input_exception.InvalidInputException: <p>We can't process the request because it includes an invalid value or a value that exceeds the valid range.</p>
+            aws_sdk_forecast.errors.limit_exceeded_exception.LimitExceededException: <p>The limit on the number of resources per account has been exceeded.</p>
+            aws_sdk_forecast.errors.resource_already_exists_exception.ResourceAlreadyExistsException: <p>There is already a resource with this name. Try again with a different name.</p>
+            aws_sdk_forecast.errors.resource_in_use_exception.ResourceInUseException: <p>The specified resource is in use.</p>
+            aws_sdk_forecast.errors.resource_not_found_exception.ResourceNotFoundException: <p>We can't find a resource with that Amazon Resource Name (ARN). Check the ARN and try again.</p>
+            aws_sdk_forecast.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -664,6 +702,14 @@ class AsyncforecastClient:
             explainability_arn: <p>The Amazon Resource Name (ARN) of the Explainability to export.</p>
             tags: <p>Optional metadata to help you categorize and organize your resources. Each tag consists of a key and an optional value, both of which you define. Tag keys and values are case sensitive.</p> <p>The following restrictions apply to tags:</p> <ul> <li> <p>For each resource, each tag key must be unique and each tag key must have one value.</p> </li> <li> <p>Maximum number of tags per resource: 50.</p> </li> <li> <p>Maximum key length: 128 Unicode characters in UTF-8.</p> </li> <li> <p>Maximum value length: 256 Unicode characters in UTF-8.</p> </li> <li> <p>Accepted characters: all letters and numbers, spaces representable in UTF-8, and + - = . _ : / @. If your tagging schema is used across other services and resources, the character restrictions of those services also apply. </p> </li> <li> <p>Key prefixes cannot include any upper or lowercase combination of <code>aws:</code> or <code>AWS:</code>. Values can have this prefix. If a tag value has <code>aws</code> as its prefix but the key does not, Forecast considers it to be a user tag and will count against the limit of 50 tags. Tags with only the key prefix of <code>aws</code> do not count against your tags per resource limit. You cannot edit or delete tag keys with this prefix.</p> </li> </ul>
             format: <p>The format of the exported data, CSV or PARQUET.</p>
+
+        Raises:
+            aws_sdk_forecast.errors.invalid_input_exception.InvalidInputException: <p>We can't process the request because it includes an invalid value or a value that exceeds the valid range.</p>
+            aws_sdk_forecast.errors.limit_exceeded_exception.LimitExceededException: <p>The limit on the number of resources per account has been exceeded.</p>
+            aws_sdk_forecast.errors.resource_already_exists_exception.ResourceAlreadyExistsException: <p>There is already a resource with this name. Try again with a different name.</p>
+            aws_sdk_forecast.errors.resource_in_use_exception.ResourceInUseException: <p>The specified resource is in use.</p>
+            aws_sdk_forecast.errors.resource_not_found_exception.ResourceNotFoundException: <p>We can't find a resource with that Amazon Resource Name (ARN). Check the ARN and try again.</p>
+            aws_sdk_forecast.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -720,6 +766,14 @@ class AsyncforecastClient:
             forecast_types: <p>The quantiles at which probabilistic forecasts are generated. <b>You can currently specify up to 5 quantiles per forecast</b>. Accepted values include <code>0.01 to 0.99</code> (increments of .01 only) and <code>mean</code>. The mean forecast is different from the median (0.50) when the distribution is not symmetric (for example, Beta and Negative Binomial). </p> <p>The default quantiles are the quantiles you specified during predictor creation. If you didn't specify quantiles, the default values are <code>[\"0.1\", \"0.5\", \"0.9\"]</code>. </p>
             tags: <p>The optional metadata that you apply to the forecast to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.</p> <p>The following basic restrictions apply to tags:</p> <ul> <li> <p>Maximum number of tags per resource - 50.</p> </li> <li> <p>For each resource, each tag key must be unique, and each tag key can have only one value.</p> </li> <li> <p>Maximum key length - 128 Unicode characters in UTF-8.</p> </li> <li> <p>Maximum value length - 256 Unicode characters in UTF-8.</p> </li> <li> <p>If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.</p> </li> <li> <p>Tag keys and values are case sensitive.</p> </li> <li> <p>Do not use <code>aws:</code>, <code>AWS:</code>, or any upper or lowercase combination of such as a prefix for keys as it is reserved for Amazon Web Services use. You cannot edit or delete tag keys with this prefix. Values can have this prefix. If a tag value has <code>aws</code> as its prefix but the key does not, then Forecast considers it to be a user tag and will count against the limit of 50 tags. Tags with only the key prefix of <code>aws</code> do not count against your tags per resource limit.</p> </li> </ul>
             time_series_selector: <p>Defines the set of time series that are used to create the forecasts in a <code>TimeSeriesIdentifiers</code> object.</p> <p>The <code>TimeSeriesIdentifiers</code> object needs the following information:</p> <ul> <li> <p> <code>DataSource</code> </p> </li> <li> <p> <code>Format</code> </p> </li> <li> <p> <code>Schema</code> </p> </li> </ul>
+
+        Raises:
+            aws_sdk_forecast.errors.invalid_input_exception.InvalidInputException: <p>We can't process the request because it includes an invalid value or a value that exceeds the valid range.</p>
+            aws_sdk_forecast.errors.limit_exceeded_exception.LimitExceededException: <p>The limit on the number of resources per account has been exceeded.</p>
+            aws_sdk_forecast.errors.resource_already_exists_exception.ResourceAlreadyExistsException: <p>There is already a resource with this name. Try again with a different name.</p>
+            aws_sdk_forecast.errors.resource_in_use_exception.ResourceInUseException: <p>The specified resource is in use.</p>
+            aws_sdk_forecast.errors.resource_not_found_exception.ResourceNotFoundException: <p>We can't find a resource with that Amazon Resource Name (ARN). Check the ARN and try again.</p>
+            aws_sdk_forecast.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -773,6 +827,14 @@ class AsyncforecastClient:
             destination: <p>The location where you want to save the forecast and an Identity and Access Management (IAM) role that Amazon Forecast can assume to access the location. The forecast must be exported to an Amazon S3 bucket.</p> <p>If encryption is used, <code>Destination</code> must include an Key Management Service (KMS) key. The IAM role must allow Amazon Forecast permission to access the key.</p>
             tags: <p>The optional metadata that you apply to the forecast export job to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.</p> <p>The following basic restrictions apply to tags:</p> <ul> <li> <p>Maximum number of tags per resource - 50.</p> </li> <li> <p>For each resource, each tag key must be unique, and each tag key can have only one value.</p> </li> <li> <p>Maximum key length - 128 Unicode characters in UTF-8.</p> </li> <li> <p>Maximum value length - 256 Unicode characters in UTF-8.</p> </li> <li> <p>If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.</p> </li> <li> <p>Tag keys and values are case sensitive.</p> </li> <li> <p>Do not use <code>aws:</code>, <code>AWS:</code>, or any upper or lowercase combination of such as a prefix for keys as it is reserved for Amazon Web Services use. You cannot edit or delete tag keys with this prefix. Values can have this prefix. If a tag value has <code>aws</code> as its prefix but the key does not, then Forecast considers it to be a user tag and will count against the limit of 50 tags. Tags with only the key prefix of <code>aws</code> do not count against your tags per resource limit.</p> </li> </ul>
             format: <p>The format of the exported data, CSV or PARQUET. The default value is CSV.</p>
+
+        Raises:
+            aws_sdk_forecast.errors.invalid_input_exception.InvalidInputException: <p>We can't process the request because it includes an invalid value or a value that exceeds the valid range.</p>
+            aws_sdk_forecast.errors.limit_exceeded_exception.LimitExceededException: <p>The limit on the number of resources per account has been exceeded.</p>
+            aws_sdk_forecast.errors.resource_already_exists_exception.ResourceAlreadyExistsException: <p>There is already a resource with this name. Try again with a different name.</p>
+            aws_sdk_forecast.errors.resource_in_use_exception.ResourceInUseException: <p>The specified resource is in use.</p>
+            aws_sdk_forecast.errors.resource_not_found_exception.ResourceNotFoundException: <p>We can't find a resource with that Amazon Resource Name (ARN). Check the ARN and try again.</p>
+            aws_sdk_forecast.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -821,6 +883,14 @@ class AsyncforecastClient:
             monitor_name: <p>The name of the monitor resource.</p>
             resource_arn: <p>The Amazon Resource Name (ARN) of the predictor to monitor.</p>
             tags: <p>A list of <a href=\"https://docs.aws.amazon.com/forecast/latest/dg/tagging-forecast-resources.html\">tags</a> to apply to the monitor resource.</p>
+
+        Raises:
+            aws_sdk_forecast.errors.invalid_input_exception.InvalidInputException: <p>We can't process the request because it includes an invalid value or a value that exceeds the valid range.</p>
+            aws_sdk_forecast.errors.limit_exceeded_exception.LimitExceededException: <p>The limit on the number of resources per account has been exceeded.</p>
+            aws_sdk_forecast.errors.resource_already_exists_exception.ResourceAlreadyExistsException: <p>There is already a resource with this name. Try again with a different name.</p>
+            aws_sdk_forecast.errors.resource_in_use_exception.ResourceInUseException: <p>The specified resource is in use.</p>
+            aws_sdk_forecast.errors.resource_not_found_exception.ResourceNotFoundException: <p>We can't find a resource with that Amazon Resource Name (ARN). Check the ARN and try again.</p>
+            aws_sdk_forecast.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -904,6 +974,14 @@ class AsyncforecastClient:
             encryption_config: <p>An Key Management Service (KMS) key and the Identity and Access Management (IAM) role that Amazon Forecast can assume to access the key.</p>
             tags: <p>The optional metadata that you apply to the predictor to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.</p> <p>The following basic restrictions apply to tags:</p> <ul> <li> <p>Maximum number of tags per resource - 50.</p> </li> <li> <p>For each resource, each tag key must be unique, and each tag key can have only one value.</p> </li> <li> <p>Maximum key length - 128 Unicode characters in UTF-8.</p> </li> <li> <p>Maximum value length - 256 Unicode characters in UTF-8.</p> </li> <li> <p>If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.</p> </li> <li> <p>Tag keys and values are case sensitive.</p> </li> <li> <p>Do not use <code>aws:</code>, <code>AWS:</code>, or any upper or lowercase combination of such as a prefix for keys as it is reserved for Amazon Web Services use. You cannot edit or delete tag keys with this prefix. Values can have this prefix. If a tag value has <code>aws</code> as its prefix but the key does not, then Forecast considers it to be a user tag and will count against the limit of 50 tags. Tags with only the key prefix of <code>aws</code> do not count against your tags per resource limit.</p> </li> </ul>
             optimization_metric: <p>The accuracy metric used to optimize the predictor.</p>
+
+        Raises:
+            aws_sdk_forecast.errors.invalid_input_exception.InvalidInputException: <p>We can't process the request because it includes an invalid value or a value that exceeds the valid range.</p>
+            aws_sdk_forecast.errors.limit_exceeded_exception.LimitExceededException: <p>The limit on the number of resources per account has been exceeded.</p>
+            aws_sdk_forecast.errors.resource_already_exists_exception.ResourceAlreadyExistsException: <p>There is already a resource with this name. Try again with a different name.</p>
+            aws_sdk_forecast.errors.resource_in_use_exception.ResourceInUseException: <p>The specified resource is in use.</p>
+            aws_sdk_forecast.errors.resource_not_found_exception.ResourceNotFoundException: <p>We can't find a resource with that Amazon Resource Name (ARN). Check the ARN and try again.</p>
+            aws_sdk_forecast.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -974,6 +1052,14 @@ class AsyncforecastClient:
             predictor_arn: <p>The Amazon Resource Name (ARN) of the predictor that you want to export.</p>
             tags: <p>Optional metadata to help you categorize and organize your backtests. Each tag consists of a key and an optional value, both of which you define. Tag keys and values are case sensitive.</p> <p>The following restrictions apply to tags:</p> <ul> <li> <p>For each resource, each tag key must be unique and each tag key must have one value.</p> </li> <li> <p>Maximum number of tags per resource: 50.</p> </li> <li> <p>Maximum key length: 128 Unicode characters in UTF-8.</p> </li> <li> <p>Maximum value length: 256 Unicode characters in UTF-8.</p> </li> <li> <p>Accepted characters: all letters and numbers, spaces representable in UTF-8, and + - = . _ : / @. If your tagging schema is used across other services and resources, the character restrictions of those services also apply. </p> </li> <li> <p>Key prefixes cannot include any upper or lowercase combination of <code>aws:</code> or <code>AWS:</code>. Values can have this prefix. If a tag value has <code>aws</code> as its prefix but the key does not, Forecast considers it to be a user tag and will count against the limit of 50 tags. Tags with only the key prefix of <code>aws</code> do not count against your tags per resource limit. You cannot edit or delete tag keys with this prefix.</p> </li> </ul>
             format: <p>The format of the exported data, CSV or PARQUET. The default value is CSV.</p>
+
+        Raises:
+            aws_sdk_forecast.errors.invalid_input_exception.InvalidInputException: <p>We can't process the request because it includes an invalid value or a value that exceeds the valid range.</p>
+            aws_sdk_forecast.errors.limit_exceeded_exception.LimitExceededException: <p>The limit on the number of resources per account has been exceeded.</p>
+            aws_sdk_forecast.errors.resource_already_exists_exception.ResourceAlreadyExistsException: <p>There is already a resource with this name. Try again with a different name.</p>
+            aws_sdk_forecast.errors.resource_in_use_exception.ResourceInUseException: <p>The specified resource is in use.</p>
+            aws_sdk_forecast.errors.resource_not_found_exception.ResourceNotFoundException: <p>We can't find a resource with that Amazon Resource Name (ARN). Check the ARN and try again.</p>
+            aws_sdk_forecast.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1028,6 +1114,14 @@ class AsyncforecastClient:
             forecast_arn: <p>The Amazon Resource Name (ARN) of the baseline forecast.</p>
             time_series_selector: <p>Defines the set of time series that are used in the what-if analysis with a <code>TimeSeriesIdentifiers</code> object. What-if analyses are performed only for the time series in this object.</p> <p>The <code>TimeSeriesIdentifiers</code> object needs the following information:</p> <ul> <li> <p> <code>DataSource</code> </p> </li> <li> <p> <code>Format</code> </p> </li> <li> <p> <code>Schema</code> </p> </li> </ul>
             tags: <p>A list of <a href=\"https://docs.aws.amazon.com/forecast/latest/dg/tagging-forecast-resources.html\">tags</a> to apply to the what if forecast.</p>
+
+        Raises:
+            aws_sdk_forecast.errors.invalid_input_exception.InvalidInputException: <p>We can't process the request because it includes an invalid value or a value that exceeds the valid range.</p>
+            aws_sdk_forecast.errors.limit_exceeded_exception.LimitExceededException: <p>The limit on the number of resources per account has been exceeded.</p>
+            aws_sdk_forecast.errors.resource_already_exists_exception.ResourceAlreadyExistsException: <p>There is already a resource with this name. Try again with a different name.</p>
+            aws_sdk_forecast.errors.resource_in_use_exception.ResourceInUseException: <p>The specified resource is in use.</p>
+            aws_sdk_forecast.errors.resource_not_found_exception.ResourceNotFoundException: <p>We can't find a resource with that Amazon Resource Name (ARN). Check the ARN and try again.</p>
+            aws_sdk_forecast.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1083,6 +1177,14 @@ class AsyncforecastClient:
             time_series_transformations: <p>The transformations that are applied to the baseline time series. Each transformation contains an action and a set of conditions. An action is applied only when all conditions are met. If no conditions are provided, the action is applied to all items.</p>
             time_series_replacements_data_source: <p>The replacement time series dataset, which contains the rows that you want to change in the related time series dataset. A replacement time series does not need to contain all rows that are in the baseline related time series. Include only the rows (measure-dimension combinations) that you want to include in the what-if forecast.</p> <p>This dataset is merged with the original time series to create a transformed dataset that is used for the what-if analysis.</p> <p>This dataset should contain the items to modify (such as item_id or workforce_type), any relevant dimensions, the timestamp column, and at least one of the related time series columns. This file should not contain duplicate timestamps for the same time series.</p> <p>Timestamps and item_ids not included in this dataset are not included in the what-if analysis. </p>
             tags: <p>A list of <a href=\"https://docs.aws.amazon.com/forecast/latest/dg/tagging-forecast-resources.html\">tags</a> to apply to the what if forecast.</p>
+
+        Raises:
+            aws_sdk_forecast.errors.invalid_input_exception.InvalidInputException: <p>We can't process the request because it includes an invalid value or a value that exceeds the valid range.</p>
+            aws_sdk_forecast.errors.limit_exceeded_exception.LimitExceededException: <p>The limit on the number of resources per account has been exceeded.</p>
+            aws_sdk_forecast.errors.resource_already_exists_exception.ResourceAlreadyExistsException: <p>There is already a resource with this name. Try again with a different name.</p>
+            aws_sdk_forecast.errors.resource_in_use_exception.ResourceInUseException: <p>The specified resource is in use.</p>
+            aws_sdk_forecast.errors.resource_not_found_exception.ResourceNotFoundException: <p>We can't find a resource with that Amazon Resource Name (ARN). Check the ARN and try again.</p>
+            aws_sdk_forecast.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1138,6 +1240,14 @@ class AsyncforecastClient:
             destination: <p>The location where you want to save the forecast and an Identity and Access Management (IAM) role that Amazon Forecast can assume to access the location. The forecast must be exported to an Amazon S3 bucket.</p> <p>If encryption is used, <code>Destination</code> must include an Key Management Service (KMS) key. The IAM role must allow Amazon Forecast permission to access the key.</p>
             tags: <p>A list of <a href=\"https://docs.aws.amazon.com/forecast/latest/dg/tagging-forecast-resources.html\">tags</a> to apply to the what if forecast.</p>
             format: <p>The format of the exported data, CSV or PARQUET.</p>
+
+        Raises:
+            aws_sdk_forecast.errors.invalid_input_exception.InvalidInputException: <p>We can't process the request because it includes an invalid value or a value that exceeds the valid range.</p>
+            aws_sdk_forecast.errors.limit_exceeded_exception.LimitExceededException: <p>The limit on the number of resources per account has been exceeded.</p>
+            aws_sdk_forecast.errors.resource_already_exists_exception.ResourceAlreadyExistsException: <p>There is already a resource with this name. Try again with a different name.</p>
+            aws_sdk_forecast.errors.resource_in_use_exception.ResourceInUseException: <p>The specified resource is in use.</p>
+            aws_sdk_forecast.errors.resource_not_found_exception.ResourceNotFoundException: <p>We can't find a resource with that Amazon Resource Name (ARN). Check the ARN and try again.</p>
+            aws_sdk_forecast.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1182,6 +1292,12 @@ class AsyncforecastClient:
 
         Args:
             dataset_arn: <p>The Amazon Resource Name (ARN) of the dataset to delete.</p>
+
+        Raises:
+            aws_sdk_forecast.errors.invalid_input_exception.InvalidInputException: <p>We can't process the request because it includes an invalid value or a value that exceeds the valid range.</p>
+            aws_sdk_forecast.errors.resource_in_use_exception.ResourceInUseException: <p>The specified resource is in use.</p>
+            aws_sdk_forecast.errors.resource_not_found_exception.ResourceNotFoundException: <p>We can't find a resource with that Amazon Resource Name (ARN). Check the ARN and try again.</p>
+            aws_sdk_forecast.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1218,6 +1334,12 @@ class AsyncforecastClient:
 
         Args:
             dataset_group_arn: <p>The Amazon Resource Name (ARN) of the dataset group to delete.</p>
+
+        Raises:
+            aws_sdk_forecast.errors.invalid_input_exception.InvalidInputException: <p>We can't process the request because it includes an invalid value or a value that exceeds the valid range.</p>
+            aws_sdk_forecast.errors.resource_in_use_exception.ResourceInUseException: <p>The specified resource is in use.</p>
+            aws_sdk_forecast.errors.resource_not_found_exception.ResourceNotFoundException: <p>We can't find a resource with that Amazon Resource Name (ARN). Check the ARN and try again.</p>
+            aws_sdk_forecast.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1254,6 +1376,12 @@ class AsyncforecastClient:
 
         Args:
             dataset_import_job_arn: <p>The Amazon Resource Name (ARN) of the dataset import job to delete.</p>
+
+        Raises:
+            aws_sdk_forecast.errors.invalid_input_exception.InvalidInputException: <p>We can't process the request because it includes an invalid value or a value that exceeds the valid range.</p>
+            aws_sdk_forecast.errors.resource_in_use_exception.ResourceInUseException: <p>The specified resource is in use.</p>
+            aws_sdk_forecast.errors.resource_not_found_exception.ResourceNotFoundException: <p>We can't find a resource with that Amazon Resource Name (ARN). Check the ARN and try again.</p>
+            aws_sdk_forecast.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1290,6 +1418,12 @@ class AsyncforecastClient:
 
         Args:
             explainability_arn: <p>The Amazon Resource Name (ARN) of the Explainability resource to delete.</p>
+
+        Raises:
+            aws_sdk_forecast.errors.invalid_input_exception.InvalidInputException: <p>We can't process the request because it includes an invalid value or a value that exceeds the valid range.</p>
+            aws_sdk_forecast.errors.resource_in_use_exception.ResourceInUseException: <p>The specified resource is in use.</p>
+            aws_sdk_forecast.errors.resource_not_found_exception.ResourceNotFoundException: <p>We can't find a resource with that Amazon Resource Name (ARN). Check the ARN and try again.</p>
+            aws_sdk_forecast.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1326,6 +1460,12 @@ class AsyncforecastClient:
 
         Args:
             explainability_export_arn: <p>The Amazon Resource Name (ARN) of the Explainability export to delete. </p>
+
+        Raises:
+            aws_sdk_forecast.errors.invalid_input_exception.InvalidInputException: <p>We can't process the request because it includes an invalid value or a value that exceeds the valid range.</p>
+            aws_sdk_forecast.errors.resource_in_use_exception.ResourceInUseException: <p>The specified resource is in use.</p>
+            aws_sdk_forecast.errors.resource_not_found_exception.ResourceNotFoundException: <p>We can't find a resource with that Amazon Resource Name (ARN). Check the ARN and try again.</p>
+            aws_sdk_forecast.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1362,6 +1502,12 @@ class AsyncforecastClient:
 
         Args:
             forecast_arn: <p>The Amazon Resource Name (ARN) of the forecast to delete.</p>
+
+        Raises:
+            aws_sdk_forecast.errors.invalid_input_exception.InvalidInputException: <p>We can't process the request because it includes an invalid value or a value that exceeds the valid range.</p>
+            aws_sdk_forecast.errors.resource_in_use_exception.ResourceInUseException: <p>The specified resource is in use.</p>
+            aws_sdk_forecast.errors.resource_not_found_exception.ResourceNotFoundException: <p>We can't find a resource with that Amazon Resource Name (ARN). Check the ARN and try again.</p>
+            aws_sdk_forecast.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1398,6 +1544,12 @@ class AsyncforecastClient:
 
         Args:
             forecast_export_job_arn: <p>The Amazon Resource Name (ARN) of the forecast export job to delete.</p>
+
+        Raises:
+            aws_sdk_forecast.errors.invalid_input_exception.InvalidInputException: <p>We can't process the request because it includes an invalid value or a value that exceeds the valid range.</p>
+            aws_sdk_forecast.errors.resource_in_use_exception.ResourceInUseException: <p>The specified resource is in use.</p>
+            aws_sdk_forecast.errors.resource_not_found_exception.ResourceNotFoundException: <p>We can't find a resource with that Amazon Resource Name (ARN). Check the ARN and try again.</p>
+            aws_sdk_forecast.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1434,6 +1586,12 @@ class AsyncforecastClient:
 
         Args:
             monitor_arn: <p>The Amazon Resource Name (ARN) of the monitor resource to delete.</p>
+
+        Raises:
+            aws_sdk_forecast.errors.invalid_input_exception.InvalidInputException: <p>We can't process the request because it includes an invalid value or a value that exceeds the valid range.</p>
+            aws_sdk_forecast.errors.resource_in_use_exception.ResourceInUseException: <p>The specified resource is in use.</p>
+            aws_sdk_forecast.errors.resource_not_found_exception.ResourceNotFoundException: <p>We can't find a resource with that Amazon Resource Name (ARN). Check the ARN and try again.</p>
+            aws_sdk_forecast.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1470,6 +1628,12 @@ class AsyncforecastClient:
 
         Args:
             predictor_arn: <p>The Amazon Resource Name (ARN) of the predictor to delete.</p>
+
+        Raises:
+            aws_sdk_forecast.errors.invalid_input_exception.InvalidInputException: <p>We can't process the request because it includes an invalid value or a value that exceeds the valid range.</p>
+            aws_sdk_forecast.errors.resource_in_use_exception.ResourceInUseException: <p>The specified resource is in use.</p>
+            aws_sdk_forecast.errors.resource_not_found_exception.ResourceNotFoundException: <p>We can't find a resource with that Amazon Resource Name (ARN). Check the ARN and try again.</p>
+            aws_sdk_forecast.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1506,6 +1670,12 @@ class AsyncforecastClient:
 
         Args:
             predictor_backtest_export_job_arn: <p>The Amazon Resource Name (ARN) of the predictor backtest export job to delete.</p>
+
+        Raises:
+            aws_sdk_forecast.errors.invalid_input_exception.InvalidInputException: <p>We can't process the request because it includes an invalid value or a value that exceeds the valid range.</p>
+            aws_sdk_forecast.errors.resource_in_use_exception.ResourceInUseException: <p>The specified resource is in use.</p>
+            aws_sdk_forecast.errors.resource_not_found_exception.ResourceNotFoundException: <p>We can't find a resource with that Amazon Resource Name (ARN). Check the ARN and try again.</p>
+            aws_sdk_forecast.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1542,6 +1712,12 @@ class AsyncforecastClient:
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the parent resource to delete. All child resources of the parent resource will also be deleted.</p>
+
+        Raises:
+            aws_sdk_forecast.errors.invalid_input_exception.InvalidInputException: <p>We can't process the request because it includes an invalid value or a value that exceeds the valid range.</p>
+            aws_sdk_forecast.errors.resource_in_use_exception.ResourceInUseException: <p>The specified resource is in use.</p>
+            aws_sdk_forecast.errors.resource_not_found_exception.ResourceNotFoundException: <p>We can't find a resource with that Amazon Resource Name (ARN). Check the ARN and try again.</p>
+            aws_sdk_forecast.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1578,6 +1754,12 @@ class AsyncforecastClient:
 
         Args:
             what_if_analysis_arn: <p>The Amazon Resource Name (ARN) of the what-if analysis that you want to delete.</p>
+
+        Raises:
+            aws_sdk_forecast.errors.invalid_input_exception.InvalidInputException: <p>We can't process the request because it includes an invalid value or a value that exceeds the valid range.</p>
+            aws_sdk_forecast.errors.resource_in_use_exception.ResourceInUseException: <p>The specified resource is in use.</p>
+            aws_sdk_forecast.errors.resource_not_found_exception.ResourceNotFoundException: <p>We can't find a resource with that Amazon Resource Name (ARN). Check the ARN and try again.</p>
+            aws_sdk_forecast.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1614,6 +1796,12 @@ class AsyncforecastClient:
 
         Args:
             what_if_forecast_arn: <p>The Amazon Resource Name (ARN) of the what-if forecast that you want to delete.</p>
+
+        Raises:
+            aws_sdk_forecast.errors.invalid_input_exception.InvalidInputException: <p>We can't process the request because it includes an invalid value or a value that exceeds the valid range.</p>
+            aws_sdk_forecast.errors.resource_in_use_exception.ResourceInUseException: <p>The specified resource is in use.</p>
+            aws_sdk_forecast.errors.resource_not_found_exception.ResourceNotFoundException: <p>We can't find a resource with that Amazon Resource Name (ARN). Check the ARN and try again.</p>
+            aws_sdk_forecast.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1650,6 +1838,12 @@ class AsyncforecastClient:
 
         Args:
             what_if_forecast_export_arn: <p>The Amazon Resource Name (ARN) of the what-if forecast export that you want to delete.</p>
+
+        Raises:
+            aws_sdk_forecast.errors.invalid_input_exception.InvalidInputException: <p>We can't process the request because it includes an invalid value or a value that exceeds the valid range.</p>
+            aws_sdk_forecast.errors.resource_in_use_exception.ResourceInUseException: <p>The specified resource is in use.</p>
+            aws_sdk_forecast.errors.resource_not_found_exception.ResourceNotFoundException: <p>We can't find a resource with that Amazon Resource Name (ARN). Check the ARN and try again.</p>
+            aws_sdk_forecast.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1686,6 +1880,11 @@ class AsyncforecastClient:
 
         Args:
             predictor_arn: <p>The Amazon Resource Name (ARN) of the predictor.</p>
+
+        Raises:
+            aws_sdk_forecast.errors.invalid_input_exception.InvalidInputException: <p>We can't process the request because it includes an invalid value or a value that exceeds the valid range.</p>
+            aws_sdk_forecast.errors.resource_not_found_exception.ResourceNotFoundException: <p>We can't find a resource with that Amazon Resource Name (ARN). Check the ARN and try again.</p>
+            aws_sdk_forecast.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1724,6 +1923,11 @@ class AsyncforecastClient:
 
         Args:
             dataset_arn: <p>The Amazon Resource Name (ARN) of the dataset.</p>
+
+        Raises:
+            aws_sdk_forecast.errors.invalid_input_exception.InvalidInputException: <p>We can't process the request because it includes an invalid value or a value that exceeds the valid range.</p>
+            aws_sdk_forecast.errors.resource_not_found_exception.ResourceNotFoundException: <p>We can't find a resource with that Amazon Resource Name (ARN). Check the ARN and try again.</p>
+            aws_sdk_forecast.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1762,6 +1966,11 @@ class AsyncforecastClient:
 
         Args:
             dataset_group_arn: <p>The Amazon Resource Name (ARN) of the dataset group.</p>
+
+        Raises:
+            aws_sdk_forecast.errors.invalid_input_exception.InvalidInputException: <p>We can't process the request because it includes an invalid value or a value that exceeds the valid range.</p>
+            aws_sdk_forecast.errors.resource_not_found_exception.ResourceNotFoundException: <p>We can't find a resource with that Amazon Resource Name (ARN). Check the ARN and try again.</p>
+            aws_sdk_forecast.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1800,6 +2009,11 @@ class AsyncforecastClient:
 
         Args:
             dataset_import_job_arn: <p>The Amazon Resource Name (ARN) of the dataset import job.</p>
+
+        Raises:
+            aws_sdk_forecast.errors.invalid_input_exception.InvalidInputException: <p>We can't process the request because it includes an invalid value or a value that exceeds the valid range.</p>
+            aws_sdk_forecast.errors.resource_not_found_exception.ResourceNotFoundException: <p>We can't find a resource with that Amazon Resource Name (ARN). Check the ARN and try again.</p>
+            aws_sdk_forecast.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1838,6 +2052,11 @@ class AsyncforecastClient:
 
         Args:
             explainability_arn: <p>The Amazon Resource Name (ARN) of the Explaianability to describe.</p>
+
+        Raises:
+            aws_sdk_forecast.errors.invalid_input_exception.InvalidInputException: <p>We can't process the request because it includes an invalid value or a value that exceeds the valid range.</p>
+            aws_sdk_forecast.errors.resource_not_found_exception.ResourceNotFoundException: <p>We can't find a resource with that Amazon Resource Name (ARN). Check the ARN and try again.</p>
+            aws_sdk_forecast.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1876,6 +2095,11 @@ class AsyncforecastClient:
 
         Args:
             explainability_export_arn: <p>The Amazon Resource Name (ARN) of the Explainability export.</p>
+
+        Raises:
+            aws_sdk_forecast.errors.invalid_input_exception.InvalidInputException: <p>We can't process the request because it includes an invalid value or a value that exceeds the valid range.</p>
+            aws_sdk_forecast.errors.resource_not_found_exception.ResourceNotFoundException: <p>We can't find a resource with that Amazon Resource Name (ARN). Check the ARN and try again.</p>
+            aws_sdk_forecast.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1914,6 +2138,11 @@ class AsyncforecastClient:
 
         Args:
             forecast_arn: <p>The Amazon Resource Name (ARN) of the forecast.</p>
+
+        Raises:
+            aws_sdk_forecast.errors.invalid_input_exception.InvalidInputException: <p>We can't process the request because it includes an invalid value or a value that exceeds the valid range.</p>
+            aws_sdk_forecast.errors.resource_not_found_exception.ResourceNotFoundException: <p>We can't find a resource with that Amazon Resource Name (ARN). Check the ARN and try again.</p>
+            aws_sdk_forecast.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1952,6 +2181,11 @@ class AsyncforecastClient:
 
         Args:
             forecast_export_job_arn: <p>The Amazon Resource Name (ARN) of the forecast export job.</p>
+
+        Raises:
+            aws_sdk_forecast.errors.invalid_input_exception.InvalidInputException: <p>We can't process the request because it includes an invalid value or a value that exceeds the valid range.</p>
+            aws_sdk_forecast.errors.resource_not_found_exception.ResourceNotFoundException: <p>We can't find a resource with that Amazon Resource Name (ARN). Check the ARN and try again.</p>
+            aws_sdk_forecast.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1990,6 +2224,11 @@ class AsyncforecastClient:
 
         Args:
             monitor_arn: <p>The Amazon Resource Name (ARN) of the monitor resource to describe.</p>
+
+        Raises:
+            aws_sdk_forecast.errors.invalid_input_exception.InvalidInputException: <p>We can't process the request because it includes an invalid value or a value that exceeds the valid range.</p>
+            aws_sdk_forecast.errors.resource_not_found_exception.ResourceNotFoundException: <p>We can't find a resource with that Amazon Resource Name (ARN). Check the ARN and try again.</p>
+            aws_sdk_forecast.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2028,6 +2267,11 @@ class AsyncforecastClient:
 
         Args:
             predictor_arn: <p>The Amazon Resource Name (ARN) of the predictor that you want information about.</p>
+
+        Raises:
+            aws_sdk_forecast.errors.invalid_input_exception.InvalidInputException: <p>We can't process the request because it includes an invalid value or a value that exceeds the valid range.</p>
+            aws_sdk_forecast.errors.resource_not_found_exception.ResourceNotFoundException: <p>We can't find a resource with that Amazon Resource Name (ARN). Check the ARN and try again.</p>
+            aws_sdk_forecast.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2066,6 +2310,11 @@ class AsyncforecastClient:
 
         Args:
             predictor_backtest_export_job_arn: <p>The Amazon Resource Name (ARN) of the predictor backtest export job.</p>
+
+        Raises:
+            aws_sdk_forecast.errors.invalid_input_exception.InvalidInputException: <p>We can't process the request because it includes an invalid value or a value that exceeds the valid range.</p>
+            aws_sdk_forecast.errors.resource_not_found_exception.ResourceNotFoundException: <p>We can't find a resource with that Amazon Resource Name (ARN). Check the ARN and try again.</p>
+            aws_sdk_forecast.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2104,6 +2353,11 @@ class AsyncforecastClient:
 
         Args:
             what_if_analysis_arn: <p>The Amazon Resource Name (ARN) of the what-if analysis that you are interested in.</p>
+
+        Raises:
+            aws_sdk_forecast.errors.invalid_input_exception.InvalidInputException: <p>We can't process the request because it includes an invalid value or a value that exceeds the valid range.</p>
+            aws_sdk_forecast.errors.resource_not_found_exception.ResourceNotFoundException: <p>We can't find a resource with that Amazon Resource Name (ARN). Check the ARN and try again.</p>
+            aws_sdk_forecast.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2142,6 +2396,11 @@ class AsyncforecastClient:
 
         Args:
             what_if_forecast_arn: <p>The Amazon Resource Name (ARN) of the what-if forecast that you are interested in.</p>
+
+        Raises:
+            aws_sdk_forecast.errors.invalid_input_exception.InvalidInputException: <p>We can't process the request because it includes an invalid value or a value that exceeds the valid range.</p>
+            aws_sdk_forecast.errors.resource_not_found_exception.ResourceNotFoundException: <p>We can't find a resource with that Amazon Resource Name (ARN). Check the ARN and try again.</p>
+            aws_sdk_forecast.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2180,6 +2439,11 @@ class AsyncforecastClient:
 
         Args:
             what_if_forecast_export_arn: <p>The Amazon Resource Name (ARN) of the what-if forecast export that you are interested in.</p>
+
+        Raises:
+            aws_sdk_forecast.errors.invalid_input_exception.InvalidInputException: <p>We can't process the request because it includes an invalid value or a value that exceeds the valid range.</p>
+            aws_sdk_forecast.errors.resource_not_found_exception.ResourceNotFoundException: <p>We can't find a resource with that Amazon Resource Name (ARN). Check the ARN and try again.</p>
+            aws_sdk_forecast.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2218,6 +2482,12 @@ class AsyncforecastClient:
 
         Args:
             predictor_arn: <p>The Amazon Resource Name (ARN) of the predictor to get metrics for.</p>
+
+        Raises:
+            aws_sdk_forecast.errors.invalid_input_exception.InvalidInputException: <p>We can't process the request because it includes an invalid value or a value that exceeds the valid range.</p>
+            aws_sdk_forecast.errors.resource_in_use_exception.ResourceInUseException: <p>The specified resource is in use.</p>
+            aws_sdk_forecast.errors.resource_not_found_exception.ResourceNotFoundException: <p>We can't find a resource with that Amazon Resource Name (ARN). Check the ARN and try again.</p>
+            aws_sdk_forecast.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2260,6 +2530,10 @@ class AsyncforecastClient:
         Args:
             next_token: <p>If the result of the previous request was truncated, the response includes a <code>NextToken</code>. To retrieve the next set of results, use the token in the next request. Tokens expire after 24 hours.</p>
             max_results: <p>The number of items to return in the response.</p>
+
+        Raises:
+            aws_sdk_forecast.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The token is not valid. Tokens expire after 24 hours.</p>
+            aws_sdk_forecast.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2326,6 +2600,11 @@ class AsyncforecastClient:
             next_token: <p>If the result of the previous request was truncated, the response includes a <code>NextToken</code>. To retrieve the next set of results, use the token in the next request. Tokens expire after 24 hours.</p>
             max_results: <p>The number of items to return in the response.</p>
             filters: <p>An array of filters. For each filter, you provide a condition and a match statement. The condition is either <code>IS</code> or <code>IS_NOT</code>, which specifies whether to include or exclude the datasets that match the statement from the list, respectively. The match statement consists of a key and a value.</p> <p> <b>Filter properties</b> </p> <ul> <li> <p> <code>Condition</code> - The condition to apply. Valid values are <code>IS</code> and <code>IS_NOT</code>. To include the datasets that match the statement, specify <code>IS</code>. To exclude matching datasets, specify <code>IS_NOT</code>.</p> </li> <li> <p> <code>Key</code> - The name of the parameter to filter on. Valid values are <code>DatasetArn</code> and <code>Status</code>.</p> </li> <li> <p> <code>Value</code> - The value to match.</p> </li> </ul> <p>For example, to list all dataset import jobs whose status is ACTIVE, you specify the following filter:</p> <p> <code>\"Filters\": [ { \"Condition\": \"IS\", \"Key\": \"Status\", \"Value\": \"ACTIVE\" } ]</code> </p>
+
+        Raises:
+            aws_sdk_forecast.errors.invalid_input_exception.InvalidInputException: <p>We can't process the request because it includes an invalid value or a value that exceeds the valid range.</p>
+            aws_sdk_forecast.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The token is not valid. Tokens expire after 24 hours.</p>
+            aws_sdk_forecast.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2394,6 +2673,10 @@ class AsyncforecastClient:
         Args:
             next_token: <p>If the result of the previous request was truncated, the response includes a <code>NextToken</code>. To retrieve the next set of results, use the token in the next request. Tokens expire after 24 hours.</p>
             max_results: <p>The number of items to return in the response.</p>
+
+        Raises:
+            aws_sdk_forecast.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The token is not valid. Tokens expire after 24 hours.</p>
+            aws_sdk_forecast.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2460,6 +2743,11 @@ class AsyncforecastClient:
             next_token: <p>If the result of the previous request was truncated, the response includes a NextToken. To retrieve the next set of results, use the token in the next request. Tokens expire after 24 hours.</p>
             max_results: <p>The number of items returned in the response.</p>
             filters: <p>An array of filters. For each filter, provide a condition and a match statement. The condition is either <code>IS</code> or <code>IS_NOT</code>, which specifies whether to include or exclude the resources that match the statement from the list. The match statement consists of a key and a value.</p> <p> <b>Filter properties</b> </p> <ul> <li> <p> <code>Condition</code> - The condition to apply. Valid values are <code>IS</code> and <code>IS_NOT</code>.</p> </li> <li> <p> <code>Key</code> - The name of the parameter to filter on. Valid values are <code>ResourceArn</code> and <code>Status</code>.</p> </li> <li> <p> <code>Value</code> - The value to match.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_forecast.errors.invalid_input_exception.InvalidInputException: <p>We can't process the request because it includes an invalid value or a value that exceeds the valid range.</p>
+            aws_sdk_forecast.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The token is not valid. Tokens expire after 24 hours.</p>
+            aws_sdk_forecast.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2530,6 +2818,11 @@ class AsyncforecastClient:
             next_token: <p>If the result of the previous request was truncated, the response includes a NextToken. To retrieve the next set of results, use the token in the next request. Tokens expire after 24 hours.</p>
             max_results: <p>The number of items to return in the response.</p>
             filters: <p>An array of filters. For each filter, provide a condition and a match statement. The condition is either <code>IS</code> or <code>IS_NOT</code>, which specifies whether to include or exclude resources that match the statement from the list. The match statement consists of a key and a value.</p> <p> <b>Filter properties</b> </p> <ul> <li> <p> <code>Condition</code> - The condition to apply. Valid values are <code>IS</code> and <code>IS_NOT</code>.</p> </li> <li> <p> <code>Key</code> - The name of the parameter to filter on. Valid values are <code>ResourceArn</code> and <code>Status</code>.</p> </li> <li> <p> <code>Value</code> - The value to match.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_forecast.errors.invalid_input_exception.InvalidInputException: <p>We can't process the request because it includes an invalid value or a value that exceeds the valid range.</p>
+            aws_sdk_forecast.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The token is not valid. Tokens expire after 24 hours.</p>
+            aws_sdk_forecast.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2600,6 +2893,11 @@ class AsyncforecastClient:
             next_token: <p>If the result of the previous request was truncated, the response includes a <code>NextToken</code>. To retrieve the next set of results, use the token in the next request. Tokens expire after 24 hours.</p>
             max_results: <p>The number of items to return in the response.</p>
             filters: <p>An array of filters. For each filter, you provide a condition and a match statement. The condition is either <code>IS</code> or <code>IS_NOT</code>, which specifies whether to include or exclude the forecast export jobs that match the statement from the list, respectively. The match statement consists of a key and a value.</p> <p> <b>Filter properties</b> </p> <ul> <li> <p> <code>Condition</code> - The condition to apply. Valid values are <code>IS</code> and <code>IS_NOT</code>. To include the forecast export jobs that match the statement, specify <code>IS</code>. To exclude matching forecast export jobs, specify <code>IS_NOT</code>.</p> </li> <li> <p> <code>Key</code> - The name of the parameter to filter on. Valid values are <code>ForecastArn</code> and <code>Status</code>.</p> </li> <li> <p> <code>Value</code> - The value to match.</p> </li> </ul> <p>For example, to list all jobs that export a forecast named <i>electricityforecast</i>, specify the following filter:</p> <p> <code>\"Filters\": [ { \"Condition\": \"IS\", \"Key\": \"ForecastArn\", \"Value\": \"arn:aws:forecast:us-west-2:<acct-id>:forecast/electricityforecast\" } ]</code> </p>
+
+        Raises:
+            aws_sdk_forecast.errors.invalid_input_exception.InvalidInputException: <p>We can't process the request because it includes an invalid value or a value that exceeds the valid range.</p>
+            aws_sdk_forecast.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The token is not valid. Tokens expire after 24 hours.</p>
+            aws_sdk_forecast.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2670,6 +2968,11 @@ class AsyncforecastClient:
             next_token: <p>If the result of the previous request was truncated, the response includes a <code>NextToken</code>. To retrieve the next set of results, use the token in the next request. Tokens expire after 24 hours.</p>
             max_results: <p>The number of items to return in the response.</p>
             filters: <p>An array of filters. For each filter, you provide a condition and a match statement. The condition is either <code>IS</code> or <code>IS_NOT</code>, which specifies whether to include or exclude the forecasts that match the statement from the list, respectively. The match statement consists of a key and a value.</p> <p> <b>Filter properties</b> </p> <ul> <li> <p> <code>Condition</code> - The condition to apply. Valid values are <code>IS</code> and <code>IS_NOT</code>. To include the forecasts that match the statement, specify <code>IS</code>. To exclude matching forecasts, specify <code>IS_NOT</code>.</p> </li> <li> <p> <code>Key</code> - The name of the parameter to filter on. Valid values are <code>DatasetGroupArn</code>, <code>PredictorArn</code>, and <code>Status</code>.</p> </li> <li> <p> <code>Value</code> - The value to match.</p> </li> </ul> <p>For example, to list all forecasts whose status is not ACTIVE, you would specify:</p> <p> <code>\"Filters\": [ { \"Condition\": \"IS_NOT\", \"Key\": \"Status\", \"Value\": \"ACTIVE\" } ]</code> </p>
+
+        Raises:
+            aws_sdk_forecast.errors.invalid_input_exception.InvalidInputException: <p>We can't process the request because it includes an invalid value or a value that exceeds the valid range.</p>
+            aws_sdk_forecast.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The token is not valid. Tokens expire after 24 hours.</p>
+            aws_sdk_forecast.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2742,6 +3045,12 @@ class AsyncforecastClient:
             max_results: <p>The maximum number of monitoring results to return.</p>
             monitor_arn: <p>The Amazon Resource Name (ARN) of the monitor resource to get results from.</p>
             filters: <p>An array of filters. For each filter, provide a condition and a match statement. The condition is either <code>IS</code> or <code>IS_NOT</code>, which specifies whether to include or exclude the resources that match the statement from the list. The match statement consists of a key and a value.</p> <p> <b>Filter properties</b> </p> <ul> <li> <p> <code>Condition</code> - The condition to apply. Valid values are <code>IS</code> and <code>IS_NOT</code>.</p> </li> <li> <p> <code>Key</code> - The name of the parameter to filter on. The only valid value is <code>EvaluationState</code>.</p> </li> <li> <p> <code>Value</code> - The value to match. Valid values are only <code>SUCCESS</code> or <code>FAILURE</code>.</p> </li> </ul> <p>For example, to list only successful monitor evaluations, you would specify:</p> <p> <code>\"Filters\": [ { \"Condition\": \"IS\", \"Key\": \"EvaluationState\", \"Value\": \"SUCCESS\" } ]</code> </p>
+
+        Raises:
+            aws_sdk_forecast.errors.invalid_input_exception.InvalidInputException: <p>We can't process the request because it includes an invalid value or a value that exceeds the valid range.</p>
+            aws_sdk_forecast.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The token is not valid. Tokens expire after 24 hours.</p>
+            aws_sdk_forecast.errors.resource_not_found_exception.ResourceNotFoundException: <p>We can't find a resource with that Amazon Resource Name (ARN). Check the ARN and try again.</p>
+            aws_sdk_forecast.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2815,6 +3124,11 @@ class AsyncforecastClient:
             next_token: <p>If the result of the previous request was truncated, the response includes a <code>NextToken</code>. To retrieve the next set of results, use the token in the next request. Tokens expire after 24 hours.</p>
             max_results: <p>The maximum number of monitors to include in the response.</p>
             filters: <p>An array of filters. For each filter, provide a condition and a match statement. The condition is either <code>IS</code> or <code>IS_NOT</code>, which specifies whether to include or exclude the resources that match the statement from the list. The match statement consists of a key and a value.</p> <p> <b>Filter properties</b> </p> <ul> <li> <p> <code>Condition</code> - The condition to apply. Valid values are <code>IS</code> and <code>IS_NOT</code>.</p> </li> <li> <p> <code>Key</code> - The name of the parameter to filter on. The only valid value is <code>Status</code>.</p> </li> <li> <p> <code>Value</code> - The value to match.</p> </li> </ul> <p>For example, to list all monitors who's status is ACTIVE, you would specify:</p> <p> <code>\"Filters\": [ { \"Condition\": \"IS\", \"Key\": \"Status\", \"Value\": \"ACTIVE\" } ]</code> </p>
+
+        Raises:
+            aws_sdk_forecast.errors.invalid_input_exception.InvalidInputException: <p>We can't process the request because it includes an invalid value or a value that exceeds the valid range.</p>
+            aws_sdk_forecast.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The token is not valid. Tokens expire after 24 hours.</p>
+            aws_sdk_forecast.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2885,6 +3199,11 @@ class AsyncforecastClient:
             next_token: <p>If the result of the previous request was truncated, the response includes a NextToken. To retrieve the next set of results, use the token in the next request. Tokens expire after 24 hours.</p>
             max_results: <p>The number of items to return in the response.</p>
             filters: <p>An array of filters. For each filter, provide a condition and a match statement. The condition is either <code>IS</code> or <code>IS_NOT</code>, which specifies whether to include or exclude the predictor backtest export jobs that match the statement from the list. The match statement consists of a key and a value.</p> <p> <b>Filter properties</b> </p> <ul> <li> <p> <code>Condition</code> - The condition to apply. Valid values are <code>IS</code> and <code>IS_NOT</code>. To include the predictor backtest export jobs that match the statement, specify <code>IS</code>. To exclude matching predictor backtest export jobs, specify <code>IS_NOT</code>.</p> </li> <li> <p> <code>Key</code> - The name of the parameter to filter on. Valid values are <code>PredictorArn</code> and <code>Status</code>.</p> </li> <li> <p> <code>Value</code> - The value to match.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_forecast.errors.invalid_input_exception.InvalidInputException: <p>We can't process the request because it includes an invalid value or a value that exceeds the valid range.</p>
+            aws_sdk_forecast.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The token is not valid. Tokens expire after 24 hours.</p>
+            aws_sdk_forecast.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2955,6 +3274,11 @@ class AsyncforecastClient:
             next_token: <p>If the result of the previous request was truncated, the response includes a <code>NextToken</code>. To retrieve the next set of results, use the token in the next request. Tokens expire after 24 hours.</p>
             max_results: <p>The number of items to return in the response.</p>
             filters: <p>An array of filters. For each filter, you provide a condition and a match statement. The condition is either <code>IS</code> or <code>IS_NOT</code>, which specifies whether to include or exclude the predictors that match the statement from the list, respectively. The match statement consists of a key and a value.</p> <p> <b>Filter properties</b> </p> <ul> <li> <p> <code>Condition</code> - The condition to apply. Valid values are <code>IS</code> and <code>IS_NOT</code>. To include the predictors that match the statement, specify <code>IS</code>. To exclude matching predictors, specify <code>IS_NOT</code>.</p> </li> <li> <p> <code>Key</code> - The name of the parameter to filter on. Valid values are <code>DatasetGroupArn</code> and <code>Status</code>.</p> </li> <li> <p> <code>Value</code> - The value to match.</p> </li> </ul> <p>For example, to list all predictors whose status is ACTIVE, you would specify:</p> <p> <code>\"Filters\": [ { \"Condition\": \"IS\", \"Key\": \"Status\", \"Value\": \"ACTIVE\" } ]</code> </p>
+
+        Raises:
+            aws_sdk_forecast.errors.invalid_input_exception.InvalidInputException: <p>We can't process the request because it includes an invalid value or a value that exceeds the valid range.</p>
+            aws_sdk_forecast.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The token is not valid. Tokens expire after 24 hours.</p>
+            aws_sdk_forecast.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3021,6 +3345,11 @@ class AsyncforecastClient:
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) that identifies the resource for which to list the tags. </p>
+
+        Raises:
+            aws_sdk_forecast.errors.invalid_input_exception.InvalidInputException: <p>We can't process the request because it includes an invalid value or a value that exceeds the valid range.</p>
+            aws_sdk_forecast.errors.resource_not_found_exception.ResourceNotFoundException: <p>We can't find a resource with that Amazon Resource Name (ARN). Check the ARN and try again.</p>
+            aws_sdk_forecast.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3063,6 +3392,11 @@ class AsyncforecastClient:
             next_token: <p>If the result of the previous request was truncated, the response includes a <code>NextToken</code>. To retrieve the next set of results, use the token in the next request. Tokens expire after 24 hours.</p>
             max_results: <p>The number of items to return in the response.</p>
             filters: <p>An array of filters. For each filter, you provide a condition and a match statement. The condition is either <code>IS</code> or <code>IS_NOT</code>, which specifies whether to include or exclude the what-if analysis jobs that match the statement from the list, respectively. The match statement consists of a key and a value.</p> <p> <b>Filter properties</b> </p> <ul> <li> <p> <code>Condition</code> - The condition to apply. Valid values are <code>IS</code> and <code>IS_NOT</code>. To include the what-if analysis jobs that match the statement, specify <code>IS</code>. To exclude matching what-if analysis jobs, specify <code>IS_NOT</code>.</p> </li> <li> <p> <code>Key</code> - The name of the parameter to filter on. Valid values are <code>WhatIfAnalysisArn</code> and <code>Status</code>.</p> </li> <li> <p> <code>Value</code> - The value to match.</p> </li> </ul> <p>For example, to list all jobs that export a forecast named <i>electricityWhatIf</i>, specify the following filter:</p> <p> <code>\"Filters\": [ { \"Condition\": \"IS\", \"Key\": \"WhatIfAnalysisArn\", \"Value\": \"arn:aws:forecast:us-west-2:<acct-id>:forecast/electricityWhatIf\" } ]</code> </p>
+
+        Raises:
+            aws_sdk_forecast.errors.invalid_input_exception.InvalidInputException: <p>We can't process the request because it includes an invalid value or a value that exceeds the valid range.</p>
+            aws_sdk_forecast.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The token is not valid. Tokens expire after 24 hours.</p>
+            aws_sdk_forecast.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3133,6 +3467,11 @@ class AsyncforecastClient:
             next_token: <p>If the result of the previous request was truncated, the response includes a <code>NextToken</code>. To retrieve the next set of results, use the token in the next request. Tokens expire after 24 hours.</p>
             max_results: <p>The number of items to return in the response.</p>
             filters: <p>An array of filters. For each filter, you provide a condition and a match statement. The condition is either <code>IS</code> or <code>IS_NOT</code>, which specifies whether to include or exclude the what-if forecast export jobs that match the statement from the list, respectively. The match statement consists of a key and a value.</p> <p> <b>Filter properties</b> </p> <ul> <li> <p> <code>Condition</code> - The condition to apply. Valid values are <code>IS</code> and <code>IS_NOT</code>. To include the forecast export jobs that match the statement, specify <code>IS</code>. To exclude matching forecast export jobs, specify <code>IS_NOT</code>.</p> </li> <li> <p> <code>Key</code> - The name of the parameter to filter on. Valid values are <code>WhatIfForecastExportArn</code> and <code>Status</code>.</p> </li> <li> <p> <code>Value</code> - The value to match.</p> </li> </ul> <p>For example, to list all jobs that export a forecast named <i>electricityWIFExport</i>, specify the following filter:</p> <p> <code>\"Filters\": [ { \"Condition\": \"IS\", \"Key\": \"WhatIfForecastExportArn\", \"Value\": \"arn:aws:forecast:us-west-2:<acct-id>:forecast/electricityWIFExport\" } ]</code> </p>
+
+        Raises:
+            aws_sdk_forecast.errors.invalid_input_exception.InvalidInputException: <p>We can't process the request because it includes an invalid value or a value that exceeds the valid range.</p>
+            aws_sdk_forecast.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The token is not valid. Tokens expire after 24 hours.</p>
+            aws_sdk_forecast.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3203,6 +3542,11 @@ class AsyncforecastClient:
             next_token: <p>If the result of the previous request was truncated, the response includes a <code>NextToken</code>. To retrieve the next set of results, use the token in the next request. Tokens expire after 24 hours.</p>
             max_results: <p>The number of items to return in the response.</p>
             filters: <p>An array of filters. For each filter, you provide a condition and a match statement. The condition is either <code>IS</code> or <code>IS_NOT</code>, which specifies whether to include or exclude the what-if forecast export jobs that match the statement from the list, respectively. The match statement consists of a key and a value.</p> <p> <b>Filter properties</b> </p> <ul> <li> <p> <code>Condition</code> - The condition to apply. Valid values are <code>IS</code> and <code>IS_NOT</code>. To include the forecast export jobs that match the statement, specify <code>IS</code>. To exclude matching forecast export jobs, specify <code>IS_NOT</code>.</p> </li> <li> <p> <code>Key</code> - The name of the parameter to filter on. Valid values are <code>WhatIfForecastArn</code> and <code>Status</code>.</p> </li> <li> <p> <code>Value</code> - The value to match.</p> </li> </ul> <p>For example, to list all jobs that export a forecast named <i>electricityWhatIfForecast</i>, specify the following filter:</p> <p> <code>\"Filters\": [ { \"Condition\": \"IS\", \"Key\": \"WhatIfForecastArn\", \"Value\": \"arn:aws:forecast:us-west-2:<acct-id>:forecast/electricityWhatIfForecast\" } ]</code> </p>
+
+        Raises:
+            aws_sdk_forecast.errors.invalid_input_exception.InvalidInputException: <p>We can't process the request because it includes an invalid value or a value that exceeds the valid range.</p>
+            aws_sdk_forecast.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The token is not valid. Tokens expire after 24 hours.</p>
+            aws_sdk_forecast.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3269,6 +3613,13 @@ class AsyncforecastClient:
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the monitor resource to resume.</p>
+
+        Raises:
+            aws_sdk_forecast.errors.invalid_input_exception.InvalidInputException: <p>We can't process the request because it includes an invalid value or a value that exceeds the valid range.</p>
+            aws_sdk_forecast.errors.limit_exceeded_exception.LimitExceededException: <p>The limit on the number of resources per account has been exceeded.</p>
+            aws_sdk_forecast.errors.resource_in_use_exception.ResourceInUseException: <p>The specified resource is in use.</p>
+            aws_sdk_forecast.errors.resource_not_found_exception.ResourceNotFoundException: <p>We can't find a resource with that Amazon Resource Name (ARN). Check the ARN and try again.</p>
+            aws_sdk_forecast.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3305,6 +3656,12 @@ class AsyncforecastClient:
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) that identifies the resource to stop. The supported ARNs are <code>DatasetImportJobArn</code>, <code>PredictorArn</code>, <code>PredictorBacktestExportJobArn</code>, <code>ForecastArn</code>, <code>ForecastExportJobArn</code>, <code>ExplainabilityArn</code>, and <code>ExplainabilityExportArn</code>. </p>
+
+        Raises:
+            aws_sdk_forecast.errors.invalid_input_exception.InvalidInputException: <p>We can't process the request because it includes an invalid value or a value that exceeds the valid range.</p>
+            aws_sdk_forecast.errors.limit_exceeded_exception.LimitExceededException: <p>The limit on the number of resources per account has been exceeded.</p>
+            aws_sdk_forecast.errors.resource_not_found_exception.ResourceNotFoundException: <p>We can't find a resource with that Amazon Resource Name (ARN). Check the ARN and try again.</p>
+            aws_sdk_forecast.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3343,6 +3700,12 @@ class AsyncforecastClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) that identifies the resource for which to list the tags. </p>
             tags: <p>The tags to add to the resource. A tag is an array of key-value pairs.</p> <p>The following basic restrictions apply to tags:</p> <ul> <li> <p>Maximum number of tags per resource - 50.</p> </li> <li> <p>For each resource, each tag key must be unique, and each tag key can have only one value.</p> </li> <li> <p>Maximum key length - 128 Unicode characters in UTF-8.</p> </li> <li> <p>Maximum value length - 256 Unicode characters in UTF-8.</p> </li> <li> <p>If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.</p> </li> <li> <p>Tag keys and values are case sensitive.</p> </li> <li> <p>Do not use <code>aws:</code>, <code>AWS:</code>, or any upper or lowercase combination of such as a prefix for keys as it is reserved for Amazon Web Services use. You cannot edit or delete tag keys with this prefix. Values can have this prefix. If a tag value has <code>aws</code> as its prefix but the key does not, then Forecast considers it to be a user tag and will count against the limit of 50 tags. Tags with only the key prefix of <code>aws</code> do not count against your tags per resource limit.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_forecast.errors.invalid_input_exception.InvalidInputException: <p>We can't process the request because it includes an invalid value or a value that exceeds the valid range.</p>
+            aws_sdk_forecast.errors.limit_exceeded_exception.LimitExceededException: <p>The limit on the number of resources per account has been exceeded.</p>
+            aws_sdk_forecast.errors.resource_not_found_exception.ResourceNotFoundException: <p>We can't find a resource with that Amazon Resource Name (ARN). Check the ARN and try again.</p>
+            aws_sdk_forecast.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3384,6 +3747,11 @@ class AsyncforecastClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) that identifies the resource for which to list the tags. </p>
             tag_keys: <p>The keys of the tags to be removed.</p>
+
+        Raises:
+            aws_sdk_forecast.errors.invalid_input_exception.InvalidInputException: <p>We can't process the request because it includes an invalid value or a value that exceeds the valid range.</p>
+            aws_sdk_forecast.errors.resource_not_found_exception.ResourceNotFoundException: <p>We can't find a resource with that Amazon Resource Name (ARN). Check the ARN and try again.</p>
+            aws_sdk_forecast.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3425,6 +3793,12 @@ class AsyncforecastClient:
         Args:
             dataset_group_arn: <p>The ARN of the dataset group.</p>
             dataset_arns: <p>An array of the Amazon Resource Names (ARNs) of the datasets to add to the dataset group.</p>
+
+        Raises:
+            aws_sdk_forecast.errors.invalid_input_exception.InvalidInputException: <p>We can't process the request because it includes an invalid value or a value that exceeds the valid range.</p>
+            aws_sdk_forecast.errors.resource_in_use_exception.ResourceInUseException: <p>The specified resource is in use.</p>
+            aws_sdk_forecast.errors.resource_not_found_exception.ResourceNotFoundException: <p>We can't find a resource with that Amazon Resource Name (ARN). Check the ARN and try again.</p>
+            aws_sdk_forecast.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

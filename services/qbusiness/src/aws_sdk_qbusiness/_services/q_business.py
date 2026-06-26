@@ -325,6 +325,16 @@ class QBusinessClient:
             actions: <p>The list of Amazon Q Business actions that the ISV is allowed to perform.</p>
             conditions: <p>The conditions that restrict when the permission is effective. These conditions can be used to limit the permission based on specific attributes of the request.</p>
             principal: <p>The Amazon Resource Name of the IAM role for the ISV that is being granted permission.</p>
+
+        Raises:
+            aws_sdk_qbusiness.errors.access_denied_exception.AccessDeniedException: <p> You don't have access to perform this action. Make sure you have the required permission policies and user accounts and try again.</p>
+            aws_sdk_qbusiness.errors.conflict_exception.ConflictException: <p>You are trying to perform an action that conflicts with the current status of your resource. Fix any inconsistencies with your resources and try again.</p>
+            aws_sdk_qbusiness.errors.internal_server_exception.InternalServerException: <p>An issue occurred with the internal server used for your Amazon Q Business service. Wait some minutes and try again, or contact <a href=\"http://aws.amazon.com/contact-us/\">Support</a> for help.</p>
+            aws_sdk_qbusiness.errors.resource_not_found_exception.ResourceNotFoundException: <p>The application or plugin resource you want to use doesn’t exist. Make sure you have provided the correct resource and try again.</p>
+            aws_sdk_qbusiness.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You have exceeded the set limits for your Amazon Q Business service. </p>
+            aws_sdk_qbusiness.errors.throttling_exception.ThrottlingException: <p>The request was denied due to throttling. Reduce the number of requests and try again.</p>
+            aws_sdk_qbusiness.errors.validation_exception.ValidationException: <p>The input doesn't meet the constraints set by the Amazon Q Business service. Provide the correct input and try again.</p>
+            aws_sdk_qbusiness.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -375,6 +385,15 @@ class QBusinessClient:
             index_id: <p>The identifier of the Amazon Q Business index that contains the documents to delete.</p>
             documents: <p>Documents deleted from the Amazon Q Business index.</p>
             data_source_sync_id: <p>The identifier of the data source sync during which the documents were deleted.</p>
+
+        Raises:
+            aws_sdk_qbusiness.errors.access_denied_exception.AccessDeniedException: <p> You don't have access to perform this action. Make sure you have the required permission policies and user accounts and try again.</p>
+            aws_sdk_qbusiness.errors.conflict_exception.ConflictException: <p>You are trying to perform an action that conflicts with the current status of your resource. Fix any inconsistencies with your resources and try again.</p>
+            aws_sdk_qbusiness.errors.internal_server_exception.InternalServerException: <p>An issue occurred with the internal server used for your Amazon Q Business service. Wait some minutes and try again, or contact <a href=\"http://aws.amazon.com/contact-us/\">Support</a> for help.</p>
+            aws_sdk_qbusiness.errors.resource_not_found_exception.ResourceNotFoundException: <p>The application or plugin resource you want to use doesn’t exist. Make sure you have provided the correct resource and try again.</p>
+            aws_sdk_qbusiness.errors.throttling_exception.ThrottlingException: <p>The request was denied due to throttling. Reduce the number of requests and try again.</p>
+            aws_sdk_qbusiness.errors.validation_exception.ValidationException: <p>The input doesn't meet the constraints set by the Amazon Q Business service. Provide the correct input and try again.</p>
+            aws_sdk_qbusiness.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -426,6 +445,16 @@ class QBusinessClient:
             documents: <p>One or more documents to add to the index.</p> <important> <p>Ensure that the name of your document doesn't contain any confidential information. Amazon Q Business returns document names in chat responses and citations when relevant.</p> </important>
             role_arn: <p>The Amazon Resource Name (ARN) of an IAM role with permission to access your S3 bucket.</p>
             data_source_sync_id: <p>The identifier of the data source sync during which the documents were added.</p>
+
+        Raises:
+            aws_sdk_qbusiness.errors.access_denied_exception.AccessDeniedException: <p> You don't have access to perform this action. Make sure you have the required permission policies and user accounts and try again.</p>
+            aws_sdk_qbusiness.errors.conflict_exception.ConflictException: <p>You are trying to perform an action that conflicts with the current status of your resource. Fix any inconsistencies with your resources and try again.</p>
+            aws_sdk_qbusiness.errors.internal_server_exception.InternalServerException: <p>An issue occurred with the internal server used for your Amazon Q Business service. Wait some minutes and try again, or contact <a href=\"http://aws.amazon.com/contact-us/\">Support</a> for help.</p>
+            aws_sdk_qbusiness.errors.resource_not_found_exception.ResourceNotFoundException: <p>The application or plugin resource you want to use doesn’t exist. Make sure you have provided the correct resource and try again.</p>
+            aws_sdk_qbusiness.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You have exceeded the set limits for your Amazon Q Business service. </p>
+            aws_sdk_qbusiness.errors.throttling_exception.ThrottlingException: <p>The request was denied due to throttling. Reduce the number of requests and try again.</p>
+            aws_sdk_qbusiness.errors.validation_exception.ValidationException: <p>The input doesn't meet the constraints set by the Amazon Q Business service. Provide the correct input and try again.</p>
+            aws_sdk_qbusiness.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -471,6 +500,14 @@ class QBusinessClient:
         Args:
             application_id: <p>The identifier of the Amazon Q Business application for which the subscription is being cancelled.</p>
             subscription_id: <p>The identifier of the Amazon Q Business subscription being cancelled.</p>
+
+        Raises:
+            aws_sdk_qbusiness.errors.access_denied_exception.AccessDeniedException: <p> You don't have access to perform this action. Make sure you have the required permission policies and user accounts and try again.</p>
+            aws_sdk_qbusiness.errors.internal_server_exception.InternalServerException: <p>An issue occurred with the internal server used for your Amazon Q Business service. Wait some minutes and try again, or contact <a href=\"http://aws.amazon.com/contact-us/\">Support</a> for help.</p>
+            aws_sdk_qbusiness.errors.resource_not_found_exception.ResourceNotFoundException: <p>The application or plugin resource you want to use doesn’t exist. Make sure you have provided the correct resource and try again.</p>
+            aws_sdk_qbusiness.errors.throttling_exception.ThrottlingException: <p>The request was denied due to throttling. Reduce the number of requests and try again.</p>
+            aws_sdk_qbusiness.errors.validation_exception.ValidationException: <p>The input doesn't meet the constraints set by the Amazon Q Business service. Provide the correct input and try again.</p>
+            aws_sdk_qbusiness.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -530,6 +567,17 @@ class QBusinessClient:
             parent_message_id: <p>The identifier used to associate a user message with a AI generated response.</p>
             client_token: <p>A token that you provide to identify the chat input.</p>
             input_stream: <p>The streaming input for the <code>Chat</code> API.</p>
+
+        Raises:
+            aws_sdk_qbusiness.errors.access_denied_exception.AccessDeniedException: <p> You don't have access to perform this action. Make sure you have the required permission policies and user accounts and try again.</p>
+            aws_sdk_qbusiness.errors.conflict_exception.ConflictException: <p>You are trying to perform an action that conflicts with the current status of your resource. Fix any inconsistencies with your resources and try again.</p>
+            aws_sdk_qbusiness.errors.external_resource_exception.ExternalResourceException: <p>An external resource that you configured with your application is returning errors and preventing this operation from succeeding. Fix those errors and try again. </p>
+            aws_sdk_qbusiness.errors.internal_server_exception.InternalServerException: <p>An issue occurred with the internal server used for your Amazon Q Business service. Wait some minutes and try again, or contact <a href=\"http://aws.amazon.com/contact-us/\">Support</a> for help.</p>
+            aws_sdk_qbusiness.errors.license_not_found_exception.LicenseNotFoundException: <p>You don't have permissions to perform the action because your license is inactive. Ask your admin to activate your license and try again after your licence is active.</p>
+            aws_sdk_qbusiness.errors.resource_not_found_exception.ResourceNotFoundException: <p>The application or plugin resource you want to use doesn’t exist. Make sure you have provided the correct resource and try again.</p>
+            aws_sdk_qbusiness.errors.throttling_exception.ThrottlingException: <p>The request was denied due to throttling. Reduce the number of requests and try again.</p>
+            aws_sdk_qbusiness.errors.validation_exception.ValidationException: <p>The input doesn't meet the constraints set by the Amazon Q Business service. Provide the correct input and try again.</p>
+            aws_sdk_qbusiness.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -617,6 +665,17 @@ class QBusinessClient:
             chat_mode: <p>The <code>chatMode</code> parameter determines the chat modes available to Amazon Q Business users:</p> <ul> <li> <p> <code>RETRIEVAL_MODE</code> - If you choose this mode, Amazon Q generates responses solely from the data sources connected and indexed by the application. If an answer is not found in the data sources or there are no data sources available, Amazon Q will respond with a \"<i>No Answer Found</i>\" message, unless LLM knowledge has been enabled. In that case, Amazon Q will generate a response from the LLM knowledge</p> </li> <li> <p> <code>CREATOR_MODE</code> - By selecting this mode, you can choose to generate responses only from the LLM knowledge. You can also attach files and have Amazon Q generate a response based on the data in those files. If the attached files do not contain an answer for the query, Amazon Q will automatically fall back to generating a response from the LLM knowledge.</p> </li> <li> <p> <code>PLUGIN_MODE</code> - By selecting this mode, users can choose to use plugins in chat to get their responses.</p> </li> </ul> <note> <p>If none of the modes are selected, Amazon Q will only respond using the information from the attached files.</p> </note> <p>For more information, see <a href=\"https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/guardrails.html\">Admin controls and guardrails</a>, <a href=\"https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/plugins.html\">Plugins</a>, and <a href=\"https://docs.aws.amazon.com/amazonq/latest/business-use-dg/using-web-experience.html#chat-source-scope\">Response sources</a>.</p>
             chat_mode_configuration: <p>The chat mode configuration for an Amazon Q Business application.</p>
             client_token: <p>A token that you provide to identify a chat request.</p>
+
+        Raises:
+            aws_sdk_qbusiness.errors.access_denied_exception.AccessDeniedException: <p> You don't have access to perform this action. Make sure you have the required permission policies and user accounts and try again.</p>
+            aws_sdk_qbusiness.errors.conflict_exception.ConflictException: <p>You are trying to perform an action that conflicts with the current status of your resource. Fix any inconsistencies with your resources and try again.</p>
+            aws_sdk_qbusiness.errors.external_resource_exception.ExternalResourceException: <p>An external resource that you configured with your application is returning errors and preventing this operation from succeeding. Fix those errors and try again. </p>
+            aws_sdk_qbusiness.errors.internal_server_exception.InternalServerException: <p>An issue occurred with the internal server used for your Amazon Q Business service. Wait some minutes and try again, or contact <a href=\"http://aws.amazon.com/contact-us/\">Support</a> for help.</p>
+            aws_sdk_qbusiness.errors.license_not_found_exception.LicenseNotFoundException: <p>You don't have permissions to perform the action because your license is inactive. Ask your admin to activate your license and try again after your licence is active.</p>
+            aws_sdk_qbusiness.errors.resource_not_found_exception.ResourceNotFoundException: <p>The application or plugin resource you want to use doesn’t exist. Make sure you have provided the correct resource and try again.</p>
+            aws_sdk_qbusiness.errors.throttling_exception.ThrottlingException: <p>The request was denied due to throttling. Reduce the number of requests and try again.</p>
+            aws_sdk_qbusiness.errors.validation_exception.ValidationException: <p>The input doesn't meet the constraints set by the Amazon Q Business service. Provide the correct input and try again.</p>
+            aws_sdk_qbusiness.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -688,6 +747,14 @@ class QBusinessClient:
             user_id: <p>The unique identifier of the user. Used to check the access permissions for this specific user against the document's ACL.</p>
             document_id: <p>The unique identifier of the document. Specifies which document's access permissions are being checked.</p>
             data_source_id: <p>The unique identifier of the data source. Identifies the specific data source from which the document originates. Should not be used when a document is uploaded directly with BatchPutDocument, as no dataSourceId is available or necessary. </p>
+
+        Raises:
+            aws_sdk_qbusiness.errors.access_denied_exception.AccessDeniedException: <p> You don't have access to perform this action. Make sure you have the required permission policies and user accounts and try again.</p>
+            aws_sdk_qbusiness.errors.internal_server_exception.InternalServerException: <p>An issue occurred with the internal server used for your Amazon Q Business service. Wait some minutes and try again, or contact <a href=\"http://aws.amazon.com/contact-us/\">Support</a> for help.</p>
+            aws_sdk_qbusiness.errors.resource_not_found_exception.ResourceNotFoundException: <p>The application or plugin resource you want to use doesn’t exist. Make sure you have provided the correct resource and try again.</p>
+            aws_sdk_qbusiness.errors.throttling_exception.ThrottlingException: <p>The request was denied due to throttling. Reduce the number of requests and try again.</p>
+            aws_sdk_qbusiness.errors.validation_exception.ValidationException: <p>The input doesn't meet the constraints set by the Amazon Q Business service. Provide the correct input and try again.</p>
+            aws_sdk_qbusiness.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -736,6 +803,15 @@ class QBusinessClient:
             application_id: <p>The identifier of the Amazon Q Business application environment attached to the web experience.</p>
             web_experience_id: <p>The identifier of the web experience.</p>
             session_duration_in_minutes: <p>The duration of the session associated with the unique URL for the web experience.</p>
+
+        Raises:
+            aws_sdk_qbusiness.errors.access_denied_exception.AccessDeniedException: <p> You don't have access to perform this action. Make sure you have the required permission policies and user accounts and try again.</p>
+            aws_sdk_qbusiness.errors.internal_server_exception.InternalServerException: <p>An issue occurred with the internal server used for your Amazon Q Business service. Wait some minutes and try again, or contact <a href=\"http://aws.amazon.com/contact-us/\">Support</a> for help.</p>
+            aws_sdk_qbusiness.errors.resource_not_found_exception.ResourceNotFoundException: <p>The application or plugin resource you want to use doesn’t exist. Make sure you have provided the correct resource and try again.</p>
+            aws_sdk_qbusiness.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You have exceeded the set limits for your Amazon Q Business service. </p>
+            aws_sdk_qbusiness.errors.throttling_exception.ThrottlingException: <p>The request was denied due to throttling. Reduce the number of requests and try again.</p>
+            aws_sdk_qbusiness.errors.validation_exception.ValidationException: <p>The input doesn't meet the constraints set by the Amazon Q Business service. Provide the correct input and try again.</p>
+            aws_sdk_qbusiness.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -784,6 +860,16 @@ class QBusinessClient:
             client_token: <p>A unique, case-sensitive identifier to ensure idempotency of the request. This helps prevent the same configuration from being created multiple times if retries occur.</p>
             response_configurations: <p>A collection of response configuration settings that define how Amazon Q Business will generate and format responses to user queries in chat interactions.</p>
             tags: <p>A list of key-value pairs to apply as tags to the new chat response configuration, enabling categorization and management of resources across Amazon Web Services services.</p>
+
+        Raises:
+            aws_sdk_qbusiness.errors.access_denied_exception.AccessDeniedException: <p> You don't have access to perform this action. Make sure you have the required permission policies and user accounts and try again.</p>
+            aws_sdk_qbusiness.errors.conflict_exception.ConflictException: <p>You are trying to perform an action that conflicts with the current status of your resource. Fix any inconsistencies with your resources and try again.</p>
+            aws_sdk_qbusiness.errors.internal_server_exception.InternalServerException: <p>An issue occurred with the internal server used for your Amazon Q Business service. Wait some minutes and try again, or contact <a href=\"http://aws.amazon.com/contact-us/\">Support</a> for help.</p>
+            aws_sdk_qbusiness.errors.resource_not_found_exception.ResourceNotFoundException: <p>The application or plugin resource you want to use doesn’t exist. Make sure you have provided the correct resource and try again.</p>
+            aws_sdk_qbusiness.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You have exceeded the set limits for your Amazon Q Business service. </p>
+            aws_sdk_qbusiness.errors.throttling_exception.ThrottlingException: <p>The request was denied due to throttling. Reduce the number of requests and try again.</p>
+            aws_sdk_qbusiness.errors.validation_exception.ValidationException: <p>The input doesn't meet the constraints set by the Amazon Q Business service. Provide the correct input and try again.</p>
+            aws_sdk_qbusiness.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -835,6 +921,15 @@ class QBusinessClient:
             principal: <p>The IAM Identity Center <code>UserId</code> or <code>GroupId</code> of a user or group in the IAM Identity Center instance connected to the Amazon Q Business application.</p>
             type: <p>The type of Amazon Q Business subscription you want to create.</p>
             client_token: <p>A token that you provide to identify the request to create a subscription for your Amazon Q Business application.</p>
+
+        Raises:
+            aws_sdk_qbusiness.errors.access_denied_exception.AccessDeniedException: <p> You don't have access to perform this action. Make sure you have the required permission policies and user accounts and try again.</p>
+            aws_sdk_qbusiness.errors.conflict_exception.ConflictException: <p>You are trying to perform an action that conflicts with the current status of your resource. Fix any inconsistencies with your resources and try again.</p>
+            aws_sdk_qbusiness.errors.internal_server_exception.InternalServerException: <p>An issue occurred with the internal server used for your Amazon Q Business service. Wait some minutes and try again, or contact <a href=\"http://aws.amazon.com/contact-us/\">Support</a> for help.</p>
+            aws_sdk_qbusiness.errors.resource_not_found_exception.ResourceNotFoundException: <p>The application or plugin resource you want to use doesn’t exist. Make sure you have provided the correct resource and try again.</p>
+            aws_sdk_qbusiness.errors.throttling_exception.ThrottlingException: <p>The request was denied due to throttling. Reduce the number of requests and try again.</p>
+            aws_sdk_qbusiness.errors.validation_exception.ValidationException: <p>The input doesn't meet the constraints set by the Amazon Q Business service. Provide the correct input and try again.</p>
+            aws_sdk_qbusiness.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -886,6 +981,16 @@ class QBusinessClient:
             user_id: <p>The user emails attached to a user mapping.</p>
             user_aliases: <p>The list of user aliases in the mapping.</p>
             client_token: <p>A token that you provide to identify the request to create your Amazon Q Business user mapping.</p>
+
+        Raises:
+            aws_sdk_qbusiness.errors.access_denied_exception.AccessDeniedException: <p> You don't have access to perform this action. Make sure you have the required permission policies and user accounts and try again.</p>
+            aws_sdk_qbusiness.errors.conflict_exception.ConflictException: <p>You are trying to perform an action that conflicts with the current status of your resource. Fix any inconsistencies with your resources and try again.</p>
+            aws_sdk_qbusiness.errors.internal_server_exception.InternalServerException: <p>An issue occurred with the internal server used for your Amazon Q Business service. Wait some minutes and try again, or contact <a href=\"http://aws.amazon.com/contact-us/\">Support</a> for help.</p>
+            aws_sdk_qbusiness.errors.resource_not_found_exception.ResourceNotFoundException: <p>The application or plugin resource you want to use doesn’t exist. Make sure you have provided the correct resource and try again.</p>
+            aws_sdk_qbusiness.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You have exceeded the set limits for your Amazon Q Business service. </p>
+            aws_sdk_qbusiness.errors.throttling_exception.ThrottlingException: <p>The request was denied due to throttling. Reduce the number of requests and try again.</p>
+            aws_sdk_qbusiness.errors.validation_exception.ValidationException: <p>The input doesn't meet the constraints set by the Amazon Q Business service. Provide the correct input and try again.</p>
+            aws_sdk_qbusiness.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -934,6 +1039,15 @@ class QBusinessClient:
             conversation_id: <p>The unique identifier of the conversation.</p>
             attachment_id: <p>The unique identifier for the attachment.</p>
             user_id: <p>The unique identifier of the user involved in the conversation.</p>
+
+        Raises:
+            aws_sdk_qbusiness.errors.access_denied_exception.AccessDeniedException: <p> You don't have access to perform this action. Make sure you have the required permission policies and user accounts and try again.</p>
+            aws_sdk_qbusiness.errors.internal_server_exception.InternalServerException: <p>An issue occurred with the internal server used for your Amazon Q Business service. Wait some minutes and try again, or contact <a href=\"http://aws.amazon.com/contact-us/\">Support</a> for help.</p>
+            aws_sdk_qbusiness.errors.license_not_found_exception.LicenseNotFoundException: <p>You don't have permissions to perform the action because your license is inactive. Ask your admin to activate your license and try again after your licence is active.</p>
+            aws_sdk_qbusiness.errors.resource_not_found_exception.ResourceNotFoundException: <p>The application or plugin resource you want to use doesn’t exist. Make sure you have provided the correct resource and try again.</p>
+            aws_sdk_qbusiness.errors.throttling_exception.ThrottlingException: <p>The request was denied due to throttling. Reduce the number of requests and try again.</p>
+            aws_sdk_qbusiness.errors.validation_exception.ValidationException: <p>The input doesn't meet the constraints set by the Amazon Q Business service. Provide the correct input and try again.</p>
+            aws_sdk_qbusiness.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -975,6 +1089,14 @@ class QBusinessClient:
 
         Args:
             application_id: <p>The identifier of the application the chat controls have been configured for.</p>
+
+        Raises:
+            aws_sdk_qbusiness.errors.access_denied_exception.AccessDeniedException: <p> You don't have access to perform this action. Make sure you have the required permission policies and user accounts and try again.</p>
+            aws_sdk_qbusiness.errors.internal_server_exception.InternalServerException: <p>An issue occurred with the internal server used for your Amazon Q Business service. Wait some minutes and try again, or contact <a href=\"http://aws.amazon.com/contact-us/\">Support</a> for help.</p>
+            aws_sdk_qbusiness.errors.resource_not_found_exception.ResourceNotFoundException: <p>The application or plugin resource you want to use doesn’t exist. Make sure you have provided the correct resource and try again.</p>
+            aws_sdk_qbusiness.errors.throttling_exception.ThrottlingException: <p>The request was denied due to throttling. Reduce the number of requests and try again.</p>
+            aws_sdk_qbusiness.errors.validation_exception.ValidationException: <p>The input doesn't meet the constraints set by the Amazon Q Business service. Provide the correct input and try again.</p>
+            aws_sdk_qbusiness.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1014,6 +1136,15 @@ class QBusinessClient:
         Args:
             application_id: <p>The unique identifier of theAmazon Q Business application from which to delete the chat response configuration.</p>
             chat_response_configuration_id: <p>The unique identifier of the chat response configuration to delete from the specified application. </p>
+
+        Raises:
+            aws_sdk_qbusiness.errors.access_denied_exception.AccessDeniedException: <p> You don't have access to perform this action. Make sure you have the required permission policies and user accounts and try again.</p>
+            aws_sdk_qbusiness.errors.conflict_exception.ConflictException: <p>You are trying to perform an action that conflicts with the current status of your resource. Fix any inconsistencies with your resources and try again.</p>
+            aws_sdk_qbusiness.errors.internal_server_exception.InternalServerException: <p>An issue occurred with the internal server used for your Amazon Q Business service. Wait some minutes and try again, or contact <a href=\"http://aws.amazon.com/contact-us/\">Support</a> for help.</p>
+            aws_sdk_qbusiness.errors.resource_not_found_exception.ResourceNotFoundException: <p>The application or plugin resource you want to use doesn’t exist. Make sure you have provided the correct resource and try again.</p>
+            aws_sdk_qbusiness.errors.throttling_exception.ThrottlingException: <p>The request was denied due to throttling. Reduce the number of requests and try again.</p>
+            aws_sdk_qbusiness.errors.validation_exception.ValidationException: <p>The input doesn't meet the constraints set by the Amazon Q Business service. Provide the correct input and try again.</p>
+            aws_sdk_qbusiness.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1056,6 +1187,16 @@ class QBusinessClient:
             conversation_id: <p>The identifier of the Amazon Q Business web experience conversation being deleted.</p>
             application_id: <p>The identifier of the Amazon Q Business application associated with the conversation.</p>
             user_id: <p>The identifier of the user who is deleting the conversation.</p>
+
+        Raises:
+            aws_sdk_qbusiness.errors.access_denied_exception.AccessDeniedException: <p> You don't have access to perform this action. Make sure you have the required permission policies and user accounts and try again.</p>
+            aws_sdk_qbusiness.errors.conflict_exception.ConflictException: <p>You are trying to perform an action that conflicts with the current status of your resource. Fix any inconsistencies with your resources and try again.</p>
+            aws_sdk_qbusiness.errors.internal_server_exception.InternalServerException: <p>An issue occurred with the internal server used for your Amazon Q Business service. Wait some minutes and try again, or contact <a href=\"http://aws.amazon.com/contact-us/\">Support</a> for help.</p>
+            aws_sdk_qbusiness.errors.license_not_found_exception.LicenseNotFoundException: <p>You don't have permissions to perform the action because your license is inactive. Ask your admin to activate your license and try again after your licence is active.</p>
+            aws_sdk_qbusiness.errors.resource_not_found_exception.ResourceNotFoundException: <p>The application or plugin resource you want to use doesn’t exist. Make sure you have provided the correct resource and try again.</p>
+            aws_sdk_qbusiness.errors.throttling_exception.ThrottlingException: <p>The request was denied due to throttling. Reduce the number of requests and try again.</p>
+            aws_sdk_qbusiness.errors.validation_exception.ValidationException: <p>The input doesn't meet the constraints set by the Amazon Q Business service. Provide the correct input and try again.</p>
+            aws_sdk_qbusiness.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1104,6 +1245,15 @@ class QBusinessClient:
             index_id: <p>The identifier of the index you want to delete the group from.</p>
             group_name: <p>The name of the group you want to delete.</p>
             data_source_id: <p>The identifier of the data source linked to the group</p> <p>A group can be tied to multiple data sources. You can delete a group from accessing documents in a certain data source. For example, the groups \"Research\", \"Engineering\", and \"Sales and Marketing\" are all tied to the company's documents stored in the data sources Confluence and Salesforce. You want to delete \"Research\" and \"Engineering\" groups from Salesforce, so that these groups cannot access customer-related documents stored in Salesforce. Only \"Sales and Marketing\" should access documents in the Salesforce data source.</p>
+
+        Raises:
+            aws_sdk_qbusiness.errors.access_denied_exception.AccessDeniedException: <p> You don't have access to perform this action. Make sure you have the required permission policies and user accounts and try again.</p>
+            aws_sdk_qbusiness.errors.conflict_exception.ConflictException: <p>You are trying to perform an action that conflicts with the current status of your resource. Fix any inconsistencies with your resources and try again.</p>
+            aws_sdk_qbusiness.errors.internal_server_exception.InternalServerException: <p>An issue occurred with the internal server used for your Amazon Q Business service. Wait some minutes and try again, or contact <a href=\"http://aws.amazon.com/contact-us/\">Support</a> for help.</p>
+            aws_sdk_qbusiness.errors.resource_not_found_exception.ResourceNotFoundException: <p>The application or plugin resource you want to use doesn’t exist. Make sure you have provided the correct resource and try again.</p>
+            aws_sdk_qbusiness.errors.throttling_exception.ThrottlingException: <p>The request was denied due to throttling. Reduce the number of requests and try again.</p>
+            aws_sdk_qbusiness.errors.validation_exception.ValidationException: <p>The input doesn't meet the constraints set by the Amazon Q Business service. Provide the correct input and try again.</p>
+            aws_sdk_qbusiness.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1147,6 +1297,15 @@ class QBusinessClient:
         Args:
             application_id: <p>The identifier of the application from which the user is being deleted.</p>
             user_id: <p>The user email being deleted.</p>
+
+        Raises:
+            aws_sdk_qbusiness.errors.access_denied_exception.AccessDeniedException: <p> You don't have access to perform this action. Make sure you have the required permission policies and user accounts and try again.</p>
+            aws_sdk_qbusiness.errors.conflict_exception.ConflictException: <p>You are trying to perform an action that conflicts with the current status of your resource. Fix any inconsistencies with your resources and try again.</p>
+            aws_sdk_qbusiness.errors.internal_server_exception.InternalServerException: <p>An issue occurred with the internal server used for your Amazon Q Business service. Wait some minutes and try again, or contact <a href=\"http://aws.amazon.com/contact-us/\">Support</a> for help.</p>
+            aws_sdk_qbusiness.errors.resource_not_found_exception.ResourceNotFoundException: <p>The application or plugin resource you want to use doesn’t exist. Make sure you have provided the correct resource and try again.</p>
+            aws_sdk_qbusiness.errors.throttling_exception.ThrottlingException: <p>The request was denied due to throttling. Reduce the number of requests and try again.</p>
+            aws_sdk_qbusiness.errors.validation_exception.ValidationException: <p>The input doesn't meet the constraints set by the Amazon Q Business service. Provide the correct input and try again.</p>
+            aws_sdk_qbusiness.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1187,6 +1346,15 @@ class QBusinessClient:
         Args:
             application_id: <p>The unique identifier of the Amazon Q Business application.</p>
             statement_id: <p>The statement ID of the permission to remove.</p>
+
+        Raises:
+            aws_sdk_qbusiness.errors.access_denied_exception.AccessDeniedException: <p> You don't have access to perform this action. Make sure you have the required permission policies and user accounts and try again.</p>
+            aws_sdk_qbusiness.errors.conflict_exception.ConflictException: <p>You are trying to perform an action that conflicts with the current status of your resource. Fix any inconsistencies with your resources and try again.</p>
+            aws_sdk_qbusiness.errors.internal_server_exception.InternalServerException: <p>An issue occurred with the internal server used for your Amazon Q Business service. Wait some minutes and try again, or contact <a href=\"http://aws.amazon.com/contact-us/\">Support</a> for help.</p>
+            aws_sdk_qbusiness.errors.resource_not_found_exception.ResourceNotFoundException: <p>The application or plugin resource you want to use doesn’t exist. Make sure you have provided the correct resource and try again.</p>
+            aws_sdk_qbusiness.errors.throttling_exception.ThrottlingException: <p>The request was denied due to throttling. Reduce the number of requests and try again.</p>
+            aws_sdk_qbusiness.errors.validation_exception.ValidationException: <p>The input doesn't meet the constraints set by the Amazon Q Business service. Provide the correct input and try again.</p>
+            aws_sdk_qbusiness.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1231,6 +1399,14 @@ class QBusinessClient:
             application_id: <p>The identifier of the application for which the chat controls are configured.</p>
             max_results: <p>The maximum number of configured chat controls to return.</p>
             next_token: <p>If the <code>maxResults</code> response was incomplete because there is more data to retrieve, Amazon Q Business returns a pagination token in the response. You can use this pagination token to retrieve the next set of Amazon Q Business chat controls configured.</p>
+
+        Raises:
+            aws_sdk_qbusiness.errors.access_denied_exception.AccessDeniedException: <p> You don't have access to perform this action. Make sure you have the required permission policies and user accounts and try again.</p>
+            aws_sdk_qbusiness.errors.internal_server_exception.InternalServerException: <p>An issue occurred with the internal server used for your Amazon Q Business service. Wait some minutes and try again, or contact <a href=\"http://aws.amazon.com/contact-us/\">Support</a> for help.</p>
+            aws_sdk_qbusiness.errors.resource_not_found_exception.ResourceNotFoundException: <p>The application or plugin resource you want to use doesn’t exist. Make sure you have provided the correct resource and try again.</p>
+            aws_sdk_qbusiness.errors.throttling_exception.ThrottlingException: <p>The request was denied due to throttling. Reduce the number of requests and try again.</p>
+            aws_sdk_qbusiness.errors.validation_exception.ValidationException: <p>The input doesn't meet the constraints set by the Amazon Q Business service. Provide the correct input and try again.</p>
+            aws_sdk_qbusiness.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1299,6 +1475,14 @@ class QBusinessClient:
         Args:
             application_id: <p>The unique identifier of the Amazon Q Business application containing the chat response configuration to retrieve.</p>
             chat_response_configuration_id: <p>The unique identifier of the chat response configuration to retrieve from the specified application.</p>
+
+        Raises:
+            aws_sdk_qbusiness.errors.access_denied_exception.AccessDeniedException: <p> You don't have access to perform this action. Make sure you have the required permission policies and user accounts and try again.</p>
+            aws_sdk_qbusiness.errors.internal_server_exception.InternalServerException: <p>An issue occurred with the internal server used for your Amazon Q Business service. Wait some minutes and try again, or contact <a href=\"http://aws.amazon.com/contact-us/\">Support</a> for help.</p>
+            aws_sdk_qbusiness.errors.resource_not_found_exception.ResourceNotFoundException: <p>The application or plugin resource you want to use doesn’t exist. Make sure you have provided the correct resource and try again.</p>
+            aws_sdk_qbusiness.errors.throttling_exception.ThrottlingException: <p>The request was denied due to throttling. Reduce the number of requests and try again.</p>
+            aws_sdk_qbusiness.errors.validation_exception.ValidationException: <p>The input doesn't meet the constraints set by the Amazon Q Business service. Provide the correct input and try again.</p>
+            aws_sdk_qbusiness.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1349,6 +1533,14 @@ class QBusinessClient:
             data_source_id: <p>The identifier of the data source from which the document was ingested. This field is not present if the document is ingested by directly calling the BatchPutDocument API. If the document is from a file-upload data source, the datasource will be \"uploaded-docs-file-stat-datasourceid\".</p>
             document_id: <p>The unique identifier of the document that is indexed via BatchPutDocument API or file-upload or connector sync. It is also found in chat or chatSync response.</p>
             output_format: <p>Document outputFormat. Defaults to RAW if not selected.</p>
+
+        Raises:
+            aws_sdk_qbusiness.errors.access_denied_exception.AccessDeniedException: <p> You don't have access to perform this action. Make sure you have the required permission policies and user accounts and try again.</p>
+            aws_sdk_qbusiness.errors.internal_server_exception.InternalServerException: <p>An issue occurred with the internal server used for your Amazon Q Business service. Wait some minutes and try again, or contact <a href=\"http://aws.amazon.com/contact-us/\">Support</a> for help.</p>
+            aws_sdk_qbusiness.errors.resource_not_found_exception.ResourceNotFoundException: <p>The application or plugin resource you want to use doesn’t exist. Make sure you have provided the correct resource and try again.</p>
+            aws_sdk_qbusiness.errors.throttling_exception.ThrottlingException: <p>The request was denied due to throttling. Reduce the number of requests and try again.</p>
+            aws_sdk_qbusiness.errors.validation_exception.ValidationException: <p>The input doesn't meet the constraints set by the Amazon Q Business service. Provide the correct input and try again.</p>
+            aws_sdk_qbusiness.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1400,6 +1592,15 @@ class QBusinessClient:
             index_id: <p>The identifier of the index the group is attached to.</p>
             group_name: <p>The name of the group.</p>
             data_source_id: <p>The identifier of the data source the group is attached to.</p>
+
+        Raises:
+            aws_sdk_qbusiness.errors.access_denied_exception.AccessDeniedException: <p> You don't have access to perform this action. Make sure you have the required permission policies and user accounts and try again.</p>
+            aws_sdk_qbusiness.errors.conflict_exception.ConflictException: <p>You are trying to perform an action that conflicts with the current status of your resource. Fix any inconsistencies with your resources and try again.</p>
+            aws_sdk_qbusiness.errors.internal_server_exception.InternalServerException: <p>An issue occurred with the internal server used for your Amazon Q Business service. Wait some minutes and try again, or contact <a href=\"http://aws.amazon.com/contact-us/\">Support</a> for help.</p>
+            aws_sdk_qbusiness.errors.resource_not_found_exception.ResourceNotFoundException: <p>The application or plugin resource you want to use doesn’t exist. Make sure you have provided the correct resource and try again.</p>
+            aws_sdk_qbusiness.errors.throttling_exception.ThrottlingException: <p>The request was denied due to throttling. Reduce the number of requests and try again.</p>
+            aws_sdk_qbusiness.errors.validation_exception.ValidationException: <p>The input doesn't meet the constraints set by the Amazon Q Business service. Provide the correct input and try again.</p>
+            aws_sdk_qbusiness.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1447,6 +1648,16 @@ class QBusinessClient:
             conversation_id: <p>The identifier of the Amazon Q Business conversation.</p>
             message_id: <p>The identifier of the Amazon Q Business message.</p>
             media_id: <p>The identifier of the media object. You can find this in the <code>sourceAttributions</code> returned by the <code>Chat</code>, <code>ChatSync</code>, and <code>ListMessages</code> API responses.</p>
+
+        Raises:
+            aws_sdk_qbusiness.errors.access_denied_exception.AccessDeniedException: <p> You don't have access to perform this action. Make sure you have the required permission policies and user accounts and try again.</p>
+            aws_sdk_qbusiness.errors.internal_server_exception.InternalServerException: <p>An issue occurred with the internal server used for your Amazon Q Business service. Wait some minutes and try again, or contact <a href=\"http://aws.amazon.com/contact-us/\">Support</a> for help.</p>
+            aws_sdk_qbusiness.errors.license_not_found_exception.LicenseNotFoundException: <p>You don't have permissions to perform the action because your license is inactive. Ask your admin to activate your license and try again after your licence is active.</p>
+            aws_sdk_qbusiness.errors.media_too_large_exception.MediaTooLargeException: <p>The requested media object is too large to be returned.</p>
+            aws_sdk_qbusiness.errors.resource_not_found_exception.ResourceNotFoundException: <p>The application or plugin resource you want to use doesn’t exist. Make sure you have provided the correct resource and try again.</p>
+            aws_sdk_qbusiness.errors.throttling_exception.ThrottlingException: <p>The request was denied due to throttling. Reduce the number of requests and try again.</p>
+            aws_sdk_qbusiness.errors.validation_exception.ValidationException: <p>The input doesn't meet the constraints set by the Amazon Q Business service. Provide the correct input and try again.</p>
+            aws_sdk_qbusiness.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1487,6 +1698,14 @@ class QBusinessClient:
 
         Args:
             application_id: <p>The unique identifier of the Amazon Q Business application.</p>
+
+        Raises:
+            aws_sdk_qbusiness.errors.access_denied_exception.AccessDeniedException: <p> You don't have access to perform this action. Make sure you have the required permission policies and user accounts and try again.</p>
+            aws_sdk_qbusiness.errors.internal_server_exception.InternalServerException: <p>An issue occurred with the internal server used for your Amazon Q Business service. Wait some minutes and try again, or contact <a href=\"http://aws.amazon.com/contact-us/\">Support</a> for help.</p>
+            aws_sdk_qbusiness.errors.resource_not_found_exception.ResourceNotFoundException: <p>The application or plugin resource you want to use doesn’t exist. Make sure you have provided the correct resource and try again.</p>
+            aws_sdk_qbusiness.errors.throttling_exception.ThrottlingException: <p>The request was denied due to throttling. Reduce the number of requests and try again.</p>
+            aws_sdk_qbusiness.errors.validation_exception.ValidationException: <p>The input doesn't meet the constraints set by the Amazon Q Business service. Provide the correct input and try again.</p>
+            aws_sdk_qbusiness.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1526,6 +1745,15 @@ class QBusinessClient:
         Args:
             application_id: <p>The identifier of the application connected to the user.</p>
             user_id: <p>The user email address attached to the user.</p>
+
+        Raises:
+            aws_sdk_qbusiness.errors.access_denied_exception.AccessDeniedException: <p> You don't have access to perform this action. Make sure you have the required permission policies and user accounts and try again.</p>
+            aws_sdk_qbusiness.errors.conflict_exception.ConflictException: <p>You are trying to perform an action that conflicts with the current status of your resource. Fix any inconsistencies with your resources and try again.</p>
+            aws_sdk_qbusiness.errors.internal_server_exception.InternalServerException: <p>An issue occurred with the internal server used for your Amazon Q Business service. Wait some minutes and try again, or contact <a href=\"http://aws.amazon.com/contact-us/\">Support</a> for help.</p>
+            aws_sdk_qbusiness.errors.resource_not_found_exception.ResourceNotFoundException: <p>The application or plugin resource you want to use doesn’t exist. Make sure you have provided the correct resource and try again.</p>
+            aws_sdk_qbusiness.errors.throttling_exception.ThrottlingException: <p>The request was denied due to throttling. Reduce the number of requests and try again.</p>
+            aws_sdk_qbusiness.errors.validation_exception.ValidationException: <p>The input doesn't meet the constraints set by the Amazon Q Business service. Provide the correct input and try again.</p>
+            aws_sdk_qbusiness.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1576,6 +1804,15 @@ class QBusinessClient:
             user_id: <p>The unique identifier of the user involved in the Amazon Q Business web experience conversation.</p>
             next_token: <p>If the number of attachments returned exceeds <code>maxResults</code>, Amazon Q Business returns a next token as a pagination token to retrieve the next set of attachments.</p>
             max_results: <p>The maximum number of attachements to return.</p>
+
+        Raises:
+            aws_sdk_qbusiness.errors.access_denied_exception.AccessDeniedException: <p> You don't have access to perform this action. Make sure you have the required permission policies and user accounts and try again.</p>
+            aws_sdk_qbusiness.errors.internal_server_exception.InternalServerException: <p>An issue occurred with the internal server used for your Amazon Q Business service. Wait some minutes and try again, or contact <a href=\"http://aws.amazon.com/contact-us/\">Support</a> for help.</p>
+            aws_sdk_qbusiness.errors.license_not_found_exception.LicenseNotFoundException: <p>You don't have permissions to perform the action because your license is inactive. Ask your admin to activate your license and try again after your licence is active.</p>
+            aws_sdk_qbusiness.errors.resource_not_found_exception.ResourceNotFoundException: <p>The application or plugin resource you want to use doesn’t exist. Make sure you have provided the correct resource and try again.</p>
+            aws_sdk_qbusiness.errors.throttling_exception.ThrottlingException: <p>The request was denied due to throttling. Reduce the number of requests and try again.</p>
+            aws_sdk_qbusiness.errors.validation_exception.ValidationException: <p>The input doesn't meet the constraints set by the Amazon Q Business service. Provide the correct input and try again.</p>
+            aws_sdk_qbusiness.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1656,6 +1893,14 @@ class QBusinessClient:
             application_id: <p>The unique identifier of the Amazon Q Business application for which to list available chat response configurations.</p>
             max_results: <p>The maximum number of chat response configurations to return in a single response. This parameter helps control pagination of results when many configurations exist.</p>
             next_token: <p>A pagination token used to retrieve the next set of results when the number of configurations exceeds the specified <code>maxResults</code> value.</p>
+
+        Raises:
+            aws_sdk_qbusiness.errors.access_denied_exception.AccessDeniedException: <p> You don't have access to perform this action. Make sure you have the required permission policies and user accounts and try again.</p>
+            aws_sdk_qbusiness.errors.internal_server_exception.InternalServerException: <p>An issue occurred with the internal server used for your Amazon Q Business service. Wait some minutes and try again, or contact <a href=\"http://aws.amazon.com/contact-us/\">Support</a> for help.</p>
+            aws_sdk_qbusiness.errors.resource_not_found_exception.ResourceNotFoundException: <p>The application or plugin resource you want to use doesn’t exist. Make sure you have provided the correct resource and try again.</p>
+            aws_sdk_qbusiness.errors.throttling_exception.ThrottlingException: <p>The request was denied due to throttling. Reduce the number of requests and try again.</p>
+            aws_sdk_qbusiness.errors.validation_exception.ValidationException: <p>The input doesn't meet the constraints set by the Amazon Q Business service. Provide the correct input and try again.</p>
+            aws_sdk_qbusiness.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1730,6 +1975,15 @@ class QBusinessClient:
             user_id: <p>The identifier of the user involved in the Amazon Q Business web experience conversation. </p>
             next_token: <p>If the <code>maxResults</code> response was incomplete because there is more data to retrieve, Amazon Q Business returns a pagination token in the response. You can use this pagination token to retrieve the next set of Amazon Q Business conversations.</p>
             max_results: <p>The maximum number of Amazon Q Business conversations to return.</p>
+
+        Raises:
+            aws_sdk_qbusiness.errors.access_denied_exception.AccessDeniedException: <p> You don't have access to perform this action. Make sure you have the required permission policies and user accounts and try again.</p>
+            aws_sdk_qbusiness.errors.internal_server_exception.InternalServerException: <p>An issue occurred with the internal server used for your Amazon Q Business service. Wait some minutes and try again, or contact <a href=\"http://aws.amazon.com/contact-us/\">Support</a> for help.</p>
+            aws_sdk_qbusiness.errors.license_not_found_exception.LicenseNotFoundException: <p>You don't have permissions to perform the action because your license is inactive. Ask your admin to activate your license and try again after your licence is active.</p>
+            aws_sdk_qbusiness.errors.resource_not_found_exception.ResourceNotFoundException: <p>The application or plugin resource you want to use doesn’t exist. Make sure you have provided the correct resource and try again.</p>
+            aws_sdk_qbusiness.errors.throttling_exception.ThrottlingException: <p>The request was denied due to throttling. Reduce the number of requests and try again.</p>
+            aws_sdk_qbusiness.errors.validation_exception.ValidationException: <p>The input doesn't meet the constraints set by the Amazon Q Business service. Provide the correct input and try again.</p>
+            aws_sdk_qbusiness.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1818,6 +2072,15 @@ class QBusinessClient:
             start_time: <p> The start time of the data source connector sync. </p>
             end_time: <p> The end time of the data source connector sync.</p>
             status_filter: <p>Only returns synchronization jobs with the <code>Status</code> field equal to the specified status.</p>
+
+        Raises:
+            aws_sdk_qbusiness.errors.access_denied_exception.AccessDeniedException: <p> You don't have access to perform this action. Make sure you have the required permission policies and user accounts and try again.</p>
+            aws_sdk_qbusiness.errors.conflict_exception.ConflictException: <p>You are trying to perform an action that conflicts with the current status of your resource. Fix any inconsistencies with your resources and try again.</p>
+            aws_sdk_qbusiness.errors.internal_server_exception.InternalServerException: <p>An issue occurred with the internal server used for your Amazon Q Business service. Wait some minutes and try again, or contact <a href=\"http://aws.amazon.com/contact-us/\">Support</a> for help.</p>
+            aws_sdk_qbusiness.errors.resource_not_found_exception.ResourceNotFoundException: <p>The application or plugin resource you want to use doesn’t exist. Make sure you have provided the correct resource and try again.</p>
+            aws_sdk_qbusiness.errors.throttling_exception.ThrottlingException: <p>The request was denied due to throttling. Reduce the number of requests and try again.</p>
+            aws_sdk_qbusiness.errors.validation_exception.ValidationException: <p>The input doesn't meet the constraints set by the Amazon Q Business service. Provide the correct input and try again.</p>
+            aws_sdk_qbusiness.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1916,6 +2179,14 @@ class QBusinessClient:
             data_source_ids: <p>The identifier of the data sources the documents are attached to.</p>
             next_token: <p>If the <code>maxResults</code> response was incomplete because there is more data to retrieve, Amazon Q Business returns a pagination token in the response. You can use this pagination token to retrieve the next set of documents.</p>
             max_results: <p>The maximum number of documents to return.</p>
+
+        Raises:
+            aws_sdk_qbusiness.errors.access_denied_exception.AccessDeniedException: <p> You don't have access to perform this action. Make sure you have the required permission policies and user accounts and try again.</p>
+            aws_sdk_qbusiness.errors.internal_server_exception.InternalServerException: <p>An issue occurred with the internal server used for your Amazon Q Business service. Wait some minutes and try again, or contact <a href=\"http://aws.amazon.com/contact-us/\">Support</a> for help.</p>
+            aws_sdk_qbusiness.errors.resource_not_found_exception.ResourceNotFoundException: <p>The application or plugin resource you want to use doesn’t exist. Make sure you have provided the correct resource and try again.</p>
+            aws_sdk_qbusiness.errors.throttling_exception.ThrottlingException: <p>The request was denied due to throttling. Reduce the number of requests and try again.</p>
+            aws_sdk_qbusiness.errors.validation_exception.ValidationException: <p>The input doesn't meet the constraints set by the Amazon Q Business service. Provide the correct input and try again.</p>
+            aws_sdk_qbusiness.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2005,6 +2276,15 @@ class QBusinessClient:
             data_source_id: <p>The identifier of the data source for getting a list of groups mapped to users.</p>
             next_token: <p>If the previous response was incomplete (because there is more data to retrieve), Amazon Q Business returns a pagination token in the response. You can use this pagination token to retrieve the next set of groups that are mapped to users.</p>
             max_results: <p>The maximum number of returned groups that are mapped to users.</p>
+
+        Raises:
+            aws_sdk_qbusiness.errors.access_denied_exception.AccessDeniedException: <p> You don't have access to perform this action. Make sure you have the required permission policies and user accounts and try again.</p>
+            aws_sdk_qbusiness.errors.conflict_exception.ConflictException: <p>You are trying to perform an action that conflicts with the current status of your resource. Fix any inconsistencies with your resources and try again.</p>
+            aws_sdk_qbusiness.errors.internal_server_exception.InternalServerException: <p>An issue occurred with the internal server used for your Amazon Q Business service. Wait some minutes and try again, or contact <a href=\"http://aws.amazon.com/contact-us/\">Support</a> for help.</p>
+            aws_sdk_qbusiness.errors.resource_not_found_exception.ResourceNotFoundException: <p>The application or plugin resource you want to use doesn’t exist. Make sure you have provided the correct resource and try again.</p>
+            aws_sdk_qbusiness.errors.throttling_exception.ThrottlingException: <p>The request was denied due to throttling. Reduce the number of requests and try again.</p>
+            aws_sdk_qbusiness.errors.validation_exception.ValidationException: <p>The input doesn't meet the constraints set by the Amazon Q Business service. Provide the correct input and try again.</p>
+            aws_sdk_qbusiness.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2093,6 +2373,15 @@ class QBusinessClient:
             user_id: <p>The identifier of the user involved in the Amazon Q Business web experience conversation.</p>
             next_token: <p>If the number of messages returned exceeds <code>maxResults</code>, Amazon Q Business returns a next token as a pagination token to retrieve the next set of messages.</p>
             max_results: <p>The maximum number of messages to return.</p>
+
+        Raises:
+            aws_sdk_qbusiness.errors.access_denied_exception.AccessDeniedException: <p> You don't have access to perform this action. Make sure you have the required permission policies and user accounts and try again.</p>
+            aws_sdk_qbusiness.errors.internal_server_exception.InternalServerException: <p>An issue occurred with the internal server used for your Amazon Q Business service. Wait some minutes and try again, or contact <a href=\"http://aws.amazon.com/contact-us/\">Support</a> for help.</p>
+            aws_sdk_qbusiness.errors.license_not_found_exception.LicenseNotFoundException: <p>You don't have permissions to perform the action because your license is inactive. Ask your admin to activate your license and try again after your licence is active.</p>
+            aws_sdk_qbusiness.errors.resource_not_found_exception.ResourceNotFoundException: <p>The application or plugin resource you want to use doesn’t exist. Make sure you have provided the correct resource and try again.</p>
+            aws_sdk_qbusiness.errors.throttling_exception.ThrottlingException: <p>The request was denied due to throttling. Reduce the number of requests and try again.</p>
+            aws_sdk_qbusiness.errors.validation_exception.ValidationException: <p>The input doesn't meet the constraints set by the Amazon Q Business service. Provide the correct input and try again.</p>
+            aws_sdk_qbusiness.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2176,6 +2465,14 @@ class QBusinessClient:
             plugin_id: <p>The identifier of the Amazon Q Business plugin.</p>
             next_token: <p>If the number of plugin actions returned exceeds <code>maxResults</code>, Amazon Q Business returns a next token as a pagination token to retrieve the next set of plugin actions.</p>
             max_results: <p>The maximum number of plugin actions to return.</p>
+
+        Raises:
+            aws_sdk_qbusiness.errors.access_denied_exception.AccessDeniedException: <p> You don't have access to perform this action. Make sure you have the required permission policies and user accounts and try again.</p>
+            aws_sdk_qbusiness.errors.internal_server_exception.InternalServerException: <p>An issue occurred with the internal server used for your Amazon Q Business service. Wait some minutes and try again, or contact <a href=\"http://aws.amazon.com/contact-us/\">Support</a> for help.</p>
+            aws_sdk_qbusiness.errors.resource_not_found_exception.ResourceNotFoundException: <p>The application or plugin resource you want to use doesn’t exist. Make sure you have provided the correct resource and try again.</p>
+            aws_sdk_qbusiness.errors.throttling_exception.ThrottlingException: <p>The request was denied due to throttling. Reduce the number of requests and try again.</p>
+            aws_sdk_qbusiness.errors.validation_exception.ValidationException: <p>The input doesn't meet the constraints set by the Amazon Q Business service. Provide the correct input and try again.</p>
+            aws_sdk_qbusiness.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2251,6 +2548,13 @@ class QBusinessClient:
             plugin_type: <p>The type of the plugin.</p>
             next_token: <p>If the number of plugins returned exceeds <code>maxResults</code>, Amazon Q Business returns a next token as a pagination token to retrieve the next set of plugins.</p>
             max_results: <p>The maximum number of plugins to return.</p>
+
+        Raises:
+            aws_sdk_qbusiness.errors.access_denied_exception.AccessDeniedException: <p> You don't have access to perform this action. Make sure you have the required permission policies and user accounts and try again.</p>
+            aws_sdk_qbusiness.errors.internal_server_exception.InternalServerException: <p>An issue occurred with the internal server used for your Amazon Q Business service. Wait some minutes and try again, or contact <a href=\"http://aws.amazon.com/contact-us/\">Support</a> for help.</p>
+            aws_sdk_qbusiness.errors.throttling_exception.ThrottlingException: <p>The request was denied due to throttling. Reduce the number of requests and try again.</p>
+            aws_sdk_qbusiness.errors.validation_exception.ValidationException: <p>The input doesn't meet the constraints set by the Amazon Q Business service. Provide the correct input and try again.</p>
+            aws_sdk_qbusiness.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2321,6 +2625,13 @@ class QBusinessClient:
         Args:
             next_token: <p>If the metadata returned exceeds <code>maxResults</code>, Amazon Q Business returns a next token as a pagination token to retrieve the next set of metadata.</p>
             max_results: <p>The maximum number of plugin metadata items to return.</p>
+
+        Raises:
+            aws_sdk_qbusiness.errors.access_denied_exception.AccessDeniedException: <p> You don't have access to perform this action. Make sure you have the required permission policies and user accounts and try again.</p>
+            aws_sdk_qbusiness.errors.internal_server_exception.InternalServerException: <p>An issue occurred with the internal server used for your Amazon Q Business service. Wait some minutes and try again, or contact <a href=\"http://aws.amazon.com/contact-us/\">Support</a> for help.</p>
+            aws_sdk_qbusiness.errors.throttling_exception.ThrottlingException: <p>The request was denied due to throttling. Reduce the number of requests and try again.</p>
+            aws_sdk_qbusiness.errors.validation_exception.ValidationException: <p>The input doesn't meet the constraints set by the Amazon Q Business service. Provide the correct input and try again.</p>
+            aws_sdk_qbusiness.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2392,6 +2703,15 @@ class QBusinessClient:
             application_id: <p>The identifier of the Amazon Q Business application linked to the subscription.</p>
             next_token: <p>If the <code>maxResults</code> response was incomplete because there is more data to retrieve, Amazon Q Business returns a pagination token in the response. You can use this pagination token to retrieve the next set of Amazon Q Business subscriptions.</p>
             max_results: <p>The maximum number of Amazon Q Business subscriptions to return.</p>
+
+        Raises:
+            aws_sdk_qbusiness.errors.access_denied_exception.AccessDeniedException: <p> You don't have access to perform this action. Make sure you have the required permission policies and user accounts and try again.</p>
+            aws_sdk_qbusiness.errors.conflict_exception.ConflictException: <p>You are trying to perform an action that conflicts with the current status of your resource. Fix any inconsistencies with your resources and try again.</p>
+            aws_sdk_qbusiness.errors.internal_server_exception.InternalServerException: <p>An issue occurred with the internal server used for your Amazon Q Business service. Wait some minutes and try again, or contact <a href=\"http://aws.amazon.com/contact-us/\">Support</a> for help.</p>
+            aws_sdk_qbusiness.errors.resource_not_found_exception.ResourceNotFoundException: <p>The application or plugin resource you want to use doesn’t exist. Make sure you have provided the correct resource and try again.</p>
+            aws_sdk_qbusiness.errors.throttling_exception.ThrottlingException: <p>The request was denied due to throttling. Reduce the number of requests and try again.</p>
+            aws_sdk_qbusiness.errors.validation_exception.ValidationException: <p>The input doesn't meet the constraints set by the Amazon Q Business service. Provide the correct input and try again.</p>
+            aws_sdk_qbusiness.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2458,6 +2778,14 @@ class QBusinessClient:
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the Amazon Q Business application or data source to get a list of tags for.</p>
+
+        Raises:
+            aws_sdk_qbusiness.errors.access_denied_exception.AccessDeniedException: <p> You don't have access to perform this action. Make sure you have the required permission policies and user accounts and try again.</p>
+            aws_sdk_qbusiness.errors.internal_server_exception.InternalServerException: <p>An issue occurred with the internal server used for your Amazon Q Business service. Wait some minutes and try again, or contact <a href=\"http://aws.amazon.com/contact-us/\">Support</a> for help.</p>
+            aws_sdk_qbusiness.errors.resource_not_found_exception.ResourceNotFoundException: <p>The application or plugin resource you want to use doesn’t exist. Make sure you have provided the correct resource and try again.</p>
+            aws_sdk_qbusiness.errors.throttling_exception.ThrottlingException: <p>The request was denied due to throttling. Reduce the number of requests and try again.</p>
+            aws_sdk_qbusiness.errors.validation_exception.ValidationException: <p>The input doesn't meet the constraints set by the Amazon Q Business service. Provide the correct input and try again.</p>
+            aws_sdk_qbusiness.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2509,6 +2837,14 @@ class QBusinessClient:
             message_id: <p>The identifier of the chat message that the feedback was given for.</p>
             message_copied_at: <p>The timestamp for when the feedback was recorded.</p>
             message_usefulness: <p>The feedback usefulness value given by the user to the chat message.</p>
+
+        Raises:
+            aws_sdk_qbusiness.errors.access_denied_exception.AccessDeniedException: <p> You don't have access to perform this action. Make sure you have the required permission policies and user accounts and try again.</p>
+            aws_sdk_qbusiness.errors.internal_server_exception.InternalServerException: <p>An issue occurred with the internal server used for your Amazon Q Business service. Wait some minutes and try again, or contact <a href=\"http://aws.amazon.com/contact-us/\">Support</a> for help.</p>
+            aws_sdk_qbusiness.errors.resource_not_found_exception.ResourceNotFoundException: <p>The application or plugin resource you want to use doesn’t exist. Make sure you have provided the correct resource and try again.</p>
+            aws_sdk_qbusiness.errors.throttling_exception.ThrottlingException: <p>The request was denied due to throttling. Reduce the number of requests and try again.</p>
+            aws_sdk_qbusiness.errors.validation_exception.ValidationException: <p>The input doesn't meet the constraints set by the Amazon Q Business service. Provide the correct input and try again.</p>
+            aws_sdk_qbusiness.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2565,6 +2901,16 @@ class QBusinessClient:
             data_source_id: <p>The identifier of the data source for which you want to map users to their groups. This is useful if a group is tied to multiple data sources, but you only want the group to access documents of a certain data source. For example, the groups \"Research\", \"Engineering\", and \"Sales and Marketing\" are all tied to the company's documents stored in the data sources Confluence and Salesforce. However, \"Sales and Marketing\" team only needs access to customer-related documents stored in Salesforce.</p>
             type: <p>The type of the group.</p>
             role_arn: <p>The Amazon Resource Name (ARN) of an IAM role that has access to the S3 file that contains your list of users that belong to a group.</p>
+
+        Raises:
+            aws_sdk_qbusiness.errors.access_denied_exception.AccessDeniedException: <p> You don't have access to perform this action. Make sure you have the required permission policies and user accounts and try again.</p>
+            aws_sdk_qbusiness.errors.conflict_exception.ConflictException: <p>You are trying to perform an action that conflicts with the current status of your resource. Fix any inconsistencies with your resources and try again.</p>
+            aws_sdk_qbusiness.errors.internal_server_exception.InternalServerException: <p>An issue occurred with the internal server used for your Amazon Q Business service. Wait some minutes and try again, or contact <a href=\"http://aws.amazon.com/contact-us/\">Support</a> for help.</p>
+            aws_sdk_qbusiness.errors.resource_not_found_exception.ResourceNotFoundException: <p>The application or plugin resource you want to use doesn’t exist. Make sure you have provided the correct resource and try again.</p>
+            aws_sdk_qbusiness.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You have exceeded the set limits for your Amazon Q Business service. </p>
+            aws_sdk_qbusiness.errors.throttling_exception.ThrottlingException: <p>The request was denied due to throttling. Reduce the number of requests and try again.</p>
+            aws_sdk_qbusiness.errors.validation_exception.ValidationException: <p>The input doesn't meet the constraints set by the Amazon Q Business service. Provide the correct input and try again.</p>
+            aws_sdk_qbusiness.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2621,6 +2967,15 @@ class QBusinessClient:
             content_source: <p>The source of content to search in.</p>
             max_results: <p>The maximum number of results to return.</p>
             next_token: <p>The token for the next set of results. (You received this token from a previous call.)</p>
+
+        Raises:
+            aws_sdk_qbusiness.errors.access_denied_exception.AccessDeniedException: <p> You don't have access to perform this action. Make sure you have the required permission policies and user accounts and try again.</p>
+            aws_sdk_qbusiness.errors.internal_server_exception.InternalServerException: <p>An issue occurred with the internal server used for your Amazon Q Business service. Wait some minutes and try again, or contact <a href=\"http://aws.amazon.com/contact-us/\">Support</a> for help.</p>
+            aws_sdk_qbusiness.errors.license_not_found_exception.LicenseNotFoundException: <p>You don't have permissions to perform the action because your license is inactive. Ask your admin to activate your license and try again after your licence is active.</p>
+            aws_sdk_qbusiness.errors.resource_not_found_exception.ResourceNotFoundException: <p>The application or plugin resource you want to use doesn’t exist. Make sure you have provided the correct resource and try again.</p>
+            aws_sdk_qbusiness.errors.throttling_exception.ThrottlingException: <p>The request was denied due to throttling. Reduce the number of requests and try again.</p>
+            aws_sdk_qbusiness.errors.validation_exception.ValidationException: <p>The input doesn't meet the constraints set by the Amazon Q Business service. Provide the correct input and try again.</p>
+            aws_sdk_qbusiness.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2701,6 +3056,16 @@ class QBusinessClient:
             data_source_id: <p> The identifier of the data source connector. </p>
             application_id: <p>The identifier of Amazon Q Business application the data source is connected to.</p>
             index_id: <p>The identifier of the index used with the data source connector.</p>
+
+        Raises:
+            aws_sdk_qbusiness.errors.access_denied_exception.AccessDeniedException: <p> You don't have access to perform this action. Make sure you have the required permission policies and user accounts and try again.</p>
+            aws_sdk_qbusiness.errors.conflict_exception.ConflictException: <p>You are trying to perform an action that conflicts with the current status of your resource. Fix any inconsistencies with your resources and try again.</p>
+            aws_sdk_qbusiness.errors.internal_server_exception.InternalServerException: <p>An issue occurred with the internal server used for your Amazon Q Business service. Wait some minutes and try again, or contact <a href=\"http://aws.amazon.com/contact-us/\">Support</a> for help.</p>
+            aws_sdk_qbusiness.errors.resource_not_found_exception.ResourceNotFoundException: <p>The application or plugin resource you want to use doesn’t exist. Make sure you have provided the correct resource and try again.</p>
+            aws_sdk_qbusiness.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You have exceeded the set limits for your Amazon Q Business service. </p>
+            aws_sdk_qbusiness.errors.throttling_exception.ThrottlingException: <p>The request was denied due to throttling. Reduce the number of requests and try again.</p>
+            aws_sdk_qbusiness.errors.validation_exception.ValidationException: <p>The input doesn't meet the constraints set by the Amazon Q Business service. Provide the correct input and try again.</p>
+            aws_sdk_qbusiness.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2744,6 +3109,15 @@ class QBusinessClient:
             data_source_id: <p> The identifier of the data source connector. </p>
             application_id: <p>The identifier of the Amazon Q Business application that the data source is connected to.</p>
             index_id: <p>The identifier of the index used with the Amazon Q Business data source connector.</p>
+
+        Raises:
+            aws_sdk_qbusiness.errors.access_denied_exception.AccessDeniedException: <p> You don't have access to perform this action. Make sure you have the required permission policies and user accounts and try again.</p>
+            aws_sdk_qbusiness.errors.conflict_exception.ConflictException: <p>You are trying to perform an action that conflicts with the current status of your resource. Fix any inconsistencies with your resources and try again.</p>
+            aws_sdk_qbusiness.errors.internal_server_exception.InternalServerException: <p>An issue occurred with the internal server used for your Amazon Q Business service. Wait some minutes and try again, or contact <a href=\"http://aws.amazon.com/contact-us/\">Support</a> for help.</p>
+            aws_sdk_qbusiness.errors.resource_not_found_exception.ResourceNotFoundException: <p>The application or plugin resource you want to use doesn’t exist. Make sure you have provided the correct resource and try again.</p>
+            aws_sdk_qbusiness.errors.throttling_exception.ThrottlingException: <p>The request was denied due to throttling. Reduce the number of requests and try again.</p>
+            aws_sdk_qbusiness.errors.validation_exception.ValidationException: <p>The input doesn't meet the constraints set by the Amazon Q Business service. Provide the correct input and try again.</p>
+            aws_sdk_qbusiness.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2785,6 +3159,15 @@ class QBusinessClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the Amazon Q Business application or data source to tag.</p>
             tags: <p>A list of tag keys to add to the Amazon Q Business application or data source. If a tag already exists, the existing value is replaced with the new value.</p>
+
+        Raises:
+            aws_sdk_qbusiness.errors.access_denied_exception.AccessDeniedException: <p> You don't have access to perform this action. Make sure you have the required permission policies and user accounts and try again.</p>
+            aws_sdk_qbusiness.errors.conflict_exception.ConflictException: <p>You are trying to perform an action that conflicts with the current status of your resource. Fix any inconsistencies with your resources and try again.</p>
+            aws_sdk_qbusiness.errors.internal_server_exception.InternalServerException: <p>An issue occurred with the internal server used for your Amazon Q Business service. Wait some minutes and try again, or contact <a href=\"http://aws.amazon.com/contact-us/\">Support</a> for help.</p>
+            aws_sdk_qbusiness.errors.resource_not_found_exception.ResourceNotFoundException: <p>The application or plugin resource you want to use doesn’t exist. Make sure you have provided the correct resource and try again.</p>
+            aws_sdk_qbusiness.errors.throttling_exception.ThrottlingException: <p>The request was denied due to throttling. Reduce the number of requests and try again.</p>
+            aws_sdk_qbusiness.errors.validation_exception.ValidationException: <p>The input doesn't meet the constraints set by the Amazon Q Business service. Provide the correct input and try again.</p>
+            aws_sdk_qbusiness.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2825,6 +3208,14 @@ class QBusinessClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the Amazon Q Business application, or data source to remove the tag from.</p>
             tag_keys: <p>A list of tag keys to remove from the Amazon Q Business application or data source. If a tag key does not exist on the resource, it is ignored.</p>
+
+        Raises:
+            aws_sdk_qbusiness.errors.access_denied_exception.AccessDeniedException: <p> You don't have access to perform this action. Make sure you have the required permission policies and user accounts and try again.</p>
+            aws_sdk_qbusiness.errors.internal_server_exception.InternalServerException: <p>An issue occurred with the internal server used for your Amazon Q Business service. Wait some minutes and try again, or contact <a href=\"http://aws.amazon.com/contact-us/\">Support</a> for help.</p>
+            aws_sdk_qbusiness.errors.resource_not_found_exception.ResourceNotFoundException: <p>The application or plugin resource you want to use doesn’t exist. Make sure you have provided the correct resource and try again.</p>
+            aws_sdk_qbusiness.errors.throttling_exception.ThrottlingException: <p>The request was denied due to throttling. Reduce the number of requests and try again.</p>
+            aws_sdk_qbusiness.errors.validation_exception.ValidationException: <p>The input doesn't meet the constraints set by the Amazon Q Business service. Provide the correct input and try again.</p>
+            aws_sdk_qbusiness.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2895,6 +3286,16 @@ class QBusinessClient:
             topic_configurations_to_delete: <p>The configured topic specific chat controls you want to delete.</p>
             creator_mode_configuration: <p>The configuration details for <code>CREATOR_MODE</code>.</p>
             hallucination_reduction_configuration: <p> The hallucination reduction settings for your application.</p>
+
+        Raises:
+            aws_sdk_qbusiness.errors.access_denied_exception.AccessDeniedException: <p> You don't have access to perform this action. Make sure you have the required permission policies and user accounts and try again.</p>
+            aws_sdk_qbusiness.errors.conflict_exception.ConflictException: <p>You are trying to perform an action that conflicts with the current status of your resource. Fix any inconsistencies with your resources and try again.</p>
+            aws_sdk_qbusiness.errors.internal_server_exception.InternalServerException: <p>An issue occurred with the internal server used for your Amazon Q Business service. Wait some minutes and try again, or contact <a href=\"http://aws.amazon.com/contact-us/\">Support</a> for help.</p>
+            aws_sdk_qbusiness.errors.resource_not_found_exception.ResourceNotFoundException: <p>The application or plugin resource you want to use doesn’t exist. Make sure you have provided the correct resource and try again.</p>
+            aws_sdk_qbusiness.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You have exceeded the set limits for your Amazon Q Business service. </p>
+            aws_sdk_qbusiness.errors.throttling_exception.ThrottlingException: <p>The request was denied due to throttling. Reduce the number of requests and try again.</p>
+            aws_sdk_qbusiness.errors.validation_exception.ValidationException: <p>The input doesn't meet the constraints set by the Amazon Q Business service. Provide the correct input and try again.</p>
+            aws_sdk_qbusiness.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2964,6 +3365,15 @@ class QBusinessClient:
             display_name: <p>The new human-readable name to assign to the chat response configuration, making it easier to identify among multiple configurations.</p>
             response_configurations: <p>The updated collection of response configuration settings that define how Amazon Q Business generates and formats responses to user queries.</p>
             client_token: <p>A unique, case-sensitive identifier to ensure idempotency of the request. This helps prevent the same update from being processed multiple times if retries occur.</p>
+
+        Raises:
+            aws_sdk_qbusiness.errors.access_denied_exception.AccessDeniedException: <p> You don't have access to perform this action. Make sure you have the required permission policies and user accounts and try again.</p>
+            aws_sdk_qbusiness.errors.conflict_exception.ConflictException: <p>You are trying to perform an action that conflicts with the current status of your resource. Fix any inconsistencies with your resources and try again.</p>
+            aws_sdk_qbusiness.errors.internal_server_exception.InternalServerException: <p>An issue occurred with the internal server used for your Amazon Q Business service. Wait some minutes and try again, or contact <a href=\"http://aws.amazon.com/contact-us/\">Support</a> for help.</p>
+            aws_sdk_qbusiness.errors.resource_not_found_exception.ResourceNotFoundException: <p>The application or plugin resource you want to use doesn’t exist. Make sure you have provided the correct resource and try again.</p>
+            aws_sdk_qbusiness.errors.throttling_exception.ThrottlingException: <p>The request was denied due to throttling. Reduce the number of requests and try again.</p>
+            aws_sdk_qbusiness.errors.validation_exception.ValidationException: <p>The input doesn't meet the constraints set by the Amazon Q Business service. Provide the correct input and try again.</p>
+            aws_sdk_qbusiness.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3011,6 +3421,15 @@ class QBusinessClient:
             application_id: <p>The identifier of the Amazon Q Business application where the subscription update should take effect.</p>
             subscription_id: <p>The identifier of the Amazon Q Business subscription to be updated.</p>
             type: <p>The type of the Amazon Q Business subscription to be updated.</p>
+
+        Raises:
+            aws_sdk_qbusiness.errors.access_denied_exception.AccessDeniedException: <p> You don't have access to perform this action. Make sure you have the required permission policies and user accounts and try again.</p>
+            aws_sdk_qbusiness.errors.conflict_exception.ConflictException: <p>You are trying to perform an action that conflicts with the current status of your resource. Fix any inconsistencies with your resources and try again.</p>
+            aws_sdk_qbusiness.errors.internal_server_exception.InternalServerException: <p>An issue occurred with the internal server used for your Amazon Q Business service. Wait some minutes and try again, or contact <a href=\"http://aws.amazon.com/contact-us/\">Support</a> for help.</p>
+            aws_sdk_qbusiness.errors.resource_not_found_exception.ResourceNotFoundException: <p>The application or plugin resource you want to use doesn’t exist. Make sure you have provided the correct resource and try again.</p>
+            aws_sdk_qbusiness.errors.throttling_exception.ThrottlingException: <p>The request was denied due to throttling. Reduce the number of requests and try again.</p>
+            aws_sdk_qbusiness.errors.validation_exception.ValidationException: <p>The input doesn't meet the constraints set by the Amazon Q Business service. Provide the correct input and try again.</p>
+            aws_sdk_qbusiness.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3060,6 +3479,16 @@ class QBusinessClient:
             user_id: <p>The email id attached to the user.</p>
             user_aliases_to_update: <p>The user aliases attached to the user id that are to be updated.</p>
             user_aliases_to_delete: <p>The user aliases attached to the user id that are to be deleted.</p>
+
+        Raises:
+            aws_sdk_qbusiness.errors.access_denied_exception.AccessDeniedException: <p> You don't have access to perform this action. Make sure you have the required permission policies and user accounts and try again.</p>
+            aws_sdk_qbusiness.errors.conflict_exception.ConflictException: <p>You are trying to perform an action that conflicts with the current status of your resource. Fix any inconsistencies with your resources and try again.</p>
+            aws_sdk_qbusiness.errors.internal_server_exception.InternalServerException: <p>An issue occurred with the internal server used for your Amazon Q Business service. Wait some minutes and try again, or contact <a href=\"http://aws.amazon.com/contact-us/\">Support</a> for help.</p>
+            aws_sdk_qbusiness.errors.resource_not_found_exception.ResourceNotFoundException: <p>The application or plugin resource you want to use doesn’t exist. Make sure you have provided the correct resource and try again.</p>
+            aws_sdk_qbusiness.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You have exceeded the set limits for your Amazon Q Business service. </p>
+            aws_sdk_qbusiness.errors.throttling_exception.ThrottlingException: <p>The request was denied due to throttling. Reduce the number of requests and try again.</p>
+            aws_sdk_qbusiness.errors.validation_exception.ValidationException: <p>The input doesn't meet the constraints set by the Amazon Q Business service. Provide the correct input and try again.</p>
+            aws_sdk_qbusiness.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(

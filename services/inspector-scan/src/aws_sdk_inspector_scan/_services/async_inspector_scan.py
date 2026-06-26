@@ -141,6 +141,13 @@ class AsyncInspectorScanClient:
             sbom: <p>The JSON file for the SBOM you want to scan. The SBOM must be in CycloneDX 1.5 format. This format limits you to passing 2000 components before throwing a <code>ValidException</code> error.</p>
             output_format: <p>The output format for the vulnerability report.</p>
 
+        Raises:
+            aws_sdk_inspector_scan.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action. </p>
+            aws_sdk_inspector_scan.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure. </p>
+            aws_sdk_inspector_scan.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. </p>
+            aws_sdk_inspector_scan.errors.validation_exception.ValidationException: <p>The request has failed validation due to missing required fields or having invalid inputs.</p>
+            aws_sdk_inspector_scan.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Sample ScanSbom Call
 

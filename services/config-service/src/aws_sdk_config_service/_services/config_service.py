@@ -448,6 +448,12 @@ class ConfigServiceClient:
         Args:
             configuration_recorder_arn: <p>The Amazon Resource Name (ARN) of the specified configuration recorder.</p>
             resource_types: <p>The list of resource types you want to add to the recording group of the specified configuration recorder.</p>
+
+        Raises:
+            aws_sdk_config_service.errors.conflict_exception.ConflictException: <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_PutServiceLinkedConfigurationRecorder.html\">PutServiceLinkedConfigurationRecorder</a>, you cannot create a service-linked recorder because a service-linked recorder already exists for the specified service.</p> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_DeleteServiceLinkedConfigurationRecorder.html\">DeleteServiceLinkedConfigurationRecorder</a>, you cannot delete the service-linked recorder because it is currently in use by the linked Amazon Web Services service.</p> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_DeleteDeliveryChannel.html\">DeleteDeliveryChannel</a>, you cannot delete the specified delivery channel because the customer managed configuration recorder is running. Use the <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_StopConfigurationRecorder.html\">StopConfigurationRecorder</a> operation to stop the customer managed configuration recorder.</p> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_AssociateResourceTypes.html\">AssociateResourceTypes</a> and <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_DisassociateResourceTypes.html\">DisassociateResourceTypes</a>, one of the following errors:</p> <ul> <li> <p>For service-linked configuration recorders, the configuration recorder is not in use by the service. No association or dissociation of resource types is permitted.</p> </li> <li> <p>For service-linked configuration recorders, your requested change to the configuration recorder has been denied by its linked Amazon Web Services service.</p> </li> </ul>
+            aws_sdk_config_service.errors.no_such_configuration_recorder_exception.NoSuchConfigurationRecorderException: <p>You have specified a configuration recorder that does not exist.</p>
+            aws_sdk_config_service.errors.validation_exception.ValidationException: <p>The requested operation is not valid. You will see this exception if there are missing required fields or if the input value fails the validation.</p> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_PutStoredQuery.html\">PutStoredQuery</a>, one of the following errors:</p> <ul> <li> <p>There are missing required fields.</p> </li> <li> <p>The input value fails the validation.</p> </li> <li> <p>You are trying to create more than 300 queries.</p> </li> </ul> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_DescribeConfigurationRecorders.html\">DescribeConfigurationRecorders</a> and <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_DescribeConfigurationRecorderStatus.html\">DescribeConfigurationRecorderStatus</a>, one of the following errors:</p> <ul> <li> <p>You have specified more than one configuration recorder.</p> </li> <li> <p>You have provided a service principal for service-linked configuration recorder that is not valid.</p> </li> </ul> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_AssociateResourceTypes.html\">AssociateResourceTypes</a> and <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_DisassociateResourceTypes.html\">DisassociateResourceTypes</a>, one of the following errors:</p> <ul> <li> <p>Your configuraiton recorder has a recording strategy that does not allow the association or disassociation of resource types.</p> </li> <li> <p>One or more of the specified resource types are already associated or disassociated with the configuration recorder.</p> </li> <li> <p>For service-linked configuration recorders, the configuration recorder does not record one or more of the specified resource types.</p> </li> </ul>
+            aws_sdk_config_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -488,6 +494,11 @@ class ConfigServiceClient:
         Args:
             configuration_aggregator_name: <p>The name of the configuration aggregator.</p>
             resource_identifiers: <p>A list of aggregate ResourceIdentifiers objects. </p>
+
+        Raises:
+            aws_sdk_config_service.errors.no_such_configuration_aggregator_exception.NoSuchConfigurationAggregatorException: <p>You have specified a configuration aggregator that does not exist.</p>
+            aws_sdk_config_service.errors.validation_exception.ValidationException: <p>The requested operation is not valid. You will see this exception if there are missing required fields or if the input value fails the validation.</p> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_PutStoredQuery.html\">PutStoredQuery</a>, one of the following errors:</p> <ul> <li> <p>There are missing required fields.</p> </li> <li> <p>The input value fails the validation.</p> </li> <li> <p>You are trying to create more than 300 queries.</p> </li> </ul> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_DescribeConfigurationRecorders.html\">DescribeConfigurationRecorders</a> and <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_DescribeConfigurationRecorderStatus.html\">DescribeConfigurationRecorderStatus</a>, one of the following errors:</p> <ul> <li> <p>You have specified more than one configuration recorder.</p> </li> <li> <p>You have provided a service principal for service-linked configuration recorder that is not valid.</p> </li> </ul> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_AssociateResourceTypes.html\">AssociateResourceTypes</a> and <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_DisassociateResourceTypes.html\">DisassociateResourceTypes</a>, one of the following errors:</p> <ul> <li> <p>Your configuraiton recorder has a recording strategy that does not allow the association or disassociation of resource types.</p> </li> <li> <p>One or more of the specified resource types are already associated or disassociated with the configuration recorder.</p> </li> <li> <p>For service-linked configuration recorders, the configuration recorder does not record one or more of the specified resource types.</p> </li> </ul>
+            aws_sdk_config_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -526,6 +537,11 @@ class ConfigServiceClient:
 
         Args:
             resource_keys: <p>A list of resource keys to be processed with the current request. Each element in the list consists of the resource type and resource ID.</p>
+
+        Raises:
+            aws_sdk_config_service.errors.no_available_configuration_recorder_exception.NoAvailableConfigurationRecorderException: <p>There are no customer managed configuration recorders available to record your resources. Use the <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_PutConfigurationRecorder.html\">PutConfigurationRecorder</a> operation to create the customer managed configuration recorder.</p>
+            aws_sdk_config_service.errors.validation_exception.ValidationException: <p>The requested operation is not valid. You will see this exception if there are missing required fields or if the input value fails the validation.</p> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_PutStoredQuery.html\">PutStoredQuery</a>, one of the following errors:</p> <ul> <li> <p>There are missing required fields.</p> </li> <li> <p>The input value fails the validation.</p> </li> <li> <p>You are trying to create more than 300 queries.</p> </li> </ul> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_DescribeConfigurationRecorders.html\">DescribeConfigurationRecorders</a> and <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_DescribeConfigurationRecorderStatus.html\">DescribeConfigurationRecorderStatus</a>, one of the following errors:</p> <ul> <li> <p>You have specified more than one configuration recorder.</p> </li> <li> <p>You have provided a service principal for service-linked configuration recorder that is not valid.</p> </li> </ul> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_AssociateResourceTypes.html\">AssociateResourceTypes</a> and <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_DisassociateResourceTypes.html\">DisassociateResourceTypes</a>, one of the following errors:</p> <ul> <li> <p>Your configuraiton recorder has a recording strategy that does not allow the association or disassociation of resource types.</p> </li> <li> <p>One or more of the specified resource types are already associated or disassociated with the configuration recorder.</p> </li> <li> <p>For service-linked configuration recorders, the configuration recorder does not record one or more of the specified resource types.</p> </li> </ul>
+            aws_sdk_config_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -565,6 +581,10 @@ class ConfigServiceClient:
         Args:
             authorized_account_id: <p>The 12-digit account ID of the account authorized to aggregate data.</p>
             authorized_aws_region: <p>The region authorized to collect aggregated data.</p>
+
+        Raises:
+            aws_sdk_config_service.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more of the specified parameters are not valid. Verify that your parameters are valid and try again.</p>
+            aws_sdk_config_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -601,6 +621,11 @@ class ConfigServiceClient:
 
         Args:
             config_rule_name: <p>The name of the Config rule that you want to delete.</p>
+
+        Raises:
+            aws_sdk_config_service.errors.no_such_config_rule_exception.NoSuchConfigRuleException: <p>The Config rule in the request is not valid. Verify that the rule is an Config Process Check rule, that the rule name is correct, and that valid Amazon Resouce Names (ARNs) are used before trying again.</p>
+            aws_sdk_config_service.errors.resource_in_use_exception.ResourceInUseException: <p>You see this exception in the following cases: </p> <ul> <li> <p>For DeleteConfigRule, Config is deleting this rule. Try your request again later.</p> </li> <li> <p>For DeleteConfigRule, the rule is deleting your evaluation results. Try your request again later.</p> </li> <li> <p>For DeleteConfigRule, a remediation action is associated with the rule and Config cannot delete this rule. Delete the remediation action associated with the rule before deleting the rule and try your request again later.</p> </li> <li> <p>For PutConfigOrganizationRule, organization Config rule deletion is in progress. Try your request again later.</p> </li> <li> <p>For DeleteOrganizationConfigRule, organization Config rule creation is in progress. Try your request again later.</p> </li> <li> <p>For PutConformancePack and PutOrganizationConformancePack, a conformance pack creation, update, and deletion is in progress. Try your request again later.</p> </li> <li> <p>For DeleteConformancePack, a conformance pack creation, update, and deletion is in progress. Try your request again later.</p> </li> </ul>
+            aws_sdk_config_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -636,6 +661,10 @@ class ConfigServiceClient:
 
         Args:
             configuration_aggregator_name: <p>The name of the configuration aggregator.</p>
+
+        Raises:
+            aws_sdk_config_service.errors.no_such_configuration_aggregator_exception.NoSuchConfigurationAggregatorException: <p>You have specified a configuration aggregator that does not exist.</p>
+            aws_sdk_config_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -671,6 +700,11 @@ class ConfigServiceClient:
 
         Args:
             configuration_recorder_name: <p>The name of the customer managed configuration recorder that you want to delete. You can retrieve the name of your configuration recorders by using the <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_DescribeConfigurationRecorders.html\">DescribeConfigurationRecorders</a> operation.</p>
+
+        Raises:
+            aws_sdk_config_service.errors.no_such_configuration_recorder_exception.NoSuchConfigurationRecorderException: <p>You have specified a configuration recorder that does not exist.</p>
+            aws_sdk_config_service.errors.unmodifiable_entity_exception.UnmodifiableEntityException: <p>The requested operation is not valid.</p> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_PutConfigurationRecorder.html\">PutConfigurationRecorder</a>, you will see this exception because you cannot use this operation to create a service-linked configuration recorder. Use the <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_PutServiceLinkedConfigurationRecorder.html\">PutServiceLinkedConfigurationRecorder</a> operation to create a service-linked configuration recorder.</p> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_DeleteConfigurationRecorder.html\">DeleteConfigurationRecorder</a>, you will see this exception because you cannot use this operation to delete a service-linked configuration recorder. Use the <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_DeleteServiceLinkedConfigurationRecorder.html\">DeleteServiceLinkedConfigurationRecorder</a> operation to delete a service-linked configuration recorder.</p> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_StartConfigurationRecorder.html\">StartConfigurationRecorder</a> and <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_StopConfigurationRecorder.html\">StopConfigurationRecorder</a>, you will see this exception because these operations do not affect service-linked configuration recorders. Service-linked configuration recorders are always recording. To stop recording, you must delete the service-linked configuration recorder. Use the <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_DeleteServiceLinkedConfigurationRecorder.html\">DeleteServiceLinkedConfigurationRecorder</a> operation to delete a service-linked configuration recorder.</p>
+            aws_sdk_config_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -706,6 +740,11 @@ class ConfigServiceClient:
 
         Args:
             conformance_pack_name: <p>Name of the conformance pack you want to delete.</p>
+
+        Raises:
+            aws_sdk_config_service.errors.no_such_conformance_pack_exception.NoSuchConformancePackException: <p>You specified one or more conformance packs that do not exist.</p>
+            aws_sdk_config_service.errors.resource_in_use_exception.ResourceInUseException: <p>You see this exception in the following cases: </p> <ul> <li> <p>For DeleteConfigRule, Config is deleting this rule. Try your request again later.</p> </li> <li> <p>For DeleteConfigRule, the rule is deleting your evaluation results. Try your request again later.</p> </li> <li> <p>For DeleteConfigRule, a remediation action is associated with the rule and Config cannot delete this rule. Delete the remediation action associated with the rule before deleting the rule and try your request again later.</p> </li> <li> <p>For PutConfigOrganizationRule, organization Config rule deletion is in progress. Try your request again later.</p> </li> <li> <p>For DeleteOrganizationConfigRule, organization Config rule creation is in progress. Try your request again later.</p> </li> <li> <p>For PutConformancePack and PutOrganizationConformancePack, a conformance pack creation, update, and deletion is in progress. Try your request again later.</p> </li> <li> <p>For DeleteConformancePack, a conformance pack creation, update, and deletion is in progress. Try your request again later.</p> </li> </ul>
+            aws_sdk_config_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -741,6 +780,11 @@ class ConfigServiceClient:
 
         Args:
             delivery_channel_name: <p>The name of the delivery channel that you want to delete.</p>
+
+        Raises:
+            aws_sdk_config_service.errors.last_delivery_channel_delete_failed_exception.LastDeliveryChannelDeleteFailedException: <p>You cannot delete the delivery channel you specified because the customer managed configuration recorder is running.</p>
+            aws_sdk_config_service.errors.no_such_delivery_channel_exception.NoSuchDeliveryChannelException: <p>You have specified a delivery channel that does not exist.</p>
+            aws_sdk_config_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -776,6 +820,11 @@ class ConfigServiceClient:
 
         Args:
             config_rule_name: <p>The name of the Config rule for which you want to delete the evaluation results.</p>
+
+        Raises:
+            aws_sdk_config_service.errors.no_such_config_rule_exception.NoSuchConfigRuleException: <p>The Config rule in the request is not valid. Verify that the rule is an Config Process Check rule, that the rule name is correct, and that valid Amazon Resouce Names (ARNs) are used before trying again.</p>
+            aws_sdk_config_service.errors.resource_in_use_exception.ResourceInUseException: <p>You see this exception in the following cases: </p> <ul> <li> <p>For DeleteConfigRule, Config is deleting this rule. Try your request again later.</p> </li> <li> <p>For DeleteConfigRule, the rule is deleting your evaluation results. Try your request again later.</p> </li> <li> <p>For DeleteConfigRule, a remediation action is associated with the rule and Config cannot delete this rule. Delete the remediation action associated with the rule before deleting the rule and try your request again later.</p> </li> <li> <p>For PutConfigOrganizationRule, organization Config rule deletion is in progress. Try your request again later.</p> </li> <li> <p>For DeleteOrganizationConfigRule, organization Config rule creation is in progress. Try your request again later.</p> </li> <li> <p>For PutConformancePack and PutOrganizationConformancePack, a conformance pack creation, update, and deletion is in progress. Try your request again later.</p> </li> <li> <p>For DeleteConformancePack, a conformance pack creation, update, and deletion is in progress. Try your request again later.</p> </li> </ul>
+            aws_sdk_config_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -813,6 +862,12 @@ class ConfigServiceClient:
 
         Args:
             organization_config_rule_name: <p>The name of organization Config rule that you want to delete.</p>
+
+        Raises:
+            aws_sdk_config_service.errors.no_such_organization_config_rule_exception.NoSuchOrganizationConfigRuleException: <p>The Config rule in the request is not valid. Verify that the rule is an organization Config Process Check rule, that the rule name is correct, and that valid Amazon Resouce Names (ARNs) are used before trying again.</p>
+            aws_sdk_config_service.errors.organization_access_denied_exception.OrganizationAccessDeniedException: <p>For <code>PutConfigurationAggregator</code> API, you can see this exception for the following reasons:</p> <ul> <li> <p>No permission to call <code>EnableAWSServiceAccess</code> API</p> </li> <li> <p>The configuration aggregator cannot be updated because your Amazon Web Services Organization management account or the delegated administrator role changed. Delete this aggregator and create a new one with the current Amazon Web Services Organization.</p> </li> <li> <p>The configuration aggregator is associated with a previous Amazon Web Services Organization and Config cannot aggregate data with current Amazon Web Services Organization. Delete this aggregator and create a new one with the current Amazon Web Services Organization.</p> </li> <li> <p>You are not a registered delegated administrator for Config with permissions to call <code>ListDelegatedAdministrators</code> API. Ensure that the management account registers delagated administrator for Config service principal name before the delegated administrator creates an aggregator.</p> </li> </ul> <p>For all <code>OrganizationConfigRule</code> and <code>OrganizationConformancePack</code> APIs, Config throws an exception if APIs are called from member accounts. All APIs must be called from organization management account.</p>
+            aws_sdk_config_service.errors.resource_in_use_exception.ResourceInUseException: <p>You see this exception in the following cases: </p> <ul> <li> <p>For DeleteConfigRule, Config is deleting this rule. Try your request again later.</p> </li> <li> <p>For DeleteConfigRule, the rule is deleting your evaluation results. Try your request again later.</p> </li> <li> <p>For DeleteConfigRule, a remediation action is associated with the rule and Config cannot delete this rule. Delete the remediation action associated with the rule before deleting the rule and try your request again later.</p> </li> <li> <p>For PutConfigOrganizationRule, organization Config rule deletion is in progress. Try your request again later.</p> </li> <li> <p>For DeleteOrganizationConfigRule, organization Config rule creation is in progress. Try your request again later.</p> </li> <li> <p>For PutConformancePack and PutOrganizationConformancePack, a conformance pack creation, update, and deletion is in progress. Try your request again later.</p> </li> <li> <p>For DeleteConformancePack, a conformance pack creation, update, and deletion is in progress. Try your request again later.</p> </li> </ul>
+            aws_sdk_config_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -848,6 +903,12 @@ class ConfigServiceClient:
 
         Args:
             organization_conformance_pack_name: <p>The name of organization conformance pack that you want to delete.</p>
+
+        Raises:
+            aws_sdk_config_service.errors.no_such_organization_conformance_pack_exception.NoSuchOrganizationConformancePackException: <p>Config organization conformance pack that you passed in the filter does not exist.</p> <p>For DeleteOrganizationConformancePack, you tried to delete an organization conformance pack that does not exist.</p>
+            aws_sdk_config_service.errors.organization_access_denied_exception.OrganizationAccessDeniedException: <p>For <code>PutConfigurationAggregator</code> API, you can see this exception for the following reasons:</p> <ul> <li> <p>No permission to call <code>EnableAWSServiceAccess</code> API</p> </li> <li> <p>The configuration aggregator cannot be updated because your Amazon Web Services Organization management account or the delegated administrator role changed. Delete this aggregator and create a new one with the current Amazon Web Services Organization.</p> </li> <li> <p>The configuration aggregator is associated with a previous Amazon Web Services Organization and Config cannot aggregate data with current Amazon Web Services Organization. Delete this aggregator and create a new one with the current Amazon Web Services Organization.</p> </li> <li> <p>You are not a registered delegated administrator for Config with permissions to call <code>ListDelegatedAdministrators</code> API. Ensure that the management account registers delagated administrator for Config service principal name before the delegated administrator creates an aggregator.</p> </li> </ul> <p>For all <code>OrganizationConfigRule</code> and <code>OrganizationConformancePack</code> APIs, Config throws an exception if APIs are called from member accounts. All APIs must be called from organization management account.</p>
+            aws_sdk_config_service.errors.resource_in_use_exception.ResourceInUseException: <p>You see this exception in the following cases: </p> <ul> <li> <p>For DeleteConfigRule, Config is deleting this rule. Try your request again later.</p> </li> <li> <p>For DeleteConfigRule, the rule is deleting your evaluation results. Try your request again later.</p> </li> <li> <p>For DeleteConfigRule, a remediation action is associated with the rule and Config cannot delete this rule. Delete the remediation action associated with the rule before deleting the rule and try your request again later.</p> </li> <li> <p>For PutConfigOrganizationRule, organization Config rule deletion is in progress. Try your request again later.</p> </li> <li> <p>For DeleteOrganizationConfigRule, organization Config rule creation is in progress. Try your request again later.</p> </li> <li> <p>For PutConformancePack and PutOrganizationConformancePack, a conformance pack creation, update, and deletion is in progress. Try your request again later.</p> </li> <li> <p>For DeleteConformancePack, a conformance pack creation, update, and deletion is in progress. Try your request again later.</p> </li> </ul>
+            aws_sdk_config_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -887,6 +948,10 @@ class ConfigServiceClient:
         Args:
             requester_account_id: <p>The 12-digit account ID of the account requesting to aggregate data.</p>
             requester_aws_region: <p>The region requesting to aggregate data.</p>
+
+        Raises:
+            aws_sdk_config_service.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more of the specified parameters are not valid. Verify that your parameters are valid and try again.</p>
+            aws_sdk_config_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -925,6 +990,13 @@ class ConfigServiceClient:
         Args:
             config_rule_name: <p>The name of the Config rule for which you want to delete remediation configuration.</p>
             resource_type: <p>The type of a resource.</p>
+
+        Raises:
+            aws_sdk_config_service.errors.insufficient_permissions_exception.InsufficientPermissionsException: <p>Indicates one of the following errors:</p> <ul> <li> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_PutConfigRule.html\">PutConfigRule</a>, the rule cannot be created because the IAM role assigned to Config lacks permissions to perform the config:Put* action.</p> </li> <li> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_PutConfigRule.html\">PutConfigRule</a>, the Lambda function cannot be invoked. Check the function ARN, and check the function's permissions.</p> </li> <li> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_PutOrganizationConfigRule.html\">PutOrganizationConfigRule</a>, organization Config rule cannot be created because you do not have permissions to call IAM <code>GetRole</code> action or create a service-linked role.</p> </li> <li> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_PutConformancePack.html\">PutConformancePack</a> and <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_PutOrganizationConformancePack.html\">PutOrganizationConformancePack</a>, a conformance pack cannot be created because you do not have the following permissions: </p> <ul> <li> <p>You do not have permission to call IAM <code>GetRole</code> action or create a service-linked role.</p> </li> <li> <p>You do not have permission to read Amazon S3 bucket or call SSM:GetDocument.</p> </li> </ul> </li> <li> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_PutServiceLinkedConfigurationRecorder.html\">PutServiceLinkedConfigurationRecorder</a>, a service-linked configuration recorder cannot be created because you do not have the following permissions: IAM <code>CreateServiceLinkedRole</code>.</p> </li> </ul>
+            aws_sdk_config_service.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more of the specified parameters are not valid. Verify that your parameters are valid and try again.</p>
+            aws_sdk_config_service.errors.no_such_remediation_configuration_exception.NoSuchRemediationConfigurationException: <p>You specified an Config rule without a remediation configuration.</p>
+            aws_sdk_config_service.errors.remediation_in_progress_exception.RemediationInProgressException: <p>Remediation action is in progress. You can either cancel execution in Amazon Web Services Systems Manager or wait and try again later. </p>
+            aws_sdk_config_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -966,6 +1038,10 @@ class ConfigServiceClient:
         Args:
             config_rule_name: <p>The name of the Config rule for which you want to delete remediation exception configuration.</p>
             resource_keys: <p>An exception list of resource exception keys to be processed with the current request. Config adds exception for each resource key. For example, Config adds 3 exceptions for 3 resource keys. </p>
+
+        Raises:
+            aws_sdk_config_service.errors.no_such_remediation_exception_exception.NoSuchRemediationExceptionException: <p>You tried to delete a remediation exception that does not exist.</p>
+            aws_sdk_config_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1006,6 +1082,11 @@ class ConfigServiceClient:
         Args:
             resource_type: <p>The type of the resource.</p>
             resource_id: <p>Unique identifier of the resource.</p>
+
+        Raises:
+            aws_sdk_config_service.errors.no_running_configuration_recorder_exception.NoRunningConfigurationRecorderException: <p>There is no configuration recorder running.</p>
+            aws_sdk_config_service.errors.validation_exception.ValidationException: <p>The requested operation is not valid. You will see this exception if there are missing required fields or if the input value fails the validation.</p> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_PutStoredQuery.html\">PutStoredQuery</a>, one of the following errors:</p> <ul> <li> <p>There are missing required fields.</p> </li> <li> <p>The input value fails the validation.</p> </li> <li> <p>You are trying to create more than 300 queries.</p> </li> </ul> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_DescribeConfigurationRecorders.html\">DescribeConfigurationRecorders</a> and <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_DescribeConfigurationRecorderStatus.html\">DescribeConfigurationRecorderStatus</a>, one of the following errors:</p> <ul> <li> <p>You have specified more than one configuration recorder.</p> </li> <li> <p>You have provided a service principal for service-linked configuration recorder that is not valid.</p> </li> </ul> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_AssociateResourceTypes.html\">AssociateResourceTypes</a> and <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_DisassociateResourceTypes.html\">DisassociateResourceTypes</a>, one of the following errors:</p> <ul> <li> <p>Your configuraiton recorder has a recording strategy that does not allow the association or disassociation of resource types.</p> </li> <li> <p>One or more of the specified resource types are already associated or disassociated with the configuration recorder.</p> </li> <li> <p>For service-linked configuration recorders, the configuration recorder does not record one or more of the specified resource types.</p> </li> </ul>
+            aws_sdk_config_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1042,6 +1123,11 @@ class ConfigServiceClient:
 
         Args:
             retention_configuration_name: <p>The name of the retention configuration to delete.</p>
+
+        Raises:
+            aws_sdk_config_service.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more of the specified parameters are not valid. Verify that your parameters are valid and try again.</p>
+            aws_sdk_config_service.errors.no_such_retention_configuration_exception.NoSuchRetentionConfigurationException: <p>You have specified a retention configuration that does not exist.</p>
+            aws_sdk_config_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1077,6 +1163,12 @@ class ConfigServiceClient:
 
         Args:
             service_principal: <p>The service principal of the Amazon Web Services service for the service-linked configuration recorder that you want to delete.</p>
+
+        Raises:
+            aws_sdk_config_service.errors.conflict_exception.ConflictException: <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_PutServiceLinkedConfigurationRecorder.html\">PutServiceLinkedConfigurationRecorder</a>, you cannot create a service-linked recorder because a service-linked recorder already exists for the specified service.</p> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_DeleteServiceLinkedConfigurationRecorder.html\">DeleteServiceLinkedConfigurationRecorder</a>, you cannot delete the service-linked recorder because it is currently in use by the linked Amazon Web Services service.</p> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_DeleteDeliveryChannel.html\">DeleteDeliveryChannel</a>, you cannot delete the specified delivery channel because the customer managed configuration recorder is running. Use the <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_StopConfigurationRecorder.html\">StopConfigurationRecorder</a> operation to stop the customer managed configuration recorder.</p> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_AssociateResourceTypes.html\">AssociateResourceTypes</a> and <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_DisassociateResourceTypes.html\">DisassociateResourceTypes</a>, one of the following errors:</p> <ul> <li> <p>For service-linked configuration recorders, the configuration recorder is not in use by the service. No association or dissociation of resource types is permitted.</p> </li> <li> <p>For service-linked configuration recorders, your requested change to the configuration recorder has been denied by its linked Amazon Web Services service.</p> </li> </ul>
+            aws_sdk_config_service.errors.no_such_configuration_recorder_exception.NoSuchConfigurationRecorderException: <p>You have specified a configuration recorder that does not exist.</p>
+            aws_sdk_config_service.errors.validation_exception.ValidationException: <p>The requested operation is not valid. You will see this exception if there are missing required fields or if the input value fails the validation.</p> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_PutStoredQuery.html\">PutStoredQuery</a>, one of the following errors:</p> <ul> <li> <p>There are missing required fields.</p> </li> <li> <p>The input value fails the validation.</p> </li> <li> <p>You are trying to create more than 300 queries.</p> </li> </ul> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_DescribeConfigurationRecorders.html\">DescribeConfigurationRecorders</a> and <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_DescribeConfigurationRecorderStatus.html\">DescribeConfigurationRecorderStatus</a>, one of the following errors:</p> <ul> <li> <p>You have specified more than one configuration recorder.</p> </li> <li> <p>You have provided a service principal for service-linked configuration recorder that is not valid.</p> </li> </ul> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_AssociateResourceTypes.html\">AssociateResourceTypes</a> and <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_DisassociateResourceTypes.html\">DisassociateResourceTypes</a>, one of the following errors:</p> <ul> <li> <p>Your configuraiton recorder has a recording strategy that does not allow the association or disassociation of resource types.</p> </li> <li> <p>One or more of the specified resource types are already associated or disassociated with the configuration recorder.</p> </li> <li> <p>For service-linked configuration recorders, the configuration recorder does not record one or more of the specified resource types.</p> </li> </ul>
+            aws_sdk_config_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1114,6 +1206,11 @@ class ConfigServiceClient:
 
         Args:
             query_name: <p>The name of the query that you want to delete.</p>
+
+        Raises:
+            aws_sdk_config_service.errors.resource_not_found_exception.ResourceNotFoundException: <p>You have specified a resource that does not exist.</p>
+            aws_sdk_config_service.errors.validation_exception.ValidationException: <p>The requested operation is not valid. You will see this exception if there are missing required fields or if the input value fails the validation.</p> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_PutStoredQuery.html\">PutStoredQuery</a>, one of the following errors:</p> <ul> <li> <p>There are missing required fields.</p> </li> <li> <p>The input value fails the validation.</p> </li> <li> <p>You are trying to create more than 300 queries.</p> </li> </ul> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_DescribeConfigurationRecorders.html\">DescribeConfigurationRecorders</a> and <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_DescribeConfigurationRecorderStatus.html\">DescribeConfigurationRecorderStatus</a>, one of the following errors:</p> <ul> <li> <p>You have specified more than one configuration recorder.</p> </li> <li> <p>You have provided a service principal for service-linked configuration recorder that is not valid.</p> </li> </ul> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_AssociateResourceTypes.html\">AssociateResourceTypes</a> and <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_DisassociateResourceTypes.html\">DisassociateResourceTypes</a>, one of the following errors:</p> <ul> <li> <p>Your configuraiton recorder has a recording strategy that does not allow the association or disassociation of resource types.</p> </li> <li> <p>One or more of the specified resource types are already associated or disassociated with the configuration recorder.</p> </li> <li> <p>For service-linked configuration recorders, the configuration recorder does not record one or more of the specified resource types.</p> </li> </ul>
+            aws_sdk_config_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1151,6 +1248,12 @@ class ConfigServiceClient:
 
         Args:
             delivery_channel_name: <p>The name of the delivery channel through which the snapshot is delivered.</p>
+
+        Raises:
+            aws_sdk_config_service.errors.no_available_configuration_recorder_exception.NoAvailableConfigurationRecorderException: <p>There are no customer managed configuration recorders available to record your resources. Use the <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_PutConfigurationRecorder.html\">PutConfigurationRecorder</a> operation to create the customer managed configuration recorder.</p>
+            aws_sdk_config_service.errors.no_running_configuration_recorder_exception.NoRunningConfigurationRecorderException: <p>There is no configuration recorder running.</p>
+            aws_sdk_config_service.errors.no_such_delivery_channel_exception.NoSuchDeliveryChannelException: <p>You have specified a delivery channel that does not exist.</p>
+            aws_sdk_config_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1200,6 +1303,13 @@ class ConfigServiceClient:
             filters: <p>Filters the results by ConfigRuleComplianceFilters object. </p>
             limit: <p>The maximum number of evaluation results returned on each page. The default is maximum. If you specify 0, Config uses the default.</p>
             next_token: <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
+
+        Raises:
+            aws_sdk_config_service.errors.invalid_limit_exception.InvalidLimitException: <p>The specified limit is outside the allowable range.</p>
+            aws_sdk_config_service.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The specified next token is not valid. Specify the <code>nextToken</code> string that was returned in the previous response to get the next page of results.</p>
+            aws_sdk_config_service.errors.no_such_configuration_aggregator_exception.NoSuchConfigurationAggregatorException: <p>You have specified a configuration aggregator that does not exist.</p>
+            aws_sdk_config_service.errors.validation_exception.ValidationException: <p>The requested operation is not valid. You will see this exception if there are missing required fields or if the input value fails the validation.</p> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_PutStoredQuery.html\">PutStoredQuery</a>, one of the following errors:</p> <ul> <li> <p>There are missing required fields.</p> </li> <li> <p>The input value fails the validation.</p> </li> <li> <p>You are trying to create more than 300 queries.</p> </li> </ul> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_DescribeConfigurationRecorders.html\">DescribeConfigurationRecorders</a> and <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_DescribeConfigurationRecorderStatus.html\">DescribeConfigurationRecorderStatus</a>, one of the following errors:</p> <ul> <li> <p>You have specified more than one configuration recorder.</p> </li> <li> <p>You have provided a service principal for service-linked configuration recorder that is not valid.</p> </li> </ul> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_AssociateResourceTypes.html\">AssociateResourceTypes</a> and <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_DisassociateResourceTypes.html\">DisassociateResourceTypes</a>, one of the following errors:</p> <ul> <li> <p>Your configuraiton recorder has a recording strategy that does not allow the association or disassociation of resource types.</p> </li> <li> <p>One or more of the specified resource types are already associated or disassociated with the configuration recorder.</p> </li> <li> <p>For service-linked configuration recorders, the configuration recorder does not record one or more of the specified resource types.</p> </li> </ul>
+            aws_sdk_config_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1253,6 +1363,13 @@ class ConfigServiceClient:
             filters: <p>Filters the result by <code>AggregateConformancePackComplianceFilters</code> object.</p>
             limit: <p>The maximum number of conformance packs compliance details returned on each page. The default is maximum. If you specify 0, Config uses the default. </p>
             next_token: <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
+
+        Raises:
+            aws_sdk_config_service.errors.invalid_limit_exception.InvalidLimitException: <p>The specified limit is outside the allowable range.</p>
+            aws_sdk_config_service.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The specified next token is not valid. Specify the <code>nextToken</code> string that was returned in the previous response to get the next page of results.</p>
+            aws_sdk_config_service.errors.no_such_configuration_aggregator_exception.NoSuchConfigurationAggregatorException: <p>You have specified a configuration aggregator that does not exist.</p>
+            aws_sdk_config_service.errors.validation_exception.ValidationException: <p>The requested operation is not valid. You will see this exception if there are missing required fields or if the input value fails the validation.</p> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_PutStoredQuery.html\">PutStoredQuery</a>, one of the following errors:</p> <ul> <li> <p>There are missing required fields.</p> </li> <li> <p>The input value fails the validation.</p> </li> <li> <p>You are trying to create more than 300 queries.</p> </li> </ul> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_DescribeConfigurationRecorders.html\">DescribeConfigurationRecorders</a> and <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_DescribeConfigurationRecorderStatus.html\">DescribeConfigurationRecorderStatus</a>, one of the following errors:</p> <ul> <li> <p>You have specified more than one configuration recorder.</p> </li> <li> <p>You have provided a service principal for service-linked configuration recorder that is not valid.</p> </li> </ul> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_AssociateResourceTypes.html\">AssociateResourceTypes</a> and <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_DisassociateResourceTypes.html\">DisassociateResourceTypes</a>, one of the following errors:</p> <ul> <li> <p>Your configuraiton recorder has a recording strategy that does not allow the association or disassociation of resource types.</p> </li> <li> <p>One or more of the specified resource types are already associated or disassociated with the configuration recorder.</p> </li> <li> <p>For service-linked configuration recorders, the configuration recorder does not record one or more of the specified resource types.</p> </li> </ul>
+            aws_sdk_config_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1329,6 +1446,12 @@ class ConfigServiceClient:
         Args:
             limit: <p>The maximum number of AggregationAuthorizations returned on each page. The default is maximum. If you specify 0, Config uses the default.</p>
             next_token: <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
+
+        Raises:
+            aws_sdk_config_service.errors.invalid_limit_exception.InvalidLimitException: <p>The specified limit is outside the allowable range.</p>
+            aws_sdk_config_service.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The specified next token is not valid. Specify the <code>nextToken</code> string that was returned in the previous response to get the next page of results.</p>
+            aws_sdk_config_service.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more of the specified parameters are not valid. Verify that your parameters are valid and try again.</p>
+            aws_sdk_config_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1398,6 +1521,12 @@ class ConfigServiceClient:
             config_rule_names: <p>Specify one or more Config rule names to filter the results by rule.</p>
             compliance_types: <p>Filters the results by compliance.</p>
             next_token: <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
+
+        Raises:
+            aws_sdk_config_service.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The specified next token is not valid. Specify the <code>nextToken</code> string that was returned in the previous response to get the next page of results.</p>
+            aws_sdk_config_service.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more of the specified parameters are not valid. Verify that your parameters are valid and try again.</p>
+            aws_sdk_config_service.errors.no_such_config_rule_exception.NoSuchConfigRuleException: <p>The Config rule in the request is not valid. Verify that the rule is an Config Process Check rule, that the rule name is correct, and that valid Amazon Resouce Names (ARNs) are used before trying again.</p>
+            aws_sdk_config_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1483,6 +1612,11 @@ class ConfigServiceClient:
             compliance_types: <p>Filters the results by compliance.</p>
             limit: <p>The maximum number of evaluation results returned on each page. The default is 10. You cannot specify a number greater than 100. If you specify 0, Config uses the default.</p>
             next_token: <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
+
+        Raises:
+            aws_sdk_config_service.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The specified next token is not valid. Specify the <code>nextToken</code> string that was returned in the previous response to get the next page of results.</p>
+            aws_sdk_config_service.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more of the specified parameters are not valid. Verify that your parameters are valid and try again.</p>
+            aws_sdk_config_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1570,6 +1704,12 @@ class ConfigServiceClient:
             config_rule_names: <p>The name of the Config managed rules for which you want status information. If you do not specify any names, Config returns status information for all Config managed rules that you use.</p>
             next_token: <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
             limit: <p>The number of rule evaluation results that you want returned.</p> <p>This parameter is required if the rule limit for your account is more than the default of 1000 rules.</p> <p>For information about requesting a rule limit increase, see <a href=\"http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_config\">Config Limits</a> in the <i>Amazon Web Services General Reference Guide</i>.</p>
+
+        Raises:
+            aws_sdk_config_service.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The specified next token is not valid. Specify the <code>nextToken</code> string that was returned in the previous response to get the next page of results.</p>
+            aws_sdk_config_service.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more of the specified parameters are not valid. Verify that your parameters are valid and try again.</p>
+            aws_sdk_config_service.errors.no_such_config_rule_exception.NoSuchConfigRuleException: <p>The Config rule in the request is not valid. Verify that the rule is an Config Process Check rule, that the rule name is correct, and that valid Amazon Resouce Names (ARNs) are used before trying again.</p>
+            aws_sdk_config_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1645,6 +1785,12 @@ class ConfigServiceClient:
             config_rule_names: <p>The names of the Config rules for which you want details. If you do not specify any names, Config returns details for all your rules.</p>
             next_token: <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
             filters: <p>Returns a list of Detective or Proactive Config rules. By default, this API returns an unfiltered list. For more information on Detective or Proactive Config rules, see <a href=\"https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config-rules.html\"> <b>Evaluation Mode</b> </a> in the <i>Config Developer Guide</i>.</p>
+
+        Raises:
+            aws_sdk_config_service.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The specified next token is not valid. Specify the <code>nextToken</code> string that was returned in the previous response to get the next page of results.</p>
+            aws_sdk_config_service.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more of the specified parameters are not valid. Verify that your parameters are valid and try again.</p>
+            aws_sdk_config_service.errors.no_such_config_rule_exception.NoSuchConfigRuleException: <p>The Config rule in the request is not valid. Verify that the rule is an Config Process Check rule, that the rule name is correct, and that valid Amazon Resouce Names (ARNs) are used before trying again.</p>
+            aws_sdk_config_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1720,6 +1866,13 @@ class ConfigServiceClient:
             configuration_aggregator_names: <p>The name of the configuration aggregators.</p>
             next_token: <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
             limit: <p>The maximum number of configuration aggregators returned on each page. The default is maximum. If you specify 0, Config uses the default.</p>
+
+        Raises:
+            aws_sdk_config_service.errors.invalid_limit_exception.InvalidLimitException: <p>The specified limit is outside the allowable range.</p>
+            aws_sdk_config_service.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The specified next token is not valid. Specify the <code>nextToken</code> string that was returned in the previous response to get the next page of results.</p>
+            aws_sdk_config_service.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more of the specified parameters are not valid. Verify that your parameters are valid and try again.</p>
+            aws_sdk_config_service.errors.no_such_configuration_aggregator_exception.NoSuchConfigurationAggregatorException: <p>You have specified a configuration aggregator that does not exist.</p>
+            aws_sdk_config_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1795,6 +1948,13 @@ class ConfigServiceClient:
             update_status: <p>Filters the status type.</p> <ul> <li> <p>Valid value FAILED indicates errors while moving data.</p> </li> <li> <p>Valid value SUCCEEDED indicates the data was successfully moved.</p> </li> <li> <p>Valid value OUTDATED indicates the data is not the most recent.</p> </li> </ul>
             next_token: <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
             limit: <p>The maximum number of AggregatorSourceStatus returned on each page. The default is maximum. If you specify 0, Config uses the default.</p>
+
+        Raises:
+            aws_sdk_config_service.errors.invalid_limit_exception.InvalidLimitException: <p>The specified limit is outside the allowable range.</p>
+            aws_sdk_config_service.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The specified next token is not valid. Specify the <code>nextToken</code> string that was returned in the previous response to get the next page of results.</p>
+            aws_sdk_config_service.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more of the specified parameters are not valid. Verify that your parameters are valid and try again.</p>
+            aws_sdk_config_service.errors.no_such_configuration_aggregator_exception.NoSuchConfigurationAggregatorException: <p>You have specified a configuration aggregator that does not exist.</p>
+            aws_sdk_config_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1875,6 +2035,11 @@ class ConfigServiceClient:
             configuration_recorder_names: <p>A list of names of the configuration recorders that you want to specify.</p> <note> <p>When making a request to this operation, you can only specify one configuration recorder.</p> </note>
             service_principal: <p>For service-linked configuration recorders, you can use the service principal of the linked Amazon Web Services service to specify the configuration recorder.</p>
             arn: <p>The Amazon Resource Name (ARN) of the configuration recorder that you want to specify.</p>
+
+        Raises:
+            aws_sdk_config_service.errors.no_such_configuration_recorder_exception.NoSuchConfigurationRecorderException: <p>You have specified a configuration recorder that does not exist.</p>
+            aws_sdk_config_service.errors.validation_exception.ValidationException: <p>The requested operation is not valid. You will see this exception if there are missing required fields or if the input value fails the validation.</p> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_PutStoredQuery.html\">PutStoredQuery</a>, one of the following errors:</p> <ul> <li> <p>There are missing required fields.</p> </li> <li> <p>The input value fails the validation.</p> </li> <li> <p>You are trying to create more than 300 queries.</p> </li> </ul> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_DescribeConfigurationRecorders.html\">DescribeConfigurationRecorders</a> and <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_DescribeConfigurationRecorderStatus.html\">DescribeConfigurationRecorderStatus</a>, one of the following errors:</p> <ul> <li> <p>You have specified more than one configuration recorder.</p> </li> <li> <p>You have provided a service principal for service-linked configuration recorder that is not valid.</p> </li> </ul> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_AssociateResourceTypes.html\">AssociateResourceTypes</a> and <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_DisassociateResourceTypes.html\">DisassociateResourceTypes</a>, one of the following errors:</p> <ul> <li> <p>Your configuraiton recorder has a recording strategy that does not allow the association or disassociation of resource types.</p> </li> <li> <p>One or more of the specified resource types are already associated or disassociated with the configuration recorder.</p> </li> <li> <p>For service-linked configuration recorders, the configuration recorder does not record one or more of the specified resource types.</p> </li> </ul>
+            aws_sdk_config_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1927,6 +2092,11 @@ class ConfigServiceClient:
             configuration_recorder_names: <p>The name of the configuration recorder. If the name is not specified, the operation returns the status for the customer managed configuration recorder configured for the account, if applicable.</p> <note> <p>When making a request to this operation, you can only specify one configuration recorder.</p> </note>
             service_principal: <p>For service-linked configuration recorders, you can use the service principal of the linked Amazon Web Services service to specify the configuration recorder.</p>
             arn: <p>The Amazon Resource Name (ARN) of the configuration recorder that you want to specify.</p>
+
+        Raises:
+            aws_sdk_config_service.errors.no_such_configuration_recorder_exception.NoSuchConfigurationRecorderException: <p>You have specified a configuration recorder that does not exist.</p>
+            aws_sdk_config_service.errors.validation_exception.ValidationException: <p>The requested operation is not valid. You will see this exception if there are missing required fields or if the input value fails the validation.</p> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_PutStoredQuery.html\">PutStoredQuery</a>, one of the following errors:</p> <ul> <li> <p>There are missing required fields.</p> </li> <li> <p>The input value fails the validation.</p> </li> <li> <p>You are trying to create more than 300 queries.</p> </li> </ul> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_DescribeConfigurationRecorders.html\">DescribeConfigurationRecorders</a> and <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_DescribeConfigurationRecorderStatus.html\">DescribeConfigurationRecorderStatus</a>, one of the following errors:</p> <ul> <li> <p>You have specified more than one configuration recorder.</p> </li> <li> <p>You have provided a service principal for service-linked configuration recorder that is not valid.</p> </li> </ul> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_AssociateResourceTypes.html\">AssociateResourceTypes</a> and <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_DisassociateResourceTypes.html\">DisassociateResourceTypes</a>, one of the following errors:</p> <ul> <li> <p>Your configuraiton recorder has a recording strategy that does not allow the association or disassociation of resource types.</p> </li> <li> <p>One or more of the specified resource types are already associated or disassociated with the configuration recorder.</p> </li> <li> <p>For service-linked configuration recorders, the configuration recorder does not record one or more of the specified resource types.</p> </li> </ul>
+            aws_sdk_config_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1981,6 +2151,14 @@ class ConfigServiceClient:
             filters: <p>A <code>ConformancePackComplianceFilters</code> object.</p>
             limit: <p>The maximum number of Config rules within a conformance pack are returned on each page.</p>
             next_token: <p>The <code>nextToken</code> string returned in a previous request that you use to request the next page of results in a paginated response.</p>
+
+        Raises:
+            aws_sdk_config_service.errors.invalid_limit_exception.InvalidLimitException: <p>The specified limit is outside the allowable range.</p>
+            aws_sdk_config_service.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The specified next token is not valid. Specify the <code>nextToken</code> string that was returned in the previous response to get the next page of results.</p>
+            aws_sdk_config_service.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more of the specified parameters are not valid. Verify that your parameters are valid and try again.</p>
+            aws_sdk_config_service.errors.no_such_config_rule_in_conformance_pack_exception.NoSuchConfigRuleInConformancePackException: <p>Config rule that you passed in the filter does not exist.</p>
+            aws_sdk_config_service.errors.no_such_conformance_pack_exception.NoSuchConformancePackException: <p>You specified one or more conformance packs that do not exist.</p>
+            aws_sdk_config_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2065,6 +2243,13 @@ class ConfigServiceClient:
             conformance_pack_names: <p>Comma-separated list of conformance pack names for which you want details. If you do not specify any names, Config returns details for all your conformance packs. </p>
             limit: <p>The maximum number of conformance packs returned on each page.</p>
             next_token: <p>The <code>nextToken</code> string returned in a previous request that you use to request the next page of results in a paginated response.</p>
+
+        Raises:
+            aws_sdk_config_service.errors.invalid_limit_exception.InvalidLimitException: <p>The specified limit is outside the allowable range.</p>
+            aws_sdk_config_service.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The specified next token is not valid. Specify the <code>nextToken</code> string that was returned in the previous response to get the next page of results.</p>
+            aws_sdk_config_service.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more of the specified parameters are not valid. Verify that your parameters are valid and try again.</p>
+            aws_sdk_config_service.errors.no_such_conformance_pack_exception.NoSuchConformancePackException: <p>You specified one or more conformance packs that do not exist.</p>
+            aws_sdk_config_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2146,6 +2331,12 @@ class ConfigServiceClient:
             conformance_pack_names: <p>Comma-separated list of conformance pack names.</p>
             limit: <p>The maximum number of conformance packs status returned on each page.</p>
             next_token: <p>The <code>nextToken</code> string returned in a previous request that you use to request the next page of results in a paginated response.</p>
+
+        Raises:
+            aws_sdk_config_service.errors.invalid_limit_exception.InvalidLimitException: <p>The specified limit is outside the allowable range.</p>
+            aws_sdk_config_service.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The specified next token is not valid. Specify the <code>nextToken</code> string that was returned in the previous response to get the next page of results.</p>
+            aws_sdk_config_service.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more of the specified parameters are not valid. Verify that your parameters are valid and try again.</p>
+            aws_sdk_config_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2219,6 +2410,10 @@ class ConfigServiceClient:
 
         Args:
             delivery_channel_names: <p>A list of delivery channel names.</p>
+
+        Raises:
+            aws_sdk_config_service.errors.no_such_delivery_channel_exception.NoSuchDeliveryChannelException: <p>You have specified a delivery channel that does not exist.</p>
+            aws_sdk_config_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2259,6 +2454,10 @@ class ConfigServiceClient:
 
         Args:
             delivery_channel_names: <p>A list of delivery channel names.</p>
+
+        Raises:
+            aws_sdk_config_service.errors.no_such_delivery_channel_exception.NoSuchDeliveryChannelException: <p>You have specified a delivery channel that does not exist.</p>
+            aws_sdk_config_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2305,6 +2504,13 @@ class ConfigServiceClient:
             organization_config_rule_names: <p>The names of organization Config rules for which you want details. If you do not specify any names, Config returns details for all your organization Config rules.</p>
             limit: <p>The maximum number of organization Config rules returned on each page. If you do no specify a number, Config uses the default. The default is 100.</p>
             next_token: <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response. </p>
+
+        Raises:
+            aws_sdk_config_service.errors.invalid_limit_exception.InvalidLimitException: <p>The specified limit is outside the allowable range.</p>
+            aws_sdk_config_service.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The specified next token is not valid. Specify the <code>nextToken</code> string that was returned in the previous response to get the next page of results.</p>
+            aws_sdk_config_service.errors.no_such_organization_config_rule_exception.NoSuchOrganizationConfigRuleException: <p>The Config rule in the request is not valid. Verify that the rule is an organization Config Process Check rule, that the rule name is correct, and that valid Amazon Resouce Names (ARNs) are used before trying again.</p>
+            aws_sdk_config_service.errors.organization_access_denied_exception.OrganizationAccessDeniedException: <p>For <code>PutConfigurationAggregator</code> API, you can see this exception for the following reasons:</p> <ul> <li> <p>No permission to call <code>EnableAWSServiceAccess</code> API</p> </li> <li> <p>The configuration aggregator cannot be updated because your Amazon Web Services Organization management account or the delegated administrator role changed. Delete this aggregator and create a new one with the current Amazon Web Services Organization.</p> </li> <li> <p>The configuration aggregator is associated with a previous Amazon Web Services Organization and Config cannot aggregate data with current Amazon Web Services Organization. Delete this aggregator and create a new one with the current Amazon Web Services Organization.</p> </li> <li> <p>You are not a registered delegated administrator for Config with permissions to call <code>ListDelegatedAdministrators</code> API. Ensure that the management account registers delagated administrator for Config service principal name before the delegated administrator creates an aggregator.</p> </li> </ul> <p>For all <code>OrganizationConfigRule</code> and <code>OrganizationConformancePack</code> APIs, Config throws an exception if APIs are called from member accounts. All APIs must be called from organization management account.</p>
+            aws_sdk_config_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2382,6 +2588,13 @@ class ConfigServiceClient:
             organization_config_rule_names: <p>The names of organization Config rules for which you want status details. If you do not specify any names, Config returns details for all your organization Config rules.</p>
             limit: <p>The maximum number of <code>OrganizationConfigRuleStatuses</code> returned on each page. If you do no specify a number, Config uses the default. The default is 100.</p>
             next_token: <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response. </p>
+
+        Raises:
+            aws_sdk_config_service.errors.invalid_limit_exception.InvalidLimitException: <p>The specified limit is outside the allowable range.</p>
+            aws_sdk_config_service.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The specified next token is not valid. Specify the <code>nextToken</code> string that was returned in the previous response to get the next page of results.</p>
+            aws_sdk_config_service.errors.no_such_organization_config_rule_exception.NoSuchOrganizationConfigRuleException: <p>The Config rule in the request is not valid. Verify that the rule is an organization Config Process Check rule, that the rule name is correct, and that valid Amazon Resouce Names (ARNs) are used before trying again.</p>
+            aws_sdk_config_service.errors.organization_access_denied_exception.OrganizationAccessDeniedException: <p>For <code>PutConfigurationAggregator</code> API, you can see this exception for the following reasons:</p> <ul> <li> <p>No permission to call <code>EnableAWSServiceAccess</code> API</p> </li> <li> <p>The configuration aggregator cannot be updated because your Amazon Web Services Organization management account or the delegated administrator role changed. Delete this aggregator and create a new one with the current Amazon Web Services Organization.</p> </li> <li> <p>The configuration aggregator is associated with a previous Amazon Web Services Organization and Config cannot aggregate data with current Amazon Web Services Organization. Delete this aggregator and create a new one with the current Amazon Web Services Organization.</p> </li> <li> <p>You are not a registered delegated administrator for Config with permissions to call <code>ListDelegatedAdministrators</code> API. Ensure that the management account registers delagated administrator for Config service principal name before the delegated administrator creates an aggregator.</p> </li> </ul> <p>For all <code>OrganizationConfigRule</code> and <code>OrganizationConformancePack</code> APIs, Config throws an exception if APIs are called from member accounts. All APIs must be called from organization management account.</p>
+            aws_sdk_config_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2459,6 +2672,13 @@ class ConfigServiceClient:
             organization_conformance_pack_names: <p>The name that you assign to an organization conformance pack.</p>
             limit: <p>The maximum number of organization config packs returned on each page. If you do no specify a number, Config uses the default. The default is 100.</p>
             next_token: <p>The nextToken string returned on a previous page that you use to get the next page of results in a paginated response.</p>
+
+        Raises:
+            aws_sdk_config_service.errors.invalid_limit_exception.InvalidLimitException: <p>The specified limit is outside the allowable range.</p>
+            aws_sdk_config_service.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The specified next token is not valid. Specify the <code>nextToken</code> string that was returned in the previous response to get the next page of results.</p>
+            aws_sdk_config_service.errors.no_such_organization_conformance_pack_exception.NoSuchOrganizationConformancePackException: <p>Config organization conformance pack that you passed in the filter does not exist.</p> <p>For DeleteOrganizationConformancePack, you tried to delete an organization conformance pack that does not exist.</p>
+            aws_sdk_config_service.errors.organization_access_denied_exception.OrganizationAccessDeniedException: <p>For <code>PutConfigurationAggregator</code> API, you can see this exception for the following reasons:</p> <ul> <li> <p>No permission to call <code>EnableAWSServiceAccess</code> API</p> </li> <li> <p>The configuration aggregator cannot be updated because your Amazon Web Services Organization management account or the delegated administrator role changed. Delete this aggregator and create a new one with the current Amazon Web Services Organization.</p> </li> <li> <p>The configuration aggregator is associated with a previous Amazon Web Services Organization and Config cannot aggregate data with current Amazon Web Services Organization. Delete this aggregator and create a new one with the current Amazon Web Services Organization.</p> </li> <li> <p>You are not a registered delegated administrator for Config with permissions to call <code>ListDelegatedAdministrators</code> API. Ensure that the management account registers delagated administrator for Config service principal name before the delegated administrator creates an aggregator.</p> </li> </ul> <p>For all <code>OrganizationConfigRule</code> and <code>OrganizationConformancePack</code> APIs, Config throws an exception if APIs are called from member accounts. All APIs must be called from organization management account.</p>
+            aws_sdk_config_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2538,6 +2758,13 @@ class ConfigServiceClient:
             organization_conformance_pack_names: <p>The names of organization conformance packs for which you want status details. If you do not specify any names, Config returns details for all your organization conformance packs. </p>
             limit: <p>The maximum number of OrganizationConformancePackStatuses returned on each page. If you do no specify a number, Config uses the default. The default is 100. </p>
             next_token: <p>The nextToken string returned on a previous page that you use to get the next page of results in a paginated response. </p>
+
+        Raises:
+            aws_sdk_config_service.errors.invalid_limit_exception.InvalidLimitException: <p>The specified limit is outside the allowable range.</p>
+            aws_sdk_config_service.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The specified next token is not valid. Specify the <code>nextToken</code> string that was returned in the previous response to get the next page of results.</p>
+            aws_sdk_config_service.errors.no_such_organization_conformance_pack_exception.NoSuchOrganizationConformancePackException: <p>Config organization conformance pack that you passed in the filter does not exist.</p> <p>For DeleteOrganizationConformancePack, you tried to delete an organization conformance pack that does not exist.</p>
+            aws_sdk_config_service.errors.organization_access_denied_exception.OrganizationAccessDeniedException: <p>For <code>PutConfigurationAggregator</code> API, you can see this exception for the following reasons:</p> <ul> <li> <p>No permission to call <code>EnableAWSServiceAccess</code> API</p> </li> <li> <p>The configuration aggregator cannot be updated because your Amazon Web Services Organization management account or the delegated administrator role changed. Delete this aggregator and create a new one with the current Amazon Web Services Organization.</p> </li> <li> <p>The configuration aggregator is associated with a previous Amazon Web Services Organization and Config cannot aggregate data with current Amazon Web Services Organization. Delete this aggregator and create a new one with the current Amazon Web Services Organization.</p> </li> <li> <p>You are not a registered delegated administrator for Config with permissions to call <code>ListDelegatedAdministrators</code> API. Ensure that the management account registers delagated administrator for Config service principal name before the delegated administrator creates an aggregator.</p> </li> </ul> <p>For all <code>OrganizationConfigRule</code> and <code>OrganizationConformancePack</code> APIs, Config throws an exception if APIs are called from member accounts. All APIs must be called from organization management account.</p>
+            aws_sdk_config_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2615,6 +2842,12 @@ class ConfigServiceClient:
         Args:
             limit: <p>The maximum number of evaluation results returned on each page. The default is maximum. If you specify 0, Config uses the default.</p>
             next_token: <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
+
+        Raises:
+            aws_sdk_config_service.errors.invalid_limit_exception.InvalidLimitException: <p>The specified limit is outside the allowable range.</p>
+            aws_sdk_config_service.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The specified next token is not valid. Specify the <code>nextToken</code> string that was returned in the previous response to get the next page of results.</p>
+            aws_sdk_config_service.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more of the specified parameters are not valid. Verify that your parameters are valid and try again.</p>
+            aws_sdk_config_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2678,6 +2911,9 @@ class ConfigServiceClient:
 
         Args:
             config_rule_names: <p>A list of Config rule names of remediation configurations for which you want details. </p>
+
+        Raises:
+            aws_sdk_config_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2723,6 +2959,11 @@ class ConfigServiceClient:
             resource_keys: <p>An exception list of resource exception keys to be processed with the current request. Config adds exception for each resource key. For example, Config adds 3 exceptions for 3 resource keys. </p>
             limit: <p>The maximum number of RemediationExceptionResourceKey returned on each page. The default is 25. If you specify 0, Config uses the default.</p>
             next_token: <p>The <code>nextToken</code> string returned in a previous request that you use to request the next page of results in a paginated response.</p>
+
+        Raises:
+            aws_sdk_config_service.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The specified next token is not valid. Specify the <code>nextToken</code> string that was returned in the previous response to get the next page of results.</p>
+            aws_sdk_config_service.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more of the specified parameters are not valid. Verify that your parameters are valid and try again.</p>
+            aws_sdk_config_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2774,6 +3015,12 @@ class ConfigServiceClient:
             resource_keys: <p>A list of resource keys to be processed with the current request. Each element in the list consists of the resource type and resource ID. </p>
             limit: <p>The maximum number of RemediationExecutionStatuses returned on each page. The default is maximum. If you specify 0, Config uses the default. </p>
             next_token: <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
+
+        Raises:
+            aws_sdk_config_service.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The specified next token is not valid. Specify the <code>nextToken</code> string that was returned in the previous response to get the next page of results.</p>
+            aws_sdk_config_service.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more of the specified parameters are not valid. Verify that your parameters are valid and try again.</p>
+            aws_sdk_config_service.errors.no_such_remediation_configuration_exception.NoSuchRemediationConfigurationException: <p>You specified an Config rule without a remediation configuration.</p>
+            aws_sdk_config_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2850,6 +3097,12 @@ class ConfigServiceClient:
         Args:
             retention_configuration_names: <p>A list of names of retention configurations for which you want details. If you do not specify a name, Config returns details for all the retention configurations for that account.</p> <note> <p>Currently, Config supports only one retention configuration per region in your account.</p> </note>
             next_token: <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response. </p>
+
+        Raises:
+            aws_sdk_config_service.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The specified next token is not valid. Specify the <code>nextToken</code> string that was returned in the previous response to get the next page of results.</p>
+            aws_sdk_config_service.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more of the specified parameters are not valid. Verify that your parameters are valid and try again.</p>
+            aws_sdk_config_service.errors.no_such_retention_configuration_exception.NoSuchRetentionConfigurationException: <p>You have specified a retention configuration that does not exist.</p>
+            aws_sdk_config_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2917,6 +3170,12 @@ class ConfigServiceClient:
         Args:
             configuration_recorder_arn: <p>The Amazon Resource Name (ARN) of the specified configuration recorder.</p>
             resource_types: <p>The list of resource types you want to remove from the recording group of the specified configuration recorder.</p>
+
+        Raises:
+            aws_sdk_config_service.errors.conflict_exception.ConflictException: <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_PutServiceLinkedConfigurationRecorder.html\">PutServiceLinkedConfigurationRecorder</a>, you cannot create a service-linked recorder because a service-linked recorder already exists for the specified service.</p> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_DeleteServiceLinkedConfigurationRecorder.html\">DeleteServiceLinkedConfigurationRecorder</a>, you cannot delete the service-linked recorder because it is currently in use by the linked Amazon Web Services service.</p> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_DeleteDeliveryChannel.html\">DeleteDeliveryChannel</a>, you cannot delete the specified delivery channel because the customer managed configuration recorder is running. Use the <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_StopConfigurationRecorder.html\">StopConfigurationRecorder</a> operation to stop the customer managed configuration recorder.</p> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_AssociateResourceTypes.html\">AssociateResourceTypes</a> and <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_DisassociateResourceTypes.html\">DisassociateResourceTypes</a>, one of the following errors:</p> <ul> <li> <p>For service-linked configuration recorders, the configuration recorder is not in use by the service. No association or dissociation of resource types is permitted.</p> </li> <li> <p>For service-linked configuration recorders, your requested change to the configuration recorder has been denied by its linked Amazon Web Services service.</p> </li> </ul>
+            aws_sdk_config_service.errors.no_such_configuration_recorder_exception.NoSuchConfigurationRecorderException: <p>You have specified a configuration recorder that does not exist.</p>
+            aws_sdk_config_service.errors.validation_exception.ValidationException: <p>The requested operation is not valid. You will see this exception if there are missing required fields or if the input value fails the validation.</p> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_PutStoredQuery.html\">PutStoredQuery</a>, one of the following errors:</p> <ul> <li> <p>There are missing required fields.</p> </li> <li> <p>The input value fails the validation.</p> </li> <li> <p>You are trying to create more than 300 queries.</p> </li> </ul> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_DescribeConfigurationRecorders.html\">DescribeConfigurationRecorders</a> and <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_DescribeConfigurationRecorderStatus.html\">DescribeConfigurationRecorderStatus</a>, one of the following errors:</p> <ul> <li> <p>You have specified more than one configuration recorder.</p> </li> <li> <p>You have provided a service principal for service-linked configuration recorder that is not valid.</p> </li> </ul> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_AssociateResourceTypes.html\">AssociateResourceTypes</a> and <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_DisassociateResourceTypes.html\">DisassociateResourceTypes</a>, one of the following errors:</p> <ul> <li> <p>Your configuraiton recorder has a recording strategy that does not allow the association or disassociation of resource types.</p> </li> <li> <p>One or more of the specified resource types are already associated or disassociated with the configuration recorder.</p> </li> <li> <p>For service-linked configuration recorders, the configuration recorder does not record one or more of the specified resource types.</p> </li> </ul>
+            aws_sdk_config_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2971,6 +3230,13 @@ class ConfigServiceClient:
             compliance_type: <p>The resource compliance status.</p> <note> <p>For the <code>GetAggregateComplianceDetailsByConfigRuleRequest</code> data type, Config supports only the <code>COMPLIANT</code> and <code>NON_COMPLIANT</code>. Config does not support the <code>NOT_APPLICABLE</code> and <code>INSUFFICIENT_DATA</code> values.</p> </note>
             limit: <p>The maximum number of evaluation results returned on each page. The default is 50. You cannot specify a number greater than 100. If you specify 0, Config uses the default.</p>
             next_token: <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
+
+        Raises:
+            aws_sdk_config_service.errors.invalid_limit_exception.InvalidLimitException: <p>The specified limit is outside the allowable range.</p>
+            aws_sdk_config_service.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The specified next token is not valid. Specify the <code>nextToken</code> string that was returned in the previous response to get the next page of results.</p>
+            aws_sdk_config_service.errors.no_such_configuration_aggregator_exception.NoSuchConfigurationAggregatorException: <p>You have specified a configuration aggregator that does not exist.</p>
+            aws_sdk_config_service.errors.validation_exception.ValidationException: <p>The requested operation is not valid. You will see this exception if there are missing required fields or if the input value fails the validation.</p> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_PutStoredQuery.html\">PutStoredQuery</a>, one of the following errors:</p> <ul> <li> <p>There are missing required fields.</p> </li> <li> <p>The input value fails the validation.</p> </li> <li> <p>You are trying to create more than 300 queries.</p> </li> </ul> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_DescribeConfigurationRecorders.html\">DescribeConfigurationRecorders</a> and <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_DescribeConfigurationRecorderStatus.html\">DescribeConfigurationRecorderStatus</a>, one of the following errors:</p> <ul> <li> <p>You have specified more than one configuration recorder.</p> </li> <li> <p>You have provided a service principal for service-linked configuration recorder that is not valid.</p> </li> </ul> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_AssociateResourceTypes.html\">AssociateResourceTypes</a> and <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_DisassociateResourceTypes.html\">DisassociateResourceTypes</a>, one of the following errors:</p> <ul> <li> <p>Your configuraiton recorder has a recording strategy that does not allow the association or disassociation of resource types.</p> </li> <li> <p>One or more of the specified resource types are already associated or disassociated with the configuration recorder.</p> </li> <li> <p>For service-linked configuration recorders, the configuration recorder does not record one or more of the specified resource types.</p> </li> </ul>
+            aws_sdk_config_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3068,6 +3334,13 @@ class ConfigServiceClient:
             group_by_key: <p>Groups the result based on ACCOUNT_ID or AWS_REGION.</p>
             limit: <p>The maximum number of evaluation results returned on each page. The default is 1000. You cannot specify a number greater than 1000. If you specify 0, Config uses the default.</p>
             next_token: <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
+
+        Raises:
+            aws_sdk_config_service.errors.invalid_limit_exception.InvalidLimitException: <p>The specified limit is outside the allowable range.</p>
+            aws_sdk_config_service.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The specified next token is not valid. Specify the <code>nextToken</code> string that was returned in the previous response to get the next page of results.</p>
+            aws_sdk_config_service.errors.no_such_configuration_aggregator_exception.NoSuchConfigurationAggregatorException: <p>You have specified a configuration aggregator that does not exist.</p>
+            aws_sdk_config_service.errors.validation_exception.ValidationException: <p>The requested operation is not valid. You will see this exception if there are missing required fields or if the input value fails the validation.</p> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_PutStoredQuery.html\">PutStoredQuery</a>, one of the following errors:</p> <ul> <li> <p>There are missing required fields.</p> </li> <li> <p>The input value fails the validation.</p> </li> <li> <p>You are trying to create more than 300 queries.</p> </li> </ul> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_DescribeConfigurationRecorders.html\">DescribeConfigurationRecorders</a> and <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_DescribeConfigurationRecorderStatus.html\">DescribeConfigurationRecorderStatus</a>, one of the following errors:</p> <ul> <li> <p>You have specified more than one configuration recorder.</p> </li> <li> <p>You have provided a service principal for service-linked configuration recorder that is not valid.</p> </li> </ul> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_AssociateResourceTypes.html\">AssociateResourceTypes</a> and <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_DisassociateResourceTypes.html\">DisassociateResourceTypes</a>, one of the following errors:</p> <ul> <li> <p>Your configuraiton recorder has a recording strategy that does not allow the association or disassociation of resource types.</p> </li> <li> <p>One or more of the specified resource types are already associated or disassociated with the configuration recorder.</p> </li> <li> <p>For service-linked configuration recorders, the configuration recorder does not record one or more of the specified resource types.</p> </li> </ul>
+            aws_sdk_config_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3127,6 +3400,13 @@ class ConfigServiceClient:
             group_by_key: <p>Groups the result based on Amazon Web Services account ID or Amazon Web Services Region.</p>
             limit: <p>The maximum number of results returned on each page. The default is maximum. If you specify 0, Config uses the default.</p>
             next_token: <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
+
+        Raises:
+            aws_sdk_config_service.errors.invalid_limit_exception.InvalidLimitException: <p>The specified limit is outside the allowable range.</p>
+            aws_sdk_config_service.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The specified next token is not valid. Specify the <code>nextToken</code> string that was returned in the previous response to get the next page of results.</p>
+            aws_sdk_config_service.errors.no_such_configuration_aggregator_exception.NoSuchConfigurationAggregatorException: <p>You have specified a configuration aggregator that does not exist.</p>
+            aws_sdk_config_service.errors.validation_exception.ValidationException: <p>The requested operation is not valid. You will see this exception if there are missing required fields or if the input value fails the validation.</p> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_PutStoredQuery.html\">PutStoredQuery</a>, one of the following errors:</p> <ul> <li> <p>There are missing required fields.</p> </li> <li> <p>The input value fails the validation.</p> </li> <li> <p>You are trying to create more than 300 queries.</p> </li> </ul> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_DescribeConfigurationRecorders.html\">DescribeConfigurationRecorders</a> and <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_DescribeConfigurationRecorderStatus.html\">DescribeConfigurationRecorderStatus</a>, one of the following errors:</p> <ul> <li> <p>You have specified more than one configuration recorder.</p> </li> <li> <p>You have provided a service principal for service-linked configuration recorder that is not valid.</p> </li> </ul> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_AssociateResourceTypes.html\">AssociateResourceTypes</a> and <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_DisassociateResourceTypes.html\">DisassociateResourceTypes</a>, one of the following errors:</p> <ul> <li> <p>Your configuraiton recorder has a recording strategy that does not allow the association or disassociation of resource types.</p> </li> <li> <p>One or more of the specified resource types are already associated or disassociated with the configuration recorder.</p> </li> <li> <p>For service-linked configuration recorders, the configuration recorder does not record one or more of the specified resource types.</p> </li> </ul>
+            aws_sdk_config_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3188,6 +3468,13 @@ class ConfigServiceClient:
             group_by_key: <p>The key to group the resource counts.</p>
             limit: <p>The maximum number of <a>GroupedResourceCount</a> objects returned on each page. The default is 1000. You cannot specify a number greater than 1000. If you specify 0, Config uses the default.</p>
             next_token: <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response. </p>
+
+        Raises:
+            aws_sdk_config_service.errors.invalid_limit_exception.InvalidLimitException: <p>The specified limit is outside the allowable range.</p>
+            aws_sdk_config_service.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The specified next token is not valid. Specify the <code>nextToken</code> string that was returned in the previous response to get the next page of results.</p>
+            aws_sdk_config_service.errors.no_such_configuration_aggregator_exception.NoSuchConfigurationAggregatorException: <p>You have specified a configuration aggregator that does not exist.</p>
+            aws_sdk_config_service.errors.validation_exception.ValidationException: <p>The requested operation is not valid. You will see this exception if there are missing required fields or if the input value fails the validation.</p> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_PutStoredQuery.html\">PutStoredQuery</a>, one of the following errors:</p> <ul> <li> <p>There are missing required fields.</p> </li> <li> <p>The input value fails the validation.</p> </li> <li> <p>You are trying to create more than 300 queries.</p> </li> </ul> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_DescribeConfigurationRecorders.html\">DescribeConfigurationRecorders</a> and <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_DescribeConfigurationRecorderStatus.html\">DescribeConfigurationRecorderStatus</a>, one of the following errors:</p> <ul> <li> <p>You have specified more than one configuration recorder.</p> </li> <li> <p>You have provided a service principal for service-linked configuration recorder that is not valid.</p> </li> </ul> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_AssociateResourceTypes.html\">AssociateResourceTypes</a> and <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_DisassociateResourceTypes.html\">DisassociateResourceTypes</a>, one of the following errors:</p> <ul> <li> <p>Your configuraiton recorder has a recording strategy that does not allow the association or disassociation of resource types.</p> </li> <li> <p>One or more of the specified resource types are already associated or disassociated with the configuration recorder.</p> </li> <li> <p>For service-linked configuration recorders, the configuration recorder does not record one or more of the specified resource types.</p> </li> </ul>
+            aws_sdk_config_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3235,6 +3522,13 @@ class ConfigServiceClient:
         Args:
             configuration_aggregator_name: <p>The name of the configuration aggregator.</p>
             resource_identifier: <p>An object that identifies aggregate resource.</p>
+
+        Raises:
+            aws_sdk_config_service.errors.no_such_configuration_aggregator_exception.NoSuchConfigurationAggregatorException: <p>You have specified a configuration aggregator that does not exist.</p>
+            aws_sdk_config_service.errors.oversized_configuration_item_exception.OversizedConfigurationItemException: <p>The configuration item size is outside the allowable range.</p>
+            aws_sdk_config_service.errors.resource_not_discovered_exception.ResourceNotDiscoveredException: <p>You have specified a resource that is either unknown or has not been discovered.</p>
+            aws_sdk_config_service.errors.validation_exception.ValidationException: <p>The requested operation is not valid. You will see this exception if there are missing required fields or if the input value fails the validation.</p> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_PutStoredQuery.html\">PutStoredQuery</a>, one of the following errors:</p> <ul> <li> <p>There are missing required fields.</p> </li> <li> <p>The input value fails the validation.</p> </li> <li> <p>You are trying to create more than 300 queries.</p> </li> </ul> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_DescribeConfigurationRecorders.html\">DescribeConfigurationRecorders</a> and <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_DescribeConfigurationRecorderStatus.html\">DescribeConfigurationRecorderStatus</a>, one of the following errors:</p> <ul> <li> <p>You have specified more than one configuration recorder.</p> </li> <li> <p>You have provided a service principal for service-linked configuration recorder that is not valid.</p> </li> </ul> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_AssociateResourceTypes.html\">AssociateResourceTypes</a> and <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_DisassociateResourceTypes.html\">DisassociateResourceTypes</a>, one of the following errors:</p> <ul> <li> <p>Your configuraiton recorder has a recording strategy that does not allow the association or disassociation of resource types.</p> </li> <li> <p>One or more of the specified resource types are already associated or disassociated with the configuration recorder.</p> </li> <li> <p>For service-linked configuration recorders, the configuration recorder does not record one or more of the specified resource types.</p> </li> </ul>
+            aws_sdk_config_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3283,6 +3577,12 @@ class ConfigServiceClient:
             compliance_types: <p>Filters the results by compliance.</p> <p> <code>INSUFFICIENT_DATA</code> is a valid <code>ComplianceType</code> that is returned when an Config rule cannot be evaluated. However, <code>INSUFFICIENT_DATA</code> cannot be used as a <code>ComplianceType</code> for filtering results.</p>
             limit: <p>The maximum number of evaluation results returned on each page. The default is 10. You cannot specify a number greater than 100. If you specify 0, Config uses the default.</p>
             next_token: <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
+
+        Raises:
+            aws_sdk_config_service.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The specified next token is not valid. Specify the <code>nextToken</code> string that was returned in the previous response to get the next page of results.</p>
+            aws_sdk_config_service.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more of the specified parameters are not valid. Verify that your parameters are valid and try again.</p>
+            aws_sdk_config_service.errors.no_such_config_rule_exception.NoSuchConfigRuleException: <p>The Config rule in the request is not valid. Verify that the rule is an Config Process Check rule, that the rule name is correct, and that valid Amazon Resouce Names (ARNs) are used before trying again.</p>
+            aws_sdk_config_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3371,6 +3671,10 @@ class ConfigServiceClient:
             compliance_types: <p>Filters the results by compliance.</p> <p> <code>INSUFFICIENT_DATA</code> is a valid <code>ComplianceType</code> that is returned when an Config rule cannot be evaluated. However, <code>INSUFFICIENT_DATA</code> cannot be used as a <code>ComplianceType</code> for filtering results.</p>
             next_token: <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
             resource_evaluation_id: <p>The unique ID of Amazon Web Services resource execution for which you want to retrieve evaluation results. </p> <note> <p>You need to only provide either a <code>ResourceEvaluationID</code> or a <code>ResourceID </code>and <code>ResourceType</code>.</p> </note>
+
+        Raises:
+            aws_sdk_config_service.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more of the specified parameters are not valid. Verify that your parameters are valid and try again.</p>
+            aws_sdk_config_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3445,7 +3749,11 @@ class ConfigServiceClient:
     def get_compliance_summary_by_config_rule(
         self, *, config_overrides: Optional[ConfigServiceClientConfig] = None
     ) -> "aws_sdk_config_service.types.get_compliance_summary_by_config_rule_response.GetComplianceSummaryByConfigRuleResponse":
-        """<p>Returns the number of Config rules that are compliant and noncompliant, up to a maximum of 25 for each.</p>"""
+        """<p>Returns the number of Config rules that are compliant and noncompliant, up to a maximum of 25 for each.</p>
+
+        Raises:
+            aws_sdk_config_service.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[None]",
@@ -3482,6 +3790,10 @@ class ConfigServiceClient:
 
         Args:
             resource_types: <p>Specify one or more resource types to get the number of resources that are compliant and the number that are noncompliant for each resource type.</p> <p>For this request, you can specify an Amazon Web Services resource type such as <code>AWS::EC2::Instance</code>. You can specify that the resource type is an Amazon Web Services account by specifying <code>AWS::::Account</code>.</p>
+
+        Raises:
+            aws_sdk_config_service.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more of the specified parameters are not valid. Verify that your parameters are valid and try again.</p>
+            aws_sdk_config_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3532,6 +3844,14 @@ class ConfigServiceClient:
             filters: <p>A <code>ConformancePackEvaluationFilters</code> object.</p>
             limit: <p>The maximum number of evaluation results returned on each page. If you do no specify a number, Config uses the default. The default is 100.</p>
             next_token: <p>The <code>nextToken</code> string returned in a previous request that you use to request the next page of results in a paginated response.</p>
+
+        Raises:
+            aws_sdk_config_service.errors.invalid_limit_exception.InvalidLimitException: <p>The specified limit is outside the allowable range.</p>
+            aws_sdk_config_service.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The specified next token is not valid. Specify the <code>nextToken</code> string that was returned in the previous response to get the next page of results.</p>
+            aws_sdk_config_service.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more of the specified parameters are not valid. Verify that your parameters are valid and try again.</p>
+            aws_sdk_config_service.errors.no_such_config_rule_in_conformance_pack_exception.NoSuchConfigRuleInConformancePackException: <p>Config rule that you passed in the filter does not exist.</p>
+            aws_sdk_config_service.errors.no_such_conformance_pack_exception.NoSuchConformancePackException: <p>You specified one or more conformance packs that do not exist.</p>
+            aws_sdk_config_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3583,6 +3903,12 @@ class ConfigServiceClient:
             conformance_pack_names: <p>Names of conformance packs.</p>
             limit: <p>The maximum number of conformance packs returned on each page.</p>
             next_token: <p>The nextToken string returned on a previous page that you use to get the next page of results in a paginated response.</p>
+
+        Raises:
+            aws_sdk_config_service.errors.invalid_limit_exception.InvalidLimitException: <p>The specified limit is outside the allowable range.</p>
+            aws_sdk_config_service.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The specified next token is not valid. Specify the <code>nextToken</code> string that was returned in the previous response to get the next page of results.</p>
+            aws_sdk_config_service.errors.no_such_conformance_pack_exception.NoSuchConformancePackException: <p>You specified one or more conformance packs that do not exist.</p>
+            aws_sdk_config_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3655,6 +3981,10 @@ class ConfigServiceClient:
 
         Args:
             config_rule_name: <p>The name of your Config Custom Policy rule.</p>
+
+        Raises:
+            aws_sdk_config_service.errors.no_such_config_rule_exception.NoSuchConfigRuleException: <p>The Config rule in the request is not valid. Verify that the rule is an Config Process Check rule, that the rule name is correct, and that valid Amazon Resouce Names (ARNs) are used before trying again.</p>
+            aws_sdk_config_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3701,6 +4031,12 @@ class ConfigServiceClient:
             resource_types: <p>The comma-separated list that specifies the resource types that you want Config to return (for example, <code>\"AWS::EC2::Instance\"</code>, <code>\"AWS::IAM::User\"</code>).</p> <p>If a value for <code>resourceTypes</code> is not specified, Config returns all resource types that Config is recording in the region for your account.</p> <note> <p>If the configuration recorder is turned off, Config returns an empty list of <a>ResourceCount</a> objects. If the configuration recorder is not recording a specific resource type (for example, S3 buckets), that resource type is not returned in the list of <a>ResourceCount</a> objects.</p> </note>
             limit: <p>The maximum number of <a>ResourceCount</a> objects returned on each page. The default is 100. You cannot specify a number greater than 100. If you specify 0, Config uses the default.</p>
             next_token: <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
+
+        Raises:
+            aws_sdk_config_service.errors.invalid_limit_exception.InvalidLimitException: <p>The specified limit is outside the allowable range.</p>
+            aws_sdk_config_service.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The specified next token is not valid. Specify the <code>nextToken</code> string that was returned in the previous response to get the next page of results.</p>
+            aws_sdk_config_service.errors.validation_exception.ValidationException: <p>The requested operation is not valid. You will see this exception if there are missing required fields or if the input value fails the validation.</p> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_PutStoredQuery.html\">PutStoredQuery</a>, one of the following errors:</p> <ul> <li> <p>There are missing required fields.</p> </li> <li> <p>The input value fails the validation.</p> </li> <li> <p>You are trying to create more than 300 queries.</p> </li> </ul> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_DescribeConfigurationRecorders.html\">DescribeConfigurationRecorders</a> and <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_DescribeConfigurationRecorderStatus.html\">DescribeConfigurationRecorderStatus</a>, one of the following errors:</p> <ul> <li> <p>You have specified more than one configuration recorder.</p> </li> <li> <p>You have provided a service principal for service-linked configuration recorder that is not valid.</p> </li> </ul> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_AssociateResourceTypes.html\">AssociateResourceTypes</a> and <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_DisassociateResourceTypes.html\">DisassociateResourceTypes</a>, one of the following errors:</p> <ul> <li> <p>Your configuraiton recorder has a recording strategy that does not allow the association or disassociation of resource types.</p> </li> <li> <p>One or more of the specified resource types are already associated or disassociated with the configuration recorder.</p> </li> <li> <p>For service-linked configuration recorders, the configuration recorder does not record one or more of the specified resource types.</p> </li> </ul>
+            aws_sdk_config_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3753,6 +4089,13 @@ class ConfigServiceClient:
             filters: <p>A <code>StatusDetailFilters</code> object.</p>
             limit: <p>The maximum number of <code>OrganizationConfigRuleDetailedStatus</code> returned on each page. If you do not specify a number, Config uses the default. The default is 100.</p>
             next_token: <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response. </p>
+
+        Raises:
+            aws_sdk_config_service.errors.invalid_limit_exception.InvalidLimitException: <p>The specified limit is outside the allowable range.</p>
+            aws_sdk_config_service.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The specified next token is not valid. Specify the <code>nextToken</code> string that was returned in the previous response to get the next page of results.</p>
+            aws_sdk_config_service.errors.no_such_organization_config_rule_exception.NoSuchOrganizationConfigRuleException: <p>The Config rule in the request is not valid. Verify that the rule is an organization Config Process Check rule, that the rule name is correct, and that valid Amazon Resouce Names (ARNs) are used before trying again.</p>
+            aws_sdk_config_service.errors.organization_access_denied_exception.OrganizationAccessDeniedException: <p>For <code>PutConfigurationAggregator</code> API, you can see this exception for the following reasons:</p> <ul> <li> <p>No permission to call <code>EnableAWSServiceAccess</code> API</p> </li> <li> <p>The configuration aggregator cannot be updated because your Amazon Web Services Organization management account or the delegated administrator role changed. Delete this aggregator and create a new one with the current Amazon Web Services Organization.</p> </li> <li> <p>The configuration aggregator is associated with a previous Amazon Web Services Organization and Config cannot aggregate data with current Amazon Web Services Organization. Delete this aggregator and create a new one with the current Amazon Web Services Organization.</p> </li> <li> <p>You are not a registered delegated administrator for Config with permissions to call <code>ListDelegatedAdministrators</code> API. Ensure that the management account registers delagated administrator for Config service principal name before the delegated administrator creates an aggregator.</p> </li> </ul> <p>For all <code>OrganizationConfigRule</code> and <code>OrganizationConformancePack</code> APIs, Config throws an exception if APIs are called from member accounts. All APIs must be called from organization management account.</p>
+            aws_sdk_config_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3837,6 +4180,13 @@ class ConfigServiceClient:
             filters: <p>An <code>OrganizationResourceDetailedStatusFilters</code> object.</p>
             limit: <p>The maximum number of <code>OrganizationConformancePackDetailedStatuses</code> returned on each page. If you do not specify a number, Config uses the default. The default is 100. </p>
             next_token: <p>The nextToken string returned on a previous page that you use to get the next page of results in a paginated response. </p>
+
+        Raises:
+            aws_sdk_config_service.errors.invalid_limit_exception.InvalidLimitException: <p>The specified limit is outside the allowable range.</p>
+            aws_sdk_config_service.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The specified next token is not valid. Specify the <code>nextToken</code> string that was returned in the previous response to get the next page of results.</p>
+            aws_sdk_config_service.errors.no_such_organization_conformance_pack_exception.NoSuchOrganizationConformancePackException: <p>Config organization conformance pack that you passed in the filter does not exist.</p> <p>For DeleteOrganizationConformancePack, you tried to delete an organization conformance pack that does not exist.</p>
+            aws_sdk_config_service.errors.organization_access_denied_exception.OrganizationAccessDeniedException: <p>For <code>PutConfigurationAggregator</code> API, you can see this exception for the following reasons:</p> <ul> <li> <p>No permission to call <code>EnableAWSServiceAccess</code> API</p> </li> <li> <p>The configuration aggregator cannot be updated because your Amazon Web Services Organization management account or the delegated administrator role changed. Delete this aggregator and create a new one with the current Amazon Web Services Organization.</p> </li> <li> <p>The configuration aggregator is associated with a previous Amazon Web Services Organization and Config cannot aggregate data with current Amazon Web Services Organization. Delete this aggregator and create a new one with the current Amazon Web Services Organization.</p> </li> <li> <p>You are not a registered delegated administrator for Config with permissions to call <code>ListDelegatedAdministrators</code> API. Ensure that the management account registers delagated administrator for Config service principal name before the delegated administrator creates an aggregator.</p> </li> </ul> <p>For all <code>OrganizationConfigRule</code> and <code>OrganizationConformancePack</code> APIs, Config throws an exception if APIs are called from member accounts. All APIs must be called from organization management account.</p>
+            aws_sdk_config_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3913,6 +4263,11 @@ class ConfigServiceClient:
 
         Args:
             organization_config_rule_name: <p>The name of your organization Config Custom Policy rule. </p>
+
+        Raises:
+            aws_sdk_config_service.errors.no_such_organization_config_rule_exception.NoSuchOrganizationConfigRuleException: <p>The Config rule in the request is not valid. Verify that the rule is an organization Config Process Check rule, that the rule name is correct, and that valid Amazon Resouce Names (ARNs) are used before trying again.</p>
+            aws_sdk_config_service.errors.organization_access_denied_exception.OrganizationAccessDeniedException: <p>For <code>PutConfigurationAggregator</code> API, you can see this exception for the following reasons:</p> <ul> <li> <p>No permission to call <code>EnableAWSServiceAccess</code> API</p> </li> <li> <p>The configuration aggregator cannot be updated because your Amazon Web Services Organization management account or the delegated administrator role changed. Delete this aggregator and create a new one with the current Amazon Web Services Organization.</p> </li> <li> <p>The configuration aggregator is associated with a previous Amazon Web Services Organization and Config cannot aggregate data with current Amazon Web Services Organization. Delete this aggregator and create a new one with the current Amazon Web Services Organization.</p> </li> <li> <p>You are not a registered delegated administrator for Config with permissions to call <code>ListDelegatedAdministrators</code> API. Ensure that the management account registers delagated administrator for Config service principal name before the delegated administrator creates an aggregator.</p> </li> </ul> <p>For all <code>OrganizationConfigRule</code> and <code>OrganizationConformancePack</code> APIs, Config throws an exception if APIs are called from member accounts. All APIs must be called from organization management account.</p>
+            aws_sdk_config_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3970,6 +4325,15 @@ class ConfigServiceClient:
             chronological_order: <p>The chronological order for configuration items listed. By default, the results are listed in reverse chronological order.</p>
             limit: <p>The maximum number of configuration items returned on each page. The default is 10. You cannot specify a number greater than 100. If you specify 0, Config uses the default.</p>
             next_token: <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
+
+        Raises:
+            aws_sdk_config_service.errors.invalid_limit_exception.InvalidLimitException: <p>The specified limit is outside the allowable range.</p>
+            aws_sdk_config_service.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The specified next token is not valid. Specify the <code>nextToken</code> string that was returned in the previous response to get the next page of results.</p>
+            aws_sdk_config_service.errors.invalid_time_range_exception.InvalidTimeRangeException: <p>The specified time range is not valid. The earlier time is not chronologically before the later time.</p>
+            aws_sdk_config_service.errors.no_available_configuration_recorder_exception.NoAvailableConfigurationRecorderException: <p>There are no customer managed configuration recorders available to record your resources. Use the <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_PutConfigurationRecorder.html\">PutConfigurationRecorder</a> operation to create the customer managed configuration recorder.</p>
+            aws_sdk_config_service.errors.resource_not_discovered_exception.ResourceNotDiscoveredException: <p>You have specified a resource that is either unknown or has not been discovered.</p>
+            aws_sdk_config_service.errors.validation_exception.ValidationException: <p>The requested operation is not valid. You will see this exception if there are missing required fields or if the input value fails the validation.</p> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_PutStoredQuery.html\">PutStoredQuery</a>, one of the following errors:</p> <ul> <li> <p>There are missing required fields.</p> </li> <li> <p>The input value fails the validation.</p> </li> <li> <p>You are trying to create more than 300 queries.</p> </li> </ul> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_DescribeConfigurationRecorders.html\">DescribeConfigurationRecorders</a> and <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_DescribeConfigurationRecorderStatus.html\">DescribeConfigurationRecorderStatus</a>, one of the following errors:</p> <ul> <li> <p>You have specified more than one configuration recorder.</p> </li> <li> <p>You have provided a service principal for service-linked configuration recorder that is not valid.</p> </li> </ul> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_AssociateResourceTypes.html\">AssociateResourceTypes</a> and <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_DisassociateResourceTypes.html\">DisassociateResourceTypes</a>, one of the following errors:</p> <ul> <li> <p>Your configuraiton recorder has a recording strategy that does not allow the association or disassociation of resource types.</p> </li> <li> <p>One or more of the specified resource types are already associated or disassociated with the configuration recorder.</p> </li> <li> <p>For service-linked configuration recorders, the configuration recorder does not record one or more of the specified resource types.</p> </li> </ul>
+            aws_sdk_config_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4057,6 +4421,10 @@ class ConfigServiceClient:
 
         Args:
             resource_evaluation_id: <p>The unique <code>ResourceEvaluationId</code> of Amazon Web Services resource execution for which you want to retrieve the evaluation summary.</p>
+
+        Raises:
+            aws_sdk_config_service.errors.resource_not_found_exception.ResourceNotFoundException: <p>You have specified a resource that does not exist.</p>
+            aws_sdk_config_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4096,6 +4464,11 @@ class ConfigServiceClient:
 
         Args:
             query_name: <p>The name of the query.</p>
+
+        Raises:
+            aws_sdk_config_service.errors.resource_not_found_exception.ResourceNotFoundException: <p>You have specified a resource that does not exist.</p>
+            aws_sdk_config_service.errors.validation_exception.ValidationException: <p>The requested operation is not valid. You will see this exception if there are missing required fields or if the input value fails the validation.</p> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_PutStoredQuery.html\">PutStoredQuery</a>, one of the following errors:</p> <ul> <li> <p>There are missing required fields.</p> </li> <li> <p>The input value fails the validation.</p> </li> <li> <p>You are trying to create more than 300 queries.</p> </li> </ul> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_DescribeConfigurationRecorders.html\">DescribeConfigurationRecorders</a> and <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_DescribeConfigurationRecorderStatus.html\">DescribeConfigurationRecorderStatus</a>, one of the following errors:</p> <ul> <li> <p>You have specified more than one configuration recorder.</p> </li> <li> <p>You have provided a service principal for service-linked configuration recorder that is not valid.</p> </li> </ul> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_AssociateResourceTypes.html\">AssociateResourceTypes</a> and <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_DisassociateResourceTypes.html\">DisassociateResourceTypes</a>, one of the following errors:</p> <ul> <li> <p>Your configuraiton recorder has a recording strategy that does not allow the association or disassociation of resource types.</p> </li> <li> <p>One or more of the specified resource types are already associated or disassociated with the configuration recorder.</p> </li> <li> <p>For service-linked configuration recorders, the configuration recorder does not record one or more of the specified resource types.</p> </li> </ul>
+            aws_sdk_config_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4145,6 +4518,13 @@ class ConfigServiceClient:
             filters: <p>Filters the results based on the <code>ResourceFilters</code> object.</p>
             limit: <p>The maximum number of resource identifiers returned on each page. You cannot specify a number greater than 100. If you specify 0, Config uses the default.</p>
             next_token: <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
+
+        Raises:
+            aws_sdk_config_service.errors.invalid_limit_exception.InvalidLimitException: <p>The specified limit is outside the allowable range.</p>
+            aws_sdk_config_service.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The specified next token is not valid. Specify the <code>nextToken</code> string that was returned in the previous response to get the next page of results.</p>
+            aws_sdk_config_service.errors.no_such_configuration_aggregator_exception.NoSuchConfigurationAggregatorException: <p>You have specified a configuration aggregator that does not exist.</p>
+            aws_sdk_config_service.errors.validation_exception.ValidationException: <p>The requested operation is not valid. You will see this exception if there are missing required fields or if the input value fails the validation.</p> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_PutStoredQuery.html\">PutStoredQuery</a>, one of the following errors:</p> <ul> <li> <p>There are missing required fields.</p> </li> <li> <p>The input value fails the validation.</p> </li> <li> <p>You are trying to create more than 300 queries.</p> </li> </ul> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_DescribeConfigurationRecorders.html\">DescribeConfigurationRecorders</a> and <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_DescribeConfigurationRecorderStatus.html\">DescribeConfigurationRecorderStatus</a>, one of the following errors:</p> <ul> <li> <p>You have specified more than one configuration recorder.</p> </li> <li> <p>You have provided a service principal for service-linked configuration recorder that is not valid.</p> </li> </ul> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_AssociateResourceTypes.html\">AssociateResourceTypes</a> and <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_DisassociateResourceTypes.html\">DisassociateResourceTypes</a>, one of the following errors:</p> <ul> <li> <p>Your configuraiton recorder has a recording strategy that does not allow the association or disassociation of resource types.</p> </li> <li> <p>One or more of the specified resource types are already associated or disassociated with the configuration recorder.</p> </li> <li> <p>For service-linked configuration recorders, the configuration recorder does not record one or more of the specified resource types.</p> </li> </ul>
+            aws_sdk_config_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4230,6 +4610,10 @@ class ConfigServiceClient:
             filters: <p>Filters the results based on a list of <code>ConfigurationRecorderFilter</code> objects that you specify.</p>
             max_results: <p>The maximum number of results to include in the response.</p>
             next_token: <p>The <code>NextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
+
+        Raises:
+            aws_sdk_config_service.errors.validation_exception.ValidationException: <p>The requested operation is not valid. You will see this exception if there are missing required fields or if the input value fails the validation.</p> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_PutStoredQuery.html\">PutStoredQuery</a>, one of the following errors:</p> <ul> <li> <p>There are missing required fields.</p> </li> <li> <p>The input value fails the validation.</p> </li> <li> <p>You are trying to create more than 300 queries.</p> </li> </ul> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_DescribeConfigurationRecorders.html\">DescribeConfigurationRecorders</a> and <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_DescribeConfigurationRecorderStatus.html\">DescribeConfigurationRecorderStatus</a>, one of the following errors:</p> <ul> <li> <p>You have specified more than one configuration recorder.</p> </li> <li> <p>You have provided a service principal for service-linked configuration recorder that is not valid.</p> </li> </ul> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_AssociateResourceTypes.html\">AssociateResourceTypes</a> and <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_DisassociateResourceTypes.html\">DisassociateResourceTypes</a>, one of the following errors:</p> <ul> <li> <p>Your configuraiton recorder has a recording strategy that does not allow the association or disassociation of resource types.</p> </li> <li> <p>One or more of the specified resource types are already associated or disassociated with the configuration recorder.</p> </li> <li> <p>For service-linked configuration recorders, the configuration recorder does not record one or more of the specified resource types.</p> </li> </ul>
+            aws_sdk_config_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4317,6 +4701,12 @@ class ConfigServiceClient:
             sort_by: <p>Sorts your conformance pack compliance scores in either ascending or descending order, depending on <code>SortOrder</code>.</p> <p>By default, conformance pack compliance scores are sorted in alphabetical order by name of the conformance pack. Enter <code>SCORE</code>, to sort conformance pack compliance scores by the numerical value of the compliance score.</p>
             limit: <p>The maximum number of conformance pack compliance scores returned on each page.</p>
             next_token: <p>The <code>nextToken</code> string in a prior request that you can use to get the paginated response for the next set of conformance pack compliance scores.</p>
+
+        Raises:
+            aws_sdk_config_service.errors.invalid_limit_exception.InvalidLimitException: <p>The specified limit is outside the allowable range.</p>
+            aws_sdk_config_service.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The specified next token is not valid. Specify the <code>nextToken</code> string that was returned in the previous response to get the next page of results.</p>
+            aws_sdk_config_service.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more of the specified parameters are not valid. Verify that your parameters are valid and try again.</p>
+            aws_sdk_config_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4381,6 +4771,13 @@ class ConfigServiceClient:
             limit: <p>The maximum number of resource identifiers returned on each page. The default is 100. You cannot specify a number greater than 100. If you specify 0, Config uses the default.</p>
             include_deleted_resources: <p>Specifies whether Config includes deleted resources in the results. By default, deleted resources are not included.</p>
             next_token: <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
+
+        Raises:
+            aws_sdk_config_service.errors.invalid_limit_exception.InvalidLimitException: <p>The specified limit is outside the allowable range.</p>
+            aws_sdk_config_service.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The specified next token is not valid. Specify the <code>nextToken</code> string that was returned in the previous response to get the next page of results.</p>
+            aws_sdk_config_service.errors.no_available_configuration_recorder_exception.NoAvailableConfigurationRecorderException: <p>There are no customer managed configuration recorders available to record your resources. Use the <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_PutConfigurationRecorder.html\">PutConfigurationRecorder</a> operation to create the customer managed configuration recorder.</p>
+            aws_sdk_config_service.errors.validation_exception.ValidationException: <p>The requested operation is not valid. You will see this exception if there are missing required fields or if the input value fails the validation.</p> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_PutStoredQuery.html\">PutStoredQuery</a>, one of the following errors:</p> <ul> <li> <p>There are missing required fields.</p> </li> <li> <p>The input value fails the validation.</p> </li> <li> <p>You are trying to create more than 300 queries.</p> </li> </ul> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_DescribeConfigurationRecorders.html\">DescribeConfigurationRecorders</a> and <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_DescribeConfigurationRecorderStatus.html\">DescribeConfigurationRecorderStatus</a>, one of the following errors:</p> <ul> <li> <p>You have specified more than one configuration recorder.</p> </li> <li> <p>You have provided a service principal for service-linked configuration recorder that is not valid.</p> </li> </ul> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_AssociateResourceTypes.html\">AssociateResourceTypes</a> and <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_DisassociateResourceTypes.html\">DisassociateResourceTypes</a>, one of the following errors:</p> <ul> <li> <p>Your configuraiton recorder has a recording strategy that does not allow the association or disassociation of resource types.</p> </li> <li> <p>One or more of the specified resource types are already associated or disassociated with the configuration recorder.</p> </li> <li> <p>For service-linked configuration recorders, the configuration recorder does not record one or more of the specified resource types.</p> </li> </ul>
+            aws_sdk_config_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4475,6 +4872,12 @@ class ConfigServiceClient:
             filters: <p>Returns a <code>ResourceEvaluationFilters</code> object.</p>
             limit: <p>The maximum number of evaluations returned on each page. The default is 10. You cannot specify a number greater than 100. If you specify 0, Config uses the default.</p>
             next_token: <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
+
+        Raises:
+            aws_sdk_config_service.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The specified next token is not valid. Specify the <code>nextToken</code> string that was returned in the previous response to get the next page of results.</p>
+            aws_sdk_config_service.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more of the specified parameters are not valid. Verify that your parameters are valid and try again.</p>
+            aws_sdk_config_service.errors.invalid_time_range_exception.InvalidTimeRangeException: <p>The specified time range is not valid. The earlier time is not chronologically before the later time.</p>
+            aws_sdk_config_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4548,6 +4951,11 @@ class ConfigServiceClient:
         Args:
             next_token: <p>The nextToken string returned in a previous request that you use to request the next page of results in a paginated response.</p>
             max_results: <p>The maximum number of results to be returned with a single call.</p>
+
+        Raises:
+            aws_sdk_config_service.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The specified next token is not valid. Specify the <code>nextToken</code> string that was returned in the previous response to get the next page of results.</p>
+            aws_sdk_config_service.errors.validation_exception.ValidationException: <p>The requested operation is not valid. You will see this exception if there are missing required fields or if the input value fails the validation.</p> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_PutStoredQuery.html\">PutStoredQuery</a>, one of the following errors:</p> <ul> <li> <p>There are missing required fields.</p> </li> <li> <p>The input value fails the validation.</p> </li> <li> <p>You are trying to create more than 300 queries.</p> </li> </ul> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_DescribeConfigurationRecorders.html\">DescribeConfigurationRecorders</a> and <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_DescribeConfigurationRecorderStatus.html\">DescribeConfigurationRecorderStatus</a>, one of the following errors:</p> <ul> <li> <p>You have specified more than one configuration recorder.</p> </li> <li> <p>You have provided a service principal for service-linked configuration recorder that is not valid.</p> </li> </ul> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_AssociateResourceTypes.html\">AssociateResourceTypes</a> and <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_DisassociateResourceTypes.html\">DisassociateResourceTypes</a>, one of the following errors:</p> <ul> <li> <p>Your configuraiton recorder has a recording strategy that does not allow the association or disassociation of resource types.</p> </li> <li> <p>One or more of the specified resource types are already associated or disassociated with the configuration recorder.</p> </li> <li> <p>For service-linked configuration recorders, the configuration recorder does not record one or more of the specified resource types.</p> </li> </ul>
+            aws_sdk_config_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4594,6 +5002,13 @@ class ConfigServiceClient:
             resource_arn: <p>The Amazon Resource Name (ARN) that identifies the resource for which to list the tags. The following resources are supported:</p> <ul> <li> <p> <code>ConfigurationRecorder</code> </p> </li> <li> <p> <code>ConfigRule</code> </p> </li> <li> <p> <code>OrganizationConfigRule</code> </p> </li> <li> <p> <code>ConformancePack</code> </p> </li> <li> <p> <code>OrganizationConformancePack</code> </p> </li> <li> <p> <code>ConfigurationAggregator</code> </p> </li> <li> <p> <code>AggregationAuthorization</code> </p> </li> <li> <p> <code>StoredQuery</code> </p> </li> </ul>
             limit: <p>The maximum number of tags returned on each page. The limit maximum is 50. You cannot specify a number greater than 50. If you specify 0, Config uses the default. </p>
             next_token: <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response. </p>
+
+        Raises:
+            aws_sdk_config_service.errors.invalid_limit_exception.InvalidLimitException: <p>The specified limit is outside the allowable range.</p>
+            aws_sdk_config_service.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The specified next token is not valid. Specify the <code>nextToken</code> string that was returned in the previous response to get the next page of results.</p>
+            aws_sdk_config_service.errors.resource_not_found_exception.ResourceNotFoundException: <p>You have specified a resource that does not exist.</p>
+            aws_sdk_config_service.errors.validation_exception.ValidationException: <p>The requested operation is not valid. You will see this exception if there are missing required fields or if the input value fails the validation.</p> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_PutStoredQuery.html\">PutStoredQuery</a>, one of the following errors:</p> <ul> <li> <p>There are missing required fields.</p> </li> <li> <p>The input value fails the validation.</p> </li> <li> <p>You are trying to create more than 300 queries.</p> </li> </ul> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_DescribeConfigurationRecorders.html\">DescribeConfigurationRecorders</a> and <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_DescribeConfigurationRecorderStatus.html\">DescribeConfigurationRecorderStatus</a>, one of the following errors:</p> <ul> <li> <p>You have specified more than one configuration recorder.</p> </li> <li> <p>You have provided a service principal for service-linked configuration recorder that is not valid.</p> </li> </ul> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_AssociateResourceTypes.html\">AssociateResourceTypes</a> and <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_DisassociateResourceTypes.html\">DisassociateResourceTypes</a>, one of the following errors:</p> <ul> <li> <p>Your configuraiton recorder has a recording strategy that does not allow the association or disassociation of resource types.</p> </li> <li> <p>One or more of the specified resource types are already associated or disassociated with the configuration recorder.</p> </li> <li> <p>For service-linked configuration recorders, the configuration recorder does not record one or more of the specified resource types.</p> </li> </ul>
+            aws_sdk_config_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4664,6 +5079,10 @@ class ConfigServiceClient:
             authorized_account_id: <p>The 12-digit account ID of the account authorized to aggregate data.</p>
             authorized_aws_region: <p>The region authorized to collect aggregated data.</p>
             tags: <p>An array of tag object.</p>
+
+        Raises:
+            aws_sdk_config_service.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more of the specified parameters are not valid. Verify that your parameters are valid and try again.</p>
+            aws_sdk_config_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4706,6 +5125,14 @@ class ConfigServiceClient:
         Args:
             config_rule: <p>The rule that you want to add to your account.</p>
             tags: <p>An array of tag object.</p>
+
+        Raises:
+            aws_sdk_config_service.errors.insufficient_permissions_exception.InsufficientPermissionsException: <p>Indicates one of the following errors:</p> <ul> <li> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_PutConfigRule.html\">PutConfigRule</a>, the rule cannot be created because the IAM role assigned to Config lacks permissions to perform the config:Put* action.</p> </li> <li> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_PutConfigRule.html\">PutConfigRule</a>, the Lambda function cannot be invoked. Check the function ARN, and check the function's permissions.</p> </li> <li> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_PutOrganizationConfigRule.html\">PutOrganizationConfigRule</a>, organization Config rule cannot be created because you do not have permissions to call IAM <code>GetRole</code> action or create a service-linked role.</p> </li> <li> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_PutConformancePack.html\">PutConformancePack</a> and <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_PutOrganizationConformancePack.html\">PutOrganizationConformancePack</a>, a conformance pack cannot be created because you do not have the following permissions: </p> <ul> <li> <p>You do not have permission to call IAM <code>GetRole</code> action or create a service-linked role.</p> </li> <li> <p>You do not have permission to read Amazon S3 bucket or call SSM:GetDocument.</p> </li> </ul> </li> <li> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_PutServiceLinkedConfigurationRecorder.html\">PutServiceLinkedConfigurationRecorder</a>, a service-linked configuration recorder cannot be created because you do not have the following permissions: IAM <code>CreateServiceLinkedRole</code>.</p> </li> </ul>
+            aws_sdk_config_service.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more of the specified parameters are not valid. Verify that your parameters are valid and try again.</p>
+            aws_sdk_config_service.errors.max_number_of_config_rules_exceeded_exception.MaxNumberOfConfigRulesExceededException: <p>Failed to add the Config rule because the account already contains the maximum number of 1000 rules. Consider deleting any deactivated rules before you add new rules.</p>
+            aws_sdk_config_service.errors.no_available_configuration_recorder_exception.NoAvailableConfigurationRecorderException: <p>There are no customer managed configuration recorders available to record your resources. Use the <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_PutConfigurationRecorder.html\">PutConfigurationRecorder</a> operation to create the customer managed configuration recorder.</p>
+            aws_sdk_config_service.errors.resource_in_use_exception.ResourceInUseException: <p>You see this exception in the following cases: </p> <ul> <li> <p>For DeleteConfigRule, Config is deleting this rule. Try your request again later.</p> </li> <li> <p>For DeleteConfigRule, the rule is deleting your evaluation results. Try your request again later.</p> </li> <li> <p>For DeleteConfigRule, a remediation action is associated with the rule and Config cannot delete this rule. Delete the remediation action associated with the rule before deleting the rule and try your request again later.</p> </li> <li> <p>For PutConfigOrganizationRule, organization Config rule deletion is in progress. Try your request again later.</p> </li> <li> <p>For DeleteOrganizationConfigRule, organization Config rule creation is in progress. Try your request again later.</p> </li> <li> <p>For PutConformancePack and PutOrganizationConformancePack, a conformance pack creation, update, and deletion is in progress. Try your request again later.</p> </li> <li> <p>For DeleteConformancePack, a conformance pack creation, update, and deletion is in progress. Try your request again later.</p> </li> </ul>
+            aws_sdk_config_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4757,6 +5184,15 @@ class ConfigServiceClient:
             organization_aggregation_source: <p>An OrganizationAggregationSource object.</p>
             tags: <p>An array of tag object.</p>
             aggregator_filters: <p>An object to filter configuration recorders in an aggregator. Either <code>ResourceType</code> or <code>ServicePrincipal</code> is required.</p>
+
+        Raises:
+            aws_sdk_config_service.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more of the specified parameters are not valid. Verify that your parameters are valid and try again.</p>
+            aws_sdk_config_service.errors.invalid_role_exception.InvalidRoleException: <p>You have provided a null or empty Amazon Resource Name (ARN) for the IAM role assumed by Config and used by the customer managed configuration recorder.</p>
+            aws_sdk_config_service.errors.limit_exceeded_exception.LimitExceededException: <p>For <code>PutServiceLinkedConfigurationRecorder</code> API, this exception is thrown if the number of service-linked roles in the account exceeds the limit.</p> <p>For <code>StartConfigRulesEvaluation</code> API, this exception is thrown if an evaluation is in progress or if you call the <a>StartConfigRulesEvaluation</a> API more than once per minute.</p> <p>For <code>PutConfigurationAggregator</code> API, this exception is thrown if the number of accounts and aggregators exceeds the limit.</p>
+            aws_sdk_config_service.errors.no_available_organization_exception.NoAvailableOrganizationException: <p>Organization is no longer available.</p>
+            aws_sdk_config_service.errors.organization_access_denied_exception.OrganizationAccessDeniedException: <p>For <code>PutConfigurationAggregator</code> API, you can see this exception for the following reasons:</p> <ul> <li> <p>No permission to call <code>EnableAWSServiceAccess</code> API</p> </li> <li> <p>The configuration aggregator cannot be updated because your Amazon Web Services Organization management account or the delegated administrator role changed. Delete this aggregator and create a new one with the current Amazon Web Services Organization.</p> </li> <li> <p>The configuration aggregator is associated with a previous Amazon Web Services Organization and Config cannot aggregate data with current Amazon Web Services Organization. Delete this aggregator and create a new one with the current Amazon Web Services Organization.</p> </li> <li> <p>You are not a registered delegated administrator for Config with permissions to call <code>ListDelegatedAdministrators</code> API. Ensure that the management account registers delagated administrator for Config service principal name before the delegated administrator creates an aggregator.</p> </li> </ul> <p>For all <code>OrganizationConfigRule</code> and <code>OrganizationConformancePack</code> APIs, Config throws an exception if APIs are called from member accounts. All APIs must be called from organization management account.</p>
+            aws_sdk_config_service.errors.organization_all_features_not_enabled_exception.OrganizationAllFeaturesNotEnabledException: <p>Config resource cannot be created because your organization does not have all features enabled.</p>
+            aws_sdk_config_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4804,6 +5240,15 @@ class ConfigServiceClient:
         Args:
             configuration_recorder: <p>An object for the configuration recorder. A configuration recorder records configuration changes for the resource types in scope.</p>
             tags: <p>The tags for the customer managed configuration recorder. Each tag consists of a key and an optional value, both of which you define.</p>
+
+        Raises:
+            aws_sdk_config_service.errors.invalid_configuration_recorder_name_exception.InvalidConfigurationRecorderNameException: <p>The configuration recorder name is not valid. The prefix \"<code>AWSConfigurationRecorderFor</code>\" is reserved for service-linked configuration recorders.</p>
+            aws_sdk_config_service.errors.invalid_recording_group_exception.InvalidRecordingGroupException: <p>One of the following errors:</p> <ul> <li> <p>You have provided a combination of parameter values that is not valid. For example:</p> <ul> <li> <p>Setting the <code>allSupported</code> field of <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingGroup.html\">RecordingGroup</a> to <code>true</code>, but providing a non-empty list for the <code>resourceTypes</code>field of <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingGroup.html\">RecordingGroup</a>.</p> </li> <li> <p>Setting the <code>allSupported</code> field of <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingGroup.html\">RecordingGroup</a> to <code>true</code>, but also setting the <code>useOnly</code> field of <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingStrategy.html\">RecordingStrategy</a> to <code>EXCLUSION_BY_RESOURCE_TYPES</code>.</p> </li> </ul> </li> <li> <p>Every parameter is either null, false, or empty.</p> </li> <li> <p>You have reached the limit of the number of resource types you can provide for the recording group.</p> </li> <li> <p>You have provided resource types or a recording strategy that are not valid.</p> </li> </ul>
+            aws_sdk_config_service.errors.invalid_role_exception.InvalidRoleException: <p>You have provided a null or empty Amazon Resource Name (ARN) for the IAM role assumed by Config and used by the customer managed configuration recorder.</p>
+            aws_sdk_config_service.errors.max_number_of_configuration_recorders_exceeded_exception.MaxNumberOfConfigurationRecordersExceededException: <p>You have reached the limit of the number of configuration recorders you can create.</p>
+            aws_sdk_config_service.errors.unmodifiable_entity_exception.UnmodifiableEntityException: <p>The requested operation is not valid.</p> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_PutConfigurationRecorder.html\">PutConfigurationRecorder</a>, you will see this exception because you cannot use this operation to create a service-linked configuration recorder. Use the <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_PutServiceLinkedConfigurationRecorder.html\">PutServiceLinkedConfigurationRecorder</a> operation to create a service-linked configuration recorder.</p> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_DeleteConfigurationRecorder.html\">DeleteConfigurationRecorder</a>, you will see this exception because you cannot use this operation to delete a service-linked configuration recorder. Use the <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_DeleteServiceLinkedConfigurationRecorder.html\">DeleteServiceLinkedConfigurationRecorder</a> operation to delete a service-linked configuration recorder.</p> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_StartConfigurationRecorder.html\">StartConfigurationRecorder</a> and <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_StopConfigurationRecorder.html\">StopConfigurationRecorder</a>, you will see this exception because these operations do not affect service-linked configuration recorders. Service-linked configuration recorders are always recording. To stop recording, you must delete the service-linked configuration recorder. Use the <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_DeleteServiceLinkedConfigurationRecorder.html\">DeleteServiceLinkedConfigurationRecorder</a> operation to delete a service-linked configuration recorder.</p>
+            aws_sdk_config_service.errors.validation_exception.ValidationException: <p>The requested operation is not valid. You will see this exception if there are missing required fields or if the input value fails the validation.</p> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_PutStoredQuery.html\">PutStoredQuery</a>, one of the following errors:</p> <ul> <li> <p>There are missing required fields.</p> </li> <li> <p>The input value fails the validation.</p> </li> <li> <p>You are trying to create more than 300 queries.</p> </li> </ul> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_DescribeConfigurationRecorders.html\">DescribeConfigurationRecorders</a> and <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_DescribeConfigurationRecorderStatus.html\">DescribeConfigurationRecorderStatus</a>, one of the following errors:</p> <ul> <li> <p>You have specified more than one configuration recorder.</p> </li> <li> <p>You have provided a service principal for service-linked configuration recorder that is not valid.</p> </li> </ul> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_AssociateResourceTypes.html\">AssociateResourceTypes</a> and <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_DisassociateResourceTypes.html\">DisassociateResourceTypes</a>, one of the following errors:</p> <ul> <li> <p>Your configuraiton recorder has a recording strategy that does not allow the association or disassociation of resource types.</p> </li> <li> <p>One or more of the specified resource types are already associated or disassociated with the configuration recorder.</p> </li> <li> <p>For service-linked configuration recorders, the configuration recorder does not record one or more of the specified resource types.</p> </li> </ul>
+            aws_sdk_config_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4867,6 +5312,14 @@ class ConfigServiceClient:
             conformance_pack_input_parameters: <p>A list of <code>ConformancePackInputParameter</code> objects.</p>
             template_ssm_document_details: <p>An object of type <code>TemplateSSMDocumentDetails</code>, which contains the name or the Amazon Resource Name (ARN) of the Amazon Web Services Systems Manager document (SSM document) and the version of the SSM document that is used to create a conformance pack.</p>
             tags: <p>The tags for the conformance pack. Each tag consists of a key and an optional value, both of which you define.</p>
+
+        Raises:
+            aws_sdk_config_service.errors.conformance_pack_template_validation_exception.ConformancePackTemplateValidationException: <p>You have specified a template that is not valid or supported.</p>
+            aws_sdk_config_service.errors.insufficient_permissions_exception.InsufficientPermissionsException: <p>Indicates one of the following errors:</p> <ul> <li> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_PutConfigRule.html\">PutConfigRule</a>, the rule cannot be created because the IAM role assigned to Config lacks permissions to perform the config:Put* action.</p> </li> <li> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_PutConfigRule.html\">PutConfigRule</a>, the Lambda function cannot be invoked. Check the function ARN, and check the function's permissions.</p> </li> <li> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_PutOrganizationConfigRule.html\">PutOrganizationConfigRule</a>, organization Config rule cannot be created because you do not have permissions to call IAM <code>GetRole</code> action or create a service-linked role.</p> </li> <li> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_PutConformancePack.html\">PutConformancePack</a> and <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_PutOrganizationConformancePack.html\">PutOrganizationConformancePack</a>, a conformance pack cannot be created because you do not have the following permissions: </p> <ul> <li> <p>You do not have permission to call IAM <code>GetRole</code> action or create a service-linked role.</p> </li> <li> <p>You do not have permission to read Amazon S3 bucket or call SSM:GetDocument.</p> </li> </ul> </li> <li> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_PutServiceLinkedConfigurationRecorder.html\">PutServiceLinkedConfigurationRecorder</a>, a service-linked configuration recorder cannot be created because you do not have the following permissions: IAM <code>CreateServiceLinkedRole</code>.</p> </li> </ul>
+            aws_sdk_config_service.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more of the specified parameters are not valid. Verify that your parameters are valid and try again.</p>
+            aws_sdk_config_service.errors.max_number_of_conformance_packs_exceeded_exception.MaxNumberOfConformancePacksExceededException: <p>You have reached the limit of the number of conformance packs you can create in an account. For more information, see <a href=\"https://docs.aws.amazon.com/config/latest/developerguide/configlimits.html\"> <b>Service Limits</b> </a> in the <i>Config Developer Guide</i>.</p>
+            aws_sdk_config_service.errors.resource_in_use_exception.ResourceInUseException: <p>You see this exception in the following cases: </p> <ul> <li> <p>For DeleteConfigRule, Config is deleting this rule. Try your request again later.</p> </li> <li> <p>For DeleteConfigRule, the rule is deleting your evaluation results. Try your request again later.</p> </li> <li> <p>For DeleteConfigRule, a remediation action is associated with the rule and Config cannot delete this rule. Delete the remediation action associated with the rule before deleting the rule and try your request again later.</p> </li> <li> <p>For PutConfigOrganizationRule, organization Config rule deletion is in progress. Try your request again later.</p> </li> <li> <p>For DeleteOrganizationConfigRule, organization Config rule creation is in progress. Try your request again later.</p> </li> <li> <p>For PutConformancePack and PutOrganizationConformancePack, a conformance pack creation, update, and deletion is in progress. Try your request again later.</p> </li> <li> <p>For DeleteConformancePack, a conformance pack creation, update, and deletion is in progress. Try your request again later.</p> </li> </ul>
+            aws_sdk_config_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4920,6 +5373,17 @@ class ConfigServiceClient:
 
         Args:
             delivery_channel: <p>An object for the delivery channel. A delivery channel sends notifications and updated configuration states. </p>
+
+        Raises:
+            aws_sdk_config_service.errors.insufficient_delivery_policy_exception.InsufficientDeliveryPolicyException: <p>Your Amazon S3 bucket policy does not allow Config to write to it.</p>
+            aws_sdk_config_service.errors.invalid_delivery_channel_name_exception.InvalidDeliveryChannelNameException: <p>The specified delivery channel name is not valid.</p>
+            aws_sdk_config_service.errors.invalid_s3_key_prefix_exception.InvalidS3KeyPrefixException: <p>The specified Amazon S3 key prefix is not valid.</p>
+            aws_sdk_config_service.errors.invalid_s3_kms_key_arn_exception.InvalidS3KmsKeyArnException: <p>The specified Amazon KMS Key ARN is not valid.</p>
+            aws_sdk_config_service.errors.invalid_sns_topic_arn_exception.InvalidSNSTopicARNException: <p>The specified Amazon SNS topic does not exist.</p>
+            aws_sdk_config_service.errors.max_number_of_delivery_channels_exceeded_exception.MaxNumberOfDeliveryChannelsExceededException: <p>You have reached the limit of the number of delivery channels you can create.</p>
+            aws_sdk_config_service.errors.no_available_configuration_recorder_exception.NoAvailableConfigurationRecorderException: <p>There are no customer managed configuration recorders available to record your resources. Use the <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_PutConfigurationRecorder.html\">PutConfigurationRecorder</a> operation to create the customer managed configuration recorder.</p>
+            aws_sdk_config_service.errors.no_such_bucket_exception.NoSuchBucketException: <p>The specified Amazon S3 bucket does not exist.</p>
+            aws_sdk_config_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4961,6 +5425,12 @@ class ConfigServiceClient:
             evaluations: <p>The assessments that the Lambda function performs. Each evaluation identifies an Amazon Web Services resource and indicates whether it complies with the Config rule that invokes the Lambda function.</p>
             result_token: <p>An encrypted token that associates an evaluation with an Config rule. Identifies the rule and the event that triggered the evaluation.</p>
             test_mode: <p>Use this parameter to specify a test run for <code>PutEvaluations</code>. You can verify whether your Lambda function will deliver evaluation results to Config. No updates occur to your existing evaluations, and evaluation results are not sent to Config.</p> <note> <p>When <code>TestMode</code> is <code>true</code>, <code>PutEvaluations</code> doesn't require a valid value for the <code>ResultToken</code> parameter, but the value cannot be null.</p> </note>
+
+        Raises:
+            aws_sdk_config_service.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more of the specified parameters are not valid. Verify that your parameters are valid and try again.</p>
+            aws_sdk_config_service.errors.invalid_result_token_exception.InvalidResultTokenException: <p>The specified <code>ResultToken</code> is not valid.</p>
+            aws_sdk_config_service.errors.no_such_config_rule_exception.NoSuchConfigRuleException: <p>The Config rule in the request is not valid. Verify that the rule is an Config Process Check rule, that the rule name is correct, and that valid Amazon Resouce Names (ARNs) are used before trying again.</p>
+            aws_sdk_config_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5004,6 +5474,11 @@ class ConfigServiceClient:
         Args:
             config_rule_name: <p>The name of the Config rule.</p>
             external_evaluation: <p>An <code>ExternalEvaluation</code> object that provides details about compliance.</p>
+
+        Raises:
+            aws_sdk_config_service.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more of the specified parameters are not valid. Verify that your parameters are valid and try again.</p>
+            aws_sdk_config_service.errors.no_such_config_rule_exception.NoSuchConfigRuleException: <p>The Config rule in the request is not valid. Verify that the rule is an Config Process Check rule, that the rule name is correct, and that valid Amazon Resouce Names (ARNs) are used before trying again.</p>
+            aws_sdk_config_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5058,6 +5533,17 @@ class ConfigServiceClient:
             organization_custom_rule_metadata: <p>An <code>OrganizationCustomRuleMetadata</code> object. This object specifies organization custom rule metadata such as resource type, resource ID of Amazon Web Services resource, Lambda function ARN, and organization trigger types that trigger Config to evaluate your Amazon Web Services resources against a rule. It also provides the frequency with which you want Config to run evaluations for the rule if the trigger type is periodic.</p>
             excluded_accounts: <p>A comma-separated list of accounts that you want to exclude from an organization Config rule.</p>
             organization_custom_policy_rule_metadata: <p>An <code>OrganizationCustomPolicyRuleMetadata</code> object. This object specifies metadata for your organization's Config Custom Policy rule. The metadata includes the runtime system in use, which accounts have debug logging enabled, and other custom rule metadata, such as resource type, resource ID of Amazon Web Services resource, and organization trigger types that initiate Config to evaluate Amazon Web Services resources against a rule.</p>
+
+        Raises:
+            aws_sdk_config_service.errors.insufficient_permissions_exception.InsufficientPermissionsException: <p>Indicates one of the following errors:</p> <ul> <li> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_PutConfigRule.html\">PutConfigRule</a>, the rule cannot be created because the IAM role assigned to Config lacks permissions to perform the config:Put* action.</p> </li> <li> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_PutConfigRule.html\">PutConfigRule</a>, the Lambda function cannot be invoked. Check the function ARN, and check the function's permissions.</p> </li> <li> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_PutOrganizationConfigRule.html\">PutOrganizationConfigRule</a>, organization Config rule cannot be created because you do not have permissions to call IAM <code>GetRole</code> action or create a service-linked role.</p> </li> <li> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_PutConformancePack.html\">PutConformancePack</a> and <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_PutOrganizationConformancePack.html\">PutOrganizationConformancePack</a>, a conformance pack cannot be created because you do not have the following permissions: </p> <ul> <li> <p>You do not have permission to call IAM <code>GetRole</code> action or create a service-linked role.</p> </li> <li> <p>You do not have permission to read Amazon S3 bucket or call SSM:GetDocument.</p> </li> </ul> </li> <li> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_PutServiceLinkedConfigurationRecorder.html\">PutServiceLinkedConfigurationRecorder</a>, a service-linked configuration recorder cannot be created because you do not have the following permissions: IAM <code>CreateServiceLinkedRole</code>.</p> </li> </ul>
+            aws_sdk_config_service.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more of the specified parameters are not valid. Verify that your parameters are valid and try again.</p>
+            aws_sdk_config_service.errors.max_number_of_organization_config_rules_exceeded_exception.MaxNumberOfOrganizationConfigRulesExceededException: <p>You have reached the limit of the number of organization Config rules you can create. For more information, see see <a href=\"https://docs.aws.amazon.com/config/latest/developerguide/configlimits.html\"> <b>Service Limits</b> </a> in the <i>Config Developer Guide</i>.</p>
+            aws_sdk_config_service.errors.no_available_organization_exception.NoAvailableOrganizationException: <p>Organization is no longer available.</p>
+            aws_sdk_config_service.errors.organization_access_denied_exception.OrganizationAccessDeniedException: <p>For <code>PutConfigurationAggregator</code> API, you can see this exception for the following reasons:</p> <ul> <li> <p>No permission to call <code>EnableAWSServiceAccess</code> API</p> </li> <li> <p>The configuration aggregator cannot be updated because your Amazon Web Services Organization management account or the delegated administrator role changed. Delete this aggregator and create a new one with the current Amazon Web Services Organization.</p> </li> <li> <p>The configuration aggregator is associated with a previous Amazon Web Services Organization and Config cannot aggregate data with current Amazon Web Services Organization. Delete this aggregator and create a new one with the current Amazon Web Services Organization.</p> </li> <li> <p>You are not a registered delegated administrator for Config with permissions to call <code>ListDelegatedAdministrators</code> API. Ensure that the management account registers delagated administrator for Config service principal name before the delegated administrator creates an aggregator.</p> </li> </ul> <p>For all <code>OrganizationConfigRule</code> and <code>OrganizationConformancePack</code> APIs, Config throws an exception if APIs are called from member accounts. All APIs must be called from organization management account.</p>
+            aws_sdk_config_service.errors.organization_all_features_not_enabled_exception.OrganizationAllFeaturesNotEnabledException: <p>Config resource cannot be created because your organization does not have all features enabled.</p>
+            aws_sdk_config_service.errors.resource_in_use_exception.ResourceInUseException: <p>You see this exception in the following cases: </p> <ul> <li> <p>For DeleteConfigRule, Config is deleting this rule. Try your request again later.</p> </li> <li> <p>For DeleteConfigRule, the rule is deleting your evaluation results. Try your request again later.</p> </li> <li> <p>For DeleteConfigRule, a remediation action is associated with the rule and Config cannot delete this rule. Delete the remediation action associated with the rule before deleting the rule and try your request again later.</p> </li> <li> <p>For PutConfigOrganizationRule, organization Config rule deletion is in progress. Try your request again later.</p> </li> <li> <p>For DeleteOrganizationConfigRule, organization Config rule creation is in progress. Try your request again later.</p> </li> <li> <p>For PutConformancePack and PutOrganizationConformancePack, a conformance pack creation, update, and deletion is in progress. Try your request again later.</p> </li> <li> <p>For DeleteConformancePack, a conformance pack creation, update, and deletion is in progress. Try your request again later.</p> </li> </ul>
+            aws_sdk_config_service.errors.validation_exception.ValidationException: <p>The requested operation is not valid. You will see this exception if there are missing required fields or if the input value fails the validation.</p> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_PutStoredQuery.html\">PutStoredQuery</a>, one of the following errors:</p> <ul> <li> <p>There are missing required fields.</p> </li> <li> <p>The input value fails the validation.</p> </li> <li> <p>You are trying to create more than 300 queries.</p> </li> </ul> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_DescribeConfigurationRecorders.html\">DescribeConfigurationRecorders</a> and <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_DescribeConfigurationRecorderStatus.html\">DescribeConfigurationRecorderStatus</a>, one of the following errors:</p> <ul> <li> <p>You have specified more than one configuration recorder.</p> </li> <li> <p>You have provided a service principal for service-linked configuration recorder that is not valid.</p> </li> </ul> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_AssociateResourceTypes.html\">AssociateResourceTypes</a> and <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_DisassociateResourceTypes.html\">DisassociateResourceTypes</a>, one of the following errors:</p> <ul> <li> <p>Your configuraiton recorder has a recording strategy that does not allow the association or disassociation of resource types.</p> </li> <li> <p>One or more of the specified resource types are already associated or disassociated with the configuration recorder.</p> </li> <li> <p>For service-linked configuration recorders, the configuration recorder does not record one or more of the specified resource types.</p> </li> </ul>
+            aws_sdk_config_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5133,6 +5619,17 @@ class ConfigServiceClient:
             delivery_s3_key_prefix: <p>The prefix for the Amazon S3 bucket.</p> <note> <p>This field is optional.</p> </note>
             conformance_pack_input_parameters: <p>A list of <code>ConformancePackInputParameter</code> objects.</p>
             excluded_accounts: <p>A list of Amazon Web Services accounts to be excluded from an organization conformance pack while deploying a conformance pack.</p>
+
+        Raises:
+            aws_sdk_config_service.errors.insufficient_permissions_exception.InsufficientPermissionsException: <p>Indicates one of the following errors:</p> <ul> <li> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_PutConfigRule.html\">PutConfigRule</a>, the rule cannot be created because the IAM role assigned to Config lacks permissions to perform the config:Put* action.</p> </li> <li> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_PutConfigRule.html\">PutConfigRule</a>, the Lambda function cannot be invoked. Check the function ARN, and check the function's permissions.</p> </li> <li> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_PutOrganizationConfigRule.html\">PutOrganizationConfigRule</a>, organization Config rule cannot be created because you do not have permissions to call IAM <code>GetRole</code> action or create a service-linked role.</p> </li> <li> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_PutConformancePack.html\">PutConformancePack</a> and <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_PutOrganizationConformancePack.html\">PutOrganizationConformancePack</a>, a conformance pack cannot be created because you do not have the following permissions: </p> <ul> <li> <p>You do not have permission to call IAM <code>GetRole</code> action or create a service-linked role.</p> </li> <li> <p>You do not have permission to read Amazon S3 bucket or call SSM:GetDocument.</p> </li> </ul> </li> <li> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_PutServiceLinkedConfigurationRecorder.html\">PutServiceLinkedConfigurationRecorder</a>, a service-linked configuration recorder cannot be created because you do not have the following permissions: IAM <code>CreateServiceLinkedRole</code>.</p> </li> </ul>
+            aws_sdk_config_service.errors.max_number_of_organization_conformance_packs_exceeded_exception.MaxNumberOfOrganizationConformancePacksExceededException: <p>You have reached the limit of the number of organization conformance packs you can create in an account. For more information, see <a href=\"https://docs.aws.amazon.com/config/latest/developerguide/configlimits.html\"> <b>Service Limits</b> </a> in the <i>Config Developer Guide</i>.</p>
+            aws_sdk_config_service.errors.no_available_organization_exception.NoAvailableOrganizationException: <p>Organization is no longer available.</p>
+            aws_sdk_config_service.errors.organization_access_denied_exception.OrganizationAccessDeniedException: <p>For <code>PutConfigurationAggregator</code> API, you can see this exception for the following reasons:</p> <ul> <li> <p>No permission to call <code>EnableAWSServiceAccess</code> API</p> </li> <li> <p>The configuration aggregator cannot be updated because your Amazon Web Services Organization management account or the delegated administrator role changed. Delete this aggregator and create a new one with the current Amazon Web Services Organization.</p> </li> <li> <p>The configuration aggregator is associated with a previous Amazon Web Services Organization and Config cannot aggregate data with current Amazon Web Services Organization. Delete this aggregator and create a new one with the current Amazon Web Services Organization.</p> </li> <li> <p>You are not a registered delegated administrator for Config with permissions to call <code>ListDelegatedAdministrators</code> API. Ensure that the management account registers delagated administrator for Config service principal name before the delegated administrator creates an aggregator.</p> </li> </ul> <p>For all <code>OrganizationConfigRule</code> and <code>OrganizationConformancePack</code> APIs, Config throws an exception if APIs are called from member accounts. All APIs must be called from organization management account.</p>
+            aws_sdk_config_service.errors.organization_all_features_not_enabled_exception.OrganizationAllFeaturesNotEnabledException: <p>Config resource cannot be created because your organization does not have all features enabled.</p>
+            aws_sdk_config_service.errors.organization_conformance_pack_template_validation_exception.OrganizationConformancePackTemplateValidationException: <p>You have specified a template that is not valid or supported.</p>
+            aws_sdk_config_service.errors.resource_in_use_exception.ResourceInUseException: <p>You see this exception in the following cases: </p> <ul> <li> <p>For DeleteConfigRule, Config is deleting this rule. Try your request again later.</p> </li> <li> <p>For DeleteConfigRule, the rule is deleting your evaluation results. Try your request again later.</p> </li> <li> <p>For DeleteConfigRule, a remediation action is associated with the rule and Config cannot delete this rule. Delete the remediation action associated with the rule before deleting the rule and try your request again later.</p> </li> <li> <p>For PutConfigOrganizationRule, organization Config rule deletion is in progress. Try your request again later.</p> </li> <li> <p>For DeleteOrganizationConfigRule, organization Config rule creation is in progress. Try your request again later.</p> </li> <li> <p>For PutConformancePack and PutOrganizationConformancePack, a conformance pack creation, update, and deletion is in progress. Try your request again later.</p> </li> <li> <p>For DeleteConformancePack, a conformance pack creation, update, and deletion is in progress. Try your request again later.</p> </li> </ul>
+            aws_sdk_config_service.errors.validation_exception.ValidationException: <p>The requested operation is not valid. You will see this exception if there are missing required fields or if the input value fails the validation.</p> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_PutStoredQuery.html\">PutStoredQuery</a>, one of the following errors:</p> <ul> <li> <p>There are missing required fields.</p> </li> <li> <p>The input value fails the validation.</p> </li> <li> <p>You are trying to create more than 300 queries.</p> </li> </ul> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_DescribeConfigurationRecorders.html\">DescribeConfigurationRecorders</a> and <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_DescribeConfigurationRecorderStatus.html\">DescribeConfigurationRecorderStatus</a>, one of the following errors:</p> <ul> <li> <p>You have specified more than one configuration recorder.</p> </li> <li> <p>You have provided a service principal for service-linked configuration recorder that is not valid.</p> </li> </ul> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_AssociateResourceTypes.html\">AssociateResourceTypes</a> and <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_DisassociateResourceTypes.html\">DisassociateResourceTypes</a>, one of the following errors:</p> <ul> <li> <p>Your configuraiton recorder has a recording strategy that does not allow the association or disassociation of resource types.</p> </li> <li> <p>One or more of the specified resource types are already associated or disassociated with the configuration recorder.</p> </li> <li> <p>For service-linked configuration recorders, the configuration recorder does not record one or more of the specified resource types.</p> </li> </ul>
+            aws_sdk_config_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5186,6 +5683,11 @@ class ConfigServiceClient:
 
         Args:
             remediation_configurations: <p>A list of remediation configuration objects.</p>
+
+        Raises:
+            aws_sdk_config_service.errors.insufficient_permissions_exception.InsufficientPermissionsException: <p>Indicates one of the following errors:</p> <ul> <li> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_PutConfigRule.html\">PutConfigRule</a>, the rule cannot be created because the IAM role assigned to Config lacks permissions to perform the config:Put* action.</p> </li> <li> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_PutConfigRule.html\">PutConfigRule</a>, the Lambda function cannot be invoked. Check the function ARN, and check the function's permissions.</p> </li> <li> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_PutOrganizationConfigRule.html\">PutOrganizationConfigRule</a>, organization Config rule cannot be created because you do not have permissions to call IAM <code>GetRole</code> action or create a service-linked role.</p> </li> <li> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_PutConformancePack.html\">PutConformancePack</a> and <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_PutOrganizationConformancePack.html\">PutOrganizationConformancePack</a>, a conformance pack cannot be created because you do not have the following permissions: </p> <ul> <li> <p>You do not have permission to call IAM <code>GetRole</code> action or create a service-linked role.</p> </li> <li> <p>You do not have permission to read Amazon S3 bucket or call SSM:GetDocument.</p> </li> </ul> </li> <li> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_PutServiceLinkedConfigurationRecorder.html\">PutServiceLinkedConfigurationRecorder</a>, a service-linked configuration recorder cannot be created because you do not have the following permissions: IAM <code>CreateServiceLinkedRole</code>.</p> </li> </ul>
+            aws_sdk_config_service.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more of the specified parameters are not valid. Verify that your parameters are valid and try again.</p>
+            aws_sdk_config_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5231,6 +5733,11 @@ class ConfigServiceClient:
             resource_keys: <p>An exception list of resource exception keys to be processed with the current request. Config adds exception for each resource key. For example, Config adds 3 exceptions for 3 resource keys. </p>
             message: <p>The message contains an explanation of the exception.</p>
             expiration_time: <p>The exception is automatically deleted after the expiration date.</p>
+
+        Raises:
+            aws_sdk_config_service.errors.insufficient_permissions_exception.InsufficientPermissionsException: <p>Indicates one of the following errors:</p> <ul> <li> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_PutConfigRule.html\">PutConfigRule</a>, the rule cannot be created because the IAM role assigned to Config lacks permissions to perform the config:Put* action.</p> </li> <li> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_PutConfigRule.html\">PutConfigRule</a>, the Lambda function cannot be invoked. Check the function ARN, and check the function's permissions.</p> </li> <li> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_PutOrganizationConfigRule.html\">PutOrganizationConfigRule</a>, organization Config rule cannot be created because you do not have permissions to call IAM <code>GetRole</code> action or create a service-linked role.</p> </li> <li> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_PutConformancePack.html\">PutConformancePack</a> and <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_PutOrganizationConformancePack.html\">PutOrganizationConformancePack</a>, a conformance pack cannot be created because you do not have the following permissions: </p> <ul> <li> <p>You do not have permission to call IAM <code>GetRole</code> action or create a service-linked role.</p> </li> <li> <p>You do not have permission to read Amazon S3 bucket or call SSM:GetDocument.</p> </li> </ul> </li> <li> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_PutServiceLinkedConfigurationRecorder.html\">PutServiceLinkedConfigurationRecorder</a>, a service-linked configuration recorder cannot be created because you do not have the following permissions: IAM <code>CreateServiceLinkedRole</code>.</p> </li> </ul>
+            aws_sdk_config_service.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more of the specified parameters are not valid. Verify that your parameters are valid and try again.</p>
+            aws_sdk_config_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5285,6 +5792,13 @@ class ConfigServiceClient:
             resource_name: <p>Name of the resource.</p>
             configuration: <p>The configuration object of the resource in valid JSON format. It must match the schema registered with CloudFormation.</p> <note> <p>The configuration JSON must not exceed 64 KB.</p> </note>
             tags: <p>Tags associated with the resource.</p> <note> <p>This field is not to be confused with the Amazon Web Services-wide tag feature for Amazon Web Services resources. Tags for <code>PutResourceConfig</code> are tags that you supply for the configuration items of your custom resources.</p> </note>
+
+        Raises:
+            aws_sdk_config_service.errors.insufficient_permissions_exception.InsufficientPermissionsException: <p>Indicates one of the following errors:</p> <ul> <li> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_PutConfigRule.html\">PutConfigRule</a>, the rule cannot be created because the IAM role assigned to Config lacks permissions to perform the config:Put* action.</p> </li> <li> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_PutConfigRule.html\">PutConfigRule</a>, the Lambda function cannot be invoked. Check the function ARN, and check the function's permissions.</p> </li> <li> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_PutOrganizationConfigRule.html\">PutOrganizationConfigRule</a>, organization Config rule cannot be created because you do not have permissions to call IAM <code>GetRole</code> action or create a service-linked role.</p> </li> <li> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_PutConformancePack.html\">PutConformancePack</a> and <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_PutOrganizationConformancePack.html\">PutOrganizationConformancePack</a>, a conformance pack cannot be created because you do not have the following permissions: </p> <ul> <li> <p>You do not have permission to call IAM <code>GetRole</code> action or create a service-linked role.</p> </li> <li> <p>You do not have permission to read Amazon S3 bucket or call SSM:GetDocument.</p> </li> </ul> </li> <li> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_PutServiceLinkedConfigurationRecorder.html\">PutServiceLinkedConfigurationRecorder</a>, a service-linked configuration recorder cannot be created because you do not have the following permissions: IAM <code>CreateServiceLinkedRole</code>.</p> </li> </ul>
+            aws_sdk_config_service.errors.max_active_resources_exceeded_exception.MaxActiveResourcesExceededException: <p>You have reached the limit of active custom resource types in your account. There is a limit of 100,000. Delete unused resources using <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_DeleteResourceConfig.html\">DeleteResourceConfig</a> <code></code>.</p>
+            aws_sdk_config_service.errors.no_running_configuration_recorder_exception.NoRunningConfigurationRecorderException: <p>There is no configuration recorder running.</p>
+            aws_sdk_config_service.errors.validation_exception.ValidationException: <p>The requested operation is not valid. You will see this exception if there are missing required fields or if the input value fails the validation.</p> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_PutStoredQuery.html\">PutStoredQuery</a>, one of the following errors:</p> <ul> <li> <p>There are missing required fields.</p> </li> <li> <p>The input value fails the validation.</p> </li> <li> <p>You are trying to create more than 300 queries.</p> </li> </ul> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_DescribeConfigurationRecorders.html\">DescribeConfigurationRecorders</a> and <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_DescribeConfigurationRecorderStatus.html\">DescribeConfigurationRecorderStatus</a>, one of the following errors:</p> <ul> <li> <p>You have specified more than one configuration recorder.</p> </li> <li> <p>You have provided a service principal for service-linked configuration recorder that is not valid.</p> </li> </ul> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_AssociateResourceTypes.html\">AssociateResourceTypes</a> and <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_DisassociateResourceTypes.html\">DisassociateResourceTypes</a>, one of the following errors:</p> <ul> <li> <p>Your configuraiton recorder has a recording strategy that does not allow the association or disassociation of resource types.</p> </li> <li> <p>One or more of the specified resource types are already associated or disassociated with the configuration recorder.</p> </li> <li> <p>For service-linked configuration recorders, the configuration recorder does not record one or more of the specified resource types.</p> </li> </ul>
+            aws_sdk_config_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5327,6 +5841,11 @@ class ConfigServiceClient:
 
         Args:
             retention_period_in_days: <p>Number of days Config stores your historical information.</p> <note> <p>Currently, only applicable to the configuration item history.</p> </note>
+
+        Raises:
+            aws_sdk_config_service.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more of the specified parameters are not valid. Verify that your parameters are valid and try again.</p>
+            aws_sdk_config_service.errors.max_number_of_retention_configurations_exceeded_exception.MaxNumberOfRetentionConfigurationsExceededException: <p>Failed to add the retention configuration because a retention configuration with that name already exists.</p>
+            aws_sdk_config_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5366,6 +5885,13 @@ class ConfigServiceClient:
         Args:
             service_principal: <p>The service principal of the Amazon Web Services service for the service-linked configuration recorder that you want to create.</p>
             tags: <p>The tags for a service-linked configuration recorder. Each tag consists of a key and an optional value, both of which you define.</p>
+
+        Raises:
+            aws_sdk_config_service.errors.conflict_exception.ConflictException: <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_PutServiceLinkedConfigurationRecorder.html\">PutServiceLinkedConfigurationRecorder</a>, you cannot create a service-linked recorder because a service-linked recorder already exists for the specified service.</p> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_DeleteServiceLinkedConfigurationRecorder.html\">DeleteServiceLinkedConfigurationRecorder</a>, you cannot delete the service-linked recorder because it is currently in use by the linked Amazon Web Services service.</p> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_DeleteDeliveryChannel.html\">DeleteDeliveryChannel</a>, you cannot delete the specified delivery channel because the customer managed configuration recorder is running. Use the <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_StopConfigurationRecorder.html\">StopConfigurationRecorder</a> operation to stop the customer managed configuration recorder.</p> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_AssociateResourceTypes.html\">AssociateResourceTypes</a> and <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_DisassociateResourceTypes.html\">DisassociateResourceTypes</a>, one of the following errors:</p> <ul> <li> <p>For service-linked configuration recorders, the configuration recorder is not in use by the service. No association or dissociation of resource types is permitted.</p> </li> <li> <p>For service-linked configuration recorders, your requested change to the configuration recorder has been denied by its linked Amazon Web Services service.</p> </li> </ul>
+            aws_sdk_config_service.errors.insufficient_permissions_exception.InsufficientPermissionsException: <p>Indicates one of the following errors:</p> <ul> <li> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_PutConfigRule.html\">PutConfigRule</a>, the rule cannot be created because the IAM role assigned to Config lacks permissions to perform the config:Put* action.</p> </li> <li> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_PutConfigRule.html\">PutConfigRule</a>, the Lambda function cannot be invoked. Check the function ARN, and check the function's permissions.</p> </li> <li> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_PutOrganizationConfigRule.html\">PutOrganizationConfigRule</a>, organization Config rule cannot be created because you do not have permissions to call IAM <code>GetRole</code> action or create a service-linked role.</p> </li> <li> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_PutConformancePack.html\">PutConformancePack</a> and <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_PutOrganizationConformancePack.html\">PutOrganizationConformancePack</a>, a conformance pack cannot be created because you do not have the following permissions: </p> <ul> <li> <p>You do not have permission to call IAM <code>GetRole</code> action or create a service-linked role.</p> </li> <li> <p>You do not have permission to read Amazon S3 bucket or call SSM:GetDocument.</p> </li> </ul> </li> <li> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_PutServiceLinkedConfigurationRecorder.html\">PutServiceLinkedConfigurationRecorder</a>, a service-linked configuration recorder cannot be created because you do not have the following permissions: IAM <code>CreateServiceLinkedRole</code>.</p> </li> </ul>
+            aws_sdk_config_service.errors.limit_exceeded_exception.LimitExceededException: <p>For <code>PutServiceLinkedConfigurationRecorder</code> API, this exception is thrown if the number of service-linked roles in the account exceeds the limit.</p> <p>For <code>StartConfigRulesEvaluation</code> API, this exception is thrown if an evaluation is in progress or if you call the <a>StartConfigRulesEvaluation</a> API more than once per minute.</p> <p>For <code>PutConfigurationAggregator</code> API, this exception is thrown if the number of accounts and aggregators exceeds the limit.</p>
+            aws_sdk_config_service.errors.validation_exception.ValidationException: <p>The requested operation is not valid. You will see this exception if there are missing required fields or if the input value fails the validation.</p> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_PutStoredQuery.html\">PutStoredQuery</a>, one of the following errors:</p> <ul> <li> <p>There are missing required fields.</p> </li> <li> <p>The input value fails the validation.</p> </li> <li> <p>You are trying to create more than 300 queries.</p> </li> </ul> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_DescribeConfigurationRecorders.html\">DescribeConfigurationRecorders</a> and <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_DescribeConfigurationRecorderStatus.html\">DescribeConfigurationRecorderStatus</a>, one of the following errors:</p> <ul> <li> <p>You have specified more than one configuration recorder.</p> </li> <li> <p>You have provided a service principal for service-linked configuration recorder that is not valid.</p> </li> </ul> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_AssociateResourceTypes.html\">AssociateResourceTypes</a> and <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_DisassociateResourceTypes.html\">DisassociateResourceTypes</a>, one of the following errors:</p> <ul> <li> <p>Your configuraiton recorder has a recording strategy that does not allow the association or disassociation of resource types.</p> </li> <li> <p>One or more of the specified resource types are already associated or disassociated with the configuration recorder.</p> </li> <li> <p>For service-linked configuration recorders, the configuration recorder does not record one or more of the specified resource types.</p> </li> </ul>
+            aws_sdk_config_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5409,6 +5935,12 @@ class ConfigServiceClient:
         Args:
             stored_query: <p>A list of <code>StoredQuery</code> objects. The mandatory fields are <code>QueryName</code> and <code>Expression</code>.</p> <note> <p>When you are creating a query, you must provide a query name and an expression. When you are updating a query, you must provide a query name but updating the description is optional.</p> </note>
             tags: <p>A list of <code>Tags</code> object.</p>
+
+        Raises:
+            aws_sdk_config_service.errors.resource_concurrent_modification_exception.ResourceConcurrentModificationException: <p>Two users are trying to modify the same query at the same time. Wait for a moment and try again.</p>
+            aws_sdk_config_service.errors.too_many_tags_exception.TooManyTagsException: <p>You have reached the limit of the number of tags you can use. For more information, see <a href=\"https://docs.aws.amazon.com/config/latest/developerguide/configlimits.html\"> <b>Service Limits</b> </a> in the <i>Config Developer Guide</i>.</p>
+            aws_sdk_config_service.errors.validation_exception.ValidationException: <p>The requested operation is not valid. You will see this exception if there are missing required fields or if the input value fails the validation.</p> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_PutStoredQuery.html\">PutStoredQuery</a>, one of the following errors:</p> <ul> <li> <p>There are missing required fields.</p> </li> <li> <p>The input value fails the validation.</p> </li> <li> <p>You are trying to create more than 300 queries.</p> </li> </ul> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_DescribeConfigurationRecorders.html\">DescribeConfigurationRecorders</a> and <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_DescribeConfigurationRecorderStatus.html\">DescribeConfigurationRecorderStatus</a>, one of the following errors:</p> <ul> <li> <p>You have specified more than one configuration recorder.</p> </li> <li> <p>You have provided a service principal for service-linked configuration recorder that is not valid.</p> </li> </ul> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_AssociateResourceTypes.html\">AssociateResourceTypes</a> and <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_DisassociateResourceTypes.html\">DisassociateResourceTypes</a>, one of the following errors:</p> <ul> <li> <p>Your configuraiton recorder has a recording strategy that does not allow the association or disassociation of resource types.</p> </li> <li> <p>One or more of the specified resource types are already associated or disassociated with the configuration recorder.</p> </li> <li> <p>For service-linked configuration recorders, the configuration recorder does not record one or more of the specified resource types.</p> </li> </ul>
+            aws_sdk_config_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5458,6 +5990,13 @@ class ConfigServiceClient:
             limit: <p>The maximum number of query results returned on each page. </p>
             max_results: <p>The maximum number of query results returned on each page. Config also allows the Limit request parameter.</p>
             next_token: <p>The nextToken string returned in a previous request that you use to request the next page of results in a paginated response. </p>
+
+        Raises:
+            aws_sdk_config_service.errors.invalid_expression_exception.InvalidExpressionException: <p>The syntax of the query is incorrect.</p>
+            aws_sdk_config_service.errors.invalid_limit_exception.InvalidLimitException: <p>The specified limit is outside the allowable range.</p>
+            aws_sdk_config_service.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The specified next token is not valid. Specify the <code>nextToken</code> string that was returned in the previous response to get the next page of results.</p>
+            aws_sdk_config_service.errors.no_such_configuration_aggregator_exception.NoSuchConfigurationAggregatorException: <p>You have specified a configuration aggregator that does not exist.</p>
+            aws_sdk_config_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5537,6 +6076,12 @@ class ConfigServiceClient:
             expression: <p>The SQL query <code>SELECT</code> command.</p>
             limit: <p>The maximum number of query results returned on each page. </p>
             next_token: <p>The <code>nextToken</code> string returned in a previous request that you use to request the next page of results in a paginated response. </p>
+
+        Raises:
+            aws_sdk_config_service.errors.invalid_expression_exception.InvalidExpressionException: <p>The syntax of the query is incorrect.</p>
+            aws_sdk_config_service.errors.invalid_limit_exception.InvalidLimitException: <p>The specified limit is outside the allowable range.</p>
+            aws_sdk_config_service.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The specified next token is not valid. Specify the <code>nextToken</code> string that was returned in the previous response to get the next page of results.</p>
+            aws_sdk_config_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5605,6 +6150,13 @@ class ConfigServiceClient:
 
         Args:
             config_rule_names: <p>The list of names of Config rules that you want to run evaluations for.</p>
+
+        Raises:
+            aws_sdk_config_service.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more of the specified parameters are not valid. Verify that your parameters are valid and try again.</p>
+            aws_sdk_config_service.errors.limit_exceeded_exception.LimitExceededException: <p>For <code>PutServiceLinkedConfigurationRecorder</code> API, this exception is thrown if the number of service-linked roles in the account exceeds the limit.</p> <p>For <code>StartConfigRulesEvaluation</code> API, this exception is thrown if an evaluation is in progress or if you call the <a>StartConfigRulesEvaluation</a> API more than once per minute.</p> <p>For <code>PutConfigurationAggregator</code> API, this exception is thrown if the number of accounts and aggregators exceeds the limit.</p>
+            aws_sdk_config_service.errors.no_such_config_rule_exception.NoSuchConfigRuleException: <p>The Config rule in the request is not valid. Verify that the rule is an Config Process Check rule, that the rule name is correct, and that valid Amazon Resouce Names (ARNs) are used before trying again.</p>
+            aws_sdk_config_service.errors.resource_in_use_exception.ResourceInUseException: <p>You see this exception in the following cases: </p> <ul> <li> <p>For DeleteConfigRule, Config is deleting this rule. Try your request again later.</p> </li> <li> <p>For DeleteConfigRule, the rule is deleting your evaluation results. Try your request again later.</p> </li> <li> <p>For DeleteConfigRule, a remediation action is associated with the rule and Config cannot delete this rule. Delete the remediation action associated with the rule before deleting the rule and try your request again later.</p> </li> <li> <p>For PutConfigOrganizationRule, organization Config rule deletion is in progress. Try your request again later.</p> </li> <li> <p>For DeleteOrganizationConfigRule, organization Config rule creation is in progress. Try your request again later.</p> </li> <li> <p>For PutConformancePack and PutOrganizationConformancePack, a conformance pack creation, update, and deletion is in progress. Try your request again later.</p> </li> <li> <p>For DeleteConformancePack, a conformance pack creation, update, and deletion is in progress. Try your request again later.</p> </li> </ul>
+            aws_sdk_config_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5643,6 +6195,12 @@ class ConfigServiceClient:
 
         Args:
             configuration_recorder_name: <p>The name of the customer managed configuration recorder that you want to start.</p>
+
+        Raises:
+            aws_sdk_config_service.errors.no_available_delivery_channel_exception.NoAvailableDeliveryChannelException: <p>There is no delivery channel available to record configurations.</p>
+            aws_sdk_config_service.errors.no_such_configuration_recorder_exception.NoSuchConfigurationRecorderException: <p>You have specified a configuration recorder that does not exist.</p>
+            aws_sdk_config_service.errors.unmodifiable_entity_exception.UnmodifiableEntityException: <p>The requested operation is not valid.</p> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_PutConfigurationRecorder.html\">PutConfigurationRecorder</a>, you will see this exception because you cannot use this operation to create a service-linked configuration recorder. Use the <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_PutServiceLinkedConfigurationRecorder.html\">PutServiceLinkedConfigurationRecorder</a> operation to create a service-linked configuration recorder.</p> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_DeleteConfigurationRecorder.html\">DeleteConfigurationRecorder</a>, you will see this exception because you cannot use this operation to delete a service-linked configuration recorder. Use the <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_DeleteServiceLinkedConfigurationRecorder.html\">DeleteServiceLinkedConfigurationRecorder</a> operation to delete a service-linked configuration recorder.</p> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_StartConfigurationRecorder.html\">StartConfigurationRecorder</a> and <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_StopConfigurationRecorder.html\">StopConfigurationRecorder</a>, you will see this exception because these operations do not affect service-linked configuration recorders. Service-linked configuration recorders are always recording. To stop recording, you must delete the service-linked configuration recorder. Use the <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_DeleteServiceLinkedConfigurationRecorder.html\">DeleteServiceLinkedConfigurationRecorder</a> operation to delete a service-linked configuration recorder.</p>
+            aws_sdk_config_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5680,6 +6238,12 @@ class ConfigServiceClient:
         Args:
             config_rule_name: <p>The list of names of Config rules that you want to run remediation execution for.</p>
             resource_keys: <p>A list of resource keys to be processed with the current request. Each element in the list consists of the resource type and resource ID. </p>
+
+        Raises:
+            aws_sdk_config_service.errors.insufficient_permissions_exception.InsufficientPermissionsException: <p>Indicates one of the following errors:</p> <ul> <li> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_PutConfigRule.html\">PutConfigRule</a>, the rule cannot be created because the IAM role assigned to Config lacks permissions to perform the config:Put* action.</p> </li> <li> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_PutConfigRule.html\">PutConfigRule</a>, the Lambda function cannot be invoked. Check the function ARN, and check the function's permissions.</p> </li> <li> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_PutOrganizationConfigRule.html\">PutOrganizationConfigRule</a>, organization Config rule cannot be created because you do not have permissions to call IAM <code>GetRole</code> action or create a service-linked role.</p> </li> <li> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_PutConformancePack.html\">PutConformancePack</a> and <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_PutOrganizationConformancePack.html\">PutOrganizationConformancePack</a>, a conformance pack cannot be created because you do not have the following permissions: </p> <ul> <li> <p>You do not have permission to call IAM <code>GetRole</code> action or create a service-linked role.</p> </li> <li> <p>You do not have permission to read Amazon S3 bucket or call SSM:GetDocument.</p> </li> </ul> </li> <li> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_PutServiceLinkedConfigurationRecorder.html\">PutServiceLinkedConfigurationRecorder</a>, a service-linked configuration recorder cannot be created because you do not have the following permissions: IAM <code>CreateServiceLinkedRole</code>.</p> </li> </ul>
+            aws_sdk_config_service.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more of the specified parameters are not valid. Verify that your parameters are valid and try again.</p>
+            aws_sdk_config_service.errors.no_such_remediation_configuration_exception.NoSuchRemediationConfigurationException: <p>You specified an Config rule without a remediation configuration.</p>
+            aws_sdk_config_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5732,6 +6296,11 @@ class ConfigServiceClient:
             evaluation_mode: <p>The mode of an evaluation.</p> <note> <p>The only valid value for this API is <code>PROACTIVE</code>.</p> </note>
             evaluation_timeout: <p>The timeout for an evaluation. The default is 900 seconds. You cannot specify a number greater than 3600. If you specify 0, Config uses the default.</p>
             client_token: <p>A client token is a unique, case-sensitive string of up to 64 ASCII characters. To make an idempotent API request using one of these actions, specify a client token in the request.</p> <note> <p>Avoid reusing the same client token for other API requests. If you retry a request that completed successfully using the same client token and the same parameters, the retry succeeds without performing any further actions. If you retry a successful request using the same client token, but one or more of the parameters are different, other than the Region or Availability Zone, the retry fails with an IdempotentParameterMismatch error.</p> </note>
+
+        Raises:
+            aws_sdk_config_service.errors.idempotent_parameter_mismatch.IdempotentParameterMismatch: <p>Using the same client token with one or more different parameters. Specify a new client token with the parameter changes and try again.</p>
+            aws_sdk_config_service.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One or more of the specified parameters are not valid. Verify that your parameters are valid and try again.</p>
+            aws_sdk_config_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5776,6 +6345,11 @@ class ConfigServiceClient:
 
         Args:
             configuration_recorder_name: <p>The name of the customer managed configuration recorder that you want to stop.</p>
+
+        Raises:
+            aws_sdk_config_service.errors.no_such_configuration_recorder_exception.NoSuchConfigurationRecorderException: <p>You have specified a configuration recorder that does not exist.</p>
+            aws_sdk_config_service.errors.unmodifiable_entity_exception.UnmodifiableEntityException: <p>The requested operation is not valid.</p> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_PutConfigurationRecorder.html\">PutConfigurationRecorder</a>, you will see this exception because you cannot use this operation to create a service-linked configuration recorder. Use the <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_PutServiceLinkedConfigurationRecorder.html\">PutServiceLinkedConfigurationRecorder</a> operation to create a service-linked configuration recorder.</p> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_DeleteConfigurationRecorder.html\">DeleteConfigurationRecorder</a>, you will see this exception because you cannot use this operation to delete a service-linked configuration recorder. Use the <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_DeleteServiceLinkedConfigurationRecorder.html\">DeleteServiceLinkedConfigurationRecorder</a> operation to delete a service-linked configuration recorder.</p> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_StartConfigurationRecorder.html\">StartConfigurationRecorder</a> and <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_StopConfigurationRecorder.html\">StopConfigurationRecorder</a>, you will see this exception because these operations do not affect service-linked configuration recorders. Service-linked configuration recorders are always recording. To stop recording, you must delete the service-linked configuration recorder. Use the <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_DeleteServiceLinkedConfigurationRecorder.html\">DeleteServiceLinkedConfigurationRecorder</a> operation to delete a service-linked configuration recorder.</p>
+            aws_sdk_config_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5813,6 +6387,12 @@ class ConfigServiceClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) that identifies the resource for which to list the tags. The following resources are supported:</p> <ul> <li> <p> <code>ConfigurationRecorder</code> </p> </li> <li> <p> <code>ConfigRule</code> </p> </li> <li> <p> <code>OrganizationConfigRule</code> </p> </li> <li> <p> <code>ConformancePack</code> </p> </li> <li> <p> <code>OrganizationConformancePack</code> </p> </li> <li> <p> <code>ConfigurationAggregator</code> </p> </li> <li> <p> <code>AggregationAuthorization</code> </p> </li> <li> <p> <code>StoredQuery</code> </p> </li> </ul>
             tags: <p>An array of tag object.</p>
+
+        Raises:
+            aws_sdk_config_service.errors.resource_not_found_exception.ResourceNotFoundException: <p>You have specified a resource that does not exist.</p>
+            aws_sdk_config_service.errors.too_many_tags_exception.TooManyTagsException: <p>You have reached the limit of the number of tags you can use. For more information, see <a href=\"https://docs.aws.amazon.com/config/latest/developerguide/configlimits.html\"> <b>Service Limits</b> </a> in the <i>Config Developer Guide</i>.</p>
+            aws_sdk_config_service.errors.validation_exception.ValidationException: <p>The requested operation is not valid. You will see this exception if there are missing required fields or if the input value fails the validation.</p> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_PutStoredQuery.html\">PutStoredQuery</a>, one of the following errors:</p> <ul> <li> <p>There are missing required fields.</p> </li> <li> <p>The input value fails the validation.</p> </li> <li> <p>You are trying to create more than 300 queries.</p> </li> </ul> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_DescribeConfigurationRecorders.html\">DescribeConfigurationRecorders</a> and <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_DescribeConfigurationRecorderStatus.html\">DescribeConfigurationRecorderStatus</a>, one of the following errors:</p> <ul> <li> <p>You have specified more than one configuration recorder.</p> </li> <li> <p>You have provided a service principal for service-linked configuration recorder that is not valid.</p> </li> </ul> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_AssociateResourceTypes.html\">AssociateResourceTypes</a> and <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_DisassociateResourceTypes.html\">DisassociateResourceTypes</a>, one of the following errors:</p> <ul> <li> <p>Your configuraiton recorder has a recording strategy that does not allow the association or disassociation of resource types.</p> </li> <li> <p>One or more of the specified resource types are already associated or disassociated with the configuration recorder.</p> </li> <li> <p>For service-linked configuration recorders, the configuration recorder does not record one or more of the specified resource types.</p> </li> </ul>
+            aws_sdk_config_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5851,6 +6431,11 @@ class ConfigServiceClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) that identifies the resource for which to list the tags. The following resources are supported:</p> <ul> <li> <p> <code>ConfigurationRecorder</code> </p> </li> <li> <p> <code>ConfigRule</code> </p> </li> <li> <p> <code>OrganizationConfigRule</code> </p> </li> <li> <p> <code>ConformancePack</code> </p> </li> <li> <p> <code>OrganizationConformancePack</code> </p> </li> <li> <p> <code>ConfigurationAggregator</code> </p> </li> <li> <p> <code>AggregationAuthorization</code> </p> </li> <li> <p> <code>StoredQuery</code> </p> </li> </ul>
             tag_keys: <p>The keys of the tags to be removed.</p>
+
+        Raises:
+            aws_sdk_config_service.errors.resource_not_found_exception.ResourceNotFoundException: <p>You have specified a resource that does not exist.</p>
+            aws_sdk_config_service.errors.validation_exception.ValidationException: <p>The requested operation is not valid. You will see this exception if there are missing required fields or if the input value fails the validation.</p> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_PutStoredQuery.html\">PutStoredQuery</a>, one of the following errors:</p> <ul> <li> <p>There are missing required fields.</p> </li> <li> <p>The input value fails the validation.</p> </li> <li> <p>You are trying to create more than 300 queries.</p> </li> </ul> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_DescribeConfigurationRecorders.html\">DescribeConfigurationRecorders</a> and <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_DescribeConfigurationRecorderStatus.html\">DescribeConfigurationRecorderStatus</a>, one of the following errors:</p> <ul> <li> <p>You have specified more than one configuration recorder.</p> </li> <li> <p>You have provided a service principal for service-linked configuration recorder that is not valid.</p> </li> </ul> <p>For <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_AssociateResourceTypes.html\">AssociateResourceTypes</a> and <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_DisassociateResourceTypes.html\">DisassociateResourceTypes</a>, one of the following errors:</p> <ul> <li> <p>Your configuraiton recorder has a recording strategy that does not allow the association or disassociation of resource types.</p> </li> <li> <p>One or more of the specified resource types are already associated or disassociated with the configuration recorder.</p> </li> <li> <p>For service-linked configuration recorders, the configuration recorder does not record one or more of the specified resource types.</p> </li> </ul>
+            aws_sdk_config_service.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(

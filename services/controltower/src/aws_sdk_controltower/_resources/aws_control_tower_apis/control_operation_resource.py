@@ -47,6 +47,14 @@ class ControlOperationResource:
 
         Args:
             operation_identifier: <p>The ID of the asynchronous operation, which is used to track status. The operation is available for 90 days.</p>
+
+        Raises:
+            aws_sdk_controltower.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_controltower.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred during processing of a request.</p>
+            aws_sdk_controltower.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource that does not exist.</p>
+            aws_sdk_controltower.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_controltower.errors.validation_exception.ValidationException: <p>The input does not satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_controltower.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -94,6 +102,13 @@ class ControlOperationResource:
             filter: <p>An input filter for the <code>ListControlOperations</code> API that lets you select the types of control operations to view.</p>
             next_token: <p>A pagination token.</p>
             max_results: <p>The maximum number of results to be shown.</p>
+
+        Raises:
+            aws_sdk_controltower.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_controltower.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred during processing of a request.</p>
+            aws_sdk_controltower.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_controltower.errors.validation_exception.ValidationException: <p>The input does not satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_controltower.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -141,6 +156,14 @@ class AsyncControlOperationResource:
 
         Args:
             operation_identifier: <p>The ID of the asynchronous operation, which is used to track status. The operation is available for 90 days.</p>
+
+        Raises:
+            aws_sdk_controltower.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_controltower.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred during processing of a request.</p>
+            aws_sdk_controltower.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource that does not exist.</p>
+            aws_sdk_controltower.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_controltower.errors.validation_exception.ValidationException: <p>The input does not satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_controltower.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -189,6 +212,13 @@ class AsyncControlOperationResource:
             filter: <p>An input filter for the <code>ListControlOperations</code> API that lets you select the types of control operations to view.</p>
             next_token: <p>A pagination token.</p>
             max_results: <p>The maximum number of results to be shown.</p>
+
+        Raises:
+            aws_sdk_controltower.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_controltower.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred during processing of a request.</p>
+            aws_sdk_controltower.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_controltower.errors.validation_exception.ValidationException: <p>The input does not satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_controltower.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

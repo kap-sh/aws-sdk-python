@@ -316,6 +316,15 @@ class AsyncfinspaceClient:
             federation_parameters: <p>Configuration information when authentication mode is FEDERATED.</p>
             superuser_parameters: <p>Configuration information for the superuser.</p>
             data_bundles: <p>The list of Amazon Resource Names (ARN) of the data bundles to install. Currently supported data bundle ARNs:</p> <ul> <li> <p> <code>arn:aws:finspace:${Region}::data-bundle/capital-markets-sample</code> - Contains sample Capital Markets datasets, categories and controlled vocabularies.</p> </li> <li> <p> <code>arn:aws:finspace:${Region}::data-bundle/taq</code> (default) - Contains trades and quotes data in addition to sample Capital Markets data.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_finspace.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_finspace.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_finspace.errors.limit_exceeded_exception.LimitExceededException: <p>A service limit or quota is exceeded.</p>
+            aws_sdk_finspace.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p> You have exceeded your service quota. To perform the requested action, remove some of the relevant resources, or use Service Quotas to request a service quota increase.</p>
+            aws_sdk_finspace.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_finspace.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_finspace.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -376,6 +385,16 @@ class AsyncfinspaceClient:
             database_name: <p>The name of the kdb database.</p>
             change_requests: <p>A list of change request objects that are run in order. A change request object consists of <code>changeType</code> , <code>s3Path</code>, and <code>dbPath</code>. A changeType can have the following values: </p> <ul> <li> <p>PUT – Adds or updates files in a database.</p> </li> <li> <p>DELETE – Deletes files in a database.</p> </li> </ul> <p>All the change requests require a mandatory <code>dbPath</code> attribute that defines the path within the database directory. All database paths must start with a leading / and end with a trailing /. The <code>s3Path</code> attribute defines the s3 source file path and is required for a PUT change type. The <code>s3path</code> must end with a trailing / if it is a directory and must end without a trailing / if it is a file. </p> <p>Here are few examples of how you can use the change request object:</p> <ol> <li> <p>This request adds a single sym file at database root location. </p> <p> <code>{ \"changeType\": \"PUT\", \"s3Path\":\"s3://bucket/db/sym\", \"dbPath\":\"/\"}</code> </p> </li> <li> <p>This request adds files in the given <code>s3Path</code> under the 2020.01.02 partition of the database.</p> <p> <code>{ \"changeType\": \"PUT\", \"s3Path\":\"s3://bucket/db/2020.01.02/\", \"dbPath\":\"/2020.01.02/\"}</code> </p> </li> <li> <p>This request adds files in the given <code>s3Path</code> under the <i>taq</i> table partition of the database.</p> <p> <code>[ { \"changeType\": \"PUT\", \"s3Path\":\"s3://bucket/db/2020.01.02/taq/\", \"dbPath\":\"/2020.01.02/taq/\"}]</code> </p> </li> <li> <p>This request deletes the 2020.01.02 partition of the database.</p> <p> <code>[{ \"changeType\": \"DELETE\", \"dbPath\": \"/2020.01.02/\"} ]</code> </p> </li> <li> <p>The <i>DELETE</i> request allows you to delete the existing files under the 2020.01.02 partition of the database, and the <i>PUT</i> request adds a new taq table under it.</p> <p> <code>[ {\"changeType\": \"DELETE\", \"dbPath\":\"/2020.01.02/\"}, {\"changeType\": \"PUT\", \"s3Path\":\"s3://bucket/db/2020.01.02/taq/\", \"dbPath\":\"/2020.01.02/taq/\"}]</code> </p> </li> </ol>
             client_token: <p>A token that ensures idempotency. This token expires in 10 minutes.</p>
+
+        Raises:
+            aws_sdk_finspace.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_finspace.errors.conflict_exception.ConflictException: <p>There was a conflict with this action, and it could not be completed.</p>
+            aws_sdk_finspace.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_finspace.errors.limit_exceeded_exception.LimitExceededException: <p>A service limit or quota is exceeded.</p>
+            aws_sdk_finspace.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_finspace.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_finspace.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_finspace.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -485,6 +504,16 @@ class AsyncfinspaceClient:
             availability_zone_id: <p>The availability zone identifiers for the requested regions.</p>
             tags: <p>A list of key-value pairs to label the cluster. You can add up to 50 tags to a cluster.</p>
             scaling_group_configuration: <p>The structure that stores the configuration details of a scaling group.</p>
+
+        Raises:
+            aws_sdk_finspace.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_finspace.errors.conflict_exception.ConflictException: <p>There was a conflict with this action, and it could not be completed.</p>
+            aws_sdk_finspace.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_finspace.errors.limit_exceeded_exception.LimitExceededException: <p>A service limit or quota is exceeded.</p>
+            aws_sdk_finspace.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_finspace.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_finspace.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_finspace.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -566,6 +595,17 @@ class AsyncfinspaceClient:
             description: <p>A description of the database.</p>
             tags: <p>A list of key-value pairs to label the kdb database. You can add up to 50 tags to your kdb database</p>
             client_token: <p>A token that ensures idempotency. This token expires in 10 minutes.</p>
+
+        Raises:
+            aws_sdk_finspace.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_finspace.errors.conflict_exception.ConflictException: <p>There was a conflict with this action, and it could not be completed.</p>
+            aws_sdk_finspace.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_finspace.errors.limit_exceeded_exception.LimitExceededException: <p>A service limit or quota is exceeded.</p>
+            aws_sdk_finspace.errors.resource_already_exists_exception.ResourceAlreadyExistsException: <p>The specified resource group already exists.</p>
+            aws_sdk_finspace.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_finspace.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_finspace.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_finspace.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -642,6 +682,17 @@ class AsyncfinspaceClient:
             description: <p>A description of the dataview.</p>
             tags: <p> A list of key-value pairs to label the dataview. You can add up to 50 tags to a dataview. </p>
             client_token: <p>A token that ensures idempotency. This token expires in 10 minutes.</p>
+
+        Raises:
+            aws_sdk_finspace.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_finspace.errors.conflict_exception.ConflictException: <p>There was a conflict with this action, and it could not be completed.</p>
+            aws_sdk_finspace.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_finspace.errors.limit_exceeded_exception.LimitExceededException: <p>A service limit or quota is exceeded.</p>
+            aws_sdk_finspace.errors.resource_already_exists_exception.ResourceAlreadyExistsException: <p>The specified resource group already exists.</p>
+            aws_sdk_finspace.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_finspace.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_finspace.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_finspace.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -708,6 +759,16 @@ class AsyncfinspaceClient:
             kms_key_id: <p>The KMS key ID to encrypt your data in the FinSpace environment.</p>
             tags: <p>A list of key-value pairs to label the kdb environment. You can add up to 50 tags to your kdb environment.</p>
             client_token: <p>A token that ensures idempotency. This token expires in 10 minutes.</p>
+
+        Raises:
+            aws_sdk_finspace.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_finspace.errors.conflict_exception.ConflictException: <p>There was a conflict with this action, and it could not be completed.</p>
+            aws_sdk_finspace.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_finspace.errors.limit_exceeded_exception.LimitExceededException: <p>A service limit or quota is exceeded.</p>
+            aws_sdk_finspace.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p> You have exceeded your service quota. To perform the requested action, remove some of the relevant resources, or use Service Quotas to request a service quota increase.</p>
+            aws_sdk_finspace.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_finspace.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_finspace.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -763,6 +824,16 @@ class AsyncfinspaceClient:
             host_type: <p> The memory and CPU capabilities of the scaling group host on which FinSpace Managed kdb clusters will be placed.</p> <p>You can add one of the following values:</p> <ul> <li> <p> <code>kx.sg.large</code> – The host type with a configuration of 16 GiB memory and 2 vCPUs.</p> </li> <li> <p> <code>kx.sg.xlarge</code> – The host type with a configuration of 32 GiB memory and 4 vCPUs.</p> </li> <li> <p> <code>kx.sg.2xlarge</code> – The host type with a configuration of 64 GiB memory and 8 vCPUs.</p> </li> <li> <p> <code>kx.sg.4xlarge</code> – The host type with a configuration of 108 GiB memory and 16 vCPUs.</p> </li> <li> <p> <code>kx.sg.8xlarge</code> – The host type with a configuration of 216 GiB memory and 32 vCPUs.</p> </li> <li> <p> <code>kx.sg.16xlarge</code> – The host type with a configuration of 432 GiB memory and 64 vCPUs.</p> </li> <li> <p> <code>kx.sg.32xlarge</code> – The host type with a configuration of 864 GiB memory and 128 vCPUs.</p> </li> <li> <p> <code>kx.sg1.16xlarge</code> – The host type with a configuration of 1949 GiB memory and 64 vCPUs.</p> </li> <li> <p> <code>kx.sg1.24xlarge</code> – The host type with a configuration of 2948 GiB memory and 96 vCPUs.</p> </li> </ul>
             availability_zone_id: <p>The identifier of the availability zones.</p>
             tags: <p> A list of key-value pairs to label the scaling group. You can add up to 50 tags to a scaling group. </p>
+
+        Raises:
+            aws_sdk_finspace.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_finspace.errors.conflict_exception.ConflictException: <p>There was a conflict with this action, and it could not be completed.</p>
+            aws_sdk_finspace.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_finspace.errors.limit_exceeded_exception.LimitExceededException: <p>A service limit or quota is exceeded.</p>
+            aws_sdk_finspace.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_finspace.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_finspace.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_finspace.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -817,6 +888,17 @@ class AsyncfinspaceClient:
             iam_role: <p>The IAM role ARN that will be associated with the user.</p>
             tags: <p>A list of key-value pairs to label the user. You can add up to 50 tags to a user.</p>
             client_token: <p>A token that ensures idempotency. This token expires in 10 minutes.</p>
+
+        Raises:
+            aws_sdk_finspace.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_finspace.errors.conflict_exception.ConflictException: <p>There was a conflict with this action, and it could not be completed.</p>
+            aws_sdk_finspace.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_finspace.errors.limit_exceeded_exception.LimitExceededException: <p>A service limit or quota is exceeded.</p>
+            aws_sdk_finspace.errors.resource_already_exists_exception.ResourceAlreadyExistsException: <p>The specified resource group already exists.</p>
+            aws_sdk_finspace.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_finspace.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_finspace.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_finspace.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -881,6 +963,17 @@ class AsyncfinspaceClient:
             az_mode: <p>The number of availability zones you want to assign per volume. Currently, FinSpace only supports <code>SINGLE</code> for volumes. This places dataview in a single AZ.</p>
             availability_zone_ids: <p>The identifier of the availability zones.</p>
             tags: <p> A list of key-value pairs to label the volume. You can add up to 50 tags to a volume. </p>
+
+        Raises:
+            aws_sdk_finspace.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_finspace.errors.conflict_exception.ConflictException: <p>There was a conflict with this action, and it could not be completed.</p>
+            aws_sdk_finspace.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_finspace.errors.limit_exceeded_exception.LimitExceededException: <p>A service limit or quota is exceeded.</p>
+            aws_sdk_finspace.errors.resource_already_exists_exception.ResourceAlreadyExistsException: <p>The specified resource group already exists.</p>
+            aws_sdk_finspace.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_finspace.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_finspace.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_finspace.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -931,6 +1024,14 @@ class AsyncfinspaceClient:
 
         Args:
             environment_id: <p>The identifier for the FinSpace environment.</p>
+
+        Raises:
+            aws_sdk_finspace.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_finspace.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_finspace.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_finspace.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_finspace.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_finspace.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -975,6 +1076,16 @@ class AsyncfinspaceClient:
             environment_id: <p>A unique identifier for the kdb environment.</p>
             cluster_name: <p>The name of the cluster that you want to delete.</p>
             client_token: <p>A token that ensures idempotency. This token expires in 10 minutes.</p>
+
+        Raises:
+            aws_sdk_finspace.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_finspace.errors.conflict_exception.ConflictException: <p>There was a conflict with this action, and it could not be completed.</p>
+            aws_sdk_finspace.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_finspace.errors.limit_exceeded_exception.LimitExceededException: <p>A service limit or quota is exceeded.</p>
+            aws_sdk_finspace.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_finspace.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_finspace.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_finspace.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1020,6 +1131,14 @@ class AsyncfinspaceClient:
             environment_id: <p>A unique identifier for the kdb environment.</p>
             cluster_name: <p>The name of the cluster, for which you want to delete the nodes.</p>
             node_id: <p>A unique identifier for the node that you want to delete.</p>
+
+        Raises:
+            aws_sdk_finspace.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_finspace.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_finspace.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_finspace.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_finspace.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_finspace.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1064,6 +1183,15 @@ class AsyncfinspaceClient:
             environment_id: <p>A unique identifier for the kdb environment.</p>
             database_name: <p>The name of the kdb database that you want to delete.</p>
             client_token: <p>A token that ensures idempotency. This token expires in 10 minutes.</p>
+
+        Raises:
+            aws_sdk_finspace.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_finspace.errors.conflict_exception.ConflictException: <p>There was a conflict with this action, and it could not be completed.</p>
+            aws_sdk_finspace.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_finspace.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_finspace.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_finspace.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_finspace.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1110,6 +1238,15 @@ class AsyncfinspaceClient:
             database_name: <p>The name of the database whose dataview you want to delete.</p>
             dataview_name: <p>The name of the dataview that you want to delete.</p>
             client_token: <p>A token that ensures idempotency. This token expires in 10 minutes.</p>
+
+        Raises:
+            aws_sdk_finspace.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_finspace.errors.conflict_exception.ConflictException: <p>There was a conflict with this action, and it could not be completed.</p>
+            aws_sdk_finspace.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_finspace.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_finspace.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_finspace.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_finspace.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1155,6 +1292,15 @@ class AsyncfinspaceClient:
         Args:
             environment_id: <p>A unique identifier for the kdb environment.</p>
             client_token: <p>A token that ensures idempotency. This token expires in 10 minutes.</p>
+
+        Raises:
+            aws_sdk_finspace.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_finspace.errors.conflict_exception.ConflictException: <p>There was a conflict with this action, and it could not be completed.</p>
+            aws_sdk_finspace.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_finspace.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_finspace.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_finspace.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_finspace.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1201,6 +1347,16 @@ class AsyncfinspaceClient:
             environment_id: <p>A unique identifier for the kdb environment, from where you want to delete the dataview. </p>
             scaling_group_name: <p>A unique identifier for the kdb scaling group. </p>
             client_token: <p>A token that ensures idempotency. This token expires in 10 minutes.</p>
+
+        Raises:
+            aws_sdk_finspace.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_finspace.errors.conflict_exception.ConflictException: <p>There was a conflict with this action, and it could not be completed.</p>
+            aws_sdk_finspace.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_finspace.errors.limit_exceeded_exception.LimitExceededException: <p>A service limit or quota is exceeded.</p>
+            aws_sdk_finspace.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_finspace.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_finspace.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_finspace.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1248,6 +1404,15 @@ class AsyncfinspaceClient:
             user_name: <p>A unique identifier for the user that you want to delete.</p>
             environment_id: <p>A unique identifier for the kdb environment.</p>
             client_token: <p>A token that ensures idempotency. This token expires in 10 minutes.</p>
+
+        Raises:
+            aws_sdk_finspace.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_finspace.errors.conflict_exception.ConflictException: <p>There was a conflict with this action, and it could not be completed.</p>
+            aws_sdk_finspace.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_finspace.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_finspace.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_finspace.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_finspace.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1295,6 +1460,16 @@ class AsyncfinspaceClient:
             environment_id: <p>A unique identifier for the kdb environment, whose clusters can attach to the volume. </p>
             volume_name: <p> The name of the volume that you want to delete. </p>
             client_token: <p>A token that ensures idempotency. This token expires in 10 minutes.</p>
+
+        Raises:
+            aws_sdk_finspace.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_finspace.errors.conflict_exception.ConflictException: <p>There was a conflict with this action, and it could not be completed.</p>
+            aws_sdk_finspace.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_finspace.errors.limit_exceeded_exception.LimitExceededException: <p>A service limit or quota is exceeded.</p>
+            aws_sdk_finspace.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_finspace.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_finspace.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_finspace.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1336,6 +1511,13 @@ class AsyncfinspaceClient:
 
         Args:
             environment_id: <p>The identifier of the FinSpace environment.</p>
+
+        Raises:
+            aws_sdk_finspace.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_finspace.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_finspace.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_finspace.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_finspace.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1378,6 +1560,14 @@ class AsyncfinspaceClient:
             environment_id: <p>A unique identifier for the kdb environment.</p>
             database_name: <p>The name of the kdb database.</p>
             changeset_id: <p>A unique identifier of the changeset for which you want to retrieve data.</p>
+
+        Raises:
+            aws_sdk_finspace.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_finspace.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_finspace.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_finspace.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_finspace.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_finspace.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1420,6 +1610,16 @@ class AsyncfinspaceClient:
         Args:
             environment_id: <p>A unique identifier for the kdb environment.</p>
             cluster_name: <p>The name of the cluster that you want to retrieve.</p>
+
+        Raises:
+            aws_sdk_finspace.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_finspace.errors.conflict_exception.ConflictException: <p>There was a conflict with this action, and it could not be completed.</p>
+            aws_sdk_finspace.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_finspace.errors.limit_exceeded_exception.LimitExceededException: <p>A service limit or quota is exceeded.</p>
+            aws_sdk_finspace.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_finspace.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_finspace.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_finspace.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1463,6 +1663,14 @@ class AsyncfinspaceClient:
             user_arn: <p> The Amazon Resource Name (ARN) that identifies the user. For more information about ARNs and how to use ARNs in policies, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html\">IAM Identifiers</a> in the <i>IAM User Guide</i>. </p>
             environment_id: <p>A unique identifier for the kdb environment.</p>
             cluster_name: <p>A name of the kdb cluster.</p>
+
+        Raises:
+            aws_sdk_finspace.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_finspace.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_finspace.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_finspace.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_finspace.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_finspace.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1505,6 +1713,14 @@ class AsyncfinspaceClient:
         Args:
             environment_id: <p>A unique identifier for the kdb environment.</p>
             database_name: <p>The name of the kdb database.</p>
+
+        Raises:
+            aws_sdk_finspace.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_finspace.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_finspace.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_finspace.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_finspace.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_finspace.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1548,6 +1764,14 @@ class AsyncfinspaceClient:
             environment_id: <p>A unique identifier for the kdb environment, from where you want to retrieve the dataview details.</p>
             database_name: <p> The name of the database where you created the dataview.</p>
             dataview_name: <p>A unique identifier for the dataview.</p>
+
+        Raises:
+            aws_sdk_finspace.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_finspace.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_finspace.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_finspace.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_finspace.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_finspace.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1588,6 +1812,14 @@ class AsyncfinspaceClient:
 
         Args:
             environment_id: <p>A unique identifier for the kdb environment.</p>
+
+        Raises:
+            aws_sdk_finspace.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_finspace.errors.conflict_exception.ConflictException: <p>There was a conflict with this action, and it could not be completed.</p>
+            aws_sdk_finspace.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_finspace.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_finspace.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_finspace.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1630,6 +1862,16 @@ class AsyncfinspaceClient:
         Args:
             environment_id: <p>A unique identifier for the kdb environment. </p>
             scaling_group_name: <p>A unique identifier for the kdb scaling group. </p>
+
+        Raises:
+            aws_sdk_finspace.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_finspace.errors.conflict_exception.ConflictException: <p>There was a conflict with this action, and it could not be completed.</p>
+            aws_sdk_finspace.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_finspace.errors.limit_exceeded_exception.LimitExceededException: <p>A service limit or quota is exceeded.</p>
+            aws_sdk_finspace.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_finspace.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_finspace.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_finspace.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1671,6 +1913,14 @@ class AsyncfinspaceClient:
         Args:
             user_name: <p>A unique identifier for the user.</p>
             environment_id: <p>A unique identifier for the kdb environment.</p>
+
+        Raises:
+            aws_sdk_finspace.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_finspace.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_finspace.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_finspace.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_finspace.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_finspace.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1712,6 +1962,16 @@ class AsyncfinspaceClient:
         Args:
             environment_id: <p>A unique identifier for the kdb environment, whose clusters can attach to the volume. </p>
             volume_name: <p>A unique identifier for the volume.</p>
+
+        Raises:
+            aws_sdk_finspace.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_finspace.errors.conflict_exception.ConflictException: <p>There was a conflict with this action, and it could not be completed.</p>
+            aws_sdk_finspace.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_finspace.errors.limit_exceeded_exception.LimitExceededException: <p>A service limit or quota is exceeded.</p>
+            aws_sdk_finspace.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_finspace.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_finspace.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_finspace.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1755,6 +2015,12 @@ class AsyncfinspaceClient:
         Args:
             next_token: <p>A token generated by FinSpace that specifies where to continue pagination if a previous request was truncated. To get the next set of pages, pass in the <code>nextToken</code>nextToken value from the response object of the previous page call.</p>
             max_results: <p>The maximum number of results to return in this request.</p>
+
+        Raises:
+            aws_sdk_finspace.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_finspace.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_finspace.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_finspace.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1804,6 +2070,14 @@ class AsyncfinspaceClient:
             database_name: <p>The name of the kdb database.</p>
             next_token: <p>A token that indicates where a results page should begin.</p>
             max_results: <p>The maximum number of results to return in this request.</p>
+
+        Raises:
+            aws_sdk_finspace.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_finspace.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_finspace.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_finspace.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_finspace.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_finspace.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1855,6 +2129,15 @@ class AsyncfinspaceClient:
             cluster_name: <p>A unique name for the cluster.</p>
             next_token: <p>A token that indicates where a results page should begin.</p>
             max_results: <p>The maximum number of results to return in this request.</p>
+
+        Raises:
+            aws_sdk_finspace.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_finspace.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_finspace.errors.limit_exceeded_exception.LimitExceededException: <p>A service limit or quota is exceeded.</p>
+            aws_sdk_finspace.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_finspace.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_finspace.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_finspace.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1908,6 +2191,16 @@ class AsyncfinspaceClient:
             cluster_type: <p>Specifies the type of KDB database that is being created. The following types are available: </p> <ul> <li> <p>HDB – A Historical Database. The data is only accessible with read-only permissions from one of the FinSpace managed kdb databases mounted to the cluster.</p> </li> <li> <p>RDB – A Realtime Database. This type of database captures all the data from a ticker plant and stores it in memory until the end of day, after which it writes all of its data to a disk and reloads the HDB. This cluster type requires local storage for temporary storage of data during the savedown process. If you specify this field in your request, you must provide the <code>savedownStorageConfiguration</code> parameter.</p> </li> <li> <p>GATEWAY – A gateway cluster allows you to access data across processes in kdb systems. It allows you to create your own routing logic using the initialization scripts and custom code. This type of cluster does not require a writable local storage.</p> </li> <li> <p>GP – A general purpose cluster allows you to quickly iterate on code during development by granting greater access to system commands and enabling a fast reload of custom code. This cluster type can optionally mount databases including cache and savedown storage. For this cluster type, the node count is fixed at 1. It does not support autoscaling and supports only <code>SINGLE</code> AZ mode.</p> </li> <li> <p>Tickerplant – A tickerplant cluster allows you to subscribe to feed handlers based on IAM permissions. It can publish to RDBs, other Tickerplants, and real-time subscribers (RTS). Tickerplants can persist messages to log, which is readable by any RDB environment. It supports only single-node that is only one kdb process.</p> </li> </ul>
             max_results: <p>The maximum number of results to return in this request.</p>
             next_token: <p>A token that indicates where a results page should begin.</p>
+
+        Raises:
+            aws_sdk_finspace.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_finspace.errors.conflict_exception.ConflictException: <p>There was a conflict with this action, and it could not be completed.</p>
+            aws_sdk_finspace.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_finspace.errors.limit_exceeded_exception.LimitExceededException: <p>A service limit or quota is exceeded.</p>
+            aws_sdk_finspace.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_finspace.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_finspace.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_finspace.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1958,6 +2251,14 @@ class AsyncfinspaceClient:
             environment_id: <p>A unique identifier for the kdb environment.</p>
             next_token: <p>A token that indicates where a results page should begin.</p>
             max_results: <p>The maximum number of results to return in this request.</p>
+
+        Raises:
+            aws_sdk_finspace.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_finspace.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_finspace.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_finspace.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_finspace.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_finspace.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2008,6 +2309,14 @@ class AsyncfinspaceClient:
             database_name: <p> The name of the database where the dataviews were created.</p>
             next_token: <p> A token that indicates where a results page should begin. </p>
             max_results: <p>The maximum number of results to return in this request.</p>
+
+        Raises:
+            aws_sdk_finspace.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_finspace.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_finspace.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_finspace.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_finspace.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_finspace.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2057,6 +2366,12 @@ class AsyncfinspaceClient:
         Args:
             next_token: <p>A token that indicates where a results page should begin.</p>
             max_results: <p>The maximum number of results to return in this request.</p>
+
+        Raises:
+            aws_sdk_finspace.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_finspace.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_finspace.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_finspace.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2129,6 +2444,16 @@ class AsyncfinspaceClient:
             environment_id: <p>A unique identifier for the kdb environment, for which you want to retrieve a list of scaling groups.</p>
             max_results: <p>The maximum number of results to return in this request.</p>
             next_token: <p> A token that indicates where a results page should begin. </p>
+
+        Raises:
+            aws_sdk_finspace.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_finspace.errors.conflict_exception.ConflictException: <p>There was a conflict with this action, and it could not be completed.</p>
+            aws_sdk_finspace.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_finspace.errors.limit_exceeded_exception.LimitExceededException: <p>A service limit or quota is exceeded.</p>
+            aws_sdk_finspace.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_finspace.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_finspace.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_finspace.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2177,6 +2502,14 @@ class AsyncfinspaceClient:
             environment_id: <p>A unique identifier for the kdb environment.</p>
             next_token: <p>A token that indicates where a results page should begin.</p>
             max_results: <p>The maximum number of results to return in this request.</p>
+
+        Raises:
+            aws_sdk_finspace.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_finspace.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_finspace.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_finspace.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_finspace.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_finspace.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2229,6 +2562,16 @@ class AsyncfinspaceClient:
             max_results: <p>The maximum number of results to return in this request.</p>
             next_token: <p>A token that indicates where a results page should begin.</p>
             volume_type: <p> The type of file system volume. Currently, FinSpace only supports <code>NAS_1</code> volume type. </p>
+
+        Raises:
+            aws_sdk_finspace.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_finspace.errors.conflict_exception.ConflictException: <p>There was a conflict with this action, and it could not be completed.</p>
+            aws_sdk_finspace.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_finspace.errors.limit_exceeded_exception.LimitExceededException: <p>A service limit or quota is exceeded.</p>
+            aws_sdk_finspace.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_finspace.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_finspace.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_finspace.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2273,6 +2616,12 @@ class AsyncfinspaceClient:
 
         Args:
             resource_arn: <p>The Amazon Resource Name of the resource.</p>
+
+        Raises:
+            aws_sdk_finspace.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_finspace.errors.invalid_request_exception.InvalidRequestException: <p>The request is invalid. Something is wrong with the input to the request.</p>
+            aws_sdk_finspace.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_finspace.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2313,6 +2662,12 @@ class AsyncfinspaceClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) for the resource.</p>
             tags: <p>One or more tags to be assigned to the resource.</p>
+
+        Raises:
+            aws_sdk_finspace.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_finspace.errors.invalid_request_exception.InvalidRequestException: <p>The request is invalid. Something is wrong with the input to the request.</p>
+            aws_sdk_finspace.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_finspace.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2354,6 +2709,12 @@ class AsyncfinspaceClient:
         Args:
             resource_arn: <p>A FinSpace resource from which you want to remove a tag or tags. The value for this parameter is an Amazon Resource Name (ARN).</p>
             tag_keys: <p>The tag keys (names) of one or more tags to be removed.</p>
+
+        Raises:
+            aws_sdk_finspace.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_finspace.errors.invalid_request_exception.InvalidRequestException: <p>The request is invalid. Something is wrong with the input to the request.</p>
+            aws_sdk_finspace.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_finspace.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2406,6 +2767,14 @@ class AsyncfinspaceClient:
             name: <p>The name of the environment.</p>
             description: <p>The description of the environment.</p>
             federation_mode: <p>Authentication mode for the environment.</p> <ul> <li> <p> <code>FEDERATED</code> - Users access FinSpace through Single Sign On (SSO) via your Identity provider.</p> </li> <li> <p> <code>LOCAL</code> - Users access FinSpace via email and password managed within the FinSpace environment.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_finspace.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_finspace.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_finspace.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_finspace.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_finspace.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_finspace.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2471,6 +2840,16 @@ class AsyncfinspaceClient:
             initialization_script: <p>Specifies a Q program that will be run at launch of a cluster. It is a relative path within <i>.zip</i> file that contains the custom code, which will be loaded on the cluster. It must include the file name itself. For example, <code>somedir/init.q</code>.</p> <p>You cannot update this parameter for a <code>NO_RESTART</code> deployment.</p>
             command_line_arguments: <p>Specifies the key-value pairs to make them available inside the cluster.</p> <p>You cannot update this parameter for a <code>NO_RESTART</code> deployment.</p>
             deployment_configuration: <p> The configuration that allows you to choose how you want to update the code on a cluster. </p>
+
+        Raises:
+            aws_sdk_finspace.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_finspace.errors.conflict_exception.ConflictException: <p>There was a conflict with this action, and it could not be completed.</p>
+            aws_sdk_finspace.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_finspace.errors.limit_exceeded_exception.LimitExceededException: <p>A service limit or quota is exceeded.</p>
+            aws_sdk_finspace.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_finspace.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_finspace.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_finspace.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2531,6 +2910,16 @@ class AsyncfinspaceClient:
             client_token: <p>A token that ensures idempotency. This token expires in 10 minutes.</p>
             databases: <p> The structure of databases mounted on the cluster.</p>
             deployment_configuration: <p> The configuration that allows you to choose how you want to update the databases on a cluster. </p>
+
+        Raises:
+            aws_sdk_finspace.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_finspace.errors.conflict_exception.ConflictException: <p>There was a conflict with this action, and it could not be completed.</p>
+            aws_sdk_finspace.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_finspace.errors.limit_exceeded_exception.LimitExceededException: <p>A service limit or quota is exceeded.</p>
+            aws_sdk_finspace.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_finspace.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_finspace.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_finspace.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2581,6 +2970,15 @@ class AsyncfinspaceClient:
             database_name: <p>The name of the kdb database.</p>
             description: <p>A description of the database.</p>
             client_token: <p>A token that ensures idempotency. This token expires in 10 minutes.</p>
+
+        Raises:
+            aws_sdk_finspace.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_finspace.errors.conflict_exception.ConflictException: <p>There was a conflict with this action, and it could not be completed.</p>
+            aws_sdk_finspace.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_finspace.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_finspace.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_finspace.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_finspace.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2639,6 +3037,16 @@ class AsyncfinspaceClient:
             changeset_id: <p>A unique identifier for the changeset.</p>
             segment_configurations: <p> The configuration that contains the database path of the data that you want to place on each selected volume. Each segment must have a unique database path for each volume. If you do not explicitly specify any database path for a volume, they are accessible from the cluster through the default S3/object store segment. </p>
             client_token: <p>A token that ensures idempotency. This token expires in 10 minutes.</p>
+
+        Raises:
+            aws_sdk_finspace.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_finspace.errors.conflict_exception.ConflictException: <p>There was a conflict with this action, and it could not be completed.</p>
+            aws_sdk_finspace.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_finspace.errors.resource_already_exists_exception.ResourceAlreadyExistsException: <p>The specified resource group already exists.</p>
+            aws_sdk_finspace.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_finspace.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_finspace.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_finspace.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2696,6 +3104,15 @@ class AsyncfinspaceClient:
             name: <p>The name of the kdb environment.</p>
             description: <p>A description of the kdb environment.</p>
             client_token: <p>A token that ensures idempotency. This token expires in 10 minutes.</p>
+
+        Raises:
+            aws_sdk_finspace.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_finspace.errors.conflict_exception.ConflictException: <p>There was a conflict with this action, and it could not be completed.</p>
+            aws_sdk_finspace.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_finspace.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_finspace.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_finspace.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_finspace.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2752,6 +3169,15 @@ class AsyncfinspaceClient:
             transit_gateway_configuration: <p>Specifies the transit gateway and network configuration to connect the kdb environment to an internal network.</p>
             custom_dns_configuration: <p>A list of DNS server name and server IP. This is used to set up Route-53 outbound resolvers.</p>
             client_token: <p>A token that ensures idempotency. This token expires in 10 minutes.</p>
+
+        Raises:
+            aws_sdk_finspace.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_finspace.errors.conflict_exception.ConflictException: <p>There was a conflict with this action, and it could not be completed.</p>
+            aws_sdk_finspace.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_finspace.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_finspace.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_finspace.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_finspace.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2804,6 +3230,16 @@ class AsyncfinspaceClient:
             user_name: <p>A unique identifier for the user.</p>
             iam_role: <p>The IAM role ARN that is associated with the user.</p>
             client_token: <p>A token that ensures idempotency. This token expires in 10 minutes.</p>
+
+        Raises:
+            aws_sdk_finspace.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_finspace.errors.conflict_exception.ConflictException: <p>There was a conflict with this action, and it could not be completed.</p>
+            aws_sdk_finspace.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_finspace.errors.limit_exceeded_exception.LimitExceededException: <p>A service limit or quota is exceeded.</p>
+            aws_sdk_finspace.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_finspace.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_finspace.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_finspace.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2858,6 +3294,16 @@ class AsyncfinspaceClient:
             description: <p> A description of the volume. </p>
             client_token: <p>A token that ensures idempotency. This token expires in 10 minutes.</p>
             nas1_configuration: <p> Specifies the configuration for the Network attached storage (NAS_1) file system volume.</p>
+
+        Raises:
+            aws_sdk_finspace.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_finspace.errors.conflict_exception.ConflictException: <p>There was a conflict with this action, and it could not be completed.</p>
+            aws_sdk_finspace.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_finspace.errors.limit_exceeded_exception.LimitExceededException: <p>A service limit or quota is exceeded.</p>
+            aws_sdk_finspace.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_finspace.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_finspace.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_finspace.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

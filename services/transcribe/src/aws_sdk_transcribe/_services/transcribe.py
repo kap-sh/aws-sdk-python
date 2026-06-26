@@ -269,6 +269,13 @@ class TranscribeClient:
             rules: <p>Rules define a Call Analytics category. When creating a new category, you must create between 1 and 20 rules for that category. For each rule, you specify a filter you want applied to the attributes of a call. For example, you can choose a sentiment filter that detects if a customer's sentiment was positive during the last 30 seconds of the call.</p>
             tags: <p>Adds one or more custom tags, each in the form of a key:value pair, to a new call analytics category at the time you start this new job.</p> <p>To learn more about using tags with Amazon Transcribe, refer to <a href=\"https://docs.aws.amazon.com/transcribe/latest/dg/tagging.html\">Tagging resources</a>.</p>
             input_type: <p>Choose whether you want to create a real-time or a post-call category for your Call Analytics transcription.</p> <p>Specifying <code>POST_CALL</code> assigns your category to post-call transcriptions; categories with this input type cannot be applied to streaming (real-time) transcriptions.</p> <p>Specifying <code>REAL_TIME</code> assigns your category to streaming transcriptions; categories with this input type cannot be applied to post-call transcriptions.</p> <p>If you do not include <code>InputType</code>, your category is created as a post-call category by default.</p>
+
+        Raises:
+            aws_sdk_transcribe.errors.bad_request_exception.BadRequestException: <p>Your request didn't pass one or more validation tests. This can occur when the entity you're trying to delete doesn't exist or if it's in a non-terminal state (such as <code>IN PROGRESS</code>). See the exception message field for more information.</p>
+            aws_sdk_transcribe.errors.conflict_exception.ConflictException: <p>A resource already exists with this name. Resource names must be unique within an Amazon Web Services account.</p>
+            aws_sdk_transcribe.errors.internal_failure_exception.InternalFailureException: <p>There was an internal error. Check the error message, correct the issue, and try your request again.</p>
+            aws_sdk_transcribe.errors.limit_exceeded_exception.LimitExceededException: <p>You've either sent too many requests or your input file is too long. Wait before retrying your request, or use a smaller file and try your request again.</p>
+            aws_sdk_transcribe.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -319,6 +326,13 @@ class TranscribeClient:
             model_name: <p>A unique name, chosen by you, for your custom language model.</p> <p>This name is case sensitive, cannot contain spaces, and must be unique within an Amazon Web Services account. If you try to create a new custom language model with the same name as an existing custom language model, you get a <code>ConflictException</code> error.</p>
             input_data_config: <p>Contains the Amazon S3 location of the training data you want to use to create a new custom language model, and permissions to access this location.</p> <p>When using <code>InputDataConfig</code>, you must include these sub-parameters: <code>S3Uri</code>, which is the Amazon S3 location of your training data, and <code>DataAccessRoleArn</code>, which is the Amazon Resource Name (ARN) of the role that has permission to access your specified Amazon S3 location. You can optionally include <code>TuningDataS3Uri</code>, which is the Amazon S3 location of your tuning data. If you specify different Amazon S3 locations for training and tuning data, the ARN you use must have permissions to access both locations.</p>
             tags: <p>Adds one or more custom tags, each in the form of a key:value pair, to a new custom language model at the time you create this new model.</p> <p>To learn more about using tags with Amazon Transcribe, refer to <a href=\"https://docs.aws.amazon.com/transcribe/latest/dg/tagging.html\">Tagging resources</a>.</p>
+
+        Raises:
+            aws_sdk_transcribe.errors.bad_request_exception.BadRequestException: <p>Your request didn't pass one or more validation tests. This can occur when the entity you're trying to delete doesn't exist or if it's in a non-terminal state (such as <code>IN PROGRESS</code>). See the exception message field for more information.</p>
+            aws_sdk_transcribe.errors.conflict_exception.ConflictException: <p>A resource already exists with this name. Resource names must be unique within an Amazon Web Services account.</p>
+            aws_sdk_transcribe.errors.internal_failure_exception.InternalFailureException: <p>There was an internal error. Check the error message, correct the issue, and try your request again.</p>
+            aws_sdk_transcribe.errors.limit_exceeded_exception.LimitExceededException: <p>You've either sent too many requests or your input file is too long. Wait before retrying your request, or use a smaller file and try your request again.</p>
+            aws_sdk_transcribe.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -367,6 +381,13 @@ class TranscribeClient:
             language_code: <p>The language code that represents the language of the entries in your custom vocabulary. US English (<code>en-US</code>) is the only language supported with Amazon Transcribe Medical.</p>
             vocabulary_file_uri: <p>The Amazon S3 location (URI) of the text file that contains your custom medical vocabulary. The URI must be in the same Amazon Web Services Region as the resource you're calling.</p> <p>Here's an example URI path: <code>s3://DOC-EXAMPLE-BUCKET/my-vocab-file.txt</code> </p>
             tags: <p>Adds one or more custom tags, each in the form of a key:value pair, to a new custom medical vocabulary at the time you create this new custom vocabulary.</p> <p>To learn more about using tags with Amazon Transcribe, refer to <a href=\"https://docs.aws.amazon.com/transcribe/latest/dg/tagging.html\">Tagging resources</a>.</p>
+
+        Raises:
+            aws_sdk_transcribe.errors.bad_request_exception.BadRequestException: <p>Your request didn't pass one or more validation tests. This can occur when the entity you're trying to delete doesn't exist or if it's in a non-terminal state (such as <code>IN PROGRESS</code>). See the exception message field for more information.</p>
+            aws_sdk_transcribe.errors.conflict_exception.ConflictException: <p>A resource already exists with this name. Resource names must be unique within an Amazon Web Services account.</p>
+            aws_sdk_transcribe.errors.internal_failure_exception.InternalFailureException: <p>There was an internal error. Check the error message, correct the issue, and try your request again.</p>
+            aws_sdk_transcribe.errors.limit_exceeded_exception.LimitExceededException: <p>You've either sent too many requests or your input file is too long. Wait before retrying your request, or use a smaller file and try your request again.</p>
+            aws_sdk_transcribe.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -420,6 +441,13 @@ class TranscribeClient:
             vocabulary_file_uri: <p>The Amazon S3 location of the text file that contains your custom vocabulary. The URI must be located in the same Amazon Web Services Region as the resource you're calling.</p> <p>Here's an example URI path: <code>s3://DOC-EXAMPLE-BUCKET/my-vocab-file.txt</code> </p> <p>Note that if you include <code>VocabularyFileUri</code> in your request, you cannot use the <code>Phrases</code> flag; you must choose one or the other.</p>
             tags: <p>Adds one or more custom tags, each in the form of a key:value pair, to a new custom vocabulary at the time you create this new custom vocabulary.</p> <p>To learn more about using tags with Amazon Transcribe, refer to <a href=\"https://docs.aws.amazon.com/transcribe/latest/dg/tagging.html\">Tagging resources</a>.</p>
             data_access_role_arn: <p>The Amazon Resource Name (ARN) of an IAM role that has permissions to access the Amazon S3 bucket that contains your input files (in this case, your custom vocabulary). If the role that you specify doesn’t have the appropriate permissions to access the specified Amazon S3 location, your request fails.</p> <p>IAM role ARNs have the format <code>arn:partition:iam::account:role/role-name-with-path</code>. For example: <code>arn:aws:iam::111122223333:role/Admin</code>.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-arns\">IAM ARNs</a>.</p>
+
+        Raises:
+            aws_sdk_transcribe.errors.bad_request_exception.BadRequestException: <p>Your request didn't pass one or more validation tests. This can occur when the entity you're trying to delete doesn't exist or if it's in a non-terminal state (such as <code>IN PROGRESS</code>). See the exception message field for more information.</p>
+            aws_sdk_transcribe.errors.conflict_exception.ConflictException: <p>A resource already exists with this name. Resource names must be unique within an Amazon Web Services account.</p>
+            aws_sdk_transcribe.errors.internal_failure_exception.InternalFailureException: <p>There was an internal error. Check the error message, correct the issue, and try your request again.</p>
+            aws_sdk_transcribe.errors.limit_exceeded_exception.LimitExceededException: <p>You've either sent too many requests or your input file is too long. Wait before retrying your request, or use a smaller file and try your request again.</p>
+            aws_sdk_transcribe.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -478,6 +506,13 @@ class TranscribeClient:
             vocabulary_filter_file_uri: <p>The Amazon S3 location of the text file that contains your custom vocabulary filter terms. The URI must be located in the same Amazon Web Services Region as the resource you're calling.</p> <p>Here's an example URI path: <code>s3://DOC-EXAMPLE-BUCKET/my-vocab-filter-file.txt</code> </p> <p>Note that if you include <code>VocabularyFilterFileUri</code> in your request, you cannot use <code>Words</code>; you must choose one or the other.</p>
             tags: <p>Adds one or more custom tags, each in the form of a key:value pair, to a new custom vocabulary filter at the time you create this new vocabulary filter.</p> <p>To learn more about using tags with Amazon Transcribe, refer to <a href=\"https://docs.aws.amazon.com/transcribe/latest/dg/tagging.html\">Tagging resources</a>.</p>
             data_access_role_arn: <p>The Amazon Resource Name (ARN) of an IAM role that has permissions to access the Amazon S3 bucket that contains your input files (in this case, your custom vocabulary filter). If the role that you specify doesn’t have the appropriate permissions to access the specified Amazon S3 location, your request fails.</p> <p>IAM role ARNs have the format <code>arn:partition:iam::account:role/role-name-with-path</code>. For example: <code>arn:aws:iam::111122223333:role/Admin</code>.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-arns\">IAM ARNs</a>.</p>
+
+        Raises:
+            aws_sdk_transcribe.errors.bad_request_exception.BadRequestException: <p>Your request didn't pass one or more validation tests. This can occur when the entity you're trying to delete doesn't exist or if it's in a non-terminal state (such as <code>IN PROGRESS</code>). See the exception message field for more information.</p>
+            aws_sdk_transcribe.errors.conflict_exception.ConflictException: <p>A resource already exists with this name. Resource names must be unique within an Amazon Web Services account.</p>
+            aws_sdk_transcribe.errors.internal_failure_exception.InternalFailureException: <p>There was an internal error. Check the error message, correct the issue, and try your request again.</p>
+            aws_sdk_transcribe.errors.limit_exceeded_exception.LimitExceededException: <p>You've either sent too many requests or your input file is too long. Wait before retrying your request, or use a smaller file and try your request again.</p>
+            aws_sdk_transcribe.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -524,6 +559,13 @@ class TranscribeClient:
 
         Args:
             category_name: <p>The name of the Call Analytics category you want to delete. Category names are case sensitive.</p>
+
+        Raises:
+            aws_sdk_transcribe.errors.bad_request_exception.BadRequestException: <p>Your request didn't pass one or more validation tests. This can occur when the entity you're trying to delete doesn't exist or if it's in a non-terminal state (such as <code>IN PROGRESS</code>). See the exception message field for more information.</p>
+            aws_sdk_transcribe.errors.internal_failure_exception.InternalFailureException: <p>There was an internal error. Check the error message, correct the issue, and try your request again.</p>
+            aws_sdk_transcribe.errors.limit_exceeded_exception.LimitExceededException: <p>You've either sent too many requests or your input file is too long. Wait before retrying your request, or use a smaller file and try your request again.</p>
+            aws_sdk_transcribe.errors.not_found_exception.NotFoundException: <p>We can't find the requested resource. Check that the specified name is correct and try your request again.</p>
+            aws_sdk_transcribe.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -561,6 +603,12 @@ class TranscribeClient:
 
         Args:
             call_analytics_job_name: <p>The name of the Call Analytics job you want to delete. Job names are case sensitive.</p>
+
+        Raises:
+            aws_sdk_transcribe.errors.bad_request_exception.BadRequestException: <p>Your request didn't pass one or more validation tests. This can occur when the entity you're trying to delete doesn't exist or if it's in a non-terminal state (such as <code>IN PROGRESS</code>). See the exception message field for more information.</p>
+            aws_sdk_transcribe.errors.internal_failure_exception.InternalFailureException: <p>There was an internal error. Check the error message, correct the issue, and try your request again.</p>
+            aws_sdk_transcribe.errors.limit_exceeded_exception.LimitExceededException: <p>You've either sent too many requests or your input file is too long. Wait before retrying your request, or use a smaller file and try your request again.</p>
+            aws_sdk_transcribe.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -598,6 +646,12 @@ class TranscribeClient:
 
         Args:
             model_name: <p>The name of the custom language model you want to delete. Model names are case sensitive.</p>
+
+        Raises:
+            aws_sdk_transcribe.errors.bad_request_exception.BadRequestException: <p>Your request didn't pass one or more validation tests. This can occur when the entity you're trying to delete doesn't exist or if it's in a non-terminal state (such as <code>IN PROGRESS</code>). See the exception message field for more information.</p>
+            aws_sdk_transcribe.errors.internal_failure_exception.InternalFailureException: <p>There was an internal error. Check the error message, correct the issue, and try your request again.</p>
+            aws_sdk_transcribe.errors.limit_exceeded_exception.LimitExceededException: <p>You've either sent too many requests or your input file is too long. Wait before retrying your request, or use a smaller file and try your request again.</p>
+            aws_sdk_transcribe.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -633,6 +687,12 @@ class TranscribeClient:
 
         Args:
             medical_scribe_job_name: <p>The name of the Medical Scribe job you want to delete. Job names are case sensitive.</p>
+
+        Raises:
+            aws_sdk_transcribe.errors.bad_request_exception.BadRequestException: <p>Your request didn't pass one or more validation tests. This can occur when the entity you're trying to delete doesn't exist or if it's in a non-terminal state (such as <code>IN PROGRESS</code>). See the exception message field for more information.</p>
+            aws_sdk_transcribe.errors.internal_failure_exception.InternalFailureException: <p>There was an internal error. Check the error message, correct the issue, and try your request again.</p>
+            aws_sdk_transcribe.errors.limit_exceeded_exception.LimitExceededException: <p>You've either sent too many requests or your input file is too long. Wait before retrying your request, or use a smaller file and try your request again.</p>
+            aws_sdk_transcribe.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -668,6 +728,12 @@ class TranscribeClient:
 
         Args:
             medical_transcription_job_name: <p>The name of the medical transcription job you want to delete. Job names are case sensitive.</p>
+
+        Raises:
+            aws_sdk_transcribe.errors.bad_request_exception.BadRequestException: <p>Your request didn't pass one or more validation tests. This can occur when the entity you're trying to delete doesn't exist or if it's in a non-terminal state (such as <code>IN PROGRESS</code>). See the exception message field for more information.</p>
+            aws_sdk_transcribe.errors.internal_failure_exception.InternalFailureException: <p>There was an internal error. Check the error message, correct the issue, and try your request again.</p>
+            aws_sdk_transcribe.errors.limit_exceeded_exception.LimitExceededException: <p>You've either sent too many requests or your input file is too long. Wait before retrying your request, or use a smaller file and try your request again.</p>
+            aws_sdk_transcribe.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -703,6 +769,13 @@ class TranscribeClient:
 
         Args:
             vocabulary_name: <p>The name of the custom medical vocabulary you want to delete. Custom medical vocabulary names are case sensitive.</p>
+
+        Raises:
+            aws_sdk_transcribe.errors.bad_request_exception.BadRequestException: <p>Your request didn't pass one or more validation tests. This can occur when the entity you're trying to delete doesn't exist or if it's in a non-terminal state (such as <code>IN PROGRESS</code>). See the exception message field for more information.</p>
+            aws_sdk_transcribe.errors.internal_failure_exception.InternalFailureException: <p>There was an internal error. Check the error message, correct the issue, and try your request again.</p>
+            aws_sdk_transcribe.errors.limit_exceeded_exception.LimitExceededException: <p>You've either sent too many requests or your input file is too long. Wait before retrying your request, or use a smaller file and try your request again.</p>
+            aws_sdk_transcribe.errors.not_found_exception.NotFoundException: <p>We can't find the requested resource. Check that the specified name is correct and try your request again.</p>
+            aws_sdk_transcribe.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -738,6 +811,12 @@ class TranscribeClient:
 
         Args:
             transcription_job_name: <p>The name of the transcription job you want to delete. Job names are case sensitive.</p>
+
+        Raises:
+            aws_sdk_transcribe.errors.bad_request_exception.BadRequestException: <p>Your request didn't pass one or more validation tests. This can occur when the entity you're trying to delete doesn't exist or if it's in a non-terminal state (such as <code>IN PROGRESS</code>). See the exception message field for more information.</p>
+            aws_sdk_transcribe.errors.internal_failure_exception.InternalFailureException: <p>There was an internal error. Check the error message, correct the issue, and try your request again.</p>
+            aws_sdk_transcribe.errors.limit_exceeded_exception.LimitExceededException: <p>You've either sent too many requests or your input file is too long. Wait before retrying your request, or use a smaller file and try your request again.</p>
+            aws_sdk_transcribe.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -773,6 +852,13 @@ class TranscribeClient:
 
         Args:
             vocabulary_name: <p>The name of the custom vocabulary you want to delete. Custom vocabulary names are case sensitive.</p>
+
+        Raises:
+            aws_sdk_transcribe.errors.bad_request_exception.BadRequestException: <p>Your request didn't pass one or more validation tests. This can occur when the entity you're trying to delete doesn't exist or if it's in a non-terminal state (such as <code>IN PROGRESS</code>). See the exception message field for more information.</p>
+            aws_sdk_transcribe.errors.internal_failure_exception.InternalFailureException: <p>There was an internal error. Check the error message, correct the issue, and try your request again.</p>
+            aws_sdk_transcribe.errors.limit_exceeded_exception.LimitExceededException: <p>You've either sent too many requests or your input file is too long. Wait before retrying your request, or use a smaller file and try your request again.</p>
+            aws_sdk_transcribe.errors.not_found_exception.NotFoundException: <p>We can't find the requested resource. Check that the specified name is correct and try your request again.</p>
+            aws_sdk_transcribe.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -808,6 +894,13 @@ class TranscribeClient:
 
         Args:
             vocabulary_filter_name: <p>The name of the custom vocabulary filter you want to delete. Custom vocabulary filter names are case sensitive.</p>
+
+        Raises:
+            aws_sdk_transcribe.errors.bad_request_exception.BadRequestException: <p>Your request didn't pass one or more validation tests. This can occur when the entity you're trying to delete doesn't exist or if it's in a non-terminal state (such as <code>IN PROGRESS</code>). See the exception message field for more information.</p>
+            aws_sdk_transcribe.errors.internal_failure_exception.InternalFailureException: <p>There was an internal error. Check the error message, correct the issue, and try your request again.</p>
+            aws_sdk_transcribe.errors.limit_exceeded_exception.LimitExceededException: <p>You've either sent too many requests or your input file is too long. Wait before retrying your request, or use a smaller file and try your request again.</p>
+            aws_sdk_transcribe.errors.not_found_exception.NotFoundException: <p>We can't find the requested resource. Check that the specified name is correct and try your request again.</p>
+            aws_sdk_transcribe.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -843,6 +936,13 @@ class TranscribeClient:
 
         Args:
             model_name: <p>The name of the custom language model you want information about. Model names are case sensitive.</p>
+
+        Raises:
+            aws_sdk_transcribe.errors.bad_request_exception.BadRequestException: <p>Your request didn't pass one or more validation tests. This can occur when the entity you're trying to delete doesn't exist or if it's in a non-terminal state (such as <code>IN PROGRESS</code>). See the exception message field for more information.</p>
+            aws_sdk_transcribe.errors.internal_failure_exception.InternalFailureException: <p>There was an internal error. Check the error message, correct the issue, and try your request again.</p>
+            aws_sdk_transcribe.errors.limit_exceeded_exception.LimitExceededException: <p>You've either sent too many requests or your input file is too long. Wait before retrying your request, or use a smaller file and try your request again.</p>
+            aws_sdk_transcribe.errors.not_found_exception.NotFoundException: <p>We can't find the requested resource. Check that the specified name is correct and try your request again.</p>
+            aws_sdk_transcribe.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -880,6 +980,13 @@ class TranscribeClient:
 
         Args:
             category_name: <p>The name of the Call Analytics category you want information about. Category names are case sensitive.</p>
+
+        Raises:
+            aws_sdk_transcribe.errors.bad_request_exception.BadRequestException: <p>Your request didn't pass one or more validation tests. This can occur when the entity you're trying to delete doesn't exist or if it's in a non-terminal state (such as <code>IN PROGRESS</code>). See the exception message field for more information.</p>
+            aws_sdk_transcribe.errors.internal_failure_exception.InternalFailureException: <p>There was an internal error. Check the error message, correct the issue, and try your request again.</p>
+            aws_sdk_transcribe.errors.limit_exceeded_exception.LimitExceededException: <p>You've either sent too many requests or your input file is too long. Wait before retrying your request, or use a smaller file and try your request again.</p>
+            aws_sdk_transcribe.errors.not_found_exception.NotFoundException: <p>We can't find the requested resource. Check that the specified name is correct and try your request again.</p>
+            aws_sdk_transcribe.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -917,6 +1024,13 @@ class TranscribeClient:
 
         Args:
             call_analytics_job_name: <p>The name of the Call Analytics job you want information about. Job names are case sensitive.</p>
+
+        Raises:
+            aws_sdk_transcribe.errors.bad_request_exception.BadRequestException: <p>Your request didn't pass one or more validation tests. This can occur when the entity you're trying to delete doesn't exist or if it's in a non-terminal state (such as <code>IN PROGRESS</code>). See the exception message field for more information.</p>
+            aws_sdk_transcribe.errors.internal_failure_exception.InternalFailureException: <p>There was an internal error. Check the error message, correct the issue, and try your request again.</p>
+            aws_sdk_transcribe.errors.limit_exceeded_exception.LimitExceededException: <p>You've either sent too many requests or your input file is too long. Wait before retrying your request, or use a smaller file and try your request again.</p>
+            aws_sdk_transcribe.errors.not_found_exception.NotFoundException: <p>We can't find the requested resource. Check that the specified name is correct and try your request again.</p>
+            aws_sdk_transcribe.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -954,6 +1068,13 @@ class TranscribeClient:
 
         Args:
             medical_scribe_job_name: <p>The name of the Medical Scribe job you want information about. Job names are case sensitive.</p>
+
+        Raises:
+            aws_sdk_transcribe.errors.bad_request_exception.BadRequestException: <p>Your request didn't pass one or more validation tests. This can occur when the entity you're trying to delete doesn't exist or if it's in a non-terminal state (such as <code>IN PROGRESS</code>). See the exception message field for more information.</p>
+            aws_sdk_transcribe.errors.internal_failure_exception.InternalFailureException: <p>There was an internal error. Check the error message, correct the issue, and try your request again.</p>
+            aws_sdk_transcribe.errors.limit_exceeded_exception.LimitExceededException: <p>You've either sent too many requests or your input file is too long. Wait before retrying your request, or use a smaller file and try your request again.</p>
+            aws_sdk_transcribe.errors.not_found_exception.NotFoundException: <p>We can't find the requested resource. Check that the specified name is correct and try your request again.</p>
+            aws_sdk_transcribe.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -991,6 +1112,13 @@ class TranscribeClient:
 
         Args:
             medical_transcription_job_name: <p>The name of the medical transcription job you want information about. Job names are case sensitive.</p>
+
+        Raises:
+            aws_sdk_transcribe.errors.bad_request_exception.BadRequestException: <p>Your request didn't pass one or more validation tests. This can occur when the entity you're trying to delete doesn't exist or if it's in a non-terminal state (such as <code>IN PROGRESS</code>). See the exception message field for more information.</p>
+            aws_sdk_transcribe.errors.internal_failure_exception.InternalFailureException: <p>There was an internal error. Check the error message, correct the issue, and try your request again.</p>
+            aws_sdk_transcribe.errors.limit_exceeded_exception.LimitExceededException: <p>You've either sent too many requests or your input file is too long. Wait before retrying your request, or use a smaller file and try your request again.</p>
+            aws_sdk_transcribe.errors.not_found_exception.NotFoundException: <p>We can't find the requested resource. Check that the specified name is correct and try your request again.</p>
+            aws_sdk_transcribe.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1028,6 +1156,13 @@ class TranscribeClient:
 
         Args:
             vocabulary_name: <p>The name of the custom medical vocabulary you want information about. Custom medical vocabulary names are case sensitive.</p>
+
+        Raises:
+            aws_sdk_transcribe.errors.bad_request_exception.BadRequestException: <p>Your request didn't pass one or more validation tests. This can occur when the entity you're trying to delete doesn't exist or if it's in a non-terminal state (such as <code>IN PROGRESS</code>). See the exception message field for more information.</p>
+            aws_sdk_transcribe.errors.internal_failure_exception.InternalFailureException: <p>There was an internal error. Check the error message, correct the issue, and try your request again.</p>
+            aws_sdk_transcribe.errors.limit_exceeded_exception.LimitExceededException: <p>You've either sent too many requests or your input file is too long. Wait before retrying your request, or use a smaller file and try your request again.</p>
+            aws_sdk_transcribe.errors.not_found_exception.NotFoundException: <p>We can't find the requested resource. Check that the specified name is correct and try your request again.</p>
+            aws_sdk_transcribe.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1065,6 +1200,13 @@ class TranscribeClient:
 
         Args:
             transcription_job_name: <p>The name of the transcription job you want information about. Job names are case sensitive.</p>
+
+        Raises:
+            aws_sdk_transcribe.errors.bad_request_exception.BadRequestException: <p>Your request didn't pass one or more validation tests. This can occur when the entity you're trying to delete doesn't exist or if it's in a non-terminal state (such as <code>IN PROGRESS</code>). See the exception message field for more information.</p>
+            aws_sdk_transcribe.errors.internal_failure_exception.InternalFailureException: <p>There was an internal error. Check the error message, correct the issue, and try your request again.</p>
+            aws_sdk_transcribe.errors.limit_exceeded_exception.LimitExceededException: <p>You've either sent too many requests or your input file is too long. Wait before retrying your request, or use a smaller file and try your request again.</p>
+            aws_sdk_transcribe.errors.not_found_exception.NotFoundException: <p>We can't find the requested resource. Check that the specified name is correct and try your request again.</p>
+            aws_sdk_transcribe.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1102,6 +1244,13 @@ class TranscribeClient:
 
         Args:
             vocabulary_name: <p>The name of the custom vocabulary you want information about. Custom vocabulary names are case sensitive.</p>
+
+        Raises:
+            aws_sdk_transcribe.errors.bad_request_exception.BadRequestException: <p>Your request didn't pass one or more validation tests. This can occur when the entity you're trying to delete doesn't exist or if it's in a non-terminal state (such as <code>IN PROGRESS</code>). See the exception message field for more information.</p>
+            aws_sdk_transcribe.errors.internal_failure_exception.InternalFailureException: <p>There was an internal error. Check the error message, correct the issue, and try your request again.</p>
+            aws_sdk_transcribe.errors.limit_exceeded_exception.LimitExceededException: <p>You've either sent too many requests or your input file is too long. Wait before retrying your request, or use a smaller file and try your request again.</p>
+            aws_sdk_transcribe.errors.not_found_exception.NotFoundException: <p>We can't find the requested resource. Check that the specified name is correct and try your request again.</p>
+            aws_sdk_transcribe.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1139,6 +1288,13 @@ class TranscribeClient:
 
         Args:
             vocabulary_filter_name: <p>The name of the custom vocabulary filter you want information about. Custom vocabulary filter names are case sensitive.</p>
+
+        Raises:
+            aws_sdk_transcribe.errors.bad_request_exception.BadRequestException: <p>Your request didn't pass one or more validation tests. This can occur when the entity you're trying to delete doesn't exist or if it's in a non-terminal state (such as <code>IN PROGRESS</code>). See the exception message field for more information.</p>
+            aws_sdk_transcribe.errors.internal_failure_exception.InternalFailureException: <p>There was an internal error. Check the error message, correct the issue, and try your request again.</p>
+            aws_sdk_transcribe.errors.limit_exceeded_exception.LimitExceededException: <p>You've either sent too many requests or your input file is too long. Wait before retrying your request, or use a smaller file and try your request again.</p>
+            aws_sdk_transcribe.errors.not_found_exception.NotFoundException: <p>We can't find the requested resource. Check that the specified name is correct and try your request again.</p>
+            aws_sdk_transcribe.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1178,6 +1334,12 @@ class TranscribeClient:
         Args:
             next_token: <p>If your <code>ListCallAnalyticsCategories</code> request returns more results than can be displayed, <code>NextToken</code> is displayed in the response with an associated string. To get the next page of results, copy this string and repeat your request, including <code>NextToken</code> with the value of the copied string. Repeat as needed to view all your results.</p>
             max_results: <p>The maximum number of Call Analytics categories to return in each page of results. If there are fewer results than the value that you specify, only the actual results are returned. If you do not specify a value, a default of 5 is used.</p>
+
+        Raises:
+            aws_sdk_transcribe.errors.bad_request_exception.BadRequestException: <p>Your request didn't pass one or more validation tests. This can occur when the entity you're trying to delete doesn't exist or if it's in a non-terminal state (such as <code>IN PROGRESS</code>). See the exception message field for more information.</p>
+            aws_sdk_transcribe.errors.internal_failure_exception.InternalFailureException: <p>There was an internal error. Check the error message, correct the issue, and try your request again.</p>
+            aws_sdk_transcribe.errors.limit_exceeded_exception.LimitExceededException: <p>You've either sent too many requests or your input file is too long. Wait before retrying your request, or use a smaller file and try your request again.</p>
+            aws_sdk_transcribe.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1228,6 +1390,12 @@ class TranscribeClient:
             job_name_contains: <p>Returns only the Call Analytics jobs that contain the specified string. The search is not case sensitive.</p>
             next_token: <p>If your <code>ListCallAnalyticsJobs</code> request returns more results than can be displayed, <code>NextToken</code> is displayed in the response with an associated string. To get the next page of results, copy this string and repeat your request, including <code>NextToken</code> with the value of the copied string. Repeat as needed to view all your results.</p>
             max_results: <p>The maximum number of Call Analytics jobs to return in each page of results. If there are fewer results than the value that you specify, only the actual results are returned. If you do not specify a value, a default of 5 is used.</p>
+
+        Raises:
+            aws_sdk_transcribe.errors.bad_request_exception.BadRequestException: <p>Your request didn't pass one or more validation tests. This can occur when the entity you're trying to delete doesn't exist or if it's in a non-terminal state (such as <code>IN PROGRESS</code>). See the exception message field for more information.</p>
+            aws_sdk_transcribe.errors.internal_failure_exception.InternalFailureException: <p>There was an internal error. Check the error message, correct the issue, and try your request again.</p>
+            aws_sdk_transcribe.errors.limit_exceeded_exception.LimitExceededException: <p>You've either sent too many requests or your input file is too long. Wait before retrying your request, or use a smaller file and try your request again.</p>
+            aws_sdk_transcribe.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1280,6 +1448,12 @@ class TranscribeClient:
             name_contains: <p>Returns only the custom language models that contain the specified string. The search is not case sensitive.</p>
             next_token: <p>If your <code>ListLanguageModels</code> request returns more results than can be displayed, <code>NextToken</code> is displayed in the response with an associated string. To get the next page of results, copy this string and repeat your request, including <code>NextToken</code> with the value of the copied string. Repeat as needed to view all your results.</p>
             max_results: <p>The maximum number of custom language models to return in each page of results. If there are fewer results than the value that you specify, only the actual results are returned. If you do not specify a value, a default of 5 is used.</p>
+
+        Raises:
+            aws_sdk_transcribe.errors.bad_request_exception.BadRequestException: <p>Your request didn't pass one or more validation tests. This can occur when the entity you're trying to delete doesn't exist or if it's in a non-terminal state (such as <code>IN PROGRESS</code>). See the exception message field for more information.</p>
+            aws_sdk_transcribe.errors.internal_failure_exception.InternalFailureException: <p>There was an internal error. Check the error message, correct the issue, and try your request again.</p>
+            aws_sdk_transcribe.errors.limit_exceeded_exception.LimitExceededException: <p>You've either sent too many requests or your input file is too long. Wait before retrying your request, or use a smaller file and try your request again.</p>
+            aws_sdk_transcribe.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1334,6 +1508,12 @@ class TranscribeClient:
             job_name_contains: <p>Returns only the Medical Scribe jobs that contain the specified string. The search is not case sensitive.</p>
             next_token: <p>If your <code>ListMedicalScribeJobs</code> request returns more results than can be displayed, <code>NextToken</code> is displayed in the response with an associated string. To get the next page of results, copy this string and repeat your request, including <code>NextToken</code> with the value of the copied string. Repeat as needed to view all your results.</p>
             max_results: <p>The maximum number of Medical Scribe jobs to return in each page of results. If there are fewer results than the value that you specify, only the actual results are returned. If you do not specify a value, a default of 5 is used.</p>
+
+        Raises:
+            aws_sdk_transcribe.errors.bad_request_exception.BadRequestException: <p>Your request didn't pass one or more validation tests. This can occur when the entity you're trying to delete doesn't exist or if it's in a non-terminal state (such as <code>IN PROGRESS</code>). See the exception message field for more information.</p>
+            aws_sdk_transcribe.errors.internal_failure_exception.InternalFailureException: <p>There was an internal error. Check the error message, correct the issue, and try your request again.</p>
+            aws_sdk_transcribe.errors.limit_exceeded_exception.LimitExceededException: <p>You've either sent too many requests or your input file is too long. Wait before retrying your request, or use a smaller file and try your request again.</p>
+            aws_sdk_transcribe.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1388,6 +1568,12 @@ class TranscribeClient:
             job_name_contains: <p>Returns only the medical transcription jobs that contain the specified string. The search is not case sensitive.</p>
             next_token: <p>If your <code>ListMedicalTranscriptionJobs</code> request returns more results than can be displayed, <code>NextToken</code> is displayed in the response with an associated string. To get the next page of results, copy this string and repeat your request, including <code>NextToken</code> with the value of the copied string. Repeat as needed to view all your results.</p>
             max_results: <p>The maximum number of medical transcription jobs to return in each page of results. If there are fewer results than the value that you specify, only the actual results are returned. If you do not specify a value, a default of 5 is used.</p>
+
+        Raises:
+            aws_sdk_transcribe.errors.bad_request_exception.BadRequestException: <p>Your request didn't pass one or more validation tests. This can occur when the entity you're trying to delete doesn't exist or if it's in a non-terminal state (such as <code>IN PROGRESS</code>). See the exception message field for more information.</p>
+            aws_sdk_transcribe.errors.internal_failure_exception.InternalFailureException: <p>There was an internal error. Check the error message, correct the issue, and try your request again.</p>
+            aws_sdk_transcribe.errors.limit_exceeded_exception.LimitExceededException: <p>You've either sent too many requests or your input file is too long. Wait before retrying your request, or use a smaller file and try your request again.</p>
+            aws_sdk_transcribe.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1442,6 +1628,12 @@ class TranscribeClient:
             max_results: <p>The maximum number of custom medical vocabularies to return in each page of results. If there are fewer results than the value that you specify, only the actual results are returned. If you do not specify a value, a default of 5 is used.</p>
             state_equals: <p>Returns only custom medical vocabularies with the specified state. Custom vocabularies are ordered by creation date, with the newest vocabulary first. If you do not include <code>StateEquals</code>, all custom medical vocabularies are returned.</p>
             name_contains: <p>Returns only the custom medical vocabularies that contain the specified string. The search is not case sensitive.</p>
+
+        Raises:
+            aws_sdk_transcribe.errors.bad_request_exception.BadRequestException: <p>Your request didn't pass one or more validation tests. This can occur when the entity you're trying to delete doesn't exist or if it's in a non-terminal state (such as <code>IN PROGRESS</code>). See the exception message field for more information.</p>
+            aws_sdk_transcribe.errors.internal_failure_exception.InternalFailureException: <p>There was an internal error. Check the error message, correct the issue, and try your request again.</p>
+            aws_sdk_transcribe.errors.limit_exceeded_exception.LimitExceededException: <p>You've either sent too many requests or your input file is too long. Wait before retrying your request, or use a smaller file and try your request again.</p>
+            aws_sdk_transcribe.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1486,6 +1678,13 @@ class TranscribeClient:
 
         Args:
             resource_arn: <p>Returns a list of all tags associated with the specified Amazon Resource Name (ARN). ARNs have the format <code>arn:partition:service:region:account-id:resource-type/resource-id</code>.</p> <p>For example, <code>arn:aws:transcribe:us-west-2:111122223333:transcription-job/transcription-job-name</code>.</p> <p>Valid values for <code>resource-type</code> are: <code>transcription-job</code>, <code>medical-transcription-job</code>, <code>vocabulary</code>, <code>medical-vocabulary</code>, <code>vocabulary-filter</code>, and <code>language-model</code>.</p>
+
+        Raises:
+            aws_sdk_transcribe.errors.bad_request_exception.BadRequestException: <p>Your request didn't pass one or more validation tests. This can occur when the entity you're trying to delete doesn't exist or if it's in a non-terminal state (such as <code>IN PROGRESS</code>). See the exception message field for more information.</p>
+            aws_sdk_transcribe.errors.internal_failure_exception.InternalFailureException: <p>There was an internal error. Check the error message, correct the issue, and try your request again.</p>
+            aws_sdk_transcribe.errors.limit_exceeded_exception.LimitExceededException: <p>You've either sent too many requests or your input file is too long. Wait before retrying your request, or use a smaller file and try your request again.</p>
+            aws_sdk_transcribe.errors.not_found_exception.NotFoundException: <p>We can't find the requested resource. Check that the specified name is correct and try your request again.</p>
+            aws_sdk_transcribe.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1533,6 +1732,12 @@ class TranscribeClient:
             job_name_contains: <p>Returns only the transcription jobs that contain the specified string. The search is not case sensitive.</p>
             next_token: <p>If your <code>ListTranscriptionJobs</code> request returns more results than can be displayed, <code>NextToken</code> is displayed in the response with an associated string. To get the next page of results, copy this string and repeat your request, including <code>NextToken</code> with the value of the copied string. Repeat as needed to view all your results.</p>
             max_results: <p>The maximum number of transcription jobs to return in each page of results. If there are fewer results than the value that you specify, only the actual results are returned. If you do not specify a value, a default of 5 is used.</p>
+
+        Raises:
+            aws_sdk_transcribe.errors.bad_request_exception.BadRequestException: <p>Your request didn't pass one or more validation tests. This can occur when the entity you're trying to delete doesn't exist or if it's in a non-terminal state (such as <code>IN PROGRESS</code>). See the exception message field for more information.</p>
+            aws_sdk_transcribe.errors.internal_failure_exception.InternalFailureException: <p>There was an internal error. Check the error message, correct the issue, and try your request again.</p>
+            aws_sdk_transcribe.errors.limit_exceeded_exception.LimitExceededException: <p>You've either sent too many requests or your input file is too long. Wait before retrying your request, or use a smaller file and try your request again.</p>
+            aws_sdk_transcribe.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1587,6 +1792,12 @@ class TranscribeClient:
             max_results: <p>The maximum number of custom vocabularies to return in each page of results. If there are fewer results than the value that you specify, only the actual results are returned. If you do not specify a value, a default of 5 is used.</p>
             state_equals: <p>Returns only custom vocabularies with the specified state. Vocabularies are ordered by creation date, with the newest vocabulary first. If you do not include <code>StateEquals</code>, all custom medical vocabularies are returned.</p>
             name_contains: <p>Returns only the custom vocabularies that contain the specified string. The search is not case sensitive.</p>
+
+        Raises:
+            aws_sdk_transcribe.errors.bad_request_exception.BadRequestException: <p>Your request didn't pass one or more validation tests. This can occur when the entity you're trying to delete doesn't exist or if it's in a non-terminal state (such as <code>IN PROGRESS</code>). See the exception message field for more information.</p>
+            aws_sdk_transcribe.errors.internal_failure_exception.InternalFailureException: <p>There was an internal error. Check the error message, correct the issue, and try your request again.</p>
+            aws_sdk_transcribe.errors.limit_exceeded_exception.LimitExceededException: <p>You've either sent too many requests or your input file is too long. Wait before retrying your request, or use a smaller file and try your request again.</p>
+            aws_sdk_transcribe.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1637,6 +1848,12 @@ class TranscribeClient:
             next_token: <p>If your <code>ListVocabularyFilters</code> request returns more results than can be displayed, <code>NextToken</code> is displayed in the response with an associated string. To get the next page of results, copy this string and repeat your request, including <code>NextToken</code> with the value of the copied string. Repeat as needed to view all your results.</p>
             max_results: <p>The maximum number of custom vocabulary filters to return in each page of results. If there are fewer results than the value that you specify, only the actual results are returned. If you do not specify a value, a default of 5 is used.</p>
             name_contains: <p>Returns only the custom vocabulary filters that contain the specified string. The search is not case sensitive.</p>
+
+        Raises:
+            aws_sdk_transcribe.errors.bad_request_exception.BadRequestException: <p>Your request didn't pass one or more validation tests. This can occur when the entity you're trying to delete doesn't exist or if it's in a non-terminal state (such as <code>IN PROGRESS</code>). See the exception message field for more information.</p>
+            aws_sdk_transcribe.errors.internal_failure_exception.InternalFailureException: <p>There was an internal error. Check the error message, correct the issue, and try your request again.</p>
+            aws_sdk_transcribe.errors.limit_exceeded_exception.LimitExceededException: <p>You've either sent too many requests or your input file is too long. Wait before retrying your request, or use a smaller file and try your request again.</p>
+            aws_sdk_transcribe.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1701,6 +1918,13 @@ class TranscribeClient:
             settings: <p>Specify additional optional settings in your request, including content redaction; allows you to apply custom language models, vocabulary filters, and custom vocabularies to your Call Analytics job.</p>
             tags: <p>Adds one or more custom tags, each in the form of a key:value pair, to a new call analytics job at the time you start this new job.</p> <p>To learn more about using tags with Amazon Transcribe, refer to <a href=\"https://docs.aws.amazon.com/transcribe/latest/dg/tagging.html\">Tagging resources</a>.</p>
             channel_definitions: <p>Makes it possible to specify which speaker is on which channel. For example, if your agent is the first participant to speak, you would set <code>ChannelId</code> to <code>0</code> (to indicate the first channel) and <code>ParticipantRole</code> to <code>AGENT</code> (to indicate that it's the agent speaking).</p>
+
+        Raises:
+            aws_sdk_transcribe.errors.bad_request_exception.BadRequestException: <p>Your request didn't pass one or more validation tests. This can occur when the entity you're trying to delete doesn't exist or if it's in a non-terminal state (such as <code>IN PROGRESS</code>). See the exception message field for more information.</p>
+            aws_sdk_transcribe.errors.conflict_exception.ConflictException: <p>A resource already exists with this name. Resource names must be unique within an Amazon Web Services account.</p>
+            aws_sdk_transcribe.errors.internal_failure_exception.InternalFailureException: <p>There was an internal error. Check the error message, correct the issue, and try your request again.</p>
+            aws_sdk_transcribe.errors.limit_exceeded_exception.LimitExceededException: <p>You've either sent too many requests or your input file is too long. Wait before retrying your request, or use a smaller file and try your request again.</p>
+            aws_sdk_transcribe.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1776,6 +2000,13 @@ class TranscribeClient:
             channel_definitions: <p>Makes it possible to specify which speaker is on which channel. For example, if the clinician is the first participant to speak, you would set <code>ChannelId</code> of the first <code>ChannelDefinition</code> in the list to <code>0</code> (to indicate the first channel) and <code>ParticipantRole</code> to <code>CLINICIAN</code> (to indicate that it's the clinician speaking). Then you would set the <code>ChannelId</code> of the second <code>ChannelDefinition</code> in the list to <code>1</code> (to indicate the second channel) and <code>ParticipantRole</code> to <code>PATIENT</code> (to indicate that it's the patient speaking). </p>
             tags: <p>Adds one or more custom tags, each in the form of a key:value pair, to the Medical Scribe job.</p> <p>To learn more about using tags with Amazon Transcribe, refer to <a href=\"https://docs.aws.amazon.com/transcribe/latest/dg/tagging.html\">Tagging resources</a>.</p>
             medical_scribe_context: <p>The <code>MedicalScribeContext</code> object that contains contextual information which is used during clinical note generation to add relevant context to the note.</p>
+
+        Raises:
+            aws_sdk_transcribe.errors.bad_request_exception.BadRequestException: <p>Your request didn't pass one or more validation tests. This can occur when the entity you're trying to delete doesn't exist or if it's in a non-terminal state (such as <code>IN PROGRESS</code>). See the exception message field for more information.</p>
+            aws_sdk_transcribe.errors.conflict_exception.ConflictException: <p>A resource already exists with this name. Resource names must be unique within an Amazon Web Services account.</p>
+            aws_sdk_transcribe.errors.internal_failure_exception.InternalFailureException: <p>There was an internal error. Check the error message, correct the issue, and try your request again.</p>
+            aws_sdk_transcribe.errors.limit_exceeded_exception.LimitExceededException: <p>You've either sent too many requests or your input file is too long. Wait before retrying your request, or use a smaller file and try your request again.</p>
+            aws_sdk_transcribe.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1864,6 +2095,13 @@ class TranscribeClient:
             specialty: <p>Specify the predominant medical specialty represented in your media. For batch transcriptions, <code>PRIMARYCARE</code> is the only valid value. If you require additional specialties, refer to .</p>
             type: <p>Specify whether your input media contains only one person (<code>DICTATION</code>) or contains a conversation between two people (<code>CONVERSATION</code>).</p> <p>For example, <code>DICTATION</code> could be used for a medical professional wanting to transcribe voice memos; <code>CONVERSATION</code> could be used for transcribing the doctor-patient dialogue during the patient's office visit.</p>
             tags: <p>Adds one or more custom tags, each in the form of a key:value pair, to a new medical transcription job at the time you start this new job.</p> <p>To learn more about using tags with Amazon Transcribe, refer to <a href=\"https://docs.aws.amazon.com/transcribe/latest/dg/tagging.html\">Tagging resources</a>.</p>
+
+        Raises:
+            aws_sdk_transcribe.errors.bad_request_exception.BadRequestException: <p>Your request didn't pass one or more validation tests. This can occur when the entity you're trying to delete doesn't exist or if it's in a non-terminal state (such as <code>IN PROGRESS</code>). See the exception message field for more information.</p>
+            aws_sdk_transcribe.errors.conflict_exception.ConflictException: <p>A resource already exists with this name. Resource names must be unique within an Amazon Web Services account.</p>
+            aws_sdk_transcribe.errors.internal_failure_exception.InternalFailureException: <p>There was an internal error. Check the error message, correct the issue, and try your request again.</p>
+            aws_sdk_transcribe.errors.limit_exceeded_exception.LimitExceededException: <p>You've either sent too many requests or your input file is too long. Wait before retrying your request, or use a smaller file and try your request again.</p>
+            aws_sdk_transcribe.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1986,6 +2224,13 @@ class TranscribeClient:
             tags: <p>Adds one or more custom tags, each in the form of a key:value pair, to a new transcription job at the time you start this new job.</p> <p>To learn more about using tags with Amazon Transcribe, refer to <a href=\"https://docs.aws.amazon.com/transcribe/latest/dg/tagging.html\">Tagging resources</a>.</p>
             language_id_settings: <p>If using automatic language identification in your request and you want to apply a custom language model, a custom vocabulary, or a custom vocabulary filter, include <code>LanguageIdSettings</code> with the relevant sub-parameters (<code>VocabularyName</code>, <code>LanguageModelName</code>, and <code>VocabularyFilterName</code>). Note that multi-language identification (<code>IdentifyMultipleLanguages</code>) doesn't support custom language models.</p> <p> <code>LanguageIdSettings</code> supports two to five language codes. Each language code you include can have an associated custom language model, custom vocabulary, and custom vocabulary filter. The language codes that you specify must match the languages of the associated custom language models, custom vocabularies, and custom vocabulary filters.</p> <p>It's recommended that you include <code>LanguageOptions</code> when using <code>LanguageIdSettings</code> to ensure that the correct language dialect is identified. For example, if you specify a custom vocabulary that is in <code>en-US</code> but Amazon Transcribe determines that the language spoken in your media is <code>en-AU</code>, your custom vocabulary <i>is not</i> applied to your transcription. If you include <code>LanguageOptions</code> and include <code>en-US</code> as the only English language dialect, your custom vocabulary <i>is</i> applied to your transcription.</p> <p>If you want to include a custom language model with your request but <b>do not</b> want to use automatic language identification, use instead the <code></code> parameter with the <code>LanguageModelName</code> sub-parameter. If you want to include a custom vocabulary or a custom vocabulary filter (or both) with your request but <b>do not</b> want to use automatic language identification, use instead the <code></code> parameter with the <code>VocabularyName</code> or <code>VocabularyFilterName</code> (or both) sub-parameter.</p>
             toxicity_detection: <p>Enables toxic speech detection in your transcript. If you include <code>ToxicityDetection</code> in your request, you must also include <code>ToxicityCategories</code>.</p> <p>For information on the types of toxic speech Amazon Transcribe can detect, see <a href=\"https://docs.aws.amazon.com/transcribe/latest/dg/toxic-language.html\">Detecting toxic speech</a>.</p>
+
+        Raises:
+            aws_sdk_transcribe.errors.bad_request_exception.BadRequestException: <p>Your request didn't pass one or more validation tests. This can occur when the entity you're trying to delete doesn't exist or if it's in a non-terminal state (such as <code>IN PROGRESS</code>). See the exception message field for more information.</p>
+            aws_sdk_transcribe.errors.conflict_exception.ConflictException: <p>A resource already exists with this name. Resource names must be unique within an Amazon Web Services account.</p>
+            aws_sdk_transcribe.errors.internal_failure_exception.InternalFailureException: <p>There was an internal error. Check the error message, correct the issue, and try your request again.</p>
+            aws_sdk_transcribe.errors.limit_exceeded_exception.LimitExceededException: <p>You've either sent too many requests or your input file is too long. Wait before retrying your request, or use a smaller file and try your request again.</p>
+            aws_sdk_transcribe.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2062,6 +2307,14 @@ class TranscribeClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource you want to tag. ARNs have the format <code>arn:partition:service:region:account-id:resource-type/resource-id</code>.</p> <p>For example, <code>arn:aws:transcribe:us-west-2:111122223333:transcription-job/transcription-job-name</code>.</p> <p>Valid values for <code>resource-type</code> are: <code>transcription-job</code>, <code>medical-transcription-job</code>, <code>vocabulary</code>, <code>medical-vocabulary</code>, <code>vocabulary-filter</code>, and <code>language-model</code>.</p>
             tags: <p>Adds one or more custom tags, each in the form of a key:value pair, to the specified resource.</p> <p>To learn more about using tags with Amazon Transcribe, refer to <a href=\"https://docs.aws.amazon.com/transcribe/latest/dg/tagging.html\">Tagging resources</a>.</p>
+
+        Raises:
+            aws_sdk_transcribe.errors.bad_request_exception.BadRequestException: <p>Your request didn't pass one or more validation tests. This can occur when the entity you're trying to delete doesn't exist or if it's in a non-terminal state (such as <code>IN PROGRESS</code>). See the exception message field for more information.</p>
+            aws_sdk_transcribe.errors.conflict_exception.ConflictException: <p>A resource already exists with this name. Resource names must be unique within an Amazon Web Services account.</p>
+            aws_sdk_transcribe.errors.internal_failure_exception.InternalFailureException: <p>There was an internal error. Check the error message, correct the issue, and try your request again.</p>
+            aws_sdk_transcribe.errors.limit_exceeded_exception.LimitExceededException: <p>You've either sent too many requests or your input file is too long. Wait before retrying your request, or use a smaller file and try your request again.</p>
+            aws_sdk_transcribe.errors.not_found_exception.NotFoundException: <p>We can't find the requested resource. Check that the specified name is correct and try your request again.</p>
+            aws_sdk_transcribe.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2102,6 +2355,14 @@ class TranscribeClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the Amazon Transcribe resource you want to remove tags from. ARNs have the format <code>arn:partition:service:region:account-id:resource-type/resource-id</code>.</p> <p>For example, <code>arn:aws:transcribe:us-west-2:111122223333:transcription-job/transcription-job-name</code>.</p> <p>Valid values for <code>resource-type</code> are: <code>transcription-job</code>, <code>medical-transcription-job</code>, <code>vocabulary</code>, <code>medical-vocabulary</code>, <code>vocabulary-filter</code>, and <code>language-model</code>.</p>
             tag_keys: <p>Removes the specified tag keys from the specified Amazon Transcribe resource.</p>
+
+        Raises:
+            aws_sdk_transcribe.errors.bad_request_exception.BadRequestException: <p>Your request didn't pass one or more validation tests. This can occur when the entity you're trying to delete doesn't exist or if it's in a non-terminal state (such as <code>IN PROGRESS</code>). See the exception message field for more information.</p>
+            aws_sdk_transcribe.errors.conflict_exception.ConflictException: <p>A resource already exists with this name. Resource names must be unique within an Amazon Web Services account.</p>
+            aws_sdk_transcribe.errors.internal_failure_exception.InternalFailureException: <p>There was an internal error. Check the error message, correct the issue, and try your request again.</p>
+            aws_sdk_transcribe.errors.limit_exceeded_exception.LimitExceededException: <p>You've either sent too many requests or your input file is too long. Wait before retrying your request, or use a smaller file and try your request again.</p>
+            aws_sdk_transcribe.errors.not_found_exception.NotFoundException: <p>We can't find the requested resource. Check that the specified name is correct and try your request again.</p>
+            aws_sdk_transcribe.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2144,6 +2405,14 @@ class TranscribeClient:
             category_name: <p>The name of the Call Analytics category you want to update. Category names are case sensitive.</p>
             rules: <p>The rules used for the updated Call Analytics category. The rules you provide in this field replace the ones that are currently being used in the specified category.</p>
             input_type: <p>Choose whether you want to update a real-time or a post-call category. The input type you specify must match the input type specified when the category was created. For example, if you created a category with the <code>POST_CALL</code> input type, you must use <code>POST_CALL</code> as the input type when updating this category.</p>
+
+        Raises:
+            aws_sdk_transcribe.errors.bad_request_exception.BadRequestException: <p>Your request didn't pass one or more validation tests. This can occur when the entity you're trying to delete doesn't exist or if it's in a non-terminal state (such as <code>IN PROGRESS</code>). See the exception message field for more information.</p>
+            aws_sdk_transcribe.errors.conflict_exception.ConflictException: <p>A resource already exists with this name. Resource names must be unique within an Amazon Web Services account.</p>
+            aws_sdk_transcribe.errors.internal_failure_exception.InternalFailureException: <p>There was an internal error. Check the error message, correct the issue, and try your request again.</p>
+            aws_sdk_transcribe.errors.limit_exceeded_exception.LimitExceededException: <p>You've either sent too many requests or your input file is too long. Wait before retrying your request, or use a smaller file and try your request again.</p>
+            aws_sdk_transcribe.errors.not_found_exception.NotFoundException: <p>We can't find the requested resource. Check that the specified name is correct and try your request again.</p>
+            aws_sdk_transcribe.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2188,6 +2457,14 @@ class TranscribeClient:
             vocabulary_name: <p>The name of the custom medical vocabulary you want to update. Custom medical vocabulary names are case sensitive.</p>
             language_code: <p>The language code that represents the language of the entries in the custom vocabulary you want to update. US English (<code>en-US</code>) is the only language supported with Amazon Transcribe Medical.</p>
             vocabulary_file_uri: <p>The Amazon S3 location of the text file that contains your custom medical vocabulary. The URI must be located in the same Amazon Web Services Region as the resource you're calling.</p> <p>Here's an example URI path: <code>s3://DOC-EXAMPLE-BUCKET/my-vocab-file.txt</code> </p>
+
+        Raises:
+            aws_sdk_transcribe.errors.bad_request_exception.BadRequestException: <p>Your request didn't pass one or more validation tests. This can occur when the entity you're trying to delete doesn't exist or if it's in a non-terminal state (such as <code>IN PROGRESS</code>). See the exception message field for more information.</p>
+            aws_sdk_transcribe.errors.conflict_exception.ConflictException: <p>A resource already exists with this name. Resource names must be unique within an Amazon Web Services account.</p>
+            aws_sdk_transcribe.errors.internal_failure_exception.InternalFailureException: <p>There was an internal error. Check the error message, correct the issue, and try your request again.</p>
+            aws_sdk_transcribe.errors.limit_exceeded_exception.LimitExceededException: <p>You've either sent too many requests or your input file is too long. Wait before retrying your request, or use a smaller file and try your request again.</p>
+            aws_sdk_transcribe.errors.not_found_exception.NotFoundException: <p>We can't find the requested resource. Check that the specified name is correct and try your request again.</p>
+            aws_sdk_transcribe.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2237,6 +2514,14 @@ class TranscribeClient:
             phrases: <p>Use this parameter if you want to update your custom vocabulary by including all desired terms, as comma-separated values, within your request. The other option for updating your custom vocabulary is to save your entries in a text file and upload them to an Amazon S3 bucket, then specify the location of your file using the <code>VocabularyFileUri</code> parameter.</p> <p>Note that if you include <code>Phrases</code> in your request, you cannot use <code>VocabularyFileUri</code>; you must choose one or the other.</p> <p>Each language has a character set that contains all allowed characters for that specific language. If you use unsupported characters, your custom vocabulary filter request fails. Refer to <a href=\"https://docs.aws.amazon.com/transcribe/latest/dg/charsets.html\">Character Sets for Custom Vocabularies</a> to get the character set for your language.</p>
             vocabulary_file_uri: <p>The Amazon S3 location of the text file that contains your custom vocabulary. The URI must be located in the same Amazon Web Services Region as the resource you're calling.</p> <p>Here's an example URI path: <code>s3://DOC-EXAMPLE-BUCKET/my-vocab-file.txt</code> </p> <p>Note that if you include <code>VocabularyFileUri</code> in your request, you cannot use the <code>Phrases</code> flag; you must choose one or the other.</p>
             data_access_role_arn: <p>The Amazon Resource Name (ARN) of an IAM role that has permissions to access the Amazon S3 bucket that contains your input files (in this case, your custom vocabulary). If the role that you specify doesn’t have the appropriate permissions to access the specified Amazon S3 location, your request fails.</p> <p>IAM role ARNs have the format <code>arn:partition:iam::account:role/role-name-with-path</code>. For example: <code>arn:aws:iam::111122223333:role/Admin</code>.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-arns\">IAM ARNs</a>.</p>
+
+        Raises:
+            aws_sdk_transcribe.errors.bad_request_exception.BadRequestException: <p>Your request didn't pass one or more validation tests. This can occur when the entity you're trying to delete doesn't exist or if it's in a non-terminal state (such as <code>IN PROGRESS</code>). See the exception message field for more information.</p>
+            aws_sdk_transcribe.errors.conflict_exception.ConflictException: <p>A resource already exists with this name. Resource names must be unique within an Amazon Web Services account.</p>
+            aws_sdk_transcribe.errors.internal_failure_exception.InternalFailureException: <p>There was an internal error. Check the error message, correct the issue, and try your request again.</p>
+            aws_sdk_transcribe.errors.limit_exceeded_exception.LimitExceededException: <p>You've either sent too many requests or your input file is too long. Wait before retrying your request, or use a smaller file and try your request again.</p>
+            aws_sdk_transcribe.errors.not_found_exception.NotFoundException: <p>We can't find the requested resource. Check that the specified name is correct and try your request again.</p>
+            aws_sdk_transcribe.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2289,6 +2574,13 @@ class TranscribeClient:
             words: <p>Use this parameter if you want to update your custom vocabulary filter by including all desired terms, as comma-separated values, within your request. The other option for updating your vocabulary filter is to save your entries in a text file and upload them to an Amazon S3 bucket, then specify the location of your file using the <code>VocabularyFilterFileUri</code> parameter.</p> <p>Note that if you include <code>Words</code> in your request, you cannot use <code>VocabularyFilterFileUri</code>; you must choose one or the other.</p> <p>Each language has a character set that contains all allowed characters for that specific language. If you use unsupported characters, your custom vocabulary filter request fails. Refer to <a href=\"https://docs.aws.amazon.com/transcribe/latest/dg/charsets.html\">Character Sets for Custom Vocabularies</a> to get the character set for your language.</p>
             vocabulary_filter_file_uri: <p>The Amazon S3 location of the text file that contains your custom vocabulary filter terms. The URI must be located in the same Amazon Web Services Region as the resource you're calling.</p> <p>Here's an example URI path: <code>s3://DOC-EXAMPLE-BUCKET/my-vocab-filter-file.txt</code> </p> <p>Note that if you include <code>VocabularyFilterFileUri</code> in your request, you cannot use <code>Words</code>; you must choose one or the other.</p>
             data_access_role_arn: <p>The Amazon Resource Name (ARN) of an IAM role that has permissions to access the Amazon S3 bucket that contains your input files (in this case, your custom vocabulary filter). If the role that you specify doesn’t have the appropriate permissions to access the specified Amazon S3 location, your request fails.</p> <p>IAM role ARNs have the format <code>arn:partition:iam::account:role/role-name-with-path</code>. For example: <code>arn:aws:iam::111122223333:role/Admin</code>.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-arns\">IAM ARNs</a>.</p>
+
+        Raises:
+            aws_sdk_transcribe.errors.bad_request_exception.BadRequestException: <p>Your request didn't pass one or more validation tests. This can occur when the entity you're trying to delete doesn't exist or if it's in a non-terminal state (such as <code>IN PROGRESS</code>). See the exception message field for more information.</p>
+            aws_sdk_transcribe.errors.internal_failure_exception.InternalFailureException: <p>There was an internal error. Check the error message, correct the issue, and try your request again.</p>
+            aws_sdk_transcribe.errors.limit_exceeded_exception.LimitExceededException: <p>You've either sent too many requests or your input file is too long. Wait before retrying your request, or use a smaller file and try your request again.</p>
+            aws_sdk_transcribe.errors.not_found_exception.NotFoundException: <p>We can't find the requested resource. Check that the specified name is correct and try your request again.</p>
+            aws_sdk_transcribe.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(

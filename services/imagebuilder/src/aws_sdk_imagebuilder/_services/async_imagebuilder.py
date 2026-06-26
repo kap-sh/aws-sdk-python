@@ -391,6 +391,17 @@ class AsyncimagebuilderClient:
         Args:
             image_build_version_arn: <p>The Amazon Resource Name (ARN) of the image that you want to cancel creation for.</p>
             client_token: <p>Unique, case-sensitive identifier you provide to ensure idempotency of the request. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html\">Ensuring idempotency</a> in the <i>Amazon EC2 API Reference</i>.</p>
+
+        Raises:
+            aws_sdk_imagebuilder.errors.call_rate_limit_exceeded_exception.CallRateLimitExceededException: <p>You have exceeded the permitted request rate for the specific operation.</p>
+            aws_sdk_imagebuilder.errors.client_exception.ClientException: <p>These errors are usually caused by a client action, such as using an action or resource on behalf of a user that doesn't have permissions to use the action or resource, or specifying an invalid resource identifier.</p>
+            aws_sdk_imagebuilder.errors.forbidden_exception.ForbiddenException: <p>You are not authorized to perform the requested operation.</p>
+            aws_sdk_imagebuilder.errors.idempotent_parameter_mismatch_exception.IdempotentParameterMismatchException: <p>You have specified a client token for an operation using parameter values that differ from a previous request that used the same client token.</p>
+            aws_sdk_imagebuilder.errors.invalid_request_exception.InvalidRequestException: <p>You have requested an action that that the service doesn't support.</p>
+            aws_sdk_imagebuilder.errors.resource_in_use_exception.ResourceInUseException: <p>The resource that you are trying to operate on is currently in use. Review the message details and retry later.</p>
+            aws_sdk_imagebuilder.errors.service_exception.ServiceException: <p>This exception is thrown when the service encounters an unrecoverable exception.</p>
+            aws_sdk_imagebuilder.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is unable to process your request at this time.</p>
+            aws_sdk_imagebuilder.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -432,6 +443,17 @@ class AsyncimagebuilderClient:
         Args:
             lifecycle_execution_id: <p>Identifies the specific runtime instance of the image lifecycle to cancel.</p>
             client_token: <p>Unique, case-sensitive identifier you provide to ensure idempotency of the request. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html\">Ensuring idempotency</a> in the <i>Amazon EC2 API Reference</i>.</p>
+
+        Raises:
+            aws_sdk_imagebuilder.errors.call_rate_limit_exceeded_exception.CallRateLimitExceededException: <p>You have exceeded the permitted request rate for the specific operation.</p>
+            aws_sdk_imagebuilder.errors.client_exception.ClientException: <p>These errors are usually caused by a client action, such as using an action or resource on behalf of a user that doesn't have permissions to use the action or resource, or specifying an invalid resource identifier.</p>
+            aws_sdk_imagebuilder.errors.forbidden_exception.ForbiddenException: <p>You are not authorized to perform the requested operation.</p>
+            aws_sdk_imagebuilder.errors.idempotent_parameter_mismatch_exception.IdempotentParameterMismatchException: <p>You have specified a client token for an operation using parameter values that differ from a previous request that used the same client token.</p>
+            aws_sdk_imagebuilder.errors.invalid_request_exception.InvalidRequestException: <p>You have requested an action that that the service doesn't support.</p>
+            aws_sdk_imagebuilder.errors.resource_in_use_exception.ResourceInUseException: <p>The resource that you are trying to operate on is currently in use. Review the message details and retry later.</p>
+            aws_sdk_imagebuilder.errors.service_exception.ServiceException: <p>This exception is thrown when the service encounters an unrecoverable exception.</p>
+            aws_sdk_imagebuilder.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is unable to process your request at this time.</p>
+            aws_sdk_imagebuilder.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -503,6 +525,21 @@ class AsyncimagebuilderClient:
             tags: <p>The tags that apply to the component.</p>
             client_token: <p>Unique, case-sensitive identifier you provide to ensure idempotency of the request. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html\">Ensuring idempotency</a> in the <i>Amazon EC2 API Reference</i>.</p>
             dry_run: <p>Validates the required permissions for the operation and the request parameters, without actually making the request, and provides an error response. Upon a successful request, the error response is <code>DryRunOperationException</code>.</p>
+
+        Raises:
+            aws_sdk_imagebuilder.errors.call_rate_limit_exceeded_exception.CallRateLimitExceededException: <p>You have exceeded the permitted request rate for the specific operation.</p>
+            aws_sdk_imagebuilder.errors.client_exception.ClientException: <p>These errors are usually caused by a client action, such as using an action or resource on behalf of a user that doesn't have permissions to use the action or resource, or specifying an invalid resource identifier.</p>
+            aws_sdk_imagebuilder.errors.dry_run_operation_exception.DryRunOperationException: <p>The dry run operation of the resource was successful, and no resources or mutations were actually performed due to the dry run flag in the request.</p>
+            aws_sdk_imagebuilder.errors.forbidden_exception.ForbiddenException: <p>You are not authorized to perform the requested operation.</p>
+            aws_sdk_imagebuilder.errors.idempotent_parameter_mismatch_exception.IdempotentParameterMismatchException: <p>You have specified a client token for an operation using parameter values that differ from a previous request that used the same client token.</p>
+            aws_sdk_imagebuilder.errors.invalid_parameter_combination_exception.InvalidParameterCombinationException: <p>You have specified two or more mutually exclusive parameters. Review the error message for details.</p>
+            aws_sdk_imagebuilder.errors.invalid_request_exception.InvalidRequestException: <p>You have requested an action that that the service doesn't support.</p>
+            aws_sdk_imagebuilder.errors.invalid_version_number_exception.InvalidVersionNumberException: <p>Your version number is out of bounds or does not follow the required syntax.</p>
+            aws_sdk_imagebuilder.errors.resource_in_use_exception.ResourceInUseException: <p>The resource that you are trying to operate on is currently in use. Review the message details and retry later.</p>
+            aws_sdk_imagebuilder.errors.service_exception.ServiceException: <p>This exception is thrown when the service encounters an unrecoverable exception.</p>
+            aws_sdk_imagebuilder.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You have exceeded the number of permitted resources or operations for this service. For service quotas, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/imagebuilder.html#limits_imagebuilder\">EC2 Image Builder endpoints and quotas</a>.</p>
+            aws_sdk_imagebuilder.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is unable to process your request at this time.</p>
+            aws_sdk_imagebuilder.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -606,6 +643,20 @@ class AsyncimagebuilderClient:
             target_repository: <p>The destination repository for the container image.</p>
             kms_key_id: <p>The Amazon Resource Name (ARN) that uniquely identifies which KMS key is used to encrypt the Dockerfile template. This can be either the Key ARN or the Alias ARN. For more information, see <a href=\"https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN\">Key identifiers (KeyId)</a> in the <i>Key Management Service Developer Guide</i>.</p>
             client_token: <p>Unique, case-sensitive identifier you provide to ensure idempotency of the request. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html\">Ensuring idempotency</a> in the <i>Amazon EC2 API Reference</i>.</p>
+
+        Raises:
+            aws_sdk_imagebuilder.errors.call_rate_limit_exceeded_exception.CallRateLimitExceededException: <p>You have exceeded the permitted request rate for the specific operation.</p>
+            aws_sdk_imagebuilder.errors.client_exception.ClientException: <p>These errors are usually caused by a client action, such as using an action or resource on behalf of a user that doesn't have permissions to use the action or resource, or specifying an invalid resource identifier.</p>
+            aws_sdk_imagebuilder.errors.forbidden_exception.ForbiddenException: <p>You are not authorized to perform the requested operation.</p>
+            aws_sdk_imagebuilder.errors.idempotent_parameter_mismatch_exception.IdempotentParameterMismatchException: <p>You have specified a client token for an operation using parameter values that differ from a previous request that used the same client token.</p>
+            aws_sdk_imagebuilder.errors.invalid_request_exception.InvalidRequestException: <p>You have requested an action that that the service doesn't support.</p>
+            aws_sdk_imagebuilder.errors.invalid_version_number_exception.InvalidVersionNumberException: <p>Your version number is out of bounds or does not follow the required syntax.</p>
+            aws_sdk_imagebuilder.errors.resource_already_exists_exception.ResourceAlreadyExistsException: <p>The resource that you are trying to create already exists.</p>
+            aws_sdk_imagebuilder.errors.resource_in_use_exception.ResourceInUseException: <p>The resource that you are trying to operate on is currently in use. Review the message details and retry later.</p>
+            aws_sdk_imagebuilder.errors.service_exception.ServiceException: <p>This exception is thrown when the service encounters an unrecoverable exception.</p>
+            aws_sdk_imagebuilder.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You have exceeded the number of permitted resources or operations for this service. For service quotas, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/imagebuilder.html#limits_imagebuilder\">EC2 Image Builder endpoints and quotas</a>.</p>
+            aws_sdk_imagebuilder.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is unable to process your request at this time.</p>
+            aws_sdk_imagebuilder.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -679,6 +730,20 @@ class AsyncimagebuilderClient:
             distributions: <p>The distributions of the distribution configuration.</p>
             tags: <p>The tags of the distribution configuration.</p>
             client_token: <p>Unique, case-sensitive identifier you provide to ensure idempotency of the request. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html\">Ensuring idempotency</a> in the <i>Amazon EC2 API Reference</i>.</p>
+
+        Raises:
+            aws_sdk_imagebuilder.errors.call_rate_limit_exceeded_exception.CallRateLimitExceededException: <p>You have exceeded the permitted request rate for the specific operation.</p>
+            aws_sdk_imagebuilder.errors.client_exception.ClientException: <p>These errors are usually caused by a client action, such as using an action or resource on behalf of a user that doesn't have permissions to use the action or resource, or specifying an invalid resource identifier.</p>
+            aws_sdk_imagebuilder.errors.forbidden_exception.ForbiddenException: <p>You are not authorized to perform the requested operation.</p>
+            aws_sdk_imagebuilder.errors.idempotent_parameter_mismatch_exception.IdempotentParameterMismatchException: <p>You have specified a client token for an operation using parameter values that differ from a previous request that used the same client token.</p>
+            aws_sdk_imagebuilder.errors.invalid_parameter_combination_exception.InvalidParameterCombinationException: <p>You have specified two or more mutually exclusive parameters. Review the error message for details.</p>
+            aws_sdk_imagebuilder.errors.invalid_request_exception.InvalidRequestException: <p>You have requested an action that that the service doesn't support.</p>
+            aws_sdk_imagebuilder.errors.resource_already_exists_exception.ResourceAlreadyExistsException: <p>The resource that you are trying to create already exists.</p>
+            aws_sdk_imagebuilder.errors.resource_in_use_exception.ResourceInUseException: <p>The resource that you are trying to operate on is currently in use. Review the message details and retry later.</p>
+            aws_sdk_imagebuilder.errors.service_exception.ServiceException: <p>This exception is thrown when the service encounters an unrecoverable exception.</p>
+            aws_sdk_imagebuilder.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You have exceeded the number of permitted resources or operations for this service. For service quotas, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/imagebuilder.html#limits_imagebuilder\">EC2 Image Builder endpoints and quotas</a>.</p>
+            aws_sdk_imagebuilder.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is unable to process your request at this time.</p>
+            aws_sdk_imagebuilder.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -763,6 +828,18 @@ class AsyncimagebuilderClient:
             workflows: <p>Contains an array of workflow configuration objects.</p>
             execution_role: <p>The name or Amazon Resource Name (ARN) for the IAM role you create that grants Image Builder access to perform workflow actions.</p>
             logging_configuration: <p>Define logging configuration for the image build process.</p>
+
+        Raises:
+            aws_sdk_imagebuilder.errors.call_rate_limit_exceeded_exception.CallRateLimitExceededException: <p>You have exceeded the permitted request rate for the specific operation.</p>
+            aws_sdk_imagebuilder.errors.client_exception.ClientException: <p>These errors are usually caused by a client action, such as using an action or resource on behalf of a user that doesn't have permissions to use the action or resource, or specifying an invalid resource identifier.</p>
+            aws_sdk_imagebuilder.errors.forbidden_exception.ForbiddenException: <p>You are not authorized to perform the requested operation.</p>
+            aws_sdk_imagebuilder.errors.idempotent_parameter_mismatch_exception.IdempotentParameterMismatchException: <p>You have specified a client token for an operation using parameter values that differ from a previous request that used the same client token.</p>
+            aws_sdk_imagebuilder.errors.invalid_request_exception.InvalidRequestException: <p>You have requested an action that that the service doesn't support.</p>
+            aws_sdk_imagebuilder.errors.resource_in_use_exception.ResourceInUseException: <p>The resource that you are trying to operate on is currently in use. Review the message details and retry later.</p>
+            aws_sdk_imagebuilder.errors.service_exception.ServiceException: <p>This exception is thrown when the service encounters an unrecoverable exception.</p>
+            aws_sdk_imagebuilder.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You have exceeded the number of permitted resources or operations for this service. For service quotas, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/imagebuilder.html#limits_imagebuilder\">EC2 Image Builder endpoints and quotas</a>.</p>
+            aws_sdk_imagebuilder.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is unable to process your request at this time.</p>
+            aws_sdk_imagebuilder.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -876,6 +953,19 @@ class AsyncimagebuilderClient:
             workflows: <p>Contains an array of workflow configuration objects.</p>
             execution_role: <p>The name or Amazon Resource Name (ARN) for the IAM role you create that grants Image Builder access to perform workflow actions.</p>
             logging_configuration: <p>Define logging configuration for the image build process.</p>
+
+        Raises:
+            aws_sdk_imagebuilder.errors.call_rate_limit_exceeded_exception.CallRateLimitExceededException: <p>You have exceeded the permitted request rate for the specific operation.</p>
+            aws_sdk_imagebuilder.errors.client_exception.ClientException: <p>These errors are usually caused by a client action, such as using an action or resource on behalf of a user that doesn't have permissions to use the action or resource, or specifying an invalid resource identifier.</p>
+            aws_sdk_imagebuilder.errors.forbidden_exception.ForbiddenException: <p>You are not authorized to perform the requested operation.</p>
+            aws_sdk_imagebuilder.errors.idempotent_parameter_mismatch_exception.IdempotentParameterMismatchException: <p>You have specified a client token for an operation using parameter values that differ from a previous request that used the same client token.</p>
+            aws_sdk_imagebuilder.errors.invalid_request_exception.InvalidRequestException: <p>You have requested an action that that the service doesn't support.</p>
+            aws_sdk_imagebuilder.errors.resource_already_exists_exception.ResourceAlreadyExistsException: <p>The resource that you are trying to create already exists.</p>
+            aws_sdk_imagebuilder.errors.resource_in_use_exception.ResourceInUseException: <p>The resource that you are trying to operate on is currently in use. Review the message details and retry later.</p>
+            aws_sdk_imagebuilder.errors.service_exception.ServiceException: <p>This exception is thrown when the service encounters an unrecoverable exception.</p>
+            aws_sdk_imagebuilder.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You have exceeded the number of permitted resources or operations for this service. For service quotas, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/imagebuilder.html#limits_imagebuilder\">EC2 Image Builder endpoints and quotas</a>.</p>
+            aws_sdk_imagebuilder.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is unable to process your request at this time.</p>
+            aws_sdk_imagebuilder.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -974,6 +1064,20 @@ class AsyncimagebuilderClient:
             additional_instance_configuration: <p>Specify additional settings and launch scripts for your build instances.</p>
             ami_tags: <p>Tags that are applied to the AMI that Image Builder creates during the Build phase prior to image distribution.</p>
             client_token: <p>Unique, case-sensitive identifier you provide to ensure idempotency of the request. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html\">Ensuring idempotency</a> in the <i>Amazon EC2 API Reference</i>.</p>
+
+        Raises:
+            aws_sdk_imagebuilder.errors.call_rate_limit_exceeded_exception.CallRateLimitExceededException: <p>You have exceeded the permitted request rate for the specific operation.</p>
+            aws_sdk_imagebuilder.errors.client_exception.ClientException: <p>These errors are usually caused by a client action, such as using an action or resource on behalf of a user that doesn't have permissions to use the action or resource, or specifying an invalid resource identifier.</p>
+            aws_sdk_imagebuilder.errors.forbidden_exception.ForbiddenException: <p>You are not authorized to perform the requested operation.</p>
+            aws_sdk_imagebuilder.errors.idempotent_parameter_mismatch_exception.IdempotentParameterMismatchException: <p>You have specified a client token for an operation using parameter values that differ from a previous request that used the same client token.</p>
+            aws_sdk_imagebuilder.errors.invalid_request_exception.InvalidRequestException: <p>You have requested an action that that the service doesn't support.</p>
+            aws_sdk_imagebuilder.errors.invalid_version_number_exception.InvalidVersionNumberException: <p>Your version number is out of bounds or does not follow the required syntax.</p>
+            aws_sdk_imagebuilder.errors.resource_already_exists_exception.ResourceAlreadyExistsException: <p>The resource that you are trying to create already exists.</p>
+            aws_sdk_imagebuilder.errors.resource_in_use_exception.ResourceInUseException: <p>The resource that you are trying to operate on is currently in use. Review the message details and retry later.</p>
+            aws_sdk_imagebuilder.errors.service_exception.ServiceException: <p>This exception is thrown when the service encounters an unrecoverable exception.</p>
+            aws_sdk_imagebuilder.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You have exceeded the number of permitted resources or operations for this service. For service quotas, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/imagebuilder.html#limits_imagebuilder\">EC2 Image Builder endpoints and quotas</a>.</p>
+            aws_sdk_imagebuilder.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is unable to process your request at this time.</p>
+            aws_sdk_imagebuilder.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1077,6 +1181,19 @@ class AsyncimagebuilderClient:
             tags: <p>The metadata tags to assign to the infrastructure configuration resource that Image Builder creates as output. Tags are formatted as key value pairs.</p>
             placement: <p>The instance placement settings that define where the instances that are launched from your image will run.</p>
             client_token: <p>Unique, case-sensitive identifier you provide to ensure idempotency of the request. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html\">Ensuring idempotency</a> in the <i>Amazon EC2 API Reference</i>.</p>
+
+        Raises:
+            aws_sdk_imagebuilder.errors.call_rate_limit_exceeded_exception.CallRateLimitExceededException: <p>You have exceeded the permitted request rate for the specific operation.</p>
+            aws_sdk_imagebuilder.errors.client_exception.ClientException: <p>These errors are usually caused by a client action, such as using an action or resource on behalf of a user that doesn't have permissions to use the action or resource, or specifying an invalid resource identifier.</p>
+            aws_sdk_imagebuilder.errors.forbidden_exception.ForbiddenException: <p>You are not authorized to perform the requested operation.</p>
+            aws_sdk_imagebuilder.errors.idempotent_parameter_mismatch_exception.IdempotentParameterMismatchException: <p>You have specified a client token for an operation using parameter values that differ from a previous request that used the same client token.</p>
+            aws_sdk_imagebuilder.errors.invalid_request_exception.InvalidRequestException: <p>You have requested an action that that the service doesn't support.</p>
+            aws_sdk_imagebuilder.errors.resource_already_exists_exception.ResourceAlreadyExistsException: <p>The resource that you are trying to create already exists.</p>
+            aws_sdk_imagebuilder.errors.resource_in_use_exception.ResourceInUseException: <p>The resource that you are trying to operate on is currently in use. Review the message details and retry later.</p>
+            aws_sdk_imagebuilder.errors.service_exception.ServiceException: <p>This exception is thrown when the service encounters an unrecoverable exception.</p>
+            aws_sdk_imagebuilder.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You have exceeded the number of permitted resources or operations for this service. For service quotas, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/imagebuilder.html#limits_imagebuilder\">EC2 Image Builder endpoints and quotas</a>.</p>
+            aws_sdk_imagebuilder.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is unable to process your request at this time.</p>
+            aws_sdk_imagebuilder.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1161,6 +1278,19 @@ class AsyncimagebuilderClient:
             resource_selection: <p>Selection criteria for the resources that the lifecycle policy applies to. </p>
             tags: <p>Tags to apply to the lifecycle policy resource.</p>
             client_token: <p>Unique, case-sensitive identifier you provide to ensure idempotency of the request. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html\">Ensuring idempotency</a> in the <i>Amazon EC2 API Reference</i>.</p>
+
+        Raises:
+            aws_sdk_imagebuilder.errors.call_rate_limit_exceeded_exception.CallRateLimitExceededException: <p>You have exceeded the permitted request rate for the specific operation.</p>
+            aws_sdk_imagebuilder.errors.client_exception.ClientException: <p>These errors are usually caused by a client action, such as using an action or resource on behalf of a user that doesn't have permissions to use the action or resource, or specifying an invalid resource identifier.</p>
+            aws_sdk_imagebuilder.errors.forbidden_exception.ForbiddenException: <p>You are not authorized to perform the requested operation.</p>
+            aws_sdk_imagebuilder.errors.idempotent_parameter_mismatch_exception.IdempotentParameterMismatchException: <p>You have specified a client token for an operation using parameter values that differ from a previous request that used the same client token.</p>
+            aws_sdk_imagebuilder.errors.invalid_request_exception.InvalidRequestException: <p>You have requested an action that that the service doesn't support.</p>
+            aws_sdk_imagebuilder.errors.resource_already_exists_exception.ResourceAlreadyExistsException: <p>The resource that you are trying to create already exists.</p>
+            aws_sdk_imagebuilder.errors.resource_in_use_exception.ResourceInUseException: <p>The resource that you are trying to operate on is currently in use. Review the message details and retry later.</p>
+            aws_sdk_imagebuilder.errors.service_exception.ServiceException: <p>This exception is thrown when the service encounters an unrecoverable exception.</p>
+            aws_sdk_imagebuilder.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You have exceeded the number of permitted resources or operations for this service. For service quotas, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/imagebuilder.html#limits_imagebuilder\">EC2 Image Builder endpoints and quotas</a>.</p>
+            aws_sdk_imagebuilder.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is unable to process your request at this time.</p>
+            aws_sdk_imagebuilder.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1238,6 +1368,21 @@ class AsyncimagebuilderClient:
             client_token: <p>Unique, case-sensitive identifier you provide to ensure idempotency of the request. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html\">Ensuring idempotency</a> in the <i>Amazon EC2 API Reference</i>.</p>
             type: <p>The phase in the image build process for which the workflow resource is responsible.</p>
             dry_run: <p>Validates the required permissions for the operation and the request parameters, without actually making the request, and provides an error response. Upon a successful request, the error response is <code>DryRunOperationException</code>.</p>
+
+        Raises:
+            aws_sdk_imagebuilder.errors.call_rate_limit_exceeded_exception.CallRateLimitExceededException: <p>You have exceeded the permitted request rate for the specific operation.</p>
+            aws_sdk_imagebuilder.errors.client_exception.ClientException: <p>These errors are usually caused by a client action, such as using an action or resource on behalf of a user that doesn't have permissions to use the action or resource, or specifying an invalid resource identifier.</p>
+            aws_sdk_imagebuilder.errors.dry_run_operation_exception.DryRunOperationException: <p>The dry run operation of the resource was successful, and no resources or mutations were actually performed due to the dry run flag in the request.</p>
+            aws_sdk_imagebuilder.errors.forbidden_exception.ForbiddenException: <p>You are not authorized to perform the requested operation.</p>
+            aws_sdk_imagebuilder.errors.idempotent_parameter_mismatch_exception.IdempotentParameterMismatchException: <p>You have specified a client token for an operation using parameter values that differ from a previous request that used the same client token.</p>
+            aws_sdk_imagebuilder.errors.invalid_parameter_combination_exception.InvalidParameterCombinationException: <p>You have specified two or more mutually exclusive parameters. Review the error message for details.</p>
+            aws_sdk_imagebuilder.errors.invalid_request_exception.InvalidRequestException: <p>You have requested an action that that the service doesn't support.</p>
+            aws_sdk_imagebuilder.errors.invalid_version_number_exception.InvalidVersionNumberException: <p>Your version number is out of bounds or does not follow the required syntax.</p>
+            aws_sdk_imagebuilder.errors.resource_in_use_exception.ResourceInUseException: <p>The resource that you are trying to operate on is currently in use. Review the message details and retry later.</p>
+            aws_sdk_imagebuilder.errors.service_exception.ServiceException: <p>This exception is thrown when the service encounters an unrecoverable exception.</p>
+            aws_sdk_imagebuilder.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You have exceeded the number of permitted resources or operations for this service. For service quotas, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/imagebuilder.html#limits_imagebuilder\">EC2 Image Builder endpoints and quotas</a>.</p>
+            aws_sdk_imagebuilder.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is unable to process your request at this time.</p>
+            aws_sdk_imagebuilder.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1293,6 +1438,16 @@ class AsyncimagebuilderClient:
 
         Args:
             component_build_version_arn: <p>The Amazon Resource Name (ARN) of the component build version to delete.</p>
+
+        Raises:
+            aws_sdk_imagebuilder.errors.call_rate_limit_exceeded_exception.CallRateLimitExceededException: <p>You have exceeded the permitted request rate for the specific operation.</p>
+            aws_sdk_imagebuilder.errors.client_exception.ClientException: <p>These errors are usually caused by a client action, such as using an action or resource on behalf of a user that doesn't have permissions to use the action or resource, or specifying an invalid resource identifier.</p>
+            aws_sdk_imagebuilder.errors.forbidden_exception.ForbiddenException: <p>You are not authorized to perform the requested operation.</p>
+            aws_sdk_imagebuilder.errors.invalid_request_exception.InvalidRequestException: <p>You have requested an action that that the service doesn't support.</p>
+            aws_sdk_imagebuilder.errors.resource_dependency_exception.ResourceDependencyException: <p>You have attempted to mutate or delete a resource with a dependency that prohibits this action. See the error message for more details.</p>
+            aws_sdk_imagebuilder.errors.service_exception.ServiceException: <p>This exception is thrown when the service encounters an unrecoverable exception.</p>
+            aws_sdk_imagebuilder.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is unable to process your request at this time.</p>
+            aws_sdk_imagebuilder.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1331,6 +1486,16 @@ class AsyncimagebuilderClient:
 
         Args:
             container_recipe_arn: <p>The Amazon Resource Name (ARN) of the container recipe to delete.</p>
+
+        Raises:
+            aws_sdk_imagebuilder.errors.call_rate_limit_exceeded_exception.CallRateLimitExceededException: <p>You have exceeded the permitted request rate for the specific operation.</p>
+            aws_sdk_imagebuilder.errors.client_exception.ClientException: <p>These errors are usually caused by a client action, such as using an action or resource on behalf of a user that doesn't have permissions to use the action or resource, or specifying an invalid resource identifier.</p>
+            aws_sdk_imagebuilder.errors.forbidden_exception.ForbiddenException: <p>You are not authorized to perform the requested operation.</p>
+            aws_sdk_imagebuilder.errors.invalid_request_exception.InvalidRequestException: <p>You have requested an action that that the service doesn't support.</p>
+            aws_sdk_imagebuilder.errors.resource_dependency_exception.ResourceDependencyException: <p>You have attempted to mutate or delete a resource with a dependency that prohibits this action. See the error message for more details.</p>
+            aws_sdk_imagebuilder.errors.service_exception.ServiceException: <p>This exception is thrown when the service encounters an unrecoverable exception.</p>
+            aws_sdk_imagebuilder.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is unable to process your request at this time.</p>
+            aws_sdk_imagebuilder.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1369,6 +1534,16 @@ class AsyncimagebuilderClient:
 
         Args:
             distribution_configuration_arn: <p>The Amazon Resource Name (ARN) of the distribution configuration to delete.</p>
+
+        Raises:
+            aws_sdk_imagebuilder.errors.call_rate_limit_exceeded_exception.CallRateLimitExceededException: <p>You have exceeded the permitted request rate for the specific operation.</p>
+            aws_sdk_imagebuilder.errors.client_exception.ClientException: <p>These errors are usually caused by a client action, such as using an action or resource on behalf of a user that doesn't have permissions to use the action or resource, or specifying an invalid resource identifier.</p>
+            aws_sdk_imagebuilder.errors.forbidden_exception.ForbiddenException: <p>You are not authorized to perform the requested operation.</p>
+            aws_sdk_imagebuilder.errors.invalid_request_exception.InvalidRequestException: <p>You have requested an action that that the service doesn't support.</p>
+            aws_sdk_imagebuilder.errors.resource_dependency_exception.ResourceDependencyException: <p>You have attempted to mutate or delete a resource with a dependency that prohibits this action. See the error message for more details.</p>
+            aws_sdk_imagebuilder.errors.service_exception.ServiceException: <p>This exception is thrown when the service encounters an unrecoverable exception.</p>
+            aws_sdk_imagebuilder.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is unable to process your request at this time.</p>
+            aws_sdk_imagebuilder.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1407,6 +1582,16 @@ class AsyncimagebuilderClient:
 
         Args:
             image_build_version_arn: <p>The Amazon Resource Name (ARN) of the Image Builder image resource to delete.</p>
+
+        Raises:
+            aws_sdk_imagebuilder.errors.call_rate_limit_exceeded_exception.CallRateLimitExceededException: <p>You have exceeded the permitted request rate for the specific operation.</p>
+            aws_sdk_imagebuilder.errors.client_exception.ClientException: <p>These errors are usually caused by a client action, such as using an action or resource on behalf of a user that doesn't have permissions to use the action or resource, or specifying an invalid resource identifier.</p>
+            aws_sdk_imagebuilder.errors.forbidden_exception.ForbiddenException: <p>You are not authorized to perform the requested operation.</p>
+            aws_sdk_imagebuilder.errors.invalid_request_exception.InvalidRequestException: <p>You have requested an action that that the service doesn't support.</p>
+            aws_sdk_imagebuilder.errors.resource_dependency_exception.ResourceDependencyException: <p>You have attempted to mutate or delete a resource with a dependency that prohibits this action. See the error message for more details.</p>
+            aws_sdk_imagebuilder.errors.service_exception.ServiceException: <p>This exception is thrown when the service encounters an unrecoverable exception.</p>
+            aws_sdk_imagebuilder.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is unable to process your request at this time.</p>
+            aws_sdk_imagebuilder.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1445,6 +1630,16 @@ class AsyncimagebuilderClient:
 
         Args:
             image_pipeline_arn: <p>The Amazon Resource Name (ARN) of the image pipeline to delete.</p>
+
+        Raises:
+            aws_sdk_imagebuilder.errors.call_rate_limit_exceeded_exception.CallRateLimitExceededException: <p>You have exceeded the permitted request rate for the specific operation.</p>
+            aws_sdk_imagebuilder.errors.client_exception.ClientException: <p>These errors are usually caused by a client action, such as using an action or resource on behalf of a user that doesn't have permissions to use the action or resource, or specifying an invalid resource identifier.</p>
+            aws_sdk_imagebuilder.errors.forbidden_exception.ForbiddenException: <p>You are not authorized to perform the requested operation.</p>
+            aws_sdk_imagebuilder.errors.invalid_request_exception.InvalidRequestException: <p>You have requested an action that that the service doesn't support.</p>
+            aws_sdk_imagebuilder.errors.resource_dependency_exception.ResourceDependencyException: <p>You have attempted to mutate or delete a resource with a dependency that prohibits this action. See the error message for more details.</p>
+            aws_sdk_imagebuilder.errors.service_exception.ServiceException: <p>This exception is thrown when the service encounters an unrecoverable exception.</p>
+            aws_sdk_imagebuilder.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is unable to process your request at this time.</p>
+            aws_sdk_imagebuilder.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1483,6 +1678,16 @@ class AsyncimagebuilderClient:
 
         Args:
             image_recipe_arn: <p>The Amazon Resource Name (ARN) of the image recipe to delete.</p>
+
+        Raises:
+            aws_sdk_imagebuilder.errors.call_rate_limit_exceeded_exception.CallRateLimitExceededException: <p>You have exceeded the permitted request rate for the specific operation.</p>
+            aws_sdk_imagebuilder.errors.client_exception.ClientException: <p>These errors are usually caused by a client action, such as using an action or resource on behalf of a user that doesn't have permissions to use the action or resource, or specifying an invalid resource identifier.</p>
+            aws_sdk_imagebuilder.errors.forbidden_exception.ForbiddenException: <p>You are not authorized to perform the requested operation.</p>
+            aws_sdk_imagebuilder.errors.invalid_request_exception.InvalidRequestException: <p>You have requested an action that that the service doesn't support.</p>
+            aws_sdk_imagebuilder.errors.resource_dependency_exception.ResourceDependencyException: <p>You have attempted to mutate or delete a resource with a dependency that prohibits this action. See the error message for more details.</p>
+            aws_sdk_imagebuilder.errors.service_exception.ServiceException: <p>This exception is thrown when the service encounters an unrecoverable exception.</p>
+            aws_sdk_imagebuilder.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is unable to process your request at this time.</p>
+            aws_sdk_imagebuilder.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1521,6 +1726,16 @@ class AsyncimagebuilderClient:
 
         Args:
             infrastructure_configuration_arn: <p>The Amazon Resource Name (ARN) of the infrastructure configuration to delete.</p>
+
+        Raises:
+            aws_sdk_imagebuilder.errors.call_rate_limit_exceeded_exception.CallRateLimitExceededException: <p>You have exceeded the permitted request rate for the specific operation.</p>
+            aws_sdk_imagebuilder.errors.client_exception.ClientException: <p>These errors are usually caused by a client action, such as using an action or resource on behalf of a user that doesn't have permissions to use the action or resource, or specifying an invalid resource identifier.</p>
+            aws_sdk_imagebuilder.errors.forbidden_exception.ForbiddenException: <p>You are not authorized to perform the requested operation.</p>
+            aws_sdk_imagebuilder.errors.invalid_request_exception.InvalidRequestException: <p>You have requested an action that that the service doesn't support.</p>
+            aws_sdk_imagebuilder.errors.resource_dependency_exception.ResourceDependencyException: <p>You have attempted to mutate or delete a resource with a dependency that prohibits this action. See the error message for more details.</p>
+            aws_sdk_imagebuilder.errors.service_exception.ServiceException: <p>This exception is thrown when the service encounters an unrecoverable exception.</p>
+            aws_sdk_imagebuilder.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is unable to process your request at this time.</p>
+            aws_sdk_imagebuilder.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1559,6 +1774,16 @@ class AsyncimagebuilderClient:
 
         Args:
             lifecycle_policy_arn: <p>The Amazon Resource Name (ARN) of the lifecycle policy resource to delete.</p>
+
+        Raises:
+            aws_sdk_imagebuilder.errors.call_rate_limit_exceeded_exception.CallRateLimitExceededException: <p>You have exceeded the permitted request rate for the specific operation.</p>
+            aws_sdk_imagebuilder.errors.client_exception.ClientException: <p>These errors are usually caused by a client action, such as using an action or resource on behalf of a user that doesn't have permissions to use the action or resource, or specifying an invalid resource identifier.</p>
+            aws_sdk_imagebuilder.errors.forbidden_exception.ForbiddenException: <p>You are not authorized to perform the requested operation.</p>
+            aws_sdk_imagebuilder.errors.invalid_request_exception.InvalidRequestException: <p>You have requested an action that that the service doesn't support.</p>
+            aws_sdk_imagebuilder.errors.resource_dependency_exception.ResourceDependencyException: <p>You have attempted to mutate or delete a resource with a dependency that prohibits this action. See the error message for more details.</p>
+            aws_sdk_imagebuilder.errors.service_exception.ServiceException: <p>This exception is thrown when the service encounters an unrecoverable exception.</p>
+            aws_sdk_imagebuilder.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is unable to process your request at this time.</p>
+            aws_sdk_imagebuilder.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1597,6 +1822,16 @@ class AsyncimagebuilderClient:
 
         Args:
             workflow_build_version_arn: <p>The Amazon Resource Name (ARN) of the workflow resource to delete.</p>
+
+        Raises:
+            aws_sdk_imagebuilder.errors.call_rate_limit_exceeded_exception.CallRateLimitExceededException: <p>You have exceeded the permitted request rate for the specific operation.</p>
+            aws_sdk_imagebuilder.errors.client_exception.ClientException: <p>These errors are usually caused by a client action, such as using an action or resource on behalf of a user that doesn't have permissions to use the action or resource, or specifying an invalid resource identifier.</p>
+            aws_sdk_imagebuilder.errors.forbidden_exception.ForbiddenException: <p>You are not authorized to perform the requested operation.</p>
+            aws_sdk_imagebuilder.errors.invalid_request_exception.InvalidRequestException: <p>You have requested an action that that the service doesn't support.</p>
+            aws_sdk_imagebuilder.errors.resource_dependency_exception.ResourceDependencyException: <p>You have attempted to mutate or delete a resource with a dependency that prohibits this action. See the error message for more details.</p>
+            aws_sdk_imagebuilder.errors.service_exception.ServiceException: <p>This exception is thrown when the service encounters an unrecoverable exception.</p>
+            aws_sdk_imagebuilder.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is unable to process your request at this time.</p>
+            aws_sdk_imagebuilder.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1647,6 +1882,21 @@ class AsyncimagebuilderClient:
             tags: <p>The tags to apply to the distributed image.</p>
             client_token: <p>Unique, case-sensitive identifier you provide to ensure idempotency of the request. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html\">Ensuring idempotency</a> in the <i>Amazon EC2 API Reference</i>.</p>
             logging_configuration: <p>The logging configuration for the distribution.</p>
+
+        Raises:
+            aws_sdk_imagebuilder.errors.access_denied_exception.AccessDeniedException: <p>You do not have permissions to perform the requested operation.</p>
+            aws_sdk_imagebuilder.errors.call_rate_limit_exceeded_exception.CallRateLimitExceededException: <p>You have exceeded the permitted request rate for the specific operation.</p>
+            aws_sdk_imagebuilder.errors.client_exception.ClientException: <p>These errors are usually caused by a client action, such as using an action or resource on behalf of a user that doesn't have permissions to use the action or resource, or specifying an invalid resource identifier.</p>
+            aws_sdk_imagebuilder.errors.forbidden_exception.ForbiddenException: <p>You are not authorized to perform the requested operation.</p>
+            aws_sdk_imagebuilder.errors.idempotent_parameter_mismatch_exception.IdempotentParameterMismatchException: <p>You have specified a client token for an operation using parameter values that differ from a previous request that used the same client token.</p>
+            aws_sdk_imagebuilder.errors.invalid_request_exception.InvalidRequestException: <p>You have requested an action that that the service doesn't support.</p>
+            aws_sdk_imagebuilder.errors.resource_in_use_exception.ResourceInUseException: <p>The resource that you are trying to operate on is currently in use. Review the message details and retry later.</p>
+            aws_sdk_imagebuilder.errors.resource_not_found_exception.ResourceNotFoundException: <p>At least one of the resources referenced by your request does not exist.</p>
+            aws_sdk_imagebuilder.errors.service_exception.ServiceException: <p>This exception is thrown when the service encounters an unrecoverable exception.</p>
+            aws_sdk_imagebuilder.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You have exceeded the number of permitted resources or operations for this service. For service quotas, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/imagebuilder.html#limits_imagebuilder\">EC2 Image Builder endpoints and quotas</a>.</p>
+            aws_sdk_imagebuilder.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is unable to process your request at this time.</p>
+            aws_sdk_imagebuilder.errors.too_many_requests_exception.TooManyRequestsException: <p>You have attempted too many requests for the specific operation.</p>
+            aws_sdk_imagebuilder.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1692,6 +1942,15 @@ class AsyncimagebuilderClient:
 
         Args:
             component_build_version_arn: <p>The Amazon Resource Name (ARN) of the component that you want to get. Regex requires the suffix <code>/\d+$</code>.</p>
+
+        Raises:
+            aws_sdk_imagebuilder.errors.call_rate_limit_exceeded_exception.CallRateLimitExceededException: <p>You have exceeded the permitted request rate for the specific operation.</p>
+            aws_sdk_imagebuilder.errors.client_exception.ClientException: <p>These errors are usually caused by a client action, such as using an action or resource on behalf of a user that doesn't have permissions to use the action or resource, or specifying an invalid resource identifier.</p>
+            aws_sdk_imagebuilder.errors.forbidden_exception.ForbiddenException: <p>You are not authorized to perform the requested operation.</p>
+            aws_sdk_imagebuilder.errors.invalid_request_exception.InvalidRequestException: <p>You have requested an action that that the service doesn't support.</p>
+            aws_sdk_imagebuilder.errors.service_exception.ServiceException: <p>This exception is thrown when the service encounters an unrecoverable exception.</p>
+            aws_sdk_imagebuilder.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is unable to process your request at this time.</p>
+            aws_sdk_imagebuilder.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1730,6 +1989,15 @@ class AsyncimagebuilderClient:
 
         Args:
             component_arn: <p>The Amazon Resource Name (ARN) of the component whose policy you want to retrieve.</p>
+
+        Raises:
+            aws_sdk_imagebuilder.errors.call_rate_limit_exceeded_exception.CallRateLimitExceededException: <p>You have exceeded the permitted request rate for the specific operation.</p>
+            aws_sdk_imagebuilder.errors.forbidden_exception.ForbiddenException: <p>You are not authorized to perform the requested operation.</p>
+            aws_sdk_imagebuilder.errors.invalid_request_exception.InvalidRequestException: <p>You have requested an action that that the service doesn't support.</p>
+            aws_sdk_imagebuilder.errors.resource_not_found_exception.ResourceNotFoundException: <p>At least one of the resources referenced by your request does not exist.</p>
+            aws_sdk_imagebuilder.errors.service_exception.ServiceException: <p>This exception is thrown when the service encounters an unrecoverable exception.</p>
+            aws_sdk_imagebuilder.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is unable to process your request at this time.</p>
+            aws_sdk_imagebuilder.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1768,6 +2036,15 @@ class AsyncimagebuilderClient:
 
         Args:
             container_recipe_arn: <p>The Amazon Resource Name (ARN) of the container recipe to retrieve.</p>
+
+        Raises:
+            aws_sdk_imagebuilder.errors.call_rate_limit_exceeded_exception.CallRateLimitExceededException: <p>You have exceeded the permitted request rate for the specific operation.</p>
+            aws_sdk_imagebuilder.errors.client_exception.ClientException: <p>These errors are usually caused by a client action, such as using an action or resource on behalf of a user that doesn't have permissions to use the action or resource, or specifying an invalid resource identifier.</p>
+            aws_sdk_imagebuilder.errors.forbidden_exception.ForbiddenException: <p>You are not authorized to perform the requested operation.</p>
+            aws_sdk_imagebuilder.errors.invalid_request_exception.InvalidRequestException: <p>You have requested an action that that the service doesn't support.</p>
+            aws_sdk_imagebuilder.errors.service_exception.ServiceException: <p>This exception is thrown when the service encounters an unrecoverable exception.</p>
+            aws_sdk_imagebuilder.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is unable to process your request at this time.</p>
+            aws_sdk_imagebuilder.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1806,6 +2083,15 @@ class AsyncimagebuilderClient:
 
         Args:
             container_recipe_arn: <p>The Amazon Resource Name (ARN) of the container recipe for the policy being requested.</p>
+
+        Raises:
+            aws_sdk_imagebuilder.errors.call_rate_limit_exceeded_exception.CallRateLimitExceededException: <p>You have exceeded the permitted request rate for the specific operation.</p>
+            aws_sdk_imagebuilder.errors.forbidden_exception.ForbiddenException: <p>You are not authorized to perform the requested operation.</p>
+            aws_sdk_imagebuilder.errors.invalid_request_exception.InvalidRequestException: <p>You have requested an action that that the service doesn't support.</p>
+            aws_sdk_imagebuilder.errors.resource_not_found_exception.ResourceNotFoundException: <p>At least one of the resources referenced by your request does not exist.</p>
+            aws_sdk_imagebuilder.errors.service_exception.ServiceException: <p>This exception is thrown when the service encounters an unrecoverable exception.</p>
+            aws_sdk_imagebuilder.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is unable to process your request at this time.</p>
+            aws_sdk_imagebuilder.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1844,6 +2130,15 @@ class AsyncimagebuilderClient:
 
         Args:
             distribution_configuration_arn: <p>The Amazon Resource Name (ARN) of the distribution configuration that you want to retrieve.</p>
+
+        Raises:
+            aws_sdk_imagebuilder.errors.call_rate_limit_exceeded_exception.CallRateLimitExceededException: <p>You have exceeded the permitted request rate for the specific operation.</p>
+            aws_sdk_imagebuilder.errors.client_exception.ClientException: <p>These errors are usually caused by a client action, such as using an action or resource on behalf of a user that doesn't have permissions to use the action or resource, or specifying an invalid resource identifier.</p>
+            aws_sdk_imagebuilder.errors.forbidden_exception.ForbiddenException: <p>You are not authorized to perform the requested operation.</p>
+            aws_sdk_imagebuilder.errors.invalid_request_exception.InvalidRequestException: <p>You have requested an action that that the service doesn't support.</p>
+            aws_sdk_imagebuilder.errors.service_exception.ServiceException: <p>This exception is thrown when the service encounters an unrecoverable exception.</p>
+            aws_sdk_imagebuilder.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is unable to process your request at this time.</p>
+            aws_sdk_imagebuilder.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1882,6 +2177,15 @@ class AsyncimagebuilderClient:
 
         Args:
             image_build_version_arn: <p>The Amazon Resource Name (ARN) of the image that you want to get.</p>
+
+        Raises:
+            aws_sdk_imagebuilder.errors.call_rate_limit_exceeded_exception.CallRateLimitExceededException: <p>You have exceeded the permitted request rate for the specific operation.</p>
+            aws_sdk_imagebuilder.errors.client_exception.ClientException: <p>These errors are usually caused by a client action, such as using an action or resource on behalf of a user that doesn't have permissions to use the action or resource, or specifying an invalid resource identifier.</p>
+            aws_sdk_imagebuilder.errors.forbidden_exception.ForbiddenException: <p>You are not authorized to perform the requested operation.</p>
+            aws_sdk_imagebuilder.errors.invalid_request_exception.InvalidRequestException: <p>You have requested an action that that the service doesn't support.</p>
+            aws_sdk_imagebuilder.errors.service_exception.ServiceException: <p>This exception is thrown when the service encounters an unrecoverable exception.</p>
+            aws_sdk_imagebuilder.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is unable to process your request at this time.</p>
+            aws_sdk_imagebuilder.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1920,6 +2224,15 @@ class AsyncimagebuilderClient:
 
         Args:
             image_pipeline_arn: <p>The Amazon Resource Name (ARN) of the image pipeline that you want to retrieve.</p>
+
+        Raises:
+            aws_sdk_imagebuilder.errors.call_rate_limit_exceeded_exception.CallRateLimitExceededException: <p>You have exceeded the permitted request rate for the specific operation.</p>
+            aws_sdk_imagebuilder.errors.client_exception.ClientException: <p>These errors are usually caused by a client action, such as using an action or resource on behalf of a user that doesn't have permissions to use the action or resource, or specifying an invalid resource identifier.</p>
+            aws_sdk_imagebuilder.errors.forbidden_exception.ForbiddenException: <p>You are not authorized to perform the requested operation.</p>
+            aws_sdk_imagebuilder.errors.invalid_request_exception.InvalidRequestException: <p>You have requested an action that that the service doesn't support.</p>
+            aws_sdk_imagebuilder.errors.service_exception.ServiceException: <p>This exception is thrown when the service encounters an unrecoverable exception.</p>
+            aws_sdk_imagebuilder.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is unable to process your request at this time.</p>
+            aws_sdk_imagebuilder.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1958,6 +2271,15 @@ class AsyncimagebuilderClient:
 
         Args:
             image_arn: <p>The Amazon Resource Name (ARN) of the image whose policy you want to retrieve.</p>
+
+        Raises:
+            aws_sdk_imagebuilder.errors.call_rate_limit_exceeded_exception.CallRateLimitExceededException: <p>You have exceeded the permitted request rate for the specific operation.</p>
+            aws_sdk_imagebuilder.errors.forbidden_exception.ForbiddenException: <p>You are not authorized to perform the requested operation.</p>
+            aws_sdk_imagebuilder.errors.invalid_request_exception.InvalidRequestException: <p>You have requested an action that that the service doesn't support.</p>
+            aws_sdk_imagebuilder.errors.resource_not_found_exception.ResourceNotFoundException: <p>At least one of the resources referenced by your request does not exist.</p>
+            aws_sdk_imagebuilder.errors.service_exception.ServiceException: <p>This exception is thrown when the service encounters an unrecoverable exception.</p>
+            aws_sdk_imagebuilder.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is unable to process your request at this time.</p>
+            aws_sdk_imagebuilder.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1996,6 +2318,15 @@ class AsyncimagebuilderClient:
 
         Args:
             image_recipe_arn: <p>The Amazon Resource Name (ARN) of the image recipe that you want to retrieve.</p>
+
+        Raises:
+            aws_sdk_imagebuilder.errors.call_rate_limit_exceeded_exception.CallRateLimitExceededException: <p>You have exceeded the permitted request rate for the specific operation.</p>
+            aws_sdk_imagebuilder.errors.client_exception.ClientException: <p>These errors are usually caused by a client action, such as using an action or resource on behalf of a user that doesn't have permissions to use the action or resource, or specifying an invalid resource identifier.</p>
+            aws_sdk_imagebuilder.errors.forbidden_exception.ForbiddenException: <p>You are not authorized to perform the requested operation.</p>
+            aws_sdk_imagebuilder.errors.invalid_request_exception.InvalidRequestException: <p>You have requested an action that that the service doesn't support.</p>
+            aws_sdk_imagebuilder.errors.service_exception.ServiceException: <p>This exception is thrown when the service encounters an unrecoverable exception.</p>
+            aws_sdk_imagebuilder.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is unable to process your request at this time.</p>
+            aws_sdk_imagebuilder.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2034,6 +2365,15 @@ class AsyncimagebuilderClient:
 
         Args:
             image_recipe_arn: <p>The Amazon Resource Name (ARN) of the image recipe whose policy you want to retrieve.</p>
+
+        Raises:
+            aws_sdk_imagebuilder.errors.call_rate_limit_exceeded_exception.CallRateLimitExceededException: <p>You have exceeded the permitted request rate for the specific operation.</p>
+            aws_sdk_imagebuilder.errors.forbidden_exception.ForbiddenException: <p>You are not authorized to perform the requested operation.</p>
+            aws_sdk_imagebuilder.errors.invalid_request_exception.InvalidRequestException: <p>You have requested an action that that the service doesn't support.</p>
+            aws_sdk_imagebuilder.errors.resource_not_found_exception.ResourceNotFoundException: <p>At least one of the resources referenced by your request does not exist.</p>
+            aws_sdk_imagebuilder.errors.service_exception.ServiceException: <p>This exception is thrown when the service encounters an unrecoverable exception.</p>
+            aws_sdk_imagebuilder.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is unable to process your request at this time.</p>
+            aws_sdk_imagebuilder.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2072,6 +2412,15 @@ class AsyncimagebuilderClient:
 
         Args:
             infrastructure_configuration_arn: <p>The Amazon Resource Name (ARN) of the infrastructure configuration that you want to retrieve.</p>
+
+        Raises:
+            aws_sdk_imagebuilder.errors.call_rate_limit_exceeded_exception.CallRateLimitExceededException: <p>You have exceeded the permitted request rate for the specific operation.</p>
+            aws_sdk_imagebuilder.errors.client_exception.ClientException: <p>These errors are usually caused by a client action, such as using an action or resource on behalf of a user that doesn't have permissions to use the action or resource, or specifying an invalid resource identifier.</p>
+            aws_sdk_imagebuilder.errors.forbidden_exception.ForbiddenException: <p>You are not authorized to perform the requested operation.</p>
+            aws_sdk_imagebuilder.errors.invalid_request_exception.InvalidRequestException: <p>You have requested an action that that the service doesn't support.</p>
+            aws_sdk_imagebuilder.errors.service_exception.ServiceException: <p>This exception is thrown when the service encounters an unrecoverable exception.</p>
+            aws_sdk_imagebuilder.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is unable to process your request at this time.</p>
+            aws_sdk_imagebuilder.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2110,6 +2459,15 @@ class AsyncimagebuilderClient:
 
         Args:
             lifecycle_execution_id: <p>Use the unique identifier for a runtime instance of the lifecycle policy to get runtime details.</p>
+
+        Raises:
+            aws_sdk_imagebuilder.errors.call_rate_limit_exceeded_exception.CallRateLimitExceededException: <p>You have exceeded the permitted request rate for the specific operation.</p>
+            aws_sdk_imagebuilder.errors.client_exception.ClientException: <p>These errors are usually caused by a client action, such as using an action or resource on behalf of a user that doesn't have permissions to use the action or resource, or specifying an invalid resource identifier.</p>
+            aws_sdk_imagebuilder.errors.forbidden_exception.ForbiddenException: <p>You are not authorized to perform the requested operation.</p>
+            aws_sdk_imagebuilder.errors.invalid_request_exception.InvalidRequestException: <p>You have requested an action that that the service doesn't support.</p>
+            aws_sdk_imagebuilder.errors.service_exception.ServiceException: <p>This exception is thrown when the service encounters an unrecoverable exception.</p>
+            aws_sdk_imagebuilder.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is unable to process your request at this time.</p>
+            aws_sdk_imagebuilder.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2148,6 +2506,15 @@ class AsyncimagebuilderClient:
 
         Args:
             lifecycle_policy_arn: <p>Specifies the Amazon Resource Name (ARN) of the image lifecycle policy resource to get.</p>
+
+        Raises:
+            aws_sdk_imagebuilder.errors.call_rate_limit_exceeded_exception.CallRateLimitExceededException: <p>You have exceeded the permitted request rate for the specific operation.</p>
+            aws_sdk_imagebuilder.errors.client_exception.ClientException: <p>These errors are usually caused by a client action, such as using an action or resource on behalf of a user that doesn't have permissions to use the action or resource, or specifying an invalid resource identifier.</p>
+            aws_sdk_imagebuilder.errors.forbidden_exception.ForbiddenException: <p>You are not authorized to perform the requested operation.</p>
+            aws_sdk_imagebuilder.errors.invalid_request_exception.InvalidRequestException: <p>You have requested an action that that the service doesn't support.</p>
+            aws_sdk_imagebuilder.errors.service_exception.ServiceException: <p>This exception is thrown when the service encounters an unrecoverable exception.</p>
+            aws_sdk_imagebuilder.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is unable to process your request at this time.</p>
+            aws_sdk_imagebuilder.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2192,6 +2559,15 @@ class AsyncimagebuilderClient:
             resource_type: <p>Specifies which type of Amazon Web Services Marketplace resource Image Builder retrieves.</p>
             resource_arn: <p>The Amazon Resource Name (ARN) that uniquely identifies an Amazon Web Services Marketplace resource.</p>
             resource_location: <p>The bucket path that you can specify to download the resource from Amazon S3.</p>
+
+        Raises:
+            aws_sdk_imagebuilder.errors.call_rate_limit_exceeded_exception.CallRateLimitExceededException: <p>You have exceeded the permitted request rate for the specific operation.</p>
+            aws_sdk_imagebuilder.errors.client_exception.ClientException: <p>These errors are usually caused by a client action, such as using an action or resource on behalf of a user that doesn't have permissions to use the action or resource, or specifying an invalid resource identifier.</p>
+            aws_sdk_imagebuilder.errors.forbidden_exception.ForbiddenException: <p>You are not authorized to perform the requested operation.</p>
+            aws_sdk_imagebuilder.errors.invalid_request_exception.InvalidRequestException: <p>You have requested an action that that the service doesn't support.</p>
+            aws_sdk_imagebuilder.errors.service_exception.ServiceException: <p>This exception is thrown when the service encounters an unrecoverable exception.</p>
+            aws_sdk_imagebuilder.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is unable to process your request at this time.</p>
+            aws_sdk_imagebuilder.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2233,6 +2609,15 @@ class AsyncimagebuilderClient:
 
         Args:
             workflow_build_version_arn: <p>The Amazon Resource Name (ARN) of the workflow resource that you want to get.</p>
+
+        Raises:
+            aws_sdk_imagebuilder.errors.call_rate_limit_exceeded_exception.CallRateLimitExceededException: <p>You have exceeded the permitted request rate for the specific operation.</p>
+            aws_sdk_imagebuilder.errors.client_exception.ClientException: <p>These errors are usually caused by a client action, such as using an action or resource on behalf of a user that doesn't have permissions to use the action or resource, or specifying an invalid resource identifier.</p>
+            aws_sdk_imagebuilder.errors.forbidden_exception.ForbiddenException: <p>You are not authorized to perform the requested operation.</p>
+            aws_sdk_imagebuilder.errors.invalid_request_exception.InvalidRequestException: <p>You have requested an action that that the service doesn't support.</p>
+            aws_sdk_imagebuilder.errors.service_exception.ServiceException: <p>This exception is thrown when the service encounters an unrecoverable exception.</p>
+            aws_sdk_imagebuilder.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is unable to process your request at this time.</p>
+            aws_sdk_imagebuilder.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2271,6 +2656,15 @@ class AsyncimagebuilderClient:
 
         Args:
             workflow_execution_id: <p>Use the unique identifier for a runtime instance of the workflow to get runtime details.</p>
+
+        Raises:
+            aws_sdk_imagebuilder.errors.call_rate_limit_exceeded_exception.CallRateLimitExceededException: <p>You have exceeded the permitted request rate for the specific operation.</p>
+            aws_sdk_imagebuilder.errors.client_exception.ClientException: <p>These errors are usually caused by a client action, such as using an action or resource on behalf of a user that doesn't have permissions to use the action or resource, or specifying an invalid resource identifier.</p>
+            aws_sdk_imagebuilder.errors.forbidden_exception.ForbiddenException: <p>You are not authorized to perform the requested operation.</p>
+            aws_sdk_imagebuilder.errors.invalid_request_exception.InvalidRequestException: <p>You have requested an action that that the service doesn't support.</p>
+            aws_sdk_imagebuilder.errors.service_exception.ServiceException: <p>This exception is thrown when the service encounters an unrecoverable exception.</p>
+            aws_sdk_imagebuilder.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is unable to process your request at this time.</p>
+            aws_sdk_imagebuilder.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2309,6 +2703,15 @@ class AsyncimagebuilderClient:
 
         Args:
             step_execution_id: <p>Use the unique identifier for a specific runtime instance of the workflow step to get runtime details for that step.</p>
+
+        Raises:
+            aws_sdk_imagebuilder.errors.call_rate_limit_exceeded_exception.CallRateLimitExceededException: <p>You have exceeded the permitted request rate for the specific operation.</p>
+            aws_sdk_imagebuilder.errors.client_exception.ClientException: <p>These errors are usually caused by a client action, such as using an action or resource on behalf of a user that doesn't have permissions to use the action or resource, or specifying an invalid resource identifier.</p>
+            aws_sdk_imagebuilder.errors.forbidden_exception.ForbiddenException: <p>You are not authorized to perform the requested operation.</p>
+            aws_sdk_imagebuilder.errors.invalid_request_exception.InvalidRequestException: <p>You have requested an action that that the service doesn't support.</p>
+            aws_sdk_imagebuilder.errors.service_exception.ServiceException: <p>This exception is thrown when the service encounters an unrecoverable exception.</p>
+            aws_sdk_imagebuilder.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is unable to process your request at this time.</p>
+            aws_sdk_imagebuilder.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2377,6 +2780,19 @@ class AsyncimagebuilderClient:
             kms_key_id: <p>The Amazon Resource Name (ARN) that uniquely identifies the KMS key used to encrypt this component. This can be either the Key ARN or the Alias ARN. For more information, see <a href=\"https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN\">Key identifiers (KeyId)</a> in the <i>Key Management Service Developer Guide</i>.</p>
             tags: <p>The tags of the component.</p>
             client_token: <p>Unique, case-sensitive identifier you provide to ensure idempotency of the request. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html\">Ensuring idempotency</a> in the <i>Amazon EC2 API Reference</i>.</p>
+
+        Raises:
+            aws_sdk_imagebuilder.errors.call_rate_limit_exceeded_exception.CallRateLimitExceededException: <p>You have exceeded the permitted request rate for the specific operation.</p>
+            aws_sdk_imagebuilder.errors.client_exception.ClientException: <p>These errors are usually caused by a client action, such as using an action or resource on behalf of a user that doesn't have permissions to use the action or resource, or specifying an invalid resource identifier.</p>
+            aws_sdk_imagebuilder.errors.forbidden_exception.ForbiddenException: <p>You are not authorized to perform the requested operation.</p>
+            aws_sdk_imagebuilder.errors.idempotent_parameter_mismatch_exception.IdempotentParameterMismatchException: <p>You have specified a client token for an operation using parameter values that differ from a previous request that used the same client token.</p>
+            aws_sdk_imagebuilder.errors.invalid_parameter_combination_exception.InvalidParameterCombinationException: <p>You have specified two or more mutually exclusive parameters. Review the error message for details.</p>
+            aws_sdk_imagebuilder.errors.invalid_request_exception.InvalidRequestException: <p>You have requested an action that that the service doesn't support.</p>
+            aws_sdk_imagebuilder.errors.invalid_version_number_exception.InvalidVersionNumberException: <p>Your version number is out of bounds or does not follow the required syntax.</p>
+            aws_sdk_imagebuilder.errors.resource_in_use_exception.ResourceInUseException: <p>The resource that you are trying to operate on is currently in use. Review the message details and retry later.</p>
+            aws_sdk_imagebuilder.errors.service_exception.ServiceException: <p>This exception is thrown when the service encounters an unrecoverable exception.</p>
+            aws_sdk_imagebuilder.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is unable to process your request at this time.</p>
+            aws_sdk_imagebuilder.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2468,6 +2884,14 @@ class AsyncimagebuilderClient:
             register_image_options: <p>Configures Secure Boot and UEFI settings for the imported image.</p>
             windows_configuration: <p>Specifies Windows settings for ISO imports.</p>
             client_token: <p>Unique, case-sensitive identifier you provide to ensure idempotency of the request. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html\">Ensuring idempotency</a> in the <i>Amazon EC2 API Reference</i>.</p>
+
+        Raises:
+            aws_sdk_imagebuilder.errors.access_denied_exception.AccessDeniedException: <p>You do not have permissions to perform the requested operation.</p>
+            aws_sdk_imagebuilder.errors.client_exception.ClientException: <p>These errors are usually caused by a client action, such as using an action or resource on behalf of a user that doesn't have permissions to use the action or resource, or specifying an invalid resource identifier.</p>
+            aws_sdk_imagebuilder.errors.service_exception.ServiceException: <p>This exception is thrown when the service encounters an unrecoverable exception.</p>
+            aws_sdk_imagebuilder.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is unable to process your request at this time.</p>
+            aws_sdk_imagebuilder.errors.too_many_requests_exception.TooManyRequestsException: <p>You have attempted too many requests for the specific operation.</p>
+            aws_sdk_imagebuilder.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2544,6 +2968,12 @@ class AsyncimagebuilderClient:
             logging_configuration: <p>Define logging configuration for the image build process.</p>
             tags: <p>Tags that are attached to the import resources.</p>
             client_token: <p>Unique, case-sensitive identifier you provide to ensure idempotency of the request. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html\">Ensuring idempotency</a> in the <i>Amazon EC2 API Reference</i>.</p>
+
+        Raises:
+            aws_sdk_imagebuilder.errors.client_exception.ClientException: <p>These errors are usually caused by a client action, such as using an action or resource on behalf of a user that doesn't have permissions to use the action or resource, or specifying an invalid resource identifier.</p>
+            aws_sdk_imagebuilder.errors.service_exception.ServiceException: <p>This exception is thrown when the service encounters an unrecoverable exception.</p>
+            aws_sdk_imagebuilder.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is unable to process your request at this time.</p>
+            aws_sdk_imagebuilder.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2604,6 +3034,16 @@ class AsyncimagebuilderClient:
             component_version_arn: <p>The component version Amazon Resource Name (ARN) whose versions you want to list.</p>
             max_results: <p>Specify the maximum number of items to return in a request.</p>
             next_token: <p>A token to specify where to start paginating. This is the nextToken from a previously truncated response.</p>
+
+        Raises:
+            aws_sdk_imagebuilder.errors.call_rate_limit_exceeded_exception.CallRateLimitExceededException: <p>You have exceeded the permitted request rate for the specific operation.</p>
+            aws_sdk_imagebuilder.errors.client_exception.ClientException: <p>These errors are usually caused by a client action, such as using an action or resource on behalf of a user that doesn't have permissions to use the action or resource, or specifying an invalid resource identifier.</p>
+            aws_sdk_imagebuilder.errors.forbidden_exception.ForbiddenException: <p>You are not authorized to perform the requested operation.</p>
+            aws_sdk_imagebuilder.errors.invalid_pagination_token_exception.InvalidPaginationTokenException: <p>You have provided an invalid pagination token in your request.</p>
+            aws_sdk_imagebuilder.errors.invalid_request_exception.InvalidRequestException: <p>You have requested an action that that the service doesn't support.</p>
+            aws_sdk_imagebuilder.errors.service_exception.ServiceException: <p>This exception is thrown when the service encounters an unrecoverable exception.</p>
+            aws_sdk_imagebuilder.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is unable to process your request at this time.</p>
+            aws_sdk_imagebuilder.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2688,6 +3128,16 @@ class AsyncimagebuilderClient:
             by_name: <p>Returns the list of components for the specified name.</p>
             max_results: <p>Specify the maximum number of items to return in a request.</p>
             next_token: <p>A token to specify where to start paginating. This is the nextToken from a previously truncated response.</p>
+
+        Raises:
+            aws_sdk_imagebuilder.errors.call_rate_limit_exceeded_exception.CallRateLimitExceededException: <p>You have exceeded the permitted request rate for the specific operation.</p>
+            aws_sdk_imagebuilder.errors.client_exception.ClientException: <p>These errors are usually caused by a client action, such as using an action or resource on behalf of a user that doesn't have permissions to use the action or resource, or specifying an invalid resource identifier.</p>
+            aws_sdk_imagebuilder.errors.forbidden_exception.ForbiddenException: <p>You are not authorized to perform the requested operation.</p>
+            aws_sdk_imagebuilder.errors.invalid_pagination_token_exception.InvalidPaginationTokenException: <p>You have provided an invalid pagination token in your request.</p>
+            aws_sdk_imagebuilder.errors.invalid_request_exception.InvalidRequestException: <p>You have requested an action that that the service doesn't support.</p>
+            aws_sdk_imagebuilder.errors.service_exception.ServiceException: <p>This exception is thrown when the service encounters an unrecoverable exception.</p>
+            aws_sdk_imagebuilder.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is unable to process your request at this time.</p>
+            aws_sdk_imagebuilder.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2776,6 +3226,16 @@ class AsyncimagebuilderClient:
             filters: <p>Use the following filters to streamline results:</p> <ul> <li> <p> <code>containerType</code> </p> </li> <li> <p> <code>name</code> </p> </li> <li> <p> <code>parentImage</code> </p> </li> <li> <p> <code>platform</code> </p> </li> </ul>
             max_results: <p>Specify the maximum number of items to return in a request.</p>
             next_token: <p>A token to specify where to start paginating. This is the nextToken from a previously truncated response.</p>
+
+        Raises:
+            aws_sdk_imagebuilder.errors.call_rate_limit_exceeded_exception.CallRateLimitExceededException: <p>You have exceeded the permitted request rate for the specific operation.</p>
+            aws_sdk_imagebuilder.errors.client_exception.ClientException: <p>These errors are usually caused by a client action, such as using an action or resource on behalf of a user that doesn't have permissions to use the action or resource, or specifying an invalid resource identifier.</p>
+            aws_sdk_imagebuilder.errors.forbidden_exception.ForbiddenException: <p>You are not authorized to perform the requested operation.</p>
+            aws_sdk_imagebuilder.errors.invalid_pagination_token_exception.InvalidPaginationTokenException: <p>You have provided an invalid pagination token in your request.</p>
+            aws_sdk_imagebuilder.errors.invalid_request_exception.InvalidRequestException: <p>You have requested an action that that the service doesn't support.</p>
+            aws_sdk_imagebuilder.errors.service_exception.ServiceException: <p>This exception is thrown when the service encounters an unrecoverable exception.</p>
+            aws_sdk_imagebuilder.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is unable to process your request at this time.</p>
+            aws_sdk_imagebuilder.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2858,6 +3318,16 @@ class AsyncimagebuilderClient:
             filters: <p>You can filter on <code>name</code> to streamline results.</p>
             max_results: <p>Specify the maximum number of items to return in a request.</p>
             next_token: <p>A token to specify where to start paginating. This is the nextToken from a previously truncated response.</p>
+
+        Raises:
+            aws_sdk_imagebuilder.errors.call_rate_limit_exceeded_exception.CallRateLimitExceededException: <p>You have exceeded the permitted request rate for the specific operation.</p>
+            aws_sdk_imagebuilder.errors.client_exception.ClientException: <p>These errors are usually caused by a client action, such as using an action or resource on behalf of a user that doesn't have permissions to use the action or resource, or specifying an invalid resource identifier.</p>
+            aws_sdk_imagebuilder.errors.forbidden_exception.ForbiddenException: <p>You are not authorized to perform the requested operation.</p>
+            aws_sdk_imagebuilder.errors.invalid_pagination_token_exception.InvalidPaginationTokenException: <p>You have provided an invalid pagination token in your request.</p>
+            aws_sdk_imagebuilder.errors.invalid_request_exception.InvalidRequestException: <p>You have requested an action that that the service doesn't support.</p>
+            aws_sdk_imagebuilder.errors.service_exception.ServiceException: <p>This exception is thrown when the service encounters an unrecoverable exception.</p>
+            aws_sdk_imagebuilder.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is unable to process your request at this time.</p>
+            aws_sdk_imagebuilder.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2942,6 +3412,16 @@ class AsyncimagebuilderClient:
             filters: <p>Use the following filters to streamline results:</p> <ul> <li> <p> <code>name</code> </p> </li> <li> <p> <code>osVersion</code> </p> </li> <li> <p> <code>platform</code> </p> </li> <li> <p> <code>type</code> </p> </li> <li> <p> <code>version</code> </p> </li> </ul>
             max_results: <p>Specify the maximum number of items to return in a request.</p>
             next_token: <p>A token to specify where to start paginating. This is the nextToken from a previously truncated response.</p>
+
+        Raises:
+            aws_sdk_imagebuilder.errors.call_rate_limit_exceeded_exception.CallRateLimitExceededException: <p>You have exceeded the permitted request rate for the specific operation.</p>
+            aws_sdk_imagebuilder.errors.client_exception.ClientException: <p>These errors are usually caused by a client action, such as using an action or resource on behalf of a user that doesn't have permissions to use the action or resource, or specifying an invalid resource identifier.</p>
+            aws_sdk_imagebuilder.errors.forbidden_exception.ForbiddenException: <p>You are not authorized to perform the requested operation.</p>
+            aws_sdk_imagebuilder.errors.invalid_pagination_token_exception.InvalidPaginationTokenException: <p>You have provided an invalid pagination token in your request.</p>
+            aws_sdk_imagebuilder.errors.invalid_request_exception.InvalidRequestException: <p>You have requested an action that that the service doesn't support.</p>
+            aws_sdk_imagebuilder.errors.service_exception.ServiceException: <p>This exception is thrown when the service encounters an unrecoverable exception.</p>
+            aws_sdk_imagebuilder.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is unable to process your request at this time.</p>
+            aws_sdk_imagebuilder.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3026,6 +3506,17 @@ class AsyncimagebuilderClient:
             image_build_version_arn: <p>Filter results for the ListImagePackages request by the Image Build Version ARN</p>
             max_results: <p>Specify the maximum number of items to return in a request.</p>
             next_token: <p>A token to specify where to start paginating. This is the nextToken from a previously truncated response.</p>
+
+        Raises:
+            aws_sdk_imagebuilder.errors.call_rate_limit_exceeded_exception.CallRateLimitExceededException: <p>You have exceeded the permitted request rate for the specific operation.</p>
+            aws_sdk_imagebuilder.errors.client_exception.ClientException: <p>These errors are usually caused by a client action, such as using an action or resource on behalf of a user that doesn't have permissions to use the action or resource, or specifying an invalid resource identifier.</p>
+            aws_sdk_imagebuilder.errors.forbidden_exception.ForbiddenException: <p>You are not authorized to perform the requested operation.</p>
+            aws_sdk_imagebuilder.errors.invalid_pagination_token_exception.InvalidPaginationTokenException: <p>You have provided an invalid pagination token in your request.</p>
+            aws_sdk_imagebuilder.errors.invalid_request_exception.InvalidRequestException: <p>You have requested an action that that the service doesn't support.</p>
+            aws_sdk_imagebuilder.errors.resource_not_found_exception.ResourceNotFoundException: <p>At least one of the resources referenced by your request does not exist.</p>
+            aws_sdk_imagebuilder.errors.service_exception.ServiceException: <p>This exception is thrown when the service encounters an unrecoverable exception.</p>
+            aws_sdk_imagebuilder.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is unable to process your request at this time.</p>
+            aws_sdk_imagebuilder.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3105,6 +3596,17 @@ class AsyncimagebuilderClient:
             filters: <p>Use the following filters to streamline results:</p> <ul> <li> <p> <code>name</code> </p> </li> <li> <p> <code>version</code> </p> </li> </ul>
             max_results: <p>Specify the maximum number of items to return in a request.</p>
             next_token: <p>A token to specify where to start paginating. This is the nextToken from a previously truncated response.</p>
+
+        Raises:
+            aws_sdk_imagebuilder.errors.call_rate_limit_exceeded_exception.CallRateLimitExceededException: <p>You have exceeded the permitted request rate for the specific operation.</p>
+            aws_sdk_imagebuilder.errors.client_exception.ClientException: <p>These errors are usually caused by a client action, such as using an action or resource on behalf of a user that doesn't have permissions to use the action or resource, or specifying an invalid resource identifier.</p>
+            aws_sdk_imagebuilder.errors.forbidden_exception.ForbiddenException: <p>You are not authorized to perform the requested operation.</p>
+            aws_sdk_imagebuilder.errors.invalid_pagination_token_exception.InvalidPaginationTokenException: <p>You have provided an invalid pagination token in your request.</p>
+            aws_sdk_imagebuilder.errors.invalid_request_exception.InvalidRequestException: <p>You have requested an action that that the service doesn't support.</p>
+            aws_sdk_imagebuilder.errors.resource_not_found_exception.ResourceNotFoundException: <p>At least one of the resources referenced by your request does not exist.</p>
+            aws_sdk_imagebuilder.errors.service_exception.ServiceException: <p>This exception is thrown when the service encounters an unrecoverable exception.</p>
+            aws_sdk_imagebuilder.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is unable to process your request at this time.</p>
+            aws_sdk_imagebuilder.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3186,6 +3688,16 @@ class AsyncimagebuilderClient:
             filters: <p>Use the following filters to streamline results:</p> <ul> <li> <p> <code>description</code> </p> </li> <li> <p> <code>distributionConfigurationArn</code> </p> </li> <li> <p> <code>imageRecipeArn</code> </p> </li> <li> <p> <code>infrastructureConfigurationArn</code> </p> </li> <li> <p> <code>name</code> </p> </li> <li> <p> <code>status</code> </p> </li> </ul>
             max_results: <p>Specify the maximum number of items to return in a request.</p>
             next_token: <p>A token to specify where to start paginating. This is the nextToken from a previously truncated response.</p>
+
+        Raises:
+            aws_sdk_imagebuilder.errors.call_rate_limit_exceeded_exception.CallRateLimitExceededException: <p>You have exceeded the permitted request rate for the specific operation.</p>
+            aws_sdk_imagebuilder.errors.client_exception.ClientException: <p>These errors are usually caused by a client action, such as using an action or resource on behalf of a user that doesn't have permissions to use the action or resource, or specifying an invalid resource identifier.</p>
+            aws_sdk_imagebuilder.errors.forbidden_exception.ForbiddenException: <p>You are not authorized to perform the requested operation.</p>
+            aws_sdk_imagebuilder.errors.invalid_pagination_token_exception.InvalidPaginationTokenException: <p>You have provided an invalid pagination token in your request.</p>
+            aws_sdk_imagebuilder.errors.invalid_request_exception.InvalidRequestException: <p>You have requested an action that that the service doesn't support.</p>
+            aws_sdk_imagebuilder.errors.service_exception.ServiceException: <p>This exception is thrown when the service encounters an unrecoverable exception.</p>
+            aws_sdk_imagebuilder.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is unable to process your request at this time.</p>
+            aws_sdk_imagebuilder.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3266,6 +3778,16 @@ class AsyncimagebuilderClient:
             filters: <p>Use the following filters to streamline results:</p> <ul> <li> <p> <code>name</code> </p> </li> <li> <p> <code>parentImage</code> </p> </li> <li> <p> <code>platform</code> </p> </li> </ul>
             max_results: <p>Specify the maximum number of items to return in a request.</p>
             next_token: <p>A token to specify where to start paginating. This is the nextToken from a previously truncated response.</p>
+
+        Raises:
+            aws_sdk_imagebuilder.errors.call_rate_limit_exceeded_exception.CallRateLimitExceededException: <p>You have exceeded the permitted request rate for the specific operation.</p>
+            aws_sdk_imagebuilder.errors.client_exception.ClientException: <p>These errors are usually caused by a client action, such as using an action or resource on behalf of a user that doesn't have permissions to use the action or resource, or specifying an invalid resource identifier.</p>
+            aws_sdk_imagebuilder.errors.forbidden_exception.ForbiddenException: <p>You are not authorized to perform the requested operation.</p>
+            aws_sdk_imagebuilder.errors.invalid_pagination_token_exception.InvalidPaginationTokenException: <p>You have provided an invalid pagination token in your request.</p>
+            aws_sdk_imagebuilder.errors.invalid_request_exception.InvalidRequestException: <p>You have requested an action that that the service doesn't support.</p>
+            aws_sdk_imagebuilder.errors.service_exception.ServiceException: <p>This exception is thrown when the service encounters an unrecoverable exception.</p>
+            aws_sdk_imagebuilder.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is unable to process your request at this time.</p>
+            aws_sdk_imagebuilder.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3356,6 +3878,16 @@ class AsyncimagebuilderClient:
             max_results: <p>Specify the maximum number of items to return in a request.</p>
             next_token: <p>A token to specify where to start paginating. This is the nextToken from a previously truncated response.</p>
             include_deprecated: <p>Includes deprecated images in the response list.</p>
+
+        Raises:
+            aws_sdk_imagebuilder.errors.call_rate_limit_exceeded_exception.CallRateLimitExceededException: <p>You have exceeded the permitted request rate for the specific operation.</p>
+            aws_sdk_imagebuilder.errors.client_exception.ClientException: <p>These errors are usually caused by a client action, such as using an action or resource on behalf of a user that doesn't have permissions to use the action or resource, or specifying an invalid resource identifier.</p>
+            aws_sdk_imagebuilder.errors.forbidden_exception.ForbiddenException: <p>You are not authorized to perform the requested operation.</p>
+            aws_sdk_imagebuilder.errors.invalid_pagination_token_exception.InvalidPaginationTokenException: <p>You have provided an invalid pagination token in your request.</p>
+            aws_sdk_imagebuilder.errors.invalid_request_exception.InvalidRequestException: <p>You have requested an action that that the service doesn't support.</p>
+            aws_sdk_imagebuilder.errors.service_exception.ServiceException: <p>This exception is thrown when the service encounters an unrecoverable exception.</p>
+            aws_sdk_imagebuilder.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is unable to process your request at this time.</p>
+            aws_sdk_imagebuilder.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3443,6 +3975,16 @@ class AsyncimagebuilderClient:
 
         Args:
             next_token: <p>A token to specify where to start paginating. This is the nextToken from a previously truncated response.</p>
+
+        Raises:
+            aws_sdk_imagebuilder.errors.call_rate_limit_exceeded_exception.CallRateLimitExceededException: <p>You have exceeded the permitted request rate for the specific operation.</p>
+            aws_sdk_imagebuilder.errors.client_exception.ClientException: <p>These errors are usually caused by a client action, such as using an action or resource on behalf of a user that doesn't have permissions to use the action or resource, or specifying an invalid resource identifier.</p>
+            aws_sdk_imagebuilder.errors.forbidden_exception.ForbiddenException: <p>You are not authorized to perform the requested operation.</p>
+            aws_sdk_imagebuilder.errors.invalid_pagination_token_exception.InvalidPaginationTokenException: <p>You have provided an invalid pagination token in your request.</p>
+            aws_sdk_imagebuilder.errors.invalid_request_exception.InvalidRequestException: <p>You have requested an action that that the service doesn't support.</p>
+            aws_sdk_imagebuilder.errors.service_exception.ServiceException: <p>This exception is thrown when the service encounters an unrecoverable exception.</p>
+            aws_sdk_imagebuilder.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is unable to process your request at this time.</p>
+            aws_sdk_imagebuilder.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3517,6 +4059,16 @@ class AsyncimagebuilderClient:
             filters: <p>An array of name value pairs that you can use to filter your results. You can use the following filters to streamline results:</p> <ul> <li> <p> <code>imageBuildVersionArn</code> </p> </li> <li> <p> <code>imagePipelineArn</code> </p> </li> <li> <p> <code>vulnerabilityId</code> </p> </li> <li> <p> <code>severity</code> </p> </li> </ul> <p>If you don't request a filter, then all findings in your account are listed.</p>
             max_results: <p>Specify the maximum number of items to return in a request.</p>
             next_token: <p>A token to specify where to start paginating. This is the nextToken from a previously truncated response.</p>
+
+        Raises:
+            aws_sdk_imagebuilder.errors.call_rate_limit_exceeded_exception.CallRateLimitExceededException: <p>You have exceeded the permitted request rate for the specific operation.</p>
+            aws_sdk_imagebuilder.errors.client_exception.ClientException: <p>These errors are usually caused by a client action, such as using an action or resource on behalf of a user that doesn't have permissions to use the action or resource, or specifying an invalid resource identifier.</p>
+            aws_sdk_imagebuilder.errors.forbidden_exception.ForbiddenException: <p>You are not authorized to perform the requested operation.</p>
+            aws_sdk_imagebuilder.errors.invalid_pagination_token_exception.InvalidPaginationTokenException: <p>You have provided an invalid pagination token in your request.</p>
+            aws_sdk_imagebuilder.errors.invalid_request_exception.InvalidRequestException: <p>You have requested an action that that the service doesn't support.</p>
+            aws_sdk_imagebuilder.errors.service_exception.ServiceException: <p>This exception is thrown when the service encounters an unrecoverable exception.</p>
+            aws_sdk_imagebuilder.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is unable to process your request at this time.</p>
+            aws_sdk_imagebuilder.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3599,6 +4151,16 @@ class AsyncimagebuilderClient:
             filters: <p>You can filter on <code>name</code> to streamline results.</p>
             max_results: <p>Specify the maximum number of items to return in a request.</p>
             next_token: <p>A token to specify where to start paginating. This is the nextToken from a previously truncated response.</p>
+
+        Raises:
+            aws_sdk_imagebuilder.errors.call_rate_limit_exceeded_exception.CallRateLimitExceededException: <p>You have exceeded the permitted request rate for the specific operation.</p>
+            aws_sdk_imagebuilder.errors.client_exception.ClientException: <p>These errors are usually caused by a client action, such as using an action or resource on behalf of a user that doesn't have permissions to use the action or resource, or specifying an invalid resource identifier.</p>
+            aws_sdk_imagebuilder.errors.forbidden_exception.ForbiddenException: <p>You are not authorized to perform the requested operation.</p>
+            aws_sdk_imagebuilder.errors.invalid_pagination_token_exception.InvalidPaginationTokenException: <p>You have provided an invalid pagination token in your request.</p>
+            aws_sdk_imagebuilder.errors.invalid_request_exception.InvalidRequestException: <p>You have requested an action that that the service doesn't support.</p>
+            aws_sdk_imagebuilder.errors.service_exception.ServiceException: <p>This exception is thrown when the service encounters an unrecoverable exception.</p>
+            aws_sdk_imagebuilder.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is unable to process your request at this time.</p>
+            aws_sdk_imagebuilder.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3683,6 +4245,16 @@ class AsyncimagebuilderClient:
             parent_resource_id: <p>You can leave this empty to get a list of Image Builder resources that were identified for lifecycle actions.</p> <p>To get a list of associated resources that are impacted for an individual resource (the parent), specify its Amazon Resource Name (ARN). Associated resources are produced from your image and distributed when you run a build, such as AMIs or container images stored in ECR repositories.</p>
             max_results: <p>Specify the maximum number of items to return in a request.</p>
             next_token: <p>A token to specify where to start paginating. This is the nextToken from a previously truncated response.</p>
+
+        Raises:
+            aws_sdk_imagebuilder.errors.call_rate_limit_exceeded_exception.CallRateLimitExceededException: <p>You have exceeded the permitted request rate for the specific operation.</p>
+            aws_sdk_imagebuilder.errors.client_exception.ClientException: <p>These errors are usually caused by a client action, such as using an action or resource on behalf of a user that doesn't have permissions to use the action or resource, or specifying an invalid resource identifier.</p>
+            aws_sdk_imagebuilder.errors.forbidden_exception.ForbiddenException: <p>You are not authorized to perform the requested operation.</p>
+            aws_sdk_imagebuilder.errors.invalid_pagination_token_exception.InvalidPaginationTokenException: <p>You have provided an invalid pagination token in your request.</p>
+            aws_sdk_imagebuilder.errors.invalid_request_exception.InvalidRequestException: <p>You have requested an action that that the service doesn't support.</p>
+            aws_sdk_imagebuilder.errors.service_exception.ServiceException: <p>This exception is thrown when the service encounters an unrecoverable exception.</p>
+            aws_sdk_imagebuilder.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is unable to process your request at this time.</p>
+            aws_sdk_imagebuilder.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3766,6 +4338,16 @@ class AsyncimagebuilderClient:
             max_results: <p>Specify the maximum number of items to return in a request.</p>
             next_token: <p>A token to specify where to start paginating. This is the nextToken from a previously truncated response.</p>
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource for which to get a list of lifecycle runtime instances.</p>
+
+        Raises:
+            aws_sdk_imagebuilder.errors.call_rate_limit_exceeded_exception.CallRateLimitExceededException: <p>You have exceeded the permitted request rate for the specific operation.</p>
+            aws_sdk_imagebuilder.errors.client_exception.ClientException: <p>These errors are usually caused by a client action, such as using an action or resource on behalf of a user that doesn't have permissions to use the action or resource, or specifying an invalid resource identifier.</p>
+            aws_sdk_imagebuilder.errors.forbidden_exception.ForbiddenException: <p>You are not authorized to perform the requested operation.</p>
+            aws_sdk_imagebuilder.errors.invalid_pagination_token_exception.InvalidPaginationTokenException: <p>You have provided an invalid pagination token in your request.</p>
+            aws_sdk_imagebuilder.errors.invalid_request_exception.InvalidRequestException: <p>You have requested an action that that the service doesn't support.</p>
+            aws_sdk_imagebuilder.errors.service_exception.ServiceException: <p>This exception is thrown when the service encounters an unrecoverable exception.</p>
+            aws_sdk_imagebuilder.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is unable to process your request at this time.</p>
+            aws_sdk_imagebuilder.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3843,6 +4425,16 @@ class AsyncimagebuilderClient:
             filters: <p>Streamline results based on one of the following values: <code>Name</code>, <code>Status</code>.</p>
             max_results: <p>Specify the maximum number of items to return in a request.</p>
             next_token: <p>A token to specify where to start paginating. This is the nextToken from a previously truncated response.</p>
+
+        Raises:
+            aws_sdk_imagebuilder.errors.call_rate_limit_exceeded_exception.CallRateLimitExceededException: <p>You have exceeded the permitted request rate for the specific operation.</p>
+            aws_sdk_imagebuilder.errors.client_exception.ClientException: <p>These errors are usually caused by a client action, such as using an action or resource on behalf of a user that doesn't have permissions to use the action or resource, or specifying an invalid resource identifier.</p>
+            aws_sdk_imagebuilder.errors.forbidden_exception.ForbiddenException: <p>You are not authorized to perform the requested operation.</p>
+            aws_sdk_imagebuilder.errors.invalid_pagination_token_exception.InvalidPaginationTokenException: <p>You have provided an invalid pagination token in your request.</p>
+            aws_sdk_imagebuilder.errors.invalid_request_exception.InvalidRequestException: <p>You have requested an action that that the service doesn't support.</p>
+            aws_sdk_imagebuilder.errors.service_exception.ServiceException: <p>This exception is thrown when the service encounters an unrecoverable exception.</p>
+            aws_sdk_imagebuilder.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is unable to process your request at this time.</p>
+            aws_sdk_imagebuilder.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3913,6 +4505,12 @@ class AsyncimagebuilderClient:
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource whose tags you want to retrieve.</p>
+
+        Raises:
+            aws_sdk_imagebuilder.errors.invalid_parameter_exception.InvalidParameterException: <p>The specified parameter is invalid. Review the available parameters for the API request.</p>
+            aws_sdk_imagebuilder.errors.resource_not_found_exception.ResourceNotFoundException: <p>At least one of the resources referenced by your request does not exist.</p>
+            aws_sdk_imagebuilder.errors.service_exception.ServiceException: <p>This exception is thrown when the service encounters an unrecoverable exception.</p>
+            aws_sdk_imagebuilder.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3957,6 +4555,16 @@ class AsyncimagebuilderClient:
         Args:
             max_results: <p>Specify the maximum number of items to return in a request.</p>
             next_token: <p>A token to specify where to start paginating. This is the nextToken from a previously truncated response.</p>
+
+        Raises:
+            aws_sdk_imagebuilder.errors.call_rate_limit_exceeded_exception.CallRateLimitExceededException: <p>You have exceeded the permitted request rate for the specific operation.</p>
+            aws_sdk_imagebuilder.errors.client_exception.ClientException: <p>These errors are usually caused by a client action, such as using an action or resource on behalf of a user that doesn't have permissions to use the action or resource, or specifying an invalid resource identifier.</p>
+            aws_sdk_imagebuilder.errors.forbidden_exception.ForbiddenException: <p>You are not authorized to perform the requested operation.</p>
+            aws_sdk_imagebuilder.errors.invalid_pagination_token_exception.InvalidPaginationTokenException: <p>You have provided an invalid pagination token in your request.</p>
+            aws_sdk_imagebuilder.errors.invalid_request_exception.InvalidRequestException: <p>You have requested an action that that the service doesn't support.</p>
+            aws_sdk_imagebuilder.errors.service_exception.ServiceException: <p>This exception is thrown when the service encounters an unrecoverable exception.</p>
+            aws_sdk_imagebuilder.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is unable to process your request at this time.</p>
+            aws_sdk_imagebuilder.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4033,6 +4641,16 @@ class AsyncimagebuilderClient:
             workflow_version_arn: <p>The Amazon Resource Name (ARN) of the workflow resource for which to get a list of build versions.</p>
             max_results: <p>Specify the maximum number of items to return in a request.</p>
             next_token: <p>A token to specify where to start paginating. This is the nextToken from a previously truncated response.</p>
+
+        Raises:
+            aws_sdk_imagebuilder.errors.call_rate_limit_exceeded_exception.CallRateLimitExceededException: <p>You have exceeded the permitted request rate for the specific operation.</p>
+            aws_sdk_imagebuilder.errors.client_exception.ClientException: <p>These errors are usually caused by a client action, such as using an action or resource on behalf of a user that doesn't have permissions to use the action or resource, or specifying an invalid resource identifier.</p>
+            aws_sdk_imagebuilder.errors.forbidden_exception.ForbiddenException: <p>You are not authorized to perform the requested operation.</p>
+            aws_sdk_imagebuilder.errors.invalid_pagination_token_exception.InvalidPaginationTokenException: <p>You have provided an invalid pagination token in your request.</p>
+            aws_sdk_imagebuilder.errors.invalid_request_exception.InvalidRequestException: <p>You have requested an action that that the service doesn't support.</p>
+            aws_sdk_imagebuilder.errors.service_exception.ServiceException: <p>This exception is thrown when the service encounters an unrecoverable exception.</p>
+            aws_sdk_imagebuilder.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is unable to process your request at this time.</p>
+            aws_sdk_imagebuilder.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4113,6 +4731,16 @@ class AsyncimagebuilderClient:
             max_results: <p>Specify the maximum number of items to return in a request.</p>
             next_token: <p>A token to specify where to start paginating. This is the nextToken from a previously truncated response.</p>
             image_build_version_arn: <p>List all workflow runtime instances for the specified image build version resource ARN.</p>
+
+        Raises:
+            aws_sdk_imagebuilder.errors.call_rate_limit_exceeded_exception.CallRateLimitExceededException: <p>You have exceeded the permitted request rate for the specific operation.</p>
+            aws_sdk_imagebuilder.errors.client_exception.ClientException: <p>These errors are usually caused by a client action, such as using an action or resource on behalf of a user that doesn't have permissions to use the action or resource, or specifying an invalid resource identifier.</p>
+            aws_sdk_imagebuilder.errors.forbidden_exception.ForbiddenException: <p>You are not authorized to perform the requested operation.</p>
+            aws_sdk_imagebuilder.errors.invalid_pagination_token_exception.InvalidPaginationTokenException: <p>You have provided an invalid pagination token in your request.</p>
+            aws_sdk_imagebuilder.errors.invalid_request_exception.InvalidRequestException: <p>You have requested an action that that the service doesn't support.</p>
+            aws_sdk_imagebuilder.errors.service_exception.ServiceException: <p>This exception is thrown when the service encounters an unrecoverable exception.</p>
+            aws_sdk_imagebuilder.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is unable to process your request at this time.</p>
+            aws_sdk_imagebuilder.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4194,6 +4822,16 @@ class AsyncimagebuilderClient:
             by_name: <p>Specify all or part of the workflow name to streamline results.</p>
             max_results: <p>Specify the maximum number of items to return in a request.</p>
             next_token: <p>A token to specify where to start paginating. This is the nextToken from a previously truncated response.</p>
+
+        Raises:
+            aws_sdk_imagebuilder.errors.call_rate_limit_exceeded_exception.CallRateLimitExceededException: <p>You have exceeded the permitted request rate for the specific operation.</p>
+            aws_sdk_imagebuilder.errors.client_exception.ClientException: <p>These errors are usually caused by a client action, such as using an action or resource on behalf of a user that doesn't have permissions to use the action or resource, or specifying an invalid resource identifier.</p>
+            aws_sdk_imagebuilder.errors.forbidden_exception.ForbiddenException: <p>You are not authorized to perform the requested operation.</p>
+            aws_sdk_imagebuilder.errors.invalid_pagination_token_exception.InvalidPaginationTokenException: <p>You have provided an invalid pagination token in your request.</p>
+            aws_sdk_imagebuilder.errors.invalid_request_exception.InvalidRequestException: <p>You have requested an action that that the service doesn't support.</p>
+            aws_sdk_imagebuilder.errors.service_exception.ServiceException: <p>This exception is thrown when the service encounters an unrecoverable exception.</p>
+            aws_sdk_imagebuilder.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is unable to process your request at this time.</p>
+            aws_sdk_imagebuilder.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4280,6 +4918,16 @@ class AsyncimagebuilderClient:
             max_results: <p>Specify the maximum number of items to return in a request.</p>
             next_token: <p>A token to specify where to start paginating. This is the nextToken from a previously truncated response.</p>
             workflow_execution_id: <p>The unique identifier that Image Builder assigned to keep track of runtime details when it ran the workflow.</p>
+
+        Raises:
+            aws_sdk_imagebuilder.errors.call_rate_limit_exceeded_exception.CallRateLimitExceededException: <p>You have exceeded the permitted request rate for the specific operation.</p>
+            aws_sdk_imagebuilder.errors.client_exception.ClientException: <p>These errors are usually caused by a client action, such as using an action or resource on behalf of a user that doesn't have permissions to use the action or resource, or specifying an invalid resource identifier.</p>
+            aws_sdk_imagebuilder.errors.forbidden_exception.ForbiddenException: <p>You are not authorized to perform the requested operation.</p>
+            aws_sdk_imagebuilder.errors.invalid_pagination_token_exception.InvalidPaginationTokenException: <p>You have provided an invalid pagination token in your request.</p>
+            aws_sdk_imagebuilder.errors.invalid_request_exception.InvalidRequestException: <p>You have requested an action that that the service doesn't support.</p>
+            aws_sdk_imagebuilder.errors.service_exception.ServiceException: <p>This exception is thrown when the service encounters an unrecoverable exception.</p>
+            aws_sdk_imagebuilder.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is unable to process your request at this time.</p>
+            aws_sdk_imagebuilder.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4351,6 +4999,17 @@ class AsyncimagebuilderClient:
         Args:
             component_arn: <p>The Amazon Resource Name (ARN) of the component that this policy should be applied to.</p>
             policy: <p>The policy to apply.</p>
+
+        Raises:
+            aws_sdk_imagebuilder.errors.call_rate_limit_exceeded_exception.CallRateLimitExceededException: <p>You have exceeded the permitted request rate for the specific operation.</p>
+            aws_sdk_imagebuilder.errors.client_exception.ClientException: <p>These errors are usually caused by a client action, such as using an action or resource on behalf of a user that doesn't have permissions to use the action or resource, or specifying an invalid resource identifier.</p>
+            aws_sdk_imagebuilder.errors.forbidden_exception.ForbiddenException: <p>You are not authorized to perform the requested operation.</p>
+            aws_sdk_imagebuilder.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value that you provided for the specified parameter is invalid.</p>
+            aws_sdk_imagebuilder.errors.invalid_request_exception.InvalidRequestException: <p>You have requested an action that that the service doesn't support.</p>
+            aws_sdk_imagebuilder.errors.resource_not_found_exception.ResourceNotFoundException: <p>At least one of the resources referenced by your request does not exist.</p>
+            aws_sdk_imagebuilder.errors.service_exception.ServiceException: <p>This exception is thrown when the service encounters an unrecoverable exception.</p>
+            aws_sdk_imagebuilder.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is unable to process your request at this time.</p>
+            aws_sdk_imagebuilder.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4392,6 +5051,17 @@ class AsyncimagebuilderClient:
         Args:
             container_recipe_arn: <p>The Amazon Resource Name (ARN) of the container recipe that this policy should be applied to.</p>
             policy: <p>The policy to apply to the container recipe.</p>
+
+        Raises:
+            aws_sdk_imagebuilder.errors.call_rate_limit_exceeded_exception.CallRateLimitExceededException: <p>You have exceeded the permitted request rate for the specific operation.</p>
+            aws_sdk_imagebuilder.errors.client_exception.ClientException: <p>These errors are usually caused by a client action, such as using an action or resource on behalf of a user that doesn't have permissions to use the action or resource, or specifying an invalid resource identifier.</p>
+            aws_sdk_imagebuilder.errors.forbidden_exception.ForbiddenException: <p>You are not authorized to perform the requested operation.</p>
+            aws_sdk_imagebuilder.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value that you provided for the specified parameter is invalid.</p>
+            aws_sdk_imagebuilder.errors.invalid_request_exception.InvalidRequestException: <p>You have requested an action that that the service doesn't support.</p>
+            aws_sdk_imagebuilder.errors.resource_not_found_exception.ResourceNotFoundException: <p>At least one of the resources referenced by your request does not exist.</p>
+            aws_sdk_imagebuilder.errors.service_exception.ServiceException: <p>This exception is thrown when the service encounters an unrecoverable exception.</p>
+            aws_sdk_imagebuilder.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is unable to process your request at this time.</p>
+            aws_sdk_imagebuilder.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4433,6 +5103,17 @@ class AsyncimagebuilderClient:
         Args:
             image_arn: <p>The Amazon Resource Name (ARN) of the image that this policy should be applied to.</p>
             policy: <p>The policy to apply.</p>
+
+        Raises:
+            aws_sdk_imagebuilder.errors.call_rate_limit_exceeded_exception.CallRateLimitExceededException: <p>You have exceeded the permitted request rate for the specific operation.</p>
+            aws_sdk_imagebuilder.errors.client_exception.ClientException: <p>These errors are usually caused by a client action, such as using an action or resource on behalf of a user that doesn't have permissions to use the action or resource, or specifying an invalid resource identifier.</p>
+            aws_sdk_imagebuilder.errors.forbidden_exception.ForbiddenException: <p>You are not authorized to perform the requested operation.</p>
+            aws_sdk_imagebuilder.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value that you provided for the specified parameter is invalid.</p>
+            aws_sdk_imagebuilder.errors.invalid_request_exception.InvalidRequestException: <p>You have requested an action that that the service doesn't support.</p>
+            aws_sdk_imagebuilder.errors.resource_not_found_exception.ResourceNotFoundException: <p>At least one of the resources referenced by your request does not exist.</p>
+            aws_sdk_imagebuilder.errors.service_exception.ServiceException: <p>This exception is thrown when the service encounters an unrecoverable exception.</p>
+            aws_sdk_imagebuilder.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is unable to process your request at this time.</p>
+            aws_sdk_imagebuilder.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4474,6 +5155,17 @@ class AsyncimagebuilderClient:
         Args:
             image_recipe_arn: <p>The Amazon Resource Name (ARN) of the image recipe that this policy should be applied to.</p>
             policy: <p>The policy to apply.</p>
+
+        Raises:
+            aws_sdk_imagebuilder.errors.call_rate_limit_exceeded_exception.CallRateLimitExceededException: <p>You have exceeded the permitted request rate for the specific operation.</p>
+            aws_sdk_imagebuilder.errors.client_exception.ClientException: <p>These errors are usually caused by a client action, such as using an action or resource on behalf of a user that doesn't have permissions to use the action or resource, or specifying an invalid resource identifier.</p>
+            aws_sdk_imagebuilder.errors.forbidden_exception.ForbiddenException: <p>You are not authorized to perform the requested operation.</p>
+            aws_sdk_imagebuilder.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value that you provided for the specified parameter is invalid.</p>
+            aws_sdk_imagebuilder.errors.invalid_request_exception.InvalidRequestException: <p>You have requested an action that that the service doesn't support.</p>
+            aws_sdk_imagebuilder.errors.resource_not_found_exception.ResourceNotFoundException: <p>At least one of the resources referenced by your request does not exist.</p>
+            aws_sdk_imagebuilder.errors.service_exception.ServiceException: <p>This exception is thrown when the service encounters an unrecoverable exception.</p>
+            aws_sdk_imagebuilder.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is unable to process your request at this time.</p>
+            aws_sdk_imagebuilder.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4515,6 +5207,17 @@ class AsyncimagebuilderClient:
         Args:
             image_build_version_arn: <p>The source image Amazon Resource Name (ARN) to retry.</p>
             client_token: <p>Unique, case-sensitive identifier you provide to ensure idempotency of the request. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html\">Ensuring idempotency</a> in the <i>Amazon EC2 API Reference</i>.</p>
+
+        Raises:
+            aws_sdk_imagebuilder.errors.call_rate_limit_exceeded_exception.CallRateLimitExceededException: <p>You have exceeded the permitted request rate for the specific operation.</p>
+            aws_sdk_imagebuilder.errors.client_exception.ClientException: <p>These errors are usually caused by a client action, such as using an action or resource on behalf of a user that doesn't have permissions to use the action or resource, or specifying an invalid resource identifier.</p>
+            aws_sdk_imagebuilder.errors.forbidden_exception.ForbiddenException: <p>You are not authorized to perform the requested operation.</p>
+            aws_sdk_imagebuilder.errors.idempotent_parameter_mismatch_exception.IdempotentParameterMismatchException: <p>You have specified a client token for an operation using parameter values that differ from a previous request that used the same client token.</p>
+            aws_sdk_imagebuilder.errors.invalid_request_exception.InvalidRequestException: <p>You have requested an action that that the service doesn't support.</p>
+            aws_sdk_imagebuilder.errors.resource_in_use_exception.ResourceInUseException: <p>The resource that you are trying to operate on is currently in use. Review the message details and retry later.</p>
+            aws_sdk_imagebuilder.errors.service_exception.ServiceException: <p>This exception is thrown when the service encounters an unrecoverable exception.</p>
+            aws_sdk_imagebuilder.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is unable to process your request at this time.</p>
+            aws_sdk_imagebuilder.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4564,6 +5267,19 @@ class AsyncimagebuilderClient:
             action: <p>The action for the image creation process to take while a workflow <code>WaitForAction</code> step waits for an asynchronous action to complete.</p>
             reason: <p>The reason why this action is sent.</p>
             client_token: <p>Unique, case-sensitive identifier you provide to ensure idempotency of the request. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html\">Ensuring idempotency</a> in the <i>Amazon EC2 API Reference</i>.</p>
+
+        Raises:
+            aws_sdk_imagebuilder.errors.call_rate_limit_exceeded_exception.CallRateLimitExceededException: <p>You have exceeded the permitted request rate for the specific operation.</p>
+            aws_sdk_imagebuilder.errors.client_exception.ClientException: <p>These errors are usually caused by a client action, such as using an action or resource on behalf of a user that doesn't have permissions to use the action or resource, or specifying an invalid resource identifier.</p>
+            aws_sdk_imagebuilder.errors.forbidden_exception.ForbiddenException: <p>You are not authorized to perform the requested operation.</p>
+            aws_sdk_imagebuilder.errors.idempotent_parameter_mismatch_exception.IdempotentParameterMismatchException: <p>You have specified a client token for an operation using parameter values that differ from a previous request that used the same client token.</p>
+            aws_sdk_imagebuilder.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>The value that you provided for the specified parameter is invalid.</p>
+            aws_sdk_imagebuilder.errors.invalid_request_exception.InvalidRequestException: <p>You have requested an action that that the service doesn't support.</p>
+            aws_sdk_imagebuilder.errors.resource_in_use_exception.ResourceInUseException: <p>The resource that you are trying to operate on is currently in use. Review the message details and retry later.</p>
+            aws_sdk_imagebuilder.errors.resource_not_found_exception.ResourceNotFoundException: <p>At least one of the resources referenced by your request does not exist.</p>
+            aws_sdk_imagebuilder.errors.service_exception.ServiceException: <p>This exception is thrown when the service encounters an unrecoverable exception.</p>
+            aws_sdk_imagebuilder.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is unable to process your request at this time.</p>
+            aws_sdk_imagebuilder.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4611,6 +5327,18 @@ class AsyncimagebuilderClient:
             image_pipeline_arn: <p>The Amazon Resource Name (ARN) of the image pipeline that you want to manually invoke.</p>
             client_token: <p>Unique, case-sensitive identifier you provide to ensure idempotency of the request. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html\">Ensuring idempotency</a> in the <i>Amazon EC2 API Reference</i>.</p>
             tags: <p>Specify tags for Image Builder to apply to the image resource that's created When it starts pipeline execution.</p>
+
+        Raises:
+            aws_sdk_imagebuilder.errors.call_rate_limit_exceeded_exception.CallRateLimitExceededException: <p>You have exceeded the permitted request rate for the specific operation.</p>
+            aws_sdk_imagebuilder.errors.client_exception.ClientException: <p>These errors are usually caused by a client action, such as using an action or resource on behalf of a user that doesn't have permissions to use the action or resource, or specifying an invalid resource identifier.</p>
+            aws_sdk_imagebuilder.errors.forbidden_exception.ForbiddenException: <p>You are not authorized to perform the requested operation.</p>
+            aws_sdk_imagebuilder.errors.idempotent_parameter_mismatch_exception.IdempotentParameterMismatchException: <p>You have specified a client token for an operation using parameter values that differ from a previous request that used the same client token.</p>
+            aws_sdk_imagebuilder.errors.invalid_request_exception.InvalidRequestException: <p>You have requested an action that that the service doesn't support.</p>
+            aws_sdk_imagebuilder.errors.resource_in_use_exception.ResourceInUseException: <p>The resource that you are trying to operate on is currently in use. Review the message details and retry later.</p>
+            aws_sdk_imagebuilder.errors.resource_not_found_exception.ResourceNotFoundException: <p>At least one of the resources referenced by your request does not exist.</p>
+            aws_sdk_imagebuilder.errors.service_exception.ServiceException: <p>This exception is thrown when the service encounters an unrecoverable exception.</p>
+            aws_sdk_imagebuilder.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is unable to process your request at this time.</p>
+            aws_sdk_imagebuilder.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4672,6 +5400,18 @@ class AsyncimagebuilderClient:
             exclusion_rules: <p>Skip action on the image resource and associated resources if specified exclusion rules are met.</p>
             update_at: <p>The timestamp that indicates when resources are updated by a lifecycle action.</p>
             client_token: <p>Unique, case-sensitive identifier you provide to ensure idempotency of the request. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html\">Ensuring idempotency</a> in the <i>Amazon EC2 API Reference</i>.</p>
+
+        Raises:
+            aws_sdk_imagebuilder.errors.call_rate_limit_exceeded_exception.CallRateLimitExceededException: <p>You have exceeded the permitted request rate for the specific operation.</p>
+            aws_sdk_imagebuilder.errors.client_exception.ClientException: <p>These errors are usually caused by a client action, such as using an action or resource on behalf of a user that doesn't have permissions to use the action or resource, or specifying an invalid resource identifier.</p>
+            aws_sdk_imagebuilder.errors.forbidden_exception.ForbiddenException: <p>You are not authorized to perform the requested operation.</p>
+            aws_sdk_imagebuilder.errors.idempotent_parameter_mismatch_exception.IdempotentParameterMismatchException: <p>You have specified a client token for an operation using parameter values that differ from a previous request that used the same client token.</p>
+            aws_sdk_imagebuilder.errors.invalid_request_exception.InvalidRequestException: <p>You have requested an action that that the service doesn't support.</p>
+            aws_sdk_imagebuilder.errors.resource_in_use_exception.ResourceInUseException: <p>The resource that you are trying to operate on is currently in use. Review the message details and retry later.</p>
+            aws_sdk_imagebuilder.errors.resource_not_found_exception.ResourceNotFoundException: <p>At least one of the resources referenced by your request does not exist.</p>
+            aws_sdk_imagebuilder.errors.service_exception.ServiceException: <p>This exception is thrown when the service encounters an unrecoverable exception.</p>
+            aws_sdk_imagebuilder.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is unable to process your request at this time.</p>
+            aws_sdk_imagebuilder.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4722,6 +5462,12 @@ class AsyncimagebuilderClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource that you want to tag.</p>
             tags: <p>The tags to apply to the resource.</p>
+
+        Raises:
+            aws_sdk_imagebuilder.errors.invalid_parameter_exception.InvalidParameterException: <p>The specified parameter is invalid. Review the available parameters for the API request.</p>
+            aws_sdk_imagebuilder.errors.resource_not_found_exception.ResourceNotFoundException: <p>At least one of the resources referenced by your request does not exist.</p>
+            aws_sdk_imagebuilder.errors.service_exception.ServiceException: <p>This exception is thrown when the service encounters an unrecoverable exception.</p>
+            aws_sdk_imagebuilder.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4763,6 +5509,12 @@ class AsyncimagebuilderClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource that you want to untag.</p>
             tag_keys: <p>The tag keys to remove from the resource.</p>
+
+        Raises:
+            aws_sdk_imagebuilder.errors.invalid_parameter_exception.InvalidParameterException: <p>The specified parameter is invalid. Review the available parameters for the API request.</p>
+            aws_sdk_imagebuilder.errors.resource_not_found_exception.ResourceNotFoundException: <p>At least one of the resources referenced by your request does not exist.</p>
+            aws_sdk_imagebuilder.errors.service_exception.ServiceException: <p>This exception is thrown when the service encounters an unrecoverable exception.</p>
+            aws_sdk_imagebuilder.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4810,6 +5562,18 @@ class AsyncimagebuilderClient:
             description: <p>The description of the distribution configuration.</p>
             distributions: <p>The distributions of the distribution configuration.</p>
             client_token: <p>Unique, case-sensitive identifier you provide to ensure idempotency of the request. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html\">Ensuring idempotency</a> in the <i>Amazon EC2 API Reference</i>.</p>
+
+        Raises:
+            aws_sdk_imagebuilder.errors.call_rate_limit_exceeded_exception.CallRateLimitExceededException: <p>You have exceeded the permitted request rate for the specific operation.</p>
+            aws_sdk_imagebuilder.errors.client_exception.ClientException: <p>These errors are usually caused by a client action, such as using an action or resource on behalf of a user that doesn't have permissions to use the action or resource, or specifying an invalid resource identifier.</p>
+            aws_sdk_imagebuilder.errors.forbidden_exception.ForbiddenException: <p>You are not authorized to perform the requested operation.</p>
+            aws_sdk_imagebuilder.errors.idempotent_parameter_mismatch_exception.IdempotentParameterMismatchException: <p>You have specified a client token for an operation using parameter values that differ from a previous request that used the same client token.</p>
+            aws_sdk_imagebuilder.errors.invalid_parameter_combination_exception.InvalidParameterCombinationException: <p>You have specified two or more mutually exclusive parameters. Review the error message for details.</p>
+            aws_sdk_imagebuilder.errors.invalid_request_exception.InvalidRequestException: <p>You have requested an action that that the service doesn't support.</p>
+            aws_sdk_imagebuilder.errors.resource_in_use_exception.ResourceInUseException: <p>The resource that you are trying to operate on is currently in use. Review the message details and retry later.</p>
+            aws_sdk_imagebuilder.errors.service_exception.ServiceException: <p>This exception is thrown when the service encounters an unrecoverable exception.</p>
+            aws_sdk_imagebuilder.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is unable to process your request at this time.</p>
+            aws_sdk_imagebuilder.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4904,6 +5668,17 @@ class AsyncimagebuilderClient:
             logging_configuration: <p>Update logging configuration for the output image that's created when the pipeline runs.</p>
             execution_role: <p>The name or Amazon Resource Name (ARN) for the IAM role you create that grants Image Builder access to perform workflow actions.</p>
             image_tags: <p>The tags to be applied to the images produced by this pipeline.</p>
+
+        Raises:
+            aws_sdk_imagebuilder.errors.call_rate_limit_exceeded_exception.CallRateLimitExceededException: <p>You have exceeded the permitted request rate for the specific operation.</p>
+            aws_sdk_imagebuilder.errors.client_exception.ClientException: <p>These errors are usually caused by a client action, such as using an action or resource on behalf of a user that doesn't have permissions to use the action or resource, or specifying an invalid resource identifier.</p>
+            aws_sdk_imagebuilder.errors.forbidden_exception.ForbiddenException: <p>You are not authorized to perform the requested operation.</p>
+            aws_sdk_imagebuilder.errors.idempotent_parameter_mismatch_exception.IdempotentParameterMismatchException: <p>You have specified a client token for an operation using parameter values that differ from a previous request that used the same client token.</p>
+            aws_sdk_imagebuilder.errors.invalid_request_exception.InvalidRequestException: <p>You have requested an action that that the service doesn't support.</p>
+            aws_sdk_imagebuilder.errors.resource_in_use_exception.ResourceInUseException: <p>The resource that you are trying to operate on is currently in use. Review the message details and retry later.</p>
+            aws_sdk_imagebuilder.errors.service_exception.ServiceException: <p>This exception is thrown when the service encounters an unrecoverable exception.</p>
+            aws_sdk_imagebuilder.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is unable to process your request at this time.</p>
+            aws_sdk_imagebuilder.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5014,6 +5789,17 @@ class AsyncimagebuilderClient:
             instance_metadata_options: <p>The instance metadata options that you can set for the HTTP requests that pipeline builds use to launch EC2 build and test instances. For more information about instance metadata options, see one of the following links:</p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-instance-metadata-options.html\">Configure the instance metadata options</a> in the <i> <i>Amazon EC2 User Guide</i> </i> for Linux instances.</p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/configuring-instance-metadata-options.html\">Configure the instance metadata options</a> in the <i> <i>Amazon EC2 Windows Guide</i> </i> for Windows instances.</p> </li> </ul>
             placement: <p>The instance placement settings that define where the instances that are launched from your image will run.</p>
             client_token: <p>Unique, case-sensitive identifier you provide to ensure idempotency of the request. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html\">Ensuring idempotency</a> in the <i>Amazon EC2 API Reference</i>.</p>
+
+        Raises:
+            aws_sdk_imagebuilder.errors.call_rate_limit_exceeded_exception.CallRateLimitExceededException: <p>You have exceeded the permitted request rate for the specific operation.</p>
+            aws_sdk_imagebuilder.errors.client_exception.ClientException: <p>These errors are usually caused by a client action, such as using an action or resource on behalf of a user that doesn't have permissions to use the action or resource, or specifying an invalid resource identifier.</p>
+            aws_sdk_imagebuilder.errors.forbidden_exception.ForbiddenException: <p>You are not authorized to perform the requested operation.</p>
+            aws_sdk_imagebuilder.errors.idempotent_parameter_mismatch_exception.IdempotentParameterMismatchException: <p>You have specified a client token for an operation using parameter values that differ from a previous request that used the same client token.</p>
+            aws_sdk_imagebuilder.errors.invalid_request_exception.InvalidRequestException: <p>You have requested an action that that the service doesn't support.</p>
+            aws_sdk_imagebuilder.errors.resource_in_use_exception.ResourceInUseException: <p>The resource that you are trying to operate on is currently in use. Review the message details and retry later.</p>
+            aws_sdk_imagebuilder.errors.service_exception.ServiceException: <p>This exception is thrown when the service encounters an unrecoverable exception.</p>
+            aws_sdk_imagebuilder.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is unable to process your request at this time.</p>
+            aws_sdk_imagebuilder.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5094,6 +5880,18 @@ class AsyncimagebuilderClient:
             policy_details: <p>The configuration details for a lifecycle policy resource.</p>
             resource_selection: <p>Selection criteria for resources that the lifecycle policy applies to.</p>
             client_token: <p>Unique, case-sensitive identifier you provide to ensure idempotency of the request. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html\">Ensuring idempotency</a> in the <i>Amazon EC2 API Reference</i>.</p>
+
+        Raises:
+            aws_sdk_imagebuilder.errors.call_rate_limit_exceeded_exception.CallRateLimitExceededException: <p>You have exceeded the permitted request rate for the specific operation.</p>
+            aws_sdk_imagebuilder.errors.client_exception.ClientException: <p>These errors are usually caused by a client action, such as using an action or resource on behalf of a user that doesn't have permissions to use the action or resource, or specifying an invalid resource identifier.</p>
+            aws_sdk_imagebuilder.errors.forbidden_exception.ForbiddenException: <p>You are not authorized to perform the requested operation.</p>
+            aws_sdk_imagebuilder.errors.idempotent_parameter_mismatch_exception.IdempotentParameterMismatchException: <p>You have specified a client token for an operation using parameter values that differ from a previous request that used the same client token.</p>
+            aws_sdk_imagebuilder.errors.invalid_parameter_combination_exception.InvalidParameterCombinationException: <p>You have specified two or more mutually exclusive parameters. Review the error message for details.</p>
+            aws_sdk_imagebuilder.errors.invalid_request_exception.InvalidRequestException: <p>You have requested an action that that the service doesn't support.</p>
+            aws_sdk_imagebuilder.errors.resource_in_use_exception.ResourceInUseException: <p>The resource that you are trying to operate on is currently in use. Review the message details and retry later.</p>
+            aws_sdk_imagebuilder.errors.service_exception.ServiceException: <p>This exception is thrown when the service encounters an unrecoverable exception.</p>
+            aws_sdk_imagebuilder.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is unable to process your request at this time.</p>
+            aws_sdk_imagebuilder.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

@@ -211,6 +211,16 @@ class Cloud9Client:
             connection_type: <p>The connection type used for connecting to an Amazon EC2 environment. Valid values are <code>CONNECT_SSH</code> (default) and <code>CONNECT_SSM</code> (connected through Amazon EC2 Systems Manager).</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/cloud9/latest/user-guide/ec2-ssm.html\">Accessing no-ingress EC2 instances with Amazon EC2 Systems Manager</a> in the <i>Cloud9 User Guide</i>.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
 
+        Raises:
+            aws_sdk_cloud9.errors.bad_request_exception.BadRequestException: <p>The target request is invalid.</p>
+            aws_sdk_cloud9.errors.conflict_exception.ConflictException: <p>A conflict occurred.</p>
+            aws_sdk_cloud9.errors.forbidden_exception.ForbiddenException: <p>An access permissions issue occurred.</p>
+            aws_sdk_cloud9.errors.internal_server_error_exception.InternalServerErrorException: <p>An internal server error occurred.</p>
+            aws_sdk_cloud9.errors.limit_exceeded_exception.LimitExceededException: <p>A service limit was exceeded.</p>
+            aws_sdk_cloud9.errors.not_found_exception.NotFoundException: <p>The target resource cannot be found.</p>
+            aws_sdk_cloud9.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many service requests were made over the given time period.</p>
+            aws_sdk_cloud9.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             CreateEnvironmentEC2
 
@@ -275,6 +285,16 @@ class Cloud9Client:
             user_arn: <p>The Amazon Resource Name (ARN) of the environment member you want to add.</p>
             permissions: <p>The type of environment member permissions you want to associate with this environment member. Available values include:</p> <ul> <li> <p> <code>read-only</code>: Has read-only access to the environment.</p> </li> <li> <p> <code>read-write</code>: Has read-write access to the environment.</p> </li> </ul>
 
+        Raises:
+            aws_sdk_cloud9.errors.bad_request_exception.BadRequestException: <p>The target request is invalid.</p>
+            aws_sdk_cloud9.errors.conflict_exception.ConflictException: <p>A conflict occurred.</p>
+            aws_sdk_cloud9.errors.forbidden_exception.ForbiddenException: <p>An access permissions issue occurred.</p>
+            aws_sdk_cloud9.errors.internal_server_error_exception.InternalServerErrorException: <p>An internal server error occurred.</p>
+            aws_sdk_cloud9.errors.limit_exceeded_exception.LimitExceededException: <p>A service limit was exceeded.</p>
+            aws_sdk_cloud9.errors.not_found_exception.NotFoundException: <p>The target resource cannot be found.</p>
+            aws_sdk_cloud9.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many service requests were made over the given time period.</p>
+            aws_sdk_cloud9.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             CreateEnvironmentMembership
 
@@ -319,6 +339,16 @@ class Cloud9Client:
         Args:
             environment_id: <p>The ID of the environment to delete.</p>
 
+        Raises:
+            aws_sdk_cloud9.errors.bad_request_exception.BadRequestException: <p>The target request is invalid.</p>
+            aws_sdk_cloud9.errors.conflict_exception.ConflictException: <p>A conflict occurred.</p>
+            aws_sdk_cloud9.errors.forbidden_exception.ForbiddenException: <p>An access permissions issue occurred.</p>
+            aws_sdk_cloud9.errors.internal_server_error_exception.InternalServerErrorException: <p>An internal server error occurred.</p>
+            aws_sdk_cloud9.errors.limit_exceeded_exception.LimitExceededException: <p>A service limit was exceeded.</p>
+            aws_sdk_cloud9.errors.not_found_exception.NotFoundException: <p>The target resource cannot be found.</p>
+            aws_sdk_cloud9.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many service requests were made over the given time period.</p>
+            aws_sdk_cloud9.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             DeleteEnvironment
 
@@ -362,6 +392,16 @@ class Cloud9Client:
         Args:
             environment_id: <p>The ID of the environment to delete the environment member from.</p>
             user_arn: <p>The Amazon Resource Name (ARN) of the environment member to delete from the environment.</p>
+
+        Raises:
+            aws_sdk_cloud9.errors.bad_request_exception.BadRequestException: <p>The target request is invalid.</p>
+            aws_sdk_cloud9.errors.conflict_exception.ConflictException: <p>A conflict occurred.</p>
+            aws_sdk_cloud9.errors.forbidden_exception.ForbiddenException: <p>An access permissions issue occurred.</p>
+            aws_sdk_cloud9.errors.internal_server_error_exception.InternalServerErrorException: <p>An internal server error occurred.</p>
+            aws_sdk_cloud9.errors.limit_exceeded_exception.LimitExceededException: <p>A service limit was exceeded.</p>
+            aws_sdk_cloud9.errors.not_found_exception.NotFoundException: <p>The target resource cannot be found.</p>
+            aws_sdk_cloud9.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many service requests were made over the given time period.</p>
+            aws_sdk_cloud9.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             DeleteEnvironmentMembership
@@ -417,6 +457,16 @@ class Cloud9Client:
             permissions: <p>The type of environment member permissions to get information about. Available values include:</p> <ul> <li> <p> <code>owner</code>: Owns the environment.</p> </li> <li> <p> <code>read-only</code>: Has read-only access to the environment.</p> </li> <li> <p> <code>read-write</code>: Has read-write access to the environment.</p> </li> </ul> <p>If no value is specified, information about all environment members are returned.</p>
             next_token: <p>During a previous call, if there are more than 25 items in the list, only the first 25 items are returned, along with a unique string called a <i>next token</i>. To get the next batch of items in the list, call this operation again, adding the next token to the call. To get all of the items in the list, keep calling this operation with each subsequent next token that is returned, until no more next tokens are returned.</p>
             max_results: <p>The maximum number of environment members to get information about.</p>
+
+        Raises:
+            aws_sdk_cloud9.errors.bad_request_exception.BadRequestException: <p>The target request is invalid.</p>
+            aws_sdk_cloud9.errors.conflict_exception.ConflictException: <p>A conflict occurred.</p>
+            aws_sdk_cloud9.errors.forbidden_exception.ForbiddenException: <p>An access permissions issue occurred.</p>
+            aws_sdk_cloud9.errors.internal_server_error_exception.InternalServerErrorException: <p>An internal server error occurred.</p>
+            aws_sdk_cloud9.errors.limit_exceeded_exception.LimitExceededException: <p>A service limit was exceeded.</p>
+            aws_sdk_cloud9.errors.not_found_exception.NotFoundException: <p>The target resource cannot be found.</p>
+            aws_sdk_cloud9.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many service requests were made over the given time period.</p>
+            aws_sdk_cloud9.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             DescribeEnvironmentMemberships2
@@ -478,6 +528,16 @@ class Cloud9Client:
         Args:
             environment_ids: <p>The IDs of individual environments to get information about.</p>
 
+        Raises:
+            aws_sdk_cloud9.errors.bad_request_exception.BadRequestException: <p>The target request is invalid.</p>
+            aws_sdk_cloud9.errors.conflict_exception.ConflictException: <p>A conflict occurred.</p>
+            aws_sdk_cloud9.errors.forbidden_exception.ForbiddenException: <p>An access permissions issue occurred.</p>
+            aws_sdk_cloud9.errors.internal_server_error_exception.InternalServerErrorException: <p>An internal server error occurred.</p>
+            aws_sdk_cloud9.errors.limit_exceeded_exception.LimitExceededException: <p>A service limit was exceeded.</p>
+            aws_sdk_cloud9.errors.not_found_exception.NotFoundException: <p>The target resource cannot be found.</p>
+            aws_sdk_cloud9.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many service requests were made over the given time period.</p>
+            aws_sdk_cloud9.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             DescribeEnvironments
 
@@ -519,6 +579,16 @@ class Cloud9Client:
 
         Args:
             environment_id: <p>The ID of the environment to get status information about.</p>
+
+        Raises:
+            aws_sdk_cloud9.errors.bad_request_exception.BadRequestException: <p>The target request is invalid.</p>
+            aws_sdk_cloud9.errors.conflict_exception.ConflictException: <p>A conflict occurred.</p>
+            aws_sdk_cloud9.errors.forbidden_exception.ForbiddenException: <p>An access permissions issue occurred.</p>
+            aws_sdk_cloud9.errors.internal_server_error_exception.InternalServerErrorException: <p>An internal server error occurred.</p>
+            aws_sdk_cloud9.errors.limit_exceeded_exception.LimitExceededException: <p>A service limit was exceeded.</p>
+            aws_sdk_cloud9.errors.not_found_exception.NotFoundException: <p>The target resource cannot be found.</p>
+            aws_sdk_cloud9.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many service requests were made over the given time period.</p>
+            aws_sdk_cloud9.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             DescribeEnvironmentStatus
@@ -564,6 +634,16 @@ class Cloud9Client:
             next_token: <p>During a previous call, if there are more than 25 items in the list, only the first 25 items are returned, along with a unique string called a <i>next token</i>. To get the next batch of items in the list, call this operation again, adding the next token to the call. To get all of the items in the list, keep calling this operation with each subsequent next token that is returned, until no more next tokens are returned.</p>
             max_results: <p>The maximum number of environments to get identifiers for.</p>
 
+        Raises:
+            aws_sdk_cloud9.errors.bad_request_exception.BadRequestException: <p>The target request is invalid.</p>
+            aws_sdk_cloud9.errors.conflict_exception.ConflictException: <p>A conflict occurred.</p>
+            aws_sdk_cloud9.errors.forbidden_exception.ForbiddenException: <p>An access permissions issue occurred.</p>
+            aws_sdk_cloud9.errors.internal_server_error_exception.InternalServerErrorException: <p>An internal server error occurred.</p>
+            aws_sdk_cloud9.errors.limit_exceeded_exception.LimitExceededException: <p>A service limit was exceeded.</p>
+            aws_sdk_cloud9.errors.not_found_exception.NotFoundException: <p>The target resource cannot be found.</p>
+            aws_sdk_cloud9.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many service requests were made over the given time period.</p>
+            aws_sdk_cloud9.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             ListEnvironments
 
@@ -608,6 +688,12 @@ class Cloud9Client:
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the Cloud9 development environment to get the tags for.</p>
+
+        Raises:
+            aws_sdk_cloud9.errors.bad_request_exception.BadRequestException: <p>The target request is invalid.</p>
+            aws_sdk_cloud9.errors.internal_server_error_exception.InternalServerErrorException: <p>An internal server error occurred.</p>
+            aws_sdk_cloud9.errors.not_found_exception.NotFoundException: <p>The target resource cannot be found.</p>
+            aws_sdk_cloud9.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -647,6 +733,13 @@ class Cloud9Client:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the Cloud9 development environment to add tags to.</p>
             tags: <p>The list of tags to add to the given Cloud9 development environment.</p>
+
+        Raises:
+            aws_sdk_cloud9.errors.bad_request_exception.BadRequestException: <p>The target request is invalid.</p>
+            aws_sdk_cloud9.errors.concurrent_access_exception.ConcurrentAccessException: <p>A concurrent access issue occurred.</p>
+            aws_sdk_cloud9.errors.internal_server_error_exception.InternalServerErrorException: <p>An internal server error occurred.</p>
+            aws_sdk_cloud9.errors.not_found_exception.NotFoundException: <p>The target resource cannot be found.</p>
+            aws_sdk_cloud9.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -687,6 +780,13 @@ class Cloud9Client:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the Cloud9 development environment to remove tags from.</p>
             tag_keys: <p>The tag names of the tags to remove from the given Cloud9 development environment.</p>
+
+        Raises:
+            aws_sdk_cloud9.errors.bad_request_exception.BadRequestException: <p>The target request is invalid.</p>
+            aws_sdk_cloud9.errors.concurrent_access_exception.ConcurrentAccessException: <p>A concurrent access issue occurred.</p>
+            aws_sdk_cloud9.errors.internal_server_error_exception.InternalServerErrorException: <p>An internal server error occurred.</p>
+            aws_sdk_cloud9.errors.not_found_exception.NotFoundException: <p>The target resource cannot be found.</p>
+            aws_sdk_cloud9.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -735,6 +835,16 @@ class Cloud9Client:
             name: <p>A replacement name for the environment.</p>
             description: <p>Any new or replacement description for the environment.</p>
             managed_credentials_action: <p>Allows the environment owner to turn on or turn off the Amazon Web Services managed temporary credentials for an Cloud9 environment by using one of the following values:</p> <ul> <li> <p> <code>ENABLE</code> </p> </li> <li> <p> <code>DISABLE</code> </p> </li> </ul> <note> <p>Only the environment owner can change the status of managed temporary credentials. An <code>AccessDeniedException</code> is thrown if an attempt to turn on or turn off managed temporary credentials is made by an account that's not the environment owner.</p> </note>
+
+        Raises:
+            aws_sdk_cloud9.errors.bad_request_exception.BadRequestException: <p>The target request is invalid.</p>
+            aws_sdk_cloud9.errors.conflict_exception.ConflictException: <p>A conflict occurred.</p>
+            aws_sdk_cloud9.errors.forbidden_exception.ForbiddenException: <p>An access permissions issue occurred.</p>
+            aws_sdk_cloud9.errors.internal_server_error_exception.InternalServerErrorException: <p>An internal server error occurred.</p>
+            aws_sdk_cloud9.errors.limit_exceeded_exception.LimitExceededException: <p>A service limit was exceeded.</p>
+            aws_sdk_cloud9.errors.not_found_exception.NotFoundException: <p>The target resource cannot be found.</p>
+            aws_sdk_cloud9.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many service requests were made over the given time period.</p>
+            aws_sdk_cloud9.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             UpdateEnvironment
@@ -787,6 +897,16 @@ class Cloud9Client:
             environment_id: <p>The ID of the environment for the environment member whose settings you want to change.</p>
             user_arn: <p>The Amazon Resource Name (ARN) of the environment member whose settings you want to change.</p>
             permissions: <p>The replacement type of environment member permissions you want to associate with this environment member. Available values include:</p> <ul> <li> <p> <code>read-only</code>: Has read-only access to the environment.</p> </li> <li> <p> <code>read-write</code>: Has read-write access to the environment.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_cloud9.errors.bad_request_exception.BadRequestException: <p>The target request is invalid.</p>
+            aws_sdk_cloud9.errors.conflict_exception.ConflictException: <p>A conflict occurred.</p>
+            aws_sdk_cloud9.errors.forbidden_exception.ForbiddenException: <p>An access permissions issue occurred.</p>
+            aws_sdk_cloud9.errors.internal_server_error_exception.InternalServerErrorException: <p>An internal server error occurred.</p>
+            aws_sdk_cloud9.errors.limit_exceeded_exception.LimitExceededException: <p>A service limit was exceeded.</p>
+            aws_sdk_cloud9.errors.not_found_exception.NotFoundException: <p>The target resource cannot be found.</p>
+            aws_sdk_cloud9.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many service requests were made over the given time period.</p>
+            aws_sdk_cloud9.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             UpdateEnvironmentMembership

@@ -211,7 +211,13 @@ class mgnClient:
     def initialize_service(
         self, *, config_overrides: Optional[mgnClientConfig] = None
     ) -> "aws_sdk_mgn.types.initialize_service_response.InitializeServiceResponse":
-        """<p>Initialize Application Migration Service.</p>"""
+        """<p>Initialize Application Migration Service.</p>
+
+        Raises:
+            aws_sdk_mgn.errors.access_denied_exception.AccessDeniedException: <p>Operating denied due to a file permission or access check error.</p>
+            aws_sdk_mgn.errors.validation_exception.ValidationException: <p>Validate exception.</p>
+            aws_sdk_mgn.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_mgn.types.initialize_service_request.InitializeServiceRequest]",
@@ -257,6 +263,10 @@ class mgnClient:
             filters: <p>Filters to apply when listing import file enrichment jobs.</p>
             max_results: <p>The maximum number of results to return in a single call.</p>
             next_token: <p>The token for the next page of results.</p>
+
+        Raises:
+            aws_sdk_mgn.errors.validation_exception.ValidationException: <p>Validate exception.</p>
+            aws_sdk_mgn.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Sample ListImportFileEnrichments call
@@ -339,6 +349,11 @@ class mgnClient:
         Args:
             max_results: <p>List managed accounts request max results.</p>
             next_token: <p>List managed accounts request next token.</p>
+
+        Raises:
+            aws_sdk_mgn.errors.uninitialized_account_exception.UninitializedAccountException: <p>Uninitialized account exception.</p>
+            aws_sdk_mgn.errors.validation_exception.ValidationException: <p>Validate exception.</p>
+            aws_sdk_mgn.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -406,6 +421,14 @@ class mgnClient:
 
         Args:
             resource_arn: <p>List tags for resource request by ARN.</p>
+
+        Raises:
+            aws_sdk_mgn.errors.access_denied_exception.AccessDeniedException: <p>Operating denied due to a file permission or access check error.</p>
+            aws_sdk_mgn.errors.internal_server_exception.InternalServerException: <p>The server encountered an unexpected condition that prevented it from fulfilling the request.</p>
+            aws_sdk_mgn.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found exception.</p>
+            aws_sdk_mgn.errors.throttling_exception.ThrottlingException: <p>Reached throttling quota exception.</p>
+            aws_sdk_mgn.errors.validation_exception.ValidationException: <p>Validate exception.</p>
+            aws_sdk_mgn.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -453,6 +476,14 @@ class mgnClient:
             s3_bucket_source: <p>The S3 configuration specifying the source location of the import file to be enriched.</p>
             s3_bucket_target: <p>The S3 configuration specifying the target location where the enriched import file will be stored.</p>
             ip_assignment_strategy: <p>The IP assignment strategy to use when enriching the import file. Can be STATIC or DYNAMIC.</p>
+
+        Raises:
+            aws_sdk_mgn.errors.access_denied_exception.AccessDeniedException: <p>Operating denied due to a file permission or access check error.</p>
+            aws_sdk_mgn.errors.conflict_exception.ConflictException: <p>The request could not be completed due to a conflict with the current state of the target resource.</p>
+            aws_sdk_mgn.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request could not be completed because its exceeded the service quota.</p>
+            aws_sdk_mgn.errors.throttling_exception.ThrottlingException: <p>Reached throttling quota exception.</p>
+            aws_sdk_mgn.errors.validation_exception.ValidationException: <p>Validate exception.</p>
+            aws_sdk_mgn.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Sample StartImportFileEnrichment call
@@ -502,6 +533,14 @@ class mgnClient:
         Args:
             resource_arn: <p>Tag resource by ARN.</p>
             tags: <p>Tag resource by Tags.</p>
+
+        Raises:
+            aws_sdk_mgn.errors.access_denied_exception.AccessDeniedException: <p>Operating denied due to a file permission or access check error.</p>
+            aws_sdk_mgn.errors.internal_server_exception.InternalServerException: <p>The server encountered an unexpected condition that prevented it from fulfilling the request.</p>
+            aws_sdk_mgn.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found exception.</p>
+            aws_sdk_mgn.errors.throttling_exception.ThrottlingException: <p>Reached throttling quota exception.</p>
+            aws_sdk_mgn.errors.validation_exception.ValidationException: <p>Validate exception.</p>
+            aws_sdk_mgn.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -540,6 +579,14 @@ class mgnClient:
         Args:
             resource_arn: <p>Untag resource by ARN.</p>
             tag_keys: <p>Untag resource by Keys.</p>
+
+        Raises:
+            aws_sdk_mgn.errors.access_denied_exception.AccessDeniedException: <p>Operating denied due to a file permission or access check error.</p>
+            aws_sdk_mgn.errors.internal_server_exception.InternalServerException: <p>The server encountered an unexpected condition that prevented it from fulfilling the request.</p>
+            aws_sdk_mgn.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found exception.</p>
+            aws_sdk_mgn.errors.throttling_exception.ThrottlingException: <p>Reached throttling quota exception.</p>
+            aws_sdk_mgn.errors.validation_exception.ValidationException: <p>Validate exception.</p>
+            aws_sdk_mgn.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(

@@ -224,6 +224,14 @@ class MachineLearningClient:
             tags: <p>The key-value pairs to use to create tags. If you specify a key without specifying a value, Amazon ML creates a tag with the specified key and a value of null.</p>
             resource_id: <p>The ID of the ML object to tag. For example, <code>exampleModelId</code>.</p>
             resource_type: <p>The type of the ML object to tag.</p>
+
+        Raises:
+            aws_sdk_machine_learning.errors.internal_server_exception.InternalServerException: <p>An error on the server occurred when trying to process a request.</p>
+            aws_sdk_machine_learning.errors.invalid_input_exception.InvalidInputException: <p>An error on the client occurred. Typically, the cause is an invalid input value.</p>
+            aws_sdk_machine_learning.errors.invalid_tag_exception.InvalidTagException
+            aws_sdk_machine_learning.errors.resource_not_found_exception.ResourceNotFoundException: <p>A specified resource cannot be located.</p>
+            aws_sdk_machine_learning.errors.tag_limit_exceeded_exception.TagLimitExceededException
+            aws_sdk_machine_learning.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -273,6 +281,12 @@ class MachineLearningClient:
             ml_model_id: <p>The ID of the <code>MLModel</code> that will generate predictions for the group of observations. </p>
             batch_prediction_data_source_id: <p>The ID of the <code>DataSource</code> that points to the group of observations to predict.</p>
             output_uri: <p>The location of an Amazon Simple Storage Service (Amazon S3) bucket or directory to store the batch prediction results. The following substrings are not allowed in the <code>s3 key</code> portion of the <code>outputURI</code> field: ':', '//', '/./', '/../'.</p> <p>Amazon ML needs permissions to store and retrieve the logs on your behalf. For information about how to set permissions, see the <a href=\"https://docs.aws.amazon.com/machine-learning/latest/dg\">Amazon Machine Learning Developer Guide</a>.</p>
+
+        Raises:
+            aws_sdk_machine_learning.errors.idempotent_parameter_mismatch_exception.IdempotentParameterMismatchException: <p>A second request to use or change an object was not allowed. This can result from retrying a request using a parameter that was not present in the original request.</p>
+            aws_sdk_machine_learning.errors.internal_server_exception.InternalServerException: <p>An error on the server occurred when trying to process a request.</p>
+            aws_sdk_machine_learning.errors.invalid_input_exception.InvalidInputException: <p>An error on the client occurred. Typically, the cause is an invalid input value.</p>
+            aws_sdk_machine_learning.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -327,6 +341,12 @@ class MachineLearningClient:
             rds_data: <p>The data specification of an Amazon RDS <code>DataSource</code>:</p> <ul> <li> <p>DatabaseInformation -</p> <ul> <li> <p> <code>DatabaseName</code> - The name of the Amazon RDS database.</p> </li> <li> <p> <code>InstanceIdentifier </code> - A unique identifier for the Amazon RDS database instance.</p> </li> </ul> </li> <li> <p>DatabaseCredentials - AWS Identity and Access Management (IAM) credentials that are used to connect to the Amazon RDS database.</p> </li> <li> <p>ResourceRole - A role (DataPipelineDefaultResourceRole) assumed by an EC2 instance to carry out the copy task from Amazon RDS to Amazon Simple Storage Service (Amazon S3). For more information, see <a href=\"https://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-iam-roles.html\">Role templates</a> for data pipelines.</p> </li> <li> <p>ServiceRole - A role (DataPipelineDefaultRole) assumed by the AWS Data Pipeline service to monitor the progress of the copy task from Amazon RDS to Amazon S3. For more information, see <a href=\"https://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-iam-roles.html\">Role templates</a> for data pipelines.</p> </li> <li> <p>SecurityInfo - The security information to use to access an RDS DB instance. You need to set up appropriate ingress rules for the security entity IDs provided to allow access to the Amazon RDS instance. Specify a [<code>SubnetId</code>, <code>SecurityGroupIds</code>] pair for a VPC-based RDS DB instance.</p> </li> <li> <p>SelectSqlQuery - A query that is used to retrieve the observation data for the <code>Datasource</code>.</p> </li> <li> <p>S3StagingLocation - The Amazon S3 location for staging Amazon RDS data. The data retrieved from Amazon RDS using <code>SelectSqlQuery</code> is stored in this location.</p> </li> <li> <p>DataSchemaUri - The Amazon S3 location of the <code>DataSchema</code>.</p> </li> <li> <p>DataSchema - A JSON string representing the schema. This is not required if <code>DataSchemaUri</code> is specified. </p> </li> <li> <p>DataRearrangement - A JSON string that represents the splitting and rearrangement requirements for the <code>Datasource</code>. </p> <p> Sample - <code> \"{\\"splitting\\":{\\"percentBegin\\":10,\\"percentEnd\\":60}}\"</code> </p> </li> </ul>
             role_arn: <p>The role that Amazon ML assumes on behalf of the user to create and activate a data pipeline in the user's account and copy data using the <code>SelectSqlQuery</code> query from Amazon RDS to Amazon S3.</p> <p></p>
             compute_statistics: <p>The compute statistics for a <code>DataSource</code>. The statistics are generated from the observation data referenced by a <code>DataSource</code>. Amazon ML uses the statistics internally during <code>MLModel</code> training. This parameter must be set to <code>true</code> if the <code></code>DataSource<code></code> needs to be used for <code>MLModel</code> training. </p>
+
+        Raises:
+            aws_sdk_machine_learning.errors.idempotent_parameter_mismatch_exception.IdempotentParameterMismatchException: <p>A second request to use or change an object was not allowed. This can result from retrying a request using a parameter that was not present in the original request.</p>
+            aws_sdk_machine_learning.errors.internal_server_exception.InternalServerException: <p>An error on the server occurred when trying to process a request.</p>
+            aws_sdk_machine_learning.errors.invalid_input_exception.InvalidInputException: <p>An error on the client occurred. Typically, the cause is an invalid input value.</p>
+            aws_sdk_machine_learning.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -382,6 +402,12 @@ class MachineLearningClient:
             data_spec: <p>The data specification of an Amazon Redshift <code>DataSource</code>:</p> <ul> <li> <p>DatabaseInformation -</p> <ul> <li> <p> <code>DatabaseName</code> - The name of the Amazon Redshift database.</p> </li> <li> <p> <code> ClusterIdentifier</code> - The unique ID for the Amazon Redshift cluster.</p> </li> </ul> </li> <li> <p>DatabaseCredentials - The AWS Identity and Access Management (IAM) credentials that are used to connect to the Amazon Redshift database.</p> </li> <li> <p>SelectSqlQuery - The query that is used to retrieve the observation data for the <code>Datasource</code>.</p> </li> <li> <p>S3StagingLocation - The Amazon Simple Storage Service (Amazon S3) location for staging Amazon Redshift data. The data retrieved from Amazon Redshift using the <code>SelectSqlQuery</code> query is stored in this location.</p> </li> <li> <p>DataSchemaUri - The Amazon S3 location of the <code>DataSchema</code>.</p> </li> <li> <p>DataSchema - A JSON string representing the schema. This is not required if <code>DataSchemaUri</code> is specified. </p> </li> <li> <p>DataRearrangement - A JSON string that represents the splitting and rearrangement requirements for the <code>DataSource</code>.</p> <p> Sample - <code> \"{\\"splitting\\":{\\"percentBegin\\":10,\\"percentEnd\\":60}}\"</code> </p> </li> </ul>
             role_arn: <p>A fully specified role Amazon Resource Name (ARN). Amazon ML assumes the role on behalf of the user to create the following:</p> <ul> <li> <p>A security group to allow Amazon ML to execute the <code>SelectSqlQuery</code> query on an Amazon Redshift cluster</p> </li> <li> <p>An Amazon S3 bucket policy to grant Amazon ML read/write permissions on the <code>S3StagingLocation</code> </p> </li> </ul>
             compute_statistics: <p>The compute statistics for a <code>DataSource</code>. The statistics are generated from the observation data referenced by a <code>DataSource</code>. Amazon ML uses the statistics internally during <code>MLModel</code> training. This parameter must be set to <code>true</code> if the <code>DataSource</code> needs to be used for <code>MLModel</code> training.</p>
+
+        Raises:
+            aws_sdk_machine_learning.errors.idempotent_parameter_mismatch_exception.IdempotentParameterMismatchException: <p>A second request to use or change an object was not allowed. This can result from retrying a request using a parameter that was not present in the original request.</p>
+            aws_sdk_machine_learning.errors.internal_server_exception.InternalServerException: <p>An error on the server occurred when trying to process a request.</p>
+            aws_sdk_machine_learning.errors.invalid_input_exception.InvalidInputException: <p>An error on the client occurred. Typically, the cause is an invalid input value.</p>
+            aws_sdk_machine_learning.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -435,6 +461,12 @@ class MachineLearningClient:
             data_source_name: <p>A user-supplied name or description of the <code>DataSource</code>. </p>
             data_spec: <p>The data specification of a <code>DataSource</code>:</p> <ul> <li> <p>DataLocationS3 - The Amazon S3 location of the observation data.</p> </li> <li> <p>DataSchemaLocationS3 - The Amazon S3 location of the <code>DataSchema</code>.</p> </li> <li> <p>DataSchema - A JSON string representing the schema. This is not required if <code>DataSchemaUri</code> is specified. </p> </li> <li> <p>DataRearrangement - A JSON string that represents the splitting and rearrangement requirements for the <code>Datasource</code>. </p> <p> Sample - <code> \"{\\"splitting\\":{\\"percentBegin\\":10,\\"percentEnd\\":60}}\"</code> </p> </li> </ul>
             compute_statistics: <p>The compute statistics for a <code>DataSource</code>. The statistics are generated from the observation data referenced by a <code>DataSource</code>. Amazon ML uses the statistics internally during <code>MLModel</code> training. This parameter must be set to <code>true</code> if the <code></code>DataSource<code></code> needs to be used for <code>MLModel</code> training.</p>
+
+        Raises:
+            aws_sdk_machine_learning.errors.idempotent_parameter_mismatch_exception.IdempotentParameterMismatchException: <p>A second request to use or change an object was not allowed. This can result from retrying a request using a parameter that was not present in the original request.</p>
+            aws_sdk_machine_learning.errors.internal_server_exception.InternalServerException: <p>An error on the server occurred when trying to process a request.</p>
+            aws_sdk_machine_learning.errors.invalid_input_exception.InvalidInputException: <p>An error on the client occurred. Typically, the cause is an invalid input value.</p>
+            aws_sdk_machine_learning.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -487,6 +519,12 @@ class MachineLearningClient:
             evaluation_name: <p>A user-supplied name or description of the <code>Evaluation</code>.</p>
             ml_model_id: <p>The ID of the <code>MLModel</code> to evaluate.</p> <p>The schema used in creating the <code>MLModel</code> must match the schema of the <code>DataSource</code> used in the <code>Evaluation</code>.</p>
             evaluation_data_source_id: <p>The ID of the <code>DataSource</code> for the evaluation. The schema of the <code>DataSource</code> must match the schema used to create the <code>MLModel</code>.</p>
+
+        Raises:
+            aws_sdk_machine_learning.errors.idempotent_parameter_mismatch_exception.IdempotentParameterMismatchException: <p>A second request to use or change an object was not allowed. This can result from retrying a request using a parameter that was not present in the original request.</p>
+            aws_sdk_machine_learning.errors.internal_server_exception.InternalServerException: <p>An error on the server occurred when trying to process a request.</p>
+            aws_sdk_machine_learning.errors.invalid_input_exception.InvalidInputException: <p>An error on the client occurred. Typically, the cause is an invalid input value.</p>
+            aws_sdk_machine_learning.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -544,6 +582,12 @@ class MachineLearningClient:
             training_data_source_id: <p>The <code>DataSource</code> that points to the training data.</p>
             recipe: <p>The data recipe for creating the <code>MLModel</code>. You must specify either the recipe or its URI. If you don't specify a recipe or its URI, Amazon ML creates a default.</p>
             recipe_uri: <p>The Amazon Simple Storage Service (Amazon S3) location and file name that contains the <code>MLModel</code> recipe. You must specify either the recipe or its URI. If you don't specify a recipe or its URI, Amazon ML creates a default.</p>
+
+        Raises:
+            aws_sdk_machine_learning.errors.idempotent_parameter_mismatch_exception.IdempotentParameterMismatchException: <p>A second request to use or change an object was not allowed. This can result from retrying a request using a parameter that was not present in the original request.</p>
+            aws_sdk_machine_learning.errors.internal_server_exception.InternalServerException: <p>An error on the server occurred when trying to process a request.</p>
+            aws_sdk_machine_learning.errors.invalid_input_exception.InvalidInputException: <p>An error on the client occurred. Typically, the cause is an invalid input value.</p>
+            aws_sdk_machine_learning.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -591,6 +635,12 @@ class MachineLearningClient:
 
         Args:
             ml_model_id: <p>The ID assigned to the <code>MLModel</code> during creation.</p>
+
+        Raises:
+            aws_sdk_machine_learning.errors.internal_server_exception.InternalServerException: <p>An error on the server occurred when trying to process a request.</p>
+            aws_sdk_machine_learning.errors.invalid_input_exception.InvalidInputException: <p>An error on the client occurred. Typically, the cause is an invalid input value.</p>
+            aws_sdk_machine_learning.errors.resource_not_found_exception.ResourceNotFoundException: <p>A specified resource cannot be located.</p>
+            aws_sdk_machine_learning.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -628,6 +678,12 @@ class MachineLearningClient:
 
         Args:
             batch_prediction_id: <p>A user-supplied ID that uniquely identifies the <code>BatchPrediction</code>.</p>
+
+        Raises:
+            aws_sdk_machine_learning.errors.internal_server_exception.InternalServerException: <p>An error on the server occurred when trying to process a request.</p>
+            aws_sdk_machine_learning.errors.invalid_input_exception.InvalidInputException: <p>An error on the client occurred. Typically, the cause is an invalid input value.</p>
+            aws_sdk_machine_learning.errors.resource_not_found_exception.ResourceNotFoundException: <p>A specified resource cannot be located.</p>
+            aws_sdk_machine_learning.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -665,6 +721,12 @@ class MachineLearningClient:
 
         Args:
             data_source_id: <p>A user-supplied ID that uniquely identifies the <code>DataSource</code>.</p>
+
+        Raises:
+            aws_sdk_machine_learning.errors.internal_server_exception.InternalServerException: <p>An error on the server occurred when trying to process a request.</p>
+            aws_sdk_machine_learning.errors.invalid_input_exception.InvalidInputException: <p>An error on the client occurred. Typically, the cause is an invalid input value.</p>
+            aws_sdk_machine_learning.errors.resource_not_found_exception.ResourceNotFoundException: <p>A specified resource cannot be located.</p>
+            aws_sdk_machine_learning.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -704,6 +766,12 @@ class MachineLearningClient:
 
         Args:
             evaluation_id: <p>A user-supplied ID that uniquely identifies the <code>Evaluation</code> to delete.</p>
+
+        Raises:
+            aws_sdk_machine_learning.errors.internal_server_exception.InternalServerException: <p>An error on the server occurred when trying to process a request.</p>
+            aws_sdk_machine_learning.errors.invalid_input_exception.InvalidInputException: <p>An error on the client occurred. Typically, the cause is an invalid input value.</p>
+            aws_sdk_machine_learning.errors.resource_not_found_exception.ResourceNotFoundException: <p>A specified resource cannot be located.</p>
+            aws_sdk_machine_learning.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -741,6 +809,12 @@ class MachineLearningClient:
 
         Args:
             ml_model_id: <p>A user-supplied ID that uniquely identifies the <code>MLModel</code>.</p>
+
+        Raises:
+            aws_sdk_machine_learning.errors.internal_server_exception.InternalServerException: <p>An error on the server occurred when trying to process a request.</p>
+            aws_sdk_machine_learning.errors.invalid_input_exception.InvalidInputException: <p>An error on the client occurred. Typically, the cause is an invalid input value.</p>
+            aws_sdk_machine_learning.errors.resource_not_found_exception.ResourceNotFoundException: <p>A specified resource cannot be located.</p>
+            aws_sdk_machine_learning.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -778,6 +852,12 @@ class MachineLearningClient:
 
         Args:
             ml_model_id: <p>The ID assigned to the <code>MLModel</code> during creation.</p>
+
+        Raises:
+            aws_sdk_machine_learning.errors.internal_server_exception.InternalServerException: <p>An error on the server occurred when trying to process a request.</p>
+            aws_sdk_machine_learning.errors.invalid_input_exception.InvalidInputException: <p>An error on the client occurred. Typically, the cause is an invalid input value.</p>
+            aws_sdk_machine_learning.errors.resource_not_found_exception.ResourceNotFoundException: <p>A specified resource cannot be located.</p>
+            aws_sdk_machine_learning.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -819,6 +899,13 @@ class MachineLearningClient:
             tag_keys: <p>One or more tags to delete.</p>
             resource_id: <p>The ID of the tagged ML object. For example, <code>exampleModelId</code>.</p>
             resource_type: <p>The type of the tagged ML object.</p>
+
+        Raises:
+            aws_sdk_machine_learning.errors.internal_server_exception.InternalServerException: <p>An error on the server occurred when trying to process a request.</p>
+            aws_sdk_machine_learning.errors.invalid_input_exception.InvalidInputException: <p>An error on the client occurred. Typically, the cause is an invalid input value.</p>
+            aws_sdk_machine_learning.errors.invalid_tag_exception.InvalidTagException
+            aws_sdk_machine_learning.errors.resource_not_found_exception.ResourceNotFoundException: <p>A specified resource cannot be located.</p>
+            aws_sdk_machine_learning.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -898,6 +985,11 @@ class MachineLearningClient:
             sort_order: <p>A two-value parameter that determines the sequence of the resulting list of <code>MLModel</code>s.</p> <ul> <li> <p> <code>asc</code> - Arranges the list in ascending order (A-Z, 0-9).</p> </li> <li> <p> <code>dsc</code> - Arranges the list in descending order (Z-A, 9-0).</p> </li> </ul> <p>Results are sorted by <code>FilterVariable</code>.</p>
             next_token: <p>An ID of the page in the paginated results.</p>
             limit: <p>The number of pages of information to include in the result. The range of acceptable values is <code>1</code> through <code>100</code>. The default value is <code>100</code>.</p>
+
+        Raises:
+            aws_sdk_machine_learning.errors.internal_server_exception.InternalServerException: <p>An error on the server occurred when trying to process a request.</p>
+            aws_sdk_machine_learning.errors.invalid_input_exception.InvalidInputException: <p>An error on the client occurred. Typically, the cause is an invalid input value.</p>
+            aws_sdk_machine_learning.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1055,6 +1147,11 @@ class MachineLearningClient:
             sort_order: <p>A two-value parameter that determines the sequence of the resulting list of <code>DataSource</code>.</p> <ul> <li> <p> <code>asc</code> - Arranges the list in ascending order (A-Z, 0-9).</p> </li> <li> <p> <code>dsc</code> - Arranges the list in descending order (Z-A, 9-0).</p> </li> </ul> <p>Results are sorted by <code>FilterVariable</code>.</p>
             next_token: <p>The ID of the page in the paginated results.</p>
             limit: <p> The maximum number of <code>DataSource</code> to include in the result.</p>
+
+        Raises:
+            aws_sdk_machine_learning.errors.internal_server_exception.InternalServerException: <p>An error on the server occurred when trying to process a request.</p>
+            aws_sdk_machine_learning.errors.invalid_input_exception.InvalidInputException: <p>An error on the client occurred. Typically, the cause is an invalid input value.</p>
+            aws_sdk_machine_learning.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1212,6 +1309,11 @@ class MachineLearningClient:
             sort_order: <p>A two-value parameter that determines the sequence of the resulting list of <code>Evaluation</code>.</p> <ul> <li> <p> <code>asc</code> - Arranges the list in ascending order (A-Z, 0-9).</p> </li> <li> <p> <code>dsc</code> - Arranges the list in descending order (Z-A, 9-0).</p> </li> </ul> <p>Results are sorted by <code>FilterVariable</code>.</p>
             next_token: <p>The ID of the page in the paginated results.</p>
             limit: <p> The maximum number of <code>Evaluation</code> to include in the result.</p>
+
+        Raises:
+            aws_sdk_machine_learning.errors.internal_server_exception.InternalServerException: <p>An error on the server occurred when trying to process a request.</p>
+            aws_sdk_machine_learning.errors.invalid_input_exception.InvalidInputException: <p>An error on the client occurred. Typically, the cause is an invalid input value.</p>
+            aws_sdk_machine_learning.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1369,6 +1471,11 @@ class MachineLearningClient:
             sort_order: <p>A two-value parameter that determines the sequence of the resulting list of <code>MLModel</code>.</p> <ul> <li> <p> <code>asc</code> - Arranges the list in ascending order (A-Z, 0-9).</p> </li> <li> <p> <code>dsc</code> - Arranges the list in descending order (Z-A, 9-0).</p> </li> </ul> <p>Results are sorted by <code>FilterVariable</code>.</p>
             next_token: <p>The ID of the page in the paginated results.</p>
             limit: <p>The number of pages of information to include in the result. The range of acceptable values is <code>1</code> through <code>100</code>. The default value is <code>100</code>.</p>
+
+        Raises:
+            aws_sdk_machine_learning.errors.internal_server_exception.InternalServerException: <p>An error on the server occurred when trying to process a request.</p>
+            aws_sdk_machine_learning.errors.invalid_input_exception.InvalidInputException: <p>An error on the client occurred. Typically, the cause is an invalid input value.</p>
+            aws_sdk_machine_learning.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1488,6 +1595,12 @@ class MachineLearningClient:
         Args:
             resource_id: <p>The ID of the ML object. For example, <code>exampleModelId</code>. </p>
             resource_type: <p>The type of the ML object.</p>
+
+        Raises:
+            aws_sdk_machine_learning.errors.internal_server_exception.InternalServerException: <p>An error on the server occurred when trying to process a request.</p>
+            aws_sdk_machine_learning.errors.invalid_input_exception.InvalidInputException: <p>An error on the client occurred. Typically, the cause is an invalid input value.</p>
+            aws_sdk_machine_learning.errors.resource_not_found_exception.ResourceNotFoundException: <p>A specified resource cannot be located.</p>
+            aws_sdk_machine_learning.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1526,6 +1639,12 @@ class MachineLearningClient:
 
         Args:
             batch_prediction_id: <p>An ID assigned to the <code>BatchPrediction</code> at creation.</p>
+
+        Raises:
+            aws_sdk_machine_learning.errors.internal_server_exception.InternalServerException: <p>An error on the server occurred when trying to process a request.</p>
+            aws_sdk_machine_learning.errors.invalid_input_exception.InvalidInputException: <p>An error on the client occurred. Typically, the cause is an invalid input value.</p>
+            aws_sdk_machine_learning.errors.resource_not_found_exception.ResourceNotFoundException: <p>A specified resource cannot be located.</p>
+            aws_sdk_machine_learning.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1565,6 +1684,12 @@ class MachineLearningClient:
         Args:
             data_source_id: <p>The ID assigned to the <code>DataSource</code> at creation.</p>
             verbose: <p>Specifies whether the <code>GetDataSource</code> operation should return <code>DataSourceSchema</code>.</p> <p>If true, <code>DataSourceSchema</code> is returned.</p> <p>If false, <code>DataSourceSchema</code> is not returned.</p>
+
+        Raises:
+            aws_sdk_machine_learning.errors.internal_server_exception.InternalServerException: <p>An error on the server occurred when trying to process a request.</p>
+            aws_sdk_machine_learning.errors.invalid_input_exception.InvalidInputException: <p>An error on the client occurred. Typically, the cause is an invalid input value.</p>
+            aws_sdk_machine_learning.errors.resource_not_found_exception.ResourceNotFoundException: <p>A specified resource cannot be located.</p>
+            aws_sdk_machine_learning.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1604,6 +1729,12 @@ class MachineLearningClient:
 
         Args:
             evaluation_id: <p>The ID of the <code>Evaluation</code> to retrieve. The evaluation of each <code>MLModel</code> is recorded and cataloged. The ID provides the means to access the information. </p>
+
+        Raises:
+            aws_sdk_machine_learning.errors.internal_server_exception.InternalServerException: <p>An error on the server occurred when trying to process a request.</p>
+            aws_sdk_machine_learning.errors.invalid_input_exception.InvalidInputException: <p>An error on the client occurred. Typically, the cause is an invalid input value.</p>
+            aws_sdk_machine_learning.errors.resource_not_found_exception.ResourceNotFoundException: <p>A specified resource cannot be located.</p>
+            aws_sdk_machine_learning.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1643,6 +1774,12 @@ class MachineLearningClient:
         Args:
             ml_model_id: <p>The ID assigned to the <code>MLModel</code> at creation.</p>
             verbose: <p>Specifies whether the <code>GetMLModel</code> operation should return <code>Recipe</code>.</p> <p>If true, <code>Recipe</code> is returned.</p> <p>If false, <code>Recipe</code> is not returned.</p>
+
+        Raises:
+            aws_sdk_machine_learning.errors.internal_server_exception.InternalServerException: <p>An error on the server occurred when trying to process a request.</p>
+            aws_sdk_machine_learning.errors.invalid_input_exception.InvalidInputException: <p>An error on the client occurred. Typically, the cause is an invalid input value.</p>
+            aws_sdk_machine_learning.errors.resource_not_found_exception.ResourceNotFoundException: <p>A specified resource cannot be located.</p>
+            aws_sdk_machine_learning.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1684,6 +1821,14 @@ class MachineLearningClient:
 
         Args:
             ml_model_id: <p>A unique identifier of the <code>MLModel</code>.</p>
+
+        Raises:
+            aws_sdk_machine_learning.errors.internal_server_exception.InternalServerException: <p>An error on the server occurred when trying to process a request.</p>
+            aws_sdk_machine_learning.errors.invalid_input_exception.InvalidInputException: <p>An error on the client occurred. Typically, the cause is an invalid input value.</p>
+            aws_sdk_machine_learning.errors.limit_exceeded_exception.LimitExceededException: <p>The subscriber exceeded the maximum number of operations. This exception can occur when listing objects such as <code>DataSource</code>.</p>
+            aws_sdk_machine_learning.errors.predictor_not_mounted_exception.PredictorNotMountedException: <p>The exception is thrown when a predict request is made to an unmounted <code>MLModel</code>.</p>
+            aws_sdk_machine_learning.errors.resource_not_found_exception.ResourceNotFoundException: <p>A specified resource cannot be located.</p>
+            aws_sdk_machine_learning.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1725,6 +1870,12 @@ class MachineLearningClient:
         Args:
             batch_prediction_id: <p>The ID assigned to the <code>BatchPrediction</code> during creation.</p>
             batch_prediction_name: <p>A new user-supplied name or description of the <code>BatchPrediction</code>.</p>
+
+        Raises:
+            aws_sdk_machine_learning.errors.internal_server_exception.InternalServerException: <p>An error on the server occurred when trying to process a request.</p>
+            aws_sdk_machine_learning.errors.invalid_input_exception.InvalidInputException: <p>An error on the client occurred. Typically, the cause is an invalid input value.</p>
+            aws_sdk_machine_learning.errors.resource_not_found_exception.ResourceNotFoundException: <p>A specified resource cannot be located.</p>
+            aws_sdk_machine_learning.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1765,6 +1916,12 @@ class MachineLearningClient:
         Args:
             data_source_id: <p>The ID assigned to the <code>DataSource</code> during creation.</p>
             data_source_name: <p>A new user-supplied name or description of the <code>DataSource</code> that will replace the current description. </p>
+
+        Raises:
+            aws_sdk_machine_learning.errors.internal_server_exception.InternalServerException: <p>An error on the server occurred when trying to process a request.</p>
+            aws_sdk_machine_learning.errors.invalid_input_exception.InvalidInputException: <p>An error on the client occurred. Typically, the cause is an invalid input value.</p>
+            aws_sdk_machine_learning.errors.resource_not_found_exception.ResourceNotFoundException: <p>A specified resource cannot be located.</p>
+            aws_sdk_machine_learning.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1807,6 +1964,12 @@ class MachineLearningClient:
         Args:
             evaluation_id: <p>The ID assigned to the <code>Evaluation</code> during creation.</p>
             evaluation_name: <p>A new user-supplied name or description of the <code>Evaluation</code> that will replace the current content. </p>
+
+        Raises:
+            aws_sdk_machine_learning.errors.internal_server_exception.InternalServerException: <p>An error on the server occurred when trying to process a request.</p>
+            aws_sdk_machine_learning.errors.invalid_input_exception.InvalidInputException: <p>An error on the client occurred. Typically, the cause is an invalid input value.</p>
+            aws_sdk_machine_learning.errors.resource_not_found_exception.ResourceNotFoundException: <p>A specified resource cannot be located.</p>
+            aws_sdk_machine_learning.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1853,6 +2016,12 @@ class MachineLearningClient:
             ml_model_id: <p>The ID assigned to the <code>MLModel</code> during creation.</p>
             ml_model_name: <p>A user-supplied name or description of the <code>MLModel</code>.</p>
             score_threshold: <p>The <code>ScoreThreshold</code> used in binary classification <code>MLModel</code> that marks the boundary between a positive prediction and a negative prediction.</p> <p>Output values greater than or equal to the <code>ScoreThreshold</code> receive a positive result from the <code>MLModel</code>, such as <code>true</code>. Output values less than the <code>ScoreThreshold</code> receive a negative response from the <code>MLModel</code>, such as <code>false</code>.</p>
+
+        Raises:
+            aws_sdk_machine_learning.errors.internal_server_exception.InternalServerException: <p>An error on the server occurred when trying to process a request.</p>
+            aws_sdk_machine_learning.errors.invalid_input_exception.InvalidInputException: <p>An error on the client occurred. Typically, the cause is an invalid input value.</p>
+            aws_sdk_machine_learning.errors.resource_not_found_exception.ResourceNotFoundException: <p>A specified resource cannot be located.</p>
+            aws_sdk_machine_learning.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(

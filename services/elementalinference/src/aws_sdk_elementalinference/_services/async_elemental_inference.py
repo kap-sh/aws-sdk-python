@@ -149,6 +149,14 @@ class AsyncElementalInferenceClient:
 
         Args:
             resource_arn: <p>The ARN of the resource whose tags you want to query.</p>
+
+        Raises:
+            aws_sdk_elementalinference.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_elementalinference.errors.internal_server_error_exception.InternalServerErrorException: <p>An internal server error occurred. This is a temporary condition and the request can be retried. If the problem persists, contact AWS Support. </p>
+            aws_sdk_elementalinference.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the action doesn't exist.</p>
+            aws_sdk_elementalinference.errors.too_many_request_exception.TooManyRequestException: <p>The request was denied due to request throttling. Too many requests have been made within a given time period. Reduce the frequency of requests and use exponential backoff when retrying. </p>
+            aws_sdk_elementalinference.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by the service. Check the error message for details about which parameter or field is invalid and correct the request before retrying. </p>
+            aws_sdk_elementalinference.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -189,6 +197,15 @@ class AsyncElementalInferenceClient:
         Args:
             resource_arn: <p>The ARN of the resource where you want to add tags.</p>
             tags: <p>A list of tags to add to the resource.</p>
+
+        Raises:
+            aws_sdk_elementalinference.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_elementalinference.errors.conflict_exception.ConflictException: <p>The request could not be completed due to a conflict.</p>
+            aws_sdk_elementalinference.errors.internal_server_error_exception.InternalServerErrorException: <p>An internal server error occurred. This is a temporary condition and the request can be retried. If the problem persists, contact AWS Support. </p>
+            aws_sdk_elementalinference.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the action doesn't exist.</p>
+            aws_sdk_elementalinference.errors.too_many_request_exception.TooManyRequestException: <p>The request was denied due to request throttling. Too many requests have been made within a given time period. Reduce the frequency of requests and use exponential backoff when retrying. </p>
+            aws_sdk_elementalinference.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by the service. Check the error message for details about which parameter or field is invalid and correct the request before retrying. </p>
+            aws_sdk_elementalinference.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -228,6 +245,15 @@ class AsyncElementalInferenceClient:
         Args:
             resource_arn: <p>The ARN of the resource where you want to delete one or more tags.</p>
             tag_keys: <p>The keys of the tags to delete.</p>
+
+        Raises:
+            aws_sdk_elementalinference.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_elementalinference.errors.conflict_exception.ConflictException: <p>The request could not be completed due to a conflict.</p>
+            aws_sdk_elementalinference.errors.internal_server_error_exception.InternalServerErrorException: <p>An internal server error occurred. This is a temporary condition and the request can be retried. If the problem persists, contact AWS Support. </p>
+            aws_sdk_elementalinference.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the action doesn't exist.</p>
+            aws_sdk_elementalinference.errors.too_many_request_exception.TooManyRequestException: <p>The request was denied due to request throttling. Too many requests have been made within a given time period. Reduce the frequency of requests and use exponential backoff when retrying. </p>
+            aws_sdk_elementalinference.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by the service. Check the error message for details about which parameter or field is invalid and correct the request before retrying. </p>
+            aws_sdk_elementalinference.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

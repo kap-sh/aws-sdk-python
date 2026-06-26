@@ -480,6 +480,16 @@ class AsyncRedshiftClient:
         Args:
             reserved_node_id: <p>A string representing the node identifier of the DC1 Reserved Node to be exchanged.</p>
             target_reserved_node_offering_id: <p>The unique identifier of the DC2 Reserved Node offering to be used for the exchange. You can obtain the value for the parameter by calling <a>GetReservedNodeExchangeOfferings</a> </p>
+
+        Raises:
+            aws_sdk_redshift.errors.dependent_service_unavailable_fault.DependentServiceUnavailableFault: <p>Your request cannot be completed because a dependent internal service is temporarily unavailable. Wait 30 to 60 seconds and try again.</p>
+            aws_sdk_redshift.errors.invalid_reserved_node_state_fault.InvalidReservedNodeStateFault: <p>Indicates that the Reserved Node being exchanged is not in an active state.</p>
+            aws_sdk_redshift.errors.reserved_node_already_exists_fault.ReservedNodeAlreadyExistsFault: <p>User already has a reservation with the given identifier.</p>
+            aws_sdk_redshift.errors.reserved_node_already_migrated_fault.ReservedNodeAlreadyMigratedFault: <p>Indicates that the reserved node has already been exchanged.</p>
+            aws_sdk_redshift.errors.reserved_node_not_found_fault.ReservedNodeNotFoundFault: <p>The specified reserved compute node not found.</p>
+            aws_sdk_redshift.errors.reserved_node_offering_not_found_fault.ReservedNodeOfferingNotFoundFault: <p>Specified offering does not exist.</p>
+            aws_sdk_redshift.errors.unsupported_operation_fault.UnsupportedOperationFault: <p>The requested operation isn't supported.</p>
+            aws_sdk_redshift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -525,6 +535,13 @@ class AsyncRedshiftClient:
             cluster_identifier: <p>The cluster identifier of the cluster that receives data from the partner.</p>
             database_name: <p>The name of the database that receives data from the partner.</p>
             partner_name: <p>The name of the partner that is authorized to send data.</p>
+
+        Raises:
+            aws_sdk_redshift.errors.cluster_not_found_fault.ClusterNotFoundFault: <p>The <code>ClusterIdentifier</code> parameter does not refer to an existing cluster. </p>
+            aws_sdk_redshift.errors.partner_not_found_fault.PartnerNotFoundFault: <p>The name of the partner was not found.</p>
+            aws_sdk_redshift.errors.unauthorized_partner_integration_fault.UnauthorizedPartnerIntegrationFault: <p>The partner integration is not authorized.</p>
+            aws_sdk_redshift.errors.unsupported_operation_fault.UnsupportedOperationFault: <p>The requested operation isn't supported.</p>
+            aws_sdk_redshift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -578,6 +595,11 @@ class AsyncRedshiftClient:
             consumer_arn: <p>The Amazon Resource Name (ARN) of the consumer namespace associated with the datashare.</p>
             consumer_region: <p>From a datashare consumer account, associates a datashare with all existing and future namespaces in the specified Amazon Web Services Region.</p>
             allow_writes: <p>If set to true, allows write operations for a datashare.</p>
+
+        Raises:
+            aws_sdk_redshift.errors.invalid_data_share_fault.InvalidDataShareFault: <p>There is an error with the datashare.</p>
+            aws_sdk_redshift.errors.invalid_namespace_fault.InvalidNamespaceFault: <p>The namespace isn't valid because the namespace doesn't exist. Provide a valid namespace.</p>
+            aws_sdk_redshift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -632,6 +654,13 @@ class AsyncRedshiftClient:
             cidrip: <p>The IP range to be added the Amazon Redshift security group.</p>
             ec2_security_group_name: <p>The EC2 security group to be added the Amazon Redshift security group.</p>
             ec2_security_group_owner_id: <p>The Amazon Web Services account number of the owner of the security group specified by the <i>EC2SecurityGroupName</i> parameter. The Amazon Web Services Access Key ID is not an acceptable value. </p> <p>Example: <code>111122223333</code> </p>
+
+        Raises:
+            aws_sdk_redshift.errors.authorization_already_exists_fault.AuthorizationAlreadyExistsFault: <p>The specified CIDR block or EC2 security group is already authorized for the specified cluster security group.</p>
+            aws_sdk_redshift.errors.authorization_quota_exceeded_fault.AuthorizationQuotaExceededFault: <p>The authorization quota for the cluster security group has been reached.</p>
+            aws_sdk_redshift.errors.cluster_security_group_not_found_fault.ClusterSecurityGroupNotFoundFault: <p>The cluster security group name does not refer to an existing cluster security group.</p>
+            aws_sdk_redshift.errors.invalid_cluster_security_group_state_fault.InvalidClusterSecurityGroupStateFault: <p>The state of the cluster security group is not <code>available</code>. </p>
+            aws_sdk_redshift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -682,6 +711,10 @@ class AsyncRedshiftClient:
             data_share_arn: <p>The Amazon Resource Name (ARN) of the datashare namespace that producers are to authorize sharing for.</p>
             consumer_identifier: <p>The identifier of the data consumer that is authorized to access the datashare. This identifier is an Amazon Web Services account ID or a keyword, such as ADX.</p>
             allow_writes: <p>If set to true, allows write operations for a datashare.</p>
+
+        Raises:
+            aws_sdk_redshift.errors.invalid_data_share_fault.InvalidDataShareFault: <p>There is an error with the datashare.</p>
+            aws_sdk_redshift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -727,6 +760,15 @@ class AsyncRedshiftClient:
             cluster_identifier: <p>The cluster identifier of the cluster to grant access to.</p>
             account: <p>The Amazon Web Services account ID to grant access to.</p>
             vpc_ids: <p>The virtual private cloud (VPC) identifiers to grant access to.</p>
+
+        Raises:
+            aws_sdk_redshift.errors.cluster_not_found_fault.ClusterNotFoundFault: <p>The <code>ClusterIdentifier</code> parameter does not refer to an existing cluster. </p>
+            aws_sdk_redshift.errors.endpoint_authorization_already_exists_fault.EndpointAuthorizationAlreadyExistsFault: <p>The authorization already exists for this endpoint.</p>
+            aws_sdk_redshift.errors.endpoint_authorizations_per_cluster_limit_exceeded_fault.EndpointAuthorizationsPerClusterLimitExceededFault: <p>The number of endpoint authorizations per cluster has exceeded its limit.</p>
+            aws_sdk_redshift.errors.invalid_authorization_state_fault.InvalidAuthorizationStateFault: <p>The status of the authorization is not valid.</p>
+            aws_sdk_redshift.errors.invalid_cluster_state_fault.InvalidClusterStateFault: <p>The specified cluster is not in the <code>available</code> state. </p>
+            aws_sdk_redshift.errors.unsupported_operation_fault.UnsupportedOperationFault: <p>The requested operation isn't supported.</p>
+            aws_sdk_redshift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -777,6 +819,16 @@ class AsyncRedshiftClient:
             snapshot_arn: <p>The Amazon Resource Name (ARN) of the snapshot to authorize access to.</p>
             snapshot_cluster_identifier: <p>The identifier of the cluster the snapshot was created from.</p> <ul> <li> <p> <i>If the snapshot to access doesn't exist and the associated IAM policy doesn't allow access to all (*) snapshots</i> - This parameter is required. Otherwise, permissions aren't available to check if the snapshot exists.</p> </li> <li> <p> <i>If the snapshot to access exists</i> - This parameter isn't required. Redshift can retrieve the cluster identifier and use it to validate snapshot authorization.</p> </li> </ul>
             account_with_restore_access: <p>The identifier of the Amazon Web Services account authorized to restore the specified snapshot.</p> <p>To share a snapshot with Amazon Web Services Support, specify amazon-redshift-support.</p>
+
+        Raises:
+            aws_sdk_redshift.errors.authorization_already_exists_fault.AuthorizationAlreadyExistsFault: <p>The specified CIDR block or EC2 security group is already authorized for the specified cluster security group.</p>
+            aws_sdk_redshift.errors.authorization_quota_exceeded_fault.AuthorizationQuotaExceededFault: <p>The authorization quota for the cluster security group has been reached.</p>
+            aws_sdk_redshift.errors.cluster_snapshot_not_found_fault.ClusterSnapshotNotFoundFault: <p>The snapshot identifier does not refer to an existing cluster snapshot.</p>
+            aws_sdk_redshift.errors.dependent_service_request_throttling_fault.DependentServiceRequestThrottlingFault: <p>The request cannot be completed because a dependent service is throttling requests made by Amazon Redshift on your behalf. Wait and retry the request.</p>
+            aws_sdk_redshift.errors.invalid_cluster_snapshot_state_fault.InvalidClusterSnapshotStateFault: <p>The specified cluster snapshot is not in the <code>available</code> state, or other accounts are authorized to access the snapshot. </p>
+            aws_sdk_redshift.errors.limit_exceeded_fault.LimitExceededFault: <p>The encryption key has exceeded its grant limit in Amazon Web Services KMS.</p>
+            aws_sdk_redshift.errors.unsupported_operation_fault.UnsupportedOperationFault: <p>The requested operation isn't supported.</p>
+            aws_sdk_redshift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -821,6 +873,10 @@ class AsyncRedshiftClient:
 
         Args:
             identifiers: <p>A list of identifiers for the snapshots that you want to delete.</p>
+
+        Raises:
+            aws_sdk_redshift.errors.batch_delete_request_size_exceeded_fault.BatchDeleteRequestSizeExceededFault: <p>The maximum number for a batch delete of snapshots has been reached. The limit is 100. </p>
+            aws_sdk_redshift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -865,6 +921,11 @@ class AsyncRedshiftClient:
             snapshot_identifier_list: <p>A list of snapshot identifiers you want to modify.</p>
             manual_snapshot_retention_period: <p>The number of days that a manual snapshot is retained. If you specify the value -1, the manual snapshot is retained indefinitely.</p> <p>The number must be either -1 or an integer between 1 and 3,653.</p> <p>If you decrease the manual snapshot retention period from its current value, existing manual snapshots that fall outside of the new retention period will return an error. If you want to suppress the errors and delete the snapshots, use the force option. </p>
             force: <p>A boolean value indicating whether to override an exception if the retention period has passed. </p>
+
+        Raises:
+            aws_sdk_redshift.errors.batch_modify_cluster_snapshots_limit_exceeded_fault.BatchModifyClusterSnapshotsLimitExceededFault: <p>The maximum number for snapshot identifiers has been reached. The limit is 100. </p>
+            aws_sdk_redshift.errors.invalid_retention_period_fault.InvalidRetentionPeriodFault: <p>The retention period specified is either in the past or is not a valid value.</p> <p>The value must be either -1 or an integer between 1 and 3,653.</p>
+            aws_sdk_redshift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -909,6 +970,13 @@ class AsyncRedshiftClient:
 
         Args:
             cluster_identifier: <p>The unique identifier for the cluster that you want to cancel a resize operation for.</p>
+
+        Raises:
+            aws_sdk_redshift.errors.cluster_not_found_fault.ClusterNotFoundFault: <p>The <code>ClusterIdentifier</code> parameter does not refer to an existing cluster. </p>
+            aws_sdk_redshift.errors.invalid_cluster_state_fault.InvalidClusterStateFault: <p>The specified cluster is not in the <code>available</code> state. </p>
+            aws_sdk_redshift.errors.resize_not_found_fault.ResizeNotFoundFault: <p>A resize operation for the specified cluster is not found.</p>
+            aws_sdk_redshift.errors.unsupported_operation_fault.UnsupportedOperationFault: <p>The requested operation isn't supported.</p>
+            aws_sdk_redshift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -959,6 +1027,15 @@ class AsyncRedshiftClient:
             source_snapshot_cluster_identifier: <p>The identifier of the cluster the source snapshot was created from. This parameter is required if your IAM user has a policy containing a snapshot resource element that specifies anything other than * for the cluster name.</p> <p>Constraints:</p> <ul> <li> <p>Must be the identifier for a valid cluster.</p> </li> </ul>
             target_snapshot_identifier: <p>The identifier given to the new manual snapshot.</p> <p>Constraints:</p> <ul> <li> <p>Cannot be null, empty, or blank.</p> </li> <li> <p>Must contain from 1 to 255 alphanumeric characters or hyphens.</p> </li> <li> <p>First character must be a letter.</p> </li> <li> <p>Cannot end with a hyphen or contain two consecutive hyphens.</p> </li> <li> <p>Must be unique for the Amazon Web Services account that is making the request.</p> </li> </ul>
             manual_snapshot_retention_period: <p>The number of days that a manual snapshot is retained. If the value is -1, the manual snapshot is retained indefinitely. </p> <p>The value must be either -1 or an integer between 1 and 3,653.</p> <p>The default value is -1.</p>
+
+        Raises:
+            aws_sdk_redshift.errors.cluster_not_found_fault.ClusterNotFoundFault: <p>The <code>ClusterIdentifier</code> parameter does not refer to an existing cluster. </p>
+            aws_sdk_redshift.errors.cluster_snapshot_already_exists_fault.ClusterSnapshotAlreadyExistsFault: <p>The value specified as a snapshot identifier is already used by an existing snapshot.</p>
+            aws_sdk_redshift.errors.cluster_snapshot_not_found_fault.ClusterSnapshotNotFoundFault: <p>The snapshot identifier does not refer to an existing cluster snapshot.</p>
+            aws_sdk_redshift.errors.cluster_snapshot_quota_exceeded_fault.ClusterSnapshotQuotaExceededFault: <p>The request would result in the user exceeding the allowed number of cluster snapshots.</p>
+            aws_sdk_redshift.errors.invalid_cluster_snapshot_state_fault.InvalidClusterSnapshotStateFault: <p>The specified cluster snapshot is not in the <code>available</code> state, or other accounts are authorized to access the snapshot. </p>
+            aws_sdk_redshift.errors.invalid_retention_period_fault.InvalidRetentionPeriodFault: <p>The retention period specified is either in the past or is not a valid value.</p> <p>The value must be either -1 or an integer between 1 and 3,653.</p>
+            aws_sdk_redshift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1008,6 +1085,12 @@ class AsyncRedshiftClient:
         Args:
             authentication_profile_name: <p>The name of the authentication profile to be created.</p>
             authentication_profile_content: <p>The content of the authentication profile in JSON format. The maximum length of the JSON string is determined by a quota for your account.</p>
+
+        Raises:
+            aws_sdk_redshift.errors.authentication_profile_already_exists_fault.AuthenticationProfileAlreadyExistsFault: <p>The authentication profile already exists.</p>
+            aws_sdk_redshift.errors.authentication_profile_quota_exceeded_fault.AuthenticationProfileQuotaExceededFault: <p>The size or number of authentication profiles has exceeded the quota. The maximum length of the JSON string and maximum number of authentication profiles is determined by a quota for your account.</p>
+            aws_sdk_redshift.errors.invalid_authentication_profile_request_fault.InvalidAuthenticationProfileRequestFault: <p>The authentication profile request is not valid. The profile name can't be null or empty. The authentication profile API operation must be available in the Amazon Web Services Region.</p>
+            aws_sdk_redshift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1179,6 +1262,36 @@ class AsyncRedshiftClient:
             redshift_idc_application_arn: <p>The Amazon resource name (ARN) of the Amazon Redshift IAM Identity Center application.</p>
             catalog_name: <p>The name of the Glue data catalog that will be associated with the cluster enabled with Amazon Redshift federated permissions.</p> <p>Constraints:</p> <ul> <li> <p>Must contain at least one lowercase letter.</p> </li> <li> <p>Can only contain lowercase letters (a-z), numbers (0-9), underscores (_), and hyphens (-).</p> </li> </ul> <p>Pattern: <code>^[a-z0-9_-]*[a-z]+[a-z0-9_-]*$</code> </p> <p>Example: <code>my-catalog_01</code> </p>
             extra_compute_for_automatic_optimization: <p>If <code>true</code>, allocates additional compute resources for running automatic optimization operations.</p> <p>Default: false</p>
+
+        Raises:
+            aws_sdk_redshift.errors.cluster_already_exists_fault.ClusterAlreadyExistsFault: <p>The account already has a cluster with the given identifier.</p>
+            aws_sdk_redshift.errors.cluster_parameter_group_not_found_fault.ClusterParameterGroupNotFoundFault: <p>The parameter group name does not refer to an existing parameter group.</p>
+            aws_sdk_redshift.errors.cluster_quota_exceeded_fault.ClusterQuotaExceededFault: <p>The request would exceed the allowed number of cluster instances for this account. For information about increasing your quota, go to <a href=\"https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html\">Limits in Amazon Redshift</a> in the <i>Amazon Redshift Cluster Management Guide</i>. </p>
+            aws_sdk_redshift.errors.cluster_security_group_not_found_fault.ClusterSecurityGroupNotFoundFault: <p>The cluster security group name does not refer to an existing cluster security group.</p>
+            aws_sdk_redshift.errors.cluster_subnet_group_not_found_fault.ClusterSubnetGroupNotFoundFault: <p>The cluster subnet group name does not refer to an existing cluster subnet group.</p>
+            aws_sdk_redshift.errors.dependent_service_access_denied_fault.DependentServiceAccessDeniedFault: <p>A dependent service denied access for the integration.</p>
+            aws_sdk_redshift.errors.dependent_service_request_throttling_fault.DependentServiceRequestThrottlingFault: <p>The request cannot be completed because a dependent service is throttling requests made by Amazon Redshift on your behalf. Wait and retry the request.</p>
+            aws_sdk_redshift.errors.dependent_service_unavailable_fault.DependentServiceUnavailableFault: <p>Your request cannot be completed because a dependent internal service is temporarily unavailable. Wait 30 to 60 seconds and try again.</p>
+            aws_sdk_redshift.errors.hsm_client_certificate_not_found_fault.HsmClientCertificateNotFoundFault: <p>There is no Amazon Redshift HSM client certificate with the specified identifier.</p>
+            aws_sdk_redshift.errors.hsm_configuration_not_found_fault.HsmConfigurationNotFoundFault: <p>There is no Amazon Redshift HSM configuration with the specified identifier.</p>
+            aws_sdk_redshift.errors.insufficient_cluster_capacity_fault.InsufficientClusterCapacityFault: <p>The number of nodes specified exceeds the allotted capacity of the cluster.</p>
+            aws_sdk_redshift.errors.invalid_cluster_subnet_group_state_fault.InvalidClusterSubnetGroupStateFault: <p>The cluster subnet group cannot be deleted because it is in use.</p>
+            aws_sdk_redshift.errors.invalid_cluster_track_fault.InvalidClusterTrackFault: <p>The provided cluster track name is not valid.</p>
+            aws_sdk_redshift.errors.invalid_elastic_ip_fault.InvalidElasticIpFault: <p>The Elastic IP (EIP) is invalid or cannot be found.</p>
+            aws_sdk_redshift.errors.invalid_retention_period_fault.InvalidRetentionPeriodFault: <p>The retention period specified is either in the past or is not a valid value.</p> <p>The value must be either -1 or an integer between 1 and 3,653.</p>
+            aws_sdk_redshift.errors.invalid_subnet.InvalidSubnet: <p>The requested subnet is not valid, or not all of the subnets are in the same VPC.</p>
+            aws_sdk_redshift.errors.invalid_tag_fault.InvalidTagFault: <p>The tag is invalid.</p>
+            aws_sdk_redshift.errors.invalid_vpc_network_state_fault.InvalidVPCNetworkStateFault: <p>The cluster subnet group does not cover all Availability Zones.</p>
+            aws_sdk_redshift.errors.ipv6_cidr_block_not_found_fault.Ipv6CidrBlockNotFoundFault: <p>There are no subnets in your VPC with associated IPv6 CIDR blocks. To use dual-stack mode, associate an IPv6 CIDR block with each subnet in your VPC.</p>
+            aws_sdk_redshift.errors.limit_exceeded_fault.LimitExceededFault: <p>The encryption key has exceeded its grant limit in Amazon Web Services KMS.</p>
+            aws_sdk_redshift.errors.number_of_nodes_per_cluster_limit_exceeded_fault.NumberOfNodesPerClusterLimitExceededFault: <p>The operation would exceed the number of nodes allowed for a cluster.</p>
+            aws_sdk_redshift.errors.number_of_nodes_quota_exceeded_fault.NumberOfNodesQuotaExceededFault: <p>The operation would exceed the number of nodes allotted to the account. For information about increasing your quota, go to <a href=\"https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html\">Limits in Amazon Redshift</a> in the <i>Amazon Redshift Cluster Management Guide</i>. </p>
+            aws_sdk_redshift.errors.redshift_idc_application_not_exists_fault.RedshiftIdcApplicationNotExistsFault: <p>The application you attempted to find doesn't exist.</p>
+            aws_sdk_redshift.errors.snapshot_schedule_not_found_fault.SnapshotScheduleNotFoundFault: <p>We could not find the specified snapshot schedule. </p>
+            aws_sdk_redshift.errors.tag_limit_exceeded_fault.TagLimitExceededFault: <p>You have exceeded the number of tags allowed.</p>
+            aws_sdk_redshift.errors.unauthorized_operation.UnauthorizedOperation: <p>Your account is not authorized to perform the requested operation.</p>
+            aws_sdk_redshift.errors.unsupported_operation_fault.UnsupportedOperationFault: <p>The requested operation isn't supported.</p>
+            aws_sdk_redshift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1311,6 +1424,13 @@ class AsyncRedshiftClient:
             parameter_group_family: <p>The Amazon Redshift engine version to which the cluster parameter group applies. The cluster engine version determines the set of parameters.</p> <p>To get a list of valid parameter group family names, you can call <a>DescribeClusterParameterGroups</a>. By default, Amazon Redshift returns a list of all the parameter groups that are owned by your Amazon Web Services account, including the default parameter groups for each Amazon Redshift engine version. The parameter group family names associated with the default parameter groups provide you the valid values. For example, a valid family name is \"redshift-1.0\". </p>
             description: <p>A description of the parameter group.</p>
             tags: <p>A list of tag instances.</p>
+
+        Raises:
+            aws_sdk_redshift.errors.cluster_parameter_group_already_exists_fault.ClusterParameterGroupAlreadyExistsFault: <p>A cluster parameter group with the same name already exists.</p>
+            aws_sdk_redshift.errors.cluster_parameter_group_quota_exceeded_fault.ClusterParameterGroupQuotaExceededFault: <p>The request would result in the user exceeding the allowed number of cluster parameter groups. For information about increasing your quota, go to <a href=\"https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html\">Limits in Amazon Redshift</a> in the <i>Amazon Redshift Cluster Management Guide</i>. </p>
+            aws_sdk_redshift.errors.invalid_tag_fault.InvalidTagFault: <p>The tag is invalid.</p>
+            aws_sdk_redshift.errors.tag_limit_exceeded_fault.TagLimitExceededFault: <p>You have exceeded the number of tags allowed.</p>
+            aws_sdk_redshift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1357,6 +1477,13 @@ class AsyncRedshiftClient:
             cluster_security_group_name: <p>The name for the security group. Amazon Redshift stores the value as a lowercase string.</p> <p>Constraints:</p> <ul> <li> <p>Must contain no more than 255 alphanumeric characters or hyphens.</p> </li> <li> <p>Must not be \"Default\".</p> </li> <li> <p>Must be unique for all security groups that are created by your Amazon Web Services account.</p> </li> </ul> <p>Example: <code>examplesecuritygroup</code> </p>
             description: <p>A description for the security group.</p>
             tags: <p>A list of tag instances.</p>
+
+        Raises:
+            aws_sdk_redshift.errors.cluster_security_group_already_exists_fault.ClusterSecurityGroupAlreadyExistsFault: <p>A cluster security group with the same name already exists.</p>
+            aws_sdk_redshift.errors.cluster_security_group_quota_exceeded_fault.ClusterSecurityGroupQuotaExceededFault: <p>The request would result in the user exceeding the allowed number of cluster security groups. For information about increasing your quota, go to <a href=\"https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html\">Limits in Amazon Redshift</a> in the <i>Amazon Redshift Cluster Management Guide</i>. </p>
+            aws_sdk_redshift.errors.invalid_tag_fault.InvalidTagFault: <p>The tag is invalid.</p>
+            aws_sdk_redshift.errors.tag_limit_exceeded_fault.TagLimitExceededFault: <p>You have exceeded the number of tags allowed.</p>
+            aws_sdk_redshift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1406,6 +1533,16 @@ class AsyncRedshiftClient:
             cluster_identifier: <p>The cluster identifier for which you want a snapshot.</p>
             manual_snapshot_retention_period: <p>The number of days that a manual snapshot is retained. If the value is -1, the manual snapshot is retained indefinitely. </p> <p>The value must be either -1 or an integer between 1 and 3,653.</p> <p>The default value is -1.</p>
             tags: <p>A list of tag instances.</p>
+
+        Raises:
+            aws_sdk_redshift.errors.cluster_not_found_fault.ClusterNotFoundFault: <p>The <code>ClusterIdentifier</code> parameter does not refer to an existing cluster. </p>
+            aws_sdk_redshift.errors.cluster_snapshot_already_exists_fault.ClusterSnapshotAlreadyExistsFault: <p>The value specified as a snapshot identifier is already used by an existing snapshot.</p>
+            aws_sdk_redshift.errors.cluster_snapshot_quota_exceeded_fault.ClusterSnapshotQuotaExceededFault: <p>The request would result in the user exceeding the allowed number of cluster snapshots.</p>
+            aws_sdk_redshift.errors.invalid_cluster_state_fault.InvalidClusterStateFault: <p>The specified cluster is not in the <code>available</code> state. </p>
+            aws_sdk_redshift.errors.invalid_retention_period_fault.InvalidRetentionPeriodFault: <p>The retention period specified is either in the past or is not a valid value.</p> <p>The value must be either -1 or an integer between 1 and 3,653.</p>
+            aws_sdk_redshift.errors.invalid_tag_fault.InvalidTagFault: <p>The tag is invalid.</p>
+            aws_sdk_redshift.errors.tag_limit_exceeded_fault.TagLimitExceededFault: <p>You have exceeded the number of tags allowed.</p>
+            aws_sdk_redshift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1457,6 +1594,17 @@ class AsyncRedshiftClient:
             description: <p>A description for the subnet group.</p>
             subnet_ids: <p>An array of VPC subnet IDs. A maximum of 20 subnets can be modified in a single request.</p>
             tags: <p>A list of tag instances.</p>
+
+        Raises:
+            aws_sdk_redshift.errors.cluster_subnet_group_already_exists_fault.ClusterSubnetGroupAlreadyExistsFault: <p>A <i>ClusterSubnetGroupName</i> is already used by an existing cluster subnet group. </p>
+            aws_sdk_redshift.errors.cluster_subnet_group_quota_exceeded_fault.ClusterSubnetGroupQuotaExceededFault: <p>The request would result in user exceeding the allowed number of cluster subnet groups. For information about increasing your quota, go to <a href=\"https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html\">Limits in Amazon Redshift</a> in the <i>Amazon Redshift Cluster Management Guide</i>. </p>
+            aws_sdk_redshift.errors.cluster_subnet_quota_exceeded_fault.ClusterSubnetQuotaExceededFault: <p>The request would result in user exceeding the allowed number of subnets in a cluster subnet groups. For information about increasing your quota, go to <a href=\"https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html\">Limits in Amazon Redshift</a> in the <i>Amazon Redshift Cluster Management Guide</i>. </p>
+            aws_sdk_redshift.errors.dependent_service_request_throttling_fault.DependentServiceRequestThrottlingFault: <p>The request cannot be completed because a dependent service is throttling requests made by Amazon Redshift on your behalf. Wait and retry the request.</p>
+            aws_sdk_redshift.errors.invalid_subnet.InvalidSubnet: <p>The requested subnet is not valid, or not all of the subnets are in the same VPC.</p>
+            aws_sdk_redshift.errors.invalid_tag_fault.InvalidTagFault: <p>The tag is invalid.</p>
+            aws_sdk_redshift.errors.tag_limit_exceeded_fault.TagLimitExceededFault: <p>You have exceeded the number of tags allowed.</p>
+            aws_sdk_redshift.errors.unauthorized_operation.UnauthorizedOperation: <p>Your account is not authorized to perform the requested operation.</p>
+            aws_sdk_redshift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1503,6 +1651,12 @@ class AsyncRedshiftClient:
             custom_domain_name: <p>The custom domain name for a custom domain association.</p>
             custom_domain_certificate_arn: <p>The certificate Amazon Resource Name (ARN) for the custom domain name association.</p>
             cluster_identifier: <p>The cluster identifier that the custom domain is associated with.</p>
+
+        Raises:
+            aws_sdk_redshift.errors.cluster_not_found_fault.ClusterNotFoundFault: <p>The <code>ClusterIdentifier</code> parameter does not refer to an existing cluster. </p>
+            aws_sdk_redshift.errors.custom_cname_association_fault.CustomCnameAssociationFault: <p>An error occurred when an attempt was made to change the custom domain association.</p>
+            aws_sdk_redshift.errors.unsupported_operation_fault.UnsupportedOperationFault: <p>The requested operation isn't supported.</p>
+            aws_sdk_redshift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1553,6 +1707,19 @@ class AsyncRedshiftClient:
             endpoint_name: <p>The Redshift-managed VPC endpoint name.</p> <p>An endpoint name must contain 1-30 characters. Valid characters are A-Z, a-z, 0-9, and hyphen(-). The first character must be a letter. The name can't contain two consecutive hyphens or end with a hyphen.</p>
             subnet_group_name: <p>The subnet group from which Amazon Redshift chooses the subnet to deploy the endpoint.</p>
             vpc_security_group_ids: <p>The security group that defines the ports, protocols, and sources for inbound traffic that you are authorizing into your endpoint.</p>
+
+        Raises:
+            aws_sdk_redshift.errors.access_to_cluster_denied_fault.AccessToClusterDeniedFault: <p>You are not authorized to access the cluster.</p>
+            aws_sdk_redshift.errors.cluster_not_found_fault.ClusterNotFoundFault: <p>The <code>ClusterIdentifier</code> parameter does not refer to an existing cluster. </p>
+            aws_sdk_redshift.errors.cluster_subnet_group_not_found_fault.ClusterSubnetGroupNotFoundFault: <p>The cluster subnet group name does not refer to an existing cluster subnet group.</p>
+            aws_sdk_redshift.errors.endpoint_already_exists_fault.EndpointAlreadyExistsFault: <p>The account already has a Redshift-managed VPC endpoint with the given identifier.</p>
+            aws_sdk_redshift.errors.endpoints_per_authorization_limit_exceeded_fault.EndpointsPerAuthorizationLimitExceededFault: <p>The number of Redshift-managed VPC endpoints per authorization has exceeded its limit.</p>
+            aws_sdk_redshift.errors.endpoints_per_cluster_limit_exceeded_fault.EndpointsPerClusterLimitExceededFault: <p>The number of Redshift-managed VPC endpoints per cluster has exceeded its limit.</p>
+            aws_sdk_redshift.errors.invalid_cluster_security_group_state_fault.InvalidClusterSecurityGroupStateFault: <p>The state of the cluster security group is not <code>available</code>. </p>
+            aws_sdk_redshift.errors.invalid_cluster_state_fault.InvalidClusterStateFault: <p>The specified cluster is not in the <code>available</code> state. </p>
+            aws_sdk_redshift.errors.unauthorized_operation.UnauthorizedOperation: <p>Your account is not authorized to perform the requested operation.</p>
+            aws_sdk_redshift.errors.unsupported_operation_fault.UnsupportedOperationFault: <p>The requested operation isn't supported.</p>
+            aws_sdk_redshift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1618,6 +1785,20 @@ class AsyncRedshiftClient:
             severity: <p>Specifies the Amazon Redshift event severity to be published by the event notification subscription.</p> <p>Values: ERROR, INFO</p>
             enabled: <p>A boolean value; set to <code>true</code> to activate the subscription, and set to <code>false</code> to create the subscription but not activate it. </p>
             tags: <p>A list of tag instances.</p>
+
+        Raises:
+            aws_sdk_redshift.errors.event_subscription_quota_exceeded_fault.EventSubscriptionQuotaExceededFault: <p>The request would exceed the allowed number of event subscriptions for this account. For information about increasing your quota, go to <a href=\"https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html\">Limits in Amazon Redshift</a> in the <i>Amazon Redshift Cluster Management Guide</i>. </p>
+            aws_sdk_redshift.errors.invalid_tag_fault.InvalidTagFault: <p>The tag is invalid.</p>
+            aws_sdk_redshift.errors.sns_invalid_topic_fault.SNSInvalidTopicFault: <p>Amazon SNS has responded that there is a problem with the specified Amazon SNS topic.</p>
+            aws_sdk_redshift.errors.sns_no_authorization_fault.SNSNoAuthorizationFault: <p>You do not have permission to publish to the specified Amazon SNS topic.</p>
+            aws_sdk_redshift.errors.sns_topic_arn_not_found_fault.SNSTopicArnNotFoundFault: <p>An Amazon SNS topic with the specified Amazon Resource Name (ARN) does not exist.</p>
+            aws_sdk_redshift.errors.source_not_found_fault.SourceNotFoundFault: <p>The specified Amazon Redshift event source could not be found.</p>
+            aws_sdk_redshift.errors.subscription_already_exist_fault.SubscriptionAlreadyExistFault: <p>There is already an existing event notification subscription with the specified name.</p>
+            aws_sdk_redshift.errors.subscription_category_not_found_fault.SubscriptionCategoryNotFoundFault: <p>The value specified for the event category was not one of the allowed values, or it specified a category that does not apply to the specified source type. The allowed values are Configuration, Management, Monitoring, and Security.</p>
+            aws_sdk_redshift.errors.subscription_event_id_not_found_fault.SubscriptionEventIdNotFoundFault: <p>An Amazon Redshift event with the specified event ID does not exist.</p>
+            aws_sdk_redshift.errors.subscription_severity_not_found_fault.SubscriptionSeverityNotFoundFault: <p>The value specified for the event severity was not one of the allowed values, or it specified a severity that does not apply to the specified source type. The allowed values are ERROR and INFO.</p>
+            aws_sdk_redshift.errors.tag_limit_exceeded_fault.TagLimitExceededFault: <p>You have exceeded the number of tags allowed.</p>
+            aws_sdk_redshift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1671,6 +1852,13 @@ class AsyncRedshiftClient:
         Args:
             hsm_client_certificate_identifier: <p>The identifier to be assigned to the new HSM client certificate that the cluster will use to connect to the HSM to use the database encryption keys.</p>
             tags: <p>A list of tag instances.</p>
+
+        Raises:
+            aws_sdk_redshift.errors.hsm_client_certificate_already_exists_fault.HsmClientCertificateAlreadyExistsFault: <p>There is already an existing Amazon Redshift HSM client certificate with the specified identifier.</p>
+            aws_sdk_redshift.errors.hsm_client_certificate_quota_exceeded_fault.HsmClientCertificateQuotaExceededFault: <p>The quota for HSM client certificates has been reached. For information about increasing your quota, go to <a href=\"https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html\">Limits in Amazon Redshift</a> in the <i>Amazon Redshift Cluster Management Guide</i>. </p>
+            aws_sdk_redshift.errors.invalid_tag_fault.InvalidTagFault: <p>The tag is invalid.</p>
+            aws_sdk_redshift.errors.tag_limit_exceeded_fault.TagLimitExceededFault: <p>You have exceeded the number of tags allowed.</p>
+            aws_sdk_redshift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1723,6 +1911,13 @@ class AsyncRedshiftClient:
             hsm_partition_password: <p>The password required to access the HSM partition.</p>
             hsm_server_public_certificate: <p>The HSMs public certificate file. When using Cloud HSM, the file name is server.pem.</p>
             tags: <p>A list of tag instances.</p>
+
+        Raises:
+            aws_sdk_redshift.errors.hsm_configuration_already_exists_fault.HsmConfigurationAlreadyExistsFault: <p>There is already an existing Amazon Redshift HSM configuration with the specified identifier.</p>
+            aws_sdk_redshift.errors.hsm_configuration_quota_exceeded_fault.HsmConfigurationQuotaExceededFault: <p>The quota for HSM configurations has been reached. For information about increasing your quota, go to <a href=\"https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html\">Limits in Amazon Redshift</a> in the <i>Amazon Redshift Cluster Management Guide</i>. </p>
+            aws_sdk_redshift.errors.invalid_tag_fault.InvalidTagFault: <p>The tag is invalid.</p>
+            aws_sdk_redshift.errors.tag_limit_exceeded_fault.TagLimitExceededFault: <p>You have exceeded the number of tags allowed.</p>
+            aws_sdk_redshift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1784,6 +1979,18 @@ class AsyncRedshiftClient:
             tag_list: <p>A list of tags.</p>
             additional_encryption_context: <p>An optional set of non-secret key–value pairs that contains additional contextual information about the data. For more information, see <a href=\"https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context\">Encryption context</a> in the <i>Amazon Web Services Key Management Service Developer Guide</i>.</p> <p>You can only include this parameter if you specify the <code>KMSKeyId</code> parameter.</p>
             description: <p>A description of the integration.</p>
+
+        Raises:
+            aws_sdk_redshift.errors.integration_already_exists_fault.IntegrationAlreadyExistsFault: <p>The integration you are trying to create already exists.</p>
+            aws_sdk_redshift.errors.integration_conflict_operation_fault.IntegrationConflictOperationFault: <p>A conflicting conditional operation is currently in progress against this resource. This typically occurs when there are multiple requests being made to the same resource at the same time, and these requests conflict with each other.</p>
+            aws_sdk_redshift.errors.integration_quota_exceeded_fault.IntegrationQuotaExceededFault: <p>You can't create any more zero-ETL or S3 event integrations because the quota has been reached.</p>
+            aws_sdk_redshift.errors.integration_source_not_found_fault.IntegrationSourceNotFoundFault: <p>The specified integration source can't be found.</p>
+            aws_sdk_redshift.errors.integration_target_not_found_fault.IntegrationTargetNotFoundFault: <p>The specified integration target can't be found.</p>
+            aws_sdk_redshift.errors.invalid_cluster_state_fault.InvalidClusterStateFault: <p>The specified cluster is not in the <code>available</code> state. </p>
+            aws_sdk_redshift.errors.invalid_tag_fault.InvalidTagFault: <p>The tag is invalid.</p>
+            aws_sdk_redshift.errors.tag_limit_exceeded_fault.TagLimitExceededFault: <p>You have exceeded the number of tags allowed.</p>
+            aws_sdk_redshift.errors.unsupported_operation_fault.UnsupportedOperationFault: <p>The requested operation isn't supported.</p>
+            aws_sdk_redshift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1856,6 +2063,16 @@ class AsyncRedshiftClient:
             application_type: <p>The type of application being created. Valid values are <code>None</code> or <code>Lakehouse</code>. Use <code>Lakehouse</code> to enable Amazon Redshift federated permissions on cluster.</p>
             tags: <p>A list of tags.</p>
             sso_tag_keys: <p>A list of tags keys that Redshift Identity Center applications copy to IAM Identity Center. For each input key, the tag corresponding to the key-value pair is propagated.</p>
+
+        Raises:
+            aws_sdk_redshift.errors.dependent_service_access_denied_fault.DependentServiceAccessDeniedFault: <p>A dependent service denied access for the integration.</p>
+            aws_sdk_redshift.errors.dependent_service_unavailable_fault.DependentServiceUnavailableFault: <p>Your request cannot be completed because a dependent internal service is temporarily unavailable. Wait 30 to 60 seconds and try again.</p>
+            aws_sdk_redshift.errors.invalid_tag_fault.InvalidTagFault: <p>The tag is invalid.</p>
+            aws_sdk_redshift.errors.redshift_idc_application_already_exists_fault.RedshiftIdcApplicationAlreadyExistsFault: <p>The application you attempted to add already exists.</p>
+            aws_sdk_redshift.errors.redshift_idc_application_quota_exceeded_fault.RedshiftIdcApplicationQuotaExceededFault: <p>The maximum number of Redshift IAM Identity Center applications was exceeded.</p>
+            aws_sdk_redshift.errors.tag_limit_exceeded_fault.TagLimitExceededFault: <p>You have exceeded the number of tags allowed.</p>
+            aws_sdk_redshift.errors.unsupported_operation_fault.UnsupportedOperationFault: <p>The requested operation isn't supported.</p>
+            aws_sdk_redshift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1927,6 +2144,17 @@ class AsyncRedshiftClient:
             start_time: <p>The start time in UTC of the scheduled action. Before this time, the scheduled action does not trigger. For more information about this parameter, see <a>ScheduledAction</a>.</p>
             end_time: <p>The end time in UTC of the scheduled action. After this time, the scheduled action does not trigger. For more information about this parameter, see <a>ScheduledAction</a>. </p>
             enable: <p>If true, the schedule is enabled. If false, the scheduled action does not trigger. For more information about <code>state</code> of the scheduled action, see <a>ScheduledAction</a>. </p>
+
+        Raises:
+            aws_sdk_redshift.errors.cluster_not_found_fault.ClusterNotFoundFault: <p>The <code>ClusterIdentifier</code> parameter does not refer to an existing cluster. </p>
+            aws_sdk_redshift.errors.invalid_scheduled_action_fault.InvalidScheduledActionFault: <p>The scheduled action is not valid. </p>
+            aws_sdk_redshift.errors.invalid_schedule_fault.InvalidScheduleFault: <p>The schedule you submitted isn't valid.</p>
+            aws_sdk_redshift.errors.scheduled_action_already_exists_fault.ScheduledActionAlreadyExistsFault: <p>The scheduled action already exists. </p>
+            aws_sdk_redshift.errors.scheduled_action_quota_exceeded_fault.ScheduledActionQuotaExceededFault: <p>The quota for scheduled actions exceeded. </p>
+            aws_sdk_redshift.errors.scheduled_action_type_unsupported_fault.ScheduledActionTypeUnsupportedFault: <p>The action type specified for a scheduled action is not supported. </p>
+            aws_sdk_redshift.errors.unauthorized_operation.UnauthorizedOperation: <p>Your account is not authorized to perform the requested operation.</p>
+            aws_sdk_redshift.errors.unsupported_operation_fault.UnsupportedOperationFault: <p>The requested operation isn't supported.</p>
+            aws_sdk_redshift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1980,6 +2208,15 @@ class AsyncRedshiftClient:
             snapshot_copy_grant_name: <p>The name of the snapshot copy grant. This name must be unique in the region for the Amazon Web Services account.</p> <p>Constraints:</p> <ul> <li> <p>Must contain from 1 to 63 alphanumeric characters or hyphens.</p> </li> <li> <p>Alphabetic characters must be lowercase.</p> </li> <li> <p>First character must be a letter.</p> </li> <li> <p>Cannot end with a hyphen or contain two consecutive hyphens.</p> </li> <li> <p>Must be unique for all clusters within an Amazon Web Services account.</p> </li> </ul>
             kms_key_id: <p>The unique identifier of the encrypted symmetric key to which to grant Amazon Redshift permission. If no key is specified, the default key is used.</p>
             tags: <p>A list of tag instances.</p>
+
+        Raises:
+            aws_sdk_redshift.errors.dependent_service_request_throttling_fault.DependentServiceRequestThrottlingFault: <p>The request cannot be completed because a dependent service is throttling requests made by Amazon Redshift on your behalf. Wait and retry the request.</p>
+            aws_sdk_redshift.errors.invalid_tag_fault.InvalidTagFault: <p>The tag is invalid.</p>
+            aws_sdk_redshift.errors.limit_exceeded_fault.LimitExceededFault: <p>The encryption key has exceeded its grant limit in Amazon Web Services KMS.</p>
+            aws_sdk_redshift.errors.snapshot_copy_grant_already_exists_fault.SnapshotCopyGrantAlreadyExistsFault: <p>The snapshot copy grant can't be created because a grant with the same name already exists.</p>
+            aws_sdk_redshift.errors.snapshot_copy_grant_quota_exceeded_fault.SnapshotCopyGrantQuotaExceededFault: <p>The Amazon Web Services account has exceeded the maximum number of snapshot copy grants in this region.</p>
+            aws_sdk_redshift.errors.tag_limit_exceeded_fault.TagLimitExceededFault: <p>You have exceeded the number of tags allowed.</p>
+            aws_sdk_redshift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2038,6 +2275,15 @@ class AsyncRedshiftClient:
             tags: <p>An optional set of tags you can use to search for the schedule.</p>
             dry_run: <p></p>
             next_invocations: <p></p>
+
+        Raises:
+            aws_sdk_redshift.errors.invalid_schedule_fault.InvalidScheduleFault: <p>The schedule you submitted isn't valid.</p>
+            aws_sdk_redshift.errors.invalid_tag_fault.InvalidTagFault: <p>The tag is invalid.</p>
+            aws_sdk_redshift.errors.schedule_definition_type_unsupported_fault.ScheduleDefinitionTypeUnsupportedFault: <p>The definition you submitted is not supported.</p>
+            aws_sdk_redshift.errors.snapshot_schedule_already_exists_fault.SnapshotScheduleAlreadyExistsFault: <p>The specified snapshot schedule already exists. </p>
+            aws_sdk_redshift.errors.snapshot_schedule_quota_exceeded_fault.SnapshotScheduleQuotaExceededFault: <p>You have exceeded the quota of snapshot schedules. </p>
+            aws_sdk_redshift.errors.tag_limit_exceeded_fault.TagLimitExceededFault: <p>You have exceeded the number of tags allowed.</p>
+            aws_sdk_redshift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2089,6 +2335,13 @@ class AsyncRedshiftClient:
         Args:
             resource_name: <p>The Amazon Resource Name (ARN) to which you want to add the tag or tags. For example, <code>arn:aws:redshift:us-east-2:123456789:cluster:t1</code>. </p>
             tags: <p>One or more name/value pairs to add as tags to the specified resource. Each tag name is passed in with the parameter <code>Key</code> and the corresponding value is passed in with the parameter <code>Value</code>. The <code>Key</code> and <code>Value</code> parameters are separated by a comma (,). Separate multiple tags with a space. For example, <code>--tags \"Key\"=\"owner\",\"Value\"=\"admin\" \"Key\"=\"environment\",\"Value\"=\"test\" \"Key\"=\"version\",\"Value\"=\"1.0\"</code>. </p>
+
+        Raises:
+            aws_sdk_redshift.errors.invalid_cluster_state_fault.InvalidClusterStateFault: <p>The specified cluster is not in the <code>available</code> state. </p>
+            aws_sdk_redshift.errors.invalid_tag_fault.InvalidTagFault: <p>The tag is invalid.</p>
+            aws_sdk_redshift.errors.resource_not_found_fault.ResourceNotFoundFault: <p>The resource could not be found.</p>
+            aws_sdk_redshift.errors.tag_limit_exceeded_fault.TagLimitExceededFault: <p>You have exceeded the number of tags allowed.</p>
+            aws_sdk_redshift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2142,6 +2395,16 @@ class AsyncRedshiftClient:
             period: <p>The time period that the amount applies to. A <code>weekly</code> period begins on Sunday. The default is <code>monthly</code>. </p>
             breach_action: <p>The action that Amazon Redshift takes when the limit is reached. The default is log. For more information about this parameter, see <a>UsageLimit</a>.</p>
             tags: <p>A list of tag instances.</p>
+
+        Raises:
+            aws_sdk_redshift.errors.cluster_not_found_fault.ClusterNotFoundFault: <p>The <code>ClusterIdentifier</code> parameter does not refer to an existing cluster. </p>
+            aws_sdk_redshift.errors.invalid_cluster_state_fault.InvalidClusterStateFault: <p>The specified cluster is not in the <code>available</code> state. </p>
+            aws_sdk_redshift.errors.invalid_usage_limit_fault.InvalidUsageLimitFault: <p>The usage limit is not valid.</p>
+            aws_sdk_redshift.errors.limit_exceeded_fault.LimitExceededFault: <p>The encryption key has exceeded its grant limit in Amazon Web Services KMS.</p>
+            aws_sdk_redshift.errors.tag_limit_exceeded_fault.TagLimitExceededFault: <p>You have exceeded the number of tags allowed.</p>
+            aws_sdk_redshift.errors.unsupported_operation_fault.UnsupportedOperationFault: <p>The requested operation isn't supported.</p>
+            aws_sdk_redshift.errors.usage_limit_already_exists_fault.UsageLimitAlreadyExistsFault: <p>The usage limit already exists. </p>
+            aws_sdk_redshift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2189,6 +2452,10 @@ class AsyncRedshiftClient:
         Args:
             data_share_arn: <p>The namespace Amazon Resource Name (ARN) of the datashare to remove authorization from.</p>
             consumer_identifier: <p>The identifier of the data consumer that is to have authorization removed from the datashare. This identifier is an Amazon Web Services account ID or a keyword, such as ADX.</p>
+
+        Raises:
+            aws_sdk_redshift.errors.invalid_data_share_fault.InvalidDataShareFault: <p>There is an error with the datashare.</p>
+            aws_sdk_redshift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2226,6 +2493,11 @@ class AsyncRedshiftClient:
 
         Args:
             authentication_profile_name: <p>The name of the authentication profile to delete.</p>
+
+        Raises:
+            aws_sdk_redshift.errors.authentication_profile_not_found_fault.AuthenticationProfileNotFoundFault: <p>The authentication profile can't be found.</p>
+            aws_sdk_redshift.errors.invalid_authentication_profile_request_fault.InvalidAuthenticationProfileRequestFault: <p>The authentication profile request is not valid. The profile name can't be null or empty. The authentication profile API operation must be available in the Amazon Web Services Region.</p>
+            aws_sdk_redshift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2276,6 +2548,14 @@ class AsyncRedshiftClient:
             skip_final_cluster_snapshot: <p>Determines whether a final snapshot of the cluster is created before Amazon Redshift deletes the cluster. If <code>true</code>, a final cluster snapshot is not created. If <code>false</code>, a final cluster snapshot is created before the cluster is deleted. </p> <note> <p>The <i>FinalClusterSnapshotIdentifier</i> parameter must be specified if <i>SkipFinalClusterSnapshot</i> is <code>false</code>.</p> </note> <p>Default: <code>false</code> </p>
             final_cluster_snapshot_identifier: <p>The identifier of the final snapshot that is to be created immediately before deleting the cluster. If this parameter is provided, <i>SkipFinalClusterSnapshot</i> must be <code>false</code>. </p> <p>Constraints:</p> <ul> <li> <p>Must be 1 to 255 alphanumeric characters.</p> </li> <li> <p>First character must be a letter.</p> </li> <li> <p>Cannot end with a hyphen or contain two consecutive hyphens.</p> </li> </ul>
             final_cluster_snapshot_retention_period: <p>The number of days that a manual snapshot is retained. If the value is -1, the manual snapshot is retained indefinitely.</p> <p>The value must be either -1 or an integer between 1 and 3,653.</p> <p>The default value is -1.</p>
+
+        Raises:
+            aws_sdk_redshift.errors.cluster_not_found_fault.ClusterNotFoundFault: <p>The <code>ClusterIdentifier</code> parameter does not refer to an existing cluster. </p>
+            aws_sdk_redshift.errors.cluster_snapshot_already_exists_fault.ClusterSnapshotAlreadyExistsFault: <p>The value specified as a snapshot identifier is already used by an existing snapshot.</p>
+            aws_sdk_redshift.errors.cluster_snapshot_quota_exceeded_fault.ClusterSnapshotQuotaExceededFault: <p>The request would result in the user exceeding the allowed number of cluster snapshots.</p>
+            aws_sdk_redshift.errors.invalid_cluster_state_fault.InvalidClusterStateFault: <p>The specified cluster is not in the <code>available</code> state. </p>
+            aws_sdk_redshift.errors.invalid_retention_period_fault.InvalidRetentionPeriodFault: <p>The retention period specified is either in the past or is not a valid value.</p> <p>The value must be either -1 or an integer between 1 and 3,653.</p>
+            aws_sdk_redshift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2324,6 +2604,11 @@ class AsyncRedshiftClient:
 
         Args:
             parameter_group_name: <p>The name of the parameter group to be deleted.</p> <p>Constraints:</p> <ul> <li> <p>Must be the name of an existing cluster parameter group.</p> </li> <li> <p>Cannot delete a default cluster parameter group.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_redshift.errors.cluster_parameter_group_not_found_fault.ClusterParameterGroupNotFoundFault: <p>The parameter group name does not refer to an existing parameter group.</p>
+            aws_sdk_redshift.errors.invalid_cluster_parameter_group_state_fault.InvalidClusterParameterGroupStateFault: <p>The cluster parameter group action can not be completed because another task is in progress that involves the parameter group. Wait a few moments and try the operation again.</p>
+            aws_sdk_redshift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2360,6 +2645,11 @@ class AsyncRedshiftClient:
 
         Args:
             cluster_security_group_name: <p>The name of the cluster security group to be deleted.</p>
+
+        Raises:
+            aws_sdk_redshift.errors.cluster_security_group_not_found_fault.ClusterSecurityGroupNotFoundFault: <p>The cluster security group name does not refer to an existing cluster security group.</p>
+            aws_sdk_redshift.errors.invalid_cluster_security_group_state_fault.InvalidClusterSecurityGroupStateFault: <p>The state of the cluster security group is not <code>available</code>. </p>
+            aws_sdk_redshift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2400,6 +2690,11 @@ class AsyncRedshiftClient:
         Args:
             snapshot_identifier: <p>The unique identifier of the manual snapshot to be deleted.</p> <p>Constraints: Must be the name of an existing snapshot that is in the <code>available</code>, <code>failed</code>, or <code>cancelled</code> state.</p>
             snapshot_cluster_identifier: <p>The unique identifier of the cluster the snapshot was created from. This parameter is required if your IAM user has a policy containing a snapshot resource element that specifies anything other than * for the cluster name.</p> <p>Constraints: Must be the name of valid cluster.</p>
+
+        Raises:
+            aws_sdk_redshift.errors.cluster_snapshot_not_found_fault.ClusterSnapshotNotFoundFault: <p>The snapshot identifier does not refer to an existing cluster snapshot.</p>
+            aws_sdk_redshift.errors.invalid_cluster_snapshot_state_fault.InvalidClusterSnapshotStateFault: <p>The specified cluster snapshot is not in the <code>available</code> state, or other accounts are authorized to access the snapshot. </p>
+            aws_sdk_redshift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2440,6 +2735,12 @@ class AsyncRedshiftClient:
 
         Args:
             cluster_subnet_group_name: <p>The name of the cluster subnet group name to be deleted.</p>
+
+        Raises:
+            aws_sdk_redshift.errors.cluster_subnet_group_not_found_fault.ClusterSubnetGroupNotFoundFault: <p>The cluster subnet group name does not refer to an existing cluster subnet group.</p>
+            aws_sdk_redshift.errors.invalid_cluster_subnet_group_state_fault.InvalidClusterSubnetGroupStateFault: <p>The cluster subnet group cannot be deleted because it is in use.</p>
+            aws_sdk_redshift.errors.invalid_cluster_subnet_state_fault.InvalidClusterSubnetStateFault: <p>The state of the subnet is invalid.</p>
+            aws_sdk_redshift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2478,6 +2779,13 @@ class AsyncRedshiftClient:
         Args:
             cluster_identifier: <p>The identifier of the cluster to delete a custom domain association for.</p>
             custom_domain_name: <p>The custom domain name for the custom domain association.</p>
+
+        Raises:
+            aws_sdk_redshift.errors.cluster_not_found_fault.ClusterNotFoundFault: <p>The <code>ClusterIdentifier</code> parameter does not refer to an existing cluster. </p>
+            aws_sdk_redshift.errors.custom_cname_association_fault.CustomCnameAssociationFault: <p>An error occurred when an attempt was made to change the custom domain association.</p>
+            aws_sdk_redshift.errors.custom_domain_association_not_found_fault.CustomDomainAssociationNotFoundFault: <p>An error occurred. The custom domain name couldn't be found.</p>
+            aws_sdk_redshift.errors.unsupported_operation_fault.UnsupportedOperationFault: <p>The requested operation isn't supported.</p>
+            aws_sdk_redshift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2515,6 +2823,14 @@ class AsyncRedshiftClient:
 
         Args:
             endpoint_name: <p>The Redshift-managed VPC endpoint to delete.</p>
+
+        Raises:
+            aws_sdk_redshift.errors.cluster_not_found_fault.ClusterNotFoundFault: <p>The <code>ClusterIdentifier</code> parameter does not refer to an existing cluster. </p>
+            aws_sdk_redshift.errors.endpoint_not_found_fault.EndpointNotFoundFault: <p>The endpoint name doesn't refer to an existing endpoint.</p>
+            aws_sdk_redshift.errors.invalid_cluster_security_group_state_fault.InvalidClusterSecurityGroupStateFault: <p>The state of the cluster security group is not <code>available</code>. </p>
+            aws_sdk_redshift.errors.invalid_cluster_state_fault.InvalidClusterStateFault: <p>The specified cluster is not in the <code>available</code> state. </p>
+            aws_sdk_redshift.errors.invalid_endpoint_state_fault.InvalidEndpointStateFault: <p>The status of the endpoint is not valid.</p>
+            aws_sdk_redshift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2553,6 +2869,11 @@ class AsyncRedshiftClient:
 
         Args:
             subscription_name: <p>The name of the Amazon Redshift event notification subscription to be deleted.</p>
+
+        Raises:
+            aws_sdk_redshift.errors.invalid_subscription_state_fault.InvalidSubscriptionStateFault: <p>The subscription request is invalid because it is a duplicate request. This subscription request is already in progress.</p>
+            aws_sdk_redshift.errors.subscription_not_found_fault.SubscriptionNotFoundFault: <p>An Amazon Redshift event notification subscription with the specified name does not exist.</p>
+            aws_sdk_redshift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2589,6 +2910,11 @@ class AsyncRedshiftClient:
 
         Args:
             hsm_client_certificate_identifier: <p>The identifier of the HSM client certificate to be deleted.</p>
+
+        Raises:
+            aws_sdk_redshift.errors.hsm_client_certificate_not_found_fault.HsmClientCertificateNotFoundFault: <p>There is no Amazon Redshift HSM client certificate with the specified identifier.</p>
+            aws_sdk_redshift.errors.invalid_hsm_client_certificate_state_fault.InvalidHsmClientCertificateStateFault: <p>The specified HSM client certificate is not in the <code>available</code> state, or it is still in use by one or more Amazon Redshift clusters.</p>
+            aws_sdk_redshift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2625,6 +2951,11 @@ class AsyncRedshiftClient:
 
         Args:
             hsm_configuration_identifier: <p>The identifier of the Amazon Redshift HSM configuration to be deleted.</p>
+
+        Raises:
+            aws_sdk_redshift.errors.hsm_configuration_not_found_fault.HsmConfigurationNotFoundFault: <p>There is no Amazon Redshift HSM configuration with the specified identifier.</p>
+            aws_sdk_redshift.errors.invalid_hsm_configuration_state_fault.InvalidHsmConfigurationStateFault: <p>The specified HSM configuration is not in the <code>available</code> state, or it is still in use by one or more Amazon Redshift clusters.</p>
+            aws_sdk_redshift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2661,6 +2992,13 @@ class AsyncRedshiftClient:
 
         Args:
             integration_arn: <p>The unique identifier of the integration to delete.</p>
+
+        Raises:
+            aws_sdk_redshift.errors.integration_conflict_operation_fault.IntegrationConflictOperationFault: <p>A conflicting conditional operation is currently in progress against this resource. This typically occurs when there are multiple requests being made to the same resource at the same time, and these requests conflict with each other.</p>
+            aws_sdk_redshift.errors.integration_conflict_state_fault.IntegrationConflictStateFault: <p>The integration is in an invalid state and can't perform the requested operation.</p>
+            aws_sdk_redshift.errors.integration_not_found_fault.IntegrationNotFoundFault: <p>The integration can't be found.</p>
+            aws_sdk_redshift.errors.unsupported_operation_fault.UnsupportedOperationFault: <p>The requested operation isn't supported.</p>
+            aws_sdk_redshift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2703,6 +3041,13 @@ class AsyncRedshiftClient:
             cluster_identifier: <p>The cluster identifier of the cluster that receives data from the partner.</p>
             database_name: <p>The name of the database that receives data from the partner.</p>
             partner_name: <p>The name of the partner that is authorized to send data.</p>
+
+        Raises:
+            aws_sdk_redshift.errors.cluster_not_found_fault.ClusterNotFoundFault: <p>The <code>ClusterIdentifier</code> parameter does not refer to an existing cluster. </p>
+            aws_sdk_redshift.errors.partner_not_found_fault.PartnerNotFoundFault: <p>The name of the partner was not found.</p>
+            aws_sdk_redshift.errors.unauthorized_partner_integration_fault.UnauthorizedPartnerIntegrationFault: <p>The partner integration is not authorized.</p>
+            aws_sdk_redshift.errors.unsupported_operation_fault.UnsupportedOperationFault: <p>The requested operation isn't supported.</p>
+            aws_sdk_redshift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2744,6 +3089,13 @@ class AsyncRedshiftClient:
 
         Args:
             redshift_idc_application_arn: <p>The ARN for a deleted Amazon Redshift IAM Identity Center application.</p>
+
+        Raises:
+            aws_sdk_redshift.errors.dependent_service_access_denied_fault.DependentServiceAccessDeniedFault: <p>A dependent service denied access for the integration.</p>
+            aws_sdk_redshift.errors.dependent_service_unavailable_fault.DependentServiceUnavailableFault: <p>Your request cannot be completed because a dependent internal service is temporarily unavailable. Wait 30 to 60 seconds and try again.</p>
+            aws_sdk_redshift.errors.redshift_idc_application_not_exists_fault.RedshiftIdcApplicationNotExistsFault: <p>The application you attempted to find doesn't exist.</p>
+            aws_sdk_redshift.errors.unsupported_operation_fault.UnsupportedOperationFault: <p>The requested operation isn't supported.</p>
+            aws_sdk_redshift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2780,6 +3132,11 @@ class AsyncRedshiftClient:
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource of which its resource policy is deleted.</p>
+
+        Raises:
+            aws_sdk_redshift.errors.resource_not_found_fault.ResourceNotFoundFault: <p>The resource could not be found.</p>
+            aws_sdk_redshift.errors.unsupported_operation_fault.UnsupportedOperationFault: <p>The requested operation isn't supported.</p>
+            aws_sdk_redshift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2816,6 +3173,11 @@ class AsyncRedshiftClient:
 
         Args:
             scheduled_action_name: <p>The name of the scheduled action to delete. </p>
+
+        Raises:
+            aws_sdk_redshift.errors.scheduled_action_not_found_fault.ScheduledActionNotFoundFault: <p>The scheduled action cannot be found. </p>
+            aws_sdk_redshift.errors.unauthorized_operation.UnauthorizedOperation: <p>Your account is not authorized to perform the requested operation.</p>
+            aws_sdk_redshift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2852,6 +3214,11 @@ class AsyncRedshiftClient:
 
         Args:
             snapshot_copy_grant_name: <p>The name of the snapshot copy grant to delete.</p>
+
+        Raises:
+            aws_sdk_redshift.errors.invalid_snapshot_copy_grant_state_fault.InvalidSnapshotCopyGrantStateFault: <p>The snapshot copy grant can't be deleted because it is used by one or more clusters.</p>
+            aws_sdk_redshift.errors.snapshot_copy_grant_not_found_fault.SnapshotCopyGrantNotFoundFault: <p>The specified snapshot copy grant can't be found. Make sure that the name is typed correctly and that the grant exists in the destination region.</p>
+            aws_sdk_redshift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2888,6 +3255,11 @@ class AsyncRedshiftClient:
 
         Args:
             schedule_identifier: <p>A unique identifier of the snapshot schedule to delete.</p>
+
+        Raises:
+            aws_sdk_redshift.errors.invalid_cluster_snapshot_schedule_state_fault.InvalidClusterSnapshotScheduleStateFault: <p>The cluster snapshot schedule state is not valid.</p>
+            aws_sdk_redshift.errors.snapshot_schedule_not_found_fault.SnapshotScheduleNotFoundFault: <p>We could not find the specified snapshot schedule. </p>
+            aws_sdk_redshift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2926,6 +3298,11 @@ class AsyncRedshiftClient:
         Args:
             resource_name: <p>The Amazon Resource Name (ARN) from which you want to remove the tag or tags. For example, <code>arn:aws:redshift:us-east-2:123456789:cluster:t1</code>. </p>
             tag_keys: <p>The tag key that you want to delete.</p>
+
+        Raises:
+            aws_sdk_redshift.errors.invalid_tag_fault.InvalidTagFault: <p>The tag is invalid.</p>
+            aws_sdk_redshift.errors.resource_not_found_fault.ResourceNotFoundFault: <p>The resource could not be found.</p>
+            aws_sdk_redshift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2963,6 +3340,11 @@ class AsyncRedshiftClient:
 
         Args:
             usage_limit_id: <p>The identifier of the usage limit to delete.</p>
+
+        Raises:
+            aws_sdk_redshift.errors.unsupported_operation_fault.UnsupportedOperationFault: <p>The requested operation isn't supported.</p>
+            aws_sdk_redshift.errors.usage_limit_not_found_fault.UsageLimitNotFoundFault: <p>The usage limit identifier can't be found.</p>
+            aws_sdk_redshift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3001,6 +3383,12 @@ class AsyncRedshiftClient:
         Args:
             namespace_identifier: <p>The unique identifier of the cluster or serverless namespace that you want to deregister.</p>
             consumer_identifiers: <p>An array containing the ID of the consumer account that you want to deregister the cluster or serverless namespace from.</p>
+
+        Raises:
+            aws_sdk_redshift.errors.cluster_not_found_fault.ClusterNotFoundFault: <p>The <code>ClusterIdentifier</code> parameter does not refer to an existing cluster. </p>
+            aws_sdk_redshift.errors.invalid_cluster_state_fault.InvalidClusterStateFault: <p>The specified cluster is not in the <code>available</code> state. </p>
+            aws_sdk_redshift.errors.invalid_namespace_fault.InvalidNamespaceFault: <p>The namespace isn't valid because the namespace doesn't exist. Provide a valid namespace.</p>
+            aws_sdk_redshift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3042,6 +3430,9 @@ class AsyncRedshiftClient:
 
         Args:
             attribute_names: <p>A list of attribute names.</p>
+
+        Raises:
+            aws_sdk_redshift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3083,6 +3474,11 @@ class AsyncRedshiftClient:
 
         Args:
             authentication_profile_name: <p>The name of the authentication profile to describe. If not specified then all authentication profiles owned by the account are listed.</p>
+
+        Raises:
+            aws_sdk_redshift.errors.authentication_profile_not_found_fault.AuthenticationProfileNotFoundFault: <p>The authentication profile can't be found.</p>
+            aws_sdk_redshift.errors.invalid_authentication_profile_request_fault.InvalidAuthenticationProfileRequestFault: <p>The authentication profile request is not valid. The profile name can't be null or empty. The authentication profile API operation must be available in the Amazon Web Services Region.</p>
+            aws_sdk_redshift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3130,6 +3526,11 @@ class AsyncRedshiftClient:
             cluster_identifier: <p>A unique identifier for a cluster whose <code>ClusterDbRevisions</code> you are requesting. This parameter is case sensitive. All clusters defined for an account are returned by default.</p>
             max_records: <p>The maximum number of response records to return in each call. If the number of remaining response records exceeds the specified MaxRecords value, a value is returned in the <code>marker</code> field of the response. You can retrieve the next set of response records by providing the returned <code>marker</code> value in the <code>marker</code> parameter and retrying the request. </p> <p>Default: 100</p> <p>Constraints: minimum 20, maximum 100.</p>
             marker: <p>An optional parameter that specifies the starting point for returning a set of response records. When the results of a <code>DescribeClusterDbRevisions</code> request exceed the value specified in <code>MaxRecords</code>, Amazon Redshift returns a value in the <code>marker</code> field of the response. You can retrieve the next set of response records by providing the returned <code>marker</code> value in the <code>marker</code> parameter and retrying the request. </p> <p>Constraints: You can specify either the <code>ClusterIdentifier</code> parameter, or the <code>marker</code> parameter, but not both.</p>
+
+        Raises:
+            aws_sdk_redshift.errors.cluster_not_found_fault.ClusterNotFoundFault: <p>The <code>ClusterIdentifier</code> parameter does not refer to an existing cluster. </p>
+            aws_sdk_redshift.errors.invalid_cluster_state_fault.InvalidClusterStateFault: <p>The specified cluster is not in the <code>available</code> state. </p>
+            aws_sdk_redshift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3210,6 +3611,11 @@ class AsyncRedshiftClient:
             marker: <p>An optional parameter that specifies the starting point to return a set of response records. When the results of a <a>DescribeClusterParameterGroups</a> request exceed the value specified in <code>MaxRecords</code>, Amazon Web Services returns a value in the <code>Marker</code> field of the response. You can retrieve the next set of response records by providing the returned marker value in the <code>Marker</code> parameter and retrying the request. </p>
             tag_keys: <p>A tag key or keys for which you want to return all matching cluster parameter groups that are associated with the specified key or keys. For example, suppose that you have parameter groups that are tagged with keys called <code>owner</code> and <code>environment</code>. If you specify both of these tag keys in the request, Amazon Redshift returns a response with the parameter groups that have either or both of these tag keys associated with them.</p>
             tag_values: <p>A tag value or values for which you want to return all matching cluster parameter groups that are associated with the specified tag value or values. For example, suppose that you have parameter groups that are tagged with values called <code>admin</code> and <code>test</code>. If you specify both of these tag values in the request, Amazon Redshift returns a response with the parameter groups that have either or both of these tag values associated with them.</p>
+
+        Raises:
+            aws_sdk_redshift.errors.cluster_parameter_group_not_found_fault.ClusterParameterGroupNotFoundFault: <p>The parameter group name does not refer to an existing parameter group.</p>
+            aws_sdk_redshift.errors.invalid_tag_fault.InvalidTagFault: <p>The tag is invalid.</p>
+            aws_sdk_redshift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3296,6 +3702,10 @@ class AsyncRedshiftClient:
             source: <p>The parameter types to return. Specify <code>user</code> to show parameters that are different form the default. Similarly, specify <code>engine-default</code> to show parameters that are the same as the default parameter group. </p> <p>Default: All parameter types returned.</p> <p>Valid Values: <code>user</code> | <code>engine-default</code> </p>
             max_records: <p>The maximum number of response records to return in each call. If the number of remaining response records exceeds the specified <code>MaxRecords</code> value, a value is returned in a <code>marker</code> field of the response. You can retrieve the next set of records by retrying the command with the returned marker value. </p> <p>Default: <code>100</code> </p> <p>Constraints: minimum 20, maximum 100.</p>
             marker: <p>An optional parameter that specifies the starting point to return a set of response records. When the results of a <a>DescribeClusterParameters</a> request exceed the value specified in <code>MaxRecords</code>, Amazon Web Services returns a value in the <code>Marker</code> field of the response. You can retrieve the next set of response records by providing the returned marker value in the <code>Marker</code> parameter and retrying the request. </p>
+
+        Raises:
+            aws_sdk_redshift.errors.cluster_parameter_group_not_found_fault.ClusterParameterGroupNotFoundFault: <p>The parameter group name does not refer to an existing parameter group.</p>
+            aws_sdk_redshift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3379,6 +3789,11 @@ class AsyncRedshiftClient:
             marker: <p>An optional parameter that specifies the starting point to return a set of response records. When the results of a <a>DescribeClusters</a> request exceed the value specified in <code>MaxRecords</code>, Amazon Web Services returns a value in the <code>Marker</code> field of the response. You can retrieve the next set of response records by providing the returned marker value in the <code>Marker</code> parameter and retrying the request. </p> <p>Constraints: You can specify either the <b>ClusterIdentifier</b> parameter or the <b>Marker</b> parameter, but not both. </p>
             tag_keys: <p>A tag key or keys for which you want to return all matching clusters that are associated with the specified key or keys. For example, suppose that you have clusters that are tagged with keys called <code>owner</code> and <code>environment</code>. If you specify both of these tag keys in the request, Amazon Redshift returns a response with the clusters that have either or both of these tag keys associated with them.</p>
             tag_values: <p>A tag value or values for which you want to return all matching clusters that are associated with the specified tag value or values. For example, suppose that you have clusters that are tagged with values called <code>admin</code> and <code>test</code>. If you specify both of these tag values in the request, Amazon Redshift returns a response with the clusters that have either or both of these tag values associated with them.</p>
+
+        Raises:
+            aws_sdk_redshift.errors.cluster_not_found_fault.ClusterNotFoundFault: <p>The <code>ClusterIdentifier</code> parameter does not refer to an existing cluster. </p>
+            aws_sdk_redshift.errors.invalid_tag_fault.InvalidTagFault: <p>The tag is invalid.</p>
+            aws_sdk_redshift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3471,6 +3886,11 @@ class AsyncRedshiftClient:
             marker: <p>An optional parameter that specifies the starting point to return a set of response records. When the results of a <a>DescribeClusterSecurityGroups</a> request exceed the value specified in <code>MaxRecords</code>, Amazon Web Services returns a value in the <code>Marker</code> field of the response. You can retrieve the next set of response records by providing the returned marker value in the <code>Marker</code> parameter and retrying the request. </p> <p>Constraints: You must specify either the <b>ClusterSecurityGroupName</b> parameter or the <b>Marker</b> parameter, but not both. </p>
             tag_keys: <p>A tag key or keys for which you want to return all matching cluster security groups that are associated with the specified key or keys. For example, suppose that you have security groups that are tagged with keys called <code>owner</code> and <code>environment</code>. If you specify both of these tag keys in the request, Amazon Redshift returns a response with the security groups that have either or both of these tag keys associated with them.</p>
             tag_values: <p>A tag value or values for which you want to return all matching cluster security groups that are associated with the specified tag value or values. For example, suppose that you have security groups that are tagged with values called <code>admin</code> and <code>test</code>. If you specify both of these tag values in the request, Amazon Redshift returns a response with the security groups that have either or both of these tag values associated with them.</p>
+
+        Raises:
+            aws_sdk_redshift.errors.cluster_security_group_not_found_fault.ClusterSecurityGroupNotFoundFault: <p>The cluster security group name does not refer to an existing cluster security group.</p>
+            aws_sdk_redshift.errors.invalid_tag_fault.InvalidTagFault: <p>The tag is invalid.</p>
+            aws_sdk_redshift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3583,6 +4003,13 @@ class AsyncRedshiftClient:
             tag_values: <p>A tag value or values for which you want to return all matching cluster snapshots that are associated with the specified tag value or values. For example, suppose that you have snapshots that are tagged with values called <code>admin</code> and <code>test</code>. If you specify both of these tag values in the request, Amazon Redshift returns a response with the snapshots that have either or both of these tag values associated with them.</p>
             cluster_exists: <p>A value that indicates whether to return snapshots only for an existing cluster. You can perform table-level restore only by using a snapshot of an existing cluster, that is, a cluster that has not been deleted. Values for this parameter work as follows: </p> <ul> <li> <p>If <code>ClusterExists</code> is set to <code>true</code>, <code>ClusterIdentifier</code> is required.</p> </li> <li> <p>If <code>ClusterExists</code> is set to <code>false</code> and <code>ClusterIdentifier</code> isn't specified, all snapshots associated with deleted clusters (orphaned snapshots) are returned. </p> </li> <li> <p>If <code>ClusterExists</code> is set to <code>false</code> and <code>ClusterIdentifier</code> is specified for a deleted cluster, snapshots associated with that cluster are returned.</p> </li> <li> <p>If <code>ClusterExists</code> is set to <code>false</code> and <code>ClusterIdentifier</code> is specified for an existing cluster, no snapshots are returned. </p> </li> </ul>
             sorting_entities: <p></p>
+
+        Raises:
+            aws_sdk_redshift.errors.cluster_not_found_fault.ClusterNotFoundFault: <p>The <code>ClusterIdentifier</code> parameter does not refer to an existing cluster. </p>
+            aws_sdk_redshift.errors.cluster_snapshot_not_found_fault.ClusterSnapshotNotFoundFault: <p>The snapshot identifier does not refer to an existing cluster snapshot.</p>
+            aws_sdk_redshift.errors.invalid_tag_fault.InvalidTagFault: <p>The tag is invalid.</p>
+            aws_sdk_redshift.errors.unsupported_operation_fault.UnsupportedOperationFault: <p>The requested operation isn't supported.</p>
+            aws_sdk_redshift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3713,6 +4140,11 @@ class AsyncRedshiftClient:
             marker: <p>An optional parameter that specifies the starting point to return a set of response records. When the results of a <a>DescribeClusterSubnetGroups</a> request exceed the value specified in <code>MaxRecords</code>, Amazon Web Services returns a value in the <code>Marker</code> field of the response. You can retrieve the next set of response records by providing the returned marker value in the <code>Marker</code> parameter and retrying the request. </p>
             tag_keys: <p>A tag key or keys for which you want to return all matching cluster subnet groups that are associated with the specified key or keys. For example, suppose that you have subnet groups that are tagged with keys called <code>owner</code> and <code>environment</code>. If you specify both of these tag keys in the request, Amazon Redshift returns a response with the subnet groups that have either or both of these tag keys associated with them.</p>
             tag_values: <p>A tag value or values for which you want to return all matching cluster subnet groups that are associated with the specified tag value or values. For example, suppose that you have subnet groups that are tagged with values called <code>admin</code> and <code>test</code>. If you specify both of these tag values in the request, Amazon Redshift returns a response with the subnet groups that have either or both of these tag values associated with them.</p>
+
+        Raises:
+            aws_sdk_redshift.errors.cluster_subnet_group_not_found_fault.ClusterSubnetGroupNotFoundFault: <p>The cluster subnet group name does not refer to an existing cluster subnet group.</p>
+            aws_sdk_redshift.errors.invalid_tag_fault.InvalidTagFault: <p>The tag is invalid.</p>
+            aws_sdk_redshift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3801,6 +4233,11 @@ class AsyncRedshiftClient:
             maintenance_track_name: <p>The name of the maintenance track. </p>
             max_records: <p>An integer value for the maximum number of maintenance tracks to return.</p>
             marker: <p>An optional parameter that specifies the starting point to return a set of response records. When the results of a <code>DescribeClusterTracks</code> request exceed the value specified in <code>MaxRecords</code>, Amazon Redshift returns a value in the <code>Marker</code> field of the response. You can retrieve the next set of response records by providing the returned marker value in the <code>Marker</code> parameter and retrying the request. </p>
+
+        Raises:
+            aws_sdk_redshift.errors.invalid_cluster_track_fault.InvalidClusterTrackFault: <p>The provided cluster track name is not valid.</p>
+            aws_sdk_redshift.errors.unauthorized_operation.UnauthorizedOperation: <p>Your account is not authorized to perform the requested operation.</p>
+            aws_sdk_redshift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3879,6 +4316,9 @@ class AsyncRedshiftClient:
             cluster_parameter_group_family: <p>The name of a specific cluster parameter group family to return details for.</p> <p>Constraints:</p> <ul> <li> <p>Must be 1 to 255 alphanumeric characters</p> </li> <li> <p>First character must be a letter</p> </li> <li> <p>Cannot end with a hyphen or contain two consecutive hyphens</p> </li> </ul>
             max_records: <p>The maximum number of response records to return in each call. If the number of remaining response records exceeds the specified <code>MaxRecords</code> value, a value is returned in a <code>marker</code> field of the response. You can retrieve the next set of records by retrying the command with the returned marker value. </p> <p>Default: <code>100</code> </p> <p>Constraints: minimum 20, maximum 100.</p>
             marker: <p>An optional parameter that specifies the starting point to return a set of response records. When the results of a <a>DescribeClusterVersions</a> request exceed the value specified in <code>MaxRecords</code>, Amazon Web Services returns a value in the <code>Marker</code> field of the response. You can retrieve the next set of response records by providing the returned marker value in the <code>Marker</code> parameter and retrying the request. </p>
+
+        Raises:
+            aws_sdk_redshift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3965,6 +4405,11 @@ class AsyncRedshiftClient:
             custom_domain_certificate_arn: <p>The certificate Amazon Resource Name (ARN) for the custom domain association.</p>
             max_records: <p>The maximum records setting for the associated custom domain.</p>
             marker: <p>The marker for the custom domain association.</p>
+
+        Raises:
+            aws_sdk_redshift.errors.custom_domain_association_not_found_fault.CustomDomainAssociationNotFoundFault: <p>An error occurred. The custom domain name couldn't be found.</p>
+            aws_sdk_redshift.errors.unsupported_operation_fault.UnsupportedOperationFault: <p>The requested operation isn't supported.</p>
+            aws_sdk_redshift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4047,6 +4492,10 @@ class AsyncRedshiftClient:
             data_share_arn: <p>The Amazon resource name (ARN) of the datashare to describe details of.</p>
             max_records: <p>The maximum number of response records to return in each call. If the number of remaining response records exceeds the specified <code>MaxRecords</code> value, a value is returned in a <code>marker</code> field of the response. You can retrieve the next set of records by retrying the command with the returned marker value. </p>
             marker: <p>An optional parameter that specifies the starting point to return a set of response records. When the results of a <a>DescribeDataShares</a> request exceed the value specified in <code>MaxRecords</code>, Amazon Web Services returns a value in the <code>Marker</code> field of the response. You can retrieve the next set of response records by providing the returned marker value in the <code>Marker</code> parameter and retrying the request. </p>
+
+        Raises:
+            aws_sdk_redshift.errors.invalid_data_share_fault.InvalidDataShareFault: <p>There is an error with the datashare.</p>
+            aws_sdk_redshift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4125,6 +4574,10 @@ class AsyncRedshiftClient:
             status: <p>An identifier giving the status of a datashare in the consumer cluster. If this field is specified, Amazon Redshift returns the list of datashares that have the specified status.</p>
             max_records: <p>The maximum number of response records to return in each call. If the number of remaining response records exceeds the specified <code>MaxRecords</code> value, a value is returned in a <code>marker</code> field of the response. You can retrieve the next set of records by retrying the command with the returned marker value. </p>
             marker: <p>An optional parameter that specifies the starting point to return a set of response records. When the results of a <a>DescribeDataSharesForConsumer</a> request exceed the value specified in <code>MaxRecords</code>, Amazon Web Services returns a value in the <code>Marker</code> field of the response. You can retrieve the next set of response records by providing the returned marker value in the <code>Marker</code> parameter and retrying the request. </p>
+
+        Raises:
+            aws_sdk_redshift.errors.invalid_namespace_fault.InvalidNamespaceFault: <p>The namespace isn't valid because the namespace doesn't exist. Provide a valid namespace.</p>
+            aws_sdk_redshift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4209,6 +4662,10 @@ class AsyncRedshiftClient:
             status: <p>An identifier giving the status of a datashare in the producer. If this field is specified, Amazon Redshift returns the list of datashares that have the specified status.</p>
             max_records: <p>The maximum number of response records to return in each call. If the number of remaining response records exceeds the specified <code>MaxRecords</code> value, a value is returned in a <code>marker</code> field of the response. You can retrieve the next set of records by retrying the command with the returned marker value. </p>
             marker: <p>An optional parameter that specifies the starting point to return a set of response records. When the results of a <a>DescribeDataSharesForProducer</a> request exceed the value specified in <code>MaxRecords</code>, Amazon Web Services returns a value in the <code>Marker</code> field of the response. You can retrieve the next set of response records by providing the returned marker value in the <code>Marker</code> parameter and retrying the request. </p>
+
+        Raises:
+            aws_sdk_redshift.errors.invalid_namespace_fault.InvalidNamespaceFault: <p>The namespace isn't valid because the namespace doesn't exist. Provide a valid namespace.</p>
+            aws_sdk_redshift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4289,6 +4746,9 @@ class AsyncRedshiftClient:
             parameter_group_family: <p>The name of the cluster parameter group family.</p>
             max_records: <p>The maximum number of response records to return in each call. If the number of remaining response records exceeds the specified <code>MaxRecords</code> value, a value is returned in a <code>marker</code> field of the response. You can retrieve the next set of records by retrying the command with the returned marker value. </p> <p>Default: <code>100</code> </p> <p>Constraints: minimum 20, maximum 100.</p>
             marker: <p>An optional parameter that specifies the starting point to return a set of response records. When the results of a <a>DescribeDefaultClusterParameters</a> request exceed the value specified in <code>MaxRecords</code>, Amazon Web Services returns a value in the <code>Marker</code> field of the response. You can retrieve the next set of response records by providing the returned marker value in the <code>Marker</code> parameter and retrying the request. </p>
+
+        Raises:
+            aws_sdk_redshift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4370,6 +4830,12 @@ class AsyncRedshiftClient:
             vpc_id: <p>The virtual private cloud (VPC) identifier with access to the cluster.</p>
             max_records: <p>The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code> value, a pagination token called a <code>Marker</code> is included in the response so that the remaining results can be retrieved.</p>
             marker: <p>An optional pagination token provided by a previous <code>DescribeEndpointAccess</code> request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by the <code>MaxRecords</code> parameter.</p>
+
+        Raises:
+            aws_sdk_redshift.errors.cluster_not_found_fault.ClusterNotFoundFault: <p>The <code>ClusterIdentifier</code> parameter does not refer to an existing cluster. </p>
+            aws_sdk_redshift.errors.endpoint_not_found_fault.EndpointNotFoundFault: <p>The endpoint name doesn't refer to an existing endpoint.</p>
+            aws_sdk_redshift.errors.invalid_cluster_state_fault.InvalidClusterStateFault: <p>The specified cluster is not in the <code>available</code> state. </p>
+            aws_sdk_redshift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4462,6 +4928,11 @@ class AsyncRedshiftClient:
             grantee: <p>Indicates whether to check authorization from a grantor or grantee point of view. If true, Amazon Redshift returns endpoint authorizations that you've been granted. If false (default), checks authorization from a grantor point of view.</p>
             max_records: <p>The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code> value, a pagination token called a <code>Marker</code> is included in the response so that the remaining results can be retrieved.</p>
             marker: <p>An optional pagination token provided by a previous <code>DescribeEndpointAuthorization</code> request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by the <code>MaxRecords</code> parameter.</p>
+
+        Raises:
+            aws_sdk_redshift.errors.cluster_not_found_fault.ClusterNotFoundFault: <p>The <code>ClusterIdentifier</code> parameter does not refer to an existing cluster. </p>
+            aws_sdk_redshift.errors.unsupported_operation_fault.UnsupportedOperationFault: <p>The requested operation isn't supported.</p>
+            aws_sdk_redshift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4540,6 +5011,9 @@ class AsyncRedshiftClient:
 
         Args:
             source_type: <p>The source type, such as cluster or parameter group, to which the described event categories apply.</p> <p>Valid values: cluster, cluster-snapshot, cluster-parameter-group, cluster-security-group, and scheduled-action.</p>
+
+        Raises:
+            aws_sdk_redshift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4595,6 +5069,9 @@ class AsyncRedshiftClient:
             duration: <p>The number of minutes prior to the time of the request for which to retrieve events. For example, if the request is sent at 18:00 and you specify a duration of 60, then only events which have occurred after 17:00 will be returned.</p> <p>Default: <code>60</code> </p>
             max_records: <p>The maximum number of response records to return in each call. If the number of remaining response records exceeds the specified <code>MaxRecords</code> value, a value is returned in a <code>marker</code> field of the response. You can retrieve the next set of records by retrying the command with the returned marker value. </p> <p>Default: <code>100</code> </p> <p>Constraints: minimum 20, maximum 100.</p>
             marker: <p>An optional parameter that specifies the starting point to return a set of response records. When the results of a <a>DescribeEvents</a> request exceed the value specified in <code>MaxRecords</code>, Amazon Web Services returns a value in the <code>Marker</code> field of the response. You can retrieve the next set of response records by providing the returned marker value in the <code>Marker</code> parameter and retrying the request. </p>
+
+        Raises:
+            aws_sdk_redshift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4693,6 +5170,11 @@ class AsyncRedshiftClient:
             marker: <p>An optional parameter that specifies the starting point to return a set of response records. When the results of a DescribeEventSubscriptions request exceed the value specified in <code>MaxRecords</code>, Amazon Web Services returns a value in the <code>Marker</code> field of the response. You can retrieve the next set of response records by providing the returned marker value in the <code>Marker</code> parameter and retrying the request. </p>
             tag_keys: <p>A tag key or keys for which you want to return all matching event notification subscriptions that are associated with the specified key or keys. For example, suppose that you have subscriptions that are tagged with keys called <code>owner</code> and <code>environment</code>. If you specify both of these tag keys in the request, Amazon Redshift returns a response with the subscriptions that have either or both of these tag keys associated with them.</p>
             tag_values: <p>A tag value or values for which you want to return all matching event notification subscriptions that are associated with the specified tag value or values. For example, suppose that you have subscriptions that are tagged with values called <code>admin</code> and <code>test</code>. If you specify both of these tag values in the request, Amazon Redshift returns a response with the subscriptions that have either or both of these tag values associated with them.</p>
+
+        Raises:
+            aws_sdk_redshift.errors.invalid_tag_fault.InvalidTagFault: <p>The tag is invalid.</p>
+            aws_sdk_redshift.errors.subscription_not_found_fault.SubscriptionNotFoundFault: <p>An Amazon Redshift event notification subscription with the specified name does not exist.</p>
+            aws_sdk_redshift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4785,6 +5267,11 @@ class AsyncRedshiftClient:
             marker: <p>An optional parameter that specifies the starting point to return a set of response records. When the results of a <a>DescribeHsmClientCertificates</a> request exceed the value specified in <code>MaxRecords</code>, Amazon Web Services returns a value in the <code>Marker</code> field of the response. You can retrieve the next set of response records by providing the returned marker value in the <code>Marker</code> parameter and retrying the request. </p>
             tag_keys: <p>A tag key or keys for which you want to return all matching HSM client certificates that are associated with the specified key or keys. For example, suppose that you have HSM client certificates that are tagged with keys called <code>owner</code> and <code>environment</code>. If you specify both of these tag keys in the request, Amazon Redshift returns a response with the HSM client certificates that have either or both of these tag keys associated with them.</p>
             tag_values: <p>A tag value or values for which you want to return all matching HSM client certificates that are associated with the specified tag value or values. For example, suppose that you have HSM client certificates that are tagged with values called <code>admin</code> and <code>test</code>. If you specify both of these tag values in the request, Amazon Redshift returns a response with the HSM client certificates that have either or both of these tag values associated with them.</p>
+
+        Raises:
+            aws_sdk_redshift.errors.hsm_client_certificate_not_found_fault.HsmClientCertificateNotFoundFault: <p>There is no Amazon Redshift HSM client certificate with the specified identifier.</p>
+            aws_sdk_redshift.errors.invalid_tag_fault.InvalidTagFault: <p>The tag is invalid.</p>
+            aws_sdk_redshift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4881,6 +5368,11 @@ class AsyncRedshiftClient:
             marker: <p>An optional parameter that specifies the starting point to return a set of response records. When the results of a <a>DescribeHsmConfigurations</a> request exceed the value specified in <code>MaxRecords</code>, Amazon Web Services returns a value in the <code>Marker</code> field of the response. You can retrieve the next set of response records by providing the returned marker value in the <code>Marker</code> parameter and retrying the request. </p>
             tag_keys: <p>A tag key or keys for which you want to return all matching HSM configurations that are associated with the specified key or keys. For example, suppose that you have HSM configurations that are tagged with keys called <code>owner</code> and <code>environment</code>. If you specify both of these tag keys in the request, Amazon Redshift returns a response with the HSM configurations that have either or both of these tag keys associated with them.</p>
             tag_values: <p>A tag value or values for which you want to return all matching HSM configurations that are associated with the specified tag value or values. For example, suppose that you have HSM configurations that are tagged with values called <code>admin</code> and <code>test</code>. If you specify both of these tag values in the request, Amazon Redshift returns a response with the HSM configurations that have either or both of these tag values associated with them.</p>
+
+        Raises:
+            aws_sdk_redshift.errors.hsm_configuration_not_found_fault.HsmConfigurationNotFoundFault: <p>There is no Amazon Redshift HSM configuration with the specified identifier.</p>
+            aws_sdk_redshift.errors.invalid_tag_fault.InvalidTagFault: <p>The tag is invalid.</p>
+            aws_sdk_redshift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4973,6 +5465,12 @@ class AsyncRedshiftClient:
             target_arn: <p>The Amazon Resource Name (ARN) of the target of an inbound integration.</p>
             max_records: <p>The maximum number of response records to return in each call. If the number of remaining response records exceeds the specified <code>MaxRecords</code> value, a value is returned in a <code>marker</code> field of the response. You can retrieve the next set of records by retrying the command with the returned marker value. </p> <p>Default: <code>100</code> </p> <p>Constraints: minimum 20, maximum 100.</p>
             marker: <p>An optional parameter that specifies the starting point to return a set of response records. When the results of a <a>DescribeInboundIntegrations</a> request exceed the value specified in <code>MaxRecords</code>, Amazon Web Services returns a value in the <code>Marker</code> field of the response. You can retrieve the next set of response records by providing the returned marker value in the <code>Marker</code> parameter and retrying the request. </p>
+
+        Raises:
+            aws_sdk_redshift.errors.integration_not_found_fault.IntegrationNotFoundFault: <p>The integration can't be found.</p>
+            aws_sdk_redshift.errors.invalid_namespace_fault.InvalidNamespaceFault: <p>The namespace isn't valid because the namespace doesn't exist. Provide a valid namespace.</p>
+            aws_sdk_redshift.errors.unsupported_operation_fault.UnsupportedOperationFault: <p>The requested operation isn't supported.</p>
+            aws_sdk_redshift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5059,6 +5557,11 @@ class AsyncRedshiftClient:
             max_records: <p>The maximum number of response records to return in each call. If the number of remaining response records exceeds the specified <code>MaxRecords</code> value, a value is returned in a <code>marker</code> field of the response. You can retrieve the next set of records by retrying the command with the returned marker value. </p> <p>Default: <code>100</code> </p> <p>Constraints: minimum 20, maximum 100.</p>
             marker: <p>An optional pagination token provided by a previous <code>DescribeIntegrations</code> request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>.</p>
             filters: <p>A filter that specifies one or more resources to return.</p>
+
+        Raises:
+            aws_sdk_redshift.errors.integration_not_found_fault.IntegrationNotFoundFault: <p>The integration can't be found.</p>
+            aws_sdk_redshift.errors.unsupported_operation_fault.UnsupportedOperationFault: <p>The requested operation isn't supported.</p>
+            aws_sdk_redshift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5135,6 +5638,11 @@ class AsyncRedshiftClient:
 
         Args:
             cluster_identifier: <p>The identifier of the cluster from which to get the logging status.</p> <p>Example: <code>examplecluster</code> </p>
+
+        Raises:
+            aws_sdk_redshift.errors.cluster_not_found_fault.ClusterNotFoundFault: <p>The <code>ClusterIdentifier</code> parameter does not refer to an existing cluster. </p>
+            aws_sdk_redshift.errors.unsupported_operation_fault.UnsupportedOperationFault: <p>The requested operation isn't supported.</p>
+            aws_sdk_redshift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5191,6 +5699,14 @@ class AsyncRedshiftClient:
             filters: <p>A set of name, operator, and value items to filter the results.</p>
             marker: <p>An optional parameter that specifies the starting point to return a set of response records. When the results of a <a>DescribeNodeConfigurationOptions</a> request exceed the value specified in <code>MaxRecords</code>, Amazon Web Services returns a value in the <code>Marker</code> field of the response. You can retrieve the next set of response records by providing the returned marker value in the <code>Marker</code> parameter and retrying the request. </p>
             max_records: <p>The maximum number of response records to return in each call. If the number of remaining response records exceeds the specified <code>MaxRecords</code> value, a value is returned in a <code>marker</code> field of the response. You can retrieve the next set of records by retrying the command with the returned marker value. </p> <p>Default: <code>500</code> </p> <p>Constraints: minimum 100, maximum 500.</p>
+
+        Raises:
+            aws_sdk_redshift.errors.access_to_snapshot_denied_fault.AccessToSnapshotDeniedFault: <p>The owner of the specified snapshot has not authorized your account to access the snapshot.</p>
+            aws_sdk_redshift.errors.cluster_not_found_fault.ClusterNotFoundFault: <p>The <code>ClusterIdentifier</code> parameter does not refer to an existing cluster. </p>
+            aws_sdk_redshift.errors.cluster_snapshot_not_found_fault.ClusterSnapshotNotFoundFault: <p>The snapshot identifier does not refer to an existing cluster snapshot.</p>
+            aws_sdk_redshift.errors.invalid_cluster_snapshot_state_fault.InvalidClusterSnapshotStateFault: <p>The specified cluster snapshot is not in the <code>available</code> state, or other accounts are authorized to access the snapshot. </p>
+            aws_sdk_redshift.errors.unsupported_operation_fault.UnsupportedOperationFault: <p>The requested operation isn't supported.</p>
+            aws_sdk_redshift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5288,6 +5804,9 @@ class AsyncRedshiftClient:
             node_type: <p>The node type filter value. Specify this parameter to show only the available offerings matching the specified node type.</p>
             max_records: <p>The maximum number of response records to return in each call. If the number of remaining response records exceeds the specified <code>MaxRecords</code> value, a value is returned in a <code>marker</code> field of the response. You can retrieve the next set of records by retrying the command with the returned marker value. </p> <p>Default: <code>100</code> </p> <p>Constraints: minimum 20, maximum 100.</p>
             marker: <p>An optional parameter that specifies the starting point to return a set of response records. When the results of a <a>DescribeOrderableClusterOptions</a> request exceed the value specified in <code>MaxRecords</code>, Amazon Web Services returns a value in the <code>Marker</code> field of the response. You can retrieve the next set of response records by providing the returned marker value in the <code>Marker</code> parameter and retrying the request. </p>
+
+        Raises:
+            aws_sdk_redshift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5370,6 +5889,12 @@ class AsyncRedshiftClient:
             cluster_identifier: <p>The cluster identifier of the cluster whose partner integration is being described.</p>
             database_name: <p>The name of the database whose partner integration is being described. If database name is not specified, then all databases in the cluster are described.</p>
             partner_name: <p>The name of the partner that is being described. If partner name is not specified, then all partner integrations are described.</p>
+
+        Raises:
+            aws_sdk_redshift.errors.cluster_not_found_fault.ClusterNotFoundFault: <p>The <code>ClusterIdentifier</code> parameter does not refer to an existing cluster. </p>
+            aws_sdk_redshift.errors.unauthorized_partner_integration_fault.UnauthorizedPartnerIntegrationFault: <p>The partner integration is not authorized.</p>
+            aws_sdk_redshift.errors.unsupported_operation_fault.UnsupportedOperationFault: <p>The requested operation isn't supported.</p>
+            aws_sdk_redshift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5421,6 +5946,13 @@ class AsyncRedshiftClient:
             redshift_idc_application_arn: <p>The ARN for the Redshift application that integrates with IAM Identity Center.</p>
             max_records: <p>The maximum number of response records to return in each call. If the number of remaining response records exceeds the specified MaxRecords value, a value is returned in a marker field of the response. You can retrieve the next set of records by retrying the command with the returned marker value.</p>
             marker: <p>A value that indicates the starting point for the next set of response records in a subsequent request. If a value is returned in a response, you can retrieve the next set of records by providing this returned marker value in the Marker parameter and retrying the command. If the Marker field is empty, all response records have been retrieved for the request. </p>
+
+        Raises:
+            aws_sdk_redshift.errors.dependent_service_access_denied_fault.DependentServiceAccessDeniedFault: <p>A dependent service denied access for the integration.</p>
+            aws_sdk_redshift.errors.dependent_service_unavailable_fault.DependentServiceUnavailableFault: <p>Your request cannot be completed because a dependent internal service is temporarily unavailable. Wait 30 to 60 seconds and try again.</p>
+            aws_sdk_redshift.errors.redshift_idc_application_not_exists_fault.RedshiftIdcApplicationNotExistsFault: <p>The application you attempted to find doesn't exist.</p>
+            aws_sdk_redshift.errors.unsupported_operation_fault.UnsupportedOperationFault: <p>The requested operation isn't supported.</p>
+            aws_sdk_redshift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5501,6 +6033,12 @@ class AsyncRedshiftClient:
             reserved_node_exchange_request_id: <p>The identifier of the reserved-node exchange request.</p>
             max_records: <p>The maximum number of response records to return in each call. If the number of remaining response records exceeds the specified <code>MaxRecords</code> value, a value is returned in a <code>Marker</code> field of the response. You can retrieve the next set of records by retrying the command with the returned marker value.</p>
             marker: <p>An optional pagination token provided by a previous <code>DescribeReservedNodeExchangeStatus</code> request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by the <code>MaxRecords</code> parameter. You can retrieve the next set of response records by providing the returned marker value in the <code>Marker</code> parameter and retrying the request.</p>
+
+        Raises:
+            aws_sdk_redshift.errors.reserved_node_exchange_not_found_fault.ReservedNodeExchangeNotFoundFault: <p>The reserved-node exchange status wasn't found.</p>
+            aws_sdk_redshift.errors.reserved_node_not_found_fault.ReservedNodeNotFoundFault: <p>The specified reserved compute node not found.</p>
+            aws_sdk_redshift.errors.unsupported_operation_fault.UnsupportedOperationFault: <p>The requested operation isn't supported.</p>
+            aws_sdk_redshift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5585,6 +6123,12 @@ class AsyncRedshiftClient:
             reserved_node_offering_id: <p>The unique identifier for the offering.</p>
             max_records: <p>The maximum number of response records to return in each call. If the number of remaining response records exceeds the specified <code>MaxRecords</code> value, a value is returned in a <code>marker</code> field of the response. You can retrieve the next set of records by retrying the command with the returned marker value. </p> <p>Default: <code>100</code> </p> <p>Constraints: minimum 20, maximum 100.</p>
             marker: <p>An optional parameter that specifies the starting point to return a set of response records. When the results of a <a>DescribeReservedNodeOfferings</a> request exceed the value specified in <code>MaxRecords</code>, Amazon Web Services returns a value in the <code>Marker</code> field of the response. You can retrieve the next set of response records by providing the returned marker value in the <code>Marker</code> parameter and retrying the request. </p>
+
+        Raises:
+            aws_sdk_redshift.errors.dependent_service_unavailable_fault.DependentServiceUnavailableFault: <p>Your request cannot be completed because a dependent internal service is temporarily unavailable. Wait 30 to 60 seconds and try again.</p>
+            aws_sdk_redshift.errors.reserved_node_offering_not_found_fault.ReservedNodeOfferingNotFoundFault: <p>Specified offering does not exist.</p>
+            aws_sdk_redshift.errors.unsupported_operation_fault.UnsupportedOperationFault: <p>The requested operation isn't supported.</p>
+            aws_sdk_redshift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5661,6 +6205,11 @@ class AsyncRedshiftClient:
             reserved_node_id: <p>Identifier for the node reservation.</p>
             max_records: <p>The maximum number of response records to return in each call. If the number of remaining response records exceeds the specified <code>MaxRecords</code> value, a value is returned in a <code>marker</code> field of the response. You can retrieve the next set of records by retrying the command with the returned marker value. </p> <p>Default: <code>100</code> </p> <p>Constraints: minimum 20, maximum 100.</p>
             marker: <p>An optional parameter that specifies the starting point to return a set of response records. When the results of a <a>DescribeReservedNodes</a> request exceed the value specified in <code>MaxRecords</code>, Amazon Web Services returns a value in the <code>Marker</code> field of the response. You can retrieve the next set of response records by providing the returned marker value in the <code>Marker</code> parameter and retrying the request. </p>
+
+        Raises:
+            aws_sdk_redshift.errors.dependent_service_unavailable_fault.DependentServiceUnavailableFault: <p>Your request cannot be completed because a dependent internal service is temporarily unavailable. Wait 30 to 60 seconds and try again.</p>
+            aws_sdk_redshift.errors.reserved_node_not_found_fault.ReservedNodeNotFoundFault: <p>The specified reserved compute node not found.</p>
+            aws_sdk_redshift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5729,6 +6278,12 @@ class AsyncRedshiftClient:
 
         Args:
             cluster_identifier: <p>The unique identifier of a cluster whose resize progress you are requesting. This parameter is case-sensitive.</p> <p>By default, resize operations for all clusters defined for an Amazon Web Services account are returned.</p>
+
+        Raises:
+            aws_sdk_redshift.errors.cluster_not_found_fault.ClusterNotFoundFault: <p>The <code>ClusterIdentifier</code> parameter does not refer to an existing cluster. </p>
+            aws_sdk_redshift.errors.resize_not_found_fault.ResizeNotFoundFault: <p>A resize operation for the specified cluster is not found.</p>
+            aws_sdk_redshift.errors.unsupported_operation_fault.UnsupportedOperationFault: <p>The requested operation isn't supported.</p>
+            aws_sdk_redshift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5789,6 +6344,11 @@ class AsyncRedshiftClient:
             filters: <p>List of scheduled action filters. </p>
             marker: <p>An optional parameter that specifies the starting point to return a set of response records. When the results of a <a>DescribeScheduledActions</a> request exceed the value specified in <code>MaxRecords</code>, Amazon Web Services returns a value in the <code>Marker</code> field of the response. You can retrieve the next set of response records by providing the returned marker value in the <code>Marker</code> parameter and retrying the request. </p>
             max_records: <p>The maximum number of response records to return in each call. If the number of remaining response records exceeds the specified <code>MaxRecords</code> value, a value is returned in a <code>marker</code> field of the response. You can retrieve the next set of records by retrying the command with the returned marker value. </p> <p>Default: <code>100</code> </p> <p>Constraints: minimum 20, maximum 100.</p>
+
+        Raises:
+            aws_sdk_redshift.errors.scheduled_action_not_found_fault.ScheduledActionNotFoundFault: <p>The scheduled action cannot be found. </p>
+            aws_sdk_redshift.errors.unauthorized_operation.UnauthorizedOperation: <p>Your account is not authorized to perform the requested operation.</p>
+            aws_sdk_redshift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5897,6 +6457,11 @@ class AsyncRedshiftClient:
             marker: <p>An optional parameter that specifies the starting point to return a set of response records. When the results of a <code>DescribeSnapshotCopyGrant</code> request exceed the value specified in <code>MaxRecords</code>, Amazon Web Services returns a value in the <code>Marker</code> field of the response. You can retrieve the next set of response records by providing the returned marker value in the <code>Marker</code> parameter and retrying the request. </p> <p>Constraints: You can specify either the <b>SnapshotCopyGrantName</b> parameter or the <b>Marker</b> parameter, but not both. </p>
             tag_keys: <p>A tag key or keys for which you want to return all matching resources that are associated with the specified key or keys. For example, suppose that you have resources tagged with keys called <code>owner</code> and <code>environment</code>. If you specify both of these tag keys in the request, Amazon Redshift returns a response with all resources that have either or both of these tag keys associated with them.</p>
             tag_values: <p>A tag value or values for which you want to return all matching resources that are associated with the specified value or values. For example, suppose that you have resources tagged with values called <code>admin</code> and <code>test</code>. If you specify both of these tag values in the request, Amazon Redshift returns a response with all resources that have either or both of these tag values associated with them.</p>
+
+        Raises:
+            aws_sdk_redshift.errors.invalid_tag_fault.InvalidTagFault: <p>The tag is invalid.</p>
+            aws_sdk_redshift.errors.snapshot_copy_grant_not_found_fault.SnapshotCopyGrantNotFoundFault: <p>The specified snapshot copy grant can't be found. Make sure that the name is typed correctly and that the grant exists in the destination region.</p>
+            aws_sdk_redshift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5991,6 +6556,9 @@ class AsyncRedshiftClient:
             tag_values: <p>The value corresponding to the key of the snapshot schedule tag.</p>
             marker: <p>A value that indicates the starting point for the next set of response records in a subsequent request. If a value is returned in a response, you can retrieve the next set of records by providing this returned marker value in the <code>marker</code> parameter and retrying the command. If the <code>marker</code> field is empty, all response records have been retrieved for the request.</p>
             max_records: <p>The maximum number or response records to return in each call. If the number of remaining response records exceeds the specified <code>MaxRecords</code> value, a value is returned in a <code>marker</code> field of the response. You can retrieve the next set of records by retrying the command with the returned <code>marker</code> value.</p>
+
+        Raises:
+            aws_sdk_redshift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -6066,7 +6634,11 @@ class AsyncRedshiftClient:
     async def describe_storage(
         self, *, config_overrides: Optional[AsyncRedshiftClientConfig] = None
     ) -> "aws_sdk_redshift.types.customer_storage_message.CustomerStorageMessage":
-        """<p>Returns account level backups storage size and provisional storage.</p>"""
+        """<p>Returns account level backups storage size and provisional storage.</p>
+
+        Raises:
+            aws_sdk_redshift.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[None]",
@@ -6114,6 +6686,11 @@ class AsyncRedshiftClient:
             table_restore_request_id: <p>The identifier of the table restore request to return status for. If you don't specify a <code>TableRestoreRequestId</code> value, then <code>DescribeTableRestoreStatus</code> returns the status of all in-progress table restore requests.</p>
             max_records: <p>The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code> value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.</p>
             marker: <p>An optional pagination token provided by a previous <code>DescribeTableRestoreStatus</code> request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by the <code>MaxRecords</code> parameter.</p>
+
+        Raises:
+            aws_sdk_redshift.errors.cluster_not_found_fault.ClusterNotFoundFault: <p>The <code>ClusterIdentifier</code> parameter does not refer to an existing cluster. </p>
+            aws_sdk_redshift.errors.table_restore_not_found_fault.TableRestoreNotFoundFault: <p>The specified <code>TableRestoreRequestId</code> value was not found.</p>
+            aws_sdk_redshift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -6206,6 +6783,11 @@ class AsyncRedshiftClient:
             marker: <p>A value that indicates the starting point for the next set of response records in a subsequent request. If a value is returned in a response, you can retrieve the next set of records by providing this returned marker value in the <code>marker</code> parameter and retrying the command. If the <code>marker</code> field is empty, all response records have been retrieved for the request. </p>
             tag_keys: <p>A tag key or keys for which you want to return all matching resources that are associated with the specified key or keys. For example, suppose that you have resources tagged with keys called <code>owner</code> and <code>environment</code>. If you specify both of these tag keys in the request, Amazon Redshift returns a response with all resources that have either or both of these tag keys associated with them.</p>
             tag_values: <p>A tag value or values for which you want to return all matching resources that are associated with the specified value or values. For example, suppose that you have resources tagged with values called <code>admin</code> and <code>test</code>. If you specify both of these tag values in the request, Amazon Redshift returns a response with all resources that have either or both of these tag values associated with them.</p>
+
+        Raises:
+            aws_sdk_redshift.errors.invalid_tag_fault.InvalidTagFault: <p>The tag is invalid.</p>
+            aws_sdk_redshift.errors.resource_not_found_fault.ResourceNotFoundFault: <p>The resource could not be found.</p>
+            aws_sdk_redshift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -6306,6 +6888,11 @@ class AsyncRedshiftClient:
             marker: <p>An optional parameter that specifies the starting point to return a set of response records. When the results of a <a>DescribeUsageLimits</a> request exceed the value specified in <code>MaxRecords</code>, Amazon Web Services returns a value in the <code>Marker</code> field of the response. You can retrieve the next set of response records by providing the returned marker value in the <code>Marker</code> parameter and retrying the request. </p>
             tag_keys: <p>A tag key or keys for which you want to return all matching usage limit objects that are associated with the specified key or keys. For example, suppose that you have parameter groups that are tagged with keys called <code>owner</code> and <code>environment</code>. If you specify both of these tag keys in the request, Amazon Redshift returns a response with the usage limit objects have either or both of these tag keys associated with them.</p>
             tag_values: <p>A tag value or values for which you want to return all matching usage limit objects that are associated with the specified tag value or values. For example, suppose that you have parameter groups that are tagged with values called <code>admin</code> and <code>test</code>. If you specify both of these tag values in the request, Amazon Redshift returns a response with the usage limit objects that have either or both of these tag values associated with them.</p>
+
+        Raises:
+            aws_sdk_redshift.errors.cluster_not_found_fault.ClusterNotFoundFault: <p>The <code>ClusterIdentifier</code> parameter does not refer to an existing cluster. </p>
+            aws_sdk_redshift.errors.unsupported_operation_fault.UnsupportedOperationFault: <p>The requested operation isn't supported.</p>
+            aws_sdk_redshift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -6394,6 +6981,12 @@ class AsyncRedshiftClient:
 
         Args:
             cluster_identifier: <p>The identifier of the cluster on which logging is to be stopped.</p> <p>Example: <code>examplecluster</code> </p>
+
+        Raises:
+            aws_sdk_redshift.errors.cluster_not_found_fault.ClusterNotFoundFault: <p>The <code>ClusterIdentifier</code> parameter does not refer to an existing cluster. </p>
+            aws_sdk_redshift.errors.invalid_cluster_state_fault.InvalidClusterStateFault: <p>The specified cluster is not in the <code>available</code> state. </p>
+            aws_sdk_redshift.errors.unsupported_operation_fault.UnsupportedOperationFault: <p>The requested operation isn't supported.</p>
+            aws_sdk_redshift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -6434,6 +7027,14 @@ class AsyncRedshiftClient:
 
         Args:
             cluster_identifier: <p>The unique identifier of the source cluster that you want to disable copying of snapshots to a destination region.</p> <p>Constraints: Must be the valid name of an existing cluster that has cross-region snapshot copy enabled.</p>
+
+        Raises:
+            aws_sdk_redshift.errors.cluster_not_found_fault.ClusterNotFoundFault: <p>The <code>ClusterIdentifier</code> parameter does not refer to an existing cluster. </p>
+            aws_sdk_redshift.errors.invalid_cluster_state_fault.InvalidClusterStateFault: <p>The specified cluster is not in the <code>available</code> state. </p>
+            aws_sdk_redshift.errors.snapshot_copy_already_disabled_fault.SnapshotCopyAlreadyDisabledFault: <p>The cluster already has cross-region snapshot copy disabled.</p>
+            aws_sdk_redshift.errors.unauthorized_operation.UnauthorizedOperation: <p>Your account is not authorized to perform the requested operation.</p>
+            aws_sdk_redshift.errors.unsupported_operation_fault.UnsupportedOperationFault: <p>The requested operation isn't supported.</p>
+            aws_sdk_redshift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -6480,6 +7081,11 @@ class AsyncRedshiftClient:
             disassociate_entire_account: <p>A value that specifies whether association for the datashare is removed from the entire account.</p>
             consumer_arn: <p>The Amazon Resource Name (ARN) of the consumer namespace that association for the datashare is removed from.</p>
             consumer_region: <p>From a datashare consumer account, removes association of a datashare from all the existing and future namespaces in the specified Amazon Web Services Region.</p>
+
+        Raises:
+            aws_sdk_redshift.errors.invalid_data_share_fault.InvalidDataShareFault: <p>There is an error with the datashare.</p>
+            aws_sdk_redshift.errors.invalid_namespace_fault.InvalidNamespaceFault: <p>The namespace isn't valid because the namespace doesn't exist. Provide a valid namespace.</p>
+            aws_sdk_redshift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -6536,6 +7142,16 @@ class AsyncRedshiftClient:
             s3_key_prefix: <p>The prefix applied to the log file names.</p> <p>Valid characters are any letter from any language, any whitespace character, any numeric character, and the following characters: underscore (<code>_</code>), period (<code>.</code>), colon (<code>:</code>), slash (<code>/</code>), equal (<code>=</code>), plus (<code>+</code>), backslash (<code>\</code>), hyphen (<code>-</code>), at symbol (<code>@</code>).</p>
             log_destination_type: <p>The log destination type. An enum with possible values of <code>s3</code> and <code>cloudwatch</code>.</p>
             log_exports: <p>The collection of exported log types. Possible values are <code>connectionlog</code>, <code>useractivitylog</code>, and <code>userlog</code>.</p>
+
+        Raises:
+            aws_sdk_redshift.errors.bucket_not_found_fault.BucketNotFoundFault: <p>Could not find the specified S3 bucket.</p>
+            aws_sdk_redshift.errors.cluster_not_found_fault.ClusterNotFoundFault: <p>The <code>ClusterIdentifier</code> parameter does not refer to an existing cluster. </p>
+            aws_sdk_redshift.errors.insufficient_s3_bucket_policy_fault.InsufficientS3BucketPolicyFault: <p>The cluster does not have read bucket or put object permissions on the S3 bucket specified when enabling logging.</p>
+            aws_sdk_redshift.errors.invalid_cluster_state_fault.InvalidClusterStateFault: <p>The specified cluster is not in the <code>available</code> state. </p>
+            aws_sdk_redshift.errors.invalid_s3_bucket_name_fault.InvalidS3BucketNameFault: <p>The S3 bucket name is invalid. For more information about naming rules, go to <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html\">Bucket Restrictions and Limitations</a> in the Amazon Simple Storage Service (S3) Developer Guide.</p>
+            aws_sdk_redshift.errors.invalid_s3_key_prefix_fault.InvalidS3KeyPrefixFault: <p>The string specified for the logging S3 key prefix does not comply with the documented constraints.</p>
+            aws_sdk_redshift.errors.unsupported_operation_fault.UnsupportedOperationFault: <p>The requested operation isn't supported.</p>
+            aws_sdk_redshift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -6596,6 +7212,20 @@ class AsyncRedshiftClient:
             retention_period: <p>The number of days to retain automated snapshots in the destination region after they are copied from the source region.</p> <p>Default: 7.</p> <p>Constraints: Must be at least 1 and no more than 35.</p>
             snapshot_copy_grant_name: <p>The name of the snapshot copy grant to use when snapshots of an Amazon Web Services KMS-encrypted cluster are copied to the destination region.</p>
             manual_snapshot_retention_period: <p>The number of days to retain newly copied snapshots in the destination Amazon Web Services Region after they are copied from the source Amazon Web Services Region. If the value is -1, the manual snapshot is retained indefinitely. </p> <p>The value must be either -1 or an integer between 1 and 3,653.</p>
+
+        Raises:
+            aws_sdk_redshift.errors.cluster_not_found_fault.ClusterNotFoundFault: <p>The <code>ClusterIdentifier</code> parameter does not refer to an existing cluster. </p>
+            aws_sdk_redshift.errors.copy_to_region_disabled_fault.CopyToRegionDisabledFault: <p>Cross-region snapshot copy was temporarily disabled. Try your request again.</p>
+            aws_sdk_redshift.errors.dependent_service_request_throttling_fault.DependentServiceRequestThrottlingFault: <p>The request cannot be completed because a dependent service is throttling requests made by Amazon Redshift on your behalf. Wait and retry the request.</p>
+            aws_sdk_redshift.errors.incompatible_orderable_options.IncompatibleOrderableOptions: <p>The specified options are incompatible.</p>
+            aws_sdk_redshift.errors.invalid_cluster_state_fault.InvalidClusterStateFault: <p>The specified cluster is not in the <code>available</code> state. </p>
+            aws_sdk_redshift.errors.invalid_retention_period_fault.InvalidRetentionPeriodFault: <p>The retention period specified is either in the past or is not a valid value.</p> <p>The value must be either -1 or an integer between 1 and 3,653.</p>
+            aws_sdk_redshift.errors.limit_exceeded_fault.LimitExceededFault: <p>The encryption key has exceeded its grant limit in Amazon Web Services KMS.</p>
+            aws_sdk_redshift.errors.snapshot_copy_already_enabled_fault.SnapshotCopyAlreadyEnabledFault: <p>The cluster already has cross-region snapshot copy enabled.</p>
+            aws_sdk_redshift.errors.snapshot_copy_grant_not_found_fault.SnapshotCopyGrantNotFoundFault: <p>The specified snapshot copy grant can't be found. Make sure that the name is typed correctly and that the grant exists in the destination region.</p>
+            aws_sdk_redshift.errors.unauthorized_operation.UnauthorizedOperation: <p>Your account is not authorized to perform the requested operation.</p>
+            aws_sdk_redshift.errors.unknown_snapshot_copy_region_fault.UnknownSnapshotCopyRegionFault: <p>The specified region is incorrect or does not exist.</p>
+            aws_sdk_redshift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -6643,6 +7273,13 @@ class AsyncRedshiftClient:
 
         Args:
             cluster_identifier: <p>The unique identifier of the cluster for which the primary compute unit will be failed over to another Availability Zone.</p>
+
+        Raises:
+            aws_sdk_redshift.errors.cluster_not_found_fault.ClusterNotFoundFault: <p>The <code>ClusterIdentifier</code> parameter does not refer to an existing cluster. </p>
+            aws_sdk_redshift.errors.invalid_cluster_state_fault.InvalidClusterStateFault: <p>The specified cluster is not in the <code>available</code> state. </p>
+            aws_sdk_redshift.errors.unauthorized_operation.UnauthorizedOperation: <p>Your account is not authorized to perform the requested operation.</p>
+            aws_sdk_redshift.errors.unsupported_operation_fault.UnsupportedOperationFault: <p>The requested operation isn't supported.</p>
+            aws_sdk_redshift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -6697,6 +7334,11 @@ class AsyncRedshiftClient:
             auto_create: <p>Create a database user with the name specified for the user named in <code>DbUser</code> if one does not exist.</p>
             db_groups: <p>A list of the names of existing database groups that the user named in <code>DbUser</code> will join for the current session, in addition to any group memberships for an existing user. If not specified, a new user is added only to PUBLIC.</p> <p>Database group name constraints</p> <ul> <li> <p>Must be 1 to 64 alphanumeric characters or hyphens</p> </li> <li> <p>Must contain only lowercase letters, numbers, underscore, plus sign, period (dot), at symbol (@), or hyphen.</p> </li> <li> <p>First character must be a letter.</p> </li> <li> <p>Must not contain a colon ( : ) or slash ( / ). </p> </li> <li> <p>Cannot be a reserved word. A list of reserved words can be found in <a href=\"http://docs.aws.amazon.com/redshift/latest/dg/r_pg_keywords.html\">Reserved Words</a> in the Amazon Redshift Database Developer Guide.</p> </li> </ul>
             custom_domain_name: <p>The custom domain name for the cluster credentials.</p>
+
+        Raises:
+            aws_sdk_redshift.errors.cluster_not_found_fault.ClusterNotFoundFault: <p>The <code>ClusterIdentifier</code> parameter does not refer to an existing cluster. </p>
+            aws_sdk_redshift.errors.unsupported_operation_fault.UnsupportedOperationFault: <p>The requested operation isn't supported.</p>
+            aws_sdk_redshift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -6757,6 +7399,11 @@ class AsyncRedshiftClient:
             cluster_identifier: <p>The unique identifier of the cluster that contains the database for which you are requesting credentials. </p>
             duration_seconds: <p>The number of seconds until the returned temporary password expires.</p> <p>Range: 900-3600. Default: 900.</p>
             custom_domain_name: <p>The custom domain name for the IAM message cluster credentials.</p>
+
+        Raises:
+            aws_sdk_redshift.errors.cluster_not_found_fault.ClusterNotFoundFault: <p>The <code>ClusterIdentifier</code> parameter does not refer to an existing cluster. </p>
+            aws_sdk_redshift.errors.unsupported_operation_fault.UnsupportedOperationFault: <p>The requested operation isn't supported.</p>
+            aws_sdk_redshift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -6802,6 +7449,13 @@ class AsyncRedshiftClient:
 
         Args:
             cluster_ids: <p>A list of cluster identifiers that the generated token can be used with. The token will be scoped to only allow authentication to the specified clusters.</p> <p>Constraints:</p> <ul> <li> <p> <code>ClusterIds</code> must contain at least 1 cluster identifier.</p> </li> <li> <p> <code>ClusterIds</code> can hold a maximum of 20 cluster identifiers.</p> </li> <li> <p>Cluster identifiers must be 1 to 63 characters in length.</p> </li> <li> <p>The characters accepted for cluster identifiers are the following:</p> <ul> <li> <p>Alphanumeric characters</p> </li> <li> <p>Hyphens</p> </li> </ul> </li> <li> <p>Cluster identifiers must start with a letter.</p> </li> <li> <p>Cluster identifiers can't end with a hyphen or contain two consecutive hyphens.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_redshift.errors.cluster_not_found_fault.ClusterNotFoundFault: <p>The <code>ClusterIdentifier</code> parameter does not refer to an existing cluster. </p>
+            aws_sdk_redshift.errors.invalid_cluster_state_fault.InvalidClusterStateFault: <p>The specified cluster is not in the <code>available</code> state. </p>
+            aws_sdk_redshift.errors.redshift_invalid_parameter_fault.RedshiftInvalidParameterFault: <p>The request contains one or more invalid parameters. This error occurs when required parameters are missing, parameter values are outside acceptable ranges, or parameter formats are incorrect.</p>
+            aws_sdk_redshift.errors.unsupported_operation_fault.UnsupportedOperationFault: <p>The requested operation isn't supported.</p>
+            aws_sdk_redshift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -6850,6 +7504,17 @@ class AsyncRedshiftClient:
             snapshot_identifier: <p>The identifier for the snapshot that is the source for the reserved-node exchange.</p>
             max_records: <p>The maximum number of response records to return in each call. If the number of remaining response records exceeds the specified <code>MaxRecords</code> value, a value is returned in a <code>Marker</code> field of the response. You can retrieve the next set of records by retrying the command with the returned marker value.</p>
             marker: <p>An optional pagination token provided by a previous <code>GetReservedNodeExchangeConfigurationOptions</code> request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by the <code>MaxRecords</code> parameter. You can retrieve the next set of response records by providing the returned marker value in the <code>Marker</code> parameter and retrying the request.</p>
+
+        Raises:
+            aws_sdk_redshift.errors.cluster_not_found_fault.ClusterNotFoundFault: <p>The <code>ClusterIdentifier</code> parameter does not refer to an existing cluster. </p>
+            aws_sdk_redshift.errors.cluster_snapshot_not_found_fault.ClusterSnapshotNotFoundFault: <p>The snapshot identifier does not refer to an existing cluster snapshot.</p>
+            aws_sdk_redshift.errors.dependent_service_unavailable_fault.DependentServiceUnavailableFault: <p>Your request cannot be completed because a dependent internal service is temporarily unavailable. Wait 30 to 60 seconds and try again.</p>
+            aws_sdk_redshift.errors.invalid_reserved_node_state_fault.InvalidReservedNodeStateFault: <p>Indicates that the Reserved Node being exchanged is not in an active state.</p>
+            aws_sdk_redshift.errors.reserved_node_already_migrated_fault.ReservedNodeAlreadyMigratedFault: <p>Indicates that the reserved node has already been exchanged.</p>
+            aws_sdk_redshift.errors.reserved_node_not_found_fault.ReservedNodeNotFoundFault: <p>The specified reserved compute node not found.</p>
+            aws_sdk_redshift.errors.reserved_node_offering_not_found_fault.ReservedNodeOfferingNotFoundFault: <p>Specified offering does not exist.</p>
+            aws_sdk_redshift.errors.unsupported_operation_fault.UnsupportedOperationFault: <p>The requested operation isn't supported.</p>
+            aws_sdk_redshift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -6933,6 +7598,15 @@ class AsyncRedshiftClient:
             reserved_node_id: <p>A string representing the node identifier for the DC1 Reserved Node to be exchanged.</p>
             max_records: <p>An integer setting the maximum number of ReservedNodeOfferings to retrieve.</p>
             marker: <p>A value that indicates the starting point for the next set of ReservedNodeOfferings.</p>
+
+        Raises:
+            aws_sdk_redshift.errors.dependent_service_unavailable_fault.DependentServiceUnavailableFault: <p>Your request cannot be completed because a dependent internal service is temporarily unavailable. Wait 30 to 60 seconds and try again.</p>
+            aws_sdk_redshift.errors.invalid_reserved_node_state_fault.InvalidReservedNodeStateFault: <p>Indicates that the Reserved Node being exchanged is not in an active state.</p>
+            aws_sdk_redshift.errors.reserved_node_already_migrated_fault.ReservedNodeAlreadyMigratedFault: <p>Indicates that the reserved node has already been exchanged.</p>
+            aws_sdk_redshift.errors.reserved_node_not_found_fault.ReservedNodeNotFoundFault: <p>The specified reserved compute node not found.</p>
+            aws_sdk_redshift.errors.reserved_node_offering_not_found_fault.ReservedNodeOfferingNotFoundFault: <p>Specified offering does not exist.</p>
+            aws_sdk_redshift.errors.unsupported_operation_fault.UnsupportedOperationFault: <p>The requested operation isn't supported.</p>
+            aws_sdk_redshift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -7000,6 +7674,12 @@ class AsyncRedshiftClient:
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource of which its resource policy is fetched.</p>
+
+        Raises:
+            aws_sdk_redshift.errors.invalid_policy_fault.InvalidPolicyFault: <p>The resource policy isn't valid.</p>
+            aws_sdk_redshift.errors.resource_not_found_fault.ResourceNotFoundFault: <p>The resource could not be found.</p>
+            aws_sdk_redshift.errors.unsupported_operation_fault.UnsupportedOperationFault: <p>The requested operation isn't supported.</p>
+            aws_sdk_redshift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -7046,6 +7726,11 @@ class AsyncRedshiftClient:
             namespace_arn: <p>The Amazon Redshift cluster namespace Amazon Resource Name (ARN) for which the list of Advisor recommendations is returned. If the neither the cluster identifier and the cluster namespace ARN parameters are specified, then recommendations for all clusters in the account are returned.</p>
             max_records: <p>The maximum number of response records to return in each call. If the number of remaining response records exceeds the specified MaxRecords value, a value is returned in a marker field of the response. You can retrieve the next set of records by retrying the command with the returned marker value.</p>
             marker: <p>A value that indicates the starting point for the next set of response records in a subsequent request. If a value is returned in a response, you can retrieve the next set of records by providing this returned marker value in the Marker parameter and retrying the command. If the Marker field is empty, all response records have been retrieved for the request. </p>
+
+        Raises:
+            aws_sdk_redshift.errors.cluster_not_found_fault.ClusterNotFoundFault: <p>The <code>ClusterIdentifier</code> parameter does not refer to an existing cluster. </p>
+            aws_sdk_redshift.errors.unsupported_operation_fault.UnsupportedOperationFault: <p>The requested operation isn't supported.</p>
+            aws_sdk_redshift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -7122,6 +7807,12 @@ class AsyncRedshiftClient:
         Args:
             cluster_identifier: <p>The identifier of the cluster to be modified.</p>
             aqua_configuration_status: <p>This parameter is retired. Amazon Redshift automatically determines whether to use AQUA (Advanced Query Accelerator).</p>
+
+        Raises:
+            aws_sdk_redshift.errors.cluster_not_found_fault.ClusterNotFoundFault: <p>The <code>ClusterIdentifier</code> parameter does not refer to an existing cluster. </p>
+            aws_sdk_redshift.errors.invalid_cluster_state_fault.InvalidClusterStateFault: <p>The specified cluster is not in the <code>available</code> state. </p>
+            aws_sdk_redshift.errors.unsupported_operation_fault.UnsupportedOperationFault: <p>The requested operation isn't supported.</p>
+            aws_sdk_redshift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -7164,6 +7855,12 @@ class AsyncRedshiftClient:
         Args:
             authentication_profile_name: <p>The name of the authentication profile to replace.</p>
             authentication_profile_content: <p>The new content of the authentication profile in JSON format. The maximum length of the JSON string is determined by a quota for your account.</p>
+
+        Raises:
+            aws_sdk_redshift.errors.authentication_profile_not_found_fault.AuthenticationProfileNotFoundFault: <p>The authentication profile can't be found.</p>
+            aws_sdk_redshift.errors.authentication_profile_quota_exceeded_fault.AuthenticationProfileQuotaExceededFault: <p>The size or number of authentication profiles has exceeded the quota. The maximum length of the JSON string and maximum number of authentication profiles is determined by a quota for your account.</p>
+            aws_sdk_redshift.errors.invalid_authentication_profile_request_fault.InvalidAuthenticationProfileRequestFault: <p>The authentication profile request is not valid. The profile name can't be null or empty. The authentication profile API operation must be available in the Amazon Web Services Region.</p>
+            aws_sdk_redshift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -7301,6 +7998,31 @@ class AsyncRedshiftClient:
             ip_address_type: <p>The IP address types that the cluster supports. Possible values are <code>ipv4</code> and <code>dualstack</code>.</p>
             multi_az: <p>If true and the cluster is currently only deployed in a single Availability Zone, the cluster will be modified to be deployed in two Availability Zones.</p>
             extra_compute_for_automatic_optimization: <p>If <code>true</code>, allocates additional compute resources for running automatic optimization operations.</p> <p>Default: false</p>
+
+        Raises:
+            aws_sdk_redshift.errors.cluster_already_exists_fault.ClusterAlreadyExistsFault: <p>The account already has a cluster with the given identifier.</p>
+            aws_sdk_redshift.errors.cluster_not_found_fault.ClusterNotFoundFault: <p>The <code>ClusterIdentifier</code> parameter does not refer to an existing cluster. </p>
+            aws_sdk_redshift.errors.cluster_parameter_group_not_found_fault.ClusterParameterGroupNotFoundFault: <p>The parameter group name does not refer to an existing parameter group.</p>
+            aws_sdk_redshift.errors.cluster_security_group_not_found_fault.ClusterSecurityGroupNotFoundFault: <p>The cluster security group name does not refer to an existing cluster security group.</p>
+            aws_sdk_redshift.errors.custom_cname_association_fault.CustomCnameAssociationFault: <p>An error occurred when an attempt was made to change the custom domain association.</p>
+            aws_sdk_redshift.errors.dependent_service_request_throttling_fault.DependentServiceRequestThrottlingFault: <p>The request cannot be completed because a dependent service is throttling requests made by Amazon Redshift on your behalf. Wait and retry the request.</p>
+            aws_sdk_redshift.errors.hsm_client_certificate_not_found_fault.HsmClientCertificateNotFoundFault: <p>There is no Amazon Redshift HSM client certificate with the specified identifier.</p>
+            aws_sdk_redshift.errors.hsm_configuration_not_found_fault.HsmConfigurationNotFoundFault: <p>There is no Amazon Redshift HSM configuration with the specified identifier.</p>
+            aws_sdk_redshift.errors.insufficient_cluster_capacity_fault.InsufficientClusterCapacityFault: <p>The number of nodes specified exceeds the allotted capacity of the cluster.</p>
+            aws_sdk_redshift.errors.invalid_cluster_security_group_state_fault.InvalidClusterSecurityGroupStateFault: <p>The state of the cluster security group is not <code>available</code>. </p>
+            aws_sdk_redshift.errors.invalid_cluster_state_fault.InvalidClusterStateFault: <p>The specified cluster is not in the <code>available</code> state. </p>
+            aws_sdk_redshift.errors.invalid_cluster_track_fault.InvalidClusterTrackFault: <p>The provided cluster track name is not valid.</p>
+            aws_sdk_redshift.errors.invalid_elastic_ip_fault.InvalidElasticIpFault: <p>The Elastic IP (EIP) is invalid or cannot be found.</p>
+            aws_sdk_redshift.errors.invalid_retention_period_fault.InvalidRetentionPeriodFault: <p>The retention period specified is either in the past or is not a valid value.</p> <p>The value must be either -1 or an integer between 1 and 3,653.</p>
+            aws_sdk_redshift.errors.ipv6_cidr_block_not_found_fault.Ipv6CidrBlockNotFoundFault: <p>There are no subnets in your VPC with associated IPv6 CIDR blocks. To use dual-stack mode, associate an IPv6 CIDR block with each subnet in your VPC.</p>
+            aws_sdk_redshift.errors.limit_exceeded_fault.LimitExceededFault: <p>The encryption key has exceeded its grant limit in Amazon Web Services KMS.</p>
+            aws_sdk_redshift.errors.number_of_nodes_per_cluster_limit_exceeded_fault.NumberOfNodesPerClusterLimitExceededFault: <p>The operation would exceed the number of nodes allowed for a cluster.</p>
+            aws_sdk_redshift.errors.number_of_nodes_quota_exceeded_fault.NumberOfNodesQuotaExceededFault: <p>The operation would exceed the number of nodes allotted to the account. For information about increasing your quota, go to <a href=\"https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html\">Limits in Amazon Redshift</a> in the <i>Amazon Redshift Cluster Management Guide</i>. </p>
+            aws_sdk_redshift.errors.table_limit_exceeded_fault.TableLimitExceededFault: <p>The number of tables in the cluster exceeds the limit for the requested new cluster node type. </p>
+            aws_sdk_redshift.errors.unauthorized_operation.UnauthorizedOperation: <p>Your account is not authorized to perform the requested operation.</p>
+            aws_sdk_redshift.errors.unsupported_operation_fault.UnsupportedOperationFault: <p>The requested operation isn't supported.</p>
+            aws_sdk_redshift.errors.unsupported_option_fault.UnsupportedOptionFault: <p>A request option was specified that is not supported.</p>
+            aws_sdk_redshift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -7409,6 +8131,13 @@ class AsyncRedshiftClient:
         Args:
             cluster_identifier: <p>The unique identifier of a cluster whose database revision you want to modify. </p> <p>Example: <code>examplecluster</code> </p>
             revision_target: <p>The identifier of the database revision. You can retrieve this value from the response to the <a>DescribeClusterDbRevisions</a> request.</p>
+
+        Raises:
+            aws_sdk_redshift.errors.cluster_not_found_fault.ClusterNotFoundFault: <p>The <code>ClusterIdentifier</code> parameter does not refer to an existing cluster. </p>
+            aws_sdk_redshift.errors.cluster_on_latest_revision_fault.ClusterOnLatestRevisionFault: <p>Cluster is already on the latest database revision.</p>
+            aws_sdk_redshift.errors.invalid_cluster_state_fault.InvalidClusterStateFault: <p>The specified cluster is not in the <code>available</code> state. </p>
+            aws_sdk_redshift.errors.unsupported_operation_fault.UnsupportedOperationFault: <p>The requested operation isn't supported.</p>
+            aws_sdk_redshift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -7458,6 +8187,11 @@ class AsyncRedshiftClient:
             add_iam_roles: <p>Zero or more IAM roles to associate with the cluster. The roles must be in their Amazon Resource Name (ARN) format. </p>
             remove_iam_roles: <p>Zero or more IAM roles in ARN format to disassociate from the cluster. </p>
             default_iam_role_arn: <p>The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was last modified.</p>
+
+        Raises:
+            aws_sdk_redshift.errors.cluster_not_found_fault.ClusterNotFoundFault: <p>The <code>ClusterIdentifier</code> parameter does not refer to an existing cluster. </p>
+            aws_sdk_redshift.errors.invalid_cluster_state_fault.InvalidClusterStateFault: <p>The specified cluster is not in the <code>available</code> state. </p>
+            aws_sdk_redshift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -7522,6 +8256,11 @@ class AsyncRedshiftClient:
             defer_maintenance_start_time: <p>A timestamp indicating the start time for the deferred maintenance window.</p>
             defer_maintenance_end_time: <p>A timestamp indicating end time for the deferred maintenance window. If you specify an end time, you can't specify a duration.</p>
             defer_maintenance_duration: <p>An integer indicating the duration of the maintenance window in days. If you specify a duration, you can't specify an end time. The duration must be 60 days or less.</p>
+
+        Raises:
+            aws_sdk_redshift.errors.cluster_not_found_fault.ClusterNotFoundFault: <p>The <code>ClusterIdentifier</code> parameter does not refer to an existing cluster. </p>
+            aws_sdk_redshift.errors.invalid_cluster_state_fault.InvalidClusterStateFault: <p>The specified cluster is not in the <code>available</code> state. </p>
+            aws_sdk_redshift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -7572,6 +8311,11 @@ class AsyncRedshiftClient:
         Args:
             parameter_group_name: <p>The name of the parameter group to be modified.</p>
             parameters: <p>An array of parameters to be modified. A maximum of 20 parameters can be modified in a single request.</p> <p>For each parameter to be modified, you must supply at least the parameter name and parameter value; other name-value pairs of the parameter are optional.</p> <p>For the workload management (WLM) configuration, you must supply all the name-value pairs in the wlm_json_configuration parameter.</p>
+
+        Raises:
+            aws_sdk_redshift.errors.cluster_parameter_group_not_found_fault.ClusterParameterGroupNotFoundFault: <p>The parameter group name does not refer to an existing parameter group.</p>
+            aws_sdk_redshift.errors.invalid_cluster_parameter_group_state_fault.InvalidClusterParameterGroupStateFault: <p>The cluster parameter group action can not be completed because another task is in progress that involves the parameter group. Wait a few moments and try the operation again.</p>
+            aws_sdk_redshift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -7617,6 +8361,12 @@ class AsyncRedshiftClient:
             snapshot_identifier: <p>The identifier of the snapshot whose setting you want to modify.</p>
             manual_snapshot_retention_period: <p>The number of days that a manual snapshot is retained. If the value is -1, the manual snapshot is retained indefinitely.</p> <p>If the manual snapshot falls outside of the new retention period, you can specify the force option to immediately delete the snapshot.</p> <p>The value must be either -1 or an integer between 1 and 3,653.</p>
             force: <p>A Boolean option to override an exception if the retention period has already passed.</p>
+
+        Raises:
+            aws_sdk_redshift.errors.cluster_snapshot_not_found_fault.ClusterSnapshotNotFoundFault: <p>The snapshot identifier does not refer to an existing cluster snapshot.</p>
+            aws_sdk_redshift.errors.invalid_cluster_snapshot_state_fault.InvalidClusterSnapshotStateFault: <p>The specified cluster snapshot is not in the <code>available</code> state, or other accounts are authorized to access the snapshot. </p>
+            aws_sdk_redshift.errors.invalid_retention_period_fault.InvalidRetentionPeriodFault: <p>The retention period specified is either in the past or is not a valid value.</p> <p>The value must be either -1 or an integer between 1 and 3,653.</p>
+            aws_sdk_redshift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -7667,6 +8417,12 @@ class AsyncRedshiftClient:
             cluster_identifier: <p>A unique identifier for the cluster whose snapshot schedule you want to modify. </p>
             schedule_identifier: <p>A unique alphanumeric identifier for the schedule that you want to associate with the cluster.</p>
             disassociate_schedule: <p>A boolean to indicate whether to remove the assoiciation between the cluster and the schedule.</p>
+
+        Raises:
+            aws_sdk_redshift.errors.cluster_not_found_fault.ClusterNotFoundFault: <p>The <code>ClusterIdentifier</code> parameter does not refer to an existing cluster. </p>
+            aws_sdk_redshift.errors.invalid_cluster_snapshot_schedule_state_fault.InvalidClusterSnapshotScheduleStateFault: <p>The cluster snapshot schedule state is not valid.</p>
+            aws_sdk_redshift.errors.snapshot_schedule_not_found_fault.SnapshotScheduleNotFoundFault: <p>We could not find the specified snapshot schedule. </p>
+            aws_sdk_redshift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -7711,6 +8467,15 @@ class AsyncRedshiftClient:
             cluster_subnet_group_name: <p>The name of the subnet group to be modified.</p>
             description: <p>A text description of the subnet group to be modified.</p>
             subnet_ids: <p>An array of VPC subnet IDs. A maximum of 20 subnets can be modified in a single request.</p>
+
+        Raises:
+            aws_sdk_redshift.errors.cluster_subnet_group_not_found_fault.ClusterSubnetGroupNotFoundFault: <p>The cluster subnet group name does not refer to an existing cluster subnet group.</p>
+            aws_sdk_redshift.errors.cluster_subnet_quota_exceeded_fault.ClusterSubnetQuotaExceededFault: <p>The request would result in user exceeding the allowed number of subnets in a cluster subnet groups. For information about increasing your quota, go to <a href=\"https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html\">Limits in Amazon Redshift</a> in the <i>Amazon Redshift Cluster Management Guide</i>. </p>
+            aws_sdk_redshift.errors.dependent_service_request_throttling_fault.DependentServiceRequestThrottlingFault: <p>The request cannot be completed because a dependent service is throttling requests made by Amazon Redshift on your behalf. Wait and retry the request.</p>
+            aws_sdk_redshift.errors.invalid_subnet.InvalidSubnet: <p>The requested subnet is not valid, or not all of the subnets are in the same VPC.</p>
+            aws_sdk_redshift.errors.subnet_already_in_use.SubnetAlreadyInUse: <p>A specified subnet is already in use by another cluster.</p>
+            aws_sdk_redshift.errors.unauthorized_operation.UnauthorizedOperation: <p>Your account is not authorized to perform the requested operation.</p>
+            aws_sdk_redshift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -7756,6 +8521,13 @@ class AsyncRedshiftClient:
             custom_domain_name: <p>The custom domain name for a changed custom domain association.</p>
             custom_domain_certificate_arn: <p>The certificate Amazon Resource Name (ARN) for the changed custom domain association.</p>
             cluster_identifier: <p>The identifier of the cluster to change a custom domain association for.</p>
+
+        Raises:
+            aws_sdk_redshift.errors.cluster_not_found_fault.ClusterNotFoundFault: <p>The <code>ClusterIdentifier</code> parameter does not refer to an existing cluster. </p>
+            aws_sdk_redshift.errors.custom_cname_association_fault.CustomCnameAssociationFault: <p>An error occurred when an attempt was made to change the custom domain association.</p>
+            aws_sdk_redshift.errors.custom_domain_association_not_found_fault.CustomDomainAssociationNotFoundFault: <p>An error occurred. The custom domain name couldn't be found.</p>
+            aws_sdk_redshift.errors.unsupported_operation_fault.UnsupportedOperationFault: <p>The requested operation isn't supported.</p>
+            aws_sdk_redshift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -7800,6 +8572,15 @@ class AsyncRedshiftClient:
         Args:
             endpoint_name: <p>The endpoint to be modified.</p>
             vpc_security_group_ids: <p>The complete list of VPC security groups associated with the endpoint after the endpoint is modified.</p>
+
+        Raises:
+            aws_sdk_redshift.errors.cluster_not_found_fault.ClusterNotFoundFault: <p>The <code>ClusterIdentifier</code> parameter does not refer to an existing cluster. </p>
+            aws_sdk_redshift.errors.endpoint_not_found_fault.EndpointNotFoundFault: <p>The endpoint name doesn't refer to an existing endpoint.</p>
+            aws_sdk_redshift.errors.invalid_cluster_security_group_state_fault.InvalidClusterSecurityGroupStateFault: <p>The state of the cluster security group is not <code>available</code>. </p>
+            aws_sdk_redshift.errors.invalid_cluster_state_fault.InvalidClusterStateFault: <p>The specified cluster is not in the <code>available</code> state. </p>
+            aws_sdk_redshift.errors.invalid_endpoint_state_fault.InvalidEndpointStateFault: <p>The status of the endpoint is not valid.</p>
+            aws_sdk_redshift.errors.unauthorized_operation.UnauthorizedOperation: <p>Your account is not authorized to perform the requested operation.</p>
+            aws_sdk_redshift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -7858,6 +8639,18 @@ class AsyncRedshiftClient:
             event_categories: <p>Specifies the Amazon Redshift event categories to be published by the event notification subscription.</p> <p>Values: configuration, management, monitoring, security, pending</p>
             severity: <p>Specifies the Amazon Redshift event severity to be published by the event notification subscription.</p> <p>Values: ERROR, INFO</p>
             enabled: <p>A Boolean value indicating if the subscription is enabled. <code>true</code> indicates the subscription is enabled </p>
+
+        Raises:
+            aws_sdk_redshift.errors.invalid_subscription_state_fault.InvalidSubscriptionStateFault: <p>The subscription request is invalid because it is a duplicate request. This subscription request is already in progress.</p>
+            aws_sdk_redshift.errors.sns_invalid_topic_fault.SNSInvalidTopicFault: <p>Amazon SNS has responded that there is a problem with the specified Amazon SNS topic.</p>
+            aws_sdk_redshift.errors.sns_no_authorization_fault.SNSNoAuthorizationFault: <p>You do not have permission to publish to the specified Amazon SNS topic.</p>
+            aws_sdk_redshift.errors.sns_topic_arn_not_found_fault.SNSTopicArnNotFoundFault: <p>An Amazon SNS topic with the specified Amazon Resource Name (ARN) does not exist.</p>
+            aws_sdk_redshift.errors.source_not_found_fault.SourceNotFoundFault: <p>The specified Amazon Redshift event source could not be found.</p>
+            aws_sdk_redshift.errors.subscription_category_not_found_fault.SubscriptionCategoryNotFoundFault: <p>The value specified for the event category was not one of the allowed values, or it specified a category that does not apply to the specified source type. The allowed values are Configuration, Management, Monitoring, and Security.</p>
+            aws_sdk_redshift.errors.subscription_event_id_not_found_fault.SubscriptionEventIdNotFoundFault: <p>An Amazon Redshift event with the specified event ID does not exist.</p>
+            aws_sdk_redshift.errors.subscription_not_found_fault.SubscriptionNotFoundFault: <p>An Amazon Redshift event notification subscription with the specified name does not exist.</p>
+            aws_sdk_redshift.errors.subscription_severity_not_found_fault.SubscriptionSeverityNotFoundFault: <p>The value specified for the event severity was not one of the allowed values, or it specified a severity that does not apply to the specified source type. The allowed values are ERROR and INFO.</p>
+            aws_sdk_redshift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -7916,6 +8709,14 @@ class AsyncRedshiftClient:
             integration_arn: <p>The unique identifier of the integration to modify.</p>
             description: <p>A new description for the integration.</p>
             integration_name: <p>A new name for the integration.</p>
+
+        Raises:
+            aws_sdk_redshift.errors.integration_already_exists_fault.IntegrationAlreadyExistsFault: <p>The integration you are trying to create already exists.</p>
+            aws_sdk_redshift.errors.integration_conflict_operation_fault.IntegrationConflictOperationFault: <p>A conflicting conditional operation is currently in progress against this resource. This typically occurs when there are multiple requests being made to the same resource at the same time, and these requests conflict with each other.</p>
+            aws_sdk_redshift.errors.integration_conflict_state_fault.IntegrationConflictStateFault: <p>The integration is in an invalid state and can't perform the requested operation.</p>
+            aws_sdk_redshift.errors.integration_not_found_fault.IntegrationNotFoundFault: <p>The integration can't be found.</p>
+            aws_sdk_redshift.errors.unsupported_operation_fault.UnsupportedOperationFault: <p>The requested operation isn't supported.</p>
+            aws_sdk_redshift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -7976,6 +8777,16 @@ class AsyncRedshiftClient:
             lakehouse_idc_registration: <p>Modifies the Amazon Web Services IAM Identity Center trusted identity propagation on a cluster enabled with Amazon Redshift federated permissions. Valid values are <code>Associate</code> or <code>Disassociate</code>.</p>
             lakehouse_idc_application_arn: <p>The Amazon Resource Name (ARN) of the IAM Identity Center application used for enabling Amazon Web Services IAM Identity Center trusted identity propagation on a cluster enabled with Amazon Redshift federated permissions.</p>
             dry_run: <p>A boolean value that, if <code>true</code>, validates the request without actually modifying the lakehouse configuration. Use this to check for errors before making changes.</p>
+
+        Raises:
+            aws_sdk_redshift.errors.cluster_not_found_fault.ClusterNotFoundFault: <p>The <code>ClusterIdentifier</code> parameter does not refer to an existing cluster. </p>
+            aws_sdk_redshift.errors.dependent_service_access_denied_fault.DependentServiceAccessDeniedFault: <p>A dependent service denied access for the integration.</p>
+            aws_sdk_redshift.errors.dependent_service_unavailable_fault.DependentServiceUnavailableFault: <p>Your request cannot be completed because a dependent internal service is temporarily unavailable. Wait 30 to 60 seconds and try again.</p>
+            aws_sdk_redshift.errors.invalid_cluster_state_fault.InvalidClusterStateFault: <p>The specified cluster is not in the <code>available</code> state. </p>
+            aws_sdk_redshift.errors.redshift_idc_application_not_exists_fault.RedshiftIdcApplicationNotExistsFault: <p>The application you attempted to find doesn't exist.</p>
+            aws_sdk_redshift.errors.unauthorized_operation.UnauthorizedOperation: <p>Your account is not authorized to perform the requested operation.</p>
+            aws_sdk_redshift.errors.unsupported_operation_fault.UnsupportedOperationFault: <p>The requested operation isn't supported.</p>
+            aws_sdk_redshift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -8042,6 +8853,13 @@ class AsyncRedshiftClient:
             idc_display_name: <p>The display name for the Amazon Redshift IAM Identity Center application to change. It appears on the console.</p>
             authorized_token_issuer_list: <p>The authorized token issuer list for the Amazon Redshift IAM Identity Center application to change.</p>
             service_integrations: <p>A collection of service integrations associated with the application.</p>
+
+        Raises:
+            aws_sdk_redshift.errors.dependent_service_access_denied_fault.DependentServiceAccessDeniedFault: <p>A dependent service denied access for the integration.</p>
+            aws_sdk_redshift.errors.dependent_service_unavailable_fault.DependentServiceUnavailableFault: <p>Your request cannot be completed because a dependent internal service is temporarily unavailable. Wait 30 to 60 seconds and try again.</p>
+            aws_sdk_redshift.errors.redshift_idc_application_not_exists_fault.RedshiftIdcApplicationNotExistsFault: <p>The application you attempted to find doesn't exist.</p>
+            aws_sdk_redshift.errors.unsupported_operation_fault.UnsupportedOperationFault: <p>The requested operation isn't supported.</p>
+            aws_sdk_redshift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -8110,6 +8928,16 @@ class AsyncRedshiftClient:
             start_time: <p>A modified start time of the scheduled action. For more information about this parameter, see <a>ScheduledAction</a>. </p>
             end_time: <p>A modified end time of the scheduled action. For more information about this parameter, see <a>ScheduledAction</a>. </p>
             enable: <p>A modified enable flag of the scheduled action. If true, the scheduled action is active. If false, the scheduled action is disabled. </p>
+
+        Raises:
+            aws_sdk_redshift.errors.cluster_not_found_fault.ClusterNotFoundFault: <p>The <code>ClusterIdentifier</code> parameter does not refer to an existing cluster. </p>
+            aws_sdk_redshift.errors.invalid_scheduled_action_fault.InvalidScheduledActionFault: <p>The scheduled action is not valid. </p>
+            aws_sdk_redshift.errors.invalid_schedule_fault.InvalidScheduleFault: <p>The schedule you submitted isn't valid.</p>
+            aws_sdk_redshift.errors.scheduled_action_not_found_fault.ScheduledActionNotFoundFault: <p>The scheduled action cannot be found. </p>
+            aws_sdk_redshift.errors.scheduled_action_type_unsupported_fault.ScheduledActionTypeUnsupportedFault: <p>The action type specified for a scheduled action is not supported. </p>
+            aws_sdk_redshift.errors.unauthorized_operation.UnauthorizedOperation: <p>Your account is not authorized to perform the requested operation.</p>
+            aws_sdk_redshift.errors.unsupported_operation_fault.UnsupportedOperationFault: <p>The requested operation isn't supported.</p>
+            aws_sdk_redshift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -8166,6 +8994,14 @@ class AsyncRedshiftClient:
             cluster_identifier: <p>The unique identifier of the cluster for which you want to change the retention period for either automated or manual snapshots that are copied to a destination Amazon Web Services Region.</p> <p>Constraints: Must be the valid name of an existing cluster that has cross-region snapshot copy enabled.</p>
             retention_period: <p>The number of days to retain automated snapshots in the destination Amazon Web Services Region after they are copied from the source Amazon Web Services Region.</p> <p>By default, this only changes the retention period of copied automated snapshots. </p> <p>If you decrease the retention period for automated snapshots that are copied to a destination Amazon Web Services Region, Amazon Redshift deletes any existing automated snapshots that were copied to the destination Amazon Web Services Region and that fall outside of the new retention period.</p> <p>Constraints: Must be at least 1 and no more than 35 for automated snapshots. </p> <p>If you specify the <code>manual</code> option, only newly copied manual snapshots will have the new retention period. </p> <p>If you specify the value of -1 newly copied manual snapshots are retained indefinitely.</p> <p>Constraints: The number of days must be either -1 or an integer between 1 and 3,653 for manual snapshots.</p>
             manual: <p>Indicates whether to apply the snapshot retention period to newly copied manual snapshots instead of automated snapshots.</p>
+
+        Raises:
+            aws_sdk_redshift.errors.cluster_not_found_fault.ClusterNotFoundFault: <p>The <code>ClusterIdentifier</code> parameter does not refer to an existing cluster. </p>
+            aws_sdk_redshift.errors.invalid_cluster_state_fault.InvalidClusterStateFault: <p>The specified cluster is not in the <code>available</code> state. </p>
+            aws_sdk_redshift.errors.invalid_retention_period_fault.InvalidRetentionPeriodFault: <p>The retention period specified is either in the past or is not a valid value.</p> <p>The value must be either -1 or an integer between 1 and 3,653.</p>
+            aws_sdk_redshift.errors.snapshot_copy_disabled_fault.SnapshotCopyDisabledFault: <p>Cross-region snapshot copy was temporarily disabled. Try your request again.</p>
+            aws_sdk_redshift.errors.unauthorized_operation.UnauthorizedOperation: <p>Your account is not authorized to perform the requested operation.</p>
+            aws_sdk_redshift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -8209,6 +9045,12 @@ class AsyncRedshiftClient:
         Args:
             schedule_identifier: <p>A unique alphanumeric identifier of the schedule to modify.</p>
             schedule_definitions: <p>An updated list of schedule definitions. A schedule definition is made up of schedule expressions, for example, \"cron(30 12 *)\" or \"rate(12 hours)\".</p>
+
+        Raises:
+            aws_sdk_redshift.errors.invalid_schedule_fault.InvalidScheduleFault: <p>The schedule you submitted isn't valid.</p>
+            aws_sdk_redshift.errors.snapshot_schedule_not_found_fault.SnapshotScheduleNotFoundFault: <p>We could not find the specified snapshot schedule. </p>
+            aws_sdk_redshift.errors.snapshot_schedule_update_in_progress_fault.SnapshotScheduleUpdateInProgressFault: <p>The specified snapshot schedule is already being updated.</p>
+            aws_sdk_redshift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -8254,6 +9096,12 @@ class AsyncRedshiftClient:
             usage_limit_id: <p>The identifier of the usage limit to modify.</p>
             amount: <p>The new limit amount. For more information about this parameter, see <a>UsageLimit</a>. </p>
             breach_action: <p>The new action that Amazon Redshift takes when the limit is reached. For more information about this parameter, see <a>UsageLimit</a>. </p>
+
+        Raises:
+            aws_sdk_redshift.errors.invalid_usage_limit_fault.InvalidUsageLimitFault: <p>The usage limit is not valid.</p>
+            aws_sdk_redshift.errors.unsupported_operation_fault.UnsupportedOperationFault: <p>The requested operation isn't supported.</p>
+            aws_sdk_redshift.errors.usage_limit_not_found_fault.UsageLimitNotFoundFault: <p>The usage limit identifier can't be found.</p>
+            aws_sdk_redshift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -8294,6 +9142,12 @@ class AsyncRedshiftClient:
 
         Args:
             cluster_identifier: <p>The identifier of the cluster to be paused.</p>
+
+        Raises:
+            aws_sdk_redshift.errors.cluster_not_found_fault.ClusterNotFoundFault: <p>The <code>ClusterIdentifier</code> parameter does not refer to an existing cluster. </p>
+            aws_sdk_redshift.errors.invalid_cluster_state_fault.InvalidClusterStateFault: <p>The specified cluster is not in the <code>available</code> state. </p>
+            aws_sdk_redshift.errors.unsupported_operation_fault.UnsupportedOperationFault: <p>The requested operation isn't supported.</p>
+            aws_sdk_redshift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -8336,6 +9190,13 @@ class AsyncRedshiftClient:
         Args:
             reserved_node_offering_id: <p>The unique identifier of the reserved node offering you want to purchase.</p>
             node_count: <p>The number of reserved nodes that you want to purchase.</p> <p>Default: <code>1</code> </p>
+
+        Raises:
+            aws_sdk_redshift.errors.reserved_node_already_exists_fault.ReservedNodeAlreadyExistsFault: <p>User already has a reservation with the given identifier.</p>
+            aws_sdk_redshift.errors.reserved_node_offering_not_found_fault.ReservedNodeOfferingNotFoundFault: <p>Specified offering does not exist.</p>
+            aws_sdk_redshift.errors.reserved_node_quota_exceeded_fault.ReservedNodeQuotaExceededFault: <p>Request would exceed the user's compute node quota. For information about increasing your quota, go to <a href=\"https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html\">Limits in Amazon Redshift</a> in the <i>Amazon Redshift Cluster Management Guide</i>. </p>
+            aws_sdk_redshift.errors.unsupported_operation_fault.UnsupportedOperationFault: <p>The requested operation isn't supported.</p>
+            aws_sdk_redshift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -8378,6 +9239,13 @@ class AsyncRedshiftClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource of which its resource policy is updated.</p>
             policy: <p>The content of the resource policy being updated.</p>
+
+        Raises:
+            aws_sdk_redshift.errors.conflict_policy_update_fault.ConflictPolicyUpdateFault: <p>There is a conflict while updating the resource policy.</p>
+            aws_sdk_redshift.errors.invalid_policy_fault.InvalidPolicyFault: <p>The resource policy isn't valid.</p>
+            aws_sdk_redshift.errors.resource_not_found_fault.ResourceNotFoundFault: <p>The resource could not be found.</p>
+            aws_sdk_redshift.errors.unsupported_operation_fault.UnsupportedOperationFault: <p>The requested operation isn't supported.</p>
+            aws_sdk_redshift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -8417,6 +9285,11 @@ class AsyncRedshiftClient:
 
         Args:
             cluster_identifier: <p>The cluster identifier.</p>
+
+        Raises:
+            aws_sdk_redshift.errors.cluster_not_found_fault.ClusterNotFoundFault: <p>The <code>ClusterIdentifier</code> parameter does not refer to an existing cluster. </p>
+            aws_sdk_redshift.errors.invalid_cluster_state_fault.InvalidClusterStateFault: <p>The specified cluster is not in the <code>available</code> state. </p>
+            aws_sdk_redshift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -8457,6 +9330,12 @@ class AsyncRedshiftClient:
         Args:
             namespace_identifier: <p>The unique identifier of the cluster or serverless namespace that you want to register. </p>
             consumer_identifiers: <p>An array containing the ID of the consumer account that you want to register the namespace to.</p>
+
+        Raises:
+            aws_sdk_redshift.errors.cluster_not_found_fault.ClusterNotFoundFault: <p>The <code>ClusterIdentifier</code> parameter does not refer to an existing cluster. </p>
+            aws_sdk_redshift.errors.invalid_cluster_state_fault.InvalidClusterStateFault: <p>The specified cluster is not in the <code>available</code> state. </p>
+            aws_sdk_redshift.errors.invalid_namespace_fault.InvalidNamespaceFault: <p>The namespace isn't valid because the namespace doesn't exist. Provide a valid namespace.</p>
+            aws_sdk_redshift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -8496,6 +9375,10 @@ class AsyncRedshiftClient:
 
         Args:
             data_share_arn: <p>The Amazon Resource Name (ARN) of the datashare to reject.</p>
+
+        Raises:
+            aws_sdk_redshift.errors.invalid_data_share_fault.InvalidDataShareFault: <p>There is an error with the datashare.</p>
+            aws_sdk_redshift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -8538,6 +9421,11 @@ class AsyncRedshiftClient:
             parameter_group_name: <p>The name of the cluster parameter group to be reset.</p>
             reset_all_parameters: <p>If <code>true</code>, all parameters in the specified parameter group will be reset to their default values. </p> <p>Default: <code>true</code> </p>
             parameters: <p>An array of names of parameters to be reset. If <i>ResetAllParameters</i> option is not used, then at least one parameter name must be supplied. </p> <p>Constraints: A maximum of 20 parameters can be reset in a single request.</p>
+
+        Raises:
+            aws_sdk_redshift.errors.cluster_parameter_group_not_found_fault.ClusterParameterGroupNotFoundFault: <p>The parameter group name does not refer to an existing parameter group.</p>
+            aws_sdk_redshift.errors.invalid_cluster_parameter_group_state_fault.InvalidClusterParameterGroupStateFault: <p>The cluster parameter group action can not be completed because another task is in progress that involves the parameter group. Wait a few moments and try the operation again.</p>
+            aws_sdk_redshift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -8598,6 +9486,24 @@ class AsyncRedshiftClient:
             classic: <p>A boolean value indicating whether the resize operation is using the classic resize process. If you don't provide this parameter or set the value to <code>false</code>, the resize type is elastic. </p>
             reserved_node_id: <p>The identifier of the reserved node.</p>
             target_reserved_node_offering_id: <p>The identifier of the target reserved node offering.</p>
+
+        Raises:
+            aws_sdk_redshift.errors.cluster_not_found_fault.ClusterNotFoundFault: <p>The <code>ClusterIdentifier</code> parameter does not refer to an existing cluster. </p>
+            aws_sdk_redshift.errors.dependent_service_unavailable_fault.DependentServiceUnavailableFault: <p>Your request cannot be completed because a dependent internal service is temporarily unavailable. Wait 30 to 60 seconds and try again.</p>
+            aws_sdk_redshift.errors.insufficient_cluster_capacity_fault.InsufficientClusterCapacityFault: <p>The number of nodes specified exceeds the allotted capacity of the cluster.</p>
+            aws_sdk_redshift.errors.invalid_cluster_state_fault.InvalidClusterStateFault: <p>The specified cluster is not in the <code>available</code> state. </p>
+            aws_sdk_redshift.errors.invalid_reserved_node_state_fault.InvalidReservedNodeStateFault: <p>Indicates that the Reserved Node being exchanged is not in an active state.</p>
+            aws_sdk_redshift.errors.limit_exceeded_fault.LimitExceededFault: <p>The encryption key has exceeded its grant limit in Amazon Web Services KMS.</p>
+            aws_sdk_redshift.errors.number_of_nodes_per_cluster_limit_exceeded_fault.NumberOfNodesPerClusterLimitExceededFault: <p>The operation would exceed the number of nodes allowed for a cluster.</p>
+            aws_sdk_redshift.errors.number_of_nodes_quota_exceeded_fault.NumberOfNodesQuotaExceededFault: <p>The operation would exceed the number of nodes allotted to the account. For information about increasing your quota, go to <a href=\"https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html\">Limits in Amazon Redshift</a> in the <i>Amazon Redshift Cluster Management Guide</i>. </p>
+            aws_sdk_redshift.errors.reserved_node_already_exists_fault.ReservedNodeAlreadyExistsFault: <p>User already has a reservation with the given identifier.</p>
+            aws_sdk_redshift.errors.reserved_node_already_migrated_fault.ReservedNodeAlreadyMigratedFault: <p>Indicates that the reserved node has already been exchanged.</p>
+            aws_sdk_redshift.errors.reserved_node_not_found_fault.ReservedNodeNotFoundFault: <p>The specified reserved compute node not found.</p>
+            aws_sdk_redshift.errors.reserved_node_offering_not_found_fault.ReservedNodeOfferingNotFoundFault: <p>Specified offering does not exist.</p>
+            aws_sdk_redshift.errors.unauthorized_operation.UnauthorizedOperation: <p>Your account is not authorized to perform the requested operation.</p>
+            aws_sdk_redshift.errors.unsupported_operation_fault.UnsupportedOperationFault: <p>The requested operation isn't supported.</p>
+            aws_sdk_redshift.errors.unsupported_option_fault.UnsupportedOptionFault: <p>A request option was specified that is not supported.</p>
+            aws_sdk_redshift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -8778,6 +9684,44 @@ class AsyncRedshiftClient:
             multi_az: <p>If true, the snapshot will be restored to a cluster deployed in two Availability Zones.</p>
             catalog_name: <p>The name of the Glue Data Catalog that will be associated with the cluster enabled with Amazon Redshift federated permissions.</p> <p>Constraints:</p> <ul> <li> <p>Must contain at least one lowercase letter.</p> </li> <li> <p>Can only contain lowercase letters (a-z), numbers (0-9), underscores (_), and hyphens (-).</p> </li> </ul> <p>Pattern: <code>^[a-z0-9_-]*[a-z]+[a-z0-9_-]*$</code> </p> <p>Example: <code>my-catalog_01</code> </p>
             redshift_idc_application_arn: <p>The Amazon Resource Name (ARN) of the IAM Identity Center application used for enabling Amazon Web Services IAM Identity Center trusted identity propagation on a cluster enabled with Amazon Redshift federated permissions.</p>
+
+        Raises:
+            aws_sdk_redshift.errors.access_to_snapshot_denied_fault.AccessToSnapshotDeniedFault: <p>The owner of the specified snapshot has not authorized your account to access the snapshot.</p>
+            aws_sdk_redshift.errors.cluster_already_exists_fault.ClusterAlreadyExistsFault: <p>The account already has a cluster with the given identifier.</p>
+            aws_sdk_redshift.errors.cluster_parameter_group_not_found_fault.ClusterParameterGroupNotFoundFault: <p>The parameter group name does not refer to an existing parameter group.</p>
+            aws_sdk_redshift.errors.cluster_quota_exceeded_fault.ClusterQuotaExceededFault: <p>The request would exceed the allowed number of cluster instances for this account. For information about increasing your quota, go to <a href=\"https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html\">Limits in Amazon Redshift</a> in the <i>Amazon Redshift Cluster Management Guide</i>. </p>
+            aws_sdk_redshift.errors.cluster_security_group_not_found_fault.ClusterSecurityGroupNotFoundFault: <p>The cluster security group name does not refer to an existing cluster security group.</p>
+            aws_sdk_redshift.errors.cluster_snapshot_not_found_fault.ClusterSnapshotNotFoundFault: <p>The snapshot identifier does not refer to an existing cluster snapshot.</p>
+            aws_sdk_redshift.errors.cluster_subnet_group_not_found_fault.ClusterSubnetGroupNotFoundFault: <p>The cluster subnet group name does not refer to an existing cluster subnet group.</p>
+            aws_sdk_redshift.errors.dependent_service_access_denied_fault.DependentServiceAccessDeniedFault: <p>A dependent service denied access for the integration.</p>
+            aws_sdk_redshift.errors.dependent_service_request_throttling_fault.DependentServiceRequestThrottlingFault: <p>The request cannot be completed because a dependent service is throttling requests made by Amazon Redshift on your behalf. Wait and retry the request.</p>
+            aws_sdk_redshift.errors.dependent_service_unavailable_fault.DependentServiceUnavailableFault: <p>Your request cannot be completed because a dependent internal service is temporarily unavailable. Wait 30 to 60 seconds and try again.</p>
+            aws_sdk_redshift.errors.hsm_client_certificate_not_found_fault.HsmClientCertificateNotFoundFault: <p>There is no Amazon Redshift HSM client certificate with the specified identifier.</p>
+            aws_sdk_redshift.errors.hsm_configuration_not_found_fault.HsmConfigurationNotFoundFault: <p>There is no Amazon Redshift HSM configuration with the specified identifier.</p>
+            aws_sdk_redshift.errors.insufficient_cluster_capacity_fault.InsufficientClusterCapacityFault: <p>The number of nodes specified exceeds the allotted capacity of the cluster.</p>
+            aws_sdk_redshift.errors.invalid_cluster_snapshot_state_fault.InvalidClusterSnapshotStateFault: <p>The specified cluster snapshot is not in the <code>available</code> state, or other accounts are authorized to access the snapshot. </p>
+            aws_sdk_redshift.errors.invalid_cluster_subnet_group_state_fault.InvalidClusterSubnetGroupStateFault: <p>The cluster subnet group cannot be deleted because it is in use.</p>
+            aws_sdk_redshift.errors.invalid_cluster_track_fault.InvalidClusterTrackFault: <p>The provided cluster track name is not valid.</p>
+            aws_sdk_redshift.errors.invalid_elastic_ip_fault.InvalidElasticIpFault: <p>The Elastic IP (EIP) is invalid or cannot be found.</p>
+            aws_sdk_redshift.errors.invalid_reserved_node_state_fault.InvalidReservedNodeStateFault: <p>Indicates that the Reserved Node being exchanged is not in an active state.</p>
+            aws_sdk_redshift.errors.invalid_restore_fault.InvalidRestoreFault: <p>The restore is invalid.</p>
+            aws_sdk_redshift.errors.invalid_subnet.InvalidSubnet: <p>The requested subnet is not valid, or not all of the subnets are in the same VPC.</p>
+            aws_sdk_redshift.errors.invalid_tag_fault.InvalidTagFault: <p>The tag is invalid.</p>
+            aws_sdk_redshift.errors.invalid_vpc_network_state_fault.InvalidVPCNetworkStateFault: <p>The cluster subnet group does not cover all Availability Zones.</p>
+            aws_sdk_redshift.errors.ipv6_cidr_block_not_found_fault.Ipv6CidrBlockNotFoundFault: <p>There are no subnets in your VPC with associated IPv6 CIDR blocks. To use dual-stack mode, associate an IPv6 CIDR block with each subnet in your VPC.</p>
+            aws_sdk_redshift.errors.limit_exceeded_fault.LimitExceededFault: <p>The encryption key has exceeded its grant limit in Amazon Web Services KMS.</p>
+            aws_sdk_redshift.errors.number_of_nodes_per_cluster_limit_exceeded_fault.NumberOfNodesPerClusterLimitExceededFault: <p>The operation would exceed the number of nodes allowed for a cluster.</p>
+            aws_sdk_redshift.errors.number_of_nodes_quota_exceeded_fault.NumberOfNodesQuotaExceededFault: <p>The operation would exceed the number of nodes allotted to the account. For information about increasing your quota, go to <a href=\"https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html\">Limits in Amazon Redshift</a> in the <i>Amazon Redshift Cluster Management Guide</i>. </p>
+            aws_sdk_redshift.errors.redshift_idc_application_not_exists_fault.RedshiftIdcApplicationNotExistsFault: <p>The application you attempted to find doesn't exist.</p>
+            aws_sdk_redshift.errors.reserved_node_already_exists_fault.ReservedNodeAlreadyExistsFault: <p>User already has a reservation with the given identifier.</p>
+            aws_sdk_redshift.errors.reserved_node_already_migrated_fault.ReservedNodeAlreadyMigratedFault: <p>Indicates that the reserved node has already been exchanged.</p>
+            aws_sdk_redshift.errors.reserved_node_not_found_fault.ReservedNodeNotFoundFault: <p>The specified reserved compute node not found.</p>
+            aws_sdk_redshift.errors.reserved_node_offering_not_found_fault.ReservedNodeOfferingNotFoundFault: <p>Specified offering does not exist.</p>
+            aws_sdk_redshift.errors.snapshot_schedule_not_found_fault.SnapshotScheduleNotFoundFault: <p>We could not find the specified snapshot schedule. </p>
+            aws_sdk_redshift.errors.tag_limit_exceeded_fault.TagLimitExceededFault: <p>You have exceeded the number of tags allowed.</p>
+            aws_sdk_redshift.errors.unauthorized_operation.UnauthorizedOperation: <p>Your account is not authorized to perform the requested operation.</p>
+            aws_sdk_redshift.errors.unsupported_operation_fault.UnsupportedOperationFault: <p>The requested operation isn't supported.</p>
+            aws_sdk_redshift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -8920,6 +9864,16 @@ class AsyncRedshiftClient:
             target_schema_name: <p>The name of the schema to restore the table to.</p>
             new_table_name: <p>The name of the table to create as a result of the current request.</p>
             enable_case_sensitive_identifier: <p>Indicates whether name identifiers for database, schema, and table are case sensitive. If <code>true</code>, the names are case sensitive. If <code>false</code> (default), the names are not case sensitive.</p>
+
+        Raises:
+            aws_sdk_redshift.errors.cluster_not_found_fault.ClusterNotFoundFault: <p>The <code>ClusterIdentifier</code> parameter does not refer to an existing cluster. </p>
+            aws_sdk_redshift.errors.cluster_snapshot_not_found_fault.ClusterSnapshotNotFoundFault: <p>The snapshot identifier does not refer to an existing cluster snapshot.</p>
+            aws_sdk_redshift.errors.in_progress_table_restore_quota_exceeded_fault.InProgressTableRestoreQuotaExceededFault: <p>You have exceeded the allowed number of table restore requests. Wait for your current table restore requests to complete before making a new request.</p>
+            aws_sdk_redshift.errors.invalid_cluster_snapshot_state_fault.InvalidClusterSnapshotStateFault: <p>The specified cluster snapshot is not in the <code>available</code> state, or other accounts are authorized to access the snapshot. </p>
+            aws_sdk_redshift.errors.invalid_cluster_state_fault.InvalidClusterStateFault: <p>The specified cluster is not in the <code>available</code> state. </p>
+            aws_sdk_redshift.errors.invalid_table_restore_argument_fault.InvalidTableRestoreArgumentFault: <p>The value specified for the <code>sourceDatabaseName</code>, <code>sourceSchemaName</code>, or <code>sourceTableName</code> parameter, or a combination of these, doesn't exist in the snapshot.</p>
+            aws_sdk_redshift.errors.unsupported_operation_fault.UnsupportedOperationFault: <p>The requested operation isn't supported.</p>
+            aws_sdk_redshift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -8972,6 +9926,13 @@ class AsyncRedshiftClient:
 
         Args:
             cluster_identifier: <p>The identifier of the cluster to be resumed.</p>
+
+        Raises:
+            aws_sdk_redshift.errors.cluster_not_found_fault.ClusterNotFoundFault: <p>The <code>ClusterIdentifier</code> parameter does not refer to an existing cluster. </p>
+            aws_sdk_redshift.errors.insufficient_cluster_capacity_fault.InsufficientClusterCapacityFault: <p>The number of nodes specified exceeds the allotted capacity of the cluster.</p>
+            aws_sdk_redshift.errors.invalid_cluster_state_fault.InvalidClusterStateFault: <p>The specified cluster is not in the <code>available</code> state. </p>
+            aws_sdk_redshift.errors.unsupported_operation_fault.UnsupportedOperationFault: <p>The requested operation isn't supported.</p>
+            aws_sdk_redshift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -9020,6 +9981,12 @@ class AsyncRedshiftClient:
             cidrip: <p>The IP range for which to revoke access. This range must be a valid Classless Inter-Domain Routing (CIDR) block of IP addresses. If <code>CIDRIP</code> is specified, <code>EC2SecurityGroupName</code> and <code>EC2SecurityGroupOwnerId</code> cannot be provided. </p>
             ec2_security_group_name: <p>The name of the EC2 Security Group whose access is to be revoked. If <code>EC2SecurityGroupName</code> is specified, <code>EC2SecurityGroupOwnerId</code> must also be provided and <code>CIDRIP</code> cannot be provided. </p>
             ec2_security_group_owner_id: <p>The Amazon Web Services account number of the owner of the security group specified in the <code>EC2SecurityGroupName</code> parameter. The Amazon Web Services access key ID is not an acceptable value. If <code>EC2SecurityGroupOwnerId</code> is specified, <code>EC2SecurityGroupName</code> must also be provided. and <code>CIDRIP</code> cannot be provided. </p> <p>Example: <code>111122223333</code> </p>
+
+        Raises:
+            aws_sdk_redshift.errors.authorization_not_found_fault.AuthorizationNotFoundFault: <p>The specified CIDR IP range or EC2 security group is not authorized for the specified cluster security group.</p>
+            aws_sdk_redshift.errors.cluster_security_group_not_found_fault.ClusterSecurityGroupNotFoundFault: <p>The cluster security group name does not refer to an existing cluster security group.</p>
+            aws_sdk_redshift.errors.invalid_cluster_security_group_state_fault.InvalidClusterSecurityGroupStateFault: <p>The state of the cluster security group is not <code>available</code>. </p>
+            aws_sdk_redshift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -9072,6 +10039,16 @@ class AsyncRedshiftClient:
             account: <p>The Amazon Web Services account ID whose access is to be revoked.</p>
             vpc_ids: <p>The virtual private cloud (VPC) identifiers for which access is to be revoked.</p>
             force: <p>Indicates whether to force the revoke action. If true, the Redshift-managed VPC endpoints associated with the endpoint authorization are also deleted.</p>
+
+        Raises:
+            aws_sdk_redshift.errors.cluster_not_found_fault.ClusterNotFoundFault: <p>The <code>ClusterIdentifier</code> parameter does not refer to an existing cluster. </p>
+            aws_sdk_redshift.errors.endpoint_authorization_not_found_fault.EndpointAuthorizationNotFoundFault: <p>The authorization for this endpoint can't be found.</p>
+            aws_sdk_redshift.errors.endpoint_not_found_fault.EndpointNotFoundFault: <p>The endpoint name doesn't refer to an existing endpoint.</p>
+            aws_sdk_redshift.errors.invalid_authorization_state_fault.InvalidAuthorizationStateFault: <p>The status of the authorization is not valid.</p>
+            aws_sdk_redshift.errors.invalid_cluster_security_group_state_fault.InvalidClusterSecurityGroupStateFault: <p>The state of the cluster security group is not <code>available</code>. </p>
+            aws_sdk_redshift.errors.invalid_cluster_state_fault.InvalidClusterStateFault: <p>The specified cluster is not in the <code>available</code> state. </p>
+            aws_sdk_redshift.errors.invalid_endpoint_state_fault.InvalidEndpointStateFault: <p>The status of the endpoint is not valid.</p>
+            aws_sdk_redshift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -9125,6 +10102,13 @@ class AsyncRedshiftClient:
             snapshot_arn: <p>The Amazon Resource Name (ARN) of the snapshot associated with the message to revoke access.</p>
             snapshot_cluster_identifier: <p>The identifier of the cluster the snapshot was created from. This parameter is required if your IAM user has a policy containing a snapshot resource element that specifies anything other than * for the cluster name.</p>
             account_with_restore_access: <p>The identifier of the Amazon Web Services account that can no longer restore the specified snapshot.</p>
+
+        Raises:
+            aws_sdk_redshift.errors.access_to_snapshot_denied_fault.AccessToSnapshotDeniedFault: <p>The owner of the specified snapshot has not authorized your account to access the snapshot.</p>
+            aws_sdk_redshift.errors.authorization_not_found_fault.AuthorizationNotFoundFault: <p>The specified CIDR IP range or EC2 security group is not authorized for the specified cluster security group.</p>
+            aws_sdk_redshift.errors.cluster_snapshot_not_found_fault.ClusterSnapshotNotFoundFault: <p>The snapshot identifier does not refer to an existing cluster snapshot.</p>
+            aws_sdk_redshift.errors.unsupported_operation_fault.UnsupportedOperationFault: <p>The requested operation isn't supported.</p>
+            aws_sdk_redshift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -9171,6 +10155,13 @@ class AsyncRedshiftClient:
 
         Args:
             cluster_identifier: <p>The unique identifier of the cluster that you want to rotate the encryption keys for.</p> <p>Constraints: Must be the name of valid cluster that has encryption enabled.</p>
+
+        Raises:
+            aws_sdk_redshift.errors.cluster_not_found_fault.ClusterNotFoundFault: <p>The <code>ClusterIdentifier</code> parameter does not refer to an existing cluster. </p>
+            aws_sdk_redshift.errors.dependent_service_request_throttling_fault.DependentServiceRequestThrottlingFault: <p>The request cannot be completed because a dependent service is throttling requests made by Amazon Redshift on your behalf. Wait and retry the request.</p>
+            aws_sdk_redshift.errors.invalid_cluster_state_fault.InvalidClusterStateFault: <p>The specified cluster is not in the <code>available</code> state. </p>
+            aws_sdk_redshift.errors.unsupported_operation_fault.UnsupportedOperationFault: <p>The requested operation isn't supported.</p>
+            aws_sdk_redshift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -9221,6 +10212,13 @@ class AsyncRedshiftClient:
             partner_name: <p>The name of the partner whose integration status is being updated.</p>
             status: <p>The value of the updated status.</p>
             status_message: <p>The status message provided by the partner.</p>
+
+        Raises:
+            aws_sdk_redshift.errors.cluster_not_found_fault.ClusterNotFoundFault: <p>The <code>ClusterIdentifier</code> parameter does not refer to an existing cluster. </p>
+            aws_sdk_redshift.errors.partner_not_found_fault.PartnerNotFoundFault: <p>The name of the partner was not found.</p>
+            aws_sdk_redshift.errors.unauthorized_partner_integration_fault.UnauthorizedPartnerIntegrationFault: <p>The partner integration is not authorized.</p>
+            aws_sdk_redshift.errors.unsupported_operation_fault.UnsupportedOperationFault: <p>The requested operation isn't supported.</p>
+            aws_sdk_redshift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

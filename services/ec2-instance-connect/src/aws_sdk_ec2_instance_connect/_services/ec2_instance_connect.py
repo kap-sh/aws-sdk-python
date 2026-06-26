@@ -147,6 +147,21 @@ class EC2InstanceConnectClient:
             instance_id: <p>The ID of the EC2 instance.</p>
             serial_port: <p>The serial port of the EC2 instance. Currently only port 0 is supported.</p> <p>Default: 0</p>
             ssh_public_key: <p>The public key material. To use the public key, you must have the matching private key. For information about the supported key formats and lengths, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html#how-to-generate-your-own-key-and-import-it-to-aws\">Requirements for key pairs</a> in the <i>Amazon EC2 User Guide</i>.</p>
+
+        Raises:
+            aws_sdk_ec2_instance_connect.errors.auth_exception.AuthException: <p>Either your AWS credentials are not valid or you do not have access to the EC2 instance.</p>
+            aws_sdk_ec2_instance_connect.errors.ec2_instance_not_found_exception.EC2InstanceNotFoundException: <p>The specified instance was not found.</p>
+            aws_sdk_ec2_instance_connect.errors.ec2_instance_state_invalid_exception.EC2InstanceStateInvalidException: <p>Unable to connect because the instance is not in a valid state. Connecting to a stopped or terminated instance is not supported. If the instance is stopped, start your instance, and try to connect again.</p>
+            aws_sdk_ec2_instance_connect.errors.ec2_instance_type_invalid_exception.EC2InstanceTypeInvalidException: <p>The instance type is not supported for connecting via the serial console. Only Nitro instance types are currently supported.</p>
+            aws_sdk_ec2_instance_connect.errors.ec2_instance_unavailable_exception.EC2InstanceUnavailableException: <p>The instance is currently unavailable. Wait a few minutes and try again.</p>
+            aws_sdk_ec2_instance_connect.errors.invalid_args_exception.InvalidArgsException: <p>One of the parameters is not valid.</p>
+            aws_sdk_ec2_instance_connect.errors.serial_console_access_disabled_exception.SerialConsoleAccessDisabledException: <p>Your account is not authorized to use the EC2 Serial Console. To authorize your account, run the EnableSerialConsoleAccess API. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_EnableSerialConsoleAccess.html\">EnableSerialConsoleAccess</a> in the <i>Amazon EC2 API Reference</i>.</p>
+            aws_sdk_ec2_instance_connect.errors.serial_console_session_limit_exceeded_exception.SerialConsoleSessionLimitExceededException: <p>The instance currently has 1 active serial console session. Only 1 session is supported at a time.</p>
+            aws_sdk_ec2_instance_connect.errors.serial_console_session_unavailable_exception.SerialConsoleSessionUnavailableException: <p>Unable to start a serial console session. Please try again.</p>
+            aws_sdk_ec2_instance_connect.errors.serial_console_session_unsupported_exception.SerialConsoleSessionUnsupportedException: <p>Your instance's BIOS version is unsupported for serial console connection. Reboot your instance to update its BIOS, and then try again to connect.</p>
+            aws_sdk_ec2_instance_connect.errors.service_exception.ServiceException: <p>The service encountered an error. Follow the instructions in the error message and try again.</p>
+            aws_sdk_ec2_instance_connect.errors.throttling_exception.ThrottlingException: <p>The requests were made too frequently and have been throttled. Wait a while and try again. To increase the limit on your request frequency, contact AWS Support.</p>
+            aws_sdk_ec2_instance_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -195,6 +210,16 @@ class EC2InstanceConnectClient:
             instance_os_user: <p>The OS user on the EC2 instance for whom the key can be used to authenticate.</p>
             ssh_public_key: <p>The public key material. To use the public key, you must have the matching private key.</p>
             availability_zone: <p>The Availability Zone in which the EC2 instance was launched.</p>
+
+        Raises:
+            aws_sdk_ec2_instance_connect.errors.auth_exception.AuthException: <p>Either your AWS credentials are not valid or you do not have access to the EC2 instance.</p>
+            aws_sdk_ec2_instance_connect.errors.ec2_instance_not_found_exception.EC2InstanceNotFoundException: <p>The specified instance was not found.</p>
+            aws_sdk_ec2_instance_connect.errors.ec2_instance_state_invalid_exception.EC2InstanceStateInvalidException: <p>Unable to connect because the instance is not in a valid state. Connecting to a stopped or terminated instance is not supported. If the instance is stopped, start your instance, and try to connect again.</p>
+            aws_sdk_ec2_instance_connect.errors.ec2_instance_unavailable_exception.EC2InstanceUnavailableException: <p>The instance is currently unavailable. Wait a few minutes and try again.</p>
+            aws_sdk_ec2_instance_connect.errors.invalid_args_exception.InvalidArgsException: <p>One of the parameters is not valid.</p>
+            aws_sdk_ec2_instance_connect.errors.service_exception.ServiceException: <p>The service encountered an error. Follow the instructions in the error message and try again.</p>
+            aws_sdk_ec2_instance_connect.errors.throttling_exception.ThrottlingException: <p>The requests were made too frequently and have been throttled. Wait a while and try again. To increase the limit on your request frequency, contact AWS Support.</p>
+            aws_sdk_ec2_instance_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To push an SSH key to an EC2 instance

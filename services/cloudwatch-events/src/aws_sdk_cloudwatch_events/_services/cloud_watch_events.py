@@ -275,6 +275,14 @@ class CloudWatchEventsClient:
 
         Args:
             name: <p>The name of the partner event source to activate.</p>
+
+        Raises:
+            aws_sdk_cloudwatch_events.errors.concurrent_modification_exception.ConcurrentModificationException: <p>There is concurrent modification on a rule, target, archive, or replay.</p>
+            aws_sdk_cloudwatch_events.errors.internal_exception.InternalException: <p>This exception occurs due to unexpected causes.</p>
+            aws_sdk_cloudwatch_events.errors.invalid_state_exception.InvalidStateException: <p>The specified state is not a valid state for an event source.</p>
+            aws_sdk_cloudwatch_events.errors.operation_disabled_exception.OperationDisabledException: <p>The operation you are attempting is not available in this region.</p>
+            aws_sdk_cloudwatch_events.errors.resource_not_found_exception.ResourceNotFoundException: <p>An entity that you specified does not exist.</p>
+            aws_sdk_cloudwatch_events.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -310,6 +318,13 @@ class CloudWatchEventsClient:
 
         Args:
             replay_name: <p>The name of the replay to cancel.</p>
+
+        Raises:
+            aws_sdk_cloudwatch_events.errors.concurrent_modification_exception.ConcurrentModificationException: <p>There is concurrent modification on a rule, target, archive, or replay.</p>
+            aws_sdk_cloudwatch_events.errors.illegal_status_exception.IllegalStatusException: <p>An error occurred because a replay can be canceled only when the state is Running or Starting.</p>
+            aws_sdk_cloudwatch_events.errors.internal_exception.InternalException: <p>This exception occurs due to unexpected causes.</p>
+            aws_sdk_cloudwatch_events.errors.resource_not_found_exception.ResourceNotFoundException: <p>An entity that you specified does not exist.</p>
+            aws_sdk_cloudwatch_events.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -361,6 +376,13 @@ class CloudWatchEventsClient:
             invocation_endpoint: <p>The URL to the HTTP invocation endpoint for the API destination.</p>
             http_method: <p>The method to use for the request to the HTTP invocation endpoint.</p>
             invocation_rate_limit_per_second: <p>The maximum number of requests per second to send to the HTTP invocation endpoint.</p>
+
+        Raises:
+            aws_sdk_cloudwatch_events.errors.internal_exception.InternalException: <p>This exception occurs due to unexpected causes.</p>
+            aws_sdk_cloudwatch_events.errors.limit_exceeded_exception.LimitExceededException: <p>The request failed because it attempted to create resource beyond the allowed service quota.</p>
+            aws_sdk_cloudwatch_events.errors.resource_already_exists_exception.ResourceAlreadyExistsException: <p>The resource you are trying to create already exists.</p>
+            aws_sdk_cloudwatch_events.errors.resource_not_found_exception.ResourceNotFoundException: <p>An entity that you specified does not exist.</p>
+            aws_sdk_cloudwatch_events.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -423,6 +445,15 @@ class CloudWatchEventsClient:
             description: <p>A description for the archive.</p>
             event_pattern: <p>An event pattern to use to filter events sent to the archive.</p>
             retention_days: <p>The number of days to retain events for. Default value is 0. If set to 0, events are retained indefinitely</p>
+
+        Raises:
+            aws_sdk_cloudwatch_events.errors.concurrent_modification_exception.ConcurrentModificationException: <p>There is concurrent modification on a rule, target, archive, or replay.</p>
+            aws_sdk_cloudwatch_events.errors.internal_exception.InternalException: <p>This exception occurs due to unexpected causes.</p>
+            aws_sdk_cloudwatch_events.errors.invalid_event_pattern_exception.InvalidEventPatternException: <p>The event pattern is not valid.</p>
+            aws_sdk_cloudwatch_events.errors.limit_exceeded_exception.LimitExceededException: <p>The request failed because it attempted to create resource beyond the allowed service quota.</p>
+            aws_sdk_cloudwatch_events.errors.resource_already_exists_exception.ResourceAlreadyExistsException: <p>The resource you are trying to create already exists.</p>
+            aws_sdk_cloudwatch_events.errors.resource_not_found_exception.ResourceNotFoundException: <p>An entity that you specified does not exist.</p>
+            aws_sdk_cloudwatch_events.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -475,6 +506,12 @@ class CloudWatchEventsClient:
             description: <p>A description for the connection to create.</p>
             authorization_type: <p>The type of authorization to use for the connection.</p>
             auth_parameters: <p>A <code>CreateConnectionAuthRequestParameters</code> object that contains the authorization parameters to use to authorize with the endpoint. </p>
+
+        Raises:
+            aws_sdk_cloudwatch_events.errors.internal_exception.InternalException: <p>This exception occurs due to unexpected causes.</p>
+            aws_sdk_cloudwatch_events.errors.limit_exceeded_exception.LimitExceededException: <p>The request failed because it attempted to create resource beyond the allowed service quota.</p>
+            aws_sdk_cloudwatch_events.errors.resource_already_exists_exception.ResourceAlreadyExistsException: <p>The resource you are trying to create already exists.</p>
+            aws_sdk_cloudwatch_events.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -522,6 +559,16 @@ class CloudWatchEventsClient:
             name: <p>The name of the new event bus. </p> <p>Event bus names cannot contain the / character. You can't use the name <code>default</code> for a custom event bus, as this name is already used for your account's default event bus.</p> <p>If this is a partner event bus, the name must exactly match the name of the partner event source that this event bus is matched to.</p>
             event_source_name: <p>If you are creating a partner event bus, this specifies the partner event source that the new event bus will be matched with.</p>
             tags: <p>Tags to associate with the event bus.</p>
+
+        Raises:
+            aws_sdk_cloudwatch_events.errors.concurrent_modification_exception.ConcurrentModificationException: <p>There is concurrent modification on a rule, target, archive, or replay.</p>
+            aws_sdk_cloudwatch_events.errors.internal_exception.InternalException: <p>This exception occurs due to unexpected causes.</p>
+            aws_sdk_cloudwatch_events.errors.invalid_state_exception.InvalidStateException: <p>The specified state is not a valid state for an event source.</p>
+            aws_sdk_cloudwatch_events.errors.limit_exceeded_exception.LimitExceededException: <p>The request failed because it attempted to create resource beyond the allowed service quota.</p>
+            aws_sdk_cloudwatch_events.errors.operation_disabled_exception.OperationDisabledException: <p>The operation you are attempting is not available in this region.</p>
+            aws_sdk_cloudwatch_events.errors.resource_already_exists_exception.ResourceAlreadyExistsException: <p>The resource you are trying to create already exists.</p>
+            aws_sdk_cloudwatch_events.errors.resource_not_found_exception.ResourceNotFoundException: <p>An entity that you specified does not exist.</p>
+            aws_sdk_cloudwatch_events.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -565,6 +612,14 @@ class CloudWatchEventsClient:
         Args:
             name: <p>The name of the partner event source. This name must be unique and must be in the format <code> <i>partner_name</i>/<i>event_namespace</i>/<i>event_name</i> </code>. The Amazon Web Services account that wants to use this partner event source must create a partner event bus with a name that matches the name of the partner event source.</p>
             account: <p>The Amazon Web Services account ID that is permitted to create a matching partner event bus for this partner event source.</p>
+
+        Raises:
+            aws_sdk_cloudwatch_events.errors.concurrent_modification_exception.ConcurrentModificationException: <p>There is concurrent modification on a rule, target, archive, or replay.</p>
+            aws_sdk_cloudwatch_events.errors.internal_exception.InternalException: <p>This exception occurs due to unexpected causes.</p>
+            aws_sdk_cloudwatch_events.errors.limit_exceeded_exception.LimitExceededException: <p>The request failed because it attempted to create resource beyond the allowed service quota.</p>
+            aws_sdk_cloudwatch_events.errors.operation_disabled_exception.OperationDisabledException: <p>The operation you are attempting is not available in this region.</p>
+            aws_sdk_cloudwatch_events.errors.resource_already_exists_exception.ResourceAlreadyExistsException: <p>The resource you are trying to create already exists.</p>
+            aws_sdk_cloudwatch_events.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -603,6 +658,14 @@ class CloudWatchEventsClient:
 
         Args:
             name: <p>The name of the partner event source to deactivate.</p>
+
+        Raises:
+            aws_sdk_cloudwatch_events.errors.concurrent_modification_exception.ConcurrentModificationException: <p>There is concurrent modification on a rule, target, archive, or replay.</p>
+            aws_sdk_cloudwatch_events.errors.internal_exception.InternalException: <p>This exception occurs due to unexpected causes.</p>
+            aws_sdk_cloudwatch_events.errors.invalid_state_exception.InvalidStateException: <p>The specified state is not a valid state for an event source.</p>
+            aws_sdk_cloudwatch_events.errors.operation_disabled_exception.OperationDisabledException: <p>The operation you are attempting is not available in this region.</p>
+            aws_sdk_cloudwatch_events.errors.resource_not_found_exception.ResourceNotFoundException: <p>An entity that you specified does not exist.</p>
+            aws_sdk_cloudwatch_events.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -638,6 +701,12 @@ class CloudWatchEventsClient:
 
         Args:
             name: <p>The name of the connection to remove authorization from.</p>
+
+        Raises:
+            aws_sdk_cloudwatch_events.errors.concurrent_modification_exception.ConcurrentModificationException: <p>There is concurrent modification on a rule, target, archive, or replay.</p>
+            aws_sdk_cloudwatch_events.errors.internal_exception.InternalException: <p>This exception occurs due to unexpected causes.</p>
+            aws_sdk_cloudwatch_events.errors.resource_not_found_exception.ResourceNotFoundException: <p>An entity that you specified does not exist.</p>
+            aws_sdk_cloudwatch_events.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -675,6 +744,12 @@ class CloudWatchEventsClient:
 
         Args:
             name: <p>The name of the destination to delete.</p>
+
+        Raises:
+            aws_sdk_cloudwatch_events.errors.concurrent_modification_exception.ConcurrentModificationException: <p>There is concurrent modification on a rule, target, archive, or replay.</p>
+            aws_sdk_cloudwatch_events.errors.internal_exception.InternalException: <p>This exception occurs due to unexpected causes.</p>
+            aws_sdk_cloudwatch_events.errors.resource_not_found_exception.ResourceNotFoundException: <p>An entity that you specified does not exist.</p>
+            aws_sdk_cloudwatch_events.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -714,6 +789,12 @@ class CloudWatchEventsClient:
 
         Args:
             archive_name: <p>The name of the archive to delete.</p>
+
+        Raises:
+            aws_sdk_cloudwatch_events.errors.concurrent_modification_exception.ConcurrentModificationException: <p>There is concurrent modification on a rule, target, archive, or replay.</p>
+            aws_sdk_cloudwatch_events.errors.internal_exception.InternalException: <p>This exception occurs due to unexpected causes.</p>
+            aws_sdk_cloudwatch_events.errors.resource_not_found_exception.ResourceNotFoundException: <p>An entity that you specified does not exist.</p>
+            aws_sdk_cloudwatch_events.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -751,6 +832,12 @@ class CloudWatchEventsClient:
 
         Args:
             name: <p>The name of the connection to delete.</p>
+
+        Raises:
+            aws_sdk_cloudwatch_events.errors.concurrent_modification_exception.ConcurrentModificationException: <p>There is concurrent modification on a rule, target, archive, or replay.</p>
+            aws_sdk_cloudwatch_events.errors.internal_exception.InternalException: <p>This exception occurs due to unexpected causes.</p>
+            aws_sdk_cloudwatch_events.errors.resource_not_found_exception.ResourceNotFoundException: <p>An entity that you specified does not exist.</p>
+            aws_sdk_cloudwatch_events.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -788,6 +875,11 @@ class CloudWatchEventsClient:
 
         Args:
             name: <p>The name of the event bus to delete.</p>
+
+        Raises:
+            aws_sdk_cloudwatch_events.errors.concurrent_modification_exception.ConcurrentModificationException: <p>There is concurrent modification on a rule, target, archive, or replay.</p>
+            aws_sdk_cloudwatch_events.errors.internal_exception.InternalException: <p>This exception occurs due to unexpected causes.</p>
+            aws_sdk_cloudwatch_events.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -825,6 +917,12 @@ class CloudWatchEventsClient:
         Args:
             name: <p>The name of the event source to delete.</p>
             account: <p>The Amazon Web Services account ID of the Amazon Web Services customer that the event source was created for.</p>
+
+        Raises:
+            aws_sdk_cloudwatch_events.errors.concurrent_modification_exception.ConcurrentModificationException: <p>There is concurrent modification on a rule, target, archive, or replay.</p>
+            aws_sdk_cloudwatch_events.errors.internal_exception.InternalException: <p>This exception occurs due to unexpected causes.</p>
+            aws_sdk_cloudwatch_events.errors.operation_disabled_exception.OperationDisabledException: <p>The operation you are attempting is not available in this region.</p>
+            aws_sdk_cloudwatch_events.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -867,6 +965,13 @@ class CloudWatchEventsClient:
             name: <p>The name of the rule.</p>
             event_bus_name: <p>The name or ARN of the event bus associated with the rule. If you omit this, the default event bus is used.</p>
             force: <p>If this is a managed rule, created by an Amazon Web Services service on your behalf, you must specify <code>Force</code> as <code>True</code> to delete the rule. This parameter is ignored for rules that are not managed rules. You can check whether a rule is a managed rule by using <code>DescribeRule</code> or <code>ListRules</code> and checking the <code>ManagedBy</code> field of the response.</p>
+
+        Raises:
+            aws_sdk_cloudwatch_events.errors.concurrent_modification_exception.ConcurrentModificationException: <p>There is concurrent modification on a rule, target, archive, or replay.</p>
+            aws_sdk_cloudwatch_events.errors.internal_exception.InternalException: <p>This exception occurs due to unexpected causes.</p>
+            aws_sdk_cloudwatch_events.errors.managed_rule_exception.ManagedRuleException: <p>This rule was created by an Amazon Web Services service on behalf of your account. It is managed by that service. If you see this error in response to <code>DeleteRule</code> or <code>RemoveTargets</code>, you can use the <code>Force</code> parameter in those calls to delete the rule or remove targets from the rule. You cannot modify these managed rules by using <code>DisableRule</code>, <code>EnableRule</code>, <code>PutTargets</code>, <code>PutRule</code>, <code>TagResource</code>, or <code>UntagResource</code>. </p>
+            aws_sdk_cloudwatch_events.errors.resource_not_found_exception.ResourceNotFoundException: <p>An entity that you specified does not exist.</p>
+            aws_sdk_cloudwatch_events.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -906,6 +1011,11 @@ class CloudWatchEventsClient:
 
         Args:
             name: <p>The name of the API destination to retrieve.</p>
+
+        Raises:
+            aws_sdk_cloudwatch_events.errors.internal_exception.InternalException: <p>This exception occurs due to unexpected causes.</p>
+            aws_sdk_cloudwatch_events.errors.resource_not_found_exception.ResourceNotFoundException: <p>An entity that you specified does not exist.</p>
+            aws_sdk_cloudwatch_events.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -943,6 +1053,12 @@ class CloudWatchEventsClient:
 
         Args:
             archive_name: <p>The name of the archive to retrieve.</p>
+
+        Raises:
+            aws_sdk_cloudwatch_events.errors.internal_exception.InternalException: <p>This exception occurs due to unexpected causes.</p>
+            aws_sdk_cloudwatch_events.errors.resource_already_exists_exception.ResourceAlreadyExistsException: <p>The resource you are trying to create already exists.</p>
+            aws_sdk_cloudwatch_events.errors.resource_not_found_exception.ResourceNotFoundException: <p>An entity that you specified does not exist.</p>
+            aws_sdk_cloudwatch_events.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -980,6 +1096,11 @@ class CloudWatchEventsClient:
 
         Args:
             name: <p>The name of the connection to retrieve.</p>
+
+        Raises:
+            aws_sdk_cloudwatch_events.errors.internal_exception.InternalException: <p>This exception occurs due to unexpected causes.</p>
+            aws_sdk_cloudwatch_events.errors.resource_not_found_exception.ResourceNotFoundException: <p>An entity that you specified does not exist.</p>
+            aws_sdk_cloudwatch_events.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1019,6 +1140,11 @@ class CloudWatchEventsClient:
 
         Args:
             name: <p>The name or ARN of the event bus to show details for. If you omit this, the default event bus is displayed.</p>
+
+        Raises:
+            aws_sdk_cloudwatch_events.errors.internal_exception.InternalException: <p>This exception occurs due to unexpected causes.</p>
+            aws_sdk_cloudwatch_events.errors.resource_not_found_exception.ResourceNotFoundException: <p>An entity that you specified does not exist.</p>
+            aws_sdk_cloudwatch_events.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1057,6 +1183,12 @@ class CloudWatchEventsClient:
 
         Args:
             name: <p>The name of the partner event source to display the details of.</p>
+
+        Raises:
+            aws_sdk_cloudwatch_events.errors.internal_exception.InternalException: <p>This exception occurs due to unexpected causes.</p>
+            aws_sdk_cloudwatch_events.errors.operation_disabled_exception.OperationDisabledException: <p>The operation you are attempting is not available in this region.</p>
+            aws_sdk_cloudwatch_events.errors.resource_not_found_exception.ResourceNotFoundException: <p>An entity that you specified does not exist.</p>
+            aws_sdk_cloudwatch_events.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1094,6 +1226,12 @@ class CloudWatchEventsClient:
 
         Args:
             name: <p>The name of the event source to display.</p>
+
+        Raises:
+            aws_sdk_cloudwatch_events.errors.internal_exception.InternalException: <p>This exception occurs due to unexpected causes.</p>
+            aws_sdk_cloudwatch_events.errors.operation_disabled_exception.OperationDisabledException: <p>The operation you are attempting is not available in this region.</p>
+            aws_sdk_cloudwatch_events.errors.resource_not_found_exception.ResourceNotFoundException: <p>An entity that you specified does not exist.</p>
+            aws_sdk_cloudwatch_events.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1131,6 +1269,11 @@ class CloudWatchEventsClient:
 
         Args:
             replay_name: <p>The name of the replay to retrieve.</p>
+
+        Raises:
+            aws_sdk_cloudwatch_events.errors.internal_exception.InternalException: <p>This exception occurs due to unexpected causes.</p>
+            aws_sdk_cloudwatch_events.errors.resource_not_found_exception.ResourceNotFoundException: <p>An entity that you specified does not exist.</p>
+            aws_sdk_cloudwatch_events.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1172,6 +1315,11 @@ class CloudWatchEventsClient:
         Args:
             name: <p>The name of the rule.</p>
             event_bus_name: <p>The name or ARN of the event bus associated with the rule. If you omit this, the default event bus is used.</p>
+
+        Raises:
+            aws_sdk_cloudwatch_events.errors.internal_exception.InternalException: <p>This exception occurs due to unexpected causes.</p>
+            aws_sdk_cloudwatch_events.errors.resource_not_found_exception.ResourceNotFoundException: <p>An entity that you specified does not exist.</p>
+            aws_sdk_cloudwatch_events.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1215,6 +1363,13 @@ class CloudWatchEventsClient:
         Args:
             name: <p>The name of the rule.</p>
             event_bus_name: <p>The name or ARN of the event bus associated with the rule. If you omit this, the default event bus is used.</p>
+
+        Raises:
+            aws_sdk_cloudwatch_events.errors.concurrent_modification_exception.ConcurrentModificationException: <p>There is concurrent modification on a rule, target, archive, or replay.</p>
+            aws_sdk_cloudwatch_events.errors.internal_exception.InternalException: <p>This exception occurs due to unexpected causes.</p>
+            aws_sdk_cloudwatch_events.errors.managed_rule_exception.ManagedRuleException: <p>This rule was created by an Amazon Web Services service on behalf of your account. It is managed by that service. If you see this error in response to <code>DeleteRule</code> or <code>RemoveTargets</code>, you can use the <code>Force</code> parameter in those calls to delete the rule or remove targets from the rule. You cannot modify these managed rules by using <code>DisableRule</code>, <code>EnableRule</code>, <code>PutTargets</code>, <code>PutRule</code>, <code>TagResource</code>, or <code>UntagResource</code>. </p>
+            aws_sdk_cloudwatch_events.errors.resource_not_found_exception.ResourceNotFoundException: <p>An entity that you specified does not exist.</p>
+            aws_sdk_cloudwatch_events.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1256,6 +1411,13 @@ class CloudWatchEventsClient:
         Args:
             name: <p>The name of the rule.</p>
             event_bus_name: <p>The name or ARN of the event bus associated with the rule. If you omit this, the default event bus is used.</p>
+
+        Raises:
+            aws_sdk_cloudwatch_events.errors.concurrent_modification_exception.ConcurrentModificationException: <p>There is concurrent modification on a rule, target, archive, or replay.</p>
+            aws_sdk_cloudwatch_events.errors.internal_exception.InternalException: <p>This exception occurs due to unexpected causes.</p>
+            aws_sdk_cloudwatch_events.errors.managed_rule_exception.ManagedRuleException: <p>This rule was created by an Amazon Web Services service on behalf of your account. It is managed by that service. If you see this error in response to <code>DeleteRule</code> or <code>RemoveTargets</code>, you can use the <code>Force</code> parameter in those calls to delete the rule or remove targets from the rule. You cannot modify these managed rules by using <code>DisableRule</code>, <code>EnableRule</code>, <code>PutTargets</code>, <code>PutRule</code>, <code>TagResource</code>, or <code>UntagResource</code>. </p>
+            aws_sdk_cloudwatch_events.errors.resource_not_found_exception.ResourceNotFoundException: <p>An entity that you specified does not exist.</p>
+            aws_sdk_cloudwatch_events.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1307,6 +1469,10 @@ class CloudWatchEventsClient:
             connection_arn: <p>The ARN of the connection specified for the API destination.</p>
             next_token: <p>The token returned by a previous call to retrieve the next set of results.</p>
             limit: <p>The maximum number of API destinations to include in the response.</p>
+
+        Raises:
+            aws_sdk_cloudwatch_events.errors.internal_exception.InternalException: <p>This exception occurs due to unexpected causes.</p>
+            aws_sdk_cloudwatch_events.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1367,6 +1533,11 @@ class CloudWatchEventsClient:
             state: <p>The state of the archive.</p>
             next_token: <p>The token returned by a previous call to retrieve the next set of results.</p>
             limit: <p>The maximum number of results to return.</p>
+
+        Raises:
+            aws_sdk_cloudwatch_events.errors.internal_exception.InternalException: <p>This exception occurs due to unexpected causes.</p>
+            aws_sdk_cloudwatch_events.errors.resource_not_found_exception.ResourceNotFoundException: <p>An entity that you specified does not exist.</p>
+            aws_sdk_cloudwatch_events.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1427,6 +1598,10 @@ class CloudWatchEventsClient:
             connection_state: <p>The state of the connection.</p>
             next_token: <p>The token returned by a previous call to retrieve the next set of results.</p>
             limit: <p>The maximum number of connections to return.</p>
+
+        Raises:
+            aws_sdk_cloudwatch_events.errors.internal_exception.InternalException: <p>This exception occurs due to unexpected causes.</p>
+            aws_sdk_cloudwatch_events.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1481,6 +1656,10 @@ class CloudWatchEventsClient:
             name_prefix: <p>Specifying this limits the results to only those event buses with names that start with the specified prefix.</p>
             next_token: <p>The token returned by a previous call to retrieve the next set of results.</p>
             limit: <p>Specifying this limits the number of results returned by this operation. The operation also returns a NextToken which you can use in a subsequent operation to retrieve the next set of results.</p>
+
+        Raises:
+            aws_sdk_cloudwatch_events.errors.internal_exception.InternalException: <p>This exception occurs due to unexpected causes.</p>
+            aws_sdk_cloudwatch_events.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1533,6 +1712,11 @@ class CloudWatchEventsClient:
             name_prefix: <p>Specifying this limits the results to only those partner event sources with names that start with the specified prefix.</p>
             next_token: <p>The token returned by a previous call to retrieve the next set of results.</p>
             limit: <p>Specifying this limits the number of results returned by this operation. The operation also returns a NextToken which you can use in a subsequent operation to retrieve the next set of results.</p>
+
+        Raises:
+            aws_sdk_cloudwatch_events.errors.internal_exception.InternalException: <p>This exception occurs due to unexpected causes.</p>
+            aws_sdk_cloudwatch_events.errors.operation_disabled_exception.OperationDisabledException: <p>The operation you are attempting is not available in this region.</p>
+            aws_sdk_cloudwatch_events.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1583,6 +1767,12 @@ class CloudWatchEventsClient:
             event_source_name: <p>The name of the partner event source to display account information about.</p>
             next_token: <p>The token returned by a previous call to this operation. Specifying this retrieves the next set of results.</p>
             limit: <p>Specifying this limits the number of results returned by this operation. The operation also returns a NextToken which you can use in a subsequent operation to retrieve the next set of results.</p>
+
+        Raises:
+            aws_sdk_cloudwatch_events.errors.internal_exception.InternalException: <p>This exception occurs due to unexpected causes.</p>
+            aws_sdk_cloudwatch_events.errors.operation_disabled_exception.OperationDisabledException: <p>The operation you are attempting is not available in this region.</p>
+            aws_sdk_cloudwatch_events.errors.resource_not_found_exception.ResourceNotFoundException: <p>An entity that you specified does not exist.</p>
+            aws_sdk_cloudwatch_events.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1632,6 +1822,11 @@ class CloudWatchEventsClient:
             name_prefix: <p>If you specify this, the results are limited to only those partner event sources that start with the string you specify.</p>
             next_token: <p>The token returned by a previous call to this operation. Specifying this retrieves the next set of results.</p>
             limit: <p>pecifying this limits the number of results returned by this operation. The operation also returns a NextToken which you can use in a subsequent operation to retrieve the next set of results.</p>
+
+        Raises:
+            aws_sdk_cloudwatch_events.errors.internal_exception.InternalException: <p>This exception occurs due to unexpected causes.</p>
+            aws_sdk_cloudwatch_events.errors.operation_disabled_exception.OperationDisabledException: <p>The operation you are attempting is not available in this region.</p>
+            aws_sdk_cloudwatch_events.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1689,6 +1884,10 @@ class CloudWatchEventsClient:
             event_source_arn: <p>The ARN of the archive from which the events are replayed.</p>
             next_token: <p>The token returned by a previous call to retrieve the next set of results.</p>
             limit: <p>The maximum number of replays to retrieve.</p>
+
+        Raises:
+            aws_sdk_cloudwatch_events.errors.internal_exception.InternalException: <p>This exception occurs due to unexpected causes.</p>
+            aws_sdk_cloudwatch_events.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1747,6 +1946,11 @@ class CloudWatchEventsClient:
             event_bus_name: <p>The name or ARN of the event bus to list rules for. If you omit this, the default event bus is used.</p>
             next_token: <p>The token returned by a previous call to retrieve the next set of results.</p>
             limit: <p>The maximum number of results to return.</p>
+
+        Raises:
+            aws_sdk_cloudwatch_events.errors.internal_exception.InternalException: <p>This exception occurs due to unexpected causes.</p>
+            aws_sdk_cloudwatch_events.errors.resource_not_found_exception.ResourceNotFoundException: <p>An entity that you specified does not exist.</p>
+            aws_sdk_cloudwatch_events.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1804,6 +2008,11 @@ class CloudWatchEventsClient:
             event_bus_name: <p>The name or ARN of the event bus to list the rules for. If you omit this, the default event bus is used.</p>
             next_token: <p>The token returned by a previous call to retrieve the next set of results.</p>
             limit: <p>The maximum number of results to return.</p>
+
+        Raises:
+            aws_sdk_cloudwatch_events.errors.internal_exception.InternalException: <p>This exception occurs due to unexpected causes.</p>
+            aws_sdk_cloudwatch_events.errors.resource_not_found_exception.ResourceNotFoundException: <p>An entity that you specified does not exist.</p>
+            aws_sdk_cloudwatch_events.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1848,6 +2057,11 @@ class CloudWatchEventsClient:
 
         Args:
             resource_arn: <p>The ARN of the EventBridge resource for which you want to view tags.</p>
+
+        Raises:
+            aws_sdk_cloudwatch_events.errors.internal_exception.InternalException: <p>This exception occurs due to unexpected causes.</p>
+            aws_sdk_cloudwatch_events.errors.resource_not_found_exception.ResourceNotFoundException: <p>An entity that you specified does not exist.</p>
+            aws_sdk_cloudwatch_events.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1897,6 +2111,11 @@ class CloudWatchEventsClient:
             event_bus_name: <p>The name or ARN of the event bus associated with the rule. If you omit this, the default event bus is used.</p>
             next_token: <p>The token returned by a previous call to retrieve the next set of results.</p>
             limit: <p>The maximum number of results to return.</p>
+
+        Raises:
+            aws_sdk_cloudwatch_events.errors.internal_exception.InternalException: <p>This exception occurs due to unexpected causes.</p>
+            aws_sdk_cloudwatch_events.errors.resource_not_found_exception.ResourceNotFoundException: <p>An entity that you specified does not exist.</p>
+            aws_sdk_cloudwatch_events.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1940,6 +2159,10 @@ class CloudWatchEventsClient:
 
         Args:
             entries: <p>The entry that defines an event in your system. You can specify several parameters for the entry such as the source and type of the event, resources associated with the event, and so on.</p>
+
+        Raises:
+            aws_sdk_cloudwatch_events.errors.internal_exception.InternalException: <p>This exception occurs due to unexpected causes.</p>
+            aws_sdk_cloudwatch_events.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1977,6 +2200,11 @@ class CloudWatchEventsClient:
 
         Args:
             entries: <p>The list of events to write to the event bus.</p>
+
+        Raises:
+            aws_sdk_cloudwatch_events.errors.internal_exception.InternalException: <p>This exception occurs due to unexpected causes.</p>
+            aws_sdk_cloudwatch_events.errors.operation_disabled_exception.OperationDisabledException: <p>The operation you are attempting is not available in this region.</p>
+            aws_sdk_cloudwatch_events.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2032,6 +2260,14 @@ class CloudWatchEventsClient:
             statement_id: <p>An identifier string for the external account that you are granting permissions to. If you later want to revoke the permission for this external account, specify this <code>StatementId</code> when you run <a href=\"https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_RemovePermission.html\">RemovePermission</a>.</p>
             condition: <p>This parameter enables you to limit the permission to accounts that fulfill a certain condition, such as being a member of a certain Amazon Web Services organization. For more information about Amazon Web Services Organizations, see <a href=\"https://docs.aws.amazon.com/organizations/latest/userguide/orgs_introduction.html\">What Is Amazon Web Services Organizations</a> in the <i>Amazon Web Services Organizations User Guide</i>.</p> <p>If you specify <code>Condition</code> with an Amazon Web Services organization ID, and specify \"*\" as the value for <code>Principal</code>, you grant permission to all the accounts in the named organization.</p> <p>The <code>Condition</code> is a JSON string which must contain <code>Type</code>, <code>Key</code>, and <code>Value</code> fields.</p>
             policy: <p>A JSON string that describes the permission policy statement. You can include a <code>Policy</code> parameter in the request instead of using the <code>StatementId</code>, <code>Action</code>, <code>Principal</code>, or <code>Condition</code> parameters.</p>
+
+        Raises:
+            aws_sdk_cloudwatch_events.errors.concurrent_modification_exception.ConcurrentModificationException: <p>There is concurrent modification on a rule, target, archive, or replay.</p>
+            aws_sdk_cloudwatch_events.errors.internal_exception.InternalException: <p>This exception occurs due to unexpected causes.</p>
+            aws_sdk_cloudwatch_events.errors.operation_disabled_exception.OperationDisabledException: <p>The operation you are attempting is not available in this region.</p>
+            aws_sdk_cloudwatch_events.errors.policy_length_exceeded_exception.PolicyLengthExceededException: <p>The event bus policy is too long. For more information, see the limits.</p>
+            aws_sdk_cloudwatch_events.errors.resource_not_found_exception.ResourceNotFoundException: <p>An entity that you specified does not exist.</p>
+            aws_sdk_cloudwatch_events.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2100,6 +2336,15 @@ class CloudWatchEventsClient:
             role_arn: <p>The Amazon Resource Name (ARN) of the IAM role associated with the rule.</p> <p>If you're setting an event bus in another account as the target and that account granted permission to your account through an organization instead of directly by the account ID, you must specify a <code>RoleArn</code> with proper permissions in the <code>Target</code> structure, instead of here in this parameter.</p>
             tags: <p>The list of key-value pairs to associate with the rule.</p>
             event_bus_name: <p>The name or ARN of the event bus to associate with this rule. If you omit this, the default event bus is used.</p>
+
+        Raises:
+            aws_sdk_cloudwatch_events.errors.concurrent_modification_exception.ConcurrentModificationException: <p>There is concurrent modification on a rule, target, archive, or replay.</p>
+            aws_sdk_cloudwatch_events.errors.internal_exception.InternalException: <p>This exception occurs due to unexpected causes.</p>
+            aws_sdk_cloudwatch_events.errors.invalid_event_pattern_exception.InvalidEventPatternException: <p>The event pattern is not valid.</p>
+            aws_sdk_cloudwatch_events.errors.limit_exceeded_exception.LimitExceededException: <p>The request failed because it attempted to create resource beyond the allowed service quota.</p>
+            aws_sdk_cloudwatch_events.errors.managed_rule_exception.ManagedRuleException: <p>This rule was created by an Amazon Web Services service on behalf of your account. It is managed by that service. If you see this error in response to <code>DeleteRule</code> or <code>RemoveTargets</code>, you can use the <code>Force</code> parameter in those calls to delete the rule or remove targets from the rule. You cannot modify these managed rules by using <code>DisableRule</code>, <code>EnableRule</code>, <code>PutTargets</code>, <code>PutRule</code>, <code>TagResource</code>, or <code>UntagResource</code>. </p>
+            aws_sdk_cloudwatch_events.errors.resource_not_found_exception.ResourceNotFoundException: <p>An entity that you specified does not exist.</p>
+            aws_sdk_cloudwatch_events.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2157,6 +2402,14 @@ class CloudWatchEventsClient:
             rule: <p>The name of the rule.</p>
             event_bus_name: <p>The name or ARN of the event bus associated with the rule. If you omit this, the default event bus is used.</p>
             targets: <p>The targets to update or add to the rule.</p>
+
+        Raises:
+            aws_sdk_cloudwatch_events.errors.concurrent_modification_exception.ConcurrentModificationException: <p>There is concurrent modification on a rule, target, archive, or replay.</p>
+            aws_sdk_cloudwatch_events.errors.internal_exception.InternalException: <p>This exception occurs due to unexpected causes.</p>
+            aws_sdk_cloudwatch_events.errors.limit_exceeded_exception.LimitExceededException: <p>The request failed because it attempted to create resource beyond the allowed service quota.</p>
+            aws_sdk_cloudwatch_events.errors.managed_rule_exception.ManagedRuleException: <p>This rule was created by an Amazon Web Services service on behalf of your account. It is managed by that service. If you see this error in response to <code>DeleteRule</code> or <code>RemoveTargets</code>, you can use the <code>Force</code> parameter in those calls to delete the rule or remove targets from the rule. You cannot modify these managed rules by using <code>DisableRule</code>, <code>EnableRule</code>, <code>PutTargets</code>, <code>PutRule</code>, <code>TagResource</code>, or <code>UntagResource</code>. </p>
+            aws_sdk_cloudwatch_events.errors.resource_not_found_exception.ResourceNotFoundException: <p>An entity that you specified does not exist.</p>
+            aws_sdk_cloudwatch_events.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2207,6 +2460,13 @@ class CloudWatchEventsClient:
             statement_id: <p>The statement ID corresponding to the account that is no longer allowed to put events to the default event bus.</p>
             remove_all_permissions: <p>Specifies whether to remove all permissions.</p>
             event_bus_name: <p>The name of the event bus to revoke permissions for. If you omit this, the default event bus is used.</p>
+
+        Raises:
+            aws_sdk_cloudwatch_events.errors.concurrent_modification_exception.ConcurrentModificationException: <p>There is concurrent modification on a rule, target, archive, or replay.</p>
+            aws_sdk_cloudwatch_events.errors.internal_exception.InternalException: <p>This exception occurs due to unexpected causes.</p>
+            aws_sdk_cloudwatch_events.errors.operation_disabled_exception.OperationDisabledException: <p>The operation you are attempting is not available in this region.</p>
+            aws_sdk_cloudwatch_events.errors.resource_not_found_exception.ResourceNotFoundException: <p>An entity that you specified does not exist.</p>
+            aws_sdk_cloudwatch_events.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2257,6 +2517,13 @@ class CloudWatchEventsClient:
             event_bus_name: <p>The name or ARN of the event bus associated with the rule. If you omit this, the default event bus is used.</p>
             ids: <p>The IDs of the targets to remove from the rule.</p>
             force: <p>If this is a managed rule, created by an Amazon Web Services service on your behalf, you must specify <code>Force</code> as <code>True</code> to remove targets. This parameter is ignored for rules that are not managed rules. You can check whether a rule is a managed rule by using <code>DescribeRule</code> or <code>ListRules</code> and checking the <code>ManagedBy</code> field of the response.</p>
+
+        Raises:
+            aws_sdk_cloudwatch_events.errors.concurrent_modification_exception.ConcurrentModificationException: <p>There is concurrent modification on a rule, target, archive, or replay.</p>
+            aws_sdk_cloudwatch_events.errors.internal_exception.InternalException: <p>This exception occurs due to unexpected causes.</p>
+            aws_sdk_cloudwatch_events.errors.managed_rule_exception.ManagedRuleException: <p>This rule was created by an Amazon Web Services service on behalf of your account. It is managed by that service. If you see this error in response to <code>DeleteRule</code> or <code>RemoveTargets</code>, you can use the <code>Force</code> parameter in those calls to delete the rule or remove targets from the rule. You cannot modify these managed rules by using <code>DisableRule</code>, <code>EnableRule</code>, <code>PutTargets</code>, <code>PutRule</code>, <code>TagResource</code>, or <code>UntagResource</code>. </p>
+            aws_sdk_cloudwatch_events.errors.resource_not_found_exception.ResourceNotFoundException: <p>An entity that you specified does not exist.</p>
+            aws_sdk_cloudwatch_events.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2311,6 +2578,14 @@ class CloudWatchEventsClient:
             event_start_time: <p>A time stamp for the time to start replaying events. Only events that occurred between the <code>EventStartTime</code> and <code>EventEndTime</code> are replayed.</p>
             event_end_time: <p>A time stamp for the time to stop replaying events. Only events that occurred between the <code>EventStartTime</code> and <code>EventEndTime</code> are replayed.</p>
             destination: <p>A <code>ReplayDestination</code> object that includes details about the destination for the replay.</p>
+
+        Raises:
+            aws_sdk_cloudwatch_events.errors.internal_exception.InternalException: <p>This exception occurs due to unexpected causes.</p>
+            aws_sdk_cloudwatch_events.errors.invalid_event_pattern_exception.InvalidEventPatternException: <p>The event pattern is not valid.</p>
+            aws_sdk_cloudwatch_events.errors.limit_exceeded_exception.LimitExceededException: <p>The request failed because it attempted to create resource beyond the allowed service quota.</p>
+            aws_sdk_cloudwatch_events.errors.resource_already_exists_exception.ResourceAlreadyExistsException: <p>The resource you are trying to create already exists.</p>
+            aws_sdk_cloudwatch_events.errors.resource_not_found_exception.ResourceNotFoundException: <p>An entity that you specified does not exist.</p>
+            aws_sdk_cloudwatch_events.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2356,6 +2631,13 @@ class CloudWatchEventsClient:
         Args:
             resource_arn: <p>The ARN of the EventBridge resource that you're adding tags to.</p>
             tags: <p>The list of key-value pairs to associate with the resource.</p>
+
+        Raises:
+            aws_sdk_cloudwatch_events.errors.concurrent_modification_exception.ConcurrentModificationException: <p>There is concurrent modification on a rule, target, archive, or replay.</p>
+            aws_sdk_cloudwatch_events.errors.internal_exception.InternalException: <p>This exception occurs due to unexpected causes.</p>
+            aws_sdk_cloudwatch_events.errors.managed_rule_exception.ManagedRuleException: <p>This rule was created by an Amazon Web Services service on behalf of your account. It is managed by that service. If you see this error in response to <code>DeleteRule</code> or <code>RemoveTargets</code>, you can use the <code>Force</code> parameter in those calls to delete the rule or remove targets from the rule. You cannot modify these managed rules by using <code>DisableRule</code>, <code>EnableRule</code>, <code>PutTargets</code>, <code>PutRule</code>, <code>TagResource</code>, or <code>UntagResource</code>. </p>
+            aws_sdk_cloudwatch_events.errors.resource_not_found_exception.ResourceNotFoundException: <p>An entity that you specified does not exist.</p>
+            aws_sdk_cloudwatch_events.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2396,6 +2678,11 @@ class CloudWatchEventsClient:
         Args:
             event_pattern: <p>The event pattern. For more information, see <a href=\"https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html\">Events and Event Patterns</a> in the <i>Amazon EventBridge User Guide</i>.</p>
             event: <p>The event, in JSON format, to test against the event pattern. The JSON must follow the format specified in <a href=\"https://docs.aws.amazon.com/eventbridge/latest/userguide/aws-events.html\">Amazon Web Services Events</a>, and the following fields are mandatory:</p> <ul> <li> <p> <code>id</code> </p> </li> <li> <p> <code>account</code> </p> </li> <li> <p> <code>source</code> </p> </li> <li> <p> <code>time</code> </p> </li> <li> <p> <code>region</code> </p> </li> <li> <p> <code>resources</code> </p> </li> <li> <p> <code>detail-type</code> </p> </li> </ul>
+
+        Raises:
+            aws_sdk_cloudwatch_events.errors.internal_exception.InternalException: <p>This exception occurs due to unexpected causes.</p>
+            aws_sdk_cloudwatch_events.errors.invalid_event_pattern_exception.InvalidEventPatternException: <p>The event pattern is not valid.</p>
+            aws_sdk_cloudwatch_events.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2438,6 +2725,13 @@ class CloudWatchEventsClient:
         Args:
             resource_arn: <p>The ARN of the EventBridge resource from which you are removing tags.</p>
             tag_keys: <p>The list of tag keys to remove from the resource.</p>
+
+        Raises:
+            aws_sdk_cloudwatch_events.errors.concurrent_modification_exception.ConcurrentModificationException: <p>There is concurrent modification on a rule, target, archive, or replay.</p>
+            aws_sdk_cloudwatch_events.errors.internal_exception.InternalException: <p>This exception occurs due to unexpected causes.</p>
+            aws_sdk_cloudwatch_events.errors.managed_rule_exception.ManagedRuleException: <p>This rule was created by an Amazon Web Services service on behalf of your account. It is managed by that service. If you see this error in response to <code>DeleteRule</code> or <code>RemoveTargets</code>, you can use the <code>Force</code> parameter in those calls to delete the rule or remove targets from the rule. You cannot modify these managed rules by using <code>DisableRule</code>, <code>EnableRule</code>, <code>PutTargets</code>, <code>PutRule</code>, <code>TagResource</code>, or <code>UntagResource</code>. </p>
+            aws_sdk_cloudwatch_events.errors.resource_not_found_exception.ResourceNotFoundException: <p>An entity that you specified does not exist.</p>
+            aws_sdk_cloudwatch_events.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2496,6 +2790,13 @@ class CloudWatchEventsClient:
             invocation_endpoint: <p>The URL to the endpoint to use for the API destination.</p>
             http_method: <p>The method to use for the API destination.</p>
             invocation_rate_limit_per_second: <p>The maximum number of invocations per second to send to the API destination.</p>
+
+        Raises:
+            aws_sdk_cloudwatch_events.errors.concurrent_modification_exception.ConcurrentModificationException: <p>There is concurrent modification on a rule, target, archive, or replay.</p>
+            aws_sdk_cloudwatch_events.errors.internal_exception.InternalException: <p>This exception occurs due to unexpected causes.</p>
+            aws_sdk_cloudwatch_events.errors.limit_exceeded_exception.LimitExceededException: <p>The request failed because it attempted to create resource beyond the allowed service quota.</p>
+            aws_sdk_cloudwatch_events.errors.resource_not_found_exception.ResourceNotFoundException: <p>An entity that you specified does not exist.</p>
+            aws_sdk_cloudwatch_events.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2559,6 +2860,14 @@ class CloudWatchEventsClient:
             description: <p>The description for the archive.</p>
             event_pattern: <p>The event pattern to use to filter events sent to the archive.</p>
             retention_days: <p>The number of days to retain events in the archive.</p>
+
+        Raises:
+            aws_sdk_cloudwatch_events.errors.concurrent_modification_exception.ConcurrentModificationException: <p>There is concurrent modification on a rule, target, archive, or replay.</p>
+            aws_sdk_cloudwatch_events.errors.internal_exception.InternalException: <p>This exception occurs due to unexpected causes.</p>
+            aws_sdk_cloudwatch_events.errors.invalid_event_pattern_exception.InvalidEventPatternException: <p>The event pattern is not valid.</p>
+            aws_sdk_cloudwatch_events.errors.limit_exceeded_exception.LimitExceededException: <p>The request failed because it attempted to create resource beyond the allowed service quota.</p>
+            aws_sdk_cloudwatch_events.errors.resource_not_found_exception.ResourceNotFoundException: <p>An entity that you specified does not exist.</p>
+            aws_sdk_cloudwatch_events.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2614,6 +2923,13 @@ class CloudWatchEventsClient:
             description: <p>A description for the connection.</p>
             authorization_type: <p>The type of authorization to use for the connection.</p>
             auth_parameters: <p>The authorization parameters to use for the connection.</p>
+
+        Raises:
+            aws_sdk_cloudwatch_events.errors.concurrent_modification_exception.ConcurrentModificationException: <p>There is concurrent modification on a rule, target, archive, or replay.</p>
+            aws_sdk_cloudwatch_events.errors.internal_exception.InternalException: <p>This exception occurs due to unexpected causes.</p>
+            aws_sdk_cloudwatch_events.errors.limit_exceeded_exception.LimitExceededException: <p>The request failed because it attempted to create resource beyond the allowed service quota.</p>
+            aws_sdk_cloudwatch_events.errors.resource_not_found_exception.ResourceNotFoundException: <p>An entity that you specified does not exist.</p>
+            aws_sdk_cloudwatch_events.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(

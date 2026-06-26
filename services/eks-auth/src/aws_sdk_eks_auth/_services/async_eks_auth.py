@@ -131,6 +131,18 @@ class AsyncEKSAuthClient:
         Args:
             cluster_name: <p>The name of the cluster for the request.</p>
             token: <p>The token of the Kubernetes service account for the pod.</p>
+
+        Raises:
+            aws_sdk_eks_auth.errors.access_denied_exception.AccessDeniedException: <p>You don't have permissions to perform the requested operation. The IAM principal making the request must have at least one IAM permissions policy attached that grants the required permissions. For more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html\">Access management</a> in the <i>IAM User Guide</i>. </p>
+            aws_sdk_eks_auth.errors.expired_token_exception.ExpiredTokenException: <p>The specified Kubernetes service account token is expired.</p>
+            aws_sdk_eks_auth.errors.internal_server_exception.InternalServerException: <p>These errors are usually caused by a server-side issue.</p>
+            aws_sdk_eks_auth.errors.invalid_parameter_exception.InvalidParameterException: <p>The specified parameter is invalid. Review the available parameters for the API request.</p>
+            aws_sdk_eks_auth.errors.invalid_request_exception.InvalidRequestException: <p>This exception is thrown if the request contains a semantic error. The precise meaning will depend on the API, and will be documented in the error message.</p>
+            aws_sdk_eks_auth.errors.invalid_token_exception.InvalidTokenException: <p>The specified Kubernetes service account token is invalid.</p>
+            aws_sdk_eks_auth.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_eks_auth.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is unavailable. Back off and retry the operation.</p>
+            aws_sdk_eks_auth.errors.throttling_exception.ThrottlingException: <p>The request was denied because your request rate is too high. Reduce the frequency of requests.</p>
+            aws_sdk_eks_auth.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

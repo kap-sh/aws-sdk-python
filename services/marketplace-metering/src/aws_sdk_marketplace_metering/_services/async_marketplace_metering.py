@@ -155,6 +155,19 @@ class AsyncMarketplaceMeteringClient:
         Args:
             usage_records: <p>The set of <code>UsageRecords</code> to submit. <code>BatchMeterUsage</code> accepts up to 25 <code>UsageRecords</code> at a time.</p>
             product_code: <p>Product code is used to uniquely identify a product in Amazon Web Services Marketplace. The product code should be the same as the one used during the publishing of a new product.</p>
+
+        Raises:
+            aws_sdk_marketplace_metering.errors.disabled_api_exception.DisabledApiException: <p>The API is disabled in the Region.</p>
+            aws_sdk_marketplace_metering.errors.internal_service_error_exception.InternalServiceErrorException: <p>An internal error has occurred. Retry your request. If the problem persists, post a message with details on the Amazon Web Services forums.</p>
+            aws_sdk_marketplace_metering.errors.invalid_customer_identifier_exception.InvalidCustomerIdentifierException: <p>You have metered usage for a <code>CustomerIdentifier</code> that does not exist.</p>
+            aws_sdk_marketplace_metering.errors.invalid_license_exception.InvalidLicenseException: <p>Ensure the <code>LicenseArn</code> is valid, matches the customer, and usage is within the license activation period.</p>
+            aws_sdk_marketplace_metering.errors.invalid_product_code_exception.InvalidProductCodeException: <p>The product code passed does not match the product code used for publishing the product.</p>
+            aws_sdk_marketplace_metering.errors.invalid_tag_exception.InvalidTagException: <p>The tag is invalid, or the number of tags is greater than 5.</p>
+            aws_sdk_marketplace_metering.errors.invalid_usage_allocations_exception.InvalidUsageAllocationsException: <p>Sum of allocated usage quantities is not equal to the usage quantity.</p>
+            aws_sdk_marketplace_metering.errors.invalid_usage_dimension_exception.InvalidUsageDimensionException: <p>The usage dimension does not match one of the <code>UsageDimensions</code> associated with products.</p>
+            aws_sdk_marketplace_metering.errors.throttling_exception.ThrottlingException: <p>The calls to the API are throttled.</p>
+            aws_sdk_marketplace_metering.errors.timestamp_out_of_bounds_exception.TimestampOutOfBoundsException: <p>The <code>timestamp</code> value passed in the <code>UsageRecord</code> is out of allowed range.</p> <p>For <code>BatchMeterUsage</code>, if any of the records are outside of the allowed range, the entire batch is not processed. You must remove invalid records and try again.</p>
+            aws_sdk_marketplace_metering.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -213,6 +226,20 @@ class AsyncMarketplaceMeteringClient:
             dry_run: <p>Checks whether you have the permissions required for the action, but does not make the request. If you have the permissions, the request returns <code>DryRunOperation</code>; otherwise, it returns <code>UnauthorizedException</code>. Defaults to <code>false</code> if not specified.</p>
             usage_allocations: <p>The set of <code>UsageAllocations</code> to submit.</p> <p>The sum of all <code>UsageAllocation</code> quantities must equal the <code>UsageQuantity</code> of the <code>MeterUsage</code> request, and each <code>UsageAllocation</code> must have a unique set of tags (include no tags).</p>
             client_token: <p>Specifies a unique, case-sensitive identifier that you provide to ensure the idempotency of the request. This lets you safely retry the request without accidentally performing the same operation a second time. Passing the same value to a later call to an operation requires that you also pass the same value for all other parameters. We recommend that you use a <a href=\"https://wikipedia.org/wiki/Universally_unique_identifier\">UUID type of value</a>.</p> <p>If you don't provide this value, then Amazon Web Services generates a random one for you.</p> <p>If you retry the operation with the same <code>ClientToken</code>, but with different parameters, the retry fails with an <code>IdempotencyConflictException</code> error.</p>
+
+        Raises:
+            aws_sdk_marketplace_metering.errors.customer_not_entitled_exception.CustomerNotEntitledException: <p>Exception thrown when the customer does not have a valid subscription for the product.</p>
+            aws_sdk_marketplace_metering.errors.duplicate_request_exception.DuplicateRequestException: <p>A metering record has already been emitted by the same EC2 instance, ECS task, or EKS pod for the given {<code>usageDimension</code>, <code>timestamp</code>} with a different <code>usageQuantity</code>.</p>
+            aws_sdk_marketplace_metering.errors.idempotency_conflict_exception.IdempotencyConflictException: <p>The <code>ClientToken</code> is being used for multiple requests.</p>
+            aws_sdk_marketplace_metering.errors.internal_service_error_exception.InternalServiceErrorException: <p>An internal error has occurred. Retry your request. If the problem persists, post a message with details on the Amazon Web Services forums.</p>
+            aws_sdk_marketplace_metering.errors.invalid_endpoint_region_exception.InvalidEndpointRegionException: <p>The endpoint being called is in a Amazon Web Services Region different from your EC2 instance, ECS task, or EKS pod. The Region of the Metering Service endpoint and the Amazon Web Services Region of the resource must match.</p>
+            aws_sdk_marketplace_metering.errors.invalid_product_code_exception.InvalidProductCodeException: <p>The product code passed does not match the product code used for publishing the product.</p>
+            aws_sdk_marketplace_metering.errors.invalid_tag_exception.InvalidTagException: <p>The tag is invalid, or the number of tags is greater than 5.</p>
+            aws_sdk_marketplace_metering.errors.invalid_usage_allocations_exception.InvalidUsageAllocationsException: <p>Sum of allocated usage quantities is not equal to the usage quantity.</p>
+            aws_sdk_marketplace_metering.errors.invalid_usage_dimension_exception.InvalidUsageDimensionException: <p>The usage dimension does not match one of the <code>UsageDimensions</code> associated with products.</p>
+            aws_sdk_marketplace_metering.errors.throttling_exception.ThrottlingException: <p>The calls to the API are throttled.</p>
+            aws_sdk_marketplace_metering.errors.timestamp_out_of_bounds_exception.TimestampOutOfBoundsException: <p>The <code>timestamp</code> value passed in the <code>UsageRecord</code> is out of allowed range.</p> <p>For <code>BatchMeterUsage</code>, if any of the records are outside of the allowed range, the entire batch is not processed. You must remove invalid records and try again.</p>
+            aws_sdk_marketplace_metering.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -265,6 +292,17 @@ class AsyncMarketplaceMeteringClient:
             product_code: <p>Product code is used to uniquely identify a product in Amazon Web Services Marketplace. The product code should be the same as the one used during the publishing of a new product.</p>
             public_key_version: <p>Public Key Version provided by Amazon Web Services Marketplace</p>
             nonce: <p>(Optional) To scope down the registration to a specific running software instance and guard against replay attacks.</p>
+
+        Raises:
+            aws_sdk_marketplace_metering.errors.customer_not_entitled_exception.CustomerNotEntitledException: <p>Exception thrown when the customer does not have a valid subscription for the product.</p>
+            aws_sdk_marketplace_metering.errors.disabled_api_exception.DisabledApiException: <p>The API is disabled in the Region.</p>
+            aws_sdk_marketplace_metering.errors.internal_service_error_exception.InternalServiceErrorException: <p>An internal error has occurred. Retry your request. If the problem persists, post a message with details on the Amazon Web Services forums.</p>
+            aws_sdk_marketplace_metering.errors.invalid_product_code_exception.InvalidProductCodeException: <p>The product code passed does not match the product code used for publishing the product.</p>
+            aws_sdk_marketplace_metering.errors.invalid_public_key_version_exception.InvalidPublicKeyVersionException: <p>Public Key version is invalid.</p>
+            aws_sdk_marketplace_metering.errors.invalid_region_exception.InvalidRegionException: <p> <code>RegisterUsage</code> must be called in the same Amazon Web Services Region the ECS task was launched in. This prevents a container from hardcoding a Region (e.g. withRegion(“us-east-1”) when calling <code>RegisterUsage</code>.</p>
+            aws_sdk_marketplace_metering.errors.platform_not_supported_exception.PlatformNotSupportedException: <p>Amazon Web Services Marketplace does not support metering usage from the underlying platform. Currently, Amazon ECS, Amazon EKS, and Fargate are supported.</p>
+            aws_sdk_marketplace_metering.errors.throttling_exception.ThrottlingException: <p>The calls to the API are throttled.</p>
+            aws_sdk_marketplace_metering.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -306,6 +344,14 @@ class AsyncMarketplaceMeteringClient:
 
         Args:
             registration_token: <p>When a buyer visits your website during the registration process, the buyer submits a registration token through the browser. The registration token is resolved to obtain a <code>CustomerIdentifier</code> along with the <code>CustomerAWSAccountId</code>, <code>ProductCode</code>, and <code>LicenseArn</code>.</p>
+
+        Raises:
+            aws_sdk_marketplace_metering.errors.disabled_api_exception.DisabledApiException: <p>The API is disabled in the Region.</p>
+            aws_sdk_marketplace_metering.errors.expired_token_exception.ExpiredTokenException: <p>The submitted registration token has expired. This can happen if the buyer's browser takes too long to redirect to your page, the buyer has resubmitted the registration token, or your application has held on to the registration token for too long. Your SaaS registration website should redeem this token as soon as it is submitted by the buyer's browser.</p>
+            aws_sdk_marketplace_metering.errors.internal_service_error_exception.InternalServiceErrorException: <p>An internal error has occurred. Retry your request. If the problem persists, post a message with details on the Amazon Web Services forums.</p>
+            aws_sdk_marketplace_metering.errors.invalid_token_exception.InvalidTokenException: <p>Registration token is invalid.</p>
+            aws_sdk_marketplace_metering.errors.throttling_exception.ThrottlingException: <p>The calls to the API are throttled.</p>
+            aws_sdk_marketplace_metering.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

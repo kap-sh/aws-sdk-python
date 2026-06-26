@@ -312,6 +312,14 @@ class AsyncresiliencehubClient:
         Args:
             app_arn: <p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\"> Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i> guide.</p>
             entries: <p>List of resource grouping recommendations you want to include in your application.</p>
+
+        Raises:
+            aws_sdk_resiliencehub.errors.access_denied_exception.AccessDeniedException: <p>You don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions.</p>
+            aws_sdk_resiliencehub.errors.internal_server_exception.InternalServerException: <p>This exception occurs when there is an internal failure in the Resilience Hub service.</p>
+            aws_sdk_resiliencehub.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception occurs when the specified resource could not be found.</p>
+            aws_sdk_resiliencehub.errors.throttling_exception.ThrottlingException: <p>This exception occurs when you have exceeded the limit on the number of requests per second.</p>
+            aws_sdk_resiliencehub.errors.validation_exception.ValidationException: <p>This exception occurs when a request is not valid.</p>
+            aws_sdk_resiliencehub.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -353,6 +361,16 @@ class AsyncresiliencehubClient:
         Args:
             app_arn: <p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\"> Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i> guide.</p>
             resource_mappings: <p>Mappings used to map logical resources from the template to physical resources. You can use the mapping type <code>CFN_STACK</code> if the application template uses a logical stack name. Or you can map individual resources by using the mapping type <code>RESOURCE</code>. We recommend using the mapping type <code>CFN_STACK</code> if the application is backed by a CloudFormation stack.</p>
+
+        Raises:
+            aws_sdk_resiliencehub.errors.access_denied_exception.AccessDeniedException: <p>You don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions.</p>
+            aws_sdk_resiliencehub.errors.conflict_exception.ConflictException: <p>This exception occurs when a conflict with a previous successful write is detected. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+            aws_sdk_resiliencehub.errors.internal_server_exception.InternalServerException: <p>This exception occurs when there is an internal failure in the Resilience Hub service.</p>
+            aws_sdk_resiliencehub.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception occurs when the specified resource could not be found.</p>
+            aws_sdk_resiliencehub.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>This exception occurs when you have exceeded your service quota. To perform the requested action, remove some of the relevant resources, or use Service Quotas to request a service quota increase.</p>
+            aws_sdk_resiliencehub.errors.throttling_exception.ThrottlingException: <p>This exception occurs when you have exceeded the limit on the number of requests per second.</p>
+            aws_sdk_resiliencehub.errors.validation_exception.ValidationException: <p>This exception occurs when a request is not valid.</p>
+            aws_sdk_resiliencehub.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -394,6 +412,14 @@ class AsyncresiliencehubClient:
         Args:
             app_arn: <p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\"> Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i> guide.</p>
             request_entries: <p>Defines the list of operational recommendations that need to be included or excluded.</p>
+
+        Raises:
+            aws_sdk_resiliencehub.errors.access_denied_exception.AccessDeniedException: <p>You don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions.</p>
+            aws_sdk_resiliencehub.errors.internal_server_exception.InternalServerException: <p>This exception occurs when there is an internal failure in the Resilience Hub service.</p>
+            aws_sdk_resiliencehub.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception occurs when the specified resource could not be found.</p>
+            aws_sdk_resiliencehub.errors.throttling_exception.ThrottlingException: <p>This exception occurs when you have exceeded the limit on the number of requests per second.</p>
+            aws_sdk_resiliencehub.errors.validation_exception.ValidationException: <p>This exception occurs when a request is not valid.</p>
+            aws_sdk_resiliencehub.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -459,6 +485,16 @@ class AsyncresiliencehubClient:
             permission_model: <p>Defines the roles and credentials that Resilience Hub would use while creating the application, importing its resources, and running an assessment.</p>
             event_subscriptions: <p>The list of events you would like to subscribe and get notification for. Currently, Resilience Hub supports only <b>Drift detected</b> and <b>Scheduled assessment failure</b> events notification.</p>
             aws_application_arn: <p>Amazon Resource Name (ARN) of Resource Groups group that is integrated with an AppRegistry application. For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\"> Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i> guide.</p>
+
+        Raises:
+            aws_sdk_resiliencehub.errors.access_denied_exception.AccessDeniedException: <p>You don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions.</p>
+            aws_sdk_resiliencehub.errors.conflict_exception.ConflictException: <p>This exception occurs when a conflict with a previous successful write is detected. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+            aws_sdk_resiliencehub.errors.internal_server_exception.InternalServerException: <p>This exception occurs when there is an internal failure in the Resilience Hub service.</p>
+            aws_sdk_resiliencehub.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception occurs when the specified resource could not be found.</p>
+            aws_sdk_resiliencehub.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>This exception occurs when you have exceeded your service quota. To perform the requested action, remove some of the relevant resources, or use Service Quotas to request a service quota increase.</p>
+            aws_sdk_resiliencehub.errors.throttling_exception.ThrottlingException: <p>This exception occurs when you have exceeded the limit on the number of requests per second.</p>
+            aws_sdk_resiliencehub.errors.validation_exception.ValidationException: <p>This exception occurs when a request is not valid.</p>
+            aws_sdk_resiliencehub.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -527,6 +563,16 @@ class AsyncresiliencehubClient:
             type: <p>Type of Application Component. For more information about the types of Application Component, see <a href=\"https://docs.aws.amazon.com/resilience-hub/latest/userguide/AppComponent.grouping.html\">Grouping resources in an AppComponent</a>.</p>
             additional_info: <p>Currently, there is no supported additional information for Application Components.</p>
             client_token: <p>Used for an idempotency token. A client token is a unique, case-sensitive string of up to 64 ASCII characters. You should not reuse the same client token for other API requests.</p>
+
+        Raises:
+            aws_sdk_resiliencehub.errors.access_denied_exception.AccessDeniedException: <p>You don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions.</p>
+            aws_sdk_resiliencehub.errors.conflict_exception.ConflictException: <p>This exception occurs when a conflict with a previous successful write is detected. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+            aws_sdk_resiliencehub.errors.internal_server_exception.InternalServerException: <p>This exception occurs when there is an internal failure in the Resilience Hub service.</p>
+            aws_sdk_resiliencehub.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception occurs when the specified resource could not be found.</p>
+            aws_sdk_resiliencehub.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>This exception occurs when you have exceeded your service quota. To perform the requested action, remove some of the relevant resources, or use Service Quotas to request a service quota increase.</p>
+            aws_sdk_resiliencehub.errors.throttling_exception.ThrottlingException: <p>This exception occurs when you have exceeded the limit on the number of requests per second.</p>
+            aws_sdk_resiliencehub.errors.validation_exception.ValidationException: <p>This exception occurs when a request is not valid.</p>
+            aws_sdk_resiliencehub.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -599,6 +645,16 @@ class AsyncresiliencehubClient:
             app_components: <p>List of Application Components that this resource belongs to. If an Application Component is not part of the Resilience Hub application, it will be added.</p>
             additional_info: <p>Currently, there is no supported additional information for resources.</p>
             client_token: <p>Used for an idempotency token. A client token is a unique, case-sensitive string of up to 64 ASCII characters. You should not reuse the same client token for other API requests.</p>
+
+        Raises:
+            aws_sdk_resiliencehub.errors.access_denied_exception.AccessDeniedException: <p>You don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions.</p>
+            aws_sdk_resiliencehub.errors.conflict_exception.ConflictException: <p>This exception occurs when a conflict with a previous successful write is detected. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+            aws_sdk_resiliencehub.errors.internal_server_exception.InternalServerException: <p>This exception occurs when there is an internal failure in the Resilience Hub service.</p>
+            aws_sdk_resiliencehub.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception occurs when the specified resource could not be found.</p>
+            aws_sdk_resiliencehub.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>This exception occurs when you have exceeded your service quota. To perform the requested action, remove some of the relevant resources, or use Service Quotas to request a service quota increase.</p>
+            aws_sdk_resiliencehub.errors.throttling_exception.ThrottlingException: <p>This exception occurs when you have exceeded the limit on the number of requests per second.</p>
+            aws_sdk_resiliencehub.errors.validation_exception.ValidationException: <p>This exception occurs when a request is not valid.</p>
+            aws_sdk_resiliencehub.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -675,6 +731,16 @@ class AsyncresiliencehubClient:
             client_token: <p>Used for an idempotency token. A client token is a unique, case-sensitive string of up to 64 ASCII characters. You should not reuse the same client token for other API requests.</p>
             tags: <p>Tags assigned to the resource. A tag is a label that you assign to an Amazon Web Services resource. Each tag consists of a key/value pair.</p>
             bucket_name: <p>The name of the Amazon S3 bucket that will contain the recommendation template.</p>
+
+        Raises:
+            aws_sdk_resiliencehub.errors.access_denied_exception.AccessDeniedException: <p>You don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions.</p>
+            aws_sdk_resiliencehub.errors.conflict_exception.ConflictException: <p>This exception occurs when a conflict with a previous successful write is detected. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+            aws_sdk_resiliencehub.errors.internal_server_exception.InternalServerException: <p>This exception occurs when there is an internal failure in the Resilience Hub service.</p>
+            aws_sdk_resiliencehub.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception occurs when the specified resource could not be found.</p>
+            aws_sdk_resiliencehub.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>This exception occurs when you have exceeded your service quota. To perform the requested action, remove some of the relevant resources, or use Service Quotas to request a service quota increase.</p>
+            aws_sdk_resiliencehub.errors.throttling_exception.ThrottlingException: <p>This exception occurs when you have exceeded the limit on the number of requests per second.</p>
+            aws_sdk_resiliencehub.errors.validation_exception.ValidationException: <p>This exception occurs when a request is not valid.</p>
+            aws_sdk_resiliencehub.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -744,6 +810,15 @@ class AsyncresiliencehubClient:
             policy: <p>The type of resiliency policy to be created, including the recovery time objective (RTO) and recovery point objective (RPO) in seconds.</p>
             client_token: <p>Used for an idempotency token. A client token is a unique, case-sensitive string of up to 64 ASCII characters. You should not reuse the same client token for other API requests.</p>
             tags: <p>Tags assigned to the resource. A tag is a label that you assign to an Amazon Web Services resource. Each tag consists of a key/value pair.</p>
+
+        Raises:
+            aws_sdk_resiliencehub.errors.access_denied_exception.AccessDeniedException: <p>You don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions.</p>
+            aws_sdk_resiliencehub.errors.conflict_exception.ConflictException: <p>This exception occurs when a conflict with a previous successful write is detected. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+            aws_sdk_resiliencehub.errors.internal_server_exception.InternalServerException: <p>This exception occurs when there is an internal failure in the Resilience Hub service.</p>
+            aws_sdk_resiliencehub.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>This exception occurs when you have exceeded your service quota. To perform the requested action, remove some of the relevant resources, or use Service Quotas to request a service quota increase.</p>
+            aws_sdk_resiliencehub.errors.throttling_exception.ThrottlingException: <p>This exception occurs when you have exceeded the limit on the number of requests per second.</p>
+            aws_sdk_resiliencehub.errors.validation_exception.ValidationException: <p>This exception occurs when a request is not valid.</p>
+            aws_sdk_resiliencehub.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -800,6 +875,14 @@ class AsyncresiliencehubClient:
             app_arn: <p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\"> Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i> guide.</p>
             force_delete: <p>A boolean option to force the deletion of an Resilience Hub application. </p>
             client_token: <p>Used for an idempotency token. A client token is a unique, case-sensitive string of up to 64 ASCII characters. You should not reuse the same client token for other API requests.</p>
+
+        Raises:
+            aws_sdk_resiliencehub.errors.conflict_exception.ConflictException: <p>This exception occurs when a conflict with a previous successful write is detected. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+            aws_sdk_resiliencehub.errors.internal_server_exception.InternalServerException: <p>This exception occurs when there is an internal failure in the Resilience Hub service.</p>
+            aws_sdk_resiliencehub.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception occurs when the specified resource could not be found.</p>
+            aws_sdk_resiliencehub.errors.throttling_exception.ThrottlingException: <p>This exception occurs when you have exceeded the limit on the number of requests per second.</p>
+            aws_sdk_resiliencehub.errors.validation_exception.ValidationException: <p>This exception occurs when a request is not valid.</p>
+            aws_sdk_resiliencehub.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -846,6 +929,15 @@ class AsyncresiliencehubClient:
         Args:
             assessment_arn: <p>Amazon Resource Name (ARN) of the assessment. The format for this ARN is: arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app-assessment/<code>app-id</code>. For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\"> Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i> guide.</p>
             client_token: <p>Used for an idempotency token. A client token is a unique, case-sensitive string of up to 64 ASCII characters. You should not reuse the same client token for other API requests.</p>
+
+        Raises:
+            aws_sdk_resiliencehub.errors.access_denied_exception.AccessDeniedException: <p>You don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions.</p>
+            aws_sdk_resiliencehub.errors.conflict_exception.ConflictException: <p>This exception occurs when a conflict with a previous successful write is detected. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+            aws_sdk_resiliencehub.errors.internal_server_exception.InternalServerException: <p>This exception occurs when there is an internal failure in the Resilience Hub service.</p>
+            aws_sdk_resiliencehub.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception occurs when the specified resource could not be found.</p>
+            aws_sdk_resiliencehub.errors.throttling_exception.ThrottlingException: <p>This exception occurs when you have exceeded the limit on the number of requests per second.</p>
+            aws_sdk_resiliencehub.errors.validation_exception.ValidationException: <p>This exception occurs when a request is not valid.</p>
+            aws_sdk_resiliencehub.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -900,6 +992,15 @@ class AsyncresiliencehubClient:
             terraform_source: <p>The imported Terraform s3 state ﬁle you want to remove from the Resilience Hub application.</p>
             client_token: <p>Used for an idempotency token. A client token is a unique, case-sensitive string of up to 64 ASCII characters. You should not reuse the same client token for other API requests.</p>
             eks_source_cluster_namespace: <p>The namespace on your Amazon Elastic Kubernetes Service cluster that you want to delete from the Resilience Hub application.</p>
+
+        Raises:
+            aws_sdk_resiliencehub.errors.access_denied_exception.AccessDeniedException: <p>You don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions.</p>
+            aws_sdk_resiliencehub.errors.conflict_exception.ConflictException: <p>This exception occurs when a conflict with a previous successful write is detected. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+            aws_sdk_resiliencehub.errors.internal_server_exception.InternalServerException: <p>This exception occurs when there is an internal failure in the Resilience Hub service.</p>
+            aws_sdk_resiliencehub.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception occurs when the specified resource could not be found.</p>
+            aws_sdk_resiliencehub.errors.throttling_exception.ThrottlingException: <p>This exception occurs when you have exceeded the limit on the number of requests per second.</p>
+            aws_sdk_resiliencehub.errors.validation_exception.ValidationException: <p>This exception occurs when a request is not valid.</p>
+            aws_sdk_resiliencehub.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -952,6 +1053,15 @@ class AsyncresiliencehubClient:
             app_arn: <p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\"> Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i> guide.</p>
             id: <p>Identifier of the Application Component.</p>
             client_token: <p>Used for an idempotency token. A client token is a unique, case-sensitive string of up to 64 ASCII characters. You should not reuse the same client token for other API requests.</p>
+
+        Raises:
+            aws_sdk_resiliencehub.errors.access_denied_exception.AccessDeniedException: <p>You don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions.</p>
+            aws_sdk_resiliencehub.errors.conflict_exception.ConflictException: <p>This exception occurs when a conflict with a previous successful write is detected. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+            aws_sdk_resiliencehub.errors.internal_server_exception.InternalServerException: <p>This exception occurs when there is an internal failure in the Resilience Hub service.</p>
+            aws_sdk_resiliencehub.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception occurs when the specified resource could not be found.</p>
+            aws_sdk_resiliencehub.errors.throttling_exception.ThrottlingException: <p>This exception occurs when you have exceeded the limit on the number of requests per second.</p>
+            aws_sdk_resiliencehub.errors.validation_exception.ValidationException: <p>This exception occurs when a request is not valid.</p>
+            aws_sdk_resiliencehub.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1015,6 +1125,15 @@ class AsyncresiliencehubClient:
             aws_region: <p>Amazon Web Services region that owns the physical resource.</p>
             aws_account_id: <p>Amazon Web Services account that owns the physical resource.</p>
             client_token: <p>Used for an idempotency token. A client token is a unique, case-sensitive string of up to 64 ASCII characters. You should not reuse the same client token for other API requests.</p>
+
+        Raises:
+            aws_sdk_resiliencehub.errors.access_denied_exception.AccessDeniedException: <p>You don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions.</p>
+            aws_sdk_resiliencehub.errors.conflict_exception.ConflictException: <p>This exception occurs when a conflict with a previous successful write is detected. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+            aws_sdk_resiliencehub.errors.internal_server_exception.InternalServerException: <p>This exception occurs when there is an internal failure in the Resilience Hub service.</p>
+            aws_sdk_resiliencehub.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception occurs when the specified resource could not be found.</p>
+            aws_sdk_resiliencehub.errors.throttling_exception.ThrottlingException: <p>This exception occurs when you have exceeded the limit on the number of requests per second.</p>
+            aws_sdk_resiliencehub.errors.validation_exception.ValidationException: <p>This exception occurs when a request is not valid.</p>
+            aws_sdk_resiliencehub.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1069,6 +1188,14 @@ class AsyncresiliencehubClient:
         Args:
             recommendation_template_arn: <p>The Amazon Resource Name (ARN) for a recommendation template.</p>
             client_token: <p>Used for an idempotency token. A client token is a unique, case-sensitive string of up to 64 ASCII characters. You should not reuse the same client token for other API requests.</p>
+
+        Raises:
+            aws_sdk_resiliencehub.errors.access_denied_exception.AccessDeniedException: <p>You don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions.</p>
+            aws_sdk_resiliencehub.errors.internal_server_exception.InternalServerException: <p>This exception occurs when there is an internal failure in the Resilience Hub service.</p>
+            aws_sdk_resiliencehub.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception occurs when the specified resource could not be found.</p>
+            aws_sdk_resiliencehub.errors.throttling_exception.ThrottlingException: <p>This exception occurs when you have exceeded the limit on the number of requests per second.</p>
+            aws_sdk_resiliencehub.errors.validation_exception.ValidationException: <p>This exception occurs when a request is not valid.</p>
+            aws_sdk_resiliencehub.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1113,6 +1240,15 @@ class AsyncresiliencehubClient:
         Args:
             policy_arn: <p>Amazon Resource Name (ARN) of the resiliency policy. The format for this ARN is: arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:resiliency-policy/<code>policy-id</code>. For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\"> Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i> guide.</p>
             client_token: <p>Used for an idempotency token. A client token is a unique, case-sensitive string of up to 64 ASCII characters. You should not reuse the same client token for other API requests.</p>
+
+        Raises:
+            aws_sdk_resiliencehub.errors.access_denied_exception.AccessDeniedException: <p>You don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions.</p>
+            aws_sdk_resiliencehub.errors.conflict_exception.ConflictException: <p>This exception occurs when a conflict with a previous successful write is detected. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+            aws_sdk_resiliencehub.errors.internal_server_exception.InternalServerException: <p>This exception occurs when there is an internal failure in the Resilience Hub service.</p>
+            aws_sdk_resiliencehub.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception occurs when the specified resource could not be found.</p>
+            aws_sdk_resiliencehub.errors.throttling_exception.ThrottlingException: <p>This exception occurs when you have exceeded the limit on the number of requests per second.</p>
+            aws_sdk_resiliencehub.errors.validation_exception.ValidationException: <p>This exception occurs when a request is not valid.</p>
+            aws_sdk_resiliencehub.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1153,6 +1289,14 @@ class AsyncresiliencehubClient:
 
         Args:
             app_arn: <p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\"> Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i> guide.</p>
+
+        Raises:
+            aws_sdk_resiliencehub.errors.access_denied_exception.AccessDeniedException: <p>You don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions.</p>
+            aws_sdk_resiliencehub.errors.internal_server_exception.InternalServerException: <p>This exception occurs when there is an internal failure in the Resilience Hub service.</p>
+            aws_sdk_resiliencehub.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception occurs when the specified resource could not be found.</p>
+            aws_sdk_resiliencehub.errors.throttling_exception.ThrottlingException: <p>This exception occurs when you have exceeded the limit on the number of requests per second.</p>
+            aws_sdk_resiliencehub.errors.validation_exception.ValidationException: <p>This exception occurs when a request is not valid.</p>
+            aws_sdk_resiliencehub.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1191,6 +1335,14 @@ class AsyncresiliencehubClient:
 
         Args:
             assessment_arn: <p>Amazon Resource Name (ARN) of the assessment. The format for this ARN is: arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app-assessment/<code>app-id</code>. For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\"> Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i> guide.</p>
+
+        Raises:
+            aws_sdk_resiliencehub.errors.access_denied_exception.AccessDeniedException: <p>You don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions.</p>
+            aws_sdk_resiliencehub.errors.internal_server_exception.InternalServerException: <p>This exception occurs when there is an internal failure in the Resilience Hub service.</p>
+            aws_sdk_resiliencehub.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception occurs when the specified resource could not be found.</p>
+            aws_sdk_resiliencehub.errors.throttling_exception.ThrottlingException: <p>This exception occurs when you have exceeded the limit on the number of requests per second.</p>
+            aws_sdk_resiliencehub.errors.validation_exception.ValidationException: <p>This exception occurs when a request is not valid.</p>
+            aws_sdk_resiliencehub.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1231,6 +1383,14 @@ class AsyncresiliencehubClient:
         Args:
             app_arn: <p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\"> Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i> guide.</p>
             app_version: <p>Resilience Hub application version.</p>
+
+        Raises:
+            aws_sdk_resiliencehub.errors.access_denied_exception.AccessDeniedException: <p>You don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions.</p>
+            aws_sdk_resiliencehub.errors.internal_server_exception.InternalServerException: <p>This exception occurs when there is an internal failure in the Resilience Hub service.</p>
+            aws_sdk_resiliencehub.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception occurs when the specified resource could not be found.</p>
+            aws_sdk_resiliencehub.errors.throttling_exception.ThrottlingException: <p>This exception occurs when you have exceeded the limit on the number of requests per second.</p>
+            aws_sdk_resiliencehub.errors.validation_exception.ValidationException: <p>This exception occurs when a request is not valid.</p>
+            aws_sdk_resiliencehub.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1274,6 +1434,15 @@ class AsyncresiliencehubClient:
             app_arn: <p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\"> Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i> guide.</p>
             app_version: <p>Resilience Hub application version.</p>
             id: <p>Identifier of the Application Component.</p>
+
+        Raises:
+            aws_sdk_resiliencehub.errors.access_denied_exception.AccessDeniedException: <p>You don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions.</p>
+            aws_sdk_resiliencehub.errors.conflict_exception.ConflictException: <p>This exception occurs when a conflict with a previous successful write is detected. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+            aws_sdk_resiliencehub.errors.internal_server_exception.InternalServerException: <p>This exception occurs when there is an internal failure in the Resilience Hub service.</p>
+            aws_sdk_resiliencehub.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception occurs when the specified resource could not be found.</p>
+            aws_sdk_resiliencehub.errors.throttling_exception.ThrottlingException: <p>This exception occurs when you have exceeded the limit on the number of requests per second.</p>
+            aws_sdk_resiliencehub.errors.validation_exception.ValidationException: <p>This exception occurs when a request is not valid.</p>
+            aws_sdk_resiliencehub.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1334,6 +1503,15 @@ class AsyncresiliencehubClient:
             physical_resource_id: <p>Physical identifier of the resource.</p>
             aws_region: <p>Amazon Web Services region that owns the physical resource.</p>
             aws_account_id: <p>Amazon Web Services account that owns the physical resource.</p>
+
+        Raises:
+            aws_sdk_resiliencehub.errors.access_denied_exception.AccessDeniedException: <p>You don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions.</p>
+            aws_sdk_resiliencehub.errors.conflict_exception.ConflictException: <p>This exception occurs when a conflict with a previous successful write is detected. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+            aws_sdk_resiliencehub.errors.internal_server_exception.InternalServerException: <p>This exception occurs when there is an internal failure in the Resilience Hub service.</p>
+            aws_sdk_resiliencehub.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception occurs when the specified resource could not be found.</p>
+            aws_sdk_resiliencehub.errors.throttling_exception.ThrottlingException: <p>This exception occurs when you have exceeded the limit on the number of requests per second.</p>
+            aws_sdk_resiliencehub.errors.validation_exception.ValidationException: <p>This exception occurs when a request is not valid.</p>
+            aws_sdk_resiliencehub.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1389,6 +1567,14 @@ class AsyncresiliencehubClient:
             app_arn: <p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\"> Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i> guide.</p>
             app_version: <p>The version of the application.</p>
             resolution_id: <p>The identifier for a specific resolution.</p>
+
+        Raises:
+            aws_sdk_resiliencehub.errors.access_denied_exception.AccessDeniedException: <p>You don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions.</p>
+            aws_sdk_resiliencehub.errors.internal_server_exception.InternalServerException: <p>This exception occurs when there is an internal failure in the Resilience Hub service.</p>
+            aws_sdk_resiliencehub.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception occurs when the specified resource could not be found.</p>
+            aws_sdk_resiliencehub.errors.throttling_exception.ThrottlingException: <p>This exception occurs when you have exceeded the limit on the number of requests per second.</p>
+            aws_sdk_resiliencehub.errors.validation_exception.ValidationException: <p>This exception occurs when a request is not valid.</p>
+            aws_sdk_resiliencehub.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1432,6 +1618,14 @@ class AsyncresiliencehubClient:
         Args:
             app_arn: <p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\"> Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i> guide.</p>
             app_version: <p>The version of the application.</p>
+
+        Raises:
+            aws_sdk_resiliencehub.errors.access_denied_exception.AccessDeniedException: <p>You don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions.</p>
+            aws_sdk_resiliencehub.errors.internal_server_exception.InternalServerException: <p>This exception occurs when there is an internal failure in the Resilience Hub service.</p>
+            aws_sdk_resiliencehub.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception occurs when the specified resource could not be found.</p>
+            aws_sdk_resiliencehub.errors.throttling_exception.ThrottlingException: <p>This exception occurs when you have exceeded the limit on the number of requests per second.</p>
+            aws_sdk_resiliencehub.errors.validation_exception.ValidationException: <p>This exception occurs when a request is not valid.</p>
+            aws_sdk_resiliencehub.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1471,6 +1665,14 @@ class AsyncresiliencehubClient:
 
         Args:
             app_arn: <p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\"> Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i> guide.</p>
+
+        Raises:
+            aws_sdk_resiliencehub.errors.access_denied_exception.AccessDeniedException: <p>You don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions.</p>
+            aws_sdk_resiliencehub.errors.internal_server_exception.InternalServerException: <p>This exception occurs when there is an internal failure in the Resilience Hub service.</p>
+            aws_sdk_resiliencehub.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception occurs when the specified resource could not be found.</p>
+            aws_sdk_resiliencehub.errors.throttling_exception.ThrottlingException: <p>This exception occurs when you have exceeded the limit on the number of requests per second.</p>
+            aws_sdk_resiliencehub.errors.validation_exception.ValidationException: <p>This exception occurs when a request is not valid.</p>
+            aws_sdk_resiliencehub.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1509,6 +1711,14 @@ class AsyncresiliencehubClient:
 
         Args:
             metrics_export_id: <p>Identifier of the metrics export task.</p>
+
+        Raises:
+            aws_sdk_resiliencehub.errors.access_denied_exception.AccessDeniedException: <p>You don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions.</p>
+            aws_sdk_resiliencehub.errors.internal_server_exception.InternalServerException: <p>This exception occurs when there is an internal failure in the Resilience Hub service.</p>
+            aws_sdk_resiliencehub.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception occurs when the specified resource could not be found.</p>
+            aws_sdk_resiliencehub.errors.throttling_exception.ThrottlingException: <p>This exception occurs when you have exceeded the limit on the number of requests per second.</p>
+            aws_sdk_resiliencehub.errors.validation_exception.ValidationException: <p>This exception occurs when a request is not valid.</p>
+            aws_sdk_resiliencehub.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1547,6 +1757,14 @@ class AsyncresiliencehubClient:
 
         Args:
             policy_arn: <p>Amazon Resource Name (ARN) of the resiliency policy. The format for this ARN is: arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:resiliency-policy/<code>policy-id</code>. For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\"> Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i> guide.</p>
+
+        Raises:
+            aws_sdk_resiliencehub.errors.access_denied_exception.AccessDeniedException: <p>You don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions.</p>
+            aws_sdk_resiliencehub.errors.internal_server_exception.InternalServerException: <p>This exception occurs when there is an internal failure in the Resilience Hub service.</p>
+            aws_sdk_resiliencehub.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception occurs when the specified resource could not be found.</p>
+            aws_sdk_resiliencehub.errors.throttling_exception.ThrottlingException: <p>This exception occurs when you have exceeded the limit on the number of requests per second.</p>
+            aws_sdk_resiliencehub.errors.validation_exception.ValidationException: <p>This exception occurs when a request is not valid.</p>
+            aws_sdk_resiliencehub.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1587,6 +1805,14 @@ class AsyncresiliencehubClient:
         Args:
             app_arn: <p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\"> Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i> guide.</p>
             grouping_id: <p>Identifier of the grouping recommendation task.</p>
+
+        Raises:
+            aws_sdk_resiliencehub.errors.access_denied_exception.AccessDeniedException: <p>You don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions.</p>
+            aws_sdk_resiliencehub.errors.internal_server_exception.InternalServerException: <p>This exception occurs when there is an internal failure in the Resilience Hub service.</p>
+            aws_sdk_resiliencehub.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception occurs when the specified resource could not be found.</p>
+            aws_sdk_resiliencehub.errors.throttling_exception.ThrottlingException: <p>This exception occurs when you have exceeded the limit on the number of requests per second.</p>
+            aws_sdk_resiliencehub.errors.validation_exception.ValidationException: <p>This exception occurs when a request is not valid.</p>
+            aws_sdk_resiliencehub.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1641,6 +1867,16 @@ class AsyncresiliencehubClient:
             terraform_sources: <p> A list of terraform file s3 URLs you need to import. </p>
             import_strategy: <p>The import strategy you would like to set to import resources into Resilience Hub application.</p>
             eks_sources: <p>The input sources of the Amazon Elastic Kubernetes Service resources you need to import.</p>
+
+        Raises:
+            aws_sdk_resiliencehub.errors.access_denied_exception.AccessDeniedException: <p>You don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions.</p>
+            aws_sdk_resiliencehub.errors.conflict_exception.ConflictException: <p>This exception occurs when a conflict with a previous successful write is detected. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+            aws_sdk_resiliencehub.errors.internal_server_exception.InternalServerException: <p>This exception occurs when there is an internal failure in the Resilience Hub service.</p>
+            aws_sdk_resiliencehub.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception occurs when the specified resource could not be found.</p>
+            aws_sdk_resiliencehub.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>This exception occurs when you have exceeded your service quota. To perform the requested action, remove some of the relevant resources, or use Service Quotas to request a service quota increase.</p>
+            aws_sdk_resiliencehub.errors.throttling_exception.ThrottlingException: <p>This exception occurs when you have exceeded the limit on the number of requests per second.</p>
+            aws_sdk_resiliencehub.errors.validation_exception.ValidationException: <p>This exception occurs when a request is not valid.</p>
+            aws_sdk_resiliencehub.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1693,6 +1929,14 @@ class AsyncresiliencehubClient:
             assessment_arn: <p>Amazon Resource Name (ARN) of the assessment. The format for this ARN is: arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app-assessment/<code>app-id</code>. For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\"> Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i> guide.</p>
             next_token: <p>Null, or the token from a previous call to get the next set of results.</p>
             max_results: <p>Maximum number of results to include in the response. If more results exist than the specified <code>MaxResults</code> value, a token is included in the response so that the remaining results can be retrieved.</p>
+
+        Raises:
+            aws_sdk_resiliencehub.errors.access_denied_exception.AccessDeniedException: <p>You don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions.</p>
+            aws_sdk_resiliencehub.errors.internal_server_exception.InternalServerException: <p>This exception occurs when there is an internal failure in the Resilience Hub service.</p>
+            aws_sdk_resiliencehub.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception occurs when the specified resource could not be found.</p>
+            aws_sdk_resiliencehub.errors.throttling_exception.ThrottlingException: <p>This exception occurs when you have exceeded the limit on the number of requests per second.</p>
+            aws_sdk_resiliencehub.errors.validation_exception.ValidationException: <p>This exception occurs when a request is not valid.</p>
+            aws_sdk_resiliencehub.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1741,6 +1985,13 @@ class AsyncresiliencehubClient:
             assessment_arn: <p>Amazon Resource Name (ARN) of the assessment. The format for this ARN is: arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app-assessment/<code>app-id</code>. For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\"> Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i> guide.</p>
             next_token: <p>Null, or the token from a previous call to get the next set of results.</p>
             max_results: <p>Maximum number of compliance drifts requested.</p>
+
+        Raises:
+            aws_sdk_resiliencehub.errors.access_denied_exception.AccessDeniedException: <p>You don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions.</p>
+            aws_sdk_resiliencehub.errors.internal_server_exception.InternalServerException: <p>This exception occurs when there is an internal failure in the Resilience Hub service.</p>
+            aws_sdk_resiliencehub.errors.throttling_exception.ThrottlingException: <p>This exception occurs when you have exceeded the limit on the number of requests per second.</p>
+            aws_sdk_resiliencehub.errors.validation_exception.ValidationException: <p>This exception occurs when a request is not valid.</p>
+            aws_sdk_resiliencehub.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1789,6 +2040,13 @@ class AsyncresiliencehubClient:
             assessment_arn: <p>Amazon Resource Name (ARN) of the assessment. The format for this ARN is: arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app-assessment/<code>app-id</code>. For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\"> Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i> guide.</p>
             next_token: <p>Null, or the token from a previous call to get the next set of results.</p>
             max_results: <p>Maximum number of drift results to include in the response. If more results exist than the specified <code>MaxResults</code> value, a token is included in the response so that the remaining results can be retrieved.</p>
+
+        Raises:
+            aws_sdk_resiliencehub.errors.access_denied_exception.AccessDeniedException: <p>You don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions.</p>
+            aws_sdk_resiliencehub.errors.internal_server_exception.InternalServerException: <p>This exception occurs when there is an internal failure in the Resilience Hub service.</p>
+            aws_sdk_resiliencehub.errors.throttling_exception.ThrottlingException: <p>This exception occurs when you have exceeded the limit on the number of requests per second.</p>
+            aws_sdk_resiliencehub.errors.validation_exception.ValidationException: <p>This exception occurs when a request is not valid.</p>
+            aws_sdk_resiliencehub.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1882,6 +2140,14 @@ class AsyncresiliencehubClient:
             reverse_order: <p>The default is to sort by ascending <b>startTime</b>. To sort by descending <b>startTime</b>, set reverseOrder to <code>true</code>.</p>
             next_token: <p>Null, or the token from a previous call to get the next set of results.</p>
             max_results: <p>Maximum number of results to include in the response. If more results exist than the specified <code>MaxResults</code> value, a token is included in the response so that the remaining results can be retrieved.</p>
+
+        Raises:
+            aws_sdk_resiliencehub.errors.access_denied_exception.AccessDeniedException: <p>You don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions.</p>
+            aws_sdk_resiliencehub.errors.internal_server_exception.InternalServerException: <p>This exception occurs when there is an internal failure in the Resilience Hub service.</p>
+            aws_sdk_resiliencehub.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception occurs when the specified resource could not be found.</p>
+            aws_sdk_resiliencehub.errors.throttling_exception.ThrottlingException: <p>This exception occurs when you have exceeded the limit on the number of requests per second.</p>
+            aws_sdk_resiliencehub.errors.validation_exception.ValidationException: <p>This exception occurs when a request is not valid.</p>
+            aws_sdk_resiliencehub.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1941,6 +2207,14 @@ class AsyncresiliencehubClient:
             next_token: <p>Null, or the token from a previous call to get the next set of results.</p>
             max_results: <p>Maximum number of results to include in the response. If more results exist than the specified <code>MaxResults</code> value, a token is included in the response so that the remaining results can be retrieved.</p>
             assessment_arn: <p>Amazon Resource Name (ARN) of the assessment. The format for this ARN is: arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app-assessment/<code>app-id</code>. For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\"> Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i> guide.</p>
+
+        Raises:
+            aws_sdk_resiliencehub.errors.access_denied_exception.AccessDeniedException: <p>You don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions.</p>
+            aws_sdk_resiliencehub.errors.internal_server_exception.InternalServerException: <p>This exception occurs when there is an internal failure in the Resilience Hub service.</p>
+            aws_sdk_resiliencehub.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception occurs when the specified resource could not be found.</p>
+            aws_sdk_resiliencehub.errors.throttling_exception.ThrottlingException: <p>This exception occurs when you have exceeded the limit on the number of requests per second.</p>
+            aws_sdk_resiliencehub.errors.validation_exception.ValidationException: <p>This exception occurs when a request is not valid.</p>
+            aws_sdk_resiliencehub.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1989,6 +2263,14 @@ class AsyncresiliencehubClient:
             assessment_arn: <p>Amazon Resource Name (ARN) of the assessment. The format for this ARN is: arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app-assessment/<code>app-id</code>. For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\"> Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i> guide.</p>
             next_token: <p>Null, or the token from a previous call to get the next set of results.</p>
             max_results: <p>Maximum number of results to include in the response. If more results exist than the specified <code>MaxResults</code> value, a token is included in the response so that the remaining results can be retrieved.</p>
+
+        Raises:
+            aws_sdk_resiliencehub.errors.access_denied_exception.AccessDeniedException: <p>You don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions.</p>
+            aws_sdk_resiliencehub.errors.internal_server_exception.InternalServerException: <p>This exception occurs when there is an internal failure in the Resilience Hub service.</p>
+            aws_sdk_resiliencehub.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception occurs when the specified resource could not be found.</p>
+            aws_sdk_resiliencehub.errors.throttling_exception.ThrottlingException: <p>This exception occurs when you have exceeded the limit on the number of requests per second.</p>
+            aws_sdk_resiliencehub.errors.validation_exception.ValidationException: <p>This exception occurs when a request is not valid.</p>
+            aws_sdk_resiliencehub.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2039,6 +2321,14 @@ class AsyncresiliencehubClient:
             app_version: <p>Resilience Hub application version.</p>
             next_token: <p>Null, or the token from a previous call to get the next set of results.</p>
             max_results: <p>Maximum number of input sources to be displayed per Resilience Hub application.</p>
+
+        Raises:
+            aws_sdk_resiliencehub.errors.access_denied_exception.AccessDeniedException: <p>You don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions.</p>
+            aws_sdk_resiliencehub.errors.internal_server_exception.InternalServerException: <p>This exception occurs when there is an internal failure in the Resilience Hub service.</p>
+            aws_sdk_resiliencehub.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception occurs when the specified resource could not be found.</p>
+            aws_sdk_resiliencehub.errors.throttling_exception.ThrottlingException: <p>This exception occurs when you have exceeded the limit on the number of requests per second.</p>
+            aws_sdk_resiliencehub.errors.validation_exception.ValidationException: <p>This exception occurs when a request is not valid.</p>
+            aws_sdk_resiliencehub.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2104,6 +2394,13 @@ class AsyncresiliencehubClient:
             to_last_assessment_time: <p>Upper limit of the range that is used to filter the applications based on their last assessment times.</p>
             reverse_order: <p>The application list is sorted based on the values of <code>lastAppComplianceEvaluationTime</code> field. By default, application list is sorted in ascending order. To sort the application list in descending order, set this field to <code>True</code>.</p>
             aws_application_arn: <p>Amazon Resource Name (ARN) of Resource Groups group that is integrated with an AppRegistry application. For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\"> Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i> guide.</p>
+
+        Raises:
+            aws_sdk_resiliencehub.errors.access_denied_exception.AccessDeniedException: <p>You don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions.</p>
+            aws_sdk_resiliencehub.errors.internal_server_exception.InternalServerException: <p>This exception occurs when there is an internal failure in the Resilience Hub service.</p>
+            aws_sdk_resiliencehub.errors.throttling_exception.ThrottlingException: <p>This exception occurs when you have exceeded the limit on the number of requests per second.</p>
+            aws_sdk_resiliencehub.errors.validation_exception.ValidationException: <p>This exception occurs when a request is not valid.</p>
+            aws_sdk_resiliencehub.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2165,6 +2462,15 @@ class AsyncresiliencehubClient:
             app_version: <p>Version of the Application Component.</p>
             next_token: <p>Null, or the token from a previous call to get the next set of results.</p>
             max_results: <p>Maximum number of Application Components to be displayed per Resilience Hub application version.</p>
+
+        Raises:
+            aws_sdk_resiliencehub.errors.access_denied_exception.AccessDeniedException: <p>You don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions.</p>
+            aws_sdk_resiliencehub.errors.conflict_exception.ConflictException: <p>This exception occurs when a conflict with a previous successful write is detected. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+            aws_sdk_resiliencehub.errors.internal_server_exception.InternalServerException: <p>This exception occurs when there is an internal failure in the Resilience Hub service.</p>
+            aws_sdk_resiliencehub.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception occurs when the specified resource could not be found.</p>
+            aws_sdk_resiliencehub.errors.throttling_exception.ThrottlingException: <p>This exception occurs when you have exceeded the limit on the number of requests per second.</p>
+            aws_sdk_resiliencehub.errors.validation_exception.ValidationException: <p>This exception occurs when a request is not valid.</p>
+            aws_sdk_resiliencehub.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2216,6 +2522,14 @@ class AsyncresiliencehubClient:
             app_version: <p>The version of the application.</p>
             next_token: <p>Null, or the token from a previous call to get the next set of results.</p>
             max_results: <p>Maximum number of results to include in the response. If more results exist than the specified <code>MaxResults</code> value, a token is included in the response so that the remaining results can be retrieved.</p>
+
+        Raises:
+            aws_sdk_resiliencehub.errors.access_denied_exception.AccessDeniedException: <p>You don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions.</p>
+            aws_sdk_resiliencehub.errors.internal_server_exception.InternalServerException: <p>This exception occurs when there is an internal failure in the Resilience Hub service.</p>
+            aws_sdk_resiliencehub.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception occurs when the specified resource could not be found.</p>
+            aws_sdk_resiliencehub.errors.throttling_exception.ThrottlingException: <p>This exception occurs when you have exceeded the limit on the number of requests per second.</p>
+            aws_sdk_resiliencehub.errors.validation_exception.ValidationException: <p>This exception occurs when a request is not valid.</p>
+            aws_sdk_resiliencehub.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2271,6 +2585,15 @@ class AsyncresiliencehubClient:
             resolution_id: <p>The identifier for a specific resolution.</p>
             next_token: <p>Null, or the token from a previous call to get the next set of results.</p>
             max_results: <p>Maximum number of results to include in the response. If more results exist than the specified <code>MaxResults</code> value, a token is included in the response so that the remaining results can be retrieved.</p>
+
+        Raises:
+            aws_sdk_resiliencehub.errors.access_denied_exception.AccessDeniedException: <p>You don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions.</p>
+            aws_sdk_resiliencehub.errors.conflict_exception.ConflictException: <p>This exception occurs when a conflict with a previous successful write is detected. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+            aws_sdk_resiliencehub.errors.internal_server_exception.InternalServerException: <p>This exception occurs when there is an internal failure in the Resilience Hub service.</p>
+            aws_sdk_resiliencehub.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception occurs when the specified resource could not be found.</p>
+            aws_sdk_resiliencehub.errors.throttling_exception.ThrottlingException: <p>This exception occurs when you have exceeded the limit on the number of requests per second.</p>
+            aws_sdk_resiliencehub.errors.validation_exception.ValidationException: <p>This exception occurs when a request is not valid.</p>
+            aws_sdk_resiliencehub.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2328,6 +2651,13 @@ class AsyncresiliencehubClient:
             max_results: <p>Maximum number of results to include in the response. If more results exist than the specified <code>MaxResults</code> value, a token is included in the response so that the remaining results can be retrieved.</p>
             start_time: <p>Lower limit of the time range to filter the application versions.</p>
             end_time: <p>Upper limit of the time range to filter the application versions.</p>
+
+        Raises:
+            aws_sdk_resiliencehub.errors.access_denied_exception.AccessDeniedException: <p>You don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions.</p>
+            aws_sdk_resiliencehub.errors.internal_server_exception.InternalServerException: <p>This exception occurs when there is an internal failure in the Resilience Hub service.</p>
+            aws_sdk_resiliencehub.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception occurs when the specified resource could not be found.</p>
+            aws_sdk_resiliencehub.errors.validation_exception.ValidationException: <p>This exception occurs when a request is not valid.</p>
+            aws_sdk_resiliencehub.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2388,6 +2718,13 @@ class AsyncresiliencehubClient:
             data_source: <p>Indicates the data source of the metrics.</p>
             conditions: <p>Indicates the list of all the conditions that were applied on the metrics.</p>
             sorts: <p>(Optional) Indicates the order in which you want to sort the fields in the metrics. By default, the fields are sorted in the ascending order.</p>
+
+        Raises:
+            aws_sdk_resiliencehub.errors.access_denied_exception.AccessDeniedException: <p>You don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions.</p>
+            aws_sdk_resiliencehub.errors.internal_server_exception.InternalServerException: <p>This exception occurs when there is an internal failure in the Resilience Hub service.</p>
+            aws_sdk_resiliencehub.errors.throttling_exception.ThrottlingException: <p>This exception occurs when you have exceeded the limit on the number of requests per second.</p>
+            aws_sdk_resiliencehub.errors.validation_exception.ValidationException: <p>This exception occurs when a request is not valid.</p>
+            aws_sdk_resiliencehub.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2490,6 +2827,13 @@ class AsyncresiliencehubClient:
             name: <p>The name for one of the listed recommendation templates.</p>
             next_token: <p>Null, or the token from a previous call to get the next set of results.</p>
             max_results: <p>Maximum number of results to include in the response. If more results exist than the specified <code>MaxResults</code> value, a token is included in the response so that the remaining results can be retrieved.</p>
+
+        Raises:
+            aws_sdk_resiliencehub.errors.access_denied_exception.AccessDeniedException: <p>You don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions.</p>
+            aws_sdk_resiliencehub.errors.internal_server_exception.InternalServerException: <p>This exception occurs when there is an internal failure in the Resilience Hub service.</p>
+            aws_sdk_resiliencehub.errors.throttling_exception.ThrottlingException: <p>This exception occurs when you have exceeded the limit on the number of requests per second.</p>
+            aws_sdk_resiliencehub.errors.validation_exception.ValidationException: <p>This exception occurs when a request is not valid.</p>
+            aws_sdk_resiliencehub.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2549,6 +2893,14 @@ class AsyncresiliencehubClient:
             policy_name: <p>Name of the resiliency policy.</p>
             next_token: <p>Null, or the token from a previous call to get the next set of results.</p>
             max_results: <p>Maximum number of results to include in the response. If more results exist than the specified <code>MaxResults</code> value, a token is included in the response so that the remaining results can be retrieved.</p>
+
+        Raises:
+            aws_sdk_resiliencehub.errors.access_denied_exception.AccessDeniedException: <p>You don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions.</p>
+            aws_sdk_resiliencehub.errors.internal_server_exception.InternalServerException: <p>This exception occurs when there is an internal failure in the Resilience Hub service.</p>
+            aws_sdk_resiliencehub.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception occurs when the specified resource could not be found.</p>
+            aws_sdk_resiliencehub.errors.throttling_exception.ThrottlingException: <p>This exception occurs when you have exceeded the limit on the number of requests per second.</p>
+            aws_sdk_resiliencehub.errors.validation_exception.ValidationException: <p>This exception occurs when a request is not valid.</p>
+            aws_sdk_resiliencehub.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2598,6 +2950,14 @@ class AsyncresiliencehubClient:
             app_arn: <p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\"> Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i> guide.</p>
             next_token: <p>Null, or the token from a previous call to get the next set of results.</p>
             max_results: <p>Maximum number of grouping recommendations to be displayed per Resilience Hub application.</p>
+
+        Raises:
+            aws_sdk_resiliencehub.errors.access_denied_exception.AccessDeniedException: <p>You don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions.</p>
+            aws_sdk_resiliencehub.errors.internal_server_exception.InternalServerException: <p>This exception occurs when there is an internal failure in the Resilience Hub service.</p>
+            aws_sdk_resiliencehub.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception occurs when the specified resource could not be found.</p>
+            aws_sdk_resiliencehub.errors.throttling_exception.ThrottlingException: <p>This exception occurs when you have exceeded the limit on the number of requests per second.</p>
+            aws_sdk_resiliencehub.errors.validation_exception.ValidationException: <p>This exception occurs when a request is not valid.</p>
+            aws_sdk_resiliencehub.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2672,6 +3032,15 @@ class AsyncresiliencehubClient:
             next_token: <p>Null, or the token from a previous call to get the next set of results.</p>
             max_results: <p>Maximum number of results to include in the response. If more results exist than the specified <code>MaxResults</code> value, a token is included in the response so that the remaining results can be retrieved.</p>
             assessment_arn: <p>Amazon Resource Name (ARN) of the assessment. The format for this ARN is: arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app-assessment/<code>app-id</code>. For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\"> Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i> guide.</p>
+
+        Raises:
+            aws_sdk_resiliencehub.errors.access_denied_exception.AccessDeniedException: <p>You don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions.</p>
+            aws_sdk_resiliencehub.errors.conflict_exception.ConflictException: <p>This exception occurs when a conflict with a previous successful write is detected. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+            aws_sdk_resiliencehub.errors.internal_server_exception.InternalServerException: <p>This exception occurs when there is an internal failure in the Resilience Hub service.</p>
+            aws_sdk_resiliencehub.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception occurs when the specified resource could not be found.</p>
+            aws_sdk_resiliencehub.errors.throttling_exception.ThrottlingException: <p>This exception occurs when you have exceeded the limit on the number of requests per second.</p>
+            aws_sdk_resiliencehub.errors.validation_exception.ValidationException: <p>This exception occurs when a request is not valid.</p>
+            aws_sdk_resiliencehub.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2718,6 +3087,14 @@ class AsyncresiliencehubClient:
         Args:
             next_token: <p>Null, or the token from a previous call to get the next set of results.</p>
             max_results: <p>Maximum number of results to include in the response. If more results exist than the specified <code>MaxResults</code> value, a token is included in the response so that the remaining results can be retrieved.</p>
+
+        Raises:
+            aws_sdk_resiliencehub.errors.access_denied_exception.AccessDeniedException: <p>You don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions.</p>
+            aws_sdk_resiliencehub.errors.internal_server_exception.InternalServerException: <p>This exception occurs when there is an internal failure in the Resilience Hub service.</p>
+            aws_sdk_resiliencehub.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception occurs when the specified resource could not be found.</p>
+            aws_sdk_resiliencehub.errors.throttling_exception.ThrottlingException: <p>This exception occurs when you have exceeded the limit on the number of requests per second.</p>
+            aws_sdk_resiliencehub.errors.validation_exception.ValidationException: <p>This exception occurs when a request is not valid.</p>
+            aws_sdk_resiliencehub.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2759,6 +3136,14 @@ class AsyncresiliencehubClient:
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) for a specific resource in your Resilience Hub application.</p>
+
+        Raises:
+            aws_sdk_resiliencehub.errors.access_denied_exception.AccessDeniedException: <p>You don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions.</p>
+            aws_sdk_resiliencehub.errors.internal_server_exception.InternalServerException: <p>This exception occurs when there is an internal failure in the Resilience Hub service.</p>
+            aws_sdk_resiliencehub.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception occurs when the specified resource could not be found.</p>
+            aws_sdk_resiliencehub.errors.throttling_exception.ThrottlingException: <p>This exception occurs when you have exceeded the limit on the number of requests per second.</p>
+            aws_sdk_resiliencehub.errors.validation_exception.ValidationException: <p>This exception occurs when a request is not valid.</p>
+            aws_sdk_resiliencehub.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2803,6 +3188,15 @@ class AsyncresiliencehubClient:
             next_token: <p>Null, or the token from a previous call to get the next set of results.</p>
             max_results: <p>Maximum number of results to include in the response. If more results exist than the specified <code>MaxResults</code> value, a token is included in the response so that the remaining results can be retrieved.</p>
             assessment_arn: <p>Amazon Resource Name (ARN) of the assessment. The format for this ARN is: arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app-assessment/<code>app-id</code>. For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\"> Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i> guide.</p>
+
+        Raises:
+            aws_sdk_resiliencehub.errors.access_denied_exception.AccessDeniedException: <p>You don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions.</p>
+            aws_sdk_resiliencehub.errors.conflict_exception.ConflictException: <p>This exception occurs when a conflict with a previous successful write is detected. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+            aws_sdk_resiliencehub.errors.internal_server_exception.InternalServerException: <p>This exception occurs when there is an internal failure in the Resilience Hub service.</p>
+            aws_sdk_resiliencehub.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception occurs when the specified resource could not be found.</p>
+            aws_sdk_resiliencehub.errors.throttling_exception.ThrottlingException: <p>This exception occurs when you have exceeded the limit on the number of requests per second.</p>
+            aws_sdk_resiliencehub.errors.validation_exception.ValidationException: <p>This exception occurs when a request is not valid.</p>
+            aws_sdk_resiliencehub.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2857,6 +3251,15 @@ class AsyncresiliencehubClient:
             resolution_id: <p>The identifier for a specific resolution.</p>
             next_token: <p>Null, or the token from a previous call to get the next set of results.</p>
             max_results: <p>Maximum number of results to include in the response. If more results exist than the specified <code>MaxResults</code> value, a token is included in the response so that the remaining results can be retrieved.</p>
+
+        Raises:
+            aws_sdk_resiliencehub.errors.access_denied_exception.AccessDeniedException: <p>You don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions.</p>
+            aws_sdk_resiliencehub.errors.conflict_exception.ConflictException: <p>This exception occurs when a conflict with a previous successful write is detected. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+            aws_sdk_resiliencehub.errors.internal_server_exception.InternalServerException: <p>This exception occurs when there is an internal failure in the Resilience Hub service.</p>
+            aws_sdk_resiliencehub.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception occurs when the specified resource could not be found.</p>
+            aws_sdk_resiliencehub.errors.throttling_exception.ThrottlingException: <p>This exception occurs when you have exceeded the limit on the number of requests per second.</p>
+            aws_sdk_resiliencehub.errors.validation_exception.ValidationException: <p>This exception occurs when a request is not valid.</p>
+            aws_sdk_resiliencehub.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2906,6 +3309,15 @@ class AsyncresiliencehubClient:
         Args:
             app_arn: <p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\"> Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i> guide.</p>
             version_name: <p>Name of the application version.</p>
+
+        Raises:
+            aws_sdk_resiliencehub.errors.access_denied_exception.AccessDeniedException: <p>You don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions.</p>
+            aws_sdk_resiliencehub.errors.conflict_exception.ConflictException: <p>This exception occurs when a conflict with a previous successful write is detected. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+            aws_sdk_resiliencehub.errors.internal_server_exception.InternalServerException: <p>This exception occurs when there is an internal failure in the Resilience Hub service.</p>
+            aws_sdk_resiliencehub.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception occurs when the specified resource could not be found.</p>
+            aws_sdk_resiliencehub.errors.throttling_exception.ThrottlingException: <p>This exception occurs when you have exceeded the limit on the number of requests per second.</p>
+            aws_sdk_resiliencehub.errors.validation_exception.ValidationException: <p>This exception occurs when a request is not valid.</p>
+            aws_sdk_resiliencehub.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2948,6 +3360,15 @@ class AsyncresiliencehubClient:
         Args:
             app_arn: <p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\"> Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i> guide.</p>
             app_template_body: <p>A JSON string that provides information about your application structure. To learn more about the <code>appTemplateBody</code> template, see the sample template provided in the <i>Examples</i> section.</p> <p>The <code>appTemplateBody</code> JSON string has the following structure:</p> <ul> <li> <p> <b> <code>resources</code> </b> </p> <p>The list of logical resources that must be included in the Resilience Hub application.</p> <p>Type: Array</p> <note> <p>Don't add the resources that you want to exclude.</p> </note> <p>Each <code>resources</code> array item includes the following fields:</p> <ul> <li> <p> <i> <code>logicalResourceId</code> </i> </p> <p>Logical identifier of the resource.</p> <p>Type: Object</p> <p>Each <code>logicalResourceId</code> object includes the following fields:</p> <ul> <li> <p> <code>identifier</code> </p> <p>Identifier of the resource.</p> <p>Type: String</p> </li> <li> <p> <code>logicalStackName</code> </p> <p>The name of the CloudFormation stack this resource belongs to.</p> <p>Type: String</p> </li> <li> <p> <code>resourceGroupName</code> </p> <p>The name of the resource group this resource belongs to.</p> <p>Type: String</p> </li> <li> <p> <code>terraformSourceName</code> </p> <p>The name of the Terraform S3 state file this resource belongs to.</p> <p>Type: String</p> </li> <li> <p> <code>eksSourceName</code> </p> <p>Name of the Amazon Elastic Kubernetes Service cluster and namespace this resource belongs to.</p> <note> <p>This parameter accepts values in \"eks-cluster/namespace\" format.</p> </note> <p>Type: String</p> </li> </ul> </li> <li> <p> <i> <code>type</code> </i> </p> <p>The type of resource.</p> <p>Type: string</p> </li> <li> <p> <i> <code>name</code> </i> </p> <p>The name of the resource.</p> <p>Type: String</p> </li> <li> <p> <code>additionalInfo</code> </p> <p>Additional configuration parameters for an Resilience Hub application. If you want to implement <code>additionalInfo</code> through the Resilience Hub console rather than using an API call, see <a href=\"https://docs.aws.amazon.com/resilience-hub/latest/userguide/app-config-param.html\">Configure the application configuration parameters</a>.</p> <note> <p>Currently, this parameter accepts a key-value mapping (in a string format) of only one failover region and one associated account.</p> <p>Key: <code>\"failover-regions\"</code> </p> <p>Value: <code>\"[{\"region\":\"&lt;REGION&gt;\", \"accounts\":[{\"id\":\"&lt;ACCOUNT_ID&gt;\"}]}]\"</code> </p> </note> </li> </ul> </li> <li> <p> <b> <code>appComponents</code> </b> </p> <p>List of Application Components that this resource belongs to. If an Application Component is not part of the Resilience Hub application, it will be added.</p> <p>Type: Array</p> <p>Each <code>appComponents</code> array item includes the following fields:</p> <ul> <li> <p> <code>name</code> </p> <p>Name of the Application Component.</p> <p>Type: String</p> </li> <li> <p> <code>type</code> </p> <p>Type of Application Component. For more information about the types of Application Component, see <a href=\"https://docs.aws.amazon.com/resilience-hub/latest/userguide/AppComponent.grouping.html\">Grouping resources in an AppComponent</a>.</p> <p>Type: String</p> </li> <li> <p> <code>resourceNames</code> </p> <p>The list of included resources that are assigned to the Application Component.</p> <p>Type: Array of strings</p> </li> <li> <p> <code>additionalInfo</code> </p> <p>Additional configuration parameters for an Resilience Hub application. If you want to implement <code>additionalInfo</code> through the Resilience Hub console rather than using an API call, see <a href=\"https://docs.aws.amazon.com/resilience-hub/latest/userguide/app-config-param.html\">Configure the application configuration parameters</a>.</p> <note> <p>Currently, this parameter accepts a key-value mapping (in a string format) of only one failover region and one associated account.</p> <p>Key: <code>\"failover-regions\"</code> </p> <p>Value: <code>\"[{\"region\":\"&lt;REGION&gt;\", \"accounts\":[{\"id\":\"&lt;ACCOUNT_ID&gt;\"}]}]\"</code> </p> </note> </li> </ul> </li> <li> <p> <b> <code>excludedResources</code> </b> </p> <p>The list of logical resource identifiers to be excluded from the application.</p> <p>Type: Array</p> <note> <p>Don't add the resources that you want to include.</p> </note> <p>Each <code>excludedResources</code> array item includes the following fields:</p> <ul> <li> <p> <i> <code>logicalResourceIds</code> </i> </p> <p>Logical identifier of the resource.</p> <p>Type: Object</p> <note> <p>You can configure only one of the following fields:</p> <ul> <li> <p> <code>logicalStackName</code> </p> </li> <li> <p> <code>resourceGroupName</code> </p> </li> <li> <p> <code>terraformSourceName</code> </p> </li> <li> <p> <code>eksSourceName</code> </p> </li> </ul> </note> <p>Each <code>logicalResourceIds</code> object includes the following fields:</p> <ul> <li> <p> <code>identifier</code> </p> <p>Identifier of the resource.</p> <p>Type: String</p> </li> <li> <p> <code>logicalStackName</code> </p> <p>The name of the CloudFormation stack this resource belongs to.</p> <p>Type: String</p> </li> <li> <p> <code>resourceGroupName</code> </p> <p>The name of the resource group this resource belongs to.</p> <p>Type: String</p> </li> <li> <p> <code>terraformSourceName</code> </p> <p>The name of the Terraform S3 state file this resource belongs to.</p> <p>Type: String</p> </li> <li> <p> <code>eksSourceName</code> </p> <p>Name of the Amazon Elastic Kubernetes Service cluster and namespace this resource belongs to.</p> <note> <p>This parameter accepts values in \"eks-cluster/namespace\" format.</p> </note> <p>Type: String</p> </li> </ul> </li> </ul> </li> <li> <p> <b> <code>version</code> </b> </p> <p>Resilience Hub application version.</p> </li> <li> <p> <code>additionalInfo</code> </p> <p>Additional configuration parameters for an Resilience Hub application. If you want to implement <code>additionalInfo</code> through the Resilience Hub console rather than using an API call, see <a href=\"https://docs.aws.amazon.com/resilience-hub/latest/userguide/app-config-param.html\">Configure the application configuration parameters</a>.</p> <note> <p>Currently, this parameter accepts a key-value mapping (in a string format) of only one failover region and one associated account.</p> <p>Key: <code>\"failover-regions\"</code> </p> <p>Value: <code>\"[{\"region\":\"&lt;REGION&gt;\", \"accounts\":[{\"id\":\"&lt;ACCOUNT_ID&gt;\"}]}]\"</code> </p> </note> </li> </ul>
+
+        Raises:
+            aws_sdk_resiliencehub.errors.access_denied_exception.AccessDeniedException: <p>You don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions.</p>
+            aws_sdk_resiliencehub.errors.conflict_exception.ConflictException: <p>This exception occurs when a conflict with a previous successful write is detected. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+            aws_sdk_resiliencehub.errors.internal_server_exception.InternalServerException: <p>This exception occurs when there is an internal failure in the Resilience Hub service.</p>
+            aws_sdk_resiliencehub.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception occurs when the specified resource could not be found.</p>
+            aws_sdk_resiliencehub.errors.throttling_exception.ThrottlingException: <p>This exception occurs when you have exceeded the limit on the number of requests per second.</p>
+            aws_sdk_resiliencehub.errors.validation_exception.ValidationException: <p>This exception occurs when a request is not valid.</p>
+            aws_sdk_resiliencehub.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2989,6 +3410,14 @@ class AsyncresiliencehubClient:
         Args:
             app_arn: <p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\"> Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i> guide.</p>
             entries: <p>List of resource grouping recommendations you have selected to exclude from your application.</p>
+
+        Raises:
+            aws_sdk_resiliencehub.errors.access_denied_exception.AccessDeniedException: <p>You don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions.</p>
+            aws_sdk_resiliencehub.errors.internal_server_exception.InternalServerException: <p>This exception occurs when there is an internal failure in the Resilience Hub service.</p>
+            aws_sdk_resiliencehub.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception occurs when the specified resource could not be found.</p>
+            aws_sdk_resiliencehub.errors.throttling_exception.ThrottlingException: <p>This exception occurs when you have exceeded the limit on the number of requests per second.</p>
+            aws_sdk_resiliencehub.errors.validation_exception.ValidationException: <p>This exception occurs when a request is not valid.</p>
+            aws_sdk_resiliencehub.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3052,6 +3481,15 @@ class AsyncresiliencehubClient:
             resource_group_names: <p>The names of the resource groups you want to remove from the resource mappings.</p>
             terraform_source_names: <p>The names of the Terraform sources you want to remove from the resource mappings.</p>
             eks_source_names: <p>The names of the Amazon Elastic Kubernetes Service clusters and namespaces you want to remove from the resource mappings.</p> <note> <p>This parameter accepts values in \"eks-cluster/namespace\" format.</p> </note>
+
+        Raises:
+            aws_sdk_resiliencehub.errors.access_denied_exception.AccessDeniedException: <p>You don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions.</p>
+            aws_sdk_resiliencehub.errors.conflict_exception.ConflictException: <p>This exception occurs when a conflict with a previous successful write is detected. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+            aws_sdk_resiliencehub.errors.internal_server_exception.InternalServerException: <p>This exception occurs when there is an internal failure in the Resilience Hub service.</p>
+            aws_sdk_resiliencehub.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception occurs when the specified resource could not be found.</p>
+            aws_sdk_resiliencehub.errors.throttling_exception.ThrottlingException: <p>This exception occurs when you have exceeded the limit on the number of requests per second.</p>
+            aws_sdk_resiliencehub.errors.validation_exception.ValidationException: <p>This exception occurs when a request is not valid.</p>
+            aws_sdk_resiliencehub.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3104,6 +3542,15 @@ class AsyncresiliencehubClient:
         Args:
             app_arn: <p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\"> Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i> guide.</p>
             app_version: <p>The version of the application.</p>
+
+        Raises:
+            aws_sdk_resiliencehub.errors.access_denied_exception.AccessDeniedException: <p>You don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions.</p>
+            aws_sdk_resiliencehub.errors.conflict_exception.ConflictException: <p>This exception occurs when a conflict with a previous successful write is detected. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+            aws_sdk_resiliencehub.errors.internal_server_exception.InternalServerException: <p>This exception occurs when there is an internal failure in the Resilience Hub service.</p>
+            aws_sdk_resiliencehub.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception occurs when the specified resource could not be found.</p>
+            aws_sdk_resiliencehub.errors.throttling_exception.ThrottlingException: <p>This exception occurs when you have exceeded the limit on the number of requests per second.</p>
+            aws_sdk_resiliencehub.errors.validation_exception.ValidationException: <p>This exception occurs when a request is not valid.</p>
+            aws_sdk_resiliencehub.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3153,6 +3600,16 @@ class AsyncresiliencehubClient:
             assessment_name: <p>The name for the assessment.</p>
             client_token: <p>Used for an idempotency token. A client token is a unique, case-sensitive string of up to 64 ASCII characters. You should not reuse the same client token for other API requests.</p>
             tags: <p>Tags assigned to the resource. A tag is a label that you assign to an Amazon Web Services resource. Each tag consists of a key/value pair.</p>
+
+        Raises:
+            aws_sdk_resiliencehub.errors.access_denied_exception.AccessDeniedException: <p>You don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions.</p>
+            aws_sdk_resiliencehub.errors.conflict_exception.ConflictException: <p>This exception occurs when a conflict with a previous successful write is detected. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+            aws_sdk_resiliencehub.errors.internal_server_exception.InternalServerException: <p>This exception occurs when there is an internal failure in the Resilience Hub service.</p>
+            aws_sdk_resiliencehub.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception occurs when the specified resource could not be found.</p>
+            aws_sdk_resiliencehub.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>This exception occurs when you have exceeded your service quota. To perform the requested action, remove some of the relevant resources, or use Service Quotas to request a service quota increase.</p>
+            aws_sdk_resiliencehub.errors.throttling_exception.ThrottlingException: <p>This exception occurs when you have exceeded the limit on the number of requests per second.</p>
+            aws_sdk_resiliencehub.errors.validation_exception.ValidationException: <p>This exception occurs when a request is not valid.</p>
+            aws_sdk_resiliencehub.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3203,6 +3660,15 @@ class AsyncresiliencehubClient:
         Args:
             bucket_name: <p>(Optional) Specifies the name of the Amazon Simple Storage Service bucket where the exported metrics will be stored.</p>
             client_token: <p>Used for an idempotency token. A client token is a unique, case-sensitive string of up to 64 ASCII characters. You should not reuse the same client token for other API requests.</p>
+
+        Raises:
+            aws_sdk_resiliencehub.errors.access_denied_exception.AccessDeniedException: <p>You don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions.</p>
+            aws_sdk_resiliencehub.errors.conflict_exception.ConflictException: <p>This exception occurs when a conflict with a previous successful write is detected. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+            aws_sdk_resiliencehub.errors.internal_server_exception.InternalServerException: <p>This exception occurs when there is an internal failure in the Resilience Hub service.</p>
+            aws_sdk_resiliencehub.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>This exception occurs when you have exceeded your service quota. To perform the requested action, remove some of the relevant resources, or use Service Quotas to request a service quota increase.</p>
+            aws_sdk_resiliencehub.errors.throttling_exception.ThrottlingException: <p>This exception occurs when you have exceeded the limit on the number of requests per second.</p>
+            aws_sdk_resiliencehub.errors.validation_exception.ValidationException: <p>This exception occurs when a request is not valid.</p>
+            aws_sdk_resiliencehub.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3244,6 +3710,15 @@ class AsyncresiliencehubClient:
 
         Args:
             app_arn: <p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\"> Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i> guide.</p>
+
+        Raises:
+            aws_sdk_resiliencehub.errors.access_denied_exception.AccessDeniedException: <p>You don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions.</p>
+            aws_sdk_resiliencehub.errors.conflict_exception.ConflictException: <p>This exception occurs when a conflict with a previous successful write is detected. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+            aws_sdk_resiliencehub.errors.internal_server_exception.InternalServerException: <p>This exception occurs when there is an internal failure in the Resilience Hub service.</p>
+            aws_sdk_resiliencehub.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception occurs when the specified resource could not be found.</p>
+            aws_sdk_resiliencehub.errors.throttling_exception.ThrottlingException: <p>This exception occurs when you have exceeded the limit on the number of requests per second.</p>
+            aws_sdk_resiliencehub.errors.validation_exception.ValidationException: <p>This exception occurs when a request is not valid.</p>
+            aws_sdk_resiliencehub.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3284,6 +3759,14 @@ class AsyncresiliencehubClient:
         Args:
             resource_arn: <p>Amazon Resource Name (ARN) of the resource. </p>
             tags: <p>The tags to assign to the resource. Each tag consists of a key/value pair.</p>
+
+        Raises:
+            aws_sdk_resiliencehub.errors.access_denied_exception.AccessDeniedException: <p>You don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions.</p>
+            aws_sdk_resiliencehub.errors.internal_server_exception.InternalServerException: <p>This exception occurs when there is an internal failure in the Resilience Hub service.</p>
+            aws_sdk_resiliencehub.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception occurs when the specified resource could not be found.</p>
+            aws_sdk_resiliencehub.errors.throttling_exception.ThrottlingException: <p>This exception occurs when you have exceeded the limit on the number of requests per second.</p>
+            aws_sdk_resiliencehub.errors.validation_exception.ValidationException: <p>This exception occurs when a request is not valid.</p>
+            aws_sdk_resiliencehub.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3325,6 +3808,14 @@ class AsyncresiliencehubClient:
         Args:
             resource_arn: <p>Amazon Resource Name (ARN) of the resource. </p>
             tag_keys: <p>The keys of the tags you want to remove.</p>
+
+        Raises:
+            aws_sdk_resiliencehub.errors.access_denied_exception.AccessDeniedException: <p>You don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions.</p>
+            aws_sdk_resiliencehub.errors.internal_server_exception.InternalServerException: <p>This exception occurs when there is an internal failure in the Resilience Hub service.</p>
+            aws_sdk_resiliencehub.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception occurs when the specified resource could not be found.</p>
+            aws_sdk_resiliencehub.errors.throttling_exception.ThrottlingException: <p>This exception occurs when you have exceeded the limit on the number of requests per second.</p>
+            aws_sdk_resiliencehub.errors.validation_exception.ValidationException: <p>This exception occurs when a request is not valid.</p>
+            aws_sdk_resiliencehub.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3386,6 +3877,15 @@ class AsyncresiliencehubClient:
             assessment_schedule: <p> Assessment execution schedule with 'Daily' or 'Disabled' values. </p>
             permission_model: <p>Defines the roles and credentials that Resilience Hub would use while creating an application, importing its resources, and running an assessment.</p>
             event_subscriptions: <p>The list of events you would like to subscribe and get notification for. Currently, Resilience Hub supports notifications only for <b>Drift detected</b> and <b>Scheduled assessment failure</b> events.</p>
+
+        Raises:
+            aws_sdk_resiliencehub.errors.access_denied_exception.AccessDeniedException: <p>You don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions.</p>
+            aws_sdk_resiliencehub.errors.conflict_exception.ConflictException: <p>This exception occurs when a conflict with a previous successful write is detected. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+            aws_sdk_resiliencehub.errors.internal_server_exception.InternalServerException: <p>This exception occurs when there is an internal failure in the Resilience Hub service.</p>
+            aws_sdk_resiliencehub.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception occurs when the specified resource could not be found.</p>
+            aws_sdk_resiliencehub.errors.throttling_exception.ThrottlingException: <p>This exception occurs when you have exceeded the limit on the number of requests per second.</p>
+            aws_sdk_resiliencehub.errors.validation_exception.ValidationException: <p>This exception occurs when a request is not valid.</p>
+            aws_sdk_resiliencehub.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3440,6 +3940,15 @@ class AsyncresiliencehubClient:
         Args:
             app_arn: <p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\"> Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i> guide.</p>
             additional_info: <p>Additional configuration parameters for an Resilience Hub application. If you want to implement <code>additionalInfo</code> through the Resilience Hub console rather than using an API call, see <a href=\"https://docs.aws.amazon.com/resilience-hub/latest/userguide/app-config-param.html\">Configure the application configuration parameters</a>.</p> <note> <p>Currently, this parameter accepts a key-value mapping (in a string format) of only one failover region and one associated account.</p> <p>Key: <code>\"failover-regions\"</code> </p> <p>Value: <code>\"[{\"region\":\"&lt;REGION&gt;\", \"accounts\":[{\"id\":\"&lt;ACCOUNT_ID&gt;\"}]}]\"</code> </p> </note>
+
+        Raises:
+            aws_sdk_resiliencehub.errors.access_denied_exception.AccessDeniedException: <p>You don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions.</p>
+            aws_sdk_resiliencehub.errors.conflict_exception.ConflictException: <p>This exception occurs when a conflict with a previous successful write is detected. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+            aws_sdk_resiliencehub.errors.internal_server_exception.InternalServerException: <p>This exception occurs when there is an internal failure in the Resilience Hub service.</p>
+            aws_sdk_resiliencehub.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception occurs when the specified resource could not be found.</p>
+            aws_sdk_resiliencehub.errors.throttling_exception.ThrottlingException: <p>This exception occurs when you have exceeded the limit on the number of requests per second.</p>
+            aws_sdk_resiliencehub.errors.validation_exception.ValidationException: <p>This exception occurs when a request is not valid.</p>
+            aws_sdk_resiliencehub.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3490,6 +3999,15 @@ class AsyncresiliencehubClient:
             name: <p>Name of the Application Component.</p>
             type: <p>Type of Application Component. For more information about the types of Application Component, see <a href=\"https://docs.aws.amazon.com/resilience-hub/latest/userguide/AppComponent.grouping.html\">Grouping resources in an AppComponent</a>.</p>
             additional_info: <p>Currently, there is no supported additional information for Application Components.</p>
+
+        Raises:
+            aws_sdk_resiliencehub.errors.access_denied_exception.AccessDeniedException: <p>You don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions.</p>
+            aws_sdk_resiliencehub.errors.conflict_exception.ConflictException: <p>This exception occurs when a conflict with a previous successful write is detected. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+            aws_sdk_resiliencehub.errors.internal_server_exception.InternalServerException: <p>This exception occurs when there is an internal failure in the Resilience Hub service.</p>
+            aws_sdk_resiliencehub.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception occurs when the specified resource could not be found.</p>
+            aws_sdk_resiliencehub.errors.throttling_exception.ThrottlingException: <p>This exception occurs when you have exceeded the limit on the number of requests per second.</p>
+            aws_sdk_resiliencehub.errors.validation_exception.ValidationException: <p>This exception occurs when a request is not valid.</p>
+            aws_sdk_resiliencehub.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3569,6 +4087,16 @@ class AsyncresiliencehubClient:
             app_components: <p>List of Application Components that this resource belongs to. If an Application Component is not part of the Resilience Hub application, it will be added.</p>
             additional_info: <p>Currently, there is no supported additional information for resources.</p>
             excluded: <p>Indicates if a resource is excluded from an Resilience Hub application.</p> <note> <p>You can exclude only imported resources from an Resilience Hub application.</p> </note>
+
+        Raises:
+            aws_sdk_resiliencehub.errors.access_denied_exception.AccessDeniedException: <p>You don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions.</p>
+            aws_sdk_resiliencehub.errors.conflict_exception.ConflictException: <p>This exception occurs when a conflict with a previous successful write is detected. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+            aws_sdk_resiliencehub.errors.internal_server_exception.InternalServerException: <p>This exception occurs when there is an internal failure in the Resilience Hub service.</p>
+            aws_sdk_resiliencehub.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception occurs when the specified resource could not be found.</p>
+            aws_sdk_resiliencehub.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>This exception occurs when you have exceeded your service quota. To perform the requested action, remove some of the relevant resources, or use Service Quotas to request a service quota increase.</p>
+            aws_sdk_resiliencehub.errors.throttling_exception.ThrottlingException: <p>This exception occurs when you have exceeded the limit on the number of requests per second.</p>
+            aws_sdk_resiliencehub.errors.validation_exception.ValidationException: <p>This exception occurs when a request is not valid.</p>
+            aws_sdk_resiliencehub.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3645,6 +4173,15 @@ class AsyncresiliencehubClient:
             data_location_constraint: <p>Specifies a high-level geographical location constraint for where your resilience policy data can be stored.</p>
             tier: <p>The tier for this resiliency policy, ranging from the highest severity (<code>MissionCritical</code>) to lowest (<code>NonCritical</code>).</p>
             policy: <p>Resiliency policy to be created, including the recovery time objective (RTO) and recovery point objective (RPO) in seconds.</p>
+
+        Raises:
+            aws_sdk_resiliencehub.errors.access_denied_exception.AccessDeniedException: <p>You don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions.</p>
+            aws_sdk_resiliencehub.errors.conflict_exception.ConflictException: <p>This exception occurs when a conflict with a previous successful write is detected. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+            aws_sdk_resiliencehub.errors.internal_server_exception.InternalServerException: <p>This exception occurs when there is an internal failure in the Resilience Hub service.</p>
+            aws_sdk_resiliencehub.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception occurs when the specified resource could not be found.</p>
+            aws_sdk_resiliencehub.errors.throttling_exception.ThrottlingException: <p>This exception occurs when you have exceeded the limit on the number of requests per second.</p>
+            aws_sdk_resiliencehub.errors.validation_exception.ValidationException: <p>This exception occurs when a request is not valid.</p>
+            aws_sdk_resiliencehub.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

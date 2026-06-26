@@ -198,6 +198,14 @@ class AsyncSupportClient:
         Args:
             attachment_set_id: <p>The ID of the attachment set. If an <code>attachmentSetId</code> is not specified, a new attachment set is created, and the ID of the set is returned in the response. If an <code>attachmentSetId</code> is specified, the attachments are added to the specified set, if it exists.</p>
             attachments: <p>One or more attachments to add to the set. You can add up to three attachments per set. The size limit is 5 MB per attachment.</p> <p>In the <code>Attachment</code> object, use the <code>data</code> parameter to specify the contents of the attachment file. In the previous request syntax, the value for <code>data</code> appear as <code>blob</code>, which is represented as a base64-encoded string. The value for <code>fileName</code> is the name of the attachment, such as <code>troubleshoot-screenshot.png</code>.</p>
+
+        Raises:
+            aws_sdk_support.errors.attachment_limit_exceeded.AttachmentLimitExceeded: <p>The limit for the number of attachment sets created in a short period of time has been exceeded.</p>
+            aws_sdk_support.errors.attachment_set_expired.AttachmentSetExpired: <p>The expiration time of the attachment set has passed. The set expires 1 hour after it is created.</p>
+            aws_sdk_support.errors.attachment_set_id_not_found.AttachmentSetIdNotFound: <p>An attachment set with the specified ID could not be found.</p>
+            aws_sdk_support.errors.attachment_set_size_limit_exceeded.AttachmentSetSizeLimitExceeded: <p>A limit for the size of an attachment set has been exceeded. The limits are three attachments and 5 MB per attachment.</p>
+            aws_sdk_support.errors.internal_server_error.InternalServerError: <p>An internal server error occurred.</p>
+            aws_sdk_support.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -248,6 +256,13 @@ class AsyncSupportClient:
             communication_body: <p>The body of an email communication to add to the support case.</p>
             cc_email_addresses: <p>The email addresses in the CC line of an email to be added to the support case.</p>
             attachment_set_id: <p>The ID of a set of one or more attachments for the communication to add to the case. Create the set by calling <a>AddAttachmentsToSet</a> </p>
+
+        Raises:
+            aws_sdk_support.errors.attachment_set_expired.AttachmentSetExpired: <p>The expiration time of the attachment set has passed. The set expires 1 hour after it is created.</p>
+            aws_sdk_support.errors.attachment_set_id_not_found.AttachmentSetIdNotFound: <p>An attachment set with the specified ID could not be found.</p>
+            aws_sdk_support.errors.case_id_not_found.CaseIdNotFound: <p>The requested <code>caseId</code> couldn't be located.</p>
+            aws_sdk_support.errors.internal_server_error.InternalServerError: <p>An internal server error occurred.</p>
+            aws_sdk_support.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -318,6 +333,13 @@ class AsyncSupportClient:
             language: <p>The language in which Amazon Web Services Support handles the case. Amazon Web Services Support currently supports Chinese (“zh”), English (\"en\"), Japanese (\"ja\") and Korean (“ko”). You must specify the ISO 639-1 code for the <code>language</code> parameter if you want support in that language.</p>
             issue_type: <p>The type of issue for the case. You can specify <code>customer-service</code> or <code>technical</code>. If you don't specify a value, the default is <code>technical</code>.</p>
             attachment_set_id: <p>The ID of a set of one or more attachments for the case. Create the set by using the <a>AddAttachmentsToSet</a> operation.</p>
+
+        Raises:
+            aws_sdk_support.errors.attachment_set_expired.AttachmentSetExpired: <p>The expiration time of the attachment set has passed. The set expires 1 hour after it is created.</p>
+            aws_sdk_support.errors.attachment_set_id_not_found.AttachmentSetIdNotFound: <p>An attachment set with the specified ID could not be found.</p>
+            aws_sdk_support.errors.case_creation_limit_exceeded.CaseCreationLimitExceeded: <p>The case creation limit for the account has been exceeded.</p>
+            aws_sdk_support.errors.internal_server_error.InternalServerError: <p>An internal server error occurred.</p>
+            aws_sdk_support.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -373,6 +395,12 @@ class AsyncSupportClient:
 
         Args:
             attachment_id: <p>The ID of the attachment to return. Attachment IDs are returned by the <a>DescribeCommunications</a> operation.</p>
+
+        Raises:
+            aws_sdk_support.errors.attachment_id_not_found.AttachmentIdNotFound: <p>An attachment with the specified ID could not be found.</p>
+            aws_sdk_support.errors.describe_attachment_limit_exceeded.DescribeAttachmentLimitExceeded: <p>The limit for the number of <a>DescribeAttachment</a> requests in a short period of time has been exceeded.</p>
+            aws_sdk_support.errors.internal_server_error.InternalServerError: <p>An internal server error occurred.</p>
+            aws_sdk_support.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -431,6 +459,11 @@ class AsyncSupportClient:
             max_results: <p>The maximum number of results to return before paginating.</p>
             language: <p>The language in which Amazon Web Services Support handles the case. Amazon Web Services Support currently supports Chinese (“zh”), English (\"en\"), Japanese (\"ja\") and Korean (“ko”). You must specify the ISO 639-1 code for the <code>language</code> parameter if you want support in that language.</p>
             include_communications: <p>Specifies whether to include communications in the <code>DescribeCases</code> response. By default, communications are included.</p>
+
+        Raises:
+            aws_sdk_support.errors.case_id_not_found.CaseIdNotFound: <p>The requested <code>caseId</code> couldn't be located.</p>
+            aws_sdk_support.errors.internal_server_error.InternalServerError: <p>An internal server error occurred.</p>
+            aws_sdk_support.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -533,6 +566,11 @@ class AsyncSupportClient:
             after_time: <p>The start date for a filtered date search on support case communications. Case communications are available for 12 months after creation.</p>
             next_token: <p>A resumption point for pagination.</p>
             max_results: <p>The maximum number of results to return before paginating.</p>
+
+        Raises:
+            aws_sdk_support.errors.case_id_not_found.CaseIdNotFound: <p>The requested <code>caseId</code> couldn't be located.</p>
+            aws_sdk_support.errors.internal_server_error.InternalServerError: <p>An internal server error occurred.</p>
+            aws_sdk_support.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -612,6 +650,11 @@ class AsyncSupportClient:
             service_code: <p>The code for the Amazon Web Services service. You can use the <a>DescribeServices</a> operation to get the possible <code>serviceCode</code> values.</p>
             language: <p>The language in which Amazon Web Services Support handles the case. Amazon Web Services Support currently supports Chinese (“zh”), English (\"en\"), Japanese (\"ja\") and Korean (“ko”). You must specify the ISO 639-1 code for the <code>language</code> parameter if you want support in that language.</p>
             category_code: <p>The category of problem for the support case. You also use the <a>DescribeServices</a> operation to get the category code for a service. Each Amazon Web Services service defines its own set of category codes.</p>
+
+        Raises:
+            aws_sdk_support.errors.internal_server_error.InternalServerError: <p>An internal server error occurred.</p>
+            aws_sdk_support.errors.throttling_exception.ThrottlingException: <p> You have exceeded the maximum allowed TPS (Transactions Per Second) for the operations. </p>
+            aws_sdk_support.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -657,6 +700,10 @@ class AsyncSupportClient:
         Args:
             service_code_list: <p>A JSON-formatted list of service codes available for Amazon Web Services services.</p>
             language: <p>The language in which Amazon Web Services Support handles the case. Amazon Web Services Support currently supports Chinese (“zh”), English (\"en\"), Japanese (\"ja\") and Korean (“ko”). You must specify the ISO 639-1 code for the <code>language</code> parameter if you want support in that language.</p>
+
+        Raises:
+            aws_sdk_support.errors.internal_server_error.InternalServerError: <p>An internal server error occurred.</p>
+            aws_sdk_support.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -698,6 +745,10 @@ class AsyncSupportClient:
 
         Args:
             language: <p>The language in which Amazon Web Services Support handles the case. Amazon Web Services Support currently supports Chinese (“zh”), English (\"en\"), Japanese (\"ja\") and Korean (“ko”). You must specify the ISO 639-1 code for the <code>language</code> parameter if you want support in that language.</p>
+
+        Raises:
+            aws_sdk_support.errors.internal_server_error.InternalServerError: <p>An internal server error occurred.</p>
+            aws_sdk_support.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -741,6 +792,11 @@ class AsyncSupportClient:
             issue_type: <p>The type of issue for the case. You can specify <code>customer-service</code> or <code>technical</code>.</p>
             service_code: <p>The code for the Amazon Web Services service. You can use the <a>DescribeServices</a> operation to get the possible <code>serviceCode</code> values.</p>
             category_code: <p>The category of problem for the support case. You also use the <a>DescribeServices</a> operation to get the category code for a service. Each Amazon Web Services service defines its own set of category codes.</p>
+
+        Raises:
+            aws_sdk_support.errors.internal_server_error.InternalServerError: <p>An internal server error occurred.</p>
+            aws_sdk_support.errors.throttling_exception.ThrottlingException: <p> You have exceeded the maximum allowed TPS (Transactions Per Second) for the operations. </p>
+            aws_sdk_support.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -781,6 +837,11 @@ class AsyncSupportClient:
 
         Args:
             check_ids: <p>The IDs of the Trusted Advisor checks to get the status.</p> <note> <p>If you specify the check ID of a check that is automatically refreshed, you might see an <code>InvalidParameterValue</code> error.</p> </note>
+
+        Raises:
+            aws_sdk_support.errors.internal_server_error.InternalServerError: <p>An internal server error occurred.</p>
+            aws_sdk_support.errors.throttling_exception.ThrottlingException: <p> You have exceeded the maximum allowed TPS (Transactions Per Second) for the operations. </p>
+            aws_sdk_support.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -821,6 +882,11 @@ class AsyncSupportClient:
         Args:
             check_id: <p>The unique identifier for the Trusted Advisor check.</p>
             language: <p>The ISO 639-1 code for the language that you want your check results to appear in.</p> <p>The Amazon Web Services Support API currently supports the following languages for Trusted Advisor:</p> <ul> <li> <p>Chinese, Simplified - <code>zh</code> </p> </li> <li> <p>Chinese, Traditional - <code>zh_TW</code> </p> </li> <li> <p>English - <code>en</code> </p> </li> <li> <p>French - <code>fr</code> </p> </li> <li> <p>German - <code>de</code> </p> </li> <li> <p>Indonesian - <code>id</code> </p> </li> <li> <p>Italian - <code>it</code> </p> </li> <li> <p>Japanese - <code>ja</code> </p> </li> <li> <p>Korean - <code>ko</code> </p> </li> <li> <p>Portuguese, Brazilian - <code>pt_BR</code> </p> </li> <li> <p>Spanish - <code>es</code> </p> </li> </ul>
+
+        Raises:
+            aws_sdk_support.errors.internal_server_error.InternalServerError: <p>An internal server error occurred.</p>
+            aws_sdk_support.errors.throttling_exception.ThrottlingException: <p> You have exceeded the maximum allowed TPS (Transactions Per Second) for the operations. </p>
+            aws_sdk_support.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -861,6 +927,11 @@ class AsyncSupportClient:
 
         Args:
             language: <p>The ISO 639-1 code for the language that you want your checks to appear in.</p> <p>The Amazon Web Services Support API currently supports the following languages for Trusted Advisor:</p> <ul> <li> <p>Chinese, Simplified - <code>zh</code> </p> </li> <li> <p>Chinese, Traditional - <code>zh_TW</code> </p> </li> <li> <p>English - <code>en</code> </p> </li> <li> <p>French - <code>fr</code> </p> </li> <li> <p>German - <code>de</code> </p> </li> <li> <p>Indonesian - <code>id</code> </p> </li> <li> <p>Italian - <code>it</code> </p> </li> <li> <p>Japanese - <code>ja</code> </p> </li> <li> <p>Korean - <code>ko</code> </p> </li> <li> <p>Portuguese, Brazilian - <code>pt_BR</code> </p> </li> <li> <p>Spanish - <code>es</code> </p> </li> </ul>
+
+        Raises:
+            aws_sdk_support.errors.internal_server_error.InternalServerError: <p>An internal server error occurred.</p>
+            aws_sdk_support.errors.throttling_exception.ThrottlingException: <p> You have exceeded the maximum allowed TPS (Transactions Per Second) for the operations. </p>
+            aws_sdk_support.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -899,6 +970,11 @@ class AsyncSupportClient:
 
         Args:
             check_ids: <p>The IDs of the Trusted Advisor checks.</p>
+
+        Raises:
+            aws_sdk_support.errors.internal_server_error.InternalServerError: <p>An internal server error occurred.</p>
+            aws_sdk_support.errors.throttling_exception.ThrottlingException: <p> You have exceeded the maximum allowed TPS (Transactions Per Second) for the operations. </p>
+            aws_sdk_support.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -937,6 +1013,10 @@ class AsyncSupportClient:
 
         Args:
             check_id: <p>The unique identifier for the Trusted Advisor check to refresh.</p> <note> <p>Specifying the check ID of a check that is automatically refreshed causes an <code>InvalidParameterValue</code> error.</p> </note>
+
+        Raises:
+            aws_sdk_support.errors.internal_server_error.InternalServerError: <p>An internal server error occurred.</p>
+            aws_sdk_support.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -975,6 +1055,11 @@ class AsyncSupportClient:
 
         Args:
             case_id: <p>The support case ID requested or returned in the call. The case ID is an alphanumeric string formatted as shown in this example: case-<i>12345678910-2013-c4c1d2bf33c5cf47</i> </p>
+
+        Raises:
+            aws_sdk_support.errors.case_id_not_found.CaseIdNotFound: <p>The requested <code>caseId</code> couldn't be located.</p>
+            aws_sdk_support.errors.internal_server_error.InternalServerError: <p>An internal server error occurred.</p>
+            aws_sdk_support.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

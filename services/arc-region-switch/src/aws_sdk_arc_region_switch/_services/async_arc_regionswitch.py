@@ -193,6 +193,11 @@ class AsyncARCRegionswitchClient:
             step_name: <p>The name of a step in a plan execution.</p>
             approval: <p>The status of approval for a plan execution step. </p>
             comment: <p>A comment that you can enter about a plan execution.</p>
+
+        Raises:
+            aws_sdk_arc_region_switch.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p> <p>HTTP Status Code: 403</p>
+            aws_sdk_arc_region_switch.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p> <p>HTTP Status Code: 404</p>
+            aws_sdk_arc_region_switch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -242,6 +247,11 @@ class AsyncARCRegionswitchClient:
             plan_arn: <p>The Amazon Resource Name (ARN) of the plan.</p>
             execution_id: <p>The execution identifier of a plan execution.</p>
             comment: <p>A comment that you can enter about canceling a plan execution step.</p>
+
+        Raises:
+            aws_sdk_arc_region_switch.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p> <p>HTTP Status Code: 403</p>
+            aws_sdk_arc_region_switch.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p> <p>HTTP Status Code: 404</p>
+            aws_sdk_arc_region_switch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -291,6 +301,11 @@ class AsyncARCRegionswitchClient:
             plan_arn: <p>The Amazon Resource Name (ARN) of the Region switch plan to retrieve evaluation status for.</p>
             max_results: <p>The number of objects that you want to return with this call.</p>
             next_token: <p>Specifies that you want to receive the next page of results. Valid only if you received a <code>nextToken</code> response in the previous request. If you did, it indicates that more output is available. Set this parameter to the value provided by the previous call's <code>nextToken</code> response to request the next page of results.</p>
+
+        Raises:
+            aws_sdk_arc_region_switch.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p> <p>HTTP Status Code: 403</p>
+            aws_sdk_arc_region_switch.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p> <p>HTTP Status Code: 404</p>
+            aws_sdk_arc_region_switch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -368,6 +383,11 @@ class AsyncARCRegionswitchClient:
             execution_id: <p>The execution identifier of a plan execution.</p>
             max_results: <p>The number of objects that you want to return with this call.</p>
             next_token: <p>Specifies that you want to receive the next page of results. Valid only if you received a <code>nextToken</code> response in the previous request. If you did, it indicates that more output is available. Set this parameter to the value provided by the previous call's <code>nextToken</code> response to request the next page of results.</p>
+
+        Raises:
+            aws_sdk_arc_region_switch.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p> <p>HTTP Status Code: 403</p>
+            aws_sdk_arc_region_switch.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p> <p>HTTP Status Code: 404</p>
+            aws_sdk_arc_region_switch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -438,6 +458,11 @@ class AsyncARCRegionswitchClient:
 
         Args:
             arn: <p>The Amazon Resource Name (ARN) of the plan in Region.</p>
+
+        Raises:
+            aws_sdk_arc_region_switch.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p> <p>HTTP Status Code: 403</p>
+            aws_sdk_arc_region_switch.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p> <p>HTTP Status Code: 404</p>
+            aws_sdk_arc_region_switch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -486,6 +511,11 @@ class AsyncARCRegionswitchClient:
             max_results: <p>The number of objects that you want to return with this call.</p>
             next_token: <p>Specifies that you want to receive the next page of results. Valid only if you received a <code>nextToken</code> response in the previous request. If you did, it indicates that more output is available. Set this parameter to the value provided by the previous call's <code>nextToken</code> response to request the next page of results.</p>
             name: <p>The name of the plan execution event.</p>
+
+        Raises:
+            aws_sdk_arc_region_switch.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p> <p>HTTP Status Code: 403</p>
+            aws_sdk_arc_region_switch.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p> <p>HTTP Status Code: 404</p>
+            aws_sdk_arc_region_switch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -572,6 +602,11 @@ class AsyncARCRegionswitchClient:
             max_results: <p>The number of objects that you want to return with this call.</p>
             next_token: <p>Specifies that you want to receive the next page of results. Valid only if you received a <code>nextToken</code> response in the previous request. If you did, it indicates that more output is available. Set this parameter to the value provided by the previous call's <code>nextToken</code> response to request the next page of results.</p>
             state: <p>The state of the plan execution. For example, the plan execution might be In Progress.</p>
+
+        Raises:
+            aws_sdk_arc_region_switch.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p> <p>HTTP Status Code: 403</p>
+            aws_sdk_arc_region_switch.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p> <p>HTTP Status Code: 404</p>
+            aws_sdk_arc_region_switch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -651,6 +686,10 @@ class AsyncARCRegionswitchClient:
         Args:
             max_results: <p>The number of objects that you want to return with this call.</p>
             next_token: <p>Specifies that you want to receive the next page of results. Valid only if you received a <code>nextToken</code> response in the previous request. If you did, it indicates that more output is available. Set this parameter to the value provided by the previous call's <code>nextToken</code> response to request the next page of results.</p>
+
+        Raises:
+            aws_sdk_arc_region_switch.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p> <p>HTTP Status Code: 403</p>
+            aws_sdk_arc_region_switch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -733,6 +772,13 @@ class AsyncARCRegionswitchClient:
             record_name: <p>The record name for the health checks.</p>
             max_results: <p>The maximum number of results to return in the response.</p>
             next_token: <p>Specifies that you want to receive the next page of results. Valid only if you received a <code>nextToken</code> response in the previous request. If you did, it indicates that more output is available. Set this parameter to the value provided by the previous call's <code>nextToken</code> response to request the next page of results.</p>
+
+        Raises:
+            aws_sdk_arc_region_switch.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p> <p>HTTP Status Code: 403</p>
+            aws_sdk_arc_region_switch.errors.illegal_argument_exception.IllegalArgumentException: <p>The request processing has an invalid argument.</p>
+            aws_sdk_arc_region_switch.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure.</p> <p>HTTP Status Code: 500</p>
+            aws_sdk_arc_region_switch.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p> <p>HTTP Status Code: 404</p>
+            aws_sdk_arc_region_switch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -830,6 +876,13 @@ class AsyncARCRegionswitchClient:
             record_name: <p>The record name for the health checks.</p>
             max_results: <p>The maximum number of results to return in the response.</p>
             next_token: <p>Specifies that you want to receive the next page of results. Valid only if you received a <code>nextToken</code> response in the previous request. If you did, it indicates that more output is available. Set this parameter to the value provided by the previous call's <code>nextToken</code> response to request the next page of results.</p>
+
+        Raises:
+            aws_sdk_arc_region_switch.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p> <p>HTTP Status Code: 403</p>
+            aws_sdk_arc_region_switch.errors.illegal_argument_exception.IllegalArgumentException: <p>The request processing has an invalid argument.</p>
+            aws_sdk_arc_region_switch.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure.</p> <p>HTTP Status Code: 500</p>
+            aws_sdk_arc_region_switch.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p> <p>HTTP Status Code: 404</p>
+            aws_sdk_arc_region_switch.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Example ListRoute53HealthChecksInRegion
@@ -934,6 +987,13 @@ class AsyncARCRegionswitchClient:
             comment: <p>An optional comment explaining why the plan execution is being started.</p>
             latest_version: <p>A boolean value indicating whether to use the latest version of the plan. If set to false, you must specify a specific version.</p>
             recovery_execution_id: <p>The execution identifier of the recovery execution that ran in the opposite region post-recovery is ran in. Required when starting a post-recovery execution.</p>
+
+        Raises:
+            aws_sdk_arc_region_switch.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p> <p>HTTP Status Code: 403</p>
+            aws_sdk_arc_region_switch.errors.illegal_argument_exception.IllegalArgumentException: <p>The request processing has an invalid argument.</p>
+            aws_sdk_arc_region_switch.errors.illegal_state_exception.IllegalStateException: <p>The operation failed because the current state of the resource doesn't allow the operation to proceed.</p> <p>HTTP Status Code: 400</p>
+            aws_sdk_arc_region_switch.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p> <p>HTTP Status Code: 404</p>
+            aws_sdk_arc_region_switch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -990,6 +1050,12 @@ class AsyncARCRegionswitchClient:
             execution_id: <p>The execution identifier of a plan execution.</p>
             action: <p>The action specified for a plan execution, for example, Switch to Graceful or Pause.</p>
             comment: <p>An optional comment about the plan execution.</p>
+
+        Raises:
+            aws_sdk_arc_region_switch.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p> <p>HTTP Status Code: 403</p>
+            aws_sdk_arc_region_switch.errors.illegal_state_exception.IllegalStateException: <p>The operation failed because the current state of the resource doesn't allow the operation to proceed.</p> <p>HTTP Status Code: 400</p>
+            aws_sdk_arc_region_switch.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p> <p>HTTP Status Code: 404</p>
+            aws_sdk_arc_region_switch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1040,6 +1106,11 @@ class AsyncARCRegionswitchClient:
             comment: <p>An optional comment about the plan execution.</p>
             step_name: <p>The name of the execution step to update.</p>
             action_to_take: <p>The updated action to take for the step. This can be used to skip or retry a step.</p>
+
+        Raises:
+            aws_sdk_arc_region_switch.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p> <p>HTTP Status Code: 403</p>
+            aws_sdk_arc_region_switch.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p> <p>HTTP Status Code: 404</p>
+            aws_sdk_arc_region_switch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

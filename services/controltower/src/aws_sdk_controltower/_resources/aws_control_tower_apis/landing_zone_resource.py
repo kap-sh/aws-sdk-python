@@ -66,6 +66,14 @@ class LandingZoneResource:
             remediation_types: <p>Specifies the types of remediation actions to apply when creating the landing zone, such as automatic drift correction or compliance enforcement.</p>
             tags: <p>Tags to be applied to the landing zone. </p>
             manifest: <p>The manifest JSON file is a text file that describes your Amazon Web Services resources. For examples, review <a href=\"https://docs.aws.amazon.com/controltower/latest/userguide/lz-api-launch\">Launch your landing zone</a>. </p>
+
+        Raises:
+            aws_sdk_controltower.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_controltower.errors.conflict_exception.ConflictException: <p>Updating or deleting the resource can cause an inconsistent state.</p>
+            aws_sdk_controltower.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred during processing of a request.</p>
+            aws_sdk_controltower.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_controltower.errors.validation_exception.ValidationException: <p>The input does not satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_controltower.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -109,6 +117,14 @@ class LandingZoneResource:
 
         Args:
             landing_zone_identifier: <p>The unique identifier of the landing zone.</p>
+
+        Raises:
+            aws_sdk_controltower.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_controltower.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred during processing of a request.</p>
+            aws_sdk_controltower.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource that does not exist.</p>
+            aws_sdk_controltower.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_controltower.errors.validation_exception.ValidationException: <p>The input does not satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_controltower.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -156,6 +172,15 @@ class LandingZoneResource:
             remediation_types: <p>Specifies the types of remediation actions to apply when updating the landing zone configuration.</p>
             landing_zone_identifier: <p>The unique identifier of the landing zone.</p>
             manifest: <p>The manifest file (JSON) is a text file that describes your Amazon Web Services resources. For an example, review <a href=\"https://docs.aws.amazon.com/controltower/latest/userguide/lz-api-launch\">Launch your landing zone</a>. The example manifest file contains each of the available parameters. The schema for the landing zone's JSON manifest file is not published, by design.</p>
+
+        Raises:
+            aws_sdk_controltower.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_controltower.errors.conflict_exception.ConflictException: <p>Updating or deleting the resource can cause an inconsistent state.</p>
+            aws_sdk_controltower.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred during processing of a request.</p>
+            aws_sdk_controltower.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource that does not exist.</p>
+            aws_sdk_controltower.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_controltower.errors.validation_exception.ValidationException: <p>The input does not satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_controltower.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -200,6 +225,15 @@ class LandingZoneResource:
 
         Args:
             landing_zone_identifier: <p>The unique identifier of the landing zone.</p>
+
+        Raises:
+            aws_sdk_controltower.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_controltower.errors.conflict_exception.ConflictException: <p>Updating or deleting the resource can cause an inconsistent state.</p>
+            aws_sdk_controltower.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred during processing of a request.</p>
+            aws_sdk_controltower.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource that does not exist.</p>
+            aws_sdk_controltower.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_controltower.errors.validation_exception.ValidationException: <p>The input does not satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_controltower.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -241,6 +275,13 @@ class LandingZoneResource:
         Args:
             next_token: <p>The token to continue the list from a previous API call with the same parameters.</p>
             max_results: <p>The maximum number of returned landing zone ARNs, which is one.</p>
+
+        Raises:
+            aws_sdk_controltower.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_controltower.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred during processing of a request.</p>
+            aws_sdk_controltower.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_controltower.errors.validation_exception.ValidationException: <p>The input does not satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_controltower.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -281,6 +322,15 @@ class LandingZoneResource:
 
         Args:
             landing_zone_identifier: <p>The unique identifier of the landing zone.</p>
+
+        Raises:
+            aws_sdk_controltower.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_controltower.errors.conflict_exception.ConflictException: <p>Updating or deleting the resource can cause an inconsistent state.</p>
+            aws_sdk_controltower.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred during processing of a request.</p>
+            aws_sdk_controltower.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource that does not exist.</p>
+            aws_sdk_controltower.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_controltower.errors.validation_exception.ValidationException: <p>The input does not satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_controltower.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -333,6 +383,14 @@ class AsyncLandingZoneResource:
             remediation_types: <p>Specifies the types of remediation actions to apply when creating the landing zone, such as automatic drift correction or compliance enforcement.</p>
             tags: <p>Tags to be applied to the landing zone. </p>
             manifest: <p>The manifest JSON file is a text file that describes your Amazon Web Services resources. For examples, review <a href=\"https://docs.aws.amazon.com/controltower/latest/userguide/lz-api-launch\">Launch your landing zone</a>. </p>
+
+        Raises:
+            aws_sdk_controltower.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_controltower.errors.conflict_exception.ConflictException: <p>Updating or deleting the resource can cause an inconsistent state.</p>
+            aws_sdk_controltower.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred during processing of a request.</p>
+            aws_sdk_controltower.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_controltower.errors.validation_exception.ValidationException: <p>The input does not satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_controltower.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -377,6 +435,14 @@ class AsyncLandingZoneResource:
 
         Args:
             landing_zone_identifier: <p>The unique identifier of the landing zone.</p>
+
+        Raises:
+            aws_sdk_controltower.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_controltower.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred during processing of a request.</p>
+            aws_sdk_controltower.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource that does not exist.</p>
+            aws_sdk_controltower.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_controltower.errors.validation_exception.ValidationException: <p>The input does not satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_controltower.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -425,6 +491,15 @@ class AsyncLandingZoneResource:
             remediation_types: <p>Specifies the types of remediation actions to apply when updating the landing zone configuration.</p>
             landing_zone_identifier: <p>The unique identifier of the landing zone.</p>
             manifest: <p>The manifest file (JSON) is a text file that describes your Amazon Web Services resources. For an example, review <a href=\"https://docs.aws.amazon.com/controltower/latest/userguide/lz-api-launch\">Launch your landing zone</a>. The example manifest file contains each of the available parameters. The schema for the landing zone's JSON manifest file is not published, by design.</p>
+
+        Raises:
+            aws_sdk_controltower.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_controltower.errors.conflict_exception.ConflictException: <p>Updating or deleting the resource can cause an inconsistent state.</p>
+            aws_sdk_controltower.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred during processing of a request.</p>
+            aws_sdk_controltower.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource that does not exist.</p>
+            aws_sdk_controltower.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_controltower.errors.validation_exception.ValidationException: <p>The input does not satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_controltower.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -470,6 +545,15 @@ class AsyncLandingZoneResource:
 
         Args:
             landing_zone_identifier: <p>The unique identifier of the landing zone.</p>
+
+        Raises:
+            aws_sdk_controltower.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_controltower.errors.conflict_exception.ConflictException: <p>Updating or deleting the resource can cause an inconsistent state.</p>
+            aws_sdk_controltower.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred during processing of a request.</p>
+            aws_sdk_controltower.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource that does not exist.</p>
+            aws_sdk_controltower.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_controltower.errors.validation_exception.ValidationException: <p>The input does not satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_controltower.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -512,6 +596,13 @@ class AsyncLandingZoneResource:
         Args:
             next_token: <p>The token to continue the list from a previous API call with the same parameters.</p>
             max_results: <p>The maximum number of returned landing zone ARNs, which is one.</p>
+
+        Raises:
+            aws_sdk_controltower.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_controltower.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred during processing of a request.</p>
+            aws_sdk_controltower.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_controltower.errors.validation_exception.ValidationException: <p>The input does not satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_controltower.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -553,6 +644,15 @@ class AsyncLandingZoneResource:
 
         Args:
             landing_zone_identifier: <p>The unique identifier of the landing zone.</p>
+
+        Raises:
+            aws_sdk_controltower.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_controltower.errors.conflict_exception.ConflictException: <p>Updating or deleting the resource can cause an inconsistent state.</p>
+            aws_sdk_controltower.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred during processing of a request.</p>
+            aws_sdk_controltower.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource that does not exist.</p>
+            aws_sdk_controltower.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_controltower.errors.validation_exception.ValidationException: <p>The input does not satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_controltower.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

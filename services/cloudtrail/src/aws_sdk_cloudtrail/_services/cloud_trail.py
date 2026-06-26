@@ -331,6 +331,25 @@ class CloudTrailClient:
         Args:
             resource_id: <p>Specifies the ARN of the trail, event data store, dashboard, or channel to which one or more tags will be added.</p> <p>The format of a trail ARN is: <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code> </p> <p>The format of an event data store ARN is: <code>arn:aws:cloudtrail:us-east-2:123456789012:eventdatastore/EXAMPLE-f852-4e8f-8bd1-bcf6cEXAMPLE</code> </p> <p>The format of a dashboard ARN is: <code>arn:aws:cloudtrail:us-east-1:123456789012:dashboard/exampleDash</code> </p> <p>The format of a channel ARN is: <code>arn:aws:cloudtrail:us-east-2:123456789012:channel/01234567890</code> </p>
             tags_list: <p>Contains a list of tags, up to a limit of 50</p>
+
+        Raises:
+            aws_sdk_cloudtrail.errors.channel_arn_invalid_exception.ChannelARNInvalidException: <p>This exception is thrown when the specified value of <code>ChannelARN</code> is not valid.</p>
+            aws_sdk_cloudtrail.errors.channel_not_found_exception.ChannelNotFoundException: <p>This exception is thrown when CloudTrail cannot find the specified channel.</p>
+            aws_sdk_cloudtrail.errors.cloud_trail_arn_invalid_exception.CloudTrailARNInvalidException: <p>This exception is thrown when an operation is called with an ARN that is not valid.</p> <p>The following is the format of a trail ARN: <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code> </p> <p>The following is the format of an event data store ARN: <code>arn:aws:cloudtrail:us-east-2:123456789012:eventdatastore/EXAMPLE-f852-4e8f-8bd1-bcf6cEXAMPLE</code> </p> <p>The following is the format of a dashboard ARN: <code>arn:aws:cloudtrail:us-east-1:123456789012:dashboard/exampleDash</code> </p> <p>The following is the format of a channel ARN: <code>arn:aws:cloudtrail:us-east-2:123456789012:channel/01234567890</code> </p>
+            aws_sdk_cloudtrail.errors.conflict_exception.ConflictException: <p>This exception is thrown when the specified resource is not ready for an operation. This can occur when you try to run an operation on a resource before CloudTrail has time to fully load the resource, or because another operation is modifying the resource. If this exception occurs, wait a few minutes, and then try the operation again.</p>
+            aws_sdk_cloudtrail.errors.event_data_store_arn_invalid_exception.EventDataStoreARNInvalidException: <p>The specified event data store ARN is not valid or does not map to an event data store in your account.</p>
+            aws_sdk_cloudtrail.errors.event_data_store_not_found_exception.EventDataStoreNotFoundException: <p>The specified event data store was not found.</p>
+            aws_sdk_cloudtrail.errors.inactive_event_data_store_exception.InactiveEventDataStoreException: <p>The event data store is inactive.</p>
+            aws_sdk_cloudtrail.errors.invalid_tag_parameter_exception.InvalidTagParameterException: <p>This exception is thrown when the specified tag key or values are not valid. It can also occur if there are duplicate tags or too many tags on the resource.</p>
+            aws_sdk_cloudtrail.errors.invalid_trail_name_exception.InvalidTrailNameException: <p>This exception is thrown when the provided trail name is not valid. Trail names must meet the following requirements:</p> <ul> <li> <p>Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.), underscores (_), or dashes (-)</p> </li> <li> <p>Start with a letter or number, and end with a letter or number</p> </li> <li> <p>Be between 3 and 128 characters</p> </li> <li> <p>Have no adjacent periods, underscores or dashes. Names like <code>my-_namespace</code> and <code>my--namespace</code> are not valid.</p> </li> <li> <p>Not be in IP address format (for example, 192.168.5.4)</p> </li> </ul>
+            aws_sdk_cloudtrail.errors.no_management_account_slr_exists_exception.NoManagementAccountSLRExistsException: <p> This exception is thrown when the management account does not have a service-linked role. </p>
+            aws_sdk_cloudtrail.errors.not_organization_master_account_exception.NotOrganizationMasterAccountException: <p>This exception is thrown when the Amazon Web Services account making the request to create or update an organization trail or event data store is not the management account for an organization in Organizations. For more information, see <a href=\"https://docs.aws.amazon.com/awscloudtrail/latest/userguide/creating-an-organizational-trail-prepare.html\">Prepare For Creating a Trail For Your Organization</a> or <a href=\"https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-lake-organizations.html\">Organization event data stores</a>.</p>
+            aws_sdk_cloudtrail.errors.operation_not_permitted_exception.OperationNotPermittedException: <p>This exception is thrown when the requested operation is not permitted.</p>
+            aws_sdk_cloudtrail.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when the specified resource is not found.</p>
+            aws_sdk_cloudtrail.errors.resource_type_not_supported_exception.ResourceTypeNotSupportedException: <p>This exception is thrown when the specified resource type is not supported by CloudTrail.</p>
+            aws_sdk_cloudtrail.errors.tags_limit_exceeded_exception.TagsLimitExceededException: <p>The number of tags per trail, event data store, dashboard, or channel has exceeded the permitted amount. Currently, the limit is 50.</p>
+            aws_sdk_cloudtrail.errors.unsupported_operation_exception.UnsupportedOperationException: <p>This exception is thrown when the requested operation is not supported.</p>
+            aws_sdk_cloudtrail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -377,6 +396,19 @@ class CloudTrailClient:
             event_data_store: <p>The ARN (or the ID suffix of the ARN) of an event data store on which the specified query is running.</p>
             query_id: <p>The ID of the query that you want to cancel. The <code>QueryId</code> comes from the response of a <code>StartQuery</code> operation.</p>
             event_data_store_owner_account_id: <p> The account ID of the event data store owner. </p>
+
+        Raises:
+            aws_sdk_cloudtrail.errors.conflict_exception.ConflictException: <p>This exception is thrown when the specified resource is not ready for an operation. This can occur when you try to run an operation on a resource before CloudTrail has time to fully load the resource, or because another operation is modifying the resource. If this exception occurs, wait a few minutes, and then try the operation again.</p>
+            aws_sdk_cloudtrail.errors.event_data_store_arn_invalid_exception.EventDataStoreARNInvalidException: <p>The specified event data store ARN is not valid or does not map to an event data store in your account.</p>
+            aws_sdk_cloudtrail.errors.event_data_store_not_found_exception.EventDataStoreNotFoundException: <p>The specified event data store was not found.</p>
+            aws_sdk_cloudtrail.errors.inactive_event_data_store_exception.InactiveEventDataStoreException: <p>The event data store is inactive.</p>
+            aws_sdk_cloudtrail.errors.inactive_query_exception.InactiveQueryException: <p>The specified query cannot be canceled because it is in the <code>FINISHED</code>, <code>FAILED</code>, <code>TIMED_OUT</code>, or <code>CANCELLED</code> state.</p>
+            aws_sdk_cloudtrail.errors.invalid_parameter_exception.InvalidParameterException: <p>The request includes a parameter that is not valid.</p>
+            aws_sdk_cloudtrail.errors.no_management_account_slr_exists_exception.NoManagementAccountSLRExistsException: <p> This exception is thrown when the management account does not have a service-linked role. </p>
+            aws_sdk_cloudtrail.errors.operation_not_permitted_exception.OperationNotPermittedException: <p>This exception is thrown when the requested operation is not permitted.</p>
+            aws_sdk_cloudtrail.errors.query_id_not_found_exception.QueryIdNotFoundException: <p>The query ID does not exist or does not map to a query.</p>
+            aws_sdk_cloudtrail.errors.unsupported_operation_exception.UnsupportedOperationException: <p>This exception is thrown when the requested operation is not supported.</p>
+            aws_sdk_cloudtrail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -425,6 +457,21 @@ class CloudTrailClient:
             name: <p>The name of the channel.</p>
             source: <p>The name of the partner or external event source. You cannot change this name after you create the channel. A maximum of one channel is allowed per source.</p> <p> A source can be either <code>Custom</code> for all valid non-Amazon Web Services events, or the name of a partner event source. For information about the source names for available partners, see <a href=\"https://docs.aws.amazon.com/awscloudtrail/latest/userguide/query-event-data-store-integration.html#cloudtrail-lake-partner-information\">Additional information about integration partners</a> in the CloudTrail User Guide. </p>
             destinations: <p>One or more event data stores to which events arriving through a channel will be logged.</p>
+
+        Raises:
+            aws_sdk_cloudtrail.errors.channel_already_exists_exception.ChannelAlreadyExistsException: <p> This exception is thrown when the provided channel already exists. </p>
+            aws_sdk_cloudtrail.errors.channel_max_limit_exceeded_exception.ChannelMaxLimitExceededException: <p> This exception is thrown when the maximum number of channels limit is exceeded. </p>
+            aws_sdk_cloudtrail.errors.event_data_store_arn_invalid_exception.EventDataStoreARNInvalidException: <p>The specified event data store ARN is not valid or does not map to an event data store in your account.</p>
+            aws_sdk_cloudtrail.errors.event_data_store_not_found_exception.EventDataStoreNotFoundException: <p>The specified event data store was not found.</p>
+            aws_sdk_cloudtrail.errors.inactive_event_data_store_exception.InactiveEventDataStoreException: <p>The event data store is inactive.</p>
+            aws_sdk_cloudtrail.errors.invalid_event_data_store_category_exception.InvalidEventDataStoreCategoryException: <p>This exception is thrown when event categories of specified event data stores are not valid.</p>
+            aws_sdk_cloudtrail.errors.invalid_parameter_exception.InvalidParameterException: <p>The request includes a parameter that is not valid.</p>
+            aws_sdk_cloudtrail.errors.invalid_source_exception.InvalidSourceException: <p>This exception is thrown when the specified value of <code>Source</code> is not valid.</p>
+            aws_sdk_cloudtrail.errors.invalid_tag_parameter_exception.InvalidTagParameterException: <p>This exception is thrown when the specified tag key or values are not valid. It can also occur if there are duplicate tags or too many tags on the resource.</p>
+            aws_sdk_cloudtrail.errors.operation_not_permitted_exception.OperationNotPermittedException: <p>This exception is thrown when the requested operation is not permitted.</p>
+            aws_sdk_cloudtrail.errors.tags_limit_exceeded_exception.TagsLimitExceededException: <p>The number of tags per trail, event data store, dashboard, or channel has exceeded the permitted amount. Currently, the limit is 50.</p>
+            aws_sdk_cloudtrail.errors.unsupported_operation_exception.UnsupportedOperationException: <p>This exception is thrown when the requested operation is not supported.</p>
+            aws_sdk_cloudtrail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -479,6 +526,17 @@ class CloudTrailClient:
             refresh_schedule: <p> The refresh schedule configuration for the dashboard. </p> <p>To create the Highlights dashboard, you must set a refresh schedule and set the <code>Status</code> to <code>ENABLED</code>. The <code>Unit</code> for the refresh schedule must be <code>HOURS</code> and the <code>Value</code> must be <code>6</code>.</p>
             termination_protection_enabled: <p> Specifies whether termination protection is enabled for the dashboard. If termination protection is enabled, you cannot delete the dashboard until termination protection is disabled. </p>
             widgets: <p> An array of widgets for a custom dashboard. A custom dashboard can have a maximum of ten widgets. </p> <p>You do not need to specify widgets for the Highlights dashboard.</p>
+
+        Raises:
+            aws_sdk_cloudtrail.errors.conflict_exception.ConflictException: <p>This exception is thrown when the specified resource is not ready for an operation. This can occur when you try to run an operation on a resource before CloudTrail has time to fully load the resource, or because another operation is modifying the resource. If this exception occurs, wait a few minutes, and then try the operation again.</p>
+            aws_sdk_cloudtrail.errors.event_data_store_not_found_exception.EventDataStoreNotFoundException: <p>The specified event data store was not found.</p>
+            aws_sdk_cloudtrail.errors.inactive_event_data_store_exception.InactiveEventDataStoreException: <p>The event data store is inactive.</p>
+            aws_sdk_cloudtrail.errors.insufficient_encryption_policy_exception.InsufficientEncryptionPolicyException: <p>For the <code>CreateTrail</code> <code>PutInsightSelectors</code>, <code>UpdateTrail</code>, <code>StartQuery</code>, and <code>StartImport</code> operations, this exception is thrown when the policy on the S3 bucket or KMS key does not have sufficient permissions for the operation.</p> <p>For all other operations, this exception is thrown when the policy for the KMS key does not have sufficient permissions for the operation.</p>
+            aws_sdk_cloudtrail.errors.invalid_query_statement_exception.InvalidQueryStatementException: <p>The query that was submitted has validation errors, or uses incorrect syntax or unsupported keywords. For more information about writing a query, see <a href=\"https://docs.aws.amazon.com/awscloudtrail/latest/userguide/query-create-edit-query.html\">Create or edit a query</a> in the <i>CloudTrail User Guide</i>.</p>
+            aws_sdk_cloudtrail.errors.invalid_tag_parameter_exception.InvalidTagParameterException: <p>This exception is thrown when the specified tag key or values are not valid. It can also occur if there are duplicate tags or too many tags on the resource.</p>
+            aws_sdk_cloudtrail.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p> This exception is thrown when the quota is exceeded. For information about CloudTrail quotas, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/ct.html#limits_cloudtrail\">Service quotas</a> in the <i>Amazon Web Services General Reference</i>. </p>
+            aws_sdk_cloudtrail.errors.unsupported_operation_exception.UnsupportedOperationException: <p>This exception is thrown when the requested operation is not supported.</p>
+            aws_sdk_cloudtrail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -555,6 +613,28 @@ class CloudTrailClient:
             kms_key_id: <p>Specifies the KMS key ID to use to encrypt the events delivered by CloudTrail. The value can be an alias name prefixed by <code>alias/</code>, a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier.</p> <important> <p>Disabling or deleting the KMS key, or removing CloudTrail permissions on the key, prevents CloudTrail from logging events to the event data store, and prevents users from querying the data in the event data store that was encrypted with the key. After you associate an event data store with a KMS key, the KMS key cannot be removed or changed. Before you disable or delete a KMS key that you are using with an event data store, delete or back up your event data store.</p> </important> <p>CloudTrail also supports KMS multi-Region keys. For more information about multi-Region keys, see <a href=\"https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html\">Using multi-Region keys</a> in the <i>Key Management Service Developer Guide</i>.</p> <p>Examples:</p> <ul> <li> <p> <code>alias/MyAliasName</code> </p> </li> <li> <p> <code>arn:aws:kms:us-east-2:123456789012:alias/MyAliasName</code> </p> </li> <li> <p> <code>arn:aws:kms:us-east-2:123456789012:key/12345678-1234-1234-1234-123456789012</code> </p> </li> <li> <p> <code>12345678-1234-1234-1234-123456789012</code> </p> </li> </ul>
             start_ingestion: <p>Specifies whether the event data store should start ingesting live events. The default is true.</p>
             billing_mode: <p>The billing mode for the event data store determines the cost for ingesting events and the default and maximum retention period for the event data store.</p> <p>The following are the possible values:</p> <ul> <li> <p> <code>EXTENDABLE_RETENTION_PRICING</code> - This billing mode is generally recommended if you want a flexible retention period of up to 3653 days (about 10 years). The default retention period for this billing mode is 366 days.</p> </li> <li> <p> <code>FIXED_RETENTION_PRICING</code> - This billing mode is recommended if you expect to ingest more than 25 TB of event data per month and need a retention period of up to 2557 days (about 7 years). The default retention period for this billing mode is 2557 days.</p> </li> </ul> <p>The default value is <code>EXTENDABLE_RETENTION_PRICING</code>.</p> <p>For more information about CloudTrail pricing, see <a href=\"http://aws.amazon.com/cloudtrail/pricing/\">CloudTrail Pricing</a> and <a href=\"https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-lake-manage-costs.html\">Managing CloudTrail Lake costs</a>.</p>
+
+        Raises:
+            aws_sdk_cloudtrail.errors.cloud_trail_access_not_enabled_exception.CloudTrailAccessNotEnabledException: <p>This exception is thrown when trusted access has not been enabled between CloudTrail and Organizations. For more information, see <a href=\"https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html#orgs_how-to-enable-disable-trusted-access\">How to enable or disable trusted access</a> in the <i>Organizations User Guide</i> and <a href=\"https://docs.aws.amazon.com/awscloudtrail/latest/userguide/creating-an-organizational-trail-prepare.html\">Prepare For Creating a Trail For Your Organization</a> in the <i>CloudTrail User Guide</i>.</p>
+            aws_sdk_cloudtrail.errors.conflict_exception.ConflictException: <p>This exception is thrown when the specified resource is not ready for an operation. This can occur when you try to run an operation on a resource before CloudTrail has time to fully load the resource, or because another operation is modifying the resource. If this exception occurs, wait a few minutes, and then try the operation again.</p>
+            aws_sdk_cloudtrail.errors.event_data_store_already_exists_exception.EventDataStoreAlreadyExistsException: <p>An event data store with that name already exists.</p>
+            aws_sdk_cloudtrail.errors.event_data_store_max_limit_exceeded_exception.EventDataStoreMaxLimitExceededException: <p>Your account has used the maximum number of event data stores.</p>
+            aws_sdk_cloudtrail.errors.insufficient_dependency_service_access_permission_exception.InsufficientDependencyServiceAccessPermissionException: <p>This exception is thrown when the IAM identity that is used to create the organization resource lacks one or more required permissions for creating an organization resource in a required service.</p>
+            aws_sdk_cloudtrail.errors.insufficient_encryption_policy_exception.InsufficientEncryptionPolicyException: <p>For the <code>CreateTrail</code> <code>PutInsightSelectors</code>, <code>UpdateTrail</code>, <code>StartQuery</code>, and <code>StartImport</code> operations, this exception is thrown when the policy on the S3 bucket or KMS key does not have sufficient permissions for the operation.</p> <p>For all other operations, this exception is thrown when the policy for the KMS key does not have sufficient permissions for the operation.</p>
+            aws_sdk_cloudtrail.errors.invalid_event_selectors_exception.InvalidEventSelectorsException: <p>This exception is thrown when the <code>PutEventSelectors</code> operation is called with a number of event selectors, advanced event selectors, or data resources that is not valid. The combination of event selectors or advanced event selectors and data resources is not valid. A trail can have up to 5 event selectors. If a trail uses advanced event selectors, a maximum of 500 total values for all conditions in all advanced event selectors is allowed. A trail is limited to 250 data resources. These data resources can be distributed across event selectors, but the overall total cannot exceed 250.</p> <p>You can:</p> <ul> <li> <p>Specify a valid number of event selectors (1 to 5) for a trail.</p> </li> <li> <p>Specify a valid number of data resources (1 to 250) for an event selector. The limit of number of resources on an individual event selector is configurable up to 250. However, this upper limit is allowed only if the total number of data resources does not exceed 250 across all event selectors for a trail.</p> </li> <li> <p>Specify up to 500 values for all conditions in all advanced event selectors for a trail.</p> </li> <li> <p>Specify a valid value for a parameter. For example, specifying the <code>ReadWriteType</code> parameter with a value of <code>read-only</code> is not valid.</p> </li> </ul>
+            aws_sdk_cloudtrail.errors.invalid_kms_key_id_exception.InvalidKmsKeyIdException: <p>This exception is thrown when the KMS key ARN is not valid.</p>
+            aws_sdk_cloudtrail.errors.invalid_parameter_exception.InvalidParameterException: <p>The request includes a parameter that is not valid.</p>
+            aws_sdk_cloudtrail.errors.invalid_tag_parameter_exception.InvalidTagParameterException: <p>This exception is thrown when the specified tag key or values are not valid. It can also occur if there are duplicate tags or too many tags on the resource.</p>
+            aws_sdk_cloudtrail.errors.kms_exception.KmsException: <p>This exception is thrown when there is an issue with the specified KMS key and the trail or event data store can't be updated.</p>
+            aws_sdk_cloudtrail.errors.kms_key_not_found_exception.KmsKeyNotFoundException: <p>This exception is thrown when the KMS key does not exist, when the S3 bucket and the KMS key are not in the same Region, or when the KMS key associated with the Amazon SNS topic either does not exist or is not in the same Region.</p>
+            aws_sdk_cloudtrail.errors.no_management_account_slr_exists_exception.NoManagementAccountSLRExistsException: <p> This exception is thrown when the management account does not have a service-linked role. </p>
+            aws_sdk_cloudtrail.errors.not_organization_master_account_exception.NotOrganizationMasterAccountException: <p>This exception is thrown when the Amazon Web Services account making the request to create or update an organization trail or event data store is not the management account for an organization in Organizations. For more information, see <a href=\"https://docs.aws.amazon.com/awscloudtrail/latest/userguide/creating-an-organizational-trail-prepare.html\">Prepare For Creating a Trail For Your Organization</a> or <a href=\"https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-lake-organizations.html\">Organization event data stores</a>.</p>
+            aws_sdk_cloudtrail.errors.operation_not_permitted_exception.OperationNotPermittedException: <p>This exception is thrown when the requested operation is not permitted.</p>
+            aws_sdk_cloudtrail.errors.organization_not_in_all_features_mode_exception.OrganizationNotInAllFeaturesModeException: <p>This exception is thrown when Organizations is not configured to support all features. All features must be enabled in Organizations to support creating an organization trail or event data store.</p>
+            aws_sdk_cloudtrail.errors.organizations_not_in_use_exception.OrganizationsNotInUseException: <p>This exception is thrown when the request is made from an Amazon Web Services account that is not a member of an organization. To make this request, sign in using the credentials of an account that belongs to an organization.</p>
+            aws_sdk_cloudtrail.errors.throttling_exception.ThrottlingException: <p> This exception is thrown when the request rate exceeds the limit. </p>
+            aws_sdk_cloudtrail.errors.unsupported_operation_exception.UnsupportedOperationException: <p>This exception is thrown when the requested operation is not supported.</p>
+            aws_sdk_cloudtrail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -643,6 +723,42 @@ class CloudTrailClient:
             cloud_watch_logs_role_arn: <p>Specifies the role for the CloudWatch Logs endpoint to assume to write to a user's log group. You must use a role that exists in your account.</p>
             kms_key_id: <p>Specifies the KMS key ID to use to encrypt the logs and digest files delivered by CloudTrail. The value can be an alias name prefixed by <code>alias/</code>, a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier.</p> <p>CloudTrail also supports KMS multi-Region keys. For more information about multi-Region keys, see <a href=\"https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html\">Using multi-Region keys</a> in the <i>Key Management Service Developer Guide</i>.</p> <p>Examples:</p> <ul> <li> <p> <code>alias/MyAliasName</code> </p> </li> <li> <p> <code>arn:aws:kms:us-east-2:123456789012:alias/MyAliasName</code> </p> </li> <li> <p> <code>arn:aws:kms:us-east-2:123456789012:key/12345678-1234-1234-1234-123456789012</code> </p> </li> <li> <p> <code>12345678-1234-1234-1234-123456789012</code> </p> </li> </ul>
             is_organization_trail: <p>Specifies whether the trail is created for all accounts in an organization in Organizations, or only for the current Amazon Web Services account. The default is false, and cannot be true unless the call is made on behalf of an Amazon Web Services account that is the management account or delegated administrator account for an organization in Organizations.</p>
+
+        Raises:
+            aws_sdk_cloudtrail.errors.cloud_trail_access_not_enabled_exception.CloudTrailAccessNotEnabledException: <p>This exception is thrown when trusted access has not been enabled between CloudTrail and Organizations. For more information, see <a href=\"https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html#orgs_how-to-enable-disable-trusted-access\">How to enable or disable trusted access</a> in the <i>Organizations User Guide</i> and <a href=\"https://docs.aws.amazon.com/awscloudtrail/latest/userguide/creating-an-organizational-trail-prepare.html\">Prepare For Creating a Trail For Your Organization</a> in the <i>CloudTrail User Guide</i>.</p>
+            aws_sdk_cloudtrail.errors.cloud_trail_invalid_client_token_id_exception.CloudTrailInvalidClientTokenIdException: <p>This exception is thrown when a call results in the <code>InvalidClientTokenId</code> error code. This can occur when you are creating or updating a trail to send notifications to an Amazon SNS topic that is in a suspended Amazon Web Services account.</p>
+            aws_sdk_cloudtrail.errors.cloud_watch_logs_delivery_unavailable_exception.CloudWatchLogsDeliveryUnavailableException: <p>Cannot set a CloudWatch Logs delivery for this Region.</p>
+            aws_sdk_cloudtrail.errors.conflict_exception.ConflictException: <p>This exception is thrown when the specified resource is not ready for an operation. This can occur when you try to run an operation on a resource before CloudTrail has time to fully load the resource, or because another operation is modifying the resource. If this exception occurs, wait a few minutes, and then try the operation again.</p>
+            aws_sdk_cloudtrail.errors.insufficient_dependency_service_access_permission_exception.InsufficientDependencyServiceAccessPermissionException: <p>This exception is thrown when the IAM identity that is used to create the organization resource lacks one or more required permissions for creating an organization resource in a required service.</p>
+            aws_sdk_cloudtrail.errors.insufficient_encryption_policy_exception.InsufficientEncryptionPolicyException: <p>For the <code>CreateTrail</code> <code>PutInsightSelectors</code>, <code>UpdateTrail</code>, <code>StartQuery</code>, and <code>StartImport</code> operations, this exception is thrown when the policy on the S3 bucket or KMS key does not have sufficient permissions for the operation.</p> <p>For all other operations, this exception is thrown when the policy for the KMS key does not have sufficient permissions for the operation.</p>
+            aws_sdk_cloudtrail.errors.insufficient_s3_bucket_policy_exception.InsufficientS3BucketPolicyException: <p>This exception is thrown when the policy on the S3 bucket is not sufficient.</p>
+            aws_sdk_cloudtrail.errors.insufficient_sns_topic_policy_exception.InsufficientSnsTopicPolicyException: <p>This exception is thrown when the policy on the Amazon SNS topic is not sufficient.</p>
+            aws_sdk_cloudtrail.errors.invalid_cloud_watch_logs_log_group_arn_exception.InvalidCloudWatchLogsLogGroupArnException: <p>This exception is thrown when the provided CloudWatch Logs log group is not valid.</p>
+            aws_sdk_cloudtrail.errors.invalid_cloud_watch_logs_role_arn_exception.InvalidCloudWatchLogsRoleArnException: <p>This exception is thrown when the provided role is not valid.</p>
+            aws_sdk_cloudtrail.errors.invalid_kms_key_id_exception.InvalidKmsKeyIdException: <p>This exception is thrown when the KMS key ARN is not valid.</p>
+            aws_sdk_cloudtrail.errors.invalid_parameter_combination_exception.InvalidParameterCombinationException: <p>This exception is thrown when the combination of parameters provided is not valid.</p>
+            aws_sdk_cloudtrail.errors.invalid_parameter_exception.InvalidParameterException: <p>The request includes a parameter that is not valid.</p>
+            aws_sdk_cloudtrail.errors.invalid_s3_bucket_name_exception.InvalidS3BucketNameException: <p>This exception is thrown when the provided S3 bucket name is not valid.</p>
+            aws_sdk_cloudtrail.errors.invalid_s3_prefix_exception.InvalidS3PrefixException: <p>This exception is thrown when the provided S3 prefix is not valid.</p>
+            aws_sdk_cloudtrail.errors.invalid_sns_topic_name_exception.InvalidSnsTopicNameException: <p>This exception is thrown when the provided SNS topic name is not valid.</p>
+            aws_sdk_cloudtrail.errors.invalid_tag_parameter_exception.InvalidTagParameterException: <p>This exception is thrown when the specified tag key or values are not valid. It can also occur if there are duplicate tags or too many tags on the resource.</p>
+            aws_sdk_cloudtrail.errors.invalid_trail_name_exception.InvalidTrailNameException: <p>This exception is thrown when the provided trail name is not valid. Trail names must meet the following requirements:</p> <ul> <li> <p>Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.), underscores (_), or dashes (-)</p> </li> <li> <p>Start with a letter or number, and end with a letter or number</p> </li> <li> <p>Be between 3 and 128 characters</p> </li> <li> <p>Have no adjacent periods, underscores or dashes. Names like <code>my-_namespace</code> and <code>my--namespace</code> are not valid.</p> </li> <li> <p>Not be in IP address format (for example, 192.168.5.4)</p> </li> </ul>
+            aws_sdk_cloudtrail.errors.kms_exception.KmsException: <p>This exception is thrown when there is an issue with the specified KMS key and the trail or event data store can't be updated.</p>
+            aws_sdk_cloudtrail.errors.kms_key_disabled_exception.KmsKeyDisabledException: <p>This exception is no longer in use.</p>
+            aws_sdk_cloudtrail.errors.kms_key_not_found_exception.KmsKeyNotFoundException: <p>This exception is thrown when the KMS key does not exist, when the S3 bucket and the KMS key are not in the same Region, or when the KMS key associated with the Amazon SNS topic either does not exist or is not in the same Region.</p>
+            aws_sdk_cloudtrail.errors.maximum_number_of_trails_exceeded_exception.MaximumNumberOfTrailsExceededException: <p>This exception is thrown when the maximum number of trails is reached.</p>
+            aws_sdk_cloudtrail.errors.no_management_account_slr_exists_exception.NoManagementAccountSLRExistsException: <p> This exception is thrown when the management account does not have a service-linked role. </p>
+            aws_sdk_cloudtrail.errors.not_organization_master_account_exception.NotOrganizationMasterAccountException: <p>This exception is thrown when the Amazon Web Services account making the request to create or update an organization trail or event data store is not the management account for an organization in Organizations. For more information, see <a href=\"https://docs.aws.amazon.com/awscloudtrail/latest/userguide/creating-an-organizational-trail-prepare.html\">Prepare For Creating a Trail For Your Organization</a> or <a href=\"https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-lake-organizations.html\">Organization event data stores</a>.</p>
+            aws_sdk_cloudtrail.errors.operation_not_permitted_exception.OperationNotPermittedException: <p>This exception is thrown when the requested operation is not permitted.</p>
+            aws_sdk_cloudtrail.errors.organization_not_in_all_features_mode_exception.OrganizationNotInAllFeaturesModeException: <p>This exception is thrown when Organizations is not configured to support all features. All features must be enabled in Organizations to support creating an organization trail or event data store.</p>
+            aws_sdk_cloudtrail.errors.organizations_not_in_use_exception.OrganizationsNotInUseException: <p>This exception is thrown when the request is made from an Amazon Web Services account that is not a member of an organization. To make this request, sign in using the credentials of an account that belongs to an organization.</p>
+            aws_sdk_cloudtrail.errors.s3_bucket_does_not_exist_exception.S3BucketDoesNotExistException: <p>This exception is thrown when the specified S3 bucket does not exist.</p>
+            aws_sdk_cloudtrail.errors.tags_limit_exceeded_exception.TagsLimitExceededException: <p>The number of tags per trail, event data store, dashboard, or channel has exceeded the permitted amount. Currently, the limit is 50.</p>
+            aws_sdk_cloudtrail.errors.throttling_exception.ThrottlingException: <p> This exception is thrown when the request rate exceeds the limit. </p>
+            aws_sdk_cloudtrail.errors.trail_already_exists_exception.TrailAlreadyExistsException: <p>This exception is thrown when the specified trail already exists.</p>
+            aws_sdk_cloudtrail.errors.trail_not_provided_exception.TrailNotProvidedException: <p>This exception is no longer in use.</p>
+            aws_sdk_cloudtrail.errors.unsupported_operation_exception.UnsupportedOperationException: <p>This exception is thrown when the requested operation is not supported.</p>
+            aws_sdk_cloudtrail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -701,6 +817,13 @@ class CloudTrailClient:
 
         Args:
             channel: <p>The ARN or the <code>UUID</code> value of the channel that you want to delete.</p>
+
+        Raises:
+            aws_sdk_cloudtrail.errors.channel_arn_invalid_exception.ChannelARNInvalidException: <p>This exception is thrown when the specified value of <code>ChannelARN</code> is not valid.</p>
+            aws_sdk_cloudtrail.errors.channel_not_found_exception.ChannelNotFoundException: <p>This exception is thrown when CloudTrail cannot find the specified channel.</p>
+            aws_sdk_cloudtrail.errors.operation_not_permitted_exception.OperationNotPermittedException: <p>This exception is thrown when the requested operation is not permitted.</p>
+            aws_sdk_cloudtrail.errors.unsupported_operation_exception.UnsupportedOperationException: <p>This exception is thrown when the requested operation is not supported.</p>
+            aws_sdk_cloudtrail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -738,6 +861,12 @@ class CloudTrailClient:
 
         Args:
             dashboard_id: <p> The name or ARN for the dashboard. </p>
+
+        Raises:
+            aws_sdk_cloudtrail.errors.conflict_exception.ConflictException: <p>This exception is thrown when the specified resource is not ready for an operation. This can occur when you try to run an operation on a resource before CloudTrail has time to fully load the resource, or because another operation is modifying the resource. If this exception occurs, wait a few minutes, and then try the operation again.</p>
+            aws_sdk_cloudtrail.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when the specified resource is not found.</p>
+            aws_sdk_cloudtrail.errors.unsupported_operation_exception.UnsupportedOperationException: <p>This exception is thrown when the requested operation is not supported.</p>
+            aws_sdk_cloudtrail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -775,6 +904,23 @@ class CloudTrailClient:
 
         Args:
             event_data_store: <p>The ARN (or the ID suffix of the ARN) of the event data store to delete.</p>
+
+        Raises:
+            aws_sdk_cloudtrail.errors.channel_exists_for_eds_exception.ChannelExistsForEDSException: <p>This exception is thrown when the specified event data store cannot yet be deleted because it is in use by a channel.</p>
+            aws_sdk_cloudtrail.errors.conflict_exception.ConflictException: <p>This exception is thrown when the specified resource is not ready for an operation. This can occur when you try to run an operation on a resource before CloudTrail has time to fully load the resource, or because another operation is modifying the resource. If this exception occurs, wait a few minutes, and then try the operation again.</p>
+            aws_sdk_cloudtrail.errors.event_data_store_arn_invalid_exception.EventDataStoreARNInvalidException: <p>The specified event data store ARN is not valid or does not map to an event data store in your account.</p>
+            aws_sdk_cloudtrail.errors.event_data_store_federation_enabled_exception.EventDataStoreFederationEnabledException: <p> You cannot delete the event data store because Lake query federation is enabled. To delete the event data store, run the <code>DisableFederation</code> operation to disable Lake query federation on the event data store. </p>
+            aws_sdk_cloudtrail.errors.event_data_store_has_ongoing_import_exception.EventDataStoreHasOngoingImportException: <p> This exception is thrown when you try to update or delete an event data store that currently has an import in progress. </p>
+            aws_sdk_cloudtrail.errors.event_data_store_not_found_exception.EventDataStoreNotFoundException: <p>The specified event data store was not found.</p>
+            aws_sdk_cloudtrail.errors.event_data_store_termination_protected_exception.EventDataStoreTerminationProtectedException: <p>The event data store cannot be deleted because termination protection is enabled for it.</p>
+            aws_sdk_cloudtrail.errors.inactive_event_data_store_exception.InactiveEventDataStoreException: <p>The event data store is inactive.</p>
+            aws_sdk_cloudtrail.errors.insufficient_dependency_service_access_permission_exception.InsufficientDependencyServiceAccessPermissionException: <p>This exception is thrown when the IAM identity that is used to create the organization resource lacks one or more required permissions for creating an organization resource in a required service.</p>
+            aws_sdk_cloudtrail.errors.invalid_parameter_exception.InvalidParameterException: <p>The request includes a parameter that is not valid.</p>
+            aws_sdk_cloudtrail.errors.no_management_account_slr_exists_exception.NoManagementAccountSLRExistsException: <p> This exception is thrown when the management account does not have a service-linked role. </p>
+            aws_sdk_cloudtrail.errors.not_organization_master_account_exception.NotOrganizationMasterAccountException: <p>This exception is thrown when the Amazon Web Services account making the request to create or update an organization trail or event data store is not the management account for an organization in Organizations. For more information, see <a href=\"https://docs.aws.amazon.com/awscloudtrail/latest/userguide/creating-an-organizational-trail-prepare.html\">Prepare For Creating a Trail For Your Organization</a> or <a href=\"https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-lake-organizations.html\">Organization event data stores</a>.</p>
+            aws_sdk_cloudtrail.errors.operation_not_permitted_exception.OperationNotPermittedException: <p>This exception is thrown when the requested operation is not permitted.</p>
+            aws_sdk_cloudtrail.errors.unsupported_operation_exception.UnsupportedOperationException: <p>This exception is thrown when the requested operation is not supported.</p>
+            aws_sdk_cloudtrail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -812,6 +958,16 @@ class CloudTrailClient:
 
         Args:
             resource_arn: <p> The Amazon Resource Name (ARN) of the CloudTrail event data store, dashboard, or channel you're deleting the resource-based policy from.</p> <p>Example event data store ARN format: <code>arn:aws:cloudtrail:us-east-2:123456789012:eventdatastore/EXAMPLE-f852-4e8f-8bd1-bcf6cEXAMPLE</code> </p> <p>Example dashboard ARN format: <code>arn:aws:cloudtrail:us-east-1:123456789012:dashboard/exampleDash</code> </p> <p>Example channel ARN format: <code>arn:aws:cloudtrail:us-east-2:123456789012:channel/01234567890</code> </p>
+
+        Raises:
+            aws_sdk_cloudtrail.errors.conflict_exception.ConflictException: <p>This exception is thrown when the specified resource is not ready for an operation. This can occur when you try to run an operation on a resource before CloudTrail has time to fully load the resource, or because another operation is modifying the resource. If this exception occurs, wait a few minutes, and then try the operation again.</p>
+            aws_sdk_cloudtrail.errors.operation_not_permitted_exception.OperationNotPermittedException: <p>This exception is thrown when the requested operation is not permitted.</p>
+            aws_sdk_cloudtrail.errors.resource_arn_not_valid_exception.ResourceARNNotValidException: <p> This exception is thrown when the provided resource does not exist, or the ARN format of the resource is not valid. </p> <p>The following is the format of an event data store ARN: <code>arn:aws:cloudtrail:us-east-2:123456789012:eventdatastore/EXAMPLE-f852-4e8f-8bd1-bcf6cEXAMPLE</code> </p> <p>The following is the format of a dashboard ARN: <code>arn:aws:cloudtrail:us-east-1:123456789012:dashboard/exampleDash</code> </p> <p>The following is the format of a channel ARN: <code>arn:aws:cloudtrail:us-east-2:123456789012:channel/01234567890</code> </p>
+            aws_sdk_cloudtrail.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when the specified resource is not found.</p>
+            aws_sdk_cloudtrail.errors.resource_policy_not_found_exception.ResourcePolicyNotFoundException: <p> This exception is thrown when the specified resource policy is not found. </p>
+            aws_sdk_cloudtrail.errors.resource_type_not_supported_exception.ResourceTypeNotSupportedException: <p>This exception is thrown when the specified resource type is not supported by CloudTrail.</p>
+            aws_sdk_cloudtrail.errors.unsupported_operation_exception.UnsupportedOperationException: <p>This exception is thrown when the requested operation is not supported.</p>
+            aws_sdk_cloudtrail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -849,6 +1005,20 @@ class CloudTrailClient:
 
         Args:
             name: <p>Specifies the name or the CloudTrail ARN of the trail to be deleted. The following is the format of a trail ARN. <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code> </p>
+
+        Raises:
+            aws_sdk_cloudtrail.errors.cloud_trail_arn_invalid_exception.CloudTrailARNInvalidException: <p>This exception is thrown when an operation is called with an ARN that is not valid.</p> <p>The following is the format of a trail ARN: <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code> </p> <p>The following is the format of an event data store ARN: <code>arn:aws:cloudtrail:us-east-2:123456789012:eventdatastore/EXAMPLE-f852-4e8f-8bd1-bcf6cEXAMPLE</code> </p> <p>The following is the format of a dashboard ARN: <code>arn:aws:cloudtrail:us-east-1:123456789012:dashboard/exampleDash</code> </p> <p>The following is the format of a channel ARN: <code>arn:aws:cloudtrail:us-east-2:123456789012:channel/01234567890</code> </p>
+            aws_sdk_cloudtrail.errors.conflict_exception.ConflictException: <p>This exception is thrown when the specified resource is not ready for an operation. This can occur when you try to run an operation on a resource before CloudTrail has time to fully load the resource, or because another operation is modifying the resource. If this exception occurs, wait a few minutes, and then try the operation again.</p>
+            aws_sdk_cloudtrail.errors.insufficient_dependency_service_access_permission_exception.InsufficientDependencyServiceAccessPermissionException: <p>This exception is thrown when the IAM identity that is used to create the organization resource lacks one or more required permissions for creating an organization resource in a required service.</p>
+            aws_sdk_cloudtrail.errors.invalid_home_region_exception.InvalidHomeRegionException: <p>This exception is thrown when an operation is called on a trail from a Region other than the Region in which the trail was created.</p>
+            aws_sdk_cloudtrail.errors.invalid_trail_name_exception.InvalidTrailNameException: <p>This exception is thrown when the provided trail name is not valid. Trail names must meet the following requirements:</p> <ul> <li> <p>Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.), underscores (_), or dashes (-)</p> </li> <li> <p>Start with a letter or number, and end with a letter or number</p> </li> <li> <p>Be between 3 and 128 characters</p> </li> <li> <p>Have no adjacent periods, underscores or dashes. Names like <code>my-_namespace</code> and <code>my--namespace</code> are not valid.</p> </li> <li> <p>Not be in IP address format (for example, 192.168.5.4)</p> </li> </ul>
+            aws_sdk_cloudtrail.errors.no_management_account_slr_exists_exception.NoManagementAccountSLRExistsException: <p> This exception is thrown when the management account does not have a service-linked role. </p>
+            aws_sdk_cloudtrail.errors.not_organization_master_account_exception.NotOrganizationMasterAccountException: <p>This exception is thrown when the Amazon Web Services account making the request to create or update an organization trail or event data store is not the management account for an organization in Organizations. For more information, see <a href=\"https://docs.aws.amazon.com/awscloudtrail/latest/userguide/creating-an-organizational-trail-prepare.html\">Prepare For Creating a Trail For Your Organization</a> or <a href=\"https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-lake-organizations.html\">Organization event data stores</a>.</p>
+            aws_sdk_cloudtrail.errors.operation_not_permitted_exception.OperationNotPermittedException: <p>This exception is thrown when the requested operation is not permitted.</p>
+            aws_sdk_cloudtrail.errors.throttling_exception.ThrottlingException: <p> This exception is thrown when the request rate exceeds the limit. </p>
+            aws_sdk_cloudtrail.errors.trail_not_found_exception.TrailNotFoundException: <p>This exception is thrown when the trail with the given name is not found.</p>
+            aws_sdk_cloudtrail.errors.unsupported_operation_exception.UnsupportedOperationException: <p>This exception is thrown when the requested operation is not supported.</p>
+            aws_sdk_cloudtrail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -886,6 +1056,20 @@ class CloudTrailClient:
 
         Args:
             delegated_admin_account_id: <p>A delegated administrator account ID. This is a member account in an organization that is currently designated as a delegated administrator.</p>
+
+        Raises:
+            aws_sdk_cloudtrail.errors.account_not_found_exception.AccountNotFoundException: <p>This exception is thrown when the specified account is not found or not part of an organization.</p>
+            aws_sdk_cloudtrail.errors.account_not_registered_exception.AccountNotRegisteredException: <p>This exception is thrown when the specified account is not registered as the CloudTrail delegated administrator.</p>
+            aws_sdk_cloudtrail.errors.cloud_trail_access_not_enabled_exception.CloudTrailAccessNotEnabledException: <p>This exception is thrown when trusted access has not been enabled between CloudTrail and Organizations. For more information, see <a href=\"https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html#orgs_how-to-enable-disable-trusted-access\">How to enable or disable trusted access</a> in the <i>Organizations User Guide</i> and <a href=\"https://docs.aws.amazon.com/awscloudtrail/latest/userguide/creating-an-organizational-trail-prepare.html\">Prepare For Creating a Trail For Your Organization</a> in the <i>CloudTrail User Guide</i>.</p>
+            aws_sdk_cloudtrail.errors.conflict_exception.ConflictException: <p>This exception is thrown when the specified resource is not ready for an operation. This can occur when you try to run an operation on a resource before CloudTrail has time to fully load the resource, or because another operation is modifying the resource. If this exception occurs, wait a few minutes, and then try the operation again.</p>
+            aws_sdk_cloudtrail.errors.insufficient_dependency_service_access_permission_exception.InsufficientDependencyServiceAccessPermissionException: <p>This exception is thrown when the IAM identity that is used to create the organization resource lacks one or more required permissions for creating an organization resource in a required service.</p>
+            aws_sdk_cloudtrail.errors.invalid_parameter_exception.InvalidParameterException: <p>The request includes a parameter that is not valid.</p>
+            aws_sdk_cloudtrail.errors.not_organization_management_account_exception.NotOrganizationManagementAccountException: <p> This exception is thrown when the account making the request is not the organization's management account. </p>
+            aws_sdk_cloudtrail.errors.operation_not_permitted_exception.OperationNotPermittedException: <p>This exception is thrown when the requested operation is not permitted.</p>
+            aws_sdk_cloudtrail.errors.organization_not_in_all_features_mode_exception.OrganizationNotInAllFeaturesModeException: <p>This exception is thrown when Organizations is not configured to support all features. All features must be enabled in Organizations to support creating an organization trail or event data store.</p>
+            aws_sdk_cloudtrail.errors.organizations_not_in_use_exception.OrganizationsNotInUseException: <p>This exception is thrown when the request is made from an Amazon Web Services account that is not a member of an organization. To make this request, sign in using the credentials of an account that belongs to an organization.</p>
+            aws_sdk_cloudtrail.errors.unsupported_operation_exception.UnsupportedOperationException: <p>This exception is thrown when the requested operation is not supported.</p>
+            aws_sdk_cloudtrail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -935,6 +1119,17 @@ class CloudTrailClient:
             query_alias: <p> The alias that identifies a query template. </p>
             refresh_id: <p> The ID of the dashboard refresh. </p>
             event_data_store_owner_account_id: <p> The account ID of the event data store owner. </p>
+
+        Raises:
+            aws_sdk_cloudtrail.errors.event_data_store_arn_invalid_exception.EventDataStoreARNInvalidException: <p>The specified event data store ARN is not valid or does not map to an event data store in your account.</p>
+            aws_sdk_cloudtrail.errors.event_data_store_not_found_exception.EventDataStoreNotFoundException: <p>The specified event data store was not found.</p>
+            aws_sdk_cloudtrail.errors.inactive_event_data_store_exception.InactiveEventDataStoreException: <p>The event data store is inactive.</p>
+            aws_sdk_cloudtrail.errors.invalid_parameter_exception.InvalidParameterException: <p>The request includes a parameter that is not valid.</p>
+            aws_sdk_cloudtrail.errors.no_management_account_slr_exists_exception.NoManagementAccountSLRExistsException: <p> This exception is thrown when the management account does not have a service-linked role. </p>
+            aws_sdk_cloudtrail.errors.operation_not_permitted_exception.OperationNotPermittedException: <p>This exception is thrown when the requested operation is not permitted.</p>
+            aws_sdk_cloudtrail.errors.query_id_not_found_exception.QueryIdNotFoundException: <p>The query ID does not exist or does not map to a query.</p>
+            aws_sdk_cloudtrail.errors.unsupported_operation_exception.UnsupportedOperationException: <p>This exception is thrown when the requested operation is not supported.</p>
+            aws_sdk_cloudtrail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -989,6 +1184,14 @@ class CloudTrailClient:
         Args:
             trail_name_list: <p>Specifies a list of trail names, trail ARNs, or both, of the trails to describe. The format of a trail ARN is:</p> <p> <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code> </p> <p>If an empty list is specified, information for the trail in the current Region is returned.</p> <ul> <li> <p>If an empty list is specified and <code>IncludeShadowTrails</code> is false, then information for all trails in the current Region is returned.</p> </li> <li> <p>If an empty list is specified and IncludeShadowTrails is null or true, then information for all trails in the current Region and any associated shadow trails in other Regions is returned.</p> </li> </ul> <note> <p>If one or more trail names are specified, information is returned only if the names match the names of trails belonging only to the current Region and current account. To return information about a trail in another Region, you must specify its trail ARN.</p> </note>
             include_shadow_trails: <p>Specifies whether to include shadow trails in the response. A shadow trail is the replication in a Region of a trail that was created in a different Region, or in the case of an organization trail, the replication of an organization trail in member accounts. If you do not include shadow trails, organization trails in a member account and Region replication trails will not be returned. The default is true.</p>
+
+        Raises:
+            aws_sdk_cloudtrail.errors.cloud_trail_arn_invalid_exception.CloudTrailARNInvalidException: <p>This exception is thrown when an operation is called with an ARN that is not valid.</p> <p>The following is the format of a trail ARN: <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code> </p> <p>The following is the format of an event data store ARN: <code>arn:aws:cloudtrail:us-east-2:123456789012:eventdatastore/EXAMPLE-f852-4e8f-8bd1-bcf6cEXAMPLE</code> </p> <p>The following is the format of a dashboard ARN: <code>arn:aws:cloudtrail:us-east-1:123456789012:dashboard/exampleDash</code> </p> <p>The following is the format of a channel ARN: <code>arn:aws:cloudtrail:us-east-2:123456789012:channel/01234567890</code> </p>
+            aws_sdk_cloudtrail.errors.invalid_trail_name_exception.InvalidTrailNameException: <p>This exception is thrown when the provided trail name is not valid. Trail names must meet the following requirements:</p> <ul> <li> <p>Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.), underscores (_), or dashes (-)</p> </li> <li> <p>Start with a letter or number, and end with a letter or number</p> </li> <li> <p>Be between 3 and 128 characters</p> </li> <li> <p>Have no adjacent periods, underscores or dashes. Names like <code>my-_namespace</code> and <code>my--namespace</code> are not valid.</p> </li> <li> <p>Not be in IP address format (for example, 192.168.5.4)</p> </li> </ul>
+            aws_sdk_cloudtrail.errors.no_management_account_slr_exists_exception.NoManagementAccountSLRExistsException: <p> This exception is thrown when the management account does not have a service-linked role. </p>
+            aws_sdk_cloudtrail.errors.operation_not_permitted_exception.OperationNotPermittedException: <p>This exception is thrown when the requested operation is not permitted.</p>
+            aws_sdk_cloudtrail.errors.unsupported_operation_exception.UnsupportedOperationException: <p>This exception is thrown when the requested operation is not supported.</p>
+            aws_sdk_cloudtrail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1031,6 +1234,23 @@ class CloudTrailClient:
 
         Args:
             event_data_store: <p> The ARN (or ID suffix of the ARN) of the event data store for which you want to disable Lake query federation. </p>
+
+        Raises:
+            aws_sdk_cloudtrail.errors.access_denied_exception.AccessDeniedException: <p> You do not have sufficient access to perform this action. </p>
+            aws_sdk_cloudtrail.errors.cloud_trail_access_not_enabled_exception.CloudTrailAccessNotEnabledException: <p>This exception is thrown when trusted access has not been enabled between CloudTrail and Organizations. For more information, see <a href=\"https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html#orgs_how-to-enable-disable-trusted-access\">How to enable or disable trusted access</a> in the <i>Organizations User Guide</i> and <a href=\"https://docs.aws.amazon.com/awscloudtrail/latest/userguide/creating-an-organizational-trail-prepare.html\">Prepare For Creating a Trail For Your Organization</a> in the <i>CloudTrail User Guide</i>.</p>
+            aws_sdk_cloudtrail.errors.concurrent_modification_exception.ConcurrentModificationException: <p> You are trying to update a resource when another request is in progress. Allow sufficient wait time for the previous request to complete, then retry your request. </p>
+            aws_sdk_cloudtrail.errors.event_data_store_arn_invalid_exception.EventDataStoreARNInvalidException: <p>The specified event data store ARN is not valid or does not map to an event data store in your account.</p>
+            aws_sdk_cloudtrail.errors.event_data_store_not_found_exception.EventDataStoreNotFoundException: <p>The specified event data store was not found.</p>
+            aws_sdk_cloudtrail.errors.inactive_event_data_store_exception.InactiveEventDataStoreException: <p>The event data store is inactive.</p>
+            aws_sdk_cloudtrail.errors.insufficient_dependency_service_access_permission_exception.InsufficientDependencyServiceAccessPermissionException: <p>This exception is thrown when the IAM identity that is used to create the organization resource lacks one or more required permissions for creating an organization resource in a required service.</p>
+            aws_sdk_cloudtrail.errors.invalid_parameter_exception.InvalidParameterException: <p>The request includes a parameter that is not valid.</p>
+            aws_sdk_cloudtrail.errors.no_management_account_slr_exists_exception.NoManagementAccountSLRExistsException: <p> This exception is thrown when the management account does not have a service-linked role. </p>
+            aws_sdk_cloudtrail.errors.not_organization_master_account_exception.NotOrganizationMasterAccountException: <p>This exception is thrown when the Amazon Web Services account making the request to create or update an organization trail or event data store is not the management account for an organization in Organizations. For more information, see <a href=\"https://docs.aws.amazon.com/awscloudtrail/latest/userguide/creating-an-organizational-trail-prepare.html\">Prepare For Creating a Trail For Your Organization</a> or <a href=\"https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-lake-organizations.html\">Organization event data stores</a>.</p>
+            aws_sdk_cloudtrail.errors.operation_not_permitted_exception.OperationNotPermittedException: <p>This exception is thrown when the requested operation is not permitted.</p>
+            aws_sdk_cloudtrail.errors.organization_not_in_all_features_mode_exception.OrganizationNotInAllFeaturesModeException: <p>This exception is thrown when Organizations is not configured to support all features. All features must be enabled in Organizations to support creating an organization trail or event data store.</p>
+            aws_sdk_cloudtrail.errors.organizations_not_in_use_exception.OrganizationsNotInUseException: <p>This exception is thrown when the request is made from an Amazon Web Services account that is not a member of an organization. To make this request, sign in using the credentials of an account that belongs to an organization.</p>
+            aws_sdk_cloudtrail.errors.unsupported_operation_exception.UnsupportedOperationException: <p>This exception is thrown when the requested operation is not supported.</p>
+            aws_sdk_cloudtrail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1070,6 +1290,24 @@ class CloudTrailClient:
         Args:
             event_data_store: <p>The ARN (or ID suffix of the ARN) of the event data store for which you want to enable Lake query federation.</p>
             federation_role_arn: <p> The ARN of the federation role to use for the event data store. Amazon Web Services services like Lake Formation use this federation role to access data for the federated event data store. The federation role must exist in your account and provide the <a href=\"https://docs.aws.amazon.com/awscloudtrail/latest/userguide/query-federation.html#query-federation-permissions-role\">required minimum permissions</a>. </p>
+
+        Raises:
+            aws_sdk_cloudtrail.errors.access_denied_exception.AccessDeniedException: <p> You do not have sufficient access to perform this action. </p>
+            aws_sdk_cloudtrail.errors.cloud_trail_access_not_enabled_exception.CloudTrailAccessNotEnabledException: <p>This exception is thrown when trusted access has not been enabled between CloudTrail and Organizations. For more information, see <a href=\"https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html#orgs_how-to-enable-disable-trusted-access\">How to enable or disable trusted access</a> in the <i>Organizations User Guide</i> and <a href=\"https://docs.aws.amazon.com/awscloudtrail/latest/userguide/creating-an-organizational-trail-prepare.html\">Prepare For Creating a Trail For Your Organization</a> in the <i>CloudTrail User Guide</i>.</p>
+            aws_sdk_cloudtrail.errors.concurrent_modification_exception.ConcurrentModificationException: <p> You are trying to update a resource when another request is in progress. Allow sufficient wait time for the previous request to complete, then retry your request. </p>
+            aws_sdk_cloudtrail.errors.event_data_store_arn_invalid_exception.EventDataStoreARNInvalidException: <p>The specified event data store ARN is not valid or does not map to an event data store in your account.</p>
+            aws_sdk_cloudtrail.errors.event_data_store_federation_enabled_exception.EventDataStoreFederationEnabledException: <p> You cannot delete the event data store because Lake query federation is enabled. To delete the event data store, run the <code>DisableFederation</code> operation to disable Lake query federation on the event data store. </p>
+            aws_sdk_cloudtrail.errors.event_data_store_not_found_exception.EventDataStoreNotFoundException: <p>The specified event data store was not found.</p>
+            aws_sdk_cloudtrail.errors.inactive_event_data_store_exception.InactiveEventDataStoreException: <p>The event data store is inactive.</p>
+            aws_sdk_cloudtrail.errors.insufficient_dependency_service_access_permission_exception.InsufficientDependencyServiceAccessPermissionException: <p>This exception is thrown when the IAM identity that is used to create the organization resource lacks one or more required permissions for creating an organization resource in a required service.</p>
+            aws_sdk_cloudtrail.errors.invalid_parameter_exception.InvalidParameterException: <p>The request includes a parameter that is not valid.</p>
+            aws_sdk_cloudtrail.errors.no_management_account_slr_exists_exception.NoManagementAccountSLRExistsException: <p> This exception is thrown when the management account does not have a service-linked role. </p>
+            aws_sdk_cloudtrail.errors.not_organization_master_account_exception.NotOrganizationMasterAccountException: <p>This exception is thrown when the Amazon Web Services account making the request to create or update an organization trail or event data store is not the management account for an organization in Organizations. For more information, see <a href=\"https://docs.aws.amazon.com/awscloudtrail/latest/userguide/creating-an-organizational-trail-prepare.html\">Prepare For Creating a Trail For Your Organization</a> or <a href=\"https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-lake-organizations.html\">Organization event data stores</a>.</p>
+            aws_sdk_cloudtrail.errors.operation_not_permitted_exception.OperationNotPermittedException: <p>This exception is thrown when the requested operation is not permitted.</p>
+            aws_sdk_cloudtrail.errors.organization_not_in_all_features_mode_exception.OrganizationNotInAllFeaturesModeException: <p>This exception is thrown when Organizations is not configured to support all features. All features must be enabled in Organizations to support creating an organization trail or event data store.</p>
+            aws_sdk_cloudtrail.errors.organizations_not_in_use_exception.OrganizationsNotInUseException: <p>This exception is thrown when the request is made from an Amazon Web Services account that is not a member of an organization. To make this request, sign in using the credentials of an account that belongs to an organization.</p>
+            aws_sdk_cloudtrail.errors.unsupported_operation_exception.UnsupportedOperationException: <p>This exception is thrown when the requested operation is not supported.</p>
+            aws_sdk_cloudtrail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1110,6 +1348,17 @@ class CloudTrailClient:
         Args:
             event_data_stores: <p> The ARN (or ID suffix of the ARN) of the event data store that you want to query. You can only specify one event data store. </p>
             prompt: <p> The prompt that you want to use to generate the query. The prompt must be in English. For example prompts, see <a href=\"https://docs.aws.amazon.com/awscloudtrail/latest/userguide/lake-query-generator.html#lake-query-generator-examples\">Example prompts</a> in the <i>CloudTrail </i> user guide. </p>
+
+        Raises:
+            aws_sdk_cloudtrail.errors.event_data_store_arn_invalid_exception.EventDataStoreARNInvalidException: <p>The specified event data store ARN is not valid or does not map to an event data store in your account.</p>
+            aws_sdk_cloudtrail.errors.event_data_store_not_found_exception.EventDataStoreNotFoundException: <p>The specified event data store was not found.</p>
+            aws_sdk_cloudtrail.errors.generate_response_exception.GenerateResponseException: <p> This exception is thrown when a valid query could not be generated for the provided prompt. </p>
+            aws_sdk_cloudtrail.errors.inactive_event_data_store_exception.InactiveEventDataStoreException: <p>The event data store is inactive.</p>
+            aws_sdk_cloudtrail.errors.invalid_parameter_exception.InvalidParameterException: <p>The request includes a parameter that is not valid.</p>
+            aws_sdk_cloudtrail.errors.no_management_account_slr_exists_exception.NoManagementAccountSLRExistsException: <p> This exception is thrown when the management account does not have a service-linked role. </p>
+            aws_sdk_cloudtrail.errors.operation_not_permitted_exception.OperationNotPermittedException: <p>This exception is thrown when the requested operation is not permitted.</p>
+            aws_sdk_cloudtrail.errors.unsupported_operation_exception.UnsupportedOperationException: <p>This exception is thrown when the requested operation is not supported.</p>
+            aws_sdk_cloudtrail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1148,6 +1397,13 @@ class CloudTrailClient:
 
         Args:
             channel: <p>The ARN or <code>UUID</code> of a channel.</p>
+
+        Raises:
+            aws_sdk_cloudtrail.errors.channel_arn_invalid_exception.ChannelARNInvalidException: <p>This exception is thrown when the specified value of <code>ChannelARN</code> is not valid.</p>
+            aws_sdk_cloudtrail.errors.channel_not_found_exception.ChannelNotFoundException: <p>This exception is thrown when CloudTrail cannot find the specified channel.</p>
+            aws_sdk_cloudtrail.errors.operation_not_permitted_exception.OperationNotPermittedException: <p>This exception is thrown when the requested operation is not permitted.</p>
+            aws_sdk_cloudtrail.errors.unsupported_operation_exception.UnsupportedOperationException: <p>This exception is thrown when the requested operation is not supported.</p>
+            aws_sdk_cloudtrail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1185,6 +1441,11 @@ class CloudTrailClient:
 
         Args:
             dashboard_id: <p> The name or ARN for the dashboard. </p>
+
+        Raises:
+            aws_sdk_cloudtrail.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when the specified resource is not found.</p>
+            aws_sdk_cloudtrail.errors.unsupported_operation_exception.UnsupportedOperationException: <p>This exception is thrown when the requested operation is not supported.</p>
+            aws_sdk_cloudtrail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1224,6 +1485,21 @@ class CloudTrailClient:
         Args:
             trail_name: <p>The name of the trail for which you want to retrieve event configuration settings.</p>
             event_data_store: <p>The Amazon Resource Name (ARN) or ID suffix of the ARN of the event data store for which you want to retrieve event configuration settings.</p>
+
+        Raises:
+            aws_sdk_cloudtrail.errors.cloud_trail_arn_invalid_exception.CloudTrailARNInvalidException: <p>This exception is thrown when an operation is called with an ARN that is not valid.</p> <p>The following is the format of a trail ARN: <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code> </p> <p>The following is the format of an event data store ARN: <code>arn:aws:cloudtrail:us-east-2:123456789012:eventdatastore/EXAMPLE-f852-4e8f-8bd1-bcf6cEXAMPLE</code> </p> <p>The following is the format of a dashboard ARN: <code>arn:aws:cloudtrail:us-east-1:123456789012:dashboard/exampleDash</code> </p> <p>The following is the format of a channel ARN: <code>arn:aws:cloudtrail:us-east-2:123456789012:channel/01234567890</code> </p>
+            aws_sdk_cloudtrail.errors.event_data_store_arn_invalid_exception.EventDataStoreARNInvalidException: <p>The specified event data store ARN is not valid or does not map to an event data store in your account.</p>
+            aws_sdk_cloudtrail.errors.event_data_store_not_found_exception.EventDataStoreNotFoundException: <p>The specified event data store was not found.</p>
+            aws_sdk_cloudtrail.errors.invalid_event_data_store_category_exception.InvalidEventDataStoreCategoryException: <p>This exception is thrown when event categories of specified event data stores are not valid.</p>
+            aws_sdk_cloudtrail.errors.invalid_event_data_store_status_exception.InvalidEventDataStoreStatusException: <p>The event data store is not in a status that supports the operation.</p>
+            aws_sdk_cloudtrail.errors.invalid_parameter_combination_exception.InvalidParameterCombinationException: <p>This exception is thrown when the combination of parameters provided is not valid.</p>
+            aws_sdk_cloudtrail.errors.invalid_parameter_exception.InvalidParameterException: <p>The request includes a parameter that is not valid.</p>
+            aws_sdk_cloudtrail.errors.invalid_trail_name_exception.InvalidTrailNameException: <p>This exception is thrown when the provided trail name is not valid. Trail names must meet the following requirements:</p> <ul> <li> <p>Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.), underscores (_), or dashes (-)</p> </li> <li> <p>Start with a letter or number, and end with a letter or number</p> </li> <li> <p>Be between 3 and 128 characters</p> </li> <li> <p>Have no adjacent periods, underscores or dashes. Names like <code>my-_namespace</code> and <code>my--namespace</code> are not valid.</p> </li> <li> <p>Not be in IP address format (for example, 192.168.5.4)</p> </li> </ul>
+            aws_sdk_cloudtrail.errors.no_management_account_slr_exists_exception.NoManagementAccountSLRExistsException: <p> This exception is thrown when the management account does not have a service-linked role. </p>
+            aws_sdk_cloudtrail.errors.operation_not_permitted_exception.OperationNotPermittedException: <p>This exception is thrown when the requested operation is not permitted.</p>
+            aws_sdk_cloudtrail.errors.trail_not_found_exception.TrailNotFoundException: <p>This exception is thrown when the trail with the given name is not found.</p>
+            aws_sdk_cloudtrail.errors.unsupported_operation_exception.UnsupportedOperationException: <p>This exception is thrown when the requested operation is not supported.</p>
+            aws_sdk_cloudtrail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1264,6 +1540,15 @@ class CloudTrailClient:
 
         Args:
             event_data_store: <p>The ARN (or ID suffix of the ARN) of the event data store about which you want information.</p>
+
+        Raises:
+            aws_sdk_cloudtrail.errors.event_data_store_arn_invalid_exception.EventDataStoreARNInvalidException: <p>The specified event data store ARN is not valid or does not map to an event data store in your account.</p>
+            aws_sdk_cloudtrail.errors.event_data_store_not_found_exception.EventDataStoreNotFoundException: <p>The specified event data store was not found.</p>
+            aws_sdk_cloudtrail.errors.invalid_parameter_exception.InvalidParameterException: <p>The request includes a parameter that is not valid.</p>
+            aws_sdk_cloudtrail.errors.no_management_account_slr_exists_exception.NoManagementAccountSLRExistsException: <p> This exception is thrown when the management account does not have a service-linked role. </p>
+            aws_sdk_cloudtrail.errors.operation_not_permitted_exception.OperationNotPermittedException: <p>This exception is thrown when the requested operation is not permitted.</p>
+            aws_sdk_cloudtrail.errors.unsupported_operation_exception.UnsupportedOperationException: <p>This exception is thrown when the requested operation is not supported.</p>
+            aws_sdk_cloudtrail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1301,6 +1586,15 @@ class CloudTrailClient:
 
         Args:
             trail_name: <p>Specifies the name of the trail or trail ARN. If you specify a trail name, the string must meet the following requirements:</p> <ul> <li> <p>Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.), underscores (_), or dashes (-)</p> </li> <li> <p>Start with a letter or number, and end with a letter or number</p> </li> <li> <p>Be between 3 and 128 characters</p> </li> <li> <p>Have no adjacent periods, underscores or dashes. Names like <code>my-_namespace</code> and <code>my--namespace</code> are not valid.</p> </li> <li> <p>Not be in IP address format (for example, 192.168.5.4)</p> </li> </ul> <p>If you specify a trail ARN, it must be in the format:</p> <p> <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code> </p>
+
+        Raises:
+            aws_sdk_cloudtrail.errors.cloud_trail_arn_invalid_exception.CloudTrailARNInvalidException: <p>This exception is thrown when an operation is called with an ARN that is not valid.</p> <p>The following is the format of a trail ARN: <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code> </p> <p>The following is the format of an event data store ARN: <code>arn:aws:cloudtrail:us-east-2:123456789012:eventdatastore/EXAMPLE-f852-4e8f-8bd1-bcf6cEXAMPLE</code> </p> <p>The following is the format of a dashboard ARN: <code>arn:aws:cloudtrail:us-east-1:123456789012:dashboard/exampleDash</code> </p> <p>The following is the format of a channel ARN: <code>arn:aws:cloudtrail:us-east-2:123456789012:channel/01234567890</code> </p>
+            aws_sdk_cloudtrail.errors.invalid_trail_name_exception.InvalidTrailNameException: <p>This exception is thrown when the provided trail name is not valid. Trail names must meet the following requirements:</p> <ul> <li> <p>Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.), underscores (_), or dashes (-)</p> </li> <li> <p>Start with a letter or number, and end with a letter or number</p> </li> <li> <p>Be between 3 and 128 characters</p> </li> <li> <p>Have no adjacent periods, underscores or dashes. Names like <code>my-_namespace</code> and <code>my--namespace</code> are not valid.</p> </li> <li> <p>Not be in IP address format (for example, 192.168.5.4)</p> </li> </ul>
+            aws_sdk_cloudtrail.errors.no_management_account_slr_exists_exception.NoManagementAccountSLRExistsException: <p> This exception is thrown when the management account does not have a service-linked role. </p>
+            aws_sdk_cloudtrail.errors.operation_not_permitted_exception.OperationNotPermittedException: <p>This exception is thrown when the requested operation is not permitted.</p>
+            aws_sdk_cloudtrail.errors.trail_not_found_exception.TrailNotFoundException: <p>This exception is thrown when the trail with the given name is not found.</p>
+            aws_sdk_cloudtrail.errors.unsupported_operation_exception.UnsupportedOperationException: <p>This exception is thrown when the requested operation is not supported.</p>
+            aws_sdk_cloudtrail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1338,6 +1632,13 @@ class CloudTrailClient:
 
         Args:
             import_id: <p> The ID for the import. </p>
+
+        Raises:
+            aws_sdk_cloudtrail.errors.import_not_found_exception.ImportNotFoundException: <p> The specified import was not found. </p>
+            aws_sdk_cloudtrail.errors.invalid_parameter_exception.InvalidParameterException: <p>The request includes a parameter that is not valid.</p>
+            aws_sdk_cloudtrail.errors.operation_not_permitted_exception.OperationNotPermittedException: <p>This exception is thrown when the requested operation is not permitted.</p>
+            aws_sdk_cloudtrail.errors.unsupported_operation_exception.UnsupportedOperationException: <p>This exception is thrown when the requested operation is not supported.</p>
+            aws_sdk_cloudtrail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1379,6 +1680,19 @@ class CloudTrailClient:
         Args:
             trail_name: <p>Specifies the name of the trail or trail ARN. If you specify a trail name, the string must meet the following requirements:</p> <ul> <li> <p>Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.), underscores (_), or dashes (-)</p> </li> <li> <p>Start with a letter or number, and end with a letter or number</p> </li> <li> <p>Be between 3 and 128 characters</p> </li> <li> <p>Have no adjacent periods, underscores or dashes. Names like <code>my-_namespace</code> and <code>my--namespace</code> are not valid.</p> </li> <li> <p>Not be in IP address format (for example, 192.168.5.4)</p> </li> </ul> <p>If you specify a trail ARN, it must be in the format:</p> <p> <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code> </p> <p>You cannot use this parameter with the <code>EventDataStore</code> parameter.</p>
             event_data_store: <p> Specifies the ARN (or ID suffix of the ARN) of the event data store for which you want to get Insights selectors. </p> <p>You cannot use this parameter with the <code>TrailName</code> parameter.</p>
+
+        Raises:
+            aws_sdk_cloudtrail.errors.cloud_trail_arn_invalid_exception.CloudTrailARNInvalidException: <p>This exception is thrown when an operation is called with an ARN that is not valid.</p> <p>The following is the format of a trail ARN: <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code> </p> <p>The following is the format of an event data store ARN: <code>arn:aws:cloudtrail:us-east-2:123456789012:eventdatastore/EXAMPLE-f852-4e8f-8bd1-bcf6cEXAMPLE</code> </p> <p>The following is the format of a dashboard ARN: <code>arn:aws:cloudtrail:us-east-1:123456789012:dashboard/exampleDash</code> </p> <p>The following is the format of a channel ARN: <code>arn:aws:cloudtrail:us-east-2:123456789012:channel/01234567890</code> </p>
+            aws_sdk_cloudtrail.errors.insight_not_enabled_exception.InsightNotEnabledException: <p>If you run <code>GetInsightSelectors</code> on a trail or event data store that does not have Insights events enabled, the operation throws the exception <code>InsightNotEnabledException</code>.</p>
+            aws_sdk_cloudtrail.errors.invalid_parameter_combination_exception.InvalidParameterCombinationException: <p>This exception is thrown when the combination of parameters provided is not valid.</p>
+            aws_sdk_cloudtrail.errors.invalid_parameter_exception.InvalidParameterException: <p>The request includes a parameter that is not valid.</p>
+            aws_sdk_cloudtrail.errors.invalid_trail_name_exception.InvalidTrailNameException: <p>This exception is thrown when the provided trail name is not valid. Trail names must meet the following requirements:</p> <ul> <li> <p>Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.), underscores (_), or dashes (-)</p> </li> <li> <p>Start with a letter or number, and end with a letter or number</p> </li> <li> <p>Be between 3 and 128 characters</p> </li> <li> <p>Have no adjacent periods, underscores or dashes. Names like <code>my-_namespace</code> and <code>my--namespace</code> are not valid.</p> </li> <li> <p>Not be in IP address format (for example, 192.168.5.4)</p> </li> </ul>
+            aws_sdk_cloudtrail.errors.no_management_account_slr_exists_exception.NoManagementAccountSLRExistsException: <p> This exception is thrown when the management account does not have a service-linked role. </p>
+            aws_sdk_cloudtrail.errors.operation_not_permitted_exception.OperationNotPermittedException: <p>This exception is thrown when the requested operation is not permitted.</p>
+            aws_sdk_cloudtrail.errors.throttling_exception.ThrottlingException: <p> This exception is thrown when the request rate exceeds the limit. </p>
+            aws_sdk_cloudtrail.errors.trail_not_found_exception.TrailNotFoundException: <p>This exception is thrown when the trail with the given name is not found.</p>
+            aws_sdk_cloudtrail.errors.unsupported_operation_exception.UnsupportedOperationException: <p>This exception is thrown when the requested operation is not supported.</p>
+            aws_sdk_cloudtrail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1435,6 +1749,20 @@ class CloudTrailClient:
             next_token: <p>A token you can use to get the next page of query results.</p>
             max_query_results: <p>The maximum number of query results to display on a single page.</p>
             event_data_store_owner_account_id: <p> The account ID of the event data store owner. </p>
+
+        Raises:
+            aws_sdk_cloudtrail.errors.event_data_store_arn_invalid_exception.EventDataStoreARNInvalidException: <p>The specified event data store ARN is not valid or does not map to an event data store in your account.</p>
+            aws_sdk_cloudtrail.errors.event_data_store_not_found_exception.EventDataStoreNotFoundException: <p>The specified event data store was not found.</p>
+            aws_sdk_cloudtrail.errors.inactive_event_data_store_exception.InactiveEventDataStoreException: <p>The event data store is inactive.</p>
+            aws_sdk_cloudtrail.errors.insufficient_encryption_policy_exception.InsufficientEncryptionPolicyException: <p>For the <code>CreateTrail</code> <code>PutInsightSelectors</code>, <code>UpdateTrail</code>, <code>StartQuery</code>, and <code>StartImport</code> operations, this exception is thrown when the policy on the S3 bucket or KMS key does not have sufficient permissions for the operation.</p> <p>For all other operations, this exception is thrown when the policy for the KMS key does not have sufficient permissions for the operation.</p>
+            aws_sdk_cloudtrail.errors.invalid_max_results_exception.InvalidMaxResultsException: <p>This exception is thrown if the limit specified is not valid.</p>
+            aws_sdk_cloudtrail.errors.invalid_next_token_exception.InvalidNextTokenException: <p>A token that is not valid, or a token that was previously used in a request with different parameters. This exception is thrown if the token is not valid.</p>
+            aws_sdk_cloudtrail.errors.invalid_parameter_exception.InvalidParameterException: <p>The request includes a parameter that is not valid.</p>
+            aws_sdk_cloudtrail.errors.no_management_account_slr_exists_exception.NoManagementAccountSLRExistsException: <p> This exception is thrown when the management account does not have a service-linked role. </p>
+            aws_sdk_cloudtrail.errors.operation_not_permitted_exception.OperationNotPermittedException: <p>This exception is thrown when the requested operation is not permitted.</p>
+            aws_sdk_cloudtrail.errors.query_id_not_found_exception.QueryIdNotFoundException: <p>The query ID does not exist or does not map to a query.</p>
+            aws_sdk_cloudtrail.errors.unsupported_operation_exception.UnsupportedOperationException: <p>This exception is thrown when the requested operation is not supported.</p>
+            aws_sdk_cloudtrail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1482,6 +1810,15 @@ class CloudTrailClient:
 
         Args:
             resource_arn: <p> The Amazon Resource Name (ARN) of the CloudTrail event data store, dashboard, or channel attached to the resource-based policy.</p> <p>Example event data store ARN format: <code>arn:aws:cloudtrail:us-east-2:123456789012:eventdatastore/EXAMPLE-f852-4e8f-8bd1-bcf6cEXAMPLE</code> </p> <p>Example dashboard ARN format: <code>arn:aws:cloudtrail:us-east-1:123456789012:dashboard/exampleDash</code> </p> <p>Example channel ARN format: <code>arn:aws:cloudtrail:us-east-2:123456789012:channel/01234567890</code> </p>
+
+        Raises:
+            aws_sdk_cloudtrail.errors.operation_not_permitted_exception.OperationNotPermittedException: <p>This exception is thrown when the requested operation is not permitted.</p>
+            aws_sdk_cloudtrail.errors.resource_arn_not_valid_exception.ResourceARNNotValidException: <p> This exception is thrown when the provided resource does not exist, or the ARN format of the resource is not valid. </p> <p>The following is the format of an event data store ARN: <code>arn:aws:cloudtrail:us-east-2:123456789012:eventdatastore/EXAMPLE-f852-4e8f-8bd1-bcf6cEXAMPLE</code> </p> <p>The following is the format of a dashboard ARN: <code>arn:aws:cloudtrail:us-east-1:123456789012:dashboard/exampleDash</code> </p> <p>The following is the format of a channel ARN: <code>arn:aws:cloudtrail:us-east-2:123456789012:channel/01234567890</code> </p>
+            aws_sdk_cloudtrail.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when the specified resource is not found.</p>
+            aws_sdk_cloudtrail.errors.resource_policy_not_found_exception.ResourcePolicyNotFoundException: <p> This exception is thrown when the specified resource policy is not found. </p>
+            aws_sdk_cloudtrail.errors.resource_type_not_supported_exception.ResourceTypeNotSupportedException: <p>This exception is thrown when the specified resource type is not supported by CloudTrail.</p>
+            aws_sdk_cloudtrail.errors.unsupported_operation_exception.UnsupportedOperationException: <p>This exception is thrown when the requested operation is not supported.</p>
+            aws_sdk_cloudtrail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1519,6 +1856,14 @@ class CloudTrailClient:
 
         Args:
             name: <p>The name or the Amazon Resource Name (ARN) of the trail for which you want to retrieve settings information.</p>
+
+        Raises:
+            aws_sdk_cloudtrail.errors.cloud_trail_arn_invalid_exception.CloudTrailARNInvalidException: <p>This exception is thrown when an operation is called with an ARN that is not valid.</p> <p>The following is the format of a trail ARN: <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code> </p> <p>The following is the format of an event data store ARN: <code>arn:aws:cloudtrail:us-east-2:123456789012:eventdatastore/EXAMPLE-f852-4e8f-8bd1-bcf6cEXAMPLE</code> </p> <p>The following is the format of a dashboard ARN: <code>arn:aws:cloudtrail:us-east-1:123456789012:dashboard/exampleDash</code> </p> <p>The following is the format of a channel ARN: <code>arn:aws:cloudtrail:us-east-2:123456789012:channel/01234567890</code> </p>
+            aws_sdk_cloudtrail.errors.invalid_trail_name_exception.InvalidTrailNameException: <p>This exception is thrown when the provided trail name is not valid. Trail names must meet the following requirements:</p> <ul> <li> <p>Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.), underscores (_), or dashes (-)</p> </li> <li> <p>Start with a letter or number, and end with a letter or number</p> </li> <li> <p>Be between 3 and 128 characters</p> </li> <li> <p>Have no adjacent periods, underscores or dashes. Names like <code>my-_namespace</code> and <code>my--namespace</code> are not valid.</p> </li> <li> <p>Not be in IP address format (for example, 192.168.5.4)</p> </li> </ul>
+            aws_sdk_cloudtrail.errors.operation_not_permitted_exception.OperationNotPermittedException: <p>This exception is thrown when the requested operation is not permitted.</p>
+            aws_sdk_cloudtrail.errors.trail_not_found_exception.TrailNotFoundException: <p>This exception is thrown when the trail with the given name is not found.</p>
+            aws_sdk_cloudtrail.errors.unsupported_operation_exception.UnsupportedOperationException: <p>This exception is thrown when the requested operation is not supported.</p>
+            aws_sdk_cloudtrail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1556,6 +1901,14 @@ class CloudTrailClient:
 
         Args:
             name: <p>Specifies the name or the CloudTrail ARN of the trail for which you are requesting status. To get the status of a shadow trail (a replication of the trail in another Region), you must specify its ARN.</p> <p> The following is the format of a trail ARN: <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code> </p> <note> <p>If the trail is an organization trail and you are a member account in the organization in Organizations, you must provide the full ARN of that trail, and not just the name.</p> </note>
+
+        Raises:
+            aws_sdk_cloudtrail.errors.cloud_trail_arn_invalid_exception.CloudTrailARNInvalidException: <p>This exception is thrown when an operation is called with an ARN that is not valid.</p> <p>The following is the format of a trail ARN: <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code> </p> <p>The following is the format of an event data store ARN: <code>arn:aws:cloudtrail:us-east-2:123456789012:eventdatastore/EXAMPLE-f852-4e8f-8bd1-bcf6cEXAMPLE</code> </p> <p>The following is the format of a dashboard ARN: <code>arn:aws:cloudtrail:us-east-1:123456789012:dashboard/exampleDash</code> </p> <p>The following is the format of a channel ARN: <code>arn:aws:cloudtrail:us-east-2:123456789012:channel/01234567890</code> </p>
+            aws_sdk_cloudtrail.errors.invalid_trail_name_exception.InvalidTrailNameException: <p>This exception is thrown when the provided trail name is not valid. Trail names must meet the following requirements:</p> <ul> <li> <p>Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.), underscores (_), or dashes (-)</p> </li> <li> <p>Start with a letter or number, and end with a letter or number</p> </li> <li> <p>Be between 3 and 128 characters</p> </li> <li> <p>Have no adjacent periods, underscores or dashes. Names like <code>my-_namespace</code> and <code>my--namespace</code> are not valid.</p> </li> <li> <p>Not be in IP address format (for example, 192.168.5.4)</p> </li> </ul>
+            aws_sdk_cloudtrail.errors.operation_not_permitted_exception.OperationNotPermittedException: <p>This exception is thrown when the requested operation is not permitted.</p>
+            aws_sdk_cloudtrail.errors.trail_not_found_exception.TrailNotFoundException: <p>This exception is thrown when the trail with the given name is not found.</p>
+            aws_sdk_cloudtrail.errors.unsupported_operation_exception.UnsupportedOperationException: <p>This exception is thrown when the requested operation is not supported.</p>
+            aws_sdk_cloudtrail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1599,6 +1952,12 @@ class CloudTrailClient:
         Args:
             max_results: <p> The maximum number of CloudTrail channels to display on a single page. </p>
             next_token: <p>The token to use to get the next page of results after a previous API call. This token must be passed in with the same parameters that were specified in the original call. For example, if the original call specified an AttributeKey of 'Username' with a value of 'root', the call with NextToken should include those same parameters.</p>
+
+        Raises:
+            aws_sdk_cloudtrail.errors.invalid_next_token_exception.InvalidNextTokenException: <p>A token that is not valid, or a token that was previously used in a request with different parameters. This exception is thrown if the token is not valid.</p>
+            aws_sdk_cloudtrail.errors.operation_not_permitted_exception.OperationNotPermittedException: <p>This exception is thrown when the requested operation is not permitted.</p>
+            aws_sdk_cloudtrail.errors.unsupported_operation_exception.UnsupportedOperationException: <p>This exception is thrown when the requested operation is not supported.</p>
+            aws_sdk_cloudtrail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1651,6 +2010,10 @@ class CloudTrailClient:
             type: <p> Specify a dashboard type to filter on: <code>CUSTOM</code> or <code>MANAGED</code>. </p>
             next_token: <p> A token you can use to get the next page of dashboard results. </p>
             max_results: <p> The maximum number of dashboards to display on a single page. </p>
+
+        Raises:
+            aws_sdk_cloudtrail.errors.unsupported_operation_exception.UnsupportedOperationException: <p>This exception is thrown when the requested operation is not supported.</p>
+            aws_sdk_cloudtrail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1701,6 +2064,14 @@ class CloudTrailClient:
         Args:
             next_token: <p>A token you can use to get the next page of event data store results.</p>
             max_results: <p>The maximum number of event data stores to display on a single page.</p>
+
+        Raises:
+            aws_sdk_cloudtrail.errors.invalid_max_results_exception.InvalidMaxResultsException: <p>This exception is thrown if the limit specified is not valid.</p>
+            aws_sdk_cloudtrail.errors.invalid_next_token_exception.InvalidNextTokenException: <p>A token that is not valid, or a token that was previously used in a request with different parameters. This exception is thrown if the token is not valid.</p>
+            aws_sdk_cloudtrail.errors.no_management_account_slr_exists_exception.NoManagementAccountSLRExistsException: <p> This exception is thrown when the management account does not have a service-linked role. </p>
+            aws_sdk_cloudtrail.errors.operation_not_permitted_exception.OperationNotPermittedException: <p>This exception is thrown when the requested operation is not permitted.</p>
+            aws_sdk_cloudtrail.errors.unsupported_operation_exception.UnsupportedOperationException: <p>This exception is thrown when the requested operation is not supported.</p>
+            aws_sdk_cloudtrail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1749,6 +2120,13 @@ class CloudTrailClient:
             import_id: <p> The ID of the import. </p>
             max_results: <p> The maximum number of failures to display on a single page. </p>
             next_token: <p> A token you can use to get the next page of import failures. </p>
+
+        Raises:
+            aws_sdk_cloudtrail.errors.invalid_next_token_exception.InvalidNextTokenException: <p>A token that is not valid, or a token that was previously used in a request with different parameters. This exception is thrown if the token is not valid.</p>
+            aws_sdk_cloudtrail.errors.invalid_parameter_exception.InvalidParameterException: <p>The request includes a parameter that is not valid.</p>
+            aws_sdk_cloudtrail.errors.operation_not_permitted_exception.OperationNotPermittedException: <p>This exception is thrown when the requested operation is not permitted.</p>
+            aws_sdk_cloudtrail.errors.unsupported_operation_exception.UnsupportedOperationException: <p>This exception is thrown when the requested operation is not supported.</p>
+            aws_sdk_cloudtrail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1831,6 +2209,14 @@ class CloudTrailClient:
             destination: <p> The ARN of the destination event data store. </p>
             import_status: <p> The status of the import. </p>
             next_token: <p> A token you can use to get the next page of import results. </p>
+
+        Raises:
+            aws_sdk_cloudtrail.errors.event_data_store_arn_invalid_exception.EventDataStoreARNInvalidException: <p>The specified event data store ARN is not valid or does not map to an event data store in your account.</p>
+            aws_sdk_cloudtrail.errors.invalid_next_token_exception.InvalidNextTokenException: <p>A token that is not valid, or a token that was previously used in a request with different parameters. This exception is thrown if the token is not valid.</p>
+            aws_sdk_cloudtrail.errors.invalid_parameter_exception.InvalidParameterException: <p>The request includes a parameter that is not valid.</p>
+            aws_sdk_cloudtrail.errors.operation_not_permitted_exception.OperationNotPermittedException: <p>This exception is thrown when the requested operation is not permitted.</p>
+            aws_sdk_cloudtrail.errors.unsupported_operation_exception.UnsupportedOperationException: <p>This exception is thrown when the requested operation is not supported.</p>
+            aws_sdk_cloudtrail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1928,6 +2314,12 @@ class CloudTrailClient:
             end_time: <p>Specifies that only events that occur before or at the specified time are returned. If the specified end time is before the specified start time, an error is returned.</p>
             max_results: <p>The number of events to return. Possible values are 1 through 50. The default is 50.</p>
             next_token: <p>The token to use to get the next page of results after a previous API call. This token must be passed in with the same parameters that were specified in the original call. For example, if the original call specified a EventName as a dimension with <code>PutObject</code> as a value, the call with NextToken should include those same parameters. </p>
+
+        Raises:
+            aws_sdk_cloudtrail.errors.invalid_parameter_exception.InvalidParameterException: <p>The request includes a parameter that is not valid.</p>
+            aws_sdk_cloudtrail.errors.operation_not_permitted_exception.OperationNotPermittedException: <p>This exception is thrown when the requested operation is not permitted.</p>
+            aws_sdk_cloudtrail.errors.unsupported_operation_exception.UnsupportedOperationException: <p>This exception is thrown when the requested operation is not supported.</p>
+            aws_sdk_cloudtrail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2041,6 +2433,13 @@ class CloudTrailClient:
             data_type: <p>Type of data points to return. Valid values are <code>NonZeroData</code> and <code>FillWithZeros</code>. The default is <code>NonZeroData</code>.</p>
             max_results: <p>The maximum number of data points to return. Valid values are integers from 1 to 21600. The default value is 21600.</p>
             next_token: <p>Returned if all datapoints can't be returned in a single call. For example, due to reaching <code>MaxResults</code>.</p> <p>Add this parameter to the request to continue retrieving results starting from the last evaluated point.</p>
+
+        Raises:
+            aws_sdk_cloudtrail.errors.invalid_parameter_exception.InvalidParameterException: <p>The request includes a parameter that is not valid.</p>
+            aws_sdk_cloudtrail.errors.invalid_trail_name_exception.InvalidTrailNameException: <p>This exception is thrown when the provided trail name is not valid. Trail names must meet the following requirements:</p> <ul> <li> <p>Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.), underscores (_), or dashes (-)</p> </li> <li> <p>Start with a letter or number, and end with a letter or number</p> </li> <li> <p>Be between 3 and 128 characters</p> </li> <li> <p>Have no adjacent periods, underscores or dashes. Names like <code>my-_namespace</code> and <code>my--namespace</code> are not valid.</p> </li> <li> <p>Not be in IP address format (for example, 192.168.5.4)</p> </li> </ul>
+            aws_sdk_cloudtrail.errors.operation_not_permitted_exception.OperationNotPermittedException: <p>This exception is thrown when the requested operation is not permitted.</p>
+            aws_sdk_cloudtrail.errors.unsupported_operation_exception.UnsupportedOperationException: <p>This exception is thrown when the requested operation is not supported.</p>
+            aws_sdk_cloudtrail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2100,6 +2499,13 @@ class CloudTrailClient:
             start_time: <p>Optionally specifies, in UTC, the start of the time range to look up public keys for CloudTrail digest files. If not specified, the current time is used, and the current public key is returned.</p>
             end_time: <p>Optionally specifies, in UTC, the end of the time range to look up public keys for CloudTrail digest files. If not specified, the current time is used.</p>
             next_token: <p>Reserved for future use.</p>
+
+        Raises:
+            aws_sdk_cloudtrail.errors.invalid_time_range_exception.InvalidTimeRangeException: <p>Occurs if the timestamp values are not valid. Either the start time occurs after the end time, or the time range is outside the range of possible values.</p>
+            aws_sdk_cloudtrail.errors.invalid_token_exception.InvalidTokenException: <p>Reserved for future use.</p>
+            aws_sdk_cloudtrail.errors.operation_not_permitted_exception.OperationNotPermittedException: <p>This exception is thrown when the requested operation is not permitted.</p>
+            aws_sdk_cloudtrail.errors.unsupported_operation_exception.UnsupportedOperationException: <p>This exception is thrown when the requested operation is not supported.</p>
+            aws_sdk_cloudtrail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2181,6 +2587,20 @@ class CloudTrailClient:
             start_time: <p>Use with <code>EndTime</code> to bound a <code>ListQueries</code> request, and limit its results to only those queries run within a specified time period.</p>
             end_time: <p>Use with <code>StartTime</code> to bound a <code>ListQueries</code> request, and limit its results to only those queries run within a specified time period.</p>
             query_status: <p>The status of queries that you want to return in results. Valid values for <code>QueryStatus</code> include <code>QUEUED</code>, <code>RUNNING</code>, <code>FINISHED</code>, <code>FAILED</code>, <code>TIMED_OUT</code>, or <code>CANCELLED</code>.</p>
+
+        Raises:
+            aws_sdk_cloudtrail.errors.event_data_store_arn_invalid_exception.EventDataStoreARNInvalidException: <p>The specified event data store ARN is not valid or does not map to an event data store in your account.</p>
+            aws_sdk_cloudtrail.errors.event_data_store_not_found_exception.EventDataStoreNotFoundException: <p>The specified event data store was not found.</p>
+            aws_sdk_cloudtrail.errors.inactive_event_data_store_exception.InactiveEventDataStoreException: <p>The event data store is inactive.</p>
+            aws_sdk_cloudtrail.errors.invalid_date_range_exception.InvalidDateRangeException: <p>A date range for the query was specified that is not valid. Be sure that the start time is chronologically before the end time. For more information about writing a query, see <a href=\"https://docs.aws.amazon.com/awscloudtrail/latest/userguide/query-create-edit-query.html\">Create or edit a query</a> in the <i>CloudTrail User Guide</i>.</p>
+            aws_sdk_cloudtrail.errors.invalid_max_results_exception.InvalidMaxResultsException: <p>This exception is thrown if the limit specified is not valid.</p>
+            aws_sdk_cloudtrail.errors.invalid_next_token_exception.InvalidNextTokenException: <p>A token that is not valid, or a token that was previously used in a request with different parameters. This exception is thrown if the token is not valid.</p>
+            aws_sdk_cloudtrail.errors.invalid_parameter_exception.InvalidParameterException: <p>The request includes a parameter that is not valid.</p>
+            aws_sdk_cloudtrail.errors.invalid_query_status_exception.InvalidQueryStatusException: <p>The query status is not valid for the operation.</p>
+            aws_sdk_cloudtrail.errors.no_management_account_slr_exists_exception.NoManagementAccountSLRExistsException: <p> This exception is thrown when the management account does not have a service-linked role. </p>
+            aws_sdk_cloudtrail.errors.operation_not_permitted_exception.OperationNotPermittedException: <p>This exception is thrown when the requested operation is not permitted.</p>
+            aws_sdk_cloudtrail.errors.unsupported_operation_exception.UnsupportedOperationException: <p>This exception is thrown when the requested operation is not supported.</p>
+            aws_sdk_cloudtrail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2230,6 +2650,21 @@ class CloudTrailClient:
         Args:
             resource_id_list: <p>Specifies a list of trail, event data store, dashboard, or channel ARNs whose tags will be listed. The list has a limit of 20 ARNs.</p> <p> Example trail ARN format: <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code> </p> <p>Example event data store ARN format: <code>arn:aws:cloudtrail:us-east-2:123456789012:eventdatastore/EXAMPLE-f852-4e8f-8bd1-bcf6cEXAMPLE</code> </p> <p>Example dashboard ARN format: <code>arn:aws:cloudtrail:us-east-1:123456789012:dashboard/exampleDash</code> </p> <p>Example channel ARN format: <code>arn:aws:cloudtrail:us-east-2:123456789012:channel/01234567890</code> </p>
             next_token: <p>Reserved for future use.</p>
+
+        Raises:
+            aws_sdk_cloudtrail.errors.channel_arn_invalid_exception.ChannelARNInvalidException: <p>This exception is thrown when the specified value of <code>ChannelARN</code> is not valid.</p>
+            aws_sdk_cloudtrail.errors.cloud_trail_arn_invalid_exception.CloudTrailARNInvalidException: <p>This exception is thrown when an operation is called with an ARN that is not valid.</p> <p>The following is the format of a trail ARN: <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code> </p> <p>The following is the format of an event data store ARN: <code>arn:aws:cloudtrail:us-east-2:123456789012:eventdatastore/EXAMPLE-f852-4e8f-8bd1-bcf6cEXAMPLE</code> </p> <p>The following is the format of a dashboard ARN: <code>arn:aws:cloudtrail:us-east-1:123456789012:dashboard/exampleDash</code> </p> <p>The following is the format of a channel ARN: <code>arn:aws:cloudtrail:us-east-2:123456789012:channel/01234567890</code> </p>
+            aws_sdk_cloudtrail.errors.event_data_store_arn_invalid_exception.EventDataStoreARNInvalidException: <p>The specified event data store ARN is not valid or does not map to an event data store in your account.</p>
+            aws_sdk_cloudtrail.errors.event_data_store_not_found_exception.EventDataStoreNotFoundException: <p>The specified event data store was not found.</p>
+            aws_sdk_cloudtrail.errors.inactive_event_data_store_exception.InactiveEventDataStoreException: <p>The event data store is inactive.</p>
+            aws_sdk_cloudtrail.errors.invalid_token_exception.InvalidTokenException: <p>Reserved for future use.</p>
+            aws_sdk_cloudtrail.errors.invalid_trail_name_exception.InvalidTrailNameException: <p>This exception is thrown when the provided trail name is not valid. Trail names must meet the following requirements:</p> <ul> <li> <p>Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.), underscores (_), or dashes (-)</p> </li> <li> <p>Start with a letter or number, and end with a letter or number</p> </li> <li> <p>Be between 3 and 128 characters</p> </li> <li> <p>Have no adjacent periods, underscores or dashes. Names like <code>my-_namespace</code> and <code>my--namespace</code> are not valid.</p> </li> <li> <p>Not be in IP address format (for example, 192.168.5.4)</p> </li> </ul>
+            aws_sdk_cloudtrail.errors.no_management_account_slr_exists_exception.NoManagementAccountSLRExistsException: <p> This exception is thrown when the management account does not have a service-linked role. </p>
+            aws_sdk_cloudtrail.errors.operation_not_permitted_exception.OperationNotPermittedException: <p>This exception is thrown when the requested operation is not permitted.</p>
+            aws_sdk_cloudtrail.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when the specified resource is not found.</p>
+            aws_sdk_cloudtrail.errors.resource_type_not_supported_exception.ResourceTypeNotSupportedException: <p>This exception is thrown when the specified resource type is not supported by CloudTrail.</p>
+            aws_sdk_cloudtrail.errors.unsupported_operation_exception.UnsupportedOperationException: <p>This exception is thrown when the requested operation is not supported.</p>
+            aws_sdk_cloudtrail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2290,6 +2725,11 @@ class CloudTrailClient:
 
         Args:
             next_token: <p>The token to use to get the next page of results after a previous API call. This token must be passed in with the same parameters that were specified in the original call. For example, if the original call specified an AttributeKey of 'Username' with a value of 'root', the call with NextToken should include those same parameters.</p>
+
+        Raises:
+            aws_sdk_cloudtrail.errors.operation_not_permitted_exception.OperationNotPermittedException: <p>This exception is thrown when the requested operation is not permitted.</p>
+            aws_sdk_cloudtrail.errors.unsupported_operation_exception.UnsupportedOperationException: <p>This exception is thrown when the requested operation is not supported.</p>
+            aws_sdk_cloudtrail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2361,6 +2801,16 @@ class CloudTrailClient:
             event_category: <p>Specifies the event category. If you do not specify an event category, events of the category are not returned in the response. For example, if you do not specify <code>insight</code> as the value of <code>EventCategory</code>, no Insights events are returned.</p>
             max_results: <p>The number of events to return. Possible values are 1 through 50. The default is 50.</p>
             next_token: <p>The token to use to get the next page of results after a previous API call. This token must be passed in with the same parameters that were specified in the original call. For example, if the original call specified an AttributeKey of 'Username' with a value of 'root', the call with NextToken should include those same parameters.</p>
+
+        Raises:
+            aws_sdk_cloudtrail.errors.invalid_event_category_exception.InvalidEventCategoryException: <p>Occurs if an event category that is not valid is specified as a value of <code>EventCategory</code>.</p>
+            aws_sdk_cloudtrail.errors.invalid_lookup_attributes_exception.InvalidLookupAttributesException: <p>Occurs when a lookup attribute is specified that is not valid.</p>
+            aws_sdk_cloudtrail.errors.invalid_max_results_exception.InvalidMaxResultsException: <p>This exception is thrown if the limit specified is not valid.</p>
+            aws_sdk_cloudtrail.errors.invalid_next_token_exception.InvalidNextTokenException: <p>A token that is not valid, or a token that was previously used in a request with different parameters. This exception is thrown if the token is not valid.</p>
+            aws_sdk_cloudtrail.errors.invalid_time_range_exception.InvalidTimeRangeException: <p>Occurs if the timestamp values are not valid. Either the start time occurs after the end time, or the time range is outside the range of possible values.</p>
+            aws_sdk_cloudtrail.errors.operation_not_permitted_exception.OperationNotPermittedException: <p>This exception is thrown when the requested operation is not permitted.</p>
+            aws_sdk_cloudtrail.errors.unsupported_operation_exception.UnsupportedOperationException: <p>This exception is thrown when the requested operation is not supported.</p>
+            aws_sdk_cloudtrail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2456,6 +2906,28 @@ class CloudTrailClient:
             max_event_size: <p>The maximum allowed size for events to be stored in the specified event data store. If you are using context key selectors, MaxEventSize must be set to Large.</p>
             context_key_selectors: <p>A list of context key selectors that will be included to provide enriched event data.</p>
             aggregation_configurations: <p>The list of aggregation configurations that you want to configure for the trail.</p>
+
+        Raises:
+            aws_sdk_cloudtrail.errors.cloud_trail_arn_invalid_exception.CloudTrailARNInvalidException: <p>This exception is thrown when an operation is called with an ARN that is not valid.</p> <p>The following is the format of a trail ARN: <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code> </p> <p>The following is the format of an event data store ARN: <code>arn:aws:cloudtrail:us-east-2:123456789012:eventdatastore/EXAMPLE-f852-4e8f-8bd1-bcf6cEXAMPLE</code> </p> <p>The following is the format of a dashboard ARN: <code>arn:aws:cloudtrail:us-east-1:123456789012:dashboard/exampleDash</code> </p> <p>The following is the format of a channel ARN: <code>arn:aws:cloudtrail:us-east-2:123456789012:channel/01234567890</code> </p>
+            aws_sdk_cloudtrail.errors.conflict_exception.ConflictException: <p>This exception is thrown when the specified resource is not ready for an operation. This can occur when you try to run an operation on a resource before CloudTrail has time to fully load the resource, or because another operation is modifying the resource. If this exception occurs, wait a few minutes, and then try the operation again.</p>
+            aws_sdk_cloudtrail.errors.event_data_store_arn_invalid_exception.EventDataStoreARNInvalidException: <p>The specified event data store ARN is not valid or does not map to an event data store in your account.</p>
+            aws_sdk_cloudtrail.errors.event_data_store_not_found_exception.EventDataStoreNotFoundException: <p>The specified event data store was not found.</p>
+            aws_sdk_cloudtrail.errors.inactive_event_data_store_exception.InactiveEventDataStoreException: <p>The event data store is inactive.</p>
+            aws_sdk_cloudtrail.errors.insufficient_dependency_service_access_permission_exception.InsufficientDependencyServiceAccessPermissionException: <p>This exception is thrown when the IAM identity that is used to create the organization resource lacks one or more required permissions for creating an organization resource in a required service.</p>
+            aws_sdk_cloudtrail.errors.insufficient_iam_access_permission_exception.InsufficientIAMAccessPermissionException: <p>The task can't be completed because you are signed in with an account that lacks permissions to view or create a service-linked role. Sign in with an account that has the required permissions and then try again.</p>
+            aws_sdk_cloudtrail.errors.invalid_event_data_store_category_exception.InvalidEventDataStoreCategoryException: <p>This exception is thrown when event categories of specified event data stores are not valid.</p>
+            aws_sdk_cloudtrail.errors.invalid_event_data_store_status_exception.InvalidEventDataStoreStatusException: <p>The event data store is not in a status that supports the operation.</p>
+            aws_sdk_cloudtrail.errors.invalid_home_region_exception.InvalidHomeRegionException: <p>This exception is thrown when an operation is called on a trail from a Region other than the Region in which the trail was created.</p>
+            aws_sdk_cloudtrail.errors.invalid_parameter_combination_exception.InvalidParameterCombinationException: <p>This exception is thrown when the combination of parameters provided is not valid.</p>
+            aws_sdk_cloudtrail.errors.invalid_parameter_exception.InvalidParameterException: <p>The request includes a parameter that is not valid.</p>
+            aws_sdk_cloudtrail.errors.invalid_trail_name_exception.InvalidTrailNameException: <p>This exception is thrown when the provided trail name is not valid. Trail names must meet the following requirements:</p> <ul> <li> <p>Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.), underscores (_), or dashes (-)</p> </li> <li> <p>Start with a letter or number, and end with a letter or number</p> </li> <li> <p>Be between 3 and 128 characters</p> </li> <li> <p>Have no adjacent periods, underscores or dashes. Names like <code>my-_namespace</code> and <code>my--namespace</code> are not valid.</p> </li> <li> <p>Not be in IP address format (for example, 192.168.5.4)</p> </li> </ul>
+            aws_sdk_cloudtrail.errors.no_management_account_slr_exists_exception.NoManagementAccountSLRExistsException: <p> This exception is thrown when the management account does not have a service-linked role. </p>
+            aws_sdk_cloudtrail.errors.not_organization_master_account_exception.NotOrganizationMasterAccountException: <p>This exception is thrown when the Amazon Web Services account making the request to create or update an organization trail or event data store is not the management account for an organization in Organizations. For more information, see <a href=\"https://docs.aws.amazon.com/awscloudtrail/latest/userguide/creating-an-organizational-trail-prepare.html\">Prepare For Creating a Trail For Your Organization</a> or <a href=\"https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-lake-organizations.html\">Organization event data stores</a>.</p>
+            aws_sdk_cloudtrail.errors.operation_not_permitted_exception.OperationNotPermittedException: <p>This exception is thrown when the requested operation is not permitted.</p>
+            aws_sdk_cloudtrail.errors.throttling_exception.ThrottlingException: <p> This exception is thrown when the request rate exceeds the limit. </p>
+            aws_sdk_cloudtrail.errors.trail_not_found_exception.TrailNotFoundException: <p>This exception is thrown when the trail with the given name is not found.</p>
+            aws_sdk_cloudtrail.errors.unsupported_operation_exception.UnsupportedOperationException: <p>This exception is thrown when the requested operation is not supported.</p>
+            aws_sdk_cloudtrail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2510,6 +2982,21 @@ class CloudTrailClient:
             trail_name: <p>Specifies the name of the trail or trail ARN. If you specify a trail name, the string must meet the following requirements:</p> <ul> <li> <p>Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.), underscores (_), or dashes (-)</p> </li> <li> <p>Start with a letter or number, and end with a letter or number</p> </li> <li> <p>Be between 3 and 128 characters</p> </li> <li> <p>Have no adjacent periods, underscores or dashes. Names like <code>my-_namespace</code> and <code>my--namespace</code> are not valid.</p> </li> <li> <p>Not be in IP address format (for example, 192.168.5.4)</p> </li> </ul> <p>If you specify a trail ARN, it must be in the following format.</p> <p> <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code> </p>
             event_selectors: <p>Specifies the settings for your event selectors. You can use event selectors to log management events and data events for the following resource types:</p> <ul> <li> <p> <code>AWS::DynamoDB::Table</code> </p> </li> <li> <p> <code>AWS::Lambda::Function</code> </p> </li> <li> <p> <code>AWS::S3::Object</code> </p> </li> </ul> <p>You can't use event selectors to log network activity events.</p> <p>You can configure up to five event selectors for a trail. You can use either <code>EventSelectors</code> or <code>AdvancedEventSelectors</code> in a <code>PutEventSelectors</code> request, but not both. If you apply <code>EventSelectors</code> to a trail, any existing <code>AdvancedEventSelectors</code> are overwritten.</p>
             advanced_event_selectors: <p> Specifies the settings for advanced event selectors. You can use advanced event selectors to log management events, data events for all resource types, and network activity events.</p> <p>You can add advanced event selectors, and conditions for your advanced event selectors, up to a maximum of 500 values for all conditions and selectors on a trail. You can use either <code>AdvancedEventSelectors</code> or <code>EventSelectors</code>, but not both. If you apply <code>AdvancedEventSelectors</code> to a trail, any existing <code>EventSelectors</code> are overwritten. For more information about advanced event selectors, see <a href=\"https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html\">Logging data events</a> and <a href=\"https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-network-events-with-cloudtrail.html\">Logging network activity events</a> in the <i>CloudTrail User Guide</i>. </p>
+
+        Raises:
+            aws_sdk_cloudtrail.errors.cloud_trail_arn_invalid_exception.CloudTrailARNInvalidException: <p>This exception is thrown when an operation is called with an ARN that is not valid.</p> <p>The following is the format of a trail ARN: <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code> </p> <p>The following is the format of an event data store ARN: <code>arn:aws:cloudtrail:us-east-2:123456789012:eventdatastore/EXAMPLE-f852-4e8f-8bd1-bcf6cEXAMPLE</code> </p> <p>The following is the format of a dashboard ARN: <code>arn:aws:cloudtrail:us-east-1:123456789012:dashboard/exampleDash</code> </p> <p>The following is the format of a channel ARN: <code>arn:aws:cloudtrail:us-east-2:123456789012:channel/01234567890</code> </p>
+            aws_sdk_cloudtrail.errors.conflict_exception.ConflictException: <p>This exception is thrown when the specified resource is not ready for an operation. This can occur when you try to run an operation on a resource before CloudTrail has time to fully load the resource, or because another operation is modifying the resource. If this exception occurs, wait a few minutes, and then try the operation again.</p>
+            aws_sdk_cloudtrail.errors.insufficient_dependency_service_access_permission_exception.InsufficientDependencyServiceAccessPermissionException: <p>This exception is thrown when the IAM identity that is used to create the organization resource lacks one or more required permissions for creating an organization resource in a required service.</p>
+            aws_sdk_cloudtrail.errors.invalid_event_selectors_exception.InvalidEventSelectorsException: <p>This exception is thrown when the <code>PutEventSelectors</code> operation is called with a number of event selectors, advanced event selectors, or data resources that is not valid. The combination of event selectors or advanced event selectors and data resources is not valid. A trail can have up to 5 event selectors. If a trail uses advanced event selectors, a maximum of 500 total values for all conditions in all advanced event selectors is allowed. A trail is limited to 250 data resources. These data resources can be distributed across event selectors, but the overall total cannot exceed 250.</p> <p>You can:</p> <ul> <li> <p>Specify a valid number of event selectors (1 to 5) for a trail.</p> </li> <li> <p>Specify a valid number of data resources (1 to 250) for an event selector. The limit of number of resources on an individual event selector is configurable up to 250. However, this upper limit is allowed only if the total number of data resources does not exceed 250 across all event selectors for a trail.</p> </li> <li> <p>Specify up to 500 values for all conditions in all advanced event selectors for a trail.</p> </li> <li> <p>Specify a valid value for a parameter. For example, specifying the <code>ReadWriteType</code> parameter with a value of <code>read-only</code> is not valid.</p> </li> </ul>
+            aws_sdk_cloudtrail.errors.invalid_home_region_exception.InvalidHomeRegionException: <p>This exception is thrown when an operation is called on a trail from a Region other than the Region in which the trail was created.</p>
+            aws_sdk_cloudtrail.errors.invalid_trail_name_exception.InvalidTrailNameException: <p>This exception is thrown when the provided trail name is not valid. Trail names must meet the following requirements:</p> <ul> <li> <p>Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.), underscores (_), or dashes (-)</p> </li> <li> <p>Start with a letter or number, and end with a letter or number</p> </li> <li> <p>Be between 3 and 128 characters</p> </li> <li> <p>Have no adjacent periods, underscores or dashes. Names like <code>my-_namespace</code> and <code>my--namespace</code> are not valid.</p> </li> <li> <p>Not be in IP address format (for example, 192.168.5.4)</p> </li> </ul>
+            aws_sdk_cloudtrail.errors.no_management_account_slr_exists_exception.NoManagementAccountSLRExistsException: <p> This exception is thrown when the management account does not have a service-linked role. </p>
+            aws_sdk_cloudtrail.errors.not_organization_master_account_exception.NotOrganizationMasterAccountException: <p>This exception is thrown when the Amazon Web Services account making the request to create or update an organization trail or event data store is not the management account for an organization in Organizations. For more information, see <a href=\"https://docs.aws.amazon.com/awscloudtrail/latest/userguide/creating-an-organizational-trail-prepare.html\">Prepare For Creating a Trail For Your Organization</a> or <a href=\"https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-lake-organizations.html\">Organization event data stores</a>.</p>
+            aws_sdk_cloudtrail.errors.operation_not_permitted_exception.OperationNotPermittedException: <p>This exception is thrown when the requested operation is not permitted.</p>
+            aws_sdk_cloudtrail.errors.throttling_exception.ThrottlingException: <p> This exception is thrown when the request rate exceeds the limit. </p>
+            aws_sdk_cloudtrail.errors.trail_not_found_exception.TrailNotFoundException: <p>This exception is thrown when the trail with the given name is not found.</p>
+            aws_sdk_cloudtrail.errors.unsupported_operation_exception.UnsupportedOperationException: <p>This exception is thrown when the requested operation is not supported.</p>
+            aws_sdk_cloudtrail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2561,6 +3048,25 @@ class CloudTrailClient:
             insight_selectors: <p>Contains the Insights types you want to log on a specific category of events on a trail or event data store. <code>ApiCallRateInsight</code> and <code>ApiErrorRateInsight</code> are valid Insight types.The EventCategory field can specify <code>Management</code> or <code>Data</code> events or both. For event data store, you can log Insights for management events only.</p> <p>The <code>ApiCallRateInsight</code> Insights type analyzes write-only management API calls or read and write data API calls that are aggregated per minute against a baseline API call volume.</p> <p>The <code>ApiErrorRateInsight</code> Insights type analyzes management and data API calls that result in error codes. The error is shown if the API call is unsuccessful.</p>
             event_data_store: <p>The ARN (or ID suffix of the ARN) of the source event data store for which you want to change or add Insights selectors. To enable Insights on an event data store, you must provide both the <code>EventDataStore</code> and <code>InsightsDestination</code> parameters.</p> <p>You cannot use this parameter with the <code>TrailName</code> parameter.</p>
             insights_destination: <p> The ARN (or ID suffix of the ARN) of the destination event data store that logs Insights events. To enable Insights on an event data store, you must provide both the <code>EventDataStore</code> and <code>InsightsDestination</code> parameters. </p> <p>You cannot use this parameter with the <code>TrailName</code> parameter.</p>
+
+        Raises:
+            aws_sdk_cloudtrail.errors.cloud_trail_arn_invalid_exception.CloudTrailARNInvalidException: <p>This exception is thrown when an operation is called with an ARN that is not valid.</p> <p>The following is the format of a trail ARN: <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code> </p> <p>The following is the format of an event data store ARN: <code>arn:aws:cloudtrail:us-east-2:123456789012:eventdatastore/EXAMPLE-f852-4e8f-8bd1-bcf6cEXAMPLE</code> </p> <p>The following is the format of a dashboard ARN: <code>arn:aws:cloudtrail:us-east-1:123456789012:dashboard/exampleDash</code> </p> <p>The following is the format of a channel ARN: <code>arn:aws:cloudtrail:us-east-2:123456789012:channel/01234567890</code> </p>
+            aws_sdk_cloudtrail.errors.insufficient_encryption_policy_exception.InsufficientEncryptionPolicyException: <p>For the <code>CreateTrail</code> <code>PutInsightSelectors</code>, <code>UpdateTrail</code>, <code>StartQuery</code>, and <code>StartImport</code> operations, this exception is thrown when the policy on the S3 bucket or KMS key does not have sufficient permissions for the operation.</p> <p>For all other operations, this exception is thrown when the policy for the KMS key does not have sufficient permissions for the operation.</p>
+            aws_sdk_cloudtrail.errors.insufficient_s3_bucket_policy_exception.InsufficientS3BucketPolicyException: <p>This exception is thrown when the policy on the S3 bucket is not sufficient.</p>
+            aws_sdk_cloudtrail.errors.invalid_home_region_exception.InvalidHomeRegionException: <p>This exception is thrown when an operation is called on a trail from a Region other than the Region in which the trail was created.</p>
+            aws_sdk_cloudtrail.errors.invalid_insight_selectors_exception.InvalidInsightSelectorsException: <p>For <code>PutInsightSelectors</code>, this exception is thrown when the formatting or syntax of the <code>InsightSelectors</code> JSON statement is not valid, or the specified <code>InsightType</code> in the <code>InsightSelectors</code> statement is not valid. Valid values for <code>InsightType</code> are <code>ApiCallRateInsight</code> and <code>ApiErrorRateInsight</code>. To enable Insights on an event data store, the destination event data store specified by the <code>InsightsDestination</code> parameter must log Insights events and the source event data store specified by the <code>EventDataStore</code> parameter must log management events.</p> <p>For <code>UpdateEventDataStore</code>, this exception is thrown if Insights are enabled on the event data store and the updated advanced event selectors are not compatible with the configured <code>InsightSelectors</code>. If the <code>InsightSelectors</code> includes an <code>InsightType</code> of <code>ApiCallRateInsight</code>, the source event data store must log <code>write</code> management events. If the <code>InsightSelectors</code> includes an <code>InsightType</code> of <code>ApiErrorRateInsight</code>, the source event data store must log management events.</p>
+            aws_sdk_cloudtrail.errors.invalid_parameter_combination_exception.InvalidParameterCombinationException: <p>This exception is thrown when the combination of parameters provided is not valid.</p>
+            aws_sdk_cloudtrail.errors.invalid_parameter_exception.InvalidParameterException: <p>The request includes a parameter that is not valid.</p>
+            aws_sdk_cloudtrail.errors.invalid_trail_name_exception.InvalidTrailNameException: <p>This exception is thrown when the provided trail name is not valid. Trail names must meet the following requirements:</p> <ul> <li> <p>Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.), underscores (_), or dashes (-)</p> </li> <li> <p>Start with a letter or number, and end with a letter or number</p> </li> <li> <p>Be between 3 and 128 characters</p> </li> <li> <p>Have no adjacent periods, underscores or dashes. Names like <code>my-_namespace</code> and <code>my--namespace</code> are not valid.</p> </li> <li> <p>Not be in IP address format (for example, 192.168.5.4)</p> </li> </ul>
+            aws_sdk_cloudtrail.errors.kms_exception.KmsException: <p>This exception is thrown when there is an issue with the specified KMS key and the trail or event data store can't be updated.</p>
+            aws_sdk_cloudtrail.errors.no_management_account_slr_exists_exception.NoManagementAccountSLRExistsException: <p> This exception is thrown when the management account does not have a service-linked role. </p>
+            aws_sdk_cloudtrail.errors.not_organization_master_account_exception.NotOrganizationMasterAccountException: <p>This exception is thrown when the Amazon Web Services account making the request to create or update an organization trail or event data store is not the management account for an organization in Organizations. For more information, see <a href=\"https://docs.aws.amazon.com/awscloudtrail/latest/userguide/creating-an-organizational-trail-prepare.html\">Prepare For Creating a Trail For Your Organization</a> or <a href=\"https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-lake-organizations.html\">Organization event data stores</a>.</p>
+            aws_sdk_cloudtrail.errors.operation_not_permitted_exception.OperationNotPermittedException: <p>This exception is thrown when the requested operation is not permitted.</p>
+            aws_sdk_cloudtrail.errors.s3_bucket_does_not_exist_exception.S3BucketDoesNotExistException: <p>This exception is thrown when the specified S3 bucket does not exist.</p>
+            aws_sdk_cloudtrail.errors.throttling_exception.ThrottlingException: <p> This exception is thrown when the request rate exceeds the limit. </p>
+            aws_sdk_cloudtrail.errors.trail_not_found_exception.TrailNotFoundException: <p>This exception is thrown when the trail with the given name is not found.</p>
+            aws_sdk_cloudtrail.errors.unsupported_operation_exception.UnsupportedOperationException: <p>This exception is thrown when the requested operation is not supported.</p>
+            aws_sdk_cloudtrail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2606,6 +3112,16 @@ class CloudTrailClient:
         Args:
             resource_arn: <p> The Amazon Resource Name (ARN) of the CloudTrail event data store, dashboard, or channel attached to the resource-based policy.</p> <p>Example event data store ARN format: <code>arn:aws:cloudtrail:us-east-2:123456789012:eventdatastore/EXAMPLE-f852-4e8f-8bd1-bcf6cEXAMPLE</code> </p> <p>Example dashboard ARN format: <code>arn:aws:cloudtrail:us-east-1:123456789012:dashboard/exampleDash</code> </p> <p>Example channel ARN format: <code>arn:aws:cloudtrail:us-east-2:123456789012:channel/01234567890</code> </p>
             resource_policy: <p> A JSON-formatted string for an Amazon Web Services resource-based policy. </p> <p> For example resource-based policies, see <a href=\"https://docs.aws.amazon.com/awscloudtrail/latest/userguide/security_iam_resource-based-policy-examples.html\">CloudTrail resource-based policy examples</a> in the <i>CloudTrail User Guide</i>.</p>
+
+        Raises:
+            aws_sdk_cloudtrail.errors.conflict_exception.ConflictException: <p>This exception is thrown when the specified resource is not ready for an operation. This can occur when you try to run an operation on a resource before CloudTrail has time to fully load the resource, or because another operation is modifying the resource. If this exception occurs, wait a few minutes, and then try the operation again.</p>
+            aws_sdk_cloudtrail.errors.operation_not_permitted_exception.OperationNotPermittedException: <p>This exception is thrown when the requested operation is not permitted.</p>
+            aws_sdk_cloudtrail.errors.resource_arn_not_valid_exception.ResourceARNNotValidException: <p> This exception is thrown when the provided resource does not exist, or the ARN format of the resource is not valid. </p> <p>The following is the format of an event data store ARN: <code>arn:aws:cloudtrail:us-east-2:123456789012:eventdatastore/EXAMPLE-f852-4e8f-8bd1-bcf6cEXAMPLE</code> </p> <p>The following is the format of a dashboard ARN: <code>arn:aws:cloudtrail:us-east-1:123456789012:dashboard/exampleDash</code> </p> <p>The following is the format of a channel ARN: <code>arn:aws:cloudtrail:us-east-2:123456789012:channel/01234567890</code> </p>
+            aws_sdk_cloudtrail.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when the specified resource is not found.</p>
+            aws_sdk_cloudtrail.errors.resource_policy_not_valid_exception.ResourcePolicyNotValidException: <p> This exception is thrown when the resouce-based policy has syntax errors, or contains a principal that is not valid. </p>
+            aws_sdk_cloudtrail.errors.resource_type_not_supported_exception.ResourceTypeNotSupportedException: <p>This exception is thrown when the specified resource type is not supported by CloudTrail.</p>
+            aws_sdk_cloudtrail.errors.unsupported_operation_exception.UnsupportedOperationException: <p>This exception is thrown when the requested operation is not supported.</p>
+            aws_sdk_cloudtrail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2644,6 +3160,23 @@ class CloudTrailClient:
 
         Args:
             member_account_id: <p>An organization member account ID that you want to designate as a delegated administrator.</p>
+
+        Raises:
+            aws_sdk_cloudtrail.errors.account_not_found_exception.AccountNotFoundException: <p>This exception is thrown when the specified account is not found or not part of an organization.</p>
+            aws_sdk_cloudtrail.errors.account_registered_exception.AccountRegisteredException: <p>This exception is thrown when the account is already registered as the CloudTrail delegated administrator.</p>
+            aws_sdk_cloudtrail.errors.cannot_delegate_management_account_exception.CannotDelegateManagementAccountException: <p>This exception is thrown when the management account of an organization is registered as the CloudTrail delegated administrator.</p>
+            aws_sdk_cloudtrail.errors.cloud_trail_access_not_enabled_exception.CloudTrailAccessNotEnabledException: <p>This exception is thrown when trusted access has not been enabled between CloudTrail and Organizations. For more information, see <a href=\"https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html#orgs_how-to-enable-disable-trusted-access\">How to enable or disable trusted access</a> in the <i>Organizations User Guide</i> and <a href=\"https://docs.aws.amazon.com/awscloudtrail/latest/userguide/creating-an-organizational-trail-prepare.html\">Prepare For Creating a Trail For Your Organization</a> in the <i>CloudTrail User Guide</i>.</p>
+            aws_sdk_cloudtrail.errors.conflict_exception.ConflictException: <p>This exception is thrown when the specified resource is not ready for an operation. This can occur when you try to run an operation on a resource before CloudTrail has time to fully load the resource, or because another operation is modifying the resource. If this exception occurs, wait a few minutes, and then try the operation again.</p>
+            aws_sdk_cloudtrail.errors.delegated_admin_account_limit_exceeded_exception.DelegatedAdminAccountLimitExceededException: <p>This exception is thrown when the maximum number of CloudTrail delegated administrators is reached.</p>
+            aws_sdk_cloudtrail.errors.insufficient_dependency_service_access_permission_exception.InsufficientDependencyServiceAccessPermissionException: <p>This exception is thrown when the IAM identity that is used to create the organization resource lacks one or more required permissions for creating an organization resource in a required service.</p>
+            aws_sdk_cloudtrail.errors.insufficient_iam_access_permission_exception.InsufficientIAMAccessPermissionException: <p>The task can't be completed because you are signed in with an account that lacks permissions to view or create a service-linked role. Sign in with an account that has the required permissions and then try again.</p>
+            aws_sdk_cloudtrail.errors.invalid_parameter_exception.InvalidParameterException: <p>The request includes a parameter that is not valid.</p>
+            aws_sdk_cloudtrail.errors.not_organization_management_account_exception.NotOrganizationManagementAccountException: <p> This exception is thrown when the account making the request is not the organization's management account. </p>
+            aws_sdk_cloudtrail.errors.operation_not_permitted_exception.OperationNotPermittedException: <p>This exception is thrown when the requested operation is not permitted.</p>
+            aws_sdk_cloudtrail.errors.organization_not_in_all_features_mode_exception.OrganizationNotInAllFeaturesModeException: <p>This exception is thrown when Organizations is not configured to support all features. All features must be enabled in Organizations to support creating an organization trail or event data store.</p>
+            aws_sdk_cloudtrail.errors.organizations_not_in_use_exception.OrganizationsNotInUseException: <p>This exception is thrown when the request is made from an Amazon Web Services account that is not a member of an organization. To make this request, sign in using the credentials of an account that belongs to an organization.</p>
+            aws_sdk_cloudtrail.errors.unsupported_operation_exception.UnsupportedOperationException: <p>This exception is thrown when the requested operation is not supported.</p>
+            aws_sdk_cloudtrail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2683,6 +3216,24 @@ class CloudTrailClient:
         Args:
             resource_id: <p>Specifies the ARN of the trail, event data store, dashboard, or channel from which tags should be removed.</p> <p> Example trail ARN format: <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code> </p> <p>Example event data store ARN format: <code>arn:aws:cloudtrail:us-east-2:123456789012:eventdatastore/EXAMPLE-f852-4e8f-8bd1-bcf6cEXAMPLE</code> </p> <p>Example dashboard ARN format: <code>arn:aws:cloudtrail:us-east-1:123456789012:dashboard/exampleDash</code> </p> <p>Example channel ARN format: <code>arn:aws:cloudtrail:us-east-2:123456789012:channel/01234567890</code> </p>
             tags_list: <p>Specifies a list of tags to be removed.</p>
+
+        Raises:
+            aws_sdk_cloudtrail.errors.channel_arn_invalid_exception.ChannelARNInvalidException: <p>This exception is thrown when the specified value of <code>ChannelARN</code> is not valid.</p>
+            aws_sdk_cloudtrail.errors.channel_not_found_exception.ChannelNotFoundException: <p>This exception is thrown when CloudTrail cannot find the specified channel.</p>
+            aws_sdk_cloudtrail.errors.cloud_trail_arn_invalid_exception.CloudTrailARNInvalidException: <p>This exception is thrown when an operation is called with an ARN that is not valid.</p> <p>The following is the format of a trail ARN: <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code> </p> <p>The following is the format of an event data store ARN: <code>arn:aws:cloudtrail:us-east-2:123456789012:eventdatastore/EXAMPLE-f852-4e8f-8bd1-bcf6cEXAMPLE</code> </p> <p>The following is the format of a dashboard ARN: <code>arn:aws:cloudtrail:us-east-1:123456789012:dashboard/exampleDash</code> </p> <p>The following is the format of a channel ARN: <code>arn:aws:cloudtrail:us-east-2:123456789012:channel/01234567890</code> </p>
+            aws_sdk_cloudtrail.errors.conflict_exception.ConflictException: <p>This exception is thrown when the specified resource is not ready for an operation. This can occur when you try to run an operation on a resource before CloudTrail has time to fully load the resource, or because another operation is modifying the resource. If this exception occurs, wait a few minutes, and then try the operation again.</p>
+            aws_sdk_cloudtrail.errors.event_data_store_arn_invalid_exception.EventDataStoreARNInvalidException: <p>The specified event data store ARN is not valid or does not map to an event data store in your account.</p>
+            aws_sdk_cloudtrail.errors.event_data_store_not_found_exception.EventDataStoreNotFoundException: <p>The specified event data store was not found.</p>
+            aws_sdk_cloudtrail.errors.inactive_event_data_store_exception.InactiveEventDataStoreException: <p>The event data store is inactive.</p>
+            aws_sdk_cloudtrail.errors.invalid_tag_parameter_exception.InvalidTagParameterException: <p>This exception is thrown when the specified tag key or values are not valid. It can also occur if there are duplicate tags or too many tags on the resource.</p>
+            aws_sdk_cloudtrail.errors.invalid_trail_name_exception.InvalidTrailNameException: <p>This exception is thrown when the provided trail name is not valid. Trail names must meet the following requirements:</p> <ul> <li> <p>Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.), underscores (_), or dashes (-)</p> </li> <li> <p>Start with a letter or number, and end with a letter or number</p> </li> <li> <p>Be between 3 and 128 characters</p> </li> <li> <p>Have no adjacent periods, underscores or dashes. Names like <code>my-_namespace</code> and <code>my--namespace</code> are not valid.</p> </li> <li> <p>Not be in IP address format (for example, 192.168.5.4)</p> </li> </ul>
+            aws_sdk_cloudtrail.errors.no_management_account_slr_exists_exception.NoManagementAccountSLRExistsException: <p> This exception is thrown when the management account does not have a service-linked role. </p>
+            aws_sdk_cloudtrail.errors.not_organization_master_account_exception.NotOrganizationMasterAccountException: <p>This exception is thrown when the Amazon Web Services account making the request to create or update an organization trail or event data store is not the management account for an organization in Organizations. For more information, see <a href=\"https://docs.aws.amazon.com/awscloudtrail/latest/userguide/creating-an-organizational-trail-prepare.html\">Prepare For Creating a Trail For Your Organization</a> or <a href=\"https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-lake-organizations.html\">Organization event data stores</a>.</p>
+            aws_sdk_cloudtrail.errors.operation_not_permitted_exception.OperationNotPermittedException: <p>This exception is thrown when the requested operation is not permitted.</p>
+            aws_sdk_cloudtrail.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when the specified resource is not found.</p>
+            aws_sdk_cloudtrail.errors.resource_type_not_supported_exception.ResourceTypeNotSupportedException: <p>This exception is thrown when the specified resource type is not supported by CloudTrail.</p>
+            aws_sdk_cloudtrail.errors.unsupported_operation_exception.UnsupportedOperationException: <p>This exception is thrown when the requested operation is not supported.</p>
+            aws_sdk_cloudtrail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2721,6 +3272,22 @@ class CloudTrailClient:
 
         Args:
             event_data_store: <p>The ARN (or the ID suffix of the ARN) of the event data store that you want to restore.</p>
+
+        Raises:
+            aws_sdk_cloudtrail.errors.cloud_trail_access_not_enabled_exception.CloudTrailAccessNotEnabledException: <p>This exception is thrown when trusted access has not been enabled between CloudTrail and Organizations. For more information, see <a href=\"https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html#orgs_how-to-enable-disable-trusted-access\">How to enable or disable trusted access</a> in the <i>Organizations User Guide</i> and <a href=\"https://docs.aws.amazon.com/awscloudtrail/latest/userguide/creating-an-organizational-trail-prepare.html\">Prepare For Creating a Trail For Your Organization</a> in the <i>CloudTrail User Guide</i>.</p>
+            aws_sdk_cloudtrail.errors.event_data_store_arn_invalid_exception.EventDataStoreARNInvalidException: <p>The specified event data store ARN is not valid or does not map to an event data store in your account.</p>
+            aws_sdk_cloudtrail.errors.event_data_store_max_limit_exceeded_exception.EventDataStoreMaxLimitExceededException: <p>Your account has used the maximum number of event data stores.</p>
+            aws_sdk_cloudtrail.errors.event_data_store_not_found_exception.EventDataStoreNotFoundException: <p>The specified event data store was not found.</p>
+            aws_sdk_cloudtrail.errors.insufficient_dependency_service_access_permission_exception.InsufficientDependencyServiceAccessPermissionException: <p>This exception is thrown when the IAM identity that is used to create the organization resource lacks one or more required permissions for creating an organization resource in a required service.</p>
+            aws_sdk_cloudtrail.errors.invalid_event_data_store_status_exception.InvalidEventDataStoreStatusException: <p>The event data store is not in a status that supports the operation.</p>
+            aws_sdk_cloudtrail.errors.invalid_parameter_exception.InvalidParameterException: <p>The request includes a parameter that is not valid.</p>
+            aws_sdk_cloudtrail.errors.no_management_account_slr_exists_exception.NoManagementAccountSLRExistsException: <p> This exception is thrown when the management account does not have a service-linked role. </p>
+            aws_sdk_cloudtrail.errors.not_organization_master_account_exception.NotOrganizationMasterAccountException: <p>This exception is thrown when the Amazon Web Services account making the request to create or update an organization trail or event data store is not the management account for an organization in Organizations. For more information, see <a href=\"https://docs.aws.amazon.com/awscloudtrail/latest/userguide/creating-an-organizational-trail-prepare.html\">Prepare For Creating a Trail For Your Organization</a> or <a href=\"https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-lake-organizations.html\">Organization event data stores</a>.</p>
+            aws_sdk_cloudtrail.errors.operation_not_permitted_exception.OperationNotPermittedException: <p>This exception is thrown when the requested operation is not permitted.</p>
+            aws_sdk_cloudtrail.errors.organization_not_in_all_features_mode_exception.OrganizationNotInAllFeaturesModeException: <p>This exception is thrown when Organizations is not configured to support all features. All features must be enabled in Organizations to support creating an organization trail or event data store.</p>
+            aws_sdk_cloudtrail.errors.organizations_not_in_use_exception.OrganizationsNotInUseException: <p>This exception is thrown when the request is made from an Amazon Web Services account that is not a member of an organization. To make this request, sign in using the credentials of an account that belongs to an organization.</p>
+            aws_sdk_cloudtrail.errors.unsupported_operation_exception.UnsupportedOperationException: <p>This exception is thrown when the requested operation is not supported.</p>
+            aws_sdk_cloudtrail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2766,6 +3333,12 @@ class CloudTrailClient:
             search_phrase: <p> The natural language phrase to use for the semantic search. The phrase must be in English. The length constraint is in characters, not words.</p>
             max_results: <p> The maximum number of results to return on a single page. The default value is 10. </p>
             next_token: <p> A token you can use to get the next page of results. The length constraint is in characters, not words. </p>
+
+        Raises:
+            aws_sdk_cloudtrail.errors.invalid_parameter_exception.InvalidParameterException: <p>The request includes a parameter that is not valid.</p>
+            aws_sdk_cloudtrail.errors.operation_not_permitted_exception.OperationNotPermittedException: <p>This exception is thrown when the requested operation is not permitted.</p>
+            aws_sdk_cloudtrail.errors.unsupported_operation_exception.UnsupportedOperationException: <p>This exception is thrown when the requested operation is not supported.</p>
+            aws_sdk_cloudtrail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2811,6 +3384,14 @@ class CloudTrailClient:
         Args:
             dashboard_id: <p> The name or ARN of the dashboard. </p>
             query_parameter_values: <p> The query parameter values for the dashboard </p> <p>For custom dashboards, the following query parameters are valid: <code>$StartTime$</code>, <code>$EndTime$</code>, and <code>$Period$</code>.</p> <p>For managed dashboards, the following query parameters are valid: <code>$StartTime$</code>, <code>$EndTime$</code>, <code>$Period$</code>, and <code>$EventDataStoreId$</code>. The <code>$EventDataStoreId$</code> query parameter is required.</p>
+
+        Raises:
+            aws_sdk_cloudtrail.errors.event_data_store_not_found_exception.EventDataStoreNotFoundException: <p>The specified event data store was not found.</p>
+            aws_sdk_cloudtrail.errors.inactive_event_data_store_exception.InactiveEventDataStoreException: <p>The event data store is inactive.</p>
+            aws_sdk_cloudtrail.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when the specified resource is not found.</p>
+            aws_sdk_cloudtrail.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p> This exception is thrown when the quota is exceeded. For information about CloudTrail quotas, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/ct.html#limits_cloudtrail\">Service quotas</a> in the <i>Amazon Web Services General Reference</i>. </p>
+            aws_sdk_cloudtrail.errors.unsupported_operation_exception.UnsupportedOperationException: <p>This exception is thrown when the requested operation is not supported.</p>
+            aws_sdk_cloudtrail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2850,6 +3431,20 @@ class CloudTrailClient:
 
         Args:
             event_data_store: <p>The ARN (or ID suffix of the ARN) of the event data store for which you want to start ingestion.</p>
+
+        Raises:
+            aws_sdk_cloudtrail.errors.conflict_exception.ConflictException: <p>This exception is thrown when the specified resource is not ready for an operation. This can occur when you try to run an operation on a resource before CloudTrail has time to fully load the resource, or because another operation is modifying the resource. If this exception occurs, wait a few minutes, and then try the operation again.</p>
+            aws_sdk_cloudtrail.errors.event_data_store_arn_invalid_exception.EventDataStoreARNInvalidException: <p>The specified event data store ARN is not valid or does not map to an event data store in your account.</p>
+            aws_sdk_cloudtrail.errors.event_data_store_not_found_exception.EventDataStoreNotFoundException: <p>The specified event data store was not found.</p>
+            aws_sdk_cloudtrail.errors.insufficient_dependency_service_access_permission_exception.InsufficientDependencyServiceAccessPermissionException: <p>This exception is thrown when the IAM identity that is used to create the organization resource lacks one or more required permissions for creating an organization resource in a required service.</p>
+            aws_sdk_cloudtrail.errors.invalid_event_data_store_category_exception.InvalidEventDataStoreCategoryException: <p>This exception is thrown when event categories of specified event data stores are not valid.</p>
+            aws_sdk_cloudtrail.errors.invalid_event_data_store_status_exception.InvalidEventDataStoreStatusException: <p>The event data store is not in a status that supports the operation.</p>
+            aws_sdk_cloudtrail.errors.invalid_parameter_exception.InvalidParameterException: <p>The request includes a parameter that is not valid.</p>
+            aws_sdk_cloudtrail.errors.no_management_account_slr_exists_exception.NoManagementAccountSLRExistsException: <p> This exception is thrown when the management account does not have a service-linked role. </p>
+            aws_sdk_cloudtrail.errors.not_organization_master_account_exception.NotOrganizationMasterAccountException: <p>This exception is thrown when the Amazon Web Services account making the request to create or update an organization trail or event data store is not the management account for an organization in Organizations. For more information, see <a href=\"https://docs.aws.amazon.com/awscloudtrail/latest/userguide/creating-an-organizational-trail-prepare.html\">Prepare For Creating a Trail For Your Organization</a> or <a href=\"https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-lake-organizations.html\">Organization event data stores</a>.</p>
+            aws_sdk_cloudtrail.errors.operation_not_permitted_exception.OperationNotPermittedException: <p>This exception is thrown when the requested operation is not permitted.</p>
+            aws_sdk_cloudtrail.errors.unsupported_operation_exception.UnsupportedOperationException: <p>This exception is thrown when the requested operation is not supported.</p>
+            aws_sdk_cloudtrail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2899,6 +3494,21 @@ class CloudTrailClient:
             start_event_time: <p> Use with <code>EndEventTime</code> to bound a <code>StartImport</code> request, and limit imported trail events to only those events logged within a specified time period. When you specify a time range, CloudTrail checks the prefix and log file names to verify the names contain a date between the specified <code>StartEventTime</code> and <code>EndEventTime</code> before attempting to import events. </p>
             end_event_time: <p> Use with <code>StartEventTime</code> to bound a <code>StartImport</code> request, and limit imported trail events to only those events logged within a specified time period. When you specify a time range, CloudTrail checks the prefix and log file names to verify the names contain a date between the specified <code>StartEventTime</code> and <code>EndEventTime</code> before attempting to import events. </p>
             import_id: <p> The ID of the import. Use this parameter when you are retrying an import. </p>
+
+        Raises:
+            aws_sdk_cloudtrail.errors.account_has_ongoing_import_exception.AccountHasOngoingImportException: <p> This exception is thrown when you start a new import and a previous import is still in progress. </p>
+            aws_sdk_cloudtrail.errors.event_data_store_arn_invalid_exception.EventDataStoreARNInvalidException: <p>The specified event data store ARN is not valid or does not map to an event data store in your account.</p>
+            aws_sdk_cloudtrail.errors.event_data_store_not_found_exception.EventDataStoreNotFoundException: <p>The specified event data store was not found.</p>
+            aws_sdk_cloudtrail.errors.import_not_found_exception.ImportNotFoundException: <p> The specified import was not found. </p>
+            aws_sdk_cloudtrail.errors.inactive_event_data_store_exception.InactiveEventDataStoreException: <p>The event data store is inactive.</p>
+            aws_sdk_cloudtrail.errors.insufficient_encryption_policy_exception.InsufficientEncryptionPolicyException: <p>For the <code>CreateTrail</code> <code>PutInsightSelectors</code>, <code>UpdateTrail</code>, <code>StartQuery</code>, and <code>StartImport</code> operations, this exception is thrown when the policy on the S3 bucket or KMS key does not have sufficient permissions for the operation.</p> <p>For all other operations, this exception is thrown when the policy for the KMS key does not have sufficient permissions for the operation.</p>
+            aws_sdk_cloudtrail.errors.invalid_event_data_store_category_exception.InvalidEventDataStoreCategoryException: <p>This exception is thrown when event categories of specified event data stores are not valid.</p>
+            aws_sdk_cloudtrail.errors.invalid_event_data_store_status_exception.InvalidEventDataStoreStatusException: <p>The event data store is not in a status that supports the operation.</p>
+            aws_sdk_cloudtrail.errors.invalid_import_source_exception.InvalidImportSourceException: <p> This exception is thrown when the provided source S3 bucket is not valid for import. </p>
+            aws_sdk_cloudtrail.errors.invalid_parameter_exception.InvalidParameterException: <p>The request includes a parameter that is not valid.</p>
+            aws_sdk_cloudtrail.errors.operation_not_permitted_exception.OperationNotPermittedException: <p>This exception is thrown when the requested operation is not permitted.</p>
+            aws_sdk_cloudtrail.errors.unsupported_operation_exception.UnsupportedOperationException: <p>This exception is thrown when the requested operation is not supported.</p>
+            aws_sdk_cloudtrail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2945,6 +3555,20 @@ class CloudTrailClient:
 
         Args:
             name: <p>Specifies the name or the CloudTrail ARN of the trail for which CloudTrail logs Amazon Web Services API calls. The following is the format of a trail ARN.</p> <p> <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code> </p>
+
+        Raises:
+            aws_sdk_cloudtrail.errors.cloud_trail_arn_invalid_exception.CloudTrailARNInvalidException: <p>This exception is thrown when an operation is called with an ARN that is not valid.</p> <p>The following is the format of a trail ARN: <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code> </p> <p>The following is the format of an event data store ARN: <code>arn:aws:cloudtrail:us-east-2:123456789012:eventdatastore/EXAMPLE-f852-4e8f-8bd1-bcf6cEXAMPLE</code> </p> <p>The following is the format of a dashboard ARN: <code>arn:aws:cloudtrail:us-east-1:123456789012:dashboard/exampleDash</code> </p> <p>The following is the format of a channel ARN: <code>arn:aws:cloudtrail:us-east-2:123456789012:channel/01234567890</code> </p>
+            aws_sdk_cloudtrail.errors.conflict_exception.ConflictException: <p>This exception is thrown when the specified resource is not ready for an operation. This can occur when you try to run an operation on a resource before CloudTrail has time to fully load the resource, or because another operation is modifying the resource. If this exception occurs, wait a few minutes, and then try the operation again.</p>
+            aws_sdk_cloudtrail.errors.insufficient_dependency_service_access_permission_exception.InsufficientDependencyServiceAccessPermissionException: <p>This exception is thrown when the IAM identity that is used to create the organization resource lacks one or more required permissions for creating an organization resource in a required service.</p>
+            aws_sdk_cloudtrail.errors.invalid_home_region_exception.InvalidHomeRegionException: <p>This exception is thrown when an operation is called on a trail from a Region other than the Region in which the trail was created.</p>
+            aws_sdk_cloudtrail.errors.invalid_trail_name_exception.InvalidTrailNameException: <p>This exception is thrown when the provided trail name is not valid. Trail names must meet the following requirements:</p> <ul> <li> <p>Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.), underscores (_), or dashes (-)</p> </li> <li> <p>Start with a letter or number, and end with a letter or number</p> </li> <li> <p>Be between 3 and 128 characters</p> </li> <li> <p>Have no adjacent periods, underscores or dashes. Names like <code>my-_namespace</code> and <code>my--namespace</code> are not valid.</p> </li> <li> <p>Not be in IP address format (for example, 192.168.5.4)</p> </li> </ul>
+            aws_sdk_cloudtrail.errors.no_management_account_slr_exists_exception.NoManagementAccountSLRExistsException: <p> This exception is thrown when the management account does not have a service-linked role. </p>
+            aws_sdk_cloudtrail.errors.not_organization_master_account_exception.NotOrganizationMasterAccountException: <p>This exception is thrown when the Amazon Web Services account making the request to create or update an organization trail or event data store is not the management account for an organization in Organizations. For more information, see <a href=\"https://docs.aws.amazon.com/awscloudtrail/latest/userguide/creating-an-organizational-trail-prepare.html\">Prepare For Creating a Trail For Your Organization</a> or <a href=\"https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-lake-organizations.html\">Organization event data stores</a>.</p>
+            aws_sdk_cloudtrail.errors.operation_not_permitted_exception.OperationNotPermittedException: <p>This exception is thrown when the requested operation is not permitted.</p>
+            aws_sdk_cloudtrail.errors.throttling_exception.ThrottlingException: <p> This exception is thrown when the request rate exceeds the limit. </p>
+            aws_sdk_cloudtrail.errors.trail_not_found_exception.TrailNotFoundException: <p>This exception is thrown when the trail with the given name is not found.</p>
+            aws_sdk_cloudtrail.errors.unsupported_operation_exception.UnsupportedOperationException: <p>This exception is thrown when the requested operation is not supported.</p>
+            aws_sdk_cloudtrail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2998,6 +3622,23 @@ class CloudTrailClient:
             query_alias: <p> The alias that identifies a query template. </p>
             query_parameters: <p> The query parameters for the specified <code>QueryAlias</code>. </p>
             event_data_store_owner_account_id: <p> The account ID of the event data store owner. </p>
+
+        Raises:
+            aws_sdk_cloudtrail.errors.event_data_store_arn_invalid_exception.EventDataStoreARNInvalidException: <p>The specified event data store ARN is not valid or does not map to an event data store in your account.</p>
+            aws_sdk_cloudtrail.errors.event_data_store_not_found_exception.EventDataStoreNotFoundException: <p>The specified event data store was not found.</p>
+            aws_sdk_cloudtrail.errors.inactive_event_data_store_exception.InactiveEventDataStoreException: <p>The event data store is inactive.</p>
+            aws_sdk_cloudtrail.errors.insufficient_encryption_policy_exception.InsufficientEncryptionPolicyException: <p>For the <code>CreateTrail</code> <code>PutInsightSelectors</code>, <code>UpdateTrail</code>, <code>StartQuery</code>, and <code>StartImport</code> operations, this exception is thrown when the policy on the S3 bucket or KMS key does not have sufficient permissions for the operation.</p> <p>For all other operations, this exception is thrown when the policy for the KMS key does not have sufficient permissions for the operation.</p>
+            aws_sdk_cloudtrail.errors.insufficient_s3_bucket_policy_exception.InsufficientS3BucketPolicyException: <p>This exception is thrown when the policy on the S3 bucket is not sufficient.</p>
+            aws_sdk_cloudtrail.errors.invalid_parameter_exception.InvalidParameterException: <p>The request includes a parameter that is not valid.</p>
+            aws_sdk_cloudtrail.errors.invalid_query_statement_exception.InvalidQueryStatementException: <p>The query that was submitted has validation errors, or uses incorrect syntax or unsupported keywords. For more information about writing a query, see <a href=\"https://docs.aws.amazon.com/awscloudtrail/latest/userguide/query-create-edit-query.html\">Create or edit a query</a> in the <i>CloudTrail User Guide</i>.</p>
+            aws_sdk_cloudtrail.errors.invalid_s3_bucket_name_exception.InvalidS3BucketNameException: <p>This exception is thrown when the provided S3 bucket name is not valid.</p>
+            aws_sdk_cloudtrail.errors.invalid_s3_prefix_exception.InvalidS3PrefixException: <p>This exception is thrown when the provided S3 prefix is not valid.</p>
+            aws_sdk_cloudtrail.errors.max_concurrent_queries_exception.MaxConcurrentQueriesException: <p>You are already running the maximum number of concurrent queries. The maximum number of concurrent queries is 10. Wait a minute for some queries to finish, and then run the query again.</p>
+            aws_sdk_cloudtrail.errors.no_management_account_slr_exists_exception.NoManagementAccountSLRExistsException: <p> This exception is thrown when the management account does not have a service-linked role. </p>
+            aws_sdk_cloudtrail.errors.operation_not_permitted_exception.OperationNotPermittedException: <p>This exception is thrown when the requested operation is not permitted.</p>
+            aws_sdk_cloudtrail.errors.s3_bucket_does_not_exist_exception.S3BucketDoesNotExistException: <p>This exception is thrown when the specified S3 bucket does not exist.</p>
+            aws_sdk_cloudtrail.errors.unsupported_operation_exception.UnsupportedOperationException: <p>This exception is thrown when the requested operation is not supported.</p>
+            aws_sdk_cloudtrail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3046,6 +3687,20 @@ class CloudTrailClient:
 
         Args:
             event_data_store: <p>The ARN (or ID suffix of the ARN) of the event data store for which you want to stop ingestion.</p>
+
+        Raises:
+            aws_sdk_cloudtrail.errors.conflict_exception.ConflictException: <p>This exception is thrown when the specified resource is not ready for an operation. This can occur when you try to run an operation on a resource before CloudTrail has time to fully load the resource, or because another operation is modifying the resource. If this exception occurs, wait a few minutes, and then try the operation again.</p>
+            aws_sdk_cloudtrail.errors.event_data_store_arn_invalid_exception.EventDataStoreARNInvalidException: <p>The specified event data store ARN is not valid or does not map to an event data store in your account.</p>
+            aws_sdk_cloudtrail.errors.event_data_store_not_found_exception.EventDataStoreNotFoundException: <p>The specified event data store was not found.</p>
+            aws_sdk_cloudtrail.errors.insufficient_dependency_service_access_permission_exception.InsufficientDependencyServiceAccessPermissionException: <p>This exception is thrown when the IAM identity that is used to create the organization resource lacks one or more required permissions for creating an organization resource in a required service.</p>
+            aws_sdk_cloudtrail.errors.invalid_event_data_store_category_exception.InvalidEventDataStoreCategoryException: <p>This exception is thrown when event categories of specified event data stores are not valid.</p>
+            aws_sdk_cloudtrail.errors.invalid_event_data_store_status_exception.InvalidEventDataStoreStatusException: <p>The event data store is not in a status that supports the operation.</p>
+            aws_sdk_cloudtrail.errors.invalid_parameter_exception.InvalidParameterException: <p>The request includes a parameter that is not valid.</p>
+            aws_sdk_cloudtrail.errors.no_management_account_slr_exists_exception.NoManagementAccountSLRExistsException: <p> This exception is thrown when the management account does not have a service-linked role. </p>
+            aws_sdk_cloudtrail.errors.not_organization_master_account_exception.NotOrganizationMasterAccountException: <p>This exception is thrown when the Amazon Web Services account making the request to create or update an organization trail or event data store is not the management account for an organization in Organizations. For more information, see <a href=\"https://docs.aws.amazon.com/awscloudtrail/latest/userguide/creating-an-organizational-trail-prepare.html\">Prepare For Creating a Trail For Your Organization</a> or <a href=\"https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-lake-organizations.html\">Organization event data stores</a>.</p>
+            aws_sdk_cloudtrail.errors.operation_not_permitted_exception.OperationNotPermittedException: <p>This exception is thrown when the requested operation is not permitted.</p>
+            aws_sdk_cloudtrail.errors.unsupported_operation_exception.UnsupportedOperationException: <p>This exception is thrown when the requested operation is not supported.</p>
+            aws_sdk_cloudtrail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3083,6 +3738,13 @@ class CloudTrailClient:
 
         Args:
             import_id: <p> The ID of the import. </p>
+
+        Raises:
+            aws_sdk_cloudtrail.errors.import_not_found_exception.ImportNotFoundException: <p> The specified import was not found. </p>
+            aws_sdk_cloudtrail.errors.invalid_parameter_exception.InvalidParameterException: <p>The request includes a parameter that is not valid.</p>
+            aws_sdk_cloudtrail.errors.operation_not_permitted_exception.OperationNotPermittedException: <p>This exception is thrown when the requested operation is not permitted.</p>
+            aws_sdk_cloudtrail.errors.unsupported_operation_exception.UnsupportedOperationException: <p>This exception is thrown when the requested operation is not supported.</p>
+            aws_sdk_cloudtrail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3120,6 +3782,20 @@ class CloudTrailClient:
 
         Args:
             name: <p>Specifies the name or the CloudTrail ARN of the trail for which CloudTrail will stop logging Amazon Web Services API calls. The following is the format of a trail ARN.</p> <p> <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code> </p>
+
+        Raises:
+            aws_sdk_cloudtrail.errors.cloud_trail_arn_invalid_exception.CloudTrailARNInvalidException: <p>This exception is thrown when an operation is called with an ARN that is not valid.</p> <p>The following is the format of a trail ARN: <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code> </p> <p>The following is the format of an event data store ARN: <code>arn:aws:cloudtrail:us-east-2:123456789012:eventdatastore/EXAMPLE-f852-4e8f-8bd1-bcf6cEXAMPLE</code> </p> <p>The following is the format of a dashboard ARN: <code>arn:aws:cloudtrail:us-east-1:123456789012:dashboard/exampleDash</code> </p> <p>The following is the format of a channel ARN: <code>arn:aws:cloudtrail:us-east-2:123456789012:channel/01234567890</code> </p>
+            aws_sdk_cloudtrail.errors.conflict_exception.ConflictException: <p>This exception is thrown when the specified resource is not ready for an operation. This can occur when you try to run an operation on a resource before CloudTrail has time to fully load the resource, or because another operation is modifying the resource. If this exception occurs, wait a few minutes, and then try the operation again.</p>
+            aws_sdk_cloudtrail.errors.insufficient_dependency_service_access_permission_exception.InsufficientDependencyServiceAccessPermissionException: <p>This exception is thrown when the IAM identity that is used to create the organization resource lacks one or more required permissions for creating an organization resource in a required service.</p>
+            aws_sdk_cloudtrail.errors.invalid_home_region_exception.InvalidHomeRegionException: <p>This exception is thrown when an operation is called on a trail from a Region other than the Region in which the trail was created.</p>
+            aws_sdk_cloudtrail.errors.invalid_trail_name_exception.InvalidTrailNameException: <p>This exception is thrown when the provided trail name is not valid. Trail names must meet the following requirements:</p> <ul> <li> <p>Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.), underscores (_), or dashes (-)</p> </li> <li> <p>Start with a letter or number, and end with a letter or number</p> </li> <li> <p>Be between 3 and 128 characters</p> </li> <li> <p>Have no adjacent periods, underscores or dashes. Names like <code>my-_namespace</code> and <code>my--namespace</code> are not valid.</p> </li> <li> <p>Not be in IP address format (for example, 192.168.5.4)</p> </li> </ul>
+            aws_sdk_cloudtrail.errors.no_management_account_slr_exists_exception.NoManagementAccountSLRExistsException: <p> This exception is thrown when the management account does not have a service-linked role. </p>
+            aws_sdk_cloudtrail.errors.not_organization_master_account_exception.NotOrganizationMasterAccountException: <p>This exception is thrown when the Amazon Web Services account making the request to create or update an organization trail or event data store is not the management account for an organization in Organizations. For more information, see <a href=\"https://docs.aws.amazon.com/awscloudtrail/latest/userguide/creating-an-organizational-trail-prepare.html\">Prepare For Creating a Trail For Your Organization</a> or <a href=\"https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-lake-organizations.html\">Organization event data stores</a>.</p>
+            aws_sdk_cloudtrail.errors.operation_not_permitted_exception.OperationNotPermittedException: <p>This exception is thrown when the requested operation is not permitted.</p>
+            aws_sdk_cloudtrail.errors.throttling_exception.ThrottlingException: <p> This exception is thrown when the request rate exceeds the limit. </p>
+            aws_sdk_cloudtrail.errors.trail_not_found_exception.TrailNotFoundException: <p>This exception is thrown when the trail with the given name is not found.</p>
+            aws_sdk_cloudtrail.errors.unsupported_operation_exception.UnsupportedOperationException: <p>This exception is thrown when the requested operation is not supported.</p>
+            aws_sdk_cloudtrail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3163,6 +3839,19 @@ class CloudTrailClient:
             channel: <p>The ARN or ID (the ARN suffix) of the channel that you want to update.</p>
             destinations: <p>The ARNs of event data stores that you want to log events arriving through the channel.</p>
             name: <p> Changes the name of the channel. </p>
+
+        Raises:
+            aws_sdk_cloudtrail.errors.channel_already_exists_exception.ChannelAlreadyExistsException: <p> This exception is thrown when the provided channel already exists. </p>
+            aws_sdk_cloudtrail.errors.channel_arn_invalid_exception.ChannelARNInvalidException: <p>This exception is thrown when the specified value of <code>ChannelARN</code> is not valid.</p>
+            aws_sdk_cloudtrail.errors.channel_not_found_exception.ChannelNotFoundException: <p>This exception is thrown when CloudTrail cannot find the specified channel.</p>
+            aws_sdk_cloudtrail.errors.event_data_store_arn_invalid_exception.EventDataStoreARNInvalidException: <p>The specified event data store ARN is not valid or does not map to an event data store in your account.</p>
+            aws_sdk_cloudtrail.errors.event_data_store_not_found_exception.EventDataStoreNotFoundException: <p>The specified event data store was not found.</p>
+            aws_sdk_cloudtrail.errors.inactive_event_data_store_exception.InactiveEventDataStoreException: <p>The event data store is inactive.</p>
+            aws_sdk_cloudtrail.errors.invalid_event_data_store_category_exception.InvalidEventDataStoreCategoryException: <p>This exception is thrown when event categories of specified event data stores are not valid.</p>
+            aws_sdk_cloudtrail.errors.invalid_parameter_exception.InvalidParameterException: <p>The request includes a parameter that is not valid.</p>
+            aws_sdk_cloudtrail.errors.operation_not_permitted_exception.OperationNotPermittedException: <p>This exception is thrown when the requested operation is not permitted.</p>
+            aws_sdk_cloudtrail.errors.unsupported_operation_exception.UnsupportedOperationException: <p>This exception is thrown when the requested operation is not supported.</p>
+            aws_sdk_cloudtrail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3216,6 +3905,17 @@ class CloudTrailClient:
             widgets: <p> An array of widgets for the dashboard. A custom dashboard can have a maximum of 10 widgets. </p> <p>To add new widgets, pass in an array that includes the existing widgets along with any new widgets. Run the <code>GetDashboard</code> operation to get the list of widgets for the dashboard.</p> <p>To remove widgets, pass in an array that includes the existing widgets minus the widgets you want removed.</p>
             refresh_schedule: <p> The refresh schedule configuration for the dashboard. </p>
             termination_protection_enabled: <p> Specifies whether termination protection is enabled for the dashboard. If termination protection is enabled, you cannot delete the dashboard until termination protection is disabled. </p>
+
+        Raises:
+            aws_sdk_cloudtrail.errors.conflict_exception.ConflictException: <p>This exception is thrown when the specified resource is not ready for an operation. This can occur when you try to run an operation on a resource before CloudTrail has time to fully load the resource, or because another operation is modifying the resource. If this exception occurs, wait a few minutes, and then try the operation again.</p>
+            aws_sdk_cloudtrail.errors.event_data_store_not_found_exception.EventDataStoreNotFoundException: <p>The specified event data store was not found.</p>
+            aws_sdk_cloudtrail.errors.inactive_event_data_store_exception.InactiveEventDataStoreException: <p>The event data store is inactive.</p>
+            aws_sdk_cloudtrail.errors.insufficient_encryption_policy_exception.InsufficientEncryptionPolicyException: <p>For the <code>CreateTrail</code> <code>PutInsightSelectors</code>, <code>UpdateTrail</code>, <code>StartQuery</code>, and <code>StartImport</code> operations, this exception is thrown when the policy on the S3 bucket or KMS key does not have sufficient permissions for the operation.</p> <p>For all other operations, this exception is thrown when the policy for the KMS key does not have sufficient permissions for the operation.</p>
+            aws_sdk_cloudtrail.errors.invalid_query_statement_exception.InvalidQueryStatementException: <p>The query that was submitted has validation errors, or uses incorrect syntax or unsupported keywords. For more information about writing a query, see <a href=\"https://docs.aws.amazon.com/awscloudtrail/latest/userguide/query-create-edit-query.html\">Create or edit a query</a> in the <i>CloudTrail User Guide</i>.</p>
+            aws_sdk_cloudtrail.errors.resource_not_found_exception.ResourceNotFoundException: <p>This exception is thrown when the specified resource is not found.</p>
+            aws_sdk_cloudtrail.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p> This exception is thrown when the quota is exceeded. For information about CloudTrail quotas, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/ct.html#limits_cloudtrail\">Service quotas</a> in the <i>Amazon Web Services General Reference</i>. </p>
+            aws_sdk_cloudtrail.errors.unsupported_operation_exception.UnsupportedOperationException: <p>This exception is thrown when the requested operation is not supported.</p>
+            aws_sdk_cloudtrail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3291,6 +3991,31 @@ class CloudTrailClient:
             termination_protection_enabled: <p>Indicates that termination protection is enabled and the event data store cannot be automatically deleted.</p>
             kms_key_id: <p>Specifies the KMS key ID to use to encrypt the events delivered by CloudTrail. The value can be an alias name prefixed by <code>alias/</code>, a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier.</p> <important> <p>Disabling or deleting the KMS key, or removing CloudTrail permissions on the key, prevents CloudTrail from logging events to the event data store, and prevents users from querying the data in the event data store that was encrypted with the key. After you associate an event data store with a KMS key, the KMS key cannot be removed or changed. Before you disable or delete a KMS key that you are using with an event data store, delete or back up your event data store.</p> </important> <p>CloudTrail also supports KMS multi-Region keys. For more information about multi-Region keys, see <a href=\"https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html\">Using multi-Region keys</a> in the <i>Key Management Service Developer Guide</i>.</p> <p>Examples:</p> <ul> <li> <p> <code>alias/MyAliasName</code> </p> </li> <li> <p> <code>arn:aws:kms:us-east-2:123456789012:alias/MyAliasName</code> </p> </li> <li> <p> <code>arn:aws:kms:us-east-2:123456789012:key/12345678-1234-1234-1234-123456789012</code> </p> </li> <li> <p> <code>12345678-1234-1234-1234-123456789012</code> </p> </li> </ul>
             billing_mode: <note> <p>You can't change the billing mode from <code>EXTENDABLE_RETENTION_PRICING</code> to <code>FIXED_RETENTION_PRICING</code>. If <code>BillingMode</code> is set to <code>EXTENDABLE_RETENTION_PRICING</code> and you want to use <code>FIXED_RETENTION_PRICING</code> instead, you'll need to stop ingestion on the event data store and create a new event data store that uses <code>FIXED_RETENTION_PRICING</code>.</p> </note> <p>The billing mode for the event data store determines the cost for ingesting events and the default and maximum retention period for the event data store.</p> <p>The following are the possible values:</p> <ul> <li> <p> <code>EXTENDABLE_RETENTION_PRICING</code> - This billing mode is generally recommended if you want a flexible retention period of up to 3653 days (about 10 years). The default retention period for this billing mode is 366 days.</p> </li> <li> <p> <code>FIXED_RETENTION_PRICING</code> - This billing mode is recommended if you expect to ingest more than 25 TB of event data per month and need a retention period of up to 2557 days (about 7 years). The default retention period for this billing mode is 2557 days.</p> </li> </ul> <p>For more information about CloudTrail pricing, see <a href=\"http://aws.amazon.com/cloudtrail/pricing/\">CloudTrail Pricing</a> and <a href=\"https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-lake-manage-costs.html\">Managing CloudTrail Lake costs</a>.</p>
+
+        Raises:
+            aws_sdk_cloudtrail.errors.cloud_trail_access_not_enabled_exception.CloudTrailAccessNotEnabledException: <p>This exception is thrown when trusted access has not been enabled between CloudTrail and Organizations. For more information, see <a href=\"https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html#orgs_how-to-enable-disable-trusted-access\">How to enable or disable trusted access</a> in the <i>Organizations User Guide</i> and <a href=\"https://docs.aws.amazon.com/awscloudtrail/latest/userguide/creating-an-organizational-trail-prepare.html\">Prepare For Creating a Trail For Your Organization</a> in the <i>CloudTrail User Guide</i>.</p>
+            aws_sdk_cloudtrail.errors.conflict_exception.ConflictException: <p>This exception is thrown when the specified resource is not ready for an operation. This can occur when you try to run an operation on a resource before CloudTrail has time to fully load the resource, or because another operation is modifying the resource. If this exception occurs, wait a few minutes, and then try the operation again.</p>
+            aws_sdk_cloudtrail.errors.event_data_store_already_exists_exception.EventDataStoreAlreadyExistsException: <p>An event data store with that name already exists.</p>
+            aws_sdk_cloudtrail.errors.event_data_store_arn_invalid_exception.EventDataStoreARNInvalidException: <p>The specified event data store ARN is not valid or does not map to an event data store in your account.</p>
+            aws_sdk_cloudtrail.errors.event_data_store_has_ongoing_import_exception.EventDataStoreHasOngoingImportException: <p> This exception is thrown when you try to update or delete an event data store that currently has an import in progress. </p>
+            aws_sdk_cloudtrail.errors.event_data_store_not_found_exception.EventDataStoreNotFoundException: <p>The specified event data store was not found.</p>
+            aws_sdk_cloudtrail.errors.inactive_event_data_store_exception.InactiveEventDataStoreException: <p>The event data store is inactive.</p>
+            aws_sdk_cloudtrail.errors.insufficient_dependency_service_access_permission_exception.InsufficientDependencyServiceAccessPermissionException: <p>This exception is thrown when the IAM identity that is used to create the organization resource lacks one or more required permissions for creating an organization resource in a required service.</p>
+            aws_sdk_cloudtrail.errors.insufficient_encryption_policy_exception.InsufficientEncryptionPolicyException: <p>For the <code>CreateTrail</code> <code>PutInsightSelectors</code>, <code>UpdateTrail</code>, <code>StartQuery</code>, and <code>StartImport</code> operations, this exception is thrown when the policy on the S3 bucket or KMS key does not have sufficient permissions for the operation.</p> <p>For all other operations, this exception is thrown when the policy for the KMS key does not have sufficient permissions for the operation.</p>
+            aws_sdk_cloudtrail.errors.invalid_event_selectors_exception.InvalidEventSelectorsException: <p>This exception is thrown when the <code>PutEventSelectors</code> operation is called with a number of event selectors, advanced event selectors, or data resources that is not valid. The combination of event selectors or advanced event selectors and data resources is not valid. A trail can have up to 5 event selectors. If a trail uses advanced event selectors, a maximum of 500 total values for all conditions in all advanced event selectors is allowed. A trail is limited to 250 data resources. These data resources can be distributed across event selectors, but the overall total cannot exceed 250.</p> <p>You can:</p> <ul> <li> <p>Specify a valid number of event selectors (1 to 5) for a trail.</p> </li> <li> <p>Specify a valid number of data resources (1 to 250) for an event selector. The limit of number of resources on an individual event selector is configurable up to 250. However, this upper limit is allowed only if the total number of data resources does not exceed 250 across all event selectors for a trail.</p> </li> <li> <p>Specify up to 500 values for all conditions in all advanced event selectors for a trail.</p> </li> <li> <p>Specify a valid value for a parameter. For example, specifying the <code>ReadWriteType</code> parameter with a value of <code>read-only</code> is not valid.</p> </li> </ul>
+            aws_sdk_cloudtrail.errors.invalid_insight_selectors_exception.InvalidInsightSelectorsException: <p>For <code>PutInsightSelectors</code>, this exception is thrown when the formatting or syntax of the <code>InsightSelectors</code> JSON statement is not valid, or the specified <code>InsightType</code> in the <code>InsightSelectors</code> statement is not valid. Valid values for <code>InsightType</code> are <code>ApiCallRateInsight</code> and <code>ApiErrorRateInsight</code>. To enable Insights on an event data store, the destination event data store specified by the <code>InsightsDestination</code> parameter must log Insights events and the source event data store specified by the <code>EventDataStore</code> parameter must log management events.</p> <p>For <code>UpdateEventDataStore</code>, this exception is thrown if Insights are enabled on the event data store and the updated advanced event selectors are not compatible with the configured <code>InsightSelectors</code>. If the <code>InsightSelectors</code> includes an <code>InsightType</code> of <code>ApiCallRateInsight</code>, the source event data store must log <code>write</code> management events. If the <code>InsightSelectors</code> includes an <code>InsightType</code> of <code>ApiErrorRateInsight</code>, the source event data store must log management events.</p>
+            aws_sdk_cloudtrail.errors.invalid_kms_key_id_exception.InvalidKmsKeyIdException: <p>This exception is thrown when the KMS key ARN is not valid.</p>
+            aws_sdk_cloudtrail.errors.invalid_parameter_exception.InvalidParameterException: <p>The request includes a parameter that is not valid.</p>
+            aws_sdk_cloudtrail.errors.kms_exception.KmsException: <p>This exception is thrown when there is an issue with the specified KMS key and the trail or event data store can't be updated.</p>
+            aws_sdk_cloudtrail.errors.kms_key_not_found_exception.KmsKeyNotFoundException: <p>This exception is thrown when the KMS key does not exist, when the S3 bucket and the KMS key are not in the same Region, or when the KMS key associated with the Amazon SNS topic either does not exist or is not in the same Region.</p>
+            aws_sdk_cloudtrail.errors.no_management_account_slr_exists_exception.NoManagementAccountSLRExistsException: <p> This exception is thrown when the management account does not have a service-linked role. </p>
+            aws_sdk_cloudtrail.errors.not_organization_master_account_exception.NotOrganizationMasterAccountException: <p>This exception is thrown when the Amazon Web Services account making the request to create or update an organization trail or event data store is not the management account for an organization in Organizations. For more information, see <a href=\"https://docs.aws.amazon.com/awscloudtrail/latest/userguide/creating-an-organizational-trail-prepare.html\">Prepare For Creating a Trail For Your Organization</a> or <a href=\"https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-lake-organizations.html\">Organization event data stores</a>.</p>
+            aws_sdk_cloudtrail.errors.operation_not_permitted_exception.OperationNotPermittedException: <p>This exception is thrown when the requested operation is not permitted.</p>
+            aws_sdk_cloudtrail.errors.organization_not_in_all_features_mode_exception.OrganizationNotInAllFeaturesModeException: <p>This exception is thrown when Organizations is not configured to support all features. All features must be enabled in Organizations to support creating an organization trail or event data store.</p>
+            aws_sdk_cloudtrail.errors.organizations_not_in_use_exception.OrganizationsNotInUseException: <p>This exception is thrown when the request is made from an Amazon Web Services account that is not a member of an organization. To make this request, sign in using the credentials of an account that belongs to an organization.</p>
+            aws_sdk_cloudtrail.errors.throttling_exception.ThrottlingException: <p> This exception is thrown when the request rate exceeds the limit. </p>
+            aws_sdk_cloudtrail.errors.unsupported_operation_exception.UnsupportedOperationException: <p>This exception is thrown when the requested operation is not supported.</p>
+            aws_sdk_cloudtrail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3376,6 +4101,42 @@ class CloudTrailClient:
             cloud_watch_logs_role_arn: <p>Specifies the role for the CloudWatch Logs endpoint to assume to write to a user's log group. You must use a role that exists in your account.</p>
             kms_key_id: <p>Specifies the KMS key ID to use to encrypt the logs and digest files delivered by CloudTrail. The value can be an alias name prefixed by \"alias/\", a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier.</p> <p>CloudTrail also supports KMS multi-Region keys. For more information about multi-Region keys, see <a href=\"https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html\">Using multi-Region keys</a> in the <i>Key Management Service Developer Guide</i>.</p> <p>Examples:</p> <ul> <li> <p>alias/MyAliasName</p> </li> <li> <p>arn:aws:kms:us-east-2:123456789012:alias/MyAliasName</p> </li> <li> <p>arn:aws:kms:us-east-2:123456789012:key/12345678-1234-1234-1234-123456789012</p> </li> <li> <p>12345678-1234-1234-1234-123456789012</p> </li> </ul>
             is_organization_trail: <p>Specifies whether the trail is applied to all accounts in an organization in Organizations, or only for the current Amazon Web Services account. The default is false, and cannot be true unless the call is made on behalf of an Amazon Web Services account that is the management account for an organization in Organizations. If the trail is not an organization trail and this is set to <code>true</code>, the trail will be created in all Amazon Web Services accounts that belong to the organization. If the trail is an organization trail and this is set to <code>false</code>, the trail will remain in the current Amazon Web Services account but be deleted from all member accounts in the organization.</p> <note> <p>Only the management account for the organization can convert an organization trail to a non-organization trail, or convert a non-organization trail to an organization trail.</p> </note>
+
+        Raises:
+            aws_sdk_cloudtrail.errors.cloud_trail_access_not_enabled_exception.CloudTrailAccessNotEnabledException: <p>This exception is thrown when trusted access has not been enabled between CloudTrail and Organizations. For more information, see <a href=\"https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html#orgs_how-to-enable-disable-trusted-access\">How to enable or disable trusted access</a> in the <i>Organizations User Guide</i> and <a href=\"https://docs.aws.amazon.com/awscloudtrail/latest/userguide/creating-an-organizational-trail-prepare.html\">Prepare For Creating a Trail For Your Organization</a> in the <i>CloudTrail User Guide</i>.</p>
+            aws_sdk_cloudtrail.errors.cloud_trail_arn_invalid_exception.CloudTrailARNInvalidException: <p>This exception is thrown when an operation is called with an ARN that is not valid.</p> <p>The following is the format of a trail ARN: <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code> </p> <p>The following is the format of an event data store ARN: <code>arn:aws:cloudtrail:us-east-2:123456789012:eventdatastore/EXAMPLE-f852-4e8f-8bd1-bcf6cEXAMPLE</code> </p> <p>The following is the format of a dashboard ARN: <code>arn:aws:cloudtrail:us-east-1:123456789012:dashboard/exampleDash</code> </p> <p>The following is the format of a channel ARN: <code>arn:aws:cloudtrail:us-east-2:123456789012:channel/01234567890</code> </p>
+            aws_sdk_cloudtrail.errors.cloud_trail_invalid_client_token_id_exception.CloudTrailInvalidClientTokenIdException: <p>This exception is thrown when a call results in the <code>InvalidClientTokenId</code> error code. This can occur when you are creating or updating a trail to send notifications to an Amazon SNS topic that is in a suspended Amazon Web Services account.</p>
+            aws_sdk_cloudtrail.errors.cloud_watch_logs_delivery_unavailable_exception.CloudWatchLogsDeliveryUnavailableException: <p>Cannot set a CloudWatch Logs delivery for this Region.</p>
+            aws_sdk_cloudtrail.errors.conflict_exception.ConflictException: <p>This exception is thrown when the specified resource is not ready for an operation. This can occur when you try to run an operation on a resource before CloudTrail has time to fully load the resource, or because another operation is modifying the resource. If this exception occurs, wait a few minutes, and then try the operation again.</p>
+            aws_sdk_cloudtrail.errors.insufficient_dependency_service_access_permission_exception.InsufficientDependencyServiceAccessPermissionException: <p>This exception is thrown when the IAM identity that is used to create the organization resource lacks one or more required permissions for creating an organization resource in a required service.</p>
+            aws_sdk_cloudtrail.errors.insufficient_encryption_policy_exception.InsufficientEncryptionPolicyException: <p>For the <code>CreateTrail</code> <code>PutInsightSelectors</code>, <code>UpdateTrail</code>, <code>StartQuery</code>, and <code>StartImport</code> operations, this exception is thrown when the policy on the S3 bucket or KMS key does not have sufficient permissions for the operation.</p> <p>For all other operations, this exception is thrown when the policy for the KMS key does not have sufficient permissions for the operation.</p>
+            aws_sdk_cloudtrail.errors.insufficient_s3_bucket_policy_exception.InsufficientS3BucketPolicyException: <p>This exception is thrown when the policy on the S3 bucket is not sufficient.</p>
+            aws_sdk_cloudtrail.errors.insufficient_sns_topic_policy_exception.InsufficientSnsTopicPolicyException: <p>This exception is thrown when the policy on the Amazon SNS topic is not sufficient.</p>
+            aws_sdk_cloudtrail.errors.invalid_cloud_watch_logs_log_group_arn_exception.InvalidCloudWatchLogsLogGroupArnException: <p>This exception is thrown when the provided CloudWatch Logs log group is not valid.</p>
+            aws_sdk_cloudtrail.errors.invalid_cloud_watch_logs_role_arn_exception.InvalidCloudWatchLogsRoleArnException: <p>This exception is thrown when the provided role is not valid.</p>
+            aws_sdk_cloudtrail.errors.invalid_event_selectors_exception.InvalidEventSelectorsException: <p>This exception is thrown when the <code>PutEventSelectors</code> operation is called with a number of event selectors, advanced event selectors, or data resources that is not valid. The combination of event selectors or advanced event selectors and data resources is not valid. A trail can have up to 5 event selectors. If a trail uses advanced event selectors, a maximum of 500 total values for all conditions in all advanced event selectors is allowed. A trail is limited to 250 data resources. These data resources can be distributed across event selectors, but the overall total cannot exceed 250.</p> <p>You can:</p> <ul> <li> <p>Specify a valid number of event selectors (1 to 5) for a trail.</p> </li> <li> <p>Specify a valid number of data resources (1 to 250) for an event selector. The limit of number of resources on an individual event selector is configurable up to 250. However, this upper limit is allowed only if the total number of data resources does not exceed 250 across all event selectors for a trail.</p> </li> <li> <p>Specify up to 500 values for all conditions in all advanced event selectors for a trail.</p> </li> <li> <p>Specify a valid value for a parameter. For example, specifying the <code>ReadWriteType</code> parameter with a value of <code>read-only</code> is not valid.</p> </li> </ul>
+            aws_sdk_cloudtrail.errors.invalid_home_region_exception.InvalidHomeRegionException: <p>This exception is thrown when an operation is called on a trail from a Region other than the Region in which the trail was created.</p>
+            aws_sdk_cloudtrail.errors.invalid_kms_key_id_exception.InvalidKmsKeyIdException: <p>This exception is thrown when the KMS key ARN is not valid.</p>
+            aws_sdk_cloudtrail.errors.invalid_parameter_combination_exception.InvalidParameterCombinationException: <p>This exception is thrown when the combination of parameters provided is not valid.</p>
+            aws_sdk_cloudtrail.errors.invalid_parameter_exception.InvalidParameterException: <p>The request includes a parameter that is not valid.</p>
+            aws_sdk_cloudtrail.errors.invalid_s3_bucket_name_exception.InvalidS3BucketNameException: <p>This exception is thrown when the provided S3 bucket name is not valid.</p>
+            aws_sdk_cloudtrail.errors.invalid_s3_prefix_exception.InvalidS3PrefixException: <p>This exception is thrown when the provided S3 prefix is not valid.</p>
+            aws_sdk_cloudtrail.errors.invalid_sns_topic_name_exception.InvalidSnsTopicNameException: <p>This exception is thrown when the provided SNS topic name is not valid.</p>
+            aws_sdk_cloudtrail.errors.invalid_trail_name_exception.InvalidTrailNameException: <p>This exception is thrown when the provided trail name is not valid. Trail names must meet the following requirements:</p> <ul> <li> <p>Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.), underscores (_), or dashes (-)</p> </li> <li> <p>Start with a letter or number, and end with a letter or number</p> </li> <li> <p>Be between 3 and 128 characters</p> </li> <li> <p>Have no adjacent periods, underscores or dashes. Names like <code>my-_namespace</code> and <code>my--namespace</code> are not valid.</p> </li> <li> <p>Not be in IP address format (for example, 192.168.5.4)</p> </li> </ul>
+            aws_sdk_cloudtrail.errors.kms_exception.KmsException: <p>This exception is thrown when there is an issue with the specified KMS key and the trail or event data store can't be updated.</p>
+            aws_sdk_cloudtrail.errors.kms_key_disabled_exception.KmsKeyDisabledException: <p>This exception is no longer in use.</p>
+            aws_sdk_cloudtrail.errors.kms_key_not_found_exception.KmsKeyNotFoundException: <p>This exception is thrown when the KMS key does not exist, when the S3 bucket and the KMS key are not in the same Region, or when the KMS key associated with the Amazon SNS topic either does not exist or is not in the same Region.</p>
+            aws_sdk_cloudtrail.errors.no_management_account_slr_exists_exception.NoManagementAccountSLRExistsException: <p> This exception is thrown when the management account does not have a service-linked role. </p>
+            aws_sdk_cloudtrail.errors.not_organization_master_account_exception.NotOrganizationMasterAccountException: <p>This exception is thrown when the Amazon Web Services account making the request to create or update an organization trail or event data store is not the management account for an organization in Organizations. For more information, see <a href=\"https://docs.aws.amazon.com/awscloudtrail/latest/userguide/creating-an-organizational-trail-prepare.html\">Prepare For Creating a Trail For Your Organization</a> or <a href=\"https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-lake-organizations.html\">Organization event data stores</a>.</p>
+            aws_sdk_cloudtrail.errors.operation_not_permitted_exception.OperationNotPermittedException: <p>This exception is thrown when the requested operation is not permitted.</p>
+            aws_sdk_cloudtrail.errors.organization_not_in_all_features_mode_exception.OrganizationNotInAllFeaturesModeException: <p>This exception is thrown when Organizations is not configured to support all features. All features must be enabled in Organizations to support creating an organization trail or event data store.</p>
+            aws_sdk_cloudtrail.errors.organizations_not_in_use_exception.OrganizationsNotInUseException: <p>This exception is thrown when the request is made from an Amazon Web Services account that is not a member of an organization. To make this request, sign in using the credentials of an account that belongs to an organization.</p>
+            aws_sdk_cloudtrail.errors.s3_bucket_does_not_exist_exception.S3BucketDoesNotExistException: <p>This exception is thrown when the specified S3 bucket does not exist.</p>
+            aws_sdk_cloudtrail.errors.throttling_exception.ThrottlingException: <p> This exception is thrown when the request rate exceeds the limit. </p>
+            aws_sdk_cloudtrail.errors.trail_not_found_exception.TrailNotFoundException: <p>This exception is thrown when the trail with the given name is not found.</p>
+            aws_sdk_cloudtrail.errors.trail_not_provided_exception.TrailNotProvidedException: <p>This exception is no longer in use.</p>
+            aws_sdk_cloudtrail.errors.unsupported_operation_exception.UnsupportedOperationException: <p>This exception is thrown when the requested operation is not supported.</p>
+            aws_sdk_cloudtrail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(

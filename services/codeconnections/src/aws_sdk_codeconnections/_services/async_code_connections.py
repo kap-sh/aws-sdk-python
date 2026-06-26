@@ -223,6 +223,12 @@ class AsyncCodeConnectionsClient:
             connection_name: <p>The name of the connection to be created.</p>
             tags: <p>The key-value pair to use when tagging the resource.</p>
             host_arn: <p>The Amazon Resource Name (ARN) of the host associated with the connection to be created.</p>
+
+        Raises:
+            aws_sdk_codeconnections.errors.limit_exceeded_exception.LimitExceededException: <p>Exceeded the maximum limit for connections.</p>
+            aws_sdk_codeconnections.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found. Verify the connection resource ARN and try again.</p>
+            aws_sdk_codeconnections.errors.resource_unavailable_exception.ResourceUnavailableException: <p>Resource not found. Verify the ARN for the host resource and try again.</p>
+            aws_sdk_codeconnections.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -277,6 +283,10 @@ class AsyncCodeConnectionsClient:
             provider_endpoint: <p>The endpoint of the infrastructure to be represented by the host after it is created.</p>
             vpc_configuration: <p>The VPC configuration to be provisioned for the host. A VPC must be configured and the infrastructure to be represented by the host must already be connected to the VPC.</p>
             tags: <p>Tags for the host to be created.</p>
+
+        Raises:
+            aws_sdk_codeconnections.errors.limit_exceeded_exception.LimitExceededException: <p>Exceeded the maximum limit for connections.</p>
+            aws_sdk_codeconnections.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -331,6 +341,16 @@ class AsyncCodeConnectionsClient:
             repository_name: <p>The name of the repository to be associated with the repository link.</p>
             encryption_key_arn: <p>The Amazon Resource Name (ARN) encryption key for the repository to be associated with the repository link.</p>
             tags: <p>The tags for the repository to be associated with the repository link.</p>
+
+        Raises:
+            aws_sdk_codeconnections.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_codeconnections.errors.concurrent_modification_exception.ConcurrentModificationException: <p>Exception thrown as a result of concurrent modification to an application. For example, two individuals attempting to edit the same application at the same time. </p>
+            aws_sdk_codeconnections.errors.internal_server_exception.InternalServerException: <p>Received an internal server exception. Try again later.</p>
+            aws_sdk_codeconnections.errors.invalid_input_exception.InvalidInputException: <p>The input is not valid. Verify that the action is typed correctly.</p>
+            aws_sdk_codeconnections.errors.limit_exceeded_exception.LimitExceededException: <p>Exceeded the maximum limit for connections.</p>
+            aws_sdk_codeconnections.errors.resource_already_exists_exception.ResourceAlreadyExistsException: <p>Unable to create resource. Resource already exists.</p>
+            aws_sdk_codeconnections.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_codeconnections.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -397,6 +417,16 @@ class AsyncCodeConnectionsClient:
             publish_deployment_status: <p>Whether to enable or disable publishing of deployment status to source providers.</p>
             trigger_resource_update_on: <p>When to trigger Git sync to begin the stack update.</p>
             pull_request_comment: <p>A toggle that specifies whether to enable or disable pull request comments for the sync configuration to be created.</p>
+
+        Raises:
+            aws_sdk_codeconnections.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_codeconnections.errors.concurrent_modification_exception.ConcurrentModificationException: <p>Exception thrown as a result of concurrent modification to an application. For example, two individuals attempting to edit the same application at the same time. </p>
+            aws_sdk_codeconnections.errors.internal_server_exception.InternalServerException: <p>Received an internal server exception. Try again later.</p>
+            aws_sdk_codeconnections.errors.invalid_input_exception.InvalidInputException: <p>The input is not valid. Verify that the action is typed correctly.</p>
+            aws_sdk_codeconnections.errors.limit_exceeded_exception.LimitExceededException: <p>Exceeded the maximum limit for connections.</p>
+            aws_sdk_codeconnections.errors.resource_already_exists_exception.ResourceAlreadyExistsException: <p>Unable to create resource. Resource already exists.</p>
+            aws_sdk_codeconnections.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_codeconnections.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -448,6 +478,10 @@ class AsyncCodeConnectionsClient:
 
         Args:
             connection_arn: <p>The Amazon Resource Name (ARN) of the connection to be deleted.</p> <note> <p>The ARN is never reused if the connection is deleted.</p> </note>
+
+        Raises:
+            aws_sdk_codeconnections.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found. Verify the connection resource ARN and try again.</p>
+            aws_sdk_codeconnections.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -486,6 +520,11 @@ class AsyncCodeConnectionsClient:
 
         Args:
             host_arn: <p>The Amazon Resource Name (ARN) of the host to be deleted.</p>
+
+        Raises:
+            aws_sdk_codeconnections.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found. Verify the connection resource ARN and try again.</p>
+            aws_sdk_codeconnections.errors.resource_unavailable_exception.ResourceUnavailableException: <p>Resource not found. Verify the ARN for the host resource and try again.</p>
+            aws_sdk_codeconnections.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -524,6 +563,17 @@ class AsyncCodeConnectionsClient:
 
         Args:
             repository_link_id: <p>The ID of the repository link to be deleted.</p>
+
+        Raises:
+            aws_sdk_codeconnections.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_codeconnections.errors.concurrent_modification_exception.ConcurrentModificationException: <p>Exception thrown as a result of concurrent modification to an application. For example, two individuals attempting to edit the same application at the same time. </p>
+            aws_sdk_codeconnections.errors.internal_server_exception.InternalServerException: <p>Received an internal server exception. Try again later.</p>
+            aws_sdk_codeconnections.errors.invalid_input_exception.InvalidInputException: <p>The input is not valid. Verify that the action is typed correctly.</p>
+            aws_sdk_codeconnections.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found. Verify the connection resource ARN and try again.</p>
+            aws_sdk_codeconnections.errors.sync_configuration_still_exists_exception.SyncConfigurationStillExistsException: <p>Unable to continue. The sync blocker still exists.</p>
+            aws_sdk_codeconnections.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_codeconnections.errors.unsupported_provider_type_exception.UnsupportedProviderTypeException: <p>The specified provider type is not supported for connections.</p>
+            aws_sdk_codeconnections.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -564,6 +614,15 @@ class AsyncCodeConnectionsClient:
         Args:
             sync_type: <p>The type of sync configuration to be deleted.</p>
             resource_name: <p>The name of the Amazon Web Services resource associated with the sync configuration to be deleted.</p>
+
+        Raises:
+            aws_sdk_codeconnections.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_codeconnections.errors.concurrent_modification_exception.ConcurrentModificationException: <p>Exception thrown as a result of concurrent modification to an application. For example, two individuals attempting to edit the same application at the same time. </p>
+            aws_sdk_codeconnections.errors.internal_server_exception.InternalServerException: <p>Received an internal server exception. Try again later.</p>
+            aws_sdk_codeconnections.errors.invalid_input_exception.InvalidInputException: <p>The input is not valid. Verify that the action is typed correctly.</p>
+            aws_sdk_codeconnections.errors.limit_exceeded_exception.LimitExceededException: <p>Exceeded the maximum limit for connections.</p>
+            aws_sdk_codeconnections.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_codeconnections.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -603,6 +662,11 @@ class AsyncCodeConnectionsClient:
 
         Args:
             connection_arn: <p>The Amazon Resource Name (ARN) of a connection.</p>
+
+        Raises:
+            aws_sdk_codeconnections.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found. Verify the connection resource ARN and try again.</p>
+            aws_sdk_codeconnections.errors.resource_unavailable_exception.ResourceUnavailableException: <p>Resource not found. Verify the ARN for the host resource and try again.</p>
+            aws_sdk_codeconnections.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -641,6 +705,11 @@ class AsyncCodeConnectionsClient:
 
         Args:
             host_arn: <p>The Amazon Resource Name (ARN) of the requested host.</p>
+
+        Raises:
+            aws_sdk_codeconnections.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found. Verify the connection resource ARN and try again.</p>
+            aws_sdk_codeconnections.errors.resource_unavailable_exception.ResourceUnavailableException: <p>Resource not found. Verify the ARN for the host resource and try again.</p>
+            aws_sdk_codeconnections.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -679,6 +748,15 @@ class AsyncCodeConnectionsClient:
 
         Args:
             repository_link_id: <p>The ID of the repository link to get.</p>
+
+        Raises:
+            aws_sdk_codeconnections.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_codeconnections.errors.concurrent_modification_exception.ConcurrentModificationException: <p>Exception thrown as a result of concurrent modification to an application. For example, two individuals attempting to edit the same application at the same time. </p>
+            aws_sdk_codeconnections.errors.internal_server_exception.InternalServerException: <p>Received an internal server exception. Try again later.</p>
+            aws_sdk_codeconnections.errors.invalid_input_exception.InvalidInputException: <p>The input is not valid. Verify that the action is typed correctly.</p>
+            aws_sdk_codeconnections.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found. Verify the connection resource ARN and try again.</p>
+            aws_sdk_codeconnections.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_codeconnections.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -721,6 +799,14 @@ class AsyncCodeConnectionsClient:
             branch: <p>The branch of the repository link for the requested repository sync status.</p>
             repository_link_id: <p>The repository link ID for the requested repository sync status.</p>
             sync_type: <p>The sync type of the requested sync status.</p>
+
+        Raises:
+            aws_sdk_codeconnections.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_codeconnections.errors.internal_server_exception.InternalServerException: <p>Received an internal server exception. Try again later.</p>
+            aws_sdk_codeconnections.errors.invalid_input_exception.InvalidInputException: <p>The input is not valid. Verify that the action is typed correctly.</p>
+            aws_sdk_codeconnections.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found. Verify the connection resource ARN and try again.</p>
+            aws_sdk_codeconnections.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_codeconnections.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -763,6 +849,14 @@ class AsyncCodeConnectionsClient:
         Args:
             resource_name: <p>The name of the Amazon Web Services resource for the sync status with the Git repository.</p>
             sync_type: <p>The sync type for the sync status with the Git repository.</p>
+
+        Raises:
+            aws_sdk_codeconnections.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_codeconnections.errors.internal_server_exception.InternalServerException: <p>Received an internal server exception. Try again later.</p>
+            aws_sdk_codeconnections.errors.invalid_input_exception.InvalidInputException: <p>The input is not valid. Verify that the action is typed correctly.</p>
+            aws_sdk_codeconnections.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found. Verify the connection resource ARN and try again.</p>
+            aws_sdk_codeconnections.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_codeconnections.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -804,6 +898,14 @@ class AsyncCodeConnectionsClient:
         Args:
             sync_type: <p>The sync type for the sync blocker summary.</p>
             resource_name: <p>The name of the Amazon Web Services resource currently blocked from automatically being synced from a Git repository.</p>
+
+        Raises:
+            aws_sdk_codeconnections.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_codeconnections.errors.internal_server_exception.InternalServerException: <p>Received an internal server exception. Try again later.</p>
+            aws_sdk_codeconnections.errors.invalid_input_exception.InvalidInputException: <p>The input is not valid. Verify that the action is typed correctly.</p>
+            aws_sdk_codeconnections.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found. Verify the connection resource ARN and try again.</p>
+            aws_sdk_codeconnections.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_codeconnections.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -845,6 +947,14 @@ class AsyncCodeConnectionsClient:
         Args:
             sync_type: <p>The sync type for the sync configuration for which you want to retrieve information.</p>
             resource_name: <p>The name of the Amazon Web Services resource for the sync configuration for which you want to retrieve information.</p>
+
+        Raises:
+            aws_sdk_codeconnections.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_codeconnections.errors.internal_server_exception.InternalServerException: <p>Received an internal server exception. Try again later.</p>
+            aws_sdk_codeconnections.errors.invalid_input_exception.InvalidInputException: <p>The input is not valid. Verify that the action is typed correctly.</p>
+            aws_sdk_codeconnections.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found. Verify the connection resource ARN and try again.</p>
+            aws_sdk_codeconnections.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_codeconnections.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -898,6 +1008,10 @@ class AsyncCodeConnectionsClient:
             host_arn_filter: <p>Filters the list of connections to those associated with a specified host.</p>
             max_results: <p>The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
             next_token: <p>The token that was returned from the previous <code>ListConnections</code> call, which can be used to return the next set of connections in the list.</p>
+
+        Raises:
+            aws_sdk_codeconnections.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found. Verify the connection resource ARN and try again.</p>
+            aws_sdk_codeconnections.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -949,6 +1063,9 @@ class AsyncCodeConnectionsClient:
         Args:
             max_results: <p>The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
             next_token: <p>The token that was returned from the previous <code>ListHosts</code> call, which can be used to return the next set of hosts in the list.</p>
+
+        Raises:
+            aws_sdk_codeconnections.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -996,6 +1113,15 @@ class AsyncCodeConnectionsClient:
         Args:
             max_results: <p> A non-zero, non-negative integer used to limit the number of returned results.</p>
             next_token: <p> An enumeration token that, when provided in a request, returns the next batch of the results.</p>
+
+        Raises:
+            aws_sdk_codeconnections.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_codeconnections.errors.concurrent_modification_exception.ConcurrentModificationException: <p>Exception thrown as a result of concurrent modification to an application. For example, two individuals attempting to edit the same application at the same time. </p>
+            aws_sdk_codeconnections.errors.internal_server_exception.InternalServerException: <p>Received an internal server exception. Try again later.</p>
+            aws_sdk_codeconnections.errors.invalid_input_exception.InvalidInputException: <p>The input is not valid. Verify that the action is typed correctly.</p>
+            aws_sdk_codeconnections.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found. Verify the connection resource ARN and try again.</p>
+            aws_sdk_codeconnections.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_codeconnections.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1039,6 +1165,14 @@ class AsyncCodeConnectionsClient:
         Args:
             repository_link_id: <p>The ID of the repository link for the sync definition for which you want to retrieve information.</p>
             sync_type: <p>The sync type of the repository link for the the sync definition for which you want to retrieve information.</p>
+
+        Raises:
+            aws_sdk_codeconnections.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_codeconnections.errors.internal_server_exception.InternalServerException: <p>Received an internal server exception. Try again later.</p>
+            aws_sdk_codeconnections.errors.invalid_input_exception.InvalidInputException: <p>The input is not valid. Verify that the action is typed correctly.</p>
+            aws_sdk_codeconnections.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found. Verify the connection resource ARN and try again.</p>
+            aws_sdk_codeconnections.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_codeconnections.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1088,6 +1222,14 @@ class AsyncCodeConnectionsClient:
             next_token: <p>An enumeration token that allows the operation to batch the results of the operation.</p>
             repository_link_id: <p>The ID of the repository link for the requested list of sync configurations.</p>
             sync_type: <p>The sync type for the requested list of sync configurations.</p>
+
+        Raises:
+            aws_sdk_codeconnections.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_codeconnections.errors.internal_server_exception.InternalServerException: <p>Received an internal server exception. Try again later.</p>
+            aws_sdk_codeconnections.errors.invalid_input_exception.InvalidInputException: <p>The input is not valid. Verify that the action is typed correctly.</p>
+            aws_sdk_codeconnections.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found. Verify the connection resource ARN and try again.</p>
+            aws_sdk_codeconnections.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_codeconnections.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1131,6 +1273,10 @@ class AsyncCodeConnectionsClient:
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource for which you want to get information about tags, if any.</p>
+
+        Raises:
+            aws_sdk_codeconnections.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found. Verify the connection resource ARN and try again.</p>
+            aws_sdk_codeconnections.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1171,6 +1317,11 @@ class AsyncCodeConnectionsClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource to which you want to add or update tags.</p>
             tags: <p>The tags you want to modify or add to the resource.</p>
+
+        Raises:
+            aws_sdk_codeconnections.errors.limit_exceeded_exception.LimitExceededException: <p>Exceeded the maximum limit for connections.</p>
+            aws_sdk_codeconnections.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found. Verify the connection resource ARN and try again.</p>
+            aws_sdk_codeconnections.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1212,6 +1363,10 @@ class AsyncCodeConnectionsClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource to remove tags from.</p>
             tag_keys: <p>The list of keys for the tags to be removed from the resource.</p>
+
+        Raises:
+            aws_sdk_codeconnections.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found. Verify the connection resource ARN and try again.</p>
+            aws_sdk_codeconnections.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1257,6 +1412,13 @@ class AsyncCodeConnectionsClient:
             host_arn: <p>The Amazon Resource Name (ARN) of the host to be updated.</p>
             provider_endpoint: <p>The URL or endpoint of the host to be updated.</p>
             vpc_configuration: <p>The VPC configuration of the host to be updated. A VPC must be configured and the infrastructure to be represented by the host must already be connected to the VPC.</p>
+
+        Raises:
+            aws_sdk_codeconnections.errors.conflict_exception.ConflictException: <p>Two conflicting operations have been made on the same resource.</p>
+            aws_sdk_codeconnections.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found. Verify the connection resource ARN and try again.</p>
+            aws_sdk_codeconnections.errors.resource_unavailable_exception.ResourceUnavailableException: <p>Resource not found. Verify the ARN for the host resource and try again.</p>
+            aws_sdk_codeconnections.errors.unsupported_operation_exception.UnsupportedOperationException: <p>The operation is not supported. Check the connection status and try again.</p>
+            aws_sdk_codeconnections.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1307,6 +1469,16 @@ class AsyncCodeConnectionsClient:
             connection_arn: <p>The Amazon Resource Name (ARN) of the connection for the repository link to be updated. The updated connection ARN must have the same providerType (such as GitHub) as the original connection ARN for the repo link.</p>
             encryption_key_arn: <p>The Amazon Resource Name (ARN) of the encryption key for the repository link to be updated.</p>
             repository_link_id: <p>The ID of the repository link to be updated.</p>
+
+        Raises:
+            aws_sdk_codeconnections.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_codeconnections.errors.conditional_check_failed_exception.ConditionalCheckFailedException: <p>The conditional check failed. Try again later.</p>
+            aws_sdk_codeconnections.errors.internal_server_exception.InternalServerException: <p>Received an internal server exception. Try again later.</p>
+            aws_sdk_codeconnections.errors.invalid_input_exception.InvalidInputException: <p>The input is not valid. Verify that the action is typed correctly.</p>
+            aws_sdk_codeconnections.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found. Verify the connection resource ARN and try again.</p>
+            aws_sdk_codeconnections.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_codeconnections.errors.update_out_of_sync_exception.UpdateOutOfSyncException: <p>The update is out of sync. Try syncing again.</p>
+            aws_sdk_codeconnections.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1355,6 +1527,16 @@ class AsyncCodeConnectionsClient:
             sync_type: <p>The sync type of the sync blocker to be updated.</p>
             resource_name: <p>The name of the resource for the sync blocker to be updated.</p>
             resolved_reason: <p>The reason for resolving the sync blocker.</p>
+
+        Raises:
+            aws_sdk_codeconnections.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_codeconnections.errors.internal_server_exception.InternalServerException: <p>Received an internal server exception. Try again later.</p>
+            aws_sdk_codeconnections.errors.invalid_input_exception.InvalidInputException: <p>The input is not valid. Verify that the action is typed correctly.</p>
+            aws_sdk_codeconnections.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found. Verify the connection resource ARN and try again.</p>
+            aws_sdk_codeconnections.errors.retry_latest_commit_failed_exception.RetryLatestCommitFailedException: <p>Retrying the latest commit failed. Try again later.</p>
+            aws_sdk_codeconnections.errors.sync_blocker_does_not_exist_exception.SyncBlockerDoesNotExistException: <p>Unable to continue. The sync blocker does not exist.</p>
+            aws_sdk_codeconnections.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_codeconnections.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1424,6 +1606,16 @@ class AsyncCodeConnectionsClient:
             publish_deployment_status: <p>Whether to enable or disable publishing of deployment status to source providers.</p>
             trigger_resource_update_on: <p>When to trigger Git sync to begin the stack update.</p>
             pull_request_comment: <p>TA toggle that specifies whether to enable or disable pull request comments for the sync configuration to be updated.</p>
+
+        Raises:
+            aws_sdk_codeconnections.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_codeconnections.errors.concurrent_modification_exception.ConcurrentModificationException: <p>Exception thrown as a result of concurrent modification to an application. For example, two individuals attempting to edit the same application at the same time. </p>
+            aws_sdk_codeconnections.errors.internal_server_exception.InternalServerException: <p>Received an internal server exception. Try again later.</p>
+            aws_sdk_codeconnections.errors.invalid_input_exception.InvalidInputException: <p>The input is not valid. Verify that the action is typed correctly.</p>
+            aws_sdk_codeconnections.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found. Verify the connection resource ARN and try again.</p>
+            aws_sdk_codeconnections.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_codeconnections.errors.update_out_of_sync_exception.UpdateOutOfSyncException: <p>The update is out of sync. Try syncing again.</p>
+            aws_sdk_codeconnections.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

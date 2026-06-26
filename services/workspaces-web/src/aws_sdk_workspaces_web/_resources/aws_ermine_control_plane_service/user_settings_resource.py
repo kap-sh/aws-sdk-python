@@ -112,6 +112,16 @@ class UserSettingsResource:
             toolbar_configuration: <p>The configuration of the toolbar. This allows administrators to select the toolbar type and visual mode, set maximum display resolution for sessions, and choose which items are visible to end users during their sessions. If administrators do not modify these settings, end users retain control over their toolbar preferences.</p>
             branding_configuration_input: <p>The branding configuration input that customizes the appearance of the web portal for end users. This includes a custom logo, favicon, localized strings, color theme, and optionally a wallpaper and terms of service.</p>
             web_authn_allowed: <p>Specifies whether the user can use WebAuthn redirection for passwordless login to websites within the streaming session.</p>
+
+        Raises:
+            aws_sdk_workspaces_web.errors.access_denied_exception.AccessDeniedException: <p>Access is denied.</p>
+            aws_sdk_workspaces_web.errors.conflict_exception.ConflictException: <p>There is a conflict.</p>
+            aws_sdk_workspaces_web.errors.internal_server_exception.InternalServerException: <p>There is an internal server error.</p>
+            aws_sdk_workspaces_web.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource cannot be found.</p>
+            aws_sdk_workspaces_web.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The service quota has been exceeded.</p>
+            aws_sdk_workspaces_web.errors.throttling_exception.ThrottlingException: <p>There is a throttling error.</p>
+            aws_sdk_workspaces_web.errors.validation_exception.ValidationException: <p>There is a validation error.</p>
+            aws_sdk_workspaces_web.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -179,6 +189,14 @@ class UserSettingsResource:
 
         Args:
             user_settings_arn: <p>The ARN of the user settings.</p>
+
+        Raises:
+            aws_sdk_workspaces_web.errors.access_denied_exception.AccessDeniedException: <p>Access is denied.</p>
+            aws_sdk_workspaces_web.errors.internal_server_exception.InternalServerException: <p>There is an internal server error.</p>
+            aws_sdk_workspaces_web.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource cannot be found.</p>
+            aws_sdk_workspaces_web.errors.throttling_exception.ThrottlingException: <p>There is a throttling error.</p>
+            aws_sdk_workspaces_web.errors.validation_exception.ValidationException: <p>There is a validation error.</p>
+            aws_sdk_workspaces_web.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -268,6 +286,14 @@ class UserSettingsResource:
             toolbar_configuration: <p>The configuration of the toolbar. This allows administrators to select the toolbar type and visual mode, set maximum display resolution for sessions, and choose which items are visible to end users during their sessions. If administrators do not modify these settings, end users retain control over their toolbar preferences.</p>
             branding_configuration_input: <p>The branding configuration that customizes the appearance of the web portal for end users. When updating user settings without an existing branding configuration, all fields (logo, favicon, localized strings, and color theme) are required except for wallpaper and terms of service. When updating user settings with an existing branding configuration, all fields are optional.</p>
             web_authn_allowed: <p>Specifies whether the user can use WebAuthn redirection for passwordless login to websites within the streaming session.</p>
+
+        Raises:
+            aws_sdk_workspaces_web.errors.access_denied_exception.AccessDeniedException: <p>Access is denied.</p>
+            aws_sdk_workspaces_web.errors.internal_server_exception.InternalServerException: <p>There is an internal server error.</p>
+            aws_sdk_workspaces_web.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource cannot be found.</p>
+            aws_sdk_workspaces_web.errors.throttling_exception.ThrottlingException: <p>There is a throttling error.</p>
+            aws_sdk_workspaces_web.errors.validation_exception.ValidationException: <p>There is a validation error.</p>
+            aws_sdk_workspaces_web.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -335,6 +361,14 @@ class UserSettingsResource:
 
         Args:
             user_settings_arn: <p>The ARN of the user settings.</p>
+
+        Raises:
+            aws_sdk_workspaces_web.errors.access_denied_exception.AccessDeniedException: <p>Access is denied.</p>
+            aws_sdk_workspaces_web.errors.conflict_exception.ConflictException: <p>There is a conflict.</p>
+            aws_sdk_workspaces_web.errors.internal_server_exception.InternalServerException: <p>There is an internal server error.</p>
+            aws_sdk_workspaces_web.errors.throttling_exception.ThrottlingException: <p>There is a throttling error.</p>
+            aws_sdk_workspaces_web.errors.validation_exception.ValidationException: <p>There is a validation error.</p>
+            aws_sdk_workspaces_web.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -378,6 +412,13 @@ class UserSettingsResource:
         Args:
             next_token: <p>The pagination token used to retrieve the next page of results for this operation. </p>
             max_results: <p>The maximum number of results to be included in the next page.</p>
+
+        Raises:
+            aws_sdk_workspaces_web.errors.access_denied_exception.AccessDeniedException: <p>Access is denied.</p>
+            aws_sdk_workspaces_web.errors.internal_server_exception.InternalServerException: <p>There is an internal server error.</p>
+            aws_sdk_workspaces_web.errors.throttling_exception.ThrottlingException: <p>There is a throttling error.</p>
+            aws_sdk_workspaces_web.errors.validation_exception.ValidationException: <p>There is a validation error.</p>
+            aws_sdk_workspaces_web.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -473,6 +514,16 @@ class AsyncUserSettingsResource:
             toolbar_configuration: <p>The configuration of the toolbar. This allows administrators to select the toolbar type and visual mode, set maximum display resolution for sessions, and choose which items are visible to end users during their sessions. If administrators do not modify these settings, end users retain control over their toolbar preferences.</p>
             branding_configuration_input: <p>The branding configuration input that customizes the appearance of the web portal for end users. This includes a custom logo, favicon, localized strings, color theme, and optionally a wallpaper and terms of service.</p>
             web_authn_allowed: <p>Specifies whether the user can use WebAuthn redirection for passwordless login to websites within the streaming session.</p>
+
+        Raises:
+            aws_sdk_workspaces_web.errors.access_denied_exception.AccessDeniedException: <p>Access is denied.</p>
+            aws_sdk_workspaces_web.errors.conflict_exception.ConflictException: <p>There is a conflict.</p>
+            aws_sdk_workspaces_web.errors.internal_server_exception.InternalServerException: <p>There is an internal server error.</p>
+            aws_sdk_workspaces_web.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource cannot be found.</p>
+            aws_sdk_workspaces_web.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The service quota has been exceeded.</p>
+            aws_sdk_workspaces_web.errors.throttling_exception.ThrottlingException: <p>There is a throttling error.</p>
+            aws_sdk_workspaces_web.errors.validation_exception.ValidationException: <p>There is a validation error.</p>
+            aws_sdk_workspaces_web.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -541,6 +592,14 @@ class AsyncUserSettingsResource:
 
         Args:
             user_settings_arn: <p>The ARN of the user settings.</p>
+
+        Raises:
+            aws_sdk_workspaces_web.errors.access_denied_exception.AccessDeniedException: <p>Access is denied.</p>
+            aws_sdk_workspaces_web.errors.internal_server_exception.InternalServerException: <p>There is an internal server error.</p>
+            aws_sdk_workspaces_web.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource cannot be found.</p>
+            aws_sdk_workspaces_web.errors.throttling_exception.ThrottlingException: <p>There is a throttling error.</p>
+            aws_sdk_workspaces_web.errors.validation_exception.ValidationException: <p>There is a validation error.</p>
+            aws_sdk_workspaces_web.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -631,6 +690,14 @@ class AsyncUserSettingsResource:
             toolbar_configuration: <p>The configuration of the toolbar. This allows administrators to select the toolbar type and visual mode, set maximum display resolution for sessions, and choose which items are visible to end users during their sessions. If administrators do not modify these settings, end users retain control over their toolbar preferences.</p>
             branding_configuration_input: <p>The branding configuration that customizes the appearance of the web portal for end users. When updating user settings without an existing branding configuration, all fields (logo, favicon, localized strings, and color theme) are required except for wallpaper and terms of service. When updating user settings with an existing branding configuration, all fields are optional.</p>
             web_authn_allowed: <p>Specifies whether the user can use WebAuthn redirection for passwordless login to websites within the streaming session.</p>
+
+        Raises:
+            aws_sdk_workspaces_web.errors.access_denied_exception.AccessDeniedException: <p>Access is denied.</p>
+            aws_sdk_workspaces_web.errors.internal_server_exception.InternalServerException: <p>There is an internal server error.</p>
+            aws_sdk_workspaces_web.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource cannot be found.</p>
+            aws_sdk_workspaces_web.errors.throttling_exception.ThrottlingException: <p>There is a throttling error.</p>
+            aws_sdk_workspaces_web.errors.validation_exception.ValidationException: <p>There is a validation error.</p>
+            aws_sdk_workspaces_web.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -699,6 +766,14 @@ class AsyncUserSettingsResource:
 
         Args:
             user_settings_arn: <p>The ARN of the user settings.</p>
+
+        Raises:
+            aws_sdk_workspaces_web.errors.access_denied_exception.AccessDeniedException: <p>Access is denied.</p>
+            aws_sdk_workspaces_web.errors.conflict_exception.ConflictException: <p>There is a conflict.</p>
+            aws_sdk_workspaces_web.errors.internal_server_exception.InternalServerException: <p>There is an internal server error.</p>
+            aws_sdk_workspaces_web.errors.throttling_exception.ThrottlingException: <p>There is a throttling error.</p>
+            aws_sdk_workspaces_web.errors.validation_exception.ValidationException: <p>There is a validation error.</p>
+            aws_sdk_workspaces_web.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -743,6 +818,13 @@ class AsyncUserSettingsResource:
         Args:
             next_token: <p>The pagination token used to retrieve the next page of results for this operation. </p>
             max_results: <p>The maximum number of results to be included in the next page.</p>
+
+        Raises:
+            aws_sdk_workspaces_web.errors.access_denied_exception.AccessDeniedException: <p>Access is denied.</p>
+            aws_sdk_workspaces_web.errors.internal_server_exception.InternalServerException: <p>There is an internal server error.</p>
+            aws_sdk_workspaces_web.errors.throttling_exception.ThrottlingException: <p>There is a throttling error.</p>
+            aws_sdk_workspaces_web.errors.validation_exception.ValidationException: <p>There is a validation error.</p>
+            aws_sdk_workspaces_web.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

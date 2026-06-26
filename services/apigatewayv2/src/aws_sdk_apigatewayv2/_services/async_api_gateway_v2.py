@@ -424,6 +424,13 @@ class AsyncApiGatewayV2Client:
             tags: <p>The collection of tags. Each tag element is associated with a given resource.</p>
             target: <p>This property is part of quick create. Quick create produces an API with an integration, a default catch-all route, and a default stage which is configured to automatically deploy changes. For HTTP integrations, specify a fully qualified URL. For Lambda integrations, specify a function ARN. The type of the integration will be HTTP_PROXY or AWS_PROXY, respectively. Supported only for HTTP APIs.</p>
             version: <p>A version identifier for the API.</p>
+
+        Raises:
+            aws_sdk_apigatewayv2.errors.bad_request_exception.BadRequestException: <p>The request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.conflict_exception.ConflictException: <p>The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.not_found_exception.NotFoundException: <p>The resource specified in the request was not found. See the message field for more information.</p>
+            aws_sdk_apigatewayv2.errors.too_many_requests_exception.TooManyRequestsException: <p>A limit has been exceeded. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -495,6 +502,13 @@ class AsyncApiGatewayV2Client:
             api_mapping_key: The API mapping key.
             domain_name: <p>The domain name.</p>
             stage: <p>The API stage.</p>
+
+        Raises:
+            aws_sdk_apigatewayv2.errors.bad_request_exception.BadRequestException: <p>The request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.conflict_exception.ConflictException: <p>The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.not_found_exception.NotFoundException: <p>The resource specified in the request was not found. See the message field for more information.</p>
+            aws_sdk_apigatewayv2.errors.too_many_requests_exception.TooManyRequestsException: <p>A limit has been exceeded. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -573,6 +587,13 @@ class AsyncApiGatewayV2Client:
             identity_validation_expression: <p>This parameter is not used.</p>
             jwt_configuration: <p>Represents the configuration of a JWT authorizer. Required for the JWT authorizer type. Supported only for HTTP APIs.</p>
             name: <p>The name of the authorizer.</p>
+
+        Raises:
+            aws_sdk_apigatewayv2.errors.bad_request_exception.BadRequestException: <p>The request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.conflict_exception.ConflictException: <p>The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.not_found_exception.NotFoundException: <p>The resource specified in the request was not found. See the message field for more information.</p>
+            aws_sdk_apigatewayv2.errors.too_many_requests_exception.TooManyRequestsException: <p>A limit has been exceeded. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -642,6 +663,13 @@ class AsyncApiGatewayV2Client:
             api_id: <p>The API identifier.</p>
             description: <p>The description for the deployment resource.</p>
             stage_name: <p>The name of the Stage resource for the Deployment resource to create.</p>
+
+        Raises:
+            aws_sdk_apigatewayv2.errors.bad_request_exception.BadRequestException: <p>The request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.conflict_exception.ConflictException: <p>The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.not_found_exception.NotFoundException: <p>The resource specified in the request was not found. See the message field for more information.</p>
+            aws_sdk_apigatewayv2.errors.too_many_requests_exception.TooManyRequestsException: <p>A limit has been exceeded. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -698,6 +726,14 @@ class AsyncApiGatewayV2Client:
             mutual_tls_authentication: <p>The mutual TLS authentication configuration for a custom domain name.</p>
             routing_mode: <p>The routing mode.</p>
             tags: <p>The collection of tags associated with a domain name.</p>
+
+        Raises:
+            aws_sdk_apigatewayv2.errors.access_denied_exception.AccessDeniedException
+            aws_sdk_apigatewayv2.errors.bad_request_exception.BadRequestException: <p>The request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.conflict_exception.ConflictException: <p>The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.not_found_exception.NotFoundException: <p>The resource specified in the request was not found. See the message field for more information.</p>
+            aws_sdk_apigatewayv2.errors.too_many_requests_exception.TooManyRequestsException: <p>A limit has been exceeded. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -808,6 +844,13 @@ class AsyncApiGatewayV2Client:
             template_selection_expression: <p>The template selection expression for the integration.</p>
             timeout_in_millis: <p>Custom timeout between 50 and 29,000 milliseconds for WebSocket APIs and between 50 and 30,000 milliseconds for HTTP APIs. The default timeout is 29 seconds for WebSocket APIs and 30 seconds for HTTP APIs.</p>
             tls_config: <p>The TLS configuration for a private integration. If you specify a TLS configuration, private integration traffic uses the HTTPS protocol. Supported only for HTTP APIs.</p>
+
+        Raises:
+            aws_sdk_apigatewayv2.errors.bad_request_exception.BadRequestException: <p>The request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.conflict_exception.ConflictException: <p>The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.not_found_exception.NotFoundException: <p>The resource specified in the request was not found. See the message field for more information.</p>
+            aws_sdk_apigatewayv2.errors.too_many_requests_exception.TooManyRequestsException: <p>A limit has been exceeded. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -899,6 +942,13 @@ class AsyncApiGatewayV2Client:
             response_parameters: <p>A key-value map specifying response parameters that are passed to the method response from the backend. The key is a method response header parameter name and the mapped value is an integration response header value, a static value enclosed within a pair of single quotes, or a JSON expression from the integration response body. The mapping key must match the pattern of method.response.header.{name}, where {name} is a valid and unique header name. The mapped non-static value must match the pattern of integration.response.header.{name} or integration.response.body.{JSON-expression}, where {name} is a valid and unique response header name and {JSON-expression} is a valid JSON expression without the $ prefix.</p>
             response_templates: <p>The collection of response templates for the integration response as a string-to-string map of key-value pairs. Response templates are represented as a key/value map, with a content-type as the key and a template as the value.</p>
             template_selection_expression: <p>The template selection expression for the integration response. Supported only for WebSocket APIs.</p>
+
+        Raises:
+            aws_sdk_apigatewayv2.errors.bad_request_exception.BadRequestException: <p>The request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.conflict_exception.ConflictException: <p>The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.not_found_exception.NotFoundException: <p>The resource specified in the request was not found. See the message field for more information.</p>
+            aws_sdk_apigatewayv2.errors.too_many_requests_exception.TooManyRequestsException: <p>A limit has been exceeded. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -959,6 +1009,13 @@ class AsyncApiGatewayV2Client:
             description: <p>The description of the model.</p>
             name: <p>The name of the model. Must be alphanumeric.</p>
             schema: <p>The schema for the model. For application/json models, this should be JSON schema draft 4 model.</p>
+
+        Raises:
+            aws_sdk_apigatewayv2.errors.bad_request_exception.BadRequestException: <p>The request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.conflict_exception.ConflictException: <p>The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.not_found_exception.NotFoundException: <p>The resource specified in the request was not found. See the message field for more information.</p>
+            aws_sdk_apigatewayv2.errors.too_many_requests_exception.TooManyRequestsException: <p>A limit has been exceeded. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1021,6 +1078,12 @@ class AsyncApiGatewayV2Client:
             portal_content: <p>The content of the portal.</p>
             rum_app_monitor_name: <p>The name of the Amazon CloudWatch RUM app monitor for the portal.</p>
             tags: <p>The collection of tags. Each tag element is associated with a given resource.</p>
+
+        Raises:
+            aws_sdk_apigatewayv2.errors.access_denied_exception.AccessDeniedException
+            aws_sdk_apigatewayv2.errors.bad_request_exception.BadRequestException: <p>The request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.too_many_requests_exception.TooManyRequestsException: <p>A limit has been exceeded. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1075,6 +1138,12 @@ class AsyncApiGatewayV2Client:
             description: <p>A description of the portal product.</p>
             display_name: <p>The name of the portal product as it appears in a published portal.</p>
             tags: <p>The collection of tags. Each tag element is associated with a given resource.</p>
+
+        Raises:
+            aws_sdk_apigatewayv2.errors.access_denied_exception.AccessDeniedException
+            aws_sdk_apigatewayv2.errors.bad_request_exception.BadRequestException: <p>The request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.too_many_requests_exception.TooManyRequestsException: <p>A limit has been exceeded. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1119,6 +1188,13 @@ class AsyncApiGatewayV2Client:
         Args:
             display_content: <p>The content of the product page.</p>
             portal_product_id: <p>The portal product identifier.</p>
+
+        Raises:
+            aws_sdk_apigatewayv2.errors.access_denied_exception.AccessDeniedException
+            aws_sdk_apigatewayv2.errors.bad_request_exception.BadRequestException: <p>The request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.not_found_exception.NotFoundException: <p>The resource specified in the request was not found. See the message field for more information.</p>
+            aws_sdk_apigatewayv2.errors.too_many_requests_exception.TooManyRequestsException: <p>A limit has been exceeded. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1168,6 +1244,13 @@ class AsyncApiGatewayV2Client:
             portal_product_id: <p>The portal product identifier.</p>
             rest_endpoint_identifier: <p>The REST endpoint identifier.</p>
             try_it_state: <p>The try it state of the product REST endpoint page.</p>
+
+        Raises:
+            aws_sdk_apigatewayv2.errors.access_denied_exception.AccessDeniedException
+            aws_sdk_apigatewayv2.errors.bad_request_exception.BadRequestException: <p>The request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.not_found_exception.NotFoundException: <p>The resource specified in the request was not found. See the message field for more information.</p>
+            aws_sdk_apigatewayv2.errors.too_many_requests_exception.TooManyRequestsException: <p>A limit has been exceeded. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1251,6 +1334,13 @@ class AsyncApiGatewayV2Client:
             route_key: <p>The route key for the route.</p>
             route_response_selection_expression: <p>The route response selection expression for the route. Supported only for WebSocket APIs.</p>
             target: <p>The target for the route.</p>
+
+        Raises:
+            aws_sdk_apigatewayv2.errors.bad_request_exception.BadRequestException: <p>The request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.conflict_exception.ConflictException: <p>The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.not_found_exception.NotFoundException: <p>The resource specified in the request was not found. See the message field for more information.</p>
+            aws_sdk_apigatewayv2.errors.too_many_requests_exception.TooManyRequestsException: <p>A limit has been exceeded. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1328,6 +1418,13 @@ class AsyncApiGatewayV2Client:
             response_parameters: <p>The route response parameters.</p>
             route_id: <p>The route ID.</p>
             route_response_key: <p>The route response key.</p>
+
+        Raises:
+            aws_sdk_apigatewayv2.errors.bad_request_exception.BadRequestException: <p>The request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.conflict_exception.ConflictException: <p>The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.not_found_exception.NotFoundException: <p>The resource specified in the request was not found. See the message field for more information.</p>
+            aws_sdk_apigatewayv2.errors.too_many_requests_exception.TooManyRequestsException: <p>A limit has been exceeded. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1382,6 +1479,13 @@ class AsyncApiGatewayV2Client:
             domain_name: <p>The domain name.</p>
             domain_name_id: <p>The domain name ID.</p>
             priority: Represents the priority of the routing rule.
+
+        Raises:
+            aws_sdk_apigatewayv2.errors.bad_request_exception.BadRequestException: <p>The request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.conflict_exception.ConflictException: <p>The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.not_found_exception.NotFoundException: <p>The resource specified in the request was not found. See the message field for more information.</p>
+            aws_sdk_apigatewayv2.errors.too_many_requests_exception.TooManyRequestsException: <p>A limit has been exceeded. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1455,6 +1559,13 @@ class AsyncApiGatewayV2Client:
             stage_name: <p>The name of the stage.</p>
             stage_variables: <p>A map that defines the stage variables for a Stage. Variable names can have alphanumeric and underscore characters, and the values must match [A-Za-z0-9-._~:/?#&amp;=,]+.</p>
             tags: <p>The collection of tags. Each tag element is associated with a given resource.</p>
+
+        Raises:
+            aws_sdk_apigatewayv2.errors.bad_request_exception.BadRequestException: <p>The request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.conflict_exception.ConflictException: <p>The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.not_found_exception.NotFoundException: <p>The resource specified in the request was not found. See the message field for more information.</p>
+            aws_sdk_apigatewayv2.errors.too_many_requests_exception.TooManyRequestsException: <p>A limit has been exceeded. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1520,6 +1631,11 @@ class AsyncApiGatewayV2Client:
             security_group_ids: <p>A list of security group IDs for the VPC link.</p>
             subnet_ids: <p>A list of subnet IDs to include in the VPC link.</p>
             tags: <p>A list of tags.</p>
+
+        Raises:
+            aws_sdk_apigatewayv2.errors.bad_request_exception.BadRequestException: <p>The request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.too_many_requests_exception.TooManyRequestsException: <p>A limit has been exceeded. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1565,6 +1681,11 @@ class AsyncApiGatewayV2Client:
         Args:
             api_id: <p>The API identifier.</p>
             stage_name: <p>The stage name. Stage names can only contain alphanumeric characters, hyphens, and underscores. Maximum length is 128 characters.</p>
+
+        Raises:
+            aws_sdk_apigatewayv2.errors.not_found_exception.NotFoundException: <p>The resource specified in the request was not found. See the message field for more information.</p>
+            aws_sdk_apigatewayv2.errors.too_many_requests_exception.TooManyRequestsException: <p>A limit has been exceeded. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1602,6 +1723,11 @@ class AsyncApiGatewayV2Client:
 
         Args:
             api_id: <p>The API identifier.</p>
+
+        Raises:
+            aws_sdk_apigatewayv2.errors.not_found_exception.NotFoundException: <p>The resource specified in the request was not found. See the message field for more information.</p>
+            aws_sdk_apigatewayv2.errors.too_many_requests_exception.TooManyRequestsException: <p>A limit has been exceeded. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1640,6 +1766,12 @@ class AsyncApiGatewayV2Client:
         Args:
             api_mapping_id: <p>The API mapping identifier.</p>
             domain_name: <p>The domain name.</p>
+
+        Raises:
+            aws_sdk_apigatewayv2.errors.bad_request_exception.BadRequestException: <p>The request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.not_found_exception.NotFoundException: <p>The resource specified in the request was not found. See the message field for more information.</p>
+            aws_sdk_apigatewayv2.errors.too_many_requests_exception.TooManyRequestsException: <p>A limit has been exceeded. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1679,6 +1811,11 @@ class AsyncApiGatewayV2Client:
         Args:
             api_id: <p>The API identifier.</p>
             authorizer_id: <p>The authorizer identifier.</p>
+
+        Raises:
+            aws_sdk_apigatewayv2.errors.not_found_exception.NotFoundException: <p>The resource specified in the request was not found. See the message field for more information.</p>
+            aws_sdk_apigatewayv2.errors.too_many_requests_exception.TooManyRequestsException: <p>A limit has been exceeded. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1716,6 +1853,11 @@ class AsyncApiGatewayV2Client:
 
         Args:
             api_id: <p>The API identifier.</p>
+
+        Raises:
+            aws_sdk_apigatewayv2.errors.not_found_exception.NotFoundException: <p>The resource specified in the request was not found. See the message field for more information.</p>
+            aws_sdk_apigatewayv2.errors.too_many_requests_exception.TooManyRequestsException: <p>A limit has been exceeded. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1754,6 +1896,11 @@ class AsyncApiGatewayV2Client:
         Args:
             api_id: <p>The API identifier.</p>
             deployment_id: <p>The deployment ID.</p>
+
+        Raises:
+            aws_sdk_apigatewayv2.errors.not_found_exception.NotFoundException: <p>The resource specified in the request was not found. See the message field for more information.</p>
+            aws_sdk_apigatewayv2.errors.too_many_requests_exception.TooManyRequestsException: <p>A limit has been exceeded. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1791,6 +1938,11 @@ class AsyncApiGatewayV2Client:
 
         Args:
             domain_name: <p>The domain name.</p>
+
+        Raises:
+            aws_sdk_apigatewayv2.errors.not_found_exception.NotFoundException: <p>The resource specified in the request was not found. See the message field for more information.</p>
+            aws_sdk_apigatewayv2.errors.too_many_requests_exception.TooManyRequestsException: <p>A limit has been exceeded. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1829,6 +1981,11 @@ class AsyncApiGatewayV2Client:
         Args:
             api_id: <p>The API identifier.</p>
             integration_id: <p>The integration ID.</p>
+
+        Raises:
+            aws_sdk_apigatewayv2.errors.not_found_exception.NotFoundException: <p>The resource specified in the request was not found. See the message field for more information.</p>
+            aws_sdk_apigatewayv2.errors.too_many_requests_exception.TooManyRequestsException: <p>A limit has been exceeded. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1870,6 +2027,11 @@ class AsyncApiGatewayV2Client:
             api_id: <p>The API identifier.</p>
             integration_id: <p>The integration ID.</p>
             integration_response_id: <p>The integration response ID.</p>
+
+        Raises:
+            aws_sdk_apigatewayv2.errors.not_found_exception.NotFoundException: <p>The resource specified in the request was not found. See the message field for more information.</p>
+            aws_sdk_apigatewayv2.errors.too_many_requests_exception.TooManyRequestsException: <p>A limit has been exceeded. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1910,6 +2072,11 @@ class AsyncApiGatewayV2Client:
         Args:
             api_id: <p>The API identifier.</p>
             model_id: <p>The model ID.</p>
+
+        Raises:
+            aws_sdk_apigatewayv2.errors.not_found_exception.NotFoundException: <p>The resource specified in the request was not found. See the message field for more information.</p>
+            aws_sdk_apigatewayv2.errors.too_many_requests_exception.TooManyRequestsException: <p>A limit has been exceeded. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1947,6 +2114,12 @@ class AsyncApiGatewayV2Client:
 
         Args:
             portal_id: <p>The portal identifier.</p>
+
+        Raises:
+            aws_sdk_apigatewayv2.errors.access_denied_exception.AccessDeniedException
+            aws_sdk_apigatewayv2.errors.bad_request_exception.BadRequestException: <p>The request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.too_many_requests_exception.TooManyRequestsException: <p>A limit has been exceeded. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1983,6 +2156,13 @@ class AsyncApiGatewayV2Client:
 
         Args:
             portal_product_id: <p>The portal product identifier.</p>
+
+        Raises:
+            aws_sdk_apigatewayv2.errors.access_denied_exception.AccessDeniedException
+            aws_sdk_apigatewayv2.errors.bad_request_exception.BadRequestException: <p>The request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.not_found_exception.NotFoundException: <p>The resource specified in the request was not found. See the message field for more information.</p>
+            aws_sdk_apigatewayv2.errors.too_many_requests_exception.TooManyRequestsException: <p>A limit has been exceeded. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2019,6 +2199,13 @@ class AsyncApiGatewayV2Client:
 
         Args:
             portal_product_id: <p>The portal product identifier.</p>
+
+        Raises:
+            aws_sdk_apigatewayv2.errors.access_denied_exception.AccessDeniedException
+            aws_sdk_apigatewayv2.errors.bad_request_exception.BadRequestException: <p>The request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.not_found_exception.NotFoundException: <p>The resource specified in the request was not found. See the message field for more information.</p>
+            aws_sdk_apigatewayv2.errors.too_many_requests_exception.TooManyRequestsException: <p>A limit has been exceeded. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2057,6 +2244,13 @@ class AsyncApiGatewayV2Client:
         Args:
             portal_product_id: <p>The portal product identifier.</p>
             product_page_id: <p>The portal product identifier.</p>
+
+        Raises:
+            aws_sdk_apigatewayv2.errors.access_denied_exception.AccessDeniedException
+            aws_sdk_apigatewayv2.errors.bad_request_exception.BadRequestException: <p>The request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.not_found_exception.NotFoundException: <p>The resource specified in the request was not found. See the message field for more information.</p>
+            aws_sdk_apigatewayv2.errors.too_many_requests_exception.TooManyRequestsException: <p>A limit has been exceeded. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2096,6 +2290,13 @@ class AsyncApiGatewayV2Client:
         Args:
             portal_product_id: <p>The portal product identifier.</p>
             product_rest_endpoint_page_id: <p>The product REST endpoint identifier.</p>
+
+        Raises:
+            aws_sdk_apigatewayv2.errors.access_denied_exception.AccessDeniedException
+            aws_sdk_apigatewayv2.errors.bad_request_exception.BadRequestException: <p>The request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.not_found_exception.NotFoundException: <p>The resource specified in the request was not found. See the message field for more information.</p>
+            aws_sdk_apigatewayv2.errors.too_many_requests_exception.TooManyRequestsException: <p>A limit has been exceeded. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2135,6 +2336,11 @@ class AsyncApiGatewayV2Client:
         Args:
             api_id: <p>The API identifier.</p>
             route_id: <p>The route ID.</p>
+
+        Raises:
+            aws_sdk_apigatewayv2.errors.not_found_exception.NotFoundException: <p>The resource specified in the request was not found. See the message field for more information.</p>
+            aws_sdk_apigatewayv2.errors.too_many_requests_exception.TooManyRequestsException: <p>A limit has been exceeded. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2176,6 +2382,11 @@ class AsyncApiGatewayV2Client:
             api_id: <p>The API identifier.</p>
             request_parameter_key: <p>The route request parameter key.</p>
             route_id: <p>The route ID.</p>
+
+        Raises:
+            aws_sdk_apigatewayv2.errors.not_found_exception.NotFoundException: <p>The resource specified in the request was not found. See the message field for more information.</p>
+            aws_sdk_apigatewayv2.errors.too_many_requests_exception.TooManyRequestsException: <p>A limit has been exceeded. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2218,6 +2429,11 @@ class AsyncApiGatewayV2Client:
             api_id: <p>The API identifier.</p>
             route_id: <p>The route ID.</p>
             route_response_id: <p>The route response ID.</p>
+
+        Raises:
+            aws_sdk_apigatewayv2.errors.not_found_exception.NotFoundException: <p>The resource specified in the request was not found. See the message field for more information.</p>
+            aws_sdk_apigatewayv2.errors.too_many_requests_exception.TooManyRequestsException: <p>A limit has been exceeded. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2260,6 +2476,11 @@ class AsyncApiGatewayV2Client:
             api_id: <p>The API identifier.</p>
             route_key: <p>The route key.</p>
             stage_name: <p>The stage name. Stage names can only contain alphanumeric characters, hyphens, and underscores. Maximum length is 128 characters.</p>
+
+        Raises:
+            aws_sdk_apigatewayv2.errors.not_found_exception.NotFoundException: <p>The resource specified in the request was not found. See the message field for more information.</p>
+            aws_sdk_apigatewayv2.errors.too_many_requests_exception.TooManyRequestsException: <p>A limit has been exceeded. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2302,6 +2523,12 @@ class AsyncApiGatewayV2Client:
             domain_name: <p>The domain name.</p>
             domain_name_id: <p>The domain name ID.</p>
             routing_rule_id: <p>The routing rule ID.</p>
+
+        Raises:
+            aws_sdk_apigatewayv2.errors.bad_request_exception.BadRequestException: <p>The request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.not_found_exception.NotFoundException: <p>The resource specified in the request was not found. See the message field for more information.</p>
+            aws_sdk_apigatewayv2.errors.too_many_requests_exception.TooManyRequestsException: <p>A limit has been exceeded. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2343,6 +2570,11 @@ class AsyncApiGatewayV2Client:
         Args:
             api_id: <p>The API identifier.</p>
             stage_name: <p>The stage name. Stage names can only contain alphanumeric characters, hyphens, and underscores. Maximum length is 128 characters.</p>
+
+        Raises:
+            aws_sdk_apigatewayv2.errors.not_found_exception.NotFoundException: <p>The resource specified in the request was not found. See the message field for more information.</p>
+            aws_sdk_apigatewayv2.errors.too_many_requests_exception.TooManyRequestsException: <p>A limit has been exceeded. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2380,6 +2612,11 @@ class AsyncApiGatewayV2Client:
 
         Args:
             vpc_link_id: <p>The ID of the VPC link.</p>
+
+        Raises:
+            aws_sdk_apigatewayv2.errors.not_found_exception.NotFoundException: <p>The resource specified in the request was not found. See the message field for more information.</p>
+            aws_sdk_apigatewayv2.errors.too_many_requests_exception.TooManyRequestsException: <p>A limit has been exceeded. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2418,6 +2655,14 @@ class AsyncApiGatewayV2Client:
 
         Args:
             portal_id: <p>The portal identifier.</p>
+
+        Raises:
+            aws_sdk_apigatewayv2.errors.access_denied_exception.AccessDeniedException
+            aws_sdk_apigatewayv2.errors.bad_request_exception.BadRequestException: <p>The request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.conflict_exception.ConflictException: <p>The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.not_found_exception.NotFoundException: <p>The resource specified in the request was not found. See the message field for more information.</p>
+            aws_sdk_apigatewayv2.errors.too_many_requests_exception.TooManyRequestsException: <p>A limit has been exceeded. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2466,6 +2711,12 @@ class AsyncApiGatewayV2Client:
             output_type: <p>The output type of the exported definition file. Valid values are JSON and YAML.</p>
             specification: <p>The version of the API specification to use. OAS30, for OpenAPI 3.0, is the only supported value.</p>
             stage_name: <p>The name of the API stage to export. If you don't specify this property, a representation of the latest API configuration is exported.</p>
+
+        Raises:
+            aws_sdk_apigatewayv2.errors.bad_request_exception.BadRequestException: <p>The request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.not_found_exception.NotFoundException: <p>The resource specified in the request was not found. See the message field for more information.</p>
+            aws_sdk_apigatewayv2.errors.too_many_requests_exception.TooManyRequestsException: <p>A limit has been exceeded. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2512,6 +2763,11 @@ class AsyncApiGatewayV2Client:
 
         Args:
             api_id: <p>The API identifier.</p>
+
+        Raises:
+            aws_sdk_apigatewayv2.errors.not_found_exception.NotFoundException: <p>The resource specified in the request was not found. See the message field for more information.</p>
+            aws_sdk_apigatewayv2.errors.too_many_requests_exception.TooManyRequestsException: <p>A limit has been exceeded. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2552,6 +2808,12 @@ class AsyncApiGatewayV2Client:
         Args:
             api_mapping_id: <p>The API mapping identifier.</p>
             domain_name: <p>The domain name.</p>
+
+        Raises:
+            aws_sdk_apigatewayv2.errors.bad_request_exception.BadRequestException: <p>The request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.not_found_exception.NotFoundException: <p>The resource specified in the request was not found. See the message field for more information.</p>
+            aws_sdk_apigatewayv2.errors.too_many_requests_exception.TooManyRequestsException: <p>A limit has been exceeded. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2595,6 +2857,12 @@ class AsyncApiGatewayV2Client:
             domain_name: <p>The domain name.</p>
             max_results: <p>The maximum number of elements to be returned for this resource.</p>
             next_token: <p>The next page of elements from this collection. Not valid for the last element of the collection.</p>
+
+        Raises:
+            aws_sdk_apigatewayv2.errors.bad_request_exception.BadRequestException: <p>The request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.not_found_exception.NotFoundException: <p>The resource specified in the request was not found. See the message field for more information.</p>
+            aws_sdk_apigatewayv2.errors.too_many_requests_exception.TooManyRequestsException: <p>A limit has been exceeded. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2639,6 +2907,12 @@ class AsyncApiGatewayV2Client:
         Args:
             max_results: <p>The maximum number of elements to be returned for this resource.</p>
             next_token: <p>The next page of elements from this collection. Not valid for the last element of the collection.</p>
+
+        Raises:
+            aws_sdk_apigatewayv2.errors.bad_request_exception.BadRequestException: <p>The request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.not_found_exception.NotFoundException: <p>The resource specified in the request was not found. See the message field for more information.</p>
+            aws_sdk_apigatewayv2.errors.too_many_requests_exception.TooManyRequestsException: <p>A limit has been exceeded. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2682,6 +2956,11 @@ class AsyncApiGatewayV2Client:
         Args:
             api_id: <p>The API identifier.</p>
             authorizer_id: <p>The authorizer identifier.</p>
+
+        Raises:
+            aws_sdk_apigatewayv2.errors.not_found_exception.NotFoundException: <p>The resource specified in the request was not found. See the message field for more information.</p>
+            aws_sdk_apigatewayv2.errors.too_many_requests_exception.TooManyRequestsException: <p>A limit has been exceeded. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2725,6 +3004,12 @@ class AsyncApiGatewayV2Client:
             api_id: <p>The API identifier.</p>
             max_results: <p>The maximum number of elements to be returned for this resource.</p>
             next_token: <p>The next page of elements from this collection. Not valid for the last element of the collection.</p>
+
+        Raises:
+            aws_sdk_apigatewayv2.errors.bad_request_exception.BadRequestException: <p>The request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.not_found_exception.NotFoundException: <p>The resource specified in the request was not found. See the message field for more information.</p>
+            aws_sdk_apigatewayv2.errors.too_many_requests_exception.TooManyRequestsException: <p>A limit has been exceeded. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2769,6 +3054,11 @@ class AsyncApiGatewayV2Client:
         Args:
             api_id: <p>The API identifier.</p>
             deployment_id: <p>The deployment ID.</p>
+
+        Raises:
+            aws_sdk_apigatewayv2.errors.not_found_exception.NotFoundException: <p>The resource specified in the request was not found. See the message field for more information.</p>
+            aws_sdk_apigatewayv2.errors.too_many_requests_exception.TooManyRequestsException: <p>A limit has been exceeded. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2812,6 +3102,12 @@ class AsyncApiGatewayV2Client:
             api_id: <p>The API identifier.</p>
             max_results: <p>The maximum number of elements to be returned for this resource.</p>
             next_token: <p>The next page of elements from this collection. Not valid for the last element of the collection.</p>
+
+        Raises:
+            aws_sdk_apigatewayv2.errors.bad_request_exception.BadRequestException: <p>The request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.not_found_exception.NotFoundException: <p>The resource specified in the request was not found. See the message field for more information.</p>
+            aws_sdk_apigatewayv2.errors.too_many_requests_exception.TooManyRequestsException: <p>A limit has been exceeded. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2854,6 +3150,11 @@ class AsyncApiGatewayV2Client:
 
         Args:
             domain_name: <p>The domain name.</p>
+
+        Raises:
+            aws_sdk_apigatewayv2.errors.not_found_exception.NotFoundException: <p>The resource specified in the request was not found. See the message field for more information.</p>
+            aws_sdk_apigatewayv2.errors.too_many_requests_exception.TooManyRequestsException: <p>A limit has been exceeded. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2894,6 +3195,12 @@ class AsyncApiGatewayV2Client:
         Args:
             max_results: <p>The maximum number of elements to be returned for this resource.</p>
             next_token: <p>The next page of elements from this collection. Not valid for the last element of the collection.</p>
+
+        Raises:
+            aws_sdk_apigatewayv2.errors.bad_request_exception.BadRequestException: <p>The request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.not_found_exception.NotFoundException: <p>The resource specified in the request was not found. See the message field for more information.</p>
+            aws_sdk_apigatewayv2.errors.too_many_requests_exception.TooManyRequestsException: <p>A limit has been exceeded. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2937,6 +3244,11 @@ class AsyncApiGatewayV2Client:
         Args:
             api_id: <p>The API identifier.</p>
             integration_id: <p>The integration ID.</p>
+
+        Raises:
+            aws_sdk_apigatewayv2.errors.not_found_exception.NotFoundException: <p>The resource specified in the request was not found. See the message field for more information.</p>
+            aws_sdk_apigatewayv2.errors.too_many_requests_exception.TooManyRequestsException: <p>A limit has been exceeded. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2980,6 +3292,11 @@ class AsyncApiGatewayV2Client:
             api_id: <p>The API identifier.</p>
             integration_id: <p>The integration ID.</p>
             integration_response_id: <p>The integration response ID.</p>
+
+        Raises:
+            aws_sdk_apigatewayv2.errors.not_found_exception.NotFoundException: <p>The resource specified in the request was not found. See the message field for more information.</p>
+            aws_sdk_apigatewayv2.errors.too_many_requests_exception.TooManyRequestsException: <p>A limit has been exceeded. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3026,6 +3343,12 @@ class AsyncApiGatewayV2Client:
             integration_id: <p>The integration ID.</p>
             max_results: <p>The maximum number of elements to be returned for this resource.</p>
             next_token: <p>The next page of elements from this collection. Not valid for the last element of the collection.</p>
+
+        Raises:
+            aws_sdk_apigatewayv2.errors.bad_request_exception.BadRequestException: <p>The request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.not_found_exception.NotFoundException: <p>The resource specified in the request was not found. See the message field for more information.</p>
+            aws_sdk_apigatewayv2.errors.too_many_requests_exception.TooManyRequestsException: <p>A limit has been exceeded. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3073,6 +3396,12 @@ class AsyncApiGatewayV2Client:
             api_id: <p>The API identifier.</p>
             max_results: <p>The maximum number of elements to be returned for this resource.</p>
             next_token: <p>The next page of elements from this collection. Not valid for the last element of the collection.</p>
+
+        Raises:
+            aws_sdk_apigatewayv2.errors.bad_request_exception.BadRequestException: <p>The request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.not_found_exception.NotFoundException: <p>The resource specified in the request was not found. See the message field for more information.</p>
+            aws_sdk_apigatewayv2.errors.too_many_requests_exception.TooManyRequestsException: <p>A limit has been exceeded. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3117,6 +3446,11 @@ class AsyncApiGatewayV2Client:
         Args:
             api_id: <p>The API identifier.</p>
             model_id: <p>The model ID.</p>
+
+        Raises:
+            aws_sdk_apigatewayv2.errors.not_found_exception.NotFoundException: <p>The resource specified in the request was not found. See the message field for more information.</p>
+            aws_sdk_apigatewayv2.errors.too_many_requests_exception.TooManyRequestsException: <p>A limit has been exceeded. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3160,6 +3494,12 @@ class AsyncApiGatewayV2Client:
             api_id: <p>The API identifier.</p>
             max_results: <p>The maximum number of elements to be returned for this resource.</p>
             next_token: <p>The next page of elements from this collection. Not valid for the last element of the collection.</p>
+
+        Raises:
+            aws_sdk_apigatewayv2.errors.bad_request_exception.BadRequestException: <p>The request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.not_found_exception.NotFoundException: <p>The resource specified in the request was not found. See the message field for more information.</p>
+            aws_sdk_apigatewayv2.errors.too_many_requests_exception.TooManyRequestsException: <p>A limit has been exceeded. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3204,6 +3544,11 @@ class AsyncApiGatewayV2Client:
         Args:
             api_id: <p>The API identifier.</p>
             model_id: <p>The model ID.</p>
+
+        Raises:
+            aws_sdk_apigatewayv2.errors.not_found_exception.NotFoundException: <p>The resource specified in the request was not found. See the message field for more information.</p>
+            aws_sdk_apigatewayv2.errors.too_many_requests_exception.TooManyRequestsException: <p>A limit has been exceeded. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3243,6 +3588,13 @@ class AsyncApiGatewayV2Client:
 
         Args:
             portal_id: <p>The portal identifier.</p>
+
+        Raises:
+            aws_sdk_apigatewayv2.errors.access_denied_exception.AccessDeniedException
+            aws_sdk_apigatewayv2.errors.bad_request_exception.BadRequestException: <p>The request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.not_found_exception.NotFoundException: <p>The resource specified in the request was not found. See the message field for more information.</p>
+            aws_sdk_apigatewayv2.errors.too_many_requests_exception.TooManyRequestsException: <p>A limit has been exceeded. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3285,6 +3637,13 @@ class AsyncApiGatewayV2Client:
         Args:
             portal_product_id: <p>The portal product identifier.</p>
             resource_owner_account_id: <p>The account ID of the resource owner of the portal product.</p>
+
+        Raises:
+            aws_sdk_apigatewayv2.errors.access_denied_exception.AccessDeniedException
+            aws_sdk_apigatewayv2.errors.bad_request_exception.BadRequestException: <p>The request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.not_found_exception.NotFoundException: <p>The resource specified in the request was not found. See the message field for more information.</p>
+            aws_sdk_apigatewayv2.errors.too_many_requests_exception.TooManyRequestsException: <p>A limit has been exceeded. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3325,6 +3684,13 @@ class AsyncApiGatewayV2Client:
 
         Args:
             portal_product_id: <p>The portal product identifier.</p>
+
+        Raises:
+            aws_sdk_apigatewayv2.errors.access_denied_exception.AccessDeniedException
+            aws_sdk_apigatewayv2.errors.bad_request_exception.BadRequestException: <p>The request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.not_found_exception.NotFoundException: <p>The resource specified in the request was not found. See the message field for more information.</p>
+            aws_sdk_apigatewayv2.errors.too_many_requests_exception.TooManyRequestsException: <p>A limit has been exceeded. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3369,6 +3735,13 @@ class AsyncApiGatewayV2Client:
             portal_product_id: <p>The portal product identifier.</p>
             product_page_id: <p>The portal product identifier.</p>
             resource_owner_account_id: <p>The account ID of the resource owner of the portal product.</p>
+
+        Raises:
+            aws_sdk_apigatewayv2.errors.access_denied_exception.AccessDeniedException
+            aws_sdk_apigatewayv2.errors.bad_request_exception.BadRequestException: <p>The request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.not_found_exception.NotFoundException: <p>The resource specified in the request was not found. See the message field for more information.</p>
+            aws_sdk_apigatewayv2.errors.too_many_requests_exception.TooManyRequestsException: <p>A limit has been exceeded. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3420,6 +3793,13 @@ class AsyncApiGatewayV2Client:
             portal_product_id: <p>The portal product identifier.</p>
             product_rest_endpoint_page_id: <p>The product REST endpoint identifier.</p>
             resource_owner_account_id: <p>The account ID of the resource owner of the portal product.</p>
+
+        Raises:
+            aws_sdk_apigatewayv2.errors.access_denied_exception.AccessDeniedException
+            aws_sdk_apigatewayv2.errors.bad_request_exception.BadRequestException: <p>The request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.not_found_exception.NotFoundException: <p>The resource specified in the request was not found. See the message field for more information.</p>
+            aws_sdk_apigatewayv2.errors.too_many_requests_exception.TooManyRequestsException: <p>A limit has been exceeded. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3465,6 +3845,11 @@ class AsyncApiGatewayV2Client:
         Args:
             api_id: <p>The API identifier.</p>
             route_id: <p>The route ID.</p>
+
+        Raises:
+            aws_sdk_apigatewayv2.errors.not_found_exception.NotFoundException: <p>The resource specified in the request was not found. See the message field for more information.</p>
+            aws_sdk_apigatewayv2.errors.too_many_requests_exception.TooManyRequestsException: <p>A limit has been exceeded. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3508,6 +3893,11 @@ class AsyncApiGatewayV2Client:
             api_id: <p>The API identifier.</p>
             route_id: <p>The route ID.</p>
             route_response_id: <p>The route response ID.</p>
+
+        Raises:
+            aws_sdk_apigatewayv2.errors.not_found_exception.NotFoundException: <p>The resource specified in the request was not found. See the message field for more information.</p>
+            aws_sdk_apigatewayv2.errors.too_many_requests_exception.TooManyRequestsException: <p>A limit has been exceeded. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3554,6 +3944,12 @@ class AsyncApiGatewayV2Client:
             max_results: <p>The maximum number of elements to be returned for this resource.</p>
             next_token: <p>The next page of elements from this collection. Not valid for the last element of the collection.</p>
             route_id: <p>The route ID.</p>
+
+        Raises:
+            aws_sdk_apigatewayv2.errors.bad_request_exception.BadRequestException: <p>The request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.not_found_exception.NotFoundException: <p>The resource specified in the request was not found. See the message field for more information.</p>
+            aws_sdk_apigatewayv2.errors.too_many_requests_exception.TooManyRequestsException: <p>A limit has been exceeded. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3601,6 +3997,12 @@ class AsyncApiGatewayV2Client:
             api_id: <p>The API identifier.</p>
             max_results: <p>The maximum number of elements to be returned for this resource.</p>
             next_token: <p>The next page of elements from this collection. Not valid for the last element of the collection.</p>
+
+        Raises:
+            aws_sdk_apigatewayv2.errors.bad_request_exception.BadRequestException: <p>The request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.not_found_exception.NotFoundException: <p>The resource specified in the request was not found. See the message field for more information.</p>
+            aws_sdk_apigatewayv2.errors.too_many_requests_exception.TooManyRequestsException: <p>A limit has been exceeded. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3647,6 +4049,12 @@ class AsyncApiGatewayV2Client:
             domain_name: <p>The domain name.</p>
             domain_name_id: <p>The domain name ID.</p>
             routing_rule_id: <p>The routing rule ID.</p>
+
+        Raises:
+            aws_sdk_apigatewayv2.errors.bad_request_exception.BadRequestException: <p>The request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.not_found_exception.NotFoundException: <p>The resource specified in the request was not found. See the message field for more information.</p>
+            aws_sdk_apigatewayv2.errors.too_many_requests_exception.TooManyRequestsException: <p>A limit has been exceeded. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3690,6 +4098,11 @@ class AsyncApiGatewayV2Client:
         Args:
             api_id: <p>The API identifier.</p>
             stage_name: <p>The stage name. Stage names can only contain alphanumeric characters, hyphens, and underscores. Maximum length is 128 characters.</p>
+
+        Raises:
+            aws_sdk_apigatewayv2.errors.not_found_exception.NotFoundException: <p>The resource specified in the request was not found. See the message field for more information.</p>
+            aws_sdk_apigatewayv2.errors.too_many_requests_exception.TooManyRequestsException: <p>A limit has been exceeded. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3733,6 +4146,12 @@ class AsyncApiGatewayV2Client:
             api_id: <p>The API identifier.</p>
             max_results: <p>The maximum number of elements to be returned for this resource.</p>
             next_token: <p>The next page of elements from this collection. Not valid for the last element of the collection.</p>
+
+        Raises:
+            aws_sdk_apigatewayv2.errors.bad_request_exception.BadRequestException: <p>The request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.not_found_exception.NotFoundException: <p>The resource specified in the request was not found. See the message field for more information.</p>
+            aws_sdk_apigatewayv2.errors.too_many_requests_exception.TooManyRequestsException: <p>A limit has been exceeded. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3775,6 +4194,13 @@ class AsyncApiGatewayV2Client:
 
         Args:
             resource_arn: <p>The resource ARN for the tag.</p>
+
+        Raises:
+            aws_sdk_apigatewayv2.errors.bad_request_exception.BadRequestException: <p>The request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.conflict_exception.ConflictException: <p>The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.not_found_exception.NotFoundException: <p>The resource specified in the request was not found. See the message field for more information.</p>
+            aws_sdk_apigatewayv2.errors.too_many_requests_exception.TooManyRequestsException: <p>A limit has been exceeded. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3813,6 +4239,11 @@ class AsyncApiGatewayV2Client:
 
         Args:
             vpc_link_id: <p>The ID of the VPC link.</p>
+
+        Raises:
+            aws_sdk_apigatewayv2.errors.not_found_exception.NotFoundException: <p>The resource specified in the request was not found. See the message field for more information.</p>
+            aws_sdk_apigatewayv2.errors.too_many_requests_exception.TooManyRequestsException: <p>A limit has been exceeded. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3853,6 +4284,11 @@ class AsyncApiGatewayV2Client:
         Args:
             max_results: <p>The maximum number of elements to be returned for this resource.</p>
             next_token: <p>The next page of elements from this collection. Not valid for the last element of the collection.</p>
+
+        Raises:
+            aws_sdk_apigatewayv2.errors.bad_request_exception.BadRequestException: <p>The request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.too_many_requests_exception.TooManyRequestsException: <p>A limit has been exceeded. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3900,6 +4336,13 @@ class AsyncApiGatewayV2Client:
             basepath: <p>Specifies how to interpret the base path of the API during import. Valid values are ignore, prepend, and split. The default value is ignore. To learn more, see <a href=\"https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-import-api-basePath.html\">Set the OpenAPI basePath Property</a>. Supported only for HTTP APIs.</p>
             body: <p>The OpenAPI definition. Supported only for HTTP APIs.</p>
             fail_on_warnings: <p>Specifies whether to rollback the API creation when a warning is encountered. By default, API creation continues if a warning is encountered.</p>
+
+        Raises:
+            aws_sdk_apigatewayv2.errors.bad_request_exception.BadRequestException: <p>The request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.conflict_exception.ConflictException: <p>The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.not_found_exception.NotFoundException: <p>The resource specified in the request was not found. See the message field for more information.</p>
+            aws_sdk_apigatewayv2.errors.too_many_requests_exception.TooManyRequestsException: <p>A limit has been exceeded. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3946,6 +4389,12 @@ class AsyncApiGatewayV2Client:
             max_results: <p>The maximum number of elements to be returned for this resource.</p>
             next_token: <p>The next page of elements from this collection. Not valid for the last element of the collection.</p>
             resource_owner: <p>The resource owner of the portal product.</p>
+
+        Raises:
+            aws_sdk_apigatewayv2.errors.access_denied_exception.AccessDeniedException
+            aws_sdk_apigatewayv2.errors.bad_request_exception.BadRequestException: <p>The request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.too_many_requests_exception.TooManyRequestsException: <p>A limit has been exceeded. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3991,6 +4440,12 @@ class AsyncApiGatewayV2Client:
         Args:
             max_results: <p>The maximum number of elements to be returned for this resource.</p>
             next_token: <p>The next page of elements from this collection. Not valid for the last element of the collection.</p>
+
+        Raises:
+            aws_sdk_apigatewayv2.errors.access_denied_exception.AccessDeniedException
+            aws_sdk_apigatewayv2.errors.bad_request_exception.BadRequestException: <p>The request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.too_many_requests_exception.TooManyRequestsException: <p>A limit has been exceeded. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4040,6 +4495,13 @@ class AsyncApiGatewayV2Client:
             next_token: <p>The next page of elements from this collection. Not valid for the last element of the collection.</p>
             portal_product_id: <p>The portal product identifier.</p>
             resource_owner_account_id: <p>The account ID of the resource owner of the portal product.</p>
+
+        Raises:
+            aws_sdk_apigatewayv2.errors.access_denied_exception.AccessDeniedException
+            aws_sdk_apigatewayv2.errors.bad_request_exception.BadRequestException: <p>The request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.not_found_exception.NotFoundException: <p>The resource specified in the request was not found. See the message field for more information.</p>
+            aws_sdk_apigatewayv2.errors.too_many_requests_exception.TooManyRequestsException: <p>A limit has been exceeded. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4092,6 +4554,13 @@ class AsyncApiGatewayV2Client:
             next_token: <p>The next page of elements from this collection. Not valid for the last element of the collection.</p>
             portal_product_id: <p>The portal product identifier.</p>
             resource_owner_account_id: <p>The account ID of the resource owner of the portal product.</p>
+
+        Raises:
+            aws_sdk_apigatewayv2.errors.access_denied_exception.AccessDeniedException
+            aws_sdk_apigatewayv2.errors.bad_request_exception.BadRequestException: <p>The request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.not_found_exception.NotFoundException: <p>The resource specified in the request was not found. See the message field for more information.</p>
+            aws_sdk_apigatewayv2.errors.too_many_requests_exception.TooManyRequestsException: <p>A limit has been exceeded. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4144,6 +4613,12 @@ class AsyncApiGatewayV2Client:
             domain_name_id: <p>The domain name ID.</p>
             max_results: <p>The maximum number of elements to be returned for this resource.</p>
             next_token: <p>The next page of elements from this collection. Not valid for the last element of the collection.</p>
+
+        Raises:
+            aws_sdk_apigatewayv2.errors.bad_request_exception.BadRequestException: <p>The request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.not_found_exception.NotFoundException: <p>The resource specified in the request was not found. See the message field for more information.</p>
+            aws_sdk_apigatewayv2.errors.too_many_requests_exception.TooManyRequestsException: <p>A limit has been exceeded. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4215,6 +4690,14 @@ class AsyncApiGatewayV2Client:
 
         Args:
             portal_id: <p>The portal identifier.</p>
+
+        Raises:
+            aws_sdk_apigatewayv2.errors.access_denied_exception.AccessDeniedException
+            aws_sdk_apigatewayv2.errors.bad_request_exception.BadRequestException: <p>The request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.conflict_exception.ConflictException: <p>The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.not_found_exception.NotFoundException: <p>The resource specified in the request was not found. See the message field for more information.</p>
+            aws_sdk_apigatewayv2.errors.too_many_requests_exception.TooManyRequestsException: <p>A limit has been exceeded. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4257,6 +4740,14 @@ class AsyncApiGatewayV2Client:
         Args:
             description: <p>The description of the portal. When the portal is published, this description becomes the last published description.</p>
             portal_id: <p>The portal identifier.</p>
+
+        Raises:
+            aws_sdk_apigatewayv2.errors.access_denied_exception.AccessDeniedException
+            aws_sdk_apigatewayv2.errors.bad_request_exception.BadRequestException: <p>The request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.conflict_exception.ConflictException: <p>The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.not_found_exception.NotFoundException: <p>The resource specified in the request was not found. See the message field for more information.</p>
+            aws_sdk_apigatewayv2.errors.too_many_requests_exception.TooManyRequestsException: <p>A limit has been exceeded. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4299,6 +4790,13 @@ class AsyncApiGatewayV2Client:
         Args:
             policy_document: <p>The product sharing policy.</p>
             portal_product_id: <p>The portal product identifier.</p>
+
+        Raises:
+            aws_sdk_apigatewayv2.errors.access_denied_exception.AccessDeniedException
+            aws_sdk_apigatewayv2.errors.bad_request_exception.BadRequestException: <p>The request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.not_found_exception.NotFoundException: <p>The resource specified in the request was not found. See the message field for more information.</p>
+            aws_sdk_apigatewayv2.errors.too_many_requests_exception.TooManyRequestsException: <p>A limit has been exceeded. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4348,6 +4846,13 @@ class AsyncApiGatewayV2Client:
             domain_name_id: <p>The domain name ID.</p>
             priority: <p>The routing rule priority.</p>
             routing_rule_id: <p>The routing rule ID.</p>
+
+        Raises:
+            aws_sdk_apigatewayv2.errors.bad_request_exception.BadRequestException: <p>The request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.conflict_exception.ConflictException: <p>The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.not_found_exception.NotFoundException: <p>The resource specified in the request was not found. See the message field for more information.</p>
+            aws_sdk_apigatewayv2.errors.too_many_requests_exception.TooManyRequestsException: <p>A limit has been exceeded. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4400,6 +4905,13 @@ class AsyncApiGatewayV2Client:
             basepath: <p>Specifies how to interpret the base path of the API during import. Valid values are ignore, prepend, and split. The default value is ignore. To learn more, see <a href=\"https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-import-api-basePath.html\">Set the OpenAPI basePath Property</a>. Supported only for HTTP APIs.</p>
             body: <p>The OpenAPI definition. Supported only for HTTP APIs.</p>
             fail_on_warnings: <p>Specifies whether to rollback the API creation when a warning is encountered. By default, API creation continues if a warning is encountered.</p>
+
+        Raises:
+            aws_sdk_apigatewayv2.errors.bad_request_exception.BadRequestException: <p>The request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.conflict_exception.ConflictException: <p>The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.not_found_exception.NotFoundException: <p>The resource specified in the request was not found. See the message field for more information.</p>
+            aws_sdk_apigatewayv2.errors.too_many_requests_exception.TooManyRequestsException: <p>A limit has been exceeded. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4445,6 +4957,11 @@ class AsyncApiGatewayV2Client:
         Args:
             api_id: <p>The API identifier.</p>
             stage_name: <p>The stage name. Stage names can contain only alphanumeric characters, hyphens, and underscores, or be $default. Maximum length is 128 characters.</p>
+
+        Raises:
+            aws_sdk_apigatewayv2.errors.not_found_exception.NotFoundException: <p>The resource specified in the request was not found. See the message field for more information.</p>
+            aws_sdk_apigatewayv2.errors.too_many_requests_exception.TooManyRequestsException: <p>A limit has been exceeded. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4484,6 +5001,13 @@ class AsyncApiGatewayV2Client:
         Args:
             resource_arn: <p>The resource ARN for the tag.</p>
             tags: <p>The collection of tags. Each tag element is associated with a given resource.</p>
+
+        Raises:
+            aws_sdk_apigatewayv2.errors.bad_request_exception.BadRequestException: <p>The request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.conflict_exception.ConflictException: <p>The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.not_found_exception.NotFoundException: <p>The resource specified in the request was not found. See the message field for more information.</p>
+            aws_sdk_apigatewayv2.errors.too_many_requests_exception.TooManyRequestsException: <p>A limit has been exceeded. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4526,6 +5050,13 @@ class AsyncApiGatewayV2Client:
         Args:
             resource_arn: <p>The resource ARN for the tag.</p>
             tag_keys: <p>The Tag keys to delete</p>
+
+        Raises:
+            aws_sdk_apigatewayv2.errors.bad_request_exception.BadRequestException: <p>The request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.conflict_exception.ConflictException: <p>The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.not_found_exception.NotFoundException: <p>The resource specified in the request was not found. See the message field for more information.</p>
+            aws_sdk_apigatewayv2.errors.too_many_requests_exception.TooManyRequestsException: <p>A limit has been exceeded. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4607,6 +5138,13 @@ class AsyncApiGatewayV2Client:
             route_selection_expression: <p>The route selection expression for the API. For HTTP APIs, the routeSelectionExpression must be ${request.method} ${request.path}. If not provided, this will be the default for HTTP APIs. This property is required for WebSocket APIs.</p>
             target: <p>This property is part of quick create. For HTTP integrations, specify a fully qualified URL. For Lambda integrations, specify a function ARN. The type of the integration will be HTTP_PROXY or AWS_PROXY, respectively. The value provided updates the integration URI and integration type. You can update a quick-created target, but you can't remove it from an API. Supported only for HTTP APIs.</p>
             version: <p>A version identifier for the API.</p>
+
+        Raises:
+            aws_sdk_apigatewayv2.errors.bad_request_exception.BadRequestException: <p>The request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.conflict_exception.ConflictException: <p>The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.not_found_exception.NotFoundException: <p>The resource specified in the request was not found. See the message field for more information.</p>
+            aws_sdk_apigatewayv2.errors.too_many_requests_exception.TooManyRequestsException: <p>A limit has been exceeded. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4681,6 +5219,13 @@ class AsyncApiGatewayV2Client:
             api_mapping_key: <p>The API mapping key.</p>
             domain_name: <p>The domain name.</p>
             stage: <p>The API stage.</p>
+
+        Raises:
+            aws_sdk_apigatewayv2.errors.bad_request_exception.BadRequestException: <p>The request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.conflict_exception.ConflictException: <p>The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.not_found_exception.NotFoundException: <p>The resource specified in the request was not found. See the message field for more information.</p>
+            aws_sdk_apigatewayv2.errors.too_many_requests_exception.TooManyRequestsException: <p>A limit has been exceeded. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4769,6 +5314,13 @@ class AsyncApiGatewayV2Client:
             identity_validation_expression: <p>This parameter is not used.</p>
             jwt_configuration: <p>Represents the configuration of a JWT authorizer. Required for the JWT authorizer type. Supported only for HTTP APIs.</p>
             name: <p>The name of the authorizer.</p>
+
+        Raises:
+            aws_sdk_apigatewayv2.errors.bad_request_exception.BadRequestException: <p>The request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.conflict_exception.ConflictException: <p>The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.not_found_exception.NotFoundException: <p>The resource specified in the request was not found. See the message field for more information.</p>
+            aws_sdk_apigatewayv2.errors.too_many_requests_exception.TooManyRequestsException: <p>A limit has been exceeded. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4840,6 +5392,13 @@ class AsyncApiGatewayV2Client:
             api_id: <p>The API identifier.</p>
             deployment_id: <p>The deployment ID.</p>
             description: <p>The description for the deployment resource.</p>
+
+        Raises:
+            aws_sdk_apigatewayv2.errors.bad_request_exception.BadRequestException: <p>The request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.conflict_exception.ConflictException: <p>The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.not_found_exception.NotFoundException: <p>The resource specified in the request was not found. See the message field for more information.</p>
+            aws_sdk_apigatewayv2.errors.too_many_requests_exception.TooManyRequestsException: <p>A limit has been exceeded. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4893,6 +5452,13 @@ class AsyncApiGatewayV2Client:
             domain_name_configurations: <p>The domain name configurations.</p>
             mutual_tls_authentication: <p>The mutual TLS authentication configuration for a custom domain name.</p>
             routing_mode: <p>The routing mode.</p>
+
+        Raises:
+            aws_sdk_apigatewayv2.errors.bad_request_exception.BadRequestException: <p>The request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.conflict_exception.ConflictException: <p>The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.not_found_exception.NotFoundException: <p>The resource specified in the request was not found. See the message field for more information.</p>
+            aws_sdk_apigatewayv2.errors.too_many_requests_exception.TooManyRequestsException: <p>A limit has been exceeded. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5005,6 +5571,13 @@ class AsyncApiGatewayV2Client:
             template_selection_expression: <p>The template selection expression for the integration.</p>
             timeout_in_millis: <p>Custom timeout between 50 and 29,000 milliseconds for WebSocket APIs and between 50 and 30,000 milliseconds for HTTP APIs. The default timeout is 29 seconds for WebSocket APIs and 30 seconds for HTTP APIs.</p>
             tls_config: <p>The TLS configuration for a private integration. If you specify a TLS configuration, private integration traffic uses the HTTPS protocol. Supported only for HTTP APIs.</p>
+
+        Raises:
+            aws_sdk_apigatewayv2.errors.bad_request_exception.BadRequestException: <p>The request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.conflict_exception.ConflictException: <p>The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.not_found_exception.NotFoundException: <p>The resource specified in the request was not found. See the message field for more information.</p>
+            aws_sdk_apigatewayv2.errors.too_many_requests_exception.TooManyRequestsException: <p>A limit has been exceeded. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5102,6 +5675,13 @@ class AsyncApiGatewayV2Client:
             response_parameters: <p>A key-value map specifying response parameters that are passed to the method response from the backend. The key is a method response header parameter name and the mapped value is an integration response header value, a static value enclosed within a pair of single quotes, or a JSON expression from the integration response body. The mapping key must match the pattern of method.response.header.<replaceable>{name}</replaceable> , where name is a valid and unique header name. The mapped non-static value must match the pattern of integration.response.header.<replaceable>{name}</replaceable> or integration.response.body.<replaceable>{JSON-expression}</replaceable> , where <replaceable>{name}</replaceable> is a valid and unique response header name and <replaceable>{JSON-expression}</replaceable> is a valid JSON expression without the $ prefix.</p>
             response_templates: <p>The collection of response templates for the integration response as a string-to-string map of key-value pairs. Response templates are represented as a key/value map, with a content-type as the key and a template as the value.</p>
             template_selection_expression: <p>The template selection expression for the integration response. Supported only for WebSocket APIs.</p>
+
+        Raises:
+            aws_sdk_apigatewayv2.errors.bad_request_exception.BadRequestException: <p>The request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.conflict_exception.ConflictException: <p>The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.not_found_exception.NotFoundException: <p>The resource specified in the request was not found. See the message field for more information.</p>
+            aws_sdk_apigatewayv2.errors.too_many_requests_exception.TooManyRequestsException: <p>A limit has been exceeded. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5170,6 +5750,13 @@ class AsyncApiGatewayV2Client:
             model_id: <p>The model ID.</p>
             name: <p>The name of the model.</p>
             schema: <p>The schema for the model. For application/json models, this should be JSON schema draft 4 model.</p>
+
+        Raises:
+            aws_sdk_apigatewayv2.errors.bad_request_exception.BadRequestException: <p>The request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.conflict_exception.ConflictException: <p>The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.not_found_exception.NotFoundException: <p>The resource specified in the request was not found. See the message field for more information.</p>
+            aws_sdk_apigatewayv2.errors.too_many_requests_exception.TooManyRequestsException: <p>A limit has been exceeded. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5241,6 +5828,14 @@ class AsyncApiGatewayV2Client:
             portal_content: <p>Contains the content that is visible to portal consumers including the themes, display names, and description.</p>
             portal_id: <p>The portal identifier.</p>
             rum_app_monitor_name: <p>The CloudWatch RUM app monitor name.</p>
+
+        Raises:
+            aws_sdk_apigatewayv2.errors.access_denied_exception.AccessDeniedException
+            aws_sdk_apigatewayv2.errors.bad_request_exception.BadRequestException: <p>The request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.conflict_exception.ConflictException: <p>The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.not_found_exception.NotFoundException: <p>The resource specified in the request was not found. See the message field for more information.</p>
+            aws_sdk_apigatewayv2.errors.too_many_requests_exception.TooManyRequestsException: <p>A limit has been exceeded. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5303,6 +5898,13 @@ class AsyncApiGatewayV2Client:
             display_name: <p>The displayName.</p>
             display_order: <p>The display order.</p>
             portal_product_id: <p>The portal product identifier.</p>
+
+        Raises:
+            aws_sdk_apigatewayv2.errors.access_denied_exception.AccessDeniedException
+            aws_sdk_apigatewayv2.errors.bad_request_exception.BadRequestException: <p>The request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.not_found_exception.NotFoundException: <p>The resource specified in the request was not found. See the message field for more information.</p>
+            aws_sdk_apigatewayv2.errors.too_many_requests_exception.TooManyRequestsException: <p>A limit has been exceeded. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5353,6 +5955,13 @@ class AsyncApiGatewayV2Client:
             display_content: <p>The content of the product page.</p>
             portal_product_id: <p>The portal product identifier.</p>
             product_page_id: <p>The portal product identifier.</p>
+
+        Raises:
+            aws_sdk_apigatewayv2.errors.access_denied_exception.AccessDeniedException
+            aws_sdk_apigatewayv2.errors.bad_request_exception.BadRequestException: <p>The request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.not_found_exception.NotFoundException: <p>The resource specified in the request was not found. See the message field for more information.</p>
+            aws_sdk_apigatewayv2.errors.too_many_requests_exception.TooManyRequestsException: <p>A limit has been exceeded. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5404,6 +6013,13 @@ class AsyncApiGatewayV2Client:
             portal_product_id: <p>The portal product identifier.</p>
             product_rest_endpoint_page_id: <p>The product REST endpoint identifier.</p>
             try_it_state: <p>The try it state of a product REST endpoint page.</p>
+
+        Raises:
+            aws_sdk_apigatewayv2.errors.access_denied_exception.AccessDeniedException
+            aws_sdk_apigatewayv2.errors.bad_request_exception.BadRequestException: <p>The request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.not_found_exception.NotFoundException: <p>The resource specified in the request was not found. See the message field for more information.</p>
+            aws_sdk_apigatewayv2.errors.too_many_requests_exception.TooManyRequestsException: <p>A limit has been exceeded. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5491,6 +6107,13 @@ class AsyncApiGatewayV2Client:
             route_key: <p>The route key for the route.</p>
             route_response_selection_expression: <p>The route response selection expression for the route. Supported only for WebSocket APIs.</p>
             target: <p>The target for the route.</p>
+
+        Raises:
+            aws_sdk_apigatewayv2.errors.bad_request_exception.BadRequestException: <p>The request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.conflict_exception.ConflictException: <p>The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.not_found_exception.NotFoundException: <p>The resource specified in the request was not found. See the message field for more information.</p>
+            aws_sdk_apigatewayv2.errors.too_many_requests_exception.TooManyRequestsException: <p>A limit has been exceeded. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5574,6 +6197,13 @@ class AsyncApiGatewayV2Client:
             route_id: <p>The route ID.</p>
             route_response_id: <p>The route response ID.</p>
             route_response_key: <p>The route response key.</p>
+
+        Raises:
+            aws_sdk_apigatewayv2.errors.bad_request_exception.BadRequestException: <p>The request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.conflict_exception.ConflictException: <p>The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.not_found_exception.NotFoundException: <p>The resource specified in the request was not found. See the message field for more information.</p>
+            aws_sdk_apigatewayv2.errors.too_many_requests_exception.TooManyRequestsException: <p>A limit has been exceeded. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5650,6 +6280,13 @@ class AsyncApiGatewayV2Client:
             route_settings: <p>Route settings for the stage.</p>
             stage_name: <p>The stage name. Stage names can contain only alphanumeric characters, hyphens, and underscores, or be $default. Maximum length is 128 characters.</p>
             stage_variables: <p>A map that defines the stage variables for a Stage. Variable names can have alphanumeric and underscore characters, and the values must match [A-Za-z0-9-._~:/?#&amp;=,]+.</p>
+
+        Raises:
+            aws_sdk_apigatewayv2.errors.bad_request_exception.BadRequestException: <p>The request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.conflict_exception.ConflictException: <p>The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.not_found_exception.NotFoundException: <p>The resource specified in the request was not found. See the message field for more information.</p>
+            aws_sdk_apigatewayv2.errors.too_many_requests_exception.TooManyRequestsException: <p>A limit has been exceeded. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5709,6 +6346,12 @@ class AsyncApiGatewayV2Client:
         Args:
             name: <p>The name of the VPC link.</p>
             vpc_link_id: <p>The ID of the VPC link.</p>
+
+        Raises:
+            aws_sdk_apigatewayv2.errors.bad_request_exception.BadRequestException: <p>The request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.not_found_exception.NotFoundException: <p>The resource specified in the request was not found. See the message field for more information.</p>
+            aws_sdk_apigatewayv2.errors.too_many_requests_exception.TooManyRequestsException: <p>A limit has been exceeded. See the accompanying error message for details.</p>
+            aws_sdk_apigatewayv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

@@ -263,6 +263,16 @@ class AsyncAppIntegrationsClient:
             iframe_config: <p>The iframe configuration for the application.</p>
             application_type: <p>The type of application.</p>
 
+        Raises:
+            aws_sdk_appintegrations.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_appintegrations.errors.duplicate_resource_exception.DuplicateResourceException: <p>A resource with the specified name already exists.</p>
+            aws_sdk_appintegrations.errors.internal_service_error.InternalServiceError: <p>Request processing failed due to an error or failure with the service.</p>
+            aws_sdk_appintegrations.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid. </p>
+            aws_sdk_appintegrations.errors.resource_quota_exceeded_exception.ResourceQuotaExceededException: <p>The allowed quota for the resource has been exceeded.</p>
+            aws_sdk_appintegrations.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_appintegrations.errors.unsupported_operation_exception.UnsupportedOperationException: <p>The operation is not supported.</p>
+            aws_sdk_appintegrations.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To create an application
             The following creates an application named My Application with access url https://example.com.
@@ -358,6 +368,15 @@ class AsyncAppIntegrationsClient:
             client_token: <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see <a href=\"https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/\">Making retries safe with idempotent APIs</a>.</p>
             file_configuration: <p>The configuration for what files should be pulled from the source.</p>
             object_configuration: <p>The configuration for what data should be pulled from the source.</p>
+
+        Raises:
+            aws_sdk_appintegrations.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_appintegrations.errors.duplicate_resource_exception.DuplicateResourceException: <p>A resource with the specified name already exists.</p>
+            aws_sdk_appintegrations.errors.internal_service_error.InternalServiceError: <p>Request processing failed due to an error or failure with the service.</p>
+            aws_sdk_appintegrations.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid. </p>
+            aws_sdk_appintegrations.errors.resource_quota_exceeded_exception.ResourceQuotaExceededException: <p>The allowed quota for the resource has been exceeded.</p>
+            aws_sdk_appintegrations.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_appintegrations.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -432,6 +451,15 @@ class AsyncAppIntegrationsClient:
             client_association_metadata: <p>The mapping of metadata to be extracted from the data.</p>
             client_token: <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see <a href=\"https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/\">Making retries safe with idempotent APIs</a>.</p>
             execution_configuration: <p>The configuration for how the files should be pulled from the source.</p>
+
+        Raises:
+            aws_sdk_appintegrations.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_appintegrations.errors.internal_service_error.InternalServiceError: <p>Request processing failed due to an error or failure with the service.</p>
+            aws_sdk_appintegrations.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid. </p>
+            aws_sdk_appintegrations.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_appintegrations.errors.resource_quota_exceeded_exception.ResourceQuotaExceededException: <p>The allowed quota for the resource has been exceeded.</p>
+            aws_sdk_appintegrations.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_appintegrations.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -496,6 +524,15 @@ class AsyncAppIntegrationsClient:
             event_bridge_bus: <p>The EventBridge bus.</p>
             client_token: <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see <a href=\"https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/\">Making retries safe with idempotent APIs</a>.</p>
             tags: <p>The tags used to organize, track, or control access for this resource. For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.</p>
+
+        Raises:
+            aws_sdk_appintegrations.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_appintegrations.errors.duplicate_resource_exception.DuplicateResourceException: <p>A resource with the specified name already exists.</p>
+            aws_sdk_appintegrations.errors.internal_service_error.InternalServiceError: <p>Request processing failed due to an error or failure with the service.</p>
+            aws_sdk_appintegrations.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid. </p>
+            aws_sdk_appintegrations.errors.resource_quota_exceeded_exception.ResourceQuotaExceededException: <p>The allowed quota for the resource has been exceeded.</p>
+            aws_sdk_appintegrations.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_appintegrations.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -543,6 +580,14 @@ class AsyncAppIntegrationsClient:
         Args:
             arn: <p>The Amazon Resource Name (ARN) of the Application.</p>
 
+        Raises:
+            aws_sdk_appintegrations.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_appintegrations.errors.internal_service_error.InternalServiceError: <p>Request processing failed due to an error or failure with the service.</p>
+            aws_sdk_appintegrations.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid. </p>
+            aws_sdk_appintegrations.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_appintegrations.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_appintegrations.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To delete an application
             The following deletes an application.
@@ -586,6 +631,14 @@ class AsyncAppIntegrationsClient:
 
         Args:
             data_integration_identifier: <p>A unique identifier for the DataIntegration.</p>
+
+        Raises:
+            aws_sdk_appintegrations.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_appintegrations.errors.internal_service_error.InternalServiceError: <p>Request processing failed due to an error or failure with the service.</p>
+            aws_sdk_appintegrations.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid. </p>
+            aws_sdk_appintegrations.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_appintegrations.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_appintegrations.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -624,6 +677,14 @@ class AsyncAppIntegrationsClient:
 
         Args:
             name: <p>The name of the event integration.</p>
+
+        Raises:
+            aws_sdk_appintegrations.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_appintegrations.errors.internal_service_error.InternalServiceError: <p>Request processing failed due to an error or failure with the service.</p>
+            aws_sdk_appintegrations.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid. </p>
+            aws_sdk_appintegrations.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_appintegrations.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_appintegrations.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -664,6 +725,14 @@ class AsyncAppIntegrationsClient:
 
         Args:
             arn: <p>The Amazon Resource Name (ARN) of the Application.</p>
+
+        Raises:
+            aws_sdk_appintegrations.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_appintegrations.errors.internal_service_error.InternalServiceError: <p>Request processing failed due to an error or failure with the service.</p>
+            aws_sdk_appintegrations.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid. </p>
+            aws_sdk_appintegrations.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_appintegrations.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_appintegrations.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To get an application
@@ -708,6 +777,14 @@ class AsyncAppIntegrationsClient:
 
         Args:
             identifier: <p>A unique identifier.</p>
+
+        Raises:
+            aws_sdk_appintegrations.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_appintegrations.errors.internal_service_error.InternalServiceError: <p>Request processing failed due to an error or failure with the service.</p>
+            aws_sdk_appintegrations.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid. </p>
+            aws_sdk_appintegrations.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_appintegrations.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_appintegrations.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -746,6 +823,14 @@ class AsyncAppIntegrationsClient:
 
         Args:
             name: <p>The name of the event integration. </p>
+
+        Raises:
+            aws_sdk_appintegrations.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_appintegrations.errors.internal_service_error.InternalServiceError: <p>Request processing failed due to an error or failure with the service.</p>
+            aws_sdk_appintegrations.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid. </p>
+            aws_sdk_appintegrations.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_appintegrations.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_appintegrations.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -792,6 +877,14 @@ class AsyncAppIntegrationsClient:
             application_id: <p>A unique identifier for the Application.</p>
             next_token: <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
             max_results: <p>The maximum number of results to return per page.</p>
+
+        Raises:
+            aws_sdk_appintegrations.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_appintegrations.errors.internal_service_error.InternalServiceError: <p>Request processing failed due to an error or failure with the service.</p>
+            aws_sdk_appintegrations.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid. </p>
+            aws_sdk_appintegrations.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_appintegrations.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_appintegrations.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To list application associations of an application
@@ -878,6 +971,13 @@ class AsyncAppIntegrationsClient:
             max_results: <p>The maximum number of results to return per page.</p>
             application_type: <p>The type of application.</p>
 
+        Raises:
+            aws_sdk_appintegrations.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_appintegrations.errors.internal_service_error.InternalServiceError: <p>Request processing failed due to an error or failure with the service.</p>
+            aws_sdk_appintegrations.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid. </p>
+            aws_sdk_appintegrations.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_appintegrations.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To list applications in the account
             The following lists application summary in the account.
@@ -963,6 +1063,14 @@ class AsyncAppIntegrationsClient:
             data_integration_identifier: <p>A unique identifier for the DataIntegration.</p>
             next_token: <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
             max_results: <p>The maximum number of results to return per page.</p>
+
+        Raises:
+            aws_sdk_appintegrations.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_appintegrations.errors.internal_service_error.InternalServiceError: <p>Request processing failed due to an error or failure with the service.</p>
+            aws_sdk_appintegrations.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid. </p>
+            aws_sdk_appintegrations.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_appintegrations.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_appintegrations.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1038,6 +1146,13 @@ class AsyncAppIntegrationsClient:
         Args:
             next_token: <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
             max_results: <p>The maximum number of results to return per page.</p>
+
+        Raises:
+            aws_sdk_appintegrations.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_appintegrations.errors.internal_service_error.InternalServiceError: <p>Request processing failed due to an error or failure with the service.</p>
+            aws_sdk_appintegrations.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid. </p>
+            aws_sdk_appintegrations.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_appintegrations.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1112,6 +1227,14 @@ class AsyncAppIntegrationsClient:
             event_integration_name: <p>The name of the event integration. </p>
             next_token: <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
             max_results: <p>The maximum number of results to return per page.</p>
+
+        Raises:
+            aws_sdk_appintegrations.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_appintegrations.errors.internal_service_error.InternalServiceError: <p>Request processing failed due to an error or failure with the service.</p>
+            aws_sdk_appintegrations.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid. </p>
+            aws_sdk_appintegrations.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_appintegrations.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_appintegrations.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1187,6 +1310,13 @@ class AsyncAppIntegrationsClient:
         Args:
             next_token: <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
             max_results: <p>The maximum number of results to return per page.</p>
+
+        Raises:
+            aws_sdk_appintegrations.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_appintegrations.errors.internal_service_error.InternalServiceError: <p>Request processing failed due to an error or failure with the service.</p>
+            aws_sdk_appintegrations.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid. </p>
+            aws_sdk_appintegrations.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_appintegrations.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1253,6 +1383,13 @@ class AsyncAppIntegrationsClient:
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource. </p>
+
+        Raises:
+            aws_sdk_appintegrations.errors.internal_service_error.InternalServiceError: <p>Request processing failed due to an error or failure with the service.</p>
+            aws_sdk_appintegrations.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid. </p>
+            aws_sdk_appintegrations.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_appintegrations.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_appintegrations.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1293,6 +1430,13 @@ class AsyncAppIntegrationsClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource.</p>
             tags: <p>The tags used to organize, track, or control access for this resource. For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.</p>
+
+        Raises:
+            aws_sdk_appintegrations.errors.internal_service_error.InternalServiceError: <p>Request processing failed due to an error or failure with the service.</p>
+            aws_sdk_appintegrations.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid. </p>
+            aws_sdk_appintegrations.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_appintegrations.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_appintegrations.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1334,6 +1478,13 @@ class AsyncAppIntegrationsClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource.</p>
             tag_keys: <p>The tag keys.</p>
+
+        Raises:
+            aws_sdk_appintegrations.errors.internal_service_error.InternalServiceError: <p>Request processing failed due to an error or failure with the service.</p>
+            aws_sdk_appintegrations.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid. </p>
+            aws_sdk_appintegrations.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_appintegrations.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_appintegrations.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1416,6 +1567,15 @@ class AsyncAppIntegrationsClient:
             iframe_config: <p>The iframe configuration for the application.</p>
             application_type: <p>The type of application.</p>
 
+        Raises:
+            aws_sdk_appintegrations.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_appintegrations.errors.internal_service_error.InternalServiceError: <p>Request processing failed due to an error or failure with the service.</p>
+            aws_sdk_appintegrations.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid. </p>
+            aws_sdk_appintegrations.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_appintegrations.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_appintegrations.errors.unsupported_operation_exception.UnsupportedOperationException: <p>The operation is not supported.</p>
+            aws_sdk_appintegrations.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To update an application
             The following updates an existing application named with a new name.
@@ -1487,6 +1647,14 @@ class AsyncAppIntegrationsClient:
             identifier: <p>A unique identifier for the DataIntegration.</p>
             name: <p>The name of the DataIntegration.</p>
             description: <p>A description of the DataIntegration.</p>
+
+        Raises:
+            aws_sdk_appintegrations.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_appintegrations.errors.internal_service_error.InternalServiceError: <p>Request processing failed due to an error or failure with the service.</p>
+            aws_sdk_appintegrations.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid. </p>
+            aws_sdk_appintegrations.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_appintegrations.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_appintegrations.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1533,6 +1701,14 @@ class AsyncAppIntegrationsClient:
             data_integration_identifier: <p>A unique identifier for the DataIntegration.</p>
             data_integration_association_identifier: <p>A unique identifier. of the DataIntegrationAssociation resource</p>
             execution_configuration: <p>The configuration for how the files should be pulled from the source.</p>
+
+        Raises:
+            aws_sdk_appintegrations.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_appintegrations.errors.internal_service_error.InternalServiceError: <p>Request processing failed due to an error or failure with the service.</p>
+            aws_sdk_appintegrations.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid. </p>
+            aws_sdk_appintegrations.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_appintegrations.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_appintegrations.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1579,6 +1755,14 @@ class AsyncAppIntegrationsClient:
         Args:
             name: <p>The name of the event integration.</p>
             description: <p>The description of the event integration.</p>
+
+        Raises:
+            aws_sdk_appintegrations.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_appintegrations.errors.internal_service_error.InternalServiceError: <p>Request processing failed due to an error or failure with the service.</p>
+            aws_sdk_appintegrations.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid. </p>
+            aws_sdk_appintegrations.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_appintegrations.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_appintegrations.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

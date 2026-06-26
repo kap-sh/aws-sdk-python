@@ -197,6 +197,13 @@ class ComprehendMedicalClient:
 
         Args:
             job_id: <p>The identifier that Amazon Comprehend Medical generated for the job. The <code>StartEntitiesDetectionV2Job</code> operation returns this identifier in its response.</p>
+
+        Raises:
+            aws_sdk_comprehendmedical.errors.internal_server_exception.InternalServerException: <p> An internal server error occurred. Retry your request. </p>
+            aws_sdk_comprehendmedical.errors.invalid_request_exception.InvalidRequestException: <p> The request that you made is invalid. Check your request to determine why it's invalid and then retry the request.</p>
+            aws_sdk_comprehendmedical.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource identified by the specified Amazon Resource Name (ARN) was not found. Check the ARN and try your request again.</p>
+            aws_sdk_comprehendmedical.errors.too_many_requests_exception.TooManyRequestsException: <p> You have made too many requests within a short period of time. Wait for a short time and then try your request again. Contact customer support for more information about a service limit increase. </p>
+            aws_sdk_comprehendmedical.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -234,6 +241,13 @@ class ComprehendMedicalClient:
 
         Args:
             job_id: <p>The identifier that Amazon Comprehend Medical generated for the job. <code>The StartICD10CMInferenceJob</code> operation returns this identifier in its response.</p>
+
+        Raises:
+            aws_sdk_comprehendmedical.errors.internal_server_exception.InternalServerException: <p> An internal server error occurred. Retry your request. </p>
+            aws_sdk_comprehendmedical.errors.invalid_request_exception.InvalidRequestException: <p> The request that you made is invalid. Check your request to determine why it's invalid and then retry the request.</p>
+            aws_sdk_comprehendmedical.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource identified by the specified Amazon Resource Name (ARN) was not found. Check the ARN and try your request again.</p>
+            aws_sdk_comprehendmedical.errors.too_many_requests_exception.TooManyRequestsException: <p> You have made too many requests within a short period of time. Wait for a short time and then try your request again. Contact customer support for more information about a service limit increase. </p>
+            aws_sdk_comprehendmedical.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -271,6 +285,13 @@ class ComprehendMedicalClient:
 
         Args:
             job_id: <p>The identifier that Amazon Comprehend Medical generated for the job. The <code>StartPHIDetectionJob</code> operation returns this identifier in its response.</p>
+
+        Raises:
+            aws_sdk_comprehendmedical.errors.internal_server_exception.InternalServerException: <p> An internal server error occurred. Retry your request. </p>
+            aws_sdk_comprehendmedical.errors.invalid_request_exception.InvalidRequestException: <p> The request that you made is invalid. Check your request to determine why it's invalid and then retry the request.</p>
+            aws_sdk_comprehendmedical.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource identified by the specified Amazon Resource Name (ARN) was not found. Check the ARN and try your request again.</p>
+            aws_sdk_comprehendmedical.errors.too_many_requests_exception.TooManyRequestsException: <p> You have made too many requests within a short period of time. Wait for a short time and then try your request again. Contact customer support for more information about a service limit increase. </p>
+            aws_sdk_comprehendmedical.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -308,6 +329,13 @@ class ComprehendMedicalClient:
 
         Args:
             job_id: <p>The identifier that Amazon Comprehend Medical generated for the job. The StartRxNormInferenceJob operation returns this identifier in its response.</p>
+
+        Raises:
+            aws_sdk_comprehendmedical.errors.internal_server_exception.InternalServerException: <p> An internal server error occurred. Retry your request. </p>
+            aws_sdk_comprehendmedical.errors.invalid_request_exception.InvalidRequestException: <p> The request that you made is invalid. Check your request to determine why it's invalid and then retry the request.</p>
+            aws_sdk_comprehendmedical.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource identified by the specified Amazon Resource Name (ARN) was not found. Check the ARN and try your request again.</p>
+            aws_sdk_comprehendmedical.errors.too_many_requests_exception.TooManyRequestsException: <p> You have made too many requests within a short period of time. Wait for a short time and then try your request again. Contact customer support for more information about a service limit increase. </p>
+            aws_sdk_comprehendmedical.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -345,6 +373,13 @@ class ComprehendMedicalClient:
 
         Args:
             job_id: <p> The identifier that Amazon Comprehend Medical generated for the job. The StartSNOMEDCTInferenceJob operation returns this identifier in its response. </p>
+
+        Raises:
+            aws_sdk_comprehendmedical.errors.internal_server_exception.InternalServerException: <p> An internal server error occurred. Retry your request. </p>
+            aws_sdk_comprehendmedical.errors.invalid_request_exception.InvalidRequestException: <p> The request that you made is invalid. Check your request to determine why it's invalid and then retry the request.</p>
+            aws_sdk_comprehendmedical.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource identified by the specified Amazon Resource Name (ARN) was not found. Check the ARN and try your request again.</p>
+            aws_sdk_comprehendmedical.errors.too_many_requests_exception.TooManyRequestsException: <p> You have made too many requests within a short period of time. Wait for a short time and then try your request again. Contact customer support for more information about a service limit increase. </p>
+            aws_sdk_comprehendmedical.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -382,6 +417,15 @@ class ComprehendMedicalClient:
 
         Args:
             text: <p> A UTF-8 text string containing the clinical content being examined for entities.</p>
+
+        Raises:
+            aws_sdk_comprehendmedical.errors.internal_server_exception.InternalServerException: <p> An internal server error occurred. Retry your request. </p>
+            aws_sdk_comprehendmedical.errors.invalid_encoding_exception.InvalidEncodingException: <p> The input text was not in valid UTF-8 character encoding. Check your text then retry your request.</p>
+            aws_sdk_comprehendmedical.errors.invalid_request_exception.InvalidRequestException: <p> The request that you made is invalid. Check your request to determine why it's invalid and then retry the request.</p>
+            aws_sdk_comprehendmedical.errors.service_unavailable_exception.ServiceUnavailableException: <p> The Amazon Comprehend Medical service is temporarily unavailable. Please wait and then retry your request. </p>
+            aws_sdk_comprehendmedical.errors.text_size_limit_exceeded_exception.TextSizeLimitExceededException: <p> The size of the text you submitted exceeds the size limit. Reduce the size of the text or use a smaller document and then retry your request. </p>
+            aws_sdk_comprehendmedical.errors.too_many_requests_exception.TooManyRequestsException: <p> You have made too many requests within a short period of time. Wait for a short time and then try your request again. Contact customer support for more information about a service limit increase. </p>
+            aws_sdk_comprehendmedical.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -419,6 +463,15 @@ class ComprehendMedicalClient:
 
         Args:
             text: <p>A UTF-8 string containing the clinical content being examined for entities.</p>
+
+        Raises:
+            aws_sdk_comprehendmedical.errors.internal_server_exception.InternalServerException: <p> An internal server error occurred. Retry your request. </p>
+            aws_sdk_comprehendmedical.errors.invalid_encoding_exception.InvalidEncodingException: <p> The input text was not in valid UTF-8 character encoding. Check your text then retry your request.</p>
+            aws_sdk_comprehendmedical.errors.invalid_request_exception.InvalidRequestException: <p> The request that you made is invalid. Check your request to determine why it's invalid and then retry the request.</p>
+            aws_sdk_comprehendmedical.errors.service_unavailable_exception.ServiceUnavailableException: <p> The Amazon Comprehend Medical service is temporarily unavailable. Please wait and then retry your request. </p>
+            aws_sdk_comprehendmedical.errors.text_size_limit_exceeded_exception.TextSizeLimitExceededException: <p> The size of the text you submitted exceeds the size limit. Reduce the size of the text or use a smaller document and then retry your request. </p>
+            aws_sdk_comprehendmedical.errors.too_many_requests_exception.TooManyRequestsException: <p> You have made too many requests within a short period of time. Wait for a short time and then try your request again. Contact customer support for more information about a service limit increase. </p>
+            aws_sdk_comprehendmedical.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -456,6 +509,15 @@ class ComprehendMedicalClient:
 
         Args:
             text: <p>A UTF-8 text string containing the clinical content being examined for PHI entities.</p>
+
+        Raises:
+            aws_sdk_comprehendmedical.errors.internal_server_exception.InternalServerException: <p> An internal server error occurred. Retry your request. </p>
+            aws_sdk_comprehendmedical.errors.invalid_encoding_exception.InvalidEncodingException: <p> The input text was not in valid UTF-8 character encoding. Check your text then retry your request.</p>
+            aws_sdk_comprehendmedical.errors.invalid_request_exception.InvalidRequestException: <p> The request that you made is invalid. Check your request to determine why it's invalid and then retry the request.</p>
+            aws_sdk_comprehendmedical.errors.service_unavailable_exception.ServiceUnavailableException: <p> The Amazon Comprehend Medical service is temporarily unavailable. Please wait and then retry your request. </p>
+            aws_sdk_comprehendmedical.errors.text_size_limit_exceeded_exception.TextSizeLimitExceededException: <p> The size of the text you submitted exceeds the size limit. Reduce the size of the text or use a smaller document and then retry your request. </p>
+            aws_sdk_comprehendmedical.errors.too_many_requests_exception.TooManyRequestsException: <p> You have made too many requests within a short period of time. Wait for a short time and then try your request again. Contact customer support for more information about a service limit increase. </p>
+            aws_sdk_comprehendmedical.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -493,6 +555,15 @@ class ComprehendMedicalClient:
 
         Args:
             text: <p>The input text used for analysis.</p>
+
+        Raises:
+            aws_sdk_comprehendmedical.errors.internal_server_exception.InternalServerException: <p> An internal server error occurred. Retry your request. </p>
+            aws_sdk_comprehendmedical.errors.invalid_encoding_exception.InvalidEncodingException: <p> The input text was not in valid UTF-8 character encoding. Check your text then retry your request.</p>
+            aws_sdk_comprehendmedical.errors.invalid_request_exception.InvalidRequestException: <p> The request that you made is invalid. Check your request to determine why it's invalid and then retry the request.</p>
+            aws_sdk_comprehendmedical.errors.service_unavailable_exception.ServiceUnavailableException: <p> The Amazon Comprehend Medical service is temporarily unavailable. Please wait and then retry your request. </p>
+            aws_sdk_comprehendmedical.errors.text_size_limit_exceeded_exception.TextSizeLimitExceededException: <p> The size of the text you submitted exceeds the size limit. Reduce the size of the text or use a smaller document and then retry your request. </p>
+            aws_sdk_comprehendmedical.errors.too_many_requests_exception.TooManyRequestsException: <p> You have made too many requests within a short period of time. Wait for a short time and then try your request again. Contact customer support for more information about a service limit increase. </p>
+            aws_sdk_comprehendmedical.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -530,6 +601,15 @@ class ComprehendMedicalClient:
 
         Args:
             text: <p>The input text used for analysis.</p>
+
+        Raises:
+            aws_sdk_comprehendmedical.errors.internal_server_exception.InternalServerException: <p> An internal server error occurred. Retry your request. </p>
+            aws_sdk_comprehendmedical.errors.invalid_encoding_exception.InvalidEncodingException: <p> The input text was not in valid UTF-8 character encoding. Check your text then retry your request.</p>
+            aws_sdk_comprehendmedical.errors.invalid_request_exception.InvalidRequestException: <p> The request that you made is invalid. Check your request to determine why it's invalid and then retry the request.</p>
+            aws_sdk_comprehendmedical.errors.service_unavailable_exception.ServiceUnavailableException: <p> The Amazon Comprehend Medical service is temporarily unavailable. Please wait and then retry your request. </p>
+            aws_sdk_comprehendmedical.errors.text_size_limit_exceeded_exception.TextSizeLimitExceededException: <p> The size of the text you submitted exceeds the size limit. Reduce the size of the text or use a smaller document and then retry your request. </p>
+            aws_sdk_comprehendmedical.errors.too_many_requests_exception.TooManyRequestsException: <p> You have made too many requests within a short period of time. Wait for a short time and then try your request again. Contact customer support for more information about a service limit increase. </p>
+            aws_sdk_comprehendmedical.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -569,6 +649,15 @@ class ComprehendMedicalClient:
 
         Args:
             text: <p>The input text to be analyzed using InferSNOMEDCT.</p>
+
+        Raises:
+            aws_sdk_comprehendmedical.errors.internal_server_exception.InternalServerException: <p> An internal server error occurred. Retry your request. </p>
+            aws_sdk_comprehendmedical.errors.invalid_encoding_exception.InvalidEncodingException: <p> The input text was not in valid UTF-8 character encoding. Check your text then retry your request.</p>
+            aws_sdk_comprehendmedical.errors.invalid_request_exception.InvalidRequestException: <p> The request that you made is invalid. Check your request to determine why it's invalid and then retry the request.</p>
+            aws_sdk_comprehendmedical.errors.service_unavailable_exception.ServiceUnavailableException: <p> The Amazon Comprehend Medical service is temporarily unavailable. Please wait and then retry your request. </p>
+            aws_sdk_comprehendmedical.errors.text_size_limit_exceeded_exception.TextSizeLimitExceededException: <p> The size of the text you submitted exceeds the size limit. Reduce the size of the text or use a smaller document and then retry your request. </p>
+            aws_sdk_comprehendmedical.errors.too_many_requests_exception.TooManyRequestsException: <p> You have made too many requests within a short period of time. Wait for a short time and then try your request again. Contact customer support for more information about a service limit increase. </p>
+            aws_sdk_comprehendmedical.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -614,6 +703,13 @@ class ComprehendMedicalClient:
             filter: <p>Filters the jobs that are returned. You can filter jobs based on their names, status, or the date and time that they were submitted. You can only set one filter at a time.</p>
             next_token: <p>Identifies the next page of results to return.</p>
             max_results: <p>The maximum number of results to return in each page. The default is 100.</p>
+
+        Raises:
+            aws_sdk_comprehendmedical.errors.internal_server_exception.InternalServerException: <p> An internal server error occurred. Retry your request. </p>
+            aws_sdk_comprehendmedical.errors.invalid_request_exception.InvalidRequestException: <p> The request that you made is invalid. Check your request to determine why it's invalid and then retry the request.</p>
+            aws_sdk_comprehendmedical.errors.too_many_requests_exception.TooManyRequestsException: <p> You have made too many requests within a short period of time. Wait for a short time and then try your request again. Contact customer support for more information about a service limit increase. </p>
+            aws_sdk_comprehendmedical.errors.validation_exception.ValidationException: <p>The filter that you specified for the operation is invalid. Check the filter values that you entered and try your request again.</p>
+            aws_sdk_comprehendmedical.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -664,6 +760,13 @@ class ComprehendMedicalClient:
             filter: <p>Filters the jobs that are returned. You can filter jobs based on their names, status, or the date and time that they were submitted. You can only set one filter at a time.</p>
             next_token: <p>Identifies the next page of results to return.</p>
             max_results: <p>The maximum number of results to return in each page. The default is 100.</p>
+
+        Raises:
+            aws_sdk_comprehendmedical.errors.internal_server_exception.InternalServerException: <p> An internal server error occurred. Retry your request. </p>
+            aws_sdk_comprehendmedical.errors.invalid_request_exception.InvalidRequestException: <p> The request that you made is invalid. Check your request to determine why it's invalid and then retry the request.</p>
+            aws_sdk_comprehendmedical.errors.too_many_requests_exception.TooManyRequestsException: <p> You have made too many requests within a short period of time. Wait for a short time and then try your request again. Contact customer support for more information about a service limit increase. </p>
+            aws_sdk_comprehendmedical.errors.validation_exception.ValidationException: <p>The filter that you specified for the operation is invalid. Check the filter values that you entered and try your request again.</p>
+            aws_sdk_comprehendmedical.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -714,6 +817,13 @@ class ComprehendMedicalClient:
             filter: <p>Filters the jobs that are returned. You can filter jobs based on their names, status, or the date and time that they were submitted. You can only set one filter at a time.</p>
             next_token: <p>Identifies the next page of results to return.</p>
             max_results: <p>The maximum number of results to return in each page. The default is 100.</p>
+
+        Raises:
+            aws_sdk_comprehendmedical.errors.internal_server_exception.InternalServerException: <p> An internal server error occurred. Retry your request. </p>
+            aws_sdk_comprehendmedical.errors.invalid_request_exception.InvalidRequestException: <p> The request that you made is invalid. Check your request to determine why it's invalid and then retry the request.</p>
+            aws_sdk_comprehendmedical.errors.too_many_requests_exception.TooManyRequestsException: <p> You have made too many requests within a short period of time. Wait for a short time and then try your request again. Contact customer support for more information about a service limit increase. </p>
+            aws_sdk_comprehendmedical.errors.validation_exception.ValidationException: <p>The filter that you specified for the operation is invalid. Check the filter values that you entered and try your request again.</p>
+            aws_sdk_comprehendmedical.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -764,6 +874,13 @@ class ComprehendMedicalClient:
             filter: <p>Filters the jobs that are returned. You can filter jobs based on their names, status, or the date and time that they were submitted. You can only set one filter at a time.</p>
             next_token: <p>Identifies the next page of results to return.</p>
             max_results: <p>Identifies the next page of results to return.</p>
+
+        Raises:
+            aws_sdk_comprehendmedical.errors.internal_server_exception.InternalServerException: <p> An internal server error occurred. Retry your request. </p>
+            aws_sdk_comprehendmedical.errors.invalid_request_exception.InvalidRequestException: <p> The request that you made is invalid. Check your request to determine why it's invalid and then retry the request.</p>
+            aws_sdk_comprehendmedical.errors.too_many_requests_exception.TooManyRequestsException: <p> You have made too many requests within a short period of time. Wait for a short time and then try your request again. Contact customer support for more information about a service limit increase. </p>
+            aws_sdk_comprehendmedical.errors.validation_exception.ValidationException: <p>The filter that you specified for the operation is invalid. Check the filter values that you entered and try your request again.</p>
+            aws_sdk_comprehendmedical.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -813,6 +930,13 @@ class ComprehendMedicalClient:
         Args:
             next_token: <p> Identifies the next page of InferSNOMEDCT results to return. </p>
             max_results: <p> The maximum number of results to return in each page. The default is 100. </p>
+
+        Raises:
+            aws_sdk_comprehendmedical.errors.internal_server_exception.InternalServerException: <p> An internal server error occurred. Retry your request. </p>
+            aws_sdk_comprehendmedical.errors.invalid_request_exception.InvalidRequestException: <p> The request that you made is invalid. Check your request to determine why it's invalid and then retry the request.</p>
+            aws_sdk_comprehendmedical.errors.too_many_requests_exception.TooManyRequestsException: <p> You have made too many requests within a short period of time. Wait for a short time and then try your request again. Contact customer support for more information about a service limit increase. </p>
+            aws_sdk_comprehendmedical.errors.validation_exception.ValidationException: <p>The filter that you specified for the operation is invalid. Check the filter values that you entered and try your request again.</p>
+            aws_sdk_comprehendmedical.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -869,6 +993,13 @@ class ComprehendMedicalClient:
             client_request_token: <p>A unique identifier for the request. If you don't set the client request token, Amazon Comprehend Medical generates one for you.</p>
             kms_key: <p>An AWS Key Management Service key to encrypt your output files. If you do not specify a key, the files are written in plain text.</p>
             language_code: <p>The language of the input documents. All documents must be in the same language. Amazon Comprehend Medical processes files in US English (en).</p>
+
+        Raises:
+            aws_sdk_comprehendmedical.errors.internal_server_exception.InternalServerException: <p> An internal server error occurred. Retry your request. </p>
+            aws_sdk_comprehendmedical.errors.invalid_request_exception.InvalidRequestException: <p> The request that you made is invalid. Check your request to determine why it's invalid and then retry the request.</p>
+            aws_sdk_comprehendmedical.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource identified by the specified Amazon Resource Name (ARN) was not found. Check the ARN and try your request again.</p>
+            aws_sdk_comprehendmedical.errors.too_many_requests_exception.TooManyRequestsException: <p> You have made too many requests within a short period of time. Wait for a short time and then try your request again. Contact customer support for more information about a service limit increase. </p>
+            aws_sdk_comprehendmedical.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -929,6 +1060,13 @@ class ComprehendMedicalClient:
             client_request_token: <p>A unique identifier for the request. If you don't set the client request token, Amazon Comprehend Medical generates one.</p>
             kms_key: <p>An AWS Key Management Service key to encrypt your output files. If you do not specify a key, the files are written in plain text.</p>
             language_code: <p>The language of the input documents. All documents must be in the same language.</p>
+
+        Raises:
+            aws_sdk_comprehendmedical.errors.internal_server_exception.InternalServerException: <p> An internal server error occurred. Retry your request. </p>
+            aws_sdk_comprehendmedical.errors.invalid_request_exception.InvalidRequestException: <p> The request that you made is invalid. Check your request to determine why it's invalid and then retry the request.</p>
+            aws_sdk_comprehendmedical.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource identified by the specified Amazon Resource Name (ARN) was not found. Check the ARN and try your request again.</p>
+            aws_sdk_comprehendmedical.errors.too_many_requests_exception.TooManyRequestsException: <p> You have made too many requests within a short period of time. Wait for a short time and then try your request again. Contact customer support for more information about a service limit increase. </p>
+            aws_sdk_comprehendmedical.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -989,6 +1127,13 @@ class ComprehendMedicalClient:
             client_request_token: <p>A unique identifier for the request. If you don't set the client request token, Amazon Comprehend Medical generates one.</p>
             kms_key: <p>An AWS Key Management Service key to encrypt your output files. If you do not specify a key, the files are written in plain text.</p>
             language_code: <p>The language of the input documents. All documents must be in the same language.</p>
+
+        Raises:
+            aws_sdk_comprehendmedical.errors.internal_server_exception.InternalServerException: <p> An internal server error occurred. Retry your request. </p>
+            aws_sdk_comprehendmedical.errors.invalid_request_exception.InvalidRequestException: <p> The request that you made is invalid. Check your request to determine why it's invalid and then retry the request.</p>
+            aws_sdk_comprehendmedical.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource identified by the specified Amazon Resource Name (ARN) was not found. Check the ARN and try your request again.</p>
+            aws_sdk_comprehendmedical.errors.too_many_requests_exception.TooManyRequestsException: <p> You have made too many requests within a short period of time. Wait for a short time and then try your request again. Contact customer support for more information about a service limit increase. </p>
+            aws_sdk_comprehendmedical.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1049,6 +1194,13 @@ class ComprehendMedicalClient:
             client_request_token: <p>A unique identifier for the request. If you don't set the client request token, Amazon Comprehend Medical generates one.</p>
             kms_key: <p>An AWS Key Management Service key to encrypt your output files. If you do not specify a key, the files are written in plain text.</p>
             language_code: <p>The language of the input documents. All documents must be in the same language.</p>
+
+        Raises:
+            aws_sdk_comprehendmedical.errors.internal_server_exception.InternalServerException: <p> An internal server error occurred. Retry your request. </p>
+            aws_sdk_comprehendmedical.errors.invalid_request_exception.InvalidRequestException: <p> The request that you made is invalid. Check your request to determine why it's invalid and then retry the request.</p>
+            aws_sdk_comprehendmedical.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource identified by the specified Amazon Resource Name (ARN) was not found. Check the ARN and try your request again.</p>
+            aws_sdk_comprehendmedical.errors.too_many_requests_exception.TooManyRequestsException: <p> You have made too many requests within a short period of time. Wait for a short time and then try your request again. Contact customer support for more information about a service limit increase. </p>
+            aws_sdk_comprehendmedical.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1107,6 +1259,13 @@ class ComprehendMedicalClient:
             client_request_token: <p> A unique identifier for the request. If you don't set the client request token, Amazon Comprehend Medical generates one. </p>
             kms_key: <p> An AWS Key Management Service key used to encrypt your output files. If you do not specify a key, the files are written in plain text. </p>
             language_code: <p> The language of the input documents. All documents must be in the same language. </p>
+
+        Raises:
+            aws_sdk_comprehendmedical.errors.internal_server_exception.InternalServerException: <p> An internal server error occurred. Retry your request. </p>
+            aws_sdk_comprehendmedical.errors.invalid_request_exception.InvalidRequestException: <p> The request that you made is invalid. Check your request to determine why it's invalid and then retry the request.</p>
+            aws_sdk_comprehendmedical.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource identified by the specified Amazon Resource Name (ARN) was not found. Check the ARN and try your request again.</p>
+            aws_sdk_comprehendmedical.errors.too_many_requests_exception.TooManyRequestsException: <p> You have made too many requests within a short period of time. Wait for a short time and then try your request again. Contact customer support for more information about a service limit increase. </p>
+            aws_sdk_comprehendmedical.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1153,6 +1312,12 @@ class ComprehendMedicalClient:
 
         Args:
             job_id: <p>The identifier of the medical entities job to stop.</p>
+
+        Raises:
+            aws_sdk_comprehendmedical.errors.internal_server_exception.InternalServerException: <p> An internal server error occurred. Retry your request. </p>
+            aws_sdk_comprehendmedical.errors.invalid_request_exception.InvalidRequestException: <p> The request that you made is invalid. Check your request to determine why it's invalid and then retry the request.</p>
+            aws_sdk_comprehendmedical.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource identified by the specified Amazon Resource Name (ARN) was not found. Check the ARN and try your request again.</p>
+            aws_sdk_comprehendmedical.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1190,6 +1355,12 @@ class ComprehendMedicalClient:
 
         Args:
             job_id: <p>The identifier of the job.</p>
+
+        Raises:
+            aws_sdk_comprehendmedical.errors.internal_server_exception.InternalServerException: <p> An internal server error occurred. Retry your request. </p>
+            aws_sdk_comprehendmedical.errors.invalid_request_exception.InvalidRequestException: <p> The request that you made is invalid. Check your request to determine why it's invalid and then retry the request.</p>
+            aws_sdk_comprehendmedical.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource identified by the specified Amazon Resource Name (ARN) was not found. Check the ARN and try your request again.</p>
+            aws_sdk_comprehendmedical.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1227,6 +1398,12 @@ class ComprehendMedicalClient:
 
         Args:
             job_id: <p>The identifier of the PHI detection job to stop.</p>
+
+        Raises:
+            aws_sdk_comprehendmedical.errors.internal_server_exception.InternalServerException: <p> An internal server error occurred. Retry your request. </p>
+            aws_sdk_comprehendmedical.errors.invalid_request_exception.InvalidRequestException: <p> The request that you made is invalid. Check your request to determine why it's invalid and then retry the request.</p>
+            aws_sdk_comprehendmedical.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource identified by the specified Amazon Resource Name (ARN) was not found. Check the ARN and try your request again.</p>
+            aws_sdk_comprehendmedical.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1264,6 +1441,12 @@ class ComprehendMedicalClient:
 
         Args:
             job_id: <p>The identifier of the job.</p>
+
+        Raises:
+            aws_sdk_comprehendmedical.errors.internal_server_exception.InternalServerException: <p> An internal server error occurred. Retry your request. </p>
+            aws_sdk_comprehendmedical.errors.invalid_request_exception.InvalidRequestException: <p> The request that you made is invalid. Check your request to determine why it's invalid and then retry the request.</p>
+            aws_sdk_comprehendmedical.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource identified by the specified Amazon Resource Name (ARN) was not found. Check the ARN and try your request again.</p>
+            aws_sdk_comprehendmedical.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1301,6 +1484,13 @@ class ComprehendMedicalClient:
 
         Args:
             job_id: <p> The job id of the asynchronous InferSNOMEDCT job to be stopped. </p>
+
+        Raises:
+            aws_sdk_comprehendmedical.errors.internal_server_exception.InternalServerException: <p> An internal server error occurred. Retry your request. </p>
+            aws_sdk_comprehendmedical.errors.invalid_request_exception.InvalidRequestException: <p> The request that you made is invalid. Check your request to determine why it's invalid and then retry the request.</p>
+            aws_sdk_comprehendmedical.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource identified by the specified Amazon Resource Name (ARN) was not found. Check the ARN and try your request again.</p>
+            aws_sdk_comprehendmedical.errors.too_many_requests_exception.TooManyRequestsException: <p> You have made too many requests within a short period of time. Wait for a short time and then try your request again. Contact customer support for more information about a service limit increase. </p>
+            aws_sdk_comprehendmedical.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(

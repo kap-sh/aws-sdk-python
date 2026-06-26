@@ -237,6 +237,14 @@ class AsyncFMSClient:
 
         Args:
             admin_account: <p>The Amazon Web Services account ID to associate with Firewall Manager as the Firewall Manager default administrator account. This account must be a member account of the organization in Organizations whose resources you want to protect. For more information about Organizations, see <a href=\"https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts.html\">Managing the Amazon Web Services Accounts in Your Organization</a>. </p>
+
+        Raises:
+            aws_sdk_fms.errors.internal_error_exception.InternalErrorException: <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+            aws_sdk_fms.errors.invalid_input_exception.InvalidInputException: <p>The parameters of the request were invalid.</p>
+            aws_sdk_fms.errors.invalid_operation_exception.InvalidOperationException: <p>The operation failed because there was nothing to do or the operation wasn't possible. For example, you might have submitted an <code>AssociateAdminAccount</code> request for an account ID that was already set as the Firewall Manager administrator. Or you might have tried to access a Region that's disabled by default, and that you need to enable for the Firewall Manager administrator account and for Organizations before you can access it.</p>
+            aws_sdk_fms.errors.limit_exceeded_exception.LimitExceededException: <p>The operation exceeds a resource limit, for example, the maximum number of <code>policy</code> objects that you can create for an Amazon Web Services account. For more information, see <a href=\"https://docs.aws.amazon.com/waf/latest/developerguide/fms-limits.html\">Firewall Manager Limits</a> in the <i>WAF Developer Guide</i>.</p>
+            aws_sdk_fms.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_fms.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -273,6 +281,13 @@ class AsyncFMSClient:
 
         Args:
             third_party_firewall: <p>The name of the third-party firewall vendor.</p>
+
+        Raises:
+            aws_sdk_fms.errors.internal_error_exception.InternalErrorException: <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+            aws_sdk_fms.errors.invalid_input_exception.InvalidInputException: <p>The parameters of the request were invalid.</p>
+            aws_sdk_fms.errors.invalid_operation_exception.InvalidOperationException: <p>The operation failed because there was nothing to do or the operation wasn't possible. For example, you might have submitted an <code>AssociateAdminAccount</code> request for an account ID that was already set as the Firewall Manager administrator. Or you might have tried to access a Region that's disabled by default, and that you need to enable for the Firewall Manager administrator account and for Organizations before you can access it.</p>
+            aws_sdk_fms.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_fms.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -313,6 +328,14 @@ class AsyncFMSClient:
         Args:
             resource_set_identifier: <p>A unique identifier for the resource set, used in a request to refer to the resource set.</p>
             items: <p>The uniform resource identifiers (URIs) of resources that should be associated to the resource set. The URIs must be Amazon Resource Names (ARNs).</p>
+
+        Raises:
+            aws_sdk_fms.errors.internal_error_exception.InternalErrorException: <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+            aws_sdk_fms.errors.invalid_input_exception.InvalidInputException: <p>The parameters of the request were invalid.</p>
+            aws_sdk_fms.errors.invalid_operation_exception.InvalidOperationException: <p>The operation failed because there was nothing to do or the operation wasn't possible. For example, you might have submitted an <code>AssociateAdminAccount</code> request for an account ID that was already set as the Firewall Manager administrator. Or you might have tried to access a Region that's disabled by default, and that you need to enable for the Firewall Manager administrator account and for Organizations before you can access it.</p>
+            aws_sdk_fms.errors.limit_exceeded_exception.LimitExceededException: <p>The operation exceeds a resource limit, for example, the maximum number of <code>policy</code> objects that you can create for an Amazon Web Services account. For more information, see <a href=\"https://docs.aws.amazon.com/waf/latest/developerguide/fms-limits.html\">Firewall Manager Limits</a> in the <i>WAF Developer Guide</i>.</p>
+            aws_sdk_fms.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_fms.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -354,6 +377,13 @@ class AsyncFMSClient:
         Args:
             resource_set_identifier: <p>A unique identifier for the resource set, used in a request to refer to the resource set.</p>
             items: <p>The uniform resource identifiers (URI) of resources that should be disassociated from the resource set. The URIs must be Amazon Resource Names (ARNs).</p>
+
+        Raises:
+            aws_sdk_fms.errors.internal_error_exception.InternalErrorException: <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+            aws_sdk_fms.errors.invalid_input_exception.InvalidInputException: <p>The parameters of the request were invalid.</p>
+            aws_sdk_fms.errors.invalid_operation_exception.InvalidOperationException: <p>The operation failed because there was nothing to do or the operation wasn't possible. For example, you might have submitted an <code>AssociateAdminAccount</code> request for an account ID that was already set as the Firewall Manager administrator. Or you might have tried to access a Region that's disabled by default, and that you need to enable for the Firewall Manager administrator account and for Organizations before you can access it.</p>
+            aws_sdk_fms.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_fms.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -393,6 +423,12 @@ class AsyncFMSClient:
 
         Args:
             list_id: <p>The ID of the applications list that you want to delete. You can retrieve this ID from <code>PutAppsList</code>, <code>ListAppsLists</code>, and <code>GetAppsList</code>.</p>
+
+        Raises:
+            aws_sdk_fms.errors.internal_error_exception.InternalErrorException: <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+            aws_sdk_fms.errors.invalid_operation_exception.InvalidOperationException: <p>The operation failed because there was nothing to do or the operation wasn't possible. For example, you might have submitted an <code>AssociateAdminAccount</code> request for an account ID that was already set as the Firewall Manager administrator. Or you might have tried to access a Region that's disabled by default, and that you need to enable for the Firewall Manager administrator account and for Organizations before you can access it.</p>
+            aws_sdk_fms.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_fms.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -422,7 +458,14 @@ class AsyncFMSClient:
     async def delete_notification_channel(
         self, *, config_overrides: Optional[AsyncFMSClientConfig] = None
     ) -> None:
-        """<p>Deletes an Firewall Manager association with the IAM role and the Amazon Simple Notification Service (SNS) topic that is used to record Firewall Manager SNS logs.</p>"""
+        """<p>Deletes an Firewall Manager association with the IAM role and the Amazon Simple Notification Service (SNS) topic that is used to record Firewall Manager SNS logs.</p>
+
+        Raises:
+            aws_sdk_fms.errors.internal_error_exception.InternalErrorException: <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+            aws_sdk_fms.errors.invalid_operation_exception.InvalidOperationException: <p>The operation failed because there was nothing to do or the operation wasn't possible. For example, you might have submitted an <code>AssociateAdminAccount</code> request for an account ID that was already set as the Firewall Manager administrator. Or you might have tried to access a Region that's disabled by default, and that you need to enable for the Firewall Manager administrator account and for Organizations before you can access it.</p>
+            aws_sdk_fms.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_fms.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_fms.types.delete_notification_channel_request.DeleteNotificationChannelRequest]",
@@ -461,6 +504,14 @@ class AsyncFMSClient:
         Args:
             policy_id: <p>The ID of the policy that you want to delete. You can retrieve this ID from <code>PutPolicy</code> and <code>ListPolicies</code>.</p>
             delete_all_policy_resources: <p>If <code>True</code>, the request performs cleanup according to the policy type. </p> <p>For WAF and Shield Advanced policies, the cleanup does the following:</p> <ul> <li> <p>Deletes rule groups created by Firewall Manager</p> </li> <li> <p>Removes web ACLs from in-scope resources</p> </li> <li> <p>Deletes web ACLs that contain no rules or rule groups</p> </li> </ul> <p>For security group policies, the cleanup does the following for each security group in the policy:</p> <ul> <li> <p>Disassociates the security group from in-scope resources </p> </li> <li> <p>Deletes the security group if it was created through Firewall Manager and if it's no longer associated with any resources through another policy</p> </li> </ul> <note> <p>For security group common policies, even if set to <code>False</code>, Firewall Manager deletes all security groups created by Firewall Manager that aren't associated with any other resources through another policy.</p> </note> <p>After the cleanup, in-scope resources are no longer protected by web ACLs in this policy. Protection of out-of-scope resources remains unchanged. Scope is determined by tags that you create and accounts that you associate with the policy. When creating the policy, if you specify that only resources in specific accounts or with specific tags are in scope of the policy, those accounts and resources are handled by the policy. All others are out of scope. If you don't specify tags or accounts, all resources are in scope. </p>
+
+        Raises:
+            aws_sdk_fms.errors.internal_error_exception.InternalErrorException: <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+            aws_sdk_fms.errors.invalid_input_exception.InvalidInputException: <p>The parameters of the request were invalid.</p>
+            aws_sdk_fms.errors.invalid_operation_exception.InvalidOperationException: <p>The operation failed because there was nothing to do or the operation wasn't possible. For example, you might have submitted an <code>AssociateAdminAccount</code> request for an account ID that was already set as the Firewall Manager administrator. Or you might have tried to access a Region that's disabled by default, and that you need to enable for the Firewall Manager administrator account and for Organizations before you can access it.</p>
+            aws_sdk_fms.errors.limit_exceeded_exception.LimitExceededException: <p>The operation exceeds a resource limit, for example, the maximum number of <code>policy</code> objects that you can create for an Amazon Web Services account. For more information, see <a href=\"https://docs.aws.amazon.com/waf/latest/developerguide/fms-limits.html\">Firewall Manager Limits</a> in the <i>WAF Developer Guide</i>.</p>
+            aws_sdk_fms.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_fms.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -499,6 +550,12 @@ class AsyncFMSClient:
 
         Args:
             list_id: <p>The ID of the protocols list that you want to delete. You can retrieve this ID from <code>PutProtocolsList</code>, <code>ListProtocolsLists</code>, and <code>GetProtocolsLost</code>.</p>
+
+        Raises:
+            aws_sdk_fms.errors.internal_error_exception.InternalErrorException: <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+            aws_sdk_fms.errors.invalid_operation_exception.InvalidOperationException: <p>The operation failed because there was nothing to do or the operation wasn't possible. For example, you might have submitted an <code>AssociateAdminAccount</code> request for an account ID that was already set as the Firewall Manager administrator. Or you might have tried to access a Region that's disabled by default, and that you need to enable for the Firewall Manager administrator account and for Organizations before you can access it.</p>
+            aws_sdk_fms.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_fms.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -535,6 +592,13 @@ class AsyncFMSClient:
 
         Args:
             identifier: <p>A unique identifier for the resource set, used in a request to refer to the resource set.</p>
+
+        Raises:
+            aws_sdk_fms.errors.internal_error_exception.InternalErrorException: <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+            aws_sdk_fms.errors.invalid_input_exception.InvalidInputException: <p>The parameters of the request were invalid.</p>
+            aws_sdk_fms.errors.invalid_operation_exception.InvalidOperationException: <p>The operation failed because there was nothing to do or the operation wasn't possible. For example, you might have submitted an <code>AssociateAdminAccount</code> request for an account ID that was already set as the Firewall Manager administrator. Or you might have tried to access a Region that's disabled by default, and that you need to enable for the Firewall Manager administrator account and for Organizations before you can access it.</p>
+            aws_sdk_fms.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_fms.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -564,7 +628,14 @@ class AsyncFMSClient:
     async def disassociate_admin_account(
         self, *, config_overrides: Optional[AsyncFMSClientConfig] = None
     ) -> None:
-        """<p>Disassociates an Firewall Manager administrator account. To set a different account as an Firewall Manager administrator, submit a <a>PutAdminAccount</a> request. To set an account as a default administrator account, you must submit an <a>AssociateAdminAccount</a> request.</p> <p>Disassociation of the default administrator account follows the first in, last out principle. If you are the default administrator, all Firewall Manager administrators within the organization must first disassociate their accounts before you can disassociate your account.</p>"""
+        """<p>Disassociates an Firewall Manager administrator account. To set a different account as an Firewall Manager administrator, submit a <a>PutAdminAccount</a> request. To set an account as a default administrator account, you must submit an <a>AssociateAdminAccount</a> request.</p> <p>Disassociation of the default administrator account follows the first in, last out principle. If you are the default administrator, all Firewall Manager administrators within the organization must first disassociate their accounts before you can disassociate your account.</p>
+
+        Raises:
+            aws_sdk_fms.errors.internal_error_exception.InternalErrorException: <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+            aws_sdk_fms.errors.invalid_operation_exception.InvalidOperationException: <p>The operation failed because there was nothing to do or the operation wasn't possible. For example, you might have submitted an <code>AssociateAdminAccount</code> request for an account ID that was already set as the Firewall Manager administrator. Or you might have tried to access a Region that's disabled by default, and that you need to enable for the Firewall Manager administrator account and for Organizations before you can access it.</p>
+            aws_sdk_fms.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_fms.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_fms.types.disassociate_admin_account_request.DisassociateAdminAccountRequest]",
@@ -599,6 +670,13 @@ class AsyncFMSClient:
 
         Args:
             third_party_firewall: <p>The name of the third-party firewall vendor.</p>
+
+        Raises:
+            aws_sdk_fms.errors.internal_error_exception.InternalErrorException: <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+            aws_sdk_fms.errors.invalid_input_exception.InvalidInputException: <p>The parameters of the request were invalid.</p>
+            aws_sdk_fms.errors.invalid_operation_exception.InvalidOperationException: <p>The operation failed because there was nothing to do or the operation wasn't possible. For example, you might have submitted an <code>AssociateAdminAccount</code> request for an account ID that was already set as the Firewall Manager administrator. Or you might have tried to access a Region that's disabled by default, and that you need to enable for the Firewall Manager administrator account and for Organizations before you can access it.</p>
+            aws_sdk_fms.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_fms.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -630,7 +708,14 @@ class AsyncFMSClient:
     async def get_admin_account(
         self, *, config_overrides: Optional[AsyncFMSClientConfig] = None
     ) -> "aws_sdk_fms.types.get_admin_account_response.GetAdminAccountResponse":
-        """<p>Returns the Organizations account that is associated with Firewall Manager as the Firewall Manager default administrator.</p>"""
+        """<p>Returns the Organizations account that is associated with Firewall Manager as the Firewall Manager default administrator.</p>
+
+        Raises:
+            aws_sdk_fms.errors.internal_error_exception.InternalErrorException: <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+            aws_sdk_fms.errors.invalid_operation_exception.InvalidOperationException: <p>The operation failed because there was nothing to do or the operation wasn't possible. For example, you might have submitted an <code>AssociateAdminAccount</code> request for an account ID that was already set as the Firewall Manager administrator. Or you might have tried to access a Region that's disabled by default, and that you need to enable for the Firewall Manager administrator account and for Organizations before you can access it.</p>
+            aws_sdk_fms.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_fms.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_fms.types.get_admin_account_request.GetAdminAccountRequest]",
@@ -667,6 +752,14 @@ class AsyncFMSClient:
 
         Args:
             admin_account: <p>The administrator account that you want to get the details for.</p>
+
+        Raises:
+            aws_sdk_fms.errors.internal_error_exception.InternalErrorException: <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+            aws_sdk_fms.errors.invalid_input_exception.InvalidInputException: <p>The parameters of the request were invalid.</p>
+            aws_sdk_fms.errors.invalid_operation_exception.InvalidOperationException: <p>The operation failed because there was nothing to do or the operation wasn't possible. For example, you might have submitted an <code>AssociateAdminAccount</code> request for an account ID that was already set as the Firewall Manager administrator. Or you might have tried to access a Region that's disabled by default, and that you need to enable for the Firewall Manager administrator account and for Organizations before you can access it.</p>
+            aws_sdk_fms.errors.limit_exceeded_exception.LimitExceededException: <p>The operation exceeds a resource limit, for example, the maximum number of <code>policy</code> objects that you can create for an Amazon Web Services account. For more information, see <a href=\"https://docs.aws.amazon.com/waf/latest/developerguide/fms-limits.html\">Firewall Manager Limits</a> in the <i>WAF Developer Guide</i>.</p>
+            aws_sdk_fms.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_fms.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -707,6 +800,12 @@ class AsyncFMSClient:
         Args:
             list_id: <p>The ID of the Firewall Manager applications list that you want the details for.</p>
             default_list: <p>Specifies whether the list to retrieve is a default list owned by Firewall Manager.</p>
+
+        Raises:
+            aws_sdk_fms.errors.internal_error_exception.InternalErrorException: <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+            aws_sdk_fms.errors.invalid_operation_exception.InvalidOperationException: <p>The operation failed because there was nothing to do or the operation wasn't possible. For example, you might have submitted an <code>AssociateAdminAccount</code> request for an account ID that was already set as the Firewall Manager administrator. Or you might have tried to access a Region that's disabled by default, and that you need to enable for the Firewall Manager administrator account and for Organizations before you can access it.</p>
+            aws_sdk_fms.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_fms.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -749,6 +848,13 @@ class AsyncFMSClient:
         Args:
             policy_id: <p>The ID of the policy that you want to get the details for. <code>PolicyId</code> is returned by <code>PutPolicy</code> and by <code>ListPolicies</code>.</p>
             member_account: <p>The Amazon Web Services account that owns the resources that you want to get the details for.</p>
+
+        Raises:
+            aws_sdk_fms.errors.internal_error_exception.InternalErrorException: <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+            aws_sdk_fms.errors.invalid_input_exception.InvalidInputException: <p>The parameters of the request were invalid.</p>
+            aws_sdk_fms.errors.invalid_operation_exception.InvalidOperationException: <p>The operation failed because there was nothing to do or the operation wasn't possible. For example, you might have submitted an <code>AssociateAdminAccount</code> request for an account ID that was already set as the Firewall Manager administrator. Or you might have tried to access a Region that's disabled by default, and that you need to enable for the Firewall Manager administrator account and for Organizations before you can access it.</p>
+            aws_sdk_fms.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_fms.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -781,7 +887,14 @@ class AsyncFMSClient:
     async def get_notification_channel(
         self, *, config_overrides: Optional[AsyncFMSClientConfig] = None
     ) -> "aws_sdk_fms.types.get_notification_channel_response.GetNotificationChannelResponse":
-        """<p>Information about the Amazon Simple Notification Service (SNS) topic that is used to record Firewall Manager SNS logs.</p>"""
+        """<p>Information about the Amazon Simple Notification Service (SNS) topic that is used to record Firewall Manager SNS logs.</p>
+
+        Raises:
+            aws_sdk_fms.errors.internal_error_exception.InternalErrorException: <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+            aws_sdk_fms.errors.invalid_operation_exception.InvalidOperationException: <p>The operation failed because there was nothing to do or the operation wasn't possible. For example, you might have submitted an <code>AssociateAdminAccount</code> request for an account ID that was already set as the Firewall Manager administrator. Or you might have tried to access a Region that's disabled by default, and that you need to enable for the Firewall Manager administrator account and for Organizations before you can access it.</p>
+            aws_sdk_fms.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_fms.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_fms.types.get_notification_channel_request.GetNotificationChannelRequest]",
@@ -818,6 +931,13 @@ class AsyncFMSClient:
 
         Args:
             policy_id: <p>The ID of the Firewall Manager policy that you want the details for.</p>
+
+        Raises:
+            aws_sdk_fms.errors.internal_error_exception.InternalErrorException: <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+            aws_sdk_fms.errors.invalid_operation_exception.InvalidOperationException: <p>The operation failed because there was nothing to do or the operation wasn't possible. For example, you might have submitted an <code>AssociateAdminAccount</code> request for an account ID that was already set as the Firewall Manager administrator. Or you might have tried to access a Region that's disabled by default, and that you need to enable for the Firewall Manager administrator account and for Organizations before you can access it.</p>
+            aws_sdk_fms.errors.invalid_type_exception.InvalidTypeException: <p>The value of the <code>Type</code> parameter is invalid.</p>
+            aws_sdk_fms.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_fms.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -872,6 +992,12 @@ class AsyncFMSClient:
             end_time: <p>The end of the time period to query for the attacks. This is a <code>timestamp</code> type. The request syntax listing indicates a <code>number</code> type because the default used by Firewall Manager is Unix time in seconds. However, any valid <code>timestamp</code> format is allowed.</p>
             next_token: <p>If you specify a value for <code>MaxResults</code> and you have more objects than the number that you specify for <code>MaxResults</code>, Firewall Manager returns a <code>NextToken</code> value in the response, which you can use to retrieve another group of objects. For the second and subsequent <code>GetProtectionStatus</code> requests, specify the value of <code>NextToken</code> from the previous response to get information about another batch of objects.</p>
             max_results: <p>Specifies the number of objects that you want Firewall Manager to return for this request. If you have more objects than the number that you specify for <code>MaxResults</code>, the response includes a <code>NextToken</code> value that you can use to get another batch of objects.</p>
+
+        Raises:
+            aws_sdk_fms.errors.internal_error_exception.InternalErrorException: <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+            aws_sdk_fms.errors.invalid_input_exception.InvalidInputException: <p>The parameters of the request were invalid.</p>
+            aws_sdk_fms.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_fms.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -922,6 +1048,12 @@ class AsyncFMSClient:
         Args:
             list_id: <p>The ID of the Firewall Manager protocols list that you want the details for.</p>
             default_list: <p>Specifies whether the list to retrieve is a default list owned by Firewall Manager.</p>
+
+        Raises:
+            aws_sdk_fms.errors.internal_error_exception.InternalErrorException: <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+            aws_sdk_fms.errors.invalid_operation_exception.InvalidOperationException: <p>The operation failed because there was nothing to do or the operation wasn't possible. For example, you might have submitted an <code>AssociateAdminAccount</code> request for an account ID that was already set as the Firewall Manager administrator. Or you might have tried to access a Region that's disabled by default, and that you need to enable for the Firewall Manager administrator account and for Organizations before you can access it.</p>
+            aws_sdk_fms.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_fms.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -962,6 +1094,13 @@ class AsyncFMSClient:
 
         Args:
             identifier: <p>A unique identifier for the resource set, used in a request to refer to the resource set.</p>
+
+        Raises:
+            aws_sdk_fms.errors.internal_error_exception.InternalErrorException: <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+            aws_sdk_fms.errors.invalid_input_exception.InvalidInputException: <p>The parameters of the request were invalid.</p>
+            aws_sdk_fms.errors.invalid_operation_exception.InvalidOperationException: <p>The operation failed because there was nothing to do or the operation wasn't possible. For example, you might have submitted an <code>AssociateAdminAccount</code> request for an account ID that was already set as the Firewall Manager administrator. Or you might have tried to access a Region that's disabled by default, and that you need to enable for the Firewall Manager administrator account and for Organizations before you can access it.</p>
+            aws_sdk_fms.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_fms.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1000,6 +1139,13 @@ class AsyncFMSClient:
 
         Args:
             third_party_firewall: <p>The name of the third-party firewall vendor.</p>
+
+        Raises:
+            aws_sdk_fms.errors.internal_error_exception.InternalErrorException: <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+            aws_sdk_fms.errors.invalid_input_exception.InvalidInputException: <p>The parameters of the request were invalid.</p>
+            aws_sdk_fms.errors.invalid_operation_exception.InvalidOperationException: <p>The operation failed because there was nothing to do or the operation wasn't possible. For example, you might have submitted an <code>AssociateAdminAccount</code> request for an account ID that was already set as the Firewall Manager administrator. Or you might have tried to access a Region that's disabled by default, and that you need to enable for the Firewall Manager administrator account and for Organizations before you can access it.</p>
+            aws_sdk_fms.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_fms.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1044,6 +1190,12 @@ class AsyncFMSClient:
             member_account: <p>The Amazon Web Services account ID that you want the details for.</p>
             resource_id: <p>The ID of the resource that has violations.</p>
             resource_type: <p>The resource type. This is in the format shown in the <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html\">Amazon Web Services Resource Types Reference</a>. Supported resource types are: <code>AWS::WAFv2::WebACL</code>, <code>AWS::EC2::Instance</code>, <code>AWS::EC2::NetworkInterface</code>, <code>AWS::EC2::SecurityGroup</code>, <code>AWS::NetworkFirewall::FirewallPolicy</code>, and <code>AWS::EC2::Subnet</code>. </p>
+
+        Raises:
+            aws_sdk_fms.errors.internal_error_exception.InternalErrorException: <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+            aws_sdk_fms.errors.invalid_input_exception.InvalidInputException: <p>The parameters of the request were invalid.</p>
+            aws_sdk_fms.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_fms.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1091,6 +1243,13 @@ class AsyncFMSClient:
         Args:
             next_token: <p>When you request a list of objects with a <code>MaxResults</code> setting, if the number of objects that are still available for retrieval exceeds the maximum you requested, Firewall Manager returns a <code>NextToken</code> value in the response. To retrieve the next batch of objects, use the token returned from the prior request in your next request.</p>
             max_results: <p>The maximum number of objects that you want Firewall Manager to return for this request. If more objects are available, in the response, Firewall Manager provides a <code>NextToken</code> value that you can use in a subsequent call to get the next batch of objects.</p>
+
+        Raises:
+            aws_sdk_fms.errors.internal_error_exception.InternalErrorException: <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+            aws_sdk_fms.errors.invalid_operation_exception.InvalidOperationException: <p>The operation failed because there was nothing to do or the operation wasn't possible. For example, you might have submitted an <code>AssociateAdminAccount</code> request for an account ID that was already set as the Firewall Manager administrator. Or you might have tried to access a Region that's disabled by default, and that you need to enable for the Firewall Manager administrator account and for Organizations before you can access it.</p>
+            aws_sdk_fms.errors.limit_exceeded_exception.LimitExceededException: <p>The operation exceeds a resource limit, for example, the maximum number of <code>policy</code> objects that you can create for an Amazon Web Services account. For more information, see <a href=\"https://docs.aws.amazon.com/waf/latest/developerguide/fms-limits.html\">Firewall Manager Limits</a> in the <i>WAF Developer Guide</i>.</p>
+            aws_sdk_fms.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_fms.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1163,6 +1322,12 @@ class AsyncFMSClient:
         Args:
             next_token: <p>When you request a list of objects with a <code>MaxResults</code> setting, if the number of objects that are still available for retrieval exceeds the maximum you requested, Firewall Manager returns a <code>NextToken</code> value in the response. To retrieve the next batch of objects, use the token returned from the prior request in your next request.</p>
             max_results: <p>The maximum number of objects that you want Firewall Manager to return for this request. If more objects are available, in the response, Firewall Manager provides a <code>NextToken</code> value that you can use in a subsequent call to get the next batch of objects.</p>
+
+        Raises:
+            aws_sdk_fms.errors.internal_error_exception.InternalErrorException: <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+            aws_sdk_fms.errors.invalid_input_exception.InvalidInputException: <p>The parameters of the request were invalid.</p>
+            aws_sdk_fms.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_fms.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1235,6 +1400,13 @@ class AsyncFMSClient:
             default_lists: <p>Specifies whether the lists to retrieve are default lists owned by Firewall Manager.</p>
             next_token: <p>If you specify a value for <code>MaxResults</code> in your list request, and you have more objects than the maximum, Firewall Manager returns this token in the response. For all but the first request, you provide the token returned by the prior request in the request parameters, to retrieve the next batch of objects.</p>
             max_results: <p>The maximum number of objects that you want Firewall Manager to return for this request. If more objects are available, in the response, Firewall Manager provides a <code>NextToken</code> value that you can use in a subsequent call to get the next batch of objects.</p> <p>If you don't specify this, Firewall Manager returns all available objects.</p>
+
+        Raises:
+            aws_sdk_fms.errors.internal_error_exception.InternalErrorException: <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+            aws_sdk_fms.errors.invalid_operation_exception.InvalidOperationException: <p>The operation failed because there was nothing to do or the operation wasn't possible. For example, you might have submitted an <code>AssociateAdminAccount</code> request for an account ID that was already set as the Firewall Manager administrator. Or you might have tried to access a Region that's disabled by default, and that you need to enable for the Firewall Manager administrator account and for Organizations before you can access it.</p>
+            aws_sdk_fms.errors.limit_exceeded_exception.LimitExceededException: <p>The operation exceeds a resource limit, for example, the maximum number of <code>policy</code> objects that you can create for an Amazon Web Services account. For more information, see <a href=\"https://docs.aws.amazon.com/waf/latest/developerguide/fms-limits.html\">Firewall Manager Limits</a> in the <i>WAF Developer Guide</i>.</p>
+            aws_sdk_fms.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_fms.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1312,6 +1484,11 @@ class AsyncFMSClient:
             policy_id: <p>The ID of the Firewall Manager policy that you want the details for.</p>
             next_token: <p>If you specify a value for <code>MaxResults</code> and you have more <code>PolicyComplianceStatus</code> objects than the number that you specify for <code>MaxResults</code>, Firewall Manager returns a <code>NextToken</code> value in the response that allows you to list another group of <code>PolicyComplianceStatus</code> objects. For the second and subsequent <code>ListComplianceStatus</code> requests, specify the value of <code>NextToken</code> from the previous response to get information about another batch of <code>PolicyComplianceStatus</code> objects.</p>
             max_results: <p>Specifies the number of <code>PolicyComplianceStatus</code> objects that you want Firewall Manager to return for this request. If you have more <code>PolicyComplianceStatus</code> objects than the number that you specify for <code>MaxResults</code>, the response includes a <code>NextToken</code> value that you can use to get another batch of <code>PolicyComplianceStatus</code> objects.</p>
+
+        Raises:
+            aws_sdk_fms.errors.internal_error_exception.InternalErrorException: <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+            aws_sdk_fms.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_fms.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1391,6 +1568,12 @@ class AsyncFMSClient:
             resource_type: <p>The type of resources to discover.</p>
             max_results: <p>The maximum number of objects that you want Firewall Manager to return for this request. If more objects are available, in the response, Firewall Manager provides a <code>NextToken</code> value that you can use in a subsequent call to get the next batch of objects.</p>
             next_token: <p>When you request a list of objects with a <code>MaxResults</code> setting, if the number of objects that are still available for retrieval exceeds the maximum you requested, Firewall Manager returns a <code>NextToken</code> value in the response. To retrieve the next batch of objects, use the token returned from the prior request in your next request.</p>
+
+        Raises:
+            aws_sdk_fms.errors.internal_error_exception.InternalErrorException: <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+            aws_sdk_fms.errors.invalid_input_exception.InvalidInputException: <p>The parameters of the request were invalid.</p>
+            aws_sdk_fms.errors.invalid_operation_exception.InvalidOperationException: <p>The operation failed because there was nothing to do or the operation wasn't possible. For example, you might have submitted an <code>AssociateAdminAccount</code> request for an account ID that was already set as the Firewall Manager administrator. Or you might have tried to access a Region that's disabled by default, and that you need to enable for the Firewall Manager administrator account and for Organizations before you can access it.</p>
+            aws_sdk_fms.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1440,6 +1623,11 @@ class AsyncFMSClient:
         Args:
             next_token: <p>If you specify a value for <code>MaxResults</code> and you have more account IDs than the number that you specify for <code>MaxResults</code>, Firewall Manager returns a <code>NextToken</code> value in the response that allows you to list another group of IDs. For the second and subsequent <code>ListMemberAccountsRequest</code> requests, specify the value of <code>NextToken</code> from the previous response to get information about another batch of member account IDs.</p>
             max_results: <p>Specifies the number of member account IDs that you want Firewall Manager to return for this request. If you have more IDs than the number that you specify for <code>MaxResults</code>, the response includes a <code>NextToken</code> value that you can use to get another batch of member account IDs.</p>
+
+        Raises:
+            aws_sdk_fms.errors.internal_error_exception.InternalErrorException: <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+            aws_sdk_fms.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_fms.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1512,6 +1700,13 @@ class AsyncFMSClient:
         Args:
             next_token: <p>If you specify a value for <code>MaxResults</code> and you have more <code>PolicySummary</code> objects than the number that you specify for <code>MaxResults</code>, Firewall Manager returns a <code>NextToken</code> value in the response that allows you to list another group of <code>PolicySummary</code> objects. For the second and subsequent <code>ListPolicies</code> requests, specify the value of <code>NextToken</code> from the previous response to get information about another batch of <code>PolicySummary</code> objects.</p>
             max_results: <p>Specifies the number of <code>PolicySummary</code> objects that you want Firewall Manager to return for this request. If you have more <code>PolicySummary</code> objects than the number that you specify for <code>MaxResults</code>, the response includes a <code>NextToken</code> value that you can use to get another batch of <code>PolicySummary</code> objects.</p>
+
+        Raises:
+            aws_sdk_fms.errors.internal_error_exception.InternalErrorException: <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+            aws_sdk_fms.errors.invalid_operation_exception.InvalidOperationException: <p>The operation failed because there was nothing to do or the operation wasn't possible. For example, you might have submitted an <code>AssociateAdminAccount</code> request for an account ID that was already set as the Firewall Manager administrator. Or you might have tried to access a Region that's disabled by default, and that you need to enable for the Firewall Manager administrator account and for Organizations before you can access it.</p>
+            aws_sdk_fms.errors.limit_exceeded_exception.LimitExceededException: <p>The operation exceeds a resource limit, for example, the maximum number of <code>policy</code> objects that you can create for an Amazon Web Services account. For more information, see <a href=\"https://docs.aws.amazon.com/waf/latest/developerguide/fms-limits.html\">Firewall Manager Limits</a> in the <i>WAF Developer Guide</i>.</p>
+            aws_sdk_fms.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_fms.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1584,6 +1779,12 @@ class AsyncFMSClient:
             default_lists: <p>Specifies whether the lists to retrieve are default lists owned by Firewall Manager.</p>
             next_token: <p>If you specify a value for <code>MaxResults</code> in your list request, and you have more objects than the maximum, Firewall Manager returns this token in the response. For all but the first request, you provide the token returned by the prior request in the request parameters, to retrieve the next batch of objects.</p>
             max_results: <p>The maximum number of objects that you want Firewall Manager to return for this request. If more objects are available, in the response, Firewall Manager provides a <code>NextToken</code> value that you can use in a subsequent call to get the next batch of objects.</p> <p>If you don't specify this, Firewall Manager returns all available objects.</p>
+
+        Raises:
+            aws_sdk_fms.errors.internal_error_exception.InternalErrorException: <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+            aws_sdk_fms.errors.invalid_operation_exception.InvalidOperationException: <p>The operation failed because there was nothing to do or the operation wasn't possible. For example, you might have submitted an <code>AssociateAdminAccount</code> request for an account ID that was already set as the Firewall Manager administrator. Or you might have tried to access a Region that's disabled by default, and that you need to enable for the Firewall Manager administrator account and for Organizations before you can access it.</p>
+            aws_sdk_fms.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_fms.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1659,6 +1860,13 @@ class AsyncFMSClient:
             identifier: <p>A unique identifier for the resource set, used in a request to refer to the resource set.</p>
             max_results: <p>The maximum number of objects that you want Firewall Manager to return for this request. If more objects are available, in the response, Firewall Manager provides a <code>NextToken</code> value that you can use in a subsequent call to get the next batch of objects.</p>
             next_token: <p>When you request a list of objects with a <code>MaxResults</code> setting, if the number of objects that are still available for retrieval exceeds the maximum you requested, Firewall Manager returns a <code>NextToken</code> value in the response. To retrieve the next batch of objects, use the token returned from the prior request in your next request.</p>
+
+        Raises:
+            aws_sdk_fms.errors.internal_error_exception.InternalErrorException: <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+            aws_sdk_fms.errors.invalid_input_exception.InvalidInputException: <p>The parameters of the request were invalid.</p>
+            aws_sdk_fms.errors.invalid_operation_exception.InvalidOperationException: <p>The operation failed because there was nothing to do or the operation wasn't possible. For example, you might have submitted an <code>AssociateAdminAccount</code> request for an account ID that was already set as the Firewall Manager administrator. Or you might have tried to access a Region that's disabled by default, and that you need to enable for the Firewall Manager administrator account and for Organizations before you can access it.</p>
+            aws_sdk_fms.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_fms.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1707,6 +1915,12 @@ class AsyncFMSClient:
         Args:
             next_token: <p>When you request a list of objects with a <code>MaxResults</code> setting, if the number of objects that are still available for retrieval exceeds the maximum you requested, Firewall Manager returns a <code>NextToken</code> value in the response. To retrieve the next batch of objects, use the token returned from the prior request in your next request.</p>
             max_results: <p>The maximum number of objects that you want Firewall Manager to return for this request. If more objects are available, in the response, Firewall Manager provides a <code>NextToken</code> value that you can use in a subsequent call to get the next batch of objects.</p>
+
+        Raises:
+            aws_sdk_fms.errors.internal_error_exception.InternalErrorException: <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+            aws_sdk_fms.errors.invalid_input_exception.InvalidInputException: <p>The parameters of the request were invalid.</p>
+            aws_sdk_fms.errors.invalid_operation_exception.InvalidOperationException: <p>The operation failed because there was nothing to do or the operation wasn't possible. For example, you might have submitted an <code>AssociateAdminAccount</code> request for an account ID that was already set as the Firewall Manager administrator. Or you might have tried to access a Region that's disabled by default, and that you need to enable for the Firewall Manager administrator account and for Organizations before you can access it.</p>
+            aws_sdk_fms.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1750,6 +1964,13 @@ class AsyncFMSClient:
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource to return tags for. The Firewall Manager resources that support tagging are policies, applications lists, and protocols lists. </p>
+
+        Raises:
+            aws_sdk_fms.errors.internal_error_exception.InternalErrorException: <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+            aws_sdk_fms.errors.invalid_input_exception.InvalidInputException: <p>The parameters of the request were invalid.</p>
+            aws_sdk_fms.errors.invalid_operation_exception.InvalidOperationException: <p>The operation failed because there was nothing to do or the operation wasn't possible. For example, you might have submitted an <code>AssociateAdminAccount</code> request for an account ID that was already set as the Firewall Manager administrator. Or you might have tried to access a Region that's disabled by default, and that you need to enable for the Firewall Manager administrator account and for Organizations before you can access it.</p>
+            aws_sdk_fms.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_fms.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1794,6 +2015,13 @@ class AsyncFMSClient:
             third_party_firewall: <p>The name of the third-party firewall vendor.</p>
             next_token: <p>If the previous response included a <code>NextToken</code> element, the specified third-party firewall vendor is associated with more third-party firewall policies. To get more third-party firewall policies, submit another <code>ListThirdPartyFirewallFirewallPoliciesRequest</code> request.</p> <p> For the value of <code>NextToken</code>, specify the value of <code>NextToken</code> from the previous response. If the previous response didn't include a <code>NextToken</code> element, there are no more third-party firewall policies to get. </p>
             max_results: <p>The maximum number of third-party firewall policies that you want Firewall Manager to return. If the specified third-party firewall vendor is associated with more than <code>MaxResults</code> firewall policies, the response includes a <code>NextToken</code> element. <code>NextToken</code> contains an encrypted token that identifies the first third-party firewall policies that Firewall Manager will return if you submit another request.</p>
+
+        Raises:
+            aws_sdk_fms.errors.internal_error_exception.InternalErrorException: <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+            aws_sdk_fms.errors.invalid_input_exception.InvalidInputException: <p>The parameters of the request were invalid.</p>
+            aws_sdk_fms.errors.invalid_operation_exception.InvalidOperationException: <p>The operation failed because there was nothing to do or the operation wasn't possible. For example, you might have submitted an <code>AssociateAdminAccount</code> request for an account ID that was already set as the Firewall Manager administrator. Or you might have tried to access a Region that's disabled by default, and that you need to enable for the Firewall Manager administrator account and for Organizations before you can access it.</p>
+            aws_sdk_fms.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_fms.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1864,6 +2092,13 @@ class AsyncFMSClient:
         Args:
             admin_account: <p>The Amazon Web Services account ID to add as an Firewall Manager administrator account. The account must be a member of the organization that was onboarded to Firewall Manager by <a>AssociateAdminAccount</a>. For more information about Organizations, see <a href=\"https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts.html\">Managing the Amazon Web Services Accounts in Your Organization</a>.</p>
             admin_scope: <p>Configures the resources that the specified Firewall Manager administrator can manage. As a best practice, set the administrative scope according to the principles of least privilege. Only grant the administrator the specific resources or permissions that they need to perform the duties of their role.</p>
+
+        Raises:
+            aws_sdk_fms.errors.internal_error_exception.InternalErrorException: <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+            aws_sdk_fms.errors.invalid_input_exception.InvalidInputException: <p>The parameters of the request were invalid.</p>
+            aws_sdk_fms.errors.invalid_operation_exception.InvalidOperationException: <p>The operation failed because there was nothing to do or the operation wasn't possible. For example, you might have submitted an <code>AssociateAdminAccount</code> request for an account ID that was already set as the Firewall Manager administrator. Or you might have tried to access a Region that's disabled by default, and that you need to enable for the Firewall Manager administrator account and for Organizations before you can access it.</p>
+            aws_sdk_fms.errors.limit_exceeded_exception.LimitExceededException: <p>The operation exceeds a resource limit, for example, the maximum number of <code>policy</code> objects that you can create for an Amazon Web Services account. For more information, see <a href=\"https://docs.aws.amazon.com/waf/latest/developerguide/fms-limits.html\">Firewall Manager Limits</a> in the <i>WAF Developer Guide</i>.</p>
+            aws_sdk_fms.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1904,6 +2139,14 @@ class AsyncFMSClient:
         Args:
             apps_list: <p>The details of the Firewall Manager applications list to be created.</p>
             tag_list: <p>The tags associated with the resource.</p>
+
+        Raises:
+            aws_sdk_fms.errors.internal_error_exception.InternalErrorException: <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+            aws_sdk_fms.errors.invalid_input_exception.InvalidInputException: <p>The parameters of the request were invalid.</p>
+            aws_sdk_fms.errors.invalid_operation_exception.InvalidOperationException: <p>The operation failed because there was nothing to do or the operation wasn't possible. For example, you might have submitted an <code>AssociateAdminAccount</code> request for an account ID that was already set as the Firewall Manager administrator. Or you might have tried to access a Region that's disabled by default, and that you need to enable for the Firewall Manager administrator account and for Organizations before you can access it.</p>
+            aws_sdk_fms.errors.limit_exceeded_exception.LimitExceededException: <p>The operation exceeds a resource limit, for example, the maximum number of <code>policy</code> objects that you can create for an Amazon Web Services account. For more information, see <a href=\"https://docs.aws.amazon.com/waf/latest/developerguide/fms-limits.html\">Firewall Manager Limits</a> in the <i>WAF Developer Guide</i>.</p>
+            aws_sdk_fms.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_fms.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1946,6 +2189,12 @@ class AsyncFMSClient:
         Args:
             sns_topic_arn: <p>The Amazon Resource Name (ARN) of the SNS topic that collects notifications from Firewall Manager.</p>
             sns_role_name: <p>The Amazon Resource Name (ARN) of the IAM role that allows Amazon SNS to record Firewall Manager activity. </p>
+
+        Raises:
+            aws_sdk_fms.errors.internal_error_exception.InternalErrorException: <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+            aws_sdk_fms.errors.invalid_operation_exception.InvalidOperationException: <p>The operation failed because there was nothing to do or the operation wasn't possible. For example, you might have submitted an <code>AssociateAdminAccount</code> request for an account ID that was already set as the Firewall Manager administrator. Or you might have tried to access a Region that's disabled by default, and that you need to enable for the Firewall Manager administrator account and for Organizations before you can access it.</p>
+            aws_sdk_fms.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_fms.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1985,6 +2234,15 @@ class AsyncFMSClient:
         Args:
             policy: <p>The details of the Firewall Manager policy to be created.</p>
             tag_list: <p>The tags to add to the Amazon Web Services resource.</p>
+
+        Raises:
+            aws_sdk_fms.errors.internal_error_exception.InternalErrorException: <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+            aws_sdk_fms.errors.invalid_input_exception.InvalidInputException: <p>The parameters of the request were invalid.</p>
+            aws_sdk_fms.errors.invalid_operation_exception.InvalidOperationException: <p>The operation failed because there was nothing to do or the operation wasn't possible. For example, you might have submitted an <code>AssociateAdminAccount</code> request for an account ID that was already set as the Firewall Manager administrator. Or you might have tried to access a Region that's disabled by default, and that you need to enable for the Firewall Manager administrator account and for Organizations before you can access it.</p>
+            aws_sdk_fms.errors.invalid_type_exception.InvalidTypeException: <p>The value of the <code>Type</code> parameter is invalid.</p>
+            aws_sdk_fms.errors.limit_exceeded_exception.LimitExceededException: <p>The operation exceeds a resource limit, for example, the maximum number of <code>policy</code> objects that you can create for an Amazon Web Services account. For more information, see <a href=\"https://docs.aws.amazon.com/waf/latest/developerguide/fms-limits.html\">Firewall Manager Limits</a> in the <i>WAF Developer Guide</i>.</p>
+            aws_sdk_fms.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_fms.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2027,6 +2285,14 @@ class AsyncFMSClient:
         Args:
             protocols_list: <p>The details of the Firewall Manager protocols list to be created.</p>
             tag_list: <p>The tags associated with the resource.</p>
+
+        Raises:
+            aws_sdk_fms.errors.internal_error_exception.InternalErrorException: <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+            aws_sdk_fms.errors.invalid_input_exception.InvalidInputException: <p>The parameters of the request were invalid.</p>
+            aws_sdk_fms.errors.invalid_operation_exception.InvalidOperationException: <p>The operation failed because there was nothing to do or the operation wasn't possible. For example, you might have submitted an <code>AssociateAdminAccount</code> request for an account ID that was already set as the Firewall Manager administrator. Or you might have tried to access a Region that's disabled by default, and that you need to enable for the Firewall Manager administrator account and for Organizations before you can access it.</p>
+            aws_sdk_fms.errors.limit_exceeded_exception.LimitExceededException: <p>The operation exceeds a resource limit, for example, the maximum number of <code>policy</code> objects that you can create for an Amazon Web Services account. For more information, see <a href=\"https://docs.aws.amazon.com/waf/latest/developerguide/fms-limits.html\">Firewall Manager Limits</a> in the <i>WAF Developer Guide</i>.</p>
+            aws_sdk_fms.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_fms.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2069,6 +2335,13 @@ class AsyncFMSClient:
         Args:
             resource_set: <p>Details about the resource set to be created or updated.></p>
             tag_list: <p>Retrieves the tags associated with the specified resource set. Tags are key:value pairs that you can use to categorize and manage your resources, for purposes like billing. For example, you might set the tag key to \"customer\" and the value to the customer name or ID. You can specify one or more tags to add to each Amazon Web Services resource, up to 50 tags for a resource.</p>
+
+        Raises:
+            aws_sdk_fms.errors.internal_error_exception.InternalErrorException: <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+            aws_sdk_fms.errors.invalid_input_exception.InvalidInputException: <p>The parameters of the request were invalid.</p>
+            aws_sdk_fms.errors.invalid_operation_exception.InvalidOperationException: <p>The operation failed because there was nothing to do or the operation wasn't possible. For example, you might have submitted an <code>AssociateAdminAccount</code> request for an account ID that was already set as the Firewall Manager administrator. Or you might have tried to access a Region that's disabled by default, and that you need to enable for the Firewall Manager administrator account and for Organizations before you can access it.</p>
+            aws_sdk_fms.errors.limit_exceeded_exception.LimitExceededException: <p>The operation exceeds a resource limit, for example, the maximum number of <code>policy</code> objects that you can create for an Amazon Web Services account. For more information, see <a href=\"https://docs.aws.amazon.com/waf/latest/developerguide/fms-limits.html\">Firewall Manager Limits</a> in the <i>WAF Developer Guide</i>.</p>
+            aws_sdk_fms.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2111,6 +2384,14 @@ class AsyncFMSClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource to return tags for. The Firewall Manager resources that support tagging are policies, applications lists, and protocols lists. </p>
             tag_list: <p>The tags to add to the resource.</p>
+
+        Raises:
+            aws_sdk_fms.errors.internal_error_exception.InternalErrorException: <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+            aws_sdk_fms.errors.invalid_input_exception.InvalidInputException: <p>The parameters of the request were invalid.</p>
+            aws_sdk_fms.errors.invalid_operation_exception.InvalidOperationException: <p>The operation failed because there was nothing to do or the operation wasn't possible. For example, you might have submitted an <code>AssociateAdminAccount</code> request for an account ID that was already set as the Firewall Manager administrator. Or you might have tried to access a Region that's disabled by default, and that you need to enable for the Firewall Manager administrator account and for Organizations before you can access it.</p>
+            aws_sdk_fms.errors.limit_exceeded_exception.LimitExceededException: <p>The operation exceeds a resource limit, for example, the maximum number of <code>policy</code> objects that you can create for an Amazon Web Services account. For more information, see <a href=\"https://docs.aws.amazon.com/waf/latest/developerguide/fms-limits.html\">Firewall Manager Limits</a> in the <i>WAF Developer Guide</i>.</p>
+            aws_sdk_fms.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_fms.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2152,6 +2433,13 @@ class AsyncFMSClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource to return tags for. The Firewall Manager resources that support tagging are policies, applications lists, and protocols lists. </p>
             tag_keys: <p>The keys of the tags to remove from the resource. </p>
+
+        Raises:
+            aws_sdk_fms.errors.internal_error_exception.InternalErrorException: <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+            aws_sdk_fms.errors.invalid_input_exception.InvalidInputException: <p>The parameters of the request were invalid.</p>
+            aws_sdk_fms.errors.invalid_operation_exception.InvalidOperationException: <p>The operation failed because there was nothing to do or the operation wasn't possible. For example, you might have submitted an <code>AssociateAdminAccount</code> request for an account ID that was already set as the Firewall Manager administrator. Or you might have tried to access a Region that's disabled by default, and that you need to enable for the Firewall Manager administrator account and for Organizations before you can access it.</p>
+            aws_sdk_fms.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_fms.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

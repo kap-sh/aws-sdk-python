@@ -68,6 +68,16 @@ class ConnectorResource:
             vpc_endpoint_id: <p>If you don't supply a value, by default Connector for SCEP creates a connector accessible over the public internet. If you provide a VPC endpoint ID, creates a connector accessible only through that specific VPC endpoint.</p>
             client_token: <p>Custom string that can be used to distinguish between calls to the <a href=\"https://docs.aws.amazon.com/pca-connector-scep/latest/APIReference/API_CreateChallenge.html\">CreateChallenge</a> action. Client tokens for <code>CreateChallenge</code> time out after five minutes. Therefore, if you call <code>CreateChallenge</code> multiple times with the same client token within five minutes, Connector for SCEP recognizes that you are requesting only one challenge and will only respond with one. If you change the client token for each call, Connector for SCEP recognizes that you are requesting multiple challenge passwords.</p>
             tags: <p>The key-value pairs to associate with the resource.</p>
+
+        Raises:
+            aws_sdk_pca_connector_scep.errors.access_denied_exception.AccessDeniedException: <p>You can receive this error if you attempt to perform an operation and you don't have the required permissions. This can be caused by insufficient permissions in policies attached to your Amazon Web Services Identity and Access Management (IAM) principal. It can also happen because of restrictions in place from an Amazon Web Services Organizations service control policy (SCP) that affects your Amazon Web Services account.</p>
+            aws_sdk_pca_connector_scep.errors.conflict_exception.ConflictException: <p>This request can't be completed for one of the following reasons because the requested resource was being concurrently modified by another request.</p>
+            aws_sdk_pca_connector_scep.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure with an internal server.</p>
+            aws_sdk_pca_connector_scep.errors.resource_not_found_exception.ResourceNotFoundException: <p>The operation tried to access a nonexistent resource. The resource might be incorrectly specified, or it might have a status other than <code>ACTIVE</code>.</p>
+            aws_sdk_pca_connector_scep.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request would cause a service quota to be exceeded.</p>
+            aws_sdk_pca_connector_scep.errors.throttling_exception.ThrottlingException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_pca_connector_scep.errors.validation_exception.ValidationException: <p>An input validation error occurred. For example, invalid characters in a name tag, or an invalid pagination token.</p>
+            aws_sdk_pca_connector_scep.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -113,6 +123,14 @@ class ConnectorResource:
 
         Args:
             connector_arn: <p>The Amazon Resource Name (ARN) of the connector.</p>
+
+        Raises:
+            aws_sdk_pca_connector_scep.errors.access_denied_exception.AccessDeniedException: <p>You can receive this error if you attempt to perform an operation and you don't have the required permissions. This can be caused by insufficient permissions in policies attached to your Amazon Web Services Identity and Access Management (IAM) principal. It can also happen because of restrictions in place from an Amazon Web Services Organizations service control policy (SCP) that affects your Amazon Web Services account.</p>
+            aws_sdk_pca_connector_scep.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure with an internal server.</p>
+            aws_sdk_pca_connector_scep.errors.resource_not_found_exception.ResourceNotFoundException: <p>The operation tried to access a nonexistent resource. The resource might be incorrectly specified, or it might have a status other than <code>ACTIVE</code>.</p>
+            aws_sdk_pca_connector_scep.errors.throttling_exception.ThrottlingException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_pca_connector_scep.errors.validation_exception.ValidationException: <p>An input validation error occurred. For example, invalid characters in a name tag, or an invalid pagination token.</p>
+            aws_sdk_pca_connector_scep.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -150,6 +168,15 @@ class ConnectorResource:
 
         Args:
             connector_arn: <p>The Amazon Resource Name (ARN) of the connector to delete.</p>
+
+        Raises:
+            aws_sdk_pca_connector_scep.errors.access_denied_exception.AccessDeniedException: <p>You can receive this error if you attempt to perform an operation and you don't have the required permissions. This can be caused by insufficient permissions in policies attached to your Amazon Web Services Identity and Access Management (IAM) principal. It can also happen because of restrictions in place from an Amazon Web Services Organizations service control policy (SCP) that affects your Amazon Web Services account.</p>
+            aws_sdk_pca_connector_scep.errors.conflict_exception.ConflictException: <p>This request can't be completed for one of the following reasons because the requested resource was being concurrently modified by another request.</p>
+            aws_sdk_pca_connector_scep.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure with an internal server.</p>
+            aws_sdk_pca_connector_scep.errors.resource_not_found_exception.ResourceNotFoundException: <p>The operation tried to access a nonexistent resource. The resource might be incorrectly specified, or it might have a status other than <code>ACTIVE</code>.</p>
+            aws_sdk_pca_connector_scep.errors.throttling_exception.ThrottlingException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_pca_connector_scep.errors.validation_exception.ValidationException: <p>An input validation error occurred. For example, invalid characters in a name tag, or an invalid pagination token.</p>
+            aws_sdk_pca_connector_scep.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -191,6 +218,13 @@ class ConnectorResource:
         Args:
             max_results: <p>The maximum number of objects that you want Connector for SCEP to return for this request. If more objects are available, in the response, Connector for SCEP provides a <code>NextToken</code> value that you can use in a subsequent call to get the next batch of objects.</p>
             next_token: <p>When you request a list of objects with a <code>MaxResults</code> setting, if the number of objects that are still available for retrieval exceeds the maximum you requested, Connector for SCEP returns a <code>NextToken</code> value in the response. To retrieve the next batch of objects, use the token returned from the prior request in your next request.</p>
+
+        Raises:
+            aws_sdk_pca_connector_scep.errors.access_denied_exception.AccessDeniedException: <p>You can receive this error if you attempt to perform an operation and you don't have the required permissions. This can be caused by insufficient permissions in policies attached to your Amazon Web Services Identity and Access Management (IAM) principal. It can also happen because of restrictions in place from an Amazon Web Services Organizations service control policy (SCP) that affects your Amazon Web Services account.</p>
+            aws_sdk_pca_connector_scep.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure with an internal server.</p>
+            aws_sdk_pca_connector_scep.errors.throttling_exception.ThrottlingException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_pca_connector_scep.errors.validation_exception.ValidationException: <p>An input validation error occurred. For example, invalid characters in a name tag, or an invalid pagination token.</p>
+            aws_sdk_pca_connector_scep.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -250,6 +284,16 @@ class AsyncConnectorResource:
             vpc_endpoint_id: <p>If you don't supply a value, by default Connector for SCEP creates a connector accessible over the public internet. If you provide a VPC endpoint ID, creates a connector accessible only through that specific VPC endpoint.</p>
             client_token: <p>Custom string that can be used to distinguish between calls to the <a href=\"https://docs.aws.amazon.com/pca-connector-scep/latest/APIReference/API_CreateChallenge.html\">CreateChallenge</a> action. Client tokens for <code>CreateChallenge</code> time out after five minutes. Therefore, if you call <code>CreateChallenge</code> multiple times with the same client token within five minutes, Connector for SCEP recognizes that you are requesting only one challenge and will only respond with one. If you change the client token for each call, Connector for SCEP recognizes that you are requesting multiple challenge passwords.</p>
             tags: <p>The key-value pairs to associate with the resource.</p>
+
+        Raises:
+            aws_sdk_pca_connector_scep.errors.access_denied_exception.AccessDeniedException: <p>You can receive this error if you attempt to perform an operation and you don't have the required permissions. This can be caused by insufficient permissions in policies attached to your Amazon Web Services Identity and Access Management (IAM) principal. It can also happen because of restrictions in place from an Amazon Web Services Organizations service control policy (SCP) that affects your Amazon Web Services account.</p>
+            aws_sdk_pca_connector_scep.errors.conflict_exception.ConflictException: <p>This request can't be completed for one of the following reasons because the requested resource was being concurrently modified by another request.</p>
+            aws_sdk_pca_connector_scep.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure with an internal server.</p>
+            aws_sdk_pca_connector_scep.errors.resource_not_found_exception.ResourceNotFoundException: <p>The operation tried to access a nonexistent resource. The resource might be incorrectly specified, or it might have a status other than <code>ACTIVE</code>.</p>
+            aws_sdk_pca_connector_scep.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request would cause a service quota to be exceeded.</p>
+            aws_sdk_pca_connector_scep.errors.throttling_exception.ThrottlingException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_pca_connector_scep.errors.validation_exception.ValidationException: <p>An input validation error occurred. For example, invalid characters in a name tag, or an invalid pagination token.</p>
+            aws_sdk_pca_connector_scep.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -296,6 +340,14 @@ class AsyncConnectorResource:
 
         Args:
             connector_arn: <p>The Amazon Resource Name (ARN) of the connector.</p>
+
+        Raises:
+            aws_sdk_pca_connector_scep.errors.access_denied_exception.AccessDeniedException: <p>You can receive this error if you attempt to perform an operation and you don't have the required permissions. This can be caused by insufficient permissions in policies attached to your Amazon Web Services Identity and Access Management (IAM) principal. It can also happen because of restrictions in place from an Amazon Web Services Organizations service control policy (SCP) that affects your Amazon Web Services account.</p>
+            aws_sdk_pca_connector_scep.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure with an internal server.</p>
+            aws_sdk_pca_connector_scep.errors.resource_not_found_exception.ResourceNotFoundException: <p>The operation tried to access a nonexistent resource. The resource might be incorrectly specified, or it might have a status other than <code>ACTIVE</code>.</p>
+            aws_sdk_pca_connector_scep.errors.throttling_exception.ThrottlingException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_pca_connector_scep.errors.validation_exception.ValidationException: <p>An input validation error occurred. For example, invalid characters in a name tag, or an invalid pagination token.</p>
+            aws_sdk_pca_connector_scep.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -334,6 +386,15 @@ class AsyncConnectorResource:
 
         Args:
             connector_arn: <p>The Amazon Resource Name (ARN) of the connector to delete.</p>
+
+        Raises:
+            aws_sdk_pca_connector_scep.errors.access_denied_exception.AccessDeniedException: <p>You can receive this error if you attempt to perform an operation and you don't have the required permissions. This can be caused by insufficient permissions in policies attached to your Amazon Web Services Identity and Access Management (IAM) principal. It can also happen because of restrictions in place from an Amazon Web Services Organizations service control policy (SCP) that affects your Amazon Web Services account.</p>
+            aws_sdk_pca_connector_scep.errors.conflict_exception.ConflictException: <p>This request can't be completed for one of the following reasons because the requested resource was being concurrently modified by another request.</p>
+            aws_sdk_pca_connector_scep.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure with an internal server.</p>
+            aws_sdk_pca_connector_scep.errors.resource_not_found_exception.ResourceNotFoundException: <p>The operation tried to access a nonexistent resource. The resource might be incorrectly specified, or it might have a status other than <code>ACTIVE</code>.</p>
+            aws_sdk_pca_connector_scep.errors.throttling_exception.ThrottlingException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_pca_connector_scep.errors.validation_exception.ValidationException: <p>An input validation error occurred. For example, invalid characters in a name tag, or an invalid pagination token.</p>
+            aws_sdk_pca_connector_scep.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -376,6 +437,13 @@ class AsyncConnectorResource:
         Args:
             max_results: <p>The maximum number of objects that you want Connector for SCEP to return for this request. If more objects are available, in the response, Connector for SCEP provides a <code>NextToken</code> value that you can use in a subsequent call to get the next batch of objects.</p>
             next_token: <p>When you request a list of objects with a <code>MaxResults</code> setting, if the number of objects that are still available for retrieval exceeds the maximum you requested, Connector for SCEP returns a <code>NextToken</code> value in the response. To retrieve the next batch of objects, use the token returned from the prior request in your next request.</p>
+
+        Raises:
+            aws_sdk_pca_connector_scep.errors.access_denied_exception.AccessDeniedException: <p>You can receive this error if you attempt to perform an operation and you don't have the required permissions. This can be caused by insufficient permissions in policies attached to your Amazon Web Services Identity and Access Management (IAM) principal. It can also happen because of restrictions in place from an Amazon Web Services Organizations service control policy (SCP) that affects your Amazon Web Services account.</p>
+            aws_sdk_pca_connector_scep.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure with an internal server.</p>
+            aws_sdk_pca_connector_scep.errors.throttling_exception.ThrottlingException: <p>The limit on the number of requests per second was exceeded.</p>
+            aws_sdk_pca_connector_scep.errors.validation_exception.ValidationException: <p>An input validation error occurred. For example, invalid characters in a name tag, or an invalid pagination token.</p>
+            aws_sdk_pca_connector_scep.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

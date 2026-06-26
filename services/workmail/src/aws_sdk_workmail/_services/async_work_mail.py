@@ -405,6 +405,15 @@ class AsyncWorkMailClient:
             organization_id: <p>The organization under which the resource exists.</p>
             resource_id: <p>The resource for which members (users or groups) are associated.</p> <p>The identifier can accept <i>ResourceId</i>, <i>Resourcename</i>, or <i>email</i>. The following identity formats are available:</p> <ul> <li> <p>Resource ID: r-0123456789a0123456789b0123456789</p> </li> <li> <p>Email address: resource@domain.tld</p> </li> <li> <p>Resource name: resource</p> </li> </ul>
             entity_id: <p>The member (user or group) to associate to the resource.</p> <p>The entity ID can accept <i>UserId or GroupID</i>, <i>Username or Groupname</i>, or <i>email</i>.</p> <ul> <li> <p>Entity: 12345678-1234-1234-1234-123456789012 or S-1-1-12-1234567890-123456789-123456789-1234</p> </li> <li> <p>Email address: entity@domain.tld</p> </li> <li> <p>Entity: entity</p> </li> </ul>
+
+        Raises:
+            aws_sdk_workmail.errors.entity_not_found_exception.EntityNotFoundException: <p>The identifier supplied for the user, group, or resource does not exist in your organization.</p>
+            aws_sdk_workmail.errors.entity_state_exception.EntityStateException: <p>You are performing an operation on a user, group, or resource that isn't in the expected state, such as trying to delete an active user.</p>
+            aws_sdk_workmail.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the input parameters don't match the service's restrictions.</p>
+            aws_sdk_workmail.errors.organization_not_found_exception.OrganizationNotFoundException: <p>An operation received a valid organization identifier that either doesn't belong or exist in the system.</p>
+            aws_sdk_workmail.errors.organization_state_exception.OrganizationStateException: <p>The organization must have a valid state to perform certain operations on the organization or its members.</p>
+            aws_sdk_workmail.errors.unsupported_operation_exception.UnsupportedOperationException: <p>You can't perform a write operation against a read-only directory.</p>
+            aws_sdk_workmail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -449,6 +458,17 @@ class AsyncWorkMailClient:
             organization_id: <p>The organization under which the group exists.</p>
             group_id: <p>The group to which the member (user or group) is associated.</p> <p>The identifier can accept <i>GroupId</i>, <i>Groupname</i>, or <i>email</i>. The following identity formats are available:</p> <ul> <li> <p>Group ID: 12345678-1234-1234-1234-123456789012 or S-1-1-12-1234567890-123456789-123456789-1234</p> </li> <li> <p>Email address: group@domain.tld</p> </li> <li> <p>Group name: group</p> </li> </ul>
             member_id: <p>The member (user or group) to associate to the group.</p> <p>The member ID can accept <i>UserID or GroupId</i>, <i>Username or Groupname</i>, or <i>email</i>.</p> <ul> <li> <p>Member: 12345678-1234-1234-1234-123456789012 or S-1-1-12-1234567890-123456789-123456789-1234</p> </li> <li> <p>Email address: member@domain.tld</p> </li> <li> <p>Member name: member</p> </li> </ul>
+
+        Raises:
+            aws_sdk_workmail.errors.directory_service_authentication_failed_exception.DirectoryServiceAuthenticationFailedException: <p>The directory service doesn't recognize the credentials supplied by WorkMail.</p>
+            aws_sdk_workmail.errors.directory_unavailable_exception.DirectoryUnavailableException: <p>The directory is unavailable. It might be located in another Region or deleted.</p>
+            aws_sdk_workmail.errors.entity_not_found_exception.EntityNotFoundException: <p>The identifier supplied for the user, group, or resource does not exist in your organization.</p>
+            aws_sdk_workmail.errors.entity_state_exception.EntityStateException: <p>You are performing an operation on a user, group, or resource that isn't in the expected state, such as trying to delete an active user.</p>
+            aws_sdk_workmail.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the input parameters don't match the service's restrictions.</p>
+            aws_sdk_workmail.errors.organization_not_found_exception.OrganizationNotFoundException: <p>An operation received a valid organization identifier that either doesn't belong or exist in the system.</p>
+            aws_sdk_workmail.errors.organization_state_exception.OrganizationStateException: <p>The organization must have a valid state to perform certain operations on the organization or its members.</p>
+            aws_sdk_workmail.errors.unsupported_operation_exception.UnsupportedOperationException: <p>You can't perform a write operation against a read-only directory.</p>
+            aws_sdk_workmail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -491,6 +511,13 @@ class AsyncWorkMailClient:
         Args:
             organization_id: <p>The WorkMail organization under which the impersonation role will be assumed.</p>
             impersonation_role_id: <p>The impersonation role ID to assume.</p>
+
+        Raises:
+            aws_sdk_workmail.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the input parameters don't match the service's restrictions.</p>
+            aws_sdk_workmail.errors.organization_not_found_exception.OrganizationNotFoundException: <p>An operation received a valid organization identifier that either doesn't belong or exist in the system.</p>
+            aws_sdk_workmail.errors.organization_state_exception.OrganizationStateException: <p>The organization must have a valid state to perform certain operations on the organization or its members.</p>
+            aws_sdk_workmail.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource cannot be found.</p>
+            aws_sdk_workmail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -534,6 +561,13 @@ class AsyncWorkMailClient:
             client_token: <p>The idempotency token for the client request.</p>
             job_id: <p>The job ID.</p>
             organization_id: <p>The organization ID.</p>
+
+        Raises:
+            aws_sdk_workmail.errors.entity_not_found_exception.EntityNotFoundException: <p>The identifier supplied for the user, group, or resource does not exist in your organization.</p>
+            aws_sdk_workmail.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the input parameters don't match the service's restrictions.</p>
+            aws_sdk_workmail.errors.organization_not_found_exception.OrganizationNotFoundException: <p>An operation received a valid organization identifier that either doesn't belong or exist in the system.</p>
+            aws_sdk_workmail.errors.organization_state_exception.OrganizationStateException: <p>The organization must have a valid state to perform certain operations on the organization or its members.</p>
+            aws_sdk_workmail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -578,6 +612,18 @@ class AsyncWorkMailClient:
             organization_id: <p>The organization under which the member (user or group) exists.</p>
             entity_id: <p>The member (user or group) to which this alias is added.</p>
             alias: <p>The alias to add to the member set.</p>
+
+        Raises:
+            aws_sdk_workmail.errors.email_address_in_use_exception.EmailAddressInUseException: <p>The email address that you're trying to assign is already created for a different user, group, or resource.</p>
+            aws_sdk_workmail.errors.entity_not_found_exception.EntityNotFoundException: <p>The identifier supplied for the user, group, or resource does not exist in your organization.</p>
+            aws_sdk_workmail.errors.entity_state_exception.EntityStateException: <p>You are performing an operation on a user, group, or resource that isn't in the expected state, such as trying to delete an active user.</p>
+            aws_sdk_workmail.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the input parameters don't match the service's restrictions.</p>
+            aws_sdk_workmail.errors.limit_exceeded_exception.LimitExceededException: <p>The request exceeds the limit of the resource.</p>
+            aws_sdk_workmail.errors.mail_domain_not_found_exception.MailDomainNotFoundException: <p>The domain specified is not found in your organization.</p>
+            aws_sdk_workmail.errors.mail_domain_state_exception.MailDomainStateException: <p>After a domain has been added to the organization, it must be verified. The domain is not yet verified.</p>
+            aws_sdk_workmail.errors.organization_not_found_exception.OrganizationNotFoundException: <p>An operation received a valid organization identifier that either doesn't belong or exist in the system.</p>
+            aws_sdk_workmail.errors.organization_state_exception.OrganizationStateException: <p>The organization must have a valid state to perform certain operations on the organization or its members.</p>
+            aws_sdk_workmail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -632,6 +678,14 @@ class AsyncWorkMailClient:
             domain_name: <p>The domain to which the provider applies.</p>
             ews_provider: <p>Exchange Web Services (EWS) availability provider definition. The request must contain exactly one provider definition, either <code>EwsProvider</code> or <code>LambdaProvider</code>.</p>
             lambda_provider: <p>Lambda availability provider definition. The request must contain exactly one provider definition, either <code>EwsProvider</code> or <code>LambdaProvider</code>.</p>
+
+        Raises:
+            aws_sdk_workmail.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the input parameters don't match the service's restrictions.</p>
+            aws_sdk_workmail.errors.limit_exceeded_exception.LimitExceededException: <p>The request exceeds the limit of the resource.</p>
+            aws_sdk_workmail.errors.name_availability_exception.NameAvailabilityException: <p>The user, group, or resource name isn't unique in WorkMail.</p>
+            aws_sdk_workmail.errors.organization_not_found_exception.OrganizationNotFoundException: <p>An operation received a valid organization identifier that either doesn't belong or exist in the system.</p>
+            aws_sdk_workmail.errors.organization_state_exception.OrganizationStateException: <p>The organization must have a valid state to perform certain operations on the organization or its members.</p>
+            aws_sdk_workmail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -683,6 +737,17 @@ class AsyncWorkMailClient:
             organization_id: <p>The organization under which the group is to be created.</p>
             name: <p>The name of the group.</p>
             hidden_from_global_address_list: <p>If this parameter is enabled, the group will be hidden from the address book.</p>
+
+        Raises:
+            aws_sdk_workmail.errors.directory_service_authentication_failed_exception.DirectoryServiceAuthenticationFailedException: <p>The directory service doesn't recognize the credentials supplied by WorkMail.</p>
+            aws_sdk_workmail.errors.directory_unavailable_exception.DirectoryUnavailableException: <p>The directory is unavailable. It might be located in another Region or deleted.</p>
+            aws_sdk_workmail.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the input parameters don't match the service's restrictions.</p>
+            aws_sdk_workmail.errors.name_availability_exception.NameAvailabilityException: <p>The user, group, or resource name isn't unique in WorkMail.</p>
+            aws_sdk_workmail.errors.organization_not_found_exception.OrganizationNotFoundException: <p>An operation received a valid organization identifier that either doesn't belong or exist in the system.</p>
+            aws_sdk_workmail.errors.organization_state_exception.OrganizationStateException: <p>The organization must have a valid state to perform certain operations on the organization or its members.</p>
+            aws_sdk_workmail.errors.reserved_name_exception.ReservedNameException: <p>This user, group, or resource name is not allowed in WorkMail.</p>
+            aws_sdk_workmail.errors.unsupported_operation_exception.UnsupportedOperationException: <p>You can't perform a write operation against a read-only directory.</p>
+            aws_sdk_workmail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -730,6 +795,10 @@ class AsyncWorkMailClient:
             name: <p> The name of the IAM Identity Center application. </p>
             instance_arn: <p> The Amazon Resource Name (ARN) of the instance. </p>
             client_token: <p> The idempotency token associated with the request. </p>
+
+        Raises:
+            aws_sdk_workmail.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the input parameters don't match the service's restrictions.</p>
+            aws_sdk_workmail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -785,6 +854,15 @@ class AsyncWorkMailClient:
             type: <p>The impersonation role's type. The available impersonation role types are <code>READ_ONLY</code> or <code>FULL_ACCESS</code>.</p>
             description: <p>The description of the new impersonation role.</p>
             rules: <p>The list of rules for the impersonation role.</p>
+
+        Raises:
+            aws_sdk_workmail.errors.entity_not_found_exception.EntityNotFoundException: <p>The identifier supplied for the user, group, or resource does not exist in your organization.</p>
+            aws_sdk_workmail.errors.entity_state_exception.EntityStateException: <p>You are performing an operation on a user, group, or resource that isn't in the expected state, such as trying to delete an active user.</p>
+            aws_sdk_workmail.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the input parameters don't match the service's restrictions.</p>
+            aws_sdk_workmail.errors.limit_exceeded_exception.LimitExceededException: <p>The request exceeds the limit of the resource.</p>
+            aws_sdk_workmail.errors.organization_not_found_exception.OrganizationNotFoundException: <p>An operation received a valid organization identifier that either doesn't belong or exist in the system.</p>
+            aws_sdk_workmail.errors.organization_state_exception.OrganizationStateException: <p>The organization must have a valid state to perform certain operations on the organization or its members.</p>
+            aws_sdk_workmail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -874,6 +952,13 @@ class AsyncWorkMailClient:
             not_device_operating_systems: <p>Device operating systems that the rule <b>will not</b> match. All other device operating systems will match.</p>
             device_user_agents: <p>Device user agents that the rule will match.</p>
             not_device_user_agents: <p>Device user agents that the rule <b>will not</b> match. All other device user agents will match.</p>
+
+        Raises:
+            aws_sdk_workmail.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the input parameters don't match the service's restrictions.</p>
+            aws_sdk_workmail.errors.limit_exceeded_exception.LimitExceededException: <p>The request exceeds the limit of the resource.</p>
+            aws_sdk_workmail.errors.organization_not_found_exception.OrganizationNotFoundException: <p>An operation received a valid organization identifier that either doesn't belong or exist in the system.</p>
+            aws_sdk_workmail.errors.organization_state_exception.OrganizationStateException: <p>The organization must have a valid state to perform certain operations on the organization or its members.</p>
+            aws_sdk_workmail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -952,6 +1037,14 @@ class AsyncWorkMailClient:
             domains: <p>The email domains to associate with the organization.</p>
             kms_key_arn: <p>The Amazon Resource Name (ARN) of a customer managed key from AWS KMS.</p>
             enable_interoperability: <p>When <code>true</code>, allows organization interoperability between WorkMail and Microsoft Exchange. If <code>true</code>, you must include a AD Connector directory ID in the request.</p>
+
+        Raises:
+            aws_sdk_workmail.errors.directory_in_use_exception.DirectoryInUseException: <p>The directory is already in use by another WorkMail organization in the same account and Region.</p>
+            aws_sdk_workmail.errors.directory_unavailable_exception.DirectoryUnavailableException: <p>The directory is unavailable. It might be located in another Region or deleted.</p>
+            aws_sdk_workmail.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the input parameters don't match the service's restrictions.</p>
+            aws_sdk_workmail.errors.limit_exceeded_exception.LimitExceededException: <p>The request exceeds the limit of the resource.</p>
+            aws_sdk_workmail.errors.name_availability_exception.NameAvailabilityException: <p>The user, group, or resource name isn't unique in WorkMail.</p>
+            aws_sdk_workmail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1012,6 +1105,17 @@ class AsyncWorkMailClient:
             type: <p>The type of the new resource. The available types are <code>equipment</code> and <code>room</code>.</p>
             description: <p>Resource description.</p>
             hidden_from_global_address_list: <p>If this parameter is enabled, the resource will be hidden from the address book.</p>
+
+        Raises:
+            aws_sdk_workmail.errors.directory_service_authentication_failed_exception.DirectoryServiceAuthenticationFailedException: <p>The directory service doesn't recognize the credentials supplied by WorkMail.</p>
+            aws_sdk_workmail.errors.directory_unavailable_exception.DirectoryUnavailableException: <p>The directory is unavailable. It might be located in another Region or deleted.</p>
+            aws_sdk_workmail.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the input parameters don't match the service's restrictions.</p>
+            aws_sdk_workmail.errors.name_availability_exception.NameAvailabilityException: <p>The user, group, or resource name isn't unique in WorkMail.</p>
+            aws_sdk_workmail.errors.organization_not_found_exception.OrganizationNotFoundException: <p>An operation received a valid organization identifier that either doesn't belong or exist in the system.</p>
+            aws_sdk_workmail.errors.organization_state_exception.OrganizationStateException: <p>The organization must have a valid state to perform certain operations on the organization or its members.</p>
+            aws_sdk_workmail.errors.reserved_name_exception.ReservedNameException: <p>This user, group, or resource name is not allowed in WorkMail.</p>
+            aws_sdk_workmail.errors.unsupported_operation_exception.UnsupportedOperationException: <p>You can't perform a write operation against a read-only directory.</p>
+            aws_sdk_workmail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1080,6 +1184,18 @@ class AsyncWorkMailClient:
             last_name: <p>The last name of the new user. </p>
             hidden_from_global_address_list: <p>If this parameter is enabled, the user will be hidden from the address book.</p>
             identity_provider_user_id: <p>User ID from the IAM Identity Center. If this parameter is empty it will be updated automatically when the user logs in for the first time to the mailbox associated with WorkMail.</p>
+
+        Raises:
+            aws_sdk_workmail.errors.directory_service_authentication_failed_exception.DirectoryServiceAuthenticationFailedException: <p>The directory service doesn't recognize the credentials supplied by WorkMail.</p>
+            aws_sdk_workmail.errors.directory_unavailable_exception.DirectoryUnavailableException: <p>The directory is unavailable. It might be located in another Region or deleted.</p>
+            aws_sdk_workmail.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the input parameters don't match the service's restrictions.</p>
+            aws_sdk_workmail.errors.invalid_password_exception.InvalidPasswordException: <p>The supplied password doesn't match the minimum security constraints, such as length or use of special characters.</p>
+            aws_sdk_workmail.errors.name_availability_exception.NameAvailabilityException: <p>The user, group, or resource name isn't unique in WorkMail.</p>
+            aws_sdk_workmail.errors.organization_not_found_exception.OrganizationNotFoundException: <p>An operation received a valid organization identifier that either doesn't belong or exist in the system.</p>
+            aws_sdk_workmail.errors.organization_state_exception.OrganizationStateException: <p>The organization must have a valid state to perform certain operations on the organization or its members.</p>
+            aws_sdk_workmail.errors.reserved_name_exception.ReservedNameException: <p>This user, group, or resource name is not allowed in WorkMail.</p>
+            aws_sdk_workmail.errors.unsupported_operation_exception.UnsupportedOperationException: <p>You can't perform a write operation against a read-only directory.</p>
+            aws_sdk_workmail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1134,6 +1250,11 @@ class AsyncWorkMailClient:
         Args:
             organization_id: <p>The identifier for the organization.</p>
             name: <p>The name of the access control rule.</p>
+
+        Raises:
+            aws_sdk_workmail.errors.organization_not_found_exception.OrganizationNotFoundException: <p>An operation received a valid organization identifier that either doesn't belong or exist in the system.</p>
+            aws_sdk_workmail.errors.organization_state_exception.OrganizationStateException: <p>The organization must have a valid state to perform certain operations on the organization or its members.</p>
+            aws_sdk_workmail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1177,6 +1298,14 @@ class AsyncWorkMailClient:
             organization_id: <p>The identifier for the organization under which the user exists.</p>
             entity_id: <p>The identifier for the member (user or group) from which to have the aliases removed.</p>
             alias: <p>The aliases to be removed from the user's set of aliases. Duplicate entries in the list are collapsed into single entries (the list is transformed into a set).</p>
+
+        Raises:
+            aws_sdk_workmail.errors.entity_not_found_exception.EntityNotFoundException: <p>The identifier supplied for the user, group, or resource does not exist in your organization.</p>
+            aws_sdk_workmail.errors.entity_state_exception.EntityStateException: <p>You are performing an operation on a user, group, or resource that isn't in the expected state, such as trying to delete an active user.</p>
+            aws_sdk_workmail.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the input parameters don't match the service's restrictions.</p>
+            aws_sdk_workmail.errors.organization_not_found_exception.OrganizationNotFoundException: <p>An operation received a valid organization identifier that either doesn't belong or exist in the system.</p>
+            aws_sdk_workmail.errors.organization_state_exception.OrganizationStateException: <p>The organization must have a valid state to perform certain operations on the organization or its members.</p>
+            aws_sdk_workmail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1219,6 +1348,11 @@ class AsyncWorkMailClient:
         Args:
             organization_id: <p>The WorkMail organization for which the <code>AvailabilityConfiguration</code> will be deleted.</p>
             domain_name: <p>The domain for which the <code>AvailabilityConfiguration</code> will be deleted.</p>
+
+        Raises:
+            aws_sdk_workmail.errors.organization_not_found_exception.OrganizationNotFoundException: <p>An operation received a valid organization identifier that either doesn't belong or exist in the system.</p>
+            aws_sdk_workmail.errors.organization_state_exception.OrganizationStateException: <p>The organization must have a valid state to perform certain operations on the organization or its members.</p>
+            aws_sdk_workmail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1258,6 +1392,12 @@ class AsyncWorkMailClient:
 
         Args:
             organization_id: <p>The ID of the organization from which the email monitoring configuration is deleted.</p>
+
+        Raises:
+            aws_sdk_workmail.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the input parameters don't match the service's restrictions.</p>
+            aws_sdk_workmail.errors.organization_not_found_exception.OrganizationNotFoundException: <p>An operation received a valid organization identifier that either doesn't belong or exist in the system.</p>
+            aws_sdk_workmail.errors.organization_state_exception.OrganizationStateException: <p>The organization must have a valid state to perform certain operations on the organization or its members.</p>
+            aws_sdk_workmail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1298,6 +1438,16 @@ class AsyncWorkMailClient:
         Args:
             organization_id: <p>The organization that contains the group.</p>
             group_id: <p>The identifier of the group to be deleted.</p> <p>The identifier can be the <i>GroupId</i>, or <i>Groupname</i>. The following identity formats are available:</p> <ul> <li> <p>Group ID: 12345678-1234-1234-1234-123456789012 or S-1-1-12-1234567890-123456789-123456789-1234</p> </li> <li> <p>Group name: group</p> </li> </ul>
+
+        Raises:
+            aws_sdk_workmail.errors.directory_service_authentication_failed_exception.DirectoryServiceAuthenticationFailedException: <p>The directory service doesn't recognize the credentials supplied by WorkMail.</p>
+            aws_sdk_workmail.errors.directory_unavailable_exception.DirectoryUnavailableException: <p>The directory is unavailable. It might be located in another Region or deleted.</p>
+            aws_sdk_workmail.errors.entity_state_exception.EntityStateException: <p>You are performing an operation on a user, group, or resource that isn't in the expected state, such as trying to delete an active user.</p>
+            aws_sdk_workmail.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the input parameters don't match the service's restrictions.</p>
+            aws_sdk_workmail.errors.organization_not_found_exception.OrganizationNotFoundException: <p>An operation received a valid organization identifier that either doesn't belong or exist in the system.</p>
+            aws_sdk_workmail.errors.organization_state_exception.OrganizationStateException: <p>The organization must have a valid state to perform certain operations on the organization or its members.</p>
+            aws_sdk_workmail.errors.unsupported_operation_exception.UnsupportedOperationException: <p>You can't perform a write operation against a read-only directory.</p>
+            aws_sdk_workmail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1337,6 +1487,11 @@ class AsyncWorkMailClient:
 
         Args:
             application_arn: <p> The Amazon Resource Name (ARN) of the application. </p>
+
+        Raises:
+            aws_sdk_workmail.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the input parameters don't match the service's restrictions.</p>
+            aws_sdk_workmail.errors.organization_state_exception.OrganizationStateException: <p>The organization must have a valid state to perform certain operations on the organization or its members.</p>
+            aws_sdk_workmail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1375,6 +1530,12 @@ class AsyncWorkMailClient:
 
         Args:
             organization_id: <p> The Organization ID. </p>
+
+        Raises:
+            aws_sdk_workmail.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the input parameters don't match the service's restrictions.</p>
+            aws_sdk_workmail.errors.organization_not_found_exception.OrganizationNotFoundException: <p>An operation received a valid organization identifier that either doesn't belong or exist in the system.</p>
+            aws_sdk_workmail.errors.organization_state_exception.OrganizationStateException: <p>The organization must have a valid state to perform certain operations on the organization or its members.</p>
+            aws_sdk_workmail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1415,6 +1576,12 @@ class AsyncWorkMailClient:
         Args:
             organization_id: <p>The WorkMail organization from which to delete the impersonation role.</p>
             impersonation_role_id: <p>The ID of the impersonation role to delete.</p>
+
+        Raises:
+            aws_sdk_workmail.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the input parameters don't match the service's restrictions.</p>
+            aws_sdk_workmail.errors.organization_not_found_exception.OrganizationNotFoundException: <p>An operation received a valid organization identifier that either doesn't belong or exist in the system.</p>
+            aws_sdk_workmail.errors.organization_state_exception.OrganizationStateException: <p>The organization must have a valid state to perform certain operations on the organization or its members.</p>
+            aws_sdk_workmail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1458,6 +1625,14 @@ class AsyncWorkMailClient:
             organization_id: <p>The identifier of the organization under which the member (user or group) exists.</p>
             entity_id: <p>The identifier of the entity that owns the mailbox.</p> <p>The identifier can be <i>UserId or Group Id</i>, <i>Username or Groupname</i>, or <i>email</i>.</p> <ul> <li> <p>Entity ID: 12345678-1234-1234-1234-123456789012, r-0123456789a0123456789b0123456789, or S-1-1-12-1234567890-123456789-123456789-1234</p> </li> <li> <p>Email address: entity@domain.tld</p> </li> <li> <p>Entity name: entity</p> </li> </ul>
             grantee_id: <p>The identifier of the entity for which to delete granted permissions.</p> <p>The identifier can be <i>UserId, ResourceID, or Group Id</i>, <i>Username or Groupname</i>, or <i>email</i>.</p> <ul> <li> <p>Grantee ID: 12345678-1234-1234-1234-123456789012,r-0123456789a0123456789b0123456789, or S-1-1-12-1234567890-123456789-123456789-1234</p> </li> <li> <p>Email address: grantee@domain.tld</p> </li> <li> <p>Grantee name: grantee</p> </li> </ul>
+
+        Raises:
+            aws_sdk_workmail.errors.entity_not_found_exception.EntityNotFoundException: <p>The identifier supplied for the user, group, or resource does not exist in your organization.</p>
+            aws_sdk_workmail.errors.entity_state_exception.EntityStateException: <p>You are performing an operation on a user, group, or resource that isn't in the expected state, such as trying to delete an active user.</p>
+            aws_sdk_workmail.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the input parameters don't match the service's restrictions.</p>
+            aws_sdk_workmail.errors.organization_not_found_exception.OrganizationNotFoundException: <p>An operation received a valid organization identifier that either doesn't belong or exist in the system.</p>
+            aws_sdk_workmail.errors.organization_state_exception.OrganizationStateException: <p>The organization must have a valid state to perform certain operations on the organization or its members.</p>
+            aws_sdk_workmail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1502,6 +1677,13 @@ class AsyncWorkMailClient:
             organization_id: <p>The WorkMail organization for which the access override will be deleted.</p>
             user_id: <p>The WorkMail user for which you want to delete the override. Accepts the following types of user identities:</p> <ul> <li> <p>User ID: <code>12345678-1234-1234-1234-123456789012</code> or <code>S-1-1-12-1234567890-123456789-123456789-1234</code> </p> </li> <li> <p>Email address: <code>user@domain.tld</code> </p> </li> <li> <p>User name: <code>user</code> </p> </li> </ul>
             device_id: <p>The mobile device for which you delete the override. <code>DeviceId</code> is case insensitive.</p>
+
+        Raises:
+            aws_sdk_workmail.errors.entity_not_found_exception.EntityNotFoundException: <p>The identifier supplied for the user, group, or resource does not exist in your organization.</p>
+            aws_sdk_workmail.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the input parameters don't match the service's restrictions.</p>
+            aws_sdk_workmail.errors.organization_not_found_exception.OrganizationNotFoundException: <p>An operation received a valid organization identifier that either doesn't belong or exist in the system.</p>
+            aws_sdk_workmail.errors.organization_state_exception.OrganizationStateException: <p>The organization must have a valid state to perform certain operations on the organization or its members.</p>
+            aws_sdk_workmail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1544,6 +1726,12 @@ class AsyncWorkMailClient:
         Args:
             organization_id: <p>The WorkMail organization under which the rule will be deleted.</p>
             mobile_device_access_rule_id: <p>The identifier of the rule to be deleted.</p>
+
+        Raises:
+            aws_sdk_workmail.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the input parameters don't match the service's restrictions.</p>
+            aws_sdk_workmail.errors.organization_not_found_exception.OrganizationNotFoundException: <p>An operation received a valid organization identifier that either doesn't belong or exist in the system.</p>
+            aws_sdk_workmail.errors.organization_state_exception.OrganizationStateException: <p>The organization must have a valid state to perform certain operations on the organization or its members.</p>
+            aws_sdk_workmail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1597,6 +1785,12 @@ class AsyncWorkMailClient:
             delete_directory: <p>If true, deletes the AWS Directory Service directory associated with the organization.</p>
             force_delete: <p>Deletes a WorkMail organization even if the organization has enabled users.</p>
             delete_identity_center_application: <p>Deletes IAM Identity Center application for WorkMail. This action does not affect authentication settings for any organization.</p>
+
+        Raises:
+            aws_sdk_workmail.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the input parameters don't match the service's restrictions.</p>
+            aws_sdk_workmail.errors.organization_not_found_exception.OrganizationNotFoundException: <p>An operation received a valid organization identifier that either doesn't belong or exist in the system.</p>
+            aws_sdk_workmail.errors.organization_state_exception.OrganizationStateException: <p>The organization must have a valid state to perform certain operations on the organization or its members.</p>
+            aws_sdk_workmail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1646,6 +1840,12 @@ class AsyncWorkMailClient:
         Args:
             organization_id: <p> The Organization ID. </p>
             personal_access_token_id: <p> The Personal Access Token ID.</p>
+
+        Raises:
+            aws_sdk_workmail.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the input parameters don't match the service's restrictions.</p>
+            aws_sdk_workmail.errors.organization_not_found_exception.OrganizationNotFoundException: <p>An operation received a valid organization identifier that either doesn't belong or exist in the system.</p>
+            aws_sdk_workmail.errors.organization_state_exception.OrganizationStateException: <p>The organization must have a valid state to perform certain operations on the organization or its members.</p>
+            aws_sdk_workmail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1687,6 +1887,14 @@ class AsyncWorkMailClient:
         Args:
             organization_id: <p>The identifier associated with the organization from which the resource is deleted.</p>
             resource_id: <p>The identifier of the resource to be deleted.</p> <p>The identifier can accept <i>ResourceId</i>, or <i>Resourcename</i>. The following identity formats are available:</p> <ul> <li> <p>Resource ID: r-0123456789a0123456789b0123456789</p> </li> <li> <p>Resource name: resource</p> </li> </ul>
+
+        Raises:
+            aws_sdk_workmail.errors.entity_state_exception.EntityStateException: <p>You are performing an operation on a user, group, or resource that isn't in the expected state, such as trying to delete an active user.</p>
+            aws_sdk_workmail.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the input parameters don't match the service's restrictions.</p>
+            aws_sdk_workmail.errors.organization_not_found_exception.OrganizationNotFoundException: <p>An operation received a valid organization identifier that either doesn't belong or exist in the system.</p>
+            aws_sdk_workmail.errors.organization_state_exception.OrganizationStateException: <p>The organization must have a valid state to perform certain operations on the organization or its members.</p>
+            aws_sdk_workmail.errors.unsupported_operation_exception.UnsupportedOperationException: <p>You can't perform a write operation against a read-only directory.</p>
+            aws_sdk_workmail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1728,6 +1936,12 @@ class AsyncWorkMailClient:
         Args:
             organization_id: <p>The organization ID.</p>
             id: <p>The retention policy ID.</p>
+
+        Raises:
+            aws_sdk_workmail.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the input parameters don't match the service's restrictions.</p>
+            aws_sdk_workmail.errors.organization_not_found_exception.OrganizationNotFoundException: <p>An operation received a valid organization identifier that either doesn't belong or exist in the system.</p>
+            aws_sdk_workmail.errors.organization_state_exception.OrganizationStateException: <p>The organization must have a valid state to perform certain operations on the organization or its members.</p>
+            aws_sdk_workmail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1769,6 +1983,16 @@ class AsyncWorkMailClient:
         Args:
             organization_id: <p>The organization that contains the user to be deleted.</p>
             user_id: <p>The identifier of the user to be deleted.</p> <p>The identifier can be the <i>UserId</i> or <i>Username</i>. The following identity formats are available:</p> <ul> <li> <p>User ID: 12345678-1234-1234-1234-123456789012 or S-1-1-12-1234567890-123456789-123456789-1234</p> </li> <li> <p>User name: user</p> </li> </ul>
+
+        Raises:
+            aws_sdk_workmail.errors.directory_service_authentication_failed_exception.DirectoryServiceAuthenticationFailedException: <p>The directory service doesn't recognize the credentials supplied by WorkMail.</p>
+            aws_sdk_workmail.errors.directory_unavailable_exception.DirectoryUnavailableException: <p>The directory is unavailable. It might be located in another Region or deleted.</p>
+            aws_sdk_workmail.errors.entity_state_exception.EntityStateException: <p>You are performing an operation on a user, group, or resource that isn't in the expected state, such as trying to delete an active user.</p>
+            aws_sdk_workmail.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the input parameters don't match the service's restrictions.</p>
+            aws_sdk_workmail.errors.organization_not_found_exception.OrganizationNotFoundException: <p>An operation received a valid organization identifier that either doesn't belong or exist in the system.</p>
+            aws_sdk_workmail.errors.organization_state_exception.OrganizationStateException: <p>The organization must have a valid state to perform certain operations on the organization or its members.</p>
+            aws_sdk_workmail.errors.unsupported_operation_exception.UnsupportedOperationException: <p>You can't perform a write operation against a read-only directory.</p>
+            aws_sdk_workmail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1810,6 +2034,14 @@ class AsyncWorkMailClient:
         Args:
             organization_id: <p>The identifier for the organization under which the WorkMail entity exists.</p>
             entity_id: <p>The identifier for the member to be updated.</p> <p>The identifier can be <i>UserId, ResourceId, or Group Id</i>, <i>Username, Resourcename, or Groupname</i>, or <i>email</i>.</p> <ul> <li> <p>Entity ID: 12345678-1234-1234-1234-123456789012, r-0123456789a0123456789b0123456789, or S-1-1-12-1234567890-123456789-123456789-1234</p> </li> <li> <p>Email address: entity@domain.tld</p> </li> <li> <p>Entity name: entity</p> </li> </ul>
+
+        Raises:
+            aws_sdk_workmail.errors.entity_not_found_exception.EntityNotFoundException: <p>The identifier supplied for the user, group, or resource does not exist in your organization.</p>
+            aws_sdk_workmail.errors.entity_state_exception.EntityStateException: <p>You are performing an operation on a user, group, or resource that isn't in the expected state, such as trying to delete an active user.</p>
+            aws_sdk_workmail.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the input parameters don't match the service's restrictions.</p>
+            aws_sdk_workmail.errors.organization_not_found_exception.OrganizationNotFoundException: <p>An operation received a valid organization identifier that either doesn't belong or exist in the system.</p>
+            aws_sdk_workmail.errors.organization_state_exception.OrganizationStateException: <p>The organization must have a valid state to perform certain operations on the organization or its members.</p>
+            aws_sdk_workmail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1851,6 +2083,14 @@ class AsyncWorkMailClient:
         Args:
             organization_id: <p>The WorkMail organization for which the domain will be deregistered.</p>
             domain_name: <p>The domain to deregister in WorkMail and SES.</p>
+
+        Raises:
+            aws_sdk_workmail.errors.invalid_custom_ses_configuration_exception.InvalidCustomSesConfigurationException: <p>You SES configuration has customizations that WorkMail cannot save. The error message lists the invalid setting. For examples of invalid settings, refer to <a href=\"https://docs.aws.amazon.com/ses/latest/APIReference/API_CreateReceiptRule.html\">CreateReceiptRule</a>.</p>
+            aws_sdk_workmail.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the input parameters don't match the service's restrictions.</p>
+            aws_sdk_workmail.errors.mail_domain_in_use_exception.MailDomainInUseException: <p>The domain you're trying to change is in use by another user or organization in your account. See the error message for details.</p>
+            aws_sdk_workmail.errors.organization_not_found_exception.OrganizationNotFoundException: <p>An operation received a valid organization identifier that either doesn't belong or exist in the system.</p>
+            aws_sdk_workmail.errors.organization_state_exception.OrganizationStateException: <p>The organization must have a valid state to perform certain operations on the organization or its members.</p>
+            aws_sdk_workmail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1890,6 +2130,13 @@ class AsyncWorkMailClient:
 
         Args:
             organization_id: <p>The ID of the organization for which the email monitoring configuration is described.</p>
+
+        Raises:
+            aws_sdk_workmail.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the input parameters don't match the service's restrictions.</p>
+            aws_sdk_workmail.errors.organization_not_found_exception.OrganizationNotFoundException: <p>An operation received a valid organization identifier that either doesn't belong or exist in the system.</p>
+            aws_sdk_workmail.errors.organization_state_exception.OrganizationStateException: <p>The organization must have a valid state to perform certain operations on the organization or its members.</p>
+            aws_sdk_workmail.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource cannot be found.</p>
+            aws_sdk_workmail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1930,6 +2177,13 @@ class AsyncWorkMailClient:
         Args:
             organization_id: <p>The identifier for the organization under which the entity exists.</p>
             email: <p>The email under which the entity exists.</p>
+
+        Raises:
+            aws_sdk_workmail.errors.entity_not_found_exception.EntityNotFoundException: <p>The identifier supplied for the user, group, or resource does not exist in your organization.</p>
+            aws_sdk_workmail.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the input parameters don't match the service's restrictions.</p>
+            aws_sdk_workmail.errors.organization_not_found_exception.OrganizationNotFoundException: <p>An operation received a valid organization identifier that either doesn't belong or exist in the system.</p>
+            aws_sdk_workmail.errors.organization_state_exception.OrganizationStateException: <p>The organization must have a valid state to perform certain operations on the organization or its members.</p>
+            aws_sdk_workmail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1971,6 +2225,13 @@ class AsyncWorkMailClient:
         Args:
             organization_id: <p>The identifier for the organization under which the group exists.</p>
             group_id: <p>The identifier for the group to be described.</p> <p>The identifier can accept <i>GroupId</i>, <i>Groupname</i>, or <i>email</i>. The following identity formats are available:</p> <ul> <li> <p>Group ID: 12345678-1234-1234-1234-123456789012 or S-1-1-12-1234567890-123456789-123456789-1234</p> </li> <li> <p>Email address: group@domain.tld</p> </li> <li> <p>Group name: group</p> </li> </ul>
+
+        Raises:
+            aws_sdk_workmail.errors.entity_not_found_exception.EntityNotFoundException: <p>The identifier supplied for the user, group, or resource does not exist in your organization.</p>
+            aws_sdk_workmail.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the input parameters don't match the service's restrictions.</p>
+            aws_sdk_workmail.errors.organization_not_found_exception.OrganizationNotFoundException: <p>An operation received a valid organization identifier that either doesn't belong or exist in the system.</p>
+            aws_sdk_workmail.errors.organization_state_exception.OrganizationStateException: <p>The organization must have a valid state to perform certain operations on the organization or its members.</p>
+            aws_sdk_workmail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2010,6 +2271,13 @@ class AsyncWorkMailClient:
 
         Args:
             organization_id: <p> The Organization ID. </p>
+
+        Raises:
+            aws_sdk_workmail.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the input parameters don't match the service's restrictions.</p>
+            aws_sdk_workmail.errors.organization_not_found_exception.OrganizationNotFoundException: <p>An operation received a valid organization identifier that either doesn't belong or exist in the system.</p>
+            aws_sdk_workmail.errors.organization_state_exception.OrganizationStateException: <p>The organization must have a valid state to perform certain operations on the organization or its members.</p>
+            aws_sdk_workmail.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource cannot be found.</p>
+            aws_sdk_workmail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2048,6 +2316,11 @@ class AsyncWorkMailClient:
 
         Args:
             organization_id: <p>Lists the ID of the given organization.</p>
+
+        Raises:
+            aws_sdk_workmail.errors.organization_not_found_exception.OrganizationNotFoundException: <p>An operation received a valid organization identifier that either doesn't belong or exist in the system.</p>
+            aws_sdk_workmail.errors.organization_state_exception.OrganizationStateException: <p>The organization must have a valid state to perform certain operations on the organization or its members.</p>
+            aws_sdk_workmail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2088,6 +2361,13 @@ class AsyncWorkMailClient:
         Args:
             job_id: <p>The mailbox export job ID.</p>
             organization_id: <p>The organization ID.</p>
+
+        Raises:
+            aws_sdk_workmail.errors.entity_not_found_exception.EntityNotFoundException: <p>The identifier supplied for the user, group, or resource does not exist in your organization.</p>
+            aws_sdk_workmail.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the input parameters don't match the service's restrictions.</p>
+            aws_sdk_workmail.errors.organization_not_found_exception.OrganizationNotFoundException: <p>An operation received a valid organization identifier that either doesn't belong or exist in the system.</p>
+            aws_sdk_workmail.errors.organization_state_exception.OrganizationStateException: <p>The organization must have a valid state to perform certain operations on the organization or its members.</p>
+            aws_sdk_workmail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2127,6 +2407,11 @@ class AsyncWorkMailClient:
 
         Args:
             organization_id: <p>The identifier for the organization to be described.</p>
+
+        Raises:
+            aws_sdk_workmail.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the input parameters don't match the service's restrictions.</p>
+            aws_sdk_workmail.errors.organization_not_found_exception.OrganizationNotFoundException: <p>An operation received a valid organization identifier that either doesn't belong or exist in the system.</p>
+            aws_sdk_workmail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2167,6 +2452,14 @@ class AsyncWorkMailClient:
         Args:
             organization_id: <p>The identifier associated with the organization for which the resource is described.</p>
             resource_id: <p>The identifier of the resource to be described.</p> <p>The identifier can accept <i>ResourceId</i>, <i>Resourcename</i>, or <i>email</i>. The following identity formats are available:</p> <ul> <li> <p>Resource ID: r-0123456789a0123456789b0123456789</p> </li> <li> <p>Email address: resource@domain.tld</p> </li> <li> <p>Resource name: resource</p> </li> </ul>
+
+        Raises:
+            aws_sdk_workmail.errors.entity_not_found_exception.EntityNotFoundException: <p>The identifier supplied for the user, group, or resource does not exist in your organization.</p>
+            aws_sdk_workmail.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the input parameters don't match the service's restrictions.</p>
+            aws_sdk_workmail.errors.organization_not_found_exception.OrganizationNotFoundException: <p>An operation received a valid organization identifier that either doesn't belong or exist in the system.</p>
+            aws_sdk_workmail.errors.organization_state_exception.OrganizationStateException: <p>The organization must have a valid state to perform certain operations on the organization or its members.</p>
+            aws_sdk_workmail.errors.unsupported_operation_exception.UnsupportedOperationException: <p>You can't perform a write operation against a read-only directory.</p>
+            aws_sdk_workmail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2208,6 +2501,15 @@ class AsyncWorkMailClient:
         Args:
             organization_id: <p>The identifier for the organization under which the user exists.</p>
             user_id: <p>The identifier for the user to be described.</p> <p>The identifier can be the <i>UserId</i>, <i>Username</i>, or <i>email</i>. The following identity formats are available:</p> <ul> <li> <p>User ID: 12345678-1234-1234-1234-123456789012 or S-1-1-12-1234567890-123456789-123456789-1234</p> </li> <li> <p>Email address: user@domain.tld</p> </li> <li> <p>User name: user</p> </li> </ul> <p></p>
+
+        Raises:
+            aws_sdk_workmail.errors.directory_service_authentication_failed_exception.DirectoryServiceAuthenticationFailedException: <p>The directory service doesn't recognize the credentials supplied by WorkMail.</p>
+            aws_sdk_workmail.errors.directory_unavailable_exception.DirectoryUnavailableException: <p>The directory is unavailable. It might be located in another Region or deleted.</p>
+            aws_sdk_workmail.errors.entity_not_found_exception.EntityNotFoundException: <p>The identifier supplied for the user, group, or resource does not exist in your organization.</p>
+            aws_sdk_workmail.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the input parameters don't match the service's restrictions.</p>
+            aws_sdk_workmail.errors.organization_not_found_exception.OrganizationNotFoundException: <p>An operation received a valid organization identifier that either doesn't belong or exist in the system.</p>
+            aws_sdk_workmail.errors.organization_state_exception.OrganizationStateException: <p>The organization must have a valid state to perform certain operations on the organization or its members.</p>
+            aws_sdk_workmail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2251,6 +2553,15 @@ class AsyncWorkMailClient:
             organization_id: <p>The identifier for the organization under which the resource exists.</p>
             resource_id: <p>The identifier of the resource from which delegates' set members are removed. </p> <p>The identifier can accept <i>ResourceId</i>, <i>Resourcename</i>, or <i>email</i>. The following identity formats are available:</p> <ul> <li> <p>Resource ID: r-0123456789a0123456789b0123456789</p> </li> <li> <p>Email address: resource@domain.tld</p> </li> <li> <p>Resource name: resource</p> </li> </ul>
             entity_id: <p>The identifier for the member (user, group) to be removed from the resource's delegates.</p> <p>The entity ID can accept <i>UserId or GroupID</i>, <i>Username or Groupname</i>, or <i>email</i>.</p> <ul> <li> <p>Entity: 12345678-1234-1234-1234-123456789012 or S-1-1-12-1234567890-123456789-123456789-1234</p> </li> <li> <p>Email address: entity@domain.tld</p> </li> <li> <p>Entity: entity</p> </li> </ul>
+
+        Raises:
+            aws_sdk_workmail.errors.entity_not_found_exception.EntityNotFoundException: <p>The identifier supplied for the user, group, or resource does not exist in your organization.</p>
+            aws_sdk_workmail.errors.entity_state_exception.EntityStateException: <p>You are performing an operation on a user, group, or resource that isn't in the expected state, such as trying to delete an active user.</p>
+            aws_sdk_workmail.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the input parameters don't match the service's restrictions.</p>
+            aws_sdk_workmail.errors.organization_not_found_exception.OrganizationNotFoundException: <p>An operation received a valid organization identifier that either doesn't belong or exist in the system.</p>
+            aws_sdk_workmail.errors.organization_state_exception.OrganizationStateException: <p>The organization must have a valid state to perform certain operations on the organization or its members.</p>
+            aws_sdk_workmail.errors.unsupported_operation_exception.UnsupportedOperationException: <p>You can't perform a write operation against a read-only directory.</p>
+            aws_sdk_workmail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2295,6 +2606,17 @@ class AsyncWorkMailClient:
             organization_id: <p>The identifier for the organization under which the group exists.</p>
             group_id: <p>The identifier for the group from which members are removed.</p> <p>The identifier can accept <i>GroupId</i>, <i>Groupname</i>, or <i>email</i>. The following identity formats are available:</p> <ul> <li> <p>Group ID: 12345678-1234-1234-1234-123456789012 or S-1-1-12-1234567890-123456789-123456789-1234</p> </li> <li> <p>Email address: group@domain.tld</p> </li> <li> <p>Group name: group</p> </li> </ul>
             member_id: <p>The identifier for the member to be removed from the group.</p> <p>The member ID can accept <i>UserID or GroupId</i>, <i>Username or Groupname</i>, or <i>email</i>.</p> <ul> <li> <p>Member ID: 12345678-1234-1234-1234-123456789012 or S-1-1-12-1234567890-123456789-123456789-1234</p> </li> <li> <p>Email address: member@domain.tld</p> </li> <li> <p>Member name: member</p> </li> </ul>
+
+        Raises:
+            aws_sdk_workmail.errors.directory_service_authentication_failed_exception.DirectoryServiceAuthenticationFailedException: <p>The directory service doesn't recognize the credentials supplied by WorkMail.</p>
+            aws_sdk_workmail.errors.directory_unavailable_exception.DirectoryUnavailableException: <p>The directory is unavailable. It might be located in another Region or deleted.</p>
+            aws_sdk_workmail.errors.entity_not_found_exception.EntityNotFoundException: <p>The identifier supplied for the user, group, or resource does not exist in your organization.</p>
+            aws_sdk_workmail.errors.entity_state_exception.EntityStateException: <p>You are performing an operation on a user, group, or resource that isn't in the expected state, such as trying to delete an active user.</p>
+            aws_sdk_workmail.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the input parameters don't match the service's restrictions.</p>
+            aws_sdk_workmail.errors.organization_not_found_exception.OrganizationNotFoundException: <p>An operation received a valid organization identifier that either doesn't belong or exist in the system.</p>
+            aws_sdk_workmail.errors.organization_state_exception.OrganizationStateException: <p>The organization must have a valid state to perform certain operations on the organization or its members.</p>
+            aws_sdk_workmail.errors.unsupported_operation_exception.UnsupportedOperationException: <p>You can't perform a write operation against a read-only directory.</p>
+            aws_sdk_workmail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2347,6 +2669,14 @@ class AsyncWorkMailClient:
             action: <p>The access protocol action. Valid values include <code>ActiveSync</code>, <code>AutoDiscover</code>, <code>EWS</code>, <code>IMAP</code>, <code>SMTP</code>, <code>WindowsOutlook</code>, and <code>WebMail</code>.</p>
             user_id: <p>The user ID.</p>
             impersonation_role_id: <p>The impersonation role ID.</p>
+
+        Raises:
+            aws_sdk_workmail.errors.entity_not_found_exception.EntityNotFoundException: <p>The identifier supplied for the user, group, or resource does not exist in your organization.</p>
+            aws_sdk_workmail.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the input parameters don't match the service's restrictions.</p>
+            aws_sdk_workmail.errors.organization_not_found_exception.OrganizationNotFoundException: <p>An operation received a valid organization identifier that either doesn't belong or exist in the system.</p>
+            aws_sdk_workmail.errors.organization_state_exception.OrganizationStateException: <p>The organization must have a valid state to perform certain operations on the organization or its members.</p>
+            aws_sdk_workmail.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource cannot be found.</p>
+            aws_sdk_workmail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2391,6 +2721,13 @@ class AsyncWorkMailClient:
 
         Args:
             organization_id: <p>The organization ID.</p>
+
+        Raises:
+            aws_sdk_workmail.errors.entity_not_found_exception.EntityNotFoundException: <p>The identifier supplied for the user, group, or resource does not exist in your organization.</p>
+            aws_sdk_workmail.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the input parameters don't match the service's restrictions.</p>
+            aws_sdk_workmail.errors.organization_not_found_exception.OrganizationNotFoundException: <p>An operation received a valid organization identifier that either doesn't belong or exist in the system.</p>
+            aws_sdk_workmail.errors.organization_state_exception.OrganizationStateException: <p>The organization must have a valid state to perform certain operations on the organization or its members.</p>
+            aws_sdk_workmail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2431,6 +2768,13 @@ class AsyncWorkMailClient:
         Args:
             organization_id: <p>The WorkMail organization from which to retrieve the impersonation role.</p>
             impersonation_role_id: <p>The impersonation role ID to retrieve.</p>
+
+        Raises:
+            aws_sdk_workmail.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the input parameters don't match the service's restrictions.</p>
+            aws_sdk_workmail.errors.organization_not_found_exception.OrganizationNotFoundException: <p>An operation received a valid organization identifier that either doesn't belong or exist in the system.</p>
+            aws_sdk_workmail.errors.organization_state_exception.OrganizationStateException: <p>The organization must have a valid state to perform certain operations on the organization or its members.</p>
+            aws_sdk_workmail.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource cannot be found.</p>
+            aws_sdk_workmail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2474,6 +2818,15 @@ class AsyncWorkMailClient:
             organization_id: <p>The WorkMail organization where the impersonation role is defined.</p>
             impersonation_role_id: <p>The impersonation role ID to test.</p>
             target_user: <p>The WorkMail organization user chosen to test the impersonation role. The following identity formats are available:</p> <ul> <li> <p>User ID: <code>12345678-1234-1234-1234-123456789012</code> or <code>S-1-1-12-1234567890-123456789-123456789-1234</code> </p> </li> <li> <p>Email address: <code>user@domain.tld</code> </p> </li> <li> <p>User name: <code>user</code> </p> </li> </ul>
+
+        Raises:
+            aws_sdk_workmail.errors.entity_not_found_exception.EntityNotFoundException: <p>The identifier supplied for the user, group, or resource does not exist in your organization.</p>
+            aws_sdk_workmail.errors.entity_state_exception.EntityStateException: <p>You are performing an operation on a user, group, or resource that isn't in the expected state, such as trying to delete an active user.</p>
+            aws_sdk_workmail.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the input parameters don't match the service's restrictions.</p>
+            aws_sdk_workmail.errors.organization_not_found_exception.OrganizationNotFoundException: <p>An operation received a valid organization identifier that either doesn't belong or exist in the system.</p>
+            aws_sdk_workmail.errors.organization_state_exception.OrganizationStateException: <p>The organization must have a valid state to perform certain operations on the organization or its members.</p>
+            aws_sdk_workmail.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource cannot be found.</p>
+            aws_sdk_workmail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2518,6 +2871,13 @@ class AsyncWorkMailClient:
         Args:
             organization_id: <p>The identifier for the organization that contains the user whose mailbox details are being requested.</p>
             user_id: <p>The identifier for the user whose mailbox details are being requested.</p> <p>The identifier can be the <i>UserId</i>, <i>Username</i>, or <i>email</i>. The following identity formats are available:</p> <ul> <li> <p>User ID: 12345678-1234-1234-1234-123456789012 or S-1-1-12-1234567890-123456789-123456789-1234</p> </li> <li> <p>Email address: user@domain.tld</p> </li> <li> <p>User name: user</p> </li> </ul>
+
+        Raises:
+            aws_sdk_workmail.errors.entity_not_found_exception.EntityNotFoundException: <p>The identifier supplied for the user, group, or resource does not exist in your organization.</p>
+            aws_sdk_workmail.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the input parameters don't match the service's restrictions.</p>
+            aws_sdk_workmail.errors.organization_not_found_exception.OrganizationNotFoundException: <p>An operation received a valid organization identifier that either doesn't belong or exist in the system.</p>
+            aws_sdk_workmail.errors.organization_state_exception.OrganizationStateException: <p>The organization must have a valid state to perform certain operations on the organization or its members.</p>
+            aws_sdk_workmail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2559,6 +2919,13 @@ class AsyncWorkMailClient:
         Args:
             organization_id: <p>The WorkMail organization for which the domain is retrieved.</p>
             domain_name: <p>The domain from which you want to retrieve details.</p>
+
+        Raises:
+            aws_sdk_workmail.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the input parameters don't match the service's restrictions.</p>
+            aws_sdk_workmail.errors.mail_domain_not_found_exception.MailDomainNotFoundException: <p>The domain specified is not found in your organization.</p>
+            aws_sdk_workmail.errors.organization_not_found_exception.OrganizationNotFoundException: <p>An operation received a valid organization identifier that either doesn't belong or exist in the system.</p>
+            aws_sdk_workmail.errors.organization_state_exception.OrganizationStateException: <p>The organization must have a valid state to perform certain operations on the organization or its members.</p>
+            aws_sdk_workmail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2612,6 +2979,12 @@ class AsyncWorkMailClient:
             device_model: <p>Device model the simulated user will report.</p>
             device_operating_system: <p>Device operating system the simulated user will report.</p>
             device_user_agent: <p>Device user agent the simulated user will report.</p>
+
+        Raises:
+            aws_sdk_workmail.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the input parameters don't match the service's restrictions.</p>
+            aws_sdk_workmail.errors.organization_not_found_exception.OrganizationNotFoundException: <p>An operation received a valid organization identifier that either doesn't belong or exist in the system.</p>
+            aws_sdk_workmail.errors.organization_state_exception.OrganizationStateException: <p>The organization must have a valid state to perform certain operations on the organization or its members.</p>
+            aws_sdk_workmail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2662,6 +3035,14 @@ class AsyncWorkMailClient:
             organization_id: <p>The WorkMail organization to which you want to apply the override.</p>
             user_id: <p>Identifies the WorkMail user for the override. Accepts the following types of user identities: </p> <ul> <li> <p>User ID: <code>12345678-1234-1234-1234-123456789012</code> or <code>S-1-1-12-1234567890-123456789-123456789-1234</code> </p> </li> <li> <p>Email address: <code>user@domain.tld</code> </p> </li> <li> <p>User name: <code>user</code> </p> </li> </ul>
             device_id: <p>The mobile device to which the override applies. <code>DeviceId</code> is case insensitive.</p>
+
+        Raises:
+            aws_sdk_workmail.errors.entity_not_found_exception.EntityNotFoundException: <p>The identifier supplied for the user, group, or resource does not exist in your organization.</p>
+            aws_sdk_workmail.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the input parameters don't match the service's restrictions.</p>
+            aws_sdk_workmail.errors.organization_not_found_exception.OrganizationNotFoundException: <p>An operation received a valid organization identifier that either doesn't belong or exist in the system.</p>
+            aws_sdk_workmail.errors.organization_state_exception.OrganizationStateException: <p>The organization must have a valid state to perform certain operations on the organization or its members.</p>
+            aws_sdk_workmail.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource cannot be found.</p>
+            aws_sdk_workmail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2704,6 +3085,13 @@ class AsyncWorkMailClient:
         Args:
             organization_id: <p> The Organization ID. </p>
             personal_access_token_id: <p> The Personal Access Token ID.</p>
+
+        Raises:
+            aws_sdk_workmail.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the input parameters don't match the service's restrictions.</p>
+            aws_sdk_workmail.errors.organization_not_found_exception.OrganizationNotFoundException: <p>An operation received a valid organization identifier that either doesn't belong or exist in the system.</p>
+            aws_sdk_workmail.errors.organization_state_exception.OrganizationStateException: <p>The organization must have a valid state to perform certain operations on the organization or its members.</p>
+            aws_sdk_workmail.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource cannot be found.</p>
+            aws_sdk_workmail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2743,6 +3131,11 @@ class AsyncWorkMailClient:
 
         Args:
             organization_id: <p>The identifier for the organization.</p>
+
+        Raises:
+            aws_sdk_workmail.errors.organization_not_found_exception.OrganizationNotFoundException: <p>An operation received a valid organization identifier that either doesn't belong or exist in the system.</p>
+            aws_sdk_workmail.errors.organization_state_exception.OrganizationStateException: <p>The organization must have a valid state to perform certain operations on the organization or its members.</p>
+            aws_sdk_workmail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2787,6 +3180,14 @@ class AsyncWorkMailClient:
             entity_id: <p>The identifier for the entity for which to list the aliases.</p>
             next_token: <p>The token to use to retrieve the next page of results. The first call does not contain any tokens.</p>
             max_results: <p>The maximum number of results to return in a single call.</p>
+
+        Raises:
+            aws_sdk_workmail.errors.entity_not_found_exception.EntityNotFoundException: <p>The identifier supplied for the user, group, or resource does not exist in your organization.</p>
+            aws_sdk_workmail.errors.entity_state_exception.EntityStateException: <p>You are performing an operation on a user, group, or resource that isn't in the expected state, such as trying to delete an active user.</p>
+            aws_sdk_workmail.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the input parameters don't match the service's restrictions.</p>
+            aws_sdk_workmail.errors.organization_not_found_exception.OrganizationNotFoundException: <p>An operation received a valid organization identifier that either doesn't belong or exist in the system.</p>
+            aws_sdk_workmail.errors.organization_state_exception.OrganizationStateException: <p>The organization must have a valid state to perform certain operations on the organization or its members.</p>
+            aws_sdk_workmail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2834,6 +3235,12 @@ class AsyncWorkMailClient:
             organization_id: <p>The WorkMail organization for which the <code>AvailabilityConfiguration</code>'s will be listed.</p>
             max_results: <p>The maximum number of results to return in a single call.</p>
             next_token: <p>The token to use to retrieve the next page of results. The first call does not require a token.</p>
+
+        Raises:
+            aws_sdk_workmail.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the input parameters don't match the service's restrictions.</p>
+            aws_sdk_workmail.errors.organization_not_found_exception.OrganizationNotFoundException: <p>An operation received a valid organization identifier that either doesn't belong or exist in the system.</p>
+            aws_sdk_workmail.errors.organization_state_exception.OrganizationStateException: <p>The organization must have a valid state to perform certain operations on the organization or its members.</p>
+            aws_sdk_workmail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2905,6 +3312,14 @@ class AsyncWorkMailClient:
             group_id: <p>The identifier for the group to which the members (users or groups) are associated.</p> <p>The identifier can accept <i>GroupId</i>, <i>Groupname</i>, or <i>email</i>. The following identity formats are available:</p> <ul> <li> <p>Group ID: 12345678-1234-1234-1234-123456789012 or S-1-1-12-1234567890-123456789-123456789-1234</p> </li> <li> <p>Email address: group@domain.tld</p> </li> <li> <p>Group name: group</p> </li> </ul>
             next_token: <p> The token to use to retrieve the next page of results. The first call does not contain any tokens.</p>
             max_results: <p>The maximum number of results to return in a single call.</p>
+
+        Raises:
+            aws_sdk_workmail.errors.entity_not_found_exception.EntityNotFoundException: <p>The identifier supplied for the user, group, or resource does not exist in your organization.</p>
+            aws_sdk_workmail.errors.entity_state_exception.EntityStateException: <p>You are performing an operation on a user, group, or resource that isn't in the expected state, such as trying to delete an active user.</p>
+            aws_sdk_workmail.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the input parameters don't match the service's restrictions.</p>
+            aws_sdk_workmail.errors.organization_not_found_exception.OrganizationNotFoundException: <p>An operation received a valid organization identifier that either doesn't belong or exist in the system.</p>
+            aws_sdk_workmail.errors.organization_state_exception.OrganizationStateException: <p>The organization must have a valid state to perform certain operations on the organization or its members.</p>
+            aws_sdk_workmail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2956,6 +3371,13 @@ class AsyncWorkMailClient:
             next_token: <p>The token to use to retrieve the next page of results. The first call does not contain any tokens.</p>
             max_results: <p>The maximum number of results to return in a single call.</p>
             filters: <p>Limit the search results based on the filter criteria. Only one filter per request is supported.</p>
+
+        Raises:
+            aws_sdk_workmail.errors.entity_not_found_exception.EntityNotFoundException: <p>The identifier supplied for the user, group, or resource does not exist in your organization.</p>
+            aws_sdk_workmail.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the input parameters don't match the service's restrictions.</p>
+            aws_sdk_workmail.errors.organization_not_found_exception.OrganizationNotFoundException: <p>An operation received a valid organization identifier that either doesn't belong or exist in the system.</p>
+            aws_sdk_workmail.errors.organization_state_exception.OrganizationStateException: <p>The organization must have a valid state to perform certain operations on the organization or its members.</p>
+            aws_sdk_workmail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3010,6 +3432,14 @@ class AsyncWorkMailClient:
             filters: <p>Limit the search results based on the filter criteria.</p>
             next_token: <p>The token to use to retrieve the next page of results. The first call does not contain any tokens.</p>
             max_results: <p>The maximum number of results to return in a single call.</p>
+
+        Raises:
+            aws_sdk_workmail.errors.entity_not_found_exception.EntityNotFoundException: <p>The identifier supplied for the user, group, or resource does not exist in your organization.</p>
+            aws_sdk_workmail.errors.entity_state_exception.EntityStateException: <p>You are performing an operation on a user, group, or resource that isn't in the expected state, such as trying to delete an active user.</p>
+            aws_sdk_workmail.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the input parameters don't match the service's restrictions.</p>
+            aws_sdk_workmail.errors.organization_not_found_exception.OrganizationNotFoundException: <p>An operation received a valid organization identifier that either doesn't belong or exist in the system.</p>
+            aws_sdk_workmail.errors.organization_state_exception.OrganizationStateException: <p>The organization must have a valid state to perform certain operations on the organization or its members.</p>
+            aws_sdk_workmail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3059,6 +3489,12 @@ class AsyncWorkMailClient:
             organization_id: <p>The WorkMail organization to which the listed impersonation roles belong.</p>
             next_token: <p>The token used to retrieve the next page of results. The first call doesn't require a token.</p>
             max_results: <p>The maximum number of results returned in a single call.</p>
+
+        Raises:
+            aws_sdk_workmail.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the input parameters don't match the service's restrictions.</p>
+            aws_sdk_workmail.errors.organization_not_found_exception.OrganizationNotFoundException: <p>An operation received a valid organization identifier that either doesn't belong or exist in the system.</p>
+            aws_sdk_workmail.errors.organization_state_exception.OrganizationStateException: <p>The organization must have a valid state to perform certain operations on the organization or its members.</p>
+            aws_sdk_workmail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3105,6 +3541,12 @@ class AsyncWorkMailClient:
             organization_id: <p>The organization ID.</p>
             next_token: <p>The token to use to retrieve the next page of results.</p>
             max_results: <p>The maximum number of results to return in a single call.</p>
+
+        Raises:
+            aws_sdk_workmail.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the input parameters don't match the service's restrictions.</p>
+            aws_sdk_workmail.errors.organization_not_found_exception.OrganizationNotFoundException: <p>An operation received a valid organization identifier that either doesn't belong or exist in the system.</p>
+            aws_sdk_workmail.errors.organization_state_exception.OrganizationStateException: <p>The organization must have a valid state to perform certain operations on the organization or its members.</p>
+            aws_sdk_workmail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3153,6 +3595,13 @@ class AsyncWorkMailClient:
             entity_id: <p>The identifier of the user, or resource for which to list mailbox permissions.</p> <p>The entity ID can accept <i>UserId or ResourceId</i>, <i>Username or Resourcename</i>, or <i>email</i>.</p> <ul> <li> <p>Entity ID: 12345678-1234-1234-1234-123456789012, or r-0123456789a0123456789b0123456789</p> </li> <li> <p>Email address: entity@domain.tld</p> </li> <li> <p>Entity name: entity</p> </li> </ul>
             next_token: <p>The token to use to retrieve the next page of results. The first call does not contain any tokens.</p>
             max_results: <p>The maximum number of results to return in a single call.</p>
+
+        Raises:
+            aws_sdk_workmail.errors.entity_not_found_exception.EntityNotFoundException: <p>The identifier supplied for the user, group, or resource does not exist in your organization.</p>
+            aws_sdk_workmail.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the input parameters don't match the service's restrictions.</p>
+            aws_sdk_workmail.errors.organization_not_found_exception.OrganizationNotFoundException: <p>An operation received a valid organization identifier that either doesn't belong or exist in the system.</p>
+            aws_sdk_workmail.errors.organization_state_exception.OrganizationStateException: <p>The organization must have a valid state to perform certain operations on the organization or its members.</p>
+            aws_sdk_workmail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3200,6 +3649,12 @@ class AsyncWorkMailClient:
             organization_id: <p>The WorkMail organization for which to list domains.</p>
             max_results: <p>The maximum number of results to return in a single call.</p>
             next_token: <p>The token to use to retrieve the next page of results. The first call does not require a token.</p>
+
+        Raises:
+            aws_sdk_workmail.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the input parameters don't match the service's restrictions.</p>
+            aws_sdk_workmail.errors.organization_not_found_exception.OrganizationNotFoundException: <p>An operation received a valid organization identifier that either doesn't belong or exist in the system.</p>
+            aws_sdk_workmail.errors.organization_state_exception.OrganizationStateException: <p>The organization must have a valid state to perform certain operations on the organization or its members.</p>
+            aws_sdk_workmail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3252,6 +3707,13 @@ class AsyncWorkMailClient:
             device_id: <p>The mobile device to which the access override applies.</p>
             next_token: <p>The token to use to retrieve the next page of results. The first call does not require a token.</p>
             max_results: <p>The maximum number of results to return in a single call.</p>
+
+        Raises:
+            aws_sdk_workmail.errors.entity_not_found_exception.EntityNotFoundException: <p>The identifier supplied for the user, group, or resource does not exist in your organization.</p>
+            aws_sdk_workmail.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the input parameters don't match the service's restrictions.</p>
+            aws_sdk_workmail.errors.organization_not_found_exception.OrganizationNotFoundException: <p>An operation received a valid organization identifier that either doesn't belong or exist in the system.</p>
+            aws_sdk_workmail.errors.organization_state_exception.OrganizationStateException: <p>The organization must have a valid state to perform certain operations on the organization or its members.</p>
+            aws_sdk_workmail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3298,6 +3760,12 @@ class AsyncWorkMailClient:
 
         Args:
             organization_id: <p>The WorkMail organization for which to list the rules.</p>
+
+        Raises:
+            aws_sdk_workmail.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the input parameters don't match the service's restrictions.</p>
+            aws_sdk_workmail.errors.organization_not_found_exception.OrganizationNotFoundException: <p>An operation received a valid organization identifier that either doesn't belong or exist in the system.</p>
+            aws_sdk_workmail.errors.organization_state_exception.OrganizationStateException: <p>The organization must have a valid state to perform certain operations on the organization or its members.</p>
+            aws_sdk_workmail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3338,6 +3806,10 @@ class AsyncWorkMailClient:
         Args:
             next_token: <p>The token to use to retrieve the next page of results. The first call does not contain any tokens.</p>
             max_results: <p>The maximum number of results to return in a single call.</p>
+
+        Raises:
+            aws_sdk_workmail.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the input parameters don't match the service's restrictions.</p>
+            aws_sdk_workmail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3387,6 +3859,14 @@ class AsyncWorkMailClient:
             user_id: <p> The WorkMail User ID. </p>
             next_token: <p> The token from the previous response to query the next page.</p>
             max_results: <p> The maximum amount of items that should be returned in a response. </p>
+
+        Raises:
+            aws_sdk_workmail.errors.entity_not_found_exception.EntityNotFoundException: <p>The identifier supplied for the user, group, or resource does not exist in your organization.</p>
+            aws_sdk_workmail.errors.entity_state_exception.EntityStateException: <p>You are performing an operation on a user, group, or resource that isn't in the expected state, such as trying to delete an active user.</p>
+            aws_sdk_workmail.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the input parameters don't match the service's restrictions.</p>
+            aws_sdk_workmail.errors.organization_not_found_exception.OrganizationNotFoundException: <p>An operation received a valid organization identifier that either doesn't belong or exist in the system.</p>
+            aws_sdk_workmail.errors.organization_state_exception.OrganizationStateException: <p>The organization must have a valid state to perform certain operations on the organization or its members.</p>
+            aws_sdk_workmail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3464,6 +3944,15 @@ class AsyncWorkMailClient:
             resource_id: <p>The identifier for the resource whose delegates are listed.</p> <p>The identifier can accept <i>ResourceId</i>, <i>Resourcename</i>, or <i>email</i>. The following identity formats are available:</p> <ul> <li> <p>Resource ID: r-0123456789a0123456789b0123456789</p> </li> <li> <p>Email address: resource@domain.tld</p> </li> <li> <p>Resource name: resource</p> </li> </ul>
             next_token: <p>The token used to paginate through the delegates associated with a resource.</p>
             max_results: <p>The number of maximum results in a page.</p>
+
+        Raises:
+            aws_sdk_workmail.errors.entity_not_found_exception.EntityNotFoundException: <p>The identifier supplied for the user, group, or resource does not exist in your organization.</p>
+            aws_sdk_workmail.errors.entity_state_exception.EntityStateException: <p>You are performing an operation on a user, group, or resource that isn't in the expected state, such as trying to delete an active user.</p>
+            aws_sdk_workmail.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the input parameters don't match the service's restrictions.</p>
+            aws_sdk_workmail.errors.organization_not_found_exception.OrganizationNotFoundException: <p>An operation received a valid organization identifier that either doesn't belong or exist in the system.</p>
+            aws_sdk_workmail.errors.organization_state_exception.OrganizationStateException: <p>The organization must have a valid state to perform certain operations on the organization or its members.</p>
+            aws_sdk_workmail.errors.unsupported_operation_exception.UnsupportedOperationException: <p>You can't perform a write operation against a read-only directory.</p>
+            aws_sdk_workmail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3515,6 +4004,13 @@ class AsyncWorkMailClient:
             next_token: <p>The token to use to retrieve the next page of results. The first call does not contain any tokens.</p>
             max_results: <p>The maximum number of results to return in a single call.</p>
             filters: <p>Limit the resource search results based on the filter criteria. You can only use one filter per request.</p>
+
+        Raises:
+            aws_sdk_workmail.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the input parameters don't match the service's restrictions.</p>
+            aws_sdk_workmail.errors.organization_not_found_exception.OrganizationNotFoundException: <p>An operation received a valid organization identifier that either doesn't belong or exist in the system.</p>
+            aws_sdk_workmail.errors.organization_state_exception.OrganizationStateException: <p>The organization must have a valid state to perform certain operations on the organization or its members.</p>
+            aws_sdk_workmail.errors.unsupported_operation_exception.UnsupportedOperationException: <p>You can't perform a write operation against a read-only directory.</p>
+            aws_sdk_workmail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3559,6 +4055,10 @@ class AsyncWorkMailClient:
 
         Args:
             resource_arn: <p>The resource ARN.</p>
+
+        Raises:
+            aws_sdk_workmail.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource cannot be found.</p>
+            aws_sdk_workmail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3605,6 +4105,12 @@ class AsyncWorkMailClient:
             next_token: <p>The token to use to retrieve the next page of results. The first call does not contain any tokens.</p>
             max_results: <p>The maximum number of results to return in a single call.</p>
             filters: <p>Limit the user search results based on the filter criteria. You can only use one filter per request.</p>
+
+        Raises:
+            aws_sdk_workmail.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the input parameters don't match the service's restrictions.</p>
+            aws_sdk_workmail.errors.organization_not_found_exception.OrganizationNotFoundException: <p>An operation received a valid organization identifier that either doesn't belong or exist in the system.</p>
+            aws_sdk_workmail.errors.organization_state_exception.OrganizationStateException: <p>The organization must have a valid state to perform certain operations on the organization or its members.</p>
+            aws_sdk_workmail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3677,6 +4183,15 @@ class AsyncWorkMailClient:
             organization_id: <p>The identifier of the organization.</p>
             impersonation_role_ids: <p>Impersonation role IDs to include in the rule.</p>
             not_impersonation_role_ids: <p>Impersonation role IDs to exclude from the rule.</p>
+
+        Raises:
+            aws_sdk_workmail.errors.entity_not_found_exception.EntityNotFoundException: <p>The identifier supplied for the user, group, or resource does not exist in your organization.</p>
+            aws_sdk_workmail.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the input parameters don't match the service's restrictions.</p>
+            aws_sdk_workmail.errors.limit_exceeded_exception.LimitExceededException: <p>The request exceeds the limit of the resource.</p>
+            aws_sdk_workmail.errors.organization_not_found_exception.OrganizationNotFoundException: <p>An operation received a valid organization identifier that either doesn't belong or exist in the system.</p>
+            aws_sdk_workmail.errors.organization_state_exception.OrganizationStateException: <p>The organization must have a valid state to perform certain operations on the organization or its members.</p>
+            aws_sdk_workmail.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource cannot be found.</p>
+            aws_sdk_workmail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3738,6 +4253,13 @@ class AsyncWorkMailClient:
             organization_id: <p>The ID of the organization for which the email monitoring configuration is set.</p>
             role_arn: <p>The Amazon Resource Name (ARN) of the IAM Role associated with the email monitoring configuration. If absent, the IAM Role Arn of AWSServiceRoleForAmazonWorkMailEvents will be used.</p>
             log_group_arn: <p>The Amazon Resource Name (ARN) of the CloudWatch Log group associated with the email monitoring configuration.</p>
+
+        Raises:
+            aws_sdk_workmail.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the input parameters don't match the service's restrictions.</p>
+            aws_sdk_workmail.errors.organization_not_found_exception.OrganizationNotFoundException: <p>An operation received a valid organization identifier that either doesn't belong or exist in the system.</p>
+            aws_sdk_workmail.errors.organization_state_exception.OrganizationStateException: <p>The organization must have a valid state to perform certain operations on the organization or its members.</p>
+            aws_sdk_workmail.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource cannot be found.</p>
+            aws_sdk_workmail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3785,6 +4307,13 @@ class AsyncWorkMailClient:
             authentication_mode: <p> The authentication mode used in WorkMail.</p>
             identity_center_configuration: <p> The details of the IAM Identity Center configuration.</p>
             personal_access_token_configuration: <p> The details of the Personal Access Token configuration. </p>
+
+        Raises:
+            aws_sdk_workmail.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the input parameters don't match the service's restrictions.</p>
+            aws_sdk_workmail.errors.organization_not_found_exception.OrganizationNotFoundException: <p>An operation received a valid organization identifier that either doesn't belong or exist in the system.</p>
+            aws_sdk_workmail.errors.organization_state_exception.OrganizationStateException: <p>The organization must have a valid state to perform certain operations on the organization or its members.</p>
+            aws_sdk_workmail.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource cannot be found.</p>
+            aws_sdk_workmail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3830,6 +4359,11 @@ class AsyncWorkMailClient:
         Args:
             organization_id: <p>The ID of the organization that you are applying the DMARC policy to.</p>
             enforced: <p>Enforces or suspends a policy after it's applied.</p>
+
+        Raises:
+            aws_sdk_workmail.errors.organization_not_found_exception.OrganizationNotFoundException: <p>An operation received a valid organization identifier that either doesn't belong or exist in the system.</p>
+            aws_sdk_workmail.errors.organization_state_exception.OrganizationStateException: <p>The organization must have a valid state to perform certain operations on the organization or its members.</p>
+            aws_sdk_workmail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3875,6 +4409,14 @@ class AsyncWorkMailClient:
             entity_id: <p>The identifier of the user or resource for which to update mailbox permissions.</p> <p>The identifier can be <i>UserId, ResourceID, or Group Id</i>, <i>Username, Resourcename, or Groupname</i>, or <i>email</i>.</p> <ul> <li> <p>Entity ID: 12345678-1234-1234-1234-123456789012, r-0123456789a0123456789b0123456789, or S-1-1-12-1234567890-123456789-123456789-1234</p> </li> <li> <p>Email address: entity@domain.tld</p> </li> <li> <p>Entity name: entity</p> </li> </ul>
             grantee_id: <p>The identifier of the user, group, or resource to which to grant the permissions.</p> <p>The identifier can be <i>UserId, ResourceID, or Group Id</i>, <i>Username, Resourcename, or Groupname</i>, or <i>email</i>.</p> <ul> <li> <p>Grantee ID: 12345678-1234-1234-1234-123456789012, r-0123456789a0123456789b0123456789, or S-1-1-12-1234567890-123456789-123456789-1234</p> </li> <li> <p>Email address: grantee@domain.tld</p> </li> <li> <p>Grantee name: grantee</p> </li> </ul>
             permission_values: <p>The permissions granted to the grantee. SEND_AS allows the grantee to send email as the owner of the mailbox (the grantee is not mentioned on these emails). SEND_ON_BEHALF allows the grantee to send email on behalf of the owner of the mailbox (the grantee is not mentioned as the physical sender of these emails). FULL_ACCESS allows the grantee full access to the mailbox, irrespective of other folder-level permissions set on the mailbox.</p>
+
+        Raises:
+            aws_sdk_workmail.errors.entity_not_found_exception.EntityNotFoundException: <p>The identifier supplied for the user, group, or resource does not exist in your organization.</p>
+            aws_sdk_workmail.errors.entity_state_exception.EntityStateException: <p>You are performing an operation on a user, group, or resource that isn't in the expected state, such as trying to delete an active user.</p>
+            aws_sdk_workmail.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the input parameters don't match the service's restrictions.</p>
+            aws_sdk_workmail.errors.organization_not_found_exception.OrganizationNotFoundException: <p>An operation received a valid organization identifier that either doesn't belong or exist in the system.</p>
+            aws_sdk_workmail.errors.organization_state_exception.OrganizationStateException: <p>The organization must have a valid state to perform certain operations on the organization or its members.</p>
+            aws_sdk_workmail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3926,6 +4468,14 @@ class AsyncWorkMailClient:
             device_id: <p>The mobile device for which you create the override. <code>DeviceId</code> is case insensitive.</p>
             effect: <p>The effect of the override, <code>ALLOW</code> or <code>DENY</code>.</p>
             description: <p>A description of the override.</p>
+
+        Raises:
+            aws_sdk_workmail.errors.entity_not_found_exception.EntityNotFoundException: <p>The identifier supplied for the user, group, or resource does not exist in your organization.</p>
+            aws_sdk_workmail.errors.entity_state_exception.EntityStateException: <p>You are performing an operation on a user, group, or resource that isn't in the expected state, such as trying to delete an active user.</p>
+            aws_sdk_workmail.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the input parameters don't match the service's restrictions.</p>
+            aws_sdk_workmail.errors.organization_not_found_exception.OrganizationNotFoundException: <p>An operation received a valid organization identifier that either doesn't belong or exist in the system.</p>
+            aws_sdk_workmail.errors.organization_state_exception.OrganizationStateException: <p>The organization must have a valid state to perform certain operations on the organization or its members.</p>
+            aws_sdk_workmail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3979,6 +4529,13 @@ class AsyncWorkMailClient:
             name: <p>The retention policy name.</p>
             description: <p>The retention policy description.</p>
             folder_configurations: <p>The retention policy folder configurations.</p>
+
+        Raises:
+            aws_sdk_workmail.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the input parameters don't match the service's restrictions.</p>
+            aws_sdk_workmail.errors.limit_exceeded_exception.LimitExceededException: <p>The request exceeds the limit of the resource.</p>
+            aws_sdk_workmail.errors.organization_not_found_exception.OrganizationNotFoundException: <p>An operation received a valid organization identifier that either doesn't belong or exist in the system.</p>
+            aws_sdk_workmail.errors.organization_state_exception.OrganizationStateException: <p>The organization must have a valid state to perform certain operations on the organization or its members.</p>
+            aws_sdk_workmail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4029,6 +4586,14 @@ class AsyncWorkMailClient:
             client_token: <p>Idempotency token used when retrying requests.</p>
             organization_id: <p>The WorkMail organization under which you're creating the domain.</p>
             domain_name: <p>The name of the mail domain to create in WorkMail and SES.</p>
+
+        Raises:
+            aws_sdk_workmail.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the input parameters don't match the service's restrictions.</p>
+            aws_sdk_workmail.errors.limit_exceeded_exception.LimitExceededException: <p>The request exceeds the limit of the resource.</p>
+            aws_sdk_workmail.errors.mail_domain_in_use_exception.MailDomainInUseException: <p>The domain you're trying to change is in use by another user or organization in your account. See the error message for details.</p>
+            aws_sdk_workmail.errors.organization_not_found_exception.OrganizationNotFoundException: <p>An operation received a valid organization identifier that either doesn't belong or exist in the system.</p>
+            aws_sdk_workmail.errors.organization_state_exception.OrganizationStateException: <p>The organization must have a valid state to perform certain operations on the organization or its members.</p>
+            aws_sdk_workmail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4074,6 +4639,21 @@ class AsyncWorkMailClient:
             organization_id: <p>The identifier for the organization under which the user, group, or resource exists.</p>
             entity_id: <p>The identifier for the user, group, or resource to be updated.</p> <p>The identifier can accept <i>UserId, ResourceId, or GroupId</i>, or <i>Username, Resourcename, or Groupname</i>. The following identity formats are available:</p> <ul> <li> <p>Entity ID: 12345678-1234-1234-1234-123456789012, r-0123456789a0123456789b0123456789, or S-1-1-12-1234567890-123456789-123456789-1234</p> </li> <li> <p>Entity name: entity</p> </li> </ul>
             email: <p>The email for the user, group, or resource to be updated.</p>
+
+        Raises:
+            aws_sdk_workmail.errors.directory_service_authentication_failed_exception.DirectoryServiceAuthenticationFailedException: <p>The directory service doesn't recognize the credentials supplied by WorkMail.</p>
+            aws_sdk_workmail.errors.directory_unavailable_exception.DirectoryUnavailableException: <p>The directory is unavailable. It might be located in another Region or deleted.</p>
+            aws_sdk_workmail.errors.email_address_in_use_exception.EmailAddressInUseException: <p>The email address that you're trying to assign is already created for a different user, group, or resource.</p>
+            aws_sdk_workmail.errors.entity_already_registered_exception.EntityAlreadyRegisteredException: <p>The user, group, or resource that you're trying to register is already registered.</p>
+            aws_sdk_workmail.errors.entity_not_found_exception.EntityNotFoundException: <p>The identifier supplied for the user, group, or resource does not exist in your organization.</p>
+            aws_sdk_workmail.errors.entity_state_exception.EntityStateException: <p>You are performing an operation on a user, group, or resource that isn't in the expected state, such as trying to delete an active user.</p>
+            aws_sdk_workmail.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the input parameters don't match the service's restrictions.</p>
+            aws_sdk_workmail.errors.mail_domain_not_found_exception.MailDomainNotFoundException: <p>The domain specified is not found in your organization.</p>
+            aws_sdk_workmail.errors.mail_domain_state_exception.MailDomainStateException: <p>After a domain has been added to the organization, it must be verified. The domain is not yet verified.</p>
+            aws_sdk_workmail.errors.organization_not_found_exception.OrganizationNotFoundException: <p>An operation received a valid organization identifier that either doesn't belong or exist in the system.</p>
+            aws_sdk_workmail.errors.organization_state_exception.OrganizationStateException: <p>The organization must have a valid state to perform certain operations on the organization or its members.</p>
+            aws_sdk_workmail.errors.unsupported_operation_exception.UnsupportedOperationException: <p>You can't perform a write operation against a read-only directory.</p>
+            aws_sdk_workmail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4118,6 +4698,18 @@ class AsyncWorkMailClient:
             organization_id: <p>The identifier of the organization that contains the user for which the password is reset.</p>
             user_id: <p>The identifier of the user for whom the password is reset.</p>
             password: <p>The new password for the user.</p>
+
+        Raises:
+            aws_sdk_workmail.errors.directory_service_authentication_failed_exception.DirectoryServiceAuthenticationFailedException: <p>The directory service doesn't recognize the credentials supplied by WorkMail.</p>
+            aws_sdk_workmail.errors.directory_unavailable_exception.DirectoryUnavailableException: <p>The directory is unavailable. It might be located in another Region or deleted.</p>
+            aws_sdk_workmail.errors.entity_not_found_exception.EntityNotFoundException: <p>The identifier supplied for the user, group, or resource does not exist in your organization.</p>
+            aws_sdk_workmail.errors.entity_state_exception.EntityStateException: <p>You are performing an operation on a user, group, or resource that isn't in the expected state, such as trying to delete an active user.</p>
+            aws_sdk_workmail.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the input parameters don't match the service's restrictions.</p>
+            aws_sdk_workmail.errors.invalid_password_exception.InvalidPasswordException: <p>The supplied password doesn't match the minimum security constraints, such as length or use of special characters.</p>
+            aws_sdk_workmail.errors.organization_not_found_exception.OrganizationNotFoundException: <p>An operation received a valid organization identifier that either doesn't belong or exist in the system.</p>
+            aws_sdk_workmail.errors.organization_state_exception.OrganizationStateException: <p>The organization must have a valid state to perform certain operations on the organization or its members.</p>
+            aws_sdk_workmail.errors.unsupported_operation_exception.UnsupportedOperationException: <p>You can't perform a write operation against a read-only directory.</p>
+            aws_sdk_workmail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4172,6 +4764,14 @@ class AsyncWorkMailClient:
             kms_key_arn: <p>The Amazon Resource Name (ARN) of the symmetric AWS Key Management Service (AWS KMS) key that encrypts the exported mailbox content.</p>
             s3_bucket_name: <p>The name of the S3 bucket.</p>
             s3_prefix: <p>The S3 bucket prefix.</p>
+
+        Raises:
+            aws_sdk_workmail.errors.entity_not_found_exception.EntityNotFoundException: <p>The identifier supplied for the user, group, or resource does not exist in your organization.</p>
+            aws_sdk_workmail.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the input parameters don't match the service's restrictions.</p>
+            aws_sdk_workmail.errors.limit_exceeded_exception.LimitExceededException: <p>The request exceeds the limit of the resource.</p>
+            aws_sdk_workmail.errors.organization_not_found_exception.OrganizationNotFoundException: <p>An operation received a valid organization identifier that either doesn't belong or exist in the system.</p>
+            aws_sdk_workmail.errors.organization_state_exception.OrganizationStateException: <p>The organization must have a valid state to perform certain operations on the organization or its members.</p>
+            aws_sdk_workmail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4220,6 +4820,13 @@ class AsyncWorkMailClient:
         Args:
             resource_arn: <p>The resource ARN.</p>
             tags: <p>The tag key-value pairs.</p>
+
+        Raises:
+            aws_sdk_workmail.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the input parameters don't match the service's restrictions.</p>
+            aws_sdk_workmail.errors.organization_state_exception.OrganizationStateException: <p>The organization must have a valid state to perform certain operations on the organization or its members.</p>
+            aws_sdk_workmail.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource cannot be found.</p>
+            aws_sdk_workmail.errors.too_many_tags_exception.TooManyTagsException: <p>The resource can have up to 50 user-applied tags.</p>
+            aws_sdk_workmail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4267,6 +4874,13 @@ class AsyncWorkMailClient:
         Args:
             organization_id: <p>The WorkMail organization where the availability provider will be tested.</p>
             domain_name: <p>The domain to which the provider applies. If this field is provided, a stored availability provider associated to this domain name will be tested.</p>
+
+        Raises:
+            aws_sdk_workmail.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the input parameters don't match the service's restrictions.</p>
+            aws_sdk_workmail.errors.organization_not_found_exception.OrganizationNotFoundException: <p>An operation received a valid organization identifier that either doesn't belong or exist in the system.</p>
+            aws_sdk_workmail.errors.organization_state_exception.OrganizationStateException: <p>The organization must have a valid state to perform certain operations on the organization or its members.</p>
+            aws_sdk_workmail.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource cannot be found.</p>
+            aws_sdk_workmail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4313,6 +4927,10 @@ class AsyncWorkMailClient:
         Args:
             resource_arn: <p>The resource ARN.</p>
             tag_keys: <p>The tag keys.</p>
+
+        Raises:
+            aws_sdk_workmail.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource cannot be found.</p>
+            aws_sdk_workmail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4362,6 +4980,13 @@ class AsyncWorkMailClient:
             domain_name: <p>The domain to which the provider applies the availability configuration.</p>
             ews_provider: <p>The EWS availability provider definition. The request must contain exactly one provider definition, either <code>EwsProvider</code> or <code>LambdaProvider</code>. The previously stored provider will be overridden by the one provided.</p>
             lambda_provider: <p>The Lambda availability provider definition. The request must contain exactly one provider definition, either <code>EwsProvider</code> or <code>LambdaProvider</code>. The previously stored provider will be overridden by the one provided.</p>
+
+        Raises:
+            aws_sdk_workmail.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the input parameters don't match the service's restrictions.</p>
+            aws_sdk_workmail.errors.organization_not_found_exception.OrganizationNotFoundException: <p>An operation received a valid organization identifier that either doesn't belong or exist in the system.</p>
+            aws_sdk_workmail.errors.organization_state_exception.OrganizationStateException: <p>The organization must have a valid state to perform certain operations on the organization or its members.</p>
+            aws_sdk_workmail.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource cannot be found.</p>
+            aws_sdk_workmail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4407,6 +5032,14 @@ class AsyncWorkMailClient:
         Args:
             organization_id: <p>The WorkMail organization for which to list domains.</p>
             domain_name: <p>The domain name that will become the default domain.</p>
+
+        Raises:
+            aws_sdk_workmail.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the input parameters don't match the service's restrictions.</p>
+            aws_sdk_workmail.errors.mail_domain_not_found_exception.MailDomainNotFoundException: <p>The domain specified is not found in your organization.</p>
+            aws_sdk_workmail.errors.mail_domain_state_exception.MailDomainStateException: <p>After a domain has been added to the organization, it must be verified. The domain is not yet verified.</p>
+            aws_sdk_workmail.errors.organization_not_found_exception.OrganizationNotFoundException: <p>An operation received a valid organization identifier that either doesn't belong or exist in the system.</p>
+            aws_sdk_workmail.errors.organization_state_exception.OrganizationStateException: <p>The organization must have a valid state to perform certain operations on the organization or its members.</p>
+            aws_sdk_workmail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4452,6 +5085,15 @@ class AsyncWorkMailClient:
             organization_id: <p>The identifier for the organization under which the group exists.</p>
             group_id: <p>The identifier for the group to be updated.</p> <p>The identifier can accept <i>GroupId</i>, <i>Groupname</i>, or <i>email</i>. The following identity formats are available:</p> <ul> <li> <p>Group ID: 12345678-1234-1234-1234-123456789012 or S-1-1-12-1234567890-123456789-123456789-1234</p> </li> <li> <p>Email address: group@domain.tld</p> </li> <li> <p>Group name: group</p> </li> </ul>
             hidden_from_global_address_list: <p>If enabled, the group is hidden from the global address list.</p>
+
+        Raises:
+            aws_sdk_workmail.errors.entity_not_found_exception.EntityNotFoundException: <p>The identifier supplied for the user, group, or resource does not exist in your organization.</p>
+            aws_sdk_workmail.errors.entity_state_exception.EntityStateException: <p>You are performing an operation on a user, group, or resource that isn't in the expected state, such as trying to delete an active user.</p>
+            aws_sdk_workmail.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the input parameters don't match the service's restrictions.</p>
+            aws_sdk_workmail.errors.organization_not_found_exception.OrganizationNotFoundException: <p>An operation received a valid organization identifier that either doesn't belong or exist in the system.</p>
+            aws_sdk_workmail.errors.organization_state_exception.OrganizationStateException: <p>The organization must have a valid state to perform certain operations on the organization or its members.</p>
+            aws_sdk_workmail.errors.unsupported_operation_exception.UnsupportedOperationException: <p>You can't perform a write operation against a read-only directory.</p>
+            aws_sdk_workmail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4505,6 +5147,16 @@ class AsyncWorkMailClient:
             type: <p>The updated impersonation role type.</p>
             description: <p>The updated impersonation role description.</p>
             rules: <p>The updated list of rules.</p>
+
+        Raises:
+            aws_sdk_workmail.errors.entity_not_found_exception.EntityNotFoundException: <p>The identifier supplied for the user, group, or resource does not exist in your organization.</p>
+            aws_sdk_workmail.errors.entity_state_exception.EntityStateException: <p>You are performing an operation on a user, group, or resource that isn't in the expected state, such as trying to delete an active user.</p>
+            aws_sdk_workmail.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the input parameters don't match the service's restrictions.</p>
+            aws_sdk_workmail.errors.limit_exceeded_exception.LimitExceededException: <p>The request exceeds the limit of the resource.</p>
+            aws_sdk_workmail.errors.organization_not_found_exception.OrganizationNotFoundException: <p>An operation received a valid organization identifier that either doesn't belong or exist in the system.</p>
+            aws_sdk_workmail.errors.organization_state_exception.OrganizationStateException: <p>The organization must have a valid state to perform certain operations on the organization or its members.</p>
+            aws_sdk_workmail.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource cannot be found.</p>
+            aws_sdk_workmail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4553,6 +5205,14 @@ class AsyncWorkMailClient:
             organization_id: <p>The identifier for the organization that contains the user for whom to update the mailbox quota.</p>
             user_id: <p>The identifer for the user for whom to update the mailbox quota.</p> <p>The identifier can be the <i>UserId</i>, <i>Username</i>, or <i>email</i>. The following identity formats are available:</p> <ul> <li> <p>User ID: 12345678-1234-1234-1234-123456789012 or S-1-1-12-1234567890-123456789-123456789-1234</p> </li> <li> <p>Email address: user@domain.tld</p> </li> <li> <p>User name: user</p> </li> </ul>
             mailbox_quota: <p>The updated mailbox quota, in MB, for the specified user.</p>
+
+        Raises:
+            aws_sdk_workmail.errors.entity_not_found_exception.EntityNotFoundException: <p>The identifier supplied for the user, group, or resource does not exist in your organization.</p>
+            aws_sdk_workmail.errors.entity_state_exception.EntityStateException: <p>You are performing an operation on a user, group, or resource that isn't in the expected state, such as trying to delete an active user.</p>
+            aws_sdk_workmail.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the input parameters don't match the service's restrictions.</p>
+            aws_sdk_workmail.errors.organization_not_found_exception.OrganizationNotFoundException: <p>An operation received a valid organization identifier that either doesn't belong or exist in the system.</p>
+            aws_sdk_workmail.errors.organization_state_exception.OrganizationStateException: <p>The organization must have a valid state to perform certain operations on the organization or its members.</p>
+            aws_sdk_workmail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4635,6 +5295,13 @@ class AsyncWorkMailClient:
             not_device_operating_systems: <p>Device operating systems that the updated rule <b>will not</b> match. All other device operating systems will match.</p>
             device_user_agents: <p>User agents that the updated rule will match.</p>
             not_device_user_agents: <p>User agents that the updated rule <b>will not</b> match. All other user agents will match.</p>
+
+        Raises:
+            aws_sdk_workmail.errors.entity_not_found_exception.EntityNotFoundException: <p>The identifier supplied for the user, group, or resource does not exist in your organization.</p>
+            aws_sdk_workmail.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the input parameters don't match the service's restrictions.</p>
+            aws_sdk_workmail.errors.organization_not_found_exception.OrganizationNotFoundException: <p>An operation received a valid organization identifier that either doesn't belong or exist in the system.</p>
+            aws_sdk_workmail.errors.organization_state_exception.OrganizationStateException: <p>The organization must have a valid state to perform certain operations on the organization or its members.</p>
+            aws_sdk_workmail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4698,6 +5365,20 @@ class AsyncWorkMailClient:
             organization_id: <p>The organization that contains the user, group, or resource to update.</p>
             entity_id: <p>The user, group, or resource to update.</p> <p>The identifier can accept <i>UseriD, ResourceId, or GroupId</i>, <i>Username, Resourcename, or Groupname</i>, or <i>email</i>. The following identity formats are available:</p> <ul> <li> <p>Entity ID: 12345678-1234-1234-1234-123456789012, r-0123456789a0123456789b0123456789, or S-1-1-12-1234567890-123456789-123456789-1234</p> </li> <li> <p>Email address: entity@domain.tld</p> </li> <li> <p>Entity name: entity</p> </li> </ul>
             email: <p>The value of the email to be updated as primary.</p>
+
+        Raises:
+            aws_sdk_workmail.errors.directory_service_authentication_failed_exception.DirectoryServiceAuthenticationFailedException: <p>The directory service doesn't recognize the credentials supplied by WorkMail.</p>
+            aws_sdk_workmail.errors.directory_unavailable_exception.DirectoryUnavailableException: <p>The directory is unavailable. It might be located in another Region or deleted.</p>
+            aws_sdk_workmail.errors.email_address_in_use_exception.EmailAddressInUseException: <p>The email address that you're trying to assign is already created for a different user, group, or resource.</p>
+            aws_sdk_workmail.errors.entity_not_found_exception.EntityNotFoundException: <p>The identifier supplied for the user, group, or resource does not exist in your organization.</p>
+            aws_sdk_workmail.errors.entity_state_exception.EntityStateException: <p>You are performing an operation on a user, group, or resource that isn't in the expected state, such as trying to delete an active user.</p>
+            aws_sdk_workmail.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the input parameters don't match the service's restrictions.</p>
+            aws_sdk_workmail.errors.mail_domain_not_found_exception.MailDomainNotFoundException: <p>The domain specified is not found in your organization.</p>
+            aws_sdk_workmail.errors.mail_domain_state_exception.MailDomainStateException: <p>After a domain has been added to the organization, it must be verified. The domain is not yet verified.</p>
+            aws_sdk_workmail.errors.organization_not_found_exception.OrganizationNotFoundException: <p>An operation received a valid organization identifier that either doesn't belong or exist in the system.</p>
+            aws_sdk_workmail.errors.organization_state_exception.OrganizationStateException: <p>The organization must have a valid state to perform certain operations on the organization or its members.</p>
+            aws_sdk_workmail.errors.unsupported_operation_exception.UnsupportedOperationException: <p>You can't perform a write operation against a read-only directory.</p>
+            aws_sdk_workmail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4756,6 +5437,21 @@ class AsyncWorkMailClient:
             description: <p>Updates the resource description.</p>
             type: <p>Updates the resource type.</p>
             hidden_from_global_address_list: <p>If enabled, the resource is hidden from the global address list.</p>
+
+        Raises:
+            aws_sdk_workmail.errors.directory_unavailable_exception.DirectoryUnavailableException: <p>The directory is unavailable. It might be located in another Region or deleted.</p>
+            aws_sdk_workmail.errors.email_address_in_use_exception.EmailAddressInUseException: <p>The email address that you're trying to assign is already created for a different user, group, or resource.</p>
+            aws_sdk_workmail.errors.entity_not_found_exception.EntityNotFoundException: <p>The identifier supplied for the user, group, or resource does not exist in your organization.</p>
+            aws_sdk_workmail.errors.entity_state_exception.EntityStateException: <p>You are performing an operation on a user, group, or resource that isn't in the expected state, such as trying to delete an active user.</p>
+            aws_sdk_workmail.errors.invalid_configuration_exception.InvalidConfigurationException: <p>The configuration for a resource isn't valid. A resource must either be able to auto-respond to requests or have at least one delegate associated that can do so on its behalf.</p>
+            aws_sdk_workmail.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the input parameters don't match the service's restrictions.</p>
+            aws_sdk_workmail.errors.mail_domain_not_found_exception.MailDomainNotFoundException: <p>The domain specified is not found in your organization.</p>
+            aws_sdk_workmail.errors.mail_domain_state_exception.MailDomainStateException: <p>After a domain has been added to the organization, it must be verified. The domain is not yet verified.</p>
+            aws_sdk_workmail.errors.name_availability_exception.NameAvailabilityException: <p>The user, group, or resource name isn't unique in WorkMail.</p>
+            aws_sdk_workmail.errors.organization_not_found_exception.OrganizationNotFoundException: <p>An operation received a valid organization identifier that either doesn't belong or exist in the system.</p>
+            aws_sdk_workmail.errors.organization_state_exception.OrganizationStateException: <p>The organization must have a valid state to perform certain operations on the organization or its members.</p>
+            aws_sdk_workmail.errors.unsupported_operation_exception.UnsupportedOperationException: <p>You can't perform a write operation against a read-only directory.</p>
+            aws_sdk_workmail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4859,6 +5555,17 @@ class AsyncWorkMailClient:
             country: <p>Updates the user's country.</p>
             office: <p>Updates the user's office.</p>
             identity_provider_user_id: <p>User ID from the IAM Identity Center. If this parameter is empty it will be updated automatically when the user logs in for the first time to the mailbox associated with WorkMail.</p>
+
+        Raises:
+            aws_sdk_workmail.errors.directory_service_authentication_failed_exception.DirectoryServiceAuthenticationFailedException: <p>The directory service doesn't recognize the credentials supplied by WorkMail.</p>
+            aws_sdk_workmail.errors.directory_unavailable_exception.DirectoryUnavailableException: <p>The directory is unavailable. It might be located in another Region or deleted.</p>
+            aws_sdk_workmail.errors.entity_not_found_exception.EntityNotFoundException: <p>The identifier supplied for the user, group, or resource does not exist in your organization.</p>
+            aws_sdk_workmail.errors.entity_state_exception.EntityStateException: <p>You are performing an operation on a user, group, or resource that isn't in the expected state, such as trying to delete an active user.</p>
+            aws_sdk_workmail.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the input parameters don't match the service's restrictions.</p>
+            aws_sdk_workmail.errors.organization_not_found_exception.OrganizationNotFoundException: <p>An operation received a valid organization identifier that either doesn't belong or exist in the system.</p>
+            aws_sdk_workmail.errors.organization_state_exception.OrganizationStateException: <p>The organization must have a valid state to perform certain operations on the organization or its members.</p>
+            aws_sdk_workmail.errors.unsupported_operation_exception.UnsupportedOperationException: <p>You can't perform a write operation against a read-only directory.</p>
+            aws_sdk_workmail.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

@@ -143,6 +143,12 @@ class ampClient:
     ) -> "aws_sdk_amp.types.get_default_scraper_configuration_response.GetDefaultScraperConfigurationResponse":
         """<p>The <code>GetDefaultScraperConfiguration</code> operation returns the default scraper configuration used when Amazon EKS creates a scraper for you.</p>
 
+        Raises:
+            aws_sdk_amp.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_amp.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred during the processing of the request.</p>
+            aws_sdk_amp.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_amp.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             GetDefaultScraperConfiguration
 
@@ -182,6 +188,14 @@ class ampClient:
 
         Args:
             resource_arn: <p>The ARN of the resource to list tages for. Must be a workspace, scraper, or rule groups namespace resource.</p>
+
+        Raises:
+            aws_sdk_amp.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_amp.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred during the processing of the request.</p>
+            aws_sdk_amp.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resources that doesn't exist.</p>
+            aws_sdk_amp.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_amp.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_amp.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -221,6 +235,14 @@ class ampClient:
         Args:
             resource_arn: <p>The ARN of the resource to apply tags to.</p>
             tags: <p>The list of tag keys and values to associate with the resource.</p> <p>Keys must not begin with <code>aws:</code>.</p>
+
+        Raises:
+            aws_sdk_amp.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_amp.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred during the processing of the request.</p>
+            aws_sdk_amp.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resources that doesn't exist.</p>
+            aws_sdk_amp.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_amp.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_amp.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -261,6 +283,14 @@ class ampClient:
         Args:
             resource_arn: <p>The ARN of the resource from which to remove a tag.</p>
             tag_keys: <p>The keys of the tags to remove.</p>
+
+        Raises:
+            aws_sdk_amp.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_amp.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred during the processing of the request.</p>
+            aws_sdk_amp.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resources that doesn't exist.</p>
+            aws_sdk_amp.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_amp.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_amp.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(

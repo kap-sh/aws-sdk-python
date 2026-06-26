@@ -385,6 +385,9 @@ class S3ControlClient:
         Args:
             account_id: <p>The Amazon Web Services account ID of the S3 Access Grants instance.</p>
             identity_center_arn: <p>The Amazon Resource Name (ARN) of the Amazon Web Services IAM Identity Center instance that you are associating with your S3 Access Grants instance. An IAM Identity Center instance is your corporate identity directory that you added to the IAM Identity Center. You can use the <a href=\"https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_ListInstances.html\">ListInstances</a> API operation to retrieve a list of your Identity Center instances and their ARNs.</p>
+
+        Raises:
+            aws_sdk_s3_control.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -441,6 +444,9 @@ class S3ControlClient:
             application_arn: <p>The Amazon Resource Name (ARN) of an Amazon Web Services IAM Identity Center application associated with your Identity Center instance. If an application ARN is included in the request to create an access grant, the grantee can only access the S3 data through this application. </p>
             s3_prefix_type: <p>The type of <code>S3SubPrefix</code>. The only possible value is <code>Object</code>. Pass this value if the access grant scope is an object. Do not pass this value if the access grant scope is a bucket or a bucket and a prefix. </p>
             tags: <p>The Amazon Web Services resource tags that you are adding to the access grant. Each tag is a label consisting of a user-defined key and value. Tags can help you manage, identify, organize, search for, and filter resources. </p>
+
+        Raises:
+            aws_sdk_s3_control.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -497,6 +503,9 @@ class S3ControlClient:
             account_id: <p>The Amazon Web Services account ID of the S3 Access Grants instance.</p>
             identity_center_arn: <p>If you would like to associate your S3 Access Grants instance with an Amazon Web Services IAM Identity Center instance, use this field to pass the Amazon Resource Name (ARN) of the Amazon Web Services IAM Identity Center instance that you are associating with your S3 Access Grants instance. An IAM Identity Center instance is your corporate identity directory that you added to the IAM Identity Center. You can use the <a href=\"https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_ListInstances.html\">ListInstances</a> API operation to retrieve a list of your Identity Center instances and their ARNs. </p>
             tags: <p>The Amazon Web Services resource tags that you are adding to the S3 Access Grants instance. Each tag is a label consisting of a user-defined key and value. Tags can help you manage, identify, organize, search for, and filter resources. </p>
+
+        Raises:
+            aws_sdk_s3_control.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -544,6 +553,9 @@ class S3ControlClient:
             location_scope: <p>The S3 path to the location that you are registering. The location scope can be the default S3 location <code>s3://</code>, the S3 path to a bucket <code>s3://<bucket></code>, or the S3 path to a bucket and prefix <code>s3://<bucket>/<prefix></code>. A prefix in S3 is a string of characters at the beginning of an object key name used to organize the objects that you store in your S3 buckets. For example, object key names that start with the <code>engineering/</code> prefix or object key names that start with the <code>marketing/campaigns/</code> prefix.</p>
             iam_role_arn: <p>The Amazon Resource Name (ARN) of the IAM role for the registered location. S3 Access Grants assumes this role to manage access to the registered location. </p>
             tags: <p>The Amazon Web Services resource tags that you are adding to the S3 Access Grants location. Each tag is a label consisting of a user-defined key and value. Tags can help you manage, identify, organize, search for, and filter resources.</p>
+
+        Raises:
+            aws_sdk_s3_control.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -605,6 +617,9 @@ class S3ControlClient:
             bucket_account_id: <p>The Amazon Web Services account ID associated with the S3 bucket associated with this access point.</p> <p>For same account access point when your bucket and access point belong to the same account owner, the <code>BucketAccountId</code> is not required. For cross-account access point when your bucket and access point are not in the same account, the <code>BucketAccountId</code> is required. </p>
             scope: <p>For directory buckets, you can filter access control to specific prefixes, API operations, or a combination of both. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points-directory-buckets.html\">Managing access to shared datasets in directory buckets with access points</a> in the <i>Amazon S3 User Guide</i>.</p> <note> <p>Scope is only supported for access points attached to directory buckets.</p> </note>
             tags: <p>An array of tags that you can apply to an access point. Tags are key-value pairs of metadata used to control access to your access points. For more information about tags, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/tagging.html\">Using tags with Amazon S3</a>. For information about tagging access points, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/tagging.html#using-tags-for-abac\">Using tags for attribute-based access control (ABAC)</a>.</p>
+
+        Raises:
+            aws_sdk_s3_control.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -660,6 +675,9 @@ class S3ControlClient:
             account_id: <p>The Amazon Web Services account ID for owner of the specified Object Lambda Access Point.</p>
             name: <p>The name you want to assign to this Object Lambda Access Point.</p>
             configuration: <p>Object Lambda Access Point configuration as a JSON document.</p>
+
+        Raises:
+            aws_sdk_s3_control.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -731,6 +749,11 @@ class S3ControlClient:
             grant_write_acp: <p>Allows grantee to write the ACL for the applicable bucket.</p> <note> <p>This is not supported by Amazon S3 on Outposts buckets.</p> </note>
             object_lock_enabled_for_bucket: <p>Specifies whether you want S3 Object Lock to be enabled for the new bucket.</p> <note> <p>This is not supported by Amazon S3 on Outposts buckets.</p> </note>
             outpost_id: <p>The ID of the Outposts where the bucket is being created.</p> <note> <p>This ID is required by Amazon S3 on Outposts buckets.</p> </note>
+
+        Raises:
+            aws_sdk_s3_control.errors.bucket_already_exists.BucketAlreadyExists: <p>The requested Outposts bucket name is not available. The bucket namespace is shared by all users of the Outposts in this Region. Select a different name and try again.</p>
+            aws_sdk_s3_control.errors.bucket_already_owned_by_you.BucketAlreadyOwnedByYou: <p>The Outposts bucket you tried to create already exists, and you own it. </p>
+            aws_sdk_s3_control.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -812,6 +835,13 @@ class S3ControlClient:
             role_arn: <p>The Amazon Resource Name (ARN) for the Identity and Access Management (IAM) role that Batch Operations will use to run this job's action on every object in the manifest.</p>
             tags: <p>A set of tags to associate with the S3 Batch Operations job. This is an optional parameter. </p>
             manifest_generator: <p>The attribute container for the ManifestGenerator details. Jobs must be created with either a manifest file or a ManifestGenerator, but not both.</p>
+
+        Raises:
+            aws_sdk_s3_control.errors.bad_request_exception.BadRequestException: <p></p>
+            aws_sdk_s3_control.errors.idempotency_exception.IdempotencyException: <p></p>
+            aws_sdk_s3_control.errors.internal_service_exception.InternalServiceException: <p></p>
+            aws_sdk_s3_control.errors.too_many_requests_exception.TooManyRequestsException: <p></p>
+            aws_sdk_s3_control.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -868,6 +898,9 @@ class S3ControlClient:
             account_id: <p>The Amazon Web Services account ID for the owner of the Multi-Region Access Point. The owner of the Multi-Region Access Point also must own the underlying buckets.</p>
             client_token: <p>An idempotency token used to identify the request and guarantee that requests are unique.</p>
             details: <p>A container element containing details about the Multi-Region Access Point.</p>
+
+        Raises:
+            aws_sdk_s3_control.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -911,6 +944,9 @@ class S3ControlClient:
             account_id: <p> The Amazon Web Services account ID that the Storage Lens group is created from and associated with. </p>
             storage_lens_group: <p> The Storage Lens group configuration. </p>
             tags: <p> The Amazon Web Services resource tags that you're adding to your Storage Lens group. This parameter is optional. </p>
+
+        Raises:
+            aws_sdk_s3_control.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -951,6 +987,9 @@ class S3ControlClient:
         Args:
             account_id: <p>The Amazon Web Services account ID of the S3 Access Grants instance.</p>
             access_grant_id: <p>The ID of the access grant. S3 Access Grants auto-generates this ID when you create the access grant.</p>
+
+        Raises:
+            aws_sdk_s3_control.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -987,6 +1026,9 @@ class S3ControlClient:
 
         Args:
             account_id: <p>The Amazon Web Services account ID of the S3 Access Grants instance.</p>
+
+        Raises:
+            aws_sdk_s3_control.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1022,6 +1064,9 @@ class S3ControlClient:
 
         Args:
             account_id: <p>The Amazon Web Services account ID of the S3 Access Grants instance.</p>
+
+        Raises:
+            aws_sdk_s3_control.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1059,6 +1104,9 @@ class S3ControlClient:
         Args:
             account_id: <p>The Amazon Web Services account ID of the S3 Access Grants instance.</p>
             access_grants_location_id: <p>The ID of the registered location that you are deregistering from your S3 Access Grants instance. S3 Access Grants assigned this ID when you registered the location. S3 Access Grants assigns the ID <code>default</code> to the default location <code>s3://</code> and assigns an auto-generated ID to other locations that you register. </p>
+
+        Raises:
+            aws_sdk_s3_control.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1097,6 +1145,9 @@ class S3ControlClient:
         Args:
             account_id: <p>The Amazon Web Services account ID for the account that owns the specified access point.</p>
             name: <p>The name of the access point you want to delete.</p> <p>For using this parameter with Amazon S3 on Outposts with the REST API, you must specify the name and the x-amz-outpost-id as well.</p> <p>For using this parameter with S3 on Outposts with the Amazon Web Services SDK and CLI, you must specify the ARN of the access point accessed in the format <code>arn:aws:s3-outposts:<Region>:<account-id>:outpost/<outpost-id>/accesspoint/<my-accesspoint-name></code>. For example, to access the access point <code>reports-ap</code> through Outpost <code>my-outpost</code> owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the URL encoding of <code>arn:aws:s3-outposts:us-west-2:123456789012:outpost/my-outpost/accesspoint/reports-ap</code>. The value must be URL encoded. </p>
+
+        Raises:
+            aws_sdk_s3_control.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1135,6 +1186,9 @@ class S3ControlClient:
         Args:
             account_id: <p>The account ID for the account that owns the specified Object Lambda Access Point.</p>
             name: <p>The name of the access point you want to delete.</p>
+
+        Raises:
+            aws_sdk_s3_control.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1173,6 +1227,9 @@ class S3ControlClient:
         Args:
             account_id: <p>The account ID for the account that owns the specified access point.</p>
             name: <p>The name of the access point whose policy you want to delete.</p> <p>For using this parameter with Amazon S3 on Outposts with the REST API, you must specify the name and the x-amz-outpost-id as well.</p> <p>For using this parameter with S3 on Outposts with the Amazon Web Services SDK and CLI, you must specify the ARN of the access point accessed in the format <code>arn:aws:s3-outposts:<Region>:<account-id>:outpost/<outpost-id>/accesspoint/<my-accesspoint-name></code>. For example, to access the access point <code>reports-ap</code> through Outpost <code>my-outpost</code> owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the URL encoding of <code>arn:aws:s3-outposts:us-west-2:123456789012:outpost/my-outpost/accesspoint/reports-ap</code>. The value must be URL encoded. </p>
+
+        Raises:
+            aws_sdk_s3_control.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1211,6 +1268,9 @@ class S3ControlClient:
         Args:
             account_id: <p>The account ID for the account that owns the specified Object Lambda Access Point.</p>
             name: <p>The name of the Object Lambda Access Point you want to delete the policy for.</p>
+
+        Raises:
+            aws_sdk_s3_control.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1249,6 +1309,9 @@ class S3ControlClient:
         Args:
             account_id: <p> The Amazon Web Services account ID that owns the access point with the scope that you want to delete. </p>
             name: <p> The name of the access point with the scope that you want to delete. </p>
+
+        Raises:
+            aws_sdk_s3_control.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1287,6 +1350,9 @@ class S3ControlClient:
         Args:
             account_id: <p>The account ID that owns the Outposts bucket.</p>
             bucket: <p>Specifies the bucket being deleted.</p> <p>For using this parameter with Amazon S3 on Outposts with the REST API, you must specify the name and the x-amz-outpost-id as well.</p> <p>For using this parameter with S3 on Outposts with the Amazon Web Services SDK and CLI, you must specify the ARN of the bucket accessed in the format <code>arn:aws:s3-outposts:<Region>:<account-id>:outpost/<outpost-id>/bucket/<my-bucket-name></code>. For example, to access the bucket <code>reports</code> through Outpost <code>my-outpost</code> owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the URL encoding of <code>arn:aws:s3-outposts:us-west-2:123456789012:outpost/my-outpost/bucket/reports</code>. The value must be URL encoded. </p>
+
+        Raises:
+            aws_sdk_s3_control.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1325,6 +1391,9 @@ class S3ControlClient:
         Args:
             account_id: <p>The account ID of the lifecycle configuration to delete.</p>
             bucket: <p>Specifies the bucket.</p> <p>For using this parameter with Amazon S3 on Outposts with the REST API, you must specify the name and the x-amz-outpost-id as well.</p> <p>For using this parameter with S3 on Outposts with the Amazon Web Services SDK and CLI, you must specify the ARN of the bucket accessed in the format <code>arn:aws:s3-outposts:<Region>:<account-id>:outpost/<outpost-id>/bucket/<my-bucket-name></code>. For example, to access the bucket <code>reports</code> through Outpost <code>my-outpost</code> owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the URL encoding of <code>arn:aws:s3-outposts:us-west-2:123456789012:outpost/my-outpost/bucket/reports</code>. The value must be URL encoded. </p>
+
+        Raises:
+            aws_sdk_s3_control.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1363,6 +1432,9 @@ class S3ControlClient:
         Args:
             account_id: <p>The account ID of the Outposts bucket.</p>
             bucket: <p>Specifies the bucket.</p> <p>For using this parameter with Amazon S3 on Outposts with the REST API, you must specify the name and the x-amz-outpost-id as well.</p> <p>For using this parameter with S3 on Outposts with the Amazon Web Services SDK and CLI, you must specify the ARN of the bucket accessed in the format <code>arn:aws:s3-outposts:<Region>:<account-id>:outpost/<outpost-id>/bucket/<my-bucket-name></code>. For example, to access the bucket <code>reports</code> through Outpost <code>my-outpost</code> owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the URL encoding of <code>arn:aws:s3-outposts:us-west-2:123456789012:outpost/my-outpost/bucket/reports</code>. The value must be URL encoded. </p>
+
+        Raises:
+            aws_sdk_s3_control.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1401,6 +1473,9 @@ class S3ControlClient:
         Args:
             account_id: <p>The Amazon Web Services account ID of the Outposts bucket to delete the replication configuration for.</p>
             bucket: <p>Specifies the S3 on Outposts bucket to delete the replication configuration for.</p> <p>For using this parameter with Amazon S3 on Outposts with the REST API, you must specify the name and the x-amz-outpost-id as well.</p> <p>For using this parameter with S3 on Outposts with the Amazon Web Services SDK and CLI, you must specify the ARN of the bucket accessed in the format <code>arn:aws:s3-outposts:<Region>:<account-id>:outpost/<outpost-id>/bucket/<my-bucket-name></code>. For example, to access the bucket <code>reports</code> through Outpost <code>my-outpost</code> owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the URL encoding of <code>arn:aws:s3-outposts:us-west-2:123456789012:outpost/my-outpost/bucket/reports</code>. The value must be URL encoded. </p>
+
+        Raises:
+            aws_sdk_s3_control.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1439,6 +1514,9 @@ class S3ControlClient:
         Args:
             account_id: <p>The Amazon Web Services account ID of the Outposts bucket tag set to be removed.</p>
             bucket: <p>The bucket ARN that has the tag set to be removed.</p> <p>For using this parameter with Amazon S3 on Outposts with the REST API, you must specify the name and the x-amz-outpost-id as well.</p> <p>For using this parameter with S3 on Outposts with the Amazon Web Services SDK and CLI, you must specify the ARN of the bucket accessed in the format <code>arn:aws:s3-outposts:<Region>:<account-id>:outpost/<outpost-id>/bucket/<my-bucket-name></code>. For example, to access the bucket <code>reports</code> through Outpost <code>my-outpost</code> owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the URL encoding of <code>arn:aws:s3-outposts:us-west-2:123456789012:outpost/my-outpost/bucket/reports</code>. The value must be URL encoded. </p>
+
+        Raises:
+            aws_sdk_s3_control.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1477,6 +1555,12 @@ class S3ControlClient:
         Args:
             account_id: <p>The Amazon Web Services account ID associated with the S3 Batch Operations job.</p>
             job_id: <p>The ID for the S3 Batch Operations job whose tags you want to delete.</p>
+
+        Raises:
+            aws_sdk_s3_control.errors.internal_service_exception.InternalServiceException: <p></p>
+            aws_sdk_s3_control.errors.not_found_exception.NotFoundException: <p></p>
+            aws_sdk_s3_control.errors.too_many_requests_exception.TooManyRequestsException: <p></p>
+            aws_sdk_s3_control.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1519,6 +1603,9 @@ class S3ControlClient:
             account_id: <p>The Amazon Web Services account ID for the owner of the Multi-Region Access Point.</p>
             client_token: <p>An idempotency token used to identify the request and guarantee that requests are unique.</p>
             details: <p>A container element containing details about the Multi-Region Access Point.</p>
+
+        Raises:
+            aws_sdk_s3_control.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1558,6 +1645,9 @@ class S3ControlClient:
 
         Args:
             account_id: <p>The account ID for the Amazon Web Services account whose <code>PublicAccessBlock</code> configuration you want to remove.</p>
+
+        Raises:
+            aws_sdk_s3_control.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1595,6 +1685,9 @@ class S3ControlClient:
         Args:
             config_id: <p>The ID of the S3 Storage Lens configuration.</p>
             account_id: <p>The account ID of the requester.</p>
+
+        Raises:
+            aws_sdk_s3_control.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1633,6 +1726,9 @@ class S3ControlClient:
         Args:
             config_id: <p>The ID of the S3 Storage Lens configuration.</p>
             account_id: <p>The account ID of the requester.</p>
+
+        Raises:
+            aws_sdk_s3_control.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1673,6 +1769,9 @@ class S3ControlClient:
         Args:
             name: <p> The name of the Storage Lens group that you're trying to delete. </p>
             account_id: <p> The Amazon Web Services account ID used to create the Storage Lens group that you're trying to delete. </p>
+
+        Raises:
+            aws_sdk_s3_control.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1711,6 +1810,13 @@ class S3ControlClient:
         Args:
             account_id: <p>The Amazon Web Services account ID associated with the S3 Batch Operations job.</p>
             job_id: <p>The ID for the job whose information you want to retrieve.</p>
+
+        Raises:
+            aws_sdk_s3_control.errors.bad_request_exception.BadRequestException: <p></p>
+            aws_sdk_s3_control.errors.internal_service_exception.InternalServiceException: <p></p>
+            aws_sdk_s3_control.errors.not_found_exception.NotFoundException: <p></p>
+            aws_sdk_s3_control.errors.too_many_requests_exception.TooManyRequestsException: <p></p>
+            aws_sdk_s3_control.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1751,6 +1857,9 @@ class S3ControlClient:
         Args:
             account_id: <p>The Amazon Web Services account ID for the owner of the Multi-Region Access Point.</p>
             request_token_arn: <p>The request token associated with the request you want to know about. This request token is returned as part of the response when you make an asynchronous request. You provide this token to query about the status of the asynchronous action.</p>
+
+        Raises:
+            aws_sdk_s3_control.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1789,6 +1898,9 @@ class S3ControlClient:
 
         Args:
             account_id: <p>The Amazon Web Services account ID of the S3 Access Grants instance.</p>
+
+        Raises:
+            aws_sdk_s3_control.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1826,6 +1938,9 @@ class S3ControlClient:
         Args:
             account_id: <p>The Amazon Web Services account ID of the S3 Access Grants instance.</p>
             access_grant_id: <p>The ID of the access grant. S3 Access Grants auto-generates this ID when you create the access grant.</p>
+
+        Raises:
+            aws_sdk_s3_control.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1864,6 +1979,9 @@ class S3ControlClient:
 
         Args:
             account_id: <p>The Amazon Web Services account ID of the S3 Access Grants instance.</p>
+
+        Raises:
+            aws_sdk_s3_control.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1903,6 +2021,9 @@ class S3ControlClient:
         Args:
             account_id: <p>The ID of the Amazon Web Services account that is making this request.</p>
             s3_prefix: <p>The S3 prefix of the access grants that you would like to retrieve.</p>
+
+        Raises:
+            aws_sdk_s3_control.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1941,6 +2062,9 @@ class S3ControlClient:
 
         Args:
             account_id: <p>The Amazon Web Services account ID of the S3 Access Grants instance.</p>
+
+        Raises:
+            aws_sdk_s3_control.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1980,6 +2104,9 @@ class S3ControlClient:
         Args:
             account_id: <p>The Amazon Web Services account ID of the S3 Access Grants instance.</p>
             access_grants_location_id: <p>The ID of the registered location that you are retrieving. S3 Access Grants assigns this ID when you register the location. S3 Access Grants assigns the ID <code>default</code> to the default location <code>s3://</code> and assigns an auto-generated ID to other locations that you register. </p>
+
+        Raises:
+            aws_sdk_s3_control.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2020,6 +2147,9 @@ class S3ControlClient:
         Args:
             account_id: <p>The Amazon Web Services account ID for the account that owns the specified access point.</p>
             name: <p>The name of the access point whose configuration information you want to retrieve.</p> <p>For using this parameter with Amazon S3 on Outposts with the REST API, you must specify the name and the x-amz-outpost-id as well.</p> <p>For using this parameter with S3 on Outposts with the Amazon Web Services SDK and CLI, you must specify the ARN of the access point accessed in the format <code>arn:aws:s3-outposts:<Region>:<account-id>:outpost/<outpost-id>/accesspoint/<my-accesspoint-name></code>. For example, to access the access point <code>reports-ap</code> through Outpost <code>my-outpost</code> owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the URL encoding of <code>arn:aws:s3-outposts:us-west-2:123456789012:outpost/my-outpost/accesspoint/reports-ap</code>. The value must be URL encoded. </p>
+
+        Raises:
+            aws_sdk_s3_control.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2060,6 +2190,9 @@ class S3ControlClient:
         Args:
             account_id: <p>The account ID for the account that owns the specified Object Lambda Access Point.</p>
             name: <p>The name of the Object Lambda Access Point you want to return the configuration for.</p>
+
+        Raises:
+            aws_sdk_s3_control.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2100,6 +2233,9 @@ class S3ControlClient:
         Args:
             account_id: <p>The account ID for the account that owns the specified Object Lambda Access Point.</p>
             name: <p>The name of the Object Lambda Access Point.</p>
+
+        Raises:
+            aws_sdk_s3_control.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2140,6 +2276,9 @@ class S3ControlClient:
         Args:
             account_id: <p>The account ID for the account that owns the specified access point.</p>
             name: <p>The name of the access point whose policy you want to retrieve.</p> <p>For using this parameter with Amazon S3 on Outposts with the REST API, you must specify the name and the x-amz-outpost-id as well.</p> <p>For using this parameter with S3 on Outposts with the Amazon Web Services SDK and CLI, you must specify the ARN of the access point accessed in the format <code>arn:aws:s3-outposts:<Region>:<account-id>:outpost/<outpost-id>/accesspoint/<my-accesspoint-name></code>. For example, to access the access point <code>reports-ap</code> through Outpost <code>my-outpost</code> owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the URL encoding of <code>arn:aws:s3-outposts:us-west-2:123456789012:outpost/my-outpost/accesspoint/reports-ap</code>. The value must be URL encoded. </p>
+
+        Raises:
+            aws_sdk_s3_control.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2180,6 +2319,9 @@ class S3ControlClient:
         Args:
             account_id: <p>The account ID for the account that owns the specified Object Lambda Access Point.</p>
             name: <p>The name of the Object Lambda Access Point.</p>
+
+        Raises:
+            aws_sdk_s3_control.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2220,6 +2362,9 @@ class S3ControlClient:
         Args:
             account_id: <p>The account ID for the account that owns the specified access point.</p>
             name: <p>The name of the access point whose policy status you want to retrieve.</p>
+
+        Raises:
+            aws_sdk_s3_control.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2260,6 +2405,9 @@ class S3ControlClient:
         Args:
             account_id: <p>The account ID for the account that owns the specified Object Lambda Access Point.</p>
             name: <p>The name of the Object Lambda Access Point.</p>
+
+        Raises:
+            aws_sdk_s3_control.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2300,6 +2448,9 @@ class S3ControlClient:
         Args:
             account_id: <p> The Amazon Web Services account ID that owns the access point with the scope that you want to retrieve. </p>
             name: <p>The name of the access point with the scope you want to retrieve.</p>
+
+        Raises:
+            aws_sdk_s3_control.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2340,6 +2491,9 @@ class S3ControlClient:
         Args:
             account_id: <p>The Amazon Web Services account ID of the Outposts bucket.</p>
             bucket: <p>Specifies the bucket.</p> <p>For using this parameter with Amazon S3 on Outposts with the REST API, you must specify the name and the x-amz-outpost-id as well.</p> <p>For using this parameter with S3 on Outposts with the Amazon Web Services SDK and CLI, you must specify the ARN of the bucket accessed in the format <code>arn:aws:s3-outposts:<Region>:<account-id>:outpost/<outpost-id>/bucket/<my-bucket-name></code>. For example, to access the bucket <code>reports</code> through Outpost <code>my-outpost</code> owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the URL encoding of <code>arn:aws:s3-outposts:us-west-2:123456789012:outpost/my-outpost/bucket/reports</code>. The value must be URL encoded. </p>
+
+        Raises:
+            aws_sdk_s3_control.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2380,6 +2534,9 @@ class S3ControlClient:
         Args:
             account_id: <p>The Amazon Web Services account ID of the Outposts bucket.</p>
             bucket: <p>The Amazon Resource Name (ARN) of the bucket.</p> <p>For using this parameter with Amazon S3 on Outposts with the REST API, you must specify the name and the x-amz-outpost-id as well.</p> <p>For using this parameter with S3 on Outposts with the Amazon Web Services SDK and CLI, you must specify the ARN of the bucket accessed in the format <code>arn:aws:s3-outposts:<Region>:<account-id>:outpost/<outpost-id>/bucket/<my-bucket-name></code>. For example, to access the bucket <code>reports</code> through Outpost <code>my-outpost</code> owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the URL encoding of <code>arn:aws:s3-outposts:us-west-2:123456789012:outpost/my-outpost/bucket/reports</code>. The value must be URL encoded. </p>
+
+        Raises:
+            aws_sdk_s3_control.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2420,6 +2577,9 @@ class S3ControlClient:
         Args:
             account_id: <p>The Amazon Web Services account ID of the Outposts bucket.</p>
             bucket: <p>Specifies the bucket.</p> <p>For using this parameter with Amazon S3 on Outposts with the REST API, you must specify the name and the x-amz-outpost-id as well.</p> <p>For using this parameter with S3 on Outposts with the Amazon Web Services SDK and CLI, you must specify the ARN of the bucket accessed in the format <code>arn:aws:s3-outposts:<Region>:<account-id>:outpost/<outpost-id>/bucket/<my-bucket-name></code>. For example, to access the bucket <code>reports</code> through Outpost <code>my-outpost</code> owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the URL encoding of <code>arn:aws:s3-outposts:us-west-2:123456789012:outpost/my-outpost/bucket/reports</code>. The value must be URL encoded. </p>
+
+        Raises:
+            aws_sdk_s3_control.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2460,6 +2620,9 @@ class S3ControlClient:
         Args:
             account_id: <p>The Amazon Web Services account ID of the Outposts bucket.</p>
             bucket: <p>Specifies the bucket to get the replication information for.</p> <p>For using this parameter with Amazon S3 on Outposts with the REST API, you must specify the name and the x-amz-outpost-id as well.</p> <p>For using this parameter with S3 on Outposts with the Amazon Web Services SDK and CLI, you must specify the ARN of the bucket accessed in the format <code>arn:aws:s3-outposts:<Region>:<account-id>:outpost/<outpost-id>/bucket/<my-bucket-name></code>. For example, to access the bucket <code>reports</code> through Outpost <code>my-outpost</code> owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the URL encoding of <code>arn:aws:s3-outposts:us-west-2:123456789012:outpost/my-outpost/bucket/reports</code>. The value must be URL encoded. </p>
+
+        Raises:
+            aws_sdk_s3_control.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2500,6 +2663,9 @@ class S3ControlClient:
         Args:
             account_id: <p>The Amazon Web Services account ID of the Outposts bucket.</p>
             bucket: <p>Specifies the bucket.</p> <p>For using this parameter with Amazon S3 on Outposts with the REST API, you must specify the name and the x-amz-outpost-id as well.</p> <p>For using this parameter with S3 on Outposts with the Amazon Web Services SDK and CLI, you must specify the ARN of the bucket accessed in the format <code>arn:aws:s3-outposts:<Region>:<account-id>:outpost/<outpost-id>/bucket/<my-bucket-name></code>. For example, to access the bucket <code>reports</code> through Outpost <code>my-outpost</code> owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the URL encoding of <code>arn:aws:s3-outposts:us-west-2:123456789012:outpost/my-outpost/bucket/reports</code>. The value must be URL encoded. </p>
+
+        Raises:
+            aws_sdk_s3_control.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2540,6 +2706,9 @@ class S3ControlClient:
         Args:
             account_id: <p>The Amazon Web Services account ID of the S3 on Outposts bucket.</p>
             bucket: <p>The S3 on Outposts bucket to return the versioning state for.</p>
+
+        Raises:
+            aws_sdk_s3_control.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2596,6 +2765,9 @@ class S3ControlClient:
             privilege: <p>The scope of the temporary access credential that S3 Access Grants vends to the grantee or client application. </p> <ul> <li> <p> <code>Default</code> – The scope of the returned temporary access token is the scope of the grant that is closest to the target scope.</p> </li> <li> <p> <code>Minimal</code> – The scope of the returned temporary access token is the same as the requested target scope as long as the requested scope is the same as or a subset of the grant scope. </p> </li> </ul>
             target_type: <p>The type of <code>Target</code>. The only possible value is <code>Object</code>. Pass this value if the target data that you would like to access is a path to an object. Do not pass this value if the target data is a bucket or a bucket and a prefix. </p>
             audit_context: <p>The context to identify the job or query associated with the credential request. This information will be displayed in CloudTrail log in your account.</p>
+
+        Raises:
+            aws_sdk_s3_control.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2645,6 +2817,12 @@ class S3ControlClient:
         Args:
             account_id: <p>The Amazon Web Services account ID associated with the S3 Batch Operations job.</p>
             job_id: <p>The ID for the S3 Batch Operations job whose tags you want to retrieve.</p>
+
+        Raises:
+            aws_sdk_s3_control.errors.internal_service_exception.InternalServiceException: <p></p>
+            aws_sdk_s3_control.errors.not_found_exception.NotFoundException: <p></p>
+            aws_sdk_s3_control.errors.too_many_requests_exception.TooManyRequestsException: <p></p>
+            aws_sdk_s3_control.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2685,6 +2863,9 @@ class S3ControlClient:
         Args:
             account_id: <p>The Amazon Web Services account ID for the owner of the Multi-Region Access Point.</p>
             name: <p>The name of the Multi-Region Access Point whose configuration information you want to receive. The name of the Multi-Region Access Point is different from the alias. For more information about the distinction between the name and the alias of an Multi-Region Access Point, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/CreatingMultiRegionAccessPoints.html#multi-region-access-point-naming\">Rules for naming Amazon S3 Multi-Region Access Points</a> in the <i>Amazon S3 User Guide</i>.</p>
+
+        Raises:
+            aws_sdk_s3_control.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2725,6 +2906,9 @@ class S3ControlClient:
         Args:
             account_id: <p>The Amazon Web Services account ID for the owner of the Multi-Region Access Point.</p>
             name: <p>Specifies the Multi-Region Access Point. The name of the Multi-Region Access Point is different from the alias. For more information about the distinction between the name and the alias of an Multi-Region Access Point, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/CreatingMultiRegionAccessPoints.html#multi-region-access-point-naming\">Rules for naming Amazon S3 Multi-Region Access Points</a> in the <i>Amazon S3 User Guide</i>.</p>
+
+        Raises:
+            aws_sdk_s3_control.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2765,6 +2949,9 @@ class S3ControlClient:
         Args:
             account_id: <p>The Amazon Web Services account ID for the owner of the Multi-Region Access Point.</p>
             name: <p>Specifies the Multi-Region Access Point. The name of the Multi-Region Access Point is different from the alias. For more information about the distinction between the name and the alias of an Multi-Region Access Point, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/CreatingMultiRegionAccessPoints.html#multi-region-access-point-naming\">Rules for naming Amazon S3 Multi-Region Access Points</a> in the <i>Amazon S3 User Guide</i>.</p>
+
+        Raises:
+            aws_sdk_s3_control.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2805,6 +2992,9 @@ class S3ControlClient:
         Args:
             account_id: <p>The Amazon Web Services account ID for the owner of the Multi-Region Access Point.</p>
             mrap: <p>The Multi-Region Access Point ARN.</p>
+
+        Raises:
+            aws_sdk_s3_control.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2843,6 +3033,10 @@ class S3ControlClient:
 
         Args:
             account_id: <p>The account ID for the Amazon Web Services account whose <code>PublicAccessBlock</code> configuration you want to retrieve.</p>
+
+        Raises:
+            aws_sdk_s3_control.errors.no_such_public_access_block_configuration.NoSuchPublicAccessBlockConfiguration: <p>Amazon S3 throws this exception if you make a <code>GetPublicAccessBlock</code> request against an account that doesn't have a <code>PublicAccessBlockConfiguration</code> set.</p>
+            aws_sdk_s3_control.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2882,6 +3076,9 @@ class S3ControlClient:
         Args:
             config_id: <p>The ID of the Amazon S3 Storage Lens configuration.</p>
             account_id: <p>The account ID of the requester.</p>
+
+        Raises:
+            aws_sdk_s3_control.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2922,6 +3119,9 @@ class S3ControlClient:
         Args:
             config_id: <p>The ID of the Amazon S3 Storage Lens configuration.</p>
             account_id: <p>The account ID of the requester.</p>
+
+        Raises:
+            aws_sdk_s3_control.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2962,6 +3162,9 @@ class S3ControlClient:
         Args:
             name: <p> The name of the Storage Lens group that you're trying to retrieve the configuration details for. </p>
             account_id: <p> The Amazon Web Services account ID associated with the Storage Lens group that you're trying to retrieve the details for. </p>
+
+        Raises:
+            aws_sdk_s3_control.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3022,6 +3225,9 @@ class S3ControlClient:
             permission: <p>The type of permission granted to your S3 data, which can be set to one of the following values:</p> <ul> <li> <p> <code>READ</code> – Grant read-only access to the S3 data.</p> </li> <li> <p> <code>WRITE</code> – Grant write-only access to the S3 data.</p> </li> <li> <p> <code>READWRITE</code> – Grant both read and write access to the S3 data.</p> </li> </ul>
             grant_scope: <p>The S3 path of the data to which you are granting access. It is the result of appending the <code>Subprefix</code> to the location scope.</p>
             application_arn: <p>The Amazon Resource Name (ARN) of an Amazon Web Services IAM Identity Center application associated with your Identity Center instance. If the grant includes an application ARN, the grantee can only access the S3 data through this application. </p>
+
+        Raises:
+            aws_sdk_s3_control.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3079,6 +3285,9 @@ class S3ControlClient:
             account_id: <p>The Amazon Web Services account ID of the S3 Access Grants instance.</p>
             next_token: <p>A pagination token to request the next page of results. Pass this value into a subsequent <code>List Access Grants Instances</code> request in order to retrieve the next page of results.</p>
             max_results: <p>The maximum number of access grants that you would like returned in the <code>List Access Grants</code> response. If the results include the pagination token <code>NextToken</code>, make another call using the <code>NextToken</code> to determine if there are more results.</p>
+
+        Raises:
+            aws_sdk_s3_control.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3128,6 +3337,9 @@ class S3ControlClient:
             next_token: <p>A pagination token to request the next page of results. Pass this value into a subsequent <code>List Access Grants Locations</code> request in order to retrieve the next page of results.</p>
             max_results: <p>The maximum number of access grants that you would like returned in the <code>List Access Grants</code> response. If the results include the pagination token <code>NextToken</code>, make another call using the <code>NextToken</code> to determine if there are more results.</p>
             location_scope: <p>The S3 path to the location that you are registering. The location scope can be the default S3 location <code>s3://</code>, the S3 path to a bucket <code>s3://<bucket></code>, or the S3 path to a bucket and prefix <code>s3://<bucket>/<prefix></code>. A prefix in S3 is a string of characters at the beginning of an object key name used to organize the objects that you store in your S3 buckets. For example, object key names that start with the <code>engineering/</code> prefix or object key names that start with the <code>marketing/campaigns/</code> prefix.</p>
+
+        Raises:
+            aws_sdk_s3_control.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3187,6 +3399,9 @@ class S3ControlClient:
             max_results: <p>The maximum number of access points that you want to include in the list. If the specified bucket has more than this number of access points, then the response will include a continuation token in the <code>NextToken</code> field that you can use to retrieve the next page of access points.</p>
             data_source_id: <p>The unique identifier for the data source of the access point.</p>
             data_source_type: <p>The type of the data source that the access point is attached to. Returns only access points attached to S3 buckets by default. To return all access points specify <code>DataSourceType</code> as <code>ALL</code>.</p>
+
+        Raises:
+            aws_sdk_s3_control.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3244,6 +3459,9 @@ class S3ControlClient:
             directory_bucket: <p>The name of the directory bucket associated with the access points you want to list.</p>
             next_token: <p> If <code>NextToken</code> is returned, there are more access points available than requested in the <code>maxResults</code> value. The value of <code>NextToken</code> is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. </p>
             max_results: <p>The maximum number of access points that you would like returned in the <code>ListAccessPointsForDirectoryBuckets</code> response. If the directory bucket is associated with more than this number of access points, the results include the pagination token <code>NextToken</code>. Make another call using the <code>NextToken</code> to retrieve more results.</p>
+
+        Raises:
+            aws_sdk_s3_control.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3322,6 +3540,9 @@ class S3ControlClient:
             account_id: <p>The account ID for the account that owns the specified Object Lambda Access Point.</p>
             next_token: <p>If the list has more access points than can be returned in one call to this API, this field contains a continuation token that you can provide in subsequent calls to this API to retrieve additional access points.</p>
             max_results: <p>The maximum number of access points that you want to include in the list. The response may contain fewer access points but will never contain more. If there are more than this number of access points, then the response will include a continuation token in the <code>NextToken</code> field that you can use to retrieve the next page of access points.</p>
+
+        Raises:
+            aws_sdk_s3_control.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3400,6 +3621,9 @@ class S3ControlClient:
             next_token: <p>A pagination token to request the next page of results. Pass this value into a subsequent <code>List Caller Access Grants</code> request in order to retrieve the next page of results.</p>
             max_results: <p>The maximum number of access grants that you would like returned in the <code>List Caller Access Grants</code> response. If the results include the pagination token <code>NextToken</code>, make another call using the <code>NextToken</code> to determine if there are more results.</p>
             allowed_by_application: <p>If this optional parameter is passed in the request, a filter is applied to the results. The results will include only the access grants for the caller's Identity Center application or for any other applications (<code>ALL</code>).</p>
+
+        Raises:
+            aws_sdk_s3_control.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3486,6 +3710,12 @@ class S3ControlClient:
             job_statuses: <p>The <code>List Jobs</code> request returns jobs that match the statuses listed in this element.</p>
             next_token: <p>A pagination token to request the next page of results. Use the token that Amazon S3 returned in the <code>NextToken</code> element of the <code>ListJobsResult</code> from the previous <code>List Jobs</code> request.</p>
             max_results: <p>The maximum number of jobs that Amazon S3 will include in the <code>List Jobs</code> response. If there are more jobs than this number, the response will include a pagination token in the <code>NextToken</code> field to enable you to retrieve the next page of results.</p>
+
+        Raises:
+            aws_sdk_s3_control.errors.internal_service_exception.InternalServiceException: <p></p>
+            aws_sdk_s3_control.errors.invalid_next_token_exception.InvalidNextTokenException: <p></p>
+            aws_sdk_s3_control.errors.invalid_request_exception.InvalidRequestException: <p></p>
+            aws_sdk_s3_control.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3535,6 +3765,9 @@ class S3ControlClient:
             account_id: <p>The Amazon Web Services account ID for the owner of the Multi-Region Access Point.</p>
             next_token: <p>Not currently used. Do not use this parameter.</p>
             max_results: <p>Not currently used. Do not use this parameter.</p>
+
+        Raises:
+            aws_sdk_s3_control.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3586,6 +3819,9 @@ class S3ControlClient:
             next_token: <p></p>
             max_results: <p></p>
             outpost_id: <p>The ID of the Outposts resource.</p> <note> <p>This ID is required by Amazon S3 on Outposts buckets.</p> </note>
+
+        Raises:
+            aws_sdk_s3_control.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3633,6 +3869,9 @@ class S3ControlClient:
         Args:
             account_id: <p>The account ID of the requester.</p>
             next_token: <p>A pagination token to request the next page of results.</p>
+
+        Raises:
+            aws_sdk_s3_control.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3676,6 +3915,9 @@ class S3ControlClient:
         Args:
             account_id: <p> The Amazon Web Services account ID that owns the Storage Lens groups. </p>
             next_token: <p>The token for the next set of results, or <code>null</code> if there are no more results. </p>
+
+        Raises:
+            aws_sdk_s3_control.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3717,6 +3959,9 @@ class S3ControlClient:
         Args:
             account_id: <p> The Amazon Web Services account ID of the resource owner. </p>
             resource_arn: <p> The Amazon Resource Name (ARN) of the S3 resource that you want to list tags for. The tagged resource can be a directory bucket, S3 Storage Lens group or S3 Access Grants instance, registered location, or grant. </p>
+
+        Raises:
+            aws_sdk_s3_control.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3761,6 +4006,9 @@ class S3ControlClient:
             account_id: <p>The Amazon Web Services account ID of the S3 Access Grants instance.</p>
             policy: <p>The resource policy of the S3 Access Grants instance that you are updating.</p>
             organization: <p>The Organization of the resource policy of the S3 Access Grants instance.</p>
+
+        Raises:
+            aws_sdk_s3_control.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3805,6 +4053,9 @@ class S3ControlClient:
             account_id: <p>The account ID for the account that owns the specified Object Lambda Access Point.</p>
             name: <p>The name of the Object Lambda Access Point.</p>
             configuration: <p>Object Lambda Access Point configuration document.</p>
+
+        Raises:
+            aws_sdk_s3_control.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3846,6 +4097,9 @@ class S3ControlClient:
             account_id: <p>The Amazon Web Services account ID for owner of the bucket associated with the specified access point.</p>
             name: <p>The name of the access point that you want to associate with the specified policy.</p> <p>For using this parameter with Amazon S3 on Outposts with the REST API, you must specify the name and the x-amz-outpost-id as well.</p> <p>For using this parameter with S3 on Outposts with the Amazon Web Services SDK and CLI, you must specify the ARN of the access point accessed in the format <code>arn:aws:s3-outposts:<Region>:<account-id>:outpost/<outpost-id>/accesspoint/<my-accesspoint-name></code>. For example, to access the access point <code>reports-ap</code> through Outpost <code>my-outpost</code> owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the URL encoding of <code>arn:aws:s3-outposts:us-west-2:123456789012:outpost/my-outpost/accesspoint/reports-ap</code>. The value must be URL encoded. </p>
             policy: <p>The policy that you want to apply to the specified access point. For more information about access point policies, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points.html\">Managing data access with Amazon S3 access points</a> or <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points-directory-buckets.html\">Managing access to shared datasets in directory buckets with access points</a> in the <i>Amazon S3 User Guide</i>.</p>
+
+        Raises:
+            aws_sdk_s3_control.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3887,6 +4141,9 @@ class S3ControlClient:
             account_id: <p>The account ID for the account that owns the specified Object Lambda Access Point.</p>
             name: <p>The name of the Object Lambda Access Point.</p>
             policy: <p>Object Lambda Access Point resource policy document.</p>
+
+        Raises:
+            aws_sdk_s3_control.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3928,6 +4185,9 @@ class S3ControlClient:
             account_id: <p> The Amazon Web Services account ID that owns the access point with scope that you want to create or replace. </p>
             name: <p>The name of the access point with the scope that you want to create or replace.</p>
             scope: <p>Object prefixes, API operations, or a combination of both.</p>
+
+        Raises:
+            aws_sdk_s3_control.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3971,6 +4231,9 @@ class S3ControlClient:
             account_id: <p>The Amazon Web Services account ID of the Outposts bucket.</p>
             bucket: <p>The name of the bucket for which to set the configuration.</p>
             lifecycle_configuration: <p>Container for lifecycle rules. You can add as many as 1,000 rules.</p>
+
+        Raises:
+            aws_sdk_s3_control.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4017,6 +4280,9 @@ class S3ControlClient:
             bucket: <p>Specifies the bucket.</p> <p>For using this parameter with Amazon S3 on Outposts with the REST API, you must specify the name and the x-amz-outpost-id as well.</p> <p>For using this parameter with S3 on Outposts with the Amazon Web Services SDK and CLI, you must specify the ARN of the bucket accessed in the format <code>arn:aws:s3-outposts:<Region>:<account-id>:outpost/<outpost-id>/bucket/<my-bucket-name></code>. For example, to access the bucket <code>reports</code> through Outpost <code>my-outpost</code> owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the URL encoding of <code>arn:aws:s3-outposts:us-west-2:123456789012:outpost/my-outpost/bucket/reports</code>. The value must be URL encoded. </p>
             confirm_remove_self_bucket_access: <p>Set this parameter to true to confirm that you want to remove your permissions to change this bucket policy in the future.</p> <note> <p>This is not supported by Amazon S3 on Outposts buckets.</p> </note>
             policy: <p>The bucket policy as a JSON document.</p>
+
+        Raises:
+            aws_sdk_s3_control.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4062,6 +4328,9 @@ class S3ControlClient:
             account_id: <p>The Amazon Web Services account ID of the Outposts bucket.</p>
             bucket: <p>Specifies the S3 on Outposts bucket to set the configuration for.</p> <p>For using this parameter with Amazon S3 on Outposts with the REST API, you must specify the name and the x-amz-outpost-id as well.</p> <p>For using this parameter with S3 on Outposts with the Amazon Web Services SDK and CLI, you must specify the ARN of the bucket accessed in the format <code>arn:aws:s3-outposts:<Region>:<account-id>:outpost/<outpost-id>/bucket/<my-bucket-name></code>. For example, to access the bucket <code>reports</code> through Outpost <code>my-outpost</code> owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the URL encoding of <code>arn:aws:s3-outposts:us-west-2:123456789012:outpost/my-outpost/bucket/reports</code>. The value must be URL encoded. </p>
             replication_configuration: <p></p>
+
+        Raises:
+            aws_sdk_s3_control.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4103,6 +4372,9 @@ class S3ControlClient:
             account_id: <p>The Amazon Web Services account ID of the Outposts bucket.</p>
             bucket: <p>The Amazon Resource Name (ARN) of the bucket.</p> <p>For using this parameter with Amazon S3 on Outposts with the REST API, you must specify the name and the x-amz-outpost-id as well.</p> <p>For using this parameter with S3 on Outposts with the Amazon Web Services SDK and CLI, you must specify the ARN of the bucket accessed in the format <code>arn:aws:s3-outposts:<Region>:<account-id>:outpost/<outpost-id>/bucket/<my-bucket-name></code>. For example, to access the bucket <code>reports</code> through Outpost <code>my-outpost</code> owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the URL encoding of <code>arn:aws:s3-outposts:us-west-2:123456789012:outpost/my-outpost/bucket/reports</code>. The value must be URL encoded. </p>
             tagging: <p></p>
+
+        Raises:
+            aws_sdk_s3_control.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4146,6 +4418,9 @@ class S3ControlClient:
             bucket: <p>The S3 on Outposts bucket to set the versioning state for.</p>
             mfa: <p>The concatenation of the authentication device's serial number, a space, and the value that is displayed on your authentication device.</p>
             versioning_configuration: <p>The root-level tag for the <code>VersioningConfiguration</code> parameters.</p>
+
+        Raises:
+            aws_sdk_s3_control.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4189,6 +4464,13 @@ class S3ControlClient:
             account_id: <p>The Amazon Web Services account ID associated with the S3 Batch Operations job.</p>
             job_id: <p>The ID for the S3 Batch Operations job whose tags you want to replace.</p>
             tags: <p>The set of tags to associate with the S3 Batch Operations job.</p>
+
+        Raises:
+            aws_sdk_s3_control.errors.internal_service_exception.InternalServiceException: <p></p>
+            aws_sdk_s3_control.errors.not_found_exception.NotFoundException: <p></p>
+            aws_sdk_s3_control.errors.too_many_requests_exception.TooManyRequestsException: <p></p>
+            aws_sdk_s3_control.errors.too_many_tags_exception.TooManyTagsException: <p>Amazon S3 throws this exception if you have too many tags in your tag set.</p>
+            aws_sdk_s3_control.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4232,6 +4514,9 @@ class S3ControlClient:
             account_id: <p>The Amazon Web Services account ID for the owner of the Multi-Region Access Point.</p>
             client_token: <p>An idempotency token used to identify the request and guarantee that requests are unique.</p>
             details: <p>A container element containing the details of the policy for the Multi-Region Access Point.</p>
+
+        Raises:
+            aws_sdk_s3_control.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4273,6 +4558,9 @@ class S3ControlClient:
         Args:
             public_access_block_configuration: <p>The <code>PublicAccessBlock</code> configuration that you want to apply to the specified Amazon Web Services account.</p>
             account_id: <p>The account ID for the Amazon Web Services account whose <code>PublicAccessBlock</code> configuration you want to set.</p>
+
+        Raises:
+            aws_sdk_s3_control.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4317,6 +4605,9 @@ class S3ControlClient:
             account_id: <p>The account ID of the requester.</p>
             storage_lens_configuration: <p>The S3 Storage Lens configuration.</p>
             tags: <p>The tag set of the S3 Storage Lens configuration.</p> <note> <p>You can set up to a maximum of 50 tags.</p> </note>
+
+        Raises:
+            aws_sdk_s3_control.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4360,6 +4651,9 @@ class S3ControlClient:
             config_id: <p>The ID of the S3 Storage Lens configuration.</p>
             account_id: <p>The account ID of the requester.</p>
             tags: <p>The tag set of the S3 Storage Lens configuration.</p> <note> <p>You can set up to a maximum of 50 tags.</p> </note>
+
+        Raises:
+            aws_sdk_s3_control.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4403,6 +4697,9 @@ class S3ControlClient:
             account_id: <p>The Amazon Web Services account ID for the owner of the Multi-Region Access Point.</p>
             mrap: <p>The Multi-Region Access Point ARN.</p>
             route_updates: <p>The different routes that make up the new route configuration. Active routes return a value of <code>100</code>, and passive routes return a value of <code>0</code>.</p>
+
+        Raises:
+            aws_sdk_s3_control.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4446,6 +4743,9 @@ class S3ControlClient:
             account_id: <p> The Amazon Web Services account ID that created the S3 resource that you're trying to add tags to or the requester's account ID. </p>
             resource_arn: <p>The Amazon Resource Name (ARN) of the S3 resource that you're applying tags to. The tagged resource can be a directory bucket, S3 Storage Lens group or S3 Access Grants instance, registered location, or grant.</p>
             tags: <p> The Amazon Web Services resource tags that you want to add to the specified S3 resource. </p>
+
+        Raises:
+            aws_sdk_s3_control.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4489,6 +4789,9 @@ class S3ControlClient:
             account_id: <p> The Amazon Web Services account ID that owns the resource that you're trying to remove the tags from. </p>
             resource_arn: <p>The Amazon Resource Name (ARN) of the S3 resource that you're removing tags from. The tagged resource can be a directory bucket, S3 Storage Lens group or S3 Access Grants instance, registered location, or grant.</p>
             tag_keys: <p> The array of tag key-value pairs that you're trying to remove from of the S3 resource. </p>
+
+        Raises:
+            aws_sdk_s3_control.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4532,6 +4835,9 @@ class S3ControlClient:
             account_id: <p>The Amazon Web Services account ID of the S3 Access Grants instance.</p>
             access_grants_location_id: <p>The ID of the registered location that you are updating. S3 Access Grants assigns this ID when you register the location. S3 Access Grants assigns the ID <code>default</code> to the default location <code>s3://</code> and assigns an auto-generated ID to other locations that you register. </p> <p>The ID of the registered location to which you are granting access. S3 Access Grants assigned this ID when you registered the location. S3 Access Grants assigns the ID <code>default</code> to the default location <code>s3://</code> and assigns an auto-generated ID to other locations that you register. </p> <p>If you are passing the <code>default</code> location, you cannot create an access grant for the entire default location. You must also specify a bucket or a bucket and prefix in the <code>Subprefix</code> field. </p>
             iam_role_arn: <p>The Amazon Resource Name (ARN) of the IAM role for the registered location. S3 Access Grants assumes this role to manage access to the registered location. </p>
+
+        Raises:
+            aws_sdk_s3_control.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4575,6 +4881,13 @@ class S3ControlClient:
             account_id: <p>The Amazon Web Services account ID associated with the S3 Batch Operations job.</p>
             job_id: <p>The ID for the job whose priority you want to update.</p>
             priority: <p>The priority you want to assign to this job.</p>
+
+        Raises:
+            aws_sdk_s3_control.errors.bad_request_exception.BadRequestException: <p></p>
+            aws_sdk_s3_control.errors.internal_service_exception.InternalServiceException: <p></p>
+            aws_sdk_s3_control.errors.not_found_exception.NotFoundException: <p></p>
+            aws_sdk_s3_control.errors.too_many_requests_exception.TooManyRequestsException: <p></p>
+            aws_sdk_s3_control.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4622,6 +4935,14 @@ class S3ControlClient:
             job_id: <p>The ID of the job whose status you want to update.</p>
             requested_job_status: <p>The status that you want to move the specified job to.</p>
             status_update_reason: <p>A description of the reason why you want to change the specified job's status. This field can be any string up to the maximum length.</p>
+
+        Raises:
+            aws_sdk_s3_control.errors.bad_request_exception.BadRequestException: <p></p>
+            aws_sdk_s3_control.errors.internal_service_exception.InternalServiceException: <p></p>
+            aws_sdk_s3_control.errors.job_status_exception.JobStatusException: <p></p>
+            aws_sdk_s3_control.errors.not_found_exception.NotFoundException: <p></p>
+            aws_sdk_s3_control.errors.too_many_requests_exception.TooManyRequestsException: <p></p>
+            aws_sdk_s3_control.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4667,6 +4988,9 @@ class S3ControlClient:
             name: <p> The name of the Storage Lens group that you want to update. </p>
             account_id: <p> The Amazon Web Services account ID of the Storage Lens group owner. </p>
             storage_lens_group: <p> The JSON file that contains the Storage Lens group configuration. </p>
+
+        Raises:
+            aws_sdk_s3_control.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(

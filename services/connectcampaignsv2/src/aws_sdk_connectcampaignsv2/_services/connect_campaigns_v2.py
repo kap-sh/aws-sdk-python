@@ -231,7 +231,18 @@ class ConnectCampaignsV2Client:
         ] = None,
         tags: Optional["aws_sdk_connectcampaignsv2.types.tag_map.TagMap"] = None,
     ) -> "aws_sdk_connectcampaignsv2.types.create_campaign_response.CreateCampaignResponse":
-        """Creates a campaign for the specified Amazon Connect account. This API is idempotent."""
+        """Creates a campaign for the specified Amazon Connect account. This API is idempotent.
+
+        Raises:
+            aws_sdk_connectcampaignsv2.errors.access_denied_exception.AccessDeniedException: You do not have sufficient access to perform this action.
+            aws_sdk_connectcampaignsv2.errors.conflict_exception.ConflictException: The request could not be processed because of conflict in the current state of the resource.
+            aws_sdk_connectcampaignsv2.errors.internal_server_exception.InternalServerException: Request processing failed because of an error or failure with the service.
+            aws_sdk_connectcampaignsv2.errors.resource_not_found_exception.ResourceNotFoundException: The specified resource was not found.
+            aws_sdk_connectcampaignsv2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: Request would cause a service quota to be exceeded.
+            aws_sdk_connectcampaignsv2.errors.throttling_exception.ThrottlingException: The request was denied due to request throttling.
+            aws_sdk_connectcampaignsv2.errors.validation_exception.ValidationException: The input fails to satisfy the constraints specified by an AWS service.
+            aws_sdk_connectcampaignsv2.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_connectcampaignsv2.types.create_campaign_request.CreateCampaignRequest]",
@@ -283,7 +294,15 @@ class ConnectCampaignsV2Client:
         *,
         config_overrides: Optional[ConnectCampaignsV2ClientConfig] = None,
     ) -> None:
-        """Deletes a campaign from the specified Amazon Connect account."""
+        """Deletes a campaign from the specified Amazon Connect account.
+
+        Raises:
+            aws_sdk_connectcampaignsv2.errors.access_denied_exception.AccessDeniedException: You do not have sufficient access to perform this action.
+            aws_sdk_connectcampaignsv2.errors.internal_server_exception.InternalServerException: Request processing failed because of an error or failure with the service.
+            aws_sdk_connectcampaignsv2.errors.resource_not_found_exception.ResourceNotFoundException: The specified resource was not found.
+            aws_sdk_connectcampaignsv2.errors.validation_exception.ValidationException: The input fails to satisfy the constraints specified by an AWS service.
+            aws_sdk_connectcampaignsv2.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_connectcampaignsv2.types.delete_campaign_request.DeleteCampaignRequest]",
@@ -315,7 +334,16 @@ class ConnectCampaignsV2Client:
         *,
         config_overrides: Optional[ConnectCampaignsV2ClientConfig] = None,
     ) -> None:
-        """Deletes the channel subtype config of a campaign. This API is idempotent."""
+        """Deletes the channel subtype config of a campaign. This API is idempotent.
+
+        Raises:
+            aws_sdk_connectcampaignsv2.errors.access_denied_exception.AccessDeniedException: You do not have sufficient access to perform this action.
+            aws_sdk_connectcampaignsv2.errors.conflict_exception.ConflictException: The request could not be processed because of conflict in the current state of the resource.
+            aws_sdk_connectcampaignsv2.errors.internal_server_exception.InternalServerException: Request processing failed because of an error or failure with the service.
+            aws_sdk_connectcampaignsv2.errors.resource_not_found_exception.ResourceNotFoundException: The specified resource was not found.
+            aws_sdk_connectcampaignsv2.errors.validation_exception.ValidationException: The input fails to satisfy the constraints specified by an AWS service.
+            aws_sdk_connectcampaignsv2.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_connectcampaignsv2.types.delete_campaign_channel_subtype_config_request.DeleteCampaignChannelSubtypeConfigRequest]",
@@ -348,7 +376,17 @@ class ConnectCampaignsV2Client:
         *,
         config_overrides: Optional[ConnectCampaignsV2ClientConfig] = None,
     ) -> None:
-        """Deletes the communication limits config for a campaign. This API is idempotent."""
+        """Deletes the communication limits config for a campaign. This API is idempotent.
+
+        Raises:
+            aws_sdk_connectcampaignsv2.errors.access_denied_exception.AccessDeniedException: You do not have sufficient access to perform this action.
+            aws_sdk_connectcampaignsv2.errors.conflict_exception.ConflictException: The request could not be processed because of conflict in the current state of the resource.
+            aws_sdk_connectcampaignsv2.errors.internal_server_exception.InternalServerException: Request processing failed because of an error or failure with the service.
+            aws_sdk_connectcampaignsv2.errors.invalid_campaign_state_exception.InvalidCampaignStateException: The request could not be processed because of conflict in the current state of the campaign.
+            aws_sdk_connectcampaignsv2.errors.resource_not_found_exception.ResourceNotFoundException: The specified resource was not found.
+            aws_sdk_connectcampaignsv2.errors.validation_exception.ValidationException: The input fails to satisfy the constraints specified by an AWS service.
+            aws_sdk_connectcampaignsv2.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_connectcampaignsv2.types.delete_campaign_communication_limits_request.DeleteCampaignCommunicationLimitsRequest]",
@@ -381,7 +419,17 @@ class ConnectCampaignsV2Client:
         *,
         config_overrides: Optional[ConnectCampaignsV2ClientConfig] = None,
     ) -> None:
-        """Deletes the communication time config for a campaign. This API is idempotent."""
+        """Deletes the communication time config for a campaign. This API is idempotent.
+
+        Raises:
+            aws_sdk_connectcampaignsv2.errors.access_denied_exception.AccessDeniedException: You do not have sufficient access to perform this action.
+            aws_sdk_connectcampaignsv2.errors.conflict_exception.ConflictException: The request could not be processed because of conflict in the current state of the resource.
+            aws_sdk_connectcampaignsv2.errors.internal_server_exception.InternalServerException: Request processing failed because of an error or failure with the service.
+            aws_sdk_connectcampaignsv2.errors.invalid_campaign_state_exception.InvalidCampaignStateException: The request could not be processed because of conflict in the current state of the campaign.
+            aws_sdk_connectcampaignsv2.errors.resource_not_found_exception.ResourceNotFoundException: The specified resource was not found.
+            aws_sdk_connectcampaignsv2.errors.validation_exception.ValidationException: The input fails to satisfy the constraints specified by an AWS service.
+            aws_sdk_connectcampaignsv2.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_connectcampaignsv2.types.delete_campaign_communication_time_request.DeleteCampaignCommunicationTimeRequest]",
@@ -413,7 +461,17 @@ class ConnectCampaignsV2Client:
         *,
         config_overrides: Optional[ConnectCampaignsV2ClientConfig] = None,
     ) -> None:
-        """Deletes the entry limits config for a campaign. This API is idempotent."""
+        """Deletes the entry limits config for a campaign. This API is idempotent.
+
+        Raises:
+            aws_sdk_connectcampaignsv2.errors.access_denied_exception.AccessDeniedException: You do not have sufficient access to perform this action.
+            aws_sdk_connectcampaignsv2.errors.conflict_exception.ConflictException: The request could not be processed because of conflict in the current state of the resource.
+            aws_sdk_connectcampaignsv2.errors.internal_server_exception.InternalServerException: Request processing failed because of an error or failure with the service.
+            aws_sdk_connectcampaignsv2.errors.invalid_campaign_state_exception.InvalidCampaignStateException: The request could not be processed because of conflict in the current state of the campaign.
+            aws_sdk_connectcampaignsv2.errors.resource_not_found_exception.ResourceNotFoundException: The specified resource was not found.
+            aws_sdk_connectcampaignsv2.errors.validation_exception.ValidationException: The input fails to satisfy the constraints specified by an AWS service.
+            aws_sdk_connectcampaignsv2.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_connectcampaignsv2.types.delete_campaign_entry_limits_request.DeleteCampaignEntryLimitsRequest]",
@@ -447,7 +505,17 @@ class ConnectCampaignsV2Client:
             "aws_sdk_connectcampaignsv2.types.campaign_deletion_policy.CampaignDeletionPolicy"
         ] = None,
     ) -> None:
-        """Deletes a connect instance config from the specified AWS account."""
+        """Deletes a connect instance config from the specified AWS account.
+
+        Raises:
+            aws_sdk_connectcampaignsv2.errors.access_denied_exception.AccessDeniedException: You do not have sufficient access to perform this action.
+            aws_sdk_connectcampaignsv2.errors.internal_server_exception.InternalServerException: Request processing failed because of an error or failure with the service.
+            aws_sdk_connectcampaignsv2.errors.invalid_state_exception.InvalidStateException: The request could not be processed because of conflict in the current state.
+            aws_sdk_connectcampaignsv2.errors.resource_not_found_exception.ResourceNotFoundException: The specified resource was not found.
+            aws_sdk_connectcampaignsv2.errors.throttling_exception.ThrottlingException: The request was denied due to request throttling.
+            aws_sdk_connectcampaignsv2.errors.validation_exception.ValidationException: The input fails to satisfy the constraints specified by an AWS service.
+            aws_sdk_connectcampaignsv2.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_connectcampaignsv2.types.delete_connect_instance_config_request.DeleteConnectInstanceConfigRequest]",
@@ -481,7 +549,16 @@ class ConnectCampaignsV2Client:
         *,
         config_overrides: Optional[ConnectCampaignsV2ClientConfig] = None,
     ) -> None:
-        """Delete the integration for the specified Amazon Connect instance."""
+        """Delete the integration for the specified Amazon Connect instance.
+
+        Raises:
+            aws_sdk_connectcampaignsv2.errors.access_denied_exception.AccessDeniedException: You do not have sufficient access to perform this action.
+            aws_sdk_connectcampaignsv2.errors.internal_server_exception.InternalServerException: Request processing failed because of an error or failure with the service.
+            aws_sdk_connectcampaignsv2.errors.resource_not_found_exception.ResourceNotFoundException: The specified resource was not found.
+            aws_sdk_connectcampaignsv2.errors.throttling_exception.ThrottlingException: The request was denied due to request throttling.
+            aws_sdk_connectcampaignsv2.errors.validation_exception.ValidationException: The input fails to satisfy the constraints specified by an AWS service.
+            aws_sdk_connectcampaignsv2.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_connectcampaignsv2.types.delete_connect_instance_integration_request.DeleteConnectInstanceIntegrationRequest]",
@@ -513,7 +590,16 @@ class ConnectCampaignsV2Client:
         *,
         config_overrides: Optional[ConnectCampaignsV2ClientConfig] = None,
     ) -> None:
-        """Delete the Connect Campaigns onboarding job for the specified Amazon Connect instance."""
+        """Delete the Connect Campaigns onboarding job for the specified Amazon Connect instance.
+
+        Raises:
+            aws_sdk_connectcampaignsv2.errors.access_denied_exception.AccessDeniedException: You do not have sufficient access to perform this action.
+            aws_sdk_connectcampaignsv2.errors.internal_server_exception.InternalServerException: Request processing failed because of an error or failure with the service.
+            aws_sdk_connectcampaignsv2.errors.invalid_state_exception.InvalidStateException: The request could not be processed because of conflict in the current state.
+            aws_sdk_connectcampaignsv2.errors.resource_not_found_exception.ResourceNotFoundException: The specified resource was not found.
+            aws_sdk_connectcampaignsv2.errors.validation_exception.ValidationException: The input fails to satisfy the constraints specified by an AWS service.
+            aws_sdk_connectcampaignsv2.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_connectcampaignsv2.types.delete_instance_onboarding_job_request.DeleteInstanceOnboardingJobRequest]",
@@ -544,7 +630,15 @@ class ConnectCampaignsV2Client:
         *,
         config_overrides: Optional[ConnectCampaignsV2ClientConfig] = None,
     ) -> "aws_sdk_connectcampaignsv2.types.describe_campaign_response.DescribeCampaignResponse":
-        """Describes the specific campaign."""
+        """Describes the specific campaign.
+
+        Raises:
+            aws_sdk_connectcampaignsv2.errors.access_denied_exception.AccessDeniedException: You do not have sufficient access to perform this action.
+            aws_sdk_connectcampaignsv2.errors.internal_server_exception.InternalServerException: Request processing failed because of an error or failure with the service.
+            aws_sdk_connectcampaignsv2.errors.resource_not_found_exception.ResourceNotFoundException: The specified resource was not found.
+            aws_sdk_connectcampaignsv2.errors.validation_exception.ValidationException: The input fails to satisfy the constraints specified by an AWS service.
+            aws_sdk_connectcampaignsv2.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_connectcampaignsv2.types.describe_campaign_request.DescribeCampaignRequest]",
@@ -577,7 +671,16 @@ class ConnectCampaignsV2Client:
         *,
         config_overrides: Optional[ConnectCampaignsV2ClientConfig] = None,
     ) -> "aws_sdk_connectcampaignsv2.types.get_campaign_state_response.GetCampaignStateResponse":
-        """Get state of a campaign for the specified Amazon Connect account."""
+        """Get state of a campaign for the specified Amazon Connect account.
+
+        Raises:
+            aws_sdk_connectcampaignsv2.errors.access_denied_exception.AccessDeniedException: You do not have sufficient access to perform this action.
+            aws_sdk_connectcampaignsv2.errors.internal_server_exception.InternalServerException: Request processing failed because of an error or failure with the service.
+            aws_sdk_connectcampaignsv2.errors.resource_not_found_exception.ResourceNotFoundException: The specified resource was not found.
+            aws_sdk_connectcampaignsv2.errors.throttling_exception.ThrottlingException: The request was denied due to request throttling.
+            aws_sdk_connectcampaignsv2.errors.validation_exception.ValidationException: The input fails to satisfy the constraints specified by an AWS service.
+            aws_sdk_connectcampaignsv2.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_connectcampaignsv2.types.get_campaign_state_request.GetCampaignStateRequest]",
@@ -610,7 +713,15 @@ class ConnectCampaignsV2Client:
         *,
         config_overrides: Optional[ConnectCampaignsV2ClientConfig] = None,
     ) -> "aws_sdk_connectcampaignsv2.types.get_campaign_state_batch_response.GetCampaignStateBatchResponse":
-        """Get state of campaigns for the specified Amazon Connect account."""
+        """Get state of campaigns for the specified Amazon Connect account.
+
+        Raises:
+            aws_sdk_connectcampaignsv2.errors.access_denied_exception.AccessDeniedException: You do not have sufficient access to perform this action.
+            aws_sdk_connectcampaignsv2.errors.internal_server_exception.InternalServerException: Request processing failed because of an error or failure with the service.
+            aws_sdk_connectcampaignsv2.errors.throttling_exception.ThrottlingException: The request was denied due to request throttling.
+            aws_sdk_connectcampaignsv2.errors.validation_exception.ValidationException: The input fails to satisfy the constraints specified by an AWS service.
+            aws_sdk_connectcampaignsv2.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_connectcampaignsv2.types.get_campaign_state_batch_request.GetCampaignStateBatchRequest]",
@@ -643,7 +754,15 @@ class ConnectCampaignsV2Client:
         *,
         config_overrides: Optional[ConnectCampaignsV2ClientConfig] = None,
     ) -> "aws_sdk_connectcampaignsv2.types.get_connect_instance_config_response.GetConnectInstanceConfigResponse":
-        """Get the specific Connect instance config."""
+        """Get the specific Connect instance config.
+
+        Raises:
+            aws_sdk_connectcampaignsv2.errors.access_denied_exception.AccessDeniedException: You do not have sufficient access to perform this action.
+            aws_sdk_connectcampaignsv2.errors.internal_server_exception.InternalServerException: Request processing failed because of an error or failure with the service.
+            aws_sdk_connectcampaignsv2.errors.resource_not_found_exception.ResourceNotFoundException: The specified resource was not found.
+            aws_sdk_connectcampaignsv2.errors.validation_exception.ValidationException: The input fails to satisfy the constraints specified by an AWS service.
+            aws_sdk_connectcampaignsv2.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_connectcampaignsv2.types.get_connect_instance_config_request.GetConnectInstanceConfigRequest]",
@@ -676,7 +795,15 @@ class ConnectCampaignsV2Client:
         *,
         config_overrides: Optional[ConnectCampaignsV2ClientConfig] = None,
     ) -> "aws_sdk_connectcampaignsv2.types.get_instance_communication_limits_response.GetInstanceCommunicationLimitsResponse":
-        """Get the instance communication limits."""
+        """Get the instance communication limits.
+
+        Raises:
+            aws_sdk_connectcampaignsv2.errors.access_denied_exception.AccessDeniedException: You do not have sufficient access to perform this action.
+            aws_sdk_connectcampaignsv2.errors.internal_server_exception.InternalServerException: Request processing failed because of an error or failure with the service.
+            aws_sdk_connectcampaignsv2.errors.resource_not_found_exception.ResourceNotFoundException: The specified resource was not found.
+            aws_sdk_connectcampaignsv2.errors.validation_exception.ValidationException: The input fails to satisfy the constraints specified by an AWS service.
+            aws_sdk_connectcampaignsv2.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_connectcampaignsv2.types.get_instance_communication_limits_request.GetInstanceCommunicationLimitsRequest]",
@@ -709,7 +836,15 @@ class ConnectCampaignsV2Client:
         *,
         config_overrides: Optional[ConnectCampaignsV2ClientConfig] = None,
     ) -> "aws_sdk_connectcampaignsv2.types.get_instance_onboarding_job_status_response.GetInstanceOnboardingJobStatusResponse":
-        """Get the specific instance onboarding job status."""
+        """Get the specific instance onboarding job status.
+
+        Raises:
+            aws_sdk_connectcampaignsv2.errors.access_denied_exception.AccessDeniedException: You do not have sufficient access to perform this action.
+            aws_sdk_connectcampaignsv2.errors.internal_server_exception.InternalServerException: Request processing failed because of an error or failure with the service.
+            aws_sdk_connectcampaignsv2.errors.resource_not_found_exception.ResourceNotFoundException: The specified resource was not found.
+            aws_sdk_connectcampaignsv2.errors.validation_exception.ValidationException: The input fails to satisfy the constraints specified by an AWS service.
+            aws_sdk_connectcampaignsv2.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_connectcampaignsv2.types.get_instance_onboarding_job_status_request.GetInstanceOnboardingJobStatusRequest]",
@@ -752,7 +887,14 @@ class ConnectCampaignsV2Client:
     ) -> (
         "aws_sdk_connectcampaignsv2.types.list_campaigns_response.ListCampaignsResponse"
     ):
-        """Provides summary information about the campaigns under the specified Amazon Connect account."""
+        """Provides summary information about the campaigns under the specified Amazon Connect account.
+
+        Raises:
+            aws_sdk_connectcampaignsv2.errors.access_denied_exception.AccessDeniedException: You do not have sufficient access to perform this action.
+            aws_sdk_connectcampaignsv2.errors.internal_server_exception.InternalServerException: Request processing failed because of an error or failure with the service.
+            aws_sdk_connectcampaignsv2.errors.validation_exception.ValidationException: The input fails to satisfy the constraints specified by an AWS service.
+            aws_sdk_connectcampaignsv2.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_connectcampaignsv2.types.list_campaigns_request.ListCampaignsRequest]",
@@ -825,7 +967,16 @@ class ConnectCampaignsV2Client:
             "aws_sdk_connectcampaignsv2.types.next_token.NextToken"
         ] = None,
     ) -> "aws_sdk_connectcampaignsv2.types.list_connect_instance_integrations_response.ListConnectInstanceIntegrationsResponse":
-        """Provides summary information about the integration under the specified Connect instance."""
+        """Provides summary information about the integration under the specified Connect instance.
+
+        Raises:
+            aws_sdk_connectcampaignsv2.errors.access_denied_exception.AccessDeniedException: You do not have sufficient access to perform this action.
+            aws_sdk_connectcampaignsv2.errors.internal_server_exception.InternalServerException: Request processing failed because of an error or failure with the service.
+            aws_sdk_connectcampaignsv2.errors.resource_not_found_exception.ResourceNotFoundException: The specified resource was not found.
+            aws_sdk_connectcampaignsv2.errors.throttling_exception.ThrottlingException: The request was denied due to request throttling.
+            aws_sdk_connectcampaignsv2.errors.validation_exception.ValidationException: The input fails to satisfy the constraints specified by an AWS service.
+            aws_sdk_connectcampaignsv2.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_connectcampaignsv2.types.list_connect_instance_integrations_request.ListConnectInstanceIntegrationsRequest]",
@@ -889,7 +1040,16 @@ class ConnectCampaignsV2Client:
         *,
         config_overrides: Optional[ConnectCampaignsV2ClientConfig] = None,
     ) -> "aws_sdk_connectcampaignsv2.types.list_tags_for_resource_response.ListTagsForResourceResponse":
-        """List tags for a resource."""
+        """List tags for a resource.
+
+        Raises:
+            aws_sdk_connectcampaignsv2.errors.access_denied_exception.AccessDeniedException: You do not have sufficient access to perform this action.
+            aws_sdk_connectcampaignsv2.errors.internal_server_exception.InternalServerException: Request processing failed because of an error or failure with the service.
+            aws_sdk_connectcampaignsv2.errors.resource_not_found_exception.ResourceNotFoundException: The specified resource was not found.
+            aws_sdk_connectcampaignsv2.errors.throttling_exception.ThrottlingException: The request was denied due to request throttling.
+            aws_sdk_connectcampaignsv2.errors.validation_exception.ValidationException: The input fails to satisfy the constraints specified by an AWS service.
+            aws_sdk_connectcampaignsv2.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_connectcampaignsv2.types.list_tags_for_resource_request.ListTagsForResourceRequest]",
@@ -922,7 +1082,18 @@ class ConnectCampaignsV2Client:
         *,
         config_overrides: Optional[ConnectCampaignsV2ClientConfig] = None,
     ) -> None:
-        """Pauses a campaign for the specified Amazon Connect account."""
+        """Pauses a campaign for the specified Amazon Connect account.
+
+        Raises:
+            aws_sdk_connectcampaignsv2.errors.access_denied_exception.AccessDeniedException: You do not have sufficient access to perform this action.
+            aws_sdk_connectcampaignsv2.errors.conflict_exception.ConflictException: The request could not be processed because of conflict in the current state of the resource.
+            aws_sdk_connectcampaignsv2.errors.internal_server_exception.InternalServerException: Request processing failed because of an error or failure with the service.
+            aws_sdk_connectcampaignsv2.errors.invalid_campaign_state_exception.InvalidCampaignStateException: The request could not be processed because of conflict in the current state of the campaign.
+            aws_sdk_connectcampaignsv2.errors.resource_not_found_exception.ResourceNotFoundException: The specified resource was not found.
+            aws_sdk_connectcampaignsv2.errors.throttling_exception.ThrottlingException: The request was denied due to request throttling.
+            aws_sdk_connectcampaignsv2.errors.validation_exception.ValidationException: The input fails to satisfy the constraints specified by an AWS service.
+            aws_sdk_connectcampaignsv2.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_connectcampaignsv2.types.pause_campaign_request.PauseCampaignRequest]",
@@ -954,7 +1125,17 @@ class ConnectCampaignsV2Client:
         *,
         config_overrides: Optional[ConnectCampaignsV2ClientConfig] = None,
     ) -> None:
-        """Put or update the integration for the specified Amazon Connect instance."""
+        """Put or update the integration for the specified Amazon Connect instance.
+
+        Raises:
+            aws_sdk_connectcampaignsv2.errors.access_denied_exception.AccessDeniedException: You do not have sufficient access to perform this action.
+            aws_sdk_connectcampaignsv2.errors.conflict_exception.ConflictException: The request could not be processed because of conflict in the current state of the resource.
+            aws_sdk_connectcampaignsv2.errors.internal_server_exception.InternalServerException: Request processing failed because of an error or failure with the service.
+            aws_sdk_connectcampaignsv2.errors.resource_not_found_exception.ResourceNotFoundException: The specified resource was not found.
+            aws_sdk_connectcampaignsv2.errors.throttling_exception.ThrottlingException: The request was denied due to request throttling.
+            aws_sdk_connectcampaignsv2.errors.validation_exception.ValidationException: The input fails to satisfy the constraints specified by an AWS service.
+            aws_sdk_connectcampaignsv2.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_connectcampaignsv2.types.put_connect_instance_integration_request.PutConnectInstanceIntegrationRequest]",
@@ -987,7 +1168,16 @@ class ConnectCampaignsV2Client:
         *,
         config_overrides: Optional[ConnectCampaignsV2ClientConfig] = None,
     ) -> None:
-        """Put the instance communication limits. This API is idempotent."""
+        """Put the instance communication limits. This API is idempotent.
+
+        Raises:
+            aws_sdk_connectcampaignsv2.errors.access_denied_exception.AccessDeniedException: You do not have sufficient access to perform this action.
+            aws_sdk_connectcampaignsv2.errors.conflict_exception.ConflictException: The request could not be processed because of conflict in the current state of the resource.
+            aws_sdk_connectcampaignsv2.errors.internal_server_exception.InternalServerException: Request processing failed because of an error or failure with the service.
+            aws_sdk_connectcampaignsv2.errors.resource_not_found_exception.ResourceNotFoundException: The specified resource was not found.
+            aws_sdk_connectcampaignsv2.errors.validation_exception.ValidationException: The input fails to satisfy the constraints specified by an AWS service.
+            aws_sdk_connectcampaignsv2.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_connectcampaignsv2.types.put_instance_communication_limits_request.PutInstanceCommunicationLimitsRequest]",
@@ -1020,7 +1210,18 @@ class ConnectCampaignsV2Client:
         *,
         config_overrides: Optional[ConnectCampaignsV2ClientConfig] = None,
     ) -> "aws_sdk_connectcampaignsv2.types.put_outbound_request_batch_response.PutOutboundRequestBatchResponse":
-        """Creates outbound requests for the specified campaign Amazon Connect account. This API is idempotent."""
+        """Creates outbound requests for the specified campaign Amazon Connect account. This API is idempotent.
+
+        Raises:
+            aws_sdk_connectcampaignsv2.errors.access_denied_exception.AccessDeniedException: You do not have sufficient access to perform this action.
+            aws_sdk_connectcampaignsv2.errors.conflict_exception.ConflictException: The request could not be processed because of conflict in the current state of the resource.
+            aws_sdk_connectcampaignsv2.errors.internal_server_exception.InternalServerException: Request processing failed because of an error or failure with the service.
+            aws_sdk_connectcampaignsv2.errors.invalid_campaign_state_exception.InvalidCampaignStateException: The request could not be processed because of conflict in the current state of the campaign.
+            aws_sdk_connectcampaignsv2.errors.resource_not_found_exception.ResourceNotFoundException: The specified resource was not found.
+            aws_sdk_connectcampaignsv2.errors.throttling_exception.ThrottlingException: The request was denied due to request throttling.
+            aws_sdk_connectcampaignsv2.errors.validation_exception.ValidationException: The input fails to satisfy the constraints specified by an AWS service.
+            aws_sdk_connectcampaignsv2.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_connectcampaignsv2.types.put_outbound_request_batch_request.PutOutboundRequestBatchRequest]",
@@ -1055,7 +1256,18 @@ class ConnectCampaignsV2Client:
         *,
         config_overrides: Optional[ConnectCampaignsV2ClientConfig] = None,
     ) -> "aws_sdk_connectcampaignsv2.types.put_profile_outbound_request_batch_response.PutProfileOutboundRequestBatchResponse":
-        """Takes in a list of profile outbound requests to be placed as part of an outbound campaign. This API is idempotent."""
+        """Takes in a list of profile outbound requests to be placed as part of an outbound campaign. This API is idempotent.
+
+        Raises:
+            aws_sdk_connectcampaignsv2.errors.access_denied_exception.AccessDeniedException: You do not have sufficient access to perform this action.
+            aws_sdk_connectcampaignsv2.errors.conflict_exception.ConflictException: The request could not be processed because of conflict in the current state of the resource.
+            aws_sdk_connectcampaignsv2.errors.internal_server_exception.InternalServerException: Request processing failed because of an error or failure with the service.
+            aws_sdk_connectcampaignsv2.errors.invalid_campaign_state_exception.InvalidCampaignStateException: The request could not be processed because of conflict in the current state of the campaign.
+            aws_sdk_connectcampaignsv2.errors.resource_not_found_exception.ResourceNotFoundException: The specified resource was not found.
+            aws_sdk_connectcampaignsv2.errors.throttling_exception.ThrottlingException: The request was denied due to request throttling.
+            aws_sdk_connectcampaignsv2.errors.validation_exception.ValidationException: The input fails to satisfy the constraints specified by an AWS service.
+            aws_sdk_connectcampaignsv2.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_connectcampaignsv2.types.put_profile_outbound_request_batch_request.PutProfileOutboundRequestBatchRequest]",
@@ -1089,7 +1301,18 @@ class ConnectCampaignsV2Client:
         *,
         config_overrides: Optional[ConnectCampaignsV2ClientConfig] = None,
     ) -> None:
-        """Stops a campaign for the specified Amazon Connect account."""
+        """Stops a campaign for the specified Amazon Connect account.
+
+        Raises:
+            aws_sdk_connectcampaignsv2.errors.access_denied_exception.AccessDeniedException: You do not have sufficient access to perform this action.
+            aws_sdk_connectcampaignsv2.errors.conflict_exception.ConflictException: The request could not be processed because of conflict in the current state of the resource.
+            aws_sdk_connectcampaignsv2.errors.internal_server_exception.InternalServerException: Request processing failed because of an error or failure with the service.
+            aws_sdk_connectcampaignsv2.errors.invalid_campaign_state_exception.InvalidCampaignStateException: The request could not be processed because of conflict in the current state of the campaign.
+            aws_sdk_connectcampaignsv2.errors.resource_not_found_exception.ResourceNotFoundException: The specified resource was not found.
+            aws_sdk_connectcampaignsv2.errors.throttling_exception.ThrottlingException: The request was denied due to request throttling.
+            aws_sdk_connectcampaignsv2.errors.validation_exception.ValidationException: The input fails to satisfy the constraints specified by an AWS service.
+            aws_sdk_connectcampaignsv2.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_connectcampaignsv2.types.resume_campaign_request.ResumeCampaignRequest]",
@@ -1120,7 +1343,18 @@ class ConnectCampaignsV2Client:
         *,
         config_overrides: Optional[ConnectCampaignsV2ClientConfig] = None,
     ) -> None:
-        """Starts a campaign for the specified Amazon Connect account."""
+        """Starts a campaign for the specified Amazon Connect account.
+
+        Raises:
+            aws_sdk_connectcampaignsv2.errors.access_denied_exception.AccessDeniedException: You do not have sufficient access to perform this action.
+            aws_sdk_connectcampaignsv2.errors.conflict_exception.ConflictException: The request could not be processed because of conflict in the current state of the resource.
+            aws_sdk_connectcampaignsv2.errors.internal_server_exception.InternalServerException: Request processing failed because of an error or failure with the service.
+            aws_sdk_connectcampaignsv2.errors.invalid_campaign_state_exception.InvalidCampaignStateException: The request could not be processed because of conflict in the current state of the campaign.
+            aws_sdk_connectcampaignsv2.errors.resource_not_found_exception.ResourceNotFoundException: The specified resource was not found.
+            aws_sdk_connectcampaignsv2.errors.throttling_exception.ThrottlingException: The request was denied due to request throttling.
+            aws_sdk_connectcampaignsv2.errors.validation_exception.ValidationException: The input fails to satisfy the constraints specified by an AWS service.
+            aws_sdk_connectcampaignsv2.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_connectcampaignsv2.types.start_campaign_request.StartCampaignRequest]",
@@ -1152,7 +1386,17 @@ class ConnectCampaignsV2Client:
         *,
         config_overrides: Optional[ConnectCampaignsV2ClientConfig] = None,
     ) -> "aws_sdk_connectcampaignsv2.types.start_instance_onboarding_job_response.StartInstanceOnboardingJobResponse":
-        """Onboard the specific Amazon Connect instance to Connect Campaigns."""
+        """Onboard the specific Amazon Connect instance to Connect Campaigns.
+
+        Raises:
+            aws_sdk_connectcampaignsv2.errors.access_denied_exception.AccessDeniedException: You do not have sufficient access to perform this action.
+            aws_sdk_connectcampaignsv2.errors.conflict_exception.ConflictException: The request could not be processed because of conflict in the current state of the resource.
+            aws_sdk_connectcampaignsv2.errors.internal_server_exception.InternalServerException: Request processing failed because of an error or failure with the service.
+            aws_sdk_connectcampaignsv2.errors.resource_not_found_exception.ResourceNotFoundException: The specified resource was not found.
+            aws_sdk_connectcampaignsv2.errors.throttling_exception.ThrottlingException: The request was denied due to request throttling.
+            aws_sdk_connectcampaignsv2.errors.validation_exception.ValidationException: The input fails to satisfy the constraints specified by an AWS service.
+            aws_sdk_connectcampaignsv2.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_connectcampaignsv2.types.start_instance_onboarding_job_request.StartInstanceOnboardingJobRequest]",
@@ -1186,7 +1430,18 @@ class ConnectCampaignsV2Client:
         *,
         config_overrides: Optional[ConnectCampaignsV2ClientConfig] = None,
     ) -> None:
-        """Stops a campaign for the specified Amazon Connect account."""
+        """Stops a campaign for the specified Amazon Connect account.
+
+        Raises:
+            aws_sdk_connectcampaignsv2.errors.access_denied_exception.AccessDeniedException: You do not have sufficient access to perform this action.
+            aws_sdk_connectcampaignsv2.errors.conflict_exception.ConflictException: The request could not be processed because of conflict in the current state of the resource.
+            aws_sdk_connectcampaignsv2.errors.internal_server_exception.InternalServerException: Request processing failed because of an error or failure with the service.
+            aws_sdk_connectcampaignsv2.errors.invalid_campaign_state_exception.InvalidCampaignStateException: The request could not be processed because of conflict in the current state of the campaign.
+            aws_sdk_connectcampaignsv2.errors.resource_not_found_exception.ResourceNotFoundException: The specified resource was not found.
+            aws_sdk_connectcampaignsv2.errors.throttling_exception.ThrottlingException: The request was denied due to request throttling.
+            aws_sdk_connectcampaignsv2.errors.validation_exception.ValidationException: The input fails to satisfy the constraints specified by an AWS service.
+            aws_sdk_connectcampaignsv2.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_connectcampaignsv2.types.stop_campaign_request.StopCampaignRequest]",
@@ -1218,7 +1473,16 @@ class ConnectCampaignsV2Client:
         *,
         config_overrides: Optional[ConnectCampaignsV2ClientConfig] = None,
     ) -> None:
-        """Tag a resource."""
+        """Tag a resource.
+
+        Raises:
+            aws_sdk_connectcampaignsv2.errors.access_denied_exception.AccessDeniedException: You do not have sufficient access to perform this action.
+            aws_sdk_connectcampaignsv2.errors.internal_server_exception.InternalServerException: Request processing failed because of an error or failure with the service.
+            aws_sdk_connectcampaignsv2.errors.resource_not_found_exception.ResourceNotFoundException: The specified resource was not found.
+            aws_sdk_connectcampaignsv2.errors.throttling_exception.ThrottlingException: The request was denied due to request throttling.
+            aws_sdk_connectcampaignsv2.errors.validation_exception.ValidationException: The input fails to satisfy the constraints specified by an AWS service.
+            aws_sdk_connectcampaignsv2.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_connectcampaignsv2.types.tag_resource_request.TagResourceRequest]",
@@ -1251,7 +1515,16 @@ class ConnectCampaignsV2Client:
         *,
         config_overrides: Optional[ConnectCampaignsV2ClientConfig] = None,
     ) -> None:
-        """Untag a resource."""
+        """Untag a resource.
+
+        Raises:
+            aws_sdk_connectcampaignsv2.errors.access_denied_exception.AccessDeniedException: You do not have sufficient access to perform this action.
+            aws_sdk_connectcampaignsv2.errors.internal_server_exception.InternalServerException: Request processing failed because of an error or failure with the service.
+            aws_sdk_connectcampaignsv2.errors.resource_not_found_exception.ResourceNotFoundException: The specified resource was not found.
+            aws_sdk_connectcampaignsv2.errors.throttling_exception.ThrottlingException: The request was denied due to request throttling.
+            aws_sdk_connectcampaignsv2.errors.validation_exception.ValidationException: The input fails to satisfy the constraints specified by an AWS service.
+            aws_sdk_connectcampaignsv2.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_connectcampaignsv2.types.untag_resource_request.UntagResourceRequest]",
@@ -1284,7 +1557,16 @@ class ConnectCampaignsV2Client:
         *,
         config_overrides: Optional[ConnectCampaignsV2ClientConfig] = None,
     ) -> None:
-        """Updates the channel subtype config of a campaign. This API is idempotent."""
+        """Updates the channel subtype config of a campaign. This API is idempotent.
+
+        Raises:
+            aws_sdk_connectcampaignsv2.errors.access_denied_exception.AccessDeniedException: You do not have sufficient access to perform this action.
+            aws_sdk_connectcampaignsv2.errors.conflict_exception.ConflictException: The request could not be processed because of conflict in the current state of the resource.
+            aws_sdk_connectcampaignsv2.errors.internal_server_exception.InternalServerException: Request processing failed because of an error or failure with the service.
+            aws_sdk_connectcampaignsv2.errors.resource_not_found_exception.ResourceNotFoundException: The specified resource was not found.
+            aws_sdk_connectcampaignsv2.errors.validation_exception.ValidationException: The input fails to satisfy the constraints specified by an AWS service.
+            aws_sdk_connectcampaignsv2.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_connectcampaignsv2.types.update_campaign_channel_subtype_config_request.UpdateCampaignChannelSubtypeConfigRequest]",
@@ -1317,7 +1599,17 @@ class ConnectCampaignsV2Client:
         *,
         config_overrides: Optional[ConnectCampaignsV2ClientConfig] = None,
     ) -> None:
-        """Updates the communication limits config for a campaign. This API is idempotent."""
+        """Updates the communication limits config for a campaign. This API is idempotent.
+
+        Raises:
+            aws_sdk_connectcampaignsv2.errors.access_denied_exception.AccessDeniedException: You do not have sufficient access to perform this action.
+            aws_sdk_connectcampaignsv2.errors.conflict_exception.ConflictException: The request could not be processed because of conflict in the current state of the resource.
+            aws_sdk_connectcampaignsv2.errors.internal_server_exception.InternalServerException: Request processing failed because of an error or failure with the service.
+            aws_sdk_connectcampaignsv2.errors.invalid_campaign_state_exception.InvalidCampaignStateException: The request could not be processed because of conflict in the current state of the campaign.
+            aws_sdk_connectcampaignsv2.errors.resource_not_found_exception.ResourceNotFoundException: The specified resource was not found.
+            aws_sdk_connectcampaignsv2.errors.validation_exception.ValidationException: The input fails to satisfy the constraints specified by an AWS service.
+            aws_sdk_connectcampaignsv2.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_connectcampaignsv2.types.update_campaign_communication_limits_request.UpdateCampaignCommunicationLimitsRequest]",
@@ -1350,7 +1642,17 @@ class ConnectCampaignsV2Client:
         *,
         config_overrides: Optional[ConnectCampaignsV2ClientConfig] = None,
     ) -> None:
-        """Updates the communication time config for a campaign. This API is idempotent."""
+        """Updates the communication time config for a campaign. This API is idempotent.
+
+        Raises:
+            aws_sdk_connectcampaignsv2.errors.access_denied_exception.AccessDeniedException: You do not have sufficient access to perform this action.
+            aws_sdk_connectcampaignsv2.errors.conflict_exception.ConflictException: The request could not be processed because of conflict in the current state of the resource.
+            aws_sdk_connectcampaignsv2.errors.internal_server_exception.InternalServerException: Request processing failed because of an error or failure with the service.
+            aws_sdk_connectcampaignsv2.errors.invalid_campaign_state_exception.InvalidCampaignStateException: The request could not be processed because of conflict in the current state of the campaign.
+            aws_sdk_connectcampaignsv2.errors.resource_not_found_exception.ResourceNotFoundException: The specified resource was not found.
+            aws_sdk_connectcampaignsv2.errors.validation_exception.ValidationException: The input fails to satisfy the constraints specified by an AWS service.
+            aws_sdk_connectcampaignsv2.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_connectcampaignsv2.types.update_campaign_communication_time_request.UpdateCampaignCommunicationTimeRequest]",
@@ -1383,7 +1685,17 @@ class ConnectCampaignsV2Client:
         *,
         config_overrides: Optional[ConnectCampaignsV2ClientConfig] = None,
     ) -> None:
-        """Updates the entry limits config for a campaign. This API is idempotent."""
+        """Updates the entry limits config for a campaign. This API is idempotent.
+
+        Raises:
+            aws_sdk_connectcampaignsv2.errors.access_denied_exception.AccessDeniedException: You do not have sufficient access to perform this action.
+            aws_sdk_connectcampaignsv2.errors.conflict_exception.ConflictException: The request could not be processed because of conflict in the current state of the resource.
+            aws_sdk_connectcampaignsv2.errors.internal_server_exception.InternalServerException: Request processing failed because of an error or failure with the service.
+            aws_sdk_connectcampaignsv2.errors.invalid_campaign_state_exception.InvalidCampaignStateException: The request could not be processed because of conflict in the current state of the campaign.
+            aws_sdk_connectcampaignsv2.errors.resource_not_found_exception.ResourceNotFoundException: The specified resource was not found.
+            aws_sdk_connectcampaignsv2.errors.validation_exception.ValidationException: The input fails to satisfy the constraints specified by an AWS service.
+            aws_sdk_connectcampaignsv2.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_connectcampaignsv2.types.update_campaign_entry_limits_request.UpdateCampaignEntryLimitsRequest]",
@@ -1416,7 +1728,17 @@ class ConnectCampaignsV2Client:
         *,
         config_overrides: Optional[ConnectCampaignsV2ClientConfig] = None,
     ) -> None:
-        """Updates the campaign flow associated with a campaign. This API is idempotent."""
+        """Updates the campaign flow associated with a campaign. This API is idempotent.
+
+        Raises:
+            aws_sdk_connectcampaignsv2.errors.access_denied_exception.AccessDeniedException: You do not have sufficient access to perform this action.
+            aws_sdk_connectcampaignsv2.errors.conflict_exception.ConflictException: The request could not be processed because of conflict in the current state of the resource.
+            aws_sdk_connectcampaignsv2.errors.internal_server_exception.InternalServerException: Request processing failed because of an error or failure with the service.
+            aws_sdk_connectcampaignsv2.errors.invalid_campaign_state_exception.InvalidCampaignStateException: The request could not be processed because of conflict in the current state of the campaign.
+            aws_sdk_connectcampaignsv2.errors.resource_not_found_exception.ResourceNotFoundException: The specified resource was not found.
+            aws_sdk_connectcampaignsv2.errors.validation_exception.ValidationException: The input fails to satisfy the constraints specified by an AWS service.
+            aws_sdk_connectcampaignsv2.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_connectcampaignsv2.types.update_campaign_flow_association_request.UpdateCampaignFlowAssociationRequest]",
@@ -1449,7 +1771,16 @@ class ConnectCampaignsV2Client:
         *,
         config_overrides: Optional[ConnectCampaignsV2ClientConfig] = None,
     ) -> None:
-        """Updates the name of a campaign. This API is idempotent."""
+        """Updates the name of a campaign. This API is idempotent.
+
+        Raises:
+            aws_sdk_connectcampaignsv2.errors.access_denied_exception.AccessDeniedException: You do not have sufficient access to perform this action.
+            aws_sdk_connectcampaignsv2.errors.conflict_exception.ConflictException: The request could not be processed because of conflict in the current state of the resource.
+            aws_sdk_connectcampaignsv2.errors.internal_server_exception.InternalServerException: Request processing failed because of an error or failure with the service.
+            aws_sdk_connectcampaignsv2.errors.resource_not_found_exception.ResourceNotFoundException: The specified resource was not found.
+            aws_sdk_connectcampaignsv2.errors.validation_exception.ValidationException: The input fails to satisfy the constraints specified by an AWS service.
+            aws_sdk_connectcampaignsv2.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_connectcampaignsv2.types.update_campaign_name_request.UpdateCampaignNameRequest]",
@@ -1482,7 +1813,17 @@ class ConnectCampaignsV2Client:
         *,
         config_overrides: Optional[ConnectCampaignsV2ClientConfig] = None,
     ) -> None:
-        """Updates the schedule for a campaign. This API is idempotent."""
+        """Updates the schedule for a campaign. This API is idempotent.
+
+        Raises:
+            aws_sdk_connectcampaignsv2.errors.access_denied_exception.AccessDeniedException: You do not have sufficient access to perform this action.
+            aws_sdk_connectcampaignsv2.errors.conflict_exception.ConflictException: The request could not be processed because of conflict in the current state of the resource.
+            aws_sdk_connectcampaignsv2.errors.internal_server_exception.InternalServerException: Request processing failed because of an error or failure with the service.
+            aws_sdk_connectcampaignsv2.errors.invalid_campaign_state_exception.InvalidCampaignStateException: The request could not be processed because of conflict in the current state of the campaign.
+            aws_sdk_connectcampaignsv2.errors.resource_not_found_exception.ResourceNotFoundException: The specified resource was not found.
+            aws_sdk_connectcampaignsv2.errors.validation_exception.ValidationException: The input fails to satisfy the constraints specified by an AWS service.
+            aws_sdk_connectcampaignsv2.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_connectcampaignsv2.types.update_campaign_schedule_request.UpdateCampaignScheduleRequest]",
@@ -1515,7 +1856,17 @@ class ConnectCampaignsV2Client:
         *,
         config_overrides: Optional[ConnectCampaignsV2ClientConfig] = None,
     ) -> None:
-        """Updates the campaign source with a campaign. This API is idempotent."""
+        """Updates the campaign source with a campaign. This API is idempotent.
+
+        Raises:
+            aws_sdk_connectcampaignsv2.errors.access_denied_exception.AccessDeniedException: You do not have sufficient access to perform this action.
+            aws_sdk_connectcampaignsv2.errors.conflict_exception.ConflictException: The request could not be processed because of conflict in the current state of the resource.
+            aws_sdk_connectcampaignsv2.errors.internal_server_exception.InternalServerException: Request processing failed because of an error or failure with the service.
+            aws_sdk_connectcampaignsv2.errors.invalid_campaign_state_exception.InvalidCampaignStateException: The request could not be processed because of conflict in the current state of the campaign.
+            aws_sdk_connectcampaignsv2.errors.resource_not_found_exception.ResourceNotFoundException: The specified resource was not found.
+            aws_sdk_connectcampaignsv2.errors.validation_exception.ValidationException: The input fails to satisfy the constraints specified by an AWS service.
+            aws_sdk_connectcampaignsv2.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_connectcampaignsv2.types.update_campaign_source_request.UpdateCampaignSourceRequest]",

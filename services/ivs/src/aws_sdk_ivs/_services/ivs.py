@@ -260,6 +260,12 @@ class ivsClient:
 
         Args:
             arns: <p>Array of ARNs, one per channel.</p>
+
+        Raises:
+            aws_sdk_ivs.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_ivs.errors.service_unavailable.ServiceUnavailable: <p/>
+            aws_sdk_ivs.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_ivs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -297,6 +303,12 @@ class ivsClient:
 
         Args:
             arns: <p>Array of ARNs, one per stream key.</p>
+
+        Raises:
+            aws_sdk_ivs.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_ivs.errors.service_unavailable.ServiceUnavailable: <p/>
+            aws_sdk_ivs.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_ivs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -334,6 +346,13 @@ class ivsClient:
 
         Args:
             viewer_sessions: <p>Array of viewer sessions, one per channel-ARN and viewer-ID pair.</p>
+
+        Raises:
+            aws_sdk_ivs.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_ivs.errors.pending_verification.PendingVerification: <p/>
+            aws_sdk_ivs.errors.throttling_exception.ThrottlingException: <p/>
+            aws_sdk_ivs.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_ivs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -377,6 +396,17 @@ class ivsClient:
             name: <p>Ad configuration name. Defaults to “”.</p>
             media_tailor_playback_configurations: <p>List of integration configurations with MediaTailor resources. The first item in the list is the default playback configuration used for the ad configuration. To select a different configuration per viewing session, see <a href=\"https://docs.aws.amazon.com/ivs/latest/LowLatencyUserGuide/private-channels-generate-tokens.html\">Generate and Sign IVS Playback Tokens</a>.</p>
             tags: <p>Array of 1-50 maps, each of the form <code>string:string (key:value)</code>. See <a href=\"https://docs.aws.amazon.com/tag-editor/latest/userguide/best-practices-and-strats.html\">Best practices and strategies</a> in <i>Tagging Amazon Web Services Resources and Tag Editor</i> for details, including restrictions that apply to tags and \"Tag naming limits and requirements\"; Amazon IVS has no service-specific constraints beyond what is documented there.</p>
+
+        Raises:
+            aws_sdk_ivs.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_ivs.errors.conflict_exception.ConflictException: <p/>
+            aws_sdk_ivs.errors.internal_server_exception.InternalServerException: <p/>
+            aws_sdk_ivs.errors.pending_verification.PendingVerification: <p/>
+            aws_sdk_ivs.errors.resource_not_found_exception.ResourceNotFoundException: <p/>
+            aws_sdk_ivs.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p/>
+            aws_sdk_ivs.errors.throttling_exception.ThrottlingException: <p/>
+            aws_sdk_ivs.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_ivs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -454,6 +484,14 @@ class ivsClient:
             multitrack_input_configuration: <p>Object specifying multitrack input configuration. Default: no multitrack input configuration is specified.</p>
             container_format: <p>Indicates which content-packaging format is used (MPEG-TS or fMP4). If <code>multitrackInputConfiguration</code> is specified and <code>enabled</code> is <code>true</code>, then <code>containerFormat</code> is required and must be set to <code>FRAGMENTED_MP4</code>. Otherwise, <code>containerFormat</code> may be set to <code>TS</code> or <code>FRAGMENTED_MP4</code>. Default: <code>TS</code>.</p>
             ad_configuration_arn: <p>ARN of the ad configuration associated with the channel.</p>
+
+        Raises:
+            aws_sdk_ivs.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_ivs.errors.pending_verification.PendingVerification: <p/>
+            aws_sdk_ivs.errors.resource_not_found_exception.ResourceNotFoundException: <p/>
+            aws_sdk_ivs.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p/>
+            aws_sdk_ivs.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_ivs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -530,6 +568,14 @@ class ivsClient:
             enable_strict_origin_enforcement: <p>Whether channel playback is constrained by origin site. Default: <code>false</code>.</p>
             name: <p>Playback-restriction-policy name. The value does not need to be unique.</p>
             tags: <p>Array of 1-50 maps, each of the form <code>string:string (key:value)</code>. See <a href=\"https://docs.aws.amazon.com/tag-editor/latest/userguide/best-practices-and-strats.html\">Best practices and strategies</a> in <i>Tagging Amazon Web Services Resources and Tag Editor</i> for details, including restrictions that apply to tags and \"Tag naming limits and requirements\"; Amazon IVS has no service-specific constraints beyond what is documented there.</p>
+
+        Raises:
+            aws_sdk_ivs.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_ivs.errors.pending_verification.PendingVerification: <p/>
+            aws_sdk_ivs.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p/>
+            aws_sdk_ivs.errors.throttling_exception.ThrottlingException: <p/>
+            aws_sdk_ivs.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_ivs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -596,6 +642,15 @@ class ivsClient:
             thumbnail_configuration: <p>A complex type that allows you to enable/disable the recording of thumbnails for a live session and modify the interval at which thumbnails are generated for the live session.</p>
             recording_reconnect_window_seconds: <p>If a broadcast disconnects and then reconnects within the specified interval, the multiple streams will be considered a single broadcast and merged together. Default: 0.</p>
             rendition_configuration: <p>Object that describes which renditions should be recorded for a stream.</p>
+
+        Raises:
+            aws_sdk_ivs.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_ivs.errors.conflict_exception.ConflictException: <p/>
+            aws_sdk_ivs.errors.internal_server_exception.InternalServerException: <p/>
+            aws_sdk_ivs.errors.pending_verification.PendingVerification: <p/>
+            aws_sdk_ivs.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p/>
+            aws_sdk_ivs.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_ivs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -647,6 +702,14 @@ class ivsClient:
         Args:
             channel_arn: <p>ARN of the channel for which to create the stream key.</p>
             tags: <p>Array of 1-50 maps, each of the form <code>string:string (key:value)</code>. See <a href=\"https://docs.aws.amazon.com/tag-editor/latest/userguide/best-practices-and-strats.html\">Best practices and strategies</a> in <i>Tagging Amazon Web Services Resources and Tag Editor</i> for details, including restrictions that apply to tags and \"Tag naming limits and requirements\"; Amazon IVS has no service-specific constraints beyond what is documented there.</p>
+
+        Raises:
+            aws_sdk_ivs.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_ivs.errors.pending_verification.PendingVerification: <p/>
+            aws_sdk_ivs.errors.resource_not_found_exception.ResourceNotFoundException: <p/>
+            aws_sdk_ivs.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p/>
+            aws_sdk_ivs.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_ivs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -686,6 +749,14 @@ class ivsClient:
 
         Args:
             arn: <p>ARN of the ad configuration to be deleted.</p>
+
+        Raises:
+            aws_sdk_ivs.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_ivs.errors.conflict_exception.ConflictException: <p/>
+            aws_sdk_ivs.errors.internal_server_exception.InternalServerException: <p/>
+            aws_sdk_ivs.errors.resource_not_found_exception.ResourceNotFoundException: <p/>
+            aws_sdk_ivs.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_ivs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -721,6 +792,14 @@ class ivsClient:
 
         Args:
             arn: <p>ARN of the channel to be deleted.</p>
+
+        Raises:
+            aws_sdk_ivs.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_ivs.errors.conflict_exception.ConflictException: <p/>
+            aws_sdk_ivs.errors.pending_verification.PendingVerification: <p/>
+            aws_sdk_ivs.errors.resource_not_found_exception.ResourceNotFoundException: <p/>
+            aws_sdk_ivs.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_ivs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -756,6 +835,13 @@ class ivsClient:
 
         Args:
             arn: <p>ARN of the key pair to be deleted.</p>
+
+        Raises:
+            aws_sdk_ivs.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_ivs.errors.pending_verification.PendingVerification: <p/>
+            aws_sdk_ivs.errors.resource_not_found_exception.ResourceNotFoundException: <p/>
+            aws_sdk_ivs.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_ivs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -793,6 +879,14 @@ class ivsClient:
 
         Args:
             arn: <p>ARN of the playback restriction policy to be deleted.</p>
+
+        Raises:
+            aws_sdk_ivs.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_ivs.errors.conflict_exception.ConflictException: <p/>
+            aws_sdk_ivs.errors.pending_verification.PendingVerification: <p/>
+            aws_sdk_ivs.errors.resource_not_found_exception.ResourceNotFoundException: <p/>
+            aws_sdk_ivs.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_ivs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -828,6 +922,14 @@ class ivsClient:
 
         Args:
             arn: <p>ARN of the recording configuration to be deleted.</p>
+
+        Raises:
+            aws_sdk_ivs.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_ivs.errors.conflict_exception.ConflictException: <p/>
+            aws_sdk_ivs.errors.internal_server_exception.InternalServerException: <p/>
+            aws_sdk_ivs.errors.resource_not_found_exception.ResourceNotFoundException: <p/>
+            aws_sdk_ivs.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_ivs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -863,6 +965,13 @@ class ivsClient:
 
         Args:
             arn: <p>ARN of the stream key to be deleted.</p>
+
+        Raises:
+            aws_sdk_ivs.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_ivs.errors.pending_verification.PendingVerification: <p/>
+            aws_sdk_ivs.errors.resource_not_found_exception.ResourceNotFoundException: <p/>
+            aws_sdk_ivs.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_ivs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -898,6 +1007,13 @@ class ivsClient:
 
         Args:
             arn: <p>ARN of the ad configuration to be retrieved.</p>
+
+        Raises:
+            aws_sdk_ivs.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_ivs.errors.internal_server_exception.InternalServerException: <p/>
+            aws_sdk_ivs.errors.resource_not_found_exception.ResourceNotFoundException: <p/>
+            aws_sdk_ivs.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_ivs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -935,6 +1051,12 @@ class ivsClient:
 
         Args:
             arn: <p>ARN of the channel for which the configuration is to be retrieved.</p>
+
+        Raises:
+            aws_sdk_ivs.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_ivs.errors.resource_not_found_exception.ResourceNotFoundException: <p/>
+            aws_sdk_ivs.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_ivs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -972,6 +1094,12 @@ class ivsClient:
 
         Args:
             arn: <p>ARN of the key pair to be returned.</p>
+
+        Raises:
+            aws_sdk_ivs.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_ivs.errors.resource_not_found_exception.ResourceNotFoundException: <p/>
+            aws_sdk_ivs.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_ivs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1009,6 +1137,13 @@ class ivsClient:
 
         Args:
             arn: <p>ARN of the playback restriction policy to be returned.</p>
+
+        Raises:
+            aws_sdk_ivs.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_ivs.errors.pending_verification.PendingVerification: <p/>
+            aws_sdk_ivs.errors.resource_not_found_exception.ResourceNotFoundException: <p/>
+            aws_sdk_ivs.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_ivs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1046,6 +1181,13 @@ class ivsClient:
 
         Args:
             arn: <p>ARN of the recording configuration to be retrieved.</p>
+
+        Raises:
+            aws_sdk_ivs.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_ivs.errors.internal_server_exception.InternalServerException: <p/>
+            aws_sdk_ivs.errors.resource_not_found_exception.ResourceNotFoundException: <p/>
+            aws_sdk_ivs.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_ivs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1083,6 +1225,13 @@ class ivsClient:
 
         Args:
             channel_arn: <p>Channel ARN for stream to be accessed.</p>
+
+        Raises:
+            aws_sdk_ivs.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_ivs.errors.channel_not_broadcasting.ChannelNotBroadcasting: <p/>
+            aws_sdk_ivs.errors.resource_not_found_exception.ResourceNotFoundException: <p/>
+            aws_sdk_ivs.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_ivs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1120,6 +1269,12 @@ class ivsClient:
 
         Args:
             arn: <p>ARN for the stream key to be retrieved.</p>
+
+        Raises:
+            aws_sdk_ivs.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_ivs.errors.resource_not_found_exception.ResourceNotFoundException: <p/>
+            aws_sdk_ivs.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_ivs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1159,6 +1314,12 @@ class ivsClient:
         Args:
             channel_arn: <p>ARN of the channel resource</p>
             stream_id: <p>Unique identifier for a live or previously live stream in the specified channel. If no <code>streamId</code> is provided, this returns the most recent stream session for the channel, if it exists.</p>
+
+        Raises:
+            aws_sdk_ivs.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_ivs.errors.resource_not_found_exception.ResourceNotFoundException: <p/>
+            aws_sdk_ivs.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_ivs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1204,6 +1365,14 @@ class ivsClient:
             public_key_material: <p>The public portion of a customer-generated key pair.</p>
             name: <p>Playback-key-pair name. The value does not need to be unique.</p>
             tags: <p>Any tags provided with the request are added to the playback key pair tags. See <a href=\"https://docs.aws.amazon.com/tag-editor/latest/userguide/best-practices-and-strats.html\">Best practices and strategies</a> in <i>Tagging Amazon Web Services Resources and Tag Editor</i> for details, including restrictions that apply to tags and \"Tag naming limits and requirements\"; Amazon IVS has no service-specific constraints beyond what is documented there.</p>
+
+        Raises:
+            aws_sdk_ivs.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_ivs.errors.conflict_exception.ConflictException: <p/>
+            aws_sdk_ivs.errors.pending_verification.PendingVerification: <p/>
+            aws_sdk_ivs.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p/>
+            aws_sdk_ivs.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_ivs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1247,6 +1416,16 @@ class ivsClient:
         Args:
             channel_arn: <p>ARN of the channel into which the ad break is inserted.</p>
             duration_seconds: <p>Duration of the ad break, in seconds.</p>
+
+        Raises:
+            aws_sdk_ivs.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_ivs.errors.channel_not_broadcasting.ChannelNotBroadcasting: <p/>
+            aws_sdk_ivs.errors.conflict_exception.ConflictException: <p/>
+            aws_sdk_ivs.errors.internal_server_exception.InternalServerException: <p/>
+            aws_sdk_ivs.errors.resource_not_found_exception.ResourceNotFoundException: <p/>
+            aws_sdk_ivs.errors.throttling_exception.ThrottlingException: <p/>
+            aws_sdk_ivs.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_ivs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1293,6 +1472,12 @@ class ivsClient:
         Args:
             next_token: <p>The first ad configuration to retrieve. This is used for pagination; see the <code>nextToken</code> response field.</p>
             max_results: <p>Maximum number of ad configurations to return. Default: your service quota or 100, whichever is smaller.</p>
+
+        Raises:
+            aws_sdk_ivs.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_ivs.errors.internal_server_exception.InternalServerException: <p/>
+            aws_sdk_ivs.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_ivs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1378,6 +1563,12 @@ class ivsClient:
             filter_by_ad_configuration_arn: <p>Filters the channel list to match the specified ad configuration ARN.</p>
             next_token: <p>The first channel to retrieve. This is used for pagination; see the <code>nextToken</code> response field.</p>
             max_results: <p>Maximum number of channels to return. Default: 100.</p>
+
+        Raises:
+            aws_sdk_ivs.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_ivs.errors.conflict_exception.ConflictException: <p/>
+            aws_sdk_ivs.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_ivs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1436,6 +1627,11 @@ class ivsClient:
         Args:
             next_token: <p>The first key pair to retrieve. This is used for pagination; see the <code>nextToken</code> response field.</p>
             max_results: <p>Maximum number of key pairs to return. Default: your service quota or 100, whichever is smaller.</p>
+
+        Raises:
+            aws_sdk_ivs.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_ivs.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_ivs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1482,6 +1678,13 @@ class ivsClient:
         Args:
             next_token: <p>The first policy to retrieve. This is used for pagination; see the <code>nextToken</code> response field.</p>
             max_results: <p>Maximum number of policies to return. Default: 1.</p>
+
+        Raises:
+            aws_sdk_ivs.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_ivs.errors.conflict_exception.ConflictException: <p/>
+            aws_sdk_ivs.errors.pending_verification.PendingVerification: <p/>
+            aws_sdk_ivs.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_ivs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1528,6 +1731,12 @@ class ivsClient:
         Args:
             next_token: <p>The first recording configuration to retrieve. This is used for pagination; see the <code>nextToken</code> response field.</p>
             max_results: <p>Maximum number of recording configurations to return. Default: your service quota or 100, whichever is smaller. </p>
+
+        Raises:
+            aws_sdk_ivs.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_ivs.errors.internal_server_exception.InternalServerException: <p/>
+            aws_sdk_ivs.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_ivs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1576,6 +1785,12 @@ class ivsClient:
             channel_arn: <p>Channel ARN used to filter the list.</p>
             next_token: <p>The first stream key to retrieve. This is used for pagination; see the <code>nextToken</code> response field.</p>
             max_results: <p>Maximum number of streamKeys to return. Default: 1.</p>
+
+        Raises:
+            aws_sdk_ivs.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_ivs.errors.resource_not_found_exception.ResourceNotFoundException: <p/>
+            aws_sdk_ivs.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_ivs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1625,6 +1840,11 @@ class ivsClient:
             filter_by: <p>Filters the stream list to match the specified criterion.</p>
             next_token: <p>The first stream to retrieve. This is used for pagination; see the <code>nextToken</code> response field.</p>
             max_results: <p>Maximum number of streams to return. Default: 100.</p>
+
+        Raises:
+            aws_sdk_ivs.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_ivs.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_ivs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1675,6 +1895,12 @@ class ivsClient:
             channel_arn: <p>Channel ARN used to filter the list.</p>
             next_token: <p>The first stream to retrieve. This is used for pagination; see the <code>nextToken</code> response field.</p>
             max_results: <p>Maximum number of streams to return. Default: 100.</p>
+
+        Raises:
+            aws_sdk_ivs.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_ivs.errors.resource_not_found_exception.ResourceNotFoundException: <p/>
+            aws_sdk_ivs.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_ivs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1718,6 +1944,12 @@ class ivsClient:
 
         Args:
             resource_arn: <p>The ARN of the resource to be retrieved. The ARN must be URL-encoded.</p>
+
+        Raises:
+            aws_sdk_ivs.errors.internal_server_exception.InternalServerException: <p/>
+            aws_sdk_ivs.errors.resource_not_found_exception.ResourceNotFoundException: <p/>
+            aws_sdk_ivs.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_ivs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1757,6 +1989,14 @@ class ivsClient:
         Args:
             channel_arn: <p>ARN of the channel into which metadata is inserted. This channel must have an active stream.</p>
             metadata: <p>Metadata to insert into the stream. Maximum: 1 KB per request.</p>
+
+        Raises:
+            aws_sdk_ivs.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_ivs.errors.channel_not_broadcasting.ChannelNotBroadcasting: <p/>
+            aws_sdk_ivs.errors.resource_not_found_exception.ResourceNotFoundException: <p/>
+            aws_sdk_ivs.errors.throttling_exception.ThrottlingException: <p/>
+            aws_sdk_ivs.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_ivs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1799,6 +2039,15 @@ class ivsClient:
             channel_arn: <p>The ARN of the channel associated with the viewer session to revoke.</p>
             viewer_id: <p>The ID of the viewer associated with the viewer session to revoke. Do not use this field for personally identifying, confidential, or sensitive information.</p>
             viewer_session_versions_less_than_or_equal_to: <p>An optional filter on which versions of the viewer session to revoke. All versions less than or equal to the specified version will be revoked. Default: 0.</p>
+
+        Raises:
+            aws_sdk_ivs.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_ivs.errors.internal_server_exception.InternalServerException: <p/>
+            aws_sdk_ivs.errors.pending_verification.PendingVerification: <p/>
+            aws_sdk_ivs.errors.resource_not_found_exception.ResourceNotFoundException: <p/>
+            aws_sdk_ivs.errors.throttling_exception.ThrottlingException: <p/>
+            aws_sdk_ivs.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_ivs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1841,6 +2090,14 @@ class ivsClient:
 
         Args:
             channel_arn: <p>ARN of the channel for which the stream is to be stopped.</p>
+
+        Raises:
+            aws_sdk_ivs.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_ivs.errors.channel_not_broadcasting.ChannelNotBroadcasting: <p/>
+            aws_sdk_ivs.errors.resource_not_found_exception.ResourceNotFoundException: <p/>
+            aws_sdk_ivs.errors.stream_unavailable.StreamUnavailable: <p/>
+            aws_sdk_ivs.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_ivs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1880,6 +2137,12 @@ class ivsClient:
         Args:
             resource_arn: <p>ARN of the resource for which tags are to be added or updated. The ARN must be URL-encoded.</p>
             tags: <p>Array of tags to be added or updated. Array of maps, each of the form <code>string:string (key:value)</code>. See <a href=\"https://docs.aws.amazon.com/tag-editor/latest/userguide/best-practices-and-strats.html\">Best practices and strategies</a> in <i>Tagging Amazon Web Services Resources and Tag Editor</i> for details, including restrictions that apply to tags and \"Tag naming limits and requirements\"; Amazon IVS has no service-specific constraints beyond what is documented there.</p>
+
+        Raises:
+            aws_sdk_ivs.errors.internal_server_exception.InternalServerException: <p/>
+            aws_sdk_ivs.errors.resource_not_found_exception.ResourceNotFoundException: <p/>
+            aws_sdk_ivs.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_ivs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1920,6 +2183,12 @@ class ivsClient:
         Args:
             resource_arn: <p>ARN of the resource for which tags are to be removed. The ARN must be URL-encoded.</p>
             tag_keys: <p>Array of tag keys (strings) for the tags to be removed. See <a href=\"https://docs.aws.amazon.com/tag-editor/latest/userguide/best-practices-and-strats.html\">Best practices and strategies</a> in <i>Tagging Amazon Web Services Resources and Tag Editor</i> for details, including restrictions that apply to tags and \"Tag naming limits and requirements\"; Amazon IVS has no service-specific constraints beyond what is documented there.</p>
+
+        Raises:
+            aws_sdk_ivs.errors.internal_server_exception.InternalServerException: <p/>
+            aws_sdk_ivs.errors.resource_not_found_exception.ResourceNotFoundException: <p/>
+            aws_sdk_ivs.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_ivs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1966,6 +2235,17 @@ class ivsClient:
             arn: <p>ARN of the ad configuration to be updated.</p>
             name: <p>Ad configuration name. The value does not need to be unique.</p>
             media_tailor_playback_configurations: <p>List of integration configurations with MediaTailor resources. The first item in the list is the default playback configuration used for the ad configuration. To select a different configuration per viewing session, see <a href=\"https://docs.aws.amazon.com/ivs/latest/LowLatencyUserGuide/private-channels-generate-tokens.html\">Generate and Sign IVS Playback Tokens</a>.</p>
+
+        Raises:
+            aws_sdk_ivs.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_ivs.errors.conflict_exception.ConflictException: <p/>
+            aws_sdk_ivs.errors.internal_server_exception.InternalServerException: <p/>
+            aws_sdk_ivs.errors.pending_verification.PendingVerification: <p/>
+            aws_sdk_ivs.errors.resource_not_found_exception.ResourceNotFoundException: <p/>
+            aws_sdk_ivs.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p/>
+            aws_sdk_ivs.errors.throttling_exception.ThrottlingException: <p/>
+            aws_sdk_ivs.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_ivs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2043,6 +2323,14 @@ class ivsClient:
             multitrack_input_configuration: <p>Object specifying multitrack input configuration. Default: no multitrack input configuration is specified.</p>
             container_format: <p>Indicates which content-packaging format is used (MPEG-TS or fMP4). If <code>multitrackInputConfiguration</code> is specified and <code>enabled</code> is <code>true</code>, then <code>containerFormat</code> is required and must be set to <code>FRAGMENTED_MP4</code>. Otherwise, <code>containerFormat</code> may be set to <code>TS</code> or <code>FRAGMENTED_MP4</code>. Default: <code>TS</code>.</p>
             ad_configuration_arn: <p>ARN of the ad configuration associated with the channel.</p>
+
+        Raises:
+            aws_sdk_ivs.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_ivs.errors.conflict_exception.ConflictException: <p/>
+            aws_sdk_ivs.errors.pending_verification.PendingVerification: <p/>
+            aws_sdk_ivs.errors.resource_not_found_exception.ResourceNotFoundException: <p/>
+            aws_sdk_ivs.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_ivs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2118,6 +2406,14 @@ class ivsClient:
             allowed_origins: <p>A list of origin sites that control CORS restriction. Allowed values are the same as valid values of the Origin header defined at <a href=\"https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Origin\">https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Origin</a>. Default: All origins (an empty array).</p>
             enable_strict_origin_enforcement: <p>Whether channel playback is constrained by origin site. Default: <code>false</code>.</p>
             name: <p>Playback-restriction-policy name. The value does not need to be unique.</p>
+
+        Raises:
+            aws_sdk_ivs.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_ivs.errors.conflict_exception.ConflictException: <p/>
+            aws_sdk_ivs.errors.pending_verification.PendingVerification: <p/>
+            aws_sdk_ivs.errors.resource_not_found_exception.ResourceNotFoundException: <p/>
+            aws_sdk_ivs.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_ivs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(

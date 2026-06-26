@@ -145,6 +145,11 @@ class SimSpaceWeaverClient:
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource. For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
+
+        Raises:
+            aws_sdk_simspaceweaver.errors.resource_not_found_exception.ResourceNotFoundException: <p/>
+            aws_sdk_simspaceweaver.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_simspaceweaver.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -184,6 +189,12 @@ class SimSpaceWeaverClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource that you want to add tags to. For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
             tags: <p>A list of tags to apply to the resource.</p>
+
+        Raises:
+            aws_sdk_simspaceweaver.errors.resource_not_found_exception.ResourceNotFoundException: <p/>
+            aws_sdk_simspaceweaver.errors.too_many_tags_exception.TooManyTagsException: <p/>
+            aws_sdk_simspaceweaver.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_simspaceweaver.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -224,6 +235,11 @@ class SimSpaceWeaverClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource that you want to remove tags from. For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
             tag_keys: <p>A list of tag keys to remove from the resource.</p>
+
+        Raises:
+            aws_sdk_simspaceweaver.errors.resource_not_found_exception.ResourceNotFoundException: <p/>
+            aws_sdk_simspaceweaver.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_simspaceweaver.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(

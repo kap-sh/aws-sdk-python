@@ -275,6 +275,11 @@ class AsyncDocDBClient:
         Args:
             subscription_name: <p>The name of the Amazon DocumentDB event notification subscription that you want to add a source identifier to.</p>
             source_identifier: <p>The identifier of the event source to be added:</p> <ul> <li> <p>If the source type is an instance, a <code>DBInstanceIdentifier</code> must be provided.</p> </li> <li> <p>If the source type is a security group, a <code>DBSecurityGroupName</code> must be provided.</p> </li> <li> <p>If the source type is a parameter group, a <code>DBParameterGroupName</code> must be provided.</p> </li> <li> <p>If the source type is a snapshot, a <code>DBSnapshotIdentifier</code> must be provided.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_docdb.errors.source_not_found_fault.SourceNotFoundFault: <p>The requested source could not be found. </p>
+            aws_sdk_docdb.errors.subscription_not_found_fault.SubscriptionNotFoundFault: <p>The subscription name does not exist. </p>
+            aws_sdk_docdb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -316,6 +321,12 @@ class AsyncDocDBClient:
         Args:
             resource_name: <p>The Amazon DocumentDB resource that the tags are added to. This value is an Amazon Resource Name .</p>
             tags: <p>The tags to be assigned to the Amazon DocumentDB resource.</p>
+
+        Raises:
+            aws_sdk_docdb.errors.db_cluster_not_found_fault.DBClusterNotFoundFault: <p> <code>DBClusterIdentifier</code> doesn't refer to an existing cluster. </p>
+            aws_sdk_docdb.errors.db_instance_not_found_fault.DBInstanceNotFoundFault: <p> <code>DBInstanceIdentifier</code> doesn't refer to an existing instance. </p>
+            aws_sdk_docdb.errors.db_snapshot_not_found_fault.DBSnapshotNotFoundFault: <p> <code>DBSnapshotIdentifier</code> doesn't refer to an existing snapshot. </p>
+            aws_sdk_docdb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -357,6 +368,12 @@ class AsyncDocDBClient:
             resource_identifier: <p>The Amazon Resource Name (ARN) of the resource that the pending maintenance action applies to.</p>
             apply_action: <p>The pending maintenance action to apply to this resource.</p> <p>Valid values: <code>system-update</code>, <code>db-upgrade</code> </p>
             opt_in_type: <p>A value that specifies the type of opt-in request or undoes an opt-in request. An opt-in request of type <code>immediate</code> can't be undone.</p> <p>Valid values:</p> <ul> <li> <p> <code>immediate</code> - Apply the maintenance action immediately.</p> </li> <li> <p> <code>next-maintenance</code> - Apply the maintenance action during the next maintenance window for the resource. </p> </li> <li> <p> <code>undo-opt-in</code> - Cancel any existing <code>next-maintenance</code> opt-in requests.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_docdb.errors.invalid_db_cluster_state_fault.InvalidDBClusterStateFault: <p>The cluster isn't in a valid state.</p>
+            aws_sdk_docdb.errors.invalid_db_instance_state_fault.InvalidDBInstanceStateFault: <p> The specified instance isn't in the <i>available</i> state. </p>
+            aws_sdk_docdb.errors.resource_not_found_fault.ResourceNotFoundFault: <p>The specified resource ID was not found.</p>
+            aws_sdk_docdb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -403,6 +420,12 @@ class AsyncDocDBClient:
             target_db_cluster_parameter_group_identifier: <p>The identifier for the copied cluster parameter group.</p> <p>Constraints:</p> <ul> <li> <p>Cannot be null, empty, or blank.</p> </li> <li> <p>Must contain from 1 to 255 letters, numbers, or hyphens. </p> </li> <li> <p>The first character must be a letter.</p> </li> <li> <p>Cannot end with a hyphen or contain two consecutive hyphens. </p> </li> </ul> <p>Example: <code>my-cluster-param-group1</code> </p>
             target_db_cluster_parameter_group_description: <p>A description for the copied cluster parameter group.</p>
             tags: <p>The tags that are to be assigned to the parameter group.</p>
+
+        Raises:
+            aws_sdk_docdb.errors.db_parameter_group_already_exists_fault.DBParameterGroupAlreadyExistsFault: <p>A parameter group with the same name already exists.</p>
+            aws_sdk_docdb.errors.db_parameter_group_not_found_fault.DBParameterGroupNotFoundFault: <p> <code>DBParameterGroupName</code> doesn't refer to an existing parameter group. </p>
+            aws_sdk_docdb.errors.db_parameter_group_quota_exceeded_fault.DBParameterGroupQuotaExceededFault: <p>This request would cause you to exceed the allowed number of parameter groups.</p>
+            aws_sdk_docdb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -463,6 +486,15 @@ class AsyncDocDBClient:
             pre_signed_url: <p>The URL that contains a Signature Version 4 signed request for the<code>CopyDBClusterSnapshot</code> API action in the Amazon Web Services Region that contains the source cluster snapshot to copy. You must use the <code>PreSignedUrl</code> parameter when copying a cluster snapshot from another Amazon Web Services Region.</p> <p>If you are using an Amazon Web Services SDK tool or the CLI, you can specify <code>SourceRegion</code> (or <code>--source-region</code> for the CLI) instead of specifying <code>PreSignedUrl</code> manually. Specifying <code>SourceRegion</code> autogenerates a pre-signed URL that is a valid request for the operation that can be executed in the source Amazon Web Services Region.</p> <p>The presigned URL must be a valid request for the <code>CopyDBClusterSnapshot</code> API action that can be executed in the source Amazon Web Services Region that contains the cluster snapshot to be copied. The presigned URL request must contain the following parameter values:</p> <ul> <li> <p> <code>SourceRegion</code> - The ID of the region that contains the snapshot to be copied.</p> </li> <li> <p> <code>SourceDBClusterSnapshotIdentifier</code> - The identifier for the the encrypted cluster snapshot to be copied. This identifier must be in the Amazon Resource Name (ARN) format for the source Amazon Web Services Region. For example, if you are copying an encrypted cluster snapshot from the us-east-1 Amazon Web Services Region, then your <code>SourceDBClusterSnapshotIdentifier</code> looks something like the following: <code>arn:aws:rds:us-east-1:12345678012:sample-cluster:sample-cluster-snapshot</code>.</p> </li> <li> <p> <code>TargetDBClusterSnapshotIdentifier</code> - The identifier for the new cluster snapshot to be created. This parameter isn't case sensitive.</p> </li> </ul>
             copy_tags: <p>Set to <code>true</code> to copy all tags from the source cluster snapshot to the target cluster snapshot, and otherwise <code>false</code>. The default is <code>false</code>.</p>
             tags: <p>The tags to be assigned to the cluster snapshot.</p>
+
+        Raises:
+            aws_sdk_docdb.errors.db_cluster_snapshot_already_exists_fault.DBClusterSnapshotAlreadyExistsFault: <p>You already have a cluster snapshot with the given identifier.</p>
+            aws_sdk_docdb.errors.db_cluster_snapshot_not_found_fault.DBClusterSnapshotNotFoundFault: <p> <code>DBClusterSnapshotIdentifier</code> doesn't refer to an existing cluster snapshot. </p>
+            aws_sdk_docdb.errors.invalid_db_cluster_snapshot_state_fault.InvalidDBClusterSnapshotStateFault: <p>The provided value isn't a valid cluster snapshot state.</p>
+            aws_sdk_docdb.errors.invalid_db_cluster_state_fault.InvalidDBClusterStateFault: <p>The cluster isn't in a valid state.</p>
+            aws_sdk_docdb.errors.kms_key_not_accessible_fault.KMSKeyNotAccessibleFault: <p>An error occurred when accessing an KMS key.</p>
+            aws_sdk_docdb.errors.snapshot_quota_exceeded_fault.SnapshotQuotaExceededFault: <p>The request would cause you to exceed the allowed number of snapshots.</p>
+            aws_sdk_docdb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -586,6 +618,27 @@ class AsyncDocDBClient:
             manage_master_user_password: <p>Specifies whether to manage the master user password with Amazon Web Services Secrets Manager.</p> <p>Constraint: You can't manage the master user password with Amazon Web Services Secrets Manager if <code>MasterUserPassword</code> is specified.</p>
             master_user_secret_kms_key_id: <p>The Amazon Web Services KMS key identifier to encrypt a secret that is automatically generated and managed in Amazon Web Services Secrets Manager. This setting is valid only if the master user password is managed by Amazon DocumentDB in Amazon Web Services Secrets Manager for the DB cluster.</p> <p>The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. To use a KMS key in a different Amazon Web Services account, specify the key ARN or alias ARN.</p> <p>If you don't specify <code>MasterUserSecretKmsKeyId</code>, then the <code>aws/secretsmanager</code> KMS key is used to encrypt the secret. If the secret is in a different Amazon Web Services account, then you can't use the <code>aws/secretsmanager</code> KMS key to encrypt the secret, and you must use a customer managed KMS key.</p> <p>There is a default KMS key for your Amazon Web Services account. Your Amazon Web Services account has a different default KMS key for each Amazon Web Services Region.</p>
             network_type: <p>The network type of the cluster.</p> <p>The network type is determined by the <code>DBSubnetGroup</code> specified for the cluster. A <code>DBSubnetGroup</code> can support only the IPv4 protocol or the IPv4 and the IPv6 protocols (<code>DUAL</code>).</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/documentdb/latest/developerguide/vpc-clusters.html\">DocumentDB clusters in a VPC</a> in the Amazon DocumentDB Developer Guide.</p> <p>Valid Values: <code>IPV4</code> | <code>DUAL</code> </p>
+
+        Raises:
+            aws_sdk_docdb.errors.db_cluster_already_exists_fault.DBClusterAlreadyExistsFault: <p>You already have a cluster with the given identifier.</p>
+            aws_sdk_docdb.errors.db_cluster_not_found_fault.DBClusterNotFoundFault: <p> <code>DBClusterIdentifier</code> doesn't refer to an existing cluster. </p>
+            aws_sdk_docdb.errors.db_cluster_parameter_group_not_found_fault.DBClusterParameterGroupNotFoundFault: <p> <code>DBClusterParameterGroupName</code> doesn't refer to an existing cluster parameter group. </p>
+            aws_sdk_docdb.errors.db_cluster_quota_exceeded_fault.DBClusterQuotaExceededFault: <p>The cluster can't be created because you have reached the maximum allowed quota of clusters.</p>
+            aws_sdk_docdb.errors.db_instance_not_found_fault.DBInstanceNotFoundFault: <p> <code>DBInstanceIdentifier</code> doesn't refer to an existing instance. </p>
+            aws_sdk_docdb.errors.db_subnet_group_does_not_cover_enough_a_zs.DBSubnetGroupDoesNotCoverEnoughAZs: <p>Subnets in the subnet group should cover at least two Availability Zones unless there is only one Availability Zone.</p>
+            aws_sdk_docdb.errors.db_subnet_group_not_found_fault.DBSubnetGroupNotFoundFault: <p> <code>DBSubnetGroupName</code> doesn't refer to an existing subnet group. </p>
+            aws_sdk_docdb.errors.global_cluster_not_found_fault.GlobalClusterNotFoundFault: <p>The <code>GlobalClusterIdentifier</code> doesn't refer to an existing global cluster.</p>
+            aws_sdk_docdb.errors.insufficient_storage_cluster_capacity_fault.InsufficientStorageClusterCapacityFault: <p>There is not enough storage available for the current action. You might be able to resolve this error by updating your subnet group to use different Availability Zones that have more storage available. </p>
+            aws_sdk_docdb.errors.invalid_db_cluster_state_fault.InvalidDBClusterStateFault: <p>The cluster isn't in a valid state.</p>
+            aws_sdk_docdb.errors.invalid_db_instance_state_fault.InvalidDBInstanceStateFault: <p> The specified instance isn't in the <i>available</i> state. </p>
+            aws_sdk_docdb.errors.invalid_db_subnet_group_state_fault.InvalidDBSubnetGroupStateFault: <p>The subnet group can't be deleted because it's in use.</p>
+            aws_sdk_docdb.errors.invalid_global_cluster_state_fault.InvalidGlobalClusterStateFault: <p>The requested operation can't be performed while the cluster is in this state.</p>
+            aws_sdk_docdb.errors.invalid_subnet.InvalidSubnet: <p>The requested subnet is not valid, or multiple subnets were requested that are not all in a common virtual private cloud (VPC).</p>
+            aws_sdk_docdb.errors.invalid_vpc_network_state_fault.InvalidVPCNetworkStateFault: <p>The subnet group doesn't cover all Availability Zones after it is created because of changes that were made.</p>
+            aws_sdk_docdb.errors.kms_key_not_accessible_fault.KMSKeyNotAccessibleFault: <p>An error occurred when accessing an KMS key.</p>
+            aws_sdk_docdb.errors.network_type_not_supported.NetworkTypeNotSupported: <p>The network type is not supported by either <code>DBSubnetGroup</code> or the DB engine version.</p>
+            aws_sdk_docdb.errors.storage_quota_exceeded_fault.StorageQuotaExceededFault: <p>The request would cause you to exceed the allowed amount of storage available across all instances.</p>
+            aws_sdk_docdb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -679,6 +732,11 @@ class AsyncDocDBClient:
             db_parameter_group_family: <p>The cluster parameter group family name.</p>
             description: <p>The description for the cluster parameter group.</p>
             tags: <p>The tags to be assigned to the cluster parameter group.</p>
+
+        Raises:
+            aws_sdk_docdb.errors.db_parameter_group_already_exists_fault.DBParameterGroupAlreadyExistsFault: <p>A parameter group with the same name already exists.</p>
+            aws_sdk_docdb.errors.db_parameter_group_quota_exceeded_fault.DBParameterGroupQuotaExceededFault: <p>This request would cause you to exceed the allowed number of parameter groups.</p>
+            aws_sdk_docdb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -725,6 +783,14 @@ class AsyncDocDBClient:
             db_cluster_snapshot_identifier: <p>The identifier of the cluster snapshot. This parameter is stored as a lowercase string.</p> <p>Constraints:</p> <ul> <li> <p>Must contain from 1 to 63 letters, numbers, or hyphens.</p> </li> <li> <p>The first character must be a letter.</p> </li> <li> <p>Cannot end with a hyphen or contain two consecutive hyphens. </p> </li> </ul> <p>Example: <code>my-cluster-snapshot1</code> </p>
             db_cluster_identifier: <p>The identifier of the cluster to create a snapshot for. This parameter is not case sensitive.</p> <p>Constraints:</p> <ul> <li> <p>Must match the identifier of an existing <code>DBCluster</code>.</p> </li> </ul> <p>Example: <code>my-cluster</code> </p>
             tags: <p>The tags to be assigned to the cluster snapshot.</p>
+
+        Raises:
+            aws_sdk_docdb.errors.db_cluster_not_found_fault.DBClusterNotFoundFault: <p> <code>DBClusterIdentifier</code> doesn't refer to an existing cluster. </p>
+            aws_sdk_docdb.errors.db_cluster_snapshot_already_exists_fault.DBClusterSnapshotAlreadyExistsFault: <p>You already have a cluster snapshot with the given identifier.</p>
+            aws_sdk_docdb.errors.invalid_db_cluster_snapshot_state_fault.InvalidDBClusterSnapshotStateFault: <p>The provided value isn't a valid cluster snapshot state.</p>
+            aws_sdk_docdb.errors.invalid_db_cluster_state_fault.InvalidDBClusterStateFault: <p>The cluster isn't in a valid state.</p>
+            aws_sdk_docdb.errors.snapshot_quota_exceeded_fault.SnapshotQuotaExceededFault: <p>The request would cause you to exceed the allowed number of snapshots.</p>
+            aws_sdk_docdb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -802,6 +868,24 @@ class AsyncDocDBClient:
             enable_performance_insights: <p>A value that indicates whether to enable Performance Insights for the DB Instance. For more information, see <a href=\"https://docs.aws.amazon.com/documentdb/latest/developerguide/performance-insights.html\">Using Amazon Performance Insights</a>.</p>
             performance_insights_kms_key_id: <p>The KMS key identifier for encryption of Performance Insights data.</p> <p>The KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key.</p> <p>If you do not specify a value for PerformanceInsightsKMSKeyId, then Amazon DocumentDB uses your default KMS key. There is a default KMS key for your Amazon Web Services account. Your Amazon Web Services account has a different default KMS key for each Amazon Web Services region.</p>
             ca_certificate_identifier: <p>The CA certificate identifier to use for the DB instance's server certificate.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/documentdb/latest/developerguide/ca_cert_rotation.html\">Updating Your Amazon DocumentDB TLS Certificates</a> and <a href=\"https://docs.aws.amazon.com/documentdb/latest/developerguide/security.encryption.ssl.html\"> Encrypting Data in Transit</a> in the <i>Amazon DocumentDB Developer Guide</i>.</p>
+
+        Raises:
+            aws_sdk_docdb.errors.authorization_not_found_fault.AuthorizationNotFoundFault: <p>The specified CIDR IP or Amazon EC2 security group isn't authorized for the specified security group.</p> <p>Amazon DocumentDB also might not be authorized to perform necessary actions on your behalf using IAM.</p>
+            aws_sdk_docdb.errors.db_cluster_not_found_fault.DBClusterNotFoundFault: <p> <code>DBClusterIdentifier</code> doesn't refer to an existing cluster. </p>
+            aws_sdk_docdb.errors.db_instance_already_exists_fault.DBInstanceAlreadyExistsFault: <p>You already have a instance with the given identifier.</p>
+            aws_sdk_docdb.errors.db_parameter_group_not_found_fault.DBParameterGroupNotFoundFault: <p> <code>DBParameterGroupName</code> doesn't refer to an existing parameter group. </p>
+            aws_sdk_docdb.errors.db_security_group_not_found_fault.DBSecurityGroupNotFoundFault: <p> <code>DBSecurityGroupName</code> doesn't refer to an existing security group. </p>
+            aws_sdk_docdb.errors.db_subnet_group_does_not_cover_enough_a_zs.DBSubnetGroupDoesNotCoverEnoughAZs: <p>Subnets in the subnet group should cover at least two Availability Zones unless there is only one Availability Zone.</p>
+            aws_sdk_docdb.errors.db_subnet_group_not_found_fault.DBSubnetGroupNotFoundFault: <p> <code>DBSubnetGroupName</code> doesn't refer to an existing subnet group. </p>
+            aws_sdk_docdb.errors.instance_quota_exceeded_fault.InstanceQuotaExceededFault: <p>The request would cause you to exceed the allowed number of instances.</p>
+            aws_sdk_docdb.errors.insufficient_db_instance_capacity_fault.InsufficientDBInstanceCapacityFault: <p>The specified instance class isn't available in the specified Availability Zone.</p>
+            aws_sdk_docdb.errors.invalid_db_cluster_state_fault.InvalidDBClusterStateFault: <p>The cluster isn't in a valid state.</p>
+            aws_sdk_docdb.errors.invalid_subnet.InvalidSubnet: <p>The requested subnet is not valid, or multiple subnets were requested that are not all in a common virtual private cloud (VPC).</p>
+            aws_sdk_docdb.errors.invalid_vpc_network_state_fault.InvalidVPCNetworkStateFault: <p>The subnet group doesn't cover all Availability Zones after it is created because of changes that were made.</p>
+            aws_sdk_docdb.errors.kms_key_not_accessible_fault.KMSKeyNotAccessibleFault: <p>An error occurred when accessing an KMS key.</p>
+            aws_sdk_docdb.errors.storage_quota_exceeded_fault.StorageQuotaExceededFault: <p>The request would cause you to exceed the allowed amount of storage available across all instances.</p>
+            aws_sdk_docdb.errors.storage_type_not_supported_fault.StorageTypeNotSupportedFault: <p>Storage of the specified <code>StorageType</code> can't be associated with the DB instance. </p>
+            aws_sdk_docdb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -867,6 +951,14 @@ class AsyncDocDBClient:
             db_subnet_group_description: <p>The description for the subnet group.</p>
             subnet_ids: <p>The Amazon EC2 subnet IDs for the subnet group.</p>
             tags: <p>The tags to be assigned to the subnet group.</p>
+
+        Raises:
+            aws_sdk_docdb.errors.db_subnet_group_already_exists_fault.DBSubnetGroupAlreadyExistsFault: <p> <code>DBSubnetGroupName</code> is already being used by an existing subnet group. </p>
+            aws_sdk_docdb.errors.db_subnet_group_does_not_cover_enough_a_zs.DBSubnetGroupDoesNotCoverEnoughAZs: <p>Subnets in the subnet group should cover at least two Availability Zones unless there is only one Availability Zone.</p>
+            aws_sdk_docdb.errors.db_subnet_group_quota_exceeded_fault.DBSubnetGroupQuotaExceededFault: <p>The request would cause you to exceed the allowed number of subnet groups.</p>
+            aws_sdk_docdb.errors.db_subnet_quota_exceeded_fault.DBSubnetQuotaExceededFault: <p>The request would cause you to exceed the allowed number of subnets in a subnet group.</p>
+            aws_sdk_docdb.errors.invalid_subnet.InvalidSubnet: <p>The requested subnet is not valid, or multiple subnets were requested that are not all in a common virtual private cloud (VPC).</p>
+            aws_sdk_docdb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -927,6 +1019,16 @@ class AsyncDocDBClient:
             source_ids: <p>The list of identifiers of the event sources for which events are returned. If not specified, then all sources are included in the response. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it can't end with a hyphen or contain two consecutive hyphens.</p> <p>Constraints:</p> <ul> <li> <p>If <code>SourceIds</code> are provided, <code>SourceType</code> must also be provided.</p> </li> <li> <p>If the source type is an instance, a <code>DBInstanceIdentifier</code> must be provided.</p> </li> <li> <p>If the source type is a security group, a <code>DBSecurityGroupName</code> must be provided.</p> </li> <li> <p>If the source type is a parameter group, a <code>DBParameterGroupName</code> must be provided.</p> </li> <li> <p>If the source type is a snapshot, a <code>DBSnapshotIdentifier</code> must be provided.</p> </li> </ul>
             enabled: <p> A Boolean value; set to <code>true</code> to activate the subscription, set to <code>false</code> to create the subscription but not active it. </p>
             tags: <p>The tags to be assigned to the event subscription.</p>
+
+        Raises:
+            aws_sdk_docdb.errors.event_subscription_quota_exceeded_fault.EventSubscriptionQuotaExceededFault: <p>You have reached the maximum number of event subscriptions. </p>
+            aws_sdk_docdb.errors.sns_invalid_topic_fault.SNSInvalidTopicFault: <p>Amazon SNS has responded that there is a problem with the specified topic. </p>
+            aws_sdk_docdb.errors.sns_no_authorization_fault.SNSNoAuthorizationFault: <p>You do not have permission to publish to the SNS topic Amazon Resource Name (ARN). </p>
+            aws_sdk_docdb.errors.sns_topic_arn_not_found_fault.SNSTopicArnNotFoundFault: <p>The SNS topic Amazon Resource Name (ARN) does not exist. </p>
+            aws_sdk_docdb.errors.source_not_found_fault.SourceNotFoundFault: <p>The requested source could not be found. </p>
+            aws_sdk_docdb.errors.subscription_already_exist_fault.SubscriptionAlreadyExistFault: <p>The provided subscription name already exists. </p>
+            aws_sdk_docdb.errors.subscription_category_not_found_fault.SubscriptionCategoryNotFoundFault: <p>The provided category does not exist. </p>
+            aws_sdk_docdb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -994,6 +1096,13 @@ class AsyncDocDBClient:
             deletion_protection: <p>The deletion protection setting for the new global cluster. The global cluster can't be deleted when deletion protection is enabled. </p>
             database_name: <p>The name for your database of up to 64 alpha-numeric characters. If you do not provide a name, Amazon DocumentDB will not create a database in the global cluster you are creating.</p>
             storage_encrypted: <p>The storage encryption setting for the new global cluster. </p>
+
+        Raises:
+            aws_sdk_docdb.errors.db_cluster_not_found_fault.DBClusterNotFoundFault: <p> <code>DBClusterIdentifier</code> doesn't refer to an existing cluster. </p>
+            aws_sdk_docdb.errors.global_cluster_already_exists_fault.GlobalClusterAlreadyExistsFault: <p>The <code>GlobalClusterIdentifier</code> already exists. Choose a new global cluster identifier (unique name) to create a new global cluster. </p>
+            aws_sdk_docdb.errors.global_cluster_quota_exceeded_fault.GlobalClusterQuotaExceededFault: <p>The number of global clusters for this account is already at the maximum allowed.</p>
+            aws_sdk_docdb.errors.invalid_db_cluster_state_fault.InvalidDBClusterStateFault: <p>The cluster isn't in a valid state.</p>
+            aws_sdk_docdb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1050,6 +1159,14 @@ class AsyncDocDBClient:
             db_cluster_identifier: <p>The cluster identifier for the cluster to be deleted. This parameter isn't case sensitive.</p> <p>Constraints:</p> <ul> <li> <p>Must match an existing <code>DBClusterIdentifier</code>.</p> </li> </ul>
             skip_final_snapshot: <p> Determines whether a final cluster snapshot is created before the cluster is deleted. If <code>true</code> is specified, no cluster snapshot is created. If <code>false</code> is specified, a cluster snapshot is created before the DB cluster is deleted. </p> <note> <p>If <code>SkipFinalSnapshot</code> is <code>false</code>, you must specify a <code>FinalDBSnapshotIdentifier</code> parameter.</p> </note> <p>Default: <code>false</code> </p>
             final_db_snapshot_identifier: <p> The cluster snapshot identifier of the new cluster snapshot created when <code>SkipFinalSnapshot</code> is set to <code>false</code>. </p> <note> <p> Specifying this parameter and also setting the <code>SkipFinalShapshot</code> parameter to <code>true</code> results in an error. </p> </note> <p>Constraints:</p> <ul> <li> <p>Must be from 1 to 255 letters, numbers, or hyphens.</p> </li> <li> <p>The first character must be a letter.</p> </li> <li> <p>Cannot end with a hyphen or contain two consecutive hyphens.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_docdb.errors.db_cluster_not_found_fault.DBClusterNotFoundFault: <p> <code>DBClusterIdentifier</code> doesn't refer to an existing cluster. </p>
+            aws_sdk_docdb.errors.db_cluster_snapshot_already_exists_fault.DBClusterSnapshotAlreadyExistsFault: <p>You already have a cluster snapshot with the given identifier.</p>
+            aws_sdk_docdb.errors.invalid_db_cluster_snapshot_state_fault.InvalidDBClusterSnapshotStateFault: <p>The provided value isn't a valid cluster snapshot state.</p>
+            aws_sdk_docdb.errors.invalid_db_cluster_state_fault.InvalidDBClusterStateFault: <p>The cluster isn't in a valid state.</p>
+            aws_sdk_docdb.errors.snapshot_quota_exceeded_fault.SnapshotQuotaExceededFault: <p>The request would cause you to exceed the allowed number of snapshots.</p>
+            aws_sdk_docdb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1092,6 +1209,11 @@ class AsyncDocDBClient:
 
         Args:
             db_cluster_parameter_group_name: <p>The name of the cluster parameter group.</p> <p>Constraints:</p> <ul> <li> <p>Must be the name of an existing cluster parameter group.</p> </li> <li> <p>You can't delete a default cluster parameter group.</p> </li> <li> <p>Cannot be associated with any clusters.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_docdb.errors.db_parameter_group_not_found_fault.DBParameterGroupNotFoundFault: <p> <code>DBParameterGroupName</code> doesn't refer to an existing parameter group. </p>
+            aws_sdk_docdb.errors.invalid_db_parameter_group_state_fault.InvalidDBParameterGroupStateFault: <p>The parameter group is in use, or it is in a state that is not valid. If you are trying to delete the parameter group, you can't delete it when the parameter group is in this state.</p>
+            aws_sdk_docdb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1128,6 +1250,11 @@ class AsyncDocDBClient:
 
         Args:
             db_cluster_snapshot_identifier: <p>The identifier of the cluster snapshot to delete.</p> <p>Constraints: Must be the name of an existing cluster snapshot in the <code>available</code> state.</p>
+
+        Raises:
+            aws_sdk_docdb.errors.db_cluster_snapshot_not_found_fault.DBClusterSnapshotNotFoundFault: <p> <code>DBClusterSnapshotIdentifier</code> doesn't refer to an existing cluster snapshot. </p>
+            aws_sdk_docdb.errors.invalid_db_cluster_snapshot_state_fault.InvalidDBClusterSnapshotStateFault: <p>The provided value isn't a valid cluster snapshot state.</p>
+            aws_sdk_docdb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1166,6 +1293,14 @@ class AsyncDocDBClient:
 
         Args:
             db_instance_identifier: <p>The instance identifier for the instance to be deleted. This parameter isn't case sensitive.</p> <p>Constraints:</p> <ul> <li> <p>Must match the name of an existing instance.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_docdb.errors.db_instance_not_found_fault.DBInstanceNotFoundFault: <p> <code>DBInstanceIdentifier</code> doesn't refer to an existing instance. </p>
+            aws_sdk_docdb.errors.db_snapshot_already_exists_fault.DBSnapshotAlreadyExistsFault: <p> <code>DBSnapshotIdentifier</code> is already being used by an existing snapshot. </p>
+            aws_sdk_docdb.errors.invalid_db_cluster_state_fault.InvalidDBClusterStateFault: <p>The cluster isn't in a valid state.</p>
+            aws_sdk_docdb.errors.invalid_db_instance_state_fault.InvalidDBInstanceStateFault: <p> The specified instance isn't in the <i>available</i> state. </p>
+            aws_sdk_docdb.errors.snapshot_quota_exceeded_fault.SnapshotQuotaExceededFault: <p>The request would cause you to exceed the allowed number of snapshots.</p>
+            aws_sdk_docdb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1204,6 +1339,12 @@ class AsyncDocDBClient:
 
         Args:
             db_subnet_group_name: <p>The name of the database subnet group to delete.</p> <note> <p>You can't delete the default subnet group.</p> </note> <p>Constraints:</p> <p>Must match the name of an existing <code>DBSubnetGroup</code>. Must not be default.</p> <p>Example: <code>mySubnetgroup</code> </p>
+
+        Raises:
+            aws_sdk_docdb.errors.db_subnet_group_not_found_fault.DBSubnetGroupNotFoundFault: <p> <code>DBSubnetGroupName</code> doesn't refer to an existing subnet group. </p>
+            aws_sdk_docdb.errors.invalid_db_subnet_group_state_fault.InvalidDBSubnetGroupStateFault: <p>The subnet group can't be deleted because it's in use.</p>
+            aws_sdk_docdb.errors.invalid_db_subnet_state_fault.InvalidDBSubnetStateFault: <p> The subnet isn't in the <i>available</i> state. </p>
+            aws_sdk_docdb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1240,6 +1381,11 @@ class AsyncDocDBClient:
 
         Args:
             subscription_name: <p>The name of the Amazon DocumentDB event notification subscription that you want to delete.</p>
+
+        Raises:
+            aws_sdk_docdb.errors.invalid_event_subscription_state_fault.InvalidEventSubscriptionStateFault: <p>Someone else might be modifying a subscription. Wait a few seconds, and try again.</p>
+            aws_sdk_docdb.errors.subscription_not_found_fault.SubscriptionNotFoundFault: <p>The subscription name does not exist. </p>
+            aws_sdk_docdb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1278,6 +1424,11 @@ class AsyncDocDBClient:
 
         Args:
             global_cluster_identifier: <p>The cluster identifier of the global cluster being deleted.</p>
+
+        Raises:
+            aws_sdk_docdb.errors.global_cluster_not_found_fault.GlobalClusterNotFoundFault: <p>The <code>GlobalClusterIdentifier</code> doesn't refer to an existing global cluster.</p>
+            aws_sdk_docdb.errors.invalid_global_cluster_state_fault.InvalidGlobalClusterStateFault: <p>The requested operation can't be performed while the cluster is in this state.</p>
+            aws_sdk_docdb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1324,6 +1475,10 @@ class AsyncDocDBClient:
             filters: <p>This parameter is not currently supported.</p>
             max_records: <p>The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code> value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.</p> <p>Default: 100</p> <p>Constraints:</p> <ul> <li> <p>Minimum: 20</p> </li> <li> <p>Maximum: 100</p> </li> </ul>
             marker: <p>An optional pagination token provided by a previous <code>DescribeCertificates</code> request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>.</p>
+
+        Raises:
+            aws_sdk_docdb.errors.certificate_not_found_fault.CertificateNotFoundFault: <p> <code>CertificateIdentifier</code> doesn't refer to an existing certificate. </p>
+            aws_sdk_docdb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1406,6 +1561,10 @@ class AsyncDocDBClient:
             filters: <p>This parameter is not currently supported.</p>
             max_records: <p> The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code> value, a pagination token (marker) is included in the response so that the remaining results can be retrieved.</p> <p>Default: 100</p> <p>Constraints: Minimum 20, maximum 100.</p>
             marker: <p>An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>.</p>
+
+        Raises:
+            aws_sdk_docdb.errors.db_parameter_group_not_found_fault.DBParameterGroupNotFoundFault: <p> <code>DBParameterGroupName</code> doesn't refer to an existing parameter group. </p>
+            aws_sdk_docdb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1490,6 +1649,10 @@ class AsyncDocDBClient:
             filters: <p>This parameter is not currently supported.</p>
             max_records: <p> The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code> value, a pagination token (marker) is included in the response so that the remaining results can be retrieved.</p> <p>Default: 100</p> <p>Constraints: Minimum 20, maximum 100.</p>
             marker: <p>An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>.</p>
+
+        Raises:
+            aws_sdk_docdb.errors.db_parameter_group_not_found_fault.DBParameterGroupNotFoundFault: <p> <code>DBParameterGroupName</code> doesn't refer to an existing parameter group. </p>
+            aws_sdk_docdb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1573,6 +1736,10 @@ class AsyncDocDBClient:
             filters: <p>A filter that specifies one or more clusters to describe.</p> <p>Supported filters:</p> <ul> <li> <p> <code>db-cluster-id</code> - Accepts cluster identifiers and cluster Amazon Resource Names (ARNs). The results list only includes information about the clusters identified by these ARNs.</p> </li> </ul>
             max_records: <p> The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code> value, a pagination token (marker) is included in the response so that the remaining results can be retrieved.</p> <p>Default: 100</p> <p>Constraints: Minimum 20, maximum 100.</p>
             marker: <p>An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>.</p>
+
+        Raises:
+            aws_sdk_docdb.errors.db_cluster_not_found_fault.DBClusterNotFoundFault: <p> <code>DBClusterIdentifier</code> doesn't refer to an existing cluster. </p>
+            aws_sdk_docdb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1645,6 +1812,10 @@ class AsyncDocDBClient:
 
         Args:
             db_cluster_snapshot_identifier: <p>The identifier for the cluster snapshot to describe the attributes for.</p>
+
+        Raises:
+            aws_sdk_docdb.errors.db_cluster_snapshot_not_found_fault.DBClusterSnapshotNotFoundFault: <p> <code>DBClusterSnapshotIdentifier</code> doesn't refer to an existing cluster snapshot. </p>
+            aws_sdk_docdb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1701,6 +1872,10 @@ class AsyncDocDBClient:
             marker: <p>An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>.</p>
             include_shared: <p>Set to <code>true</code> to include shared manual cluster snapshots from other Amazon Web Services accounts that this Amazon Web Services account has been given permission to copy or restore, and otherwise <code>false</code>. The default is <code>false</code>.</p>
             include_public: <p>Set to <code>true</code> to include manual cluster snapshots that are public and can be copied or restored by any Amazon Web Services account, and otherwise <code>false</code>. The default is <code>false</code>.</p>
+
+        Raises:
+            aws_sdk_docdb.errors.db_cluster_snapshot_not_found_fault.DBClusterSnapshotNotFoundFault: <p> <code>DBClusterSnapshotIdentifier</code> doesn't refer to an existing cluster snapshot. </p>
+            aws_sdk_docdb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1813,6 +1988,9 @@ class AsyncDocDBClient:
             default_only: <p>Indicates that only the default version of the specified engine or engine and major version combination is returned.</p>
             list_supported_character_sets: <p>If this parameter is specified and the requested engine supports the <code>CharacterSetName</code> parameter for <code>CreateDBInstance</code>, the response includes a list of supported character sets for each engine version. </p>
             list_supported_timezones: <p>If this parameter is specified and the requested engine supports the <code>TimeZone</code> parameter for <code>CreateDBInstance</code>, the response includes a list of supported time zones for each engine version. </p>
+
+        Raises:
+            aws_sdk_docdb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1917,6 +2095,10 @@ class AsyncDocDBClient:
             filters: <p>A filter that specifies one or more instances to describe.</p> <p>Supported filters:</p> <ul> <li> <p> <code>db-cluster-id</code> - Accepts cluster identifiers and cluster Amazon Resource Names (ARNs). The results list includes only the information about the instances that are associated with the clusters that are identified by these ARNs.</p> </li> <li> <p> <code>db-instance-id</code> - Accepts instance identifiers and instance ARNs. The results list includes only the information about the instances that are identified by these ARNs.</p> </li> </ul>
             max_records: <p> The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code> value, a pagination token (marker) is included in the response so that the remaining results can be retrieved.</p> <p>Default: 100</p> <p>Constraints: Minimum 20, maximum 100.</p>
             marker: <p>An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>.</p>
+
+        Raises:
+            aws_sdk_docdb.errors.db_instance_not_found_fault.DBInstanceNotFoundFault: <p> <code>DBInstanceIdentifier</code> doesn't refer to an existing instance. </p>
+            aws_sdk_docdb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1997,6 +2179,10 @@ class AsyncDocDBClient:
             filters: <p>This parameter is not currently supported.</p>
             max_records: <p> The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code> value, a pagination token (marker) is included in the response so that the remaining results can be retrieved.</p> <p>Default: 100</p> <p>Constraints: Minimum 20, maximum 100.</p>
             marker: <p>An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>.</p>
+
+        Raises:
+            aws_sdk_docdb.errors.db_subnet_group_not_found_fault.DBSubnetGroupNotFoundFault: <p> <code>DBSubnetGroupName</code> doesn't refer to an existing subnet group. </p>
+            aws_sdk_docdb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2077,6 +2263,9 @@ class AsyncDocDBClient:
             filters: <p>This parameter is not currently supported.</p>
             max_records: <p> The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code> value, a pagination token (marker) is included in the response so that the remaining results can be retrieved.</p> <p>Default: 100</p> <p>Constraints: Minimum 20, maximum 100.</p>
             marker: <p>An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>.</p>
+
+        Raises:
+            aws_sdk_docdb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2123,6 +2312,9 @@ class AsyncDocDBClient:
         Args:
             source_type: <p>The type of source that is generating the events.</p> <p>Valid values: <code>db-instance</code>, <code>db-parameter-group</code>, <code>db-security-group</code> </p>
             filters: <p>This parameter is not currently supported.</p>
+
+        Raises:
+            aws_sdk_docdb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2186,6 +2378,9 @@ class AsyncDocDBClient:
             filters: <p>This parameter is not currently supported.</p>
             max_records: <p> The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code> value, a pagination token (marker) is included in the response so that the remaining results can be retrieved.</p> <p>Default: 100</p> <p>Constraints: Minimum 20, maximum 100.</p>
             marker: <p>An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>.</p>
+
+        Raises:
+            aws_sdk_docdb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2288,6 +2483,10 @@ class AsyncDocDBClient:
             filters: <p>This parameter is not currently supported.</p>
             max_records: <p> The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code> value, a pagination token (marker) is included in the response so that the remaining results can be retrieved.</p> <p>Default: 100</p> <p>Constraints: Minimum 20, maximum 100.</p>
             marker: <p>An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>.</p>
+
+        Raises:
+            aws_sdk_docdb.errors.subscription_not_found_fault.SubscriptionNotFoundFault: <p>The subscription name does not exist. </p>
+            aws_sdk_docdb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2370,6 +2569,10 @@ class AsyncDocDBClient:
             filters: <p>A filter that specifies one or more global DB clusters to describe.</p> <p>Supported filters: <code>db-cluster-id</code> accepts cluster identifiers and cluster Amazon Resource Names (ARNs). The results list will only include information about the clusters identified by these ARNs.</p>
             max_records: <p>The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code> value, a pagination token called a marker is included in the response so that you can retrieve the remaining results. </p>
             marker: <p>An optional pagination token provided by a previous <code>DescribeGlobalClusters</code> request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>.</p>
+
+        Raises:
+            aws_sdk_docdb.errors.global_cluster_not_found_fault.GlobalClusterNotFoundFault: <p>The <code>GlobalClusterIdentifier</code> doesn't refer to an existing global cluster.</p>
+            aws_sdk_docdb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2460,6 +2663,9 @@ class AsyncDocDBClient:
             filters: <p>This parameter is not currently supported.</p>
             max_records: <p> The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code> value, a pagination token (marker) is included in the response so that the remaining results can be retrieved.</p> <p>Default: 100</p> <p>Constraints: Minimum 20, maximum 100.</p>
             marker: <p>An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>.</p>
+
+        Raises:
+            aws_sdk_docdb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2555,6 +2761,10 @@ class AsyncDocDBClient:
             filters: <p>A filter that specifies one or more resources to return pending maintenance actions for.</p> <p>Supported filters:</p> <ul> <li> <p> <code>db-cluster-id</code> - Accepts cluster identifiers and cluster Amazon Resource Names (ARNs). The results list includes only pending maintenance actions for the clusters identified by these ARNs.</p> </li> <li> <p> <code>db-instance-id</code> - Accepts instance identifiers and instance ARNs. The results list includes only pending maintenance actions for the DB instances identified by these ARNs.</p> </li> </ul>
             marker: <p>An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>.</p>
             max_records: <p> The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code> value, a pagination token (marker) is included in the response so that the remaining results can be retrieved.</p> <p>Default: 100</p> <p>Constraints: Minimum 20, maximum 100.</p>
+
+        Raises:
+            aws_sdk_docdb.errors.resource_not_found_fault.ResourceNotFoundFault: <p>The specified resource ID was not found.</p>
+            aws_sdk_docdb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2631,6 +2841,12 @@ class AsyncDocDBClient:
         Args:
             db_cluster_identifier: <p>A cluster identifier to force a failover for. This parameter is not case sensitive.</p> <p>Constraints:</p> <ul> <li> <p>Must match the identifier of an existing <code>DBCluster</code>.</p> </li> </ul>
             target_db_instance_identifier: <p>The name of the instance to promote to the primary instance.</p> <p>You must specify the instance identifier for an Amazon DocumentDB replica in the cluster. For example, <code>mydbcluster-replica1</code>.</p>
+
+        Raises:
+            aws_sdk_docdb.errors.db_cluster_not_found_fault.DBClusterNotFoundFault: <p> <code>DBClusterIdentifier</code> doesn't refer to an existing cluster. </p>
+            aws_sdk_docdb.errors.invalid_db_cluster_state_fault.InvalidDBClusterStateFault: <p>The cluster isn't in a valid state.</p>
+            aws_sdk_docdb.errors.invalid_db_instance_state_fault.InvalidDBInstanceStateFault: <p> The specified instance isn't in the <i>available</i> state. </p>
+            aws_sdk_docdb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2684,6 +2900,13 @@ class AsyncDocDBClient:
             target_db_cluster_identifier: <p>The identifier of the secondary Amazon DocumentDB cluster that you want to promote to the primary for the global cluster. Use the Amazon Resource Name (ARN) for the identifier so that Amazon DocumentDB can locate the cluster in its Amazon Web Services region.</p> <p>Constraints:</p> <ul> <li> <p>Must match the identifier of an existing secondary cluster.</p> </li> <li> <p>Minimum length of 1. Maximum length of 255.</p> </li> </ul> <p>Pattern: <code>[A-Za-z][0-9A-Za-z-:._]*</code> </p>
             allow_data_loss: <p>Specifies whether to allow data loss for this global cluster operation. Allowing data loss triggers a global failover operation.</p> <p>If you don't specify <code>AllowDataLoss</code>, the global cluster operation defaults to a switchover.</p> <p>Constraints:</p> <ul> <li> <p>Can't be specified together with the <code>Switchover</code> parameter.</p> </li> </ul>
             switchover: <p>Specifies whether to switch over this global database cluster.</p> <p>Constraints:</p> <ul> <li> <p>Can't be specified together with the <code>AllowDataLoss</code> parameter.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_docdb.errors.db_cluster_not_found_fault.DBClusterNotFoundFault: <p> <code>DBClusterIdentifier</code> doesn't refer to an existing cluster. </p>
+            aws_sdk_docdb.errors.global_cluster_not_found_fault.GlobalClusterNotFoundFault: <p>The <code>GlobalClusterIdentifier</code> doesn't refer to an existing global cluster.</p>
+            aws_sdk_docdb.errors.invalid_db_cluster_state_fault.InvalidDBClusterStateFault: <p>The cluster isn't in a valid state.</p>
+            aws_sdk_docdb.errors.invalid_global_cluster_state_fault.InvalidGlobalClusterStateFault: <p>The requested operation can't be performed while the cluster is in this state.</p>
+            aws_sdk_docdb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2729,6 +2952,12 @@ class AsyncDocDBClient:
         Args:
             resource_name: <p>The Amazon DocumentDB resource with tags to be listed. This value is an Amazon Resource Name (ARN).</p>
             filters: <p>This parameter is not currently supported.</p>
+
+        Raises:
+            aws_sdk_docdb.errors.db_cluster_not_found_fault.DBClusterNotFoundFault: <p> <code>DBClusterIdentifier</code> doesn't refer to an existing cluster. </p>
+            aws_sdk_docdb.errors.db_instance_not_found_fault.DBInstanceNotFoundFault: <p> <code>DBInstanceIdentifier</code> doesn't refer to an existing instance. </p>
+            aws_sdk_docdb.errors.db_snapshot_not_found_fault.DBSnapshotNotFoundFault: <p> <code>DBSnapshotIdentifier</code> doesn't refer to an existing snapshot. </p>
+            aws_sdk_docdb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2829,6 +3058,21 @@ class AsyncDocDBClient:
             master_user_secret_kms_key_id: <p>The Amazon Web Services KMS key identifier to encrypt a secret that is automatically generated and managed in Amazon Web Services Secrets Manager.</p> <p>This setting is valid only if both of the following conditions are met:</p> <ul> <li> <p>The cluster doesn't manage the master user password in Amazon Web Services Secrets Manager. If the cluster already manages the master user password in Amazon Web Services Secrets Manager, you can't change the KMS key that is used to encrypt the secret.</p> </li> <li> <p>You are enabling <code>ManageMasterUserPassword</code> to manage the master user password in Amazon Web Services Secrets Manager. If you are turning on <code>ManageMasterUserPassword</code> and don't specify <code>MasterUserSecretKmsKeyId</code>, then the <code>aws/secretsmanager</code> KMS key is used to encrypt the secret. If the secret is in a different Amazon Web Services account, then you can't use the <code>aws/secretsmanager</code> KMS key to encrypt the secret, and you must use a customer managed KMS key.</p> </li> </ul> <p>The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. To use a KMS key in a different Amazon Web Services account, specify the key ARN or alias ARN.</p> <p>There is a default KMS key for your Amazon Web Services account. Your Amazon Web Services account has a different default KMS key for each Amazon Web Services Region.</p>
             rotate_master_user_password: <p>Specifies whether to rotate the secret managed by Amazon Web Services Secrets Manager for the master user password.</p> <p>This setting is valid only if the master user password is managed by Amazon DocumentDB in Amazon Web Services Secrets Manager for the cluster. The secret value contains the updated password.</p> <p>Constraint: You must apply the change immediately when rotating the master user password.</p>
             network_type: <p>The network type of the cluster.</p> <p>The network type is determined by the <code>DBSubnetGroup</code> specified for the cluster. A <code>DBSubnetGroup</code> can support only the IPv4 protocol or the IPv4 and the IPv6 protocols (<code>DUAL</code>).</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/documentdb/latest/developerguide/vpc-clusters.html\">DocumentDB clusters in a VPC</a> in the Amazon DocumentDB Developer Guide.</p> <p>Valid Values: <code>IPV4</code> | <code>DUAL</code> </p>
+
+        Raises:
+            aws_sdk_docdb.errors.db_cluster_already_exists_fault.DBClusterAlreadyExistsFault: <p>You already have a cluster with the given identifier.</p>
+            aws_sdk_docdb.errors.db_cluster_not_found_fault.DBClusterNotFoundFault: <p> <code>DBClusterIdentifier</code> doesn't refer to an existing cluster. </p>
+            aws_sdk_docdb.errors.db_cluster_parameter_group_not_found_fault.DBClusterParameterGroupNotFoundFault: <p> <code>DBClusterParameterGroupName</code> doesn't refer to an existing cluster parameter group. </p>
+            aws_sdk_docdb.errors.db_subnet_group_not_found_fault.DBSubnetGroupNotFoundFault: <p> <code>DBSubnetGroupName</code> doesn't refer to an existing subnet group. </p>
+            aws_sdk_docdb.errors.invalid_db_cluster_state_fault.InvalidDBClusterStateFault: <p>The cluster isn't in a valid state.</p>
+            aws_sdk_docdb.errors.invalid_db_instance_state_fault.InvalidDBInstanceStateFault: <p> The specified instance isn't in the <i>available</i> state. </p>
+            aws_sdk_docdb.errors.invalid_db_security_group_state_fault.InvalidDBSecurityGroupStateFault: <p>The state of the security group doesn't allow deletion.</p>
+            aws_sdk_docdb.errors.invalid_db_subnet_group_state_fault.InvalidDBSubnetGroupStateFault: <p>The subnet group can't be deleted because it's in use.</p>
+            aws_sdk_docdb.errors.invalid_subnet.InvalidSubnet: <p>The requested subnet is not valid, or multiple subnets were requested that are not all in a common virtual private cloud (VPC).</p>
+            aws_sdk_docdb.errors.invalid_vpc_network_state_fault.InvalidVPCNetworkStateFault: <p>The subnet group doesn't cover all Availability Zones after it is created because of changes that were made.</p>
+            aws_sdk_docdb.errors.network_type_not_supported.NetworkTypeNotSupported: <p>The network type is not supported by either <code>DBSubnetGroup</code> or the DB engine version.</p>
+            aws_sdk_docdb.errors.storage_quota_exceeded_fault.StorageQuotaExceededFault: <p>The request would cause you to exceed the allowed amount of storage available across all instances.</p>
+            aws_sdk_docdb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2911,6 +3155,11 @@ class AsyncDocDBClient:
         Args:
             db_cluster_parameter_group_name: <p>The name of the cluster parameter group to modify.</p>
             parameters: <p>A list of parameters in the cluster parameter group to modify.</p>
+
+        Raises:
+            aws_sdk_docdb.errors.db_parameter_group_not_found_fault.DBParameterGroupNotFoundFault: <p> <code>DBParameterGroupName</code> doesn't refer to an existing parameter group. </p>
+            aws_sdk_docdb.errors.invalid_db_parameter_group_state_fault.InvalidDBParameterGroupStateFault: <p>The parameter group is in use, or it is in a state that is not valid. If you are trying to delete the parameter group, you can't delete it when the parameter group is in this state.</p>
+            aws_sdk_docdb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2960,6 +3209,12 @@ class AsyncDocDBClient:
             attribute_name: <p>The name of the cluster snapshot attribute to modify.</p> <p>To manage authorization for other Amazon Web Services accounts to copy or restore a manual cluster snapshot, set this value to <code>restore</code>.</p>
             values_to_add: <p>A list of cluster snapshot attributes to add to the attribute specified by <code>AttributeName</code>.</p> <p>To authorize other Amazon Web Services accounts to copy or restore a manual cluster snapshot, set this list to include one or more Amazon Web Services account IDs. To make the manual cluster snapshot restorable by any Amazon Web Services account, set it to <code>all</code>. Do not add the <code>all</code> value for any manual cluster snapshots that contain private information that you don't want to be available to all Amazon Web Services accounts.</p>
             values_to_remove: <p>A list of cluster snapshot attributes to remove from the attribute specified by <code>AttributeName</code>.</p> <p>To remove authorization for other Amazon Web Services accounts to copy or restore a manual cluster snapshot, set this list to include one or more Amazon Web Services account identifiers. To remove authorization for any Amazon Web Services account to copy or restore the cluster snapshot, set it to <code>all</code> . If you specify <code>all</code>, an Amazon Web Services account whose account ID is explicitly added to the <code>restore</code> attribute can still copy or restore a manual cluster snapshot.</p>
+
+        Raises:
+            aws_sdk_docdb.errors.db_cluster_snapshot_not_found_fault.DBClusterSnapshotNotFoundFault: <p> <code>DBClusterSnapshotIdentifier</code> doesn't refer to an existing cluster snapshot. </p>
+            aws_sdk_docdb.errors.invalid_db_cluster_snapshot_state_fault.InvalidDBClusterSnapshotStateFault: <p>The provided value isn't a valid cluster snapshot state.</p>
+            aws_sdk_docdb.errors.shared_snapshot_quota_exceeded_fault.SharedSnapshotQuotaExceededFault: <p>You have exceeded the maximum number of accounts that you can share a manual DB snapshot with. </p>
+            aws_sdk_docdb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3041,6 +3296,22 @@ class AsyncDocDBClient:
             enable_performance_insights: <p>A value that indicates whether to enable Performance Insights for the DB Instance. For more information, see <a href=\"https://docs.aws.amazon.com/documentdb/latest/developerguide/performance-insights.html\">Using Amazon Performance Insights</a>.</p>
             performance_insights_kms_key_id: <p>The KMS key identifier for encryption of Performance Insights data.</p> <p>The KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key.</p> <p>If you do not specify a value for PerformanceInsightsKMSKeyId, then Amazon DocumentDB uses your default KMS key. There is a default KMS key for your Amazon Web Services account. Your Amazon Web Services account has a different default KMS key for each Amazon Web Services region.</p>
             certificate_rotation_restart: <p>Specifies whether the DB instance is restarted when you rotate your SSL/TLS certificate.</p> <p>By default, the DB instance is restarted when you rotate your SSL/TLS certificate. The certificate is not updated until the DB instance is restarted.</p> <important> <p>Set this parameter only if you are <i>not</i> using SSL/TLS to connect to the DB instance.</p> </important> <p>If you are using SSL/TLS to connect to the DB instance, see <a href=\"https://docs.aws.amazon.com/documentdb/latest/developerguide/ca_cert_rotation.html\">Updating Your Amazon DocumentDB TLS Certificates</a> and <a href=\"https://docs.aws.amazon.com/documentdb/latest/developerguide/security.encryption.ssl.html\"> Encrypting Data in Transit</a> in the <i>Amazon DocumentDB Developer Guide</i>.</p>
+
+        Raises:
+            aws_sdk_docdb.errors.authorization_not_found_fault.AuthorizationNotFoundFault: <p>The specified CIDR IP or Amazon EC2 security group isn't authorized for the specified security group.</p> <p>Amazon DocumentDB also might not be authorized to perform necessary actions on your behalf using IAM.</p>
+            aws_sdk_docdb.errors.certificate_not_found_fault.CertificateNotFoundFault: <p> <code>CertificateIdentifier</code> doesn't refer to an existing certificate. </p>
+            aws_sdk_docdb.errors.db_instance_already_exists_fault.DBInstanceAlreadyExistsFault: <p>You already have a instance with the given identifier.</p>
+            aws_sdk_docdb.errors.db_instance_not_found_fault.DBInstanceNotFoundFault: <p> <code>DBInstanceIdentifier</code> doesn't refer to an existing instance. </p>
+            aws_sdk_docdb.errors.db_parameter_group_not_found_fault.DBParameterGroupNotFoundFault: <p> <code>DBParameterGroupName</code> doesn't refer to an existing parameter group. </p>
+            aws_sdk_docdb.errors.db_security_group_not_found_fault.DBSecurityGroupNotFoundFault: <p> <code>DBSecurityGroupName</code> doesn't refer to an existing security group. </p>
+            aws_sdk_docdb.errors.db_upgrade_dependency_failure_fault.DBUpgradeDependencyFailureFault: <p>The upgrade failed because a resource that the depends on can't be modified.</p>
+            aws_sdk_docdb.errors.insufficient_db_instance_capacity_fault.InsufficientDBInstanceCapacityFault: <p>The specified instance class isn't available in the specified Availability Zone.</p>
+            aws_sdk_docdb.errors.invalid_db_instance_state_fault.InvalidDBInstanceStateFault: <p> The specified instance isn't in the <i>available</i> state. </p>
+            aws_sdk_docdb.errors.invalid_db_security_group_state_fault.InvalidDBSecurityGroupStateFault: <p>The state of the security group doesn't allow deletion.</p>
+            aws_sdk_docdb.errors.invalid_vpc_network_state_fault.InvalidVPCNetworkStateFault: <p>The subnet group doesn't cover all Availability Zones after it is created because of changes that were made.</p>
+            aws_sdk_docdb.errors.storage_quota_exceeded_fault.StorageQuotaExceededFault: <p>The request would cause you to exceed the allowed amount of storage available across all instances.</p>
+            aws_sdk_docdb.errors.storage_type_not_supported_fault.StorageTypeNotSupportedFault: <p>Storage of the specified <code>StorageType</code> can't be associated with the DB instance. </p>
+            aws_sdk_docdb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3107,6 +3378,14 @@ class AsyncDocDBClient:
             db_subnet_group_name: <p>The name for the subnet group. This value is stored as a lowercase string. You can't modify the default subnet group. </p> <p>Constraints: Must match the name of an existing <code>DBSubnetGroup</code>. Must not be default.</p> <p>Example: <code>mySubnetgroup</code> </p>
             db_subnet_group_description: <p>The description for the subnet group.</p>
             subnet_ids: <p>The Amazon EC2 subnet IDs for the subnet group.</p>
+
+        Raises:
+            aws_sdk_docdb.errors.db_subnet_group_does_not_cover_enough_a_zs.DBSubnetGroupDoesNotCoverEnoughAZs: <p>Subnets in the subnet group should cover at least two Availability Zones unless there is only one Availability Zone.</p>
+            aws_sdk_docdb.errors.db_subnet_group_not_found_fault.DBSubnetGroupNotFoundFault: <p> <code>DBSubnetGroupName</code> doesn't refer to an existing subnet group. </p>
+            aws_sdk_docdb.errors.db_subnet_quota_exceeded_fault.DBSubnetQuotaExceededFault: <p>The request would cause you to exceed the allowed number of subnets in a subnet group.</p>
+            aws_sdk_docdb.errors.invalid_subnet.InvalidSubnet: <p>The requested subnet is not valid, or multiple subnets were requested that are not all in a common virtual private cloud (VPC).</p>
+            aws_sdk_docdb.errors.subnet_already_in_use.SubnetAlreadyInUse: <p>The subnet is already in use in the Availability Zone.</p>
+            aws_sdk_docdb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3160,6 +3439,15 @@ class AsyncDocDBClient:
             source_type: <p>The type of source that is generating the events. For example, if you want to be notified of events generated by an instance, set this parameter to <code>db-instance</code>. If this value is not specified, all events are returned.</p> <p>Valid values: <code>db-instance</code>, <code>db-parameter-group</code>, <code>db-security-group</code> </p>
             event_categories: <p> A list of event categories for a <code>SourceType</code> that you want to subscribe to.</p>
             enabled: <p> A Boolean value; set to <code>true</code> to activate the subscription. </p>
+
+        Raises:
+            aws_sdk_docdb.errors.event_subscription_quota_exceeded_fault.EventSubscriptionQuotaExceededFault: <p>You have reached the maximum number of event subscriptions. </p>
+            aws_sdk_docdb.errors.sns_invalid_topic_fault.SNSInvalidTopicFault: <p>Amazon SNS has responded that there is a problem with the specified topic. </p>
+            aws_sdk_docdb.errors.sns_no_authorization_fault.SNSNoAuthorizationFault: <p>You do not have permission to publish to the SNS topic Amazon Resource Name (ARN). </p>
+            aws_sdk_docdb.errors.sns_topic_arn_not_found_fault.SNSTopicArnNotFoundFault: <p>The SNS topic Amazon Resource Name (ARN) does not exist. </p>
+            aws_sdk_docdb.errors.subscription_category_not_found_fault.SubscriptionCategoryNotFoundFault: <p>The provided category does not exist. </p>
+            aws_sdk_docdb.errors.subscription_not_found_fault.SubscriptionNotFoundFault: <p>The subscription name does not exist. </p>
+            aws_sdk_docdb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3214,6 +3502,11 @@ class AsyncDocDBClient:
             global_cluster_identifier: <p>The identifier for the global cluster being modified. This parameter isn't case-sensitive.</p> <p>Constraints:</p> <ul> <li> <p>Must match the identifier of an existing global cluster.</p> </li> </ul>
             new_global_cluster_identifier: <p>The new identifier for a global cluster when you modify a global cluster. This value is stored as a lowercase string.</p> <ul> <li> <p>Must contain from 1 to 63 letters, numbers, or hyphens</p> <p>The first character must be a letter</p> <p>Can't end with a hyphen or contain two consecutive hyphens</p> </li> </ul> <p>Example: <code>my-cluster2</code> </p>
             deletion_protection: <p>Indicates if the global cluster has deletion protection enabled. The global cluster can't be deleted when deletion protection is enabled. </p>
+
+        Raises:
+            aws_sdk_docdb.errors.global_cluster_not_found_fault.GlobalClusterNotFoundFault: <p>The <code>GlobalClusterIdentifier</code> doesn't refer to an existing global cluster.</p>
+            aws_sdk_docdb.errors.invalid_global_cluster_state_fault.InvalidGlobalClusterStateFault: <p>The requested operation can't be performed while the cluster is in this state.</p>
+            aws_sdk_docdb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3260,6 +3553,11 @@ class AsyncDocDBClient:
         Args:
             db_instance_identifier: <p>The instance identifier. This parameter is stored as a lowercase string.</p> <p>Constraints:</p> <ul> <li> <p>Must match the identifier of an existing <code>DBInstance</code>.</p> </li> </ul>
             force_failover: <p> When <code>true</code>, the reboot is conducted through a Multi-AZ failover. </p> <p>Constraint: You can't specify <code>true</code> if the instance is not configured for Multi-AZ.</p>
+
+        Raises:
+            aws_sdk_docdb.errors.db_instance_not_found_fault.DBInstanceNotFoundFault: <p> <code>DBInstanceIdentifier</code> doesn't refer to an existing instance. </p>
+            aws_sdk_docdb.errors.invalid_db_instance_state_fault.InvalidDBInstanceStateFault: <p> The specified instance isn't in the <i>available</i> state. </p>
+            aws_sdk_docdb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3302,6 +3600,12 @@ class AsyncDocDBClient:
         Args:
             global_cluster_identifier: <p>The cluster identifier to detach from the Amazon DocumentDB global cluster. </p>
             db_cluster_identifier: <p>The Amazon Resource Name (ARN) identifying the cluster that was detached from the Amazon DocumentDB global cluster. </p>
+
+        Raises:
+            aws_sdk_docdb.errors.db_cluster_not_found_fault.DBClusterNotFoundFault: <p> <code>DBClusterIdentifier</code> doesn't refer to an existing cluster. </p>
+            aws_sdk_docdb.errors.global_cluster_not_found_fault.GlobalClusterNotFoundFault: <p>The <code>GlobalClusterIdentifier</code> doesn't refer to an existing global cluster.</p>
+            aws_sdk_docdb.errors.invalid_global_cluster_state_fault.InvalidGlobalClusterStateFault: <p>The requested operation can't be performed while the cluster is in this state.</p>
+            aws_sdk_docdb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3343,6 +3647,11 @@ class AsyncDocDBClient:
         Args:
             subscription_name: <p>The name of the Amazon DocumentDB event notification subscription that you want to remove a source identifier from.</p>
             source_identifier: <p> The source identifier to be removed from the subscription, such as the instance identifier for an instance, or the name of a security group. </p>
+
+        Raises:
+            aws_sdk_docdb.errors.source_not_found_fault.SourceNotFoundFault: <p>The requested source could not be found. </p>
+            aws_sdk_docdb.errors.subscription_not_found_fault.SubscriptionNotFoundFault: <p>The subscription name does not exist. </p>
+            aws_sdk_docdb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3384,6 +3693,12 @@ class AsyncDocDBClient:
         Args:
             resource_name: <p>The Amazon DocumentDB resource that the tags are removed from. This value is an Amazon Resource Name (ARN).</p>
             tag_keys: <p>The tag key (name) of the tag to be removed.</p>
+
+        Raises:
+            aws_sdk_docdb.errors.db_cluster_not_found_fault.DBClusterNotFoundFault: <p> <code>DBClusterIdentifier</code> doesn't refer to an existing cluster. </p>
+            aws_sdk_docdb.errors.db_instance_not_found_fault.DBInstanceNotFoundFault: <p> <code>DBInstanceIdentifier</code> doesn't refer to an existing instance. </p>
+            aws_sdk_docdb.errors.db_snapshot_not_found_fault.DBSnapshotNotFoundFault: <p> <code>DBSnapshotIdentifier</code> doesn't refer to an existing snapshot. </p>
+            aws_sdk_docdb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3427,6 +3742,11 @@ class AsyncDocDBClient:
             db_cluster_parameter_group_name: <p>The name of the cluster parameter group to reset.</p>
             reset_all_parameters: <p>A value that is set to <code>true</code> to reset all parameters in the cluster parameter group to their default values, and <code>false</code> otherwise. You can't use this parameter if there is a list of parameter names specified for the <code>Parameters</code> parameter.</p>
             parameters: <p>A list of parameter names in the cluster parameter group to reset to the default values. You can't use this parameter if the <code>ResetAllParameters</code> parameter is set to <code>true</code>.</p>
+
+        Raises:
+            aws_sdk_docdb.errors.db_parameter_group_not_found_fault.DBParameterGroupNotFoundFault: <p> <code>DBParameterGroupName</code> doesn't refer to an existing parameter group. </p>
+            aws_sdk_docdb.errors.invalid_db_parameter_group_state_fault.InvalidDBParameterGroupStateFault: <p>The parameter group is in use, or it is in a state that is not valid. If you are trying to delete the parameter group, you can't delete it when the parameter group is in this state.</p>
+            aws_sdk_docdb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3511,6 +3831,24 @@ class AsyncDocDBClient:
             serverless_v2_scaling_configuration: <p>Contains the scaling configuration of an Amazon DocumentDB Serverless cluster.</p>
             storage_type: <p>The storage type to associate with the DB cluster.</p> <p>For information on storage types for Amazon DocumentDB clusters, see Cluster storage configurations in the <i>Amazon DocumentDB Developer Guide</i>.</p> <p>Valid values for storage type - <code>standard | iopt1</code> </p> <p>Default value is <code>standard </code> </p>
             network_type: <p>The network type of the cluster.</p> <p>The network type is determined by the <code>DBSubnetGroup</code> specified for the cluster. A <code>DBSubnetGroup</code> can support only the IPv4 protocol or the IPv4 and the IPv6 protocols (<code>DUAL</code>).</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/documentdb/latest/developerguide/vpc-clusters.html\">DocumentDB clusters in a VPC</a> in the Amazon DocumentDB Developer Guide.</p> <p>Valid Values: <code>IPV4</code> | <code>DUAL</code> </p>
+
+        Raises:
+            aws_sdk_docdb.errors.db_cluster_already_exists_fault.DBClusterAlreadyExistsFault: <p>You already have a cluster with the given identifier.</p>
+            aws_sdk_docdb.errors.db_cluster_quota_exceeded_fault.DBClusterQuotaExceededFault: <p>The cluster can't be created because you have reached the maximum allowed quota of clusters.</p>
+            aws_sdk_docdb.errors.db_cluster_snapshot_not_found_fault.DBClusterSnapshotNotFoundFault: <p> <code>DBClusterSnapshotIdentifier</code> doesn't refer to an existing cluster snapshot. </p>
+            aws_sdk_docdb.errors.db_snapshot_not_found_fault.DBSnapshotNotFoundFault: <p> <code>DBSnapshotIdentifier</code> doesn't refer to an existing snapshot. </p>
+            aws_sdk_docdb.errors.db_subnet_group_not_found_fault.DBSubnetGroupNotFoundFault: <p> <code>DBSubnetGroupName</code> doesn't refer to an existing subnet group. </p>
+            aws_sdk_docdb.errors.insufficient_db_cluster_capacity_fault.InsufficientDBClusterCapacityFault: <p>The cluster doesn't have enough capacity for the current operation.</p>
+            aws_sdk_docdb.errors.insufficient_storage_cluster_capacity_fault.InsufficientStorageClusterCapacityFault: <p>There is not enough storage available for the current action. You might be able to resolve this error by updating your subnet group to use different Availability Zones that have more storage available. </p>
+            aws_sdk_docdb.errors.invalid_db_cluster_snapshot_state_fault.InvalidDBClusterSnapshotStateFault: <p>The provided value isn't a valid cluster snapshot state.</p>
+            aws_sdk_docdb.errors.invalid_db_snapshot_state_fault.InvalidDBSnapshotStateFault: <p>The state of the snapshot doesn't allow deletion.</p>
+            aws_sdk_docdb.errors.invalid_restore_fault.InvalidRestoreFault: <p>You cannot restore from a virtual private cloud (VPC) backup to a non-VPC DB instance.</p>
+            aws_sdk_docdb.errors.invalid_subnet.InvalidSubnet: <p>The requested subnet is not valid, or multiple subnets were requested that are not all in a common virtual private cloud (VPC).</p>
+            aws_sdk_docdb.errors.invalid_vpc_network_state_fault.InvalidVPCNetworkStateFault: <p>The subnet group doesn't cover all Availability Zones after it is created because of changes that were made.</p>
+            aws_sdk_docdb.errors.kms_key_not_accessible_fault.KMSKeyNotAccessibleFault: <p>An error occurred when accessing an KMS key.</p>
+            aws_sdk_docdb.errors.network_type_not_supported.NetworkTypeNotSupported: <p>The network type is not supported by either <code>DBSubnetGroup</code> or the DB engine version.</p>
+            aws_sdk_docdb.errors.storage_quota_exceeded_fault.StorageQuotaExceededFault: <p>The request would cause you to exceed the allowed amount of storage available across all instances.</p>
+            aws_sdk_docdb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3617,6 +3955,25 @@ class AsyncDocDBClient:
             serverless_v2_scaling_configuration: <p>Contains the scaling configuration of an Amazon DocumentDB Serverless cluster.</p>
             storage_type: <p>The storage type to associate with the DB cluster.</p> <p>For information on storage types for Amazon DocumentDB clusters, see Cluster storage configurations in the <i>Amazon DocumentDB Developer Guide</i>.</p> <p>Valid values for storage type - <code>standard | iopt1</code> </p> <p>Default value is <code>standard </code> </p>
             network_type: <p>The network type of the cluster.</p> <p>The network type is determined by the <code>DBSubnetGroup</code> specified for the cluster. A <code>DBSubnetGroup</code> can support only the IPv4 protocol or the IPv4 and the IPv6 protocols (<code>DUAL</code>).</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/documentdb/latest/developerguide/vpc-clusters.html\">DocumentDB clusters in a VPC</a> in the Amazon DocumentDB Developer Guide.</p> <p>Valid Values: <code>IPV4</code> | <code>DUAL</code> </p>
+
+        Raises:
+            aws_sdk_docdb.errors.db_cluster_already_exists_fault.DBClusterAlreadyExistsFault: <p>You already have a cluster with the given identifier.</p>
+            aws_sdk_docdb.errors.db_cluster_not_found_fault.DBClusterNotFoundFault: <p> <code>DBClusterIdentifier</code> doesn't refer to an existing cluster. </p>
+            aws_sdk_docdb.errors.db_cluster_quota_exceeded_fault.DBClusterQuotaExceededFault: <p>The cluster can't be created because you have reached the maximum allowed quota of clusters.</p>
+            aws_sdk_docdb.errors.db_cluster_snapshot_not_found_fault.DBClusterSnapshotNotFoundFault: <p> <code>DBClusterSnapshotIdentifier</code> doesn't refer to an existing cluster snapshot. </p>
+            aws_sdk_docdb.errors.db_subnet_group_not_found_fault.DBSubnetGroupNotFoundFault: <p> <code>DBSubnetGroupName</code> doesn't refer to an existing subnet group. </p>
+            aws_sdk_docdb.errors.insufficient_db_cluster_capacity_fault.InsufficientDBClusterCapacityFault: <p>The cluster doesn't have enough capacity for the current operation.</p>
+            aws_sdk_docdb.errors.insufficient_storage_cluster_capacity_fault.InsufficientStorageClusterCapacityFault: <p>There is not enough storage available for the current action. You might be able to resolve this error by updating your subnet group to use different Availability Zones that have more storage available. </p>
+            aws_sdk_docdb.errors.invalid_db_cluster_snapshot_state_fault.InvalidDBClusterSnapshotStateFault: <p>The provided value isn't a valid cluster snapshot state.</p>
+            aws_sdk_docdb.errors.invalid_db_cluster_state_fault.InvalidDBClusterStateFault: <p>The cluster isn't in a valid state.</p>
+            aws_sdk_docdb.errors.invalid_db_snapshot_state_fault.InvalidDBSnapshotStateFault: <p>The state of the snapshot doesn't allow deletion.</p>
+            aws_sdk_docdb.errors.invalid_restore_fault.InvalidRestoreFault: <p>You cannot restore from a virtual private cloud (VPC) backup to a non-VPC DB instance.</p>
+            aws_sdk_docdb.errors.invalid_subnet.InvalidSubnet: <p>The requested subnet is not valid, or multiple subnets were requested that are not all in a common virtual private cloud (VPC).</p>
+            aws_sdk_docdb.errors.invalid_vpc_network_state_fault.InvalidVPCNetworkStateFault: <p>The subnet group doesn't cover all Availability Zones after it is created because of changes that were made.</p>
+            aws_sdk_docdb.errors.kms_key_not_accessible_fault.KMSKeyNotAccessibleFault: <p>An error occurred when accessing an KMS key.</p>
+            aws_sdk_docdb.errors.network_type_not_supported.NetworkTypeNotSupported: <p>The network type is not supported by either <code>DBSubnetGroup</code> or the DB engine version.</p>
+            aws_sdk_docdb.errors.storage_quota_exceeded_fault.StorageQuotaExceededFault: <p>The request would cause you to exceed the allowed amount of storage available across all instances.</p>
+            aws_sdk_docdb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3684,6 +4041,12 @@ class AsyncDocDBClient:
 
         Args:
             db_cluster_identifier: <p>The identifier of the cluster to restart. Example: <code>docdb-2019-05-28-15-24-52</code> </p>
+
+        Raises:
+            aws_sdk_docdb.errors.db_cluster_not_found_fault.DBClusterNotFoundFault: <p> <code>DBClusterIdentifier</code> doesn't refer to an existing cluster. </p>
+            aws_sdk_docdb.errors.invalid_db_cluster_state_fault.InvalidDBClusterStateFault: <p>The cluster isn't in a valid state.</p>
+            aws_sdk_docdb.errors.invalid_db_instance_state_fault.InvalidDBInstanceStateFault: <p> The specified instance isn't in the <i>available</i> state. </p>
+            aws_sdk_docdb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3722,6 +4085,12 @@ class AsyncDocDBClient:
 
         Args:
             db_cluster_identifier: <p>The identifier of the cluster to stop. Example: <code>docdb-2019-05-28-15-24-52</code> </p>
+
+        Raises:
+            aws_sdk_docdb.errors.db_cluster_not_found_fault.DBClusterNotFoundFault: <p> <code>DBClusterIdentifier</code> doesn't refer to an existing cluster. </p>
+            aws_sdk_docdb.errors.invalid_db_cluster_state_fault.InvalidDBClusterStateFault: <p>The cluster isn't in a valid state.</p>
+            aws_sdk_docdb.errors.invalid_db_instance_state_fault.InvalidDBInstanceStateFault: <p> The specified instance isn't in the <i>available</i> state. </p>
+            aws_sdk_docdb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3762,6 +4131,13 @@ class AsyncDocDBClient:
         Args:
             global_cluster_identifier: <p>The identifier of the Amazon DocumentDB global database cluster to switch over. The identifier is the unique key assigned by the user when the cluster is created. In other words, it's the name of the global cluster. This parameter isn’t case-sensitive.</p> <p>Constraints:</p> <ul> <li> <p>Must match the identifier of an existing global cluster (Amazon DocumentDB global database).</p> </li> <li> <p>Minimum length of 1. Maximum length of 255.</p> </li> </ul> <p>Pattern: <code>[A-Za-z][0-9A-Za-z-:._]*</code> </p>
             target_db_cluster_identifier: <p>The identifier of the secondary Amazon DocumentDB cluster to promote to the new primary for the global database cluster. Use the Amazon Resource Name (ARN) for the identifier so that Amazon DocumentDB can locate the cluster in its Amazon Web Services region.</p> <p>Constraints:</p> <ul> <li> <p>Must match the identifier of an existing secondary cluster.</p> </li> <li> <p>Minimum length of 1. Maximum length of 255.</p> </li> </ul> <p>Pattern: <code>[A-Za-z][0-9A-Za-z-:._]*</code> </p>
+
+        Raises:
+            aws_sdk_docdb.errors.db_cluster_not_found_fault.DBClusterNotFoundFault: <p> <code>DBClusterIdentifier</code> doesn't refer to an existing cluster. </p>
+            aws_sdk_docdb.errors.global_cluster_not_found_fault.GlobalClusterNotFoundFault: <p>The <code>GlobalClusterIdentifier</code> doesn't refer to an existing global cluster.</p>
+            aws_sdk_docdb.errors.invalid_db_cluster_state_fault.InvalidDBClusterStateFault: <p>The cluster isn't in a valid state.</p>
+            aws_sdk_docdb.errors.invalid_global_cluster_state_fault.InvalidGlobalClusterStateFault: <p>The requested operation can't be performed while the cluster is in this state.</p>
+            aws_sdk_docdb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

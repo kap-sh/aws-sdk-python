@@ -137,6 +137,13 @@ class AsyncKinesisVideoWebRTCStorageClient:
 
         Args:
             channel_arn: <p> The Amazon Resource Name (ARN) of the signaling channel. </p>
+
+        Raises:
+            aws_sdk_kinesis_video_webrtc_storage.errors.access_denied_exception.AccessDeniedException: <p>You do not have required permissions to perform this operation.</p>
+            aws_sdk_kinesis_video_webrtc_storage.errors.client_limit_exceeded_exception.ClientLimitExceededException: <p> Kinesis Video Streams has throttled the request because you have exceeded the limit of allowed client calls. Try making the call later. </p>
+            aws_sdk_kinesis_video_webrtc_storage.errors.invalid_argument_exception.InvalidArgumentException: <p>The value for this input parameter is invalid.</p>
+            aws_sdk_kinesis_video_webrtc_storage.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource is not found.</p>
+            aws_sdk_kinesis_video_webrtc_storage.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -175,6 +182,13 @@ class AsyncKinesisVideoWebRTCStorageClient:
         Args:
             channel_arn: <p> The Amazon Resource Name (ARN) of the signaling channel. </p>
             client_id: <p> The unique identifier for the sender client. </p>
+
+        Raises:
+            aws_sdk_kinesis_video_webrtc_storage.errors.access_denied_exception.AccessDeniedException: <p>You do not have required permissions to perform this operation.</p>
+            aws_sdk_kinesis_video_webrtc_storage.errors.client_limit_exceeded_exception.ClientLimitExceededException: <p> Kinesis Video Streams has throttled the request because you have exceeded the limit of allowed client calls. Try making the call later. </p>
+            aws_sdk_kinesis_video_webrtc_storage.errors.invalid_argument_exception.InvalidArgumentException: <p>The value for this input parameter is invalid.</p>
+            aws_sdk_kinesis_video_webrtc_storage.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource is not found.</p>
+            aws_sdk_kinesis_video_webrtc_storage.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

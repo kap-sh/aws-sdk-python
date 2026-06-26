@@ -37,7 +37,18 @@ class OrganizationAccess:
     def put(
         self, *, config_overrides: Optional[NotificationsClientConfig] = None
     ) -> "aws_sdk_notifications.types.enable_notifications_access_for_organization_response.EnableNotificationsAccessForOrganizationResponse":
-        """<p>Enables service trust between User Notifications and Amazon Web Services Organizations.</p>"""
+        """<p>Enables service trust between User Notifications and Amazon Web Services Organizations.</p>
+
+        Raises:
+            aws_sdk_notifications.errors.access_denied_exception.AccessDeniedException: <p>User does not have sufficient access to perform this action.</p>
+            aws_sdk_notifications.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_notifications.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_notifications.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist. </p>
+            aws_sdk_notifications.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Request would cause a service quota to be exceeded.</p>
+            aws_sdk_notifications.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling. </p>
+            aws_sdk_notifications.errors.validation_exception.ValidationException: <p>This exception is thrown when the notification event fails validation.</p>
+            aws_sdk_notifications.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_notifications.types.enable_notifications_access_for_organization_request.EnableNotificationsAccessForOrganizationRequest]",
@@ -66,7 +77,15 @@ class OrganizationAccess:
     def read(
         self, *, config_overrides: Optional[NotificationsClientConfig] = None
     ) -> "aws_sdk_notifications.types.get_notifications_access_for_organization_response.GetNotificationsAccessForOrganizationResponse":
-        """<p>Returns the AccessStatus of Service Trust Enablement for User Notifications and Amazon Web Services Organizations.</p>"""
+        """<p>Returns the AccessStatus of Service Trust Enablement for User Notifications and Amazon Web Services Organizations.</p>
+
+        Raises:
+            aws_sdk_notifications.errors.access_denied_exception.AccessDeniedException: <p>User does not have sufficient access to perform this action.</p>
+            aws_sdk_notifications.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_notifications.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling. </p>
+            aws_sdk_notifications.errors.validation_exception.ValidationException: <p>This exception is thrown when the notification event fails validation.</p>
+            aws_sdk_notifications.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_notifications.types.get_notifications_access_for_organization_request.GetNotificationsAccessForOrganizationRequest]",
@@ -95,7 +114,18 @@ class OrganizationAccess:
     def delete(
         self, *, config_overrides: Optional[NotificationsClientConfig] = None
     ) -> "aws_sdk_notifications.types.disable_notifications_access_for_organization_response.DisableNotificationsAccessForOrganizationResponse":
-        """<p>Disables service trust between User Notifications and Amazon Web Services Organizations.</p>"""
+        """<p>Disables service trust between User Notifications and Amazon Web Services Organizations.</p>
+
+        Raises:
+            aws_sdk_notifications.errors.access_denied_exception.AccessDeniedException: <p>User does not have sufficient access to perform this action.</p>
+            aws_sdk_notifications.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_notifications.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_notifications.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist. </p>
+            aws_sdk_notifications.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Request would cause a service quota to be exceeded.</p>
+            aws_sdk_notifications.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling. </p>
+            aws_sdk_notifications.errors.validation_exception.ValidationException: <p>This exception is thrown when the notification event fails validation.</p>
+            aws_sdk_notifications.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_notifications.types.disable_notifications_access_for_organization_request.DisableNotificationsAccessForOrganizationRequest]",
@@ -129,7 +159,18 @@ class AsyncOrganizationAccess:
     async def put(
         self, *, config_overrides: Optional[AsyncNotificationsClientConfig] = None
     ) -> "aws_sdk_notifications.types.enable_notifications_access_for_organization_response.EnableNotificationsAccessForOrganizationResponse":
-        """<p>Enables service trust between User Notifications and Amazon Web Services Organizations.</p>"""
+        """<p>Enables service trust between User Notifications and Amazon Web Services Organizations.</p>
+
+        Raises:
+            aws_sdk_notifications.errors.access_denied_exception.AccessDeniedException: <p>User does not have sufficient access to perform this action.</p>
+            aws_sdk_notifications.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_notifications.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_notifications.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist. </p>
+            aws_sdk_notifications.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Request would cause a service quota to be exceeded.</p>
+            aws_sdk_notifications.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling. </p>
+            aws_sdk_notifications.errors.validation_exception.ValidationException: <p>This exception is thrown when the notification event fails validation.</p>
+            aws_sdk_notifications.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_notifications.types.enable_notifications_access_for_organization_request.EnableNotificationsAccessForOrganizationRequest]",
@@ -159,7 +200,15 @@ class AsyncOrganizationAccess:
     async def read(
         self, *, config_overrides: Optional[AsyncNotificationsClientConfig] = None
     ) -> "aws_sdk_notifications.types.get_notifications_access_for_organization_response.GetNotificationsAccessForOrganizationResponse":
-        """<p>Returns the AccessStatus of Service Trust Enablement for User Notifications and Amazon Web Services Organizations.</p>"""
+        """<p>Returns the AccessStatus of Service Trust Enablement for User Notifications and Amazon Web Services Organizations.</p>
+
+        Raises:
+            aws_sdk_notifications.errors.access_denied_exception.AccessDeniedException: <p>User does not have sufficient access to perform this action.</p>
+            aws_sdk_notifications.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_notifications.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling. </p>
+            aws_sdk_notifications.errors.validation_exception.ValidationException: <p>This exception is thrown when the notification event fails validation.</p>
+            aws_sdk_notifications.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_notifications.types.get_notifications_access_for_organization_request.GetNotificationsAccessForOrganizationRequest]",
@@ -189,7 +238,18 @@ class AsyncOrganizationAccess:
     async def delete(
         self, *, config_overrides: Optional[AsyncNotificationsClientConfig] = None
     ) -> "aws_sdk_notifications.types.disable_notifications_access_for_organization_response.DisableNotificationsAccessForOrganizationResponse":
-        """<p>Disables service trust between User Notifications and Amazon Web Services Organizations.</p>"""
+        """<p>Disables service trust between User Notifications and Amazon Web Services Organizations.</p>
+
+        Raises:
+            aws_sdk_notifications.errors.access_denied_exception.AccessDeniedException: <p>User does not have sufficient access to perform this action.</p>
+            aws_sdk_notifications.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_notifications.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_notifications.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist. </p>
+            aws_sdk_notifications.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Request would cause a service quota to be exceeded.</p>
+            aws_sdk_notifications.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling. </p>
+            aws_sdk_notifications.errors.validation_exception.ValidationException: <p>This exception is thrown when the notification event fails validation.</p>
+            aws_sdk_notifications.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_notifications.types.disable_notifications_access_for_organization_request.DisableNotificationsAccessForOrganizationRequest]",

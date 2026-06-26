@@ -74,6 +74,16 @@ class DatastoreResource:
             kms_key_arn: <p>The Amazon Resource Name (ARN) assigned to the Key Management Service (KMS) key for accessing encrypted data.</p>
             lambda_authorizer_arn: <p>The ARN of the authorizer's Lambda function.</p>
             lossless_storage_format: <p>The lossless storage format for the datastore.</p>
+
+        Raises:
+            aws_sdk_medical_imaging.errors.access_denied_exception.AccessDeniedException: <p>The user does not have sufficient access to perform this action.</p>
+            aws_sdk_medical_imaging.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_medical_imaging.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred during processing of the request.</p>
+            aws_sdk_medical_imaging.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource which does not exist.</p>
+            aws_sdk_medical_imaging.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request caused a service quota to be exceeded.</p>
+            aws_sdk_medical_imaging.errors.throttling_exception.ThrottlingException: <p>The request was denied due to throttling.</p>
+            aws_sdk_medical_imaging.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints set by the service.</p>
+            aws_sdk_medical_imaging.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -121,6 +131,14 @@ class DatastoreResource:
 
         Args:
             datastore_id: <p>The data store identifier.</p>
+
+        Raises:
+            aws_sdk_medical_imaging.errors.access_denied_exception.AccessDeniedException: <p>The user does not have sufficient access to perform this action.</p>
+            aws_sdk_medical_imaging.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred during processing of the request.</p>
+            aws_sdk_medical_imaging.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource which does not exist.</p>
+            aws_sdk_medical_imaging.errors.throttling_exception.ThrottlingException: <p>The request was denied due to throttling.</p>
+            aws_sdk_medical_imaging.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints set by the service.</p>
+            aws_sdk_medical_imaging.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -158,6 +176,15 @@ class DatastoreResource:
 
         Args:
             datastore_id: <p>The data store identifier.</p>
+
+        Raises:
+            aws_sdk_medical_imaging.errors.access_denied_exception.AccessDeniedException: <p>The user does not have sufficient access to perform this action.</p>
+            aws_sdk_medical_imaging.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_medical_imaging.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred during processing of the request.</p>
+            aws_sdk_medical_imaging.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource which does not exist.</p>
+            aws_sdk_medical_imaging.errors.throttling_exception.ThrottlingException: <p>The request was denied due to throttling.</p>
+            aws_sdk_medical_imaging.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints set by the service.</p>
+            aws_sdk_medical_imaging.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -205,6 +232,13 @@ class DatastoreResource:
             datastore_status: <p>The data store status.</p>
             next_token: <p>The pagination token used to request the list of data stores on the next page.</p>
             max_results: <p>Valid Range: Minimum value of 1. Maximum value of 50.</p>
+
+        Raises:
+            aws_sdk_medical_imaging.errors.access_denied_exception.AccessDeniedException: <p>The user does not have sufficient access to perform this action.</p>
+            aws_sdk_medical_imaging.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred during processing of the request.</p>
+            aws_sdk_medical_imaging.errors.throttling_exception.ThrottlingException: <p>The request was denied due to throttling.</p>
+            aws_sdk_medical_imaging.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints set by the service.</p>
+            aws_sdk_medical_imaging.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -270,6 +304,16 @@ class AsyncDatastoreResource:
             kms_key_arn: <p>The Amazon Resource Name (ARN) assigned to the Key Management Service (KMS) key for accessing encrypted data.</p>
             lambda_authorizer_arn: <p>The ARN of the authorizer's Lambda function.</p>
             lossless_storage_format: <p>The lossless storage format for the datastore.</p>
+
+        Raises:
+            aws_sdk_medical_imaging.errors.access_denied_exception.AccessDeniedException: <p>The user does not have sufficient access to perform this action.</p>
+            aws_sdk_medical_imaging.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_medical_imaging.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred during processing of the request.</p>
+            aws_sdk_medical_imaging.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource which does not exist.</p>
+            aws_sdk_medical_imaging.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request caused a service quota to be exceeded.</p>
+            aws_sdk_medical_imaging.errors.throttling_exception.ThrottlingException: <p>The request was denied due to throttling.</p>
+            aws_sdk_medical_imaging.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints set by the service.</p>
+            aws_sdk_medical_imaging.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -318,6 +362,14 @@ class AsyncDatastoreResource:
 
         Args:
             datastore_id: <p>The data store identifier.</p>
+
+        Raises:
+            aws_sdk_medical_imaging.errors.access_denied_exception.AccessDeniedException: <p>The user does not have sufficient access to perform this action.</p>
+            aws_sdk_medical_imaging.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred during processing of the request.</p>
+            aws_sdk_medical_imaging.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource which does not exist.</p>
+            aws_sdk_medical_imaging.errors.throttling_exception.ThrottlingException: <p>The request was denied due to throttling.</p>
+            aws_sdk_medical_imaging.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints set by the service.</p>
+            aws_sdk_medical_imaging.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -356,6 +408,15 @@ class AsyncDatastoreResource:
 
         Args:
             datastore_id: <p>The data store identifier.</p>
+
+        Raises:
+            aws_sdk_medical_imaging.errors.access_denied_exception.AccessDeniedException: <p>The user does not have sufficient access to perform this action.</p>
+            aws_sdk_medical_imaging.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_medical_imaging.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred during processing of the request.</p>
+            aws_sdk_medical_imaging.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource which does not exist.</p>
+            aws_sdk_medical_imaging.errors.throttling_exception.ThrottlingException: <p>The request was denied due to throttling.</p>
+            aws_sdk_medical_imaging.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints set by the service.</p>
+            aws_sdk_medical_imaging.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -404,6 +465,13 @@ class AsyncDatastoreResource:
             datastore_status: <p>The data store status.</p>
             next_token: <p>The pagination token used to request the list of data stores on the next page.</p>
             max_results: <p>Valid Range: Minimum value of 1. Maximum value of 50.</p>
+
+        Raises:
+            aws_sdk_medical_imaging.errors.access_denied_exception.AccessDeniedException: <p>The user does not have sufficient access to perform this action.</p>
+            aws_sdk_medical_imaging.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred during processing of the request.</p>
+            aws_sdk_medical_imaging.errors.throttling_exception.ThrottlingException: <p>The request was denied due to throttling.</p>
+            aws_sdk_medical_imaging.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints set by the service.</p>
+            aws_sdk_medical_imaging.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
